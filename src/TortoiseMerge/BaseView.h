@@ -174,6 +174,10 @@ protected:
 	void			UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomstate, viewstate &leftstate);
 	void			UseBothLeftFirst(viewstate &rightstate, viewstate &leftstate);
 	void			UseBothRightFirst(viewstate &rightstate, viewstate &leftstate);
+
+	bool			IsLeftViewGood() const {return ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()));}
+	bool			IsRightViewGood() const {return ((m_pwndRight)&&(m_pwndRight->IsWindowVisible()));}
+	bool			IsBottomViewGood() const {return ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()));}
 protected:
 	COLORREF		m_InlineRemovedBk;
 	COLORREF		m_InlineAddedBk;

@@ -405,11 +405,11 @@ int CBaseView::GetScreenChars()
 int CBaseView::GetAllMinScreenChars() const 
 {
 	int nChars = 0;
-	if ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()))
+	if (IsLeftViewGood())
 		nChars = m_pwndLeft->GetScreenChars();
-	if ((m_pwndRight)&&(m_pwndRight->IsWindowVisible()))
+	if (IsRightViewGood())
 		nChars = (nChars < m_pwndRight->GetScreenChars() ? nChars : m_pwndRight->GetScreenChars());
-	if ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()))
+	if (IsBottomViewGood())
 		nChars = (nChars < m_pwndBottom->GetScreenChars() ? nChars : m_pwndBottom->GetScreenChars());
 	return nChars;
 }
@@ -417,11 +417,11 @@ int CBaseView::GetAllMinScreenChars() const
 int CBaseView::GetAllMaxLineLength() const 
 {
 	int nLength = 0;
-	if ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()))
+	if (IsLeftViewGood())
 		nLength = m_pwndLeft->GetMaxLineLength();
-	if ((m_pwndRight)&&(m_pwndRight->IsWindowVisible()))
+	if (IsRightViewGood())
 		nLength = (nLength > m_pwndRight->GetMaxLineLength() ? nLength : m_pwndRight->GetMaxLineLength());
-	if ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()))
+	if (IsBottomViewGood())
 		nLength = (nLength > m_pwndBottom->GetMaxLineLength() ? nLength : m_pwndBottom->GetMaxLineLength());
 	return nLength;
 }
@@ -525,14 +525,14 @@ LPCTSTR CBaseView::GetDiffLineChars(int index)
 		m_pOtherViewData = NULL;
 		if (this == m_pwndLeft)
 		{
-			if ((m_pwndRight)&&(m_pwndRight->IsWindowVisible()))
+			if (IsRightViewGood())
 			{
 				m_pOtherViewData = m_pwndRight->m_pViewData;
 			}
 		}
 		if (this == m_pwndRight)
 		{
-			if ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()))
+			if (IsLeftViewGood())
 			{
 				m_pOtherViewData = m_pwndLeft->m_pViewData;
 			}
@@ -556,14 +556,14 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
 		m_pOtherViewData = NULL;
 		if (this == m_pwndLeft)
 		{
-			if ((m_pwndRight)&&(m_pwndRight->IsWindowVisible()))
+			if (IsRightViewGood())
 			{
 				m_pOtherViewData = m_pwndRight->m_pViewData;
 			}
 		}
 		if (this == m_pwndRight)
 		{
-			if ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()))
+			if (IsLeftViewGood())
 			{
 				m_pOtherViewData = m_pwndLeft->m_pViewData;
 			}
@@ -668,11 +668,11 @@ int CBaseView::GetScreenLines()
 int CBaseView::GetAllMinScreenLines() const
 {
 	int nLines = 0;
-	if ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()))
+	if (IsLeftViewGood())
 		nLines = m_pwndLeft->GetScreenLines();
-	if ((m_pwndRight)&&(m_pwndRight->IsWindowVisible()))
+	if (IsRightViewGood())
 		nLines = (nLines < m_pwndRight->GetScreenLines() ? nLines : m_pwndRight->GetScreenLines());
-	if ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()))
+	if (IsBottomViewGood())
 		nLines = (nLines < m_pwndBottom->GetScreenLines() ? nLines : m_pwndBottom->GetScreenLines());
 	return nLines;
 }
@@ -680,22 +680,22 @@ int CBaseView::GetAllMinScreenLines() const
 int CBaseView::GetAllLineCount() const
 {
 	int nLines = 0;
-	if ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()))
+	if (IsLeftViewGood())
 		nLines = m_pwndLeft->GetLineCount();
-	if ((m_pwndRight)&&(m_pwndRight->IsWindowVisible()))
+	if (IsRightViewGood())
 		nLines = (nLines > m_pwndRight->GetLineCount() ? nLines : m_pwndRight->GetLineCount());
-	if ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()))
+	if (IsBottomViewGood())
 		nLines = (nLines > m_pwndBottom->GetLineCount() ? nLines : m_pwndBottom->GetLineCount());
 	return nLines;
 }
 
 void CBaseView::RecalcAllVertScrollBars(BOOL bPositionOnly /*= FALSE*/)
 {
-	if ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()))
+	if (IsLeftViewGood())
 		m_pwndLeft->RecalcVertScrollBar(bPositionOnly);
-	if ((m_pwndRight)&&(m_pwndRight->IsWindowVisible()))
+	if (IsRightViewGood())
 		m_pwndRight->RecalcVertScrollBar(bPositionOnly);
-	if ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()))
+	if (IsBottomViewGood())
 		m_pwndBottom->RecalcVertScrollBar(bPositionOnly);
 }
 
@@ -816,11 +816,11 @@ void CBaseView::OnDoVScroll(UINT nSBCode, UINT /*nPos*/, CScrollBar* /*pScrollBa
 
 void CBaseView::RecalcAllHorzScrollBars(BOOL bPositionOnly /*= FALSE*/)
 {
-	if ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()))
+	if (IsLeftViewGood())
 		m_pwndLeft->RecalcHorzScrollBar(bPositionOnly);
-	if ((m_pwndRight)&&(m_pwndRight->IsWindowVisible()))
+	if (IsRightViewGood())
 		m_pwndRight->RecalcHorzScrollBar(bPositionOnly);
-	if ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()))
+	if (IsBottomViewGood())
 		m_pwndBottom->RecalcHorzScrollBar(bPositionOnly);
 }
 
@@ -1052,7 +1052,7 @@ void CBaseView::DrawHeader(CDC *pdc, const CRect &rect)
 	COLORREF crBk, crFg;
 	CDiffColors::GetInstance().GetColors(DIFFSTATE_NORMAL, crBk, crFg);
 	crBk = ::GetSysColor(COLOR_SCROLLBAR);
-	if ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()))
+	if (IsBottomViewGood())
 	{
 		pdc->SetBkColor(crBk);
 	}
@@ -1846,19 +1846,19 @@ void CBaseView::GoToFirstDifference()
 
 void CBaseView::SetupDiffBars(int start, int end)
 {
-	if ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()))
+	if (IsBottomViewGood())
 	{
 		m_pwndBottom->m_nDiffBlockStart = start;
 		m_pwndBottom->m_nDiffBlockEnd = end;
 		m_pwndBottom->Invalidate();
 	}
-	if ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()))
+	if (IsLeftViewGood())
 	{
 		m_pwndLeft->m_nDiffBlockStart = start;
 		m_pwndLeft->m_nDiffBlockEnd = end;
 		m_pwndLeft->Invalidate();
 	}
-	if ((m_pwndRight)&&(m_pwndRight->IsWindowVisible()))
+	if (IsRightViewGood())
 	{
 		m_pwndRight->m_nDiffBlockStart = start;
 		m_pwndRight->m_nDiffBlockEnd = end;
@@ -1877,19 +1877,19 @@ void CBaseView::HiglightLines(int start, int end /* = -1 */)
 
 void CBaseView::SetupSelection(int start, int end)
 {
-	if ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()))
+	if (IsBottomViewGood())
 	{
 		m_pwndBottom->m_nSelBlockStart = start;
 		m_pwndBottom->m_nSelBlockEnd = end;
 		m_pwndBottom->Invalidate();
 	}
-	if ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()))
+	if (IsLeftViewGood())
 	{
 		m_pwndLeft->m_nSelBlockStart = start;
 		m_pwndLeft->m_nSelBlockEnd = end;
 		m_pwndLeft->Invalidate();
 	}
-	if ((m_pwndRight)&&(m_pwndRight->IsWindowVisible()))
+	if (IsRightViewGood())
 	{
 		m_pwndRight->m_nSelBlockStart = start;
 		m_pwndRight->m_nSelBlockEnd = end;
