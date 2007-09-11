@@ -23,6 +23,7 @@
 #include "LeftView.h"
 #include "RightView.h"
 #include "BottomView.h"
+#include "DiffColors.h"
 
 
 IMPLEMENT_DYNAMIC(CLocatorBar, CDialogBar)
@@ -162,7 +163,7 @@ void CLocatorBar::OnPaint()
 
 	COLORREF color, color2;
 	
-	m_pMainFrm->m_Data.GetColors(DIFFSTATE_UNKNOWN, color, color2);
+	CDiffColors::GetInstance().GetColors(DIFFSTATE_UNKNOWN, color, color2);
 	cacheDC.FillSolidRect(rect, color);
 	
 	int barwidth = (width/3);
@@ -180,7 +181,7 @@ void CLocatorBar::OnPaint()
 			identcount = LOWORD(m_arLeft.GetAt(i));
 			state = HIWORD(m_arLeft.GetAt(i));
 			COLORREF color, color2;
-			m_pMainFrm->m_Data.GetColors((DiffStates)state, color, color2);
+			CDiffColors::GetInstance().GetColors((DiffStates)state, color, color2);
 			if ((DiffStates)state != DIFFSTATE_NORMAL)
 				cacheDC.FillSolidRect(rect.left, height*linecount/m_nLines, 
 							barwidth, max(height*identcount/m_nLines,1), color);
@@ -198,7 +199,7 @@ void CLocatorBar::OnPaint()
 			identcount = LOWORD(m_arRight.GetAt(i));
 			state = HIWORD(m_arRight.GetAt(i));
 			COLORREF color, color2;
-			m_pMainFrm->m_Data.GetColors((DiffStates)state, color, color2);
+			CDiffColors::GetInstance().GetColors((DiffStates)state, color, color2);
 			if ((DiffStates)state != DIFFSTATE_NORMAL)
 				cacheDC.FillSolidRect(rect.left + (width*2/3), height*linecount/m_nLines, 
 							barwidth, max(height*identcount/m_nLines,1), color);
@@ -215,7 +216,7 @@ void CLocatorBar::OnPaint()
 			identcount = LOWORD(m_arBottom.GetAt(i));
 			state = HIWORD(m_arBottom.GetAt(i));
 			COLORREF color, color2;
-			m_pMainFrm->m_Data.GetColors((DiffStates)state, color, color2);
+			CDiffColors::GetInstance().GetColors((DiffStates)state, color, color2);
 			if ((DiffStates)state != DIFFSTATE_NORMAL)
 				cacheDC.FillSolidRect(rect.left + (width/3), height*linecount/m_nLines, 
 							barwidth, max(height*identcount/m_nLines,1), color);

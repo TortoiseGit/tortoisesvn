@@ -29,6 +29,7 @@
 #include "LeftView.h"
 #include "RightView.h"
 #include "BottomView.h"
+#include "DiffColors.h"
 #include ".\mainfrm.h"
 
 #ifdef _DEBUG
@@ -1046,11 +1047,11 @@ void CMainFrame::OnViewOptions()
 	{
 		if (CheckForSave()==IDCANCEL)
 			return;
-		m_Data.LoadRegistry();
+		CDiffColors::GetInstance().LoadRegistry();
 		LoadViews();
 		return;
 	}
-	m_Data.LoadRegistry();
+	CDiffColors::GetInstance().LoadRegistry();
 	if (m_pwndBottomView)
 		m_pwndBottomView->Invalidate();
 	if (m_pwndLeftView)
@@ -1438,7 +1439,7 @@ void CMainFrame::OnFileReload()
 {
 	if (CheckForSave()==IDCANCEL)
 		return;
-	m_Data.LoadRegistry();
+	CDiffColors::GetInstance().LoadRegistry();
 	LoadViews();
 }
 

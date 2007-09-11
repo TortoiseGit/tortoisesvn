@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseMerge.h"
 #include "SetColorPage.h"
-#include "DiffData.h"
+#include "DiffColors.h"
 
 
 // CSetColorPage dialog
@@ -46,27 +46,26 @@ void CSetColorPage::SaveData()
 {
 	if (m_bInit)
 	{
-		CDiffData diffdata;
 		COLORREF cBk;
 		COLORREF cFg;
 
 		cFg = ::GetSysColor(COLOR_WINDOWTEXT);
 
 		cBk = m_cBkNormal.GetColor(TRUE);
-		diffdata.SetColors(DIFFSTATE_NORMAL, cBk, cFg);
-		diffdata.SetColors(DIFFSTATE_UNKNOWN, cBk, cFg);
+		CDiffColors::GetInstance().SetColors(DIFFSTATE_NORMAL, cBk, cFg);
+		CDiffColors::GetInstance().SetColors(DIFFSTATE_UNKNOWN, cBk, cFg);
 
 		cBk = m_cBkRemoved.GetColor(TRUE);
-		diffdata.SetColors(DIFFSTATE_REMOVED, cBk, cFg);
-		diffdata.SetColors(DIFFSTATE_IDENTICALREMOVED, cBk, cFg);
-		diffdata.SetColors(DIFFSTATE_THEIRSREMOVED, cBk, cFg);
-		diffdata.SetColors(DIFFSTATE_YOURSREMOVED, cBk, cFg);
+		CDiffColors::GetInstance().SetColors(DIFFSTATE_REMOVED, cBk, cFg);
+		CDiffColors::GetInstance().SetColors(DIFFSTATE_IDENTICALREMOVED, cBk, cFg);
+		CDiffColors::GetInstance().SetColors(DIFFSTATE_THEIRSREMOVED, cBk, cFg);
+		CDiffColors::GetInstance().SetColors(DIFFSTATE_YOURSREMOVED, cBk, cFg);
 
 		cBk = m_cBkAdded.GetColor(TRUE);
-		diffdata.SetColors(DIFFSTATE_ADDED, cBk, cFg);
-		diffdata.SetColors(DIFFSTATE_IDENTICALADDED, cBk, cFg);
-		diffdata.SetColors(DIFFSTATE_THEIRSADDED, cBk, cFg);
-		diffdata.SetColors(DIFFSTATE_YOURSADDED, cBk, cFg);
+		CDiffColors::GetInstance().SetColors(DIFFSTATE_ADDED, cBk, cFg);
+		CDiffColors::GetInstance().SetColors(DIFFSTATE_IDENTICALADDED, cBk, cFg);
+		CDiffColors::GetInstance().SetColors(DIFFSTATE_THEIRSADDED, cBk, cFg);
+		CDiffColors::GetInstance().SetColors(DIFFSTATE_YOURSADDED, cBk, cFg);
 
 		if ((DWORD)m_regInlineAdded != (DWORD)m_cBkInlineAdded.GetColor(TRUE))
 			m_bReloadNeeded = true;
@@ -79,7 +78,7 @@ void CSetColorPage::SaveData()
 		m_regModifiedBackground = m_cBkModified.GetColor(TRUE);
 
 		cBk = m_cBkEmpty.GetColor(TRUE);
-		diffdata.SetColors(DIFFSTATE_EMPTY, cBk, cFg);
+		CDiffColors::GetInstance().SetColors(DIFFSTATE_EMPTY, cBk, cFg);
 
 		// there are three different colors for conflicted lines
 		// conflicted, conflicted added, conflicted removed
@@ -87,17 +86,17 @@ void CSetColorPage::SaveData()
 		// so try to adjust the conflicted added and conflicted removed
 		// colors a little so they look different.
 		cBk = m_cBkConflict.GetColor(TRUE);
-		diffdata.SetColors(DIFFSTATE_CONFLICTED, cBk, cFg);
+		CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTED, cBk, cFg);
 		COLORREF adjustedcolor = cBk;
 		if (GetRValue(cBk)-155 > 0)
 			adjustedcolor = RGB(GetRValue(cBk), GetRValue(cBk)-155, 0);
-		diffdata.SetColors(DIFFSTATE_CONFLICTADDED, adjustedcolor, cFg);
+		CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTADDED, adjustedcolor, cFg);
 		if (GetRValue(cBk)-205 > 0)
 			adjustedcolor = RGB(GetRValue(cBk), GetRValue(cBk)-205, GetRValue(cBk)-205);
-		diffdata.SetColors(DIFFSTATE_CONFLICTEMPTY, adjustedcolor, cFg);
+		CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTEMPTY, adjustedcolor, cFg);
 		
 		cBk = m_cBkConflictResolved.GetColor(TRUE);
-		diffdata.SetColors(DIFFSTATE_CONFLICTRESOLVED, cBk, cFg);
+		CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTRESOLVED, cBk, cFg);
 	}
 }
 
@@ -134,7 +133,6 @@ BOOL CSetColorPage::OnInitDialog()
 {
 	CPropertyPage::OnInitDialog();
 
-	CDiffData diffdata;
 	COLORREF cBk;
 	COLORREF cFg;
 
@@ -142,19 +140,19 @@ BOOL CSetColorPage::OnInitDialog()
 	sDefaultText.LoadString(IDS_COLOURPICKER_DEFAULTTEXT);
 	sCustomText.LoadString(IDS_COLOURPICKER_CUSTOMTEXT);
 
-	diffdata.GetColors(DIFFSTATE_NORMAL, cBk, cFg);
+	CDiffColors::GetInstance().GetColors(DIFFSTATE_NORMAL, cBk, cFg);
 	m_cBkNormal.SetDefaultColor(DIFFSTATE_NORMAL_DEFAULT_BG);
 	m_cBkNormal.SetColor(cBk);
 	m_cBkNormal.SetDefaultText(sDefaultText);
 	m_cBkNormal.SetCustomText(sCustomText);
 
-	diffdata.GetColors(DIFFSTATE_REMOVED, cBk, cFg);
+	CDiffColors::GetInstance().GetColors(DIFFSTATE_REMOVED, cBk, cFg);
 	m_cBkRemoved.SetDefaultColor(DIFFSTATE_REMOVED_DEFAULT_BG);
 	m_cBkRemoved.SetColor(cBk);
 	m_cBkRemoved.SetDefaultText(sDefaultText);
 	m_cBkRemoved.SetCustomText(sCustomText);
 
-	diffdata.GetColors(DIFFSTATE_ADDED, cBk, cFg);
+	CDiffColors::GetInstance().GetColors(DIFFSTATE_ADDED, cBk, cFg);
 	m_cBkAdded.SetDefaultColor(DIFFSTATE_ADDED_DEFAULT_BG);
 	m_cBkAdded.SetColor(cBk);
 	m_cBkAdded.SetDefaultText(sDefaultText);
@@ -175,19 +173,19 @@ BOOL CSetColorPage::OnInitDialog()
 	m_cBkModified.SetDefaultText(sDefaultText);
 	m_cBkModified.SetCustomText(sCustomText);
 
-	diffdata.GetColors(DIFFSTATE_EMPTY, cBk, cFg);
+	CDiffColors::GetInstance().GetColors(DIFFSTATE_EMPTY, cBk, cFg);
 	m_cBkEmpty.SetDefaultColor(DIFFSTATE_EMPTY_DEFAULT_BG);
 	m_cBkEmpty.SetColor(cBk);
 	m_cBkEmpty.SetDefaultText(sDefaultText);
 	m_cBkEmpty.SetCustomText(sCustomText);
 
-	diffdata.GetColors(DIFFSTATE_CONFLICTED, cBk, cFg);
+	CDiffColors::GetInstance().GetColors(DIFFSTATE_CONFLICTED, cBk, cFg);
 	m_cBkConflict.SetDefaultColor(DIFFSTATE_CONFLICTED_DEFAULT_BG);
 	m_cBkConflict.SetColor(cBk);
 	m_cBkConflict.SetDefaultText(sDefaultText);
 	m_cBkConflict.SetCustomText(sCustomText);
 
-	diffdata.GetColors(DIFFSTATE_CONFLICTRESOLVED, cBk, cFg);
+	CDiffColors::GetInstance().GetColors(DIFFSTATE_CONFLICTRESOLVED, cBk, cFg);
 	m_cBkConflictResolved.SetDefaultColor(DIFFSTATE_CONFLICTRESOLVED_DEFAULT_BG);
 	m_cBkConflictResolved.SetColor(cBk);
 	m_cBkConflictResolved.SetDefaultText(sDefaultText);

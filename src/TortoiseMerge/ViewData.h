@@ -18,7 +18,6 @@
 //
 #pragma once
 #include "DiffStates.h"
-#include "FileTextLines.h"
 #include "EOL.h"
 
 #include <vector>

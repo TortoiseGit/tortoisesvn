@@ -21,8 +21,10 @@
 #include "registry.h"
 #include "TortoiseMerge.h"
 #include "MainFrm.h"
+#include "BaseView.h"
+#include "DiffColors.h"
+
 #include <deque>
-#include ".\BaseView.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -1047,9 +1049,8 @@ int CBaseView::GetMarginWidth()
 void CBaseView::DrawHeader(CDC *pdc, const CRect &rect)
 {
 	CRect textrect(rect.left, rect.top, rect.Width(), GetLineHeight()+HEADERHEIGHT);
-	CDiffData diffdata;
 	COLORREF crBk, crFg;
-	diffdata.GetColors(DIFFSTATE_NORMAL, crBk, crFg);
+	CDiffColors::GetInstance().GetColors(DIFFSTATE_NORMAL, crBk, crFg);
 	crBk = ::GetSysColor(COLOR_SCROLLBAR);
 	if ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()))
 	{
@@ -1060,12 +1061,12 @@ void CBaseView::DrawHeader(CDC *pdc, const CRect &rect)
 
 		if (this == m_pwndRight)
 		{
-			diffdata.GetColors(DIFFSTATE_ADDED, crBk, crFg);
+			CDiffColors::GetInstance().GetColors(DIFFSTATE_ADDED, crBk, crFg);
 			pdc->SetBkColor(crBk);
 		}
 		else
 		{
-			diffdata.GetColors(DIFFSTATE_REMOVED, crBk, crFg);
+			CDiffColors::GetInstance().GetColors(DIFFSTATE_REMOVED, crBk, crFg);
 			pdc->SetBkColor(crBk);
 		}
 	}
@@ -1221,7 +1222,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 	{
 		// Draw line beyond the text
 		COLORREF bkGnd, crText;
-		m_pMainFrame->m_Data.GetColors(DIFFSTATE_UNKNOWN, bkGnd, crText);
+		CDiffColors::GetInstance().GetColors(DIFFSTATE_UNKNOWN, bkGnd, crText);
 		pDC->FillSolidRect(rc, bkGnd);
 		return;
 	} 
@@ -1230,7 +1231,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 	COLORREF crBkgnd, crText;
 	if ((m_pViewData)&&(m_pViewData->GetCount()>nLineIndex))
 	{
-		m_pMainFrame->m_Data.GetColors(m_pViewData->GetState(nLineIndex), crBkgnd, crText);
+		CDiffColors::GetInstance().GetColors(m_pViewData->GetState(nLineIndex), crBkgnd, crText);
 		if ((nLineIndex >= m_nSelBlockStart)&&(nLineIndex <= m_nSelBlockEnd))
 		{
 			if (m_bFocused)
@@ -1246,7 +1247,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 		}
 	}
 	else
-		m_pMainFrame->m_Data.GetColors(DIFFSTATE_UNKNOWN, crBkgnd, crText);
+		CDiffColors::GetInstance().GetColors(DIFFSTATE_UNKNOWN, crBkgnd, crText);
 
 	if ((m_pViewData)&&(m_pViewData->GetCount()>nLineIndex))
 	{
