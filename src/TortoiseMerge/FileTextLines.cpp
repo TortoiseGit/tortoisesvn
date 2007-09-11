@@ -434,7 +434,7 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIg
 			ind = destPath.Find('\\', ind)+1;
 		}
 		
-		CStdioFile file;			// Hugely faster the CFile for big file writes - because it uses buffering
+		CStdioFile file;			// Hugely faster than CFile for big file writes - because it uses buffering
 		if (!file.Open(sFilePath, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
 		{
 			m_sErrorString.Format(IDS_ERR_FILE_OPEN, sFilePath);
