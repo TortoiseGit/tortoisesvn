@@ -965,7 +965,7 @@ UINT CLogDlg::LogThread()
 								svn_merge_range_t * pRange = APR_ARRAY_IDX(arr, i, svn_merge_range_t*);
 								if (pRange)
 								{
-									for (svn_revnum_t r=pRange->start; r<=pRange->end; ++r)
+									for (svn_revnum_t r=pRange->start+1; r<=pRange->end; ++r)
 									{
 										m_mergedRevs.insert(r);
 									}
