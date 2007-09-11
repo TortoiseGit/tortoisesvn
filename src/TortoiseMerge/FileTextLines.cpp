@@ -448,11 +448,14 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIg
 			for (int i=0; i<GetCount(); i++)
 			{
 				CString sLine = GetAt(i);
+				EOL ending = GetLineEnding(i);
 				StripWhiteSpace(sLine,dwIgnoreWhitespaces, bBlame);
 				if (bIgnoreCase)
 					sLine = sLine.MakeLower();
 				file.Write((LPCTSTR)sLine, sLine.GetLength()*sizeof(TCHAR));
-				switch (m_LineEndings)
+				if ((ending == EOL_AUTOLINE)||(ending == EOL_NOENDING))
+					ending = m_LineEndings;
+				switch (ending)
 				{
 				case EOL_CR:
 					sLine = _T("\x0d");
@@ -479,13 +482,16 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIg
 				// Copy CString to 8 bit without conversion
 				CString sLineT = GetAt(i);
 				CStringA sLine = CStringA(sLineT);
+				EOL ending = GetLineEnding(i);
 
 				StripAsciiWhiteSpace(sLine,dwIgnoreWhitespaces, bBlame);
 				if (bIgnoreCase)
 					sLine = sLine.MakeLower();
 				if ((m_bReturnAtEnd)||(i != GetCount()-1))
 				{
-					switch (m_LineEndings)
+					if ((ending == EOL_AUTOLINE)||(ending == EOL_NOENDING))
+						ending = m_LineEndings;
+					switch (ending)
 					{
 					case EOL_CR:
 						sLine += '\x0d';
@@ -518,13 +524,16 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIg
 			for (int i=0; i<GetCount(); i++)
 			{
 				CStringA sLine = CUnicodeUtils::GetUTF8(GetAt(i));
+				EOL ending = GetLineEnding(i);
 				StripAsciiWhiteSpace(sLine,dwIgnoreWhitespaces, bBlame);
 				if (bIgnoreCase)
 					sLine = sLine.MakeLower();
 
 				if ((m_bReturnAtEnd)||(i != GetCount()-1))
 				{
-					switch (m_LineEndings)
+					if ((ending == EOL_AUTOLINE)||(ending == EOL_NOENDING))
+						ending = m_LineEndings;
+					switch (ending)
 					{
 					case EOL_CR:
 						sLine += '\x0d';
