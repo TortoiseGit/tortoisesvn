@@ -91,6 +91,8 @@ public:
 	void		Add(const CString& sLine, EOL ending) {CStdCStringArray::Add(sLine); m_endings.push_back(ending);}
 	EOL			GetLineEnding(int index) {return m_endings[index];}
 	void		SetLineEnding(int index, EOL ending) {m_endings[index] = ending;}
+	
+	void		RemoveAll() {CStdCStringArray::RemoveAll(); m_endings.clear();}
 private:
 	/**
 	 * Checks the line endings in a text buffer
