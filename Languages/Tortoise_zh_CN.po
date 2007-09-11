@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-08-31 20:15+0800\n"
+"PO-Revision-Date: 2007-09-11 09:25+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -785,8 +785,8 @@ msgstr "改名(&R)"
 
 # Control-ID:1316,
 #: Control-ID:1316,
-msgid "&Reopen commit dialog after a commit failed"
-msgstr "如果提交失败，自动重新打开提交对话框(&R)"
+msgid "&Reopen commit and branch/tag dialog after a commit failed"
+msgstr "在提交失败后，重新打开提交或分支/标签对话框(&R)"
 
 # ID:13,
 #: ID:13,
@@ -1951,6 +1951,10 @@ msgstr "正在从 %s 检出，版本 %s，%s，%s"
 msgid "Checksum:"
 msgstr "校验和："
 
+#: Control-ID:1402,
+msgid "Choose item:"
+msgstr "选择项目："
+
 # ID:146,
 #: ID:146,
 msgid "Cleaning up."
@@ -2197,6 +2201,12 @@ msgstr "设置查看 GNU 差异文件（补丁文件）的程序。"
 
 # ID:263,#:
 # Control-ID:65535,
+#: Control-ID:65535,
+msgid "Conflict resolved"
+msgstr "冲突已经解决"
+
+# ID:263,#:
+# Control-ID:65535,
 #: ID:263,#: Control-ID:65535,
 msgid "Conflicted"
 msgstr "冲突"
@@ -2362,6 +2372,12 @@ msgstr "修正"
 msgid "Could not add %s to the ignore list!"
 msgstr "无法向忽略列表中加入 %s ！"
 
+# ID:81,
+#: ID:582,
+#, c-format
+msgid "Could not add \"%s\" because"
+msgstr "无法加入 “%s” ，因为"
+
 # ID:201,
 #: ID:201,
 msgid "Could not check for a newer version!"
@@ -2380,9 +2396,21 @@ msgstr ""
 "%s"
 
 # ID:81,
+#: ID:582,
+#, c-format
+msgid "Could not delete \"%s\" because"
+msgstr "无法删除 “%s”，因为"
+
+# ID:81,
 #: ID:81,
 msgid "Could not get the status!"
 msgstr "无法获取状态！"
+
+# ID:81,
+#: ID:582,
+#, c-format
+msgid "Could not merge \"%s\" because"
+msgstr "无法合并 “%s”，因为"
 
 # ID:69,
 #: ID:69,
@@ -2510,8 +2538,8 @@ msgstr ""
 
 # ID:8,
 #: ID:8,
-msgid "Create repositor&y here..."
-msgstr "在此创建版本库(&Y)..."
+msgid "Create repositor&y here"
+msgstr "在此创建版本库(&Y)"
 
 # ID:119,
 #: MenuEntry
@@ -2852,6 +2880,11 @@ msgstr "编辑作者"
 #: ID:115,
 msgid "Edit author name"
 msgstr "编辑作者名"
+
+# ID:12,
+#: Control-ID:1399,
+msgid "Edit conflict"
+msgstr "编辑冲突"
 
 # ID:110,
 #: ID:110,
@@ -4161,6 +4194,11 @@ msgstr "调用外部差异比较/合并程序处理冲突"
 msgid "Least active author:"
 msgstr "最不活跃作者："
 
+# ID:11,
+#: Control-ID:1404,
+msgid "Leave conflicted:"
+msgstr " 剩下冲突："
+
 # ID:188,
 #: ID:188,
 msgid "Left View: "
@@ -5111,6 +5149,10 @@ msgstr ""
 "提交到刚才创建的地址或分支，你必须先切换到新的URL。\n"
 "可使用切换指令来执行此操作。"
 
+#: Control-ID:1287,
+msgid "Please resolve the conflict by choosing one of the following options:"
+msgstr "请选择下述选项之一解决冲突："
+
 # ID:3858,#:
 # ID:3858,
 #: ID:3858,#: ID:3858,
@@ -5642,6 +5684,16 @@ msgstr "解决"
 msgid "Resolve - TortoiseSVN"
 msgstr "解决 - TortoiseSVN"
 
+# ID:9,
+#: Dlg-ID:268,
+msgid "Resolve Conflict"
+msgstr "解决冲突"
+
+# ID:126,
+#: Control-ID:1382,
+msgid "Resolve all later"
+msgstr "全部以后解决"
+
 # ID:282,
 #: ID:282,
 msgid "Resolve conflict using \"mine\""
@@ -5652,9 +5704,19 @@ msgstr "使用本地端解决有冲突的文件"
 msgid "Resolve conflict using \"theirs\""
 msgstr "使用远端解决有冲突的文件"
 
+# ID:9,
+#: Control-ID:1403,
+msgid "Resolve conflict:"
+msgstr "解决冲突："
+
+# Dlg-ID:207,
+#: Control-ID:2,
+msgid "Resolve later"
+msgstr "以后解决"
+
 # ID:74,#:
 # ID:209,
-#: ID:74,#: ID:209,
+#: ID:74,#: ID:209,#: Control-ID:1400,
 msgid "Resolved"
 msgstr "解决"
 
@@ -7643,6 +7705,20 @@ msgstr "使用两个文本块（这个块最前）"
 msgid "Use both text blocks (this one last)"
 msgstr "使用两个文本块（这个块最后）"
 
+# ID:74,
+#: Control-ID:3,
+msgid "Use local"
+msgstr "使用本地"
+
+#: ID:116,
+msgid "Use regular expression"
+msgstr "使用正则表达式"
+
+# ID:138,
+#: Control-ID:4,
+msgid "Use repository"
+msgstr "使用版本库"
+
 # Control-ID:1066,
 #: Control-ID:1066,
 msgid "Use stri&keout for removed lines"
@@ -8018,6 +8094,15 @@ msgstr ""
 "提示：更新到另一个分支不会丢失这些修改，因此工作拷贝\n"
 "可能看上去和你要更新到的那个分支不是完全一致！"
 
+#: ID:89,
+msgid ""
+"Your working copy has local modifications.\n"
+"If you branch/tag from the HEAD revision, your local changes won't\n"
+"show up in the branch/tag!"
+msgstr ""
+"你的工作副本已经有本地修改。\n"
+"如果你从 HEAD 版本创建分支/标签，你的本地修改不会在分支/标签中出现！"
+
 #: MenuEntry
 msgid "Zoo&m out"
 msgstr "缩小(&M)"
@@ -8081,6 +8166,10 @@ msgstr "和"
 #: Control-ID:1085,#: Control-ID:1085,
 msgid "and support the developers"
 msgstr "并请支持开发者"
+
+#: ID:583,
+msgid "another item already exists in its place."
+msgstr "其它项目已经存在。"
 
 # ID:245,
 #: ID:245,
@@ -8232,6 +8321,20 @@ msgstr "忽略根源"
 #: ID:13,
 msgid "incomplete"
 msgstr "未完成"
+
+# ID:64,
+#: ID:583,
+msgid "it does not exist."
+msgstr "它不存在。"
+
+#: ID:583,
+msgid "it is already deleted."
+msgstr "它已经删除。"
+
+# ID:10,
+#: ID:583,
+msgid "it is unversioned."
+msgstr "它未受版本控制。"
 
 # ID:17,
 #: ID:214,
@@ -8453,6 +8556,11 @@ msgstr ""
 #: Control-ID:65535,
 msgid "switched:"
 msgstr "已经切换："
+
+# Control-ID:65535,
+#: ID:583,
+msgid "there are conflicting modifications."
+msgstr "有冲突的修改。"
 
 # ID:80,#:
 # ID:103,#:
