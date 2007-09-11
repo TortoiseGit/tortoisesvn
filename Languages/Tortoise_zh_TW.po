@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-09-08 00:41+0800\n"
+"PO-Revision-Date: 2007-09-11 19:35+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -633,7 +633,7 @@ msgstr "匯入(&I)..."
 
 #: MenuEntry
 msgid "&Inline diff word-wise"
-msgstr "行內逐字比較差異"
+msgstr "行內逐字比較差異(&I)"
 
 # Control-ID:1016,
 #: Control-ID:1016,
@@ -2017,6 +2017,10 @@ msgstr "自 %s 取得檔案, 版本 %s, %s, %s"
 msgid "Checksum:"
 msgstr "校驗和:"
 
+#: Control-ID:1402,
+msgid "Choose item:"
+msgstr "選擇項目:"
+
 # ID:145,
 #: ID:146,
 msgid "Cleaning up."
@@ -2270,6 +2274,11 @@ msgid "Configure viewer program for GNU diff files (patch files)."
 msgstr "設定檢視 GNU 差異檔(補綴檔)的工具程式."
 
 # Control-ID:65535,
+#: Control-ID:65535,
+msgid "Conflict resolved"
+msgstr "已解決衝突"
+
+# Control-ID:65535,
 #: ID:263,#:
 #: Control-ID:65535,
 msgid "Conflicted"
@@ -2436,6 +2445,12 @@ msgstr "修正"
 msgid "Could not add %s to the ignore list!"
 msgstr "無法加入 %s 至忽略列表!"
 
+# ID:81,
+#: ID:582,
+#, c-format
+msgid "Could not add \"%s\" because"
+msgstr "無法加入 \"%s\" :"
+
 # ID:201,
 #: ID:201,
 msgid "Could not check for a newer version!"
@@ -2454,9 +2469,21 @@ msgstr ""
 "%s"
 
 # ID:81,
+#: ID:582,
+#, c-format
+msgid "Could not delete \"%s\" because"
+msgstr "無法刪除 \"%s\" :"
+
+# ID:81,
 #: ID:81,
 msgid "Could not get the status!"
 msgstr "無法取得狀態!"
+
+# ID:81,
+#: ID:582,
+#, c-format
+msgid "Could not merge \"%s\" because"
+msgstr "無法合併 \"%s\" :"
 
 # ID:69,
 #: ID:69,
@@ -2585,8 +2612,8 @@ msgstr ""
 
 # ID:8,
 #: ID:8,
-msgid "Create repositor&y here..."
-msgstr "在此建立檔案庫(&Y)..."
+msgid "Create repositor&y here"
+msgstr "在此建立檔案庫(&Y)"
 
 # ID:132,
 #: MenuEntry
@@ -2946,6 +2973,11 @@ msgstr "編輯作者"
 #: ID:115,
 msgid "Edit author name"
 msgstr "編輯作者姓名"
+
+# ID:12,
+#: Control-ID:1399,
+msgid "Edit conflict"
+msgstr "編修衝突"
 
 # ID:110,
 #: ID:110,
@@ -4305,6 +4337,11 @@ msgstr "啟動外部差異比對/合併程式處理衝突"
 msgid "Least active author:"
 msgstr "最不活躍作者:"
 
+# ID:11,
+#: Control-ID:1404,
+msgid "Leave conflicted:"
+msgstr "剩餘衝突:"
+
 # ID:188,
 #: ID:188,
 msgid "Left View: "
@@ -5297,6 +5334,10 @@ msgstr ""
 "改送交到剛才建立的複本, 你必須先切換到新的路徑.\n"
 "請使用切換指令."
 
+#: Control-ID:1287,
+msgid "Please resolve the conflict by choosing one of the following options:"
+msgstr "請選擇以下選項來處理衝突:"
+
 # ID:3858,#:
 # ID:3858,
 #: ID:3858,#:
@@ -5841,6 +5882,16 @@ msgid "Resolve - TortoiseSVN"
 msgstr "解決衝突 - TortoiseSVN"
 
 # ID:9,
+#: Dlg-ID:268,
+msgid "Resolve Conflict"
+msgstr "解決衝突"
+
+# Control-ID:1021,
+#: Control-ID:1382,
+msgid "Resolve all later"
+msgstr "全部稍後解決"
+
+# ID:9,
 #: ID:282,
 msgid "Resolve conflict using \"mine\""
 msgstr "使用本地端(mine)解決衝突"
@@ -5850,9 +5901,20 @@ msgstr "使用本地端(mine)解決衝突"
 msgid "Resolve conflict using \"theirs\""
 msgstr "使用遠端(theirs)解決衝突"
 
+# ID:9,
+#: Control-ID:1403,
+msgid "Resolve conflict:"
+msgstr "解決衝突:"
+
+# ID:8,
+#: Control-ID:2,
+msgid "Resolve later"
+msgstr "稍後解決"
+
 # ID:8,
 #: ID:74,#:
-#: ID:209,
+#: ID:209,#:
+#: Control-ID:1400,
 msgid "Resolved"
 msgstr "已解決"
 
@@ -7903,9 +7965,19 @@ msgstr "使用兩個文字區域(先使用本區塊)"
 msgid "Use both text blocks (this one last)"
 msgstr "使用兩個文字區塊(最後使用本區塊)"
 
+# ID:74,
+#: Control-ID:3,
+msgid "Use local"
+msgstr "使用本地版本"
+
 #: ID:116,
 msgid "Use regular expression"
 msgstr "使用正規表示式"
+
+# ID:138,
+#: Control-ID:4,
+msgid "Use repository"
+msgstr "使用檔案庫版本"
 
 # Control-ID:1066,
 #: Control-ID:1066,
@@ -8363,6 +8435,10 @@ msgstr "和"
 msgid "and support the developers"
 msgstr "並請支持開發者"
 
+#: ID:583,
+msgid "another item already exists in its place."
+msgstr "已經存在同名的項目."
+
 # ID:76,
 #: ID:245,
 msgid "author"
@@ -8513,6 +8589,20 @@ msgstr "無視之前版本"
 #: ID:13,
 msgid "incomplete"
 msgstr "未完成"
+
+# ID:64,
+#: ID:583,
+msgid "it does not exist."
+msgstr "不存在."
+
+#: ID:583,
+msgid "it is already deleted."
+msgstr "已經被刪除."
+
+# ID:10,
+#: ID:583,
+msgid "it is unversioned."
+msgstr "無版本控制."
 
 # ID:17,
 #: ID:214,
@@ -8735,6 +8825,11 @@ msgstr ""
 #: Control-ID:65535,
 msgid "switched:"
 msgstr "切換:"
+
+# ID:13,
+#: ID:583,
+msgid "there are conflicting modifications."
+msgstr "有衝突的更動."
 
 # ID:80,
 #: ID:80,#:
