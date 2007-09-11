@@ -88,7 +88,8 @@ public:
 	CFileTextLines::UnicodeType GetUnicodeType() const  {return m_UnicodeType;}
 	EOL GetLineEndings() const {return m_LineEndings;}
 
-	std::vector<EOL>	m_endings;
+	EOL			GetLineEnding(int index) {return m_endings[index];}
+	void		SetLineEnding(int index, EOL ending) {m_endings[index] = ending;}
 private:
 	/**
 	 * Checks the line endings in a text buffer
@@ -112,8 +113,9 @@ private:
 
 
 private:
+	std::vector<EOL>							m_endings;
 	CString										m_sErrorString;
 	CFileTextLines::UnicodeType					m_UnicodeType;
-	EOL					m_LineEndings;
+	EOL											m_LineEndings;
 	bool										m_bReturnAtEnd;
 };
