@@ -67,7 +67,7 @@ CBaseView::CBaseView()
 	m_nDigits = 0;
 	m_nMouseLine = -1;
 	m_bIsHidden = FALSE;
-	lineendings = CFileTextLines::AUTOLINE;
+	lineendings = EOL_AUTOLINE;
 	texttype = CFileTextLines::AUTOTYPE;
 	m_bViewWhitespace = CRegDWORD(_T("Software\\TortoiseMerge\\ViewWhitespaces"), 1);
 	m_bViewLinenumbers = CRegDWORD(_T("Software\\TortoiseMerge\\ViewLinenumbers"), 1);
@@ -257,16 +257,16 @@ void CBaseView::UpdateStatusBar()
 
 	switch(lineendings)
 	{
-	case CFileTextLines::LF:
+	case EOL_LF:
 		sBarText += _T("LF ");
 		break;
-	case CFileTextLines::CRLF:
+	case EOL_CRLF:
 		sBarText += _T("CRLF ");
 		break;
-	case CFileTextLines::LFCR:
+	case EOL_LFCR:
 		sBarText += _T("LFCR ");
 		break;
-	case CFileTextLines::CR:
+	case EOL_CR:
 		sBarText += _T("CR ");
 		break;
 	}
@@ -1487,16 +1487,16 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 	// draw the line ending 'char'
 	if ((m_bViewWhitespace)&&(m_pViewData)&&(nLineIndex >= 0)&&(nLineIndex < m_pViewData->GetCount()))
 	{
-		CFileTextLines::LineEndings ending = m_pViewData->GetLineEnding(nLineIndex);
+		EOL ending = m_pViewData->GetLineEnding(nLineIndex);
 		switch (ending)
 		{
-		case CFileTextLines::CR:
+		case EOL_CR:
 			DrawIconEx(pDC->GetSafeHdc(), origin.x, origin.y, m_hLineEndingCR, rc.Height(), rc.Height(), NULL, NULL, DI_NORMAL);
 			break;
-		case CFileTextLines::CRLF:
+		case EOL_CRLF:
 			DrawIconEx(pDC->GetSafeHdc(), origin.x, origin.y, m_hLineEndingCRLF, rc.Height(), rc.Height(), NULL, NULL, DI_NORMAL);
 			break;
-		case CFileTextLines::LF:
+		case EOL_LF:
 			DrawIconEx(pDC->GetSafeHdc(), origin.x, origin.y, m_hLineEndingLF, rc.Height(), rc.Height(), NULL, NULL, DI_NORMAL);
 			break;
 		}
@@ -2464,8 +2464,8 @@ void CBaseView::UseTheirAndYourBlock(viewstate &rightstate, viewstate &bottomsta
 	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
 	{
 		leftstate.addedlines.push_back(m_nSelBlockStart);
-		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockEnd, _T(""), DIFFSTATE_EMPTY, -1, CFileTextLines::NOENDING);
-		m_pwndRight->m_pViewData->InsertData(m_nSelBlockEnd+1, _T(""), DIFFSTATE_EMPTY, -1, CFileTextLines::NOENDING);
+		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockEnd, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
+		m_pwndRight->m_pViewData->InsertData(m_nSelBlockEnd+1, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
 		rightstate.addedlines.push_back(m_nSelBlockEnd+1);
 	}
 	RecalcAllVertScrollBars();
@@ -2510,8 +2510,8 @@ void CBaseView::UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomsta
 	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
 	{
 		leftstate.addedlines.push_back(m_nSelBlockStart);
-		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockEnd, _T(""), DIFFSTATE_EMPTY, -1, CFileTextLines::NOENDING);
-		m_pwndRight->m_pViewData->InsertData(m_nSelBlockEnd+1, _T(""), DIFFSTATE_EMPTY, -1, CFileTextLines::NOENDING);
+		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockEnd, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
+		m_pwndRight->m_pViewData->InsertData(m_nSelBlockEnd+1, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
 		rightstate.addedlines.push_back(m_nSelBlockEnd+1);
 	}
 
@@ -2550,7 +2550,7 @@ void CBaseView::UseBothRightFirst(viewstate &rightstate, viewstate &leftstate)
 	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
 	{
 		leftstate.addedlines.push_back(m_nSelBlockEnd+1);
-		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockEnd+1, _T(""), DIFFSTATE_EMPTY, -1, CFileTextLines::NOENDING);
+		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockEnd+1, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
 	}
 	RecalcAllVertScrollBars();
 	m_pwndLeft->SetModified();
@@ -2581,7 +2581,7 @@ void CBaseView::UseBothLeftFirst(viewstate &rightstate, viewstate &leftstate)
 	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
 	{
 		leftstate.addedlines.push_back(m_nSelBlockStart);
-		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockStart, _T(""), DIFFSTATE_EMPTY, -1, CFileTextLines::NOENDING);
+		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockStart, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
 	}
 	RecalcAllVertScrollBars();
 	m_pwndLeft->SetModified();

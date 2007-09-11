@@ -17,6 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
+#include "EOL.h"
 
 // A template class to make an array which looks like a CStringArray or CDWORDArray but
 // is in fact based on a STL array, which is much faster at large sizes
@@ -53,15 +54,6 @@ public:
 	CFileTextLines(void);
 	~CFileTextLines(void);
 
-	enum LineEndings
-	{
-		AUTOLINE,
-		LF,
-		CRLF,
-		LFCR,
-		CR,
-		NOENDING,
-	};
 	enum UnicodeType
 	{
 		AUTOTYPE,
@@ -94,16 +86,16 @@ public:
 	void		CopySettings(CFileTextLines * pFileToCopySettingsTo);
 
 	CFileTextLines::UnicodeType GetUnicodeType() const  {return m_UnicodeType;}
-	CFileTextLines::LineEndings GetLineEndings() const {return m_LineEndings;}
+	EOL GetLineEndings() const {return m_LineEndings;}
 
-	std::vector<CFileTextLines::LineEndings>	m_endings;
+	std::vector<EOL>	m_endings;
 private:
 	/**
 	 * Checks the line endings in a text buffer
 	 * \param pBuffer pointer to the buffer containing text
 	 * \param cd size of the text buffer in bytes
 	 */
-	CFileTextLines::LineEndings CheckLineEndings(LPVOID pBuffer, int cb); 
+	EOL CheckLineEndings(LPVOID pBuffer, int cb); 
 	/**
 	 * Checks the Unicode type in a text buffer
 	 * \param pBuffer pointer to the buffer containing text
@@ -122,6 +114,6 @@ private:
 private:
 	CString										m_sErrorString;
 	CFileTextLines::UnicodeType					m_UnicodeType;
-	CFileTextLines::LineEndings					m_LineEndings;
+	EOL					m_LineEndings;
 	bool										m_bReturnAtEnd;
 };

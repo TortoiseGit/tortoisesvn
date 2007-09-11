@@ -16,43 +16,14 @@
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
-#include "StdAfx.h"
-#include "ViewData.h"
+#pragma once
 
-CViewData::CViewData(void)
+enum EOL
 {
-}
-
-CViewData::~CViewData(void)
-{
-}
-
-void CViewData::AddData(const CString& sLine, DiffStates state, int linenumber, EOL ending)
-{
-	viewdata data;
-	data.sLine = sLine;
-	data.state = state;
-	data.linenumber = linenumber;
-	data.ending = ending;
-	return AddData(data);
-}
-
-void CViewData::AddData(const viewdata& data)
-{
-	return m_data.push_back(data);
-}
-
-void CViewData::InsertData(int index, const CString& sLine, DiffStates state, int linenumber, EOL ending)
-{
-	viewdata data;
-	data.sLine = sLine;
-	data.state = state;
-	data.linenumber = linenumber;
-	data.ending = ending;
-	return InsertData(index, data);
-}
-
-void CViewData::InsertData(int index, const viewdata& data)
-{
-	m_data.insert(m_data.begin()+index, data);
-}
+	EOL_AUTOLINE,
+	EOL_LF,
+	EOL_CRLF,
+	EOL_LFCR,
+	EOL_CR,
+	EOL_NOENDING,
+};

@@ -103,9 +103,9 @@ CFileTextLines::UnicodeType CFileTextLines::CheckUnicodeType(LPVOID pBuffer, int
 }
 
 
-CFileTextLines::LineEndings CFileTextLines::CheckLineEndings(LPVOID pBuffer, int cb)
+EOL CFileTextLines::CheckLineEndings(LPVOID pBuffer, int cb)
 {
-	LineEndings retval = AUTOLINE;
+	EOL retval = EOL_AUTOLINE;
 	char * buf = (char *)pBuffer;
 	for (int i=0; i<cb; i++)
 	{
@@ -121,23 +121,23 @@ CFileTextLines::LineEndings CFileTextLines::CheckLineEndings(LPVOID pBuffer, int
 					{
 						if (buf[i+2] == 0x0d)
 						{
-							retval = LFCR;
+							retval = EOL_LFCR;
 							break;
 						}
 						else
 						{
-							retval = LF;
+							retval = EOL_LF;
 							break;
 						}
 					}
 				}
 				else if (buf[i+1] == 0x0d)
 				{
-					retval = LFCR;
+					retval = EOL_LFCR;
 					break;
 				}
 			}
-			retval = LF;
+			retval = EOL_LF;
 			break;
 		}
 		else if (buf[i] == 0x0d)
@@ -151,23 +151,23 @@ CFileTextLines::LineEndings CFileTextLines::CheckLineEndings(LPVOID pBuffer, int
 					{
 						if (buf[i+2] == 0x0a)
 						{
-							retval = CRLF;
+							retval = EOL_CRLF;
 							break;
 						}
 						else
 						{
-							retval = CR;
+							retval = EOL_CR;
 							break;
 						}
 					}
 				}
 				else if (buf[i+1] == 0x0a)
 				{
-					retval = CRLF;
+					retval = EOL_CRLF;
 					break;
 				}
 			}
-			retval = CR;
+			retval = EOL_CR;
 			break;
 		}
 	} 
@@ -176,7 +176,7 @@ CFileTextLines::LineEndings CFileTextLines::CheckLineEndings(LPVOID pBuffer, int
 
 BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 {
-	m_LineEndings = CFileTextLines::AUTOLINE;
+	m_LineEndings = EOL_AUTOLINE;
 	m_UnicodeType = CFileTextLines::AUTOTYPE;
 	RemoveAll();
 	if(lengthHint != 0)
@@ -230,7 +230,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 	{
 		m_UnicodeType = this->CheckUnicodeType(pFileBuf, min(10000, dwReadBytes));
 	}
-	if (m_LineEndings == CFileTextLines::AUTOLINE)
+	if (m_LineEndings == EOL_AUTOLINE)
 	{
 		m_LineEndings = CheckLineEndings(pFileBuf, min(10000, dwReadBytes));
 	}
@@ -299,7 +299,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 					// crlf line ending
 					CString line(pLineStart, pTextBuf-pLineStart);
 					Add(line);
-					m_endings.push_back(CFileTextLines::CRLF);
+					m_endings.push_back(EOL_CRLF);
 					pLineStart = pTextBuf+2;
 					++pTextBuf;
 					++i;
@@ -309,7 +309,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 					// cr line ending
 					CString line(pLineStart, pTextBuf-pLineStart);
 					Add(line);
-					m_endings.push_back(CFileTextLines::CR);
+					m_endings.push_back(EOL_CR);
 					pLineStart =pTextBuf+1;
 				}
 			}
@@ -319,7 +319,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 			// lf line ending
 			CString line(pLineStart, pTextBuf-pLineStart);
 			Add(line);
-			m_endings.push_back(CFileTextLines::LF);
+			m_endings.push_back(EOL_LF);
 			pLineStart =pTextBuf+1;
 		}
 		++pTextBuf;
@@ -328,7 +328,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 	{
 		CString line(pLineStart, pTextBuf-pLineStart);
 		Add(line);
-		m_endings.push_back(CFileTextLines::NOENDING);
+		m_endings.push_back(EOL_NOENDING);
 		m_bReturnAtEnd = false;		
 	}
 	else
@@ -454,17 +454,17 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIg
 				file.Write((LPCTSTR)sLine, sLine.GetLength()*sizeof(TCHAR));
 				switch (m_LineEndings)
 				{
-				case CR:
+				case EOL_CR:
 					sLine = _T("\x0d");
 					break;
-				case CRLF:
-				case AUTOLINE:
+				case EOL_CRLF:
+				case EOL_AUTOLINE:
 					sLine = _T("\x0d\x0a");
 					break;
-				case LF:
+				case EOL_LF:
 					sLine = _T("\x0a");
 					break;
-				case LFCR:
+				case EOL_LFCR:
 					sLine = _T("\x0a\x0d");
 					break;
 				}
@@ -487,17 +487,17 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIg
 				{
 					switch (m_LineEndings)
 					{
-					case CR:
+					case EOL_CR:
 						sLine += '\x0d';
 						break;
-					case CRLF:
-					case AUTOLINE:
+					case EOL_CRLF:
+					case EOL_AUTOLINE:
 						sLine.Append("\x0d\x0a", 2);
 						break;
-					case LF:
+					case EOL_LF:
 						sLine += '\x0a';
 						break;
-					case LFCR:
+					case EOL_LFCR:
 						sLine.Append("\x0a\x0d", 2);
 						break;
 					}
@@ -526,17 +526,17 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIg
 				{
 					switch (m_LineEndings)
 					{
-					case CR:
+					case EOL_CR:
 						sLine += '\x0d';
 						break;
-					case CRLF:
-					case AUTOLINE:
+					case EOL_CRLF:
+					case EOL_AUTOLINE:
 						sLine.Append("\x0d\x0a",2);
 						break;
-					case LF:
+					case EOL_LF:
 						sLine += '\x0a';
 						break;
-					case LFCR:
+					case EOL_LFCR:
 						sLine.Append("\x0a\x0d",2);
 						break;
 					}

@@ -78,7 +78,7 @@ public:
 	CString			m_sWindowName;		///< The name of the view which is shown as a window title to the user
 	CString			m_sFullFilePath;	///< The full path of the file shown
 	CFileTextLines::UnicodeType texttype;	///< the text encoding this view uses
-	CFileTextLines::LineEndings lineendings; ///< the line endings the view uses
+	EOL lineendings; ///< the line endings the view uses
 
 	BOOL			m_bViewWhitespace;	///< If TRUE, then SPACE and TAB are shown as special characters
 	BOOL			m_bShowInlineDiff;	///< If TRUE, diffs in lines are marked colored
