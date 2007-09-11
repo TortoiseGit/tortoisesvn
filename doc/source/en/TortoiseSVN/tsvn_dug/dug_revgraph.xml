@@ -100,12 +100,19 @@
 				<term>Group branches</term>
 				<listitem>
 					<para>
-						This option attempts to sort the branches from the tags.
-						Paths which contain no modifications after copying are
-						assumed to be tags and are stacked in a single column.
-						Branches (which contain modifications after creation)
-						each have their own column, so you can see how the branch
-						develops.
+						The default behavior (grouping off) will use one row per
+						revision and all rows are sorted strictly by revision.
+						As a result, long-living branches occupy a whole column
+						for only a few changes and the graph becomes very broad.
+					</para>
+					<para>
+						This mode groups changes by branch, so that there is no
+						global revision ordering: Consecutive revisions on
+						a branch will be shown in (often) consecutive lines.
+						Sub-branches, however, are arranged in such a way that
+						later branches will be shown in the same column above
+						older branches to keep the graph slim. As a result, a
+						given row may contain changes from different revisions.
 					</para>
 				</listitem>
 			</varlistentry>
@@ -115,7 +122,7 @@
 					<para>
 						Normally the graph shows the oldest revision at the bottom,
 						and the tree grows upwards. Use this option to grow down
-						from the top.
+						from the top instead.
 					</para>
 				</listitem>
 			</varlistentry>
