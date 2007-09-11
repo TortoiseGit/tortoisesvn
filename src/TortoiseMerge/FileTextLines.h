@@ -88,6 +88,7 @@ public:
 	CFileTextLines::UnicodeType GetUnicodeType() const  {return m_UnicodeType;}
 	EOL GetLineEndings() const {return m_LineEndings;}
 
+	void		Add(const CString& sLine, EOL ending) {CStdCStringArray::Add(sLine); m_endings.push_back(ending);}
 	EOL			GetLineEnding(int index) {return m_endings[index];}
 	void		SetLineEnding(int index, EOL ending) {m_endings[index] = ending;}
 private:

@@ -298,8 +298,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 				{
 					// crlf line ending
 					CString line(pLineStart, pTextBuf-pLineStart);
-					Add(line);
-					m_endings.push_back(EOL_CRLF);
+					Add(line, EOL_CRLF);
 					pLineStart = pTextBuf+2;
 					++pTextBuf;
 					++i;
@@ -308,8 +307,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 				{
 					// cr line ending
 					CString line(pLineStart, pTextBuf-pLineStart);
-					Add(line);
-					m_endings.push_back(EOL_CR);
+					Add(line, EOL_CR);
 					pLineStart =pTextBuf+1;
 				}
 			}
@@ -318,8 +316,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 		{
 			// lf line ending
 			CString line(pLineStart, pTextBuf-pLineStart);
-			Add(line);
-			m_endings.push_back(EOL_LF);
+			Add(line, EOL_LF);
 			pLineStart =pTextBuf+1;
 		}
 		++pTextBuf;
@@ -327,8 +324,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 	if (pLineStart < pTextBuf)
 	{
 		CString line(pLineStart, pTextBuf-pLineStart);
-		Add(line);
-		m_endings.push_back(EOL_NOENDING);
+		Add(line, EOL_NOENDING);
 		m_bReturnAtEnd = false;		
 	}
 	else
