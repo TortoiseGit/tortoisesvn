@@ -210,6 +210,7 @@ protected:
 	HICON			m_hAddedIcon;
 	HICON			m_hRemovedIcon;
 	HICON			m_hConflictedIcon;
+	HICON			m_hConflictedIgnoredIcon;
 	HICON			m_hWhitespaceBlockIcon;
 	HICON			m_hEqualIcon;
 

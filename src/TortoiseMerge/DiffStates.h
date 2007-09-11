@@ -31,6 +31,7 @@ enum DiffStates
 	DIFFSTATE_WHITESPACE_DIFF,			///< the in-line diffs of whitespaces
 	DIFFSTATE_EMPTY,					///< empty line
 	DIFFSTATE_CONFLICTED,				///< conflicted line
+	DIFFSTATE_CONFLICTED_IGNORED,		///< a conflict which isn't conflicted due to ignore settings
 	DIFFSTATE_CONFLICTADDED,			///< added line results in conflict
 	DIFFSTATE_CONFLICTEMPTY,			///< removed line results in conflict
 	DIFFSTATE_CONFLICTRESOLVED,			///< previously conflicted line, now resolved

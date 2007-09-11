@@ -742,7 +742,8 @@ int CMainFrame::CheckResolved()
 		{
 			for (int i=0; i<m_pwndBottomView->m_pViewData->GetCount(); i++)
 			{
-				if (DIFFSTATE_CONFLICTED == m_pwndBottomView->m_pViewData->GetState(i))
+				if ((DIFFSTATE_CONFLICTED == m_pwndBottomView->m_pViewData->GetState(i))||
+					(DIFFSTATE_CONFLICTED_IGNORED == m_pwndBottomView->m_pViewData->GetState(i)))
 					return i;
 			}
 		}
@@ -785,13 +786,14 @@ void CMainFrame::SaveFile(const CString& sFilePath)
 			switch (state)
 			{
 			case DIFFSTATE_CONFLICTED:
+			case DIFFSTATE_CONFLICTED_IGNORED:
 				{
 					int first = i;
 					int last = i;
 					do 
 					{
 						last++;
-					} while( last<pViewData->GetCount() && (pViewData->GetState(last))==DIFFSTATE_CONFLICTED);
+					} while(last<pViewData->GetCount() && (pViewData->GetState(last)==DIFFSTATE_CONFLICTED)||(pViewData->GetState(last)==DIFFSTATE_CONFLICTED_IGNORED));
 					file.Add(_T("<<<<<<< .mine"), EOL_NOENDING);
 					for (int j=first; j<last; j++)
 					{

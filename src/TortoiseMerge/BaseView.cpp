@@ -89,6 +89,8 @@ CBaseView::CBaseView()
 	}
 	m_hConflictedIcon = (HICON)::LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_CONFLICTEDLINE), 
 									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	m_hConflictedIgnoredIcon = (HICON)::LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_CONFLICTEDIGNOREDLINE), 
+									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
 	m_hRemovedIcon = (HICON)::LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_REMOVEDLINE), 
 									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
 	m_hAddedIcon = (HICON)::LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ADDEDLINE), 
@@ -127,6 +129,7 @@ CBaseView::~CBaseView()
 	DestroyIcon(m_hAddedIcon);
 	DestroyIcon(m_hRemovedIcon);
 	DestroyIcon(m_hConflictedIcon);
+	DestroyIcon(m_hConflictedIgnoredIcon);
 	DestroyIcon(m_hWhitespaceBlockIcon);
 	DestroyIcon(m_hEqualIcon);
 	DestroyIcon(m_hLineEndingCR);
@@ -229,6 +232,7 @@ void CBaseView::UpdateStatusBar()
 				nRemovedLines++;
 				break;
 			case DIFFSTATE_CONFLICTED:
+			case DIFFSTATE_CONFLICTED_IGNORED:
 				nConflictedLines++;
 				break;
 			}
@@ -989,6 +993,9 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
 		case DIFFSTATE_CONFLICTED:
 			icon = m_hConflictedIcon;
 			break;
+		case DIFFSTATE_CONFLICTED_IGNORED:
+			icon = m_hConflictedIgnoredIcon;
+			break;
 		default:
 			break;
 		}
@@ -1181,6 +1188,7 @@ bool CBaseView::IsLineConflicted(int nLineIndex)
 	switch (state)
 	{
 	case DIFFSTATE_CONFLICTED:
+	case DIFFSTATE_CONFLICTED_IGNORED:
 	case DIFFSTATE_CONFLICTEMPTY:
 	case DIFFSTATE_CONFLICTADDED:
 		ret = true;
@@ -1916,6 +1924,7 @@ void CBaseView::OnMergePreviousconflict()
 		{
 			DiffStates linestate = m_pViewData->GetState(nCenterPos);
 			if ((linestate == DIFFSTATE_CONFLICTADDED) ||
+				(linestate == DIFFSTATE_CONFLICTED_IGNORED) ||
 				(linestate == DIFFSTATE_CONFLICTED) ||
 				(linestate == DIFFSTATE_CONFLICTEMPTY))
 				break;
@@ -1965,6 +1974,7 @@ void CBaseView::OnMergeNextconflict()
 		{
 			DiffStates linestate = m_pViewData->GetState(nCenterPos);
 			if ((linestate == DIFFSTATE_CONFLICTADDED) ||
+				(linestate == DIFFSTATE_CONFLICTED_IGNORED) ||
 				(linestate == DIFFSTATE_CONFLICTED) ||
 				(linestate == DIFFSTATE_CONFLICTEMPTY))
 				break;

@@ -39,6 +39,7 @@ CDiffColors::CDiffColors(void)
 	m_regForegroundColors[DIFFSTATE_WHITESPACE_DIFF] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorWhitespaceDiffF"), DIFFSTATE_WHITESPACE_DIFF_DEFAULT_FG);
 	m_regForegroundColors[DIFFSTATE_EMPTY] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorEmptyF"), DIFFSTATE_EMPTY_DEFAULT_FG);
 	m_regForegroundColors[DIFFSTATE_CONFLICTED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorConflictedF"), DIFFSTATE_CONFLICTED_DEFAULT_FG);
+	m_regForegroundColors[DIFFSTATE_CONFLICTED_IGNORED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorConflictedIgnoredF"), DIFFSTATE_CONFLICTED_IGNORED_DEFAULT_FG);
 	m_regForegroundColors[DIFFSTATE_CONFLICTADDED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorConflictedAddedF"), DIFFSTATE_CONFLICTADDED_DEFAULT_FG);
 	m_regForegroundColors[DIFFSTATE_CONFLICTEMPTY] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorConflictedEmptyF"), DIFFSTATE_CONFLICTEMPTY_DEFAULT_FG);
 	m_regForegroundColors[DIFFSTATE_CONFLICTRESOLVED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ConflictResolvedF"), DIFFSTATE_CONFLICTRESOLVED_DEFAULT_FG);
@@ -59,6 +60,7 @@ CDiffColors::CDiffColors(void)
 	m_regBackgroundColors[DIFFSTATE_WHITESPACE_DIFF] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorWhitespaceDiffB"), DIFFSTATE_WHITESPACE_DIFF_DEFAULT_BG);
 	m_regBackgroundColors[DIFFSTATE_EMPTY] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorEmptyB"), DIFFSTATE_EMPTY_DEFAULT_BG);
 	m_regBackgroundColors[DIFFSTATE_CONFLICTED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorConflictedB"), DIFFSTATE_CONFLICTED_DEFAULT_BG);
+	m_regBackgroundColors[DIFFSTATE_CONFLICTED_IGNORED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorConflictedIgnoredB"), DIFFSTATE_CONFLICTED_IGNORED_DEFAULT_BG);
 	m_regBackgroundColors[DIFFSTATE_CONFLICTADDED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorConflictedAddedB"), DIFFSTATE_CONFLICTADDED_DEFAULT_BG);
 	m_regBackgroundColors[DIFFSTATE_CONFLICTEMPTY] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorConflictedEmptyB"), DIFFSTATE_CONFLICTEMPTY_DEFAULT_BG);
 	m_regBackgroundColors[DIFFSTATE_CONFLICTRESOLVED] = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ConflictResolvedB"), DIFFSTATE_CONFLICTRESOLVED_DEFAULT_BG);

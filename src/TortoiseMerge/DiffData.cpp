@@ -859,7 +859,7 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 						(m_arTheirFile.GetAt(linetheir).Compare(m_arBaseFile.GetAt(linebase))!=0)&&
 						(m_arYourFile.GetAt(lineyour).Compare(m_arTheirFile.GetAt(linetheir))!=0)))
 					{
-						m_Diff3.SetState(i, DIFFSTATE_CONFLICTED);
+						m_Diff3.SetState(i, DIFFSTATE_CONFLICTED_IGNORED);
 						m_YourBaseBoth.SetState(i, DIFFSTATE_CONFLICTADDED);
 						m_TheirBaseBoth.SetState(i, DIFFSTATE_CONFLICTADDED);
 					}

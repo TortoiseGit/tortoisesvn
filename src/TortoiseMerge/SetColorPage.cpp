@@ -87,6 +87,7 @@ void CSetColorPage::SaveData()
 		// colors a little so they look different.
 		cBk = m_cBkConflict.GetColor(TRUE);
 		CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTED, cBk, cFg);
+		CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTED_IGNORED, cBk, cFg);
 		COLORREF adjustedcolor = cBk;
 		if (GetRValue(cBk)-155 > 0)
 			adjustedcolor = RGB(GetRValue(cBk), GetRValue(cBk)-155, 0);

@@ -134,6 +134,7 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 						case DIFFSTATE_ADDED:
 						case DIFFSTATE_CONFLICTADDED:
 						case DIFFSTATE_CONFLICTED:
+						case DIFFSTATE_CONFLICTED_IGNORED:
 						case DIFFSTATE_IDENTICALREMOVED:
 						case DIFFSTATE_REMOVED:
 						case DIFFSTATE_THEIRSREMOVED:
@@ -179,6 +180,7 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 						case DIFFSTATE_ADDED:
 						case DIFFSTATE_CONFLICTADDED:
 						case DIFFSTATE_CONFLICTED:
+						case DIFFSTATE_CONFLICTED_IGNORED:
 						case DIFFSTATE_CONFLICTEMPTY:
 						case DIFFSTATE_IDENTICALADDED:
 						case DIFFSTATE_NORMAL:
