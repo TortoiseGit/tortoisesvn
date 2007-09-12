@@ -1822,7 +1822,7 @@ BEGIN
     BEGIN
         MENUITEM "Show &all revisions",         ID_VIEW_SHOWALLREVISIONS
         MENUITEM "&Group branches",             ID_VIEW_GROUPBRANCHES, CHECKED
-        MENUITEM "&Newest on top",              ID_VIEW_TOPDOWN
+        MENUITEM "Oldest on to&p",              ID_VIEW_TOPDOWN
         MENUITEM "&Show HEAD revisions",        ID_VIEW_SHOWHEAD
         MENUITEM "E&xact copy sources",         ID_VIEW_EXACTCOPYSOURCE
         MENUITEM "Split long &branches",        ID_VIEW_SPLITBRANCHES
@@ -3034,7 +3034,7 @@ BEGIN
     IDS_PROP_TT_MIMETYPE    "svn:mime-type\nThe mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\nA mime type beginning with 'text/' (or an absent mime type) is treated as text.\nAnything else is treated as binary."
     IDS_PROP_TT_EXTERNALS   "svn:externals\nA newline separated list of module specifiers, each of which consists of\na relative directory path, optional revision flags, and a URL. For example\nfoo\t\thttp://example.com/repos/zig\nfoo/bar -r 1234\thttp://example.com/repos/zag"
     IDS_PROP_TT_NEEDSLOCK   "svn:needs-lock\nSet this to any value (e.g. '*') to enforce locking for this file.\nThe file will be set to read-only when checked out or updated,\nindicating that a user must acquire a lock on the file\nbefore they can edit it and commit changes."
-	IDS_PROP_TT_MERGEINFO   "svn:mergeinfo\nA newline separated list of merge tracking info. Each line consists of an absolute\npath followed by a colon and a list of comma separated revision numbers.\nFor example\n/trunk:123,125,129"
+    IDS_PROP_TT_MERGEINFO   "svn:mergeinfo\nA newline separated list of merge tracking info. Each line consists of an absolute\npath followed by a colon and a list of comma separated revision numbers.\nFor example\n/trunk:123,125,129"
 END
 
 STRINGTABLE 
