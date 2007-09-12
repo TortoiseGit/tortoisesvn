@@ -26,7 +26,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-09-03 08:44+0100\n"
+"PO-Revision-Date: 2007-09-12 09:54+0100\n"
 "Last-Translator: Срѓан Стокиќ <srdjan.stokic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -671,7 +671,7 @@ msgid "&Rename"
 msgstr "&Преименувај"
 
 #: Control-ID:1316,
-msgid "&Reopen commit dialog after a commit failed"
+msgid "&Reopen commit and branch/tag dialog after a commit failed"
 msgstr "&Повторно отвори дијалог за складирање во случај на грешка"
 
 #: ID:13,
@@ -1648,6 +1648,10 @@ msgstr "Превземање од %s, ревизија %s, %s, %s"
 msgid "Checksum:"
 msgstr "Провери"
 
+#: Control-ID:1402,
+msgid "Choose item:"
+msgstr "Избери ставка:"
+
 #: ID:146,
 msgid "Cleaning up."
 msgstr "Чистење."
@@ -1852,6 +1856,10 @@ msgstr "Конфигурирај го програмот кој се корис�
 msgid "Configure viewer program for GNU diff files (patch files)."
 msgstr "Подеси програм за преглед на GNU diff датотеки (patch датотеки)."
 
+#: Control-ID:65535,
+msgid "Conflict resolved"
+msgstr "Конфликт разрешен"
+
 #: ID:263,#:
 #: Control-ID:65535,
 msgid "Conflicted"
@@ -1989,6 +1997,11 @@ msgstr "Корекции"
 msgid "Could not add %s to the ignore list!"
 msgstr "Не можам да го додадам %s на листата за игнорирање!"
 
+#: ID:582,
+#, c-format
+msgid "Could not add \"%s\" because"
+msgstr "Не можам да го додадам \"%s\" затоа што"
+
 #: ID:201,
 msgid "Could not check for a newer version!"
 msgstr "Не можам да проверам за нова верзија!"
@@ -2004,9 +2017,19 @@ msgstr ""
 "<hr=100%%>\n"
 "%s"
 
+#: ID:582,
+#, c-format
+msgid "Could not delete \"%s\" because"
+msgstr "Не можам да го избришам \"%s\" поради"
+
 #: ID:81,
 msgid "Could not get the status!"
 msgstr "Не можам да го земам статусот!"
+
+#: ID:582,
+#, c-format
+msgid "Could not merge \"%s\" because"
+msgstr "Не можам да го соединам \"%s\" затоа што"
 
 #: ID:69,
 #, c-format
@@ -2117,7 +2140,7 @@ msgstr ""
 "%s"
 
 #: ID:8,
-msgid "Create repositor&y here..."
+msgid "Create repositor&y here"
 msgstr "Креирај с&кладиште тука..."
 
 #: MenuEntry
@@ -2405,6 +2428,10 @@ msgstr "Измени автор"
 #: ID:115,
 msgid "Edit author name"
 msgstr "Измени име на авторот"
+
+#: Control-ID:1399,
+msgid "Edit conflict"
+msgstr "Едитирај го конфликтот"
 
 #: ID:110,
 msgid "Edit extension specific diff program"
@@ -3586,6 +3613,10 @@ msgstr "Стартува надворешен програм за споредб
 msgid "Least active author:"
 msgstr "Најмалку активен автор:"
 
+#: Control-ID:1404,
+msgid "Leave conflicted:"
+msgstr "Остави конфликтно:"
+
 #: ID:188,
 msgid "Left View: "
 msgstr "Лев поглед:"
@@ -4385,6 +4416,10 @@ msgstr ""
 " тогаш морате да ја смените вашата работна копија на ново URL.\n"
 "Употребете ја Смени командата за тоа."
 
+#: Control-ID:1287,
+msgid "Please resolve the conflict by choosing one of the following options:"
+msgstr "Ве молиме разрешете го конфликтот со избирање на една од опциите:"
+
 #: ID:3858,#:
 #: ID:3858,
 msgid "Please select a button."
@@ -4831,6 +4866,14 @@ msgstr "Разреши"
 msgid "Resolve - TortoiseSVN"
 msgstr "Разреши - TortoiseSVN"
 
+#: Dlg-ID:268,
+msgid "Resolve Conflict"
+msgstr "Разреши конфликт"
+
+#: Control-ID:1382,
+msgid "Resolve all later"
+msgstr "Разреши ги сите подоцна"
+
 #: ID:282,
 msgid "Resolve conflict using \"mine\""
 msgstr "Разреши конфликт користејќи \"мое\""
@@ -4839,8 +4882,17 @@ msgstr "Разреши конфликт користејќи \"мое\""
 msgid "Resolve conflict using \"theirs\""
 msgstr "Разреши конфликт користејќи \"нивно\""
 
+#: Control-ID:1403,
+msgid "Resolve conflict:"
+msgstr "Разреши конфликт:"
+
+#: Control-ID:2,
+msgid "Resolve later"
+msgstr "Разреши подоцна"
+
 #: ID:74,#:
-#: ID:209,
+#: ID:209,#:
+#: Control-ID:1400,
 msgid "Resolved"
 msgstr "Разрешено"
 
@@ -6538,9 +6590,17 @@ msgstr "Користи ги и двата блокови со текст (ово
 msgid "Use both text blocks (this one last)"
 msgstr "Користи ги и двата блокови со текст (овој последен)"
 
+#: Control-ID:3,
+msgid "Use local"
+msgstr "Користи локално"
+
 #: ID:116,
 msgid "Use regular expression"
 msgstr "Користи го обичниот израз"
+
+#: Control-ID:4,
+msgid "Use repository"
+msgstr "Користи складиште"
 
 #: Control-ID:1066,
 msgid "Use stri&keout for removed lines"
@@ -6869,6 +6929,16 @@ msgstr ""
 "Забелешка: Note: Ажурирање со нова ревизија нема да ги пребрише измените така да работната копија\n"
 "нема да биде идентична со ревизијата со која ажурирате!"
 
+#: ID:89,
+msgid ""
+"Your working copy has local modifications.\n"
+"If you branch/tag from the HEAD revision, your local changes won't\n"
+"show up in the branch/tag!"
+msgstr ""
+"Вашата работна копија има локални модификации. \n"
+"Доколку направите гранка од HEAD ревизијата, вашите измени\n"
+"нема да се прикажат во гранката!"
+
 #: MenuEntry
 msgid "Zoo&m out"
 msgstr "Одзу&мирај"
@@ -6923,6 +6993,10 @@ msgstr "и"
 #: Control-ID:1085,
 msgid "and support the developers"
 msgstr "и подржете ги програмерите"
+
+#: ID:583,
+msgid "another item already exists in its place."
+msgstr "друга ставка веќе постои на тоа место."
 
 #: ID:245,
 msgid "author"
@@ -7056,6 +7130,18 @@ msgstr "игнорира наследство"
 #: ID:13,
 msgid "incomplete"
 msgstr "некомплетно"
+
+#: ID:583,
+msgid "it does not exist."
+msgstr "не постои."
+
+#: ID:583,
+msgid "it is already deleted."
+msgstr "е веќе избришан."
+
+#: ID:583,
+msgid "it is unversioned."
+msgstr "е н верзионирано."
 
 #: ID:214,
 msgid "item kept locally"
@@ -7247,6 +7333,10 @@ msgid "switched:"
 msgstr ""
 "префрлено на\r\n"
 "%s"
+
+#: ID:583,
+msgid "there are conflicting modifications."
+msgstr "постојат конфликтни модификации."
 
 #: ID:80,#:
 #: ID:103,#:
