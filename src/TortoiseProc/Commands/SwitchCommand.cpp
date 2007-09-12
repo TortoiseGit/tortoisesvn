@@ -31,9 +31,12 @@ bool SwitchCommand::Execute()
 	if (dlg.DoModal() == IDOK)
 	{
 		CSVNProgressDlg progDlg;
-		progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 		theApp.m_pMainWnd = &progDlg;
-		progDlg.SetParams(CSVNProgressDlg::SVNProgress_Switch, 0, CTSVNPathList(cmdLinePath), dlg.m_URL, _T(""), dlg.Revision);
+		progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Switch);
+		progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
+		progDlg.SetPathList(CTSVNPathList(cmdLinePath));
+		progDlg.SetUrl(dlg.m_URL);
+		progDlg.SetRevision(dlg.Revision);
 		progDlg.DoModal();
 	}
 	return true;

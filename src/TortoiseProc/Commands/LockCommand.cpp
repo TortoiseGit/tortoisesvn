@@ -33,7 +33,8 @@ bool LockCommand::Execute()
 	{
 		// just lock the requested files
 		CSVNProgressDlg progDlg;
-		progDlg.SetParams(CSVNProgressDlg::SVNProgress_Lock, 0, pathList, CString(), CString());
+		progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Lock);
+		progDlg.SetPathList(pathList);
 		progDlg.DoModal();
 	}
 	else if (lockDlg.DoModal()==IDOK)
@@ -41,7 +42,10 @@ bool LockCommand::Execute()
 		if (lockDlg.m_pathList.GetCount() != 0)
 		{
 			CSVNProgressDlg progDlg;
-			progDlg.SetParams(CSVNProgressDlg::SVNProgress_Lock, lockDlg.m_bStealLocks ? ProgOptLockForce : 0, lockDlg.m_pathList, CString(), lockDlg.m_sLockMessage);
+			progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Lock);
+			progDlg.SetOptions(lockDlg.m_bStealLocks ? ProgOptLockForce : ProgOptNone);
+			progDlg.SetPathList(lockDlg.m_pathList);
+			progDlg.SetCommitMessage(lockDlg.m_sLockMessage);
 			progDlg.DoModal();
 		}
 	}

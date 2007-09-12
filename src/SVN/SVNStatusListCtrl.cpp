@@ -2659,7 +2659,9 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						CTSVNPathList targetList;
 						FillListOfSelectedItemPaths(targetList);
 						CSVNProgressDlg dlg;
-						dlg.SetParams(CSVNProgressDlg::SVNProgress_Update, 0, targetList);
+						dlg.SetCommand(CSVNProgressDlg::SVNProgress_Update);
+						dlg.SetPathList(targetList);
+						dlg.SetRevision(SVNRev::REV_HEAD);
 						dlg.DoModal();
 					}
 					break;
@@ -3295,7 +3297,10 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					if (inpDlg.DoModal()==IDOK)
 					{
 						CSVNProgressDlg progDlg;
-						progDlg.SetParams(CSVNProgressDlg::SVNProgress_Lock, inpDlg.m_iCheck ? ProgOptLockForce : 0, itemsToLock, CString(), inpDlg.m_sInputText);
+						progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Lock);
+						progDlg.SetOptions(inpDlg.m_iCheck ? ProgOptLockForce : ProgOptNone);
+						progDlg.SetPathList(itemsToLock);
+						progDlg.SetCommitMessage(inpDlg.m_sInputText);
 						progDlg.DoModal();
 						// refresh!
 						CWnd* pParent = GetParent();
@@ -3313,7 +3318,9 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					CTSVNPathList itemsToUnlock;
 					FillListOfSelectedItemPaths(itemsToUnlock);
 					CSVNProgressDlg progDlg;
-					progDlg.SetParams(CSVNProgressDlg::SVNProgress_Unlock, bForce ? ProgOptLockForce : 0, itemsToUnlock);
+					progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Unlock);
+					progDlg.SetOptions(bForce ? ProgOptLockForce : ProgOptNone);
+					progDlg.SetPathList(itemsToUnlock);
 					progDlg.DoModal();
 					// refresh!
 					CWnd* pParent = GetParent();

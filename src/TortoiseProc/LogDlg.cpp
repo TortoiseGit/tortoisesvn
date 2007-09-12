@@ -3313,8 +3313,12 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				if (CMessageBox::Show(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
 				{
 					CSVNProgressDlg dlg;
-					dlg.SetParams(CSVNProgressDlg::SVNProgress_Merge, 0, CTSVNPathList(m_path), pathURL, pathURL, revHighest);		//use the message as the second url
-					dlg.m_RevisionEnd = svn_revnum_t(revLowest)-1;
+					dlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
+					dlg.SetPathList(CTSVNPathList(m_path));
+					dlg.SetUrl(pathURL);
+					dlg.SetSecondUrl(pathURL);
+					dlg.SetRevision(revHighest);
+					dlg.SetRevisionEnd(svn_revnum_t(revLowest)-1);
 					dlg.SetPegRevision(m_LogRevision);
 					dlg.DoModal();
 				}
@@ -3337,8 +3341,12 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				if (CMessageBox::Show(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
 				{
 					CSVNProgressDlg dlg;
-					dlg.SetParams(CSVNProgressDlg::SVNProgress_Merge, 0, CTSVNPathList(m_path), pathURL, pathURL, SVNRev::REV_HEAD);		//use the message as the second url
-					dlg.m_RevisionEnd = revSelected;
+					dlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
+					dlg.SetPathList(CTSVNPathList(m_path));
+					dlg.SetUrl(pathURL);
+					dlg.SetSecondUrl(pathURL);
+					dlg.SetRevision(SVNRev::REV_HEAD);
+					dlg.SetRevisionEnd(revSelected);
 					dlg.SetPegRevision(m_LogRevision);
 					dlg.DoModal();
 				}
@@ -3882,7 +3890,10 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				{
 					// a deleted path! Since the path isn't there anymore, merge
 					// won't work. So just do a copy url->wc
-					dlg.SetParams(CSVNProgressDlg::SVNProgress_Copy, 0, CTSVNPathList(CTSVNPath(fileURL)), wcPath, _T(""), rev2);
+					dlg.SetCommand(CSVNProgressDlg::SVNProgress_Copy);
+					dlg.SetPathList(CTSVNPathList(CTSVNPath(fileURL)));
+					dlg.SetUrl(wcPath);
+					dlg.SetRevision(rev2);
 				}
 				else
 				{
@@ -3895,8 +3906,12 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 						theApp.DoWaitCursor(-1);
 						break;		//exit
 					}
-					dlg.SetParams(CSVNProgressDlg::SVNProgress_Merge, 0, CTSVNPathList(CTSVNPath(wcPath)), fileURL, fileURL, rev1);		//use the message as the second url
-					dlg.m_RevisionEnd = rev2;
+					dlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
+					dlg.SetPathList(CTSVNPathList(CTSVNPath(wcPath)));
+					dlg.SetUrl(fileURL);
+					dlg.SetSecondUrl(fileURL);
+					dlg.SetRevision(rev1);
+					dlg.SetRevisionEnd(rev2);
 				}
 				CString msg;
 				msg.Format(IDS_LOG_REVERT_CONFIRM, wcPath);

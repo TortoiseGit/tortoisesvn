@@ -32,10 +32,11 @@ bool RevertCommand::Execute()
 		if (dlg.m_pathList.GetCount() == 0)
 			return FALSE;
 		CSVNProgressDlg progDlg;
-		progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 		theApp.m_pMainWnd = &progDlg;
-		int options = (dlg.m_bRecursive ? ProgOptRecursive : ProgOptNonRecursive);
-		progDlg.SetParams(CSVNProgressDlg::SVNProgress_Revert, options, dlg.m_pathList);
+		progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Revert);
+		progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
+		progDlg.SetOptions(dlg.m_bRecursive ? ProgOptRecursive : ProgOptNonRecursive);
+		progDlg.SetPathList(dlg.m_pathList);
 		progDlg.SetItemCount(dlg.m_selectedPathList.GetCount());
 		progDlg.SetSelectedList(dlg.m_selectedPathList);
 		progDlg.DoModal();

@@ -31,7 +31,9 @@ bool UnLockCommand::Execute()
 		if (unlockDlg.m_pathList.GetCount() != 0)
 		{
 			CSVNProgressDlg progDlg;
-			progDlg.SetParams(CSVNProgressDlg::SVNProgress_Unlock, parser.HasKey(_T("force")) ? ProgOptLockForce : 0, unlockDlg.m_pathList);
+			progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Unlock);
+			progDlg.SetOptions(parser.HasKey(_T("force")) ? ProgOptLockForce : ProgOptNone);
+			progDlg.SetPathList(unlockDlg.m_pathList);
 			progDlg.DoModal();
 		}
 	}

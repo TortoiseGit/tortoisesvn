@@ -52,16 +52,20 @@ bool ExportCommand::Execute()
 			CTSVNPath exportPath(dlg.m_strExportDirectory);
 
 			CSVNProgressDlg progDlg;
-			progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 			theApp.m_pMainWnd = &progDlg;
-			int options = dlg.m_bNoExternals ? ProgOptIgnoreExternals : 0;
+			progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Export);
+			progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
+			DWORD options = dlg.m_bNoExternals ? ProgOptIgnoreExternals : ProgOptNone;
 			if (dlg.m_eolStyle.CompareNoCase(_T("CRLF"))==0)
 				options |= ProgOptEolCRLF;
 			if (dlg.m_eolStyle.CompareNoCase(_T("CR"))==0)
 				options |= ProgOptEolCR;
 			if (dlg.m_eolStyle.CompareNoCase(_T("LF"))==0)
 				options |= ProgOptEolLF;
-			progDlg.SetParams(CSVNProgressDlg::SVNProgress_Export, options, CTSVNPathList(exportPath), dlg.m_URL, _T(""), dlg.Revision);
+			progDlg.SetOptions(options);
+			progDlg.SetPathList(CTSVNPathList(exportPath));
+			progDlg.SetUrl(dlg.m_URL);
+			progDlg.SetRevision(dlg.Revision);
 			progDlg.SetDepth(dlg.m_depth);
 			progDlg.DoModal();
 		}

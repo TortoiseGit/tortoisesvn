@@ -2223,7 +2223,11 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 						opts |= ProgOptEolCR;
 					if (dlg.m_eolStyle.CompareNoCase(_T("LF"))==0)
 						opts |= ProgOptEolLF;
-					progDlg.SetParams(CSVNProgressDlg::SVNProgress_Export, opts, CTSVNPathList(exportDirectory), dlg.m_URL, _T(""), dlg.Revision);
+					progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Export);
+					progDlg.SetOptions(opts);
+					progDlg.SetPathList(CTSVNPathList(exportDirectory));
+					progDlg.SetUrl(dlg.m_URL);
+					progDlg.SetRevision(dlg.Revision);
 					progDlg.SetDepth(dlg.m_depth);
 					progDlg.DoModal();
 				}

@@ -66,9 +66,12 @@ bool UpdateCommand::Execute()
 	}
 
 	CSVNProgressDlg progDlg;
-	progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 	theApp.m_pMainWnd = &progDlg;
-	progDlg.SetParams(CSVNProgressDlg::SVNProgress_Update, options, pathList, _T(""), _T(""), rev);
+	progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Update);
+	progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
+	progDlg.SetOptions(options);
+	progDlg.SetPathList(pathList);
+	progDlg.SetRevision(rev);
 	progDlg.SetDepth(depth);
 	progDlg.DoModal();
 	return true;

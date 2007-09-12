@@ -44,14 +44,19 @@ bool MergeCommand::Execute()
 		if (dlg.DoModal() == IDOK)
 		{
 			CSVNProgressDlg progDlg;
-			progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
+			progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
+			progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
 			int options = dlg.m_bDryRun ? ProgOptDryRun : 0;
 			options |= dlg.m_bIgnoreAncestry ? ProgOptIgnoreAncestry : 0;
 			options |= dlg.m_bRecordOnly ? ProgOptRecordOnly : 0;
-			progDlg.SetParams(CSVNProgressDlg::SVNProgress_Merge, options, pathList, dlg.m_URLFrom, dlg.m_URLTo, dlg.StartRev);		//use the message as the second url
+			progDlg.SetOptions(options);
+			progDlg.SetPathList(pathList);
+			progDlg.SetUrl(dlg.m_URLFrom);
+			progDlg.SetSecondUrl(dlg.m_URLTo);
+			progDlg.SetRevision(dlg.StartRev);
+			progDlg.SetRevisionEnd(dlg.EndRev);
 			// use the depth of the working copy
 			progDlg.SetDepth(dlg.m_depth);
-			progDlg.m_RevisionEnd = dlg.EndRev;
 			progDlg.SetDiffOptions(SVN::GetOptionsString(dlg.m_bIgnoreEOL, dlg.m_IgnoreSpaces));
 			progDlg.DoModal();
 			repeat = dlg.m_bDryRun;

@@ -79,7 +79,6 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	, m_itemCountTotal(-1)
 	, m_AlwaysConflicted(false)
 {
-	m_pSvn = this;
 }
 
 CSVNProgressDlg::~CSVNProgressDlg()
@@ -584,18 +583,6 @@ CString CSVNProgressDlg::BuildInfoString()
 	return infotext;
 }
 
-void CSVNProgressDlg::SetParams(Command cmd, int options, const CTSVNPathList& pathList, const CString& url /* = "" */, const CString& message /* = "" */, SVNRev revision /* = -1 */)
-{
-	m_Command = cmd;
-	m_options = options;
-
-	m_targetPathList = pathList;
-
-	m_url.SetFromUnknown(url);
-	m_sMessage = message;
-	m_Revision = revision;
-}
-
 void CSVNProgressDlg::SetSelectedList(const CTSVNPathList& selPaths)
 {
 	m_selectedPaths = selPaths;
@@ -652,7 +639,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDC_LOGBUTTON, BOTTOM_RIGHT);
-	this->SetPromptParentWindow(this->m_hWnd);
+	SetPromptParentWindow(this->m_hWnd);
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	EnableSaveRestore(_T("SVNProgressDlg"));
@@ -661,7 +648,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
 
 void CSVNProgressDlg::ReportSVNError()
 {
-	ReportError(m_pSvn->GetLastErrorMessage());
+	ReportError(GetLastErrorMessage());
 }
 
 void CSVNProgressDlg::ReportError(const CString& sError)
@@ -775,7 +762,7 @@ UINT CSVNProgressDlg::ProgressThread()
 					m_options & ProgOptIgnoreExternals ? (LPCTSTR)sExtExcluded : (LPCTSTR)sExtIncluded);
 				ReportCmd(sCmdInfo);
 
-				if (!m_pSvn->Checkout(urls[i], checkoutdir, m_Revision, m_Revision, m_depth, m_options & ProgOptIgnoreExternals))
+				if (!Checkout(urls[i], checkoutdir, m_Revision, m_Revision, m_depth, m_options & ProgOptIgnoreExternals))
 				{
 					if (m_ProgList.GetItemCount()!=0)
 					{
@@ -786,7 +773,7 @@ UINT CSVNProgressDlg::ProgressThread()
 					// try again with HEAD as the peg revision.
 					else
 					{
-						if (!m_pSvn->Checkout(urls[i], checkoutdir, SVNRev::REV_HEAD, m_Revision, m_depth, m_options & ProgOptIgnoreExternals))
+						if (!Checkout(urls[i], checkoutdir, SVNRev::REV_HEAD, m_Revision, m_depth, m_options & ProgOptIgnoreExternals))
 						{
 							ReportSVNError();
 							bFailed = true;
@@ -807,7 +794,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				m_targetPathList[0].GetWinPath(), (LPCTSTR)m_url.GetSVNPathString(), 
 				m_options & ProgOptIncludeIgnored ? (LPCTSTR)(_T(", ") + sIgnoredIncluded) : _T(""));
 			ReportCmd(sCmdInfo);
-			if (!m_pSvn->Import(m_targetPathList[0], m_url, m_sMessage, &m_ProjectProperties, true, m_options & ProgOptIncludeIgnored ? true : false))
+			if (!Import(m_targetPathList[0], m_url, m_sMessage, &m_ProjectProperties, true, m_options & ProgOptIncludeIgnored ? true : false))
 			{
 				ReportSVNError();
 				bFailed = true;
@@ -902,7 +889,7 @@ UINT CSVNProgressDlg::ProgressThread()
 					CString sNotify;
 					sNotify.Format(IDS_PROGRS_UPDATEPATH, m_basePath.GetWinPath());
 					ReportString(sNotify, CString(MAKEINTRESOURCE(IDS_WARN_NOTE)));
-					if (!m_pSvn->Update(CTSVNPathList(targetPath), revstore, m_depth, m_options & ProgOptIgnoreExternals))
+					if (!Update(CTSVNPathList(targetPath), revstore, m_depth, m_options & ProgOptIgnoreExternals))
 					{
 						ReportSVNError();
 						bFailed = true;
@@ -910,7 +897,7 @@ UINT CSVNProgressDlg::ProgressThread()
 					}
 				}
 			}
-			else if (!m_pSvn->Update(m_targetPathList, m_Revision, m_depth, m_options & ProgOptIgnoreExternals))
+			else if (!Update(m_targetPathList, m_Revision, m_depth, m_options & ProgOptIgnoreExternals))
 			{
 				ReportSVNError();
 				bFailed = true;
@@ -961,7 +948,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			{
 				if (bURLFetched == FALSE)
 				{
-					url = m_pSvn->GetURLFromPath(m_targetPathList[i]);
+					url = GetURLFromPath(m_targetPathList[i]);
 					if (!url.IsEmpty())
 						bURLFetched = TRUE;
 					CString urllower = url;
@@ -996,14 +983,14 @@ UINT CSVNProgressDlg::ProgressThread()
 				}
 			}
 
-			if (!m_pSvn->Commit(m_targetPathList, m_sMessage, m_changelist, m_keepchangelist, 
-				(m_Revision == 0) ? svn_depth_infinity : svn_depth_empty, m_options & ProgOptKeeplocks))
+			if (!Commit(m_targetPathList, m_sMessage, m_changelist, m_keepchangelist, 
+				m_depth, m_options & ProgOptKeeplocks))
 			{
 				ReportSVNError();
 				bFailed = true;
 				// if a non-recursive commit failed with SVN_ERR_UNSUPPORTED_FEATURE,
 				// that means a folder deletion couldn't be committed.
-				if ((m_Revision != 0)&&(m_pSvn->Err->apr_err == SVN_ERR_UNSUPPORTED_FEATURE))
+				if ((m_Revision != 0)&&(Err->apr_err == SVN_ERR_UNSUPPORTED_FEATURE))
 				{
 					ReportError(CString(MAKEINTRESOURCE(IDS_PROGRS_NONRECURSIVEHINT)));
 				}
@@ -1025,7 +1012,7 @@ UINT CSVNProgressDlg::ProgressThread()
 		localoperation = true;
 		sWindowTitle.LoadString(IDS_PROGRS_TITLE_ADD);
 		SetWindowText(sWindowTitle);
-		if (!m_pSvn->Add(m_targetPathList, &m_ProjectProperties, false, FALSE, TRUE, TRUE))
+		if (!Add(m_targetPathList, &m_ProjectProperties, false, FALSE, TRUE, TRUE))
 		{
 			ReportSVNError();
 			bFailed = true;
@@ -1040,7 +1027,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			CTSVNPathList delList = m_selectedPaths;
 			delList.DeleteAllFiles(true);
 
-			if (!m_pSvn->Revert(m_targetPathList, !!(m_options & ProgOptRecursive)))
+			if (!Revert(m_targetPathList, !!(m_options & ProgOptRecursive)))
 			{
 				ReportSVNError();
 				bFailed = true;
@@ -1093,13 +1080,13 @@ UINT CSVNProgressDlg::ProgressThread()
 				if (CMessageBox::Show(m_hWnd, IDS_PROGRS_REVERTMARKERS, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)==IDYES)
 				{
 					for (INT_PTR fileindex=0; fileindex<m_targetPathList.GetCount(); ++fileindex)
-						m_pSvn->Resolve(m_targetPathList[fileindex], true);
+						Resolve(m_targetPathList[fileindex], true);
 				}
 			}
 			else
 			{
 				for (INT_PTR fileindex=0; fileindex<m_targetPathList.GetCount(); ++fileindex)
-					m_pSvn->Resolve(m_targetPathList[fileindex], true);
+					Resolve(m_targetPathList[fileindex], true);
 			}
 		}
 		break;
@@ -1124,7 +1111,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				(LPCTSTR)m_Revision.ToString());
 			ReportCmd(sCmdInfo);
 
-			if (!m_pSvn->Switch(m_targetPathList[0], m_url, m_Revision, m_depth, m_options & ProgOptIgnoreExternals))
+			if (!Switch(m_targetPathList[0], m_url, m_Revision, m_depth, m_options & ProgOptIgnoreExternals))
 			{
 				ReportSVNError();
 				bFailed = true;
@@ -1149,7 +1136,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				eol = _T("LF");
 			if (m_options & ProgOptEolCR)
 				eol = _T("CR");
-			if (!m_pSvn->Export(m_url, m_targetPathList[0], m_Revision, m_Revision, TRUE, m_options & ProgOptIgnoreExternals, m_depth, NULL, FALSE, eol))
+			if (!Export(m_url, m_targetPathList[0], m_Revision, m_Revision, TRUE, m_options & ProgOptIgnoreExternals, m_depth, NULL, FALSE, eol))
 			{
 				ReportSVNError();
 				bFailed = true;
@@ -1169,9 +1156,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				sWindowTitle += _T(" ") + sRecordOnly;
 			}
 			SetWindowText(sWindowTitle);
-			// Eeek!  m_sMessage is actually a path for this command...
-			CTSVNPath urlTo(m_sMessage);
-			if (m_url.IsEquivalentTo(urlTo))
+			if (m_url.IsEquivalentTo(m_url2))
 			{
 
 				CString sCmdInfo;
@@ -1183,13 +1168,13 @@ UINT CSVNProgressDlg::ProgressThread()
 					m_options & ProgOptDryRun ? ((LPCTSTR)_T(", ") + sDryRun) : _T(""));
 				ReportCmd(sCmdInfo);
 
-				if (!m_pSvn->PegMerge(m_url, m_Revision, m_RevisionEnd, 
+				if (!PegMerge(m_url, m_Revision, m_RevisionEnd, 
 					m_pegRev.IsValid() ? m_pegRev : (m_url.IsUrl() ? m_RevisionEnd : SVNRev(SVNRev::REV_WC)),
 					m_targetPathList[0], true, m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun)))
 				{
 					// if the merge fails with the peg revision set to the end revision of the merge,
 					// try again with HEAD as the peg revision.
-					if (!m_pSvn->PegMerge(m_url, m_Revision, m_RevisionEnd, SVNRev::REV_HEAD,
+					if (!PegMerge(m_url, m_Revision, m_RevisionEnd, SVNRev::REV_HEAD,
 						m_targetPathList[0], true, m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun), !!(m_options & ProgOptRecordOnly)))
 					{
 						ReportSVNError();
@@ -1202,20 +1187,20 @@ UINT CSVNProgressDlg::ProgressThread()
 				CString sCmdInfo;
 				sCmdInfo.Format(IDS_PROGRS_CMD_MERGEURL, 
 					(LPCTSTR)m_url.GetSVNPathString(), (LPCTSTR)m_Revision.ToString(), 
-					(LPCTSTR)urlTo.GetSVNPathString(), (LPCTSTR)m_RevisionEnd.ToString(),
+					(LPCTSTR)m_url2.GetSVNPathString(), (LPCTSTR)m_RevisionEnd.ToString(),
 					m_targetPathList[0].GetWinPath(),
 					m_options & ProgOptIgnoreAncestry ? (LPCTSTR)sIgnoreAncestry : (LPCTSTR)sRespectAncestry,
 					m_options & ProgOptDryRun ? ((LPCTSTR)_T(", ") + sDryRun) : _T(""));
 				ReportCmd(sCmdInfo);
 
-				if (!m_pSvn->Merge(m_url, m_Revision, urlTo, m_RevisionEnd, m_targetPathList[0], 
+				if (!Merge(m_url, m_Revision, m_url2, m_RevisionEnd, m_targetPathList[0], 
 					true, m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun), !!(m_options & ProgOptRecordOnly)))
 				{
 					ReportSVNError();
 					bFailed = true;
 				}
 			}
-			if ((!bFailed) && (m_url.IsEquivalentTo(urlTo)) && !(m_options & ProgOptDryRun))
+			if ((!bFailed) && (m_url.IsEquivalentTo(m_url2)) && !(m_options & ProgOptDryRun))
 			{
 				// retrieve the log messages for all the revisions which got merged and save them
 				// in the registry as a 'previous' log message entered in the commit dialog
@@ -1324,7 +1309,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				(LPCTSTR)m_url.GetSVNPathString(), m_Revision.ToString());
 			ReportCmd(sCmdInfo);
 
-			if (!m_pSvn->Copy(m_targetPathList, m_url, m_Revision, m_pegRev, m_sMessage))
+			if (!Copy(m_targetPathList, m_url, m_Revision, m_pegRev, m_sMessage))
 			{
 				ReportSVNError();
 				bFailed = true;
@@ -1332,7 +1317,7 @@ UINT CSVNProgressDlg::ProgressThread()
 			}
 			if (m_options & ProgOptSwitchAfterCopy)
 			{
-				if (!m_pSvn->Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, m_depth, m_options & ProgOptIgnoreExternals))
+				if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, m_depth, m_options & ProgOptIgnoreExternals))
 				{
 					ReportSVNError();
 					bFailed = true;
@@ -1356,7 +1341,7 @@ UINT CSVNProgressDlg::ProgressThread()
 				localoperation = true;
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_RENAME);
 			SetWindowText(sWindowTitle);
-			if (!m_pSvn->Move(m_targetPathList, m_url, m_Revision, m_sMessage))
+			if (!Move(m_targetPathList, m_url, m_Revision, m_sMessage))
 			{
 				ReportSVNError();
 				bFailed = true;
@@ -1368,7 +1353,7 @@ UINT CSVNProgressDlg::ProgressThread()
 		{
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_LOCK);
 			SetWindowText(sWindowTitle);
-			if (!m_pSvn->Lock(m_targetPathList, m_options & ProgOptLockForce, m_sMessage))
+			if (!Lock(m_targetPathList, m_options & ProgOptLockForce, m_sMessage))
 			{
 				ReportSVNError();
 				bFailed = true;
@@ -1381,12 +1366,12 @@ UINT CSVNProgressDlg::ProgressThread()
 				if (CMessageBox::Show(m_hWnd, IDS_WARN_LOCKOUTDATED, IDS_APPNAME, MB_ICONQUESTION|MB_YESNO)==IDYES)
 				{
 					ReportString(CString(MAKEINTRESOURCE(IDS_SVNPROGRESS_UPDATEANDRETRY)), CString(MAKEINTRESOURCE(IDS_WARN_NOTE)));
-					if (!m_pSvn->Update(m_targetPathList, SVNRev::REV_HEAD, svn_depth_empty, true))
+					if (!Update(m_targetPathList, SVNRev::REV_HEAD, svn_depth_empty, true))
 					{
 						ReportSVNError();
 						bFailed = true;
 					}
-					if (!m_pSvn->Lock(m_targetPathList, m_options & ProgOptLockForce, m_sMessage))
+					if (!Lock(m_targetPathList, m_options & ProgOptLockForce, m_sMessage))
 					{
 						ReportSVNError();
 						bFailed = true;
@@ -1411,7 +1396,7 @@ UINT CSVNProgressDlg::ProgressThread()
 		{
 			sWindowTitle.LoadString(IDS_PROGRS_TITLE_UNLOCK);
 			SetWindowText(sWindowTitle);
-			if (!m_pSvn->Unlock(m_targetPathList, m_options & ProgOptLockForce))
+			if (!Unlock(m_targetPathList, m_options & ProgOptLockForce))
 			{
 				ReportSVNError();
 				bFailed = true;

@@ -91,8 +91,12 @@ bool RenameCommand::Execute()
 			// progress dialog to show the progress of the renaming
 			// operation.
 			CSVNProgressDlg progDlg;
-			progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
-			progDlg.SetParams(CSVNProgressDlg::SVNProgress_Rename, 0, pathList, destinationPath.GetWinPathString(), sMsg, SVNRev::REV_WC);
+			progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Rename);
+			progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
+			progDlg.SetPathList(pathList);
+			progDlg.SetUrl(destinationPath.GetWinPathString());
+			progDlg.SetCommitMessage(sMsg);
+			progDlg.SetRevision(SVNRev::REV_WC);
 			progDlg.DoModal();
 		}
 		else

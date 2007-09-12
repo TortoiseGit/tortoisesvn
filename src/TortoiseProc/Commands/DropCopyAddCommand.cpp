@@ -94,10 +94,10 @@ bool DropCopyAddCommand::Execute()
 	}
 	//now add all the newly copied files to the working copy
 	CSVNProgressDlg progDlg;
-	progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 	theApp.m_pMainWnd = &progDlg;
-
-	progDlg.SetParams(CSVNProgressDlg::SVNProgress_Add, 0, copiedFiles);
+	progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Add);
+	progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
+	progDlg.SetPathList(copiedFiles);
 	ProjectProperties props;
 	props.ReadPropsPathList(copiedFiles);
 	progDlg.SetProjectProperties(props);

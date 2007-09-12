@@ -30,9 +30,13 @@ bool ImportCommand::Execute()
 	{
 		TRACE(_T("url = %s\n"), (LPCTSTR)dlg.m_url);
 		CSVNProgressDlg progDlg;
-		progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 		theApp.m_pMainWnd = &progDlg;
-		progDlg.SetParams(CSVNProgressDlg::SVNProgress_Import, dlg.m_bIncludeIgnored ? ProgOptIncludeIgnored : 0, pathList, dlg.m_url, dlg.m_sMessage);
+		progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Import);
+		progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
+		progDlg.SetOptions(dlg.m_bIncludeIgnored ? ProgOptIncludeIgnored : ProgOptNone);
+		progDlg.SetPathList(pathList);
+		progDlg.SetUrl(dlg.m_url);
+		progDlg.SetCommitMessage(dlg.m_sMessage);
 		ProjectProperties props;
 		props.ReadPropsPathList(pathList);
 		progDlg.SetProjectProperties(props);

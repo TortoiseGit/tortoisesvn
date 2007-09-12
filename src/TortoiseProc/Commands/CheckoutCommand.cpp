@@ -114,33 +114,29 @@ bool CheckoutCommand::Execute()
 		if (foldbrowse.Show(hwndExplorer, checkoutpath, MAX_PATH, CString(regDefCheckoutPath))==CBrowseFolder::OK)
 		{
 			CSVNProgressDlg progDlg;
-			progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 			theApp.m_pMainWnd = &progDlg;
-			int opts = 0;
-			if (foldbrowse.m_bCheck2)
-				opts |= ProgOptIgnoreExternals;
-			progDlg.SetParams(CSVNProgressDlg::SVNProgress_Checkout, opts, CTSVNPathList(CTSVNPath(CString(checkoutpath))), dlg.m_URL, _T(""), dlg.Revision);
-			if (foldbrowse.m_bCheck)
-				progDlg.SetDepth(svn_depth_empty);
-			else
-				progDlg.SetDepth(svn_depth_infinity);
+			progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
+			progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Checkout);
+			progDlg.SetOptions(foldbrowse.m_bCheck2 ? ProgOptIgnoreExternals : ProgOptNone);
+			progDlg.SetPathList(CTSVNPathList(CTSVNPath(CString(checkoutpath))));
+			progDlg.SetUrl(dlg.m_URL);
+			progDlg.SetRevision(dlg.Revision);
+			progDlg.SetDepth(foldbrowse.m_bCheck ? svn_depth_empty : svn_depth_infinity);
 			progDlg.DoModal();
 		}
 	}
 	else if (dlg.DoModal() == IDOK)
 	{
-		TRACE(_T("url = %s\n"), (LPCTSTR)dlg.m_URL);
-		TRACE(_T("checkout dir = %s \n"), (LPCTSTR)dlg.m_strCheckoutDirectory);
-
 		checkoutDirectory.SetFromWin(dlg.m_strCheckoutDirectory, true);
 
 		CSVNProgressDlg progDlg;
-		progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
 		theApp.m_pMainWnd = &progDlg;
-		int opts = 0;
-		if (dlg.m_bNoExternals)
-			opts |= ProgOptIgnoreExternals;
-		progDlg.SetParams(CSVNProgressDlg::SVNProgress_Checkout, opts, CTSVNPathList(checkoutDirectory), dlg.m_URL, _T(""), dlg.Revision);
+		progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Checkout);
+		progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
+		progDlg.SetOptions(dlg.m_bNoExternals ? ProgOptIgnoreExternals : ProgOptNone);
+		progDlg.SetPathList(CTSVNPathList(checkoutDirectory));
+		progDlg.SetUrl(dlg.m_URL);
+		progDlg.SetRevision(dlg.Revision);
 		progDlg.SetDepth(dlg.m_depth);
 		progDlg.DoModal();
 	}

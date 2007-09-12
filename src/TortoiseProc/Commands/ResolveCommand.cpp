@@ -33,13 +33,12 @@ bool ResolveCommand::Execute()
 	{
 		if (dlg.m_pathList.GetCount())
 		{
-			int options = 0;
 			CSVNProgressDlg progDlg(CWnd::FromHandle(hWndExplorer));
-			progDlg.m_dwCloseOnEnd = parser.GetLongVal(_T("closeonend"));
-			if (parser.HasKey(_T("skipcheck")))
-				options |= ProgOptSkipConflictCheck;
 			theApp.m_pMainWnd = &progDlg;
-			progDlg.SetParams(CSVNProgressDlg::SVNProgress_Resolve, options, dlg.m_pathList);
+			progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Resolve);
+			progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
+			progDlg.SetOptions(parser.HasKey(_T("skipcheck")) ? ProgOptSkipConflictCheck : ProgOptNone);
+			progDlg.SetPathList(dlg.m_pathList);
 			progDlg.DoModal();
 		}
 	}
