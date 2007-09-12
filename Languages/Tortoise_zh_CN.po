@@ -8515,6 +8515,18 @@ msgstr ""
 "Rev，LastChangedRevision\t此对象有变更的最新版本。\r\n"
 "Id\t\t\t\t\\上述四个关键词的组合。"
 
+#: ID:576,
+msgid ""
+"svn:mergeinfo\n"
+"A newline separated list of merge tracking info. Each line consists of an absolute\n"
+"path followed by a colon and a list of comma separated revision numbers.\n"
+"For example\n"
+"/trunk:123,125,129"
+msgstr "svn:mergeinfo\n"
+"用换行隔开的合并跟踪信息列表。每行包含一个绝对路径，\n"
+"随后一个冒号，然后是用逗号分割的版本号列表。例如\n"
+"/trunk:123,125,129"
+
 # ID:14,
 #: ID:576,
 msgid ""
