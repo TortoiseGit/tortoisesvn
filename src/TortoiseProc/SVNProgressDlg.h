@@ -72,21 +72,20 @@ class CSVNProgressDlg : public CResizableStandAloneDialog, public SVN
 public:
 	typedef enum
 	{
-		SVNProgress_Checkout = 1,
-		SVNProgress_Update = 2,
-		SVNProgress_Commit = 3,
-		SVNProgress_Add = 4,
-		SVNProgress_Revert = 5,
-		SVNProgress_Resolve = 6,
-		SVNProgress_Import = 7,
-		SVNProgress_Switch = 8,
-		SVNProgress_Export = 9,
-		SVNProgress_Merge = 10,
-		SVNProgress_Copy = 11,
-		SVNProgress_Relocate = 12,
-		SVNProgress_Rename = 13,
-		SVNProgress_Lock = 14,
-		SVNProgress_Unlock = 15
+		SVNProgress_Add,
+		SVNProgress_Checkout,
+		SVNProgress_Commit,
+		SVNProgress_Copy,
+		SVNProgress_Export,
+		SVNProgress_Import,
+		SVNProgress_Lock,
+		SVNProgress_Merge,
+		SVNProgress_Rename,
+		SVNProgress_Resolve,
+		SVNProgress_Revert,
+		SVNProgress_Switch,
+		SVNProgress_Unlock,
+		SVNProgress_Update,
 	} Command;
 
 
@@ -227,6 +226,21 @@ private:
 	/// Predicate function to tell us if a notification data item is auxiliary or not
 	static bool NotificationDataIsAux(const NotificationData* pData);
 
+	// the commands to execute
+	bool		CmdAdd(CString& sWindowTitle, bool& localoperation);
+	bool		CmdCheckout(CString& sWindowTitle, bool& localoperation);
+	bool		CmdCommit(CString& sWindowTitle, bool& localoperation);
+	bool		CmdCopy(CString& sWindowTitle, bool& localoperation);
+	bool		CmdExport(CString& sWindowTitle, bool& localoperation);
+	bool		CmdImport(CString& sWindowTitle, bool& localoperation);
+	bool		CmdLock(CString& sWindowTitle, bool& localoperation);
+	bool		CmdMerge(CString& sWindowTitle, bool& localoperation);
+	bool		CmdRename(CString& sWindowTitle, bool& localoperation);
+	bool		CmdResolve(CString& sWindowTitle, bool& localoperation);
+	bool		CmdRevert(CString& sWindowTitle, bool& localoperation);
+	bool		CmdSwitch(CString& sWindowTitle, bool& localoperation);
+	bool		CmdUnlock(CString& sWindowTitle, bool& localoperation);
+	bool		CmdUpdate(CString& sWindowTitle, bool& localoperation);
 
 private:
 	typedef std::map<CStringA, svn_revnum_t> StringRevMap;
@@ -282,4 +296,14 @@ private:
 	int						m_itemCountTotal;
 
 	bool					m_AlwaysConflicted;
+
+	// some strings different methods can use
+	CString					sIgnoredIncluded;
+	CString					sExtExcluded;
+	CString					sExtIncluded;
+	CString					sIgnoreAncestry;
+	CString					sRespectAncestry;
+	CString					sDryRun;
+	CString					sRecordOnly;
+
 };
