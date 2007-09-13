@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-05-31 22:37+0100\n"
-"Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
+"PO-Revision-Date: 2007-09-13 13:58+0100\n"
+"Last-Translator: Sven Fischer <fescher@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,6 +40,7 @@ msgstr "! %d"
 msgid "%.2f MBytes transferred"
 msgstr "%.2f Mo transférés"
 
+# Shouldn't it be contains unexpected object in original?
 #: ID:3868
 #, c-format
 msgid "%1 contained an unexpected object."
@@ -314,7 +315,7 @@ msgstr "N&ettoyer"
 
 #: MenuEntry
 msgid "&Color age of lines"
-msgstr ""
+msgstr "&Couleur pour ages des lignes"
 
 #: ID:8
 msgid "&Commit..."
@@ -1630,7 +1631,7 @@ msgstr "Profondeur d'extraction"
 #: ID:229
 #, c-format
 msgid "Checkout from %s, revision %s, %s, %s"
-msgstr ""
+msgstr "Extraire de %s, révision %s, %s, %s"
 
 #: ID:146
 msgid "Cleaning up."
@@ -1642,7 +1643,7 @@ msgstr "Le nettoyage est terminé"
 
 #: ID:9
 msgid "Cleanup interrupted operations, locked files, ..."
-msgstr "Nettoyage de opération interrompu, des fichiers verrouillés, ..."
+msgstr "Nettoyage d'opérations interrompus, de fichiers verrouillés, ..."
 
 # Control-ID:1059,
 #: Control-ID:1273
@@ -1675,7 +1676,7 @@ msgstr "Efface %ld paires nom d'utilisateur/mot de passe, %ld certificats SSL et
 #: ID:197
 #, c-format
 msgid "Clears cached logs from %ld repositories"
-msgstr ""
+msgstr "Supprime les commentaires des répertoires %ld"
 
 # ID:195,
 #: ID:195
@@ -2307,7 +2308,7 @@ msgid "Do you really want to move this file or folder?"
 msgstr "Voulez-vous vraiment déplacer ce fichier ou ce répertoire ?"
 
 #: ID:119
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Do you really want to revert all changes in\n"
 "%s\n"
@@ -2318,7 +2319,7 @@ msgstr ""
 "et revenir à cette révision ? Ces changements seront fusionnés dans votre copie de travail."
 
 #: ID:76
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Do you really want to revert all changes in\n"
 "%s\n"
@@ -3112,7 +3113,7 @@ msgstr ""
 
 #: ID:194
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
-msgstr "Si validé, TortoiseSVN contrôle une fois par semaine si une nouvelle version est disponible"
+msgstr "Si activé, TortoiseSVN contrôle une fois par semaine si une nouvelle version est disponible"
 
 # ID:195,
 #: ID:195
@@ -3138,6 +3139,9 @@ msgid ""
 "If enabled, working copy folders which are excluded from\n"
 "showing overlays still show the overlay for status 'normal'"
 msgstr ""
+"Si activé, les répertoires de la copie de travail qui n'affichent\n"
+"pas de recouvrement afficheront quand-même le recouvrement\n"
+"pour le status 'normal'"
 
 # ID:195,
 #: ID:195
@@ -3225,11 +3229,9 @@ msgid "Import %ld items"
 msgstr "Importer %ld éléments"
 
 #: ID:229
-#, fuzzy, c-format
+#, c-format
 msgid "Import %s to %s%s"
-msgstr ""
-"Importer le fichier %s\r\n"
-"vers %s"
+msgstr "Importer %s vers %s%s"
 
 #: Control-ID:1056
 msgid "Import &message"
@@ -3598,14 +3600,13 @@ msgid "Log messages"
 msgstr "Commentaires"
 
 #: Control-ID:1274
-#, fuzzy
 msgid "Log messages (Input dialog)"
 msgstr "Commentaires"
 
 # Control-ID:1280,
 #: Control-ID:1280
 msgid "Log messages (Show log dialog)"
-msgstr ""
+msgstr "Commentaires (Afficher boite de dialogue)"
 
 # Dlg-ID:106,
 #: Dlg-ID:195
@@ -3719,13 +3720,13 @@ msgstr "Fusion"
 #: ID:229
 #, c-format
 msgid "Merging %s from revision %s to %s into %s, %s%s"
-msgstr ""
+msgstr "Fusionner %s de la révision %s vers %s dans %s, %s%s"
 
 # ID:229,
 #: ID:229
 #, c-format
 msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
-msgstr ""
+msgstr "Fusionner de %s, révision %s vers %s, révision %s dans %s, %s%s"
 
 # ID:83,
 #: ID:83
@@ -3985,7 +3986,7 @@ msgstr "Certaines entrées dans le registre système (ou le fichier INI) n'ont p
 # ID:266,
 #: ID:266
 msgid "Not descending"
-msgstr ""
+msgstr "Non descendant"
 
 #: ID:83
 msgid "Not enough memory to complete operation."
@@ -4022,7 +4023,7 @@ msgstr "RFP"
 # Control-ID:65535,
 #: Control-ID:65535
 msgid "Older lines"
-msgstr ""
+msgstr "Lines plus vieilles"
 
 #: ID:99
 #: Control-ID:1202
@@ -5187,7 +5188,7 @@ msgstr "Afficher la liste des fichiers"
 # Control-ID:1126,
 #: Control-ID:1126
 msgid "Show Lock dialog before locking files"
-msgstr ""
+msgstr "Afficher la boîte de dialogue verou avant de verrouiller les fichiers"
 
 #: MenuEntry
 msgid "Show Ove&rview"
@@ -5199,7 +5200,6 @@ msgid "Show an overview of the whole graph"
 msgstr "Afficher une vue d'ensemble de tout le graphe"
 
 #: ID:114
-#, fuzzy
 msgid "Show changes as &unified diff"
 msgstr "Voir les différences en mode diff &unifié"
 
@@ -5210,7 +5210,7 @@ msgstr "Voir les différences en mode diff &unifié"
 # Control-ID:1126,
 #: Control-ID:1126
 msgid "Show excluded folders as 'normal'"
-msgstr ""
+msgstr "Afficher "
 
 #: Control-ID:1264
 msgid "Show ignored files"
@@ -5345,7 +5345,7 @@ msgstr "Spécifiez la plage de révisions que vous voulez fusionner :"
 # ID:376,
 #: ID:376
 msgid "Split lines"
-msgstr ""
+msgstr "Séparer lignes"
 
 #: ID:3604
 msgid ""
@@ -5467,7 +5467,7 @@ msgstr "Déplacer la cop&ie de travail vers une nouvelle branche/étiquette"
 #: ID:229
 #, c-format
 msgid "Switch %s to %s, Revision %s"
-msgstr ""
+msgstr "Changer %s vers %s, Révision %s"
 
 #: ID:78
 msgid "Switch - TortoiseSVN"
@@ -6032,6 +6032,8 @@ msgid ""
 "To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\n"
 "This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 msgstr ""
+"Pour voler le verrou, faites un click-droit sur le répertoire parent et sélectionner \"Obtenir un verrou\" du menu contextuel.\n"
+"Ceci affichera la boîte de dialogue Verrous où vous pourrez forcer le verrou, p.ex. le 'voler' de celui auquel il appartient actuellement"
 
 # Control-ID:1201,
 #: Control-ID:1201
@@ -6269,7 +6271,7 @@ msgstr ""
 
 #: ID:266
 msgid "Unknown depth"
-msgstr ""
+msgstr "Profondeur inconnu"
 
 #: ID:221
 #: Dlg-ID:242
@@ -6531,6 +6533,9 @@ msgid ""
 "When locking one or more selected files, shows a dialog\n"
 "asking for a descriptive message about the locking"
 msgstr ""
+"En verrouillant un ou plusieurs fichiers sélectionnés, affiche\n"
+"une boîte de dialogue demandant un message descriptif du\n"
+"verrou."
 
 #: ID:146
 msgid "With URL:"
@@ -6903,7 +6908,7 @@ msgstr "ignoré"
 # Control-ID:1067,
 #: ID:220
 msgid "ignoring ancestry"
-msgstr ""
+msgstr "ignorant origine"
 
 #: ID:13
 msgid "incomplete"
@@ -6989,7 +6994,7 @@ msgstr "remplacé"
 # Control-ID:1067,
 #: ID:220
 msgid "respecting ancestry"
-msgstr ""
+msgstr "respectant origine"
 
 #: ID:326
 #, c-format
@@ -7109,6 +7114,10 @@ msgid ""
 "Format: <filemask> = property=value;property=value\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 msgstr ""
+"tsvn:autoprops\n"
+"Une liste de propriétés séparés par des retours à la ligne qui seront appliqués automatiquement lors de l'ajout/importation de fichiers.\n"
+"Format: <filemask> = property=value;property=value\n"
+"Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 # ID:15,
 #: ID:17
