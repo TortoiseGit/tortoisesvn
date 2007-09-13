@@ -45,13 +45,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 10583: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 10594: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-09-12 11:59+0300\n"
+"PO-Revision-Date: 2007-09-13 12:43+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -635,10 +635,6 @@ msgstr "С&етевые диски"
 #: Control-ID:65535,
 msgid "&New "
 msgstr "&Новый"
-
-#: MenuEntry
-msgid "&Newest on top"
-msgstr "Новые свер&ху"
 
 #: ID:115,#:
 #: Control-ID:1208,
@@ -3192,15 +3188,15 @@ msgstr "ID:32809:V C +F"
 msgid "ID:32810:V   +T"
 msgstr "ID:32810:V   +T"
 
-#. Accelerator Entry for Menu ID:32814; '&Newest on top'
+#. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 #: Corresponding Menu ID:32814;
-#: '&Newest on top'
+#: 'Oldest on to&p'
 msgid "ID:32814:V C +L"
 msgstr "ID:32814:V C +L"
 
-#. Accelerator Entry for Menu ID:32814; '&Newest on top'
+#. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 #: Corresponding Menu ID:32814;
-#: '&Newest on top'
+#: 'Oldest on to&p'
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
@@ -4243,6 +4239,10 @@ msgstr "OVR"
 #: Control-ID:65535,
 msgid "Older lines"
 msgstr "Более старые строки"
+
+#: MenuEntry
+msgid "Oldest on to&p"
+msgstr "Старые свер&ху"
 
 # Род?
 #: ID:99,#:
