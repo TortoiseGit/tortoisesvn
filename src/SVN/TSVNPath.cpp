@@ -178,6 +178,7 @@ const char* CTSVNPath::GetSVNApiPath(apr_pool_t *pool) const
 	if (svn_path_is_url(m_sUTF8FwdslashPath))
 	{
 		m_sUTF8FwdslashPathEscaped = CPathUtils::PathEscape(m_sUTF8FwdslashPath);
+		m_sUTF8FwdslashPath = svn_path_canonicalize(m_sUTF8FwdslashPath, pool);
 		return m_sUTF8FwdslashPathEscaped;
 	}
 #endif // _MFC_VER
