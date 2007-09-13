@@ -304,7 +304,8 @@ LRESULT CMainWindow::DoCommand(int id)
 				picWindow2.StopTimer();
 				picWindow1.SetSecondPic(picWindow2.GetPic(), rightpictitle, rightpicpath);
 				picWindow1.SetSecondPicAlpha(m_BlendType, 127);
-				picWindow1.SetZoom2(picWindow2.GetZoom());
+				if (bLinked)
+					picWindow1.SetZoom2(picWindow2.GetZoom());
 			}
 			else
 			{
@@ -326,15 +327,18 @@ LRESULT CMainWindow::DoCommand(int id)
 			RECT rect;
 			GetClientRect(*this, &rect);
 			PositionChildren(&rect);
-			if (bOverlap)
-            {
-				picWindow1.FitImageInWindow();
-            }
-            else
-            {
-                picWindow1.FitImageInWindow();
-                picWindow2.FitImageInWindow();
-            }
+			if (bLinked)
+			{
+				if (bOverlap)
+				{
+					picWindow1.FitImageInWindow();
+				}
+				else
+				{
+					picWindow1.FitImageInWindow();
+					picWindow2.FitImageInWindow();
+				}
+			}
             return 0;
 		}
 		break;
