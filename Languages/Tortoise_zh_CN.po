@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-09-11 09:25+0800\n"
+"PO-Revision-Date: 2007-09-13 16:00+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -703,10 +703,6 @@ msgstr "网络磁盘(&N)"
 #: Control-ID:65535,#: Control-ID:65535,
 msgid "&New "
 msgstr "新建(&N)"
-
-#: MenuEntry
-msgid "&Newest on top"
-msgstr "最新的在顶部(&N)"
 
 # Control-ID:1208,
 #: ID:115,#: Control-ID:1208,
@@ -3676,13 +3672,13 @@ msgstr "ID:32809:V C +F"
 msgid "ID:32810:V   +T"
 msgstr "ID:32810:V   +T"
 
-#. Accelerator Entry for Menu ID:32814; '&Newest on top'
-#: Corresponding Menu ID:32814; '&Newest on top'
+#. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
+#: Corresponding Menu ID:32814; 'Oldest on to&p'
 msgid "ID:32814:V C +L"
 msgstr "ID:32814:V C +L"
 
-#. Accelerator Entry for Menu ID:32814; '&Newest on top'
-#: Corresponding Menu ID:32814; '&Newest on top'
+#. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
+#: Corresponding Menu ID:32814; 'Oldest on to&p'
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
@@ -4856,6 +4852,10 @@ msgstr "OVR"
 #: Control-ID:65535,
 msgid "Older lines"
 msgstr "旧行"
+
+#: MenuEntry
+msgid "Oldest on to&p"
+msgstr "最新的在顶部(&P)"
 
 # ID:99,#:
 # Control-ID:1202,#:
@@ -8522,7 +8522,8 @@ msgid ""
 "path followed by a colon and a list of comma separated revision numbers.\n"
 "For example\n"
 "/trunk:123,125,129"
-msgstr "svn:mergeinfo\n"
+msgstr ""
+"svn:mergeinfo\n"
 "用换行隔开的合并跟踪信息列表。每行包含一个绝对路径，\n"
 "随后一个冒号，然后是用逗号分割的版本号列表。例如\n"
 "/trunk:123,125,129"
