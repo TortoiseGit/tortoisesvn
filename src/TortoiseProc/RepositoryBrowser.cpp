@@ -1794,8 +1794,10 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 		while ((index = m_RepoList.GetNextSelectedItem(pos))>=0)
 		{
 			CItem * pItem = (CItem *)m_RepoList.GetItemData(index);
-			urlList.AddPath(CTSVNPath(pItem->absolutepath));
-			urlListEscaped.AddPath(CTSVNPath(EscapeUrl(CTSVNPath(pItem->absolutepath))));
+			CString absPath = pItem->absolutepath;
+			absPath.Replace(_T("\\"), _T("%5C"));
+			urlList.AddPath(CTSVNPath(absPath));
+			urlListEscaped.AddPath(CTSVNPath(EscapeUrl(CTSVNPath(absPath))));
 			if (pItem->kind == svn_node_dir)
 				nFolders++;
 			if (!pItem->locktoken.IsEmpty())
