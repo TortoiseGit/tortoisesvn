@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -318,7 +318,6 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 						strpath.SetFromWin(str.c_str());
 						itemStates |= (strpath.GetFileExtension().CompareNoCase(_T(".diff"))==0) ? ITEMIS_PATCHFILE : 0;
 						itemStates |= (strpath.GetFileExtension().CompareNoCase(_T(".patch"))==0) ? ITEMIS_PATCHFILE : 0;
-						itemStates |= (strpath.GetFileExtension().CompareNoCase(_T(".lnk"))==0) ? ITEMIS_SHORTCUT : 0;
 						if (!statfetched)
 						{
 							//get the Subversion status of the item
@@ -848,6 +847,20 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 			return NOERROR;
 	}
 
+	const BOOL bShortcut = !!(uFlags & CMF_VERBSONLY);
+	if ( bShortcut && (files_.size()==1))
+	{
+		// Don't show the context menu for a link if the
+		// destination is not part of a working copy.
+		// It would only show the standard menu items
+		// which are already shown for the lnk-file.
+		CString path = files_.front().c_str();
+		if ( !g_SVNAdminDir.HasAdminDir(path) )
+		{
+			return NOERROR;
+		}
+	}
+
 	LoadLangDll();
 	UINT idCmd = idCmdFirst;
 
@@ -991,13 +1004,13 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		myIDMap[idCmd] = ShellSubMenuFolder;
 		menuiteminfo.dwItemData = (ULONG_PTR)g_MenuIDString;
 	}
-	else if (((~itemStates) & ITEMIS_SHORTCUT) && (files_.size()==1))
+	else if (!bShortcut && (files_.size()==1))
 	{
 		uIcon = bShowIcons ? IDI_MENUFILE : 0;
 		myIDMap[idCmd - idCmdFirst] = ShellSubMenuFile;
 		myIDMap[idCmd] = ShellSubMenuFile;
 	}
-	else if ((itemStates & ITEMIS_SHORTCUT) && (files_.size()==1))
+	else if (bShortcut && (files_.size()==1))
 	{
 		uIcon = bShowIcons ? IDI_MENULINK : 0;
 		myIDMap[idCmd - idCmdFirst] = ShellSubMenuLink;

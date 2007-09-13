@@ -238,6 +238,8 @@
        consistently  to /startrev, /endrev and /pegrev. (Tobias Schäfer)
 - CHG: The log dialog now opens up with the topmost revision being
        preselected. (Tobias Schäfer)
+- CHG: The second context menu item for links now only appears if the
+       destination is in a working copy. (Tobias Schäfer)
 - BUG: TortoiseMerge didn't always ask to save the modifications first before
        the user did something which would lose those modifications
        (e.g. open new files). (Stefan)
