@@ -252,6 +252,8 @@ Version 1.4.6
 - BUG: The overlay include paths weren't checked correctly which lead
        to paths directly below the include paths *not* to be included.
        (Stefan)
+- BUG: Sorting in the commit dialog sometimes lost the check marks
+       if the list had previously been refreshed. (Tobias Schäfer)
 
 Version 1.4.5
 - BUG: The setting "unversioned files mark parent folder as modified" for the
