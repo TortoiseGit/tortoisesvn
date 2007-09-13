@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-09-03 18:56+0900\n"
+"PO-Revision-Date: 2007-09-13 17:43+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -752,7 +752,7 @@ msgstr "インポート(&I) ..."
 # Control-ID:65535,
 #: MenuEntry
 msgid "&Inline diff word-wise"
-msgstr "行内差分（単語単位）"
+msgstr "単語単位での行内差分(&I)"
 
 # Control-ID:1016,
 # Control-ID:1016,
@@ -836,10 +836,6 @@ msgstr "ネットワークドライブ(&N)"
 #: Control-ID:65535,
 msgid "&New "
 msgstr "新規(&N)"
-
-#: MenuEntry
-msgid "&Newest on top"
-msgstr "最新を先頭に表示する(&N)"
 
 # Control-ID:1208,
 # Control-ID:1208,
@@ -941,8 +937,8 @@ msgstr "名前の変更(&R)"
 # Control-ID:1316,
 # Control-ID:1316,
 #: Control-ID:1316,
-msgid "&Reopen commit dialog after a commit failed"
-msgstr "コミットに失敗した場合はコミットダイアログを再表示する(&R)"
+msgid "&Reopen commit and branch/tag dialog after a commit failed"
+msgstr "コミットに失敗した場合はコミットもしくは分岐／タグダイアログを再表示する(&R)"
 
 # ID:13,
 # ID:13,
@@ -2417,6 +2413,10 @@ msgstr "%s からチェックアウト、リビジョン %s, %s, %s"
 msgid "Checksum:"
 msgstr "チェックサム:"
 
+#: Control-ID:1402,
+msgid "Choose item:"
+msgstr "項目を選択:"
+
 # ID:145,
 # ID:146,
 #: ID:146,
@@ -2721,6 +2721,13 @@ msgstr "GNUの差分ファイル（パッチファイル）の表示に用いる
 # Control-ID:65535,
 # ID:263,#:
 # Control-ID:65535,
+#: Control-ID:65535,
+msgid "Conflict resolved"
+msgstr "解消済みの競合"
+
+# Control-ID:65535,
+# ID:263,#:
+# Control-ID:65535,
 #: ID:263,#:
 #: Control-ID:65535,
 msgid "Conflicted"
@@ -2916,6 +2923,13 @@ msgstr "訂正"
 msgid "Could not add %s to the ignore list!"
 msgstr "%s を無視リストに追加できませんでした！"
 
+# ID:81,
+# ID:81,
+#: ID:582,
+#, c-format
+msgid "Could not add \"%s\" because"
+msgstr "\"%s\" を追加できませんでした。"
+
 # ID:201,
 # ID:201,
 #: ID:201,
@@ -2937,9 +2951,23 @@ msgstr ""
 
 # ID:81,
 # ID:81,
+#: ID:582,
+#, c-format
+msgid "Could not delete \"%s\" because"
+msgstr "\"%s\" を削除できませんでした。"
+
+# ID:81,
+# ID:81,
 #: ID:81,
 msgid "Could not get the status!"
 msgstr "状態を取得できませんでした！"
+
+# ID:81,
+# ID:81,
+#: ID:582,
+#, c-format
+msgid "Could not merge \"%s\" because"
+msgstr "\"%s\" をマージできませんでした。"
 
 # ID:69,
 # ID:69,
@@ -3086,8 +3114,8 @@ msgstr ""
 # ID:8,
 # ID:8,
 #: ID:8,
-msgid "Create repositor&y here..."
-msgstr "ここにリポジトリを作成(&Y) ..."
+msgid "Create repositor&y here"
+msgstr "ここにリポジトリを作成(&Y)"
 
 # ID:132,
 # ID:119,
@@ -3514,6 +3542,12 @@ msgstr "作者を編集"
 #: ID:115,
 msgid "Edit author name"
 msgstr "作者名を編集"
+
+# ID:12,
+# ID:12,
+#: Control-ID:1399,
+msgid "Edit conflict"
+msgstr "競合を編集"
 
 # ID:110,
 # ID:110,
@@ -4457,15 +4491,15 @@ msgstr "ID:32809:V C +F"
 msgid "ID:32810:V   +T"
 msgstr "ID:32810:V   +T"
 
-#. Accelerator Entry for Menu ID:32814; '&Newest on top'
+#. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 #: Corresponding Menu ID:32814;
-#: '&Newest on top'
+#: 'Oldest on to&p'
 msgid "ID:32814:V C +L"
 msgstr "ID:32814:V C +L"
 
-#. Accelerator Entry for Menu ID:32814; '&Newest on top'
+#. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 #: Corresponding Menu ID:32814;
-#: '&Newest on top'
+#: 'Oldest on to&p'
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
@@ -5056,6 +5090,12 @@ msgstr "競合を解消するために、外部の差分／マージプログラ
 #: Control-ID:1137,
 msgid "Least active author:"
 msgstr "活発でない作者:"
+
+# ID:11,
+# ID:11,
+#: Control-ID:1404,
+msgid "Leave conflicted:"
+msgstr "競合の保持:"
 
 # ID:188,
 # ID:188,
@@ -5867,6 +5907,10 @@ msgstr "OVR"
 msgid "Older lines"
 msgstr "以前に変更された行"
 
+#: MenuEntry
+msgid "Oldest on to&p"
+msgstr "古いものを先頭に表示する(&P)"
+
 # ID:13,
 # ID:99,#:
 # Control-ID:1202,#:
@@ -6240,6 +6284,10 @@ msgstr ""
 "今後の変更をコミットする場合は、そのコピー先の新しいURLに作業コピー全体を\n"
 "切り替える必要があります。\n"
 "本操作を行うためには、切り替えコマンドを使用してください。"
+
+#: Control-ID:1287,
+msgid "Please resolve the conflict by choosing one of the following options:"
+msgstr "以下のオプションを一つ選択して競合を解消してください:"
 
 # ID:3858,#:
 # ID:3858,
@@ -6885,6 +6933,18 @@ msgid "Resolve - TortoiseSVN"
 msgstr "問題の解消 - TortoiseSVN"
 
 # ID:9,
+# ID:9,
+#: Dlg-ID:268,
+msgid "Resolve Conflict"
+msgstr "競合の解消"
+
+# Control-ID:1021,
+# ID:126,
+#: Control-ID:1382,
+msgid "Resolve all later"
+msgstr "すべて後で解消する"
+
+# ID:9,
 # ID:282,
 #: ID:282,
 msgid "Resolve conflict using \"mine\""
@@ -6896,11 +6956,24 @@ msgstr "\"mine\" を利用して競合を解消する"
 msgid "Resolve conflict using \"theirs\""
 msgstr "\"theirs\" を利用して競合を解消する"
 
+# ID:9,
+# ID:9,
+#: Control-ID:1403,
+msgid "Resolve conflict:"
+msgstr "競合の解消:"
+
+# ID:8,
+# Dlg-ID:207,
+#: Control-ID:2,
+msgid "Resolve later"
+msgstr "後で解消する"
+
 # ID:8,
 # ID:74,#:
 # ID:209,
 #: ID:74,#:
-#: ID:209,
+#: ID:209,#:
+#: Control-ID:1400,
 msgid "Resolved"
 msgstr "問題の解消"
 
@@ -9295,9 +9368,21 @@ msgstr "両方のテキストブロックを利用する（こちらを前にす
 msgid "Use both text blocks (this one last)"
 msgstr "両方のテキストブロックを利用する（こちらを後にする）"
 
+# ID:74,
+# ID:74,
+#: Control-ID:3,
+msgid "Use local"
+msgstr "ローカルを使用する"
+
 #: ID:116,
 msgid "Use regular expression"
 msgstr "正規表現を使用する"
+
+# ID:138,
+# ID:138,
+#: Control-ID:4,
+msgid "Use repository"
+msgstr "リポジトリを使用する"
 
 # Control-ID:1066,
 # Control-ID:1066,
@@ -9729,6 +9814,16 @@ msgstr ""
 "作業コピーはローカルで変更されています！\n"
 "注意: 他のリビジョンへ更新する際に、これらの変更は失われないかもしれません！"
 
+#: ID:89,
+msgid ""
+"Your working copy has local modifications.\n"
+"If you branch/tag from the HEAD revision, your local changes won't\n"
+"show up in the branch/tag!"
+msgstr ""
+"作業コピーにはローカルでの変更が含まれています。\n"
+"最新のリビジョンから分岐／タグをする場合は、ローカルでの変更は\n"
+"分岐／タグには含まれません。"
+
 #: MenuEntry
 msgid "Zoo&m out"
 msgstr "ズームアウト(&M)"
@@ -9803,6 +9898,10 @@ msgstr "と"
 #: Control-ID:1085,
 msgid "and support the developers"
 msgstr "そして、開発者たちをサポートしてください。"
+
+#: ID:583,
+msgid "another item already exists in its place."
+msgstr "その場所には別の項目がすでに存在しています。"
 
 # ID:76,
 # ID:245,
@@ -9974,6 +10073,22 @@ msgstr "系統情報を無視"
 #: ID:13,
 msgid "incomplete"
 msgstr "未完了"
+
+# ID:64,
+# ID:64,
+#: ID:583,
+msgid "it does not exist."
+msgstr "存在していません。"
+
+#: ID:583,
+msgid "it is already deleted."
+msgstr "すでに削除されています。"
+
+# ID:10,
+# ID:10,
+#: ID:583,
+msgid "it is unversioned."
+msgstr "バージョン管理されていません。"
 
 # ID:17,
 #: ID:214,
@@ -10186,6 +10301,20 @@ msgstr ""
 "Rev, LastChangedRevision\t最後に変更されたリビジョン。\n"
 "Id\t\t\t\t前述の４つのキーワードの略式。"
 
+#: ID:576,
+msgid ""
+"svn:mergeinfo\n"
+"A newline separated list of merge tracking info. Each line consists of an absolute\n"
+"path followed by a colon and a list of comma separated revision numbers.\n"
+"For example\n"
+"/trunk:123,125,129"
+msgstr ""
+"svn:mergeinfo\n"
+"改行で区切られたマージの追跡情報のリスト。それぞれの行は絶対パスとコロン、\n"
+"コンマ区切りのリビジョン番号のリストで構成されます。\n"
+"例\n"
+"/trunk:123,125,129"
+
 # ID:14,
 # ID:14,
 #: ID:576,
@@ -10232,6 +10361,12 @@ msgstr ""
 #: Control-ID:65535,
 msgid "switched:"
 msgstr "切り替え:"
+
+# ID:13,
+# Control-ID:65535,
+#: ID:583,
+msgid "there are conflicting modifications."
+msgstr "競合している変更があります。"
 
 # ID:80,
 # ID:80,#:
