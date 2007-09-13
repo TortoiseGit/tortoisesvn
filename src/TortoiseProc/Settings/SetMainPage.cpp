@@ -188,7 +188,7 @@ BOOL CSetMainPage::OnApply()
 			asphack_user = _T("*");
 		if ((GetEnvironmentVariable(_T("SVN_ASP_DOT_NET_HACK"), NULL, 0)==0)&&(GetLastError()==ERROR_ENVVAR_NOT_FOUND))
 		{
-			DWORD dwRet = 0;
+			DWORD_PTR dwRet = 0;
 			SendMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, 0, (LPARAM)_T("Environment"), SMTO_ABORTIFHUNG, 1000, &dwRet);
 			m_restart = Restart_System;
 		}
@@ -199,7 +199,7 @@ BOOL CSetMainPage::OnApply()
 		asphack_user.removeValue();
 		if (GetEnvironmentVariable(_T("SVN_ASP_DOT_NET_HACK"), NULL, 0)!=0)
 		{
-			DWORD dwRet = 0;
+			DWORD_PTR dwRet = 0;
 			SendMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, 0, (LPARAM)_T("Environment"), SMTO_ABORTIFHUNG, 1000, &dwRet);
 			m_restart = Restart_System;
 		}
