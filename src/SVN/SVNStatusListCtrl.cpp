@@ -3423,7 +3423,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								SetItemGroup(index, 0);
 							}
 							// TODO: Should we go through all entries here and check if we also could
-							// remove the changeset from m_changelists ?
+							// remove the changelist from m_changelists ?
 						}
 						else
 						{
@@ -3597,7 +3597,7 @@ void CSVNStatusListCtrl::CreateChangeList(const CString& name)
 		{
 			// there are no groups defined yet.
 			// before we can add our new group, we must assign all entries
-			// to the null-group (not assigned to a changeset)
+			// to the null-group (not assigned to a changelist)
 			for (int ii = 0; ii < GetItemCount(); ++ii)
 				SetItemGroup(ii, 0);
 		}

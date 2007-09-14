@@ -90,7 +90,7 @@
 - NEW: TortoiseBlame remembers its window position. (Stefan)
 - NEW: Performance improvement when resolving a file in TortoiseMerge.
        See issue #328 for details. (Stefan)
-- NEW: Ability to create file-based changesets. 
+- NEW: Ability to create file-based changelists. 
        See issue #333 for details. (Stefan)
 - NEW: When applying patches with absolute paths which don't exist
        TortoiseMerge now tries to guess the correct path by stripping
@@ -167,7 +167,7 @@
 - NEW: "Settings" entry in the TSVN start menu. On x64, provide separated 
        settings for 32 and 64 bit TSVN. (Stefan Fuhrmann)
 - NEW: The project properties are automatically added to new folders. (Stefan)
-- NEW: special changeset for 'ignoring' versioned files. (Stefan)
+- NEW: special changelist for 'ignoring' versioned files. (Stefan)
 - NEW: TortoiseBlame has a locator bar if the age coloring is active.
        See issue #376 for details. (Stefan)
 - NEW: the file diff dialog has a filter. See issue #379 for details. (Stefan)
