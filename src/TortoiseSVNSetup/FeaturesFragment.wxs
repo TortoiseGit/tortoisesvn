@@ -29,12 +29,10 @@
       <ComponentRef Id="C__iconsxpstyle" />
 
       <Feature Id="F_CRT" Level="1" Title="C-Runtime" Description="The Visual-C Runtime libs" TypicalDefault="install" Display="hidden" >
-        <Condition Level="0">(NOT Privileged) AND (""&gt;&lt;VERSIONMFC) AND (""&gt;&lt;VERSIONMFC1)</Condition>
         <MergeRef Id="CRT" />
         <MergeRef Id="CRT Policy" />
       </Feature>
       <Feature Id="F_MFC" Level="1" Title="MFC 8.0" Description="The MFC 8.0 libs" TypicalDefault="install" Display="hidden" >
-        <Condition Level="0">(NOT Privileged) AND (""&gt;&lt;VERSIONMFC) AND (""&gt;&lt;VERSIONMFC1)</Condition>
         <MergeRef Id="MFC" />
         <MergeRef Id="MFC Policy" />
         <MergeRef Id="MFCLOC" />
