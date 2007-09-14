@@ -297,12 +297,14 @@
             </Component>
 
             <Component Id="C__PlainSettingsShortcuts" Guid="$(var.GuidPlainSettingsShortcuts)" Win64="$(var.Win64YesNo)">
+              <Registry Root="HKCU" Key="Software\TortoiseSVN" KeyPath="yes" Name="TortoiseSVN" Value="TortoiseSVN" Type="string" />
               <Condition><![CDATA[NOT VersionNT64]]></Condition>
               <Shortcut Id="S__PlainConfig" Directory="D_TortoisePrgMenu" Name="SETTINGS" LongName="Settings" Advertise="no"
                 Target="[INSTALLDIR]bin\TortoiseProc.exe" Description="TortoiseSVN" Arguments="/command:settings" Show="normal" />
             </Component>
 
             <Component Id="C__PlatformSettingsShortcuts" Guid="$(var.GuidPlatformSettingsShortcuts)" Win64="$(var.Win64YesNo)">
+              <Registry Root="HKCU" Key="Software\TortoiseSVN" KeyPath="yes" Name="TortoiseSVN" Value="TortoiseSVN" Type="string" />
               <Condition>VersionNT64</Condition>
               <Shortcut Id="S__PlatformConfig" Directory="D_TortoisePrgMenu" Name="SETTINGS" LongName="Settings $(var.PlatformUserVisible)" Advertise="no"
                 Target="[INSTALLDIR]bin\TortoiseProc.exe" Description="TortoiseSVN" Arguments="/command:settings" Show="normal" />
