@@ -120,7 +120,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="..\Utils\scintilla\include;..\Utils;..\Utils\MiscUI"
-				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
+				PreprocessorDefinitions="WIN64;_DEBUG;_WINDOWS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -271,7 +271,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories="..\Utils\scintilla\include;..\Utils;..\Utils\MiscUI"
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
+				PreprocessorDefinitions="WIN64;NDEBUG;_WINDOWS"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="2"
 				WarningLevel="4"
@@ -459,6 +459,10 @@
 			</File>
 			<File
 				RelativePath=".\TortoiseUDiff.rc"
+				>
+			</File>
+			<File
+				RelativePath="..\Resources\uac.manifest"
 				>
 			</File>
 		</Filter>
