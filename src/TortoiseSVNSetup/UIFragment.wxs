@@ -387,7 +387,10 @@
         <Control Id="BottomLine" Type="Line" X="0" Y="234" Width="370" Height="0" />
       </Dialog>
 
-      <Dialog Id="FilesInUse" Width="370" Height="270" Title="[ProductName] [Setup]" NoMinimize="yes" KeepModeless="yes">
+      <!-- Setting the FilesInUse dialog to NoMinimize="yes" Modeless="yes" and Hidden="yes" will force its
+           attributes to zero. And that will make msi not show the dialog for the normal UI sequence but
+           simply ignore all files in use. Since we have to do a reboot anyway, that's what we want. -->
+      <Dialog Id="FilesInUse" Width="370" Height="270" Title="[ProductName] [Setup]" NoMinimize="yes" Modeless="yes" Hidden="yes">
         <Control Id="Retry" Type="PushButton" X="304" Y="243" Width="56" Height="17" Default="yes" Cancel="yes" Text="[ButtonText_Retry]">
           <Publish Event="EndDialog" Value="Retry">1</Publish>
         </Control>
