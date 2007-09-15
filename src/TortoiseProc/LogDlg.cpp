@@ -395,8 +395,6 @@ BOOL CLogDlg::OnInitDialog()
 		GetDlgItem(IDOK)->ShowWindow(SW_HIDE);
 	}
 	
-	GetDlgItem(IDC_LOGLIST)->SetFocus();
-
 	// set the choices for the "Show All" button
 	temp.LoadString(IDS_LOG_SHOWALL);
 	m_btnShow.AddEntry(temp);
@@ -418,6 +416,7 @@ BOOL CLogDlg::OnInitDialog()
 		InterlockedExchange(&m_bNoDispUpdates, FALSE);
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
+	//GetDlgItem(IDC_MSGVIEW)->SetFocus();
 	return FALSE;
 }
 
