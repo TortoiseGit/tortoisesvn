@@ -3107,6 +3107,12 @@ BEGIN
     IDS_EDITCONFLICT_REASONINFO_UNVERSIONED "it is unversioned."
 END
 
+STRINGTABLE 
+BEGIN
+    IDS_REPOSTATUS_EMPTYFILELIST 
+                            "No files to show with the current setting.\nCheck one or more settings below to see unversioned, ignored and/or unmodified files.\nTo see remote changes, click on ""Check Repository"""
+END
+
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

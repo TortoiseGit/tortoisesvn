@@ -79,6 +79,7 @@ BOOL CChangedDlg::OnInitDialog()
 						SVNSLC_POPALL, false);
 	m_FileListCtrl.SetCancelBool(&m_bCanceled);
 	m_FileListCtrl.SetBackgroundImage(IDI_CFM_BKG);
+	m_FileListCtrl.SetEmptyString(IDS_REPOSTATUS_EMPTYFILELIST);
 	
 	AdjustControlSize(IDC_SHOWUNVERSIONED);
 	AdjustControlSize(IDC_SHOWUNMODIFIED);
