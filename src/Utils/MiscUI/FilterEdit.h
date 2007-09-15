@@ -117,6 +117,8 @@ protected:
 	afx_msg BOOL	OnEnChange();
 	afx_msg HBRUSH	CtlColor(CDC* /*pDC*/, UINT /*nCtlColor*/);
 	afx_msg void	OnPaint();
+	afx_msg void	OnEnKillfocus();
+	afx_msg void	OnEnSetfocus();
 	DECLARE_MESSAGE_MAP()
 
 

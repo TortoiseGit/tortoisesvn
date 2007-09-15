@@ -67,6 +67,8 @@ BEGIN_MESSAGE_MAP(CFilterEdit, CEdit)
 	ON_CONTROL_REFLECT_EX(EN_CHANGE, &CFilterEdit::OnEnChange)
 	ON_WM_CTLCOLOR_REFLECT()
 	ON_WM_PAINT()
+	ON_CONTROL_REFLECT(EN_KILLFOCUS, &CFilterEdit::OnEnKillfocus)
+	ON_CONTROL_REFLECT(EN_SETFOCUS, &CFilterEdit::OnEnSetfocus)
 END_MESSAGE_MAP()
 
 
@@ -348,10 +350,8 @@ void CFilterEdit::OnPaint()
 {
 	Default();
 
-	if (m_pCueBanner)
-	{
-		DrawDimText();
-	}
+	DrawDimText();
+
 	return;
 }
 
@@ -362,6 +362,8 @@ void CFilterEdit::DrawDimText()
 	if (GetWindowTextLength())
 		return;
 	if (_tcslen(m_pCueBanner) == 0)
+		return;
+	if (GetFocus() == this)
 		return;
 
 	CClientDC	dcDraw(this);
@@ -379,3 +381,12 @@ void CFilterEdit::DrawDimText()
 	return;
 }
 
+void CFilterEdit::OnEnKillfocus()
+{
+	InvalidateRect(NULL);
+}
+
+void CFilterEdit::OnEnSetfocus()
+{
+	InvalidateRect(NULL);
+}
