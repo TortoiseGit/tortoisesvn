@@ -153,7 +153,6 @@ void CLogDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
-	ON_NOTIFY(LVN_KEYDOWN, IDC_LOGLIST, OnLvnKeydownLoglist)
 	ON_REGISTERED_MESSAGE(m_FindDialogMessage, OnFindDialogMessage) 
 	ON_BN_CLICKED(IDC_GETALL, OnBnClickedGetall)
 	ON_NOTIFY(NM_DBLCLK, IDC_LOGMSG, OnNMDblclkChangedFileList)
@@ -187,6 +186,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
 	ON_COMMAND(ID_LOGDLG_REFRESH,&CLogDlg::OnRefresh)
 	ON_COMMAND(ID_LOGDLG_FIND,&CLogDlg::OnFind)
 	ON_COMMAND(ID_LOGDLG_FOCUSFILTER,&CLogDlg::OnFocusFilter)
+	ON_COMMAND(ID_EDIT_COPY, &CLogDlg::OnEditCopy)
 END_MESSAGE_MAP()
 
 void CLogDlg::SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev, int limit, BOOL bStrict /* = FALSE */, BOOL bSaveStrict /* = TRUE */)
@@ -491,7 +491,7 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 	else if (selCount == 1)
 	{
 		// if one revision is selected, we have to fill the log message view
-		// with the corresponding log message, and also fill the change files
+		// with the corresponding log message, and also fill the changed files
 		// list fully.
 		POSITION pos = m_LogList.GetFirstSelectedItemPosition();
 		int selIndex = m_LogList.GetNextSelectedItem(pos);
@@ -706,7 +706,7 @@ void CLogDlg::Refresh()
 void CLogDlg::OnBnClickedNexthundred()
 {
 	UpdateData();
-	// we have to fetch the next hundred log messages.
+	// we have to fetch the next X log messages.
 	if (m_logEntries.size() < 1)
 	{
 		// since there weren't any log messages fetched before, just
@@ -1012,6 +1012,8 @@ UINT CLogDlg::LogThread()
 	m_bStrictStopped = false;
 	if (m_bIncludeMerges)
 	{
+		// if we have to get the logs with the merge info,
+		// we can't use the log cache (because the cache doesn't know about merge info)
 		BOOL bLogRes = GetLogWithMergeInfo(CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, m_bStrict);
 		if ((!bLogRes)&&(!m_path.IsUrl()))
 		{
@@ -1083,27 +1085,11 @@ UINT CLogDlg::LogThread()
 		temp.LoadString(IDS_MSGBOX_OK);
 		SetDlgItemText(IDCANCEL, temp);
 	}
-	POINT pt;
-	GetCursorPos(&pt);
-	SetCursorPos(pt.x, pt.y);
+	RefreshCursor();
 	// make sure the filter is applied (if any) now, after we refreshed/fetched
 	// the log messages
 	PostMessage(WM_TIMER, LOGFILTER_TIMER);
 	return 0;
-}
-
-void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
-{
-	LPNMLVKEYDOWN pLVKeyDow = reinterpret_cast<LPNMLVKEYDOWN>(pNMHDR);
-	if (pLVKeyDow->wVKey == 'C')
-	{
-		if (GetKeyState(VK_CONTROL)&0x8000)
-		{
-			//Ctrl-C -> copy to clipboard
-			CopySelectionToClipBoard();
-		}
-	}
-	*pResult = 0;
 }
 
 void CLogDlg::CopySelectionToClipBoard()
@@ -1155,7 +1141,62 @@ void CLogDlg::CopySelectionToClipBoard()
 	}
 }
 
-BOOL CLogDlg::DiffPossible(LogChangedPath * changedpath, svn_revnum_t rev)
+void CLogDlg::CopyChangedSelectionToClipBoard()
+{
+	POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+	if (pos == NULL)
+		return;	// nothing is selected, get out of here
+
+	CString sPaths;
+
+	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+	if (pos)
+	{
+		POSITION pos = m_ChangedFileListCtrl.GetFirstSelectedItemPosition();
+		while (pos)
+		{
+			int nItem = m_ChangedFileListCtrl.GetNextSelectedItem(pos);
+			sPaths += m_currentChangedPathList[nItem].GetSVNPathString();
+			sPaths += _T("\r\n");
+		}
+	}
+	else
+	{
+		// only one revision is selected in the log dialog top pane
+		// but multiple items could be selected  in the changed items list
+		POSITION pos = m_ChangedFileListCtrl.GetFirstSelectedItemPosition();
+		while (pos)
+		{
+			int nItem = m_ChangedFileListCtrl.GetNextSelectedItem(pos);
+			LogChangedPath * changedlogpath = pLogEntry->pArChangedPaths->GetAt(nItem);
+
+			if ((m_cHidePaths.GetState() & 0x0003)==BST_CHECKED)
+			{
+				// some items are hidden! So find out which item the user really selected
+				INT_PTR selRealIndex = -1;
+				for (INT_PTR hiddenindex=0; hiddenindex<pLogEntry->pArChangedPaths->GetCount(); ++hiddenindex)
+				{
+					if (pLogEntry->pArChangedPaths->GetAt(hiddenindex)->sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
+						selRealIndex++;
+					if (selRealIndex == nItem)
+					{
+						changedlogpath = pLogEntry->pArChangedPaths->GetAt(hiddenindex);
+						break;
+					}
+				}
+			}
+			if (changedlogpath)
+			{
+				sPaths += changedlogpath->sPath;
+				sPaths += _T("\r\n");
+			}
+		}
+	}
+	sPaths.Trim();
+	CStringUtils::WriteAsciiStringToClipboard(CUnicodeUtils::GetUTF8(sPaths), GetSafeHwnd());
+}
+
+BOOL CLogDlg::IsDiffPossible(LogChangedPath * changedpath, svn_revnum_t rev)
 {
 	CString added, deleted;
 	if (changedpath == NULL)
@@ -1488,7 +1529,7 @@ void CLogDlg::OnNMDblclkChangedFileList(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 			}
 		}
 
-		if (DiffPossible(changedpath, rev1))
+		if (IsDiffPossible(changedpath, rev1))
 		{
 			// diffs with renamed files are possible
 			if ((changedpath)&&(!changedpath->sCopyFromPath.IsEmpty()))
@@ -2280,6 +2321,9 @@ void CLogDlg::SetFilterCueText()
 	case LOGFILTER_AUTHORS:
 		temp.LoadString(IDS_LOG_FILTER_AUTHORS);
 		break;
+	case LOGFILTER_REVS:
+		temp.LoadString(IDS_LOG_FILTER_REVS);
+		break;
 	}
 	// to make the cue banner text appear more to the right of the edit control
 	temp = _T("   ")+temp;
@@ -3048,8 +3092,8 @@ void CLogDlg::OnBnClickedCheckStoponcopy()
 	// ignore old fetch limits when switching
 	// between copy-following and stop-on-copy
 	// (otherwise stop-on-copy will limit what
-	//  we see immediately after switching to
-	//  copy-following)
+	// we see immediately after switching to
+	// copy-following)
 
 	m_endrev = 1;
 
@@ -3770,7 +3814,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 		bool bEntryAdded = false;
 		if (m_ChangedFileListCtrl.GetSelectedCount() == 1)
 		{
-			if ((!bOneRev)||(DiffPossible(changedlogpaths[0], rev1)))
+			if ((!bOneRev)||(IsDiffPossible(changedlogpaths[0], rev1)))
 			{
 				temp.LoadString(IDS_LOG_POPUP_DIFF);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DIFF, temp);
@@ -4245,4 +4289,12 @@ void CLogDlg::OnFind()
 void CLogDlg::OnFocusFilter()
 {
 	GetDlgItem(IDC_SEARCHEDIT)->SetFocus();	
+}
+
+void CLogDlg::OnEditCopy()
+{
+	if (GetFocus() == &m_ChangedFileListCtrl)
+		CopyChangedSelectionToClipBoard();
+	else
+		CopySelectionToClipBoard();
 }

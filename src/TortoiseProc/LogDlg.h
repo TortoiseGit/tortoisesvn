@@ -73,7 +73,6 @@ protected:
 	afx_msg LRESULT OnClickedCancelFilter(WPARAM wParam, LPARAM lParam);
 	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
-	afx_msg void OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedGetall();
 	afx_msg void OnNMDblclkChangedFileList(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult);
@@ -102,6 +101,7 @@ protected:
 	afx_msg void OnRefresh();
 	afx_msg void OnFind();
 	afx_msg void OnFocusFilter();
+	afx_msg void OnEditCopy();
 
 	virtual void OnCancel();
 	virtual void OnOK();
@@ -127,7 +127,7 @@ private:
 	static UINT LogThreadEntry(LPVOID pVoid);
 	UINT LogThread();
 	void Refresh();
-	BOOL DiffPossible(LogChangedPath * changedpath, svn_revnum_t rev);
+	BOOL IsDiffPossible(LogChangedPath * changedpath, svn_revnum_t rev);
 	BOOL Open(bool bOpenWith, CString changedpath, svn_revnum_t rev);
 	void EditAuthor(int index);
 	void EditLogMessage(int index);
@@ -137,6 +137,7 @@ private:
 	void SetFilterCueText();
 	BOOL IsEntryInDateRange(int i);
 	void CopySelectionToClipBoard();
+	void CopyChangedSelectionToClipBoard();
 	CTSVNPathList GetChangedPathsFromSelectedRevisions(bool bRelativePaths = false, bool bUseFilter = true);
     void SortShownListArray();
 	void RecalculateShownList(CPtrArray * pShownlist);
@@ -149,6 +150,7 @@ private:
 	void SaveSplitterPos();
 	bool ValidateRegexp(LPCTSTR regexp_str, rpattern& pat, bool bMatchCase = false);
 	void CheckRegexpTooltip();
+	void GetChangedPaths(std::vector<CString>& changedpaths, std::vector<LogChangedPath*>& changedlogpaths);
 
 
 	virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);
