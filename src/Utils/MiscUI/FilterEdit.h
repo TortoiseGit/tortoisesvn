@@ -97,6 +97,11 @@ public:
 	 */
 	void SetButtonClickedMessageId(UINT iButtonClickedMessageId, UINT iCancelClickedMessageId);
 
+	/**
+	 * To provide a cue banner even though we require the edit control to be multiline
+	 */
+	BOOL SetCueBanner(LPCWSTR lpcwText);
+
 	void SetValidator(IFilterEditValidator * pValidator) {m_pValidator = pValidator;}
 protected:
 	virtual void	PreSubclassWindow( );
@@ -111,12 +116,14 @@ protected:
 	afx_msg void	OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg BOOL	OnEnChange();
 	afx_msg HBRUSH	CtlColor(CDC* /*pDC*/, UINT /*nCtlColor*/);
+	afx_msg void	OnPaint();
 	DECLARE_MESSAGE_MAP()
 
 
 	void			ResizeWindow();
 	CSize			GetIconSize(HICON hIcon);
 	void			Validate();
+	void			DrawDimText();
 
 protected:
 	HICON					m_hIconCancelNormal;
@@ -134,6 +141,7 @@ protected:
 	COLORREF				m_backColor;
 	HBRUSH					m_brBack;
 	IFilterEditValidator *	m_pValidator;
+	TCHAR *					m_pCueBanner;
 };
 
 

@@ -31,6 +31,7 @@ CFilterEdit::CFilterEdit() : m_hIconCancelNormal(NULL)
 	, m_pValidator(NULL)
 	, m_backColor(GetSysColor(COLOR_WINDOW))
 	, m_brBack(NULL)
+	, m_pCueBanner(NULL)
 {
 	m_rcEditArea.SetRect(0, 0, 0, 0);
 	m_rcButtonArea.SetRect(0, 0, 0, 0);
@@ -49,6 +50,8 @@ CFilterEdit::~CFilterEdit()
 		DestroyIcon(m_hIconInfo);
 	if (m_brBack)
 		DeleteObject(m_brBack);
+	if (m_pCueBanner)
+		delete [] m_pCueBanner;
 }
 
 BEGIN_MESSAGE_MAP(CFilterEdit, CEdit)
@@ -63,6 +66,7 @@ BEGIN_MESSAGE_MAP(CFilterEdit, CEdit)
 	ON_WM_SETCURSOR()
 	ON_CONTROL_REFLECT_EX(EN_CHANGE, &CFilterEdit::OnEnChange)
 	ON_WM_CTLCOLOR_REFLECT()
+	ON_WM_PAINT()
 END_MESSAGE_MAP()
 
 
@@ -118,6 +122,21 @@ BOOL CFilterEdit::SetInfoIcon(UINT uInfo)
 
 	ResizeWindow();
 	return TRUE;
+}
+
+BOOL CFilterEdit::SetCueBanner(LPCWSTR lpcwText)
+{
+	if (lpcwText)
+	{
+		if (m_pCueBanner)
+			delete [] m_pCueBanner;
+		size_t len = _tcslen(lpcwText);
+		m_pCueBanner = new TCHAR[len+1];
+		_tcscpy_s(m_pCueBanner, len+1, lpcwText);
+		InvalidateRect(NULL, TRUE);
+		return TRUE;
+	}
+	return FALSE;
 }
 
 void CFilterEdit::ResizeWindow()
@@ -324,3 +343,39 @@ void CFilterEdit::Validate()
 		delete [] pBuf;
 	}
 }
+
+void CFilterEdit::OnPaint()
+{
+	Default();
+
+	if (m_pCueBanner)
+	{
+		DrawDimText();
+	}
+	return;
+}
+
+void CFilterEdit::DrawDimText()
+{
+	if (m_pCueBanner == NULL)
+		return;
+	if (GetWindowTextLength())
+		return;
+	if (_tcslen(m_pCueBanner) == 0)
+		return;
+
+	CClientDC	dcDraw(this);
+	CRect		rRect;
+	int			iState = dcDraw.SaveDC();
+
+	GetClientRect(&rRect);
+	rRect.OffsetRect(1, 1);
+
+	dcDraw.SelectObject((*GetFont()));
+	dcDraw.SetTextColor(GetSysColor(COLOR_GRAYTEXT));
+	dcDraw.SetBkColor(GetSysColor(COLOR_WINDOW));
+	dcDraw.DrawText(m_pCueBanner, _tcslen(m_pCueBanner), &rRect, DT_CENTER | DT_VCENTER);
+	dcDraw.RestoreDC(iState);
+	return;
+}
+
