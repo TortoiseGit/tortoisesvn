@@ -1220,12 +1220,12 @@ void CPicWindow::BuildInfoString(TCHAR * buf, int size, bool bTooltip)
 	{
 		_stprintf_s(buf, size, 
 			(TCHAR const *)ResString(hResource, bTooltip ? IDS_DUALIMAGEINFOTT : IDS_DUALIMAGEINFO),
-			picture.GetFileSizeAsText().c_str(),
+			picture.GetFileSizeAsText().c_str(), picture.GetFileSizeAsText(false).c_str(),
 			picture.m_Width, picture.m_Height,
 			picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
 			picture.m_ColorDepth,
 			(UINT)(GetZoom()*100.0),
-			pSecondPic->GetFileSizeAsText().c_str(),
+			pSecondPic->GetFileSizeAsText().c_str(), pSecondPic->GetFileSizeAsText(false).c_str(),
 			pSecondPic->m_Width, pSecondPic->m_Height,
 			pSecondPic->GetHorizontalResolution(), pSecondPic->GetVerticalResolution(),
 			pSecondPic->m_ColorDepth,
@@ -1235,7 +1235,7 @@ void CPicWindow::BuildInfoString(TCHAR * buf, int size, bool bTooltip)
 	{
 		_stprintf_s(buf, size, 
 			(TCHAR const *)ResString(hResource, bTooltip ? IDS_IMAGEINFOTT : IDS_IMAGEINFO),
-			picture.m_FileSize.c_str(), 
+			picture.GetFileSizeAsText().c_str(), picture.GetFileSizeAsText(false).c_str(),
 			picture.m_Width, picture.m_Height,
 			picture.GetHorizontalResolution(), picture.GetVerticalResolution(),
 			picture.m_ColorDepth,

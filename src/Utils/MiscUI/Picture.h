@@ -158,7 +158,7 @@ public:
 	long SetActiveFrame(UINT frame);
 
 	DWORD GetFileSize() {return m_nSize;}
-	stdstring GetFileSizeAsText() {return m_FileSize;}
+	stdstring GetFileSizeAsText(bool bAbbrev = true);
 	CPicture();
 	virtual ~CPicture();
 
@@ -172,7 +172,6 @@ public:
 	BYTE		m_ColorDepth;///< the color depth
 	LONG		m_Weight;	///< Size Of The Image Object In Bytes (File OR Resource)
 	stdstring	m_Name;		///< The FileName of the Picture as used in Load()
-	stdstring	m_FileSize;	///< The file size of the picture as a string (as used in Load())
 
 protected:
 	/**

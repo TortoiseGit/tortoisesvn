@@ -99,6 +99,17 @@ static FARPROC s_GetProcAddressEx(HMODULE hDll, const char* procName, bool& vali
 	return proc;
 }
 
+stdstring CPicture::GetFileSizeAsText(bool bAbbrev /* = true */)
+{
+	TCHAR buf[100] = {0};
+	if (bAbbrev)
+		StrFormatByteSize(m_nSize, buf, 100);
+	else
+		_stprintf_s(buf, _T("%ld Bytes"), m_nSize);
+
+	return stdstring(buf);
+}
+
 bool CPicture::Load(stdstring sFilePathName)
 {
 	bool bResult = false;
@@ -107,7 +118,6 @@ bool CPicture::Load(stdstring sFilePathName)
 	//CFile PictureFile;
 	//CFileException e;
 	int	nSize = 0;
-	m_FileSize.clear();
 	FreePictureData(); // Important - Avoid Leaks...
 
 	// No-op if no file specified
@@ -342,11 +352,6 @@ bool CPicture::Load(stdstring sFilePathName)
 				{
 					if (LoadPictureData(buffer, readbytes))
 					{
-						TCHAR buf[100];
-						_stprintf_s(buf, _T("%ld kBytes"), fileinfo.nFileSizeLow/1024);
-						if ((fileinfo.nFileSizeLow/1024)==0)
-							_stprintf_s(buf, _T("%ld Bytes"), fileinfo.nFileSizeLow);
-						m_FileSize = stdstring(buf);
 						m_nSize = fileinfo.nFileSizeLow;
 						bResult = true;
 					}
@@ -385,11 +390,6 @@ bool CPicture::Load(stdstring sFilePathName)
 			BY_HANDLE_FILE_INFORMATION fileinfo;
 			if (GetFileInformationByHandle(hFile, &fileinfo))
 			{
-				TCHAR buf[100];
-				_stprintf_s(buf, _T("%ld kBytes"), fileinfo.nFileSizeLow/1024);
-				if ((fileinfo.nFileSizeLow/1024)==0)
-					_stprintf_s(buf, _T("%ld Bytes"), fileinfo.nFileSizeLow);
-				m_FileSize = stdstring(buf);
 				m_nSize = fileinfo.nFileSizeLow;
 			}
 			CloseHandle(hFile);
