@@ -831,9 +831,7 @@ UINT CSVNProgressDlg::ProgressThread()
 
 	m_bCancelled = TRUE;
 	InterlockedExchange(&m_bThreadRunning, FALSE);
-	POINT pt;
-	GetCursorPos(&pt);
-	SetCursorPos(pt.x, pt.y);
+	RefreshCursor();
 
 	DWORD dwAutoClose = CRegStdWORD(_T("Software\\TortoiseSVN\\AutoClose"));
 	if (m_options & ProgOptDryRun)

@@ -143,9 +143,7 @@ UINT CChangedDlg::ChangedStatusThread()
 	DialogEnableWindow(IDC_SHOWUNMODIFIED, TRUE);
 	DialogEnableWindow(IDC_SHOWIGNORED, TRUE);
 	InterlockedExchange(&m_bBlock, FALSE);
-	POINT pt;
-	GetCursorPos(&pt);
-	SetCursorPos(pt.x, pt.y);
+	RefreshCursor();
 	return 0;
 }
 

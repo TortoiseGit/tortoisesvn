@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -143,6 +143,15 @@ protected:
 		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this, nIdControl), nIdText, TRUE, szIcon);
 	}
 
+	/**
+	 * Refreshes the cursor by forcing a WM_SETCURSOR message.
+	 */
+	void RefreshCursor()
+	{
+		POINT pt;
+		GetCursorPos(&pt);
+		SetCursorPos(pt.x, pt.y);
+	}
 private:
 	HCURSOR OnQueryDragIcon()
 	{

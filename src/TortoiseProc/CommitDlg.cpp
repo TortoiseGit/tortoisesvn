@@ -546,9 +546,7 @@ UINT CCommitDlg::StatusThread()
 	InterlockedExchange(&m_bRunThread, FALSE);
 	InterlockedExchange(&m_bThreadRunning, FALSE);
 	// force the cursor to normal
-	POINT pt;
-	GetCursorPos(&pt);
-	SetCursorPos(pt.x, pt.y);
+	RefreshCursor();
 	return 0;
 }
 

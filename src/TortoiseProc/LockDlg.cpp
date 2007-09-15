@@ -195,9 +195,7 @@ UINT CLockDlg::StatusThread()
 	DWORD dwShow = SVNSLC_SHOWNORMAL | SVNSLC_SHOWMODIFIED | SVNSLC_SHOWMERGED | SVNSLC_SHOWLOCKS;
 	m_cFileList.Show(dwShow, dwShow, false);
 
-	POINT pt;
-	GetCursorPos(&pt);
-	SetCursorPos(pt.x, pt.y);
+	RefreshCursor();
 	CString logmsg;
 	GetDlgItem(IDC_LOCKMESSAGE)->GetWindowText(logmsg);
 	DialogEnableWindow(IDOK, m_ProjectProperties ? m_ProjectProperties->nMinLockMsgSize <= logmsg.GetLength() : TRUE);

@@ -107,9 +107,7 @@ UINT CDeleteUnversionedDlg::StatusThread()
 		SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWIGNORED);
 
 	InterlockedExchange(&m_bThreadRunning, FALSE);
-	POINT pt;
-	GetCursorPos(&pt);
-	SetCursorPos(pt.x, pt.y);
+	RefreshCursor();
 
 	return 0;
 }

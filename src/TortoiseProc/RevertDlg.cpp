@@ -113,9 +113,7 @@ UINT CRevertDlg::RevertThread()
 	SetWindowText(m_sWindowTitle + _T(" - ") + commonDir.GetWinPathString());
 
 	InterlockedExchange(&m_bThreadRunning, FALSE);
-	POINT pt;
-	GetCursorPos(&pt);
-	SetCursorPos(pt.x, pt.y);
+	RefreshCursor();
 
 	return 0;
 }

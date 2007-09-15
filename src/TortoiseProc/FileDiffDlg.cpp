@@ -193,9 +193,7 @@ UINT CFileDiffDlg::DiffThreadEntry(LPVOID pVoid)
 UINT CFileDiffDlg::DiffThread()
 {
 	bool bSuccess = true;
-	POINT pt;
-	GetCursorPos(&pt);
-	SetCursorPos(pt.x, pt.y);
+	RefreshCursor();
 	m_cFileList.ShowText(CString(MAKEINTRESOURCE(IDS_FILEDIFF_WAIT)));
 	if (m_bDoPegDiff)
 	{
@@ -230,8 +228,7 @@ UINT CFileDiffDlg::DiffThread()
 
 	InterlockedExchange(&m_bThreadRunning, FALSE);
 	InvalidateRect(NULL);
-	GetCursorPos(&pt);
-	SetCursorPos(pt.x, pt.y);
+	RefreshCursor();
 	return 0;
 }
 
@@ -607,9 +604,7 @@ UINT CFileDiffDlg::ExportThreadEntry(LPVOID pVoid)
 
 UINT CFileDiffDlg::ExportThread()
 {
-	POINT pt;
-	GetCursorPos(&pt);
-	SetCursorPos(pt.x, pt.y);
+	RefreshCursor();
 	if (m_pProgDlg == NULL)
 		return 1;
 	long count = 0;
@@ -644,8 +639,7 @@ UINT CFileDiffDlg::ExportThread()
 				delete m_pProgDlg;
 				m_pProgDlg = NULL;
 				InterlockedExchange(&m_bThreadRunning, FALSE);
-				GetCursorPos(&pt);
-				SetCursorPos(pt.x, pt.y);
+				RefreshCursor();
 				return 1;
 			}
 		}
@@ -659,8 +653,7 @@ UINT CFileDiffDlg::ExportThread()
 				delete m_pProgDlg;
 				m_pProgDlg = NULL;
 				InterlockedExchange(&m_bThreadRunning, FALSE);
-				GetCursorPos(&pt);
-				SetCursorPos(pt.x, pt.y);
+				RefreshCursor();
 				return 1;
 			}
 		}
@@ -672,8 +665,7 @@ UINT CFileDiffDlg::ExportThread()
 	delete m_pProgDlg;
 	m_pProgDlg = NULL;
 	InterlockedExchange(&m_bThreadRunning, FALSE);
-	GetCursorPos(&pt);
-	SetCursorPos(pt.x, pt.y);
+	RefreshCursor();
 	return 0;
 }
 

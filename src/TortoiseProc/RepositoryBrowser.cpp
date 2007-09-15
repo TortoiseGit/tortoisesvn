@@ -402,9 +402,7 @@ UINT CRepositoryBrowser::InitThread()
 	// Why we do this inside a thread.
 
 	// force the cursor to change
-	POINT pt;
-	GetCursorPos(&pt);
-	SetCursorPos(pt.x, pt.y);
+	RefreshCursor();
 
 	DialogEnableWindow(IDOK, FALSE);
 	DialogEnableWindow(IDCANCEL, FALSE);
@@ -417,8 +415,7 @@ UINT CRepositoryBrowser::InitThread()
 	
 	m_bThreadRunning = false;
 
-	GetCursorPos(&pt);
-	SetCursorPos(pt.x, pt.y);
+	RefreshCursor();
 	return 0;
 }
 
