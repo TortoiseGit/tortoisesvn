@@ -104,8 +104,8 @@ void CMainWindow::PositionChildren(RECT * clientrect /* = NULL */)
 	if (hdwp) EndDeferWindowPos(hdwp);
 	picWindow1.SetupScrollBars();
 	picWindow2.SetupScrollBars();
-	picWindow1.SetBackColor(backColor);
-	picWindow2.SetBackColor(backColor);
+	picWindow1.SetTransparentColor(transparentColor);
+	picWindow2.SetTransparentColor(transparentColor);
 	InvalidateRect(*this, NULL, FALSE);
 }
 
@@ -363,21 +363,21 @@ LRESULT CMainWindow::DoCommand(int id)
 			picWindow1.SetSecondPicAlpha(m_BlendType, picWindow1.GetSecondPicAlpha());
 		}
 		break;
-	case ID_VIEW_BACKGROUNDCOLOR:
+	case ID_VIEW_TRANSPARENTCOLOR:
 		{
 			static COLORREF customColors[16] = {0};
 			CHOOSECOLOR ccDlg;
 			memset(&ccDlg, 0, sizeof(ccDlg));
 			ccDlg.lStructSize = sizeof(ccDlg);
 			ccDlg.hwndOwner = m_hwnd;
-			ccDlg.rgbResult = backColor;
+			ccDlg.rgbResult = transparentColor;
 			ccDlg.lpCustColors = customColors;
 			ccDlg.Flags = CC_RGBINIT | CC_FULLOPEN;
 			if(ChooseColor(&ccDlg))
 			{
-				backColor = ccDlg.rgbResult;
-				picWindow1.SetBackColor(backColor);
-				picWindow2.SetBackColor(backColor);
+				transparentColor = ccDlg.rgbResult;
+				picWindow1.SetTransparentColor(transparentColor);
+				picWindow2.SetTransparentColor(transparentColor);
 				// The color picker takes the focus and we don't get it back.
 				::SetFocus(picWindow1);
 			}

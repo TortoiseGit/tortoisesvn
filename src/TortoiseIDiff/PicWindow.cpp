@@ -956,7 +956,7 @@ void CPicWindow::ShowPicWithBorder(HDC hdc, const RECT &bounds, CPicture &pic, d
 		border.bottom = picrect.bottom+1;
 		::FillRect(hdc, &border, (HBRUSH)(COLOR_3DDKSHADOW+1));
 	}
-	::SetBkColor(hdc, backColor);
+	::SetBkColor(hdc, transparentColor);
 	::ExtTextOut(hdc, 0, 0, ETO_OPAQUE, &picrect, NULL, 0, NULL);
 	pic.Show(hdc, picrect);
 }
