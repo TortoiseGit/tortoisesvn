@@ -45,13 +45,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 10594: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 10631: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-09-13 12:43+0300\n"
+"PO-Revision-Date: 2007-09-15 21:12+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1414,10 +1414,6 @@ msgstr "В среднем"
 msgid "B&rowse..."
 msgstr "О&бзор..."
 
-#: MenuEntry
-msgid "Background &color..."
-msgstr "&Цвет фона..."
-
 #: ID:246,
 msgid "Bar Graph"
 msgstr "Гистограмма"
@@ -2429,8 +2425,12 @@ msgid "Do you want to save your changes?"
 msgstr "Вы хотите сохранить изменения?"
 
 #: Control-ID:65535,
-msgid "Documentation - Simon Large"
-msgstr "Документация - Simon Large"
+msgid ""
+"Documentation : Simon Large\n"
+"Code : Tobias Schäfer, Stefan Fuhrmann"
+msgstr ""
+"Документация: Simon Large\n"
+"Код : Tobias Schäfer, Stefan Fuhrmann"
 
 #: ID:73,#:
 #: ID:80,
@@ -2753,7 +2753,7 @@ msgstr "Заплатки файла"
 #: ID:7,
 #, c-format
 msgid ""
-"File size:\t\t%s\n"
+"File size:\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -2761,7 +2761,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"Размер файла:\t\t%s\n"
+"Размер файла:\t\t%s (%s)\n"
 "Ширина:\t\t\t%ld пиксел(ов)\n"
 "Высота:\t\t\t%ld пиксел(ов)\n"
 "Разреш. по горизонтали:\t%.1f dpi\n"
@@ -2772,7 +2772,7 @@ msgstr ""
 #: ID:8,
 #, c-format
 msgid ""
-"File size:\t\t%s\n"
+"File size:\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -2780,7 +2780,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%\n"
 "\n"
-"File size:\t\t%s\n"
+"File size:\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -2788,7 +2788,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"Размер файла:\t\t%s\n"
+"Размер файла:\t\t%s (%s)\n"
 "Ширина:\t\t\t%ld пиксел(ов)\n"
 "Высота:\t\t\t%ld пиксел(ов)\n"
 "Разреш. по горизонтали:\t%.1f dpi\n"
@@ -2796,7 +2796,7 @@ msgstr ""
 "Глубина цвета:\t\t%d бит\n"
 "Увеличение:\t\t%d%%\n"
 "\n"
-"Размер файла:\t\t%s\n"
+"Размер файла:\t\t%s (%s)\n"
 "Ширина:\t\t\t%ld пиксел(ов)\n"
 "Высота:\t\t\t%ld пиксел(ов)\n"
 "Разреш. по горизонтали:\t%.1f dpi\n"
@@ -2807,7 +2807,7 @@ msgstr ""
 #: ID:7,
 #, c-format
 msgid ""
-"File size:\t\t\t%s\n"
+"File size:\t\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -2815,7 +2815,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"Размер файла:\t\t%s\n"
+"Размер файла:\t\t%s (%s)\n"
 "Ширина:\t\t\t%ld пиксел(ов)\n"
 "Высота:\t\t\t%ld пиксел(ов)\n"
 "Разреш. по горизонтали:\t%.1f dpi\n"
@@ -2826,7 +2826,7 @@ msgstr ""
 #: ID:7,
 #, c-format
 msgid ""
-"File size:\t\t\t%s\n"
+"File size:\t\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -2834,7 +2834,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%\n"
 "\n"
-"File size:\t\t\t%s\n"
+"File size:\t\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -2842,7 +2842,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"Размер файла:\t\t%s\n"
+"Размер файла:\t\t%s (%s)\n"
 "Ширина:\t\t\t%ld пиксел(ов)\n"
 "Высота:\t\t\t%ld пиксел(ов)\n"
 "Разреш. по горизонтали:\t%.1f dpi\n"
@@ -2850,7 +2850,7 @@ msgstr ""
 "Глубина цвета:\t\t%d бит\n"
 "Увеличение:\t\t%d%%\n"
 "\n"
-"Размер файла:\t\t%s\n"
+"Размер файла:\t\t%s (%s)\n"
 "Ширина:\t\t\t%ld пиксел(ов)\n"
 "Высота:\t\t\t%ld пиксел(ов)\n"
 "Разреш. по горизонтали:\t%.1f dpi\n"
@@ -3236,6 +3236,7 @@ msgstr "ID:57603:V C +S"
 msgid "ID:57604:V CS+S"
 msgstr "ID:57604:V CS+S"
 
+#. Accelerator Entry for Menu ID:57634; ''
 #. Accelerator Entry for Menu ID:57634; ''
 #. Accelerator Entry for Menu ID:57634; '&Copy'
 #: Corresponding Menu ID:57634;
@@ -4142,6 +4143,17 @@ msgstr "Ошибки не произошло."
 #: ID:82,
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
 msgstr "Ни один файл или папка не были изменены. TortoiseSVN нечего убирать!"
+
+#: ID:239,
+msgid ""
+"No files to show with the current setting.\n"
+"Check one or more settings below to see unversioned, ignored and/or unmodified files.\n"
+"To see remote changes, click on \"Check Repository\""
+msgstr ""
+"Нет ни одного файла для отображения, исходя из текущих настроек.\n"
+"Отметьте один или более флажков ниже для того, чтобы увидеть\n"
+"неверсированные, игнорируемые и/или неизменённые файлы.\n"
+"Чтобы увидеть удалённые изменения, нажмите на \"Проверить хранилище\""
 
 #: ID:77,
 msgid ""
@@ -6467,6 +6479,10 @@ msgstr "Всего файлов изменено:"
 #, c-format
 msgid "Transferring at %s"
 msgstr "Передача на %s"
+
+#: MenuEntry
+msgid "Transparent &color..."
+msgstr "Прозрачный &цвет..."
 
 #: ID:251,
 msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
