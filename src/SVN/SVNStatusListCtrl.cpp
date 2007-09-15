@@ -4420,7 +4420,7 @@ void CSVNStatusListCtrl::OnPaint()
 			memDC.SetBkColor(clrTextBk);
 			memDC.FillSolidRect(rc, clrTextBk);
 			rc.top += 10;
-			CGdiObject * oldfont = memDC.SelectStockObject(ANSI_VAR_FONT);
+			CGdiObject * oldfont = memDC.SelectStockObject(DEFAULT_GUI_FONT);
 			memDC.DrawText(str, rc, DT_CENTER | DT_VCENTER |
 				DT_WORDBREAK | DT_NOPREFIX | DT_NOCLIP);
 			memDC.SelectObject(oldfont);

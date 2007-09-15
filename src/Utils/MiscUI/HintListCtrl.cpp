@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -77,7 +77,7 @@ void CHintListCtrl::OnPaint()
 			memDC.SetBkColor(clrTextBk);
 			memDC.FillSolidRect(rc, clrTextBk);
 			rc.top += 10;
-			CGdiObject * oldfont = memDC.SelectStockObject(ANSI_VAR_FONT);
+			CGdiObject * oldfont = memDC.SelectStockObject(DEFAULT_GUI_FONT);
 			memDC.DrawText(m_sText, rc, DT_CENTER | DT_VCENTER |
 				DT_WORDBREAK | DT_NOPREFIX | DT_NOCLIP);
 			memDC.SelectObject(oldfont);
