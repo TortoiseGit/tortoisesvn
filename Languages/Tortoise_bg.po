@@ -47,7 +47,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-08-30 21:00+0200\n"
+"PO-Revision-Date: 2007-09-17 01:38+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -706,6 +706,11 @@ msgstr "&Зареждане..."
 msgid "&Merge"
 msgstr "&Сливане"
 
+# Dlg-ID:141,
+#: MenuEntry
+msgid "&Merge paths"
+msgstr "&Пътища на сливане"
+
 # ID:9,
 #: ID:9,
 msgid "&Merge..."
@@ -736,10 +741,6 @@ msgstr "&Мрежови устройства"
 #: Control-ID:65535,
 msgid "&New "
 msgstr "&Нов"
-
-#: MenuEntry
-msgid "&Newest on top"
-msgstr "&Най-новите - на върха"
 
 # Control-ID:1208,
 #: ID:115,#:
@@ -826,8 +827,8 @@ msgstr "&Преименуване"
 
 # Control-ID:1316,
 #: Control-ID:1316,
-msgid "&Reopen commit dialog after a commit failed"
-msgstr "&Показване на диалоговия прозорец за поверяване след провалено поверяване"
+msgid "&Reopen commit and branch/tag dialog after a commit failed"
+msgstr "&Показване на диалоговия прозорец за поверяване или разклонение/етикет след провалено поверяване"
 
 # ID:13,
 #: ID:13,
@@ -1713,10 +1714,6 @@ msgstr "Средно"
 msgid "B&rowse..."
 msgstr "И&збор..."
 
-#: MenuEntry
-msgid "Background &color..."
-msgstr "&Цвят на фона..."
-
 # ID:246,
 #: ID:246,
 msgid "Bar Graph"
@@ -2052,6 +2049,10 @@ msgstr "Изписване от %s, ревизия %s, %s, %s"
 msgid "Checksum:"
 msgstr "Контролна сума:"
 
+#: Control-ID:1402,
+msgid "Choose item:"
+msgstr "Изберете обект:"
+
 # ID:145,
 #: ID:146,
 msgid "Cleaning up."
@@ -2305,6 +2306,11 @@ msgid "Configure viewer program for GNU diff files (patch files)."
 msgstr "Настройване на програмата за разглеждане на GNU diff файлове (файлове с кръпки)."
 
 # Control-ID:65535,
+#: Control-ID:65535,
+msgid "Conflict resolved"
+msgstr "Конфликтът е разрешен"
+
+# Control-ID:65535,
 #: ID:263,#:
 #: Control-ID:65535,
 msgid "Conflicted"
@@ -2471,6 +2477,12 @@ msgstr "Поправки"
 msgid "Could not add %s to the ignore list!"
 msgstr "Не можа да се добави %s към списъка за игнориране!"
 
+# ID:81,
+#: ID:582,
+#, c-format
+msgid "Could not add \"%s\" because"
+msgstr "Не може да се добави \"%s\", защото"
+
 # ID:201,
 #: ID:201,
 msgid "Could not check for a newer version!"
@@ -2489,9 +2501,21 @@ msgstr ""
 "%s"
 
 # ID:81,
+#: ID:582,
+#, c-format
+msgid "Could not delete \"%s\" because"
+msgstr "Не можа да се изтрие \"%s\", защото"
+
+# ID:81,
 #: ID:81,
 msgid "Could not get the status!"
 msgstr "Грешка при получаване на състоянието!"
+
+# ID:81,
+#: ID:582,
+#, c-format
+msgid "Could not merge \"%s\" because"
+msgstr "Не можа да се слее \"%s\", защото"
 
 # ID:69,
 #: ID:69,
@@ -2622,8 +2646,8 @@ msgstr ""
 
 # ID:8,
 #: ID:8,
-msgid "Create repositor&y here..."
-msgstr "Създаване на &хранилище тук..."
+msgid "Create repositor&y here"
+msgstr "Създаване на &хранилище тук"
 
 # ID:132,
 #: MenuEntry
@@ -2922,12 +2946,14 @@ msgstr "Желаете ли да премахнете рекурсивно св�
 msgid "Do you want to save your changes?"
 msgstr "Желаете ли да запишете промените си?"
 
-# Control-ID:65535,
 #: Control-ID:65535,
-msgid "Documentation - Simon Large"
+msgid ""
+"Documentation : Simon Large\n"
+"Code : Tobias Schäfer, Stefan Fuhrmann"
 msgstr ""
-"Документация - Simon Large\n"
-"Превод - Милен А. Радев"
+"Документация : Simon Large\n"
+"Код : Tobias Schäfer, Stefan Fuhrmann\n"
+"Превод: Милен А. Радев"
 
 # ID:80,
 #: ID:73,#:
@@ -2983,6 +3009,11 @@ msgstr "Редакция на автора"
 #: ID:115,
 msgid "Edit author name"
 msgstr "Редакция на името на автора"
+
+# ID:12,
+#: Control-ID:1399,
+msgid "Edit conflict"
+msgstr "Редакция на конфликт"
 
 # ID:110,
 #: ID:110,
@@ -3320,7 +3351,7 @@ msgstr "Файлове с кръпки"
 #: ID:7,
 #, c-format
 msgid ""
-"File size:\t\t%s\n"
+"File size:\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3328,7 +3359,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"Размер на файла:\t\t%s\n"
+"Размер на файла:\t\t%s (%s)\n"
 "Ширина:\t\t\t%ld пиксела\n"
 "Височина:\t\t\t%ld пиксела\n"
 "Хоризонтална разделителна способност:\t%.1f точки на инч\n"
@@ -3340,7 +3371,7 @@ msgstr ""
 #: ID:8,
 #, c-format
 msgid ""
-"File size:\t\t%s\n"
+"File size:\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3348,7 +3379,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%\n"
 "\n"
-"File size:\t\t%s\n"
+"File size:\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3356,7 +3387,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"Размер на файла:\t\t%s\n"
+"Размер на файла:\t\t%s (%s)\n"
 "Ширина:\t\t\t%ld пиксела\n"
 "Височина:\t\t\t%ld пиксела\n"
 "Хоризонтална разделителна способност:\t%.1f точки на инч\n"
@@ -3364,7 +3395,7 @@ msgstr ""
 "Дълбочина:\t\t\t%d бита\n"
 "Мащаб:\t\t\t%d%%\n"
 "\n"
-"Размер на файла:\t\t%s\n"
+"Размер на файла:\t\t%s (%s)\n"
 "Ширина:\t\t\t%ld пиксела\n"
 "Височина:\t\t\t%ld пиксела\n"
 "Хоризонтална разделителна способност:\t%.1f точки на инч\n"
@@ -3375,7 +3406,7 @@ msgstr ""
 #: ID:7,
 #, c-format
 msgid ""
-"File size:\t\t\t%s\n"
+"File size:\t\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3383,7 +3414,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"Размер на файла:\t\t\t%s\n"
+"Размер на файла:\t\t\t%s (%s)\n"
 "Ширина:\t\t\t%ld пиксела\n"
 "Височина:\t\t\t%ld пиксела\n"
 "Хоризонтална разделителна способност:\t%.1f точки на инч\n"
@@ -3395,7 +3426,7 @@ msgstr ""
 #: ID:7,
 #, c-format
 msgid ""
-"File size:\t\t\t%s\n"
+"File size:\t\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3403,7 +3434,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%\n"
 "\n"
-"File size:\t\t\t%s\n"
+"File size:\t\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3411,7 +3442,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"Размер на файла:\t\t\t%s\n"
+"Размер на файла:\t\t\t%s (%s)\n"
 "Ширина:\t\t\t%ld пиксела\n"
 "Височина:\t\t\t%ld пиксела\n"
 "Хоризонтална разделителна способност:\t%.1f точки на инч\n"
@@ -3419,7 +3450,7 @@ msgstr ""
 "Дълбочина:\t\t\t%d бита\n"
 "Мащаб:\t\t\t%d%%\n"
 "\n"
-"Размер на файла:\t\t\t%s\n"
+"Размер на файла:t\t\t%s (%s)\n"
 "Ширина:\t\t\t%ld пиксела\n"
 "Височина:\t\t\t%ld пиксела\n"
 "Хоризонтална разделителна способност:\t%.1f точки на инч\n"
@@ -3798,15 +3829,15 @@ msgstr "ID:32809:V C +F"
 msgid "ID:32810:V   +T"
 msgstr "ID:32810:V   +T"
 
-#. Accelerator Entry for Menu ID:32814; '&Newest on top'
+#. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 #: Corresponding Menu ID:32814;
-#: '&Newest on top'
+#: 'Oldest on to&p'
 msgid "ID:32814:V C +L"
 msgstr "ID:32814:V C +L"
 
-#. Accelerator Entry for Menu ID:32814; '&Newest on top'
+#. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 #: Corresponding Menu ID:32814;
-#: '&Newest on top'
+#: 'Oldest on to&p'
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
@@ -3846,6 +3877,7 @@ msgstr "ID:57603:V C +S"
 msgid "ID:57604:V CS+S"
 msgstr "ID:57604:V CS+S"
 
+#. Accelerator Entry for Menu ID:57634; ''
 #. Accelerator Entry for Menu ID:57634; ''
 #. Accelerator Entry for Menu ID:57634; '&Copy'
 #: Corresponding Menu ID:57634;
@@ -4340,6 +4372,11 @@ msgstr "Стартира външната сравняваща / сливаща 
 #: Control-ID:1137,
 msgid "Least active author:"
 msgstr "Най-малко активен автор:"
+
+# ID:11,
+#: Control-ID:1404,
+msgid "Leave conflicted:"
+msgstr "С конфликти:"
 
 # ID:188,
 #: ID:188,
@@ -4905,6 +4942,16 @@ msgstr "Няма грешки."
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
 msgstr "Няма променени папки или файлове. Няма промени за отменяне!"
 
+#: ID:239,
+msgid ""
+"No files to show with the current setting.\n"
+"Check one or more settings below to see unversioned, ignored and/or unmodified files.\n"
+"To see remote changes, click on \"Check Repository\""
+msgstr ""
+"Няма файлове за показване при текущите настройки.\n"
+"Включете една или повече опции по-долу за да видите неконтролираните, игнорираните и/или непроменените файлове.\n"
+"За да видите отдалечените промени, щракнете на \"Проверка в хранилището\"."
+
 # ID:77,
 #: ID:77,
 msgid ""
@@ -5023,6 +5070,10 @@ msgstr "OVR"
 #: Control-ID:65535,
 msgid "Older lines"
 msgstr "По-стари редове"
+
+#: MenuEntry
+msgid "Oldest on to&p"
+msgstr "&Най-старите - най-отгоре"
 
 # ID:13,
 #: ID:99,#:
@@ -5196,7 +5247,8 @@ msgstr "Файлове с кръпки (*.diff;*.patch)|*.diff;*.patch|Всич�
 
 # ID:77,
 #: ID:77,#:
-#: ID:198,
+#: ID:198,#:
+#: ID:20,
 msgid "Path"
 msgstr "Път"
 
@@ -5332,6 +5384,10 @@ msgstr ""
 "да бъдат поверени в току-що създаденото копие или разклонение,\n"
 "ще трябва да превключите работното си копие към новия URL.\n"
 "Използвайте командата \"Превключване\" за тази цел."
+
+#: Control-ID:1287,
+msgid "Please resolve the conflict by choosing one of the following options:"
+msgstr "Моля, разрешете конфликта като изберете една от следните опции:"
 
 # ID:3858,#:
 # ID:3858,
@@ -5875,6 +5931,16 @@ msgid "Resolve - TortoiseSVN"
 msgstr "Разрешаване - TortoiseSVN"
 
 # ID:9,
+#: Dlg-ID:268,
+msgid "Resolve Conflict"
+msgstr "Разрешаване на конфликт"
+
+# Control-ID:1021,
+#: Control-ID:1382,
+msgid "Resolve all later"
+msgstr "Разрешаване на всичко по-късно"
+
+# ID:9,
 #: ID:282,
 msgid "Resolve conflict using \"mine\""
 msgstr "Разрешаване на конфликт, използвайки \"моя\""
@@ -5884,9 +5950,20 @@ msgstr "Разрешаване на конфликт, използвайки \"�
 msgid "Resolve conflict using \"theirs\""
 msgstr "Разрешаване на конфликт, използвайки \"техния\""
 
+# ID:9,
+#: Control-ID:1403,
+msgid "Resolve conflict:"
+msgstr "Разрешаване на конфликт:"
+
+# ID:8,
+#: Control-ID:2,
+msgid "Resolve later"
+msgstr "Разрешаване по-късно"
+
 # ID:8,
 #: ID:74,#:
-#: ID:209,
+#: ID:209,#:
+#: Control-ID:1400,
 msgid "Resolved"
 msgstr "Разрешен"
 
@@ -7659,6 +7736,10 @@ msgstr "Файлови промени всяка седмица:"
 msgid "Transferring at %s"
 msgstr "Прехвърляне на %s"
 
+#: MenuEntry
+msgid "Transparent &color..."
+msgstr "Прозрачен &цвят..."
+
 # ID:251,
 #: ID:251,
 msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
@@ -7933,6 +8014,20 @@ msgstr "Използване и на двата текстови блока (т�
 #: ID:251,
 msgid "Use both text blocks (this one last)"
 msgstr "Използване и на двата текстови блока (този последен)"
+
+# ID:74,
+#: Control-ID:3,
+msgid "Use local"
+msgstr "От местните"
+
+#: ID:116,
+msgid "Use regular expression"
+msgstr "С регулярни изрази"
+
+# ID:138,
+#: Control-ID:4,
+msgid "Use repository"
+msgstr "От хранилището"
 
 # Control-ID:1066,
 #: Control-ID:1066,
@@ -8316,6 +8411,16 @@ msgstr ""
 "Забележка: обновяването на работното Ви копие до друга ревизия няма да унищожи тези промени,\n"
 "ето защо то няма да изглежда точно като е било в ревизията, до която го обновявате!"
 
+#: ID:89,
+msgid ""
+"Your working copy has local modifications.\n"
+"If you branch/tag from the HEAD revision, your local changes won't\n"
+"show up in the branch/tag!"
+msgstr ""
+"Работното Ви копие има местни промени.\n"
+"Ако създавате разклонение/етикет ог главната ревизия, Вашите местни промени\n"
+"няма да съществуват в разклонението/етикета!"
+
 #: MenuEntry
 msgid "Zoo&m out"
 msgstr "С&маляване"
@@ -8379,6 +8484,10 @@ msgstr "и"
 #: Control-ID:1085,
 msgid "and support the developers"
 msgstr "и подкрепете разработчиците"
+
+#: ID:583,
+msgid "another item already exists in its place."
+msgstr "вече съществува друг обект на негово място."
 
 # ID:76,
 #: ID:245,
@@ -8532,6 +8641,20 @@ msgstr "игнориране на предшествениците"
 msgid "incomplete"
 msgstr "недовършен"
 
+# ID:64,
+#: ID:583,
+msgid "it does not exist."
+msgstr "не съществува."
+
+#: ID:583,
+msgid "it is already deleted."
+msgstr "вече е изтрит."
+
+# ID:10,
+#: ID:583,
+msgid "it is unversioned."
+msgstr "не е под контрол."
+
 # ID:17,
 #: ID:214,
 msgid "item kept locally"
@@ -8680,7 +8803,7 @@ msgid ""
 msgstr ""
 "svn:externals\n"
 "Списък, с разделител нов ред, от спецификатори на модули, като всеки се състои от\n"
-"относителен път на директория, незадължителни флагове на ревизия, и URL. Например\n"
+"относителен път на директория, незадължителни флагове на ревизия, и URL. Например:\n"
 "foo\t\thttp://example.com/repos/zig\n"
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 
@@ -8711,6 +8834,20 @@ msgstr ""
 "Date, LastChangedDate\t\tДата и час на последната промяна на файла.\n"
 "Rev, LastChangedRevision\tНомер на последната ревизия, при която обекта е променян.\n"
 "Id\t\t\t\tРезюме на предните четири ключови думи. "
+
+#: ID:576,
+msgid ""
+"svn:mergeinfo\n"
+"A newline separated list of merge tracking info. Each line consists of an absolute\n"
+"path followed by a colon and a list of comma separated revision numbers.\n"
+"For example\n"
+"/trunk:123-125,129"
+msgstr ""
+"svn:mergeinfo\n"
+"Списък, с разделител нов ред, с информация за проследяване на сливанията. Всеки ред се състои от абсолютен\n"
+"път, следван от двоеточие и списък от разделени със запетая номера на ревизии.\n"
+"Например:\n"
+"/trunk:123-125,129"
 
 # ID:14,
 #: ID:576,
@@ -8753,6 +8890,11 @@ msgstr ""
 #: Control-ID:65535,
 msgid "switched:"
 msgstr "превключено:"
+
+# ID:13,
+#: ID:583,
+msgid "there are conflicting modifications."
+msgstr "има несъвместими промени."
 
 # ID:80,
 #: ID:80,#:
