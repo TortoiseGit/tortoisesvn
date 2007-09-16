@@ -59,6 +59,7 @@ void CPatch::FreeMemory()
 BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 {
 	CString sLine;
+	EOL ending = EOL_NOENDING;
 	INT_PTR nIndex = 0;
 	INT_PTR nLineCount = 0;
 	g_crasher.AddFile((LPCSTR)(LPCTSTR)filename, (LPCSTR)(LPCTSTR)_T("unified diff file"));
@@ -103,16 +104,10 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 	int nAddLineCount = 0;
 	int nRemoveLineCount = 0;
 	int nContextLineCount = 0;
-	CString sLine1;
 	for ( ;nIndex<PatchLines.GetCount(); nIndex++)
 	{
-		if (!sLine1.IsEmpty())
-		{
-			sLine = sLine1;
-			sLine1.Empty();
-		}
-		else
-			sLine = PatchLines.GetAt(nIndex);
+		sLine = PatchLines.GetAt(nIndex);
+		ending = PatchLines.GetLineEnding(nIndex);
 		switch (state)
 		{
 		case 0:	//Index: <filepath>
@@ -325,6 +320,7 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 					//already changed and no base file is around...
 					chunk->arLines.Add(sLine.Mid(1));
 					chunk->arLinesStates.Add(PATCHSTATE_CONTEXT);
+					chunk->arEOLs.push_back(ending);
 					nContextLineCount++;
 				}
 				else if (type == '\\')
@@ -338,6 +334,7 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 					//a removed line
 					chunk->arLines.Add(sLine.Mid(1));
 					chunk->arLinesStates.Add(PATCHSTATE_REMOVED);
+					chunk->arEOLs.push_back(ending);
 					nRemoveLineCount++;
 				}
 				else if (type == '+')
@@ -345,6 +342,7 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 					//an added line
 					chunk->arLines.Add(sLine.Mid(1));
 					chunk->arLinesStates.Add(PATCHSTATE_ADDED);
+					chunk->arEOLs.push_back(ending);
 					nAddLineCount++;
 				}
 				else
@@ -512,6 +510,7 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
 		for (int j=0; j<chunk->arLines.GetCount(); j++)
 		{
 			CString sPatchLine = chunk->arLines.GetAt(j);
+			EOL ending = chunk->arEOLs[j];
 			if ((m_UnicodeType != CFileTextLines::UTF8)&&(m_UnicodeType != CFileTextLines::UTF8BOM))
 			{
 				if ((PatchLines.GetUnicodeType()==CFileTextLines::UTF8)||(m_UnicodeType == CFileTextLines::UTF8BOM))
@@ -549,7 +548,7 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
 				{
 					if (lAddLine == 0)
 						lAddLine = 1;
-					PatchLines.InsertAt(lAddLine-1, sPatchLine);
+					PatchLines.InsertAt(lAddLine-1, sPatchLine, ending);
 					lAddLine++;
 				}
 				break;

@@ -89,6 +89,9 @@ public:
 	EOL GetLineEndings() const {return m_LineEndings;}
 
 	void		Add(const CString& sLine, EOL ending) {CStdCStringArray::Add(sLine); m_endings.push_back(ending);}
+	void		RemoveAt(int index)	{CStdCStringArray::RemoveAt(index); m_endings.erase(m_endings.begin()+index);}
+	void		InsertAt(int index, const CString& strVal, EOL ending) {CStdCStringArray::InsertAt(index, strVal); m_endings.insert(m_endings.begin()+index, ending);}
+
 	EOL			GetLineEnding(int index) {return m_endings[index];}
 	void		SetLineEnding(int index, EOL ending) {m_endings[index] = ending;}
 	
