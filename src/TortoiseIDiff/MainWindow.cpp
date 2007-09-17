@@ -204,6 +204,31 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 	case WM_MOUSEMOVE:
 		Splitter_OnMouseMove(hwnd, uMsg, wParam, lParam);
 		break;
+	case WM_MOUSEWHEEL:
+		{
+			// find out if the mouse cursor is over one of the views, and if
+			// it is, pass the mouse wheel message to that view
+			POINT pt;
+			GetCursorPos(&pt);
+			RECT rect;
+			GetWindowRect(picWindow1, &rect);
+			if (PtInRect(&rect, pt))
+			{
+				picWindow1.OnMouseWheel(GET_KEYSTATE_WPARAM(wParam), GET_WHEEL_DELTA_WPARAM(wParam));
+				if (bLinkedPositions)
+					picWindow2.OnMouseWheel(GET_KEYSTATE_WPARAM(wParam), GET_WHEEL_DELTA_WPARAM(wParam));
+			}
+			else
+			{
+				GetWindowRect(picWindow2, &rect);
+				if (PtInRect(&rect, pt))
+				{
+					picWindow2.OnMouseWheel(GET_KEYSTATE_WPARAM(wParam), GET_WHEEL_DELTA_WPARAM(wParam));
+					if (bLinkedPositions)
+						picWindow1.OnMouseWheel(GET_KEYSTATE_WPARAM(wParam), GET_WHEEL_DELTA_WPARAM(wParam));
+				}
+			}
+		}
 	case WM_NOTIFY:
 		{
 			LPNMHDR pNMHDR = (LPNMHDR)lParam;

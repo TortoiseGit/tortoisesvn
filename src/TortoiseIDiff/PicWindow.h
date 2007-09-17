@@ -154,6 +154,9 @@ public:
 	int GetHPos() {return nHScrollPos;}
 	int GetVPos() {return nVScrollPos;}
 	void SetZoomValue(double z) {picscale = z;}
+
+	/// Handles the mouse wheel
+	void				OnMouseWheel(short fwKeys, short zDelta);
 protected:
 	/// the message handler for this window
 	LRESULT CALLBACK	WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
@@ -165,8 +168,6 @@ protected:
 	void				OnVScroll(UINT nSBCode, UINT nPos);
 	/// Handles horizontal scrolling
 	void				OnHScroll(UINT nSBCode, UINT nPos);
-	/// Handles the mouse wheel
-	void				OnMouseWheel(short fwKeys, short zDelta);
 	/// Returns the client rectangle, without the scrollbars and the view title.
 	/// Basically the rectangle the image can use.
 	void				GetClientRect(RECT * pRect);
