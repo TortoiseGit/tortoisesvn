@@ -1615,10 +1615,6 @@ msgstr "平均"
 msgid "B&rowse..."
 msgstr "浏览(&R)..."
 
-#: MenuEntry
-msgid "Background &color..."
-msgstr "背景色(&C)..."
-
 # ID:246,
 #: ID:246,
 msgid "Bar Graph"
@@ -2817,10 +2813,13 @@ msgstr "确定要从该项目及其子项目删除属性 %s 吗？"
 msgid "Do you want to save your changes?"
 msgstr "是否要保存你所做的修改？"
 
-# Control-ID:65535,
 #: Control-ID:65535,
-msgid "Documentation - Simon Large"
-msgstr "文档 - Simon Large"
+msgid ""
+"Documentation : Simon Large\n"
+"Code : Tobias Schäfer, Stefan Fuhrmann"
+msgstr ""
+"Documentation : Simon Large\n"
+"Code : Tobias Schäfer, Stefan Fuhrmann"
 
 # ID:73,#:
 # ID:80,
@@ -3208,7 +3207,7 @@ msgstr "文件补丁"
 #: ID:7,
 #, c-format
 msgid ""
-"File size:\t\t%s\n"
+"File size:\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3216,7 +3215,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"文件大小：\t\t%s\n"
+"文件大小：\t\t%s (%s)\n"
 "宽度：\t\t\t%ld 像素\n"
 "高度：\t\t\t%ld 像素\n"
 "水平分辨率：\t%.1f dpi\n"
@@ -3228,7 +3227,7 @@ msgstr ""
 #: ID:8,
 #, c-format
 msgid ""
-"File size:\t\t%s\n"
+"File size:\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3236,7 +3235,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%\n"
 "\n"
-"File size:\t\t%s\n"
+"File size:\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3244,7 +3243,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"文件大小：\t\t%s\n"
+"文件大小：\t\t%s (%s)\n"
 "宽度：\t\t\t%ld 像素\n"
 "高度：\t\t\t%ld 像素\n"
 "水平分辨率：\t%.1f dpi\n"
@@ -3252,18 +3251,19 @@ msgstr ""
 "色深：\t\t\t%d 位\n"
 "缩放比例：\t\t\t%d%%\n"
 "\n"
-"文件大小：\t\t%s\n"
+"文件大小：\t\t%s (%s)\n"
 "宽度：\t\t\t%ld 像素\n"
 "高度：\t\t\t%ld 像素\n"
 "水平分辨率：\t%.1f dpi\n"
 "垂直分辨率：\t%.1f dpi\n"
-"色深：\t\t\t%d 位缩放比例：\t\t\t%d%%"
+"色深：\t\t\t%d 位\n"
+"缩放比例：\t\t\t%d%%"
 
 # ID:7,
 #: ID:7,
 #, c-format
 msgid ""
-"File size:\t\t\t%s\n"
+"File size:\t\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3271,19 +3271,19 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"文件大小：\t\t%s\n"
+"文件大小：\t\t\t%s (%s)\n"
 "宽度：\t\t\t%ld pixel\n"
 "高度：\t\t\t%ld pixel\n"
 "水平分辨率：\t\t%.1f dpi\n"
 "垂直分辨率：\t\t%.1f dpi\n"
-"色深：\t\t\t%d bit\n"
-"缩放比例：\t\t%d%%"
+"色深：\t\t\t%d 位\n"
+"缩放比例：\t\t\t%d%%"
 
 # ID:7,
 #: ID:7,
 #, c-format
 msgid ""
-"File size:\t\t\t%s\n"
+"File size:\t\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3291,7 +3291,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%\n"
 "\n"
-"File size:\t\t\t%s\n"
+"File size:\t\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3299,20 +3299,21 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"文件大小：\t\t\t%s\n"
+"文件大小：\t\t\t%s (%s)\n"
 "宽度：\t\t\t%ld 像素\n"
 "高度：\t\t\t%ld 像素\n"
 "水平分辨率：\t%.1f dpi\n"
-"垂直分辨率：\t\t%.1f dpi\n"
+"垂直分辨率：\t%.1f dpi\n"
 "色深：\t\t\t%d 位\n"
 "缩放比例：\t\t\t%d%%\n"
 "\n"
-"文件大小：\t\t\t%s\n"
+"文件大小：\t\t\t%s (%s)\n"
 "宽度：\t\t\t%ld 像素\n"
 "高度：\t\t\t%ld 像素\n"
 "水平分辨率：\t%.1f dpi\n"
-"垂直分辨率：\t\t%.1f dpi\n"
-"色深：\t\t\t%d 位缩放比例:\t\t\t%d%%"
+"垂直分辨率：\t%.1f dpi\n"
+"色深：\t\t\t%d 位\n"
+"缩放比例:\t\t\t%d%%"
 
 # Control-ID:65535,
 #: Control-ID:65535,
@@ -3712,6 +3713,7 @@ msgstr "ID:57603:V C +S"
 msgid "ID:57604:V CS+S"
 msgstr "ID:57604:V CS+S"
 
+#. Accelerator Entry for Menu ID:57634; ''
 #. Accelerator Entry for Menu ID:57634; ''
 #. Accelerator Entry for Menu ID:57634; '&Copy'
 #: Corresponding Menu ID:57634; '&Copy'
@@ -4742,6 +4744,16 @@ msgstr "没有发生错误。"
 #: ID:82,
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
 msgstr "从上次提交以来没有任何文件修改或加入。TortoiseSVN 不需要进行复原！"
+
+#: ID:239,
+msgid ""
+"No files to show with the current setting.\n"
+"Check one or more settings below to see unversioned, ignored and/or unmodified files.\n"
+"To see remote changes, click on \"Check Repository\""
+msgstr ""
+"根据当前配置，没有文件显示。\n"
+"检查下面的配置项，察看未版本控制的，被忽略的或未修改的文件。\n"
+"为了察看远程修改，请点击 “检查版本库”。"
 
 # ID:77,
 #: ID:77,
@@ -7449,6 +7461,10 @@ msgstr "文件改动次数合计："
 msgid "Transferring at %s"
 msgstr "从 %s 开始传输"
 
+#: MenuEntry
+msgid "Transparent &color..."
+msgstr "透明色(&C)..."
+
 # ID:251,
 #: ID:251,
 msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
@@ -8521,12 +8537,12 @@ msgid ""
 "A newline separated list of merge tracking info. Each line consists of an absolute\n"
 "path followed by a colon and a list of comma separated revision numbers.\n"
 "For example\n"
-"/trunk:123,125,129"
+"/trunk:123-125,129"
 msgstr ""
 "svn:mergeinfo\n"
 "用换行隔开的合并跟踪信息列表。每行包含一个绝对路径，\n"
 "随后一个冒号，然后是用逗号分割的版本号列表。例如\n"
-"/trunk:123,125,129"
+"/trunk:123-125,129"
 
 # ID:14,
 #: ID:576,
