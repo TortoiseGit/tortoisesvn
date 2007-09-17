@@ -45,13 +45,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 10631: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 10635: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-09-15 21:12+0300\n"
+"PO-Revision-Date: 2007-09-17 14:10+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7431,14 +7431,14 @@ msgid ""
 "A newline separated list of merge tracking info. Each line consists of an absolute\n"
 "path followed by a colon and a list of comma separated revision numbers.\n"
 "For example\n"
-"/trunk:123,125,129"
+"/trunk:123-125,129"
 msgstr ""
 "svn:mergeinfo\n"
 "Список отслеживания информации о слиянии, по одной записи в строке.\n"
 "Каждая строка состоит из абсолютного пути, после которого идёт\n"
 "двоеточие и список разделённых запятыми номеров ревизий.\n"
 "Например,\n"
-"/trunk:123,125,129"
+"/trunk:123-125,129"
 
 #: ID:576,
 msgid ""
