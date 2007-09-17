@@ -60,7 +60,6 @@ public:
 		, nHScrollPos(0)
 		, nVScrollPos(0)
 		, picscale(1.0)
-		, picscale2(1.0)
 		, transparentColor(0)
 		, pSecondPic(NULL)
 		, alphalive(0)
@@ -71,10 +70,11 @@ public:
 		, nCurrentFrame(1)
 		, bPlaying(false)
 		, pTheOtherPic(NULL)
-		, bLinked(true)
+		, bLinkedPositions(true)
 		, hwndAlphaSlider(NULL)
-		, bFitTogether(false)
+		, bFitSizes(false)
 		, m_blend(BLEND_ALPHA)
+		, bMainPic(false)
 	{ 
 		SetWindowTitle(_T("Picture Window"));
 		m_lastTTPos.x = 0;
@@ -90,16 +90,18 @@ public:
 	bool RegisterAndCreateWindow(HWND hParent);
 
 	/// Sets the image path and title to show
-	void SetPic(stdstring path, stdstring title);
+	void SetPic(stdstring path, stdstring title, bool bFirst);
 	/// Returns the CPicture image object. Used to get an already loaded image
 	/// object without having to load it again.
 	CPicture * GetPic() {return &picture;}
 	/// Sets the path and title of the second image which is alpha blended over the original
-	void SetSecondPic(CPicture * pPicture = NULL, const stdstring& sectit = _T(""), const stdstring& secpath = _T(""))
+	void SetSecondPic(CPicture * pPicture = NULL, const stdstring& sectit = _T(""), const stdstring& secpath = _T(""), int hpos = 0, int vpos = 0)
 	{
 		pSecondPic = pPicture;
 		pictitle2 = sectit;
 		picpath2 = secpath;
+		nVSecondScrollPos = vpos;
+		nHSecondScrollPos = hpos;
 	}
 
 	void StopTimer() {KillTimer(*this, ID_ANIMATIONTIMER);}
@@ -130,26 +132,27 @@ public:
 	/// Resizes the image to fit into the window. Small images are not enlarged.
 	void FitImageInWindow();
 	/// Makes both images the same size, fitting into the window
-	void FitTogether(bool bFit);
+	void FitSizes(bool bFit);
 	/// Sets the zoom factor of the image
 	void SetZoom(double dZoom, bool centermouse);
-	void SetZoom2(double dZoom) {picscale2 = dZoom;}
 	/// Returns the currently used zoom factor in which the image is shown.
 	double GetZoom() {return picscale;}
-	/// Returns the currently used zoom factor in which the second image is shown.
-	double GetZoom2() {return picscale2;}
 	/// Zooms in (true) or out (false) in nice steps
 	void Zoom(bool in, bool centermouse);
 	/// Sets the 'Other' pic window
 	void SetOtherPicWindow(CPicWindow * pWnd) {pTheOtherPic = pWnd;}
 	/// Links/Unlinks the two pic windows
-	void LinkWindows(bool bLink) {bLinked = bLink;}
+	void LinkPositions(bool bLink) {bLinkedPositions = bLink;}
 
 	void ShowInfo(bool bShow = true) {bShowInfo = bShow; InvalidateRect(*this, NULL, false);}
 	/// Sets up the scrollbars as needed
 	void SetupScrollBars();
 
 	bool HasMultipleImages();
+
+	int GetHPos() {return nHScrollPos;}
+	int GetVPos() {return nVScrollPos;}
+	void SetZoomValue(double z) {picscale = z;}
 protected:
 	/// the message handler for this window
 	LRESULT CALLBACK	WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
@@ -192,13 +195,13 @@ protected:
 	CPicture			picture;			///< the picture object of the image
 	bool				bValid;				///< true if the picture object is valid, i.e. if the image could be loaded and can be shown
 	double				picscale;			///< the scale factor of the image
-	double				picscale2;			///< the scale factor of the second image
-	COLORREF			transparentColor;			///< the colour to draw under the images
+	COLORREF			transparentColor;	///< the color to draw under the images
 	bool				bFirstpaint;		///< true if the image is painted the first time. Used to initialize some stuff when the window is valid for sure.
 	CPicture *			pSecondPic;			///< if set, this is the picture to draw transparently above the original
 	CPicWindow *		pTheOtherPic;		///< pointer to the other picture window. Used for "linking" the two windows when scrolling/zooming/...
-	bool				bLinked;			///< if true, the two image windows are linked together for scrolling/zooming/...
-	bool				bFitTogether;		///< if true, the two image windows are always zoomed so they match their size
+	bool				bMainPic;			///< if true, this is the first image
+	bool				bLinkedPositions;	///< if true, the two image windows are linked together for scrolling/zooming/...
+	bool				bFitSizes;		///< if true, the two image windows are always zoomed so they match their size
 	BlendType			m_blend;			///< type of blending to use
 	stdstring 			pictitle2;			///< the title of the second picture
 	stdstring 			picpath2;			///< the path of the second picture
@@ -211,6 +214,8 @@ protected:
 	// scrollbar info
 	int					nVScrollPos;		///< vertical scroll position
 	int					nHScrollPos;		///< horizontal scroll position
+	int					nVSecondScrollPos;	///< vertical scroll position of second pic at the moment of enabling overlap mode
+	int					nHSecondScrollPos;	///< horizontal scroll position of second pic at the moment of enabling overlap mode
 	POINT				ptPanStart;			///< the point of the last mouse click
 	int					startVScrollPos;	///< the vertical scroll position when panning starts
 	int					startHScrollPos;	///< the horizontal scroll position when panning starts

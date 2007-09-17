@@ -117,9 +117,9 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 		{
 			m_hwnd = hwnd;
 			picWindow1.RegisterAndCreateWindow(hwnd);
-			picWindow1.SetPic(leftpicpath, leftpictitle);
+			picWindow1.SetPic(leftpicpath, leftpictitle, true);
 			picWindow2.RegisterAndCreateWindow(hwnd);
-			picWindow2.SetPic(rightpicpath, rightpictitle);
+			picWindow2.SetPic(rightpicpath, rightpictitle, false);
 
 			picWindow1.SetOtherPicWindow(&picWindow2);
 			picWindow2.SetOtherPicWindow(&picWindow1);
@@ -252,8 +252,8 @@ LRESULT CMainWindow::DoCommand(int id)
 		{
 			if (OpenDialog())
 			{
-				picWindow1.SetPic(leftpicpath, _T(""));
-				picWindow2.SetPic(rightpicpath, _T(""));
+				picWindow1.SetPic(leftpicpath, _T(""), true);
+				picWindow2.SetPic(rightpicpath, _T(""), false);
 				if (bOverlap)
 				{
 					picWindow1.SetSecondPic(picWindow2.GetPic(), rightpictitle, rightpicpath);
@@ -302,10 +302,8 @@ LRESULT CMainWindow::DoCommand(int id)
 			{
 				picWindow1.StopTimer();
 				picWindow2.StopTimer();
-				picWindow1.SetSecondPic(picWindow2.GetPic(), rightpictitle, rightpicpath);
+				picWindow1.SetSecondPic(picWindow2.GetPic(), rightpictitle, rightpicpath, picWindow2.GetHPos(), picWindow2.GetVPos());
 				picWindow1.SetSecondPicAlpha(m_BlendType, 127);
-				if (bLinked)
-					picWindow1.SetZoom2(picWindow2.GetZoom());
 			}
 			else
 			{
@@ -327,17 +325,9 @@ LRESULT CMainWindow::DoCommand(int id)
 			RECT rect;
 			GetClientRect(*this, &rect);
 			PositionChildren(&rect);
-			if (bLinked)
+			if ((bFitSizes)&&(bOverlap))
 			{
-				if (bOverlap)
-				{
-					picWindow1.FitImageInWindow();
-				}
-				else
-				{
-					picWindow1.FitImageInWindow();
-					picWindow2.FitImageInWindow();
-				}
+				picWindow1.FitSizes(bFitSizes);
 			}
             return 0;
 		}
@@ -385,43 +375,39 @@ LRESULT CMainWindow::DoCommand(int id)
 		break;
 	case ID_VIEW_FITTOGETHER:
 		{
-			bFitTogether = !bFitTogether;
-			picWindow1.FitTogether(bFitTogether);
-			picWindow2.FitTogether(bFitTogether);
-			if (!bFitTogether)
-			{
-				picWindow1.SetZoom2(picWindow1.GetZoom());
-			}
+			bFitSizes = !bFitSizes;
+			picWindow1.FitSizes(bFitSizes);
+			picWindow2.FitSizes(bFitSizes);
 
 			HMENU hMenu = GetMenu(*this);
 			UINT uCheck = MF_BYCOMMAND;
-			uCheck |= bFitTogether ? MF_CHECKED : MF_UNCHECKED;
+			uCheck |= bFitSizes ? MF_CHECKED : MF_UNCHECKED;
 			CheckMenuItem(hMenu, ID_VIEW_FITTOGETHER, uCheck);
 
 			// change the state of the toolbar button
 			TBBUTTONINFO tbi;
 			tbi.cbSize = sizeof(TBBUTTONINFO);
 			tbi.dwMask = TBIF_STATE;
-			tbi.fsState = bFitTogether ? TBSTATE_CHECKED | TBSTATE_ENABLED : TBSTATE_ENABLED;
+			tbi.fsState = bFitSizes ? TBSTATE_CHECKED | TBSTATE_ENABLED : TBSTATE_ENABLED;
 			SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_FITTOGETHER, (LPARAM)&tbi);
 		}
 		break;
 	case ID_VIEW_LINKIMAGESTOGETHER:
 		{
-			bLinked = !bLinked;
-			picWindow1.LinkWindows(bLinked);
-			picWindow2.LinkWindows(bLinked);
+			bLinkedPositions = !bLinkedPositions;
+			picWindow1.LinkPositions(bLinkedPositions);
+			picWindow2.LinkPositions(bLinkedPositions);
 
 			HMENU hMenu = GetMenu(*this);
 			UINT uCheck = MF_BYCOMMAND;
-			uCheck |= bLinked ? MF_CHECKED : MF_UNCHECKED;
+			uCheck |= bLinkedPositions ? MF_CHECKED : MF_UNCHECKED;
 			CheckMenuItem(hMenu, ID_VIEW_LINKIMAGESTOGETHER, uCheck);
 
 			// change the state of the toolbar button
 			TBBUTTONINFO tbi;
 			tbi.cbSize = sizeof(TBBUTTONINFO);
 			tbi.dwMask = TBIF_STATE;
-			tbi.fsState = bLinked ? TBSTATE_CHECKED | TBSTATE_ENABLED : TBSTATE_ENABLED;
+			tbi.fsState = bLinkedPositions ? TBSTATE_CHECKED | TBSTATE_ENABLED : TBSTATE_ENABLED;
 			SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_LINKIMAGESTOGETHER, (LPARAM)&tbi);
 		}
 		break;
@@ -848,6 +834,14 @@ bool CMainWindow::CreateToolbar()
 	tbb[index].dwData = 0; 
 	tbb[index++].iString = 0; 
 
+	hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_FITTOGETHER));
+	tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon); 
+	tbb[index].idCommand = ID_VIEW_FITTOGETHER; 
+	tbb[index].fsState = TBSTATE_ENABLED; 
+	tbb[index].fsStyle = BTNS_BUTTON; 
+	tbb[index].dwData = 0; 
+	tbb[index++].iString = 0; 
+
 	tbb[index].iBitmap = 0; 
 	tbb[index].idCommand = 0; 
 	tbb[index].fsState = TBSTATE_ENABLED; 
@@ -866,14 +860,6 @@ bool CMainWindow::CreateToolbar()
 	hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_FITINWINDOW));
 	tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon); 
 	tbb[index].idCommand = ID_VIEW_FITIMAGESINWINDOW; 
-	tbb[index].fsState = TBSTATE_ENABLED; 
-	tbb[index].fsStyle = BTNS_BUTTON; 
-	tbb[index].dwData = 0; 
-	tbb[index++].iString = 0; 
-
-	hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_FITTOGETHER));
-	tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon); 
-	tbb[index].idCommand = ID_VIEW_FITTOGETHER; 
 	tbb[index].fsState = TBSTATE_ENABLED; 
 	tbb[index].fsStyle = BTNS_BUTTON; 
 	tbb[index].dwData = 0; 

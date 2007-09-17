@@ -45,8 +45,8 @@ public:
 		, bOverlap(false)
 		, bShowInfo(false)
 		, bVertical(false)
-		, bLinked(true)
-		, bFitTogether(false)
+		, bLinkedPositions(true)
+		, bFitSizes(false)
 		, transparentColor(::GetSysColor(COLOR_WINDOW))
 		, m_BlendType(CPicWindow::BLEND_ALPHA)
 	{ 
@@ -114,8 +114,8 @@ protected:
 	// one/two pane view
 	bool			bOverlap;
 	bool			bVertical;
-	bool			bLinked;
-	bool			bFitTogether;
+	bool			bLinkedPositions;
+	bool			bFitSizes;
 	CPicWindow::BlendType	m_BlendType;
 
 };

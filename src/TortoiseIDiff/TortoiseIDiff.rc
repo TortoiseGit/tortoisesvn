@@ -86,9 +86,9 @@ BEGIN
     BEGIN
         MENUITEM "&Overlap images",             ID_VIEW_OVERLAPIMAGES
         MENUITEM "Blend Alpha",                 ID_VIEW_BLENDALPHA
-        MENUITEM "&Link images together",       ID_VIEW_LINKIMAGESTOGETHER, CHECKED
+        MENUITEM "&Link image positions",       ID_VIEW_LINKIMAGESTOGETHER, CHECKED
+        MENUITEM "Fit image &sizes",            ID_VIEW_FITTOGETHER
         MENUITEM "&Fit Images in window",       ID_VIEW_FITIMAGESINWINDOW
-        MENUITEM "Fit Images &together",        ID_VIEW_FITTOGETHER
         MENUITEM "Ori&ginal size",              ID_VIEW_ORININALSIZE
         MENUITEM "Transparent &color...",       ID_VIEW_TRANSPARENTCOLOR
         MENUITEM SEPARATOR
