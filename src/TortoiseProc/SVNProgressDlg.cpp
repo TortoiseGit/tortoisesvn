@@ -1969,7 +1969,7 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
 						else
 						{
 							for (svn_revnum_t r = (*it)->merge_range.end-1;
-								r <= (*it)->merge_range.start; --r)
+								r <= (*it)->merge_range.start; ++r)
 							{
 								if ((loghelper.authors.find(r) != loghelper.authors.end()) &&
 									(loghelper.messages.find(r) != loghelper.messages.end()))
