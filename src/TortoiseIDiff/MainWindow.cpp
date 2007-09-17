@@ -102,8 +102,6 @@ void CMainWindow::PositionChildren(RECT * clientrect /* = NULL */)
 		}
 	}
 	if (hdwp) EndDeferWindowPos(hdwp);
-	picWindow1.SetupScrollBars();
-	picWindow2.SetupScrollBars();
 	picWindow1.SetTransparentColor(transparentColor);
 	picWindow2.SetTransparentColor(transparentColor);
 	InvalidateRect(*this, NULL, FALSE);
@@ -351,6 +349,7 @@ LRESULT CMainWindow::DoCommand(int id)
 			tbi.fsState = (m_BlendType == CPicWindow::BLEND_ALPHA) ? TBSTATE_CHECKED | TBSTATE_ENABLED : TBSTATE_ENABLED;
 			SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_BLENDALPHA, (LPARAM)&tbi);
 			picWindow1.SetSecondPicAlpha(m_BlendType, picWindow1.GetSecondPicAlpha());
+			PositionChildren();
 		}
 		break;
 	case ID_VIEW_TRANSPARENTCOLOR:
