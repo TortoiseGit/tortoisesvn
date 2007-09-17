@@ -114,6 +114,7 @@ public:
 		alphalive = a;
 		if (hwndAlphaSlider)
 			SendMessage(hwndAlphaSlider, TBM_SETPOS, (WPARAM)1, (LPARAM)a);
+		PositionTrackBar();
 		InvalidateRect(*this, NULL, FALSE);
 	}
 	/// Toggle the alpha between the two markers in the alpha slider control
