@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-09-13 17:43+0900\n"
+"PO-Revision-Date: 2007-09-18 11:31+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2008,10 +2008,6 @@ msgstr "平均"
 msgid "B&rowse..."
 msgstr "参照(&R) ..."
 
-#: MenuEntry
-msgid "Background &color..."
-msgstr "背景色(&C)"
-
 # ID:246,
 # ID:246,
 #: ID:246,
@@ -3471,11 +3467,13 @@ msgstr "本当に属性 %s を再帰的に削除してもよろしいですか�
 msgid "Do you want to save your changes?"
 msgstr "変更を保存しますか？"
 
-# Control-ID:65535,
-# Control-ID:65535,
 #: Control-ID:65535,
-msgid "Documentation - Simon Large"
-msgstr "ドキュメント - Simon Large"
+msgid ""
+"Documentation : Simon Large\n"
+"Code : Tobias Schäfer, Stefan Fuhrmann"
+msgstr ""
+"ドキュメント : Simon Large\n"
+"コード : Tobias Schäfer, Stefan Fuhrmann"
 
 # ID:80,
 # ID:73,#:
@@ -3956,7 +3954,7 @@ msgstr "ファイルパッチ"
 #: ID:7,
 #, c-format
 msgid ""
-"File size:\t\t%s\n"
+"File size:\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3964,20 +3962,20 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"ファイルサイズ:\t%s\n"
+"ファイルサイズ:\t\t%s (%s)\n"
 "画像の幅:\t\t%ld pixel\n"
-"画像の高さ:\t%ld pixel\n"
+"画像の高さ:\t\t%ld pixel\n"
 "水平方向の解像度:\t%.1f dpi\n"
 "垂直方向の解像度:\t%.1f dpi\n"
 "色深度:\t\t%d bit\n"
-"ズーム:\t\t%d%%"
+"ズーム:\t\t\t%d%%"
 
 # ID:7,
 # ID:7,
 #: ID:8,
 #, c-format
 msgid ""
-"File size:\t\t%s\n"
+"File size:\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3985,7 +3983,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%\n"
 "\n"
-"File size:\t\t%s\n"
+"File size:\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3993,28 +3991,28 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"ファイルサイズ:\t%s\n"
+"ファイルサイズ:\t\t%s (%s)\n"
 "画像の幅:\t\t%ld pixel\n"
-"画像の高さ:\t%ld pixel\n"
+"画像の高さ:\t\t%ld pixel\n"
 "水平方向の解像度:\t%.1f dpi\n"
 "垂直方向の解像度:\t%.1f dpi\n"
 "色深度:\t\t%d bit\n"
-"ズーム:\t\t%d%%\n"
+"ズーム:\t\t\t%d%%\n"
 "\n"
-"ファイルサイズ:\t%s\n"
+"ファイルサイズ:\t\t%s (%s)\n"
 "画像の幅:\t\t%ld pixel\n"
-"画像の高さ:\t%ld pixel\n"
+"画像の高さ:\t\t%ld pixel\n"
 "水平方向の解像度:\t%.1f dpi\n"
 "垂直方向の解像度:\t%.1f dpi\n"
 "色深度:\t\t%d bit\n"
-"ズーム:\t\t%d%%"
+"ズーム:\t\t\t%d%%"
 
 # ID:7,
 # ID:7,
 #: ID:7,
 #, c-format
 msgid ""
-"File size:\t\t\t%s\n"
+"File size:\t\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -4022,20 +4020,20 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"ファイルサイズ:\t%s\n"
+"ファイルサイズ:\t\t%s (%s)\n"
 "画像の幅:\t\t%ld pixel\n"
-"画像の高さ:\t%ld pixel\n"
+"画像の高さ:\t\t%ld pixel\n"
 "水平方向の解像度:\t%.1f dpi\n"
 "垂直方向の解像度:\t%.1f dpi\n"
 "色深度:\t\t%d bit\n"
-"ズーム:\t\t%d%%"
+"ズーム:\t\t\t%d%%"
 
 # ID:7,
 # ID:7,
 #: ID:7,
 #, c-format
 msgid ""
-"File size:\t\t\t%s\n"
+"File size:\t\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -4043,7 +4041,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%\n"
 "\n"
-"File size:\t\t\t%s\n"
+"File size:\t\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -4051,21 +4049,21 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"ファイルサイズ:\t%s\n"
+"ファイルサイズ:\t\t%s (%s)\n"
 "画像の幅:\t\t%ld pixel\n"
-"画像の高さ:\t%ld pixel\n"
+"画像の高さ:\t\t%ld pixel\n"
 "水平方向の解像度:\t%.1f dpi\n"
 "垂直方向の解像度:\t%.1f dpi\n"
 "色深度:\t\t%d bit\n"
-"ズーム:\t\t%d%%\n"
+"ズーム:\t\t\t%d%%\n"
 "\n"
-"ファイルサイズ:\t%s\n"
+"ファイルサイズ:\t\t%s (%s)\n"
 "画像の幅:\t\t%ld pixel\n"
-"画像の高さ:\t%ld pixel\n"
+"画像の高さ:\t\t%ld pixel\n"
 "水平方向の解像度:\t%.1f dpi\n"
 "垂直方向の解像度:\t%.1f dpi\n"
 "色深度:\t\t%d bit\n"
-"ズーム:\t\t%d%%"
+"ズーム:\t\t\t%d%%"
 
 # Control-ID:65535,
 # Control-ID:65535,
@@ -4539,6 +4537,7 @@ msgstr "ID:57603:V C +S"
 msgid "ID:57604:V CS+S"
 msgstr "ID:57604:V CS+S"
 
+#. Accelerator Entry for Menu ID:57634; ''
 #. Accelerator Entry for Menu ID:57634; ''
 #. Accelerator Entry for Menu ID:57634; '&Copy'
 #: Corresponding Menu ID:57634;
@@ -5768,6 +5767,16 @@ msgid "No files or folders were modified. There is nothing for TortoiseSVN to re
 msgstr ""
 "ファイルやフォルダは何も変更されていません。\n"
 "TortoiseSVN が元に戻すものは何もありません！"
+
+#: ID:239,
+msgid ""
+"No files to show with the current setting.\n"
+"Check one or more settings below to see unversioned, ignored and/or unmodified files.\n"
+"To see remote changes, click on \"Check Repository\""
+msgstr ""
+"現在の設定では表示するファイルはありません。\n"
+"バージョン管理外、無視、未変更、のファイルを見るためには以下の設定にチェックをしてください。\n"
+"リモートでの変更を見るためには、\"リポジトリをチェック\" をクリックしてください。"
 
 # ID:77,
 # ID:77,
@@ -9035,6 +9044,10 @@ msgstr "総変更ファイル数:"
 msgid "Transferring at %s"
 msgstr "%s を転送中"
 
+#: MenuEntry
+msgid "Transparent &color..."
+msgstr "透明色(&C) ..."
+
 # ID:251,
 # ID:251,
 #: ID:251,
@@ -10307,13 +10320,13 @@ msgid ""
 "A newline separated list of merge tracking info. Each line consists of an absolute\n"
 "path followed by a colon and a list of comma separated revision numbers.\n"
 "For example\n"
-"/trunk:123,125,129"
+"/trunk:123-125,129"
 msgstr ""
 "svn:mergeinfo\n"
 "改行で区切られたマージの追跡情報のリスト。それぞれの行は絶対パスとコロン、\n"
 "コンマ区切りのリビジョン番号のリストで構成されます。\n"
 "例\n"
-"/trunk:123,125,129"
+"/trunk:123-125,129"
 
 # ID:14,
 # ID:14,
