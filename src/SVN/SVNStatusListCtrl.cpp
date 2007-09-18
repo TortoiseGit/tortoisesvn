@@ -2574,8 +2574,20 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							targetList.SortByPathname(true);
 
 							SVN svn;
-							CTSVNPathList delList = targetList;
+
+							// put all reverted files in the trashbin, except the ones with 'added'
+							// status because they are not restored by the revert.
+							CTSVNPathList delList;
+							POSITION pos = GetFirstSelectedItemPosition();
+							int index;
+							while ((index = GetNextSelectedItem(pos)) >= 0)
+							{
+								FileEntry * entry = GetListEntry(index);
+								if (entry->status != svn_wc_status_added)
+									delList.AddPath(entry->GetPath());
+							}
 							delList.DeleteAllFiles(true);
+
 							if (!svn.Revert(targetList, FALSE))
 							{
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
