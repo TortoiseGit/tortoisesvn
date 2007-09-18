@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-09-11 19:35+0800\n"
+"PO-Revision-Date: 2007-09-18 11:51+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -703,10 +703,6 @@ msgstr "網路磁碟(&N)"
 #: Control-ID:65535,
 msgid "&New "
 msgstr "新增(&N)"
-
-#: MenuEntry
-msgid "&Newest on top"
-msgstr "新的在最上層(&N)"
 
 # Control-ID:1208,
 #: ID:115,#:
@@ -1678,10 +1674,6 @@ msgstr "平均"
 #: Control-ID:1001,
 msgid "B&rowse..."
 msgstr "瀏覽(&R)..."
-
-#: MenuEntry
-msgid "Background &color..."
-msgstr "背景顏色(&C)..."
 
 # ID:246,
 #: ID:246,
@@ -2914,10 +2906,13 @@ msgstr "確定真的要移除這個性質 %s 嗎(包含子資料夾)?"
 msgid "Do you want to save your changes?"
 msgstr "是否要儲存你所做的異動?"
 
-# Control-ID:65535,
 #: Control-ID:65535,
-msgid "Documentation - Simon Large"
-msgstr "文件 - Simon Large"
+msgid ""
+"Documentation : Simon Large\n"
+"Code : Tobias Schäfer, Stefan Fuhrmann"
+msgstr ""
+"文件: Simon Large\n"
+"程式: Tobias Schäfer, Stefan Fuhrmann"
 
 # ID:80,
 #: ID:73,#:
@@ -3317,7 +3312,7 @@ msgstr "檔案補綴"
 #: ID:7,
 #, c-format
 msgid ""
-"File size:\t\t%s\n"
+"File size:\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3325,11 +3320,11 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"檔案大小:\t\t%s\n"
-"寬度:\t\t\t%ld 像素\n"
-"高度:\t\t\t%ld 像素\n"
+"檔案大小:\t\t%s (%s)\n"
+"寬度:\t\t\t%ld pixel\n"
+"高度:\t\t\t%ld pixel\n"
 "水平解析度:\t%.1f dpi\n"
-"垂直解析度:\t\t%.1f dpi\n"
+"垂直解析度:\t%.1f dpi\n"
 "色深:\t\t\t%d bit\n"
 "比例:\t\t\t%d%%"
 
@@ -3337,7 +3332,7 @@ msgstr ""
 #: ID:8,
 #, c-format
 msgid ""
-"File size:\t\t%s\n"
+"File size:\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3345,7 +3340,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%\n"
 "\n"
-"File size:\t\t%s\n"
+"File size:\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3353,7 +3348,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"檔案大小:\t\t%s\n"
+"檔案大小:\t\t%s (%s)\n"
 "寬度:\t\t\t%ld 像素\n"
 "高度:\t\t\t%ld 像素\n"
 "水平解析度:\t%.1f dpi\n"
@@ -3361,18 +3356,19 @@ msgstr ""
 "色深:\t\t\t%d bit\n"
 "比例:\t\t\t%d%%\n"
 "\n"
-"檔案大小:\t\t%s\n"
+"檔案大小:\t\t%s (%s)\n"
 "寬度:\t\t\t%ld 像素\n"
 "高度:\t\t\t%ld 像素\n"
 "水平解析度:\t%.1f dpi\n"
 "垂直解析度:\t%.1f dpi\n"
-"色深:\t\t\t%d bit比例:\t\t\t%d%%"
+"色深:\t\t\t%d bit\n"
+"比例:\t\t\t%d%%"
 
 # ID:7,
 #: ID:7,
 #, c-format
 msgid ""
-"File size:\t\t\t%s\n"
+"File size:\t\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3380,7 +3376,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"檔案大小:\t\t\t%s\n"
+"檔案大小:\t\t\t%s (%s)\n"
 "寬度:\t\t\t%ld 像素\n"
 "高度:\t\t\t%ld 像素\n"
 "水平解析度:\t%.1f dpi\n"
@@ -3392,7 +3388,7 @@ msgstr ""
 #: ID:7,
 #, c-format
 msgid ""
-"File size:\t\t\t%s\n"
+"File size:\t\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3400,7 +3396,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%\n"
 "\n"
-"File size:\t\t\t%s\n"
+"File size:\t\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3408,7 +3404,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"檔案大小:\t\t\t%s\n"
+"檔案大小:\t\t\t%s (%s)\n"
 "寬度:\t\t\t%ld 像素\n"
 "高度:\t\t\t%ld 像素\n"
 "水平解析度:\t%.1f dpi\n"
@@ -3416,7 +3412,7 @@ msgstr ""
 "色深:\t\t\t%d bit\n"
 "比例:\t\t\t%d%%\n"
 "\n"
-"檔案大小:\t\t\t%s\n"
+"檔案大小:\t\t\t%s (%s)\n"
 "寬度:\t\t\t%ld 像素\n"
 "高度:\t\t\t%ld 像素\n"
 "水平解析度:\t%.1f dpi\n"
@@ -3798,15 +3794,15 @@ msgstr "ID:32809:V C +F"
 msgid "ID:32810:V   +T"
 msgstr "ID:32810:V   +T"
 
-#. Accelerator Entry for Menu ID:32814; '&Newest on top'
+#. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 #: Corresponding Menu ID:32814;
-#: '&Newest on top'
+#: 'Oldest on to&p'
 msgid "ID:32814:V C +L"
 msgstr "ID:32814:V C +L"
 
-#. Accelerator Entry for Menu ID:32814; '&Newest on top'
+#. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 #: Corresponding Menu ID:32814;
-#: '&Newest on top'
+#: 'Oldest on to&p'
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
@@ -3846,6 +3842,7 @@ msgstr "ID:57603:V C +S"
 msgid "ID:57604:V CS+S"
 msgstr "ID:57604:V CS+S"
 
+#. Accelerator Entry for Menu ID:57634; ''
 #. Accelerator Entry for Menu ID:57634; ''
 #. Accelerator Entry for Menu ID:57634; '&Copy'
 #: Corresponding Menu ID:57634;
@@ -4906,6 +4903,16 @@ msgstr "沒有發生錯誤."
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
 msgstr "沒有異動的檔案或目錄, 不需要 TortoiseSVN 復原!"
 
+#: ID:239,
+msgid ""
+"No files to show with the current setting.\n"
+"Check one or more settings below to see unversioned, ignored and/or unmodified files.\n"
+"To see remote changes, click on \"Check Repository\""
+msgstr ""
+"目前設定下沒有可顯示的檔案.\n"
+"勾選以下的設定以顯示無版本控制的, 忽略的, 或是無變更的檔案.\n"
+"選擇 \"檢查檔案庫\" 可顯示遠端變更."
+
 # ID:77,
 #: ID:77,
 msgid ""
@@ -5024,6 +5031,10 @@ msgstr "OVR"
 #: Control-ID:65535,
 msgid "Older lines"
 msgstr "之前的行"
+
+#: MenuEntry
+msgid "Oldest on to&p"
+msgstr "舊的在最上層(&P)"
 
 # ID:13,
 #: ID:99,#:
@@ -7687,6 +7698,10 @@ msgstr "總檔案變更:"
 msgid "Transferring at %s"
 msgstr "傳輸中: %s"
 
+#: MenuEntry
+msgid "Transparent &color..."
+msgstr "透明色(&C)..."
+
 # ID:251,
 #: ID:251,
 msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
@@ -8783,6 +8798,20 @@ msgstr ""
 "Date, LastChangedDate\t\t此檔案最後修改日期.\r\n"
 "Rev, LastChangedRevision\t此物件有變更的最新版本.\r\n"
 "Id\t\t\t\\前四個關鍵字的簡單整合."
+
+#: ID:576,
+msgid ""
+"svn:mergeinfo\n"
+"A newline separated list of merge tracking info. Each line consists of an absolute\n"
+"path followed by a colon and a list of comma separated revision numbers.\n"
+"For example\n"
+"/trunk:123-125,129"
+msgstr ""
+"svn:mergeinfo\n"
+"以換行分隔的列表, 用於追縱合併紀錄. 每行的內容是\n"
+"絕對路徑加上冒號以及一串用逗號分隔的版本號碼.\n"
+"例如:\n"
+"/trunk:123-125,129"
 
 # ID:14,
 #: ID:576,
