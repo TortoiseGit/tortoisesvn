@@ -229,6 +229,7 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 				}
 			}
 		}
+		break;
 	case WM_NOTIFY:
 		{
 			LPNMHDR pNMHDR = (LPNMHDR)lParam;
