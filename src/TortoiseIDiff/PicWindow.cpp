@@ -165,7 +165,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 	case WM_MOUSEWHEEL:
 		{
 			OnMouseWheel(GET_KEYSTATE_WPARAM(wParam), GET_WHEEL_DELTA_WPARAM(wParam));
-			if (bLinkedPositions)
+			if (bFitSizes)
 				pTheOtherPic->OnMouseWheel(GET_KEYSTATE_WPARAM(wParam), GET_WHEEL_DELTA_WPARAM(wParam));
 		}
 		break;
@@ -731,6 +731,10 @@ void CPicWindow::OnMouseWheel(short fwKeys, short zDelta)
 		SetupScrollBars();
 		PositionChildren();
 		InvalidateRect(*this, NULL, FALSE);
+		if ((bLinkedPositions)&&(pTheOtherPic))
+		{
+			pTheOtherPic->OnHScroll(SB_THUMBPOSITION, pTheOtherPic->GetHPos()-zDelta);
+		}
 	}
 	else if (fwKeys & MK_CONTROL)
 	{
@@ -750,6 +754,10 @@ void CPicWindow::OnMouseWheel(short fwKeys, short zDelta)
 		SetupScrollBars();
 		PositionChildren();
 		InvalidateRect(*this, NULL, FALSE);
+		if ((bLinkedPositions)&&(pTheOtherPic))
+		{
+			pTheOtherPic->OnVScroll(SB_THUMBPOSITION, pTheOtherPic->GetVPos()-zDelta);
+		}
 	}
 }
 
@@ -795,7 +803,7 @@ void CPicWindow::SetZoom(double dZoom, bool centermouse)
 		height = double(picture.m_Height)*dZoom;
 		zoomWidth = width/double(pTheOtherPic->GetPic()->m_Width);
 		zoomHeight = height/double(pTheOtherPic->GetPic()->m_Height);
-		pTheOtherPic->SetZoomValue(min(zoomWidth, zoomHeight));
+		pTheOtherPic->SetZoom(min(zoomWidth, zoomHeight), centermouse);
 	}
 
 	// adjust the scrollbar positions according to the new zoom and the

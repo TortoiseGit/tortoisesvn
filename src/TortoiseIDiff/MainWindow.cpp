@@ -215,8 +215,6 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 			if (PtInRect(&rect, pt))
 			{
 				picWindow1.OnMouseWheel(GET_KEYSTATE_WPARAM(wParam), GET_WHEEL_DELTA_WPARAM(wParam));
-				if (bLinkedPositions)
-					picWindow2.OnMouseWheel(GET_KEYSTATE_WPARAM(wParam), GET_WHEEL_DELTA_WPARAM(wParam));
 			}
 			else
 			{
@@ -224,8 +222,6 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 				if (PtInRect(&rect, pt))
 				{
 					picWindow2.OnMouseWheel(GET_KEYSTATE_WPARAM(wParam), GET_WHEEL_DELTA_WPARAM(wParam));
-					if (bLinkedPositions)
-						picWindow1.OnMouseWheel(GET_KEYSTATE_WPARAM(wParam), GET_WHEEL_DELTA_WPARAM(wParam));
 				}
 			}
 		}
@@ -463,13 +459,15 @@ LRESULT CMainWindow::DoCommand(int id)
 	case ID_VIEW_ZOOMIN:
 		{
 			picWindow1.Zoom(true, false);
-			picWindow2.Zoom(true, false);
+			if (!bFitSizes)
+				picWindow2.Zoom(true, false);
 		}
 		break;
 	case ID_VIEW_ZOOMOUT:
 		{
 			picWindow1.Zoom(false, false);
-			picWindow2.Zoom(false, false);
+			if (!bFitSizes)
+				picWindow2.Zoom(false, false);
 		}
 		break;
 	case ID_VIEW_ARRANGEVERTICAL:
