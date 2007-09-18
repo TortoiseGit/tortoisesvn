@@ -153,7 +153,7 @@ public:
 
 	int GetHPos() {return nHScrollPos;}
 	int GetVPos() {return nVScrollPos;}
-	void SetZoomValue(double z) {picscale = z;}
+	void SetZoomValue(double z) {picscale = z; InvalidateRect(*this, NULL, FALSE);}
 
 	/// Handles the mouse wheel
 	void				OnMouseWheel(short fwKeys, short zDelta);
