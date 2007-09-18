@@ -16,6 +16,7 @@
 				<include name="${configuration}${static}_${platform}\**" />
 				<include name=".version" />
 				<include name="config.hw" />
+				<include name="config.h" />
 			</fileset>
 		</delete>
 	</target>
