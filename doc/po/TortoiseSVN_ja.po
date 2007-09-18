@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2005-08-30 15:16GMT Daylight Time\n"
-"PO-Revision-Date: 2007-09-12 15:35+0900\n"
+"PO-Revision-Date: 2007-09-18 17:01+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Country: JAPAN\n"
 "X-Poedit-Basepath: ..\\\n"
+"X-Poedit-Language: Japanese\n"
 
 #: source/TortoiseSVN_en.xml:4(title)
 #: source/TortoiseSVN_en.xml:2903(secondary)
@@ -997,9 +998,8 @@ msgid "To use TortoiseSVN (or any other Subversion client), you need a place whe
 msgstr "TortoiseSVN (や、その他の Subversion クライアント) を使用する場合、リポジトリを配置する場所が必要です。リポジトリをローカルに配置して、<emphasis>file://</emphasis> プロトコルでアクセスしたり、サーバ上に配置して <emphasis>http://</emphasis> や <emphasis>svn://</emphasis> プロトコルでアクセスしたりすることもできます。2 つのサーバプロトコルともに暗号化することもできます。<emphasis>https://</emphasis> や <emphasis>svn+ssh://</emphasis> を使います。本章では、Windows マシン上にそういったサーバを構築する手順を、順を追って説明します。"
 
 #: source/TortoiseSVN_en.xml:1457(para)
-#, fuzzy
 msgid "More detailed information on the Subversion server options, and how to choose the best architecture for your situation, can be found in the Subversion book under <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.serverconfig.html\"><citetitle>Server Configuration</citetitle></ulink>."
-msgstr "リポジトリからデータを削除する唯一の方法は、Subversion コマンドラインツールの <literal>svnadmin</literal> を使うことです。この実行方法の説明は、<ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.reposadmin.maint.html\"><citetitle>Repository Maintenance</citetitle></ulink> にあります。(訳注: 日本語訳は <ulink url=\"http://subversion.bluegate.org/doc/ch05s03.html#svn.reposadmin.maint.tk.svndumpfilter\"><citetitle>Subversion によるバージョン管理</citetitle></ulink> にあります)"
+msgstr "Subversion サーバのオプションのより詳細な情報や、あなたにピッタリなアーキテクチャの選択する方法は、Subversion book の <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.serverconfig.html\"><citetitle>Server Configuration</citetitle></ulink> にあります。"
 
 #: source/TortoiseSVN_en.xml:1465(para)
 msgid "If you don't have a server and/or if you only work alone then local repositories are probably your best choice. You can skip this chapter and go directly to <xref linkend=\"tsvn-repository\"/>."
@@ -3170,9 +3170,8 @@ msgid "When the update is complete, the progress dialog shows a summary of the n
 msgstr "更新が完了すると、更新された項目について、追加・削除・競合などの概略を進行ダイアログに表示します。概略情報は <action>CTRL+C</action> でクリップボードにコピーできます。"
 
 #: source/TortoiseSVN_en.xml:4380(para)
-#, fuzzy
 msgid "The standard Update command has no options and just updates your working copy to the HEAD revision of the repository, which is the most common use case. If you want more control over the update process, you should use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to Revision...</guimenuitem></menuchoice> instead. This allows you to update your working copy to a specific revision, not only to the most recent one. Suppose your working copy is at revision 100, but you want it to reflect the state which it had in revision 50 - then simply update to revision 50. In the same dialog you can also choose the <firstterm>depth</firstterm> at which to update the current folder. The terms used are described in <xref linkend=\"tsvn-dug-checkout-depth\"/>. The default depth is <guilabel>Working copy</guilabel>, which preserves the existing depth setting. You can also choose whether to ignore any external projects in the update (i.e. projects referenced using <literal>svn:externals</literal>)."
-msgstr "標準の更新コマンドでは、オプションを付けず、作業コピーをリポジトリの最新 (HEAD) リビジョンに更新するだけです。これが最も一般的なケースです。更新プロセスをもっと制御したければ、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>特定のリビジョンへ更新...</guimenuitem></menuchoice> を代わりに使用してください。これで作業コピーを最新のものだけでなく、指定したリビジョンに更新できます。作業コピーがリビジョン 100 だったとして、リビジョン 50 にある状態を反映したい場合、単純にリビジョン 50 へ更新します。同じダイアログで、現在のフォルダを更新する際の <firstterm>深さ</firstterm> を選択できます。<placeholder-1/> また、更新時に外部プロジェクト (<literal>svn:externals</literal> で関連づけたプロジェクト) を無視して更新できます。"
+msgstr "標準の更新コマンドでは、オプションを付けず、作業コピーをリポジトリの最新 (HEAD) リビジョンに更新するだけです。これが最も一般的なケースです。更新プロセスをもっと制御したい場合は、代わりに <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>特定のリビジョンへ更新...</guimenuitem></menuchoice> を使用してください。これで作業コピーを最新のものだけでなく、指定したリビジョンに更新できます。作業コピーがリビジョン 100 だったとして、リビジョン 50 にある状態を反映したい場合、単純にリビジョン 50 へ更新します。同じダイアログで、現在のフォルダを更新する際の <firstterm>深さ</firstterm> を選択できます。これは <xref linkend=\"tsvn-dug-checkout-depth\"/> で説明しています。デフォルト値は、既存の深さを変更しないように、<guilabel>作業コピー</guilabel> 戸なっています。また、更新時に外部プロジェクト (<literal>svn:externals</literal> で関連づけたプロジェクト) を無視して更新できます。"
 
 #: source/TortoiseSVN_en.xml:4402(para)
 msgid "If you update a file or folder to a specific revision, you should not make changes to those files. You will get <quote>out of date</quote> error messages when you try to commit them! If you want to undo changes to a file and start afresh from an earlier revision, you can rollback to a previous revision from the revision log dialog. Take a look at <xref linkend=\"tsvn-howto-rollback\"/> for further instructions, and alternative methods."
@@ -3805,11 +3804,11 @@ msgstr "フィルタ"
 
 #: source/TortoiseSVN_en.xml:5462(para)
 msgid "If you want to restrict the log messages to show only those you are interested in rather than scrolling through a list of hundreds, you can use the filter controls at the top of the Log Dialog. The start and end date controls allow you to restrict the output to a known date range. The search box allows you to show only messages which contain a particular phrase."
-msgstr "興味あるログメッセージを表示するよう限定するなら、何百ものリストをスクロールするより、ログダイアログの上端にあるフィルタコントロールを使用できます。開始終了日のコントロールで日付の範囲を限定できます。検索ボックスで入力した部分文字列を持つメッセージのみ、表示できます。"
+msgstr "興味あるログメッセージを表示するよう限定するなら、何百もあるリストをスクロールするよりも、ログダイアログの上端にあるフィルタコントロールを使用したほうがいいです。開始終了日のコントロールで日付の範囲をしてください。検索ボックスで入力した部分文字列を持つメッセージだけを表示できます。"
 
 #: source/TortoiseSVN_en.xml:5471(para)
 msgid "Click on the search icon to select which information you want to search in, and to choose <emphasis>regex</emphasis> mode. Normally you will only need a simple text search, but if you need to more flexible search terms, you can use regular expressions. If you hover the mouse over the box, a tooltip will give hints on how to use the regex functions. You can also find online documentation and a tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
-msgstr ""
+msgstr "検索アイコンをクリックして、検索したい情報を選択してください。また<emphasis>正規表現</emphasis>モードも選択できます。通常はシンプルなテキスト検索があれば十分でしょうが、もっと柔軟な検索語句を指定したい場合、正規表現を使用できます。ボックスの上にマウスを持っていくと、正規表現の使い方のヒントをツールチップで表示します。オンラインドキュメントやチュートリアルは <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink> にもあります。"
 
 #: source/TortoiseSVN_en.xml:5483(para)
 msgid "Note that these filters act on the messages already retrieved. They do not control downloading of messages from the repository."
@@ -3985,7 +3984,7 @@ msgstr "改行と空白オプション"
 
 #: source/TortoiseSVN_en.xml:5749(para)
 msgid "Sometimes in the life of a project you might change the line endings from <literal>CRLF</literal> to <literal>LF</literal>, or you may change the indentation of a section. Unfortunately this will mark a large number of lines as changed, even though there is no change to the meaning of the code. The options here will help to manage these changes when it comes to comparing and applying differences. You will see these settings in the <guilabel>Merge</guilabel> and <guilabel>Blame</guilabel> dialogs, as well as in the settings for TortoiseMerge."
-msgstr ""
+msgstr "プロジェクトを続けていくと、時には改行コードを <literal>CRLF</literal> から <literal>LF</literal> に変更したり、セクションのインデントを変更したりすることがあります。不幸なことに、かなりの行を変更しなければなりませんが、コードの意味には変更はありません。以下のオプションでは、比較や差分適用の際の変更点のとり方を管理します。この設定は、<guilabel>マージ</guilabel> ダイアログや <guilabel>注釈履歴</guilabel> ダイアログに対して、TortoiseMerge の設定と同様に作用します。"
 
 #: source/TortoiseSVN_en.xml:5760(para)
 msgid "<guilabel>Ignore line endings</guilabel> excludes changes which are due solely to difference in line-end style."
@@ -3997,7 +3996,7 @@ msgstr "<guilabel>空白を比較する</guilabel> インデントや行内の�
 
 #: source/TortoiseSVN_en.xml:5769(para)
 msgid "<guilabel>Ignore whitespace changes</guilabel> excludes changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
-msgstr ""
+msgstr "<guilabel>空白の変更を無視する</guilabel> 空白の数や種類しか差異のない変更は無視します。例: インデントの変更やタブからスペースへの変更など。以前何も無かった箇所への空白の追加や、空白の削除は、変更として表示します。"
 
 #: source/TortoiseSVN_en.xml:5777(para)
 msgid "<guilabel>Ignore all whitespaces</guilabel> excludes all whitespace-only changes."
@@ -4005,7 +4004,7 @@ msgstr "<guilabel>すべて空白を無視する</guilabel> 空白のみの変�
 
 #: source/TortoiseSVN_en.xml:5781(para)
 msgid "Naturally, any line with changed content is always included in the diff."
-msgstr ""
+msgstr "当然、内容の変更のある行は、常に差分に含めます。"
 
 #: source/TortoiseSVN_en.xml:5787(title)
 msgid "Comparing Folders"
@@ -4049,7 +4048,7 @@ msgstr "リビジョン番号があるボタンは、リビジョン範囲を変
 
 #: source/TortoiseSVN_en.xml:5832(para)
 msgid "If the list of filenames is very long, you can use the search box to reduce the list to filenames containing specific text. Note that a simple text search is used, so if you want to restrict the list to C source files you should enter <filename>.c</filename> rather than <filename>*.c</filename>."
-msgstr ""
+msgstr "ファイル名の一覧が非常に長い場合、検索ボックスを使用して、特定のテキストを含むファイル名のみを抽出できます。シンプルなテキスト検索を行いますので、C のソースファイルを指定したい場合は、<filename>*.c</filename> ではなく <filename>.c</filename> としてください。"
 
 #: source/TortoiseSVN_en.xml:5841(title)
 msgid "Diffing Images Using TortoiseIDiff"
@@ -4093,7 +4092,7 @@ msgstr "スライダの上にあるボタンで、透明度スライダの両端
 
 #: source/TortoiseSVN_en.xml:5900(para)
 msgid "Sometimes you want to see a difference rather than a blend. You might have the image files for two revisions of a printed circuit board and want to see which tracks have changed. If you disable alpha blend mode, the difference will be shown as an <emphasis>XOR</emphasis> of the pixel colour values. Unchanged areas will be plain white and changes will be coloured."
-msgstr ""
+msgstr "ブレンディングではなく差分を確認したい場合もあります。各リビジョンにプリント基板の画像イメージがあり、どのトラックが変更されたかを見たい場合などです。アルファブレンディングモードを無効にすると、各ピクセルの色を <emphasis>XOR</emphasis> して差分を表示します。変更のない部分は真っ白になり、変更点だけ色がつきます。"
 
 #: source/TortoiseSVN_en.xml:5910(title)
 msgid "External Diff/Merge Tools"
@@ -5050,13 +5049,12 @@ msgid "<placeholder-1/> To merge revisions you need to go to a working copy of t
 msgstr "<placeholder-1/> 変更点を受け取りたいブランチ (しばしばトランク) の作業コピーに必要なリビジョンをマージするには、コンテキストメニューから <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>マージ...</guimenuitem></menuchoice> を選択してください。<placeholder-2/> これでマージが完了しました。マージの結果を見て、想定したとおりにできているかを確認するといいでしょう。マージは大抵大変複雑です。ブランチがトランクからずいぶん離れてしまっている場合、しばしば競合が発生します。"
 
 #: source/TortoiseSVN_en.xml:7488(para)
-#, fuzzy
 msgid "For Subversion clients and servers prior to 1.5, no merge information is stored and merged revisions have to be tracked manually. When you have tested the changes and come to commit this revision, your commit log message should <emphasis>always</emphasis> include the revision numbers which have been ported in the merge. If you want to apply another merge at a later time you will need to know what you have already merged, as you do not want to port a change more than once. For more information about this, refer to <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.branchmerge.copychanges.html#svn.branchmerge.copychanges.bestprac\"><citetitle>Best Practices for Merging</citetitle></ulink> in the Subversion book."
-msgstr "変更点のテストを行い、このリビジョンをコミットする際に、マージで取り込んだリビジョン番号を <emphasis>常に</emphasis> コミットログに記録するべきです。あとで別のマージを適用しようとしたときに、再度変更を取り込むことがないよう、すでにマージした内容を知る必要があります。残念ながらマージ情報は Subversion に格納されません。これについては Subversion Book の <ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.branchmerge.copychanges.html\"><citetitle>Best Practices for Merging</citetitle></ulink> をご覧ください。"
+msgstr "バージョン 1.5 未満の Subversion のクライアント・サーバは、マージ情報を格納しておらず、マージしたリビジョンは、手動で追跡しなければなりません。ある変更点のテストを行い、そのリビジョンをコミットする際に、マージで取り込んだリビジョン番号を <emphasis>常に</emphasis> コミットログに記録するべきです。あとで別のマージを適用しようとしたときに、再度変更を取り込むことがないよう、すでにマージした内容を知る必要があります。これについては Subversion Book の <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.branchmerge.copychanges.html#svn.branchmerge.copychanges.bestprac\"><citetitle>Best Practices for Merging</citetitle></ulink> をご覧ください。"
 
 #: source/TortoiseSVN_en.xml:7502(para)
 msgid "If your server and all clients are running Subversion 1.5 or higher, the merge tracking facility will record the revisions merged and avoid a revision being merged more than once. This makes your life much simpler as you can simply merge the entire revision range each time and know that only new revisions will actually be merged."
-msgstr ""
+msgstr "サーバとすべてのクライアントが Subversion 1.5 以上の場合、マージ追跡機構がマージしたリビジョンを記録し、再度マージすることがないようにします。これにより、単純にリビジョン範囲全体を指定し、実際に新しいリビジョンのみがマージされるといったことができるようになります。"
 
 #: source/TortoiseSVN_en.xml:7509(para)
 msgid "Branch management is important. If you want to keep this branch up to date with the trunk, you should be sure to merge often so that the branch and trunk do not drift too far apart. Of course, you should still avoid repeated merging of changes, as explained above."
@@ -5127,9 +5125,8 @@ msgid "Ignoring Ancestry"
 msgstr "系統情報の無視"
 
 #: source/TortoiseSVN_en.xml:7636(para)
-#, fuzzy
 msgid "Most of the time you want merge to take account of the file's history, so that changes relative to a common ancestor are merged. Sometimes you may need to merge files which are perhaps related, but not in your repository. For example you may have imported versions 1 and 2 of a third party library into two separate directories. Although they are logically related, Subversion has no knowledge of this because it only sees the tarballs you imported. If you attempt to merge the difference between these two trees you would see a complete removal followed by a complete add. To make Subversion use only path-based differences rather than history-based differences, check the <guilabel>Ignore ancestry</guilabel> box. Read more about this topic in the Subversion book, <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.branchmerge.copychanges.html#svn.branchmerge.copychanges.bestprac.ancestry\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>"
-msgstr "大抵、共通の系統関係する変更点をマージするように、ファイルの履歴を考慮に入れます。時々、おそらく関係する (しかしリポジトリにない) ファイルのマージが必要でしょう。例えば、サードパーティ製ライブラリのバージョン 1 とバージョン 2 を、それぞれ別のディレクトリにインポートしたとします。これは論理的には関係ありますが、Subversion は tarball をインポートしたとしか見えないので、関係があるとはわかりません。この 2 つのツリーの違いをマージしようとするなら、完全に追加してから完全に除去することになります。Subversion が履歴ベース差分ではなくパスベース差分を使用するようにするには、<guilabel>系統情報の無視</guilabel> チェックボックスをチェックしてください。このトピックの詳細は、Subversion book の <ulink url=\"http://svnbook.red-bean.com/en/1.2/svn.branchmerge.copychanges.html\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink> をご覧ください。(訳注: 日本語訳は <ulink url=\"http://subversion.bluegate.org/doc/ch04s03.html#svn.branchmerge.copychanges.bestprac.ancestry\"><citetitle>系統(Ancestry)を考慮することと無視すること</citetitle></ulink> をご覧ください)"
+msgstr "大抵、共通の系統が関係する変更点をマージするように、ファイルの履歴を考慮に入れたくなるでしょう。時には、おそらく関係する (しかしリポジトリにない) ファイルのマージが必要となります。例えば、サードパーティ製ライブラリのバージョン 1 とバージョン 2 を、それぞれ別のディレクトリにインポートしたとします。これは論理的には関係ありますが、Subversion は tarball をインポートしたとしか見えないので、関係があるとはわかりません。この 2 つのツリーの違いをマージしようとするなら、完全に追加してから完全に除去することになります。Subversion が履歴ベース差分ではなくパスベース差分を使用するようにするには、<guilabel>系統情報の無視</guilabel> チェックボックスをチェックしてください。このトピックの詳細は、Subversion book の <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.branchmerge.copychanges.html#svn.branchmerge.copychanges.bestprac.ancestry\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink> をご覧ください。(訳注: 日本語訳は <ulink url=\"http://subversion.bluegate.org/doc/ch04s03.html#svn.branchmerge.copychanges.bestprac.ancestry\"><citetitle>系統(Ancestry)を考慮することと無視すること</citetitle></ulink> をご覧ください)"
 
 #: source/TortoiseSVN_en.xml:7655(title)
 msgid "Other Merge Options"
@@ -5137,11 +5134,11 @@ msgstr "その他のマージオプション"
 
 #: source/TortoiseSVN_en.xml:7656(para)
 msgid "You can specify the way that line ending and whitespace changes are handled. These options are described in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. The default behaviour is to treat all whitespace and line-end differences as real changes to be merged."
-msgstr ""
+msgstr "改行コードや空白の変更に対する扱い方を指定できます。このオプションについては <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/> で説明しています。デフォルトの振る舞いは、空白や改行コードの差異も実際の変更としてマージします。"
 
 #: source/TortoiseSVN_en.xml:7662(para)
 msgid "You can also specify the depth to use for the merge. The depth terms used are described in <xref linkend=\"tsvn-dug-checkout-depth\"/>. The default depth is <guilabel>Working copy</guilabel>, which uses the existing depth setting."
-msgstr ""
+msgstr "また、マージする深さも指定できます。深さについては <xref linkend=\"tsvn-dug-checkout-depth\"/> で説明しています。デフォルトの深さは <guilabel>作業コピー</guilabel> で、既存の深さをそのまま使用します。"
 
 #: source/TortoiseSVN_en.xml:7670(title)
 msgid "Locking"
@@ -5397,7 +5394,7 @@ msgstr "デフォルトでは、<firstterm>TortoiseBlame</firstterm> を使用�
 
 #: source/TortoiseSVN_en.xml:8081(para)
 msgid "You can specify the way that line ending and whitespace changes are handled. These options are described in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. The default behaviour is to treat all whitespace and line-end differences as real changes, but if you want to ignore an indentation change and find the original author, you can choose an appropriate option here."
-msgstr ""
+msgstr "改行コードや空白の変更に対する扱い方を指定できます。このオプションについては <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/> で説明しています。デフォルトの振る舞いは、空白や改行コードの差異も実際の変更としますが、インデントの変更を無視してオリジナルの作者を見たい場合は、ここで適切なオプションを選択できます。"
 
 #: source/TortoiseSVN_en.xml:8088(para)
 msgid "Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving the data to create the blame file. Please note: This can take several minutes to finish, depending on how much the file has changed and of course your network connection to the repository. Once the blame process has finished the result is written into a temporary file and you can view the results."
@@ -5627,7 +5624,7 @@ msgstr "TortoiseSVN がグラフを生成するには、リポジトリのルー
 
 #: source/TortoiseSVN_en.xml:8470(para)
 msgid "The good news is that if you are using Log Caching, you only have to suffer this delay once. After that, log data is held locally. Log caching is enabled in the <guilabel>Dialogs 2</guilabel> page of TortoiseSVN's settings."
-msgstr ""
+msgstr "朗報としては、ログキャッシュを使用している場合は、一度この遅さを我慢すればいいということです。これ以後は、ローカルにログデータを保持しています。TortoiseSVN の設定の <guilabel>ダイアログ 2</guilabel> ページで有効にできます。"
 
 #: source/TortoiseSVN_en.xml:8481(term)
 msgid "Added file/folder"
@@ -5650,9 +5647,8 @@ msgid "Branch tip revision"
 msgstr "ブランチティップリビジョン"
 
 #: source/TortoiseSVN_en.xml:8501(para)
-#, fuzzy
 msgid "Where a branch (or trunk or tag) has been modified since the last branch node, this is shown using an ellipse. Shown when the <guilabel>Show HEAD revisions</guilabel> option is selected."
-msgstr "最後のブランチノード以降、ブランチ (もしくはトランクもしくはタグ) が変更されているところでは、楕円を使用して表示します。これは、あらゆるブランチにおける最新のリビジョンが、グラフにいつも示されるということを意味しています。"
+msgstr "最後のブランチノード以降、ブランチ (もしくはトランクやタグ) が変更されているところでは、楕円を使用して表示します。<guilabel>最新のリビジョンを表示</guilabel> オプションを選択している場合に表示します。"
 
 #: source/TortoiseSVN_en.xml:8510(term)
 msgid "Normal file/folder"
@@ -5668,77 +5664,75 @@ msgstr "リビジョングラフは以下の数種のノードを表示します
 
 #: source/TortoiseSVN_en.xml:8531(term)
 msgid "Group branches"
-msgstr "グループブランチ"
+msgstr "分岐をグループ化"
 
 #: source/TortoiseSVN_en.xml:8533(para)
 msgid "The default behavior (grouping off) will use one row per revision and all rows are sorted strictly by revision. As a result, long-living branches occupy a whole column for only a few changes and the graph becomes very broad."
-msgstr ""
+msgstr "デフォルトの振る舞い (グループ化無効) では、リビジョンごとに一行使用し、すべての行をリビジョンごとに厳密に並べ替えます。その結果、長生きなブランチは、変更が少ないにもかかわらず大量の列を占有し、グラフが非常に広くなってしまいます。"
 
 #: source/TortoiseSVN_en.xml:8539(para)
 msgid "This mode groups changes by branch, so that there is no global revision ordering: Consecutive revisions on a branch will be shown in (often) consecutive lines. Sub-branches, however, are arranged in such a way that later branches will be shown in the same column above older branches to keep the graph slim. As a result, a given row may contain changes from different revisions."
-msgstr ""
+msgstr "このモードは変更をブランチでグループ化するため、グローバルなリビジョン順はありません。ブランチ上の連続したリビジョンは、連続した線で (大抵) 表します。しかしサブブランチの場合、グラフをスリムにしておくため、古いブランチと同じ列に後から発生したブランチを配置するようにします。その結果、異なるリビジョン由来の変更を同じ行に含む可能性があります。"
 
 #: source/TortoiseSVN_en.xml:8551(term)
 msgid "Oldest on top"
-msgstr ""
+msgstr "古いものを先頭に表示する"
 
 #: source/TortoiseSVN_en.xml:8553(para)
 msgid "Normally the graph shows the oldest revision at the bottom, and the tree grows upwards. Use this option to grow down from the top instead."
-msgstr ""
+msgstr "通常、グラフは古いものを下に配置し、上の方に伸びていきます。このオプションにより、上から下に伸びていくようになります。"
 
 #: source/TortoiseSVN_en.xml:8561(term)
-#, fuzzy
 msgid "Show HEAD revisions"
-msgstr "HEAD リビジョン"
+msgstr "最新のリビジョンを表示"
 
 #: source/TortoiseSVN_en.xml:8563(para)
 msgid "This ensures that the latest revision on every branch is always shown on the graph."
-msgstr ""
+msgstr "これにより、各ブランチの最新リビジョンが、グラフ上に常に現れることを保証します。"
 
 #: source/TortoiseSVN_en.xml:8570(term)
 msgid "Exact copy sources"
-msgstr ""
+msgstr "正確なコピー元の表示"
 
 #: source/TortoiseSVN_en.xml:8572(para)
 msgid "When a branch/tag is made, the default behaviour is to show the branch as taken from the last node where a change was made. Strictly speaking this is inaccurate since the branches are often made from the current HEAD rather than a specific revision. So it is possible to show the more correct (but less useful) revision that was used to create the copy."
-msgstr ""
+msgstr "ブランチ・タグが作成された際、デフォルトの振る舞いは変更があった最後のノードからのブランチとして表示します。ブランチは特定のリビジョンからではなくその時の最新 (HEAD) から作成されますので、厳密には正しくありません。そこで、コピーを作成したリビジョンを使用して、より正しい (しかしあまり有用でない) 表示を行えます。"
 
 #: source/TortoiseSVN_en.xml:8584(term)
 msgid "Split long branches"
-msgstr ""
+msgstr "長い分岐を分割"
 
 #: source/TortoiseSVN_en.xml:8586(para)
 msgid "In some sources you will find a few active branches with constant activity, and a few inactive branches with infrequent activity. The inactive branches will tend to produce very long lines across the graph, joining their sparse nodes and distracting attention from the active branches. This option allows long connections to be broken and shown in separate chunks. A link icon on the node shows when this has occurred."
-msgstr ""
+msgstr "ソースの中には、一定のアクティビティがある活発なブランチと、ほとんどアクティビティがない活発でないブランチがあることに気がつくと思います。活発でないブランチはグラフの中に非常に長い線でまばらなノードを繋ぎ、活発なブランチが目立たなくなってしまう傾向があります。このオプションは、長い接続線を分割し、別々の塊として表示します。この場合、ノードにはリンクアイコンを表示します。"
 
 #: source/TortoiseSVN_en.xml:8599(term)
 msgid "Fold tags"
-msgstr ""
+msgstr "タグを折りたたむ"
 
 #: source/TortoiseSVN_en.xml:8601(para)
 msgid "If you want to see a graph of software development, tagged releases may be of little interest to you. This option hides the nodes for tags and shows them instead in the tooltip for the node that they were copied from. A tag icon on the right side of the source node indicates that tags were made."
-msgstr ""
+msgstr "ソフトウェア開発でのグラフを見る場合、タグ付けされたリリースはあまり興味が無いかもしれません。このオプションは、タグのノードを非表示にし、コピーしたノードにツールチップで表示するようにします。タグが作成された場合、元のノードの右側にタグアイコンを表示します。"
 
 #: source/TortoiseSVN_en.xml:8612(term)
 msgid "Reduce cross lines"
-msgstr ""
+msgstr "線が交差しないようにする"
 
 #: source/TortoiseSVN_en.xml:8614(para)
 msgid "If the layout of the graph has produced a lot of crossing lines, use this option to clean it up. This may make the layout columns appear in less logical places, for example in a diagonal line rather than a column, and it may take a little time to optimise."
-msgstr ""
+msgstr "グラフのレイアウト上で線の交差が発生したら、このオプションで整形してください。これによりレイアウトの列はあまり論理的でない場所に配置する可能性があります (例: 列でなく対角線)。また、最適化には多少時間がかかります。"
 
 #: source/TortoiseSVN_en.xml:8625(term)
 msgid "Filter"
 msgstr "フィルタ"
 
 #: source/TortoiseSVN_en.xml:8627(para)
-#, fuzzy
 msgid "Sometimes the revision graph contains more revisions than you want to see. This option opens a dialog which allows you to restrict the range of revisions displayed, and to hide particular paths by name."
-msgstr "リビジョングラフは、時に必要以上に細かくなってしまいます。<menuchoice><guimenu>View</guimenu><guimenuitem>Filter</guimenuitem></menuchoice> で開くダイアログで、表示するリビジョン範囲を制限したり、特定のパスを非表示にしたりといったことができます。"
+msgstr "リビジョングラフは、時に必要以上に大量のリビジョンを含んでしまいます。このオプションではダイアログを表示し、表示するリビジョン範囲を制限したり、特定のパスを非表示にしたりといったことができます。"
 
 #: source/TortoiseSVN_en.xml:8524(para)
 msgid "Because a revision graph is often quite complex, there are a number of features which can be used to tailor the view the way you want it. These are available in the <guilabel>View</guilabel> menu and from the toolbar. <placeholder-1/>"
-msgstr ""
+msgstr "リビジョングラフは非常に複雑になることがありますので、お好みの表示にできるようにいくつもの機能があります。ツールバーの <guilabel>表示</guilabel> メニューから使用できます。<placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:8637(para)
 msgid "To make it easier to navigate a large graph, use the overview window. This shows the entire graph in a small window, with the currently displayed portion highlighted. You can drag the highlighted area to change the displayed region."
@@ -7162,7 +7156,7 @@ msgstr "オンライン参照"
 
 #: source/TortoiseSVN_en.xml:10873(entry)
 msgid "Replaced with the commit date/time of the highest commit revision. By default, international format is used: <placeholder-1/>. Alternatively, you can specify a custom format which will be used with <placeholder-2/>, for example: <placeholder-3/>. For a list of available formatting characters, look at the <ulink url=\"http://www.cppreference.com/stddate/strftime.html\"><placeholder-4/></ulink>."
-msgstr ""
+msgstr "もっとも大きいリビジョンのコミット日時に展開されます。デフォルトでは、国際フォーマット (<placeholder-1/>) を使用します。その代わりに <placeholder-2/> を利用したカスタムフォーマット (例: <placeholder-3/>) も指定できます。 利用可能なフォーマット文字の一覧は <ulink url=\"http://www.cppreference.com/stddate/strftime.html\"><placeholder-4/></ulink> をご覧ください。"
 
 #: source/TortoiseSVN_en.xml:10890(entry)
 msgid "Replaced with the current system date/time. This can be used to indicate the build time. Time formatting is as described above."
