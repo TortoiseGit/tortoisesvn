@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-09-17 10:32+0100\n"
+"PO-Revision-Date: 2007-09-19 22:23+0100\n"
 "Last-Translator: Oto BREZINA <translate@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -652,8 +652,8 @@ msgstr "&Obmedziť vyhľadávanie na zmenené riadky"
 
 # Spojiť, naviazať
 #: MenuEntry
-msgid "&Link images together"
-msgstr "Z&linkovať obrázky dokopy"
+msgid "&Link image positions"
+msgstr "Z&linkovať polohy obrázkov"
 
 # Control-ID:1172,
 #: Control-ID:1172
@@ -787,7 +787,7 @@ msgstr "P&remenovať"
 # Control-ID:1316,
 #: Control-ID:1316
 msgid "&Reopen commit and branch/tag dialog after a commit failed"
-msgstr "Znovu otvoriť odovzdávací dialóg a dialóg vetva/značka po zlihaní odovzdávania"
+msgstr "Z&novu otvoriť odovzdávací dialóg a dialóg vetva/značka po zlyhaní odovzdávania"
 
 # ID:13,
 #: ID:13
@@ -2124,7 +2124,7 @@ msgstr "Príkazový riadok na vykonanie:"
 # ID:3857,
 #: ID:3857
 msgid "Command failed."
-msgstr "Príkaz zlihal."
+msgstr "Príkaz zlyhal."
 
 # ID:209,#:
 # Control-ID:1083,
@@ -2594,7 +2594,7 @@ msgstr ""
 # ID:8,
 #: ID:8
 msgid "Create repositor&y here"
-msgstr "Vytvoriť úložisko tu!"
+msgstr "Vytvoriť &úložisko tu!"
 
 # ID:119,
 #: MenuEntry
@@ -3246,7 +3246,7 @@ msgstr "Zlyhalo nastavenie/odstránenie zoznamu zmien \"%s\""
 # ID:319,
 #: ID:220
 msgid "Failed!"
-msgstr "Zlihanie!"
+msgstr "Zlyhanie!"
 
 # ID:313,
 #: ID:313
@@ -3439,7 +3439,7 @@ msgstr "Ukončené!"
 
 # Spojiť, naviazať
 #: MenuEntry
-msgid "Fit Images &together"
+msgid "Fit image &sizes"
 msgstr "Zväčšiť obrá&zky na veľkosť okna"
 
 # Control-ID:1315,
@@ -3780,9 +3780,9 @@ msgstr "ID:32796:V C +A"
 msgid "ID:32809:V C +F"
 msgstr "ID:32809:V C +F"
 
-#. Accelerator Entry for Menu ID:32810; 'Fit Images &together'
+#. Accelerator Entry for Menu ID:32810; 'Fit image &sizes'
 #: Corresponding Menu ID:32810
-#: ; 'Fit Images &together'
+#: ; 'Fit image &sizes'
 msgid "ID:32810:V   +T"
 msgstr "ID:32810:V   +T"
 
@@ -5033,7 +5033,7 @@ msgstr "Staršie riadky"
 
 #: MenuEntry
 msgid "Oldest on to&p"
-msgstr "Najstarší navrchu"
+msgstr "Najstarší nav&rchu"
 
 # ID:99,#:
 # Control-ID:1202,#:
@@ -7224,7 +7224,7 @@ msgstr ""
 # ID:3857,
 #: ID:220
 msgid "The operation failed."
-msgstr "Úkon zlihal."
+msgstr "Úkon zlyhal."
 
 # ID:74,
 #: ID:74
@@ -7596,7 +7596,10 @@ msgid ""
 "/left:\"path to left picture\"\n"
 "/lefttitle:\"title to show for the left picture\"\n"
 "/right:\"path to right picture\"\n"
-"/righttitle:\"title to show for the right picture\""
+"/righttitle:\"title to show for the right picture\"\n"
+"/overlay\t\tto enable overlay mode\n"
+"/fit\t\tto fit the images sizes\n"
+"/showinfo\t\tto show the image info boxes"
 msgstr ""
 "TortoiseIDiff: Porovnávanie obrázkov pre TortoiseSVN\n"
 "\n"
@@ -7604,7 +7607,10 @@ msgstr ""
 "/left:\"cesta k ľavému obrázku\"\n"
 "/lefttitle:\"názov ľavého obrázka\"\n"
 "/right:\"cesta k pravému obrázku\"\n"
-"/righttitle:\"názov pravého obrázka\""
+"/righttitle:\"názov pravého obrázka\"\n"
+"/overlay\t\tpovolý režim prekrytia\n"
+"/fit\t\toptimalizuje veľkosť obrázkov\n"
+"/showinfo\t\tzobrazí informačné rámčeky"
 
 # ID:7,#:
 # ID:3585,#:
