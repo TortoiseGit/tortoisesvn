@@ -29,7 +29,7 @@ bool AddCommand::Execute()
 		SVN svn;
 		ProjectProperties props;
 		props.ReadPropsPathList(pathList);
-		svn.Add(pathList, &props, FALSE, FALSE, FALSE, TRUE);
+		svn.Add(pathList, &props, svn_depth_empty, FALSE, FALSE, TRUE);
 	}
 	else
 	{

@@ -942,7 +942,7 @@ UINT CLogDlg::LogThread()
 		SVNPool localpool(pool);
 		svn_error_clear(Err);
 		apr_hash_t * mergeinfo = NULL;
-		if (svn_client_get_mergeinfo(&mergeinfo, m_mergePath.GetSVNApiPath(localpool), SVNRev(SVNRev::REV_WC), m_pctx, localpool) == NULL)
+		if (svn_client_mergeinfo_get_merged (&mergeinfo, m_mergePath.GetSVNApiPath(localpool), SVNRev(SVNRev::REV_WC), m_pctx, localpool) == NULL)
 		{
 			// now check the relative paths
 			apr_hash_index_t *hi;

@@ -397,7 +397,7 @@ BOOL SVN::Revert(const CTSVNPathList& pathlist, BOOL recurse)
 }
 
 
-BOOL SVN::Add(const CTSVNPathList& pathList, ProjectProperties * props, BOOL recurse, BOOL force, BOOL no_ignore, BOOL addparents)
+BOOL SVN::Add(const CTSVNPathList& pathList, ProjectProperties * props, svn_depth_t depth, BOOL force, BOOL no_ignore, BOOL addparents)
 {
 	// the add command should use the mime-type file
 	const char *mimetypes_file;
@@ -426,7 +426,7 @@ BOOL SVN::Add(const CTSVNPathList& pathList, ProjectProperties * props, BOOL rec
 			return FALSE;
 		}
 		SVNPool subpool(pool);
-		Err = svn_client_add4 (pathList[nItem].GetSVNApiPath(subpool), recurse, force, no_ignore, addparents, m_pctx, subpool);
+		Err = svn_client_add4 (pathList[nItem].GetSVNApiPath(subpool), depth, force, no_ignore, addparents, m_pctx, subpool);
 		if(Err != NULL)
 		{
 			return FALSE;
@@ -535,7 +535,7 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, CString message,
 
 BOOL SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, 
 			   SVNRev revision, SVNRev pegrev, CString logmsg, bool copy_as_child, 
-			   bool make_parents)
+			   bool make_parents, bool withMergeHistory)
 {
 	SVNPool subpool(pool);
 
@@ -551,6 +551,7 @@ BOOL SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 							destPath.GetSVNApiPath(subpool),
 							copy_as_child,
 							make_parents,
+							withMergeHistory,
 							m_pctx,
 							subpool);
 	if(Err != NULL)
@@ -579,7 +580,8 @@ BOOL SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 
 BOOL SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, 
 			   BOOL force, CString message /* = _T("")*/, 
-			   bool move_as_child /* = false*/, bool make_parents /* = false */)
+			   bool move_as_child /* = false*/, bool make_parents /* = false */,
+			   bool withMergeHistory /* = true */)
 {
 	SVNPool subpool(pool);
 
@@ -593,6 +595,7 @@ BOOL SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 							force,
 							move_as_child,
 							make_parents,
+							withMergeHistory,
 							m_pctx,
 							subpool);
 	if(Err != NULL)

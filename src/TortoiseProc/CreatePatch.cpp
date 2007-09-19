@@ -201,7 +201,7 @@ void CCreatePatch::OnOK()
 		// has been created! Since this dialog doesn't create the patch
 		// itself, the calling function is responsible to revert these files!
 		SVN svn;
-		svn.Add(m_filesToRevert, NULL, false, false, false, true);
+		svn.Add(m_filesToRevert, NULL, svn_depth_empty, false, false, true);
 	}
 	
 	//save only the files the user has selected into the pathlist

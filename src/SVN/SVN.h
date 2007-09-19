@@ -168,14 +168,13 @@ public:
 	 *
 	 * \param path the file/directory to add 
 	 * \param recurse 
-	 * \param force if TRUE, then an adding an already versioned folder will add
-	 *              all unversioned files in it (in combination with \a recurse)
+	 * \param depth 
 	 * \param no_ignore if FALSE, then don't add ignored files.
 	 * \param addparents if true, recurse up path's directory and look for a versioned directory. 
 	 *                   If found, add all intermediate paths between it and path.
 	 * \return TRUE if successful
 	 */
-	BOOL Add(const CTSVNPathList& pathList, ProjectProperties * props, BOOL recurse, BOOL force, BOOL no_ignore, BOOL addparents);
+	BOOL Add(const CTSVNPathList& pathList, ProjectProperties * props, svn_depth_t depth, BOOL force, BOOL no_ignore, BOOL addparents);
 	/**
 	 * Assigns the files/folders in \c pathList to a \c changelist.
 	 * \return TRUE if successful
@@ -258,7 +257,7 @@ public:
 	 */
 	BOOL Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, 
 		SVNRev revision, SVNRev pegrev, CString logmsg = CString(), 
-		bool copy_as_child = false, bool make_parents = false);
+		bool copy_as_child = false, bool make_parents = false, bool withMergeHistory = true);
 	/**
 	 * Move srcPath to destPath.
 	 * 
@@ -287,7 +286,7 @@ public:
 	 */
 	BOOL Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, 
 				BOOL force, CString message = _T(""), bool move_as_child = false, 
-				bool make_parents = false);
+				bool make_parents = false, bool withMergeHistory = true);
 	/**
 	 * If path is a URL, use the message to immediately
 	 * attempt to commit the creation of the directory URL in the

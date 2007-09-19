@@ -1586,7 +1586,7 @@ bool CSVNProgressDlg::CmdAdd(CString& sWindowTitle, bool& localoperation)
 	localoperation = true;
 	sWindowTitle.LoadString(IDS_PROGRS_TITLE_ADD);
 	SetWindowText(sWindowTitle);
-	if (!Add(m_targetPathList, &m_ProjectProperties, false, FALSE, TRUE, TRUE))
+	if (!Add(m_targetPathList, &m_ProjectProperties, svn_depth_empty, FALSE, TRUE, TRUE))
 	{
 		ReportSVNError();
 		return false;

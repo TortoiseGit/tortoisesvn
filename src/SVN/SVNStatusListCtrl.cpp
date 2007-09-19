@@ -3270,7 +3270,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 
 						ProjectProperties props;
 						props.ReadPropsPathList(itemsToAdd);
-						if (svn.Add(itemsToAdd, &props, FALSE, TRUE, TRUE, TRUE))
+						if (svn.Add(itemsToAdd, &props, svn_depth_empty, TRUE, TRUE, TRUE))
 						{
 							// The add went ok, but we now need to run through the selected items again
 							// and update their status
