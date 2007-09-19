@@ -254,6 +254,7 @@ Version 1.4.6
        (Stefan)
 - BUG: Sorting in the commit dialog sometimes lost the check marks
        if the list had previously been refreshed. (Tobias Schäfer)
+- BUG: Memory leak in the shell context menu. (Stefan)
 
 Version 1.4.5
 - BUG: The setting "unversioned files mark parent folder as modified" for the

@@ -205,12 +205,16 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 				FORMATETC etc = { CF_HDROP, NULL, DVASPECT_CONTENT, -1, TYMED_HGLOBAL };
 				STGMEDIUM stg = { TYMED_HGLOBAL };
 				if ( FAILED( pDataObj->GetData ( &etc, &stg )))
+				{
+					ReleaseStgMedium ( &medium );
 					return E_INVALIDARG;
+				}
 
 
 				HDROP drop = (HDROP)GlobalLock(stg.hGlobal);
 				if ( NULL == drop )
 				{
+					ReleaseStgMedium ( &stg );
 					ReleaseStgMedium ( &medium );
 					return E_INVALIDARG;
 				}
@@ -294,6 +298,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 					}
 				} // for (int i = 0; i < count; i++)
 				GlobalUnlock ( drop );
+				ReleaseStgMedium ( &stg );
 			} // if (m_State == FileStateDropHandler) 
 			else
 			{
@@ -420,7 +425,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 				}
 			}
 
-
+			ReleaseStgMedium ( &medium );
 			if (medium.pUnkForRelease)
 			{
 				IUnknown* relInterface = (IUnknown*)medium.pUnkForRelease;
