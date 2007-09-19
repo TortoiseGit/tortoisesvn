@@ -221,6 +221,8 @@ protected:
 	POINT				ptPanStart;			///< the point of the last mouse click
 	int					startVScrollPos;	///< the vertical scroll position when panning starts
 	int					startHScrollPos;	///< the horizontal scroll position when panning starts
+	int					startVSecondScrollPos;	///< the vertical scroll position of the second pic when panning starts
+	int					startHSecondScrollPos;	///< the horizontal scroll position of the second pic when panning starts
 	// image frames/dimensions
 	UINT				nDimensions;
 	UINT				nCurrentDimension;

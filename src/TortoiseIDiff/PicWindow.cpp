@@ -175,6 +175,8 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 		ptPanStart.y = GET_Y_LPARAM(lParam);
 		startVScrollPos = nVScrollPos;
 		startHScrollPos = nHScrollPos;
+		startVSecondScrollPos = nVSecondScrollPos;
+		startHSecondScrollPos = nHSecondScrollPos;
 		SetCapture(*this);
 		break;
 	case WM_LBUTTONUP:
@@ -219,9 +221,17 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 			{
 				// pan the image
 				int xPos = GET_X_LPARAM(lParam); 
-				int yPos = GET_Y_LPARAM(lParam); 
-				nHScrollPos = startHScrollPos + (ptPanStart.x - xPos);
-				nVScrollPos = startVScrollPos + (ptPanStart.y - yPos);
+				int yPos = GET_Y_LPARAM(lParam);
+				if (wParam & MK_CONTROL)
+				{
+					nHSecondScrollPos = startHSecondScrollPos + (ptPanStart.x - xPos);
+					nVSecondScrollPos = startVSecondScrollPos + (ptPanStart.y - yPos);
+				}
+				else
+				{
+					nHScrollPos = startHScrollPos + (ptPanStart.x - xPos);
+					nVScrollPos = startVScrollPos + (ptPanStart.y - yPos);
+				}
 				SetupScrollBars();
 				InvalidateRect(*this, NULL, TRUE);
 				UpdateWindow(*this);
@@ -254,7 +264,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 
 				bool bPicWidthBigger = (int(double(width)*picscale) > (rect.right-rect.left));
 				bool bPicHeightBigger = (int(double(height)*picscale) > (rect.bottom-rect.top));
-				if (bPicHeightBigger || bPicWidthBigger)
+				if ((bPicHeightBigger || bPicWidthBigger)||(!bLinkedPositions && pSecondPic && (GetKeyState(VK_CONTROL)&0x8000)))
 				{
 					// only show the hand cursors if the image can be dragged
 					// an image can be dragged if it's bigger than the window it is shown in
