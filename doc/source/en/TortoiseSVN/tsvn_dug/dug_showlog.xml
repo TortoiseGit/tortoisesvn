@@ -114,6 +114,9 @@
 				<graphic fileref="../images/LogContextMenu.png"/>
 			</figure>
 			The top pane of the Log dialog has a context menu that allows you to
+			access much more information. Some of these menu entries appear only
+			when the log is shown for a file, and some only when the log is shown
+			for a folder.
 			<itemizedlist>
 				<listitem>
 					<para>
@@ -144,36 +147,39 @@
 				<listitem>
 					<para>
 						Blame the selected revision, and the file in your working BASE
-						and compare the results using a visual diff tool.
+						and compare the blame reports using a visual diff tool.
 						Read <xref linkend="tsvn-dug-blame-diffs"/> for more detail.
+						(files only).
 					</para>
 				</listitem>
 				<listitem>
 					<para>
 						Blame the selected revision, and the previous revision,
 						and compare the results using a visual diff tool.
+						(folders only).
 					</para>
 				</listitem>
 				<listitem>
 					<para>
 						Save the selected revision to a file so you have an older
-						version of that file. This option is only available when
-						you access the log for a file, and it saves a version of
-						that one file only.
+						version of that file. (files only).
 					</para>
 				</listitem>
 				<listitem>
 					<para>
 						Open the selected file, either with the default viewer for
-						that file type, or with a program you choose. This option
-						is only available when you access the log for a file.
+						that file type, or with a program you choose. (files only).
 					</para>
 				</listitem>
 				<listitem>
 					<para>
-						Open the repository browser to examine the selected folder.
-						This option is only available when you access the log for
-						a directory.
+						Blame the file up to the selected revision. (files only).
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Open the repository browser to examine the selected file or
+						folder in the repository as it was at the selected revision.
 					</para>
 				</listitem>
 				<listitem>
@@ -284,7 +290,7 @@
 				</listitem>
 				<listitem>
 					<para>
-						Blame the two revisions and compare the results using
+						Blame the two revisions and compare the blame reports using
 						a visual difference tool.
 						Read <xref linkend="tsvn-dug-blame-diffs"/> for more detail.
 					</para>
@@ -323,7 +329,7 @@
 			<itemizedlist>
 				<listitem>
 					<para>
-						Show differences made in the selected revision for the
+						Show changes made in the selected revision for the
 						selected file. This context menu is only available for
 						files shown as <emphasis>modified</emphasis>.
 					</para>
@@ -331,7 +337,8 @@
 				<listitem>
 					<para>
 						Blame the selected revision and the previous revision for the
-						selected file, and show the differences using a visual diff tool.
+						selected file, and compare the blame reports
+						using a visual diff tool.
 						Read <xref linkend="tsvn-dug-blame-diffs"/> for more detail.
 					</para>
 				</listitem>
@@ -435,6 +442,40 @@
 		<para>
 			Use <guibutton>Show All</guibutton> if you want to see
 			<emphasis>all</emphasis> log messages from HEAD right back to revision 1.
+		</para>
+	</sect2>
+	<sect2 id="tsvn-dug-showlog-mergetrack">
+		<title>Merge Tracking Features</title>
+		<indexterm>
+			<primary>merge tracking log</primary>
+		</indexterm>
+		<para>
+			Subversion 1.5 and later keeps a record of merges using properties.
+			This allows us to get a more detailed history of merged changes.
+			For example, if you develop a new feature on a branch and then merge
+			that branch back to trunk, the feature development will show up on
+			the trunk log as a single commit for the merge, even though there
+			may have been 1000 commits during branch development.
+		</para>
+		<figure id="tsvn-dug-showlog-dia-mergetrack">
+			<title>The Log Dialog Showing Merge Tracking Revisions</title>
+			<graphic fileref="../images/LogMergeTrack.png"/>
+		</figure>
+		<para>
+			If you want to see the detail of which revisions were merged as part
+			of that commit, use the <guilabel>Include merged revisions</guilabel>
+			checkbox. This will fetch the log messages again, but will also
+			interleave the log messages from revisions which were merged.
+			Merged revisions are shown in grey because they represent changes
+			made on a different part of the tree.
+		</para>
+		<para>
+			Of course, merging is never simple! During feature development on the
+			branch there will probably be occasional merges back from trunk to
+			keep the branch in sync with the main line code. So the merge history
+			of the branch will also include another layer of merge history.
+			These different layers are shown in the log dialog using indentation
+			levels.
 		</para>
 	</sect2>
 	<sect2 id="tsvn-dug-showlog-4">
