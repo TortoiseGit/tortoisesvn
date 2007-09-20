@@ -566,23 +566,6 @@ void CSciEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
 	switch (nChar)
 	{
-	case (VK_TAB):
-		{
-			if (GetKeyState(VK_CONTROL)&0x8000)
-			{
-				//Ctrl-Tab was pressed, this means we should provide the user with
-				//a list of possible spell checking alternatives to the word under
-				//the cursor
-				SuggestSpellingAlternatives();
-				return;
-			}
-			else if (!Call(SCI_AUTOCACTIVE))
-			{
-				::PostMessage(GetParent()->GetSafeHwnd(), WM_NEXTDLGCTL, GetKeyState(VK_SHIFT)&0x8000, 0);
-				return;
-			}
-		}
-		break;
 	case (VK_ESCAPE):
 		{
 			if ((Call(SCI_AUTOCACTIVE)==0)&&(Call(SCI_CALLTIPACTIVE)==0))
@@ -600,6 +583,35 @@ void CSciEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		break;
 	}
 	CWnd::OnKeyDown(nChar, nRepCnt, nFlags);
+}
+
+BOOL CSciEdit::PreTranslateMessage(MSG* pMsg)
+{
+	if (pMsg->message == WM_KEYDOWN)
+	{
+		switch (pMsg->wParam)
+		{
+		case VK_TAB:
+			// The TAB cannot be handled in OnKeyDown because it is too late by then.
+			{
+				if (GetKeyState(VK_CONTROL)&0x8000)
+				{
+					//Ctrl-Tab was pressed, this means we should provide the user with
+					//a list of possible spell checking alternatives to the word under
+					//the cursor
+					SuggestSpellingAlternatives();
+					return TRUE;
+				}
+				else if (!Call(SCI_AUTOCACTIVE))
+				{
+					::PostMessage(GetParent()->GetSafeHwnd(), WM_NEXTDLGCTL, GetKeyState(VK_SHIFT)&0x8000, 0);
+					return TRUE;
+				}
+			}
+			break;
+		}
+	}
+	return CWnd::PreTranslateMessage(pMsg);
 }
 
 void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)

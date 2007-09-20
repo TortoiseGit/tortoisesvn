@@ -126,6 +126,7 @@ private:
 	CPersonalDictionary m_personalDict;
 protected:
 	virtual BOOL OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pLResult);
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	void		CheckSpelling(void);
 	void		SuggestSpellingAlternatives(void);
 	void		DoAutoCompletion(void);
