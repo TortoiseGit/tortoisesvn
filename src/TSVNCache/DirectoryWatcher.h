@@ -56,6 +56,10 @@ public:
 	 * Removes a path and all its children from the watched list.
 	 */
 	bool RemovePathAndChildren(const CTSVNPath& path);
+	/**
+	 * Checks if a path is watched
+	 */
+	bool IsPathWatched(const CTSVNPath& path);
 	
 	/**
 	 * Returns the number of recursively watched paths.

@@ -101,7 +101,9 @@ void CSVNStatusCache::Create()
 						if (m_pInstance->IsPathAllowed(KeyPath))
 						{
 							m_pInstance->m_directoryCache[KeyPath] = cacheddir;
-							m_pInstance->watcher.AddPath(KeyPath);
+							// only add the path to the watch list if it is versioned
+							if ((cacheddir->GetCurrentFullStatus() != svn_wc_status_unversioned)&&(cacheddir->GetCurrentFullStatus() != svn_wc_status_none))
+								m_pInstance->watcher.AddPath(KeyPath);
 							// do *not* add the paths for crawling!
 							// because crawled paths will trigger a shell
 							// notification, which makes the desktop flash constantly
@@ -266,7 +268,7 @@ void CSVNStatusCache::Refresh()
 	}
 }
 
-bool CSVNStatusCache::IsPathGood(CTSVNPath path)
+bool CSVNStatusCache::IsPathGood(const CTSVNPath& path)
 {
 	for (std::set<CTSVNPath>::iterator it = m_NoWatchPaths.begin(); it != m_NoWatchPaths.end(); ++it)
 	{
@@ -381,7 +383,7 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 				if (newcdir)
 				{
 					CCachedDirectory * cdir = m_directoryCache.insert(m_directoryCache.lower_bound(path), std::make_pair(path, newcdir))->second;
-					if (!path.IsEmpty())
+					if ((!path.IsEmpty())&&(path.HasAdminDir()))
 						watcher.AddPath(path);
 					return cdir;		
 				}

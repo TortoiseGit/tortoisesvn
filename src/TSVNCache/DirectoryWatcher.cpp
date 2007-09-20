@@ -202,6 +202,15 @@ bool CDirectoryWatcher::AddPath(const CTSVNPath& path)
 	return true;
 }
 
+bool CDirectoryWatcher::IsPathWatched(const CTSVNPath& path)
+{
+	for (int i=0; i<watchedPaths.GetCount(); ++i)
+	{
+		if (watchedPaths[i].IsAncestorOf(path))
+			return true;
+	}
+	return false;
+}
 
 unsigned int CDirectoryWatcher::ThreadEntry(void* pContext)
 {

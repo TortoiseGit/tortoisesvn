@@ -420,6 +420,21 @@ void CFolderCrawler::WorkerThread()
 				CSVNStatusCache::Instance().WaitToRead();
 				// Now, we need to visit this folder, to make sure that we know its 'most important' status
 				CCachedDirectory * cachedDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath.GetDirectory());
+				// check if the path is monitored by the watcher. If it isn't, then we have to invalidate the cache
+				// for that path and add it to the watcher.
+				if (!CSVNStatusCache::Instance().IsPathWatched(workingPath))
+				{
+					if (workingPath.HasAdminDir())
+						CSVNStatusCache::Instance().AddPathToWatch(workingPath);
+					if (cachedDir)
+						cachedDir->Invalidate();
+					else
+					{
+						CSVNStatusCache::Instance().Done();
+						CSVNStatusCache::Instance().WaitToWrite();
+						CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
+					}
+				}
 				if (cachedDir)
 					cachedDir->RefreshStatus(bRecursive);
 

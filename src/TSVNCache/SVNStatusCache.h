@@ -96,9 +96,11 @@ public:
 	void AssertLock() {;}
 	void AssertWriting() {;}
 #endif
-	bool IsPathAllowed(CTSVNPath path) {return !!m_shellCache.IsPathAllowed(path.GetWinPath());}
+	bool IsPathAllowed(const CTSVNPath& path) {return !!m_shellCache.IsPathAllowed(path.GetWinPath());}
 	bool IsUnversionedAsModified() {return !!m_shellCache.IsUnversionedAsModified();}
-	bool IsPathGood(CTSVNPath path);
+	bool IsPathGood(const CTSVNPath& path);
+	bool IsPathWatched(const CTSVNPath& path) {return watcher.IsPathWatched(path);}
+	bool AddPathToWatch(const CTSVNPath& path) {return watcher.AddPath(path);}
 
 	bool m_bClearMemory;
 private:
