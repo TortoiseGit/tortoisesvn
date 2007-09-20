@@ -161,7 +161,7 @@ void CFolderCrawler::WorkerThread()
 			}
 			if (bFirstRunAfterWakeup)
 			{
-				Sleep(500);
+				Sleep(2000);
 				bFirstRunAfterWakeup = false;
 				continue;
 			}
