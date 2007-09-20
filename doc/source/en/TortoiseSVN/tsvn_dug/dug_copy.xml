@@ -26,8 +26,28 @@
 		renaming it at the same time.
 	</para>
 	<para>
+		You can copy files and folders from your working copy to another
+		location in the repository using
+		<menuchoice>
+			<guimenu>TortoiseSVN</guimenu>
+			<guimenuitem>Branch/Tag</guimenuitem>
+		</menuchoice>.
+		Refer to <xref linkend="tsvn-dug-branch-1"/> to find out more.
+	</para>
+	<para>
+		You can locate an older version of a file or folder in the log
+		dialog and copy it to a new location in the repository directly
+		from the log dialog using
+		<menuchoice>
+			<guimenu>Context menu</guimenu>
+			<guimenuitem>Create branch/tag from revision</guimenuitem>
+		</menuchoice>.
+		Refer to <xref linkend="tsvn-dug-showlog-2"/> to find out more.
+	</para>
+	<para>
 		You can also use the repository browser to locate content you want,
-		and copy it into your working copy directly from the repository.
+		and copy it into your working copy directly from the repository,
+		or copy between two locations within the repository.
 		Refer to <xref linkend="tsvn-dug-repobrowser"/> to find out more.
 	</para>
 </sect1>
