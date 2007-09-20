@@ -45,13 +45,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 10635: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 10666: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-09-17 14:10+0300\n"
+"PO-Revision-Date: 2007-09-20 14:28+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -591,8 +591,9 @@ msgstr "&Язык:"
 msgid "&Limit search to modified lines"
 msgstr "Поиск только в &изменённых строках"
 
+# !??
 #: MenuEntry
-msgid "&Link images together"
+msgid "&Link image positions"
 msgstr "&Связать картинки"
 
 #: Control-ID:1172,
@@ -2886,8 +2887,8 @@ msgid "Finished!"
 msgstr "Закончено!"
 
 #: MenuEntry
-msgid "Fit Images &together"
-msgstr "&Вписать обе картинки"
+msgid "Fit image &sizes"
+msgstr "&Подогнать размеры картинок"
 
 #: Control-ID:1315,
 msgid "Floppy drives (A: B:)"
@@ -3182,9 +3183,9 @@ msgstr "ID:32796:V C +A"
 msgid "ID:32809:V C +F"
 msgstr "ID:32809:V C +F"
 
-#. Accelerator Entry for Menu ID:32810; 'Fit Images &together'
+#. Accelerator Entry for Menu ID:32810; 'Fit image &sizes'
 #: Corresponding Menu ID:32810;
-#: 'Fit Images &together'
+#: 'Fit image &sizes'
 msgid "ID:32810:V   +T"
 msgstr "ID:32810:V   +T"
 
@@ -6392,7 +6393,10 @@ msgid ""
 "/left:\"path to left picture\"\n"
 "/lefttitle:\"title to show for the left picture\"\n"
 "/right:\"path to right picture\"\n"
-"/righttitle:\"title to show for the right picture\""
+"/righttitle:\"title to show for the right picture\"\n"
+"/overlay\t\tto enable overlay mode\n"
+"/fit\t\tto fit the images sizes\n"
+"/showinfo\t\tto show the image info boxes"
 msgstr ""
 "TortoiseIDiff: программа для просмотра различий в картинках для TortoiseSVN\n"
 "\n"
@@ -6400,7 +6404,10 @@ msgstr ""
 "/left:\"путь до левой картинки\"\n"
 "/lefttitle:\"заголовок для левой картинки\"\n"
 "/right:\"путь до правой картинки\"\n"
-"/righttitle:\"заголовок для правой картинки\""
+"/righttitle:\"заголовок для правой картинки\"\n"
+"/overlay\t\tдля включения режима наложения\n"
+"/fit\t\tдля подгона размеров картинок\n"
+"/showinfo\t\tдля показа окон информации о картинках"
 
 #: ID:7,#:
 #: ID:3585,#:
