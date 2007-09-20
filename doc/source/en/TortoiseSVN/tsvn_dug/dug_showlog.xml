@@ -371,6 +371,37 @@
 				</listitem>
 			</itemizedlist>
 		</para>
+		<tip>
+			<para>
+				You may notice that sometimes we refer to changes and other times
+				to differences. What's the difference?
+			</para>
+			<para>
+				Subversion uses revision numbers to mean 2 different things.
+				A revision generally represents the state of the repository at
+				a point in time, but it can also be used to represent the changeset
+				which created that revision, eg. "Done in r1234" means that the
+				changes committed in r1234 implement feature X.
+				To make it clearer which sense is being used, we use two
+				different terms.
+			</para>
+			<para>
+				If you select two revisions N and M, the context menu will offer
+				to show the <emphasis>difference</emphasis> between those two
+				revisions. In Subversion terms this is
+				<literal>diff -r M:N</literal>.
+			</para>
+			<para>
+				If you select a single revision N, the context menu will offer
+				to show the <emphasis>changes</emphasis> made in that revision.
+				In Subversion terms this is <literal>diff -r N-1:N</literal>
+				or <literal>diff -c N</literal>.
+			</para>
+			<para>
+				The bottom pane shows the files changed in all selected revisions,
+				so the context menu always offers to show <emphasis>changes</emphasis>.
+			</para>
+		</tip>
 	</sect2>
 	<sect2 id="tsvn-dug-showlog-3">
 		<title>Getting more log messages</title>
