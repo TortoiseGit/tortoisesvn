@@ -650,8 +650,8 @@ msgid "&Limit search to modified lines"
 msgstr "仅在已修改的行中搜索(&L)"
 
 #: MenuEntry
-msgid "&Link images together"
-msgstr "链接图片(&L)"
+msgid "&Link image positions"
+msgstr "链接图片位置(&L)"
 
 # Control-ID:1172,
 #: Control-ID:1172,
@@ -3347,8 +3347,8 @@ msgid "Finished!"
 msgstr "完成！"
 
 #: MenuEntry
-msgid "Fit Images &together"
-msgstr "优化图像显示尺寸(&T)"
+msgid "Fit image &sizes"
+msgstr "优化图像显示尺寸(&S)"
 
 # Control-ID:1315,
 #: Control-ID:1315,
@@ -3668,8 +3668,8 @@ msgstr "ID:32796:V C +A"
 msgid "ID:32809:V C +F"
 msgstr "ID:32809:V C +F"
 
-#. Accelerator Entry for Menu ID:32810; 'Fit Images &together'
-#: Corresponding Menu ID:32810; 'Fit Images &together'
+#. Accelerator Entry for Menu ID:32810; 'Fit image &sizes'
+#: Corresponding Menu ID:32810; 'Fit image &sizes'
 msgid "ID:32810:V   +T"
 msgstr "ID:32810:V   +T"
 
@@ -7364,7 +7364,10 @@ msgid ""
 "/left:\"path to left picture\"\n"
 "/lefttitle:\"title to show for the left picture\"\n"
 "/right:\"path to right picture\"\n"
-"/righttitle:\"title to show for the right picture\""
+"/righttitle:\"title to show for the right picture\"\n"
+"/overlay\t\tto enable overlay mode\n"
+"/fit\t\tto fit the images sizes\n"
+"/showinfo\t\tto show the image info boxes"
 msgstr ""
 "TortoiseIDiff:  TortoiseSVN 的图片差异查看器\n"
 "\n"
@@ -7372,7 +7375,9 @@ msgstr ""
 "/left：“左侧文件的路径”\n"
 "/lefttitle：“左侧窗口的标题”\n"
 "/right：“右侧文件的路径”\n"
-"/righttitle：“右侧窗口的标题”"
+"/righttitle：“右侧窗口的标题”/overlay\t\t启用覆盖模式\n"
+"/fit\t\t适合图像尺寸\n"
+"/showinfo\t\t显示图像信息框"
 
 # ID:7,#:
 # ID:3585,#:
