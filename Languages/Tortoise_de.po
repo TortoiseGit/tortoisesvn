@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-09-17 09:03+0100\n"
+"PO-Revision-Date: 2007-09-20 10:54+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -668,8 +668,8 @@ msgid "&Limit search to modified lines"
 msgstr "Suche auf geänderte Zeilen &einschränken"
 
 #: MenuEntry
-msgid "&Link images together"
-msgstr "Parallel &verschieben"
+msgid "&Link image positions"
+msgstr "Bildpositionen &verbinden"
 
 # Control-ID:1172,
 #: Control-ID:1172,
@@ -3513,7 +3513,7 @@ msgid "Finished!"
 msgstr "Fertig!"
 
 #: MenuEntry
-msgid "Fit Images &together"
+msgid "Fit image &sizes"
 msgstr "Bildgrößen &angleichen"
 
 # Control-ID:1315,
@@ -3867,9 +3867,9 @@ msgstr "ID:32796:V C +A"
 msgid "ID:32809:V C +F"
 msgstr "ID:32809:V C +F"
 
-#. Accelerator Entry for Menu ID:32810; 'Fit Images &together'
+#. Accelerator Entry for Menu ID:32810; 'Fit image &sizes'
 #: Corresponding Menu ID:32810;
-#: 'Fit Images &together'
+#: 'Fit image &sizes'
 msgid "ID:32810:V   +T"
 msgstr "ID:32810:V   +T"
 
@@ -7812,15 +7812,20 @@ msgid ""
 "/left:\"path to left picture\"\n"
 "/lefttitle:\"title to show for the left picture\"\n"
 "/right:\"path to right picture\"\n"
-"/righttitle:\"title to show for the right picture\""
+"/righttitle:\"title to show for the right picture\"\n"
+"/overlay\t\tto enable overlay mode\n"
+"/fit\t\tto fit the images sizes\n"
+"/showinfo\t\tto show the image info boxes"
 msgstr ""
 "TortoiseIDiff: Das Programm zum Vergleichen von Bildern\n"
 "\n"
-"Mögliche Kommandozeilenparameter sind:\n"
+"Kommandozeilenparameter sind:\n"
 "/left:\"Pfad zum linken Bild\"\n"
 "/lefttitle:\"Titel für linkes Bild\"\n"
 "/right:\"Pfad zum rechten Bild\"\n"
-"/righttitle:\"Titel für rechtes Bild\""
+"/righttitle:\"Titel für rechtes Bild\"/overlay\t\tAktiviert die Überlagerung\n"
+"/fit\t\tGleicht die Bildgrößen an\n"
+"/showinfo\t\tZeigt die Bildinformationen an"
 
 # ID:7,#:
 # ID:3585,#:
