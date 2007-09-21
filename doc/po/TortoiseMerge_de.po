@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseMerge Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-09-12 09:32+0100\n"
+"PO-Revision-Date: 2007-09-21 10:52+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -22,6 +22,11 @@ msgstr ""
 "X-Poedit-Basepath: ..\\\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
+# Translation dictionary / Übersetzungswörterbuch:
+# ------
+# Bitte aus Konsistenzgründen die folgenden Terme und Schreibweisen verwenden
+# ------
+# Pane         Bereich, Ausnahme: Ein-/Zwei-/Dreifenstersicht
 #: source/TortoiseMerge_en.xml:4(title)
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
@@ -198,7 +203,7 @@ msgstr "TortoiseMerge's Geschichte"
 
 #: source/TortoiseMerge_en.xml:236(para)
 msgid "While working on <ulink url=\"http://tortoisesvn.tigris.org\"><citetitle>TortoiseSVN</citetitle></ulink> we found that whenever users sent in patches to enhance the project or just to fix bugs, we had a lot of work just applying those patches. And many times those patches were outdated and couldn't be applied with the command line patch tool <ulink url=\"http://unxutils.sourceforge.net/\"><citetitle>http://unxutils.sourceforge.net/</citetitle></ulink> because we were working on those files and had sometimes changed those files already."
-msgstr "Während der Arbeit an <ulink url=\"http://tortoisesvn.tigris.org\"> <citetitle>TortoiseSVN</citetitle></ulink> war es jedes Mal sehr lästig, wenn jemand uns Patches mit Fehlerkorrekturen oder Erweiterungen zugeschickt hat, diese Patches auch einzubinden. Denn es gab bis dahin nur ein Kommandozeilenprogramm namens <literal>patch.exe</literal>, erhältlich bei <ulink url=\"http://unxutils.sourceforge.net/\"> <citetitle>http://unxutils.sourceforge.net/</citetitle></ulink>, welches solche Dateien zu einem Projekt hinzufügen konnte. Die Durchsicht solcher Änderungen war daher aufwendig und schwierig, insbesondere wenn die Patchdatei schon veraltet war."
+msgstr "Während der Arbeit an <ulink url=\"http://tortoisesvn.tigris.org\"> <citetitle>TortoiseSVN</citetitle></ulink> war es jedes Mal sehr lästig, wenn jemand uns Patches mit Fehlerkorrekturen oder Erweiterungen zugeschickt hat, diese Patches auch einzubinden. Denn es gab bis dahin nur ein Kommandozeilenprogramm namens <filename>patch.exe</filename>, erhältlich bei <ulink url=\"http://unxutils.sourceforge.net/\"> <citetitle>http://unxutils.sourceforge.net/</citetitle></ulink>, welches solche Dateien zu einem Projekt hinzufügen konnte. Die Durchsicht solcher Änderungen war daher aufwendig und schwierig, insbesondere wenn die Patchdatei schon veraltet war."
 
 #: source/TortoiseMerge_en.xml:251(para)
 msgid "This was also the main reason why TortoiseSVN did not originally have a <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Patch</guimenuitem></menuchoice> implemented: we preferred users to send us the whole files because with those it was easier to apply patches."
@@ -214,19 +219,19 @@ msgstr "Da TortoiseSVN schon die Subversion Funktionsbibliothek benutzt welche e
 
 #: source/TortoiseMerge_en.xml:278(title)
 msgid "Basic Concepts"
-msgstr ""
+msgstr "Grundlagen"
 
 #: source/TortoiseMerge_en.xml:284(para)
 msgid "Viewing the difference between two files and merging changes into one of them, or removing unwanted changes."
-msgstr ""
+msgstr "Anzeigen von Unterschieden zwischen zwei Dateien, Zusammenführen von gewünschten und Entfernen ungewünschter Änderungen in einer der beiden Dateien."
 
 #: source/TortoiseMerge_en.xml:290(para)
 msgid "Editing conflicts between local changes and changes in the Subversion repository following an update."
-msgstr ""
+msgstr "Bearbeiten von Konflikten zwischen lokalen Änderungen und dem Subversion Projektarchiv in Folge einer Aktualisierung."
 
 #: source/TortoiseMerge_en.xml:296(para)
 msgid "Applying patch files. This is the reason TortoiseMerge was created :)"
-msgstr ""
+msgstr "Anwenden von Patches. Dies ist der ursprüngliche Grund für die Entwicklung von TortoiseMerge :)"
 
 #: source/TortoiseMerge_en.xml:280(para)
 msgid "TortoiseMerge has several different uses: <placeholder-1/>"
@@ -238,19 +243,19 @@ msgstr "Anzeigen und Zusammenführen von Unterschieden"
 
 #: source/TortoiseMerge_en.xml:306(para)
 msgid "In this mode you are comparing two files. The file in the left pane is considered to be the original file (sometimes referred to as <emphasis>Theirs</emphasis>, and the file in the right pane is the modified file (sometimes referred to as <emphasis>Mine</emphasis>."
-msgstr ""
+msgstr "In diesem Modus vergleichen Sie zwei Dateien. Die links angezeigte Datei stellt das Original dar (manchmal auch als <emphasis>Deren</emphasis> bezeichnet) und die rechte Datei die geänderte (manchmal auch als <emphasis>Meine</emphasis> bezeichnet)."
 
 #: source/TortoiseMerge_en.xml:317(para)
 msgid "Reverting changed lines back to the text shown in the left pane."
-msgstr ""
+msgstr "Geänderten Text auf das Original im linken Bereich zurücksetzen."
 
 #: source/TortoiseMerge_en.xml:322(para)
 msgid "Using a combination of both blocks, either <emphasis>Theirs</emphasis> before <emphasis>Mine</emphasis> or <emphasis>Mine</emphasis> before <emphasis>Theirs</emphasis>."
-msgstr ""
+msgstr "Eine Kombination aus beiden Blöcken, entweder <emphasis>Deren</emphasis> vor <emphasis>Meinem</emphasis> oder <emphasis>Meinen</emphasis> vor <emphasis>Deren</emphasis> übernehmen."
 
 #: source/TortoiseMerge_en.xml:312(para)
 msgid "You can make simple line-based changes to the file in the right pane which include: <placeholder-1/>"
-msgstr "Sie können folgende einfache, zeilenbasierte Änderungen an der Datei im rechten Fenster vornehmen: <placeholder-1/>"
+msgstr "Sie können folgende einfache, zeilenbasierte Änderungen an der Datei im rechten Bereich vornehmen: <placeholder-1/>"
 
 #: source/TortoiseMerge_en.xml:332(title)
 msgid "Editing Conflicts"
@@ -258,15 +263,15 @@ msgstr "Konflikte bearbeiten"
 
 #: source/TortoiseMerge_en.xml:333(para)
 msgid "This is sometimes referred to as a three-way merge, and is shown in three panes. However there are actually four files involved. The file which is not shown is the common base file, the last common ancestor of the two files which are now in conflict. The relationships between the three files are explained in the diagram below:"
-msgstr ""
+msgstr "Dies wird manchmal als Dreiwegevergleich bezeichnet und wird in drei Bereichen angezeigt. Tatsächlich sind aber vier Dateien involviert. Die nicht angezeigte Datei ist die gemeinsame Basis, der letzte Vorgänger der beiden, sich in Konflikt befindenden Dateien. Die Beziehungen zwischen den drei Dateien stellen sich wie folgt dar:"
 
 #: source/TortoiseMerge_en.xml:344(para)
 msgid "The base file represents the oldest version of a file, from where <emphasis>You</emphasis> and <emphasis>They</emphasis> start making changes. <emphasis>Mine</emphasis> represents the base file with all the changes <emphasis>you</emphasis> made, and <emphasis>Theirs</emphasis> is the file with all the changes <emphasis>someone else</emphasis> made to the file. The left pane shows the changes in <emphasis>Theirs</emphasis> relative to the base file and the right pane shows the changes in <emphasis>Mine</emphasis> relative to the base file. The bottom pane is the output file which is where you are trying to resolve the conflicts."
-msgstr "Die <literal>Basis</literal> Datei entspricht der ältesten Version einer Datei, von welcher aus <emphasis>Sie</emphasis> und <emphasis>die Anderen</emphasis> Änderungen vorgenommen haben. <literal>Meine</literal> entspricht dabei der Basisdatei mit allen Änderungen welche <emphasis>Sie</emphasis> selbst vorgenommen haben und wird im rechten Fenster angezeigt. <literal>Deren</literal> entspricht der Basisdatei mit allen Änderungen welche <emphasis>die Anderen</emphasis> gemacht haben und wird im linken Fenster angezeigt. Das untere Fenster enthält die Ausgabedatei. In dieser werden die Konflikte aufgelöst."
+msgstr "Die <emphasis>Basis</emphasis> Datei entspricht der ältesten Version einer Datei, von welcher aus <emphasis>Sie</emphasis> und <emphasis>die Anderen</emphasis> Änderungen vorgenommen haben. <emphasis>Meine</emphasis> entspricht dabei der Basisdatei mit allen Änderungen welche <emphasis>Sie</emphasis> selbst vorgenommen haben und wird im rechten Bereich angezeigt. <emphasis>Deren</emphasis> entspricht der Basisdatei mit allen Änderungen welche <emphasis>die Anderen</emphasis> gemacht haben und wird im linken Bereich angezeigt. Der untere Bereich enthält die Ausgabedatei. In dieser werden die Konflikte aufgelöst."
 
 #: source/TortoiseMerge_en.xml:356(para)
 msgid "In conflict resolution view, you can choose to use blocks from <emphasis>Mine</emphasis> or <emphasis>Theirs</emphasis> or both. But in this case, the changes are shown in the bottom pane."
-msgstr ""
+msgstr "Im Dreiwegevergleich, können Sie Blöcke aus <emphasis>Meiner</emphasis> oder <emphasis>Deren</emphasis> Datei oder aus beiden verwenden. Nur gehen in diesem Fall die Änderungen in die Zieldatei, die im unteren Bereich angezeigt wird."
 
 #: source/TortoiseMerge_en.xml:363(title)
 #: source/TortoiseMerge_en.xml:466(title)
@@ -284,7 +289,7 @@ msgstr ""
 
 #: source/TortoiseMerge_en.xml:381(para)
 msgid "You can edit the file in the right pane exactly as you would in compare/edit mode."
-msgstr ""
+msgstr "Sie können die Datei im rechten Bereich genau so wie im Vergleichsmodus bearbeiten."
 
 #: source/TortoiseMerge_en.xml:388(title)
 msgid "Using TortoiseMerge"
@@ -296,7 +301,7 @@ msgstr "Ansichten"
 
 #: source/TortoiseMerge_en.xml:397(para)
 msgid "TortoiseMerge has three main viewing modes: one-pane, two-pane and three-pane view. One/two-pane view is used to view changes and three-pane view is used to resolve conflicts."
-msgstr ""
+msgstr "TortoiseSVN besitzt drei verschiedene Ansichten: mit einem, zwei oder drei Bereichen. Die Ein-/Zweifenstersicht dient zum Betrachten von Änderungen und die Dreifenstersicht zum Auflösen von Konflikten."
 
 #: source/TortoiseMerge_en.xml:403(title)
 #: source/TortoiseMerge_en.xml:787(title)
@@ -305,11 +310,11 @@ msgstr "Anzeigen / Zusammenführen"
 
 #: source/TortoiseMerge_en.xml:405(title)
 msgid "One Pane View"
-msgstr "Einfenstersicht"
+msgstr "Vergleich übereinander in einem Bereich"
 
 #: source/TortoiseMerge_en.xml:409(title)
 msgid "Two Pane View"
-msgstr "Zweifenstersicht"
+msgstr "Vergleich nebeneinander mit zwei Bereichen"
 
 #: source/TortoiseMerge_en.xml:417(para)
 msgid "Changes inside the modified lines are shown in different colors. Added string parts are shown with a lighter color, but you can of course configure the colors used here. Removed parts are indicated with a dark brown vertical line in the string. Check out the screenshot above to see how this works."
@@ -321,7 +326,7 @@ msgstr "Die Reorganisation von Quellcode führt häufig zu größeren Änderunge
 
 #: source/TortoiseMerge_en.xml:433(para)
 msgid "Such changes are marked with a white circle symbol on the left side of the views. If you see such a white circle, you know immediately that no real code change is there and you don't have to check the changed block further."
-msgstr "Solche Änderungen werden durch einen weißen Kreis am linken Rand der Fenster dargestellt. Wenn Sie einen Kreis sehen, wissen Sie sofort, dass keine echte Codeänderung vorliegt und Sie den Block nicht genauer untersuchen müssen."
+msgstr "Solche Änderungen werden durch einen weißen Kreis am linken Rand der Bereiche dargestellt. Wenn Sie einen Kreis sehen, wissen Sie sofort, dass keine echte Codeänderung vorliegt und Sie den Block nicht genauer untersuchen müssen."
 
 #: source/TortoiseMerge_en.xml:412(para)
 msgid "The two pane view has some features which are not available in the one pane view: <placeholder-1/>"
@@ -329,19 +334,19 @@ msgstr "Die Zweifenstersicht bietet einige Möglichkeiten, die in der Einfenster
 
 #: source/TortoiseMerge_en.xml:442(para)
 msgid "If you want to compare/merge three files, TortoiseMerge will show you the differences in a three pane view. This view is also used if you need to resolve conflicted files."
-msgstr "Für den Fall dass Sie drei Dateien zusammenführen möchten, zeigt TortoiseMerge Ihnen diese in einer Dreifenstersicht. Diese Ansicht wird ebenfalls für das Auflösen von Konflikten verwendet."
+msgstr "Für den Fall dass Sie drei Dateien zusammenführen möchten, zeigt TortoiseMerge Ihnen diese in drei Bereichen an. Die gleiche Ansicht wird auch für das Auflösen von Konflikten verwendet."
 
 #: source/TortoiseMerge_en.xml:448(title)
 msgid "Three Pane View"
-msgstr "Dreifenstersicht"
+msgstr "Zusammenführen mit drei Bereichen"
 
 #: source/TortoiseMerge_en.xml:451(para)
 msgid "The left pane shows you the differences between <emphasis>Their</emphasis> file and the <emphasis>Base</emphasis> file, while the right pane shows you the differences between <emphasis>Mine</emphasis> file and the <emphasis>Base</emphasis> file. The bottom pane shows you the result of merging <emphasis>Base</emphasis>, <emphasis>Mine</emphasis> and <emphasis>Theirs</emphasis> with possible conflicts."
-msgstr "Die linke Seite zeigt Ihnen die Unterschiede zwischen <literal>Deren</literal> Datei und der <literal>Basis</literal> Datei, während die rechte Seite die Unterschiede zwischen <literal>Meiner</literal> Datei und der <literal>Basis</literal> Datei darstellt. Die untere Ansicht zeigt Ihnen das Ergebnis des Zusammenführens der drei Dateien, inklusive möglicher Konflikte."
+msgstr "Der linke Bereich zeigt Ihnen die Unterschiede zwischen <emphasis>Deren</emphasis> Datei und der <emphasis>Basis</emphasis> Datei, während der rechte Bereich die Unterschiede zwischen <emphasis>Meiner</emphasis> Datei und der <emphasis>Basis</emphasis> Datei darstellt. Der untere Bereich zeigt Ihnen das Ergebnis des Zusammenführens der drei Dateien, inklusive möglicher Konflikte."
 
 #: source/TortoiseMerge_en.xml:460(para)
 msgid "If you hover the mouse over the pane title, a tooltip will show the filenames used for the diff in each pane."
-msgstr "Wenn Sie mit der Maus über die Titelzeile jeder Ansicht fahren, wird Ihnen der Name der jeweiligen Datei in einem Hinweistext angezeigt."
+msgstr "Wenn Sie mit der Maus über die Titelzeile jedes Bereichs fahren, wird Ihnen der Name der jeweiligen Datei in einem Hinweistext angezeigt."
 
 #: source/TortoiseMerge_en.xml:472(title)
 msgid "Patch File List"
@@ -353,7 +358,7 @@ msgstr "Nachdem TortoiseMerge die Patchdatei eingelesen hat, wird ein kleines Di
 
 #: source/TortoiseMerge_en.xml:481(para)
 msgid "But don't worry. If you're working with Subversion you can retrieve an older version of the file and resolve the conflict. In fact, TortoiseMerge automatically tries to get that older version of the file and then shows you the diff between <emphasis>Base</emphasis> (the older version of the file), <emphasis>Mine</emphasis> (the file as it is currently in your working copy) and <emphasis>Theirs</emphasis> (the older version of the file with the patch already applied). Then you can resolve possible conflicts manually."
-msgstr "Aber keine Sorge. Wenn Sie mit Subversion arbeiten können Sie die benötigte Dateiversion zurückholen, um den Konflikt aufzulösen. Tatsächlich erledigt TortoiseMerge dies im Hintergrund, holt die benötigte Dateiversion, fügt die Änderungen der Patchdatei hinzu und zeigt Ihnen dann in der Dreifenstersicht, die <literal>Basis</literal> (alte Version zu welcher der Patch gehört), <literal>Meiner</literal> (die Datei in Ihrer Arbeitskopie) und <literal>Deren</literal> (die gepatchte Basisdatei). Damit können Sie eventuelle Konflikte von Hand auflösen."
+msgstr "Aber keine Sorge. Wenn Sie mit Subversion arbeiten können Sie die benötigte Dateiversion zurückholen, um den Konflikt aufzulösen. Tatsächlich erledigt TortoiseMerge dies im Hintergrund, holt die benötigte Dateiversion, fügt die Änderungen der Patchdatei hinzu und zeigt Ihnen dann in der Dreifenstersicht, die <emphasis>Basis</emphasis> (alte Version zu welcher der Patch gehört), <emphasis>Meiner</emphasis> (die Datei in Ihrer Arbeitskopie) und <emphasis>Deren</emphasis> (die gepatchte Basisdatei). Damit können Sie eventuelle Konflikte von Hand auflösen."
 
 #: source/TortoiseMerge_en.xml:492(para)
 msgid "The patch file window has a context menu which allows you to preview the effect of the patch on the current file (apply without saving), to apply and save the changes for the selected file, or to apply and save changes to <emphasis>all</emphasis> files in the list. The double-click action is to preview."
@@ -393,7 +398,7 @@ msgstr "<guibutton>Vorherige/Nächste Differenz</guibutton> springt direkt zum v
 
 #: source/TortoiseMerge_en.xml:551(para)
 msgid "When you do this in 2-pane diff mode, the detail bar at the bottom of the screen will show you the inline differences for the first line, regardless of where the mouse is hovering."
-msgstr "Wenn Sie das in der Zweifenstersicht machen, wird Ihnen die untere Detailanzeige die Unterschiede innerhalb der ersten Zeile anzeigen, unabhängig davon, über welcher Zeile sich der Mauszeiger gerade befindet."
+msgstr "Wenn Sie das in der Zweifenstersicht machen, wird Ihnen die Detailanzeige am unteren Rand die Unterschiede innerhalb der ersten Zeile anzeigen, unabhängig davon, über welcher Zeile sich der Mauszeiger gerade befindet."
 
 #: source/TortoiseMerge_en.xml:558(para)
 msgid "<guibutton>Prev/Next Conflict</guibutton> jumps directly to the next point where the file differences are in conflict and need to be resolved."
@@ -429,7 +434,7 @@ msgstr "<guibutton>Wechsle Ansicht</guibutton> wechselt zwischen Ein- und Zweife
 
 #: source/TortoiseMerge_en.xml:623(para)
 msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the left and right windows. When you are comparing a file in 2 different trees, as opposed to 2 revisions of the same file, TortoiseSVN does not know which one should go in the left pane as the <quote>original/base</quote> version. If it gets this wrong, you can change it to make viewing easier."
-msgstr "<guibutton>Tausche Links - Rechts</guibutton>. In der Zweifenstersicht wird das rechte mit dem linken Fenster vertauscht. Wenn Sie zwei Dateien in verschiedenen Bäumen vergleichen, weiß TortoiseSVN im Gegensatz zu zwei verschiedenen Revisionen derselben Datei nicht, welche Version als <quote>Original/Basis</quote> Version im linken Fenster angezeigt werden soll. Falls TortoiseSVN falsch rät können Sie somit einfach die Anzeige tauschen."
+msgstr "<guibutton>Tausche Links - Rechts</guibutton>. In der Zweifenstersicht wird der Inhalt des rechten mit dem des linken Bereichs vertauscht. Wenn Sie zwei Dateien in verschiedenen Bäumen vergleichen, weiß TortoiseSVN im Gegensatz zu zwei verschiedenen Revisionen derselben Datei nicht, welche Version als <quote>Original/Basis</quote> Version im linken Bereich angezeigt werden soll. Falls TortoiseSVN falsch rät können Sie somit einfach die Anzeige tauschen."
 
 #: source/TortoiseMerge_en.xml:634(para)
 msgid "<guibutton>Show/Hide Patch List</guibutton> When TortoiseMerge has a patch list, this button allows you to hide it (so you can see both windows), or show it (so you can review the file list)."
@@ -445,11 +450,11 @@ msgstr "<placeholder-1/> Unterhalb der Menüleiste befindet sich die Werkzeuglei
 
 #: source/TortoiseMerge_en.xml:649(para)
 msgid "On the left side of the window is a locator bar. This provides a quick visual reference as to where the changes lie within the file. The bar has three columns. The left column refers to the left pane, the right column to the right pane, and the centre column to the bottom pane (if present). In one-pane view only the left column is used. The locator bar can also be used as a scroll bar to scroll all the windows simultaneously."
-msgstr "Auf der linken Seite ist eine kleine Navigationsleiste. Diese zeigt in einem schnellen Überblick, wo Änderungen in der Datei vorhanden sind. Die Leiste hat drei Spalten. Die linke Spalte entspricht dem linken Fenster, die rechte Spalte dem rechten Fenster, die mittlere Spalte, falls angezeigt, dem unteren Fenster. In der Einfenstersicht wird nur die linke Spalte benutzt. Die Navigationsleiste kann auch als Bildlaufleiste benutzt werden, wobei dann jeweils alle drei Fenster synchron rollen."
+msgstr "Am linken Rand ist eine kleine Navigationsleiste. Diese zeigt in einer schnellen Überblick, wo Änderungen in der Datei vorhanden sind. Die Leiste hat drei Spalten. Die linke Spalte entspricht dem linken Bereich, die rechte Spalte dem rechten Bereich, die mittlere Spalte, falls angezeigt, dem unteren Bereich. In der Einfenstersicht wird nur die linke Spalte benutzt. Die Navigationsleiste kann auch als Bildlaufleiste benutzt werden, wobei sich dann jeweils alle drei Bereiche synchron verschieben."
 
 #: source/TortoiseMerge_en.xml:658(para)
 msgid "Below the bottom window is the status bar. This shows the number of lines added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, and the number of unresolved conflicts remaining. You can also see which line-ending style is in use, what encoding (ASCII, UTF-8, etc) is assumed by TortoiseMerge, and whether there is a byte-order-mark (BOM) present in UTF-8 files. The left side of the status bar is used to display hints when you hover the mouse over a control."
-msgstr "Unterhalb des unteren Fensters befindet sich die Statusleiste. Diese zeigt die Anzahl der hinzugefügten und entfernten Zeilen in <literal>Deren</literal> und <literal>Meiner</literal> Datei sowie die Anzahl ungelöster Konflikte an. Sie können obendrein erkennen, welcher Zeilenendestil genutzt wird, welche Zeichencodierung TortoiseMerge vermutet (ASCII, UTF-8, etc) und ob eine Byte-Order-Marke (BOM) in UTF-8 Dateien vorhanden ist. Die linke Seite der Statuszeile wird genutzt, um Hinweistexte anzuzeigen, wenn Sie mit der Maus über ein Steuerelement fahren."
+msgstr "Unterhalb des unteren Bereichs befindet sich die Statusleiste. Diese zeigt die Anzahl der hinzugefügten und entfernten Zeilen in <emphasis>Deren</emphasis> und <emphasis>Meiner</emphasis> Datei sowie die Anzahl ungelöster Konflikte an. Sie können obendrein erkennen, welcher Zeilenendestil genutzt wird, welche Zeichencodierung TortoiseMerge vermutet (ASCII, UTF-8, etc) und ob eine Byte-Order-Marke (BOM) in UTF-8 Dateien vorhanden ist. Die linke Seite der Statuszeile wird genutzt, um Hinweistexte anzuzeigen, wenn Sie mit der Maus über ein Steuerelement fahren."
 
 #: source/TortoiseMerge_en.xml:671(title)
 msgid "Merging / Editing Conflicts"
@@ -461,28 +466,28 @@ msgstr "TortoiseMerge <emphasis>zeigt</emphasis> Ihnen nicht nur die Unterschied
 
 #: source/TortoiseMerge_en.xml:676(para)
 msgid "If you're in two pane view, then you can only edit the file in the right pane (<literal>Mine</literal>). To apply changes made in the left file (<literal>Theirs</literal>), <action>right-click</action> on the changed lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice>. Then the changes from the left file are added to the right file."
-msgstr "Wenn Sie in der Zweifenstersicht sind, dann können nur Sie die Datei im rechten Fenster (<literal>Meiner</literal> Version) ändern. Um Unterschiede aus der linken Datei in die rechte zu übernehmen, machen Sie einen <action>Rechts-Klick</action> auf die unterschiedliche Zeile und wählen Sie den gewünschten Befehl aus dem Kontextmenü aus."
+msgstr "Wenn Sie in der Zweifenstersicht sind, dann können nur Sie die Datei im rechten Bereich (<emphasis>Meiner</emphasis> Version) ändern. Um Unterschiede aus der linken Datei in die rechte zu übernehmen, machen Sie einen <action>Rechts-Klick</action> auf die unterschiedliche Zeile und wählen Sie den gewünschten Befehl aus dem Kontextmenü aus."
 
 #: source/TortoiseMerge_en.xml:688(para)
 msgid "Sometimes you actually want both text blocks, and the context menu also offers you <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use both text blocks (this one first)</guimenuitem></menuchoice> and <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use both text blocks (this one last)</guimenuitem></menuchoice>."
 msgstr "Manchmal benötigen Sie beide Textblöcke. Das Kontextmenü bietet Ihnen die entsprechenden Funktionen <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Verwende beide Blöcke (diesen zuerst)</guimenuitem> </menuchoice> und <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Verwende beide Blöcke (diesen zuletzt)</guimenuitem> </menuchoice> an."
 
 #: source/TortoiseMerge_en.xml:701(para)
+#, fuzzy
 msgid "If you're in three pane view (sometimes called <emphasis>merge view</emphasis>) you can only edit the file in the bottom view (<literal>Merged</literal>). As in two pane view, you can <action>right-click</action> on conflicted lines and either select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>mine</quote></guimenuitem></menuchoice>. In addition, if you want <emphasis>both</emphasis> blocks, you can select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>mine</quote> before <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>theirs</quote> before <quote>mine</quote></guimenuitem></menuchoice>. According to the command you've selected, the changes are used in the resulting <literal>Merged</literal> file."
-msgstr "Wenn Sie einen Dreiwegevergleich durchführen (auch <emphasis>Zusammenführensicht</emphasis> oder <emphasis>Konfliktsicht</emphasis> genannt), können Sie nur die Ergebnisdatei im unteren Fenster bearbeiten. Wie auch in der Zweifenstersicht können Sie durch <action>Rechts-Klicken</action> auf Zeilen im Konflikt ein Kontextmenü anzeigen lassen und dann auswählen, wie Sie den Konflikt auflösen möchten."
+msgstr "Wenn Sie einen Dreiwegevergleich durchführen (auch <emphasis>Zusammenführensicht</emphasis> oder <emphasis>Konfliktsicht</emphasis> genannt), können Sie nur die Ergebnisdatei im unteren Bereich bearbeiten. Wie auch in der Zweifenstersicht können Sie durch <action>Rechts-Klicken</action> auf Zeilen im Konflikt ein Kontextmenü anzeigen lassen und dann auswählen, wie Sie den Konflikt auflösen möchten."
 
 #: source/TortoiseMerge_en.xml:738(para)
 msgid "Sometimes the conflict is too difficult to resolve by simply picking <literal>Theirs</literal> and <literal>Mine</literal> and it requires hand editing. TortoiseMerge allows you to do all the easy changes visually first and then save the file, leaving only the difficult changes to be resolved by hand-editing."
-msgstr "Manchmal ist ein Konflikt nicht einfach durch die Auswahl von <literal>Deren</literal> oder <literal>Meinem</literal> Block zu beheben, sondern erfordert Handarbeit. TortoiseMerge erlaubt es Ihnen, die einfachen Änderungen durchzuführen, abzuspeichern und anschließend die schwierigen Konflikte von Hand nachzuarbeiten."
+msgstr "Manchmal ist ein Konflikt nicht einfach durch die Auswahl von <emphasis>Deren</emphasis> oder <emphasis>Meinem</emphasis> Block zu beheben, sondern erfordert Handarbeit. TortoiseMerge erlaubt es Ihnen, die einfachen Änderungen durchzuführen, abzuspeichern und anschließend die schwierigen Konflikte von Hand nachzuarbeiten."
 
 #: source/TortoiseMerge_en.xml:746(para)
 msgid "Note that if you use TortoiseMerge on the same files again, any changes to your working copy, whether in TortoiseMerge, or by hand-editing, <emphasis>will be discarded</emphasis> and the file will appear as it did when conflict-editing first started."
 msgstr "Beachten Sie, dass wenn TortoiseMerge nochmals mit den selben Dateien aufgerufen wird, alle Änderungen der Ergebnisdatei <emphasis>verworfen werden</emphasis>, egal ob durch TortoiseMerge oder manuelles Bearbeiten und die Ergebnisdatei im Ursprungszustand wieder hergestellt wird."
 
 #: source/TortoiseMerge_en.xml:754(para)
-#, fuzzy
 msgid "If you need to copy lines of text to insert in another file using your favourite text editor, you can select multiple lines to copy within TortoiseMerge. Simply <action>left drag</action> the mouse over the lines you want. Alternatively <action>Click</action> on the first line of the block, then <action>Shift+Click</action> on the last line of the block. As usual, <action>Ctrl+C</action> can be used to copy the selected lines to the clipboard."
-msgstr "Wenn Sie Textzeilen mit einem Editor austauschen möchten, können Sie mehrere Zeilen zum Kopieren in TortoiseMerge auswählen.<action>Klicken</action> Sie auf die erste Zeile des Blocks und markieren Sie mit <action>Umsch+Klick</action> dessen letzte Zeile. Wie üblich können Sie mit <action>Strg+C</action> den markierten Bereich in die Zwischenablage kopieren."
+msgstr "Wenn Sie Textzeilen mit einem Editor austauschen möchten, können Sie mehrere Zeilen zum Kopieren in TortoiseMerge auswählen. Markieren Sie den Bereich wie gewohnt durch <action>Ziehen</action> mit der linken Maustaste oder <action>Klicken</action> Sie auf die erste Zeile des Blocks und markieren Sie mit <action>Umsch+Klick</action> dessen letzte Zeile. Wie üblich können Sie mit <action>Strg+C</action> den markierten Bereich in die Zwischenablage kopieren."
 
 #: source/TortoiseMerge_en.xml:766(title)
 msgid "Open Files"
@@ -501,14 +506,12 @@ msgid "The first thing you have to do is to decide whether you just want to comp
 msgstr "Das erste was Sie entscheiden müssen ist ob Sie Dateien vergleichen / zusammenführen möchten oder ob Sie eine Patchdatei anwenden möchten. Je nachdem was Sie wählen, werden die entsprechenden Schaltflächen und Eingabefelder aktiviert."
 
 #: source/TortoiseMerge_en.xml:788(para)
-#, fuzzy
 msgid "If you want to compare / merge files you have to set at least two of the three possible paths for <literal>Base</literal>, <literal>Mine</literal> and <literal>Theirs</literal>. If you select only two files, then TortoiseMerge will show you the differences between those two files, either in a two pane view or in a one pane view."
-msgstr "Wenn Sie Dateien vergleichen / zusammenführen möchten, müssen Sie mindestens zwei der drei möglichen Pfade für <literal>Basis</literal>, <literal>Meiner</literal> und <literal>Deren</literal> eingeben. Wenn Sie nur zwei Dateien auswählen, wird TortoiseMerge ihnen die Unterschiede zwischen diesen Dateien entweder in einem Fenster übereinander oder in zwei Fenstern nebeneinander anzeigen. Sie können mit dem Menübefehl <menuchoice> <guimenu>Ansicht</guimenu> <guimenuitem>Zweifenstersicht</guimenuitem> </menuchoice> zwischen den beiden Ansichten hin und her schalten."
+msgstr "Wenn Sie Dateien vergleichen / zusammenführen möchten, müssen Sie mindestens zwei der drei möglichen Pfade für <emphasis>Basis</emphasis>, <emphasis>Meiner</emphasis> und <emphasis>Deren</emphasis> angeben. Wenn Sie nur zwei Dateien auswählen, wird TortoiseMerge ihnen die Unterschiede zwischen diesen Dateien entweder in einem Bereich übereinander oder in zwei Bereichen nebeneinander anzeigen."
 
 #: source/TortoiseMerge_en.xml:796(para)
-#, fuzzy
 msgid "If you want to merge three files, TortoiseMerge will show you the differences in a three pane view. This view is generally used if you need to resolve conflicted files. The output file is not named in this case and you will have to use the <menuchoice><guimenu>File</guimenu><guimenuitem>Save As...</guimenuitem></menuchoice>. to save the results."
-msgstr "Für den Fall dass Sie drei Dateien zusammenführen möchten, zeigt TortoiseMerge Ihnen diese in einer Dreifenstersicht. Diese Ansicht wird ebenfalls für das Auflösen von Konflikten verwendet."
+msgstr "Wenn Sie drei Dateien zusammenführen, zeigt TortoiseMerge Ihnen diese in einer Dreifenstersicht. Diese Ansicht wird im Allgemeinen zum Auflösen von Konflikten verwendet. Die Ausgabedatei hat in diesem Fall keinen Namen und Sie müssen das Ergebnis mittels <menuchoice> <guimenu>Datei</guimenu> <guimenuitem>Speichen unter...</guimenuitem> </menuchoice> sichern."
 
 #: source/TortoiseMerge_en.xml:811(para)
 msgid "If you want to apply a patch file you have to set both the path to the patch file itself and the path to the folder where the patch file should be applied."
@@ -536,7 +539,7 @@ msgstr "Die meisten Optionen auf dieser Seite sind selbsterklärend. Ein paar be
 
 #: source/TortoiseMerge_en.xml:840(para)
 msgid "<guilabel>Backup original file</guilabel> renames the original file in the WC to <literal>filename.bak</literal> before saving the modified version."
-msgstr "<guilabel>Erstelle Sicherheitskopie</guilabel> benennt die Originaldatei in der Arbeitskopie in <literal>Dateiname.bak</literal> um, bevor die Änderungen gespeichert werden."
+msgstr "<guilabel>Erstelle Sicherheitskopie</guilabel> benennt die Originaldatei in der Arbeitskopie in <filename>Dateiname.bak</filename> um, bevor die Änderungen gespeichert werden."
 
 #: source/TortoiseMerge_en.xml:845(para)
 msgid "<guilabel>Ignore line endings</guilabel> hides changes which are due solely to difference in line-end style."
@@ -548,7 +551,7 @@ msgstr "<guilabel>Ignoriere Groß- / Kleinschreibung</guilabel> verbirgt Groß- 
 
 #: source/TortoiseMerge_en.xml:855(para)
 msgid "<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the line diff bar to show the detailed in-line changes within the main display panes. Lines which have been heavily modified will not be shown using this method as the results are simply confusing. In this case the line will be shown as replaced (old line deleted, new line added)."
-msgstr "<guilabel>Änderungen in Zeile farbig hervorheben</guilabel> verwendet das gleiche Farbschema wie die Differenzzeile, um Änderungen innerhalb der Zeilen auch Hauptfenster farbig hervorzuheben. Zeilen mit vielen Änderungen werden als ersetzt (alte Zeile gelöscht, neue Zeile hinzugefügt) dargestellt, da die Anzeige sonst zu bunt und damit verwirrend würde."
+msgstr "<guilabel>Änderungen in Zeile farbig hervorheben</guilabel> verwendet das gleiche Farbschema wie die Differenzzeile, um Änderungen innerhalb der Zeilen auch im Hauptfenster farbig hervorzuheben. Zeilen mit vielen Änderungen werden als ersetzt (alte Zeile gelöscht, neue Zeile hinzugefügt) dargestellt, da die Anzeige sonst zu bunt und damit verwirrend würde."
 
 #: source/TortoiseMerge_en.xml:863(para)
 msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
@@ -628,7 +631,7 @@ msgstr "Leer"
 
 #: source/TortoiseMerge_en.xml:931(listitem)
 msgid "Where lines have been added in the opposite pane, and no such line existed in this pane."
-msgstr "Zeilen wurden in der gegenüberliegenden Seite hinzugefügt und keine entsprechende Zeile existiert in dieser Seite."
+msgstr "Zeilen wurden im gegenüberliegenden Bereich hinzugefügt und keine entsprechende Zeile existiert in diesem Bereich."
 
 #: source/TortoiseMerge_en.xml:937(term)
 msgid "Inline added text"
@@ -817,7 +820,7 @@ msgstr "Zeigt einen Dialog mit allen möglichen Kommandozeilenbefehlen an."
 
 #: source/TortoiseMerge_en.xml:1139(option)
 msgid "?"
-msgstr "/?"
+msgstr "?"
 
 #: source/TortoiseMerge_en.xml:1138(entry)
 msgid "The same as <placeholder-1/>."
@@ -825,51 +828,51 @@ msgstr "Das Gleiche wie <placeholder-1/>."
 
 #: source/TortoiseMerge_en.xml:1145(emphasis)
 msgid "base"
-msgstr "<literal>Basis</literal>"
+msgstr "Basis"
 
 #: source/TortoiseMerge_en.xml:1144(entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs. This is the common ancestor of the files being diffed, although it is not shown in a separate window. For two way diffs, this is the left file."
-msgstr "Definiert die <placeholder-1/> Datei für einen Dreiwegevergleich. Diese ist der gemeinsame Vorgänger der zu vergleichenden Dateien, auch wenn sie nicht angezeigt wird. Beim Zweiwegevergleich wird die Datei im linken Fenster angezeigt."
+msgstr "Definiert die <placeholder-1/>datei für einen Dreiwegevergleich. Diese ist der gemeinsame Vorgänger der zu vergleichenden Dateien, auch wenn sie nicht angezeigt wird. Beim Zweiwegevergleich wird die Datei im linken Bereich angezeigt."
 
 #: source/TortoiseMerge_en.xml:1154(entry)
 msgid "The name of the base file. This is shown in the view title instead of the file path. For three way diffs it is shown in a tooltip for the view title."
-msgstr "Der Anzeigename der <literal>Basis</literal>datei. Er wird anstatt des Dateinamens in der Titelzeile oder beim Dreiwegevergleich in einem Hiweistext angezeigt."
+msgstr "Der Anzeigename der <emphasis>Basisdatei</emphasis>. Er wird anstatt des Dateinamens in der Titelzeile oder beim Dreiwegevergleich in einem Hiweistext angezeigt."
 
 #: source/TortoiseMerge_en.xml:1164(emphasis)
 msgid "theirs"
-msgstr "<literal>Deren</literal>"
+msgstr "Deren"
 
 #: source/TortoiseMerge_en.xml:1163(entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs, displayed in the left pane."
-msgstr "Definiert die <placeholder-1/> Datei für einen Dreiwegevergleich, dargestellt im linken Fenster."
+msgstr "Definiert <placeholder-1/> Datei einen Dreiwegevergleich, die im linken Bereich angezeigt wird."
 
 #: source/TortoiseMerge_en.xml:1170(entry)
 msgid "The name of the theirs file. This is shown in the view title instead of the file path."
-msgstr "Der Anzeigename von <literal>Deren</literal> Datei. Er wird anstatt des Dateinamens in der Titelzeile angezeigt."
+msgstr "Der Anzeigename von <emphasis>Deren</emphasis> Datei. Er wird anstatt des Dateinamens in der Titelzeile angezeigt."
 
 #: source/TortoiseMerge_en.xml:1178(emphasis)
 msgid "mine"
-msgstr "<literal>Meiner</literal>"
+msgstr "Meine"
 
 #: source/TortoiseMerge_en.xml:1177(entry)
 msgid "Specifies the <placeholder-1/> file used in three way diffs, displayed in the right pane. For two way diffs, this is the right file."
-msgstr "Definiert die <placeholder-1/> Datei, die sowohl im Dreiwegevergleich als auch im Zweiwegevergleich im rechten Fenster dargestellt wird."
+msgstr "Definiert <placeholder-1/> Datei, die sowohl beim Dreiwege- als auch im Zweiwegevergleich im rechten Bereich dargestellt wird."
 
 #: source/TortoiseMerge_en.xml:1185(entry)
 msgid "The name of the mine file. This is shown in the view title instead of the file path."
-msgstr "Der Anzeigename von <literal>Meiner</literal> Datei. Er wird anstatt des Dateinamens in der Titelzeile angezeigt."
+msgstr "Der Anzeigename von <emphasis>Meiner</emphasis> Datei. Er wird anstatt des Dateinamens in der Titelzeile angezeigt."
 
 #: source/TortoiseMerge_en.xml:1193(emphasis)
 msgid "merged"
-msgstr "<literal>Zieldatei</literal>"
+msgstr "Zieldatei"
 
 #: source/TortoiseMerge_en.xml:1192(entry)
 msgid "Specifies the resulting <placeholder-1/> file used in three way diffs. This is the filepath where the result of the merge/conflict resolving is saved. If this is not set, then TortoiseMerge will ask the user where to save the result."
-msgstr "Definiert die <placeholder-1/> für den Dreiwegevergleich. Dies ist die Datei, in der das Ergbnis abgespeichert wird. Wenn dieser Pfad nicht angegeben wird, fragt TortoiseMerge den Anwender, wo das Ergebnis gespeicher werden soll."
+msgstr "Definiert die <placeholder-1/> für den Dreiwegevergleich. Dies ist die Datei, in der das Ergebnis abgespeichert wird. Ohne Angabe des Zielpfades fragt TortoiseMerge den Anwender, wo das Ergebnis gespeichert werden soll."
 
 #: source/TortoiseMerge_en.xml:1202(entry)
 msgid "The name of the merged file. This is shown in the view title instead of the file path."
-msgstr "Der Anzeigename der <literal>Ziel</literal>datei. Er wird anstatt des Dateinamens in der Titelzeile angezeigt."
+msgstr "Der Anzeigename der <emphasis>Zieldatei</emphasis>. Er wird anstatt des Dateinamens in der Titelzeile angezeigt."
 
 #: source/TortoiseMerge_en.xml:1213(emphasis)
 msgid "very long"
@@ -877,7 +880,7 @@ msgstr "sehr lange"
 
 #: source/TortoiseMerge_en.xml:1209(entry)
 msgid "The path where a patch should be applied to. If you don't set this path, then TortoiseMerge will try to find the path itself to match the paths in the patch file, but that can take <placeholder-1/>."
-msgstr "Der Pfad in dem ein Patch angewendet werden soll. Wenn Sie diesen Parameter nicht angeben, versucht TortoiseMerge selbst einen zu den Pfaden in der Patchdatei passenden Basipfad herauszufinden, aber das kann <placeholder-1/> dauern."
+msgstr "Der Pfad in dem ein Patch angewendet werden soll. Wenn Sie diesen Parameter nicht angeben, versucht TortoiseMerge selbst, einen zu den Pfaden in der Patchdatei passenden Basipfad herauszufinden, aber das kann <placeholder-1/> dauern."
 
 #: source/TortoiseMerge_en.xml:1218(entry)
 msgid "The name of the original file to patch. Used for the view title."
@@ -897,7 +900,7 @@ msgstr "Zwingt TortoiseMerge mit der Einfenstersicht anstatt der in den Optionen
 
 #: source/TortoiseMerge_en.xml:1245(entry)
 msgid "Switches the left and right view of the specified two files to diff."
-msgstr "Vertauscht die Dateien im rechten und linken Fenster."
+msgstr "Vertauscht die Dateien im rechten und linken Bereich."
 
 #: source/TortoiseMerge_en.xml:1255(literal)
 msgid "/origfile:\"path_to_original_file\""
@@ -1039,7 +1042,7 @@ msgstr "Exportieren"
 
 #: source/TortoiseMerge_en.xml:1428(para)
 msgid "This command produces a copy of a versioned folder, just like a working copy, but without the local <literal>.svn</literal> folders."
-msgstr "Dieser Befehl erzeugt eine Kopie eines versionierten Ordners. Wie eine Arbeitskopie jedoch ohne die lokalen <literal>.svn</literal> Verzeichnisse."
+msgstr "Dieser Befehl erzeugt eine Kopie eines versionierten Ordners. Wie eine Arbeitskopie jedoch ohne die lokalen <filename>.svn</filename> Verzeichnisse."
 
 #: source/TortoiseMerge_en.xml:1436(glossterm)
 msgid "FSFS"
