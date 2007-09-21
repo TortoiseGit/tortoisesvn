@@ -21,6 +21,8 @@
 #include "SVNRev.h"
 #include "svn_time.h"
 #include "SVNHelpers.h"
+#include <algorithm>
+
 
 SVNRev::SVNRev(CString sRev)
 {
@@ -173,11 +175,152 @@ CString SVNRev::ToString() const
 	CString sRev;
 	switch (rev.kind)
 	{
-	case svn_opt_revision_head:		return _T("HEAD");
-	case svn_opt_revision_base:		return _T("BASE");
-	case svn_opt_revision_working:	return _T("WC");
-	case svn_opt_revision_number:	sRev.Format(_T("%ld"), rev.value);return sRev;
-	case svn_opt_revision_unspecified: return _T("UNSPECIFIED");
+	case svn_opt_revision_head:			return _T("HEAD");
+	case svn_opt_revision_base:			return _T("BASE");
+	case svn_opt_revision_working:		return _T("WC");
+	case svn_opt_revision_number:		sRev.Format(_T("%ld"), rev.value);return sRev;
+	case svn_opt_revision_committed:	return _T("COMMITTED");
+	case svn_opt_revision_previous:		return _T("PREV");
+	case svn_opt_revision_unspecified:	return _T("UNSPECIFIED");
+	case svn_opt_revision_date:			return GetDateString();
 	}
 	return sRev;
+}
+
+
+//////////////////////////////////////////////////////////////////////////
+
+
+
+int SVNRevList::AddRevision(const SVNRev& rev)
+{
+	m_array.push_back(rev);
+	m_sort = SVNRevListNoSort;
+	return GetCount();
+}
+
+int SVNRevList::GetCount() const
+{
+	return (int)m_array.size();
+}
+
+void SVNRevList::Clear()
+{
+	m_array.clear();
+}
+
+const SVNRev& SVNRevList::operator[](int index) const
+{
+	ATLASSERT(index >= 0 && index < (int)m_array.size());
+	return m_array[index];
+}
+
+bool SVNRevList::SaveToFile(LPCTSTR path, bool bANSI)
+{
+	try
+	{
+		if (bANSI)
+		{
+			CStdioFile file(path, CFile::typeText | CFile::modeReadWrite | CFile::modeCreate);
+			CStringA temp;
+			temp.Format("%d\n", m_sort);
+			file.Write(temp, temp.GetLength());
+			for (std::vector<SVNRev>::const_iterator it = m_array.begin(); it != m_array.end(); ++it)
+			{
+				CStringA line = CStringA(it->ToString()) + '\n';
+				file.Write(line, line.GetLength());
+			} 
+			file.Close();
+		}
+		else
+		{
+			CStdioFile file(path, CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate);
+			CString temp;
+			temp.Format(_T("%d\n"), m_sort);
+			file.Write(temp, temp.GetLength());
+			for (std::vector<SVNRev>::const_iterator it = m_array.begin(); it != m_array.end(); ++it)
+			{
+				file.WriteString(it->ToString()+_T("\n"));
+			} 
+			file.Close();
+		}
+	}
+	catch (CFileException* pE)
+	{
+		TRACE("CFileException in writing temp file\n");
+		pE->Delete();
+		return false;
+	}
+
+	return true;
+}
+
+bool SVNRevList::LoadFromFile(LPCTSTR path)
+{
+	Clear();
+	try
+	{
+		CString strLine;
+		CStdioFile file(path, CFile::typeBinary | CFile::modeRead);
+
+		if (file.ReadString(strLine))
+		{
+			m_sort = (SVNRevListSort)_ttol(strLine);
+			while (file.ReadString(strLine))
+			{
+				AddRevision(SVNRev(strLine));
+			}
+		}
+		file.Close();
+	}
+	catch (CFileException* pE)
+	{
+		TRACE("CFileException loading target file list\n");
+		pE->Delete();
+		return false;
+	}
+	return true;
+}
+
+bool SVNRevList::AscendingRevision(const SVNRev& lhs, const SVNRev& rhs)
+{
+	if (lhs.IsNumber() && rhs.IsNumber())
+		return (svn_revnum_t)lhs < (svn_revnum_t)rhs;
+	if (lhs.IsHead())
+		return false;
+	if (rhs.IsHead())
+		return true;
+	if (lhs.IsDate() && rhs.IsDate())
+		return lhs.GetDate() < rhs.GetDate();
+	ATLASSERT(FALSE);
+	return true;
+}
+
+bool SVNRevList::DescendingRevision(const SVNRev& lhs, const SVNRev& rhs)
+{
+	if (lhs.IsNumber() && rhs.IsNumber())
+		return (svn_revnum_t)lhs > (svn_revnum_t)rhs;
+	if (lhs.IsHead())
+		return true;
+	if (rhs.IsHead())
+		return false;
+	if (lhs.IsDate() && rhs.IsDate())
+		return lhs.GetDate() > rhs.GetDate();
+	ATLASSERT(FALSE);
+	return false;
+}
+
+void SVNRevList::Sort(bool bAscending)
+{
+	m_sort = SVNRevListNoSort;
+	if (bAscending)
+	{
+		std::sort(m_array.begin(), m_array.end(), AscendingRevision);
+		m_sort = SVNRevListASCENDING;
+	}
+	else
+	{
+		std::sort(m_array.begin(), m_array.end(), DescendingRevision);
+		m_sort = SVNRevListDESCENDING;
+	}
 }

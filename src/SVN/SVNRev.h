@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,6 +19,7 @@
 
 #pragma once
 #include "svn_opt.h"
+#include <vector>
 
 
 /**
@@ -33,11 +34,6 @@
  *
  * For convenience, this class also accepts the string "WC" as a
  * keyword for the working copy revision.
- *
- * Right now, this class also accepts those "special" revisions
- * as a normal revision number. This is just for convenience to stay
- * compatible with the current implementation in TortoiseSVN, but
- * will be removed soon!
  */
 class SVNRev
 {
@@ -70,6 +66,8 @@ public:
 
 	/// Returns a string representing the date of a DATE revision, otherwise an empty string.
 	CString GetDateString() const {return sDate;}
+	/// Returns the date if the revision is of type svn_opt_revision_date
+	apr_time_t GetDate() const {ATLASSERT(IsDate()); return rev.value.date;}
 	/// Converts the revision into a string representation.
 	CString ToString() const;
 
@@ -90,4 +88,44 @@ private:
 	svn_opt_revision_t rev;
 	BOOL m_bIsValid;
 	CString sDate;
+};
+
+
+/**
+ * \ingroup SVN
+ * SVNRevList represents a list of SVNRev revisions.
+ */
+class SVNRevList
+{
+public:
+	SVNRevList() {m_sort = SVNRevListNoSort;}
+	~SVNRevList() {;}
+
+	enum SVNRevListSort
+	{
+		SVNRevListNoSort,
+		SVNRevListASCENDING,
+		SVNRevListDESCENDING,
+	};
+	int				AddRevision(const SVNRev& rev);
+	int				GetCount() const;
+	void			Clear();
+	const SVNRev&	operator[](int index) const;
+
+	bool			SaveToFile(LPCTSTR path, bool bANSI);
+	bool			LoadFromFile(LPCTSTR path);
+
+	bool			IsAscending() {return (m_sort == SVNRevListASCENDING);}
+	bool			IsDescending() {return (m_sort == SVNRevListDESCENDING);}
+
+	void			Sort(bool bAscending);
+
+protected:
+	static bool		AscendingRevision(const SVNRev& lhs, const SVNRev& rhs);
+	static bool		DescendingRevision(const SVNRev& lhs, const SVNRev& rhs);
+
+protected:
+	std::vector<SVNRev>	m_array;
+	SVNRevListSort		m_sort;
+
 };
