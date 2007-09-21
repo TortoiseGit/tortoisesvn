@@ -1358,6 +1358,7 @@ void TortoiseBlame::InitSize()
 		::OffsetRect(&sourcerc, LOCATOR_WIDTH, 0);
 		sourcerc.right -= LOCATOR_WIDTH;
 	}
+	InvalidateRect(wMain, NULL, FALSE);
     ::SetWindowPos(wEditor, 0, sourcerc.left, sourcerc.top, sourcerc.right - sourcerc.left, sourcerc.bottom - sourcerc.top, 0);
 	::SetWindowPos(wBlame, 0, blamerc.left, blamerc.top, blamerc.right - blamerc.left, blamerc.bottom - blamerc.top, 0);
 	if (m_colorage)
