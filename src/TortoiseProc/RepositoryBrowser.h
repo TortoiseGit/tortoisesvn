@@ -236,7 +236,7 @@ protected:
 	/// Sets a background icon for the list view
 	bool SetBackgroundImage(UINT nID);
 	/// Helper function to show the "File Save" dialog
-	bool AskForSavePath(const CTSVNPathList& urlList, CTSVNPath &tempfile);
+	bool AskForSavePath(const CTSVNPathList& urlList, CTSVNPath &tempfile, bool bFolder);
 
 	/// Saves the column widths
 	void SaveColumnWidths(bool bSaveToRegistry = false);

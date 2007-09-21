@@ -2065,7 +2065,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 		case ID_SAVEAS:
 			{
 				CTSVNPath tempfile;
-				bool bSavePathOK = AskForSavePath(urlList, tempfile);
+				bool bSavePathOK = AskForSavePath(urlList, tempfile, nFolders > 0);
 				if (bSavePathOK)
 				{
 					CWaitCursorEx wait_cursor;
@@ -2479,7 +2479,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 		case ID_COPYTOWC:
 			{
 				CTSVNPath tempfile;
-				bool bSavePathOK = AskForSavePath(urlList, tempfile);
+				bool bSavePathOK = AskForSavePath(urlList, tempfile, nFolders > 0);
 				if (bSavePathOK)
 				{
 					CWaitCursorEx wait_cursor;
@@ -2490,7 +2490,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					SetAndClearProgressInfo(&progDlg);
 					progDlg.ShowModeless(m_hWnd);
 
-					if (!Copy(urlList, tempfile, GetRevision(), GetRevision())||(progDlg.HasUserCancelled()))
+					bool bCopyAsChild = (urlList.GetCount() > 1);
+					if (!Copy(urlList, tempfile, GetRevision(), GetRevision(), CString(), bCopyAsChild)||(progDlg.HasUserCancelled()))
 					{
 						progDlg.Stop();
 						SetAndClearProgressInfo((HWND)NULL);
@@ -2627,10 +2628,10 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 }
 
 
-bool CRepositoryBrowser::AskForSavePath(const CTSVNPathList& urlList, CTSVNPath &tempfile)
+bool CRepositoryBrowser::AskForSavePath(const CTSVNPathList& urlList, CTSVNPath &tempfile, bool bFolder)
 {
 	bool bSavePathOK = false;
-	if (urlList.GetCount() == 1)
+	if ((!bFolder)&&(urlList.GetCount() == 1))
 	{
 		CString savePath;
 		bSavePathOK = CAppUtils::FileOpenSave(savePath, IDS_REPOBROWSE_SAVEAS, IDS_COMMONFILEFILTER, false, m_hWnd);
