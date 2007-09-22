@@ -90,7 +90,7 @@ private:
 	CString sDate;
 };
 
-
+#ifdef _MFC_VER
 /**
  * \ingroup SVN
  * SVNRevList represents a list of SVNRev revisions.
@@ -129,3 +129,4 @@ protected:
 	SVNRevListSort		m_sort;
 
 };
+#endif

@@ -190,7 +190,7 @@ CString SVNRev::ToString() const
 
 //////////////////////////////////////////////////////////////////////////
 
-
+#ifdef _MFC_VER
 
 int SVNRevList::AddRevision(const SVNRev& rev)
 {
@@ -324,3 +324,5 @@ void SVNRevList::Sort(bool bAscending)
 		m_sort = SVNRevListDESCENDING;
 	}
 }
+
+#endif
