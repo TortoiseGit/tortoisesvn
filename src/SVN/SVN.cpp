@@ -1953,20 +1953,14 @@ BOOL SVN::IsBDBRepository(CString url)
 CString SVN::GetRepositoryRoot(const CTSVNPath& url)
 {
 	const char * returl;
-	svn_ra_session_t *ra_session;
 
 	SVNPool localpool(pool);
 	svn_error_clear(Err);
 
 	// make sure the url is canonical.
 	const char * goodurl = svn_path_canonicalize(url.GetSVNApiPath(localpool), localpool);
-	
-	/* use subpool to create a temporary RA session */
-	Err = svn_client_open_ra_session (&ra_session, goodurl, m_pctx, localpool);
-	if (Err)
-		return _T("");
-	
-	Err = svn_ra_get_repos_root(ra_session, &returl, localpool);
+
+	Err = svn_client_root_url_from_path(&returl, goodurl, m_pctx, pool);
 	if (Err)
 		return _T("");
 
