@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Relocates the working copy to a different URL.
  */
 class RelocateCommand : public Command

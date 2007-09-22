@@ -23,6 +23,7 @@
 #include "SVNRev.h"
 
 /**
+ * \ingroup TortoiseProc
  * enumeration of all client hook types
  */
 typedef enum hooktype
@@ -37,6 +38,7 @@ typedef enum hooktype
 } hooktype;
 
 /**
+ * \ingroup TortoiseProc
  * helper class, used as the key to the std::map we store
  * the data for the client hook scripts in.
  */
@@ -56,6 +58,7 @@ public:
 };
 
 /**
+ * \ingroup TortoiseProc
  * helper struct, used as the value to the std::map we
  * store the data for the client hook scripts in.
  */
@@ -69,7 +72,7 @@ typedef struct hookcmd
 typedef std::map<hookkey, hookcmd>::iterator hookiterator;
 
 /**
- * \ingroup Utils
+ * \ingroup TortoiseProc
  * Singleton class which deals with the client hook scripts.
  */
 class CHooks : public std::map<hookkey, hookcmd>

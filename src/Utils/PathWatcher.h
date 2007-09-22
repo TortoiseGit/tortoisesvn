@@ -24,6 +24,7 @@
 typedef CComCritSecLock<CComCriticalSection> AutoLocker;
 
 /**
+ * \ingroup Utils
  * Watches the filesystem for changes.
  *
  * When a CPathWatcher object is created, a new thread is started which

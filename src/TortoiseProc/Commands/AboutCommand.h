@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Shows the about dialog.
  */
 class AboutCommand : public Command

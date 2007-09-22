@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Shows the import dialog.
  */
 class ImportCommand : public Command

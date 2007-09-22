@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Shows the "delete unversioned items" dialog.
  */
 class DelUnversionedCommand : public Command

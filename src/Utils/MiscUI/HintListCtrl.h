@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,6 +18,12 @@
 //
 #pragma once
 
+/**
+ * \ingroup Utils
+ * Allows to show a hint text on a list control, basically hiding the list control
+ * content. Can be used for example during lengthy operations (showing "please wait")
+ * or to indicate why the list control is empty (showing "no data available").
+ */
 class CHintListCtrl : public CListCtrl
 {
 public: 

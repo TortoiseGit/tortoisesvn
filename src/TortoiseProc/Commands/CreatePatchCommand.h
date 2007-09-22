@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Creates a patch (unified diff) file.
  */
 class CreatePatchCommand : public Command

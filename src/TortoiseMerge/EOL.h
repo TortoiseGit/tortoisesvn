@@ -18,6 +18,10 @@
 //
 #pragma once
 
+/**
+ * \ingroup TortoiseMerge
+ * the different EOL styles a line can have.
+ */
 enum EOL
 {
 	EOL_AUTOLINE,

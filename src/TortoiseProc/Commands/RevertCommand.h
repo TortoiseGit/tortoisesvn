@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Shows the revert dialog.
  */
 class RevertCommand : public Command

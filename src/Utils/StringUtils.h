@@ -25,6 +25,7 @@
 #endif
 
 /**
+ * \ingroup Utils
  * Performs a wildcard compare of two strings.
  * \param wild the wildcard string
  * \param string the string to compare the wildcard to
@@ -50,6 +51,10 @@ int strwildcmp(const char * wild, const char * string);
 int wcswildcmp(const wchar_t * wild, const wchar_t * string);
 
 
+/**
+ * \ingroup Utils
+ * string helper functions
+ */
 class CStringUtils
 {
 public:

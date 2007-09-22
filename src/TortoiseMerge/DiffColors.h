@@ -64,6 +64,7 @@
 #define DIFFSTATE_CONFLICTRESOLVED_DEFAULT_BG		RGB(200,255,200)
 
 /**
+ * \ingroup TortoiseMerge
  * Singleton class which handles the colors for the different diff states
  * used in TortoiseMerge.
  */

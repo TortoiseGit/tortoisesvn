@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Shows the lock dialog.
  */
 class LockCommand : public Command

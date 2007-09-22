@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006 - 2007 - Stefan Kueng
+// Copyright (C) 2006-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,6 +25,11 @@
 
 const TCHAR sCAlphaControl[] = _T("CAlphaControl");
 
+/**
+ * \ingroup TortoiseIDiff
+ * The alpha blending slider control shown on the left side in TortoiseIDiff
+ * for overlap mode.
+ */
 class CAlphaControl
 {
 public:

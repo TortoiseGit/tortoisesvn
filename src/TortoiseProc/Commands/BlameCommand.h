@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Blames the given path and starts TortoiseBlame.
  */
 class BlameCommand : public Command

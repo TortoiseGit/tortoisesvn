@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,7 +22,7 @@
 #include "OddButton.h"
 
 /**
- * \ingroup TortoiseProc
+ * \ingroup Utils
  * A button control with a menu to choose from different
  * actions. Clicking on the left "button" part is the same
  * as with a normal button, clicking on the right "arrow"

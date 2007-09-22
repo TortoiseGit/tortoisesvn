@@ -1,17 +1,24 @@
+/** 
+\page build Build instructions
+
+\section Requirements Requirements
+
 First, you need to install the compiler package.
 
-A. You need VS.NET2005 (or at least Visual C++ .NET 2005) to allow
+-# You need VS.NET2005 (or at least Visual C++ .NET 2005) to allow
    building of the full TortoiseSVN package. This is the recommended
    option, but it is not free :-(
    If you want to build the msi make sure the "Tools for Redistributing
    Applications" are installed.
    Also, make sure ServicePack 1 for VS.NET2005 is installed.
 
-B. If you do not have access to VS.NET you can download the free
+-# If you do not have access to VS.NET you can download the free
    Visual C++ 2005 Express Edition.
    This will allow you to build the subversion libraries and the
    SubWCRev, TortoiseBlame, TortoiseUDiff, TortoiseIDiff, CrashRpt
-   and ResText projects only.
+   and ResText projects only. You can not build the main parts of
+   TortoiseSVN (shell extension, TortoiseProc, TSVNCache, TortoiseMerge)
+   with the Express Edition!
    - Install Visual C++ 2005 Express Edition.
      Download it from http://msdn.microsoft.com/vstudio/express/visualc/
    - Install Microsoft Platform SDK for Windows Server 2003 SP1
@@ -24,7 +31,7 @@ B. If you do not have access to VS.NET you can download the free
      and add it to the PATH environment variable
    Do not bother to install WiX as you cannot build very much.
 
-C. If you plan to build 64 bit packages, install the package 
+-# If you plan to build 64 bit packages, install the package 
    - "Language Tools" -> "Visual C++" -> "X64 Compilers and Tools" 
      available in the VS.NET2005 Professional and higher. 
      This will provide you with a cross-compiler and a suitable 
@@ -54,6 +61,7 @@ Next you need to download some more:
 - tools collection        : http://tortoisesvn.tigris.org/files/documents/406/37871/Tools.zip
 - dictionaries/thesauri   : http://lingucomponent.openoffice.org/
 
+\section Preparations Preparations
 
 Now you're almost ready. Only a few more steps to do:
 - create a new folder on your harddisk, e.g. SVN. Make sure you have at least
@@ -83,7 +91,7 @@ Now you're almost ready. Only a few more steps to do:
   paths in that file to your OS setup.
 
 
-Building 32 bit packages
+\section build32 Building 32 bit packages
 
   Hint: before you can start building TortoiseSVN, you need to call the vsvars32.bat
   file which is located in %VS80COMNTOOLS%. If you don't want to do that every time,
@@ -91,8 +99,10 @@ Building 32 bit packages
   - Create a .reg file with the following code and merge it in your registry
     Windows Registry Editor Version 5.00
 
+\verbatim
     [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor]
     "AutoRun"="\"C:\\Program Files\\Microsoft Visual Studio 8\\Common7\\Tools\\vsvars32.bat\""
+\endverbatim
   Next time you start the command prompt, that file will be executed automatically.
 
   Note that for the Express edition you need to sort out the vars for the platform SDK
@@ -100,12 +110,14 @@ Building 32 bit packages
   C:\Program Files\Microsoft Visual Studio 8\VC\vcvarsall.bat
   Look for the :x86 label and add an extra call to setenv.cmd as shown below:
 
+\code
 	:x86
 	if not exist "%~dp0bin\vcvars32.bat" goto missing
 	call "%~dp0bin\vcvars32.bat"
 	rem Added SDK setup 14/12/2005 SJL
 	call "C:\Program Files\Microsoft Platform SDK\setenv.cmd"
 	goto :eof
+\endcode
 
   Then call vsvarsall.bat when you start your command processor instead
   of vsvars32 as described above.
@@ -114,17 +126,23 @@ Building 32 bit packages
   TortoiseSVN. Grab a cup of coffee - it can take up to two hours, depending on
   how fast your computer is (on mine, it takes 1 hour and 50 minutes)!
 
+\verbatim
   > nant
+\endverbatim
   will show you some help about the targets you can use
 
+\verbatim
   > nant setup
+\endverbatim
   will compile everything, including docs and languagepacks and create the msi installer
 
   Note: you may notice some compiler errors when the build script compiles 
   Subversion. The errors you will see are:
+\verbatim
   > error C2065: 'SVN_FS_WANT_DB_MAJOR' : undeclared identifier
   > error C2065: 'SVN_FS_WANT_DB_MINOR' : undeclared identifier
   > error C2065: 'SVN_FS_WANT_DB_PATCH' : undeclared identifier
+\endverbatim
   This is expected and you don't have to worry about that. The reason for those
   errors is that TortoiseSVN builds the Subversion library twice. Once with 
   all the ra-layers and all dbs, and once without those. The errors come
@@ -138,10 +156,14 @@ Building 32 bit packages
   Firstly you need to change the build tool in default.build.user.
   There is already a line to set this up which you need to un-comment:
 
+\verbatim
 	<property name="buildtool" value="vcexpress.exe" />
+\endverbatim
 
   Now you need to build the Subversion libraries:
+\verbatim
   > nant Subversion
+\endverbatim
 
   Note that the VC Express compiler works in the background without a console
   window. There is a lot of disk activity with no apparent result showing
@@ -157,7 +179,7 @@ Building 32 bit packages
   You can also right click on TortoiseBlame and TortoiseIDiff and build those.
 
 
-Building 64 bit packages on win32 (cross-compile)
+\section build64cross Building 64 bit packages on win32 (cross-compile)
 
   First, we build some 32-bit SVN utilities you will need later 
   during the build process. Follow the instruction above or just
@@ -165,25 +187,33 @@ Building 64 bit packages on win32 (cross-compile)
   "Visual Studio 2005 Command Prompt", change to the TSVN source
   directory and run
 
+\verbatim
 	nant release binaries
+\endverbatim
 
   Now, build the x64 packages: Open 
   "Microsoft Visual Studio 2005" -> "Visual Studio Tools" -> 
   "Visual Studio 2005 x64 Cross Tools Command Prompt", change to the
   TSVN source directory and run
 
+\verbatim
 	nant x64 cross release setup
+\endverbatim
 
   After the script finished, the packages can be found in .\bin .
 
 
-Building 64 bit packages on x64
+\section build64 Building 64 bit packages on x64
 
   To build native packages on your 64 bit Windows, just open
   "Microsoft Visual Studio 2005" -> "Visual Studio Tools" -> 
   "Visual Studio 2005 Win64 Command Prompt", change to the
   TSVN source directory and run
 
+\verbatim
 	nant x64 release setup
+\endverbatim
 
   After the script finished, the packages can be found in .\bin .
+
+*/

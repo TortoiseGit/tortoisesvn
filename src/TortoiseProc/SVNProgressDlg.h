@@ -28,6 +28,7 @@
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 
 /** 
+ * \ingroup TortoiseProc
  * Options which can be used to configure the way the dialog box works
  */
 typedef enum

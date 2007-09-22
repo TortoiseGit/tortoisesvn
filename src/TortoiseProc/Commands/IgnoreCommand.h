@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Ignores the given paths.
  */
 class IgnoreCommand : public Command

@@ -29,10 +29,6 @@
  *
  * Handles unified diff files, parses them and also is able to
  * apply those diff files.
- *
- * \todo enhance the parser to work with other diff files than
- * those created by subversion clients.
- * \todo rewrite the parser to use regular expressions
  */
 class CPatch
 {

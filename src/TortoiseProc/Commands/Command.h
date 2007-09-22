@@ -25,6 +25,7 @@
 
 
 /**
+ * \ingroup TortoiseProc
  * Interface for all command line commands TortoiseProc can execute.
  */
 class Command
@@ -46,6 +47,7 @@ protected:
 };
 
 /**
+ * \ingroup TortoiseProc
  * Factory for the different commands which TortoiseProc executes from the
  * command line.
  */

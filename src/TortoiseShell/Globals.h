@@ -56,6 +56,7 @@
 #define MENUABOUT			0x8000000000000000
 
 /**
+ * \ingroup TortoiseShell
  * Since we need an own COM-object for every different
  * Icon-Overlay implemented this enum defines which class
  * is used.

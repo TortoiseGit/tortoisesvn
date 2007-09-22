@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,6 +30,14 @@ typedef struct tagResourceEntry
 	std::wstring	msgstr;
 } RESOURCEENTRY, * LPRESOURCEENTRY;
 
+/**
+ * \ingroup ResText
+ * Class to handle po-files. Inherits from an std::map which assigns
+ * string IDs to additional information, including the translated strings.
+ *
+ * Provides methods to load and save a po-file with the translation information
+ * we need for ResText.
+ */
 class CPOFile : public std::map<std::wstring, RESOURCEENTRY>
 {
 public:

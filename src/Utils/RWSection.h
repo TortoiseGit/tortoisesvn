@@ -18,7 +18,10 @@
 //
 #pragma once
 
-
+/**
+ * \ingroup Utils
+ * Implements a reader-writer lock.
+ */
 class CRWSection
 {
 public:

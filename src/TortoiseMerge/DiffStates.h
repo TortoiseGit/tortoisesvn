@@ -18,7 +18,10 @@
 //
 #pragma once
 
-
+/**
+ * \ingroup TortoiseMerge
+ * the different diff states a line can have.
+ */
 enum DiffStates
 {
 	DIFFSTATE_UNKNOWN,					///< e.g. an empty file

@@ -48,6 +48,7 @@
 #endif
 
 /**
+ * \ingroup TortoiseIDiff
  * The image view window.
  * Shows an image and provides methods to scale the image or alpha blend it
  * over another image.

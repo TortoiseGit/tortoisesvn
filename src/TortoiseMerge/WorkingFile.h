@@ -18,8 +18,11 @@
 //
 #pragma once
 
-// A class to encapsulate some of the details of working with filenames and descriptive names
-// for the various files used in TMerge
+/**
+ * \ingroup TortoiseMerge
+ * A class to encapsulate some of the details of working with filenames and descriptive names
+ * for the various files used in TMerge
+ */
 class CWorkingFile
 { 
 public:

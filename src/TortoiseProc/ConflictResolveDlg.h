@@ -20,7 +20,10 @@
 #include "svn_wc.h"
 #include "StandAloneDlg.h"
 
-
+/**
+ * \ingroup TortoiseProc
+ * Helper dialog used in merge callbacks to resolve conflicts.
+ */
 class CConflictResolveDlg : public CResizableStandAloneDialog
 {
 	DECLARE_DYNAMIC(CConflictResolveDlg)

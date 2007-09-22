@@ -22,6 +22,7 @@
 #include "MessageBox.h"
 
 /**
+ * \ingroup TortoiseProc
  * Shows the merge dialog.
  */
 class MergeCommand : public Command

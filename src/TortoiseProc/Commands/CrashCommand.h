@@ -22,6 +22,7 @@
 #include "MessageBox.h"
 
 /**
+ * \ingroup TortoiseProc
  * crashes the application to test the crashhandler.
  */
 class CrashCommand : public Command

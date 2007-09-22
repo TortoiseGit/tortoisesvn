@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Rebuilds the system icon cache.
  */
 class RebuildIconCacheCommand : public Command

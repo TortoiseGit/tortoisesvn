@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Diffs files or folders.
  */
 class DiffCommand : public Command

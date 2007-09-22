@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,7 +22,7 @@
 #ifdef _MFC_VER
 
 /**
- * \ingroup CommonClasses
+ * \ingroup Utils
  * Base class for the registry classes.
  *
  * \par requirements 
@@ -80,7 +80,7 @@ public:	//members
 };
 
 /**
- * \ingroup CommonClasses
+ * \ingroup Utils
  * DWORD value in registry. with this class you can use DWORD values in registry
  * like normal DWORD variables in your program.
  * Usage:
@@ -160,7 +160,7 @@ protected:
 };
 
 /**
- * \ingroup CommonClasses
+ * \ingroup Utils
  * CString value in registry. with this class you can use CString values in registry
  * almost like normal CString variables in your program.
  * Usage:
@@ -235,7 +235,7 @@ protected:
 };
 
 /**
- * \ingroup CommonClasses
+ * \ingroup Utils
  * CRect value in registry. with this class you can use CRect values in registry
  * almost like normal CRect variables in your program.
  * Usage:
@@ -321,7 +321,7 @@ protected:
 };
 
 /**
- * \ingroup CommonClasses
+ * \ingroup Utils
  * CPoint value in registry. with this class you can use CPoint values in registry
  * almost like normal CPoint variables in your program.
  * Usage:
@@ -398,7 +398,7 @@ protected:
 };
 
 /**
- * \ingroup CommonClasses
+ * \ingroup Utils
  * Manages a registry key (not a value). Provides methods to create and remove the
  * key and to query the list of values and subkeys.
  */
@@ -486,7 +486,7 @@ public:	//members
 };
 
 /**
- * \ingroup CommonClasses
+ * \ingroup Utils
  * std::string value in registry. with this class you can use std::string values in registry
  * almost like normal std::string variables in your program.
  * Usage:
@@ -548,7 +548,7 @@ protected:
 };
 
 /**
- * \ingroup CommonClasses
+ * \ingroup Utils
  * DWORD value in registry. with this class you can use DWORD values in registry
  * like normal DWORD variables in your program.
  * Usage:

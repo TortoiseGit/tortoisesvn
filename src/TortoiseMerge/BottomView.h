@@ -19,6 +19,10 @@
 #pragma once
 #include "BaseView.h"
 
+/**
+ * \ingroup TortoiseMerge
+ * The bottom view in three way merges
+ */
 class CBottomView : public CBaseView
 {
 	DECLARE_DYNCREATE(CBottomView)

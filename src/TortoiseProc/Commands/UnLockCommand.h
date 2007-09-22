@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Shows the unlock dialog.
  */
 class UnLockCommand : public Command

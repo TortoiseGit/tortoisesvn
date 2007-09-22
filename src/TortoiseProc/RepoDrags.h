@@ -24,7 +24,10 @@ class CItem;
 class CTreeItem;
 class CRepositoryBrowser;
 
-
+/**
+ * \ingroup TortoiseProc
+ * Implements a drop target on the left tree control in the repository browser
+ */
 class CTreeDropTarget : public CIDropTarget
 {
 public:
@@ -42,6 +45,10 @@ private:
 	HTREEITEM				hLastItem;
 };
 
+/**
+ * \ingroup TortoiseProc
+ * Implements a drop target on the right list control in the repository browser
+ */
 class CListDropTarget : public CIDropTarget
 {
 public:

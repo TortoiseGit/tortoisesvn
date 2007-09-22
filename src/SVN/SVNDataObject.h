@@ -32,6 +32,7 @@ extern	CLIPFORMAT	CF_PREFERREDDROPEFFECT;
 #define SVNDATAOBJECT_NUMFORMATS 5
 
 /**
+ * \ingroup SVN
  * Represents a Subversion URL or path as an IDataObject.
  * This can be used for drag and drop operations to other applications like
  * the shell itself.

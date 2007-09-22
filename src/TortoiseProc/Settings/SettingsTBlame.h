@@ -23,7 +23,10 @@
 #include "registry.h"
 
 
-
+/**
+ * \ingroup TortoiseProc
+ * Settings page to configure TortoiseBlame
+ */
 class CSettingsTBlame : public ISettingsPropPage
 {
 	DECLARE_DYNAMIC(CSettingsTBlame)

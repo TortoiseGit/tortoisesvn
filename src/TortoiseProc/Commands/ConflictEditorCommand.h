@@ -22,6 +22,7 @@
 #include "SVNDiff.h"
 
 /**
+ * \ingroup TortoiseProc
  * Starts the conflict editor tool.
  */
 class ConflictEditorCommand : public Command

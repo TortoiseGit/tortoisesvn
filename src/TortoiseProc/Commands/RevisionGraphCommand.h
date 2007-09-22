@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Shows the revision graph.
  */
 class RevisionGraphCommand : public Command

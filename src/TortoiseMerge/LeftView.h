@@ -19,6 +19,10 @@
 #pragma once
 #include "BaseView.h"
 
+/**
+ * \ingroup TortoiseMerge
+ * the left view in TortoiseMerge, usually showing "theirs".
+ */
 class CLeftView : public CBaseView
 {
 	DECLARE_DYNCREATE(CLeftView)

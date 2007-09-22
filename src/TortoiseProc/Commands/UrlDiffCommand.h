@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Diffs Urls against the working copy.
  */
 class UrlDiffCommand : public Command

@@ -32,6 +32,10 @@ class CLeftView;
 class CRightView;
 class CBottomView;
 
+/**
+ * \ingroup TortoiseMerge
+ * The main frame of TortoiseMerge. Handles all the menu and toolbar commands.
+ */
 class CMainFrame : public CNewFrameWnd, public CPatchFilesDlgCallBack //CNewFrameWnd
 {
 	

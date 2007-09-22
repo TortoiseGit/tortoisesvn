@@ -19,6 +19,11 @@
 #pragma once
 #include "BaseView.h"
 
+/**
+ * \ingroup TortoiseMerge
+ * The right view in TortoiseMerge. This is the one which is usually modified and
+ * saved.
+ */
 class CRightView : public CBaseView
 {
 	DECLARE_DYNCREATE(CRightView)

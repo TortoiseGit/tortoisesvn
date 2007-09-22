@@ -22,6 +22,7 @@
 #include "MessageBox.h"
 
 /**
+ * \ingroup TortoiseProc
  * Shows a dialog telling the user what TSVN is and to RTFM, then starts an
  * instance of the explorer.
  */

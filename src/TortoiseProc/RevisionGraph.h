@@ -26,6 +26,10 @@
 
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 
+/**
+ * \ingroup TortoiseProc
+ * helper class which handles one log entry used in the revision graph
+ */
 class log_entry
 {
 public:
@@ -50,6 +54,10 @@ private:
 
 class CRevisionEntry;
 
+/**
+ * \ingroup TortoiseProc
+ * helper struct containing information about a copy operation in the revision graph
+ */
 struct SCopyInfo
 {
 	revision_t fromRevision;
@@ -73,6 +81,10 @@ struct SCopyInfo
 	std::vector<STarget> targets;
 };
 
+/**
+ * \ingroup TortoiseProc
+ * Helper class for the revision graph to search the whole path tree
+ */
 class CSearchPathTree
 {
 private:

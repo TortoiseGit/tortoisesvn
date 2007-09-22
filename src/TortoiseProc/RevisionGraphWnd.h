@@ -24,6 +24,10 @@
 #define REVGRAPH_PREVIEW_WIDTH 100
 #define REVGRAPH_PREVIEW_HEIGHT 200
 
+/**
+ * \ingroup TortoiseProc
+ * node shapes for the revision graph
+ */
 enum NodeShape
 {
 	TSVNRectangle,

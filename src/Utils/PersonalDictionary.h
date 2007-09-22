@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,6 +21,10 @@
 
 #define PDICT_MAX_WORD_LENGTH 50
 
+/**
+ * \ingroup Utils
+ * Utility class for handling a dictionary with custom words.
+ */
 class CPersonalDictionary
 {
 public:

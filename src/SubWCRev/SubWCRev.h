@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,8 +25,11 @@
 
 #define URL_BUF	2048
 
-// This structure is used as the status baton for WC crawling
-// and contains all the information we are collecting.
+/**
+ * \ingroup SubWCRev
+ * This structure is used as the status baton for WC crawling
+ * and contains all the information we are collecting.
+ */
 typedef struct SubWCRev_t
 {
 	svn_revnum_t MinRev;	// Lowest update revision found
@@ -41,6 +44,10 @@ typedef struct SubWCRev_t
 	char Author[URL_BUF];	// The author of the wcPath
 } SubWCRev_t;
 
+/**
+ * \ingroup SubWCRev
+ * Collects all the SubWCRev_t structures in an array.
+ */
 typedef struct SubWCRev_StatusBaton_t
 {
 	SubWCRev_t * SubStat;
@@ -48,6 +55,10 @@ typedef struct SubWCRev_StatusBaton_t
 	apr_pool_t *pool;
 } SubWCRev_StatusBaton_t;
 
+/**
+ * \ingroup SubWCRev
+ * Callback function when fetching the Subversion status
+ */
 svn_error_t *
 svn_status (       const char *path,
                    void *status_baton,
@@ -55,6 +66,3 @@ svn_status (       const char *path,
                    svn_client_ctx_t *ctx,
                    apr_pool_t *pool);
 
-char *Utf16ToUtf8(const WCHAR *pszUtf16, apr_pool_t *pool);
-
-void AutomationMain();

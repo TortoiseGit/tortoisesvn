@@ -34,6 +34,7 @@ static LPFNCANUNLOADNOW pDllCanUnloadNow = NULL;
 
 
 /**
+ * \ingroup TortoiseShell
  * Check whether to load the full TortoiseSVN.dll or not.
  */
 static BOOL WantRealVersion(void)

@@ -19,6 +19,10 @@
 #pragma once
 #include "Aclapi.h"
 
+/**
+ * \ingroup Utils
+ * helper class to set security attributes.
+ */
 class CSecAttribs
 {
 public:

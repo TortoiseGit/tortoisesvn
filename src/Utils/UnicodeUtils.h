@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,6 +31,10 @@
 #endif
 #pragma warning (pop)
 
+/**
+ * \ingroup Utils
+ * Class to convert strings from/to UTF8 and UTF16.
+ */
 class CUnicodeUtils
 {
 public:

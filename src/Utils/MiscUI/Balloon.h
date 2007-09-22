@@ -45,6 +45,7 @@
 #define BALLOON_MASK_BEHAVIOUR			0x0010  //The behaviour for the tooltip gets from the structures
 
 /**
+ * \ingroup Utils
  * BALLOON_INFO structure.
  */
 typedef struct tagBALLOON_INFO
@@ -62,6 +63,7 @@ typedef struct tagBALLOON_INFO
 } BALLOON_INFO;
 
 /**
+ * \ingroup Utils
  * This structure is sent to with the notify messages.
  */
 typedef struct tagNM_BALLOON_DISPLAY {

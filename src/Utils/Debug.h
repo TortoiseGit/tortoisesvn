@@ -19,4 +19,9 @@
 #pragma once
 #include <Windows.h>
 
+/**
+ * \ingroup Utils
+ * Trace macro for win32 applications where the MFC or ATL trace macro is
+ * not available.
+ */
 void TRACE(LPCTSTR str, ...);

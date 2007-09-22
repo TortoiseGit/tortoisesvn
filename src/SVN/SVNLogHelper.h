@@ -24,7 +24,7 @@
 using namespace std;
 
 /**
- * \ingroup TortoiseProc
+ * \ingroup SVN
  * helper class for retrieving log messages without the log dialog.
  * 
  * Can find the copy from revision of a tag/branch and the corresponding copy from URL.

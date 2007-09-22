@@ -21,6 +21,7 @@
 
 
 /**
+ * \ingroup Utils
  * Loads a string from the application resources.
  */
 class ResString
@@ -34,6 +35,7 @@ private:
 };
 
 /**
+ * \ingroup Utils
  * A base window class.
  * Provides separate window message handlers for every window object based on
  * this class.

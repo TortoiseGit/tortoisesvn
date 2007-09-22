@@ -23,6 +23,10 @@
 
 class CRepositoryTree;
 
+/**
+ * \ingroup TortoiseProc
+ * Interface definition
+ */
 class IRepo
 {
 public:

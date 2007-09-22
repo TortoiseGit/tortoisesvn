@@ -30,7 +30,10 @@
 #define ENDDIALOGTIMER 100
 #define REFRESHTIMER   101
 
-
+/**
+ * \ingroup TortoiseProc
+ * helper struct for regex matches
+ */
 typedef struct RegexData
 {
 	CString regex;

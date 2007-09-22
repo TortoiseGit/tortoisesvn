@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Exports dropped items.
  */
 class DropExportCommand : public Command

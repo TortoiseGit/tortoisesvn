@@ -32,7 +32,10 @@
 #endif
 
 
-// A structure passed as a request from the shell (or other client) to the external cache
+/**
+ * \ingroup TSVNCache
+ * A structure passed as a request from the shell (or other client) to the external cache
+ */ 
 struct TSVNCacheRequest
 {
 	DWORD flags;
@@ -43,7 +46,10 @@ struct TSVNCacheRequest
 
 #ifdef SVN_WC_H
 
-// The structure returned as a response
+/**
+ * \ingroup TSVNCache
+ * The structure returned as a response
+ */
 struct TSVNCacheResponse
 {
 	svn_wc_status2_t m_status;
@@ -58,9 +64,13 @@ struct TSVNCacheResponse
 
 #endif // SVN_WC_H
 
+/**
+ * \ingroup TSVNCache
+ * a cache command
+ */
 struct TSVNCacheCommand
 {
-	BYTE command;		///< the command to execute
+	BYTE command;				///< the command to execute
 	WCHAR path[MAX_PATH+1];		///< path to do the command for
 };
 

@@ -21,6 +21,7 @@
 
 
 /**
+ * \ingroup TortoiseProc
  * Shows the help file.
  */
 class HelpCommand : public Command

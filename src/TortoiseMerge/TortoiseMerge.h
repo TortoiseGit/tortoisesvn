@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,10 +26,10 @@
 #include "CrashReport.h"
 
 
-// CTortoiseMergeApp:
-// See TortoiseMerge.cpp for the implementation of this class
-//
-
+/**
+ * \ingroup TortoiseMerge
+ * The application class of TortoiseMerge.
+ */
 class CTortoiseMergeApp : public CWinApp
 {
 public:

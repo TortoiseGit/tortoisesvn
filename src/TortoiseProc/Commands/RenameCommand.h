@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Renames files and folders.
  */
 class RenameCommand : public Command

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,6 +20,10 @@
 
 #include "DragDropImpl.h"
 
+/**
+ * \ingroup Utils
+ * helper class to turn a control into a file drop target
+ */
 class CFileDropTarget : public CIDropTarget
 {
 public:
@@ -90,8 +94,12 @@ public:
 
 };
 
-// CFileDropEdit
 
+/**
+ * \ingroup Utils
+ * Enhancement for a CEdit control which allows the edit control to have files
+ * dropped onto it and fill in the path of that dropped file.
+ */
 class CFileDropEdit : public CEdit
 {
 	DECLARE_DYNAMIC(CFileDropEdit)

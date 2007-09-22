@@ -22,6 +22,10 @@
 
 #include <vector>
 
+/**
+ * \ingroup TortoiseMerge
+ * Holds the information which is required to define a single line of text.
+ */
 typedef struct
 {
 	CString						sLine;
@@ -30,6 +34,10 @@ typedef struct
 	EOL							ending;
 } viewdata;
 
+/**
+ * \ingroup TortoiseMerge
+ * Handles the view and diff data a TortoiseMerge view needs.
+ */
 class CViewData
 {
 public:

@@ -28,6 +28,10 @@
 
 
 #define DIFF_EMPTYLINENUMBER						((DWORD)-1)
+/**
+ * \ingroup TortoiseMerge
+ * Main class for handling diffs.
+ */
 class CDiffData
 {
 public:

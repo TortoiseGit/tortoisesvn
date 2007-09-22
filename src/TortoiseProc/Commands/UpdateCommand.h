@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Shows the update dialog or executes the update directly.
  */
 class UpdateCommand : public Command

@@ -18,6 +18,10 @@
 //
 #pragma once
 
+/**
+ * \ingroup Utils
+ * helper class to handle path strings.
+ */
 class CPathUtils
 {
 public:

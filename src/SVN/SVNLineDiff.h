@@ -26,6 +26,10 @@
 #define SVNLINEDIFF_CHARTYPE_SPACE			2
 #define SVNLINEDIFF_CHARTYPE_OTHER			3
 
+/**
+ * \ingroup TortoiseMerge
+ * Handles diffs of single lines. Used for inline diffs.
+ */
 class SVNLineDiff
 {
 public:

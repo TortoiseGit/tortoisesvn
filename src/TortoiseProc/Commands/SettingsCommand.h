@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Shows the settings dialog.
  */
 class SettingsCommand : public Command

@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Shows the resolve dialog.
  */
 class ResolveCommand : public Command

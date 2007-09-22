@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,7 +20,10 @@
 #include "afxcmn.h"
 #include "HistoryCombo.h"
 
-
+/**
+ * \ingroup TortoiseMerge
+ * Find dialog used in TortoiseMerge.
+ */
 class CFindDlg : public CDialog
 {
 	DECLARE_DYNAMIC(CFindDlg)

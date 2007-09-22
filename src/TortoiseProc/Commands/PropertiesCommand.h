@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Shows the SVN properties dialog.
  */
 class PropertiesCommand : public Command

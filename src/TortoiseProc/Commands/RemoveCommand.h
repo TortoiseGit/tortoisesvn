@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Removes files and folders.
  */
 class RemoveCommand : public Command

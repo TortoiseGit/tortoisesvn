@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2006 - Tobias Schäfer
+// Copyright (C) 2006-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,6 +25,7 @@
 #include <afxcoll.h>
 
 /**
+ * \ingroup Utils
  * Use this class to create the DROPFILES structure which is needed to
  * support drag and drop of file names to other applications.
  * Based on an example by Thomas Blenkers.

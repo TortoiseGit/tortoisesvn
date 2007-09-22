@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Shows the repository browser.
  */
 class RepositoryBrowserCommand : public Command

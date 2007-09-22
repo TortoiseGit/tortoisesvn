@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Shows the "check for modifications" dialog.
  */
 class RepoStatusCommand : public Command

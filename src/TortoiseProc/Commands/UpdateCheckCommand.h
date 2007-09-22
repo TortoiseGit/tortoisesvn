@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Checks for newer versions of TortoiseSVN
  */
 class UpdateCheckCommand : public Command

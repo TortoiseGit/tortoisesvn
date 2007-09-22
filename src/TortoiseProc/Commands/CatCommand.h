@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Checks out a file from the given URL.
  */
 class CatCommand : public Command

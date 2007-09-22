@@ -22,6 +22,7 @@
 #include "MessageBox.h"
 
 /**
+ * \ingroup TortoiseProc
  * Creates a repository
  */
 class CreateRepositoryCommand : public Command

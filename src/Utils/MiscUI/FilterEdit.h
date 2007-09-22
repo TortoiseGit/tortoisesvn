@@ -23,6 +23,7 @@
 #define WM_FILTEREDIT_CANCELCLICKED	(WM_USER + 101)
 
 /**
+ * \ingroup Utils
  * Validator interface for the Filter edit control CFilterEdit
  */
 class IFilterEditValidator
@@ -32,6 +33,7 @@ public:
 };
 
 /**
+ * \ingroup Utils
  * Filter edit control.
  * An edit control with a 'close' button on the right which clears the text
  * in the control, and an info button on the left (optional) where a context 

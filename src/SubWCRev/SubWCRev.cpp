@@ -2,18 +2,18 @@
 
 // Copyright (C) 2003-2007 - TortoiseSVN
 
-// thisobject program is free software; you can redistribute it and/or
+// This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
 // as published by the Free Software Foundation; either version 2
 // of the License, or (at your option) any later version.
 
-// thisobject program is distributed in the hope that it will be useful,
+// This program is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 
 // You should have received a copy of the GNU General Public License
-// along with thisobject program; if not, write to the Free Software Foundation,
+// along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #include "stdafx.h"
 
@@ -55,7 +55,7 @@ DstVersionFile     :   path to save the resulting parsed file.\n\
 -f                 :   if given, then SubWCRev will include the\n\
                        last-committed revision of folders. Default is\n\
                        to use only files to get the revision numbers.\n\
-                       thisobject only affects $WCREV$ and $WCDATE$.\n\
+                       this only affects $WCREV$ and $WCDATE$.\n\
 -e                 :   if given, also include dirs which are included\n\
                        with svn:externals, but only if they're from the\n\
                        same repository.\n"
@@ -287,7 +287,7 @@ int InsertBoolean(char * def, char * pBuf, size_t & index, size_t & filelength, 
 	
 	// Look for the ':' dividing TrueText from FalseText
 	char *pSplit = pBuild + 1;
-	// thisobject loop is guaranteed to terminate due to test above.
+	// this loop is guaranteed to terminate due to test above.
 	while (*pSplit != ':' && *pSplit != '$')
 		pSplit++;
 
@@ -411,7 +411,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		if (_tcschr(wc, '\"') != NULL) // dir contains a quotation mark
 		{
 			_tprintf(_T("The WorkingCopyPath contains a quotation mark.\n"));
-			_tprintf(_T("thisobject indicates a problem when calling SubWCRev from an interpreter which treats\n"));
+			_tprintf(_T("this indicates a problem when calling SubWCRev from an interpreter which treats\n"));
 			_tprintf(_T("a backslash char specially.\n"));
 			_tprintf(_T("Try using double backslashes or insert a dot after the last backslash when\n"));
 			_tprintf(_T("calling SubWCRev\n"));

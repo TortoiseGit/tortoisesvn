@@ -28,6 +28,7 @@
 #define WINDOW_MINWIDTH 200
 
 /**
+ * \ingroup TortoiseIDiff
  * The main window of TortoiseIDiff.
  * Hosts the two image views, the menu, toolbar, slider, ...
  */

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2007 - TortoiseUDiff
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,6 +28,11 @@
 
 using namespace std;
 
+/**
+ * \ingroup TortoiseUDiff
+ * Main window of TortoiseUDiff. Handles the child windows (Scintilla control,
+ * CFindBar, ...).
+ */
 class CMainWindow : public CWindow
 {
 public:

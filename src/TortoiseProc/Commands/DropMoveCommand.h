@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Moves dropped items.
  */
 class DropMoveCommand : public Command

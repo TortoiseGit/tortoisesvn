@@ -22,6 +22,10 @@
 #include "TSVNPath.h"
 #include "SVNRev.h"
 
+/**
+ * \ingroup SVN
+ * data object which holds all information returned from an svn_client_info() call.
+ */
 class SVNInfoData
 {
 public:

@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Shows the checkout dialog.
  */
 class CopyCommand : public Command

@@ -20,6 +20,7 @@
 #include "Command.h"
 
 /**
+ * \ingroup TortoiseProc
  * Shows the commit dialog, executes the commit and retries (if necessary)
  */
 class CommitCommand : public Command

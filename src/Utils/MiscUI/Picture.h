@@ -29,7 +29,7 @@ using namespace Gdiplus;
 #endif
 
 /**
- * \ingroup CommonClasses
+ * \ingroup Utils
  * Class for showing picture files. 
  * Use this class to show pictures of different file formats: BMP, DIB, EMF, GIF, ICO, JPG, WMF
  * If Gdi+ is installed (default on XP and later, optional on Win2k), other image formats can
