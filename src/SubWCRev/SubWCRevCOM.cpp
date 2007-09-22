@@ -36,6 +36,7 @@
 
 STDAPI DllRegisterServer();
 STDAPI DllUnregisterServer();
+void AutomationMain();
 
 int APIENTRY _tWinMain(HINSTANCE /*hInstance*/,
 					   HINSTANCE /*hPrevInstance*/,
