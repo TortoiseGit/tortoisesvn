@@ -45,13 +45,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 10666: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 10695: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-09-20 14:28+0300\n"
+"PO-Revision-Date: 2007-09-22 18:34+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3920,13 +3920,8 @@ msgstr "Слито"
 
 #: ID:286,
 #, c-format
-msgid "Merged revision %s from %s:\n"
-msgstr "Слияние с ревизией %s из %s:\n"
-
-#: ID:286,
-#, c-format
-msgid "Merged revisions %s to %s from %s:\n"
-msgstr "Слияние с ревизиями %s - %s из %s:\n"
+msgid "Merged revision(s) %s from %s:\n"
+msgstr "Слияние с ревизией(ями) %s из %s:\n"
 
 #: ID:10,
 msgid "Merges a branch into the main trunk"
