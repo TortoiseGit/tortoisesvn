@@ -1952,7 +1952,7 @@ BOOL SVN::IsBDBRepository(CString url)
 
 CString SVN::GetRepositoryRoot(const CTSVNPath& url)
 {
-	const char * returl;
+	const char * returl = NULL;
 
 	SVNPool localpool(pool);
 	svn_error_clear(Err);
