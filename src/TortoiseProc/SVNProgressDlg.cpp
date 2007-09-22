@@ -1858,7 +1858,7 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
 	SetWindowText(sWindowTitle);
 
 	// we only accept a revision list to merge for peg merges
-	ATLASSERT((m_revisionList.GetCount() && (m_url.IsEquivalentTo(m_url2))));
+	ATLASSERT((m_revisionList.GetCount()==0) || (m_revisionList.GetCount() && (m_url.IsEquivalentTo(m_url2))));
 
 	if (m_url.IsEquivalentTo(m_url2))
 	{

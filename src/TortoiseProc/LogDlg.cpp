@@ -58,6 +58,7 @@ enum LogDlgContextMenuCommands
 	ID_UPDATE,
 	ID_COPY,
 	ID_REVERTREV,
+	ID_MERGEREV,
 	ID_GNUDIFF1,
 	ID_GNUDIFF2,
 	ID_FINDENTRY,
@@ -3176,14 +3177,17 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		revSelected2 = pLogEntry->Rev;
 	}
 	SVNRev revLowest, revHighest;
+	SVNRevList revisionList;
 	{
 		POSITION pos = m_LogList.GetFirstSelectedItemPosition();
 		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+		revisionList.AddRevision(pLogEntry->Rev);
 		revLowest = pLogEntry->Rev;
 		revHighest = pLogEntry->Rev;
 		while (pos)
 		{
 			pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+			revisionList.AddRevision(pLogEntry->Rev);
 			revLowest = (svn_revnum_t(pLogEntry->Rev) > svn_revnum_t(revLowest) ? revLowest : pLogEntry->Rev);
 			revHighest = (svn_revnum_t(pLogEntry->Rev) < svn_revnum_t(revHighest) ? revHighest : pLogEntry->Rev);
 		}
@@ -3274,6 +3278,9 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 			temp.LoadString(IDS_LOG_POPUP_REVERTREV);
 			if (m_hasWC)
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERTREV, temp);					
+			temp.LoadString(IDS_LOG_POPUP_MERGEREV);
+			if (m_hasWC)
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_MERGEREV, temp);					
 			temp.LoadString(IDS_MENUCHECKOUT);
 			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_CHECKOUT, temp);
 			temp.LoadString(IDS_MENUEXPORT);
@@ -3293,14 +3300,13 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF2, temp);
 				bAddSeparator = true;
 			}
-			// reverting revisions only works (in one merge!) when the selected
-			// revisions are continuous. So check first if that's the case before
-			// we show the context menu.
-			bool bContinuous = IsSelectionContinuous();
 			temp.LoadString(IDS_LOG_POPUP_REVERTREVS);
-			if ((m_hasWC)&&(bContinuous))
+			if (m_hasWC)
 			{
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERTREV, temp);
+				temp.LoadString(IDS_LOG_POPUP_MERGEREVS);
+				if (m_hasWC)
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_MERGEREV, temp);					
 				bAddSeparator = true;
 			}
 			if (bAddSeparator)
@@ -3364,8 +3370,62 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 					dlg.SetPathList(CTSVNPathList(m_path));
 					dlg.SetUrl(pathURL);
 					dlg.SetSecondUrl(pathURL);
-					dlg.SetRevision(revHighest);
-					dlg.SetRevisionEnd(svn_revnum_t(revLowest)-1);
+					if (IsSelectionContinuous())
+					{
+						dlg.SetRevision(revHighest);
+						dlg.SetRevisionEnd(svn_revnum_t(revLowest)-1);
+					}
+					else
+					{
+						revisionList.Sort(false);
+						dlg.SetRevisionList(revisionList);
+					}
+					dlg.SetPegRevision(m_LogRevision);
+					dlg.DoModal();
+				}
+			}
+			break;
+		case ID_MERGEREV:
+			{
+				// we need an URL to complete this command, so error out if we can't get an URL
+				if (pathURL.IsEmpty())
+				{
+					CString strMessage;
+					strMessage.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)(m_path.GetUIPathString()));
+					CMessageBox::Show(this->m_hWnd, strMessage, _T("TortoiseSVN"), MB_ICONERROR);
+					TRACE(_T("could not retrieve the URL of the folder!\n"));
+					break;		//exit
+				}
+
+				CString path = m_path.GetWinPathString();
+				bool bGotSavePath = false;
+				if ((m_LogList.GetSelectedCount() == 1)&&(!m_path.IsDirectory()))
+				{
+					bGotSavePath = CAppUtils::FileOpenSave(path, IDS_LOG_MERGETO, IDS_COMMONFILEFILTER, true, GetSafeHwnd());
+				}
+				else
+				{
+					CBrowseFolder folderBrowser;
+					folderBrowser.SetInfo(CString(MAKEINTRESOURCE(IDS_LOG_MERGETO)));
+					bGotSavePath = (folderBrowser.Show(GetSafeHwnd(), path, path) == CBrowseFolder::OK);
+				}
+				if (bGotSavePath)
+				{
+					CSVNProgressDlg dlg;
+					dlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
+					dlg.SetPathList(CTSVNPathList(CTSVNPath(path)));
+					dlg.SetUrl(pathURL);
+					dlg.SetSecondUrl(pathURL);
+					if (IsSelectionContinuous())
+					{
+						dlg.SetRevisionEnd(revHighest);
+						dlg.SetRevision(svn_revnum_t(revLowest)-1);
+					}
+					else
+					{
+						revisionList.Sort(true);
+						dlg.SetRevisionList(revisionList);
+					}
 					dlg.SetPegRevision(m_LogRevision);
 					dlg.DoModal();
 				}

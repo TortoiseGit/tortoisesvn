@@ -33,6 +33,8 @@
 #include "RevisionGraphDlg.h"
 #include "CachedLogInfo.h"
 #include "RevisionIndex.h"
+#include "BrowseFolder.h"
+#include "SVNProgressDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -49,7 +51,8 @@ enum RevisionGraphContextMenuCommands
 	ID_COMPAREREVS,
 	ID_COMPAREHEADS,
 	ID_UNIDIFFREVS,
-	ID_UNIDIFFHEADS
+	ID_UNIDIFFHEADS,
+	ID_MERGETO
 };
 
 CRevisionGraphWnd::CRevisionGraphWnd()
@@ -784,6 +787,9 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		{
 			temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
 			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SHOWLOG, temp);
+			popup.AppendMenu(MF_SEPARATOR, NULL);
+			temp.LoadString(IDS_LOG_POPUP_MERGEREV);
+			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_MERGETO, temp);
 		}
 		if (m_SelectedEntry1 && m_SelectedEntry2)
 		{
@@ -838,6 +844,26 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 				}	
 
 				CAppUtils::LaunchApplication(sCmd, NULL, false);
+			}
+			break;
+		case ID_MERGETO:
+			{
+				CString URL = GetReposRoot() + CUnicodeUtils::GetUnicode (m_SelectedEntry1->path.GetPath().c_str());
+
+				CString path = m_sPath;
+				CBrowseFolder folderBrowser;
+				folderBrowser.SetInfo(CString(MAKEINTRESOURCE(IDS_LOG_MERGETO)));
+				if (folderBrowser.Show(GetSafeHwnd(), path, path) == CBrowseFolder::OK)
+				{
+					CSVNProgressDlg dlg;
+					dlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
+					dlg.SetPathList(CTSVNPathList(CTSVNPath(path)));
+					dlg.SetUrl(URL);
+					dlg.SetSecondUrl(URL);
+					dlg.SetRevisionEnd(m_SelectedEntry1->revision);
+					dlg.SetRevision(svn_revnum_t(m_SelectedEntry1->revision)-1);
+					dlg.DoModal();
+				}
 			}
 			break;
 		}

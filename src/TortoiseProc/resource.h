@@ -760,6 +760,8 @@
 #define IDS_LOG_POPUP_BLAME             1818
 #define IDS_LOG_POPUP_GNUDIFF_CH        1819
 #define IDS_LOG_POPUP_GETMERGELOGS      1820
+#define IDS_LOG_POPUP_MERGEREV          1821
+#define IDS_LOG_POPUP_MERGEREVS         1822
 #define IDS_LOG_COPY_SUCCESS            1830
 #define IDS_LOG_MESSAGEEDITTITLE        1831
 #define IDS_LOG_AUTHOREDITTITLE         1832
@@ -780,6 +782,7 @@
 #define IDS_LOG_REVERTREV_ERROR         1891
 #define IDS_LOG_STOPONCOPY_HINT         1892
 #define IDS_LOG_SAVEFOLDERTOHINT        1893
+#define IDS_LOG_MERGETO                 1894
 #define IDS_PROGRESSGETFILE             1900
 #define IDS_PROGRESSREVISION            1901
 #define IDS_PROGRESSWAIT                1902

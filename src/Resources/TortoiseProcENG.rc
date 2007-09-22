@@ -2144,6 +2144,7 @@ BEGIN
     IDS_LOG_REVERTREV_ERROR "Unable to reconstruct working copy path!\nThis can happen if the file has been renamed.\nPlease start the log dialog on this specific file alone and then revert the changes\nfrom the top pane in the log dialog."
     IDS_LOG_STOPONCOPY_HINT "For complete history deselect ""Stop on copy/rename"""
     IDS_LOG_SAVEFOLDERTOHINT "Select folder to save the selected files to"
+    IDS_LOG_MERGETO         "Select merge target"
     IDS_PROGRESSGETFILE     "Getting file %s"
     IDS_PROGRESSREVISION    "Revision %d"
     IDS_PROGRESSWAIT        "Please wait..."
@@ -2664,6 +2665,8 @@ BEGIN
     IDS_LOG_POPUP_BLAME     "Blame"
     IDS_LOG_POPUP_GNUDIFF_CH "Show changes as &unified diff"
     IDS_LOG_POPUP_GETMERGELOGS "Get merge logs"
+    IDS_LOG_POPUP_MERGEREV  "Merge revision to..."
+    IDS_LOG_POPUP_MERGEREVS "Merge revisions to..."
 END
 
 STRINGTABLE 
