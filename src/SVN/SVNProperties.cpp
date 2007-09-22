@@ -258,7 +258,7 @@ std::string SVNProperties::GetItemValue(int index)
 	return SVNProperties::GetItem(index, false);
 }
 
-BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, BOOL recurse, const TCHAR * message)
+BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, svn_depth_t depth, const TCHAR * message)
 {
 	svn_string_t*	pval;
 	std::string		pname_utf8;
@@ -314,7 +314,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, BOOL recurse, con
 			}
 		}
 	}
-	if ((recurse)&&((strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0)))
+	if ((depth != svn_depth_empty)&&((strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0)))
 	{
 		// The bugtraq and tsvn properties must only be set on folders.
 		CTSVNPath path;
@@ -329,7 +329,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, BOOL recurse, con
 				{
 					// a versioned folder, so set the property!
 					svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
-					m_error = svn_client_propset3 (&commit_info, pname_utf8.c_str(), pval, path.GetSVNApiPath(subpool), false, false, m_rev, m_pctx, subpool);
+					m_error = svn_client_propset3 (&commit_info, pname_utf8.c_str(), pval, path.GetSVNApiPath(subpool), svn_depth_empty, false, m_rev, m_pctx, subpool);
 				}
 			}
 			status = stat.GetNextFileStatus(path);
@@ -350,7 +350,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, BOOL recurse, con
 			baton->pool = subpool;
 			m_pctx->log_msg_baton3 = baton;
 		}
-		m_error = svn_client_propset3 (&commit_info, pname_utf8.c_str(), pval, m_path.GetSVNApiPath(subpool), recurse, false, m_rev, m_pctx, subpool);
+		m_error = svn_client_propset3 (&commit_info, pname_utf8.c_str(), pval, m_path.GetSVNApiPath(subpool), depth, false, m_rev, m_pctx, subpool);
 	}
 	if (m_error != NULL)
 	{
@@ -366,7 +366,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, BOOL recurse, con
 	return TRUE;
 }
 
-BOOL SVNProperties::Remove(const TCHAR * Name, BOOL recurse, const TCHAR * message)
+BOOL SVNProperties::Remove(const TCHAR * Name, svn_depth_t depth, const TCHAR * message)
 {
 	std::string		pname_utf8;
 	m_error = NULL;
@@ -390,7 +390,7 @@ BOOL SVNProperties::Remove(const TCHAR * Name, BOOL recurse, const TCHAR * messa
 		m_pctx->log_msg_baton3 = baton;
 	}
 
-	m_error = svn_client_propset3 (&commit_info, pname_utf8.c_str(), NULL, m_path.GetSVNApiPath(subpool), recurse, false, m_rev, m_pctx, subpool);
+	m_error = svn_client_propset3 (&commit_info, pname_utf8.c_str(), NULL, m_path.GetSVNApiPath(subpool), depth, false, m_rev, m_pctx, subpool);
 
 	if (m_error != NULL)
 	{

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -93,7 +93,7 @@ public:
 	 * \param recurse TRUE if the property should be added to subdirectories/files as well
 	 * \return TRUE if the property is added successfully
 	 */
-	BOOL Add(const TCHAR * Name, std::string Value, BOOL recurse = false, const TCHAR * message = NULL);
+	BOOL Add(const TCHAR * Name, std::string Value, svn_depth_t depth = svn_depth_empty, const TCHAR * message = NULL);
 	/**
 	 * Removes an existing property from the file/directory specified in the constructor.
 	 * \remark After using this method the indexes of the properties may change!
@@ -101,7 +101,7 @@ public:
 	 * \param recurse TRUE if the property should be deleted from subdirectories/files as well
 	 * \return TRUE if the property is removed successfully
 	 */
-	BOOL Remove(const TCHAR * Name, BOOL recurse = false, const TCHAR * message = NULL);
+	BOOL Remove(const TCHAR * Name, svn_depth_t depth = svn_depth_empty, const TCHAR * message = NULL);
 
 	/**
 	 * Checks if the property value is binary or text.
