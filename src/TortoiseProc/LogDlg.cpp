@@ -1406,6 +1406,7 @@ void CLogDlg::OnOK()
 	if (temp.Compare(buttontext) != 0)
 		__super::OnOK();	// only exit if the button text matches, and that will match only if the thread isn't running anymore
 	m_bCancelled = TRUE;
+	m_selectedRevs.Clear();
 	if (m_pNotifyWindow)
 	{
 		int selIndex = m_LogList.GetSelectionMark();
@@ -1414,6 +1415,7 @@ void CLogDlg::OnOK()
 		    PLOGENTRYDATA pLogEntry = NULL;
 			POSITION pos = m_LogList.GetFirstSelectedItemPosition();
 			pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+			m_selectedRevs.AddRevision(pLogEntry->Rev);
 			svn_revnum_t lowerRev = pLogEntry->Rev;
 			svn_revnum_t higherRev = lowerRev;
 			while (pos)
@@ -1451,6 +1453,7 @@ void CLogDlg::OnOK()
 									lowerRev = pData->lCopyFromRev;
 									m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTSTART), lowerRev);
 									m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTEND), higherRev);
+									m_pNotifyWindow->SendMessage(WM_REVLIST, m_selectedRevs.GetCount(), (LPARAM)&m_selectedRevs);
 									bSentMessage = TRUE;
 								}
 							}
@@ -1462,6 +1465,7 @@ void CLogDlg::OnOK()
 			{
 				m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTSTART | MERGE_REVSELECTMINUSONE), lowerRev);
 				m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTEND | MERGE_REVSELECTMINUSONE), higherRev);
+				m_pNotifyWindow->SendMessage(WM_REVLIST, m_selectedRevs.GetCount(), (LPARAM)&m_selectedRevs);
 			}
 		}
 	}

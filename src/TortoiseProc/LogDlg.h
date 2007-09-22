@@ -29,6 +29,7 @@
 #include "MenuButton.h"
 #include "LogDlgHelper.h"
 #include "FilterEdit.h"
+#include "SVNRev.h"
 
 #define LOGFILTER_ALL      1
 #define LOGFILTER_MESSAGES 2
@@ -55,6 +56,19 @@ class CLogDlg : public CResizableStandAloneDialog, public SVN, IFilterEditValida
 public:
 	CLogDlg(CWnd* pParent = NULL);   // standard constructor
 	virtual ~CLogDlg();
+
+
+	void SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev, int limit, 
+		BOOL bStrict = CRegDWORD(_T("Software\\TortoiseSVN\\LastLogStrict"), FALSE), BOOL bSaveStrict = TRUE);
+	void SetIncludeMerge(bool bInclude = true) {m_bIncludeMerges = bInclude;}
+	void SetProjectPropertiesPath(const CTSVNPath& path) {m_ProjectProperties.ReadProps(path);}
+	bool IsThreadRunning() {return !!m_bThreadRunning;}
+	void SetDialogTitle(const CString& sTitle) {m_sTitle = sTitle;}
+	void SetSelect(bool bSelect) {m_bSelect = bSelect;}
+	void ContinuousSelection(bool bCont = true) {m_bSelectionMustBeContinuous = bCont;}
+	void SetMergePath(const CTSVNPath& mergepath) {m_mergePath = mergepath;}
+
+	const SVNRevList&	GetSelectedRevList() {return m_selectedRevs;}
 
 // Dialog Data
 	enum { IDD = IDD_LOGMESSAGE };
@@ -112,16 +126,6 @@ protected:
 	void	DoDiffFromLog(int selIndex, svn_revnum_t rev1, svn_revnum_t rev2, bool blame, bool unified);
 
 	DECLARE_MESSAGE_MAP()
-public:
-	void SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev, int limit, 
-				BOOL bStrict = CRegDWORD(_T("Software\\TortoiseSVN\\LastLogStrict"), FALSE), BOOL bSaveStrict = TRUE);
-	void SetIncludeMerge(bool bInclude = true) {m_bIncludeMerges = bInclude;}
-	void SetProjectPropertiesPath(const CTSVNPath& path) {m_ProjectProperties.ReadProps(path);}
-	bool IsThreadRunning() {return !!m_bThreadRunning;}
-	void SetDialogTitle(const CString& sTitle) {m_sTitle = sTitle;}
-	void SetSelect(bool bSelect) {m_bSelect = bSelect;}
-	void ContinuousSelection(bool bCont = true) {m_bSelectionMustBeContinuous = bCont;}
-	void SetMergePath(const CTSVNPath& mergepath) {m_mergePath = mergepath;}
 
 private:
 	static UINT LogThreadEntry(LPVOID pVoid);
@@ -178,6 +182,7 @@ private:
 	SVNRev				m_startrev;
 	SVNRev				m_LogRevision;
 	SVNRev				m_endrev;
+	SVNRevList			m_selectedRevs;
 	bool				m_bSelectionMustBeContinuous;
 	long				m_logcounter;
 	bool				m_bCancelled;
@@ -241,3 +246,4 @@ private:
     CLogDataVector		m_logEntries;
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(_T("TORTOISESVN_REVSELECTED_MSG"));
+static UINT WM_REVLIST = RegisterWindowMessage(_T("TORTOISESVN_REVLIST_MSG"));
