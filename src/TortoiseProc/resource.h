@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\Svn\TortoiseSVN\src\Resources\TortoiseProcENG.rc
+// Used by d:\Development\SVN\TortoiseSVN\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MAINFRAME                   1
 #define IDC_USELOCAL                    3
@@ -1079,6 +1079,7 @@
 #define IDS_SVNPROGRESS_EXPORTINGWAIT   4532
 #define IDS_SVNPROGRESS_LOCKHINT        4540
 #define IDS_SVNPROGRESS_MERGELOGMSGONE  4560
+#define IDS_SVNPROGRESS_MERGELOGRANGE   4560
 #define IDS_SVNPROGRESS_MERGELOGMSGMULTIPLE 4561
 #define IDS_SVNPROGRESS_MERGELOGMSG     4562
 #define IDS_LOCK_MESSAGEHINT            5000
