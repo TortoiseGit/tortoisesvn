@@ -1858,8 +1858,7 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
 	SetWindowText(sWindowTitle);
 
 	// we only accept a revision list to merge for peg merges
-	ATLASSERT( ((m_revisionList.GetCount() == 0) && m_Revision.IsValid() && m_RevisionEnd.IsValid()) ||
-		(m_revisionList.GetCount() && !m_Revision.IsValid() && !m_RevisionEnd.IsValid() && (m_url.IsEquivalentTo(m_url2))) );
+	ATLASSERT((m_revisionList.GetCount() && (m_url.IsEquivalentTo(m_url2))));
 
 	if (m_url.IsEquivalentTo(m_url2))
 	{
@@ -1872,23 +1871,38 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
 		{
 			// fill the revisions in for m_Revision and m_RevisionEnd from
 			// the revision list we have (if we have one).
-			// Note: this only works if the revision range is sorted in an
-			// ascending order! Which means that reverse merges are not
-			// handled (yet?) with a revision list
-			if (index < m_revisionList.GetCount())
+			if (m_revisionList.IsAscending())
+			{
+				if (index < m_revisionList.GetCount())
+				{
+					ATLASSERT(m_revisionList[index].IsNumber());
+					m_Revision = ((svn_revnum_t)m_revisionList[index])-1;
+					m_RevisionEnd = SVNRev();
+					svn_revnum_t r = m_revisionList[index++];
+					while ((index < m_revisionList.GetCount())&&((r+1) == (svn_revnum_t)m_revisionList[index]))
+					{
+						m_RevisionEnd = m_revisionList[index];
+						r = m_RevisionEnd;
+						index++;
+					}
+					if (!m_RevisionEnd.IsValid())
+						m_RevisionEnd = ((svn_revnum_t)m_Revision)+1;
+				}
+			}
+			else if (m_revisionList.IsDescending())
 			{
 				ATLASSERT(m_revisionList[index].IsNumber());
-				m_Revision = ((svn_revnum_t)m_revisionList[index])-1;
+				m_Revision = ((svn_revnum_t)m_revisionList[index])+1;
 				m_RevisionEnd = SVNRev();
 				svn_revnum_t r = m_revisionList[index++];
-				while ((index < m_revisionList.GetCount())&&((r+1) == (svn_revnum_t)m_revisionList[index]))
+				while ((index < m_revisionList.GetCount())&&((r-1) == (svn_revnum_t)m_revisionList[index]))
 				{
 					m_RevisionEnd = m_revisionList[index];
 					r = m_RevisionEnd;
 					index++;
 				}
 				if (!m_RevisionEnd.IsValid())
-					m_RevisionEnd = ((svn_revnum_t)m_Revision)+1;
+					m_RevisionEnd = ((svn_revnum_t)m_Revision)-1;
 			}
 
 			CString sCmdInfo;
