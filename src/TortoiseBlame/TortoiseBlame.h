@@ -112,6 +112,7 @@ public:
 	long						m_highestrev;
 	bool						m_colorage;
 
+	std::vector<bool>			mergelines;
 	std::vector<LONG>			revs;
 	std::vector<std::string>	dates;
 	std::vector<std::string>	authors;
@@ -129,6 +130,7 @@ protected:
 	COLORREF InterColor(COLORREF c1, COLORREF c2, int Slider);
 	std::vector<COLORREF>		colors;
 	HFONT						m_font;
+	HFONT						m_italicfont;
 	LONG						m_blamewidth;
 	LONG						m_revwidth;
 	LONG						m_datewidth;

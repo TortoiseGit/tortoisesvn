@@ -54,18 +54,20 @@ BOOL CBlame::BlameCallback(LONG linenumber, svn_revnum_t revision, const CString
 	CStringA dateA(date);
 	CStringA authorA(author);
 	CStringA pathA(merged_path);
+	TCHAR c = ' ';
 	if (!merged_author.IsEmpty())
 	{
 		dateA = CStringA(merged_date);
 		authorA = CStringA(merged_author);
 		revision = merged_revision;
+		c = 'G';
 		m_bHasMerges = true;
 	}
 
 	if (m_bNoLineNo)
-		infolineA.Format("%6ld %-30s %-60s %-30s ", revision, dateA, pathA, authorA);
+		infolineA.Format("%c %6ld %-30s %-60s %-30s ", c, revision, dateA, pathA, authorA);
 	else
-		infolineA.Format("%6ld %6ld %-30s %-60s %-30s ", linenumber, revision, dateA, pathA, authorA);
+		infolineA.Format("%c %6ld %6ld %-30s %-60s %-30s ", c, linenumber, revision, dateA, pathA, authorA);
 	fulllineA = line;
 	fulllineA.TrimRight("\r\n");
 	fulllineA += "\n";
@@ -127,7 +129,7 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 		return _T("");
 	CString headline;
 	m_bNoLineNo = false;
-	headline.Format(_T("%-6s %-6s %-30s %-60s %-30s %-s \n"), _T("line"), _T("rev"), _T("date"), _T("path"), _T("author"), _T("content"));
+	headline.Format(_T("%c %-6s %-6s %-30s %-60s %-30s %-s \n"), ' ', _T("line"), _T("rev"), _T("date"), _T("path"), _T("author"), _T("content"));
 	m_saveFile.WriteString(headline);
 	m_saveFile.WriteString(_T("\n"));
 	m_progressDlg.SetTitle(IDS_BLAME_PROGRESSTITLE);

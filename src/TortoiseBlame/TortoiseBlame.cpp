@@ -57,6 +57,7 @@ TortoiseBlame::TortoiseBlame()
 	wLocator = 0;
 
 	m_font = 0;
+	m_italicfont = 0;
 	m_blamewidth = 0;
 	m_revwidth = 0;
 	m_datewidth = 0;
@@ -86,6 +87,8 @@ TortoiseBlame::~TortoiseBlame()
 {
 	if (m_font)
 		DeleteObject(m_font);
+	if (m_italicfont)
+		DeleteObject(m_italicfont);
 }
 
 // Return a colour which is interpolated between c1 and c2.
@@ -227,7 +230,8 @@ BOOL TortoiseBlame::OpenFile(const char *fileName)
 		File.getline(line, sizeof(line)/sizeof(TCHAR));
 		if (File.gcount()>0)
 		{
-			lineptr = &line[7];
+			mergelines.push_back((line[0] != ' '));
+			lineptr = &line[9];
 			long rev = _ttol(lineptr);
 			revs.push_back(rev);
 			m_lowestrev = min(m_lowestrev, rev);
@@ -819,6 +823,10 @@ void TortoiseBlame::CreateFont()
 	CRegStdString fontname = CRegStdString(_T("Software\\TortoiseSVN\\BlameFontName"), _T("Courier New"));
 	_tcscpy_s(lf.lfFaceName, 32, ((stdstring)fontname).c_str());
 	m_font = ::CreateFontIndirect(&lf);
+
+	lf.lfItalic = TRUE;
+	m_italicfont = ::CreateFontIndirect(&lf);
+
 	ReleaseDC(wBlame, hDC);
 }
 
@@ -829,7 +837,7 @@ void TortoiseBlame::DrawBlame(HDC hDC)
 	if (m_font == NULL)
 		return;
 
-	HFONT oldfont = (HFONT)::SelectObject(hDC, m_font);
+	HFONT oldfont = NULL;
 	LONG_PTR line = SendEditor(SCI_GETFIRSTVISIBLELINE);
 	LONG_PTR linesonscreen = SendEditor(SCI_LINESONSCREEN);
 	LONG_PTR height = SendEditor(SCI_TEXTHEIGHT);
@@ -843,6 +851,10 @@ void TortoiseBlame::DrawBlame(HDC hDC)
 		sel = FALSE;
 		if (i < (int)revs.size())
 		{
+			if (mergelines[i])
+				oldfont = (HFONT)::SelectObject(hDC, m_italicfont);
+			else
+				oldfont = (HFONT)::SelectObject(hDC, m_font);
 			::SetBkColor(hDC, m_windowcolor);
 			::SetTextColor(hDC, m_textcolor);
 			if (authors[i].size()>0)
@@ -908,6 +920,7 @@ void TortoiseBlame::DrawBlame(HDC hDC)
 				DeleteObject(pen); 
 			}
 			Y += height;
+			::SelectObject(hDC, oldfont);
 		}
 		else
 		{
@@ -918,7 +931,6 @@ void TortoiseBlame::DrawBlame(HDC hDC)
 			Y += height;
 		}
 	}
-	::SelectObject(hDC, oldfont);
 }
 
 void TortoiseBlame::DrawHeader(HDC hDC)
