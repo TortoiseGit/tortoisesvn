@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-07-19 23:09GMT Daylight Time\n"
-"PO-Revision-Date: 2007-08-02 22:19+0100\n"
+"PO-Revision-Date: 2007-09-24 12:48+0100\n"
 "Last-Translator: Oto BREZINA <translate@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -136,7 +136,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:102
 #: (para)
 msgid "Even most Subversion users will never have to set up a server themselves. The next chapter deals with how to set up such a server, and is useful for administrators."
-msgstr ""
+msgstr "Napriek tomu, ze väčšina uživateľov si nebudete nastavovať server, nasledovná kapitola sa zoberá ako si taký server nastaviť a je užitočná pre správcov."
 
 #: source/TortoiseSVN_en.xml:107
 #: (para)
@@ -146,7 +146,7 @@ msgstr "Kapitola <emphasis>Úložisko</emphasis> vysvetluje ako nastaviť miestn
 #: source/TortoiseSVN_en.xml:113
 #: (para)
 msgid "The <emphasis>Daily Use Guide</emphasis> is the most important section as it explains all the main features of TortoiseSVN and how to use them. It takes the form of a tutorial, starting with checking out a working copy, modifying it, committing your changes, etc. It then progresses to more advanced topics."
-msgstr ""
+msgstr "<emphasis>Sprievodca denním pouťívaním</emphasis> je najdôležiteľším odielom, keďže vysvetluje všetky hlavné funkcie TortoiseSVN a ako ich používať. Ma formu tutoriálu. Začína od získania pracovnej kópie, cez úpravy až po odovzdanie zmien. Nasledovne sú rozobrané témy pre pokročilých."
 
 #: source/TortoiseSVN_en.xml:120
 #: (para)
@@ -166,7 +166,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:134
 #: (para)
 msgid "The <emphasis>Command Line Cross Reference</emphasis> give a correlation between TortoiseSVN commands and their equivalents in the Subversion command line client <literal>svn.exe</literal>."
-msgstr ""
+msgstr "<emphasis>Prehľad parametrov príkazového riadka</emphasis> dáva informáciu o vsťahu medzi príkazmi TortoiseSVN a ich ekvivaltami vo príkazovom klievtovi Subversion <literal>svn.exe</literal>."
 
 #: source/TortoiseSVN_en.xml:144
 #: (title)
@@ -176,7 +176,7 @@ msgstr "TortoiseMerge je zdarma!"
 #: source/TortoiseSVN_en.xml:145
 #: (para)
 msgid "TortoiseSVN is free. You don't have to pay to use it, and you can use it any way you want. It is developed under the GNU General Public License (GPL)."
-msgstr ""
+msgstr "TortoiseSVN je zdarma. Nemúsíte za neho platiť a môžete ho použiť ako sa vám páči. Je vyvynutý pod licenciou GNU General Public License (GPL)."
 
 #: source/TortoiseSVN_en.xml:149
 #: (para)
@@ -191,7 +191,7 @@ msgstr "Komunita"
 #: source/TortoiseSVN_en.xml:169
 #: (para)
 msgid "Both TortoiseSVN and Subversion are developed by a community of people who are working on those projects. They come from different countries all over the world and joined together to create wonderful programs."
-msgstr ""
+msgstr "TortoiseSVN aj Subversion sú vyvynuté spoločenstvom ľudí, ktorí na tíchto projektoch pracovali. Pochádzajú z rôznych krajín celého sveta a spojili sa aby vytvorili nádherné programy."
 
 #: source/TortoiseSVN_en.xml:180
 #: (title)
@@ -276,7 +276,7 @@ msgstr "Použitá terminológia"
 #: source/TortoiseSVN_en.xml:248
 #: (para)
 msgid "To make reading the docs easier, the names of all the screens and Menus from TortoiseSVN are marked up in a different font. The <guilabel>Log Dialog</guilabel> for instance."
-msgstr ""
+msgstr "Aby bolo čítanie manualu jednoduchšie mená obrazoviek a Menu TortoiseSVN sú vyznačené použitím iného písma. Napríklad: The <guilabel>Denník</guilabel>."
 
 #: source/TortoiseSVN_en.xml:253
 #: (para)
@@ -878,7 +878,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:1067
 #: (title)
 msgid "Repository Access URLs"
-msgstr ""
+msgstr "URL na prístup k úložisku"
 
 #: source/TortoiseSVN_en.xml:1073
 #: (entry)
@@ -935,7 +935,7 @@ msgstr "svnserve"
 #: source/TortoiseSVN_en.xml:1106
 #: (entry)
 msgid "Unauthenticated TCP/IP access via custom protocol to an <placeholder-1/> server."
-msgstr ""
+msgstr "Neautifikovaný TCP/IP prístup cez prispôsobený protokol k <placeholder-1/> serveru."
 
 #: source/TortoiseSVN_en.xml:1113
 #: (literal)
@@ -945,7 +945,7 @@ msgstr "svn+ssh://"
 #: source/TortoiseSVN_en.xml:1115
 #: (entry)
 msgid "authenticated, encrypted TCP/IP access via custom protocol to an <placeholder-1/> server"
-msgstr ""
+msgstr "autentifikovaný, šifrovaný TCP/IP prístup pomocou špecialného protokolu k <placeholder-1/> serveru"
 
 #: source/TortoiseSVN_en.xml:1124
 #: (para)
@@ -967,6 +967,11 @@ msgid ""
 "file:///X|/path/to/repos\n"
 "...\n"
 msgstr ""
+"\n"
+"file:///X:/path/to/repos\n"
+"...\n"
+"file:///X|/path/to/repos\n"
+"...\n"
 
 #: source/TortoiseSVN_en.xml:1153
 #: (para)
@@ -976,7 +981,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:1157
 #: (para)
 msgid "You can safely access an FSFS repository via a network share, but you <emphasis>cannot</emphasis> access a BDB repository in this way."
-msgstr ""
+msgstr "Prístup k úložisku FSFS je beypečné pristupovať aj pomocou zdielaného disku, ale k BDB úložisku takýto prístup <emphasis>nie je</emphasis> možný."
 
 #: source/TortoiseSVN_en.xml:1164
 #: (para) source/TortoiseSVN_en.xml:2681
@@ -992,7 +997,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:1184
 #: (para)
 msgid "To publish your changes to others, you can use Subversion's <command>commit</command> command."
-msgstr ""
+msgstr "Aby ste zverejnili vaše zmeny ostatným môžete použiť príkaz <command>odovzdať</command>."
 
 #: source/TortoiseSVN_en.xml:1188
 #: (para)
@@ -5134,7 +5139,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:6384
 #: (title)
 msgid "Deleting, Renaming And Moving"
-msgstr ""
+msgstr "Vymazávanie, premenovanie a presúvanie"
 
 #: source/TortoiseSVN_en.xml:6386
 #: (primary)

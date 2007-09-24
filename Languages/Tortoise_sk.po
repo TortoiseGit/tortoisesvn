@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-09-19 22:23+0100\n"
+"PO-Revision-Date: 2007-09-24 10:38+0100\n"
 "Last-Translator: Oto BREZINA <translate@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4615,6 +4615,16 @@ msgstr "Zlúčiť - TortoiseSVN"
 msgid "Merge depth:"
 msgstr "Hĺbka spájania:"
 
+# ID:76,
+#: ID:114
+msgid "Merge revision to..."
+msgstr "Zlúčiť revíziu do..."
+
+# ID:76,
+#: ID:114
+msgid "Merge revisions to..."
+msgstr "Zlúčiť revízie do..."
+
 # ID:110,
 #: Control-ID:1377
 msgid "Merge settings"
@@ -4629,14 +4639,8 @@ msgstr "Zlúčené"
 # ID:313,
 #: ID:286
 #, c-format
-msgid "Merged revision %s from %s:\n"
-msgstr "Zlúčená revízia %s z %s:\n"
-
-# ID:229,
-#: ID:286
-#, c-format
-msgid "Merged revisions %s to %s from %s:\n"
-msgstr "Zlúčené revízie %s do %s z %s:\n"
+msgid "Merged revision(s) %s from %s:\n"
+msgstr "Zlúčené revízie(s) %s z %s:\n"
 
 # ID:10,
 #: ID:10
@@ -6411,6 +6415,11 @@ msgstr "Vybrať  súbor hookskriptu"
 #: ID:78
 msgid "Select merge application"
 msgstr "Vyber zlučovací program"
+
+# ID:78,
+#: ID:119
+msgid "Select merge target"
+msgstr "Vyberte cieľ zlučenia"
 
 # ID:276,
 #: ID:276
