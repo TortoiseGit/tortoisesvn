@@ -45,13 +45,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 10695: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 10700: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-09-22 18:34+0300\n"
+"PO-Revision-Date: 2007-09-24 17:27+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3909,6 +3909,14 @@ msgstr "Слияние - TortoiseSVN"
 msgid "Merge depth:"
 msgstr "Глубина при слиянии:"
 
+#: ID:114,
+msgid "Merge revision to..."
+msgstr "Слить ревизию с..."
+
+#: ID:114,
+msgid "Merge revisions to..."
+msgstr "Слить ревизии с..."
+
 #: Control-ID:1377,
 msgid "Merge settings"
 msgstr "Настройки слияния"
@@ -5384,6 +5392,10 @@ msgstr "Выбрать файл скрипта ловушки"
 msgid "Select merge application"
 msgstr "Выбрать приложение слияния"
 
+#: ID:119,
+msgid "Select merge target"
+msgstr "Выберите с чем производить слияние"
+
 #: ID:276,
 msgid "Select revision range"
 msgstr "Выберите ряд ревизий"
@@ -5406,7 +5418,7 @@ msgid ""
 "Select All"
 msgstr ""
 "Выбрать весь документ\n"
-"Выбрать все"
+"Выбрать всё"
 
 #: Control-ID:65535,
 msgid "Select the type of repository you want to create:"
