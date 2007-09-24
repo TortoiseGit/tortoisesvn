@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-09-20 10:54+0100\n"
+"PO-Revision-Date: 2007-09-24 10:09+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4727,6 +4727,16 @@ msgstr "Zusammenführen - TortoiseSVN"
 msgid "Merge depth:"
 msgstr "Rekursionstiefe:"
 
+# ID:76,
+#: ID:114,
+msgid "Merge revision to..."
+msgstr "Revision zusammenführen in..."
+
+# ID:76,
+#: ID:114,
+msgid "Merge revisions to..."
+msgstr "Revisionen zusammenführen in..."
+
 # ID:110,
 #: Control-ID:1377,
 msgid "Merge settings"
@@ -4742,15 +4752,8 @@ msgstr "Zusammengeführt"
 # ID:286,
 #: ID:286,
 #, c-format
-msgid "Merged revision %s from %s:\n"
-msgstr "Revision %s von %s zusammengeführt:\n"
-
-# ID:229,
-# ID:286,
-#: ID:286,
-#, c-format
-msgid "Merged revisions %s to %s from %s:\n"
-msgstr "Revisionen %s bis %s von %s zusammengeführt:\n"
+msgid "Merged revision(s) %s from %s:\n"
+msgstr "Revision(en) %s von %s zusammengeführt:\n"
 
 # ID:10,
 #: ID:10,
@@ -6587,6 +6590,11 @@ msgstr "Skriptdatei auswählen"
 #: ID:78,
 msgid "Select merge application"
 msgstr "Konflikteditor auswählen"
+
+# ID:78,
+#: ID:119,
+msgid "Select merge target"
+msgstr "Ziel auswählen"
 
 # ID:276,
 #: ID:276,
