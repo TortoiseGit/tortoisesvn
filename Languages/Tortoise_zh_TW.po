@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-09-18 11:51+0800\n"
+"PO-Revision-Date: 2007-09-25 07:40+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -651,8 +651,8 @@ msgid "&Limit search to modified lines"
 msgstr "僅搜尋異動過的行(&L)"
 
 #: MenuEntry
-msgid "&Link images together"
-msgstr "連結影像(&L)"
+msgid "&Link image positions"
+msgstr "連結影像位置(&L)"
 
 # ID:188,
 #: Control-ID:1172,
@@ -3450,8 +3450,8 @@ msgid "Finished!"
 msgstr "完成!"
 
 #: MenuEntry
-msgid "Fit Images &together"
-msgstr "符合影像大小(&T)"
+msgid "Fit image &sizes"
+msgstr "符合影像大小(&S)"
 
 # Control-ID:1315,
 #: Control-ID:1315,
@@ -3788,9 +3788,9 @@ msgstr "ID:32796:V C +A"
 msgid "ID:32809:V C +F"
 msgstr "ID:32809:V C +F"
 
-#. Accelerator Entry for Menu ID:32810; 'Fit Images &together'
+#. Accelerator Entry for Menu ID:32810; 'Fit image &sizes'
 #: Corresponding Menu ID:32810;
-#: 'Fit Images &together'
+#: 'Fit image &sizes'
 msgid "ID:32810:V   +T"
 msgstr "ID:32810:V   +T"
 
@@ -4611,6 +4611,16 @@ msgstr "合併 - TortoiseSVN"
 msgid "Merge depth:"
 msgstr "合併層數:"
 
+# ID:76,
+#: ID:114,
+msgid "Merge revision to..."
+msgstr "合併版本至..."
+
+# ID:76,
+#: ID:114,
+msgid "Merge revisions to..."
+msgstr "合併版本至..."
+
 # ID:110,
 #: Control-ID:1377,
 msgid "Merge settings"
@@ -4625,14 +4635,8 @@ msgstr "已合併"
 # ID:313,
 #: ID:286,
 #, c-format
-msgid "Merged revision %s from %s:\n"
-msgstr "合併版本 %s 從 %s:\n"
-
-# ID:229,
-#: ID:286,
-#, c-format
-msgid "Merged revisions %s to %s from %s:\n"
-msgstr "合併版本 %s 至 %s 從%s:\n"
+msgid "Merged revision(s) %s from %s:\n"
+msgstr "合併版本 %s 自 %s:\n"
 
 # ID:10,
 #: ID:10,
@@ -6423,6 +6427,11 @@ msgstr "請選擇掛勾指令檔"
 msgid "Select merge application"
 msgstr "選擇合併工具"
 
+# ID:78,
+#: ID:119,
+msgid "Select merge target"
+msgstr "選擇合併目標"
+
 # Dlg-ID:173,
 #: ID:276,
 msgid "Select revision range"
@@ -7598,7 +7607,10 @@ msgid ""
 "/left:\"path to left picture\"\n"
 "/lefttitle:\"title to show for the left picture\"\n"
 "/right:\"path to right picture\"\n"
-"/righttitle:\"title to show for the right picture\""
+"/righttitle:\"title to show for the right picture\"\n"
+"/overlay\t\tto enable overlay mode\n"
+"/fit\t\tto fit the images sizes\n"
+"/showinfo\t\tto show the image info boxes"
 msgstr ""
 "TortoiseIDiff: TortoiseSVN 的檔案差異比對工具\n"
 "\n"
@@ -7606,7 +7618,10 @@ msgstr ""
 "/left:\"左方檔案的路徑\"\n"
 "/lefttitle:\"左方視窗的標題\"\n"
 "/right:\"右方檔案的路徑\"\n"
-"/righttitle:\"右方視窗的標題\""
+"/righttitle:\"右方視窗的標題\"\n"
+"/overlay\t\t啟用覆蓋模式\n"
+"/fit\t\t符合影像大小\n"
+"/showinfo\t\t顯示影像資訊"
 
 # ID:7,#:
 # ID:3585,#:
