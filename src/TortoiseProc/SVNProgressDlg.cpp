@@ -653,6 +653,65 @@ BOOL CSVNProgressDlg::OnInitDialog()
 	return TRUE;
 }
 
+bool CSVNProgressDlg::SetBackgroundImage(UINT nID)
+{
+	m_ProgList.SetTextBkColor(CLR_NONE);
+	COLORREF bkColor = m_ProgList.GetBkColor();
+	// create a bitmap from the icon
+	HICON hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(nID), IMAGE_ICON, 128, 128, LR_DEFAULTCOLOR);
+	if (!hIcon)
+		return false;
+
+	RECT rect = {0};
+	rect.right = 128;
+	rect.bottom = 128;
+	HBITMAP bmp = NULL;
+
+	HWND desktop = ::GetDesktopWindow();
+	if (desktop)
+	{
+		HDC screen_dev = ::GetDC(desktop);
+		if (screen_dev)
+		{
+			// Create a compatible DC
+			HDC dst_hdc = ::CreateCompatibleDC(screen_dev);
+			if (dst_hdc)
+			{
+				// Create a new bitmap of icon size
+				bmp = ::CreateCompatibleBitmap(screen_dev, rect.right, rect.bottom);
+				if (bmp)
+				{
+					// Select it into the compatible DC
+					HBITMAP old_dst_bmp = (HBITMAP)::SelectObject(dst_hdc, bmp);
+					// Fill the background of the compatible DC with the given colour
+					::SetBkColor(dst_hdc, bkColor);
+					::ExtTextOut(dst_hdc, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
+
+					// Draw the icon into the compatible DC
+					::DrawIconEx(dst_hdc, 0, 0, hIcon, rect.right, rect.bottom, 0, NULL, DI_NORMAL);
+					::SelectObject(dst_hdc, old_dst_bmp);
+				}
+				::DeleteDC(dst_hdc);
+			}
+		}
+		::ReleaseDC(desktop, screen_dev); 
+	}
+
+	// Restore settings
+	DestroyIcon(hIcon);
+
+	if (bmp == NULL)
+		return false;
+
+	LVBKIMAGE lv;
+	lv.ulFlags = LVBKIF_TYPE_WATERMARK;
+	lv.hbm = bmp;
+	lv.xOffsetPercent = 100;
+	lv.yOffsetPercent = 100;
+	m_ProgList.SetBkImage(&lv);
+	return true;
+}
+
 void CSVNProgressDlg::ReportSVNError()
 {
 	ReportError(GetLastErrorMessage());
@@ -1586,6 +1645,7 @@ bool CSVNProgressDlg::CmdAdd(CString& sWindowTitle, bool& localoperation)
 	localoperation = true;
 	sWindowTitle.LoadString(IDS_PROGRS_TITLE_ADD);
 	SetWindowText(sWindowTitle);
+	SetBackgroundImage(IDI_ADD_BKG);
 	if (!Add(m_targetPathList, &m_ProjectProperties, svn_depth_empty, FALSE, TRUE, TRUE))
 	{
 		ReportSVNError();
@@ -1598,6 +1658,7 @@ bool CSVNProgressDlg::CmdCheckout(CString& sWindowTitle, bool& /*localoperation*
 {
 	ASSERT(m_targetPathList.GetCount() == 1);
 	sWindowTitle.LoadString(IDS_PROGRS_TITLE_CHECKOUT);
+	SetBackgroundImage(IDI_CHECKOUT_BKG);
 	CTSVNPathList urls;
 	urls.LoadFromAsteriskSeparatedString(m_url.GetSVNPathString());
 	CTSVNPath checkoutdir = m_targetPathList[0];
@@ -1642,6 +1703,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 {
 	sWindowTitle.LoadString(IDS_PROGRS_TITLE_COMMIT);
 	SetWindowText(sWindowTitle);
+	SetBackgroundImage(IDI_COMMIT_BKG);
 	if (m_targetPathList.GetCount()==0)
 	{
 		SetWindowText(sWindowTitle);
@@ -1728,6 +1790,7 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
 	ASSERT(m_targetPathList.GetCount() == 1);
 	sWindowTitle.LoadString(IDS_PROGRS_TITLE_COPY);
 	SetWindowText(sWindowTitle);
+	SetBackgroundImage(IDI_COPY_BKG);
 
 	CString sCmdInfo;
 	sCmdInfo.Format(IDS_PROGRS_CMD_COPY, 
@@ -1765,6 +1828,7 @@ bool CSVNProgressDlg::CmdExport(CString& sWindowTitle, bool& /*localoperation*/)
 	sWindowTitle.LoadString(IDS_PROGRS_TITLE_EXPORT);
 	sWindowTitle = m_url.GetUIFileOrDirectoryName()+_T(" - ")+sWindowTitle;
 	SetWindowText(sWindowTitle);
+	SetBackgroundImage(IDI_EXPORT_BKG);
 	CString eol;
 	if (m_options & ProgOptEolCRLF)
 		eol = _T("CRLF");
@@ -1786,6 +1850,7 @@ bool CSVNProgressDlg::CmdImport(CString& sWindowTitle, bool& /*localoperation*/)
 	sWindowTitle.LoadString(IDS_PROGRS_TITLE_IMPORT);
 	sWindowTitle = m_targetPathList[0].GetUIFileOrDirectoryName()+_T(" - ")+sWindowTitle;
 	SetWindowText(sWindowTitle);
+	SetBackgroundImage(IDI_IMPORT_BKG);
 	CString sCmdInfo;
 	sCmdInfo.Format(IDS_PROGRS_CMD_IMPORT, 
 		m_targetPathList[0].GetWinPath(), (LPCTSTR)m_url.GetSVNPathString(), 
@@ -1803,6 +1868,7 @@ bool CSVNProgressDlg::CmdLock(CString& sWindowTitle, bool& /*localoperation*/)
 {
 	sWindowTitle.LoadString(IDS_PROGRS_TITLE_LOCK);
 	SetWindowText(sWindowTitle);
+	SetBackgroundImage(IDI_LOCK_BKG);
 	if (!Lock(m_targetPathList, m_options & ProgOptLockForce, m_sMessage))
 	{
 		ReportSVNError();
@@ -1847,6 +1913,7 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
 	bool bFailed = false;
 	ASSERT(m_targetPathList.GetCount() == 1);
 	sWindowTitle.LoadString(IDS_PROGRS_TITLE_MERGE);
+	SetBackgroundImage(IDI_MERGE_BKG);
 	if (m_options & ProgOptDryRun)
 	{
 		sWindowTitle += _T(" ") + sDryRun;
@@ -2060,6 +2127,7 @@ bool CSVNProgressDlg::CmdRename(CString& sWindowTitle, bool& localoperation)
 		localoperation = true;
 	sWindowTitle.LoadString(IDS_PROGRS_TITLE_RENAME);
 	SetWindowText(sWindowTitle);
+	SetBackgroundImage(IDI_RENAME_BKG);
 	if (!Move(m_targetPathList, m_url, m_Revision, m_sMessage))
 	{
 		ReportSVNError();
@@ -2074,6 +2142,7 @@ bool CSVNProgressDlg::CmdResolve(CString& sWindowTitle, bool& localoperation)
 	ASSERT(m_targetPathList.GetCount() == 1);
 	sWindowTitle.LoadString(IDS_PROGRS_TITLE_RESOLVE);
 	SetWindowText(sWindowTitle);
+	SetBackgroundImage(IDI_RESOLVE_BKG);
 	// check if the file may still have conflict markers in it.
 	BOOL bMarkers = FALSE;
 	if ((m_options & ProgOptSkipConflictCheck) == 0)
@@ -2129,6 +2198,7 @@ bool CSVNProgressDlg::CmdRevert(CString& sWindowTitle, bool& localoperation)
 	localoperation = true;
 	sWindowTitle.LoadString(IDS_PROGRS_TITLE_REVERT);
 	SetWindowText(sWindowTitle);
+	SetBackgroundImage(IDI_REVERT_BKG);
 
 	CTSVNPathList delList = m_selectedPaths;
 	delList.DeleteAllFiles(true);
@@ -2147,6 +2217,7 @@ bool CSVNProgressDlg::CmdSwitch(CString& sWindowTitle, bool& /*localoperation*/)
 	SVNStatus st;
 	sWindowTitle.LoadString(IDS_PROGRS_TITLE_SWITCH);
 	SetWindowText(sWindowTitle);
+	SetBackgroundImage(IDI_SWITCH_BKG);
 	LONG rev = 0;
 	if (st.GetStatus(m_targetPathList[0]) != (-2))
 	{
@@ -2180,6 +2251,7 @@ bool CSVNProgressDlg::CmdUnlock(CString& sWindowTitle, bool& /*localoperation*/)
 {
 	sWindowTitle.LoadString(IDS_PROGRS_TITLE_UNLOCK);
 	SetWindowText(sWindowTitle);
+	SetBackgroundImage(IDI_UNLOCK_BKG);
 	if (!Unlock(m_targetPathList, m_options & ProgOptLockForce))
 	{
 		ReportSVNError();
@@ -2192,6 +2264,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
 {
 	sWindowTitle.LoadString(IDS_PROGRS_TITLE_UPDATE);
 	SetWindowText(sWindowTitle);
+	SetBackgroundImage(IDI_UPDATE_BKG);
 
 	int targetcount = m_targetPathList.GetCount();
 	CString sfile;

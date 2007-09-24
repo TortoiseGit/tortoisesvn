@@ -123,6 +123,8 @@ public:
 	 */
 	void SetItemCount(long count) {if(count) m_itemCountTotal = count;}
 	
+	bool SetBackgroundImage(UINT nID);
+
 	bool DidErrorsOccur() {return m_bErrorsOccurred;}
 
 	enum { IDD = IDD_SVNPROGRESS };

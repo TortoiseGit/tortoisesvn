@@ -137,6 +137,15 @@
 #define IDI_ICON5                       267
 #define IDI_FILTEREDIT                  267
 #define IDD_CONFLICTRESOLVE             268
+#define IDI_CHECKOUT_BKG                269
+#define IDI_COPY_BKG                    270
+#define IDI_EXPORT_BKG                  271
+#define IDI_IMPORT_BKG                  272
+#define IDI_MERGE_BKG                   273
+#define IDI_RENAME_BKG                  274
+#define IDI_SWITCH_BKG                  275
+#define IDI_ICON7                       276
+#define IDI_UPDATE_BKG                  276
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -1209,7 +1218,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        269
+#define _APS_NEXT_RESOURCE_VALUE        277
 #define _APS_NEXT_COMMAND_VALUE         32829
 #define _APS_NEXT_CONTROL_VALUE         1405
 #define _APS_NEXT_SYMED_VALUE           195
