@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-09-13 16:00+0800\n"
+"PO-Revision-Date: 2007-09-24 16:35+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4465,6 +4465,16 @@ msgstr "合并 - TortoiseSVN"
 msgid "Merge depth:"
 msgstr "合并深度:"
 
+# ID:76,
+#: ID:114,
+msgid "Merge revision to..."
+msgstr "合并版本到..."
+
+# ID:76,
+#: ID:114,
+msgid "Merge revisions to..."
+msgstr "合并版本到..."
+
 # ID:110,
 #: Control-ID:1377,
 msgid "Merge settings"
@@ -4479,13 +4489,8 @@ msgstr "已合并"
 # ID:313,
 #: ID:286,
 #, c-format
-msgid "Merged revision %s from %s:\n"
-msgstr "合并版本 %s 自 %s:\n"
-
-#: ID:286,
-#, c-format
-msgid "Merged revisions %s to %s from %s:\n"
-msgstr "合并版本 %s 到 %s 自 %s:\n"
+msgid "Merged revision(s) %s from %s:\n"
+msgstr "已合并版本 %s 自 %s:\n"
 
 # ID:10,
 #: ID:10,
@@ -6205,6 +6210,11 @@ msgstr "选择 Hook 脚本文件..."
 #: ID:78,
 msgid "Select merge application"
 msgstr "选择合并工具"
+
+# ID:78,
+#: ID:119,
+msgid "Select merge target"
+msgstr "选择合并目标"
 
 # ID:276,
 #: ID:276,
