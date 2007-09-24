@@ -26,8 +26,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-09-20 11:41+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2007-09-24 14:13+0100\n"
+"Last-Translator: Срѓан Стокиќ <srdjan.stokic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -554,8 +554,8 @@ msgid "&Limit search to modified lines"
 msgstr "&Ограничи пребарување на изменетите линии"
 
 #: MenuEntry
-msgid "&Link images together"
-msgstr "&Сврзи ги сликите заедно"
+msgid "&Link image positions"
+msgstr "&Сврзи ги позициите на сликите"
 
 #: Control-ID:1172,
 msgid "&List View"
@@ -2827,8 +2827,8 @@ msgid "Finished!"
 msgstr "Готово!"
 
 #: MenuEntry
-msgid "Fit Images &together"
-msgstr "Вклопи ги сликите &заедно"
+msgid "Fit image &sizes"
+msgstr "Вклопи ги големините на &сликите"
 
 #: Control-ID:1315,
 msgid "Floppy drives (A: B:)"
@@ -3121,9 +3121,9 @@ msgstr "ID:32796:V C +A"
 msgid "ID:32809:V C +F"
 msgstr "ID:32809:V C +F"
 
-#. Accelerator Entry for Menu ID:32810; 'Fit Images &together'
+#. Accelerator Entry for Menu ID:32810; 'Fit image &sizes'
 #: Corresponding Menu ID:32810;
-#: 'Fit Images &together'
+#: 'Fit image &sizes'
 msgid "ID:32810:V   +T"
 msgstr "ID:32810:V   +T"
 
@@ -3837,6 +3837,14 @@ msgstr "Спој - TortoiseSVN"
 msgid "Merge depth:"
 msgstr "Длабочина на спојувањето"
 
+#: ID:114,
+msgid "Merge revision to..."
+msgstr "Спој ревизија со..."
+
+#: ID:114,
+msgid "Merge revisions to..."
+msgstr "Спој ревизии во..."
+
 #: Control-ID:1377,
 msgid "Merge settings"
 msgstr "Напредни подесувања за спојување"
@@ -3848,13 +3856,8 @@ msgstr "Споено"
 
 #: ID:286,
 #, c-format
-msgid "Merged revision %s from %s:\n"
-msgstr "Споена ревизија %s од %s:\n"
-
-#: ID:286,
-#, c-format
-msgid "Merged revisions %s to %s from %s:\n"
-msgstr "Споени ревизии %s до %s од %s:\n"
+msgid "Merged revision(s) %s from %s:\n"
+msgstr "Споена ревизија(и) %s од %s:\n"
 
 #: ID:10,
 msgid "Merges a branch into the main trunk"
@@ -5303,6 +5306,10 @@ msgstr "Изберете hook script датотека"
 msgid "Select merge application"
 msgstr "Изберете апликација за спојување"
 
+#: ID:119,
+msgid "Select merge target"
+msgstr "Изберете цел за спојување"
+
 #: ID:276,
 msgid "Select revision range"
 msgstr "Изберете опсег на ревизии"
@@ -6298,7 +6305,10 @@ msgid ""
 "/left:\"path to left picture\"\n"
 "/lefttitle:\"title to show for the left picture\"\n"
 "/right:\"path to right picture\"\n"
-"/righttitle:\"title to show for the right picture\""
+"/righttitle:\"title to show for the right picture\"\n"
+"/overlay\t\tto enable overlay mode\n"
+"/fit\t\tto fit the images sizes\n"
+"/showinfo\t\tto show the image info boxes"
 msgstr ""
 "TortoiseIDiff: визуелен прегледник на разлики за TortoiseSVN\n"
 "\n"
@@ -6306,7 +6316,9 @@ msgstr ""
 "/left:\"патека до левата слика\"\n"
 "/lefttitle:\"наслов за левата слика\"\n"
 "/right:\"патека до десната слика\"\n"
-"/righttitle:\"наслов за десната слика\""
+"/righttitle:\"наслов за десната слика\"/overlay\t\tовозможи overlay режим\n"
+"/fit\t\tсобери ги сите слики\n"
+"/showinfo\t\tприкажи информации за сликите"
 
 #: ID:7,#:
 #: ID:3585,#:
