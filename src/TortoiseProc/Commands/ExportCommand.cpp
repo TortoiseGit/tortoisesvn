@@ -21,7 +21,10 @@
 
 #include "ExportDlg.h"
 #include "SVNProgressDlg.h"
+#include "SVNAdminDir.h"
+#include "ProgressDlg.h"
 #include "BrowseFolder.h"
+#include "DirFileEnum.h"
 #include "MessageBox.h"
 #include "SVNStatus.h"
 
@@ -88,22 +91,66 @@ bool ExportCommand::Execute()
 		if (folderBrowser.Show(hwndExplorer, saveto, MAX_PATH)==CBrowseFolder::OK)
 		{
 			CString saveplace = CString(saveto);
-			saveplace += _T("\\") + cmdLinePath.GetFileOrDirectoryName();
-			TRACE(_T("export %s to %s\n"), (LPCTSTR)cmdLinePath.GetUIPathString(), (LPCTSTR)saveto);
-			SVN svn;
-			if (!svn.Export(cmdLinePath, CTSVNPath(saveplace), bURL ? SVNRev::REV_HEAD : SVNRev::REV_WC, 
-				bURL ? SVNRev::REV_HEAD : SVNRev::REV_WC, FALSE, folderBrowser.m_bCheck2, svn_depth_infinity,
-				hwndExplorer, folderBrowser.m_bCheck))
+
+			if (cmdLinePath.IsEquivalentTo(CTSVNPath(saveplace)))
 			{
-				CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
+				// exporting to itself:
+				// remove all svn admin dirs, effectively unversion the 'exported' folder.
+				CString msg;
+				msg.Format(IDS_PROC_EXPORTUNVERSION, (LPCTSTR)saveplace);
+				if (CMessageBox::Show(hwndExplorer, msg, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO) == IDYES)
+				{
+					CProgressDlg progress;
+					progress.SetTitle(IDS_PROC_UNVERSION);
+					progress.SetAnimation(IDR_MOVEANI);
+					progress.FormatNonPathLine(1, IDS_SVNPROGRESS_EXPORTINGWAIT);
+					progress.SetTime(true);
+					progress.ShowModeless(hwndExplorer);
+					std::vector<CTSVNPath> removeVector;
+
+					CDirFileEnum lister(saveplace);
+					CString srcFile;
+					bool bFolder = false;
+					while (lister.NextFile(srcFile, &bFolder))
+					{
+						CTSVNPath item(srcFile);
+						if ((bFolder)&&(g_SVNAdminDir.IsAdminDirName(item.GetFileOrDirectoryName())))
+						{
+							removeVector.push_back(item);
+						}
+					}
+					DWORD count = 0;
+					for (std::vector<CTSVNPath>::iterator it = removeVector.begin(); (it != removeVector.end()) && (!progress.HasUserCancelled()); ++it)
+					{
+						progress.FormatPathLine(1, IDS_SVNPROGRESS_UNVERSION, (LPCTSTR)it->GetWinPath());
+						progress.SetProgress(count, removeVector.size());
+						count++;
+						it->Delete(false);
+					}
+					progress.Stop();
+				}
+				else
+					return false;
 			}
 			else
 			{
-				CString strMessage;
-				strMessage.Format(IDS_PROC_EXPORT_4, (LPCTSTR)cmdLinePath.GetUIPathString(), (LPCTSTR)saveplace);
-				CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
+				saveplace += _T("\\") + cmdLinePath.GetFileOrDirectoryName();
+				TRACE(_T("export %s to %s\n"), (LPCTSTR)cmdLinePath.GetUIPathString(), (LPCTSTR)saveto);
+				SVN svn;
+				if (!svn.Export(cmdLinePath, CTSVNPath(saveplace), bURL ? SVNRev::REV_HEAD : SVNRev::REV_WC, 
+					bURL ? SVNRev::REV_HEAD : SVNRev::REV_WC, FALSE, folderBrowser.m_bCheck2, svn_depth_infinity,
+					hwndExplorer, folderBrowser.m_bCheck))
+				{
+					CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
+				}
+				else
+				{
+					CString strMessage;
+					strMessage.Format(IDS_PROC_EXPORT_4, (LPCTSTR)cmdLinePath.GetUIPathString(), (LPCTSTR)saveplace);
+					CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
+				}
+				regExtended = CBrowseFolder::m_bCheck;
 			}
-			regExtended = CBrowseFolder::m_bCheck;
 		}
 	}
 	return true;
