@@ -2022,6 +2022,11 @@ msgstr ""
 msgid "Do you really want to revert all changes in\n%s\nwhich were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
 msgstr ""
 
+#: ID:99,
+#, c-format
+msgid "Do you want to make this working copy unversioned?\nThis will remove all Subversion admin directories from\n%s!"
+msgstr ""
+
 #: ID:76,
 msgid "Do you want to proceed?"
 msgstr ""
@@ -5255,8 +5260,17 @@ msgstr ""
 msgid "Untitled"
 msgstr ""
 
+#: ID:146,
+msgid "Unversion"
+msgstr ""
+
 #: Control-ID:1313,
 msgid "Unversioned files mark parent folder as modified"
+msgstr ""
+
+#: ID:286,
+#, c-format
+msgid "Unversioning %s"
 msgstr ""
 
 #: Dlg-ID:152,

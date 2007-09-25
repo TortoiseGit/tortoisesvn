@@ -144,7 +144,6 @@
 #define IDI_MERGE_BKG                   273
 #define IDI_RENAME_BKG                  274
 #define IDI_SWITCH_BKG                  275
-#define IDI_ICON7                       276
 #define IDI_UPDATE_BKG                  276
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
@@ -706,6 +705,7 @@
 #define IDS_PROC_OVERWRITEEXPORT_OVERWRITE 1574
 #define IDS_PROC_OVERWRITEEXPORT_RENAME 1575
 #define IDS_PROC_OVERWRITEEXPORT_CANCEL 1576
+#define IDS_PROC_EXPORTUNVERSION        1577
 #define IDS_REPOBROWSE_SAVEAS           1600
 #define IDS_REPOBROWSE_SHOWLOG          1601
 #define IDS_REPOBROWSE_OPEN             1602
@@ -856,6 +856,7 @@
 #define IDS_PROC_DIFFLABEL              2331
 #define IDS_PROC_CLEANUP_INFO1          2332
 #define IDS_PROC_CLEANUP_INFO2          2333
+#define IDS_PROC_UNVERSION              2334
 #define IDS_DIFF_WCNAME                 2400
 #define IDS_DIFF_BASENAME               2401
 #define IDS_DIFF_WORKINGCOPY            2402
@@ -1094,6 +1095,7 @@
 #define IDS_SVNPROGRESS_MERGELOGRANGE   4560
 #define IDS_SVNPROGRESS_MERGELOGMSGMULTIPLE 4561
 #define IDS_SVNPROGRESS_MERGELOGMSG     4562
+#define IDS_SVNPROGRESS_UNVERSION       4563
 #define IDS_LOCK_MESSAGEHINT            5000
 #define IDS_LOCK_STEALCHECK             5001
 #define IDS_FILEDIFF_FILE               5100

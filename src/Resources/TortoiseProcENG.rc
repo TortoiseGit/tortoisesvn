@@ -2877,6 +2877,7 @@ BEGIN
     IDS_PROC_DIFFLABEL      "With URL:"
     IDS_PROC_CLEANUP_INFO1  "Cleaning up."
     IDS_PROC_CLEANUP_INFO2  "Please wait..."
+    IDS_PROC_UNVERSION      "Unversion"
 END
 
 STRINGTABLE 
@@ -2899,6 +2900,8 @@ BEGIN
     IDS_PROC_OVERWRITEEXPORT_OVERWRITE "Overwrite"
     IDS_PROC_OVERWRITEEXPORT_RENAME "Auto Rename"
     IDS_PROC_OVERWRITEEXPORT_CANCEL "Cancel"
+    IDS_PROC_EXPORTUNVERSION 
+                            "Do you want to make this working copy unversioned?\nThis will remove all Subversion admin directories from\n%s!"
 END
 
 STRINGTABLE 
@@ -3034,6 +3037,7 @@ STRINGTABLE
 BEGIN
     IDS_SVNPROGRESS_MERGELOGRANGE "Merged revision(s) %s from %s:\n"
     IDS_SVNPROGRESS_MERGELOGMSG "%s\nr%s | %s\n\n%s\n"
+    IDS_SVNPROGRESS_UNVERSION "Unversioning %s"
 END
 
 STRINGTABLE 
