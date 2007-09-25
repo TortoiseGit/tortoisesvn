@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-09-10 17:21+0100\n"
+"PO-Revision-Date: 2007-09-25 11:37+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,6 @@ msgstr ""
 # ------
 # Bitte aus Konsistenzgründen die folgenden Terme und Schreibweisen verwenden
 # ------
-
 #: source/TortoiseSVN_en.xml:4(title)
 #: source/TortoiseSVN_en.xml:2989(secondary)
 msgid "TortoiseSVN"
@@ -3317,9 +3316,8 @@ msgid "When the update is complete, the progress dialog shows a summary of the n
 msgstr "Sobald die Aktualisierung beendet ist, zeigt der Fortschrittsdialog eine Zusammenfassung der aktualisierten, hinzugefügten und gelöschten Objekte unterhalb der Dateiliste an. Diese Information kann mittels<action>Strg+C</action> in die Zwischenablage kopiert werden."
 
 #: source/TortoiseSVN_en.xml:4466(para)
-#, fuzzy
 msgid "The standard Update command has no options and just updates your working copy to the HEAD revision of the repository, which is the most common use case. If you want more control over the update process, you should use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to Revision...</guimenuitem></menuchoice> instead. This allows you to update your working copy to a specific revision, not only to the most recent one. Suppose your working copy is at revision 100, but you want it to reflect the state which it had in revision 50 - then simply update to revision 50. In the same dialog you can also choose the <firstterm>depth</firstterm> at which to update the current folder. The terms used are described in <xref linkend=\"tsvn-dug-checkout-depth\"/>. The default depth is <guilabel>Working copy</guilabel>, which preserves the existing depth setting. You can also choose whether to ignore any external projects in the update (i.e. projects referenced using <literal>svn:externals</literal>)."
-msgstr "Der normale <quote>Aktualisieren</quote> Befehl hat keine Parameter und aktualisiert Ihre Arbeitskopie stets zur HEAD Revision des Projektarchivs, was der häufigste Anwendungsfall ist. Wenn Sie genau festlegen wollen, in welcher Revision sich Ihre Arbeitskopie befinden soll, sollten Sie den <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aktualisieren zu Revision...</guimenuitem></menuchoice> Befehl verwenden, der Ihnen genau das ermöglicht. Nehmen wir an, Ihre Arbeitskopie befindet sich in Revision 100, aber sie möchten sie gerne in Revision 50 zurückversetzen - Aktualisieren sie einfach zu Revision 50. In diesem Dialog können Sie auch die <firstterm>Tiefe</firstterm> beim Aktualisieren festlegen. <placeholder-1/>Weiterhin können Sie wählen, ob Sie externe Projekte (auf die mittels <literal>svn:externals</literal> verwiesen wird) ignorieren wollen."
+msgstr "Der normale <quote>Aktualisieren</quote> Befehl hat keine Parameter und aktualisiert Ihre Arbeitskopie stets zur HEAD Revision des Projektarchivs, was der häufigste Anwendungsfall ist. Wenn Sie genau festlegen wollen, in welcher Revision sich Ihre Arbeitskopie befinden soll, sollten Sie den <menuchoice><guimenu>TortoiseSVN</guimenu> <guimenuitem>Aktualisieren zu Revision...</guimenuitem> </menuchoice> Befehl verwenden, der Ihnen genau das ermöglicht. Nehmen wir an, Ihre Arbeitskopie befindet sich in Revision 100, aber sie möchten sie gerne in Revision 50 zurückversetzen - Aktualisieren sie einfach zu Revision 50. In diesem Dialog können Sie auch die <firstterm>Tiefe</firstterm> beim Aktualisieren festlegen. Die verschiedenen Tiefen werden in <xref linkend=\"tsvn-dug-checkout-depth\"/> beschrieben. Die Vorgabe ist <guilabel>Arbeitskopie</guilabel> und erhält die vorhandene Einstellung. Weiterhin können Sie wählen, ob Sie externe Projekte (auf die mittels <literal>svn:externals</literal> verwiesen wird) einschließen oder ignorieren wollen."
 
 #: source/TortoiseSVN_en.xml:4488(para)
 msgid "If you update a file or folder to a specific revision, you should not make changes to those files. You will get <quote>out of date</quote> error messages when you try to commit them! If you want to undo changes to a file and start afresh from an earlier revision, you can rollback to a previous revision from the revision log dialog. Take a look at <xref linkend=\"tsvn-howto-rollback\"/> for further instructions, and alternative methods."
@@ -4140,7 +4138,7 @@ msgstr "Die mit TortoiseSVN gelieferten Programme unterstützen keinen Vergleich
 
 #: source/TortoiseSVN_en.xml:5822(title)
 msgid "Line-end and Whitespace Options"
-msgstr ""
+msgstr "Zeilenende- und Leerzeichenoptionen"
 
 #: source/TortoiseSVN_en.xml:5823(para)
 msgid "Sometimes in the life of a project you might change the line endings from <literal>CRLF</literal> to <literal>LF</literal>, or you may change the indentation of a section. Unfortunately this will mark a large number of lines as changed, even though there is no change to the meaning of the code. The options here will help to manage these changes when it comes to comparing and applying differences. You will see these settings in the <guilabel>Merge</guilabel> and <guilabel>Blame</guilabel> dialogs, as well as in the settings for TortoiseMerge."
@@ -4148,23 +4146,23 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5834(para)
 msgid "<guilabel>Ignore line endings</guilabel> excludes changes which are due solely to difference in line-end style."
-msgstr ""
+msgstr "<guilabel>Ignoriere Zeilenende</guilabel> schließt Änderungen aus, die nur aus unterschiedlichen Zeilenumbrüchen bestehen."
 
 #: source/TortoiseSVN_en.xml:5838(para)
 msgid "<guilabel>Compare whitespaces</guilabel> includes all changes in indentation and inline whitespace as added/removed lines."
-msgstr ""
+msgstr "<guilabel>Vergleiche Leerzeichen</guilabel> schließt Änderungen in Leerzeichen und Einrückung als gelöschte / hinzugefügte Zeilen ein."
 
 #: source/TortoiseSVN_en.xml:5843(para)
 msgid "<guilabel>Ignore whitespace changes</guilabel> excludes changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
-msgstr ""
+msgstr "<guilabel>Ignoriere Änderungen in Leerzeichen</guilabel> schließt Änderungen in der Anzahl oder dem Typ von Leerzeichen, z.B. Änderung der Einrückung oder Wechsel von Tab zu Leerzeichen aus. Komplett neue oder vollständig gelöschte Leerzeichen werden weiterhin als Änderung angezeigt."
 
 #: source/TortoiseSVN_en.xml:5851(para)
 msgid "<guilabel>Ignore all whitespaces</guilabel> excludes all whitespace-only changes."
-msgstr ""
+msgstr "<guilabel>Ignoriere alle Leerzeichen</guilabel> schließt sämtliche Änderungen, die nur aus Leerzeichen bestehen, aus."
 
 #: source/TortoiseSVN_en.xml:5855(para)
 msgid "Naturally, any line with changed content is always included in the diff."
-msgstr ""
+msgstr "Selbstverständtlich wird jede Zeile mit geänderten Inhalten stets als Differenz angezeigt."
 
 #: source/TortoiseSVN_en.xml:5861(title)
 msgid "Comparing Folders"
@@ -5289,9 +5287,8 @@ msgid "Most of the time you want merge to take account of the file's history, so
 msgstr "Meistens möchten Sie, dass die Vergangenheit von Dateien berücksichtigt wird, so dass Änderungen relativ zu einem gemeinsamen Vorgänger zusammengeführt werden. Manchmal möchten Sie aber auch Dateien zusammenführen, zwischen denen eine Beziehung besteht - allerdings nicht in Ihrem Projektarchiv. Sie haben zum Beispiel Versionen 1 und 2 einer externen Bibliothek in zwei verschiedene Verzeichnisse importiert. Obwohl zwischen diesen ein logischer Zusammenhang besteht, weiß Subversion nichts davon, weil es nur die separat importierten Dateibäume sieht. Wenn Sie versuchen, die Unterschiede zwischen den beiden Versionen zusammenzuführen, werden Sie ein vollständiges Entfernen gefolgt von einem vollständigen Hinzufügen erhalten. Damit Subversion nur pfadbasierte Differenzen anstelle von vergangentheitsbasierten Differenzen erzeugt, wählen Sie die <guilabel>Vorfahren ignorieren</guilabel> Option. Weitere Informationen zu diesem Thema finden Sie im Subversion Buch in <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.branchmerge.copychanges.html#svn.branchmerge.copychanges.bestprac.ancestry\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>"
 
 #: source/TortoiseSVN_en.xml:7712(title)
-#, fuzzy
 msgid "Other Merge Options"
-msgstr "Der Zusammenführen-Dialog"
+msgstr "Weitere Zusammenführen-Optionen"
 
 #: source/TortoiseSVN_en.xml:7713(para)
 msgid "You can specify the way that line ending and whitespace changes are handled. These options are described in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. The default behaviour is to treat all whitespace and line-end differences as real changes to be merged."
@@ -7243,9 +7240,8 @@ msgid "$WCDATE=%a %b %d %I:%M:%S %p$"
 msgstr "$WCDATE=%a %b %d %I:%M:%S %p$"
 
 #: source/TortoiseSVN_en.xml:10838(citetitle)
-#, fuzzy
 msgid "online reference"
-msgstr "Datei-Unterschiede"
+msgstr "Onlinereferenz"
 
 #: source/TortoiseSVN_en.xml:10827(entry)
 msgid "Replaced with the commit date/time of the highest commit revision. By default, international format is used: <placeholder-1/>. Alternatively, you can specify a custom format which will be used with <placeholder-2/>, for example: <placeholder-3/>. For a list of available formatting characters, look at the <ulink url=\"http://www.cppreference.com/stddate/strftime.html\"><placeholder-4/></ulink>."
@@ -8499,19 +8495,19 @@ msgstr "Fügt alle Objekte in <placeholder-1/> zur Liste der ignorierten Dateien
 
 #: source/TortoiseSVN_en.xml:12266(para)
 msgid "Opens the blame dialog for the file specified in <option>/path</option>."
-msgstr ""
+msgstr "Öffnet den Annotieren-Dialog mit der in <option>/path</option> angegebenen Datei."
 
 #: source/TortoiseSVN_en.xml:12270(para)
 msgid "If the options <option>/startrev</option> and <option>/endrev</option> are set, then the dialog asking for the blame range is not shown but the revision values of those options are used instead."
-msgstr ""
+msgstr "Wenn die Optionen <option>/startrev</option> und <option>/endrev</option> angegeben sind, wird der Dialog zur Abfrage des Revisionsbereiches nicht angezeigt, sondern die angegebenen Revisionen verwendet."
 
 #: source/TortoiseSVN_en.xml:12277(para)
 msgid "If the option <option>/line:nnn</option> is set, TortoiseBlame will open with the specified line number showing."
-msgstr ""
+msgstr "Wenn die Option <option>/line:nnn</option> angegeben ist, wird TortoiseBlame die Datei in dieser Zeile positionieren."
 
 #: source/TortoiseSVN_en.xml:12282(para)
 msgid "The options <option>/ignoreeol</option>, <option>/ignorespaces</option> and <option>/ignoreallspaces</option> are also supported."
-msgstr ""
+msgstr "Dio Optionen <option>/ignoreeol</option>, <option>/ignorespaces</option> und <option>/ignoreallspaces</option> werden ebenfalls unterstützt."
 
 #: source/TortoiseSVN_en.xml:12294(option)
 msgid "/savepath:path"
