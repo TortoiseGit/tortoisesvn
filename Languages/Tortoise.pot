@@ -4828,15 +4828,6 @@ msgstr ""
 msgid "Text status"
 msgstr ""
 
-#: ID:69,
-#, c-format
-msgid "The File\n%s\nis not a valid text file!\nNote that UTF32 files are treated as binary too."
-msgstr ""
-
-#: ID:80,
-msgid "The Repository was successfully created."
-msgstr ""
-
 #: ID:63,
 msgid "The chunk size did not match the number of added/removed lines!"
 msgstr ""
@@ -4880,6 +4871,11 @@ msgstr ""
 #: ID:80,
 #, c-format
 msgid "The file\n%s\nalready exists! Do you want to overwrite it?"
+msgstr ""
+
+#: ID:69,
+#, c-format
+msgid "The file\n%s\nis not a valid text file!\nNote that UTF32 files are treated as binary too."
 msgstr ""
 
 #: ID:145,
@@ -4963,6 +4959,10 @@ msgstr ""
 #: ID:314,
 #, c-format
 msgid "The path\n<i>%s</i>\nseems not to match the paths in the patchfile.\nBut TortoiseMerge found the path\n<i>%s</i>\nmatches it better. Do you want to use the suggested path instead?"
+msgstr ""
+
+#: ID:80,
+msgid "The repository was successfully created."
 msgstr ""
 
 #: Control-ID:65535,
