@@ -2405,6 +2405,15 @@ void CBaseView::OnEditCopy()
 		sCopyData += m_pViewData->GetLine(i);
 		sCopyData += _T("\r\n");
 	}
+	sCopyData.TrimRight(_T("\r\n"));
+	// remove the non-selected chars from the first line
+	sCopyData = sCopyData.Mid(m_ptSelectionStartPos.x);
+	// remove the non-selected chars from the last line
+	int lastLinePos = sCopyData.ReverseFind('\n');
+	lastLinePos += 1;
+	if (lastLinePos == 0)
+		lastLinePos -= m_ptSelectionStartPos.x;
+	sCopyData = sCopyData.Left(lastLinePos+m_ptSelectionEndPos.x);
 	CStringA sCopyDataASCII = CStringA(sCopyData);
 	if (!sCopyDataASCII.IsEmpty())
 	{
