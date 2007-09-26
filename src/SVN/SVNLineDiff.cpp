@@ -29,145 +29,64 @@ const svn_diff_fns_t SVNLineDiff::SVNLineDiff_vtable =
 	SVNLineDiff::discard_all_token
 };
 
+#define SVNLINEDIFF_CHARTYPE_NONE			0
+#define SVNLINEDIFF_CHARTYPE_ALPHANUMERIC	1
+#define SVNLINEDIFF_CHARTYPE_SPACE			2
+#define SVNLINEDIFF_CHARTYPE_OTHER			3
+
+typedef void (*LineParser)(LPCTSTR line, unsigned long lineLength, std::vector<std::wstring> &tokens);
+
+void SVNLineDiff::ParseLineWords(
+	LPCTSTR line, unsigned long lineLength, std::vector<std::wstring> &tokens)
+{
+	std::wstring token;
+	int prevCharType = SVNLINEDIFF_CHARTYPE_NONE;
+	for (unsigned long i = 0; i < lineLength; ++i)
+	{
+		int charType = 
+			IsCharAlphaNumeric(line[i]) ? SVNLINEDIFF_CHARTYPE_ALPHANUMERIC :
+			IsCharWhiteSpace(line[i]) ? SVNLINEDIFF_CHARTYPE_SPACE :
+			SVNLINEDIFF_CHARTYPE_OTHER;
+
+		// Token is a sequence of either alphanumeric or whitespace characters.
+		// Treat all other characters as a separate tokens.
+		if (charType == prevCharType && charType != SVNLINEDIFF_CHARTYPE_OTHER)
+			token += line[i];
+		else
+		{
+			if (!token.empty())
+				tokens.push_back(token);
+			token = line[i];
+		}
+		prevCharType = charType;
+	}
+	if (!token.empty())
+		tokens.push_back(token);
+}
+
+void SVNLineDiff::ParseLineChars(
+	LPCTSTR line, unsigned long lineLength, std::vector<std::wstring> &tokens)
+{
+	std::wstring token;
+	for (unsigned long i = 0; i < lineLength; ++i)
+	{
+		token = line[i];
+		tokens.push_back(token);
+	}
+}
+
 svn_error_t * SVNLineDiff::datasource_open(void * baton, svn_diff_datasource_e datasource)
 {
 	SVNLineDiff * linediff = (SVNLineDiff *)baton;
-	if (linediff->m_bWordDiff)
+	LineParser parser = linediff->m_bWordDiff ? ParseLineWords : ParseLineChars;
+	switch (datasource)
 	{
-		std::wstring token;
-		switch (datasource)
-		{
 		case svn_diff_datasource_original:
-			{
-				int chartype = SVNLINEDIFF_CHARTYPE_NONE;
-				for (unsigned long i=0; i<linediff->m_line1length; ++i)
-				{
-					if (IsCharAlphaNumeric(linediff->m_line1[i]))
-					{
-						if ((chartype == SVNLINEDIFF_CHARTYPE_ALPHANUMERIC)||
-							(chartype == SVNLINEDIFF_CHARTYPE_NONE))
-						{
-							token += linediff->m_line1[i];
-						}
-						else
-						{
-							if (!token.empty())
-								linediff->m_line1tokens.push_back(token);
-							token = linediff->m_line1[i];
-						}
-						chartype = SVNLINEDIFF_CHARTYPE_ALPHANUMERIC;
-					}
-					else if (IsCharWhiteSpace(linediff->m_line1[i]))
-					{
-						if ((chartype == SVNLINEDIFF_CHARTYPE_SPACE)||
-							(chartype == SVNLINEDIFF_CHARTYPE_NONE))
-						{
-							token += linediff->m_line1[i];
-						}
-						else
-						{
-							if (!token.empty())
-								linediff->m_line1tokens.push_back(token);
-							token = linediff->m_line1[i];
-						}
-						chartype = SVNLINEDIFF_CHARTYPE_SPACE;
-					}
-					else
-					{
-						if (!token.empty())
-							linediff->m_line1tokens.push_back(token);
-						token = linediff->m_line1[i];
-						linediff->m_line1tokens.push_back(token);
-						token.clear();
-						chartype = SVNLINEDIFF_CHARTYPE_OTHER;
-					}
-				}
-				if (!token.empty())
-				{
-					linediff->m_line1tokens.push_back(token);
-					token.clear();
-				}
-			}
+			parser(linediff->m_line1, linediff->m_line1length, linediff->m_line1tokens);
 			break;
 		case svn_diff_datasource_modified:
-			{
-				int chartype = SVNLINEDIFF_CHARTYPE_NONE;
-				for (unsigned long i=0; i<linediff->m_line2length; ++i)
-				{
-					if (IsCharAlphaNumeric(linediff->m_line2[i]))
-					{
-						if ((chartype == SVNLINEDIFF_CHARTYPE_ALPHANUMERIC)||
-							(chartype == SVNLINEDIFF_CHARTYPE_NONE))
-						{
-							token += linediff->m_line2[i];
-						}
-						else
-						{
-							if (!token.empty())
-								linediff->m_line2tokens.push_back(token);
-							token = linediff->m_line2[i];
-						}
-						chartype = SVNLINEDIFF_CHARTYPE_ALPHANUMERIC;
-					}
-					else if (IsCharWhiteSpace(linediff->m_line2[i]))
-					{
-						if ((chartype == SVNLINEDIFF_CHARTYPE_SPACE)||
-							(chartype == SVNLINEDIFF_CHARTYPE_NONE))
-						{
-							token += linediff->m_line2[i];
-						}
-						else
-						{
-							if (!token.empty())
-								linediff->m_line2tokens.push_back(token);
-							token = linediff->m_line2[i];
-						}
-						chartype = SVNLINEDIFF_CHARTYPE_SPACE;
-					}
-					else
-					{
-						if (!token.empty())
-							linediff->m_line2tokens.push_back(token);
-						token = linediff->m_line2[i];
-						linediff->m_line2tokens.push_back(token);
-						token.clear();
-						chartype = SVNLINEDIFF_CHARTYPE_OTHER;
-					}
-				}
-
-				if (!token.empty())
-				{
-					linediff->m_line2tokens.push_back(token);
-					token.clear();
-				}
-			}
+			parser(linediff->m_line2, linediff->m_line2length, linediff->m_line2tokens);
 			break;
-		}
-	}
-	else
-	{
-		std::wstring token;
-		switch (datasource)
-		{
-		case svn_diff_datasource_original:
-			{
-				for (unsigned long i=0; i<linediff->m_line1length; ++i)
-				{
-					token = linediff->m_line1[i];
-					linediff->m_line1tokens.push_back(token);
-				}
-			}
-			break;
-		case svn_diff_datasource_modified:
-			{
-				for (unsigned long i=0; i<linediff->m_line2length; ++i)
-				{
-					token = linediff->m_line2[i];
-					linediff->m_line2tokens.push_back(token);
-				}
-			}
-			break;
-		}
 	}
 	return SVN_NO_ERROR;
 }
@@ -177,7 +96,30 @@ svn_error_t * SVNLineDiff::datasource_close(void * /*baton*/, svn_diff_datasourc
 	return SVN_NO_ERROR;
 }
 
-svn_error_t * SVNLineDiff::next_token(apr_uint32_t * hash, void ** token, void * baton, svn_diff_datasource_e datasource)
+void SVNLineDiff::NextTokenWords(
+	apr_uint32_t* hash, void** token, unsigned long& linePos, const std::vector<std::wstring>& tokens)
+{
+	if (linePos < tokens.size())
+	{
+		*token = (void*)tokens[linePos].c_str();
+		*hash = SVNLineDiff::Adler32(0, tokens[linePos].c_str(), tokens[linePos].size());
+		linePos++;
+	}
+}
+
+void SVNLineDiff::NextTokenChars(
+	apr_uint32_t* hash, void** token, unsigned long& linePos, LPCTSTR line, unsigned long lineLength)
+{
+	if (linePos < lineLength)
+	{
+		*token = (void*)&line[linePos];
+		*hash = line[linePos];
+		linePos++;
+	}
+}
+
+svn_error_t * SVNLineDiff::next_token(
+	apr_uint32_t * hash, void ** token, void * baton, svn_diff_datasource_e datasource)
 {
 	SVNLineDiff * linediff = (SVNLineDiff *)baton;
 	*token = NULL;
@@ -185,43 +127,15 @@ svn_error_t * SVNLineDiff::next_token(apr_uint32_t * hash, void ** token, void *
 	{
 	case svn_diff_datasource_original:
 		if (linediff->m_bWordDiff)
-		{
-			if (linediff->m_line1pos < linediff->m_line1tokens.size())
-			{
-				*token = (void *)linediff->m_line1tokens[linediff->m_line1pos].c_str();
-				*hash = linediff->Adler32(0, linediff->m_line1tokens[linediff->m_line1pos].c_str(), linediff->m_line1tokens[linediff->m_line1pos].size());
-				linediff->m_line1pos++;
-			}
-		}
+			NextTokenWords(hash, token, linediff->m_line1pos, linediff->m_line1tokens);
 		else
-		{
-			if (linediff->m_line1pos < linediff->m_line1length)
-			{
-				*token = (void *)&linediff->m_line1[linediff->m_line1pos];
-				*hash = linediff->m_line1[linediff->m_line1pos];
-				linediff->m_line1pos++;
-			}
-		}
+			NextTokenChars(hash, token, linediff->m_line1pos, linediff->m_line1, linediff->m_line1length);
 		break;
 	case svn_diff_datasource_modified:
 		if (linediff->m_bWordDiff)
-		{
-			if (linediff->m_line2pos < linediff->m_line2tokens.size())
-			{
-				*token = (void *)linediff->m_line2tokens[linediff->m_line2pos].c_str();
-				*hash = linediff->Adler32(0, linediff->m_line2tokens[linediff->m_line2pos].c_str(), linediff->m_line2tokens[linediff->m_line2pos].size());
-				linediff->m_line2pos++;
-			}
-		}
+			NextTokenWords(hash, token, linediff->m_line2pos, linediff->m_line2tokens);
 		else
-		{
-			if (linediff->m_line2pos < linediff->m_line2length)
-			{
-				*token = (void *)&linediff->m_line2[linediff->m_line2pos];
-				*hash = linediff->m_line2[linediff->m_line2pos];
-				linediff->m_line2pos++;
-			}
-		}
+			NextTokenChars(hash, token, linediff->m_line2pos, linediff->m_line2, linediff->m_line2length);
 		break;
 	}
 	return SVN_NO_ERROR;
@@ -264,8 +178,7 @@ void SVNLineDiff::discard_all_token(void * /*baton*/)
 {
 }
 
-SVNLineDiff::SVNLineDiff() : m_pool(NULL)
-	, m_subpool(NULL)
+SVNLineDiff::SVNLineDiff(): m_pool(NULL), m_subpool(NULL)
 {
 	m_pool = svn_pool_create(NULL);
 }
@@ -288,14 +201,8 @@ bool SVNLineDiff::Diff(svn_diff_t **diff, LPCTSTR line1, int len1, LPCTSTR line2
 	m_bWordDiff = bWordDiff;
 	m_line1 = line1;
 	m_line2 = line2;
-	if (len1)
-		m_line1length = len1;
-	else
-		m_line1length = _tcslen(m_line1);
-	if (len2)
-		m_line2length = len2;
-	else
-		m_line2length = _tcslen(m_line2);
+	m_line1length = len1 ? len1 : _tcslen(m_line1);
+	m_line2length = len2 ? len2 : _tcslen(m_line2);
 
 	m_line1pos = 0;
 	m_line2pos = 0;
@@ -351,7 +258,5 @@ apr_uint32_t SVNLineDiff::Adler32(apr_uint32_t checksum, const WCHAR *data, apr_
 
 bool SVNLineDiff::IsCharWhiteSpace(TCHAR c)
 {
-	if ((c == ' ')||(c == '\t'))
-		return true;
-	return false;
+	return (c == ' ') || (c == '\t');
 }
