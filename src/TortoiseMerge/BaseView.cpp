@@ -167,6 +167,13 @@ BEGIN_MESSAGE_MAP(CBaseView, CView)
 	ON_COMMAND(ID_NAVIGATE_PREVIOUSCONFLICT, OnMergePreviousconflict)
 	ON_COMMAND(ID_NAVIGATE_NEXTCONFLICT, OnMergeNextconflict)
 	ON_WM_LBUTTONDBLCLK()
+	ON_WM_CHAR()
+	ON_COMMAND(ID_CARET_DOWN, &CBaseView::OnCaretDown)
+	ON_COMMAND(ID_CARET_LEFT, &CBaseView::OnCaretLeft)
+	ON_COMMAND(ID_CARET_RIGHT, &CBaseView::OnCaretRight)
+	ON_COMMAND(ID_CARET_UP, &CBaseView::OnCaretUp)
+	ON_COMMAND(ID_CARET_WORDLEFT, &CBaseView::OnCaretWordleft)
+	ON_COMMAND(ID_CARET_WORDRIGHT, &CBaseView::OnCaretWordright)
 END_MESSAGE_MAP()
 
 
@@ -2272,21 +2279,37 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	if (nChar==VK_HOME)
 	{
 		if (GetKeyState(VK_CONTROL)&0x8000)
+		{
 			ScrollAllToLine(0);
+			m_ptCaretPos.x = 0;
+			m_ptCaretPos.y = 0;
+			UpdateCaret();
+		}
 		else
 		{
 			ScrollToChar(0);
+			m_ptCaretPos.x = 0;
+			UpdateCaret();
 		}
 	}
 	if (nChar==VK_END)
 	{
 		if (GetKeyState(VK_CONTROL)&0x8000)
+		{
 			ScrollAllToLine(GetLineCount()-GetAllMinScreenLines());
+			m_ptCaretPos.y = GetLineCount()-1;
+			m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
+			UpdateCaret();
+		}
 		else
 		{
 			int charpos = GetMaxLineLength() - GetScreenChars();
 			if (charpos > 0)
+			{
 				ScrollToChar(charpos);
+				m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
+				UpdateCaret();
+			}
 		}
 	}
 	if (nChar==VK_DOWN)
@@ -2657,6 +2680,14 @@ void CBaseView::UseBothLeftFirst(viewstate &rightstate, viewstate &leftstate)
 
 void CBaseView::UpdateCaret()
 {
+	if (m_ptCaretPos.y >= GetLineCount())
+		m_ptCaretPos.y = GetLineCount()-1;
+	if (m_ptCaretPos.y < 0)
+		m_ptCaretPos.y = 0;
+	if (m_ptCaretPos.x > GetLineLength(m_ptCaretPos.y))
+		m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
+	if (m_ptCaretPos.x < 0)
+		m_ptCaretPos.x = 0;
 	if (m_bFocused && ! m_bCaretHidden &&
 		CalculateActualOffset(m_ptCaretPos.y, m_ptCaretPos.x) >= m_nOffsetChar)
 	{
@@ -2706,4 +2737,61 @@ POINT CBaseView::TextToClient(const POINT& point)
 	pt.x = (pt.x - m_nOffsetChar) * GetCharWidth() + GetMarginWidth();
 	pt.y = (pt.y + GetLineHeight()+HEADERHEIGHT);
 	return pt;
+}
+
+void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
+{
+	CView::OnChar(nChar, nRepCnt, nFlags);
+
+	if (m_bCaretHidden)
+		return;
+
+	if ((::GetKeyState(VK_LBUTTON) & 0x8000) != 0 ||
+		(::GetKeyState(VK_RBUTTON) & 0x8000) != 0)
+		return;
+
+	if (nChar > 31)
+	{
+		CString sLine = GetLineChars(m_ptCaretPos.y);
+		sLine.Insert(m_ptCaretPos.x, nChar);
+		m_pViewData->SetLine(m_ptCaretPos.y, sLine);
+		m_ptCaretPos.x++;
+		UpdateCaret();
+		SetModified(true);
+		Invalidate(FALSE);
+	}
+}
+
+void CBaseView::OnCaretDown()
+{
+	m_ptCaretPos.y++;
+	UpdateCaret();
+}
+
+void CBaseView::OnCaretLeft()
+{
+	m_ptCaretPos.x--;
+	UpdateCaret();
+}
+
+void CBaseView::OnCaretRight()
+{
+	m_ptCaretPos.x++;
+	UpdateCaret();
+}
+
+void CBaseView::OnCaretUp()
+{
+	m_ptCaretPos.y--;
+	UpdateCaret();
+}
+
+void CBaseView::OnCaretWordleft()
+{
+	// TODO: Add your command handler code here
+}
+
+void CBaseView::OnCaretWordright()
+{
+	// TODO: Add your command handler code here
 }

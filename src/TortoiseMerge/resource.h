@@ -218,13 +218,20 @@
 #define ID_VIEW_INLINEDIFFWORD          32825
 #define ID_EDIT_                        32827
 #define ID_EDIT_CREATEUNIFIEDDIFFFILE   32828
+#define ID_CARET_LEFT                   32829
+#define ID_CARET_RIGHT                  32830
+#define ID_CARET_DOWN                   32831
+#define ID_CARET_UP                     32832
+#define ID_CARET_WORDLEFT               32833
+#define ID_CARET_WORDRIGHT              32834
+#define ID_ACCELERATOR32836             32836
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        146
-#define _APS_NEXT_COMMAND_VALUE         32829
+#define _APS_NEXT_COMMAND_VALUE         32837
 #define _APS_NEXT_CONTROL_VALUE         1072
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

@@ -116,6 +116,7 @@ protected:
 	afx_msg void	OnLButtonDblClk(UINT nFlags, CPoint point);
 	afx_msg void	OnEditCopy();
 	afx_msg void	OnMouseMove(UINT nFlags, CPoint point);
+	afx_msg void	OnChar(UINT nChar, UINT nRepCnt, UINT nFlags);
 
 	DECLARE_MESSAGE_MAP()
 
@@ -259,6 +260,13 @@ protected:
 	static CBaseView * m_pwndLeft;		///< Pointer to the left view. Must be set by the CLeftView parent class.
 	static CBaseView * m_pwndRight;		///< Pointer to the right view. Must be set by the CRightView parent class.
 	static CBaseView * m_pwndBottom;	///< Pointer to the bottom view. Must be set by the CBottomView parent class.
+public:
+	afx_msg void OnCaretDown();
+	afx_msg void OnCaretLeft();
+	afx_msg void OnCaretRight();
+	afx_msg void OnCaretUp();
+	afx_msg void OnCaretWordleft();
+	afx_msg void OnCaretWordright();
 };
 
 
