@@ -9,7 +9,7 @@
 # Based on original translation by:
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r10700
+# Based on Tortoise.pot r10727
 #
 msgid ""
 msgstr ""
@@ -2094,6 +2094,11 @@ msgstr "Er du helt sikker på, at du vil tilbageføre alle ændringerne i\n%s\no
 #, c-format
 msgid "Do you really want to revert all changes in\n%s\nwhich were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
 msgstr "Er du helt sikker på, at du vil tilbageføre alle ændringerne i\n%s\nsom blev lavet i denne revision? Disse ændringer vil blive tilbageført ved at lave en omvendt fletning af revisionerne ind i din arbejdskopi."
+
+#: ID:99,
+#, c-format
+msgid "Do you want to make this working copy unversioned?\nThis will remove all Subversion admin directories from\n%s!"
+msgstr "Vil du gøre denne arbejdskopi til ikke-versioneret?\nDette vil fjerne alle Subversions administrative mapper fra\n%s."
 
 #: ID:76,
 msgid "Do you want to proceed?"
@@ -5360,9 +5365,18 @@ msgstr "Låst op"
 msgid "Untitled"
 msgstr "Ikke-navngivet"
 
+#: ID:146,
+msgid "Unversion"
+msgstr "Afversionér"
+
 #: Control-ID:1313,
 msgid "Unversioned files mark parent folder as modified"
 msgstr "Ikke-versionerede filer viser overordnet mappe som ændret"
+
+#: ID:286,
+#, c-format
+msgid "Unversioning %s"
+msgstr "Afversionerer %s"
 
 #: Dlg-ID:152,
 msgid "Update"
