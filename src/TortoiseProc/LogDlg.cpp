@@ -1939,7 +1939,12 @@ void CLogDlg::OnBnClickedStatbutton()
 	for (INT_PTR i=0; i<shownlist.GetCount(); ++i)
 	{
 		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(shownlist.GetAt(i));
-		m_arAuthorsFiltered.Add(pLogEntry->sAuthor);
+		CString strAuthor = pLogEntry->sAuthor;
+		if ( strAuthor.IsEmpty() )
+		{
+			strAuthor.LoadString(IDS_STATGRAPH_EMPTYAUTHOR);
+		}
+		m_arAuthorsFiltered.Add(strAuthor);
 		m_arDatesFiltered.Add(static_cast<DWORD>(pLogEntry->tmDate));
 		m_arFileChangesFiltered.Add(pLogEntry->dwFileChanges);
 	}
