@@ -1220,18 +1220,33 @@ COLORREF CBaseView::IntenseColor(long scale, COLORREF col)
 	return RGB(R, G, B);
 }
 
+COLORREF CBaseView::InlineDiffColor(int nLineIndex)
+{
+	return IsLineRemoved(nLineIndex) ? m_InlineRemovedBk : m_InlineAddedBk;
+}
+
 void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const CPoint& origin)
 {
 	if (!(m_bViewWhitespace && m_pViewData && (nLineIndex >= 0) && (nLineIndex < m_pViewData->GetCount())))
 		return;
 
 	HICON hEndingIcon = NULL;
-	switch (m_pViewData->GetLineEnding(nLineIndex))
+	EOL ending = m_pViewData->GetLineEnding(nLineIndex);
+	switch (ending)
 	{
 		case EOL_CR:	hEndingIcon = m_hLineEndingCR;		break;
 		case EOL_CRLF:	hEndingIcon = m_hLineEndingCRLF;	break;
 		case EOL_LF:	hEndingIcon = m_hLineEndingLF;		break;
 		default: return;
+	}
+	// If EOL style has changed, color end-of-line markers as inline differences.
+	if(
+		m_bShowInlineDiff && m_pOtherViewData &&
+		(nLineIndex < m_pOtherViewData->GetCount()) &&
+		(ending != m_pOtherViewData->GetLineEnding(nLineIndex))
+	)
+	{
+		pDC->FillSolidRect(origin.x, origin.y, rc.Height(), rc.Height(), InlineDiffColor(nLineIndex));
 	}
 
 	DrawIconEx(pDC->GetSafeHdc(), origin.x, origin.y, hEndingIcon, rc.Height(), rc.Height(), NULL, NULL, DI_NORMAL);
@@ -1381,10 +1396,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 					{
 						if (tempdiff->original_length == tempdiff->modified_length)
 						{
-							if (IsLineRemoved(nLineIndex))
-								pDC->SetBkColor(m_InlineRemovedBk);
-							else
-								pDC->SetBkColor(m_InlineAddedBk);
+							pDC->SetBkColor(InlineDiffColor(nLineIndex));
 							pDC->SetTextColor(crText);
 							for (int i=0; i<tempdiff->original_length; ++i)
 							{
@@ -1399,10 +1411,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 						{
 							if (tempdiff->original_length < tempdiff->modified_length)
 							{
-								if (IsLineRemoved(nLineIndex))
-									pDC->SetBkColor(m_InlineRemovedBk);
-								else
-									pDC->SetBkColor(m_InlineAddedBk);
+								pDC->SetBkColor(InlineDiffColor(nLineIndex));
 								pDC->SetTextColor(crText);
 								for (int i=0; i<tempdiff->original_length; ++i)
 								{
@@ -1418,10 +1427,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 							}
 							if (tempdiff->original_length > tempdiff->modified_length)
 							{
-								if (IsLineRemoved(nLineIndex))
-									pDC->SetBkColor(m_InlineRemovedBk);
-								else
-									pDC->SetBkColor(m_InlineAddedBk);
+								pDC->SetBkColor(InlineDiffColor(nLineIndex));
 								pDC->SetTextColor(crText);
 								for (int i=0; i<tempdiff->modified_length; ++i)
 								{

@@ -171,6 +171,7 @@ protected:
 	int				GetMarginWidth();
 	void			RefreshViews();
 	COLORREF		IntenseColor(long scale, COLORREF col);
+	COLORREF		InlineDiffColor(int nLineIndex);
 
 	virtual	void	OnContextMenu(CPoint point, int nLine, DiffStates state);
 	/**
