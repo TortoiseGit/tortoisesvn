@@ -124,6 +124,10 @@ protected:
 	void			DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex);
 	void			DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex);
 	/**
+	 * Draws the horizontal lines around current diff block or selection block.
+	 */
+	void			DrawBlockLine(CDC *pDC, const CRect &rc, int nLineIndex);
+	/**
 	 * Draws the line ending 'char'.
 	 */
 	void			DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const CPoint& origin);
