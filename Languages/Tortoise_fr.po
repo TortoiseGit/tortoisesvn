@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-09-24 21:37+0100\n"
+"PO-Revision-Date: 2007-09-26 21:35+0100\n"
 "Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -567,9 +567,8 @@ msgid "&Limit search to modified lines"
 msgstr "&Limiter la recherche aux lignes modifiées"
 
 #: MenuEntry
-#, fuzzy
 msgid "&Link image positions"
-msgstr "&Lier les images ensemble"
+msgstr "&Lier les positions des images ensemble"
 
 # ID:188,
 #: Control-ID:1172,
@@ -767,7 +766,6 @@ msgstr "&Taille tabulation :"
 
 # Control-ID:1222,
 #: Control-ID:1222,
-#, fuzzy
 msgid "&Timeout in seconds to stop the auto-completion parsing"
 msgstr "Délai en secondes pour arrê&ter le filtrage d'autocomplétion"
 
@@ -839,7 +837,6 @@ msgstr "Mettre à jo&ur à la révision..."
 
 # Control-ID:1184,
 #: Control-ID:1184,
-#, fuzzy
 msgid "&Use auto-completion of file paths and keywords"
 msgstr "&Utiliser l'autocomplétion des chemins de fichiers et des mots-clé"
 
@@ -891,6 +888,10 @@ msgstr "(non trouvé)"
 #: ID:208,
 msgid "(property change only)"
 msgstr "(changement de propriété seulement)"
+
+#: ID:245,
+msgid "(unknown)"
+msgstr ""
 
 # ID:188,
 #: ID:188,
@@ -2451,6 +2452,14 @@ msgstr ""
 "%s\n"
 "qui ont été faite dans cette révision ? Ces modifications seront fusionnées dans votre copie de travail."
 
+#: ID:99,
+#, c-format
+msgid ""
+"Do you want to make this working copy unversioned?\n"
+"This will remove all Subversion admin directories from\n"
+"%s!"
+msgstr ""
+
 #: ID:76,
 msgid "Do you want to proceed?"
 msgstr "Voulez-vous exécuter?"
@@ -2808,7 +2817,7 @@ msgstr "Fichiers patch"
 
 # ID:7,
 #: ID:7,
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "File size:\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
@@ -2818,13 +2827,13 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"Taille du fichier:\t\t\t%s\n"
+"Taille du fichier :\t\t%s (%s)\n"
 "Largeur :\t\t\t%ld pixel\n"
 "Hauteur :\t\t\t%ld pixel\n"
 "Résolution horizontale :\t%.1f dpi\n"
-"Résolution verticale :\t\t%.1f dpi\n"
+"Résolution verticale :\t%.1f dpi\n"
 "Profondeur :\t\t\t%d bit\n"
-"Zoom :\t\t\t%d%%"
+"Zoom:\t\t\t%d%%"
 
 # ID:7,
 #: ID:8,
@@ -3364,7 +3373,6 @@ msgid "Icons/Design/Code:     Luebbe Onken"
 msgstr "Icônes/Design/Code :    Luebbe Onken"
 
 #: ID:194,
-#, fuzzy
 msgid "If activated, prevents the overlays and the context menu from showing in \"save as...\" or \"open\" dialogs"
 msgstr "Si activé, empêche l'affichage du recouvrement dans les boîtes de dialogue \"Enregistrer sous...\" ou \"Ouvrir...\""
 
@@ -3508,16 +3516,14 @@ msgstr "Ignor&er les fins de lignes (recommandé)"
 
 #: Control-ID:1126,#:
 #: Control-ID:1127,
-#, fuzzy
 msgid "Ignore line endings"
-msgstr "Ignor&er les fins de lignes (recommandé)"
+msgstr "Ignorer les fins de lignes"
 
 # Control-ID:1067,
 #: Control-ID:1391,#:
 #: Control-ID:1391,
-#, fuzzy
 msgid "Ignore whitespace changes"
-msgstr "&Ignorer les changements d'espaces"
+msgstr "Ignorer les changements d'espaces"
 
 #: ID:226,
 msgid "Ignored items included"
@@ -3592,9 +3598,8 @@ msgid "Include ignored files"
 msgstr "Inclure les fichiers ignorés"
 
 #: Control-ID:1126,
-#, fuzzy
 msgid "Include merged revisions"
-msgstr "Sélectionner la révision de fin"
+msgstr "Inclure les révisions fusionnées"
 
 # Control-ID:65535,
 #: Control-ID:65535,
@@ -4034,19 +4039,16 @@ msgid "Merge depth:"
 msgstr "Fusionné"
 
 #: ID:114,
-#, fuzzy
 msgid "Merge revision to..."
-msgstr "Enregis&trer la révision sous..."
+msgstr "Fusionner la révision vers..."
 
 #: ID:114,
-#, fuzzy
 msgid "Merge revisions to..."
-msgstr "Enregis&trer la révision sous..."
+msgstr "Fusionner les révisions vers..."
 
 #: Control-ID:1377,
-#, fuzzy
 msgid "Merge settings"
-msgstr "Configuration avancée de la fusion"
+msgstr "Configuration de la fusion"
 
 #: ID:263,#:
 #: ID:263,
@@ -4660,7 +4662,7 @@ msgstr ""
 
 #: Control-ID:1287,
 msgid "Please resolve the conflict by choosing one of the following options:"
-msgstr ""
+msgstr "Veuillez résoudre le conflit en choisissant l'une des options suivantes :"
 
 #: ID:3858,#:
 #: ID:3858,
@@ -4689,7 +4691,6 @@ msgstr "Veuillez patienter pendant la récupération des différences..."
 
 # ID:104,
 #: ID:104,
-#, fuzzy
 msgid "Please wait while the repository browser is initializing..."
 msgstr "Veuillez patienter pendant l'initialisation du navigateur de référentiel..."
 
@@ -4720,7 +4721,7 @@ msgstr "Hook pre-mise à jour"
 
 #: ID:2052,
 msgid "Prevents most cases in which connection lines cross revision nodes"
-msgstr ""
+msgstr "Empêche la plupart des cas où les connexions des lignes croisent les noeuds de révision"
 
 # ID:376,
 #: ID:376,
@@ -5108,9 +5109,8 @@ msgid "Resolve - TortoiseSVN"
 msgstr "Résoudre - TortoiseSVN"
 
 #: Dlg-ID:268,
-#, fuzzy
 msgid "Resolve Conflict"
-msgstr "Résoudre les fichiers en conflits"
+msgstr "Résoudre le conflit"
 
 #: Control-ID:1382,
 msgid "Resolve all later"
@@ -5125,9 +5125,8 @@ msgid "Resolve conflict using \"theirs\""
 msgstr "Résoudre le conflit en utilisant \"le leur\""
 
 #: Control-ID:1403,
-#, fuzzy
 msgid "Resolve conflict:"
-msgstr "Résoudre les fichiers en conflits"
+msgstr "Résoudre le conflit :"
 
 #: Control-ID:2,
 msgid "Resolve later"
@@ -5267,7 +5266,7 @@ msgstr ""
 
 # ID:272,
 #: ID:272,
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Revision: %ld\n"
 "URL: %s\r\n"
@@ -5283,6 +5282,8 @@ msgstr ""
 "URL : %s\r\n"
 "Auteur : %s\r\n"
 "Date : %s\r\n"
+"\r\n"
+"Étiquettes : %s\r\n"
 "\r\n"
 "Commentaire :\r\n"
 "%s"
@@ -5550,9 +5551,8 @@ msgid "Select merge application"
 msgstr "Sélectionner l'application de fusion"
 
 #: ID:119,
-#, fuzzy
 msgid "Select merge target"
-msgstr "Sélectionner l'application de fusion"
+msgstr "Sélectionner la cible de la fusion"
 
 #: ID:276,
 msgid "Select revision range"
@@ -5669,9 +5669,8 @@ msgid "Show &log..."
 msgstr "Voir le journa&l..."
 
 #: Control-ID:1088,
-#, fuzzy
 msgid "Show &overlays and context menu only in explorer"
-msgstr "V&oir le recouvrement seulement dans l'explorateur"
+msgstr "V&oir le recouvrement et le menu contextuel uniquement dans l'explorateur"
 
 #: Control-ID:1073,
 msgid "Show &unversioned files"
@@ -6087,7 +6086,7 @@ msgstr "Etiquettage de la copie de travail sous %s"
 
 #: Control-ID:65535,
 msgid "Target"
-msgstr ""
+msgstr "Ciblle"
 
 #: Control-ID:65535,
 msgid "Text Status:"
@@ -6096,24 +6095,6 @@ msgstr "Statut du texte :"
 #: ID:207,
 msgid "Text status"
 msgstr "Statut du texte"
-
-# ID:69,
-#: ID:69,
-#, c-format
-msgid ""
-"The File\n"
-"%s\n"
-"is not a valid text file!\n"
-"Note that UTF32 files are treated as binary too."
-msgstr ""
-"Le fichier\n"
-"%s\n"
-"n'est pas un fichier texte valide !\n"
-"Notez que les fichiers UTF32 sont traîtés comme binaires également."
-
-#: ID:80,
-msgid "The Repository was successfully created."
-msgstr "Le référentiel a été créé avec succès."
 
 #: ID:63,
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -6172,6 +6153,20 @@ msgstr ""
 "Le fichier\n"
 "%s\n"
 "existe déjà ! Voulez-vous l'écraser ?"
+
+# ID:69,
+#: ID:69,
+#, fuzzy, c-format
+msgid ""
+"The file\n"
+"%s\n"
+"is not a valid text file!\n"
+"Note that UTF32 files are treated as binary too."
+msgstr ""
+"Le fichier\n"
+"%s\n"
+"n'est pas un fichier texte valide !\n"
+"Notez que les fichiers UTF32 sont traîtés comme binaires également."
 
 # ID:145,
 #: ID:145,
@@ -6357,6 +6352,10 @@ msgstr ""
 "Mais TortoiseMerge a trouvé que le chemin\n"
 "<i>%s</i>\n"
 "y correspond mieux. Voulez-vous utiliser le chemin suggéré à la place?"
+
+#: ID:80,
+msgid "The repository was successfully created."
+msgstr "Le référentiel a été créé avec succès."
 
 # Control-ID:65535,
 #: Control-ID:65535,
@@ -6605,7 +6604,7 @@ msgstr "TortoiseIDiff"
 
 #: Control-ID:65535,
 msgid "TortoiseIDiff - An image diff tool, part of TortoiseSVN"
-msgstr ""
+msgstr "TortoiseIDiff - Un outil de comparaison d'images, partie de TortoiseSVN"
 
 # ID:7,
 #: ID:7,
@@ -6852,10 +6851,20 @@ msgstr "Déverrouillé"
 msgid "Untitled"
 msgstr "Sans nom"
 
+#: ID:146,
+#, fuzzy
+msgid "Unversion"
+msgstr "Révision"
+
 # Control-ID:1313,
 #: Control-ID:1313,
 msgid "Unversioned files mark parent folder as modified"
 msgstr "Les fichiers non versionnés marquent le dossier parent comme modifié"
+
+#: ID:286,
+#, fuzzy, c-format
+msgid "Unversioning %s"
+msgstr "La version courante est : %s"
 
 #: Dlg-ID:152,
 msgid "Update"
@@ -6953,9 +6962,8 @@ msgid "Use regular expression"
 msgstr ""
 
 #: Control-ID:4,
-#, fuzzy
 msgid "Use repository"
-msgstr "&Parcourir le référentiel "
+msgstr "Utiliser le référentiel "
 
 #: Control-ID:1066,
 msgid "Use stri&keout for removed lines"
@@ -7372,7 +7380,7 @@ msgstr "et supportez les développeurs"
 
 #: ID:583,
 msgid "another item already exists in its place."
-msgstr ""
+msgstr "un autre élément existe déjà à l'emplacement."
 
 #: ID:245,
 msgid "author"
@@ -7740,9 +7748,8 @@ msgstr ""
 "%s"
 
 #: ID:583,
-#, fuzzy
 msgid "there are conflicting modifications."
-msgstr "Vérifier les modifications"
+msgstr "il existe des modifications en conflit."
 
 #: ID:80,#:
 #: ID:103,#:
