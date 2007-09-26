@@ -122,8 +122,7 @@ protected:
 protected:
 	void			DrawHeader(CDC *pdc, const CRect &rect);
 	void			DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex);
-	void			DrawDiffTokens(
-		CDC *pDC, const CRect &rc, int& nLineOffset, CPoint& origin, apr_off_t nTokenCount);
+	void			DrawDiffTokens(CDC *pDC, const CRect &rc, int& nLineIndex, int& nLineOffset, CPoint& origin, apr_off_t nTokenCount, bool bInlineDiff);
 	void			DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex);
 	/**
 	 * Draws the horizontal lines around current diff block or selection block.
@@ -189,6 +188,12 @@ protected:
 	bool			IsLeftViewGood() const {return ((m_pwndLeft)&&(m_pwndLeft->IsWindowVisible()));}
 	bool			IsRightViewGood() const {return ((m_pwndRight)&&(m_pwndRight->IsWindowVisible()));}
 	bool			IsBottomViewGood() const {return ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()));}
+
+	void			UpdateCaret();
+	int				CalculateActualOffset(int nLineIndex, int nCharIndex);
+	POINT			TextToClient(const POINT& point);
+	void			DrawText(CDC * pDC, const CRect &rc, LPCTSTR text, int textlength, int nLineIndex, POINT coords, bool bModified, bool bInlineDiff);
+
 protected:
 	COLORREF		m_InlineRemovedBk;
 	COLORREF		m_InlineAddedBk;
@@ -217,6 +222,12 @@ protected:
 	int				m_nDiffBlockEnd;
 
 	int				m_nMouseLine;
+
+	bool			m_bCaretHidden;
+	POINT			m_ptCaretPos;
+	POINT			m_ptSelectionStartPos;
+	POINT			m_ptSelectionEndPos;
+
 
 	HICON			m_hAddedIcon;
 	HICON			m_hRemovedIcon;

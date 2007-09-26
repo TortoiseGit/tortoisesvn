@@ -26,6 +26,7 @@ CRightView::CRightView(void)
 {
 	m_pwndRight = this;
 	m_nStatusBarID = ID_INDICATOR_RIGHTVIEW;
+	m_bCaretHidden = false;
 }
 
 CRightView::~CRightView(void)
