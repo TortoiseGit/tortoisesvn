@@ -122,6 +122,8 @@ protected:
 protected:
 	void			DrawHeader(CDC *pdc, const CRect &rect);
 	void			DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex);
+	void			DrawDiffTokens(
+		CDC *pDC, const CRect &rc, int& nLineOffset, CPoint& origin, apr_off_t nTokenCount);
 	void			DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex);
 	/**
 	 * Draws the horizontal lines around current diff block or selection block.

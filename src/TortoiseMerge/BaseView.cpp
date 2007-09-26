@@ -866,6 +866,7 @@ void CBaseView::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 	if (m_pwndLocator)
 		m_pwndLocator->Invalidate();
 }
+
 void CBaseView::OnDoHScroll(UINT nSBCode, UINT /*nPos*/, CScrollBar* /*pScrollBar*/, CBaseView * master) 
 {
 	SCROLLINFO si;
@@ -1266,6 +1267,19 @@ void CBaseView::DrawBlockLine(CDC *pDC, const CRect &rc, int nLineIndex)
 	}
 }
 
+void CBaseView::DrawDiffTokens(
+	CDC *pDC, const CRect &rc, int& nLineOffset, CPoint& origin, apr_off_t nTokenCount)
+{
+	CString s;
+	for (int i = 0; i < nTokenCount; ++i)
+	{
+		s += m_svnlinediff.m_line1tokens[nLineOffset].c_str();
+		nLineOffset++;
+	}
+	VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, (LPCTSTR)s, s.GetLength(), NULL));
+	origin.x += pDC->GetTextExtent(s).cx;
+}
+
 void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 {
 	if (nLineIndex >= GetLineCount())
@@ -1346,112 +1360,49 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 	int savedx = origin.x;
 	if (nWidth > 0)
 	{
-		int nCharWidth = GetCharWidth();
 		int nCount = line.GetLength();
-		int nCountFit = nWidth / nCharWidth + 1;
+		int nCountFit = nWidth / GetCharWidth() + 1;
 		if (nCount > nCountFit)
 			nCount = nCountFit;
 
-		if ((pszDiffChars)&&
-			(DIFFSTATE_NORMAL != m_pViewData->GetState(nLineIndex))&&
-			!line.IsEmpty()&&
-			(pszDiffChars[0]!=0) &&
-			((m_pwndBottom == NULL) || (m_pwndBottom->IsHidden())))
+		if (
+			m_bShowInlineDiff && pszDiffChars && (pszDiffChars[0]!=0) &&
+			(DIFFSTATE_NORMAL != m_pViewData->GetState(nLineIndex)) &&
+			!line.IsEmpty() &&
+			((m_pwndBottom == NULL) || (m_pwndBottom->IsHidden()))
+		)
 		{
 			CString diffline;
 			ExpandChars(pszDiffChars, 0, nDiffLength, diffline);
 			svn_diff_t * diff = NULL;
 			m_svnlinediff.Diff(&diff, line, line.GetLength(), diffline, diffline.GetLength(), m_bInlineWordDiff);
-			if (diff && m_bShowInlineDiff && SVNLineDiff::ShowInlineDiff(diff))
+			if (diff && SVNLineDiff::ShowInlineDiff(diff))
 			{
-				svn_diff_t* tempdiff = diff;
 				int lineoffset = 0;
-				CString sDispTemp;
-				typedef struct  
-				{
-					int x, y, cx, cy;
-					COLORREF clr;
-				} graphrects;
-				std::deque<graphrects> rects;
-				// If we're here means we consider the lines modified, not
-				// removed/added. We use a different background color for
-				// modified lines:
+				std::deque<int> removedPositions;
+				// If we're here means we consider the lines modified, not removed/added.
+				// We use a different background color for modified lines:
 				crBkgnd = m_ModifiedBk;
-				while (tempdiff)
+				while (diff)
 				{
-					if (tempdiff->type == svn_diff__type_common)
-					{
-						pDC->SetBkColor(crBkgnd);
-						pDC->SetTextColor(crText);
-						for (int i=0; i<tempdiff->original_length; ++i)
-						{
-							sDispTemp += m_svnlinediff.m_line1tokens[lineoffset].c_str();
-							lineoffset++;
-						}
-						VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, (LPCTSTR)sDispTemp, sDispTemp.GetLength(), NULL));
-						origin.x += (sDispTemp.GetLength() * nCharWidth);
-						sDispTemp.Empty();
-					}
-					if (tempdiff->type == svn_diff__type_diff_modified)
-					{
-						if (tempdiff->original_length == tempdiff->modified_length)
-						{
-							pDC->SetBkColor(InlineDiffColor(nLineIndex));
-							pDC->SetTextColor(crText);
-							for (int i=0; i<tempdiff->original_length; ++i)
-							{
-								sDispTemp += m_svnlinediff.m_line1tokens[lineoffset].c_str();
-								lineoffset++;
-							}
-							VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, (LPCTSTR)sDispTemp, sDispTemp.GetLength(), NULL));
-							origin.x += (sDispTemp.GetLength() * nCharWidth);
-							sDispTemp.Empty();
-						}
-						else
-						{
-							if (tempdiff->original_length < tempdiff->modified_length)
-							{
-								pDC->SetBkColor(InlineDiffColor(nLineIndex));
-								pDC->SetTextColor(crText);
-								for (int i=0; i<tempdiff->original_length; ++i)
-								{
-									sDispTemp += m_svnlinediff.m_line1tokens[lineoffset].c_str();
-									lineoffset++;
-								}
-								VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, (LPCTSTR)sDispTemp, sDispTemp.GetLength(), NULL));
-								origin.x += (sDispTemp.GetLength() * nCharWidth);
-								sDispTemp.Empty();
-								// now draw a removed line
-								graphrects r = {origin.x-1, origin.y, 1, m_nLineHeight, m_InlineRemovedBk};
-								rects.push_back(r);
-							}
-							if (tempdiff->original_length > tempdiff->modified_length)
-							{
-								pDC->SetBkColor(InlineDiffColor(nLineIndex));
-								pDC->SetTextColor(crText);
-								for (int i=0; i<tempdiff->modified_length; ++i)
-								{
-									sDispTemp += m_svnlinediff.m_line1tokens[lineoffset].c_str();
-									lineoffset++;
-								}
-								UINT len = (UINT)(tempdiff->original_length-tempdiff->modified_length);
-								for (UINT i=0; i<len; ++i)
-								{
-									sDispTemp += m_svnlinediff.m_line1tokens[lineoffset].c_str();
-									lineoffset++;
-								}
-								VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, (LPCTSTR)sDispTemp, sDispTemp.GetLength(), NULL));
-								origin.x += (sDispTemp.GetLength() * nCharWidth);
-								sDispTemp.Empty();
-							}
-						}
-					}
-					tempdiff = tempdiff->next;
+					pDC->SetBkColor(
+						diff->type == svn_diff__type_common ? crBkgnd :
+						diff->type == svn_diff__type_diff_modified ? InlineDiffColor(nLineIndex) :
+						RGB(255, 0, 0) // Should never happen
+					);
+					pDC->SetTextColor(crText);
+
+					apr_off_t len = diff->original_length;
+					DrawDiffTokens(pDC, rc, lineoffset, origin, len);
+
+					if ((diff->type == svn_diff__type_diff_modified) && (len < diff->modified_length))
+						removedPositions.push_back(origin.x-1);
+
+					diff = diff->next;
 				}
-				for (std::deque<graphrects>::iterator it = rects.begin(); it != rects.end(); ++it)
-				{
-					pDC->FillSolidRect(it->x, it->y, it->cx, it->cy, it->clr);
-				}
+				// Draw vertical bars at removed chunks' positions.
+				for (std::deque<int>::iterator it = removedPositions.begin(); it != removedPositions.end(); ++it)
+					pDC->FillSolidRect(*it, rc.top, 1, rc.Height(), m_InlineRemovedBk);
 			}
 			else
 				VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, line, nCount, NULL));
@@ -1467,10 +1418,8 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 	if (origin.x > frect.left)
 		frect.left = origin.x;
 	if (frect.right > frect.left)
-	{
-		if (frect.right > frect.left)
-			pDC->FillSolidRect(frect, crBkgnd);
-	}
+		pDC->FillSolidRect(frect, crBkgnd);
+
 	DrawBlockLine(pDC, rc, nLineIndex);
 	DrawLineEnding(pDC, rc, nLineIndex, origin);
 }
