@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-09-24 13:37+0100\n"
+"PO-Revision-Date: 2007-09-26 10:40+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2930,6 +2930,17 @@ msgstr ""
 "Wollen Sie wirklich alle Änderungen an\n"
 "%s,\n"
 "die in dieser Revision durchgeführt wurden, rückgängig machen? Die Vorgängerversionen werden rückwärts in Ihrer Arbeitskopie zusammengeführt."
+
+#: ID:99,
+#, c-format
+msgid ""
+"Do you want to make this working copy unversioned?\n"
+"This will remove all Subversion admin directories from\n"
+"%s!"
+msgstr ""
+"Wollen Sie diese Arbeitskopie aus der Versionskontrolle entfernen?\n"
+"Damit werden alle Subversion Verwaltungsverzeichnisse aus\n"
+"%s gelöscht!"
 
 # ID:76,
 #: ID:76,
@@ -8099,11 +8110,23 @@ msgstr "Entsperrt"
 msgid "Untitled"
 msgstr "Unbenannt"
 
+# Control-ID:1075,#:
+# Control-ID:1075,
+#: ID:146,
+msgid "Unversion"
+msgstr "Versionierung aufheben"
+
 # Control-ID:1313,
 # Control-ID:1313,
 #: Control-ID:1313,
 msgid "Unversioned files mark parent folder as modified"
 msgstr "Nicht versionierte Dateien markieren Elternordner als modifiziert"
+
+# ID:201,
+#: ID:286,
+#, c-format
+msgid "Unversioning %s"
+msgstr "Hebe Versionierung von %s auf"
 
 # Dlg-ID:152,
 #: Dlg-ID:152,
