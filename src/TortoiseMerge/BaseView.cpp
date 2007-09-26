@@ -2434,14 +2434,6 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
 		if (((m_nSelBlockStart >= 0)&&(m_nSelBlockEnd >= 0))&&
 			((nMouseLine >= m_nTopLine)&&(nMouseLine < GetLineCount())))
 		{
-			if (m_nSelBlockStart > nMouseLine)
-			{
-				m_nSelBlockStart = nMouseLine;
-			}
-			else if ((m_nSelBlockEnd < nMouseLine)&&(m_nSelBlockStart >= 0))
-			{
-				m_nSelBlockEnd = nMouseLine;
-			}
 			m_ptCaretPos.y = nMouseLine;
 			m_ptCaretPos.x = (point.x - GetMarginWidth()) / GetCharWidth();
 			m_ptCaretPos.x = min(m_ptCaretPos.x, GetLineActualLength(nMouseLine));
@@ -2454,6 +2446,8 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
 			{
 				m_ptSelectionStartPos = m_ptCaretPos;
 			}
+			m_nSelBlockStart = m_ptSelectionStartPos.y;
+			m_nSelBlockEnd = m_ptSelectionEndPos.y;
 			SetupSelection(m_nSelBlockStart, m_nSelBlockEnd);
 			Invalidate();
 		}
