@@ -122,7 +122,11 @@ protected:
 protected:
 	void			DrawHeader(CDC *pdc, const CRect &rect);
 	void			DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex);
-	void			DrawSingleLine(CDC *pdc, const CRect &rc, int nLineIndex);
+	void			DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex);
+	/**
+	 * Draws the line ending 'char'.
+	 */
+	void			DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const CPoint& origin);
 	void			ExpandChars(LPCTSTR pszChars, int nOffset, int nCount, CString &line);
 
 	void			RecalcVertScrollBar(BOOL bPositionOnly = FALSE);

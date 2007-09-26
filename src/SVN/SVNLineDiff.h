@@ -32,6 +32,11 @@ public:
 	~SVNLineDiff();
 
 	bool Diff(svn_diff_t** diff, LPCTSTR line1, int len1, LPCTSTR line2, int len2, bool bWordDiff);
+	/** Checks if we really should show inline diffs.
+	 * Inline diffs are only useful if the two lines are not
+	 * completely different but at least a little bit similar.
+	 */
+	static bool ShowInlineDiff(svn_diff_t* diff);
 
 	std::vector<std::wstring>	m_line1tokens;
 	std::vector<std::wstring>	m_line2tokens;

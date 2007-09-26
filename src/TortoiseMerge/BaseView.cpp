@@ -1220,6 +1220,23 @@ COLORREF CBaseView::IntenseColor(long scale, COLORREF col)
 	return RGB(R, G, B);
 }
 
+void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const CPoint& origin)
+{
+	if (!(m_bViewWhitespace && m_pViewData && (nLineIndex >= 0) && (nLineIndex < m_pViewData->GetCount())))
+		return;
+
+	HICON hEndingIcon = NULL;
+	switch (m_pViewData->GetLineEnding(nLineIndex))
+	{
+		case EOL_CR:	hEndingIcon = m_hLineEndingCR;		break;
+		case EOL_CRLF:	hEndingIcon = m_hLineEndingCRLF;	break;
+		case EOL_LF:	hEndingIcon = m_hLineEndingLF;		break;
+		default: return;
+	}
+
+	DrawIconEx(pDC->GetSafeHdc(), origin.x, origin.y, hEndingIcon, rc.Height(), rc.Height(), NULL, NULL, DI_NORMAL);
+}
+
 void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 {
 	if (nLineIndex >= GetLineCount())
@@ -1296,90 +1313,101 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 		{
 			pDC->FillSolidRect(rc.left, rc.bottom-2, rc.Width(), 2, rectcol);
 		}
+		DrawLineEnding(pDC, rc, nLineIndex, origin);
+		return;
 	}
-	else
+	LPCTSTR pszChars = GetLineChars(nLineIndex);
+	LPCTSTR pszDiffChars = GetDiffLineChars(nLineIndex);
+	int nDiffLength = GetDiffLineLength(nLineIndex);
+
+	if (pszChars == NULL)
+		return;
+
+	// Draw the line
+	pDC->SetBkColor(crBkgnd);
+	pDC->SetTextColor(crText);
+
+	pDC->SelectObject(GetFont(FALSE, FALSE, IsLineRemoved(nLineIndex)));
+	if (nLength > 0)
 	{
-		LPCTSTR pszChars = GetLineChars(nLineIndex);
-		LPCTSTR pszDiffChars = GetDiffLineChars(nLineIndex);
-		int nDiffLength = GetDiffLineLength(nLineIndex);
-
-		if (pszChars == NULL)
-			return;
-
-		// Draw the line
-		pDC->SetBkColor(crBkgnd);
-		pDC->SetTextColor(crText);
-
-		pDC->SelectObject(GetFont(FALSE, FALSE, IsLineRemoved(nLineIndex)));
-		if (nLength > 0)
+		CString line;
+		ExpandChars(pszChars, 0, nLength, line);
+		int nWidth = rc.right - origin.x;
+		int savedx = origin.x;
+		if (nWidth > 0)
 		{
-			CString line;
-			ExpandChars(pszChars, 0, nLength, line);
-			int nWidth = rc.right - origin.x;
-			int savedx = origin.x;
-			if (nWidth > 0)
-			{
-				int nCharWidth = GetCharWidth();
-				int nCount = line.GetLength();
-				int nCountFit = nWidth / nCharWidth + 1;
-				if (nCount > nCountFit)
-					nCount = nCountFit;
+			int nCharWidth = GetCharWidth();
+			int nCount = line.GetLength();
+			int nCountFit = nWidth / nCharWidth + 1;
+			if (nCount > nCountFit)
+				nCount = nCountFit;
 
-				if ((pszDiffChars)&&
-					(DIFFSTATE_NORMAL != m_pViewData->GetState(nLineIndex))&&
-					!line.IsEmpty()&&
-					(pszDiffChars[0]!=0) &&
-					((m_pwndBottom == NULL) || (m_pwndBottom->IsHidden())))
+			if ((pszDiffChars)&&
+				(DIFFSTATE_NORMAL != m_pViewData->GetState(nLineIndex))&&
+				!line.IsEmpty()&&
+				(pszDiffChars[0]!=0) &&
+				((m_pwndBottom == NULL) || (m_pwndBottom->IsHidden())))
+			{
+				CString diffline;
+				ExpandChars(pszDiffChars, 0, nDiffLength, diffline);
+				svn_diff_t * diff = NULL;
+				m_svnlinediff.Diff(&diff, line, line.GetLength(), diffline, diffline.GetLength(), m_bInlineWordDiff);
+				if (diff && m_bShowInlineDiff && SVNLineDiff::ShowInlineDiff(diff))
 				{
-					CString diffline;
-					ExpandChars(pszDiffChars, 0, nDiffLength, diffline);
-					svn_diff_t * diff = NULL;
-					m_svnlinediff.Diff(&diff, line, line.GetLength(), diffline, diffline.GetLength(), m_bInlineWordDiff);
-					if ((diff)&&(m_bShowInlineDiff))
+					svn_diff_t* tempdiff = diff;
+					int lineoffset = 0;
+					CString sDispTemp;
+					typedef struct  
 					{
-						svn_diff_t * tempdiff = diff;
-						int diffcounts = 0;
-						int origcounts = 0;
-						apr_off_t origsize = 0;
-						apr_off_t diffsize = 0;
-						// First check if we really should show inline diffs
-						// Inline diffs are only useful if the two lines are not
-						// completely different but at least a little bit similar
-						while (tempdiff)
+						int x, y, cx, cy;
+						COLORREF clr;
+					} graphrects;
+					std::deque<graphrects> rects;
+					// If we're here means we consider the lines modified, not
+					// removed/added. We use a different background color for
+					// modified lines:
+					crBkgnd = m_ModifiedBk;
+					while (tempdiff)
+					{
+						if (tempdiff->type == svn_diff__type_common)
 						{
-							if (tempdiff->type == svn_diff__type_common)
+							pDC->SetBkColor(crBkgnd);
+							pDC->SetTextColor(crText);
+							for (int i=0; i<tempdiff->original_length; ++i)
 							{
-								origcounts++;
-								origsize += tempdiff->original_length;
+								sDispTemp += m_svnlinediff.m_line1tokens[lineoffset].c_str();
+								lineoffset++;
+							}
+							VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, (LPCTSTR)sDispTemp, sDispTemp.GetLength(), NULL));
+							origin.x += (sDispTemp.GetLength() * nCharWidth);
+							sDispTemp.Empty();
+						}
+						if (tempdiff->type == svn_diff__type_diff_modified)
+						{
+							if (tempdiff->original_length == tempdiff->modified_length)
+							{
+								if (IsLineRemoved(nLineIndex))
+									pDC->SetBkColor(m_InlineRemovedBk);
+								else
+									pDC->SetBkColor(m_InlineAddedBk);
+								pDC->SetTextColor(crText);
+								for (int i=0; i<tempdiff->original_length; ++i)
+								{
+									sDispTemp += m_svnlinediff.m_line1tokens[lineoffset].c_str();
+									lineoffset++;
+								}
+								VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, (LPCTSTR)sDispTemp, sDispTemp.GetLength(), NULL));
+								origin.x += (sDispTemp.GetLength() * nCharWidth);
+								sDispTemp.Empty();
 							}
 							else
 							{
-								diffcounts++;
-								diffsize += tempdiff->original_length;
-								diffsize += tempdiff->modified_length;
-							}
-							tempdiff = tempdiff->next;
-						}
-						if ((origcounts >= diffcounts)&&(origsize > diffsize))
-						{
-							tempdiff = diff;
-							int lineoffset = 0;
-							CString sDispTemp;
-							typedef struct  
-							{
-								int x, y, cx, cy;
-								COLORREF clr;
-							} graphrects;
-							std::deque<graphrects> rects;
-							// If we're here means we consider the lines modified, not
-							// removed/added. We use a different background color for
-							// modified lines:
-							crBkgnd = m_ModifiedBk;
-							while (tempdiff)
-							{
-								if (tempdiff->type == svn_diff__type_common)
+								if (tempdiff->original_length < tempdiff->modified_length)
 								{
-									pDC->SetBkColor(crBkgnd);
+									if (IsLineRemoved(nLineIndex))
+										pDC->SetBkColor(m_InlineRemovedBk);
+									else
+										pDC->SetBkColor(m_InlineAddedBk);
 									pDC->SetTextColor(crText);
 									for (int i=0; i<tempdiff->original_length; ++i)
 									{
@@ -1389,127 +1417,70 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 									VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, (LPCTSTR)sDispTemp, sDispTemp.GetLength(), NULL));
 									origin.x += (sDispTemp.GetLength() * nCharWidth);
 									sDispTemp.Empty();
+									// now draw a removed line
+									graphrects r = {origin.x-1, origin.y, 1, m_nLineHeight, m_InlineRemovedBk};
+									rects.push_back(r);
 								}
-								if (tempdiff->type == svn_diff__type_diff_modified)
+								if (tempdiff->original_length > tempdiff->modified_length)
 								{
-									if (tempdiff->original_length == tempdiff->modified_length)
-									{
-										if (IsLineRemoved(nLineIndex))
-											pDC->SetBkColor(m_InlineRemovedBk);
-										else
-											pDC->SetBkColor(m_InlineAddedBk);
-										pDC->SetTextColor(crText);
-										for (int i=0; i<tempdiff->original_length; ++i)
-										{
-											sDispTemp += m_svnlinediff.m_line1tokens[lineoffset].c_str();
-											lineoffset++;
-										}
-										VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, (LPCTSTR)sDispTemp, sDispTemp.GetLength(), NULL));
-										origin.x += (sDispTemp.GetLength() * nCharWidth);
-										sDispTemp.Empty();
-									}
+									if (IsLineRemoved(nLineIndex))
+										pDC->SetBkColor(m_InlineRemovedBk);
 									else
+										pDC->SetBkColor(m_InlineAddedBk);
+									pDC->SetTextColor(crText);
+									for (int i=0; i<tempdiff->modified_length; ++i)
 									{
-										if (tempdiff->original_length < tempdiff->modified_length)
-										{
-											if (IsLineRemoved(nLineIndex))
-												pDC->SetBkColor(m_InlineRemovedBk);
-											else
-												pDC->SetBkColor(m_InlineAddedBk);
-											pDC->SetTextColor(crText);
-											for (int i=0; i<tempdiff->original_length; ++i)
-											{
-												sDispTemp += m_svnlinediff.m_line1tokens[lineoffset].c_str();
-												lineoffset++;
-											}
-											VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, (LPCTSTR)sDispTemp, sDispTemp.GetLength(), NULL));
-											origin.x += (sDispTemp.GetLength() * nCharWidth);
-											sDispTemp.Empty();
-											// now draw a removed line
-											graphrects r = {origin.x-1, origin.y, 1, m_nLineHeight, m_InlineRemovedBk};
-											rects.push_back(r);
-										}
-										if (tempdiff->original_length > tempdiff->modified_length)
-										{
-											if (IsLineRemoved(nLineIndex))
-												pDC->SetBkColor(m_InlineRemovedBk);
-											else
-												pDC->SetBkColor(m_InlineAddedBk);
-											pDC->SetTextColor(crText);
-											for (int i=0; i<tempdiff->modified_length; ++i)
-											{
-												sDispTemp += m_svnlinediff.m_line1tokens[lineoffset].c_str();
-												lineoffset++;
-											}
-											UINT len = (UINT)(tempdiff->original_length-tempdiff->modified_length);
-											for (UINT i=0; i<len; ++i)
-											{
-												sDispTemp += m_svnlinediff.m_line1tokens[lineoffset].c_str();
-												lineoffset++;
-											}
-											VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, (LPCTSTR)sDispTemp, sDispTemp.GetLength(), NULL));
-											origin.x += (sDispTemp.GetLength() * nCharWidth);
-											sDispTemp.Empty();
-										}
+										sDispTemp += m_svnlinediff.m_line1tokens[lineoffset].c_str();
+										lineoffset++;
 									}
+									UINT len = (UINT)(tempdiff->original_length-tempdiff->modified_length);
+									for (UINT i=0; i<len; ++i)
+									{
+										sDispTemp += m_svnlinediff.m_line1tokens[lineoffset].c_str();
+										lineoffset++;
+									}
+									VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, (LPCTSTR)sDispTemp, sDispTemp.GetLength(), NULL));
+									origin.x += (sDispTemp.GetLength() * nCharWidth);
+									sDispTemp.Empty();
 								}
-								tempdiff = tempdiff->next;
-							}
-							for (std::deque<graphrects>::iterator it = rects.begin(); it != rects.end(); ++it)
-							{
-								pDC->FillSolidRect(it->x, it->y, it->cx, it->cy, it->clr);
 							}
 						}
-						else
-							VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, line, nCount, NULL));
+						tempdiff = tempdiff->next;
 					}
-					else
-						VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, line, nCount, NULL));
+					for (std::deque<graphrects>::iterator it = rects.begin(); it != rects.end(); ++it)
+					{
+						pDC->FillSolidRect(it->x, it->y, it->cx, it->cy, it->clr);
+					}
 				}
 				else
 					VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, line, nCount, NULL));
-			} // if (nWidth > 0) 
+			}
+			else
+				VERIFY(pDC->ExtTextOut(origin.x, origin.y, ETO_CLIPPED, &rc, line, nCount, NULL));
+		} // if (nWidth > 0) 
 
-			origin.x = savedx + pDC->GetTextExtent(line).cx;
-		} // if (nLength > 0) 
+		origin.x = savedx + pDC->GetTextExtent(line).cx;
+	} // if (nLength > 0) 
 
-		// draw white spaces to the left of the text
-		CRect frect = rc;
-		if (origin.x > frect.left)
-			frect.left = origin.x;
-		if (frect.right > frect.left)
-		{
-			if (frect.right > frect.left)
-				pDC->FillSolidRect(frect, crBkgnd);
-		}
-		COLORREF rectcol = m_bFocused ? GetSysColor(COLOR_WINDOWTEXT) : GetSysColor(COLOR_GRAYTEXT);
-		if ((nLineIndex == m_nDiffBlockStart)||(nLineIndex == m_nSelBlockStart))
-		{
-			pDC->FillSolidRect(rc.left, rc.top, rc.Width(), 2, rectcol);
-		}		
-		if ((nLineIndex == m_nDiffBlockEnd)||(nLineIndex == m_nSelBlockEnd))
-		{
-			pDC->FillSolidRect(rc.left, rc.bottom-2, rc.Width(), 2, rectcol);
-		}
-	}
-
-	// draw the line ending 'char'
-	if ((m_bViewWhitespace)&&(m_pViewData)&&(nLineIndex >= 0)&&(nLineIndex < m_pViewData->GetCount()))
+	// draw white spaces to the left of the text
+	CRect frect = rc;
+	if (origin.x > frect.left)
+		frect.left = origin.x;
+	if (frect.right > frect.left)
 	{
-		EOL ending = m_pViewData->GetLineEnding(nLineIndex);
-		switch (ending)
-		{
-		case EOL_CR:
-			DrawIconEx(pDC->GetSafeHdc(), origin.x, origin.y, m_hLineEndingCR, rc.Height(), rc.Height(), NULL, NULL, DI_NORMAL);
-			break;
-		case EOL_CRLF:
-			DrawIconEx(pDC->GetSafeHdc(), origin.x, origin.y, m_hLineEndingCRLF, rc.Height(), rc.Height(), NULL, NULL, DI_NORMAL);
-			break;
-		case EOL_LF:
-			DrawIconEx(pDC->GetSafeHdc(), origin.x, origin.y, m_hLineEndingLF, rc.Height(), rc.Height(), NULL, NULL, DI_NORMAL);
-			break;
-		}
+		if (frect.right > frect.left)
+			pDC->FillSolidRect(frect, crBkgnd);
 	}
+	COLORREF rectcol = m_bFocused ? GetSysColor(COLOR_WINDOWTEXT) : GetSysColor(COLOR_GRAYTEXT);
+	if ((nLineIndex == m_nDiffBlockStart)||(nLineIndex == m_nSelBlockStart))
+	{
+		pDC->FillSolidRect(rc.left, rc.top, rc.Width(), 2, rectcol);
+	}		
+	if ((nLineIndex == m_nDiffBlockEnd)||(nLineIndex == m_nSelBlockEnd))
+	{
+		pDC->FillSolidRect(rc.left, rc.bottom-2, rc.Width(), 2, rectcol);
+	}
+	DrawLineEnding(pDC, rc, nLineIndex, origin);
 }
 
 void CBaseView::ExpandChars(LPCTSTR pszChars, int nOffset, int nCount, CString &line)

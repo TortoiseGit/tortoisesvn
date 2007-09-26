@@ -260,3 +260,28 @@ bool SVNLineDiff::IsCharWhiteSpace(TCHAR c)
 {
 	return (c == ' ') || (c == '\t');
 }
+
+bool SVNLineDiff::ShowInlineDiff(svn_diff_t* diff)
+{
+	svn_diff_t* tempdiff = diff;
+	int diffcounts = 0;
+	int origcounts = 0;
+	apr_off_t origsize = 0;
+	apr_off_t diffsize = 0;
+	while (tempdiff)
+	{
+		if (tempdiff->type == svn_diff__type_common)
+		{
+			origcounts++;
+			origsize += tempdiff->original_length;
+		}
+		else
+		{
+			diffcounts++;
+			diffsize += tempdiff->original_length;
+			diffsize += tempdiff->modified_length;
+		}
+		tempdiff = tempdiff->next;
+	}
+	return (origcounts >= diffcounts) && (origsize > diffsize);
+}
