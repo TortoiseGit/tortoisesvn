@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-09-05 10:46+0900\n"
+"PO-Revision-Date: 2007-09-27 19:16+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -646,8 +646,8 @@ msgid "&Limit search to modified lines"
 msgstr "수정된 행에 대해서만 찾습니다(&L)"
 
 #: MenuEntry
-msgid "&Link images together"
-msgstr "그림을 서로 연결하기(&L)"
+msgid "&Link image positions"
+msgstr "그림 위치를 서로 연결하기(&L)"
 
 # ID:188,
 #: Control-ID:1172,
@@ -698,10 +698,6 @@ msgstr "네트워크 드라이브(&N)"
 #: Control-ID:65535,
 msgid "&New "
 msgstr "새로 만들기(&N)"
-
-#: MenuEntry
-msgid "&Newest on top"
-msgstr "최신 리비전을 최상에"
 
 # Control-ID:1208,
 #: ID:115,#:
@@ -787,8 +783,8 @@ msgstr "이름 바꾸기(&R)"
 
 # Control-ID:1316,
 #: Control-ID:1316,
-msgid "&Reopen commit dialog after a commit failed"
-msgstr "커밋이 실패하면 커밋 대화상자를 다시 엽니다(&R)"
+msgid "&Reopen commit and branch/tag dialog after a commit failed"
+msgstr "커밋이 실패하면 커밋/브랜치,태그 대화상자를 다시 엽니다(&R)"
 
 # ID:13,
 #: ID:13,
@@ -1035,6 +1031,10 @@ msgstr "(없음)"
 #: ID:208,
 msgid "(property change only)"
 msgstr "(속성만 변경)"
+
+#: ID:245,
+msgid "(unknown)"
+msgstr "(알 수 없음)"
 
 # ID:188,
 #: ID:188,
@@ -1671,10 +1671,6 @@ msgstr "평균"
 msgid "B&rowse..."
 msgstr "찾아보기(&R)"
 
-#: MenuEntry
-msgid "Background &color..."
-msgstr "배경색(&C)..."
-
 # ID:246,
 #: ID:246,
 msgid "Bar Graph"
@@ -2011,6 +2007,10 @@ msgstr "%s에 체크아웃, 리비전 %s, %s, %s"
 msgid "Checksum:"
 msgstr "체크섬:"
 
+#: Control-ID:1402,
+msgid "Choose item:"
+msgstr "아이템 선택:"
+
 # ID:145,
 #: ID:146,
 msgid "Cleaning up."
@@ -2264,6 +2264,11 @@ msgid "Configure viewer program for GNU diff files (patch files)."
 msgstr "GNU diff 파일 (패치 파일) 보기 프로그램을 설정합니다."
 
 # Control-ID:65535,
+#: Control-ID:65535,
+msgid "Conflict resolved"
+msgstr "충돌상황 해결됨"
+
+# Control-ID:65535,
 #: ID:263,#:
 #: Control-ID:65535,
 msgid "Conflicted"
@@ -2430,6 +2435,12 @@ msgstr "수정"
 msgid "Could not add %s to the ignore list!"
 msgstr "무시 목록에 %s를 추가할 수 없습니다!"
 
+# ID:81,
+#: ID:582,
+#, c-format
+msgid "Could not add \"%s\" because"
+msgstr "\"%s\" 을/를 추가할 수 없습니다. 사유:"
+
 # ID:201,
 #: ID:201,
 msgid "Could not check for a newer version!"
@@ -2448,9 +2459,21 @@ msgstr ""
 "%s"
 
 # ID:81,
+#: ID:582,
+#, c-format
+msgid "Could not delete \"%s\" because"
+msgstr "\"%s\" 을/를 삭제할 수 없습니다. 사유:"
+
+# ID:81,
 #: ID:81,
 msgid "Could not get the status!"
 msgstr "상태를 얻을 수 없습니다!"
+
+# ID:81,
+#: ID:582,
+#, c-format
+msgid "Could not merge \"%s\" because"
+msgstr "\"%s\" 을/를 병합할 수 없습니다. 사유:"
 
 # ID:69,
 #: ID:69,
@@ -2579,8 +2602,8 @@ msgstr ""
 
 # ID:8,
 #: ID:8,
-msgid "Create repositor&y here..."
-msgstr "현재 위치에 저장소 생성(&Y)..."
+msgid "Create repositor&y here"
+msgstr "현재 위치에 저장소 생성(&Y)"
 
 # ID:132,
 #: MenuEntry
@@ -2849,6 +2872,17 @@ msgstr ""
 "%s 의 바뀐 내용들을 되돌리시겠습니까?\n"
 "거꾸로 병합하여 작업사본에 반영하는 방법으로 변경한 내용이 되돌려질 것입니다."
 
+#: ID:99,
+#, c-format
+msgid ""
+"Do you want to make this working copy unversioned?\n"
+"This will remove all Subversion admin directories from\n"
+"%s!"
+msgstr ""
+"이 작업사본을 관리대상에서 제거하시겠습니까?\n"
+"이 명령은 다음의 서브버전의 관리 폴더를 제거하게 됩니다.\n"
+"%s"
+
 # ID:76,
 #: ID:76,
 msgid "Do you want to proceed?"
@@ -2874,10 +2908,13 @@ msgstr "%s 속성을 하위 디렉토리에서도 삭제하시겠습니까?"
 msgid "Do you want to save your changes?"
 msgstr "바뀐 내용을 저장하시겠습니까?"
 
-# Control-ID:65535,
 #: Control-ID:65535,
-msgid "Documentation - Simon Large"
-msgstr "문서화 - Simon Large;  한글 번역 - 최호진,이재홍"
+msgid ""
+"Documentation : Simon Large\n"
+"Code : Tobias Schäfer, Stefan Fuhrmann"
+msgstr ""
+"문서 : Simon Large\n"
+"코드 : Tobias Schäfer, Stefan Fuhrmann"
 
 # ID:80,
 #: ID:73,#:
@@ -2934,6 +2971,11 @@ msgstr "작성자 수정"
 #: ID:115,
 msgid "Edit author name"
 msgstr "작성자 이름 수정"
+
+# ID:12,
+#: Control-ID:1399,
+msgid "Edit conflict"
+msgstr "충돌 상황 편집"
 
 # ID:110,
 #: ID:110,
@@ -3275,7 +3317,7 @@ msgstr "파일 패치"
 #: ID:7,
 #, c-format
 msgid ""
-"File size:\t\t%s\n"
+"File size:\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3283,7 +3325,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"파일 크기:\t\t%s\n"
+"파일 크기:\t\t%s (%s)\n"
 "가로:\t\t\t%ld pixel\n"
 "세로:\t\t\t%ld pixel\n"
 "수평 해상도:\t%.1f dpi\n"
@@ -3295,7 +3337,7 @@ msgstr ""
 #: ID:8,
 #, c-format
 msgid ""
-"File size:\t\t%s\n"
+"File size:\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3303,7 +3345,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%\n"
 "\n"
-"File size:\t\t%s\n"
+"File size:\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3311,7 +3353,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"파일 크기:\t\t%s\n"
+"파일 크기:\t\t%s (%s)\n"
 "가로:\t\t\t%ld pixel\n"
 "세로:\t\t\t%ld pixel\n"
 "수평 해상도:\t%.1f dpi\n"
@@ -3319,7 +3361,7 @@ msgstr ""
 "깊이:\t\t\t%d bit\n"
 "확대:\t\t\t%d%%\n"
 "\n"
-"파일 크기:\t\t%s\n"
+"파일 크기:\t\t%s (%s)\n"
 "가로:\t\t\t%ld pixel\n"
 "세로:\t\t\t%ld pixel\n"
 "수평 해상도:\t%.1f dpi\n"
@@ -3331,7 +3373,7 @@ msgstr ""
 #: ID:7,
 #, c-format
 msgid ""
-"File size:\t\t\t%s\n"
+"File size:\t\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3339,7 +3381,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"파일 크기:\t\t%s\n"
+"파일 크기:\t\t%s (%s)\n"
 "가로:\t\t\t%ld 픽셀\n"
 "세로:\t\t\t%ld 픽셀\n"
 "수평 해상도:\t\t%.1f dpi\n"
@@ -3351,7 +3393,7 @@ msgstr ""
 #: ID:7,
 #, c-format
 msgid ""
-"File size:\t\t\t%s\n"
+"File size:\t\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3359,7 +3401,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%\n"
 "\n"
-"File size:\t\t\t%s\n"
+"File size:\t\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
 "Height:\t\t\t%ld pixel\n"
 "Horizontal Resolution:\t%.1f dpi\n"
@@ -3367,7 +3409,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"파일 크기:\t\t\t%s\n"
+"파일 크기:\t\t%s (%s)\n"
 "가로:\t\t\t%ld pixel\n"
 "세로:\t\t\t%ld pixel\n"
 "수평 해상도:\t%.1f dpi\n"
@@ -3375,7 +3417,7 @@ msgstr ""
 "깊이:\t\t\t%d bit\n"
 "확대:\t\t\t%d%%\n"
 "\n"
-"파일 크기:\t\t\t%s\n"
+"파일 크기:\t\t%s (%s)\n"
 "가로:\t\t\t%ld pixel\n"
 "세로:\t\t\t%ld pixel\n"
 "수평 해상도:\t%.1f dpi\n"
@@ -3413,8 +3455,8 @@ msgid "Finished!"
 msgstr "종료함"
 
 #: MenuEntry
-msgid "Fit Images &together"
-msgstr "그림을 서로 맞추기(&t)"
+msgid "Fit image &sizes"
+msgstr "그림을 서로 맞추기(&s)"
 
 # Control-ID:1315,
 #: Control-ID:1315,
@@ -3750,21 +3792,21 @@ msgstr "ID:32796:V C +A"
 msgid "ID:32809:V C +F"
 msgstr "ID:32809:V C +F"
 
-#. Accelerator Entry for Menu ID:32810; 'Fit Images &together'
+#. Accelerator Entry for Menu ID:32810; 'Fit image &sizes'
 #: Corresponding Menu ID:32810;
-#: 'Fit Images &together'
+#: 'Fit image &sizes'
 msgid "ID:32810:V   +T"
 msgstr "ID:32810:V   +T"
 
-#. Accelerator Entry for Menu ID:32814; '&Newest on top'
+#. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 #: Corresponding Menu ID:32814;
-#: '&Newest on top'
+#: 'Oldest on to&p'
 msgid "ID:32814:V C +L"
 msgstr "ID:32814:V C +L"
 
-#. Accelerator Entry for Menu ID:32814; '&Newest on top'
+#. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 #: Corresponding Menu ID:32814;
-#: '&Newest on top'
+#: 'Oldest on to&p'
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
@@ -3804,6 +3846,7 @@ msgstr "ID:57603:V C +S"
 msgid "ID:57604:V CS+S"
 msgstr "ID:57604:V CS+S"
 
+#. Accelerator Entry for Menu ID:57634; ''
 #. Accelerator Entry for Menu ID:57634; ''
 #. Accelerator Entry for Menu ID:57634; '&Copy'
 #: Corresponding Menu ID:57634;
@@ -4297,6 +4340,11 @@ msgstr "충돌을 해결하기 위해 외부 비교 / 병합 프로그램을 실
 msgid "Least active author:"
 msgstr "활동이 적은 작성자:"
 
+# ID:11,
+#: Control-ID:1404,
+msgid "Leave conflicted:"
+msgstr "충돌된채로 남겨짐:"
+
 # ID:188,
 #: ID:188,
 msgid "Left View: "
@@ -4567,6 +4615,16 @@ msgstr "병합 - TortoiseSVN"
 msgid "Merge depth:"
 msgstr "병합 단계:"
 
+# ID:76,
+#: ID:114,
+msgid "Merge revision to..."
+msgstr "리비전을 병합..."
+
+# ID:76,
+#: ID:114,
+msgid "Merge revisions to..."
+msgstr "리비전을 병합..."
+
 # ID:110,
 #: Control-ID:1377,
 msgid "Merge settings"
@@ -4581,14 +4639,8 @@ msgstr "병합됨"
 # ID:313,
 #: ID:286,
 #, c-format
-msgid "Merged revision %s from %s:\n"
+msgid "Merged revision(s) %s from %s:\n"
 msgstr "리비전 %s 이 병합됨 (경로: %s):\n"
-
-# ID:229,
-#: ID:286,
-#, c-format
-msgid "Merged revisions %s to %s from %s:\n"
-msgstr "리비전 %s - %s 구간이 병합됨 (경로: %s):\n"
 
 # ID:10,
 #: ID:10,
@@ -4859,6 +4911,16 @@ msgstr "오류 발생하지 않음."
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
 msgstr "마지막 커밋 이후로 추가되거나 변경된 것이 없으므로, 아무것도 되돌리지 않습니다."
 
+#: ID:239,
+msgid ""
+"No files to show with the current setting.\n"
+"Check one or more settings below to see unversioned, ignored and/or unmodified files.\n"
+"To see remote changes, click on \"Check Repository\""
+msgstr ""
+"현재 설정으로는 어떤 파일도 보여지지 않습니다.\n"
+"버전관리가 아니거나, 무시목록에 있는 것 혹은 수정되지 않은 파일을 보고 싶으면,\n"
+"아래 중 하나 이상을 선택하십시오. 저장소파일의 변경 상태를 보려면 \"저장소 확인\"을 선택하세요"
+
 # ID:77,
 #: ID:77,
 msgid ""
@@ -4976,6 +5038,10 @@ msgstr "OVR"
 #: Control-ID:65535,
 msgid "Older lines"
 msgstr "오래된 행"
+
+#: MenuEntry
+msgid "Oldest on to&p"
+msgstr "최신 리비전을 최상에(&P)"
 
 # ID:13,
 #: ID:99,#:
@@ -5285,6 +5351,10 @@ msgstr ""
 "만약 이후의 변경내용을 태깅/브랜칭한 곳에 계속 반영하시려면\n"
 "작업 사본을 그 URL로 변경시켜야합니다.\n"
 "<b>브랜치/태그 전환</b>명령을 사용하여 변경하시기 바랍니다."
+
+#: Control-ID:1287,
+msgid "Please resolve the conflict by choosing one of the following options:"
+msgstr "다음 옵션 중 하나를 선택하여 충돌상황을 해결 하십시오:"
 
 # ID:3858,#:
 # ID:3858,
@@ -5832,6 +5902,16 @@ msgid "Resolve - TortoiseSVN"
 msgstr "해결 상태로 변경 - TortoiseSVN"
 
 # ID:9,
+#: Dlg-ID:268,
+msgid "Resolve Conflict"
+msgstr "충돌 상황 해결"
+
+# Control-ID:1021,
+#: Control-ID:1382,
+msgid "Resolve all later"
+msgstr "모든 충돌 상황을 나중에 해결"
+
+# ID:9,
 #: ID:282,
 msgid "Resolve conflict using \"mine\""
 msgstr "작업 사본의 내용으로 충돌 파일을 해결하기"
@@ -5841,9 +5921,20 @@ msgstr "작업 사본의 내용으로 충돌 파일을 해결하기"
 msgid "Resolve conflict using \"theirs\""
 msgstr "저장소의 내용으로 충돌 파일을 해결하기"
 
+# ID:9,
+#: Control-ID:1403,
+msgid "Resolve conflict:"
+msgstr "충돌 상황 해결:"
+
+# ID:8,
+#: Control-ID:2,
+msgid "Resolve later"
+msgstr "충돌상황은 나중에 해결함"
+
 # ID:8,
 #: ID:74,#:
-#: ID:209,
+#: ID:209,#:
+#: Control-ID:1400,
 msgid "Resolved"
 msgstr "충돌 해결됨"
 
@@ -6340,6 +6431,11 @@ msgstr "훅 스크립트를 선택하세요"
 #: ID:78,
 msgid "Select merge application"
 msgstr "병합 프로그램 선택"
+
+# ID:78,
+#: ID:119,
+msgid "Select merge target"
+msgstr "병합 대상 선택"
 
 # Dlg-ID:173,
 #: ID:276,
@@ -6962,25 +7058,6 @@ msgstr "텍스트 상태:"
 msgid "Text status"
 msgstr "텍스트 상태"
 
-# ID:69,
-#: ID:69,
-#, c-format
-msgid ""
-"The File\n"
-"%s\n"
-"is not a valid text file!\n"
-"Note that UTF32 files are treated as binary too."
-msgstr ""
-"파일\n"
-"%s\n"
-"은/는 올바른 텍스트 파일이 아닙니다.\n"
-"UTF32 파일은 바이너리로 취급됩니다."
-
-# ID:80,
-#: ID:80,
-msgid "The Repository was successfully created."
-msgstr "저장소가 성공적으로 생성되었습니다."
-
 # ID:63,
 #: ID:63,
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -7048,6 +7125,20 @@ msgstr ""
 "이미 존재하는 파일입니다!\n"
 "%s\n"
 "덮어 쓰시겠습니까?"
+
+# ID:69,
+#: ID:69,
+#, c-format
+msgid ""
+"The file\n"
+"%s\n"
+"is not a valid text file!\n"
+"Note that UTF32 files are treated as binary too."
+msgstr ""
+"파일\n"
+"%s\n"
+"은/는 올바른 텍스트 파일이 아닙니다.\n"
+"UTF32 파일은 바이너리로 취급됩니다."
 
 # ID:145,
 #: ID:145,
@@ -7241,6 +7332,11 @@ msgstr ""
 "TortoiseMerge는 다음의 유사한 경로\n"
 "<i>%s</i>\n"
 "을(를) 찾았습니다. 위 경로를 대신 사용하시겠습니까?"
+
+# ID:80,
+#: ID:80,
+msgid "The repository was successfully created."
+msgstr "저장소가 성공적으로 생성되었습니다."
 
 # Control-ID:65535,
 #: Control-ID:65535,
@@ -7517,7 +7613,10 @@ msgid ""
 "/left:\"path to left picture\"\n"
 "/lefttitle:\"title to show for the left picture\"\n"
 "/right:\"path to right picture\"\n"
-"/righttitle:\"title to show for the right picture\""
+"/righttitle:\"title to show for the right picture\"\n"
+"/overlay\t\tto enable overlay mode\n"
+"/fit\t\tto fit the images sizes\n"
+"/showinfo\t\tto show the image info boxes"
 msgstr ""
 "TortoiseIDiff: 그림 파일 비교 프로그램\n"
 "\n"
@@ -7525,7 +7624,10 @@ msgstr ""
 "/left:\"왼쪽 그림 경로\"\n"
 "/lefttitle:\"왼쪽 그림의 제목\"\n"
 "/right:\"오른쪽 그림의 경로\"\n"
-"/righttitle:\"오른쪽 그림의 제목\""
+"/righttitle:\"오른쪽 그림의 제목\"\n"
+"/overlay\t\t오버레이 모드 활성화\n"
+"/fit\t\t그림 크기에 맞춤\n"
+"/showinfo\t\t이미지 정보 대화 상자를 보임"
 
 # ID:7,#:
 # ID:3585,#:
@@ -7616,6 +7718,10 @@ msgstr "총 변경 파일 수:"
 #, c-format
 msgid "Transferring at %s"
 msgstr "전송중 %s"
+
+#: MenuEntry
+msgid "Transparent &color..."
+msgstr "투명색(&C)..."
 
 # ID:251,
 #: ID:251,
@@ -7786,10 +7892,22 @@ msgstr "잠금 풀림"
 msgid "Untitled"
 msgstr "제목 없음"
 
+# Control-ID:1075,#:
+# Control-ID:1075,
+#: ID:146,
+msgid "Unversion"
+msgstr "관리대상아님"
+
 # Control-ID:1313,
 #: Control-ID:1313,
 msgid "Unversioned files mark parent folder as modified"
 msgstr "버전 관리 대상이 아닌 파일들이 있으면 상위 폴더를 수정된 것으로 표시합니다."
+
+# ID:201,
+#: ID:286,
+#, c-format
+msgid "Unversioning %s"
+msgstr "버전관리에서 제외 %s"
 
 # ID:8,#:
 # ID:74,#:
@@ -7893,9 +8011,19 @@ msgstr "두 블럭 모두 사용 (이것을 원본으로 사용)"
 msgid "Use both text blocks (this one last)"
 msgstr "두 블럭 모두 사용 (이것을 비교본으로 사용)"
 
+# ID:74,
+#: Control-ID:3,
+msgid "Use local"
+msgstr "작업사본을 사용합니다"
+
 #: ID:116,
 msgid "Use regular expression"
 msgstr "정규표현식을 사용"
+
+# ID:138,
+#: Control-ID:4,
+msgid "Use repository"
+msgstr "저장소를 사용합니다"
 
 # Control-ID:1066,
 #: Control-ID:1066,
@@ -8280,6 +8408,16 @@ msgstr ""
 "주의: 다른 리비전으로 업데이트하여도 현재 작업한 것들을 잃지 않습니다. 따라서\n"
 "업데이트 후, 작업 사본은 원하는 리비전의 모습대로 보이지 않을 수 있습니다."
 
+#: ID:89,
+msgid ""
+"Your working copy has local modifications.\n"
+"If you branch/tag from the HEAD revision, your local changes won't\n"
+"show up in the branch/tag!"
+msgstr ""
+"작업사본이 수정되었습니다.\n"
+"HEAD 리비전에서 브랜치/태그를 만드시면, 현재 작업사본의 변경은\n"
+"만들어지는 브랜치/태그에는 반영되지 않습니다"
+
 #: MenuEntry
 msgid "Zoo&m out"
 msgstr "작게 보기(&M)"
@@ -8343,6 +8481,10 @@ msgstr "와(과)"
 #: Control-ID:1085,
 msgid "and support the developers"
 msgstr "개발자 후원"
+
+#: ID:583,
+msgid "another item already exists in its place."
+msgstr "해당 장소에 이미 존재합니다"
 
 # ID:76,
 #: ID:245,
@@ -8495,6 +8637,20 @@ msgstr "변경되어온 히스토리를 무시함"
 #: ID:13,
 msgid "incomplete"
 msgstr "미완성"
+
+# ID:64,
+#: ID:583,
+msgid "it does not exist."
+msgstr "존재하지 않습니다"
+
+#: ID:583,
+msgid "it is already deleted."
+msgstr "이미 지워진 파일입니다"
+
+# ID:10,
+#: ID:583,
+msgid "it is unversioned."
+msgstr "버전관리 대상 아님"
 
 # ID:17,
 #: ID:214,
@@ -8676,6 +8832,20 @@ msgstr ""
 "Rev, LastChangedRevision\t마지막 수정 리비전.\n"
 "Id\t\t\t\t위 네 키워드들을 모두 요약한 것."
 
+#: ID:576,
+msgid ""
+"svn:mergeinfo\n"
+"A newline separated list of merge tracking info. Each line consists of an absolute\n"
+"path followed by a colon and a list of comma separated revision numbers.\n"
+"For example\n"
+"/trunk:123-125,129"
+msgstr ""
+"svn:mergeinfo\n"
+"개행문자로 구별되는 병합추적정보 목록입니다. 절대 경로뒤에 콜론(:)을 붙이고, 뒤에\n"
+"리비전을 쉼표로 구별하여 각 행에 나열합니다\n"
+"예제\n"
+"/trunk:123-125,129"
+
 # ID:14,
 #: ID:576,
 msgid ""
@@ -8718,6 +8888,11 @@ msgstr ""
 #: Control-ID:65535,
 msgid "switched:"
 msgstr "전환됨:"
+
+# ID:13,
+#: ID:583,
+msgid "there are conflicting modifications."
+msgstr "충돌하는 수정사항이 존재합니다"
 
 # ID:80,
 #: ID:80,#:
