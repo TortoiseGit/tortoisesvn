@@ -2224,109 +2224,147 @@ BOOL CBaseView::PreTranslateMessage(MSG* pMsg)
 
 void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
-	if (nChar==VK_PRIOR)
+	bool bControl = !!(GetKeyState(VK_CONTROL)&0x8000);
+	bool bShift = !!(GetKeyState(VK_SHIFT)&0x8000);
+	switch (nChar)
 	{
-		if (GetKeyState(VK_CONTROL)&0x8000)
+	case VK_PRIOR:
 		{
-			int nPageWidth = GetScreenChars();
-			if (m_pwndLeft)
-				m_pwndLeft->ScrollSide(-nPageWidth);
-			if (m_pwndRight)
-				m_pwndRight->ScrollSide(-nPageWidth);
-			if (m_pwndBottom)
-				m_pwndBottom->ScrollSide(-nPageWidth);
-		}
-		else
-		{
-			int nPageChars = GetScreenLines();
-			int nLineCount = GetLineCount();
-			int nNewTopLine = 0;
-
-			nNewTopLine = m_nTopLine - nPageChars + 1;
-			if (nNewTopLine < 0)
-				nNewTopLine = 0;
-			if (nNewTopLine >= nLineCount)
-				nNewTopLine = nLineCount - 1;
-			ScrollAllToLine(nNewTopLine);
-		}
-	}
-	if (nChar==VK_NEXT)
-	{
-		if (GetKeyState(VK_CONTROL)&0x8000)
-		{
-			int nPageWidth = GetScreenChars();
-			if (m_pwndLeft)
-				m_pwndLeft->ScrollSide(nPageWidth);
-			if (m_pwndRight)
-				m_pwndRight->ScrollSide(nPageWidth);
-			if (m_pwndBottom)
-				m_pwndBottom->ScrollSide(nPageWidth);
-		}
-		else
-		{
-			int nPageChars = GetScreenLines();
-			int nLineCount = GetLineCount();
-			int nNewTopLine = 0;
-
-			nNewTopLine = m_nTopLine + nPageChars - 1;
-			if (nNewTopLine < 0)
-				nNewTopLine = 0;
-			if (nNewTopLine >= nLineCount)
-				nNewTopLine = nLineCount - 1;
-			ScrollAllToLine(nNewTopLine);
-		}
-	}
-	if (nChar==VK_HOME)
-	{
-		if (GetKeyState(VK_CONTROL)&0x8000)
-		{
-			ScrollAllToLine(0);
-			m_ptCaretPos.x = 0;
-			m_ptCaretPos.y = 0;
-			UpdateCaret();
-		}
-		else
-		{
-			m_ptCaretPos.x = 0;
-			EnsureCaretVisible();
-			UpdateCaret();
-		}
-	}
-	if (nChar==VK_END)
-	{
-		if (GetKeyState(VK_CONTROL)&0x8000)
-		{
-			ScrollAllToLine(GetLineCount()-GetAllMinScreenLines());
-			m_ptCaretPos.y = GetLineCount()-1;
-			m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
-			UpdateCaret();
-		}
-		else
-		{
-			int charpos = GetMaxLineLength() - GetScreenChars();
-			if (charpos > 0)
+			if (bControl)
 			{
-				m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
+				int nPageWidth = GetScreenChars();
+				if (m_pwndLeft)
+					m_pwndLeft->ScrollSide(-nPageWidth);
+				if (m_pwndRight)
+					m_pwndRight->ScrollSide(-nPageWidth);
+				if (m_pwndBottom)
+					m_pwndBottom->ScrollSide(-nPageWidth);
+			}
+			else
+			{
+				int nPageChars = GetScreenLines();
+				int nLineCount = GetLineCount();
+				int nNewTopLine = 0;
+
+				nNewTopLine = m_nTopLine - nPageChars + 1;
+				if (nNewTopLine < 0)
+					nNewTopLine = 0;
+				if (nNewTopLine >= nLineCount)
+					nNewTopLine = nLineCount - 1;
+				ScrollAllToLine(nNewTopLine);
+			}
+		}
+		break;
+	case VK_NEXT:
+		{
+			if (bControl)
+			{
+				int nPageWidth = GetScreenChars();
+				if (m_pwndLeft)
+					m_pwndLeft->ScrollSide(nPageWidth);
+				if (m_pwndRight)
+					m_pwndRight->ScrollSide(nPageWidth);
+				if (m_pwndBottom)
+					m_pwndBottom->ScrollSide(nPageWidth);
+			}
+			else
+			{
+				int nPageChars = GetScreenLines();
+				int nLineCount = GetLineCount();
+				int nNewTopLine = 0;
+
+				nNewTopLine = m_nTopLine + nPageChars - 1;
+				if (nNewTopLine < 0)
+					nNewTopLine = 0;
+				if (nNewTopLine >= nLineCount)
+					nNewTopLine = nLineCount - 1;
+				ScrollAllToLine(nNewTopLine);
+			}
+		}
+		break;
+	case VK_HOME:
+		{
+			if (bControl)
+			{
+				ScrollAllToLine(0);
+				m_ptCaretPos.x = 0;
+				m_ptCaretPos.y = 0;
+				UpdateCaret();
+			}
+			else
+			{
+				m_ptCaretPos.x = 0;
 				EnsureCaretVisible();
 				UpdateCaret();
 			}
 		}
-	}
-	if (nChar==VK_DOWN)
-	{
-		if (m_nSelBlockEnd < GetLineCount()-1)
+		break;
+	case VK_END:
 		{
-			m_nSelBlockEnd++;
-			Invalidate();
+			if (bControl)
+			{
+				ScrollAllToLine(GetLineCount()-GetAllMinScreenLines());
+				m_ptCaretPos.y = GetLineCount()-1;
+				m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
+				UpdateCaret();
+			}
+			else
+			{
+				int charpos = GetMaxLineLength() - GetScreenChars();
+				if (charpos > 0)
+				{
+					m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
+					EnsureCaretVisible();
+					UpdateCaret();
+				}
+			}
 		}
-	}
-	if (nChar==VK_UP)
-	{
-		if (m_nSelBlockEnd > m_nSelBlockStart)
+		break;
+	case VK_DOWN:
 		{
-			m_nSelBlockEnd--;
-			Invalidate();
+			if (m_nSelBlockEnd < GetLineCount()-1)
+			{
+				m_nSelBlockEnd++;
+				Invalidate();
+			}
 		}
+		break;
+	case VK_UP:
+		{
+			if (m_nSelBlockEnd > m_nSelBlockStart)
+			{
+				m_nSelBlockEnd--;
+				Invalidate();
+			}
+		}
+		break;
+	case VK_BACK:
+		{
+			if (m_ptCaretPos.x)
+			{
+				CString sLine = GetLineChars(m_ptCaretPos.y);
+				sLine.Delete(m_ptCaretPos.x-1);
+				m_pViewData->SetLine(m_ptCaretPos.y, sLine);
+				m_ptCaretPos.x--;
+				EnsureCaretVisible();
+				UpdateCaret();
+				SetModified(true);
+				Invalidate(FALSE);
+			}
+		}
+		break;
+	case VK_DELETE:
+		{
+			CString sLine = GetLineChars(m_ptCaretPos.y);
+			if (m_ptCaretPos.x < sLine.GetLength())
+			{
+				sLine.Delete(m_ptCaretPos.x);
+				m_pViewData->SetLine(m_ptCaretPos.y, sLine);
+				SetModified(true);
+				Invalidate(FALSE);
+			}
+		}
+		break;
 	}
 	CView::OnKeyDown(nChar, nRepCnt, nFlags);
 }
