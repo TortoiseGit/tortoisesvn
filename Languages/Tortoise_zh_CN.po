@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-09-26 17:46+0800\n"
+"PO-Revision-Date: 2007-09-27 17:36+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1010,6 +1010,10 @@ msgstr "（未找到）"
 #: ID:208,
 msgid "(property change only)"
 msgstr "（仅属性改变）"
+
+#: ID:245,
+msgid "(unknown)"
+msgstr "(未知)"
 
 # ID:188,
 #: ID:188,
@@ -6838,25 +6842,6 @@ msgstr "文字状态："
 msgid "Text status"
 msgstr "文字状态"
 
-# ID:69,
-#: ID:69,
-#, c-format
-msgid ""
-"The File\n"
-"%s\n"
-"is not a valid text file!\n"
-"Note that UTF32 files are treated as binary too."
-msgstr ""
-"文件\n"
-"%s\n"
-"不是有效的文本文件！\n"
-"注：UTF32文件作为二进制文件处理。"
-
-# ID:80,
-#: ID:80,
-msgid "The Repository was successfully created."
-msgstr "版本库创建成功。"
-
 # ID:63,
 #: ID:63,
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -6923,6 +6908,20 @@ msgstr ""
 "文件 \n"
 "%s\n"
 "已存在! 是否要覆盖？"
+
+# ID:69,
+#: ID:69,
+#, c-format
+msgid ""
+"The file\n"
+"%s\n"
+"is not a valid text file!\n"
+"Note that UTF32 files are treated as binary too."
+msgstr ""
+"文件\n"
+"%s\n"
+"不是有效的文本文件！\n"
+"注意 UTF32 文件也作为二进制文件处理。"
 
 # ID:145,
 #: ID:145,
@@ -7118,6 +7117,11 @@ msgstr ""
 "TortoiseMerge找到了更匹配的路径\n"
 "<i>%s</i>。\n"
 "要使用建议路径替换吗？"
+
+# ID:80,
+#: ID:80,
+msgid "The repository was successfully created."
+msgstr "版本库创建成功。"
 
 # Control-ID:65535,
 #: Control-ID:65535,
