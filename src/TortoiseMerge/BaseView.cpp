@@ -2853,7 +2853,6 @@ void CBaseView::OnCaretWordleft()
 	m_ptCaretPos.x = newpos;
 	EnsureCaretVisible();
 	UpdateCaret();
-	SetModified(true);
 	Invalidate(FALSE);
 }
 
@@ -2867,6 +2866,5 @@ void CBaseView::OnCaretWordright()
 	m_ptCaretPos.x = newpos;
 	EnsureCaretVisible();
 	UpdateCaret();
-	SetModified(true);
 	Invalidate(FALSE);
 }
