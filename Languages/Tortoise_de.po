@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-09-26 10:40+0100\n"
+"PO-Revision-Date: 2007-09-27 10:18+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1050,6 +1050,10 @@ msgstr "(nicht gefunden)"
 #: ID:208,
 msgid "(property change only)"
 msgstr "(Nur Eigenschaftsänderung)"
+
+#: ID:245,
+msgid "(unknown)"
+msgstr "(Unbekannt)"
 
 # ID:188,
 #: ID:188,
@@ -7251,25 +7255,6 @@ msgstr "Objekt / Inhalt:"
 msgid "Text status"
 msgstr "Text Status"
 
-# ID:69,
-#: ID:69,
-#, c-format
-msgid ""
-"The File\n"
-"%s\n"
-"is not a valid text file!\n"
-"Note that UTF32 files are treated as binary too."
-msgstr ""
-"Die Datei\n"
-"%s\n"
-"ist keine gültige Textdatei!\n"
-"Beachten Sie, dass UTF32 Dateien auch als Binärdateien behandelt werden."
-
-# ID:80,
-#: ID:80,
-msgid "The Repository was successfully created."
-msgstr "Das Projektarchiv wurde erfolgreich erstellt."
-
 # ID:63,
 #: ID:63,
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -7338,6 +7323,20 @@ msgstr ""
 "Die Datei\n"
 "%s\n"
 "existiert bereits! Möchten Sie sie wirklich überschreiben?"
+
+# ID:69,
+#: ID:69,
+#, c-format
+msgid ""
+"The file\n"
+"%s\n"
+"is not a valid text file!\n"
+"Note that UTF32 files are treated as binary too."
+msgstr ""
+"Die Datei\n"
+"%s\n"
+"ist keine gültige Textdatei!\n"
+"Beachten Sie, dass UTF32 Dateien als Binärdateien behandelt werden."
 
 # ID:145,
 # ID:145,
@@ -7540,6 +7539,11 @@ msgstr ""
 "TortoiseMerge hat herausgefunden, dass der Pfad\n"
 "<i>%s</i>\n"
 "besser übereinstimmt. Soll der gefundene Pfad verwendet werden?"
+
+# ID:80,
+#: ID:80,
+msgid "The repository was successfully created."
+msgstr "Das Projektarchiv wurde erfolgreich erstellt."
 
 # Control-ID:65535,
 #: Control-ID:65535,
