@@ -9,13 +9,13 @@
 # Based on original translation by:
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r10727
+# Based on Tortoise.pot r10744
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-09-25 10:44+0100\n"
+"PO-Revision-Date: 2007-09-27 12:00+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -832,6 +832,10 @@ msgstr "(findes ikke)"
 #: ID:208,
 msgid "(property change only)"
 msgstr "(kun ændring af egenskab)"
+
+#: ID:245,
+msgid "(unknown)"
+msgstr "(ukendt)"
 
 #: ID:188,
 #, c-format
@@ -4927,15 +4931,6 @@ msgstr "Tekststatus:"
 msgid "Text status"
 msgstr "Tekststatus"
 
-#: ID:69,
-#, c-format
-msgid "The File\n%s\nis not a valid text file!\nNote that UTF32 files are treated as binary too."
-msgstr "Filen\n%s\ner ikke en gyldig tekstfil!\nBemærk, at UTF32-filer også opfattes som binære."
-
-#: ID:80,
-msgid "The Repository was successfully created."
-msgstr "Versionsarkivet blev oprettet."
-
 #: ID:63,
 msgid "The chunk size did not match the number of added/removed lines!"
 msgstr "\"Chunk size\" svarer ikke til antallet af tilføjede/fjernede linjer!"
@@ -4980,6 +4975,11 @@ msgstr "Filen er for stor til at blive åbnet."
 #, c-format
 msgid "The file\n%s\nalready exists! Do you want to overwrite it?"
 msgstr "Filen\n%s\nfindes allerede. Vil du overskrive den?"
+
+#: ID:69,
+#, c-format
+msgid "The file\n%s\nis not a valid text file!\nNote that UTF32 files are treated as binary too."
+msgstr "Filen\n%s\ner ikke en gyldig tekstfil!\nBemærk, at UTF32-filer også opfattes som binære."
 
 #: ID:145,
 #, c-format
@@ -5063,6 +5063,10 @@ msgstr "Stien\n<i>%s</i>\ni korrekturfilen findes ikke.\nTortoiseMerge har fors�
 #, c-format
 msgid "The path\n<i>%s</i>\nseems not to match the paths in the patchfile.\nBut TortoiseMerge found the path\n<i>%s</i>\nmatches it better. Do you want to use the suggested path instead?"
 msgstr "Stien\n<i>%s</i>\nlader ikke til at stemme overens med korrekturfilen.\nMen TortoiseMerge fandt ud af, at stien \n<i>%s</i>\n passer bedre. Vil du benytte den foreslåede sti i stedet?"
+
+#: ID:80,
+msgid "The repository was successfully created."
+msgstr "Versionsarkivet er nu blevet oprettet."
 
 #: Control-ID:65535,
 msgid "The result of the merge is stored in the working copy at:"
