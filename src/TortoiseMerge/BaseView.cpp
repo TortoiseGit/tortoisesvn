@@ -2287,8 +2287,8 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		}
 		else
 		{
-			ScrollToChar(0);
 			m_ptCaretPos.x = 0;
+			EnsureCaretVisible();
 			UpdateCaret();
 		}
 	}
@@ -2306,8 +2306,8 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			int charpos = GetMaxLineLength() - GetScreenChars();
 			if (charpos > 0)
 			{
-				ScrollToChar(charpos);
 				m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
+				EnsureCaretVisible();
 				UpdateCaret();
 			}
 		}
@@ -2701,6 +2701,18 @@ void CBaseView::UpdateCaret()
 	}
 }
 
+void CBaseView::EnsureCaretVisible()
+{
+	if (m_ptCaretPos.y < m_nTopLine)
+		ScrollAllToLine(m_ptCaretPos.y);
+	if (m_ptCaretPos.y >= (m_nTopLine+GetScreenLines()))
+		ScrollAllToLine(m_ptCaretPos.y-GetScreenLines()+1);
+	if (m_ptCaretPos.x < m_nOffsetChar)
+		ScrollToChar(m_ptCaretPos.x);
+	if (m_ptCaretPos.x > (m_nOffsetChar+m_nScreenChars))
+		ScrollToChar(m_ptCaretPos.x-m_nScreenChars);
+}
+
 int CBaseView::CalculateActualOffset(int nLineIndex, int nCharIndex)
 {
 	int nLength = GetLineLength(nLineIndex);
@@ -2753,9 +2765,10 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 	if (nChar > 31)
 	{
 		CString sLine = GetLineChars(m_ptCaretPos.y);
-		sLine.Insert(m_ptCaretPos.x, nChar);
+		sLine.Insert(m_ptCaretPos.x, (wchar_t)nChar);
 		m_pViewData->SetLine(m_ptCaretPos.y, sLine);
 		m_ptCaretPos.x++;
+		EnsureCaretVisible();
 		UpdateCaret();
 		SetModified(true);
 		Invalidate(FALSE);
@@ -2765,33 +2778,57 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 void CBaseView::OnCaretDown()
 {
 	m_ptCaretPos.y++;
+	EnsureCaretVisible();
 	UpdateCaret();
 }
 
 void CBaseView::OnCaretLeft()
 {
 	m_ptCaretPos.x--;
+	EnsureCaretVisible();
 	UpdateCaret();
 }
 
 void CBaseView::OnCaretRight()
 {
 	m_ptCaretPos.x++;
+	EnsureCaretVisible();
 	UpdateCaret();
 }
 
 void CBaseView::OnCaretUp()
 {
 	m_ptCaretPos.y--;
+	EnsureCaretVisible();
 	UpdateCaret();
 }
 
 void CBaseView::OnCaretWordleft()
 {
-	// TODO: Add your command handler code here
+	if (m_ptCaretPos.x == 0)
+		return;
+	LPCTSTR sLine = GetLineChars(m_ptCaretPos.y);
+	std::wstring line = std::wstring(sLine);
+	size_t newpos = line.find_last_of(_T(" \t,()[];."), m_ptCaretPos.x-1);
+	if (newpos == std::wstring::npos)
+		newpos = 0;
+	m_ptCaretPos.x = newpos;
+	EnsureCaretVisible();
+	UpdateCaret();
+	SetModified(true);
+	Invalidate(FALSE);
 }
 
 void CBaseView::OnCaretWordright()
 {
-	// TODO: Add your command handler code here
+	LPCTSTR sLine = GetLineChars(m_ptCaretPos.y);
+	std::wstring line = std::wstring(sLine);
+	size_t newpos = line.find_first_of(_T(" \t,()[];."), m_ptCaretPos.x+1);
+	if (newpos == std::wstring::npos)
+		newpos = line.size();
+	m_ptCaretPos.x = newpos;
+	EnsureCaretVisible();
+	UpdateCaret();
+	SetModified(true);
+	Invalidate(FALSE);
 }

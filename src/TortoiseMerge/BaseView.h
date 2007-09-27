@@ -191,6 +191,7 @@ protected:
 	bool			IsBottomViewGood() const {return ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()));}
 
 	void			UpdateCaret();
+	void			EnsureCaretVisible();
 	int				CalculateActualOffset(int nLineIndex, int nCharIndex);
 	POINT			TextToClient(const POINT& point);
 	void			DrawText(CDC * pDC, const CRect &rc, LPCTSTR text, int textlength, int nLineIndex, POINT coords, bool bModified, bool bInlineDiff);
