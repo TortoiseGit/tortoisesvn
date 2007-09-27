@@ -913,15 +913,15 @@ void CRepositoryBrowser::FillList(deque<CItem> * pItems)
 	if (!CString(regColWidths).IsEmpty())
 	{
 		StringToWidthArray(regColWidths, m_arColumnWidths);
-	}
-	int maxcol = ((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1;
-	int col;
-	for (col = 1; col <= maxcol; col++)
-	{
-		if (m_arColumnWidths[col] == 0)
-			m_RepoList.SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
-		else
-			m_RepoList.SetColumnWidth(col, m_arColumnWidths[col]);
+		
+		int maxcol = ((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1;
+		for (int col = 1; col <= maxcol; col++)
+		{
+			if (m_arColumnWidths[col] == 0)
+				m_RepoList.SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
+			else
+				m_RepoList.SetColumnWidth(col, m_arColumnWidths[col]);
+		}
 	}
 
 	m_RepoList.SetRedraw(true);
