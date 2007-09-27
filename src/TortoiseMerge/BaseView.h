@@ -57,6 +57,7 @@ public:
 	void			ScrollAllToLine(int nNewTopLine, BOOL bTrackScrollBar = TRUE);
 	void			ScrollSide(int delta);
 	void			GoToLine(int nNewLine, BOOL bAll = TRUE);
+	void			UseCaret(bool bUse = true) {m_bCaretHidden = !bUse;}
 
 	void			SelectLines(int nLine1, int nLine2 = -1);
 	void			HiglightLines(int start, int end = -1);

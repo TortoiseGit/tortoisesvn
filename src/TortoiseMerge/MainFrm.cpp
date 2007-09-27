@@ -565,6 +565,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 	if (m_Data.IsBaseFileInUse() && m_Data.IsYourFileInUse() && !m_Data.IsTheirFileInUse())
 	{
 		//diff between YOUR and BASE
+		m_pwndRightView->UseCaret();
 		if (m_bOneWay)
 		{
 			if (!m_wndSplitter2.IsColumnHidden(1))
@@ -614,6 +615,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 	else if (m_Data.IsBaseFileInUse() && m_Data.IsYourFileInUse() && m_Data.IsTheirFileInUse())
 	{
 		//diff between THEIR, YOUR and BASE
+		m_pwndBottomView->UseCaret();
 		if (bReload)
 		{
 			m_pwndLeftView->m_pViewData = &m_Data.m_TheirBaseBoth;
