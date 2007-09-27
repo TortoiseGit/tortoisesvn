@@ -45,13 +45,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 10700: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 10744: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-09-24 17:27+0300\n"
+"PO-Revision-Date: 2007-09-27 15:05+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -591,10 +591,10 @@ msgstr "&Язык:"
 msgid "&Limit search to modified lines"
 msgstr "Поиск только в &изменённых строках"
 
-# !??
+# было: связать картинки
 #: MenuEntry
 msgid "&Link image positions"
-msgstr "&Связать картинки"
+msgstr "&Связать позиции в картинках"
 
 #: Control-ID:1172,
 msgid "&List View"
@@ -608,9 +608,11 @@ msgstr "&Загрузить..."
 msgid "&Merge"
 msgstr "С&лияние"
 
+# The context is "view->merge paths". If the menu entry is checked,
+# TBlame shows you the path that each line was last merged from.
 #: MenuEntry
 msgid "&Merge paths"
-msgstr "&Слить пути"
+msgstr "&Слитые пути"
 
 #: ID:9,
 msgid "&Merge..."
@@ -900,6 +902,10 @@ msgstr "(не найден)"
 #: ID:208,
 msgid "(property change only)"
 msgstr "(изменение только свойств)"
+
+#: ID:245,
+msgid "(unknown)"
+msgstr "(неизвестно)"
 
 #: ID:188,
 #, c-format
@@ -2403,6 +2409,17 @@ msgstr ""
 "Вы действительно хотите убрать все изменения в\n"
 " %s,\n"
 "сделаные в этой ревизии? Эти изменения будут убраны путём обратного слияния (т.е. исключения) убираемой ревизии с вашей рабочей копией."
+
+#: ID:99,
+#, c-format
+msgid ""
+"Do you want to make this working copy unversioned?\n"
+"This will remove all Subversion admin directories from\n"
+"%s!"
+msgstr ""
+"Вы действительно желаете разверсировать эту рабочую копию?\n"
+"Будут удалены все административные папки Subversion из\n"
+"%s!"
 
 #: ID:76,
 msgid "Do you want to proceed?"
@@ -5910,23 +5927,6 @@ msgstr "Статус текста:"
 msgid "Text status"
 msgstr "Статус текста"
 
-#: ID:69,
-#, c-format
-msgid ""
-"The File\n"
-"%s\n"
-"is not a valid text file!\n"
-"Note that UTF32 files are treated as binary too."
-msgstr ""
-"Файл\n"
-"%s\n"
-"не является корректым текстовым файлом!\n"
-"Примечание: файлы UTF32 рассматриваются как двоичные."
-
-#: ID:80,
-msgid "The Repository was successfully created."
-msgstr "Хранилище создано успешно."
-
 #: ID:63,
 msgid "The chunk size did not match the number of added/removed lines!"
 msgstr "Размер куска кода на соответствует количеству добавленных/удаленных строк!"
@@ -5982,6 +5982,19 @@ msgstr ""
 "Файл\n"
 "%s\n"
 "уже существует! Вы хотите перезаписать его?"
+
+#: ID:69,
+#, c-format
+msgid ""
+"The file\n"
+"%s\n"
+"is not a valid text file!\n"
+"Note that UTF32 files are treated as binary too."
+msgstr ""
+"Файл\n"
+"%s\n"
+"не является корректым текстовым файлом!\n"
+"Примечание: файлы UTF32 также рассматриваются как двоичные."
 
 #: ID:145,
 #, c-format
@@ -6161,6 +6174,10 @@ msgstr ""
 "Но TortoiseMerge нашла путь\n"
 "<i>%s</i>\n"
 "который подходит больше. Хотите-ли вы использовать предложенный путь вместо исходного?"
+
+#: ID:80,
+msgid "The repository was successfully created."
+msgstr "Хранилище создано успешно."
 
 #: Control-ID:65535,
 msgid "The result of the merge is stored in the working copy at:"
@@ -6637,9 +6654,18 @@ msgstr "Разблокирован"
 msgid "Untitled"
 msgstr "Неназванный"
 
+#: ID:146,
+msgid "Unversion"
+msgstr "Разверсировать"
+
 #: Control-ID:1313,
 msgid "Unversioned files mark parent folder as modified"
 msgstr "Неверсированные файлы помечают родительскую папку как изменённую"
+
+#: ID:286,
+#, c-format
+msgid "Unversioning %s"
+msgstr "Разверсирование %s"
 
 # Заголовок окна
 #: Dlg-ID:152,
