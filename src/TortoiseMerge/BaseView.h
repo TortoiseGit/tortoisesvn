@@ -196,6 +196,8 @@ protected:
 	POINT			TextToClient(const POINT& point);
 	void			DrawText(CDC * pDC, const CRect &rc, LPCTSTR text, int textlength, int nLineIndex, POINT coords, bool bModified, bool bInlineDiff);
 
+	void			AddEmptyLine(int nLineIndex);
+	void			RemoveLine(int nLineIndex);
 protected:
 	COLORREF		m_InlineRemovedBk;
 	COLORREF		m_InlineAddedBk;

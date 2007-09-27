@@ -2351,6 +2351,23 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 				SetModified(true);
 				Invalidate(FALSE);
 			}
+			else
+			{
+				// append the line to the previous one, remove the line, then move the cursor a line up
+				if (m_ptCaretPos.y)
+				{
+					CString sLine = GetLineChars(m_ptCaretPos.y);
+					if (m_pViewData)
+						m_pViewData->SetLine(m_ptCaretPos.y-1, m_pViewData->GetLine(m_ptCaretPos.y-1)+sLine);
+					RemoveLine(m_ptCaretPos.y);
+					m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
+					m_ptCaretPos.y--;
+					EnsureCaretVisible();
+					UpdateCaret();
+					SetModified(true);
+					Invalidate(FALSE);
+				}
+			}
 		}
 		break;
 	case VK_DELETE:
@@ -2362,6 +2379,21 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 				m_pViewData->SetLine(m_ptCaretPos.y, sLine);
 				SetModified(true);
 				Invalidate(FALSE);
+			}
+			else
+			{
+				// append the next line to this one, remove the next line
+				if (m_ptCaretPos.y < (GetLineCount()-1))
+				{
+					CString sLine = GetLineChars(m_ptCaretPos.y+1);
+					if (m_pViewData)
+						m_pViewData->SetLine(m_ptCaretPos.y, m_pViewData->GetLine(m_ptCaretPos.y)+sLine);
+					RemoveLine(m_ptCaretPos.y+1);
+					EnsureCaretVisible();
+					UpdateCaret();
+					SetModified(true);
+					Invalidate(FALSE);
+				}
 			}
 		}
 		break;
@@ -2800,7 +2832,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		(::GetKeyState(VK_RBUTTON) & 0x8000) != 0)
 		return;
 
-	if (nChar > 31)
+	if ((nChar > 31)||(nChar == VK_TAB))
 	{
 		CString sLine = GetLineChars(m_ptCaretPos.y);
 		sLine.Insert(m_ptCaretPos.x, (wchar_t)nChar);
@@ -2811,6 +2843,47 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		SetModified(true);
 		Invalidate(FALSE);
 	}
+	if (nChar == VK_RETURN)
+	{
+		// insert a new, fresh and empty line below the cursor, the move the cursor
+		// to that new line
+		if (m_pwndLeft)
+			m_pwndLeft->AddEmptyLine(m_ptCaretPos.y);
+		if (m_pwndRight)
+			m_pwndRight->AddEmptyLine(m_ptCaretPos.y);
+		if (m_pwndBottom)
+			m_pwndBottom->AddEmptyLine(m_ptCaretPos.y);
+		m_ptCaretPos.y++;
+		m_ptCaretPos.x = 0;
+		EnsureCaretVisible();
+		UpdateCaret();
+		SetModified(true);
+		Invalidate(FALSE);
+	}
+}
+
+void CBaseView::AddEmptyLine(int nLineIndex)
+{
+	if (m_pViewData == NULL)
+		return;
+	if (!m_bCaretHidden)
+	{
+		CString sPartLine = GetLineChars(nLineIndex);
+		m_pViewData->SetLine(nLineIndex, sPartLine.Left(m_ptCaretPos.x));
+		sPartLine = sPartLine.Mid(m_ptCaretPos.x);
+		m_pViewData->InsertData(nLineIndex+1, sPartLine, DIFFSTATE_ADDED, -1, m_pViewData->GetLineEnding(nLineIndex));
+	}
+	else
+		m_pViewData->InsertData(nLineIndex+1, _T(""), DIFFSTATE_ADDED, -1, m_pViewData->GetLineEnding(nLineIndex));
+	Invalidate(FALSE);
+}
+
+void CBaseView::RemoveLine(int nLineIndex)
+{
+	if (m_pViewData == NULL)
+		return;
+	m_pViewData->RemoveData(nLineIndex);
+	Invalidate(FALSE);
 }
 
 void CBaseView::OnCaretDown()
@@ -2822,14 +2895,32 @@ void CBaseView::OnCaretDown()
 
 void CBaseView::OnCaretLeft()
 {
-	m_ptCaretPos.x--;
+	if (m_ptCaretPos.x == 0)
+	{
+		if (m_ptCaretPos.y)
+		{
+			m_ptCaretPos.y--;
+			m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
+		}
+	}
+	else
+		m_ptCaretPos.x--;
 	EnsureCaretVisible();
 	UpdateCaret();
 }
 
 void CBaseView::OnCaretRight()
 {
-	m_ptCaretPos.x++;
+	if (m_ptCaretPos.x >= GetLineLength(m_ptCaretPos.y))
+	{
+		if (m_ptCaretPos.y < (GetLineCount()-1))
+		{
+			m_ptCaretPos.y++;
+			m_ptCaretPos.x = 0;
+		}
+	}
+	else
+		m_ptCaretPos.x++;
 	EnsureCaretVisible();
 	UpdateCaret();
 }
@@ -2844,27 +2935,45 @@ void CBaseView::OnCaretUp()
 void CBaseView::OnCaretWordleft()
 {
 	if (m_ptCaretPos.x == 0)
-		return;
-	LPCTSTR sLine = GetLineChars(m_ptCaretPos.y);
-	std::wstring line = std::wstring(sLine);
-	size_t newpos = line.find_last_of(_T(" \t,()[];."), m_ptCaretPos.x-1);
-	if (newpos == std::wstring::npos)
-		newpos = 0;
-	m_ptCaretPos.x = newpos;
+	{
+		if (m_ptCaretPos.y)
+		{
+			m_ptCaretPos.y--;
+			m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
+		}
+	}
+	else
+	{
+		LPCTSTR sLine = GetLineChars(m_ptCaretPos.y);
+		std::wstring line = std::wstring(sLine);
+		size_t newpos = line.find_last_of(_T(" \t,()[];."), m_ptCaretPos.x-1);
+		if (newpos == std::wstring::npos)
+			newpos = 0;
+		m_ptCaretPos.x = newpos;
+	}
 	EnsureCaretVisible();
 	UpdateCaret();
-	Invalidate(FALSE);
 }
 
 void CBaseView::OnCaretWordright()
 {
-	LPCTSTR sLine = GetLineChars(m_ptCaretPos.y);
-	std::wstring line = std::wstring(sLine);
-	size_t newpos = line.find_first_of(_T(" \t,()[];."), m_ptCaretPos.x+1);
-	if (newpos == std::wstring::npos)
-		newpos = line.size();
-	m_ptCaretPos.x = newpos;
+	if (m_ptCaretPos.x >= GetLineLength(m_ptCaretPos.y))
+	{
+		if (m_ptCaretPos.y < (GetLineCount()-1))
+		{
+			m_ptCaretPos.y++;
+			m_ptCaretPos.x = 0;
+		}
+	}
+	else
+	{
+		LPCTSTR sLine = GetLineChars(m_ptCaretPos.y);
+		std::wstring line = std::wstring(sLine);
+		size_t newpos = line.find_first_of(_T(" \t,()[];."), m_ptCaretPos.x+1);
+		if (newpos == std::wstring::npos)
+			newpos = line.size();
+		m_ptCaretPos.x = newpos;
+	}
 	EnsureCaretVisible();
 	UpdateCaret();
-	Invalidate(FALSE);
 }
