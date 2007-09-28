@@ -37,9 +37,9 @@
 			<term>Filenames without extensions in autocompletion list</term>
 			<listitem>
 				<para>
-					Autocompletion list shown in commit message editor
+					The autocompletion list shown in commit message editor
 					displays names of files listed for commit.
-					To also include these names with extansions removed,
+					To also include these names with extensions removed,
 					create a <literal>DWORD</literal> key with a value of 1 at
 					<literal>HKCU\Software\TortoiseSVN\AutocompleteRemovesExtensions</literal>.
 				</para>
