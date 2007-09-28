@@ -588,79 +588,78 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
 		}
 		m_bOtherDiffChecked = true;
 	}
-	if (m_pOtherViewData)
+	if (!m_pOtherViewData)
+		return false;
+	if (origstateThis == DIFFSTATE_NORMAL)
 	{
-		if (origstateThis == DIFFSTATE_NORMAL)
-		{
-			if (m_pOtherViewData->GetLine(nLineIndex).Compare(m_pViewData->GetLine(nLineIndex))==0)
-				return false;
-		}
-
-		// Go back at most MAX_WHITESPACEBLOCK_SIZE lines to see where this block ends
-		int nStartBlockThis = nLineIndex;
-		int nEndBlockThis = nLineIndex;
-		while ((nStartBlockThis > 0)&&(nStartBlockThis > (nLineIndex-MAX_WHITESPACEBLOCK_SIZE)))
-		{
-			DiffStates state = m_pViewData->GetState(nStartBlockThis-1);
-			if ((origstateThis == DIFFSTATE_EMPTY)&&(state != DIFFSTATE_NORMAL))
-				origstateThis = state;
-			if ((origstateThis == state)||(state == DIFFSTATE_EMPTY))
-				nStartBlockThis--;
-			else
-				break;
-		}
-		while ((nEndBlockThis < (GetLineCount()-1))&&(nEndBlockThis < (nLineIndex+MAX_WHITESPACEBLOCK_SIZE)))
-		{
-			DiffStates state = m_pViewData->GetState(nEndBlockThis+1);
-			if ((origstateThis == DIFFSTATE_EMPTY)&&(state != DIFFSTATE_NORMAL))
-				origstateThis = state;
-			if ((origstateThis == state)||(state == DIFFSTATE_EMPTY))
-				nEndBlockThis++;
-			else
-				break;
-		}
-		int nStartBlockOther = nLineIndex;
-		int nEndBlockOther = nLineIndex;
-		DiffStates origstateOther = m_pOtherViewData->GetState(nLineIndex);
-		while ((nStartBlockOther > 0)&&(nStartBlockOther > (nLineIndex-MAX_WHITESPACEBLOCK_SIZE)))
-		{
-			DiffStates state = m_pOtherViewData->GetState(nStartBlockOther-1);
-			if ((origstateOther == DIFFSTATE_EMPTY)&&(state != DIFFSTATE_NORMAL))
-				origstateOther = state;
-			if ((origstateOther == state)||(state == DIFFSTATE_EMPTY))
-				nStartBlockOther--;
-			else
-				break;
-		}
-		while ((nEndBlockOther < (GetLineCount()-1))&&(nEndBlockOther < (nLineIndex+MAX_WHITESPACEBLOCK_SIZE)))
-		{
-			DiffStates state = m_pOtherViewData->GetState(nEndBlockOther+1);
-			if ((origstateOther == DIFFSTATE_EMPTY)&&(state != DIFFSTATE_NORMAL))
-				origstateOther = state;
-			if ((origstateOther == state)||(state == DIFFSTATE_EMPTY))
-				nEndBlockOther++;
-			else
-				break;
-		}
-		CString mine;
-		for (int i=nStartBlockThis; i<=nEndBlockThis; ++i)
-			mine += m_pViewData->GetLine(i);
-		CString other;
-		for (int i=nStartBlockOther; i<=nEndBlockOther; ++i)
-			other += m_pOtherViewData->GetLine(i);
-		bIdentical = mine.Compare(other)==0;
-		mine.Replace(_T(" "), _T(""));
-		mine.Replace(_T("\t"), _T(""));
-		mine.Replace(_T("\r"), _T(""));
-		mine.Replace(_T("\n"), _T(""));
-		other.Replace(_T(" "), _T(""));
-		other.Replace(_T("\t"), _T(""));
-		other.Replace(_T("\r"), _T(""));
-		other.Replace(_T("\n"), _T(""));
-		if ((mine.Compare(other)==0)&&(!mine.IsEmpty()))
-			return true;
+		if (m_pOtherViewData->GetLine(nLineIndex).Compare(m_pViewData->GetLine(nLineIndex))==0)
+			return false;
 	}
-	return false;
+
+	// Go back at most MAX_WHITESPACEBLOCK_SIZE lines to see where this block ends
+	int nStartBlockThis = nLineIndex;
+	int nEndBlockThis = nLineIndex;
+	while ((nStartBlockThis > 0)&&(nStartBlockThis > (nLineIndex-MAX_WHITESPACEBLOCK_SIZE)))
+	{
+		DiffStates state = m_pViewData->GetState(nStartBlockThis-1);
+		if ((origstateThis == DIFFSTATE_EMPTY)&&(state != DIFFSTATE_NORMAL))
+			origstateThis = state;
+		if ((origstateThis == state)||(state == DIFFSTATE_EMPTY))
+			nStartBlockThis--;
+		else
+			break;
+	}
+	while ((nEndBlockThis < (GetLineCount()-1))&&(nEndBlockThis < (nLineIndex+MAX_WHITESPACEBLOCK_SIZE)))
+	{
+		DiffStates state = m_pViewData->GetState(nEndBlockThis+1);
+		if ((origstateThis == DIFFSTATE_EMPTY)&&(state != DIFFSTATE_NORMAL))
+			origstateThis = state;
+		if ((origstateThis == state)||(state == DIFFSTATE_EMPTY))
+			nEndBlockThis++;
+		else
+			break;
+	}
+	int nLastLineOther = m_pOtherViewData->GetCount() - 1;
+	nLineIndex = nLineIndex < nLastLineOther ? nLineIndex : nLastLineOther;
+	int nStartBlockOther = nLineIndex;
+	int nEndBlockOther = nLineIndex;
+	DiffStates origstateOther = m_pOtherViewData->GetState(nLineIndex);
+	while ((nStartBlockOther > 0)&&(nStartBlockOther > (nLineIndex-MAX_WHITESPACEBLOCK_SIZE)))
+	{
+		DiffStates state = m_pOtherViewData->GetState(nStartBlockOther-1);
+		if ((origstateOther == DIFFSTATE_EMPTY)&&(state != DIFFSTATE_NORMAL))
+			origstateOther = state;
+		if ((origstateOther == state)||(state == DIFFSTATE_EMPTY))
+			nStartBlockOther--;
+		else
+			break;
+	}
+	while ((nEndBlockOther < nLastLineOther)&&(nEndBlockOther < (nLineIndex+MAX_WHITESPACEBLOCK_SIZE)))
+	{
+		DiffStates state = m_pOtherViewData->GetState(nEndBlockOther+1);
+		if ((origstateOther == DIFFSTATE_EMPTY)&&(state != DIFFSTATE_NORMAL))
+			origstateOther = state;
+		if ((origstateOther == state)||(state == DIFFSTATE_EMPTY))
+			nEndBlockOther++;
+		else
+			break;
+	}
+	CString mine;
+	for (int i=nStartBlockThis; i<=nEndBlockThis; ++i)
+		mine += m_pViewData->GetLine(i);
+	CString other;
+	for (int i=nStartBlockOther; i<=nEndBlockOther; ++i)
+		other += m_pOtherViewData->GetLine(i);
+	bIdentical = mine.Compare(other)==0;
+	mine.Replace(_T(" "), _T(""));
+	mine.Replace(_T("\t"), _T(""));
+	mine.Replace(_T("\r"), _T(""));
+	mine.Replace(_T("\n"), _T(""));
+	other.Replace(_T(" "), _T(""));
+	other.Replace(_T("\t"), _T(""));
+	other.Replace(_T("\r"), _T(""));
+	other.Replace(_T("\n"), _T(""));
+	return (mine.Compare(other)==0)&&(!mine.IsEmpty());
 }
 
 int CBaseView::GetLineNumber(int index) const
@@ -2310,13 +2309,9 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			}
 			else
 			{
-				int charpos = GetMaxLineLength() - GetScreenChars();
-				if (charpos > 0)
-				{
-					m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
-					EnsureCaretVisible();
-					UpdateCaret();
-				}
+				m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
+				EnsureCaretVisible();
+				UpdateCaret();
 			}
 		}
 		break;
@@ -2354,13 +2349,12 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			else
 			{
 				// append the line to the previous one, remove the line, then move the cursor a line up
-				if (m_ptCaretPos.y)
+				if (m_ptCaretPos.y && m_pViewData)
 				{
-					CString sLine = GetLineChars(m_ptCaretPos.y);
-					if (m_pViewData)
-						m_pViewData->SetLine(m_ptCaretPos.y-1, m_pViewData->GetLine(m_ptCaretPos.y-1)+sLine);
-					RemoveLine(m_ptCaretPos.y);
 					m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
+					m_pViewData->SetLine(
+						m_ptCaretPos.y-1, m_pViewData->GetLine(m_ptCaretPos.y-1)+m_pViewData->GetLine(m_ptCaretPos.y));
+					RemoveLine(m_ptCaretPos.y);
 					m_ptCaretPos.y--;
 					EnsureCaretVisible();
 					UpdateCaret();
