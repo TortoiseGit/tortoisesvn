@@ -847,12 +847,18 @@ void CCommitDlg::GetAutocompletionList()
 			// add the path parts to the autocompletion list too
 			CString sPartPath = entry->GetRelativeSVNPath();
 			m_autolist.insert(sPartPath);
-			int pos = 0;
-			while ((pos = sPartPath.Find('/', pos)) >= 0)
-			{
-				pos++;
+			int lastPos = 0;
+			for(int pos = 0; pos = sPartPath.Find('/', lastPos) + 1; lastPos = pos)
 				m_autolist.insert(sPartPath.Mid(pos));
+			// Last inserted entry is a file name.
+			// Some users prefer to also list file name without extension.
+			if (CRegDWORD(_T("Software\\TortoiseSVN\\AutocompleteRemovesExtensions"), FALSE))
+			{
+				int dotPos = sPartPath.ReverseFind('.');
+				if ((dotPos >= 0) && (dotPos > lastPos))
+					m_autolist.insert(sPartPath.Mid(lastPos, dotPos - lastPos));
 			}
+
 			if (entry->IsChecked())
 			{
 				CString sExt = entry->GetPath().GetFileExtension();
