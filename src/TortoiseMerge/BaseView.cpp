@@ -2463,6 +2463,7 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
 			m_nSelBlockEnd = m_ptSelectionEndPos.y;
 			SetupSelection(m_nSelBlockStart, m_nSelBlockEnd);
 			Invalidate();
+			UpdateWindow();
 		}
 	}
 
