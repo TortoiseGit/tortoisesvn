@@ -515,14 +515,14 @@ void CSciEdit::SuggestSpellingAlternatives()
 
 }
 
-void CSciEdit::DoAutoCompletion()
+void CSciEdit::DoAutoCompletion(int nMinPrefixLength)
 {
 	if (m_autolist.size()==0)
 		return;
 	if (Call(SCI_AUTOCACTIVE))
 		return;
 	CString word = GetWordUnderCursor();
-	if (word.GetLength() < 3)
+	if (word.GetLength() < nMinPrefixLength)
 		return;		//don't autocomplete yet, word is too short
 	int pos = Call(SCI_GETCURRENTPOS);
 	if (pos != Call(SCI_WORDENDPOSITION, pos, TRUE))
@@ -569,7 +569,7 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
 				Call(SCI_DELETEBACK);
 			else
 			{
-				DoAutoCompletion();
+				DoAutoCompletion(3);
 			}
 			return TRUE;
 			break;
@@ -602,15 +602,6 @@ void CSciEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 				::SendMessage(GetParent()->GetSafeHwnd(), WM_CLOSE, 0, 0);
 		}
 		break;
-	case (VK_SPACE):
-		{
-			if ((GetKeyState(VK_CONTROL)&0x8000)&&(GetKeyState(VK_SHIFT)&0x8000))
-			{
-				DoAutoCompletion();
-				return;
-			}
-		}
-		break;
 	}
 	CWnd::OnKeyDown(nChar, nRepCnt, nFlags);
 }
@@ -621,6 +612,15 @@ BOOL CSciEdit::PreTranslateMessage(MSG* pMsg)
 	{
 		switch (pMsg->wParam)
 		{
+		case VK_SPACE:
+			{
+				if (GetKeyState(VK_CONTROL) & 0x8000)
+				{
+					DoAutoCompletion(1);
+					return TRUE;
+				}
+			}
+			break;
 		case VK_TAB:
 			// The TAB cannot be handled in OnKeyDown because it is too late by then.
 			{

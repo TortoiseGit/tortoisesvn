@@ -129,7 +129,7 @@ protected:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	void		CheckSpelling(void);
 	void		SuggestSpellingAlternatives(void);
-	void		DoAutoCompletion(void);
+	void		DoAutoCompletion(int nMinPrefixLength);
 	BOOL		LoadDictionaries(LONG lLanguageID);
 	BOOL		MarkEnteredBugID(int startstylepos, int endstylepos);
 	bool		StyleEnteredText(int startstylepos, int endstylepos);
