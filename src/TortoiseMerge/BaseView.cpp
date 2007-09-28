@@ -2180,56 +2180,18 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	{
 	case VK_PRIOR:
 		{
-			if (bControl)
-			{
-				int nPageWidth = GetScreenChars();
-				if (m_pwndLeft)
-					m_pwndLeft->ScrollSide(-nPageWidth);
-				if (m_pwndRight)
-					m_pwndRight->ScrollSide(-nPageWidth);
-				if (m_pwndBottom)
-					m_pwndBottom->ScrollSide(-nPageWidth);
-			}
-			else
-			{
-				int nPageChars = GetScreenLines();
-				int nLineCount = GetLineCount();
-				int nNewTopLine = 0;
-
-				nNewTopLine = m_nTopLine - nPageChars + 1;
-				if (nNewTopLine < 0)
-					nNewTopLine = 0;
-				if (nNewTopLine >= nLineCount)
-					nNewTopLine = nLineCount - 1;
-				ScrollAllToLine(nNewTopLine);
-			}
+			m_ptCaretPos.y -= GetScreenLines();
+			ClearSelection();
+			EnsureCaretVisible();
+			UpdateCaret();
 		}
 		break;
 	case VK_NEXT:
 		{
-			if (bControl)
-			{
-				int nPageWidth = GetScreenChars();
-				if (m_pwndLeft)
-					m_pwndLeft->ScrollSide(nPageWidth);
-				if (m_pwndRight)
-					m_pwndRight->ScrollSide(nPageWidth);
-				if (m_pwndBottom)
-					m_pwndBottom->ScrollSide(nPageWidth);
-			}
-			else
-			{
-				int nPageChars = GetScreenLines();
-				int nLineCount = GetLineCount();
-				int nNewTopLine = 0;
-
-				nNewTopLine = m_nTopLine + nPageChars - 1;
-				if (nNewTopLine < 0)
-					nNewTopLine = 0;
-				if (nNewTopLine >= nLineCount)
-					nNewTopLine = nLineCount - 1;
-				ScrollAllToLine(nNewTopLine);
-			}
+			m_ptCaretPos.y += GetScreenLines();
+			ClearSelection();
+			EnsureCaretVisible();
+			UpdateCaret();
 		}
 		break;
 	case VK_HOME:
@@ -2244,6 +2206,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			else
 			{
 				m_ptCaretPos.x = 0;
+				ClearSelection();
 				EnsureCaretVisible();
 				UpdateCaret();
 			}
@@ -2261,6 +2224,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			else
 			{
 				m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
+				ClearSelection();
 				EnsureCaretVisible();
 				UpdateCaret();
 			}
@@ -2292,6 +2256,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 				sLine.Delete(m_ptCaretPos.x-1);
 				m_pViewData->SetLine(m_ptCaretPos.y, sLine);
 				m_ptCaretPos.x--;
+				ClearSelection();
 				EnsureCaretVisible();
 				UpdateCaret();
 				SetModified(true);
@@ -2307,6 +2272,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 						m_ptCaretPos.y-1, m_pViewData->GetLine(m_ptCaretPos.y-1)+m_pViewData->GetLine(m_ptCaretPos.y));
 					RemoveLine(m_ptCaretPos.y);
 					m_ptCaretPos.y--;
+					ClearSelection();
 					EnsureCaretVisible();
 					UpdateCaret();
 					SetModified(true);
@@ -2322,6 +2288,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			{
 				sLine.Delete(m_ptCaretPos.x);
 				m_pViewData->SetLine(m_ptCaretPos.y, sLine);
+				ClearSelection();
 				SetModified(true);
 				Invalidate(FALSE);
 			}
@@ -2334,6 +2301,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 					if (m_pViewData)
 						m_pViewData->SetLine(m_ptCaretPos.y, m_pViewData->GetLine(m_ptCaretPos.y)+sLine);
 					RemoveLine(m_ptCaretPos.y+1);
+					ClearSelection();
 					EnsureCaretVisible();
 					UpdateCaret();
 					SetModified(true);
@@ -2783,6 +2751,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		sLine.Insert(m_ptCaretPos.x, (wchar_t)nChar);
 		m_pViewData->SetLine(m_ptCaretPos.y, sLine);
 		m_ptCaretPos.x++;
+		ClearSelection();
 		EnsureCaretVisible();
 		UpdateCaret();
 		SetModified(true);
@@ -2800,6 +2769,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 			m_pwndBottom->AddEmptyLine(m_ptCaretPos.y);
 		m_ptCaretPos.y++;
 		m_ptCaretPos.x = 0;
+		ClearSelection();
 		EnsureCaretVisible();
 		UpdateCaret();
 		SetModified(true);
@@ -2834,6 +2804,7 @@ void CBaseView::RemoveLine(int nLineIndex)
 void CBaseView::OnCaretDown()
 {
 	m_ptCaretPos.y++;
+	ClearSelection();
 	EnsureCaretVisible();
 	UpdateCaret();
 }
@@ -2850,6 +2821,7 @@ void CBaseView::OnCaretLeft()
 	}
 	else
 		m_ptCaretPos.x--;
+	ClearSelection();
 	EnsureCaretVisible();
 	UpdateCaret();
 }
@@ -2866,6 +2838,7 @@ void CBaseView::OnCaretRight()
 	}
 	else
 		m_ptCaretPos.x++;
+	ClearSelection();
 	EnsureCaretVisible();
 	UpdateCaret();
 }
@@ -2873,6 +2846,7 @@ void CBaseView::OnCaretRight()
 void CBaseView::OnCaretUp()
 {
 	m_ptCaretPos.y--;
+	ClearSelection();
 	EnsureCaretVisible();
 	UpdateCaret();
 }
@@ -2896,6 +2870,7 @@ void CBaseView::OnCaretWordleft()
 			newpos = 0;
 		m_ptCaretPos.x = newpos;
 	}
+	ClearSelection();
 	EnsureCaretVisible();
 	UpdateCaret();
 }
@@ -2919,6 +2894,26 @@ void CBaseView::OnCaretWordright()
 			newpos = line.size();
 		m_ptCaretPos.x = newpos;
 	}
+	ClearSelection();
 	EnsureCaretVisible();
 	UpdateCaret();
+}
+
+void CBaseView::ClearCurrentSelection()
+{
+	m_ptSelectionStartPos = m_ptCaretPos;
+	m_ptSelectionEndPos = m_ptCaretPos;
+	m_nSelBlockStart = -1;
+	m_nSelBlockEnd = -1;
+	Invalidate(FALSE);
+}
+
+void CBaseView::ClearSelection()
+{
+	if (m_pwndLeft)
+		m_pwndLeft->ClearCurrentSelection();
+	if (m_pwndRight)
+		m_pwndRight->ClearCurrentSelection();
+	if (m_pwndBottom)
+		m_pwndBottom->ClearCurrentSelection();
 }

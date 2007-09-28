@@ -196,6 +196,8 @@ protected:
 	int				CalculateActualOffset(int nLineIndex, int nCharIndex);
 	POINT			TextToClient(const POINT& point);
 	void			DrawText(CDC * pDC, const CRect &rc, LPCTSTR text, int textlength, int nLineIndex, POINT coords, bool bModified, bool bInlineDiff);
+	void			ClearCurrentSelection();
+	void			ClearSelection();
 
 	void			AddEmptyLine(int nLineIndex);
 	void			RemoveLine(int nLineIndex);
