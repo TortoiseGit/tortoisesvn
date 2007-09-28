@@ -510,15 +510,6 @@ int CBaseView::GetLineLength(int index) const
 	return nLineLength;
 }
 
-int CBaseView::GetDiffLineLength(int index) const
-{
-	if (m_pOtherViewData == NULL)
-		return 0;
-	int nLineLength = m_pOtherViewData->GetLine(index).GetLength();
-	ASSERT(nLineLength >= 0);
-	return nLineLength;
-}
-
 int CBaseView::GetLineCount() const
 {
 	if (m_pViewData == NULL)
@@ -548,12 +539,6 @@ void CBaseView::CheckOtherView()
 		m_pOtherViewData = m_pwndLeft->m_pViewData;
 
 	m_bOtherDiffChecked = true;
-}
-
-LPCTSTR CBaseView::GetDiffLineChars(int index)
-{
-	CheckOtherView();
-	return m_pOtherViewData ? m_pOtherViewData->GetLine(index) : 0;
 }
 
 CString CBaseView::GetWhitespaceBlock(CViewData *viewData, int nLineIndex)
@@ -606,7 +591,7 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
 		return false;
 
 	CString mine = GetWhitespaceBlock(m_pViewData, nLineIndex);
-	CString other = GetWhitespaceBlock(m_pOtherViewData, min(nLineIndex, m_pOtherViewData->GetCount()));
+	CString other = GetWhitespaceBlock(m_pOtherViewData, min(nLineIndex, m_pOtherViewData->GetCount() - 1));
 	bIdentical = mine == other;
 	
 	mine.Replace(_T(" "), _T(""));
@@ -1434,11 +1419,18 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 		return;
 	}
 	LPCTSTR pszChars = GetLineChars(nLineIndex);
-	LPCTSTR pszDiffChars = GetDiffLineChars(nLineIndex);
-	int nDiffLength = GetDiffLineLength(nLineIndex);
-
 	if (pszChars == NULL)
 		return;
+
+	CheckOtherView();
+	LPCTSTR pszDiffChars = NULL;
+	int nDiffLength = 0;
+	if (m_pOtherViewData)
+	{
+		int index = min(nLineIndex, m_pOtherViewData->GetCount() - 1);
+		pszDiffChars = m_pOtherViewData->GetLine(index);
+		nDiffLength = m_pOtherViewData->GetLine(index).GetLength();
+	}
 
 	// Draw the line
 

@@ -160,14 +160,12 @@ protected:
 	int				GetCharWidth();
 	int				GetMaxLineLength();
 	int				GetLineLength(int index) const;
-	int				GetDiffLineLength(int index) const;
 	int				GetScreenChars();
 	int				GetAllMinScreenChars() const;
 	int				GetAllMaxLineLength() const;
 	int				GetAllLineCount() const;
 	int				GetAllMinScreenLines() const;
 	LPCTSTR			GetLineChars(int index) const;
-	LPCTSTR			GetDiffLineChars(int index);
 	int				GetLineNumber(int index) const;
 	CFont *			GetFont(BOOL bItalic = FALSE, BOOL bBold = FALSE, BOOL bStrikeOut = FALSE);
 	int				GetLineFromPoint(CPoint point);
