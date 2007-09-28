@@ -1202,7 +1202,7 @@ BOOL SVN::GetLogWithMergeInfo(const CTSVNPathList& pathlist, SVNRev revisionPeg,
 							TRUE,			// discover changed paths
 							strict,
 							TRUE,			// include merged revisions
-							FALSE,			// omit log messages
+							NULL,			// receive all rev props
 							logMergeReceiver,
 							(void *)this, m_pctx, localpool);
 
