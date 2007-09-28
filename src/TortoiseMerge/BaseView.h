@@ -175,6 +175,8 @@ protected:
 	void			RefreshViews();
 	COLORREF		IntenseColor(long scale, COLORREF col);
 	COLORREF		InlineDiffColor(int nLineIndex);
+	void			CheckOtherView();
+	static CString	GetWhitespaceBlock(CViewData *viewData, int nLineIndex);
 
 	virtual	void	OnContextMenu(CPoint point, int nLine, DiffStates state);
 	/**

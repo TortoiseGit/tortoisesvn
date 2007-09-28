@@ -535,122 +535,80 @@ LPCTSTR CBaseView::GetLineChars(int index) const
 	return m_pViewData->GetLine(index);
 }
 
+void CBaseView::CheckOtherView()
+{
+	if (m_bOtherDiffChecked)
+		return;
+	// find out what the 'other' file is
+	m_pOtherViewData = NULL;
+	if (this == m_pwndLeft && IsRightViewGood())
+		m_pOtherViewData = m_pwndRight->m_pViewData;
+
+	if (this == m_pwndRight && IsLeftViewGood())
+		m_pOtherViewData = m_pwndLeft->m_pViewData;
+
+	m_bOtherDiffChecked = true;
+}
+
 LPCTSTR CBaseView::GetDiffLineChars(int index)
 {
-	if (!m_bOtherDiffChecked)
+	CheckOtherView();
+	return m_pOtherViewData ? m_pOtherViewData->GetLine(index) : 0;
+}
+
+CString CBaseView::GetWhitespaceBlock(CViewData *viewData, int nLineIndex)
+{
+	enum { MAX_WHITESPACEBLOCK_SIZE	= 8 };
+	ASSERT(viewData);
+	
+	DiffStates origstate = viewData->GetState(nLineIndex);
+
+	// Go back and forward at most MAX_WHITESPACEBLOCK_SIZE lines to see where this block ends
+	int nStartBlock = nLineIndex;
+	int nEndBlock = nLineIndex;
+	while ((nStartBlock > 0) && (nStartBlock > (nLineIndex - MAX_WHITESPACEBLOCK_SIZE)))
 	{
-		// find out what the 'other' file is
-		m_pOtherViewData = NULL;
-		if (this == m_pwndLeft)
-		{
-			if (IsRightViewGood())
-			{
-				m_pOtherViewData = m_pwndRight->m_pViewData;
-			}
-		}
-		if (this == m_pwndRight)
-		{
-			if (IsLeftViewGood())
-			{
-				m_pOtherViewData = m_pwndLeft->m_pViewData;
-			}
-		}
-		m_bOtherDiffChecked = true;
+		DiffStates state = viewData->GetState(nStartBlock - 1);
+		if ((origstate == DIFFSTATE_EMPTY) && (state != DIFFSTATE_NORMAL))
+			origstate = state;
+		if ((origstate == state) || (state == DIFFSTATE_EMPTY))
+			nStartBlock--;
+		else
+			break;
 	}
-	if (m_pOtherViewData)
+	while ((nEndBlock < (viewData->GetCount() - 1)) && (nEndBlock < (nLineIndex + MAX_WHITESPACEBLOCK_SIZE)))
 	{
-		return m_pOtherViewData->GetLine(index);
+		DiffStates state = viewData->GetState(nEndBlock + 1);
+		if ((origstate == DIFFSTATE_EMPTY) && (state != DIFFSTATE_NORMAL))
+			origstate = state;
+		if ((origstate == state) || (state == DIFFSTATE_EMPTY))
+			nEndBlock++;
+		else
+			break;
 	}
-	return 0;
+	
+	CString block;
+	for (int i = nStartBlock; i <= nEndBlock; ++i)
+		block += viewData->GetLine(i);
+	return block;
 }
 
 bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
 {
-#define MAX_WHITESPACEBLOCK_SIZE	8
-	DiffStates origstateThis = m_pViewData->GetState(nLineIndex);
-	if (!m_bOtherDiffChecked)
-	{
-		// find out what the 'other' file is
-		m_pOtherViewData = NULL;
-		if (this == m_pwndLeft)
-		{
-			if (IsRightViewGood())
-			{
-				m_pOtherViewData = m_pwndRight->m_pViewData;
-			}
-		}
-		if (this == m_pwndRight)
-		{
-			if (IsLeftViewGood())
-			{
-				m_pOtherViewData = m_pwndLeft->m_pViewData;
-			}
-		}
-		m_bOtherDiffChecked = true;
-	}
+	enum { MAX_WHITESPACEBLOCK_SIZE	= 8 };
+	CheckOtherView();
 	if (!m_pOtherViewData)
 		return false;
-	if (origstateThis == DIFFSTATE_NORMAL)
-	{
-		if (m_pOtherViewData->GetLine(nLineIndex).Compare(m_pViewData->GetLine(nLineIndex))==0)
-			return false;
-	}
+	if (
+		(m_pViewData->GetState(nLineIndex) == DIFFSTATE_NORMAL) &&
+		(m_pOtherViewData->GetLine(nLineIndex) == m_pViewData->GetLine(nLineIndex))
+	)
+		return false;
 
-	// Go back at most MAX_WHITESPACEBLOCK_SIZE lines to see where this block ends
-	int nStartBlockThis = nLineIndex;
-	int nEndBlockThis = nLineIndex;
-	while ((nStartBlockThis > 0)&&(nStartBlockThis > (nLineIndex-MAX_WHITESPACEBLOCK_SIZE)))
-	{
-		DiffStates state = m_pViewData->GetState(nStartBlockThis-1);
-		if ((origstateThis == DIFFSTATE_EMPTY)&&(state != DIFFSTATE_NORMAL))
-			origstateThis = state;
-		if ((origstateThis == state)||(state == DIFFSTATE_EMPTY))
-			nStartBlockThis--;
-		else
-			break;
-	}
-	while ((nEndBlockThis < (GetLineCount()-1))&&(nEndBlockThis < (nLineIndex+MAX_WHITESPACEBLOCK_SIZE)))
-	{
-		DiffStates state = m_pViewData->GetState(nEndBlockThis+1);
-		if ((origstateThis == DIFFSTATE_EMPTY)&&(state != DIFFSTATE_NORMAL))
-			origstateThis = state;
-		if ((origstateThis == state)||(state == DIFFSTATE_EMPTY))
-			nEndBlockThis++;
-		else
-			break;
-	}
-	int nLastLineOther = m_pOtherViewData->GetCount() - 1;
-	nLineIndex = nLineIndex < nLastLineOther ? nLineIndex : nLastLineOther;
-	int nStartBlockOther = nLineIndex;
-	int nEndBlockOther = nLineIndex;
-	DiffStates origstateOther = m_pOtherViewData->GetState(nLineIndex);
-	while ((nStartBlockOther > 0)&&(nStartBlockOther > (nLineIndex-MAX_WHITESPACEBLOCK_SIZE)))
-	{
-		DiffStates state = m_pOtherViewData->GetState(nStartBlockOther-1);
-		if ((origstateOther == DIFFSTATE_EMPTY)&&(state != DIFFSTATE_NORMAL))
-			origstateOther = state;
-		if ((origstateOther == state)||(state == DIFFSTATE_EMPTY))
-			nStartBlockOther--;
-		else
-			break;
-	}
-	while ((nEndBlockOther < nLastLineOther)&&(nEndBlockOther < (nLineIndex+MAX_WHITESPACEBLOCK_SIZE)))
-	{
-		DiffStates state = m_pOtherViewData->GetState(nEndBlockOther+1);
-		if ((origstateOther == DIFFSTATE_EMPTY)&&(state != DIFFSTATE_NORMAL))
-			origstateOther = state;
-		if ((origstateOther == state)||(state == DIFFSTATE_EMPTY))
-			nEndBlockOther++;
-		else
-			break;
-	}
-	CString mine;
-	for (int i=nStartBlockThis; i<=nEndBlockThis; ++i)
-		mine += m_pViewData->GetLine(i);
-	CString other;
-	for (int i=nStartBlockOther; i<=nEndBlockOther; ++i)
-		other += m_pOtherViewData->GetLine(i);
-	bIdentical = mine.Compare(other)==0;
+	CString mine = GetWhitespaceBlock(m_pViewData, nLineIndex);
+	CString other = GetWhitespaceBlock(m_pOtherViewData, min(nLineIndex, m_pOtherViewData->GetCount()));
+	bIdentical = mine == other;
+	
 	mine.Replace(_T(" "), _T(""));
 	mine.Replace(_T("\t"), _T(""));
 	mine.Replace(_T("\r"), _T(""));
@@ -659,7 +617,8 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
 	other.Replace(_T("\t"), _T(""));
 	other.Replace(_T("\r"), _T(""));
 	other.Replace(_T("\n"), _T(""));
-	return (mine.Compare(other)==0)&&(!mine.IsEmpty());
+	
+	return (mine == other) && (!mine.IsEmpty());
 }
 
 int CBaseView::GetLineNumber(int index) const
