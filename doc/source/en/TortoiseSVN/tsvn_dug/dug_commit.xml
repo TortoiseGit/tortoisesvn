@@ -248,7 +248,8 @@
 			facility. This uses regular expressions to extract class and function names
 			from the (text) files you are committing, as well as the filenames themselves.
 			If a word you are typing matches anything in the list (after you have typed at
-			least 3 characters), a drop-down appears allowing you to select the full name.
+			least 3 characters, or pressed <action>CTRL+Space</action>),
+			a drop-down appears allowing you to select the full name.
 			The regular expressions supplied with TortoiseSVN are held in the TortoiseSVN
 			installation <filename>bin</filename> folder. You can also define your own
 			regexes and store them in <filename>%APPDATA%\TortoiseSVN\autolist.txt</filename>.
