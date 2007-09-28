@@ -22,7 +22,7 @@
 			</listitem>
 		</varlistentry>
 		<varlistentry>
-			<term>Cache Tray Icon</term>
+			<term>Cache tray icon</term>
 			<listitem>
 				<para>
 					To add a cache tray icon for the TSVNCache program,
@@ -30,6 +30,18 @@
 					<literal>HKCU\Software\TortoiseSVN\CacheTrayIcon</literal>.
 					This is really only useful for developers as it allows
 					you to terminate the program gracefully.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>Filenames without extensions in autocompletion list</term>
+			<listitem>
+				<para>
+					Autocompletion list shown in commit message editor
+					displays names of files listed for commit.
+					To also include these names with extansions removed,
+					create a <literal>DWORD</literal> key with a value of 1 at
+					<literal>HKCU\Software\TortoiseSVN\AutocompleteRemovesExtensions</literal>.
 				</para>
 			</listitem>
 		</varlistentry>
