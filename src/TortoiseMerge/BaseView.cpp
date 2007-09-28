@@ -2180,16 +2180,24 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	{
 	case VK_PRIOR:
 		{
+			bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
 			m_ptCaretPos.y -= GetScreenLines();
-			ClearSelection();
+			if (bShift)
+				AdjustSelection(bStartSelection, false);
+			else
+				ClearSelection();
 			EnsureCaretVisible();
 			UpdateCaret();
 		}
 		break;
 	case VK_NEXT:
 		{
+			bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
 			m_ptCaretPos.y += GetScreenLines();
-			ClearSelection();
+			if (bShift)
+				AdjustSelection(bStartSelection, true);
+			else
+				ClearSelection();
 			EnsureCaretVisible();
 			UpdateCaret();
 		}
@@ -2205,8 +2213,12 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			}
 			else
 			{
+				bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
 				m_ptCaretPos.x = 0;
-				ClearSelection();
+				if (bShift)
+					AdjustSelection(bStartSelection, false);
+				else
+					ClearSelection();
 				EnsureCaretVisible();
 				UpdateCaret();
 			}
@@ -2223,28 +2235,14 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			}
 			else
 			{
+				bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
 				m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
-				ClearSelection();
+				if (bShift)
+					AdjustSelection(bStartSelection, true);
+				else
+					ClearSelection();
 				EnsureCaretVisible();
 				UpdateCaret();
-			}
-		}
-		break;
-	case VK_DOWN:
-		{
-			if (m_nSelBlockEnd < GetLineCount()-1)
-			{
-				m_nSelBlockEnd++;
-				Invalidate();
-			}
-		}
-		break;
-	case VK_UP:
-		{
-			if (m_nSelBlockEnd > m_nSelBlockStart)
-			{
-				m_nSelBlockEnd--;
-				Invalidate();
 			}
 		}
 		break;
@@ -2803,14 +2801,19 @@ void CBaseView::RemoveLine(int nLineIndex)
 
 void CBaseView::OnCaretDown()
 {
+	bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
 	m_ptCaretPos.y++;
-	ClearSelection();
+	if (GetKeyState(VK_SHIFT)&0x8000)
+		AdjustSelection(bStartSelection, true);
+	else
+		ClearSelection();
 	EnsureCaretVisible();
 	UpdateCaret();
 }
 
 void CBaseView::OnCaretLeft()
 {
+	bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
 	if (m_ptCaretPos.x == 0)
 	{
 		if (m_ptCaretPos.y)
@@ -2821,13 +2824,17 @@ void CBaseView::OnCaretLeft()
 	}
 	else
 		m_ptCaretPos.x--;
-	ClearSelection();
+	if (GetKeyState(VK_SHIFT)&0x8000)
+		AdjustSelection(bStartSelection, false);
+	else
+		ClearSelection();
 	EnsureCaretVisible();
 	UpdateCaret();
 }
 
 void CBaseView::OnCaretRight()
 {
+	bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
 	if (m_ptCaretPos.x >= GetLineLength(m_ptCaretPos.y))
 	{
 		if (m_ptCaretPos.y < (GetLineCount()-1))
@@ -2838,21 +2845,29 @@ void CBaseView::OnCaretRight()
 	}
 	else
 		m_ptCaretPos.x++;
-	ClearSelection();
+	if (GetKeyState(VK_SHIFT)&0x8000)
+		AdjustSelection(bStartSelection, true);
+	else
+		ClearSelection();
 	EnsureCaretVisible();
 	UpdateCaret();
 }
 
 void CBaseView::OnCaretUp()
 {
+	bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
 	m_ptCaretPos.y--;
-	ClearSelection();
+	if (GetKeyState(VK_SHIFT)&0x8000)
+		AdjustSelection(bStartSelection, false);
+	else
+		ClearSelection();
 	EnsureCaretVisible();
 	UpdateCaret();
 }
 
 void CBaseView::OnCaretWordleft()
 {
+	bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
 	if (m_ptCaretPos.x == 0)
 	{
 		if (m_ptCaretPos.y)
@@ -2870,13 +2885,17 @@ void CBaseView::OnCaretWordleft()
 			newpos = 0;
 		m_ptCaretPos.x = newpos;
 	}
-	ClearSelection();
+	if (GetKeyState(VK_SHIFT)&0x8000)
+		AdjustSelection(bStartSelection, false);
+	else
+		ClearSelection();
 	EnsureCaretVisible();
 	UpdateCaret();
 }
 
 void CBaseView::OnCaretWordright()
 {
+	bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
 	if (m_ptCaretPos.x >= GetLineLength(m_ptCaretPos.y))
 	{
 		if (m_ptCaretPos.y < (GetLineCount()-1))
@@ -2894,7 +2913,10 @@ void CBaseView::OnCaretWordright()
 			newpos = line.size();
 		m_ptCaretPos.x = newpos;
 	}
-	ClearSelection();
+	if (GetKeyState(VK_SHIFT)&0x8000)
+		AdjustSelection(bStartSelection, true);
+	else
+		ClearSelection();
 	EnsureCaretVisible();
 	UpdateCaret();
 }
@@ -2916,4 +2938,17 @@ void CBaseView::ClearSelection()
 		m_pwndRight->ClearCurrentSelection();
 	if (m_pwndBottom)
 		m_pwndBottom->ClearCurrentSelection();
+}
+
+void CBaseView::AdjustSelection(bool bStartSelection, bool bForward)
+{
+	if 	((m_ptSelectionStartPos.x == m_ptSelectionEndPos.x)&&(m_ptSelectionStartPos.y == m_ptSelectionEndPos.y))
+		bStartSelection = !bForward;
+
+	if (bStartSelection)
+		m_ptSelectionStartPos = m_ptCaretPos;
+	else
+		m_ptSelectionEndPos = m_ptCaretPos;
+
+	Invalidate(FALSE);
 }

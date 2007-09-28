@@ -198,6 +198,7 @@ protected:
 	void			DrawText(CDC * pDC, const CRect &rc, LPCTSTR text, int textlength, int nLineIndex, POINT coords, bool bModified, bool bInlineDiff);
 	void			ClearCurrentSelection();
 	void			ClearSelection();
+	void			AdjustSelection(bool bStartSelection, bool bForward);
 
 	void			AddEmptyLine(int nLineIndex);
 	void			RemoveLine(int nLineIndex);
