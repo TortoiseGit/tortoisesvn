@@ -827,7 +827,7 @@ void CCommitDlg::GetAutocompletionList()
 	{
 		ParseRegexFile(sRegexFile, mapRegex);
 	}
-	DWORD timeout = GetTickCount()+timeoutvalue;		// stop parsing after timeout
+	DWORD starttime = GetTickCount();
 
 	// now we have two arrays of strings, where the first array contains all
 	// file extensions we can use and the second the corresponding regex strings
@@ -839,49 +839,51 @@ void CCommitDlg::GetAutocompletionList()
 
 	for (int i=0; i<nListItems; ++i)
 	{
-		if ((!m_bRunThread)||(GetTickCount()>timeout))
+		// stop parsing after timeout
+		if ((!m_bRunThread) || (GetTickCount() - starttime > timeoutvalue))
 			return;
 		const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetListEntry(i);
-		if (entry)
+		if (!entry)
+			continue;
+		
+		// add the path parts to the autocompletion list too
+		CString sPartPath = entry->GetRelativeSVNPath();
+		m_autolist.insert(sPartPath);
+		int lastPos = 0;
+		for(int pos = 0; pos = sPartPath.Find('/', lastPos) + 1; lastPos = pos)
+			m_autolist.insert(sPartPath.Mid(pos));
+		// Last inserted entry is a file name.
+		// Some users prefer to also list file name without extension.
+		if (CRegDWORD(_T("Software\\TortoiseSVN\\AutocompleteRemovesExtensions"), FALSE))
 		{
-			// add the path parts to the autocompletion list too
-			CString sPartPath = entry->GetRelativeSVNPath();
-			m_autolist.insert(sPartPath);
-			int lastPos = 0;
-			for(int pos = 0; pos = sPartPath.Find('/', lastPos) + 1; lastPos = pos)
-				m_autolist.insert(sPartPath.Mid(pos));
-			// Last inserted entry is a file name.
-			// Some users prefer to also list file name without extension.
-			if (CRegDWORD(_T("Software\\TortoiseSVN\\AutocompleteRemovesExtensions"), FALSE))
-			{
-				int dotPos = sPartPath.ReverseFind('.');
-				if ((dotPos >= 0) && (dotPos > lastPos))
-					m_autolist.insert(sPartPath.Mid(lastPos, dotPos - lastPos));
-			}
+			int dotPos = sPartPath.ReverseFind('.');
+			if ((dotPos >= 0) && (dotPos > lastPos))
+				m_autolist.insert(sPartPath.Mid(lastPos, dotPos - lastPos));
+		}
 
-			if (entry->IsChecked())
-			{
-				CString sExt = entry->GetPath().GetFileExtension();
-				sExt.MakeLower();
-				// find the regex string which corresponds to the file extension
-				RegexData rdata = mapRegex[sExt];
-				if (!rdata.regex.IsEmpty())
-				{
-					ScanFile(entry->GetPath().GetWinPathString(), rdata.regex, rdata.flags);
-					if ((entry->textstatus != svn_wc_status_unversioned) &&
-						(entry->textstatus != svn_wc_status_none) &&
-						(entry->textstatus != svn_wc_status_ignored) &&
-						(entry->textstatus != svn_wc_status_added) &&
-						(entry->textstatus != svn_wc_status_normal))
-					{
-						CTSVNPath basePath = SVN::GetPristinePath(entry->GetPath());
-						if (!basePath.IsEmpty())
-							ScanFile(basePath.GetWinPathString(), rdata.regex, rdata.flags);
-					}
-				}
-			}
+		if (!entry->IsChecked())
+			continue;
+
+		CString sExt = entry->GetPath().GetFileExtension();
+		sExt.MakeLower();
+		// find the regex string which corresponds to the file extension
+		RegexData rdata = mapRegex[sExt];
+		if (rdata.regex.IsEmpty())
+			continue;
+
+		ScanFile(entry->GetPath().GetWinPathString(), rdata.regex, rdata.flags);
+		if ((entry->textstatus != svn_wc_status_unversioned) &&
+			(entry->textstatus != svn_wc_status_none) &&
+			(entry->textstatus != svn_wc_status_ignored) &&
+			(entry->textstatus != svn_wc_status_added) &&
+			(entry->textstatus != svn_wc_status_normal))
+		{
+			CTSVNPath basePath = SVN::GetPristinePath(entry->GetPath());
+			if (!basePath.IsEmpty())
+				ScanFile(basePath.GetWinPathString(), rdata.regex, rdata.flags);
 		}
 	}
+	ATLTRACE(_T("Autocompletion list loaded in %d msec\n"), GetTickCount() - starttime);
 }
 
 void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex, REGEX_FLAGS rflags)

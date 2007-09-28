@@ -1,5 +1,5 @@
-(MULTILINE) .h, .hpp, .hxx = ^\s*class\s*([\w_]+)|([\w_]+)\(
-(MULTILINE) .cpp, .c, .cxx = (([\w_]+)::([\w_]+))|([\w_]+)\(
+(MULTILINE) .h, .hpp, .hxx = ^\s*class\s+([\w_]+)|\W([\w_]+)\(
+(MULTILINE) .cpp, .c, .cxx = \W(([\w_]+)::([\w_]+))|\W([\w_]+)\(
 .js = (?:(?:prototype\.|this\.)(\w+)\s*=\s*)?function\s*(?:(\w*)\s*)\(
 (NOCASE) .pas = (\w+)\s+=\s+(?:class|record|interface)|(?:procedure|function|property|constructor)\s+(\w+)
 (MULTILINE) .py .pyw = ^\s*(?:class|def)\s+(\w+)

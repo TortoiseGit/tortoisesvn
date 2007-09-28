@@ -5,7 +5,7 @@ refer to changed methods, class names, ...
 
 The parsing of the files is done with regexes, and those regexes are
 kept in {ProgramFiles}\TortoiseSVN\bin in autolist.txt. In our source
-tree, that file lives at trunk/src/TortoiseSVNSetup/autolist.txt
+tree, that file lives at trunk/src/TortoiseSVNSetup/include/autolist.txt
 
 The installed file gets replaced whenever TSVN is upgraded (because bad
 regexes can cause the commit dialog to crash), so anything you add there
