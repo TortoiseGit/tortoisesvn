@@ -2282,7 +2282,12 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 							m_pViewData->GetLine(m_ptCaretPos.y-1)+m_pViewData->GetLine(m_ptCaretPos.y));
 						m_pViewData->SetState(m_ptCaretPos.y-1, DIFFSTATE_EDITED);
 					}
-					RemoveLine(m_ptCaretPos.y);
+					if (m_pwndLeft)
+						m_pwndLeft->RemoveLine(m_ptCaretPos.y);
+					if (m_pwndRight)
+						m_pwndRight->RemoveLine(m_ptCaretPos.y);
+					if (m_pwndBottom)
+						m_pwndBottom->RemoveLine(m_ptCaretPos.y);
 					m_ptCaretPos.y--;
 					ClearSelection();
 					EnsureCaretVisible();
@@ -2319,7 +2324,12 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 						m_pViewData->SetLine(m_ptCaretPos.y, m_pViewData->GetLine(m_ptCaretPos.y)+sLine);
 						m_pViewData->SetState(m_ptCaretPos.y, DIFFSTATE_EDITED);
 					}
-					RemoveLine(m_ptCaretPos.y+1);
+					if (m_pwndLeft)
+						m_pwndLeft->RemoveLine(m_ptCaretPos.y+1);
+					if (m_pwndRight)
+						m_pwndRight->RemoveLine(m_ptCaretPos.y+1);
+					if (m_pwndBottom)
+						m_pwndBottom->RemoveLine(m_ptCaretPos.y+1);
 					ClearSelection();
 					EnsureCaretVisible();
 					UpdateCaret();
