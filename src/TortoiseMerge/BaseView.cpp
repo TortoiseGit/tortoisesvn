@@ -2252,7 +2252,11 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			{
 				CString sLine = GetLineChars(m_ptCaretPos.y);
 				sLine.Delete(m_ptCaretPos.x-1);
-				m_pViewData->SetLine(m_ptCaretPos.y, sLine);
+				if (m_pViewData)
+				{
+					m_pViewData->SetLine(m_ptCaretPos.y, sLine);
+					m_pViewData->SetState(m_ptCaretPos.y, DIFFSTATE_EDITED);
+				}
 				m_ptCaretPos.x--;
 				ClearSelection();
 				EnsureCaretVisible();
@@ -2266,8 +2270,12 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 				if (m_ptCaretPos.y && m_pViewData)
 				{
 					m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
-					m_pViewData->SetLine(
-						m_ptCaretPos.y-1, m_pViewData->GetLine(m_ptCaretPos.y-1)+m_pViewData->GetLine(m_ptCaretPos.y));
+					if (m_pViewData)
+					{
+						m_pViewData->SetLine(m_ptCaretPos.y-1, 
+							m_pViewData->GetLine(m_ptCaretPos.y-1)+m_pViewData->GetLine(m_ptCaretPos.y));
+						m_pViewData->SetState(m_ptCaretPos.y-1, DIFFSTATE_EDITED);
+					}
 					RemoveLine(m_ptCaretPos.y);
 					m_ptCaretPos.y--;
 					ClearSelection();
@@ -2285,7 +2293,11 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			if (m_ptCaretPos.x < sLine.GetLength())
 			{
 				sLine.Delete(m_ptCaretPos.x);
-				m_pViewData->SetLine(m_ptCaretPos.y, sLine);
+				if (m_pViewData)
+				{
+					m_pViewData->SetLine(m_ptCaretPos.y, sLine);
+					m_pViewData->SetState(m_ptCaretPos.y, DIFFSTATE_EDITED);
+				}
 				ClearSelection();
 				SetModified(true);
 				Invalidate(FALSE);
@@ -2297,7 +2309,10 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 				{
 					CString sLine = GetLineChars(m_ptCaretPos.y+1);
 					if (m_pViewData)
+					{
 						m_pViewData->SetLine(m_ptCaretPos.y, m_pViewData->GetLine(m_ptCaretPos.y)+sLine);
+						m_pViewData->SetState(m_ptCaretPos.y, DIFFSTATE_EDITED);
+					}
 					RemoveLine(m_ptCaretPos.y+1);
 					ClearSelection();
 					EnsureCaretVisible();
@@ -2749,6 +2764,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		CString sLine = GetLineChars(m_ptCaretPos.y);
 		sLine.Insert(m_ptCaretPos.x, (wchar_t)nChar);
 		m_pViewData->SetLine(m_ptCaretPos.y, sLine);
+		m_pViewData->SetState(m_ptCaretPos.y, DIFFSTATE_EDITED);
 		m_ptCaretPos.x++;
 		ClearSelection();
 		EnsureCaretVisible();
@@ -2785,10 +2801,10 @@ void CBaseView::AddEmptyLine(int nLineIndex)
 		CString sPartLine = GetLineChars(nLineIndex);
 		m_pViewData->SetLine(nLineIndex, sPartLine.Left(m_ptCaretPos.x));
 		sPartLine = sPartLine.Mid(m_ptCaretPos.x);
-		m_pViewData->InsertData(nLineIndex+1, sPartLine, DIFFSTATE_ADDED, -1, m_pViewData->GetLineEnding(nLineIndex));
+		m_pViewData->InsertData(nLineIndex+1, sPartLine, DIFFSTATE_EDITED, -1, m_pViewData->GetLineEnding(nLineIndex));
 	}
 	else
-		m_pViewData->InsertData(nLineIndex+1, _T(""), DIFFSTATE_ADDED, -1, m_pViewData->GetLineEnding(nLineIndex));
+		m_pViewData->InsertData(nLineIndex+1, _T(""), DIFFSTATE_EDITED, -1, m_pViewData->GetLineEnding(nLineIndex));
 	Invalidate(FALSE);
 }
 

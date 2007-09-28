@@ -44,5 +44,6 @@ enum DiffStates
 	DIFFSTATE_THEIRSADDED,				///< added line in theirs
 	DIFFSTATE_YOURSREMOVED,				///< removed line in yours
 	DIFFSTATE_YOURSADDED,				///< added line in yours
+	DIFFSTATE_EDITED,					///< manually edited line
 	DIFFSTATE_END						///< end marker for enum
 };
