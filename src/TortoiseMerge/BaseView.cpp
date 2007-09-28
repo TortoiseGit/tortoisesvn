@@ -112,6 +112,8 @@ CBaseView::CBaseView()
 									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
 	m_hLineEndingLF = (HICON)::LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_LINEENDINGLF),
 									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	m_hEditedIcon = (HICON)::LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_LINEEDITED),
+									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
 	for (int i=0; i<1024; ++i)
 		m_sConflictedText += _T("??");
 	EnableToolTips();
@@ -142,6 +144,7 @@ CBaseView::~CBaseView()
 	DestroyIcon(m_hLineEndingCR);
 	DestroyIcon(m_hLineEndingCRLF);
 	DestroyIcon(m_hLineEndingLF);
+	DestroyIcon(m_hEditedIcon);
 }
 
 BEGIN_MESSAGE_MAP(CBaseView, CView)
@@ -957,11 +960,14 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
 		case DIFFSTATE_CONFLICTED_IGNORED:
 			icon = m_hConflictedIgnoredIcon;
 			break;
+		case DIFFSTATE_EDITED:
+			icon = m_hEditedIcon;
+			break;
 		default:
 			break;
 		}
 		bool bIdentical = false;
-		if (IsBlockWhitespaceOnly(nLineIndex, bIdentical))
+		if ((state != DIFFSTATE_EDITED)&&(IsBlockWhitespaceOnly(nLineIndex, bIdentical)))
 		{
 			if (bIdentical)
 				icon = m_hEqualIcon;

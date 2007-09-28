@@ -27,6 +27,8 @@
 #define IDI_LINEENDINGLF                144
 #define IDI_ICON2                       145
 #define IDI_CONFLICTEDIGNOREDLINE       145
+#define IDI_ICON3                       146
+#define IDI_LINEEDITED                  146
 #define IDB_LOGOFLIPPED                 168
 #define IDD_PATCH_FILE_OPEN_CUSTOM      180
 #define IDS_SELECTFILE                  200
@@ -224,14 +226,13 @@
 #define ID_CARET_UP                     32832
 #define ID_CARET_WORDLEFT               32833
 #define ID_CARET_WORDRIGHT              32834
-#define ID_ACCELERATOR32836             32836
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        146
-#define _APS_NEXT_COMMAND_VALUE         32837
+#define _APS_NEXT_RESOURCE_VALUE        147
+#define _APS_NEXT_COMMAND_VALUE         32844
 #define _APS_NEXT_CONTROL_VALUE         1072
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

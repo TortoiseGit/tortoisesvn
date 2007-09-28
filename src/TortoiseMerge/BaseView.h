@@ -243,6 +243,7 @@ protected:
 	HICON			m_hConflictedIgnoredIcon;
 	HICON			m_hWhitespaceBlockIcon;
 	HICON			m_hEqualIcon;
+	HICON			m_hEditedIcon;
 
 	HICON			m_hLineEndingCR;
 	HICON			m_hLineEndingCRLF;
