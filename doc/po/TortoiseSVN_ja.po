@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2005-08-30 15:16GMT Daylight Time\n"
-"PO-Revision-Date: 2007-09-27 23:03+0900\n"
+"PO-Revision-Date: 2007-09-28 23:01+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4383,7 +4383,7 @@ msgstr "[...]"
 
 #: source/TortoiseSVN_en.xml:6345(para)
 msgid "Matches any one of the characters enclosed in the square brackets. Within the brackets, a pair of characters separated by <quote>-</quote> matches any character lexically between the two. For example <literal>[AGm-p]</literal> matches any one of <literal>A</literal>, <literal>G</literal>, <literal>m</literal>, <literal>n</literal>, <literal>o</literal> or <literal>p</literal>."
-msgstr "角かっこで囲まれた一文字にマッチします。かっこ内では、<quote>-</quote> で繋がった2つの文字は、辞書的にその2つの文字の間にある文字にマッチします。例えば、<literal>[AGm-p]</literal> は <literal>A</literal>, <literal>G</literal>, <literal>m</literal>, <literal>n</literal>, <literal>o</literal>, <literal>p</literal> のいずれかにマッチします。"
+msgstr "角かっこで囲まれた一文字にマッチします。かっこ内にある <quote>-</quote> で繋がった 2 つの文字は、辞書的にその 2 つの文字の間にある文字にマッチします。例えば、<literal>[AGm-p]</literal> は <literal>A</literal>, <literal>G</literal>, <literal>m</literal>, <literal>n</literal>, <literal>o</literal>, <literal>p</literal> のいずれかにマッチします。"
 
 #: source/TortoiseSVN_en.xml:6319(para)
 msgid "Subversion's ignore patterns make use of filename globbing, a technique originally used in Unix to specify files using meta-characters as wildcards. The following characters have special meaning: <placeholder-1/>"
