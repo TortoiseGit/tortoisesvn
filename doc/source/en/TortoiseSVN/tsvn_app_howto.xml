@@ -512,4 +512,21 @@ TortoiseProc.exe /command:repobrowser /path:"url/to/repository"
 			</orderedlist>
 		</para>
 	</sect1>
+	<sect1 id="tsvn-howto-unversion-wc">
+		<title>Unversion a working copy</title>
+		<para>
+			If you have a working copy which you want to convert back to
+			a plain folder tree without the <literal>.svn</literal>
+			directories, you can simply export it to itself. Read
+			<xref linkend="tsvn-dug-export-unversion"/> to find out how.
+		</para>
+	</sect1>
+	<sect1 id="tsvn-howto-remove-wc">
+		<title>Remove a working copy</title>
+		<para>
+			If you have a working copy which you no longer need, how do you
+			get rid of it cleanly? Easy - just delete it in Windows Explorer!
+			Working copies are private local entities, and they are self-contained.
+		</para>
+	</sect1>
 </appendix>

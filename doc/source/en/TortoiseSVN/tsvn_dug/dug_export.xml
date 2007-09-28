@@ -71,4 +71,24 @@
 		to overwrite the existing content, or to create a new folder with
 		an automatically generated name, eg. <literal>Target (1)</literal>.
 	</para>
+	<sect2 id="tsvn-dug-export-unversion">
+		<title>Removing a working copy from version control</title>
+		<indexterm>
+			<primary>unversion</primary>
+		</indexterm>
+		<para>
+			Sometimes you have a working copy which you want to convert back
+			to a normal folder without the <literal>.svn</literal> directories.
+			What you really need is an export-in-place command, that just
+			removes the control directories rather than generating a new
+			clean directory tree.
+		</para>
+		<para>
+			The answer is surprisingly simple - export the folder to itself!
+			TortoiseSVN detects this special case and asks if you want to
+			make the working copy unversioned. If you answer
+			<emphasis>yes</emphasis> the control directories will be removed
+			and you will have a plain, unversioned directory tree.
+		</para>
+	</sect2>
 </sect1>
