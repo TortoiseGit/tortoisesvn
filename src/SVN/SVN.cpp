@@ -1215,6 +1215,9 @@ BOOL SVN::GetLogWithMergeInfo(const CTSVNPathList& pathlist, SVNRev revisionPeg,
 
 svn_error_t * SVN::logMergeReceiver(void* baton, svn_log_entry_t* log_entry, apr_pool_t* pool)
 {
+	const char * author = NULL;
+	const char * date = NULL;
+	const char * message = NULL;
 	svn_error_t * error = NULL;
 	TCHAR date_native[SVN_DATE_BUFFER] = {0};
 	CString author_native;
@@ -1224,14 +1227,18 @@ svn_error_t * SVN::logMergeReceiver(void* baton, svn_log_entry_t* log_entry, apr
 	if (log_entry == NULL)
 		return SVN_NO_ERROR;
 
+	svn_compat_log_revprops_out(&author, &date, &message, log_entry->revprops);
+
 	SVN * svn = (SVN *)baton;
-	author_native = CUnicodeUtils::GetUnicode(log_entry->author);
+	if (author)
+		author_native = CUnicodeUtils::GetUnicode(author);
 	apr_time_t time_temp = NULL;
 
-	if (log_entry->date && log_entry->date[0])
+
+	if (date && date[0])
 	{
 		//Convert date to a format for humans.
-		error = svn_time_from_cstring (&time_temp, log_entry->date, pool);
+		error = svn_time_from_cstring (&time_temp, date, pool);
 		if (error)
 			return error;
 
@@ -1240,10 +1247,10 @@ svn_error_t * SVN::logMergeReceiver(void* baton, svn_log_entry_t* log_entry, apr
 	else
 		_tcscat_s(date_native, SVN_DATE_BUFFER, _T("(no date)"));
 
-	if (log_entry->message == NULL)
-		log_entry->message = "";
+	if (message == NULL)
+		message = "";
 
-	msg_native = CUnicodeUtils::GetUnicode(log_entry->message);
+	msg_native = CUnicodeUtils::GetUnicode(message);
 	int filechanges = 0;
 	BOOL copies = FALSE;
 	std::auto_ptr<LogChangedPathArray> arChangedPaths (new LogChangedPathArray);
