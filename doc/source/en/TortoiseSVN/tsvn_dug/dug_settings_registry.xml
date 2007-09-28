@@ -34,14 +34,42 @@
 			</listitem>
 		</varlistentry>
 		<varlistentry>
-			<term>Filenames without extensions in autocompletion list</term>
+			<term>Filenames without extensions in auto-completion list</term>
 			<listitem>
 				<para>
-					The autocompletion list shown in commit message editor
-					displays names of files listed for commit.
+					The auto-completion list shown in the commit message editor
+					displays the names of files listed for commit.
 					To also include these names with extensions removed,
 					create a <literal>DWORD</literal> key with a value of 1 at
 					<literal>HKCU\Software\TortoiseSVN\AutocompleteRemovesExtensions</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>Explorer columns everywhere</term>
+			<listitem>
+				<para>
+					The extra columns the TortoiseSVN adds to the details view
+					in Windows Explorer are normally only active in a working
+					copy. If you want those to be accessible everywhere, not
+					just in working copies, create a <literal>DWORD</literal>
+					key with a value of 1 at
+					<literal>HKCU\Software\TortoiseSVN\ColumnsEveryWhere</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>Merge log separator</term>
+			<listitem>
+				<para>
+					When you merge revisions from another branch, and merge tracking
+					information is available, the log messages from the revisions
+					you merge will be collected to make up a commit log message.
+					A pre-defined string is used to separate the individual log
+					messages of the merged revisions. If you prefer, you can create
+					a <literal>SZ</literal> key at
+					<literal>HKCU\Software\TortoiseSVN\MergeLogSeparator</literal>
+					containing a separator string of your choice.
 				</para>
 			</listitem>
 		</varlistentry>
