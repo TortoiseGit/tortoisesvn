@@ -55,7 +55,7 @@ BOOL CBlame::BlameCallback(LONG linenumber, svn_revnum_t revision, const CString
 	CStringA authorA(author);
 	CStringA pathA(merged_path);
 	TCHAR c = ' ';
-	if (!merged_author.IsEmpty())
+	if (!merged_author.IsEmpty() && merged_author.Compare(author))
 	{
 		dateA = CStringA(merged_date);
 		authorA = CStringA(merged_author);
