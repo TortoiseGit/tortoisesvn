@@ -77,6 +77,7 @@ CBaseView::CBaseView()
 	m_ptSelectionStartPos.y = 0;
 	m_ptSelectionEndPos.x = 0;
 	m_ptSelectionEndPos.y = 0;
+	m_bFocused = FALSE;
 	texttype = CFileTextLines::AUTOTYPE;
 	m_bViewWhitespace = CRegDWORD(_T("Software\\TortoiseMerge\\ViewWhitespaces"), 1);
 	m_bViewLinenumbers = CRegDWORD(_T("Software\\TortoiseMerge\\ViewLinenumbers"), 1);
@@ -1845,6 +1846,21 @@ void CBaseView::GoToFirstDifference()
 		int nTopPos = nCenterPos - (GetScreenLines()/2);
 		if (nTopPos < 0)
 			nTopPos = 0;
+		if (m_pwndLeft)
+		{
+			m_pwndLeft->m_ptCaretPos.x = 0;
+			m_pwndLeft->m_ptCaretPos.y = nCenterPos;
+		}
+		if (m_pwndRight)
+		{
+			m_pwndRight->m_ptCaretPos.x = 0;
+			m_pwndRight->m_ptCaretPos.y = nCenterPos;
+		}
+		if (m_pwndBottom)
+		{
+			m_pwndBottom->m_ptCaretPos.x = 0;
+			m_pwndBottom->m_ptCaretPos.y = nCenterPos;
+		}
 		ScrollAllToLine(nTopPos);
 		RecalcAllVertScrollBars(TRUE);
 	}
@@ -2701,7 +2717,7 @@ void CBaseView::UpdateCaret()
 		m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
 	if (m_ptCaretPos.x < 0)
 		m_ptCaretPos.x = 0;
-	if (m_bFocused && ! m_bCaretHidden &&
+	if (m_bFocused && !m_bCaretHidden &&
 		CalculateActualOffset(m_ptCaretPos.y, m_ptCaretPos.x) >= m_nOffsetChar)
 	{
 		CreateSolidCaret(2, GetLineHeight());
@@ -2748,7 +2764,7 @@ POINT CBaseView::TextToClient(const POINT& point)
 	LPCTSTR pszLine = GetLineChars(point.y);
 
 	POINT pt;
-	pt.y = (point.y - m_nTopLine) * GetLineHeight();
+	pt.y = max(0, (point.y - m_nTopLine) * GetLineHeight());
 	pt.x = 0;
 	int nTabSize = GetTabSize();
 	for (int nIndex = 0; nIndex < point.x; nIndex ++)
@@ -2760,7 +2776,7 @@ POINT CBaseView::TextToClient(const POINT& point)
 	}
 
 	pt.x = (pt.x - m_nOffsetChar) * GetCharWidth() + GetMarginWidth();
-	pt.y = (pt.y + GetLineHeight()+HEADERHEIGHT);
+	pt.y = (pt.y + GetLineHeight() + HEADERHEIGHT);
 	return pt;
 }
 
