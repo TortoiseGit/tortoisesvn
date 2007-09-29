@@ -2275,7 +2275,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 				// append the line to the previous one, remove the line, then move the cursor a line up
 				if (m_ptCaretPos.y && m_pViewData)
 				{
-					m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
+					m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y-1);
 					if (m_pViewData)
 					{
 						m_pViewData->SetLine(m_ptCaretPos.y-1, 
