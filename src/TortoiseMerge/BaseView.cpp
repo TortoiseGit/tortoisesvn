@@ -3055,5 +3055,7 @@ void CBaseView::AdjustSelection(bool bStartSelection, bool bForward)
 	m_ptSelectionDrawStartPos.x = CalculateActualOffset(m_ptSelectionDrawStartPos.y, m_ptSelectionDrawStartPos.x);
 	m_ptSelectionDrawEndPos.x = CalculateActualOffset(m_ptSelectionDrawEndPos.y, m_ptSelectionDrawEndPos.x);
 
+	SetupSelection(min(m_ptSelectionStartPos.y, m_ptSelectionEndPos.y), max(m_ptSelectionStartPos.y, m_ptSelectionEndPos.y));
+
 	Invalidate(FALSE);
 }
