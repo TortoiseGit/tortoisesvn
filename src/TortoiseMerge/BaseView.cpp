@@ -2759,7 +2759,11 @@ void CBaseView::UpdateCaret()
 	if (m_ptCaretPos.x < 0)
 		m_ptCaretPos.x = 0;
 	if (m_bFocused && !m_bCaretHidden &&
-		CalculateActualOffset(m_ptCaretPos.y, m_ptCaretPos.x) >= m_nOffsetChar)
+		CalculateActualOffset(m_ptCaretPos.y, m_ptCaretPos.x) >= m_nOffsetChar &&
+		m_ptCaretPos.y >= m_nTopLine &&
+		m_ptCaretPos.y < (m_nTopLine+GetScreenLines()) &&
+		m_ptCaretPos.x >= m_nOffsetChar &&
+		m_ptCaretPos.x < (m_nOffsetChar+GetScreenChars()))
 	{
 		CreateSolidCaret(2, GetLineHeight());
 		SetCaretPos(TextToClient(m_ptCaretPos));
