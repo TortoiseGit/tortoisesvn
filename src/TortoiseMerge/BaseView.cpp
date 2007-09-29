@@ -77,6 +77,10 @@ CBaseView::CBaseView()
 	m_ptSelectionStartPos.y = 0;
 	m_ptSelectionEndPos.x = 0;
 	m_ptSelectionEndPos.y = 0;
+	m_ptSelectionDrawStartPos.x = 0;
+	m_ptSelectionDrawStartPos.y = 0;
+	m_ptSelectionDrawEndPos.x = 0;
+	m_ptSelectionDrawEndPos.y = 0;
 	m_bFocused = FALSE;
 	texttype = CFileTextLines::AUTOTYPE;
 	m_bViewWhitespace = CRegDWORD(_T("Software\\TortoiseMerge\\ViewWhitespaces"), 1);
@@ -1248,7 +1252,7 @@ void CBaseView::DrawDiffTokens(CDC *pDC, const CRect &rc, int& nLineIndex, int& 
 
 void CBaseView::DrawText(CDC * pDC, const CRect &rc, LPCTSTR text, int textlength, int nLineIndex, POINT coords, bool bModified, bool bInlineDiff)
 {
-	if ((m_ptSelectionStartPos.y > nLineIndex)||(m_ptSelectionEndPos.y < nLineIndex))
+	if ((m_ptSelectionDrawStartPos.y > nLineIndex)||(m_ptSelectionDrawEndPos.y < nLineIndex))
 	{
 		// this line has no selected text
 		COLORREF crBkgnd, crText;
@@ -1266,7 +1270,7 @@ void CBaseView::DrawText(CDC * pDC, const CRect &rc, LPCTSTR text, int textlengt
 		return;
 	}
 
-	if (m_ptSelectionStartPos.y < nLineIndex && m_ptSelectionEndPos.y > nLineIndex)
+	if (m_ptSelectionDrawStartPos.y < nLineIndex && m_ptSelectionDrawEndPos.y > nLineIndex)
 	{
 		// the whole line is selected
 		COLORREF crBkgnd, crText;
@@ -1296,8 +1300,8 @@ void CBaseView::DrawText(CDC * pDC, const CRect &rc, LPCTSTR text, int textlengt
 	}
 
 	// the line is partially selected
-	if ((m_ptSelectionStartPos.y == nLineIndex) &&
-		(((m_ptSelectionStartPos.x-m_nOffsetChar) * GetCharWidth()) > (coords.x-GetMarginWidth())))
+	if ((m_ptSelectionDrawStartPos.y == nLineIndex) &&
+		(((m_ptSelectionDrawStartPos.x-m_nOffsetChar) * GetCharWidth()) > (coords.x-GetMarginWidth())))
 	{
 		// first text not selected, then selected text
 		COLORREF crBkgnd, crText, crBkgndSelected, crTextSelected;
@@ -1312,7 +1316,7 @@ void CBaseView::DrawText(CDC * pDC, const CRect &rc, LPCTSTR text, int textlengt
 		pDC->SetBkColor(crBkgnd);
 		pDC->SetTextColor(crText);
 		// how many chars are not selected?
-		int clearLen = m_ptSelectionStartPos.x - (((coords.x-GetMarginWidth()) / GetCharWidth())+m_nOffsetChar);
+		int clearLen = m_ptSelectionDrawStartPos.x - (((coords.x-GetMarginWidth()) / GetCharWidth())+m_nOffsetChar);
 		clearLen = min(clearLen, textlength);
 		VERIFY(pDC->ExtTextOut(coords.x, coords.y, ETO_CLIPPED, &rc, text, clearLen, NULL));
 		// now draw the rest of the line selected
@@ -1328,9 +1332,9 @@ void CBaseView::DrawText(CDC * pDC, const CRect &rc, LPCTSTR text, int textlengt
 		}
 		pDC->SetBkColor(crBkgndSelected);
 		pDC->SetTextColor(crTextSelected);
-		int selLen = m_ptSelectionEndPos.x - (((coords.x-GetMarginWidth()) / GetCharWidth())+m_nOffsetChar);
+		int selLen = m_ptSelectionDrawEndPos.x - (((coords.x-GetMarginWidth()) / GetCharWidth())+m_nOffsetChar);
 		selLen -= clearLen;
-		if (m_ptSelectionEndPos.y > nLineIndex)
+		if (m_ptSelectionDrawEndPos.y > nLineIndex)
 			selLen = textlength-clearLen;
 		selLen = min(selLen, textlength-clearLen);
 		selLen = max(selLen, 0);
@@ -1365,8 +1369,8 @@ void CBaseView::DrawText(CDC * pDC, const CRect &rc, LPCTSTR text, int textlengt
 	pDC->SetTextColor(crTextSelected);
 
 	// how many chars are selected?
-	int selLen = m_ptSelectionEndPos.x - (((coords.x-GetMarginWidth()) / GetCharWidth())+m_nOffsetChar);
-	if (m_ptSelectionEndPos.y > nLineIndex)
+	int selLen = m_ptSelectionDrawEndPos.x - (((coords.x-GetMarginWidth()) / GetCharWidth())+m_nOffsetChar);
+	if (m_ptSelectionDrawEndPos.y > nLineIndex)
 		selLen = textlength;
 	selLen = min(selLen, textlength);
 	selLen = max(selLen, 0);
@@ -2396,9 +2400,28 @@ void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
 
 		m_ptCaretPos.y = nClickedLine;
 		m_ptCaretPos.x = (point.x - GetMarginWidth()) / GetCharWidth();
+		// the caret x position is the char in the line. We have to check whether
+		// there are tabs before the current char x position and adjust the caret
+		// x position accordingly
+		CString line = GetLineChars(m_ptCaretPos.y);
+		int nOff = 0;
+		while ((nOff >= 0) && (nOff <= m_ptCaretPos.x))
+		{
+			nOff = line.Find('\t', nOff);
+			if ((nOff >= 0)&&(nOff < m_ptCaretPos.x))
+			{
+				m_ptCaretPos.x -= (GetTabSize()-1);
+				nOff++;
+			}
+		}
+
 		m_ptCaretPos.x = min(m_ptCaretPos.x, GetLineLength(nClickedLine));
 		m_ptSelectionStartPos = m_ptCaretPos;
 		m_ptSelectionEndPos = m_ptCaretPos;
+		m_ptSelectionDrawStartPos = m_ptCaretPos;
+		m_ptSelectionDrawEndPos = m_ptCaretPos;
+		m_ptSelectionDrawStartPos.x = CalculateActualOffset(m_ptSelectionDrawStartPos.y, m_ptSelectionDrawStartPos.x);
+		m_ptSelectionDrawEndPos.x = CalculateActualOffset(m_ptSelectionDrawEndPos.y, m_ptSelectionDrawEndPos.x);
 		UpdateCaret();
 
 		Invalidate();
@@ -2496,6 +2519,20 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
 		{
 			m_ptCaretPos.y = nMouseLine;
 			m_ptCaretPos.x = (point.x - GetMarginWidth()) / GetCharWidth();
+			// the caret x position is the char in the line. We have to check whether
+			// there are tabs before the current char x position and adjust the caret
+			// x position accordingly
+			CString line = GetLineChars(m_ptCaretPos.y);
+			int nOff = 0;
+			while ((nOff >= 0) && (nOff <= m_ptCaretPos.x))
+			{
+				nOff = line.Find('\t', nOff);
+				if ((nOff >= 0)&&(nOff < m_ptCaretPos.x))
+				{
+					m_ptCaretPos.x -= (GetTabSize()-1);
+					nOff++;
+				}
+			}
 			m_ptCaretPos.x = min(m_ptCaretPos.x, GetLineActualLength(nMouseLine));
 			if ((m_ptSelectionStartPos.y < m_ptCaretPos.y)||
 				((m_ptSelectionStartPos.y == m_ptCaretPos.y)&&(m_ptSelectionStartPos.x < m_ptCaretPos.x)))
@@ -2506,6 +2543,10 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
 			{
 				m_ptSelectionStartPos = m_ptCaretPos;
 			}
+			m_ptSelectionDrawStartPos = m_ptSelectionStartPos;
+			m_ptSelectionDrawEndPos = m_ptSelectionEndPos;
+			m_ptSelectionDrawStartPos.x = CalculateActualOffset(m_ptSelectionDrawStartPos.y, m_ptSelectionDrawStartPos.x);
+			m_ptSelectionDrawEndPos.x = CalculateActualOffset(m_ptSelectionDrawEndPos.y, m_ptSelectionDrawEndPos.x);
 			m_nSelBlockStart = m_ptSelectionStartPos.y;
 			m_nSelBlockEnd = m_ptSelectionEndPos.y;
 			SetupSelection(m_nSelBlockStart, m_nSelBlockEnd);
@@ -2976,6 +3017,10 @@ void CBaseView::ClearCurrentSelection()
 {
 	m_ptSelectionStartPos = m_ptCaretPos;
 	m_ptSelectionEndPos = m_ptCaretPos;
+	m_ptSelectionDrawStartPos = m_ptSelectionStartPos;
+	m_ptSelectionDrawEndPos = m_ptSelectionEndPos;
+	m_ptSelectionDrawStartPos.x = CalculateActualOffset(m_ptSelectionDrawStartPos.y, m_ptSelectionDrawStartPos.x);
+	m_ptSelectionDrawEndPos.x = CalculateActualOffset(m_ptSelectionDrawEndPos.y, m_ptSelectionDrawEndPos.x);
 	m_nSelBlockStart = -1;
 	m_nSelBlockEnd = -1;
 	Invalidate(FALSE);
@@ -3000,6 +3045,11 @@ void CBaseView::AdjustSelection(bool bStartSelection, bool bForward)
 		m_ptSelectionStartPos = m_ptCaretPos;
 	else
 		m_ptSelectionEndPos = m_ptCaretPos;
+
+	m_ptSelectionDrawStartPos = m_ptSelectionStartPos;
+	m_ptSelectionDrawEndPos = m_ptSelectionEndPos;
+	m_ptSelectionDrawStartPos.x = CalculateActualOffset(m_ptSelectionDrawStartPos.y, m_ptSelectionDrawStartPos.x);
+	m_ptSelectionDrawEndPos.x = CalculateActualOffset(m_ptSelectionDrawEndPos.y, m_ptSelectionDrawEndPos.x);
 
 	Invalidate(FALSE);
 }

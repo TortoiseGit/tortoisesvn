@@ -235,6 +235,8 @@ protected:
 	POINT			m_ptCaretPos;
 	POINT			m_ptSelectionStartPos;
 	POINT			m_ptSelectionEndPos;
+	POINT			m_ptSelectionDrawStartPos;
+	POINT			m_ptSelectionDrawEndPos;
 
 
 	HICON			m_hAddedIcon;
