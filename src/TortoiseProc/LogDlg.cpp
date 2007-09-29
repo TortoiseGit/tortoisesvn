@@ -955,7 +955,7 @@ UINT CLogDlg::LogThread()
 				for (hi = apr_hash_first(localpool, mergeinfo); hi; hi = apr_hash_next(hi))
 				{
 					apr_hash_this(hi, &key, NULL, &val);
-					if (m_sRelativeRoot.Compare(CUnicodeUtils::GetUnicode((char*)key)) == 0)
+					if (sUrl.Compare(CUnicodeUtils::GetUnicode((char*)key)) == 0)
 					{
 						apr_array_header_t * arr = (apr_array_header_t*)val;
 						if (val)
