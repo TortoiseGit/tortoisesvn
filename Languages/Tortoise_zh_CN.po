@@ -10,7 +10,7 @@
 # Xingyu.Wang <xingyu.wang@gmail.com>
 #
 # Please format your translation before commit:
-#    msgmerge --no-wrap -o Tortoise_zh_CN_new.po Tortoise_zh_CN.po Tortoise.pot
+#    msgmerge --width=120 -o Tortoise_zh_CN_new.po Tortoise_zh_CN.po Tortoise.pot
 #    mv -f Tortoise_zh_CN_new.po Tortoise_zh_CN.po
 #
 # Dictionary:
@@ -19,23 +19,25 @@
 # checkout          检出
 # default           默认
 # HEAD revision     最新版本
+# overlay           重载 
 # remove            删除
 # rename            改名
 # repository        版本库
 # revert            恢复
 # revision          版本
+# Subversion book   Subversion 手册
 # undo              撤销
 # unified diff      标准差异
-# unversioned       无版本控制的
-# versioned         版本控制的
-# working copy      工作拷贝
+# unversioned       未版本控制
+# versioned         已版本控制
+# working copy      工作副本
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-09-27 17:36+0800\n"
+"PO-Revision-Date: 2007-09-29 11:42+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1043,9 +1045,8 @@ msgstr "- %d"
 # Control-ID:1333,#:
 # Control-ID:1002,#:
 # Control-ID:1003,
-#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1187,#: Control-ID:1104,#:
-#: Control-ID:1021,#: Control-ID:1022,#: Control-ID:1089,#: Control-ID:1362,#:
-#: Control-ID:1324,#: Control-ID:1333,#: Control-ID:1002,#: Control-ID:1003,
+#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1187,#: Control-ID:1104,#: Control-ID:1021,#: Control-ID:1022,#:
+#: Control-ID:1089,#: Control-ID:1362,#: Control-ID:1324,#: Control-ID:1333,#: Control-ID:1002,#: Control-ID:1003,
 msgid "..."
 msgstr "..."
 
@@ -1105,7 +1106,9 @@ msgstr "存取 %1 时发生锁定错误。"
 
 # ID:201,
 #: ID:201,
-msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
+msgid ""
+"A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click "
+"_here_ to go directly to our website."
 msgstr "有更新的版本。请到 http://tortoisesvn.tigris.org 下载！点击这里直接进入我们的站点。"
 
 # ID:195,
@@ -1974,8 +1977,7 @@ msgstr "清理未完成的操作，锁定文件等…"
 # Control-ID:1275,#:
 # Control-ID:1276,#:
 # Control-ID:1279,
-#: Control-ID:1273,#: Control-ID:1275,#: Control-ID:1281,#: Control-ID:1276,#:
-#: Control-ID:1279,
+#: Control-ID:1273,#: Control-ID:1275,#: Control-ID:1281,#: Control-ID:1276,#: Control-ID:1279,
 msgid "Clear"
 msgstr "清除"
 
@@ -2790,7 +2792,8 @@ msgstr ""
 msgid ""
 "Do you really want to revert all changes in\n"
 "%s\n"
-"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
+"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working "
+"copy."
 msgstr ""
 "你确定要恢复此版本对\n"
 "%s\n"
@@ -3423,11 +3426,15 @@ msgstr "GDI+ 无法创建位图对象，有可能是由于系统内存不足造�
 msgid ""
 "GDI+ is required to save the revision graph as a picture.\n"
 "You can get GDI+ from\n"
-"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+"be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+"be590feaa05a&DisplayLang=en</a></u>"
 msgstr ""
-"需要GDI+才能将版本图保存成图片格式。\n"
-"你可以从以下地址下载GDI+\n"
-"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
+"需要 GDI+ 才能将版本图保存成图片格式。\n"
+"你可以从以下地址下载 GDI+\n"
+"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+"be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+"be590feaa05a&DisplayLang=en</a></u>"
 
 # ID:120,
 #: ID:284,
@@ -3458,8 +3465,10 @@ msgstr "取得合并日志"
 # ID:89,
 #: ID:89,
 msgid ""
-"Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\n"
-"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
+"Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in "
+"their working copies.\n"
+"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those "
+"files.\n"
 "Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
 "Note that other users will need to update their working copies before they see the files as read-only."
 msgstr ""
@@ -5624,7 +5633,7 @@ msgid ""
 "Rename item from %s\r\n"
 "to %s"
 msgstr ""
-"重命名项目 %s\r\n"
+"改名项目 %s\r\n"
 "为 %s"
 
 # Dlg-ID:129,
@@ -5820,8 +5829,7 @@ msgstr "复原从上次更新之后全部的变动"
 # Control-ID:65535,#:
 # Control-ID:1306,#:
 # ID:19,
-#: ID:76,#: ID:208,#: Control-ID:1375,#: Control-ID:1306,#:
-#: Control-ID:65535,#: Control-ID:1393,#: ID:19,
+#: ID:76,#: ID:208,#: Control-ID:1375,#: Control-ID:1306,#: Control-ID:65535,#: Control-ID:1393,#: ID:19,
 msgid "Revision"
 msgstr "版本"
 
@@ -6117,8 +6125,7 @@ msgstr "保存补丁文件至："
 # Control-ID:1064,#:
 # Control-ID:1212,#:
 # Control-ID:1064,
-#: Control-ID:1014,#: Control-ID:1017,#: Control-ID:1064,#: Control-ID:1212,#:
-#: Control-ID:1064,
+#: Control-ID:1014,#: Control-ID:1017,#: Control-ID:1064,#: Control-ID:1212,#: Control-ID:1064,
 msgid "Scintilla"
 msgstr "Scintilla"
 
@@ -7260,8 +7267,11 @@ msgstr ""
 
 # ID:82,
 #: ID:82,
-msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
-msgstr "没有可添加的条目，所有文件和文件夹都已经用 Subversion 进行了版本控制或者在 svn:ignore 属性或全局忽略设置中设为忽略。"
+msgid ""
+"There is nothing to add. All the files and folders are either under version control or have been ignored using the "
+"svn:ignore property or the global ignore configuration setting."
+msgstr ""
+"没有可添加的条目，所有文件和文件夹都已经用 Subversion 进行了版本控制或者在 svn:ignore 属性或全局忽略设置中设为忽略。"
 
 # ID:83,
 #: ID:83,
@@ -7300,14 +7310,17 @@ msgstr "本产品包含由 CollabNet(http://www.Collab.Net/) 所开发的软件"
 
 # Control-ID:65535,
 #: Control-ID:65535,
-msgid "This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/)"
+msgid ""
+"This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl."
+"org/)"
 msgstr "本产品包含了由 OpenSSL项目开发的 OpenSSL Toolkit(http://www.openssl.org/)"
 
 # ID:3857,#:
 # ID:3857,
 #: ID:3857,#: ID:3857,
 #, c-format
-msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
+msgid ""
+"This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
 msgstr "找不到本程序链接的 %s (包含于 %s)，可能 %s 的已安装版本不兼容。"
 
 # ID:3857,#:
@@ -7344,7 +7357,8 @@ msgstr ""
 #: ID:284,
 msgid ""
 "To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\n"
-"This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
+"This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding "
+"it."
 msgstr ""
 "为了窃取锁，在此项目的父目录上点击右键，在上下文菜单中选择“获得锁”。\n"
 "这就会出现加锁对话框，你可以强制锁定操作，例如从当前持有人那里“窃取”锁。"
@@ -8528,7 +8542,8 @@ msgstr ""
 msgid ""
 "svn:executable\n"
 "If present, make the file executable. This property cannot be set on a directory.\n"
-"A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
+"A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the "
+"directory."
 msgstr ""
 "svn:executable\n"
 "设置后文件将具备执行权限。该属性不能设置到一个目录上。\n"
