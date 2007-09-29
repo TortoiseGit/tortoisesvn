@@ -1255,7 +1255,7 @@ void CBaseView::DrawText(CDC * pDC, const CRect &rc, LPCTSTR text, int textlengt
 			CDiffColors::GetInstance().GetColors(m_pViewData->GetState(nLineIndex), crBkgnd, crText);
 		else
 			CDiffColors::GetInstance().GetColors(DIFFSTATE_UNKNOWN, crBkgnd, crText);
-		if (bModified)
+		if ((bModified)||(m_pViewData->GetState(nLineIndex) == DIFFSTATE_EDITED))
 			crBkgnd = m_ModifiedBk;
 		if (bInlineDiff)
 			crBkgnd = InlineDiffColor(nLineIndex);
@@ -1273,7 +1273,7 @@ void CBaseView::DrawText(CDC * pDC, const CRect &rc, LPCTSTR text, int textlengt
 			CDiffColors::GetInstance().GetColors(m_pViewData->GetState(nLineIndex), crBkgnd, crText);
 		else
 			CDiffColors::GetInstance().GetColors(DIFFSTATE_UNKNOWN, crBkgnd, crText);
-		if (bModified)
+		if ((bModified)||(m_pViewData->GetState(nLineIndex) == DIFFSTATE_EDITED))
 			crBkgnd = m_ModifiedBk;
 		if (bInlineDiff)
 			crBkgnd = InlineDiffColor(nLineIndex);
@@ -1304,7 +1304,7 @@ void CBaseView::DrawText(CDC * pDC, const CRect &rc, LPCTSTR text, int textlengt
 			CDiffColors::GetInstance().GetColors(m_pViewData->GetState(nLineIndex), crBkgnd, crText);
 		else
 			CDiffColors::GetInstance().GetColors(DIFFSTATE_UNKNOWN, crBkgnd, crText);
-		if (bModified)
+		if ((bModified)||(m_pViewData->GetState(nLineIndex) == DIFFSTATE_EDITED))
 			crBkgnd = m_ModifiedBk;
 		if (bInlineDiff)
 			crBkgnd = InlineDiffColor(nLineIndex);
@@ -1346,7 +1346,7 @@ void CBaseView::DrawText(CDC * pDC, const CRect &rc, LPCTSTR text, int textlengt
 		CDiffColors::GetInstance().GetColors(m_pViewData->GetState(nLineIndex), crBkgnd, crText);
 	else
 		CDiffColors::GetInstance().GetColors(DIFFSTATE_UNKNOWN, crBkgnd, crText);
-	if (bModified)
+	if ((bModified)||(m_pViewData->GetState(nLineIndex) == DIFFSTATE_EDITED))
 		crBkgnd = m_ModifiedBk;
 	if (bInlineDiff)
 		crBkgnd = InlineDiffColor(nLineIndex);
