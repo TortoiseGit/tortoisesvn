@@ -2396,7 +2396,7 @@ void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
 
 		m_ptCaretPos.y = nClickedLine;
 		m_ptCaretPos.x = (point.x - GetMarginWidth()) / GetCharWidth();
-		m_ptCaretPos.x = min(m_ptCaretPos.x, GetLineActualLength(nClickedLine));
+		m_ptCaretPos.x = min(m_ptCaretPos.x, GetLineLength(nClickedLine));
 		m_ptSelectionStartPos = m_ptCaretPos;
 		m_ptSelectionEndPos = m_ptCaretPos;
 		UpdateCaret();
@@ -2738,14 +2738,16 @@ void CBaseView::EnsureCaretVisible()
 		ScrollAllToLine(m_ptCaretPos.y-GetScreenLines()+1);
 	if (m_ptCaretPos.x < m_nOffsetChar)
 		ScrollToChar(m_ptCaretPos.x);
-	if (m_ptCaretPos.x > (m_nOffsetChar+m_nScreenChars))
-		ScrollToChar(m_ptCaretPos.x-m_nScreenChars);
+	if (CalculateActualOffset(m_ptCaretPos.y, m_ptCaretPos.x) > (m_nOffsetChar+GetScreenChars()-1))
+		ScrollToChar(CalculateActualOffset(m_ptCaretPos.y, m_ptCaretPos.x)-GetScreenChars()+1);
 }
 
 int CBaseView::CalculateActualOffset(int nLineIndex, int nCharIndex)
 {
 	int nLength = GetLineLength(nLineIndex);
-	ASSERT(nCharIndex >= 0 && nCharIndex <= nLength);
+	ASSERT(nCharIndex >= 0);
+	if (nCharIndex > nLength)
+		nCharIndex = nLength;
 	LPCTSTR pszChars = GetLineChars(nLineIndex);
 	int nOffset = 0;
 	int nTabSize = GetTabSize();
