@@ -47,7 +47,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-09-17 01:38+0200\n"
+"PO-Revision-Date: 2007-09-30 17:35+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -689,8 +689,8 @@ msgid "&Limit search to modified lines"
 msgstr "&Ограничаване на търсенето до променените редове"
 
 #: MenuEntry
-msgid "&Link images together"
-msgstr "&Свързване на картинките заедно"
+msgid "&Link image positions"
+msgstr "&Свързване на позициите на картинките"
 
 # ID:188,
 #: Control-ID:1172,
@@ -783,7 +783,8 @@ msgid "&Password:"
 msgstr "&Парола:"
 
 # ID:376,
-#: ID:376,
+#: ID:376,#:
+#: ID:501,
 msgid "&Paste"
 msgstr "&Поставяне"
 
@@ -1077,6 +1078,10 @@ msgstr "(не е намерено)"
 #: ID:208,
 msgid "(property change only)"
 msgstr "(само променени свойства)"
+
+#: ID:245,
+msgid "(unknown)"
+msgstr "(неизвестен)"
 
 # ID:188,
 #: ID:188,
@@ -1820,6 +1825,11 @@ msgstr "Съ&здаване на разклонение/етикет от рев
 #: ID:101,
 msgid "C&reate folder..."
 msgstr "Съ&здаване на папка..."
+
+# ID:376,
+#: ID:501,
+msgid "C&ut"
+msgstr "&Изрязване"
 
 # ID:3697,
 #: ID:3697,
@@ -2921,6 +2931,17 @@ msgstr ""
 "%s,\n"
 "направени в тази ревизия? Тези промени ще бъдат отменени чрез обратно сливане на ревизията с работното Ви копие."
 
+#: ID:99,
+#, c-format
+msgid ""
+"Do you want to make this working copy unversioned?\n"
+"This will remove all Subversion admin directories from\n"
+"%s!"
+msgstr ""
+"Желаете ли да разконтролирате това работно копие?\n"
+"Това ще премахне всички административни директории на Subversion от\n"
+"%s!"
+
 # ID:76,
 #: ID:76,
 msgid "Do you want to proceed?"
@@ -3487,8 +3508,8 @@ msgid "Finished!"
 msgstr "Завършено!"
 
 #: MenuEntry
-msgid "Fit Images &together"
-msgstr "Напасване на картинките &заедно"
+msgid "Fit image &sizes"
+msgstr "Напасване на &размера на картинката"
 
 # Control-ID:1315,
 #: Control-ID:1315,
@@ -3823,9 +3844,9 @@ msgstr "ID:32796:V C +A"
 msgid "ID:32809:V C +F"
 msgstr "ID:32809:V C +F"
 
-#. Accelerator Entry for Menu ID:32810; 'Fit Images &together'
+#. Accelerator Entry for Menu ID:32810; 'Fit image &sizes'
 #: Corresponding Menu ID:32810;
-#: 'Fit Images &together'
+#: 'Fit image &sizes'
 msgid "ID:32810:V   +T"
 msgstr "ID:32810:V   +T"
 
@@ -4650,6 +4671,16 @@ msgstr "Сливане - TortoiseSVN"
 msgid "Merge depth:"
 msgstr "Дълбочина на сливане:"
 
+# ID:76,
+#: ID:114,
+msgid "Merge revision to..."
+msgstr "Сливане на ревизия в..."
+
+# ID:76,
+#: ID:114,
+msgid "Merge revisions to..."
+msgstr "Сливане на ревизии в..."
+
 # ID:110,
 #: Control-ID:1377,
 msgid "Merge settings"
@@ -4664,14 +4695,8 @@ msgstr "Слят"
 # ID:313,
 #: ID:286,
 #, c-format
-msgid "Merged revision %s from %s:\n"
-msgstr "Слята ревизия %s от %s:\n"
-
-# ID:229,
-#: ID:286,
-#, c-format
-msgid "Merged revisions %s to %s from %s:\n"
-msgstr "Слети ревизии %s до %s от %s:\n"
+msgid "Merged revision(s) %s from %s:\n"
+msgstr "Слята ревизия(-и) %s от %s:\n"
 
 # ID:10,
 #: ID:10,
@@ -6461,6 +6486,11 @@ msgstr "Изберете файл със скрипт-кука"
 msgid "Select merge application"
 msgstr "Избор на програма за сливане"
 
+# ID:78,
+#: ID:119,
+msgid "Select merge target"
+msgstr "Избор на цел на сливането"
+
 # Dlg-ID:173,
 #: ID:276,
 msgid "Select revision range"
@@ -7078,25 +7108,6 @@ msgstr "Състояние на текста:"
 msgid "Text status"
 msgstr "Състояние на текста"
 
-# ID:69,
-#: ID:69,
-#, c-format
-msgid ""
-"The File\n"
-"%s\n"
-"is not a valid text file!\n"
-"Note that UTF32 files are treated as binary too."
-msgstr ""
-"Файлът\n"
-"%s\n"
-"не е валиден текстов файл!\n"
-"Забележете, че файлове във кодиращ формат UTF-32 се третират като двоични."
-
-# ID:80,
-#: ID:80,
-msgid "The Repository was successfully created."
-msgstr "Хранилището е създадено успешно!"
-
 # ID:63,
 #: ID:63,
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -7164,6 +7175,20 @@ msgstr ""
 "Файлът\n"
 "%s\n"
 "вече съществува! Желаете ли да го презапишете?"
+
+# ID:69,
+#: ID:69,
+#, c-format
+msgid ""
+"The file\n"
+"%s\n"
+"is not a valid text file!\n"
+"Note that UTF32 files are treated as binary too."
+msgstr ""
+"Файлът\n"
+"%s\n"
+"не е валиден текстов файл!\n"
+"Забележете, че файлове във кодировка UTF-32 се третират като двоични."
 
 # ID:145,
 #: ID:145,
@@ -7360,6 +7385,11 @@ msgstr ""
 "Но TortoiseMerge откри, че пътят\n"
 "<i>%s</i>\n"
 "съответства по-добре. Желаете ли да се използва предложения път?"
+
+# ID:80,
+#: ID:80,
+msgid "The repository was successfully created."
+msgstr "Хранилището е създадено успешно."
 
 # Control-ID:65535,
 #: Control-ID:65535,
@@ -7636,7 +7666,10 @@ msgid ""
 "/left:\"path to left picture\"\n"
 "/lefttitle:\"title to show for the left picture\"\n"
 "/right:\"path to right picture\"\n"
-"/righttitle:\"title to show for the right picture\""
+"/righttitle:\"title to show for the right picture\"\n"
+"/overlay\t\tto enable overlay mode\n"
+"/fit\t\tto fit the images sizes\n"
+"/showinfo\t\tto show the image info boxes"
 msgstr ""
 "TortoiseIDiff: програма за сравняване на картинки за TortoiseSVN\n"
 "\n"
@@ -7644,7 +7677,10 @@ msgstr ""
 "/left:\"път до лявата картинка\"\n"
 "/lefttitle:\"заглавие за лявата картинка\"\n"
 "/right:\"път до дясната картинка\"\n"
-"/righttitle:\"заглавие за дясната картинка\""
+"/righttitle:\"заглавие за дясната картинка\"\n"
+"/overlay\t\tза включване не режим с припокриване\n"
+"/fit\t\tза напасване на размера на картинките\n"
+"/showinfo\t\tза показване на полетата с информация за картинките"
 
 # ID:7,#:
 # ID:3585,#:
@@ -7909,10 +7945,22 @@ msgstr "Отключен"
 msgid "Untitled"
 msgstr "Неименован"
 
+# Control-ID:1075,#:
+# Control-ID:1075,
+#: ID:146,
+msgid "Unversion"
+msgstr "Разконтролиране"
+
 # Control-ID:1313,
 #: Control-ID:1313,
 msgid "Unversioned files mark parent folder as modified"
 msgstr "Неконтролираните файлове бележат съдържащата ги папка като променена"
+
+# ID:201,
+#: ID:286,
+#, c-format
+msgid "Unversioning %s"
+msgstr "Разконтролиране на %s"
 
 # ID:8,#:
 # ID:74,#:
