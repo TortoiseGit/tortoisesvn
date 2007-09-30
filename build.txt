@@ -59,7 +59,9 @@ Next you need to download some more:
 - OpenSSL source          : http://www.openssl.org/source/
 - ZLib source             : http://www.gzip.org/zlib/
 - tools collection        : http://tortoisesvn.tigris.org/files/documents/406/37871/Tools.zip
-- dictionaries/thesauri   : http://lingucomponent.openoffice.org/
+- dictionaries/thesauri(*): http://lingucomponent.openoffice.org/
+
+(*) These are not really required, but recommended
 
 \section Preparations Preparations
 
@@ -76,35 +78,23 @@ Now you're almost ready. Only a few more steps to do:
   crash TortoiseSVN!
 - Checkout the TortoiseSVN sources from the Subversion repository into
   SVN\TortoiseSVN
-- unzip the file 'tools.zip' into a folder, we suggest SVN\TortoiseSVN\Tools.
+- unzip the file 'Tools.zip' into a folder, we suggest SVN\TortoiseSVN\Tools.
   Note: the path to the tools folder must not have special chars in it or spaces.
   If you checked out the TortoiseSVN source to such a location, you can store
   the tools folder somewhere else.
 - Make a copy of the file default.build.user.tmpl in the TSVN root folder and
-  rename that copy to default.build.user. Then simply adjust the paths as mentioned
+  rename that copy to default.build.user. Then adjust the paths as mentioned
   in that file.
 - Make a copy of the file doc\doc.build.user.tmpl and rename that copy to 
   doc\doc.build.user. Then adjust the paths in that file according to your
   setup.
-- The docs for certain languages need special tweaking. If there is a 'userconfig.template.xml'
-  file in doc\xsl\languagecode\, copy that file to 'userconfig.xml' and adjust the
-  paths in that file to your OS setup.
 
 
 \section build32 Building 32 bit packages
 
   Hint: before you can start building TortoiseSVN, you need to call the vsvars32.bat
-  file which is located in %VS80COMNTOOLS%. If you don't want to do that every time,
-  you can have the command shell call this file automatically:
-  - Create a .reg file with the following code and merge it in your registry
-    Windows Registry Editor Version 5.00
-
-\verbatim
-    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor]
-    "AutoRun"="\"C:\\Program Files\\Microsoft Visual Studio 8\\Common7\\Tools\\vsvars32.bat\""
-\endverbatim
-  Next time you start the command prompt, that file will be executed automatically.
-
+  file which is located in %VS80COMNTOOLS%. 
+  
   Note that for the Express edition you need to sort out the vars for the platform SDK
   as well. The easiest way I found was to edit the supplied VC++ file
   C:\Program Files\Microsoft Visual Studio 8\VC\vcvarsall.bat
@@ -136,21 +126,12 @@ Now you're almost ready. Only a few more steps to do:
 \endverbatim
   will compile everything, including docs and languagepacks and create the msi installer
 
-  Note: you may notice some compiler errors when the build script compiles 
-  Subversion. The errors you will see are:
+  If you encounter any build errors, you can run nant again like this:
 \verbatim
-  > error C2065: 'SVN_FS_WANT_DB_MAJOR' : undeclared identifier
-  > error C2065: 'SVN_FS_WANT_DB_MINOR' : undeclared identifier
-  > error C2065: 'SVN_FS_WANT_DB_PATCH' : undeclared identifier
+  > nant setup -l:buildlog.txt
 \endverbatim
-  This is expected and you don't have to worry about that. The reason for those
-  errors is that TortoiseSVN builds the Subversion library twice. Once with 
-  all the ra-layers and all dbs, and once without those. The errors come
-  from that 'raw' build, but from libraries which aren't used in that build
-  anyway. Sure, the build script could just compile the libraries which
-  are really needed for that build, but it's much easier to just build the
-  whole solution instead of individual projects.
-  If you want to improve the build script to get rid of those errors, be our guest!
+  which will create a build log file which you can use to analyse where
+  exactly the build failed.
 
   If you are building using VC++ Express, your options are somewhat limited.
   Firstly you need to change the build tool in default.build.user.
