@@ -2274,7 +2274,11 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		break;
 	case VK_BACK:
 		{
-			if (m_ptCaretPos.x)
+			if (HasTextSelection())
+			{
+				RemoveSelectedText();
+			}
+			else if (m_ptCaretPos.x)
 			{
 				CString sLine = GetLineChars(m_ptCaretPos.y);
 				sLine.Delete(m_ptCaretPos.x-1);
@@ -2320,41 +2324,48 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		break;
 	case VK_DELETE:
 		{
-			CString sLine = GetLineChars(m_ptCaretPos.y);
-			if (m_ptCaretPos.x < sLine.GetLength())
+			if (HasTextSelection())
 			{
-				sLine.Delete(m_ptCaretPos.x);
-				if (m_pViewData)
-				{
-					m_pViewData->SetLine(m_ptCaretPos.y, sLine);
-					m_pViewData->SetState(m_ptCaretPos.y, DIFFSTATE_EDITED);
-				}
-				ClearSelection();
-				SetModified(true);
-				Invalidate(FALSE);
+				RemoveSelectedText();
 			}
 			else
 			{
-				// append the next line to this one, remove the next line
-				if (m_ptCaretPos.y < (GetLineCount()-1))
+				CString sLine = GetLineChars(m_ptCaretPos.y);
+				if (m_ptCaretPos.x < sLine.GetLength())
 				{
-					CString sLine = GetLineChars(m_ptCaretPos.y+1);
+					sLine.Delete(m_ptCaretPos.x);
 					if (m_pViewData)
 					{
-						m_pViewData->SetLine(m_ptCaretPos.y, m_pViewData->GetLine(m_ptCaretPos.y)+sLine);
+						m_pViewData->SetLine(m_ptCaretPos.y, sLine);
 						m_pViewData->SetState(m_ptCaretPos.y, DIFFSTATE_EDITED);
 					}
-					if (m_pwndLeft)
-						m_pwndLeft->RemoveLine(m_ptCaretPos.y+1);
-					if (m_pwndRight)
-						m_pwndRight->RemoveLine(m_ptCaretPos.y+1);
-					if (m_pwndBottom)
-						m_pwndBottom->RemoveLine(m_ptCaretPos.y+1);
 					ClearSelection();
-					EnsureCaretVisible();
-					UpdateCaret();
 					SetModified(true);
 					Invalidate(FALSE);
+				}
+				else
+				{
+					// append the next line to this one, remove the next line
+					if (m_ptCaretPos.y < (GetLineCount()-1))
+					{
+						sLine = GetLineChars(m_ptCaretPos.y+1);
+						if (m_pViewData)
+						{
+							m_pViewData->SetLine(m_ptCaretPos.y, m_pViewData->GetLine(m_ptCaretPos.y)+sLine);
+							m_pViewData->SetState(m_ptCaretPos.y, DIFFSTATE_EDITED);
+						}
+						if (m_pwndLeft)
+							m_pwndLeft->RemoveLine(m_ptCaretPos.y+1);
+						if (m_pwndRight)
+							m_pwndRight->RemoveLine(m_ptCaretPos.y+1);
+						if (m_pwndBottom)
+							m_pwndBottom->RemoveLine(m_ptCaretPos.y+1);
+						ClearSelection();
+						EnsureCaretVisible();
+						UpdateCaret();
+						SetModified(true);
+						Invalidate(FALSE);
+					}
 				}
 			}
 		}
@@ -2408,7 +2419,7 @@ void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
 		while ((nOff >= 0) && (nOff <= m_ptCaretPos.x))
 		{
 			nOff = line.Find('\t', nOff);
-			if ((nOff >= 0)&&(nOff < m_ptCaretPos.x))
+			if ((nOff >= 0)&&(nOff <= m_ptCaretPos.x))
 			{
 				m_ptCaretPos.x -= (GetTabSize()-1);
 				nOff++;
@@ -2892,6 +2903,50 @@ void CBaseView::RemoveLine(int nLineIndex)
 	if (m_pViewData == NULL)
 		return;
 	m_pViewData->RemoveData(nLineIndex);
+	Invalidate(FALSE);
+}
+
+void CBaseView::RemoveSelectedText()
+{
+	if (m_pViewData == NULL)
+		return;
+	if (!HasTextSelection())
+		return;
+
+	std::vector<LONG> linestoremove;
+	for (LONG i = m_ptSelectionStartPos.y; i <= m_ptSelectionEndPos.y; ++i)
+	{
+		if (i == m_ptSelectionStartPos.y)
+		{
+			CString sLine = GetLineChars(m_ptSelectionStartPos.y);
+			CString newLine;
+			if (i == m_ptSelectionStartPos.y)
+			{
+				newLine = sLine.Left(m_ptSelectionStartPos.x);
+				sLine = GetLineChars(m_ptSelectionEndPos.y);
+				newLine = newLine + sLine.Mid(m_ptSelectionEndPos.x);
+			}
+			m_pViewData->SetLine(i, newLine);
+			m_pViewData->SetState(i, DIFFSTATE_EDITED);
+			SetModified();
+		}
+		else
+		{
+			linestoremove.push_back(i);
+		}
+	}
+	// remove the lines at the end, to avoid problems with line indexes
+	for (std::vector<LONG>::const_iterator it = linestoremove.begin(); it != linestoremove.end(); ++it)
+	{
+		if (m_pwndLeft)
+			m_pwndLeft->RemoveLine(*it);
+		if (m_pwndRight)
+			m_pwndRight->RemoveLine(*it);
+		if (m_pwndBottom)
+			m_pwndBottom->RemoveLine(*it);
+		SetModified();
+	}
+	ClearSelection();
 	Invalidate(FALSE);
 }
 

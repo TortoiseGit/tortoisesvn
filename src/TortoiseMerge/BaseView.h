@@ -203,6 +203,7 @@ protected:
 
 	void			AddEmptyLine(int nLineIndex);
 	void			RemoveLine(int nLineIndex);
+	void			RemoveSelectedText();
 protected:
 	COLORREF		m_InlineRemovedBk;
 	COLORREF		m_InlineAddedBk;
