@@ -2427,6 +2427,7 @@ void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
 		}
 
 		m_ptCaretPos.x = min(m_ptCaretPos.x, GetLineLength(nClickedLine));
+		m_ptCaretPos.x = max(m_ptCaretPos.x, 0);
 		m_ptSelectionStartPos = m_ptCaretPos;
 		m_ptSelectionEndPos = m_ptCaretPos;
 		m_ptSelectionDrawStartPos = m_ptCaretPos;
@@ -2538,13 +2539,14 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
 			while ((nOff >= 0) && (nOff <= m_ptCaretPos.x))
 			{
 				nOff = line.Find('\t', nOff);
-				if ((nOff >= 0)&&(nOff < m_ptCaretPos.x))
+				if ((nOff >= 0)&&(nOff <= m_ptCaretPos.x))
 				{
 					m_ptCaretPos.x -= (GetTabSize()-1);
 					nOff++;
 				}
 			}
 			m_ptCaretPos.x = min(m_ptCaretPos.x, GetLineActualLength(nMouseLine));
+			m_ptCaretPos.x = max(m_ptCaretPos.x, 0);
 			if ((m_ptSelectionStartPos.y < m_ptCaretPos.y)||
 				((m_ptSelectionStartPos.y == m_ptCaretPos.y)&&(m_ptSelectionStartPos.x < m_ptCaretPos.x)))
 			{
