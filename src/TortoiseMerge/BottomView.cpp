@@ -66,6 +66,11 @@ void CBottomView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 		temp.LoadString(IDS_VIEWCONTEXTMENU_USETHEIRANDYOURBLOCK);
 		popup.AppendMenu(MF_STRING | uEnabled | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USETHEIRANDYOURBLOCK, temp);
 
+		popup.AppendMenu(MF_SEPARATOR, NULL);
+
+		temp.LoadString(IDS_EDIT_COPY);
+		popup.AppendMenu(MF_STRING | (HasSelection() ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_EDIT_COPY, temp);
+
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 		switch (cmd)
 		{
@@ -80,6 +85,9 @@ void CBottomView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 			break;
 		case ID_USETHEIRANDYOURBLOCK:
 			UseTheirThenMyTextBlock();
+			break;
+		case ID_EDIT_COPY:
+			OnEditCopy();
 			break;
 		}
 	}

@@ -27,7 +27,6 @@
 #define IDI_LINEENDINGLF                144
 #define IDI_ICON2                       145
 #define IDI_CONFLICTEDIGNOREDLINE       145
-#define IDI_ICON3                       146
 #define IDI_LINEEDITED                  146
 #define IDB_LOGOFLIPPED                 168
 #define IDD_PATCH_FILE_OPEN_CUSTOM      180
@@ -191,6 +190,7 @@
 #define IDS_PATCH_PREVIEW               6004
 #define IDS_COLOURPICKER_CUSTOMTEXT     7000
 #define IDS_COLOURPICKER_DEFAULTTEXT    7001
+#define IDS_EDIT_COPY                   8000
 #define ID_VIEW_WHITESPACES             32774
 #define ID_VIEW_ONEWAYDIFF              32775
 #define ID_NAVIGATE_NEXTDIFFERENCE      32779

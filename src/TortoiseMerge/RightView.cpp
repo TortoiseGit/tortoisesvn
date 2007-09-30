@@ -91,12 +91,20 @@ void CRightView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 			popup.AppendMenu(MF_STRING | uEnabled | (bImportantBlock ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_USEBOTHTHISLAST, temp);
 		}
 
+		popup.AppendMenu(MF_SEPARATOR, NULL);
+
+		temp.LoadString(IDS_EDIT_COPY);
+		popup.AppendMenu(MF_STRING | (HasSelection() ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_EDIT_COPY, temp);
+
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 		viewstate rightstate;
 		viewstate bottomstate;
 		viewstate leftstate;
 		switch (cmd)
 		{
+		case ID_EDIT_COPY:
+			OnEditCopy();
+			break;
 		case ID_USEFILE:
 			{
 				if (m_pwndBottom->IsWindowVisible())
