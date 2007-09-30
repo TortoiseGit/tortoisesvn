@@ -136,7 +136,23 @@ bool CAppUtils::CreateUnifiedDiff(const CString& orig, const CString& modified, 
 	return true;
 }
 
-
+bool CAppUtils::HasClipboardFormat(UINT format)
+{
+	if (OpenClipboard(NULL))
+	{
+		UINT enumFormat = 0;
+		do 
+		{
+			if (enumFormat == format)
+			{
+				CloseClipboard();
+				return true;
+			}
+		} while((enumFormat = EnumClipboardFormats(enumFormat))!=0);
+		CloseClipboard();
+	}
+	return false;
+}
 
 
 

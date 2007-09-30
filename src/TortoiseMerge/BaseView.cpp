@@ -182,6 +182,8 @@ BEGIN_MESSAGE_MAP(CBaseView, CView)
 	ON_COMMAND(ID_CARET_UP, &CBaseView::OnCaretUp)
 	ON_COMMAND(ID_CARET_WORDLEFT, &CBaseView::OnCaretWordleft)
 	ON_COMMAND(ID_CARET_WORDRIGHT, &CBaseView::OnCaretWordright)
+	ON_COMMAND(ID_EDIT_CUT, &CBaseView::OnEditCut)
+	ON_COMMAND(ID_EDIT_PASTE, &CBaseView::OnEditPaste)
 END_MESSAGE_MAP()
 
 
@@ -2482,11 +2484,11 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
 
 void CBaseView::OnEditCopy()
 {
-	if ((m_nSelBlockEnd < 0)||(m_nSelBlockStart < 0)||(m_nSelBlockStart > m_nSelBlockEnd))
+	if ((m_ptSelectionStartPos.x == m_ptSelectionEndPos.x)&&(m_ptSelectionStartPos.y == m_ptSelectionEndPos.y))
 		return;
 	// first store the selected lines in one CString
 	CString sCopyData;
-	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
+	for (int i=m_ptSelectionStartPos.y; i<=m_ptSelectionEndPos.y; i++)
 	{
 		sCopyData += m_pViewData->GetLine(i);
 		sCopyData += _T("\r\n");
@@ -2501,6 +2503,7 @@ void CBaseView::OnEditCopy()
 		lastLinePos -= m_ptSelectionStartPos.x;
 	sCopyData = sCopyData.Left(lastLinePos+m_ptSelectionEndPos.x);
 	CStringA sCopyDataASCII = CStringA(sCopyData);
+	ATLASSERT(!sCopyDataASCII.IsEmpty());
 	if (!sCopyDataASCII.IsEmpty())
 	{
 		if (OpenClipboard())
@@ -2952,6 +2955,41 @@ void CBaseView::RemoveSelectedText()
 	Invalidate(FALSE);
 }
 
+void CBaseView::PasteText()
+{
+	if (OpenClipboard()) 
+	{ 
+		CString sClipboardText;
+		HGLOBAL hglb = GetClipboardData(CF_TEXT);
+		if (hglb)
+		{
+			LPCSTR lpstr = (LPCSTR)GlobalLock(hglb);
+			sClipboardText = CString(lpstr);
+			GlobalUnlock(hglb); 
+		}
+		hglb = GetClipboardData(CF_UNICODETEXT);
+		if (hglb)
+		{
+			LPCTSTR lpstr = (LPCTSTR)GlobalLock(hglb);
+			sClipboardText = lpstr;
+			GlobalUnlock(hglb); 
+		}
+		CloseClipboard();
+
+		if (!sClipboardText.IsEmpty())
+		{
+			sClipboardText.Replace(_T("\r\n"), _T("\r"));
+			sClipboardText.Replace('\n', '\r');
+			// use the easy way to insert text:
+			// insert char by char, using the OnChar() method
+			for (int i=0; i<sClipboardText.GetLength(); ++i)
+			{
+				OnChar(sClipboardText[i], 0, 0);
+			}
+		}
+	} 
+}
+
 void CBaseView::OnCaretDown()
 {
 	bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
@@ -3115,4 +3153,21 @@ void CBaseView::AdjustSelection(bool bStartSelection, bool bForward)
 	SetupSelection(min(m_ptSelectionStartPos.y, m_ptSelectionEndPos.y), max(m_ptSelectionStartPos.y, m_ptSelectionEndPos.y));
 
 	Invalidate(FALSE);
+}
+
+void CBaseView::OnEditCut()
+{
+	if (!m_bCaretHidden)
+	{
+		OnEditCopy();
+		RemoveSelectedText();
+	}
+}
+
+void CBaseView::OnEditPaste()
+{
+	if (!m_bCaretHidden)
+	{
+		PasteText();
+	}
 }

@@ -191,6 +191,8 @@
 #define IDS_COLOURPICKER_CUSTOMTEXT     7000
 #define IDS_COLOURPICKER_DEFAULTTEXT    7001
 #define IDS_EDIT_COPY                   8000
+#define IDS_EDIT_CUT                    8001
+#define IDS_EDIT_PASTE                  8002
 #define ID_VIEW_WHITESPACES             32774
 #define ID_VIEW_ONEWAYDIFF              32775
 #define ID_NAVIGATE_NEXTDIFFERENCE      32779

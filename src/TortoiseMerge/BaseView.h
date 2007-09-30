@@ -119,6 +119,14 @@ protected:
 	afx_msg void	OnEditCopy();
 	afx_msg void	OnMouseMove(UINT nFlags, CPoint point);
 	afx_msg void	OnChar(UINT nChar, UINT nRepCnt, UINT nFlags);
+	afx_msg void	OnCaretDown();
+	afx_msg void	OnCaretLeft();
+	afx_msg void	OnCaretRight();
+	afx_msg void	OnCaretUp();
+	afx_msg void	OnCaretWordleft();
+	afx_msg void	OnCaretWordright();
+	afx_msg void	OnEditCut();
+	afx_msg void	OnEditPaste();
 
 	DECLARE_MESSAGE_MAP()
 
@@ -204,6 +212,7 @@ protected:
 	void			AddEmptyLine(int nLineIndex);
 	void			RemoveLine(int nLineIndex);
 	void			RemoveSelectedText();
+	void			PasteText();
 protected:
 	COLORREF		m_InlineRemovedBk;
 	COLORREF		m_InlineAddedBk;
@@ -272,13 +281,6 @@ protected:
 	static CBaseView * m_pwndLeft;		///< Pointer to the left view. Must be set by the CLeftView parent class.
 	static CBaseView * m_pwndRight;		///< Pointer to the right view. Must be set by the CRightView parent class.
 	static CBaseView * m_pwndBottom;	///< Pointer to the bottom view. Must be set by the CBottomView parent class.
-public:
-	afx_msg void OnCaretDown();
-	afx_msg void OnCaretLeft();
-	afx_msg void OnCaretRight();
-	afx_msg void OnCaretUp();
-	afx_msg void OnCaretWordleft();
-	afx_msg void OnCaretWordright();
 };
 
 

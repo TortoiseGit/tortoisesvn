@@ -18,6 +18,7 @@
 //
 #include "StdAfx.h"
 #include "Resource.h"
+#include "AppUtils.h"
 #include ".\leftview.h"
 
 IMPLEMENT_DYNCREATE(CLeftView, CBaseView)
@@ -84,6 +85,13 @@ void CLeftView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 
 		temp.LoadString(IDS_EDIT_COPY);
 		popup.AppendMenu(MF_STRING | (HasTextSelection() ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_EDIT_COPY, temp);
+		if (!m_bCaretHidden)
+		{
+			temp.LoadString(IDS_EDIT_CUT);
+			popup.AppendMenu(MF_STRING | (HasTextSelection() ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_EDIT_CUT, temp);
+			temp.LoadString(IDS_EDIT_PASTE);
+			popup.AppendMenu(MF_STRING | (CAppUtils::HasClipboardFormat(CF_UNICODETEXT)||CAppUtils::HasClipboardFormat(CF_TEXT) ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_EDIT_PASTE, temp);
+		}
 
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 		viewstate leftstate;
@@ -93,6 +101,13 @@ void CLeftView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 		{
 		case ID_EDIT_COPY:
 			OnEditCopy();
+			break;
+		case ID_EDIT_CUT:
+			OnEditCopy();
+			RemoveSelectedText();
+			break;
+		case ID_EDIT_PASTE:
+			PasteText();
 			break;
 		case ID_USEFILE:
 			{

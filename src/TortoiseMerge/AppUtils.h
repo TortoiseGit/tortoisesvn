@@ -46,4 +46,5 @@ public:
 	 */
 	static bool CreateUnifiedDiff(const CString& orig, const CString& modified, const CString& output);
 
+	static bool HasClipboardFormat(UINT format);
 };
