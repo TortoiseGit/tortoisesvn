@@ -45,6 +45,7 @@
 #include "SVNAdminDir.h"
 #include ".\svnstatuslistctrl.h"
 #include "DropFiles.h"
+#include "AddDlg.h"
 #include "EditPropertiesDlg.h"
 #include "CreateChangelistDlg.h"
 
@@ -88,9 +89,10 @@ const UINT CSVNStatusListCtrl::SVNSLNM_CHECKCHANGED
 #define IDSVNLC_CREATEIGNORECS	29
 #define IDSVNLC_CHECKGROUP		30
 #define IDSVNLC_UNCHECKGROUP	31
+#define IDSVNLC_ADD_RECURSIVE   32
 // the IDSVNLC_MOVETOCS *must* be the last index, because it contains a dynamic submenu where 
 // the submenu items get command ID's sequent to this number
-#define IDSVNLC_MOVETOCS		32
+#define IDSVNLC_MOVETOCS		33
 
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
@@ -2330,8 +2332,16 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					{
 						if (m_dwContextMenus & SVNSLC_POPADD)
 						{
-							temp.LoadString(IDS_STATUSLIST_CONTEXT_ADD);
-							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_ADD, temp);
+							if ( entry->IsFolder() )
+							{
+								temp.LoadString(IDS_STATUSLIST_CONTEXT_ADD_RECURSIVE);
+								popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_ADD_RECURSIVE, temp);
+							}
+							else
+							{
+								temp.LoadString(IDS_STATUSLIST_CONTEXT_ADD);
+								popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_ADD, temp);
+							}
 						}
 					}
 					if ((wcStatus == svn_wc_status_unversioned))
@@ -3292,6 +3302,35 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						SaveColumnWidths();
 						Show(m_dwShow, 0, m_bShowFolders);
 						NotifyCheck();
+					}
+					break;
+				case IDSVNLC_ADD_RECURSIVE:
+					{
+						CTSVNPathList itemsToAdd;
+						FillListOfSelectedItemPaths(itemsToAdd);
+
+						CAddDlg dlg;
+						dlg.m_pathList = itemsToAdd;
+						if (dlg.DoModal() == IDOK)
+						{
+							if (dlg.m_pathList.GetCount() == 0)
+								break;
+							CSVNProgressDlg progDlg;
+							progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Add);
+							progDlg.SetPathList(dlg.m_pathList);
+							ProjectProperties props;
+							props.ReadPropsPathList(dlg.m_pathList);
+							progDlg.SetProjectProperties(props);
+							progDlg.SetItemCount(dlg.m_pathList.GetCount());
+							progDlg.DoModal();
+
+							// refresh!
+							CWnd* pParent = GetParent();
+							if (NULL != pParent && NULL != pParent->GetSafeHwnd())
+							{
+								pParent->SendMessage(SVNSLNM_NEEDSREFRESH);
+							}
+						}
 					}
 					break;
 				case IDSVNLC_LOCK:
