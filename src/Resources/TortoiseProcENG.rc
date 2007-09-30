@@ -2324,6 +2324,7 @@ BEGIN
                             "Only numbers (optionally separated by commas)\nare allowed!"
     IDS_COMMITDLG_NOISSUEWARNING 
                             "You haven't entered an issue number!\nAre you sure you want to commit without an issue number?"
+	IDS_COMMITDLG_UNVERSIONEDFOLDERWARNING "Committing an unversioned folder will not recursively add its child items!\nYou might want to add these folders recursively by using the ""Add..."" context menu item.\n\nAre you sure that you want to continue the commit?"
 END
 
 STRINGTABLE 
