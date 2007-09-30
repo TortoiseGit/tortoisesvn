@@ -586,11 +586,11 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\SubWCRev.idl"
+				RelativePath=".\SubWCRevCOM.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\SubWCRevCOM.cpp"
+				RelativePath=".\SubWCRevCOM.idl"
 				>
 			</File>
 			<File
@@ -608,7 +608,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\resource.h"
+				RelativePath=".\resourcecom.h"
 				>
 			</File>
 			<File
@@ -630,7 +630,7 @@
 			UniqueIdentifier="{91D32AA0-A6C7-48e3-BD52-D8066B34910A}"
 			>
 			<File
-				RelativePath=".\SubWCRev.rc"
+				RelativePath=".\SubWCRevCOM.rc"
 				>
 			</File>
 			<File
@@ -638,6 +638,14 @@
 				>
 			</File>
 		</Filter>
+		<File
+			RelativePath=".\resource"
+			>
+		</File>
+		<File
+			RelativePath=".\SubWCRevCOM.tlb"
+			>
+		</File>
 		<File
 			RelativePath=".\testCOM.js"
 			>
