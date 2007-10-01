@@ -9,13 +9,13 @@
 # Based on original translation by:
 # Gunther Strube <gbs@users.sourceforge.net>
 #
-# Based on Tortoise.pot r10744
+# Based on Tortoise.pot r10812
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-09-27 12:00+0100\n"
+"PO-Revision-Date: 2007-10-01 16:19+0100\n"
 "Last-Translator: Jan Normann Nielsen <spam@dubbekarl.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -620,7 +620,7 @@ msgstr "&Overlap billeder"
 msgid "&Password:"
 msgstr "Adgangs&kode:"
 
-#: ID:376,
+#: ID:376,#: ID:501,
 msgid "&Paste"
 msgstr "&Indsæt"
 
@@ -993,7 +993,7 @@ msgstr "Tilføj filendelse-specifikt flet-program"
 msgid "Add to &ignore list"
 msgstr "Føj til \"&ignorer\"-listen"
 
-#: Control-ID:1279,
+#: ID:209,#: Control-ID:1279,
 msgid "Add..."
 msgstr "Tilføj..."
 
@@ -1326,6 +1326,10 @@ msgstr "O&pret forgrening/mærkat fra revision"
 msgid "C&reate folder..."
 msgstr "O&pret mappe..."
 
+#: ID:501,
+msgid "C&ut"
+msgstr "K&lip"
+
 #: ID:3697,
 msgid "CAP"
 msgstr "CAP"
@@ -1625,6 +1629,10 @@ msgstr "Ugentlige arkiveringer:"
 #: ID:9,
 msgid "Commits your changes to the repository"
 msgstr "Arkiverer dine ændringer i versionsarkivet"
+
+#: ID:170,
+msgid "Committing an unversioned folder will not recursively add its child items!\nYou might want to add these folders recursively by using the \"Add...\" context menu item.\n\nAre you sure that you want to continue the commit?"
+msgstr "Arkivering af en ikke-versioneret mappe vil ikke automatisk tilføje dens undermapper.\nDu kan tilføje disse mapper rekursivt ved at vælge \"Tilføj...\" i kontekstmenuen.\n\nEr du sikker på at fortsætte arkiveringen?"
 
 #: MenuEntry
 msgid "Compare &HEAD revisions"
