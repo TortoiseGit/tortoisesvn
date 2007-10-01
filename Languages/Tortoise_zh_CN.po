@@ -9,8 +9,14 @@
 # Cecil Sheng <zcecil@csie.org>
 # Xingyu.Wang <xingyu.wang@gmail.com>
 #
+# Update to new pot:
+#    msgmerge --update Tortoise_zh_CN.po Tortoise.pot
+#
+# Check translation:
+#    msgfmt --statistics -c Tortoise_zh_CN.po
+#
 # Please format your translation before commit:
-#    msgmerge --width=120 -o Tortoise_zh_CN_new.po Tortoise_zh_CN.po Tortoise.pot
+#    msgmerge --width=96 -o Tortoise_zh_CN_new.po Tortoise_zh_CN.po Tortoise.pot
 #    mv -f Tortoise_zh_CN_new.po Tortoise_zh_CN.po
 #
 # Dictionary:
@@ -19,7 +25,7 @@
 # checkout          检出
 # default           默认
 # HEAD revision     最新版本
-# overlay           重载 
+# overlay           重载
 # remove            删除
 # rename            改名
 # repository        版本库
@@ -37,7 +43,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-09-29 11:42+0800\n"
+"PO-Revision-Date: 2007-10-01 14:26+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -745,7 +751,7 @@ msgid "&Password:"
 msgstr "密码(&P)："
 
 # ID:376,
-#: ID:376,
+#: ID:376,#: ID:501,
 msgid "&Paste"
 msgstr "粘贴(&P)"
 
@@ -1045,8 +1051,9 @@ msgstr "- %d"
 # Control-ID:1333,#:
 # Control-ID:1002,#:
 # Control-ID:1003,
-#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1187,#: Control-ID:1104,#: Control-ID:1021,#: Control-ID:1022,#:
-#: Control-ID:1089,#: Control-ID:1362,#: Control-ID:1324,#: Control-ID:1333,#: Control-ID:1002,#: Control-ID:1003,
+#: Control-ID:1035,#: Control-ID:1036,#: Control-ID:1187,#: Control-ID:1104,#:
+#: Control-ID:1021,#: Control-ID:1022,#: Control-ID:1089,#: Control-ID:1362,#:
+#: Control-ID:1324,#: Control-ID:1333,#: Control-ID:1002,#: Control-ID:1003,
 msgid "..."
 msgstr "..."
 
@@ -1107,15 +1114,16 @@ msgstr "存取 %1 时发生锁定错误。"
 # ID:201,
 #: ID:201,
 msgid ""
-"A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click "
-"_here_ to go directly to our website."
+"A newer version is available. Please go to http://tortoisesvn.tigris.org and download the "
+"current version! Click _here_ to go directly to our website."
 msgstr "有更新的版本。请到 http://tortoisesvn.tigris.org 下载！点击这里直接进入我们的站点。"
 
 # ID:195,
 #: ID:195,
 msgid ""
 "A newline separated list of paths for which icon overlays are shown.\n"
-"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path "
+"are included too."
 msgstr ""
 "以换行分隔的列表，包含要显示图标覆盖的目录。\n"
 "如果你在路径后面加上“*”，那么此路径下的所有文件及子目录也都会显示。"
@@ -1124,7 +1132,8 @@ msgstr ""
 #: ID:194,
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\n"
-"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path "
+"are excluded too.\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
 "以换行分隔的列表，列出的目录不显示图标覆盖。\n"
@@ -1260,7 +1269,7 @@ msgid "Add to &ignore list"
 msgstr "添加到忽略列表(&I)"
 
 # Control-ID:1279,
-#: Control-ID:1279,
+#: ID:209,#: Control-ID:1279,
 msgid "Add..."
 msgstr "添加..."
 
@@ -1516,7 +1525,9 @@ msgstr "确定要将有冲突的文件标识为已解决吗？"
 # ID:79,
 #: ID:79,
 #, c-format
-msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
+msgid ""
+"Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last "
+"update!"
 msgstr "是否确定要复原 %d 个项目? 从上次更新之后的<b>所有</b>变更都会消失！"
 
 #: MenuEntry
@@ -1729,6 +1740,11 @@ msgstr "从版本创建分支/标记(&R)"
 msgid "C&reate folder..."
 msgstr "创建文件夹(&R)..."
 
+# ID:376,
+#: ID:501,
+msgid "C&ut"
+msgstr "剪切(&U)"
+
 # ID:3697,
 #: ID:3697,
 msgid "CAP"
@@ -1902,7 +1918,9 @@ msgstr "请检查你输入的路径或 URL。"
 
 # ID:194,
 #: ID:194,
-msgid "Check those menu entries you want to appear in the top context menu instead of the TortoiseSVN submenu"
+msgid ""
+"Check those menu entries you want to appear in the top context menu instead of the "
+"TortoiseSVN submenu"
 msgstr "选中你希望出现在右键菜单，二不是 TortoiseSVN 子菜单中的菜单项"
 
 # ID:80,
@@ -2120,6 +2138,18 @@ msgstr "每周提交次数："
 #: ID:9,
 msgid "Commits your changes to the repository"
 msgstr "将你所做的修改提交至版本库"
+
+#: ID:170,
+msgid ""
+"Committing an unversioned folder will not recursively add its child items!\n"
+"You might want to add these folders recursively by using the \"Add...\" context menu item.\n"
+"\n"
+"Are you sure that you want to continue the commit?"
+msgstr ""
+"提交未版本控制的目录不会递归增加它的子孙！\n"
+"你可能需要用上下文菜单的“增加...”来递归增加这些目录。\n"
+"\n"
+"你确定要继续提交吗？"
 
 #: MenuEntry
 msgid "Compare &HEAD revisions"
@@ -2780,7 +2810,8 @@ msgstr "你确认要移动这个文件或目录吗？"
 msgid ""
 "Do you really want to revert all changes in\n"
 "%s\n"
-"and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
+"and go back to this revision? These changes will be reverted by reverse-merging the revisions "
+"into your working copy."
 msgstr ""
 "你确定要恢复\n"
 "%s\n"
@@ -2792,8 +2823,8 @@ msgstr ""
 msgid ""
 "Do you really want to revert all changes in\n"
 "%s\n"
-"which were made in this revision? These changes will be reverted by reverse-merging the revision into your working "
-"copy."
+"which were made in this revision? These changes will be reverted by reverse-merging the "
+"revision into your working copy."
 msgstr ""
 "你确定要恢复此版本对\n"
 "%s\n"
@@ -3427,14 +3458,14 @@ msgid ""
 "GDI+ is required to save the revision graph as a picture.\n"
 "You can get GDI+ from\n"
 "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
-"be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
-"be590feaa05a&DisplayLang=en</a></u>"
+"be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
+"df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 msgstr ""
 "需要 GDI+ 才能将版本图保存成图片格式。\n"
 "你可以从以下地址下载 GDI+\n"
 "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
-"be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
-"be590feaa05a&DisplayLang=en</a></u>"
+"be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
+"df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 
 # ID:120,
 #: ID:284,
@@ -3465,14 +3496,17 @@ msgstr "取得合并日志"
 # ID:89,
 #: ID:89,
 msgid ""
-"Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in "
-"their working copies.\n"
-"To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those "
-"files.\n"
-"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
-"Note that other users will need to update their working copies before they see the files as read-only."
+"Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others "
+"from editing them in their working copies.\n"
+"To enable strict locking please add the 'svn:needs-lock' property to all files that need "
+"locking, and commit those files.\n"
+"Each file will have the file-system read-only flag set, and getting a lock will make the file "
+"writable.\n"
+"Note that other users will need to update their working copies before they see the files as "
+"read-only."
 msgstr ""
-"在没有设置 'svn:needs-lock' 属性的情况下给一个文件设置锁定将<b>不能</b>防止其他人修改其工作拷贝。\n"
+"在没有设置 'svn:needs-lock' 属性的情况下给一个文件设置锁定将<b>不能</b>防止其他人修改其工作拷"
+"贝。\n"
 "如要确保锁定，请给所有需要锁定的文件增加 'svn:needs-lock' 属性，并提交这些文件。\n"
 "在文件系统中，这些文件将被设置为只读权限，只有当文件获得锁定后会才变成可写。\n"
 "注意，其他人需要更新其工作拷贝才能使其变为只读。"
@@ -3784,7 +3818,9 @@ msgstr "图标/设计/程序:     Luebbe Onken"
 
 # ID:194,
 #: ID:194,
-msgid "If activated, prevents the overlays and the context menu from showing in \"save as...\" or \"open\" dialogs"
+msgid ""
+"If activated, prevents the overlays and the context menu from showing in \"save as...\" or "
+"\"open\" dialogs"
 msgstr "如果激活此选项，在“另存为...”或“打开”对话框中不显示覆盖图标和上下文菜单。"
 
 # ID:198,
@@ -3810,7 +3846,9 @@ msgstr ""
 msgid ""
 "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff\n"
 "with the keywords expanded and the line endings adjusted."
-msgstr "选中此选项时，TortoiseSVN 创建用于比较差异的基础版本的临时文件，该临时文件将展开关键词以及调整行结束符。"
+msgstr ""
+"选中此选项时，TortoiseSVN 创建用于比较差异的基础版本的临时文件，该临时文件将展开关键词以及调整"
+"行结束符。"
 
 # ID:196,
 #: ID:196,
@@ -3829,7 +3867,8 @@ msgstr "如果启用，TortoiseSVN 每周会检查一次最新版本"
 # ID:195,
 #: ID:195,
 msgid ""
-"If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
+"If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected "
+"working copy\n"
 "instead of the last used URL."
 msgstr ""
 "如果启用，合并对话框在初始化“From:”地址时将使用选\n"
@@ -4165,7 +4204,8 @@ msgstr ""
 #: ID:88,
 #, c-format
 msgid ""
-"It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
+"It seems you are trying to <b>relocate</b> your working copy to a different path inside the "
+"same repository.\n"
 "\n"
 "From: %s\n"
 "To: %s\n"
@@ -5081,8 +5121,11 @@ msgstr "路径"
 
 # ID:157,
 #: ID:157,
-msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr "图像文件 (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|所有文件(*.*)|*.*||"
+msgid ""
+"Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*."
+"*||"
+msgstr ""
+"图像文件 (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|所有文件(*.*)|*.*||"
 
 # ID:246,
 #: ID:246,
@@ -5829,7 +5872,8 @@ msgstr "复原从上次更新之后全部的变动"
 # Control-ID:65535,#:
 # Control-ID:1306,#:
 # ID:19,
-#: ID:76,#: ID:208,#: Control-ID:1375,#: Control-ID:1306,#: Control-ID:65535,#: Control-ID:1393,#: ID:19,
+#: ID:76,#: ID:208,#: Control-ID:1375,#: Control-ID:1306,#: Control-ID:65535,#:
+#: Control-ID:1393,#: ID:19,
 msgid "Revision"
 msgstr "版本"
 
@@ -7104,7 +7148,8 @@ msgid ""
 "The path\n"
 "<i>%s</i>\n"
 "in the patchfile does not exist.\n"
-"TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
+"TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be "
+"found."
 msgstr ""
 "补丁文件中的路径\n"
 "<i>%s</i>\n"
@@ -7268,10 +7313,11 @@ msgstr ""
 # ID:82,
 #: ID:82,
 msgid ""
-"There is nothing to add. All the files and folders are either under version control or have been ignored using the "
-"svn:ignore property or the global ignore configuration setting."
+"There is nothing to add. All the files and folders are either under version control or have "
+"been ignored using the svn:ignore property or the global ignore configuration setting."
 msgstr ""
-"没有可添加的条目，所有文件和文件夹都已经用 Subversion 进行了版本控制或者在 svn:ignore 属性或全局忽略设置中设为忽略。"
+"没有可添加的条目，所有文件和文件夹都已经用 Subversion 进行了版本控制或者在 svn:ignore 属性或全"
+"局忽略设置中设为忽略。"
 
 # ID:83,
 #: ID:83,
@@ -7311,8 +7357,8 @@ msgstr "本产品包含由 CollabNet(http://www.Collab.Net/) 所开发的软件"
 # Control-ID:65535,
 #: Control-ID:65535,
 msgid ""
-"This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl."
-"org/)"
+"This product includes software developed by the OpenSSL Project for use in the OpenSSL "
+"Toolkit (http://www.openssl.org/)"
 msgstr "本产品包含了由 OpenSSL项目开发的 OpenSSL Toolkit(http://www.openssl.org/)"
 
 # ID:3857,#:
@@ -7320,7 +7366,8 @@ msgstr "本产品包含了由 OpenSSL项目开发的 OpenSSL Toolkit(http://www.
 #: ID:3857,#: ID:3857,
 #, c-format
 msgid ""
-"This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
+"This program is linked to the missing export %s in the file %s. This machine may have an "
+"incompatible version of %s."
 msgstr "找不到本程序链接的 %s (包含于 %s)，可能 %s 的已安装版本不兼容。"
 
 # ID:3857,#:
@@ -7356,9 +7403,10 @@ msgstr ""
 
 #: ID:284,
 msgid ""
-"To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\n"
-"This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding "
-"it."
+"To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from "
+"the context menu.\n"
+"This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from "
+"the one currently holding it."
 msgstr ""
 "为了窃取锁，在此项目的父目录上点击右键，在上下文菜单中选择“获得锁”。\n"
 "这就会出现加锁对话框，你可以强制锁定操作，例如从当前持有人那里“窃取”锁。"
@@ -8542,8 +8590,8 @@ msgstr ""
 msgid ""
 "svn:executable\n"
 "If present, make the file executable. This property cannot be set on a directory.\n"
-"A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the "
-"directory."
+"A non-recursive attempt will fail, and a recursive attempt will set the property only on the "
+"file children of the directory."
 msgstr ""
 "svn:executable\n"
 "设置后文件将具备执行权限。该属性不能设置到一个目录上。\n"
@@ -8608,7 +8656,8 @@ msgstr ""
 #: ID:576,
 msgid ""
 "svn:mime-type\n"
-"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it "
+"from Apache.\n"
 "A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
 "Anything else is treated as binary."
 msgstr ""
@@ -8662,7 +8711,8 @@ msgstr "至 %s"
 #: ID:578,
 msgid ""
 "tsvn:autoprops\n"
-"A list of properties separated by newlines which get applied automatically when adding/importing files.\n"
+"A list of properties separated by newlines which get applied automatically when adding/"
+"importing files.\n"
 "Format: <filemask> = property=value;property=value\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 msgstr ""
