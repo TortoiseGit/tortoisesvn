@@ -1839,7 +1839,10 @@ void CLogDlg::EditLogMessage(int index)
 
 BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
 {
-	if (m_hAccel)
+	// Skip Ctrl-C when copying text out of the log message or search filter
+	BOOL bSkipAccelerator = ( pMsg->message == WM_KEYDOWN && pMsg->wParam=='C' && (GetFocus()==GetDlgItem(IDC_MSGVIEW) || GetFocus()==GetDlgItem(IDC_SEARCHEDIT) ) && GetKeyState(VK_CONTROL)&0x8000 );
+	
+	if (m_hAccel && !bSkipAccelerator)
 	{
 		int ret = TranslateAccelerator(m_hWnd, m_hAccel, pMsg);
 		if (ret)
