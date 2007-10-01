@@ -3148,6 +3148,14 @@ void CBaseView::AdjustSelection(bool bStartSelection, bool bForward)
 		m_ptSelectionStartPos = m_ptCaretPos;
 	else
 		m_ptSelectionEndPos = m_ptCaretPos;
+	if ((m_ptSelectionEndPos.y < m_ptSelectionStartPos.y) ||
+		((m_ptSelectionEndPos.y == m_ptSelectionStartPos.y)&&
+		(m_ptSelectionEndPos.x < m_ptSelectionStartPos.x)))
+	{
+		POINT pt = m_ptSelectionStartPos;
+		m_ptSelectionStartPos = m_ptSelectionEndPos;
+		m_ptSelectionEndPos = pt;
+	}
 
 	m_ptSelectionDrawStartPos = m_ptSelectionStartPos;
 	m_ptSelectionDrawEndPos = m_ptSelectionEndPos;
