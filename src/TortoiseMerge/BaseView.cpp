@@ -2210,6 +2210,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		{
 			bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
 			m_ptCaretPos.y -= GetScreenLines();
+            m_ptCaretPos.y = max(m_ptCaretPos.y, 0);
 			if (bShift)
 				AdjustSelection(bStartSelection, false);
 			else
@@ -2222,6 +2223,8 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		{
 			bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
 			m_ptCaretPos.y += GetScreenLines();
+            if (m_ptCaretPos.y >= GetLineCount())
+                m_ptCaretPos.y = GetLineCount()-1;
 			if (bShift)
 				AdjustSelection(bStartSelection, true);
 			else
