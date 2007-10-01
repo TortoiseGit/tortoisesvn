@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-09-27 10:18+0100\n"
+"PO-Revision-Date: 2007-10-01 10:43+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -761,7 +761,8 @@ msgid "&Password:"
 msgstr "&Passwort:"
 
 # ID:376,
-#: ID:376,
+#: ID:376,#:
+#: ID:501,
 msgid "&Paste"
 msgstr "E&infügen"
 
@@ -1312,6 +1313,7 @@ msgid "Add to &ignore list"
 msgstr "&Ignorieren"
 
 # Control-ID:1279,
+#: ID:209,#:
 #: Control-ID:1279,
 msgid "Add..."
 msgstr "Hinzufügen..."
@@ -1817,6 +1819,11 @@ msgstr "E&rstelle Verzweigung/Markierung von Revision"
 msgid "C&reate folder..."
 msgstr "Ordner &anlegen..."
 
+# ID:376,
+#: ID:501,
+msgid "C&ut"
+msgstr "A&usschneiden"
+
 # ID:3697,
 #: ID:3697,
 msgid "CAP"
@@ -2238,6 +2245,18 @@ msgstr "Übertragungen pro Woche:"
 #: ID:9,
 msgid "Commits your changes to the repository"
 msgstr "Überträgt Ihre Änderungen ins Projektarchiv"
+
+#: ID:170,
+msgid ""
+"Committing an unversioned folder will not recursively add its child items!\n"
+"You might want to add these folders recursively by using the \"Add...\" context menu item.\n"
+"\n"
+"Are you sure that you want to continue the commit?"
+msgstr ""
+"Beim Übertragen eines unversionierten Ordners werden dessen Unterobjekte nicht automatisch hinzugefügt!\n"
+"Die Unterordner müssen vorher per \"Hinzufügen...\" rekursiv in die Versionskontrolle übernommen werden.\n"
+"\n"
+"Wollen Sie die Übertragung fortsetzen?"
 
 #: MenuEntry
 msgid "Compare &HEAD revisions"
@@ -2701,7 +2720,7 @@ msgstr "Danksagung:"
 # ID:376,
 #: ID:376,
 msgid "Cu&t"
-msgstr "Ausschnei&den"
+msgstr "A&usschneiden"
 
 # Control-ID:1113,
 #: Control-ID:1113,
