@@ -45,13 +45,13 @@
 # you -- вы
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 10744: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 10812: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-09-27 15:05+0300\n"
+"PO-Revision-Date: 2007-10-01 16:20+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -671,7 +671,8 @@ msgstr "Разместить с &перекрытием "
 msgid "&Password:"
 msgstr "&Пароль:"
 
-#: ID:376,
+#: ID:376,#:
+#: ID:501,
 msgid "&Paste"
 msgstr "&Вставить"
 
@@ -1106,6 +1107,7 @@ msgstr "Добавить программу слияния для конкрет
 msgid "Add to &ignore list"
 msgstr "Добавить в список &игнорирования"
 
+#: ID:209,#:
 #: Control-ID:1279,
 msgid "Add..."
 msgstr "Добавить..."
@@ -1507,6 +1509,10 @@ msgstr "С&оздать ответвление/метку из ревизии"
 msgid "C&reate folder..."
 msgstr "С&оздать папку..."
 
+#: ID:501,
+msgid "C&ut"
+msgstr "В&ырезать"
+
 #: ID:3697,
 msgid "CAP"
 msgstr "CAP"
@@ -1835,6 +1841,19 @@ msgstr "Фиксаций в неделю:"
 #: ID:9,
 msgid "Commits your changes to the repository"
 msgstr "Фиксирует ваши изменения в хранилище"
+
+#: ID:170,
+msgid ""
+"Committing an unversioned folder will not recursively add its child items!\n"
+"You might want to add these folders recursively by using the \"Add...\" context menu item.\n"
+"\n"
+"Are you sure that you want to continue the commit?"
+msgstr ""
+"Фиксация неверсированной папки не добавляет рекурсивно её дочерние элементы!\n"
+"Вы можете добавить эти папки рекурсивно при помощи команды \"Добавить...\"\n"
+"из контекстного меню.\n"
+"\n"
+"Вы действительно желаете продолжить фиксацию?"
 
 #: MenuEntry
 msgid "Compare &HEAD revisions"
