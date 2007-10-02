@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-09-25 07:40+0800\n"
+"PO-Revision-Date: 2007-10-02 23:02+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -745,7 +745,8 @@ msgid "&Password:"
 msgstr "密碼(&P):"
 
 # ID:376,
-#: ID:376,
+#: ID:376,#:
+#: ID:501,
 msgid "&Paste"
 msgstr "貼上(&P)"
 
@@ -1040,6 +1041,10 @@ msgstr "(找不到)"
 msgid "(property change only)"
 msgstr "(僅性質改變)"
 
+#: ID:245,
+msgid "(unknown)"
+msgstr "(不明)"
+
 # ID:188,
 #: ID:188,
 #, c-format
@@ -1288,6 +1293,7 @@ msgid "Add to &ignore list"
 msgstr "加入忽略列表(&I)"
 
 # Control-ID:1098,
+#: ID:209,#:
 #: Control-ID:1279,
 msgid "Add..."
 msgstr "加入..."
@@ -1781,6 +1787,11 @@ msgstr "從版本建立標記(&R)"
 msgid "C&reate folder..."
 msgstr "建立資料夾(&R)..."
 
+# ID:376,
+#: ID:501,
+msgid "C&ut"
+msgstr "剪下(&U)"
+
 # ID:3697,
 #: ID:3697,
 msgid "CAP"
@@ -2182,6 +2193,18 @@ msgstr "每週送交:"
 #: ID:9,
 msgid "Commits your changes to the repository"
 msgstr "將你所做的修改送交至檔案庫"
+
+#: ID:170,
+msgid ""
+"Committing an unversioned folder will not recursively add its child items!\n"
+"You might want to add these folders recursively by using the \"Add...\" context menu item.\n"
+"\n"
+"Are you sure that you want to continue the commit?"
+msgstr ""
+"送交無版本控制的資料夾並不會自動加入底下的子項目!\n"
+"使用 \"加入...\" 選項可以加入底下全部的子資料夾和檔案.\n"
+"\n"
+"確定要進行送交嗎?"
 
 # ID:76,
 #: MenuEntry
@@ -2880,6 +2903,17 @@ msgstr ""
 "確定要復原\n"
 "%s\n"
 "此版本的所有變更? 這些變更將會反向合併至工作複本."
+
+#: ID:99,
+#, c-format
+msgid ""
+"Do you want to make this working copy unversioned?\n"
+"This will remove all Subversion admin directories from\n"
+"%s!"
+msgstr ""
+"確定要清除這份工作複本的版本控制資訊嗎?\n"
+"將會自 %s 移除所有的 Subversion 管理用\n"
+"資料夾!"
 
 # ID:76,
 #: ID:76,
@@ -7051,25 +7085,6 @@ msgstr "文字狀態:"
 msgid "Text status"
 msgstr "文字狀態"
 
-# ID:69,
-#: ID:69,
-#, c-format
-msgid ""
-"The File\n"
-"%s\n"
-"is not a valid text file!\n"
-"Note that UTF32 files are treated as binary too."
-msgstr ""
-"檔案\n"
-"%s\n"
-"不是正確的文字檔!\n"
-"請注意: UTF-16/UTF-32 編碼的文字檔會視為二進位檔."
-
-# ID:80,
-#: ID:80,
-msgid "The Repository was successfully created."
-msgstr "檔案庫建立成功."
-
 # ID:63,
 #: ID:63,
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -7137,6 +7152,20 @@ msgstr ""
 "檔案 \n"
 "%s\n"
 " 已存在! 是否要覆寫?"
+
+# ID:69,
+#: ID:69,
+#, c-format
+msgid ""
+"The file\n"
+"%s\n"
+"is not a valid text file!\n"
+"Note that UTF32 files are treated as binary too."
+msgstr ""
+"檔案\n"
+"%s\n"
+"不是正確的文字檔!\n"
+"請注意: UTF-32 編碼的文字檔會視為二進位檔."
 
 # ID:145,
 #: ID:145,
@@ -7333,6 +7362,11 @@ msgstr ""
 "TortoiseMerge找到了\n"
 "<i>%s</i>\n"
 "可能是正確的路徑. 要改用找到的路徑嗎?"
+
+# ID:80,
+#: ID:80,
+msgid "The repository was successfully created."
+msgstr "檔案庫建立成功."
 
 # Control-ID:65535,
 #: Control-ID:65535,
@@ -7889,10 +7923,22 @@ msgstr "未鎖定"
 msgid "Untitled"
 msgstr "未命名"
 
+# Control-ID:1075,#:
+# Control-ID:1075,
+#: ID:146,
+msgid "Unversion"
+msgstr "清除版本控制"
+
 # Control-ID:1313,
 #: Control-ID:1313,
 msgid "Unversioned files mark parent folder as modified"
 msgstr "含有無版本控制的檔案時, 上層資料夾顯示為異動"
+
+# ID:201,
+#: ID:286,
+#, c-format
+msgid "Unversioning %s"
+msgstr "正在清除 %s 的版本控制資訊"
 
 # ID:8,#:
 # ID:74,#:
