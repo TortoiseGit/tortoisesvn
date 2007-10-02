@@ -68,7 +68,7 @@ BOOL CDeleteUnversionedDlg::OnInitDialog()
 	AdjustControlSize(IDC_SELECTALL);
 
 	AddAnchor(IDC_ITEMLIST, TOP_LEFT, BOTTOM_RIGHT);
-	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	if (hWndExplorer)
