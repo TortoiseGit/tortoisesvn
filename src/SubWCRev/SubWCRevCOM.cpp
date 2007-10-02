@@ -17,8 +17,8 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #include "StdAfx.h"
 #include <objbase.h>
-#include "SubWCRev_h.h"
-#include "SubWCRev_i.c"
+#include "SubWCRevCOM_h.h"
+#include "SubWCRevCOM_i.c"
 #include "SubWCRevCOM.h"
 
 #include <tchar.h>
