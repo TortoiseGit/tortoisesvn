@@ -26,7 +26,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-09-27 15:18+0100\n"
+"PO-Revision-Date: 2007-10-02 08:50+0100\n"
 "Last-Translator: Срѓан Стокиќ <srdjan.stokic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -631,7 +631,8 @@ msgstr "&Преклопи ги сликите"
 msgid "&Password:"
 msgstr "&Лозинка:"
 
-#: ID:376,
+#: ID:376,#:
+#: ID:501,
 msgid "&Paste"
 msgstr "&Paste"
 
@@ -1062,6 +1063,7 @@ msgstr "Додади специфичен програм за спојување
 msgid "Add to &ignore list"
 msgstr "Додади во листа со &занемарувања"
 
+#: ID:209,#:
 #: Control-ID:1279,
 msgid "Add..."
 msgstr "Додади..."
@@ -1460,6 +1462,10 @@ msgstr "К&реирај гранка/ознака од ревизија"
 msgid "C&reate folder..."
 msgstr "К&реирај директориум..."
 
+#: ID:501,
+msgid "C&ut"
+msgstr "И&сечи"
+
 #: ID:3697,
 msgid "CAP"
 msgstr "CAP"
@@ -1785,6 +1791,19 @@ msgstr "Зачувувања секоја недела:"
 #: ID:9,
 msgid "Commits your changes to the repository"
 msgstr "Ги зачувува вашите измени во складиштето"
+
+#: ID:170,
+msgid ""
+"Committing an unversioned folder will not recursively add its child items!\n"
+"You might want to add these folders recursively by using the \"Add...\" context menu item.\n"
+"\n"
+"Are you sure that you want to continue the commit?"
+msgstr ""
+"Складирање на неверзиониран директориум нема да ги додаде\n"
+"рекурзивно и децата. Можете да ги додадете овие директориуми\n"
+"со користење на \"Додади...\" од контекстното мени\n"
+"\n"
+"Да ли сте сигурни дека сакате да продолжите со складирањето?"
 
 #: MenuEntry
 msgid "Compare &HEAD revisions"
