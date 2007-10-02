@@ -58,6 +58,9 @@ public:
 	void			ScrollSide(int delta);
 	void			GoToLine(int nNewLine, BOOL bAll = TRUE);
 	void			UseCaret(bool bUse = true) {m_bCaretHidden = !bUse;}
+	bool			HasCaret() {return !m_bCaretHidden;}
+	void			SetCaretPosition(POINT pt) {m_ptCaretPos = pt; UpdateCaret();}
+	void			EnsureCaretVisible();
 
 	void			SelectLines(int nLine1, int nLine2 = -1);
 	void			HiglightLines(int start, int end = -1);
@@ -201,7 +204,6 @@ protected:
 	bool			IsBottomViewGood() const {return ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()));}
 
 	void			UpdateCaret();
-	void			EnsureCaretVisible();
 	int				CalculateActualOffset(int nLineIndex, int nCharIndex);
 	POINT			TextToClient(const POINT& point);
 	void			DrawText(CDC * pDC, const CRect &rc, LPCTSTR text, int textlength, int nLineIndex, POINT coords, bool bModified, bool bInlineDiff);
@@ -213,6 +215,8 @@ protected:
 	void			RemoveLine(int nLineIndex);
 	void			RemoveSelectedText();
 	void			PasteText();
+	void			AddUndoLine(int nLine);
+
 protected:
 	COLORREF		m_InlineRemovedBk;
 	COLORREF		m_InlineAddedBk;

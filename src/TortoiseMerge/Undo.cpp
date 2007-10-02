@@ -35,11 +35,12 @@ CUndo::~CUndo()
 {
 }
 
-void CUndo::AddState(const viewstate& leftstate, const viewstate& rightstate, const viewstate& bottomstate)
+void CUndo::AddState(const viewstate& leftstate, const viewstate& rightstate, const viewstate& bottomstate, POINT pt)
 {
 	m_viewstates.push_back(bottomstate);
 	m_viewstates.push_back(rightstate);
 	m_viewstates.push_back(leftstate);
+	m_caretpoints.push_back(pt);
 }
 
 bool CUndo::Undo(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom)
@@ -55,6 +56,21 @@ bool CUndo::Undo(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom)
 		state = m_viewstates.back();
 		Undo(state, pBottom);
 		m_viewstates.pop_back();
+		if ((pLeft)&&(pLeft->HasCaret()))
+		{
+			pLeft->SetCaretPosition(m_caretpoints.back());
+			pLeft->EnsureCaretVisible();
+		}
+		if ((pRight)&&(pRight->HasCaret()))
+		{
+			pRight->SetCaretPosition(m_caretpoints.back());
+			pRight->EnsureCaretVisible();
+		}
+		if ((pBottom)&&(pBottom->HasCaret()))
+		{
+			pBottom->SetCaretPosition(m_caretpoints.back());
+			pBottom->EnsureCaretVisible();
+		}
 		return true;
 	}
 	return false;
@@ -64,8 +80,6 @@ void CUndo::Undo(const viewstate& state, CBaseView * pView)
 {
 	if (pView)
 	{
-		int nLineStart = INT_MAX;
-		int nLineEnd = -1;
 		bool bModified = false;
 		for (std::list<int>::const_iterator it = state.addedlines.begin(); it != state.addedlines.end(); ++it)
 		{
@@ -77,8 +91,6 @@ void CUndo::Undo(const viewstate& state, CBaseView * pView)
 		{
 			if (pView->m_pViewData)
 			{
-				nLineStart = min(nLineStart, it->first);
-				nLineEnd = max(nLineEnd, it->first);
 				pView->m_pViewData->SetLineNumber(it->first, it->second);
 				bModified = true;
 			}
@@ -87,8 +99,6 @@ void CUndo::Undo(const viewstate& state, CBaseView * pView)
 		{
 			if (pView->m_pViewData)
 			{
-				nLineStart = min(nLineStart, it->first);
-				nLineEnd = max(nLineEnd, it->first);
 				pView->m_pViewData->SetState(it->first, (DiffStates)it->second);
 				bModified = true;
 			}
@@ -97,19 +107,21 @@ void CUndo::Undo(const viewstate& state, CBaseView * pView)
 		{
 			if (pView->m_pViewData)
 			{
-				nLineStart = min(nLineStart, it->first);
-				nLineEnd = max(nLineEnd, it->first);
 				pView->m_pViewData->SetLine(it->first, it->second);
 				bModified = true;
 			}
 		}
+		for (std::map<int, viewdata>::const_iterator it = state.removedlines.begin(); it != state.removedlines.end(); ++it)
+		{
+			if (pView->m_pViewData)
+			{
+				pView->m_pViewData->InsertData(it->first, it->second.sLine, it->second.state, it->second.linenumber, it->second.ending);
+				bModified = true;
+			}
+		}
+
 		pView->DocumentUpdated();
 		if (bModified)
 			pView->SetModified();
-		if (nLineEnd >= 0)
-		{
-			pView->GoToLine(nLineEnd, true);
-			pView->SelectLines(nLineStart, nLineEnd);
-		}
 	}
 }

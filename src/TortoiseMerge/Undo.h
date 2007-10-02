@@ -17,6 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
+#include "ViewData.h"
 #include <map>
 #include <list>
 
@@ -32,6 +33,8 @@ typedef struct viewstate
 	std::map<int, DWORD> linestates;
 	std::map<int, DWORD> linelines;
 	std::list<int> addedlines;
+
+	std::map<int, viewdata> removedlines;
 } viewstate;
 
 /**
@@ -45,11 +48,12 @@ public:
 	static CUndo& GetInstance();
 
 	bool Undo(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom);
-	void AddState(const viewstate& leftstate, const viewstate& rightstate, const viewstate& bottomstate);
+	void AddState(const viewstate& leftstate, const viewstate& rightstate, const viewstate& bottomstate, POINT pt);
 	bool CanUndo() {return (m_viewstates.size() > 0);}
 protected:
 	void Undo(const viewstate& state, CBaseView * pView);
 	std::list<viewstate> m_viewstates;
+	std::list<POINT> m_caretpoints;
 private:
 	CUndo();
 	~CUndo();

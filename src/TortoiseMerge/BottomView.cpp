@@ -125,7 +125,7 @@ void CBottomView::UseTheirTextBlock()
 		if (IsLineConflicted(i))
 			m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
 	}
-	CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate);
+	CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
 	SetModified();
 	RefreshViews();
 }
@@ -147,7 +147,7 @@ void CBottomView::UseMyTextBlock()
 		if (IsLineConflicted(i))
 			m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
 	}
-	CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate);
+	CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
 	SetModified();
 	RefreshViews();
 }
@@ -196,7 +196,7 @@ void CBottomView::UseTheirThenMyTextBlock()
 		m_pwndRight->m_pViewData->InsertData(m_nSelBlockEnd+1, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
 		rightstate.addedlines.push_back(m_nSelBlockEnd+1);
 	}
-	CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate);
+	CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
 
 	RecalcAllVertScrollBars();
 	SetModified();
@@ -253,7 +253,7 @@ void CBottomView::UseMyThenTheirTextBlock()
 		m_pwndRight->m_pViewData->InsertData(m_nSelBlockEnd+1, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
 		rightstate.addedlines.push_back(m_nSelBlockEnd+1);
 	}
-	CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate);
+	CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
 	RecalcAllVertScrollBars();
 	SetModified();
 	m_pwndLeft->SetModified();

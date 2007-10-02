@@ -2285,6 +2285,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			}
 			else if (m_ptCaretPos.x)
 			{
+				AddUndoLine(m_ptCaretPos.y);
 				CString sLine = GetLineChars(m_ptCaretPos.y);
 				sLine.Delete(m_ptCaretPos.x-1);
 				if (m_pViewData)
@@ -2304,6 +2305,29 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 				// append the line to the previous one, remove the line, then move the cursor a line up
 				if (m_ptCaretPos.y && m_pViewData)
 				{
+					viewstate rightstate;
+					viewstate bottomstate;
+					viewstate leftstate;
+					if ((m_pwndLeft)&&(m_pwndLeft->m_pViewData))
+					{
+						leftstate.difflines[m_ptCaretPos.y-1] = m_pwndLeft->m_pViewData->GetLine(m_ptCaretPos.y-1);
+						leftstate.linestates[m_ptCaretPos.y-1] = m_pwndLeft->m_pViewData->GetState(m_ptCaretPos.y-1);
+						leftstate.removedlines[m_ptCaretPos.y] = m_pwndLeft->m_pViewData->GetData(m_ptCaretPos.y);
+					}
+					if ((m_pwndRight)&&(m_pwndRight->m_pViewData))
+					{
+						rightstate.difflines[m_ptCaretPos.y-1] = m_pwndRight->m_pViewData->GetLine(m_ptCaretPos.y-1);
+						rightstate.linestates[m_ptCaretPos.y-1] = m_pwndRight->m_pViewData->GetState(m_ptCaretPos.y-1);
+						rightstate.removedlines[m_ptCaretPos.y] = m_pwndRight->m_pViewData->GetData(m_ptCaretPos.y);
+					}
+					if ((m_pwndBottom)&&(m_pwndBottom->m_pViewData))
+					{
+						bottomstate.difflines[m_ptCaretPos.y-1] = m_pwndBottom->m_pViewData->GetLine(m_ptCaretPos.y-1);
+						bottomstate.linestates[m_ptCaretPos.y-1] = m_pwndBottom->m_pViewData->GetState(m_ptCaretPos.y-1);
+						bottomstate.removedlines[m_ptCaretPos.y] = m_pwndBottom->m_pViewData->GetData(m_ptCaretPos.y);
+					}
+					CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
+
 					m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y-1);
 					if (m_pViewData)
 					{
@@ -2335,6 +2359,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			}
 			else
 			{
+				AddUndoLine(m_ptCaretPos.y);
 				CString sLine = GetLineChars(m_ptCaretPos.y);
 				if (m_ptCaretPos.x < sLine.GetLength())
 				{
@@ -2353,6 +2378,29 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 					// append the next line to this one, remove the next line
 					if (m_ptCaretPos.y < (GetLineCount()-1))
 					{
+						viewstate rightstate;
+						viewstate bottomstate;
+						viewstate leftstate;
+						if ((m_pwndLeft)&&(m_pwndLeft->m_pViewData))
+						{
+							leftstate.difflines[m_ptCaretPos.y] = m_pwndLeft->m_pViewData->GetLine(m_ptCaretPos.y);
+							leftstate.linestates[m_ptCaretPos.y] = m_pwndLeft->m_pViewData->GetState(m_ptCaretPos.y);
+							leftstate.removedlines[m_ptCaretPos.y+1] = m_pwndLeft->m_pViewData->GetData(m_ptCaretPos.y+1);
+						}
+						if ((m_pwndRight)&&(m_pwndRight->m_pViewData))
+						{
+							rightstate.difflines[m_ptCaretPos.y] = m_pwndRight->m_pViewData->GetLine(m_ptCaretPos.y);
+							rightstate.linestates[m_ptCaretPos.y] = m_pwndRight->m_pViewData->GetState(m_ptCaretPos.y);
+							rightstate.removedlines[m_ptCaretPos.y+1] = m_pwndRight->m_pViewData->GetData(m_ptCaretPos.y+1);
+						}
+						if ((m_pwndBottom)&&(m_pwndBottom->m_pViewData))
+						{
+							bottomstate.difflines[m_ptCaretPos.y] = m_pwndBottom->m_pViewData->GetLine(m_ptCaretPos.y);
+							bottomstate.linestates[m_ptCaretPos.y] = m_pwndBottom->m_pViewData->GetState(m_ptCaretPos.y);
+							bottomstate.removedlines[m_ptCaretPos.y+1] = m_pwndBottom->m_pViewData->GetData(m_ptCaretPos.y+1);
+						}
+						CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
+
 						sLine = GetLineChars(m_ptCaretPos.y+1);
 						if (m_pViewData)
 						{
@@ -2860,6 +2908,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 
 	if ((nChar > 31)||(nChar == VK_TAB))
 	{
+		AddUndoLine(m_ptCaretPos.y);
 		CString sLine = GetLineChars(m_ptCaretPos.y);
 		sLine.Insert(m_ptCaretPos.x, (wchar_t)nChar);
 		m_pViewData->SetLine(m_ptCaretPos.y, sLine);
@@ -2875,12 +2924,32 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 	{
 		// insert a new, fresh and empty line below the cursor, the move the cursor
 		// to that new line
-		if (m_pwndLeft)
+		viewstate rightstate;
+		viewstate bottomstate;
+		viewstate leftstate;
+		if ((m_pwndLeft)&&(m_pwndLeft->m_pViewData))
+		{
+			leftstate.difflines[m_ptCaretPos.y] = m_pwndLeft->m_pViewData->GetLine(m_ptCaretPos.y);
+			leftstate.linestates[m_ptCaretPos.y] = m_pwndLeft->m_pViewData->GetState(m_ptCaretPos.y);
+			leftstate.addedlines.push_back(m_ptCaretPos.y+1);
 			m_pwndLeft->AddEmptyLine(m_ptCaretPos.y);
-		if (m_pwndRight)
+		}
+		if ((m_pwndRight)&&(m_pwndRight->m_pViewData))
+		{
+			rightstate.difflines[m_ptCaretPos.y] = m_pwndRight->m_pViewData->GetLine(m_ptCaretPos.y);
+			rightstate.linestates[m_ptCaretPos.y] = m_pwndRight->m_pViewData->GetState(m_ptCaretPos.y);
+			rightstate.addedlines.push_back(m_ptCaretPos.y+1);
 			m_pwndRight->AddEmptyLine(m_ptCaretPos.y);
-		if (m_pwndBottom)
+		}
+		if ((m_pwndBottom)&&(m_pwndBottom->m_pViewData))
+		{
+			bottomstate.difflines[m_ptCaretPos.y] = m_pwndBottom->m_pViewData->GetLine(m_ptCaretPos.y);
+			bottomstate.linestates[m_ptCaretPos.y] = m_pwndBottom->m_pViewData->GetState(m_ptCaretPos.y);
+			bottomstate.addedlines.push_back(m_ptCaretPos.y+1);
 			m_pwndBottom->AddEmptyLine(m_ptCaretPos.y);
+		}
+		CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
+
 		m_ptCaretPos.y++;
 		m_ptCaretPos.x = 0;
 		ClearSelection();
@@ -2889,6 +2958,29 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		SetModified(true);
 		Invalidate(FALSE);
 	}
+}
+
+void CBaseView::AddUndoLine(int nLine)
+{
+	viewstate rightstate;
+	viewstate bottomstate;
+	viewstate leftstate;
+	if ((m_pwndLeft)&&(m_pwndLeft->m_pViewData))
+	{
+		leftstate.difflines[nLine] = m_pwndLeft->m_pViewData->GetLine(nLine);
+		leftstate.linestates[nLine] = m_pwndLeft->m_pViewData->GetState(nLine);
+	}
+	if ((m_pwndRight)&&(m_pwndRight->m_pViewData))
+	{
+		rightstate.difflines[nLine] = m_pwndRight->m_pViewData->GetLine(nLine);
+		rightstate.linestates[nLine] = m_pwndRight->m_pViewData->GetState(nLine);
+	}
+	if ((m_pwndBottom)&&(m_pwndBottom->m_pViewData))
+	{
+		bottomstate.difflines[nLine] = m_pwndBottom->m_pViewData->GetLine(nLine);
+		bottomstate.linestates[nLine] = m_pwndBottom->m_pViewData->GetState(nLine);
+	}
+	CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
 }
 
 void CBaseView::AddEmptyLine(int nLineIndex)
@@ -2922,6 +3014,9 @@ void CBaseView::RemoveSelectedText()
 	if (!HasTextSelection())
 		return;
 
+	viewstate rightstate;
+	viewstate bottomstate;
+	viewstate leftstate;
 	std::vector<LONG> linestoremove;
 	for (LONG i = m_ptSelectionStartPos.y; i <= m_ptSelectionEndPos.y; ++i)
 	{
@@ -2931,6 +3026,21 @@ void CBaseView::RemoveSelectedText()
 			CString newLine;
 			if (i == m_ptSelectionStartPos.y)
 			{
+				if ((m_pwndLeft)&&(m_pwndLeft->m_pViewData))
+				{
+					leftstate.difflines[i] = m_pwndLeft->m_pViewData->GetLine(i);
+					leftstate.linestates[i] = m_pwndLeft->m_pViewData->GetState(i);
+				}
+				if ((m_pwndRight)&&(m_pwndRight->m_pViewData))
+				{
+					rightstate.difflines[i] = m_pwndRight->m_pViewData->GetLine(i);
+					rightstate.linestates[i] = m_pwndRight->m_pViewData->GetState(i);
+				}
+				if ((m_pwndBottom)&&(m_pwndBottom->m_pViewData))
+				{
+					bottomstate.difflines[i] = m_pwndBottom->m_pViewData->GetLine(i);
+					bottomstate.linestates[i] = m_pwndBottom->m_pViewData->GetState(i);
+				}
 				newLine = sLine.Left(m_ptSelectionStartPos.x);
 				sLine = GetLineChars(m_ptSelectionEndPos.y);
 				newLine = newLine + sLine.Mid(m_ptSelectionEndPos.x);
@@ -2941,21 +3051,38 @@ void CBaseView::RemoveSelectedText()
 		}
 		else
 		{
+			if ((m_pwndLeft)&&(m_pwndLeft->m_pViewData))
+			{
+				leftstate.removedlines[i] = m_pwndLeft->m_pViewData->GetData(i);
+			}
+			if ((m_pwndRight)&&(m_pwndRight->m_pViewData))
+			{
+				rightstate.removedlines[i] = m_pwndRight->m_pViewData->GetData(i);
+			}
+			if ((m_pwndBottom)&&(m_pwndBottom->m_pViewData))
+			{
+				bottomstate.removedlines[i] = m_pwndBottom->m_pViewData->GetData(i);
+			}
 			linestoremove.push_back(i);
 		}
 	}
+	CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
 	// remove the lines at the end, to avoid problems with line indexes
-	for (std::vector<LONG>::const_iterator it = linestoremove.begin(); it != linestoremove.end(); ++it)
+	std::vector<LONG>::const_iterator it = linestoremove.begin();
+	int nLineToRemove = *it;
+	for ( ; it != linestoremove.end(); ++it)
 	{
 		if (m_pwndLeft)
-			m_pwndLeft->RemoveLine(*it);
+			m_pwndLeft->RemoveLine(nLineToRemove);
 		if (m_pwndRight)
-			m_pwndRight->RemoveLine(*it);
+			m_pwndRight->RemoveLine(nLineToRemove);
 		if (m_pwndBottom)
-			m_pwndBottom->RemoveLine(*it);
+			m_pwndBottom->RemoveLine(nLineToRemove);
 		SetModified();
 	}
+	m_ptCaretPos = m_ptSelectionStartPos;
 	ClearSelection();
+	UpdateCaret();
 	Invalidate(FALSE);
 }
 

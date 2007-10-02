@@ -239,6 +239,6 @@ void CLeftView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 			}
 			break;
 		} // switch (cmd) 
-		CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate);
+		CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
 	} // if (popup.CreatePopupMenu()) 
 }
