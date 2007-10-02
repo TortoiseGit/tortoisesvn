@@ -48,11 +48,13 @@ Set objUriTranslator = objServiceManager.createInstance("com.sun.star.uri.Extern
 'Adjust the paths for OO
 sBaseDoc=Replace(sBaseDoc, "\", "/")
 sBaseDoc=Replace(sBaseDoc, ":", "|")
+sBaseDoc=Replace(sBaseDoc, "%", "%25")
 sBaseDoc=Replace(sBaseDoc, " ", "%20")
 sBaseDoc="file:///"&sBaseDoc
 sBaseDoc=objUriTranslator.translateToInternal(sBaseDoc)
 sNewDoc=Replace(sNewDoc, "\", "/")
 sNewDoc=Replace(sNewDoc, ":", "|")
+sNewDoc=Replace(sNewDoc, "%", "%25")
 sNewDoc=Replace(sNewDoc, " ", "%20")
 sNewDoc="file:///"&sNewDoc
 sNewDoc=objUriTranslator.translateToInternal(sNewDoc)

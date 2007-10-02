@@ -39,10 +39,12 @@ Set objDesktop = objServiceManager.createInstance("com.sun.star.frame.Desktop")
 'Adjust the paths for OO
 sMyDoc=Replace(sMyDoc, "\", "/")
 sMyDoc=Replace(sMyDoc, ":", "|")
+sMyDoc=Replace(sMyDoc, "%", "%25")
 sMyDoc=Replace(sMyDoc, " ", "%20")
 sMyDoc="file:///"&sMyDoc
 sTheirDoc=Replace(sTheirDoc, "\", "/")
 sTheirDoc=Replace(sTheirDoc, ":", "|")
+sTheirDoc=Replace(sTheirDoc, "%", "%25")
 sTheirDoc=Replace(sTheirDoc, " ", "%20")
 sTheirDoc="file:///"&sTheirDoc
 
