@@ -95,6 +95,7 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev)
 	, m_bCancelled(false)
 	, m_diffKind(svn_node_none)
 	, m_hAccel(NULL)
+    , bDragMode(FALSE)
 {
 }
 
@@ -581,6 +582,8 @@ void CRepositoryBrowser::OnLButtonDown(UINT nFlags, CPoint point)
 
 	if (point.x < treelist.left+REPOBROWSER_CTRL_MIN_WIDTH)
 		point.x = treelist.left+REPOBROWSER_CTRL_MIN_WIDTH;
+    if (point.x > treelist.right-3) 
+        return CStandAloneDialogTmpl<CResizableDialog>::OnLButtonDown(nFlags, point);
 	if (point.x > treelist.right-REPOBROWSER_CTRL_MIN_WIDTH) 
 		point.x = treelist.right-REPOBROWSER_CTRL_MIN_WIDTH;
 
