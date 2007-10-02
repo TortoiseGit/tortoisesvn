@@ -2613,6 +2613,17 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									int index;
 									index = GetNextSelectedItem(pos);
 									FileEntry * fentry = m_arStatusArray[m_arListArray[index]];
+									if ( fentry->IsFolder() )
+									{
+										// refresh!
+										CWnd* pParent = GetParent();
+										if (NULL != pParent && NULL != pParent->GetSafeHwnd())
+										{
+											pParent->SendMessage(SVNSLNM_NEEDSREFRESH);
+										}
+										break;
+									}
+
 									BOOL bAdded = (fentry->textstatus == svn_wc_status_added);
 									fentry->status = svn_wc_status_normal;
 									fentry->propstatus = svn_wc_status_normal;
