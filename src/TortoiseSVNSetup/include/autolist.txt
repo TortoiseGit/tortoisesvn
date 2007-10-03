@@ -3,7 +3,7 @@
 .js = (?:(?:prototype\.|this\.)(\w+)\s*=\s*)?function\s*(?:(\w*)\s*)\(
 (NOCASE) .pas = (\w+)\s+=\s+(?:class|record|interface)|(?:procedure|function|property|constructor)\s+(\w+)
 (MULTILINE) .py .pyw = ^\s*(?:class|def)\s+(\w+)
-(MULTILINE) .pl, .pm, .cgi = ^\s*sub\s+(\w+)
+(MULTILINE) .pl, .pm, .cgi = ^\s*sub\s+(\w+)|\s*(?:package|use)\s+([\w\:]+)
 (MULTILINE) .php = ^\s*class\s+(\w+)|^\s*(?:(?:public|private|)\s+function)\s+(\w+)|::(\w+)|->(\w+)
 (MULTILINE|NOCASE) .vb = (?:class|function|sub)\s+(\w+)(?:\s*(?:[\(\']|$))
 (MULTILINE) .bas, .frm, .cls = ^\s*(?:(?:Public (?:Default )?|Private )?(?:Sub|Function|Property Get|Property Set|Property Let) ?)(\w+)\(|^Attribute VB_Name = "(\w+)"
