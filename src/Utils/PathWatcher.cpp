@@ -70,7 +70,10 @@ void CPathWatcher::Stop()
 		CloseHandle(m_hThread);
 	m_hThread = INVALID_HANDLE_VALUE;
 	if (m_hCompPort != INVALID_HANDLE_VALUE)
+	{
+		PostQueuedCompletionStatus(m_hCompPort, 0, NULL, NULL);
 		CloseHandle(m_hCompPort);
+	}
 	m_hCompPort = INVALID_HANDLE_VALUE;
 }
 
