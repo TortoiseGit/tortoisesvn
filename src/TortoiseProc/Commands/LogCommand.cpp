@@ -56,7 +56,7 @@ bool LogCommand::Execute()
 	}
 	if (revend == 0)
 	{
-		revend = 1;
+		revend = 0;
 	}
 	if (limit == 0)
 	{

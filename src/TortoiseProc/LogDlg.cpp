@@ -584,7 +584,7 @@ void CLogDlg::GetAll(bool bForceAll /* = false */)
 	switch (entry)
 	{
 	case 0:	// show all
-		m_endrev = 1;
+		m_endrev = 0;
 		m_startrev = m_LogRevision;
 		if (m_bStrict)
 			m_bShowedAll = true;
@@ -719,7 +719,7 @@ void CLogDlg::OnBnClickedNexthundred()
 	if (rev < 1)
 		return;		// do nothing! No more revisions to get
 	m_startrev = rev;
-	m_endrev = 1;
+	m_endrev = 0;
 	m_bCancelled = FALSE;
 	m_limit = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
 	InterlockedExchange(&m_bNoDispUpdates, TRUE);
@@ -3107,7 +3107,7 @@ void CLogDlg::OnBnClickedCheckStoponcopy()
 	// we see immediately after switching to
 	// copy-following)
 
-	m_endrev = 1;
+	m_endrev = 0;
 
 	// now, restart the query
 
@@ -3116,7 +3116,7 @@ void CLogDlg::OnBnClickedCheckStoponcopy()
 
 void CLogDlg::OnBnClickedIncludemerge()
 {
-	m_endrev = 1;
+	m_endrev = 0;
 
 	Refresh();
 }
