@@ -554,14 +554,16 @@ UINT CCommitDlg::StatusThread()
 		GetAutocompletionList();
 		m_ListCtrl.Block(FALSE, FALSE);
 	}
-	DialogEnableWindow(IDC_SHOWUNVERSIONED, true);
-	if (m_ListCtrl.HasChangeLists())
-		DialogEnableWindow(IDC_KEEPLISTS, true);
-	if (m_ListCtrl.HasLocks())
-		DialogEnableWindow(IDC_KEEPLOCK, true);
-	// we have the list, now signal the main thread about it
 	if (m_bRunThread)
+	{
+		DialogEnableWindow(IDC_SHOWUNVERSIONED, true);
+		if (m_ListCtrl.HasChangeLists())
+			DialogEnableWindow(IDC_KEEPLISTS, true);
+		if (m_ListCtrl.HasLocks())
+			DialogEnableWindow(IDC_KEEPLOCK, true);
+		// we have the list, now signal the main thread about it
 		SendMessage(WM_AUTOLISTREADY);	// only send the message if the thread wasn't told to quit!
+	}
 	InterlockedExchange(&m_bRunThread, FALSE);
 	InterlockedExchange(&m_bThreadRunning, FALSE);
 	// force the cursor to normal
@@ -578,7 +580,7 @@ void CCommitDlg::OnCancel()
 	if (m_bThreadRunning)
 	{
 		InterlockedExchange(&m_bRunThread, FALSE);
-		WaitForSingleObject(m_pThread->m_hThread, 1000);
+		DWORD ret = WaitForSingleObject(m_pThread->m_hThread, 1000);
 		if (m_bThreadRunning)
 		{
 			// we gave the thread a chance to quit. Since the thread didn't
@@ -856,7 +858,7 @@ void CCommitDlg::GetAutocompletionList()
 	// and scan them for strings we can use
 	int nListItems = m_ListCtrl.GetItemCount();
 
-	for (int i=0; i<nListItems; ++i)
+	for (int i=0; i<nListItems && m_bRunThread; ++i)
 	{
 		// stop parsing after timeout
 		if ((!m_bRunThread) || (GetTickCount() - starttime > timeoutvalue))
@@ -940,7 +942,7 @@ void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex, REGEX
 			CStringA sText = CStringA(buffer, readbytes);
 			sFileContent = CString(sText);
 		}
-		delete buffer;
+		delete [] buffer;
 	}
 	if (sFileContent.IsEmpty()|| !m_bRunThread)
 	{
