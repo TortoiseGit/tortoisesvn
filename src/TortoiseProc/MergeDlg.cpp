@@ -414,9 +414,10 @@ void CMergeDlg::OnBnClickedFindbranchstart()
 		m_pLogDlg->SetSelect(true);
 		m_pLogDlg->m_pNotifyWindow = this;
 		m_pLogDlg->SetParams(CTSVNPath(url), StartRev, StartRev, 1, limit, TRUE, FALSE);
-		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
+		m_pLogDlg->SetProjectPropertiesPath(m_wcPath);
 		m_pLogDlg->ContinuousSelection(true);
 		m_pLogDlg->SetMergePath(m_wcPath);
+		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
 		m_pLogDlg->ShowWindow(SW_SHOW);
 	}
 	AfxGetApp()->DoWaitCursor(-1);
@@ -450,10 +451,11 @@ void CMergeDlg::OnBnClickedFindbranchend()
 			m_pLogDlg2->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_MERGE_SELECTENDREVISION)));
 		m_pLogDlg2->SetSelect(true);
 		m_pLogDlg2->m_pNotifyWindow = this;
-		m_pLogDlg2->Create(IDD_LOGMESSAGE, this);
+		m_pLogDlg2->SetProjectPropertiesPath(m_wcPath);
 		m_pLogDlg2->SetParams(CTSVNPath(url), EndRev, EndRev, 1, limit, TRUE, FALSE);
 		m_pLogDlg2->ContinuousSelection(true);
 		m_pLogDlg2->SetMergePath(m_wcPath);
+		m_pLogDlg2->Create(IDD_LOGMESSAGE, this);
 		m_pLogDlg2->ShowWindow(SW_SHOW);
 	}
 	AfxGetApp()->DoWaitCursor(-1);
@@ -520,6 +522,7 @@ void CMergeDlg::OnBnClickedWCLog()
 		delete [] m_pLogDlg;
 		m_pLogDlg = new CLogDlg();
 		m_pLogDlg->SetParams(m_wcPath, SVNRev::REV_WC, SVNRev::REV_HEAD, 1, (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100), TRUE, FALSE);
+		m_pLogDlg->SetProjectPropertiesPath(m_wcPath);
 		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
 		m_pLogDlg->ShowWindow(SW_SHOW);
 	}
