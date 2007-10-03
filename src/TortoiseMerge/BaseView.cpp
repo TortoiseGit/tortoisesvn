@@ -174,7 +174,6 @@ BEGIN_MESSAGE_MAP(CBaseView, CView)
 	ON_WM_MOUSEMOVE()
 	ON_COMMAND(ID_NAVIGATE_PREVIOUSCONFLICT, OnMergePreviousconflict)
 	ON_COMMAND(ID_NAVIGATE_NEXTCONFLICT, OnMergeNextconflict)
-	ON_WM_LBUTTONDBLCLK()
 	ON_WM_CHAR()
 	ON_COMMAND(ID_CARET_DOWN, &CBaseView::OnCaretDown)
 	ON_COMMAND(ID_CARET_LEFT, &CBaseView::OnCaretLeft)
@@ -2493,44 +2492,6 @@ void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
 	}
 
 	CView::OnLButtonDown(nFlags, point);
-}
-
-void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
-{
-	int nClickedLine = (((point.y - HEADERHEIGHT) / GetLineHeight()) + m_nTopLine);
-	nClickedLine--;		//we need the index
-	if ((nClickedLine >= m_nTopLine)&&(nClickedLine < GetLineCount()))
-	{
-		// doubleclick on the margin?
-		if (point.x <= GetMarginWidth())
-		{
-			//toggle between linestates
-			DiffStates state = m_pViewData->GetState(nClickedLine);
-			switch (state)
-			{
-			case DIFFSTATE_ADDED:
-			case DIFFSTATE_IDENTICALADDED:
-			case DIFFSTATE_THEIRSADDED:
-			case DIFFSTATE_YOURSADDED:
-				state = DIFFSTATE_REMOVED;
-				if ((this == m_pwndRight)||(this == m_pwndBottom))
-					SetModified();
-				break;
-			case DIFFSTATE_IDENTICALREMOVED:
-			case DIFFSTATE_REMOVED:
-			case DIFFSTATE_THEIRSREMOVED:
-			case DIFFSTATE_YOURSREMOVED:
-				state = DIFFSTATE_ADDED;
-				if ((this == m_pwndRight)||(this == m_pwndBottom))
-					SetModified();
-				break;
-			}
-			m_pViewData->SetState(nClickedLine, state);
-			Invalidate();
-		}
-	}
-
-	CView::OnLButtonDblClk(nFlags, point);
 }
 
 void CBaseView::OnEditCopy()
