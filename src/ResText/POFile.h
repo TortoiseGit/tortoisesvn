@@ -18,16 +18,17 @@
 #pragma once
 #include <string>
 #include <map>
+#include <set>
 #include <vector>
 
 typedef struct tagResourceEntry
 {
-	WORD            menuID;
+	WORD						menuID;
 	std::vector<std::wstring>	translatorcomments;
 	std::vector<std::wstring>	automaticcomments;
-	std::wstring	reference;
-	std::wstring	flag;
-	std::wstring	msgstr;
+	std::set<DWORD>				resourceIDs;
+	std::wstring				flag;
+	std::wstring				msgstr;
 } RESOURCEENTRY, * LPRESOURCEENTRY;
 
 /**
