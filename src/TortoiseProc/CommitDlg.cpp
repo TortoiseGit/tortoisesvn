@@ -28,6 +28,7 @@
 #include "SVN.h"
 #include "Registry.h"
 #include "SVNStatus.h"
+#include "HistoryDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -96,7 +97,7 @@ BOOL CCommitDlg::OnInitDialog()
 	m_regAddBeforeCommit = CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE);
 	m_bShowUnversioned = m_regAddBeforeCommit;
 
-	m_HistoryDlg.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
+	m_History.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
 
 	m_regKeepChangelists = CRegDWORD(_T("Software\\TortoiseSVN\\KeepChangeLists"), FALSE);
 	m_bKeepChangeList = m_regKeepChangelists;
@@ -457,8 +458,8 @@ void CCommitDlg::OnOK()
 		else
 			m_sLogMessage = sBugID + _T("\n") + m_sLogMessage;
 	}
-	m_HistoryDlg.AddString(m_sLogMessage);
-	m_HistoryDlg.SaveHistory();
+	m_History.AddEntry(m_sLogMessage);
+	m_History.Save();
 
 	SaveSplitterPos();
 
@@ -534,11 +535,11 @@ UINT CCommitDlg::StatusThread()
 			m_ListCtrl.Show(dwShow);
 		}
 	}
-	if (m_HistoryDlg.GetCount()==0)
+	if (m_History.GetCount()==0)
 	{
 		CString reg;
 		reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)m_ListCtrl.m_sUUID);
-		m_HistoryDlg.LoadHistory(reg, _T("logmsgs"));
+		m_History.Load(reg, _T("logmsgs"));
 	}
 
 	CTSVNPath commonDir = m_ListCtrl.GetCommonDirectory(false);
@@ -580,7 +581,7 @@ void CCommitDlg::OnCancel()
 	if (m_bThreadRunning)
 	{
 		InterlockedExchange(&m_bRunThread, FALSE);
-		DWORD ret = WaitForSingleObject(m_pThread->m_hThread, 1000);
+		WaitForSingleObject(m_pThread->m_hThread, 1000);
 		if (m_bThreadRunning)
 		{
 			// we gave the thread a chance to quit. Since the thread didn't
@@ -603,8 +604,8 @@ void CCommitDlg::OnCancel()
 		else
 			m_sLogMessage = sBugID + _T("\n") + m_sLogMessage;
 	}
-	m_HistoryDlg.AddString(m_sLogMessage);
-	m_HistoryDlg.SaveHistory();
+	m_History.AddEntry(m_sLogMessage);
+	m_History.Save();
 	SaveSplitterPos();
 	CResizableStandAloneDialog::OnCancel();
 }
@@ -1046,14 +1047,13 @@ void CCommitDlg::OnBnClickedHistory()
 	if (m_pathList.GetCount() == 0)
 		return;
 	SVN svn;
-	CString reg;
-	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), svn.GetUUIDFromPath(m_pathList[0]));
-	m_HistoryDlg.LoadHistory(reg, _T("logmsgs"));
-	if (m_HistoryDlg.DoModal()==IDOK)
+	CHistoryDlg historyDlg;
+	historyDlg.SetHistory(m_History);
+	if (historyDlg.DoModal()==IDOK)
 	{
-		if (m_HistoryDlg.GetSelectedText().Compare(m_cLogMessage.GetText().Left(m_HistoryDlg.GetSelectedText().GetLength()))!=0)
+		if (historyDlg.GetSelectedText().Compare(m_cLogMessage.GetText().Left(historyDlg.GetSelectedText().GetLength()))!=0)
 		{
-			CString sMsg = m_HistoryDlg.GetSelectedText();
+			CString sMsg = historyDlg.GetSelectedText();
 			CString sBugID = m_ProjectProperties.GetBugIDFromLog(sMsg);
 			if (!sBugID.IsEmpty())
 			{

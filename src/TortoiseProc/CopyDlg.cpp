@@ -26,6 +26,7 @@
 #include "Registry.h"
 #include "TSVNPath.h"
 #include "AppUtils.h"
+#include "HistoryDlg.h"
 
 IMPLEMENT_DYNAMIC(CCopyDlg, CResizableStandAloneDialog)
 CCopyDlg::CCopyDlg(CWnd* pParent /*=NULL*/)
@@ -84,7 +85,7 @@ BOOL CCopyDlg::OnInitDialog()
 
 	CTSVNPath path(m_path);
 
-	m_HistoryDlg.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
+	m_History.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
 
 	SetRevision(m_CopyRev);
 
@@ -118,7 +119,7 @@ BOOL CCopyDlg::OnInitDialog()
 
 	CString reg;
 	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)sUUID);
-	m_HistoryDlg.LoadHistory(reg, _T("logmsgs"));
+	m_History.Load(reg, _T("logmsgs"));
 
 	m_ProjectProperties.ReadProps(m_path);
 	m_cLogMessage.Init(m_ProjectProperties);
@@ -241,8 +242,8 @@ void CCopyDlg::OnOK()
 	}
 	m_URLCombo.SaveHistory();
 	m_URL = m_URLCombo.GetString();
-	m_HistoryDlg.AddString(m_sLogMessage);
-	m_HistoryDlg.SaveHistory();
+	m_History.AddEntry(m_sLogMessage);
+	m_History.Save();
 
 	m_sBugID.Trim();
 	if (!m_sBugID.IsEmpty())
@@ -289,8 +290,8 @@ void CCopyDlg::OnCancel()
 	{
 		WaitForSingleObject(m_pThread->m_hThread, INFINITE);
 	}
-	m_HistoryDlg.AddString(m_cLogMessage.GetText());
-	m_HistoryDlg.SaveHistory();
+	m_History.AddEntry(m_cLogMessage.GetText());
+	m_History.Save();
 	CResizableStandAloneDialog::OnCancel();
 }
 
@@ -377,17 +378,16 @@ void CCopyDlg::OnBnClickedCopywc()
 void CCopyDlg::OnBnClickedHistory()
 {
 	SVN svn;
-	CString reg;
-	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), svn.GetUUIDFromPath(m_path));
-	m_HistoryDlg.LoadHistory(reg, _T("logmsgs"));
-	if (m_HistoryDlg.DoModal()==IDOK)
+	CHistoryDlg historyDlg;
+	historyDlg.SetHistory(m_History);
+	if (historyDlg.DoModal()==IDOK)
 	{
-		if (m_HistoryDlg.GetSelectedText().Compare(m_cLogMessage.GetText().Left(m_HistoryDlg.GetSelectedText().GetLength()))!=0)
+		if (historyDlg.GetSelectedText().Compare(m_cLogMessage.GetText().Left(historyDlg.GetSelectedText().GetLength()))!=0)
 		{
 			if (m_ProjectProperties.sLogTemplate.Compare(m_cLogMessage.GetText())!=0)
-				m_cLogMessage.InsertText(m_HistoryDlg.GetSelectedText(), !m_cLogMessage.GetText().IsEmpty());
+				m_cLogMessage.InsertText(historyDlg.GetSelectedText(), !m_cLogMessage.GetText().IsEmpty());
 			else
-				m_cLogMessage.SetText(m_HistoryDlg.GetSelectedText());
+				m_cLogMessage.SetText(historyDlg.GetSelectedText());
 		}
 		DialogEnableWindow(IDOK, m_ProjectProperties.nMinLogSize <= m_cLogMessage.GetText().GetLength());
 	}

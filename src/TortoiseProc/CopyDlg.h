@@ -20,7 +20,7 @@
 #include "ProjectProperties.h"
 #include "StandAloneDlg.h"
 #include "HistoryCombo.h"
-#include "HistoryDlg.h"
+#include "RegHistory.h"
 #include "SciEdit.h"
 #include "TSVNPath.h"
 #include "SVNRev.h"
@@ -67,24 +67,24 @@ protected:
 	virtual BOOL Cancel() {return m_bCancelled;}
 	void		SetRevision(const SVNRev& rev);
 public:
-	CString	m_URL;
-	CTSVNPath m_path;
-	CString m_sLogMessage;
-	SVNRev m_CopyRev;
-	BOOL m_bDoSwitch;
+	CString			m_URL;
+	CTSVNPath		m_path;
+	CString			m_sLogMessage;
+	SVNRev			m_CopyRev;
+	BOOL			m_bDoSwitch;
 
 private:
-	CLogDlg *	m_pLogDlg;
-	CSciEdit	m_cLogMessage;
-	CFont		m_logFont;
-	BOOL		m_bFile;
+	CLogDlg *		m_pLogDlg;
+	CSciEdit		m_cLogMessage;
+	CFont			m_logFont;
+	BOOL			m_bFile;
 	ProjectProperties	m_ProjectProperties;
-	CString		m_sBugID;
-	CHistoryCombo m_URLCombo;
-	CString m_wcURL;
-	CButton m_butBrowse;
-	CHistoryDlg m_HistoryDlg;
-	CBalloon	m_tooltips;
+	CString			m_sBugID;
+	CHistoryCombo	m_URLCombo;
+	CString			m_wcURL;
+	CButton			m_butBrowse;
+	CRegHistory		m_History;
+	CBalloon		m_tooltips;
 
 	svn_revnum_t	m_minrev;
 	svn_revnum_t	m_maxrev;

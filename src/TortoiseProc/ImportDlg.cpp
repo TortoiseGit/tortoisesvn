@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,6 +25,7 @@
 #include "MessageBox.h"
 #include "BrowseFolder.h"
 #include "Registry.h"
+#include "HistoryDlg.h"
 
 IMPLEMENT_DYNAMIC(CImportDlg, CResizableStandAloneDialog)
 CImportDlg::CImportDlg(CWnd* pParent /*=NULL*/)
@@ -57,7 +58,7 @@ BOOL CImportDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
-	m_HistoryDlg.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
+	m_History.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
 
 	if (m_url.IsEmpty())
 	{
@@ -76,7 +77,7 @@ BOOL CImportDlg::OnInitDialog()
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_HISTORY, IDS_COMMITDLG_HISTORY_TT);
 	
-	m_HistoryDlg.LoadHistory(_T("Software\\TortoiseSVN\\History\\commit"), _T("logmsgs"));
+	m_History.Load(_T("Software\\TortoiseSVN\\History\\commit"), _T("logmsgs"));
 	m_ProjectProperties.ReadProps(m_path);
 	m_cMessage.Init(m_ProjectProperties);
 	m_cMessage.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
@@ -126,8 +127,8 @@ void CImportDlg::OnOK()
 	}
 	UpdateData();
 	m_sMessage = m_cMessage.GetText();
-	m_HistoryDlg.AddString(m_sMessage);
-	m_HistoryDlg.SaveHistory();
+	m_History.AddEntry(m_sMessage);
+	m_History.Save();
 
 	CResizableStandAloneDialog::OnOK();
 }
@@ -176,25 +177,24 @@ void CImportDlg::OnEnChangeLogmessage()
 void CImportDlg::OnCancel()
 {
 	UpdateData();
-	m_HistoryDlg.AddString(m_cMessage.GetText());
-	m_HistoryDlg.SaveHistory();
+	m_History.AddEntry(m_cMessage.GetText());
+	m_History.Save();
 	CResizableStandAloneDialog::OnCancel();
 }
 
 void CImportDlg::OnBnClickedHistory()
 {
 	SVN svn;
-	CString reg;
-	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), svn.GetUUIDFromPath(m_path));
-	m_HistoryDlg.LoadHistory(reg, _T("logmsgs"));
-	if (m_HistoryDlg.DoModal()==IDOK)
+	CHistoryDlg historyDlg;
+	historyDlg.SetHistory(m_History);
+	if (historyDlg.DoModal()==IDOK)
 	{
-		if (m_HistoryDlg.GetSelectedText().Compare(m_cMessage.GetText().Left(m_HistoryDlg.GetSelectedText().GetLength()))!=0)
+		if (historyDlg.GetSelectedText().Compare(m_cMessage.GetText().Left(historyDlg.GetSelectedText().GetLength()))!=0)
 		{
 			if (m_ProjectProperties.sLogTemplate.Compare(m_cMessage.GetText())!=0)
-				m_cMessage.InsertText(m_HistoryDlg.GetSelectedText(), !m_cMessage.GetText().IsEmpty());
+				m_cMessage.InsertText(historyDlg.GetSelectedText(), !m_cMessage.GetText().IsEmpty());
 			else
-				m_cMessage.SetText(m_HistoryDlg.GetSelectedText());
+				m_cMessage.SetText(historyDlg.GetSelectedText());
 		}
 		DialogEnableWindow(IDOK, m_ProjectProperties.nMinLogSize <= m_cMessage.GetText().GetLength());
 	}

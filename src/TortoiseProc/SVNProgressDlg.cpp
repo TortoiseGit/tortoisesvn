@@ -34,7 +34,7 @@
 #include "Hooks.h"
 #include "DropFiles.h"
 #include "SVNLogHelper.h"
-#include "HistoryDlg.h"
+#include "RegHistory.h"
 #include "ConflictResolveDlg.h"
 
 BOOL	CSVNProgressDlg::m_bAscending = FALSE;
@@ -2090,13 +2090,13 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
 			sSuggestedMessage.Format(IDS_SVNPROGRESS_MERGELOGRANGE, temp, m_url.GetUIPathString());
 
 			sMergedLogMessage = sSuggestedMessage + _T("\n") + sMergedLogMessage + sSeparator;
-			CHistoryDlg	HistoryDlg;
-			HistoryDlg.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
+			CRegHistory	history;
+			history.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
 			CString reg;
 			reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), GetUUIDFromPath(m_targetPathList[0]));
-			HistoryDlg.LoadHistory(reg, _T("logmsgs"));
-			HistoryDlg.AddString(sMergedLogMessage);
-			HistoryDlg.SaveHistory();
+			history.Load(reg, _T("logmsgs"));
+			history.AddEntry(sMergedLogMessage);
+			history.Save();
 		}
 	}
 	else

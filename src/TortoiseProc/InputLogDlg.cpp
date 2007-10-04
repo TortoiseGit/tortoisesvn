@@ -21,6 +21,7 @@
 #include "InputLogDlg.h"
 #include "Registry.h"
 #include "HistoryDlg.h"
+#include "RegHistory.h"
 
 
 // CInputLogDlg dialog
@@ -110,10 +111,10 @@ void CInputLogDlg::OnOK()
 	CString reg;
 	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), m_sUUID);
 
-	CHistoryDlg dlg;
-	dlg.LoadHistory(reg, _T("logmsgs"));
-	dlg.AddString(m_sLogMsg);
-	dlg.SaveHistory();
+	CRegHistory history;
+	history.Load(reg, _T("logmsgs"));
+	history.AddEntry(m_sLogMsg);
+	history.Save();
 
 	CResizableStandAloneDialog::OnOK();
 }
@@ -163,13 +164,18 @@ void CInputLogDlg::OnBnClickedHistory()
 {
 	CString reg;
 	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), m_sUUID);
+	CRegHistory history;
+	history.Load(reg, _T("logmsgs"));
 	CHistoryDlg HistoryDlg;
-	HistoryDlg.LoadHistory(reg, _T("logmsgs"));
+	HistoryDlg.SetHistory(history);
 	if (HistoryDlg.DoModal()==IDOK)
 	{
 		if (HistoryDlg.GetSelectedText().Compare(m_cInput.GetText().Left(HistoryDlg.GetSelectedText().GetLength()))!=0)
 		{
-			m_cInput.SetText(HistoryDlg.GetSelectedText());
+			if ((m_pProjectProperties)&&(m_pProjectProperties->sLogTemplate.Compare(m_cInput.GetText())!=0))
+				m_cInput.InsertText(HistoryDlg.GetSelectedText(), !m_cInput.GetText().IsEmpty());
+			else
+				m_cInput.SetText(HistoryDlg.GetSelectedText());
 		}
 
 		UpdateOKButton();

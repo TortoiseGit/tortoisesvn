@@ -23,6 +23,7 @@
 #include "UnicodeUtils.h"
 #include "SVNProperties.h"
 #include "SVN.h"
+#include "HistoryDlg.h"
 
 
 IMPLEMENT_DYNAMIC(CLockDlg, CResizableStandAloneDialog)
@@ -65,6 +66,9 @@ END_MESSAGE_MAP()
 BOOL CLockDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
+
+	m_History.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
+	m_History.Load(_T("Software\\TortoiseSVN\\History\\commit"), _T("logmsgs"));
 
 	m_cFileList.Init(SVNSLC_COLEXT | SVNSLC_COLLOCK | SVNSLC_COLSVNNEEDSLOCK, _T("LockDlg"));
 	m_cFileList.SetSelectButton(&m_SelectAll);
@@ -128,8 +132,8 @@ void CLockDlg::OnOK()
 	m_cFileList.WriteCheckedNamesToPathList(m_pathList);
 	UpdateData();
 	m_sLockMessage = m_cEdit.GetText();
-	m_HistoryDlg.AddString(m_sLockMessage);
-	m_HistoryDlg.SaveHistory();
+	m_History.AddEntry(m_sLockMessage);
+	m_History.Save();
 
 	CResizableStandAloneDialog::OnOK();
 }
@@ -141,8 +145,8 @@ void CLockDlg::OnCancel()
 		return;
 	UpdateData();
 	m_sLockMessage = m_cEdit.GetText();
-	m_HistoryDlg.AddString(m_sLockMessage);
-	m_HistoryDlg.SaveHistory();
+	m_History.AddEntry(m_sLockMessage);
+	m_History.Save();
 	CResizableStandAloneDialog::OnCancel();
 }
 
@@ -290,15 +294,16 @@ void CLockDlg::OnBnClickedHistory()
 	if (m_pathList.GetCount() == 0)
 		return;
 	SVN svn;
-	CString reg;
-	reg.Format(_T("Software\\TortoiseSVN\\History\\lock%s"), svn.GetUUIDFromPath(m_pathList[0]));
-	m_HistoryDlg.LoadHistory(reg, _T("lockmsgs"));
-	if (m_HistoryDlg.DoModal()==IDOK)
+	CHistoryDlg historyDlg;
+	historyDlg.SetHistory(m_History);
+	if (historyDlg.DoModal()==IDOK)
 	{
-		if (m_HistoryDlg.GetSelectedText().Compare(m_cEdit.GetText().Left(m_HistoryDlg.GetSelectedText().GetLength()))!=0)
+		if (historyDlg.GetSelectedText().Compare(m_cEdit.GetText().Left(historyDlg.GetSelectedText().GetLength()))!=0)
 		{
-			CString sMsg = m_HistoryDlg.GetSelectedText();
-			m_cEdit.SetText(sMsg);
+			if ((m_ProjectProperties)&&(m_ProjectProperties->sLogTemplate.Compare(m_cEdit.GetText())!=0))
+				m_cEdit.InsertText(historyDlg.GetSelectedText(), !m_cEdit.GetText().IsEmpty());
+			else
+				m_cEdit.SetText(historyDlg.GetSelectedText());
 		}
 
 		OnEnChangeLockmessage();

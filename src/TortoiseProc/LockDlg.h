@@ -22,7 +22,7 @@
 #include "StandAloneDlg.h"
 #include "SVNStatusListCtrl.h"
 #include "ProjectProperties.h"
-#include "HistoryDlg.h"
+#include "RegHistory.h"
 #include "SciEdit.h"
 #include "Registry.h"
 
@@ -73,5 +73,5 @@ private:
 	bool				m_bCancelled;
 	CBalloon			m_tooltips;
 	CButton				m_SelectAll;
-	CHistoryDlg			m_HistoryDlg;
+	CRegHistory			m_History;
 };

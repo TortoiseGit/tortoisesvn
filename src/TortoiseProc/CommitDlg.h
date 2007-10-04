@@ -21,7 +21,7 @@
 #include "StandAloneDlg.h"
 #include "SVNStatusListCtrl.h"
 #include "ProjectProperties.h"
-#include "HistoryDlg.h"
+#include "RegHistory.h"
 #include "Registry.h"
 #include "SciEdit.h"
 #include "SplitterControl.h"
@@ -123,7 +123,7 @@ private:
 	CString				m_sWindowTitle;
 	static UINT			WM_AUTOLISTREADY;
 	int					m_nPopupPasteListCmd;
-	CHistoryDlg			m_HistoryDlg;
+	CRegHistory			m_History;
 	bool				m_bCancelled;
 	CSplitterControl	m_wndSplitter;
 	CPathWatcher		m_pathwatcher;
