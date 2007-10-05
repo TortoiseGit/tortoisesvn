@@ -143,12 +143,6 @@ bool ExportCommand::Execute()
 				{
 					CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
 				}
-				else
-				{
-					CString strMessage;
-					strMessage.Format(IDS_PROC_EXPORT_4, (LPCTSTR)cmdLinePath.GetUIPathString(), (LPCTSTR)saveplace);
-					CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
-				}
 				regExtended = CBrowseFolder::m_bCheck;
 			}
 		}
