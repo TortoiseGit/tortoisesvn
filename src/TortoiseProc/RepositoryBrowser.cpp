@@ -75,6 +75,7 @@ enum RepoBrowserContextMenuCommands
 	ID_GNUDIFF,
 	ID_DIFF,
 	ID_PREPAREDIFF,
+	ID_UPDATE,
 
 };
 
@@ -2014,7 +2015,20 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			}
 			temp.LoadString(IDS_MENULOG);
 			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SHOWLOG, temp);
-		} 
+		}
+		if ((urlList.GetCount() == 1) &&
+			m_path.Exists() && 
+			CTSVNPath(m_InitialUrl).IsAncestorOf(urlList[0]))
+		{
+			CTSVNPath wcPath = m_path;
+			wcPath.AppendPathString(urlList[0].GetWinPathString().Mid(m_InitialUrl.GetLength()));
+			if (!wcPath.Exists() && wcPath.GetContainingDirectory().Exists())
+			{
+				popup.AppendMenu(MF_SEPARATOR, NULL);
+				temp.LoadString(IDS_LOG_POPUP_UPDATE);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UPDATE, temp);		// "Update item to revision"
+			}
+		}
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 
 		if (pWnd == &m_RepoTree)
@@ -2037,6 +2051,17 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 		bool bOpenWith = false;
 		switch (cmd)
 		{
+		case ID_UPDATE:
+			{
+				CTSVNPath wcPath = m_path;
+				wcPath.AppendPathString(urlList[0].GetWinPathString().Mid(m_InitialUrl.GetLength()));
+				CString sCmd;
+				sCmd.Format(_T("\"%s\" /command:update /path:\"%s\" /rev"),
+					CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), wcPath.GetWinPath());
+
+				CAppUtils::LaunchApplication(sCmd, NULL, false);
+			}
+			break;
 		case ID_PREPAREDIFF:
 			{
 				m_RepoTree.SetItemState(FindUrl(m_diffURL.GetSVNPathString(), false), 0, TVIS_BOLD);
