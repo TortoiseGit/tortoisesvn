@@ -94,7 +94,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
 			rbbi.fMask |= RBBS_CHILDEDGE;
 
 		// Create the "URL" combo box control to be added
-		rect = CRect(0, 0, 100, 200);
+		rect = CRect(0, 0, 100, 400);
 		m_cbxUrl.Create(WS_CHILD | WS_TABSTOP | CBS_DROPDOWN, rect, this, IDC_URL_COMBO);
 		m_cbxUrl.SetURLHistory(true);
 		m_cbxUrl.SetFont(font);
