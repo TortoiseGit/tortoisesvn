@@ -75,7 +75,7 @@ public:
 
 	/**
 	 * Checks if the given file has a size of less than four, which means
-	 * an 'empty' file or just newlines, i.e. an emtpy diff.
+	 * an 'empty' file or just newlines, i.e. an empty diff.
 	 */
 	static BOOL CheckForEmptyDiff(const CTSVNPath& sDiffPath);
 
@@ -112,4 +112,6 @@ public:
 	static bool BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& rev);
 
 	static bool FileOpenSave(CString& path, UINT title, UINT filter, bool bOpen, HWND hwndOwner = NULL);
+private:
+	static bool GetMimeType(const CTSVNPath& file, CString& mimetype);
 };

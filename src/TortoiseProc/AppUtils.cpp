@@ -38,48 +38,35 @@ CAppUtils::~CAppUtils(void)
 {
 }
 
-BOOL CAppUtils::StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirfile, const CTSVNPath& yourfile, const CTSVNPath& mergedfile,
-						   		const CString& basename, const CString& theirname, const CString& yourname, const CString& mergedname, bool bReadOnly)
+bool CAppUtils::GetMimeType(const CTSVNPath& file, CString& mimetype)
 {
-
-	CRegString regCom = CRegString(_T("Software\\TortoiseSVN\\Merge"));
-	CString ext = mergedfile.GetFileExtension();
-	CString mimetype;
-	CString com = regCom;
-	bool bInternal = false;
-	SVNProperties props(yourfile);
-	for (int i=0; i<props.GetCount(); ++i)
+	SVNProperties props(file);
+	for (int i = 0; i < props.GetCount(); ++i)
 	{
 		if (props.GetItemName(i).compare(_T("svn:mime-type"))==0)
 		{
 			mimetype = props.GetItemValue(i).c_str();
+			return true;
 		}
 	}
-	if (mimetype.IsEmpty())
+	return false;
+}
+
+BOOL CAppUtils::StartExtMerge(
+	const CTSVNPath& basefile, const CTSVNPath& theirfile, const CTSVNPath& yourfile, const CTSVNPath& mergedfile,
+	const CString& basename, const CString& theirname, const CString& yourname, const CString& mergedname, bool bReadOnly)
+{
+
+	CRegString regCom = CRegString(_T("Software\\TortoiseSVN\\Merge"));
+	CString ext = mergedfile.GetFileExtension();
+	CString com = regCom;
+	bool bInternal = false;
+
+	CString mimetype;
+	if (
+		GetMimeType(yourfile, mimetype) || GetMimeType(theirfile, mimetype) || GetMimeType(basefile, mimetype))
 	{
-		SVNProperties props2(theirfile);
-		for (int i=0; i<props2.GetCount(); ++i)
-		{
-			if (props2.GetItemName(i).compare(_T("svn:mime-type"))==0)
-			{
-				mimetype = props2.GetItemValue(i).c_str();
-			}
-		}
-	}
-	if (mimetype.IsEmpty())
-	{
-		SVNProperties props3(basefile);
-		for (int i=0; i<props.GetCount(); ++i)
-		{
-			if (props3.GetItemName(i).compare(_T("svn:mime-type"))==0)
-			{
-				mimetype = props3.GetItemValue(i).c_str();
-			}
-		}
-	}
-	if (mimetype != "")
-	{
-		// is there an extension specific merge tool?
+		// is there a mimetype specific merge tool?
 		CRegString mergetool(_T("Software\\TortoiseSVN\\MergeTools\\") + mimetype);
 		if (CString(mergetool) != "")
 		{
@@ -238,7 +225,8 @@ BOOL CAppUtils::StartExtPatch(const CTSVNPath& patchfile, const CTSVNPath& dir, 
 	return TRUE;
 }
 
-BOOL CAppUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, const CString& sName1, const CString& sName2, BOOL bWait, BOOL bBlame, BOOL bReadOnly)
+BOOL CAppUtils::StartExtDiff(
+	const CTSVNPath& file1, const CTSVNPath& file2, const CString& sName1, const CString& sName2, BOOL bWait, BOOL bBlame, BOOL bReadOnly)
 {
 	CString viewer;
 	CRegDWORD blamediff(_T("Software\\TortoiseSVN\\DiffBlamesWithTortoiseMerge"), FALSE);
@@ -248,30 +236,11 @@ BOOL CAppUtils::StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, con
 	{
 		CRegString diffexe(_T("Software\\TortoiseSVN\\Diff"));
 		viewer = diffexe;
+
 		CString mimetype;
-		SVNProperties props(file1);
-		for (int i=0; i<props.GetCount(); ++i)
+		if (GetMimeType(file1, mimetype) ||  GetMimeType(file2, mimetype))
 		{
-			if (props.GetItemName(i).compare(_T("svn:mime-type"))==0)
-			{
-				mimetype = props.GetItemValue(i).c_str();
-			}
-		}
-		if (mimetype.IsEmpty())
-		{
-			SVNProperties props2(file2);
-			for (int i=0; i<props2.GetCount(); ++i)
-			{
-				if (props2.GetItemName(i).compare(_T("svn:mime-type"))==0)
-				{
-					mimetype = props2.GetItemValue(i).c_str();
-					break;
-				}
-			}
-		}
-		if (mimetype != "")
-		{
-			// is there an extension specific merge tool?
+			// is there a mimetype specific diff tool?
 			CRegString difftool(_T("Software\\TortoiseSVN\\DiffTools\\") + mimetype);
 			if (CString(difftool) != "")
 			{
