@@ -73,5 +73,18 @@
 				</para>
 			</listitem>
 		</varlistentry>
+		<varlistentry>
+			<term>Always blame changes with TortoiseMerge</term>
+			<listitem>
+				<para>
+					TortoiseSVN allows you to assign external diff viewer.
+					Most such viewers, however, are not suited for change blaming
+					(<xref linkend="tsvn-dug-blame-diffs"/>),
+					so you might wish to fall back to TortoiseMerge in this case.
+					To do so, create a <literal>DWORD</literal>	key with a value of 1 at
+					<literal>HKCU\Software\TortoiseSVN\DiffBlamesWithTortoiseMerge</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
 	</variablelist>
 </sect2>

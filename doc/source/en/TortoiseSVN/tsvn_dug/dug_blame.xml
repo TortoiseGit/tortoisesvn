@@ -155,14 +155,14 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>Blame Differences</term>
+					<term>Blame Changes</term>
 					<listitem>
 						<para>
 							Select one revision in the top pane, then pick one file
 							in the bottom pane and select
 							<menuchoice>
 								<guimenu>Context menu</guimenu>
-								<guimenuitem>Blame differences</guimenuitem>
+								<guimenuitem>Blame changes</guimenuitem>
 							</menuchoice>.
 							This will fetch the blame data for the selected revision
 							and the previous revision, then use the diff viewer to

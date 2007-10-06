@@ -230,7 +230,7 @@ BOOL CAppUtils::StartExtDiff(
 {
 	CString viewer;
 	CRegDWORD blamediff(_T("Software\\TortoiseSVN\\DiffBlamesWithTortoiseMerge"), FALSE);
-	bool bUseTMerge = !!(DWORD)blamediff;
+	bool bUseTMerge = bBlame && !!(DWORD)blamediff;
 	bool bInternal = false;
 	if ( !bUseTMerge )
 	{
