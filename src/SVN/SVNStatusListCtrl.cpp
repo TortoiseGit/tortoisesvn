@@ -3870,8 +3870,11 @@ void CSVNStatusListCtrl::StartDiff(int fileindex)
 		return;
 	}
 
+	bool bShift = !!(GetAsyncKeyState(VK_SHIFT) & 0x8000);
 	SVNDiff diff(NULL, m_hWnd, true);
-	diff.DiffWCFile(entry->path, entry->textstatus, entry->propstatus, entry->remotetextstatus, entry->remotepropstatus);
+	diff.DiffWCFile(
+		entry->path, bShift, entry->textstatus, entry->propstatus,
+		entry->remotetextstatus, entry->remotepropstatus);
 }
 
 CString CSVNStatusListCtrl::GetStatisticsString()

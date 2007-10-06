@@ -225,66 +225,71 @@ BOOL CAppUtils::StartExtPatch(const CTSVNPath& patchfile, const CTSVNPath& dir, 
 	return TRUE;
 }
 
-BOOL CAppUtils::StartExtDiff(
-	const CTSVNPath& file1, const CTSVNPath& file2, const CString& sName1, const CString& sName2, BOOL bWait, BOOL bBlame, BOOL bReadOnly)
+CString CAppUtils::PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2)
 {
-	CString viewer;
-	CRegDWORD blamediff(_T("Software\\TortoiseSVN\\DiffBlamesWithTortoiseMerge"), FALSE);
-	bool bUseTMerge = bBlame && !!(DWORD)blamediff;
-	bool bInternal = false;
-	if ( !bUseTMerge )
+	// Is there a mimetype specific diff tool?
+	CString mimetype;
+	if (GetMimeType(file1, mimetype) ||  GetMimeType(file2, mimetype))
 	{
-		CRegString diffexe(_T("Software\\TortoiseSVN\\Diff"));
-		viewer = diffexe;
-
-		CString mimetype;
-		if (GetMimeType(file1, mimetype) ||  GetMimeType(file2, mimetype))
+		CString difftool = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\") + mimetype);
+		if (!difftool.IsEmpty())
+			return difftool;
+	}
+	
+	// Is there an extension specific diff tool?
+	CString ext = file2.GetFileExtension().MakeLower();
+	if (!ext.IsEmpty())
+	{
+		CString difftool = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\") + ext);
+		if (!difftool.IsEmpty())
+			return difftool;
+		// Maybe we should use TortoiseIDiff?
+		if ((ext == _T(".jpg")) || (ext == _T(".jpeg")) ||
+			(ext == _T(".bmp")) || (ext == _T(".gif"))  ||
+			(ext == _T(".png")) || (ext == _T(".ico"))  ||
+			(ext == _T(".dib")) || (ext == _T(".emf")))
 		{
-			// is there a mimetype specific diff tool?
-			CRegString difftool(_T("Software\\TortoiseSVN\\DiffTools\\") + mimetype);
-			if (CString(difftool) != "")
-			{
-				viewer = difftool;
-			}
-		}
-		if (!file2.GetFileExtension().IsEmpty())
-		{
-			// is there an extension specific diff tool?
-			CRegString difftool(_T("Software\\TortoiseSVN\\DiffTools\\") + file2.GetFileExtension().MakeLower());
-			if (CString(difftool) != "")
-			{
-				viewer = difftool;
-			}
-			else
-			{
-				// check if we maybe should use TortoiseIDiff
-				CString sExtension = file2.GetFileExtension();
-				if ((sExtension.CompareNoCase(_T(".jpg"))==0)||
-					(sExtension.CompareNoCase(_T(".jpeg"))==0)||
-					(sExtension.CompareNoCase(_T(".bmp"))==0)||
-					(sExtension.CompareNoCase(_T(".gif"))==0)||
-					(sExtension.CompareNoCase(_T(".png"))==0)||
-					(sExtension.CompareNoCase(_T(".ico"))==0)||
-					(sExtension.CompareNoCase(_T(".dib"))==0)||
-					(sExtension.CompareNoCase(_T(".emf"))==0))
-				{
-					viewer = CPathUtils::GetAppDirectory();
-					viewer += _T("TortoiseIDiff.exe");
-					viewer = _T("\"") + viewer + _T("\"");
-					viewer = viewer + _T(" /left:%base /right:%mine /lefttitle:%bname /righttitle:%yname");
-				}
-			}
+			return
+				_T("\"") + CPathUtils::GetAppDirectory() + _T("TortoiseIDiff.exe") + _T("\"") +
+				_T(" /left:%base /right:%mine /lefttitle:%bname /righttitle:%yname");
 		}
 	}
-	if (bUseTMerge||viewer.IsEmpty()||(viewer.Left(1).Compare(_T("#"))==0))
+	
+	// Finally, pick a generic external diff tool
+	CString difftool = CRegString(_T("Software\\TortoiseSVN\\Diff"));
+	return difftool;
+}
+
+BOOL CAppUtils::StartExtDiff(
+	const CTSVNPath& file1, const CTSVNPath& file2, const CString& sName1, const CString& sName2,
+	BOOL bWait, BOOL bBlame, BOOL bReadOnly, bool bAlternativeTool)
+{
+	CString viewer;
+
+	CRegDWORD blamediff(_T("Software\\TortoiseSVN\\DiffBlamesWithTortoiseMerge"), FALSE);
+	if (!bBlame || !(DWORD)blamediff)
 	{
-		//no registry entry (or commented out) for a diff program
-		//use TortoiseMerge
-		bInternal = true;
-		viewer = CPathUtils::GetAppDirectory();
-		viewer += _T("TortoiseMerge.exe");
-		viewer = _T("\"") + viewer + _T("\"");
-		viewer = viewer + _T(" /base:%base /mine:%mine /basename:%bname /minename:%yname");
+		viewer = PickDiffTool(file1, file2);
+		// If registry entry for a diff program is commented out, use TortoiseMerge.
+		bool bCommentedOut = viewer.Left(1) == _T("#");
+		if (bAlternativeTool)
+		{
+			// Invert external vs. internal diff tool selection.
+			if (bCommentedOut)
+				viewer.Delete(0); // uncomment
+			else
+				viewer = "";
+		}
+		else if (bCommentedOut)
+			viewer = "";
+	}
+
+	bool bInternal = viewer.IsEmpty();
+	if (bInternal)
+	{
+		viewer =
+			_T("\"") + CPathUtils::GetAppDirectory() + _T("TortoiseMerge.exe") + _T("\"") +
+			_T(" /base:%base /mine:%mine /basename:%bname /minename:%yname");
 		if (bBlame)
 			viewer += _T(" /blame");
 	}

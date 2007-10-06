@@ -26,6 +26,7 @@
 bool DiffCommand::Execute()
 {
 	CString path2 = CPathUtils::GetLongPathname(parser.GetVal(_T("path2")));
+	bool bAlternativeTool = !!parser.HasKey(_T("alternative"));
 	if (path2.IsEmpty())
 	{
 		if (cmdLinePath.IsDirectory())
@@ -45,11 +46,13 @@ bool DiffCommand::Execute()
 			}
 			else
 			{
-				diff.DiffFileAgainstBase(cmdLinePath);
+				diff.DiffFileAgainstBase(cmdLinePath, bAlternativeTool);
 			}
 		}
 	} 
 	else
-		CAppUtils::StartExtDiff(CTSVNPath(path2), cmdLinePath);
+		CAppUtils::StartExtDiff(
+			CTSVNPath(path2), cmdLinePath, CString(), CString(),
+			FALSE, FALSE, FALSE, bAlternativeTool);
 	return true;
 }

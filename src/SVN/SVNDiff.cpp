@@ -57,7 +57,7 @@ SVNDiff::~SVNDiff(void)
 		delete m_pSVN;
 }
 
-bool SVNDiff::DiffWCFile(const CTSVNPath& filePath, 
+bool SVNDiff::DiffWCFile(const CTSVNPath& filePath, bool bAlternativeTool,
 						svn_wc_status_kind text_status /* = svn_wc_status_none */, 
 						svn_wc_status_kind prop_status /* = svn_wc_status_none */, 
 						svn_wc_status_kind remotetext_status /* = svn_wc_status_none */, 
@@ -115,11 +115,12 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
 	if ((text_status <= svn_wc_status_normal)&&(prop_status <= svn_wc_status_normal))
 	{
 		// Hasn't changed locally - diff remote against WC
-		return !!CAppUtils::StartExtDiff(filePath, remotePath, n1, n3);
+		return !!CAppUtils::StartExtDiff(
+			filePath, remotePath, n1, n3, FALSE, FALSE, FALSE, bAlternativeTool);
 	}
 	else if (remotePath.IsEmpty())
 	{
-		return DiffFileAgainstBase(filePath, text_status, prop_status);
+		return DiffFileAgainstBase(filePath, bAlternativeTool, text_status, prop_status);
 	}
 	else
 	{
@@ -168,7 +169,10 @@ bool SVNDiff::StartConflictEditor(const CTSVNPath& conflictedFilePath)
 	return false;
 }
 
-bool SVNDiff::DiffFileAgainstBase(const CTSVNPath& filePath, svn_wc_status_kind text_status /* = svn_wc_status_none */, svn_wc_status_kind prop_status /* = svn_wc_status_none */)
+bool SVNDiff::DiffFileAgainstBase(
+	const CTSVNPath& filePath, bool bAlternativeTool,
+	svn_wc_status_kind text_status /* = svn_wc_status_none */,
+	svn_wc_status_kind prop_status /* = svn_wc_status_none */)
 {
 	bool retvalue = false;
 	if ((text_status == svn_wc_status_none)||(prop_status == svn_wc_status_none))
@@ -221,7 +225,7 @@ bool SVNDiff::DiffFileAgainstBase(const CTSVNPath& filePath, svn_wc_status_kind 
 		CString n1, n2;
 		n1.Format(IDS_DIFF_WCNAME, (LPCTSTR)name);
 		n2.Format(IDS_DIFF_BASENAME, (LPCTSTR)name);
-		retvalue = !!CAppUtils::StartExtDiff(basePath, wcFilePath, n2, n1, TRUE);
+		retvalue = !!CAppUtils::StartExtDiff(basePath, wcFilePath, n2, n1, TRUE, FALSE, FALSE, bAlternativeTool);
 	}
 	return retvalue;
 }

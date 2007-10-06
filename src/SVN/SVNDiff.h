@@ -40,16 +40,18 @@ public:
 	static bool StartConflictEditor(const CTSVNPath& conflictedFilePath);
 	/**
 	 * Diff a single file against its text-base
-	 *\param filePath The file to diff
+	 * \param filePath The file to diff
+	 * \param bAlternativeTool If true, invert selection of TortoiseMerge vs. external diff tool.
 	 */
-	bool DiffFileAgainstBase(const CTSVNPath& filePath, 
-							svn_wc_status_kind text_status = svn_wc_status_none, 
-							svn_wc_status_kind prop_status = svn_wc_status_none);
+	bool DiffFileAgainstBase(
+		const CTSVNPath& filePath, bool bAlternativeTool,
+		svn_wc_status_kind text_status = svn_wc_status_none, 
+		svn_wc_status_kind prop_status = svn_wc_status_none);
 
 	/**
 	 * Shows a diff of a file in the working copy with its BASE.
 	 */
-	bool DiffWCFile(const CTSVNPath& filePath, 
+	bool DiffWCFile(const CTSVNPath& filePath, bool bAlternativeTool,
 					svn_wc_status_kind text_status = svn_wc_status_none, 
 					svn_wc_status_kind prop_status = svn_wc_status_none,
 					svn_wc_status_kind remotetext_status = svn_wc_status_none, 

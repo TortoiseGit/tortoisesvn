@@ -54,10 +54,12 @@ public:
 
 	/**
 	 * Starts the external diff application
+	 * \param bAlternativeTool If true, invert selection of TortoiseMerge vs. external diff tool.
 	 */
 	static BOOL StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, 
 			const CString& sName1 = CString(), const CString& sName2 = CString(), 
-			BOOL bWait = FALSE, BOOL bBlame = FALSE, BOOL bReadOnly = FALSE);
+			BOOL bWait = FALSE, BOOL bBlame = FALSE, BOOL bReadOnly = FALSE,
+			bool bAlternativeTool = false);
 
 	/**
 	 * Starts the external diff application for properties
@@ -113,5 +115,6 @@ public:
 
 	static bool FileOpenSave(CString& path, UINT title, UINT filter, bool bOpen, HWND hwndOwner = NULL);
 private:
+	static CString PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2);
 	static bool GetMimeType(const CTSVNPath& file, CString& mimetype);
 };
