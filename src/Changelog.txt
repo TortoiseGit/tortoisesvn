@@ -1,5 +1,7 @@
 - NEW: Various new layout options in revision graph. (Stefan Fuhrmann)
 - NEW: Log content will be cached. See issue #45 for details. (Stefan Fuhrmann)
+- NEW: Repository properties will be cached. Reduces or even eliminates 
+       latency in log dialog and revison graph. (Stefan Fuhrmann)
 - NEW: A warning is shown when a modified file is about to be deleted
        in the various dialogs. See issue #274 for details. (Stefan)
 - NEW: External diff/merge programs can be specified by mime-type,
@@ -251,6 +253,8 @@
        (e.g. open new files). (Stefan)
 - BUG: "Create Patch" could include two copies of the same file. See
        issue #241 for details. (Stefan)
+- BUG: "Next 100" in log dialog now adds another 100 entries, not just 99. 
+       (Stefan Fuhrmann)
 
 Version 1.4.6
 - BUG: When upgrading, the MFC/CRT libs weren't updated if
