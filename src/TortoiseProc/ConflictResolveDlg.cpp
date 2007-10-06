@@ -140,13 +140,13 @@ BOOL CConflictResolveDlg::OnInitDialog()
 
 void CConflictResolveDlg::OnBnClickedUselocal()
 {
-	m_result = svn_wc_conflict_result_choose_user;
+	m_result = svn_wc_conflict_result_choose_mine;
 	EndDialog(IDOK);
 }
 
 void CConflictResolveDlg::OnBnClickedUserepo()
 {
-	m_result = svn_wc_conflict_result_choose_repos;
+	m_result = svn_wc_conflict_result_choose_theirs;
 	EndDialog(IDOK);
 }
 
@@ -160,8 +160,8 @@ void CConflictResolveDlg::OnBnClickedEditconflict()
 	n3.Format(IDS_DIFF_REMOTENAME, filename);
 
 	CAppUtils::StartExtMerge(CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->base_file)),
-							CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->repos_file)),
-							CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->user_file)),
+							CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->their_file)),
+							CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->my_file)),
 							CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->merged_file)),
 							n2, n3, n1, CString(), false);
 

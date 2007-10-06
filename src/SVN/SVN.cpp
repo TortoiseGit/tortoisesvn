@@ -22,6 +22,7 @@
 #include "svn.h"
 #include "svn_sorts.h"
 #include "client.h"
+#include "svn_compat.h"
 #include "UnicodeUtils.h"
 #include "DirFileEnum.h"
 #include "TSVNPath.h"
