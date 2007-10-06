@@ -876,8 +876,8 @@ void CCommitDlg::GetAutocompletionList()
 		int lastPos = 0;
 		while ((pos = sPartPath.Find('/', pos)) >= 0)
 		{
-			lastPos = pos;
 			pos++;
+			lastPos = pos;
 			m_autolist.insert(sPartPath.Mid(pos));
 		}
 
