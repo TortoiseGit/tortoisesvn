@@ -49,9 +49,10 @@ private:
 	const unsigned char* data;
 	DWORD size;
 
-	// write the (possible NULL) data we just got through Add()
+	// return the (possible NULL) data we just got through Add()
 
-	virtual void WriteThisStream (CCacheFileOutBuffer* buffer);
+	virtual const unsigned char* GetStreamData();
+	virtual size_t GetStreamSize();
 
 public:
 

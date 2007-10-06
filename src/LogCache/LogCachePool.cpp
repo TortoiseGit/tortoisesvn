@@ -27,7 +27,6 @@
 #include "PackedIntegerInStream.h"
 #include "PackedIntegerOutStream.h"
 
-
 // begin namespace LogCache
 
 namespace LogCache
@@ -45,6 +44,7 @@ bool CLogCachePool::FileExists (const std::wstring& filePath)
 
 CLogCachePool::CLogCachePool (const CString& cacheFolderPath)
 	: cacheFolderPath (cacheFolderPath)
+    , repositoryInfo (cacheFolderPath)
 {
 }
 
@@ -78,6 +78,13 @@ CCachedLogInfo* CLogCachePool::GetCache (const CString& uuid)
 	return cache.release();
 }
 
+// cached repository info
+
+CRepositoryInfo& CLogCachePool::GetRepositoryInfo()
+{
+    return repositoryInfo;
+}
+
 // cache management
 
 // write all changes to disk
@@ -101,6 +108,8 @@ void CLogCachePool::Flush()
 			}
 		}
 	}
+
+    repositoryInfo.Flush();
 }
 
 // minimize memory usage
@@ -113,6 +122,8 @@ void CLogCachePool::Clear()
 		caches.erase (caches.begin());
 		delete toDelete;
 	}
+
+    repositoryInfo.Clear();
 }
 
 // end namespace LogCache

@@ -40,6 +40,11 @@ class CBinaryOutStreamBase : public CHierachicalOutStreamBase
 {
 private:
 
+	// size of the data chunk
+	// (flush & compress upon overflow or Close())
+
+	enum {CHUNK_SIZE = 128 * 1024};
+
 	// data to write (may be NULL)
 
 	std::auto_ptr<unsigned char> data;
@@ -48,20 +53,22 @@ private:
 
 	// buffer management
 
-	void Grow() throw();
+	void Flush() throw();
 
 protected:
 
-	// write our data to the file
+	// return the stream data
 
-	virtual void WriteThisStream (CCacheFileOutBuffer* buffer);
+	virtual const unsigned char* GetStreamData();
+	virtual size_t GetStreamSize();
+	virtual void ReleaseStreamData();
 
 	// add data to the stream
 
 	void Add (const unsigned char* source, size_t byteCount) throw()
 	{
 		while (current + byteCount > last)
-			Grow();
+			Flush();
 
 		memcpy (current, source, byteCount);
 		current += byteCount;
@@ -70,7 +77,7 @@ protected:
 	void Add (unsigned char c) throw()
 	{
 		if (current == last)
-			Grow();
+			Flush();
 
 		*current = c;
 		++current;

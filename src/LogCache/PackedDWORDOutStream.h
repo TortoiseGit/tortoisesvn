@@ -70,13 +70,14 @@ protected:
 
 	// add data to the stream
 
-	void InternalAdd (DWORD value);
-	void FlushLastValue();
+	void InternalAdd (DWORD value) throw();
+	void FlushLastValue() throw();
 
 	// compression (RLE) support
 
-	void Add (DWORD value);
-	void WriteThisStream (CCacheFileOutBuffer* buffer);
+	void Add (DWORD value) throw();
+
+	virtual void FlushData();
 
 public:
 
@@ -92,10 +93,29 @@ public:
 };
 
 ///////////////////////////////////////////////////////////////
+// add data to the stream
+///////////////////////////////////////////////////////////////
+
+inline void CPackedDWORDOutStreamBase::InternalAdd (DWORD value) throw()
+{
+	while (true)
+	{
+		if (value < 0x80)
+		{
+			CBinaryOutStreamBase::Add ((unsigned char)value);
+			return;
+		}
+		
+		CBinaryOutStreamBase::Add ((unsigned char)(value & 0x7f) + 0x80);
+		value >>= 7;
+	}
+}
+
+///////////////////////////////////////////////////////////////
 // compress incomming data and write it to the stream
 ///////////////////////////////////////////////////////////////
 
-inline void CPackedDWORDOutStreamBase::Add (DWORD value)
+inline void CPackedDWORDOutStreamBase::Add (DWORD value) throw()
 {
 	// that is the only value we cannot represet
 

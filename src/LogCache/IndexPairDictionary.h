@@ -157,6 +157,7 @@ public:
 	index_t AutoInsert (const std::pair<index_t, index_t>& value);
 
 	void Clear();
+	void Swap (CIndexPairDictionary& rhs);
 
 	// stream I/O
 

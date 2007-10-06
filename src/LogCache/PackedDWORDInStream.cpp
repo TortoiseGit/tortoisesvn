@@ -37,7 +37,7 @@ CPackedDWORDInStreamBase::CPackedDWORDInStreamBase (CCacheFileInBuffer* buffer
 
 // data access
 
-DWORD CPackedDWORDInStreamBase::InternalGetValue()
+DWORD CPackedDWORDInStreamBase::InternalGetValue() throw()
 {
 	DWORD result = GetByte();
 	if (result < 0x80)

@@ -43,6 +43,7 @@
 #include "Blame.h"
 #include "SVNHelpers.h"
 #include "LogDlgHelper.h"
+#include "CachedLogInfo.h"
 
 #define ICONITEMBORDER 5
 
@@ -693,6 +694,10 @@ void CLogDlg::Refresh()
 	m_arShownList.RemoveAll();
 	m_logEntries.ClearAll();
 
+    // reset the cached HEAD property
+
+    logCachePool.GetRepositoryInfo().ResetHeadRevision (CTSVNPath (m_sRepositoryRoot));
+
 	InterlockedExchange(&m_bThreadRunning, TRUE);
 	if (AfxBeginThread(LogThreadEntry, this)==NULL)
 	{
@@ -721,7 +726,11 @@ void CLogDlg::OnBnClickedNexthundred()
 	m_startrev = rev;
 	m_endrev = 0;
 	m_bCancelled = FALSE;
-	m_limit = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
+
+    // rev is is revision we already have and we will receive it again
+    // -> fetch one extra revision to get NumberOfLogs *new* revisions
+
+	m_limit = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100) +1;
 	InterlockedExchange(&m_bNoDispUpdates, TRUE);
 	SetSortArrow(&m_LogList, -1, true);
 	InterlockedExchange(&m_bThreadRunning, TRUE);
@@ -1755,6 +1764,24 @@ void CLogDlg::EditAuthor(int index)
 		{
 			pLogEntry->sAuthor = dlg.m_sInputText;
 			m_LogList.Invalidate();
+
+            // update the log cache 
+
+            LogCache::CCachedLogInfo* toUpdate 
+                = GetLogCache (CTSVNPath (m_sRepositoryRoot));
+            if (toUpdate != NULL)
+            {
+                // log caching is active
+
+                LogCache::CCachedLogInfo newInfo;
+                newInfo.Insert ( pLogEntry->Rev
+                               , (const char*) CUnicodeUtils::GetUTF8 (pLogEntry->sAuthor)
+                               , ""
+                               , 0
+                               , LogCache::CRevisionInfoContainer::HAS_AUTHOR);
+
+                toUpdate->Update (newInfo);
+            }
 		}
 	}
 	theApp.DoWaitCursor(-1);
@@ -1831,7 +1858,25 @@ void CLogDlg::EditLogMessage(int index)
 			pMsgView->SetWindowText(dlg.m_sInputText);
 			m_ProjectProperties.FindBugID(dlg.m_sInputText, pMsgView);
 			m_LogList.Invalidate();
-		}
+        
+            // update the log cache 
+
+            LogCache::CCachedLogInfo* toUpdate 
+                = GetLogCache (CTSVNPath (m_sRepositoryRoot));
+            if (toUpdate != NULL)
+            {
+                // log caching is active
+
+                LogCache::CCachedLogInfo newInfo;
+                newInfo.Insert ( pLogEntry->Rev
+                               , ""
+                               , (const char*) CUnicodeUtils::GetUTF8 (pLogEntry->sMessage)
+                               , 0
+                               , LogCache::CRevisionInfoContainer::HAS_COMMENT);
+
+                toUpdate->Update (newInfo);
+            }
+        }
 	}
 	theApp.DoWaitCursor(-1);
 	EnableOKButton();

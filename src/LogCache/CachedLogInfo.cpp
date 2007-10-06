@@ -29,6 +29,16 @@ namespace LogCache
 
 // construction / destruction (nothing to do)
 
+CCachedLogInfo::CCachedLogInfo()
+	: fileName()
+	, revisions()
+	, logInfo()
+	, skippedRevisions (logInfo.GetPaths(), revisions)
+	, modified (false)
+	, revisionAdded (false)
+{
+}
+
 CCachedLogInfo::CCachedLogInfo (const std::wstring& aFileName)
 	: fileName (aFileName)
 	, revisions()
@@ -102,7 +112,8 @@ void CCachedLogInfo::Save (const std::wstring& newFileName)
 void CCachedLogInfo::Insert ( revision_t revision
 							 , const std::string& author
 							 , const std::string& comment
-							 , __time64_t timeStamp)
+							 , __time64_t timeStamp
+                             , char flags)
 {
 	// there will be a modification
 
@@ -110,7 +121,7 @@ void CCachedLogInfo::Insert ( revision_t revision
 
 	// add entry to cache and update the revision index
 
-	index_t index = logInfo.Insert (author, comment, timeStamp);
+	index_t index = logInfo.Insert (author, comment, timeStamp, flags);
 	revisions.SetRevisionIndex (revision, index);
 
 	// you may call AddChange() now
@@ -134,6 +145,50 @@ void CCachedLogInfo::Clear()
 
 	revisions.Clear();
 	logInfo.Clear();
+}
+
+// update / modify existing data
+
+void CCachedLogInfo::Update ( const CCachedLogInfo& newData
+							, char flags
+                            , bool keepOldDataForMissingNew)
+{
+	// build revision index map
+
+	index_mapping_t indexMap;
+
+	index_t newIndex = logInfo.size();
+	for ( revision_t i = newData.revisions.GetFirstRevision()
+		, last = newData.revisions.GetLastRevision()
+		; i < last
+		; ++i)
+	{
+		index_t sourceIndex = newData.revisions[i];
+		if (sourceIndex != NO_INDEX)
+		{
+			index_t destIndex = revisions[i];
+			if (destIndex == NO_INDEX)
+				destIndex = newIndex++;
+
+			indexMap.insert (destIndex, sourceIndex);
+		}
+	}
+
+	// update our log info
+
+	logInfo.Update ( newData.logInfo
+				   , indexMap
+				   , flags
+                   , keepOldDataForMissingNew);
+
+	// our skip ranges should still be valid
+	// but we check them anyway
+
+	skippedRevisions.Compress();
+
+    // this cache has been touched
+
+    modified = true;
 }
 
 // end namespace LogCache

@@ -50,8 +50,8 @@ protected:
 
 	// data access
 
-	DWORD InternalGetValue();
-	DWORD GetValue();
+	DWORD InternalGetValue() throw();
+	DWORD GetValue() throw();
 
 public:
 
@@ -64,7 +64,11 @@ public:
 	size_t GetSizeValue();
 };
 
-inline DWORD CPackedDWORDInStreamBase::GetValue()
+///////////////////////////////////////////////////////////////
+// data access
+///////////////////////////////////////////////////////////////
+
+inline DWORD CPackedDWORDInStreamBase::GetValue() throw()
 {
 	while (true)
 	{
@@ -139,7 +143,6 @@ S& operator>> (S& stream, std::vector<V>& data)
 
 	size_t count = stream.GetSizeValue();
 
-	data.clear();
 	data.resize (count);
 	for (IT iter = data.begin(), end = data.end(); iter != end; ++iter)
 		*iter = (V)stream.GetValue();

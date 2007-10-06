@@ -95,6 +95,12 @@ void CIndexPairDictionary::Clear()
 	hashIndex.clear();
 }
 
+void CIndexPairDictionary::Swap (CIndexPairDictionary& rhs)
+{
+	data.swap (rhs.data);
+	hashIndex.swap (rhs.hashIndex);
+}
+
 // stream I/O
 
 IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream

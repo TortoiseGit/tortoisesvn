@@ -287,7 +287,7 @@ public:
 			rehash (old_data, old_data_size);
 	}
 
-	// assignment
+	/// assignment
 
 	quick_hash& operator=(const quick_hash& rhs)
 	{
@@ -304,7 +304,7 @@ public:
 		return *this;
 	}
 
-	// get rid of all entries
+	/// get rid of all entries
 
 	void clear()
 	{
@@ -314,6 +314,17 @@ public:
 			grower = prime_grower();
 			create_data();
 		}
+	}
+
+	/// efficiently exchange two containers
+
+	void swap (quick_hash& rhs)
+	{
+		std::swap (data, rhs.data);
+
+		prime_grower temp = grower;
+		grower = rhs.grower;
+		rhs.grower = temp;
 	}
 
 	/// read cache performance statistics

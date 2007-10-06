@@ -19,12 +19,16 @@
 #include "StdAfx.h"
 #include "BLOBOutStream.h"
 
-// write the (possible NULL) data we just got through Add()
+// return the (possible NULL) data we just got through Add()
 
-void CBLOBOutStreamBase::WriteThisStream (CCacheFileOutBuffer* buffer)
+const unsigned char* CBLOBOutStreamBase::GetStreamData() 
 {
-	if ((data != NULL) && (size > 0))
-		buffer->Add (data, size);
+	return data;
+}
+
+size_t CBLOBOutStreamBase::GetStreamSize() 
+{
+	return size;
 }
 
 // construction: nothing special to do

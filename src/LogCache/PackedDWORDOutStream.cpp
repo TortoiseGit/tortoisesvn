@@ -27,22 +27,7 @@
 
 // add data to the stream
 
-void CPackedDWORDOutStreamBase::InternalAdd (DWORD value)
-{
-	while (true)
-	{
-		if (value < 0x80)
-		{
-			CBinaryOutStreamBase::Add ((unsigned char)value);
-			return;
-		}
-		
-		CBinaryOutStreamBase::Add ((unsigned char)(value & 0x7f) + 0x80);
-		value >>= 7;
-	}
-}
-
-void CPackedDWORDOutStreamBase::FlushLastValue()
+void CPackedDWORDOutStreamBase::FlushLastValue() throw()
 {
 	if (count > 0)
 	{
@@ -52,12 +37,11 @@ void CPackedDWORDOutStreamBase::FlushLastValue()
 	}
 }
 
-// write our data to the file
+// prepare our data for being written to the file
 
-void CPackedDWORDOutStreamBase::WriteThisStream (CCacheFileOutBuffer* buffer)
+void CPackedDWORDOutStreamBase::FlushData()
 {
 	FlushLastValue();
-	CBinaryOutStreamBase::WriteThisStream (buffer);
 }
 
 // construction: nothing special to do

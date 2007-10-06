@@ -47,7 +47,8 @@ private:
 
 	// the root does not have local stream data
 
-	virtual void WriteThisStream (CCacheFileOutBuffer* buffer) {};
+	virtual const unsigned char* GetStreamData() {return NULL;}
+	virtual size_t GetStreamSize() {return 0;}
 
 public:
 

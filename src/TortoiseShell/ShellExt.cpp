@@ -25,7 +25,7 @@
 #include "Guids.h"
 
 #include "ShellExt.h"
-#include "..\\version.h"
+#include "..\version.h"
 #include "libintl.h"
 #undef swprintf
 

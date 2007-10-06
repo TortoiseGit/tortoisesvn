@@ -27,40 +27,32 @@
 
 // buffer management
 
-void CBinaryOutStreamBase::Grow() throw()
+void CBinaryOutStreamBase::Flush() throw()
 {
-	if (data.get() == NULL)
-	{
-		data.reset (new unsigned char[1024 * 1024]);
-		current = data.get();
-		last = current + 1024 * 1024;
-	}
-	else
-	{
-		size_t newSize = (last - data.get()) * 2;
-		size_t currentPos = current - data.get();
-
-		std::auto_ptr<unsigned char> newData (new unsigned char[newSize]);
-		memcpy (newData.get(), data.get(), currentPos);
-
-		data.reset (newData.release());
-
-		current = data.get() + currentPos;
-		last = data.get() + newSize;
-	}
+	WriteThisStream();
+	current = data.get();
 }
 
 // write our data to the file
 
-void CBinaryOutStreamBase::WriteThisStream (CCacheFileOutBuffer* buffer)
+// return the stream data
+
+const unsigned char* CBinaryOutStreamBase::GetStreamData() 
+{
+	return data.get();
+}
+
+size_t CBinaryOutStreamBase::GetStreamSize() 
 {
 	size_t size = current - data.get();
 	if (size > (DWORD)(-1))
 		throw std::exception ("binary stream too large");
 
-	if (size > 0)
-		buffer->Add (data.get(), (DWORD)size);
+	return size;
+}
 
+void CBinaryOutStreamBase::ReleaseStreamData()
+{
 	data.reset();
 	current = NULL;
 	last = NULL;
@@ -74,6 +66,9 @@ CBinaryOutStreamBase::CBinaryOutStreamBase ( CCacheFileOutBuffer* aBuffer
 	, current (NULL)
 	, last (NULL)
 {
+	data.reset (new unsigned char[CHUNK_SIZE]);
+	current = data.get();
+	last = current + CHUNK_SIZE;
 }
 
 ///////////////////////////////////////////////////////////////

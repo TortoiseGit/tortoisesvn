@@ -51,6 +51,7 @@
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
 				UsePrecompiledHeader="0"
+				AssemblerOutput="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="4"
@@ -241,11 +242,14 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="3"
+				InlineFunctionExpansion="1"
 				AdditionalIncludeDirectories="..\..\ext\apr\include;&quot;..\..\ext\apr-util\include&quot;;..\..\ext\Subversion\subversion\include;..\..\ext\GRETA;..\Utils;..\SVN;..\TortoiseProc"
 				PreprocessorDefinitions="WIN64;NDEBUG;_CONSOLE"
 				RuntimeLibrary="2"
 				RuntimeTypeInfo="true"
 				UsePrecompiledHeader="2"
+				AssemblerOutput="0"
+				AssemblerListingLocation=""
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="3"
@@ -357,6 +361,14 @@
 				RelativePath=".\LogCachePool.h"
 				>
 			</File>
+			<File
+				RelativePath=".\RepositoryInfo.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\RepositoryInfo.h"
+				>
+			</File>
 			<Filter
 				Name="Streams"
 				>
@@ -438,6 +450,30 @@
 				</File>
 				<File
 					RelativePath=".\HierachicalOutStreamBase.h"
+					>
+				</File>
+				<File
+					RelativePath=".\HuffmanBase.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\HuffmanBase.h"
+					>
+				</File>
+				<File
+					RelativePath=".\HuffmanDecoder.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\HuffmanDecoder.h"
+					>
+				</File>
+				<File
+					RelativePath=".\HuffmanEncoder.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\HuffmanEncoder.h"
 					>
 				</File>
 				<File

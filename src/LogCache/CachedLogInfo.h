@@ -86,6 +86,7 @@ public:
 
 	// construction / destruction (nothing to do)
 
+	CCachedLogInfo();
 	CCachedLogInfo (const std::wstring& aFileName);
 	~CCachedLogInfo (void);
 
@@ -109,7 +110,8 @@ public:
 	void Insert ( revision_t revision
 				, const std::string& author
 				, const std::string& comment
-				, __time64_t timeStamp);
+				, __time64_t timeStamp
+                , char flags = CRevisionInfoContainer::HAS_STANDARD_INFO);
 
 	void AddChange ( TChangeAction action
 				   , const std::string& path
@@ -121,6 +123,12 @@ public:
 					  , revision_t count);
 
 	void Clear();
+
+	// update / modify existing data
+
+	void Update ( const CCachedLogInfo& newData
+                , char flags = CRevisionInfoContainer::HAS_ALL
+                , bool keepOldDataForMissingNew = true);
 };
 
 ///////////////////////////////////////////////////////////////

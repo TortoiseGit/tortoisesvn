@@ -38,8 +38,8 @@ typedef int STREAM_INDEX;
 
 enum
 {
-	OUR_LOG_CACHE_FILE_VERSION = 0x20060701,
-	MIN_LOG_CACHE_FILE_VERSION = 0x20060701
+	OUR_LOG_CACHE_FILE_VERSION = 0x20070607,
+	MIN_LOG_CACHE_FILE_VERSION = 0x20070607
 };
 
 /**
@@ -58,8 +58,8 @@ enum
  * As the data will be mapped to memory, this is only an issue on 64-bit machines.
  *
  * File format:
- * - our version ID (4 bytes. Current value: 0x20060701)
- * - min. version ID (4 bytes. Current value: 0x20060701)
+ * - our version ID (4 bytes. Current value: 0x20070607)
+ * - min. version ID (4 bytes. Current value: 0x20070607)
  * - stream(s) (N BLOBs)
  * - stream size in (N 4 byte integers)
  * - N (4 bytes unsigned integer)

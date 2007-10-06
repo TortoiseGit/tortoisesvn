@@ -111,6 +111,29 @@ void CPathDictionary::Clear()
 	Initialize();
 }
 
+// "merge" with another container:
+// add new entries and return ID mapping for source container
+
+index_mapping_t CPathDictionary::Merge (const CPathDictionary& source)
+{
+	index_mapping_t result;
+	result.insert (0, 0);
+
+	index_mapping_t elementMapping = pathElements.Merge (source.pathElements);
+	for (index_t i = 1, count = source.size(); i < count; ++i)
+	{
+		const std::pair<index_t, index_t>& sourcePath = source.paths[i];
+
+		std::pair<index_t, index_t> destEntry 
+			( *result.find (sourcePath.first)
+			, *elementMapping.find (sourcePath.second));
+
+		result.insert (i, paths.AutoInsert (destEntry));
+	}
+
+	return result;
+}
+
 // stream I/O
 
 IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream

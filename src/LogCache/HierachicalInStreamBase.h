@@ -80,8 +80,11 @@ protected:
 
 	CHierachicalInStreamBase();
 
+	// read stream content
+
 	void ReadSubStreams ( CCacheFileInBuffer* buffer
 				        , STREAM_INDEX index);
+	void DecodeThisStream();
 
 public:
 

@@ -295,49 +295,81 @@ CCacheLogQuery::NextAvailableRevision ( const CDictionaryBasedTempPath& path
 
 // Determine an end-revision that would fill many cache gaps efficiently
 
-revision_t CCacheLogQuery::FindOldestGap ( revision_t startRevision
+revision_t CCacheLogQuery::FindOldestGap ( const CDictionaryBasedTempPath& path
+									     , revision_t startRevision
 									     , revision_t endRevision) const
 {
 	// consider the following trade-off:
 	// 1 server round trip takes about as long as receiving
-	// 100 log entries.
+	// 50 log entries and / or 200 changes
 	//
-	// -> filling cache data gaps of up to 100 revisions
-	//    apart with a single fetch should result in 
-	//    close-to-optimal log performance.
+	// -> filling cache data gaps of up to 50 revisions
+	//    (or 200 changes) apart with a single fetch should 
+    //    result in close-to-optimal log performance.
 
-	enum {RECEIVE_TO_ROUNTRIP_TRADEOFF = 100};
+	enum 
+    {
+        RECEIVE_TO_ROUNTRIP_TRADEOFF_REVS = 50,
+        RECEIVE_TO_ROUNTRIP_TRADEOFF_CHANGES = 200
+    };
 
 	// find the next "long" section of consecutive cached log info
 
 	revision_t lastMissing = startRevision;
 
+    const CRevisionInfoContainer& logInfo = cache->GetLogInfo();
 	const CRevisionIndex& revisions = cache->GetRevisions();
 	revision_t lastRevisionToCheck = min ( endRevision
 										 , revisions.GetFirstRevision());
 
-	for (revision_t r = startRevision-1; r+1 > lastRevisionToCheck; --r)
-	{
-		if (revisions[r] == NO_INDEX)
-		{
-			// move the "last gap" pointer
+    // length of the current sequence of known data
 
-			lastMissing = r;
+    size_t knownSequenceLength = 0;
+    size_t knownSequenceChanges = 0;
+
+	while (   (startRevision >= endRevision) 
+           && (startRevision != NO_REVISION)
+           && (knownSequenceLength < RECEIVE_TO_ROUNTRIP_TRADEOFF_REVS)
+           && (knownSequenceChanges < RECEIVE_TO_ROUNTRIP_TRADEOFF_CHANGES))
+	{
+		// skip known revisions that are irrelevant for path
+
+		CStrictLogIterator iterator (cache, startRevision, path);
+		iterator.Retry();
+		startRevision = iterator.GetRevision();
+
+		// found the next cache entry for this path?
+
+		if (iterator.DataIsMissing())
+		{
+			// move the "last gap" pointer, 
+            // restart the sequence counting (until we found the first existing)
+
+			lastMissing = startRevision;
+            knownSequenceLength = 0;
+            knownSequenceChanges = 0;
 		}
 		else
 		{
-			// if we found a long consecutive section with known log info,
-			// don't read it again
+			// another known entry 
 
-			if (lastMissing > r + RECEIVE_TO_ROUNTRIP_TRADEOFF)
-				return lastMissing;
+            ++knownSequenceLength;
+
+            index_t revIndex = revisions[startRevision];
+            knownSequenceChanges += logInfo.GetChangesEnd (revIndex) 
+                                  - logInfo.GetChangesBegin (revIndex);
 		}
+
+        // try the next revision
+
+        --startRevision;
 	}
 
-	// we didn't find long sections of known log info
-	// -> just fetch the whole range
+	// fetch everything down to and including the lowest missing revision 
+    // scanned (e.g. either the end of the log or before the first large 
+    // consecutive block of cached revision data for this path)
 
-	return endRevision;
+    return lastMissing == NO_REVISION ? 0 : lastMissing;
 }
 
 // ask SVN to fill the log -- at least a bit
@@ -361,7 +393,8 @@ revision_t CCacheLogQuery::FillLog ( revision_t startRevision
 	// within the desired range (receiving duplicate intermediate
 	// log info is less expensive than starting a new log query)
 
-	revision_t cacheOptimalEndRevision = FindOldestGap ( startRevision
+	revision_t cacheOptimalEndRevision = FindOldestGap ( startPath
+                                                       , startRevision
 													   , endRevision);
 
 	// extend the requested range, if that is probably more efficient
@@ -611,10 +644,10 @@ CDictionaryBasedTempPath CCacheLogQuery::GetRelativeRepositoryPath (SVNInfoData&
 	URL.Empty();
 	if (info.reposUUID.IsEmpty())
 	{
-		SVN svn;
 		URL = CUnicodeUtils::GetUTF8 
-				(svn.GetRepositoryRootAndUUID ( CTSVNPath (info.url)
-											  , info.reposUUID));
+				(repositoryInfoCache->GetRepositoryRootAndUUID 
+                    ( CTSVNPath (info.url)
+					, info.reposUUID));
 	}
 
 	if (URL.IsEmpty())
@@ -639,8 +672,8 @@ CDictionaryBasedTempPath CCacheLogQuery::GetRelativeRepositoryPath (SVNInfoData&
 
 	if (URL.IsEmpty())
 	{
-		SVN svn;
-		URL = CUnicodeUtils::GetUTF8(svn.GetRepositoryRoot (CTSVNPath (info.url)));
+		URL = CUnicodeUtils::GetUTF8 
+				(repositoryInfoCache->GetRepositoryRoot (CTSVNPath (info.url)));
 	}
 
 	// get path object 
@@ -756,7 +789,8 @@ CTSVNPath CCacheLogQuery::GetPath (const CTSVNPathList& targets) const
 
 CCacheLogQuery::CCacheLogQuery (CLogCachePool* caches, ILogQuery* svnQuery)
 	: caches (caches)
-	, cache (NULL)
+    , repositoryInfoCache (&caches->GetRepositoryInfo())
+    , cache (NULL)
 	, tempCache (NULL)
 	, URL()
 	, svnQuery (svnQuery)
@@ -815,8 +849,15 @@ void CCacheLogQuery::Log ( const CTSVNPathList& targets
 		pegRevision = startRevision;
 
 	// load cache and find path to start from
+    // (don't get the repo info from SVN, if it had to be fetched from the server
+    //  -> let GetRelativeRepositoryPath() use our repository property cache)
 
-	SVNInfoData& info = GetRepositoryInfo (path, peg_revision, baseInfo, headInfo);
+    SVNInfoData& info = path.IsUrl()
+        ? headInfo 
+        : GetRepositoryInfo (path, peg_revision, baseInfo, headInfo);
+
+    if (info.url.IsEmpty())
+        info.url = path.GetSVNPathString();
 
 	CDictionaryBasedTempPath startPath 
 		= TranslatePegRevisionPath ( pegRevision

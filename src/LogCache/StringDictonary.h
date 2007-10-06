@@ -22,7 +22,7 @@
 // necessary includes
 ///////////////////////////////////////////////////////////////
 
-#include "QuickHash.h"
+#include "QuickHashMap.h"
 #include "LogCacheGlobals.h"
 
 ///////////////////////////////////////////////////////////////
@@ -38,6 +38,12 @@ class IHierarchicalOutStream;
 
 namespace LogCache
 {
+
+///////////////////////////////////////////////////////////////
+// efficient associative container
+///////////////////////////////////////////////////////////////
+
+typedef quick_hash_map<index_t, index_t> index_mapping_t;
 
 /**
  * efficiently stores a pool unique (UTF8) strings.
@@ -118,7 +124,7 @@ private:
 
 	// test for the worst effects of data corruption
 
-	void CheckOffsets();
+	void RebuildIndexes();
 
 	// construction utility
 
@@ -141,6 +147,8 @@ public:
 	const char* operator[](index_t index) const;
 	index_t GetLength (index_t index) const;
 
+    void swap (CStringDictionary& rhs);
+
 	index_t Find (const char* string) const;
 	index_t Insert (const char* string);
 	index_t AutoInsert (const char* string);
@@ -148,6 +156,15 @@ public:
 	// reset content
 
 	void Clear();
+
+	// "merge" with another container:
+	// add new entries and return ID mapping for source container
+
+	index_mapping_t Merge (const CStringDictionary& source);
+
+	// rearrange strings: put [sourceIndex[index]] into [index]
+
+	void Reorder (const std::vector<index_t>& sourceIndices);
 
 	// stream I/O
 

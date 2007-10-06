@@ -43,7 +43,7 @@ protected:
 
 	// add data to the stream
 
-	void Add (int value)
+	void Add (int value) throw()
 	{
 		DWORD usignedValue = value >= 0
 			? 2* value

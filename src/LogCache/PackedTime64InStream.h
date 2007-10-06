@@ -49,7 +49,7 @@ protected:
 
 	// data access
 
-	__time64_t GetValue();
+	__time64_t GetValue() throw();
 
 public:
 

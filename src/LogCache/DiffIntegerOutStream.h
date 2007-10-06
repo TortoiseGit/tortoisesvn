@@ -49,7 +49,7 @@ protected:
 
 	// add data to the stream
 
-	void Add (V value)
+	void Add (V value) throw()
 	{
 		Base::Add (value - lastValue);
 		lastValue = value;

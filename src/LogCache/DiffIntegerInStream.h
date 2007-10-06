@@ -57,7 +57,7 @@ protected:
 
 	// data access
 
-	V GetValue()
+	V GetValue() throw()
 	{
 		lastValue += Base::GetValue();
 		return lastValue;

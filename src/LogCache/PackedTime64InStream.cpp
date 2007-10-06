@@ -36,7 +36,7 @@ CPackedTime64InStreamBase::CPackedTime64InStreamBase (CCacheFileInBuffer* buffer
 
 // data access
 
-__time64_t CPackedTime64InStreamBase::GetValue()
+__time64_t CPackedTime64InStreamBase::GetValue() throw()
 {
 	// get header info
 

@@ -78,6 +78,13 @@ public:
 	CPathDictionary();
 	virtual ~CPathDictionary(void);
 
+    // member access
+
+    const CStringDictionary& GetPathElements() const
+    {
+        return pathElements;
+    }
+
 	// dictionary operations
 
 	index_t size() const
@@ -97,12 +104,10 @@ public:
 
 	void Clear();
 
-    // access to internals
+	// "merge" with another container:
+	// add new entries and return ID mapping for source container
 
-	const CStringDictionary& GetPathElements() const
-    {
-        return pathElements;
-    }
+	index_mapping_t Merge (const CPathDictionary& source);
 
 	// stream I/O
 

@@ -64,7 +64,7 @@ protected:
 		return last - current;
 	}
 
-	unsigned char GetByte()
+	unsigned char GetByte() throw()
 	{
 		return *(current++);
 	}

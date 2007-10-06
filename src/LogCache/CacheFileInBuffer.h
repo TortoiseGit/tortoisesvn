@@ -31,12 +31,13 @@
 typedef int STREAM_INDEX;
 
 ///////////////////////////////////////////////////////////////
-// the largest file version number we will understand
+// the oldest and newest file version number we will understand
 ///////////////////////////////////////////////////////////////
 
 enum
 {
-	MAX_LOG_CACHE_FILE_VERSION = 0x20060701,
+	OLDEST_LOG_CACHE_FILE_VERSION = 0x20070607,
+	NEWEST_LOG_CACHE_FILE_VERSION = 0x20070607
 };
 
 /**

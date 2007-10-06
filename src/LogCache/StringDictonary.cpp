@@ -101,36 +101,33 @@ CStringDictionary::CHashFunction::equal
 
 // test for the worst effects of data corruption
 
-void CStringDictionary::CheckOffsets()
+void CStringDictionary::RebuildIndexes()
 {
-	// index 0 must point to an empty string
+    // start of the string & offset arrays
 
-	if (packedStrings.empty() || (offsets.size() < 2))
-		throw std::exception ("dictionary must never be empty");
-	if ((packedStrings[0] != 0) || (offsets[0] != 0) || (offsets[1] != 1))
-		throw std::exception ("dictionary[0] must be the empty string");
+	const char* stringBase = &packedStrings.at(0);
+    std::vector<index_t>::iterator begin = offsets.begin();
 
-	// all offsets must be strictly monotonously increasing
+    // current position in string data (i.e. first char of the current string)
 
-	for (size_t i = 1, count = offsets.size(); i < count; ++i)
-		if (offsets[i-1] >= offsets[i])
-			throw std::exception ("dictionary entries must have positive lengths");
+    index_t offset = 0;
 
-	// sizes must be consistent
+    // hash & index all strings
 
-	if (*offsets.rbegin() != packedStrings.size())
-		throw std::exception ("dictionary entries size mismatch");
+	hashIndex.clear();
+	hashIndex.reserve (offsets.size());
 
-	size_t actualStringCount 
-		= std::count (packedStrings.begin(), packedStrings.end(), 0);
-	if (actualStringCount + 1 != offsets.size())
-		throw std::exception ("dictionary string count mismatch");
+	for (index_t i = 0, count = (index_t)offsets.size()-1; i < count; ++i)
+    {
+        *(begin+i) = offset;
+		hashIndex.insert (stringBase + offset, i);
 
-	// every offset must point to the begin of some string
+        offset += static_cast<index_t>(strlen (stringBase + offset) +1);
+    }
 
-	for (size_t i = 1, count = offsets.size(); i < count; ++i)
-		if (packedStrings [offsets[i]-1] != 0)
-			throw std::exception ("dictionary entry does not point to a string");
+    // "end of table" entry
+
+  	*offsets.rbegin() = (index_t)packedStrings.size();
 }
 
 // construction utility
@@ -158,6 +155,13 @@ CStringDictionary::~CStringDictionary(void)
 }
 
 // dictionary operations
+
+void CStringDictionary::swap (CStringDictionary& rhs)
+{
+    packedStrings.swap (rhs.packedStrings);
+	offsets.swap (rhs.offsets);
+    hashIndex.swap (rhs.hashIndex);
+}
 
 index_t CStringDictionary::Find (const char* string) const
 {
@@ -226,6 +230,65 @@ void CStringDictionary::Clear()
 	Initialize();
 }
 
+// "merge" with another container:
+// add new entries and return ID mapping for source container
+
+index_mapping_t CStringDictionary::Merge (const CStringDictionary& source)
+{
+	index_mapping_t result;
+
+	for (index_t i = 0, count = source.size(); i < count; ++i)
+		result.insert (i, AutoInsert (source[i]));
+
+	return result;
+}
+
+// rearrange strings: put [sourceIndex[index]] into [index]
+
+void CStringDictionary::Reorder (const std::vector<index_t>& sourceIndices)
+{
+	// we must remap all entries
+
+	assert (size() == sourceIndices.size());
+
+	// we must not remap the empty string
+
+	assert (sourceIndices[0] == 0);
+
+	// we will copy the string data in this temp. array
+
+	std::vector<char> target;
+	target.resize (packedStrings.size());
+
+    // start of the string & offset arrays
+
+	const char* sourceBase = &packedStrings.at(0);
+	char* targetString = &target.at(0);
+
+    // copy string by string
+
+	index_t targetOffset = 0;
+
+	for (index_t i = 0, count = size(); i < count; ++i)
+    {
+		index_t sourceIndex = sourceIndices[i];
+
+		index_t sourceOffset = offsets[sourceIndex];
+		index_t length = offsets[sourceIndex+1] - sourceOffset;
+
+		memcpy (targetString, sourceBase + sourceOffset, length);
+        targetString += length;
+    }
+
+	// the new order is now complete -> switch to it
+
+	packedStrings.swap (target);
+
+	// re-build hash and offsets
+
+	RebuildIndexes();
+}
+
 // stream I/O
 
 IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
@@ -245,29 +308,21 @@ IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 		   , packedStringStream->GetData()
 		   , dictionary.packedStrings.size());
 
-	// read the string offsets
+	// build the hash and string offsets
 
 	CDiffDWORDInStream* offsetsStream 
 		= dynamic_cast<CDiffDWORDInStream*>
 			(stream.GetSubStream (CStringDictionary::OFFSETS_STREAM_ID));
 
-	*offsetsStream >> dictionary.offsets;
-
-	// check against the worst effects of data corruption
-
-//	dictionary.CheckOffsets();
-
-	// build the hash (omit the empty string at index 0)
+    size_t offsetCount = offsetsStream->GetSizeValue();
+    dictionary.offsets.resize (offsetCount);
 
 	dictionary.hashIndex 
 		= quick_hash<CStringDictionary::CHashFunction>
 			(CStringDictionary::CHashFunction (&dictionary));
 	dictionary.hashIndex.reserve (dictionary.offsets.size());
 
-	const char* stringBase = &dictionary.packedStrings.at(0);
-	for (index_t i = 0, count = (index_t)dictionary.offsets.size()-1; i < count; ++i)
-		dictionary.hashIndex.insert ( stringBase + dictionary.offsets[i]
-									, i);
+    dictionary.RebuildIndexes();
 
 	// ready
 
@@ -292,7 +347,7 @@ IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 		= dynamic_cast<CDiffDWORDOutStream*>
 			(stream.OpenSubStream ( CStringDictionary::OFFSETS_STREAM_ID
 								  , DIFF_DWORD_STREAM_TYPE_ID));
-	*offsetsStream << dictionary.offsets;
+	offsetsStream->AddSizeValue (dictionary.offsets.size());
 
 	// ready
 

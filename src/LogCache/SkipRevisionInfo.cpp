@@ -609,49 +609,62 @@ IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 
 	const_cast<CSkipRevisionInfo*>(&container)->Compress();
 
-	// open sub-streams
+	typedef std::vector<CSkipRevisionInfo::SPerPathRanges*>::const_iterator CIT;
+	CIT begin = container.data.begin();
+	CIT end = container.data.end();
+
+	// write path IDs
 
 	CPackedDWORDOutStream* pathIDsStream 
 		= dynamic_cast<CPackedDWORDOutStream*>
 			(stream.OpenSubStream ( CSkipRevisionInfo::PATHIDS_STREAM_ID
 								  , PACKED_DWORD_STREAM_TYPE_ID));
+	pathIDsStream->Add ((DWORD)container.data.size());
+
+	for (CIT dataIter = begin, dataEnd = end; dataIter < dataEnd; ++dataIter)
+		pathIDsStream->Add ((*dataIter)->pathID);
+
+	// write number of ranges per path
 
 	CPackedDWORDOutStream* entryCountStream 
 		= dynamic_cast<CPackedDWORDOutStream*>
 			(stream.OpenSubStream ( CSkipRevisionInfo::ENTRY_COUNT_STREAM_ID
 								  , PACKED_DWORD_STREAM_TYPE_ID));
 
+	for (CIT dataIter = begin, dataEnd = end; dataIter < dataEnd; ++dataIter)
+		entryCountStream->Add ((DWORD)(*dataIter)->ranges.size());
+
+	// write ranges start revisions
+
 	CDiffDWORDOutStream* revisionsStream 
 		= dynamic_cast<CDiffDWORDOutStream*>
 			(stream.OpenSubStream ( CSkipRevisionInfo::REVISIONS_STREAM_ID
 								  , DIFF_DWORD_STREAM_TYPE_ID));
 
-	CDiffIntegerOutStream* sizesStream 
-		= dynamic_cast<CDiffIntegerOutStream*>
-			(stream.OpenSubStream ( CSkipRevisionInfo::SIZES_STREAM_ID
-								  , DIFF_INTEGER_STREAM_TYPE_ID));
-
-	// write all data
-
-	pathIDsStream->Add ((DWORD)container.data.size());
-
-	typedef std::vector<CSkipRevisionInfo::SPerPathRanges*>::const_iterator CIT;
-	for ( CIT dataIter = container.data.begin(), dataEnd = container.data.end()
-		; dataIter < dataEnd
-		; ++dataIter)
-	{
-		pathIDsStream->Add ((*dataIter)->pathID);
-		entryCountStream->Add ((DWORD)(*dataIter)->ranges.size());
-
+	for (CIT dataIter = begin, dataEnd = end; dataIter < dataEnd; ++dataIter)
 		for ( CSkipRevisionInfo::IT iter = (*dataIter)->ranges.begin()
 			, end = (*dataIter)->ranges.end()
 			; iter != end
 			; ++iter)
 		{
 			revisionsStream->Add (iter->first);
+		}
+
+	// write ranges lengths
+
+	CDiffIntegerOutStream* sizesStream 
+		= dynamic_cast<CDiffIntegerOutStream*>
+			(stream.OpenSubStream ( CSkipRevisionInfo::SIZES_STREAM_ID
+								  , DIFF_INTEGER_STREAM_TYPE_ID));
+
+	for (CIT dataIter = begin, dataEnd = end; dataIter < dataEnd; ++dataIter)
+		for ( CSkipRevisionInfo::IT iter = (*dataIter)->ranges.begin()
+			, end = (*dataIter)->ranges.end()
+			; iter != end
+			; ++iter)
+		{
 			sizesStream->Add (iter->second);
 		}
-	}
 
 	// ready
 

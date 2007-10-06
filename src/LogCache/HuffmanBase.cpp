@@ -16,19 +16,22 @@
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
+
 #include "StdAfx.h"
-#include "RootInStream.h"
+#include "HuffmanBase.h"
 
-// construction / destruction: manage file buffer
+///////////////////////////////////////////////////////////////
+// utility function that reverses the bit order of a given key
+///////////////////////////////////////////////////////////////
 
-CRootInStream::CRootInStream (const std::wstring& fileName)
-	: CHierachicalInStreamBase()
-	, buffer (fileName)
+CHuffmanBase::key_type CHuffmanBase::ReverseBits (key_type v, BYTE length)
 {
-	ReadSubStreams (&buffer, buffer.GetLastStream());
-	DecodeThisStream();
-}
+	key_type result = 0;
+	for (; length > 0; --length)
+	{
+		result = 2*result + (v & 1);
+		v >>= 1;
+	}
 
-CRootInStream::~CRootInStream()
-{
+	return result;
 }

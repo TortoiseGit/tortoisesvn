@@ -45,7 +45,7 @@ protected:
 
 	// data access
 
-	int GetValue()
+	int GetValue() throw()
 	{
 		DWORD v = CPackedDWORDInStreamBase::GetValue();
 		return v & 1

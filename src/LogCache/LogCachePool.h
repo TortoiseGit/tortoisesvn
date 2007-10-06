@@ -19,6 +19,12 @@
 #pragma once
 
 ///////////////////////////////////////////////////////////////
+// includes
+///////////////////////////////////////////////////////////////
+
+#include "RepositoryInfo.h"
+
+///////////////////////////////////////////////////////////////
 // begin namespace LogCache
 ///////////////////////////////////////////////////////////////
 
@@ -48,6 +54,10 @@ private:
 
 	CString cacheFolderPath;
 
+    // cached repository properties
+
+    CRepositoryInfo repositoryInfo;
+
 	// cache per repository (UUID)
 
 	typedef std::map<CString, CCachedLogInfo*> TCaches;
@@ -69,7 +79,11 @@ public:
 
 	CCachedLogInfo* GetCache (const CString& uuid);
 
-	// cache management
+    // cached repository info
+
+    CRepositoryInfo& GetRepositoryInfo();
+
+    // cache management
 	
 	// write all changes to disk
 

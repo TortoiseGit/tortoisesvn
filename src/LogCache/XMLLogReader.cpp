@@ -28,31 +28,6 @@ namespace LogCache
 {
 
 ///////////////////////////////////////////////////////////////
-// _mkgmtime64() is not available under VS2003
-///////////////////////////////////////////////////////////////
-
-static const int days[12] 
-	= {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334};
-
-__time64_t mkgmtime64 (struct tm *tb)
-{
-    __time64_t tmptm1 = tb->tm_year;
-    __time64_t tmptm2 = days[tb->tm_mon];
-    if ( ((tmptm1 % 4) == 0) && (tb->tm_mon > 1) )
-            tmptm2++;
-
-    tmptm2 += (tmptm1 - 70) * 365 + ((tmptm1-73) / 4);
-
-    tmptm1 = tmptm2 + (__time64_t)tb->tm_mday;
-
-    tmptm1 = tmptm1 * 24 + (__time64_t)tb->tm_hour;
-    tmptm1 = tmptm1 * 60 + (__time64_t)tb->tm_min;
-    tmptm1 = tmptm1 * 60 + (__time64_t)tb->tm_sec;
-
-    return tmptm1;
-}
-
-///////////////////////////////////////////////////////////////
 // a strstr-like utility that works on memory buffers
 ///////////////////////////////////////////////////////////////
 
@@ -322,14 +297,14 @@ void CXMLLogReader::ParseXMLLog ( const char* current
 			= GetXMLTaggedText (current, revisionEnd, "<msg", 4, "</msg>", 6);
 
 		if (revision % 10000 == 0)
-			printf ("%d\n", revision);
+			printf (".");
 
 		__time64_t timeStamp = 0;
 		if (!date.empty())
 		{
 			tm time = {0,0,0, 0,0,0, 0,0,0};
 			int musecs = 0;
-			sscanf ( date.c_str()
+			sscanf_s ( date.c_str()
 				, "%04d-%02d-%02dT%02d:%02d:%02d.%06d"
 				, &time.tm_year
 				, &time.tm_mon
@@ -342,7 +317,7 @@ void CXMLLogReader::ParseXMLLog ( const char* current
 			time.tm_year -= 1900;
 			time.tm_mon -= 1;
 
-			timeStamp = mkgmtime64 (&time)*1000000 + musecs;
+			timeStamp = _mkgmtime64 (&time)*1000000 + musecs;
 		}
 
 		target.Insert (revision, author, comment, timeStamp);

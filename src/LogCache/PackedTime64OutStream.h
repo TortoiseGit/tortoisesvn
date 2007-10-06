@@ -56,7 +56,7 @@ protected:
 
 	// add data to the stream
 
-	void Add (__time64_t value);
+	void Add (__time64_t value) throw();
 
 public:
 

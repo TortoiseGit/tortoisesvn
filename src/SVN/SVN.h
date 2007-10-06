@@ -517,6 +517,14 @@ public:
 	bool DiffSummarizePeg(const CTSVNPath& path, SVNRev peg, SVNRev rev1, SVNRev rev2, svn_depth_t depth, bool ignoreancestry);
 
 	/**
+	* Find the log cache object that contains / will contain the log information
+    * for the given path.
+    * \param path the path / url to find the cache for
+	* \return NULL if log caching is disabled
+	*/
+    LogCache::CCachedLogInfo* GetLogCache (const CTSVNPath& path);
+
+	/**
 	 * fires the Log-event on each log message from revisionStart
 	 * to revisionEnd inclusive (but never fires the event
 	 * on a given log message more than once).

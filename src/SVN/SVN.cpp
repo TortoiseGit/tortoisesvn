@@ -1156,6 +1156,17 @@ bool SVN::DiffSummarizePeg(const CTSVNPath& path, SVNRev peg, SVNRev rev1, SVNRe
 	return true;
 }
 
+LogCache::CCachedLogInfo* SVN::GetLogCache (const CTSVNPath& path)
+{
+	CRegStdWORD useLogCache (_T("Software\\TortoiseSVN\\UseLogCache"), TRUE);
+	if (useLogCache == FALSE)
+        return NULL;
+
+    CString uuid;
+    logCachePool.GetRepositoryInfo().GetRepositoryRootAndUUID (path, uuid);
+    return logCachePool.GetCache (uuid);
+}
+
 BOOL SVN::ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionPeg, SVNRev revisionStart, SVNRev revisionEnd, int limit, BOOL strict /* = FALSE */)
 {
 	svn_error_clear(Err);
@@ -1963,15 +1974,34 @@ CString SVN::GetRepositoryRoot(const CTSVNPath& url)
 
 	SVNPool localpool(pool);
 	svn_error_clear(Err);
+    Err = NULL;
 
 	// make sure the url is canonical.
 	const char * goodurl = svn_path_canonicalize(url.GetSVNApiPath(localpool), localpool);
+	
+    // use cached information, if allowed
 
-	Err = svn_client_root_url_from_path(&returl, goodurl, m_pctx, pool);
-	if (Err)
-		return _T("");
+    CRegStdWORD useLogCache (_T("Software\\TortoiseSVN\\UseLogCache"), TRUE);
+	if (useLogCache != FALSE)
+    {
+        // look up in cached repository properties
+        // (missing entries will be added automatically)
 
-	return CString(returl);
+        CTSVNPath canonicalURL;
+        canonicalURL.SetFromSVN (goodurl);
+
+        CRepositoryInfo& cachedProperties = logCachePool.GetRepositoryInfo();
+
+	    return cachedProperties.GetRepositoryRoot (canonicalURL);
+    }
+    else
+    {
+		Err = svn_client_root_url_from_path(&returl, goodurl, m_pctx, pool);
+		if (Err)
+			return _T("");
+
+		return CString(returl);
+	}
 }
 
 CString SVN::GetRepositoryRootAndUUID(const CTSVNPath& url, CString& sUUID)
@@ -2044,6 +2074,7 @@ BOOL SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& re
 
 	SVNPool localpool(pool);
 	svn_error_clear(Err);
+    Err = NULL;
 
 	if (!path.IsUrl())
 		SVN::get_url_from_target(&urla, path.GetSVNApiPath(localpool));
@@ -2056,20 +2087,42 @@ BOOL SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& re
 	if (urla == NULL)
 		return FALSE;
 
-	/* use subpool to create a temporary RA session */
-	Err = svn_client_open_ra_session (&ra_session, urla, m_pctx, localpool);
-	if (Err)
-		return FALSE;
+    // use cached information, if allowed
 
-	Err = svn_ra_get_latest_revnum(ra_session, &rev, localpool);
-	if (Err)
-		return FALSE;
+    CRegStdWORD useLogCache (_T("Software\\TortoiseSVN\\UseLogCache"), TRUE);
+	if (useLogCache != FALSE)
+    {
+        // look up in cached repository properties
+        // (missing entries will be added automatically)
 
-	Err = svn_ra_get_repos_root(ra_session, &returl, localpool);
-	if (Err)
-		return FALSE;
-		
-	url.SetFromSVN(CUnicodeUtils::GetUnicode(returl));
+        CTSVNPath canonicalURL;
+        canonicalURL.SetFromSVN (urla);
+
+        CRepositoryInfo& cachedProperties = logCachePool.GetRepositoryInfo();
+
+	    url.SetFromSVN (cachedProperties.GetRepositoryRoot (canonicalURL));
+        rev = cachedProperties.GetHeadRevision (canonicalURL);
+    }
+    else
+    {
+        // non-cached access
+
+	    /* use subpool to create a temporary RA session */
+
+	    Err = svn_client_open_ra_session (&ra_session, urla, m_pctx, localpool);
+	    if (Err)
+		    return FALSE;
+
+	    Err = svn_ra_get_latest_revnum(ra_session, &rev, localpool);
+	    if (Err)
+		    return FALSE;
+
+	    Err = svn_ra_get_repos_root(ra_session, &returl, localpool);
+	    if (Err)
+		    return FALSE;
+    		
+	    url.SetFromSVN(CUnicodeUtils::GetUnicode(returl));
+    }
 	
 	return TRUE;
 }

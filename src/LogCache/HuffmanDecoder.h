@@ -22,43 +22,50 @@
 // include base class
 ///////////////////////////////////////////////////////////////
 
-#include "HierachicalOutStreamBase.h"
+#include "HuffmanBase.h"
 
 ///////////////////////////////////////////////////////////////
 //
-// CCompositeOutStreamBase
-//
-//		Base class for write streams without local stream content.
+// CHuffmanDecoder
 //
 ///////////////////////////////////////////////////////////////
 
-class CCompositeOutStreamBase : public CHierachicalOutStreamBase
+class CHuffmanDecoder : public CHuffmanBase
 {
 private:
 
-	// this stream does not have any local stream data
+	// decoder table:
+	// for each possible key (i.e. encoded char), we store
+	// the plaintext value and the length of the key in bits.
 
-	virtual const unsigned char* GetStreamData() {return NULL;}
-	virtual size_t GetStreamSize() {return 0;}
+	// For keys that are shorter than MAX_ENCODING_LENGTH, 
+	// we store the plaintext in for all possible bit
+	// combinations after the actual key.
+
+	BYTE value[1 << MAX_ENCODING_LENGTH];
+	BYTE length[1 << MAX_ENCODING_LENGTH];
+
+	// read the encoding table from the beginning of the
+	// compressed data buffer and fill the value[] and
+	// length[] arrays.
+
+	void BuildDecodeTable (const BYTE*& first);
+
+	// efficiently decode the source stream until the
+	// plaintext stream reaches decodedSize.
+
+	void WriteDecodedStream ( const BYTE* first
+							, BYTE* dest
+							, DWORD decodedSize);
 
 public:
 
 	// construction / destruction: nothing special to do
 
-	CCompositeOutStreamBase ( CCacheFileOutBuffer* aBuffer
-							, SUB_STREAM_ID anID);
-	virtual ~CCompositeOutStreamBase() {};
+	CHuffmanDecoder() {};
+	virtual ~CHuffmanDecoder() {};
+
+	// decompress the source data and return the target buffer.
+
+	void Decode (const BYTE*& source, BYTE*& target);
 };
-
-///////////////////////////////////////////////////////////////
-//
-// CCompositeOutStream
-//
-//		instantiable sub-class of CCompositeOutStreamBase.
-//
-///////////////////////////////////////////////////////////////
-
-template COutStreamImpl< CCompositeOutStreamBase
-					   , COMPOSITE_STREAM_TYPE_ID>;
-typedef COutStreamImpl< CCompositeOutStreamBase
-					  , COMPOSITE_STREAM_TYPE_ID> CCompositeOutStream;

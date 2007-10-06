@@ -27,7 +27,7 @@
 
 // add data to the stream
 
-void CPackedTime64OutStreamBase::Add (__time64_t value)
+void CPackedTime64OutStreamBase::Add (__time64_t value) throw()
 {
 	// store only diffs
 
