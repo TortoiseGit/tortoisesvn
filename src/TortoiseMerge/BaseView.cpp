@@ -3029,17 +3029,20 @@ void CBaseView::RemoveSelectedText()
 	}
 	CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
 	// remove the lines at the end, to avoid problems with line indexes
-	std::vector<LONG>::const_iterator it = linestoremove.begin();
-	int nLineToRemove = *it;
-	for ( ; it != linestoremove.end(); ++it)
+	if (linestoremove.size())
 	{
-		if (m_pwndLeft)
-			m_pwndLeft->RemoveLine(nLineToRemove);
-		if (m_pwndRight)
-			m_pwndRight->RemoveLine(nLineToRemove);
-		if (m_pwndBottom)
-			m_pwndBottom->RemoveLine(nLineToRemove);
-		SetModified();
+		std::vector<LONG>::const_iterator it = linestoremove.begin();
+		int nLineToRemove = *it;
+		for ( ; it != linestoremove.end(); ++it)
+		{
+			if (m_pwndLeft)
+				m_pwndLeft->RemoveLine(nLineToRemove);
+			if (m_pwndRight)
+				m_pwndRight->RemoveLine(nLineToRemove);
+			if (m_pwndBottom)
+				m_pwndBottom->RemoveLine(nLineToRemove);
+			SetModified();
+		}
 	}
 	m_ptCaretPos = m_ptSelectionStartPos;
 	ClearSelection();
