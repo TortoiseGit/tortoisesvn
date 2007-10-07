@@ -24,11 +24,28 @@ class CTSVNPath;
 
 /**
  * \ingroup TortoiseProc
- * An Utility class with static classes.
+ * An utility class with static functions.
  */
 class CAppUtils
 {
 public:
+	/**
+	* Flags for StartExtDiff function.
+	*/
+	struct DiffFlags
+	{
+		bool bWait;
+		bool bBlame;
+		bool bReadOnly;
+		bool bAlternativeTool; // If true, invert selection of TortoiseMerge vs. external diff tool
+
+		DiffFlags(): bWait(false), bBlame(false), bReadOnly(false), bAlternativeTool(false)	{}
+		DiffFlags& Wait(bool b = true) { bWait = b; return *this; }
+		DiffFlags& Blame(bool b = true) { bBlame = b; return *this; }
+		DiffFlags& ReadOnly(bool b = true) { bReadOnly = b; return *this; }
+		DiffFlags& AlternativeTool(bool b = true) { bAlternativeTool = b; return *this; }
+	};
+
 	CAppUtils(void);
 	~CAppUtils(void);
 
@@ -36,8 +53,10 @@ public:
 	 * Launches the external merge program if there is one.
 	 * \return TRUE if the program could be started
 	 */
-	static BOOL StartExtMerge(const CTSVNPath& basefile, const CTSVNPath& theirfile, const CTSVNPath& yourfile, const CTSVNPath& mergedfile,
-		const CString& basename = CString(), const CString& theirname = CString(), const CString& yourname = CString(), const CString& mergedname = CString(), bool bReadOnly = false);
+	static BOOL StartExtMerge(
+		const CTSVNPath& basefile, const CTSVNPath& theirfile, const CTSVNPath& yourfile, const CTSVNPath& mergedfile,
+		const CString& basename = CString(), const CString& theirname = CString(), const CString& yourname = CString(),
+		const CString& mergedname = CString(), bool bReadOnly = false);
 
 	/**
 	 * Starts the external patch program (currently always TortoiseMerge)
@@ -54,18 +73,16 @@ public:
 
 	/**
 	 * Starts the external diff application
-	 * \param bAlternativeTool If true, invert selection of TortoiseMerge vs. external diff tool.
 	 */
-	static BOOL StartExtDiff(const CTSVNPath& file1, const CTSVNPath& file2, 
-			const CString& sName1 = CString(), const CString& sName2 = CString(), 
-			BOOL bWait = FALSE, BOOL bBlame = FALSE, BOOL bReadOnly = FALSE,
-			bool bAlternativeTool = false);
+	static bool StartExtDiff(
+		const CTSVNPath& file1, const CTSVNPath& file2, 
+		const CString& sName1, const CString& sName2, const DiffFlags& flags);
 
 	/**
 	 * Starts the external diff application for properties
 	 */
 	static BOOL StartExtDiffProps(const CTSVNPath& file1, const CTSVNPath& file2, 
-			const CString& sName1 = CString(), const CString& sName2 = CString(), 
+			const CString& sName1 = CString(), const CString& sName2 = CString(),
 			BOOL bWait = FALSE, BOOL bReadOnly = FALSE);
 
 	/**
@@ -94,7 +111,8 @@ public:
 	/**
 	* Launch the external blame viewer
 	*/
-	static bool LaunchTortoiseBlame(const CString& sBlameFile, const CString& sLogFile, const CString& sOriginalFile, const CString& sParams = CString());
+	static bool LaunchTortoiseBlame(
+		const CString& sBlameFile, const CString& sLogFile, const CString& sOriginalFile, const CString& sParams = CString());
 	
 	/**
 	 * Resizes all columns in a list control. Considers also icons in columns

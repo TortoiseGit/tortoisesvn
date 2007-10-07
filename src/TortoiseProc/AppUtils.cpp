@@ -260,19 +260,19 @@ CString CAppUtils::PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2)
 	return difftool;
 }
 
-BOOL CAppUtils::StartExtDiff(
-	const CTSVNPath& file1, const CTSVNPath& file2, const CString& sName1, const CString& sName2,
-	BOOL bWait, BOOL bBlame, BOOL bReadOnly, bool bAlternativeTool)
+bool CAppUtils::StartExtDiff(
+	const CTSVNPath& file1, const CTSVNPath& file2,
+	const CString& sName1, const CString& sName2, const DiffFlags& flags)
 {
 	CString viewer;
 
 	CRegDWORD blamediff(_T("Software\\TortoiseSVN\\DiffBlamesWithTortoiseMerge"), FALSE);
-	if (!bBlame || !(DWORD)blamediff)
+	if (!flags.bBlame || !(DWORD)blamediff)
 	{
 		viewer = PickDiffTool(file1, file2);
 		// If registry entry for a diff program is commented out, use TortoiseMerge.
 		bool bCommentedOut = viewer.Left(1) == _T("#");
-		if (bAlternativeTool)
+		if (flags.bAlternativeTool)
 		{
 			// Invert external vs. internal diff tool selection.
 			if (bCommentedOut)
@@ -290,7 +290,7 @@ BOOL CAppUtils::StartExtDiff(
 		viewer =
 			_T("\"") + CPathUtils::GetAppDirectory() + _T("TortoiseMerge.exe") + _T("\"") +
 			_T(" /base:%base /mine:%mine /basename:%bname /minename:%yname");
-		if (bBlame)
+		if (flags.bBlame)
 			viewer += _T(" /blame");
 	}
 	// check if the params are set. If not, just add the files to the command line
@@ -318,14 +318,10 @@ BOOL CAppUtils::StartExtDiff(
 	else
 		viewer.Replace(_T("%yname"), _T("\"") + sName2 + _T("\""));
 
-	if ((bReadOnly)&&(bInternal))
+	if (flags.bReadOnly && bInternal)
 		viewer += _T(" /readonly");
 
-	if(!LaunchApplication(viewer, IDS_ERR_EXTDIFFSTART, !!bWait))
-	{
-		return FALSE;
-	}
-	return TRUE;
+	return LaunchApplication(viewer, IDS_ERR_EXTDIFFSTART, flags.bWait);
 }
 
 BOOL CAppUtils::StartExtDiffProps(const CTSVNPath& file1, const CTSVNPath& file2, const CString& sName1, const CString& sName2, BOOL bWait, BOOL bReadOnly)

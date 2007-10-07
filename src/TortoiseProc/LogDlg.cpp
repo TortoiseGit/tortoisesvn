@@ -1585,10 +1585,12 @@ void CLogDlg::OnNMDblclkChangedFileList(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 			CString sName1, sName2;
 			sName1.Format(_T("%s - Revision %ld"), CPathUtils::GetFileNameFromPath(changedpath->sPath), (svn_revnum_t)rev1);
 			sName2.Format(_T("%s - Revision %ld"), CPathUtils::GetFileNameFromPath(changedpath->sPath), (svn_revnum_t)rev1-1);
+			CAppUtils::DiffFlags flags;
+			flags.AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 			if (changedpath->action == LOGACTIONS_DELETED)
-				CAppUtils::StartExtDiff(tempfile, tempfile2, sName2, sName1);
+				CAppUtils::StartExtDiff(tempfile, tempfile2, sName2, sName1, flags);
 			else
-				CAppUtils::StartExtDiff(tempfile2, tempfile, sName2, sName1);
+				CAppUtils::StartExtDiff(tempfile2, tempfile, sName2, sName1, flags);
 		}
 	}
 }
@@ -4170,7 +4172,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 						revFilename.Format(_T("%s-%ld"), temp, rev1);
 					bTargetSelected = CAppUtils::FileOpenSave(revFilename, IDS_LOG_POPUP_SAVE, IDS_COMMONFILEFILTER, false, m_hWnd);
 					TargetPath.SetFromWin(revFilename);
-				}
+					}
 				if (bTargetSelected)
 				{
 					CProgressDlg progDlg;

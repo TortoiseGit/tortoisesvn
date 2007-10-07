@@ -316,7 +316,8 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
 		rev1name = m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString();
 		rev2name = m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString();
 	}
-	CAppUtils::StartExtDiff(tempfile, tempfile2, rev1name, rev2name, FALSE, blame);
+	CAppUtils::StartExtDiff(
+		tempfile, tempfile2, rev1name, rev2name, CAppUtils::DiffFlags().Blame(blame));
 }
 
 void CFileDiffDlg::DiffProps(int selIndex)

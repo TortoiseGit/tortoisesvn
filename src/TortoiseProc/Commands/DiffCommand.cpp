@@ -53,6 +53,6 @@ bool DiffCommand::Execute()
 	else
 		CAppUtils::StartExtDiff(
 			CTSVNPath(path2), cmdLinePath, CString(), CString(),
-			FALSE, FALSE, FALSE, bAlternativeTool);
+			CAppUtils::DiffFlags().AlternativeTool(bAlternativeTool));
 	return true;
 }
