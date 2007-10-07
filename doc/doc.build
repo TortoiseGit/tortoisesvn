@@ -221,9 +221,17 @@ All user/site specific configuration is stored in doc.build.user.
 			<if test="${not file::up-to-date(file.target, potfile)}">
 				<echo message="Creating po template from sources"/>
 				<exec program="python"
-							commandline="xml2po.py -e -o ${potfile} ${file.target}"
+							commandline="xml2po.py -e -o ${potfile}.tmp ${file.target}"
 							verbose="false"/>
+
+				<!-- Adjust path to source file -->
+				<move file="${potfile}.tmp" tofile="${potfile}" overwrite="true">
+					<filterchain>
+						<replacestring from="#: ${file.target}" to="#: ../${file.target}" />
+					</filterchain>
+				</move>
 			</if>
+
 			<echo message="" />
 		</foreach>
 	</target>
