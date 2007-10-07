@@ -97,14 +97,10 @@ protected:
 	int			GetWeek(const CTime& time);
 	int			GetWeeksCount();
 	int			m_weekcount;
+	__time64_t	m_minDate;
 
 	void		ShowLabels(BOOL bShow);
 	void		RedrawGraph();
-	void		CountCommits(std::map<stdstring, LONG> &authors, 
-								std::map<stdstring, LONG> &AuthorCommits, 
-								std::map<stdstring, LONG> &AuthorCommitsMin, 
-								std::map<stdstring, LONG> &AuthorCommitsMax, 
-								std::map<stdstring, LONG> &authorcommits);
 
 	enum UnitType
 	{

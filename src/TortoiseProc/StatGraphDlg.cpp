@@ -24,10 +24,26 @@
 #include "PathUtils.h"
 #include "MemDC.h"
 #include "MessageBox.h"
-#include <math.h>
+#include <cmath>
 #include <locale>
+#include <list>
+#include <utility>
 
 using namespace Gdiplus;
+
+// BinaryPredicate for comparing authors based on their commit count
+class MoreCommitsThan : public std::binary_function<stdstring, stdstring, bool> {
+public:
+	MoreCommitsThan(std::map<stdstring, LONG> * author_commits) : m_authorCommits(author_commits) {}
+
+	bool operator()(const stdstring& lhs, const stdstring& rhs) {
+		return (*m_authorCommits)[lhs] > (*m_authorCommits)[rhs];
+	}
+
+private:
+	std::map<stdstring, LONG> * m_authorCommits;
+};
+
 
 IMPLEMENT_DYNAMIC(CStatGraphDlg, CResizableStandAloneDialog)
 CStatGraphDlg::CStatGraphDlg(CWnd* pParent /*=NULL*/)
@@ -522,151 +538,144 @@ void CStatGraphDlg::ShowCommitsByDate()
 	m_graph.Invalidate();
 }
 
-void CStatGraphDlg::CountCommits(std::map<stdstring, LONG> &authors, 
-								 std::map<stdstring, LONG> &AuthorCommits, 
-								 std::map<stdstring, LONG> &AuthorCommitsMin, 
-								 std::map<stdstring, LONG> &AuthorCommitsMax, 
-								 std::map<stdstring, LONG> &authorcommits)
-{
-	std::map<stdstring, LONG>::iterator iter;
-	iter = authors.begin();
-	while (iter != authors.end())
-	{
-		std::map<stdstring, LONG>::iterator AC_it = AuthorCommits.lower_bound(iter->first);
-		if (AC_it == AuthorCommits.end() || AC_it->first != iter->first)
-			AC_it = AuthorCommits.insert(AC_it, std::make_pair(iter->first, 0));
-
-		std::map<stdstring, LONG>::iterator ACMIN_it = AuthorCommitsMin.lower_bound(iter->first);
-		if (ACMIN_it == AuthorCommitsMin.end() || ACMIN_it->first != iter->first)
-			ACMIN_it = AuthorCommitsMin.insert(ACMIN_it, std::make_pair(iter->first, -1));
-
-		std::map<stdstring, LONG>::iterator ACMAX_it = AuthorCommitsMax.lower_bound(iter->first);
-		if (ACMAX_it == AuthorCommitsMax.end() || ACMAX_it->first != iter->first)
-			ACMAX_it = AuthorCommitsMax.insert(ACMAX_it, std::make_pair(iter->first, 0));
-
-		std::map<stdstring, LONG>::iterator ac_it = authorcommits.lower_bound(iter->first);
-		if (ac_it == authorcommits.end() || ac_it->first != iter->first)
-			ac_it = authorcommits.insert(ac_it, std::make_pair(iter->first, 0));
-
-		AC_it->second += ac_it->second;
-		if (ACMIN_it->second == -1 || ACMIN_it->second > ac_it->second)
-			ACMIN_it->second = ac_it->second;
-		if (ACMAX_it->second < ac_it->second)
-			ACMAX_it->second = ac_it->second;
-		iter++;
-	}
-	authorcommits.clear();
-}
-
 void CStatGraphDlg::ShowStats()
 {
 	if ((m_parAuthors==NULL)||(m_parDates==NULL)||(m_parFileChanges==NULL))
 		return;
 	ShowLabels(TRUE);
-	int nWeeks = 0;
-	int nCurrentWeek = 0;
-	long nCommitsMin = 0;
-	long nCommitsMax = 0;
-	long nFileChanges = 0;
-	long nFileChangesMin = 0;
-	long nFileChangesMax = 0;
 
-	int numAuthors = 0;
-	std::map<stdstring, LONG> authors;
-	for (int i=0; i<m_parAuthors->GetCount(); ++i)
-	{
-		CString sAuth = m_parAuthors->GetAt(i);
-		if (m_bIgnoreAuthorCase)
-			sAuth = sAuth.MakeLower();
-		stdstring author = stdstring(sAuth);
-		std::map<stdstring, LONG>::iterator it = authors.lower_bound(author);
-		if (it == authors.end() || it->first != author)
-		{
-			authors.insert(it, std::make_pair(author, m_graph.AppendGroup(author.c_str())));
-			numAuthors++;
-		}
-	}
-	std::map<stdstring, LONG> authorcommits;
-	std::map<stdstring, LONG> AuthorCommits;
-	std::map<stdstring, LONG> AuthorCommitsMin;
-	std::map<stdstring, LONG> AuthorCommitsMax;
-
-	int commits = 0;
-	int filechanges = 0;
-	BOOL weekover = FALSE;
-	if (m_parDates->GetCount()>0)
-	{
-		__time64_t t = (__time64_t)m_parDates->GetAt(m_parDates->GetCount()-1);
-		if (t)
-			nCurrentWeek = GetWeek(CTime(t));
-		else
-			nCurrentWeek = 0;
-	}
-	for (int i=m_parDates->GetCount()-1; i>=0; --i)
-	{
-		__time64_t t = (__time64_t)m_parDates->GetAt(i);
-		CTime time(t);
-		if (t == 0)
-			time = 0;
-		commits++;
-		filechanges += m_parFileChanges->GetAt(i);
-		weekover = FALSE;
-		CString sAuth = m_parAuthors->GetAt(i);
-		if (m_bIgnoreAuthorCase)
-			sAuth = sAuth.MakeLower();
-		stdstring author = stdstring(sAuth);
-		std::map<stdstring, LONG>::iterator it = authorcommits.lower_bound(author);
-		if (it == authorcommits.end() || it->first != author)
-			it = authorcommits.insert(it, std::make_pair(author, 0));
-		it->second++;
-		if (nCurrentWeek != GetWeek(time))
-		{
-			CountCommits(authors, AuthorCommits, AuthorCommitsMin, AuthorCommitsMax, authorcommits);
-
-			nWeeks++;
-			nCurrentWeek = GetWeek(time);
-			if ((nCommitsMin == -1)||(nCommitsMin > commits))
-				nCommitsMin = commits;
-			if (nCommitsMax < commits)
-				nCommitsMax = commits;
-			commits = 0;
-			if ((nFileChangesMin == -1)||(nFileChangesMin > filechanges))
-				nFileChangesMin = filechanges;
-			if (nFileChangesMax < filechanges)
-				nFileChangesMax = filechanges;
-			nFileChanges += filechanges;
-			filechanges = 0;
-			weekover = TRUE;
-		}
-	} // for (int i=m_parDates->GetCount()-1; i>=0; --i)
-	if (!weekover)
-	{
-		nWeeks++;
-		CountCommits(authors, AuthorCommits, AuthorCommitsMin, AuthorCommitsMax, authorcommits);
-
-		if ((nCommitsMin == -1)||(nCommitsMin > commits))
-			nCommitsMin = commits;
-		if (nCommitsMax < commits)
-			nCommitsMax = commits;
-		commits = 0;
-		if ((nFileChangesMin == -1)||(nFileChangesMin > filechanges))
-			nFileChangesMin = filechanges;
-		if (nFileChangesMax < filechanges)
-			nFileChangesMax = filechanges;
-		nFileChanges += filechanges;
-		filechanges = 0;
-	} // if (!weekover)
-
+	// first get the number of weeks and commits
+	int nWeeks = GetWeeksCount(); // this function also sets m_minDate
 	if (nWeeks==0)
 		nWeeks = 1;
+	LONG nTotalCommits = m_parAuthors->GetCount();
+	long nFileChanges = 0;
+	
+	// now create a mapping that holds the information per week
+	std::map<int, std::map<stdstring, LONG> >	commitsPerWeekAndAuthor;
+	std::map<int, std::map<stdstring, LONG> >	filechangesPerWeekAndAuthor;
+	std::map<stdstring, LONG>					commitsPerAuthor;
+
+	LONG timeIntervalLength = 604800; // seconds per week
+
+	// now loop over all weeks and gather the info
+	for (LONG i=0; i<nTotalCommits; ++i) {
+		// find the interval number
+		__time64_t commitDate = (__time64_t)m_parDates->GetAt(i);
+		double secsSinceMinDate = _difftime64(commitDate, m_minDate);
+		int interval = (int)ceil(secsSinceMinDate/timeIntervalLength);
+		// find the authors name
+		CString sAuth = m_parAuthors->GetAt(i);
+		if (m_bIgnoreAuthorCase)
+			sAuth = sAuth.MakeLower();
+		stdstring author = stdstring(sAuth);
+		// increase total commit count for this author
+		commitsPerAuthor[author]++;
+		// increase the commit count for this author in this week
+		commitsPerWeekAndAuthor[interval][author]++;
+		// increase the filechange count for this author in this week
+		int fileChanges = m_parFileChanges->GetAt(i);
+		filechangesPerWeekAndAuthor[interval][author] += fileChanges;
+		nFileChanges += fileChanges;
+	}
+
+	// get a list of authors names
+	std::list<stdstring>	authorNames;
+	for (std::map<stdstring, LONG>::iterator it = commitsPerAuthor.begin(); 
+		it != commitsPerAuthor.end(); ++it) 
+	{
+		authorNames.push_back(it->first);
+	}
+
+	// sort the list of authors based on commit count
+	authorNames.sort( MoreCommitsThan(&commitsPerAuthor) );
+	unsigned int nAuthors = authorNames.size();
+
+	// find most and least active author names
+	stdstring mostActiveAuthor;
+	stdstring leastActiveAuthor;
+	if (nAuthors > 0) {
+		mostActiveAuthor = authorNames.front();
+		leastActiveAuthor = authorNames.back();
+	}
+
+	// obtain the statistics for the table
+	long nCommitsMin = -1;
+	long nCommitsMax = -1;
+	long nFileChangesMin = -1;
+	long nFileChangesMax = -1;
+
+	long nMostActiveMaxCommits = -1;
+	long nMostActiveMinCommits = -1;
+	long nLeastActiveMaxCommits = -1;
+	long nLeastActiveMinCommits = -1;
+
+	// find first and last interval number
+	std::map<int, std::map<stdstring, LONG> >::iterator interval_it = commitsPerWeekAndAuthor.begin();
+	int firstInterval = interval_it->first;
+	interval_it = commitsPerWeekAndAuthor.end();
+	--interval_it;
+	int lastInterval = interval_it->first;
+	// sanity check - if lastInterval is too large it could freeze TSVN and take up all memory!!!
+	assert(lastInterval >= 0 && lastInterval < 10000); 
+
+	// loop over all intervals and find min and max values for commit count and file changes
+	// also store the stats for the most and least active authors
+	for (int i=firstInterval; i<=lastInterval; ++i) {
+		// loop over all commits in this interval and count the number of commits by all authors
+		int commitCount = 0;
+		std::map<stdstring, LONG>::iterator commit_endit = commitsPerWeekAndAuthor[i].end();
+		for (std::map<stdstring, LONG>::iterator commit_it = commitsPerWeekAndAuthor[i].begin();
+			commit_it != commit_endit; ++commit_it)
+		{
+			commitCount += commit_it->second;
+		}
+		if (nCommitsMin == -1 || commitCount < nCommitsMin)
+			nCommitsMin = commitCount;
+		if (nCommitsMax == -1 || commitCount > nCommitsMax)
+			nCommitsMax = commitCount;
+
+		// loop over all commits in this interval and count the number of file changes by all authors
+		int fileChangeCount = 0;
+		std::map<stdstring, LONG>::iterator filechange_endit = filechangesPerWeekAndAuthor[i].end();
+		for (std::map<stdstring, LONG>::iterator filechange_it = filechangesPerWeekAndAuthor[i].begin();
+			filechange_it != filechange_endit; ++filechange_it)
+		{
+			fileChangeCount += filechange_it->second;
+		}
+		if (nFileChangesMin == -1 || fileChangeCount < nFileChangesMin)
+			nFileChangesMin = fileChangeCount;
+		if (nFileChangesMax == -1 || fileChangeCount > nFileChangesMax)
+			nFileChangesMax = fileChangeCount;
+
+		// also get min/max data for most and least active authors
+		if (nAuthors > 0) {
+			long authorCommits = commitsPerWeekAndAuthor[i][mostActiveAuthor];
+			if (nMostActiveMaxCommits == -1 || authorCommits > nMostActiveMaxCommits)
+				nMostActiveMaxCommits = authorCommits;
+			if (nMostActiveMinCommits == -1 || authorCommits < nMostActiveMinCommits)
+				nMostActiveMinCommits = authorCommits;
+
+			authorCommits = commitsPerWeekAndAuthor[i][leastActiveAuthor];
+			if (nLeastActiveMaxCommits == -1 || authorCommits > nLeastActiveMaxCommits)
+				nLeastActiveMaxCommits = authorCommits;
+			if (nLeastActiveMinCommits == -1 || authorCommits < nLeastActiveMinCommits)
+				nLeastActiveMinCommits = authorCommits;
+		}
+	}
+	if (nMostActiveMaxCommits == -1)	nMostActiveMaxCommits = 0;
+	if (nMostActiveMinCommits == -1)	nMostActiveMinCommits = 0;
+	if (nLeastActiveMaxCommits == -1)	nLeastActiveMaxCommits = 0;
+	if (nLeastActiveMinCommits == -1)	nLeastActiveMinCommits = 0;
+
 	// we have now all data we want
 	// so fill in the labels...
 	CString number;
 	number.Format(_T("%ld"), nWeeks);
 	SetDlgItemText(IDC_NUMWEEKVALUE, number);
-	number.Format(_T("%ld"), numAuthors);
+	number.Format(_T("%ld"), nAuthors);
 	SetDlgItemText(IDC_NUMAUTHORVALUE, number);
-	number.Format(_T("%ld"), m_parDates->GetCount());
+	number.Format(_T("%ld"), nTotalCommits);
 	SetDlgItemText(IDC_NUMCOMMITSVALUE, number);
 	number.Format(_T("%ld"), nFileChanges);
 	SetDlgItemText(IDC_NUMFILECHANGESVALUE, number);
@@ -685,7 +694,7 @@ void CStatGraphDlg::ShowStats()
 	number.Format(_T("%ld"), nFileChangesMin);
 	SetDlgItemText(IDC_FILECHANGESEACHWEEKMIN, number);
 
-	if (AuthorCommits.empty())
+	if (nAuthors == 0)
 	{
 		SetDlgItemText(IDC_MOSTACTIVEAUTHORNAME, _T(""));
 		SetDlgItemText(IDC_MOSTACTIVEAUTHORAVG, _T("0"));
@@ -698,31 +707,24 @@ void CStatGraphDlg::ShowStats()
 	}
 	else // AuthorCommits isn't empty
 	{
-		std::map<stdstring, LONG>::const_iterator iter, most_it, least_it;
-		iter = most_it = least_it = AuthorCommits.begin();
-		while (iter != AuthorCommits.end())
-		{
-			if (most_it->second < iter->second)
-				most_it = iter;
-			if (least_it->second > iter->second)
-				least_it = iter;
-			iter++;
-		}
+		// author_names is sorted based on commit count, 
+		// the first in the list is the most active, the last in the list is the least active
+
 		// assuming AuthorCommitsMax and AuthorCommitsMin aren't empty too
-		SetDlgItemText(IDC_MOSTACTIVEAUTHORNAME, most_it->first.c_str());
-		number.Format(_T("%ld"), most_it->second / nWeeks);
+		SetDlgItemText(IDC_MOSTACTIVEAUTHORNAME, mostActiveAuthor.c_str());
+		number.Format(_T("%ld"), commitsPerAuthor[mostActiveAuthor] / nWeeks);
 		SetDlgItemText(IDC_MOSTACTIVEAUTHORAVG, number);
-		number.Format(_T("%ld"), AuthorCommitsMax[most_it->first]);
+		number.Format(_T("%ld"), nMostActiveMaxCommits);
 		SetDlgItemText(IDC_MOSTACTIVEAUTHORMAX, number);
-		number.Format(_T("%ld"), AuthorCommitsMin[most_it->first]);
+		number.Format(_T("%ld"), nMostActiveMinCommits);
 		SetDlgItemText(IDC_MOSTACTIVEAUTHORMIN, number);
 
-		SetDlgItemText(IDC_LEASTACTIVEAUTHORNAME, least_it->first.c_str());
-		number.Format(_T("%ld"), least_it->second / nWeeks);
+		SetDlgItemText(IDC_LEASTACTIVEAUTHORNAME, leastActiveAuthor.c_str());
+		number.Format(_T("%ld"), commitsPerAuthor[leastActiveAuthor] / nWeeks);
 		SetDlgItemText(IDC_LEASTACTIVEAUTHORAVG, number);
-		number.Format(_T("%ld"), AuthorCommitsMax[least_it->first]);
+		number.Format(_T("%ld"), nLeastActiveMaxCommits);
 		SetDlgItemText(IDC_LEASTACTIVEAUTHORMAX, number);
-		number.Format(_T("%ld"), AuthorCommitsMin[least_it->first]);
+		number.Format(_T("%ld"), nLeastActiveMinCommits);
 		SetDlgItemText(IDC_LEASTACTIVEAUTHORMIN, number);
 	}
 }
@@ -898,16 +900,30 @@ int	CStatGraphDlg::GetWeeksCount()
 		return m_weekcount;
 
 	// How many weeks does the time period cover?
-	__time64_t date1 = (__time64_t)m_parDates->GetAt(0);
-	__time64_t date2 = (__time64_t)m_parDates->GetAt(m_parDates->GetCount()-1);
 
-	if (date1 > date2)
-	{
-		__time64_t date = date1;
-		date1 = date2;
-		date2 = date;
+	// Determine first and last date in dates array
+	__time64_t min_date = (__time64_t)m_parDates->GetAt(0);
+	__time64_t max_date = min_date;
+	unsigned int count = m_parDates->GetCount();
+	for (unsigned int i=0; i<count; ++i) {
+		__time64_t d = (__time64_t)m_parDates->GetAt(i);
+		if (d < min_date)		min_date = d;
+		else if (d > max_date)	max_date = d;
 	}
-	double secs = _difftime64(date2, date1);
+
+	// here we must round the min_data to the first day of the week
+	// to align the interval min_data ... max_date with the week start
+	TCHAR loc[2];
+	GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IFIRSTDAYOFWEEK, loc, sizeof(loc));
+	int iFirstDayOfWeek = int(loc[0]-'0');
+	CTime start_time(min_date);
+	int iDayOfWeek = (start_time.GetDayOfWeek()+iFirstDayOfWeek)%7;
+	start_time -= CTimeSpan(iDayOfWeek,0,0,0);
+	// store start date of the interval in the member variable m_minDate
+	m_minDate = start_time.GetTime();
+	
+	// time difference between start and end date
+	double secs = _difftime64(max_date, m_minDate);
 	// a week has 604800 seconds
 	m_weekcount = (int)ceil(secs / 604800.0);
 	return m_weekcount;
