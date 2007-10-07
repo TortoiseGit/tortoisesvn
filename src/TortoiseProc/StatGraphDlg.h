@@ -24,6 +24,9 @@
 #include "TSVNPath.h"
 #include "UnicodeUtils.h"
 
+#include <map>
+#include <list>
+
 /**
  * \ingroup TortoiseProc
  * Helper class for drawing and then saving the drawing to a metafile (wmf)
@@ -52,7 +55,28 @@ public:
 
 	enum { IDD = IDD_STATGRAPH };
 
+	// Data passed from the caller of the dialog.
+	CDWordArray	*	m_parDates;
+	CDWordArray	*	m_parFileChanges;
+	CStringArray *	m_parAuthors;
+	CTSVNPath		m_path;
+
 protected:
+	
+	// ** protected data types **
+
+	/// The types of units used in the various graphs.
+	enum UnitType
+	{
+		Weeks,
+		Months,
+		Quarters,
+		Years
+	};
+
+	typedef std::map<int, std::map<stdstring, LONG> >	WeeklyDataMap;
+	typedef std::map<stdstring, LONG>					AuthorDataMap;
+
 	virtual void DoDataExchange(CDataExchange* pDX);
 	virtual BOOL OnInitDialog();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
@@ -88,33 +112,47 @@ protected:
 	HICON			m_hGraphPieIcon;
 
 	MyGraph::GraphType	m_GraphType;
-	bool			m_bStacked;
+	bool				m_bStacked;
 
+	/// Updates the variables m_weekCount and m_minDate and returns the number 
+	/// of weeks in the revision interval.
+	int			GetWeeksCount();
+	int			m_weekCount;	///< Number of weeks in the revision interval.
+	__time64_t	m_minDate;		///< The starting date/time for the revision interval.
+
+	/// Returns the week-of-the-year for the given time.
+	int			GetWeek(const CTime& time);
+
+	/// Parses the data given to the dialog and generates mappings with statistical data. 
+	void					GatherData();
+
+	LONG					m_nTotalCommits;
+	LONG					m_nTotalFileChanges;
+	WeeklyDataMap			m_commitsPerWeekAndAuthor;
+	WeeklyDataMap			m_filechangesPerWeekAndAuthor;
+	AuthorDataMap			m_commitsPerAuthor;
+	std::list<stdstring>	m_authorNames;
+
+	/// Shows the graph with commit counts per author and date.
 	void		ShowCommitsByDate();
+	/// Shows the graph with commit counts per author.
 	void		ShowCommitsByAuthor();
+	/// Shows the initial statistics page.
 	void		ShowStats();
 
-	int			GetWeek(const CTime& time);
-	int			GetWeeksCount();
-	int			m_weekcount;
-	__time64_t	m_minDate;
-
 	void		ShowLabels(BOOL bShow);
+	/// Recalculates statistical data because the number and names of authors 
+	/// can have changed, also calls RedrawGraph().
+	void		IgnoreCaseChanged();
+	/// Updates the currently shown statistics page.
 	void		RedrawGraph();
 
-	enum UnitType
-	{
-		Weeks,
-		Months,
-		Quarters,
-		Years
-	};
-	void		InitUnits();
-	int			GetUnitCount();
-	int			GetUnit(const CTime& time);
+	void					InitUnits();
+	int						GetUnitCount();
+	int						GetUnit(const CTime& time);
 	CStatGraphDlg::UnitType	GetUnitType();
-	CString		GetUnitString();
-	CString		GetUnitLabel(int unit, CTime &lasttime);
+	CString					GetUnitString();
+	CString					GetUnitLabel(int unit, CTime &lasttime);
 
 	void		EnableDisableMenu();
 
@@ -122,9 +160,4 @@ protected:
 	int			GetEncoderClsid(const WCHAR* format, CLSID* pClsid);
 
 	CToolTipCtrl* m_pToolTip;
-public:
-	CDWordArray	*	m_parDates;
-	CDWordArray	*	m_parFileChanges;
-	CStringArray *	m_parAuthors;
-	CTSVNPath		m_path;
 };
