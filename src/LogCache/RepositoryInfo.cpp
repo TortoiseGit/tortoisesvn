@@ -24,6 +24,7 @@
 
 #include "SVN.h"
 #include "TSVNPath.h"
+#include "PathUtils.h"
 #include "Registry.h"
 
 // begin namespace LogCache
@@ -235,7 +236,9 @@ void CRepositoryInfo::Flush()
     if (!modified)
         return;
 
-    CFile file (GetFileName(), CFile::modeWrite | CFile::modeCreate);
+	CString filename = GetFileName();
+	CPathUtils::MakeSureDirectoryPathExists(filename.Left(filename.ReverseFind('\\')));
+	CFile file (filename, CFile::modeWrite | CFile::modeCreate);
     CArchive stream (&file, CArchive::store);
 
     stream << static_cast<int>(data.size());
