@@ -2462,7 +2462,7 @@ void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
 		SetupSelection(m_nSelBlockStart, m_nSelBlockEnd);
 
 		m_ptCaretPos.y = nClickedLine;
-		m_ptCaretPos.x = (point.x - GetMarginWidth()) / GetCharWidth();
+		m_ptCaretPos.x = m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth();
 		// the caret x position is the char in the line. We have to check whether
 		// there are tabs before the current char x position and adjust the caret
 		// x position accordingly
@@ -2545,7 +2545,7 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
 			((nMouseLine >= m_nTopLine)&&(nMouseLine < GetLineCount())))
 		{
 			m_ptCaretPos.y = nMouseLine;
-			m_ptCaretPos.x = (point.x - GetMarginWidth()) / GetCharWidth();
+			m_ptCaretPos.x = m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth();
 			// the caret x position is the char in the line. We have to check whether
 			// there are tabs before the current char x position and adjust the caret
 			// x position accordingly
