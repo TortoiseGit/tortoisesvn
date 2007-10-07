@@ -49,11 +49,7 @@ private:
 	// SVN callback. Route data to receiver
 
 	static svn_error_t* LogReceiver ( void* baton
-									, apr_hash_t* ch_paths
-									, svn_revnum_t revision
-									, const char* author
-									, const char* date
-									, const char* msg
+									, svn_log_entry_t* log_entry
 									, apr_pool_t* pool);
 
 public:

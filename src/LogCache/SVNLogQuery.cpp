@@ -23,6 +23,7 @@
 
 #include "svn_time.h"
 #include "svn_sorts.h"
+#include "svn_compat.h"
 #include "UnicodeUtils.h"
 #include "SVN.h"
 #include "SVNError.h"
@@ -30,17 +31,17 @@
 #include "TSVNPath.h"
 
 svn_error_t* CSVNLogQuery::LogReceiver ( void* baton
-									   , apr_hash_t* ch_paths
-									   , svn_revnum_t revision
-									   , const char* author
-									   , const char* date
-									   , const char* msg
+									   , svn_log_entry_t * log_entry
 									   , apr_pool_t* pool)
 {
 	// where to send the pre-processed in-format
 
     SBaton* receiverBaton = reinterpret_cast<SBaton*>(baton);
     ILogReceiver* receiver = receiverBaton->receiver;
+
+	const char * author = NULL;
+	const char * date = NULL;
+	const char * message = NULL;
 
     // report revision numbers only?
 
@@ -50,7 +51,7 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void* baton
 	    {
             static const CString emptyString;
 		    receiver->ReceiveLog ( NULL
-							     , revision
+							     , log_entry->revision
 							     , emptyString
 							     , 0
 							     , emptyString);
@@ -68,9 +69,10 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void* baton
     }
 
 	// convert strings
+	svn_compat_log_revprops_out(&author, &date, &message, log_entry->revprops);
 
 	CString authorNative = CUnicodeUtils::GetUnicode (author);
-	CString messageNative = CUnicodeUtils::GetUnicode (msg != NULL ? msg : "");
+	CString messageNative = CUnicodeUtils::GetUnicode (message != NULL ? message : "");
 
 	// time stamp
 
@@ -83,10 +85,10 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void* baton
 	std::auto_ptr<LogChangedPathArray> arChangedPaths (new LogChangedPathArray);
 	try
 	{
-		if (ch_paths)
+		if (log_entry->changed_paths)
 		{
 			apr_array_header_t *sorted_paths 
-				= svn_sort__hash (ch_paths, svn_sort_compare_items_as_paths, pool);
+				= svn_sort__hash (log_entry->changed_paths, svn_sort_compare_items_as_paths, pool);
 
 			for (int i = 0, count = sorted_paths->nelts; i < count; ++i)
 			{
@@ -105,7 +107,7 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void* baton
 				// decode the action
 
 				svn_log_changed_path_t *log_item 
-					= (svn_log_changed_path_t *) apr_hash_get ( ch_paths
+					= (svn_log_changed_path_t *) apr_hash_get ( log_entry->changed_paths
 															  , item->key
 															  , item->klen);
 				static const char actionKeys[5] = "AMRD";
@@ -143,7 +145,7 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void* baton
 	try
 	{
 		receiver->ReceiveLog ( arChangedPaths.release()
-							 , revision
+							 , log_entry->revision
 							 , authorNative
 							 , timeStamp
 							 , messageNative);
@@ -182,13 +184,15 @@ void CSVNLogQuery::Log ( const CTSVNPathList& targets
     SBaton baton = {receiver, revs_only};
 
 	SVNPool localpool (pool);
-	svn_error_t *result = svn_client_log3 ( targets.MakePathArray (pool)
+	svn_error_t *result = svn_client_log4 ( targets.MakePathArray (pool)
 										  , peg_revision
 										  , start
 										  , end
 										  , limit
                                           , revs_only ? FALSE : TRUE
 										  , strictNodeHistory ? TRUE : FALSE
+										  , FALSE
+										  , NULL
 										  , LogReceiver
 										  , (void *)&baton
 										  , context
