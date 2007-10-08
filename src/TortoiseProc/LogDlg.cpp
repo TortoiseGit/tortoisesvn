@@ -327,6 +327,10 @@ BOOL CLogDlg::OnInitDialog()
 	AdjustControlSize(IDC_CHECK_STOPONCOPY);
 	AdjustControlSize(IDC_INCLUDEMERGE);
 
+	GetClientRect(m_DlgOrigRect);
+	m_LogList.GetClientRect(m_LogListOrigRect);
+	GetDlgItem(IDC_MSGVIEW)->GetClientRect(m_MsgViewOrigRect);
+
 	// resizable stuff
 	AddAnchor(IDC_FROMLABEL, TOP_LEFT);
 	AddAnchor(IDC_DATEFROM, TOP_LEFT);
@@ -2208,6 +2212,7 @@ void CLogDlg::DoSizeV1(int delta)
 	AddAnchor(IDC_SPLITTERBOTTOM, ANCHOR(0, 90), ANCHOR(100, 90));
 	AddAnchor(IDC_LOGMSG, ANCHOR(0, 90), BOTTOM_RIGHT);
 	ArrangeLayout();
+	AdjustMinSize();
 	SetSplitterRange();
 	m_LogList.Invalidate();
 	GetDlgItem(IDC_MSGVIEW)->Invalidate();
@@ -2228,9 +2233,23 @@ void CLogDlg::DoSizeV2(int delta)
 	AddAnchor(IDC_SPLITTERBOTTOM, ANCHOR(0, 90), ANCHOR(100, 90));
 	AddAnchor(IDC_LOGMSG, ANCHOR(0, 90), BOTTOM_RIGHT);
 	ArrangeLayout();
+	AdjustMinSize();
 	SetSplitterRange();
 	GetDlgItem(IDC_MSGVIEW)->Invalidate();
 	m_ChangedFileListCtrl.Invalidate();
+}
+
+void CLogDlg::AdjustMinSize()
+{
+	// adjust the minimum size of the dialog to prevent the resizing from
+	// moving the list control too far down.
+	CRect rcMsgView;
+	GetDlgItem(IDC_MSGVIEW)->GetClientRect(rcMsgView);
+	CRect rcLogList;
+	m_LogList.GetClientRect(rcLogList);
+
+	SetMinTrackSize(CSize(m_DlgOrigRect.Width(), m_DlgOrigRect.Height()-m_MsgViewOrigRect.Height()-m_LogListOrigRect.Height()+rcMsgView.Height()+rcLogList.Height()));
+
 }
 
 LRESULT CLogDlg::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam) 

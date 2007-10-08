@@ -137,6 +137,7 @@ private:
 	void EditLogMessage(int index);
 	void DoSizeV1(int delta);
 	void DoSizeV2(int delta);
+	void AdjustMinSize();
 	void SetSplitterRange();
 	void SetFilterCueText();
 	BOOL IsEntryInDateRange(int i);
@@ -205,6 +206,9 @@ private:
 	CString				m_sMessageBuf;
 	CSplitterControl	m_wndSplitter1;
 	CSplitterControl	m_wndSplitter2;
+	CRect				m_DlgOrigRect;
+	CRect				m_MsgViewOrigRect;
+	CRect				m_LogListOrigRect;
 	CString				m_sFilterText;
 	int					m_nSelectedFilter;
 	volatile LONG		m_bNoDispUpdates;
