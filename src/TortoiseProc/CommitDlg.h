@@ -126,5 +126,7 @@ private:
 	CRegHistory			m_History;
 	bool				m_bCancelled;
 	CSplitterControl	m_wndSplitter;
+	CRect				m_DlgOrigRect;
+	CRect				m_LogMsgOrigRect;
 	CPathWatcher		m_pathwatcher;
 };

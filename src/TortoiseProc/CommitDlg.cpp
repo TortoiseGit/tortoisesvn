@@ -152,6 +152,9 @@ BOOL CCommitDlg::OnInitDialog()
 	AdjustControlSize(IDC_SELECTALL);
 	AdjustControlSize(IDC_KEEPLOCK);
 
+	GetClientRect(m_DlgOrigRect);
+	m_cLogMessage.GetClientRect(m_LogMsgOrigRect);
+
 	AddAnchor(IDC_COMMITLABEL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_BUGIDLABEL, TOP_RIGHT);
 	AddAnchor(IDC_BUGID, TOP_RIGHT);
@@ -1171,6 +1174,12 @@ void CCommitDlg::DoSize(int delta)
 	AddAnchor(IDC_LISTGROUP, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
 	ArrangeLayout();
+	// adjust the minimum size of the dialog to prevent the resizing from
+	// moving the list control too far down.
+	CRect rcLogMsg;
+	m_cLogMessage.GetClientRect(rcLogMsg);
+	SetMinTrackSize(CSize(m_DlgOrigRect.Width(), m_DlgOrigRect.Height()-m_LogMsgOrigRect.Height()+rcLogMsg.Height()));
+
 	SetSplitterRange();
 	m_cLogMessage.Invalidate();
 	GetDlgItem(IDC_MSGVIEW)->Invalidate();
