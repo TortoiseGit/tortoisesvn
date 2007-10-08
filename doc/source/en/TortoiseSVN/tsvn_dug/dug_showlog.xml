@@ -230,6 +230,18 @@
 				</listitem>
 				<listitem>
 					<para>
+						Merge the selected revision(s) into a different working copy.
+						A folder selection dialog allows you to choose the working
+						copy to merge into, but after that there is no confirmation
+						dialog, nor any opportunity to try a dry run. It is a good
+						idea to merge into an unmodified working copy so that you can
+						revert the changes if it doesn't work out!
+						This is a useful feature if you want to merge selected
+						revisions from one branch to another.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
 						Make a fresh checkout of the selected folder at the selected
 						revision. This brings up a dialog for you to confirm the
 						URL and revision, and select a location for the checkout.
@@ -314,11 +326,15 @@
 			</itemizedlist>
 		</para>
 		<para>
-			If you select multiple consecutive revisions (using the usual
+			If you select two or more revisions (using the usual
 			<keycap>Ctrl</keycap> or <keycap>Shift</keycap> modifiers),
 			the context menu will include an entry to Revert all changes
-			which were made in that range of revisions. This is the easiest
+			which were made in the selected revisions. This is the easiest
 			way to rollback a group of revisions in one go.
+		</para>
+		<para>
+			You can also choose to merge the selected revisions to another
+			working copy, as described above.
 		</para>
 		<para>
 			<figure id="tsvn-dug-showlog-2-dia-2">
