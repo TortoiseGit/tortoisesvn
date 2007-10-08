@@ -51,7 +51,7 @@ CStatGraphDlg::CStatGraphDlg(CWnd* pParent /*=NULL*/)
 	, m_bStacked(FALSE)
 	, m_GraphType(MyGraph::Bar)
 	, m_bIgnoreAuthorCase(FALSE)
-	, m_weekCount(-1)
+	, m_nWeeks(-1)
 {
 	m_parDates = NULL;
 	m_parFileChanges = NULL;
@@ -61,9 +61,7 @@ CStatGraphDlg::CStatGraphDlg(CWnd* pParent /*=NULL*/)
 
 CStatGraphDlg::~CStatGraphDlg()
 {
-	for (int j=0; j<m_graphDataArray.GetCount(); ++j)
-		delete ((MyGraphSeries *)m_graphDataArray.GetAt(j));
-	m_graphDataArray.RemoveAll();
+	ClearGraph();
 	DestroyIcon(m_hGraphBarIcon);
 	DestroyIcon(m_hGraphBarStackedIcon);
 	DestroyIcon(m_hGraphLineIcon);
@@ -210,6 +208,7 @@ BOOL CStatGraphDlg::OnInitDialog()
 	// the case sensitivity of author names is changed
 	GatherData();
 
+	// open statistics main page as default first page
 	ShowStats();
 
 	return TRUE;
@@ -263,518 +262,45 @@ void CStatGraphDlg::ShowLabels(BOOL bShow)
 	m_btnGraphPie.ShowWindow(bShow ? SW_HIDE : SW_SHOW);
 }
 
-void CStatGraphDlg::GatherData() {
-	// sanity check
-	if ((m_parAuthors==NULL)||(m_parDates==NULL)||(m_parFileChanges==NULL))
+void CStatGraphDlg::UpdateWeekCount()
+{
+	// Sanity check
+	if (!m_parDates)
+	{
 		return;
-	m_nTotalCommits = m_parAuthors->GetCount();
-	m_nTotalFileChanges = 0;
+	}
+	// Already updated? No need to do it again.
+	if (m_nWeeks >= 0)
+		return;
+
+	// Determine first and last date in dates array
+	__time64_t min_date = (__time64_t)m_parDates->GetAt(0);
+	__time64_t max_date = min_date;
+	unsigned int count = m_parDates->GetCount();
+	for (unsigned int i=0; i<count; ++i) 
+	{
+		__time64_t d = (__time64_t)m_parDates->GetAt(i);
+		if (d < min_date)		min_date = d;
+		else if (d > max_date)	max_date = d;
+	}
+
+	// Here we must round the min_data to the first day of the week
+	// to align the interval min_data ... max_date with the week start
+	TCHAR loc[2];
+	GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IFIRSTDAYOFWEEK, loc, sizeof(loc));
+	int iFirstDayOfWeek = int(loc[0]-'0');
+	CTime start_time(min_date);
+	int iDayOfWeek = (start_time.GetDayOfWeek()+iFirstDayOfWeek)%7;
+	start_time -= CTimeSpan(iDayOfWeek,0,0,0);
+	// Store start date of the interval in the member variable m_minDate
+	m_minDate = start_time.GetTime();
 	
-	GetWeeksCount();
+	// How many weeks does the time period cover?
 
-	// now create a mapping that holds the information per week
-	m_commitsPerWeekAndAuthor.clear();
-	m_filechangesPerWeekAndAuthor.clear();
-	m_commitsPerAuthor.clear();
-
-	LONG timeIntervalLength = 604800; // seconds per week
-
-	// now loop over all weeks and gather the info
-	for (LONG i=0; i<m_nTotalCommits; ++i) {
-		// find the interval number
-		__time64_t commitDate = (__time64_t)m_parDates->GetAt(i);
-		double secsSinceMinDate = _difftime64(commitDate, m_minDate);
-		int interval = (int)ceil(secsSinceMinDate/timeIntervalLength);
-		// find the authors name
-		CString sAuth = m_parAuthors->GetAt(i);
-		if (m_bIgnoreAuthorCase)
-			sAuth = sAuth.MakeLower();
-		stdstring author = stdstring(sAuth);
-		// increase total commit count for this author
-		m_commitsPerAuthor[author]++;
-		// increase the commit count for this author in this week
-		m_commitsPerWeekAndAuthor[interval][author]++;
-		// increase the filechange count for this author in this week
-		int fileChanges = m_parFileChanges->GetAt(i);
-		m_filechangesPerWeekAndAuthor[interval][author] += fileChanges;
-		m_nTotalFileChanges += fileChanges;
-	}
-
-	// get a list of authors names
-	m_authorNames.clear();
-	for (std::map<stdstring, LONG>::iterator it = m_commitsPerAuthor.begin(); 
-		it != m_commitsPerAuthor.end(); ++it) 
-	{
-		m_authorNames.push_back(it->first);
-	}
-
-	// sort the list of authors based on commit count
-	m_authorNames.sort( MoreCommitsThan(&m_commitsPerAuthor) );
-
-	// all done, now the statistics pages can retrieve the data and 
-	// extract the information to be shown
-}
-
-void CStatGraphDlg::ShowCommitsByAuthor()
-{
-	if ((m_parAuthors==NULL)||(m_parDates==NULL)||(m_parFileChanges==NULL))
-		return;
-	ShowLabels(FALSE);
-	m_graph.Clear();
-	for (int j=0; j<m_graphDataArray.GetCount(); ++j)
-		delete ((MyGraphSeries *)m_graphDataArray.GetAt(j));
-	m_graphDataArray.RemoveAll();
-
-	// This function relies on a previous call of GatherData(). 
-	// This can be detected by checking the weekcount. 
-	// If the weekcount is equal to -1, it hasn't been called before.
-	if (m_weekCount == -1)
-		GatherData();
-	// if week count is still -1, something bad has happened, probably invalid data!
-	if (m_weekCount == -1)
-		return;
-
-	// we need at least one author
-	if (m_authorNames.empty()) return;
-
-	// add a single series to the chart
-	MyGraphSeries * graphData = new MyGraphSeries();
-	m_graph.AddSeries(*graphData);
-	m_graphDataArray.Add(graphData);
-
-	// set up the graph.
-	CString temp;
-	UpdateData();
-	m_graph.SetGraphType(m_GraphType, m_bStacked);
-	temp.LoadString(IDS_STATGRAPH_COMMITSBYAUTHORY);
-	m_graph.SetYAxisLabel(temp);
-	temp.LoadString(IDS_STATGRAPH_COMMITSBYAUTHORX);
-	m_graph.SetXAxisLabel(temp);
-	temp.LoadString(IDS_STATGRAPH_COMMITSBYAUTHOR);
-	m_graph.SetGraphTitle(temp);
-
-	// calculate the commit threshold, authors with fewer commits are
-	// counted as others
-	LONG nCommitThreshold = m_nTotalCommits * m_Skipper.GetPos() / 200;
-
-	// loop over all authors in the sorted authors list and 
-	// add them to the graph, but break once an author with fewer commits than
-	// the threshold is found
-	std::list<stdstring>::iterator author_it = m_authorNames.begin();
-	while (author_it != m_authorNames.end()) {
-		// check if author has enough commits
-		if (m_commitsPerAuthor[*author_it] >= nCommitThreshold) {
-			// add him/her to the chart
-			int group = m_graph.AppendGroup(author_it->c_str());
-			graphData->SetData(group, m_commitsPerAuthor[*author_it]);
-		}
-		else {
-			// first author below the threshold, if it is the only "other" author, 
-			// still add him, otherwise break
-			std::list<stdstring>::iterator next_author_it = author_it;
-			if (++next_author_it == m_authorNames.end()) {
-				int group = m_graph.AppendGroup(author_it->c_str());
-				graphData->SetData(group, m_commitsPerAuthor[*author_it]);
-			}
-			else break;
-		}
-		// next author
-		++author_it;
-	}
-	// if we haven't reached the end yet, let's count the number of commits
-	if (author_it != m_authorNames.end()) {
-		int othersCount = 0;
-		int othersCommitCount = 0;
-		while (author_it != m_authorNames.end()) {
-			othersCommitCount += m_commitsPerAuthor[*author_it];
-			++author_it;
-			++othersCount;
-		}
-		CString sOthers(MAKEINTRESOURCE(IDS_STATGRAPH_OTHERGROUP));
-		CString temp;
-		temp.Format(_T(" (%ld)"), othersCount);
-		sOthers += temp;
-		int group = m_graph.AppendGroup(sOthers);
-		graphData->SetData(group, othersCommitCount);
-	}
-	// Paint the graph now that we're through.
-	m_graph.Invalidate();
-}
-
-void CStatGraphDlg::ShowCommitsByDate()
-{
-	if ((m_parAuthors==NULL)||(m_parDates==NULL)||(m_parFileChanges==NULL))
-		return;
-	CString sOthers(MAKEINTRESOURCE(IDS_STATGRAPH_OTHERGROUP));
-	ShowLabels(FALSE);
-	m_graph.Clear();
-
-	for (int j=0; j<m_graphDataArray.GetCount(); ++j)
-		delete ((MyGraphSeries *)m_graphDataArray.GetAt(j));
-	m_graphDataArray.RemoveAll();
-
-	InitUnits();
-
-	// Set up the graph.
-	CString temp;
-	UpdateData();
-	m_graph.SetGraphType(m_GraphType, m_bStacked);
-	temp.LoadString(IDS_STATGRAPH_COMMITSBYDATEY);
-	m_graph.SetYAxisLabel(temp);
-	temp.LoadString(IDS_STATGRAPH_COMMITSBYDATE);
-	m_graph.SetGraphTitle(temp);
-
-	// Find how many commits each author has done
-	std::map<stdstring, LONG> author_commits;
-	LONG nTotalCommits = 0;
-	for (int i=0; i<m_parAuthors->GetCount(); ++i)
-	{
-		CString sAuth = m_parAuthors->GetAt(i);
-		if (m_bIgnoreAuthorCase)
-			sAuth = sAuth.MakeLower();
-		stdstring author = stdstring(sAuth);
-		std::map<stdstring, LONG>::iterator it = author_commits.lower_bound(author);
-		if (it == author_commits.end() || it->first != author)
-			it = author_commits.insert(it, std::make_pair(author, 0));
-		it->second++;
-		nTotalCommits++;
-	}
-
-	// Append each author to the graph
-	std::map<stdstring, LONG> authors;
-	std::map<stdstring, LONG>::iterator iter;
-	int nOthersCount = 0;
-	stdstring sLastOthersAuthor;
-	iter = author_commits.begin();
-	while (iter != author_commits.end())
-	{
-		if (author_commits[iter->first] < (nTotalCommits * m_Skipper.GetPos() / 200))
-		{
-			nOthersCount++;
-			sLastOthersAuthor = iter->first;
-		}
-		else
-			authors[iter->first] = m_graph.AppendGroup(iter->first.c_str());
-		iter++;
-	}
-	if (nOthersCount)
-	{
-		if (nOthersCount == 1)
-		{
-			authors[sLastOthersAuthor] = m_graph.AppendGroup(sLastOthersAuthor.c_str());
-		}
-		else
-		{
-			temp.Format(_T(" (%ld)"), nOthersCount);
-			sOthers += temp;
-			authors[wide_string((LPCWSTR)sOthers)] = m_graph.AppendGroup(wide_string((LPCWSTR)sOthers).c_str());
-		}
-	}
-
-	m_graph.SetXAxisLabel(GetUnitString());
-
-	int unit = 0;
-	int unitcount = 0;
-
-	std::map<stdstring, LONG> authorcommits;
-
-	if (m_parDates->GetCount()>0)
-	{
-		unit = GetUnit(CTime((__time64_t)m_parDates->GetAt(m_parDates->GetCount()-1)));
-	}
-	CTime lasttime((__time64_t)m_parDates->GetAt(m_parDates->GetCount()-1));
-	for (int i=m_parDates->GetCount()-1; i>=0; --i)
-	{
-		CTime time((__time64_t)m_parDates->GetAt(i));
-		int timeunit = GetUnit(time);
-		if (unit != timeunit)
-		{
-			unitcount++;
-			std::map<stdstring, LONG>::iterator iter;
-			MyGraphSeries * graphData = new MyGraphSeries();
-			iter = authors.begin();
-			while (iter != authors.end())
-			{
-				std::map<stdstring, LONG>::iterator ac_it = authorcommits.lower_bound(iter->first);
-				if (ac_it != authorcommits.end() && ac_it->first == iter->first)
-					graphData->SetData(iter->second, ac_it->second);
-				else
-					graphData->SetData(iter->second, 0);
-				iter++;
-			}
-			temp = GetUnitLabel(unit, lasttime);
-			graphData->SetLabel(temp);
-			m_graph.AddSeries(*graphData);
-			m_graphDataArray.Add(graphData);
-
-			CTimeSpan oneday = CTimeSpan(1,0,0,0);
-			while (abs(timeunit - unit) > 1)
-			{
-				while (unit == GetUnit(lasttime))
-					lasttime += oneday;
-				unit = GetUnit(lasttime);
-				if (unit == timeunit)
-					break;		//year lap
-				std::map<stdstring, LONG>::iterator iter;
-				MyGraphSeries * graphData = new MyGraphSeries();
-				iter = authors.begin();
-				while (iter != authors.end())
-				{
-					graphData->SetData(iter->second, 0);
-					iter++;
-				}
-				temp = GetUnitLabel(unit, lasttime);
-				graphData->SetLabel(temp);
-				m_graph.AddSeries(*graphData);
-				m_graphDataArray.Add(graphData);
-			}
-			unit = timeunit;
-			authorcommits.clear();
-		}
-		lasttime = time;
-		CString sAuth = m_parAuthors->GetAt(i);
-		if (m_bIgnoreAuthorCase)
-			sAuth = sAuth.MakeLower();
-		stdstring author = stdstring(sAuth);
-		if (authors.find(author) == authors.end())
-			author = stdstring((LPCTSTR)sOthers);
-		std::map<stdstring, LONG>::iterator ac_it = authorcommits.lower_bound(author);
-		if (ac_it == authorcommits.end() || ac_it->first != author)
-			ac_it = authorcommits.insert(ac_it, std::make_pair(author, 0));
-		ac_it->second++;
-	}
-
-	MyGraphSeries * graphData = new MyGraphSeries();
-	iter = authors.begin();
-	while (iter != authors.end())
-	{
-		int val = 0;
-		std::map<stdstring, LONG>::const_iterator it = authorcommits.lower_bound(iter->first);
-		if (it != authorcommits.end() && it->first == iter->first)
-			val = it->second;
-		graphData->SetData(iter->second, val);
-		iter++;
-	}
-
-	switch(GetUnitType())
-	{
-	case Weeks:
-		if ((unit == 1)&&(lasttime.GetMonth() == 12))
-			// in some locales, the last week of a year can actually be
-			// the first week-of-the-year of the next year.
-			temp.Format(_T("%d/%.2d"), unit, (lasttime.GetYear()+1)%100);
-		else
-			temp.Format(_T("%d/%.2d"), unit, lasttime.GetYear()%100);
-		break;
-	case Months:
-		temp.Format(_T("%d/%.2d"), unit, lasttime.GetYear()%100);
-		break;
-	case Quarters:
-		temp.Format(IDS_STATGRAPH_QUARTERLABEL, unit, lasttime.GetYear()%100);
-		break;
-	case Years:
-		temp.Format(_T("%d"), unit);
-		break;
-	}
-	graphData->SetLabel(temp);
-	m_graph.AddSeries(*graphData);
-	m_graphDataArray.Add(graphData);
-	authorcommits.clear();
-
-
-	// Paint the graph now that we're through.
-	m_graph.Invalidate();
-}
-
-void CStatGraphDlg::ShowStats()
-{
-	if ((m_parAuthors==NULL)||(m_parDates==NULL)||(m_parFileChanges==NULL))
-		return;
-	ShowLabels(TRUE);
-
-	// This function relies on a previous call of GatherData(). 
-	// This can be detected by checking the weekcount. 
-	// If the weekcount is equal to -1, it hasn't been called before.
-	if (m_weekCount == -1)
-		GatherData();
-	// if week count is still -1, something bad has happened, probably invalid data!
-	if (m_weekCount == -1)
-		return;
-
-	// now we can use the gathered data to update the stats dialog
-	unsigned int nAuthors = m_authorNames.size();
-
-	// find most and least active author names
-	stdstring mostActiveAuthor;
-	stdstring leastActiveAuthor;
-	if (nAuthors > 0) {
-		mostActiveAuthor = m_authorNames.front();
-		leastActiveAuthor = m_authorNames.back();
-	}
-
-	// obtain the statistics for the table
-	long nCommitsMin = -1;
-	long nCommitsMax = -1;
-	long nFileChangesMin = -1;
-	long nFileChangesMax = -1;
-
-	long nMostActiveMaxCommits = -1;
-	long nMostActiveMinCommits = -1;
-	long nLeastActiveMaxCommits = -1;
-	long nLeastActiveMinCommits = -1;
-
-	// find first and last interval number
-	WeeklyDataMap::iterator interval_it = m_commitsPerWeekAndAuthor.begin();
-	int firstInterval = interval_it->first;
-	interval_it = m_commitsPerWeekAndAuthor.end();
-	--interval_it;
-	int lastInterval = interval_it->first;
-	// sanity check - if lastInterval is too large it could freeze TSVN and take up all memory!!!
-	assert(lastInterval >= 0 && lastInterval < 10000); 
-
-	// loop over all intervals and find min and max values for commit count and file changes
-	// also store the stats for the most and least active authors
-	for (int i=firstInterval; i<=lastInterval; ++i) {
-		// loop over all commits in this interval and count the number of commits by all authors
-		int commitCount = 0;
-		AuthorDataMap::iterator commit_endit = m_commitsPerWeekAndAuthor[i].end();
-		for (AuthorDataMap::iterator commit_it = m_commitsPerWeekAndAuthor[i].begin();
-			commit_it != commit_endit; ++commit_it)
-		{
-			commitCount += commit_it->second;
-		}
-		if (nCommitsMin == -1 || commitCount < nCommitsMin)
-			nCommitsMin = commitCount;
-		if (nCommitsMax == -1 || commitCount > nCommitsMax)
-			nCommitsMax = commitCount;
-
-		// loop over all commits in this interval and count the number of file changes by all authors
-		int fileChangeCount = 0;
-		AuthorDataMap::iterator filechange_endit = m_filechangesPerWeekAndAuthor[i].end();
-		for (AuthorDataMap::iterator filechange_it = m_filechangesPerWeekAndAuthor[i].begin();
-			filechange_it != filechange_endit; ++filechange_it)
-		{
-			fileChangeCount += filechange_it->second;
-		}
-		if (nFileChangesMin == -1 || fileChangeCount < nFileChangesMin)
-			nFileChangesMin = fileChangeCount;
-		if (nFileChangesMax == -1 || fileChangeCount > nFileChangesMax)
-			nFileChangesMax = fileChangeCount;
-
-		// also get min/max data for most and least active authors
-		if (nAuthors > 0) {
-			long authorCommits = m_commitsPerWeekAndAuthor[i][mostActiveAuthor];
-			if (nMostActiveMaxCommits == -1 || authorCommits > nMostActiveMaxCommits)
-				nMostActiveMaxCommits = authorCommits;
-			if (nMostActiveMinCommits == -1 || authorCommits < nMostActiveMinCommits)
-				nMostActiveMinCommits = authorCommits;
-
-			authorCommits = m_commitsPerWeekAndAuthor[i][leastActiveAuthor];
-			if (nLeastActiveMaxCommits == -1 || authorCommits > nLeastActiveMaxCommits)
-				nLeastActiveMaxCommits = authorCommits;
-			if (nLeastActiveMinCommits == -1 || authorCommits < nLeastActiveMinCommits)
-				nLeastActiveMinCommits = authorCommits;
-		}
-	}
-	if (nMostActiveMaxCommits == -1)	nMostActiveMaxCommits = 0;
-	if (nMostActiveMinCommits == -1)	nMostActiveMinCommits = 0;
-	if (nLeastActiveMaxCommits == -1)	nLeastActiveMaxCommits = 0;
-	if (nLeastActiveMinCommits == -1)	nLeastActiveMinCommits = 0;
-
-	int nWeeks = m_weekCount;
-	if (nWeeks == 0)
-		nWeeks = 1;
-	// we have now all data we want
-	// so fill in the labels...
-	CString number;
-	number.Format(_T("%ld"), nWeeks);
-	SetDlgItemText(IDC_NUMWEEKVALUE, number);
-	number.Format(_T("%ld"), nAuthors);
-	SetDlgItemText(IDC_NUMAUTHORVALUE, number);
-	number.Format(_T("%ld"), m_nTotalCommits);
-	SetDlgItemText(IDC_NUMCOMMITSVALUE, number);
-	number.Format(_T("%ld"), m_nTotalFileChanges);
-	SetDlgItemText(IDC_NUMFILECHANGESVALUE, number);
-
-	number.Format(_T("%ld"), m_parAuthors->GetCount() / nWeeks);
-	SetDlgItemText(IDC_COMMITSEACHWEEKAVG, number);
-	number.Format(_T("%ld"), nCommitsMax);
-	SetDlgItemText(IDC_COMMITSEACHWEEKMAX, number);
-	number.Format(_T("%ld"), nCommitsMin);
-	SetDlgItemText(IDC_COMMITSEACHWEEKMIN, number);
-
-	number.Format(_T("%ld"), m_nTotalFileChanges / nWeeks);
-	SetDlgItemText(IDC_FILECHANGESEACHWEEKAVG, number);
-	number.Format(_T("%ld"), nFileChangesMax);
-	SetDlgItemText(IDC_FILECHANGESEACHWEEKMAX, number);
-	number.Format(_T("%ld"), nFileChangesMin);
-	SetDlgItemText(IDC_FILECHANGESEACHWEEKMIN, number);
-
-	if (nAuthors == 0)
-	{
-		SetDlgItemText(IDC_MOSTACTIVEAUTHORNAME, _T(""));
-		SetDlgItemText(IDC_MOSTACTIVEAUTHORAVG, _T("0"));
-		SetDlgItemText(IDC_MOSTACTIVEAUTHORMAX, _T("0"));
-		SetDlgItemText(IDC_MOSTACTIVEAUTHORMIN, _T("0"));
-		SetDlgItemText(IDC_LEASTACTIVEAUTHORNAME, _T(""));
-		SetDlgItemText(IDC_LEASTACTIVEAUTHORAVG, _T("0"));
-		SetDlgItemText(IDC_LEASTACTIVEAUTHORMAX, _T("0"));
-		SetDlgItemText(IDC_LEASTACTIVEAUTHORMIN, _T("0"));
-	}
-	else // AuthorCommits isn't empty
-	{
-		// author_names is sorted based on commit count, 
-		// the first in the list is the most active, the last in the list is the least active
-
-		// assuming AuthorCommitsMax and AuthorCommitsMin aren't empty too
-		SetDlgItemText(IDC_MOSTACTIVEAUTHORNAME, mostActiveAuthor.c_str());
-		number.Format(_T("%ld"), m_commitsPerAuthor[mostActiveAuthor] / nWeeks);
-		SetDlgItemText(IDC_MOSTACTIVEAUTHORAVG, number);
-		number.Format(_T("%ld"), nMostActiveMaxCommits);
-		SetDlgItemText(IDC_MOSTACTIVEAUTHORMAX, number);
-		number.Format(_T("%ld"), nMostActiveMinCommits);
-		SetDlgItemText(IDC_MOSTACTIVEAUTHORMIN, number);
-
-		SetDlgItemText(IDC_LEASTACTIVEAUTHORNAME, leastActiveAuthor.c_str());
-		number.Format(_T("%ld"), m_commitsPerAuthor[leastActiveAuthor] / nWeeks);
-		SetDlgItemText(IDC_LEASTACTIVEAUTHORAVG, number);
-		number.Format(_T("%ld"), nLeastActiveMaxCommits);
-		SetDlgItemText(IDC_LEASTACTIVEAUTHORMAX, number);
-		number.Format(_T("%ld"), nLeastActiveMinCommits);
-		SetDlgItemText(IDC_LEASTACTIVEAUTHORMIN, number);
-	}
-}
-
-void CStatGraphDlg::OnCbnSelchangeGraphcombo()
-{
-	UpdateData();
-	DWORD_PTR graphtype = m_cGraphType.GetItemData(m_cGraphType.GetCurSel());
-	switch (graphtype)
-	{
-	case 1:
-		// labels
-		// intended fall through
-	case 2:
-		// by date
-		m_btnGraphLine.EnableWindow(TRUE);
-		m_btnGraphLineStacked.EnableWindow(TRUE);
-		if (GetWeeksCount() > 10)
-		{
-			m_btnGraphPie.EnableWindow(FALSE);
-		}
-		m_GraphType = MyGraph::Line;
-		m_bStacked = false;
-		break;
-	case 3:
-		// by author
-		m_btnGraphLine.EnableWindow(FALSE);
-		m_btnGraphLineStacked.EnableWindow(FALSE);
-		m_btnGraphPie.EnableWindow(TRUE);
-		m_GraphType = MyGraph::Bar;
-		m_bStacked = false;
-		break;
-	}
-	RedrawGraph();
+	// Get time difference between start and end date
+	double secs = _difftime64(max_date, m_minDate);
+	// ... a week has 604800 seconds
+	m_nWeeks = (int)ceil(secs / 604800.0);
 }
 
 int CStatGraphDlg::GetWeek(const CTime& time)
@@ -905,98 +431,549 @@ int CStatGraphDlg::GetWeek(const CTime& time)
 	return iWeekOfYear;
 }
 
-int	CStatGraphDlg::GetWeeksCount()
-{
+void CStatGraphDlg::GatherData() {
 	// Sanity check
-	if (!m_parDates)
+	if ((m_parAuthors==NULL)||(m_parDates==NULL)||(m_parFileChanges==NULL))
+		return;
+	m_nTotalCommits = m_parAuthors->GetCount();
+	m_nTotalFileChanges = 0;
+
+	// Update m_nWeeks and m_minDate
+	UpdateWeekCount();
+
+	// Now create a mapping that holds the information per week.
+	m_commitsPerWeekAndAuthor.clear();
+	m_filechangesPerWeekAndAuthor.clear();
+	m_commitsPerAuthor.clear();
+
+	LONG timeIntervalLength = 604800; // we define the interval to be one week
+
+	// Now loop over all weeks and gather the info
+	for (LONG i=0; i<m_nTotalCommits; ++i) 
 	{
-		return 0;
+		// Find the interval number
+		__time64_t commitDate = (__time64_t)m_parDates->GetAt(i);
+		double secsSinceMinDate = _difftime64(commitDate, m_minDate);
+		int interval = (int)ceil(secsSinceMinDate/timeIntervalLength);
+		// Find the authors name
+		CString sAuth = m_parAuthors->GetAt(i);
+		if (m_bIgnoreAuthorCase)
+			sAuth = sAuth.MakeLower();
+		stdstring author = stdstring(sAuth);
+		// Increase total commit count for this author
+		m_commitsPerAuthor[author]++;
+		// Increase the commit count for this author in this week
+		m_commitsPerWeekAndAuthor[interval][author]++;
+		// Increase the filechange count for this author in this week
+		int fileChanges = m_parFileChanges->GetAt(i);
+		m_filechangesPerWeekAndAuthor[interval][author] += fileChanges;
+		m_nTotalFileChanges += fileChanges;
 	}
-	// already updated? Ok, simply return the number of weeks
-	if (m_weekCount >= 0)
-		return m_weekCount;
 
-	// Determine first and last date in dates array
-	__time64_t min_date = (__time64_t)m_parDates->GetAt(0);
-	__time64_t max_date = min_date;
-	unsigned int count = m_parDates->GetCount();
-	for (unsigned int i=0; i<count; ++i) {
-		__time64_t d = (__time64_t)m_parDates->GetAt(i);
-		if (d < min_date)		min_date = d;
-		else if (d > max_date)	max_date = d;
+	// Find first and last interval number.
+	if (!m_commitsPerWeekAndAuthor.empty()) 
+	{
+		IntervalDataMap::iterator interval_it = m_commitsPerWeekAndAuthor.begin();
+		m_firstInterval = interval_it->first;
+		interval_it = m_commitsPerWeekAndAuthor.end();
+		--interval_it;
+		m_lastInterval = interval_it->first;
+		// Sanity check - if m_lastInterval is too large it could freeze TSVN and take up all memory!!!
+		assert(m_lastInterval >= 0 && m_lastInterval < 10000); 
+	}
+	else
+	{
+		m_firstInterval = 0;
+		m_lastInterval = -1;
 	}
 
-	// here we must round the min_data to the first day of the week
-	// to align the interval min_data ... max_date with the week start
-	TCHAR loc[2];
-	GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IFIRSTDAYOFWEEK, loc, sizeof(loc));
-	int iFirstDayOfWeek = int(loc[0]-'0');
-	CTime start_time(min_date);
-	int iDayOfWeek = (start_time.GetDayOfWeek()+iFirstDayOfWeek)%7;
-	start_time -= CTimeSpan(iDayOfWeek,0,0,0);
-	// store start date of the interval in the member variable m_minDate
-	m_minDate = start_time.GetTime();
-	
-	// How many weeks does the time period cover?
+	// Get a list of authors names
+	m_authorNames.clear();
+	for (std::map<stdstring, LONG>::iterator it = m_commitsPerAuthor.begin(); 
+		it != m_commitsPerAuthor.end(); ++it) 
+	{
+		m_authorNames.push_back(it->first);
+	}
 
-	// time difference between start and end date
-	double secs = _difftime64(max_date, m_minDate);
-	// a week has 604800 seconds
-	m_weekCount = (int)ceil(secs / 604800.0);
-	return m_weekCount;
+	// Sort the list of authors based on commit count
+	m_authorNames.sort( MoreCommitsThan(&m_commitsPerAuthor) );
+
+	// All done, now the statistics pages can retrieve the data and 
+	// extract the information to be shown.
 }
 
-void CStatGraphDlg::InitUnits()
+void CStatGraphDlg::FilterSkippedAuthors(std::list<stdstring>& included_authors, 
+										 std::list<stdstring>& skipped_authors)
 {
-	GetWeeksCount();
+	included_authors.clear();
+	skipped_authors.clear();
+	// Calculate the commit threshold, authors with fewer commits are
+	// counted as others
+	LONG nCommitThreshold = m_nTotalCommits * m_Skipper.GetPos() / 200;
+
+	// Loop over all authors in the sorted authors list and 
+	// add them to the graph, but break once an author with fewer commits than
+	// the threshold is found.
+	std::list<stdstring>::iterator author_it = m_authorNames.begin();
+	while (author_it != m_authorNames.end()) 
+	{
+		// Check if author has enough commits
+		if (m_commitsPerAuthor[*author_it] >= nCommitThreshold) 
+		{
+			// Add him/her to the included list
+			included_authors.push_back(*author_it);
+		}
+		else 
+		{
+			// First author below the threshold, if it is the only "other" author, 
+			// add him as author, otherwise break.
+			std::list<stdstring>::iterator next_author_it = author_it;
+			if (++next_author_it == m_authorNames.end()) 
+			{
+				included_authors.push_back(*author_it);
+			}
+			else break;
+		}
+		// next author
+		++author_it;
+	}
+	// If we haven't reached the end yet, copy all remaining authors into the
+	// skipped author list.
+	std::copy(author_it, m_authorNames.end(), std::back_inserter(skipped_authors) );
+
+	// TODO : FS#399, sort author names based on commit count or alphabetically 
+	//        depending on checkbox value.
 }
+
+void CStatGraphDlg::ShowCommitsByAuthor()
+{
+	if ((m_parAuthors==NULL)||(m_parDates==NULL)||(m_parFileChanges==NULL))
+		return;
+	ShowLabels(FALSE);
+	ClearGraph();
+
+	// This function relies on a previous call of GatherData(). 
+	// This can be detected by checking the weekcount. 
+	// If the weekcount is equal to -1, it hasn't been called before.
+	if (m_nWeeks == -1)
+		GatherData();
+	// If week count is still -1, something bad has happened, probably invalid data!
+	if (m_nWeeks == -1)
+		return;
+
+	// We need at least one author
+	if (m_authorNames.empty()) return;
+
+	// Add a single series to the chart
+	MyGraphSeries * graphData = new MyGraphSeries();
+	m_graph.AddSeries(*graphData);
+	m_graphDataArray.Add(graphData);
+
+	// Set up the graph.
+	CString temp;
+	UpdateData();
+	m_graph.SetGraphType(m_GraphType, m_bStacked);
+	temp.LoadString(IDS_STATGRAPH_COMMITSBYAUTHORY);
+	m_graph.SetYAxisLabel(temp);
+	temp.LoadString(IDS_STATGRAPH_COMMITSBYAUTHORX);
+	m_graph.SetXAxisLabel(temp);
+	temp.LoadString(IDS_STATGRAPH_COMMITSBYAUTHOR);
+	m_graph.SetGraphTitle(temp);
+
+	// Find out which authors are to be shown and which are to be skipped.
+	std::list<stdstring> authors;
+	std::list<stdstring> others;
+	FilterSkippedAuthors(authors, others);
+
+	// Loop over all authors in the authors list and 
+	// add them to the graph.
+
+	for (std::list<stdstring>::iterator it = authors.begin(); it != authors.end(); ++it)
+	{
+		int group = m_graph.AppendGroup(it->c_str());
+		graphData->SetData(group, m_commitsPerAuthor[*it]);
+	}
+
+	// If we have other authors, count them and their commits.
+	int nOthers = others.size();
+	if (nOthers != 0)
+	{
+		int nCommits = 0;
+		for (std::list<stdstring>::iterator it = others.begin(); it != others.end(); ++it)
+		{
+			nCommits += m_commitsPerAuthor[*it];
+		}
+		CString sOthers(MAKEINTRESOURCE(IDS_STATGRAPH_OTHERGROUP));
+		CString temp;
+		temp.Format(_T(" (%ld)"), nOthers);
+		sOthers += temp;
+		int group = m_graph.AppendGroup(sOthers);
+		graphData->SetData(group, nCommits);
+	}
+
+	// Paint the graph now that we're through.
+	m_graph.Invalidate();
+}
+
+void CStatGraphDlg::ShowCommitsByDate()
+{
+	if ((m_parAuthors==NULL)||(m_parDates==NULL)||(m_parFileChanges==NULL))
+		return;
+	ShowLabels(FALSE);
+	ClearGraph();
+
+	// This function relies on a previous call of GatherData(). 
+	// This can be detected by checking the weekcount. 
+	// If the weekcount is equal to -1, it hasn't been called before.
+	if (m_nWeeks == -1)
+		GatherData();
+	// If week count is still -1, something bad has happened, probably invalid data!
+	if (m_nWeeks == -1)
+		return;
+
+	// We need at least one author
+	if (m_authorNames.empty()) return;
+
+	// Set up the graph.
+	CString temp;
+	UpdateData();
+	m_graph.SetGraphType(m_GraphType, m_bStacked);
+	temp.LoadString(IDS_STATGRAPH_COMMITSBYDATEY);
+	m_graph.SetYAxisLabel(temp);
+	temp.LoadString(IDS_STATGRAPH_COMMITSBYDATE);
+	m_graph.SetGraphTitle(temp);
+
+	m_graph.SetXAxisLabel(GetUnitString());
+
+	// Find out which authors are to be shown and which are to be skipped.
+	std::list<stdstring> authors;
+	std::list<stdstring> others;
+	FilterSkippedAuthors(authors, others);
+
+	// Add a graph series for each author.
+	AuthorDataMap authorGraphMap;
+	for (std::list<stdstring>::iterator it = authors.begin(); it != authors.end(); ++it)
+		authorGraphMap[*it] = m_graph.AppendGroup(it->c_str());
+	// If we have skipped authors, add a graph series for all those.
+	CString sOthers(MAKEINTRESOURCE(IDS_STATGRAPH_OTHERGROUP));
+	stdstring othersName;
+	if (!others.empty()) {
+		temp.Format(_T(" (%ld)"), others.size());
+		sOthers += temp;
+		othersName = wide_string((LPCWSTR)sOthers);
+		authorGraphMap[othersName] = m_graph.AppendGroup(wide_string((LPCWSTR)sOthers).c_str());
+	}
+
+	int lastunit = 0;
+	CTime lasttime;
+
+	// Mapping to collect commit counts in each interval
+	AuthorDataMap	commitCount;
+
+	if (m_lastInterval != -1)
+	{
+		lasttime = CTime(m_minDate) + CTimeSpan(7*m_firstInterval,0,0,0);
+		lastunit = GetUnit(lasttime);
+	}
+	// Loop over all intervals/weeks and collect filtered data.
+	// Sum up data in each interval until the time unit changes.
+	for (int i=m_firstInterval; i<=m_lastInterval; ++i)
+	{
+		// Get the time corresponding to the current interval
+		CTime t = CTime(m_minDate) + CTimeSpan(7*i,0,0,0);
+		int unit = GetUnit(t);
+
+		// Check if new interval has started, so that we can add 
+		// the previously collected data to the chart!
+		if (unit != lastunit)
+		{
+			// Create a new data series for this unit/interval.
+			MyGraphSeries * graphData = new MyGraphSeries();
+			// Loop over all created graphs and set the corresponding data.
+			for (AuthorDataMap::const_iterator it = authorGraphMap.begin(); it != authorGraphMap.end(); ++it) 
+			{
+				graphData->SetData(it->second, commitCount[it->first]);
+			}
+			temp = GetUnitLabel(lastunit, lasttime);
+			graphData->SetLabel(temp);
+			m_graph.AddSeries(*graphData);
+			m_graphDataArray.Add(graphData);
+
+			lastunit = unit;
+			// Reset commit count mapping.
+			commitCount.clear();
+		}
+		lasttime = t;
+		// Collect data for authors listed by name.
+		for (std::list<stdstring>::iterator it = authors.begin(); it != authors.end(); ++it)
+		{
+			// Do we have some data for the current author in the current interval?
+			AuthorDataMap::const_iterator data_it = m_commitsPerWeekAndAuthor[i].find(*it);
+			if (data_it == m_commitsPerWeekAndAuthor[i].end()) continue;
+			commitCount[*it] += data_it->second;
+		}
+		// Collect data for all skipped authors.
+		for (std::list<stdstring>::iterator it = others.begin(); it != others.end(); ++it)
+		{
+			// Do we have some data for the author in the current interval?
+			AuthorDataMap::const_iterator data_it = m_commitsPerWeekAndAuthor[i].find(*it);
+			if (data_it == m_commitsPerWeekAndAuthor[i].end()) continue;
+			commitCount[othersName] += data_it->second;
+		}
+	}
+	// All commit intervals done, add the data collected for the last unit
+	// also to the chart.
+	MyGraphSeries * graphData = new MyGraphSeries();
+	for (AuthorDataMap::const_iterator it = authorGraphMap.begin(); it != authorGraphMap.end(); ++it) 
+	{
+		graphData->SetData(it->second, commitCount[it->first]);
+	}
+	temp = GetUnitLabel(lastunit, lasttime);
+	graphData->SetLabel(temp);
+	m_graph.AddSeries(*graphData);
+	m_graphDataArray.Add(graphData);
+
+	// Paint the graph now that we're through.
+	m_graph.Invalidate();
+}
+
+void CStatGraphDlg::ShowStats()
+{
+	if ((m_parAuthors==NULL)||(m_parDates==NULL)||(m_parFileChanges==NULL))
+		return;
+	ShowLabels(TRUE);
+
+	// This function relies on a previous call of GatherData(). 
+	// This can be detected by checking the weekcount. 
+	// If the weekcount is equal to -1, it hasn't been called before.
+	if (m_nWeeks == -1)
+		GatherData();
+	// If week count is still -1, something bad has happened, probably invalid data!
+	if (m_nWeeks == -1)
+		return;
+
+	// Now we can use the gathered data to update the stats dialog.
+	unsigned int nAuthors = m_authorNames.size();
+
+	// Find most and least active author names.
+	stdstring mostActiveAuthor;
+	stdstring leastActiveAuthor;
+	if (nAuthors > 0) 
+	{
+		mostActiveAuthor = m_authorNames.front();
+		leastActiveAuthor = m_authorNames.back();
+	}
+
+	// Obtain the statistics for the table.
+	long nCommitsMin = -1;
+	long nCommitsMax = -1;
+	long nFileChangesMin = -1;
+	long nFileChangesMax = -1;
+
+	long nMostActiveMaxCommits = -1;
+	long nMostActiveMinCommits = -1;
+	long nLeastActiveMaxCommits = -1;
+	long nLeastActiveMinCommits = -1;
+
+	// Loop over all intervals and find min and max values for commit count and file changes.
+	// Also store the stats for the most and least active authors.
+	for (int i=m_firstInterval; i<=m_lastInterval; ++i) 
+	{
+		// Loop over all commits in this interval and count the number of commits by all authors.
+		int commitCount = 0;
+		AuthorDataMap::iterator commit_endit = m_commitsPerWeekAndAuthor[i].end();
+		for (AuthorDataMap::iterator commit_it = m_commitsPerWeekAndAuthor[i].begin();
+			commit_it != commit_endit; ++commit_it)
+		{
+			commitCount += commit_it->second;
+		}
+		if (nCommitsMin == -1 || commitCount < nCommitsMin)
+			nCommitsMin = commitCount;
+		if (nCommitsMax == -1 || commitCount > nCommitsMax)
+			nCommitsMax = commitCount;
+
+		// Loop over all commits in this interval and count the number of file changes by all authors.
+		int fileChangeCount = 0;
+		AuthorDataMap::iterator filechange_endit = m_filechangesPerWeekAndAuthor[i].end();
+		for (AuthorDataMap::iterator filechange_it = m_filechangesPerWeekAndAuthor[i].begin();
+			filechange_it != filechange_endit; ++filechange_it)
+		{
+			fileChangeCount += filechange_it->second;
+		}
+		if (nFileChangesMin == -1 || fileChangeCount < nFileChangesMin)
+			nFileChangesMin = fileChangeCount;
+		if (nFileChangesMax == -1 || fileChangeCount > nFileChangesMax)
+			nFileChangesMax = fileChangeCount;
+
+		// also get min/max data for most and least active authors
+		if (nAuthors > 0) {
+			// check if author is present in this interval
+			AuthorDataMap::iterator author_it = m_commitsPerWeekAndAuthor[i].find(mostActiveAuthor);
+			long authorCommits;
+			if (author_it == m_commitsPerWeekAndAuthor[i].end())
+				authorCommits = 0;
+			else
+				authorCommits = author_it->second;
+			if (nMostActiveMaxCommits == -1 || authorCommits > nMostActiveMaxCommits)
+				nMostActiveMaxCommits = authorCommits;
+			if (nMostActiveMinCommits == -1 || authorCommits < nMostActiveMinCommits)
+				nMostActiveMinCommits = authorCommits;
+
+			author_it = m_commitsPerWeekAndAuthor[i].find(leastActiveAuthor);
+			if (author_it == m_commitsPerWeekAndAuthor[i].end())
+				authorCommits = 0;
+			else
+				authorCommits = author_it->second;
+			if (nLeastActiveMaxCommits == -1 || authorCommits > nLeastActiveMaxCommits)
+				nLeastActiveMaxCommits = authorCommits;
+			if (nLeastActiveMinCommits == -1 || authorCommits < nLeastActiveMinCommits)
+				nLeastActiveMinCommits = authorCommits;
+		}
+	}
+	if (nMostActiveMaxCommits == -1)	nMostActiveMaxCommits = 0;
+	if (nMostActiveMinCommits == -1)	nMostActiveMinCommits = 0;
+	if (nLeastActiveMaxCommits == -1)	nLeastActiveMaxCommits = 0;
+	if (nLeastActiveMinCommits == -1)	nLeastActiveMinCommits = 0;
+
+	int nWeeks = m_nWeeks;
+	if (nWeeks == 0)
+		nWeeks = 1;
+	// We have now all data we want and we can fill in the labels...
+	CString number;
+	number.Format(_T("%ld"), nWeeks);
+	SetDlgItemText(IDC_NUMWEEKVALUE, number);
+	number.Format(_T("%ld"), nAuthors);
+	SetDlgItemText(IDC_NUMAUTHORVALUE, number);
+	number.Format(_T("%ld"), m_nTotalCommits);
+	SetDlgItemText(IDC_NUMCOMMITSVALUE, number);
+	number.Format(_T("%ld"), m_nTotalFileChanges);
+	SetDlgItemText(IDC_NUMFILECHANGESVALUE, number);
+
+	number.Format(_T("%ld"), m_parAuthors->GetCount() / nWeeks);
+	SetDlgItemText(IDC_COMMITSEACHWEEKAVG, number);
+	number.Format(_T("%ld"), nCommitsMax);
+	SetDlgItemText(IDC_COMMITSEACHWEEKMAX, number);
+	number.Format(_T("%ld"), nCommitsMin);
+	SetDlgItemText(IDC_COMMITSEACHWEEKMIN, number);
+
+	number.Format(_T("%ld"), m_nTotalFileChanges / nWeeks);
+	SetDlgItemText(IDC_FILECHANGESEACHWEEKAVG, number);
+	number.Format(_T("%ld"), nFileChangesMax);
+	SetDlgItemText(IDC_FILECHANGESEACHWEEKMAX, number);
+	number.Format(_T("%ld"), nFileChangesMin);
+	SetDlgItemText(IDC_FILECHANGESEACHWEEKMIN, number);
+
+	if (nAuthors == 0)
+	{
+		SetDlgItemText(IDC_MOSTACTIVEAUTHORNAME, _T(""));
+		SetDlgItemText(IDC_MOSTACTIVEAUTHORAVG, _T("0"));
+		SetDlgItemText(IDC_MOSTACTIVEAUTHORMAX, _T("0"));
+		SetDlgItemText(IDC_MOSTACTIVEAUTHORMIN, _T("0"));
+		SetDlgItemText(IDC_LEASTACTIVEAUTHORNAME, _T(""));
+		SetDlgItemText(IDC_LEASTACTIVEAUTHORAVG, _T("0"));
+		SetDlgItemText(IDC_LEASTACTIVEAUTHORMAX, _T("0"));
+		SetDlgItemText(IDC_LEASTACTIVEAUTHORMIN, _T("0"));
+	}
+	else
+	{
+		SetDlgItemText(IDC_MOSTACTIVEAUTHORNAME, mostActiveAuthor.c_str());
+		number.Format(_T("%ld"), m_commitsPerAuthor[mostActiveAuthor] / nWeeks);
+		SetDlgItemText(IDC_MOSTACTIVEAUTHORAVG, number);
+		number.Format(_T("%ld"), nMostActiveMaxCommits);
+		SetDlgItemText(IDC_MOSTACTIVEAUTHORMAX, number);
+		number.Format(_T("%ld"), nMostActiveMinCommits);
+		SetDlgItemText(IDC_MOSTACTIVEAUTHORMIN, number);
+
+		SetDlgItemText(IDC_LEASTACTIVEAUTHORNAME, leastActiveAuthor.c_str());
+		number.Format(_T("%ld"), m_commitsPerAuthor[leastActiveAuthor] / nWeeks);
+		SetDlgItemText(IDC_LEASTACTIVEAUTHORAVG, number);
+		number.Format(_T("%ld"), nLeastActiveMaxCommits);
+		SetDlgItemText(IDC_LEASTACTIVEAUTHORMAX, number);
+		number.Format(_T("%ld"), nLeastActiveMinCommits);
+		SetDlgItemText(IDC_LEASTACTIVEAUTHORMIN, number);
+	}
+}
+
+void CStatGraphDlg::OnCbnSelchangeGraphcombo()
+{
+	UpdateData();
+	DWORD_PTR graphtype = m_cGraphType.GetItemData(m_cGraphType.GetCurSel());
+	switch (graphtype)
+	{
+	case 1:
+		// labels
+		// intended fall through
+	case 2:
+		// by date
+		m_btnGraphLine.EnableWindow(TRUE);
+		m_btnGraphLineStacked.EnableWindow(TRUE);
+		if (m_nWeeks > 10)
+		{
+			m_btnGraphPie.EnableWindow(FALSE);
+		}
+		m_GraphType = MyGraph::Line;
+		m_bStacked = false;
+		break;
+	case 3:
+		// by author
+		m_btnGraphLine.EnableWindow(FALSE);
+		m_btnGraphLineStacked.EnableWindow(FALSE);
+		m_btnGraphPie.EnableWindow(TRUE);
+		m_GraphType = MyGraph::Bar;
+		m_bStacked = false;
+		break;
+	}
+	RedrawGraph();
+}
+
 
 int CStatGraphDlg::GetUnitCount()
 {
-	if (m_weekCount < 15)
-		return m_weekCount;
-	if (m_weekCount < 80)
-		return (m_weekCount/4)+1;
-	if (m_weekCount < 320)
-		return (m_weekCount/13)+1; // quarters
-	return (m_weekCount/52)+1;
+	if (m_nWeeks < 15)
+		return m_nWeeks;
+	if (m_nWeeks < 80)
+		return (m_nWeeks/4)+1;
+	if (m_nWeeks < 320)
+		return (m_nWeeks/13)+1; // quarters
+	return (m_nWeeks/52)+1;
 }
 
 int CStatGraphDlg::GetUnit(const CTime& time)
 {
-	if (m_weekCount < 15)
+	if (m_nWeeks < 15)
 		return GetWeek(time);
-	if (m_weekCount < 80)
+	if (m_nWeeks < 80)
 		return time.GetMonth();
-	if (m_weekCount < 320)
+	if (m_nWeeks < 320)
 		return ((time.GetMonth()-1)/3)+1; // quarters
 	return time.GetYear();
 }
 
 CStatGraphDlg::UnitType CStatGraphDlg::GetUnitType()
 {
-	if (m_weekCount < 15)
+	if (m_nWeeks < 15)
 		return Weeks;
-	if (m_weekCount < 80)
+	if (m_nWeeks < 80)
 		return Months;
-	if (m_weekCount < 320)
+	if (m_nWeeks < 320)
 		return Quarters;
 	return Years;
 }
 
 CString CStatGraphDlg::GetUnitString()
 {
-	if (m_weekCount < 15)
+	if (m_nWeeks < 15)
 		return CString(MAKEINTRESOURCE(IDS_STATGRAPH_COMMITSBYDATEXWEEK));
-	if (m_weekCount < 80)
+	if (m_nWeeks < 80)
 		return CString(MAKEINTRESOURCE(IDS_STATGRAPH_COMMITSBYDATEXMONTH));
-	if (m_weekCount < 320)
+	if (m_nWeeks < 320)
 		return CString(MAKEINTRESOURCE(IDS_STATGRAPH_COMMITSBYDATEXQUARTER));
 	return CString(MAKEINTRESOURCE(IDS_STATGRAPH_COMMITSBYDATEXYEAR));
 }
 
 CString CStatGraphDlg::GetUnitLabel(int unit, CTime &lasttime)
 {
+	// TODO : FS#398, do this properly with locales
 	CString temp;
 	switch (GetUnitType())
 	{
@@ -1053,9 +1030,18 @@ void CStatGraphDlg::OnNeedText(NMHDR *pnmh, LRESULT * /*pResult*/)
 	}
 }
 
-void CStatGraphDlg::IgnoreCaseChanged() {
+void CStatGraphDlg::IgnoreCaseChanged() 
+{
 	GatherData();	// first regenerate the statistics data
 	RedrawGraph();	// then update the current statistics page
+}
+
+void CStatGraphDlg::ClearGraph() 
+{
+	m_graph.Clear();
+	for (int j=0; j<m_graphDataArray.GetCount(); ++j)
+		delete ((MyGraphSeries *)m_graphDataArray.GetAt(j));
+	m_graphDataArray.RemoveAll();
 }
 
 void CStatGraphDlg::RedrawGraph()

@@ -44,6 +44,16 @@ public:
  * \ingroup TortoiseProc
  * Helper dialog showing statistics gathered from the log messages shown in the
  * log dialog.
+ *
+ * The function GatherData() collects statistical information and stores it
+ * in the corresponding member variables. You can access the data as shown in
+ * the following examples:
+ * @code
+ *    commits = m_commitsPerWeekAndAuthor[week_nr][author_name];
+ *    filechanges = m_filechangesPerWeekAndAuthor[week_nr][author_name];
+ *    commits = m_commitsPerAuthor[author_name];
+ * @endcode
+
  */
 class CStatGraphDlg : public CResizableStandAloneDialog//CResizableStandAloneDialog
 {
@@ -63,7 +73,7 @@ public:
 
 protected:
 	
-	// ** protected data types **
+	// ** Data types **
 
 	/// The types of units used in the various graphs.
 	enum UnitType
@@ -74,11 +84,14 @@ protected:
 		Years
 	};
 
-	typedef std::map<int, std::map<stdstring, LONG> >	WeeklyDataMap;
+	/// The mapping type used to store data per interval/week and author.
+	typedef std::map<int, std::map<stdstring, LONG> >	IntervalDataMap;
+	/// The mapping type used to store data per author.
 	typedef std::map<stdstring, LONG>					AuthorDataMap;
 
 	virtual void DoDataExchange(CDataExchange* pDX);
 	virtual BOOL OnInitDialog();
+	void ShowLabels(BOOL bShow);
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnCbnSelchangeGraphcombo();
 	afx_msg void OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
@@ -92,6 +105,46 @@ protected:
 	afx_msg void OnFileSavestatgraphas();
 
 	DECLARE_MESSAGE_MAP()
+
+	// ** Member functions **
+
+	/// Updates the variables m_weekCount and m_minDate and returns the number 
+	/// of weeks in the revision interval.
+	void UpdateWeekCount();
+	/// Returns the week-of-the-year for the given time.
+	int	GetWeek(const CTime& time);
+	/// Parses the data given to the dialog and generates mappings with statistical data. 
+	void GatherData();
+	/// Populates the lists passed as arguments based on the commit threshold set with the skipper.
+	void FilterSkippedAuthors(std::list<stdstring>& included_authors, std::list<stdstring>& skipped_authors);
+	/// Shows the graph with commit counts per author.
+	void ShowCommitsByAuthor();
+	/// Shows the graph with commit counts per author and date.
+	void ShowCommitsByDate();
+	/// Shows the initial statistics page.
+	void ShowStats();
+
+
+	/// Called when user checks/unchecks the "Ignore case" checkbox.
+	/// Recalculates statistical data because the number and names of authors 
+	/// can have changed. Also calls RedrawGraph().
+	void IgnoreCaseChanged();
+	/// Clears the current graph and frees all data series.
+	void ClearGraph();
+	/// Updates the currently shown statistics page.
+	void RedrawGraph();
+
+	int						GetUnitCount();
+	int						GetUnit(const CTime& time);
+	CStatGraphDlg::UnitType	GetUnitType();
+	CString					GetUnitString();
+	CString					GetUnitLabel(int unit, CTime &lasttime);
+
+	void EnableDisableMenu();
+
+	void SaveGraph(CString sFilename);
+	int	 GetEncoderClsid(const WCHAR* format, CLSID* pClsid);
+
 
 	CPtrArray		m_graphDataArray;
 	MyGraph			m_graph;
@@ -114,50 +167,31 @@ protected:
 	MyGraph::GraphType	m_GraphType;
 	bool				m_bStacked;
 
-	/// Updates the variables m_weekCount and m_minDate and returns the number 
-	/// of weeks in the revision interval.
-	int			GetWeeksCount();
-	int			m_weekCount;	///< Number of weeks in the revision interval.
-	__time64_t	m_minDate;		///< The starting date/time for the revision interval.
+	CToolTipCtrl* m_pToolTip;
 
-	/// Returns the week-of-the-year for the given time.
-	int			GetWeek(const CTime& time);
 
-	/// Parses the data given to the dialog and generates mappings with statistical data. 
-	void					GatherData();
+	// ** Member variables holding the statistical data **
 
+	/// Number of weeks in the revision interval.
+	int						m_nWeeks;		
+	/// The starting date/time for the revision interval.
+	__time64_t				m_minDate;		
+	/// The total number of commits (equals size of the m_parXXX arrays).
 	LONG					m_nTotalCommits;
+	/// The total number of file changes.
 	LONG					m_nTotalFileChanges;
-	WeeklyDataMap			m_commitsPerWeekAndAuthor;
-	WeeklyDataMap			m_filechangesPerWeekAndAuthor;
+	/// Holds the number of commits per week and author.
+	IntervalDataMap			m_commitsPerWeekAndAuthor;		
+	/// Holds the number of file changes per week and author.
+	IntervalDataMap			m_filechangesPerWeekAndAuthor;
+	/// First interval number (key) in the mappings.
+	int						m_firstInterval;
+	/// Last interval number (key) in the mappings.
+	int						m_lastInterval;
+	/// Mapping of total commits per author, access data via
 	AuthorDataMap			m_commitsPerAuthor;
+	/// The list of author names sorted based on commit count 
+	/// (author with most commits is first in list).
 	std::list<stdstring>	m_authorNames;
 
-	/// Shows the graph with commit counts per author and date.
-	void		ShowCommitsByDate();
-	/// Shows the graph with commit counts per author.
-	void		ShowCommitsByAuthor();
-	/// Shows the initial statistics page.
-	void		ShowStats();
-
-	void		ShowLabels(BOOL bShow);
-	/// Recalculates statistical data because the number and names of authors 
-	/// can have changed, also calls RedrawGraph().
-	void		IgnoreCaseChanged();
-	/// Updates the currently shown statistics page.
-	void		RedrawGraph();
-
-	void					InitUnits();
-	int						GetUnitCount();
-	int						GetUnit(const CTime& time);
-	CStatGraphDlg::UnitType	GetUnitType();
-	CString					GetUnitString();
-	CString					GetUnitLabel(int unit, CTime &lasttime);
-
-	void		EnableDisableMenu();
-
-	void		SaveGraph(CString sFilename);
-	int			GetEncoderClsid(const WCHAR* format, CLSID* pClsid);
-
-	CToolTipCtrl* m_pToolTip;
 };
