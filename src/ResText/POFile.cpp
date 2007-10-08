@@ -127,6 +127,8 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting /* = TRUE */)
 			entry.clear();
 			if ((bUpdateExisting)&&(this->count(msgid) == 0))
 				nDeleted++;
+			else
+				(*this)[msgid] = resEntry;
 			msgid.clear();
 		}
 		else
