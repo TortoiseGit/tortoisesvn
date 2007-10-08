@@ -66,13 +66,14 @@ CPathWatcher::~CPathWatcher(void)
 void CPathWatcher::Stop()
 {
 	InterlockedExchange(&m_bRunning, FALSE);
-	if (m_hThread != INVALID_HANDLE_VALUE)
-		CloseHandle(m_hThread);
-	m_hThread = INVALID_HANDLE_VALUE;
 	if (m_hCompPort != INVALID_HANDLE_VALUE)
 	{
 		PostQueuedCompletionStatus(m_hCompPort, 0, NULL, NULL);
 	}
+	if (m_hThread != INVALID_HANDLE_VALUE)
+		CloseHandle(m_hThread);
+
+	m_hThread = INVALID_HANDLE_VALUE;
 	m_hCompPort = INVALID_HANDLE_VALUE;
 }
 
