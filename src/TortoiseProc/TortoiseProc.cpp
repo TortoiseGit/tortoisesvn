@@ -401,7 +401,7 @@ BOOL CTortoiseProcApp::InitInstance()
 				}
 			}
 		}	
-		delete path;		
+		delete[] path;		
 	}
 
 
