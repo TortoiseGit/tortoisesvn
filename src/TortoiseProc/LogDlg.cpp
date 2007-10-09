@@ -4403,11 +4403,6 @@ void CLogDlg::OnDtnDropdownDateto(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 void CLogDlg::OnSize(UINT nType, int cx, int cy)
 {
 	__super::OnSize(nType, cx, cy);
-	if (nType == SIZE_MAXIMIZED)
-	{
-		DoSizeV1(0);
-		DoSizeV2(0);
-	}
 	//set range
 	SetSplitterRange();
 }
