@@ -1285,6 +1285,8 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 				else
 					svnCmd += folder_;
 				svnCmd += _T("\"");
+				if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
+					svnCmd += _T(" /alternative");
 				break;
 			case ShellMenuUrlDiff:
 				svnCmd += _T("urldiff /path:\"");
