@@ -88,6 +88,7 @@ BEGIN_MESSAGE_MAP(CCommitDlg, CResizableStandAloneDialog)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_CHECKCHANGED, &CCommitDlg::OnSVNStatusListCtrlCheckChanged)
 	ON_REGISTERED_MESSAGE(WM_AUTOLISTREADY, OnAutoListReady) 
 	ON_WM_TIMER()
+    ON_WM_SIZE()
 END_MESSAGE_MAP()
 
 BOOL CCommitDlg::OnInitDialog()
@@ -1118,25 +1119,6 @@ LRESULT CCommitDlg::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 			DoSize(pHdr->delta);
 		}
 		break;
-	case WM_WINDOWPOSCHANGED : 
-		{
-			CRect rcW;
-			GetWindowRect(rcW);
-			ScreenToClient(rcW);
-
-			SetSplitterRange();
-
-			if (m_wndSplitter && rcW.Height()>0) Invalidate();
-			break;
-		}
-	case WM_SIZE:
-		{
-			// first, let the resizing take place
-			LRESULT res = CResizableDialog::DefWindowProc(message, wParam, lParam);
-			//set range
-			SetSplitterRange();
-			return res;
-		}
 	}
 
 	return __super::DefWindowProc(message, wParam, lParam);
@@ -1183,4 +1165,13 @@ void CCommitDlg::DoSize(int delta)
 	SetSplitterRange();
 	m_cLogMessage.Invalidate();
 	GetDlgItem(IDC_MSGVIEW)->Invalidate();
+}
+
+void CCommitDlg::OnSize(UINT nType, int cx, int cy)
+{
+    // first, let the resizing take place
+    __super::OnSize(nType, cx, cy);
+
+    //set range
+    SetSplitterRange();
 }
