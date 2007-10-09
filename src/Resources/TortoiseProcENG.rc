@@ -1197,22 +1197,22 @@ BEGIN
     EDITTEXT        IDC_TABSIZE,253,130,31,12,ES_AUTOHSCROLL | ES_NUMBER
 END
 
-IDD_CONFLICTRESOLVE DIALOGEX 0, 0, 299, 127
+IDD_CONFLICTRESOLVE DIALOGEX 0, 0, 316, 126
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Resolve Conflict"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "",IDC_INFOLABEL,7,7,285,25
-    GROUPBOX        "Please resolve the conflict by choosing one of the following options:",IDC_GROUP,7,37,285,83
-    LTEXT           "Choose item:",IDC_CHOOSELABEL,7,57,61,8
-    PUSHBUTTON      "Use local",IDC_USELOCAL,74,55,96,14
-    PUSHBUTTON      "Use repository",IDC_USEREPO,186,55,96,14
-    LTEXT           "Resolve conflict:",IDC_RESOLVELABEL,7,79,61,8
-    PUSHBUTTON      "Edit conflict",IDC_EDITCONFLICT,74,77,96,14
-    PUSHBUTTON      "Resolved",IDC_RESOLVED,186,77,96,14
-    LTEXT           "Leave conflicted:",IDC_LEAVELABEL,7,101,61,8
-    DEFPUSHBUTTON   "Resolve later",IDCANCEL,74,99,96,14
-    PUSHBUTTON      "Resolve all later",IDC_RESOLVEALLLATER,186,99,96,14
+    LTEXT           "",IDC_INFOLABEL,7,7,302,25
+    GROUPBOX        "Please resolve the conflict by choosing one of the following options:",IDC_GROUP,7,36,302,83
+    LTEXT           "Choose item:",IDC_CHOOSELABEL,15,57,76,8
+    PUSHBUTTON      "Use local",IDC_USELOCAL,100,55,96,14
+    PUSHBUTTON      "Use repository",IDC_USEREPO,204,55,96,14
+    LTEXT           "Resolve conflict:",IDC_RESOLVELABEL,15,79,76,8
+    PUSHBUTTON      "Edit conflict",IDC_EDITCONFLICT,100,77,96,14
+    PUSHBUTTON      "Resolved",IDC_RESOLVED,204,77,96,14
+    LTEXT           "Leave conflicted:",IDC_LEAVELABEL,15,101,76,8
+    DEFPUSHBUTTON   "Resolve later",IDCANCEL,100,99,96,14
+    PUSHBUTTON      "Resolve all later",IDC_RESOLVEALLLATER,204,99,96,14
 END
 
 
@@ -1799,12 +1799,13 @@ BEGIN
     IDD_CONFLICTRESOLVE, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 292
-        VERTGUIDE, 68
-        VERTGUIDE, 74
-        VERTGUIDE, 186
+        RIGHTMARGIN, 309
+        VERTGUIDE, 15
+        VERTGUIDE, 91
+        VERTGUIDE, 100
+        VERTGUIDE, 204
         TOPMARGIN, 7
-        BOTTOMMARGIN, 120
+        BOTTOMMARGIN, 119
         HORZGUIDE, 69
         HORZGUIDE, 91
         HORZGUIDE, 113
@@ -2324,7 +2325,17 @@ BEGIN
                             "Only numbers (optionally separated by commas)\nare allowed!"
     IDS_COMMITDLG_NOISSUEWARNING 
                             "You haven't entered an issue number!\nAre you sure you want to commit without an issue number?"
-	IDS_COMMITDLG_UNVERSIONEDFOLDERWARNING "Committing an unversioned folder will not recursively add its child items!\nYou might want to add these folders recursively by using the ""Add..."" context menu item.\n\nAre you sure that you want to continue the commit?"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_COMMITDLG_NOTHINGTOCOMMITUNVERSIONED 
+                            "No files were changed or added since\nthe last commit. There's nothing\nfor TortoiseSVN to do here...\nDo you want to see the unversioned files?"
+    IDS_COMMITDLG_HISTORY_TT "Click here to select a recently typed message"
+    IDS_COMMITDLG_HISTORYHINT_TT 
+                            "Your previously entered log messages have been saved.\nClick here to read and insert them again."
+    IDS_COMMITDLG_UNVERSIONEDFOLDERWARNING 
+                            "Committing an unversioned folder will not recursively add its child items!\nYou might want to add these folders recursively by using the ""Add..."" context menu item.\n\nAre you sure that you want to continue the commit?"
 END
 
 STRINGTABLE 
@@ -2491,11 +2502,11 @@ BEGIN
     IDS_STATGRAPH_COMMITSBYAUTHORY "commits"
     IDS_STATGRAPH_STATS     "Statistics"
     IDS_STATGRAPH_OTHERGROUP "Others"
+    IDS_STATGRAPH_EMPTYAUTHOR "(unknown)"
     IDS_STATGRAPH_COMMITSBYDATEXWEEK "week"
     IDS_STATGRAPH_COMMITSBYDATEXMONTH "month"
     IDS_STATGRAPH_COMMITSBYDATEXQUARTER "quarter of year"
     IDS_STATGRAPH_COMMITSBYDATEXYEAR "year"
-	IDS_STATGRAPH_EMPTYAUTHOR "(unknown)"
 END
 
 STRINGTABLE 
@@ -2545,7 +2556,6 @@ END
 STRINGTABLE 
 BEGIN
     IDS_STATUSLIST_CONTEXT_ADD "Add"
-	IDS_STATUSLIST_CONTEXT_ADD_RECURSIVE "Add..."
     IDS_STATUSLIST_CONTEXT_EXPLORE "Explore to"
     IDS_STATUSLIST_CONTEXT_RESOLVED "Resolved"
     IDS_STATUSLIST_CONTEXT_COMMIT "Commit"
@@ -2556,15 +2566,7 @@ BEGIN
     IDS_STATUSLIST_CONTEXT_REMOVEFROMCS "Remove from changelist"
     IDS_STATUSLIST_CONTEXT_CREATECS "<new changelist>"
     IDS_STATUSLIST_CONTEXT_MOVETOCS "Move to changelist"
-END
-
-STRINGTABLE 
-BEGIN
-    IDS_COMMITDLG_NOTHINGTOCOMMITUNVERSIONED 
-                            "No files were changed or added since\nthe last commit. There's nothing\nfor TortoiseSVN to do here...\nDo you want to see the unversioned files?"
-    IDS_COMMITDLG_HISTORY_TT "Click here to select a recently typed message"
-    IDS_COMMITDLG_HISTORYHINT_TT 
-                            "Your previously entered log messages have been saved.\nClick here to read and insert them again."
+    IDS_STATUSLIST_CONTEXT_ADD_RECURSIVE "Add..."
 END
 
 STRINGTABLE 
