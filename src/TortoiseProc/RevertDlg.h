@@ -46,6 +46,8 @@ protected:
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnBnClickedSelectall();
 	afx_msg LRESULT	OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
+	afx_msg LRESULT OnFileDropped(WPARAM, LPARAM lParam);
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 
 	DECLARE_MESSAGE_MAP()
 

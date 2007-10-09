@@ -22,7 +22,7 @@
 #include "messagebox.h"
 
 
-// CUnlockDlg dialog
+#define REFRESHTIMER   100
 
 IMPLEMENT_DYNAMIC(CUnlockDlg, CResizableStandAloneDialog)
 
@@ -50,6 +50,8 @@ BEGIN_MESSAGE_MAP(CUnlockDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
+	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_ADDFILE, OnFileDropped)
+	ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 
@@ -65,6 +67,7 @@ BOOL CUnlockDlg::OnInitDialog()
 	m_unlockListCtrl.SetEmptyString(IDS_ERR_NOTHINGTOUNLOCK);
 	m_unlockListCtrl.SetCancelBool(&m_bCancelled);
 	m_unlockListCtrl.SetBackgroundImage(IDI_UNLOCK_BKG);
+	m_unlockListCtrl.EnableFileDrop();
 
 	AdjustControlSize(IDC_SELECTALL);
 
@@ -194,4 +197,78 @@ LRESULT CUnlockDlg::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
 	return 0;
+}
+
+LRESULT CUnlockDlg::OnFileDropped(WPARAM, LPARAM lParam)
+{
+	BringWindowToTop();
+	SetForegroundWindow();
+	SetActiveWindow();
+	// if multiple files/folders are dropped
+	// this handler is called for every single item
+	// separately.
+	// To avoid creating multiple refresh threads and
+	// causing crashes, we only add the items to the
+	// list control and start a timer.
+	// When the timer expires, we start the refresh thread,
+	// but only if it isn't already running - otherwise we
+	// restart the timer.
+	CTSVNPath path;
+	path.SetFromWin((LPCTSTR)lParam);
+
+	if (!m_unlockListCtrl.HasPath(path))
+	{
+		if (m_pathList.AreAllPathsFiles())
+		{
+			m_pathList.AddPath(path);
+			m_pathList.RemoveDuplicates();
+		}
+		else
+		{
+			// if the path list contains folders, we have to check whether
+			// our just (maybe) added path is a child of one of those. If it is
+			// a child of a folder already in the list, we must not add it. Otherwise
+			// that path could show up twice in the list.
+			bool bHasParentInList = false;
+			for (int i=0; i<m_pathList.GetCount(); ++i)
+			{
+				if (m_pathList[i].IsAncestorOf(path))
+				{
+					bHasParentInList = true;
+					break;
+				}
+			}
+			if (!bHasParentInList)
+			{
+				m_pathList.AddPath(path);
+				m_pathList.RemoveDuplicates();
+			}
+		}
+	}
+
+	// Always start the timer, since the status of an existing item might have changed
+	SetTimer(REFRESHTIMER, 200, NULL);
+	ATLTRACE(_T("Item %s dropped, timer started\n"), path.GetWinPath());
+	return 0;
+}
+
+void CUnlockDlg::OnTimer(UINT_PTR nIDEvent)
+{
+	switch (nIDEvent)
+	{
+	case REFRESHTIMER:
+		if (m_bThreadRunning)
+		{
+			SetTimer(REFRESHTIMER, 200, NULL);
+			ATLTRACE("Wait some more before refreshing\n");
+		}
+		else
+		{
+			KillTimer(REFRESHTIMER);
+			ATLTRACE("Refreshing after items dropped\n");
+			OnSVNStatusListCtrlNeedsRefresh(0, 0);
+		}
+		break;
+	}
+	__super::OnTimer(nIDEvent);
 }

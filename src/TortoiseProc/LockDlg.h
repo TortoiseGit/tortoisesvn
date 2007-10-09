@@ -54,6 +54,8 @@ private:
 	afx_msg LRESULT OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
 	afx_msg void OnBnClickedSelectall();
 	afx_msg void OnBnClickedHistory();
+	afx_msg LRESULT OnFileDropped(WPARAM, LPARAM lParam);
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	void Refresh();
 
 	DECLARE_MESSAGE_MAP()

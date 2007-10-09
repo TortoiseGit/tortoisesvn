@@ -25,6 +25,7 @@
 #include "SVN.h"
 #include "HistoryDlg.h"
 
+#define REFRESHTIMER   100
 
 IMPLEMENT_DYNAMIC(CLockDlg, CResizableStandAloneDialog)
 CLockDlg::CLockDlg(CWnd* pParent /*=NULL*/)
@@ -61,6 +62,8 @@ BEGIN_MESSAGE_MAP(CLockDlg, CResizableStandAloneDialog)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
 	ON_BN_CLICKED(IDC_SELECTALL, &CLockDlg::OnBnClickedSelectall)
 	ON_BN_CLICKED(IDC_HISTORY, &CLockDlg::OnBnClickedHistory)
+	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_ADDFILE, OnFileDropped)
+	ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 BOOL CLockDlg::OnInitDialog()
@@ -74,6 +77,7 @@ BOOL CLockDlg::OnInitDialog()
 	m_cFileList.SetSelectButton(&m_SelectAll);
 	m_cFileList.SetConfirmButton((CButton*)GetDlgItem(IDOK));
 	m_cFileList.SetCancelBool(&m_bCancelled);
+	m_cFileList.EnableFileDrop();
 	m_cFileList.SetBackgroundImage(IDI_LOCK_BKG);
 	if (m_ProjectProperties)
 		m_cEdit.Init(*m_ProjectProperties);
@@ -309,4 +313,78 @@ void CLockDlg::OnBnClickedHistory()
 		OnEnChangeLockmessage();
 		GetDlgItem(IDC_LOCKMESSAGE)->SetFocus();
 	}
+}
+
+LRESULT CLockDlg::OnFileDropped(WPARAM, LPARAM lParam)
+{
+	BringWindowToTop();
+	SetForegroundWindow();
+	SetActiveWindow();
+	// if multiple files/folders are dropped
+	// this handler is called for every single item
+	// separately.
+	// To avoid creating multiple refresh threads and
+	// causing crashes, we only add the items to the
+	// list control and start a timer.
+	// When the timer expires, we start the refresh thread,
+	// but only if it isn't already running - otherwise we
+	// restart the timer.
+	CTSVNPath path;
+	path.SetFromWin((LPCTSTR)lParam);
+
+	if (!m_cFileList.HasPath(path))
+	{
+		if (m_pathList.AreAllPathsFiles())
+		{
+			m_pathList.AddPath(path);
+			m_pathList.RemoveDuplicates();
+		}
+		else
+		{
+			// if the path list contains folders, we have to check whether
+			// our just (maybe) added path is a child of one of those. If it is
+			// a child of a folder already in the list, we must not add it. Otherwise
+			// that path could show up twice in the list.
+			bool bHasParentInList = false;
+			for (int i=0; i<m_pathList.GetCount(); ++i)
+			{
+				if (m_pathList[i].IsAncestorOf(path))
+				{
+					bHasParentInList = true;
+					break;
+				}
+			}
+			if (!bHasParentInList)
+			{
+				m_pathList.AddPath(path);
+				m_pathList.RemoveDuplicates();
+			}
+		}
+	}
+
+	// Always start the timer, since the status of an existing item might have changed
+	SetTimer(REFRESHTIMER, 200, NULL);
+	ATLTRACE(_T("Item %s dropped, timer started\n"), path.GetWinPath());
+	return 0;
+}
+
+void CLockDlg::OnTimer(UINT_PTR nIDEvent)
+{
+	switch (nIDEvent)
+	{
+	case REFRESHTIMER:
+		if (m_bBlock)
+		{
+			SetTimer(REFRESHTIMER, 200, NULL);
+			ATLTRACE("Wait some more before refreshing\n");
+		}
+		else
+		{
+			KillTimer(REFRESHTIMER);
+			ATLTRACE("Refreshing after items dropped\n");
+			Refresh();
+		}
+		break;
+	}
+	__super::OnTimer(nIDEvent);
 }
