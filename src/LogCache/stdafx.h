@@ -47,6 +47,9 @@
 #include <afxext.h>         // MFC extensions
 #include <afxtempl.h>       // CArray and friend
 
+#include <shlwapi.h>        // required by path utils
+#include <shlobj.h>         // required by path utils
+
 #include <stdio.h>
 #include <tchar.h>
 
