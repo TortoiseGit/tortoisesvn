@@ -195,6 +195,7 @@ UINT CFileDiffDlg::DiffThread()
 	bool bSuccess = true;
 	RefreshCursor();
 	m_cFileList.ShowText(CString(MAKEINTRESOURCE(IDS_FILEDIFF_WAIT)));
+	m_arFileList.clear();
 	if (m_bDoPegDiff)
 	{
 		bSuccess = DiffSummarizePeg(m_path1, m_peg, m_rev1, m_rev2, m_depth, m_bIgnoreancestry);
@@ -973,3 +974,4 @@ void CFileDiffDlg::Filter(CString sFilterText)
 		AddEntry(&(*it));
 	}
 }
+
