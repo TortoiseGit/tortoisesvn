@@ -34,6 +34,7 @@ public:
 	SVNDiff(SVN * pSVN = NULL, HWND hWnd = NULL, bool bRemoveTempFiles = false);
 	~SVNDiff(void);
 
+	void SetAlternativeTool(bool bAlternativeTool) { m_bAlternativeTool = bAlternativeTool; }
 	/**
 	 * Do the conflict-resolving 3-way merge on the specified file
 	 */
@@ -44,14 +45,14 @@ public:
 	 * \param bAlternativeTool If true, invert selection of TortoiseMerge vs. external diff tool.
 	 */
 	bool DiffFileAgainstBase(
-		const CTSVNPath& filePath, bool bAlternativeTool,
+		const CTSVNPath& filePath,
 		svn_wc_status_kind text_status = svn_wc_status_none, 
 		svn_wc_status_kind prop_status = svn_wc_status_none);
 
 	/**
 	 * Shows a diff of a file in the working copy with its BASE.
 	 */
-	bool DiffWCFile(const CTSVNPath& filePath, bool bAlternativeTool,
+	bool DiffWCFile(const CTSVNPath& filePath,
 					svn_wc_status_kind text_status = svn_wc_status_none, 
 					svn_wc_status_kind prop_status = svn_wc_status_none,
 					svn_wc_status_kind remotetext_status = svn_wc_status_none, 
@@ -101,11 +102,11 @@ public:
 	 * Sets the Peg revision to use instead of HEAD.
 	 */
 	void SetHEADPeg(SVNRev headpeg) {m_headPeg = headpeg;}
-protected:
 private:
 	SVN *			m_pSVN;
 	bool			m_bDeleteSVN;
 	HWND			m_hWnd;
 	bool			m_bRemoveTempFiles;
 	SVNRev			m_headPeg;
+	bool			m_bAlternativeTool;
 };

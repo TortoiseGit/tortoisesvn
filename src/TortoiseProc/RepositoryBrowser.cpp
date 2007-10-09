@@ -2584,6 +2584,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			{
 				m_bCancelled = false;
 				SVNDiff diff(this, this->m_hWnd, true);
+				diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 				if (urlList.GetCount() == 1)
 					diff.ShowCompare(CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
 									CTSVNPath(EscapeUrl(m_diffURL)), GetRevision(), SVNRev(), true);

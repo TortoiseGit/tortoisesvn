@@ -361,6 +361,7 @@ void CRevisionGraphWnd::CompareRevs(bool bHead)
 	SVNRev peg = (SVNRev)(bHead ? m_SelectedEntry1->revision : SVNRev());
 
 	SVNDiff diff(&svn, this->m_hWnd);
+	diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 	diff.ShowCompare(url1, (bHead ? SVNRev::REV_HEAD : m_SelectedEntry1->revision),
 		url2, (bHead ? SVNRev::REV_HEAD : m_SelectedEntry2->revision),
 		peg);

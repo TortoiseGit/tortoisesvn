@@ -1652,6 +1652,7 @@ void CLogDlg::DoDiffFromLog(int selIndex, svn_revnum_t rev1, svn_revnum_t rev2, 
 	secondfile = filepath + secondfile.Trim();
 
 	SVNDiff diff(this, this->m_hWnd, true);
+	diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 	diff.SetHEADPeg(m_LogRevision);
 	if (unified)
 		diff.ShowUnifiedDiff(CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1);
@@ -3565,6 +3566,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 			{
 				//user clicked on the menu item "compare with working copy"
 				SVNDiff diff(this, m_hWnd, true);
+				diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 				diff.SetHEADPeg(m_LogRevision);
 				diff.ShowCompare(m_path, SVNRev::REV_WC, m_path, revSelected);
 			}
@@ -3573,6 +3575,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 			{
 				//user clicked on the menu item "compare revisions"
 				SVNDiff diff(this, m_hWnd, true);
+				diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 				diff.SetHEADPeg(m_LogRevision);
 				diff.ShowCompare(CTSVNPath(pathURL), revSelected2, CTSVNPath(pathURL), revSelected);
 			}
@@ -3580,6 +3583,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		case ID_COMPAREWITHPREVIOUS:
 			{
 				SVNDiff diff(this, m_hWnd, true);
+				diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 				diff.SetHEADPeg(m_LogRevision);
 				diff.ShowCompare(CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected);
 			}

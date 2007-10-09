@@ -1021,12 +1021,11 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 	}
 	else if ((data->action == svn_wc_notify_update_update) && ((data->content_state == svn_wc_notify_state_merged)||(SVNProgress_Merge == m_Command)) || (data->action == svn_wc_notify_resolved))
 	{
-		bool bShift = !!(GetAsyncKeyState(VK_SHIFT) & 0x8000);
-		// This is a modified file which has been merged on update
-		// Diff it against base
+		// This is a modified file which has been merged on update. Diff it against base
 		CTSVNPath temporaryFile;
 		SVNDiff diff(this, this->m_hWnd, true);
-		diff.DiffFileAgainstBase(data->path, bShift);
+		diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+		diff.DiffFileAgainstBase(data->path);
 	}
 }
 
