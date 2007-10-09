@@ -236,6 +236,7 @@ void CStringDictionary::Clear()
 index_mapping_t CStringDictionary::Merge (const CStringDictionary& source)
 {
 	index_mapping_t result;
+	result.insert (NO_INDEX, NO_INDEX);
 
 	for (index_t i = 0, count = source.size(); i < count; ++i)
 		result.insert (i, AutoInsert (source[i]));
