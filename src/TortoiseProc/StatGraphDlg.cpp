@@ -1032,6 +1032,7 @@ void CStatGraphDlg::OnNeedText(NMHDR *pnmh, LRESULT * /*pResult*/)
 
 void CStatGraphDlg::IgnoreCaseChanged() 
 {
+	UpdateData();	// update checkbox state
 	GatherData();	// first regenerate the statistics data
 	RedrawGraph();	// then update the current statistics page
 }
