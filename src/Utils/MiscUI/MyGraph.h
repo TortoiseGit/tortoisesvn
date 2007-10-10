@@ -131,6 +131,8 @@ protected:
 private:
 	int				m_nXAxisWidth;
 	int				m_nYAxisHeight;
+	int				m_nAxisLabelHeight;
+	int				m_nAxisTickLabelHeight;
 	CPoint			m_ptOrigin;
 	CRect			m_rcGraph;
 	CRect			m_rcLegend;
