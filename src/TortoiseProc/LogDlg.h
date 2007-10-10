@@ -156,6 +156,11 @@ private:
 	bool ValidateRegexp(LPCTSTR regexp_str, rpattern& pat, bool bMatchCase = false);
 	void CheckRegexpTooltip();
 	void GetChangedPaths(std::vector<CString>& changedpaths, std::vector<LogChangedPath*>& changedlogpaths);
+	/**
+	 * Extracts part of commit message suitable for displaying in revision list.
+	 */
+	static CString MakeShortMessage(const CString& message);
+	inline int ShownCountWithStopped() const { return m_arShownList.GetCount() + (m_bStrictStopped ? 1 : 0); }
 
 
 	virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);

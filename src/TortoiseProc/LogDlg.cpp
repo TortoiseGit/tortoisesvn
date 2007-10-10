@@ -797,10 +797,31 @@ void CLogDlg::OnCancel()
 	__super::OnCancel();
 }
 
+CString CLogDlg::MakeShortMessage(const CString& message)
+{
+	CString sShortMessage = message;
+	// Remove newlines and tabs 'cause those are not shown nicely in the listcontrol
+	sShortMessage.Replace(_T("\r"), _T(""));
+	sShortMessage.Replace(_T("\t"), _T(" "));
+	
+	// Suppose the first empty line separates 'summary' from the rest of the message.
+	int found = sShortMessage.Find(_T("\n\n"));
+	// To avoid too short 'short' messages 
+	// (e.g. if the message looks something like "Bugfix:\n\n*done this\n*done that")
+	// only use the empty newline as a separator if it comes after at least 15 chars.
+	if (found >= 15)
+	{
+		sShortMessage = sShortMessage.Left(found);
+	}
+	sShortMessage.Replace('\n', ' ');
+	return sShortMessage;
+}
+
 BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions)
 {
 	return Log(rev, author, date, message, cpaths, time, filechanges, copies, actions, 0);
 }
+
 BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions, BOOL haschildren)
 {
 	if (rev == SVN_INVALID_REVNUM)
@@ -811,7 +832,6 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 	}
 	// this is the callback function which receives the data for every revision we ask the log for
 	// we store this information here one by one.
-	int found = 0;
 	m_logcounter += 1;
 	if (m_startrev == -1)
 		m_startrev = rev;
@@ -830,31 +850,12 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 	if ((m_lowestRev > rev)||(m_lowestRev < 0))
 		m_lowestRev = rev;
 	// Add as many characters from the log message to the list control
-	// so it has a fixed width. If the log message is longer than
-	// this predefined fixed with, add "..." as an indication.
-	CString sShortMessage = message;
-	// Remove newlines and tabs 'cause those are not shown nicely in the listcontrol
-	sShortMessage.Replace(_T("\r"), _T(""));
-	sShortMessage.Replace(_T("\t"), _T(" "));
-	
-	found = sShortMessage.Find(_T("\n\n"));
-	// to avoid too short 'short' messages 
-	// (e.g. if the message looks something like "Bugfix:\n\n*done this\n*done that")
-	// only use the empty newline as a separator if it comes
-	// after at least 15 chars.
-	if (found >= 15)
-	{
-		sShortMessage = sShortMessage.Left(found);
-	}
-	sShortMessage.Replace('\n', ' ');
-	
-	
 	PLOGENTRYDATA pLogItem = new LOGENTRYDATA;
 	pLogItem->bCopies = !!copies;
 	pLogItem->tmDate = ttime;
 	pLogItem->sAuthor = author;
 	pLogItem->sDate = date;
-	pLogItem->sShortMessage = sShortMessage;
+	pLogItem->sShortMessage = MakeShortMessage(message);
 	pLogItem->dwFileChanges = filechanges;
 	pLogItem->actions = actions;
 	pLogItem->haschildren = haschildren;
@@ -1051,7 +1052,7 @@ UINT CLogDlg::LogThread()
 	}
 	if (m_bStrict && (m_lowestRev>1) && ((m_limit>0) ? ((startcount + m_limit)>m_logEntries.size()) : (m_endrev<m_lowestRev)))
 		m_bStrictStopped = true;
-	m_LogList.SetItemCountEx(m_bStrictStopped ? m_arShownList.GetCount()+1 : m_arShownList.GetCount());
+	m_LogList.SetItemCountEx(ShownCountWithStopped());
 
 	m_timFrom = (__time64_t(m_tFrom));
 	m_timTo = (__time64_t(m_tTo));
@@ -1828,24 +1829,7 @@ void CLogDlg::EditLogMessage(int index)
 		}
 		else
 		{
-			CString sShortMessage = dlg.m_sInputText;
-			sShortMessage.Replace(_T("\r"), _T(""));
-
-			// to avoid too short 'short' messages 
-			// (e.g. if the message looks something like "Bugfix:\n\n*done this\n*done that")
-			// only use the empty newline as a separator if it comes
-			// after at least 15 chars.
-			int found = sShortMessage.Find(_T("\n\n"));
-			if (found >= 15)
-			{
-				sShortMessage = sShortMessage.Left(found);
-			}
-
-			// Remove newlines and tabs 'cause those are not shown nicely in the listcontrol
-			sShortMessage.Replace(_T("\n"), _T(" "));
-			sShortMessage.Replace(_T("\t"), _T(" "));
-
-			pLogEntry->sShortMessage = sShortMessage;
+			pLogEntry->sShortMessage = MakeShortMessage(dlg.m_sInputText);
 			// split multi line log entries and concatenate them
 			// again but this time with \r\n as line separators
 			// so that the edit control recognizes them
@@ -2369,8 +2353,8 @@ LRESULT CLogDlg::OnClickedCancelFilter(WPARAM /*wParam*/, LPARAM /*lParam*/)
 	}
 	InterlockedExchange(&m_bNoDispUpdates, FALSE);
 	m_LogList.DeleteAllItems();
-	m_LogList.SetItemCountEx(m_bStrictStopped ? m_arShownList.GetCount()+1 : m_arShownList.GetCount());
-	m_LogList.RedrawItems(0, m_bStrictStopped ? m_arShownList.GetCount()+1 : m_arShownList.GetCount());
+	m_LogList.SetItemCountEx(ShownCountWithStopped());
+	m_LogList.RedrawItems(0, ShownCountWithStopped());
 	m_LogList.SetRedraw(false);
 	ResizeAllListCtrlCols(m_LogList);
 	m_LogList.SetRedraw(true);
@@ -2414,93 +2398,91 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	NMLVDISPINFO *pDispInfo = reinterpret_cast<NMLVDISPINFO*>(pNMHDR);
 
-	//Create a pointer to the item
-	LV_ITEM* pItem= &(pDispInfo)->item;
+	// Create a pointer to the item
+	LV_ITEM* pItem = &(pDispInfo)->item;
 
-	bool bOutOfRange = m_bStrictStopped ? pItem->iItem > m_arShownList.GetCount() : pItem->iItem >= m_arShownList.GetCount();
-	if ((m_bNoDispUpdates)||(m_bThreadRunning)||(bOutOfRange))
-	{
-		if (pItem->mask & LVIF_TEXT)
-			lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
-		*pResult = 0;
+	// Do the list need text information?
+	if (!(pItem->mask & LVIF_TEXT))
 		return;
-	}
 
-	//Which item number?
+	// By default, clear text buffer.
+	lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
+
+	bool bOutOfRange = pItem->iItem >= ShownCountWithStopped();
+	
+	*pResult = 0;
+	if (m_bNoDispUpdates || m_bThreadRunning || bOutOfRange)
+		return;
+
+	// Which item number?
 	int itemid = pItem->iItem;
 	PLOGENTRYDATA pLogEntry = NULL;
 	if (itemid < m_arShownList.GetCount())
 		pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(pItem->iItem));
     
-	//Do the list need text information?
-	if (pItem->mask & LVIF_TEXT)
+	// Which column?
+	switch (pItem->iSubItem)
 	{
-		//Which column?
-		switch (pItem->iSubItem)
+	case 0:	//revision
+		if (pLogEntry)
 		{
-		case 0:	//revision
-			if (itemid < m_arShownList.GetCount())
+			_stprintf_s(pItem->pszText, pItem->cchTextMax, _T("%ld"), pLogEntry->Rev);
+			// to make the child entries indented, add spaces
+			int len = _tcslen(pItem->pszText);
+			TCHAR * pBuf = pItem->pszText + len;
+			DWORD nSpaces = m_maxChild-pLogEntry->childStackDepth;
+			while ((pItem->cchTextMax >= len)&&(nSpaces))
 			{
-				_stprintf_s(pItem->pszText, pItem->cchTextMax, _T("%ld"), pLogEntry->Rev);
-				// to make the child entries indented, add spaces
-				int len = _tcslen(pItem->pszText);
-				TCHAR * pBuf = pItem->pszText + len;
-				DWORD nSpaces = m_maxChild-pLogEntry->childStackDepth;
-				while ((pItem->cchTextMax >= len)&&(nSpaces))
-				{
-					*pBuf = ' ';
-					pBuf++;
-					nSpaces--;
-				}
-				*pBuf = 0;
+				*pBuf = ' ';
+				pBuf++;
+				nSpaces--;
 			}
-			else
-				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
-			break;
-		case 1: //action
-			lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
-			break;
-		case 2: //author
-			if (itemid < m_arShownList.GetCount())
-				lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sAuthor, pItem->cchTextMax);
-			else
-				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
-			break;
-		case 3: //date
-			if (itemid < m_arShownList.GetCount())
-				lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sDate, pItem->cchTextMax);
-			else
-				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
-			break;
-		case 4: //message or bug id
-			if (m_bShowBugtraqColumn)
-			{
-				if (itemid < m_arShownList.GetCount())
-				{
-					lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sBugIDs, pItem->cchTextMax);
-				}
-				else
-					lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
-				break;
-			}
-			// fall through here!
-		case 5:
-			if (itemid < m_arShownList.GetCount())
-			{
-				lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sShortMessage, pItem->cchTextMax);
-			}
-			else if ((itemid == m_arShownList.GetCount())&&(m_bStrict)&&(m_bStrictStopped))
-			{
-				CString sTemp;
-				sTemp.LoadString(IDS_LOG_STOPONCOPY_HINT);
-				lstrcpyn(pItem->pszText, sTemp, pItem->cchTextMax);
-			}
-			else
-				lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
+			*pBuf = 0;
+		}
+		break;
+	case 1: //action -- no text in the column
+		break;
+	case 2: //author
+		if (pLogEntry)
+			lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sAuthor, pItem->cchTextMax);
+		break;
+	case 3: //date
+		if (pLogEntry)
+			lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sDate, pItem->cchTextMax);
+		break;
+	case 4: //message or bug id
+		if (m_bShowBugtraqColumn)
+		{
+			if (pLogEntry)
+				lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sBugIDs, pItem->cchTextMax);
 			break;
 		}
+		// fall through here!
+	case 5:
+		if (pLogEntry)
+		{
+			// Add as many characters as possible from the short log message
+			// to the list control. If the message is longer than
+			// allowed width, add "..." as an indication.
+			const int dots_len = 3;
+			if (pLogEntry->sShortMessage.GetLength() >= pItem->cchTextMax && pItem->cchTextMax > dots_len)
+			{
+				lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sShortMessage, pItem->cchTextMax - dots_len);
+				lstrcpyn(pItem->pszText + pItem->cchTextMax - dots_len - 1, _T("..."), dots_len + 1);
+			}
+			else
+				lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sShortMessage, pItem->cchTextMax);
+		}
+		else if ((itemid == m_arShownList.GetCount()) && m_bStrict && m_bStrictStopped)
+		{
+			CString sTemp;
+			sTemp.LoadString(IDS_LOG_STOPONCOPY_HINT);
+			lstrcpyn(pItem->pszText, sTemp, pItem->cchTextMax);
+		}
+		break;
+	default:
+		ASSERT(false);
 	}
-	*pResult = 0;
 }
 
 void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
@@ -2587,8 +2569,8 @@ void CLogDlg::OnEnChangeSearchedit()
 		}
 		InterlockedExchange(&m_bNoDispUpdates, FALSE);
 		m_LogList.DeleteAllItems();
-		m_LogList.SetItemCountEx(m_bStrictStopped ? m_arShownList.GetCount()+1 : m_arShownList.GetCount());
-		m_LogList.RedrawItems(0, m_bStrictStopped ? m_arShownList.GetCount()+1 : m_arShownList.GetCount());
+		m_LogList.SetItemCountEx(ShownCountWithStopped());
+		m_LogList.RedrawItems(0, ShownCountWithStopped());
 		m_LogList.SetRedraw(false);
 		ResizeAllListCtrlCols(m_LogList);
 		m_LogList.SetRedraw(true);
@@ -2807,8 +2789,8 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 
 
 		m_LogList.DeleteAllItems();
-		m_LogList.SetItemCountEx(m_bStrictStopped ? m_arShownList.GetCount()+1 : m_arShownList.GetCount());
-		m_LogList.RedrawItems(0, m_bStrictStopped ? m_arShownList.GetCount()+1 : m_arShownList.GetCount());
+		m_LogList.SetItemCountEx(ShownCountWithStopped());
+		m_LogList.RedrawItems(0, ShownCountWithStopped());
 		m_LogList.SetRedraw(false);
 		ResizeAllListCtrlCols(m_LogList);
 		m_LogList.SetRedraw(true);
