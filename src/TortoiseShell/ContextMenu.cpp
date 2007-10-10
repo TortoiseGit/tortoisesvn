@@ -833,6 +833,20 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	if (uFlags & CMF_EXTENDEDVERBS)
 		itemStates |= ITEMIS_EXTENDED;
 
+	const BOOL bShortcut = !!(uFlags & CMF_VERBSONLY);
+	if ( bShortcut && (files_.size()==1))
+	{
+		// Don't show the context menu for a link if the
+		// destination is not part of a working copy.
+		// It would only show the standard menu items
+		// which are already shown for the lnk-file.
+		CString path = files_.front().c_str();
+		if ( !g_SVNAdminDir.HasAdminDir(path) )
+		{
+			return NOERROR;
+		}
+	}
+
 	//check if we already added our menu entry for a folder.
 	//we check that by iterating through all menu entries and check if 
 	//the dwItemData member points to our global ID string. That string is set
@@ -850,20 +864,6 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		GetMenuItemInfo(hMenu, i, TRUE, &miif);
 		if (miif.dwItemData == (ULONG_PTR)g_MenuIDString)
 			return NOERROR;
-	}
-
-	const BOOL bShortcut = !!(uFlags & CMF_VERBSONLY);
-	if ( bShortcut && (files_.size()==1))
-	{
-		// Don't show the context menu for a link if the
-		// destination is not part of a working copy.
-		// It would only show the standard menu items
-		// which are already shown for the lnk-file.
-		CString path = files_.front().c_str();
-		if ( !g_SVNAdminDir.HasAdminDir(path) )
-		{
-			return NOERROR;
-		}
 	}
 
 	LoadLangDll();
