@@ -168,10 +168,10 @@ BOOL CSetMainPage::OnApply()
 	if (m_sTempExtensions.Compare(CString(m_regExtensions)))
 	{
 		m_regExtensions = m_sTempExtensions;
+		if (m_regExtensions.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regExtensions.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 		m_restart = Restart_Cache;
 	}
-	if (m_regExtensions.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regExtensions.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	m_regCheckNewer = m_bCheckNewer;
 	if (m_regCheckNewer.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regCheckNewer.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
