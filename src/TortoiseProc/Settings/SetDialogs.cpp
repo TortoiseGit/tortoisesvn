@@ -191,7 +191,7 @@ BOOL CSetDialogs::OnApply()
 	if (m_regShortDateFormat.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regShortDateFormat.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	long val = _ttol(m_sDefaultLogs);
-	if (val > 5)
+	if (val > 0)
 	{
 		m_regDefaultLogs = val;
 		if (m_regDefaultLogs.LastError != ERROR_SUCCESS)
