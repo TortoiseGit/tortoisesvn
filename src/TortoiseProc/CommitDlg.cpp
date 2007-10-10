@@ -793,7 +793,7 @@ void CCommitDlg::ParseRegexFile(const CString& sFile, std::map<CString, RegexDat
 	CString strLine;
 	try
 	{
-		CStdioFile file(sFile, CFile::typeText | CFile::modeRead);
+		CStdioFile file(sFile, CFile::typeText | CFile::modeRead | CFile::shareDenyWrite);
 		while (m_bRunThread && file.ReadString(strLine))
 		{
 			int eqpos = strLine.Find('=');

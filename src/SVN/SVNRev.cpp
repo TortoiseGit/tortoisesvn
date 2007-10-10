@@ -261,7 +261,7 @@ bool SVNRevList::LoadFromFile(LPCTSTR path)
 	try
 	{
 		CString strLine;
-		CStdioFile file(path, CFile::typeBinary | CFile::modeRead);
+		CStdioFile file(path, CFile::typeBinary | CFile::modeRead | CFile::shareDenyWrite);
 
 		if (file.ReadString(strLine))
 		{

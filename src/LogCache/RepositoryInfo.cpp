@@ -50,7 +50,7 @@ void CRepositoryInfo::Load()
 	if (GetFileAttributes (GetFileName()) == INVALID_FILE_ATTRIBUTES)
         return;
 
-    CFile file (GetFileName(), CFile::modeRead);
+	CFile file (GetFileName(), CFile::modeRead | CFile::shareDenyWrite);
     CArchive stream (&file, CArchive::load);
 
     int count = 0;

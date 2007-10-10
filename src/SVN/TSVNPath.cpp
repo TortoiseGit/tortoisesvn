@@ -784,7 +784,7 @@ bool CTSVNPathList::LoadFromFile(const CTSVNPath& filename)
 	try
 	{
 		CString strLine;
-		CStdioFile file(filename.GetWinPath(), CFile::typeBinary | CFile::modeRead);
+		CStdioFile file(filename.GetWinPath(), CFile::typeBinary | CFile::modeRead | CFile::shareDenyWrite);
 
 		// for every selected file/folder
 		CTSVNPath path;

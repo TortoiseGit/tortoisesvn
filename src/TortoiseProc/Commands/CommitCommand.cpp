@@ -58,7 +58,7 @@ bool CommitCommand::Execute()
 				try
 				{
 					CStdioFile msgfile;
-					if (msgfile.Open(logmsgfile, CFile::modeRead))
+					if (msgfile.Open(logmsgfile, CFile::modeRead | CFile::shareDenyWrite))
 					{
 						CStringA filecontent;
 						int filelength = (int)msgfile.GetLength();

@@ -111,7 +111,7 @@ UINT CCheckForUpdatesDlg::CheckThread()
 	{
 		try
 		{
-			CStdioFile file(tempfile, CFile::modeRead);
+			CStdioFile file(tempfile, CFile::modeRead | CFile::shareDenyWrite);
 			CString ver;
 			if (file.ReadString(ver))
 			{
