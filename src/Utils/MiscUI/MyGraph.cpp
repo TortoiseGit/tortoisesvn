@@ -3,7 +3,9 @@
 #include "stdafx.h"
 #include "MyGraph.h"
 
-#include "math.h"
+#include <cmath>
+#include <memory>
+using namespace std;
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -660,6 +662,7 @@ void MyGraph::DrawGraph(CDC& dc)
 		CBrush br;
 		VERIFY(br.CreateSolidBrush(::GetSysColor(COLOR_WINDOW)));
 		dc.FillRect(rcWnd, &br);
+		br.DeleteObject();
 
 		// Draw graph title.
 		DrawTitle(dc);
@@ -716,6 +719,7 @@ void MyGraph::DrawTitle(CDC& dc)
 		DT_TOP);
 
 	VERIFY(dc.SelectObject(pFontOld));
+	fontTitle.DeleteObject();
 }
 
 // Set the axes and origin values.
@@ -793,6 +797,7 @@ void MyGraph::DrawLegend(CDC& dc)
 	if (nLegendHeight > m_rcGraph.Height())
 	{
 		VERIFY(dc.SelectObject(pFontOld));
+		fontLegend.DeleteObject();
 		return;
 	}
 	// Draw the legend border.  Allow LEGEND_COLOR_BAR_PIXELS pixels for
@@ -830,12 +835,15 @@ void MyGraph::DrawLegend(CDC& dc)
 		CBrush* pBrushOld = dc.SelectObject(&br);
 		ASSERT_VALID(pBrushOld);
 
-		dc.SelectObject(pBrushOld);
 		rcBar.DeflateRect(LEGEND_COLOR_BAR_GAP_PIXELS, LEGEND_COLOR_BAR_GAP_PIXELS);
 		dc.FillRect(rcBar, &br);
+
+		dc.SelectObject(pBrushOld);
+		br.DeleteObject();
 	}
 
 	VERIFY(dc.SelectObject(pFontOld));
+	fontLegend.DeleteObject();
 }
 
 //
@@ -876,8 +884,8 @@ void MyGraph::DrawAxes(CDC& dc) const
 	int fontHeightDC = pLF.lfHeight;
 
 	// Create the y-axis label font.
-	CFont fontYAxes;
-	VERIFY(fontYAxes.CreateFont( 
+	CFont fontYAxis;
+	VERIFY(fontYAxis.CreateFont( 
 		/* nHeight */ fontHeightDC,
 		/* nWidth */ 0, 
 		/* nEscapement */ 90 * 10, 
@@ -895,7 +903,7 @@ void MyGraph::DrawAxes(CDC& dc) const
 	);
 
 	// Set the y-axis label font and draw the label.
-	CFont* pFontOld = dc.SelectObject(&fontYAxes);
+	CFont* pFontOld = dc.SelectObject(&fontYAxis);
 	ASSERT_VALID(pFontOld);
 	CSize sizYLabel(dc.GetTextExtent(m_sYAxisLabel));
 	VERIFY(dc.TextOut(GAP_PIXELS, (m_rcGraph.Height() - sizYLabel.cy) / 2,
@@ -977,6 +985,9 @@ void MyGraph::DrawAxes(CDC& dc) const
 	}
 
 	VERIFY(dc.SelectObject(pFontOld));
+	fontXAxis.DeleteObject();
+	fontYAxis.DeleteObject();
+	fontTickLabels.DeleteObject();
 }
 
 //
@@ -1059,6 +1070,7 @@ void MyGraph::DrawSeriesBar(CDC& dc) const
 
 					VERIFY(dc.Rectangle(rcBar));
 					dc.SelectObject(pBrushOld);
+					br.DeleteObject();
 
 					if(!m_bStackedGraph){
 						nRunningLeft += nBarWidth;
@@ -1163,8 +1175,8 @@ void MyGraph::DrawSeriesLine(CDC& dc) const
 			dataLastLoc = pSeries->GetData(nGroup);
 		}
 		VERIFY(dc.SelectObject(pPenOld));
-		dc.SelectObject(pBrushOld);
 		penLine.DeleteObject();
+		VERIFY(dc.SelectObject(pBrushOld));
 		br.DeleteObject();
 	}
 }
@@ -1277,12 +1289,13 @@ void MyGraph::DrawSeriesPie(CDC& dc) const
 						VERIFY(dc.BeginPath());
 						VERIFY(dc.Pie(rcPie, ptStart, ptEnd));
 						VERIFY(dc.EndPath());
-						CRgn* prgnWedge = new CRgn;
+						CRgn * prgnWedge = new CRgn;
 						VERIFY(prgnWedge->CreateFromPath(&dc));
 						pSeries->SetTipRegion(nGroup, prgnWedge);
 
 						// Cleanup.
 						dc.SelectObject(pBrushOld);
+						br.DeleteObject();
 						ptStart = ptEnd;
 					}
 				}
