@@ -33,12 +33,10 @@
 					<token key="MAJOR" value="${NEON_MAJOR_VERSION}" />
 					<token key="MINOR" value="${NEON_MINOR_VERSION}" />
 				</replacetokens>
-				<!-- <replacestring from="#define HAVE_SSPI" to="" /> -->
 			</filterchain>
 		</loadfile>
 		<echo file="config.hw" message="${configfile}" unless="${file::exists('config.hw')}" />
 		<echo file="config.h" message="${configfile}" unless="${file::exists('config.h')}" />
-		<!-- patch neon to use our own default-ca file -->
 		<cl outputdir="${configuration}${static}_${platform}">
 			<arg value="/O2" if="${configuration == 'release'}" />
 			<arg value="/Ob1" if="${configuration == 'release'}" />
