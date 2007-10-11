@@ -2621,6 +2621,8 @@ void CBaseView::ShowDiffLines(int nLine)
 
 void CBaseView::UseTheirAndYourBlock(viewstate &rightstate, viewstate &bottomstate, viewstate &leftstate)
 {
+    if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
+        return;
 	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 	{
 		bottomstate.difflines[i] = m_pwndBottom->m_pViewData->GetLine(i);
@@ -2665,6 +2667,8 @@ void CBaseView::UseTheirAndYourBlock(viewstate &rightstate, viewstate &bottomsta
 
 void CBaseView::UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomstate, viewstate &leftstate)
 {
+    if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
+        return;
 	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 	{
 		bottomstate.difflines[i] = m_pwndBottom->m_pViewData->GetLine(i);
@@ -2712,6 +2716,8 @@ void CBaseView::UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomsta
 
 void CBaseView::UseBothRightFirst(viewstate &rightstate, viewstate &leftstate)
 {
+    if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
+        return;
 	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 	{
 		rightstate.linestates[i] = m_pwndRight->m_pViewData->GetState(i);
@@ -2748,6 +2754,8 @@ void CBaseView::UseBothRightFirst(viewstate &rightstate, viewstate &leftstate)
 
 void CBaseView::UseBothLeftFirst(viewstate &rightstate, viewstate &leftstate)
 {
+    if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
+        return;
 	// get line number from just before the block
 	long linenumber = 0;
 	if (m_nSelBlockStart > 0)
