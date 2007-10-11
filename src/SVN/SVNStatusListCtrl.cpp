@@ -637,7 +637,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 
 		AddNewFileEntry(s, svnPath, workingTarget, true, m_bHasExternals, bEntryFromDifferentRepo);
 
-		if (((wcFileStatus == svn_wc_status_unversioned)||((wcFileStatus == svn_wc_status_ignored)&&(m_bShowIgnores))) && svnPath.IsDirectory())
+		if (((wcFileStatus == svn_wc_status_unversioned)||(wcFileStatus == svn_wc_status_none)||((wcFileStatus == svn_wc_status_ignored)&&(m_bShowIgnores))) && svnPath.IsDirectory())
 		{
 			// we have an unversioned folder -> get all files in it recursively!
 			AddUnversionedFolder(svnPath, workingTarget.GetContainingDirectory(), &config);
@@ -931,9 +931,9 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 
 		bool bMatchIgnore = !!config->MatchIgnorePattern(entry->path.GetFileOrDirectoryName());
 		bMatchIgnore = bMatchIgnore || config->MatchIgnorePattern(entry->path.GetSVNPathString());
-		if (((wcFileStatus == svn_wc_status_unversioned)&&(!bMatchIgnore))||
+		if ((((wcFileStatus == svn_wc_status_unversioned)||(wcFileStatus == svn_wc_status_none))&&(!bMatchIgnore))||
 			((wcFileStatus == svn_wc_status_ignored)&&(m_bShowIgnores))||
-			((wcFileStatus == svn_wc_status_unversioned)&&(bMatchIgnore)&&(m_bShowIgnores)))
+			(((wcFileStatus == svn_wc_status_unversioned)||(wcFileStatus == svn_wc_status_none))&&(bMatchIgnore)&&(m_bShowIgnores)))
 		{
 			if (entry->isfolder)
 			{
