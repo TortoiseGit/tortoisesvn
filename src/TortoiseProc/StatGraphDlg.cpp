@@ -50,7 +50,8 @@ CStatGraphDlg::CStatGraphDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CStatGraphDlg::IDD, pParent)
 	, m_bStacked(FALSE)
 	, m_GraphType(MyGraph::Bar)
-	, m_bIgnoreAuthorCase(FALSE)
+	, m_bAuthorsCaseSensitive(TRUE)
+	, m_bSortByCommitCount(TRUE)
 	, m_nWeeks(-1)
 {
 	m_parDates = NULL;
@@ -76,7 +77,8 @@ void CStatGraphDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_GRAPH, m_graph);
 	DDX_Control(pDX, IDC_GRAPHCOMBO, m_cGraphType);
 	DDX_Control(pDX, IDC_SKIPPER, m_Skipper);
-	DDX_Check(pDX, IDC_IGNORECASE, m_bIgnoreAuthorCase);
+	DDX_Check(pDX, IDC_AUTHORSCASESENSITIVE, m_bAuthorsCaseSensitive);
+	DDX_Check(pDX, IDC_SORTBYCOMMITCOUNT, m_bSortByCommitCount);
 	DDX_Control(pDX, IDC_GRAPHBARBUTTON, m_btnGraphBar);
 	DDX_Control(pDX, IDC_GRAPHBARSTACKEDBUTTON, m_btnGraphBarStacked);
 	DDX_Control(pDX, IDC_GRAPHLINEBUTTON, m_btnGraphLine);
@@ -89,7 +91,8 @@ BEGIN_MESSAGE_MAP(CStatGraphDlg, CResizableStandAloneDialog)
 	ON_CBN_SELCHANGE(IDC_GRAPHCOMBO, OnCbnSelchangeGraphcombo)
 	ON_WM_HSCROLL()
 	ON_NOTIFY(TTN_NEEDTEXT, NULL, OnNeedText)
-	ON_BN_CLICKED(IDC_IGNORECASE, &CStatGraphDlg::IgnoreCaseChanged)
+	ON_BN_CLICKED(IDC_AUTHORSCASESENSITIVE, &CStatGraphDlg::AuthorsCaseSensitiveChanged)
+	ON_BN_CLICKED(IDC_SORTBYCOMMITCOUNT, &CStatGraphDlg::SortModeChanged)
 	ON_BN_CLICKED(IDC_GRAPHBARBUTTON, &CStatGraphDlg::OnBnClickedGraphbarbutton)
 	ON_BN_CLICKED(IDC_GRAPHBARSTACKEDBUTTON, &CStatGraphDlg::OnBnClickedGraphbarstackedbutton)
 	ON_BN_CLICKED(IDC_GRAPHLINEBUTTON, &CStatGraphDlg::OnBnClickedGraphlinebutton)
@@ -198,7 +201,8 @@ BOOL CStatGraphDlg::OnInitDialog()
 	AddAnchor(IDC_GRAPHLINESTACKEDBUTTON, BOTTOM_RIGHT);
 	AddAnchor(IDC_GRAPHPIEBUTTON, BOTTOM_RIGHT);
 
-	AddAnchor(IDC_IGNORECASE, BOTTOM_LEFT);
+	AddAnchor(IDC_AUTHORSCASESENSITIVE, BOTTOM_LEFT);
+	AddAnchor(IDC_SORTBYCOMMITCOUNT, BOTTOM_LEFT);
 	AddAnchor(IDC_SKIPPER, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SKIPPERLABEL, BOTTOM_LEFT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
@@ -253,6 +257,7 @@ void CStatGraphDlg::ShowLabels(BOOL bShow)
 	GetDlgItem(IDC_FILECHANGESEACHWEEKMIN)->ShowWindow(nCmdShow);
 	GetDlgItem(IDC_FILECHANGESEACHWEEKMAX)->ShowWindow(nCmdShow);
 
+	GetDlgItem(IDC_SORTBYCOMMITCOUNT)->ShowWindow(bShow ? SW_HIDE : SW_SHOW);
 	GetDlgItem(IDC_SKIPPER)->ShowWindow(bShow ? SW_HIDE : SW_SHOW);
 	GetDlgItem(IDC_SKIPPERLABEL)->ShowWindow(bShow ? SW_HIDE : SW_SHOW);
 	m_btnGraphBar.ShowWindow(bShow ? SW_HIDE : SW_SHOW);
@@ -457,7 +462,7 @@ void CStatGraphDlg::GatherData() {
 		int interval = (int)ceil(secsSinceMinDate/timeIntervalLength);
 		// Find the authors name
 		CString sAuth = m_parAuthors->GetAt(i);
-		if (m_bIgnoreAuthorCase)
+		if (!m_bAuthorsCaseSensitive)
 			sAuth = sAuth.MakeLower();
 		stdstring author = stdstring(sAuth);
 		// Increase total commit count for this author
@@ -541,8 +546,10 @@ void CStatGraphDlg::FilterSkippedAuthors(std::list<stdstring>& included_authors,
 	// skipped author list.
 	std::copy(author_it, m_authorNames.end(), std::back_inserter(skipped_authors) );
 
-	// TODO : FS#399, sort author names based on commit count or alphabetically 
-	//        depending on checkbox value.
+	// Sort authors alphabetically if user wants that.
+	if (!m_bSortByCommitCount) {
+		included_authors.sort();
+	}
 }
 
 void CStatGraphDlg::ShowCommitsByAuthor()
@@ -1030,10 +1037,16 @@ void CStatGraphDlg::OnNeedText(NMHDR *pnmh, LRESULT * /*pResult*/)
 	}
 }
 
-void CStatGraphDlg::IgnoreCaseChanged() 
+void CStatGraphDlg::AuthorsCaseSensitiveChanged() 
 {
 	UpdateData();	// update checkbox state
 	GatherData();	// first regenerate the statistics data
+	RedrawGraph();	// then update the current statistics page
+}
+
+void CStatGraphDlg::SortModeChanged() 
+{
+	UpdateData();	// update checkbox state
 	RedrawGraph();	// then update the current statistics page
 }
 

@@ -286,7 +286,6 @@
 #define IDC_OLDLOGS                     1124
 #define IDC_ICONSETCOMBO                1124
 #define IDC_CHIST                       1125
-#define IDC_CHECK1                      1126
 #define IDC_USETEXTVIEWER               1126
 #define IDC_KEEPLISTS                   1126
 #define IDC_SHOWLOCKDLG                 1126
@@ -294,6 +293,7 @@
 #define IDC_CACHELOGS                   1126
 #define IDC_INCLUDEMERGE                1126
 #define IDC_IGNOREEOL                   1126
+#define IDC_SORTBYCOMMITCOUNT           1126
 #define IDC_F5HINT                      1127
 #define IDC_IGNOREEOL2                  1127
 #define IDC_RADIOBDB                    1128
@@ -507,7 +507,7 @@
 #define IDC_STACKED                     1263
 #define IDS_PROC_SETTINGS_TITLE         1264
 #define IDC_SHOWIGNORED                 1264
-#define IDC_IGNORECASE                  1265
+#define IDC_AUTHORSCASESENSITIVE        1265
 #define IDS_PROC_OVERWRITE_CONFIRM      1266
 #define IDC_IMPORTIGNORED               1266
 #define IDS_PROC_REPOCREATEFINISHED     1267

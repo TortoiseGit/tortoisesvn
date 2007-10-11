@@ -125,10 +125,13 @@ protected:
 	void ShowStats();
 
 
-	/// Called when user checks/unchecks the "Ignore case" checkbox.
+	/// Called when user checks/unchecks the "Authors case sensitive" checkbox.
 	/// Recalculates statistical data because the number and names of authors 
 	/// can have changed. Also calls RedrawGraph().
-	void IgnoreCaseChanged();
+	void AuthorsCaseSensitiveChanged();
+	/// Called when user checks/unchecks the "Sort by commit count" checkbox.
+	/// Calls RedrawGraph().
+	void SortModeChanged();
 	/// Clears the current graph and frees all data series.
 	void ClearGraph();
 	/// Updates the currently shown statistics page.
@@ -150,7 +153,8 @@ protected:
 	MyGraph			m_graph;
 	CComboBox		m_cGraphType;
 	CSliderCtrl		m_Skipper;
-	BOOL			m_bIgnoreAuthorCase;
+	BOOL			m_bAuthorsCaseSensitive;
+	BOOL			m_bSortByCommitCount;
 
 	CXPImageButton	m_btnGraphBar;
 	CXPImageButton	m_btnGraphBarStacked;
