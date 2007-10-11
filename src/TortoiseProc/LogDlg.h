@@ -159,7 +159,7 @@ private:
 	/**
 	 * Extracts part of commit message suitable for displaying in revision list.
 	 */
-	static CString MakeShortMessage(const CString& message);
+	CString MakeShortMessage(const CString& message);
 	inline int ShownCountWithStopped() const { return m_arShownList.GetCount() + (m_bStrictStopped ? 1 : 0); }
 
 

@@ -799,7 +799,13 @@ void CLogDlg::OnCancel()
 
 CString CLogDlg::MakeShortMessage(const CString& message)
 {
-	CString sShortMessage = message;
+	bool bFoundShort = true;
+	CString sShortMessage = m_ProjectProperties.GetLogSummary(message);
+	if (sShortMessage.IsEmpty())
+	{
+		bFoundShort = false;
+		sShortMessage = message;
+	}
 	// Remove newlines and tabs 'cause those are not shown nicely in the listcontrol
 	sShortMessage.Replace(_T("\r"), _T(""));
 	sShortMessage.Replace(_T("\t"), _T(" "));
@@ -809,7 +815,7 @@ CString CLogDlg::MakeShortMessage(const CString& message)
 	// To avoid too short 'short' messages 
 	// (e.g. if the message looks something like "Bugfix:\n\n*done this\n*done that")
 	// only use the empty newline as a separator if it comes after at least 15 chars.
-	if (found >= 15)
+	if ((!bFoundShort)&&(found >= 15))
 	{
 		sShortMessage = sShortMessage.Left(found);
 	}

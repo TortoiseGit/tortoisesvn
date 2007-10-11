@@ -37,6 +37,7 @@ using namespace regex;
 #define PROJECTPROPNAME_LOGMINSIZE		  _T("tsvn:logminsize")
 #define PROJECTPROPNAME_LOCKMSGMINSIZE	  _T("tsvn:lockmsgminsize")
 #define PROJECTPROPNAME_LOGFILELISTLANG	  _T("tsvn:logfilelistenglish")
+#define PROJECTPROPNAME_LOGSUMMARY		  _T("tsvn:logsummary")
 #define PROJECTPROPNAME_PROJECTLANGUAGE   _T("tsvn:projectlanguage")
 #define PROJECTPROPNAME_USERFILEPROPERTY  _T("tsvn:userfileproperties")
 #define PROJECTPROPNAME_USERDIRPROPERTY   _T("tsvn:userdirproperties")
@@ -120,6 +121,13 @@ public:
 	 */
 	bool AddAutoProps(const CTSVNPath& path);
 
+	/**
+	 * Returns the log message summary if the tsvn:logsummaryregex property is
+	 * set and there are actually some matches.
+	 * Otherwise, an empty string is returned.
+	 */
+	CString GetLogSummary(const CString& sMessage);
+
 public:
 	/** The label to show in the commit dialog where the issue number/bug id
 	 * is entered. Example: "Bug-ID: " or "Issue-No.:". Default is "Bug-ID :" */
@@ -192,6 +200,8 @@ private:
 	rpattern	patCheckRe;
 	rpattern	patBugIDRe;
 	CString		sAutoProps;
+	rpattern	patLogSummary;
+	bool		bHasLogSummaryPattern;
 #ifdef DEBUG
 	friend class PropTest;
 #endif

@@ -34,6 +34,7 @@ ProjectProperties::ProjectProperties(void)
 	bFileListInEnglish = TRUE;
 	bAppend = TRUE;
 	lProjectLanguage = 0;
+	bHasLogSummaryPattern = false;
 }
 
 ProjectProperties::~ProjectProperties(void)
@@ -73,6 +74,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 	BOOL bFoundWebViewRev = FALSE;
 	BOOL bFoundWebViewPathRev = FALSE;
 	BOOL bFoundAutoProps = FALSE;
+	BOOL bFoundLogSummary = FALSE;
 
 	if (!path.IsDirectory())
 		path = path.GetContainingDirectory();
@@ -248,6 +250,17 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 				sWebViewerPathRev = sPropVal;
 				bFoundWebViewPathRev = TRUE;
 			}
+			if ((!bFoundLogSummary)&&(sPropName.Compare(PROJECTPROPNAME_LOGSUMMARY)==0))
+			{
+				try
+				{
+					patLogSummary.init((LPCTSTR)sPropVal, MULTILINE);
+					bFoundLogSummary = TRUE;
+					bHasLogSummaryPattern = true;
+				}
+				catch (bad_alloc){}
+				catch (bad_regexpr){}
+			}
 		}
 		if (PathIsRoot(path.GetWinPath()))
 			return FALSE;
@@ -258,7 +271,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 				| bFoundBugtraqURL | bFoundBugtraqWarnIssue | bFoundLogWidth
 				| bFoundLogTemplate | bFoundBugtraqLogRe | bFoundMinLockMsgSize
 				| bFoundUserFileProps | bFoundUserDirProps | bFoundAutoProps
-				| bFoundWebViewRev | bFoundWebViewPathRev)
+				| bFoundWebViewRev | bFoundWebViewPathRev | bFoundLogSummary)
 				return TRUE;
 			return FALSE;
 		}
@@ -861,6 +874,33 @@ bool ProjectProperties::AddAutoProps(const CTSVNPath& path)
 	if (!sAutoProps.IsEmpty())
 		bRet = props.Add(PROJECTPROPNAME_AUTOPROPS, CUnicodeUtils::StdGetUTF8((LPCTSTR)sAutoProps)) && bRet;
 	return bRet;
+}
+
+CString ProjectProperties::GetLogSummary(const CString& sMessage)
+{
+	restring reMsg = restring(sMessage);
+	CString sRet;
+	if (bHasLogSummaryPattern)
+	{
+		try
+		{
+			match_results results;
+			match_results::backref_type br;
+			br = patLogSummary.match( reMsg, results, 0 );
+			if( br.matched ) 
+			{
+				if (results.cbackrefs() > 0)
+				{
+					ATLTRACE(_T("matched id : %s\n"), results.backref(1).str().c_str());
+					sRet = results.backref(1).str().c_str();
+					sRet.Trim();
+				}
+			}
+		}
+		catch (bad_alloc) {}
+		catch (bad_regexpr){}
+	}
+	return sRet;
 }
 
 #ifdef DEBUG
