@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-10-05 10:26+0100\n"
+"PO-Revision-Date: 2007-10-11 11:52+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1214,8 +1214,8 @@ msgid "Authors"
 msgstr "Autoren"
 
 #. Resource IDs: (1265)
-msgid "Authors case insensitive"
-msgstr "Groß- / Kleinschreibung bei Autoren ignorieren"
+msgid "Authors case sensitive"
+msgstr "Groß- / Kleinschreibung bei Autoren beachten"
 
 #. Resource IDs: (65535)
 msgid "Authors:"
@@ -5348,6 +5348,10 @@ msgstr "Übersprungen"
 #. Resource IDs: (263)
 msgid "Skipped missing target"
 msgstr "Fehlendes Ziel übersprungen"
+
+#. Resource IDs: (1126)
+msgid "Sort by commit count"
+msgstr "Nach Anzahl der Übertragungen sortieren"
 
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
