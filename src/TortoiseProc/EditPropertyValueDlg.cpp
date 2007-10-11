@@ -113,6 +113,7 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 		m_PropNames.AddString(_T("tsvn:logminsize"));
 		m_PropNames.AddString(_T("tsvn:lockmsgminsize"));
 		m_PropNames.AddString(_T("tsvn:logfilelistenglish"));
+		m_PropNames.AddString(_T("tsvn:logsummary"));
 		m_PropNames.AddString(_T("tsvn:projectlanguage"));
 		m_PropNames.AddString(_T("tsvn:userfileproperties"));
 		m_PropNames.AddString(_T("tsvn:userdirproperties"));
@@ -287,6 +288,8 @@ void CEditPropertyValueDlg::CheckRecursive()
 			nText = IDS_PROP_TT_TSVNLOCKMSGMINSIZE;
 		if (sName.Compare(_T("tsvn:logfilelistenglish"))==0)
 			nText = IDS_PROP_TT_TSVNLOGFILELISTENGLISH;
+		if (sName.Compare(_T("tsvn:logsummary"))==0)
+			nText = IDS_PROP_TT_TSVNLOGSUMMARY;
 		if (sName.Compare(_T("tsvn:projectlanguage"))==0)
 			nText = IDS_PROP_TT_TSVNPROJECTLANGUAGE;
 		if (sName.Compare(_T("tsvn:userfileproperties"))==0)

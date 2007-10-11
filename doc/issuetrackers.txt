@@ -2,7 +2,7 @@ Integration of Subversion (GUI) clients with Bug Tracking Tools:
 ================================================================================
 
 I. Preface
-----------
+==========
 This document is primarily intended for writers of various GUI clients for 
 Subversion.  Clients such as TortoiseSVN, Subclipse, RapidSVN, PySVN and many 
 others.
@@ -11,7 +11,7 @@ The goal of this document is to outline a common technique for defining and then
 integrating these GUI clients with third party bug tracking software.  
 
 II. Introduction
-----------------
+================
 It is very common in Software Development for changes to be related to a 
 specific bug or issue ID. Users of bug tracking systems would like to associate 
 the changes they make in Subversion with a specific ID in their bug tracking 
@@ -39,7 +39,7 @@ client will take care of that.
 the webbrowser to see the issue associated with that log message/commit.
 
 III. Requirements
------------------
+=================
 To make the integration with bug tracking tools possible, a Subversion client 
 needs some information about the bug tracking tool used in a project. That 
 information should be available inside the working copy so that clients don't 
@@ -58,7 +58,7 @@ integration with bug tracking tools easier for the user, but these are
 essential for the integration to work.
 
 IV. Implementation
-------------------
+==================
 The required information for the clients is stored in *folder* properties. The 
 reason we chose this path is explained in the FAQ at the end of this document.
 
@@ -67,8 +67,10 @@ is very basic but provides the user with a separate GUI to enter bug ID's,
 and the other one is based on regular expressions where the user has to enter
 the bug ID's directly into the log message.
 
+
 The following properties are defined which are used by both ways:
 
+---------
 name  : bugtraq:url
 value : (string)
 This value is the URL pointing to the bug tracking tool. The URL string should 
@@ -77,15 +79,29 @@ That way the resulting URL will point directly to the correct issue.
 NOTE: The URL must be properly URI encoded by the user.
 This URL can be used by clients to create a link to the bug tracking tool when
 showing the logmessage of a revision.
+---------
 
+---------
 name  : bugtraq:warnifnoissue
 value : "true"/"yes" or "false"/"no"
 If set to "true", then the clients will warn the user if the issue text box is
-left empty. But it must not block the commit, only give the user a chance to
+left empty. But it must _not_ block the commit, only give the user a chance to
 enter an issue number in case (s)he forgot it.
+---------
+
+---------
+name  : bugtraq:revprop
+value : "true"/"yes" or "false"/"no"
+If set to "true", then the clients will also set the revision property named 
+"bugtraq:ID" together with the commit. The value of the revision property
+is the bug ID which the client gets either through bugtraq:message or through
+the regex strings from the log message.
+---------
+
 
 Properties used with the basic integration:
 
+---------
 name  : bugtraq:label
 value : (string)
 This can be used by a client as a GUI label describing the text box where the 
@@ -93,11 +109,14 @@ user has to enter the issue number. If this is not set, then a default value
 should be used, e.g. "Bug-ID / Issue-Number :". Keep in mind though that most 
 GUI clients don't resize their windows according to the size of GUI elements. So 
 keep the size of the label string below 20-25 chars.
+---------
 
+---------
 name  : bugtraq:message
 value : (string)
 If this property is set, then the client should show a text box in the commit 
-window where the user can enter an issue number.  
+window where the user can enter an issue number.
+
 The value string of this property is used by the client to create an additional 
 line added to the log message. The string must contain the substring "%BUGID%" 
 which is replaced with the issue number the user entered before applied to the 
@@ -106,33 +125,47 @@ of the log message the user entered:
 logmessage + "\n" + resultstring
 In case bugtraq:append is set to "false", then the log message is defined as
 resultstring + "\n" + logmessage
+
 The client should make sure that the string doesn't have multiple lines.
 If more than one issue number is entered by the user (separated by commas), the 
 client must make sure that there's no whitespace chars before and after the 
 comma. And also the whole issue number string must be trimmed.
+
+If the string is empty and bugtraq:revprop is set to "true", then only the revision
+property is set without adding a string to the log message.
+
 Note: if the bugtraq:logregex property is set, then this property should be
 ignored for parsing the log message but only be used to show the issue ID edit box.
+---------
 
+---------
 name  : bugtraq:number
-value : "true" or "false"
+value : "true"/"yes" or "false"/"no"
 If this property is set to "false", then the client allows any character entered 
 in the issue text box. Any other value or if the property is missing then only 
 numbers are allowed as the issue number. One exception is the ',' char, which is
 used to separate multiple issues.
+
 The client must never complain if the text box is left empty, i.e. if no issue
 number is given. Not all commits are assigned to an issue!
+
 Note: if the property bugtraq:logregex is set and this property is set to false,
 then the client should use the regex against the created string which is added
 to the log message to check if the bug ID is valid.
+---------
 
+---------
 name  : bugtraq:append
-value : "true" or "false"
+value : "true"/"yes" or "false"/"no"
 If set to "false", then the bugtraq:message part is inserted at the top of
 the log message, if "yes" or not set, then it's appended to the log message at
 the bottom.
+---------
+
 
 Properties used with the regex integration:
 
+---------
 name  : bugtraq:logregex
 value : (string)
 This property contains one or two regular expressions, separated by a newline.
@@ -155,9 +188,11 @@ The property bugtraq:logregex will override bugtraq:number and bugtraq:message.
 If both bugtraq:logregex and bugtraq:message are set, then bugtraq:message is
 only used if the user enters an issue ID in the edit box of the commit window.
 Both are used in the log window to find the URL's to point to the issuetracker.
+---------
+
 
 Please note:
-- All property names and values must be properly UTF8 encoded. The client should
+- All property names and values must be properly UTF8 encoded. The client must
   take care of that when setting the properties.
 - If the properties are not set for a folder, the client should search upwards
   in the working copy for them until the working copy root is reached.
