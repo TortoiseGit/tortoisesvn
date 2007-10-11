@@ -28,12 +28,14 @@
   <li>Log message caching</li>
   <li>Repository browser</li>
   <li>Revision graph</li>
+  <li>Client side hook scripts</li>
+  <li>TortoiseMerge</li>
 </ul>
 
 <p>Details are described below.</p>
 
 <p>TortoiseSVN 1.5 is a superset of all previous TortoiseSVN releases,
-and is considered the current stable and "best" release.  Anything in 1.0.x,
+and is considered the current stable and "best" release. Anything in 1.0.x,
 1.1.x, 1.2.x, 1.3.x or 1.4.x is also in 1.5, but 1.5 contains features and
 bugfixes not present in any earlier release.</p>
 
@@ -43,10 +45,36 @@ bugfixes not present in any earlier release.</p>
 <h2>Compatibility Concerns</h2>
 
 <p>Older clients and servers interoperate transparently with 1.5
-servers and clients.  Of course, some of the new 1.5 features may not
+servers and clients. Of course, some of the new 1.5 features may not
 be available unless both client and server are the latest version
-(e.g. <a href="http://subversion.tigris.org/merge-tracking/func-spec.html#migration-and-interoperability"
->Merge Tracking</a>).</p>
+(e.g. <a href="http://subversion.tigris.org/merge-tracking/func-spec.html#migration-and-interoperability">Merge Tracking</a>).</p>
+
+<p>Due to certain improvements made to the working copy
+library, the version number of the working copy format has been
+incremented. This means that Subversion clients earlier than 1.5 will
+<em>not</em> be able to work with working copies produced by Subversion
+1.5. Similarly, the repository format has changed as well, meaning
+that pre-1.5 Subversion tools that normally access a repository
+directly
+(e.g. <tt>svnserve</tt>, <tt>mod_dav_svn</tt>, <tt>svnadmin</tt>)
+won't be able to read a repository originally created by Subversion 1.5.
+</p>
+
+<p><strong>WARNING:</strong> if a Subversion 1.5 client encounters a pre-1.5
+working copy, it will <em>automatically</em> upgrade the working copy
+format as soon as it touches it, making it unreadable by older
+Subversion clients. If you are using several versions of Subversion
+on your machine, you need to be careful about which version you use in
+which working copy, to avoid accidentally upgrading the working copy
+format. This "auto upgrade" feature, however, does <em>not</em> occur
+with the new repository format.
+</p>
+
+<p>
+Have a look at the Subversion FAQ about the 
+<a href="http://subversion.tigris.org/faq.html#working-copy-format-change">
+working copy format change</a>.
+</p>
 
 </div>  <!-- compatibility -->
 
@@ -186,6 +214,9 @@ time, especially for repositories with thousands of revisions.</p>
 the entries which are not yet in the local cache are fetched from the
 repository.</p>
 
+<p>The log cache improves the performance not only of the log dialog
+but also of the revision graph.</p>
+
 </div>  <!-- log-cache -->
 
 
@@ -225,9 +256,52 @@ the graph or which nodes/paths/urls should be filtered out completely.</p>
 <h2>Client-side hook scripts</h2>
 
 <p>
+TortoiseSVN allows the execution of client side scripts before and after
+certain operations. The available hooks are:
 
+<dl>
+	<dt>Start Commit Hook</dt>
+		<dd>Called before the commit dialog is shown</dd>
+	<dt>Pre-Commit Hook</dt>
+		<dd>Called after the commit dialog is shown, but before the actual commit</dd>
+	<dt>Post-Commit Hook</dt>
+		<dd>Called after the commit is finished</dd>
+	<dt>Start Update Hook</dt>
+		<dd>Called before an update, before the repository is contacted</dd>
+	<dt>Pre-Update Hook</dt>
+		<dd>Called before the update, but after the revision to which the update is done is known</dd>
+	<dt>Post-Update Hook</dt>
+		<dd>Called after the update has finished</dd>
+</dl>
+
+</p>
 </div>  <!-- client-side-hooks -->
 
+<div class="h2" id="TortoiseMerge" title="TortoiseMerge">
+<h2>TortoiseMerge</h2>
+<p>
+<dl>
+	<dt>Line endings</dt>
+		<dd>inconsistent line endings are handled properly, including MAC line endings</dd>
+	<dt>Undo</dt>
+		<dd>Changes made during conflict resolving can be reverted one by one</dd>
+	<dt>Editing</dt>
+		<dd>The target file can be edited directly in TortoiseMerge without the need to use a text editor</dd>
+</dl>
+</p>
+
+</div>  <!-- TortoiseMerge -->
+
+<div class="h2" id="SubWCRev" title="SubWCRev">
+<h2>SubWCRev</h2>
+
+<p>
+The SubWCRev tool has a COM interface for easy access from scripting
+languages. This makes it possible to embed the revision information
+in e.g., MS Word documents.
+</p>
+
+</div>  <!-- SubWCRev -->
 
 </div>  <!-- app -->
 </body>
