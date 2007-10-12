@@ -318,11 +318,13 @@ LRESULT CMainWindow::DoCommand(int id)
 			CheckMenuItem(hMenu, ID_VIEW_OVERLAPIMAGES, uCheck);
 
 			ShowWindow(picWindow2, bOverlap ? SW_HIDE : SW_SHOW);
+
 			if (bOverlap)
 			{
 				picWindow1.StopTimer();
 				picWindow2.StopTimer();
-				picWindow1.SetSecondPic(picWindow2.GetPic(), rightpictitle, rightpicpath, picWindow2.GetHPos(), picWindow2.GetVPos());
+				picWindow1.SetSecondPic(picWindow2.GetPic(), rightpictitle, rightpicpath, 
+					picWindow1.GetHPos()-picWindow2.GetHPos(), picWindow1.GetVPos()-picWindow2.GetVPos());
 				picWindow1.SetSecondPicAlpha(m_BlendType, 127);
 			}
 			else
@@ -345,6 +347,7 @@ LRESULT CMainWindow::DoCommand(int id)
 			RECT rect;
 			GetClientRect(*this, &rect);
 			PositionChildren(&rect);
+
 			if ((bFitSizes)&&(bOverlap))
 			{
 				picWindow1.FitSizes(bFitSizes);
