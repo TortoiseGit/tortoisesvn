@@ -478,20 +478,25 @@ void CMainFrame::OnFileOpen()
 	LoadViews();
 }
 
-BOOL CMainFrame::LoadViews(BOOL bReload)
+void CMainFrame::ClearViewNamesAndPaths() {
+	m_pwndLeftView->m_sWindowName.Empty();
+	m_pwndLeftView->m_sFullFilePath.Empty();
+	m_pwndRightView->m_sWindowName.Empty();
+	m_pwndRightView->m_sFullFilePath.Empty();
+	m_pwndBottomView->m_sWindowName.Empty();
+	m_pwndBottomView->m_sFullFilePath.Empty();
+}
+
+bool CMainFrame::LoadViews()
 {
 	m_Data.SetBlame(m_bBlame);
 	m_bHasConflicts = false;
-	if (bReload)
+	if (!m_Data.Load())
 	{
-		if (!m_Data.Load())
-		{
-			::MessageBox(NULL, m_Data.GetError(), _T("TortoiseMerge"), MB_ICONERROR);
-			m_Data.m_mergedFile.SetOutOfUse();
-			return FALSE;
-		}
+		::MessageBox(NULL, m_Data.GetError(), _T("TortoiseMerge"), MB_ICONERROR);
+		m_Data.m_mergedFile.SetOutOfUse();
+		return false;
 	}
-	BOOL bGoFirstDiff = (0 != ((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\FirstDiffOnLoad"), TRUE)));
 	if (!m_Data.IsBaseFileInUse())
 	{
 		if (m_Data.IsYourFileInUse() && m_Data.IsTheirFileInUse())
@@ -500,14 +505,9 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 		}
 		else if ((!m_Data.m_sDiffFile.IsEmpty())&&(!m_Patch.OpenUnifiedDiffFile(m_Data.m_sDiffFile)))
 		{
-			m_pwndLeftView->m_sWindowName.Empty();
-			m_pwndLeftView->m_sFullFilePath.Empty();
-			m_pwndRightView->m_sWindowName.Empty();
-			m_pwndRightView->m_sFullFilePath.Empty();
-			m_pwndBottomView->m_sWindowName.Empty();
-			m_pwndBottomView->m_sFullFilePath.Empty();
+			ClearViewNamesAndPaths();
 			MessageBox(m_Patch.GetErrorMessage(), NULL, MB_ICONERROR);
-			return FALSE;
+			return false;
 		}
 		if (m_Patch.GetNumberOfFiles() > 0)
 		{
@@ -525,14 +525,14 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 					CString msg;
 					msg.Format(IDS_WARNABSOLUTEPATHFOUND, (LPCTSTR)firstpath, (LPCTSTR)strippedpath);
 					if (CMessageBox::Show(m_hWnd, msg, _T("TortoiseMerge"), MB_ICONQUESTION | MB_YESNO)==IDNO)
-						return FALSE;
+						return false;
 				}
 				else
 				{
 					CString msg;
 					msg.Format(IDS_WARNABSOLUTEPATHNOTFOUND, (LPCTSTR)firstpath);
 					CMessageBox::Show(m_hWnd, msg, _T("TortoiseMerge"), MB_ICONEXCLAMATION);
-					return FALSE;
+					return false;
 				}
 			}
 			CString betterpatchpath = m_Patch.CheckPatchPath(m_Data.m_sPatchPath);
@@ -545,12 +545,7 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 			}
 			m_dlgFilePatches.Init(&m_Patch, this, m_Data.m_sPatchPath, this);
 			m_dlgFilePatches.ShowWindow(SW_SHOW);
-			m_pwndLeftView->m_sWindowName.Empty();
-			m_pwndLeftView->m_sFullFilePath.Empty();
-			m_pwndRightView->m_sWindowName.Empty();
-			m_pwndRightView->m_sFullFilePath.Empty();
-			m_pwndBottomView->m_sWindowName.Empty();
-			m_pwndBottomView->m_sFullFilePath.Empty();
+			ClearViewNamesAndPaths();
 			if (!m_wndSplitter.IsRowHidden(1))
 				m_wndSplitter.HideRow(1);
 			m_pwndLeftView->SetHidden(FALSE);
@@ -570,14 +565,13 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 		{
 			if (!m_wndSplitter2.IsColumnHidden(1))
 				m_wndSplitter2.HideColumn(1);
-			if (bReload)
-			{
-				m_pwndLeftView->m_pViewData = &m_Data.m_YourBaseBoth;
-				m_pwndLeftView->texttype = m_Data.m_arYourFile.GetUnicodeType();
-				m_pwndLeftView->lineendings = m_Data.m_arYourFile.GetLineEndings();
-			}
+
+			m_pwndLeftView->m_pViewData = &m_Data.m_YourBaseBoth;
+			m_pwndLeftView->texttype = m_Data.m_arYourFile.GetUnicodeType();
+			m_pwndLeftView->lineendings = m_Data.m_arYourFile.GetLineEndings();
 			m_pwndLeftView->m_sWindowName = m_Data.m_baseFile.GetWindowName() + _T(" - ") + m_Data.m_yourFile.GetWindowName();
 			m_pwndLeftView->m_sFullFilePath = m_pwndLeftView->m_sWindowName;
+
 			if (!m_wndSplitter.IsRowHidden(1))
 				m_wndSplitter.HideRow(1);
 			m_pwndLeftView->SetHidden(FALSE);
@@ -589,22 +583,19 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 		{
 			if (m_wndSplitter2.IsColumnHidden(1))
 				m_wndSplitter2.ShowColumn();
-			if (bReload)
-			{
-				m_pwndLeftView->m_pViewData = &m_Data.m_YourBaseLeft;
-				m_pwndLeftView->texttype = m_Data.m_arBaseFile.GetUnicodeType();
-				m_pwndLeftView->lineendings = m_Data.m_arBaseFile.GetLineEndings();
-			}
+
+			m_pwndLeftView->m_pViewData = &m_Data.m_YourBaseLeft;
+			m_pwndLeftView->texttype = m_Data.m_arBaseFile.GetUnicodeType();
+			m_pwndLeftView->lineendings = m_Data.m_arBaseFile.GetLineEndings();
 			m_pwndLeftView->m_sWindowName = m_Data.m_baseFile.GetWindowName();
 			m_pwndLeftView->m_sFullFilePath = m_Data.m_baseFile.GetFilename();
-			if (bReload)
-			{
-				m_pwndRightView->m_pViewData = &m_Data.m_YourBaseRight;
-				m_pwndRightView->texttype = m_Data.m_arYourFile.GetUnicodeType();
-				m_pwndRightView->lineendings = m_Data.m_arYourFile.GetLineEndings();
-			}
+
+			m_pwndRightView->m_pViewData = &m_Data.m_YourBaseRight;
+			m_pwndRightView->texttype = m_Data.m_arYourFile.GetUnicodeType();
+			m_pwndRightView->lineendings = m_Data.m_arYourFile.GetLineEndings();
 			m_pwndRightView->m_sWindowName = m_Data.m_yourFile.GetWindowName();
 			m_pwndRightView->m_sFullFilePath = m_Data.m_yourFile.GetFilename();
+		
 			if (!m_wndSplitter.IsRowHidden(1))
 				m_wndSplitter.HideRow(1);
 			m_pwndLeftView->SetHidden(FALSE);
@@ -616,33 +607,28 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 	{
 		//diff between THEIR, YOUR and BASE
 		m_pwndBottomView->UseCaret();
-		if (bReload)
-		{
-			m_pwndLeftView->m_pViewData = &m_Data.m_TheirBaseBoth;
-			m_pwndLeftView->texttype = m_Data.m_arTheirFile.GetUnicodeType();
-			m_pwndLeftView->lineendings = m_Data.m_arTheirFile.GetLineEndings();
-		}
+		
+		m_pwndLeftView->m_pViewData = &m_Data.m_TheirBaseBoth;
+		m_pwndLeftView->texttype = m_Data.m_arTheirFile.GetUnicodeType();
+		m_pwndLeftView->lineendings = m_Data.m_arTheirFile.GetLineEndings();
 		m_pwndLeftView->m_sWindowName.LoadString(IDS_VIEWTITLE_THEIRS);
 		m_pwndLeftView->m_sWindowName += _T(" - ") + m_Data.m_theirFile.GetWindowName();
 		m_pwndLeftView->m_sFullFilePath = m_Data.m_theirFile.GetFilename();
-		if (bReload)
-		{
-			m_pwndRightView->m_pViewData = &m_Data.m_YourBaseBoth;
-			m_pwndRightView->texttype = m_Data.m_arYourFile.GetUnicodeType();
-			m_pwndRightView->lineendings = m_Data.m_arYourFile.GetLineEndings();
-		}
+		
+		m_pwndRightView->m_pViewData = &m_Data.m_YourBaseBoth;
+		m_pwndRightView->texttype = m_Data.m_arYourFile.GetUnicodeType();
+		m_pwndRightView->lineendings = m_Data.m_arYourFile.GetLineEndings();
 		m_pwndRightView->m_sWindowName.LoadString(IDS_VIEWTITLE_MINE);
 		m_pwndRightView->m_sWindowName += _T(" - ") + m_Data.m_yourFile.GetWindowName();
 		m_pwndRightView->m_sFullFilePath = m_Data.m_yourFile.GetFilename();
-		if (bReload)
-		{
-			m_pwndBottomView->m_pViewData = &m_Data.m_Diff3;
-			m_pwndBottomView->texttype = m_Data.m_arTheirFile.GetUnicodeType();
-			m_pwndBottomView->lineendings = m_Data.m_arTheirFile.GetLineEndings();
-		}
+		
+		m_pwndBottomView->m_pViewData = &m_Data.m_Diff3;
+		m_pwndBottomView->texttype = m_Data.m_arTheirFile.GetUnicodeType();
+		m_pwndBottomView->lineendings = m_Data.m_arTheirFile.GetLineEndings();
 		m_pwndBottomView->m_sWindowName.LoadString(IDS_VIEWTITLE_MERGED);
 		m_pwndBottomView->m_sWindowName += _T(" - ") + m_Data.m_mergedFile.GetWindowName();
 		m_pwndBottomView->m_sFullFilePath = m_Data.m_mergedFile.GetFilename();
+		
 		if (m_wndSplitter2.IsColumnHidden(1))
 			m_wndSplitter2.ShowColumn();
 		if (m_wndSplitter.IsRowHidden(1))
@@ -662,10 +648,11 @@ BOOL CMainFrame::LoadViews(BOOL bReload)
 	m_wndLineDiffBar.DocumentUpdated();
 	UpdateLayout();
 	SetActiveView(m_pwndLeftView);
+	bool bGoFirstDiff = (0 != (DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\FirstDiffOnLoad"), TRUE));
 	if (bGoFirstDiff)
 		m_pwndLeftView->GoToFirstDifference();
 	CheckResolved();
-	return TRUE;
+	return true;
 }
 
 void CMainFrame::UpdateLayout()
@@ -731,7 +718,7 @@ void CMainFrame::OnViewOnewaydiff()
 	if (CheckForSave()==IDCANCEL)
 		return;
 	m_bOneWay = !m_bOneWay;
-	LoadViews(TRUE);
+	LoadViews();
 }
 
 int CMainFrame::CheckResolved()
