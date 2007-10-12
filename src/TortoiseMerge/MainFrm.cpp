@@ -663,6 +663,8 @@ bool CMainFrame::LoadViews(bool bRetainPosition)
 		if (bGoFirstDiff)
 			m_pwndLeftView->GoToFirstDifference();
 	}
+	// Avoid incorrect rendering of left pane.
+	m_pwndLeftView->ScrollToChar(0);
 	CheckResolved();
 	return true;
 }

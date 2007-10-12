@@ -57,6 +57,7 @@ public:
 	void			ScrollAllToLine(int nNewTopLine, BOOL bTrackScrollBar = TRUE);
 	void			ScrollSide(int delta);
 	void			GoToLine(int nNewLine, BOOL bAll = TRUE);
+	void			ScrollToChar(int nNewOffsetChar, BOOL bTrackScrollBar = TRUE);
 	void			UseCaret(bool bUse = true) {m_bCaretHidden = !bUse;}
 	bool			HasCaret() {return !m_bCaretHidden;}
 	void			SetCaretPosition(POINT pt) {m_ptCaretPos = pt; UpdateCaret();}
@@ -151,8 +152,6 @@ protected:
 	void			RecalcAllVertScrollBars(BOOL bPositionOnly = FALSE);
 	void			RecalcHorzScrollBar(BOOL bPositionOnly = FALSE);
 	void			RecalcAllHorzScrollBars(BOOL bPositionOnly = FALSE);
-
-	void			ScrollToChar(int nNewOffsetChar, BOOL bTrackScrollBar = TRUE);
 
 	void			OnDoMouseWheel(UINT nFlags, short zDelta, CPoint pt);
 	void			OnDoHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar, CBaseView * master);
