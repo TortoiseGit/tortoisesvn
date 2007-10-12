@@ -487,10 +487,13 @@ void CMainFrame::ClearViewNamesAndPaths() {
 	m_pwndBottomView->m_sFullFilePath.Empty();
 }
 
-bool CMainFrame::LoadViews()
+bool CMainFrame::LoadViews(bool bRetainPosition)
 {
 	m_Data.SetBlame(m_bBlame);
 	m_bHasConflicts = false;
+	int nOldLineNumber =
+		m_pwndLeftView && m_pwndLeftView->m_pViewData ?
+		m_pwndLeftView->m_pViewData->GetLineNumber(m_pwndLeftView->m_nTopLine) : -1;
 	if (!m_Data.Load())
 	{
 		::MessageBox(NULL, m_Data.GetError(), _T("TortoiseMerge"), MB_ICONERROR);
@@ -648,9 +651,18 @@ bool CMainFrame::LoadViews()
 	m_wndLineDiffBar.DocumentUpdated();
 	UpdateLayout();
 	SetActiveView(m_pwndLeftView);
-	bool bGoFirstDiff = (0 != (DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\FirstDiffOnLoad"), TRUE));
-	if (bGoFirstDiff)
-		m_pwndLeftView->GoToFirstDifference();
+
+	if (bRetainPosition && m_pwndLeftView->m_pViewData && nOldLineNumber >= 0)
+	{
+		if(int n = m_pwndLeftView->m_pViewData->FindLineNumber(nOldLineNumber))
+			m_pwndLeftView->ScrollAllToLine(n);
+	}
+	else
+	{
+		bool bGoFirstDiff = (0 != (DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\FirstDiffOnLoad"), TRUE));
+		if (bGoFirstDiff)
+			m_pwndLeftView->GoToFirstDifference();
+	}
 	CheckResolved();
 	return true;
 }
@@ -718,7 +730,7 @@ void CMainFrame::OnViewOnewaydiff()
 	if (CheckForSave()==IDCANCEL)
 		return;
 	m_bOneWay = !m_bOneWay;
-	LoadViews();
+	LoadViews(true);
 }
 
 int CMainFrame::CheckResolved()
@@ -1421,7 +1433,7 @@ void CMainFrame::OnFileReload()
 	if (CheckForSave()==IDCANCEL)
 		return;
 	CDiffColors::GetInstance().LoadRegistry();
-	LoadViews();
+	LoadViews(true);
 }
 
 void CMainFrame::ActivateFrame(int nCmdShow)

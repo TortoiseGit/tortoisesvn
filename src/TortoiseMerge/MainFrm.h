@@ -53,7 +53,7 @@ protected:
 	virtual BOOL	PreCreateWindow(CREATESTRUCT& cs);
 	virtual BOOL	OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext);
 	virtual void	ActivateFrame(int nCmdShow = -1);
-	bool			LoadViews();
+	bool			LoadViews(bool bRetainPosition = false);
 	void			ClearViewNamesAndPaths();
 	afx_msg LRESULT OnFindDialogMessage(WPARAM wParam, LPARAM lParam);
 
