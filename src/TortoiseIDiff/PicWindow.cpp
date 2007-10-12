@@ -984,21 +984,23 @@ void CPicWindow::ShowPicWithBorder(HDC hdc, const RECT &bounds, CPicture &pic, d
 	picrect.right = (picrect.left + LONG(double(pic.m_Width) * scale));
 	picrect.bottom = (picrect.top + LONG(double(pic.m_Height) * scale));
 
-	if ((bounds.left < picrect.left) ||
-		(bounds.top < picrect.top) ||
-		(bounds.right > picrect.right) ||
-		(bounds.bottom > picrect.bottom))
-	{
-		RECT border;
-		border.left = picrect.left-1;
-		border.top = picrect.top-1;
-		border.right = picrect.right+1;
-		border.bottom = picrect.bottom+1;
-		::FillRect(hdc, &border, (HBRUSH)(COLOR_3DDKSHADOW+1));
-	}
-	::SetBkColor(hdc, transparentColor);
-	::ExtTextOut(hdc, 0, 0, ETO_OPAQUE, &picrect, NULL, 0, NULL);
 	pic.Show(hdc, picrect);
+
+	RECT border;
+	border.left = picrect.left-1;
+	border.top = picrect.top-1;
+	border.right = picrect.right+1;
+	border.bottom = picrect.bottom+1;
+
+	HPEN hPen = CreatePen(PS_SOLID, 1, GetSysColor(COLOR_3DDKSHADOW));
+	HPEN hOldPen = (HPEN)SelectObject(hdc, hPen);
+	MoveToEx(hdc, border.left, border.top, NULL);
+	LineTo(hdc, border.left, border.bottom);
+	LineTo(hdc, border.right, border.bottom);
+	LineTo(hdc, border.right, border.top);
+	LineTo(hdc, border.left, border.top);
+	SelectObject(hdc, hOldPen);
+	DeleteObject(hPen);
 }
 
 void CPicWindow::Paint(HWND hwnd)
