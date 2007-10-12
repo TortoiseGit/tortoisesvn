@@ -123,6 +123,8 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 
 			SendMessage(hwndTT, TTM_ADDTOOL, 0, (LPARAM) (LPTOOLINFO) &ti);	
 			SendMessage(hwndTT, TTM_SETMAXTIPWIDTH, 0, 600);
+			nHSecondScrollPos = 0;
+			nVSecondScrollPos = 0;
 		}
 		break;
 	case WM_SETFOCUS:
@@ -967,8 +969,8 @@ void CPicWindow::ShowPicWithBorder(HDC hdc, const RECT &bounds, CPicture &pic, d
 	picrect.top = bounds.top - nVScrollPos;
 	if (!bLinkedPositions && (pTheOtherPic) && (&pic != &picture))
 	{
-		picrect.left -=  nHSecondScrollPos;
-		picrect.top -= nVSecondScrollPos;
+		picrect.left -= nHSecondScrollPos;
+		picrect.top  -= nVSecondScrollPos;
 	}
 	picrect.right = (picrect.left + LONG(double(pic.m_Width) * scale));
 	picrect.bottom = (picrect.top + LONG(double(pic.m_Height) * scale));
