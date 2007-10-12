@@ -760,7 +760,7 @@ void CPicWindow::GetClientRect(RECT * pRect)
 	{
 		pRect->top += HEADER_HEIGHT;
 	}
-	if ((pSecondPic)&&(m_blend == BLEND_ALPHA))
+	if (pSecondPic)
 		pRect->left += SLIDER_WIDTH;
 }
 
@@ -1021,6 +1021,13 @@ void CPicWindow::Paint(HWND hwnd)
 			ExcludeClipRect(hdc, 0, m_inforect.top-4, SLIDER_WIDTH, m_inforect.bottom+4);
 
 		CMemDC memDC(hdc);
+		if ((pSecondPic)&&(m_blend != BLEND_ALPHA))
+		{
+			// erase the place where the alpha slider would be
+			::SetBkColor(memDC, ::GetSysColor(COLOR_WINDOW));
+			RECT bounds = {0, m_inforect.top-4, SLIDER_WIDTH, m_inforect.bottom+4};
+			::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &bounds, NULL, 0, NULL);
+		}
 
 		GetClientRect(&rect);
 		if (bValid)
@@ -1033,6 +1040,13 @@ void CPicWindow::Paint(HWND hwnd)
 				HBITMAP hOldBitmap = (HBITMAP)SelectObject(secondhdc, hBitmap);
 				SetWindowOrgEx(secondhdc, rect.left, rect.top, NULL);
 
+				if ((pSecondPic)&&(m_blend != BLEND_ALPHA))
+				{
+					// erase the place where the alpha slider would be
+					::SetBkColor(secondhdc, ::GetSysColor(COLOR_WINDOW));
+					RECT bounds = {0, m_inforect.top-4, SLIDER_WIDTH, m_inforect.bottom+4};
+					::ExtTextOut(secondhdc, 0, 0, ETO_OPAQUE, &bounds, NULL, 0, NULL);
+				}
 				ShowPicWithBorder(secondhdc, rect, *pSecondPic, pTheOtherPic->GetZoom());
 
 				if (m_blend == BLEND_ALPHA)
