@@ -316,6 +316,20 @@ LRESULT CMainWindow::DoCommand(int id)
 			UINT uCheck = MF_BYCOMMAND;
 			uCheck |= bOverlap ? MF_CHECKED : MF_UNCHECKED;
 			CheckMenuItem(hMenu, ID_VIEW_OVERLAPIMAGES, uCheck);
+			uCheck |= (m_BlendType == CPicWindow::BLEND_ALPHA) ? MF_CHECKED : MF_UNCHECKED;
+			CheckMenuItem(hMenu, ID_VIEW_BLENDALPHA, uCheck);
+
+			// change the state of the toolbar button
+			TBBUTTONINFO tbi;
+			tbi.cbSize = sizeof(TBBUTTONINFO);
+			tbi.dwMask = TBIF_STATE;
+			tbi.fsState = bOverlap ? TBSTATE_CHECKED | TBSTATE_ENABLED : TBSTATE_ENABLED;
+			SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_OVERLAPIMAGES, (LPARAM)&tbi);
+
+			tbi.fsState = (m_BlendType == CPicWindow::BLEND_ALPHA) ? TBSTATE_CHECKED : 0;
+			if (bOverlap)
+				tbi.fsState |= TBSTATE_ENABLED;
+			SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_BLENDALPHA, (LPARAM)&tbi);
 
 			ShowWindow(picWindow2, bOverlap ? SW_HIDE : SW_SHOW);
 
@@ -332,17 +346,6 @@ LRESULT CMainWindow::DoCommand(int id)
 				picWindow1.SetSecondPic();
 			}
 
-			// change the state of the toolbar button
-			TBBUTTONINFO tbi;
-			tbi.cbSize = sizeof(TBBUTTONINFO);
-			tbi.dwMask = TBIF_STATE;
-			tbi.fsState = bOverlap ? TBSTATE_CHECKED | TBSTATE_ENABLED : TBSTATE_ENABLED;
-			SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_OVERLAPIMAGES, (LPARAM)&tbi);
-
-			tbi.fsState = (m_BlendType == CPicWindow::BLEND_ALPHA) ? TBSTATE_CHECKED : 0;
-			if (bOverlap)
-				tbi.fsState |= TBSTATE_ENABLED;
-			SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_BLENDALPHA, (LPARAM)&tbi);
 
 			RECT rect;
 			GetClientRect(*this, &rect);
