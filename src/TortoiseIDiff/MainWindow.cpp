@@ -324,7 +324,7 @@ LRESULT CMainWindow::DoCommand(int id)
 				picWindow1.StopTimer();
 				picWindow2.StopTimer();
 				picWindow1.SetSecondPic(picWindow2.GetPic(), rightpictitle, rightpicpath, 
-					picWindow1.GetHPos()-picWindow2.GetHPos(), picWindow1.GetVPos()-picWindow2.GetVPos());
+					picWindow2.GetHPos(), picWindow2.GetVPos());
 				picWindow1.SetSecondPicAlpha(m_BlendType, 127);
 			}
 			else

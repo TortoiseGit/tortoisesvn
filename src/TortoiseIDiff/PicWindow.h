@@ -133,6 +133,8 @@ public:
 
 	/// Resizes the image to fit into the window. Small images are not enlarged.
 	void FitImageInWindow();
+	/// center the image in the view
+	void CenterImage();
 	/// Makes both images the same size, fitting into the window
 	void FitSizes(bool bFit);
 	/// Sets the zoom factor of the image

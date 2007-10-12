@@ -264,22 +264,15 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 					height = max(height, pSecondPic->m_Height);
 				}
 
-				bool bPicWidthBigger = (int(double(width)*picscale) > (rect.right-rect.left));
-				bool bPicHeightBigger = (int(double(height)*picscale) > (rect.bottom-rect.top));
-				if ((bPicHeightBigger || bPicWidthBigger)||(!bLinkedPositions && pSecondPic && (GetKeyState(VK_CONTROL)&0x8000)))
+				if ((GetKeyState(VK_LBUTTON)&0x8000)||(HIWORD(lParam) == WM_LBUTTONDOWN))
 				{
-					// only show the hand cursors if the image can be dragged
-					// an image can be dragged if it's bigger than the window it is shown in
-					if ((GetKeyState(VK_LBUTTON)&0x8000)||(HIWORD(lParam) == WM_LBUTTONDOWN))
-					{
-						SetCursor(curHandDown);
-					}
-					else
-					{
-						SetCursor(curHand);
-					}
-					return TRUE;
+					SetCursor(curHandDown);
 				}
+				else
+				{
+					SetCursor(curHand);
+				}
+				return TRUE;
 			}
 			return DefWindowProc(hwnd, uMsg, wParam, lParam);
 		}
@@ -584,18 +577,12 @@ void CPicWindow::SetupScrollBars()
 		height = max(height, double(pSecondPic->m_Height)*pTheOtherPic->GetZoom());
 	}
 
-	bool bPicWidthBigger = (int(width) > (rect.right-rect.left));
-	bool bPicHeightBigger = (int(height) > (rect.bottom-rect.top));
-	// set the scroll position so that the image is drawn centered in the window
-	// if the window is bigger than the image
-	if (!bPicWidthBigger)
-	{
-		nHScrollPos = -((rect.right-rect.left)-int(width))/2;
-	}
-	if (!bPicHeightBigger)
-	{
-		nVScrollPos = -((rect.bottom-rect.top)-int(height))/2;
-	}
+	bool bPicWidthBigger = (nHScrollPos > 0) || (width-nHScrollPos > rect.right);//(int(width) > (rect.right-rect.left));
+	bool bPicHeightBigger = (nVScrollPos > 0) || (height-nVScrollPos > rect.bottom);//(int(height) > (rect.bottom-rect.top));
+
+	width  -= nHScrollPos;
+	height -= nVScrollPos;
+
 	// if the image is smaller than the window, we don't need the scrollbars
 	ShowScrollBar(*this, SB_HORZ, bPicWidthBigger);
 	ShowScrollBar(*this, SB_VERT, bPicHeightBigger);
@@ -653,10 +640,6 @@ void CPicWindow::OnVScroll(UINT nSBCode, UINT nPos)
 	{
 		height = max(height, LONG(double(pSecondPic->GetHeight())*picscale));
 	}
-	if (nVScrollPos > (height-rect.bottom+rect.top))
-		nVScrollPos = height-rect.bottom+rect.top;
-	if (nVScrollPos < 0)
-		nVScrollPos = 0;
 	SetupScrollBars();
 	PositionChildren();
 	InvalidateRect(*this, NULL, TRUE);
@@ -700,10 +683,6 @@ void CPicWindow::OnHScroll(UINT nSBCode, UINT nPos)
 	{
 		width = max(width, LONG(double(pSecondPic->GetWidth())*picscale));
 	}
-	if (nHScrollPos > width-rect.right+rect.left)
-		nHScrollPos = width-rect.right+rect.left;
-	if (nHScrollPos < 0)
-		nHScrollPos = 0;
 	SetupScrollBars();
 	PositionChildren();
 	InvalidateRect(*this, NULL, TRUE);
@@ -943,8 +922,36 @@ void CPicWindow::FitImageInWindow()
 		}
 		SetZoom(dZoom, false);
 	}
+	CenterImage();
 	PositionChildren();
 	InvalidateRect(*this, NULL, TRUE);
+}
+
+void CPicWindow::CenterImage()
+{
+	RECT rect;
+	GetClientRect(&rect);
+	double width = double(picture.m_Width)*picscale;
+	double height = double(picture.m_Height)*picscale;
+	if (pSecondPic)
+	{
+		width = max(width, double(pSecondPic->m_Width)*pTheOtherPic->GetZoom());
+		height = max(height, double(pSecondPic->m_Height)*pTheOtherPic->GetZoom());
+	}
+
+	bool bPicWidthBigger = (int(width) > (rect.right-rect.left));
+	bool bPicHeightBigger = (int(height) > (rect.bottom-rect.top));
+	// set the scroll position so that the image is drawn centered in the window
+	// if the window is bigger than the image
+	if (!bPicWidthBigger)
+	{
+		nHScrollPos = -((rect.right-rect.left)-int(width))/2;
+	}
+	if (!bPicHeightBigger)
+	{
+		nVScrollPos = -((rect.bottom-rect.top)-int(height))/2;
+	}
+	SetupScrollBars();
 }
 
 void CPicWindow::FitSizes(bool bFit)
@@ -969,8 +976,8 @@ void CPicWindow::ShowPicWithBorder(HDC hdc, const RECT &bounds, CPicture &pic, d
 	picrect.top = bounds.top - nVScrollPos;
 	if (!bLinkedPositions && (pTheOtherPic) && (&pic != &picture))
 	{
-		picrect.left -= nHSecondScrollPos;
-		picrect.top  -= nVSecondScrollPos;
+		picrect.left = bounds.left - nHSecondScrollPos;
+		picrect.top  = bounds.top - nVSecondScrollPos;
 	}
 	picrect.right = (picrect.left + LONG(double(pic.m_Width) * scale));
 	picrect.bottom = (picrect.top + LONG(double(pic.m_Height) * scale));
