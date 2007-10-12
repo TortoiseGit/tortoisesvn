@@ -760,6 +760,8 @@ void CPicWindow::GetClientRect(RECT * pRect)
 	{
 		pRect->top += HEADER_HEIGHT;
 	}
+	if ((pSecondPic)&&(m_blend == BLEND_ALPHA))
+		pRect->left += SLIDER_WIDTH;
 }
 
 void CPicWindow::SetZoom(double dZoom, bool centermouse)
@@ -945,11 +947,11 @@ void CPicWindow::CenterImage()
 	// if the window is bigger than the image
 	if (!bPicWidthBigger)
 	{
-		nHScrollPos = -((rect.right-rect.left)-int(width))/2;
+		nHScrollPos = -((rect.right-rect.left+4)-int(width))/2;
 	}
 	if (!bPicHeightBigger)
 	{
-		nVScrollPos = -((rect.bottom-rect.top)-int(height))/2;
+		nVScrollPos = -((rect.bottom-rect.top+4)-int(height))/2;
 	}
 	SetupScrollBars();
 }
