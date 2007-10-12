@@ -577,8 +577,8 @@ void CPicWindow::SetupScrollBars()
 		height = max(height, double(pSecondPic->m_Height)*pTheOtherPic->GetZoom());
 	}
 
-	bool bPicWidthBigger = (nHScrollPos > 0) || (width-nHScrollPos > rect.right);//(int(width) > (rect.right-rect.left));
-	bool bPicHeightBigger = (nVScrollPos > 0) || (height-nVScrollPos > rect.bottom);//(int(height) > (rect.bottom-rect.top));
+	bool bPicWidthBigger = (nHScrollPos > 0) || (width-nHScrollPos > rect.right);
+	bool bPicHeightBigger = (nVScrollPos > 0) || (height-nVScrollPos > rect.bottom);
 
 	width  -= nHScrollPos;
 	height -= nVScrollPos;
