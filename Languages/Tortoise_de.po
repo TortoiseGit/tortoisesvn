@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-10-11 11:52+0100\n"
+"PO-Revision-Date: 2007-10-12 09:48+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7179,6 +7179,14 @@ msgid ""
 msgstr ""
 "tsvn:logminsize\n"
 "Minimale Anzahl von Zeichen, die eine Logmeldung bei der Übertragung haben muss."
+
+#. Resource IDs: (578)
+msgid ""
+"tsvn:logsummary\n"
+"A regex string which extracts a summary from a log message in its first group."
+msgstr ""
+"tsvn:logsummary\n"
+"Ein regulärer Ausdruck zum Extrahieren einer Zusammenfassung aus einer Logmeldung."
 
 #. Resource IDs: (578)
 msgid ""
