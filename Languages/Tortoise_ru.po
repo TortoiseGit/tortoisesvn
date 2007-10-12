@@ -11,13 +11,13 @@
 # Stanislav Petrakov <stannic@gmail.com>
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 10870: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 10959: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-10-06 18:14+0300\n"
+"PO-Revision-Date: 2007-10-12 12:07+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1265,8 +1265,8 @@ msgid "Authors"
 msgstr "Авторы"
 
 #. Resource IDs: (1265)
-msgid "Authors case insensitive"
-msgstr "Авторы без учёта регистра"
+msgid "Authors case sensitive"
+msgstr "Авторы c учётом регистра"
 
 #. Resource IDs: (65535)
 msgid "Authors:"
@@ -1739,11 +1739,11 @@ msgstr "Сравнить ведущие &ревизии"
 
 #. Resource IDs: (114)
 msgid "Compare and &blame with working BASE"
-msgstr "Сравнить с рабочей базой и посмотреть &авторство"
+msgstr "Сравнить с рабочей базой с просмотром &авторства"
 
 #. Resource IDs: (114)
 msgid "Compare and blame with previous revision"
-msgstr "Сравнить с предыдущей ревизией и посмотреть авторство"
+msgstr "Сравнить с предыдущей ревизией с просмотром авторства"
 
 #. Resource IDs: (1390)
 msgid "Compare whitespaces"
@@ -5430,6 +5430,10 @@ msgstr "Пропущено"
 msgid "Skipped missing target"
 msgstr "Пропущена отсутствующая цель"
 
+#. Resource IDs: (1126)
+msgid "Sort by commit count"
+msgstr "Сортировать по количеству фиксаций"
+
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr "Задаёт количество недавно введённых сообщений журнала, которые будут доступны для повторного выбора."
@@ -7277,6 +7281,15 @@ msgid ""
 msgstr ""
 "tsvn:logminsize\n"
 "Минимальное разрешённое количество символов в сообщении журнала."
+
+#. Resource IDs: (578)
+msgid ""
+"tsvn:logsummary\n"
+"A regex string which extracts a summary from a log message in its first group."
+msgstr ""
+"tsvn:logsummary\n"
+"Строка регулярного выражения, первая группа которого извлекает\n"
+"данные для сводки из сообщения журнала."
 
 #. Resource IDs: (578)
 msgid ""
