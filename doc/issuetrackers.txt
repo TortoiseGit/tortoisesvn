@@ -89,16 +89,6 @@ left empty. But it must _not_ block the commit, only give the user a chance to
 enter an issue number in case (s)he forgot it.
 ---------
 
----------
-name  : bugtraq:revprop
-value : "true"/"yes" or "false"/"no"
-If set to "true", then the clients will also set the revision property named 
-"bugtraq:ID" together with the commit. The value of the revision property
-is the bug ID which the client gets either through bugtraq:message or through
-the regex strings from the log message.
----------
-
-
 Properties used with the basic integration:
 
 ---------
@@ -130,10 +120,6 @@ The client should make sure that the string doesn't have multiple lines.
 If more than one issue number is entered by the user (separated by commas), the 
 client must make sure that there's no whitespace chars before and after the 
 comma. And also the whole issue number string must be trimmed.
-
-If the string is empty and bugtraq:revprop is set to "true", then only the revision
-property is set without adding a string to the log message.
-
 Note: if the bugtraq:logregex property is set, then this property should be
 ignored for parsing the log message but only be used to show the issue ID edit box.
 ---------
