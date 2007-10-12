@@ -893,7 +893,7 @@ void CPicWindow::FitImageInWindow()
 	GetClientRect(&rect);
 	if (rect.right-rect.left)
 	{
-		if (((rect.right - rect.left) > picture.m_Width)&&((rect.bottom - rect.top)> picture.m_Height))
+		if (((rect.right - rect.left) > picture.m_Width+2)&&((rect.bottom - rect.top)> picture.m_Height+2))
 		{
 			// image is smaller than the window
 			dZoom = 1.0;
@@ -901,13 +901,13 @@ void CPicWindow::FitImageInWindow()
 		else
 		{
 			// image is bigger than the window
-			double xscale = double(rect.right-rect.left)/double(picture.m_Width);
-			double yscale = double(rect.bottom-rect.top)/double(picture.m_Height);
+			double xscale = double(rect.right-rect.left-2)/double(picture.m_Width);
+			double yscale = double(rect.bottom-rect.top-2)/double(picture.m_Height);
 			dZoom = min(yscale, xscale);
 		}
 		if (pSecondPic)
 		{
-			if (((rect.right - rect.left) > pSecondPic->m_Width)&&((rect.bottom - rect.top)> pSecondPic->m_Height))
+			if (((rect.right - rect.left) > pSecondPic->m_Width+2)&&((rect.bottom - rect.top)> pSecondPic->m_Height+2))
 			{
 				// image is smaller than the window
 				pTheOtherPic->SetZoom(min(1.0, dZoom), false);
@@ -915,8 +915,8 @@ void CPicWindow::FitImageInWindow()
 			else
 			{
 				// image is bigger than the window
-				double xscale = double(rect.right-rect.left)/double(pSecondPic->m_Width);
-				double yscale = double(rect.bottom-rect.top)/double(pSecondPic->m_Height);
+				double xscale = double(rect.right-rect.left-2)/double(pSecondPic->m_Width);
+				double yscale = double(rect.bottom-rect.top-2)/double(pSecondPic->m_Height);
 				pTheOtherPic->SetZoom(min(yscale, xscale), false);
 			}
 			nHSecondScrollPos = 0;
@@ -933,12 +933,12 @@ void CPicWindow::CenterImage()
 {
 	RECT rect;
 	GetClientRect(&rect);
-	double width = double(picture.m_Width)*picscale;
-	double height = double(picture.m_Height)*picscale;
+	double width = (double(picture.m_Width)*picscale) + 2.0;
+	double height = (double(picture.m_Height)*picscale) + 2.0;
 	if (pSecondPic)
 	{
-		width = max(width, double(pSecondPic->m_Width)*pTheOtherPic->GetZoom());
-		height = max(height, double(pSecondPic->m_Height)*pTheOtherPic->GetZoom());
+		width = max(width, (double(pSecondPic->m_Width)*pTheOtherPic->GetZoom()) + 2.0);
+		height = max(height, (double(pSecondPic->m_Height)*pTheOtherPic->GetZoom()) + 2.0);
 	}
 
 	bool bPicWidthBigger = (int(width) > (rect.right-rect.left));
