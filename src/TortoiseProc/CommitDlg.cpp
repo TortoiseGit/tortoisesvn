@@ -509,7 +509,10 @@ UINT CCommitDlg::StatusThread()
 		if (m_checkedPathList.GetCount())
 			m_ListCtrl.Show(dwShow, m_checkedPathList);
 		else
-			m_ListCtrl.Show(dwShow, SVNSLC_SHOWDIRECTS|SVNSLC_SHOWMODIFIED|SVNSLC_SHOWADDED|SVNSLC_SHOWREMOVED|SVNSLC_SHOWREPLACED|SVNSLC_SHOWMERGED|SVNSLC_SHOWLOCKS);
+		{
+			DWORD dwCheck = DWORD(CRegStdWORD(_T("Software\\TortoiseSVN\\SelectFilesForCommit"), TRUE)) ? SVNSLC_SHOWDIRECTS|SVNSLC_SHOWMODIFIED|SVNSLC_SHOWADDED|SVNSLC_SHOWREMOVED|SVNSLC_SHOWREPLACED|SVNSLC_SHOWMERGED|SVNSLC_SHOWLOCKS : 0;
+			m_ListCtrl.Show(dwShow, dwCheck);
+		}
 
 		if (m_ListCtrl.HasExternalsFromDifferentRepos())
 		{

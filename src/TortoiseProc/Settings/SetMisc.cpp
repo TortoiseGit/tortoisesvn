@@ -33,6 +33,7 @@ CSetMisc::CSetMisc()
 	, m_dwMaxHistory(25)
 	, m_bCommitReopen(FALSE)
 	, m_bShowLockDlg(FALSE)
+	, m_bAutoSelect(TRUE)
 {
 	m_regUnversionedRecurse = CRegDWORD(_T("Software\\TortoiseSVN\\UnversionedRecurse"), TRUE);
 	m_bUnversionedRecurse = (DWORD)m_regUnversionedRecurse;
@@ -50,6 +51,8 @@ CSetMisc::CSetMisc()
 	m_bCommitReopen = (BOOL)(DWORD)m_regCommitReopen;
 	m_regShowLockDlg = CRegDWORD(_T("Software\\TortoiseSVN\\ShowLockDlg"), TRUE);
 	m_bShowLockDlg = (BOOL)(DWORD)m_regShowLockDlg;
+	m_regAutoSelect = CRegDWORD(_T("Software\\TortoiseSVN\\SelectFilesForCommit"), TRUE);
+	m_bAutoSelect = (BOOL)(DWORD)m_regAutoSelect;
 }
 
 CSetMisc::~CSetMisc()
@@ -69,6 +72,7 @@ void CSetMisc::DoDataExchange(CDataExchange* pDX)
 	DDV_MinMaxUInt(pDX, m_dwMaxHistory, 1, 100);
 	DDX_Check(pDX, IDC_REOPENCOMMIT, m_bCommitReopen);
 	DDX_Check(pDX, IDC_SHOWLOCKDLG, m_bShowLockDlg);
+	DDX_Check(pDX, IDC_SELECTFILESONCOMMIT, m_bAutoSelect);
 }
 
 
@@ -81,6 +85,7 @@ BEGIN_MESSAGE_MAP(CSetMisc, ISettingsPropPage)
 	ON_BN_CLICKED(IDC_REPOCHECK, &CSetMisc::OnChanged)
 	ON_BN_CLICKED(IDC_REOPENCOMMIT, &CSetMisc::OnChanged)
 	ON_BN_CLICKED(IDC_SHOWLOCKDLG, &CSetMisc::OnChanged)
+	ON_BN_CLICKED(IDC_SELECTFILESONCOMMIT, &CSetMisc::OnChanged)
 END_MESSAGE_MAP()
 
 void CSetMisc::OnChanged()
@@ -115,6 +120,9 @@ BOOL CSetMisc::OnApply()
 	m_regShowLockDlg = m_bShowLockDlg;
 	if (m_regShowLockDlg.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regShowLockDlg.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	m_regAutoSelect = m_bAutoSelect;
+	if (m_regAutoSelect.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regAutoSelect.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	SetModified(FALSE);
 	return ISettingsPropPage::OnApply();
 }
@@ -134,6 +142,7 @@ BOOL CSetMisc::OnInitDialog()
 	m_tooltips.AddTool(IDC_MAXHISTORY, IDS_SETTINGS_MAXHISTORY_TT);
 	m_tooltips.AddTool(IDC_MAXHISTORYLABEL, IDS_SETTINGS_MAXHISTORY_TT);
 	m_tooltips.AddTool(IDC_SHOWLOCKDLG, IDS_SETTINGS_SHOWLOCKDLG_TT);
+	m_tooltips.AddTool(IDC_SELECTFILESONCOMMIT, IDS_SETTINGS_SELECTFILESONCOMMIT_TT);
 	return TRUE;
 }
 

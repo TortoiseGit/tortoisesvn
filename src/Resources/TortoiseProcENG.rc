@@ -970,26 +970,28 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Look and Feel::Dialogs 2"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    GROUPBOX        "Status",IDC_STATIC,7,7,286,32
+    GROUPBOX        "Status",IDC_STATIC,7,7,286,25
     CONTROL         "Recurse into unversioned folders",IDC_UNVERSIONEDRECURSE,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,21,269,10
-    GROUPBOX        "Commit",IDC_COMMITGROUP,7,44,286,94
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,18,269,10
+    GROUPBOX        "Commit",IDC_COMMITGROUP,7,37,286,109
     CONTROL         "&Use auto-completion of file paths and keywords",IDC_AUTOCOMPLETION,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,57,271,10
-    LTEXT           "&Timeout in seconds to stop the auto-completion parsing",IDC_AUTOCOMPLETIONTIMEOUTLABEL,14,74,231,8,SS_NOTIFY
-    EDITTEXT        IDC_AUTOCOMPLETIONTIMEOUT,252,72,31,12,ES_AUTOHSCROLL | ES_NUMBER,WS_EX_RIGHT
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,50,271,10
+    LTEXT           "&Timeout in seconds to stop the auto-completion parsing",IDC_AUTOCOMPLETIONTIMEOUTLABEL,14,67,231,8,SS_NOTIFY
+    EDITTEXT        IDC_AUTOCOMPLETIONTIMEOUT,252,65,31,12,ES_AUTOHSCROLL | ES_NUMBER,WS_EX_RIGHT
     CONTROL         "Only use s&pellchecker when tsvn:projectlanguage is set",IDC_SPELL,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,90,271,10
-    LTEXT           "Max. items to keep in the log message history",IDC_MAXHISTORYLABEL,14,107,226,8,SS_NOTIFY
-    EDITTEXT        IDC_MAXHISTORY,252,103,31,14,ES_AUTOHSCROLL
-    GROUPBOX        "Check for modifications",IDC_STATIC,7,142,286,32
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,83,271,10
+    LTEXT           "Max. items to keep in the log message history",IDC_MAXHISTORYLABEL,14,100,226,8,SS_NOTIFY
+    EDITTEXT        IDC_MAXHISTORY,252,96,31,14,ES_AUTOHSCROLL
+    GROUPBOX        "Check for modifications",IDC_STATIC,7,151,286,32
     CONTROL         "&Contact the repository on startup",IDC_REPOCHECK,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,156,271,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,165,271,10
     CONTROL         "&Reopen commit and branch/tag dialog after a commit failed",IDC_REOPENCOMMIT,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,121,237,10
-    GROUPBOX        "Lock",IDC_STATIC,7,178,286,32
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,114,237,10
+    GROUPBOX        "Lock",IDC_STATIC,7,185,286,25
     CONTROL         "Show Lock dialog before locking files",IDC_SHOWLOCKDLG,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,190,270,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,196,270,10
+    CONTROL         "Select Items automatically",IDC_SELECTFILESONCOMMIT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,130,238,10
 END
 
 IDD_SETTINGSSAVEDDATA DIALOGEX 0, 0, 300, 217
@@ -2958,6 +2960,8 @@ BEGIN
                             "Clears cached logs from %ld repositories"
     IDS_SETTINGS_CACHELOGS_TT 
                             "Caches the log messages to speed up log fetching"
+    IDS_SETTINGS_SELECTFILESONCOMMIT_TT 
+                            "When enabled, the items listed in the commit dialog are automatically selected"
     IDS_SETTINGS_HOOKS_SELECTFOLDERPATH "Select folder to run script for"
     IDS_SETTINGS_HOOKS_SELECTSCRIPTFILE "Select hook script file"
 END
