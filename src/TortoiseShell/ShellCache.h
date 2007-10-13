@@ -88,6 +88,9 @@ public:
 		{
 			drivetypecache[i] = (UINT)-1;
 		}
+		// A: and B: are floppy disks
+		drivetypecache[0] = DRIVE_REMOVABLE;
+		drivetypecache[1] = DRIVE_REMOVABLE;
 		TCHAR szBuffer[5];
 		columnrevformatticker = GetTickCount();
 		ZeroMemory(&columnrevformat, sizeof(NUMBERFMT));
@@ -279,14 +282,19 @@ public:
 			drivetype = drivetypecache[drivenumber];
 			if ((drivetype == -1)||((GetTickCount() - DRIVETYPETIMEOUT)>drivetypeticker))
 			{
-				drivetypeticker = GetTickCount();
-				TCHAR pathbuf[MAX_PATH+4];		// MAX_PATH ok here. PathStripToRoot works with partial paths too.
-				_tcsncpy_s(pathbuf, MAX_PATH+4, path, MAX_PATH+3);
-				PathStripToRoot(pathbuf);
-				PathAddBackslash(pathbuf);
-				ATLTRACE2(_T("GetDriveType for %s, Drive %d\n"), pathbuf, drivenumber);
-				drivetype = GetDriveType(pathbuf);
-				drivetypecache[drivenumber] = drivetype;
+				if ((drivenumber == 0)||(drivenumber == 1))
+					drivetypecache[drivenumber] = DRIVE_REMOVABLE;
+				else
+				{
+					drivetypeticker = GetTickCount();
+					TCHAR pathbuf[MAX_PATH+4];		// MAX_PATH ok here. PathStripToRoot works with partial paths too.
+					_tcsncpy_s(pathbuf, MAX_PATH+4, path, MAX_PATH+3);
+					PathStripToRoot(pathbuf);
+					PathAddBackslash(pathbuf);
+					ATLTRACE2(_T("GetDriveType for %s, Drive %d\n"), pathbuf, drivenumber);
+					drivetype = GetDriveType(pathbuf);
+					drivetypecache[drivenumber] = drivetype;
+				}
 			}
 		}
 		else
