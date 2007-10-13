@@ -274,10 +274,9 @@ void CRevisionGraphWnd::DrawNode(CDC * pDC, const CRect& rect,
 			// draw the revision text
 			pOldFont = pDC->SelectObject(GetFont(FALSE, TRUE));
 			CString temp;
-			CRect r;
+			CRect r = rect;
 			CRect textrect = rect;
 			textrect.left += (m_nIconSize+2);
-			textrect.right -= (m_nIconSize+2);
 			temp.Format(IDS_REVGRAPH_BOXREVISIONTITLE, rentry->revision);
 			pDC->DrawText(temp, &r, DT_CALCRECT);
 			int offset = (int)m_node_rect_height;
@@ -300,7 +299,7 @@ void CRevisionGraphWnd::DrawNode(CDC * pDC, const CRect& rect,
 			if (offset > 0)
 			{
 				// only draw the revision text if the node rectangle is big enough for it
-				pDC->ExtTextOut(textrect.left + ((rect.Width()-r.Width())/2), textrect.top + offset, ETO_CLIPPED, NULL, temp, NULL);
+				pDC->ExtTextOut(textrect.left + ((textrect.Width()-r.Width())/2), textrect.top + offset, ETO_CLIPPED, NULL, temp, NULL);
 			}
 
 			if (bShowUrl)
@@ -547,7 +546,6 @@ void CRevisionGraphWnd::DrawRubberBand()
 		max(m_ptRubberStart.x, m_ptRubberEnd.x), max(m_ptRubberStart.y, m_ptRubberEnd.y));
 	ReleaseDC(pDC);
 }
-
 
 
 
