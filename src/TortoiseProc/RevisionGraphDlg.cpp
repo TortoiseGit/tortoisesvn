@@ -48,18 +48,31 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 	, m_bFetchLogs(true)
 	, m_fZoomFactor(1.0)
 {
-	m_options.groupBranches = true;
-	m_options.includeSubPathChanges = false;
-	m_options.oldestAtTop = false;
-	m_options.showHEAD = false;
-	m_options.reduceCrossLines = false;
-	m_options.exactCopySources = false;
-	m_options.splitBranches = false;
-	m_options.foldTags = false;
+	DWORD dwOpts = CRegStdWORD(_T("Software\\TortoiseSVN\\RevisionGraphOptions"), 1);
+
+	m_options.groupBranches = dwOpts & 0x01;
+	m_options.includeSubPathChanges = dwOpts & 0x02;
+	m_options.oldestAtTop = dwOpts & 0x04;
+	m_options.showHEAD = dwOpts & 0x08;
+	m_options.reduceCrossLines = dwOpts & 0x10;
+	m_options.exactCopySources = dwOpts & 0x20;
+	m_options.splitBranches = dwOpts & 0x40;
+	m_options.foldTags = dwOpts & 0x80;
 }
 
 CRevisionGraphDlg::~CRevisionGraphDlg()
 {
+	CRegStdWORD regOpts = CRegStdWORD(_T("Software\\TortoiseSVN\\RevisionGraphOptions"), 1);
+	DWORD dwOpts = 0;
+	dwOpts |= m_options.groupBranches ? 0x01 : 0;
+	dwOpts |= m_options.includeSubPathChanges ? 0x02 : 0;
+	dwOpts |= m_options.oldestAtTop ? 0x04 : 0;
+	dwOpts |= m_options.showHEAD ? 0x08 : 0;
+	dwOpts |= m_options.reduceCrossLines ? 0x10 : 0;
+	dwOpts |= m_options.exactCopySources ? 0x20 : 0;
+	dwOpts |= m_options.splitBranches ? 0x40 : 0;
+	dwOpts |= m_options.foldTags ? 0x80 : 0;
+	regOpts = dwOpts;
 }
 
 void CRevisionGraphDlg::DoDataExchange(CDataExchange* pDX)
@@ -225,6 +238,15 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 
 	if (InitializeToolbar() != TRUE)
 		return FALSE;
+
+	SetOption(ID_VIEW_GROUPBRANCHES, m_options.groupBranches);
+	SetOption(ID_VIEW_SHOWALLREVISIONS, m_options.includeSubPathChanges);
+	SetOption(ID_VIEW_TOPDOWN, m_options.oldestAtTop);
+	SetOption(ID_VIEW_SHOWHEAD, m_options.showHEAD);
+	SetOption(ID_VIEW_EXACTCOPYSOURCE, m_options.exactCopySources);
+	SetOption(ID_VIEW_SPLITBRANCHES, m_options.splitBranches);
+	SetOption(ID_VIEW_FOLDTAGS, m_options.foldTags);
+	SetOption(ID_VIEW_REDUCECROSSLINES, m_options.reduceCrossLines);
 
 	CMenu * pMenu = GetMenu();
 	if (pMenu)
@@ -468,7 +490,26 @@ void CRevisionGraphDlg::OnViewUnifieddiffofheadrevisions()
 	m_Graph.UnifiedDiffRevs(true);
 }
 
-void CRevisionGraphDlg::OnToggleOption (int controlID, bool& option)
+void CRevisionGraphDlg::SetOption(int controlID, bool option)
+{
+	CMenu * pMenu = GetMenu();
+	if (pMenu == NULL)
+		return;
+	int tbstate = m_ToolBar.GetToolBarCtrl().GetState(controlID);
+	UINT state = pMenu->GetMenuState(controlID, MF_BYCOMMAND);
+	if (option)
+	{
+		pMenu->CheckMenuItem(controlID, MF_BYCOMMAND | MF_CHECKED);
+		m_ToolBar.GetToolBarCtrl().SetState(controlID, tbstate | TBSTATE_CHECKED);
+	}
+	else
+	{
+		pMenu->CheckMenuItem(controlID, MF_BYCOMMAND | MF_UNCHECKED);
+		m_ToolBar.GetToolBarCtrl().SetState(controlID, tbstate & (~TBSTATE_CHECKED));
+	}
+}
+
+void CRevisionGraphDlg::OnToggleOption(int controlID, bool& option)
 {
 	if (m_Graph.m_bThreadRunning)
 	{

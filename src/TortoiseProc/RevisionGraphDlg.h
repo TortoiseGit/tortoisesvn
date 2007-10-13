@@ -101,7 +101,8 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 
-    void            OnToggleOption (int controlID, bool& option);
+	void			SetOption(int controlID, bool option);
+    void            OnToggleOption(int controlID, bool& option);
 
     void			GetGraphRect(LPRECT rect);
 	void			UpdateStatusBar();
