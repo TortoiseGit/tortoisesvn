@@ -187,7 +187,10 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 	{
 		if (!g_ShellCache.IsPathAllowed(pPath))
 		{
-			if ((m_State == FileStateVersioned) && g_ShellCache.ShowExcludedAsNormal() && PathIsDirectory(pPath) && g_ShellCache.HasSVNAdminDir(pPath, true))
+			int drivenumber = -1;
+			if ((m_State == FileStateVersioned) && g_ShellCache.ShowExcludedAsNormal() && 
+				((drivenumber=PathGetDriveNumber(pPath))!=0)&&(drivenumber!=1) &&
+				PathIsDirectory(pPath) && g_ShellCache.HasSVNAdminDir(pPath, true))
 			{
 				return S_OK;
 			}
