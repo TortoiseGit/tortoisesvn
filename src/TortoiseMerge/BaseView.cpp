@@ -3097,6 +3097,7 @@ void CBaseView::OnCaretDown()
 {
 	bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
 	m_ptCaretPos.y++;
+	m_ptCaretPos.y = min(m_ptCaretPos.y, GetLineCount()-1);
 	if (GetKeyState(VK_SHIFT)&0x8000)
 		AdjustSelection(bStartSelection, true);
 	else
@@ -3151,6 +3152,7 @@ void CBaseView::OnCaretUp()
 {
 	bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
 	m_ptCaretPos.y--;
+	m_ptCaretPos.y = max(0, m_ptCaretPos.y);
 	if (GetKeyState(VK_SHIFT)&0x8000)
 		AdjustSelection(bStartSelection, false);
 	else
