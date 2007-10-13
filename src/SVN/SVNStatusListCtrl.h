@@ -421,7 +421,7 @@ public:
 	 * Select/unselect all entries in the list control.
 	 * \param bSelect TRUE to check, FALSE to uncheck.
 	 */
-	void SelectAll(bool bSelect);
+	void SelectAll(bool bSelect, bool bIncludeNoCommits = false);
 
 	/** Set a checkbox on an entry in the listbox
 	 * Keeps the listctrl checked state and the FileEntry's checked flag in sync

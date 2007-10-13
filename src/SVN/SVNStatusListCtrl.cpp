@@ -3958,7 +3958,7 @@ CTSVNPath CSVNStatusListCtrl::GetCommonDirectory(bool bStrict)
 	return commonBaseDirectory;
 }
 
-void CSVNStatusListCtrl::SelectAll(bool bSelect)
+void CSVNStatusListCtrl::SelectAll(bool bSelect, bool bIncludeNoCommits)
 {
 	CWaitCursor waitCursor;
 	// block here so the LVN_ITEMCHANGED messages
@@ -3977,7 +3977,8 @@ void CSVNStatusListCtrl::SelectAll(bool bSelect)
 		ASSERT(entry != NULL);
 		if (entry == NULL)
 			continue;
-		SetEntryCheck(entry,i,bSelect);
+		if ((bIncludeNoCommits)||(entry->GetChangeList().Compare(SVNSLC_IGNORECHANGELIST)))
+			SetEntryCheck(entry,i,bSelect);
 	}
 	// unblock before redrawing
 	m_bBlock = FALSE;
