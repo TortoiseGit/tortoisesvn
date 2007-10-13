@@ -278,8 +278,6 @@ void CRevisionGraphWnd::DrawNode(CDC * pDC, const CRect& rect,
 			CRect textrect = rect;
 			textrect.left += (m_nIconSize+2);
 			textrect.right -= (m_nIconSize+2);
-			TEXTMETRIC textMetric;
-			pDC->GetOutputTextMetrics(&textMetric);
 			temp.Format(IDS_REVGRAPH_BOXREVISIONTITLE, rentry->revision);
 			pDC->DrawText(temp, &r, DT_CALCRECT);
 			int offset = (int)m_node_rect_height;
