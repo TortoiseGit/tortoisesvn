@@ -19,18 +19,31 @@
 #include "StdAfx.h"
 #include ".\secattribs.h"
 
-CSecAttribs::CSecAttribs(void)
+NULLDACL::NULLDACL(void)
 {
-	pSD = (PSECURITY_DESCRIPTOR) LocalAlloc( LPTR, SECURITY_DESCRIPTOR_MIN_LENGTH );
-	InitializeSecurityDescriptor( pSD, SECURITY_DESCRIPTOR_REVISION );
-	// Add a NUL DACL to the security descriptor...
-	SetSecurityDescriptorDacl( pSD, TRUE, (PACL) NULL, FALSE );
-	sa.nLength = sizeof( sa );
-	sa.lpSecurityDescriptor = pSD;
-	sa.bInheritHandle = TRUE;
+	ZeroMemory(&SecAttr, sizeof(SECURITY_ATTRIBUTES));
+	SecAttr.nLength = sizeof(SecAttr);
+	SecAttr.bInheritHandle = FALSE; // object uninheritable
+
+	SECURITY_DESCRIPTOR SecDesc;
+	BOOL res = InitializeSecurityDescriptor(&SecDesc, SECURITY_DESCRIPTOR_REVISION);
+	if (res) 
+	{
+		res = SetSecurityDescriptorDacl(&SecDesc, TRUE, (PACL)NULL, FALSE);
+	}
+
+	if (res) 
+	{
+		SecAttr.lpSecurityDescriptor = &SecDesc;
+		//Now &SecAttr can be used for lpSecurityAttributes
+	}
 }
 
-CSecAttribs::~CSecAttribs(void)
+NULLDACL::~NULLDACL()
 {
-	LocalFree(pSD); 
+}
+
+NULLDACL::operator LPSECURITY_ATTRIBUTES()
+{
+	return &SecAttr;
 }

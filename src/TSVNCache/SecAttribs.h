@@ -19,16 +19,19 @@
 #pragma once
 #include "Aclapi.h"
 
+
 /**
  * \ingroup Utils
- * helper class to set security attributes.
+ * Represents a NULL DACL, giving full access to everyone
  */
-class CSecAttribs
+class NULLDACL
 {
 public:
-	CSecAttribs(void);
-	~CSecAttribs(void);
-	
-	PSECURITY_DESCRIPTOR pSD;
-	SECURITY_ATTRIBUTES sa;
+	NULLDACL(void);
+	~NULLDACL(void);
+
+	operator LPSECURITY_ATTRIBUTES ();
+
+private:
+	SECURITY_ATTRIBUTES SecAttr;
 };

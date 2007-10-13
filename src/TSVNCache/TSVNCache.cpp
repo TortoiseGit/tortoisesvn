@@ -125,11 +125,11 @@ void DebugOutputLastError()
 
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*lpCmdLine*/, int /*cmdShow*/)
 {
-	CSecAttribs sa;
+	NULLDACL nulldacl;
 #ifdef WIN64
-	HANDLE hReloadProtection = ::CreateMutex(&sa.sa, FALSE, _T("Global\\TSVNCacheReloadProtection64"));
+	HANDLE hReloadProtection = ::CreateMutex(nulldacl, FALSE, _T("Global\\TSVNCacheReloadProtection64"));
 #else
-	HANDLE hReloadProtection = ::CreateMutex(&sa.sa, FALSE, _T("Global\\TSVNCacheReloadProtection"));
+	HANDLE hReloadProtection = ::CreateMutex(nulldacl, FALSE, _T("Global\\TSVNCacheReloadProtection"));
 #endif
 
 	if (hReloadProtection == 0 || GetLastError() == ERROR_ALREADY_EXISTS)
@@ -490,7 +490,7 @@ DWORD WINAPI PipeThread(LPVOID lpvParam)
 	HANDLE hPipe = INVALID_HANDLE_VALUE;
 	HANDLE hInstanceThread = INVALID_HANDLE_VALUE;
 
-	CSecAttribs sa;
+	NULLDACL nulldacl;
 	while (*bRun) 
 	{ 
 		hPipe = CreateNamedPipe( 
@@ -503,7 +503,7 @@ DWORD WINAPI PipeThread(LPVOID lpvParam)
 			BUFSIZE,                  // output buffer size 
 			BUFSIZE,                  // input buffer size 
 			NMPWAIT_USE_DEFAULT_WAIT, // client time-out 
-			&sa.sa);                  // NULL DACL
+			nulldacl);                // NULL DACL
 
 		if (hPipe == INVALID_HANDLE_VALUE) 
 		{
@@ -567,7 +567,7 @@ DWORD WINAPI CommandWaitThread(LPVOID lpvParam)
 	HANDLE hPipe = INVALID_HANDLE_VALUE;
 	HANDLE hCommandThread = INVALID_HANDLE_VALUE;
 
-	CSecAttribs sa;
+	NULLDACL nulldacl;
 	while (*bRun) 
 	{ 
 		hPipe = CreateNamedPipe( 
@@ -580,7 +580,7 @@ DWORD WINAPI CommandWaitThread(LPVOID lpvParam)
 			BUFSIZE,                  // output buffer size 
 			BUFSIZE,                  // input buffer size 
 			NMPWAIT_USE_DEFAULT_WAIT, // client time-out 
-			&sa.sa);                  // NULL DACL
+			nulldacl);                // NULL DACL
 
 		if (hPipe == INVALID_HANDLE_VALUE) 
 		{
