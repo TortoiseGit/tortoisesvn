@@ -124,7 +124,7 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 			// center the splitter
 			RECT rect;
 			GetClientRect(hwnd, &rect);
-			nSplitterPos = (rect.right-rect.left)/2;
+			nSplitterPos = (rect.right-rect.left-SPLITTER_BORDER)/2;
 			CreateToolbar();
 			PositionChildren(&rect);
 			picWindow1.FitImageInWindow();
@@ -162,9 +162,9 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 			RECT rect;
 			GetClientRect(hwnd, &rect);
 			if (bVertical)
-				nSplitterPos = (rect.bottom-rect.top)/2;
+				nSplitterPos = (rect.bottom-rect.top-HEADER_HEIGHT-SPLITTER_BORDER)/2;
 			else
-				nSplitterPos = (rect.right-rect.left)/2;
+				nSplitterPos = (rect.right-rect.left-SPLITTER_BORDER)/2;
 			PositionChildren(&rect);
 		}
 		break;
@@ -483,11 +483,11 @@ LRESULT CMainWindow::DoCommand(int id)
 			GetClientRect(*this, &rect);
 			if (bVertical)
 			{
-				nSplitterPos = (rect.bottom-rect.top)/2;
+				nSplitterPos = (rect.bottom-rect.top-SPLITTER_BORDER-HEADER_HEIGHT)/2;
 			}
 			else
 			{
-				nSplitterPos = (rect.right-rect.left)/2;
+				nSplitterPos = (rect.right-rect.left-SPLITTER_BORDER)/2;
 			}
 			HMENU hMenu = GetMenu(*this);
 			UINT uCheck = MF_BYCOMMAND;
