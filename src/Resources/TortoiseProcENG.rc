@@ -1200,13 +1200,13 @@ BEGIN
     EDITTEXT        IDC_TABSIZE,253,130,31,12,ES_AUTOHSCROLL | ES_NUMBER
 END
 
-IDD_CONFLICTRESOLVE DIALOGEX 0, 0, 316, 126
+IDD_CONFLICTRESOLVE DIALOGEX 0, 0, 316, 150
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Resolve Conflict"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     LTEXT           "",IDC_INFOLABEL,7,7,302,25
-    GROUPBOX        "Please resolve the conflict by choosing one of the following options:",IDC_GROUP,7,36,302,83
+    GROUPBOX        "Please resolve the conflict by choosing one of the following options:",IDC_GROUP,7,41,302,83
     LTEXT           "Choose item:",IDC_CHOOSELABEL,15,57,76,8
     PUSHBUTTON      "Use local",IDC_USELOCAL,100,55,96,14
     PUSHBUTTON      "Use repository",IDC_USEREPO,204,55,96,14
@@ -1216,6 +1216,9 @@ BEGIN
     LTEXT           "Leave conflicted:",IDC_LEAVELABEL,15,101,76,8
     DEFPUSHBUTTON   "Resolve later",IDCANCEL,100,99,96,14
     PUSHBUTTON      "Resolve all later",IDC_RESOLVEALLLATER,204,99,96,14
+    LTEXT           "or",IDC_ORLABEL,15,68,40,8
+    LTEXT           "or",IDC_ORLABEL2,15,90,40,8
+    PUSHBUTTON      "&Help",IDHELP,259,129,50,14
 END
 
 
@@ -1810,7 +1813,7 @@ BEGIN
         VERTGUIDE, 100
         VERTGUIDE, 204
         TOPMARGIN, 7
-        BOTTOMMARGIN, 119
+        BOTTOMMARGIN, 143
         HORZGUIDE, 69
         HORZGUIDE, 91
         HORZGUIDE, 113

@@ -46,6 +46,7 @@ protected:
 	afx_msg void OnBnClickedEditconflict();
 	afx_msg void OnBnClickedResolved();
 	afx_msg void OnBnClickedResolvealllater();
+	afx_msg void OnBnClickedHelp();
 
 	DECLARE_MESSAGE_MAP()
 

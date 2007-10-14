@@ -51,6 +51,7 @@ BEGIN_MESSAGE_MAP(CConflictResolveDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_EDITCONFLICT, &CConflictResolveDlg::OnBnClickedEditconflict)
 	ON_BN_CLICKED(IDC_RESOLVED, &CConflictResolveDlg::OnBnClickedResolved)
 	ON_BN_CLICKED(IDC_RESOLVEALLLATER, &CConflictResolveDlg::OnBnClickedResolvealllater)
+	ON_BN_CLICKED(IDHELP, &CConflictResolveDlg::OnBnClickedHelp)
 END_MESSAGE_MAP()
 
 
@@ -127,12 +128,15 @@ BOOL CConflictResolveDlg::OnInitDialog()
 	AddAnchor(IDC_CHOOSELABEL, BOTTOM_LEFT);
 	AddAnchor(IDC_USELOCAL, BOTTOM_LEFT);
 	AddAnchor(IDC_USEREPO, BOTTOM_RIGHT);
+	AddAnchor(IDC_ORLABEL, BOTTOM_LEFT);
 	AddAnchor(IDC_RESOLVELABEL, BOTTOM_LEFT);
 	AddAnchor(IDC_EDITCONFLICT, BOTTOM_LEFT);
 	AddAnchor(IDC_RESOLVED, BOTTOM_RIGHT);
+	AddAnchor(IDC_ORLABEL2, BOTTOM_LEFT);
 	AddAnchor(IDC_LEAVELABEL, BOTTOM_LEFT);
 	AddAnchor(IDCANCEL, BOTTOM_LEFT);
 	AddAnchor(IDC_RESOLVEALLLATER, BOTTOM_RIGHT);
+	AddAnchor(IDHELP, BOTTOM_RIGHT);
 	
 	
 	return TRUE;
@@ -185,4 +189,9 @@ void CConflictResolveDlg::OnCancel()
 	m_result = svn_wc_conflict_result_conflicted;
 
 	CResizableStandAloneDialog::OnCancel();
+}
+
+void CConflictResolveDlg::OnBnClickedHelp()
+{
+	OnHelp();
 }

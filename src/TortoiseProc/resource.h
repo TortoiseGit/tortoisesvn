@@ -683,8 +683,11 @@
 #define IDS_WARN_WARNING                1405
 #define IDC_SELECTFILESONCOMMIT         1405
 #define IDS_WARN_NOTE                   1406
+#define IDC_ORLABEL                     1406
 #define IDS_WARN_NOVALIDPATH            1407
+#define IDC_ORLABEL2                    1407
 #define IDS_WARN_LOCKOUTDATED           1408
+#define IDC_BUTTON2                     1408
 #define IDS_WARN_SVNNEEDSLOCK           1409
 #define IDS_WARN_RELOCATEREALLYTITLE    1410
 #define IDS_WARN_COPYHEADWITHLOCALMODS  1411
@@ -1228,7 +1231,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        277
 #define _APS_NEXT_COMMAND_VALUE         32829
-#define _APS_NEXT_CONTROL_VALUE         1406
+#define _APS_NEXT_CONTROL_VALUE         1409
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif
