@@ -162,7 +162,12 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 			RECT rect;
 			GetClientRect(hwnd, &rect);
 			if (bVertical)
-				nSplitterPos = (rect.bottom-rect.top-HEADER_HEIGHT-SPLITTER_BORDER)/2;
+			{
+				RECT tbRect;
+				GetWindowRect(hwndTB, &tbRect);
+				LONG tbHeight = tbRect.bottom-tbRect.top-1;
+				nSplitterPos = (rect.bottom-rect.top-SPLITTER_BORDER+tbHeight)/2;
+			}
 			else
 				nSplitterPos = (rect.right-rect.left-SPLITTER_BORDER)/2;
 			PositionChildren(&rect);
@@ -483,7 +488,10 @@ LRESULT CMainWindow::DoCommand(int id)
 			GetClientRect(*this, &rect);
 			if (bVertical)
 			{
-				nSplitterPos = (rect.bottom-rect.top-SPLITTER_BORDER-HEADER_HEIGHT)/2;
+				RECT tbRect;
+				GetWindowRect(hwndTB, &tbRect);
+				LONG tbHeight = tbRect.bottom-tbRect.top-1;
+				nSplitterPos = (rect.bottom-rect.top-SPLITTER_BORDER+tbHeight)/2;
 			}
 			else
 			{
