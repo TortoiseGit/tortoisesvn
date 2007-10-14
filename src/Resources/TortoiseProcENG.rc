@@ -990,7 +990,7 @@ BEGIN
     GROUPBOX        "Lock",IDC_STATIC,7,185,286,25
     CONTROL         "Show Lock dialog before locking files",IDC_SHOWLOCKDLG,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,196,270,10
-    CONTROL         "Select Items automatically",IDC_SELECTFILESONCOMMIT,
+    CONTROL         "Select items automatically",IDC_SELECTFILESONCOMMIT,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,130,238,10
 END
 
@@ -2961,7 +2961,7 @@ BEGIN
     IDS_SETTINGS_CACHELOGS_TT 
                             "Caches the log messages to speed up log fetching"
     IDS_SETTINGS_SELECTFILESONCOMMIT_TT 
-                            "When enabled, the items listed in the commit dialog are automatically selected"
+                            "When enabled, the versioned items listed in the commit dialog are automatically selected"
     IDS_SETTINGS_HOOKS_SELECTFOLDERPATH "Select folder to run script for"
     IDS_SETTINGS_HOOKS_SELECTSCRIPTFILE "Select hook script file"
 END
