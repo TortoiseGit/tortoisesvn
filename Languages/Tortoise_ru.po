@@ -11,13 +11,13 @@
 # Stanislav Petrakov <stannic@gmail.com>
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 10959: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 10996: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-10-12 12:07+0300\n"
+"PO-Revision-Date: 2007-10-14 21:24+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5153,6 +5153,10 @@ msgstr "Выберите папку, в которую будут сохране
 msgid "Select hook script file"
 msgstr "Выбрать файл скрипта ловушки"
 
+#. Resource IDs: (1405)
+msgid "Select items automatically"
+msgstr "Автоматический выбор элементов"
+
 #. Resource IDs: (78)
 msgid "Select merge application"
 msgstr "Выбрать приложение слияния"
@@ -6631,6 +6635,10 @@ msgid "Warning!"
 msgstr "Предупреждение!"
 
 #. Resource IDs: (197)
+msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
+msgstr "Если включено, перечисленные в диалоге фиксации версированные элементы автоматически отмечаются как выбранные "
+
+#. Resource IDs: (197)
 msgid ""
 "When locking one or more selected files, shows a dialog\n"
 "asking for a descriptive message about the locking"
@@ -7085,6 +7093,10 @@ msgstr "нормальный"
 #. Resource IDs: (11)
 msgid "obstructed"
 msgstr "мешающий"
+
+#. Resource IDs: (1406, 1407)
+msgid "or"
+msgstr "или"
 
 #. Resource IDs: (3869)
 msgid "pixels"
