@@ -127,9 +127,9 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 {
 	NULLDACL nulldacl;
 #ifdef WIN64
-	HANDLE hReloadProtection = ::CreateMutex(nulldacl, FALSE, _T("Global\\TSVNCacheReloadProtection64"));
+	HANDLE hReloadProtection = ::CreateMutex(nulldacl, FALSE, _T("TSVNCacheReloadProtection64"));
 #else
-	HANDLE hReloadProtection = ::CreateMutex(nulldacl, FALSE, _T("Global\\TSVNCacheReloadProtection"));
+	HANDLE hReloadProtection = ::CreateMutex(nulldacl, FALSE, _T("TSVNCacheReloadProtection"));
 #endif
 
 	if (hReloadProtection == 0 || GetLastError() == ERROR_ALREADY_EXISTS)
