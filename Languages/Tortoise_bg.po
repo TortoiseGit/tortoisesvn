@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-09-30 17:35+0200\n"
+"PO-Revision-Date: 2007-10-14 17:34+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1244,8 +1244,8 @@ msgid "Authors"
 msgstr "Автори"
 
 #. Resource IDs: (1265)
-msgid "Authors case insensitive"
-msgstr "Нечувствителност към регистъра за авторите"
+msgid "Authors case sensitive"
+msgstr "Чувствителност към регистъра за имената на авторите"
 
 #. Resource IDs: (65535)
 msgid "Authors:"
@@ -1701,6 +1701,10 @@ msgid ""
 "\n"
 "Are you sure that you want to continue the commit?"
 msgstr ""
+"Поверяването на неконтролирана директория няма да добави рекурсивно децата й!\n"
+"Вероятно бихте искали да добавите тези подпапки рекурсивно чрез контекстното менюто \"Добаване...\".\n"
+"\n"
+"Сигурни ли сте, че желаете да продължите с поверяването?"
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
@@ -5079,6 +5083,10 @@ msgstr "Изберете папка, в която да се запишат фа
 msgid "Select hook script file"
 msgstr "Изберете файл със скрипт-кука"
 
+#. Resource IDs: (1405)
+msgid "Select items automatically"
+msgstr "Автоматично маркиране на обектите"
+
 #. Resource IDs: (78)
 msgid "Select merge application"
 msgstr "Избор на програма за сливане"
@@ -5185,7 +5193,7 @@ msgstr "&Всички ревизии"
 
 #. Resource IDs: (113, 32783)
 msgid "Show &changes"
-msgstr "&Промените"
+msgstr "&Промени"
 
 #. Resource IDs: (12, 101, 1016, 1031, 1034, 1132, 1228, 32784)
 msgid "Show &log"
@@ -5353,6 +5361,10 @@ msgstr "Прескочен"
 #. Resource IDs: (263)
 msgid "Skipped missing target"
 msgstr "Прескочени липсващи цели"
+
+#. Resource IDs: (1126)
+msgid "Sort by commit count"
+msgstr "Подреждане по брой поверявания"
 
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -6533,6 +6545,10 @@ msgid "Warning!"
 msgstr "Внимание!"
 
 #. Resource IDs: (197)
+msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
+msgstr "Ако е включено, контролираните обекти, включени в списъка на диалоговия прозорец за поверяване, са маркирани автоматично"
+
+#. Resource IDs: (197)
 msgid ""
 "When locking one or more selected files, shows a dialog\n"
 "asking for a descriptive message about the locking"
@@ -6980,6 +6996,10 @@ msgstr "нормален"
 msgid "obstructed"
 msgstr "задръстен"
 
+#. Resource IDs: (1406, 1407)
+msgid "or"
+msgstr "или"
+
 #. Resource IDs: (3869)
 msgid "pixels"
 msgstr "точки"
@@ -7170,6 +7190,14 @@ msgid ""
 msgstr ""
 "tsvn:logminsize\n"
 "Минимален брой знаци, които трябва да съдържа съобщението за дневника, за да се позволи поверяване."
+
+#. Resource IDs: (578)
+msgid ""
+"tsvn:logsummary\n"
+"A regex string which extracts a summary from a log message in its first group."
+msgstr ""
+"tsvn:logsummary\n"
+"Регулярен израз, който извлича резюме от съобщението в дневника в първата си група."
 
 #. Resource IDs: (578)
 msgid ""
