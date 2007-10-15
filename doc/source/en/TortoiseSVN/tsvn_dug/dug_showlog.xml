@@ -604,6 +604,15 @@
 			The checkbox is tristate: you can show all paths, grey out the
 			unrelated ones, or hide the unrelated paths completely.
 		</para>
+		<para>
+			Sometimes your working practices will require log messages to follow
+			a particular format, which means that the text describing the changes
+			is not visible in the abbreviated summary shown in the top pane.
+			The property <literal>tsvn:logsummary</literal> can be used to
+			extract a portion of the log message to be shown in the top pane.
+			Read <xref linkend="tsvn-dug-propertypage-tsvn-props"/> to find
+			out how to use this property.
+		</para>
 	</sect2>
 	<sect2 id="tsvn-dug-showlog-5">
 		<?dbhh topicname="HIDD_STATGRAPH"?>
