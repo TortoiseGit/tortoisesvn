@@ -168,12 +168,21 @@
 			which saves TSVNCache from scanning and monitoring for changes,
 			but you still want a visual indication that such folders are versioned.
 			The <guilabel>Show excluded folders as 'normal'</guilabel> checkbox
-			allows you to do this. With this option, versioned folders in an
-			excluded area will show up as normal and up-to-date, with a green check
+			allows you to do this. With this option, versioned folders in any
+			excluded area (drive type not checked, or specifically excluded)
+			will show up as normal and up-to-date, with a green check
 			mark. This reminds you that you are looking at a working copy, even
 			though the folder overlays may not be correct. Files do not get an
 			overlay at all. Note that the context menus still work, even though
 			the overlays are not shown.
+		</para>
+		<para>
+			As a special exception to this, drives <literal>A:</literal>
+			and <literal>B:</literal> are never considered for the
+			<guilabel>Show excluded folders as 'normal'</guilabel> option.
+			This is because Windows is forced to look on the drive, which can
+			result in a delay of several seconds when starting Explorer, even
+			if your PC does have a floppy drive.
 		</para>
 	</sect3>
 	<sect3 id="tsvn-dug-settings-icon-set">
