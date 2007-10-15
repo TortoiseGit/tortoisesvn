@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-10-11 11:38+0900\n"
+"PO-Revision-Date: 2007-10-15 13:51+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1217,8 +1217,8 @@ msgid "Authors"
 msgstr "作者"
 
 #. Resource IDs: (1265)
-msgid "Authors case insensitive"
-msgstr "作者名の大文字／小文字を区別しない"
+msgid "Authors case sensitive"
+msgstr "作者名の大文字／小文字を区別する"
 
 #. Resource IDs: (65535)
 msgid "Authors:"
@@ -2274,10 +2274,10 @@ msgstr "変更を保存しますか？"
 #. Resource IDs: (65535)
 msgid ""
 "Documentation : Simon Large\n"
-"Code : Tobias Schafer, Stefan Fuhrmann"
+"Code : Tobias Schäfer, Stefan Fuhrmann"
 msgstr ""
 "ドキュメント : Simon Large\n"
-"コード : Tobias Schafer, Stefan Fuhrmann"
+"コード : Tobias Schäfer, Stefan Fuhrmann"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -5054,6 +5054,10 @@ msgstr "選択したファイルを保存するフォルダを選択してくだ
 msgid "Select hook script file"
 msgstr "フックスクリプトファイルを選択 ..."
 
+#. Resource IDs: (1405)
+msgid "Select items automatically"
+msgstr "項目を自動的に選択する"
+
 #. Resource IDs: (78)
 msgid "Select merge application"
 msgstr "マージ用アプリケーションを選択"
@@ -5329,6 +5333,10 @@ msgstr "スキップ"
 msgid "Skipped missing target"
 msgstr "ターゲットが見つからないのでスキップします"
 
+#. Resource IDs: (1126)
+msgid "Sort by commit count"
+msgstr "コミット数でソートする"
+
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr "最近のログメッセージを表示するダイアログで、表示する項目数を指定する。"
@@ -5425,8 +5433,8 @@ msgid "Steal the lock"
 msgstr "ロックを横取りする"
 
 #. Resource IDs: (65535)
-msgid "Stefan Kung, Lubbe Onken"
-msgstr "Stefan Kung, Lubbe Onken"
+msgid "Stefan Küng, Lübbe Onken"
+msgstr "Stefan Küng, Lübbe Onken"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
@@ -6509,6 +6517,10 @@ msgid "Warning!"
 msgstr "警告！"
 
 #. Resource IDs: (197)
+msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
+msgstr "有効にした場合、コミットダイアログに表示されるバージョン管理されている項目は自動的に選択されます。"
+
+#. Resource IDs: (197)
 msgid ""
 "When locking one or more selected files, shows a dialog\n"
 "asking for a descriptive message about the locking"
@@ -6953,6 +6965,10 @@ msgstr "通常"
 msgid "obstructed"
 msgstr "妨害"
 
+#. Resource IDs: (1406, 1407)
+msgid "or"
+msgstr "または"
+
 #. Resource IDs: (3869)
 msgid "pixels"
 msgstr "画素"
@@ -7143,6 +7159,14 @@ msgid ""
 msgstr ""
 "tsvn:logminsize\n"
 "コミットする前に入力する必要のあるログメッセージの最小文字数。"
+
+#. Resource IDs: (578)
+msgid ""
+"tsvn:logsummary\n"
+"A regex string which extracts a summary from a log message in its first group."
+msgstr ""
+"tsvn:logsummary\n"
+"最初のグループ内のログメッセージからサマリーを抽出する正規表現文字列。"
 
 #. Resource IDs: (578)
 msgid ""
