@@ -1239,148 +1239,113 @@ void CBaseView::DrawBlockLine(CDC *pDC, const CRect &rc, int nLineIndex)
 	}
 }
 
-void CBaseView::DrawDiffTokens(CDC *pDC, const CRect &rc, int& nLineIndex, int& nLineOffset, CPoint& origin, apr_off_t nTokenCount, bool bInlineDiff)
+void CBaseView::DrawText(
+	CDC * pDC, const CRect &rc, LPCTSTR text, int textlength, int nLineIndex, POINT coords, bool bModified, bool bInlineDiff)
 {
-	CString s;
-	for (int i = 0; i < nTokenCount; ++i)
-	{
-		s += m_svnlinediff.m_line1tokens[nLineOffset].c_str();
-		nLineOffset++;
-	}
-	DrawText(pDC, rc, (LPCTSTR)s, s.GetLength(), nLineIndex, origin, true, bInlineDiff);
-	origin.x += pDC->GetTextExtent(s).cx;
-}
-
-void CBaseView::DrawText(CDC * pDC, const CRect &rc, LPCTSTR text, int textlength, int nLineIndex, POINT coords, bool bModified, bool bInlineDiff)
-{
-	if ((m_ptSelectionDrawStartPos.y > nLineIndex)||(m_ptSelectionDrawEndPos.y < nLineIndex))
+	ASSERT(m_pViewData && (nLineIndex < m_pViewData->GetCount()));
+	DiffStates diffState = m_pViewData->GetState(nLineIndex);
+	
+	// first suppose the whole line is selected
+	int selectedStart = 0, selectedEnd = textlength;
+	
+	if ((m_ptSelectionDrawStartPos.y > nLineIndex) || (m_ptSelectionDrawEndPos.y < nLineIndex))
 	{
 		// this line has no selected text
-		COLORREF crBkgnd, crText;
-		if ((m_pViewData)&&(m_pViewData->GetCount()>nLineIndex))
-			CDiffColors::GetInstance().GetColors(m_pViewData->GetState(nLineIndex), crBkgnd, crText);
-		else
-			CDiffColors::GetInstance().GetColors(DIFFSTATE_UNKNOWN, crBkgnd, crText);
-		if ((bModified)||(m_pViewData->GetState(nLineIndex) == DIFFSTATE_EDITED))
-			crBkgnd = m_ModifiedBk;
-		if (bInlineDiff)
-			crBkgnd = InlineDiffColor(nLineIndex);
-		pDC->SetBkColor(crBkgnd);
-		pDC->SetTextColor(crText);
-		VERIFY(pDC->ExtTextOut(coords.x, coords.y, ETO_CLIPPED, &rc, text, textlength, NULL));
-		return;
+		selectedStart = textlength;
 	}
-
-	if (m_ptSelectionDrawStartPos.y < nLineIndex && m_ptSelectionDrawEndPos.y > nLineIndex)
+	else if ((m_ptSelectionDrawStartPos.y == nLineIndex) || (m_ptSelectionDrawEndPos.y == nLineIndex))
 	{
-		// the whole line is selected
-		COLORREF crBkgnd, crText;
-		if ((m_pViewData)&&(m_pViewData->GetCount()>nLineIndex))
-			CDiffColors::GetInstance().GetColors(m_pViewData->GetState(nLineIndex), crBkgnd, crText);
-		else
-			CDiffColors::GetInstance().GetColors(DIFFSTATE_UNKNOWN, crBkgnd, crText);
-		if ((bModified)||(m_pViewData->GetState(nLineIndex) == DIFFSTATE_EDITED))
-			crBkgnd = m_ModifiedBk;
-		if (bInlineDiff)
-			crBkgnd = InlineDiffColor(nLineIndex);
+		// the line is partially selected
+		int xoffs = m_nOffsetChar + (coords.x - GetMarginWidth()) / GetCharWidth();
+		if (m_ptSelectionDrawStartPos.y == nLineIndex)
+		{
+			// the first line of selection
+			selectedStart = max(min(m_ptSelectionDrawStartPos.x - xoffs, textlength), 0);
+		}
 
-		if (m_bFocused)
+		if (m_ptSelectionDrawEndPos.y == nLineIndex)
 		{
-			crBkgnd = IntenseColor(70, crBkgnd);
-			crText = IntenseColor(70, crText);
+			// the last line of selection
+			selectedEnd = max(min(m_ptSelectionDrawEndPos.x - xoffs, textlength), 0);
 		}
-		else
-		{
-			crBkgnd = IntenseColor(30, crBkgnd);
-			crText = IntenseColor(30, crText);
-		}
-		pDC->SetBkColor(crBkgnd);
-		pDC->SetTextColor(crText);
-		VERIFY(pDC->ExtTextOut(coords.x, coords.y, ETO_CLIPPED, &rc, text, textlength, NULL));
-		return;
 	}
 
-	// the line is partially selected
-	if ((m_ptSelectionDrawStartPos.y == nLineIndex) &&
-		(((m_ptSelectionDrawStartPos.x-m_nOffsetChar) * GetCharWidth()) > (coords.x-GetMarginWidth())))
-	{
-		// first text not selected, then selected text
-		COLORREF crBkgnd, crText, crBkgndSelected, crTextSelected;
-		if ((m_pViewData)&&(m_pViewData->GetCount()>nLineIndex))
-			CDiffColors::GetInstance().GetColors(m_pViewData->GetState(nLineIndex), crBkgnd, crText);
-		else
-			CDiffColors::GetInstance().GetColors(DIFFSTATE_UNKNOWN, crBkgnd, crText);
-		if ((bModified)||(m_pViewData->GetState(nLineIndex) == DIFFSTATE_EDITED))
-			crBkgnd = m_ModifiedBk;
-		if (bInlineDiff)
-			crBkgnd = InlineDiffColor(nLineIndex);
-		pDC->SetBkColor(crBkgnd);
-		pDC->SetTextColor(crText);
-		// how many chars are not selected?
-		int clearLen = m_ptSelectionDrawStartPos.x - (((coords.x-GetMarginWidth()) / GetCharWidth())+m_nOffsetChar);
-		clearLen = min(clearLen, textlength);
-		VERIFY(pDC->ExtTextOut(coords.x, coords.y, ETO_CLIPPED, &rc, text, clearLen, NULL));
-		// now draw the rest of the line selected
-		if (m_bFocused)
-		{
-			crBkgndSelected = IntenseColor(70, crBkgnd);
-			crTextSelected = IntenseColor(70, crText);
-		}
-		else
-		{
-			crBkgndSelected = IntenseColor(30, crBkgnd);
-			crTextSelected = IntenseColor(30, crText);
-		}
-		pDC->SetBkColor(crBkgndSelected);
-		pDC->SetTextColor(crTextSelected);
-		int selLen = m_ptSelectionDrawEndPos.x - (((coords.x-GetMarginWidth()) / GetCharWidth())+m_nOffsetChar);
-		selLen -= clearLen;
-		if (m_ptSelectionDrawEndPos.y > nLineIndex)
-			selLen = textlength-clearLen;
-		selLen = min(selLen, textlength-clearLen);
-		selLen = max(selLen, 0);
-		VERIFY(pDC->ExtTextOut(coords.x+(clearLen*GetCharWidth()), coords.y, ETO_CLIPPED, &rc, text+clearLen, selLen, NULL));
-		pDC->SetBkColor(crBkgnd);
-		pDC->SetTextColor(crText);
-		VERIFY(pDC->ExtTextOut(coords.x+((clearLen+selLen)*GetCharWidth()), coords.y, ETO_CLIPPED, &rc, text+clearLen+selLen, textlength-selLen-clearLen, NULL));
-		return;
-	}
-	// first selected text, then unselected text
-	// first text not selected, then selected text
-	COLORREF crBkgnd, crText, crBkgndSelected, crTextSelected;
-	if ((m_pViewData)&&(m_pViewData->GetCount()>nLineIndex))
-		CDiffColors::GetInstance().GetColors(m_pViewData->GetState(nLineIndex), crBkgnd, crText);
-	else
-		CDiffColors::GetInstance().GetColors(DIFFSTATE_UNKNOWN, crBkgnd, crText);
-	if ((bModified)||(m_pViewData->GetState(nLineIndex) == DIFFSTATE_EDITED))
+	COLORREF crBkgnd, crText;
+	CDiffColors::GetInstance().GetColors(diffState, crBkgnd, crText);
+	if (bModified || (diffState == DIFFSTATE_EDITED))
 		crBkgnd = m_ModifiedBk;
 	if (bInlineDiff)
 		crBkgnd = InlineDiffColor(nLineIndex);
-	if (m_bFocused)
-	{
-		crBkgndSelected = IntenseColor(70, crBkgnd);
-		crTextSelected = IntenseColor(70, crText);
-	}
-	else
-	{
-		crBkgndSelected = IntenseColor(30, crBkgnd);
-		crTextSelected = IntenseColor(30, crText);
-	}
-	pDC->SetBkColor(crBkgndSelected);
-	pDC->SetTextColor(crTextSelected);
 
-	// how many chars are selected?
-	int selLen = m_ptSelectionDrawEndPos.x - (((coords.x-GetMarginWidth()) / GetCharWidth())+m_nOffsetChar);
-	if (m_ptSelectionDrawEndPos.y > nLineIndex)
-		selLen = textlength;
-	selLen = min(selLen, textlength);
-	selLen = max(selLen, 0);
-	VERIFY(pDC->ExtTextOut(coords.x, coords.y, ETO_CLIPPED, &rc, text, selLen, NULL));
-	// now draw the rest of the line not selected
 	pDC->SetBkColor(crBkgnd);
 	pDC->SetTextColor(crText);
-	VERIFY(pDC->ExtTextOut(coords.x+(selLen*GetCharWidth()), coords.y, ETO_CLIPPED, &rc, &text[selLen], textlength-selLen, NULL));
-	return;
+	VERIFY(pDC->ExtTextOut(coords.x, coords.y, ETO_CLIPPED, &rc, text, selectedStart, NULL));
+
+	long intenseColorScale = m_bFocused ? 70 : 30;
+	pDC->SetBkColor(IntenseColor(intenseColorScale, crBkgnd));
+	pDC->SetTextColor(IntenseColor(intenseColorScale, crText));
+	VERIFY(pDC->ExtTextOut(
+		coords.x + selectedStart * GetCharWidth(), coords.y, ETO_CLIPPED, &rc,
+		text + selectedStart, selectedEnd - selectedStart, NULL));
+
+	pDC->SetBkColor(crBkgnd);
+	pDC->SetTextColor(crText);
+	VERIFY(pDC->ExtTextOut(
+		coords.x + selectedEnd * GetCharWidth(), coords.y, ETO_CLIPPED, &rc,
+		text + selectedEnd, textlength - selectedEnd, NULL));
+}
+
+bool CBaseView::DrawInlineDiff(CDC *pDC, const CRect &rc, int nLineIndex, const CString &line, CPoint &origin)
+{
+	if (!m_bShowInlineDiff || line.IsEmpty())
+		return false;
+	if ((m_pwndBottom != NULL) && !(m_pwndBottom->IsHidden()))
+		return false;
+
+	LPCTSTR pszDiffChars = NULL;
+	int nDiffLength = 0;
+	if (m_pOtherViewData)
+	{
+		int index = min(nLineIndex, m_pOtherViewData->GetCount() - 1);
+		pszDiffChars = m_pOtherViewData->GetLine(index);
+		nDiffLength = m_pOtherViewData->GetLine(index).GetLength();
+	}
+
+	if (!pszDiffChars || !*pszDiffChars)
+		return false;
+
+	CString diffline;
+	ExpandChars(pszDiffChars, 0, nDiffLength, diffline);
+	svn_diff_t * diff = NULL;
+	m_svnlinediff.Diff(&diff, line, line.GetLength(), diffline, diffline.GetLength(), m_bInlineWordDiff);
+	if (!diff || !SVNLineDiff::ShowInlineDiff(diff))
+		return false;
+
+	int lineoffset = 0;
+	std::deque<int> removedPositions;
+	while (diff)
+	{
+		apr_off_t len = diff->original_length;
+
+		CString s;
+		for (int i = 0; i < len; ++i)
+		{
+			s += m_svnlinediff.m_line1tokens[lineoffset].c_str();
+			lineoffset++;
+		}
+		bool isModified = diff->type == svn_diff__type_diff_modified;
+		DrawText(pDC, rc, (LPCTSTR)s, s.GetLength(), nLineIndex, origin, true, isModified);
+		origin.x += pDC->GetTextExtent(s).cx;
+
+		if (isModified && (len < diff->modified_length))
+			removedPositions.push_back(origin.x - 1);
+
+		diff = diff->next;
+	}
+	// Draw vertical bars at removed chunks' positions.
+	for (std::deque<int>::iterator it = removedPositions.begin(); it != removedPositions.end(); ++it)
+		pDC->FillSolidRect(*it, rc.top, 1, rc.Height(), m_InlineRemovedBk);
+	return true;
 }
 
 void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
@@ -1389,42 +1354,36 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 		nLineIndex = -1;
 	ASSERT(nLineIndex >= -1);
 
-	if (nLineIndex == -1)
+	if ((nLineIndex == -1) || !m_pViewData)
 	{
 		// Draw line beyond the text
-		COLORREF bkGnd, crText;
-		CDiffColors::GetInstance().GetColors(DIFFSTATE_UNKNOWN, bkGnd, crText);
-		pDC->FillSolidRect(rc, bkGnd);
+		COLORREF crBkgnd, crText;
+		CDiffColors::GetInstance().GetColors(DIFFSTATE_UNKNOWN, crBkgnd, crText);
+		pDC->FillSolidRect(rc, crBkgnd);
 		return;
-	} 
-
-	if ((m_pViewData)&&(m_pViewData->GetCount()>nLineIndex))
-	{
-		if (m_pViewData->GetState(nLineIndex) == DIFFSTATE_CONFLICTED)
-		{
-			// conflicted lines are shown without 'text' on them
-			CRect rect = rc;
-			COLORREF crBkgnd, crText;
-			CDiffColors::GetInstance().GetColors(m_pViewData->GetState(nLineIndex), crBkgnd, crText);
-			pDC->FillSolidRect(rect, crBkgnd);
-			// now draw some faint text patterns
-			pDC->SetTextColor(IntenseColor(130, crBkgnd));
-			pDC->DrawText(m_sConflictedText, rect, DT_LEFT|DT_NOPREFIX|DT_SINGLELINE);
-			DrawBlockLine(pDC, rc, nLineIndex);
-			return;
-		}
 	}
 
-	int nLength = GetLineLength(nLineIndex);
+	DiffStates diffState = m_pViewData->GetState(nLineIndex);
+	COLORREF crBkgnd, crText;
+	CDiffColors::GetInstance().GetColors(diffState, crBkgnd, crText);
+
+	if (diffState == DIFFSTATE_CONFLICTED)
+	{
+		// conflicted lines are shown without 'text' on them
+		CRect rect = rc;
+		pDC->FillSolidRect(rc, crBkgnd);
+		// now draw some faint text patterns
+		pDC->SetTextColor(IntenseColor(130, crBkgnd));
+		pDC->DrawText(m_sConflictedText, rect, DT_LEFT|DT_NOPREFIX|DT_SINGLELINE);
+		DrawBlockLine(pDC, rc, nLineIndex);
+		return;
+	}
+
 	CPoint origin(rc.left - m_nOffsetChar * GetCharWidth(), rc.top);
+	int nLength = GetLineLength(nLineIndex);
 	if (nLength == 0)
 	{
 		// Draw the empty line
-		COLORREF crBkgnd, crText;
-		if ((m_pViewData)&&(m_pViewData->GetCount()>nLineIndex))
-			CDiffColors::GetInstance().GetColors(m_pViewData->GetState(nLineIndex), crBkgnd, crText);
-		else
-			CDiffColors::GetInstance().GetColors(DIFFSTATE_UNKNOWN, crBkgnd, crText);
 		pDC->FillSolidRect(rc, crBkgnd);
 		DrawBlockLine(pDC, rc, nLineIndex);
 		DrawLineEnding(pDC, rc, nLineIndex, origin);
@@ -1435,84 +1394,36 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 		return;
 
 	CheckOtherView();
-	LPCTSTR pszDiffChars = NULL;
-	int nDiffLength = 0;
-	if (m_pOtherViewData)
-	{
-		int index = min(nLineIndex, m_pOtherViewData->GetCount() - 1);
-		pszDiffChars = m_pOtherViewData->GetLine(index);
-		nDiffLength = m_pOtherViewData->GetLine(index).GetLength();
-	}
 
 	// Draw the line
 
 	pDC->SelectObject(GetFont(FALSE, FALSE, IsLineRemoved(nLineIndex)));
 	CString line;
 	ExpandChars(pszChars, 0, nLength, line);
+
 	int nWidth = rc.right - origin.x;
 	int savedx = origin.x;
-	if (nWidth > 0)
+	bool bInlineDiffDrawn =
+		nWidth > 0 && diffState != DIFFSTATE_NORMAL &&
+		DrawInlineDiff(pDC, rc, nLineIndex, line, origin);
+
+	if (!bInlineDiffDrawn)
 	{
-		int nCount = line.GetLength();
-		int nCountFit = nWidth / GetCharWidth() + 1;
-		if (nCount > nCountFit)
-			nCount = nCountFit;
-
-		if (
-			m_bShowInlineDiff && pszDiffChars && (pszDiffChars[0]!=0) &&
-			(DIFFSTATE_NORMAL != m_pViewData->GetState(nLineIndex))&&
-			!line.IsEmpty()&&
-			((m_pwndBottom == NULL) || (m_pwndBottom->IsHidden()))
-		)
-		{
-			CString diffline;
-			ExpandChars(pszDiffChars, 0, nDiffLength, diffline);
-			svn_diff_t * diff = NULL;
-			m_svnlinediff.Diff(&diff, line, line.GetLength(), diffline, diffline.GetLength(), m_bInlineWordDiff);
-			if (diff && SVNLineDiff::ShowInlineDiff(diff))
-			{
-				int lineoffset = 0;
-				std::deque<int> removedPositions;
-				while (diff)
-				{
-					apr_off_t len = diff->original_length;
-					DrawDiffTokens(pDC, rc, nLineIndex, lineoffset, origin, len, diff->type == svn_diff__type_diff_modified);
-
-					if ((diff->type == svn_diff__type_diff_modified) && (len < diff->modified_length))
-						removedPositions.push_back(origin.x-1);
-
-					diff = diff->next;
-				}
-				// Draw vertical bars at removed chunks' positions.
-				for (std::deque<int>::iterator it = removedPositions.begin(); it != removedPositions.end(); ++it)
-					pDC->FillSolidRect(*it, rc.top, 1, rc.Height(), m_InlineRemovedBk);
-			}
-			else
-				DrawText(pDC, rc, line, nCount, nLineIndex, origin, false, false);
-		}
-		else
-			DrawText(pDC, rc, line, nCount, nLineIndex, origin, false, false);
-	} // if (nWidth > 0) 
+		int nCount = min(line.GetLength(), nWidth / GetCharWidth() + 1);
+		DrawText(pDC, rc, line, nCount, nLineIndex, origin, false, false);
+	}
 
 	origin.x = savedx + pDC->GetTextExtent(line).cx;
 
-	// draw white spaces to the left of the text
+	// draw white space after the end of line
 	CRect frect = rc;
 	if (origin.x > frect.left)
 		frect.left = origin.x;
 	if (frect.right > frect.left)
-		{
-			COLORREF crBkgnd, crText;
-			if ((m_pViewData)&&(m_pViewData->GetCount()>nLineIndex))
-				CDiffColors::GetInstance().GetColors(m_pViewData->GetState(nLineIndex), crBkgnd, crText);
-			else
-				CDiffColors::GetInstance().GetColors(DIFFSTATE_UNKNOWN, crBkgnd, crText);
-			pDC->FillSolidRect(frect, crBkgnd);
-
-	}
+		pDC->FillSolidRect(frect, crBkgnd);
 	DrawBlockLine(pDC, rc, nLineIndex);
 	DrawLineEnding(pDC, rc, nLineIndex, origin);
-}		
+}
 
 void CBaseView::ExpandChars(LPCTSTR pszChars, int nOffset, int nCount, CString &line)
 {

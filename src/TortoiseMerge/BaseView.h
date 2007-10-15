@@ -136,8 +136,8 @@ protected:
 protected:
 	void			DrawHeader(CDC *pdc, const CRect &rect);
 	void			DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex);
-	void			DrawDiffTokens(CDC *pDC, const CRect &rc, int& nLineIndex, int& nLineOffset, CPoint& origin, apr_off_t nTokenCount, bool bInlineDiff);
 	void			DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex);
+	bool			DrawInlineDiff(CDC *pDC, const CRect &rc, int nLineIndex, const CString &line, CPoint &origin);
 	/**
 	 * Draws the horizontal lines around current diff block or selection block.
 	 */
