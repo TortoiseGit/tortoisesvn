@@ -687,10 +687,15 @@
 #define IDS_WARN_NOVALIDPATH            1407
 #define IDC_ORLABEL2                    1407
 #define IDS_WARN_LOCKOUTDATED           1408
-#define IDC_BUTTON2                     1408
 #define IDS_WARN_SVNNEEDSLOCK           1409
+#define IDC_PROXYLABEL1                 1409
 #define IDS_WARN_RELOCATEREALLYTITLE    1410
+#define IDC_PROXYLABEL2                 1410
 #define IDS_WARN_COPYHEADWITHLOCALMODS  1411
+#define IDC_PROXYLABEL3                 1411
+#define IDC_PROXYLABEL4                 1412
+#define IDC_PROXYLABEL5                 1413
+#define IDC_PROXYLABEL6                 1414
 #define IDS_CHECKOUT_TT_DIR             1500
 #define IDS_CHECKOUT_EXPORTDIR          1501
 #define IDS_EXPORT_TT_EOL               1505
@@ -1231,7 +1236,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        277
 #define _APS_NEXT_COMMAND_VALUE         32829
-#define _APS_NEXT_CONTROL_VALUE         1409
+#define _APS_NEXT_CONTROL_VALUE         1415
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

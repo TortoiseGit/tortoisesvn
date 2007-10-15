@@ -164,6 +164,12 @@ void CSetProxyPage::EnableGroup(BOOL b)
 	GetDlgItem(IDC_PASSWORD)->EnableWindow(b);
 	GetDlgItem(IDC_TIMEOUT)->EnableWindow(b);
 	GetDlgItem(IDC_EXCEPTIONS)->EnableWindow(b);
+	GetDlgItem(IDC_PROXYLABEL1)->EnableWindow(b);
+	GetDlgItem(IDC_PROXYLABEL2)->EnableWindow(b);
+	GetDlgItem(IDC_PROXYLABEL3)->EnableWindow(b);
+	GetDlgItem(IDC_PROXYLABEL4)->EnableWindow(b);
+	GetDlgItem(IDC_PROXYLABEL5)->EnableWindow(b);
+	GetDlgItem(IDC_PROXYLABEL6)->EnableWindow(b);
 }
 
 BOOL CSetProxyPage::PreTranslateMessage(MSG* pMsg)
