@@ -55,7 +55,7 @@ public:
 	DiffStates		GetState(int index) {return m_data[index].state;}
 	int				GetLineNumber(int index) {return m_data[index].linenumber;}
 	int				FindLineNumber(int number);
-	EOL	GetLineEnding(int index) {return m_data[index].ending;}
+	EOL				GetLineEnding(int index) {return m_data[index].ending;}
 
 	int				GetCount() {return m_data.size();}
 

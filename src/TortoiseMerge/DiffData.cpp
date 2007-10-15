@@ -276,6 +276,7 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 				return false;
 			}
 			const CString& sCurrentBaseLine = m_arBaseFile.GetAt(baseline);
+			EOL endingBase = m_arBaseFile.GetLineEnding(baseline);
 			if (tempdiff->type == svn_diff__type_common)
 			{
 				if (yourline >= m_arYourFile.GetCount())
@@ -306,37 +307,33 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 						if (s1 != s2)
 						{
 							// one-pane view: two lines, one 'removed' and one 'added'
-							m_YourBaseBoth.AddData(sCurrentBaseLine, DIFFSTATE_REMOVEDWHITESPACE, yourline, endingYours);
+							m_YourBaseBoth.AddData(sCurrentBaseLine, DIFFSTATE_REMOVEDWHITESPACE, yourline, endingBase);
 							m_YourBaseBoth.AddData(sCurrentYourLine, DIFFSTATE_ADDEDWHITESPACE, yourline, endingYours);
 						}
 						else
 						{
-							m_YourBaseBoth.AddData(sCurrentBaseLine, DIFFSTATE_NORMAL, yourline, endingYours);
+							m_YourBaseBoth.AddData(sCurrentBaseLine, DIFFSTATE_NORMAL, yourline, endingBase);
 						}
 					}
 					else if (dwIgnoreWS == 0)
 					{
-						m_YourBaseBoth.AddData(sCurrentBaseLine, DIFFSTATE_REMOVEDWHITESPACE, yourline, endingYours);
+						m_YourBaseBoth.AddData(sCurrentBaseLine, DIFFSTATE_REMOVEDWHITESPACE, yourline, endingBase);
 						m_YourBaseBoth.AddData(sCurrentYourLine, DIFFSTATE_ADDEDWHITESPACE, yourline, endingYours);
 					}
 					else
 					{
-						m_YourBaseBoth.AddData(sCurrentBaseLine, DIFFSTATE_NORMAL, yourline, endingYours);
+						m_YourBaseBoth.AddData(sCurrentBaseLine, DIFFSTATE_NORMAL, yourline, endingBase);
 					}
 				}
 				else
 				{
-					m_YourBaseBoth.AddData(sCurrentBaseLine, DIFFSTATE_NORMAL, yourline, endingYours);
+					m_YourBaseBoth.AddData(sCurrentBaseLine, DIFFSTATE_NORMAL, yourline, endingBase);
 				}
 				yourline++;		//in both files
 			}
 			else
 			{
-				EOL endingYours = EOL_NOENDING;
-				if (yourline < m_arYourFile.GetCount())
-					endingYours = m_arYourFile.GetLineEnding(yourline);
-				
-				m_YourBaseBoth.AddData(sCurrentBaseLine, DIFFSTATE_REMOVED, yourline, endingYours);
+				m_YourBaseBoth.AddData(sCurrentBaseLine, DIFFSTATE_REMOVED, yourline, endingBase);
 			}
 			baseline++;
 		}
