@@ -50,14 +50,14 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 {
 	DWORD dwOpts = CRegStdWORD(_T("Software\\TortoiseSVN\\RevisionGraphOptions"), 1);
 
-	m_options.groupBranches = dwOpts & 0x01;
-	m_options.includeSubPathChanges = dwOpts & 0x02;
-	m_options.oldestAtTop = dwOpts & 0x04;
-	m_options.showHEAD = dwOpts & 0x08;
-	m_options.reduceCrossLines = dwOpts & 0x10;
-	m_options.exactCopySources = dwOpts & 0x20;
-	m_options.splitBranches = dwOpts & 0x40;
-	m_options.foldTags = dwOpts & 0x80;
+	m_options.groupBranches = ((dwOpts & 0x01) != 0);
+	m_options.includeSubPathChanges = ((dwOpts & 0x02) != 0);
+	m_options.oldestAtTop = ((dwOpts & 0x04) != 0);
+	m_options.showHEAD = ((dwOpts & 0x08) != 0);
+	m_options.reduceCrossLines = ((dwOpts & 0x10) != 0);
+	m_options.exactCopySources = ((dwOpts & 0x20) != 0);
+	m_options.splitBranches = ((dwOpts & 0x40) != 0);
+	m_options.foldTags = ((dwOpts & 0x80) != 0);
 }
 
 CRevisionGraphDlg::~CRevisionGraphDlg()
