@@ -111,6 +111,21 @@ C:\Path-To\compare.exe /max /wait /title1:%bname /title2:%yname
 			properties. Since these tend to be short simple text strings, you
 			may want to use a simpler more compact viewer.
 		</para>
+		<para>
+			If you have configured an alternate diff tool, you can access
+			TortoiseMerge <emphasis>and</emphasis> the third party tool
+			from the context menus.
+			<menuchoice>
+				<guimenu>Context menu</guimenu>
+				<guimenuitem>Diff</guimenuitem>
+			</menuchoice>
+			uses the primary diff tool, and
+			<menuchoice>
+				<guimenu>Context menu</guimenu>
+				<guimenuitem>Shift-Diff</guimenuitem>
+			</menuchoice>
+			uses the secondary diff tool.
+		</para>
 	</sect3>
 	<sect3 id="tsvn-dug-settings-Merge">
 		<title>Merge Tool</title>

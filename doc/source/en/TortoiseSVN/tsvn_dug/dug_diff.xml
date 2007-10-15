@@ -165,6 +165,13 @@
 				</listitem>
 			</varlistentry>
 		</variablelist>
+		<para>
+			If you have configured a third party diff tool, you can use
+			<action>SHIFT</action> when selecting the Diff command to
+			use the alternate tool.
+			Read <xref linkend="tsvn-dug-settings-progs"/> to
+			find out about configuring other diff tools.
+		</para>
 	</sect2>
 	<sect2 id="tsvn-dug-diff-eol-whitespace">
 		<title>Line-end and Whitespace Options</title>
