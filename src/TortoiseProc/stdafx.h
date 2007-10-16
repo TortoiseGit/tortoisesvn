@@ -40,6 +40,8 @@
 #include <afxtempl.h>
 #include <afxmt.h>
 
+#include <WinSock2.h>
+
 #include <atlbase.h>
 
 #ifndef LVS_EX_DOUBLEBUFFER

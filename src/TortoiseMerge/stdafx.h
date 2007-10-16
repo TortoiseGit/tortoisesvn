@@ -42,6 +42,8 @@
 #include <afxcmn.h>			// MFC support for Windows Common Controls
 #endif // _AFX_NO_AFXCMN_SUPPORT
 
+#include <WinSock2.h>
+
 // Enable new Toolbar support
 #define USE_NEW_DOCK_BAR
 // Enable new menubar support
