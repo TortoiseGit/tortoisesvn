@@ -11,13 +11,13 @@
 # Stanislav Petrakov <stannic@gmail.com>
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 10996: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 11012: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-10-14 21:24+0300\n"
+"PO-Revision-Date: 2007-10-16 11:07+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -616,7 +616,7 @@ msgstr "&Открыть\tCtrl-O"
 msgid "&Overlap images"
 msgstr "Разместить с &перекрытием "
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1411, 65535)
 msgid "&Password:"
 msgstr "&Пароль:"
 
@@ -624,7 +624,7 @@ msgstr "&Пароль:"
 msgid "&Paste"
 msgstr "&Вставить"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1414)
 msgid "&Port:"
 msgstr "&Порт:"
 
@@ -796,7 +796,7 @@ msgstr "Обновить &до ревизии..."
 msgid "&Use auto-completion of file paths and keywords"
 msgstr "&Использовать автозавершение путей файлов и ключевых слов"
 
-#. Resource IDs: (1005, 65535)
+#. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
 msgstr "&Имя:"
 
@@ -2498,7 +2498,7 @@ msgstr ""
 "Ошибка при чтении/записи ключа реестра %s\n"
 "%s"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "Исключения:"
 
@@ -2838,6 +2838,14 @@ msgstr "Выполняется сбор информации. Пожалуйст
 #. Resource IDs: (107, 143)
 msgid "General"
 msgstr "Общее"
+
+#. Resource IDs: (196)
+msgid "General::Dialogs 1"
+msgstr "Общее::Диалоги 1"
+
+#. Resource IDs: (213)
+msgid "General::Dialogs 2"
+msgstr "Общее::Диалоги 2"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
@@ -3663,14 +3671,6 @@ msgstr "Внешний вид"
 msgid "Look and Feel::Colors"
 msgstr "Внешний вид::Цвета"
 
-#. Resource IDs: (196)
-msgid "Look and Feel::Dialogs 1"
-msgstr "Внешний вид::Диалоги 1"
-
-#. Resource IDs: (213)
-msgid "Look and Feel::Dialogs 2"
-msgstr "Внешний вид::Диалоги 2"
-
 #. Resource IDs: (106)
 msgid "Look and Feel::Icon Overlays"
 msgstr "Внешний вид::Пометки на значках"
@@ -4419,7 +4419,7 @@ msgstr "Статус свойства"
 msgid "Property value:"
 msgstr "Значение свойства:"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1412)
 msgid "Proxy &timeout in seconds:"
 msgstr "&Таймаут прокси в секундах:"
 
@@ -4948,13 +4948,13 @@ msgstr "SCRL"
 msgid "SSH"
 msgstr "SSH"
 
-#. Resource IDs: (12)
-msgid "SVN Add files to this WC"
-msgstr "SVN Добавить файлы в эту рабочую копию"
-
 #. Resource IDs: (16)
 msgid "SVN Author"
 msgstr "SVN Автор"
+
+#. Resource IDs: (12)
+msgid "SVN Copy and add files to this WC"
+msgstr "SVN Скопировать и добавить файлы в эту рабочую копию"
 
 #. Resource IDs: (16)
 msgid "SVN Copy and rename versioned file here"
@@ -5205,7 +5205,7 @@ msgstr "Невозможно отослать письмо."
 msgid "Sending content"
 msgstr "Передача содержимого"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1409)
 msgid "Server &address:"
 msgstr "&Адрес сервера:"
 
