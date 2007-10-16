@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-10-15 00:14+0100\n"
+"PO-Revision-Date: 2007-10-16 09:03+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -570,7 +570,7 @@ msgstr "&Öffnen Strg-O"
 msgid "&Overlap images"
 msgstr "Bilder &überlagern"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1411, 65535)
 msgid "&Password:"
 msgstr "&Passwort:"
 
@@ -578,7 +578,7 @@ msgstr "&Passwort:"
 msgid "&Paste"
 msgstr "E&infügen"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1414)
 msgid "&Port:"
 msgstr "&Port:"
 
@@ -746,7 +746,7 @@ msgstr "&Aktualisiere zu Revision..."
 msgid "&Use auto-completion of file paths and keywords"
 msgstr "Dateinamen und Schlüsselwörter automatisch &vervollständigen"
 
-#. Resource IDs: (1005, 65535)
+#. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
 msgstr "&Benutzername:"
 
@@ -2436,7 +2436,7 @@ msgstr ""
 "Fehler beim Lesen/Schreiben des Registryschlüssels %s\n"
 "%s"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "Ausnahmen:"
 
@@ -2772,6 +2772,14 @@ msgstr "Sammle Informationen. Bitte warten..."
 #. Resource IDs: (107, 143)
 msgid "General"
 msgstr "Allgemein"
+
+#. Resource IDs: (196)
+msgid "General::Dialogs 1"
+msgstr "Allgemein::Dialoge 1"
+
+#. Resource IDs: (213)
+msgid "General::Dialogs 2"
+msgstr "Allgemein::Dialoge 2"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
@@ -3596,14 +3604,6 @@ msgstr "Anzeige"
 msgid "Look and Feel::Colors"
 msgstr "Anzeige::Farben"
 
-#. Resource IDs: (196)
-msgid "Look and Feel::Dialogs 1"
-msgstr "Anzeige::Dialoge 1"
-
-#. Resource IDs: (213)
-msgid "Look and Feel::Dialogs 2"
-msgstr "Anzeige::Dialoge 2"
-
 #. Resource IDs: (106)
 msgid "Look and Feel::Icon Overlays"
 msgstr "Anzeige::Überlagerte Symbole"
@@ -4350,7 +4350,7 @@ msgstr "Eigenschaften"
 msgid "Property value:"
 msgstr "Eigenschaftswert:"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1412)
 msgid "Proxy &timeout in seconds:"
 msgstr "Proxy &Wartezeit in Sekunden:"
 
@@ -4871,13 +4871,13 @@ msgstr "SCRL"
 msgid "SSH"
 msgstr "SSH"
 
-#. Resource IDs: (12)
-msgid "SVN Add files to this WC"
-msgstr "SVN Zu dieser Arbeitskopie hinzufügen"
-
 #. Resource IDs: (16)
 msgid "SVN Author"
 msgstr "SVN Autor"
+
+#. Resource IDs: (12)
+msgid "SVN Copy and add files to this WC"
+msgstr "SVN Kopieren und zu dieser Arbeitskopie hinzufügen"
 
 #. Resource IDs: (16)
 msgid "SVN Copy and rename versioned file here"
@@ -5126,7 +5126,7 @@ msgstr "Send Mail konnte Nachricht nicht senden."
 msgid "Sending content"
 msgstr "Sende Inhalt"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1409)
 msgid "Server &address:"
 msgstr "&Server Adresse:"
 
