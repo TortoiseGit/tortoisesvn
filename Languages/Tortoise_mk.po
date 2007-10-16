@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-10-15 10:25+0100\n"
+"PO-Revision-Date: 2007-10-16 08:54+0100\n"
 "Last-Translator: Срѓан Стокиќ <srdjan.stokic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -588,7 +588,7 @@ msgstr "&Отвори Ctrl-O"
 msgid "&Overlap images"
 msgstr "&Преклопи ги сликите"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1411, 65535)
 msgid "&Password:"
 msgstr "&Лозинка:"
 
@@ -596,7 +596,7 @@ msgstr "&Лозинка:"
 msgid "&Paste"
 msgstr "&Paste"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1414)
 msgid "&Port:"
 msgstr "&Порт:"
 
@@ -765,7 +765,7 @@ msgstr "&Обнови спрема ревизијата..."
 msgid "&Use auto-completion of file paths and keywords"
 msgstr "&Користи аутоматско дополнување на патеките и клучните зборови"
 
-#. Resource IDs: (1005, 65535)
+#. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
 msgstr "&Корисничко име:"
 
@@ -2452,7 +2452,7 @@ msgstr ""
 "Грешка при читање/запишување на клучот %s\n"
 "%s"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "Исклучоци:"
 
@@ -2788,6 +2788,14 @@ msgstr "Собирам информации. Ве молам причекајт�
 #. Resource IDs: (107, 143)
 msgid "General"
 msgstr "Општо"
+
+#. Resource IDs: (196)
+msgid "General::Dialogs 1"
+msgstr "Општо::Дијалози 1"
+
+#. Resource IDs: (213)
+msgid "General::Dialogs 2"
+msgstr "Општо::Дијалози 2"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
@@ -3602,14 +3610,6 @@ msgstr "Изглед и функционалност"
 msgid "Look and Feel::Colors"
 msgstr "Изглед и функционалност::Бои"
 
-#. Resource IDs: (196)
-msgid "Look and Feel::Dialogs 1"
-msgstr "Изглед и функционалност::Дијалози 1"
-
-#. Resource IDs: (213)
-msgid "Look and Feel::Dialogs 2"
-msgstr "Изглед и функционалност::Дијалози 2"
-
 #. Resource IDs: (106)
 msgid "Look and Feel::Icon Overlays"
 msgstr "Изглед и функционалност::Преклопени икони"
@@ -4353,7 +4353,7 @@ msgstr "Статус на својството"
 msgid "Property value:"
 msgstr "Вредност на својството:"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1412)
 msgid "Proxy &timeout in seconds:"
 msgstr "Proxy &timeout во секунди:"
 
@@ -4874,13 +4874,13 @@ msgstr "SCRL"
 msgid "SSH"
 msgstr "SSH"
 
-#. Resource IDs: (12)
-msgid "SVN Add files to this WC"
-msgstr "SVN Додади датотеки во оваа РК"
-
 #. Resource IDs: (16)
 msgid "SVN Author"
 msgstr "SVN Автор"
+
+#. Resource IDs: (12)
+msgid "SVN Copy and add files to this WC"
+msgstr "SVN Копирај и додади датотеки во оваа РК"
 
 #. Resource IDs: (16)
 msgid "SVN Copy and rename versioned file here"
@@ -5129,7 +5129,7 @@ msgstr "Испраќање на email е неуспешно."
 msgid "Sending content"
 msgstr "Праќам содржина"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1409)
 msgid "Server &address:"
 msgstr "&Адреса на серверот:"
 
