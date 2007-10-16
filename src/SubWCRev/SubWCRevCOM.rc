@@ -39,9 +39,9 @@ LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 /////////////////////////////////////////////////////////////////////////////
 // German (Switzerland) resources
 
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
 #ifdef _WIN32
-LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_SWISS
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 #pragma code_page(1252)
 #endif //_WIN32
 
@@ -70,7 +70,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // German (Switzerland) resources
+#endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
