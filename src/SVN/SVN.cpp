@@ -387,7 +387,7 @@ BOOL SVN::Revert(const CTSVNPathList& pathlist, BOOL recurse)
 	SVNPool subpool(pool);
 
 	svn_error_clear(Err);
-	Err = svn_client_revert (pathlist.MakePathArray(subpool), recurse, m_pctx, subpool);
+	Err = svn_client_revert2(pathlist.MakePathArray(subpool), recurse ? svn_depth_infinity : svn_depth_empty, m_pctx, subpool);
 
 	if(Err != NULL)
 	{
@@ -672,12 +672,13 @@ BOOL SVN::CleanUp(const CTSVNPath& path)
 	return TRUE;
 }
 
-BOOL SVN::Resolve(const CTSVNPath& path, BOOL recurse)
+BOOL SVN::Resolve(const CTSVNPath& path, svn_wc_conflict_result_t result, BOOL recurse)
 {
 	SVNPool subpool(pool);
 	svn_error_clear(Err);
-	Err = svn_client_resolved (path.GetSVNApiPath(subpool),
-								recurse,
+	Err = svn_client_resolved2(path.GetSVNApiPath(subpool),
+								recurse ? svn_depth_infinity : svn_depth_empty,
+								result,
 								m_pctx,
 								subpool);
 	if(Err != NULL)
@@ -873,7 +874,7 @@ BOOL SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, SVNRev revision, s
 	return TRUE;
 }
 
-BOOL SVN::Import(const CTSVNPath& path, const CTSVNPath& url, CString message, ProjectProperties * props, BOOL recurse, BOOL no_ignore)
+BOOL SVN::Import(const CTSVNPath& path, const CTSVNPath& url, CString message, ProjectProperties * props, svn_depth_t depth, BOOL no_ignore, BOOL ignore_unknown)
 {
 	// the import command should use the mime-type file
 	const char *mimetypes_file = NULL;
@@ -897,11 +898,12 @@ BOOL SVN::Import(const CTSVNPath& path, const CTSVNPath& url, CString message, P
 	svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
 	message.Replace(_T("\r"), _T(""));
 	m_pctx->log_msg_baton3 = logMessage(CUnicodeUtils::GetUTF8(message));
-	Err = svn_client_import2 (&commit_info,
+	Err = svn_client_import3(&commit_info,
 							path.GetSVNApiPath(subpool),
 							url.GetSVNApiPath(subpool),
-							!recurse,
+							depth,
 							no_ignore,
+							ignore_unknown,
 							m_pctx,
 							subpool);
 	m_pctx->log_msg_baton3 = logMessage("");

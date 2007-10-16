@@ -18,6 +18,7 @@
 
 #pragma once
 
+#include "svn_wc.h"
 #include "SVNPrompt.h"
 #include "SVNRev.h"
 #include "SVNGlobal.h"
@@ -318,7 +319,7 @@ public:
 	 * \param recurse 
 	 * \return TRUE if successful
 	 */
-	BOOL Resolve(const CTSVNPath& path, BOOL recurse);
+	BOOL Resolve(const CTSVNPath& path, svn_wc_conflict_result_t result, BOOL recurse);
 	/**
 	 * Export the contents of either a subversion repository or a subversion 
 	 * working copy into a 'clean' directory (meaning a directory with no 
@@ -378,11 +379,11 @@ public:
 	 * \param path		the file/directory to import
 	 * \param url		the url to import to
 	 * \param message	log message used for the 'commit'
-	 * \param recurse 
+	 * \param depth 
 	 * \param no_ignore	If no_ignore is FALSE, don't add files or directories that match ignore patterns.
 	 * \return TRUE if successful
 	 */
-	BOOL Import(const CTSVNPath& path, const CTSVNPath& url, CString message, ProjectProperties * props, BOOL recurse, BOOL no_ignore);
+	BOOL Import(const CTSVNPath& path, const CTSVNPath& url, CString message, ProjectProperties * props, svn_depth_t depth, BOOL no_ignore, BOOL ignore_unknown);
 	/**
 	 * Merge changes from path1/revision1 to path2/revision2 into the
 	 * working-copy path localPath.  path1 and path2 can be either

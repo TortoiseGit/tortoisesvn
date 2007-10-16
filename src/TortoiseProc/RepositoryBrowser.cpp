@@ -1720,7 +1720,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 				CString filename = pathlist[importindex].GetFileOrDirectoryName();
 				if (!Import(pathlist[importindex], 
 					CTSVNPath(target.GetSVNPathString()+_T("/")+filename), 
-					input.GetLogMessage(), &m_ProjectProperties, TRUE, TRUE))
+					input.GetLogMessage(), &m_ProjectProperties, svn_depth_infinity, TRUE, FALSE))
 				{
 					CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 					return false;
@@ -2384,8 +2384,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 							CTSVNPath(EscapeUrl(CTSVNPath(urlList[0].GetSVNPathString()+_T("/")+filename))), 
 							input.GetLogMessage(), 
 							&m_ProjectProperties, 
-							FALSE, 
-							FALSE))
+							svn_depth_empty, 
+							FALSE, FALSE))
 						{
 							progDlg.Stop();
 							SetAndClearProgressInfo((HWND)NULL);
@@ -2428,8 +2428,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 							CTSVNPath(EscapeUrl(CTSVNPath(urlList[0].GetSVNPathString()+_T("/")+filename))), 
 							input.GetLogMessage(), 
 							&m_ProjectProperties,
-							FALSE, 
-							TRUE))
+							svn_depth_empty, 
+							TRUE, FALSE))
 						{
 							progDlg.Stop();
 							SetAndClearProgressInfo((HWND)NULL);

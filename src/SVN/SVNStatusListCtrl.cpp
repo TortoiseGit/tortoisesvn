@@ -3154,77 +3154,22 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					SVNDiff::StartConflictEditor(filepath);
 					break;
 				case IDSVNLC_RESOLVECONFLICT:
-					{
-						if (CMessageBox::Show(m_hWnd, IDS_PROC_RESOLVE, IDS_APPNAME, MB_ICONQUESTION | MB_YESNO)==IDYES)
-						{
-							SVN svn;
-							POSITION pos = GetFirstSelectedItemPosition();
-							while (pos != 0)
-							{
-								int index;
-								index = GetNextSelectedItem(pos);
-								FileEntry * fentry = m_arStatusArray[m_arListArray[index]];
-								if (!svn.Resolve(fentry->GetPath(), FALSE))
-								{
-									CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-								}
-								else
-								{
-									fentry->status = svn_wc_status_modified;
-									fentry->textstatus = svn_wc_status_modified;
-									fentry->isConflicted = false;
-								}
-							}
-							Show(m_dwShow, 0, m_bShowFolders);
-						}
-					}
-					break;
+				case IDSVNLC_RESOLVEMINE:
 				case IDSVNLC_RESOLVETHEIRS:
 					{
-						if (CMessageBox::Show(m_hWnd, IDS_PROC_RESOLVE, IDS_APPNAME, MB_ICONQUESTION | MB_YESNO)==IDYES)
+						svn_wc_conflict_result_t result;
+						switch (cmd)
 						{
-							SVN svn;
-							POSITION pos = GetFirstSelectedItemPosition();
-							while (pos != 0)
-							{
-								int index;
-								index = GetNextSelectedItem(pos);
-								FileEntry * fentry = m_arStatusArray[m_arListArray[index]];
-								CTSVNPath theirs(fentry->GetPath().GetDirectory());
-								SVNStatus stat;
-								stat.GetStatus(fentry->GetPath());
-								if (stat.status)
-								{
-									if ((stat.status->entry)&&(stat.status->entry->conflict_new))
-									{
-										theirs.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_new));
-									}
-									else break;
-								}
-								else
-								{
-									CMessageBox::Show(m_hWnd, stat.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
-									break;
-								}
-								fentry->GetPath().Delete(true);
-								CopyFile(theirs.GetWinPath(), fentry->GetPath().GetWinPath(), FALSE);
-								if (!svn.Resolve(fentry->GetPath(), FALSE))
-								{
-									CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-								}
-								else
-								{
-									fentry->status = svn_wc_status_modified;
-									fentry->textstatus = svn_wc_status_modified;
-									fentry->isConflicted = false;
-								}
-							}
-							Show(m_dwShow, 0, m_bShowFolders);
+						case IDSVNLC_RESOLVETHEIRS:
+							result = svn_wc_conflict_result_choose_theirs;
+							break;
+						case IDSVNLC_RESOLVEMINE:
+							result = svn_wc_conflict_result_choose_mine;
+							break;
+						case IDSVNLC_RESOLVECONFLICT:
+							result = svn_wc_conflict_result_choose_merged;
+							break;
 						}
-					}
-					break;
-				case IDSVNLC_RESOLVEMINE:
-					{
 						if (CMessageBox::Show(m_hWnd, IDS_PROC_RESOLVE, IDS_APPNAME, MB_ICONQUESTION | MB_YESNO)==IDYES)
 						{
 							SVN svn;
@@ -3234,37 +3179,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								int index;
 								index = GetNextSelectedItem(pos);
 								FileEntry * fentry = m_arStatusArray[m_arListArray[index]];
-								CTSVNPath mine(fentry->GetPath().GetDirectory());
-								SVNStatus stat;
-								stat.GetStatus(fentry->GetPath());
-								if (stat.status)
-								{
-									if (stat.status->entry)
-									{
-										if (stat.status->entry->conflict_wrk)
-										{
-											mine.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_wrk));
-										}
-										else if (stat.status->entry->conflict_old)
-										{
-											// if the conflict_wrk entry is empty, that means the file is binary
-											// and there is no 'merged' file with the conflict markers in it which would
-											// have replaced the original file. In that case, the original file is left
-											// untouched, and we need to use that untouched file as 'mine'.
-											mine.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->name));
-										}
-										else
-											break;
-									}
-								}
-								else
-								{
-									CMessageBox::Show(m_hWnd, stat.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
-									break;
-								}
-								fentry->GetPath().Delete(true);
-								CopyFile(mine.GetWinPath(), fentry->GetPath().GetWinPath(), FALSE);
-								if (!svn.Resolve(fentry->GetPath(), FALSE))
+								if (!svn.Resolve(fentry->GetPath(), result, FALSE))
 								{
 									CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								}

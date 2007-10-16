@@ -1439,45 +1439,23 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							break;
 						case ID_CONFLICTUSETHEIRS:
 						case ID_CONFLICTUSEMINE:
-							{
-								CTSVNPath directory = data->path.GetDirectory();
-								CTSVNPath choice(directory);
-								SVNStatus stat;
-								stat.GetStatus(data->path);
-								if (stat.status->text_status != svn_wc_status_conflicted)
-									break;
-								if (stat.status && stat.status->entry)
-								{
-									if ( cmd==ID_CONFLICTUSETHEIRS )
-									{
-										if (stat.status->entry->conflict_new)
-										{
-											choice.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_new));
-										}
-									}
-									else
-									{
-										if (stat.status->entry->conflict_wrk)
-										{
-											choice.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_wrk));
-										}
-										else
-										{
-											// if the conflict_wrk entry is empty, that means the file is binary
-											// and there is no 'merged' file with the conflict markers in it which would
-											// have replaced the original file. In that case, the original file is left
-											// untouched, and we need to use that untouched file as 'mine'.
-											choice.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->name));
-										}
-									}
-								}
-								CopyFile(choice.GetWinPath(), data->path.GetWinPath(), FALSE);
-							}
-							// Fall through
 						case ID_CONFLICTRESOLVE:
 							{
+								svn_wc_conflict_result_t result;
+								switch (cmd)
+								{
+								case ID_CONFLICTUSETHEIRS:
+									result = svn_wc_conflict_result_choose_theirs;
+									break;
+								case ID_CONFLICTUSEMINE:
+									result = svn_wc_conflict_result_choose_mine;
+									break;
+								case ID_CONFLICTRESOLVE:
+									result = svn_wc_conflict_result_choose_merged;
+									break;
+								}
 								SVN svn;
-								if (!svn.Resolve(data->path, FALSE))
+								if (!svn.Resolve(data->path, result, FALSE))
 								{
 									ReportSVNError();
 									DialogEnableWindow(IDOK, TRUE);
@@ -1858,7 +1836,7 @@ bool CSVNProgressDlg::CmdImport(CString& sWindowTitle, bool& /*localoperation*/)
 		m_targetPathList[0].GetWinPath(), (LPCTSTR)m_url.GetSVNPathString(), 
 		m_options & ProgOptIncludeIgnored ? (LPCTSTR)(_T(", ") + sIgnoredIncluded) : _T(""));
 	ReportCmd(sCmdInfo);
-	if (!Import(m_targetPathList[0], m_url, m_sMessage, &m_ProjectProperties, true, m_options & ProgOptIncludeIgnored ? true : false))
+	if (!Import(m_targetPathList[0], m_url, m_sMessage, &m_ProjectProperties, svn_depth_infinity, m_options & ProgOptIncludeIgnored ? true : false, false))
 	{
 		ReportSVNError();
 		return false;
@@ -2184,13 +2162,13 @@ bool CSVNProgressDlg::CmdResolve(CString& sWindowTitle, bool& localoperation)
 		if (CMessageBox::Show(m_hWnd, IDS_PROGRS_REVERTMARKERS, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)==IDYES)
 		{
 			for (INT_PTR fileindex=0; fileindex<m_targetPathList.GetCount(); ++fileindex)
-				Resolve(m_targetPathList[fileindex], true);
+				Resolve(m_targetPathList[fileindex], svn_wc_conflict_result_choose_merged, true);
 		}
 	}
 	else
 	{
 		for (INT_PTR fileindex=0; fileindex<m_targetPathList.GetCount(); ++fileindex)
-			Resolve(m_targetPathList[fileindex], true);
+			Resolve(m_targetPathList[fileindex], svn_wc_conflict_result_choose_merged, true);
 	}
 	return true;
 }

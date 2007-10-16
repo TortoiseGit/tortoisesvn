@@ -496,7 +496,6 @@ void CRevisionGraphDlg::SetOption(int controlID, bool option)
 	if (pMenu == NULL)
 		return;
 	int tbstate = m_ToolBar.GetToolBarCtrl().GetState(controlID);
-	UINT state = pMenu->GetMenuState(controlID, MF_BYCOMMAND);
 	if (option)
 	{
 		pMenu->CheckMenuItem(controlID, MF_BYCOMMAND | MF_CHECKED);
