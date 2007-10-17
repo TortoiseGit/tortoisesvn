@@ -53,6 +53,23 @@
 			those changes across to a different branch.
 		</para>
 		<para>
+			If you want to merge all changes from trunk to the branch
+			you are currently working on, then you can use the
+			<menuchoice>
+				<guimenu>TortoiseSVN</guimenu>
+				<guimenuitem>Merge all...</guimenuitem>
+			</menuchoice>
+			from the context menu.
+			<figure id="tsvn-dug-mergeall-dia-1">
+				<title>The Merge all Dialog</title>
+				<graphic fileref="../images/MergeAll.png"/>
+			</figure>
+			This dialog is very easy. All you have to do is set the
+			options for the merge (e.g., whether you want the merge to
+			ignore EOLs, whitespaces, ...). The rest is done by TortoiseSVN
+			automatically.
+		</para>
+		<para>
 			<figure id="tsvn-dug-merge-dia-1">
 				<title>The Merge Dialog</title>
 				<graphic fileref="../images/Merge.png"/>

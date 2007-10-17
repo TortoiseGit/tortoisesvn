@@ -253,6 +253,13 @@ Don't touch these lines:
 							</entry>
 						</row>
 						<row>
+							<entry condition="pot">:mergeall</entry>
+							<entry>
+								Opens the merge all dialog. The <option>/path</option> specifies the
+								target directory.
+							</entry>
+						</row>
+						<row>
 							<entry condition="pot">:copy</entry>
 							<entry>
 								Brings up the branch/tag dialog.
