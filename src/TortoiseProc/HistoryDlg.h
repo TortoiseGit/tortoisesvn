@@ -33,8 +33,8 @@ public:
 
 	/// Returns the text of the selected entry.
 	CString GetSelectedText() const {return m_SelectedText;}
-	/// sets the history object to use
-	void SetHistory(const CRegHistory& history) {m_history = history;}
+	/// Sets the history object to use
+	void SetHistory(CRegHistory& history) {m_history = &history;}
 	// Dialog Data
 	enum { IDD = IDD_HISTORYDLG };
 
@@ -43,10 +43,11 @@ protected:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnBnClickedOk();
 	afx_msg void OnLbnDblclkHistorylist();
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
 
 	DECLARE_MESSAGE_MAP()
 private:
 	CListBox		m_List;
 	CString			m_SelectedText;
-	CRegHistory		m_history;
+	CRegHistory*	m_history;
 };

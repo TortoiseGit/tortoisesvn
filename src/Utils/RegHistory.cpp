@@ -54,6 +54,11 @@ bool CRegHistory::AddEntry(LPCTSTR szText)
 	return true;
 }
 
+void CRegHistory::RemoveEntry(int pos)
+{
+	m_arEntries.erase(m_arEntries.begin() + pos);
+}
+
 int CRegHistory::Load(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix)
 {
 	if (lpszSection == NULL || lpszKeyPrefix == NULL || *lpszSection == '\0')

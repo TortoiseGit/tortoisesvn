@@ -192,6 +192,8 @@
 - NEW: Holding "Shift" when invoking the diff from context menu or
        via double-click allows to switch between TortoiseMerge
        and external tool. See issue #396 for details. (Alexander Klenin)
+- NEW: Log history dialog allows removal of commit messages
+       with DELETE key. (Alexander Klenin)
 - CHG: Revision graph code mainly rewritten resulting in a major 
        performance improvement. (Stefan Fuhrmann)
 - CHG: The working copy is now the default in the branch/tag dialog

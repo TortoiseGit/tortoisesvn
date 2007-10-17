@@ -39,6 +39,8 @@ public:
 	bool Save() const;
 	/// Adds a new string to the history list.
 	bool AddEntry(LPCTSTR szText);
+	/// Removes the entry at index \c pos.
+	void RemoveEntry(int pos);
 	/// Sets the maximum number of items in the history. Default is 25.
 	void SetMaxHistoryItems(int nMax) {m_nMaxHistoryItems = nMax;}
 	/// Returns the number of items in the history.
