@@ -1441,7 +1441,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						case ID_CONFLICTUSEMINE:
 						case ID_CONFLICTRESOLVE:
 							{
-								svn_wc_conflict_result_t result;
+								svn_wc_conflict_result_t result = svn_wc_conflict_result_choose_merged;
 								switch (cmd)
 								{
 								case ID_CONFLICTUSETHEIRS:
