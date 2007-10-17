@@ -23,6 +23,7 @@
 #include "MainFrm.h"
 #include "BaseView.h"
 #include "DiffColors.h"
+#include "StringUtils.h"
 
 #include <deque>
 
@@ -2427,22 +2428,9 @@ void CBaseView::OnEditCopy()
 	if (lastLinePos == 0)
 		lastLinePos -= m_ptSelectionStartPos.x;
 	sCopyData = sCopyData.Left(lastLinePos+m_ptSelectionEndPos.x);
-	CStringA sCopyDataASCII = CStringA(sCopyData);
-	ATLASSERT(!sCopyDataASCII.IsEmpty());
-	if (!sCopyDataASCII.IsEmpty())
+	if (!sCopyData.IsEmpty())
 	{
-		if (OpenClipboard())
-		{
-			EmptyClipboard();
-			HGLOBAL hClipboardData;
-			hClipboardData = GlobalAlloc(GMEM_DDESHARE, sCopyDataASCII.GetLength()+1);
-			char * pchData;
-			pchData = (char*)GlobalLock(hClipboardData);
-			strcpy_s(pchData, sCopyDataASCII.GetLength()+1, (LPCSTR)sCopyDataASCII);
-			GlobalUnlock(hClipboardData);
-			SetClipboardData(CF_TEXT,hClipboardData);
-			CloseClipboard();
-		}
+		CStringUtils::WriteAsciiStringToClipboard(sCopyData, m_hWnd);
 	}
 }
 
