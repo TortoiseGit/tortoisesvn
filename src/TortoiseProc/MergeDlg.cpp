@@ -33,7 +33,7 @@ CMergeDlg::CMergeDlg(CWnd* pParent /*=NULL*/)
 	: CStandAloneDialog(CMergeDlg::IDD, pParent)
 	, m_URLFrom(_T(""))
 	, m_URLTo(_T(""))
-	, StartRev(SVNRev::REV_WC)
+	, StartRev(0)
 	, EndRev(_T("HEAD"))
 	, m_bUseFromURL(TRUE)
 	, m_bDryRun(FALSE)
@@ -156,7 +156,7 @@ BOOL CMergeDlg::OnInitDialog()
 	// if StartRev and/or EndRev are not HEAD, then they're set from the command
 	// line and we have to fill in the edit boxes for them and of course set the
 	// correct radio button
-	if ((bRepeating)||(!StartRev.IsWorking() || !EndRev.IsHead()))
+	if ((bRepeating)||(!StartRev.IsHead() || !EndRev.IsHead()))
 	{
 		SetStartRevision(StartRev);
 		SetEndRevision(EndRev);
@@ -172,12 +172,9 @@ BOOL CMergeDlg::OnInitDialog()
 	else
 	{
 		DialogEnableWindow(IDC_URLCOMBO2, FALSE);
-		// set wc revision as default start revision
-		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
-		SetStartRevision(SVNRev::REV_WC);
-		// set head revision as default end revision
-		CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_HEAD1);
-		SetEndRevision(SVNRev::REV_HEAD);
+		// set head revision as default revision
+		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
+		CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_N1);
 	}
 	OnBnClickedUsefromurl();
 
