@@ -1419,6 +1419,8 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 	CRect frect = rc;
 	if (origin.x > frect.left)
 		frect.left = origin.x;
+	if (bInlineDiffDrawn)
+		CDiffColors::GetInstance().GetColors(DIFFSTATE_UNKNOWN, crBkgnd, crText);
 	if (frect.right > frect.left)
 		pDC->FillSolidRect(frect, crBkgnd);
 	DrawBlockLine(pDC, rc, nLineIndex);
