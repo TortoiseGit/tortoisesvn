@@ -1217,7 +1217,7 @@ BOOL CSVNProgressDlg::PreTranslateMessage(MSG* pMsg)
 				if (GetKeyState(VK_CONTROL)&0x8000)
 				{
 					//Ctrl-C -> copy to clipboard
-					CStringA sClipdata;
+					CString sClipdata;
 					POSITION pos = m_ProgList.GetFirstSelectedItemPosition();
 					if (pos != NULL)
 					{
@@ -1230,7 +1230,7 @@ BOOL CSVNProgressDlg::PreTranslateMessage(MSG* pMsg)
 							CString sLogCopyText;
 							sLogCopyText.Format(_T("%s: %s  %s\r\n"),
 								(LPCTSTR)sAction, (LPCTSTR)sPath, (LPCTSTR)sMime);
-							sClipdata +=  CStringA(sLogCopyText);
+							sClipdata +=  sLogCopyText;
 						}
 						CStringUtils::WriteAsciiStringToClipboard(sClipdata);
 					}

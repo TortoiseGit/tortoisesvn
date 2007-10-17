@@ -1115,13 +1115,13 @@ void CRepositoryBrowser::OnUrlFocus()
 void CRepositoryBrowser::OnCopy()
 {
 	// Ctrl-C : copy the selected item urls to the clipboard
-	CStringA url;
+	CString url;
 	POSITION pos = m_RepoList.GetFirstSelectedItemPosition();
 	int index = -1;
 	while ((index = m_RepoList.GetNextSelectedItem(pos))>=0)
 	{
 		CItem * pItem = (CItem *)m_RepoList.GetItemData(index);
-		url += CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(pItem->absolutepath)) + "\r\n";
+		url += CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(pItem->absolutepath))) + _T("\r\n");
 	}
 	if (!url.IsEmpty())
 		CStringUtils::WriteAsciiStringToClipboard(url);
@@ -2084,9 +2084,9 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			break;
 		case ID_URLTOCLIPBOARD:
 			{
-				CStringA url;
+				CString url;
 				for (int i=0; i<urlList.GetCount(); ++i)
-					url += CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(urlList[i].GetSVNPathString())) + "\r\n";
+					url += CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(urlList[i].GetSVNPathString()))) + _T("\r\n");
 				CStringUtils::WriteAsciiStringToClipboard(url);
 			}
 			break;

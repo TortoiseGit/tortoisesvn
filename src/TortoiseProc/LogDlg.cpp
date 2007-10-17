@@ -1157,7 +1157,7 @@ void CLogDlg::CopySelectionToClipBoard()
 				(LPCTSTR)sPaths);
 			sClipdata +=  CStringA(sLogCopyText);
 		}
-		CStringUtils::WriteAsciiStringToClipboard(sClipdata);
+		CStringUtils::WriteAsciiStringToClipboard(sClipdata, GetUserDefaultLangID());
 	}
 }
 
@@ -1213,7 +1213,7 @@ void CLogDlg::CopyChangedSelectionToClipBoard()
 		}
 	}
 	sPaths.Trim();
-	CStringUtils::WriteAsciiStringToClipboard(CUnicodeUtils::GetUTF8(sPaths), GetSafeHwnd());
+	CStringUtils::WriteAsciiStringToClipboard(sPaths, GetSafeHwnd());
 }
 
 BOOL CLogDlg::IsDiffPossible(LogChangedPath * changedpath, svn_revnum_t rev)

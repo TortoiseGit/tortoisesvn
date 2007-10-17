@@ -208,7 +208,7 @@ void CStringUtils::RemoveAccelerators(CString& text)
 }
 
 
-bool CStringUtils::WriteAsciiStringToClipboard(const CStringA& sClipdata, HWND hOwningWnd)
+bool CStringUtils::WriteAsciiStringToClipboard(const CStringA& sClipdata, LCID lcid, HWND hOwningWnd)
 {
 	if (OpenClipboard(hOwningWnd))
 	{
@@ -224,8 +224,89 @@ bool CStringUtils::WriteAsciiStringToClipboard(const CStringA& sClipdata, HWND h
 				strcpy_s(pchData, sClipdata.GetLength()+1, (LPCSTR)sClipdata);
 				if (GlobalUnlock(hClipboardData))
 				{
-					if (SetClipboardData(CF_TEXT,hClipboardData)==NULL)
+					if (SetClipboardData(CF_TEXT, hClipboardData)==NULL)
 					{
+						HANDLE hlocmem = GlobalAlloc(GMEM_MOVEABLE|GMEM_DDESHARE, sizeof(LCID));
+						PLCID plcid = (PLCID)GlobalLock(hlocmem);
+						*plcid = lcid;
+						GlobalUnlock(hlocmem);
+						SetClipboardData(CF_LOCALE, static_cast<HANDLE>(plcid));	
+						CloseClipboard();
+						return true;
+					}
+				}
+				else
+				{
+					CloseClipboard();
+					return false;
+				}
+			}
+			else
+			{
+				CloseClipboard();
+				return false;
+			}
+		}
+		else
+		{
+			CloseClipboard();
+			return false;
+		}
+		CloseClipboard();
+		return false;
+	}
+	return false;
+}
+
+bool CStringUtils::WriteAsciiStringToClipboard(const CStringW& sClipdata, HWND hOwningWnd)
+{
+	if (OpenClipboard(hOwningWnd))
+	{
+		EmptyClipboard();
+		HGLOBAL hClipboardData;
+		hClipboardData = GlobalAlloc(GMEM_DDESHARE, sClipdata.GetLength()+1);
+		if (hClipboardData)
+		{
+			WCHAR * pchData;
+			pchData = (WCHAR*)GlobalLock(hClipboardData);
+			if (pchData)
+			{
+				_tcscpy_s(pchData, sClipdata.GetLength()+1, (LPCWSTR)sClipdata);
+				if (GlobalUnlock(hClipboardData))
+				{
+					if (SetClipboardData(CF_UNICODETEXT, hClipboardData) == NULL)
+					{
+						CStringA sClipdataA = CStringA(sClipdata);
+						HGLOBAL hClipboardDataA;
+						hClipboardDataA = GlobalAlloc(GMEM_DDESHARE, sClipdataA.GetLength()+1);
+						if (hClipboardDataA)
+						{
+							char * pchDataA;
+							pchDataA = (char*)GlobalLock(hClipboardDataA);
+							if (pchDataA)
+							{
+								strcpy_s(pchDataA, sClipdataA.GetLength()+1, (LPCSTR)sClipdataA);
+								if (GlobalUnlock(hClipboardDataA))
+								{
+									if (SetClipboardData(CF_TEXT, hClipboardDataA) == NULL)
+									{
+										CloseClipboard();
+										return true;
+									}
+								}
+								else
+								{
+									CloseClipboard();
+									return false;
+								}
+							}
+							else
+							{
+								CloseClipboard();
+								return false;
+							}
+						}
+
 						CloseClipboard();
 						return false;
 					}
@@ -248,7 +329,7 @@ bool CStringUtils::WriteAsciiStringToClipboard(const CStringA& sClipdata, HWND h
 			return false;
 		}
 		CloseClipboard();
-		return true;
+		return false;
 	}
 	return false;
 }

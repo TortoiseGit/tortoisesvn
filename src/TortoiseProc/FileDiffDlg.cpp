@@ -773,7 +773,7 @@ BOOL CFileDiffDlg::PreTranslateMessage(MSG* pMsg)
 						sTextForClipboard += m_cFileList.GetItemText(index, 1);
 						sTextForClipboard += _T("\r\n");
 					}
-					CStringUtils::WriteAsciiStringToClipboard(CStringA(sTextForClipboard));
+					CStringUtils::WriteAsciiStringToClipboard(sTextForClipboard);
 					return TRUE;
 				}
 			}

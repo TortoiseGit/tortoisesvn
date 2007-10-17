@@ -71,7 +71,11 @@ public:
 	/**
 	 * Writes an ASCII CString to the clipboard in CF_TEXT format
 	 */
-	static bool WriteAsciiStringToClipboard(const CStringA& sClipdata, HWND hOwningWnd = NULL);
+	static bool WriteAsciiStringToClipboard(const CStringA& sClipdata, LCID lcid, HWND hOwningWnd = NULL);
+	/**
+	 * Writes a String to the clipboard in both CF_UNICODETEXT and CF_TEXT format
+	 */
+	static bool WriteAsciiStringToClipboard(const CStringW& sClipdata, HWND hOwningWnd = NULL);
 
 	/**
 	* Writes an ASCII CString to the clipboard in TSVN_UNIFIEDDIFF format, which is basically the patchfile

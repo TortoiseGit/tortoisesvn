@@ -4906,7 +4906,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 		sClipboard += _T("\r\n");
 	}
 
-	return CStringUtils::WriteAsciiStringToClipboard(CStringA(sClipboard));
+	return CStringUtils::WriteAsciiStringToClipboard(sClipboard);
 }
 
 int CSVNStatusListCtrl::GetNumberOfChangelistsInSelection()
