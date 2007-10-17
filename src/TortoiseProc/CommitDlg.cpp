@@ -1060,29 +1060,27 @@ void CCommitDlg::OnBnClickedHistory()
 {
 	if (m_pathList.GetCount() == 0)
 		return;
-	SVN svn;
 	CHistoryDlg historyDlg;
 	historyDlg.SetHistory(m_History);
-	if (historyDlg.DoModal()==IDOK)
+	if (historyDlg.DoModal() != IDOK)
+		return;
+
+	CString sMsg = historyDlg.GetSelectedText();
+	if (sMsg != m_cLogMessage.GetText().Left(sMsg.GetLength()))
 	{
-		if (historyDlg.GetSelectedText().Compare(m_cLogMessage.GetText().Left(historyDlg.GetSelectedText().GetLength()))!=0)
+		CString sBugID = m_ProjectProperties.GetBugIDFromLog(sMsg);
+		if (!sBugID.IsEmpty())
 		{
-			CString sMsg = historyDlg.GetSelectedText();
-			CString sBugID = m_ProjectProperties.GetBugIDFromLog(sMsg);
-			if (!sBugID.IsEmpty())
-			{
-				SetDlgItemText(IDC_BUGID, sBugID);
-			}
-			if (m_ProjectProperties.sLogTemplate.Compare(m_cLogMessage.GetText())!=0)
-				m_cLogMessage.InsertText(sMsg, !m_cLogMessage.GetText().IsEmpty());
-			else
-				m_cLogMessage.SetText(sMsg);
+			SetDlgItemText(IDC_BUGID, sBugID);
 		}
-		
-		UpdateOKButton();
-		GetDlgItem(IDC_LOGMESSAGE)->SetFocus();
+		if (m_ProjectProperties.sLogTemplate.Compare(m_cLogMessage.GetText())!=0)
+			m_cLogMessage.InsertText(sMsg, !m_cLogMessage.GetText().IsEmpty());
+		else
+			m_cLogMessage.SetText(sMsg);
 	}
-	
+
+	UpdateOKButton();
+	GetDlgItem(IDC_LOGMESSAGE)->SetFocus();
 }
 
 LRESULT CCommitDlg::OnSVNStatusListCtrlCheckChanged(WPARAM, LPARAM)
