@@ -297,6 +297,8 @@ STRINGTABLE
 BEGIN
     IDS_MENUDESCCREATEPATCH "Creates a unified diff file with all changes you made"
     IDS_MENUDESCAPPLYPATCH  "Applies a unified diff file to the working copy"
+    IDS_MENUMERGEALL        "Merge all..."
+    IDS_MENUDESCMERGEALL    "Merges all missing revisions back into the working copy using merge-tracking information"
     IDS_COLTITLEMIMETYPE    "SVN mime-type"
     IDS_COLDESCMIMETYPE     "Shows the mime type of the versioned file"
     IDS_DROPEXPORTMENU      "SVN Export to here"

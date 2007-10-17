@@ -99,6 +99,7 @@ protected:
 		ShellMenuCreateRepos,
 		ShellMenuCopy,
 		ShellMenuMerge,
+		ShellMenuMergeAll,
 		ShellMenuSettings,
 		ShellMenuRemove,
 		ShellMenuRemoveKeep,
