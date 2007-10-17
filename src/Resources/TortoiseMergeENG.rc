@@ -18,7 +18,7 @@
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
 #ifdef _WIN32
 LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
-#pragma code_page(1252)
+#pragma code_page(1251)
 #endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
@@ -411,7 +411,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Inline diff word-wise",      ID_VIEW_INLINEDIFFWORD
         MENUITEM "&Whitespaces",                ID_VIEW_WHITESPACES
-        MENUITEM "Two-way &Diff",               ID_VIEW_ONEWAYDIFF
+        MENUITEM "Single/&double-pane view",    ID_VIEW_ONEWAYDIFF
         MENUITEM "Switch Left<->Right",         ID_VIEW_SWITCHLEFT
         MENUITEM SEPARATOR
         MENUITEM "S&ettings",                   ID_VIEW_OPTIONS
