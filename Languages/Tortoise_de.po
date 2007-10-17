@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-10-16 09:03+0100\n"
+"PO-Revision-Date: 2007-10-17 13:16+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2961,7 +2961,7 @@ msgstr "ID:32773:V C +O"
 msgid "ID:32774:V C +T"
 msgstr "ID:32774:V C +L"
 
-#. Accelerator Entry for Menu ID:32775; 'Two-way &Diff'
+#. Accelerator Entry for Menu ID:32775; 'Single/&double-pane view'
 msgid "ID:32775:V C +D"
 msgstr "ID:32775:V C +D"
 
@@ -5341,6 +5341,10 @@ msgstr "Zeigt das Log der gewählten Datei / Ordner"
 msgid "Shows the mime type of the versioned file"
 msgstr "Zeigt den MIME-Typ der versionierten Datei"
 
+#. Resource IDs: (32775)
+msgid "Single/&double-pane view"
+msgstr "Ein-/&Zweifenstersicht"
+
 #. Resource IDs: (74)
 msgid "Size"
 msgstr "Größe"
@@ -6185,10 +6189,6 @@ msgstr "Nochmals"
 #. Resource IDs: (10)
 msgid "Tweak TortoiseSVN"
 msgstr "Einstellungen für TortoiseSVN"
-
-#. Resource IDs: (32775)
-msgid "Two-way &Diff"
-msgstr "&Zweifenstersicht"
 
 #. Resource IDs: (164, 207)
 msgid "URL"
