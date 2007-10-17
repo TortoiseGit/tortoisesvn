@@ -457,6 +457,10 @@ public:
 		const CTSVNPath& destpath, BOOL force, svn_depth_t depth, const CString& options, 
 		BOOL ignoreancestry = FALSE, BOOL dryrun = FALSE, BOOL record_only = FALSE);
 	/**
+	 * Returns a list of suggested source URLs for the given \c targetpath in \c revision.
+	 */
+	BOOL SuggestMergeSources(const CTSVNPath& targetpath, const SVNRev& revision, CTSVNPathList& sourceURLs);
+	/**
 	 * Produce diff output which describes the delta between \a path1/\a revision1 and \a path2/\a revision2
 	 * Print the output of the diff to \a outputfile, and any errors to \a errorfile. \a path1 
 	 * and \a path2 can be either working-copy paths or URLs.

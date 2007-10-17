@@ -985,9 +985,36 @@ BOOL SVN::PegMerge(const CTSVNPath& source, SVNRev revision1, SVNRev revision2, 
 		opts,
 		m_pctx,
 		subpool);
-	if(Err != NULL)
+	if (Err != NULL)
 	{
 		return FALSE;
+	}
+
+	return TRUE;
+}
+
+BOOL SVN::SuggestMergeSources(const CTSVNPath& targetpath, const SVNRev& revision, CTSVNPathList& sourceURLs)
+{
+	SVNPool subpool(pool);
+	apr_array_header_t * sourceurls;
+
+	svn_error_clear(Err);
+	sourceURLs.Clear();
+	Err = svn_client_suggest_merge_sources(&sourceurls, 
+											targetpath.GetSVNApiPath(subpool), 
+											revision, 
+											m_pctx, 
+											subpool);
+
+	if (Err != NULL)
+	{
+		return FALSE;
+	}
+
+	for (int i = 0; i < sourceurls->nelts; i++)
+	{
+		const char *path = (APR_ARRAY_IDX (sourceurls, i, const char*));
+		sourceURLs.AddPath(CTSVNPath(CUnicodeUtils::GetUnicode(path)));
 	}
 
 	return TRUE;
