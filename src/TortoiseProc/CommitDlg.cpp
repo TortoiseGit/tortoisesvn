@@ -1165,7 +1165,7 @@ void CCommitDlg::DoSize(int delta)
 
 	SetSplitterRange();
 	m_cLogMessage.Invalidate();
-	GetDlgItem(IDC_MSGVIEW)->Invalidate();
+	GetDlgItem(IDC_LOGMESSAGE)->Invalidate();
 }
 
 void CCommitDlg::OnSize(UINT nType, int cx, int cy)
