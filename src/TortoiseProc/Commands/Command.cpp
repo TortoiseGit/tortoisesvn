@@ -44,6 +44,7 @@
 #include "LockCommand.h"
 #include "LogCommand.h"
 #include "MergeCommand.h"
+#include "MergeAllCommand.h"
 #include "PropertiesCommand.h"
 #include "RebuildIconCacheCommand.h"
 #include "RelocateCommand.h"
@@ -89,6 +90,7 @@ typedef enum
 	cmdLock,
 	cmdLog,
 	cmdMerge,
+	cmdMergeAll,
 	cmdProperties,
 	cmdRTFM,
 	cmdRebuildIconCache,
@@ -140,6 +142,7 @@ static const struct CommandInfo
 	{	cmdLock,			_T("lock")				},
 	{	cmdLog,				_T("log")				},
 	{	cmdMerge,			_T("merge")				},
+	{	cmdMergeAll,		_T("mergeall")			},
 	{	cmdProperties,		_T("properties")		},
 	{	cmdRTFM,			_T("rtfm")				},
 	{	cmdRebuildIconCache,_T("rebuildiconcache")	},
@@ -232,6 +235,8 @@ Command * CommandServer::GetCommand(const CString& sCmd)
 		return new LogCommand;
 	case cmdMerge:
 		return new MergeCommand;
+	case cmdMergeAll:
+		return new MergeAllCommand;
 	case cmdProperties:
 		return new PropertiesCommand;
 	case cmdRTFM:

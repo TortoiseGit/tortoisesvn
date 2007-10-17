@@ -823,6 +823,9 @@ UINT CSVNProgressDlg::ProgressThread()
 	case SVNProgress_Merge:
 		bSuccess = CmdMerge(sWindowTitle, localoperation);
 		break;
+	case SVNProgress_MergeAll:
+		bSuccess = CmdMergeAll(sWindowTitle, localoperation);
+		break;
 	case SVNProgress_Rename:
 		bSuccess = CmdRename(sWindowTitle, localoperation);
 		break;
@@ -2098,6 +2101,47 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
 		}
 	}
 	return !bFailed;
+}
+
+bool CSVNProgressDlg::CmdMergeAll(CString& sWindowTitle, bool& /*localoperation*/)
+{
+	ASSERT(m_targetPathList.GetCount() == 1);
+	sWindowTitle.LoadString(IDS_PROGRS_TITLE_MERGE);
+	SetBackgroundImage(IDI_MERGE_BKG);
+	SetWindowText(sWindowTitle);
+
+	ATLASSERT(m_targetPathList.GetCount() == 1);
+
+	CTSVNPathList suggestedSources;
+	if (!SuggestMergeSources(m_targetPathList[0], m_Revision, suggestedSources))
+	{
+		ReportSVNError();
+		return false;
+	}
+
+	if (suggestedSources.GetCount() == 0)
+	{
+		CString sErr;
+		sErr.Format(IDS_PROGRS_MERGEALLNOSOURCES, m_targetPathList[0].GetWinPath());
+		ReportError(sErr);
+		return false;
+	}
+	CString sCmdInfo;
+	sCmdInfo.Format(IDS_PROGRS_CMD_MERGEALL, 
+		(LPCTSTR)suggestedSources[0].GetSVNPathString(),
+		m_targetPathList[0].GetWinPath(),
+		m_options & ProgOptIgnoreAncestry ? (LPCTSTR)sIgnoreAncestry : (LPCTSTR)sRespectAncestry);
+	ReportCmd(sCmdInfo);
+
+	if (!PegMerge(suggestedSources[0], SVNRev(), SVNRev(), 
+		SVNRev::REV_HEAD,
+		m_targetPathList[0], true, m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), FALSE))
+	{
+		ReportSVNError();
+		return false;
+	}
+
+	return true;
 }
 
 bool CSVNProgressDlg::CmdRename(CString& sWindowTitle, bool& localoperation)
