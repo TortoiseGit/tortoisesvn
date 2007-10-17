@@ -21,12 +21,23 @@
 	<target name="build" >
 		<mkdir dir="${configuration}${static}_${platform}" />
 		<copy file="include\apr.hw" tofile="include\apr.h" overwrite="true" />
+		<loadfile file="include\apr.hw" property="configfile">
+			<filterchain>
+				<replacestring from="#define APR_HAVE_IPV6           0" to="#define APR_HAVE_IPV6           1" />
+			</filterchain>
+		</loadfile>
+		<echo file="include\apr.h" message="${configfile}" />
+
 		<copy file="include\arch\unix\apr_arch_poll_private.h" tofile="include\arch\win32\apr_arch_poll_private.h" overwrite="true" />
 		<rc rcfile="libapr.rc" output="${configuration}${static}_${platform}\libapr_tsvn.res">
 			<includedirs>
 				<include name="include" />
 			</includedirs>
 		</rc>
+
+		<!-- patch rand.c to include first apr.h, *then* windows.h -->
+		<copy file="..\build\rand.c" tofile="misc\win32\rand.c" overwrite="true" /> 
+
 		<cl outputdir="${configuration}${static}_${platform}">
 			<arg value="/O2" if="${configuration == 'release'}" />
 			<arg value="/Ob1" if="${configuration == 'release'}" />
@@ -45,6 +56,11 @@
 			<arg value="/Zi" />
 			<arg value="/errorReport:prompt" />
 			<sources>
+				<include name="network_io\win32\*.c" />
+				<include name="network_io\unix\inet_ntop.c" />
+				<include name="network_io\unix\inet_pton.c" />
+				<include name="network_io\unix\multicast.c" />
+				<include name="network_io\unix\sockaddr.c" />
 				<include name="atomic\win32\apr_atomic.c" />
 				<include name="dso\win32\dso.c" />
 				<include name="file_io\win32\*.c" />
@@ -64,10 +80,6 @@
 				<exclude name="misc\win32\apr_app.c" />
 				<include name="mmap\win32\*.c" />
 				<include name="mmap\unix\common.c" />
-				<include name="network_io\win32\*.c" />
-				<include name="network_io\unix\inet_ntop.c" />
-				<include name="network_io\unix\inet_pton.c" />
-				<include name="network_io\unix\sockaddr.c" />
 				<include name="passwd\*.c" />
 				<include name="poll\unix\select.c" />
 				<include name="shmem\win32\*.c" />
@@ -89,6 +101,7 @@
 				<define name="WIN32" />
 				<define name="_WINDOWS" />
 				<define name="_WIN32" />
+				<define name="_WIN32_WINNT" value="0x0500" />
 				<define name="WIN64" if="${platform == 'x64'}" />
 				<define name="_WINDLL" if="${static != 'static'}" />
 				<define name="NDEBUG" if="${configuration == 'release'}"/>
@@ -122,6 +135,10 @@
             </exec>
 		</if>
 		<delete file="include\arch\win32\apr_arch_poll_private.h" failonerror="false" />
+		<exec program="svn" failonerror="false">
+			<arg value="revert" />
+			<arg value="misc\win32\rand.c" />
+		</exec>
 	</target>
 
 </project>
