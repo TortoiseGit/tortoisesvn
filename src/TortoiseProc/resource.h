@@ -145,6 +145,7 @@
 #define IDI_RENAME_BKG                  274
 #define IDI_SWITCH_BKG                  275
 #define IDI_UPDATE_BKG                  276
+#define IDD_MERGEALL                    277
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -997,6 +998,7 @@
 #define IDS_PROGRS_CMDINFO              3506
 #define IDS_PROGRS_IGNOREANCESTRY       3507
 #define IDS_PROGRS_RESPECTANCESTRY      3508
+#define IDS_PROGRS_MERGEALLNOSOURCES    3510
 #define IDS_PROGRS_TITLE_RENAME         3530
 #define IDS_PROGRS_TITLE_LOCK           3531
 #define IDS_PROGRS_TITLE_UNLOCK         3532
@@ -1019,6 +1021,7 @@
 #define IDS_PROGRS_CMD_MERGEPEG         3653
 #define IDS_PROGRS_CMD_MERGEURL         3654
 #define IDS_PROGRS_CMD_COPY             3655
+#define IDS_PROGRS_CMD_MERGEALL         3656
 #define IDS_SSL_SAVE_CERTPATH           3700
 #define IDS_REPOSTATUS_HEADREV          3800
 #define IDS_REPOSTATUS_WCINFO           3801
@@ -1234,7 +1237,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        277
+#define _APS_NEXT_RESOURCE_VALUE        278
 #define _APS_NEXT_COMMAND_VALUE         32829
 #define _APS_NEXT_CONTROL_VALUE         1416
 #define _APS_NEXT_SYMED_VALUE           195
