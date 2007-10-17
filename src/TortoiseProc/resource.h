@@ -233,7 +233,6 @@
 #define IDC_EXPORT_CHECKOUTDIR          1074
 #define IDC_VERSIONBOX                  1075
 #define IDC_LABEL                       1076
-#define IDC_MSGVIEW                     1077
 #define IDC_EXCEPTIONS                  1077
 #define IDC_BUGID                       1077
 #define IDC_WCURL                       1077
@@ -696,6 +695,7 @@
 #define IDC_PROXYLABEL4                 1412
 #define IDC_PROXYLABEL5                 1413
 #define IDC_PROXYLABEL6                 1414
+#define IDC_MSGEDIT                     1415
 #define IDS_CHECKOUT_TT_DIR             1500
 #define IDS_CHECKOUT_EXPORTDIR          1501
 #define IDS_EXPORT_TT_EOL               1505
@@ -1236,7 +1236,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        277
 #define _APS_NEXT_COMMAND_VALUE         32829
-#define _APS_NEXT_CONTROL_VALUE         1415
+#define _APS_NEXT_CONTROL_VALUE         1416
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

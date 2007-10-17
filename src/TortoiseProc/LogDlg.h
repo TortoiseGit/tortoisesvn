@@ -30,6 +30,7 @@
 #include "LogDlgHelper.h"
 #include "FilterEdit.h"
 #include "SVNRev.h"
+#include "SciEdit.h"
 
 #define LOGFILTER_ALL      1
 #define LOGFILTER_MESSAGES 2
@@ -207,7 +208,6 @@ private:
 	bool				m_bFilterWithRegex;
 	static const UINT	m_FindDialogMessage;
 	CFindReplaceDialog *m_pFindDialog;
-	CFont				m_logFont;
 	CString				m_sMessageBuf;
 	CSplitterControl	m_wndSplitter1;
 	CSplitterControl	m_wndSplitter2;
@@ -234,6 +234,7 @@ private:
 	bool				m_bSelect;
 	bool				m_bShowBugtraqColumn;
 	CString				m_sLogInfo;
+	CSciEdit			m_cLogMessage;
 	std::set<svn_revnum_t> m_mergedRevs;
 
 	CBalloon			m_tooltips;

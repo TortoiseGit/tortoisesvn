@@ -120,6 +120,7 @@ private:
 	TCHAR		m_separator;
 	CString		m_sCommand;
 	CString		m_sBugID;
+	CString		m_sUrl;
 	rpattern	m_patCommand;
 	rpattern	m_patBugID;
 	CArray<CSciEditContextMenuInterface *, CSciEditContextMenuInterface *> m_arContextHandlers;

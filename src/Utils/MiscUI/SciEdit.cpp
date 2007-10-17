@@ -156,6 +156,7 @@ void CSciEdit::Init(const ProjectProperties& props)
 	Init(props.lProjectLanguage);
 	m_sCommand = CStringA(CUnicodeUtils::GetUTF8(props.sCheckRe));
 	m_sBugID = CStringA(CUnicodeUtils::GetUTF8(props.sBugIDRe));
+	m_sUrl = CStringA(CUnicodeUtils::GetUTF8(props.sUrl));
 	try
 	{
 		if (!m_sBugID.IsEmpty())
@@ -375,6 +376,9 @@ void CSciEdit::SetFont(CString sFontName, int iFontSizeInPoints)
 	Call(SCI_STYLESETBOLD, STYLE_BOLD, (LPARAM)TRUE);
 	Call(SCI_STYLESETITALIC, STYLE_ITALIC, (LPARAM)TRUE);
 	Call(SCI_STYLESETUNDERLINE, STYLE_UNDERLINED, (LPARAM)TRUE);
+	// Make bug IDs clickable.
+	// TODO: Add URL matching code.
+	Call(SCI_STYLESETHOTSPOT, STYLE_ISSUEBOLDITALIC, (LPARAM)TRUE);
 }
 
 void CSciEdit::SetAutoCompletionList(const std::set<CString>& list, const TCHAR separator)
@@ -565,22 +569,45 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
 		switch(lpnmhdr->code)
 		{
 		case SCN_CHARADDED:
-			if ((lpSCN->ch < 32)&&(lpSCN->ch != 13)&&(lpSCN->ch != 10))
-				Call(SCI_DELETEBACK);
-			else
 			{
-				DoAutoCompletion(3);
+				if ((lpSCN->ch < 32)&&(lpSCN->ch != 13)&&(lpSCN->ch != 10))
+					Call(SCI_DELETEBACK);
+				else
+				{
+					DoAutoCompletion(3);
+				}
+				return TRUE;
 			}
-			return TRUE;
 			break;
 		case SCN_STYLENEEDED:
-			int startstylepos = Call(SCI_GETENDSTYLED);
-			int endstylepos = ((SCNotification *)lpnmhdr)->position;
-			CheckSpelling();
-			MarkEnteredBugID(startstylepos, endstylepos);
-			StyleEnteredText(startstylepos, endstylepos);
-			WrapLines(startstylepos, endstylepos);
-			return TRUE;
+			{
+				int startstylepos = Call(SCI_GETENDSTYLED);
+				int endstylepos = ((SCNotification *)lpnmhdr)->position;
+				CheckSpelling();
+				MarkEnteredBugID(startstylepos, endstylepos);
+				StyleEnteredText(startstylepos, endstylepos);
+				WrapLines(startstylepos, endstylepos);
+				return TRUE;
+			}
+			break;
+		case SCN_HOTSPOTCLICK:
+			{
+				// TODO: Use proper bugregex matching here.
+				TEXTRANGEA textrange;
+				textrange.chrg.cpMin = Call(SCI_WORDSTARTPOSITION, lpSCN->position, TRUE);
+				if ((lpSCN->position == textrange.chrg.cpMin)||(textrange.chrg.cpMin < 0))
+					break;
+				textrange.chrg.cpMax = Call(SCI_WORDENDPOSITION, textrange.chrg.cpMin, TRUE);
+
+				char * textbuffer = new char[textrange.chrg.cpMax - textrange.chrg.cpMin + 1];
+				textrange.lpstrText = textbuffer;	
+				Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
+				CString url = m_sUrl;
+				url.Replace(_T("%BUGID%"), StringFromControl(textbuffer));
+				delete textbuffer;
+				if (!url.IsEmpty())
+					ShellExecute(GetParent()->GetSafeHwnd(), _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);
+			}
 			break;
 		}
 	}
