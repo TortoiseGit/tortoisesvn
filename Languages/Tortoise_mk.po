@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-10-17 14:19+0100\n"
+"PO-Revision-Date: 2007-10-18 08:17+0100\n"
 "Last-Translator: Срѓан Стокиќ <srdjan.stokic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3676,9 +3676,21 @@ msgstr "Спој"
 msgid "Merge - TortoiseSVN"
 msgstr "Спој - TortoiseSVN"
 
+#. Resource IDs: (277)
+msgid "Merge all"
+msgstr "Спој се"
+
+#. Resource IDs: (14)
+msgid "Merge all..."
+msgstr "Соедини се..."
+
 #. Resource IDs: (65535)
 msgid "Merge depth:"
 msgstr "Длабочина на спојувањето"
+
+#. Resource IDs: (65535)
+msgid "Merge options"
+msgstr "Подесувања за спојување"
 
 #. Resource IDs: (114)
 msgid "Merge revision to..."
@@ -3705,6 +3717,10 @@ msgstr "Споена ревизија(и) %s од %s:\n"
 msgid "Merges a branch into the main trunk"
 msgstr "Спојува гранка назад во главното стебло"
 
+#. Resource IDs: (14)
+msgid "Merges all missing revisions back into the working copy using merge-tracking information"
+msgstr "Ги спојува сите ревизии кои недостасуваат во работната копија користејќи ги информациите за следење на спојувањето."
+
 #. Resource IDs: (65535)
 msgid "Merging"
 msgstr "Спојување"
@@ -3713,6 +3729,11 @@ msgstr "Спојување"
 #, c-format
 msgid "Merging %s from revision %s to %s into %s, %s%s"
 msgstr "Спојување на %s од ревизија %s до %s во %s, %s%s"
+
+#. Resource IDs: (229)
+#, c-format
+msgid "Merging %s into %s, %s"
+msgstr "Спој %s со %s, %s"
 
 #. Resource IDs: (229)
 #, c-format
@@ -4992,7 +5013,7 @@ msgstr "Зачувувам датотеки"
 msgid "Saving patchfile to:"
 msgstr "Зачувувам закрпа на:"
 
-#. Resource IDs: (1014, 1017, 1064, 1212)
+#. Resource IDs: (1014, 1017, 1064, 1212, 1415)
 msgid "Scintilla"
 msgstr "Scintilla"
 
@@ -6203,6 +6224,17 @@ msgstr "URL:"
 #. Resource IDs: (75)
 msgid "URL: "
 msgstr "URL: "
+
+#. Resource IDs: (220)
+#, c-format
+msgid ""
+"Unable to determine merge source for\n"
+"%\n"
+"Please use the main merge dialog."
+msgstr ""
+"Не можам да го пронајдам изворот за спојување за\n"
+"%\n"
+"Ве молам користете го главниот дијалог за спојување."
 
 #. Resource IDs: (3866)
 msgid "Unable to load mail system support."
