@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-10-13 10:52+0800\n"
+"PO-Revision-Date: 2007-10-19 01:09+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -568,7 +568,7 @@ msgstr "開啟(&O) Ctrl-O"
 msgid "&Overlap images"
 msgstr "重疊影像(&O)"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1411, 65535)
 msgid "&Password:"
 msgstr "密碼(&P):"
 
@@ -576,7 +576,7 @@ msgstr "密碼(&P):"
 msgid "&Paste"
 msgstr "貼上(&P)"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1414)
 msgid "&Port:"
 msgstr "埠(&P):"
 
@@ -744,7 +744,7 @@ msgstr "更新至版本(&U)..."
 msgid "&Use auto-completion of file paths and keywords"
 msgstr "使用自動完成檔案名稱及關鍵字(&U)"
 
-#. Resource IDs: (1005, 65535)
+#. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
 msgstr "用戶名稱(&U):"
 
@@ -2427,7 +2427,7 @@ msgstr ""
 "讀寫註冊樹時發生錯誤: %s\n"
 "%s"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "例外:"
 
@@ -2764,6 +2764,14 @@ msgstr "正在取得資訊. 請稍候..."
 msgid "General"
 msgstr "一般設定"
 
+#. Resource IDs: (196)
+msgid "General::Dialogs 1"
+msgstr "一般::視窗 1"
+
+#. Resource IDs: (213)
+msgid "General::Dialogs 2"
+msgstr "一般::視窗 2"
+
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "正在產生補綴檔..."
@@ -2813,6 +2821,10 @@ msgstr "正在從檔案庫取得資訊..."
 #. Resource IDs: (132)
 msgid "Getting log info..."
 msgstr "正在取得紀錄資訊..."
+
+#. Resource IDs: (220)
+msgid "Getting required information..."
+msgstr "正在取得必要資訊..."
 
 #. Resource IDs: (119)
 msgid "Getting unified diff"
@@ -2944,7 +2956,7 @@ msgstr "ID:32773:V C +O"
 msgid "ID:32774:V C +T"
 msgstr "ID:32774:V C +T"
 
-#. Accelerator Entry for Menu ID:32775; 'Two-way &Diff'
+#. Accelerator Entry for Menu ID:32775; 'Single/&double-pane view'
 msgid "ID:32775:V C +D"
 msgstr "ID:32775:V C +D"
 
@@ -3572,14 +3584,6 @@ msgstr "視覺樣式"
 msgid "Look and Feel::Colors"
 msgstr "視覺樣式::顏色"
 
-#. Resource IDs: (196)
-msgid "Look and Feel::Dialogs 1"
-msgstr "視覺樣式::視窗 1"
-
-#. Resource IDs: (213)
-msgid "Look and Feel::Dialogs 2"
-msgstr "視覺樣式::視窗 2"
-
 #. Resource IDs: (106)
 msgid "Look and Feel::Icon Overlays"
 msgstr "視覺樣式::圖示覆蓋"
@@ -3646,9 +3650,21 @@ msgstr "合併"
 msgid "Merge - TortoiseSVN"
 msgstr "合併 - TortoiseSVN"
 
+#. Resource IDs: (277)
+msgid "Merge all"
+msgstr "合併全部"
+
+#. Resource IDs: (14)
+msgid "Merge all..."
+msgstr "合併全部..."
+
 #. Resource IDs: (65535)
 msgid "Merge depth:"
 msgstr "合併層數:"
+
+#. Resource IDs: (65535)
+msgid "Merge options"
+msgstr "合併選項"
 
 #. Resource IDs: (114)
 msgid "Merge revision to..."
@@ -3675,6 +3691,10 @@ msgstr "合併版本 %s 自 %s:\n"
 msgid "Merges a branch into the main trunk"
 msgstr "將分支樹合併回主幹"
 
+#. Resource IDs: (14)
+msgid "Merges all missing revisions back into the working copy using merge-tracking information"
+msgstr "使用合併追縱資訊將所有缺少的版本合併至目前的工作複本"
+
 #. Resource IDs: (65535)
 msgid "Merging"
 msgstr "正在合併"
@@ -3683,6 +3703,11 @@ msgstr "正在合併"
 #, c-format
 msgid "Merging %s from revision %s to %s into %s, %s%s"
 msgstr "合併 %s 自版本 %s 至 %s, 併入 %s, %s%s"
+
+#. Resource IDs: (229)
+#, c-format
+msgid "Merging %s into %s, %s"
+msgstr "正在合併 %s 至 %s, %s"
 
 #. Resource IDs: (229)
 #, c-format
@@ -4321,7 +4346,7 @@ msgstr "性質狀態"
 msgid "Property value:"
 msgstr "性質值:"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1412)
 msgid "Proxy &timeout in seconds:"
 msgstr "Proxy 逾時設定(秒)(&T):"
 
@@ -4842,13 +4867,13 @@ msgstr "SCRL"
 msgid "SSH"
 msgstr "SSH"
 
-#. Resource IDs: (12)
-msgid "SVN Add files to this WC"
-msgstr "SVN 加入檔案至工作複本"
-
 #. Resource IDs: (16)
 msgid "SVN Author"
 msgstr "SVN 作者"
+
+#. Resource IDs: (12)
+msgid "SVN Copy and add files to this WC"
+msgstr "SVN 複製並加入檔案至工作複本"
 
 #. Resource IDs: (16)
 msgid "SVN Copy and rename versioned file here"
@@ -4960,7 +4985,7 @@ msgstr "儲存檔案 %s"
 msgid "Saving patchfile to:"
 msgstr "儲存補綴檔至:"
 
-#. Resource IDs: (1014, 1017, 1064, 1212)
+#. Resource IDs: (1014, 1017, 1064, 1212, 1415)
 msgid "Scintilla"
 msgstr "Scintilla"
 
@@ -5045,6 +5070,10 @@ msgstr "請選擇要儲存檔案的目錄"
 msgid "Select hook script file"
 msgstr "請選擇掛勾指令檔"
 
+#. Resource IDs: (1405)
+msgid "Select items automatically"
+msgstr "自動選擇項目"
+
 #. Resource IDs: (78)
 msgid "Select merge application"
 msgstr "選擇合併工具"
@@ -5093,7 +5122,7 @@ msgstr "發送郵件功能無法寄出訊息."
 msgid "Sending content"
 msgstr "正在傳送內容"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1409)
 msgid "Server &address:"
 msgstr "伺服器位址(&A):"
 
@@ -5307,6 +5336,10 @@ msgstr "顯示選定的檔案/資料夾的記錄"
 #. Resource IDs: (14)
 msgid "Shows the mime type of the versioned file"
 msgstr "顯示在版本控制下檔案的 mime 類型"
+
+#. Resource IDs: (32775)
+msgid "Single/&double-pane view"
+msgstr "單一/雙重區塊檢視(&D)"
 
 #. Resource IDs: (74)
 msgid "Size"
@@ -6144,10 +6177,6 @@ msgstr "再試一次"
 msgid "Tweak TortoiseSVN"
 msgstr "調校 TortoiseSVN"
 
-#. Resource IDs: (32775)
-msgid "Two-way &Diff"
-msgstr "雙向比對(&D)"
-
 #. Resource IDs: (164, 207)
 msgid "URL"
 msgstr "URL"
@@ -6167,6 +6196,17 @@ msgstr "URL:"
 #. Resource IDs: (75)
 msgid "URL: "
 msgstr "URL: "
+
+#. Resource IDs: (220)
+#, c-format
+msgid ""
+"Unable to determine merge source for\n"
+"%\n"
+"Please use the main merge dialog."
+msgstr ""
+"無法判斷合併來源:\n"
+"%\n"
+"請使用完整的合併視窗."
 
 #. Resource IDs: (3866)
 msgid "Unable to load mail system support."
@@ -6497,6 +6537,10 @@ msgstr "警告"
 #. Resource IDs: (219)
 msgid "Warning!"
 msgstr "警告!"
+
+#. Resource IDs: (197)
+msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
+msgstr "啟用時, 送交視窗中, 有版本控制的項目會自動被選取."
 
 #. Resource IDs: (197)
 msgid ""
@@ -6946,6 +6990,10 @@ msgstr "一般"
 #. Resource IDs: (11)
 msgid "obstructed"
 msgstr "阻礙"
+
+#. Resource IDs: (1406, 1407)
+msgid "or"
+msgstr "或"
 
 #. Resource IDs: (3869)
 msgid "pixels"
