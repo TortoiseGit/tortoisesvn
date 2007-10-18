@@ -11,13 +11,13 @@
 # Stanislav Petrakov <stannic@gmail.com>
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 11027: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 11048: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-10-17 16:11+0300\n"
+"PO-Revision-Date: 2007-10-18 17:42+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3738,9 +3738,21 @@ msgstr "Слияние"
 msgid "Merge - TortoiseSVN"
 msgstr "Слияние - TortoiseSVN"
 
+#. Resource IDs: (277)
+msgid "Merge all"
+msgstr "Слить все"
+
+#. Resource IDs: (14)
+msgid "Merge all..."
+msgstr "Слить все..."
+
 #. Resource IDs: (65535)
 msgid "Merge depth:"
 msgstr "Глубина при слиянии:"
+
+#. Resource IDs: (65535)
+msgid "Merge options"
+msgstr "Параметры слияния"
 
 #. Resource IDs: (114)
 msgid "Merge revision to..."
@@ -3767,6 +3779,10 @@ msgstr "Слияние с ревизией(ями) %s из %s:\n"
 msgid "Merges a branch into the main trunk"
 msgstr "Сливает ответвление с главным стволом"
 
+#. Resource IDs: (14)
+msgid "Merges all missing revisions back into the working copy using merge-tracking information"
+msgstr "Производит слияние с рабочей копией всех недостающих ревизий, используя информацию отслеживания слияний"
+
 #. Resource IDs: (65535)
 msgid "Merging"
 msgstr "Слияние"
@@ -3775,6 +3791,11 @@ msgstr "Слияние"
 #, c-format
 msgid "Merging %s from revision %s to %s into %s, %s%s"
 msgstr "Слияние %s начиная с ревизии %s и по ревизию %s в %s, %s%s"
+
+#. Resource IDs: (229)
+#, c-format
+msgid "Merging %s into %s, %s"
+msgstr "Слияние %s с %s, %s"
 
 #. Resource IDs: (229)
 #, c-format
@@ -5066,7 +5087,7 @@ msgstr "Сохранение файлов"
 msgid "Saving patchfile to:"
 msgstr "Сохранить файл заплатки в:"
 
-#. Resource IDs: (1014, 1017, 1064, 1212)
+#. Resource IDs: (1014, 1017, 1064, 1212, 1415)
 msgid "Scintilla"
 msgstr "Scintilla"
 
@@ -6291,6 +6312,17 @@ msgstr "URL:"
 #. Resource IDs: (75)
 msgid "URL: "
 msgstr "URL: "
+
+#. Resource IDs: (220)
+#, c-format
+msgid ""
+"Unable to determine merge source for\n"
+"%\n"
+"Please use the main merge dialog."
+msgstr ""
+"Невозможно определить источник слияния для\n"
+"%\n"
+"Пожалуйста, используйте основной диалог слияния."
 
 #. Resource IDs: (3866)
 msgid "Unable to load mail system support."
