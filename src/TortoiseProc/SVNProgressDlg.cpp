@@ -2112,6 +2112,9 @@ bool CSVNProgressDlg::CmdMergeAll(CString& sWindowTitle, bool& /*localoperation*
 
 	ATLASSERT(m_targetPathList.GetCount() == 1);
 
+	CString sCmdInfo;
+	sCmdInfo.LoadString(IDS_PROGRS_INFOGETTINGINFO);
+	ReportCmd(sCmdInfo);
 	CTSVNPathList suggestedSources;
 	if (!SuggestMergeSources(m_targetPathList[0], m_Revision, suggestedSources))
 	{
@@ -2126,7 +2129,6 @@ bool CSVNProgressDlg::CmdMergeAll(CString& sWindowTitle, bool& /*localoperation*
 		ReportError(sErr);
 		return false;
 	}
-	CString sCmdInfo;
 	sCmdInfo.Format(IDS_PROGRS_CMD_MERGEALL, 
 		(LPCTSTR)suggestedSources[0].GetSVNPathString(),
 		m_targetPathList[0].GetWinPath(),
