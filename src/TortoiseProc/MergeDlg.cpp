@@ -313,10 +313,6 @@ BOOL CMergeDlg::CheckData(bool bShowErrors /* = true */)
 void CMergeDlg::OnOK()
 {
 	m_bDryRun = FALSE;
-	delete m_pLogDlg;
-	m_pLogDlg = NULL;
-	delete m_pLogDlg2;
-	m_pLogDlg2 = NULL;
 	if (CheckData())
 		CStandAloneDialog::OnOK();
 	else
@@ -326,10 +322,6 @@ void CMergeDlg::OnOK()
 void CMergeDlg::OnBnClickedDryrunbutton()
 {
 	m_bDryRun = TRUE;
-	delete m_pLogDlg;
-	m_pLogDlg = NULL;
-	delete m_pLogDlg2;
-	m_pLogDlg2 = NULL;
 	if (CheckData())
 		CStandAloneDialog::OnOK();
 	else
