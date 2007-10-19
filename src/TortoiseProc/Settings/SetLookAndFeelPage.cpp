@@ -106,7 +106,6 @@ BOOL CSetLookAndFeelPage::OnInitDialog()
 	InsertItem(IDS_MENUAPPLYPATCH, IDI_PATCH, MENUAPPLYPATCH);
 	InsertItem(IDS_MENUPROPERTIES, IDI_PROPERTIES, MENUPROPERTIES);
 	InsertItem(IDS_MENUURLDIFF, IDI_DIFF, MENUURLDIFF);
-	InsertItem(IDS_MENUDELUNVERSIONED, IDI_DELUNVERSIONED, MENUDELUNVERSIONED);
 
 	m_cMenuList.SetImageList(&m_imgList, LVSIL_SMALL);
 	int mincol = 0;
@@ -196,7 +195,6 @@ void CSetLookAndFeelPage::OnLvnItemchangedMenulist(NMHDR * /*pNMHDR*/, LRESULT *
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUAPPLYPATCH : 0;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUPROPERTIES : 0;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUURLDIFF : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUDELUNVERSIONED : 0;
 	}
 	*pResult = 0;
 }
