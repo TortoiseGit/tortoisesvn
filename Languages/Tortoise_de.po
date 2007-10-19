@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-10-17 13:16+0100\n"
+"PO-Revision-Date: 2007-10-19 11:00+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2831,6 +2831,10 @@ msgstr "Hole Information..."
 msgid "Getting log info..."
 msgstr "Hole Log-Information..."
 
+#. Resource IDs: (220)
+msgid "Getting required information..."
+msgstr "Hole benötigte Informationen..."
+
 #. Resource IDs: (119)
 msgid "Getting unified diff"
 msgstr "Hole Standard-Diff"
@@ -3670,9 +3674,21 @@ msgstr "Zusammenführen"
 msgid "Merge - TortoiseSVN"
 msgstr "Zusammenführen - TortoiseSVN"
 
+#. Resource IDs: (277)
+msgid "Merge all"
+msgstr "Alle zusammenführen"
+
+#. Resource IDs: (14)
+msgid "Merge all..."
+msgstr "Alle zusammenführen"
+
 #. Resource IDs: (65535)
 msgid "Merge depth:"
 msgstr "Rekursionstiefe:"
+
+#. Resource IDs: (65535)
+msgid "Merge options"
+msgstr "Optionen"
 
 #. Resource IDs: (114)
 msgid "Merge revision to..."
@@ -3699,6 +3715,10 @@ msgstr "Revision(en) %s von %s zusammengeführt:\n"
 msgid "Merges a branch into the main trunk"
 msgstr "Führt Verzweigung und Arbeitskopie zusammen"
 
+#. Resource IDs: (14)
+msgid "Merges all missing revisions back into the working copy using merge-tracking information"
+msgstr "Führt unter Verwendung des Zusammenführen-Protokolls sämtliche fehlenden Revisionen in der Arbeitskopie zusammen"
+
 #. Resource IDs: (65535)
 msgid "Merging"
 msgstr "Zusammenführen"
@@ -3707,6 +3727,11 @@ msgstr "Zusammenführen"
 #, c-format
 msgid "Merging %s from revision %s to %s into %s, %s%s"
 msgstr "Zusammenführen %s von Revision %s bis %s in %s, %s%s"
+
+#. Resource IDs: (229)
+#, c-format
+msgid "Merging %s into %s, %s"
+msgstr "%s in %s, %s zusammenführen"
 
 #. Resource IDs: (229)
 #, c-format
@@ -4989,7 +5014,7 @@ msgstr "Speichere Dateien"
 msgid "Saving patchfile to:"
 msgstr "Speichere Patchdatei in:"
 
-#. Resource IDs: (1014, 1017, 1064, 1212)
+#. Resource IDs: (1014, 1017, 1064, 1212, 1415)
 msgid "Scintilla"
 msgstr "Scintilla"
 
@@ -6209,6 +6234,17 @@ msgstr "URL:"
 #. Resource IDs: (75)
 msgid "URL: "
 msgstr "URL: "
+
+#. Resource IDs: (220)
+#, c-format
+msgid ""
+"Unable to determine merge source for\n"
+"%\n"
+"Please use the main merge dialog."
+msgstr ""
+"Kann die Zusammenführen-Quelle für\n"
+"%\n"
+"nicht ermitteln. Bitte verwenden Sie den Zusammenführen Dialog."
 
 #. Resource IDs: (3866)
 msgid "Unable to load mail system support."
