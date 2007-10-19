@@ -120,6 +120,8 @@ public:
 
 	void			Sort(bool bAscending);
 
+	bool			FromListString(LPCTSTR string);
+	std::wstring	ToListString(bool bCompact = true);
 protected:
 	static bool		AscendingRevision(const SVNRev& lhs, const SVNRev& rhs);
 	static bool		DescendingRevision(const SVNRev& lhs, const SVNRev& rhs);

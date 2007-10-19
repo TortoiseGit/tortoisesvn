@@ -229,7 +229,7 @@ bool SVNRevList::SaveToFile(LPCTSTR path, bool bANSI)
 			{
 				CStringA line = CStringA(it->ToString()) + '\n';
 				file.Write(line, line.GetLength());
-			} 
+			}
 			file.Close();
 		}
 		else
@@ -282,6 +282,108 @@ bool SVNRevList::LoadFromFile(LPCTSTR path)
 	return true;
 }
 
+bool SVNRevList::FromListString(LPCTSTR string)
+{
+	Clear();
+	if (_tcslen(string))
+	{
+		const TCHAR * str = string;
+		const TCHAR * result = _tcspbrk(string, _T(",-"));
+		SVNRev prevRev;
+		while (result)
+		{
+			if (*result == ',')
+			{
+				SVNRev rev = SVNRev(std::wstring(str, result-str).c_str());
+				if (!rev.IsValid())
+				{
+					Clear();
+					return false;
+				}
+				if (prevRev.IsValid())
+				{
+					for (svn_revnum_t i = prevRev; i <= rev; ++i)
+						AddRevision(SVNRev(i));
+				}
+				else
+					AddRevision(rev);
+				prevRev = SVNRev();
+			}
+			else if (*result == '-')
+			{
+				prevRev = SVNRev(std::wstring(str, result-str).c_str());
+				if (!prevRev.IsValid())
+				{
+					Clear();
+					return false;
+				}
+			}
+			result++;
+			str = result;
+			result = _tcspbrk(result, _T(",-"));
+		}
+		SVNRev rev = SVNRev(std::wstring(str).c_str());
+		if (prevRev.IsValid())
+		{
+			for (svn_revnum_t i = prevRev; i <= rev; ++i)
+				AddRevision(SVNRev(i));
+		}
+		else
+			AddRevision(rev);
+	}
+
+	return true;
+}
+
+std::wstring SVNRevList::ToListString(bool bCompact)
+{
+	std::wstring sRet;
+	if (bCompact)
+	{
+		int index = 0;
+		do
+		{
+			if (index < GetCount())
+			{
+				ATLASSERT((*this)[index].IsNumber());
+				SVNRev start = (svn_revnum_t)(*this)[index];
+				SVNRev end = SVNRev();
+				svn_revnum_t r = (*this)[index++];
+				while ((index < GetCount())&&((r+1) == (svn_revnum_t)(*this)[index]))
+				{
+					end = (*this)[index];
+					r = end;
+					index++;
+				}
+				if (!end.IsValid())
+				{
+					if (!sRet.empty())
+						sRet += _T(",");	
+					sRet += (LPCTSTR)start.ToString();
+				}
+				else
+				{
+					if (!sRet.empty())
+						sRet += _T(",");	
+					sRet += (LPCTSTR)start.ToString();
+					sRet += _T("-");
+					sRet += (LPCTSTR)end.ToString();
+				}
+			}
+		} while (index < GetCount());
+	}
+	else
+	{
+		for (int i = 0; i < GetCount(); ++i)
+		{
+			if (!sRet.empty())
+				sRet += _T(",");	
+			sRet += (LPCTSTR)(*this)[i].ToString();
+		}
+	}
+	return sRet;
+}
+
 bool SVNRevList::AscendingRevision(const SVNRev& lhs, const SVNRev& rhs)
 {
 	if (lhs.IsNumber() && rhs.IsNumber())
@@ -325,4 +427,36 @@ void SVNRevList::Sort(bool bAscending)
 	}
 }
 
+#endif
+
+#if defined(_DEBUG) && defined(_MFC_VER)
+// Some test cases for these classes
+static class SVNRevListTests
+{
+public:
+	SVNRevListTests()
+	{
+		SVNRevList list;
+		list.AddRevision(SVNRev(1));
+		list.AddRevision(SVNRev(3));
+		list.AddRevision(SVNRev(4));
+		list.AddRevision(SVNRev(5));
+		list.AddRevision(SVNRev(7));
+		list.AddRevision(SVNRev(8));
+		list.AddRevision(SVNRev(9));
+		list.AddRevision(SVNRev(20));
+		ATLASSERT(_tcscmp(list.ToListString(true).c_str(), _T("1,3-5,7-9,20"))==0);
+		SVNRevList list2;
+		list2.FromListString(list.ToListString(true).c_str());
+		ATLASSERT(list2.GetCount()==8);
+		ATLASSERT(svn_revnum_t(list2[0]) == 1);
+		ATLASSERT(svn_revnum_t(list2[1]) == 3);
+		ATLASSERT(svn_revnum_t(list2[2]) == 4);
+		ATLASSERT(svn_revnum_t(list2[3]) == 5);
+		ATLASSERT(svn_revnum_t(list2[4]) == 7);
+		ATLASSERT(svn_revnum_t(list2[5]) == 8);
+		ATLASSERT(svn_revnum_t(list2[6]) == 9);
+		ATLASSERT(svn_revnum_t(list2[7]) == 20);
+	}
+} SVNRevListTests;
 #endif
