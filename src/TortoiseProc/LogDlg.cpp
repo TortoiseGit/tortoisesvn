@@ -1433,6 +1433,7 @@ void CLogDlg::OnOK()
 			{
 			    pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 				svn_revnum_t rev = pLogEntry->Rev;
+				m_selectedRevs.AddRevision(pLogEntry->Rev);
 				if (lowerRev > rev)
 					lowerRev = rev;
 				if (higherRev < rev)
