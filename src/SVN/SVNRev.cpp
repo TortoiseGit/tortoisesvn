@@ -323,6 +323,11 @@ bool SVNRevList::FromListString(LPCTSTR string)
 			result = _tcspbrk(result, _T(",-"));
 		}
 		SVNRev rev = SVNRev(std::wstring(str).c_str());
+		if (!rev.IsValid())
+		{
+			Clear();
+			return false;
+		}
 		if (prevRev.IsValid())
 		{
 			for (svn_revnum_t i = prevRev; i <= rev; ++i)
