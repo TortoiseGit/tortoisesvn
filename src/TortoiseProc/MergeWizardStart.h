@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,41 +18,25 @@
 //
 #pragma once
 
-#include "StandAloneDlg.h"
-#include "SVNRev.h"
 
 /**
- * \ingroup TortoiseProc
- * Helper dialog which shows revision properties.
+ * First page in the merge wizard for selecting the merge type
  */
-class CPropDlg : public CResizableStandAloneDialog
+class CMergeWizardStart : public CPropertyPage
 {
-	DECLARE_DYNAMIC(CPropDlg)
+	DECLARE_DYNAMIC(CMergeWizardStart)
 
 public:
-	CPropDlg(CWnd* pParent = NULL);
-	virtual ~CPropDlg();
+	CMergeWizardStart();
+	virtual ~CMergeWizardStart();
 
-	enum { IDD = IDD_PROPERTIES };
-private:
-	static UINT PropThreadEntry(LPVOID pVoid);
-	UINT		PropThread();
+	enum { IDD = IDD_MERGEWIZARD_START };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
-	virtual void OnCancel();
-	virtual void OnOK();
-
-	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
+	virtual void		DoDataExchange(CDataExchange* pDX);
+	virtual LRESULT		OnWizardNext();
+	virtual BOOL		OnInitDialog();
+	virtual BOOL		OnSetActive();
 
 	DECLARE_MESSAGE_MAP()
-
-public:
-	CTSVNPath	m_Path;
-	SVNRev		m_rev;
-private:
-	HANDLE		m_hThread;
-	CListCtrl	m_proplist;
 };
-

@@ -19,51 +19,45 @@
 #include "StdAfx.h"
 #include "MergeCommand.h"
 
-#include "MergeDlg.h"
+#include "MergeWizard.h"
+#include "MergeWizardStart.h"
 #include "SVNProgressDlg.h"
 #include "MessageBox.h"
 
 bool MergeCommand::Execute()
 {
-	BOOL repeat = FALSE;
-	CMergeDlg dlg;
-	dlg.m_wcPath = cmdLinePath;
-	// mergefrom = start revision of the merge revision range
-	if (parser.HasVal(_T("mergefrom")))
-		dlg.StartRev = SVNRev(parser.GetVal(_T("mergefrom")));
-	// mergeto = end revision of the merge revision range
-	if (parser.HasVal(_T("mergeto")))
-		dlg.EndRev = SVNRev(parser.GetVal(_T("mergeto")));
-	// fromurl = the url the merge is done from
-	if (parser.HasVal(_T("fromurl")))
-		dlg.m_URLFrom = parser.GetVal(_T("fromurl"));
-	// The do-while loop is for repeating the merge dialog.
-	// It's needed in case the user tries a "dry-run"
-	do 
-	{	
-		if (dlg.DoModal() == IDOK)
+	CMergeWizard wizard(IDS_PROGRS_CMDINFO, NULL, 0);
+	wizard.wcPath = cmdLinePath;
+	if (wizard.DoModal() == IDOK)
+	{
+		CSVNProgressDlg progDlg;
+		progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
+		progDlg.SetOptions(wizard.m_bIgnoreAncestry ? ProgOptIgnoreAncestry : 0);
+		progDlg.SetPathList(CTSVNPathList(wizard.wcPath));
+		progDlg.SetUrl(wizard.URL1);
+		progDlg.SetSecondUrl(wizard.URL2);
+		if (wizard.bRevRangeMerge)
 		{
-			CSVNProgressDlg progDlg;
-			progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
-			progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
-			int options = dlg.m_bDryRun ? ProgOptDryRun : 0;
-			options |= dlg.m_bIgnoreAncestry ? ProgOptIgnoreAncestry : 0;
-			options |= dlg.m_bRecordOnly ? ProgOptRecordOnly : 0;
-			progDlg.SetOptions(options);
-			progDlg.SetPathList(pathList);
-			progDlg.SetUrl(dlg.m_URLFrom);
-			progDlg.SetSecondUrl(dlg.m_URLTo);
-			progDlg.SetRevision(dlg.StartRev);
-			progDlg.SetRevisionEnd(dlg.EndRev);
-			// use the depth of the working copy
-			progDlg.SetDepth(dlg.m_depth);
-			progDlg.SetDiffOptions(SVN::GetOptionsString(dlg.m_bIgnoreEOL, dlg.m_IgnoreSpaces));
-			progDlg.DoModal();
-			repeat = dlg.m_bDryRun;
-			dlg.bRepeating = TRUE;
+			if (wizard.revList.GetCount())
+			{
+				wizard.revList.Sort(!wizard.bReverseMerge);
+				progDlg.SetRevisionList(wizard.revList);
+			}
+			else
+			{
+				progDlg.SetRevision(SVNRev());
+				progDlg.SetRevisionEnd(SVNRev());
+			}
 		}
 		else
-			repeat = FALSE;
-	} while(repeat);
-	return true;
+		{
+			progDlg.SetRevision(wizard.startRev);
+			progDlg.SetRevisionEnd(wizard.endRev);
+		}
+		progDlg.SetDepth(wizard.m_depth);
+		progDlg.SetDiffOptions(SVN::GetOptionsString(wizard.m_bIgnoreEOL, wizard.m_IgnoreSpaces));
+		progDlg.DoModal();
+		return true;
+	}
+	return false;
 }

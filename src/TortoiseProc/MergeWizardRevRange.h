@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,42 +17,38 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-
-#include "StandAloneDlg.h"
-#include "SVNRev.h"
+#include "afxcmn.h"
+#include "HistoryCombo.h"
+#include "LogDlg.h"
 
 /**
- * \ingroup TortoiseProc
- * Helper dialog which shows revision properties.
+ * Page in the merge wizard for selecting a revision range to merge.
  */
-class CPropDlg : public CResizableStandAloneDialog
+class CMergeWizardRevRange : public CPropertyPage
 {
-	DECLARE_DYNAMIC(CPropDlg)
+	DECLARE_DYNAMIC(CMergeWizardRevRange)
 
 public:
-	CPropDlg(CWnd* pParent = NULL);
-	virtual ~CPropDlg();
+	CMergeWizardRevRange();
+	virtual ~CMergeWizardRevRange();
 
-	enum { IDD = IDD_PROPERTIES };
-private:
-	static UINT PropThreadEntry(LPVOID pVoid);
-	UINT		PropThread();
+	enum { IDD = IDD_MERGEWIZARD_REVRANGE };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL OnInitDialog();
-	virtual void OnCancel();
-	virtual void OnOK();
+	virtual void		DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	virtual LRESULT		OnWizardBack();
+	virtual BOOL		OnInitDialog();
+	virtual LRESULT		OnWizardNext();
+	virtual BOOL		OnSetActive();
 
-	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
+	afx_msg void		OnBnClickedShowlog();
+	afx_msg void		OnBnClickedBrowse();
+	afx_msg LRESULT		OnRevSelected(WPARAM wParam, LPARAM lParam);
 
 	DECLARE_MESSAGE_MAP()
 
-public:
-	CTSVNPath	m_Path;
-	SVNRev		m_rev;
-private:
-	HANDLE		m_hThread;
-	CListCtrl	m_proplist;
+	CString				m_sRevRange;
+	CHistoryCombo		m_URLCombo;
+	CLogDlg	*			m_pLogDlg;
+	SVNRev				m_HEAD;
 };
-

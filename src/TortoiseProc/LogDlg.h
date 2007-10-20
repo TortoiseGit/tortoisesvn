@@ -32,6 +32,12 @@
 #include "SVNRev.h"
 #include "SciEdit.h"
 
+
+#define MERGE_REVSELECTSTART	 1
+#define MERGE_REVSELECTEND       2
+#define MERGE_REVSELECTSTARTEND  3		///< both
+#define MERGE_REVSELECTMINUSONE  4		///< first with N-1
+
 #define LOGFILTER_ALL      1
 #define LOGFILTER_MESSAGES 2
 #define LOGFILTER_PATHS    3

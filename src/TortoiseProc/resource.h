@@ -8,7 +8,11 @@
 #define IDD_SETTINGSPROXY               102
 #define IDD_SETTINGSHOOKS               103
 #define IDD_SETTINGSOVERLAY             106
+#define IDD_PROPPAGE_LARGE1             107
 #define IDD_SETTINGSSAVEDDATA           108
+#define IDD_MERGEWIZARD_START           109
+#define IDD_MERGEWIZARD_TREE            110
+#define IDD_MERGEWIZARD_OPTIONS         111
 #define IDD_ABOUT                       129
 #define IDD_LOGMESSAGE                  130
 #define IDD_PROMPT                      131
@@ -17,7 +21,6 @@
 #define IDD_COMMITDLG                   135
 #define IDD_IMPORT                      139
 #define IDD_SWITCH                      140
-#define IDD_MERGE                       141
 #define IDD_COPY                        142
 #define IDD_SETTINGSMAIN                143
 #define IDR_ANIMATION                   148
@@ -146,6 +149,8 @@
 #define IDI_SWITCH_BKG                  275
 #define IDI_UPDATE_BKG                  276
 #define IDD_MERGEALL                    277
+#define IDD_PROPPAGE_LARGE              278
+#define IDD_MERGEWIZARD_REVRANGE        278
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -230,15 +235,12 @@
 #define IDC_RAM                         1073
 #define IDC_CHECKNEWERVERSION           1073
 #define IDC_SHOWUNVERSIONED             1073
-#define IDC_USEFROMURL                  1073
 #define IDC_EXPORT_CHECKOUTDIR          1074
 #define IDC_VERSIONBOX                  1075
 #define IDC_LABEL                       1076
 #define IDC_EXCEPTIONS                  1077
 #define IDC_BUGID                       1077
-#define IDC_WCURL                       1077
 #define IDC_EXCLUDEPATHS                1077
-#define IDC_WCPATH                      1078
 #define IDC_DRIVEGROUP                  1079
 #define IDC_PROXYGROUP                  1080
 #define IDC_SSHGROUP                    1081
@@ -304,7 +306,6 @@
 #define IDC_PATCH_TO_CLIPBOARD          1132
 #define IDC_CHECKREPO                   1132
 #define IDC_SELECTOVERLAYSET            1132
-#define IDC_WCLOG                       1132
 #define IDC_LOG                         1132
 #define IDC_GRAPHCOMBO                  1133
 #define IDC_GRAPHTYPELABEL              1134
@@ -370,9 +371,7 @@
 #define IDS_SVNACTION_SKIP              1177
 #define IDS_PROGS_EXTCOL                1178
 #define IDS_PROGS_TOOLCOL               1179
-#define IDC_DRYRUNBUTTON                1179
 #define IDS_LOG_FILE                    1180
-#define IDC_DIFFBUTTON                  1180
 #define IDS_SVN_USERCANCELLED           1181
 #define IDC_AUTOCLOSECOMBO              1181
 #define IDS_LOG_SIZE                    1182
@@ -602,7 +601,6 @@
 #define IDS_ERR_NOTENOUGHMEMORY         1313
 #define IDC_UNVERSIONEDASMODIFIED       1313
 #define IDS_ERR_MUSTBEURL               1314
-#define IDC_UIDIFFBUTTON                1314
 #define IDS_ERR_INVALIDREVNOWC          1315
 #define IDC_FLOPPY                      1315
 #define IDS_ERR_MERGEIDENTICALREVISIONS 1316
@@ -613,6 +611,7 @@
 #define IDS_ERR_NOHOOKCOMMANDPECIFIED   1319
 #define IDS_ERR_HOOKFAILED              1320
 #define IDS_ERR_NOTHINGTOUNLOCK         1321
+#define IDS_ERR_INVALIDREVRANGE         1322
 #define IDC_HOOKPATH                    1323
 #define IDC_HOOKBROWSE                  1324
 #define IDC_HOOKCOMMANDLINE             1325
@@ -660,6 +659,7 @@
 #define IDC_BUTTON1                     1382
 #define IDC_REFRESH                     1382
 #define IDC_RESOLVEALLLATER             1382
+#define IDC_DRYRUN                      1382
 #define IDC_REPOGROUP                   1383
 #define IDC_TOURLLABEL                  1384
 #define IDC_FROMGROUP                   1385
@@ -697,6 +697,14 @@
 #define IDC_PROXYLABEL5                 1413
 #define IDC_PROXYLABEL6                 1414
 #define IDC_MSGEDIT                     1415
+#define IDC_MERGE_REVRANGE              1416
+#define IDC_MERGE_TREE                  1417
+#define IDC_MERGERANGELABEL             1418
+#define IDC_TREELABEL                   1419
+#define IDC_SELLOG                      1420
+#define IDC_REVISION_RANGE              1421
+#define IDC_REVRANGELABEL               1422
+#define IDC_REVERSEMERGE                1423
 #define IDS_CHECKOUT_TT_DIR             1500
 #define IDS_CHECKOUT_EXPORTDIR          1501
 #define IDS_EXPORT_TT_EOL               1505
@@ -1201,6 +1209,17 @@
 #define IDS_EDITCONFLICT_REASONINFO_DELETED 9322
 #define IDS_EDITCONFLICT_REASONINFO_MISSING 9323
 #define IDS_EDITCONFLICT_REASONINFO_UNVERSIONED 9324
+#define IDS_MERGEWIZARD_REVRANGELABEL   9500
+#define IDS_MERGEWIZARD_TREELABEL       9501
+#define IDS_MERGEWIZARD_REVRANGESTRING  9502
+#define IDS_MERGEWIZARD_STARTTITLE      9510
+#define IDS_MERGEWIZARD_STARTSUBTITLE   9511
+#define IDS_MERGEWIZARD_TREETITLE       9512
+#define IDS_MERGEWIZARD_TREESUBTITLE    9513
+#define IDS_MERGEWIZARD_REVRANGETITLE   9514
+#define IDS_MERGEWIZARD_REVRANGESUBTITLE 9515
+#define IDS_MERGEWIZARD_OPTIONSTITLE    9516
+#define IDS_MERGEWIZARD_OPTIONSSUBTITLE 9517
 #define ID_FILE_SAVEGRAPHAS             32771
 #define ID_VIEW_ZOOMIN                  32772
 #define ID_VIEW_ZOOMOUT                 32773
@@ -1240,7 +1259,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        278
 #define _APS_NEXT_COMMAND_VALUE         32829
-#define _APS_NEXT_CONTROL_VALUE         1416
+#define _APS_NEXT_CONTROL_VALUE         1424
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif
