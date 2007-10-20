@@ -1942,7 +1942,7 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
 			else if (m_revisionList.IsDescending())
 			{
 				ATLASSERT(m_revisionList[index].IsNumber());
-				m_Revision = ((svn_revnum_t)m_revisionList[index])+1;
+				m_Revision = ((svn_revnum_t)m_revisionList[index]);
 				m_RevisionEnd = SVNRev();
 				svn_revnum_t r = m_revisionList[index++];
 				while ((index < m_revisionList.GetCount())&&((r-1) == (svn_revnum_t)m_revisionList[index]))
@@ -1953,6 +1953,8 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
 				}
 				if (!m_RevisionEnd.IsValid())
 					m_RevisionEnd = ((svn_revnum_t)m_Revision)-1;
+				else
+					m_RevisionEnd = ((svn_revnum_t)m_RevisionEnd)-1;
 			}
 
 			CString sCmdInfo;
