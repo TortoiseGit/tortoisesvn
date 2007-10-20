@@ -336,10 +336,6 @@ msgstr ""
 msgid "&Diff with URL"
 msgstr ""
 
-#. Resource IDs: (1179)
-msgid "&Dry run"
-msgstr ""
-
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
 msgstr ""
@@ -662,6 +658,10 @@ msgstr ""
 msgid "&Tab size:"
 msgstr ""
 
+#. Resource IDs: (1382)
+msgid "&Test merge"
+msgstr ""
+
 #. Resource IDs: (1222)
 msgid "&Timeout in seconds to stop the auto-completion parsing"
 msgstr ""
@@ -706,7 +706,7 @@ msgstr ""
 msgid "&Undo\tCtrl+Z"
 msgstr ""
 
-#. Resource IDs: (274, 1180, 32785)
+#. Resource IDs: (274, 32785)
 msgid "&Unified diff"
 msgstr ""
 
@@ -1902,10 +1902,6 @@ msgstr ""
 msgid "Cut the selection and put it on the Clipboard\nCut"
 msgstr ""
 
-#. Resource IDs: (1314)
-msgid "D&iff"
-msgstr ""
-
 #. Resource IDs: (19, 76, 208)
 msgid "Date"
 msgstr ""
@@ -2892,6 +2888,10 @@ msgstr ""
 msgid "Invalid revision number! Valid revisions are:\nHEAD\npositive decimal numbers,\ndates in one of the following example forms:\n{2002-02-17}\n{15:30}\n{15:30:00.200000}\n{\"2002-02-17 15:30\"}\n{\"2002-02-17 15:30 +0230\"}\n{2002-02-17T15:30}\n{2002-02-17T15:30Z}\n{2002-02-17T15:30-04:00}\n{20020217T1530}\n{20020217T1530Z}\n{20020217T1530-0500}"
 msgstr ""
 
+#. Resource IDs: (83)
+msgid "Invalid revision range!\nValid revisions are numbers and HEAD, separated by commas.\nA range can be specified with a dash.\nExample: 2-5,7,10,44-70,300-HEAD"
+msgstr ""
+
 #. Resource IDs: (145)
 msgid "It is not possible to rename a file by changing the case of its name alone.\nFor example, you can't make MyFile.txt become MYFILE.txt.\nPlease consult the documentation for a way to work around this limitation."
 msgstr ""
@@ -3110,12 +3110,16 @@ msgstr ""
 msgid "Max. items to keep in the log message history"
 msgstr ""
 
-#. Resource IDs: (141, 276, 65535)
+#. Resource IDs: (109, 110, 111, 276, 278, 65535)
 msgid "Merge"
 msgstr ""
 
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
+msgstr ""
+
+#. Resource IDs: (1416)
+msgid "Merge a range of revisions"
 msgstr ""
 
 #. Resource IDs: (277)
@@ -3130,8 +3134,12 @@ msgstr ""
 msgid "Merge depth:"
 msgstr ""
 
-#. Resource IDs: (65535)
+#. Resource IDs: (595, 65535)
 msgid "Merge options"
+msgstr ""
+
+#. Resource IDs: (595)
+msgid "Merge revision range"
 msgstr ""
 
 #. Resource IDs: (114)
@@ -3142,8 +3150,12 @@ msgstr ""
 msgid "Merge revisions to..."
 msgstr ""
 
-#. Resource IDs: (1377)
-msgid "Merge settings"
+#. Resource IDs: (1417)
+msgid "Merge two different trees"
+msgstr ""
+
+#. Resource IDs: (595, 65535)
+msgid "Merge type"
 msgstr ""
 
 #. Resource IDs: (263)
@@ -4075,6 +4087,10 @@ msgstr ""
 msgid "Retry"
 msgstr ""
 
+#. Resource IDs: (1423)
+msgid "Reverse merge"
+msgstr ""
+
 #. Resource IDs: (175)
 msgid "Revert"
 msgstr ""
@@ -4136,6 +4152,10 @@ msgstr ""
 
 #. Resource IDs: (269, 65535)
 msgid "Revision graph"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Revision range to merge"
 msgstr ""
 
 #. Resource IDs: (75)
@@ -4411,8 +4431,24 @@ msgstr ""
 msgid "Select the entire document\nSelect All"
 msgstr ""
 
+#. Resource IDs: (595)
+msgid "Select the merge options"
+msgstr ""
+
+#. Resource IDs: (595)
+msgid "Select the revisions to merge"
+msgstr ""
+
+#. Resource IDs: (595)
+msgid "Select the type of merge"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Select the type of repository you want to create:"
+msgstr ""
+
+#. Resource IDs: (595)
+msgid "Select the urls for the tree merge"
 msgstr ""
 
 #. Resource IDs: (78)
@@ -4445,10 +4481,6 @@ msgstr ""
 
 #. Resource IDs: (80)
 msgid "Settings - TortoiseSVN"
-msgstr ""
-
-#. Resource IDs: (1132)
-msgid "Sh&ow log"
 msgstr ""
 
 #. Resource IDs: (1270)
@@ -4487,7 +4519,7 @@ msgstr ""
 msgid "Show &changes"
 msgstr ""
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1132, 1228, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1132, 1228, 1420, 32784)
 msgid "Show &log"
 msgstr ""
 
@@ -4652,10 +4684,6 @@ msgstr ""
 
 #. Resource IDs: (79)
 msgid "Specify the files or folders which TortoiseSVN\nshould ignore in <b>all</b> working copies.\nSeparate the patterns with a space."
-msgstr ""
-
-#. Resource IDs: (65535)
-msgid "Specify the revision range which you want to merge:"
 msgstr ""
 
 #. Resource IDs: (376)
@@ -4834,10 +4862,6 @@ msgid "Tagged the working copy to %s"
 msgstr ""
 
 #. Resource IDs: (65535)
-msgid "Target"
-msgstr ""
-
-#. Resource IDs: (65535)
 msgid "Text Status:"
 msgstr ""
 
@@ -4982,10 +5006,6 @@ msgstr ""
 msgid "The repository was successfully created."
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "The result of the merge is stored in the working copy at:"
-msgstr ""
-
 #. Resource IDs: (78)
 msgid "The selected file appears to still have one or more conflict markers in it.\nAre you sure you want to mark the file resolved?"
 msgstr ""
@@ -5064,6 +5084,14 @@ msgstr ""
 
 #. Resource IDs: (82)
 msgid "This is not a valid path!\nA valid path must not contain '<<>|\"?*:' or one of the following device names:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgstr ""
+
+#. Resource IDs: (594)
+msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
+msgstr ""
+
+#. Resource IDs: (594)
+msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -5178,6 +5206,10 @@ msgstr ""
 msgid "Transparent &color..."
 msgstr ""
 
+#. Resource IDs: (595)
+msgid "Tree merge"
+msgstr ""
+
 #. Resource IDs: (251)
 msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
 msgstr ""
@@ -5200,6 +5232,10 @@ msgstr ""
 
 #. Resource IDs: (12)
 msgid "URL of Subversion items"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "URL to merge from"
 msgstr ""
 
 #. Resource IDs: (144, 11023, 65535)
@@ -5352,10 +5388,6 @@ msgstr ""
 msgid "Use Unified Diff from clipboard"
 msgstr ""
 
-#. Resource IDs: (1073)
-msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
-msgstr ""
-
 #. Resource IDs: (1296)
 msgid "Use \"_svn\" instead of \".svn\" directories"
 msgstr ""
@@ -5418,6 +5450,10 @@ msgstr ""
 
 #. Resource IDs: (251)
 msgid "Use th&is text block"
+msgstr ""
+
+#. Resource IDs: (594)
+msgid "Use the log dialog to select the revisions you want to merge, or enter the revisions to merge, separated by commas. A revision range can be specified by a dash.\r\n\r\nExample: 4-7,9,11,15-HEAD\r\n\r\nTo merge all revisions, leave the box empty."
 msgstr ""
 
 #. Resource IDs: (251)
@@ -5961,10 +5997,6 @@ msgstr ""
 
 #. Resource IDs: (245)
 msgid "week"
-msgstr ""
-
-#. Resource IDs: (65535)
-msgid "which points to the repository at URL:"
 msgstr ""
 
 #. Resource IDs: (245)
