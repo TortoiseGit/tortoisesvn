@@ -28,7 +28,7 @@ bool MergeCommand::Execute()
 {
 	CMergeWizard wizard(IDS_PROGRS_CMDINFO, NULL, 0);
 	wizard.wcPath = cmdLinePath;
-	if (wizard.DoModal() == IDOK)
+	if (wizard.DoModal() == ID_WIZFINISH)
 	{
 		CSVNProgressDlg progDlg;
 		progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
