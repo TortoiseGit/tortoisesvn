@@ -459,7 +459,7 @@ void CStatGraphDlg::GatherData() {
 		// Find the interval number
 		__time64_t commitDate = (__time64_t)m_parDates->GetAt(i);
 		double secsSinceMinDate = _difftime64(commitDate, m_minDate);
-		int interval = (int)ceil(secsSinceMinDate/timeIntervalLength);
+		int interval = (int)floor(secsSinceMinDate/timeIntervalLength);
 		// Find the authors name
 		CString sAuth = m_parAuthors->GetAt(i);
 		if (!m_bAuthorsCaseSensitive)
