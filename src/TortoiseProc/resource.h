@@ -705,6 +705,8 @@
 #define IDC_REVISION_RANGE              1421
 #define IDC_REVRANGELABEL               1422
 #define IDC_REVERSEMERGE                1423
+#define IDC_CHECK1                      1424
+#define IDC_RECORDONLY                  1424
 #define IDS_CHECKOUT_TT_DIR             1500
 #define IDS_CHECKOUT_EXPORTDIR          1501
 #define IDS_EXPORT_TT_EOL               1505
@@ -1259,7 +1261,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        278
 #define _APS_NEXT_COMMAND_VALUE         32829
-#define _APS_NEXT_CONTROL_VALUE         1424
+#define _APS_NEXT_CONTROL_VALUE         1425
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

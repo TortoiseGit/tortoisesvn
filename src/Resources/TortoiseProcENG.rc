@@ -1257,7 +1257,8 @@ BEGIN
     CONTROL         "Ignore whitespace changes",IDC_IGNOREWHITESPACECHANGES,
                     "Button",BS_AUTORADIOBUTTON,14,76,290,10
     CONTROL         "Ignore all whitespaces",IDC_IGNOREALLWHITESPACES,"Button",BS_AUTORADIOBUTTON,14,88,290,10
-    PUSHBUTTON      "&Test merge",IDC_DRYRUN,109,127,50,14
+    PUSHBUTTON      "&Test merge",IDC_DRYRUN,254,143,50,14
+    CONTROL         "Only record the merge",IDC_RECORDONLY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,111,290,10
 END
 
 

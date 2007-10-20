@@ -55,6 +55,8 @@ public:
 	SVNRevList						revList;
 	BOOL							bReverseMerge;
 
+	BOOL							bRecordOnly;
+
 	BOOL							m_bIgnoreAncestry;
 	svn_depth_t						m_depth;
 	BOOL							m_bIgnoreEOL;

@@ -44,6 +44,7 @@ void CMergeWizardOptions::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_IGNOREANCESTRY, ((CMergeWizard*)GetParent())->m_bIgnoreAncestry);
 	DDX_Control(pDX, IDC_DEPTH, m_depthCombo);
 	DDX_Check(pDX, IDC_IGNOREEOL, ((CMergeWizard*)GetParent())->m_bIgnoreEOL);
+	DDX_Check(pDX, IDC_RECORDONLY, ((CMergeWizard*)GetParent())->bRecordOnly);
 }
 
 

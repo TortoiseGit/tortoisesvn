@@ -32,7 +32,9 @@ bool MergeCommand::Execute()
 	{
 		CSVNProgressDlg progDlg;
 		progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
-		progDlg.SetOptions(wizard.m_bIgnoreAncestry ? ProgOptIgnoreAncestry : 0);
+		int options = wizard.m_bIgnoreAncestry ? ProgOptIgnoreAncestry : 0;
+		options |= wizard.bRecordOnly ? ProgOptRecordOnly : 0;
+		progDlg.SetOptions(options);
 		progDlg.SetPathList(CTSVNPathList(wizard.wcPath));
 		progDlg.SetUrl(wizard.URL1);
 		progDlg.SetSecondUrl(wizard.URL2);
