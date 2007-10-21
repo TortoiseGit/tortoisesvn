@@ -780,8 +780,10 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 	CMenu popup;
 	if (popup.CreatePopupMenu())
 	{
-		if ((m_SelectedEntry1->action == CRevisionEntry::deleted)||((m_SelectedEntry2)&&(m_SelectedEntry2->action == CRevisionEntry::deleted)))
-			return;	// we can't compare with deleted items
+        bool bothPresent =  (m_SelectedEntry1 != NULL)
+                         && (m_SelectedEntry1->action != CRevisionEntry::deleted)
+                         && (m_SelectedEntry2 != NULL)
+                         && (m_SelectedEntry2->action != CRevisionEntry::deleted);
 
 		bool bSameURL = (m_SelectedEntry2 && (m_SelectedEntry1->path == m_SelectedEntry2->path));
 		CString temp;
@@ -793,15 +795,15 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 			temp.LoadString(IDS_LOG_POPUP_MERGEREV);
 			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_MERGETO, temp);
 		}
-		if (m_SelectedEntry1 && m_SelectedEntry2)
+		if (bothPresent)
 		{
 			temp.LoadString(IDS_REVGRAPH_POPUP_COMPAREREVS);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREREVS, temp);
-			if (!bSameURL)
-			{
-				temp.LoadString(IDS_REVGRAPH_POPUP_COMPAREHEADS);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREHEADS, temp);
-			}
+    		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREREVS, temp);
+		    if (!bSameURL)
+		    {
+			    temp.LoadString(IDS_REVGRAPH_POPUP_COMPAREHEADS);
+			    popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREHEADS, temp);
+		    }
 
 			temp.LoadString(IDS_REVGRAPH_POPUP_UNIDIFFREVS);
 			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UNIDIFFREVS, temp);
