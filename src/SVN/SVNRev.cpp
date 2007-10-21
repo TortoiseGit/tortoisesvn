@@ -143,6 +143,21 @@ void SVNRev::Create(svn_revnum_t nRev)
 	}
 }
 
+bool SVNRev::IsEqual(const SVNRev& revision)
+{
+	if (rev.kind != revision.GetKind())
+		return false;
+	if (IsNumber())
+	{
+		return (rev.value.number == LONG(revision));
+	}
+	if (IsDate())
+	{
+		return (rev.value.date == revision.GetDate());
+	}
+	return true;
+}
+
 SVNRev::~SVNRev()
 {
 }
@@ -190,6 +205,122 @@ CString SVNRev::ToString() const
 
 //////////////////////////////////////////////////////////////////////////
 
+
+int SVNRevRangeArray::AddRevRange(const SVNRev& start, const SVNRev& end)
+{
+	SVNRevRange revrange(start, end);
+	return AddRevRange(revrange);
+}
+
+int SVNRevRangeArray::AddRevRange(const SVNRevRange& revrange)
+{
+	m_array.push_back(revrange);
+	return GetCount();
+}
+
+int SVNRevRangeArray::GetCount() const
+{
+	return (int)m_array.size();
+}
+
+void SVNRevRangeArray::Clear()
+{
+	m_array.clear();
+}
+
+const SVNRevRange& SVNRevRangeArray::operator[](int index) const
+{
+	ATLASSERT(index >= 0 && index < (int)m_array.size());
+	return m_array[index];
+}
+
+bool SVNRevRangeArray::FromListString(const CString& string)
+{
+	Clear();
+
+	if (string.GetLength())
+	{
+		const TCHAR * str = (LPCTSTR)string;
+		const TCHAR * result = _tcspbrk((LPCTSTR)string, _T(",-"));
+		SVNRev prevRev;
+		while (result)
+		{
+			if (*result == ',')
+			{
+				SVNRev rev = SVNRev(CString(str, result-str));
+				if (!rev.IsValid())
+				{
+					Clear();
+					return false;
+				}
+				if (prevRev.IsValid())
+				{
+					AddRevRange(prevRev, rev);
+				}
+				else
+					AddRevRange(rev, rev);
+				prevRev = SVNRev();
+			}
+			else if (*result == '-')
+			{
+				prevRev = SVNRev(CString(str, result-str));
+				if (!prevRev.IsValid())
+				{
+					Clear();
+					return false;
+				}
+			}
+			result++;
+			str = result;
+			result = _tcspbrk(result, _T(",-"));
+		}
+		SVNRev rev = SVNRev(CString(str));
+		if (!rev.IsValid())
+		{
+			Clear();
+			return false;
+		}
+		if (prevRev.IsValid())
+		{
+			AddRevRange(prevRev, rev);
+		}
+		else
+			AddRevRange(rev, rev);
+	}
+
+	return true;
+}
+
+CString SVNRevRangeArray::ToListString()
+{
+	CString sRet;
+	for (int i = 0; i < GetCount(); ++i)
+	{
+		if (!sRet.IsEmpty())
+			sRet += _T(",");
+		SVNRevRange range = (*this)[i];
+		if (range.GetStartRevision().IsEqual(range.GetEndRevision()))
+			sRet += range.GetStartRevision().ToString();
+		else
+			sRet += range.GetStartRevision().ToString() + _T("-") + range.GetEndRevision().ToString();
+	}
+	return sRet;
+}
+
+const apr_array_header_t * SVNRevRangeArray::GetAprArray(apr_pool_t * pool)
+{
+	apr_array_header_t * sources = apr_array_make(pool, GetCount(),
+		sizeof(svn_opt_revision_range_t *));
+
+	for (int nItem = 0; nItem < GetCount(); ++nItem)
+	{
+		APR_ARRAY_PUSH(sources, svn_opt_revision_range_t *) = (svn_opt_revision_range_t*)m_array[nItem];
+	}
+	return sources;
+}
+
+
+//////////////////////////////////////////////////////////////////////////
 #ifdef _MFC_VER
 
 int SVNRevList::AddRevision(const SVNRev& rev)
@@ -462,6 +593,16 @@ public:
 		ATLASSERT(svn_revnum_t(list2[5]) == 8);
 		ATLASSERT(svn_revnum_t(list2[6]) == 9);
 		ATLASSERT(svn_revnum_t(list2[7]) == 20);
+
+		SVNRevRangeArray array;
+		array.AddRevRange(SVNRev(1), SVNRev(1));
+		array.AddRevRange(SVNRev(3), SVNRev(5));
+		array.AddRevRange(SVNRev(7), SVNRev(9));
+		array.AddRevRange(SVNRev(20), SVNRev(20));
+		ATLASSERT(_tcscmp((LPCTSTR)array.ToListString(), _T("1,3-5,7-9,20"))==0);
+		SVNRevRangeArray array2;
+		array2.FromListString(array.ToListString());
+		ATLASSERT(array2.GetCount()==4);
 	}
 } SVNRevListTests;
 #endif

@@ -30,7 +30,7 @@ IMPLEMENT_DYNAMIC(CConflictResolveDlg, CResizableStandAloneDialog)
 CConflictResolveDlg::CConflictResolveDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CConflictResolveDlg::IDD, pParent)
 	, m_pConflictDescription(NULL)
-	, m_result(svn_wc_conflict_result_conflicted)
+	, m_choice(svn_wc_conflict_choose_postpone)
 {
 
 }
@@ -144,13 +144,13 @@ BOOL CConflictResolveDlg::OnInitDialog()
 
 void CConflictResolveDlg::OnBnClickedUselocal()
 {
-	m_result = svn_wc_conflict_result_choose_mine;
+	m_choice = svn_wc_conflict_choose_mine;
 	EndDialog(IDOK);
 }
 
 void CConflictResolveDlg::OnBnClickedUserepo()
 {
-	m_result = svn_wc_conflict_result_choose_theirs;
+	m_choice = svn_wc_conflict_choose_theirs;
 	EndDialog(IDOK);
 }
 
@@ -174,19 +174,20 @@ void CConflictResolveDlg::OnBnClickedEditconflict()
 
 void CConflictResolveDlg::OnBnClickedResolved()
 {
-	m_result = svn_wc_conflict_result_resolved;
+	m_choice = svn_wc_conflict_choose_merged;
+	m_mergedfile = CUnicodeUtils::GetUnicode(m_pConflictDescription->merged_file);
 	EndDialog(IDOK);
 }
 
 void CConflictResolveDlg::OnBnClickedResolvealllater()
 {
-	m_result = svn_wc_conflict_result_conflicted;
+	m_choice = svn_wc_conflict_choose_postpone;
 	EndDialog(IDOK);
 }
 
 void CConflictResolveDlg::OnCancel()
 {
-	m_result = svn_wc_conflict_result_conflicted;
+	m_choice = svn_wc_conflict_choose_postpone;
 
 	CResizableStandAloneDialog::OnCancel();
 }

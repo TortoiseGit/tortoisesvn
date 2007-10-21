@@ -70,7 +70,9 @@ public:
 	apr_time_t GetDate() const {ATLASSERT(IsDate()); return rev.value.date;}
 	/// Converts the revision into a string representation.
 	CString ToString() const;
-
+	/// checks wether two SVNRev objects are the same
+	bool IsEqual(const SVNRev& revision);
+	
 	operator LONG () const;
 	operator svn_opt_revision_t * ();
 	operator const svn_opt_revision_t * () const;
@@ -88,6 +90,55 @@ private:
 	svn_opt_revision_t rev;
 	BOOL m_bIsValid;
 	CString sDate;
+};
+
+/**
+ * \ingroup SVN
+ * represents a revision range.
+ */
+class SVNRevRange
+{
+public:
+	SVNRevRange()
+	{
+		ZeroMemory(&revrange, sizeof(svn_opt_revision_range_t));
+	}
+	SVNRevRange(const SVNRev& start, const SVNRev& end) 
+	{
+		ZeroMemory(&revrange, sizeof(svn_opt_revision_range_t));
+		revrange.start = *(const svn_opt_revision_t*)start;
+		revrange.end = *(const svn_opt_revision_t*)end;
+	}
+
+	void		SetRange(const SVNRev& rev1, const SVNRev& rev2) {revrange.start = *(const svn_opt_revision_t*)rev1; revrange.end = *(const svn_opt_revision_t*)rev2;}
+	SVNRev		GetStartRevision() {return SVNRev(revrange.start);}
+	SVNRev		GetEndRevision() {return SVNRev(revrange.end);}
+
+	operator svn_opt_revision_range_t * () {return &revrange;}
+
+private:
+	svn_opt_revision_range_t revrange;
+};
+
+
+class SVNRevRangeArray
+{
+public:
+	SVNRevRangeArray() {}
+	~SVNRevRangeArray() {}
+
+	int					AddRevRange(const SVNRevRange& revrange);
+	int					AddRevRange(const SVNRev& start, const SVNRev& end);
+	int					GetCount() const;
+	void				Clear();
+	const apr_array_header_t* GetAprArray(apr_pool_t * pool);
+
+	const SVNRevRange&	operator[](int index) const;
+
+	bool				FromListString(const CString& string);
+	CString				ToListString();
+private:
+	std::vector<SVNRevRange>	m_array;
 };
 
 #ifdef _MFC_VER

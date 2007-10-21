@@ -33,8 +33,8 @@ public:
 	virtual ~CConflictResolveDlg();
 
 	void SetConflictDescription(const svn_wc_conflict_description_t * description) {m_pConflictDescription = description;}
-	svn_wc_conflict_result_t GetResult() {return m_result;}
-
+	svn_wc_conflict_choice_t GetResult() {return m_choice;}
+	const CString& GetMergedFile() {return m_mergedfile;}
 	enum { IDD = IDD_CONFLICTRESOLVE };
 
 protected:
@@ -52,5 +52,6 @@ protected:
 
 private:
 	const svn_wc_conflict_description_t *	m_pConflictDescription;
-	svn_wc_conflict_result_t				m_result;
+	svn_wc_conflict_choice_t				m_choice;
+	CString									m_mergedfile;
 };

@@ -168,7 +168,7 @@ BOOL SVN::ReportList(const CString& path, svn_node_kind_t kind,
 					 const CString& lockowner, const CString& lockcomment, 
 					 bool is_dav_comment, apr_time_t lock_creationdate, 
 					 apr_time_t lock_expirationdate, const CString& absolutepath) {return TRUE;}
-svn_wc_conflict_result_t SVN::ConflictResolveCallback(const svn_wc_conflict_description_t *description) {return svn_wc_conflict_result_conflicted;}
+svn_wc_conflict_choice_t SVN::ConflictResolveCallback(const svn_wc_conflict_description_t *description, CString& mergedfile) {return svn_wc_conflict_choose_postpone;}
 
 #pragma warning(pop)
 
@@ -672,7 +672,7 @@ BOOL SVN::CleanUp(const CTSVNPath& path)
 	return TRUE;
 }
 
-BOOL SVN::Resolve(const CTSVNPath& path, svn_wc_conflict_result_t result, BOOL recurse)
+BOOL SVN::Resolve(const CTSVNPath& path, svn_wc_conflict_choice_t result, BOOL recurse)
 {
 	SVNPool subpool(pool);
 	svn_error_clear(Err);
@@ -962,7 +962,7 @@ BOOL SVN::Merge(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2
 	return TRUE;
 }
 
-BOOL SVN::PegMerge(const CTSVNPath& source, SVNRev revision1, SVNRev revision2, SVNRev pegrevision, 
+BOOL SVN::PegMerge(const CTSVNPath& source, SVNRevRangeArray revrangearray, SVNRev pegrevision, 
 				   const CTSVNPath& destpath, BOOL force, svn_depth_t depth, const CString& options,
 				   BOOL ignoreancestry, BOOL dryrun, BOOL record_only)
 {
@@ -973,8 +973,7 @@ BOOL SVN::PegMerge(const CTSVNPath& source, SVNRev revision1, SVNRev revision2, 
 
 	svn_error_clear(Err);
 	Err = svn_client_merge_peg3 (source.GetSVNApiPath(subpool),
-		revision1,
-		revision2,
+		revrangearray.GetAprArray(subpool),
 		pegrevision,
 		destpath.GetSVNApiPath(subpool),
 		depth,
@@ -1645,13 +1644,15 @@ void SVN::notify( void *baton,
 				notify->err, pool);
 }
 
-svn_error_t* SVN::conflict_resolver(svn_wc_conflict_result_t *result, 
+svn_error_t* SVN::conflict_resolver(svn_wc_conflict_result_t **result, 
 							   const svn_wc_conflict_description_t *description, 
 							   void *baton, 
-							   apr_pool_t * /*pool*/)
+							   apr_pool_t * pool)
 {
 	SVN * svn = (SVN *)baton;
-	*result = svn->ConflictResolveCallback(description);
+	CString file;
+	svn_wc_conflict_choice_t choice = svn->ConflictResolveCallback(description, file);
+	*result = svn_wc_create_conflict_result(choice, (const char*)CUnicodeUtils::GetUTF8(file), pool);
 	return SVN_NO_ERROR;
 }
 

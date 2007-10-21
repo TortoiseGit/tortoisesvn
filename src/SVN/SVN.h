@@ -79,7 +79,7 @@ public:
 							const CString& lockcomment, bool is_dav_comment,
 							apr_time_t lock_creationdate, apr_time_t lock_expirationdate,
 							const CString& absolutepath);
-	virtual svn_wc_conflict_result_t ConflictResolveCallback(const svn_wc_conflict_description_t *description);
+	virtual svn_wc_conflict_choice_t ConflictResolveCallback(const svn_wc_conflict_description_t *description, CString& mergedfile);
 
 	struct SVNLock
 	{
@@ -319,7 +319,7 @@ public:
 	 * \param recurse 
 	 * \return TRUE if successful
 	 */
-	BOOL Resolve(const CTSVNPath& path, svn_wc_conflict_result_t result, BOOL recurse);
+	BOOL Resolve(const CTSVNPath& path, svn_wc_conflict_choice_t result, BOOL recurse);
 	/**
 	 * Export the contents of either a subversion repository or a subversion 
 	 * working copy into a 'clean' directory (meaning a directory with no 
@@ -453,7 +453,7 @@ public:
 	 *						committed back to the repository).
 	 * \return TRUE if successful
 	 */
-	BOOL PegMerge(const CTSVNPath& source, SVNRev revision1, SVNRev revision2, SVNRev pegrevision, 
+	BOOL PegMerge(const CTSVNPath& source, SVNRevRangeArray revrangearray, SVNRev pegrevision, 
 		const CTSVNPath& destpath, BOOL force, svn_depth_t depth, const CString& options, 
 		BOOL ignoreancestry = FALSE, BOOL dryrun = FALSE, BOOL record_only = FALSE);
 	/**
@@ -912,7 +912,7 @@ protected:
 					const svn_lock_t *lock, 
 					const char *abs_path, 
 					apr_pool_t *pool);
-	static svn_error_t* conflict_resolver(svn_wc_conflict_result_t *result, 
+	static svn_error_t* conflict_resolver(svn_wc_conflict_result_t **result, 
 					const svn_wc_conflict_description_t *description, 
 					void *baton, 
 					apr_pool_t *pool);

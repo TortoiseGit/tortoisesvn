@@ -126,7 +126,7 @@ BOOL CSVNProgressDlg::Cancel()
 	return m_bCancelled;
 }
 
-svn_wc_conflict_result_t CSVNProgressDlg::ConflictResolveCallback(const svn_wc_conflict_description_t *description)
+svn_wc_conflict_choice_t CSVNProgressDlg::ConflictResolveCallback(const svn_wc_conflict_description_t *description, CString& mergedfile)
 {
 	// we only bother the user when merging
 	if ((m_Command == SVNProgress_Merge)&&(!m_AlwaysConflicted))
@@ -138,18 +138,19 @@ svn_wc_conflict_result_t CSVNProgressDlg::ConflictResolveCallback(const svn_wc_c
 			dlg.SetConflictDescription(description);
 			if (dlg.DoModal() == IDOK)
 			{
-				if (dlg.GetResult() == svn_wc_conflict_result_conflicted)
+				if (dlg.GetResult() == svn_wc_conflict_choose_postpone)
 				{
 					// if the result is conflicted and the dialog returned IDOK,
 					// that means we should not ask again in case of a conflict
 					m_AlwaysConflicted = true;
 				}
 			}
+			mergedfile = dlg.GetMergedFile();
 			return dlg.GetResult();
 		}
 	}
 
-	return svn_wc_conflict_result_conflicted;
+	return svn_wc_conflict_choose_postpone;
 }
 
 void CSVNProgressDlg::AddItemToList(const NotificationData* pData)
@@ -1444,17 +1445,17 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						case ID_CONFLICTUSEMINE:
 						case ID_CONFLICTRESOLVE:
 							{
-								svn_wc_conflict_result_t result = svn_wc_conflict_result_choose_merged;
+								svn_wc_conflict_choice_t result = svn_wc_conflict_choose_merged;
 								switch (cmd)
 								{
 								case ID_CONFLICTUSETHEIRS:
-									result = svn_wc_conflict_result_choose_theirs;
+									result = svn_wc_conflict_choose_theirs;
 									break;
 								case ID_CONFLICTUSEMINE:
-									result = svn_wc_conflict_result_choose_mine;
+									result = svn_wc_conflict_choose_mine;
 									break;
 								case ID_CONFLICTRESOLVE:
-									result = svn_wc_conflict_result_choose_merged;
+									result = svn_wc_conflict_choose_merged;
 									break;
 								}
 								SVN svn;
@@ -1966,13 +1967,16 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
 				m_options & ProgOptDryRun ? ((LPCTSTR)_T(", ") + sDryRun) : _T(""));
 			ReportCmd(sCmdInfo);
 
-			if (!PegMerge(m_url, m_Revision, m_RevisionEnd, 
+			SVNRevRange revrange(m_Revision, m_RevisionEnd);
+			SVNRevRangeArray revarray;
+			revarray.AddRevRange(revrange);
+			if (!PegMerge(m_url, revarray, 
 				m_pegRev.IsValid() ? m_pegRev : (m_url.IsUrl() ? m_RevisionEnd : SVNRev(SVNRev::REV_WC)),
 				m_targetPathList[0], true, m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun)))
 			{
 				// if the merge fails with the peg revision set to the end revision of the merge,
 				// try again with HEAD as the peg revision.
-				if (!PegMerge(m_url, m_Revision, m_RevisionEnd, SVNRev::REV_HEAD,
+				if (!PegMerge(m_url, revarray, SVNRev::REV_HEAD,
 					m_targetPathList[0], true, m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun), !!(m_options & ProgOptRecordOnly)))
 				{
 					ReportSVNError();
@@ -2137,7 +2141,8 @@ bool CSVNProgressDlg::CmdMergeAll(CString& sWindowTitle, bool& /*localoperation*
 		m_options & ProgOptIgnoreAncestry ? (LPCTSTR)sIgnoreAncestry : (LPCTSTR)sRespectAncestry);
 	ReportCmd(sCmdInfo);
 
-	if (!PegMerge(suggestedSources[0], SVNRev(), SVNRev(), 
+	SVNRevRangeArray revarray;
+	if (!PegMerge(suggestedSources[0], revarray, 
 		SVNRev::REV_HEAD,
 		m_targetPathList[0], true, m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), FALSE))
 	{
@@ -2210,13 +2215,13 @@ bool CSVNProgressDlg::CmdResolve(CString& sWindowTitle, bool& localoperation)
 		if (CMessageBox::Show(m_hWnd, IDS_PROGRS_REVERTMARKERS, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)==IDYES)
 		{
 			for (INT_PTR fileindex=0; fileindex<m_targetPathList.GetCount(); ++fileindex)
-				Resolve(m_targetPathList[fileindex], svn_wc_conflict_result_choose_merged, true);
+				Resolve(m_targetPathList[fileindex], svn_wc_conflict_choose_merged, true);
 		}
 	}
 	else
 	{
 		for (INT_PTR fileindex=0; fileindex<m_targetPathList.GetCount(); ++fileindex)
-			Resolve(m_targetPathList[fileindex], svn_wc_conflict_result_choose_merged, true);
+			Resolve(m_targetPathList[fileindex], svn_wc_conflict_choose_merged, true);
 	}
 	return true;
 }

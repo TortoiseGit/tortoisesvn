@@ -3157,17 +3157,17 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				case IDSVNLC_RESOLVEMINE:
 				case IDSVNLC_RESOLVETHEIRS:
 					{
-						svn_wc_conflict_result_t result = svn_wc_conflict_result_choose_merged;
+						svn_wc_conflict_choice_t result = svn_wc_conflict_choose_merged;
 						switch (cmd)
 						{
 						case IDSVNLC_RESOLVETHEIRS:
-							result = svn_wc_conflict_result_choose_theirs;
+							result = svn_wc_conflict_choose_theirs;
 							break;
 						case IDSVNLC_RESOLVEMINE:
-							result = svn_wc_conflict_result_choose_mine;
+							result = svn_wc_conflict_choose_mine;
 							break;
 						case IDSVNLC_RESOLVECONFLICT:
-							result = svn_wc_conflict_result_choose_merged;
+							result = svn_wc_conflict_choose_merged;
 							break;
 						}
 						if (CMessageBox::Show(m_hWnd, IDS_PROC_RESOLVE, IDS_APPNAME, MB_ICONQUESTION | MB_YESNO)==IDYES)
