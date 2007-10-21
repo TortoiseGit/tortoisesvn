@@ -359,6 +359,10 @@ void CRevisionGraph::ReceiveLog ( LogChangedPathArray* changes
 								, const apr_time_t&
 								, const CString&)
 {
+    // fix release mode compiler warning
+
+    UNREFERENCED_PARAMETER(changes);
+
     // we passed revs_only to Log()
 
     assert (changes == NULL);
