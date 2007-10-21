@@ -747,6 +747,11 @@ void CRevisionGraph::AnalyzeRevisions ( const CDictionaryBasedTempPath& path
                            , m_entryPtrs.end()
                            , &CompareByRevision);
     }
+
+    // mark all heads
+
+    if (options.showHEAD)
+        MarkHeads (searchTree.get());
 }
 
 void CRevisionGraph::AnalyzeRevisions ( revision_t revision
@@ -1044,6 +1049,31 @@ void CRevisionGraph::AddMissingHeads (CSearchPathTree* rootNode)
             searchNode = searchNode->GetSkipSubTreeNext();
 		}
 	}
+}
+
+void CRevisionGraph::MarkHeads (CSearchPathTree* rootNode)
+{
+	// scan all "latest" nodes 
+    // (they must be either HEADs or special nodes)
+
+	CSearchPathTree* searchNode = rootNode;
+    for ( searchNode = rootNode
+        ; searchNode != NULL
+        ; searchNode = searchNode->GetPreOrderNext())
+	{
+        if (searchNode->IsActive())
+        {
+            CRevisionEntry* entry = searchNode->GetLastEntry();
+            if (   (entry->action == CRevisionEntry::nothing)
+                || (entry->action == CRevisionEntry::modified))
+            {
+                // be more specific for head revisions that are not
+                // "special" (added / deleted / ...) otherwise
+
+                entry->action = CRevisionEntry::lastcommit;
+            }
+        }
+    }
 }
 
 void CRevisionGraph::AnalyzeHeadRevision ( revision_t revision

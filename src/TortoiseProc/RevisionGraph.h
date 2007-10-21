@@ -316,6 +316,7 @@ private:
 											    , TSCopyIterator& lastFromCopy
                                                 , bool exactCopy);
     void                        AddMissingHeads (CSearchPathTree* rootNode);
+    void                        MarkHeads (CSearchPathTree* rootNode);
     void                        AnalyzeHeadRevision ( revision_t revision
     									            , CRevisionInfoContainer::CChangesIterator first
 	    								            , CRevisionInfoContainer::CChangesIterator last
