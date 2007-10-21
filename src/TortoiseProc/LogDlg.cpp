@@ -1938,25 +1938,6 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	UpdateLogInfoLabel();
 }
 
-void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
-{
-	ENLINK *pEnLink = reinterpret_cast<ENLINK *>(pNMHDR);
-	if (pEnLink->msg == WM_LBUTTONUP)
-	{
-		CString url, msg;
-		GetDlgItem(IDC_MSGEDIT)->GetWindowText(msg);
-		msg.Replace(_T("\r\n"), _T("\n"));
-		url = msg.Mid(pEnLink->chrg.cpMin, pEnLink->chrg.cpMax-pEnLink->chrg.cpMin);
-		if (!::PathIsURL(url))
-		{
-			url = m_ProjectProperties.GetBugIDUrl(url);
-		}
-		if (!url.IsEmpty())
-			ShellExecute(this->m_hWnd, _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);
-	}
-	*pResult = 0;
-}
-
 void CLogDlg::OnBnClickedStatbutton()
 {
 	if (m_bThreadRunning)

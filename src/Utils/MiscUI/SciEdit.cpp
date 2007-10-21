@@ -34,13 +34,14 @@ void CSciEditContextMenuInterface::InsertMenuItems(CMenu&, int&) {return;}
 bool CSciEditContextMenuInterface::HandleMenuItemClick(int, CSciEdit *) {return false;}
 
 
-
 #define STYLE_ISSUEBOLD			11
 #define STYLE_ISSUEBOLDITALIC	12
 #define STYLE_BOLD				14
 #define STYLE_ITALIC			15
 #define STYLE_UNDERLINED		16
 #define STYLE_URL				17
+
+#define STYLE_MASK 0x1f
 
 #define SCI_ADDWORD			2000
 
@@ -481,7 +482,7 @@ void CSciEdit::CheckSpelling()
 		if (strlen(textrange.lpstrText) > 0)
 		{
 			CString sWord = StringFromControl(textrange.lpstrText);
-			if (IsMisspelled(sWord))
+			if ((GetStyleAt(textrange.chrg.cpMin) != STYLE_URL) && IsMisspelled(sWord))
 			{
 				//mark word as misspelled
 				Call(SCI_STARTSTYLING, textrange.chrg.cpMin, INDICS_MASK);
@@ -591,10 +592,10 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
 			{
 				int startstylepos = Call(SCI_GETENDSTYLED);
 				int endstylepos = ((SCNotification *)lpnmhdr)->position;
-				CheckSpelling();
 				MarkEnteredBugID(startstylepos, endstylepos);
 				StyleEnteredText(startstylepos, endstylepos);
 				StyleURLs(startstylepos, endstylepos);
+				CheckSpelling();
 				WrapLines(startstylepos, endstylepos);
 				return TRUE;
 			}
@@ -604,10 +605,10 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
 				TEXTRANGEA textrange;
 				textrange.chrg.cpMin = lpSCN->position;
 				textrange.chrg.cpMax = lpSCN->position;
-				int style = Call(SCI_GETSTYLEAT, lpSCN->position) & 0x1f;
-				while (style == (Call(SCI_GETSTYLEAT, textrange.chrg.cpMin - 1) & 0x1f))
+				DWORD style = GetStyleAt(lpSCN->position);
+				while (GetStyleAt(textrange.chrg.cpMin - 1) == style)
 					--textrange.chrg.cpMin;
-				while (style == (Call(SCI_GETSTYLEAT, textrange.chrg.cpMax + 1) & 0x1f))
+				while (GetStyleAt(textrange.chrg.cpMax + 1) == style)
 					++textrange.chrg.cpMax;
 				++textrange.chrg.cpMax;
 				char * textbuffer = new char[textrange.chrg.cpMax - textrange.chrg.cpMin + 1];
@@ -961,7 +962,7 @@ bool CSciEdit::StyleEnteredText(int startstylepos, int endstylepos)
 		int end = 0;
 		while (FindStyleChars(linebuffer, '*', start, end))
 		{
-			Call(SCI_STARTSTYLING, start+offset, 0x1f);
+			Call(SCI_STARTSTYLING, start+offset, STYLE_MASK);
 			Call(SCI_SETSTYLING, end-start, STYLE_BOLD);
 			bStyled = true;
 			start = end;
@@ -970,7 +971,7 @@ bool CSciEdit::StyleEnteredText(int startstylepos, int endstylepos)
 		end = 0;
 		while (FindStyleChars(linebuffer, '^', start, end))
 		{
-			Call(SCI_STARTSTYLING, start+offset, 0x1f);
+			Call(SCI_STARTSTYLING, start+offset, STYLE_MASK);
 			Call(SCI_SETSTYLING, end-start, STYLE_ITALIC);
 			bStyled = true;
 			start = end;
@@ -979,7 +980,7 @@ bool CSciEdit::StyleEnteredText(int startstylepos, int endstylepos)
 		end = 0;
 		while (FindStyleChars(linebuffer, '_', start, end))
 		{
-			Call(SCI_STARTSTYLING, start+offset, 0x1f);
+			Call(SCI_STARTSTYLING, start+offset, STYLE_MASK);
 			Call(SCI_SETSTYLING, end-start, STYLE_UNDERLINED);
 			bStyled = true;
 			start = end;
@@ -1109,7 +1110,7 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 	// used for pattern matching by GRETA
 	restring reMsg = (LPCTSTR)msg;
 
-	Call(SCI_STARTSTYLING, start_pos, 0x1f);
+	Call(SCI_STARTSTYLING, start_pos, STYLE_MASK);
 
 	if (!m_sBugID.IsEmpty())
 	{
@@ -1271,7 +1272,7 @@ void CSciEdit::StyleURLs(int startstylepos, int endstylepos) {
 			if ((starturl >= 0) && ::PathIsURL(msg.Mid(starturl, i - starturl)))
 			{
 				ASSERT(startstylepos + i <= endstylepos);
-				Call(SCI_STARTSTYLING, startstylepos + starturl, 0x1f);
+				Call(SCI_STARTSTYLING, startstylepos + starturl, STYLE_MASK);
 				Call(SCI_SETSTYLING, i - starturl, STYLE_URL);
 			}
 			starturl = -1;
