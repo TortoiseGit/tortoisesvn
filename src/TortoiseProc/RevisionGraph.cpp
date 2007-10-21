@@ -1109,29 +1109,57 @@ void CRevisionGraph::FindReplacements()
 		if ((next != NULL) && (next->action == CRevisionEntry::deleted))
 		{
 			// this line will be deleted. 
-			// will it be continued under a different name?
+			// will it be continued exactly once under a different name?
 
-			if (entry->copyTargets.size() == 1)
+            CRevisionEntry * renameTarget = NULL;
+            size_t renameIndex = 0;
+
+			for (size_t k = entry->copyTargets.size(); k > 0; --k)
 			{
-				CRevisionEntry * target = entry->copyTargets[0];
-				assert (target->action == CRevisionEntry::addedwithhistory);
+				CRevisionEntry * copy = entry->copyTargets[k-1];
+				assert (copy->action == CRevisionEntry::addedwithhistory);
 
-				if (target->revision == next->revision)
+				if (copy->revision == next->revision)
 				{
-					// that's actually a rename
+					// that's actually looks like a rename
 
-					target->action = CRevisionEntry::renamed;
+                    if (renameTarget != NULL)
+                    {
+                        // there is more than one copy target 
+                        // -> display all individual deletion and additions 
 
-					// make it part of this line (not a branch)
+                        renameTarget = NULL;
+                        break;
+                    }
+                    else
+                    {
+                        // remember the (potential) rename target
 
-					entry->next = target;
-                    target->prev = entry;
-					entry->copyTargets.clear();
+                        renameTarget = copy;
+                        renameIndex = 0;
+                    }
+                }
+            }
 
-					// mark the old "deleted" entry for removal
+            // did we find a unambigous rename target?
 
-					next->action = CRevisionEntry::nothing;
-				}
+            if (renameTarget != NULL)
+            {
+                // optimize graph
+
+				renameTarget->action = CRevisionEntry::renamed;
+
+				// make it part of this line (not a branch)
+
+				entry->next = renameTarget;
+                renameTarget->prev = entry;
+
+				entry->copyTargets[renameIndex] = *entry->copyTargets.rbegin();
+                entry->copyTargets.pop_back();
+
+				// mark the old "deleted" entry for removal
+
+				next->action = CRevisionEntry::nothing;
 			}
 		}
 	}
