@@ -24,8 +24,6 @@
 #include "RevisionGraphWnd.h"
 #include "StandAloneDlg.h"
 
-#define	MAX_TT_LENGTH			10000
-
 /**
  * \ingroup TortoiseProc
  * Helper class extending CToolBar, needed only to have the toolbar include

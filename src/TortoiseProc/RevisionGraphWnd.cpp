@@ -559,7 +559,9 @@ BOOL CRevisionGraphWnd::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
 		return TRUE;
 		
 	if (strTipText.GetLength() >= MAX_TT_LENGTH)
-		strTipText = strTipText.Left(MAX_TT_LENGTH);
+    {
+		strTipText = strTipText.Left(MAX_TT_LENGTH-4) + _T(" ...");
+    }
 
 	if (pNMHDR->code == TTN_NEEDTEXTA)
 	{

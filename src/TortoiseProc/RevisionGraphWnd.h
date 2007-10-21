@@ -55,7 +55,7 @@ enum NodeShape
 #define NODE_SPACE_BOTTOM		20.0f
 
 #define MAXFONTS				4
-#define	MAX_TT_LENGTH			10000
+#define	MAX_TT_LENGTH			1000
 
 
 
