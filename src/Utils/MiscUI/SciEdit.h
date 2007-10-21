@@ -125,6 +125,7 @@ private:
 	rpattern	m_patBugID;
 	CArray<CSciEditContextMenuInterface *, CSciEditContextMenuInterface *> m_arContextHandlers;
 	CPersonalDictionary m_personalDict;
+	static bool IsValidURLChar(wchar_t ch);
 protected:
 	virtual BOOL OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pLResult);
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
@@ -134,6 +135,7 @@ protected:
 	BOOL		LoadDictionaries(LONG lLanguageID);
 	BOOL		MarkEnteredBugID(int startstylepos, int endstylepos);
 	bool		StyleEnteredText(int startstylepos, int endstylepos);
+	void		StyleURLs(int startstylepos, int endstylepos);
 	bool		WrapLines(int startpos, int endpos);
 	bool		FindStyleChars(const char * line, char styler, int& start, int& end);
 	void		AdvanceUTF8(const char * str, int& pos);

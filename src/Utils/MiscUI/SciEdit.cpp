@@ -40,6 +40,7 @@ bool CSciEditContextMenuInterface::HandleMenuItemClick(int, CSciEdit *) {return 
 #define STYLE_BOLD				14
 #define STYLE_ITALIC			15
 #define STYLE_UNDERLINED		16
+#define STYLE_URL				17
 
 #define SCI_ADDWORD			2000
 
@@ -366,19 +367,26 @@ void CSciEdit::SetFont(CString sFontName, int iFontSizeInPoints)
 	Call(SCI_STYLESETFONT, STYLE_DEFAULT, (LPARAM)(LPCSTR)CStringA(sFontName));
 	Call(SCI_STYLESETSIZE, STYLE_DEFAULT, iFontSizeInPoints);
 	Call(SCI_STYLECLEARALL);
+
+	LPARAM color = (LPARAM)GetSysColor(COLOR_HIGHLIGHT);
 	// set the styles for the bug ID strings
 	Call(SCI_STYLESETBOLD, STYLE_ISSUEBOLD, (LPARAM)TRUE);
-	Call(SCI_STYLESETFORE, STYLE_ISSUEBOLD, (LPARAM)GetSysColor(COLOR_HIGHLIGHT));
+	Call(SCI_STYLESETFORE, STYLE_ISSUEBOLD, color);
 	Call(SCI_STYLESETBOLD, STYLE_ISSUEBOLDITALIC, (LPARAM)TRUE);
 	Call(SCI_STYLESETITALIC, STYLE_ISSUEBOLDITALIC, (LPARAM)TRUE);
-	Call(SCI_STYLESETFORE, STYLE_ISSUEBOLDITALIC, (LPARAM)GetSysColor(COLOR_HIGHLIGHT));
+	Call(SCI_STYLESETFORE, STYLE_ISSUEBOLDITALIC, color);
+	Call(SCI_STYLESETHOTSPOT, STYLE_ISSUEBOLDITALIC, (LPARAM)TRUE);
+
 	// set the formatted text styles
 	Call(SCI_STYLESETBOLD, STYLE_BOLD, (LPARAM)TRUE);
 	Call(SCI_STYLESETITALIC, STYLE_ITALIC, (LPARAM)TRUE);
 	Call(SCI_STYLESETUNDERLINE, STYLE_UNDERLINED, (LPARAM)TRUE);
-	// Make bug IDs clickable.
-	// TODO: Add URL matching code.
-	Call(SCI_STYLESETHOTSPOT, STYLE_ISSUEBOLDITALIC, (LPARAM)TRUE);
+
+	// set the style for URLs
+	Call(SCI_STYLESETFORE, STYLE_URL, color);
+	Call(SCI_STYLESETHOTSPOT, STYLE_URL, (LPARAM)TRUE);
+
+	Call(SCI_SETHOTSPOTACTIVEUNDERLINE, (LPARAM)TRUE);
 }
 
 void CSciEdit::SetAutoCompletionList(const std::set<CString>& list, const TCHAR separator)
@@ -586,24 +594,33 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
 				CheckSpelling();
 				MarkEnteredBugID(startstylepos, endstylepos);
 				StyleEnteredText(startstylepos, endstylepos);
+				StyleURLs(startstylepos, endstylepos);
 				WrapLines(startstylepos, endstylepos);
 				return TRUE;
 			}
 			break;
 		case SCN_HOTSPOTCLICK:
 			{
-				// TODO: Use proper bugregex matching here.
 				TEXTRANGEA textrange;
-				textrange.chrg.cpMin = Call(SCI_WORDSTARTPOSITION, lpSCN->position, TRUE);
-				if ((lpSCN->position == textrange.chrg.cpMin)||(textrange.chrg.cpMin < 0))
-					break;
-				textrange.chrg.cpMax = Call(SCI_WORDENDPOSITION, textrange.chrg.cpMin, TRUE);
-
+				textrange.chrg.cpMin = lpSCN->position;
+				textrange.chrg.cpMax = lpSCN->position;
+				int style = Call(SCI_GETSTYLEAT, lpSCN->position) & 0x1f;
+				while (style == (Call(SCI_GETSTYLEAT, textrange.chrg.cpMin - 1) & 0x1f))
+					--textrange.chrg.cpMin;
+				while (style == (Call(SCI_GETSTYLEAT, textrange.chrg.cpMax + 1) & 0x1f))
+					++textrange.chrg.cpMax;
+				++textrange.chrg.cpMax;
 				char * textbuffer = new char[textrange.chrg.cpMax - textrange.chrg.cpMin + 1];
 				textrange.lpstrText = textbuffer;	
 				Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
-				CString url = m_sUrl;
-				url.Replace(_T("%BUGID%"), StringFromControl(textbuffer));
+				CString url;
+				if (style == STYLE_URL)
+					url = StringFromControl(textbuffer);
+				else
+				{
+					url = m_sUrl;
+					url.Replace(_T("%BUGID%"), StringFromControl(textbuffer));
+				}
 				delete textbuffer;
 				if (!url.IsEmpty())
 					ShellExecute(GetParent()->GetSafeHwnd(), _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);
@@ -1220,4 +1237,44 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 	return FALSE;
 }
 
+bool CSciEdit::IsValidURLChar(wchar_t ch)
+{
+	return isalnum(ch) ||
+		ch == '_' || ch == '/' || ch == ';' || ch == '?' || ch == '&' || ch == '=' ||
+		ch == '%' || ch == ':' || ch == '.' || ch == '#' || ch == '-' || ch == '+';
+}
 
+void CSciEdit::StyleURLs(int startstylepos, int endstylepos) {
+	const int line_number = Call(SCI_LINEFROMPOSITION, startstylepos);
+	startstylepos = Call(SCI_POSITIONFROMLINE, (WPARAM)line_number);
+
+	int len = endstylepos - startstylepos + 1;
+	char* textbuffer = new char[len + 1];
+	TEXTRANGEA textrange;
+	textrange.lpstrText = textbuffer;
+	textrange.chrg.cpMin = startstylepos;
+	textrange.chrg.cpMax = endstylepos;
+	Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
+	CString msg(textbuffer);
+	delete textbuffer;
+
+	int starturl = -1;
+	for(int i = 0; i <= len; ++i)
+	{
+		if ((i < len) && IsValidURLChar(msg[i]))
+		{
+			if (starturl < 0)
+				starturl = i;
+		}
+		else
+		{
+			if ((starturl >= 0) && ::PathIsURL(msg.Mid(starturl, i - starturl)))
+			{
+				ASSERT(startstylepos + i <= endstylepos);
+				Call(SCI_STARTSTYLING, startstylepos + starturl, 0x1f);
+				Call(SCI_SETSTYLING, i - starturl, STYLE_URL);
+			}
+			starturl = -1;
+		}
+	}
+}
