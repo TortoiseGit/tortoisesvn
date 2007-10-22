@@ -228,6 +228,7 @@ BOOL CLogDlg::OnInitDialog()
 	if (m_hasWC)
 		m_ProjectProperties.ReadProps(m_path);
 
+	m_ProjectProperties.nLogWidthMarker = 0;	// prevent the edit control from showing the width marker.
 	m_cLogMessage.Init(m_ProjectProperties);
 	// set the font to use in the log message view, configured in the settings dialog
 	m_cLogMessage.SetFont(
