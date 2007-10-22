@@ -75,7 +75,7 @@ public:
 	void ContinuousSelection(bool bCont = true) {m_bSelectionMustBeContinuous = bCont;}
 	void SetMergePath(const CTSVNPath& mergepath) {m_mergePath = mergepath;}
 
-	const SVNRevList&	GetSelectedRevList() {return m_selectedRevs;}
+	const SVNRevRangeArray&	GetSelectedRevRanges() {return m_selectedRevs;}
 
 // Dialog Data
 	enum { IDD = IDD_LOGMESSAGE };
@@ -194,7 +194,7 @@ private:
 	SVNRev				m_startrev;
 	SVNRev				m_LogRevision;
 	SVNRev				m_endrev;
-	SVNRevList			m_selectedRevs;
+	SVNRevRangeArray	m_selectedRevs;
 	bool				m_bSelectionMustBeContinuous;
 	long				m_logcounter;
 	bool				m_bCancelled;

@@ -116,7 +116,7 @@ public:
 	void SetProjectProperties(ProjectProperties props) {m_ProjectProperties = props;}
 	void SetChangeList(const CString& changelist, bool keepchangelist) {m_changelist = changelist; m_keepchangelist = keepchangelist;}
 	void SetSelectedList(const CTSVNPathList& selPaths);
-	void SetRevisionList(const SVNRevList& revList) {m_revisionList = revList;}
+	void SetRevisionRanges(const SVNRevRangeArray& revArray) {m_revisionArray = revArray;}
 	/**
 	 * If the number of items for which the operation is done on is known
 	 * beforehand, that number can be set here. It is then used to show a more
@@ -272,7 +272,7 @@ private:
 	SVNRev					m_Revision;
 	SVNRev					m_RevisionEnd;
 	SVNRev					m_pegRev;
-	SVNRevList				m_revisionList;
+	SVNRevRangeArray		m_revisionArray;
 	CString					m_changelist;
 	bool					m_keepchangelist;
 

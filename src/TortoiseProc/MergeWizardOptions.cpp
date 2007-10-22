@@ -144,10 +144,10 @@ void CMergeWizardOptions::OnBnClickedDryrun()
 	progDlg.SetSecondUrl(pWizard->URL2);
 	if (pWizard->bRevRangeMerge)
 	{
-		if (pWizard->revList.GetCount())
+		if (pWizard->revRangeArray.GetCount())
 		{
-			pWizard->revList.Sort(!pWizard->bReverseMerge);
-			progDlg.SetRevisionList(pWizard->revList);
+			pWizard->revRangeArray.AdjustForMerge(!!pWizard->bReverseMerge);
+			progDlg.SetRevisionRanges(pWizard->revRangeArray);
 		}
 		else
 		{

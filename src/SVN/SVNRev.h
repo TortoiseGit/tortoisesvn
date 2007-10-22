@@ -127,10 +127,13 @@ public:
 	SVNRevRangeArray() {}
 	~SVNRevRangeArray() {}
 
+	int					AddRevision(const SVNRev& revision);
 	int					AddRevRange(const SVNRevRange& revrange);
 	int					AddRevRange(const SVNRev& start, const SVNRev& end);
 	int					GetCount() const;
 	void				Clear();
+	void				AdjustForMerge(bool bReverse = false);
+
 	const apr_array_header_t* GetAprArray(apr_pool_t * pool);
 
 	const SVNRevRange&	operator[](int index) const;
@@ -141,45 +144,3 @@ private:
 	std::vector<SVNRevRange>	m_array;
 };
 
-#ifdef _MFC_VER
-/**
- * \ingroup SVN
- * SVNRevList represents a list of SVNRev revisions.
- */
-class SVNRevList
-{
-public:
-	SVNRevList() {m_sort = SVNRevListNoSort;}
-	~SVNRevList() {;}
-
-	enum SVNRevListSort
-	{
-		SVNRevListNoSort,
-		SVNRevListASCENDING,
-		SVNRevListDESCENDING,
-	};
-	int				AddRevision(const SVNRev& rev);
-	int				GetCount() const;
-	void			Clear();
-	const SVNRev&	operator[](int index) const;
-
-	bool			SaveToFile(LPCTSTR path, bool bANSI);
-	bool			LoadFromFile(LPCTSTR path);
-
-	bool			IsAscending() {return (m_sort == SVNRevListASCENDING);}
-	bool			IsDescending() {return (m_sort == SVNRevListDESCENDING);}
-
-	void			Sort(bool bAscending);
-
-	bool			FromListString(LPCTSTR string);
-	std::wstring	ToListString(bool bCompact = true);
-protected:
-	static bool		AscendingRevision(const SVNRev& lhs, const SVNRev& rhs);
-	static bool		DescendingRevision(const SVNRev& lhs, const SVNRev& rhs);
-
-protected:
-	std::vector<SVNRev>	m_array;
-	SVNRevListSort		m_sort;
-
-};
-#endif

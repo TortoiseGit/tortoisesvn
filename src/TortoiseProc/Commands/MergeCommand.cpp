@@ -40,10 +40,10 @@ bool MergeCommand::Execute()
 		progDlg.SetSecondUrl(wizard.URL2);
 		if (wizard.bRevRangeMerge)
 		{
-			if (wizard.revList.GetCount())
+			if (wizard.revRangeArray.GetCount())
 			{
-				wizard.revList.Sort(!wizard.bReverseMerge);
-				progDlg.SetRevisionList(wizard.revList);
+				wizard.revRangeArray.AdjustForMerge(!!wizard.bReverseMerge);
+				progDlg.SetRevisionRanges(wizard.revRangeArray);
 			}
 			else
 			{

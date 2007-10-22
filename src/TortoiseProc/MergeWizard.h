@@ -52,7 +52,7 @@ public:
 	CString							URL2;
 	SVNRev							startRev;
 	SVNRev							endRev;
-	SVNRevList						revList;
+	SVNRevRangeArray				revRangeArray;
 	BOOL							bReverseMerge;
 
 	BOOL							bRecordOnly;

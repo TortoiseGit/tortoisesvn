@@ -1909,7 +1909,7 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
 	SetWindowText(sWindowTitle);
 
 	// we only accept a revision list to merge for peg merges
-	ATLASSERT((m_revisionList.GetCount()==0) || (m_revisionList.GetCount() && (m_url.IsEquivalentTo(m_url2))));
+	ATLASSERT((m_revisionArray.GetCount()==0) || (m_revisionArray.GetCount() && (m_url.IsEquivalentTo(m_url2))));
 
 	if (m_url.IsEquivalentTo(m_url2))
 	{
@@ -1918,174 +1918,29 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
 		CString sSeparator = CRegString(_T("Software\\TortoiseSVN\\MergeLogSeparator"), _T("........"));
 		CString temp;
 		int index = 0;
-		do 
+
+		// Merging revisions %s of %s to %s into %s, %s%s
+		CString sCmdInfo;
+		sCmdInfo.Format(IDS_PROGRS_CMD_MERGEPEG, 
+			(LPCTSTR)m_revisionArray.ToListString(),
+			(LPCTSTR)m_url.GetSVNPathString(),
+			m_targetPathList[0].GetWinPath(),
+			m_options & ProgOptIgnoreAncestry ? (LPCTSTR)sIgnoreAncestry : (LPCTSTR)sRespectAncestry,
+			m_options & ProgOptDryRun ? ((LPCTSTR)_T(", ") + sDryRun) : _T(""));
+		ReportCmd(sCmdInfo);
+
+		if (!PegMerge(m_url, m_revisionArray, 
+			m_pegRev.IsValid() ? m_pegRev : (m_url.IsUrl() ? m_RevisionEnd : SVNRev(SVNRev::REV_WC)),
+			m_targetPathList[0], true, m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun)))
 		{
-			// fill the revisions in for m_Revision and m_RevisionEnd from
-			// the revision list we have (if we have one).
-			if (m_revisionList.IsAscending())
+			// if the merge fails with the peg revision set to the end revision of the merge,
+			// try again with HEAD as the peg revision.
+			if (!PegMerge(m_url, m_revisionArray, SVNRev::REV_HEAD,
+				m_targetPathList[0], true, m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun), !!(m_options & ProgOptRecordOnly)))
 			{
-				if (index < m_revisionList.GetCount())
-				{
-					ATLASSERT(m_revisionList[index].IsNumber());
-					m_Revision = ((svn_revnum_t)m_revisionList[index])-1;
-					m_RevisionEnd = SVNRev();
-					svn_revnum_t r = m_revisionList[index++];
-					while ((index < m_revisionList.GetCount())&&((r+1) == (svn_revnum_t)m_revisionList[index]))
-					{
-						m_RevisionEnd = m_revisionList[index];
-						r = m_RevisionEnd;
-						index++;
-					}
-					if (!m_RevisionEnd.IsValid())
-						m_RevisionEnd = ((svn_revnum_t)m_Revision)+1;
-				}
+				ReportSVNError();
+				bFailed = true;
 			}
-			else if (m_revisionList.IsDescending())
-			{
-				ATLASSERT(m_revisionList[index].IsNumber());
-				m_Revision = ((svn_revnum_t)m_revisionList[index]);
-				m_RevisionEnd = SVNRev();
-				svn_revnum_t r = m_revisionList[index++];
-				while ((index < m_revisionList.GetCount())&&((r-1) == (svn_revnum_t)m_revisionList[index]))
-				{
-					m_RevisionEnd = m_revisionList[index];
-					r = m_RevisionEnd;
-					index++;
-				}
-				if (!m_RevisionEnd.IsValid())
-					m_RevisionEnd = ((svn_revnum_t)m_Revision)-1;
-				else
-					m_RevisionEnd = ((svn_revnum_t)m_RevisionEnd)-1;
-			}
-
-			CString sCmdInfo;
-			sCmdInfo.Format(IDS_PROGRS_CMD_MERGEPEG, 
-				(LPCTSTR)m_url.GetSVNPathString(),
-				(LPCTSTR)m_Revision.ToString(), (LPCTSTR)m_RevisionEnd.ToString(),
-				m_targetPathList[0].GetWinPath(),
-				m_options & ProgOptIgnoreAncestry ? (LPCTSTR)sIgnoreAncestry : (LPCTSTR)sRespectAncestry,
-				m_options & ProgOptDryRun ? ((LPCTSTR)_T(", ") + sDryRun) : _T(""));
-			ReportCmd(sCmdInfo);
-
-			SVNRevRange revrange(m_Revision, m_RevisionEnd);
-			SVNRevRangeArray revarray;
-			revarray.AddRevRange(revrange);
-			if (!PegMerge(m_url, revarray, 
-				m_pegRev.IsValid() ? m_pegRev : (m_url.IsUrl() ? m_RevisionEnd : SVNRev(SVNRev::REV_WC)),
-				m_targetPathList[0], true, m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun)))
-			{
-				// if the merge fails with the peg revision set to the end revision of the merge,
-				// try again with HEAD as the peg revision.
-				if (!PegMerge(m_url, revarray, SVNRev::REV_HEAD,
-					m_targetPathList[0], true, m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun), !!(m_options & ProgOptRecordOnly)))
-				{
-					ReportSVNError();
-					bFailed = true;
-				}
-			}
-			if (!bFailed && !(m_options & ProgOptDryRun))
-			{
-				// retrieve the log messages for all the revisions which got merged and save them
-				// in the registry as a 'previous' log message entered in the commit dialog
-
-				// first find the revision range
-				svn_revnum_t start = 0;
-				svn_revnum_t end = INT_MAX;
-				for (NotificationDataVect::const_iterator it = m_arData.begin(); it != m_arData.end(); ++it)
-				{
-					if ((*it)->merge_range.end && (*it)->merge_range.start)
-					{
-						start = max(start, (*it)->merge_range.end);
-						start = max(start, (*it)->merge_range.start);
-						end = min(end, (*it)->merge_range.end);
-						end = min(end, (*it)->merge_range.start);
-					}
-				}
-				if (end != INT_MAX)
-				{
-					SVNLogHelper loghelper;
-					bool bGotLogs = loghelper.GetLogMessagesAndAuthors(m_url, SVNRev(start), SVNRev(end), 
-						m_pegRev.IsValid() ? m_pegRev : (m_url.IsUrl() ? m_RevisionEnd : SVNRev(SVNRev::REV_WC)));
-					if (!bGotLogs)
-					{
-						// if this failed, try again with HEAD as the peg revision
-						bGotLogs = loghelper.GetLogMessagesAndAuthors(m_url, SVNRev(start), SVNRev(end), SVNRev::REV_HEAD);
-					}
-					if (bGotLogs)
-					{
-						SVNRev revEnd = m_RevisionEnd.IsHead() ? max(start, end) : m_RevisionEnd;
-						SVNRev revStart = m_Revision.IsHead() ? max(start, end) : m_Revision;
-						if ((svn_revnum_t)revEnd > (svn_revnum_t)revStart)
-							revStart = (svn_revnum_t)revStart + 1;
-						else
-							revEnd = (svn_revnum_t)revEnd - 1;
-						if (((svn_revnum_t)revStart) == (svn_revnum_t)revEnd)
-						{
-							if (sSuggestedMessage.IsEmpty())
-								sSuggestedMessage = revEnd.ToString();
-							else
-								sSuggestedMessage = sSuggestedMessage + _T(", ") + revEnd.ToString();
-						}
-						else
-						{
-							temp.Format(_T("%s-%s"), revStart.ToString(), revEnd.ToString());
-
-							if (sSuggestedMessage.IsEmpty())
-								sSuggestedMessage = temp;
-							else
-								sSuggestedMessage = sSuggestedMessage + _T(", ") + temp;
-						}
-						for (NotificationDataVect::const_iterator it = m_arData.begin(); it != m_arData.end(); ++it)
-						{
-							if ((*it)->merge_range.end && (*it)->merge_range.start)
-							{
-								if ((*it)->merge_range.start <= (*it)->merge_range.end)
-								{
-									for (svn_revnum_t r = (*it)->merge_range.start+1;
-										r <= (*it)->merge_range.end; ++r)
-									{
-										if ((loghelper.authors.find(r) != loghelper.authors.end()) &&
-											(loghelper.messages.find(r) != loghelper.messages.end()))
-										{
-											temp.Format(IDS_SVNPROGRESS_MERGELOGMSG, (LPCTSTR)sSeparator, (LPCTSTR)SVNRev(r).ToString(), 
-												(LPCTSTR)loghelper.authors[r], (LPCTSTR)loghelper.messages[r]);
-											sMergedLogMessage += temp;
-										}
-									}
-								}
-								else
-								{
-									for (svn_revnum_t r = (*it)->merge_range.end-1;
-										r <= (*it)->merge_range.start; ++r)
-									{
-										if ((loghelper.authors.find(r) != loghelper.authors.end()) &&
-											(loghelper.messages.find(r) != loghelper.messages.end()))
-										{
-											temp.Format(IDS_SVNPROGRESS_MERGELOGMSG, (LPCTSTR)sSeparator, (LPCTSTR)SVNRev(r).ToString(), 
-												(LPCTSTR)loghelper.authors[r], (LPCTSTR)loghelper.messages[r]);
-											sMergedLogMessage += temp;
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		} while((!bFailed)&&(index < m_revisionList.GetCount()));
-		if (!sMergedLogMessage.IsEmpty())
-		{
-			temp = sSuggestedMessage;
-			sSuggestedMessage.Format(IDS_SVNPROGRESS_MERGELOGRANGE, temp, m_url.GetUIPathString());
-
-			sMergedLogMessage = sSuggestedMessage + _T("\n") + sMergedLogMessage + sSeparator;
-			CRegHistory	history;
-			history.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
-			CString reg;
-			reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), GetUUIDFromPath(m_targetPathList[0]));
-			history.Load(reg, _T("logmsgs"));
-			history.AddEntry(sMergedLogMessage);
-			history.Save();
 		}
 	}
 	else

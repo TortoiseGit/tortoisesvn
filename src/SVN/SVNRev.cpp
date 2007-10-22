@@ -218,6 +218,104 @@ int SVNRevRangeArray::AddRevRange(const SVNRevRange& revrange)
 	return GetCount();
 }
 
+int SVNRevRangeArray::AddRevision(const SVNRev& revision)
+{
+	ATLASSERT(revision.IsNumber());
+	svn_revnum_t nRev = revision;
+	for (int i = 0; i < GetCount(); ++i)
+	{
+		svn_revnum_t start = m_array[i].GetStartRevision();
+		svn_revnum_t end = m_array[i].GetEndRevision();
+		bool reversed = false;
+		if (start > end)
+		{
+			svn_revnum_t t = start;
+			start = end;
+			end = t;
+			reversed = true;
+		}
+		if ((start <= nRev)&&(nRev <= end))
+			return GetCount();	// revision is inside an existing range
+		if (start == nRev + 1)
+		{
+			if (reversed)
+				m_array[i] = SVNRevRange(start, nRev);
+			else
+				m_array[i] = SVNRevRange(nRev, end);
+			return GetCount();
+		}
+		if (end == nRev - 1)
+		{
+			if (reversed)
+				m_array[i] = SVNRevRange(nRev, end);
+			else
+				m_array[i] = SVNRevRange(start, nRev);
+			return GetCount();
+		}
+	}
+	return AddRevRange(SVNRevRange(revision, revision));
+}
+
+void SVNRevRangeArray::AdjustForMerge(bool bReverse /* = false */)
+{
+	for (int i = 0; i < GetCount(); ++i)
+	{
+		SVNRevRange range = m_array[i];
+		if (range.GetStartRevision().IsNumber())
+		{
+			if (range.GetEndRevision().IsNumber())
+			{
+				// both ends of the range are revision numbers
+				if (bReverse)
+				{
+					// reverse merge means: start is the higher value + 1, end is the lower value
+					svn_revnum_t start = range.GetStartRevision();
+					svn_revnum_t end = range.GetEndRevision();
+					if (start > end)
+					{
+						svn_revnum_t t = start;
+						start = end;
+						end = t;
+					}
+					m_array[i] = SVNRevRange(end+1, start);					
+				}
+				else
+				{
+					// normal merge means: start is the lower value - 1, end is the higher value
+					svn_revnum_t start = range.GetStartRevision();
+					svn_revnum_t end = range.GetEndRevision();
+					if (start > end)
+					{
+						svn_revnum_t t = start;
+						start = end;
+						end = t;
+					}
+					m_array[i] = SVNRevRange(start-1, end);					
+				}
+			}
+			else
+			{
+				// only the end revision is not a number, we have to adjust the start revision
+				if (bReverse)
+					m_array[i] = SVNRevRange(LONG(range.GetStartRevision())+1, range.GetEndRevision());
+				else
+					m_array[i] = SVNRevRange(LONG(range.GetStartRevision())-1, range.GetEndRevision());
+			}
+		}
+		else
+		{
+			if (range.GetEndRevision().IsNumber())
+			{
+				// only the start revision is not a number, we have to adjust the end revision
+				if (bReverse)
+					m_array[i] = SVNRevRange(range.GetStartRevision(), LONG(range.GetEndRevision())+1);
+				else
+					m_array[i] = SVNRevRange(range.GetStartRevision(), LONG(range.GetEndRevision())-1);
+			}
+		}
+	}
+}
+
 int SVNRevRangeArray::GetCount() const
 {
 	return (int)m_array.size();
@@ -320,250 +418,7 @@ const apr_array_header_t * SVNRevRangeArray::GetAprArray(apr_pool_t * pool)
 }
 
 
-//////////////////////////////////////////////////////////////////////////
-#ifdef _MFC_VER
 
-int SVNRevList::AddRevision(const SVNRev& rev)
-{
-	m_array.push_back(rev);
-	m_sort = SVNRevListNoSort;
-	return GetCount();
-}
-
-int SVNRevList::GetCount() const
-{
-	return (int)m_array.size();
-}
-
-void SVNRevList::Clear()
-{
-	m_array.clear();
-}
-
-const SVNRev& SVNRevList::operator[](int index) const
-{
-	ATLASSERT(index >= 0 && index < (int)m_array.size());
-	return m_array[index];
-}
-
-bool SVNRevList::SaveToFile(LPCTSTR path, bool bANSI)
-{
-	try
-	{
-		if (bANSI)
-		{
-			CStdioFile file(path, CFile::typeText | CFile::modeReadWrite | CFile::modeCreate);
-			CStringA temp;
-			temp.Format("%d\n", m_sort);
-			file.Write(temp, temp.GetLength());
-			for (std::vector<SVNRev>::const_iterator it = m_array.begin(); it != m_array.end(); ++it)
-			{
-				CStringA line = CStringA(it->ToString()) + '\n';
-				file.Write(line, line.GetLength());
-			}
-			file.Close();
-		}
-		else
-		{
-			CStdioFile file(path, CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate);
-			CString temp;
-			temp.Format(_T("%d\n"), m_sort);
-			file.Write(temp, temp.GetLength());
-			for (std::vector<SVNRev>::const_iterator it = m_array.begin(); it != m_array.end(); ++it)
-			{
-				file.WriteString(it->ToString()+_T("\n"));
-			} 
-			file.Close();
-		}
-	}
-	catch (CFileException* pE)
-	{
-		TRACE("CFileException in writing temp file\n");
-		pE->Delete();
-		return false;
-	}
-
-	return true;
-}
-
-bool SVNRevList::LoadFromFile(LPCTSTR path)
-{
-	Clear();
-	try
-	{
-		CString strLine;
-		CStdioFile file(path, CFile::typeBinary | CFile::modeRead | CFile::shareDenyWrite);
-
-		if (file.ReadString(strLine))
-		{
-			m_sort = (SVNRevListSort)_ttol(strLine);
-			while (file.ReadString(strLine))
-			{
-				AddRevision(SVNRev(strLine));
-			}
-		}
-		file.Close();
-	}
-	catch (CFileException* pE)
-	{
-		TRACE("CFileException loading target file list\n");
-		pE->Delete();
-		return false;
-	}
-	return true;
-}
-
-bool SVNRevList::FromListString(LPCTSTR string)
-{
-	Clear();
-	if (_tcslen(string))
-	{
-		const TCHAR * str = string;
-		const TCHAR * result = _tcspbrk(string, _T(",-"));
-		SVNRev prevRev;
-		while (result)
-		{
-			if (*result == ',')
-			{
-				SVNRev rev = SVNRev(std::wstring(str, result-str).c_str());
-				if (!rev.IsValid())
-				{
-					Clear();
-					return false;
-				}
-				if (prevRev.IsValid())
-				{
-					for (svn_revnum_t i = prevRev; i <= rev; ++i)
-						AddRevision(SVNRev(i));
-				}
-				else
-					AddRevision(rev);
-				prevRev = SVNRev();
-			}
-			else if (*result == '-')
-			{
-				prevRev = SVNRev(std::wstring(str, result-str).c_str());
-				if (!prevRev.IsValid())
-				{
-					Clear();
-					return false;
-				}
-			}
-			result++;
-			str = result;
-			result = _tcspbrk(result, _T(",-"));
-		}
-		SVNRev rev = SVNRev(std::wstring(str).c_str());
-		if (!rev.IsValid())
-		{
-			Clear();
-			return false;
-		}
-		if (prevRev.IsValid())
-		{
-			for (svn_revnum_t i = prevRev; i <= rev; ++i)
-				AddRevision(SVNRev(i));
-		}
-		else
-			AddRevision(rev);
-	}
-
-	return true;
-}
-
-std::wstring SVNRevList::ToListString(bool bCompact)
-{
-	std::wstring sRet;
-	if (bCompact)
-	{
-		int index = 0;
-		do
-		{
-			if (index < GetCount())
-			{
-				ATLASSERT((*this)[index].IsNumber());
-				SVNRev start = (svn_revnum_t)(*this)[index];
-				SVNRev end = SVNRev();
-				svn_revnum_t r = (*this)[index++];
-				while ((index < GetCount())&&((r+1) == (svn_revnum_t)(*this)[index]))
-				{
-					end = (*this)[index];
-					r = end;
-					index++;
-				}
-				if (!end.IsValid())
-				{
-					if (!sRet.empty())
-						sRet += _T(",");	
-					sRet += (LPCTSTR)start.ToString();
-				}
-				else
-				{
-					if (!sRet.empty())
-						sRet += _T(",");	
-					sRet += (LPCTSTR)start.ToString();
-					sRet += _T("-");
-					sRet += (LPCTSTR)end.ToString();
-				}
-			}
-		} while (index < GetCount());
-	}
-	else
-	{
-		for (int i = 0; i < GetCount(); ++i)
-		{
-			if (!sRet.empty())
-				sRet += _T(",");	
-			sRet += (LPCTSTR)(*this)[i].ToString();
-		}
-	}
-	return sRet;
-}
-
-bool SVNRevList::AscendingRevision(const SVNRev& lhs, const SVNRev& rhs)
-{
-	if (lhs.IsNumber() && rhs.IsNumber())
-		return (svn_revnum_t)lhs < (svn_revnum_t)rhs;
-	if (lhs.IsHead())
-		return false;
-	if (rhs.IsHead())
-		return true;
-	if (lhs.IsDate() && rhs.IsDate())
-		return lhs.GetDate() < rhs.GetDate();
-	ATLASSERT(FALSE);
-	return true;
-}
-
-bool SVNRevList::DescendingRevision(const SVNRev& lhs, const SVNRev& rhs)
-{
-	if (lhs.IsNumber() && rhs.IsNumber())
-		return (svn_revnum_t)lhs > (svn_revnum_t)rhs;
-	if (lhs.IsHead())
-		return true;
-	if (rhs.IsHead())
-		return false;
-	if (lhs.IsDate() && rhs.IsDate())
-		return lhs.GetDate() > rhs.GetDate();
-	ATLASSERT(FALSE);
-	return false;
-}
-
-void SVNRevList::Sort(bool bAscending)
-{
-	m_sort = SVNRevListNoSort;
-	if (bAscending)
-	{
-		std::sort(m_array.begin(), m_array.end(), AscendingRevision);
-		m_sort = SVNRevListASCENDING;
-	}
-	else
-	{
-		std::sort(m_array.begin(), m_array.end(), DescendingRevision);
-		m_sort = SVNRevListDESCENDING;
-	}
-}
-
-#endif
 
 #if defined(_DEBUG) && defined(_MFC_VER)
 // Some test cases for these classes
@@ -572,28 +427,6 @@ static class SVNRevListTests
 public:
 	SVNRevListTests()
 	{
-		SVNRevList list;
-		list.AddRevision(SVNRev(1));
-		list.AddRevision(SVNRev(3));
-		list.AddRevision(SVNRev(4));
-		list.AddRevision(SVNRev(5));
-		list.AddRevision(SVNRev(7));
-		list.AddRevision(SVNRev(8));
-		list.AddRevision(SVNRev(9));
-		list.AddRevision(SVNRev(20));
-		ATLASSERT(_tcscmp(list.ToListString(true).c_str(), _T("1,3-5,7-9,20"))==0);
-		SVNRevList list2;
-		list2.FromListString(list.ToListString(true).c_str());
-		ATLASSERT(list2.GetCount()==8);
-		ATLASSERT(svn_revnum_t(list2[0]) == 1);
-		ATLASSERT(svn_revnum_t(list2[1]) == 3);
-		ATLASSERT(svn_revnum_t(list2[2]) == 4);
-		ATLASSERT(svn_revnum_t(list2[3]) == 5);
-		ATLASSERT(svn_revnum_t(list2[4]) == 7);
-		ATLASSERT(svn_revnum_t(list2[5]) == 8);
-		ATLASSERT(svn_revnum_t(list2[6]) == 9);
-		ATLASSERT(svn_revnum_t(list2[7]) == 20);
-
 		SVNRevRangeArray array;
 		array.AddRevRange(SVNRev(1), SVNRev(1));
 		array.AddRevRange(SVNRev(3), SVNRev(5));

@@ -3211,17 +3211,17 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		revSelected2 = pLogEntry->Rev;
 	}
 	SVNRev revLowest, revHighest;
-	SVNRevList revisionList;
+	SVNRevRangeArray revisionRanges;
 	{
 		POSITION pos = m_LogList.GetFirstSelectedItemPosition();
 		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
-		revisionList.AddRevision(pLogEntry->Rev);
+		revisionRanges.AddRevision(pLogEntry->Rev);
 		revLowest = pLogEntry->Rev;
 		revHighest = pLogEntry->Rev;
 		while (pos)
 		{
 			pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
-			revisionList.AddRevision(pLogEntry->Rev);
+			revisionRanges.AddRevision(pLogEntry->Rev);
 			revLowest = (svn_revnum_t(pLogEntry->Rev) > svn_revnum_t(revLowest) ? revLowest : pLogEntry->Rev);
 			revHighest = (svn_revnum_t(pLogEntry->Rev) < svn_revnum_t(revHighest) ? revHighest : pLogEntry->Rev);
 		}
@@ -3411,8 +3411,8 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 					}
 					else
 					{
-						revisionList.Sort(false);
-						dlg.SetRevisionList(revisionList);
+						revisionRanges.AdjustForMerge(true);
+						dlg.SetRevisionRanges(revisionRanges);
 					}
 					dlg.SetPegRevision(m_LogRevision);
 					dlg.DoModal();
@@ -3457,8 +3457,8 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 					}
 					else
 					{
-						revisionList.Sort(true);
-						dlg.SetRevisionList(revisionList);
+						revisionRanges.AdjustForMerge(false);
+						dlg.SetRevisionRanges(revisionRanges);
 					}
 					dlg.SetPegRevision(m_LogRevision);
 					dlg.DoModal();

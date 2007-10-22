@@ -84,7 +84,7 @@ LRESULT CMergeWizardRevRange::OnWizardNext()
 		}
 		m_sRevRange.Replace(_T("HEAD"), m_HEAD.ToString());
 	}
-	if (!((CMergeWizard*)GetParent())->revList.FromListString(m_sRevRange))
+	if (!((CMergeWizard*)GetParent())->revRangeArray.FromListString(m_sRevRange))
 	{
 		CBalloon::ShowBalloon(this, CBalloon::GetCtrlCentre(this, IDC_REVISION_RANGE), IDS_ERR_INVALIDREVRANGE, TRUE, IDI_EXCLAMATION);
 		return -1;
@@ -142,14 +142,13 @@ void CMergeWizardRevRange::OnBnClickedShowlog()
 
 LPARAM CMergeWizardRevRange::OnRevSelected(WPARAM wParam, LPARAM lParam)
 {
-	((CMergeWizard*)GetParent())->revList.Clear();
+	((CMergeWizard*)GetParent())->revRangeArray.Clear();
 
 	// lParam is a pointer to an SVNRevList, wParam contains the number of elements in that list.
 	if ((lParam)&&(wParam))
 	{
-		((CMergeWizard*)GetParent())->revList = *((SVNRevList*)lParam);
-		((CMergeWizard*)GetParent())->revList.Sort(true);
-		m_sRevRange = ((CMergeWizard*)GetParent())->revList.ToListString(true).c_str();
+		((CMergeWizard*)GetParent())->revRangeArray = *((SVNRevRangeArray*)lParam);
+		m_sRevRange = ((CMergeWizard*)GetParent())->revRangeArray.ToListString();
 		UpdateData(FALSE);
 	}
 	return 0;
