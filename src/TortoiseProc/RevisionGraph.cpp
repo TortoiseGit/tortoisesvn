@@ -898,54 +898,68 @@ void CRevisionGraph::FillCopyTargets ( revision_t revision
 		while (searchNode != NULL)
 		{
 			const CDictionaryBasedTempPath& path = searchNode->GetPath();
+            CDictionaryBasedPath fromPath ( path.GetDictionary()
+									      , copy->fromPathIndex);
 
 			// got this path copied?
 
-            bool sameOrChild = path.IsSameOrChildOf (copy->fromPathIndex);
+            bool sameOrChild = path.IsSameOrChildOf (fromPath);
 			if (searchNode->IsActive() && sameOrChild)
 			{
-                revision_t sourceRevision = revision;
-                if (!exactCopy)
+                // is there a better match in that target revision?
+                // example log @r106:
+                // A /trunk/F    /trunk/branches/b/F    100
+                // R /trunk/F/a  /trunk/branches/b/F/a  105
+                // -> don't copy from r100 but from r105
+
+                if (IsLatestCopySource ( query->GetCache()
+                                       , revision
+                                       , copy->toRevision
+                                       , fromPath
+                                       , path))
                 {
-                	// find latest change for the source path
-                    // (copy-from-rev may point to a newer revision that
-                    // does not actually modify the source path)
+                    // o.k. this is actual a copy we have to add to the tree
 
-                    CStrictLogIterator logIterator ( query->GetCache()
+                    revision_t sourceRevision = revision;
+                    if (!exactCopy)
+                    {
+                	    // find latest change for the source path
+                        // (copy-from-rev may point to a newer revision that
+                        // does not actually modify the source path)
+
+                        CStrictLogIterator logIterator ( query->GetCache()
+											           , revision
+											           , path);
+                	    logIterator.Retry();
+                        sourceRevision = logIterator.GetRevision();
+                    }
+
+				    CRevisionEntry*	entry = searchNode->GetLastEntry();
+				    if ((entry == NULL) || (entry->revision < sourceRevision))
+				    {
+					    // the copy source graph node has yet to be created
+
+					    entry = new CRevisionEntry ( path
 											       , revision
-											       , path);
-                	logIterator.Retry();
-                    sourceRevision = logIterator.GetRevision();
-                }
+											       , CRevisionEntry::source);
+					    entry->realPath = fromPath;
 
-				CRevisionEntry*	entry = searchNode->GetLastEntry();
-				if ((entry == NULL) || (entry->revision < sourceRevision))
-				{
-					// the copy source graph node has yet to be created
+					    m_entryPtrs.push_back (entry);
 
-					entry = new CRevisionEntry ( path
-											   , revision
-											   , CRevisionEntry::source);
-					entry->realPath 
-						= CDictionaryBasedPath ( path.GetDictionary()
-											   , copy->fromPathIndex);
+					    searchNode->ChainEntries (entry);
+				    }
 
-					m_entryPtrs.push_back (entry);
+                    // add & schedule the new search path
 
-					searchNode->ChainEntries (entry);
-				}
+				    SCopyInfo::STarget target 
+					    ( entry
+					    , path.ReplaceParent ( fromPath
+									         , CDictionaryBasedPath ( path.GetDictionary()
+															        , copy->toPathIndex)));
 
-				// add & schedule the new search path
-
-				SCopyInfo::STarget target 
-					( entry
-					, path.ReplaceParent ( CDictionaryBasedPath ( path.GetDictionary()
-															    , copy->fromPathIndex)
-									     , CDictionaryBasedPath ( path.GetDictionary()
-															    , copy->toPathIndex)));
-
-				targets.push_back (target);
-			}
+				    targets.push_back (target);
+			    }
+            }
 
 			// select next node
 
@@ -957,6 +971,52 @@ void CRevisionGraph::FillCopyTargets ( revision_t revision
                        : searchNode->GetSkipSubTreeNext();
 		}
 	}
+}
+
+bool CRevisionGraph::IsLatestCopySource ( const CCachedLogInfo* cache
+                                        , revision_t fromRevision
+                                        , revision_t toRevision
+                                        , const CDictionaryBasedPath& fromPath
+                                        , const CDictionaryBasedTempPath& currentPath)
+{
+    // try to find a "later" / "closer" copy source
+
+    // example log @r106 (toRevision):
+    // A /trunk/F    /trunk/branches/b/F    100
+    // R /trunk/F/a  /trunk/branches/b/F/a  105
+    // -> return r105
+
+    const CRevisionInfoContainer& logInfo = cache->GetLogInfo();
+    index_t index = cache->GetRevisions()[toRevision];
+
+    // search it
+
+    for ( CRevisionInfoContainer::CChangesIterator 
+          iter = logInfo.GetChangesBegin (index)
+        , end = logInfo.GetChangesEnd (index)
+        ; iter != end
+        ; ++iter)
+    {
+        // is this a copy of the current path?
+
+        if (   iter->HasFromPath() 
+            && currentPath.IsSameOrChildOf (iter->GetFromPathID()))
+        {
+            // a later change?
+
+            if (iter->GetFromRevision() > fromRevision)
+                return false;
+
+            // a closer sub-path?
+
+            if (iter->GetFromPathID() > fromPath.GetIndex())
+                return false;
+        }
+    }
+
+    // (fromRevision, fromGraph) is the best match
+
+    return true;
 }
 
 void CRevisionGraph::AddMissingHeads (CSearchPathTree* rootNode)

@@ -315,6 +315,11 @@ private:
 											    , CSearchPathTree* rootNode
 											    , TSCopyIterator& lastFromCopy
                                                 , bool exactCopy);
+    bool                        IsLatestCopySource ( const CCachedLogInfo* cache
+                                                   , revision_t fromRevision
+                                                   , revision_t toRevision
+                                                   , const CDictionaryBasedPath& fromPath
+                                                   , const CDictionaryBasedTempPath& currentPath);
     void                        AddMissingHeads (CSearchPathTree* rootNode);
     void                        MarkHeads (CSearchPathTree* rootNode);
     void                        AnalyzeHeadRevision ( revision_t revision
