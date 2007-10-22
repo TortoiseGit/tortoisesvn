@@ -1240,7 +1240,7 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 
 bool CSciEdit::IsValidURLChar(wchar_t ch)
 {
-	return isalnum(ch) ||
+	return iswalnum(ch) ||
 		ch == '_' || ch == '/' || ch == ';' || ch == '?' || ch == '&' || ch == '=' ||
 		ch == '%' || ch == ':' || ch == '.' || ch == '#' || ch == '-' || ch == '+';
 }
