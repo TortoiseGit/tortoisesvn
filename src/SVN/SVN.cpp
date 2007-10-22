@@ -1652,7 +1652,7 @@ svn_error_t* SVN::conflict_resolver(svn_wc_conflict_result_t **result,
 	SVN * svn = (SVN *)baton;
 	CString file;
 	svn_wc_conflict_choice_t choice = svn->ConflictResolveCallback(description, file);
-	*result = svn_wc_create_conflict_result(choice, (const char*)CUnicodeUtils::GetUTF8(file), pool);
+	*result = svn_wc_create_conflict_result(choice, file.IsEmpty() ? NULL : apr_pstrdup(pool, (const char*)CUnicodeUtils::GetUTF8(file)), pool);
 	return SVN_NO_ERROR;
 }
 
