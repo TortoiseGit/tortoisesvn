@@ -43,7 +43,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-10-19 16:12+0800\n"
+"PO-Revision-Date: 2007-10-22 12:05+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -401,10 +401,6 @@ msgstr "比较差异(&D)"
 msgid "&Diff with URL"
 msgstr "以URL比较(&D)"
 
-#. Resource IDs: (1179)
-msgid "&Dry run"
-msgstr "预检(&D)"
-
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
 msgstr "编辑(&E)"
@@ -727,6 +723,10 @@ msgstr "符号视图(&S)"
 msgid "&Tab size:"
 msgstr "Tab 宽度(&T)："
 
+#. Resource IDs: (1382)
+msgid "&Test merge"
+msgstr "测试合并(&T)"
+
 #. Resource IDs: (1222)
 msgid "&Timeout in seconds to stop the auto-completion parsing"
 msgstr "停止自动完成分析的超时时间(秒)(&T)"
@@ -771,7 +771,7 @@ msgstr "撤销(&U)"
 msgid "&Undo\tCtrl+Z"
 msgstr "还原(&U) Ctrl+Z"
 
-#. Resource IDs: (274, 1180, 32785)
+#. Resource IDs: (274, 32785)
 msgid "&Unified diff"
 msgstr "标准差异（&Unified diff）"
 
@@ -2114,10 +2114,6 @@ msgstr ""
 "剪切选择的区块并放到剪贴板\n"
 "剪切"
 
-#. Resource IDs: (1314)
-msgid "D&iff"
-msgstr "比较差异(&I)"
-
 #. Resource IDs: (19, 76, 208)
 msgid "Date"
 msgstr "日期"
@@ -3425,6 +3421,18 @@ msgstr ""
 "{20020217T1530Z}\n"
 "{20020217T1530-0500}"
 
+#. Resource IDs: (83)
+msgid ""
+"Invalid revision range!\n"
+"Valid revisions are numbers and HEAD, separated by commas.\n"
+"A range can be specified with a dash.\n"
+"Example: 2-5,7,10,44-70,300-HEAD"
+msgstr ""
+"非法版本范围！\n"
+"合法版本是数字和 HEAD，用逗号隔开。\n"
+"范围用减号指定。\n"
+"例如: 2-5,7,10,44-70,300-HEAD"
+
 #. Resource IDs: (145)
 msgid ""
 "It is not possible to rename a file by changing the case of its name alone.\n"
@@ -3685,13 +3693,17 @@ msgstr "最大"
 msgid "Max. items to keep in the log message history"
 msgstr "日志中保留的最大条目数量"
 
-#. Resource IDs: (141, 276, 65535)
+#. Resource IDs: (109, 110, 111, 276, 278, 65535)
 msgid "Merge"
 msgstr "合并"
 
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
 msgstr "合并 - TortoiseSVN"
+
+#. Resource IDs: (1416)
+msgid "Merge a range of revisions"
+msgstr "合并一个版本范围"
 
 #. Resource IDs: (277)
 msgid "Merge all"
@@ -3705,9 +3717,13 @@ msgstr "合并所有..."
 msgid "Merge depth:"
 msgstr "合并深度:"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (595, 65535)
 msgid "Merge options"
 msgstr "合并选项"
+
+#. Resource IDs: (595)
+msgid "Merge revision range"
+msgstr "合并版本范围"
 
 #. Resource IDs: (114)
 msgid "Merge revision to..."
@@ -3717,9 +3733,13 @@ msgstr "合并版本到..."
 msgid "Merge revisions to..."
 msgstr "合并版本到..."
 
-#. Resource IDs: (1377)
-msgid "Merge settings"
-msgstr "合并设置"
+#. Resource IDs: (1417)
+msgid "Merge two different trees"
+msgstr "合并两个不同的树！"
+
+#. Resource IDs: (595, 65535)
+msgid "Merge type"
+msgstr "合并类型"
 
 #. Resource IDs: (263)
 msgid "Merged"
@@ -4767,6 +4787,10 @@ msgstr "还原"
 msgid "Retry"
 msgstr "重试"
 
+#. Resource IDs: (1423)
+msgid "Reverse merge"
+msgstr "反向合并"
+
 #. Resource IDs: (175)
 msgid "Revert"
 msgstr "还原"
@@ -4829,6 +4853,10 @@ msgstr "版本范围："
 #. Resource IDs: (269, 65535)
 msgid "Revision graph"
 msgstr "版本分支图"
+
+#. Resource IDs: (65535)
+msgid "Revision range to merge"
+msgstr "待合并的版本范围"
 
 #. Resource IDs: (75)
 msgid "Revision: "
@@ -5147,9 +5175,25 @@ msgstr ""
 "选取整份文件\n"
 "全选"
 
+#. Resource IDs: (595)
+msgid "Select the merge options"
+msgstr "选择合并选项"
+
+#. Resource IDs: (595)
+msgid "Select the revisions to merge"
+msgstr "选择合并的版本"
+
+#. Resource IDs: (595)
+msgid "Select the type of merge"
+msgstr "选择合并类型"
+
 #. Resource IDs: (65535)
 msgid "Select the type of repository you want to create:"
 msgstr "选择你要创建的版本库类型："
+
+#. Resource IDs: (595)
+msgid "Select the urls for the tree merge"
+msgstr "为合并树选择 URL"
 
 #. Resource IDs: (78)
 msgid "Select viewer for diff-files"
@@ -5182,10 +5226,6 @@ msgstr "设置"
 #. Resource IDs: (80)
 msgid "Settings - TortoiseSVN"
 msgstr "设置 - TortoiseSVN"
-
-#. Resource IDs: (1132)
-msgid "Sh&ow log"
-msgstr "显示日志(&O)"
 
 #. Resource IDs: (1270)
 msgid "Shell"
@@ -5223,7 +5263,7 @@ msgstr "显示全部版本(&A)"
 msgid "Show &changes"
 msgstr "显示改变(&C)..."
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1132, 1228, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1132, 1228, 1420, 32784)
 msgid "Show &log"
 msgstr "显示日志(&L)"
 
@@ -5411,10 +5451,6 @@ msgstr ""
 "指定在<b>所有</b>工作副本中都不需要使用\n"
 " TortoiseSVN 进行版本控制的目录或文件名称。\n"
 "条目之间请以空格分隔。"
-
-#. Resource IDs: (65535)
-msgid "Specify the revision range which you want to merge:"
-msgstr "指定合并的版本范围："
 
 #. Resource IDs: (376)
 msgid "Split lines"
@@ -5620,10 +5656,6 @@ msgstr "Tab 宽度："
 #, c-format
 msgid "Tagged the working copy to %s"
 msgstr "标记工作副本为 %s"
-
-#. Resource IDs: (65535)
-msgid "Target"
-msgstr "目标"
 
 #. Resource IDs: (65535)
 msgid "Text Status:"
@@ -5882,10 +5914,6 @@ msgstr ""
 msgid "The repository was successfully created."
 msgstr "版本库创建成功。"
 
-#. Resource IDs: (65535)
-msgid "The result of the merge is stored in the working copy at:"
-msgstr "保存合并结果的工作副本路径："
-
 #. Resource IDs: (78)
 msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
@@ -6027,6 +6055,14 @@ msgstr ""
 "这是一个无效路径！\n"
 "正确的路径不能包含“<<>|\"?*:”或以下设备名：\n"
 "com1-com9，lpt1-lpt9，prn，aux，con，nul，clock$"
+
+#. Resource IDs: (594)
+msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
+msgstr "这个方法覆盖了你已经创建了在 Subversion 手册中讨论的特性分支的情况。所有主干修改已经每周合并到此特性分支，现在完成了新特性，你需要将它合并回主干。因为你已经保持特性分支与主干同步，分支和主干的最新版本除了你的分支修改都相同。所以在这种情况下，你可以通过比较分支与主干来合并。"
+
+#. Resource IDs: (594)
+msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
+msgstr "这个方法覆盖了你已经在分支(或主干)提交了版本，要合并这些修改到不同分支的情况。"
 
 #. Resource IDs: (65535)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -6204,6 +6240,10 @@ msgstr "从 %s 开始传输"
 msgid "Transparent &color..."
 msgstr "透明色(&C)..."
 
+#. Resource IDs: (595)
+msgid "Tree merge"
+msgstr "合并树"
+
 #. Resource IDs: (251)
 msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
 msgstr "试试“清理”，如果无效，需要重新检出文件。"
@@ -6227,6 +6267,10 @@ msgstr "URL 历史记录"
 #. Resource IDs: (12)
 msgid "URL of Subversion items"
 msgstr "Subversion 项目 URL"
+
+#. Resource IDs: (65535)
+msgid "URL to merge from"
+msgstr "合并的源 URL"
 
 #. Resource IDs: (144, 11023, 65535)
 msgid "URL:"
@@ -6407,10 +6451,6 @@ msgstr "使用工作副本的 URL 作为默认的来源 URL(&W)"
 msgid "Use Unified Diff from clipboard"
 msgstr "使用剪贴板上的标准差异"
 
-#. Resource IDs: (1073)
-msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
-msgstr "使用“起始：” 的 URL（版本范围可以在上面的日志对话框中选择）"
-
 #. Resource IDs: (1296)
 msgid "Use \"_svn\" instead of \".svn\" directories"
 msgstr "使用“_svn”目录替代“.svn”目录"
@@ -6490,6 +6530,20 @@ msgstr ""
 #. Resource IDs: (251)
 msgid "Use th&is text block"
 msgstr "使用此文本块(&I)"
+
+#. Resource IDs: (594)
+msgid ""
+"Use the log dialog to select the revisions you want to merge, or enter the revisions to merge, separated by commas. A revision range can be specified by a dash.\r\n"
+"\r\n"
+"Example: 4-7,9,11,15-HEAD\r\n"
+"\r\n"
+"To merge all revisions, leave the box empty."
+msgstr ""
+"使用日志对话框选择你要合并的版本，或者输入用逗号隔开的版本。版本范围用减号指定。\r\n"
+"\r\n"
+"例如: 4-7,9,11,15-HEAD\r\n"
+"\r\n"
+"要合并所有版本，就不要填写版本信息。"
 
 #. Resource IDs: (251)
 msgid "Use this &whole file"
@@ -7318,10 +7372,6 @@ msgstr ""
 #. Resource IDs: (245)
 msgid "week"
 msgstr "周"
-
-#. Resource IDs: (65535)
-msgid "which points to the repository at URL:"
-msgstr "对应版本库URL："
 
 #. Resource IDs: (245)
 msgid "year"
