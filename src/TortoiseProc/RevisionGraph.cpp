@@ -1216,7 +1216,8 @@ void CRevisionGraph::FoldTags()
 		for (size_t k = 0, targetsCount = targets.size(); k < targetsCount; ++k)
         {
     		CRevisionEntry * target = targets[k];
-            assert (target->action == CRevisionEntry::addedwithhistory);
+            assert (   (target->action == CRevisionEntry::addedwithhistory)
+                    || (target->action == CRevisionEntry::renamed));
 
             // this copy target will be considered a "tag", 
             // if it is unchanged and its path contains "tags"
