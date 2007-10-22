@@ -175,7 +175,6 @@ void CConflictResolveDlg::OnBnClickedEditconflict()
 void CConflictResolveDlg::OnBnClickedResolved()
 {
 	m_choice = svn_wc_conflict_choose_merged;
-	m_mergedfile = CUnicodeUtils::GetUnicode(m_pConflictDescription->merged_file);
 	EndDialog(IDOK);
 }
 
