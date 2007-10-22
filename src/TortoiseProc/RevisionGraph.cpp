@@ -1151,7 +1151,7 @@ void CRevisionGraph::FindReplacements()
 
 				if (copy->revision == next->revision)
 				{
-					// that's actually looks like a rename
+					// that actually looks like a rename
 
                     if (renameTarget != NULL)
                     {
@@ -1166,7 +1166,7 @@ void CRevisionGraph::FindReplacements()
                         // remember the (potential) rename target
 
                         renameTarget = copy;
-                        renameIndex = 0;
+                        renameIndex = k-1;
                     }
                 }
             }
