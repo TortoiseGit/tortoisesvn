@@ -39,8 +39,8 @@ CMergeWizard::CMergeWizard(UINT nIDCaption, CWnd* pParentWnd, UINT iSelectPage)
 	AddPage(&revrange);
 	AddPage(&options);
 
-	m_psh.dwFlags |= PSH_WIZARD97|PSH_WATERMARK|PSH_HEADER;
-	m_psh.pszbmHeader = MAKEINTRESOURCE(IDB_LOGOFLIPPED);
+	m_psh.dwFlags |= PSH_WIZARD97|PSP_HASHELP|PSH_HEADER;
+	m_psh.pszbmHeader = MAKEINTRESOURCE(IDB_MERGEWIZARDTITLE);
 
 	m_psh.hInstance = AfxGetResourceHandle();
 }
