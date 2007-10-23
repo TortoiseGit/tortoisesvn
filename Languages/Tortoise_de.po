@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-10-19 11:00+0100\n"
+"PO-Revision-Date: 2007-10-23 16:02+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -352,10 +352,6 @@ msgstr "&Vergleich"
 msgid "&Diff with URL"
 msgstr "&Vergleich mit URL"
 
-#. Resource IDs: (1179)
-msgid "&Dry run"
-msgstr "&Trockenlauf"
-
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
 msgstr "&Bearbeiten"
@@ -515,7 +511,7 @@ msgstr "&Laden..."
 
 #. Resource IDs: (1)
 msgid "&Merge"
-msgstr "&Zusammenführen"
+msgstr "&Start"
 
 #. Resource IDs: (32786)
 msgid "&Merge paths"
@@ -678,6 +674,10 @@ msgstr "&Symbolansicht"
 msgid "&Tab size:"
 msgstr "&Tab Größe:"
 
+#. Resource IDs: (1382)
+msgid "&Test merge"
+msgstr "&Trockenlauf"
+
 #. Resource IDs: (1222)
 msgid "&Timeout in seconds to stop the auto-completion parsing"
 msgstr "&Wartezeit für Aufbau der Wortliste aus Quelldateien (sek)"
@@ -722,7 +722,7 @@ msgstr "&Rückgängig"
 msgid "&Undo\tCtrl+Z"
 msgstr "&Rückgängig\tStrg+Z"
 
-#. Resource IDs: (274, 1180, 32785)
+#. Resource IDs: (274, 32785)
 msgid "&Unified diff"
 msgstr "&Standard-Diff"
 
@@ -1382,7 +1382,7 @@ msgstr ""
 
 #. Resource IDs: (2, 73, 99, 563)
 msgid "Cancel"
-msgstr "Abbrechen"
+msgstr "&Abbrechen"
 
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
@@ -2073,10 +2073,6 @@ msgid ""
 msgstr ""
 "Auswahl in die Zwischenablage verschieben\n"
 "Ausschneiden"
-
-#. Resource IDs: (1314)
-msgid "D&iff"
-msgstr "&Vergleich"
 
 #. Resource IDs: (19, 76, 208)
 msgid "Date"
@@ -2773,6 +2769,14 @@ msgstr "Sammle Informationen. Bitte warten..."
 msgid "General"
 msgstr "Allgemein"
 
+#. Resource IDs: (212)
+msgid "General::Colors"
+msgstr "Allgemein::Farben"
+
+#. Resource IDs: (195)
+msgid "General::Context Menu"
+msgstr "Allgemein::Kontextmenü"
+
 #. Resource IDs: (196)
 msgid "General::Dialogs 1"
 msgstr "Allgemein::Dialoge 1"
@@ -3063,9 +3067,17 @@ msgstr "ID:57643:V C +Z"
 msgid "ID:57665:V C +Q"
 msgstr "ID:57665:V C +Q"
 
+#. Resource IDs: (106)
+msgid "Icon Overlays"
+msgstr "Überlagerte Symbole"
+
 #. Resource IDs: (65535)
 msgid "Icon Overlays / Status Columns"
 msgstr "Überlagerte Symbole / Statusspalten"
+
+#. Resource IDs: (184)
+msgid "Icon Overlays::Icon Set"
+msgstr "Überlagerte Symbole::Auswahl"
 
 #. Resource IDs: (65535)
 msgid "Icons/Design/Code:     Luebbe Onken"
@@ -3403,6 +3415,18 @@ msgstr ""
 "{20020217T1530Z}\n"
 "{20020217T1530-0500}"
 
+#. Resource IDs: (83)
+msgid ""
+"Invalid revision range!\n"
+"Valid revisions are numbers and HEAD, separated by commas.\n"
+"A range can be specified with a dash.\n"
+"Example: 2-5,7,10,44-70,300-HEAD"
+msgstr ""
+"Ungültiger Revisionsbereich!\n"
+"Gültige Revisionen sind durch Kommata getrenne Zahlen und HEAD.\n"
+"Ein Bereich wird durch einen Bindestrich angegeben.\n"
+"Beispiel: 2-5,7,10,44-70,300-HEAD"
+
 #. Resource IDs: (145)
 msgid ""
 "It is not possible to rename a file by changing the case of its name alone.\n"
@@ -3600,22 +3624,6 @@ msgstr "Logmeldungen (Eingabedialog)"
 msgid "Log messages (Show log dialog)"
 msgstr "Logmeldungen (Zeige Log)"
 
-#. Resource IDs: (195)
-msgid "Look and Feel"
-msgstr "Anzeige"
-
-#. Resource IDs: (212)
-msgid "Look and Feel::Colors"
-msgstr "Anzeige::Farben"
-
-#. Resource IDs: (106)
-msgid "Look and Feel::Icon Overlays"
-msgstr "Anzeige::Überlagerte Symbole"
-
-#. Resource IDs: (184)
-msgid "Look and Feel::Icon Set"
-msgstr "Anzeige::Symbolauswahl"
-
 #. Resource IDs: (238)
 #, c-format
 msgid "Lowest shown revision: %ld - Highest shown revision: %ld"
@@ -3666,13 +3674,17 @@ msgstr "Maximum"
 msgid "Max. items to keep in the log message history"
 msgstr "Maximale Anzahl der zu merkenden Log-Einträge"
 
-#. Resource IDs: (141, 276, 65535)
+#. Resource IDs: (109, 110, 111, 276, 278, 65535)
 msgid "Merge"
 msgstr "Zusammenführen"
 
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
 msgstr "Zusammenführen - TortoiseSVN"
+
+#. Resource IDs: (1416)
+msgid "Merge a range of revisions"
+msgstr "Einen Revisionsbereich"
 
 #. Resource IDs: (277)
 msgid "Merge all"
@@ -3686,9 +3698,13 @@ msgstr "Alle zusammenführen"
 msgid "Merge depth:"
 msgstr "Rekursionstiefe:"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (595, 65535)
 msgid "Merge options"
 msgstr "Optionen"
+
+#. Resource IDs: (595)
+msgid "Merge revision range"
+msgstr "Revisionsbereich"
 
 #. Resource IDs: (114)
 msgid "Merge revision to..."
@@ -3698,9 +3714,13 @@ msgstr "Revision zusammenführen in..."
 msgid "Merge revisions to..."
 msgstr "Revisionen zusammenführen in..."
 
-#. Resource IDs: (1377)
-msgid "Merge settings"
-msgstr "Einstellungen"
+#. Resource IDs: (1417)
+msgid "Merge two different trees"
+msgstr "Zwei verschiedene Bäume"
+
+#. Resource IDs: (595, 65535)
+msgid "Merge type"
+msgstr "Aktion"
 
 #. Resource IDs: (263)
 msgid "Merged"
@@ -3725,11 +3745,6 @@ msgstr "Zusammenführen"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s from revision %s to %s into %s, %s%s"
-msgstr "Zusammenführen %s von Revision %s bis %s in %s, %s%s"
-
-#. Resource IDs: (229)
-#, c-format
 msgid "Merging %s into %s, %s"
 msgstr "%s in %s, %s zusammenführen"
 
@@ -3751,6 +3766,11 @@ msgstr "Von r%ld bis r%ld zusammenführen"
 #. Resource IDs: (83)
 msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
 msgstr "Zusammenführen erfordert unterschiedliche Revisionen oder URLs in 'Von:' und 'Bis:'"
+
+#. Resource IDs: (229)
+#, c-format
+msgid "Merging revisions %s of %s into %s, %s%s"
+msgstr "Zusammenführen %s von %s in %s, %s%s"
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
@@ -4023,7 +4043,7 @@ msgstr "Anzahl Wochen:"
 
 #. Resource IDs: (1, 73)
 msgid "OK"
-msgstr "OK"
+msgstr "&OK"
 
 #. Resource IDs: (3697)
 msgid "OVR"
@@ -4064,6 +4084,10 @@ msgid ""
 msgstr ""
 "Nur Zahlen (ggf. durch Kommata separiert)\n"
 "sind zugelassen!"
+
+#. Resource IDs: (1424)
+msgid "Only record the merge"
+msgstr "Zusammenführen nur aufzeichnen"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -4755,6 +4779,10 @@ msgstr "Zurückgesetzt"
 msgid "Retry"
 msgstr "Wiederholen"
 
+#. Resource IDs: (1423)
+msgid "Reverse merge"
+msgstr "Rückwärts zusammenführen"
+
 #. Resource IDs: (175)
 msgid "Revert"
 msgstr "Änderungen rückgängig"
@@ -4817,6 +4845,10 @@ msgstr "Revisionsbereich"
 #. Resource IDs: (269, 65535)
 msgid "Revision graph"
 msgstr "Revisionsgraph"
+
+#. Resource IDs: (65535)
+msgid "Revision range to merge"
+msgstr "Revisionsbereich"
 
 #. Resource IDs: (75)
 msgid "Revision: "
@@ -5135,9 +5167,25 @@ msgstr ""
 "Markiert das gesamte Dokument\n"
 "Alles markieren"
 
+#. Resource IDs: (595)
+msgid "Select the merge options"
+msgstr "Wählen sie die Einstellungen"
+
+#. Resource IDs: (595)
+msgid "Select the revisions to merge"
+msgstr "Wählen sie die Revisionen"
+
+#. Resource IDs: (595)
+msgid "Select the type of merge"
+msgstr "Was wollen Sie zusammenführen"
+
 #. Resource IDs: (65535)
 msgid "Select the type of repository you want to create:"
 msgstr "Wählen Sie die Art des Projektarchivs, das Sie erstellen möchten:"
+
+#. Resource IDs: (595)
+msgid "Select the urls for the tree merge"
+msgstr "Wählen Sie die URLs"
 
 #. Resource IDs: (78)
 msgid "Select viewer for diff-files"
@@ -5170,10 +5218,6 @@ msgstr "Einstellungen"
 #. Resource IDs: (80)
 msgid "Settings - TortoiseSVN"
 msgstr "Einstellungen - TortoiseSVN"
-
-#. Resource IDs: (1132)
-msgid "Sh&ow log"
-msgstr "Zeige &Log"
 
 #. Resource IDs: (1270)
 msgid "Shell"
@@ -5211,7 +5255,7 @@ msgstr "Zeige &alle Revisionen"
 msgid "Show &changes"
 msgstr "Änderungen &zeigen"
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1132, 1228, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1132, 1228, 1420, 32784)
 msgid "Show &log"
 msgstr "Zeige &Log"
 
@@ -5400,10 +5444,6 @@ msgstr ""
 "Projektarchiven von der Versionskontrolle ausschließen soll.\n"
 "Trennen Sie die Muster mit einem Leerzeichen.\n"
 "Beispiel: *.bak *.[Tt]mp"
-
-#. Resource IDs: (65535)
-msgid "Specify the revision range which you want to merge:"
-msgstr "Geben Sie den Revisionsbereich ein, den Sie zusammenführen möchten:"
 
 #. Resource IDs: (376)
 msgid "Split lines"
@@ -5610,10 +5650,6 @@ msgstr "Tab Größe:"
 #, c-format
 msgid "Tagged the working copy to %s"
 msgstr "Arbeitskopie als %s markiert"
-
-#. Resource IDs: (65535)
-msgid "Target"
-msgstr "Ziel"
 
 #. Resource IDs: (65535)
 msgid "Text Status:"
@@ -5873,10 +5909,6 @@ msgstr ""
 msgid "The repository was successfully created."
 msgstr "Das Projektarchiv wurde erfolgreich erstellt."
 
-#. Resource IDs: (65535)
-msgid "The result of the merge is stored in the working copy at:"
-msgstr "Das Ergebnis des Zusammenführens findet sich in der Arbeitskopie in:"
-
 #. Resource IDs: (78)
 msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
@@ -6025,6 +6057,14 @@ msgstr ""
 "Dies ist kein gültiger Pfad!\n"
 "Eine gültige Pfadangabe unter Windows darf keine '<<>|\"*:' oder einen der folgenden Gerätenamen enthalten:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
+#. Resource IDs: (594)
+msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
+msgstr "Diese Methode deckt den Fall ab, dass Sie einen Entwicklungszweig, wie im Subversion Buch beschrieben, angelegt haben. Sämtliche Änderungen im Stamm sind Woche für Woche in den Zweig übertragen worden und nun ist die Entwicklung dort abgeschlossen und sie wollen die Neuentwicklung in den Stamm zurückführen. Da Sie den Entwicklungszweig mit dem Stamm synchron gehalten haben, sind die jeweils neuesten Versionen, bis auf die Neuentwicklung, identisch. In diesem Spezialfall führen Sie die Änderungen durch einen Vergleich des Zweiges mit dem Stamm zusammen."
+
+#. Resource IDs: (594)
+msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
+msgstr "Diese Methode deckt den Fall ab, dass Sie Änderungen an einem Zweig (oder dem Stamm) vorgenommen haben und diese Änderungen in einen anderen Zweig übertragen wollen."
 
 #. Resource IDs: (65535)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -6203,6 +6243,10 @@ msgstr "Übertragung bei %s"
 msgid "Transparent &color..."
 msgstr "&Transparente Farbe..."
 
+#. Resource IDs: (595)
+msgid "Tree merge"
+msgstr "Bäume zusammenführen"
+
 #. Resource IDs: (251)
 msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
 msgstr "Versuchen Sie ein 'Aufräumen'. Falls dies nicht hilft, müssen Sie von neuem Auschecken."
@@ -6226,6 +6270,10 @@ msgstr "URL-Historie"
 #. Resource IDs: (12)
 msgid "URL of Subversion items"
 msgstr "URL von Subversion Objekten"
+
+#. Resource IDs: (65535)
+msgid "URL to merge from"
+msgstr "Zusammenführen aus URL"
 
 #. Resource IDs: (144, 11023, 65535)
 msgid "URL:"
@@ -6407,10 +6455,6 @@ msgstr "Nutze die URL der &Arbeitskopie als 'Von:' URL"
 msgid "Use Unified Diff from clipboard"
 msgstr "Standard Diff aus de Zwischenablage verwenden"
 
-#. Resource IDs: (1073)
-msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
-msgstr "Verwende 'Von:' URL (Der Revisionsbereich wird im oberen Log-Dialog gewählt)"
-
 #. Resource IDs: (1296)
 msgid "Use \"_svn\" instead of \".svn\" directories"
 msgstr "Verwende '_svn' anstatt '.svn' Verzeichnissen"
@@ -6490,6 +6534,20 @@ msgstr ""
 #. Resource IDs: (251)
 msgid "Use th&is text block"
 msgstr "Verwende &diesen Textblock"
+
+#. Resource IDs: (594)
+msgid ""
+"Use the log dialog to select the revisions you want to merge, or enter the revisions to merge, separated by commas. A revision range can be specified by a dash.\r\n"
+"\r\n"
+"Example: 4-7,9,11,15-HEAD\r\n"
+"\r\n"
+"To merge all revisions, leave the box empty."
+msgstr ""
+"Wählen Sie den gewünschten Revisionsbereich im Log-Dialog aus oder geben Sie die Revisionen, durch Kommata getrennt, ein. Ein Revisionsbereich wird durch einen Bindestrich angegeben.\r\n"
+"\r\n"
+"Beispiel: 4-7,9,11,15-HEAD\r\n"
+"\r\n"
+"Lassen Sie das Eingabefeld leer, um alle Revisionen zusammenzuführen."
 
 #. Resource IDs: (251)
 msgid "Use this &whole file"
@@ -7326,10 +7384,6 @@ msgstr ""
 #. Resource IDs: (245)
 msgid "week"
 msgstr "Woche"
-
-#. Resource IDs: (65535)
-msgid "which points to the repository at URL:"
-msgstr "die auf folgendes Projektarchiv zeigt:"
 
 #. Resource IDs: (245)
 msgid "year"
