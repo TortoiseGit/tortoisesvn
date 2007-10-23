@@ -2718,7 +2718,10 @@ void CRepositoryBrowser::SaveColumnWidths(bool bSaveToRegistry /* = false */)
 {
 	CRegString regColWidth(_T("Software\\TortoiseSVN\\RepoBrowserColumnWidth"));
 	int maxcol = ((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1;
-	for (int col = 0; col <= maxcol; col++)
+	// first clear the width array
+	for (int col = 0; col < 7; ++col)
+		m_arColumnWidths[col] = 0;
+	for (int col = 0; col <= maxcol; ++col)
 	{
 		m_arColumnWidths[col] = m_RepoList.GetColumnWidth(col);
 		if (m_arColumnWidths[col] == m_arColumnAutoWidths[col])
