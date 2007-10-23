@@ -255,12 +255,16 @@
        preselected. (Tobias Schäfer)
 - CHG: The second context menu item for links now only appears if the
        destination is in a working copy. (Tobias Schäfer)
+- CHG: Context menu (log, merge) available also for deletion nodes in 
+       revision dialog (Stefan Fuhrmann)
 - BUG: TortoiseMerge didn't always ask to save the modifications first before
        the user did something which would lose those modifications
        (e.g. open new files). (Stefan)
 - BUG: "Create Patch" could include two copies of the same file. See
        issue #241 for details. (Stefan)
 - BUG: "Next 100" in log dialog now adds another 100 entries, not just 99. 
+       (Stefan Fuhrmann)
+- BUG: Tooltip flicker in revision dialog for very long log messages.
        (Stefan Fuhrmann)
 
 Version 1.4.6
