@@ -1256,11 +1256,11 @@ void CSciEdit::StyleURLs(int startstylepos, int endstylepos) {
 	textrange.chrg.cpMin = startstylepos;
 	textrange.chrg.cpMax = endstylepos;
 	Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
-	CString msg(textbuffer);
+    CString msg = CUnicodeUtils::GetUnicode(textbuffer);
 	delete textbuffer;
 
 	int starturl = -1;
-	for(int i = 0; i <= len; ++i)
+	for(int i = 0; i <= msg.GetLength(); ++i)
 	{
 		if ((i < len) && IsValidURLChar(msg[i]))
 		{
