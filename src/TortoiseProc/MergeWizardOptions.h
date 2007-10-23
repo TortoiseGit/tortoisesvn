@@ -36,7 +36,7 @@ public:
 protected:
 	virtual void		DoDataExchange(CDataExchange* pDX);
 	virtual BOOL		OnInitDialog();
-	virtual LRESULT		OnWizardBack();
+	virtual LRESULT	OnWizardBack();
 	virtual BOOL		OnWizardFinish();
 	virtual BOOL		OnSetActive();
 	afx_msg void		OnBnClickedDryrun();

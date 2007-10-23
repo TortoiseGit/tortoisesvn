@@ -314,6 +314,10 @@ BOOL CMergeWizardTree::OnSetActive()
 {
 	CPropertySheet* psheet = (CPropertySheet*) GetParent();   
 	psheet->SetWizardButtons(PSWIZB_NEXT|PSWIZB_BACK);
+	psheet->GetDlgItem(ID_WIZBACK)->SetWindowText(CString(MAKEINTRESOURCE(IDS_PROPPAGE_BACK)));
+	psheet->GetDlgItem(ID_WIZNEXT)->SetWindowText(CString(MAKEINTRESOURCE(IDS_PROPPAGE_NEXT)));
+	psheet->GetDlgItem(IDHELP)->SetWindowText(CString(MAKEINTRESOURCE(IDS_PROPPAGE_HELP)));
+	psheet->GetDlgItem(IDCANCEL)->SetWindowText(CString(MAKEINTRESOURCE(IDS_PROPPAGE_CANCEL)));
 
 	return CPropertyPage::OnSetActive();
 }

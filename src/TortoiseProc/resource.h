@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\SVN\TortoiseSVN\src\Resources\TortoiseProcENG.rc
+// Used by d:\Development\Svn\TortoiseSVN\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MAINFRAME                   1
 #define IDC_USELOCAL                    3
@@ -705,7 +705,6 @@
 #define IDC_REVISION_RANGE              1421
 #define IDC_REVRANGELABEL               1422
 #define IDC_REVERSEMERGE                1423
-#define IDC_CHECK1                      1424
 #define IDC_RECORDONLY                  1424
 #define IDS_CHECKOUT_TT_DIR             1500
 #define IDS_CHECKOUT_EXPORTDIR          1501
@@ -1139,6 +1138,10 @@
 #define IDS_FILEDIFF_SWITCHLEFTRIGHT_TT 5190
 #define IDS_SVNDIFF_ONEURL              5200
 #define IDS_SVNDIFF_TWOURLS             5201
+#define IDS_PROPPAGE_BACK               5300
+#define IDS_PROPPAGE_NEXT               5301
+#define IDS_PROPPAGE_CANCEL             5302
+#define IDS_PROPPAGE_HELP               5303
 #define IDS_SVN_PROGRESS_SPEED          5700
 #define IDS_SVN_PROGRESS_TOTALTRANSFERRED 5701
 #define IDS_SVN_PROGRESS_TOTALMBTRANSFERRED 5702

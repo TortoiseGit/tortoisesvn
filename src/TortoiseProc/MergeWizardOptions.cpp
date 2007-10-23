@@ -128,6 +128,10 @@ BOOL CMergeWizardOptions::OnSetActive()
 	CPropertySheet* psheet = (CPropertySheet*) GetParent();   
 	psheet->SetWizardButtons(PSWIZB_BACK|PSWIZB_FINISH);
 	psheet->GetDlgItem(ID_WIZFINISH)->SetWindowText(CString(MAKEINTRESOURCE(IDS_MERGE_MERGE)));
+	psheet->GetDlgItem(ID_WIZBACK)->SetWindowText(CString(MAKEINTRESOURCE(IDS_PROPPAGE_BACK)));
+	psheet->GetDlgItem(ID_WIZNEXT)->SetWindowText(CString(MAKEINTRESOURCE(IDS_PROPPAGE_NEXT)));
+	psheet->GetDlgItem(IDHELP)->SetWindowText(CString(MAKEINTRESOURCE(IDS_PROPPAGE_HELP)));
+	psheet->GetDlgItem(IDCANCEL)->SetWindowText(CString(MAKEINTRESOURCE(IDS_PROPPAGE_CANCEL)));
 	return CPropertyPage::OnSetActive();
 }
 
