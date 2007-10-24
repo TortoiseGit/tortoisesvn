@@ -1,190 +1,166 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect2 SYSTEM "../../../dtd/dblite.dtd">
-<sect2 id="tsvn-dug-settings-look-feel">
-	<title>Look and Feel Settings</title>
-	<?dbhh topicname="HIDD_SETTINGSLOOKANDFEEL"?>
+<sect2 id="tsvn-dug-settings-overlay">
+	<title>Icon Overlay Settings</title>
+	<?dbhh topicname="HIDD_SETTINGSOVERLAY"?>
 	<para>
-		<figure id="tsvn-dug-settings-dia-context">
+		<figure id="tsvn-dug-settings-dia-overlay">
 			<title>The Settings Dialog, Look and Feel Page</title>
-			<graphic fileref="../images/SettingsContext.png"/>
+			<graphic fileref="../images/SettingsOverlay.png"/>
 		</figure>
-		This page allows you to specify which of the TortoiseSVN context menu
-		entries will show up in the main context menu, and which will appear
-		in the TortoiseSVN submenu. By default most items are unchecked and
-		appear in the submenu.
+		This page allows you to choose the items for which TortoiseSVN will
+		display icon overlays. Network drives can be very slow, so by default
+		icons are not shown for working copies located on network shares.
+		You can even disable all icon overlays, but where's the fun in that?
 	</para>
 	<para>
-		There is a special case for <guilabel>Get Lock</guilabel>. You can of
-		course promote it to the top level using the list above, but as most
-		files don't need locking this just adds clutter. However, a file with
-		the <literal>svn:needs-lock</literal> property needs this action every
-		time it is edited, so in that case it is very useful to have at the top
-		level. Checking the box here means that when a file is selected which has
-		the <literal>svn:needs-lock</literal> property set,
-		<guilabel>Get Lock</guilabel> will always appear at the top level.
+		USB Flash drives appear to be a special case in that the drive type
+		is identified by the device itself. Some appear as fixed drives,
+		and some as removable drives.
 	</para>
-	<sect3 id="tsvn-dug-settings-overlay">
-		<title>Icon Overlay Settings</title>
-		<?dbhh topicname="HIDD_SETTINGSOVERLAY"?>
-		<para>
-			<figure id="tsvn-dug-settings-dia-overlay">
-				<title>The Settings Dialog, Look and Feel Page</title>
-				<graphic fileref="../images/SettingsOverlay.png"/>
-			</figure>
-			This page allows you to choose the items for which TortoiseSVN will
-			display icon overlays. Network drives can be very slow, so by default
-			icons are not shown for working copies located on network shares.
-			You can even disable all icon overlays, but where's the fun in that?
-		</para>
-		<para>
-			USB Flash drives appear to be a special case in that the drive type
-			is identified by the device itself. Some appear as fixed drives,
-			and some as removable drives.
-		</para>
-		<para>
-			By default, overlay icons and context menus will appear in all open/save
-			dialogs as well as in Windows Explorer. If you want them to appear
-			<emphasis>only</emphasis> in Windows Explorer, check the
-			<guilabel>Show overlays and context menu only in explorer</guilabel> box.
-		</para>
-		<para>
-			Since it takes quite a while to fetch the status of a working copy,
-			TortoiseSVN uses a cache to store the status so the explorer
-			doesn't get hogged too much when showing the overlays.
-			You can choose which type of cache TortoiseSVN should use according
-			to your system and working copy size here:
-			<variablelist>
-				<varlistentry>
-					<term>Default</term>
-					<listitem>
-						<para>
-							Caches all status information in a separate process
-							(<filename>TSVNCache.exe</filename>). That process
-							watches all drives for changes and fetches the status
-							again if files inside a working copy get modified.
-							The process runs with the least possible priority so
-							other programs don't get hogged because of it. That 
-							also means that the status information is not
-							<emphasis>real time</emphasis> but it can take a few
-							seconds for the overlays to change.
-						</para>
-						<para>
-							Advantage: the overlays show the status recursively,
-							i.e. if a file deep inside a working copy is modified,
-							all folders up to the working copy root will also
-							show the modified overlay. And since the process can
-							send notifications to the shell, the overlays on the left
-							tree view usually change too.
-						</para>
-						<para>
-							Disadvantage: the process runs constantly, even if you're not 
-							working on your projects. It also uses around 10-50 MB of RAM 
-							depending on number and size of your working copies.
-						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>Shell</term>
-					<listitem>
-						<para>
-							Caching is done directly inside the shell extension
-							dll, but only for the currently visible folder.
-							Each time you navigate to another folder, the status
-							information is fetched again.
-						</para>
-						<para>
-							Advantage: needs only very little memory (around 1 MB of RAM)
-							and can show the status in <emphasis>real time</emphasis>.
-						</para>
-						<para>
-							Disadvantage: Since only one folder is cached, the overlays
-							don't show the status recursively. For big working copies,
-							it can take more time to show a folder in explorer than
-							with the default cache. Also the mime-type column is not
-							available.
-						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>None</term>
-					<listitem>
-						<para>
-							With this setting, the TortoiseSVN does not fetch the status
-							at all in Explorer. Because of that, files don't get an overlay
-							and folders only get a 'normal' overlay if they're versioned.
-							No other overlays are shown, and no extra columns are available
-							either.
-						</para>
-						<para>
-							Advantage: uses absolutely no additional memory and does
-							not slow down the Explorer at all while browsing.
-						</para>
-						<para>
-							Disadvantage: Status information of files and folders is not
-							shown in Explorer. To see if your working copies are modified,
-							you have to use the "Check for modifications" dialog.
-						</para>
-					</listitem>
-				</varlistentry>
-			</variablelist>
-		</para>
-		<para>
-			If you select the default option, you can also choose to mark folders as
-			modified if they contain unversioned items. This could be useful for
-			reminding you that you have created new files which are not yet versioned.
-		</para>
-		<para>
-			The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN
-			those paths for which it should <emphasis>not</emphasis> show icon
-			overlays and status columns.
-			This is useful if you have some very big working copies containing
-			only libraries which you won't change at all and therefore don't
-			need the overlays. For example:
-		</para>
-		<para>
-			<filename>f:\development\SVN\Subversion</filename> will disable
-			the overlays <emphasis>only</emphasis> on that specific folder. You
-			still can see the overlays on all files and folder inside that folder.
-		</para>
-		<para>
-			<filename>f:\development\SVN\Subversion*</filename> will disable the
-			overlays on <emphasis>all</emphasis> files and folders whose path
-			starts with <filename>f:\development\SVN\Subversion</filename>. That
-			means you won't see overlays for any files and folders below that
-			path.
-		</para>
-		<para>
-			The same applies to the <guilabel>Include Paths</guilabel>. Except that
-			for those paths the overlays are shown even if the overlays are disabled
-			for that specific drive type, or by an exclude path specified above.
-		</para>
-		<para>
-			TSVNCache.exe also uses these paths to restrict its scanning. If you
-			want it to look only in particular folders, disable all drive types
-			and include only the folders you specifically want to be scanned.
-		</para>
-		<para>
-			Sometimes you will exclude areas that contain working copies,
-			which saves TSVNCache from scanning and monitoring for changes,
-			but you still want a visual indication that such folders are versioned.
-			The <guilabel>Show excluded folders as 'normal'</guilabel> checkbox
-			allows you to do this. With this option, versioned folders in any
-			excluded area (drive type not checked, or specifically excluded)
-			will show up as normal and up-to-date, with a green check
-			mark. This reminds you that you are looking at a working copy, even
-			though the folder overlays may not be correct. Files do not get an
-			overlay at all. Note that the context menus still work, even though
-			the overlays are not shown.
-		</para>
-		<para>
-			As a special exception to this, drives <literal>A:</literal>
-			and <literal>B:</literal> are never considered for the
-			<guilabel>Show excluded folders as 'normal'</guilabel> option.
-			This is because Windows is forced to look on the drive, which can
-			result in a delay of several seconds when starting Explorer, even
-			if your PC does have a floppy drive.
-		</para>
-	</sect3>
+	<para>
+		By default, overlay icons and context menus will appear in all open/save
+		dialogs as well as in Windows Explorer. If you want them to appear
+		<emphasis>only</emphasis> in Windows Explorer, check the
+		<guilabel>Show overlays and context menu only in explorer</guilabel> box.
+	</para>
+	<para>
+		Since it takes quite a while to fetch the status of a working copy,
+		TortoiseSVN uses a cache to store the status so the explorer
+		doesn't get hogged too much when showing the overlays.
+		You can choose which type of cache TortoiseSVN should use according
+		to your system and working copy size here:
+		<variablelist>
+			<varlistentry>
+				<term>Default</term>
+				<listitem>
+					<para>
+						Caches all status information in a separate process
+						(<filename>TSVNCache.exe</filename>). That process
+						watches all drives for changes and fetches the status
+						again if files inside a working copy get modified.
+						The process runs with the least possible priority so
+						other programs don't get hogged because of it. That 
+						also means that the status information is not
+						<emphasis>real time</emphasis> but it can take a few
+						seconds for the overlays to change.
+					</para>
+					<para>
+						Advantage: the overlays show the status recursively,
+						i.e. if a file deep inside a working copy is modified,
+						all folders up to the working copy root will also
+						show the modified overlay. And since the process can
+						send notifications to the shell, the overlays on the left
+						tree view usually change too.
+					</para>
+					<para>
+						Disadvantage: the process runs constantly, even if you're not 
+						working on your projects. It also uses around 10-50 MB of RAM 
+						depending on number and size of your working copies.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Shell</term>
+				<listitem>
+					<para>
+						Caching is done directly inside the shell extension
+						dll, but only for the currently visible folder.
+						Each time you navigate to another folder, the status
+						information is fetched again.
+					</para>
+					<para>
+						Advantage: needs only very little memory (around 1 MB of RAM)
+						and can show the status in <emphasis>real time</emphasis>.
+					</para>
+					<para>
+						Disadvantage: Since only one folder is cached, the overlays
+						don't show the status recursively. For big working copies,
+						it can take more time to show a folder in explorer than
+						with the default cache. Also the mime-type column is not
+						available.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>None</term>
+				<listitem>
+					<para>
+						With this setting, the TortoiseSVN does not fetch the status
+						at all in Explorer. Because of that, files don't get an overlay
+						and folders only get a 'normal' overlay if they're versioned.
+						No other overlays are shown, and no extra columns are available
+						either.
+					</para>
+					<para>
+						Advantage: uses absolutely no additional memory and does
+						not slow down the Explorer at all while browsing.
+					</para>
+					<para>
+						Disadvantage: Status information of files and folders is not
+						shown in Explorer. To see if your working copies are modified,
+						you have to use the "Check for modifications" dialog.
+					</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+	</para>
+	<para>
+		If you select the default option, you can also choose to mark folders as
+		modified if they contain unversioned items. This could be useful for
+		reminding you that you have created new files which are not yet versioned.
+	</para>
+	<para>
+		The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN
+		those paths for which it should <emphasis>not</emphasis> show icon
+		overlays and status columns.
+		This is useful if you have some very big working copies containing
+		only libraries which you won't change at all and therefore don't
+		need the overlays. For example:
+	</para>
+	<para>
+		<filename>f:\development\SVN\Subversion</filename> will disable
+		the overlays <emphasis>only</emphasis> on that specific folder. You
+		still can see the overlays on all files and folder inside that folder.
+	</para>
+	<para>
+		<filename>f:\development\SVN\Subversion*</filename> will disable the
+		overlays on <emphasis>all</emphasis> files and folders whose path
+		starts with <filename>f:\development\SVN\Subversion</filename>. That
+		means you won't see overlays for any files and folders below that
+		path.
+	</para>
+	<para>
+		The same applies to the <guilabel>Include Paths</guilabel>. Except that
+		for those paths the overlays are shown even if the overlays are disabled
+		for that specific drive type, or by an exclude path specified above.
+	</para>
+	<para>
+		TSVNCache.exe also uses these paths to restrict its scanning. If you
+		want it to look only in particular folders, disable all drive types
+		and include only the folders you specifically want to be scanned.
+	</para>
+	<para>
+		Sometimes you will exclude areas that contain working copies,
+		which saves TSVNCache from scanning and monitoring for changes,
+		but you still want a visual indication that such folders are versioned.
+		The <guilabel>Show excluded folders as 'normal'</guilabel> checkbox
+		allows you to do this. With this option, versioned folders in any
+		excluded area (drive type not checked, or specifically excluded)
+		will show up as normal and up-to-date, with a green check
+		mark. This reminds you that you are looking at a working copy, even
+		though the folder overlays may not be correct. Files do not get an
+		overlay at all. Note that the context menus still work, even though
+		the overlays are not shown.
+	</para>
+	<para>
+		As a special exception to this, drives <literal>A:</literal>
+		and <literal>B:</literal> are never considered for the
+		<guilabel>Show excluded folders as 'normal'</guilabel> option.
+		This is because Windows is forced to look on the drive, which can
+		result in a delay of several seconds when starting Explorer, even
+		if your PC does have a floppy drive.
+	</para>
 	<sect3 id="tsvn-dug-settings-icon-set">
 		<title>Icon Set Selection</title>
 		<?dbhh topicname="HIDD_OVERLAYICONS"?>
@@ -197,380 +173,5 @@
 			Note that if you change overlay set, you may have to restart
 			your computer for the changes to take effect.
 		</para>
-	</sect3>
-	<sect3 id="tsvn-dug-settings-dialogs">
-		<title>TortoiseSVN Dialog Settings 1</title>
-		<?dbhh topicname="HIDD_SETTINGSDIALOGS"?>
-		<para>
-			<figure id="tsvn-dug-settings-dia-dialogs">
-				<title>The Settings Dialog, Dialogs 1 Page</title>
-				<graphic fileref="../images/SettingsDialog.png"/>
-			</figure>
-			This dialog allows you to configure some of TortoiseSVN's
-			dialogs the way you like them.
-		</para>
-		<variablelist>
-			<varlistentry>
-				<term>Default number of log messages</term>
-				<listitem>
-					<para>
-						Limits the number of log messages that TortoiseSVN
-						fetches when you first select
-						<menuchoice>
-							<guimenu>TortoiseSVN</guimenu>
-							<guimenuitem>Show Log</guimenuitem>
-						</menuchoice>
-						Useful for slow server connections. You can always use
-						<guibutton>Get All</guibutton> or
-						<guibutton>Next 100</guibutton> to get more messages.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Font for log messages</term>
-				<listitem>
-					<para>
-						Selects the font face and size used to display the log
-						message itself in the middle pane of the Revision Log
-						dialog, and when composing log messages in the Commit
-						dialog.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Short date / time format in log messages</term>
-				<listitem>
-					<para>
-						If the standard long messages use up too much 
-						space on your screen use the short format.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Cache log messages</term>
-				<listitem>
-					<para>
-						Fetching log messages can take a long time on some repositories,
-						depending on how good the connection is, server load, etc.
-						TortoiseSVN has the facility to cache log messages locally to
-						avoid the need to fetch them from the server. The cache is filled
-						in as part of the normal log message fetch, so there is no need
-						to take any other action.
-					</para>
-					<para>
-						You should keep in mind that log messages can be edited, so if
-						someone else changes a log message and you have a cached copy,
-						you will not see the changes unless you clear the log message
-						cache. Use the <guilabel>Saved Data</guilabel> tab to do that.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Progress Dialog</term>
-				<listitem>
-					<para>
-						TortoiseSVN can automatically close all progress dialogs 
-						when the action is finished without error. This setting
-						allows you to select the conditions for closing the
-						dialogs. The default (recommended) setting is
-						<guilabel>Close manually</guilabel>
-						which allows you to review all messages and check what
-						has happened. However, you may decide that you want to
-						ignore some types of message and have the dialog
-						close automatically if there are no critical changes.
-					</para>
-					<para>
-						<guilabel>Auto-close if no merges, adds or deletes</guilabel>
-						means that the progress dialog will close if there were
-						simple updates, but if changes from the repository were
-						merged with yours, or if any files were added or deleted,
-						the dialog will remain open. It will also stay open if
-						there were any conflicts or errors during the operation.
-					</para>
-					<para>
-						<guilabel>Auto-close if no merges, adds or deletes for
-						local operations</guilabel> means that the progress dialog
-						will close as for <guilabel>Auto-close if no merges, adds
-						or deletes</guilabel> but only for local operations like adding
-						files or reverting changes. For remote operations the
-						dialog will stay open.
-					</para>
-					<para>
-						<guilabel>Auto-close if no conflicts</guilabel>
-						relaxes the criteria further and will close the dialog
-						even if there were merges, adds or deletes. However,
-						if there were any conflicts or errors, the dialog
-						remains open.
-					</para>
-					<para>
-						<guilabel>Auto-close if no errors</guilabel>
-						always closes the dialog even if there were conflicts.
-						The only condition that keeps the dialog open is an
-						error condition, which occurs when Subversion is unable
-						to complete the task. For example, an update fails
-						because the server is inaccessible, or a commit fails
-						because the working copy is out-of-date.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Use URL of WC as the default "From:" URL</term>
-				<listitem>
-					<para>
-						In the merge dialog, the default behaviour is for the
-						<guilabel>From:</guilabel> URL to be remembered between
-						merges. However, some people like to perform merges from
-						many different points in their hierarchy, and find it easier
-						to start out with the URL of the current working copy.
-						This can then be edited to refer to a parallel path on
-						another branch.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Default checkout path</term>
-				<listitem>
-					<para>
-						You can specify the default path for checkouts. If you keep all
-						your checkouts in one place, it is useful to have the drive
-						and folder pre-filled so you only have to add the new folder name
-						to the end.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Default checkout URL</term>
-				<listitem>
-					<para>
-						You can also specify the default URL for checkouts. If you often
-						checkout sub-projects of some very large project, it can be useful
-						to have the URL pre-filled so you only have to add the sub-project
-						name to the end.
-					</para>
-				</listitem>
-			</varlistentry>
-		</variablelist>
-	</sect3>
-	<sect3 id="tsvn-dug-settings-dialogs-2">
-		<title>TortoiseSVN Dialog Settings 2</title>
-		<?dbhh topicname="HIDD_SETTINGSMISC"?>
-		<para>
-			<figure id="tsvn-dug-settings-dia-dialogs-2">
-				<title>The Settings Dialog, Dialogs 2 Page</title>
-				<graphic fileref="../images/SettingsDialog2.png"/>
-			</figure>
-		</para>
-		<variablelist>
-			<varlistentry>
-				<term>Recurse into unversioned folders</term>
-				<listitem>
-					<para>
-						If this box is checked (default state), then whenever
-						the status of an unversioned folder is shown in the
-						<guilabel>Add</guilabel>,
-						<guilabel>Commit</guilabel> or
-						<guilabel>Check for Modifications</guilabel> dialog,
-						every child file and folder is also shown.
-						If you uncheck this box, only the unversioned parent is shown.
-						Unchecking reduces clutter in these dialogs. In that case if you
-						select an unversioned folder for Add, it is added recursively.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Use auto-completion of file paths and keywords</term>
-				<listitem>
-					<para>
-						The commit dialog includes a facility to parse the list
-						of filenames being committed. When you type the first 3
-						letters of an item in the list, the auto-completion
-						box pops up, and you can press Enter to complete the
-						filename. Check the box to enable this feature.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Timeout in seconds to stop the auto-completion parsing</term>
-				<listitem>
-					<para>
-						The auto-completion parser can be quite slow if there are a lot
-						of large files to check. This timeout stops the commit dialog
-						being held up for too long. If you are missing important
-						auto-completion information, you can extend the timeout.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Only use spellchecker when <literal>tsvn:projectlanguage</literal> is set</term>
-				<listitem>
-					<para>
-						If you don't wish to use the spellchecker for all commits,
-						check this box. The spellchecker will still be enabled where
-						the project properties require it.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Max. items to keep in the log message history</term>
-				<listitem>
-					<para>
-						TortoiseSVN stores the last 25 log messages you entered for
-						each repository. You can customize the number stored here.
-						If you have many different repositories, you may wish to
-						reduce this to avoid filling your registry.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Re-open commit dialog after a commit failed</term>
-				<listitem>
-					<para>
-						When a commit fails for some reason (working copy needs updating,
-						pre-commit hook rejects commit, network error, etc), you can select
-						this option to keep the commit dialog open ready to try again.
-						However, you should be aware that this can lead to problems.
-						If the failure means you need to update your working copy, and
-						that update leads to conflicts you must resolve those first.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Contact the repository on startup</term>
-				<listitem>
-					<para>
-						The Check for Modifications dialog checks the working copy
-						by default, and only contacts the repository when you click
-						<guibutton>Check repository</guibutton>. If you always want
-						to check the repository, you can use this setting to make that
-						action happen automatically.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Show Lock dialog before locking files</term>
-				<listitem>
-					<para>
-						When you select one or more files and then use
-						<menuchoice>
-							<guimenu>TortoiseSVN</guimenu>
-							<guimenuitem>Lock</guimenuitem>
-						</menuchoice>
-						to take out a lock on those files, on some projects it is
-						customary to write a lock message explaining why you have
-						locked the files. If you do not use lock messages, you can
-						uncheck this box to skip that dialog and lock the files
-						immediately.
-					</para>
-					<para>
-						If you use the lock command on a folder, you are always
-						presented with the lock dialog as that also gives you the
-						option to select files for locking.
-					</para>
-					<para>
-						If your project is using the <literal>tsvn:lockmsgminsize</literal>
-						property, you will see the lock dialog regardless of this setting
-						because the project <emphasis>requires</emphasis> lock messages.
-					</para>
-				</listitem>
-			</varlistentry>
-		</variablelist>
-	</sect3>
-	<sect3 id="tsvn-dug-settings-colours">
-		<title>TortoiseSVN Colour Settings</title>
-		<?dbhh topicname="HIDD_SETTINGSCOLORS"?>
-		<para>
-			<figure id="tsvn-dug-settings-dia-colors">
-				<title>The Settings Dialog, Colours Page</title>
-				<graphic fileref="../images/SettingsColors.png"/>
-			</figure>
-			This dialog allows you to configure the text colours
-			used in TortoiseSVN's dialogs the way you like them.
-		</para>
-		<variablelist>
-			<varlistentry>
-				<term>Possible or real conflict / obstructed</term>
-				<listitem>
-					<para>
-						A conflict has occurred during update, or may occur during merge.
-						Update is obstructed by an existing unversioned file/folder of
-						the same name as a versioned one.
-					</para>
-					<para>
-						This colour is also used for error messages in the progress dialogs.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Added files</term>
-				<listitem>
-					<para>
-						Items added to the repository.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Missing / deleted / replaced</term>
-				<listitem>
-					<para>
-						Items deleted from the repository, missing from the working
-						copy, or deleted from the working copy and replaced with
-						another file of the same name.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Merged</term>
-				<listitem>
-					<para>
-						Changes from the repository successfully merged into the WC
-						without creating any conflicts.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Modified / copied</term>
-				<listitem>
-					<para>
-						Add with history, or paths copied in the repository.
-						Also used in the log dialog for entries which include
-						copied items.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Deleted node</term>
-				<listitem>
-					<para>
-						An item which has been deleted from the repository.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Added node</term>
-				<listitem>
-					<para>
-						An item which has been added to the repository, by an add, copy
-						or move operation.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Renamed node</term>
-				<listitem>
-					<para>
-						An item which has been renamed within the repository.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Replaced node</term>
-				<listitem>
-					<para>
-						The original item has been deleted and a new item with
-						the same name replaces it.
-					</para>
-				</listitem>
-			</varlistentry>
-		</variablelist>
 	</sect3>
 </sect2>
