@@ -67,19 +67,23 @@ BOOL CConflictResolveDlg::OnInitDialog()
 	CString filename = CUnicodeUtils::GetUnicode(m_pConflictDescription->path);
 	filename = CPathUtils::GetFileNameFromPath(filename);
 
+	// for property conflicts, we use the property name, not the file name
+	if (m_pConflictDescription->property_name)
+		filename = CUnicodeUtils::GetUnicode(m_pConflictDescription->property_name);
+
 	CString sInfoText;
 	CString sActionText;
 	CString sReasonText;
 	switch (m_pConflictDescription->action)
 	{
 	case svn_wc_conflict_action_edit:
-		sActionText.Format(IDS_EDITCONFLICT_ACTIONINFO_MODIFY, (LPCTSTR)filename);
+		sActionText.Format(m_pConflictDescription->property_name ? IDS_EDITCONFLICT_PROP_ACTIONINFO_MODIFY : IDS_EDITCONFLICT_ACTIONINFO_MODIFY, (LPCTSTR)filename);
 		break;
 	case svn_wc_conflict_action_add:
-		sActionText.Format(IDS_EDITCONFLICT_ACTIONINFO_ADD, (LPCTSTR)filename);
+		sActionText.Format(m_pConflictDescription->property_name ? IDS_EDITCONFLICT_PROP_ACTIONINFO_ADD : IDS_EDITCONFLICT_ACTIONINFO_ADD, (LPCTSTR)filename);
 		break;
 	case svn_wc_conflict_action_delete:
-		sActionText.Format(IDS_EDITCONFLICT_ACTIONINFO_DELETE, (LPCTSTR)filename);
+		sActionText.Format(m_pConflictDescription->property_name ? IDS_EDITCONFLICT_PROP_ACTIONINFO_DELETE : IDS_EDITCONFLICT_ACTIONINFO_DELETE, (LPCTSTR)filename);
 		break;
 	default:
 		break;
@@ -156,18 +160,48 @@ void CConflictResolveDlg::OnBnClickedUserepo()
 
 void CConflictResolveDlg::OnBnClickedEditconflict()
 {
-	CString filename = CUnicodeUtils::GetUnicode(m_pConflictDescription->path);
-	filename = CPathUtils::GetFileNameFromPath(filename);
-	CString n1, n2, n3;
-	n1.Format(IDS_DIFF_WCNAME, filename);
-	n2.Format(IDS_DIFF_BASENAME, filename);
-	n3.Format(IDS_DIFF_REMOTENAME, filename);
+	CString filename, n1, n2, n3;
+	if (m_pConflictDescription->property_name)
+	{
+		filename = CUnicodeUtils::GetUnicode(m_pConflictDescription->property_name);
+		n1.Format(IDS_DIFF_PROP_WCNAME, filename);
+		n2.Format(IDS_DIFF_PROP_BASENAME, filename);
+		n3.Format(IDS_DIFF_PROP_REMOTENAME, filename);
+	}
+	else
+	{
+		filename = CUnicodeUtils::GetUnicode(m_pConflictDescription->path);
+		filename = CPathUtils::GetFileNameFromPath(filename);		
+		n1.Format(IDS_DIFF_WCNAME, filename);
+		n2.Format(IDS_DIFF_BASENAME, filename);
+		n3.Format(IDS_DIFF_REMOTENAME, filename);
+	}
 
-	CAppUtils::StartExtMerge(CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->base_file)),
-							CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->their_file)),
-							CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->my_file)),
-							CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->merged_file)),
-							n2, n3, n1, CString(), false);
+	if (m_pConflictDescription->base_file == NULL)
+	{
+		CAppUtils::DiffFlags flags;
+		// no base file, start TortoiseMerge in Two-way diff mode
+		CAppUtils::StartExtDiff(CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->their_file)),
+			CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->my_file)),
+			n3, n1, flags);
+	}
+	else
+	{
+		CString mergedfile;
+		if (m_pConflictDescription->merged_file)
+		{
+			mergedfile = CUnicodeUtils::GetUnicode(m_pConflictDescription->merged_file);
+		}
+		else
+		{
+			mergedfile = CUnicodeUtils::GetUnicode(m_pConflictDescription->my_file);
+		}
+		CAppUtils::StartExtMerge(CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->base_file)),
+								CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->their_file)),
+								CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->my_file)),
+								CTSVNPath(mergedfile),
+								n2, n3, n1, CString(), false);
+	}
 
 	GetDlgItem(IDC_RESOLVED)->EnableWindow(TRUE);
 }
@@ -175,6 +209,8 @@ void CConflictResolveDlg::OnBnClickedEditconflict()
 void CConflictResolveDlg::OnBnClickedResolved()
 {
 	m_choice = svn_wc_conflict_choose_merged;
+	if (m_pConflictDescription->merged_file == NULL)
+		m_mergedfile = CUnicodeUtils::GetUnicode(m_pConflictDescription->my_file);
 	EndDialog(IDOK);
 }
 
