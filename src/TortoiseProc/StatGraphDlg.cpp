@@ -24,6 +24,8 @@
 #include "PathUtils.h"
 #include "MemDC.h"
 #include "MessageBox.h"
+#include "Registry.h"
+
 #include <cmath>
 #include <locale>
 #include <list>
@@ -71,6 +73,11 @@ CStatGraphDlg::~CStatGraphDlg()
 	delete m_pToolTip;
 }
 
+void CStatGraphDlg::OnOK() {
+	StoreCurrentGraphType();
+	CResizableStandAloneDialog::OnOK();
+}
+
 void CStatGraphDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CResizableStandAloneDialog::DoDataExchange(pDX);
@@ -116,8 +123,7 @@ BOOL CStatGraphDlg::OnInitDialog()
 
 		m_pToolTip->Activate(TRUE);
 	}
-
-
+	
 	CString temp;
 	int sel = 0;
 	temp.LoadString(IDS_STATGRAPH_STATS);
@@ -212,8 +218,41 @@ BOOL CStatGraphDlg::OnInitDialog()
 	// the case sensitivity of author names is changed
 	GatherData();
 
-	// open statistics main page as default first page
-	ShowStats();
+	// we use a stats page encoding here, 0 stands for the statistics dialog
+	CRegDWORD lastStatsPage = CRegDWORD(_T("Software\\TortoiseSVN\\LastViewedStatsPage"), 0);
+
+	// open last viewed statistics page as first page
+	int graphtype = lastStatsPage / 10;
+	graphtype = max(1, min(3, graphtype));
+	m_cGraphType.SetCurSel(graphtype-1);
+
+	OnCbnSelchangeGraphcombo();
+
+	int statspage = lastStatsPage % 10;
+	switch (statspage) {
+		case 1 : 
+			m_GraphType = MyGraph::Bar;
+			m_bStacked = true;
+			break;
+		case 2 : 
+			m_GraphType = MyGraph::Bar;
+			m_bStacked = false;
+			break;
+		case 3 : 
+			m_GraphType = MyGraph::Line;
+			m_bStacked = true;
+			break;
+		case 4 : 
+			m_GraphType = MyGraph::Line;
+			m_bStacked = false;
+			break;
+		case 5 : 
+			m_GraphType = MyGraph::PieChart;
+			break;
+
+		default : return TRUE;
+	}
+	RedrawGraph();
 
 	return TRUE;
 }
@@ -1393,4 +1432,36 @@ int CStatGraphDlg::GetEncoderClsid(const WCHAR* format, CLSID* pClsid)
 	}
 	free (pImageCodecInfo);
 	return -1;  // Failure
+}
+
+void CStatGraphDlg::StoreCurrentGraphType()
+{
+	UpdateData();
+	DWORD_PTR graphtype = m_cGraphType.GetItemData(m_cGraphType.GetCurSel());
+	// encode the current chart type
+	int statspage = graphtype*10;
+	if ((m_GraphType == MyGraph::Bar)&&(m_bStacked))
+	{
+		statspage += 1;
+	}
+	if ((m_GraphType == MyGraph::Bar)&&(!m_bStacked))
+	{
+		statspage += 2;
+	}
+	if ((m_GraphType == MyGraph::Line)&&(m_bStacked))
+	{
+		statspage += 3;
+	}
+	if ((m_GraphType == MyGraph::Line)&&(!m_bStacked))
+	{
+		statspage += 4;
+	}
+	if (m_GraphType == MyGraph::PieChart)
+	{
+		statspage += 5;
+	}
+	
+	// store current chart type in registry
+	CRegDWORD lastStatsPage = CRegDWORD(_T("Software\\TortoiseSVN\\LastViewedStatsPage"), 0);
+	lastStatsPage = statspage;
 }

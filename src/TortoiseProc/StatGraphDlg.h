@@ -72,7 +72,7 @@ public:
 	CTSVNPath		m_path;
 
 protected:
-	
+
 	// ** Data types **
 
 	/// The types of units used in the various graphs.
@@ -89,6 +89,9 @@ protected:
 	/// The mapping type used to store data per author.
 	typedef std::map<stdstring, LONG>					AuthorDataMap;
 
+	// *** Re-implemented member functions from CDialog
+	virtual void OnOK();
+
 	virtual void DoDataExchange(CDataExchange* pDX);
 	virtual BOOL OnInitDialog();
 	void ShowLabels(BOOL bShow);
@@ -103,7 +106,6 @@ protected:
 	afx_msg void OnBnClickedGraphlinestackedbutton();
 	afx_msg void OnBnClickedGraphpiebutton();
 	afx_msg void OnFileSavestatgraphas();
-
 	DECLARE_MESSAGE_MAP()
 
 	// ** Member functions **
@@ -148,6 +150,7 @@ protected:
 	void SaveGraph(CString sFilename);
 	int	 GetEncoderClsid(const WCHAR* format, CLSID* pClsid);
 
+	void StoreCurrentGraphType();
 
 	CPtrArray		m_graphDataArray;
 	MyGraph			m_graph;
