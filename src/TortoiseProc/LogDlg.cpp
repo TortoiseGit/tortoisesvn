@@ -158,6 +158,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
 	ON_REGISTERED_MESSAGE(m_FindDialogMessage, OnFindDialogMessage) 
 	ON_BN_CLICKED(IDC_GETALL, OnBnClickedGetall)
 	ON_NOTIFY(NM_DBLCLK, IDC_LOGMSG, OnNMDblclkChangedFileList)
+	ON_NOTIFY(NM_DBLCLK, IDC_LOGLIST, OnNMDblclkLoglist)
 	ON_WM_CONTEXTMENU()
 	ON_WM_SETCURSOR()
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
@@ -420,6 +421,7 @@ BOOL CLogDlg::OnInitDialog()
 		InterlockedExchange(&m_bNoDispUpdates, FALSE);
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
+	GetDlgItem(IDC_LOGLIST)->SetFocus();
 	return FALSE;
 }
 
@@ -1493,6 +1495,12 @@ void CLogDlg::OnNMDblclkChangedFileList(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
 	// a doubleclick on an entry in the changed-files list has happened
 	*pResult = 0;
+
+	DiffSelectedFile();
+}
+
+void CLogDlg::DiffSelectedFile()
+{
 	if (m_bThreadRunning)
 		return;
 	UpdateLogInfoLabel();
@@ -1517,7 +1525,7 @@ void CLogDlg::OnNMDblclkChangedFileList(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 			}
 		}
 		rev2--;
-		// now we have both revisions selected in the log list, so we can do a diff of the doubleclicked
+		// now we have both revisions selected in the log list, so we can do a diff of the selected
 		// entry in the changed files list with these two revisions.
 		DoDiffFromLog(selIndex, rev1, rev2, false, false);
 	}
@@ -1595,6 +1603,69 @@ void CLogDlg::OnNMDblclkChangedFileList(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 				CAppUtils::StartExtDiff(tempfile2, tempfile, sName2, sName1, flags);
 		}
 	}
+}
+
+
+void CLogDlg::OnNMDblclkLoglist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
+{
+	// a doubleclick on an entry in the revision list has happened
+	*pResult = 0;
+
+  if (CRegDWORD(_T("Software\\TortoiseSVN\\DiffByDoubleClickInLog"), FALSE))
+	  DiffSelectedRevWithPrevious();
+}
+
+void CLogDlg::DiffSelectedRevWithPrevious()
+{
+	if (m_bThreadRunning)
+		return;
+	UpdateLogInfoLabel();
+	int selIndex = m_LogList.GetSelectionMark();
+	if (selIndex < 0)
+		return;
+	int selCount = m_LogList.GetSelectedCount();
+	if (selCount != 1)
+		return;
+
+	// Find selected entry in the log list
+	POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+	long rev1 = pLogEntry->Rev;
+	long rev2 = rev1-1;
+  CTSVNPath path = m_path;
+
+  // See how many files under the relative root were changed in selected revision
+	int nChanged = 0;
+  LogChangedPath * changed = NULL;
+  for (INT_PTR c = 0; c < pLogEntry->pArChangedPaths->GetCount(); ++c)
+  {
+    LogChangedPath * cpath = pLogEntry->pArChangedPaths->GetAt(c);
+    if (cpath  &&  cpath -> sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
+    {
+      ++nChanged;
+      changed = cpath;
+    }
+  }
+
+	if (m_path.IsDirectory() && nChanged == 1) 
+  {
+		// We're looking at the log for a directory and only one file under dir was changed in the revision
+		// Do diff on that file instead of whole directory
+    path.AppendPathString(changed->sPath.Mid(m_sRelativeRoot.GetLength()));
+  } 
+
+  m_bCancelled = FALSE;
+  DialogEnableWindow(IDOK, FALSE);
+  SetPromptApp(&theApp);
+  theApp.DoWaitCursor(1);
+
+  SVNDiff diff(this, m_hWnd, true);
+  diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+  diff.SetHEADPeg(m_LogRevision);
+  diff.ShowCompare(path, rev2, path, rev1);
+
+  theApp.DoWaitCursor(-1);
+  EnableOKButton();
 }
 
 void CLogDlg::DoDiffFromLog(int selIndex, svn_revnum_t rev1, svn_revnum_t rev2, bool blame, bool unified)
@@ -1874,7 +1945,22 @@ BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
 		pMsg->message == WM_KEYDOWN && pMsg->wParam=='C' &&
 		(GetFocus()==GetDlgItem(IDC_MSGEDIT) || GetFocus()==GetDlgItem(IDC_SEARCHEDIT) ) &&
 		GetKeyState(VK_CONTROL)&0x8000 );
-	
+	if (pMsg->message == WM_KEYDOWN && pMsg->wParam=='\r')
+	{
+		if (GetFocus()==GetDlgItem(IDC_LOGLIST))
+		{
+			if (CRegDWORD(_T("Software\\TortoiseSVN\\DiffByDoubleClickInLog"), FALSE))
+			{
+				DiffSelectedRevWithPrevious();
+				return TRUE;
+			}
+		}
+		if (GetFocus()==GetDlgItem(IDC_LOGMSG))
+		{
+			DiffSelectedFile();
+			return TRUE;
+		}
+	}
 	if (m_hAccel && !bSkipAccelerator)
 	{
 		int ret = TranslateAccelerator(m_hWnd, m_hAccel, pMsg);
@@ -2746,7 +2832,8 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 			return;
 		}
 		CWnd * focusWnd = GetFocus();
-		bool bSetFocusToFilterControl = ((focusWnd != GetDlgItem(IDC_DATEFROM))&&(focusWnd != GetDlgItem(IDC_DATETO)));
+		bool bSetFocusToFilterControl = ((focusWnd != GetDlgItem(IDC_DATEFROM))&&(focusWnd != GetDlgItem(IDC_DATETO))
+			&& (focusWnd != GetDlgItem(IDC_LOGLIST)));
 		if (m_sFilterText.IsEmpty())
 		{
 			DialogEnableWindow(IDC_STATBUTTON, !(((m_bThreadRunning)||(m_arShownList.IsEmpty()))));
@@ -4394,3 +4481,4 @@ void CLogDlg::OnEditCopy()
 	else
 		CopySelectionToClipBoard();
 }
+

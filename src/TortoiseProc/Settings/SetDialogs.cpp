@@ -39,6 +39,7 @@ CSetDialogs::CSetDialogs()
 	, m_sDefaultCheckoutPath(_T(""))
 	, m_sDefaultCheckoutUrl(_T(""))
 	, m_bCacheLogs(FALSE)
+	, m_bDiffByDoubleClick(FALSE)
 {
 	m_regAutoClose = CRegDWORD(_T("Software\\TortoiseSVN\\AutoClose"));
 	m_regDefaultLogs = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
@@ -49,6 +50,7 @@ CSetDialogs::CSetDialogs()
 	m_regDefaultCheckoutPath = CRegString(_T("Software\\TortoiseSVN\\DefaultCheckoutPath"));
 	m_regDefaultCheckoutUrl = CRegString(_T("Software\\TortoiseSVN\\DefaultCheckoutUrl"));
 	m_regCacheLogs = CRegDWORD(_T("Software\\TortoiseSVN\\UseLogCache"), TRUE);
+	m_regDiffByDoubleClick = CRegDWORD(_T("Software\\TortoiseSVN\\DiffByDoubleClickInLog"), FALSE);
 }
 
 CSetDialogs::~CSetDialogs()
@@ -74,6 +76,7 @@ void CSetDialogs::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_CHECKOUTPATH, m_sDefaultCheckoutPath);
 	DDX_Text(pDX, IDC_CHECKOUTURL, m_sDefaultCheckoutUrl);
 	DDX_Check(pDX, IDC_CACHELOGS, m_bCacheLogs);
+	DDX_Check(pDX, IDC_DIFFBYDOUBLECLICK, m_bDiffByDoubleClick);
 }
 
 
@@ -88,6 +91,7 @@ BEGIN_MESSAGE_MAP(CSetDialogs, ISettingsPropPage)
 	ON_EN_CHANGE(IDC_CHECKOUTPATH, OnChange)
 	ON_EN_CHANGE(IDC_CHECKOUTURL, OnChange)
 	ON_BN_CLICKED(IDC_CACHELOGS, OnChange)
+	ON_BN_CLICKED(IDC_DIFFBYDOUBLECLICK, OnChange)
 END_MESSAGE_MAP()
 
 
@@ -122,6 +126,7 @@ BOOL CSetDialogs::OnInitDialog()
 	m_sDefaultCheckoutPath = m_regDefaultCheckoutPath;
 	m_sDefaultCheckoutUrl = m_regDefaultCheckoutUrl;
 	m_bCacheLogs = m_regCacheLogs;
+	m_bDiffByDoubleClick = m_regDiffByDoubleClick;
 
 	SHAutoComplete(GetDlgItem(IDC_CHECKOUTPATH)->m_hWnd, SHACF_FILESYSTEM);
 	SHAutoComplete(GetDlgItem(IDC_CHECKOUTURL)->m_hWnd, SHACF_URLALL);
@@ -142,6 +147,7 @@ BOOL CSetDialogs::OnInitDialog()
 	m_tooltips.AddTool(IDC_CHECKOUTPATH, IDS_SETTINGS_CHECKOUTPATH_TT);
 	m_tooltips.AddTool(IDC_CHECKOUTURL, IDS_SETTINGS_CHECKOUTURL_TT);
 	m_tooltips.AddTool(IDC_CACHELOGS, IDS_SETTINGS_CACHELOGS_TT);
+	m_tooltips.AddTool(IDC_DIFFBYDOUBLECLICK, IDS_SETTINGS_DIFFBYDOUBLECLICK_TT);
 
 	int count = 0;
 	for (int i=6; i<32; i=i+2)
@@ -222,6 +228,9 @@ BOOL CSetDialogs::OnApply()
 	m_regCacheLogs = m_bCacheLogs;
 	if (m_regCacheLogs.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regCacheLogs.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	m_regDiffByDoubleClick = m_bDiffByDoubleClick;
+	if (m_regDiffByDoubleClick.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regDiffByDoubleClick.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	SetModified(FALSE);
 	return ISettingsPropPage::OnApply();
 }

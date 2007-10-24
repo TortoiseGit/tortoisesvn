@@ -71,6 +71,8 @@ private:
 	CString			m_sDefaultCheckoutUrl;
 	CRegDWORD		m_regCacheLogs;
 	BOOL			m_bCacheLogs;
+	CRegDWORD		m_regDiffByDoubleClick;
+	BOOL			m_bDiffByDoubleClick;
 
 public:
 	virtual BOOL OnInitDialog();

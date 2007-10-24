@@ -96,6 +96,7 @@ protected:
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 	afx_msg void OnBnClickedGetall();
 	afx_msg void OnNMDblclkChangedFileList(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnBnClickedStatbutton();
@@ -162,6 +163,8 @@ private:
 	bool ValidateRegexp(LPCTSTR regexp_str, rpattern& pat, bool bMatchCase = false);
 	void CheckRegexpTooltip();
 	void GetChangedPaths(std::vector<CString>& changedpaths, std::vector<LogChangedPath*>& changedlogpaths);
+	void DiffSelectedFile();
+	void DiffSelectedRevWithPrevious();
 	/**
 	 * Extracts part of commit message suitable for displaying in revision list.
 	 */

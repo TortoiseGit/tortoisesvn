@@ -169,7 +169,10 @@ BOOL CFileDiffDlg::OnInitDialog()
 		InterlockedExchange(&m_bThreadRunning, FALSE);
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
 	}
-	return TRUE;
+
+	// Start with focus on file list
+	GetDlgItem(IDC_FILELIST)->SetFocus();
+	return FALSE;
 }
 
 svn_error_t* CFileDiffDlg::DiffSummarizeCallback(const CTSVNPath& path, 
@@ -215,6 +218,12 @@ UINT CFileDiffDlg::DiffThread()
 	m_cFilter.GetWindowText(sFilterText);
 	m_cFileList.SetRedraw(false);
 	Filter(sFilterText);
+	if (! m_arFileList.empty())
+	{
+		// Highlight first entry in file list
+		m_cFileList.SetSelectionMark(0);
+		m_cFileList.SetItemState(0, LVIS_SELECTED, LVIS_SELECTED);
+	}
 
 	int mincol = 0;
 	int maxcol = ((CHeaderCtrl*)(m_cFileList.GetDlgItem(0)))->GetItemCount()-1;
@@ -778,6 +787,18 @@ BOOL CFileDiffDlg::PreTranslateMessage(MSG* pMsg)
 				}
 			}
 			break;
+		case '\r':
+			{
+				if (GetFocus() == GetDlgItem(IDC_FILELIST))
+				{
+					// Return pressed in file list. Show diff, as for doubleclick
+					int selIndex = m_cFileList.GetSelectionMark();
+					if ((selIndex >= 0) && (selIndex < (int)m_arFileList.size()))
+						DoDiff(selIndex, m_bBlame);
+					return TRUE;
+				}
+			}
+			break;
 		}
 	}
 	return __super::PreTranslateMessage(pMsg);
@@ -974,4 +995,5 @@ void CFileDiffDlg::Filter(CString sFilterText)
 		AddEntry(&(*it));
 	}
 }
+
 
