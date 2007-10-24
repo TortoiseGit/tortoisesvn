@@ -420,14 +420,6 @@ Rev Comments
 			and earlier servers will not provide the information requested by new clients.
 		</para>
 		<para>
-			After you merge revisions into your working copy, if merge tracking
-			information is available, TortoiseSVN will fetch the log messages for all
-			the merged revisions and create a single commit log message containing all
-			those log messages. When you come to commit the merge, you can access this
-			text from the <guilabel>Recent messages</guilabel> button in the commit
-			dialog and insert it as part of your own log message.
-		</para>
-		<para>
 			Find out more about merge tracking from Subversion's
 			<ulink url="http://subversion.tigris.org/merge-tracking/index.html">
 				<citetitle>Merge tracking documentation</citetitle>
