@@ -441,6 +441,17 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
+				<term>Select items automatically</term>
+				<listitem>
+					<para>
+						The normal behaviour in the commit dialog is for all modified
+						(versioned) items to be selected for commit automatically.
+						If you prefer to start with nothing selected and pick the
+						items for commit manually, uncheck this box.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
 				<term>Contact the repository on startup</term>
 				<listitem>
 					<para>
