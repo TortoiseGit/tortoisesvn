@@ -43,7 +43,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-10-22 12:05+0800\n"
+"PO-Revision-Date: 2007-10-24 19:57+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -317,7 +317,7 @@ msgstr "浏览(&B)..."
 msgid "&CD-ROM"
 msgstr "光驱(&C)"
 
-#. Resource IDs: (2)
+#. Resource IDs: (2, 332)
 msgid "&Cancel"
 msgstr "取消(&C)"
 
@@ -497,7 +497,7 @@ msgstr "最新版本(&H)"
 msgid "&HEAD revision in the repository"
 msgstr "版本库中的最新版本(&H)"
 
-#. Resource IDs: (9, 12, 32781, 57670, 65535)
+#. Resource IDs: (9, 12, 332, 32781, 57670, 65535)
 msgid "&Help"
 msgstr "帮助(&H)"
 
@@ -594,6 +594,10 @@ msgstr "新建(&N)"
 #, c-format
 msgid "&Next %ld"
 msgstr "下 %ld (&N)"
+
+#. Resource IDs: (332)
+msgid "&Next >"
+msgstr "下一条(&N) >"
 
 #. Resource IDs: (32779)
 msgid "&Next Difference"
@@ -865,6 +869,10 @@ msgstr "：基础版本"
 #. Resource IDs: (151)
 msgid ": working copy"
 msgstr "：工作副本"
+
+#. Resource IDs: (332)
+msgid "< &Back"
+msgstr "< 后退(&B)"
 
 #. Resource IDs: (145)
 msgid ""
@@ -2319,10 +2327,6 @@ msgstr "不再显示此信息"
 msgid "Drive Types"
 msgstr "磁盘驱动器类型"
 
-#. Resource IDs: (219)
-msgid "Dry Run"
-msgstr "预检"
-
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
 msgstr "解开复制源(&X)"
@@ -2806,6 +2810,14 @@ msgstr "正在获取信息。请等待 ..."
 msgid "General"
 msgstr "常规设置"
 
+#. Resource IDs: (212)
+msgid "General::Colors"
+msgstr "常规::颜色"
+
+#. Resource IDs: (195)
+msgid "General::Context Menu"
+msgstr "常规::上下文菜单"
+
 #. Resource IDs: (196)
 msgid "General::Dialogs 1"
 msgstr "常规::对话框组一"
@@ -3095,9 +3107,17 @@ msgstr "ID:57643:V C +Z"
 msgid "ID:57665:V C +Q"
 msgstr "ID:57665:V C +Q"
 
+#. Resource IDs: (106)
+msgid "Icon Overlays"
+msgstr "图标覆盖"
+
 #. Resource IDs: (65535)
 msgid "Icon Overlays / Status Columns"
 msgstr "图标覆盖/状态栏"
+
+#. Resource IDs: (184)
+msgid "Icon Overlays::Icon Set"
+msgstr "图标覆盖::图标集"
 
 #. Resource IDs: (65535)
 msgid "Icons/Design/Code:     Luebbe Onken"
@@ -3627,22 +3647,6 @@ msgstr "日志信息(输入对话框)"
 msgid "Log messages (Show log dialog)"
 msgstr "日志信息(显示日志对话框)"
 
-#. Resource IDs: (195)
-msgid "Look and Feel"
-msgstr "外观样式"
-
-#. Resource IDs: (212)
-msgid "Look and Feel::Colors"
-msgstr "外观与样式::颜色"
-
-#. Resource IDs: (106)
-msgid "Look and Feel::Icon Overlays"
-msgstr "外观与样式::图标叠加"
-
-#. Resource IDs: (184)
-msgid "Look and Feel::Icon Set"
-msgstr "外观与样式::图标集"
-
 #. Resource IDs: (238)
 #, c-format
 msgid "Lowest shown revision: %ld - Highest shown revision: %ld"
@@ -3764,11 +3768,6 @@ msgstr "正在合并"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s from revision %s to %s into %s, %s%s"
-msgstr "合并 %s，自版本 %s 至 %s 到 %s，%s%s"
-
-#. Resource IDs: (229)
-#, c-format
 msgid "Merging %s into %s, %s"
 msgstr "合并 %s 到 %s，%s"
 
@@ -3790,6 +3789,11 @@ msgstr "正在合并 r%ld，经由 r%ld"
 #. Resource IDs: (83)
 msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
 msgstr "合并指定的不同版本差异或从“起始：” URL 到“结束：” URL 之间的差异"
+
+#. Resource IDs: (229)
+#, c-format
+msgid "Merging revisions %s of %s into %s, %s%s"
+msgstr "合并版本 %s 于 %s 到 %s，%s%s"
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
@@ -4084,7 +4088,7 @@ msgstr "至少还有一个的文件处于冲突状态。"
 
 #. Resource IDs: (99)
 msgid "Only check out the &top folder"
-msgstr "仅检出最上层目录(&T)"
+msgstr "只检出最上层目录(&T)"
 
 #. Resource IDs: (19)
 msgid "Only file children"
@@ -4094,9 +4098,11 @@ msgstr "仅文件子节点"
 msgid ""
 "Only numbers (optionally separated by commas)\n"
 "are allowed!"
-msgstr ""
-"只可以输入数字（可以用逗\n"
-"点分隔）！"
+msgstr "仅可以输入数字（可以用逗号分隔）！"
+
+#. Resource IDs: (1424)
+msgid "Only record the merge"
+msgstr "只记录合并"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -5656,6 +5662,10 @@ msgstr "Tab 宽度："
 #, c-format
 msgid "Tagged the working copy to %s"
 msgstr "标记工作副本为 %s"
+
+#. Resource IDs: (219)
+msgid "Test Only"
+msgstr "仅测试"
 
 #. Resource IDs: (65535)
 msgid "Text Status:"
