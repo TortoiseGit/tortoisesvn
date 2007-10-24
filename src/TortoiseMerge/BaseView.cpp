@@ -515,6 +515,8 @@ int CBaseView::GetLineLength(int index) const
 {
 	if (m_pViewData == NULL)
 		return 0;
+	if (m_pViewData->GetCount() == 0)
+		return 0;
 	int nLineLength = m_pViewData->GetLine(index).GetLength();
 	ASSERT(nLineLength >= 0);
 	return nLineLength;
