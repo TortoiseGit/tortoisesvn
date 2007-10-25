@@ -11,13 +11,13 @@
 # Stanislav Petrakov <stannic@gmail.com>
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 11091: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 11111: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-10-23 12:18+0300\n"
+"PO-Revision-Date: 2007-10-25 11:17+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -183,7 +183,7 @@ msgstr "%s - до ревизии: %d"
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Remote file"
-msgstr "%s : Удалённый файл"
+msgstr "%s : Отдалённый файл"
 
 #. Resource IDs: (151)
 #, c-format
@@ -308,7 +308,7 @@ msgstr "&Обзор..."
 msgid "&CD-ROM"
 msgstr "&CD-ROM"
 
-#. Resource IDs: (2)
+#. Resource IDs: (2, 332)
 msgid "&Cancel"
 msgstr "&Отмена"
 
@@ -491,7 +491,7 @@ msgstr "Ведущая &ревизия (HEAD)"
 msgid "&HEAD revision in the repository"
 msgstr "ведущей ревизии в &хранилище (HEAD)"
 
-#. Resource IDs: (9, 12, 32781, 57670, 65535)
+#. Resource IDs: (9, 12, 332, 32781, 57670, 65535)
 msgid "&Help"
 msgstr "&Справка"
 
@@ -591,6 +591,10 @@ msgstr "&Новый"
 #, c-format
 msgid "&Next %ld"
 msgstr "&Следующие %ld"
+
+#. Resource IDs: (332)
+msgid "&Next >"
+msgstr "&Далее >"
 
 #. Resource IDs: (32779)
 msgid "&Next Difference"
@@ -868,6 +872,10 @@ msgstr ": рабочая база"
 msgid ": working copy"
 msgstr ": рабочая копия"
 
+#. Resource IDs: (332)
+msgid "< &Back"
+msgstr "< &Назад"
+
 #. Resource IDs: (145)
 msgid ""
 "<b>TortoiseSVN</b> is a shell extension.\n"
@@ -1036,15 +1044,15 @@ msgstr "Добавлено"
 
 #. Resource IDs: (126)
 msgid "Added a file remotely"
-msgstr "Файл добавлен удаленно"
+msgstr "Файл добавлен удалённо"
 
 #. Resource IDs: (126)
 msgid "Added a folder remotely"
-msgstr "Папка добавлена удаленно"
+msgstr "Папка добавлена удалённо"
 
 #. Resource IDs: (126)
 msgid "Added items remotely"
-msgstr "Объекты добавлены удаленно"
+msgstr "Объекты добавлены удалённо"
 
 #. Resource IDs: (65535)
 msgid "Added node"
@@ -1416,6 +1424,10 @@ msgstr "Кэшировать сообщения журнала"
 #. Resource IDs: (197)
 msgid "Caches the log messages to speed up log fetching"
 msgstr "Включает кэширование сообщений журнала для ускорения их доставки"
+
+#. Resource IDs: (1127)
+msgid "Can double-click in log list to compare with previous revision"
+msgstr "Включить сравнение ревизии в списке с предыдущей по двойному щелчку"
 
 #. Resource IDs: (82)
 #, c-format
@@ -1831,7 +1843,7 @@ msgstr "Скопировано из URL"
 
 #. Resource IDs: (126)
 msgid "Copied remotely"
-msgstr "Скопировано удаленно"
+msgstr "Скопировано удалённо"
 
 #. Resource IDs: (127)
 #, c-format
@@ -1946,6 +1958,11 @@ msgstr "Не могу добавить %s в список игнорирован
 msgid "Could not add \"%s\" because"
 msgstr "Не могу добавить \"%s\" из-за того, что"
 
+#. Resource IDs: (582)
+#, c-format
+msgid "Could not add property \"%s\" because"
+msgstr "Не могу добавить свойство \"%s\" из-за того, что"
+
 #. Resource IDs: (201)
 msgid "Could not check for a newer version!"
 msgstr "Не могу проверить на наличие новой версии!"
@@ -1966,6 +1983,11 @@ msgstr ""
 msgid "Could not delete \"%s\" because"
 msgstr "Не могу удалить \"%s\" из-за того, что"
 
+#. Resource IDs: (582)
+#, c-format
+msgid "Could not delete property \"%s\" because"
+msgstr "Не могу удалить свойство \"%s\" из-за того, что"
+
 #. Resource IDs: (81)
 msgid "Could not get the status!"
 msgstr "Не могу получить статус!"
@@ -1974,6 +1996,11 @@ msgstr "Не могу получить статус!"
 #, c-format
 msgid "Could not merge \"%s\" because"
 msgstr "Не могу слить \"%s\" из-за того, что"
+
+#. Resource IDs: (582)
+#, c-format
+msgid "Could not merge property \"%s\" because"
+msgstr "Не могу слить свойство \"%s\" из-за того, что"
 
 #. Resource IDs: (69)
 #, c-format
@@ -2094,7 +2121,7 @@ msgstr "Создать файл объединённых различий"
 
 #. Resource IDs: (126)
 msgid "Created folder remotely"
-msgstr "Папка создана удаленно"
+msgstr "Папка создана удалённо"
 
 #. Resource IDs: (10)
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
@@ -2343,10 +2370,6 @@ msgstr "Больше не показывать это сообщение"
 #. Resource IDs: (1079)
 msgid "Drive Types"
 msgstr "Типы накопителей"
-
-#. Resource IDs: (219)
-msgid "Dry Run"
-msgstr "Пробный запуск"
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -3183,6 +3206,10 @@ msgstr ""
 "Если выбрано, TortoiseSVN создает временный файл базовой версии для сравнения,\n"
 "в котором ключевые слова заменены их значениями и настроены окончания строк."
 
+#. Resource IDs: (197)
+msgid "If checked, double-clicking on a revision in the log list compares it with the previous revision"
+msgstr "Если отмечено, двойной щелчок на ревизии в списке сообщений сравнивает с её предыдущей"
+
 #. Resource IDs: (196)
 msgid ""
 "If checked, the commit dialog will be started again automatically after an error,\n"
@@ -3931,7 +3958,7 @@ msgstr "Перемещение: Новое имя для %s"
 
 #. Resource IDs: (126)
 msgid "Moved remotely"
-msgstr "Перемещено удаленно"
+msgstr "Перемещено удалённо"
 
 #. Resource IDs: (80)
 #, c-format
@@ -4027,7 +4054,7 @@ msgstr ""
 "Нет ни одного файла для отображения, исходя из текущих настроек.\n"
 "Отметьте один или более флажков ниже для того, чтобы увидеть\n"
 "неверсированные, игнорируемые и/или неизменённые файлы.\n"
-"Чтобы увидеть удалённые изменения, нажмите на \"Проверить хранилище\""
+"Чтобы увидеть отдалённые изменения, нажмите на \"Проверить хранилище\""
 
 #. Resource IDs: (77)
 msgid ""
@@ -4450,6 +4477,21 @@ msgstr "Свойства..."
 msgid "Property"
 msgstr "Свойство"
 
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : remote"
+msgstr "Свойство %s : отдалённое"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : working base"
+msgstr "Свойство %s : рабочая база"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : working copy"
+msgstr "Свойство %s : рабочая копия"
+
 #. Resource IDs: (107)
 msgid "Property Page"
 msgstr "Страница свойств"
@@ -4641,15 +4683,15 @@ msgstr "Перебазирование..."
 
 #. Resource IDs: (207)
 msgid "Remote property status"
-msgstr "Удаленный статус свойства"
+msgstr "Отдалённый статус свойства"
 
 #. Resource IDs: (63, 207)
 msgid "Remote status"
-msgstr "Удаленный статус"
+msgstr "Отдалённый статус"
 
 #. Resource IDs: (207)
 msgid "Remote text status"
-msgstr "Удаленный статус текста"
+msgstr "Отдалённый статус текста"
 
 #. Resource IDs: (126)
 #, c-format
@@ -4733,7 +4775,7 @@ msgstr "Переименованный узел"
 
 #. Resource IDs: (126)
 msgid "Renamed remotely"
-msgstr "Переименовано удаленно"
+msgstr "Переименовано удалённо"
 
 #. Resource IDs: (11)
 msgid "Renames files / folders inside version control"
@@ -5734,6 +5776,10 @@ msgstr "Размер табул.:"
 #, c-format
 msgid "Tagged the working copy to %s"
 msgstr "Для рабочей копии назначена метка %s"
+
+#. Resource IDs: (219)
+msgid "Test Only"
+msgstr "Только проверка"
 
 #. Resource IDs: (65535)
 msgid "Text Status:"
