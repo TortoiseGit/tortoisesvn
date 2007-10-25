@@ -270,6 +270,14 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
 	CTSVNPath url1 = CTSVNPath(m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
 	CTSVNPath url2 = m_bDoPegDiff ? url1 : CTSVNPath(m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
 
+	if (fd.kind == svn_client_diff_summarize_kind_deleted)
+	{
+		if (!PathIsURL(url1.GetWinPath()))
+			url1 = CTSVNPath(GetURLFromPath(m_path1) + _T("/") + fd.path.GetSVNPathString());
+		if (!PathIsURL(url2.GetWinPath()))
+			url2 = m_bDoPegDiff ? url1 : CTSVNPath(GetURLFromPath(m_path2) + _T("/") + fd.path.GetSVNPathString());
+	}
+
 	if (fd.propchanged)
 	{
 		DiffProps(selIndex);
