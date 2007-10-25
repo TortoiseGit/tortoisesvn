@@ -91,6 +91,7 @@ protected:
 
 	// *** Re-implemented member functions from CDialog
 	virtual void OnOK();
+	virtual void OnCancel();
 
 	virtual void DoDataExchange(CDataExchange* pDX);
 	virtual BOOL OnInitDialog();

@@ -75,7 +75,12 @@ CStatGraphDlg::~CStatGraphDlg()
 
 void CStatGraphDlg::OnOK() {
 	StoreCurrentGraphType();
-	CResizableStandAloneDialog::OnOK();
+	__super::OnOK();
+}
+
+void CStatGraphDlg::OnCancel() {
+	StoreCurrentGraphType();
+	__super::OnCancel();
 }
 
 void CStatGraphDlg::DoDataExchange(CDataExchange* pDX)
