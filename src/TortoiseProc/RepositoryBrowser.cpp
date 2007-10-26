@@ -1124,7 +1124,10 @@ void CRepositoryBrowser::OnCopy()
 		url += CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(pItem->absolutepath))) + _T("\r\n");
 	}
 	if (!url.IsEmpty())
+	{
+		url.TrimRight(_T("\r\n"));
 		CStringUtils::WriteAsciiStringToClipboard(url);
+	}
 }
 
 void CRepositoryBrowser::OnInlineedit()
@@ -2087,6 +2090,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				CString url;
 				for (int i=0; i<urlList.GetCount(); ++i)
 					url += CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(urlList[i].GetSVNPathString()))) + _T("\r\n");
+				url.TrimRight(_T("\r\n"));
 				CStringUtils::WriteAsciiStringToClipboard(url);
 			}
 			break;
