@@ -149,6 +149,12 @@ Merge.png
 	Make sure 'Use From: URL' is checked
 	Enter 2 consecutive revisions, eg. From: 5376 to To: 5377
 
+MergeConflictCallback.png
+	Use a fresh 'doc' test WC
+	Showlog for dug_ignore.xml
+	Select r6 and 'revert changes from this revision.
+	This should generate a conflict and bring up the callback.
+
 MergeOnePane.png
 	Select doc/test/subwcrev2.txt and doc/test/subwcrev3.txt
 	Right click on subwcrev3.txt and TSVN->Diff

@@ -426,4 +426,53 @@ Rev Comments
 			</ulink>.
 		</para>
 	</sect2>
+	<sect2 id="tsvn-dug-merge-conflict-callback">
+		<title>Handling Conflicts during Merge</title>
+		<?dbhh topicname="HIDD_CONFLICTRESOLVE"?>
+		<indexterm>
+			<primary>merge conflicts</primary>
+		</indexterm>
+		<para>
+			During merging, particularly with multiple ranges, it may be
+			that conflicts occur which prevent the merge from continuing.
+			In this case you will see the merge conflict callback dialog.
+			<figure id="tsvn-dug-merge-callback-dia">
+				<title>The Merge Conflict Callback Dialog</title>
+				<graphic fileref="../images/MergeConflictCallback.png"/>
+			</figure>
+		</para>
+		<para>
+			When a conflict occurs during the merge, you have three ways to
+			handle it.
+			<orderedlist>
+				<listitem>
+					<para>
+						You may decide that your local changes are much more
+						important, so you want to discard the version from the
+						repository and keep your local version. Or you discard
+						consider your local changes in favour of the repository
+						version. Either way, no attempt is made to merge the
+						changes - you choose one or the other.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Normally you will want to look at the conflicts and resolve
+						them. In that case, choose the <guibutton>Edit Conflict</guibutton>
+						which will start up your merge tool. When you are satisfied with
+						the result, click <guibutton>Resolved</guibutton>.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						The last option is to postpone resolution and continue
+						with merging. You can choose to do that for the current
+						conflicted file, or for all files in the rest of the merge.
+						However, if there are further changes in that file, it
+						will not be possible to complete the merge.
+					</para>
+				</listitem>
+			</orderedlist>
+		</para>
+	</sect2>
 </sect1>

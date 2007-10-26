@@ -26,6 +26,7 @@ cd ext
 :: Copy some files from the docs to create content
 copy ..\..\..\source\en\TortoiseSVN\tsvn_server\server*.xml > nul
 svn add server*.xml
+:: Commit external repos2 r1
 svn ci -q -m "Document the server" .
 cd ..
 rd /s/q ext
@@ -38,6 +39,7 @@ for %%f in (add blame checkout) do (
 	@echo dug_%%f.xml >> ..\targets
 )
 svn add --no-auto-props --targets ..\targets
+:: Commit repos r1
 svn ci -q -m "Document some commands" .
 type nul > ..\targets
 for %%f in (commit export ignore) do (
@@ -45,6 +47,7 @@ for %%f in (commit export ignore) do (
 	@echo dug_%%f.xml >> ..\targets
 )
 svn add --no-auto-props --targets ..\targets
+:: Commit repos r2
 svn ci -q -m "Document commands group 2" .
 type nul > ..\targets
 for %%f in (relocate revert showlog) do (
@@ -52,15 +55,18 @@ for %%f in (relocate revert showlog) do (
 	@echo dug_%%f.xml >> ..\targets
 )
 svn add --targets ..\targets
+:: Commit repos r3
 svn ci -q -m "Document some more commands" .
 
 :: Add a reference to the external repository
 svn ps -q svn:externals "ext file:///%docpath%/test/temp/repos2/" .
+:: Commit repos r4
 svn ci -q -m "create externals reference" .
 svn up -q
 
 copy ..\..\subwcrev1.txt subwcrev.txt > nul
 svn add --no-auto-props subwcrev.txt
+:: Commit repos r5
 svn ci -q -m "Document the SubWCRev program" .
 svn up -q ../docs
 
@@ -73,6 +79,7 @@ for %%f in (ignore showlog) do (
 )
 :: Add text which will need merging on next update
 type ..\..\footnote1.txt >> dug_export.xml
+:: Commit repos r6
 svn ci -q -m "Clarify the description of SubWCRev" .
 
 :: Add yet more files
@@ -83,15 +90,18 @@ for %%f in (branchtag conflicts general) do (
 )
 type ..\..\footnote1.txt >> dug_ignore.xml
 svn add --no-auto-props --targets ..\targets
+:: Commit repos r7
 svn ci -q -m "Document final commands" .
 
 :: Update to just before the latest commit
+:: This is so CfM has something to work on when checking the repository
 svn up -q -r6
 
 :: Modify some files
 for %%f in (add blame relocate) do (
 	@copy/b ..\..\..\source\en\TortoiseSVN\tsvn_dug\dug_%%f.xml+..\..\footnote2.txt dug_%%f.xml> nul
 )
+@copy/b ..\..\..\source\en\TortoiseSVN\tsvn_dug\dug_ignore.xml+..\..\footnote3.txt+..\..\footnote1.txt dug_ignore.xml> nul
 :: Add an unversioned file
 echo Read Me > readme.txt
 :: Add a nested WC
