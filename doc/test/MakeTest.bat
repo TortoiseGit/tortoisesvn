@@ -34,21 +34,21 @@ cd doc
 :: Copy some files from the docs to create content
 type nul > ..\targets
 for %%f in (add blame checkout) do (
-	@copy ..\..\..\source\en\TortoiseSVN\tsvn_dug\dug_%%f.xml+..\..\footnote1.txt dug_%%f.xml> nul
+	@copy/b ..\..\..\source\en\TortoiseSVN\tsvn_dug\dug_%%f.xml+..\..\footnote1.txt dug_%%f.xml> nul
 	@echo dug_%%f.xml >> ..\targets
 )
 svn add --no-auto-props --targets ..\targets
 svn ci -q -m "Document some commands" .
 type nul > ..\targets
 for %%f in (commit export ignore) do (
-	@copy ..\..\..\source\en\TortoiseSVN\tsvn_dug\dug_%%f.xml+..\..\footnote1.txt dug_%%f.xml> nul
+	@copy/b ..\..\..\source\en\TortoiseSVN\tsvn_dug\dug_%%f.xml+..\..\footnote1.txt dug_%%f.xml> nul
 	@echo dug_%%f.xml >> ..\targets
 )
 svn add --no-auto-props --targets ..\targets
 svn ci -q -m "Document commands group 2" .
 type nul > ..\targets
 for %%f in (relocate revert showlog) do (
-	@copy ..\..\..\source\en\TortoiseSVN\tsvn_dug\dug_%%f.xml+..\..\footnote1.txt dug_%%f.xml> nul
+	@copy/b ..\..\..\source\en\TortoiseSVN\tsvn_dug\dug_%%f.xml+..\..\footnote1.txt dug_%%f.xml> nul
 	@echo dug_%%f.xml >> ..\targets
 )
 svn add --targets ..\targets
@@ -69,7 +69,7 @@ svn up -q ../docs
 :: Force a current timestamp by using type instead of copy.
 type ..\..\subwcrev2.txt > subwcrev.txt
 for %%f in (ignore showlog) do (
-	@copy ..\..\..\source\en\TortoiseSVN\tsvn_dug\dug_%%f.xml+..\..\footnote2.txt dug_%%f.xml> nul
+	@copy/b ..\..\..\source\en\TortoiseSVN\tsvn_dug\dug_%%f.xml+..\..\footnote2.txt dug_%%f.xml> nul
 )
 :: Add text which will need merging on next update
 type ..\..\footnote1.txt >> dug_export.xml
@@ -90,7 +90,7 @@ svn up -q -r6
 
 :: Modify some files
 for %%f in (add blame relocate) do (
-	@copy ..\..\..\source\en\TortoiseSVN\tsvn_dug\dug_%%f.xml+..\..\footnote2.txt dug_%%f.xml> nul
+	@copy/b ..\..\..\source\en\TortoiseSVN\tsvn_dug\dug_%%f.xml+..\..\footnote2.txt dug_%%f.xml> nul
 )
 :: Add an unversioned file
 echo Read Me > readme.txt
@@ -106,7 +106,7 @@ cd ..\docs
 :: Make changes which conflict with what we did earlier.
 copy /y ..\..\subwcrev3.txt subwcrev.txt > nul
 for %%f in (checkout commit export ignore showlog) do (
-	@copy ..\..\..\source\en\TortoiseSVN\tsvn_dug\dug_%%f.xml+..\..\footnote3.txt dug_%%f.xml> nul
+	@copy/b ..\..\..\source\en\TortoiseSVN\tsvn_dug\dug_%%f.xml+..\..\footnote3.txt dug_%%f.xml> nul
 )
 svn diff . > ..\docs.patch
 
