@@ -120,6 +120,8 @@
 #define IDS_MENUDESCAPPLYPATCH          209
 #define IDS_MENUMERGEALL                210
 #define IDS_MENUDESCMERGEALL            211
+#define IDS_MENUUNDOADD                 212
+#define IDS_MENUDESCUNDOADD             213
 #define IDS_COLTITLEMIMETYPE            216
 #define IDS_COLDESCMIMETYPE             217
 #define IDS_DROPEXPORTMENU              218
