@@ -248,9 +248,10 @@ BOOL TortoiseBlame::OpenFile(const char *fileName)
 			else
 				trimptr = lineptr;
 			paths.push_back(std::string(lineptr));
-			lineptr = (trimptr+1);
-			while (*lineptr == ' ')
-				lineptr++;
+			if (trimptr+1 < lineptr+61)
+				lineptr +=61;
+			else
+				lineptr = (trimptr+1);
 			trimptr = _tcschr(lineptr, ' ');
 			if (trimptr)
 				*trimptr = 0;
