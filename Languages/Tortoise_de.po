@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-10-23 16:57+0100\n"
+"PO-Revision-Date: 2007-10-26 14:35+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -268,7 +268,7 @@ msgstr "&Suchen..."
 msgid "&CD-ROM"
 msgstr "&CD-ROM"
 
-#. Resource IDs: (2)
+#. Resource IDs: (2, 332)
 msgid "&Cancel"
 msgstr "&Abbrechen"
 
@@ -448,7 +448,7 @@ msgstr "&HEAD Revision"
 msgid "&HEAD revision in the repository"
 msgstr "&HEAD Revision im Projektarchiv"
 
-#. Resource IDs: (9, 12, 32781, 57670, 65535)
+#. Resource IDs: (9, 12, 332, 32781, 57670, 65535)
 msgid "&Help"
 msgstr "&Hilfe"
 
@@ -545,6 +545,10 @@ msgstr "&Neu"
 #, c-format
 msgid "&Next %ld"
 msgstr "&Nächste %ld"
+
+#. Resource IDs: (332)
+msgid "&Next >"
+msgstr "&Weiter >"
 
 #. Resource IDs: (32779)
 msgid "&Next Difference"
@@ -816,6 +820,10 @@ msgstr ": Basis"
 #. Resource IDs: (151)
 msgid ": working copy"
 msgstr ": Arbeitskopie"
+
+#. Resource IDs: (332)
+msgid "< &Back"
+msgstr "< &Zurück"
 
 #. Resource IDs: (145)
 msgid ""
@@ -1366,6 +1374,10 @@ msgstr "Logmeldungen lokal speichern"
 msgid "Caches the log messages to speed up log fetching"
 msgstr "Lokaler Zwischenspeicher, um die Anzeige des Logs zu beschleunigen"
 
+#. Resource IDs: (1127)
+msgid "Can double-click in log list to compare with previous revision"
+msgstr "Doppelklick in Logliste, um mit vorheriger Revision zu vergleichen"
+
 #. Resource IDs: (82)
 #, c-format
 msgid ""
@@ -1888,6 +1900,11 @@ msgstr "Konnte %s nicht zur 'Ignorieren' Liste hinzufügen!"
 msgid "Could not add \"%s\" because"
 msgstr "Konnte '%s' nicht hinzfügen, weil"
 
+#. Resource IDs: (582)
+#, c-format
+msgid "Could not add property \"%s\" because"
+msgstr "Konnte Eigenschaft '%s' nicht hinzfügen, weil"
+
 #. Resource IDs: (201)
 msgid "Could not check for a newer version!"
 msgstr "Suche nach einer neuen Version fehlgeschlagen!"
@@ -1908,6 +1925,11 @@ msgstr ""
 msgid "Could not delete \"%s\" because"
 msgstr "Konnte '%s' nicht löschen, weil"
 
+#. Resource IDs: (582)
+#, c-format
+msgid "Could not delete property \"%s\" because"
+msgstr "Konnte Eigenschaft '%s' nicht löschen, weil"
+
 #. Resource IDs: (81)
 msgid "Could not get the status!"
 msgstr "Konnte den Status nicht ermitteln!"
@@ -1916,6 +1938,11 @@ msgstr "Konnte den Status nicht ermitteln!"
 #, c-format
 msgid "Could not merge \"%s\" because"
 msgstr "Konnte '%s' nicht zusammenführen, weil"
+
+#. Resource IDs: (582)
+#, c-format
+msgid "Could not merge property \"%s\" because"
+msgstr "Konnte Eigenschaft '%s' nicht zusammenführen, weil"
 
 #. Resource IDs: (69)
 #, c-format
@@ -2281,10 +2308,6 @@ msgstr "Diese Meldung nicht wieder anzeigen"
 #. Resource IDs: (1079)
 msgid "Drive Types"
 msgstr "Laufwerkstypen"
-
-#. Resource IDs: (219)
-msgid "Dry Run"
-msgstr "Trockenlauf"
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -3113,6 +3136,10 @@ msgstr ""
 "Aktivieren Sie diese Option, damit TortoiseSVN für den Vergleich\n"
 "eine temporäre BASE Datei erzeugt, in der die Schlüsselwörter\n"
 "expandiert und die Zeilenenden angepasst sind."
+
+#. Resource IDs: (197)
+msgid "If checked, double-clicking on a revision in the log list compares it with the previous revision"
+msgstr "Aktivieren Sie diese Option, damit bei einem Doppelklick in der Logliste ein Vergleich mit der vorherigen Revision durchgeführt wird."
 
 #. Resource IDs: (196)
 msgid ""
@@ -4378,6 +4405,21 @@ msgstr "Eigenschaften..."
 #. Resource IDs: (11)
 msgid "Property"
 msgstr "Eigenschaft"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : remote"
+msgstr "Eigenschaft %s: Projektarchiv"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : working base"
+msgstr "Eigenschaft %s: Basis"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : working copy"
+msgstr "Eigenschaft %s: Arbeitskopie"
 
 #. Resource IDs: (107)
 msgid "Property Page"
@@ -5650,6 +5692,10 @@ msgstr "Tab Größe:"
 #, c-format
 msgid "Tagged the working copy to %s"
 msgstr "Arbeitskopie als %s markiert"
+
+#. Resource IDs: (219)
+msgid "Test Only"
+msgstr "Nur testen"
 
 #. Resource IDs: (65535)
 msgid "Text Status:"
