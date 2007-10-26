@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-10-20 19:49+0200\n"
+"PO-Revision-Date: 2007-10-26 23:38+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -301,7 +301,7 @@ msgstr "&Избор..."
 msgid "&CD-ROM"
 msgstr "&CD-ROM"
 
-#. Resource IDs: (2)
+#. Resource IDs: (2, 332)
 msgid "&Cancel"
 msgstr "&Отказ"
 
@@ -481,7 +481,7 @@ msgstr "&Главна ревизия"
 msgid "&HEAD revision in the repository"
 msgstr "&Главната ревизия на хранилището"
 
-#. Resource IDs: (9, 12, 32781, 57670, 65535)
+#. Resource IDs: (9, 12, 332, 32781, 57670, 65535)
 msgid "&Help"
 msgstr "&Помощ"
 
@@ -578,6 +578,10 @@ msgstr "&Нов"
 #, c-format
 msgid "&Next %ld"
 msgstr "&Следващи %ld"
+
+#. Resource IDs: (332)
+msgid "&Next >"
+msgstr "&Напред >"
 
 #. Resource IDs: (32779)
 msgid "&Next Difference"
@@ -850,6 +854,10 @@ msgstr ": работна база"
 msgid ": working copy"
 msgstr ": работно копие"
 
+#. Resource IDs: (332)
+msgid "< &Back"
+msgstr "< На&зад"
+
 #. Resource IDs: (145)
 msgid ""
 "<b>TortoiseSVN</b> is a shell extension.\n"
@@ -1048,7 +1056,7 @@ msgstr "Добавяне"
 
 #. Resource IDs: (9)
 msgid "Adds file(s) to Subversion control"
-msgstr "Добавя файл(ове) под контрола на Subversion"
+msgstr "Добавя файл(ове) за контролиране от Subversion"
 
 #. Resource IDs: (13)
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
@@ -1394,6 +1402,10 @@ msgstr "Кеширане на съобщенията в дневника"
 #. Resource IDs: (197)
 msgid "Caches the log messages to speed up log fetching"
 msgstr "Кешира съобщенията с цел ускоряване на изтеглянето на дневника"
+
+#. Resource IDs: (1127)
+msgid "Can double-click in log list to compare with previous revision"
+msgstr "Двойно щракване върху ревизия в дневника я сравнява с предишната ревизия"
 
 #. Resource IDs: (82)
 #, c-format
@@ -1916,6 +1928,11 @@ msgstr "Не можа да се добави %s към списъка за иг�
 msgid "Could not add \"%s\" because"
 msgstr "Не може да се добави \"%s\", защото"
 
+#. Resource IDs: (582)
+#, c-format
+msgid "Could not add property \"%s\" because"
+msgstr "Свойството \"%s\" не може да бъде добавено, защото"
+
 #. Resource IDs: (201)
 msgid "Could not check for a newer version!"
 msgstr "Грешка при проверка за по-нова версия!"
@@ -1936,6 +1953,11 @@ msgstr ""
 msgid "Could not delete \"%s\" because"
 msgstr "Не можа да се изтрие \"%s\", защото"
 
+#. Resource IDs: (582)
+#, c-format
+msgid "Could not delete property \"%s\" because"
+msgstr "Свойството \"%s\" не може да бъде изтрито, защото"
+
 #. Resource IDs: (81)
 msgid "Could not get the status!"
 msgstr "Грешка при получаване на състоянието!"
@@ -1944,6 +1966,11 @@ msgstr "Грешка при получаване на състоянието!"
 #, c-format
 msgid "Could not merge \"%s\" because"
 msgstr "Не можа да се слее \"%s\", защото"
+
+#. Resource IDs: (582)
+#, c-format
+msgid "Could not merge property \"%s\" because"
+msgstr "Свойството \"%s\" не може да бъде слято, защото"
 
 #. Resource IDs: (69)
 #, c-format
@@ -2309,10 +2336,6 @@ msgstr "Да не се показва повече това съобщение"
 #. Resource IDs: (1079)
 msgid "Drive Types"
 msgstr "Тип устройства"
-
-#. Resource IDs: (219)
-msgid "Dry Run"
-msgstr "Симулация"
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -2793,6 +2816,14 @@ msgstr "Събира се информация. Моля, изчакайте..."
 msgid "General"
 msgstr "Общи"
 
+#. Resource IDs: (212)
+msgid "General::Colors"
+msgstr "Общи::Цветове"
+
+#. Resource IDs: (195)
+msgid "General::Context Menu"
+msgstr "Общи::Контекстно меню"
+
 #. Resource IDs: (196)
 msgid "General::Dialogs 1"
 msgstr "Общи::Диалогови прозорци 1"
@@ -3083,9 +3114,17 @@ msgstr "ID:57643:V C +Z"
 msgid "ID:57665:V C +Q"
 msgstr "ID:57665:V C +Q"
 
+#. Resource IDs: (106)
+msgid "Icon Overlays"
+msgstr "Модификации на иконките"
+
 #. Resource IDs: (65535)
 msgid "Icon Overlays / Status Columns"
 msgstr "Модификации на иконките / Колони за състоянието"
+
+#. Resource IDs: (184)
+msgid "Icon Overlays::Icon Set"
+msgstr "Модификации на иконките::Комплект с иконки"
 
 #. Resource IDs: (65535)
 msgid "Icons/Design/Code:     Luebbe Onken"
@@ -3118,6 +3157,10 @@ msgid ""
 msgstr ""
 "Ако е включено, TortoiseSVN създава временен файл от работната база, за да покаже разликите,\n"
 "със заместване на ключовите думи и преобразуване на символите за край на ред."
+
+#. Resource IDs: (197)
+msgid "If checked, double-clicking on a revision in the log list compares it with the previous revision"
+msgstr "Ако е включено, двойно щракване върху ревизия в дневника ще я сравни с предишната ревизия"
 
 #. Resource IDs: (196)
 msgid ""
@@ -3621,22 +3664,6 @@ msgstr "Съобщения от дневника (Диалогов прозор�
 msgid "Log messages (Show log dialog)"
 msgstr "Съобщения от дневника (Диалогов прозорец за показване)"
 
-#. Resource IDs: (195)
-msgid "Look and Feel"
-msgstr "Външен вид"
-
-#. Resource IDs: (212)
-msgid "Look and Feel::Colors"
-msgstr "Външен вид::Цветове"
-
-#. Resource IDs: (106)
-msgid "Look and Feel::Icon Overlays"
-msgstr "Външен вид::Модификации на иконките"
-
-#. Resource IDs: (184)
-msgid "Look and Feel::Icon Set"
-msgstr "Външен вид::Комплект с иконки"
-
 #. Resource IDs: (238)
 #, c-format
 msgid "Lowest shown revision: %ld - Highest shown revision: %ld"
@@ -3758,11 +3785,6 @@ msgstr "Сливане"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s from revision %s to %s into %s, %s%s"
-msgstr "Сливане на %s от ревизия %s до %s в %s, %s%s"
-
-#. Resource IDs: (229)
-#, c-format
 msgid "Merging %s into %s, %s"
 msgstr "Сливане на %s в %s, %s"
 
@@ -3784,6 +3806,11 @@ msgstr "Сливане от r%ld до r%ld"
 #. Resource IDs: (83)
 msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
 msgstr "Сливането изисква различни ревизии или различни URL за 'От:' и 'Към:'"
+
+#. Resource IDs: (229)
+#, c-format
+msgid "Merging revisions %s of %s into %s, %s%s"
+msgstr "Сливане на ревизии %s от %s във %s, %s%s"
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
@@ -4094,6 +4121,10 @@ msgstr ""
 "Разрешени са само числа (евентуално разделени\n"
 "със запетаи)!"
 
+#. Resource IDs: (1424)
+msgid "Only record the merge"
+msgstr "Само регистриране на сливането"
+
 #. Resource IDs: (19)
 msgid "Only this item"
 msgstr "Само този обект"
@@ -4384,6 +4415,21 @@ msgstr "Свойства..."
 msgid "Property"
 msgstr "Свойство"
 
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : remote"
+msgstr "Свойство %s : отдалечено"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : working base"
+msgstr "Свойство %s : работна база"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : working copy"
+msgstr "Свойство %s : работно копие"
+
 #. Resource IDs: (107)
 msgid "Property Page"
 msgstr "Страница за свойствата"
@@ -4669,7 +4715,7 @@ msgstr "Преименуван отдалечено"
 
 #. Resource IDs: (11)
 msgid "Renames files / folders inside version control"
-msgstr "Преименува файлове / папки под контрол"
+msgstr "Преименува контролирани файлове / папки"
 
 #. Resource IDs: (209)
 msgid "Repair move"
@@ -4807,6 +4853,10 @@ msgstr "Отменен"
 #. Resource IDs: (9)
 msgid "Reverts all changes you made since the last update"
 msgstr "Отменя всички промени, които сте направили след последното обновяване"
+
+#. Resource IDs: (14)
+msgid "Reverts an addition to version control"
+msgstr "Отменя добавяне за контролиране"
 
 #. Resource IDs: (19, 76, 208, 1306, 1375, 1393, 65535)
 msgid "Revision"
@@ -5654,6 +5704,10 @@ msgstr "Размер на табулатора:"
 msgid "Tagged the working copy to %s"
 msgstr "Слагане на етикет на работното копие до %s"
 
+#. Resource IDs: (219)
+msgid "Test Only"
+msgstr "Пробно"
+
 #. Resource IDs: (65535)
 msgid "Text Status:"
 msgstr "Състояние на текста:"
@@ -6027,7 +6081,7 @@ msgstr ""
 
 #. Resource IDs: (82)
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
-msgstr "Няма нищо за добавяне. Всички файлове и папки или вече са под контрол, или са игнорирани чрез използване на свойството \"svn:ignore\" или на глобалната настройка за игнориране."
+msgstr "Няма нищо за добавяне. Всички файлове и папки или вече са контролирани, или са игнорирани чрез използване на свойството \"svn:ignore\" или на глобалната настройка за игнориране."
 
 #. Resource IDs: (83)
 msgid "There's nothing to unlock. No file has a lock in this working copy."
@@ -6329,6 +6383,10 @@ msgstr "Грешка при запис в %1 - или е само за чете�
 #. Resource IDs: (3887)
 msgid "Uncheck"
 msgstr "Премахване на отметка"
+
+#. Resource IDs: (14)
+msgid "Undo Add.."
+msgstr "Отмяна на добавяне..."
 
 #. Resource IDs: (3603)
 msgid ""
