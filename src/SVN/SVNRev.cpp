@@ -268,7 +268,7 @@ void SVNRevRangeArray::AdjustForMerge(bool bReverse /* = false */)
 				// both ends of the range are revision numbers
 				if (bReverse)
 				{
-					// reverse merge means: start is the higher value + 1, end is the lower value
+					// reverse merge means: start is the higher value, end is the lower value -1
 					svn_revnum_t start = range.GetStartRevision();
 					svn_revnum_t end = range.GetEndRevision();
 					if (start > end)
@@ -277,7 +277,7 @@ void SVNRevRangeArray::AdjustForMerge(bool bReverse /* = false */)
 						start = end;
 						end = t;
 					}
-					m_array[i] = SVNRevRange(end+1, start);					
+					m_array[i] = SVNRevRange(end, start-1);					
 				}
 				else
 				{
@@ -297,7 +297,7 @@ void SVNRevRangeArray::AdjustForMerge(bool bReverse /* = false */)
 			{
 				// only the end revision is not a number, we have to adjust the start revision
 				if (bReverse)
-					m_array[i] = SVNRevRange(LONG(range.GetStartRevision())+1, range.GetEndRevision());
+					m_array[i] = SVNRevRange(LONG(range.GetStartRevision()), range.GetEndRevision());
 				else
 					m_array[i] = SVNRevRange(LONG(range.GetStartRevision())-1, range.GetEndRevision());
 			}
@@ -308,9 +308,9 @@ void SVNRevRangeArray::AdjustForMerge(bool bReverse /* = false */)
 			{
 				// only the start revision is not a number, we have to adjust the end revision
 				if (bReverse)
-					m_array[i] = SVNRevRange(range.GetStartRevision(), LONG(range.GetEndRevision())+1);
-				else
 					m_array[i] = SVNRevRange(range.GetStartRevision(), LONG(range.GetEndRevision())-1);
+				else
+					m_array[i] = SVNRevRange(range.GetStartRevision(), LONG(range.GetEndRevision()));
 			}
 		}
 	}
