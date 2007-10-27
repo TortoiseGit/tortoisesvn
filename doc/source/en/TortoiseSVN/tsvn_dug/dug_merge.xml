@@ -119,6 +119,12 @@
 			numbers to merge will be filled in for you.
 		</para>
 		<para>
+			If you want to merge changes back <emphasis>out</emphasis>
+			of your working copy, to revert a change which has already
+			been committed, select the revisions to revert and make sure
+			the <guilabel>Reverse merge</guilabel> box is checked.
+		</para>
+		<para>
 			If you have already merged some changes from this branch,
 			hopefully you will have made a note of the last revision
 			merged in the log message when you committed the change.
@@ -239,7 +245,7 @@
 			by hand, then mark the change as merged so that the merge tracking
 			algorithm is aware of it. Or you might want to prevent a particular
 			revision from being merged. Marking it as already merged will prevent
-			the merge occuring with merge-tracking-aware clients.
+			the merge occurring with merge-tracking-aware clients.
 		</para>
 		<para>
 			Now everything is set up, all you have to do is click on the

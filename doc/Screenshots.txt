@@ -143,11 +143,20 @@ LogMergeTrack.png
 	ShowLog for the WC and select 'Include merged revisions'
 	Move the slider to show a useful range of real and merged revisions.
 
-Merge.png
-	Open the merge dialog for the TSVN doc folder
-	Edit the URL to point to the quivalent folder on the stable branch
-	Make sure 'Use From: URL' is checked
-	Enter 2 consecutive revisions, eg. From: 5376 to To: 5377
+MergeWizardRange.png
+	Start the merge dialog from the TSVN doc folder.
+	Select the 'revision range' option and hit Next.
+	Put some fictitious numbers in the revision range box.
+
+MergeWizardTree.png
+	Start the merge dialog from the TSVN trunk or doc folder.
+	Select the 'merge two trees' option and hit Next.
+	Copy the URL to the End URL box and edit it to reflect a branch,
+	eg the LogCaching branch.
+	Enter the same revision number in both boxes.
+
+MergeWizardOption.png
+	Last page of the wizard, with default options.
 
 MergeConflictCallback.png
 	Use a fresh 'doc' test WC
