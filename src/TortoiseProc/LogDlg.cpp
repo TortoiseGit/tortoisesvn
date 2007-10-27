@@ -3492,16 +3492,8 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 					dlg.SetPathList(CTSVNPathList(m_path));
 					dlg.SetUrl(pathURL);
 					dlg.SetSecondUrl(pathURL);
-					if (IsSelectionContinuous())
-					{
-						dlg.SetRevision(revHighest);
-						dlg.SetRevisionEnd(svn_revnum_t(revLowest)-1);
-					}
-					else
-					{
-						revisionRanges.AdjustForMerge(true);
-						dlg.SetRevisionRanges(revisionRanges);
-					}
+					revisionRanges.AdjustForMerge(true);
+					dlg.SetRevisionRanges(revisionRanges);
 					dlg.SetPegRevision(m_LogRevision);
 					dlg.DoModal();
 				}
@@ -3574,8 +3566,9 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 					dlg.SetPathList(CTSVNPathList(m_path));
 					dlg.SetUrl(pathURL);
 					dlg.SetSecondUrl(pathURL);
-					dlg.SetRevision(SVNRev::REV_HEAD);
-					dlg.SetRevisionEnd(revSelected);
+					SVNRevRangeArray revarray;
+					revarray.AddRevRange(SVNRev::REV_HEAD, revSelected);
+					dlg.SetRevisionRanges(revarray);
 					dlg.SetPegRevision(m_LogRevision);
 					dlg.DoModal();
 				}
