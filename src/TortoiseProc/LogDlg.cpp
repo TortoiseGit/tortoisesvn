@@ -3530,16 +3530,8 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 					dlg.SetPathList(CTSVNPathList(CTSVNPath(path)));
 					dlg.SetUrl(pathURL);
 					dlg.SetSecondUrl(pathURL);
-					if (IsSelectionContinuous())
-					{
-						dlg.SetRevisionEnd(revHighest);
-						dlg.SetRevision(svn_revnum_t(revLowest)-1);
-					}
-					else
-					{
-						revisionRanges.AdjustForMerge(false);
-						dlg.SetRevisionRanges(revisionRanges);
-					}
+					revisionRanges.AdjustForMerge(false);
+					dlg.SetRevisionRanges(revisionRanges);
 					dlg.SetPegRevision(m_LogRevision);
 					dlg.DoModal();
 				}
@@ -4135,8 +4127,9 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 					dlg.SetPathList(CTSVNPathList(CTSVNPath(wcPath)));
 					dlg.SetUrl(fileURL);
 					dlg.SetSecondUrl(fileURL);
-					dlg.SetRevision(rev1);
-					dlg.SetRevisionEnd(rev2);
+					SVNRevRangeArray revarray;
+					revarray.AddRevRange(rev1, rev2);
+					dlg.SetRevisionRanges(revarray);
 				}
 				CString msg;
 				msg.Format(IDS_LOG_REVERT_CONFIRM, wcPath);

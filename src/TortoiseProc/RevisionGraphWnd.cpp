@@ -864,8 +864,9 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 					dlg.SetPathList(CTSVNPathList(CTSVNPath(path)));
 					dlg.SetUrl(URL);
 					dlg.SetSecondUrl(URL);
-					dlg.SetRevisionEnd(m_SelectedEntry1->revision);
-					dlg.SetRevision(svn_revnum_t(m_SelectedEntry1->revision)-1);
+					SVNRevRangeArray revarray;
+					revarray.AddRevRange(m_SelectedEntry1->revision, svn_revnum_t(m_SelectedEntry1->revision)-1);
+					dlg.SetRevisionRanges(revarray);
 					dlg.DoModal();
 				}
 			}
