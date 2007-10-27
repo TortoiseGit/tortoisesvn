@@ -71,6 +71,7 @@ bool CUndo::Undo(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom)
 		pBottom->SetCaretPosition(m_caretpoints.back());
 		pBottom->EnsureCaretVisible();
 	}
+	m_caretpoints.pop_back();
 	return true;
 }
 
