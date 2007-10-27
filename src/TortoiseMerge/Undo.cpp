@@ -45,83 +45,81 @@ void CUndo::AddState(const viewstate& leftstate, const viewstate& rightstate, co
 
 bool CUndo::Undo(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom)
 {
-	if (m_viewstates.size() > 0)
+	if (!m_viewstates.size())
+		return false;
+	viewstate state = m_viewstates.back();
+	Undo(state, pLeft);
+	m_viewstates.pop_back();
+	state = m_viewstates.back();
+	Undo(state, pRight);
+	m_viewstates.pop_back();
+	state = m_viewstates.back();
+	Undo(state, pBottom);
+	m_viewstates.pop_back();
+	if ((pLeft)&&(pLeft->HasCaret()))
 	{
-		viewstate state = m_viewstates.back();
-		Undo(state, pLeft);
-		m_viewstates.pop_back();
-		state = m_viewstates.back();
-		Undo(state, pRight);
-		m_viewstates.pop_back();
-		state = m_viewstates.back();
-		Undo(state, pBottom);
-		m_viewstates.pop_back();
-		if ((pLeft)&&(pLeft->HasCaret()))
-		{
-			pLeft->SetCaretPosition(m_caretpoints.back());
-			pLeft->EnsureCaretVisible();
-		}
-		if ((pRight)&&(pRight->HasCaret()))
-		{
-			pRight->SetCaretPosition(m_caretpoints.back());
-			pRight->EnsureCaretVisible();
-		}
-		if ((pBottom)&&(pBottom->HasCaret()))
-		{
-			pBottom->SetCaretPosition(m_caretpoints.back());
-			pBottom->EnsureCaretVisible();
-		}
-		return true;
+		pLeft->SetCaretPosition(m_caretpoints.back());
+		pLeft->EnsureCaretVisible();
 	}
-	return false;
+	if ((pRight)&&(pRight->HasCaret()))
+	{
+		pRight->SetCaretPosition(m_caretpoints.back());
+		pRight->EnsureCaretVisible();
+	}
+	if ((pBottom)&&(pBottom->HasCaret()))
+	{
+		pBottom->SetCaretPosition(m_caretpoints.back());
+		pBottom->EnsureCaretVisible();
+	}
+	return true;
 }
 
 void CUndo::Undo(const viewstate& state, CBaseView * pView)
 {
-	if (pView)
+	if (!pView)
+		return;
+
+	bool bModified = false;
+	for (std::list<int>::const_iterator it = state.addedlines.begin(); it != state.addedlines.end(); ++it)
 	{
-		bool bModified = false;
-		for (std::list<int>::const_iterator it = state.addedlines.begin(); it != state.addedlines.end(); ++it)
+		if (pView->m_pViewData)
+			pView->m_pViewData->RemoveData(*it);
+		bModified = true;
+	}
+	for (std::map<int, DWORD>::const_iterator it = state.linelines.begin(); it != state.linelines.end(); ++it)
+	{
+		if (pView->m_pViewData)
 		{
-			if (pView->m_pViewData)
-				pView->m_pViewData->RemoveData(*it);
+			pView->m_pViewData->SetLineNumber(it->first, it->second);
 			bModified = true;
 		}
-		for (std::map<int, DWORD>::const_iterator it = state.linelines.begin(); it != state.linelines.end(); ++it)
-		{
-			if (pView->m_pViewData)
-			{
-				pView->m_pViewData->SetLineNumber(it->first, it->second);
-				bModified = true;
-			}
-		}
-		for (std::map<int, DWORD>::const_iterator it = state.linestates.begin(); it != state.linestates.end(); ++it)
-		{
-			if (pView->m_pViewData)
-			{
-				pView->m_pViewData->SetState(it->first, (DiffStates)it->second);
-				bModified = true;
-			}
-		}
-		for (std::map<int, CString>::const_iterator it = state.difflines.begin(); it != state.difflines.end(); ++it)
-		{
-			if (pView->m_pViewData)
-			{
-				pView->m_pViewData->SetLine(it->first, it->second);
-				bModified = true;
-			}
-		}
-		for (std::map<int, viewdata>::const_iterator it = state.removedlines.begin(); it != state.removedlines.end(); ++it)
-		{
-			if (pView->m_pViewData)
-			{
-				pView->m_pViewData->InsertData(it->first, it->second.sLine, it->second.state, it->second.linenumber, it->second.ending);
-				bModified = true;
-			}
-		}
-
-		pView->DocumentUpdated();
-		if (bModified)
-			pView->SetModified();
 	}
+	for (std::map<int, DWORD>::const_iterator it = state.linestates.begin(); it != state.linestates.end(); ++it)
+	{
+		if (pView->m_pViewData)
+		{
+			pView->m_pViewData->SetState(it->first, (DiffStates)it->second);
+			bModified = true;
+		}
+	}
+	for (std::map<int, CString>::const_iterator it = state.difflines.begin(); it != state.difflines.end(); ++it)
+	{
+		if (pView->m_pViewData)
+		{
+			pView->m_pViewData->SetLine(it->first, it->second);
+			bModified = true;
+		}
+	}
+	for (std::map<int, viewdata>::const_iterator it = state.removedlines.begin(); it != state.removedlines.end(); ++it)
+	{
+		if (pView->m_pViewData)
+		{
+			pView->m_pViewData->InsertData(it->first, it->second.sLine, it->second.state, it->second.linenumber, it->second.ending);
+			bModified = true;
+		}
+	}
+
+	pView->DocumentUpdated();
+	if (bModified)
+		pView->SetModified();
 }
