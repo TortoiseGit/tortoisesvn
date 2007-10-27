@@ -433,9 +433,11 @@ Rev Comments
 			<primary>merge conflicts</primary>
 		</indexterm>
 		<para>
-			During merging, particularly with multiple ranges, it may be
-			that conflicts occur which prevent the merge from continuing.
-			In this case you will see the merge conflict callback dialog.
+			Merging does not always go smoothly. Sometimes there is a
+			conflict, and if you are merging multiple ranges, you generally
+			want to resolve the conflict before merging of the next range
+			starts. TortoiseSVN helps you through this process by showing
+			the <emphasis>merge conflict callback</emphasis> dialog.
 			<figure id="tsvn-dug-merge-callback-dia">
 				<title>The Merge Conflict Callback Dialog</title>
 				<graphic fileref="../images/MergeConflictCallback.png"/>
@@ -449,8 +451,8 @@ Rev Comments
 					<para>
 						You may decide that your local changes are much more
 						important, so you want to discard the version from the
-						repository and keep your local version. Or you discard
-						consider your local changes in favour of the repository
+						repository and keep your local version. Or you might
+						discard your local changes in favour of the repository
 						version. Either way, no attempt is made to merge the
 						changes - you choose one or the other.
 					</para>
