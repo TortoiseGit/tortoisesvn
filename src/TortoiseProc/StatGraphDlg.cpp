@@ -142,10 +142,6 @@ BOOL CStatGraphDlg::OnInitDialog()
 	sel = m_cGraphType.AddString(temp);
 	m_cGraphType.SetItemData(sel, 3);
 
-	m_Skipper.SetRange(0, 100);
-	m_Skipper.SetPos(10);
-	m_Skipper.SetPageSize(5);
-
 	// set the dialog title to "Statistics - path/to/whatever/we/show/the/statistics/for"
 	CString sTitle;
 	GetWindowText(sTitle);
@@ -222,6 +218,13 @@ BOOL CStatGraphDlg::OnInitDialog()
 	// gather statistics data, only needs to be updated when the checkbox with 
 	// the case sensitivity of author names is changed
 	GatherData();
+
+	// set the min/max values on the skipper
+	int max_authors_count = max(1, min(m_authorNames.size(),100) );
+	// TODO : limit the max count based on the resolution, for now we use 100
+	m_Skipper.SetRange(1, max_authors_count );
+	m_Skipper.SetPos( min(max_authors_count, 10) );
+	m_Skipper.SetPageSize(5);
 
 	// we use a stats page encoding here, 0 stands for the statistics dialog
 	CRegDWORD lastStatsPage = CRegDWORD(_T("Software\\TortoiseSVN\\LastViewedStatsPage"), 0);
@@ -556,36 +559,21 @@ void CStatGraphDlg::FilterSkippedAuthors(std::list<stdstring>& included_authors,
 {
 	included_authors.clear();
 	skipped_authors.clear();
-	// Calculate the commit threshold, authors with fewer commits are
-	// counted as others
-	LONG nCommitThreshold = m_nTotalCommits * m_Skipper.GetPos() / 200;
 
-	// Loop over all authors in the sorted authors list and 
-	// add them to the graph, but break once an author with fewer commits than
-	// the threshold is found.
+	unsigned int included_authors_count = m_Skipper.GetPos();
+	// if we only leave out one author, still include him with his name
+	if (included_authors_count + 1 == m_authorNames.size()) 
+		++included_authors_count;
+
+	// add the included authors first
 	std::list<stdstring>::iterator author_it = m_authorNames.begin();
-	while (author_it != m_authorNames.end()) 
-	{
-		// Check if author has enough commits
-		if (m_commitsPerAuthor[*author_it] >= nCommitThreshold) 
-		{
-			// Add him/her to the included list
-			included_authors.push_back(*author_it);
-		}
-		else 
-		{
-			// First author below the threshold, if it is the only "other" author, 
-			// add him as author, otherwise break.
-			std::list<stdstring>::iterator next_author_it = author_it;
-			if (++next_author_it == m_authorNames.end()) 
-			{
-				included_authors.push_back(*author_it);
-			}
-			else break;
-		}
-		// next author
+	while (included_authors_count > 0 && author_it != m_authorNames.end()) {
+		// Add him/her to the included list
+		included_authors.push_back(*author_it);
 		++author_it;
+		--included_authors_count;
 	}
+
 	// If we haven't reached the end yet, copy all remaining authors into the
 	// skipped author list.
 	std::copy(author_it, m_authorNames.end(), std::back_inserter(skipped_authors) );
@@ -1075,8 +1063,22 @@ void CStatGraphDlg::OnNeedText(NMHDR *pnmh, LRESULT * /*pResult*/)
 	TOOLTIPTEXT* pttt = (TOOLTIPTEXT*) pnmh;
 	if (pttt->hdr.idFrom == (UINT) m_Skipper.GetSafeHwnd())
 	{
+		unsigned int included_authors_count = m_Skipper.GetPos();
+		// if we only leave out one author, still include him with his name
+		if (included_authors_count + 1 == m_authorNames.size()) 
+			++included_authors_count;
+
+		// find the minimum number of commits that the shown authors have
+		int min_commits = 0;
+		included_authors_count = min(included_authors_count, m_authorNames.size());
+		std::list<stdstring>::iterator author_it = m_authorNames.begin();
+		advance(author_it, included_authors_count);
+		if (author_it != m_authorNames.begin())
+			min_commits = m_commitsPerAuthor[ *(--author_it) ];
+
 		CString string;
-		string.Format(_T("%d %%"), m_Skipper.GetPos()/2);
+		int percentage = int(min_commits*100.0/m_nTotalCommits);
+		string.Format(_T("%d most active author(s) with at least %d commits each (%d %%)"), m_Skipper.GetPos(), min_commits, percentage);
 		::lstrcpy(pttt->szText, (LPCTSTR) string);
 	}
 }
