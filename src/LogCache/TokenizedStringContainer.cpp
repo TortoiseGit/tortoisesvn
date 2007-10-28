@@ -566,7 +566,7 @@ index_t CTokenizedStringContainer::Insert (const std::string& s, size_t count)
 
 	    // write the index info
 
-        for (size_t i = 0; i < itemSize * count; i += itemSize)
+        for (index_t i = 0; i < itemSize * count; i += itemSize)
 	        offsets.push_back (newSize + i);
     }
 
