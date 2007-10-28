@@ -276,6 +276,7 @@ protected:
 	CBitmap *		m_pCacheBitmap;
 	CDC *			m_pDC;
 	CScrollTool		m_ScrollTool;
+	CString			m_sWordSeparators;
 	
 	char			m_szTip[MAX_PATH*2+1];
 	wchar_t			m_wszTip[MAX_PATH*2+1];

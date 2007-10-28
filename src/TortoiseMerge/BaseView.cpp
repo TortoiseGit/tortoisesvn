@@ -90,6 +90,7 @@ CBaseView::CBaseView()
 	m_InlineAddedBk = CRegDWORD(_T("Software\\TortoiseMerge\\InlineAdded"), INLINEADDED_COLOR);
 	m_InlineRemovedBk = CRegDWORD(_T("Software\\TortoiseMerge\\InlineRemoved"), INLINEREMOVED_COLOR);
 	m_ModifiedBk = CRegDWORD(_T("Software\\TortoiseMerge\\ColorModifiedB"), MODIFIED_COLOR);
+	m_sWordSeparators = CRegString(_T("Software\\TortoiseMerge\\WordSeparators"), _T("[]();.,"));;
 	m_nSelBlockStart = -1;
 	m_nSelBlockEnd = -1;
 	m_bModified = FALSE;
@@ -3050,9 +3051,7 @@ void CBaseView::OnCaretUp()
 
 bool CBaseView::IsWordSeparator(wchar_t ch) const
 {
-	return
-		ch == ' ' || ch == '\t' || ch == '(' || ch == ')' || ch == ',' ||
-		ch == ';' || ch == '.'  || ch == '[' || ch == ']';
+	return ch == ' ' || ch == '\t' || (m_sWordSeparators.Find(ch) >= 0);
 }
 
 bool CBaseView::IsCaretAtWordBoundary() const
