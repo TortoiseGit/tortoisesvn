@@ -779,10 +779,8 @@ void MyGraph::DrawLegend(CDC& dc)
 
 	// Create the legend font.
 	CFont fontLegend;
-	VERIFY(fontLegend.CreatePointFont(max(m_rcGraph.Height() / LEGEND_DIVISOR, MIN_FONT_SIZE), 
-		_T("Arial"), &dc));
-	CFont* pFontOld = dc.SelectObject(&fontLegend);
-	ASSERT_VALID(pFontOld);
+	int pointFontHeight = max(m_rcGraph.Height() / LEGEND_DIVISOR, MIN_FONT_SIZE);
+	VERIFY(fontLegend.CreatePointFont(pointFontHeight, _T("Arial"), &dc));
 
 	// Get the height of each label.
 	LOGFONT lf;
@@ -790,46 +788,91 @@ void MyGraph::DrawLegend(CDC& dc)
 	VERIFY(fontLegend.GetLogFont(&lf));
 	int nLabelHeight(abs(lf.lfHeight));
 
-	// Determine size of legend.  A buffer of (GAP_PIXELS / 2) on each side, 
-	// plus the height of each label based on the pint size of the font.
-	int nLegendHeight((GAP_PIXELS / 2) + (GetMaxSeriesSize() * nLabelHeight) +
-		(GAP_PIXELS / 2));
-	if (nLegendHeight > m_rcGraph.Height())
-	{
-		VERIFY(dc.SelectObject(pFontOld));
+	// Get number of legend entries
+	int nLegendEntries = max(1, GetMaxSeriesSize());
+
+	// Calculate optimal label height = AvailableLegendHeight/AllAuthors
+	// Use a buffer of (GAP_PIXELS / 2) on each side inside the legend, and in addition the same
+	// gab above and below the legend frame, so in total 2*GAP_PIXELS
+	double optimalLabelHeight = double(m_rcGraph.Height() - 2*GAP_PIXELS)/nLegendEntries;
+
+	// Now relate the LabelHeight to the PointFontHeight
+	int optimalPointFontHeight = int(pointFontHeight*optimalLabelHeight/nLabelHeight);
+
+	// Limit the optimal PointFontHeight to the available range
+	optimalPointFontHeight = min( max(optimalPointFontHeight, MIN_FONT_SIZE), pointFontHeight);
+
+	// If the optimalPointFontHeight is different from the initial one, create a new legend font
+	if (optimalPointFontHeight != pointFontHeight) {
 		fontLegend.DeleteObject();
-		return;
+		VERIFY(fontLegend.CreatePointFont(optimalPointFontHeight, _T("Arial"), &dc));
+		VERIFY(fontLegend.GetLogFont(&lf));
+		nLabelHeight = abs(lf.lfHeight);
 	}
+
+	// Calculate maximum number of authors that can be shown with the current label height
+	int nShownAuthors = (m_rcGraph.Height() - 2*GAP_PIXELS)/nLabelHeight - 1;
+	// Fix rounding errors.
+	if (nShownAuthors+1 == GetMaxSeriesSize()) 
+		++nShownAuthors;
+
+	// Get number of authors to be shown.
+	nShownAuthors = min(nShownAuthors, GetMaxSeriesSize());
+	// nShownAuthors contains now the number of authors
+
+	CFont* pFontOld = dc.SelectObject(&fontLegend);
+	ASSERT_VALID(pFontOld);
+
+	// Determine actual size of legend.  A buffer of (GAP_PIXELS / 2) on each side, 
+	// plus the height of each label based on the pint size of the font.
+	int nLegendHeight = (GAP_PIXELS / 2) + (nShownAuthors * nLabelHeight) + (GAP_PIXELS / 2);
 	// Draw the legend border.  Allow LEGEND_COLOR_BAR_PIXELS pixels for
 	// display of label bars.
-	m_rcLegend.top = (m_rcGraph.Height() / 2) - (nLegendHeight / 2);
+	m_rcLegend.top = (m_rcGraph.Height() - nLegendHeight) / 2;
 	m_rcLegend.bottom = m_rcLegend.top + nLegendHeight;
 	m_rcLegend.right = m_rcGraph.Width() - GAP_PIXELS;
 	m_rcLegend.left = m_rcLegend.right - GetMaxLegendLabelLength(dc) - 
 		LEGEND_COLOR_BAR_WIDTH_PIXELS;
 	VERIFY(dc.Rectangle(m_rcLegend));
 
+	int skipped_row = -1; // if != -1, this is the row that we show the ... in
+	if (nShownAuthors < GetMaxSeriesSize())
+		skipped_row = nShownAuthors-2;
 	// Draw each group's label and bar.
-	for (int nGroup = 0; nGroup < GetMaxSeriesSize(); ++nGroup) {
+	for (int nGroup = 0; nGroup < nShownAuthors; ++nGroup) {
 
 		int nLabelTop(m_rcLegend.top + (nGroup * nLabelHeight) +
 			(GAP_PIXELS / 2));
 
+		int nShownGroup = nGroup; // introduce helper variable to avoid code duplication
+
+		// Do we have a skipped row?
+		if (skipped_row != -1) 
+		{
+			if (nGroup == skipped_row) {
+				// draw the dots
+				VERIFY(dc.TextOut(m_rcLegend.left + GAP_PIXELS, nLabelTop, _T("...") ));
+				continue;
+			}
+			if (nGroup == nShownAuthors-1) {
+				// we show the last group instead of the scheduled group
+				nShownGroup = GetMaxSeriesSize()-1;
+			}
+		}
 		// Draw the label.
 		VERIFY(dc.TextOut(m_rcLegend.left + GAP_PIXELS, nLabelTop,
-			m_saLegendLabels.GetAt(nGroup)));
+			m_saLegendLabels.GetAt(nShownGroup)));
 
 		// Determine the bar.
 		CRect rcBar;
-		rcBar.left = m_rcLegend.left + GAP_PIXELS + GetMaxLegendLabelLength(dc) +
-			GAP_PIXELS;
+		rcBar.left = m_rcLegend.left + GAP_PIXELS + GetMaxLegendLabelLength(dc) + GAP_PIXELS;
 		rcBar.top = nLabelTop + LEGEND_COLOR_BAR_GAP_PIXELS;
 		rcBar.right = m_rcLegend.right - GAP_PIXELS;
 		rcBar.bottom = rcBar.top + nLabelHeight - LEGEND_COLOR_BAR_GAP_PIXELS;
 		VERIFY(dc.Rectangle(rcBar));
 
 		// Draw bar for group.
-		COLORREF crBar(m_dwaColors.GetAt(nGroup));
+		COLORREF crBar(m_dwaColors.GetAt(nShownGroup));
 		CBrush br(crBar);
 
 		CBrush* pBrushOld = dc.SelectObject(&br);
