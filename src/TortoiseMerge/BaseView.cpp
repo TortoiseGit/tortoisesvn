@@ -2791,72 +2791,32 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		m_pViewData->SetLine(m_ptCaretPos.y, sLine);
 		m_pViewData->SetState(m_ptCaretPos.y, DIFFSTATE_EDITED);
 		m_ptCaretPos.x++;
-		ClearSelection();
-		EnsureCaretVisible();
-		UpdateCaret();
-		SetModified(true);
-		Invalidate(FALSE);
 	}
-	if (nChar == VK_RETURN)
+	else if (nChar == VK_RETURN)
 	{
-		// insert a new, fresh and empty line below the cursor, the move the cursor
-		// to that new line
-		viewstate rightstate;
-		viewstate bottomstate;
-		viewstate leftstate;
-		if ((m_pwndLeft)&&(m_pwndLeft->m_pViewData))
-		{
-			leftstate.difflines[m_ptCaretPos.y] = m_pwndLeft->m_pViewData->GetLine(m_ptCaretPos.y);
-			leftstate.linestates[m_ptCaretPos.y] = m_pwndLeft->m_pViewData->GetState(m_ptCaretPos.y);
-			leftstate.addedlines.push_back(m_ptCaretPos.y+1);
-			m_pwndLeft->AddEmptyLine(m_ptCaretPos.y);
-		}
-		if ((m_pwndRight)&&(m_pwndRight->m_pViewData))
-		{
-			rightstate.difflines[m_ptCaretPos.y] = m_pwndRight->m_pViewData->GetLine(m_ptCaretPos.y);
-			rightstate.linestates[m_ptCaretPos.y] = m_pwndRight->m_pViewData->GetState(m_ptCaretPos.y);
-			rightstate.addedlines.push_back(m_ptCaretPos.y+1);
-			m_pwndRight->AddEmptyLine(m_ptCaretPos.y);
-		}
-		if ((m_pwndBottom)&&(m_pwndBottom->m_pViewData))
-		{
-			bottomstate.difflines[m_ptCaretPos.y] = m_pwndBottom->m_pViewData->GetLine(m_ptCaretPos.y);
-			bottomstate.linestates[m_ptCaretPos.y] = m_pwndBottom->m_pViewData->GetState(m_ptCaretPos.y);
-			bottomstate.addedlines.push_back(m_ptCaretPos.y+1);
-			m_pwndBottom->AddEmptyLine(m_ptCaretPos.y);
-		}
-		CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
-
+		// insert a new, fresh and empty line below the cursor
+		AddUndoLine(m_ptCaretPos.y, true);
+		// move the cursor to the new line
 		m_ptCaretPos.y++;
 		m_ptCaretPos.x = 0;
-		ClearSelection();
-		EnsureCaretVisible();
-		UpdateCaret();
-		SetModified(true);
-		Invalidate(FALSE);
 	}
+	else
+		return; // Unknown control character -- ignore it.
+	ClearSelection();
+	EnsureCaretVisible();
+	UpdateCaret();
+	SetModified(true);
+	Invalidate(FALSE);
 }
 
-void CBaseView::AddUndoLine(int nLine)
+void CBaseView::AddUndoLine(int nLine, bool bAddEmptyLine)
 {
+	viewstate leftstate;
 	viewstate rightstate;
 	viewstate bottomstate;
-	viewstate leftstate;
-	if ((m_pwndLeft)&&(m_pwndLeft->m_pViewData))
-	{
-		leftstate.difflines[nLine] = m_pwndLeft->m_pViewData->GetLine(nLine);
-		leftstate.linestates[nLine] = m_pwndLeft->m_pViewData->GetState(nLine);
-	}
-	if ((m_pwndRight)&&(m_pwndRight->m_pViewData))
-	{
-		rightstate.difflines[nLine] = m_pwndRight->m_pViewData->GetLine(nLine);
-		rightstate.linestates[nLine] = m_pwndRight->m_pViewData->GetState(nLine);
-	}
-	if ((m_pwndBottom)&&(m_pwndBottom->m_pViewData))
-	{
-		bottomstate.difflines[nLine] = m_pwndBottom->m_pViewData->GetLine(nLine);
-		bottomstate.linestates[nLine] = m_pwndBottom->m_pViewData->GetState(nLine);
-	}
+	leftstate.AddLineFormView(m_pwndLeft, nLine, bAddEmptyLine);
+	rightstate.AddLineFormView(m_pwndRight, nLine, bAddEmptyLine);
+	bottomstate.AddLineFormView(m_pwndBottom, nLine, bAddEmptyLine);
 	CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
 }
 
@@ -2968,37 +2928,40 @@ void CBaseView::RemoveSelectedText()
 
 void CBaseView::PasteText()
 {
-	if (OpenClipboard()) 
-	{ 
-		CString sClipboardText;
-		HGLOBAL hglb = GetClipboardData(CF_TEXT);
-		if (hglb)
-		{
-			LPCSTR lpstr = (LPCSTR)GlobalLock(hglb);
-			sClipboardText = CString(lpstr);
-			GlobalUnlock(hglb); 
-		}
-		hglb = GetClipboardData(CF_UNICODETEXT);
-		if (hglb)
-		{
-			LPCTSTR lpstr = (LPCTSTR)GlobalLock(hglb);
-			sClipboardText = lpstr;
-			GlobalUnlock(hglb); 
-		}
-		CloseClipboard();
+	if (!OpenClipboard())
+		return;
 
-		if (!sClipboardText.IsEmpty())
-		{
-			sClipboardText.Replace(_T("\r\n"), _T("\r"));
-			sClipboardText.Replace('\n', '\r');
-			// use the easy way to insert text:
-			// insert char by char, using the OnChar() method
-			for (int i=0; i<sClipboardText.GetLength(); ++i)
-			{
-				OnChar(sClipboardText[i], 0, 0);
-			}
-		}
-	} 
+	CString sClipboardText;
+	HGLOBAL hglb = GetClipboardData(CF_TEXT);
+	if (hglb)
+	{
+		LPCSTR lpstr = (LPCSTR)GlobalLock(hglb);
+		sClipboardText = CString(lpstr);
+		GlobalUnlock(hglb); 
+	}
+	hglb = GetClipboardData(CF_UNICODETEXT);
+	if (hglb)
+	{
+		LPCTSTR lpstr = (LPCTSTR)GlobalLock(hglb);
+		sClipboardText = lpstr;
+		GlobalUnlock(hglb); 
+	}
+	CloseClipboard();
+
+	if (sClipboardText.IsEmpty())
+		return;
+
+	sClipboardText.Replace(_T("\r\n"), _T("\r"));
+	sClipboardText.Replace('\n', '\r');
+	// We want to undo the insertion in a single step.
+	CUndo::GetInstance().BeginGrouping();
+	// use the easy way to insert text:
+	// insert char by char, using the OnChar() method
+	for (int i=0; i<sClipboardText.GetLength(); ++i)
+	{
+		OnChar(sClipboardText[i], 0, 0);
+	}
+	CUndo::GetInstance().EndGrouping();
 }
 
 void CBaseView::OnCaretDown()

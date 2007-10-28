@@ -16,10 +16,24 @@
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
+
 #include "StdAfx.h"
 #include "Undo.h"
 
 #include "BaseView.h"
+
+void viewstate::AddLineFormView(CBaseView *pView, int nLine, bool bAddEmptyLine)
+{
+	if (!pView || !pView->m_pViewData)
+		return;
+	difflines[nLine] = pView->m_pViewData->GetLine(nLine);
+	linestates[nLine] = pView->m_pViewData->GetState(nLine);
+	if (bAddEmptyLine)
+	{
+		addedlines.push_back(nLine + 1);
+		pView->AddEmptyLine(nLine);
+	}
+}
 
 CUndo& CUndo::GetInstance()
 {
@@ -45,8 +59,23 @@ void CUndo::AddState(const viewstate& leftstate, const viewstate& rightstate, co
 
 bool CUndo::Undo(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom)
 {
-	if (!m_viewstates.size())
+	if (!CanUndo())
 		return false;
+	if (m_groups.size() && m_groups.back() == m_caretpoints.size())
+	{
+		m_groups.pop_back();
+		std::list<int>::size_type b = m_groups.back();
+		m_groups.pop_back();
+		while (b < m_caretpoints.size())
+			UndoOne(pLeft, pRight, pBottom);
+	}
+	else
+		UndoOne(pLeft, pRight, pBottom);
+	return true;
+}
+
+void CUndo::UndoOne(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom)
+{
 	viewstate state = m_viewstates.back();
 	Undo(state, pLeft);
 	m_viewstates.pop_back();
@@ -72,7 +101,6 @@ bool CUndo::Undo(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom)
 		pBottom->EnsureCaretVisible();
 	}
 	m_caretpoints.pop_back();
-	return true;
 }
 
 void CUndo::Undo(const viewstate& state, CBaseView * pView)

@@ -35,6 +35,8 @@ typedef struct viewstate
 	std::list<int> addedlines;
 
 	std::map<int, viewdata> removedlines;
+
+	void	AddLineFormView(CBaseView *pView, int nLine, bool bAddEmptyLine);
 } viewstate;
 
 /**
@@ -50,10 +52,16 @@ public:
 	bool Undo(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom);
 	void AddState(const viewstate& leftstate, const viewstate& rightstate, const viewstate& bottomstate, POINT pt);
 	bool CanUndo() {return (m_viewstates.size() > 0);}
+
+	bool IsGrouping() { return m_groups.size() % 2 == 1; }
+	void BeginGrouping() { ASSERT(!IsGrouping()); m_groups.push_back(m_caretpoints.size()); }
+	void EndGrouping(){ ASSERT(IsGrouping()); m_groups.push_back(m_caretpoints.size()); }
 protected:
 	void Undo(const viewstate& state, CBaseView * pView);
+	void UndoOne(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom);
 	std::list<viewstate> m_viewstates;
 	std::list<POINT> m_caretpoints;
+	std::list< std::list<int>::size_type > m_groups;
 private:
 	CUndo();
 	~CUndo();

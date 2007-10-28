@@ -96,6 +96,7 @@ public:
 	static CMainFrame * m_pMainFrame;	///< Pointer to the mainframe
 
 	void			GoToFirstDifference();
+	void			AddEmptyLine(int nLineIndex);
 protected:
 	virtual BOOL	PreCreateWindow(CREATESTRUCT& cs);
 	virtual void	OnDraw(CDC * pDC);
@@ -209,11 +210,10 @@ protected:
 	void			ClearSelection();
 	void			AdjustSelection(bool bStartSelection, bool bForward);
 
-	void			AddEmptyLine(int nLineIndex);
 	void			RemoveLine(int nLineIndex);
 	void			RemoveSelectedText();
 	void			PasteText();
-	void			AddUndoLine(int nLine);
+	void			AddUndoLine(int nLine, bool bAddEmptyLine = false);
 
 protected:
 	COLORREF		m_InlineRemovedBk;
