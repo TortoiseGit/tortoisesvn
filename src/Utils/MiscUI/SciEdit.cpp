@@ -1269,7 +1269,7 @@ void CSciEdit::StyleURLs(int startstylepos, int endstylepos) {
 		}
 		else
 		{
-			if ((starturl >= 0) && ::PathIsURL(msg.Mid(starturl, i - starturl)))
+			if ((starturl >= 0) && IsUrl(msg.Mid(starturl, i - starturl)))
 			{
 				ASSERT(startstylepos + i <= endstylepos);
 				Call(SCI_STARTSTYLING, startstylepos + starturl, STYLE_MASK);
@@ -1278,4 +1278,13 @@ void CSciEdit::StyleURLs(int startstylepos, int endstylepos) {
 			starturl = -1;
 		}
 	}
+}
+
+bool CSciEdit::IsUrl(const CString& sText)
+{
+	if (!PathIsURL(sText))
+		return false;
+	if (sText.Find(_T("://"))>=0)
+		return true;
+	return false;
 }

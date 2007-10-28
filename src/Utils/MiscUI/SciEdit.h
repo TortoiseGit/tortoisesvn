@@ -141,6 +141,8 @@ protected:
 	void		AdvanceUTF8(const char * str, int& pos);
 	BOOL		IsMisspelled(const CString& sWord);
 	DWORD		GetStyleAt(int pos) { return Call(SCI_GETSTYLEAT, pos) & 0x1f; }
+	bool		IsUrl(const CString& sText);
+
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg void OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/);
 	DECLARE_MESSAGE_MAP()
