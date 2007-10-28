@@ -214,6 +214,11 @@ protected:
 	void			RemoveSelectedText();
 	void			PasteText();
 	void			AddUndoLine(int nLine, bool bAddEmptyLine = false);
+	
+	bool			MoveCaretLeft();
+	bool			MoveCaretRight();
+	bool			IsWordSeparator(wchar_t ch) const;
+	bool			IsCaretAtWordBoundary() const;
 
 protected:
 	COLORREF		m_InlineRemovedBk;

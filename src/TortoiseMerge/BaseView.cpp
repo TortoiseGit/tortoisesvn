@@ -2977,19 +2977,44 @@ void CBaseView::OnCaretDown()
 	UpdateCaret();
 }
 
+bool CBaseView::MoveCaretLeft()
+{
+	if (m_ptCaretPos.x == 0)
+	{
+		if (m_ptCaretPos.y > 0)
+		{
+			--m_ptCaretPos.y;
+			m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
+		}
+		else
+			return false;
+	}
+	else
+		--m_ptCaretPos.x;
+	return true;
+}
+
+bool CBaseView::MoveCaretRight()
+{
+	if (m_ptCaretPos.x >= GetLineLength(m_ptCaretPos.y))
+	{
+		if (m_ptCaretPos.y < (GetLineCount() - 1))
+		{
+			++m_ptCaretPos.y;
+			m_ptCaretPos.x = 0;
+		}
+		else
+			return false;
+	}
+	else
+		++m_ptCaretPos.x;
+	return true;
+}
+
 void CBaseView::OnCaretLeft()
 {
 	bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
-	if (m_ptCaretPos.x == 0)
-	{
-		if (m_ptCaretPos.y)
-		{
-			m_ptCaretPos.y--;
-			m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
-		}
-	}
-	else
-		m_ptCaretPos.x--;
+	MoveCaretLeft();
 	if (GetKeyState(VK_SHIFT)&0x8000)
 		AdjustSelection(bStartSelection, false);
 	else
@@ -3001,16 +3026,7 @@ void CBaseView::OnCaretLeft()
 void CBaseView::OnCaretRight()
 {
 	bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
-	if (m_ptCaretPos.x >= GetLineLength(m_ptCaretPos.y))
-	{
-		if (m_ptCaretPos.y < (GetLineCount()-1))
-		{
-			m_ptCaretPos.y++;
-			m_ptCaretPos.x = 0;
-		}
-	}
-	else
-		m_ptCaretPos.x++;
+	MoveCaretRight();
 	if (GetKeyState(VK_SHIFT)&0x8000)
 		AdjustSelection(bStartSelection, true);
 	else
@@ -3032,25 +3048,32 @@ void CBaseView::OnCaretUp()
 	UpdateCaret();
 }
 
+bool CBaseView::IsWordSeparator(wchar_t ch) const
+{
+	return
+		ch == ' ' || ch == '\t' || ch == '(' || ch == ')' || ch == ',' ||
+		ch == ';' || ch == '.'  || ch == '[' || ch == ']';
+}
+
+bool CBaseView::IsCaretAtWordBoundary() const
+{
+	LPCTSTR line = GetLineChars(m_ptCaretPos.y);
+	if (!*line)
+		return false; // no boundary at the empty lines
+	if (m_ptCaretPos.x == 0)
+		return !IsWordSeparator(line[m_ptCaretPos.x]);
+	if (m_ptCaretPos.x >= GetLineLength(m_ptCaretPos.y))
+		return !IsWordSeparator(line[m_ptCaretPos.x - 1]);
+	return
+		IsWordSeparator(line[m_ptCaretPos.x]) !=
+		IsWordSeparator(line[m_ptCaretPos.x - 1]);
+}
+
 void CBaseView::OnCaretWordleft()
 {
 	bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
-	if (m_ptCaretPos.x == 0)
+	while (MoveCaretLeft() && !IsCaretAtWordBoundary())
 	{
-		if (m_ptCaretPos.y)
-		{
-			m_ptCaretPos.y--;
-			m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
-		}
-	}
-	else
-	{
-		LPCTSTR sLine = GetLineChars(m_ptCaretPos.y);
-		std::wstring line = std::wstring(sLine);
-		size_t newpos = line.find_last_of(_T(" \t,()[];."), m_ptCaretPos.x-1);
-		if (newpos == std::wstring::npos)
-			newpos = 0;
-		m_ptCaretPos.x = newpos;
 	}
 	if (GetKeyState(VK_SHIFT)&0x8000)
 		AdjustSelection(bStartSelection, false);
@@ -3063,22 +3086,8 @@ void CBaseView::OnCaretWordleft()
 void CBaseView::OnCaretWordright()
 {
 	bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
-	if (m_ptCaretPos.x >= GetLineLength(m_ptCaretPos.y))
+	while (MoveCaretRight() && !IsCaretAtWordBoundary())
 	{
-		if (m_ptCaretPos.y < (GetLineCount()-1))
-		{
-			m_ptCaretPos.y++;
-			m_ptCaretPos.x = 0;
-		}
-	}
-	else
-	{
-		LPCTSTR sLine = GetLineChars(m_ptCaretPos.y);
-		std::wstring line = std::wstring(sLine);
-		size_t newpos = line.find_first_of(_T(" \t,()[];."), m_ptCaretPos.x+1);
-		if (newpos == std::wstring::npos)
-			newpos = line.size();
-		m_ptCaretPos.x = newpos;
 	}
 	if (GetKeyState(VK_SHIFT)&0x8000)
 		AdjustSelection(bStartSelection, true);
