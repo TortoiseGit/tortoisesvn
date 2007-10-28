@@ -44,7 +44,9 @@ protected:
 
 	// data source
 
-	const CCachedLogInfo* logInfo;
+	const CRevisionInfoContainer& revisionInfo;
+	const CRevisionIndex& revisionIndices;
+	const CSkipRevisionInfo& skipRevisionInfo;
 
 	// just enough to describe our position
 	// and what we are looking for
@@ -73,9 +75,6 @@ protected:
 
 	// comparison methods
 
-	static bool PathsIntersect 
-		( const CDictionaryBasedPath& lhsPath
-		, const CDictionaryBasedPath& rhsPath);
 	static bool PathInRevision 
 		( const CRevisionInfoContainer::CChangesIterator& first
 		, const CRevisionInfoContainer::CChangesIterator& last
@@ -133,7 +132,7 @@ public:
 
 inline bool CLogIteratorBase::InternalDataIsMissing() const
 {
-	return logInfo->GetRevisions()[revision] == NO_INDEX;
+	return revisionIndices[revision] == NO_INDEX;
 }
 
 ///////////////////////////////////////////////////////////////

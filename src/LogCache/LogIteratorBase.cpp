@@ -33,15 +33,6 @@ void CLogIteratorBase::HandleCacheUpdates()
 	path.RepeatLookup();
 }
 
-// comparison methods
-
-bool CLogIteratorBase::PathsIntersect ( const CDictionaryBasedPath& lhsPath
-									  , const CDictionaryBasedPath& rhsPath)
-{
-	return lhsPath.IsSameOrParentOf (rhsPath) 
-		|| rhsPath.IsSameOrParentOf (lhsPath);
-}
-
 // is current revision actually relevant?
 
 bool CLogIteratorBase::PathInRevision
@@ -94,8 +85,7 @@ bool CLogIteratorBase::PathInRevision() const
 
 	// revision data lookup
 
-	const CRevisionInfoContainer& revisionInfo = logInfo->GetLogInfo();
-	revision_t index = logInfo->GetRevisions()[revision];
+	revision_t index = revisionIndices[revision];
 
 	// any chance that this revision affects our path?
 
@@ -103,7 +93,7 @@ bool CLogIteratorBase::PathInRevision() const
 	if (!revisionRootPath.IsValid())
 		return false;
 
-	if (!PathsIntersect (path.GetBasePath(), revisionRootPath))
+	if (!path.GetBasePath().Intersects (revisionRootPath))
 		return false;
 
 	// close examination of all changes
@@ -270,8 +260,7 @@ void CLogIteratorBase::ToNextRevision()
 
 revision_t CLogIteratorBase::SkipNARevisions()
 {
-	return logInfo->GetSkippedRevisions()
-		.GetPreviousRevision (path.GetBasePath(), revision);
+	return skipRevisionInfo.GetPreviousRevision (path.GetBasePath(), revision);
 }
 
 // log scanning
@@ -308,7 +297,9 @@ void CLogIteratorBase::InternalAdvance()
 CLogIteratorBase::CLogIteratorBase ( const CCachedLogInfo* cachedLog
 								   , revision_t startRevision
 								   , const CDictionaryBasedTempPath& startPath)
-	: logInfo (cachedLog)
+	: revisionInfo (cachedLog->GetLogInfo())
+	, revisionIndices (cachedLog->GetRevisions())
+	, skipRevisionInfo (cachedLog->GetSkippedRevisions())
 	, revision (startRevision)
 	, path (startPath)
 {

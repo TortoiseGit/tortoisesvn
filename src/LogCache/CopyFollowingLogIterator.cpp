@@ -34,8 +34,7 @@ bool CCopyFollowingLogIterator::HandleCopyAndDelete()
 
 	// revision data lookup
 
-	const CRevisionInfoContainer& revisionInfo = logInfo->GetLogInfo();
-	index_t index = logInfo->GetRevisions()[revision];
+	index_t index = revisionIndices[revision];
 
 	// switch to new path, if necessary
 
