@@ -158,6 +158,14 @@ protected:
 
 	bool IsSameOrParentOf (index_t lhsIndex, index_t rhsIndex) const;
 
+	bool Intersects (index_t lhsIndex, index_t rhsIndex) const
+	{
+		return lhsIndex < rhsIndex
+			? IsSameOrParentOf (lhsIndex, rhsIndex)
+			: IsSameOrParentOf (rhsIndex, lhsIndex);
+	}
+
+
 public:
 
 	// construction / destruction
@@ -234,6 +242,16 @@ public:
 	bool IsSameOrChildOf (const CDictionaryBasedPath& rhs) const
 	{
 		return IsSameOrParentOf (rhs.index, index);
+	}
+
+	bool Intersects (index_t rhsIndex) const
+	{
+		return Intersects (rhsIndex, index);
+	}
+
+	bool Intersects (const CDictionaryBasedPath& rhs) const
+	{
+		return Intersects (rhs.index, index);
 	}
 
     bool Contains (index_t pathElementID) const;
