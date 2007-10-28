@@ -853,13 +853,14 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 	return TRUE;
 }
 
-BOOL SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, SVNRev revision, svn_depth_t depth, BOOL ignore_externals, BOOL allow_unver_obstruction)
+BOOL SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegrev, svn_depth_t depth, BOOL ignore_externals, BOOL allow_unver_obstruction)
 {
 	SVNPool subpool(pool);
 	svn_error_clear(Err);
 	Err = svn_client_switch2(NULL,
 							 path.GetSVNApiPath(subpool),
 							 url.GetSVNApiPath(subpool),
+							 pegrev,
 							 revision,
 							 depth,
 							 ignore_externals,

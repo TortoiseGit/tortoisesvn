@@ -359,7 +359,7 @@ public:
 	 * if there are any unversioned obstructing items.
 	 * \return TRUE if successful
 	 */
-	BOOL Switch(const CTSVNPath& path, const CTSVNPath& url, SVNRev revision, svn_depth_t depth, BOOL ignore_externals, BOOL allow_unver_obstruction = TRUE);
+	BOOL Switch(const CTSVNPath& path, const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegrev, svn_depth_t depth, BOOL ignore_externals, BOOL allow_unver_obstruction = TRUE);
 	/**
 	 * Import file or directory path into repository directory url at
 	 * head and using LOG_MSG as the log message for the (implied)
