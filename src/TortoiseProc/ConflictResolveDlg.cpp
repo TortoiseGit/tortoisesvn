@@ -23,7 +23,7 @@
 #include "UnicodeUtils.h"
 #include "PathUtils.h"
 #include "AppUtils.h"
-
+#include "TempFile.h"
 
 IMPLEMENT_DYNAMIC(CConflictResolveDlg, CResizableStandAloneDialog)
 
@@ -194,7 +194,7 @@ void CConflictResolveDlg::OnBnClickedEditconflict()
 		}
 		else
 		{
-			mergedfile = CUnicodeUtils::GetUnicode(m_pConflictDescription->my_file);
+			mergedfile = CTempFiles::Instance().GetTempFilePath(false).GetWinPath();
 		}
 		CAppUtils::StartExtMerge(CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->base_file)),
 								CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->their_file)),
@@ -209,7 +209,7 @@ void CConflictResolveDlg::OnBnClickedEditconflict()
 void CConflictResolveDlg::OnBnClickedResolved()
 {
 	m_choice = svn_wc_conflict_choose_merged;
-	if (m_pConflictDescription->merged_file == NULL)
+	if (m_mergedfile.IsEmpty())
 		m_mergedfile = CUnicodeUtils::GetUnicode(m_pConflictDescription->my_file);
 	EndDialog(IDOK);
 }
