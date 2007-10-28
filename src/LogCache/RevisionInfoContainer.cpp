@@ -164,6 +164,7 @@ void CRevisionInfoContainer::UpdateChanges
 			}
 
             rootPaths[i] = *pathIDMapping.find (newData.rootPaths[sourceIndex]);
+			sumChanges[i] = newData.sumChanges[sourceIndex];
 		}
 		else
 		{
@@ -407,6 +408,7 @@ void CRevisionInfoContainer::AppendNewEntries
         timeStamps.insert (timeStamps.end(), toAppend, 0);
         presenceFlags.insert (presenceFlags.end(), toAppend, 0);
         rootPaths.insert (rootPaths.end(), toAppend, NO_INDEX);
+        sumChanges.insert (sumChanges.end(), toAppend, 0);
 
         static const std::string emptyComment;
     	comments.Insert (emptyComment, toAppend);
@@ -608,6 +610,7 @@ index_t CRevisionInfoContainer::Insert ( const std::string& author
 	// no changes yet -> no common root path info
 
 	rootPaths.push_back (NO_INDEX);
+	sumChanges.push_back (0);
 
 	// empty range for changes 
 
@@ -650,6 +653,7 @@ void CRevisionInfoContainer::AddChange ( TChangeAction action
 
 	// add changes info (flags), and indicate presence of fromPath (if given)
 
+	*sumChanges.rbegin() |= (char)action;
 	if (fromPath.empty())
 	{
 		changes.push_back ((char)action);
@@ -735,6 +739,7 @@ void CRevisionInfoContainer::Clear()
 	timeStamps.clear();
 
 	rootPaths.clear();
+	sumChanges.clear();
 
 	changesOffsets.erase (changesOffsets.begin()+1, changesOffsets.end());
 	copyFromOffsets.erase (copyFromOffsets.begin()+1, copyFromOffsets.end());
@@ -818,6 +823,43 @@ void CRevisionInfoContainer::AutoOptimize()
 
 		Optimize();
 	}
+}
+
+// reconstruct derived data
+
+void CRevisionInfoContainer::CalculateSumChanges()
+{
+	// initialize all sums with "0"
+
+	sumChanges.clear();
+	sumChanges.resize (rootPaths.size());
+
+	if (changes.empty())
+		return;
+
+	// fold all changes 
+	// (hand-tuned code because vector iterators do expensive checking
+	//  ~6 ticks vs. ~20 ticks per change)
+
+	const index_t *iter = &changesOffsets.at(1);
+	unsigned char *target = &sumChanges.at(0);
+	const unsigned char *source = &changes.at(0);
+
+	unsigned char sum = 0;
+	for (size_t i = 0, count = changes.size(); i < count; ++i)
+	{
+		while (*iter <= i)
+		{
+			*target = sum;
+			++iter;
+			++target;
+			sum = 0;
+		}
+
+		sum |= *(source+i);
+	}
+
+	*target = sum;
 }
 
 // stream I/O
@@ -945,6 +987,10 @@ IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 	// update size info
 
 	container.storedSize = container.size();
+
+	// reconstruct derived data
+
+	container.CalculateSumChanges();
 
 	// ready
 

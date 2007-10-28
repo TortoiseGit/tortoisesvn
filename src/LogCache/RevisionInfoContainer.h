@@ -47,6 +47,9 @@ namespace LogCache
  *  - CDictionaryBasedPath (&paths, rootPaths[index]) is the common root path 
  *    for all changed paths in that revision (returns true in IsInvalid(), if 
  *    there are no changed paths for this revision).
+ *  - sumChanges[index] contains the combination (OR) of all changes in that
+ *    revision (i.e. indicates if there is at least one change of a certain 
+ *    type in this revision)
  *  - changesOffsets[index] .. changesOffsets[index+1]-1 is the range within 
  *    changes and changedPaths that contains all changes to the revision
  *  - copyFromOffsets[index] .. copyFromOffsets[index+1]-1 is the corresponding 
@@ -95,6 +98,10 @@ private:
 	// common root of all changed paths in this revision
 
 	std::vector<index_t> rootPaths;
+
+	// superset of all change actions in that revision
+
+	std::vector<unsigned char> sumChanges;
 
 	// mark the ranges that contain the changed path info
 
@@ -210,6 +217,10 @@ private:
 
 	void OptimizeAuthors();
 	void OptimizeChangeOrder();
+
+	// reconstruct derived data
+
+	void CalculateSumChanges();
 
 public:
 
@@ -497,6 +508,7 @@ public:
 
 	index_t GetAuthorID (index_t index) const;
 	CDictionaryBasedPath GetRootPath (index_t index) const;
+	unsigned char GetSumChanges (index_t index) const;
 
 	// iterate over all changes
 
@@ -956,6 +968,13 @@ CRevisionInfoContainer::GetRootPath (index_t index) const
 {
 	CheckIndex (index);
 	return CDictionaryBasedPath (&paths, rootPaths [index]);
+}
+
+inline unsigned char  
+CRevisionInfoContainer::GetSumChanges (index_t index) const
+{
+	CheckIndex (index);
+	return sumChanges[index];
 }
 
 // iterate over all changes
