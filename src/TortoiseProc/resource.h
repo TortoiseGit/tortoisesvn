@@ -239,6 +239,7 @@
 #define IDC_EXPORT_CHECKOUTDIR          1074
 #define IDC_VERSIONBOX                  1075
 #define IDC_LABEL                       1076
+#define IDC_MSGVIEW                     1077
 #define IDC_EXCEPTIONS                  1077
 #define IDC_BUGID                       1077
 #define IDC_EXCLUDEPATHS                1077
@@ -698,7 +699,6 @@
 #define IDC_PROXYLABEL4                 1412
 #define IDC_PROXYLABEL5                 1413
 #define IDC_PROXYLABEL6                 1414
-#define IDC_MSGEDIT                     1415
 #define IDC_MERGE_REVRANGE              1416
 #define IDC_MERGE_TREE                  1417
 #define IDC_MERGERANGELABEL             1418

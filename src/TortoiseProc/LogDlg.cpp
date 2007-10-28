@@ -139,7 +139,6 @@ void CLogDlg::DoDataExchange(CDataExchange* pDX)
 	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_LOGLIST, m_LogList);
 	DDX_Control(pDX, IDC_LOGMSG, m_ChangedFileListCtrl);
-	DDX_Control(pDX, IDC_MSGEDIT, m_cLogMessage);
 	DDX_Control(pDX, IDC_PROGRESS, m_LogProgress);
 	DDX_Control(pDX, IDC_SPLITTERTOP, m_wndSplitter1);
 	DDX_Control(pDX, IDC_SPLITTERBOTTOM, m_wndSplitter2);
@@ -163,6 +162,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
 	ON_WM_SETCURSOR()
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_LOGLIST, OnLvnItemchangedLoglist)
+	ON_NOTIFY(EN_LINK, IDC_MSGVIEW, OnEnLinkMsgview)
 	ON_BN_CLICKED(IDC_STATBUTTON, OnBnClickedStatbutton)
 	ON_NOTIFY(NM_CUSTOMDRAW, IDC_LOGLIST, OnNMCustomdrawLoglist)
 	ON_MESSAGE(WM_FILTEREDIT_INFOCLICKED, OnClickedInfoIcon)
@@ -224,17 +224,13 @@ BOOL CLogDlg::OnInitDialog()
 
 	SetDlgItemText(IDC_NEXTHUNDRED, temp);
 
-	// if there is a working copy, load the project properties
-	// to get information about the bugtraq: integration
-	if (m_hasWC)
-		m_ProjectProperties.ReadProps(m_path);
-
-	m_ProjectProperties.nLogWidthMarker = 0;	// prevent the edit control from showing the width marker.
-	m_cLogMessage.Init(m_ProjectProperties);
 	// set the font to use in the log message view, configured in the settings dialog
-	m_cLogMessage.SetFont(
-		(CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")),
-		(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
+	CAppUtils::CreateFontForLogs(m_logFont);
+	GetDlgItem(IDC_MSGVIEW)->SetFont(&m_logFont);
+	// automatically detect URLs in the log message and turn them into links
+	GetDlgItem(IDC_MSGVIEW)->SendMessage(EM_AUTOURLDETECT, TRUE, NULL);
+	// make the log message rich edit control send a message when the mouse pointer is over a link
+	GetDlgItem(IDC_MSGVIEW)->SendMessage(EM_SETEVENTMASK, NULL, ENM_LINK);
 	m_LogList.SetExtendedStyle(LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_SUBITEMIMAGES);
 
 	// the "hide unrelated paths" checkbox should be indeterminate
@@ -246,6 +242,11 @@ BOOL CLogDlg::OnInitDialog()
 	m_hAddedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ACTIONADDED), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
 	m_hDeletedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ACTIONDELETED), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
 	
+	// if there is a working copy, load the project properties
+	// to get information about the bugtraq: integration
+	if (m_hasWC)
+		m_ProjectProperties.ReadProps(m_path);
+
 	// the bugtraq issue id column is only shown if the bugtraq:url or bugtraq:regex is set
 	if ((!m_ProjectProperties.sUrl.IsEmpty())||(!m_ProjectProperties.sBugIDRe.IsEmpty()))
 		m_bShowBugtraqColumn = true;
@@ -328,7 +329,7 @@ BOOL CLogDlg::OnInitDialog()
 
 	GetClientRect(m_DlgOrigRect);
 	m_LogList.GetClientRect(m_LogListOrigRect);
-	GetDlgItem(IDC_MSGEDIT)->GetClientRect(m_MsgViewOrigRect);
+	GetDlgItem(IDC_MSGVIEW)->GetClientRect(m_MsgViewOrigRect);
 	m_ChangedFileListCtrl.GetClientRect(m_ChgOrigRect);
 
 	// resizable stuff
@@ -342,7 +343,7 @@ BOOL CLogDlg::OnInitDialog()
 	
 	AddAnchor(IDC_LOGLIST, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_SPLITTERTOP, TOP_LEFT, TOP_RIGHT);
-	AddAnchor(IDC_MSGEDIT, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_MSGVIEW, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SPLITTERBOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_LOGMSG, BOTTOM_LEFT, BOTTOM_RIGHT);
 
@@ -460,8 +461,9 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 	// and also populate the changed files list control
 	// according to the selected revision(s).
 
+	CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
 	// empty the log message view
-	m_cLogMessage.SetText(_T(" "));
+	pMsgView->SetWindowText(_T(" "));
 	// empty the changed files list
 	m_ChangedFileListCtrl.SetRedraw(FALSE);
 	InterlockedExchange(&m_bNoDispUpdates, TRUE);
@@ -508,7 +510,11 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
 		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(selIndex));
 
 		// set the log message text
-		m_cLogMessage.SetText(pLogEntry->sMessage);
+		pMsgView->SetWindowText(pLogEntry->sMessage);
+		// turn bug ID's into links if the bugtraq: properties have been set
+		// and we can find a match of those in the log message
+		m_ProjectProperties.FindBugID(pLogEntry->sMessage, pMsgView);
+		CAppUtils::FormatTextInRichEditControl(pMsgView);
 		m_currentChangedArray = pLogEntry->pArChangedPaths;
 		if (m_currentChangedArray == NULL)
 		{
@@ -626,7 +632,8 @@ void CLogDlg::GetAll(bool bForceAll /* = false */)
 	m_LogList.SetItemCountEx(0);
 	m_LogList.Invalidate();
 	InterlockedExchange(&m_bNoDispUpdates, TRUE);
-	m_cLogMessage.SetText(_T(""));
+	CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
+	pMsgView->SetWindowText(_T(""));
 
 	SetSortArrow(&m_LogList, -1, true);
 
@@ -683,7 +690,8 @@ void CLogDlg::Refresh()
 	m_LogList.SetItemCountEx(0);
 	m_LogList.Invalidate();
 	InterlockedExchange(&m_bNoDispUpdates, TRUE);
-	m_cLogMessage.SetText(_T(""));
+	CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
+	pMsgView->SetWindowText(_T(""));
 
 	SetSortArrow(&m_LogList, -1, true);
 
@@ -1913,7 +1921,10 @@ void CLogDlg::EditLogMessage(int index)
 			else
 				dlg.m_sInputText.Empty();
 			pLogEntry->sMessage = dlg.m_sInputText;
-			m_cLogMessage.SetText(dlg.m_sInputText);
+			CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
+			pMsgView->SetWindowText(_T(" "));
+			pMsgView->SetWindowText(dlg.m_sInputText);
+			m_ProjectProperties.FindBugID(dlg.m_sInputText, pMsgView);
 			m_LogList.Invalidate();
         
             // update the log cache 
@@ -1942,10 +1953,7 @@ void CLogDlg::EditLogMessage(int index)
 BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
 {
 	// Skip Ctrl-C when copying text out of the log message or search filter
-	BOOL bSkipAccelerator = (
-		pMsg->message == WM_KEYDOWN && pMsg->wParam=='C' &&
-		(GetFocus()==GetDlgItem(IDC_MSGEDIT) || GetFocus()==GetDlgItem(IDC_SEARCHEDIT) ) &&
-		GetKeyState(VK_CONTROL)&0x8000 );
+	BOOL bSkipAccelerator = ( pMsg->message == WM_KEYDOWN && pMsg->wParam=='C' && (GetFocus()==GetDlgItem(IDC_MSGVIEW) || GetFocus()==GetDlgItem(IDC_SEARCHEDIT) ) && GetKeyState(VK_CONTROL)&0x8000 );
 	if (pMsg->message == WM_KEYDOWN && pMsg->wParam=='\r')
 	{
 		if (GetFocus()==GetDlgItem(IDC_LOGLIST))
@@ -1977,10 +1985,10 @@ BOOL CLogDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {
 	if (m_bThreadRunning)
 	{
-		// only show the wait cursor over the list control or log message edit
+		// only show the wait cursor over the list control
 		if ((pWnd)&&
 			((pWnd == GetDlgItem(IDC_LOGLIST))||
-			(pWnd == GetDlgItem(IDC_MSGEDIT))||
+			(pWnd == GetDlgItem(IDC_MSGVIEW))||
 			(pWnd == GetDlgItem(IDC_LOGMSG))))
 		{
 			HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_WAIT));
@@ -2024,6 +2032,25 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	}
 	EnableOKButton();
 	UpdateLogInfoLabel();
+}
+
+void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	ENLINK *pEnLink = reinterpret_cast<ENLINK *>(pNMHDR);
+	if (pEnLink->msg == WM_LBUTTONUP)
+	{
+		CString url, msg;
+		GetDlgItem(IDC_MSGVIEW)->GetWindowText(msg);
+		msg.Replace(_T("\r\n"), _T("\n"));
+		url = msg.Mid(pEnLink->chrg.cpMin, pEnLink->chrg.cpMax-pEnLink->chrg.cpMin);
+		if (!::PathIsURL(url))
+		{
+			url = m_ProjectProperties.GetBugIDUrl(url);
+		}
+		if (!url.IsEmpty())
+			ShellExecute(this->m_hWnd, _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);
+	}
+	*pResult = 0;
 }
 
 void CLogDlg::OnBnClickedStatbutton()
@@ -2251,41 +2278,41 @@ void CLogDlg::DoSizeV1(int delta)
 {
 	RemoveAnchor(IDC_LOGLIST);
 	RemoveAnchor(IDC_SPLITTERTOP);
-	RemoveAnchor(IDC_MSGEDIT);
+	RemoveAnchor(IDC_MSGVIEW);
 	RemoveAnchor(IDC_SPLITTERBOTTOM);
 	RemoveAnchor(IDC_LOGMSG);
 	CSplitterControl::ChangeHeight(&m_LogList, delta, CW_TOPALIGN);
-	CSplitterControl::ChangeHeight(GetDlgItem(IDC_MSGEDIT), -delta, CW_BOTTOMALIGN);
+	CSplitterControl::ChangeHeight(GetDlgItem(IDC_MSGVIEW), -delta, CW_BOTTOMALIGN);
 	AddAnchor(IDC_LOGLIST, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_SPLITTERTOP, TOP_LEFT, TOP_RIGHT);
-	AddAnchor(IDC_MSGEDIT, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_MSGVIEW, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SPLITTERBOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_LOGMSG, BOTTOM_LEFT, BOTTOM_RIGHT);
 	ArrangeLayout();
 	AdjustMinSize();
 	SetSplitterRange();
 	m_LogList.Invalidate();
-	GetDlgItem(IDC_MSGEDIT)->Invalidate();
+	GetDlgItem(IDC_MSGVIEW)->Invalidate();
 }
 
 void CLogDlg::DoSizeV2(int delta)
 {
 	RemoveAnchor(IDC_LOGLIST);
 	RemoveAnchor(IDC_SPLITTERTOP);
-	RemoveAnchor(IDC_MSGEDIT);
+	RemoveAnchor(IDC_MSGVIEW);
 	RemoveAnchor(IDC_SPLITTERBOTTOM);
 	RemoveAnchor(IDC_LOGMSG);
-	CSplitterControl::ChangeHeight(GetDlgItem(IDC_MSGEDIT), delta, CW_TOPALIGN);
+	CSplitterControl::ChangeHeight(GetDlgItem(IDC_MSGVIEW), delta, CW_TOPALIGN);
 	CSplitterControl::ChangeHeight(&m_ChangedFileListCtrl, -delta, CW_BOTTOMALIGN);
 	AddAnchor(IDC_LOGLIST, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_SPLITTERTOP, TOP_LEFT, TOP_RIGHT);
-	AddAnchor(IDC_MSGEDIT, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_MSGVIEW, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SPLITTERBOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_LOGMSG, BOTTOM_LEFT, BOTTOM_RIGHT);
 	ArrangeLayout();
 	AdjustMinSize();
 	SetSplitterRange();
-	GetDlgItem(IDC_MSGEDIT)->Invalidate();
+	GetDlgItem(IDC_MSGVIEW)->Invalidate();
 	m_ChangedFileListCtrl.Invalidate();
 }
 
@@ -2331,7 +2358,7 @@ void CLogDlg::SetSplitterRange()
 		m_LogList.GetWindowRect(rcTop);
 		ScreenToClient(rcTop);
 		CRect rcMiddle;
-		GetDlgItem(IDC_MSGEDIT)->GetWindowRect(rcMiddle);
+		GetDlgItem(IDC_MSGVIEW)->GetWindowRect(rcMiddle);
 		ScreenToClient(rcMiddle);
 		m_wndSplitter1.SetRange(rcTop.top+30, rcMiddle.bottom-20);
 		CRect rcBottom;

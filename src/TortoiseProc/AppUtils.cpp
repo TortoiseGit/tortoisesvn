@@ -511,6 +511,28 @@ BOOL CAppUtils::CheckForEmptyDiff(const CTSVNPath& sDiffPath)
 
 }
 
+void CAppUtils::CreateFontForLogs(CFont& fontToCreate)
+{
+	LOGFONT logFont;
+	HDC hScreenDC = ::GetDC(NULL);
+	logFont.lfHeight         = -MulDiv((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8), GetDeviceCaps(hScreenDC, LOGPIXELSY), 72);
+	::ReleaseDC(NULL, hScreenDC);
+	logFont.lfWidth          = 0;
+	logFont.lfEscapement     = 0;
+	logFont.lfOrientation    = 0;
+	logFont.lfWeight         = FW_NORMAL;
+	logFont.lfItalic         = 0;
+	logFont.lfUnderline      = 0;
+	logFont.lfStrikeOut      = 0;
+	logFont.lfCharSet        = DEFAULT_CHARSET;
+	logFont.lfOutPrecision   = OUT_DEFAULT_PRECIS;
+	logFont.lfClipPrecision  = CLIP_DEFAULT_PRECIS;
+	logFont.lfQuality        = DRAFT_QUALITY;
+	logFont.lfPitchAndFamily = FF_DONTCARE | FIXED_PITCH;
+	_tcscpy_s(logFont.lfFaceName, 32, (LPCTSTR)(CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")));
+	VERIFY(fontToCreate.CreateFontIndirect(&logFont));
+}
+
 bool CAppUtils::LaunchApplication(const CString& sCommandLine, UINT idErrMessageFormat, bool bWaitForStartup)
 {
 	STARTUPINFO startup;
@@ -603,6 +625,118 @@ void CAppUtils::ResizeAllListCtrlCols(CListCtrl * pListCtrl)
 		}
 		pListCtrl->SetColumnWidth(col, cx);
 	}
+}
+
+bool CAppUtils::FormatTextInRichEditControl(CWnd * pWnd)
+{
+	CString sText;
+	if (pWnd == NULL)
+		return false;
+	bool bStyled = false;
+	pWnd->GetWindowText(sText);
+	// the rich edit control doesn't count the CR char!
+	// to be exact: CRLF is treated as one char.
+	sText.Replace(_T("\r"), _T(""));
+
+	// style each line separately
+	int offset = 0;
+	int nNewlinePos;
+	do 
+	{
+		nNewlinePos = sText.Find('\n', offset);
+		CString sLine = sText.Mid(offset);
+		if (nNewlinePos>=0)
+			sLine = sLine.Left(nNewlinePos-offset);
+		int start = 0;
+		int end = 0;
+		while (FindStyleChars(sLine, '*', start, end))
+		{
+			CHARRANGE range = {(LONG)start+offset, (LONG)end+offset};
+			pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
+			CHARFORMAT2 format;
+			ZeroMemory(&format, sizeof(CHARFORMAT2));
+			format.cbSize = sizeof(CHARFORMAT2);
+			format.dwMask = CFM_BOLD;
+			format.dwEffects = CFE_BOLD;
+			pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+			bStyled = true;
+			start = end;
+		}
+		start = 0;
+		end = 0;
+		while (FindStyleChars(sLine, '^', start, end))
+		{
+			CHARRANGE range = {(LONG)start+offset, (LONG)end+offset};
+			pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
+			CHARFORMAT2 format;
+			ZeroMemory(&format, sizeof(CHARFORMAT2));
+			format.cbSize = sizeof(CHARFORMAT2);
+			format.dwMask = CFM_ITALIC;
+			format.dwEffects = CFE_ITALIC;
+			pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+			bStyled = true;
+			start = end;
+		}
+		start = 0;
+		end = 0;
+		while (FindStyleChars(sLine, '_', start, end))
+		{
+			CHARRANGE range = {(LONG)start+offset, (LONG)end+offset};
+			pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
+			CHARFORMAT2 format;
+			ZeroMemory(&format, sizeof(CHARFORMAT2));
+			format.cbSize = sizeof(CHARFORMAT2);
+			format.dwMask = CFM_UNDERLINE;
+			format.dwEffects = CFE_UNDERLINE;
+			pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+			bStyled = true;
+			start = end;
+		}
+		offset = nNewlinePos+1;
+	} while(nNewlinePos>=0);
+	return bStyled;	
+}
+
+bool CAppUtils::FindStyleChars(const CString& sText, TCHAR stylechar, int& start, int& end)
+{
+	int i=start;
+	bool bFoundMarker = false;
+	// find a starting marker
+	while (sText[i] != 0)
+	{
+		if (sText[i] == stylechar)
+		{
+			if (((i+1)<sText.GetLength())&&(IsCharAlphaNumeric(sText[i+1])) &&
+				(((i>0)&&(!IsCharAlphaNumeric(sText[i-1])))||(i==0)))
+			{
+				start = i+1;
+				i++;
+				bFoundMarker = true;
+				break;
+			}
+		}
+		i++;
+	}
+	if (!bFoundMarker)
+		return false;
+	// find ending marker
+	bFoundMarker = false;
+	while (sText[i] != 0)
+	{
+		if (sText[i] == stylechar)
+		{
+			if ((IsCharAlphaNumeric(sText[i-1])) &&
+				((((i+1)<sText.GetLength())&&(!IsCharAlphaNumeric(sText[i+1])))||(i+1)==sText.GetLength()))
+			{
+				end = i;
+				i++;
+				bFoundMarker = true;
+				break;
+			}
+		}
+		i++;
+	}
+	return bFoundMarker;
 }
 
 bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& rev)

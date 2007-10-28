@@ -99,6 +99,11 @@ public:
 	static BOOL CheckForEmptyDiff(const CTSVNPath& sDiffPath);
 
 	/**
+	 * Create a font which can is used for log messages, etc
+	 */
+	static void CreateFontForLogs(CFont& fontToCreate);
+
+	/**
 	* Launch an external application (usually the diff viewer)
 	*/
 	static bool LaunchApplication(const CString& sCommandLine, UINT idErrMessageFormat, bool bWaitForStartup);
@@ -114,6 +119,15 @@ public:
 	 * with no text.
 	 */
 	static void ResizeAllListCtrlCols(CListCtrl * pListCtrl);
+
+	/**
+	 * Formats text in a rich edit control (version 2).
+	 * text in between * chars is formatted bold
+	 * text in between ^ chars is formatted italic
+	 * text in between _ chars is underlined
+	 */
+	static bool FormatTextInRichEditControl(CWnd * pWnd);
+	static bool FindStyleChars(const CString& sText, TCHAR stylechar, int& start, int& end);
 
 	static bool BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& rev);
 

@@ -30,7 +30,6 @@
 #include "LogDlgHelper.h"
 #include "FilterEdit.h"
 #include "SVNRev.h"
-#include "SciEdit.h"
 
 
 #define MERGE_REVSELECTSTART	 1
@@ -99,6 +98,7 @@ protected:
 	afx_msg void OnNMDblclkLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedHelp();
+	afx_msg void OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedStatbutton();
 	afx_msg void OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMCustomdrawChangedFileList(NMHDR *pNMHDR, LRESULT *pResult);
@@ -216,6 +216,7 @@ private:
 	bool				m_bFilterWithRegex;
 	static const UINT	m_FindDialogMessage;
 	CFindReplaceDialog *m_pFindDialog;
+	CFont				m_logFont;
 	CString				m_sMessageBuf;
 	CSplitterControl	m_wndSplitter1;
 	CSplitterControl	m_wndSplitter2;
@@ -243,7 +244,6 @@ private:
 	bool				m_bSelect;
 	bool				m_bShowBugtraqColumn;
 	CString				m_sLogInfo;
-	CSciEdit			m_cLogMessage;
 	std::set<svn_revnum_t> m_mergedRevs;
 
 	CBalloon			m_tooltips;
