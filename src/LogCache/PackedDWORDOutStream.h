@@ -197,13 +197,22 @@ public:
 template<class S, class V>
 S& operator<< (S& stream, const std::vector<V>& data)
 {
-	typedef typename std::vector<V>::const_iterator IT;
-
 	// write total entry count and entries
 
-	stream.AddSizeValue (data.size());
-	for (IT iter = data.begin(), end = data.end(); iter != end; ++iter)
-		stream.Add ((typename S::value_type)(*iter));
+	size_t count = data.size();
+	stream.AddSizeValue (count);
+
+	// efficiently add all entries
+	// (don't use iterators here as they come with some index checking overhead)
+
+	if (count > 0)
+		for ( const V* iter = &data.at(0), *end = iter + count
+			; iter != end
+			; ++iter)
+		{
+			stream.Add ((typename S::value_type)(*iter));
+		}
+
 
 	// just close the stream 
 	// (i.e. flush to disk and empty internal buffers)

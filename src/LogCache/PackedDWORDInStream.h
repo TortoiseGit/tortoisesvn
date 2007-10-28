@@ -139,13 +139,21 @@ public:
 template<class S, class V>
 S& operator>> (S& stream, std::vector<V>& data)
 {
-	typedef typename std::vector<V>::iterator IT;
+	// read the total entry count and entries
 
 	size_t count = stream.GetSizeValue();
-
 	data.resize (count);
-	for (IT iter = data.begin(), end = data.end(); iter != end; ++iter)
-		*iter = (V)stream.GetValue();
+
+	// efficiently add all entries
+	// (don't use iterators here as they come with some index checking overhead)
+
+	if (count > 0)
+		for ( V* iter = &data.at(0), *end = iter + count
+			; iter != end
+			; ++iter)
+		{
+			*iter = (V)stream.GetValue();
+		}
 
 	return stream;
 }
