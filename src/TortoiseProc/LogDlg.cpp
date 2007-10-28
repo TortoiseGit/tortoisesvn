@@ -329,6 +329,7 @@ BOOL CLogDlg::OnInitDialog()
 	GetClientRect(m_DlgOrigRect);
 	m_LogList.GetClientRect(m_LogListOrigRect);
 	GetDlgItem(IDC_MSGEDIT)->GetClientRect(m_MsgViewOrigRect);
+	m_ChangedFileListCtrl.GetClientRect(m_ChgOrigRect);
 
 	// resizable stuff
 	AddAnchor(IDC_FROMLABEL, TOP_LEFT);
@@ -339,11 +340,11 @@ BOOL CLogDlg::OnInitDialog()
 	SetFilterCueText();
 	AddAnchor(IDC_SEARCHEDIT, TOP_LEFT, TOP_RIGHT);
 	
-	AddAnchor(IDC_LOGLIST, TOP_LEFT, ANCHOR(100, 40));
-	AddAnchor(IDC_SPLITTERTOP, ANCHOR(0, 40), ANCHOR(100, 40));
-	AddAnchor(IDC_MSGEDIT, ANCHOR(0, 40), ANCHOR(100, 90));
-	AddAnchor(IDC_SPLITTERBOTTOM, ANCHOR(0, 90), ANCHOR(100, 90));
-	AddAnchor(IDC_LOGMSG, ANCHOR(0, 90), BOTTOM_RIGHT);
+	AddAnchor(IDC_LOGLIST, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_SPLITTERTOP, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_MSGEDIT, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_SPLITTERBOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_LOGMSG, BOTTOM_LEFT, BOTTOM_RIGHT);
 
 	AddAnchor(IDC_LOGINFO, BOTTOM_LEFT, BOTTOM_RIGHT);	
 	AddAnchor(IDC_HIDEPATHS, BOTTOM_LEFT);	
@@ -2255,11 +2256,11 @@ void CLogDlg::DoSizeV1(int delta)
 	RemoveAnchor(IDC_LOGMSG);
 	CSplitterControl::ChangeHeight(&m_LogList, delta, CW_TOPALIGN);
 	CSplitterControl::ChangeHeight(GetDlgItem(IDC_MSGEDIT), -delta, CW_BOTTOMALIGN);
-	AddAnchor(IDC_LOGLIST, TOP_LEFT, ANCHOR(100, 40));
-	AddAnchor(IDC_SPLITTERTOP, ANCHOR(0, 40), ANCHOR(100, 40));
-	AddAnchor(IDC_MSGEDIT, ANCHOR(0, 40), ANCHOR(100, 90));
-	AddAnchor(IDC_SPLITTERBOTTOM, ANCHOR(0, 90), ANCHOR(100, 90));
-	AddAnchor(IDC_LOGMSG, ANCHOR(0, 90), BOTTOM_RIGHT);
+	AddAnchor(IDC_LOGLIST, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_SPLITTERTOP, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_MSGEDIT, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_SPLITTERBOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_LOGMSG, BOTTOM_LEFT, BOTTOM_RIGHT);
 	ArrangeLayout();
 	AdjustMinSize();
 	SetSplitterRange();
@@ -2276,11 +2277,11 @@ void CLogDlg::DoSizeV2(int delta)
 	RemoveAnchor(IDC_LOGMSG);
 	CSplitterControl::ChangeHeight(GetDlgItem(IDC_MSGEDIT), delta, CW_TOPALIGN);
 	CSplitterControl::ChangeHeight(&m_ChangedFileListCtrl, -delta, CW_BOTTOMALIGN);
-	AddAnchor(IDC_LOGLIST, TOP_LEFT, ANCHOR(100, 40));
-	AddAnchor(IDC_SPLITTERTOP, ANCHOR(0, 40), ANCHOR(100, 40));
-	AddAnchor(IDC_MSGEDIT, ANCHOR(0, 40), ANCHOR(100, 90));
-	AddAnchor(IDC_SPLITTERBOTTOM, ANCHOR(0, 90), ANCHOR(100, 90));
-	AddAnchor(IDC_LOGMSG, ANCHOR(0, 90), BOTTOM_RIGHT);
+	AddAnchor(IDC_LOGLIST, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_SPLITTERTOP, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_MSGEDIT, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_SPLITTERBOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_LOGMSG, BOTTOM_LEFT, BOTTOM_RIGHT);
 	ArrangeLayout();
 	AdjustMinSize();
 	SetSplitterRange();
@@ -2292,13 +2293,14 @@ void CLogDlg::AdjustMinSize()
 {
 	// adjust the minimum size of the dialog to prevent the resizing from
 	// moving the list control too far down.
-	CRect rcMsgView;
-	GetDlgItem(IDC_MSGEDIT)->GetClientRect(rcMsgView);
+	CRect rcChgListView;
+	m_ChangedFileListCtrl.GetClientRect(rcChgListView);
 	CRect rcLogList;
 	m_LogList.GetClientRect(rcLogList);
 
-	SetMinTrackSize(CSize(m_DlgOrigRect.Width(), m_DlgOrigRect.Height()-m_MsgViewOrigRect.Height()-m_LogListOrigRect.Height()+rcMsgView.Height()+rcLogList.Height()));
-
+	SetMinTrackSize(CSize(m_DlgOrigRect.Width(), 
+		m_DlgOrigRect.Height()-m_ChgOrigRect.Height()-m_LogListOrigRect.Height()-m_MsgViewOrigRect.Height()
+		+rcChgListView.Height()+rcLogList.Height()+60));
 }
 
 LRESULT CLogDlg::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam) 
@@ -2331,11 +2333,11 @@ void CLogDlg::SetSplitterRange()
 		CRect rcMiddle;
 		GetDlgItem(IDC_MSGEDIT)->GetWindowRect(rcMiddle);
 		ScreenToClient(rcMiddle);
-		m_wndSplitter1.SetRange(rcTop.top+20, rcMiddle.bottom-20);
+		m_wndSplitter1.SetRange(rcTop.top+30, rcMiddle.bottom-20);
 		CRect rcBottom;
 		m_ChangedFileListCtrl.GetWindowRect(rcBottom);
 		ScreenToClient(rcBottom);
-		m_wndSplitter2.SetRange(rcMiddle.top+20, rcBottom.bottom-20);
+		m_wndSplitter2.SetRange(rcMiddle.top+30, rcBottom.bottom-20);
 	}
 }
 

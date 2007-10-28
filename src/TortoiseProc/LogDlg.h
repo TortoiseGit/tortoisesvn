@@ -222,6 +222,7 @@ private:
 	CRect				m_DlgOrigRect;
 	CRect				m_MsgViewOrigRect;
 	CRect				m_LogListOrigRect;
+	CRect				m_ChgOrigRect;
 	CString				m_sFilterText;
 	int					m_nSelectedFilter;
 	volatile LONG		m_bNoDispUpdates;
