@@ -24,10 +24,12 @@ using std::map;
 
 #pragma warning (push,1)
 typedef std::wstring wide_string;
+#ifndef stdstring
 #ifdef UNICODE
 #	define stdstring wide_string
 #else
 #	define stdstring std::string
+#endif
 #endif
 #pragma warning (pop)
 
