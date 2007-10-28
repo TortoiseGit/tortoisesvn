@@ -304,11 +304,9 @@ void CRevisionGraph::ClearRevisionEntries()
 
 	m_entryPtrs.clear();
 
-	for (size_t i = 0, count = copyToRelation.size(); i < count; ++i)
-		delete copyToRelation[i];
-
 	copyToRelation.clear();
 	copyFromRelation.clear();
+	copiesContainer.clear();
 }
 
 bool CRevisionGraph::SetFilter(svn_revnum_t minrev, svn_revnum_t maxrev, const CString& sPathFilter)
@@ -580,7 +578,8 @@ void CRevisionGraph::BuildForwardCopies()
 		// ... in the cache ...
 
 		index_t index = revisions[revision];
-		if (index != NO_INDEX)
+		if (   (index != NO_INDEX) 
+			&& (revisionInfo.GetSumChanges (index) & CRevisionInfoContainer::HAS_COPY_FROM))
 		{
 			// ... examine all changes ...
 
@@ -596,20 +595,30 @@ void CRevisionGraph::BuildForwardCopies()
 				{
 					// ... add it to the list
 
-					SCopyInfo* copyInfo = new SCopyInfo;
-					copyInfo->fromRevision = iter->GetFromRevision();
-					copyInfo->fromPathIndex = iter->GetFromPathID();
-					copyInfo->toRevision = revision;
-					copyInfo->toPathIndex = iter->GetPathID();
+					SCopyInfo copyInfo;
 
-					copyToRelation.push_back (copyInfo);
-					copyFromRelation.push_back (copyInfo);
+					copyInfo.fromRevision = iter->GetFromRevision();
+					copyInfo.fromPathIndex = iter->GetFromPathID();
+					copyInfo.toRevision = revision;
+					copyInfo.toPathIndex = iter->GetPathID();
+
+					copiesContainer.push_back (copyInfo);
 				}
 			}
 		}
 	}
 
 	// sort container by source revision and path
+
+	copyToRelation.resize (copiesContainer.size());
+	copyFromRelation.resize (copiesContainer.size());
+
+	for (size_t i = 0, count = copiesContainer.size(); i < count; ++i)
+	{
+		SCopyInfo *copyInfo = &copiesContainer.at(i);
+		copyToRelation[i] = copyInfo;
+		copyFromRelation[i] = copyInfo;
+	}
 
 	std::sort (copyToRelation.begin(), copyToRelation.end(), &AscendingToRevision);
 	std::sort (copyFromRelation.begin(), copyFromRelation.end(), &AscendingFromRevision);
@@ -675,12 +684,20 @@ void CRevisionGraph::AnalyzeRevisions ( const CDictionaryBasedTempPath& path
 			{
 				// maybe a hit -> match all changes against the whole sub-tree
 
-				AnalyzeRevisions ( revision
-								 , revisionInfo.GetChangesBegin (index)
-								 , revisionInfo.GetChangesEnd (index)
-								 , searchNode
-                                 , options.includeSubPathChanges
-								 , toRemove);
+				// in many cases, we want only to see additions, 
+				// deletions and replacements
+
+				if (   options.includeSubPathChanges
+				    || (   revisionInfo.GetSumChanges (index) 
+					    != CRevisionInfoContainer::ACTION_CHANGED))
+				{
+					AnalyzeRevisions ( revision
+									 , revisionInfo.GetChangesBegin (index)
+									 , revisionInfo.GetChangesEnd (index)
+									 , searchNode
+									 , options.includeSubPathChanges
+									 , toRemove);
+				}
 			}
 			else
 			{
@@ -689,13 +706,15 @@ void CRevisionGraph::AnalyzeRevisions ( const CDictionaryBasedTempPath& path
 
 				// show intermediate nodes as well?
 
-                if (options.includeSubPathChanges && subTreeTouched && searchNode->YetToCover(revision))
+                if (   options.includeSubPathChanges 
+					&& subTreeTouched 
+					&& searchNode->YetToCover(revision))
 				{
 					AnalyzeRevisions ( revision
 									 , revisionInfo.GetChangesBegin (index)
 									 , revisionInfo.GetChangesEnd (index)
 									 , searchNode
-									 , options.includeSubPathChanges
+									 , true
 									 , toRemove);
 				}
 
@@ -778,12 +797,15 @@ void CRevisionGraph::AnalyzeRevisions ( revision_t revision
 				; iter != last
 				; ++iter)
 			{
-				CDictionaryBasedPath changePath = iter->GetPath();
+				index_t changePathID = iter->GetPathID();
+
 				if (   (  bShowAll 
-					   && path.IsSameOrParentOf (changePath))
+					   && path.IsSameOrParentOf (changePathID))
 					|| (  (iter->GetAction() != CRevisionInfoContainer::ACTION_CHANGED)
-					   && changePath.IsSameOrParentOf (path.GetBasePath())))
+					   && path.GetBasePath().IsSameOrChildOf (changePathID)))
 				{
+					CDictionaryBasedPath changePath = iter->GetPath();
+
 					// construct the action member
 
 					int actionValue = iter->GetAction();
@@ -898,14 +920,15 @@ void CRevisionGraph::FillCopyTargets ( revision_t revision
 		while (searchNode != NULL)
 		{
 			const CDictionaryBasedTempPath& path = searchNode->GetPath();
-            CDictionaryBasedPath fromPath ( path.GetDictionary()
-									      , copy->fromPathIndex);
 
 			// got this path copied?
 
-            bool sameOrChild = path.IsSameOrChildOf (fromPath);
+            bool sameOrChild = path.IsSameOrChildOf (copy->fromPathIndex);
 			if (searchNode->IsActive() && sameOrChild)
 			{
+				CDictionaryBasedPath fromPath ( path.GetDictionary()
+											  , copy->fromPathIndex);
+
                 // is there a better match in that target revision?
                 // example log @r106:
                 // A /trunk/F    /trunk/branches/b/F    100

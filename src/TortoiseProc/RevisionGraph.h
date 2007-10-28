@@ -359,6 +359,7 @@ private:
 	apr_pool_t *				parentpool;
 	static svn_error_t*			cancel(void *baton);
 
+	std::vector<SCopyInfo>		copiesContainer;
 	std::vector<SCopyInfo*>		copyToRelation;
 	std::vector<SCopyInfo*>		copyFromRelation;
 
