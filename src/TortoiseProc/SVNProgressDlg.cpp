@@ -1789,7 +1789,7 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
 	}
 	if (m_options & ProgOptSwitchAfterCopy)
 	{
-		if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, m_depth, m_options & ProgOptIgnoreExternals))
+		if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, m_Revision, m_depth, m_options & ProgOptIgnoreExternals))
 		{
 			ReportSVNError();
 			return false;
@@ -2121,7 +2121,7 @@ bool CSVNProgressDlg::CmdSwitch(CString& sWindowTitle, bool& /*localoperation*/)
 		(LPCTSTR)m_Revision.ToString());
 	ReportCmd(sCmdInfo);
 
-	if (!Switch(m_targetPathList[0], m_url, m_Revision, m_depth, m_options & ProgOptIgnoreExternals))
+	if (!Switch(m_targetPathList[0], m_url, m_Revision, m_Revision, m_depth, m_options & ProgOptIgnoreExternals))
 	{
 		ReportSVNError();
 		return false;
