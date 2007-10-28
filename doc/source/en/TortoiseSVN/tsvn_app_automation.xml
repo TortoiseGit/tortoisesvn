@@ -300,6 +300,9 @@ Don't touch these lines:
 								two files. If <option>/path2</option> is omitted,
 								then the diff is done between the file in
 								<option>/path</option> and its BASE.
+								To explicitly set the revision numbers use
+								<option>/startrev:xxx</option> and
+								<option>/endrev:xxx</option>.
 							</entry>
 						</row>
 						<row>
