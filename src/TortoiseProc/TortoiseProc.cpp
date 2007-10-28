@@ -227,144 +227,137 @@ BOOL CTortoiseProcApp::InitInstance()
 	if (CRegDWORD(_T("Software\\TortoiseSVN\\Debug"), FALSE)==TRUE)
 		AfxMessageBox(AfxGetApp()->m_lpCmdLine, MB_OK | MB_ICONINFORMATION);
 
-	CString comVal = parser.GetVal(_T("command"));
-	// We already checked above if the '/command' key is present
-	// but the user could just provide '/command:""' and then the value
-	// would be empty - so we have to check against that too.
-	if (!comVal.IsEmpty())
+	if ( parser.HasKey(_T("path")) && parser.HasKey(_T("pathfile")))
 	{
-		if ( parser.HasKey(_T("path")) && parser.HasKey(_T("pathfile")))
-		{
-			CMessageBox::Show(NULL, IDS_ERR_INVALIDPATH, IDS_APPNAME, MB_ICONERROR);
-			return FALSE;
-		}
+		CMessageBox::Show(NULL, IDS_ERR_INVALIDPATH, IDS_APPNAME, MB_ICONERROR);
+		return FALSE;
+	}
 
-		CTSVNPath cmdLinePath;
-		CTSVNPathList pathList;
-		if ( parser.HasKey(_T("pathfile")) )
+	CTSVNPath cmdLinePath;
+	CTSVNPathList pathList;
+	if ( parser.HasKey(_T("pathfile")) )
+	{
+		CString sPathfileArgument = CPathUtils::GetLongPathname(parser.GetVal(_T("pathfile")));
+		cmdLinePath.SetFromUnknown(sPathfileArgument);
+		if (pathList.LoadFromFile(cmdLinePath)==false)
+			return FALSE;		// no path specified!
+		if ( parser.HasKey(_T("deletepathfile")) )
 		{
-			CString sPathfileArgument = CPathUtils::GetLongPathname(parser.GetVal(_T("pathfile")));
-			cmdLinePath.SetFromUnknown(sPathfileArgument);
-			if (pathList.LoadFromFile(cmdLinePath)==false)
-				return FALSE;		// no path specified!
-			if ( parser.HasKey(_T("deletepathfile")) )
-			{
-				// We can delete the temporary path file, now that we've loaded it
-				::DeleteFile(cmdLinePath.GetWinPath());
-			}
-			// This was a path to a temporary file - it's got no meaning now, and
-			// anybody who uses it again is in for a problem...
-			cmdLinePath.Reset();
+			// We can delete the temporary path file, now that we've loaded it
+			::DeleteFile(cmdLinePath.GetWinPath());
 		}
-		else
-		{
-			CString sPathArgument = CPathUtils::GetLongPathname(parser.GetVal(_T("path")));
-			cmdLinePath.SetFromUnknown(sPathArgument);
-			pathList.LoadFromAsteriskSeparatedString(sPathArgument);
-		}
-		
+		// This was a path to a temporary file - it's got no meaning now, and
+		// anybody who uses it again is in for a problem...
+		cmdLinePath.Reset();
+	}
+	else
+	{
+		CString sPathArgument = CPathUtils::GetLongPathname(parser.GetVal(_T("path")));
+		cmdLinePath.SetFromUnknown(sPathArgument);
+		pathList.LoadFromAsteriskSeparatedString(sPathArgument);
+	}
+	
+	hWndExplorer = NULL;
+	CString sVal = parser.GetVal(_T("hwnd"));
+	if (!sVal.IsEmpty())
+		hWndExplorer = (HWND)_ttoi64(sVal);
+
+	while (GetParent(hWndExplorer)!=NULL)
+		hWndExplorer = GetParent(hWndExplorer);
+	if (!IsWindow(hWndExplorer))
+	{
 		hWndExplorer = NULL;
-		CString sVal = parser.GetVal(_T("hwnd"));
-		if (!sVal.IsEmpty())
-			hWndExplorer = (HWND)_ttoi64(sVal);
+	}
+	
+	// Subversion sometimes writes temp files to the current directory!
+	// Since TSVN doesn't need a specific CWD anyway, we just set it
+	// to the users temp folder: that way, Subversion is guaranteed to
+	// have write access to the CWD
+	{
+		TCHAR pathbuf[MAX_PATH];
+		GetTempPath(MAX_PATH, pathbuf);
+		SetCurrentDirectory(pathbuf);		
+	}
 
-		while (GetParent(hWndExplorer)!=NULL)
-			hWndExplorer = GetParent(hWndExplorer);
-		if (!IsWindow(hWndExplorer))
-		{
-			hWndExplorer = NULL;
-		}
-		
-		// Subversion sometimes writes temp files to the current directory!
-		// Since TSVN doesn't need a specific CWD anyway, we just set it
-		// to the users temp folder: that way, Subversion is guaranteed to
-		// have write access to the CWD
-		{
-			TCHAR pathbuf[MAX_PATH];
-			GetTempPath(MAX_PATH, pathbuf);
-			SetCurrentDirectory(pathbuf);		
-		}
+	// check for newer versions
+	if (CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewer"), TRUE) != FALSE)
+	{
+		time_t now;
+		struct tm ptm;
 
-		// check for newer versions
-		if (CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewer"), TRUE) != FALSE)
+		time(&now);
+		if ((now != 0) && (localtime_s(&ptm, &now)==0))
 		{
-			time_t now;
-			struct tm ptm;
+			int week = 0;
+			// we don't calculate the real 'week of the year' here
+			// because just to decide if we should check for an update
+			// that's not needed.
+			week = ptm.tm_yday / 7;
 
-			time(&now);
-			if ((now != 0) && (localtime_s(&ptm, &now)==0))
+			CRegDWORD oldweek = CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewerWeek"), (DWORD)-1);
+			if (((DWORD)oldweek) == -1)
+				oldweek = week;		// first start of TortoiseProc, no update check needed
+			else
 			{
-				int week = 0;
-				// we don't calculate the real 'week of the year' here
-				// because just to decide if we should check for an update
-				// that's not needed.
-				week = ptm.tm_yday / 7;
-
-				CRegDWORD oldweek = CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewerWeek"), (DWORD)-1);
-				if (((DWORD)oldweek) == -1)
-					oldweek = week;		// first start of TortoiseProc, no update check needed
-				else
+				if ((DWORD)week != oldweek)
 				{
-					if ((DWORD)week != oldweek)
-					{
-						oldweek = week;
+					oldweek = week;
 
-						TCHAR com[MAX_PATH+100];
-						GetModuleFileName(NULL, com, MAX_PATH);
-						_tcscat_s(com, MAX_PATH+100, _T(" /command:updatecheck"));
+					TCHAR com[MAX_PATH+100];
+					GetModuleFileName(NULL, com, MAX_PATH);
+					_tcscat_s(com, MAX_PATH+100, _T(" /command:updatecheck"));
 
-						CAppUtils::LaunchApplication(com, 0, false);
-					}
+					CAppUtils::LaunchApplication(com, 0, false);
 				}
 			}
 		}
+	}
 
-		if (parser.HasVal(_T("configdir")))
-		{
-			// the user can override the location of the Subversion config directory here
-			CString sConfigDir = parser.GetVal(_T("configdir"));
-			g_SVNGlobal.SetConfigDir(sConfigDir);
-		}
-		// to avoid that SASL will look for and load its plugin dlls all around the
-		// system, we set the path here.
-		// Note that SASL doesn't have to be initialized yet for this to work
-		sasl_set_path(SASL_PATH_TYPE_PLUGIN, (LPSTR)(LPCSTR)CUnicodeUtils::GetUTF8(CPathUtils::GetAppDirectory().TrimRight('\\')));
+	if (parser.HasVal(_T("configdir")))
+	{
+		// the user can override the location of the Subversion config directory here
+		CString sConfigDir = parser.GetVal(_T("configdir"));
+		g_SVNGlobal.SetConfigDir(sConfigDir);
+	}
+	// to avoid that SASL will look for and load its plugin dlls all around the
+	// system, we set the path here.
+	// Note that SASL doesn't have to be initialized yet for this to work
+	sasl_set_path(SASL_PATH_TYPE_PLUGIN, (LPSTR)(LPCSTR)CUnicodeUtils::GetUTF8(CPathUtils::GetAppDirectory().TrimRight('\\')));
 
-		HANDLE TSVNMutex = ::CreateMutex(NULL, FALSE, _T("TortoiseProc.exe"));	
+	HANDLE TSVNMutex = ::CreateMutex(NULL, FALSE, _T("TortoiseProc.exe"));	
+	{
+		CString err = SVN::CheckConfigFile();
+		if (!err.IsEmpty())
 		{
-			CString err = SVN::CheckConfigFile();
-			if (!err.IsEmpty())
+			CMessageBox::Show(hWndExplorer, err, _T("TortoiseSVN"), MB_ICONERROR);
+			// Normally, we give-up and exit at this point, but there is a trap here
+			// in that the user might need to use the settings dialog to edit the config file.
+			if (CString(parser.GetVal(_T("command"))).Compare(_T("settings"))==0)
 			{
-				CMessageBox::Show(hWndExplorer, err, _T("TortoiseSVN"), MB_ICONERROR);
-				// Normally, we give-up and exit at this point, but there is a trap here
-				// in that the user might need to use the settings dialog to edit the config file.
-				if (CString(parser.GetVal(_T("command"))).Compare(_T("settings"))==0)
-				{
-					return FALSE;
-				}
+				return FALSE;
 			}
 		}
+	}
 
-		// execute the requested command
-		CommandServer server;
-		Command * cmd = server.GetCommand(parser.GetVal(_T("command")));
-		if (cmd)
-		{
-			cmd->SetExplorerHwnd(hWndExplorer);
-			cmd->SetParser(parser);
-			cmd->SetPaths(pathList, cmdLinePath);
-			cmd->Execute();
-			delete cmd;
-
-			if (TSVNMutex)
-				::CloseHandle(TSVNMutex);
-
-			return FALSE;
-		}
+	// execute the requested command
+	CommandServer server;
+	Command * cmd = server.GetCommand(parser.GetVal(_T("command")));
+	if (cmd)
+	{
+		cmd->SetExplorerHwnd(hWndExplorer);
+		cmd->SetParser(parser);
+		cmd->SetPaths(pathList, cmdLinePath);
+		cmd->Execute();
+		delete cmd;
 
 		if (TSVNMutex)
 			::CloseHandle(TSVNMutex);
-	} 
+
+		return FALSE;
+	}
+
+	if (TSVNMutex)
+		::CloseHandle(TSVNMutex);
 
 	// Look for temporary files left around by TortoiseSVN and
 	// remove them. But only delete 'old' files because some
