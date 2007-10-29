@@ -99,6 +99,11 @@ BOOL CMergeWizardTree::OnInitDialog()
 	CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
 	CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_N1);
 
+	AdjustControlSize(IDC_REVISION_HEAD1);
+	AdjustControlSize(IDC_REVISION_N1);
+	AdjustControlSize(IDC_REVISION_HEAD);
+	AdjustControlSize(IDC_REVISION_N);
+
 	return TRUE;
 }
 

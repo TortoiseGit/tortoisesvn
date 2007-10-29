@@ -48,4 +48,39 @@ protected:
 			psheet->GetDlgItem(IDCANCEL)->SetWindowText(CString(MAKEINTRESOURCE(IDS_PROPPAGE_CANCEL)));
 		}
 	}
+
+	void AdjustControlSize(UINT nID)
+	{
+		CWnd * pwndDlgItem = GetDlgItem(nID);
+		// adjust the size of the control to fit its content
+		CString sControlText;
+		pwndDlgItem->GetWindowText(sControlText);
+		// next step: find the rectangle the control text needs to
+		// be displayed
+
+		CDC * pDC = pwndDlgItem->GetWindowDC();
+		RECT controlrect;
+		RECT controlrectorig;
+		pwndDlgItem->GetWindowRect(&controlrect);
+		::MapWindowPoints(NULL, GetSafeHwnd(), (LPPOINT)&controlrect, 2);
+		controlrectorig = controlrect;
+		if (pDC)
+		{
+			CFont * font = pwndDlgItem->GetFont();
+			CFont * pOldFont = pDC->SelectObject(font);
+			if (pDC->DrawText(sControlText, -1, &controlrect, DT_WORDBREAK | DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_CALCRECT))
+			{
+				// now we have the rectangle the control really needs
+				if ((controlrectorig.right - controlrectorig.left) > (controlrect.right - controlrect.left))
+				{
+					// we're dealing with radio buttons and checkboxes,
+					// which means we have to add a little space for the checkbox
+					controlrectorig.right = controlrectorig.left + (controlrect.right - controlrect.left) + 20;
+					pwndDlgItem->MoveWindow(&controlrectorig);
+				}
+			}
+			pDC->SelectObject(pOldFont);
+			ReleaseDC(pDC);
+		}
+	}
 };

@@ -110,6 +110,8 @@ BOOL CMergeWizardRevRange::OnInitDialog()
 	sLabel.LoadString(IDS_MERGEWIZARD_REVRANGESTRING);
 	SetDlgItemText(IDC_REVRANGELABEL, sLabel);
 
+	AdjustControlSize(IDC_REVERSEMERGE);
+
 	return TRUE;
 }
 

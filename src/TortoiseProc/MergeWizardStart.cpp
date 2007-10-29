@@ -71,6 +71,9 @@ BOOL CMergeWizardStart::OnInitDialog()
 
 	CheckRadioButton(IDC_MERGE_REVRANGE, IDC_MERGE_TREE, IDC_MERGE_REVRANGE);
 
+	AdjustControlSize(IDC_MERGE_REVRANGE);
+	AdjustControlSize(IDC_MERGE_TREE);
+
 	return TRUE;
 }
 
