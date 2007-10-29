@@ -23,6 +23,7 @@
 
 #include "Balloon.h"
 #include "AppUtils.h"
+#include "PathUtils.h"
 
 
 IMPLEMENT_DYNAMIC(CMergeWizardTree, CPropertyPage)
@@ -87,12 +88,12 @@ BOOL CMergeWizardTree::OnInitDialog()
 		m_URLCombo.SetCurSel(0);
 	// Only set the "From" Url if there is no url history available
 	if (m_URLCombo.GetString().IsEmpty())
-		m_URLCombo.SetWindowText(((CMergeWizard*)GetParent())->url);
+		m_URLCombo.SetWindowText(CPathUtils::PathUnescape(((CMergeWizard*)GetParent())->url));
 	m_URLCombo2.SetURLHistory(TRUE);
 	m_URLCombo2.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
 	m_URLCombo2.SetCurSel(0);
 	if (m_URLCombo2.GetString().IsEmpty())
-		m_URLCombo2.SetWindowText(((CMergeWizard*)GetParent())->url);
+		m_URLCombo2.SetWindowText(CPathUtils::PathUnescape(((CMergeWizard*)GetParent())->url));
 
 	// set head revision as default revision
 	CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);

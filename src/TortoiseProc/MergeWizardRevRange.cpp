@@ -21,6 +21,7 @@
 #include "MergeWizard.h"
 #include "MergeWizardRevRange.h"
 #include "AppUtils.h"
+#include "PathUtils.h"
 
 
 IMPLEMENT_DYNAMIC(CMergeWizardRevRange, CPropertyPage)
@@ -103,7 +104,7 @@ BOOL CMergeWizardRevRange::OnInitDialog()
 	if (!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\MergeWCURL"), FALSE))
 		m_URLCombo.SetCurSel(0);
 	if (m_URLCombo.GetString().IsEmpty())
-		m_URLCombo.SetWindowText(((CMergeWizard*)GetParent())->url);
+		m_URLCombo.SetWindowText(CPathUtils::PathUnescape(((CMergeWizard*)GetParent())->url));
 
 	CString sLabel;
 	sLabel.LoadString(IDS_MERGEWIZARD_REVRANGESTRING);
