@@ -289,7 +289,10 @@ HRESULT __stdcall SubWCRev::get_Author(/*[out, retval]*/VARIANT* author)
 
 HRESULT __stdcall SubWCRev::get_HasModifications(VARIANT_BOOL* modifications)
 {
-	*modifications = !!SubStat.HasMods;
+	if (SubStat.HasMods)
+		*modifications = VARIANT_TRUE;
+	else
+		*modifications = VARIANT_FALSE;
 	return S_OK;
 }
 
