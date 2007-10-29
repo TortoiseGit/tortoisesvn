@@ -17,6 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
+#include "MergeWizardBasePage.h"
 #include "HistoryCombo.h"
 #include "LogDlg.h"
 
@@ -24,7 +25,7 @@
  * Page in the merge wizard for selecting two urls and revisions for
  * a tree merge.
  */
-class CMergeWizardTree : public CPropertyPage
+class CMergeWizardTree : public CMergeWizardBasePage
 {
 	DECLARE_DYNAMIC(CMergeWizardTree)
 

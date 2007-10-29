@@ -22,10 +22,10 @@
 #include "MergeWizardStart.h"
 
 
-IMPLEMENT_DYNAMIC(CMergeWizardStart, CPropertyPage)
+IMPLEMENT_DYNAMIC(CMergeWizardStart, CMergeWizardBasePage)
 
 CMergeWizardStart::CMergeWizardStart()
-	: CPropertyPage(CMergeWizardStart::IDD)
+	: CMergeWizardBasePage(CMergeWizardStart::IDD)
 {
 	m_psp.dwFlags |= PSP_DEFAULT|PSP_USEHEADERTITLE|PSP_USEHEADERSUBTITLE;
 	m_psp.pszHeaderTitle = MAKEINTRESOURCE(IDS_MERGEWIZARD_STARTTITLE);
@@ -38,11 +38,11 @@ CMergeWizardStart::~CMergeWizardStart()
 
 void CMergeWizardStart::DoDataExchange(CDataExchange* pDX)
 {
-	CPropertyPage::DoDataExchange(pDX);
+	CMergeWizardBasePage::DoDataExchange(pDX);
 }
 
 
-BEGIN_MESSAGE_MAP(CMergeWizardStart, CPropertyPage)
+BEGIN_MESSAGE_MAP(CMergeWizardStart, CMergeWizardBasePage)
 END_MESSAGE_MAP()
 
 
@@ -61,7 +61,7 @@ LRESULT CMergeWizardStart::OnWizardNext()
 
 BOOL CMergeWizardStart::OnInitDialog()
 {
-	CPropertyPage::OnInitDialog();
+	CMergeWizardBasePage::OnInitDialog();
 
 	CString sLabel;
 	sLabel.LoadString(IDS_MERGEWIZARD_REVRANGELABEL);
@@ -78,10 +78,7 @@ BOOL CMergeWizardStart::OnSetActive()
 {
 	CPropertySheet* psheet = (CPropertySheet*) GetParent();   
 	psheet->SetWizardButtons(PSWIZB_NEXT);
-	psheet->GetDlgItem(ID_WIZBACK)->SetWindowText(CString(MAKEINTRESOURCE(IDS_PROPPAGE_BACK)));
-	psheet->GetDlgItem(ID_WIZNEXT)->SetWindowText(CString(MAKEINTRESOURCE(IDS_PROPPAGE_NEXT)));
-	psheet->GetDlgItem(IDHELP)->SetWindowText(CString(MAKEINTRESOURCE(IDS_PROPPAGE_HELP)));
-	psheet->GetDlgItem(IDCANCEL)->SetWindowText(CString(MAKEINTRESOURCE(IDS_PROPPAGE_CANCEL)));
+	SetButtonTexts();
 
-	return CPropertyPage::OnSetActive();
+	return CMergeWizardBasePage::OnSetActive();
 }

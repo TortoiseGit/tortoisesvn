@@ -17,12 +17,13 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
+#include "MergeWizardBasePage.h"
 
 
 /**
  * First page in the merge wizard for selecting the merge type
  */
-class CMergeWizardStart : public CPropertyPage
+class CMergeWizardStart : public CMergeWizardBasePage
 {
 	DECLARE_DYNAMIC(CMergeWizardStart)
 

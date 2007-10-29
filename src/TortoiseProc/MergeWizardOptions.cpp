@@ -23,10 +23,10 @@
 #include "SVNProgressDlg.h"
 
 
-IMPLEMENT_DYNAMIC(CMergeWizardOptions, CPropertyPage)
+IMPLEMENT_DYNAMIC(CMergeWizardOptions, CMergeWizardBasePage)
 
 CMergeWizardOptions::CMergeWizardOptions()
-	: CPropertyPage(CMergeWizardOptions::IDD)
+	: CMergeWizardBasePage(CMergeWizardOptions::IDD)
 {
 	m_psp.dwFlags |= PSP_DEFAULT|PSP_USEHEADERTITLE|PSP_USEHEADERSUBTITLE;
 	m_psp.pszHeaderTitle = MAKEINTRESOURCE(IDS_MERGEWIZARD_OPTIONSTITLE);
@@ -39,7 +39,7 @@ CMergeWizardOptions::~CMergeWizardOptions()
 
 void CMergeWizardOptions::DoDataExchange(CDataExchange* pDX)
 {
-	CPropertyPage::DoDataExchange(pDX);
+	CMergeWizardBasePage::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_DEPTH, m_depthCombo);
 	DDX_Check(pDX, IDC_IGNOREANCESTRY, ((CMergeWizard*)GetParent())->m_bIgnoreAncestry);
 	DDX_Control(pDX, IDC_DEPTH, m_depthCombo);
@@ -48,14 +48,14 @@ void CMergeWizardOptions::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CMergeWizardOptions, CPropertyPage)
+BEGIN_MESSAGE_MAP(CMergeWizardOptions, CMergeWizardBasePage)
 	ON_BN_CLICKED(IDC_DRYRUN, &CMergeWizardOptions::OnBnClickedDryrun)
 END_MESSAGE_MAP()
 
 
 BOOL CMergeWizardOptions::OnInitDialog()
 {
-	CPropertyPage::OnInitDialog();
+	CMergeWizardBasePage::OnInitDialog();
 
 	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_WORKING)));
 	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_INFINITE)));
@@ -120,19 +120,15 @@ BOOL CMergeWizardOptions::OnWizardFinish()
 		break;
 	}
 
-	return CPropertyPage::OnWizardFinish();
+	return CMergeWizardBasePage::OnWizardFinish();
 }
 
 BOOL CMergeWizardOptions::OnSetActive()
 {
 	CPropertySheet* psheet = (CPropertySheet*) GetParent();   
 	psheet->SetWizardButtons(PSWIZB_BACK|PSWIZB_FINISH);
-	psheet->GetDlgItem(ID_WIZFINISH)->SetWindowText(CString(MAKEINTRESOURCE(IDS_MERGE_MERGE)));
-	psheet->GetDlgItem(ID_WIZBACK)->SetWindowText(CString(MAKEINTRESOURCE(IDS_PROPPAGE_BACK)));
-	psheet->GetDlgItem(ID_WIZNEXT)->SetWindowText(CString(MAKEINTRESOURCE(IDS_PROPPAGE_NEXT)));
-	psheet->GetDlgItem(IDHELP)->SetWindowText(CString(MAKEINTRESOURCE(IDS_PROPPAGE_HELP)));
-	psheet->GetDlgItem(IDCANCEL)->SetWindowText(CString(MAKEINTRESOURCE(IDS_PROPPAGE_CANCEL)));
-	return CPropertyPage::OnSetActive();
+	SetButtonTexts();
+	return CMergeWizardBasePage::OnSetActive();
 }
 
 void CMergeWizardOptions::OnBnClickedDryrun()

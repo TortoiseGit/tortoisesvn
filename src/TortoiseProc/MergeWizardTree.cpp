@@ -26,10 +26,10 @@
 #include "PathUtils.h"
 
 
-IMPLEMENT_DYNAMIC(CMergeWizardTree, CPropertyPage)
+IMPLEMENT_DYNAMIC(CMergeWizardTree, CMergeWizardBasePage)
 
 CMergeWizardTree::CMergeWizardTree()
-	: CPropertyPage(CMergeWizardTree::IDD)
+	: CMergeWizardBasePage(CMergeWizardTree::IDD)
 	, m_URLFrom(_T(""))
 	, m_URLTo(_T(""))
 	, StartRev(0)
@@ -58,7 +58,7 @@ CMergeWizardTree::~CMergeWizardTree()
 
 void CMergeWizardTree::DoDataExchange(CDataExchange* pDX)
 {
-	CPropertyPage::DoDataExchange(pDX);
+	CMergeWizardBasePage::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
 	DDX_Text(pDX, IDC_REVISION_START, m_sStartRev);
 	DDX_Text(pDX, IDC_REVISION_END, m_sEndRev);
@@ -66,7 +66,7 @@ void CMergeWizardTree::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CMergeWizardTree, CPropertyPage)
+BEGIN_MESSAGE_MAP(CMergeWizardTree, CMergeWizardBasePage)
 	ON_REGISTERED_MESSAGE(WM_REVSELECTED, OnRevSelected)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDC_BROWSE2, OnBnClickedBrowse2)
@@ -79,7 +79,7 @@ END_MESSAGE_MAP()
 
 BOOL CMergeWizardTree::OnInitDialog()
 {
-	CPropertyPage::OnInitDialog();
+	CMergeWizardBasePage::OnInitDialog();
 
 	CString sUUID = ((CMergeWizard*)GetParent())->sUUID;
 	m_URLCombo.SetURLHistory(TRUE);
@@ -315,10 +315,7 @@ BOOL CMergeWizardTree::OnSetActive()
 {
 	CPropertySheet* psheet = (CPropertySheet*) GetParent();   
 	psheet->SetWizardButtons(PSWIZB_NEXT|PSWIZB_BACK);
-	psheet->GetDlgItem(ID_WIZBACK)->SetWindowText(CString(MAKEINTRESOURCE(IDS_PROPPAGE_BACK)));
-	psheet->GetDlgItem(ID_WIZNEXT)->SetWindowText(CString(MAKEINTRESOURCE(IDS_PROPPAGE_NEXT)));
-	psheet->GetDlgItem(IDHELP)->SetWindowText(CString(MAKEINTRESOURCE(IDS_PROPPAGE_HELP)));
-	psheet->GetDlgItem(IDCANCEL)->SetWindowText(CString(MAKEINTRESOURCE(IDS_PROPPAGE_CANCEL)));
+	SetButtonTexts();
 
-	return CPropertyPage::OnSetActive();
+	return CMergeWizardBasePage::OnSetActive();
 }

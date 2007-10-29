@@ -17,12 +17,13 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
+#include "MergeWizardBasePage.h"
 
 
 /**
  * Last page in the merge wizard for selecting the merge options.
  */
-class CMergeWizardOptions : public CPropertyPage
+class CMergeWizardOptions : public CMergeWizardBasePage
 {
 	DECLARE_DYNAMIC(CMergeWizardOptions)
 
@@ -36,7 +37,7 @@ public:
 protected:
 	virtual void		DoDataExchange(CDataExchange* pDX);
 	virtual BOOL		OnInitDialog();
-	virtual LRESULT	OnWizardBack();
+	virtual LRESULT		OnWizardBack();
 	virtual BOOL		OnWizardFinish();
 	virtual BOOL		OnSetActive();
 	afx_msg void		OnBnClickedDryrun();

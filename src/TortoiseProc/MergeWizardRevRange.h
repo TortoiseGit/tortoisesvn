@@ -17,14 +17,14 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-#include "afxcmn.h"
+#include "MergeWizardBasePage.h"
 #include "HistoryCombo.h"
 #include "LogDlg.h"
 
 /**
  * Page in the merge wizard for selecting a revision range to merge.
  */
-class CMergeWizardRevRange : public CPropertyPage
+class CMergeWizardRevRange : public CMergeWizardBasePage
 {
 	DECLARE_DYNAMIC(CMergeWizardRevRange)
 
