@@ -130,4 +130,5 @@ private:
 	CRect				m_DlgOrigRect;
 	CRect				m_LogMsgOrigRect;
 	CPathWatcher		m_pathwatcher;
+	bool				m_bSelectFilesForCommit;
 };

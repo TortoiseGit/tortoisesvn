@@ -51,6 +51,7 @@ CCommitDlg::CCommitDlg(CWnd* pParent /*=NULL*/)
 	, m_bKeepLocks(FALSE)
 	, m_bKeepChangeList(TRUE)
 	, m_itemsCount(0)
+	, m_bSelectFilesForCommit(!!DWORD(CRegStdWORD(_T("Software\\TortoiseSVN\\SelectFilesForCommit"), TRUE)))
 {
 }
 
@@ -510,8 +511,9 @@ UINT CCommitDlg::StatusThread()
 			m_ListCtrl.Show(dwShow, m_checkedPathList);
 		else
 		{
-			DWORD dwCheck = DWORD(CRegStdWORD(_T("Software\\TortoiseSVN\\SelectFilesForCommit"), TRUE)) ? SVNSLC_SHOWDIRECTS|SVNSLC_SHOWMODIFIED|SVNSLC_SHOWADDED|SVNSLC_SHOWREMOVED|SVNSLC_SHOWREPLACED|SVNSLC_SHOWMERGED|SVNSLC_SHOWLOCKS : 0;
+			DWORD dwCheck = m_bSelectFilesForCommit ? SVNSLC_SHOWDIRECTS|SVNSLC_SHOWMODIFIED|SVNSLC_SHOWADDED|SVNSLC_SHOWREMOVED|SVNSLC_SHOWREPLACED|SVNSLC_SHOWMERGED|SVNSLC_SHOWLOCKS : 0;
 			m_ListCtrl.Show(dwShow, dwCheck);
+			m_bSelectFilesForCommit = true;
 		}
 
 		if (m_ListCtrl.HasExternalsFromDifferentRepos())
