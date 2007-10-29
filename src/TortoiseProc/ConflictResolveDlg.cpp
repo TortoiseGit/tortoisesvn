@@ -67,23 +67,34 @@ BOOL CConflictResolveDlg::OnInitDialog()
 	CString filename = CUnicodeUtils::GetUnicode(m_pConflictDescription->path);
 	filename = CPathUtils::GetFileNameFromPath(filename);
 
-	// for property conflicts, we use the property name, not the file name
-	if (m_pConflictDescription->property_name)
-		filename = CUnicodeUtils::GetUnicode(m_pConflictDescription->property_name);
-
 	CString sInfoText;
 	CString sActionText;
 	CString sReasonText;
 	switch (m_pConflictDescription->action)
 	{
 	case svn_wc_conflict_action_edit:
-		sActionText.Format(m_pConflictDescription->property_name ? IDS_EDITCONFLICT_PROP_ACTIONINFO_MODIFY : IDS_EDITCONFLICT_ACTIONINFO_MODIFY, (LPCTSTR)filename);
+		if (m_pConflictDescription->property_name)
+			sActionText.Format(IDS_EDITCONFLICT_PROP_ACTIONINFO_MODIFY, 
+				(LPCTSTR)CUnicodeUtils::GetUnicode(m_pConflictDescription->property_name), 
+				(LPCTSTR)filename);
+		else
+			sActionText.Format(IDS_EDITCONFLICT_ACTIONINFO_MODIFY, (LPCTSTR)filename);
 		break;
 	case svn_wc_conflict_action_add:
-		sActionText.Format(m_pConflictDescription->property_name ? IDS_EDITCONFLICT_PROP_ACTIONINFO_ADD : IDS_EDITCONFLICT_ACTIONINFO_ADD, (LPCTSTR)filename);
+		if (m_pConflictDescription->property_name)
+			sActionText.Format(IDS_EDITCONFLICT_PROP_ACTIONINFO_ADD, 
+				(LPCTSTR)CUnicodeUtils::GetUnicode(m_pConflictDescription->property_name), 
+				(LPCTSTR)filename);
+		else
+			sActionText.Format(IDS_EDITCONFLICT_ACTIONINFO_ADD, (LPCTSTR)filename);
 		break;
 	case svn_wc_conflict_action_delete:
-		sActionText.Format(m_pConflictDescription->property_name ? IDS_EDITCONFLICT_PROP_ACTIONINFO_DELETE : IDS_EDITCONFLICT_ACTIONINFO_DELETE, (LPCTSTR)filename);
+		if (m_pConflictDescription->property_name)
+			sActionText.Format(IDS_EDITCONFLICT_PROP_ACTIONINFO_DELETE,
+				(LPCTSTR)CUnicodeUtils::GetUnicode(m_pConflictDescription->property_name),
+				(LPCTSTR)filename);
+		else
+			sActionText.Format(IDS_EDITCONFLICT_ACTIONINFO_DELETE, (LPCTSTR)filename);
 		break;
 	default:
 		break;

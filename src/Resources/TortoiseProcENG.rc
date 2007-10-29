@@ -3219,11 +3219,11 @@ BEGIN
     IDS_EDITCONFLICT_ACTIONINFO_MODIFY "Could not merge ""%s"" because"
     IDS_EDITCONFLICT_ACTIONINFO_DELETE "Could not delete ""%s"" because"
     IDS_EDITCONFLICT_PROP_ACTIONINFO_ADD 
-                            "Could not add property ""%s"" because"
+                            "Could not add property ""%s"" on %s because"
     IDS_EDITCONFLICT_PROP_ACTIONINFO_MODIFY 
-                            "Could not merge property ""%s"" because"
+                            "Could not merge property ""%s"" on %s because"
     IDS_EDITCONFLICT_PROP_ACTIONINFO_DELETE 
-                            "Could not delete property ""%s"" because"
+                            "Could not delete property ""%s"" on %s because"
 END
 
 STRINGTABLE 
