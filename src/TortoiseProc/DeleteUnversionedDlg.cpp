@@ -65,6 +65,8 @@ BOOL CDeleteUnversionedDlg::OnInitDialog()
 	m_StatusList.SetCancelBool(&m_bCancelled);
 	m_StatusList.SetBackgroundImage(IDI_DELUNVERSIONED_BKG);
 
+	GetWindowText(m_sWindowTitle);
+
 	AdjustControlSize(IDC_SELECTALL);
 
 	AddAnchor(IDC_ITEMLIST, TOP_LEFT, BOTTOM_RIGHT);
@@ -105,6 +107,9 @@ UINT CDeleteUnversionedDlg::StatusThread()
 	}
 	m_StatusList.Show(SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWIGNORED, 
 		SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWIGNORED);
+
+	CTSVNPath commonDir = m_StatusList.GetCommonDirectory(false);
+	SetWindowText(m_sWindowTitle + _T(" - ") + commonDir.GetWinPathString());
 
 	InterlockedExchange(&m_bThreadRunning, FALSE);
 	RefreshCursor();
