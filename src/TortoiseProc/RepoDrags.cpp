@@ -99,6 +99,11 @@ HRESULT CTreeDropTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR 
 	if (hItem != hLastItem)
 		m_dwHoverStartTicks = 0;
 	hLastItem = hItem;
+
+	*pdwEffect = DROPEFFECT_MOVE;
+	if (grfKeyState & MK_CONTROL)
+		*pdwEffect = DROPEFFECT_COPY;
+
 	if (hItem != NULL)
 	{
 		if (m_bFiles)
@@ -240,8 +245,9 @@ HRESULT CListDropTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR 
 	hit.flags = LVHT_ONITEM;
 	int iItem = ListView_HitTest(m_hTargetWnd,&hit);
 
-	if (grfKeyState & MK_SHIFT)
-		*pdwEffect = DROPEFFECT_MOVE;
+	*pdwEffect = DROPEFFECT_MOVE;
+	if (grfKeyState & MK_CONTROL)
+		*pdwEffect = DROPEFFECT_COPY;
 
 	if (iItem >= 0)
 	{
