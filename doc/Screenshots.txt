@@ -164,38 +164,8 @@ MergeConflictCallback.png
 	Select r6 and 'revert changes from this revision.
 	This should generate a conflict and bring up the callback.
 
-MergeOnePane.png
-	Select doc/test/subwcrev2.txt and doc/test/subwcrev3.txt
-	Right click on subwcrev3.txt and TSVN->Diff
-	Use 1-pane view
-	Make sure the 3 areas with changes are showing
-
-MergeOpen.png
-	Start TortoiseMerge from the start menu
-
-MergePatchWindow.png
-	Use the 'doc' test WC
-	TSVN->Apply Patch
-	Select doc/test/temp/docs.patch
-	In the patch list, right click on one of the files to show the
-	  context menu, making sure it is within the patch window
-	Capture just the patch list window
-
 mergeprinciple.png
 	Borrowed from the Subversion docs
-
-MergeSettingsColors.png
-MergeSettingsGeneral.png
-	Simple snapshots of the settings
-
-MergeThreePane.png
-	Use the 'docs' test WC
-	TSVN->Update (after fresh repo/WC creation)
-	TSVN->Edit conflicts for subwcrev.txt
-	Jump to first conflict
-
-MergeTwoPane.png
-	As for MergeOnePane, but use 2-pane view.
 
 Properties.png
 	Right click on the TSVN doc folder and open Explorer properties
@@ -291,6 +261,36 @@ StatsByDate.png
 
 Switch.png
 	TortoiseSVN->switch for TSVN doc folder
+
+TMerge_OnePane.png
+	Select doc/test/subwcrev2.txt and doc/test/subwcrev3.txt
+	Right click on subwcrev3.txt and TSVN->Diff
+	Use 1-pane view
+	Make sure the 3 areas with changes are showing
+
+TMerge_Open.png
+	Start TortoiseMerge from the start menu
+
+TMerge_PatchWindow.png
+	Use the 'doc' test WC
+	TSVN->Apply Patch
+	Select doc/test/temp/docs.patch
+	In the patch list, right click on one of the files to show the
+	  context menu, making sure it is within the patch window
+	Capture just the patch list window
+
+TMerge_SettingsColors.png
+TMerge_SettingsGeneral.png
+	Simple snapshots of the settings
+
+TMerge_ThreePane.png
+	Use the 'docs' test WC
+	TSVN->Update (after fresh repo/WC creation)
+	TSVN->Edit conflicts for subwcrev.txt
+	Jump to first conflict
+
+TMerge_TwoPane.png
+	As for MergeOnePane, but use 2-pane view.
 
 TortoiseBlame.png
 	TortoiseSVN->Blame for tsvn_app_automation.xml
