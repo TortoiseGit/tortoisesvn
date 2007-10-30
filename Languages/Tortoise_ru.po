@@ -11,13 +11,13 @@
 # Stanislav Petrakov <stannic@gmail.com>
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 11111: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 11181: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-10-25 11:17+0300\n"
+"PO-Revision-Date: 2007-10-30 17:18+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -69,6 +69,10 @@ msgstr " "
 #, c-format
 msgid "! %d"
 msgstr "! %d"
+
+#. Resource IDs: (1262)
+msgid "# authors shown individually:"
+msgstr "Число авторов, показываемых индивидуально:"
 
 #. Resource IDs: (357)
 #, c-format
@@ -1708,10 +1712,6 @@ msgstr "Фиксация"
 msgid "Commit - TortoiseSVN"
 msgstr "Фиксация - TortoiseSVN"
 
-#. Resource IDs: (1262)
-msgid "Commit threshold:"
-msgstr "Пороговое значение фиксаций:"
-
 #. Resource IDs: (1110)
 msgid "Commit to:"
 msgstr "Фиксировать в:"
@@ -1960,8 +1960,8 @@ msgstr "Не могу добавить \"%s\" из-за того, что"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not add property \"%s\" because"
-msgstr "Не могу добавить свойство \"%s\" из-за того, что"
+msgid "Could not add property \"%s\" on %s because"
+msgstr "Не могу добавить свойство \"%s\" объекту %s из-за того, что"
 
 #. Resource IDs: (201)
 msgid "Could not check for a newer version!"
@@ -1985,8 +1985,8 @@ msgstr "Не могу удалить \"%s\" из-за того, что"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not delete property \"%s\" because"
-msgstr "Не могу удалить свойство \"%s\" из-за того, что"
+msgid "Could not delete property \"%s\" on %s because"
+msgstr "Не могу удалить свойство \"%s\" объекта %s из-за того, что"
 
 #. Resource IDs: (81)
 msgid "Could not get the status!"
@@ -1999,8 +1999,8 @@ msgstr "Не могу слить \"%s\" из-за того, что"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not merge property \"%s\" because"
-msgstr "Не могу слить свойство \"%s\" из-за того, что"
+msgid "Could not merge property \"%s\" on %s because"
+msgstr "Не могу произвести слияние свойства \"%s\" объекта %s из-за того, что"
 
 #. Resource IDs: (69)
 #, c-format
@@ -4923,6 +4923,10 @@ msgstr "Возвращено"
 msgid "Reverts all changes you made since the last update"
 msgstr "Убирает все изменения, которые вы сделали после последнего обновления"
 
+#. Resource IDs: (14)
+msgid "Reverts an addition to version control"
+msgstr "Убирает добавленное из-под управления версиями"
+
 #. Resource IDs: (19, 76, 208, 1306, 1375, 1393, 65535)
 msgid "Revision"
 msgstr "Ревизия"
@@ -5167,7 +5171,7 @@ msgstr "Сохранение файлов"
 msgid "Saving patchfile to:"
 msgstr "Сохранить файл заплатки в:"
 
-#. Resource IDs: (1014, 1017, 1064, 1212, 1415)
+#. Resource IDs: (1014, 1017, 1064, 1212)
 msgid "Scintilla"
 msgstr "Scintilla"
 
@@ -6465,6 +6469,10 @@ msgstr "Невозможно записать в %1: он только-для-ч
 #. Resource IDs: (3887)
 msgid "Uncheck"
 msgstr "Разотметить"
+
+#. Resource IDs: (14)
+msgid "Undo Add.."
+msgstr "Отменить добавление..."
 
 #. Resource IDs: (3603)
 msgid ""
