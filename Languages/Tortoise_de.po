@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-10-29 12:40+0100\n"
+"PO-Revision-Date: 2007-10-30 15:09+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1902,8 +1902,8 @@ msgstr "Konnte '%s' nicht hinzfügen, weil"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not add property \"%s\" because"
-msgstr "Konnte Eigenschaft '%s' nicht hinzfügen, weil"
+msgid "Could not add property \"%s\" on %s because"
+msgstr "Konnte Eigenschaft '%s' nicht zu %s hinzufügen, weil"
 
 #. Resource IDs: (201)
 msgid "Could not check for a newer version!"
@@ -1927,8 +1927,8 @@ msgstr "Konnte '%s' nicht löschen, weil"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not delete property \"%s\" because"
-msgstr "Konnte Eigenschaft '%s' nicht löschen, weil"
+msgid "Could not delete property \"%s\" on %s because"
+msgstr "Konnte Eigenschaft '%s' nicht von %s löschen, weil"
 
 #. Resource IDs: (81)
 msgid "Could not get the status!"
@@ -1941,8 +1941,8 @@ msgstr "Konnte '%s' nicht zusammenführen, weil"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not merge property \"%s\" because"
-msgstr "Konnte Eigenschaft '%s' nicht zusammenführen, weil"
+msgid "Could not merge property \"%s\" on %s because"
+msgstr "Konnte Eigenschaft '%s' nicht in %s zusammenführen, weil"
 
 #. Resource IDs: (69)
 #, c-format
@@ -5092,7 +5092,7 @@ msgstr "Speichere Dateien"
 msgid "Saving patchfile to:"
 msgstr "Speichere Patchdatei in:"
 
-#. Resource IDs: (1014, 1017, 1064, 1212, 1415)
+#. Resource IDs: (1014, 1017, 1064, 1212)
 msgid "Scintilla"
 msgstr "Scintilla"
 
