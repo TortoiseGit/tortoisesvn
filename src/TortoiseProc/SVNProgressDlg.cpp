@@ -1917,7 +1917,6 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
 		CString sMergedLogMessage;
 		CString sSeparator = CRegString(_T("Software\\TortoiseSVN\\MergeLogSeparator"), _T("........"));
 		CString temp;
-		int index = 0;
 
 		// Merging revisions %s of %s to %s into %s, %s%s
 		CString sCmdInfo;
