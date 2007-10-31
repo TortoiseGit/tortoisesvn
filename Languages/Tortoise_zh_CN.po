@@ -43,7 +43,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-10-26 09:50+0800\n"
+"PO-Revision-Date: 2007-10-31 11:31+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -78,6 +78,10 @@ msgstr " "
 #, c-format
 msgid "! %d"
 msgstr "! %d"
+
+#. Resource IDs: (1262)
+msgid "# authors shown individually:"
+msgstr "# 作者单独显示:"
 
 #. Resource IDs: (357)
 #, c-format
@@ -1695,10 +1699,6 @@ msgstr "提交"
 msgid "Commit - TortoiseSVN"
 msgstr "提交 - TortoiseSVN"
 
-#. Resource IDs: (1262)
-msgid "Commit threshold:"
-msgstr "提交至："
-
 #. Resource IDs: (1110)
 msgid "Commit to:"
 msgstr "提交至："
@@ -1943,8 +1943,8 @@ msgstr "无法加入 “%s” ，因为"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not add property \"%s\" because"
-msgstr "无法增加属性 “%s” ，因为"
+msgid "Could not add property \"%s\" on %s because"
+msgstr "无法增加属性 “%s” 于 “%s” ，因为"
 
 #. Resource IDs: (201)
 msgid "Could not check for a newer version!"
@@ -1968,8 +1968,8 @@ msgstr "无法删除 “%s”，因为"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not delete property \"%s\" because"
-msgstr "无法删除属性 “%s”，因为"
+msgid "Could not delete property \"%s\" on %s because"
+msgstr "无法删除属性 “%s” 于 “%s”，因为"
 
 #. Resource IDs: (81)
 msgid "Could not get the status!"
@@ -1982,8 +1982,8 @@ msgstr "无法合并 “%s”，因为"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not merge property \"%s\" because"
-msgstr "无法合并属性 “%s”，因为"
+msgid "Could not merge property \"%s\" on %s because"
+msgstr "无法合并属性 “%s” 于 “%s”，因为"
 
 #. Resource IDs: (69)
 #, c-format
@@ -4855,6 +4855,10 @@ msgstr "还原"
 msgid "Reverts all changes you made since the last update"
 msgstr "复原从上次更新之后全部的变动"
 
+#. Resource IDs: (14)
+msgid "Reverts an addition to version control"
+msgstr "撤销增加文件到版本控制"
+
 #. Resource IDs: (19, 76, 208, 1306, 1375, 1393, 65535)
 msgid "Revision"
 msgstr "版本"
@@ -5098,7 +5102,7 @@ msgstr "保存文件 %s"
 msgid "Saving patchfile to:"
 msgstr "保存补丁文件至："
 
-#. Resource IDs: (1014, 1017, 1064, 1212, 1415)
+#. Resource IDs: (1014, 1017, 1064, 1212)
 msgid "Scintilla"
 msgstr "Scintilla"
 
@@ -6375,6 +6379,10 @@ msgstr "无法写入 %1, 它可能被设为只读或另有人打开。"
 #. Resource IDs: (3887)
 msgid "Uncheck"
 msgstr "取消选中"
+
+#. Resource IDs: (14)
+msgid "Undo Add.."
+msgstr "撤销添加..."
 
 #. Resource IDs: (3603)
 msgid ""
