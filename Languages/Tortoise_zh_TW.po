@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-10-25 21:18+0800\n"
+"PO-Revision-Date: 2007-10-31 23:09+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -27,6 +27,10 @@ msgstr " "
 #, c-format
 msgid "! %d"
 msgstr "! %d"
+
+#. Resource IDs: (1262)
+msgid "# authors shown individually:"
+msgstr "# 個別顯示作者:"
 
 #. Resource IDs: (357)
 #, c-format
@@ -1646,10 +1650,6 @@ msgstr "送交"
 msgid "Commit - TortoiseSVN"
 msgstr "送交 - TortoiseSVN"
 
-#. Resource IDs: (1262)
-msgid "Commit threshold:"
-msgstr "送交起點:"
-
 #. Resource IDs: (1110)
 msgid "Commit to:"
 msgstr "送交至:"
@@ -1894,8 +1894,8 @@ msgstr "無法加入 \"%s\" :"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not add property \"%s\" because"
-msgstr "無法加入性質 \"%s\" :"
+msgid "Could not add property \"%s\" on %s because"
+msgstr "無法加入性質 \"%s\" 至 \"%s\" :"
 
 #. Resource IDs: (201)
 msgid "Could not check for a newer version!"
@@ -1919,8 +1919,8 @@ msgstr "無法刪除 \"%s\" :"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not delete property \"%s\" because"
-msgstr "無法刪除性質 \"%s\" :"
+msgid "Could not delete property \"%s\" on %s because"
+msgstr "無法刪除性質 \"%s\" 至 \"%s\":"
 
 #. Resource IDs: (81)
 msgid "Could not get the status!"
@@ -1933,8 +1933,8 @@ msgstr "無法合併 \"%s\" :"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not merge property \"%s\" because"
-msgstr "無法合併性質 \"%s\" :"
+msgid "Could not merge property \"%s\" on %s because"
+msgstr "無法合併性質 \"%s\" 至 \"%s\":"
 
 #. Resource IDs: (69)
 #, c-format
@@ -3446,8 +3446,8 @@ msgstr ""
 msgid ""
 "It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
 "\n"
-"From: %s\n"
-"To: %s\n"
+"From:\t%s\n"
+"To:\t\t%s\n"
 "\n"
 "A relocate is only needed if the path <b>to</b> a repository has changed.\n"
 "Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
@@ -3458,8 +3458,8 @@ msgid ""
 msgstr ""
 "您正要進行的可能是在同一個檔案庫中不同路徑的<b>重新定位</b>動作.\n"
 "\n"
-"原始路徑:%s\n"
-"目的路徑:%s\n"
+"原始路徑:\t%s\n"
+"目的路徑:\t%s\n"
 "\n"
 "重新定位僅使用在檔案庫的<b>位置</b>發生改變時.\n"
 "在<b>同一個檔案庫內</b>的變更請使用切換功能.\n"
@@ -4816,6 +4816,10 @@ msgstr "復原"
 msgid "Reverts all changes you made since the last update"
 msgstr "復原從上次更新之後全部的變動"
 
+#. Resource IDs: (14)
+msgid "Reverts an addition to version control"
+msgstr "取消加入檔案至 Subversion 版本控制"
+
 #. Resource IDs: (19, 76, 208, 1306, 1375, 1393, 65535)
 msgid "Revision"
 msgstr "版本"
@@ -5059,7 +5063,7 @@ msgstr "儲存檔案 %s"
 msgid "Saving patchfile to:"
 msgstr "儲存補綴檔至:"
 
-#. Resource IDs: (1014, 1017, 1064, 1212, 1415)
+#. Resource IDs: (1014, 1017, 1064, 1212)
 msgid "Scintilla"
 msgstr "Scintilla"
 
@@ -6339,6 +6343,10 @@ msgstr "無法寫入 %1, 它可能被設為唯讀或另有人開啟."
 #. Resource IDs: (3887)
 msgid "Uncheck"
 msgstr "取消勾選"
+
+#. Resource IDs: (14)
+msgid "Undo Add.."
+msgstr "取消加入..."
 
 #. Resource IDs: (3603)
 msgid ""
