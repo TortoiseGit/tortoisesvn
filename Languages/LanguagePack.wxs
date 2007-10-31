@@ -4,7 +4,7 @@
   UpgradeCode="9ECED698-D4D9-42fd-946D-51CC049D1F6F"
   Name='$LANGNATIVE$ Languagepack for TortoiseSVN'
   Id='????????-????-????-????-????????????'
-  Language='1031'
+  Language='1033'
   Codepage='1252'
   Version='$MajorVersion$.$MinorVersion$.$WCREV$'
   Manufacturer='TortoiseSVN'>
@@ -12,7 +12,7 @@
     <Package Id='????????-????-????-????-????????????' Keywords='Installer'
       Description="$LANGUI$ language pack for TortoiseSVN"
       Comments='http://tortoisesvn.net' Manufacturer='TortoiseSVN'
-      InstallerVersion='100' Languages='1031' Compressed='yes' SummaryCodepage='1252' />
+      InstallerVersion='100' Languages='1033' Compressed='yes' SummaryCodepage='1252' />
 
     <Media Id='1' Cabinet='langpack.cab' EmbedCab='yes' CompressionLevel="high" />
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
