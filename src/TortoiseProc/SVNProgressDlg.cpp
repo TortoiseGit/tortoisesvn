@@ -131,23 +131,19 @@ svn_wc_conflict_choice_t CSVNProgressDlg::ConflictResolveCallback(const svn_wc_c
 	// we only bother the user when merging
 	if ((m_Command == SVNProgress_Merge)&&(!m_AlwaysConflicted))
 	{
-		// we're also not dealing with folders
-		if (description->node_kind == svn_node_file)
+		CConflictResolveDlg dlg(this);
+		dlg.SetConflictDescription(description);
+		if (dlg.DoModal() == IDOK)
 		{
-			CConflictResolveDlg dlg(this);
-			dlg.SetConflictDescription(description);
-			if (dlg.DoModal() == IDOK)
+			if (dlg.GetResult() == svn_wc_conflict_choose_postpone)
 			{
-				if (dlg.GetResult() == svn_wc_conflict_choose_postpone)
-				{
-					// if the result is conflicted and the dialog returned IDOK,
-					// that means we should not ask again in case of a conflict
-					m_AlwaysConflicted = true;
-				}
+				// if the result is conflicted and the dialog returned IDOK,
+				// that means we should not ask again in case of a conflict
+				m_AlwaysConflicted = true;
 			}
-			mergedfile = dlg.GetMergedFile();
-			return dlg.GetResult();
 		}
+		mergedfile = dlg.GetMergedFile();
+		return dlg.GetResult();
 	}
 
 	return svn_wc_conflict_choose_postpone;
