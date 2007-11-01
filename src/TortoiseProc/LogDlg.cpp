@@ -600,7 +600,7 @@ void CLogDlg::GetAll(bool bForceAll /* = false */)
 			// ask for a revision range
 			CRevisionRangeDlg dlg;
 			dlg.SetStartRevision(m_startrev);
-			dlg.SetEndRevision(m_endrev);
+			dlg.SetEndRevision( (m_endrev>0) ? m_endrev : 1);
 			if (dlg.DoModal()!=IDOK)
 			{
 				return;
