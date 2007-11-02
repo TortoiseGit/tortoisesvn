@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-10-29 11:14+0100\n"
+"PO-Revision-Date: 2007-11-02 10:25+0100\n"
 "Last-Translator: Срѓан Стокиќ <srdjan.stokic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1919,8 +1919,8 @@ msgstr "Не можам да го додадам \"%s\" затоа што"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not add property \"%s\" because"
-msgstr "Не можам да го додадам својството \"%s\" затоа што"
+msgid "Could not add property \"%s\" on %s because"
+msgstr "Не можам да го додадам својството \"%s\" на %s затоа што"
 
 #. Resource IDs: (201)
 msgid "Could not check for a newer version!"
@@ -1944,8 +1944,8 @@ msgstr "Не можам да го избришам \"%s\" поради"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not delete property \"%s\" because"
-msgstr "Не можам да го избришам својството \"%s\" поради"
+msgid "Could not delete property \"%s\" on %s because"
+msgstr "Не можам да го избришам својството \"%s\" на %s поради"
 
 #. Resource IDs: (81)
 msgid "Could not get the status!"
@@ -1958,8 +1958,8 @@ msgstr "Не можам да го соединам \"%s\" затоа што"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not merge property \"%s\" because"
-msgstr "Не можам да го соединам својството \"%s\" затоа што"
+msgid "Could not merge property \"%s\" on %s because"
+msgstr "Не можам да го соединам својството \"%s\" на %s затоа што"
 
 #. Resource IDs: (69)
 #, c-format
@@ -3475,8 +3475,8 @@ msgstr ""
 msgid ""
 "It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
 "\n"
-"From: %s\n"
-"To: %s\n"
+"From:\t%s\n"
+"To:\t\t%s\n"
 "\n"
 "A relocate is only needed if the path <b>to</b> a repository has changed.\n"
 "Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
@@ -3487,8 +3487,8 @@ msgid ""
 msgstr ""
 "Изгледа дека се обидувате да ја <b>преместите</b> вашата работна копија на друга патека во истото складиште.\n"
 "\n"
-"Од: %s\n"
-"На: %s\n"
+"Од: \t%s\n"
+"На: \t\t%s\n"
 "\n"
 "Преместувањето е потребно само доколку патеката <b>до</b> складиштето е сменета.\n"
 "Промена на патека <b>внатре</b> во складиштето е можна само со командата Замени.\n"
@@ -5095,7 +5095,7 @@ msgstr "Зачувувам датотеки"
 msgid "Saving patchfile to:"
 msgstr "Зачувувам закрпа на:"
 
-#. Resource IDs: (1014, 1017, 1064, 1212, 1415)
+#. Resource IDs: (1014, 1017, 1064, 1212)
 msgid "Scintilla"
 msgstr "Scintilla"
 
@@ -6331,11 +6331,11 @@ msgstr "URL: "
 #, c-format
 msgid ""
 "Unable to determine merge source for\n"
-"%\n"
+"%s\n"
 "Please use the main merge dialog."
 msgstr ""
 "Не можам да го пронајдам изворот за спојување за\n"
-"%\n"
+"%s\n"
 "Ве молам користете го главниот дијалог за спојување."
 
 #. Resource IDs: (3866)
