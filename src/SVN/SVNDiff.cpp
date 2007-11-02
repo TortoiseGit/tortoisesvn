@@ -772,6 +772,8 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, SVNRev rev1, SVNRev rev2)
 			SetFileAttributes(wcpropfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 			SetFileAttributes(basepropfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 			CString n1, n2;
+			n1.Format(IDS_DIFF_PROP_REVISIONNAME, wcname.c_str(), (LPCTSTR)rev1.ToString());
+			n2.Format(IDS_DIFF_PROP_REVISIONNAME, wcname.c_str(), (LPCTSTR)rev2.ToString());
 			if (rev1.IsWorking())
 				n1.Format(IDS_DIFF_WCNAME, wcname.c_str());
 			if (rev1.IsBase())
@@ -784,7 +786,7 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, SVNRev rev1, SVNRev rev2)
 				n2.Format(IDS_DIFF_BASENAME, wcname.c_str());
 			if (rev2.IsHead())
 				n2.Format(IDS_DIFF_REMOTENAME, wcname.c_str());
-			retvalue = !!CAppUtils::StartExtDiffProps(basepropfile, wcpropfile, n2, n1, TRUE, TRUE);
+			retvalue = !!CAppUtils::StartExtDiffProps(wcpropfile, basepropfile, n1, n2, TRUE, TRUE);
 		}
 	}
 	return retvalue;
