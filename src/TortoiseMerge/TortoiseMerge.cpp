@@ -200,6 +200,8 @@ BOOL CTortoiseMergeApp::InitInstance()
 	pFrame->m_Data.m_sDiffFile.Replace('/', '\\');
 	if (parser.HasKey(_T("oneway")))
         pFrame->m_bOneWay = TRUE;
+	if (parser.HasKey(_T("diff")))
+		pFrame->m_bOneWay = FALSE;
 	if (parser.HasKey(_T("reversedpatch")))
 		pFrame->m_bReversedPatch = TRUE;
 	if (pFrame->m_Data.IsBaseFileInUse() && !pFrame->m_Data.IsYourFileInUse() && pFrame->m_Data.IsTheirFileInUse())
