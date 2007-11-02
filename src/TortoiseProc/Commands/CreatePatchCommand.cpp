@@ -81,6 +81,8 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
 		ofn.hwndOwner = hwndExplorer;
 		ofn.lpstrFile = szFile;
 		ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
+		ofn.lpstrInitialDir = root.GetWinPath();
+
 		temp.LoadString(IDS_REPOBROWSE_SAVEAS);
 		CStringUtils::RemoveAccelerators(temp);
 		if (temp.IsEmpty())
