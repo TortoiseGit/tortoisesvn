@@ -35,9 +35,6 @@
 			</includedirs>
 		</rc>
 
-		<!-- patch rand.c to include first apr.h, *then* windows.h -->
-		<copy file="..\build\rand.c" tofile="misc\win32\rand.c" overwrite="true" /> 
-
 		<cl outputdir="${configuration}${static}_${platform}">
 			<arg value="/O2" if="${configuration == 'release'}" />
 			<arg value="/Ob1" if="${configuration == 'release'}" />
