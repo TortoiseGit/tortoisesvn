@@ -755,7 +755,8 @@ bool CRepositoryBrowser::ChangeToUrl(const CString& url, const SVNRev& rev)
 	HTREEITEM hItem = m_RepoTree.GetRootItem();
 	if ((LONG(rev) != LONG(m_initialRev))||
 		(m_strReposRoot.IsEmpty())||
-		(m_strReposRoot.Compare(url.Left(m_strReposRoot.GetLength()))))
+		(m_strReposRoot.Compare(url.Left(m_strReposRoot.GetLength())))||
+		(url.GetAt(m_strReposRoot.GetLength()) != '/'))
 	{
 		// if the revision changed, then invalidate everything
 		RecursiveRemove(hItem);
@@ -763,7 +764,8 @@ bool CRepositoryBrowser::ChangeToUrl(const CString& url, const SVNRev& rev)
 		m_RepoList.DeleteAllItems();
 		m_RepoList.ShowText(CString(MAKEINTRESOURCE(IDS_REPOBROWSE_WAIT)), true);
 		hItem = m_RepoTree.GetRootItem();
-		if ((m_strReposRoot.IsEmpty())||(m_strReposRoot.Compare(url.Left(m_strReposRoot.GetLength()))))
+		if ((m_strReposRoot.IsEmpty())||(m_strReposRoot.Compare(url.Left(m_strReposRoot.GetLength())))||
+			(url.GetAt(m_strReposRoot.GetLength()) != '/'))
 		{
 			// if the repository root has changed, initialize all data from scratch
 			m_InitialUrl = url;
