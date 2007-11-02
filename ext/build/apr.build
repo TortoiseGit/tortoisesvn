@@ -132,10 +132,6 @@
             </exec>
 		</if>
 		<delete file="include\arch\win32\apr_arch_poll_private.h" failonerror="false" />
-		<exec program="svn" failonerror="false">
-			<arg value="revert" />
-			<arg value="misc\win32\rand.c" />
-		</exec>
 	</target>
 
 </project>
