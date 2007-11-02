@@ -98,12 +98,22 @@ void CTSVNPath::SetFromWin(LPCTSTR pPath)
 {
 	Reset();
 	m_sBackslashPath = pPath;
+	// Make sure that root directories look like 'C:\' rather than 'C:'
+	if(m_sBackslashPath.GetLength() == 2 && m_sBackslashPath[1] == ':')
+	{
+		m_sBackslashPath += '\\';
+	}
 	ATLASSERT(m_sBackslashPath.Find('/')<0);
 }
 void CTSVNPath::SetFromWin(const CString& sPath)
 {
 	Reset();
 	m_sBackslashPath = sPath;
+	// Make sure that root directories look like 'C:\' rather than 'C:'
+	if(m_sBackslashPath.GetLength() == 2 && m_sBackslashPath[1] == ':')
+	{
+		m_sBackslashPath += '\\';
+	}
 	ATLASSERT(m_sBackslashPath.Find('/')<0);
 }
 void CTSVNPath::SetFromWin(const CString& sPath, bool bIsDirectory)
@@ -112,6 +122,11 @@ void CTSVNPath::SetFromWin(const CString& sPath, bool bIsDirectory)
 	m_sBackslashPath = sPath;
 	m_bIsDirectory = bIsDirectory;
 	m_bDirectoryKnown = true;
+	// Make sure that root directories look like 'C:\' rather than 'C:'
+	if(m_sBackslashPath.GetLength() == 2 && m_sBackslashPath[1] == ':')
+	{
+		m_sBackslashPath += '\\';
+	}
 	ATLASSERT(m_sBackslashPath.Find('/')<0);
 }
 void CTSVNPath::SetFromUnknown(const CString& sPath)

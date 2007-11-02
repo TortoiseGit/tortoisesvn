@@ -25,7 +25,6 @@
 #include "Resource.h"
 #include "registry.h"
 #include "..\crashrpt\CrashReport.h"
-#include "SecAttribs.h"
 #include "SVNAdminDir.h"
 #include "Dbt.h"
 #include <initguid.h>
@@ -125,11 +124,10 @@ void DebugOutputLastError()
 
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*lpCmdLine*/, int /*cmdShow*/)
 {
-	NULLDACL nulldacl;
 #ifdef WIN64
-	HANDLE hReloadProtection = ::CreateMutex(nulldacl, FALSE, _T("TSVNCacheReloadProtection64"));
+	HANDLE hReloadProtection = ::CreateMutex(NULL, FALSE, _T("TSVNCacheReloadProtection64"));
 #else
-	HANDLE hReloadProtection = ::CreateMutex(nulldacl, FALSE, _T("TSVNCacheReloadProtection"));
+	HANDLE hReloadProtection = ::CreateMutex(NULL, FALSE, _T("TSVNCacheReloadProtection"));
 #endif
 
 	if (hReloadProtection == 0 || GetLastError() == ERROR_ALREADY_EXISTS)
@@ -490,7 +488,6 @@ DWORD WINAPI PipeThread(LPVOID lpvParam)
 	HANDLE hPipe = INVALID_HANDLE_VALUE;
 	HANDLE hInstanceThread = INVALID_HANDLE_VALUE;
 
-	NULLDACL nulldacl;
 	while (*bRun) 
 	{ 
 		hPipe = CreateNamedPipe( 
@@ -503,7 +500,7 @@ DWORD WINAPI PipeThread(LPVOID lpvParam)
 			BUFSIZE,                  // output buffer size 
 			BUFSIZE,                  // input buffer size 
 			NMPWAIT_USE_DEFAULT_WAIT, // client time-out 
-			nulldacl);                // NULL DACL
+			NULL);					  // NULL DACL
 
 		if (hPipe == INVALID_HANDLE_VALUE) 
 		{
@@ -567,7 +564,6 @@ DWORD WINAPI CommandWaitThread(LPVOID lpvParam)
 	HANDLE hPipe = INVALID_HANDLE_VALUE;
 	HANDLE hCommandThread = INVALID_HANDLE_VALUE;
 
-	NULLDACL nulldacl;
 	while (*bRun) 
 	{ 
 		hPipe = CreateNamedPipe( 
@@ -580,7 +576,7 @@ DWORD WINAPI CommandWaitThread(LPVOID lpvParam)
 			BUFSIZE,                  // output buffer size 
 			BUFSIZE,                  // input buffer size 
 			NMPWAIT_USE_DEFAULT_WAIT, // client time-out 
-			nulldacl);                // NULL DACL
+			NULL);                // NULL DACL
 
 		if (hPipe == INVALID_HANDLE_VALUE) 
 		{
@@ -588,7 +584,6 @@ DWORD WINAPI CommandWaitThread(LPVOID lpvParam)
 			//DebugOutputLastError();
 			continue; // never leave the thread!
 		}
-		SetSecurityInfo(hPipe, SE_KERNEL_OBJECT, DACL_SECURITY_INFORMATION, 0, 0, 0, 0);
 
 		// Wait for the client to connect; if it succeeds, 
 		// the function returns a nonzero value. If the function returns 
