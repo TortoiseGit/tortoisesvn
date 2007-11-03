@@ -98,21 +98,15 @@ bool SVNAdminDir::IsAdminDirPath(const CString& path)
 	while ((ind1 = lowerpath.Find(_T("\\.svn"), ind1))>=0)
 	{
 		ind = ind1++;
-		if (ind == (lowerpath.GetLength() - 4))
+		if (ind == (lowerpath.GetLength() - 5))
 		{
-			if ((ind == 0)||(lowerpath.GetAt(ind-1) == '\\'))
-			{
-				bIsAdminDir = true;
-				break;
-			}
+			bIsAdminDir = true;
+			break;
 		}
 		else if (lowerpath.Find(_T("\\.svn\\"), ind)>=0)
 		{
-			if ((ind == 0)||(lowerpath.GetAt(ind-1) == '\\'))
-			{
-				bIsAdminDir = true;
-				break;
-			}
+			bIsAdminDir = true;
+			break;
 		}
 	}
 	if (!bIsAdminDir && m_bVSNETHack)
@@ -122,26 +116,19 @@ bool SVNAdminDir::IsAdminDirPath(const CString& path)
 		while ((ind1 = lowerpath.Find(_T("\\_svn"), ind1))>=0)
 		{
 			ind = ind1++;
-			if (ind == (lowerpath.GetLength() - 4))
+			if (ind == (lowerpath.GetLength() - 5))
 			{
-				if ((ind == 0)||(lowerpath.GetAt(ind-1) == '\\'))
-				{
-					bIsAdminDir = true;
-					break;
-				}
+				bIsAdminDir = true;
+				break;
 			}
 			else if (lowerpath.Find(_T("\\_svn\\"), ind)>=0)
 			{
-				if ((ind == 0)||(lowerpath.GetAt(ind-1) == '\\'))
-				{
-					bIsAdminDir = true;
-					break;
-				}
+				bIsAdminDir = true;
+				break;
 			}
 		}
 	}
 	return bIsAdminDir;
 }
-
 
 
