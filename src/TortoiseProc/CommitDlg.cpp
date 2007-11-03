@@ -449,7 +449,11 @@ void CCommitDlg::OnOK()
 	}
 	UpdateData();
 	m_regAddBeforeCommit = m_bShowUnversioned;
+	if (!GetDlgItem(IDC_KEEPLOCK)->IsWindowEnabled())
+		m_bKeepLocks = FALSE;
 	m_regKeepChangelists = m_bKeepChangeList;
+	if (!GetDlgItem(IDC_KEEPLISTS)->IsWindowEnabled())
+		m_bKeepChangeList = FALSE;
 	InterlockedExchange(&m_bBlock, FALSE);
 	m_sBugID.Trim();
 	if (!m_sBugID.IsEmpty())
