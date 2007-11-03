@@ -1094,14 +1094,14 @@ apr_array_header_t * CTSVNPathList::MakePathArray (apr_pool_t *pool) const
 //////////////////////////////////////////////////////////////////////////
 
 
-#if defined(_DEBUG) && defined(_MFC_VER)
+#if defined(_DEBUG)
 // Some test cases for these classes
-static class CPathTests
+static class CTSVNPathTests
 {
 public:
-		apr_pool_t * pool;
-	CPathTests()
+	CTSVNPathTests()
 	{
+		apr_initialize();
 		pool = svn_pool_create(NULL);
 		GetDirectoryTest();
 		AdminDirTest();
@@ -1118,9 +1118,11 @@ public:
 		ValidPathAndUrlTest();
 		ListLoadingTest();
 #endif
+		apr_terminate();
 	}
 
 private:
+	apr_pool_t * pool;
 	void GetDirectoryTest()
 	{
 		// Bit tricky, this test, because we need to know something about the file
@@ -1400,8 +1402,6 @@ private:
 		ATLASSERT(testPath.IsValidOnWindows());
 
 		// now the negative tests
-		testPath.SetFromWin(_T("c:"));
-		ATLASSERT(!testPath.IsValidOnWindows());
 		testPath.SetFromWin(_T("c:\\test:folder"));
 		ATLASSERT(!testPath.IsValidOnWindows());
 		testPath.SetFromWin(_T("c:\\file<name"));
@@ -1454,6 +1454,6 @@ private:
 	}
 #endif
 
-} TSVNPathTests;
+} TSVNPathTestobject;
 #endif
 
