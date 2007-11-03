@@ -2470,7 +2470,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							temp.LoadString(IDS_STATUSLIST_CONTEXT_REMOVEFROMCS);
 							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_REMOVEFROMCS, temp);
 						}
-						if (changelistSubMenu.CreateMenu())
+						if ((!entry->IsFolder())&&(changelistSubMenu.CreateMenu()))
 						{
 							temp.LoadString(IDS_STATUSLIST_CONTEXT_CREATECS);
 							changelistSubMenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_CREATECS, temp);
@@ -3454,10 +3454,13 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								{
 									FileEntry * e = GetListEntry(index);
 									e->changelist = sChangelist;
-									if (m_changelists.find(e->changelist)!=m_changelists.end())
-										SetItemGroup(index, m_changelists[e->changelist]);
-									else
-										SetItemGroup(index, 0);
+									if (!e->IsFolder())
+									{
+										if (m_changelists.find(e->changelist)!=m_changelists.end())
+											SetItemGroup(index, m_changelists[e->changelist]);
+										else
+											SetItemGroup(index, 0);
+									}
 								}
 							}
 							else
