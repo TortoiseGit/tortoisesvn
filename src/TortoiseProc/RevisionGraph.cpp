@@ -360,6 +360,9 @@ void CRevisionGraph::ReceiveLog ( LogChangedPathArray* changes
     // fix release mode compiler warning
 
     UNREFERENCED_PARAMETER(changes);
+    UNREFERENCED_PARAMETER(stdRevProps);
+    UNREFERENCED_PARAMETER(userRevProps);
+    UNREFERENCED_PARAMETER(mergesFollow);
 
     // we passed revs_only to Log()
 

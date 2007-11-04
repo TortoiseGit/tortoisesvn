@@ -81,7 +81,7 @@ BOOL CBlame::BlameCallback(LONG linenumber, svn_revnum_t revision, const CString
 	return TRUE;
 }
 
-BOOL CBlame::Log(svn_revnum_t revision, const CString& /*author*/, const CString& /*date*/, const CString& message, LogChangedPathArray * cpaths, apr_time_t /*time*/, int /*filechanges*/, BOOL /*copies*/, DWORD /*actions*/, BOOL /*children*/)
+BOOL CBlame::Log(svn_revnum_t revision, const CString& /*author*/, const CString& /*date*/, const CString& message, LogChangedPathArray * /*cpaths*/, apr_time_t /*time*/, int /*filechanges*/, BOOL /*copies*/, DWORD /*actions*/, BOOL /*children*/)
 {
 	m_progressDlg.SetProgress(m_highestrev - revision, m_highestrev);
 	if (m_saveLog.m_hFile != INVALID_HANDLE_VALUE)
