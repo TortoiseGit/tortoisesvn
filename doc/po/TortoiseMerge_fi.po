@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-10-25 22:29+0200\n"
+"PO-Revision-Date: 2007-11-04 23:58+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -218,7 +218,7 @@ msgstr "Seuraava kaavio näyttää ristiriidassa olevien tiedostojen väliset su
 #. (title)
 #. (title)
 #: ../source/TortoiseMerge_en.xml:211
-#: ../source/TortoiseMerge_en.xml:341
+#: ../source/TortoiseMerge_en.xml:349
 msgid "File Conflict"
 msgstr "Tiedostoristiriita"
 
@@ -307,679 +307,739 @@ msgstr "Käyttämällä yhdistelmää molemmista lohkoista, joko <emphasis>Heid�
 msgid "You can make simple line-based changes to the file in the right pane which include: <placeholder-1/>"
 msgstr "Voit tehdä yksinkertaisia muutoksia oikean paneelin tiedostoon: <placeholder-1/>"
 
+#. (para)
+#: ../source/TortoiseMerge_en.xml:330
+msgid "You can also edit the file in the right pane just as you would in a text editor. Such lines are marked using a pencil icon. Please note that if you want to make any of the line/block-based changes described above, it is better to do those first since once you start editing the file yourself it becomes impossible for TortoiseMerge to keep track of the relationship to the original files."
+msgstr "Voit myös muokata oikean paneelin tiedoston tekstiä vapaasti. Muokatut rivit merkitään kynäkuvakkeella. Huomaa, että jos haluat suorittaa jonkun yllä kuvatuista rivi/lohkomuutoksista, se kannattaa tehdä ensin, koska muokattuasi itse tekstiä TortoiseMerge ei enää muista sen suhdetta alkuperäisiin tiedostoihin."
+
 #. (title)
-#: ../source/TortoiseMerge_en.xml:332
+#: ../source/TortoiseMerge_en.xml:340
 msgid "Editing Conflicts"
 msgstr "Ristiriitojen muokkaus"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:333
+#: ../source/TortoiseMerge_en.xml:341
 msgid "This is sometimes referred to as a three-way merge, and is shown in three panes. However there are actually four files involved. The file which is not shown is the common base file, the last common ancestor of the two files which are now in conflict. The relationships between the three files are explained in the diagram below:"
 msgstr "Tätä kutsutaan joskus kolmensuuntaiseksi yhdistämiseksi (three-way merge) ja se näytetään kolmessa paneelissa. Toimenpiteeseen liittyy kuitenkin oikeastaan neljä tiedostoa. Näyttämättä jätetty tiedosto on yhteinen kantatiedosto, viimeisin yhteinen edeltäjä kahdelle nyt ristiriidassa olevalle tiedostolle. Alla oleva kaavio selventää kolmen tiedoston välisiä suhteita:"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:344
+#: ../source/TortoiseMerge_en.xml:352
 msgid "The base file represents the oldest version of a file, from where <emphasis>You</emphasis> and <emphasis>They</emphasis> start making changes. <emphasis>Mine</emphasis> represents the base file with all the changes <emphasis>you</emphasis> made, and <emphasis>Theirs</emphasis> is the file with all the changes <emphasis>someone else</emphasis> made to the file. The left pane shows the changes in <emphasis>Theirs</emphasis> relative to the base file and the right pane shows the changes in <emphasis>Mine</emphasis> relative to the base file. The bottom pane is the output file which is where you are trying to resolve the conflicts."
 msgstr "Kantatiedosto esittää vanhinta yhteistä versiota tiedostosta, johon <literal>Sinä</literal> ja <literal>He</literal> alatte tehdä muutoksia. <literal>Minun</literal> esittää kantatiedostoa, johon on lisätty kaikki <emphasis>sinun</emphasis> tekemäsi muutokset, kun taas <literal>Heidän</literal> on tiedosto, jossa ovat kaikki <emphasis>jonkun muun</emphasis> tekemät muutokset tiedostoon. Vasen paneeli näyttää muutokset <emphasis>Heidän</emphasis> tiedostossaan suhteessa kantatiedostoon, ja oikea paneeli näyttää muutokset <emphasis>Minun</emphasis> tiedostooni suhteessa kantatiedostoon. Alimmainen paneeli näyttää tulostiedostoa, johon koetat ratkoa ristiriidat."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:356
+#: ../source/TortoiseMerge_en.xml:364
 msgid "In conflict resolution view, you can choose to use blocks from <emphasis>Mine</emphasis> or <emphasis>Theirs</emphasis> or both. But in this case, the changes are shown in the bottom pane."
 msgstr "Ristiriidan ratkaisunäkymässä voit valita lohkon tiedostoversioista <emphasis>Minun</emphasis>, <emphasis>Heidän</emphasis> tai molemmat. Tässä tapauksessa muutokset näkyvät kuitenkin alimmaisessa paneelissa."
 
 #. (title)
 #. (title)
 #. (title)
-#: ../source/TortoiseMerge_en.xml:363
-#: ../source/TortoiseMerge_en.xml:466
-#: ../source/TortoiseMerge_en.xml:810
+#: ../source/TortoiseMerge_en.xml:371
+#: ../source/TortoiseMerge_en.xml:480
+#: ../source/TortoiseMerge_en.xml:868
 msgid "Applying Patches"
 msgstr "Paikkatiedoston käyttäminen"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:364
+#: ../source/TortoiseMerge_en.xml:372
 msgid "A patch file is a Subversion unified diff file, which contains the information required to apply changes to a set of files. The patch may have been supplied by another developer so that you can see changes he has made and possibly commit them to the repository. Or it may have been generated internally by TortoiseSVN when comparing two folders. This happens when you compare a repository revision with your working copy folder, or if you compare two different repository revisions, or if you compare two different repository paths."
 msgstr "Paikkatiedosto on Subversionin unified diff -muodossa oleva tiedosto, joka sisältää tarvittavat tiedot muutosten soveltamiseksi joukolle tiedostoja. Paikka voi olla toisen kehittäjän lähettämä, ja sen avulla voit nähdä hänen tekemänsä muutokset ja mahdollisesti toimittaa ne arkistoon. Paikka voi myös olla TortoiseSVN-ohjelman toimesta tuotettu vertailtaessa kahta kansiota. Tämä tapahtuu, kun vertaat arkiston versiota työkopiosi kansioon, kahta arkiston versiota, tai kahta erilaista arkiston polkua."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:374
+#: ../source/TortoiseMerge_en.xml:382
 msgid "In either case TortoiseMerge will show a small window listing the files included in the patch. By double clicking on one of these files you fetch the relevant file and apply the changes. The left pane shows the original file content and the right pane shows it after the patch is applied."
 msgstr "Kaikissa tapauksissa TortoiseMerge näyttää pienessä ikkunassa luettelon paikan sisältämistä tiedostoista. Kaksoisnapsauttamalla yhtä tiedostoista voit noutaa sen ja suorittaa muutokset. Vasen paneeli näyttää alkuperäisen tiedoston sisällön, ja oikea paneeli näyttää sen paikan soveltamisen jälkeen."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:381
+#: ../source/TortoiseMerge_en.xml:389
 msgid "You can edit the file in the right pane exactly as you would in compare/edit mode."
 msgstr "Voit muokata oikean paneelin tiedostoa samaan tapaan kuin vertaa/muokkaa -tilassa."
 
 #. (title)
-#: ../source/TortoiseMerge_en.xml:388
+#: ../source/TortoiseMerge_en.xml:396
 msgid "Using TortoiseMerge"
 msgstr "TortoiseMergen käyttö"
 
 #. (title)
-#: ../source/TortoiseMerge_en.xml:396
+#: ../source/TortoiseMerge_en.xml:404
 msgid "Viewing Modes"
 msgstr "Näyttötilat"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:397
+#: ../source/TortoiseMerge_en.xml:405
 msgid "TortoiseMerge has three main viewing modes: one-pane, two-pane and three-pane view. One/two-pane view is used to view changes and three-pane view is used to resolve conflicts."
 msgstr "TortoiseMergessä on kolme päänäkymää: yhden, kahden ja kolmen paneelin näkymät. Yhden ja kahden paneelin näkymiä käytetään muutosten katseluun ja kolmen paneelin näkymää puolestaan ristiriitojen ratkaisemiseen."
 
 #. (title)
 #. (title)
-#: ../source/TortoiseMerge_en.xml:403
-#: ../source/TortoiseMerge_en.xml:787
+#: ../source/TortoiseMerge_en.xml:411
+#: ../source/TortoiseMerge_en.xml:845
 msgid "Viewing / Merging"
 msgstr "Katselmointi / Yhdistäminen"
 
 #. (title)
-#: ../source/TortoiseMerge_en.xml:405
+#: ../source/TortoiseMerge_en.xml:413
 msgid "One Pane View"
 msgstr "Yhden paneelin näkymä"
 
 #. (title)
-#: ../source/TortoiseMerge_en.xml:409
+#: ../source/TortoiseMerge_en.xml:417
 msgid "Two Pane View"
 msgstr "Kahden paneelin näkymä"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:417
+#: ../source/TortoiseMerge_en.xml:425
 msgid "Changes inside the modified lines are shown in different colors. Added string parts are shown with a lighter color, but you can of course configure the colors used here. Removed parts are indicated with a dark brown vertical line in the string. Check out the screenshot above to see how this works."
 msgstr "Muuttuneiden rivien sisäiset erot näytetään eri väreillä. Lisätyt merkkijonot näytetään vaaleammalla värillä, mutta niitä voi toki vaihtaa. Poistetut osat näytetään tummanruskealla pystysuuntaisella viivalla.  Yllä oleva kuvakaappaus selventää asiaa. "
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:427
+#: ../source/TortoiseMerge_en.xml:435
 msgid "Code reorganization usually means a lot of changes in whitespaces (space, tab, newlines) but no actual code change. For example, you split up a very long line into several lines, or you sometimes compact several lines together into one."
 msgstr "Koodin uudelleen järjestely tarkoittaa yleensä runsaasti muutoksia tyhjemerkkeihin (välilyönti, tabulaattori, rivinvaihto) ilman todellista toiminnallista muutosta.  Näin käy, jos esimerkiksi jaat pitkän rivin useisiin lyhyempiin tai tiivistät useita rivejä yhdeksi."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:433
+#: ../source/TortoiseMerge_en.xml:441
 msgid "Such changes are marked with a white circle symbol on the left side of the views. If you see such a white circle, you know immediately that no real code change is there and you don't have to check the changed block further."
 msgstr "Tällaiset muutokset merkitään valkoisella ympyräsymbolilla näkymien vasemmalla puolella. Jos näet tällaisen ympyrän, tiedät heti että koodin toiminnallisuus ei ole muuttunut eikä muutosta tarvitse tutkia tarkemmin."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:412
+#: ../source/TortoiseMerge_en.xml:449
+msgid "Hand editing of the file in the right pane is possible in two-pane view. Such changes are marked with a pencil symbol."
+msgstr "Oikeassa paneelissa näytettyä tiedostoa voi muokata käsin. Tällaiset muutokset merkitään kynäsymbolilla."
+
+#. (para)
+#: ../source/TortoiseMerge_en.xml:420
 msgid "The two pane view has some features which are not available in the one pane view: <placeholder-1/>"
 msgstr "Kahden paneelin näkymässä on joitain ominaisuuksia, joita ei ole tarjolla yhden paneelin näkymässä: <placeholder-1/>"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:442
+#: ../source/TortoiseMerge_en.xml:456
 msgid "If you want to compare/merge three files, TortoiseMerge will show you the differences in a three pane view. This view is also used if you need to resolve conflicted files."
 msgstr "Kun vertaat tai yhdistät kolmea tiedostoa, TortoiseMerge näyttää erot käyttäen kolmea paneelia.  Tätä näkymää käytetään myös ristiriitojen ratkaisemiseen."
 
 #. (title)
-#: ../source/TortoiseMerge_en.xml:448
+#: ../source/TortoiseMerge_en.xml:462
 msgid "Three Pane View"
 msgstr "Kolmen paneelin näkymä"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:451
+#: ../source/TortoiseMerge_en.xml:465
 msgid "The left pane shows you the differences between <emphasis>Their</emphasis> file and the <emphasis>Base</emphasis> file, while the right pane shows you the differences between <emphasis>Mine</emphasis> file and the <emphasis>Base</emphasis> file. The bottom pane shows you the result of merging <emphasis>Base</emphasis>, <emphasis>Mine</emphasis> and <emphasis>Theirs</emphasis> with possible conflicts."
 msgstr "Vasen paneeli näyttää erot tiedostojen <literal>Heidän</literal> ja <literal>Kanta</literal> välillä, kun taas oikea paneeli näyttää erot tiedostojen <literal>Minun</literal> ja <literal>Kanta</literal> välillä. Alapaneeli näyttää tiedostojen <literal>Kanta</literal>, <literal>Heidän</literal> ja <literal>Minun</literal> yhdistelmän, mahdollisten ristiriitojen kera."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:460
+#: ../source/TortoiseMerge_en.xml:474
 msgid "If you hover the mouse over the pane title, a tooltip will show the filenames used for the diff in each pane."
 msgstr "Jos pidät hiiren kohdistinta paneelin otsikon päällä, työkaluvihje näyttää kunkin paneelin vertailuun käyttämät tiedostonimet."
 
 #. (title)
-#: ../source/TortoiseMerge_en.xml:472
+#: ../source/TortoiseMerge_en.xml:486
 msgid "Patch File List"
 msgstr "Paikkatiedostolista"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:467
+#: ../source/TortoiseMerge_en.xml:481
 msgid "After TortoiseMerge parses the patch file it will show you a small window with all the files which have changes according to the patch file. <placeholder-1/> If the filename is shown in black, then the patch can be applied without any problems. That means the file is not outdated according to the patch. However, if the filename is shown in red, then the patch can't get applied directly because you already changed that file."
 msgstr "Luettuaan paikkatiedoston TortoiseMerge avaa pienen ikkunan, jossa on lueteltu kaikki tiedostot, jotka muuttuvat paikkatiedoston seurauksena.  <placeholder-1/> Jos tiedostonimi näytetään mustana, voidaan paikka ottaa käyttöön ongelmitta.  Toisin sanoen tiedosto ei ole vanhentunut suhteessa paikkaan.  Jos tiedostonimi kuitenkin näytetään punaisena, paikkatiedostoa ei voida suoraan käyttää, koska tiedosto on jo muuttunut."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:481
+#: ../source/TortoiseMerge_en.xml:495
 msgid "But don't worry. If you're working with Subversion you can retrieve an older version of the file and resolve the conflict. In fact, TortoiseMerge automatically tries to get that older version of the file and then shows you the diff between <emphasis>Base</emphasis> (the older version of the file), <emphasis>Mine</emphasis> (the file as it is currently in your working copy) and <emphasis>Theirs</emphasis> (the older version of the file with the patch already applied). Then you can resolve possible conflicts manually."
 msgstr "Tilanteen voi kuitenkin vielä pelastaa.  Jos käytät Subversion-ohjelmaa, voit palauttaa tiedostosta vanhemman version ja ratkaista ristiriidan.  Itse asiassa TortoiseMerge yrittää automaattisesti hakea tiedoston vanhemman version ja näyttää sitten erot tiedostojen <emphasis>Kanta</emphasis> (tiedoston vanhempi versio), <emphasis>Minun</emphasis> (tiedoston työkopio) ja <emphasis>Heidän</emphasis> (tiedoston vanhempi versio, jossa paikka on jo otettu käyttöön). Voit sitten ratkoa mahdolliset ristiriidat käsin."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:492
+#: ../source/TortoiseMerge_en.xml:506
 msgid "The patch file window has a context menu which allows you to preview the effect of the patch on the current file (apply without saving), to apply and save the changes for the selected file, or to apply and save changes to <emphasis>all</emphasis> files in the list. The double-click action is to preview."
 msgstr "Paikkatiedostoikkunassa on kontekstivalikko, jonka avulla voit esikatsella paikan vaikutusta nykyiseen tiedostoon (käytä tallettamatta), käyttää paikan ja tallettaa muutokset valittuun tiedostoon tai käyttää paikat ja tallettaa muutokset <emphasis>kaikkiin</emphasis> listan tiedostoihin.  Kaksoisnapsautus käynnistää esikatselun."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:500
+#: ../source/TortoiseMerge_en.xml:514
 msgid "Depending on whether TortoiseMerge can apply the patch directly or by fetching an older version of the file first, it shows you a two pane view (patch can be applied directly) or a three pane view (older version of file fetched)."
 msgstr "Jos TortoiseMerge voi käyttää paikan suoraan, näytetään kahden paneelin näkymä. Jos paikan käyttämiseen tarvitaan tiedoston vanhempi versio, näytetään kolmen paneelin näkymä."
 
 #. (title)
-#: ../source/TortoiseMerge_en.xml:509
+#: ../source/TortoiseMerge_en.xml:523
 msgid "Buttons and Other Controls"
 msgstr "Painikkeet ja muut kontrollit"
 
 #. (title)
-#: ../source/TortoiseMerge_en.xml:512
+#: ../source/TortoiseMerge_en.xml:526
 msgid "The Toolbar"
 msgstr "Työkalupalkki"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:519
+#: ../source/TortoiseMerge_en.xml:533
 msgid "<guibutton>Open</guibutton> accesses the file-open dialog. What else?"
 msgstr "<guibutton>Avaa</guibutton> -toiminnolla haetaan paikattava tiedosto (kuinkas muuten?)"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:525
+#: ../source/TortoiseMerge_en.xml:539
 msgid "<guibutton>Save</guibutton> saves any changes you have made."
 msgstr "<guibutton>Talleta</guibutton> -toiminto tallettaa tekemäsi muutokset."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:531
+#: ../source/TortoiseMerge_en.xml:545
 msgid "<guibutton>Reload</guibutton> discards any changes you have made in TortoiseMerge and reloads the files from disk."
 msgstr "<guibutton>Avaa uudelleen</guibutton> peruu tekemäsi muutokset ja hakee tiedostot uudestaan levyltä."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:538
+#: ../source/TortoiseMerge_en.xml:552
 msgid "<guibutton>Undo</guibutton> implements a multi-level undo, allowing you to reverse any changes you have made within TortoiseMerge."
 msgstr "<guibutton>Peru</guibutton> peruu viimeisimmän TortoiseMergessä tekemäsi muutoksen. Peruminen voidaan suorittaa useita kertoja peräkkäin."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:545
+#: ../source/TortoiseMerge_en.xml:559
 msgid "<guibutton>Prev/Next Difference</guibutton> jumps directly to the next point where the files differ. This saves scrolling through all the unchanged parts of the file."
 msgstr "<guibutton>Edellinen/Seuraava ero</guibutton> siirtyy suoraan seuraavan paikkaan, missä tiedostot eroavat.  Tämän toiminnon avulla voit välttyä tiedoston muuttumattomien osien tutkimiselta."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:551
+#: ../source/TortoiseMerge_en.xml:565
 msgid "When you do this in 2-pane diff mode, the detail bar at the bottom of the screen will show you the inline differences for the first line, regardless of where the mouse is hovering."
 msgstr "Kun suoritat tämän toiminnon kahden paneelin näkymässä, palkki ruudun alaosassa näyttää rivin sisäiset erot ensimmäiselle riville riippumatta hiiren sijainnista."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:558
+#: ../source/TortoiseMerge_en.xml:572
 msgid "<guibutton>Prev/Next Conflict</guibutton> jumps directly to the next point where the file differences are in conflict and need to be resolved."
 msgstr "<guibutton>Edellinen/Seuraava konflikti</guibutton> siirtyy suoraan seuraavan paikkaan, missä tiedostojen väliset erot ovat ristiriitaisia ja pitää selvittää käyttäjän toimesta."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:565
+#: ../source/TortoiseMerge_en.xml:579
 msgid "<guibutton>Use Theirs/Use Mine</guibutton> selects whether to use a block from the left or the right pane. Refer to the next section for more information about editing changes and conflicts."
 msgstr "<guibutton>Käytä heidän/Käytä minun</guibutton> -toiminto valitsee, käytetäänkö tekstilohkoa vasemmasta vai oikeasta paneelista. Seuraavassa luvussa on lisätietoa muutosten muokkaamisesta ja ristiriidoista."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:574
+#: ../source/TortoiseMerge_en.xml:588
 msgid "<guibutton>Theirs before Mine/Mine before Theirs</guibutton> is used when you want to combine changes in a conflicted file. Refer to the next section for more information about editing changes and conflicts."
 msgstr "<guibutton>Heidän ennen minun/Minun ennen heidän</guibutton> -toimintoa käytetään, kun haluat yhdistää muutokset ristiriitaiseen tiedostoon. Seuraavassa luvussa on lisätietoa muutosten muokkaamisesta ja ristiriidoista."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:582
+#: ../source/TortoiseMerge_en.xml:596
 msgid "<guibutton>Mark as Resolved</guibutton> When you have resolved all the conflicts in a file and saved the changes, you can mark it as resolved from within TortoiseMerge, rather than going back to explorer and marking as resolved from there."
 msgstr "<guibutton>Merkitse ratkaistuksi</guibutton> Kun olet selvittänyt kaikki tiedoston ristiriidat ja tallettanut muutokset, voit merkitä sen ratkaistuksi TortoiseMergestä käsin menemättä takaisin Tiedostonhallintaan ja merkitsemällä tiedoston ratkaistuksi siellä."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:591
+#: ../source/TortoiseMerge_en.xml:605
 msgid "<guibutton>Show Whitespaces</guibutton> toggles the option to display space and tab characters as symbols so you can distinguish white space changes."
 msgstr "<guibutton>Näytä tyhjämerkit</guibutton> kytkee ja poistaa toiminnon, jonka avulla välilyönnit ja tabulaattorimerkit näytetään symboleina, mikä helpottaa tyhjämerkkimuutosten vertailua."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:598
+#: ../source/TortoiseMerge_en.xml:612
 msgid "<guibutton>Inline Diff Word-wise</guibutton> toggles the method used to display inline diffs. In word-wise mode, when a character is changed, the whole word is highlighted. In char-wise mode, each individual changed character is highlighted."
 msgstr "<guibutton>Sanan sisäinen vertailu sanoittain</guibutton> muuttaa rivin sisäisten erojen löytämiseen käytettyä menetelmää. Sanamenetelmässä yksittäisen merkin muutos saa aikaan koko sanan korostuksen.  Merkkimenetelmässä puolestaan korostetaan yksittäiset muuttuneet merkit."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:605
+#: ../source/TortoiseMerge_en.xml:619
 msgid "Word-wise is the default and in most cases it works better. For example if you change a variable name, the whole name is highlighted in word-wise mode, whereas in char-wise mode you tend to get a mess of added and deleted characters which doesn't make much sense. However, some content does not resolve neatly into words, for example a hex file, and in that case, char-wise display works better."
 msgstr "Sanamenetelmä on oletusarvo ja toimii useimmissa tapauksissa paremmin. Jos esimerkiksi muutat muuttujan nimen, koko sana korostetaan sanamenetelmällä, kun taas merkkimenetelmällä tapaat saada lisätyistä ja poistetuista merkeistä koostuvan sekamelskan, josta on vaikea saada selvää. Jotkut sisällöt eivät kuitenkaan jakaannu luontevasti sanoihin (esim. heksatiedostot), ja näissä tapauksissa merkkimenetelmä toimii paremmin."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:616
+#: ../source/TortoiseMerge_en.xml:630
 msgid "<guibutton>Switch View</guibutton> selects between one-pane and two-pane view. Disabled in 3-pane view."
 msgstr "<guibutton>Vaihda näkymä</guibutton> vaihtaa yhden ja kahden paneelin näkymän välillä.  Estetty kolmen paneelin näkymässä."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:623
+#: ../source/TortoiseMerge_en.xml:637
 msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the left and right windows. When you are comparing a file in 2 different trees, as opposed to 2 revisions of the same file, TortoiseSVN does not know which one should go in the left pane as the <quote>original/base</quote> version. If it gets this wrong, you can change it to make viewing easier."
 msgstr "<guibutton>Vaihda vasen ja oikea näkymä</guibutton> Kahden paneelin näkymässä tämä toiminto vaihtaa vasemman ja oikean ikkunan keskenään. Kun olet vertaamassa tiedostoa kahdessa eri puussa (vrt. kaksi saman tiedoston eri versiota), TortoiseSVN ei tiedä, kumpi kuuluu vasempaan paneeliin <quote>alkuperäiseksi/kanta</quote> versioksi.  Jos tiedostot menevät väärin päin, voit vaihtaa niiden paikkoja, jotta vertailu olisi helpompaa."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:634
+#: ../source/TortoiseMerge_en.xml:648
 msgid "<guibutton>Show/Hide Patch List</guibutton> When TortoiseMerge has a patch list, this button allows you to hide it (so you can see both windows), or show it (so you can review the file list)."
 msgstr "<guibutton>Näytä/Piilota paikkalista</guibutton> Kun TortoiseMergellä on paikkalista, tämä toiminto voi piilottaa sen (jotta näet molemmat ikkunat) tai näyttää sen (jotta voit tutkia paikkalistaa)."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:642
+#: ../source/TortoiseMerge_en.xml:656
 msgid "<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings dialog."
 msgstr "<guibutton>Asetukset</guibutton> vie sinut TortoiseMergen asetusikkunaan."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:510
+#: ../source/TortoiseMerge_en.xml:524
 msgid "<placeholder-1/> Below the menu bar lies the tool bar. This provides easy access to the most commonly used tools, which are <placeholder-2/>"
 msgstr "<placeholder-1/> Valikkojen alapuolella on työkalupalkki.  Sen avulla käynnistät helposti useimmiten tarvittavat työkalut, jotka ovat <placeholder-2/>"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:649
+#: ../source/TortoiseMerge_en.xml:663
 msgid "On the left side of the window is a locator bar. This provides a quick visual reference as to where the changes lie within the file. The bar has three columns. The left column refers to the left pane, the right column to the right pane, and the centre column to the bottom pane (if present). In one-pane view only the left column is used. The locator bar can also be used as a scroll bar to scroll all the windows simultaneously."
 msgstr "Ikkunan vasemmalla puolella on sijaintilevy.  Sen avulla voit yhdellä vilkaisulla hahmottaa, missä kohden tiedostoa muutokset sijaitsevat. Levyssä on kolme saraketta.  Vasen sarake viittaa vasempaan paneeliin, oikea sarake oikeaan paneeliin ja keskisarake alapaneeliin (jos näkyvissä).  Yhden paneelin näkymässä käytetään vain vasenta saraketta.  Sijaintilevyä voi käyttää myös vierityspalkkina kaikkien ikkunoiden yhtäaikaiseen vierittämiseen."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:658
+#: ../source/TortoiseMerge_en.xml:672
 msgid "Below the bottom window is the status bar. This shows the number of lines added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, and the number of unresolved conflicts remaining. You can also see which line-ending style is in use, what encoding (ASCII, UTF-8, etc) is assumed by TortoiseMerge, and whether there is a byte-order-mark (BOM) present in UTF-8 files. The left side of the status bar is used to display hints when you hover the mouse over a control."
 msgstr "Alimmaisen ikkunan alapuolella on tilarivi. Se näyttää lisättyjen ja poistettujen rivien lukumäärät <literal>Heidän</literal> ja <literal>Minun</literal> osalta, sekä lisäksi jäjellä olevien ratkaisemattomien ristiriitojen lukumäärän.  Voit myös nähdä, mikä rivinlopetustyyli on käytössä, mikä merkkikoodaus (ASCII, UTF-8) on TortoiseMergen mielestä käytössä, ja mikäli UTF-8 -tiedostossa on mukana tavujärjestysmerkki (BOM).  Tilarivin vasenta puolta käytetään aputekstien näyttämiseen, kun viet hiiren jonkun kontrollin päälle."
 
 #. (title)
-#: ../source/TortoiseMerge_en.xml:671
+#: ../source/TortoiseMerge_en.xml:685
+msgid "Line Status Icons"
+msgstr "Rivitilakuvakkeet"
+
+#. (para)
+#: ../source/TortoiseMerge_en.xml:686
+msgid "Changed lines are marked with an icon to indicate what type of change has occurred."
+msgstr "Muutetut rivit merkitään kuvakkeella, joka kertoo, minkä tyyppinen muutos on kyseessä."
+
+#. (para)
+#: ../source/TortoiseMerge_en.xml:690
+msgid "<graphic fileref=\"../images/TMerge_lineadded.png\"/> A line has been added."
+msgstr "<graphic fileref=\"../images/TMerge_lineadded.png\"/> Lisätty rivi."
+
+#. (para)
+#: ../source/TortoiseMerge_en.xml:694
+msgid "<graphic fileref=\"../images/TMerge_lineremoved.png\"/> A line has been removed."
+msgstr "<graphic fileref=\"../images/TMerge_lineremoved.png\"/> Poistettu rivi."
+
+#. (para)
+#: ../source/TortoiseMerge_en.xml:698
+msgid "<graphic fileref=\"../images/TMerge_lineequal.png\"/> A change has been undone by reverting to the original content of the line."
+msgstr "<graphic fileref=\"../images/TMerge_lineequal.png\"/> Muutos on peruttu palauttamalla sen alkuperäinen sisältö."
+
+#. (para)
+#: ../source/TortoiseMerge_en.xml:702
+msgid "<graphic fileref=\"../images/TMerge_linewhitespace.png\"/> This line contains only whitespace changes. Where several consecutive lines are marked, the paragraph may have been re-wrapped, causing words to shuffle onto adjacent lines."
+msgstr "<graphic fileref=\"../images/TMerge_linewhitespace.png\"/> Rivillä on vain tyhjämerkkimuutoksia. Jos useita peräkkäisiä rivejä on merkitty, kappale on saatettu rivittää uudestaan, jolloin sanat ovat voineet siirtyä viereiselle riville."
+
+#. (para)
+#: ../source/TortoiseMerge_en.xml:708
+msgid "<graphic fileref=\"../images/TMerge_lineedited.png\"/> A line has been edited by hand, using TortoiseMerge as a text editor."
+msgstr "<graphic fileref=\"../images/TMerge_lineedited.png\"/> Riviä on muokattu käsin käyttäen TortoiseMergeä tekstieditorina."
+
+#. (para)
+#: ../source/TortoiseMerge_en.xml:712
+msgid "<graphic fileref=\"../images/TMerge_lineconflicted.png\"/> This line is in conflict."
+msgstr "<graphic fileref=\"../images/TMerge_lineconflicted.png\"/> Ristiriitainen rivi."
+
+#. (para)
+#: ../source/TortoiseMerge_en.xml:716
+msgid "<graphic fileref=\"../images/TMerge_lineconflictedignored.png\"/> This line is conflicted, but the effect is hidden by whitespace or line-ending settings."
+msgstr "<graphic fileref=\"../images/TMerge_lineconflictedignored.png\"/> Ristiriitainen rivi, joka peittyy tyhjämerkki- tai rivinlopputyylieroihin."
+
+#. (title)
+#: ../source/TortoiseMerge_en.xml:723
 msgid "Merging / Editing Conflicts"
 msgstr "Yhdistäminen / Ristiriitojen muokkaus"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:672
+#: ../source/TortoiseMerge_en.xml:724
 msgid "TortoiseMerge not only <emphasis>shows</emphasis> you the differences between files but also lets you resolve conflicts or apply changes."
 msgstr "TortoiseMerge ei vain <emphasis>näytä</emphasis> tiedostojen välisiä eroja, vaan sallii myös ristiriitojen selvittämisen tai muuttuneiden kohtien ottamisen käyttöön."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:676
+#: ../source/TortoiseMerge_en.xml:728
 msgid "If you're in two pane view, then you can only edit the file in the right pane (<literal>Mine</literal>). To apply changes made in the left file (<literal>Theirs</literal>), <action>right-click</action> on the changed lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice>. Then the changes from the left file are added to the right file."
 msgstr "Ollessasi kahden paneelin näkymässä voit muokata vain oikeassa paneelissa olevaa tiedostoa (<literal>Minun</literal>) .  Ottaaksesi käyttöön muutokset vasemmassa paneelissa (<literal>Heidän</literal>) näytetystä tiedostosta, <action>oikea-napsauta</action> muuttunetita rivejä ja valitse <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Käytä <quote>heidän</quote> tekstilohkonsa</guimenuitem></menuchoice>. Silloin muutokset vasemmasta tiedostosta lisätään oikeaan tiedostoon."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:688
+#: ../source/TortoiseMerge_en.xml:740
 msgid "Sometimes you actually want both text blocks, and the context menu also offers you <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use both text blocks (this one first)</guimenuitem></menuchoice> and <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use both text blocks (this one last)</guimenuitem></menuchoice>."
 msgstr "Joskus tarvitaan oikeastaan molemmat tekstilohkot, ja kontekstivalikossa on toiminto <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Käytä molemmat tekstilohkot (tämä ensin)</guimenuitem></menuchoice> ja <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Käytä molemmat tekstilohkot (tämä viimeiseksi)</guimenuitem></menuchoice>."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:701
+#: ../source/TortoiseMerge_en.xml:753
+msgid "You can also edit the output file just as you would in a text editor. Such lines are marked using a pencil icon. Please note that if you want to make any of the line/block-based changes described above, it is better to do those first since once you start editing the file yourself it becomes impossible for TortoiseMerge to keep track of the relationship to the original files."
+msgstr "Voit myös muokata tulostiedostoa samaan tapaan kuin normaalilla tekstieditorilla. Tällaiset rivit merkitään kynäkuvakkeella. Huomaa, että jos haluat suorittaa jonkun yllä kuvatuista rivi/lohkomuutoksista, se kannattaa tehdä ensin, koska muokattuasi itse tekstiä TortoiseMerge ei enää muista sen suhdetta alkuperäisiin tiedostoihin."
+
+#. (para)
+#: ../source/TortoiseMerge_en.xml:761
 msgid "If you're in three pane view (sometimes called <emphasis>merge view</emphasis>) you can only edit the file in the bottom view (<literal>Merged</literal>). As in two pane view, you can <action>right-click</action> on conflicted lines and either select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>mine</quote></guimenuitem></menuchoice>. In addition, if you want <emphasis>both</emphasis> blocks, you can select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>mine</quote> before <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>theirs</quote> before <quote>mine</quote></guimenuitem></menuchoice>. According to the command you've selected, the changes are used in the resulting <literal>Merged</literal> file."
 msgstr "Kolmen paneelin näkymässä (jota joskus kutsutaan <emphasis>yhdistämisnäkymäksi</emphasis>) voit muokata vain alimmassa paneelissa olevaa tiedostoa (<literal>Yhdistetty</literal>). Kuten kahden paneelin näkymässä, voit <action>oikea-napsauta</action> ristiriidassa olevia rivejä ja joko valita <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Käytä  <quote>heidän</quote> tekstilohkonsa</guimenuitem></menuchoice> tai <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Käytä <quote>minun</quote> tekstilohkoni</guimenuitem></menuchoice>. Lisäksi, jos haluat <emphasis>molemmat</emphasis> tekstilohkot, voit valita <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Käytä <quote>minun</quote> tekstilohkoni ennen <quote>heidän</quote></guimenuitem></menuchoice> tai <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Käytä <quote>heidän</quote> tekstilohkonsa ennen <quote>minun</quote> tekstilohkoani</guimenuitem></menuchoice>. Komennostasi riippuen, muutokset lisätään tiedostoon <literal>Yhdistetty</literal>."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:738
+#: ../source/TortoiseMerge_en.xml:798
+msgid "Sometimes a file will be marked as conflicted in Subversion, yet when you view it using TortoiseMerge there are no conflicts shown. This may be due to the whitespace handling you have chosen. If you choose to ignore line-endings or whitespace changes, those lines will be marked using the <emphasis>Conflict-Ignored</emphasis> icon. To resolve the conflict you still need to pick which version you want to use."
+msgstr "Joskus Subversion merkitsee tiedoston ristiriitaiseksi, mutta katsoessasi sitä TortoiseMergellä ristiriitoja ei löydy. Tämä saattaa johtua valitsemastasi tyhjämerkkien käsittelytavasta. Jos päätät ohittaa rivinlopputyyli- tai tyhjämerkkien muutokset, tällaiset rivit merkitään <emphasis>Ohitettu ristiriita</emphasis>-kuvakkeella. Ratkaistaksesi ristiriidan sinun on silti valittava, mitä versiota haluat käyttää."
+
+#. (para)
+#: ../source/TortoiseMerge_en.xml:806
 msgid "Sometimes the conflict is too difficult to resolve by simply picking <literal>Theirs</literal> and <literal>Mine</literal> and it requires hand editing. TortoiseMerge allows you to do all the easy changes visually first and then save the file, leaving only the difficult changes to be resolved by hand-editing."
 msgstr "Joskus ristiriita on liian vaikea ratkaista vain valitsemalla <literal>Heidän</literal> tai <literal>Minun</literal> ja se vaatii käsin muokkausta. TortoiseMergen avulla voit tehdä yksinkertaiset muutokset ensin ja sitten tallettaa tiedoston, minkä jälkeen vaikeat muutokset voidaan ratkaista muokkaamalla tiedostoa käsin."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:746
+#: ../source/TortoiseMerge_en.xml:814
 msgid "Note that if you use TortoiseMerge on the same files again, any changes to your working copy, whether in TortoiseMerge, or by hand-editing, <emphasis>will be discarded</emphasis> and the file will appear as it did when conflict-editing first started."
 msgstr "Huomaa, että jos käytät TortoiseMergeä samoihin tiedostoihin uudestaan, kaikki työtiedostoon tehdyt muutokset (joko TortoiseMergen tai käsin muokkauksen toimesta) <emphasis>perutaan</emphasis> ja tiedosto näyttää samalta kuin ristiriitojen ratkonnan alussa."
 
-#. (para)
-#: ../source/TortoiseMerge_en.xml:754
-msgid "If you need to copy lines of text to insert in another file using your favourite text editor, you can select multiple lines to copy within TortoiseMerge. Simply <action>left drag</action> the mouse over the lines you want. Alternatively <action>Click</action> on the first line of the block, then <action>Shift+Click</action> on the last line of the block. As usual, <action>Ctrl+C</action> can be used to copy the selected lines to the clipboard."
-msgstr "Jos sinun on kopioitava tekstiä lisätäksesi ne johonkin toiseen tiedostoon, voit valita useita rivejä kerralla TortoiseMergessä seuraavasti: <action>Maalaa</action> hiirellä haluamasi rivit. Vaihtehtoisesti <action>napsauta</action> ensimmäistä riviä ja <action>Shift+Napsauta</action> viimeiseistä riviä. Kuten tavallista, <action>Ctrl+C</action> kopioi valitut rivit leikepöydälle."
-
 #. (title)
-#: ../source/TortoiseMerge_en.xml:766
+#: ../source/TortoiseMerge_en.xml:824
 msgid "Open Files"
 msgstr "Tiedostojen avaaminen"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:768
+#: ../source/TortoiseMerge_en.xml:826
 msgid "When you start TortoiseMerge without any command line switches then you have to open the files manually, using <menuchoice><guimenu>File</guimenu><guimenuitem>Open</guimenuitem></menuchoice>."
 msgstr "Kun käynnistät TortoiseMergen ilman komentorivivalitsimia, sinun pitää avata tiedostot käyttäen komentoa <menuchoice><guimenu>Tiedosto</guimenu><guimenuitem>Avaa</guimenuitem></menuchoice>."
 
 #. (title)
-#: ../source/TortoiseMerge_en.xml:777
+#: ../source/TortoiseMerge_en.xml:835
 msgid "The Open Dialog"
 msgstr "Avausikkuna"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:780
+#: ../source/TortoiseMerge_en.xml:838
 msgid "The first thing you have to do is to decide whether you just want to compare/merge files, or whether you want to apply a patch file. Depending on what you choose, the corresponding edit boxes and browse buttons are activated."
 msgstr "Aivan aluksi sinun pitää tietää, haluatko vain verrata/yhdistää tiedostoja, vai haluatko käyttää paikkatiedostoa. Valinnastasi riippuen vastaavat painikkeet ja editointikentät aktivoidaan."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:788
+#: ../source/TortoiseMerge_en.xml:846
 msgid "If you want to compare / merge files you have to set at least two of the three possible paths for <literal>Base</literal>, <literal>Mine</literal> and <literal>Theirs</literal>. If you select only two files, then TortoiseMerge will show you the differences between those two files, either in a two pane view or in a one pane view."
 msgstr "Jos haluat verrata tai yhdistää tiedostoja, sinun täytyy antaa ainakin kaksi kolmesta mahdollisesta tiedostosta <literal>Kanta</literal>, <literal>Minun</literal> ja <literal>Heidän</literal>.  Jos annat vain kaksi tiedostoa, TortoiseMerge näyttää erot niiden välillä käyttäen yhden tai kahden paneelin näkymää."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:796
+#: ../source/TortoiseMerge_en.xml:854
 msgid "If you want to merge three files, TortoiseMerge will show you the differences in a three pane view. This view is generally used if you need to resolve conflicted files. The output file is not named in this case and you will have to use the <menuchoice><guimenu>File</guimenu><guimenuitem>Save As...</guimenuitem></menuchoice>. to save the results."
 msgstr "Jos haluat yhdistää kolme tiedostoa, TortoiseMerge näyttää erot käyttäen kolmea paneelia.  Tätä näkymää käytetään yleensä ristiriitojen ratkaisemiseen. Tulostiedostoa ei ole tässä tapauksessa nimetty, ja sinun tylee käyttää komentoa <menuchoice><guimenu>Tiedosto</guimenu><guimenuitem>Tallenna nimellä...</guimenuitem></menuchoice> tallettaaksesi tulokset."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:811
+#: ../source/TortoiseMerge_en.xml:869
 msgid "If you want to apply a patch file you have to set both the path to the patch file itself and the path to the folder where the patch file should be applied."
 msgstr "Jos haluat käyttää paikkatiedoston, sinun pitää antaa sekä itse paikkatiedoston polku että polku kansioon, missä se pitäisi käyttää."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:817
+#: ../source/TortoiseMerge_en.xml:875
 msgid "Currently, only patch files in <emphasis>Unified Diff Format</emphasis> are supported. And only files which were generated from a Subversion working copy. Other formats like patch files generated by CVS are currently not supported!"
 msgstr "Nykyisin tuetaan vain <emphasis>unified diff</emphasis> -muodossa olevia paikkatiedoja.  Lisäksi nämä tiedostot tulee luoda Subversion-työkopiosta.  Muita tiedostomuotoja (esim. CVS-paikkatiedostot) ei tueta!"
 
 #. (title)
-#: ../source/TortoiseMerge_en.xml:828
+#: ../source/TortoiseMerge_en.xml:886
 msgid "Settings"
 msgstr "Asetukset"
 
 #. (title)
-#: ../source/TortoiseMerge_en.xml:830
+#: ../source/TortoiseMerge_en.xml:888
 msgid "Main Settings Page"
 msgstr "Pääasetussivu"
 
 #. (title)
-#: ../source/TortoiseMerge_en.xml:833
+#: ../source/TortoiseMerge_en.xml:891
 msgid "The Settings Main Page"
 msgstr "Asetusten pääsivu"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:836
+#: ../source/TortoiseMerge_en.xml:894
 msgid "Most of the options here are self-explanatory, but a few points need clarifying."
 msgstr "Useimmat asetukset ovat itsensä selittäviä, mutta muutamat seikat vaativat selvennystä."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:840
+#: ../source/TortoiseMerge_en.xml:898
 msgid "<guilabel>Backup original file</guilabel> renames the original file in the WC to <literal>filename.bak</literal> before saving the modified version."
 msgstr "Valinta <guilabel>Varmista alkuperäinen tiedosto</guilabel> nimeää alkuperäisen tiedoston työkopiossa nimellä <literal>tiedostonimi.bak</literal> ennen muokatun tiedoston tallettamista."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:845
+#: ../source/TortoiseMerge_en.xml:903
 msgid "<guilabel>Ignore line endings</guilabel> hides changes which are due solely to difference in line-end style."
 msgstr "Valinta <guilabel>Ohita rivinloput</guilabel> piilottaa muutokset, jotka johtuvat pelkästään eroista rivinlopetustyyleissä."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:849
+#: ../source/TortoiseMerge_en.xml:907
 msgid "<guilabel>Ignore case changes</guilabel> hides changes which are due solely to case changes within the text. This can be useful with apps such as Visual Basic, which changes case in variables without warning."
 msgstr "Valinta <guilabel>Ohita merkkitasoerot</guilabel> piilottaa muutokset, jotka johtuvat vain tekstin merkkien tasoista. Tämä voi olla näppärää esimerkiksi Visual Basicin kaltaisissa sovelluksissa, jotka muuttavat muuttujien nimien tasoa varoittamatta."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:855
+#: ../source/TortoiseMerge_en.xml:913
 msgid "<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the line diff bar to show the detailed in-line changes within the main display panes. Lines which have been heavily modified will not be shown using this method as the results are simply confusing. In this case the line will be shown as replaced (old line deleted, new line added)."
 msgstr "Valinta <guilabel>Väritä rivin sisäiset muutokset</guilabel> käyttää samaa tapaa kuin rivieropalkki näyttääkseen yksityiskohtaiset rivin sisäiset muutokset päänäytöissä. Suuresti muuttuneita rivejä ei näytetä tällä tyylillä, koska tulos olisi yksinkertaisesti liian sekava. Tässä tapauksessa rivi näytetään korvattuna (vanha rivi poistettu, uusi rivi lisätty)."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:863
+#: ../source/TortoiseMerge_en.xml:921
 msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
 msgstr "Valinta <guilabel>Vertaa tyhjämerkkejä</guilabel> näyttää kaikki muutokset sisennyksessä ja rivin sisäisissä tyhjämerkeissä lisättyinä/poistettuina riveinä (samaan tapaan kuin Subversion käsittelee tällaisia muutoksia)."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:868
+#: ../source/TortoiseMerge_en.xml:926
 msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
 msgstr "Valinta <guilabel>Ohita tyhjämerkkien muutokset</guilabel> piilottaa muutokset, jotka johtuvat tyhjämerkeistä, esimerkiksi sisentämisestä tai tabulaattorien muuttamisesta välilyönneiksi.Tyhjämerkkien lisääminen paikkaan, jossa niitä ei aiemmin ollut, tai kaikkien tyhjämerkkien poisto näkyvät yhä muutoksina."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:876
+#: ../source/TortoiseMerge_en.xml:934
 msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
 msgstr "Valinta <guilabel>Ohita kaikki tyhjämerkit</guilabel> piilottaa kaikki tyhjämerkeistä johtuvat muutokset."
 
 #. (title)
-#: ../source/TortoiseMerge_en.xml:882
+#: ../source/TortoiseMerge_en.xml:940
 msgid "Colour Settings Page"
 msgstr "Väriasetussivu"
 
 #. (title)
-#: ../source/TortoiseMerge_en.xml:885
+#: ../source/TortoiseMerge_en.xml:943
 msgid "The Settings Color Page"
 msgstr "Asetusten värisivu"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:888
+#: ../source/TortoiseMerge_en.xml:946
 msgid "This dialog allows you to select the background color coding used to highlight the different line changes."
 msgstr "Tämän ikkunan avulla voit valita erilaisten muutosten esittämiseen käytetyt taustavärit."
 
 #. (term)
-#: ../source/TortoiseMerge_en.xml:894
+#: ../source/TortoiseMerge_en.xml:952
 msgid "Normal"
 msgstr "Normaali"
 
 #. (listitem)
-#: ../source/TortoiseMerge_en.xml:895
+#: ../source/TortoiseMerge_en.xml:953
 msgid "All lines which are unchanged, or where changes are hidden."
 msgstr "Kaikki muuttumattomat rivit ja rivit, joilla muutokset on piilotettu."
 
 #. (term)
-#: ../source/TortoiseMerge_en.xml:900
+#: ../source/TortoiseMerge_en.xml:958
 msgid "Added"
 msgstr "Lisätty"
 
 #. (listitem)
-#: ../source/TortoiseMerge_en.xml:901
+#: ../source/TortoiseMerge_en.xml:959
 msgid "Lines which have been added."
 msgstr "Rivit, jotka on lisätty."
 
 #. (term)
-#: ../source/TortoiseMerge_en.xml:906
+#: ../source/TortoiseMerge_en.xml:964
 msgid "Removed"
 msgstr "Poistettu"
 
 #. (listitem)
-#: ../source/TortoiseMerge_en.xml:907
+#: ../source/TortoiseMerge_en.xml:965
 msgid "Lines which have been deleted."
 msgstr "Rivit, jotka on poistettu."
 
 #. (term)
-#: ../source/TortoiseMerge_en.xml:912
+#: ../source/TortoiseMerge_en.xml:970
 msgid "Modified"
 msgstr "Muutettu"
 
 #. (emphasis)
-#: ../source/TortoiseMerge_en.xml:915
+#: ../source/TortoiseMerge_en.xml:973
 msgid "unchanged"
 msgstr "muuttumaton"
 
 #. (guilabel)
-#: ../source/TortoiseMerge_en.xml:918
+#: ../source/TortoiseMerge_en.xml:976
 msgid "Colour code in-line changes"
 msgstr "Väritä rivin sisäiset muutokset"
 
 #. (listitem)
-#: ../source/TortoiseMerge_en.xml:913
+#: ../source/TortoiseMerge_en.xml:971
 msgid "Lines which have relatively small changes, and are shown using inline diff. This colour is used for the <placeholder-1/> portion of the line content. Changed portions will be shown using the inline added and deleted colours described below. If <placeholder-2/> is not enabled, this colour will not be used and changed lines will always be shown as replacements."
 msgstr "Rivit, joilla on melko pieniä muutoksia, ja joille näytetään rivin sisäiset erot. Tätä väriä käytetään <placeholder-1/> osaan rivin sisällöstä. Muuttuneet osat näytetään käyttäen rivin sisällä lisätty ja poistettu -värejä, jotka on kuvattu alla.  Jos <placeholder-2/> ei ole päällä, tätä väriä ei käytetä ja muutetut rivit esitetään aina korvauksina."
 
 #. (term)
-#: ../source/TortoiseMerge_en.xml:924
+#: ../source/TortoiseMerge_en.xml:982
 msgid "Conflicted"
 msgstr "Ristiriidassa"
 
 #. (listitem)
-#: ../source/TortoiseMerge_en.xml:925
+#: ../source/TortoiseMerge_en.xml:983
 msgid "Where the same line has been changed in both files."
 msgstr "Kun samaa riviä on muutettu molemmissa tiedostoissa."
 
 #. (term)
-#: ../source/TortoiseMerge_en.xml:930
+#: ../source/TortoiseMerge_en.xml:988
 msgid "Empty"
 msgstr "Tyhjä"
 
 #. (listitem)
-#: ../source/TortoiseMerge_en.xml:931
+#: ../source/TortoiseMerge_en.xml:989
 msgid "Where lines have been added in the opposite pane, and no such line existed in this pane."
 msgstr "Kun rivejä on lisätty toiseen paneeliin, ja vastaavia rivejä ei ole tässä paneelissa."
 
 #. (term)
-#: ../source/TortoiseMerge_en.xml:937
+#: ../source/TortoiseMerge_en.xml:995
 msgid "Inline added text"
 msgstr "Rivin sisällä lisätty teksti"
 
 #. (listitem)
-#: ../source/TortoiseMerge_en.xml:938
+#: ../source/TortoiseMerge_en.xml:996
 msgid "When inline diffs are shown, added text is shown in this colour."
 msgstr "Kun rivin sisäiset muutokset näytetään, lisätty teksti näytetään tällä värillä."
 
 #. (term)
-#: ../source/TortoiseMerge_en.xml:943
+#: ../source/TortoiseMerge_en.xml:1001
 msgid "Inline removed text"
 msgstr "Rivin sisällä poistettu teksti"
 
 #. (listitem)
-#: ../source/TortoiseMerge_en.xml:944
+#: ../source/TortoiseMerge_en.xml:1002
 msgid "When inline diffs are shown, deleted text is shown in this colour."
 msgstr "Kun rivin sisäiset muutokset näytetään, poistettu teksti näytetään tällä värillä."
 
 #. (title)
-#: ../source/TortoiseMerge_en.xml:953
+#: ../source/TortoiseMerge_en.xml:1011
 msgid "keyboard shortcuts"
 msgstr "Pikanäppäimet"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:955
+#: ../source/TortoiseMerge_en.xml:1013
 msgid "List of keyboard shortcuts and commands."
 msgstr "Luettelo pikanäppäimistä ja komennoista."
 
 #. (title)
-#: ../source/TortoiseMerge_en.xml:960
+#: ../source/TortoiseMerge_en.xml:1018
 msgid "Keyboard shortcuts"
 msgstr "Pikanäppäimet"
 
 #. (term)
-#: ../source/TortoiseMerge_en.xml:963
+#: ../source/TortoiseMerge_en.xml:1021
 msgid "Ctrl-Q"
 msgstr "Ctrl-Q"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:965
+#: ../source/TortoiseMerge_en.xml:1023
 msgid "Quit the program"
 msgstr "Lopettaa ohjelman suorituksen"
 
 #. (term)
-#: ../source/TortoiseMerge_en.xml:971
+#: ../source/TortoiseMerge_en.xml:1029
 msgid "Ctrl-C"
 msgstr "Ctrl-C"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:973
+#: ../source/TortoiseMerge_en.xml:1031
 msgid "Copy the selected line(s) to the clipboard"
 msgstr "Kopioi valitut rivit leikepöydälle"
 
 #. (term)
-#: ../source/TortoiseMerge_en.xml:979
+#: ../source/TortoiseMerge_en.xml:1037
 msgid "Ctrl-F"
 msgstr "Ctrl-F"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:981
+#: ../source/TortoiseMerge_en.xml:1039
 msgid "Open the Find dialog for text searches"
 msgstr "Avaa hakuikkunan tekstihakua varten"
 
 #. (term)
-#: ../source/TortoiseMerge_en.xml:987
+#: ../source/TortoiseMerge_en.xml:1045
 msgid "Ctrl-O"
 msgstr "Ctrl-O"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:989
+#: ../source/TortoiseMerge_en.xml:1047
 msgid "Open files to diff/merge"
 msgstr "Avaa vertailtavia/yhdisteltäviä tiedostoja"
 
 #. (term)
-#: ../source/TortoiseMerge_en.xml:995
+#: ../source/TortoiseMerge_en.xml:1053
 msgid "Ctrl-S"
 msgstr "Ctrl-S"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:997
+#: ../source/TortoiseMerge_en.xml:1055
 msgid "Save the changes"
 msgstr "Tallettaa muutokset"
 
 #. (term)
-#: ../source/TortoiseMerge_en.xml:1003
+#: ../source/TortoiseMerge_en.xml:1061
 msgid "Ctrl-Shift-S"
 msgstr "Ctrl-Shift-S"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1005
+#: ../source/TortoiseMerge_en.xml:1063
 msgid "Save as..."
 msgstr "Talleta nimellä..."
 
 #. (term)
-#: ../source/TortoiseMerge_en.xml:1011
+#: ../source/TortoiseMerge_en.xml:1069
 msgid "F7 or cursor-right"
 msgstr "F7 tai oikea kohdistin"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1013
+#: ../source/TortoiseMerge_en.xml:1071
 msgid "Go to next difference"
 msgstr "Siirry seuraavaan eroon"
 
 #. (term)
-#: ../source/TortoiseMerge_en.xml:1019
+#: ../source/TortoiseMerge_en.xml:1077
 msgid "Shift-F7 or cursor-left"
 msgstr "Shift-F7 tai vasen kohdistin"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1021
+#: ../source/TortoiseMerge_en.xml:1079
 msgid "Go to previous difference"
 msgstr "Siirry edelliseen eroon"
 
 #. (term)
-#: ../source/TortoiseMerge_en.xml:1027
+#: ../source/TortoiseMerge_en.xml:1085
 msgid "Shift-cursor-right"
 msgstr "Shift-oikea kohdistin"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1029
+#: ../source/TortoiseMerge_en.xml:1087
 msgid "Go to next conflict"
 msgstr "Siirry seuraavaan ristiriitaan"
 
 #. (term)
-#: ../source/TortoiseMerge_en.xml:1035
+#: ../source/TortoiseMerge_en.xml:1093
 msgid "Shift-cursor-left"
 msgstr "Shift-vasen kohdistin"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1037
+#: ../source/TortoiseMerge_en.xml:1095
 msgid "Go to previous conflict"
 msgstr "Siirry edelliseen ristiriitaan"
 
 #. (term)
-#: ../source/TortoiseMerge_en.xml:1043
+#: ../source/TortoiseMerge_en.xml:1101
 msgid "Ctrl-D"
 msgstr "Ctrl-D"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1045
+#: ../source/TortoiseMerge_en.xml:1103
 msgid "Toggle between one-pane diff and two-pane diff"
 msgstr "Vaihda yhden ja kahden paneelin vertailun välillä"
 
 #. (term)
-#: ../source/TortoiseMerge_en.xml:1051
+#: ../source/TortoiseMerge_en.xml:1109
 msgid "Ctrl-R"
 msgstr "Ctrl-R"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1053
+#: ../source/TortoiseMerge_en.xml:1111
 msgid "Reload the files and revert all changes made"
 msgstr "Noutaa tiedostot uudelleen ja peruu tehdyt muutokset"
 
 #. (term)
-#: ../source/TortoiseMerge_en.xml:1059
+#: ../source/TortoiseMerge_en.xml:1117
 msgid "Ctrl-T"
 msgstr "Ctrl-T"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1061
+#: ../source/TortoiseMerge_en.xml:1119
 msgid "Toggles between showing whitespaces or not"
 msgstr "Kytkee tyhjämerkkien symbolinäytön päälle/pois"
 
 #. (term)
-#: ../source/TortoiseMerge_en.xml:1067
+#: ../source/TortoiseMerge_en.xml:1125
 msgid "Ctrl-mousewheel"
 msgstr "Ctrl-rullahiiri"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1069
+#: ../source/TortoiseMerge_en.xml:1127
 msgid "Scroll the display left/right"
 msgstr "Vierittää näyttöä vasemmalle/oikealle"
 
 #. (title)
-#: ../source/TortoiseMerge_en.xml:1078
+#: ../source/TortoiseMerge_en.xml:1136
 msgid "Automating TortoiseMerge"
 msgstr "TortoiseMergen automatisointi"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1080
+#: ../source/TortoiseMerge_en.xml:1138
 msgid "TortoiseMerge can be started with command line parameters to avoid having to go through the <guilabel>Open</guilabel> dialog to select the files yourself. This is useful also if you want to use TortoiseMerge from another application."
 msgstr "TortoiseMerge voidaan käynnistää komentoriviparametreilla, jolloin ei tarvita <guilabel>Open</guilabel>-ikkunaa tiedostojen valitsemiseen.  Tästä on hyötyä, jos haluat käyttää TortoiseMergeä toisesta sovelluksesta."
 
 #. (title)
-#: ../source/TortoiseMerge_en.xml:1091
+#: ../source/TortoiseMerge_en.xml:1149
 msgid "TortoiseMerge Command Line Switches"
 msgstr "TortoiseMergen komentorivivalitsimet"
 
 #. (primary)
-#: ../source/TortoiseMerge_en.xml:1093
+#: ../source/TortoiseMerge_en.xml:1151
 msgid "automation"
 msgstr "automatisointi"
 
 #. (primary)
-#: ../source/TortoiseMerge_en.xml:1096
+#: ../source/TortoiseMerge_en.xml:1154
 msgid "command line"
 msgstr "komentorivi"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1098
+#: ../source/TortoiseMerge_en.xml:1156
 msgid ""
 "Most switches require additional information like a path or some other string. In those cases, append an ':' to the switch and put the string/path after it. Example: <screen>\n"
 "/base:\"c:\\folder\\my base file.txt\"\n"
@@ -990,162 +1050,162 @@ msgstr ""
 "</screen>"
 
 #. (title)
-#: ../source/TortoiseMerge_en.xml:1118
+#: ../source/TortoiseMerge_en.xml:1176
 msgid "List of available command line options"
 msgstr "Luettelo komentorivivalitsimista"
 
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1124
+#: ../source/TortoiseMerge_en.xml:1182
 msgid "Command"
 msgstr "Komento"
 
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1125
+#: ../source/TortoiseMerge_en.xml:1183
 msgid "Description"
 msgstr "Kuvaus"
 
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1131
+#: ../source/TortoiseMerge_en.xml:1189
 msgid "Shows a dialog box with the most important command line switches."
 msgstr "Näyttää tärkeimmät komentorivivalitsimet."
 
 #. (option)
-#: ../source/TortoiseMerge_en.xml:1139
+#: ../source/TortoiseMerge_en.xml:1197
 msgid "?"
 msgstr "?"
 
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1138
+#: ../source/TortoiseMerge_en.xml:1196
 msgid "The same as <placeholder-1/>."
 msgstr "Sama kuin <placeholder-1/>."
 
 #. (emphasis)
-#: ../source/TortoiseMerge_en.xml:1145
+#: ../source/TortoiseMerge_en.xml:1203
 msgid "base"
 msgstr "kanta"
 
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1144
+#: ../source/TortoiseMerge_en.xml:1202
 msgid "Specifies the <placeholder-1/> file used in three way diffs. This is the common ancestor of the files being diffed, although it is not shown in a separate window. For two way diffs, this is the left file."
 msgstr "Määrittää <placeholder-1/>tiedoston, jota käytetään kolmiosaisissa vertailuissa. Tämä on vertailtavien tiedostojen yhteinen kantaversio, vaikka sitä ei näytetä erillisessä ikkunassa. Kaksiosaisissa vertailuissa tämä on vasen tiedosto."
 
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1154
+#: ../source/TortoiseMerge_en.xml:1212
 msgid "The name of the base file. This is shown in the view title instead of the file path. For three way diffs it is shown in a tooltip for the view title."
 msgstr "Kantatiedoston nimi. Tämä näytetään näytön otsikossa tiedostopolun sijaan.  Kolmiosaisissa vertailuissa se näytetään otsikon työkaluvihjeessä."
 
 #. (emphasis)
-#: ../source/TortoiseMerge_en.xml:1164
+#: ../source/TortoiseMerge_en.xml:1222
 msgid "theirs"
 msgstr "heidän"
 
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1163
+#: ../source/TortoiseMerge_en.xml:1221
 msgid "Specifies the <placeholder-1/> file used in three way diffs, displayed in the left pane."
 msgstr "Määrittelee <placeholder-1/>-tiedoston, jota käytetään kolmiosaisissa vertailuissa vasemmassa paneelissa."
 
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1170
+#: ../source/TortoiseMerge_en.xml:1228
 msgid "The name of the theirs file. This is shown in the view title instead of the file path."
 msgstr "Heidän-tiedoston nimi.  Tämä näytetään otsikossa tiedostopolun sijaan. "
 
 #. (emphasis)
-#: ../source/TortoiseMerge_en.xml:1178
+#: ../source/TortoiseMerge_en.xml:1236
 msgid "mine"
 msgstr "minun"
 
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1177
+#: ../source/TortoiseMerge_en.xml:1235
 msgid "Specifies the <placeholder-1/> file used in three way diffs, displayed in the right pane. For two way diffs, this is the right file."
 msgstr "Määrittelee <placeholder-1/>-tiedoston, jota käytetään kolmiosaisissa vertailuissa oikeassa paneelissa.  Kaksiosaisille vertailuille tämä on oikeanpuoleinen tiedosto."
 
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1185
+#: ../source/TortoiseMerge_en.xml:1243
 msgid "The name of the mine file. This is shown in the view title instead of the file path."
 msgstr "Minun-tiedoston nimi.  Tämä näytetään otsikossa tiedostopolun sijaan."
 
 #. (emphasis)
-#: ../source/TortoiseMerge_en.xml:1193
+#: ../source/TortoiseMerge_en.xml:1251
 msgid "merged"
 msgstr "yhdistetty"
 
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1192
+#: ../source/TortoiseMerge_en.xml:1250
 msgid "Specifies the resulting <placeholder-1/> file used in three way diffs. This is the filepath where the result of the merge/conflict resolving is saved. If this is not set, then TortoiseMerge will ask the user where to save the result."
 msgstr "Määrittelee kolmiosaisissa vertailuissa käytetyn tulostiedoston <placeholder-1/> nimen.  Tämä määrittää polun, jolle yhdistämisen / ristiriitojen ratkonnan tulos talletetaan. Mikäli asettamatta, TortoiseMerge kysyy tulosten talletuspaikkaa."
 
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1202
+#: ../source/TortoiseMerge_en.xml:1260
 msgid "The name of the merged file. This is shown in the view title instead of the file path."
 msgstr "Yhdistetyn tiedoston nimi.  Tämä näytetään otsikossa tiedostopolun sijaan."
 
 #. (emphasis)
-#: ../source/TortoiseMerge_en.xml:1213
+#: ../source/TortoiseMerge_en.xml:1271
 msgid "very long"
 msgstr "hyvin kauan"
 
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1209
+#: ../source/TortoiseMerge_en.xml:1267
 msgid "The path where a patch should be applied to. If you don't set this path, then TortoiseMerge will try to find the path itself to match the paths in the patch file, but that can take <placeholder-1/>."
 msgstr "Polku, johon paikka tulisi käyttää.  Jos et aseta tätä, TortoiseMerge yrittää itse löytää polun, joka täsmää paikkatiedostossa olevien polkujen kanssa. Tämä voi tosin viedä <placeholder-1/>."
 
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1218
+#: ../source/TortoiseMerge_en.xml:1276
 msgid "The name of the original file to patch. Used for the view title."
 msgstr "Alkuperäisen, paikattavan tiedoston nimi. Käytetään näytön otsikolle."
 
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1225
+#: ../source/TortoiseMerge_en.xml:1283
 msgid "The name of the resulting patched file. Used for the view title."
 msgstr "Paikatun tulostiedoston nimi.  Käytetään näytön otsikkoon."
 
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1232
+#: ../source/TortoiseMerge_en.xml:1290
 msgid "The path to the patch/diff file to apply to a directory."
 msgstr "Polku paikkatiedostoon, joka käytetään johonkin hakemistoon."
 
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1238
+#: ../source/TortoiseMerge_en.xml:1296
 msgid "Forces TortoiseMerge to start with the one-way view instead of the view the user specified in the settings."
 msgstr "Pakottaa TortoiseMergen käynnistymään yhden paneelin näkymässä, ohittaen Asetukset-valikon määritykset."
 
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1245
+#: ../source/TortoiseMerge_en.xml:1303
 msgid "Switches the left and right view of the specified two files to diff."
 msgstr "Vaihtaa vasemman ja oikean näkymän vertailtaessa kahta tiedostoa."
 
 #. (literal)
-#: ../source/TortoiseMerge_en.xml:1255
+#: ../source/TortoiseMerge_en.xml:1313
 msgid "/origfile:\"path_to_original_file\""
 msgstr "/origfile:\"polku_alkuperäiseen_tiedostoon\""
 
 #. (literal)
-#: ../source/TortoiseMerge_en.xml:1256
+#: ../source/TortoiseMerge_en.xml:1314
 msgid "/modifiedfile:\"path_to_modified_file\""
 msgstr "/modifiedfile:\"polku_muutettuun_tiedostoon\""
 
 #. (literal)
-#: ../source/TortoiseMerge_en.xml:1258
+#: ../source/TortoiseMerge_en.xml:1316
 msgid "/outfile:\"path_to_resulting_patchfile\""
 msgstr "/outfile:\"polku_tulos_paikkatiedostoon\""
 
 #. (literal)
-#: ../source/TortoiseMerge_en.xml:1259
+#: ../source/TortoiseMerge_en.xml:1317
 msgid "/outfile"
 msgstr "/outfile"
 
 #. (literal)
-#: ../source/TortoiseMerge_en.xml:1262
+#: ../source/TortoiseMerge_en.xml:1320
 msgid "/createunifieddiff"
 msgstr "/createunifieddiff"
 
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1252
+#: ../source/TortoiseMerge_en.xml:1310
 msgid "Creates a unified diff file (patch file) of two files specified with <placeholder-1/> and <placeholder-2/>. The target path is set with <placeholder-3/>. If <placeholder-4/> is not set, a file save dialog is shown so the user can choose the location to save the patch file. Note: If <placeholder-5/> is set, all other parameters are ignored."
 msgstr "Luo unified diff-muotoisen tiedoston (paikkatiedoston) kahdesta valitsimilla <placeholder-1/> ja <placeholder-2/> määritellyistä tiedostoista. Kohdetiedoston polku asetetaan valitsimella  <placeholder-3/>. Mikäli valitsinta <placeholder-4/> ei ole annettu, tiedoston talletusikkuna näytetään käyttäjälle, josta hän voi valita, mihin paikkatiedosto talletetaan. Huomaa: Jos valitsin <placeholder-5/> on määritelty, kaikki muut valitsimet ohitetaan."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1270
+#: ../source/TortoiseMerge_en.xml:1328
 msgid ""
 "You can also supply simple filenames on the command line for compatibility with other diff programs. In this simplified form the command line is <screen>\n"
 "TortoiseMerge BaseFilePath MyFilePath [ TheirFilePath ]\n"
@@ -1156,357 +1216,357 @@ msgstr ""
 "</screen> Jos kaksi tiedostoa annetaan, niitä vertaillaan.  Mikäli annetaan kolme tiedostoa, ensimmäisen oletetaan olevan kantaversion (BASE), ja kahta muuta verrataan siihen kolmiosaisella vertailulla."
 
 #. (title)
-#: ../source/TortoiseMerge_en.xml:1286
+#: ../source/TortoiseMerge_en.xml:1344
 msgid "Glossary"
 msgstr "Sanasto"
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1288
+#: ../source/TortoiseMerge_en.xml:1346
 msgid "Add"
 msgstr "Lisää"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1290
+#: ../source/TortoiseMerge_en.xml:1348
 msgid "A Subversion command that is used to add a file or directory to your working copy. The new items are added to the repository when you commit."
 msgstr "Subversion-komento, jota käytetään tiedoston tai hakemiston lisäämiseen työkopioosi.  Uudet alkiot lisätään versionhallintaan toimita arkistoon -komennolla."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1298
+#: ../source/TortoiseMerge_en.xml:1356
 msgid "BASE revision"
 msgstr "Kantaversio (BASE)"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1300
+#: ../source/TortoiseMerge_en.xml:1358
 msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
 msgstr "<emphasis>Työkopiosi</emphasis> tiedoston tai kansion nykyinen kantaversio.  Tämä on se tiedoston tai kansion versio, joka oli voimassa edellisen Hae työkopio, Päivitä tai Toimita arkistoon -komennon aikana.  Kantaversio ei ole tavallisesti sama kuin uusin versio (HEAD)."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1309
+#: ../source/TortoiseMerge_en.xml:1367
 msgid "Blame"
 msgstr "Selvitä tekijä"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1311
+#: ../source/TortoiseMerge_en.xml:1369
 msgid "This command is for text files only, and it annotates every line to show the repository revision in which it was last changed, and the author who made that change. Our GUI implementation is called TortoiseBlame and it also shows the commit date/time and the log message when you hover the mouse of the revision number."
 msgstr "Tämä komento soveltuu vain tekstitiedostoille; se lisää jokaiselle riville tiedon siitä, missä versiossa riviä viimeksi muutettiin ja kenen toimesta. Komennolle on graafinen käyttöliittymä TortoiseBlame joka osaa lisäksi näyttää version muutospäivämäärän sekä lokiviestin, kun viet hiirikohdistimen versionumeron päälle."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1321
+#: ../source/TortoiseMerge_en.xml:1379
 msgid "BDB"
 msgstr "BDB"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1323
+#: ../source/TortoiseMerge_en.xml:1381
 msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
 msgstr "Berkeley -tietokanta.  Vakaa tietokanta arkistojen toteutukseen.  Ei sovellu käytettäväksi verkkojakojen (file://) kanssa. Oletusarvoinen arkiston toteutustapa ennen Subversion-versiota 1.2."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1330
+#: ../source/TortoiseMerge_en.xml:1388
 msgid "Branch"
 msgstr "Haara"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1332
+#: ../source/TortoiseMerge_en.xml:1390
 msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bugfixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
 msgstr "Versionhallintajärjestelmissä usein käytetty termi, jolla kuvataan, mitä tapahtuu kun kehitystyö haarautuu ja alkaa kulkea kahta erillistä polkua pitkin. Pääkehityslinjan voi haaroittaa, kun tarvitaan uusi ominaisuus, jota voidaan kehittää ajan kanssa tekemättä päälinjasta epävakaata. Toinen vaihtoehto on tehdä päälinjasta haara julkaisua varten, tehden haaraan vain virhekorjauksia samalla, kun uusia toimintoja kehitetään epävakaaseen päälinjaan.  Subversion toteuttaa haarat <quote>halpoina kopioina</quote>. "
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1345
+#: ../source/TortoiseMerge_en.xml:1403
 msgid "Checkout"
 msgstr "Hae työkopio"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1347
+#: ../source/TortoiseMerge_en.xml:1405
 msgid "A Subversion command which creates a local working copy in an empty directory by downloading versioned files from the repository."
 msgstr "Subversion-komento, joka luo paikallisen työkopion tyhjään hakemistoon noutamalla versioituja tiedostoja arkistosta."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1354
+#: ../source/TortoiseMerge_en.xml:1412
 msgid "Cleanup"
 msgstr "Siivous"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1356
+#: ../source/TortoiseMerge_en.xml:1414
 msgid "To quote from the Subversion book: <quote> Recursively clean up the working copy, removing locks and resuming unfinished operations. If you ever get a <emphasis>working copy locked</emphasis> error, run this command to remove stale locks and get your working copy into a usable state again. </quote> Note that in this context <emphasis>lock</emphasis> refers to local filesystem locking, not repository locking."
 msgstr "Lainaus Subversion-kirjasta: <quote> Siivoaa työkopion rekursiivisesti poistamalla lukot ja kesken jääneet operaatiot.  Jos törmäät joskus <literal>työkopio lukittu</literal> -virheeseen, suorita tämä komento poistaaksesi vanhentuneet lukot ja tehdäksesi työkopiosta jälleen käyttökelpoisen.</quote> Huomaa, että tässä <quote>lukko</quote> viittaa paikallisen tiedostojärjestelmän lukitukseen, ei arkistolukitukseen."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1371
+#: ../source/TortoiseMerge_en.xml:1429
 msgid "Commit"
 msgstr "Toimita arkistoon"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1373
+#: ../source/TortoiseMerge_en.xml:1431
 msgid "This Subversion command is used to pass the changes in your local working copy back into the repository, creating a new repository revision."
 msgstr "Tämä Subversion-komento siirtää muutokset paikallisesta työkopiostasi takaisin arkistoon luoden samalla uuden arkistoversion."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1381
+#: ../source/TortoiseMerge_en.xml:1439
 msgid "Conflict"
 msgstr "Ristiriita"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1383
+#: ../source/TortoiseMerge_en.xml:1441
 msgid "When changes from the repository are merged with local changes, sometimes those changes occur on the same lines. In this case Subversion cannot automatically decide which version to use and the file is said to be in conflict. You have to edit the file manually and resolve the conflict before you can commit any further changes."
 msgstr "Kun arkiston muutokset yhdistetään paikallisten muutosten kanssa, ne osuvat joskus samoille riveille.  Tällöin Subversion ei voi automaattisesti päättää, mitä versiota käyttää ja tiedoston sanotaan olevan ristiriitainen. Sinun pitää muokata tiedostoa käsin ratkaistaksesi ristiriidat ennen kuin voit toimittaa muutokset arkistoon."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1393
+#: ../source/TortoiseMerge_en.xml:1451
 msgid "Copy"
 msgstr "Kopio"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1395
+#: ../source/TortoiseMerge_en.xml:1453
 msgid "In a Subversion repository you can create a copy of a single file or an entire tree. These are implemented as <quote>cheap copies</quote> which act a bit like a link to the original in that they take up almost no space. Making a copy preserves the history of the item in the copy, so you can trace changes made before the copy was made."
 msgstr "Subversion-arkistossa voit tehdä kopion yksittäisestä tiedostosta tai kokonaisesta hakemistopuusta. Kopiot on toteutettu <quote>halpoina kopioina</quote>, jotka toimivat ikään kuin linkkeinä alkuperäiseen.  Tämän ansiosta ne eivät vaadi lähes lainkaan tilaa. Kopion tekeminen säilyttää tiedoston muutoshistorian, joten voit jäljittää muutoksia, jotka tapahtuivat ennen kopion tekoa."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1405
+#: ../source/TortoiseMerge_en.xml:1463
 msgid "Delete"
 msgstr "Poisto"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1407
+#: ../source/TortoiseMerge_en.xml:1465
 msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the commited revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
 msgstr "Kun poistat versioidun tiedoston tai hakemiston (ja toimitat muutokset arkistoon), sitä ei ole enää arkistossa toimitusta seuraavissa versioissa.  Mutta tietysti se on yhä olemassa aiemmissa versioissa, joten pääset siihen yhä käsiksi. Mikäli tarpeen, voit kopioida poistetun tiedoston ja <quote>herättää sen henkiin</quote> muutoshistoria mukaan lukien."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1417
+#: ../source/TortoiseMerge_en.xml:1475
 msgid "Diff"
 msgstr "Vertaa"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1419
+#: ../source/TortoiseMerge_en.xml:1477
 msgid "Shorthand for <quote>Show Differences</quote>. Very useful when you want to see exactly what changes have been made."
 msgstr "Kahden tekstitiedostoston välisten muutosten vertailu. Hyödyllinen, jos haluat nähdä, mitä muutoksia on tehty."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1426
+#: ../source/TortoiseMerge_en.xml:1484
 msgid "Export"
 msgstr "Vie"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1428
+#: ../source/TortoiseMerge_en.xml:1486
 msgid "This command produces a copy of a versioned folder, just like a working copy, but without the local <literal>.svn</literal> folders."
 msgstr "Tämä komento luo versioidusta kansiosta kopion, jossa ei ole paikallisia <literal>.svn</literal>-kansioita."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1436
+#: ../source/TortoiseMerge_en.xml:1494
 msgid "FSFS"
 msgstr "FSFS"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1438
+#: ../source/TortoiseMerge_en.xml:1496
 msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
 msgstr "FS-tiedostojärjestelmä. Erityisesti Subversion-ohjelman tarpeisiin kehitetty tiedostojärjestelmä arkistojen toteutukseen. Voidaan käyttää verkkojakojen (file://) kanssa.  Oletusarvoinen arkistojen toteutustapa Subversion-versiosta 1.2 lähtien."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1445
+#: ../source/TortoiseMerge_en.xml:1503
 msgid "GPO"
 msgstr "GPO"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1447
+#: ../source/TortoiseMerge_en.xml:1505
 msgid "Group policy object"
 msgstr "Ryhmäkäytäntö"
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1453
+#: ../source/TortoiseMerge_en.xml:1511
 msgid "HEAD revision"
 msgstr "Uusin versio (HEAD)"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1455
+#: ../source/TortoiseMerge_en.xml:1513
 msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
 msgstr "Tiedoston tai kansion viimeisin versio <emphasis>arkistossa</emphasis>."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1461
+#: ../source/TortoiseMerge_en.xml:1519
 msgid "Import"
 msgstr "Tuo"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1463
+#: ../source/TortoiseMerge_en.xml:1521
 msgid "Subversion command to import an entire folder hierarchy into the repository in a single revision."
 msgstr "Subversion-komento, jolla lisätään kansio (alikansioineen) arkistoon.  Toimenpide synnyttää yhden uuden version."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1470
+#: ../source/TortoiseMerge_en.xml:1528
 msgid "Lock"
 msgstr "Lukitus"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1472
+#: ../source/TortoiseMerge_en.xml:1530
 msgid "When you take out a lock on a versioned item, you mark it in the repository as uncommittable, except from the working copy where the lock was taken out."
 msgstr "Lukitessasi versioidun tiedoston tai kansion sitä ei voi muuttaa arkistossa muualta kuin siitä työkopiosta, jossa lukitus tehtiin."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1480
+#: ../source/TortoiseMerge_en.xml:1538
 msgid "Log"
 msgstr "Loki"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1482
+#: ../source/TortoiseMerge_en.xml:1540
 msgid "Show the revision history of a file or folder. Also known as <quote>History</quote>."
 msgstr "Näyttää tiedoston tai kansion versiohistorian.  Tunnetaan myös nimellä <quoteHistoria</quote>."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1489
+#: ../source/TortoiseMerge_en.xml:1547
 msgid "History"
 msgstr "Historia"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1491
+#: ../source/TortoiseMerge_en.xml:1549
 msgid "Show the revision history of a file or folder. Also known as <quote>Log</quote>."
 msgstr "Näyttää tiedoston tai kansion muutoshistorian. Tunnetaan myös nimellä <quote>loki</quote>."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1498
+#: ../source/TortoiseMerge_en.xml:1556
 msgid "Merge"
 msgstr "Yhdistäminen"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1500
+#: ../source/TortoiseMerge_en.xml:1558
 msgid "The process by which changes from the repository are added to your working copy without disrupting any changes you have already made locally. Sometimes these changes cannot be reconciled automatically and the working copy is said to be in conflict."
 msgstr "Prosessi, jossa arkiston muutokset lisätään työkopioosi sotkematta tekemiäsi paikallisia muutoksia. Joskus näitä muutoksia ei voi ratkoa automaattisesti, jolloin työkopion sanotaan olevan ristiriitainen."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1506
+#: ../source/TortoiseMerge_en.xml:1564
 msgid "Merging happens automatically when you update your working copy. You can also merge specific changes from another branch using TortoiseSVN's Merge command."
 msgstr "Yhdistäminen tapahtuu automaattisesti, kun päivität työkopiotasi. Voit myös yhdistää yksittäisiä muutoksia toisesta haarasta käyttämällä TortoiseSVN-ohjelman Yhdistä-komentoa."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1514
+#: ../source/TortoiseMerge_en.xml:1572
 msgid "Patch"
 msgstr "Paikka"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1516
+#: ../source/TortoiseMerge_en.xml:1574
 msgid "If a working copy has changes to text files only, it is possible to use Subversion's Diff command to generate a single file summary of those changes in Unified Diff format. A file of this type is often referred to as a <quote>Patch</quote>, and it can be emailed to someone else (or to a mailing list) and applied to another working copy. Someone without commit access can make changes and submit a patch file for an authorized committer to apply. Or if you are unsure about a change you can submit a patch for others to review."
 msgstr "Mikäli työkopiossa on vain tekstitiedostoihin tehtyjä muutoksia, on mahdollista käyttää Subversion-ohjelman Diff-komentoa muutoskoostetiedoston luomiseksi Unified Diff-muodossa.  Tällaista tiedostoa kutsutaan usein <quote>paikaksi</quote>, ja se voidaan lähettää sähköpostin liitteenä jollekulle toiselle (tai postituslistalle) käytettäväksi toisessa työkopiossa. Joku, jolla ei ole oikeutta toimittaa muutoksia arkistoon suoraan, voi tehdä muutokset ja toimittaa paikkatiedoston henkilölle, jolla tällainen oikeus on.  Paikkatiedostoa voi käyttää myös, kun haluat muiden katselmoivan tekemiäsi muutoksia."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1529
+#: ../source/TortoiseMerge_en.xml:1587
 msgid "Property"
 msgstr "Ominaisuus"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1531
+#: ../source/TortoiseMerge_en.xml:1589
 msgid "In addition to versioning your directories and files, Subversion allows you to add versioned metadata - referred to as <quote>properties</quote> to each of your versioned directories and files. Each property has a name and a value, rather like a registry key. Subversion has some special properties which it uses internally, such as <literal>svn:eol-style</literal>. TortoiseSVN has some too, such as <literal>tsvn:logminsize</literal>. You can add your own properties with any name and value you choose."
 msgstr "Kansioiden ja tiedostojen versioinnin lisäksi Subversion sallii versioidun metatiedon (<quote>ominaisuuksien</quote>) lisäämisen kuhunkin versioituun kansioon ja tiedostoon. Kullakin ominaisuudella on nimi ja arvo (vrt. rekisteriavain). Subversion-ohjelmalla on muutamia erikoisominaisuuksia, joita se käyttää sisäisesti (esim. <literal>svn:eol-style</literal>. TortoiseSVN-ohjelmalla on myös muutamia, kuten esimerkiksi <literal>svn:logminsize</literal>. Voit myös lisätä omia ominaisuuksiasi haluamasi nimellä ja arvolla."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1544
+#: ../source/TortoiseMerge_en.xml:1602
 msgid "Relocate"
 msgstr "Siirrä"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1546
+#: ../source/TortoiseMerge_en.xml:1604
 msgid "If your repository moves, perhaps because you have moved it to a different directory on your server, or the server domain name has changed, you need to <quote>relocate</quote> your working copy so that its repository URLs point to the new location."
 msgstr "Mikäli arkistosi siirtyy (vaikkapa siitä syystä, että olet siirtänyt sen eri kansioon palvelimellasi, tai palvelimen nimi on muuttunut), sinun täytyy <quote>siirtää</quote> työkopiosi siten, että arkiston paikannin osoittaa uuteen paikkaan."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1552
+#: ../source/TortoiseMerge_en.xml:1610
 msgid "Note: you should only use this command if your working copy is referring to the same location in the same repository, but the repository itself has moved. In any other circumstance you probably need the <quote>Switch</quote> command instead."
 msgstr "Huomaa, että tätä komentoa tulee käyttää vain, jos työkopiosi viittaa samaan paikkaan samassa arkistossa, mutta arkisto on siirtynyt.  Muussa tapauksessa tarvitset luultavasti <quote>Siirrä</quote> -kometoa "
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1561
+#: ../source/TortoiseMerge_en.xml:1619
 msgid "Repository"
 msgstr "Arkisto"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1563
+#: ../source/TortoiseMerge_en.xml:1621
 msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
 msgstr "Arkisto on keskeinen paikka, minne tiedot talletetaan ja pidetään yllä. Arkiston avulla useita tietokantoja tai tiedostoja voi jakaa verkon ylitse. Arkisto voi olla myös paikka, johon käyttäjällä on suora pääsy ilman verkkoyhteyttä."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1572
+#: ../source/TortoiseMerge_en.xml:1630
 msgid "Resolve"
 msgstr "Ratkaise"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1574
+#: ../source/TortoiseMerge_en.xml:1632
 msgid "When files in a working copy are left in a conflicted state following a merge, those conflicts must be sorted out by a human using an editor (or perhaps TortoiseMerge). This process is referred to as <quote>Resolving Conflicts</quote>. When this is complete you can mark the conflicted files as being resolved, which allows them to be committed."
 msgstr "Kun jotkin työkopion tiedostot ovat ristiriitaisia yhdistämisen jälkeen, ristiriidat pitää ratkaista käsin editorilla (tai kenties TortoiseMergellä).  Tätä kutsutaan <quote>ristiriitojen ratkaisemiseksi</quote>. Kun tämä on tehty, voit merkata ristiriitaiset tiedostot ratkaistuiksi, minkä jälkeen ne voidaan toimittaa arkistoon."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1584
+#: ../source/TortoiseMerge_en.xml:1642
 msgid "Revert"
 msgstr "Palauta"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1586
+#: ../source/TortoiseMerge_en.xml:1644
 msgid "Subversion keeps a local <quote>pristine</quote> copy of each file as it was when you last updated your working copy. If you have made changes and decide you want to undo them, you can use the <quote>revert</quote> command to go back to the pristine copy."
 msgstr "Subversion säilyttää paikallisesti <quote>muuttumatonta</quote> kopiota jokaisesta tiedostosta sellaisena kuin se oli silloin, kun viimeksi päivitit työkopiosi. Jos olet tehnyt muutoksia ja päätät perua ne, voit käyttää <quote>palauta</quote>-komentoa siirtyäksesi takaisin muuttumattomaan kopioon."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1595
+#: ../source/TortoiseMerge_en.xml:1653
 msgid "Revision"
 msgstr "Versio"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1597
+#: ../source/TortoiseMerge_en.xml:1655
 msgid "Every time you commit a set of changes, you create one new <quote>revision</quote> in the repository. Each revision represents the state of the repository tree at a certain point in its history. If you want to go back in time you can examine the repository as it was at revision N."
 msgstr "Aina kun toimitat joukon muutoksia versionhallintaan, luot yhden uuden <quote>version</quote> arkistoon. Jokainen versio kuvaa arkiston koko tilan tietyssä kohtaa sen historiassa. Mikäli haluat siirtyä  takaisin ajassa, voit tutkia arkistoa ikään kuin se olisi versiossa N."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1604
+#: ../source/TortoiseMerge_en.xml:1662
 msgid "In another sense, a revision can refer to the set of changes that were made when that revision was created."
 msgstr "Toisella tapaa ajateltuna versiolla voidaan viitata siihen muutosjoukkoon, joka tehtiin versiota luotaessa."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1611
+#: ../source/TortoiseMerge_en.xml:1669
 msgid "Revision Property (revprop)"
 msgstr "Versio-ominaisuus (revprop)"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1613
+#: ../source/TortoiseMerge_en.xml:1671
 msgid "Just as files can have properties, so can each revision in the repository. Some special revprops are added automatically when the revision is created, namely: <literal>svn:date svn:author svn:log</literal> which represent the commit date/time, the committer and the log message respectively. These properties can be edited, but they are not versioned, so any change is permanent and cannot be undone."
 msgstr "Samaan tapaan kuin tiedostoilla voi olla ominaisuuksia, voi myös jokaisella versiolla arkistossa olla ominaisuuksia.  Joitakin erityisiä versio-ominaisuuksia lisätään automaattisesti kun versio luodaan: <literal>svn:date svn:author svn:log</literal>, joilla kuvataan arkistotoimituksen aika, tekijä ja lokiviesti.  Näitä ominaisuuksia voidaan muokata, mutta ne eivät versioidu, joten kaikki muutokset ovat pysyviä eikä niitä voi perua. "
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1625
+#: ../source/TortoiseMerge_en.xml:1683
 msgid "SVN"
 msgstr "SVN"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1627
+#: ../source/TortoiseMerge_en.xml:1685
 msgid "A frequently-used abbreviation for Subversion."
 msgstr "Subversion-ohjelmasta usein käytetty lyhenne."
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1630
+#: ../source/TortoiseMerge_en.xml:1688
 msgid "The name of the Subversion custom protocol used by the <quote>svnserve</quote> repository server."
 msgstr "Subversionin käyttämän erikoisprotokollan nimi, jota käyttää mm. <quote>svnserve</quote> versionhallintapalvelin."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1637
+#: ../source/TortoiseMerge_en.xml:1695
 msgid "Switch"
 msgstr "Vaihda"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1639
+#: ../source/TortoiseMerge_en.xml:1697
 msgid "Just as <quote>Update-to-revision</quote> changes the time window of a working copy to look at a different point in history, so <quote>Switch</quote> changes the space window of a working copy so that it points to a different part of the repository. It is particularly useful when working on trunk and branches where only a few files differ. You can switch your working copy between the two and only the changed files will be transferred."
 msgstr "Samoin kuin <quote>Päivitä versioon</quote> vaihtaa työkopion aikaikkunan osoittamaan eri kohtaan historiassa, komento <quote>Vaihda</quote> vaihtaa työkopion tilaikkunan osoittamaan eri kohtaan arkistossa. Se on erityisen hyödyllinen, kun työskennellään päähaarassa ja haaroissa, joissa vain muutamat tiedostot eroavat toisistaan. Voit vaihtaa työkopiotasi näiden kahden välillä ja vain muuttuneet tiedostot siirretään."
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1651
+#: ../source/TortoiseMerge_en.xml:1709
 msgid "Update"
 msgstr "Päivitä"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1653
+#: ../source/TortoiseMerge_en.xml:1711
 msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
 msgstr "Tämä Subversion-komento noutaa viimeisimmät muutokset arkistosta työkopioosi, yhdistäen muitten tekemät muutokset paikallisten muutosten kanssa"
 
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1661
+#: ../source/TortoiseMerge_en.xml:1719
 msgid "Working Copy"
 msgstr "Työkopio"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1663
+#: ../source/TortoiseMerge_en.xml:1721
 msgid "This is your local <quote>sandbox</quote>, the area where you work on the versioned files, and it normally resides on your local hard disk. You create a working copy by doing a <quote>Checkout</quote> from a repository, and you feed your changes back into the repository using <quote>Commit</quote>."
 msgstr "Tämä  on paikallinen <quote>hiekkalaatikko</quote>, alue jolla työskentelet versioitujen tiedostojen kanssa. Se sijaitsee tavallisesti paikallisella kovalevylläsi.  Voit luoda työkopion suorittamalla komennon <quote>Hae työkopio</quote> arkistosta, ja komento <quote>Toimita arkistoon</quote> siirtää tekemäsi muutokset takaisin versionhallintaan."
 

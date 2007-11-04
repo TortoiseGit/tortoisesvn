@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: kari.grano@gmail.com\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-10-25 23:28+0200\n"
+"PO-Revision-Date: 2007-11-04 03:20+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -68,6 +68,7 @@ msgstr ""
 # unified diff      unified diff
 # update            päivitä
 # URL               paikannin
+# wizard            ohjattu toiminto
 # working copy      työkopio
 #. Resource IDs: (10, 126)
 msgid " "
@@ -77,6 +78,10 @@ msgstr " "
 #, c-format
 msgid "! %d"
 msgstr "! %d"
+
+#. Resource IDs: (1262)
+msgid "# authors shown individually:"
+msgstr "# erikseen näytetyt tekijät:"
 
 #. Resource IDs: (357)
 #, c-format
@@ -1502,7 +1507,7 @@ msgstr "Muutoslista:"
 
 #. Resource IDs: (1242)
 msgid "Changes made (double-click on file for diff):"
-msgstr "Muutokset (tuplanapsautus tiedoston päällä käynnistää vertailun):"
+msgstr "Muutokset (tiedoston kaksoisnapsautus käynnistää vertailun):"
 
 #. Resource IDs: (8)
 msgid "Chec&kout..."
@@ -1591,7 +1596,7 @@ msgstr "Tarkistussumma:"
 
 #. Resource IDs: (1402)
 msgid "Choose item:"
-msgstr "Valitse alkio:"
+msgstr "Valitse versio:"
 
 #. Resource IDs: (146)
 msgid "Cleaning up."
@@ -1697,10 +1702,6 @@ msgstr "Toimita"
 #. Resource IDs: (77)
 msgid "Commit - TortoiseSVN"
 msgstr "Toimita - TortoiseSVN"
-
-#. Resource IDs: (1262)
-msgid "Commit threshold:"
-msgstr "Toimituskynnys:"
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -1946,8 +1947,8 @@ msgstr "\"%s\":n lisäys epäonnistui, koska"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not add property \"%s\" because"
-msgstr "Ominaisuuden \"%s\" lisäys epäonnistui, koska"
+msgid "Could not add property \"%s\" on %s because"
+msgstr "Ominaisuuden \"%s\" lisäys kohteeseen %s epäonnistui, koska"
 
 #. Resource IDs: (201)
 msgid "Could not check for a newer version!"
@@ -1971,8 +1972,8 @@ msgstr "\"%s\":n poisto epäonnistui, koska"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not delete property \"%s\" because"
-msgstr "Ominaisuuden \"%s\" poisto epäonnistui, koska"
+msgid "Could not delete property \"%s\" on %s because"
+msgstr "Ominaisuuden \"%s\" poisto kohteesta %s epäonnistui, koska"
 
 #. Resource IDs: (81)
 msgid "Could not get the status!"
@@ -1985,8 +1986,8 @@ msgstr "\"%s\":yhdistäminen eoäonnistui, koska"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not merge property \"%s\" because"
-msgstr "Ominaisuuden \"%s\" yhdistäminen epäonnistui, koska"
+msgid "Could not merge property \"%s\" on %s because"
+msgstr "Ominaisuuden \"%s\" yhdistäminen kohteeseen %s epäonnistui, koska"
 
 #. Resource IDs: (69)
 #, c-format
@@ -3499,8 +3500,8 @@ msgstr ""
 msgid ""
 "It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
 "\n"
-"From: %s\n"
-"To: %s\n"
+"From:\t%s\n"
+"To:\t\t%s\n"
 "\n"
 "A relocate is only needed if the path <b>to</b> a repository has changed.\n"
 "Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
@@ -4431,6 +4432,11 @@ msgstr "Ominaisuus"
 
 #. Resource IDs: (151)
 #, c-format
+msgid "Property %s : Revision %s"
+msgstr "Ominaisuus %s : Versio %s"
+
+#. Resource IDs: (151)
+#, c-format
 msgid "Property %s : remote"
 msgstr "Ominaisuus %s : etä"
 
@@ -4811,7 +4817,7 @@ msgstr "Ratkaise ristiriita:"
 
 #. Resource IDs: (2)
 msgid "Resolve later"
-msgstr "Ratkaiste myöhemmin"
+msgstr "Ratkaise myöhemmin"
 
 #. Resource IDs: (74, 209, 1400)
 msgid "Resolved"
@@ -4869,6 +4875,10 @@ msgstr "Palautettu"
 #. Resource IDs: (9)
 msgid "Reverts all changes you made since the last update"
 msgstr "Poistaa kaikki viimeisimmän päivityksen jälkeen tekemäsi muutokset"
+
+#. Resource IDs: (14)
+msgid "Reverts an addition to version control"
+msgstr "Peruu lisäyksen versionhallintaan"
 
 #. Resource IDs: (19, 76, 208, 1306, 1375, 1393, 65535)
 msgid "Revision"
@@ -5113,7 +5123,7 @@ msgstr "Tallennetaan tiedostoja"
 msgid "Saving patchfile to:"
 msgstr "Tallennetaan paikkatiedosto:"
 
-#. Resource IDs: (1014, 1017, 1064, 1212, 1415)
+#. Resource IDs: (1014, 1017, 1064, 1212)
 msgid "Scintilla"
 msgstr "Scintilla"
 
@@ -6347,10 +6357,10 @@ msgstr "Paikannin:"
 #, c-format
 msgid ""
 "Unable to determine merge source for\n"
-"%\n"
+"%s\n"
 "Please use the main merge dialog."
 msgstr ""
-"Yhdistämislähteen määritys ei onnistu kohteelle\n"
+"Yhdistämislähteen määrittely ei onnistu kohteelle\n"
 "%s\n"
 "Käytä Yhdistä-komentoa."
 
@@ -6391,6 +6401,10 @@ msgstr "Tiedostoon %1 kirjoitus ei onnistu, joko siihen on vain lukuoikeus tai j
 #. Resource IDs: (3887)
 msgid "Uncheck"
 msgstr "Poista valinta"
+
+#. Resource IDs: (14)
+msgid "Undo Add.."
+msgstr "Peru lisäys..."
 
 #. Resource IDs: (3603)
 msgid ""
