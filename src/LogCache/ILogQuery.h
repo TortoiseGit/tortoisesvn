@@ -27,19 +27,32 @@ class SVNRev;
 
 class ILogReceiver;
 
+/** 
+ * A containter type for (user-defined) revision property names.
+ */
+
+typedef std::vector<CString> TRevPropNames;
 
 /**
- * Interface for log queries. It mimics svn_client_log3.
- * svn_client_log4 is not currently supported.
+ * Interface for log queries. It mimics svn_client_log4.
  *
  * Errors are reported by throwing SVNError exceptions.
  */
+
 class ILogQuery
 {
 public:
 
-	// query a section from log for multiple paths
-	// (special revisions, like "HEAD", supported)
+	/** query a section from log for multiple paths
+	 * (special revisions, like "HEAD", supported)
+     *
+     * userRevProps will be ignored for if includeUserRevProps
+     * is not set. If it is set and userRevProps is empty 
+     * all user-defined revprops will be returned.
+     *
+     * userRevProps must not overlap with the standard revprops
+     * (svn:log, svn:date and svn:author).
+     */
 
 	virtual void Log ( const CTSVNPathList& targets
 					 , const SVNRev& peg_revision
@@ -48,5 +61,9 @@ public:
 					 , int limit
 					 , bool strictNodeHistory
 					 , ILogReceiver* receiver
-                     , bool revs_only) = 0;
+                     , bool includeChanges
+                     , bool includeMerges
+                     , bool includeStandardRevProps
+                     , bool includeUserRevProps
+                     , const TRevPropNames& userRevProps) = 0;
 };

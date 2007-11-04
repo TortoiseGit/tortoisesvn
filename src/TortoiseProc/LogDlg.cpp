@@ -824,17 +824,11 @@ CString CLogDlg::MakeShortMessage(const CString& message)
 	return sShortMessage;
 }
 
-BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions)
-{
-	return Log(rev, author, date, message, cpaths, time, filechanges, copies, actions, 0);
-}
-
 BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions, BOOL haschildren)
 {
 	if (rev == SVN_INVALID_REVNUM)
 	{
 		m_childCounter--;
-		delete cpaths;
 		return TRUE;
 	}
 	// this is the callback function which receives the data for every revision we ask the log for
@@ -888,8 +882,12 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 		else
 			m_sMessageBuf.Empty();
         pLogItem->sMessage = m_sMessageBuf;
-        pLogItem->pArChangedPaths = cpaths;
         pLogItem->Rev = rev;
+
+        // move-construct path array
+
+        pLogItem->pArChangedPaths = new LogChangedPathArray (*cpaths);
+        cpaths->RemoveAll();
 	}
 	catch (CException * e)
 	{
@@ -1035,12 +1033,12 @@ UINT CLogDlg::LogThread()
 	{
 		// if we have to get the logs with the merge info,
 		// we can't use the log cache (because the cache doesn't know about merge info)
-		BOOL bLogRes = GetLogWithMergeInfo(CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, m_bStrict);
+		BOOL bLogRes = ReceiveLog (CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, m_bStrict, TRUE);
 		if ((!bLogRes)&&(!m_path.IsUrl()))
 		{
 			// try again with REV_WC as the start revision, just in case the path doesn't
 			// exist anymore in HEAD
-			bLogRes = GetLogWithMergeInfo(CTSVNPathList(m_path), SVNRev(), SVNRev::REV_WC, m_endrev, m_limit, m_bStrict);
+			bLogRes = ReceiveLog(CTSVNPathList(m_path), SVNRev(), SVNRev::REV_WC, m_endrev, m_limit, m_bStrict, TRUE);
 		}
 		if (!bLogRes)
 			CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);

@@ -118,7 +118,15 @@ public:
 				   , const std::string& fromPath
 				   , revision_t fromRevision);
 
-	void AddSkipRange ( const CDictionaryBasedPath& path
+	void AddMergedRevision ( const std::string& fromPath
+				           , const std::string& toPath
+				           , revision_t revisionStart
+				           , revision_t revisionDelta);
+
+	void AddUserRevProp ( const std::string& revProp
+				        , const std::string& value);
+
+    void AddSkipRange ( const CDictionaryBasedPath& path
 					  , revision_t startRevision
 					  , revision_t count);
 
@@ -181,6 +189,24 @@ inline void CCachedLogInfo::AddChange ( TChangeAction action
 	assert (revisionAdded);
 
 	logInfo.AddChange (action, path, fromPath, fromRevision);
+}
+
+inline void CCachedLogInfo::AddMergedRevision ( const std::string& fromPath
+				                              , const std::string& toPath
+				                              , revision_t revisionStart
+				                              , revision_t revisionDelta)
+{
+	assert (revisionAdded);
+
+	logInfo.AddMergedRevision (fromPath, toPath, revisionStart, revisionDelta);
+}
+
+inline void CCachedLogInfo::AddUserRevProp ( const std::string& revProp
+				                           , const std::string& value)
+{
+	assert (revisionAdded);
+
+	logInfo.AddUserRevProp (revProp, value);
 }
 
 ///////////////////////////////////////////////////////////////

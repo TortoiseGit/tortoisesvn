@@ -60,7 +60,56 @@ enum
 	LOGACTIONS_DELETED	= 0x00000008
 };
 
-typedef CArray<LogChangedPath*, LogChangedPath*> LogChangedPathArray;
+/// auto-deleting extension of MFC Arrays for pointer arrays
+
+template<class T>
+class CAutoArray : public CArray<T*,T*>
+{
+public:
+
+    // default and copy construction
+
+    CAutoArray() 
+    {
+    }
+
+    CAutoArray (const CAutoArray& rhs)
+    {
+        Copy (rhs);
+    }
+
+    // destruction deletes members
+
+    ~CAutoArray()
+    {
+	    for (INT_PTR i = 0, count = GetCount(); i < count; ++i)
+		    delete GetAt (i);
+    }
+};
+
+typedef CAutoArray<LogChangedPath> LogChangedPathArray;
+
+/**
+ * standard revision properties
+ */
+
+struct StandardRevProps
+{
+    CString author;
+    apr_time_t timeStamp;
+    CString message;
+};
+
+/**
+ * data structure to accommodate the list of user-defined revision properties.
+ */
+struct UserRevProp
+{
+	CString name;
+	CString value;
+};
+
+typedef CAutoArray<UserRevProp> UserRevPropArray;
 
 
 /**
@@ -75,11 +124,17 @@ public:
 
 	/// call-back for every revision found
 	/// (called at most once per revision)
+    ///
+    /// the implementation may modify but not delete()
+    /// the data containers passed to it
+    ///
+    /// any pointer may be NULL
 	///
 	/// may throw a SVNError to cancel the log
+
 	virtual void ReceiveLog ( LogChangedPathArray* changes
 							, svn_revnum_t rev
-							, const CString& author
-							, const apr_time_t& timeStamp
-							, const CString& message) = 0;
+                            , const StandardRevProps* stdRevProps
+                            , UserRevPropArray* userRevProps
+                            , bool mergesFollow) = 0;
 };

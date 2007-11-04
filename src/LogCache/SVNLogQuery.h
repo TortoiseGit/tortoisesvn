@@ -21,6 +21,9 @@
 #include "ILogQuery.h"
 #include "svn_client.h"
 
+// forward declarations
+
+class SVNPool;
 
 /**
  * Implements the ILogQuery interface by using the SVN API, circumventing the
@@ -43,14 +46,26 @@ private:
     struct SBaton
     {
         ILogReceiver* receiver;
-        bool revs_only;
+        bool includeChanges;
+        bool includeStandardRevProps;
+        bool includeUserRevProps;
     };
 
-	// SVN callback. Route data to receiver
+    // SVN API utility
 
-	static svn_error_t* LogReceiver ( void* baton
-									, svn_log_entry_t* log_entry
-									, apr_pool_t* pool);
+    static void AppendStrings ( SVNPool& pool
+                              , apr_array_header_t* array
+                              , const std::vector<CString>& strings);
+
+    // standard revision properties
+
+    const TRevPropNames& GetStandardRevProps();
+
+    // SVN callback. Route data to receiver
+
+    static svn_error_t* LogReceiver ( void *baton
+                                    , svn_log_entry_t *log_entry
+                                    , apr_pool_t *pool);
 
 public:
 
@@ -70,5 +85,9 @@ public:
 					 , int limit
 					 , bool strictNodeHistory
 					 , ILogReceiver* receiver
-                     , bool revs_only);
+                     , bool includeChanges
+                     , bool includeMerges
+                     , bool includeStandardRevProps
+                     , bool includeUserRevProps
+                     , const TRevPropNames& userRevProps);
 };

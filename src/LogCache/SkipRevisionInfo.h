@@ -175,6 +175,7 @@ private:
 		void SortRanges (index_t rangeCount);
 		void RemoveKnownRevisions();
 		void RemoveEmptyRanges();
+        void RebuildHash();
 
 	public:
 

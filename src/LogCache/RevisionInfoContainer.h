@@ -266,6 +266,11 @@ public:
         HAS_USERREVPROPS = 0x20,
         HAS_MERGEINFO    = 0x40,
 
+        HAS_STANDARD_REVPROPS
+                         = HAS_AUTHOR 
+                         | HAS_TIME_STAMP 
+                         | HAS_COMMENT,
+
         HAS_STANDARD_INFO= HAS_AUTHOR 
                          | HAS_TIME_STAMP 
                          | HAS_COMMENT 

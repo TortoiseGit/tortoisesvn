@@ -69,14 +69,7 @@ void CLogDataVector::ClearAll()
 	{
 		for(iterator it=begin(); it!=end(); ++it)
 		{
-			LogChangedPathArray * pPaths = (*it)->pArChangedPaths;
-			for(INT_PTR j=0; j<pPaths->GetCount(); ++j)
-			{
-				delete pPaths->GetAt(j);
-			}
-			pPaths->RemoveAll();
-			delete pPaths;
-
+			delete (*it)->pArChangedPaths;
 			delete *it;
 		}     
 		clear();

@@ -352,10 +352,10 @@ svn_error_t* CRevisionGraph::cancel(void *baton)
 // implement ILogReceiver
 
 void CRevisionGraph::ReceiveLog ( LogChangedPathArray* changes
-								, svn_revnum_t rev
-								, const CString&
-								, const apr_time_t&
-								, const CString&)
+					            , svn_revnum_t rev
+                                , const StandardRevProps* stdRevProps
+                                , UserRevPropArray* userRevProps
+                                , bool mergesFollow)
 {
     // fix release mode compiler warning
 
@@ -364,6 +364,9 @@ void CRevisionGraph::ReceiveLog ( LogChangedPathArray* changes
     // we passed revs_only to Log()
 
     assert (changes == NULL);
+    assert (stdRevProps == NULL);
+    assert (userRevProps == NULL);
+    assert (mergesFollow == false);
 
 	// update internal data
 
@@ -456,7 +459,11 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 				   , 0
 				   , false
 				   , this
-                   , true);
+                   , false
+                   , false
+                   , false
+                   , false
+                   , TRevPropNames());
 	}
 	catch (SVNError& e)
 	{

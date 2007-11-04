@@ -53,8 +53,8 @@ bool CStrictLogIterator::HandleCopyAndDelete()
 // (nothing special to do)
 
 CStrictLogIterator::CStrictLogIterator ( const CCachedLogInfo* cachedLog
-										 , revision_t startRevision
-										 , const CDictionaryBasedTempPath& startPath)
+									   , revision_t startRevision
+									   , const CDictionaryBasedTempPath& startPath)
 	: CLogIteratorBase (cachedLog, startRevision, startPath)
 {
 }

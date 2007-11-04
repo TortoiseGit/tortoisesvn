@@ -316,6 +316,22 @@ void CSkipRevisionInfo::CPacker::RemoveEmptyRanges()
 }
 
 ///////////////////////////////////////////////////////////////
+// rebuild the hash index because the entries in data may have been moved
+///////////////////////////////////////////////////////////////
+
+void CSkipRevisionInfo::CPacker::RebuildHash()
+{
+	std::vector<SPerPathRanges*>& data = parent->data;
+	quick_hash<CSkipRevisionInfo::CHashFunction>& index = parent->index;
+
+    index.clear();
+    index.reserve (data.size());
+
+	for (size_t i = 0, count = data.size(); i < count; ++i)
+        index.insert (data[i]->pathID, (index_t)i);
+}
+
+///////////////////////////////////////////////////////////////
 // construction / destruction
 ///////////////////////////////////////////////////////////////
 
@@ -340,6 +356,7 @@ void CSkipRevisionInfo::CPacker::operator()(CSkipRevisionInfo* aParent)
 	SortRanges (rangeCount);
 	RemoveKnownRevisions();
 	RemoveEmptyRanges();
+    RebuildHash();
 }
 
 ///////////////////////////////////////////////////////////////

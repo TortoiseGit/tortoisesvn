@@ -81,12 +81,7 @@ BOOL CBlame::BlameCallback(LONG linenumber, svn_revnum_t revision, const CString
 	return TRUE;
 }
 
-BOOL CBlame::Log(svn_revnum_t revision, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions, BOOL /*children*/)
-{
-	return Log(revision, author, date, message, cpaths, time, filechanges, copies, actions);
-}
-
-BOOL CBlame::Log(svn_revnum_t revision, const CString& /*author*/, const CString& /*date*/, const CString& message, LogChangedPathArray * cpaths, apr_time_t /*time*/, int /*filechanges*/, BOOL /*copies*/, DWORD /*actions*/)
+BOOL CBlame::Log(svn_revnum_t revision, const CString& /*author*/, const CString& /*date*/, const CString& message, LogChangedPathArray * cpaths, apr_time_t /*time*/, int /*filechanges*/, BOOL /*copies*/, DWORD /*actions*/, BOOL /*children*/)
 {
 	m_progressDlg.SetProgress(m_highestrev - revision, m_highestrev);
 	if (m_saveLog.m_hFile != INVALID_HANDLE_VALUE)
@@ -97,10 +92,6 @@ BOOL CBlame::Log(svn_revnum_t revision, const CString& /*author*/, const CString
 		m_saveLog.Write(&length, sizeof(int));
 		m_saveLog.Write((LPCSTR)msgutf8, length);
 	}
-	for (INT_PTR i=0; i<cpaths->GetCount(); ++i)
-		delete cpaths->GetAt(i);
-	cpaths->RemoveAll();
-	delete cpaths;
 	return TRUE;
 }
 
@@ -179,11 +170,7 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 		// will error out. Bug in Subversion?
 		if (pegrev.IsWorking() && !path.IsUrl())
 			pegrev = SVNRev();
-		BOOL bRet = FALSE;
-		if (m_bHasMerges)
-			bRet = GetLogWithMergeInfo(CTSVNPathList(path), pegrev, m_nHeadRev, m_lowestrev, 0, FALSE);
-		else
-			bRet = ReceiveLog(CTSVNPathList(path), pegrev, m_nHeadRev, m_lowestrev, 0, FALSE);
+		BOOL bRet = ReceiveLog(CTSVNPathList(path), pegrev, m_nHeadRev, m_lowestrev, 0, FALSE, m_bHasMerges);
 		if (!bRet)
 		{
 			m_saveLog.Close();

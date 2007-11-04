@@ -65,7 +65,6 @@ public:
 							const CString& changelistname,
 							svn_merge_range_t * range,
 							svn_error_t * err, apr_pool_t * pool);
-	virtual BOOL Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions);
 	virtual BOOL Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions, BOOL haschildren);
 	virtual BOOL BlameCallback(LONG linenumber, svn_revnum_t revision, const CString& author, const CString& date,
 							svn_revnum_t merged_revision, const CString& merged_author, const CString& merged_date, const CString& merged_path,
@@ -542,24 +541,11 @@ public:
 	 * \param limit number of log messages to fetch, or zero for all
 	 * \param strict if TRUE, then the log won't follow copies
 	 * \param changed TRUE if the log should follow changed paths 
+	 * \param withMerges TRUE if the log should contain merged revisions 
+     *        as children
 	 * \return TRUE if successful
 	 */
-	BOOL ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionPeg, SVNRev revisionStart, SVNRev revisionEnd, int limit, BOOL strict = FALSE);
-
-	/**
-	 * Receives all log messages between \revisionStart and \c revisionEnd
-	 * including the 'child' log entries from merges.
-	 * 
-	 * \param path the file/directory to get the log of
-	 * \param revisionPeg the peg revision to anchor the log on
-	 * \param revisionStart	the revision to start the logs from
-	 * \param revisionEnd the revision to stop the logs
-	 * \param limit number of log messages to fetch, or zero for all
-	 * \param strict if TRUE, then the log won't follow copies
-	 * \param changed TRUE if the log should follow changed paths 
-	 * \return TRUE if successful
-	 */
-	BOOL GetLogWithMergeInfo(const CTSVNPathList& pathlist, SVNRev revisionPeg, SVNRev revisionStart, SVNRev revisionEnd, int limit, BOOL strict = FALSE);
+	BOOL ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionPeg, SVNRev revisionStart, SVNRev revisionEnd, int limit, BOOL strict = FALSE, BOOL withMerges = FALSE);
 
 	/**
 	 * Checks out a file with \a revision to \a localpath.
@@ -916,16 +902,14 @@ protected:
 					const svn_wc_conflict_description_t *description, 
 					void *baton, 
 					apr_pool_t *pool);
-	static svn_error_t* logMergeReceiver(void* baton,
-					svn_log_entry_t* log_entry, apr_pool_t* pool);
 
 	// implement ILogReceiver
 
 	void ReceiveLog ( LogChangedPathArray* changes
 					, svn_revnum_t rev
-					, const CString& author
-					, const apr_time_t& timeStamp
-					, const CString& message);
+                    , const StandardRevProps* stdRevProps
+                    , UserRevPropArray* userRevProps
+                    , bool mergesFollow);
 
 	static void progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_pool_t *pool);
 	SVNProgress		m_SVNProgressMSG;

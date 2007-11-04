@@ -30,62 +30,147 @@
 #include "SVNHelpers.h"
 #include "TSVNPath.h"
 
-svn_error_t* CSVNLogQuery::LogReceiver ( void* baton
-									   , svn_log_entry_t * log_entry
-									   , apr_pool_t* pool)
+// SVN API utility
+
+void CSVNLogQuery::AppendStrings ( SVNPool& pool
+                                 , apr_array_header_t* array
+                                 , const std::vector<CString>& strings)
 {
+    for (size_t i = 0; i  < strings.size(); ++i)
+    {
+        CStringA utf8String = CUnicodeUtils::GetUTF8 (strings[i]);
+
+        size_t size = utf8String.GetLength()+1;
+        char * aprString = reinterpret_cast<char *>(apr_palloc (pool, size));
+        memcpy (aprString, (const char*)utf8String, size);
+
+        (*((char **) apr_array_push (array))) = aprString;
+    }
+}
+
+// standard revision properties
+
+const TRevPropNames& CSVNLogQuery::GetStandardRevProps()
+{
+    static TRevPropNames standardRevProps;
+
+    if (standardRevProps.empty())
+    {
+        standardRevProps.push_back (CString (SVN_PROP_REVISION_LOG));
+        standardRevProps.push_back (CString (SVN_PROP_REVISION_DATE));
+        standardRevProps.push_back (CString (SVN_PROP_REVISION_AUTHOR));
+    }
+
+    return standardRevProps;
+}
+
+// receive the information from SVN and relay it to our 
+
+svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
+                                       , svn_log_entry_t *log_entry
+                                       , apr_pool_t *pool)
+{
+    // a few globals
+
+    static const CString svnLog (SVN_PROP_REVISION_LOG);
+    static const CString svnDate (SVN_PROP_REVISION_DATE);
+    static const CString svnAuthor (SVN_PROP_REVISION_AUTHOR);
+
+    // just in case ...
+
+    if (log_entry == NULL)
+        return NULL;
+
 	// where to send the pre-processed in-format
 
     SBaton* receiverBaton = reinterpret_cast<SBaton*>(baton);
     ILogReceiver* receiver = receiverBaton->receiver;
+    assert (receiver != NULL);
 
-	const char * author = NULL;
-	const char * date = NULL;
-	const char * message = NULL;
+	// parse revprops
 
-    // report revision numbers only?
 
-    if (receiverBaton->revs_only)
-    {
-	    try
-	    {
-            static const CString emptyString;
-		    receiver->ReceiveLog ( NULL
-							     , log_entry->revision
-							     , emptyString
-							     , 0
-							     , emptyString);
-	    }
-	    catch (SVNError& e)
-	    {
-		    return svn_error_create (e.GetCode(), NULL, e.GetMessage());
-	    }
-	    catch (...)
-	    {
-		    // we must not leak exceptions back into SVN
-	    }
 
-        return NULL;
-    }
 
-	// convert strings
-	svn_compat_log_revprops_out(&author, &date, &message, log_entry->revprops);
 
-	CString authorNative = CUnicodeUtils::GetUnicode (author);
-	CString messageNative = CUnicodeUtils::GetUnicode (message != NULL ? message : "");
+    StandardRevProps standardRevProps;
+    UserRevPropArray userRevProps;
 
-	// time stamp
 
-	apr_time_t timeStamp = NULL;
-	if (date && date[0])
-		SVN_ERR (svn_time_from_cstring (&timeStamp, date, pool));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	try
+	{
+        if (log_entry->revision != SVN_INVALID_REVNUM)
+        {
+            for ( apr_hash_index_t *index  
+                    = apr_hash_first (pool, log_entry->revprops)
+                ; index != NULL
+                ; index = apr_hash_next (index))
+            {
+                // extract next entry from hash
+
+                const char* key = NULL;
+                ptrdiff_t keyLen;
+                const char** val = NULL;
+
+                apr_hash_this ( index
+                              , reinterpret_cast<const void**>(&key)
+                              , &keyLen
+                              , reinterpret_cast<void**>(&val));
+
+                // decode / dispatch it
+
+        	    CString name = CUnicodeUtils::GetUnicode (key);
+	            CString value = CUnicodeUtils::GetUnicode (*val);
+
+                if (name == svnLog)
+                    standardRevProps.message = value;
+                else if (name == svnAuthor)
+                    standardRevProps.author = value;
+                else if (name == svnDate)
+                {
+	                standardRevProps.timeStamp = NULL;
+	                if (value[0])
+		                SVN_ERR (svn_time_from_cstring 
+                                    (&standardRevProps.timeStamp, *val, pool));
+                }
+                else
+                {
+				    std::auto_ptr<UserRevProp> revProp (new UserRevProp);
+                    revProp->name = name;
+                    revProp->value = value;
+
+                    userRevProps.Add (revProp.release());
+                }
+            }
+        }
+	}
+	catch (CMemoryException * e)
+	{
+		e->Delete();
+	}
 
 	// the individual changes
 
-	std::auto_ptr<LogChangedPathArray> arChangedPaths (new LogChangedPathArray);
+	LogChangedPathArray changedPaths;
 	try
 	{
-		if (log_entry->changed_paths)
+        if (log_entry->changed_paths != NULL)
 		{
 			apr_array_header_t *sorted_paths 
 				= svn_sort__hash (log_entry->changed_paths, svn_sort_compare_items_as_paths, pool);
@@ -131,7 +216,7 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void* baton
 					changedPath->lCopyFromRev = 0;
 				}
 
-				arChangedPaths->Add (changedPath.release());
+				changedPaths.Add (changedPath.release());
 			} 
 		} 
 	}
@@ -144,15 +229,21 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void* baton
 
 	try
 	{
-		receiver->ReceiveLog ( arChangedPaths.release()
+        receiver->ReceiveLog ( receiverBaton->includeChanges 
+                                   ? &changedPaths 
+                                   : NULL
 							 , log_entry->revision
-							 , authorNative
-							 , timeStamp
-							 , messageNative);
+                             , receiverBaton->includeStandardRevProps 
+                                   ? &standardRevProps 
+                                   : NULL
+                             , receiverBaton->includeUserRevProps 
+                                   ? &userRevProps 
+                                   : NULL
+                             , log_entry->has_children != FALSE);
 	}
 	catch (SVNError& e)
 	{
-		return svn_error_create (e.GetCode(), NULL, e.GetMessage());
+        return svn_error_create (e.GetCode(), NULL, e.GetMessage());
 	}
 	catch (...)
 	{
@@ -179,26 +270,87 @@ void CSVNLogQuery::Log ( const CTSVNPathList& targets
 					   , int limit
 					   , bool strictNodeHistory
 					   , ILogReceiver* receiver
-                       , bool revs_only)
+                       , bool includeChanges
+                       , bool includeMerges
+                       , bool includeStandardRevProps
+                       , bool includeUserRevProps
+                       , const TRevPropNames& userRevProps)
 {
-    SBaton baton = {receiver, revs_only};
-
 	SVNPool localpool (pool);
-	svn_error_t *result = svn_client_log4 ( targets.MakePathArray (pool)
+
+    // construct parameters:
+
+    // everything we need to relay the result to the receiver
+
+    SBaton baton = { receiver
+                   , includeChanges
+                   , includeStandardRevProps
+                   , includeUserRevProps};
+
+    // build list of revprops to fetch. Fetch all of them
+    // if all user-revprops are requested but no std-revprops
+    // (post-filter before them passing to the receiver)
+
+    apr_array_header_t* revprops = NULL;
+    if (includeStandardRevProps)
+    {
+        // fetch user rev-props?
+
+        if (includeUserRevProps)
+        {
+            // fetch some but not all user rev-props?
+
+            if (!userRevProps.empty())
+            {
+        	    revprops = apr_array_make ( localpool
+                                          ,   (int)GetStandardRevProps().size()
+                                            + (int)userRevProps.size()
+                                          , sizeof(const char *));
+
+                AppendStrings (localpool, revprops, GetStandardRevProps());
+                AppendStrings (localpool, revprops, userRevProps);
+            }
+        }
+        else
+        {
+            // standard revprops only
+
+        	revprops = apr_array_make ( localpool
+                                      , (int)GetStandardRevProps().size()
+                                      , sizeof(const char *));
+
+            AppendStrings (localpool, revprops, GetStandardRevProps());
+        }
+    }
+    else
+    {
+        // fetch some but not all user rev-props?
+
+        if (includeUserRevProps && !userRevProps.empty())
+        {
+        	revprops = apr_array_make ( localpool
+                                      , (int)userRevProps.size()
+                                      , sizeof(const char *));
+
+            AppendStrings (localpool, revprops, userRevProps);
+        }
+    }
+
+	svn_error_t *result = svn_client_log4 ( targets.MakePathArray (localpool)
 										  , peg_revision
 										  , start
 										  , end
 										  , limit
-                                          , revs_only ? FALSE : TRUE
+                                          , includeChanges ? TRUE : FALSE
 										  , strictNodeHistory ? TRUE : FALSE
-										  , FALSE
-										  , NULL
+                                          , includeMerges ? TRUE : FALSE
+                                          , revprops
 										  , LogReceiver
 										  , (void *)&baton
 										  , context
 										  , localpool);
 
-	if (result != NULL)
+    if (result != NULL)
 		throw SVNError (result);
 }
 

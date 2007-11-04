@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "SVNLogHelper.h"
 
-BOOL SVNLogHelper::Log(LONG rev, const CString& author, const CString& /*date*/, const CString& message, LogChangedPathArray * cpaths, apr_time_t /*time*/, int /*filechanges*/, BOOL /*copies*/, DWORD /*actions*/)
+BOOL SVNLogHelper::Log(LONG rev, const CString& author, const CString& /*date*/, const CString& message, LogChangedPathArray * cpaths, apr_time_t /*time*/, int /*filechanges*/, BOOL /*copies*/, DWORD /*actions*/, BOOL /*haschildren*/)
 {
 	messages[rev] = message;
 	authors[rev] = author;
@@ -32,9 +32,7 @@ BOOL SVNLogHelper::Log(LONG rev, const CString& author, const CString& /*date*/,
 			m_copyfromurl = m_reposroot + cpath->sCopyFromPath;
 			m_rev = cpath->lCopyFromRev;
 		}
-		delete cpath;
 	}
-	delete cpaths;
 	return TRUE;
 }
 
