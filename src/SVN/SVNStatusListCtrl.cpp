@@ -2344,7 +2344,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							}
 						}
 					}
-					if ((wcStatus == svn_wc_status_unversioned))
+					if ( (wcStatus == svn_wc_status_unversioned) || (wcStatus == svn_wc_status_deleted) )
 					{
 						if (m_dwContextMenus & SVNSLC_POPIGNORE)
 						{
@@ -3079,7 +3079,11 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							}
 
 							CTSVNPath basepath = m_arStatusArray[m_arListArray[selIndex]]->basepath;
-							toremove.push_back(m_arStatusArray[m_arListArray[selIndex]]->GetPath().GetSVNPathString());
+							
+							FileEntry * entry = m_arStatusArray[m_arListArray[selIndex]];
+							if ( entry->status == svn_wc_status_unversioned ) // keep "deleted" items
+								toremove.push_back(entry->GetPath().GetSVNPathString());
+							
 							if (!m_bIgnoreRemoveOnly)
 							{
 								SVNStatus status;
