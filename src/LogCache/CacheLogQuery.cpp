@@ -794,7 +794,8 @@ void CCacheLogQuery::SendToReceiver ( revision_t revision
 
         // comment
 
-        standardRevProps.message = logInfo.GetComment (logIndex).c_str();
+		standardRevProps.message 
+			= CUnicodeUtils::GetUnicode (logInfo.GetComment (logIndex).c_str());
 
         // time stamp
 
