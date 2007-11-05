@@ -70,6 +70,18 @@
 						<guimenuitem>Compare with working copy</guimenuitem>
 						from the context menu.
 					</para>
+					<para>
+						If you want to see the difference between the last committed
+						revision and your working copy, assuming that the working copy
+						hasn't been modified, just hold down the <keycap>Shift</keycap>
+						key while you right click on the file. Then select
+						<menuchoice>
+							<guimenu>TortoiseSVN</guimenu>
+							<guimenuitem>Diff</guimenuitem>
+						</menuchoice>. This will perform a diff between the revision before
+						you last committed the file and the working copy, effectively
+						showing you the last change you made to that file.
+					</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>

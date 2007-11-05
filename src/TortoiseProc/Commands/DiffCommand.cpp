@@ -22,6 +22,7 @@
 #include "AppUtils.h"
 #include "ChangedDlg.h"
 #include "SVNDiff.h"
+#include "SVNStatus.h"
 
 bool DiffCommand::Execute()
 {
@@ -47,7 +48,19 @@ bool DiffCommand::Execute()
 			}
 			else
 			{
-				diff.DiffFileAgainstBase(cmdLinePath);
+				SVNStatus st;
+				st.GetStatus(cmdLinePath);
+				if (st.status && st.status->entry &&
+					(st.status->text_status == svn_wc_status_normal) &&
+					(st.status->prop_status == svn_wc_status_normal))
+				{
+					// file has no local modifications, so diff the last committed revision - 1
+					// to the local one
+					SVNDiff diff;
+					diff.ShowCompare(cmdLinePath, st.status->entry->cmt_rev - 1, cmdLinePath, SVNRev::REV_WC);
+				}
+				else
+					diff.DiffFileAgainstBase(cmdLinePath);
 			}
 		}
 	} 
