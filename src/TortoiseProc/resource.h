@@ -152,6 +152,8 @@
 #define IDD_PROPPAGE_LARGE              278
 #define IDD_MERGEWIZARD_REVRANGE        278
 #define IDB_MERGEWIZARDTITLE            278
+#define IDD_DIALOG1                     279
+#define IDD_URLDIFF                     279
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -1273,7 +1275,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        279
+#define _APS_NEXT_RESOURCE_VALUE        280
 #define _APS_NEXT_COMMAND_VALUE         32829
 #define _APS_NEXT_CONTROL_VALUE         1425
 #define _APS_NEXT_SYMED_VALUE           195

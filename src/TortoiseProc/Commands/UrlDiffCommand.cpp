@@ -19,14 +19,12 @@
 #include "StdAfx.h"
 #include "UrlDiffCommand.h"
 
-#include "SwitchDlg.h"
+#include "UrlDiffDlg.h"
 #include "SVNDiff.h"
 
 bool UrlDiffCommand::Execute()
 {
-	CSwitchDlg dlg;
-	dlg.SetDialogTitle(CString(MAKEINTRESOURCE(IDS_PROC_DIFFTITLE)));
-	dlg.SetUrlLabel(CString(MAKEINTRESOURCE(IDS_PROC_DIFFLABEL)));
+	CUrlDiffDlg dlg;
 	if (dlg.DoModal() == IDOK)
 	{
 		SVNDiff diff;
