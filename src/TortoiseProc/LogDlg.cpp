@@ -3859,10 +3859,9 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		case ID_EXPORT:
 			{
 				CString sCmd;
-				CString url = _T("tsvn:")+pathURL;
 				sCmd.Format(_T("%s /command:export /path:\"%s\" /revision:%ld"),
 					CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"),
-					url, (LONG)revSelected);
+					pathURL, (LONG)revSelected);
 				CAppUtils::LaunchApplication(sCmd, NULL, false);
 			}
 			break;

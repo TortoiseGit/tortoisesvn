@@ -49,7 +49,7 @@ bool ExportCommand::Execute()
 		{
 			LONG lRev = parser.GetLongVal(_T("revision"));
 			dlg.Revision = lRev;
-		}	
+		}
 		if (dlg.DoModal() == IDOK)
 		{
 			CTSVNPath exportPath(dlg.m_strExportDirectory);
