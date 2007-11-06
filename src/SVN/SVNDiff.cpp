@@ -33,12 +33,12 @@
 #include "Blame.h"
 #include "svn_types.h"
 
-SVNDiff::SVNDiff(SVN * pSVN /* = NULL */, HWND hWnd /* = NULL */, bool bRemoveTempFiles /* = false */) :
-	m_bDeleteSVN(false),
-	m_pSVN(NULL),
-	m_hWnd(NULL),
-	m_bRemoveTempFiles(false),
-	m_headPeg(SVNRev::REV_HEAD)
+SVNDiff::SVNDiff(SVN * pSVN /* = NULL */, HWND hWnd /* = NULL */, bool bRemoveTempFiles /* = false */) : m_bDeleteSVN(false)
+	, m_pSVN(NULL)
+	, m_hWnd(NULL)
+	, m_bRemoveTempFiles(false)
+	, m_headPeg(SVNRev::REV_HEAD)
+	, m_bAlternativeTool(false)
 {
 	if (pSVN)
 		m_pSVN = pSVN;
