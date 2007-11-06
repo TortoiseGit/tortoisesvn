@@ -17,44 +17,43 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "StdAfx.h"
-#include "DiffCommand.h"
-#include "PathUtils.h"
-#include "AppUtils.h"
+#include "PrevDiffCommand.h"
 #include "ChangedDlg.h"
 #include "SVNDiff.h"
 #include "SVNStatus.h"
+#include "MessageBox.h"
 
-bool DiffCommand::Execute()
+bool PrevDiffCommand::Execute()
 {
-	CString path2 = CPathUtils::GetLongPathname(parser.GetVal(_T("path2")));
 	bool bAlternativeTool = !!parser.HasKey(_T("alternative"));
-	if (path2.IsEmpty())
+	if (cmdLinePath.IsDirectory())
 	{
-		if (cmdLinePath.IsDirectory())
+		CChangedDlg dlg;
+		dlg.m_pathList = CTSVNPathList(cmdLinePath);
+		dlg.DoModal();
+	}
+	else
+	{
+		SVNDiff diff;
+		diff.SetAlternativeTool(bAlternativeTool);
+		SVNStatus st;
+		st.GetStatus(cmdLinePath);
+		if (st.status && st.status->entry && st.status->entry->cmt_rev)
 		{
-			CChangedDlg dlg;
-			dlg.m_pathList = CTSVNPathList(cmdLinePath);
-			dlg.DoModal();
+			SVNDiff diff;
+			diff.ShowCompare(cmdLinePath, st.status->entry->cmt_rev - 1, cmdLinePath, SVNRev::REV_WC);
 		}
 		else
 		{
-			SVNDiff diff;
-			diff.SetAlternativeTool(bAlternativeTool);
-			if ( parser.HasKey(_T("startrev")) && parser.HasKey(_T("endrev")) )
+			if (st.GetLastErrorMsg().IsEmpty())
 			{
-				LONG nStartRevision = parser.GetLongVal(_T("startrev"));
-				LONG nEndRevision = parser.GetLongVal(_T("endrev"));
-				diff.ShowCompare(cmdLinePath, nStartRevision, cmdLinePath, nEndRevision);
+				CMessageBox::Show(hWndExplorer, IDS_ERR_NOPREVREVISION, IDS_APPNAME, MB_ICONERROR);
 			}
 			else
 			{
-				diff.DiffFileAgainstBase(cmdLinePath);
+				CMessageBox::Show(hWndExplorer, IDS_ERR_NOSTATUS, IDS_APPNAME, MB_ICONERROR);
 			}
 		}
-	} 
-	else
-		CAppUtils::StartExtDiff(
-			CTSVNPath(path2), cmdLinePath, CString(), CString(),
-			CAppUtils::DiffFlags().AlternativeTool(bAlternativeTool));
+	}
 	return true;
 }

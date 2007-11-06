@@ -73,14 +73,15 @@
 					<para>
 						If you want to see the difference between the last committed
 						revision and your working copy, assuming that the working copy
-						hasn't been modified, just hold down the <keycap>Shift</keycap>
-						key while you right click on the file. Then select
+						hasn't been modified, just right click on the file. Then select
 						<menuchoice>
 							<guimenu>TortoiseSVN</guimenu>
-							<guimenuitem>Diff</guimenuitem>
+							<guimenuitem>Diff with previous version</guimenuitem>
 						</menuchoice>. This will perform a diff between the revision before
 						you last committed the file and the working copy, effectively
 						showing you the last change you made to that file.
+						In case you updated the file and got changes someone else made
+						to that file already, it will show you those changes.
 					</para>
 				</listitem>
 			</varlistentry>

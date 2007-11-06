@@ -106,6 +106,7 @@ protected:
 		ShellMenuRename,
 		ShellMenuUpdateExt,
 		ShellMenuDiff,
+		ShellMenuPrevDiff,
 		ShellMenuUrlDiff,
 		ShellMenuDropCopyAdd,
 		ShellMenuDropMoveAdd,

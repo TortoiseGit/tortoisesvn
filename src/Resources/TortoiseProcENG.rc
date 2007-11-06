@@ -2338,6 +2338,7 @@ BEGIN
     IDS_ERR_HOOKFAILED      "The hook script returned an error:\n%s"
     IDS_ERR_NOTHINGTOUNLOCK "There's nothing to unlock. No file has a lock in this working copy."
     IDS_ERR_INVALIDREVRANGE "Invalid revision range!\nValid revisions are numbers and HEAD, separated by commas.\nA range can be specified with a dash.\nExample: 2-5,7,10,44-70,300-HEAD"
+    IDS_ERR_NOPREVREVISION  "Could not determine the last committed revision!"
 END
 
 STRINGTABLE 

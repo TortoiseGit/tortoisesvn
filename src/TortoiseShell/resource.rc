@@ -301,6 +301,8 @@ BEGIN
     IDS_MENUDESCMERGEALL    "Merges all missing revisions back into the working copy using merge-tracking information"
     IDS_MENUUNDOADD         "Undo Add.."
     IDS_MENUDESCUNDOADD     "Reverts an addition to version control"
+    IDS_MENUPREVDIFF        "&Diff with previous version"
+    IDS_MENUDESCPREVDIFF    "Diffs the working copy file with the one before the last commit."
     IDS_COLTITLEMIMETYPE    "SVN mime-type"
     IDS_COLDESCMIMETYPE     "Shows the mime type of the versioned file"
     IDS_DROPEXPORTMENU      "SVN Export to here"

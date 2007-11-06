@@ -45,8 +45,8 @@ CShellExt::MenuInfo CShellExt::menuInfo[] =
 	{ ShellMenuDiff,						MENUDIFF,			IDI_DIFF,				IDS_MENUDIFF,				IDS_MENUDESCDIFF,
 	ITEMIS_INSVN|ITEMIS_ONLYONE, ITEMIS_NORMAL|ITEMIS_FOLDER, ITEMIS_TWO, 0, 0, 0, 0, 0 },
 
-	{ ShellMenuDiff,						MENUDIFF,			IDI_DIFF,				IDS_MENUDIFF,				IDS_MENUDESCDIFF,
-	ITEMIS_INSVN|ITEMIS_ONLYONE|ITEMIS_NORMAL|ITEMIS_EXTENDED, 0, 0, 0, 0, 0, 0, 0 },
+	{ ShellMenuPrevDiff,					MENUDIFF,			IDI_DIFF,				IDS_MENUPREVDIFF,			IDS_MENUDESCPREVDIFF,
+	ITEMIS_INSVN|ITEMIS_ONLYONE|ITEMIS_NORMAL, 0, 0, 0, 0, 0, 0, 0 },
 
 	{ ShellMenuUrlDiff,						MENUURLDIFF,		IDI_DIFF,				IDS_MENUURLDIFF,			IDS_MENUDESCURLDIFF,
 	ITEMIS_INSVN|ITEMIS_ONLYONE|ITEMIS_EXTENDED, 0, ITEMIS_FOLDERINSVN|ITEMIS_EXTENDED, 0, 0, 0, 0, 0 },
@@ -1298,6 +1298,16 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 					svnCmd += _T("\" /path2:\"");
 					svnCmd += *I;
 				}
+				else
+					svnCmd += folder_;
+				svnCmd += _T("\"");
+				if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
+					svnCmd += _T(" /alternative");
+				break;
+			case ShellMenuPrevDiff:
+				svnCmd += _T("prevdiff /path:\"");
+				if (files_.size() == 1)
+					svnCmd += files_.front();
 				else
 					svnCmd += folder_;
 				svnCmd += _T("\"");

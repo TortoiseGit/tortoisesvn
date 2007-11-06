@@ -618,6 +618,7 @@
 #define IDS_ERR_NOTHINGTOUNLOCK         1321
 #define IDS_ERR_INVALIDREVRANGE         1322
 #define IDC_HOOKPATH                    1323
+#define IDS_ERR_NOPREVREVISION          1323
 #define IDC_HOOKBROWSE                  1324
 #define IDC_HOOKCOMMANDLINE             1325
 #define IDC_HIDECHECK                   1326

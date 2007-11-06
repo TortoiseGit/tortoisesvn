@@ -122,6 +122,8 @@
 #define IDS_MENUDESCMERGEALL            211
 #define IDS_MENUUNDOADD                 212
 #define IDS_MENUDESCUNDOADD             213
+#define IDS_MENUPREVDIFF                214
+#define IDS_MENUDESCPREVDIFF            215
 #define IDS_COLTITLEMIMETYPE            216
 #define IDS_COLDESCMIMETYPE             217
 #define IDS_DROPEXPORTMENU              218
