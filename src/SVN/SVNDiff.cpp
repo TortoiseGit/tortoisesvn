@@ -431,7 +431,8 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 			}
 			if (!blame)
 			{
-				if (!m_pSVN->Cat(url1, peg.IsValid() ? peg : rev1, rev1, tempfile1))
+				bool tryWorking = (!m_pSVN->PathIsURL(url1.GetWinPathString()) && rev1.IsWorking() && PathFileExists(url1.GetWinPath()));
+				if (!m_pSVN->Cat(url1, peg.IsValid() && !tryWorking ? peg : rev1, rev1, tempfile1))
 				{
 					if (peg.IsValid())
 					{
