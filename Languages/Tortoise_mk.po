@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-11-02 10:25+0100\n"
+"PO-Revision-Date: 2007-11-06 09:51+0100\n"
 "Last-Translator: Срѓан Стокиќ <srdjan.stokic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2177,10 +2177,6 @@ msgstr "Одредишниот диск е полн."
 msgid "Dialog sizes and positions"
 msgstr "Големина и позиција на прозорците"
 
-#. Resource IDs: (146)
-msgid "Diff With URL"
-msgstr "Разлики со URL"
-
 #. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "Датотека со разлики:"
@@ -2188,6 +2184,10 @@ msgstr "Датотека со разлики:"
 #. Resource IDs: (65535)
 msgid "Diff options"
 msgstr "Разликување"
+
+#. Resource IDs: (146, 279)
+msgid "Diff with URL"
+msgstr "Разлики со URL"
 
 #. Resource IDs: (1302)
 msgid "Difference between"
@@ -4408,6 +4408,11 @@ msgstr "Својства..."
 #. Resource IDs: (11)
 msgid "Property"
 msgstr "Својство"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : Revision %s"
+msgstr "Својство %s : Ревизија %s"
 
 #. Resource IDs: (151)
 #, c-format
