@@ -42,6 +42,7 @@ protected:
 	CMergeWizardTree				tree;
 	CMergeWizardRevRange			revrange;
 	CMergeWizardOptions				options;
+
 public:
 	CTSVNPath						wcPath;
 	CString							url;
@@ -61,7 +62,14 @@ public:
 	svn_depth_t						m_depth;
 	BOOL							m_bIgnoreEOL;
 	svn_diff_file_ignore_space_t	m_IgnoreSpaces;
+	
+	bool		AutoSetMode();
+	void		SaveMode();
+	LRESULT		GetSecondPage()
+		{ return bRevRangeMerge ? IDD_MERGEWIZARD_REVRANGE : IDD_MERGEWIZARD_TREE; }
 
+private:
+	bool							m_FirstPageActivation;
 };
 
 

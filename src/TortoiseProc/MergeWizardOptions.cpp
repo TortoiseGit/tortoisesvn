@@ -98,9 +98,7 @@ BOOL CMergeWizardOptions::OnInitDialog()
 
 LRESULT CMergeWizardOptions::OnWizardBack()
 {
-	if (((CMergeWizard*)GetParent())->bRevRangeMerge)
-		return IDD_MERGEWIZARD_REVRANGE;
-	return IDD_MERGEWIZARD_TREE;
+	return ((CMergeWizard*)GetParent())->GetSecondPage();
 }
 
 BOOL CMergeWizardOptions::OnWizardFinish()

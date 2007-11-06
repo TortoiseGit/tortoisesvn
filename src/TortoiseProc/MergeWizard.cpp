@@ -32,6 +32,7 @@ CMergeWizard::CMergeWizard(UINT nIDCaption, CWnd* pParentWnd, UINT iSelectPage)
 	, m_bIgnoreEOL(FALSE)
 	, m_depth(svn_depth_unknown)
 	, bRecordOnly(FALSE)
+	, m_FirstPageActivation(true)
 {
 	SetWizardMode();
 	AddPage(&page1);
@@ -66,4 +67,32 @@ BOOL CMergeWizard::OnInitDialog()
 	sUUID = svn.GetUUIDFromPath(wcPath);
 
 	return bResult;
+}
+
+// Mode numbers coincide with wizard page indexes.
+
+#define MODE_TREE 1
+#define MODE_REVRANGE 2
+
+bool CMergeWizard::AutoSetMode()
+{
+	if (!m_FirstPageActivation)
+		return false;
+	m_FirstPageActivation = false;
+	DWORD nMergeWizardMode =
+		(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\MergeWizardMode"), 0);
+	if ((nMergeWizardMode != MODE_TREE) && (nMergeWizardMode != MODE_REVRANGE))
+		return false;
+	bRevRangeMerge = nMergeWizardMode == MODE_REVRANGE;
+	PostMessage(PSM_SETCURSEL, nMergeWizardMode);
+	return true;
+}
+
+void CMergeWizard::SaveMode()
+{
+	CRegDWORD regMergeWizardMode(_T("Software\\TortoiseSVN\\MergeWizardMode"), 0);
+	if (DWORD(regMergeWizardMode))
+	{
+		regMergeWizardMode = bRevRangeMerge ? MODE_REVRANGE : MODE_TREE;
+	}
 }

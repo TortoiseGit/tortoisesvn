@@ -50,13 +50,11 @@ LRESULT CMergeWizardStart::OnWizardNext()
 {
 	int nButton = GetCheckedRadioButton(IDC_MERGE_REVRANGE, IDC_MERGE_TREE);
 
-	if (nButton == IDC_MERGE_TREE)
-	{
-		((CMergeWizard*)GetParent())->bRevRangeMerge = false;
-		return IDD_MERGEWIZARD_TREE;
-	}
-	((CMergeWizard*)GetParent())->bRevRangeMerge = true;
-	return IDD_MERGEWIZARD_REVRANGE;
+	CMergeWizard* wiz = (CMergeWizard*)GetParent();
+	wiz->bRevRangeMerge = nButton == IDC_MERGE_REVRANGE;
+	wiz->SaveMode();
+
+	return wiz->GetSecondPage();
 }
 
 BOOL CMergeWizardStart::OnInitDialog()
@@ -69,8 +67,6 @@ BOOL CMergeWizardStart::OnInitDialog()
 	sLabel.LoadString(IDS_MERGEWIZARD_TREELABEL);
 	SetDlgItemText(IDC_TREELABEL, sLabel);
 
-	CheckRadioButton(IDC_MERGE_REVRANGE, IDC_MERGE_TREE, IDC_MERGE_REVRANGE);
-
 	AdjustControlSize(IDC_MERGE_REVRANGE);
 	AdjustControlSize(IDC_MERGE_TREE);
 
@@ -79,9 +75,17 @@ BOOL CMergeWizardStart::OnInitDialog()
 
 BOOL CMergeWizardStart::OnSetActive()
 {
-	CPropertySheet* psheet = (CPropertySheet*) GetParent();   
-	psheet->SetWizardButtons(PSWIZB_NEXT);
+	CMergeWizard* wiz = (CMergeWizard*)GetParent();
+
+	if (wiz->AutoSetMode())
+		return FALSE;
+
+	wiz->SetWizardButtons(PSWIZB_NEXT);
 	SetButtonTexts();
+
+	CheckRadioButton(
+		IDC_MERGE_REVRANGE, IDC_MERGE_TREE,
+		wiz->bRevRangeMerge ? IDC_MERGE_REVRANGE : IDC_MERGE_TREE);
 
 	return CMergeWizardBasePage::OnSetActive();
 }

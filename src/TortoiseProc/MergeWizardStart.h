@@ -32,7 +32,7 @@ public:
 	virtual ~CMergeWizardStart();
 
 	enum { IDD = IDD_MERGEWIZARD_START };
-
+	
 protected:
 	virtual void		DoDataExchange(CDataExchange* pDX);
 	virtual LRESULT		OnWizardNext();
