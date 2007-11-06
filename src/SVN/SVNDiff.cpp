@@ -526,7 +526,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 						revname1.Format(_T("%s Revision %s"), (LPCTSTR)url1.GetSVNPathString().Mid(sRepoRoot.GetLength()), rev1.ToString());
 					else
 						revname1.Format(_T("%s Revision %s"), (LPCTSTR)url1.GetSVNPathString(), rev1.ToString());
-					if (url2.IsUrl())
+					if (url2.IsUrl() && (url2.GetSVNPathString().Left(sRepoRoot.GetLength()).Compare(sRepoRoot) == 0))
 						revname2.Format(_T("%s Revision %s"), (LPCTSTR)url2.GetSVNPathString().Mid(sRepoRoot.GetLength()), rev2.ToString());
 					else
 						revname2.Format(_T("%s Revision %s"), (LPCTSTR)url2.GetSVNPathString(), rev2.ToString());
