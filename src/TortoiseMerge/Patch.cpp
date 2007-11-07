@@ -107,7 +107,9 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 	for ( ;nIndex<PatchLines.GetCount(); nIndex++)
 	{
 		sLine = PatchLines.GetAt(nIndex);
-		ending = EOL_AUTOLINE;//PatchLines.GetLineEnding(nIndex);
+		ending = PatchLines.GetLineEnding(nIndex);
+		if (ending != EOL_NOENDING)
+			ending = EOL_AUTOLINE;
 		switch (state)
 		{
 		case 0:	//Index: <filepath>
