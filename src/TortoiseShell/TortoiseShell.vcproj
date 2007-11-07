@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8.00"
+	Version="8,00"
 	Name="TortoiseShell"
 	ProjectGUID="{E873DD32-5A31-4DE1-8341-A56A2A5489EA}"
 	RootNamespace="TortoiseShell"
@@ -301,6 +301,7 @@
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
+				OptimizeForWindows98="1"
 				BaseAddress="0x5960000"
 				ImportLibrary="..\..\obj\TortoiseShell\Release/TortoiseSVN.lib"
 				TargetMachine="1"
@@ -408,6 +409,7 @@
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
+				OptimizeForWindows98="1"
 				BaseAddress="0x5960000"
 				ImportLibrary="..\..\obj\TortoiseShell\Release64/TortoiseSVN.lib"
 				TargetMachine="17"

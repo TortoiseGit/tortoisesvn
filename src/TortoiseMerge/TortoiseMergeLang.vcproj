@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8.00"
+	Version="8,00"
 	Name="TortoiseMergeLang"
 	ProjectGUID="{1B3C273E-6DDF-4FBE-BA31-FCF39C6DBCF9}"
 	RootNamespace="TortoiseMergeLang"
@@ -68,6 +68,7 @@
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
+				OptimizeForWindows98="1"
 				ResourceOnlyDLL="true"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="1"
@@ -149,6 +150,7 @@
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
+				OptimizeForWindows98="1"
 				ResourceOnlyDLL="true"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="17"
