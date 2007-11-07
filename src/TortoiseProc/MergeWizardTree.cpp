@@ -143,6 +143,9 @@ BOOL CMergeWizardTree::CheckData(bool bShowErrors /* = true */)
 	m_URLCombo2.SaveHistory();
 	m_URLTo = m_URLCombo2.GetString();
 
+	((CMergeWizard*)GetParent())->URL1 = m_URLFrom;
+	((CMergeWizard*)GetParent())->URL2 = m_URLTo;
+
 	UpdateData(FALSE);
 	return TRUE;
 }
