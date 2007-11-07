@@ -217,14 +217,15 @@ BOOL TortoiseBlame::OpenFile(const char *fileName)
 	{
 		return FALSE;
 	}
-	TCHAR line[100*1024];
-	TCHAR * lineptr = NULL;
-	TCHAR * trimptr = NULL;
+	char line[100*1024];
+	char * lineptr = NULL;
+	char * trimptr = NULL;
 	//ignore the first two lines, they're of no interest to us
-	File.getline(line, sizeof(line)/sizeof(TCHAR));
-	File.getline(line, sizeof(line)/sizeof(TCHAR));
+	File.getline(line, sizeof(line)/sizeof(char));
+	File.getline(line, sizeof(line)/sizeof(char));
 	m_lowestrev = LONG_MAX;
 	m_highestrev = 0;
+	bool bUTF8 = true;
 	do
 	{
 		File.getline(line, sizeof(line)/sizeof(TCHAR));
@@ -259,10 +260,88 @@ BOOL TortoiseBlame::OpenFile(const char *fileName)
 				trimptr = lineptr;
 			authors.push_back(std::string(lineptr));
 			lineptr += 31;
+			// in case we find an UTF8 BOM at the beginning of the line, we remove it
+			if ((lineptr[0] == 0xBB)&&(lineptr[1] == 0xEF)&&(lineptr[2] == 0xBF))
+			{
+				lineptr += 3;
+			}
+			// check each line for illegal utf8 sequences. If one is found, we treat
+			// the file as ASCII, otherwise we assume an UTF8 file.
+			char * utf8CheckBuf = lineptr;
+			while ((bUTF8)&&(*utf8CheckBuf))
+			{
+				if ((*utf8CheckBuf == 0xC0)||(*utf8CheckBuf == 0xC1)||(*utf8CheckBuf >= 0xF5))
+				{
+					bUTF8 = false;
+					break;
+				}
+				if ((*utf8CheckBuf & 0xE0)==0xC0)
+				{
+					utf8CheckBuf++;
+					if (*utf8CheckBuf == 0)
+						break;
+					if ((*utf8CheckBuf & 0xC0)!=0x80)
+					{
+						bUTF8 = false;
+						break;
+					}
+				}
+				if ((*utf8CheckBuf & 0xF0)==0xE0)
+				{
+					utf8CheckBuf++;
+					if (*utf8CheckBuf == 0)
+						break;
+					if ((*utf8CheckBuf & 0xC0)!=0x80)
+					{
+						bUTF8 = false;
+						break;
+					}
+					utf8CheckBuf++;
+					if (*utf8CheckBuf == 0)
+						break;
+					if ((*utf8CheckBuf & 0xC0)!=0x80)
+					{
+						bUTF8 = false;
+						break;
+					}
+				}
+				if ((*utf8CheckBuf & 0xF8)==0xF0)
+				{
+					utf8CheckBuf++;
+					if (*utf8CheckBuf == 0)
+						break;
+					if ((*utf8CheckBuf & 0xC0)!=0x80)
+					{
+						bUTF8 = false;
+						break;
+					}
+					utf8CheckBuf++;
+					if (*utf8CheckBuf == 0)
+						break;
+					if ((*utf8CheckBuf & 0xC0)!=0x80)
+					{
+						bUTF8 = false;
+						break;
+					}
+					utf8CheckBuf++;
+					if (*utf8CheckBuf == 0)
+						break;
+					if ((*utf8CheckBuf & 0xC0)!=0x80)
+					{
+						bUTF8 = false;
+						break;
+					}
+				}
+
+				utf8CheckBuf++;
+			}
 			SendEditor(SCI_ADDTEXT, _tcslen(lineptr), reinterpret_cast<LPARAM>(static_cast<char *>(lineptr)));
 			SendEditor(SCI_ADDTEXT, 1, (LPARAM)_T("\n"));
 		}
 	} while (File.gcount() > 0);
+
+	if (bUTF8)
+		SendEditor(SCI_SETCODEPAGE, SC_CP_UTF8);
 
 	SendEditor(SCI_SETUNDOCOLLECTION, 1);
 	::SetFocus(wEditor);
