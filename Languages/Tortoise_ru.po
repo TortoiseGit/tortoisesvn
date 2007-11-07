@@ -11,13 +11,13 @@
 # Stanislav Petrakov <stannic@gmail.com>
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 11263: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 11274: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-11-06 01:06+0300\n"
+"PO-Revision-Date: 2007-11-07 12:38+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -395,6 +395,10 @@ msgstr "&Различия"
 #. Resource IDs: (17)
 msgid "&Diff with URL"
 msgstr "&Различия с файлом по URL"
+
+#. Resource IDs: (14)
+msgid "&Diff with previous version"
+msgstr "С&равнить с предыдущей версией"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -1988,6 +1992,10 @@ msgstr "Не могу удалить \"%s\" из-за того, что"
 msgid "Could not delete property \"%s\" on %s because"
 msgstr "Не могу удалить свойство \"%s\" объекта %s из-за того, что"
 
+#. Resource IDs: (83)
+msgid "Could not determine the last committed revision!"
+msgstr "Не могу определить последнюю зафиксированную ревизию!"
+
 #. Resource IDs: (81)
 msgid "Could not get the status!"
 msgstr "Не могу получить статус!"
@@ -2240,6 +2248,10 @@ msgstr "Различие между"
 #. Resource IDs: (1022)
 msgid "Diffing"
 msgstr "Сравнение"
+
+#. Resource IDs: (14)
+msgid "Diffs the working copy file with the one before the last commit."
+msgstr "Сравнивает файл в рабочей копии с его же версией перед последней фиксацией."
 
 #. Resource IDs: (65535)
 msgid "Directory:"
