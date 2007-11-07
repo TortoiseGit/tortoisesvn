@@ -43,7 +43,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-11-01 16:49+0800\n"
+"PO-Revision-Date: 2007-11-07 17:13+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -404,6 +404,10 @@ msgstr "比较差异(&D)"
 #. Resource IDs: (17)
 msgid "&Diff with URL"
 msgstr "以URL比较(&D)"
+
+#. Resource IDs: (14)
+msgid "&Diff with previous version"
+msgstr "与前一版本比较(&D)"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -1971,6 +1975,10 @@ msgstr "无法删除 “%s”，因为"
 msgid "Could not delete property \"%s\" on %s because"
 msgstr "无法删除属性 “%s” 于 “%s”，因为"
 
+#. Resource IDs: (83)
+msgid "Could not determine the last committed revision!"
+msgstr "无法确定最后提交的版本！"
+
 #. Resource IDs: (81)
 msgid "Could not get the status!"
 msgstr "无法获取状态！"
@@ -2201,10 +2209,6 @@ msgstr "目标磁盘已满。"
 msgid "Dialog sizes and positions"
 msgstr "窗口大小及位置"
 
-#. Resource IDs: (146)
-msgid "Diff With URL"
-msgstr "以URL比较"
-
 #. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "补丁文件："
@@ -2213,6 +2217,10 @@ msgstr "补丁文件："
 msgid "Diff options"
 msgstr "差异选项"
 
+#. Resource IDs: (146, 279)
+msgid "Diff with URL"
+msgstr "以 URL 比较"
+
 #. Resource IDs: (1302)
 msgid "Difference between"
 msgstr "比较"
@@ -2220,6 +2228,10 @@ msgstr "比较"
 #. Resource IDs: (1022)
 msgid "Diffing"
 msgstr "比较差异"
+
+#. Resource IDs: (14)
+msgid "Diffs the working copy file with the one before the last commit."
+msgstr "将工作副本中的文件与最后提交之前比较。"
 
 #. Resource IDs: (65535)
 msgid "Directory:"
@@ -4415,6 +4427,11 @@ msgstr "属性..."
 #. Resource IDs: (11)
 msgid "Property"
 msgstr "属性"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : Revision %s"
+msgstr "属性 %s：版本 %s"
 
 #. Resource IDs: (151)
 #, c-format
