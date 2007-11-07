@@ -1,6 +1,6 @@
 // TortoiseBlame - a Viewer for Subversion Blames
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -200,6 +200,14 @@ targetPath tellTarget toggleHighQuality trace unescape unloadMovie unLoadMovieNu
 			(_tcscmp(line, _T("xml"))==0)||
 			(_tcscmp(line, _T("asp"))==0)||
 			(_tcscmp(line, _T("xsl"))==0)||
+			(_tcscmp(line, _T("php"))==0)||
+			(_tcscmp(line, _T("xhtml"))==0)||
+			(_tcscmp(line, _T("phtml"))==0)||
+			(_tcscmp(line, _T("cfm"))==0)||
+			(_tcscmp(line, _T("tpl"))==0)||
+			(_tcscmp(line, _T("dtd"))==0)||
+			(_tcscmp(line, _T("hta"))==0)||
+			(_tcscmp(line, _T("htd"))==0)||
 			(_tcscmp(line, _T("wxs"))==0))
 		{
 			SendEditor(SCI_SETLEXER, SCLEX_HTML);
@@ -272,6 +280,7 @@ xor virtual while __file__ __line__ __sleep __wakeup"));
 
 			SetAStyle(SCE_H_TAGEND, darkBlue);
 			SetAStyle(SCE_H_XMLSTART, darkBlue);	// <?
+			SetAStyle(SCE_H_QUESTION, darkBlue);	// <?
 			SetAStyle(SCE_H_XMLEND, darkBlue);		// ?>
 			SetAStyle(SCE_H_SCRIPT, darkBlue);		// <script
 			SetAStyle(SCE_H_ASP, RGB(0x4F, 0x4F, 0), RGB(0xFF, 0xFF, 0));	// <% ... %>
@@ -344,6 +353,18 @@ xor virtual while __file__ __line__ __sleep __wakeup"));
 			SetAStyle(SCE_HJA_DOUBLESTRING, RGB(0x80,0,0x80));
 			SetAStyle(SCE_HJA_SINGLESTRING, RGB(0x80,0,0x80));
 			SetAStyle(SCE_HJA_SYMBOLS, black);
+
+			SetAStyle(SCE_HPHP_DEFAULT, black);
+			SetAStyle(SCE_HPHP_HSTRING,  RGB(0x80,0,0x80));
+			SetAStyle(SCE_HPHP_SIMPLESTRING,  RGB(0x80,0,0x80));
+			SetAStyle(SCE_HPHP_WORD, darkBlue);
+			SetAStyle(SCE_HPHP_NUMBER, RGB(0,0x80,0x80));
+			SetAStyle(SCE_HPHP_VARIABLE, red);
+			SetAStyle(SCE_HPHP_HSTRING_VARIABLE, red);
+			SetAStyle(SCE_HPHP_COMPLEX_VARIABLE, red);
+			SetAStyle(SCE_HPHP_COMMENT, darkGreen);
+			SetAStyle(SCE_HPHP_COMMENTLINE, darkGreen);
+			SetAStyle(SCE_HPHP_OPERATOR, darkBlue);
 
 			// Show the whole section of Javascript with off white background
 			for (int jstyle=SCE_HJ_DEFAULT; jstyle<=SCE_HJ_SYMBOLS; jstyle++) {
