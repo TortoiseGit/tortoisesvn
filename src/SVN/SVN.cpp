@@ -1497,7 +1497,7 @@ void SVN::ReceiveLog ( LogChangedPathArray* changes
         , stdRevProps == NULL ? emptyString : stdRevProps->message
 		, changes
         , stdRevProps == NULL ? apr_time_t(0) : stdRevProps->timeStamp
-		, static_cast<int>(changes->GetCount())
+        , changes == NULL ? 0 : static_cast<int>(changes->GetCount())
 		, copies
 		, actions
         , mergesFollow);
