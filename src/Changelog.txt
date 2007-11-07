@@ -39,8 +39,6 @@
 - NEW: Option to show the "Get Lock" menu entry on the top level menu
        only if the svn:needs-lock property is set. 
        See issue #261 for details. (Stefan)
-- NEW: Command line params to fill in values in the merge dialog.
-       See issue #280 for details. (Stefan)
 - NEW: When exporting with a right-drag, ask the user whether to 
        overwrite an already existing folder or if TSVN should 
        automatically rename the target. See issue #227 for details. (Stefan)
@@ -83,7 +81,6 @@
 - NEW: Button to show the log and select a revision in the
        switch dialog. (Stefan)
 - NEW: New coloring option for modified lines in TortoiseMerge. (Stefan)
-- NEW: Exporting a working copy works on Vista. (Stefan)
 - NEW: Unlocking now shows a dialog where the files can be selected
        to unlock. See issue #331 for details. (Stefan)
 - NEW: The checkout and export dialog automatically create the target
@@ -129,7 +126,7 @@
 - NEW: A description of a command is shown in the progress dialog 
        before the actual command is executed. See issue #348
        for details. (Stefan)
-- NEW: Automation interface for SubWCRev. 
+- NEW: Automation (COM) interface for SubWCRev. 
        See issue #362 for details. (Stefan)
 - NEW: Option to skip the lock dialog.
        See issue #332 for details. (Stefan)
@@ -196,27 +193,17 @@
        performance improvement. (Stefan Fuhrmann)
 - CHG: The working copy is now the default in the branch/tag dialog
        instead of HEAD. See issue #258 for details. (Stefan)
-- CHG: When copying selected lines to the clipboard, a newline is added
-       at the end of the last line. See issue #272 for details. (Stefan)
-- CHG: More accelerator keys and menu reorganization in TortoiseMerge.
-       See issue #284 for details. (Jeremy Whitby)
 - CHG: CrashRpt.dll is now loaded with an absolute path. This prevents
        TSVN from loading an arbitrary DLL. See issue #278 for details.
        (Tobias Schäfer)
 - CHG: Pressing Enter in the issue ID text box of the commit dialog now
        sets the focus to the commit message. See issue #292 for details.
        (Tobias Schäfer)
-- CHG: Make the option "link images together" the default 
-       in TortoiseIDiff. (Stefan)
 - CHG: Menu items which should appear in the top level menu now need to
        be checked instead of unchecked. See issue #306 for details.
        (Tobias Schäfer)
-- CHG: Various resizable dialogs now have the maximize and minimize
-       window buttons. (Tobias Schäfer)
 - CHG: Spell corrections are now shown in the top level context menu instead
        of a submenu in the commit dialog. See issue #285 for details. (Stefan)
-- CHG: The tab order in the commit dialog was changed.
-       See issue #291 for details. (Stefan)
 - CHG: When doing actions (e.g. move/copy/...) in the repository browser,
        the dialog asking for the log message indicates clearly what action
        is done. See issue #296 for details. (Stefan)
@@ -251,21 +238,18 @@
        /notempfile anymore. See issue #298 for details. (Tobias Schäfer)
 - CHG: The /revstart, /revend and /revpeg parameters have been renamed
        consistently  to /startrev, /endrev and /pegrev. (Tobias Schäfer)
-- CHG: The log dialog now opens up with the topmost revision being
-       preselected. (Tobias Schäfer)
 - CHG: The second context menu item for links now only appears if the
        destination is in a working copy. (Tobias Schäfer)
-- CHG: Context menu (log, merge) available also for deletion nodes in 
+- CHG: Context menu (log, merge) available also for deleted nodes in 
        revision dialog (Stefan Fuhrmann)
 - BUG: TortoiseMerge didn't always ask to save the modifications first before
        the user did something which would lose those modifications
        (e.g. open new files). (Stefan)
 - BUG: "Create Patch" could include two copies of the same file. See
        issue #241 for details. (Stefan)
-- BUG: "Next 100" in log dialog now adds another 100 entries, not just 99. 
-       (Stefan Fuhrmann)
 - BUG: Tooltip flicker in revision dialog for very long log messages.
        (Stefan Fuhrmann)
+- BUG: Exporting a working copy works on Vista. (Stefan)
 
 Version 1.4.6
 - BUG: When upgrading, the MFC/CRT libs weren't updated if
