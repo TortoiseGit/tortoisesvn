@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-11-06 09:26+0100\n"
+"PO-Revision-Date: 2007-11-07 12:05+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -355,6 +355,10 @@ msgstr "&Vergleich"
 #. Resource IDs: (17)
 msgid "&Diff with URL"
 msgstr "&Vergleich mit URL"
+
+#. Resource IDs: (14)
+msgid "&Diff with previous version"
+msgstr "&Vergleiche mit vorheriger Revision"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -1930,6 +1934,10 @@ msgstr "Konnte '%s' nicht löschen, weil"
 msgid "Could not delete property \"%s\" on %s because"
 msgstr "Konnte Eigenschaft '%s' nicht von %s löschen, weil"
 
+#. Resource IDs: (83)
+msgid "Could not determine the last committed revision!"
+msgstr "Konnte die letzte übertragene Revision nicht ermitteln!"
+
 #. Resource IDs: (81)
 msgid "Could not get the status!"
 msgstr "Konnte den Status nicht ermitteln!"
@@ -2180,6 +2188,10 @@ msgstr "Unterschiede zwischen"
 #. Resource IDs: (1022)
 msgid "Diffing"
 msgstr "Vergleiche"
+
+#. Resource IDs: (14)
+msgid "Diffs the working copy file with the one before the last commit."
+msgstr "Vergleicht die Datei in Arbeitskopie mit der vor der letzten Übertragung."
 
 #. Resource IDs: (65535)
 msgid "Directory:"
