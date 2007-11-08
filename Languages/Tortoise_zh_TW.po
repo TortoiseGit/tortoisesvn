@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-10-31 23:09+0800\n"
+"PO-Revision-Date: 2007-11-09 00:03+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -353,6 +353,10 @@ msgstr "比對差異(&D)"
 #. Resource IDs: (17)
 msgid "&Diff with URL"
 msgstr "以URL比對(&R)"
+
+#. Resource IDs: (14)
+msgid "&Diff with previous version"
+msgstr "與前一個版本比對(&D)"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -1922,6 +1926,10 @@ msgstr "無法刪除 \"%s\" :"
 msgid "Could not delete property \"%s\" on %s because"
 msgstr "無法刪除性質 \"%s\" 至 \"%s\":"
 
+#. Resource IDs: (83)
+msgid "Could not determine the last committed revision!"
+msgstr "無法判斷最後送交的版本!"
+
 #. Resource IDs: (81)
 msgid "Could not get the status!"
 msgstr "無法取得狀態!"
@@ -2152,10 +2160,6 @@ msgstr "目的磁碟已滿."
 msgid "Dialog sizes and positions"
 msgstr "視窗大小與位置"
 
-#. Resource IDs: (146)
-msgid "Diff With URL"
-msgstr "以URL比對差異"
-
 #. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "差異檔:"
@@ -2164,6 +2168,10 @@ msgstr "差異檔:"
 msgid "Diff options"
 msgstr "差異比對選項"
 
+#. Resource IDs: (146, 279)
+msgid "Diff with URL"
+msgstr "以URL比對"
+
 #. Resource IDs: (1302)
 msgid "Difference between"
 msgstr "差異:"
@@ -2171,6 +2179,10 @@ msgstr "差異:"
 #. Resource IDs: (1022)
 msgid "Diffing"
 msgstr "比對差異"
+
+#. Resource IDs: (14)
+msgid "Diffs the working copy file with the one before the last commit."
+msgstr "比對工作複本檔案與前次送交版本的差異."
 
 #. Resource IDs: (65535)
 msgid "Directory:"
@@ -4379,6 +4391,11 @@ msgstr "性質"
 
 #. Resource IDs: (151)
 #, c-format
+msgid "Property %s : Revision %s"
+msgstr "性質 %s : 版本 %s"
+
+#. Resource IDs: (151)
+#, c-format
 msgid "Property %s : remote"
 msgstr "性質 %s : 遠端版本"
 
@@ -6299,11 +6316,11 @@ msgstr "URL: "
 #, c-format
 msgid ""
 "Unable to determine merge source for\n"
-"%\n"
+"%s\n"
 "Please use the main merge dialog."
 msgstr ""
 "無法判斷合併來源:\n"
-"%\n"
+"%s\n"
 "請使用完整的合併視窗."
 
 #. Resource IDs: (3866)
