@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-11-07 20:29+0100\n"
+"PO-Revision-Date: 2007-11-08 18:02+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -407,6 +407,10 @@ msgstr "&Sammenlign"
 #. Resource IDs: (17)
 msgid "&Diff with URL"
 msgstr "&Sammenlign med URL"
+
+#. Resource IDs: (14)
+msgid "&Diff with previous version"
+msgstr "&Sammenlign med forrige revisjon"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -1977,6 +1981,10 @@ msgstr "Kunne ikke slette \"%s\" fordi"
 msgid "Could not delete property \"%s\" on %s because"
 msgstr "Kunne ikke slette egenskapen \"%s\" på %s fordi"
 
+#. Resource IDs: (83)
+msgid "Could not determine the last committed revision!"
+msgstr "Kunne ikke bestemme sist innsendte revisjon!"
+
 #. Resource IDs: (81)
 msgid "Could not get the status!"
 msgstr "Kunne ikke hente statusen!"
@@ -2207,10 +2215,6 @@ msgstr "Måldisken er full."
 msgid "Dialog sizes and positions"
 msgstr "Størrelse og posisjon for dialogvinduer"
 
-#. Resource IDs: (146)
-msgid "Diff With URL"
-msgstr "Sammenlign med URL"
-
 #. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "Forskjells-fil:"
@@ -2219,6 +2223,10 @@ msgstr "Forskjells-fil:"
 msgid "Diff options"
 msgstr "Forskjellsopsjoner"
 
+#. Resource IDs: (146, 279)
+msgid "Diff with URL"
+msgstr "Sammenlign med URL"
+
 #. Resource IDs: (1302)
 msgid "Difference between"
 msgstr "Forskjeller mellom"
@@ -2226,6 +2234,10 @@ msgstr "Forskjeller mellom"
 #. Resource IDs: (1022)
 msgid "Diffing"
 msgstr "Forskjellsbehandling"
+
+#. Resource IDs: (14)
+msgid "Diffs the working copy file with the one before the last commit."
+msgstr "Sammenligner filen i arbeiskopien med versjonen fra før siste innsending."
 
 #. Resource IDs: (65535)
 msgid "Directory:"
