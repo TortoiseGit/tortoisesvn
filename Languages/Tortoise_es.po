@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-10-31 23:08+0100\n"
+"PO-Revision-Date: 2007-11-08 23:23+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -354,6 +354,10 @@ msgstr "&Diff"
 #. Resource IDs: (17)
 msgid "&Diff with URL"
 msgstr "&Diferenciar con URL"
+
+#. Resource IDs: (14)
+msgid "&Diff with previous version"
+msgstr "&Comparar con la revisión anterior"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -1925,6 +1929,10 @@ msgstr "No se pudo eliminar \"%s\" porque"
 msgid "Could not delete property \"%s\" on %s because"
 msgstr "No se pudo eliminar la propiedad \"%s\" en %s porque"
 
+#. Resource IDs: (83)
+msgid "Could not determine the last committed revision!"
+msgstr "¡No se pudo determinar la última revisión confirmada!"
+
 #. Resource IDs: (81)
 msgid "Could not get the status!"
 msgstr "¡No se puede obtener el estado!"
@@ -2048,7 +2056,7 @@ msgstr ""
 
 #. Resource IDs: (8)
 msgid "Create repositor&y here"
-msgstr "Crear un repositorio aquí"
+msgstr "Crear un repositor&io aquí"
 
 #. Resource IDs: (32828)
 msgid "Create unified diff file"
@@ -2155,10 +2163,6 @@ msgstr "La unidad de disco de destino está llena."
 msgid "Dialog sizes and positions"
 msgstr "Tamaños y posiciones de los diálogos"
 
-#. Resource IDs: (146)
-msgid "Diff With URL"
-msgstr "Diferenciar Con URL"
-
 #. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "Fichero de diferencias:"
@@ -2167,6 +2171,10 @@ msgstr "Fichero de diferencias:"
 msgid "Diff options"
 msgstr "Opciones de diferenciación"
 
+#. Resource IDs: (146, 279)
+msgid "Diff with URL"
+msgstr "Diferenciar con URL"
+
 #. Resource IDs: (1302)
 msgid "Difference between"
 msgstr "Diferencia entre"
@@ -2174,6 +2182,10 @@ msgstr "Diferencia entre"
 #. Resource IDs: (1022)
 msgid "Diffing"
 msgstr "Calculo de diferencias"
+
+#. Resource IDs: (14)
+msgid "Diffs the working copy file with the one before the last commit."
+msgstr "Diferencia el fichero de la copia de trabajo con el que había antes de la última confirmación."
 
 #. Resource IDs: (65535)
 msgid "Directory:"
@@ -2727,7 +2739,7 @@ msgstr "¡Terminado!"
 
 #. Resource IDs: (32810)
 msgid "Fit image &sizes"
-msgstr "Ajustar tamaño%s de las imágenes"
+msgstr "Ajustar tamaño&s de las imágenes"
 
 #. Resource IDs: (1315)
 msgid "Floppy drives (A: B:)"
@@ -4411,6 +4423,11 @@ msgstr "Propiedades..."
 #. Resource IDs: (11)
 msgid "Property"
 msgstr "Propiedad"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : Revision %s"
+msgstr "Propiedad %s : Revisión %s"
 
 #. Resource IDs: (151)
 #, c-format
