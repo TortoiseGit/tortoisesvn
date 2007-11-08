@@ -41,7 +41,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2007-10-30 00:10 +0000\n"
-"PO-Revision-Date: 2007-10-31 11:54+0800\n"
+"PO-Revision-Date: 2007-11-08 14:12+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -338,7 +338,7 @@ msgstr "你可以在右窗格的文件中做简单的基于行的修改，包含
 #. (para)
 #: ../source/TortoiseMerge_en.xml:330
 msgid "You can also edit the file in the right pane just as you would in a text editor. Such lines are marked using a pencil icon. Please note that if you want to make any of the line/block-based changes described above, it is better to do those first since once you start editing the file yourself it becomes impossible for TortoiseMerge to keep track of the relationship to the original files."
-msgstr ""
+msgstr "你可以象在文本编辑器中一样编辑在右边窗格中的文件。这些被修改的行用铅笔图标标记。请注意，如果你要做上述基于行/块的修改，最好在开始编辑文件之前完成。因为在你开始编辑之后，TortoiseMerge 已经不能跟踪它与原始文件的关联了。"
 
 #. (title)
 #: ../source/TortoiseMerge_en.xml:340
@@ -432,7 +432,7 @@ msgstr "这些改变在视图的左边用白色圆形符号标记。如果你看
 #. (para)
 #: ../source/TortoiseMerge_en.xml:449
 msgid "Hand editing of the file in the right pane is possible in two-pane view. Such changes are marked with a pencil symbol."
-msgstr ""
+msgstr "在两窗格视图中，可以在右边的窗格编辑文件。这些修改用铅笔符号标记。"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:420
@@ -602,7 +602,7 @@ msgstr "行状态图标"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:686
 msgid "Changed lines are marked with an icon to indicate what type of change has occurred."
-msgstr ""
+msgstr "已经修改的行用图标指示发生了什么类型的修改。"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:690
@@ -662,7 +662,7 @@ msgstr "有时候，你实际上需要双方的文本块，<menuchoice><guimenu>
 #. (para)
 #: ../source/TortoiseMerge_en.xml:753
 msgid "You can also edit the output file just as you would in a text editor. Such lines are marked using a pencil icon. Please note that if you want to make any of the line/block-based changes described above, it is better to do those first since once you start editing the file yourself it becomes impossible for TortoiseMerge to keep track of the relationship to the original files."
-msgstr ""
+msgstr "你可以象在文本编辑器中一样编辑输出文件。这些被修改的行用铅笔图标标记。请注意，如果你要做上述基于行/块的修改，最好在开始编辑文件之前完成。因为在你开始编辑之后，TortoiseMerge 已经不能跟踪它与原始文件的关联了。"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:761
@@ -672,7 +672,7 @@ msgstr "如果你在三窗口模式(有时称为<emphasis>合并视图</emphasis
 #. (para)
 #: ../source/TortoiseMerge_en.xml:798
 msgid "Sometimes a file will be marked as conflicted in Subversion, yet when you view it using TortoiseMerge there are no conflicts shown. This may be due to the whitespace handling you have chosen. If you choose to ignore line-endings or whitespace changes, those lines will be marked using the <emphasis>Conflict-Ignored</emphasis> icon. To resolve the conflict you still need to pick which version you want to use."
-msgstr ""
+msgstr "有时候在 Subversion 中的文件会被标记为冲突，但是当你用 TortoiseMerge 察看时，却没有显示冲突。这可能是你选择的空白处理方式造成的。如果你选择忽略行结束符或空白改变，这些行会用 <emphasis>冲突被忽略</emphasis> 图标标记。为了解决冲突，你仍旧需要选择你要使用的版本。"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:806
