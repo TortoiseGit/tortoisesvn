@@ -145,6 +145,8 @@ BOOL CMergeWizardTree::CheckData(bool bShowErrors /* = true */)
 
 	((CMergeWizard*)GetParent())->URL1 = m_URLFrom;
 	((CMergeWizard*)GetParent())->URL2 = m_URLTo;
+    ((CMergeWizard*)GetParent())->startRev = StartRev;
+    ((CMergeWizard*)GetParent())->endRev = EndRev;
 
 	UpdateData(FALSE);
 	return TRUE;
