@@ -206,7 +206,9 @@
 				<in>
 					<items>
 						<include name="subversion\svn" />
-						<include name="subversion\svnadmin" />
+						<!-- Don't build svnadmin, since the Subversion build for that is 
+						     currently broken
+						<include name="subversion\svnadmin" /> -->
 					</items>
 				</in>
 				<do>
