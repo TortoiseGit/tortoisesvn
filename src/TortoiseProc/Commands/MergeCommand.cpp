@@ -47,8 +47,9 @@ bool MergeCommand::Execute()
 			}
 			else
 			{
-				progDlg.SetRevision(SVNRev());
-				progDlg.SetRevisionEnd(SVNRev());
+				SVNRevRangeArray tempRevArray;
+				tempRevArray.AddRevRange(SVNRev(), SVNRev());
+				progDlg.SetRevisionRanges(tempRevArray);
 			}
 		}
 		else

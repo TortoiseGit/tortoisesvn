@@ -34,6 +34,11 @@ bool MergeAllCommand::Execute()
 		progDlg.SetDepth(dlg.m_depth);
 		progDlg.SetDiffOptions(SVN::GetOptionsString(dlg.m_bIgnoreEOL, dlg.m_IgnoreSpaces));
 		progDlg.SetOptions(dlg.m_bIgnoreAncestry ? ProgOptIgnoreAncestry : 0);
+
+		SVNRevRangeArray tempRevArray;
+		tempRevArray.AddRevRange(SVNRev(), SVNRev());
+		progDlg.SetRevisionRanges(tempRevArray);
+
 		progDlg.DoModal();
 		return true;
 	}
