@@ -57,10 +57,10 @@
 					<arg value="/GF" if="${configuration == 'release'}" />
 					<arg value="/FD" />
 					<arg value="/EHsc" />
-                    <arg value="/MT" if="${(configuration == 'release') and (static == 'static')}" />
-                    <arg value="/MTd" if="${(configuration != 'release') and (static == 'static')}" />
-                    <arg value="/MD" if="${(configuration == 'release') and (static != 'static')}" />
-                    <arg value="/MDd" if="${(configuration != 'release') and (static != 'static')}" />
+		  <arg value="/MT" if="${(configuration == 'release') and (static == 'static')}" />
+		  <arg value="/MTd" if="${(configuration != 'release') and (static == 'static')}" />
+		  <arg value="/MD" if="${(configuration == 'release') and (static != 'static')}" />
+		  <arg value="/MDd" if="${(configuration != 'release') and (static != 'static')}" />
 					<arg value="/Gy" />
 					<arg value="/W3" />
 					<arg value="/nologo" />
@@ -87,8 +87,8 @@
 					</includedirs>
 					<defines>
 						<define name="_USE_32BIT_TIME_T" if="${platform == 'win32'}" />
-                        <define name="APR_DECLARE_STATIC" if="${static == 'static'}"/>
-                        <define name="APU_DECLARE_STATIC" if="${static == 'static'}"/>
+			<define name="APR_DECLARE_STATIC" if="${static == 'static'}"/>
+			<define name="APU_DECLARE_STATIC" if="${static == 'static'}"/>
 						<define name="APU_HAVE_DB=1" />
 						<define name="ENABLE_NLS" if="${static != 'static'}"/>
 						<define name="SVN_NEON_0_25=1" />
@@ -110,8 +110,8 @@
 					options='/NOLOGO /SUBSYSTEM:WINDOWS ${machineoption}'>
 					<sources>
 						<include name="${configuration}${static}_${platform}\${fname}-nonet\**.obj" />
-                        <include name="..\..\..\common\zlib\${configuration}${static}_${platform}\zlibstat.lib" if="${fname == 'libsvn_subr'}"/>
-                        <include name="..\sqlite\${configuration}${static}_${platform}\sqlite.lib" if="${fname == 'libsvn_fs_fs'}"/>
+			<include name="..\..\..\common\zlib\${configuration}${static}_${platform}\zlibstat.lib" if="${fname == 'libsvn_subr'}"/>
+			<include name="..\sqlite\${configuration}${static}_${platform}\sqlite.lib" if="${fname == 'libsvn_fs_fs'}"/>
 					</sources>
 				</lib>
 			</do>
@@ -135,10 +135,10 @@
 					<arg value="/GF" if="${configuration == 'release'}" />
 					<arg value="/FD" />
 					<arg value="/EHsc" />
-                    <arg value="/MT" if="${(configuration == 'release') and (static == 'static')}" />
-                    <arg value="/MTd" if="${(configuration != 'release') and (static == 'static')}" />
-                    <arg value="/MD" if="${(configuration == 'release') and (static != 'static')}" />
-                    <arg value="/MDd" if="${(configuration != 'release') and (static != 'static')}" />
+		  <arg value="/MT" if="${(configuration == 'release') and (static == 'static')}" />
+		  <arg value="/MTd" if="${(configuration != 'release') and (static == 'static')}" />
+		  <arg value="/MD" if="${(configuration == 'release') and (static != 'static')}" />
+		  <arg value="/MDd" if="${(configuration != 'release') and (static != 'static')}" />
 					<arg value="/Gy" />
 					<arg value="/W3" />
 					<arg value="/nologo" />
@@ -166,8 +166,8 @@
 					</includedirs>
 					<defines>
 						<define name="_USE_32BIT_TIME_T" if="${platform == 'win32'}" />
-                        <define name="APR_DECLARE_STATIC" if="${static == 'static'}"/>
-                        <define name="APU_DECLARE_STATIC" if="${static == 'static'}"/>
+			<define name="APR_DECLARE_STATIC" if="${static == 'static'}"/>
+			<define name="APU_DECLARE_STATIC" if="${static == 'static'}"/>
 						<define name="APU_HAVE_DB=1" />
 						<define name="SVN_LIBSVN_FS_LINKS_FS_BASE=1" />
 						<define name="ENABLE_NLS" if="${static != 'static'}"/>
@@ -194,119 +194,119 @@
 					options='/NOLOGO /SUBSYSTEM:WINDOWS ${machineoption}'>
 					<sources>
 						<include name="${configuration}${static}_${platform}\${fname}\**.obj" />
-                        <include name="..\..\..\common\zlib\${configuration}${static}_${platform}\zlibstat.lib" if="${fname == 'libsvn_subr'}"/>
-                        <include name="..\sqlite\${configuration}${static}_${platform}\sqlite.lib" if="${fname == 'libsvn_fs_fs'}"/>
+			<include name="..\..\..\common\zlib\${configuration}${static}_${platform}\zlibstat.lib" if="${fname == 'libsvn_subr'}"/>
+			<include name="..\sqlite\${configuration}${static}_${platform}\sqlite.lib" if="${fname == 'libsvn_fs_fs'}"/>
 					</sources>
 				</lib>
 			</do>
 		</foreach>
-        
-        <if test="${static != 'static'}" >
-            <foreach item="Folder" property="foldername">
-                <in>
-                    <items>
-                        <include name="subversion\svn" />
-                        <include name="subversion\svnadmin" />
-                    </items>
-                </in>
-                <do>
-                    <property name="toolname" value="${path::get-file-name(foldername)}" />
-                    <mkdir dir="${configuration}${static}_${platform}\${toolname}" />
-                    <rc rcfile="build\win32\svn.rc" output="${configuration}${static}_${platform}\svn.res">
-                        <includedirs>
-                            <include name="..\apr\include" />
-                            <include name="subversion\include" />
-                        </includedirs>
-                    </rc>
-                    <echo message="now building ${toolname}" />
-                    <cl outputdir="${configuration}${static}_${platform}\${toolname}">
-                        <arg value="/O2" if="${configuration == 'release'}" />
-                        <arg value="/Ob1" if="${configuration == 'release'}" />
-                        <arg value="/Od" if="${configuration != 'release'}" />
-                        <arg value="/Oy" if="${configuration != 'release'}" />
-                        <arg value="/GF" if="${configuration == 'release'}" />
-                        <arg value="/FD" />
-                        <arg value="/EHsc" />
-                        <arg value="/MT" if="${(configuration == 'release') and (static == 'static')}" />
-                        <arg value="/MTd" if="${(configuration != 'release') and (static == 'static')}" />
-                        <arg value="/MD" if="${(configuration == 'release') and (static != 'static')}" />
-                        <arg value="/MDd" if="${(configuration != 'release') and (static != 'static')}" />
-                        <arg value="/Gy" />
-                        <arg value="/W3" />
-                        <arg value="/nologo" />
-                        <arg value="/c" />
-                        <arg value="/Zi" />
-                        <arg value="/errorReport:prompt" />
-                        <sources>
-                            <include name="subversion\${toolname}\*.c" />
-                            <exclude name="subversion\libsvn_subr\win32_crash**.c" />
-                        </sources>
-                        <includedirs>
-                            <include name="subversion" />
-                            <include name="subversion\include" />
-                            <include name="subversion\${toolname}" />
-                            <include name="..\apr\include" />
-                            <include name="..\apr-util\include" />
-                            <include name="..\apr-util\xml\expat\lib" />
-                            <include name="..\libintl\libintl3-win32\inc" />
-                            <include name="..\berkeley-db\db4.4-win32\include" if="${platform == 'win32'}" />
-                            <include name="..\berkeley-db\db4.4-x64\include" if="${platform == 'x64'}" />
-                            <include name="..\neon\src" />
-                            <include name="..\serf" />
-                            <include name="..\sqlite" />
-                            <include name="..\cyrus-sasl\include" />
-                        </includedirs>
-                        <defines>
-                            <define name="_USE_32BIT_TIME_T" if="${platform == 'win32'}" />
-                            <define name="APR_DECLARE_EXPORT" if="${static != 'static'}"/>
-                            <define name="APU_DECLARE_EXPORT" if="${static != 'static'}"/>
-                            <define name="APR_DECLARE_STATIC" if="${static == 'static'}"/>
-                            <define name="APU_DECLARE_STATIC" if="${static == 'static'}"/>
-                            <define name="APU_HAVE_DB=1" />
-                            <define name="ENABLE_NLS" if="${static != 'static'}"/>
-                            <define name="SVN_NEON_0_25=1" />
-                            <define name="SVN_NEON_0_26=1" />
-                            <define name="SVN_LIBSVN_FS_LINKS_FS_BASE=1" />
-                            <define name="SVN_LIBSVN_CLIENT_LINKS_RA_DAV=1" />
-                            <define name="SVN_LIBSVN_CLIENT_LINKS_RA_NEON=1" />
-                            <define name="SVN_LIBSVN_CLIENT_LINKS_RA_SERF=1" />
-                            <define name="SVN_HAVE_SASL" />
-                            <define name="alloca=_alloca" />
-                            <define name="SVN_HAVE_SASL" />
-                            <define name="snprintf=_snprintf" />
-                            <define name="WIN32" />
-                            <define name="_WINDOWS" />
-                            <define name="_WIN32" />
+		
+		<if test="${static != 'static'}" >
+			<foreach item="Folder" property="foldername">
+				<in>
+					<items>
+						<include name="subversion\svn" />
+						<include name="subversion\svnadmin" />
+					</items>
+				</in>
+				<do>
+					<property name="toolname" value="${path::get-file-name(foldername)}" />
+					<mkdir dir="${configuration}${static}_${platform}\${toolname}" />
+					<rc rcfile="build\win32\svn.rc" output="${configuration}${static}_${platform}\svn.res">
+						<includedirs>
+							<include name="..\apr\include" />
+							<include name="subversion\include" />
+						</includedirs>
+					</rc>
+					<echo message="now building ${toolname}" />
+					<cl outputdir="${configuration}${static}_${platform}\${toolname}">
+						<arg value="/O2" if="${configuration == 'release'}" />
+						<arg value="/Ob1" if="${configuration == 'release'}" />
+						<arg value="/Od" if="${configuration != 'release'}" />
+						<arg value="/Oy" if="${configuration != 'release'}" />
+						<arg value="/GF" if="${configuration == 'release'}" />
+						<arg value="/FD" />
+						<arg value="/EHsc" />
+						<arg value="/MT" if="${(configuration == 'release') and (static == 'static')}" />
+						<arg value="/MTd" if="${(configuration != 'release') and (static == 'static')}" />
+						<arg value="/MD" if="${(configuration == 'release') and (static != 'static')}" />
+						<arg value="/MDd" if="${(configuration != 'release') and (static != 'static')}" />
+						<arg value="/Gy" />
+						<arg value="/W3" />
+						<arg value="/nologo" />
+						<arg value="/c" />
+						<arg value="/Zi" />
+						<arg value="/errorReport:prompt" />
+						<sources>
+							<include name="subversion\${toolname}\*.c" />
+							<exclude name="subversion\libsvn_subr\win32_crash**.c" />
+						</sources>
+						<includedirs>
+							<include name="subversion" />
+							<include name="subversion\include" />
+							<include name="subversion\${toolname}" />
+							<include name="..\apr\include" />
+							<include name="..\apr-util\include" />
+							<include name="..\apr-util\xml\expat\lib" />
+							<include name="..\libintl\libintl3-win32\inc" />
+							<include name="..\berkeley-db\db4.4-win32\include" if="${platform == 'win32'}" />
+							<include name="..\berkeley-db\db4.4-x64\include" if="${platform == 'x64'}" />
+							<include name="..\neon\src" />
+							<include name="..\serf" />
+							<include name="..\sqlite" />
+							<include name="..\cyrus-sasl\include" />
+						</includedirs>
+						<defines>
+							<define name="_USE_32BIT_TIME_T" if="${platform == 'win32'}" />
+							<define name="APR_DECLARE_EXPORT" if="${static != 'static'}"/>
+							<define name="APU_DECLARE_EXPORT" if="${static != 'static'}"/>
+							<define name="APR_DECLARE_STATIC" if="${static == 'static'}"/>
+							<define name="APU_DECLARE_STATIC" if="${static == 'static'}"/>
+							<define name="APU_HAVE_DB=1" />
+							<define name="ENABLE_NLS" if="${static != 'static'}"/>
+							<define name="SVN_NEON_0_25=1" />
+							<define name="SVN_NEON_0_26=1" />
+							<define name="SVN_LIBSVN_FS_LINKS_FS_BASE=1" />
+							<define name="SVN_LIBSVN_CLIENT_LINKS_RA_DAV=1" />
+							<define name="SVN_LIBSVN_CLIENT_LINKS_RA_NEON=1" />
+							<define name="SVN_LIBSVN_CLIENT_LINKS_RA_SERF=1" />
+							<define name="SVN_HAVE_SASL" />
+							<define name="alloca=_alloca" />
+							<define name="SVN_HAVE_SASL" />
+							<define name="snprintf=_snprintf" />
+							<define name="WIN32" />
+							<define name="_WINDOWS" />
+							<define name="_WIN32" />
 							<define name="_WIN32_WINNT" value="0x0500" />
 							<define name="APR_HAVE_IPV6" />
-                            <define name="WIN64" if="${platform == 'x64'}" />
-                            <define name="NDEBUG" if="${configuration == 'release'}"/>
-                            <define name="_DEBUG" if="${configuration != 'release'}"/>
-                        </defines>
-                    </cl>
-                    <echo message="now linking ${toolname}" />
-                    <property name="confletter" value="" />
-                    <if test="${configuration == 'debug'}">
-                        <property name="confletter" value="D" />
-                    </if>
-                    <property name="bdbpath" value="..\berkeley-db\db4.4-win32" />
-                    <property name="bdbpath" value="..\berkeley-db\db4.4-x64" if="${platform == 'x64'}" />
-                    <link 
-                        output="${configuration}${static}_${platform}\${toolname}.exe" 
-                        options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\${toolname}.exe.intermediate.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/${toolname}.pdb" /SUBSYSTEM:CONSOLE /OPT:REF ${configuration}${static}_${platform}\libsvn_client.lib ${configuration}${static}_${platform}\libsvn_delta.lib ${configuration}${static}_${platform}\libsvn_diff.lib ${configuration}${static}_${platform}\libsvn_fs.lib ${configuration}${static}_${platform}\libsvn_fs_base.lib ${configuration}${static}_${platform}\libsvn_fs_fs.lib ${configuration}${static}_${platform}\libsvn_fs_util.lib ${configuration}${static}_${platform}\libsvn_ra.lib ${configuration}${static}_${platform}\libsvn_ra_neon.lib ${configuration}${static}_${platform}\libsvn_ra_serf.lib ${configuration}${static}_${platform}\libsvn_ra_local.lib ${configuration}${static}_${platform}\libsvn_ra_svn.lib ${configuration}${static}_${platform}\libsvn_repos.lib ${configuration}${static}_${platform}\libsvn_subr.lib ${configuration}${static}_${platform}\libsvn_wc.lib ..\apr\${configuration}${static}_${platform}\libapr_tsvn.lib ..\apr-util\${configuration}${static}_${platform}\libaprutil_tsvn.lib ${bdbpath}\lib\libdb44${confletter}.lib ..\neon\${configuration}${static}_${platform}\libneon.lib ..\serf\${configuration}${static}_${platform}\libserf.lib ..\..\..\common\zlib\${configuration}${static}_${platform}\zlibstat.lib ..\..\..\common\openssl\out32\libeay32.lib ..\..\..\common\openssl\out32\ssleay32.lib ..\libintl\libintl3-${platform}\lib\intl3_tsvn.lib ..\apr-util\xml\expat\lib\${configuration}${static}_${platform}\xml.lib ..\sqlite\${configuration}${static}_${platform}\sqlite.lib ..\cyrus-SASL\2.1.22-${platform}\lib\${configuration}\libsasl.lib ${machineoption} ${configuration}${static}_${platform}\svn.res ${machineoption} ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib gdi32.lib user32.lib shell32.lib ole32.lib'>
-                        <sources>
-                            <include name="${configuration}${static}_${platform}\${toolname}\*.obj" />
-                        </sources>
-                    </link>
-                    <exec program="mt.exe">
-                        <arg value="-nologo" />
-                        <arg value="-manifest" />
-                        <arg value=".\${configuration}${static}_${platform}\${toolname}.exe.intermediate.manifest" />
-                        <arg value='/outputresource:".\${configuration}${static}_${platform}\${toolname}.exe;#1"' />
-                    </exec>
-                </do>
-            </foreach>
-        </if>
+							<define name="WIN64" if="${platform == 'x64'}" />
+							<define name="NDEBUG" if="${configuration == 'release'}"/>
+							<define name="_DEBUG" if="${configuration != 'release'}"/>
+						</defines>
+					</cl>
+					<echo message="now linking ${toolname}" />
+					<property name="confletter" value="" />
+					<if test="${configuration == 'debug'}">
+						<property name="confletter" value="D" />
+					</if>
+					<property name="bdbpath" value="..\berkeley-db\db4.4-win32" />
+					<property name="bdbpath" value="..\berkeley-db\db4.4-x64" if="${platform == 'x64'}" />
+					<link 
+						output="${configuration}${static}_${platform}\${toolname}.exe" 
+						options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\${toolname}.exe.intermediate.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/${toolname}.pdb" /SUBSYSTEM:CONSOLE /OPT:REF ${configuration}${static}_${platform}\libsvn_client.lib ${configuration}${static}_${platform}\libsvn_delta.lib ${configuration}${static}_${platform}\libsvn_diff.lib ${configuration}${static}_${platform}\libsvn_fs.lib ${configuration}${static}_${platform}\libsvn_fs_base.lib ${configuration}${static}_${platform}\libsvn_fs_fs.lib ${configuration}${static}_${platform}\libsvn_fs_util.lib ${configuration}${static}_${platform}\libsvn_ra.lib ${configuration}${static}_${platform}\libsvn_ra_neon.lib ${configuration}${static}_${platform}\libsvn_ra_serf.lib ${configuration}${static}_${platform}\libsvn_ra_local.lib ${configuration}${static}_${platform}\libsvn_ra_svn.lib ${configuration}${static}_${platform}\libsvn_repos.lib ${configuration}${static}_${platform}\libsvn_subr.lib ${configuration}${static}_${platform}\libsvn_wc.lib ..\apr\${configuration}${static}_${platform}\libapr_tsvn.lib ..\apr-util\${configuration}${static}_${platform}\libaprutil_tsvn.lib ${bdbpath}\lib\libdb44${confletter}.lib ..\neon\${configuration}${static}_${platform}\libneon.lib ..\serf\${configuration}${static}_${platform}\libserf.lib ..\..\..\common\zlib\${configuration}${static}_${platform}\zlibstat.lib ..\..\..\common\openssl\out32\libeay32.lib ..\..\..\common\openssl\out32\ssleay32.lib ..\libintl\libintl3-${platform}\lib\intl3_tsvn.lib ..\apr-util\xml\expat\lib\${configuration}${static}_${platform}\xml.lib ..\sqlite\${configuration}${static}_${platform}\sqlite.lib ..\cyrus-SASL\2.1.22-${platform}\lib\${configuration}\libsasl.lib ${machineoption} ${configuration}${static}_${platform}\svn.res ${machineoption} ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib gdi32.lib user32.lib shell32.lib ole32.lib'>
+						<sources>
+							<include name="${configuration}${static}_${platform}\${toolname}\*.obj" />
+						</sources>
+					</link>
+					<exec program="mt.exe">
+						<arg value="-nologo" />
+						<arg value="-manifest" />
+						<arg value=".\${configuration}${static}_${platform}\${toolname}.exe.intermediate.manifest" />
+						<arg value='/outputresource:".\${configuration}${static}_${platform}\${toolname}.exe;#1"' />
+					</exec>
+				</do>
+			</foreach>
+		</if>
 	</target>
 
 </project>
