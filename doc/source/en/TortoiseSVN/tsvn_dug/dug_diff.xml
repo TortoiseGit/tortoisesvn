@@ -77,11 +77,12 @@
 						<menuchoice>
 							<guimenu>TortoiseSVN</guimenu>
 							<guimenuitem>Diff with previous version</guimenuitem>
-						</menuchoice>. This will perform a diff between the revision before
-						you last committed the file and the working copy, effectively
-						showing you the last change you made to that file.
-						In case you updated the file and got changes someone else made
-						to that file already, it will show you those changes.
+						</menuchoice>.
+						This will perform a diff between the revision before
+						the last-commit-date (as recorded in your working copy) and the
+						working BASE. This shows you the last change made to that file
+						to bring it to the state you now see in your working copy.
+						It will not show changes newer than your working copy.
 					</para>
 				</listitem>
 			</varlistentry>
