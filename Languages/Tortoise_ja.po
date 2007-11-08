@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-11-01 11:15+0900\n"
+"PO-Revision-Date: 2007-11-08 11:49+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -361,6 +361,10 @@ msgstr "差分(&D)"
 #. Resource IDs: (17)
 msgid "&Diff with URL"
 msgstr "URL と差分(&D)"
+
+#. Resource IDs: (14)
+msgid "&Diff with previous version"
+msgstr "以前のバージョンと差分(&D)"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -1929,6 +1933,10 @@ msgstr "\"%s\" を削除できませんでした。"
 msgid "Could not delete property \"%s\" on %s because"
 msgstr "属性 \"%s\" を %s に削除できませんでした。"
 
+#. Resource IDs: (83)
+msgid "Could not determine the last committed revision!"
+msgstr "最後にコミットしたリビジョンを決定できませんでした！"
+
 #. Resource IDs: (81)
 msgid "Could not get the status!"
 msgstr "状態を取得できませんでした！"
@@ -2159,10 +2167,6 @@ msgstr "送り先ディスクドライブはいっぱいです。"
 msgid "Dialog sizes and positions"
 msgstr "ダイアログのサイズと位置"
 
-#. Resource IDs: (146)
-msgid "Diff With URL"
-msgstr "URL と差分"
-
 #. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "差分ファイル:"
@@ -2171,6 +2175,10 @@ msgstr "差分ファイル:"
 msgid "Diff options"
 msgstr "差分設定"
 
+#. Resource IDs: (146, 279)
+msgid "Diff with URL"
+msgstr "URL と差分"
+
 #. Resource IDs: (1302)
 msgid "Difference between"
 msgstr "差分"
@@ -2178,6 +2186,10 @@ msgstr "差分"
 #. Resource IDs: (1022)
 msgid "Diffing"
 msgstr "差分中"
+
+#. Resource IDs: (14)
+msgid "Diffs the working copy file with the one before the last commit."
+msgstr "作業コピーのファイルと最後のコミット以前のものとの差分をとる"
 
 #. Resource IDs: (65535)
 msgid "Directory:"
@@ -4385,6 +4397,11 @@ msgstr "属性 ..."
 #. Resource IDs: (11)
 msgid "Property"
 msgstr "属性"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : Revision %s"
+msgstr "属性 %s : リビジョン %s"
 
 #. Resource IDs: (151)
 #, c-format
