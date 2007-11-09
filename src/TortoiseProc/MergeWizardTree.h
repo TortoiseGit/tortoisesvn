@@ -44,6 +44,7 @@ protected:
 	afx_msg void		OnBnClickedBrowse();
 	afx_msg void		OnBnClickedFindbranchstart();
 	afx_msg void		OnBnClickedFindbranchend();
+	afx_msg void		OnBnClickedShowlogwc();
 	afx_msg void		OnBnClickedBrowse2();
 	afx_msg void		OnEnChangeRevisionEnd();
 	afx_msg void		OnEnChangeRevisionStart();
@@ -57,6 +58,7 @@ protected:
 
 	CLogDlg *			m_pLogDlg;
 	CLogDlg *			m_pLogDlg2;
+	CLogDlg *			m_pLogDlg3;
 	CHistoryCombo		m_URLCombo;
 	CHistoryCombo		m_URLCombo2;
 	CString				m_sStartRev;

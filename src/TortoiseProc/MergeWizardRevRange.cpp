@@ -30,6 +30,7 @@ CMergeWizardRevRange::CMergeWizardRevRange()
 	: CMergeWizardBasePage(CMergeWizardRevRange::IDD)
 	, m_sRevRange(_T(""))
 	, m_pLogDlg(NULL)
+	, m_pLogDlg2(NULL)
 {
 	m_psp.dwFlags |= PSP_DEFAULT|PSP_USEHEADERTITLE|PSP_USEHEADERSUBTITLE;
 	m_psp.pszHeaderTitle = MAKEINTRESOURCE(IDS_MERGEWIZARD_REVRANGETITLE);
@@ -42,6 +43,11 @@ CMergeWizardRevRange::~CMergeWizardRevRange()
 	{
 		m_pLogDlg->DestroyWindow();
 		delete m_pLogDlg;
+	}
+	if (m_pLogDlg2)
+	{
+		m_pLogDlg2->DestroyWindow();
+		delete m_pLogDlg2;
 	}
 }
 
@@ -58,6 +64,7 @@ BEGIN_MESSAGE_MAP(CMergeWizardRevRange, CMergeWizardBasePage)
 	ON_REGISTERED_MESSAGE(WM_REVLIST, OnRevSelected)
 	ON_BN_CLICKED(IDC_SELLOG, &CMergeWizardRevRange::OnBnClickedShowlog)
 	ON_BN_CLICKED(IDC_BROWSE, &CMergeWizardRevRange::OnBnClickedBrowse)
+	ON_BN_CLICKED(IDC_SHOWLOGWC, &CMergeWizardRevRange::OnBnClickedShowlogwc)
 END_MESSAGE_MAP()
 
 
@@ -109,6 +116,8 @@ BOOL CMergeWizardRevRange::OnInitDialog()
 	CString sLabel;
 	sLabel.LoadString(IDS_MERGEWIZARD_REVRANGESTRING);
 	SetDlgItemText(IDC_REVRANGELABEL, sLabel);
+
+	SetDlgItemText(IDC_WCEDIT, ((CMergeWizard*)GetParent())->wcPath.GetWinPath());
 
 	AdjustControlSize(IDC_REVERSEMERGE);
 
@@ -171,4 +180,23 @@ BOOL CMergeWizardRevRange::OnSetActive()
 	SetButtonTexts();
 
 	return CMergeWizardBasePage::OnSetActive();
+}
+
+void CMergeWizardRevRange::OnBnClickedShowlogwc()
+{
+	CTSVNPath wcPath = ((CMergeWizard*)GetParent())->wcPath;
+	if (m_pLogDlg2)
+		m_pLogDlg2->DestroyWindow();
+	delete m_pLogDlg2;
+	m_pLogDlg2 = new CLogDlg();
+	CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
+	int limit = (int)(LONG)reg;
+	m_pLogDlg2->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_MERGE_SELECTRANGE)));
+
+	m_pLogDlg2->m_pNotifyWindow = NULL;
+	m_pLogDlg2->SetParams(wcPath, SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, limit, TRUE, FALSE);
+	m_pLogDlg2->SetProjectPropertiesPath(wcPath);
+	m_pLogDlg2->SetMergePath(wcPath);
+	m_pLogDlg2->Create(IDD_LOGMESSAGE, this);
+	m_pLogDlg2->ShowWindow(SW_SHOW);
 }

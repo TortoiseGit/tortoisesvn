@@ -44,11 +44,13 @@ protected:
 	afx_msg void		OnBnClickedShowlog();
 	afx_msg void		OnBnClickedBrowse();
 	afx_msg LRESULT		OnRevSelected(WPARAM wParam, LPARAM lParam);
+	afx_msg void		OnBnClickedShowlogwc();
 
 	DECLARE_MESSAGE_MAP()
 
 	CString				m_sRevRange;
 	CHistoryCombo		m_URLCombo;
 	CLogDlg	*			m_pLogDlg;
+	CLogDlg	*			m_pLogDlg2;
 	SVNRev				m_HEAD;
 };

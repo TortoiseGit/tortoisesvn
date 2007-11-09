@@ -36,6 +36,7 @@ CMergeWizardTree::CMergeWizardTree()
 	, EndRev(_T("HEAD"))
 	, m_pLogDlg(NULL)
 	, m_pLogDlg2(NULL)
+	, m_pLogDlg3(NULL)
 {
 	m_psp.dwFlags |= PSP_DEFAULT|PSP_USEHEADERTITLE|PSP_USEHEADERSUBTITLE;
 	m_psp.pszHeaderTitle = MAKEINTRESOURCE(IDS_MERGEWIZARD_TREETITLE);
@@ -53,6 +54,11 @@ CMergeWizardTree::~CMergeWizardTree()
 	{
 		m_pLogDlg2->DestroyWindow();
 		delete m_pLogDlg2;
+	}
+	if (m_pLogDlg3)
+	{
+		m_pLogDlg3->DestroyWindow();
+		delete m_pLogDlg3;
 	}
 }
 
@@ -74,6 +80,7 @@ BEGIN_MESSAGE_MAP(CMergeWizardTree, CMergeWizardBasePage)
 	ON_BN_CLICKED(IDC_FINDBRANCHEND, OnBnClickedFindbranchend)
 	ON_EN_CHANGE(IDC_REVISION_END, &CMergeWizardTree::OnEnChangeRevisionEnd)
 	ON_EN_CHANGE(IDC_REVISION_START, &CMergeWizardTree::OnEnChangeRevisionStart)
+	ON_BN_CLICKED(IDC_SHOWLOGWC, &CMergeWizardTree::OnBnClickedShowlogwc)
 END_MESSAGE_MAP()
 
 
@@ -94,6 +101,8 @@ BOOL CMergeWizardTree::OnInitDialog()
 	m_URLCombo2.SetCurSel(0);
 	if (m_URLCombo2.GetString().IsEmpty())
 		m_URLCombo2.SetWindowText(CPathUtils::PathUnescape(((CMergeWizard*)GetParent())->url));
+
+	SetDlgItemText(IDC_WCEDIT, ((CMergeWizard*)GetParent())->wcPath.GetWinPath());
 
 	// set head revision as default revision
 	CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
@@ -328,4 +337,23 @@ BOOL CMergeWizardTree::OnSetActive()
 	SetButtonTexts();
 
 	return CMergeWizardBasePage::OnSetActive();
+}
+
+void CMergeWizardTree::OnBnClickedShowlogwc()
+{
+	CTSVNPath wcPath = ((CMergeWizard*)GetParent())->wcPath;
+	if (m_pLogDlg3)
+		m_pLogDlg3->DestroyWindow();
+	delete m_pLogDlg3;
+	m_pLogDlg3 = new CLogDlg();
+	CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
+	int limit = (int)(LONG)reg;
+	m_pLogDlg3->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_MERGE_SELECTRANGE)));
+
+	m_pLogDlg3->m_pNotifyWindow = NULL;
+	m_pLogDlg3->SetParams(wcPath, SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, limit, TRUE, FALSE);
+	m_pLogDlg3->SetProjectPropertiesPath(wcPath);
+	m_pLogDlg3->SetMergePath(wcPath);
+	m_pLogDlg3->Create(IDD_LOGMESSAGE, this);
+	m_pLogDlg3->ShowWindow(SW_SHOW);
 }
