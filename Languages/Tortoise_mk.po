@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-11-06 09:51+0100\n"
+"PO-Revision-Date: 2007-11-09 08:54+0100\n"
 "Last-Translator: Срѓан Стокиќ <srdjan.stokic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -372,6 +372,10 @@ msgstr "&Разлики"
 #. Resource IDs: (17)
 msgid "&Diff with URL"
 msgstr "&Разлики со URL"
+
+#. Resource IDs: (14)
+msgid "&Diff with previous version"
+msgstr "&Разлики со претходна ревизија"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -1947,6 +1951,10 @@ msgstr "Не можам да го избришам \"%s\" поради"
 msgid "Could not delete property \"%s\" on %s because"
 msgstr "Не можам да го избришам својството \"%s\" на %s поради"
 
+#. Resource IDs: (83)
+msgid "Could not determine the last committed revision!"
+msgstr "Не можам да ја определам последната складирана ревизија!"
+
 #. Resource IDs: (81)
 msgid "Could not get the status!"
 msgstr "Не можам да го земам статусот!"
@@ -2196,6 +2204,10 @@ msgstr "Разлики помеѓу"
 #. Resource IDs: (1022)
 msgid "Diffing"
 msgstr "Разликување"
+
+#. Resource IDs: (14)
+msgid "Diffs the working copy file with the one before the last commit."
+msgstr "Спореди ја работната копија со онаа пред последното складирање."
 
 #. Resource IDs: (65535)
 msgid "Directory:"
