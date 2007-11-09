@@ -21,6 +21,7 @@
 
 #include ".\RevisionIndex.h"
 #include ".\PathDictionary.h"
+#include ".\RevisionInfoContainer.h"
 
 #include ".\PackedDWORDInStream.h"
 #include ".\PackedDWORDOutStream.h"
@@ -248,11 +249,9 @@ void CSkipRevisionInfo::CPacker::SortRanges (index_t rangeCount)
 
 void CSkipRevisionInfo::CPacker::RemoveKnownRevisions()
 {
-	const CRevisionIndex& revisions = parent->revisions;
-
 	revision_t firstKnownRevision = 0;
 	revision_t nextUnknownRevision = 0;
-	revision_t lastRevision = revisions.GetLastRevision();
+	revision_t lastRevision = parent->revisions.GetLastRevision();
 
 	for (size_t i = 0; i < allRanges.size(); ++i)
 	{
@@ -260,12 +259,12 @@ void CSkipRevisionInfo::CPacker::RemoveKnownRevisions()
 		if (iter->first > nextUnknownRevision)
 		{
 			firstKnownRevision = iter->first;
-			while (   (revisions[firstKnownRevision] == NO_INDEX) 
+			while (   (!parent->DataAvailable (firstKnownRevision)) 
 				   && (firstKnownRevision < lastRevision))
 				++firstKnownRevision;
 
 			nextUnknownRevision = firstKnownRevision+1;
-			while (   (revisions[nextUnknownRevision] != NO_INDEX) 
+			while (   (parent->DataAvailable (nextUnknownRevision)) 
 				   && (nextUnknownRevision < lastRevision))
 				++nextUnknownRevision;
 		}
@@ -365,11 +364,21 @@ void CSkipRevisionInfo::CPacker::operator()(CSkipRevisionInfo* aParent)
 // remove known revisions from the range
 ///////////////////////////////////////////////////////////////
 
+bool CSkipRevisionInfo::DataAvailable (revision_t revision)
+{
+    index_t index = revisions[revision];
+    if (index == NO_INDEX)
+        return false;
+
+    return (  logInfo.GetPresenceFlags (index) 
+            & CRevisionInfoContainer::HAS_CHANGEDPATHS) != 0;
+}
+
 void CSkipRevisionInfo::TryReduceRange (revision_t& revision, revision_t& size)
 {
 	// raise lower bound
 
-	while ((size > 0) && (revisions[revision] != NO_INDEX))
+	while ((size > 0) && DataAvailable (revision))
 	{
 		++revision;
 		--size;
@@ -377,7 +386,7 @@ void CSkipRevisionInfo::TryReduceRange (revision_t& revision, revision_t& size)
 
 	// lower upper bound
 
-	while ((size > 0) && (revisions[revision + size-1] != NO_INDEX))
+    while ((size > 0) && DataAvailable (revision + size-1))
 	{
 		--size;
 	}
@@ -388,10 +397,12 @@ void CSkipRevisionInfo::TryReduceRange (revision_t& revision, revision_t& size)
 ///////////////////////////////////////////////////////////////
 
 CSkipRevisionInfo::CSkipRevisionInfo ( const CPathDictionary& aPathDictionary
-									 , const CRevisionIndex& aRevisionIndex)
+									 , const CRevisionIndex& aRevisionIndex
+                                     , const CRevisionInfoContainer& logInfo)
 	: index (CHashFunction (&data))
 	, paths (aPathDictionary)
 	, revisions (aRevisionIndex)
+    , logInfo (logInfo)
 {
 }
 

@@ -46,6 +46,7 @@ namespace LogCache
 class CPathDictionary;
 class CDictionaryBasedPath;
 class CRevisionIndex;
+class CRevisionInfoContainer;
 
 /**
  * associates paths with a list of revision ranges. It will be used to store 
@@ -222,9 +223,11 @@ private:
 
 	const CPathDictionary& paths;
 	const CRevisionIndex& revisions;
+    const CRevisionInfoContainer& logInfo;
 
 	// remove known revisions from the range
 
+    bool DataAvailable (revision_t revision);
 	void TryReduceRange (revision_t& revision, revision_t& size);
 
 public:
@@ -232,7 +235,8 @@ public:
 	// construction / destruction
 
 	CSkipRevisionInfo ( const CPathDictionary& aPathDictionary
-					  , const CRevisionIndex& aRevisionIndex);
+					  , const CRevisionIndex& aRevisionIndex
+                      , const CRevisionInfoContainer& logInfo);
 	~CSkipRevisionInfo(void);
 
 	// query data (return NO_REVISION, if not found)
