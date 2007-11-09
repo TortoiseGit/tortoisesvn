@@ -122,6 +122,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 CLogDlg::~CLogDlg()
 {
 	InterlockedExchange(&m_bNoDispUpdates, TRUE);
+    m_CurrentFilteredChangedArray.RemoveAll();
 	m_logEntries.ClearAll();
 	DestroyIcon(m_hModifiedIcon);
 	DestroyIcon(m_hReplacedIcon);
