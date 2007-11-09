@@ -51,7 +51,7 @@ CCommitDlg::CCommitDlg(CWnd* pParent /*=NULL*/)
 	, m_bKeepLocks(FALSE)
 	, m_bKeepChangeList(TRUE)
 	, m_itemsCount(0)
-	, m_bSelectFilesForCommit(!!DWORD(CRegStdWORD(_T("Software\\TortoiseSVN\\SelectFilesForCommit"), TRUE)))
+	, m_bSelectFilesForCommit(TRUE)
 {
 }
 

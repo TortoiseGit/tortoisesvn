@@ -30,6 +30,7 @@ bool CommitCommand::Execute()
 	bool bFailed = true;
 	CTSVNPathList selectedList;
 	CString sLogMsg;
+	bool bSelectFilesForCommit = !!DWORD(CRegStdWORD(_T("Software\\TortoiseSVN\\SelectFilesForCommit"), TRUE));
 	DWORD exitcode = 0;
 	CString error;
 	if (CHooks::Instance().StartCommit(pathList, exitcode, error))
@@ -82,6 +83,7 @@ bool CommitCommand::Execute()
 			dlg.m_sLogMessage = sLogMsg;
 		dlg.m_pathList = pathList;
 		dlg.m_checkedPathList = selectedList;
+		dlg.m_bSelectFilesForCommit = bSelectFilesForCommit;
 		if (dlg.DoModal() == IDOK)
 		{
 			if (dlg.m_pathList.GetCount()==0)
@@ -96,6 +98,7 @@ bool CommitCommand::Execute()
 			if (!dlg.m_pathList.IsEqual(pathList))
 				selectedList = dlg.m_pathList;
 			sLogMsg = dlg.m_sLogMessage;
+			bSelectFilesForCommit = true;
 			CSVNProgressDlg progDlg;
 			if (!dlg.m_sChangeList.IsEmpty())
 				progDlg.SetChangeList(dlg.m_sChangeList, !!dlg.m_bKeepChangeList);

@@ -107,6 +107,7 @@ public:
 	CString				m_sChangeList;
 	BOOL				m_bKeepChangeList;
 	int					m_itemsCount;
+	bool				m_bSelectFilesForCommit;
 
 private:
 	CWinThread*			m_pThread;
@@ -130,5 +131,4 @@ private:
 	CRect				m_DlgOrigRect;
 	CRect				m_LogMsgOrigRect;
 	CPathWatcher		m_pathwatcher;
-	bool				m_bSelectFilesForCommit;
 };
