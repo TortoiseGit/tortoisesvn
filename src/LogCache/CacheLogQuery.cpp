@@ -55,15 +55,13 @@ CCacheLogQuery::CLogOptions::CLogOptions ( bool strictNodeHistory
     , includeStandardRevProps (includeStandardRevProps)
     , includeUserRevProps (includeUserRevProps)
     , userRevProps (userRevProps)
-    , presenceMask (0)
+    , presenceMask (CRevisionInfoContainer::HAS_CHANGEDPATHS)
     , revsOnly (   !includeChanges 
                 && !includeStandardRevProps 
                 && !includeUserRevProps)
 {
     if (includeStandardRevProps)
         presenceMask = CRevisionInfoContainer::HAS_STANDARD_REVPROPS;
-    if (includeChanges)
-        presenceMask |= CRevisionInfoContainer::HAS_CHANGEDPATHS;
     if (includeUserRevProps)
         presenceMask |= CRevisionInfoContainer::HAS_USERREVPROPS;
 }
@@ -212,11 +210,19 @@ void CCacheLogQuery::CLogFiller::WriteToCache
         timeStamp = stdRevProps->timeStamp;
     }
 
+    char presenceMask = 0; 
+    if (stdRevProps != NULL)
+        presenceMask = CRevisionInfoContainer::HAS_STANDARD_REVPROPS;
+    if (changes != NULL)
+        presenceMask |= CRevisionInfoContainer::HAS_CHANGEDPATHS;
+    if (userRevProps != NULL)
+        presenceMask |= CRevisionInfoContainer::HAS_USERREVPROPS;
+
 	targetCache->Insert ( revision
                         , author
                         , message
                         , timeStamp
-                        , options.GetPresenceMask());
+                        , presenceMask);
 
 	// add all changes
 
