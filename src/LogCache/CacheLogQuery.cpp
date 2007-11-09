@@ -203,7 +203,7 @@ void CCacheLogQuery::CLogFiller::WriteToCache
 
     std::string author;
     std::string message;
-    __time64_t timeStamp;
+    __time64_t timeStamp = 0;
 
     if (stdRevProps)
     {
