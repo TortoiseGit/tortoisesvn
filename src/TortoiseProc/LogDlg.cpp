@@ -3307,7 +3307,10 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 	// calculate some information the context menu commands can use
 	CString pathURL = GetURLFromPath(m_path);
 	POSITION pos = m_LogList.GetFirstSelectedItemPosition();
-	PLOGENTRYDATA pSelLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+	int indexNext = m_LogList.GetNextSelectedItem(pos);
+	if (indexNext < 0)
+		return;
+	PLOGENTRYDATA pSelLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(indexNext));
 	SVNRev revSelected = pSelLogEntry->Rev;
 	SVNRev revPrevious = svn_revnum_t(revSelected)-1;
 	if ((pSelLogEntry->pArChangedPaths)&&(pSelLogEntry->pArChangedPaths->GetCount() <= 2))
