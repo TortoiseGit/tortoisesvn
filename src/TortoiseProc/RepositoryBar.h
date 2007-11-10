@@ -95,6 +95,7 @@ public:
 
 	void SetIRepo(IRepo * pRepo) {m_pRepo = pRepo;}
 
+	void SetHeadRevision(const SVNRev& rev) {m_headRev = rev;}
 protected:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnCbnSelChange();

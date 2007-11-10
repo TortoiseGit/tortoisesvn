@@ -190,6 +190,10 @@ void CRepositoryBar::GotoUrl(const CString& url, SVNRev rev, bool bAlreadyChecke
 		do 
 		{
 			data = info.GetFirstFileInfo(CTSVNPath(new_url),new_rev, new_rev);
+			if (data && new_rev.IsHead())
+			{
+				m_headRev = data->rev;
+			}
 			if ((data == NULL)||(data->kind != svn_node_dir))
 			{
 				// in case the url is not a valid directory, try the parent dir

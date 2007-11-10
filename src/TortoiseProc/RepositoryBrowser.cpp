@@ -366,6 +366,10 @@ void CRepositoryBrowser::InitRepo()
 		m_RepoList.ShowText(error, true);
 		return;
 	}
+	else if (m_initialRev.IsHead())
+	{
+		m_barRepository.SetHeadRevision(data->rev);
+	}
 	m_InitialUrl.TrimRight('/');
 
 	m_bCancelled = false;
