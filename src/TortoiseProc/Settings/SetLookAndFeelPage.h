@@ -52,16 +52,18 @@ public:
 	virtual BOOL OnInitDialog();
 
 private:
-	void InsertItem(UINT nTextID, UINT nIconID, DWORD dwFlags);
+	void InsertItem(UINT nTextID, UINT nIconID, unsigned __int64 dwFlags);
 
-	CBalloon		m_tooltips;
-	CRegDWORD		m_regTopmenu;
+	CBalloon			m_tooltips;
+	CRegDWORD			m_regTopmenu;
+	CRegDWORD			m_regTopmenuhigh;
 
-	CImageList		m_imgList;
-	CListCtrl		m_cMenuList;
-	BOOL			m_bModified;
-	DWORD			m_topmenu;
+	CImageList			m_imgList;
+	CListCtrl			m_cMenuList;
+	BOOL				m_bModified;
+	unsigned __int64	m_topmenu;
+	bool				m_bBlock;
 	
-	CRegDWORD		m_regGetLockTop;
-	BOOL			m_bGetLockTop;
+	CRegDWORD			m_regGetLockTop;
+	BOOL				m_bGetLockTop;
 };

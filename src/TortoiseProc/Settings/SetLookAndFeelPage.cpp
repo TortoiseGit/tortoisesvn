@@ -29,9 +29,14 @@ IMPLEMENT_DYNAMIC(CSetLookAndFeelPage, ISettingsPropPage)
 CSetLookAndFeelPage::CSetLookAndFeelPage()
 	: ISettingsPropPage(CSetLookAndFeelPage::IDD)
 	, m_bGetLockTop(FALSE)
+	, m_bBlock(false)
 {
 	m_regTopmenu = CRegDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
-	m_topmenu = m_regTopmenu;
+	m_regTopmenuhigh = CRegDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntrieshigh"), 0);
+
+	m_topmenu = unsigned __int64(DWORD(m_regTopmenuhigh))<<32;
+	m_topmenu |= unsigned __int64(DWORD(m_regTopmenu));
+
 	m_regGetLockTop = CRegDWORD(_T("Software\\TortoiseSVN\\GetLockTop"), TRUE);
 	m_bGetLockTop = m_regGetLockTop;
 }
@@ -74,10 +79,12 @@ BOOL CSetLookAndFeelPage::OnInitDialog()
 
 	m_imgList.Create(16, 16, ILC_COLOR16 | ILC_MASK, 4, 1);
 
+	m_bBlock = true;
 	InsertItem(IDS_MENUCHECKOUT, IDI_CHECKOUT, MENUCHECKOUT);
 	InsertItem(IDS_MENUUPDATE, IDI_UPDATE, MENUUPDATE);
 	InsertItem(IDS_MENUCOMMIT, IDI_COMMIT, MENUCOMMIT);
 	InsertItem(IDS_MENUDIFF, IDI_DIFF, MENUDIFF);
+	InsertItem(IDS_MENUPREVDIFF, IDI_DIFF, MENUPREVDIFF);
 	InsertItem(IDS_MENULOG, IDI_LOG, MENULOG);
 	InsertItem(IDS_MENUSHOWCHANGED, IDI_SHOWCHANGED, MENUSHOWCHANGED);
 	InsertItem(IDS_MENUREVISIONGRAPH, IDI_REVISIONGRAPH, MENUREVISIONGRAPH);
@@ -106,6 +113,7 @@ BOOL CSetLookAndFeelPage::OnInitDialog()
 	InsertItem(IDS_MENUAPPLYPATCH, IDI_PATCH, MENUAPPLYPATCH);
 	InsertItem(IDS_MENUPROPERTIES, IDI_PROPERTIES, MENUPROPERTIES);
 	InsertItem(IDS_MENUURLDIFF, IDI_DIFF, MENUURLDIFF);
+	m_bBlock = false;
 
 	m_cMenuList.SetImageList(&m_imgList, LVSIL_SMALL);
 	int mincol = 0;
@@ -131,9 +139,12 @@ BOOL CSetLookAndFeelPage::PreTranslateMessage(MSG* pMsg)
 BOOL CSetLookAndFeelPage::OnApply()
 {
 	UpdateData();
-	m_regTopmenu = m_topmenu;
+	m_regTopmenu = (DWORD)(m_topmenu & 0xFFFFFFFF);
+	m_regTopmenuhigh = (DWORD)(m_topmenu >> 32);
 	if (m_regTopmenu.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regTopmenu.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	if (m_regTopmenuhigh.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regTopmenuhigh.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	m_regGetLockTop = m_bGetLockTop;
 	if (m_regGetLockTop.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regGetLockTop.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -141,7 +152,7 @@ BOOL CSetLookAndFeelPage::OnApply()
 	return ISettingsPropPage::OnApply();
 }
 
-void CSetLookAndFeelPage::InsertItem(UINT nTextID, UINT nIconID, DWORD dwFlags)
+void CSetLookAndFeelPage::InsertItem(UINT nTextID, UINT nIconID, unsigned __int64 dwFlags)
 {
 	HICON hIcon = reinterpret_cast<HICON>(::LoadImage(AfxGetResourceHandle(),
 		MAKEINTRESOURCE(nIconID),
@@ -152,12 +163,13 @@ void CSetLookAndFeelPage::InsertItem(UINT nTextID, UINT nIconID, DWORD dwFlags)
 	CStringUtils::RemoveAccelerators(temp);
 	int nIndex = m_cMenuList.GetItemCount();
 	m_cMenuList.InsertItem(nIndex, temp, nImage);
-	DWORD topmenu = CRegDWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
-	m_cMenuList.SetCheck(nIndex, (topmenu & dwFlags));
+	m_cMenuList.SetCheck(nIndex, !!(m_topmenu & dwFlags));
 }
 
 void CSetLookAndFeelPage::OnLvnItemchangedMenulist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
+	if (m_bBlock)
+		return;
 	SetModified(TRUE);
 	if (m_cMenuList.GetItemCount() > 0)
 	{
@@ -167,6 +179,7 @@ void CSetLookAndFeelPage::OnLvnItemchangedMenulist(NMHDR * /*pNMHDR*/, LRESULT *
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUUPDATE : 0;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCOMMIT : 0;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUDIFF : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUPREVDIFF : 0;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENULOG : 0;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUSHOWCHANGED : 0;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUREVISIONGRAPH : 0;
