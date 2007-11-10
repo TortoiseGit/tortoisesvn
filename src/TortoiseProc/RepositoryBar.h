@@ -20,6 +20,7 @@
 
 #include "SVNRev.h"
 #include "HistoryCombo.h"
+#include "Balloon.h"
 
 class CRepositoryTree;
 
@@ -95,6 +96,7 @@ public:
 	void SetIRepo(IRepo * pRepo) {m_pRepo = pRepo;}
 
 protected:
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnCbnSelChange();
 	afx_msg void OnBnClicked();
 	afx_msg void OnDestroy();
@@ -116,6 +118,9 @@ private:
 	} m_cbxUrl;
 
 	CButton m_btnRevision;
+
+	SVNRev	m_headRev;
+	CBalloon m_tooltips;
 };
 
 
