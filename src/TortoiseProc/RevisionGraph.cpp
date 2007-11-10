@@ -435,8 +435,12 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 
 	SVN svn;
 	m_sRepoRoot = svn.GetRepositoryRoot(urlpath);
-	url = m_sRepoRoot;
+    url = m_sRepoRoot;
 	urlpath.SetFromSVN(url);
+
+	CTSVNPath dummy;
+    svn_revnum_t headRevision = NO_REVISION;
+    svn.GetRootAndHead (urlpath, dummy, headRevision);
 
 	if (m_sRepoRoot.IsEmpty())
 	{
@@ -456,8 +460,8 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 		query.reset (new CCacheLogQuery (caches, svnQuery.get()));
 
 		query->Log ( CTSVNPathList (urlpath)
-				   , SVNRev(SVNRev::REV_HEAD)
-				   , SVNRev(SVNRev::REV_HEAD)
+				   , headRevision
+				   , headRevision
 				   , SVNRev(0)
 				   , 0
 				   , false
