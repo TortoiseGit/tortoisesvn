@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-10-26 23:38+0200\n"
+"PO-Revision-Date: 2007-11-11 19:04+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -62,6 +62,10 @@ msgstr " "
 #, c-format
 msgid "! %d"
 msgstr "! %d"
+
+#. Resource IDs: (1262)
+msgid "# authors shown individually:"
+msgstr "# автори, показани поотделно:"
 
 #. Resource IDs: (357)
 #, c-format
@@ -385,6 +389,10 @@ msgstr "&Промени"
 msgid "&Diff with URL"
 msgstr "&Промени спрямо URL"
 
+#. Resource IDs: (14)
+msgid "&Diff with previous version"
+msgstr "&Сравняване с предишна версия"
+
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
 msgstr "&Редакция"
@@ -657,7 +665,7 @@ msgstr "&Ревизия"
 
 #. Resource IDs: (65535)
 msgid "&SSH client:"
-msgstr "&SSH клиент:"
+msgstr "&Клиент за SSH:"
 
 #. Resource IDs: (57603)
 msgid "&Save Ctrl-S"
@@ -1447,12 +1455,12 @@ msgstr "Срокът на валидността на сертификата е 
 #. Resource IDs: (82)
 #, c-format
 msgid "Certificate expired. Valid until: %s"
-msgstr "Срокът за валидността на сертификата е изтекъл. Бил е валиден до: %s"
+msgstr "Срокът за валидност на сертификата е изтекъл. Бил е валиден до: %s"
 
 #. Resource IDs: (82)
 #, c-format
 msgid "Certificate not yet valid. Valid from: %s"
-msgstr "Срокът за валидността на сертификата все още не е започнал. Започва на %s"
+msgstr "Срокът за валидност на сертификата все още не е започнал. Започва на %s"
 
 #. Resource IDs: (157)
 msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
@@ -1681,10 +1689,6 @@ msgstr "Поверяване"
 #. Resource IDs: (77)
 msgid "Commit - TortoiseSVN"
 msgstr "Поверяване - TortoiseSVN"
-
-#. Resource IDs: (1262)
-msgid "Commit threshold:"
-msgstr "Праг на поверявания:"
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -1930,8 +1934,8 @@ msgstr "Не може да се добави \"%s\", защото"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not add property \"%s\" because"
-msgstr "Свойството \"%s\" не може да бъде добавено, защото"
+msgid "Could not add property \"%s\" on %s because"
+msgstr "Свойството \"%s\" на %s не може да бъде добавено, защото"
 
 #. Resource IDs: (201)
 msgid "Could not check for a newer version!"
@@ -1955,8 +1959,12 @@ msgstr "Не можа да се изтрие \"%s\", защото"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not delete property \"%s\" because"
-msgstr "Свойството \"%s\" не може да бъде изтрито, защото"
+msgid "Could not delete property \"%s\" on %s because"
+msgstr "Свойството \"%s\" на %s не може да бъде изтрито, защото"
+
+#. Resource IDs: (83)
+msgid "Could not determine the last committed revision!"
+msgstr "Грешка при установяването на последната поверена ревизия!"
 
 #. Resource IDs: (81)
 msgid "Could not get the status!"
@@ -1969,8 +1977,8 @@ msgstr "Не можа да се слее \"%s\", защото"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not merge property \"%s\" because"
-msgstr "Свойството \"%s\" не може да бъде слято, защото"
+msgid "Could not merge property \"%s\" on %s because"
+msgstr "Свойството \"%s\" на %s не може да бъде слято, защото"
 
 #. Resource IDs: (69)
 #, c-format
@@ -2190,10 +2198,6 @@ msgstr "Дискът е пълен."
 msgid "Dialog sizes and positions"
 msgstr "Размер и позиция на диалоговите прозорци"
 
-#. Resource IDs: (146)
-msgid "Diff With URL"
-msgstr "Промени спрямо URL"
-
 #. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "Файл с разлики:"
@@ -2202,6 +2206,10 @@ msgstr "Файл с разлики:"
 msgid "Diff options"
 msgstr "Настройки на сравняване"
 
+#. Resource IDs: (146, 279)
+msgid "Diff with URL"
+msgstr "Сравняване с URL"
+
 #. Resource IDs: (1302)
 msgid "Difference between"
 msgstr "Разлика между"
@@ -2209,6 +2217,10 @@ msgstr "Разлика между"
 #. Resource IDs: (1022)
 msgid "Diffing"
 msgstr "Сравняване"
+
+#. Resource IDs: (14)
+msgid "Diffs the working copy file with the one before the last commit."
+msgstr "Сравнява файл от работното копие със версията му преди последното поверяване."
 
 #. Resource IDs: (65535)
 msgid "Directory:"
@@ -2950,6 +2962,11 @@ msgstr "&Скриване на несвързаните променени пъ�
 msgid "HEAD"
 msgstr "Главна ревизия"
 
+#. Resource IDs: (106)
+#, c-format
+msgid "Head revision is %s"
+msgstr "Главната ревизия е %s"
+
 #. Resource IDs: (73, 1004)
 msgid "Help"
 msgstr "Помощ"
@@ -3483,8 +3500,8 @@ msgstr ""
 msgid ""
 "It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
 "\n"
-"From: %s\n"
-"To: %s\n"
+"From:\t%s\n"
+"To:\t\t%s\n"
 "\n"
 "A relocate is only needed if the path <b>to</b> a repository has changed.\n"
 "Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
@@ -3495,10 +3512,10 @@ msgid ""
 msgstr ""
 "Изглежда, че се опитвате да <b>преместите</b> работното си копие на различен път в същото хранилище.\n"
 "\n"
-"От: %s\n"
-"Към: %s\n"
+"От:\t%s\n"
+"Към:\t\t%s\n"
 "\n"
-"Преместване е нужно, само ако пътят <b>към</b> хранилището е променен.\n"
+"Преместване е нужно, само ако пътят <b>до</b> хранилището е променен.\n"
 "Промяна към различен път <b>в</b> същото хранилището се извършва чрез операцията \"превключване\".\n"
 "\n"
 "Неправилно използване на операцията \"преместване\" <b>може да повреди работното Ви копие!</b>\n"
@@ -4417,6 +4434,11 @@ msgstr "Свойство"
 
 #. Resource IDs: (151)
 #, c-format
+msgid "Property %s : Revision %s"
+msgstr "Свойство %s : Ревизия %s"
+
+#. Resource IDs: (151)
+#, c-format
 msgid "Property %s : remote"
 msgstr "Свойство %s : отдалечено"
 
@@ -5101,7 +5123,7 @@ msgstr "Записване на файлове"
 msgid "Saving patchfile to:"
 msgstr "Запис на файл с кръпка в:"
 
-#. Resource IDs: (1014, 1017, 1064, 1212, 1415)
+#. Resource IDs: (1014, 1017, 1064, 1212)
 msgid "Scintilla"
 msgstr "Scintilla"
 
@@ -5310,7 +5332,7 @@ msgstr "&Всички ревизии"
 msgid "Show &changes"
 msgstr "&Промени"
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1132, 1228, 1420, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 32784)
 msgid "Show &log"
 msgstr "&Дневник"
 
@@ -6339,11 +6361,11 @@ msgstr "URL: "
 #, c-format
 msgid ""
 "Unable to determine merge source for\n"
-"%\n"
+"%s\n"
 "Please use the main merge dialog."
 msgstr ""
 "Не можа да се определи източника за\n"
-"%\n"
+"%s\n"
 "Моля, използвайте основния диалогов прозорец за сливане."
 
 #. Resource IDs: (3866)
@@ -6708,7 +6730,7 @@ msgstr ""
 msgid "With URL:"
 msgstr "С URL:"
 
-#. Resource IDs: (158)
+#. Resource IDs: (158, 65535)
 msgid "Working Copy"
 msgstr "Работно копие"
 
@@ -7204,15 +7226,28 @@ msgstr ""
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of\n"
-"a relative directory path, optional revision flags, and a URL. For example\n"
+"a relative directory path, optional revision flags, and an URL. For example\n"
 "foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag"
+"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"\n"
+"The URLs can either be full URLs or relative. The format for\n"
+"the relative URLs is:\n"
+"../\trelative to the parent directory of the external\n"
+"^/\trelative to the repository root\n"
+"//\trelative to the URL scheme\n"
+"/\trelative to the server's hostname"
 msgstr ""
 "svn:externals\n"
 "Списък, с разделител нов ред, от спецификатори на модули, като всеки се състои от\n"
 "относителен път на директория, незадължителни флагове на ревизия, и URL. Например:\n"
 "foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag"
+"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"URL-ите могат да бъдат както пълни, така и относителни. Форматът за\n"
+"относителните URL-И е:\n"
+"../\tотносително съдържащата директория на външните\n"
+"^/\tотносително корена на хранилището\n"
+"//\tотносително схемата на URL-а\n"
+"/\tотносително името на сървъра"
 
 #. Resource IDs: (576)
 msgid ""
@@ -7417,7 +7452,7 @@ msgid ""
 "The string %REVISION% in the URL is replaced with the revision number,\n"
 "the string %PATH% is replaced with the path to the file relative to the repository root."
 msgstr ""
-"уебвизуализатор:пътревизия\n"
+"webviewer:pathrevision\n"
 "URL, сочещ към уеб-визуализатор за хранилището за определен файл и ревизия.\n"
 "Низът %REVISION% в URL-а се заменя с номера на ревизията,\n"
 "низът %PATH% се заменя с пътят до файла, относително корена на хранилището."
@@ -7429,7 +7464,7 @@ msgid ""
 "URL pointing to the web viewer for the repository for a specific revision.\n"
 "The string %REVISION% in that URL is replaced with the revision number."
 msgstr ""
-"уебвизуализатор:ревизия\n"
+"webviewer:revision\n"
 "URL, сочещ към уеб-визуализатор за хранилището за определена ревизия.\n"
 "Низът %REVISION% в този URL се заменя с номера на ревизията."
 
