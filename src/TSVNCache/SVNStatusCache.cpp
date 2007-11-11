@@ -364,6 +364,10 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 			WaitToWrite();
 			ATLTRACE("Got \"Writer\" state now\n");
 		}
+		// Since above there's a small chance that before we can upgrade to
+		// writer state some other thread gained writer state and changed
+		// the data, we have to recreate the iterator here again.
+		itMap = m_directoryCache.find(path);
 		if (itMap!=m_directoryCache.end())
 			m_directoryCache.erase(itMap);
 		// We don't know anything about this directory yet - lets add it to our cache
