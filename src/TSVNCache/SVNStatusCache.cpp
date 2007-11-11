@@ -435,7 +435,7 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
 		CCrawlInhibitor crawlInhibit(&m_folderCrawler);
 
 		CTSVNPath dirpath = path.GetContainingDirectory();
-		if (dirpath.IsEmpty())
+		if ((dirpath.IsEmpty()) || (!IsPathGood(dirpath)))
 			dirpath = path;
 		CCachedDirectory * cachedDir = GetDirectoryCacheEntry(dirpath);
 		if (cachedDir != NULL)
