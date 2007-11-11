@@ -415,6 +415,10 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 		}
 	}
 
+	// use a sorted path list to make sure we fetch the status of
+	// parent items first, *then* the child items (if any)
+	CTSVNPathList sortedPathList = pathList;
+	sortedPathList.SortByPathname();
 	do
 	{
 		bRet = TRUE;
@@ -435,7 +439,7 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 		// previous GetStatus() calls
 		ClearStatusArray();
 
-		m_StatusFileList = pathList;
+		m_StatusFileList = sortedPathList;
 
 		// Since svn_client_status() returns all files, even those in
 		// folders included with svn:externals we need to check if all
@@ -457,16 +461,16 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 
 		m_sURL.Empty();
 
-		m_nTargetCount = pathList.GetCount();
+		m_nTargetCount = sortedPathList.GetCount();
 
 		SVNStatus status(m_pbCanceled);
-		if(m_nTargetCount > 1 && pathList.AreAllPathsFilesInOneDirectory())
+		if(m_nTargetCount > 1 && sortedPathList.AreAllPathsFilesInOneDirectory())
 		{
 			// This is a special case, where we've been given a list of files
 			// all from one folder
 			// We handle them by setting a status filter, then requesting the SVN status of
 			// all the files in the directory, filtering for the ones we're interested in
-			status.SetFilter(pathList);
+			status.SetFilter(sortedPathList);
 
 			// if all selected entries are files, we don't do a recursive status
 			// fetching. But if only one is a directory, we have to recurse.
@@ -475,16 +479,16 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 			// the status not recursively, then we have to include
 			// ignored items too - the user has selected them
 			bool bShowIgnoresRight = true;
-			for (int fcindex=0; fcindex<pathList.GetCount(); ++fcindex)
+			for (int fcindex=0; fcindex<sortedPathList.GetCount(); ++fcindex)
 			{
-				if (pathList[fcindex].IsDirectory())
+				if (sortedPathList[fcindex].IsDirectory())
 				{
 					depth = svn_depth_infinity;
 					bShowIgnoresRight = false;
 					break;
 				}
 			}
-			if(!FetchStatusForSingleTarget(config, status, pathList.GetCommonDirectory(), bUpdate, sUUID, arExtPaths, true, depth, bShowIgnoresRight))
+			if(!FetchStatusForSingleTarget(config, status, sortedPathList.GetCommonDirectory(), bUpdate, sUUID, arExtPaths, true, depth, bShowIgnoresRight))
 			{
 				bRet = FALSE;
 			}
@@ -493,13 +497,16 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 		{
 			for(int nTarget = 0; nTarget < m_nTargetCount; nTarget++)
 			{
-				// note:
-				// if a target specified multiple times (either directly or included
-				// in the status of a parent item) it will also show up multiple
-				// times in the list!
-				if(!FetchStatusForSingleTarget(config, status, pathList[nTarget], bUpdate, sUUID, arExtPaths, false, svn_depth_infinity, bShowIgnores))
+				// check whether the path we want the status for is already fetched due to status-fetching
+				// of a parent path.
+				// this check is only done for file paths, because folder paths could be included already
+				// but not recursively
+				if (sortedPathList[nTarget].IsDirectory() || GetListEntry(sortedPathList[nTarget]) == NULL)
 				{
-					bRet = FALSE;
+					if(!FetchStatusForSingleTarget(config, status, sortedPathList[nTarget], bUpdate, sUUID, arExtPaths, false, svn_depth_infinity, bShowIgnores))
+					{
+						bRet = FALSE;
+					}
 				}
 			}
 		}
