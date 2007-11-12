@@ -865,6 +865,9 @@ protected:
 	SVNPrompt					m_prompt;
 	CString						PostCommitErr;	///< error string from post commit hook script
 
+	static LCID					s_locale;
+	static bool					s_useSystemLocale;
+
 	svn_opt_revision_t *	getRevision (svn_revnum_t revNumber);
 	void * logMessage (const char * message, char * baseDirectory = NULL);
 

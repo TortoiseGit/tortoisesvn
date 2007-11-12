@@ -52,6 +52,8 @@ private:
 	CBalloon		m_tooltips;
 	BOOL			m_bShortDateFormat;
 	CRegDWORD		m_regShortDateFormat;
+	BOOL			m_bUseSystemLocaleForDates;
+	CRegDWORD		m_regUseSystemLocaleForDates;
 	CRegDWORD		m_regAutoClose;
 	DWORD_PTR		m_dwAutoClose;
 	CRegDWORD		m_regDefaultLogs;

@@ -830,7 +830,7 @@ STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "General::Dialogs 1"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    GROUPBOX        "Log messages",IDC_STATIC,7,7,286,88
+    GROUPBOX        "Log messages",IDC_STATIC,7,7,286,96
     LTEXT           "Default &number of log messages",IDC_STATIC,14,20,204,8
     EDITTEXT        IDC_DEFAULTLOG,229,17,55,14,ES_AUTOHSCROLL | ES_NUMBER,WS_EX_RIGHT
     LTEXT           "&Font for log messages:",IDC_STATIC,14,29,92,23,SS_CENTERIMAGE
@@ -838,21 +838,23 @@ BEGIN
     COMBOBOX        IDC_FONTSIZES,253,34,31,47,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
     CONTROL         "Short &date/time format in log messages",IDC_SHORTDATEFORMAT,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,53,271,10
-    CONTROL         "Cache log messages",IDC_CACHELOGS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,67,270,10
+    CONTROL         "Cache log messages",IDC_CACHELOGS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,77,270,10
     CONTROL         "Can double-click in log list to compare with previous revision",IDC_DIFFBYDOUBLECLICK,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,81,270,10
-    GROUPBOX        "Progress",IDC_STATIC,7,99,286,28
-    LTEXT           "&Autoclose:",IDC_STATIC,14,106,85,19,SS_CENTERIMAGE
-    COMBOBOX        IDC_AUTOCLOSECOMBO,107,109,177,75,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,89,270,10
+    GROUPBOX        "Progress",IDC_STATIC,7,105,286,31
+    LTEXT           "&Autoclose:",IDC_STATIC,14,116,85,16,SS_CENTERIMAGE
+    COMBOBOX        IDC_AUTOCLOSECOMBO,107,119,177,75,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     CONTROL         "Use URL of &WC as the default ""From:"" URL",IDC_WCURLFROM,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,142,271,10
-    GROUPBOX        "Merge",IDC_STATIC,7,130,286,27
-    GROUPBOX        "Checkout",IDC_STATIC,7,161,286,48
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,148,271,10
+    GROUPBOX        "Merge",IDC_STATIC,7,138,286,25
+    GROUPBOX        "Checkout",IDC_STATIC,7,164,286,45
     LTEXT           "Default path:",IDC_STATIC,13,177,85,8
     LTEXT           "Default URL:",IDC_STATIC,13,193,85,8
     EDITTEXT        IDC_CHECKOUTPATH,107,174,161,14,ES_AUTOHSCROLL
     PUSHBUTTON      "...",IDC_BROWSECHECKOUTPATH,271,174,12,14
     EDITTEXT        IDC_CHECKOUTURL,107,191,161,14,ES_AUTOHSCROLL
+    CONTROL         "Use system locale for date/time",IDC_SYSTEMLOCALEFORDATES,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,65,270,10
 END
 
 IDD_RESOLVE DIALOGEX 0, 0, 244, 153
@@ -3089,6 +3091,8 @@ BEGIN
                             "When enabled, the versioned items listed in the commit dialog are automatically selected"
     IDS_SETTINGS_DIFFBYDOUBLECLICK_TT 
                             "If checked, double-clicking on a revision in the log list compares it with the previous revision"
+    IDS_SETTINGS_USESYSTEMLOCALEFORDATES_TT 
+                            "Always use the system locale settings to show times and dates"
     IDS_SETTINGS_HOOKS_SELECTFOLDERPATH "Select folder to run script for"
     IDS_SETTINGS_HOOKS_SELECTSCRIPTFILE "Select hook script file"
 END

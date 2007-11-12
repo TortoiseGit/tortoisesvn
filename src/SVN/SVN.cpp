@@ -49,6 +49,9 @@ static char THIS_FILE[] = __FILE__;
 
 
 LogCache::CLogCachePool SVN::logCachePool (CPathUtils::GetAppDataDirectory()+_T("logcache\\"));
+LCID SVN::s_locale = MAKELCID((DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)), SORT_DEFAULT);
+bool SVN::s_useSystemLocale = !!(DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\UseSystemLocaleForDates"), TRUE);
+
 
 SVN::SVN(void) : m_progressWnd(0)
 	, m_pProgressDlg(NULL)
@@ -101,7 +104,6 @@ SVN::SVN(void) : m_progressWnd(0)
 			APR_HASH_KEY_STRING);
 		svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
 	}
-
 }
 
 SVN::~SVN(void)
@@ -2202,8 +2204,7 @@ void SVN::formatDate(TCHAR date_native[], apr_time_t& date_svn, bool force_short
 	TCHAR timebuf[SVN_DATE_BUFFER];
 	TCHAR datebuf[SVN_DATE_BUFFER];
 
-	LCID locale = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT));
-	locale = MAKELCID(locale, SORT_DEFAULT);
+	LCID locale = s_useSystemLocale ? MAKELCID(MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), SORT_DEFAULT) : s_locale;
 
 	apr_time_exp_lt (&exploded_time, date_svn);
 	
@@ -2247,8 +2248,7 @@ void SVN::formatDate(TCHAR date_native[], FILETIME& filetime, bool force_short_f
 	TCHAR timebuf[SVN_DATE_BUFFER];
 	TCHAR datebuf[SVN_DATE_BUFFER];
 
-	LCID locale = (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT));
-	locale = MAKELCID(locale, SORT_DEFAULT);
+	LCID locale = s_useSystemLocale ? MAKELCID(MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), SORT_DEFAULT) : s_locale;
 
 	if (force_short_fmt || CRegDWORD(_T("Software\\TortoiseSVN\\LogDateFormat")) == 1)
 	{

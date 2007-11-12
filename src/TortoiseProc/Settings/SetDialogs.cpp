@@ -40,10 +40,12 @@ CSetDialogs::CSetDialogs()
 	, m_sDefaultCheckoutUrl(_T(""))
 	, m_bCacheLogs(FALSE)
 	, m_bDiffByDoubleClick(FALSE)
+	, m_bUseSystemLocaleForDates(FALSE)
 {
 	m_regAutoClose = CRegDWORD(_T("Software\\TortoiseSVN\\AutoClose"));
 	m_regDefaultLogs = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
 	m_regShortDateFormat = CRegDWORD(_T("Software\\TortoiseSVN\\LogDateFormat"), FALSE);
+	m_regUseSystemLocaleForDates = CRegDWORD(_T("Software\\TortoiseSVN\\UseSystemLocaleForDates"), TRUE);
 	m_regFontName = CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New"));
 	m_regFontSize = CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8);
 	m_regUseWCURL = CRegDWORD(_T("Software\\TortoiseSVN\\MergeWCURL"), FALSE);
@@ -77,12 +79,14 @@ void CSetDialogs::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_CHECKOUTURL, m_sDefaultCheckoutUrl);
 	DDX_Check(pDX, IDC_CACHELOGS, m_bCacheLogs);
 	DDX_Check(pDX, IDC_DIFFBYDOUBLECLICK, m_bDiffByDoubleClick);
+	DDX_Check(pDX, IDC_SYSTEMLOCALEFORDATES, m_bUseSystemLocaleForDates);
 }
 
 
 BEGIN_MESSAGE_MAP(CSetDialogs, ISettingsPropPage)
 	ON_EN_CHANGE(IDC_DEFAULTLOG, OnChange)
 	ON_BN_CLICKED(IDC_SHORTDATEFORMAT, OnChange)
+	ON_BN_CLICKED(IDC_SYSTEMLOCALEFORDATES, OnChange)
 	ON_CBN_SELCHANGE(IDC_FONTSIZES, OnChange)
 	ON_CBN_SELCHANGE(IDC_FONTNAMES, OnChange)
 	ON_CBN_SELCHANGE(IDC_AUTOCLOSECOMBO, OnCbnSelchangeAutoclosecombo)
@@ -120,6 +124,7 @@ BOOL CSetDialogs::OnInitDialog()
 
 	m_dwAutoClose = m_regAutoClose;
 	m_bShortDateFormat = m_regShortDateFormat;
+	m_bUseSystemLocaleForDates = m_regUseSystemLocaleForDates;
 	m_sFontName = m_regFontName;
 	m_dwFontSize = m_regFontSize;
 	m_bUseWCURL = m_regUseWCURL;
@@ -141,6 +146,7 @@ BOOL CSetDialogs::OnInitDialog()
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_SHORTDATEFORMAT, IDS_SETTINGS_SHORTDATEFORMAT_TT);
+	m_tooltips.AddTool(IDC_SHORTDATEFORMAT, IDS_SETTINGS_USESYSTEMLOCALEFORDATES_TT);
 	m_tooltips.AddTool(IDC_AUTOCLOSECOMBO, IDS_SETTINGS_AUTOCLOSE_TT);
 	m_tooltips.AddTool(IDC_AUTOCOMPLETION, IDS_SETTINGS_AUTOCOMPLETION_TT);
 	m_tooltips.AddTool(IDC_WCURLFROM, IDS_SETTINGS_USEWCURL_TT);
@@ -196,6 +202,9 @@ BOOL CSetDialogs::OnApply()
 	m_regShortDateFormat = m_bShortDateFormat;
 	if (m_regShortDateFormat.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regShortDateFormat.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	m_regUseSystemLocaleForDates = m_regUseSystemLocaleForDates;
+	if (m_regUseSystemLocaleForDates.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regUseSystemLocaleForDates.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	long val = _ttol(m_sDefaultLogs);
 	if (val > 0)
 	{
