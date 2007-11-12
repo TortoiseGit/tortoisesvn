@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-11-08 18:02+0100\n"
+"PO-Revision-Date: 2007-11-12 15:01+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2984,6 +2984,11 @@ msgstr "Sk&jul urelaterte endrede stier"
 msgid "HEAD"
 msgstr "HEAD"
 
+#. Resource IDs: (106)
+#, c-format
+msgid "Head revision is %s"
+msgstr "Hoderevisjon er %s"
+
 #. Resource IDs: (73, 1004)
 msgid "Help"
 msgstr "Hjelp"
@@ -5336,7 +5341,7 @@ msgstr "Vis &alle revisjoner"
 msgid "Show &changes"
 msgstr "Vis &endringer"
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1132, 1228, 1420, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 32784)
 msgid "Show &log"
 msgstr "Vis &logg"
 
@@ -6731,7 +6736,7 @@ msgstr ""
 msgid "With URL:"
 msgstr "Med URL:"
 
-#. Resource IDs: (158)
+#. Resource IDs: (158, 65535)
 msgid "Working Copy"
 msgstr "Arbeidskopi"
 
@@ -7229,15 +7234,29 @@ msgstr ""
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of\n"
-"a relative directory path, optional revision flags, and a URL. For example\n"
+"a relative directory path, optional revision flags, and an URL. For example\n"
 "foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag"
+"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"\n"
+"The URLs can either be full URLs or relative. The format for\n"
+"the relative URLs is:\n"
+"../\trelative to the parent directory of the external\n"
+"^/\trelative to the repository root\n"
+"//\trelative to the URL scheme\n"
+"/\trelative to the server's hostname"
 msgstr ""
 "svn:externalsr\n"
 "En linjeskift-delt liste med modul-spesifikasjoner. Hver består av en\n"
 "relativ katalogsti, valgfrie revisjonsargumenter og en URL. Eksempler:\n"
 "foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag"
+"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"\n"
+"URLene kan enten være hele URLer eller relative. Formatet\n"
+"for en relativ URL er:\n"
+"../\trelativt til katalogen over den eksterne\n"
+"^/\trelativt til depotroten\n"
+"//\trelativt til URL-skjemaet\n"
+"/\trelativt til tjenerens navn"
 
 #. Resource IDs: (576)
 msgid ""
