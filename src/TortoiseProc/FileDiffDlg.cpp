@@ -345,30 +345,52 @@ void CFileDiffDlg::DiffProps(int selIndex)
 	CTSVNPath url1 = CTSVNPath(m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
 	CTSVNPath url2 = m_bDoPegDiff ? url1 : CTSVNPath(m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
 
-	// diff the properties
 	SVNProperties propsurl1(url1, m_rev1);
 	SVNProperties propsurl2(url2, m_rev2);
-
+	
+	// collect the properties of both revisions in a set
+	std::set<stdstring> properties;
 	for (int wcindex = 0; wcindex < propsurl1.GetCount(); ++wcindex)
 	{
-		stdstring url1name = propsurl1.GetItemName(wcindex);
-		stdstring url1value = CUnicodeUtils::StdGetUnicode((char *)propsurl1.GetItemValue(wcindex).c_str());
-		stdstring url2value;
-		bool bDiffRequired = true;
+		stdstring urlname = propsurl1.GetItemName(wcindex);
+		if ( properties.find(urlname) == properties.end() )
+		{
+			properties.insert(urlname);
+		}
+	}
+	for (int wcindex = 0; wcindex < propsurl2.GetCount(); ++wcindex)
+	{
+		stdstring urlname = propsurl2.GetItemName(wcindex);
+		if ( properties.find(urlname) == properties.end() )
+		{
+			properties.insert(urlname);
+		}
+	}
+
+	// iterate over all properties and diff the properties
+	for (std::set<stdstring>::iterator iter = properties.begin(), end = properties.end(); iter != end; ++iter)
+	{
+		stdstring url1name = *iter;
+		
+		stdstring url1value = _T(""); // CUnicodeUtils::StdGetUnicode((char *)propsurl1.GetItemValue(wcindex).c_str());
+		for (int url1index = 0; url1index < propsurl1.GetCount(); ++url1index)
+		{
+			if (propsurl1.GetItemName(url1index).compare(url1name)==0)
+			{
+				url1value = CUnicodeUtils::StdGetUnicode((char *)propsurl1.GetItemValue(url1index).c_str());
+			}
+		}		
+		
+		stdstring url2value = _T("");
 		for (int url2index = 0; url2index < propsurl2.GetCount(); ++url2index)
 		{
 			if (propsurl2.GetItemName(url2index).compare(url1name)==0)
 			{
 				url2value = CUnicodeUtils::StdGetUnicode((char *)propsurl2.GetItemValue(url2index).c_str());
-				if (url2value.compare(url1value)==0)
-				{
-					// name and value are identical
-					bDiffRequired = false;
-					break;
-				}
 			}
 		}
-		if (bDiffRequired)
+
+		if (url2value.compare(url1value)!=0)
 		{
 			// write both property values to temporary files
 			CTSVNPath url1propfile = CTempFiles::Instance().GetTempFilePath(true);
