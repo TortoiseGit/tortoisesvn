@@ -1991,6 +1991,9 @@ void CBaseView::OnMergeNextdifference()
 		ScrollAllToLine(nTopPos, FALSE);
 		RecalcAllVertScrollBars(TRUE);
 		SetupDiffBars(m_nDiffBlockStart, m_nDiffBlockEnd);
+		m_ptCaretPos.x = 0;
+		m_ptCaretPos.y = m_nDiffBlockStart;
+		UpdateCaret();
 		ShowDiffLines(m_nDiffBlockStart);
 	}
 }
@@ -2039,6 +2042,9 @@ void CBaseView::OnMergePreviousdifference()
 		ScrollAllToLine(nTopPos, FALSE);
 		RecalcAllVertScrollBars(TRUE);
 		SetupDiffBars(m_nDiffBlockStart, m_nDiffBlockEnd);
+		m_ptCaretPos.x = 0;
+		m_ptCaretPos.y = m_nDiffBlockEnd;
+		UpdateCaret();
 		ShowDiffLines(m_nDiffBlockStart);
 	}
 }
@@ -2200,6 +2206,9 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		break;
 	case VK_BACK:
 		{
+			if (m_bCaretHidden)
+				break;
+
 			if (HasTextSelection())
 			{
 				RemoveSelectedText();
@@ -2274,6 +2283,9 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		break;
 	case VK_DELETE:
 		{
+			if (m_bCaretHidden)
+				break;
+
 			if (HasTextSelection())
 			{
 				RemoveSelectedText();

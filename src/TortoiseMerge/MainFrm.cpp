@@ -491,6 +491,7 @@ bool CMainFrame::LoadViews(bool bRetainPosition)
 {
 	m_Data.SetBlame(m_bBlame);
 	m_bHasConflicts = false;
+	CBaseView* pwndActiveView = m_pwndLeftView;
 	int nOldLineNumber =
 		m_pwndLeftView && m_pwndLeftView->m_pViewData ?
 		m_pwndLeftView->m_pViewData->GetLineNumber(m_pwndLeftView->m_nTopLine) : -1;
@@ -564,6 +565,7 @@ bool CMainFrame::LoadViews(bool bRetainPosition)
 	{
 		//diff between YOUR and BASE
 		m_pwndRightView->UseCaret();
+		pwndActiveView = m_pwndRightView;
 		if (m_bOneWay)
 		{
 			if (!m_wndSplitter2.IsColumnHidden(1))
@@ -610,7 +612,8 @@ bool CMainFrame::LoadViews(bool bRetainPosition)
 	{
 		//diff between THEIR, YOUR and BASE
 		m_pwndBottomView->UseCaret();
-		
+		pwndActiveView = m_pwndBottomView;
+
 		m_pwndLeftView->m_pViewData = &m_Data.m_TheirBaseBoth;
 		m_pwndLeftView->texttype = m_Data.m_arTheirFile.GetUnicodeType();
 		m_pwndLeftView->lineendings = m_Data.m_arTheirFile.GetLineEndings();
@@ -650,21 +653,21 @@ bool CMainFrame::LoadViews(bool bRetainPosition)
 	m_wndLocatorBar.DocumentUpdated();
 	m_wndLineDiffBar.DocumentUpdated();
 	UpdateLayout();
-	SetActiveView(m_pwndLeftView);
+	SetActiveView(pwndActiveView);
 
-	if (bRetainPosition && m_pwndLeftView->m_pViewData && nOldLineNumber >= 0)
+	if (bRetainPosition && pwndActiveView->m_pViewData && nOldLineNumber >= 0)
 	{
-		if(int n = m_pwndLeftView->m_pViewData->FindLineNumber(nOldLineNumber))
-			m_pwndLeftView->ScrollAllToLine(n);
+		if(int n = pwndActiveView->m_pViewData->FindLineNumber(nOldLineNumber))
+			pwndActiveView->ScrollAllToLine(n);
 	}
 	else
 	{
 		bool bGoFirstDiff = (0 != (DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\FirstDiffOnLoad"), TRUE));
 		if (bGoFirstDiff)
-			m_pwndLeftView->GoToFirstDifference();
+			pwndActiveView->GoToFirstDifference();
 	}
-	// Avoid incorrect rendering of left pane.
-	m_pwndLeftView->ScrollToChar(0);
+	// Avoid incorrect rendering of active pane.
+	pwndActiveView->ScrollToChar(0);
 	CheckResolved();
 	return true;
 }
