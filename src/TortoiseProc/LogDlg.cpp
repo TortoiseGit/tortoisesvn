@@ -1515,6 +1515,8 @@ void CLogDlg::DiffSelectedFile()
 	int selIndex = m_ChangedFileListCtrl.GetSelectionMark();
 	if (selIndex < 0)
 		return;
+	if (m_ChangedFileListCtrl.GetSelectedCount() == 0)
+		return;
 	// find out if there's an entry selected in the log list
 	POSITION pos = m_LogList.GetFirstSelectedItemPosition();
 	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
