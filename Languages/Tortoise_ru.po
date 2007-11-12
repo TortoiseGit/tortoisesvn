@@ -11,13 +11,13 @@
 # Stanislav Petrakov <stannic@gmail.com>
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 11274: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 11328: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-11-07 12:38+0300\n"
+"PO-Revision-Date: 2007-11-12 16:31+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3008,6 +3008,11 @@ msgstr "&Скрыть несвязанные изменённые пути"
 msgid "HEAD"
 msgstr "Ведущая"
 
+#. Resource IDs: (106)
+#, c-format
+msgid "Head revision is %s"
+msgstr "Ведущая ревизия: %s"
+
 #. Resource IDs: (73, 1004)
 msgid "Help"
 msgstr "Справка"
@@ -5399,7 +5404,7 @@ msgstr "Показать &все ревизии"
 msgid "Show &changes"
 msgstr "Показать &изменения"
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1132, 1228, 1420, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 32784)
 msgid "Show &log"
 msgstr "Показать &журнал"
 
@@ -6818,7 +6823,7 @@ msgid "With URL:"
 msgstr "По URL:"
 
 # Заголовок окна
-#. Resource IDs: (158)
+#. Resource IDs: (158, 65535)
 msgid "Working Copy"
 msgstr "Рабочая копия"
 
@@ -7323,16 +7328,28 @@ msgstr ""
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of\n"
-"a relative directory path, optional revision flags, and a URL. For example\n"
+"a relative directory path, optional revision flags, and an URL. For example\n"
 "foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag"
+"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"\n"
+"The URLs can either be full URLs or relative. The format for\n"
+"the relative URLs is:\n"
+"../\trelative to the parent directory of the external\n"
+"^/\trelative to the repository root\n"
+"//\trelative to the URL scheme\n"
+"/\trelative to the server's hostname"
 msgstr ""
 "svn:externals\n"
-"Список описателей включаемых модулей, по одному в строке, каждый из которых\n"
-"состоит из относительного пути к папке, необязательных флагов ревизий и URL.\n"
-"Например:\n"
+"Список спецификаторов включаемых модулей, по одному в строке, каждый из которых\n"
+"состоит из относительного пути к папке, необязательных флагов ревизий и URL. Например:\n"
 "foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag"
+"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"\n"
+"Адреса URL могут быть полными или относительными. Формат относительного URL:\n"
+"../\tотносительно родительской папки внешнего включения\n"
+"^/\tотносительно корня хранилища\n"
+"//\tотносительно схемы URL\n"
+"/\tотносительно имени сервера"
 
 #. Resource IDs: (576)
 msgid ""
