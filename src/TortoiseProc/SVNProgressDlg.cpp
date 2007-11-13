@@ -36,6 +36,7 @@
 #include "SVNLogHelper.h"
 #include "RegHistory.h"
 #include "ConflictResolveDlg.h"
+#include "LogFile.h"
 
 BOOL	CSVNProgressDlg::m_bAscending = FALSE;
 int		CSVNProgressDlg::m_nSortedColumn = -1;
@@ -887,6 +888,19 @@ UINT CSVNProgressDlg::ProgressThread()
 		data->sActionColumnText.LoadString(IDS_PROGRS_FINISHED);
 		m_arData.push_back(data);
 		AddItemToList(data);
+	}
+
+	CLogFile logfile;
+	if (logfile.Open())
+	{
+		logfile.AddTimeLine();
+		for (size_t i=0; i<m_arData.size(); i++)
+		{
+			NotificationData * data = m_arData[i];
+			temp.Format(_T("%-20s : %s"), data->sActionColumnText, data->sPathColumnText);
+			logfile.AddLine(temp);
+		}
+		logfile.Close();
 	}
 
 	m_bCancelled = TRUE;
