@@ -1047,6 +1047,15 @@
 #define IDS_PROGRS_CMD_MERGEURL         3654
 #define IDS_PROGRS_CMD_COPY             3655
 #define IDS_PROGRS_CMD_MERGEALL         3656
+#define IDS_PROGRS_CMD_ADD              3657
+#define IDS_PROGRS_CMD_COMMIT           3658
+#define IDS_PROGRS_CMD_EXPORT           3659
+#define IDS_PROGRS_CMD_LOCK             3660
+#define IDS_PROGRS_CMD_RENAME           3661
+#define IDS_PROGRS_CMD_RESOLVE          3662
+#define IDS_PROGRS_CMD_REVERT           3663
+#define IDS_PROGRS_CMD_UNLOCK           3664
+#define IDS_PROGRS_CMD_UPDATE           3665
 #define IDS_SSL_SAVE_CERTPATH           3700
 #define IDS_REPOSTATUS_HEADREV          3800
 #define IDS_REPOSTATUS_WCINFO           3801

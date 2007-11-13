@@ -3166,6 +3166,13 @@ BEGIN
     IDS_PROGRS_CMD_MERGEURL "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
     IDS_PROGRS_CMD_COPY     "Copy %s to %s, Revision %s"
     IDS_PROGRS_CMD_MERGEALL "Merging %s into %s, %s"
+    IDS_PROGRS_CMD_ADD      "Add"
+    IDS_PROGRS_CMD_COMMIT   "Commit"
+    IDS_PROGRS_CMD_EXPORT   "Export"
+    IDS_PROGRS_CMD_LOCK     "Lock"
+    IDS_PROGRS_CMD_RENAME   "Move/Rename"
+    IDS_PROGRS_CMD_RESOLVE  "Resolve"
+    IDS_PROGRS_CMD_REVERT   "Revert"
 END
 
 STRINGTABLE 
@@ -3315,6 +3322,12 @@ END
 STRINGTABLE 
 BEGIN
     IDS_REPOBROWSE_TT_HEADREV "Head revision is %s"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_PROGRS_CMD_UNLOCK   "Unlock"
+    IDS_PROGRS_CMD_UPDATE   "Update"
 END
 
 #endif    // English (U.S.) resources

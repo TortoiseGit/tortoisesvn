@@ -1670,6 +1670,7 @@ bool CSVNProgressDlg::CmdAdd(CString& sWindowTitle, bool& localoperation)
 	sWindowTitle.LoadString(IDS_PROGRS_TITLE_ADD);
 	SetWindowText(sWindowTitle);
 	SetBackgroundImage(IDI_ADD_BKG);
+	ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_ADD)));
 	if (!Add(m_targetPathList, &m_ProjectProperties, svn_depth_empty, FALSE, TRUE, TRUE))
 	{
 		ReportSVNError();
@@ -1784,6 +1785,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 		}
 	}
 
+	ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_COMMIT)));
 	if (!Commit(m_targetPathList, m_sMessage, m_changelist, m_keepchangelist, 
 		m_depth, m_options & ProgOptKeeplocks))
 	{
@@ -1860,6 +1862,7 @@ bool CSVNProgressDlg::CmdExport(CString& sWindowTitle, bool& /*localoperation*/)
 		eol = _T("LF");
 	if (m_options & ProgOptEolCR)
 		eol = _T("CR");
+	ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_EXPORT)));
 	if (!Export(m_url, m_targetPathList[0], m_Revision, m_Revision, TRUE, m_options & ProgOptIgnoreExternals, m_depth, NULL, FALSE, eol))
 	{
 		ReportSVNError();
@@ -1893,6 +1896,7 @@ bool CSVNProgressDlg::CmdLock(CString& sWindowTitle, bool& /*localoperation*/)
 	sWindowTitle.LoadString(IDS_PROGRS_TITLE_LOCK);
 	SetWindowText(sWindowTitle);
 	SetBackgroundImage(IDI_LOCK_BKG);
+	ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_LOCK)));
 	if (!Lock(m_targetPathList, m_options & ProgOptLockForce, m_sMessage))
 	{
 		ReportSVNError();
@@ -2055,6 +2059,7 @@ bool CSVNProgressDlg::CmdRename(CString& sWindowTitle, bool& localoperation)
 	sWindowTitle.LoadString(IDS_PROGRS_TITLE_RENAME);
 	SetWindowText(sWindowTitle);
 	SetBackgroundImage(IDI_RENAME_BKG);
+	ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_RENAME)));
 	if (!Move(m_targetPathList, m_url, m_Revision, m_sMessage))
 	{
 		ReportSVNError();
@@ -2108,12 +2113,14 @@ bool CSVNProgressDlg::CmdResolve(CString& sWindowTitle, bool& localoperation)
 	{
 		if (CMessageBox::Show(m_hWnd, IDS_PROGRS_REVERTMARKERS, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION)==IDYES)
 		{
+			ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_RESOLVE)));
 			for (INT_PTR fileindex=0; fileindex<m_targetPathList.GetCount(); ++fileindex)
 				Resolve(m_targetPathList[fileindex], svn_wc_conflict_choose_merged, true);
 		}
 	}
 	else
 	{
+		ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_RESOLVE)));
 		for (INT_PTR fileindex=0; fileindex<m_targetPathList.GetCount(); ++fileindex)
 			Resolve(m_targetPathList[fileindex], svn_wc_conflict_choose_merged, true);
 	}
@@ -2130,6 +2137,7 @@ bool CSVNProgressDlg::CmdRevert(CString& sWindowTitle, bool& localoperation)
 	CTSVNPathList delList = m_selectedPaths;
 	delList.DeleteAllFiles(true);
 
+	ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_REVERT)));
 	if (!Revert(m_targetPathList, !!(m_options & ProgOptRecursive)))
 	{
 		ReportSVNError();
@@ -2179,6 +2187,7 @@ bool CSVNProgressDlg::CmdUnlock(CString& sWindowTitle, bool& /*localoperation*/)
 	sWindowTitle.LoadString(IDS_PROGRS_TITLE_UNLOCK);
 	SetWindowText(sWindowTitle);
 	SetBackgroundImage(IDI_UNLOCK_BKG);
+	ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_UNLOCK)));
 	if (!Unlock(m_targetPathList, m_options & ProgOptLockForce))
 	{
 		ReportSVNError();
@@ -2265,6 +2274,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
 			return false;
 		}
 	}
+	ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_UPDATE)));
 	if (nUUIDs > 1)
 	{
 		// the selected items are from different repositories,
