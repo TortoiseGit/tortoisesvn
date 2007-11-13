@@ -21,15 +21,11 @@ First, you need to install the compiler package.
    with the Express Edition!
    - Install Visual C++ 2005 Express Edition.
      Download it from http://msdn.microsoft.com/vstudio/express/visualc/
-   - Install Microsoft Platform SDK for Windows Server 2003 SP1
-     You need at least the following components of the SDK:
-       - Windows Core SDK
-       - Web Workshop (IE) SDK
-       - Data Access Services
-       - Debugging Tools
+   - Install Microsoft SDK for Windows Vista (February 2007 Update)
+       - http://www.microsoft.com/downloads/details.aspx?FamilyID=FF6467E6-5BBA-4BF5-B562-9199BE864D29
    - Install MASM 6.15 from: http://win32assembly.online.fr/files/masm615.zip
      and add it to the PATH environment variable
-   Do not bother to install WiX as you cannot build very much.
+   Do not bother to install WiX and Votive as you cannot build very much.
 
 -# If you plan to build 64 bit packages, install the package 
    - "Language Tools" -> "Visual C++" -> "X64 Compilers and Tools" 
@@ -47,11 +43,13 @@ Next you need to install some utilities/programs:
 - libxml2 python bindings : http://users.skynet.be/sbi/libxml-python/
 - Perl                    : http://www.activestate.com/Products/ActivePerl/
 - WiX(*)                  : http://wix.sourceforge.net
+- Votive(&)               : http://wix.sourceforge.net
 - NAnt(*)                 : http://nant.sourceforge.net
 - gdiplus merge module(#) : http://www.installshield.com/downloads/modules.asp?prod=ISX&lan=english&xmlUse=y
 
 (*) Add the paths of the binaries to the PATH environment variable
     You may have to logoff/logon to make the new environment variables take effect!
+(&) Install Votive to be able to load .wixproj project files.
 (#) Copy/Move the gdiplus.msm file to the "%CommonProgramFiles%\Merge Modules" directory
 
 
@@ -82,7 +80,7 @@ Now you're almost ready. Only a few more steps to do:
   Note: the path to the tools folder must not have special chars in it or spaces.
   If you checked out the TortoiseSVN source to such a location, you can store
   the tools folder somewhere else.
-- Make a copy of the file default.build.user.tmpl in the TSVN root folder and
+- Make a copy of the file default.build.user.tmpl in the TortoiseSVN root folder and
   rename that copy to default.build.user. Then adjust the paths as mentioned
   in that file.
 - Make a copy of the file doc\doc.build.user.tmpl and rename that copy to 
@@ -104,8 +102,10 @@ Now you're almost ready. Only a few more steps to do:
 	:x86
 	if not exist "%~dp0bin\vcvars32.bat" goto missing
 	call "%~dp0bin\vcvars32.bat"
-	rem Added SDK setup 14/12/2005 SJL
-	call "C:\Program Files\Microsoft Platform SDK\setenv.cmd"
+	if exist "%ProgramFiles%\Microsoft SDKs\Windows\v6.0\bin\setenv.cmd" call "%ProgramFiles%\Microsoft SDKs\Windows\v6.0\bin\setenv.cmd" /Release /x86 /vista
+	if exist "%ProgramFiles%\Microsoft SDKs\Windows\v6.0\bin\setenv.cmd" goto :eof
+	if exist "%ProgramFiles%\Microsoft Platform SDK\setenv.cmd" call "%ProgramFiles%\Microsoft Platform SDK\setenv.cmd"
+	if exist "%ProgramFiles%\Microsoft Platform SDK\setenv.cmd" goto :eof
 	goto :eof
 \endcode
 
