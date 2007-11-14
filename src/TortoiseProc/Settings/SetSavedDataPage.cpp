@@ -163,6 +163,12 @@ BOOL CSetSavedDataPage::OnInitDialog()
 	sTT.Format(IDS_SETTINGS_SAVEDDATA_REPOLOGHIST_TT, nLogHistRepo);
 	m_tooltips.AddTool(IDC_REPOLOG, sTT);
 	m_tooltips.AddTool(IDC_REPOLOGCLEAR, sTT);
+	sTT.LoadString(IDS_SETTINGS_SHOWACTIONLOG_TT);
+	m_tooltips.AddTool(IDC_ACTIONLOGSHOW, sTT);
+	sTT.LoadString(IDS_SETTINGS_MAXACTIONLOGLINES_TT);
+	m_tooltips.AddTool(IDC_MAXLINES, sTT);
+	sTT.LoadString(IDS_SETTINGS_CLEARACTIONLOG_TT);
+	m_tooltips.AddTool(IDC_ACTIONLOGCLEAR, sTT);
 
 	return TRUE;
 }

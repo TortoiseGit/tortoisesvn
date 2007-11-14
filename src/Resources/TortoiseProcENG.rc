@@ -3113,6 +3113,11 @@ BEGIN
     IDS_SETTINGS_HOOKS_SHOWCOL "Show/Hide"
     IDS_SETTINGS_GETLOCKTOP_TT 
                             "If activated, the menu entry ""Get Lock"" is always shown in the top level menu\nif the selected file has the svn:needs-lock property set"
+    IDS_SETTINGS_SHOWACTIONLOG_TT 
+                            "Shows the action log file in the default text editor"
+    IDS_SETTINGS_CLEARACTIONLOG_TT "Deletes the action log file"
+    IDS_SETTINGS_MAXACTIONLOGLINES_TT 
+                            "The maximum number of action log lines to keep.\nAny lines added over this limit will remove the oldest lines from the file."
 END
 
 STRINGTABLE 
