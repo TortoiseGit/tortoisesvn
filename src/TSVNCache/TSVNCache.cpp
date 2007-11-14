@@ -166,7 +166,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 	wcex.lpszClassName	= szWindowClass;
 	wcex.hIconSm		= 0;
 	RegisterClassEx(&wcex);
-	hWnd = CreateWindow(TSVN_CACHE_WINDOW_NAME, TSVN_CACHE_WINDOW_NAME, WS_CAPTION, 0, 0, 800, 300, NULL, 0, hInstance, 0);
+	hWnd = CreateWindow(TSVN_CACHE_WINDOW_NAME, TSVN_CACHE_WINDOW_NAME, 0, 0, 0, 0, 0, HWND_MESSAGE, 0, hInstance, 0);
 	hTrayWnd = hWnd;
 	if (hWnd == NULL)
 	{
