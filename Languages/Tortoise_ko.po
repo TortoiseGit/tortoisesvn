@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-10-12 10:29+0900\n"
+"PO-Revision-Date: 2007-11-14 13:27+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -26,6 +26,10 @@ msgstr " "
 #, c-format
 msgid "! %d"
 msgstr "! %d"
+
+#. Resource IDs: (1262)
+msgid "# authors shown individually:"
+msgstr "개별적으로 표시되는 작성자 수:"
 
 #. Resource IDs: (357)
 #, c-format
@@ -265,7 +269,7 @@ msgstr "찾아보기(&B)"
 msgid "&CD-ROM"
 msgstr "&CD-ROM"
 
-#. Resource IDs: (2)
+#. Resource IDs: (2, 332)
 msgid "&Cancel"
 msgstr "취소(&C)"
 
@@ -349,9 +353,9 @@ msgstr "비교(&D)"
 msgid "&Diff with URL"
 msgstr "특정 URL과 차이를 구합니다. (&D)"
 
-#. Resource IDs: (1179)
-msgid "&Dry run"
-msgstr "가상 실행(&D)"
+#. Resource IDs: (14)
+msgid "&Diff with previous version"
+msgstr "이전 리비전 비교(&D)"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -449,7 +453,7 @@ msgstr "최신 리비전(&H)"
 msgid "&HEAD revision in the repository"
 msgstr "저장소의 최신 리비전(&H)"
 
-#. Resource IDs: (9, 12, 32781, 57670, 65535)
+#. Resource IDs: (9, 12, 332, 32781, 57670, 65535)
 msgid "&Help"
 msgstr "도움말(&H)"
 
@@ -547,6 +551,10 @@ msgstr "새로 만들기(&N)"
 msgid "&Next %ld"
 msgstr "다음 %ld개(&N)"
 
+#. Resource IDs: (332)
+msgid "&Next >"
+msgstr "다음(&N) >"
+
 #. Resource IDs: (32779)
 msgid "&Next Difference"
 msgstr "다음 차이점(&N)"
@@ -567,7 +575,7 @@ msgstr "열기(&O)"
 msgid "&Overlap images"
 msgstr "그림 겹치기(&O)"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1411, 65535)
 msgid "&Password:"
 msgstr "암호(&P):"
 
@@ -575,7 +583,7 @@ msgstr "암호(&P):"
 msgid "&Paste"
 msgstr "붙여넣기(&P)"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1414)
 msgid "&Port:"
 msgstr "포트(&P):"
 
@@ -675,6 +683,10 @@ msgstr "아이콘 뷰(&S)"
 msgid "&Tab size:"
 msgstr "탭 크기(&T):"
 
+#. Resource IDs: (1382)
+msgid "&Test merge"
+msgstr "시험 병합(&T)"
+
 #. Resource IDs: (1222)
 msgid "&Timeout in seconds to stop the auto-completion parsing"
 msgstr "자동 완성기능을 멈추는 시간(초)을 설정합니다.(&T)"
@@ -719,7 +731,7 @@ msgstr "실행 취소(&U)"
 msgid "&Undo\tCtrl+Z"
 msgstr "실행 취소(&U)\tCtrl-Z"
 
-#. Resource IDs: (274, 1180, 32785)
+#. Resource IDs: (274, 32785)
 msgid "&Unified diff"
 msgstr "Unified Diff 보기(&U)"
 
@@ -743,7 +755,7 @@ msgstr "특정 리비전으로 업데이트(&U)..."
 msgid "&Use auto-completion of file paths and keywords"
 msgstr "파일 경로와 키워드의 자동 완성기능을 이용합니다.(&U)"
 
-#. Resource IDs: (1005, 65535)
+#. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
 msgstr "사용자명(&U):"
 
@@ -813,6 +825,10 @@ msgstr ": 작업 베이스"
 #. Resource IDs: (151)
 msgid ": working copy"
 msgstr ": 작업 사본"
+
+#. Resource IDs: (332)
+msgid "< &Back"
+msgstr "< 이전(&B)"
 
 #. Resource IDs: (145)
 msgid ""
@@ -930,7 +946,7 @@ msgstr "명령"
 msgid "Activate Task List"
 msgstr "작업 목록 활성화"
 
-#. Resource IDs: (155, 209)
+#. Resource IDs: (155, 209, 229)
 msgid "Add"
 msgstr "추가"
 
@@ -1045,6 +1061,10 @@ msgstr "모든 파일 (*.*)"
 #. Resource IDs: (157)
 msgid "All Files (*.*)|*.*||"
 msgstr "모든 파일 (*.*)|*.*||"
+
+#. Resource IDs: (197)
+msgid "Always use the system locale settings to show times and dates"
+msgstr "날짜와 시간을 나타내기 위해 항상 시스템 국가 설정을 사용합니다"
 
 #. Resource IDs: (3867, 3868)
 #, c-format
@@ -1357,6 +1377,10 @@ msgstr "캐시된 로그 메시지"
 msgid "Caches the log messages to speed up log fetching"
 msgstr "커밋로그를 빨리 가져오기 위해 사용되는 캐시"
 
+#. Resource IDs: (1127)
+msgid "Can double-click in log list to compare with previous revision"
+msgstr "로그 리스트에서 더블 클릭하면 이전 리비전과 비교할 수 있습니다"
+
 #. Resource IDs: (82)
 #, c-format
 msgid ""
@@ -1624,17 +1648,13 @@ msgstr "실행할 명령:"
 msgid "Command failed."
 msgstr "명령 오류."
 
-#. Resource IDs: (135, 209, 1083)
+#. Resource IDs: (135, 209, 229, 1083)
 msgid "Commit"
 msgstr "커밋"
 
 #. Resource IDs: (77)
 msgid "Commit - TortoiseSVN"
 msgstr "커밋 - TortoiseSVN"
-
-#. Resource IDs: (1262)
-msgid "Commit threshold:"
-msgstr "커밋개수 레벨:"
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -1878,6 +1898,11 @@ msgstr "무시 목록에 %s를 추가할 수 없습니다!"
 msgid "Could not add \"%s\" because"
 msgstr "\"%s\" 을/를 추가할 수 없습니다. 사유:"
 
+#. Resource IDs: (582)
+#, c-format
+msgid "Could not add property \"%s\" on %s because"
+msgstr "속성 \"%s\" (%s 소유)을/를 추가할 수 없습니다. 사유:"
+
 #. Resource IDs: (201)
 msgid "Could not check for a newer version!"
 msgstr "새 버전을 확인할 수 없습니다!"
@@ -1898,6 +1923,15 @@ msgstr ""
 msgid "Could not delete \"%s\" because"
 msgstr "\"%s\" 을/를 삭제할 수 없습니다. 사유:"
 
+#. Resource IDs: (582)
+#, c-format
+msgid "Could not delete property \"%s\" on %s because"
+msgstr "속성 \"%s\" (%s 소유)을/를 삭제할 수 없습니다. 사유:"
+
+#. Resource IDs: (83)
+msgid "Could not determine the last committed revision!"
+msgstr "마지막 커밋된 리비전을 결정할 수 없습니다!"
+
 #. Resource IDs: (81)
 msgid "Could not get the status!"
 msgstr "상태를 얻을 수 없습니다!"
@@ -1906,6 +1940,11 @@ msgstr "상태를 얻을 수 없습니다!"
 #, c-format
 msgid "Could not merge \"%s\" because"
 msgstr "\"%s\" 을/를 병합할 수 없습니다. 사유:"
+
+#. Resource IDs: (582)
+#, c-format
+msgid "Could not merge property \"%s\" on %s because"
+msgstr "속성 \"%s\" (%s 소유)을/를 병합할 수 없습니다. 사유:"
 
 #. Resource IDs: (69)
 #, c-format
@@ -2063,10 +2102,6 @@ msgstr ""
 "선택한 부분을 잘라 클립보드에 붙여넣습니다.\n"
 "자르기"
 
-#. Resource IDs: (1314)
-msgid "D&iff"
-msgstr "비교(&I)"
-
 #. Resource IDs: (19, 76, 208)
 msgid "Date"
 msgstr "날짜"
@@ -2127,10 +2162,6 @@ msgstr "목적지 디스크가 꽉 찼습니다."
 msgid "Dialog sizes and positions"
 msgstr "대화상자 크기와 위치"
 
-#. Resource IDs: (146)
-msgid "Diff With URL"
-msgstr "특정 URL과 차이를 구합니다."
-
 #. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "비교 파일:"
@@ -2139,6 +2170,10 @@ msgstr "비교 파일:"
 msgid "Diff options"
 msgstr "비교 옵션"
 
+#. Resource IDs: (146, 279)
+msgid "Diff with URL"
+msgstr "특정 URL과 차이를 구합니다"
+
 #. Resource IDs: (1302)
 msgid "Difference between"
 msgstr "차이점 보기"
@@ -2146,6 +2181,10 @@ msgstr "차이점 보기"
 #. Resource IDs: (1022)
 msgid "Diffing"
 msgstr "비교중"
+
+#. Resource IDs: (14)
+msgid "Diffs the working copy file with the one before the last commit."
+msgstr "직전 수행된 커밋과 작업 사본간의 비교를 수행합니다"
 
 #. Resource IDs: (65535)
 msgid "Directory:"
@@ -2274,10 +2313,6 @@ msgstr "이 메시지를 다시 표시하지 않음"
 #. Resource IDs: (1079)
 msgid "Drive Types"
 msgstr "드라이브 종류"
-
-#. Resource IDs: (219)
-msgid "Dry Run"
-msgstr "가상 실행"
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -2425,7 +2460,7 @@ msgstr ""
 "레지스트리 키 %s 를 읽거나 쓰는 도중 오류 발생\n"
 "%s"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "가져오기 예외:"
 
@@ -2437,7 +2472,7 @@ msgstr "제외 경로:"
 msgid "Explore to"
 msgstr "탐색"
 
-#. Resource IDs: (238)
+#. Resource IDs: (229, 238)
 msgid "Export"
 msgstr "익스포트"
 
@@ -2762,6 +2797,22 @@ msgstr "정보 얻는 중, 기다리세요..."
 msgid "General"
 msgstr "일반"
 
+#. Resource IDs: (212)
+msgid "General::Colors"
+msgstr "일반::색상"
+
+#. Resource IDs: (195)
+msgid "General::Context Menu"
+msgstr "일반::컨텍스트 메뉴"
+
+#. Resource IDs: (196)
+msgid "General::Dialogs 1"
+msgstr "일반::대화상자 1"
+
+#. Resource IDs: (213)
+msgid "General::Dialogs 2"
+msgstr "일반::대화상자 2"
+
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "패치 파일 생성 중..."
@@ -2811,6 +2862,10 @@ msgstr "정보 얻는 중..."
 #. Resource IDs: (132)
 msgid "Getting log info..."
 msgstr "로그 정보 읽는 중..."
+
+#. Resource IDs: (220)
+msgid "Getting required information..."
+msgstr "필요한 정보 얻는 중..."
 
 #. Resource IDs: (119)
 msgid "Getting unified diff"
@@ -2875,6 +2930,11 @@ msgstr "관련없는 변경된 경로를 숨기기(&I)"
 #. Resource IDs: (1353, 1354)
 msgid "HEAD"
 msgstr "HEAD"
+
+#. Resource IDs: (106)
+#, c-format
+msgid "Head revision is %s"
+msgstr "최신 리비전은 %s 입니다"
 
 #. Resource IDs: (73, 1004)
 msgid "Help"
@@ -2942,7 +3002,7 @@ msgstr "ID:32773:V C +O"
 msgid "ID:32774:V C +T"
 msgstr "ID:32774:V C +T"
 
-#. Accelerator Entry for Menu ID:32775; 'Two-way &Diff'
+#. Accelerator Entry for Menu ID:32775; 'Single/&double-pane view'
 msgid "ID:32775:V C +D"
 msgstr "ID:32775:V C +D"
 
@@ -3040,9 +3100,17 @@ msgstr "ID:57643:V C +Z"
 msgid "ID:57665:V C +Q"
 msgstr "ID:57665:V C +Q"
 
+#. Resource IDs: (106)
+msgid "Icon Overlays"
+msgstr "아이콘 오버레이"
+
 #. Resource IDs: (65535)
 msgid "Icon Overlays / Status Columns"
 msgstr "아이콘 오버레이 / 상태 컬럼"
+
+#. Resource IDs: (184)
+msgid "Icon Overlays::Icon Set"
+msgstr "아이콘 오버레이::아이콘 모음"
 
 #. Resource IDs: (65535)
 msgid "Icons/Design/Code:     Luebbe Onken"
@@ -3075,6 +3143,10 @@ msgid ""
 msgstr ""
 "비교하기 위해 꺼내온 원본 파일의 키워드 확장을 하고,\n"
 "라인 구분자를 조정하여 임시 파일을 생성합니다."
+
+#. Resource IDs: (197)
+msgid "If checked, double-clicking on a revision in the log list compares it with the previous revision"
+msgstr "로그 리스트에서 더블클릭하면 이전 리비전과 비교합니다"
 
 #. Resource IDs: (196)
 msgid ""
@@ -3368,6 +3440,18 @@ msgstr ""
 "{20020217T1530Z}\n"
 "{20020217T1530-0500}"
 
+#. Resource IDs: (83)
+msgid ""
+"Invalid revision range!\n"
+"Valid revisions are numbers and HEAD, separated by commas.\n"
+"A range can be specified with a dash.\n"
+"Example: 2-5,7,10,44-70,300-HEAD"
+msgstr ""
+"잘못된 리비전 구간입니다\n"
+"가능한 리비전은 쉼표(,)로 구분된 숫자 혹은 HEAD입니다.\n"
+"또한 구간은 대시(-)로 표현될 수 있습니다.\n"
+"예: 2-5,7,10,44-70,300-HEAD"
+
 #. Resource IDs: (145)
 msgid ""
 "It is not possible to rename a file by changing the case of its name alone.\n"
@@ -3383,8 +3467,8 @@ msgstr ""
 msgid ""
 "It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
 "\n"
-"From: %s\n"
-"To: %s\n"
+"From:\t%s\n"
+"To:\t\t%s\n"
 "\n"
 "A relocate is only needed if the path <b>to</b> a repository has changed.\n"
 "Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
@@ -3484,7 +3568,7 @@ msgid ""
 "repository URL will be saved to."
 msgstr "저장소 URL의 내용이 저장될 위치"
 
-#. Resource IDs: (207, 221, 65535)
+#. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
 msgstr "잠금"
 
@@ -3562,30 +3646,6 @@ msgstr "로그 메시지 (입력 대화창)"
 msgid "Log messages (Show log dialog)"
 msgstr "로그 메시지 (로그 대화상자로 봄)"
 
-#. Resource IDs: (195)
-msgid "Look and Feel"
-msgstr "모양"
-
-#. Resource IDs: (212)
-msgid "Look and Feel::Colors"
-msgstr "모양::색깔"
-
-#. Resource IDs: (196)
-msgid "Look and Feel::Dialogs 1"
-msgstr "모양::대화상자 1"
-
-#. Resource IDs: (213)
-msgid "Look and Feel::Dialogs 2"
-msgstr "모양::대화상자 2"
-
-#. Resource IDs: (106)
-msgid "Look and Feel::Icon Overlays"
-msgstr "모양::아이콘 오버레이"
-
-#. Resource IDs: (184)
-msgid "Look and Feel::Icon Set"
-msgstr "모양::아이콘 모음"
-
 #. Resource IDs: (238)
 #, c-format
 msgid "Lowest shown revision: %ld - Highest shown revision: %ld"
@@ -3636,7 +3696,7 @@ msgstr "최대"
 msgid "Max. items to keep in the log message history"
 msgstr "사용되었던 로그 저장 개수"
 
-#. Resource IDs: (141, 276, 65535)
+#. Resource IDs: (109, 110, 111, 276, 278, 65535)
 msgid "Merge"
 msgstr "병합"
 
@@ -3644,9 +3704,29 @@ msgstr "병합"
 msgid "Merge - TortoiseSVN"
 msgstr "병합 - TortoiseSVN"
 
+#. Resource IDs: (1416)
+msgid "Merge a range of revisions"
+msgstr "리비전의 구간 병합"
+
+#. Resource IDs: (277)
+msgid "Merge all"
+msgstr "전체 병합"
+
+#. Resource IDs: (14)
+msgid "Merge all..."
+msgstr "전체 병합..."
+
 #. Resource IDs: (65535)
 msgid "Merge depth:"
 msgstr "병합 단계:"
+
+#. Resource IDs: (595, 65535)
+msgid "Merge options"
+msgstr "병합 설정"
+
+#. Resource IDs: (595)
+msgid "Merge revision range"
+msgstr "병합 리비전 구간"
 
 #. Resource IDs: (114)
 msgid "Merge revision to..."
@@ -3656,9 +3736,13 @@ msgstr "리비전을 병합..."
 msgid "Merge revisions to..."
 msgstr "리비전을 병합..."
 
-#. Resource IDs: (1377)
-msgid "Merge settings"
-msgstr "병합 설정"
+#. Resource IDs: (1417)
+msgid "Merge two different trees"
+msgstr "두 개의 다른 트리를 병합합니다"
+
+#. Resource IDs: (595, 65535)
+msgid "Merge type"
+msgstr "병합 종류"
 
 #. Resource IDs: (263)
 msgid "Merged"
@@ -3673,14 +3757,18 @@ msgstr "리비전 %s 이 병합됨 (경로: %s):\n"
 msgid "Merges a branch into the main trunk"
 msgstr "브랜치를 선택하여 메인 트렁크에 병합함"
 
+#. Resource IDs: (14)
+msgid "Merges all missing revisions back into the working copy using merge-tracking information"
+msgstr "병합 추적 정보를 사용하여 누락된 리비전을 다시 작업사본에 병합합니다"
+
 #. Resource IDs: (65535)
 msgid "Merging"
 msgstr "병합"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s from revision %s to %s into %s, %s%s"
-msgstr "%s (리비전 %s에서 %s) 을(를) %s, %s%s에 병합중"
+msgid "Merging %s into %s, %s"
+msgstr "%s 를 %s와 병합중, %s"
 
 #. Resource IDs: (229)
 #, c-format
@@ -3700,6 +3788,11 @@ msgstr "r%ld에서 r%ld까지 병합중"
 #. Resource IDs: (83)
 msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
 msgstr "'시작:' 과 '끝:'에는 다른 리비전 혹은 URL이 들어 있어야 병합가능합니다."
+
+#. Resource IDs: (229)
+#, c-format
+msgid "Merging revisions %s of %s into %s, %s%s"
+msgstr "리비전 %s (%s) 을(를) %s, %s%s에 병합 중"
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
@@ -3782,6 +3875,10 @@ msgstr "아이템을 여기에 옮깁니다"
 #. Resource IDs: (209)
 msgid "Move to changelist"
 msgstr "변경 리스트로 이동"
+
+#. Resource IDs: (229)
+msgid "Move/Rename"
+msgstr "이동/이름 바꾸기"
 
 #. Resource IDs: (98)
 #, c-format
@@ -4008,6 +4105,10 @@ msgid ""
 msgstr ""
 "숫자만 허용됩니다!\n"
 "(숫자는 쉼표로 분리되어 나열될 수 있습니다)"
+
+#. Resource IDs: (1424)
+msgid "Only record the merge"
+msgstr "병합만 기록함"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -4299,6 +4400,26 @@ msgstr "속성..."
 msgid "Property"
 msgstr "속성"
 
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : Revision %s"
+msgstr "속성 %s : 리비전 %s"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : remote"
+msgstr "속성 %s : 저장소"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : working base"
+msgstr "속성 %s : 작업 베이스"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : working copy"
+msgstr "속성 %s : 작없 사본"
+
 #. Resource IDs: (107)
 msgid "Property Page"
 msgstr "속성 페이지"
@@ -4319,7 +4440,7 @@ msgstr "속성 상태"
 msgid "Property value:"
 msgstr "속성 값:"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1412)
 msgid "Proxy &timeout in seconds:"
 msgstr "프록시 만료시간(단위: 초)(&T)"
 
@@ -4634,7 +4755,7 @@ msgstr "사용자명과 암호를 요구합니다."
 msgid "Res&olved..."
 msgstr "충돌 해결됨(&O)..."
 
-#. Resource IDs: (207)
+#. Resource IDs: (207, 229)
 msgid "Resolve"
 msgstr "충돌 해결됨"
 
@@ -4699,7 +4820,11 @@ msgstr "복구됨"
 msgid "Retry"
 msgstr "재시도"
 
-#. Resource IDs: (175)
+#. Resource IDs: (1423)
+msgid "Reverse merge"
+msgstr "역방향 병합"
+
+#. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "되돌림"
 
@@ -4718,6 +4843,10 @@ msgstr "되돌림"
 #. Resource IDs: (9)
 msgid "Reverts all changes you made since the last update"
 msgstr "마지막 업데이이트 이후에 만들어진 모든 변경사항 되돌리기"
+
+#. Resource IDs: (14)
+msgid "Reverts an addition to version control"
+msgstr "버전 컨트롤에 추가된 사항 원상 복구"
 
 #. Resource IDs: (19, 76, 208, 1306, 1375, 1393, 65535)
 msgid "Revision"
@@ -4761,6 +4890,10 @@ msgstr "리비전 범위"
 #. Resource IDs: (269, 65535)
 msgid "Revision graph"
 msgstr "리비전 그래프"
+
+#. Resource IDs: (65535)
+msgid "Revision range to merge"
+msgstr "병합할 리비전 범위"
 
 #. Resource IDs: (75)
 msgid "Revision: "
@@ -4840,13 +4973,13 @@ msgstr "SCRL"
 msgid "SSH"
 msgstr "SSH"
 
-#. Resource IDs: (12)
-msgid "SVN Add files to this WC"
-msgstr "SVN 파일을 본 작업사본에 추가합니다"
-
 #. Resource IDs: (16)
 msgid "SVN Author"
 msgstr "작성자"
+
+#. Resource IDs: (12)
+msgid "SVN Copy and add files to this WC"
+msgstr "SVN 파일을 본 작업사본에 추가합니다"
 
 #. Resource IDs: (16)
 msgid "SVN Copy and rename versioned file here"
@@ -5043,6 +5176,10 @@ msgstr "선택된 파일을 저장할 폴더를 선택하세요"
 msgid "Select hook script file"
 msgstr "훅 스크립트를 선택하세요"
 
+#. Resource IDs: (1405)
+msgid "Select items automatically"
+msgstr "자동 선택"
+
 #. Resource IDs: (78)
 msgid "Select merge application"
 msgstr "병합 프로그램 선택"
@@ -5075,9 +5212,25 @@ msgstr ""
 "전체 문서 선택\n"
 "모두 선택"
 
+#. Resource IDs: (595)
+msgid "Select the merge options"
+msgstr "병합 옵션 선택"
+
+#. Resource IDs: (595)
+msgid "Select the revisions to merge"
+msgstr "병합할 리비전 선택"
+
+#. Resource IDs: (595)
+msgid "Select the type of merge"
+msgstr "병합 방법 선택"
+
 #. Resource IDs: (65535)
 msgid "Select the type of repository you want to create:"
 msgstr "생성하기를 원하는 저장소 형식을 선택하십시오:"
+
+#. Resource IDs: (595)
+msgid "Select the urls for the tree merge"
+msgstr "트리를 병합하기 위한 URL 선택하세요"
 
 #. Resource IDs: (78)
 msgid "Select viewer for diff-files"
@@ -5091,7 +5244,7 @@ msgstr "에러 메시지를 메일로 보내십시오."
 msgid "Sending content"
 msgstr "내용 전송"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1409)
 msgid "Server &address:"
 msgstr "서버 주소(&A):"
 
@@ -5110,10 +5263,6 @@ msgstr "설정"
 #. Resource IDs: (80)
 msgid "Settings - TortoiseSVN"
 msgstr "설정 - TortoiseSVN"
-
-#. Resource IDs: (1132)
-msgid "Sh&ow log"
-msgstr "로그 보기(&O)"
 
 #. Resource IDs: (1270)
 msgid "Shell"
@@ -5151,7 +5300,7 @@ msgstr "모든 리비젼 보기(&A)"
 msgid "Show &changes"
 msgstr "변경내용 보기(&C)..."
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1132, 1228, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 32784)
 msgid "Show &log"
 msgstr "로그 보기(&L)"
 
@@ -5306,6 +5455,10 @@ msgstr "선택된 파일 / 폴더의 로그 보기"
 msgid "Shows the mime type of the versioned file"
 msgstr "버전 관리 하에 있는 파일의 mime type 보기"
 
+#. Resource IDs: (32775)
+msgid "Single/&double-pane view"
+msgstr "단일/이중 창 보기(&D)"
+
 #. Resource IDs: (74)
 msgid "Size"
 msgstr "크기"
@@ -5334,10 +5487,6 @@ msgid ""
 msgstr ""
 "<b>모든</b> 작업사본에서 TortoiseSVN이 버전컨트롤하지 않을 파일이나 폴더를 지정하십시오.\n"
 "패턴들은 공백으로 분리하면 됩니다."
-
-#. Resource IDs: (65535)
-msgid "Specify the revision range which you want to merge:"
-msgstr "병합할 리비전의 범위를 지정하세요"
 
 #. Resource IDs: (376)
 msgid "Split lines"
@@ -5544,9 +5693,9 @@ msgstr "탭 크기:"
 msgid "Tagged the working copy to %s"
 msgstr "현재 작업 사본에 태그를 붙입니다. (%s)"
 
-#. Resource IDs: (65535)
-msgid "Target"
-msgstr "대상"
+#. Resource IDs: (219)
+msgid "Test Only"
+msgstr "시험용"
 
 #. Resource IDs: (65535)
 msgid "Text Status:"
@@ -5802,10 +5951,6 @@ msgstr ""
 msgid "The repository was successfully created."
 msgstr "저장소가 성공적으로 생성되었습니다."
 
-#. Resource IDs: (65535)
-msgid "The result of the merge is stored in the working copy at:"
-msgstr "병합 결과가 저장되는 작업사본 위치:"
-
 #. Resource IDs: (78)
 msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
@@ -5949,6 +6094,14 @@ msgstr ""
 "올바른 경로가 아닙니다.\n"
 "경로에는 '<<>|\"?*:'이 포함되어선 안되며, 또한 다음과 같은 장치명도 사용될 수 없습니다:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+
+#. Resource IDs: (594)
+msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
+msgstr "서브버전 책에서 논의된 기능 실험/추가용 브랜치(feature branch)에 작업한 경우에 해당하는 기능입니다. 브랜치로 작업하는 중에 트렁크의 모든 변경 내역은 주기적으로 피쳐 브랜치에 반영하게 됩니다. 그리고 피쳐 브랜치를 트렁크에 반영하려고 결정할 때, (실험/추가가 끝났을 때). 트렁크와 브랜치를 동기화 시켜왔기 때문에 마지막 변경 사항을 제외하고는 브랜치와 트렁크는 완벽하게 일치합니다. 이렇게 브랜치를 트렁크에 동기화 하는 경우에는 둘을 비교하면서 병합해야 합니다."
+
+#. Resource IDs: (594)
+msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
+msgstr "하나의 브랜치(혹은 트렁크)에 누적된 변경사항들을 다른 브랜치로 포팅하는 경우에 사용되는 명령입니다."
 
 #. Resource IDs: (65535)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -6128,6 +6281,10 @@ msgstr "전송중 %s"
 msgid "Transparent &color..."
 msgstr "투명색(&C)..."
 
+#. Resource IDs: (595)
+msgid "Tree merge"
+msgstr "트리 병합"
+
 #. Resource IDs: (251)
 msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
 msgstr "\"정리\"를 하십시오. 정리되지 않는다면 깨끗이 다시 체크아웃하셔야합니다."
@@ -6139,10 +6296,6 @@ msgstr "다시 시도하십시오."
 #. Resource IDs: (10)
 msgid "Tweak TortoiseSVN"
 msgstr "TortoiseSVN 설정 변경"
-
-#. Resource IDs: (32775)
-msgid "Two-way &Diff"
-msgstr "창을 나누어 비교(&D)"
 
 #. Resource IDs: (164, 207)
 msgid "URL"
@@ -6156,6 +6309,10 @@ msgstr "URL 기록"
 msgid "URL of Subversion items"
 msgstr "버전 관리 대상의 URL"
 
+#. Resource IDs: (65535)
+msgid "URL to merge from"
+msgstr "병합할 원본 URL"
+
 #. Resource IDs: (144, 11023, 65535)
 msgid "URL:"
 msgstr "URL:"
@@ -6163,6 +6320,17 @@ msgstr "URL:"
 #. Resource IDs: (75)
 msgid "URL: "
 msgstr "URL: "
+
+#. Resource IDs: (220)
+#, c-format
+msgid ""
+"Unable to determine merge source for\n"
+"%s\n"
+"Please use the main merge dialog."
+msgstr ""
+"%s\n"
+"을/를 병합하기 위한 원본을 결정할 수 없습니다\n"
+"병합 대화 상자를 이용하십시오."
 
 #. Resource IDs: (3866)
 msgid "Unable to load mail system support."
@@ -6202,6 +6370,10 @@ msgstr "읽기전용 속성이거나 다른 사람이 열고 있어서 파일에
 msgid "Uncheck"
 msgstr "선택 해제"
 
+#. Resource IDs: (14)
+msgid "Undo Add.."
+msgstr "추가 취소하기..."
+
 #. Resource IDs: (3603)
 msgid ""
 "Undo the last action\n"
@@ -6233,7 +6405,7 @@ msgstr ""
 msgid "Unknown depth"
 msgstr "알 수 없는 단계"
 
-#. Resource IDs: (221, 242)
+#. Resource IDs: (221, 230, 242)
 msgid "Unlock"
 msgstr "잠금해제"
 
@@ -6262,7 +6434,7 @@ msgstr "버전 관리 대상이 아닌 파일들이 있으면 상위 폴더를 �
 msgid "Unversioning %s"
 msgstr "버전관리에서 제외 %s"
 
-#. Resource IDs: (152)
+#. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "업데이트"
 
@@ -6325,10 +6497,6 @@ msgstr "작업 사본의 URL을 원본의 디폴트 URL로 사용합니다.(&W)"
 msgid "Use Unified Diff from clipboard"
 msgstr "클립보드와 Unified diff를 사용"
 
-#. Resource IDs: (1073)
-msgid "Use \"From:\" URL (revision range is selectable in the above log dialog)"
-msgstr "\"시작:\" URL을 다시 사용합니다 (리비전 구간은 위 로그 보기 대화상자에서 선택가능합니다.)"
-
 #. Resource IDs: (1296)
 msgid "Use \"_svn\" instead of \".svn\" directories"
 msgstr "\".svn\" 디렉토리 대신 \"_svn\"을 사용합니다."
@@ -6356,6 +6524,10 @@ msgstr "저장소를 사용합니다"
 #. Resource IDs: (1066)
 msgid "Use stri&keout for removed lines"
 msgstr "지워진 행에는 줄 긋기(&K)"
+
+#. Resource IDs: (1426)
+msgid "Use system locale for date/time"
+msgstr "날짜/시간을 위해 시스템 국가설정을 사용"
 
 #. Resource IDs: (251, 32820)
 msgid "Use text block from \"&mine\""
@@ -6408,6 +6580,20 @@ msgstr ""
 #. Resource IDs: (251)
 msgid "Use th&is text block"
 msgstr "이 텍스트 블록 사용(&i)"
+
+#. Resource IDs: (594)
+msgid ""
+"Use the log dialog to select the revisions you want to merge, or enter the revisions to merge, separated by commas. A revision range can be specified by a dash.\r\n"
+"\r\n"
+"Example: 4-7,9,11,15-HEAD\r\n"
+"\r\n"
+"To merge all revisions, leave the box empty."
+msgstr ""
+"병합하기 위한 리비전을 선택하기 위해 로그 대화상자를 이용하거나, 쉼표(,)로 구분된 리비전을 입력하세요. 리비전 구간은 대시(-)를 이용하여 표현할 수 있습니다.\r\n"
+"\r\n"
+"예: 4-7,9,11,15-HEAD\r\n"
+"\r\n"
+"모든 리비전을 병합하려면, 빈 칸으로 두십시오."
 
 #. Resource IDs: (251)
 msgid "Use this &whole file"
@@ -6497,6 +6683,10 @@ msgid "Warning!"
 msgstr "경고!"
 
 #. Resource IDs: (197)
+msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
+msgstr "설정해두면 버전 컨트롤 대상들은 커밋 대화상자에서 자동으로 선택됩니다"
+
+#. Resource IDs: (197)
 msgid ""
 "When locking one or more selected files, shows a dialog\n"
 "asking for a descriptive message about the locking"
@@ -6508,7 +6698,7 @@ msgstr ""
 msgid "With URL:"
 msgstr "대상 URL:"
 
-#. Resource IDs: (158)
+#. Resource IDs: (158, 65535)
 msgid "Working Copy"
 msgstr "작업 사본"
 
@@ -6945,6 +7135,10 @@ msgstr "일반"
 msgid "obstructed"
 msgstr "차단됨"
 
+#. Resource IDs: (1406, 1407)
+msgid "or"
+msgstr "또는"
+
 #. Resource IDs: (3869)
 msgid "pixels"
 msgstr "픽셀"
@@ -7001,15 +7195,29 @@ msgstr ""
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of\n"
-"a relative directory path, optional revision flags, and a URL. For example\n"
+"a relative directory path, optional revision flags, and an URL. For example\n"
 "foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag"
+"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"\n"
+"The URLs can either be full URLs or relative. The format for\n"
+"the relative URLs is:\n"
+"../\trelative to the parent directory of the external\n"
+"^/\trelative to the repository root\n"
+"//\trelative to the URL scheme\n"
+"/\trelative to the server's hostname"
 msgstr ""
 "svn:externals\n"
 "한 줄에 하나씩 지정하는 외부 모듈 리스트입니다. 모듈은 상대 경로,\n"
 "리비전 플래그(선택사항), URL로 되어 있습니다. 예)\n"
 "foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag"
+"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"\n"
+"URL은 상대 경로 혹은 전체가 될 수 있습니다.\n"
+"상대 경로 URL 형식:\n"
+"../\t외부 경로의 상위에 대한 상대 경로\n"
+"^/\t루트에 대한 상대 경로\n"
+"//\tURL 스키마에 대한 상대 경로\n"
+"/\t서버 호스트 이름에 대한 상대 경로"
 
 #. Resource IDs: (576)
 msgid ""
@@ -7234,10 +7442,6 @@ msgstr ""
 #. Resource IDs: (245)
 msgid "week"
 msgstr "주"
-
-#. Resource IDs: (65535)
-msgid "which points to the repository at URL:"
-msgstr "작업사본의 저장소 URL:"
 
 #. Resource IDs: (245)
 msgid "year"
