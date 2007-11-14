@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-11-13 15:48+0100\n"
+"PO-Revision-Date: 2007-11-14 10:21+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -950,7 +950,7 @@ msgstr "Aktionen"
 msgid "Activate Task List"
 msgstr "Aktiviere die Task-Liste"
 
-#. Resource IDs: (155, 209)
+#. Resource IDs: (155, 209, 229)
 msgid "Add"
 msgstr "Hinzufügen"
 
@@ -1658,7 +1658,7 @@ msgstr "Befehlszeile:"
 msgid "Command failed."
 msgstr "Befehl konnte nicht ausgeführt werden."
 
-#. Resource IDs: (135, 209, 1083)
+#. Resource IDs: (135, 209, 229, 1083)
 msgid "Commit"
 msgstr "Übertragen"
 
@@ -2483,7 +2483,7 @@ msgstr "Pfade &ausschließen:"
 msgid "Explore to"
 msgstr "Explorer öffnen"
 
-#. Resource IDs: (238)
+#. Resource IDs: (229, 238)
 msgid "Export"
 msgstr "Export"
 
@@ -3594,7 +3594,7 @@ msgstr ""
 "Zielordner, in dem die Dateien aus dem gewählten\n"
 "Projektarchiv gespeichert werden."
 
-#. Resource IDs: (207, 221, 65535)
+#. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
 msgstr "Sperre"
 
@@ -3901,6 +3901,10 @@ msgstr "Objekte hierher verschieben"
 #. Resource IDs: (209)
 msgid "Move to changelist"
 msgstr "Zur Änderungsliste hinzufügen"
+
+#. Resource IDs: (229)
+msgid "Move/Rename"
+msgstr "Verschieben/Umbenennen"
 
 #. Resource IDs: (98)
 #, c-format
@@ -4782,7 +4786,7 @@ msgstr "Erfragt Anwendername und Passwort"
 msgid "Res&olved..."
 msgstr "Konflikt &aufgelöst..."
 
-#. Resource IDs: (207)
+#. Resource IDs: (207, 229)
 msgid "Resolve"
 msgstr "Konflikt lösen"
 
@@ -4851,7 +4855,7 @@ msgstr "Wiederholen"
 msgid "Reverse merge"
 msgstr "Rückwärts zusammenführen"
 
-#. Resource IDs: (175)
+#. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Änderungen rückgängig"
 
@@ -6444,7 +6448,7 @@ msgstr ""
 msgid "Unknown depth"
 msgstr "Unbekannte Tiefe"
 
-#. Resource IDs: (221, 242)
+#. Resource IDs: (221, 230, 242)
 msgid "Unlock"
 msgstr "Entsperren"
 
@@ -6473,7 +6477,7 @@ msgstr "Nicht versionierte Dateien markieren Elternordner als modifiziert"
 msgid "Unversioning %s"
 msgstr "Hebe Versionierung von %s auf"
 
-#. Resource IDs: (152)
+#. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "Aktualisieren"
 
