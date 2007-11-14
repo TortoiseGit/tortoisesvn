@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-11-09 00:03+0800\n"
+"PO-Revision-Date: 2007-11-14 22:47+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -947,7 +947,7 @@ msgstr "行動"
 msgid "Activate Task List"
 msgstr "目前工作列表"
 
-#. Resource IDs: (155, 209)
+#. Resource IDs: (155, 209, 229)
 msgid "Add"
 msgstr "加入"
 
@@ -1062,6 +1062,10 @@ msgstr "所有檔案 (*.*)"
 #. Resource IDs: (157)
 msgid "All Files (*.*)|*.*||"
 msgstr "所有檔案 (*.*)|*.*||"
+
+#. Resource IDs: (197)
+msgid "Always use the system locale settings to show times and dates"
+msgstr "一律使用系統語系顯示時間與日期"
 
 #. Resource IDs: (3867, 3868)
 #, c-format
@@ -1646,7 +1650,7 @@ msgstr "要執行的命令列:"
 msgid "Command failed."
 msgstr "命令失敗."
 
-#. Resource IDs: (135, 209, 1083)
+#. Resource IDs: (135, 209, 229, 1083)
 msgid "Commit"
 msgstr "送交"
 
@@ -2470,7 +2474,7 @@ msgstr "除外路徑:"
 msgid "Explore to"
 msgstr "瀏覽至"
 
-#. Resource IDs: (238)
+#. Resource IDs: (229, 238)
 msgid "Export"
 msgstr "匯出"
 
@@ -2928,6 +2932,11 @@ msgstr "隱藏無關的異動路徑(&H)"
 #. Resource IDs: (1353, 1354)
 msgid "HEAD"
 msgstr "HEAD"
+
+#. Resource IDs: (106)
+#, c-format
+msgid "Head revision is %s"
+msgstr "最新版本是 %s"
 
 #. Resource IDs: (73, 1004)
 msgid "Help"
@@ -3561,7 +3570,7 @@ msgstr ""
 "儲存檔案庫 URL 內容\n"
 "的位置."
 
-#. Resource IDs: (207, 221, 65535)
+#. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
 msgstr "鎖定"
 
@@ -3868,6 +3877,10 @@ msgstr "移動項目至此"
 #. Resource IDs: (209)
 msgid "Move to changelist"
 msgstr "移至變更列表"
+
+#. Resource IDs: (229)
+msgid "Move/Rename"
+msgstr "移動/重新命名"
 
 #. Resource IDs: (98)
 #, c-format
@@ -4744,7 +4757,7 @@ msgstr "需要帳號和密碼"
 msgid "Res&olved..."
 msgstr "已解決(&O)..."
 
-#. Resource IDs: (207)
+#. Resource IDs: (207, 229)
 msgid "Resolve"
 msgstr "解決"
 
@@ -4813,7 +4826,7 @@ msgstr "重試"
 msgid "Reverse merge"
 msgstr "反向合併"
 
-#. Resource IDs: (175)
+#. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "復原"
 
@@ -5289,7 +5302,7 @@ msgstr "顯示所有版本(&A)"
 msgid "Show &changes"
 msgstr "顯示變更(&C)"
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1132, 1228, 1420, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 32784)
 msgid "Show &log"
 msgstr "顯示記錄(&L)"
 
@@ -6396,7 +6409,7 @@ msgstr ""
 msgid "Unknown depth"
 msgstr "不明層數"
 
-#. Resource IDs: (221, 242)
+#. Resource IDs: (221, 230, 242)
 msgid "Unlock"
 msgstr "解鎖"
 
@@ -6425,7 +6438,7 @@ msgstr "含有無版本控制的檔案時, 上層資料夾顯示為異動"
 msgid "Unversioning %s"
 msgstr "正在清除 %s 的版本控制資訊"
 
-#. Resource IDs: (152)
+#. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "更新"
 
@@ -6515,6 +6528,10 @@ msgstr "使用檔案庫版本"
 #. Resource IDs: (1066)
 msgid "Use stri&keout for removed lines"
 msgstr "用雙刪除線表示已刪除行(&K)"
+
+#. Resource IDs: (1426)
+msgid "Use system locale for date/time"
+msgstr "使用系統語系表示日期/時間"
 
 #. Resource IDs: (251, 32820)
 msgid "Use text block from \"&mine\""
@@ -6683,7 +6700,7 @@ msgstr ""
 msgid "With URL:"
 msgstr "以 URL:"
 
-#. Resource IDs: (158)
+#. Resource IDs: (158, 65535)
 msgid "Working Copy"
 msgstr "工作複本"
 
@@ -7180,15 +7197,29 @@ msgstr ""
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of\n"
-"a relative directory path, optional revision flags, and a URL. For example\n"
+"a relative directory path, optional revision flags, and an URL. For example\n"
 "foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag"
+"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"\n"
+"The URLs can either be full URLs or relative. The format for\n"
+"the relative URLs is:\n"
+"../\trelative to the parent directory of the external\n"
+"^/\trelative to the repository root\n"
+"//\trelative to the URL scheme\n"
+"/\trelative to the server's hostname"
 msgstr ""
 "svn:externals\n"
 "以換行字元分隔的模組名稱列表, 每項可包含相對路徑,\n"
 "可有可無的版本標記, 以及 URL. 例如:\n"
 "foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag"
+"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"\n"
+"URL 可以是完整 URL 或是相對 URL. 相對 URL 的表示\n"
+"方式如下:\n"
+"../\t相對於外部路徑的上層目錄\n"
+"^/\t相對於檔案庫的根目錄\n"
+"//\t相對於 URL 種類\n"
+"/\t相對於伺服器名稱"
 
 #. Resource IDs: (576)
 msgid ""
