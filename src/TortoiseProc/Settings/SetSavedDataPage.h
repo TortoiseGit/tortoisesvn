@@ -19,7 +19,8 @@
 #pragma once
 #include "SettingsPropPage.h"
 #include "Balloon.h"
-
+#include "registry.h"
+#include "afxwin.h"
 
 /**
  * \ingroup TortoiseProc
@@ -47,6 +48,9 @@ protected:
 	afx_msg void OnBnClickedResizablehistclear();
 	afx_msg void OnBnClickedAuthhistclear();
 	afx_msg void OnBnClickedRepologclear();
+	afx_msg void OnBnClickedActionlogshow();
+	afx_msg void OnBnClickedActionlogclear();
+	afx_msg void OnModified();
 
 	virtual BOOL OnInitDialog();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
@@ -58,4 +62,8 @@ private:
 	CButton			m_btnResizableHistClear;
 	CButton			m_btnAuthHistClear;
 	CButton			m_btnRepoLogClear;
+	CButton			m_btnActionLogShow;
+	CButton			m_btnActionLogClear;
+	DWORD			m_maxLines;
+	CRegDWORD		m_regMaxLines;
 };

@@ -961,14 +961,19 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     LTEXT           "URL history",IDC_URLHISTORY,7,20,226,8
     PUSHBUTTON      "Clear",IDC_URLHISTCLEAR,243,18,50,14
-    LTEXT           "Log messages (Input dialog)",IDC_LOGHISTORY,7,44,226,8
-    PUSHBUTTON      "Clear",IDC_LOGHISTCLEAR,243,42,50,14
-    LTEXT           "Log messages (Show log dialog)",IDC_REPOLOG,7,71,226,8
+    LTEXT           "Log messages (Input dialog)",IDC_LOGHISTORY,7,45,226,8
+    PUSHBUTTON      "Clear",IDC_LOGHISTCLEAR,243,43,50,14
+    LTEXT           "Log messages (Show log dialog)",IDC_REPOLOG,7,70,226,8
     PUSHBUTTON      "Clear",IDC_REPOLOGCLEAR,243,68,50,14
-    LTEXT           "Dialog sizes and positions",IDC_RESIZABLEHISTORY,7,98,226,8
-    PUSHBUTTON      "Clear",IDC_RESIZABLEHISTCLEAR,243,96,50,14
-    LTEXT           "Authentication data",IDC_AUTHHISTORY,7,122,226,8
-    PUSHBUTTON      "Clear",IDC_AUTHHISTCLEAR,243,120,50,14
+    LTEXT           "Dialog sizes and positions",IDC_RESIZABLEHISTORY,7,95,226,8
+    PUSHBUTTON      "Clear",IDC_RESIZABLEHISTCLEAR,243,93,50,14
+    LTEXT           "Authentication data",IDC_AUTHHISTORY,7,120,226,8
+    PUSHBUTTON      "Clear",IDC_AUTHHISTCLEAR,243,118,50,14
+    GROUPBOX        "Action log",IDC_STATIC,7,148,286,62
+    LTEXT           "Max. lines in action log",IDC_STATIC,13,169,120,16
+    EDITTEXT        IDC_MAXLINES,139,167,40,14,ES_RIGHT | ES_AUTOHSCROLL
+    PUSHBUTTON      "Show",IDC_ACTIONLOGSHOW,183,166,50,14
+    PUSHBUTTON      "Clear",IDC_ACTIONLOGCLEAR,236,166,50,14
 END
 
 IDD_HISTORYDLG DIALOGEX 0, 0, 196, 116
@@ -1734,7 +1739,9 @@ BEGIN
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 293
+        VERTGUIDE, 13
         VERTGUIDE, 233
+        VERTGUIDE, 286
         TOPMARGIN, 7
         BOTTOMMARGIN, 210
     END

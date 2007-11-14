@@ -20,14 +20,19 @@
 #include "TortoiseProc.h"
 #include "registry.h"
 #include "PathUtils.h"
+#include "AppUtils.h"
 #include "DirFileEnum.h"
 #include "SetSavedDataPage.h"
+#include "MessageBox.h"
 
 IMPLEMENT_DYNAMIC(CSetSavedDataPage, ISettingsPropPage)
 
 CSetSavedDataPage::CSetSavedDataPage()
 	: ISettingsPropPage(CSetSavedDataPage::IDD)
+	, m_maxLines(0)
 {
+	m_regMaxLines = CRegDWORD(_T("Software\\TortoiseSVN\\MaxLinesInLogfile"), 4000);
+	m_maxLines = m_regMaxLines;
 }
 
 CSetSavedDataPage::~CSetSavedDataPage()
@@ -42,6 +47,9 @@ void CSetSavedDataPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_RESIZABLEHISTCLEAR, m_btnResizableHistClear);
 	DDX_Control(pDX, IDC_AUTHHISTCLEAR, m_btnAuthHistClear);
 	DDX_Control(pDX, IDC_REPOLOGCLEAR, m_btnRepoLogClear);
+	DDX_Text(pDX, IDC_MAXLINES, m_maxLines);
+	DDX_Control(pDX, IDC_ACTIONLOGSHOW, m_btnActionLogShow);
+	DDX_Control(pDX, IDC_ACTIONLOGCLEAR, m_btnActionLogClear);
 }
 
 BOOL CSetSavedDataPage::OnInitDialog()
@@ -126,11 +134,15 @@ BOOL CSetSavedDataPage::OnInitDialog()
 	while (logenum.NextFile(sFile, &bIsDir))
 		nLogHistRepo++;
 
+	BOOL bActionLog = PathFileExists(CPathUtils::GetAppDataDirectory() + _T("logfile.txt"));
+
 	m_btnLogHistClear.EnableWindow(nLogHistMsg || nLogHistWC);
 	m_btnUrlHistClear.EnableWindow(nUrlHistItems || nUrlHistWC);
 	m_btnResizableHistClear.EnableWindow(nResizableDialogs);
 	m_btnAuthHistClear.EnableWindow(nSimple || nSSL || nUsername);
 	m_btnRepoLogClear.EnableWindow(nLogHistRepo);
+	m_btnActionLogClear.EnableWindow(bActionLog);
+	m_btnActionLogShow.EnableWindow(bActionLog);
 
 	EnableToolTips();
 
@@ -167,6 +179,9 @@ BEGIN_MESSAGE_MAP(CSetSavedDataPage, ISettingsPropPage)
 	ON_BN_CLICKED(IDC_RESIZABLEHISTCLEAR, &CSetSavedDataPage::OnBnClickedResizablehistclear)
 	ON_BN_CLICKED(IDC_AUTHHISTCLEAR, &CSetSavedDataPage::OnBnClickedAuthhistclear)
 	ON_BN_CLICKED(IDC_REPOLOGCLEAR, &CSetSavedDataPage::OnBnClickedRepologclear)
+	ON_BN_CLICKED(IDC_ACTIONLOGSHOW, &CSetSavedDataPage::OnBnClickedActionlogshow)
+	ON_BN_CLICKED(IDC_ACTIONLOGCLEAR, &CSetSavedDataPage::OnBnClickedActionlogclear)
+	ON_EN_CHANGE(IDC_MAXLINES, OnModified)
 END_MESSAGE_MAP()
 
 void CSetSavedDataPage::OnBnClickedUrlhistclear()
@@ -251,8 +266,30 @@ void CSetSavedDataPage::OnBnClickedRepologclear()
 	m_tooltips.RemoveTool(GetDlgItem(IDC_REPOLOGCLEAR));
 }
 
+void CSetSavedDataPage::OnBnClickedActionlogshow()
+{
+	CString logfile = CPathUtils::GetAppDataDirectory() + _T("logfile.txt");
+	CAppUtils::StartTextViewer(logfile);
+}
+
+void CSetSavedDataPage::OnBnClickedActionlogclear()
+{
+	CString logfile = CPathUtils::GetAppDataDirectory() + _T("logfile.txt");
+	DeleteFile(logfile);
+	m_btnActionLogClear.EnableWindow(FALSE);
+	m_btnActionLogShow.EnableWindow(FALSE);
+}
+
+void CSetSavedDataPage::OnModified()
+{
+	SetModified();
+}
+
 BOOL CSetSavedDataPage::OnApply()
 {
-	// nothing to do
+	m_regMaxLines = m_maxLines;
+	if (m_regMaxLines.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regMaxLines.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	return ISettingsPropPage::OnApply();
 }
+

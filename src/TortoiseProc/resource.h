@@ -667,6 +667,7 @@
 #define IDC_REFRESH                     1382
 #define IDC_RESOLVEALLLATER             1382
 #define IDC_DRYRUN                      1382
+#define IDC_ACTIONLOGSHOW               1382
 #define IDC_REPOGROUP                   1383
 #define IDC_TOURLLABEL                  1384
 #define IDC_FROMGROUP                   1385
@@ -714,6 +715,9 @@
 #define IDC_RECORDONLY                  1424
 #define IDC_WCEDIT                      1425
 #define IDC_SYSTEMLOCALEFORDATES        1426
+#define IDC_ACTIONLOGCLEAR              1427
+#define IDC_EDIT1                       1428
+#define IDC_MAXLINES                    1428
 #define IDS_CHECKOUT_TT_DIR             1500
 #define IDS_CHECKOUT_EXPORTDIR          1501
 #define IDS_EXPORT_TT_EOL               1505
@@ -1292,7 +1296,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        280
 #define _APS_NEXT_COMMAND_VALUE         32829
-#define _APS_NEXT_CONTROL_VALUE         1427
+#define _APS_NEXT_CONTROL_VALUE         1429
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif
