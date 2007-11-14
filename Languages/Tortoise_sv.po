@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-11-14 11:25+0100\n"
+"PO-Revision-Date: 2007-11-14 11:41+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -362,6 +362,10 @@ msgstr "&Jämför"
 #. Resource IDs: (17)
 msgid "&Diff with URL"
 msgstr "&Jämför med URL"
+
+#. Resource IDs: (14)
+msgid "&Diff with previous version"
+msgstr "&Jämför med föregående revision"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -967,7 +971,7 @@ msgstr "Åtgärder"
 msgid "Activate Task List"
 msgstr "Aktivera uppgiftslistan"
 
-#. Resource IDs: (155, 209)
+#. Resource IDs: (155, 209, 229)
 msgid "Add"
 msgstr "Lägg till"
 
@@ -1088,6 +1092,10 @@ msgstr "Alla filer (*.*)"
 #. Resource IDs: (157)
 msgid "All Files (*.*)|*.*||"
 msgstr "Alla filer (*.*)|*.*||"
+
+#. Resource IDs: (197)
+msgid "Always use the system locale settings to show times and dates"
+msgstr "Använd alltid datorns inställning för visning av datum och tid"
 
 #. Resource IDs: (3867, 3868)
 #, c-format
@@ -1675,7 +1683,7 @@ msgstr "Kommandoraden som skall exekveras:"
 msgid "Command failed."
 msgstr "Kommandot misslyckades."
 
-#. Resource IDs: (135, 209, 1083)
+#. Resource IDs: (135, 209, 229, 1083)
 msgid "Commit"
 msgstr "Arkivera"
 
@@ -1931,8 +1939,8 @@ msgstr "Kunde inte lägga till \"%s\" på grund av"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not add property \"%s\" because"
-msgstr "Det gick inte att lägga till egenskapen \"%s\" på grund av"
+msgid "Could not add property \"%s\" on %s because"
+msgstr "Det gick inte att lägga till egenskapen \"%s\" på %s på grund av"
 
 #. Resource IDs: (201)
 msgid "Could not check for a newer version!"
@@ -1956,8 +1964,12 @@ msgstr "Kunde inte ta bort \"%s\" på grund av"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not delete property \"%s\" because"
-msgstr "Kunde inte ta bort egenskapen \"%s\" på grund av"
+msgid "Could not delete property \"%s\" on %s because"
+msgstr "Kunde inte ta bort egenskapen \"%s\" på %s på grund av"
+
+#. Resource IDs: (83)
+msgid "Could not determine the last committed revision!"
+msgstr "Det gick inte att ta reda på den senaste arkiverade revisionen!"
 
 #. Resource IDs: (81)
 msgid "Could not get the status!"
@@ -1970,8 +1982,8 @@ msgstr "Kunde inte förena \"%s\" på grund av"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not merge property \"%s\" because"
-msgstr "Kunde inte förena egenskapen \"%s\" på grund av"
+msgid "Could not merge property \"%s\" on %s because"
+msgstr "Kunde inte förena egenskapen \"%s\" på %s på grund av"
 
 #. Resource IDs: (69)
 #, c-format
@@ -2189,10 +2201,6 @@ msgstr "Otillräckligt diskutrymme på målenheten."
 msgid "Dialog sizes and positions"
 msgstr "Storlek och positioner för dialoger"
 
-#. Resource IDs: (146)
-msgid "Diff With URL"
-msgstr "Jämför med URL"
-
 #. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "Patchfil:"
@@ -2202,6 +2210,10 @@ msgstr "Patchfil:"
 msgid "Diff options"
 msgstr "Alternativ för olikheter"
 
+#. Resource IDs: (146, 279)
+msgid "Diff with URL"
+msgstr "Jämför med URL"
+
 #. Resource IDs: (1302)
 msgid "Difference between"
 msgstr "Skillnader mellan"
@@ -2210,6 +2222,10 @@ msgstr "Skillnader mellan"
 #. Resource IDs: (1022)
 msgid "Diffing"
 msgstr "Jämför"
+
+#. Resource IDs: (14)
+msgid "Diffs the working copy file with the one before the last commit."
+msgstr "Jämför filen i arbetskopian med den innan föregående arkivering."
 
 #. Resource IDs: (65535)
 msgid "Directory:"
@@ -2498,7 +2514,7 @@ msgstr "Uteslut sökvägar:"
 msgid "Explore to"
 msgstr "Utforska till"
 
-#. Resource IDs: (238)
+#. Resource IDs: (229, 238)
 msgid "Export"
 msgstr "Exportera"
 
@@ -2961,6 +2977,11 @@ msgstr "&Göm orelaterade ändrade sökvägar"
 #. Resource IDs: (1353, 1354)
 msgid "HEAD"
 msgstr "HEAD"
+
+#. Resource IDs: (106)
+#, c-format
+msgid "Head revision is %s"
+msgstr "Den senaste revisionen är %s"
 
 #. Resource IDs: (73, 1004)
 msgid "Help"
@@ -3494,8 +3515,8 @@ msgstr ""
 msgid ""
 "It seems you are trying to <b>relocate</b> your working copy to a different path inside the same repository.\n"
 "\n"
-"From: %s\n"
-"To: %s\n"
+"From:\t%s\n"
+"To:\t\t%s\n"
 "\n"
 "A relocate is only needed if the path <b>to</b> a repository has changed.\n"
 "Changing to a different path <b>inside</b> a repository is done by a switch operation.\n"
@@ -3598,7 +3619,7 @@ msgstr ""
 "Plats där innehållet på URL:en\n"
 "i arkivet ska sparas."
 
-#. Resource IDs: (207, 221, 65535)
+#. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
 msgstr "Lås"
 
@@ -3906,6 +3927,10 @@ msgstr "Flytta objekten hit"
 #. Resource IDs: (209)
 msgid "Move to changelist"
 msgstr "Flytta till ändringslista"
+
+#. Resource IDs: (229)
+msgid "Move/Rename"
+msgstr "Flytta/Byt namn"
 
 #. Resource IDs: (98)
 #, c-format
@@ -4430,6 +4455,11 @@ msgid "Property"
 msgstr "Egenskap"
 
 #. Resource IDs: (151)
+#, fuzzy, c-format
+msgid "Property %s : Revision %s"
+msgstr "Kopiera %s till %s, Revision %s"
+
+#. Resource IDs: (151)
 #, c-format
 msgid "Property %s : remote"
 msgstr "Egenskap %s : fjärr"
@@ -4781,7 +4811,7 @@ msgstr "Begär ett användarnamn och ett lösenord"
 msgid "Res&olved..."
 msgstr "Kon&flikten är markerad som löst.."
 
-#. Resource IDs: (207)
+#. Resource IDs: (207, 229)
 msgid "Resolve"
 msgstr "Markera konflikt som löst"
 
@@ -4850,7 +4880,7 @@ msgstr "Försök igen"
 msgid "Reverse merge"
 msgstr "Omvänd förening"
 
-#. Resource IDs: (175)
+#. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Återställ"
 
@@ -5120,7 +5150,7 @@ msgstr "Sparar filer"
 msgid "Saving patchfile to:"
 msgstr "Sparar patchfil till:"
 
-#. Resource IDs: (1014, 1017, 1064, 1212, 1415)
+#. Resource IDs: (1014, 1017, 1064, 1212)
 msgid "Scintilla"
 msgstr "Scintilla"
 
@@ -5335,7 +5365,7 @@ msgstr "Visa &alla revisioner"
 msgid "Show &changes"
 msgstr "Visa &ändringar"
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1132, 1228, 1420, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 32784)
 msgid "Show &log"
 msgstr "Visa &logg"
 
@@ -6370,7 +6400,7 @@ msgstr "URL:"
 #, fuzzy, c-format
 msgid ""
 "Unable to determine merge source for\n"
-"%\n"
+"%s\n"
 "Please use the main merge dialog."
 msgstr ""
 "Kan inte hitta föreningskällan för\n"
@@ -6450,7 +6480,7 @@ msgstr ""
 msgid "Unknown depth"
 msgstr "Okänt djup"
 
-#. Resource IDs: (221, 242)
+#. Resource IDs: (221, 230, 242)
 msgid "Unlock"
 msgstr "Lås upp"
 
@@ -6479,7 +6509,7 @@ msgstr "Mappar med filer som inte är versionshanterade visas som ändrade"
 msgid "Unversioning %s"
 msgstr "Kopplar loss från versionshantering %s"
 
-#. Resource IDs: (152)
+#. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "Uppdatera"
 
@@ -6569,6 +6599,10 @@ msgstr "Använd arkivet"
 #. Resource IDs: (1066)
 msgid "Use stri&keout for removed lines"
 msgstr "Använd överstry&kning för borttagna rader"
+
+#. Resource IDs: (1426)
+msgid "Use system locale for date/time"
+msgstr "Använd datorns inställningar för datum och tid"
 
 #. Resource IDs: (251, 32820)
 msgid "Use text block from \"&mine\""
@@ -6740,7 +6774,7 @@ msgid "With URL:"
 msgstr "Med URL:"
 
 # Osäker på var denna visas
-#. Resource IDs: (158)
+#. Resource IDs: (158, 65535)
 msgid "Working Copy"
 msgstr "Arbetskopia"
 
@@ -7239,15 +7273,29 @@ msgstr ""
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of\n"
-"a relative directory path, optional revision flags, and a URL. For example\n"
+"a relative directory path, optional revision flags, and an URL. For example\n"
 "foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag"
+"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"\n"
+"The URLs can either be full URLs or relative. The format for\n"
+"the relative URLs is:\n"
+"../\trelative to the parent directory of the external\n"
+"^/\trelative to the repository root\n"
+"//\trelative to the URL scheme\n"
+"/\trelative to the server's hostname"
 msgstr ""
 "svn:externals\n"
 "En lista av arkivsökvägar angivna en per rad. Varje rad ska innehålla\n"
-"mappnamn, frivillig revisionsflagga samt en URL. Exempel:\n"
+"en relativ mappsökväg, frivillig revisionsflagga samt en URL. Exempel:\n"
 "foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag"
+"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"\n"
+"URLerna kan antingen vara absoluta eller relativa. Formatet för\n"
+"en relativ URL är:\n"
+"../\tRelativt föräldern för mappen som innehåller externaldefinitionen\n"
+"^/\tRelativt arkivets rot\n"
+"//\tRelativt URL schemat\n"
+"/\tRelativt serverns värdnamn"
 
 #. Resource IDs: (576)
 msgid ""
@@ -7269,7 +7317,7 @@ msgid ""
 msgstr ""
 "svn:keywords\n"
 "Nyckelord att expandera. Giltiga nyckelord är:\n"
-"URL, HeadURL\t\t\tURL:en för huvudrevisionen för filen.\n"
+"URL, HeadURL\t\t\tURL:en för den senaste revisionen för filen.\n"
 "Author, LastChangedBy\t\tAnvändarnamn på den som senast ändrade filen.\n"
 "Date, LastChangedDate\t\tDatum/tid för senaste ändringen av filen.\n"
 "Rev, LastChangedRevision\tSenaste revisionsnummret för filen.\n"
