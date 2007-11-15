@@ -1,3 +1,4 @@
+// testCOM.js - javascript file
 // test script for the SubWCRev COM/Automation-object
 
 filesystem = new ActiveXObject("Scripting.FileSystemObject");

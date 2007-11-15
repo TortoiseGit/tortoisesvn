@@ -221,7 +221,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 			substituted in the output file.
 		</para>
 <screen>
-// Test file for SubWCRev
+// Test file for SubWCRev: testfile.tmpl
 
 char *Revision = "$WCREV$";
 char *Modified = "$WCMODS?Modified:Not modified$";
@@ -237,10 +237,11 @@ char *URL      = "$WCURL$";
 // End of file
 </screen>
 		<para>
-			After running SubWCRev.exe, the output file looks like this:
+			After running <literal>SubWCRev.exe path\to\workingcopy testfile.tmpl testfile.txt</literal>, 
+			the output file <literal>testfile.txt</literal> would looks like this:
 		</para>
 <screen>
-// Test file for SubWCRev
+// Test file for SubWCRev: testfile.txt
 
 char *Revision = "3701";
 char *Modified = "Modified";
@@ -341,6 +342,7 @@ char *URL      = "http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/SubWCR
 		<para>
 			The following example shows how the interface might be used.
 <programlisting>
+// testCOM.js - javascript file
 // test script for the SubWCRev COM/Automation-object
 
 filesystem = new ActiveXObject("Scripting.FileSystemObject");
