@@ -11,13 +11,13 @@
 # Stanislav Petrakov <stannic@gmail.com>
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 11328: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 11360: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-11-12 16:31+0300\n"
+"PO-Revision-Date: 2007-11-15 18:43+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -992,6 +992,10 @@ msgstr "Доступ к %1 запрещен."
 msgid "Action"
 msgstr "Действие"
 
+#. Resource IDs: (65535)
+msgid "Action log"
+msgstr "Журнал действий"
+
 #. Resource IDs: (117)
 msgid "Actions"
 msgstr "Действия"
@@ -1001,7 +1005,7 @@ msgid "Activate Task List"
 msgstr "Активировать список задач"
 
 # Заголовок окна
-#. Resource IDs: (155, 209)
+#. Resource IDs: (155, 209, 229)
 msgid "Add"
 msgstr "Добавление"
 
@@ -1116,6 +1120,10 @@ msgstr "Все файлы (*.*)"
 #. Resource IDs: (157)
 msgid "All Files (*.*)|*.*||"
 msgstr "Все файлы (*.*)|*.*||"
+
+#. Resource IDs: (197)
+msgid "Always use the system locale settings to show times and dates"
+msgstr "Всегда использовать настройки локализации системы для отображения времени и даты"
 
 #. Resource IDs: (3867, 3868)
 #, c-format
@@ -1622,7 +1630,7 @@ msgstr "Очистка закончена"
 msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "Очистка прерванных операций, блокированных файлов, ..."
 
-#. Resource IDs: (1273, 1275, 1276, 1279, 1281)
+#. Resource IDs: (1273, 1275, 1276, 1279, 1281, 1427)
 msgid "Clear"
 msgstr "Очистить"
 
@@ -1708,7 +1716,7 @@ msgstr "Командная строка для выполнения:"
 msgid "Command failed."
 msgstr "Сбой в комманде."
 
-#. Resource IDs: (135, 209, 1083)
+#. Resource IDs: (135, 209, 229, 1083)
 msgid "Commit"
 msgstr "Фиксация"
 
@@ -2209,6 +2217,10 @@ msgstr "Удаляет файлы/папки из управления верс�
 msgid "Deletes files / folders from version control but keeps the file"
 msgstr "Удаляет файлы/папки из управления версиями без удаления самих файлов"
 
+#. Resource IDs: (198)
+msgid "Deletes the action log file"
+msgstr "Удаляет файл журнала действий"
+
 #. Resource IDs: (263)
 msgid "Deleting"
 msgstr "Удаление"
@@ -2543,7 +2555,7 @@ msgstr "Исключить пути:"
 msgid "Explore to"
 msgstr "Открыть в Проводнике"
 
-#. Resource IDs: (238)
+#. Resource IDs: (229, 238)
 msgid "Export"
 msgstr "Экспорт"
 
@@ -3655,7 +3667,7 @@ msgstr ""
 "Место, куда будет сохранено то, что содержится\n"
 "по указанному URL в хранилище."
 
-#. Resource IDs: (207, 221, 65535)
+#. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
 msgstr "Блокировка"
 
@@ -3787,6 +3799,10 @@ msgstr "Max"
 #. Resource IDs: (1317)
 msgid "Max. items to keep in the log message history"
 msgstr "Количество сохраняемых предыдущих сообщений журнала"
+
+#. Resource IDs: (65535)
+msgid "Max. lines in action log"
+msgstr "строк в журнале действий"
 
 #. Resource IDs: (109, 110, 111, 276, 278, 65535)
 msgid "Merge"
@@ -3967,6 +3983,10 @@ msgstr "Переместить элементы сюда"
 #. Resource IDs: (209)
 msgid "Move to changelist"
 msgstr "Переместить в группу изменений"
+
+#. Resource IDs: (229)
+msgid "Move/Rename"
+msgstr "Перемещение/Переименование"
 
 #. Resource IDs: (98)
 #, c-format
@@ -4853,7 +4873,7 @@ msgid "Res&olved..."
 msgstr "У&ладить..."
 
 # Заголовок окна
-#. Resource IDs: (207)
+#. Resource IDs: (207, 229)
 msgid "Resolve"
 msgstr "Улаживание"
 
@@ -4924,7 +4944,7 @@ msgid "Reverse merge"
 msgstr "Обратное слияние"
 
 # Заголовок окна
-#. Resource IDs: (175)
+#. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Убрать изменения"
 
@@ -5388,6 +5408,10 @@ msgstr "Короткий формат &даты/времени в сообщен
 msgid "Short URL of Subversion items"
 msgstr "Краткий URL объектов Subversion"
 
+#. Resource IDs: (1382)
+msgid "Show"
+msgstr "Показать"
+
 #. Resource IDs: (115, 1031)
 msgid "Show &All"
 msgstr "Показать &все"
@@ -5547,6 +5571,10 @@ msgstr "Показывает все ревизии, в которых были �
 #. Resource IDs: (10)
 msgid "Shows information about TortoiseSVN"
 msgstr "Показывает информацию о TortoiseSVN"
+
+#. Resource IDs: (198)
+msgid "Shows the action log file in the default text editor"
+msgstr "Показывает журнал действий в текстовом редакторе по умолчанию"
 
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
@@ -5955,6 +5983,14 @@ msgstr "Строка, обозначающая старый файл, ожида
 #. Resource IDs: (251)
 msgid "The lock has already been broken from another working copy"
 msgstr "Блокировка уже была прервана из другой рабочей копии"
+
+#. Resource IDs: (198)
+msgid ""
+"The maximum number of action log lines to keep.\n"
+"Any lines added over this limit will remove the oldest lines from the file."
+msgstr ""
+"Максимальное количество строк в журнале действий.\n"
+"При добавлении строк свыше этого предела из файла начнут удалятся наиболее старые строки."
 
 #. Resource IDs: (63)
 msgid ""
@@ -6527,7 +6563,7 @@ msgstr ""
 msgid "Unknown depth"
 msgstr "Неизвестная глубина"
 
-#. Resource IDs: (221, 242)
+#. Resource IDs: (221, 230, 242)
 msgid "Unlock"
 msgstr "Разблокировать"
 
@@ -6558,7 +6594,7 @@ msgid "Unversioning %s"
 msgstr "Разверсирование %s"
 
 # Заголовок окна
-#. Resource IDs: (152)
+#. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "Обновление"
 
@@ -6651,6 +6687,10 @@ msgstr "Из хранилища"
 #. Resource IDs: (1066)
 msgid "Use stri&keout for removed lines"
 msgstr "Использовать за&чёркивание для удалённых строк"
+
+#. Resource IDs: (1426)
+msgid "Use system locale for date/time"
+msgstr "Использовать формат даты/времени из локализации системы "
 
 #. Resource IDs: (251, 32820)
 msgid "Use text block from \"&mine\""
