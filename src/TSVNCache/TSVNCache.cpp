@@ -521,6 +521,7 @@ DWORD WINAPI PipeThread(LPVOID lpvParam)
 		{
 			//OutputDebugStringA("TSVNCache: CreatePipe failed\n");
 			//DebugOutputLastError();
+			Sleep(200);
 			continue; // never leave the thread!
 		}
 
@@ -559,6 +560,7 @@ DWORD WINAPI PipeThread(LPVOID lpvParam)
 			//OutputDebugStringA("TSVNCache: ConnectNamedPipe failed\n");
 			//DebugOutputLastError();
 			CloseHandle(hPipe); 
+			Sleep(200);
 			continue;	// don't end the thread!
 		}
 	}
@@ -597,6 +599,7 @@ DWORD WINAPI CommandWaitThread(LPVOID lpvParam)
 		{
 			//OutputDebugStringA("TSVNCache: CreatePipe failed\n");
 			//DebugOutputLastError();
+			Sleep(200);
 			continue; // never leave the thread!
 		}
 
@@ -635,6 +638,7 @@ DWORD WINAPI CommandWaitThread(LPVOID lpvParam)
 			//OutputDebugStringA("TSVNCache: ConnectNamedPipe failed\n");
 			//DebugOutputLastError();
 			CloseHandle(hPipe); 
+			Sleep(200);
 			continue;	// don't end the thread!
 		}
 	}
