@@ -361,20 +361,6 @@
 					</Directory>
 
 					<Directory Id="D__icons" Name="ICONS" LongName="icons" >
-						<Directory Id="D__iconsclassic" Name="Classic" >
-
-							<Component Id="C__iconsclassic" Guid="$(var.GuidIconsClassic)" Win64="$(var.Win64YesNo)">
-								<File Id="F__ClassicConflictIcon" Name="TORTOI1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseConflict.ico" KeyPath="yes" />
-								<File Id="F__ClassicInSubversionIcon" Name="TORTOI2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseInSubversion.ico" />
-								<File Id="F__ClassicModifiedIcon" Name="TORTOI3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseModified.ico" />
-								<File Id="F__ClassicReadOnlyIcon" Name="TORTOI4.ICO" LongName="TortoiseReadOnly.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseReadOnly.ico" />
-								<File Id="F__ClassicDeletedIcon" Name="TORTOI5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseDeleted.ico" />
-								<File Id="F__ClassicLockedIcon" Name="TORTOI6.ICO" LongName="TortoiseLocked.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseLocked.ico" />
-								<File Id="F__ClassicAddedIcon" Name="TORTOI7.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\Classic\TortoiseAdded.ico" />
-							</Component>
-
-						</Directory>
-
 						<Directory Id="D__iconscvsclassic" Name="CVSClass" LongName="CVSClassic" >
 
 							<Component Id="C__iconscvsclassic" Guid="$(var.GuidIconsCVSClassic)" Win64="$(var.Win64YesNo)">
