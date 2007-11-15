@@ -102,7 +102,7 @@ void CAboutDlg::OnTimer(UINT_PTR nIDEvent)
 		r.top = 20;
 		r.right = r.left + m_renderSrc.GetWidth();
 		r.bottom = r.top + m_renderSrc.GetHeight();
-		m_waterEffect.Blob(random(r.left,r.right), random(r.top, r.bottom), 2, 400, m_waterEffect.m_iHpage);
+		m_waterEffect.Blob(random(r.left,r.right), random(r.top, r.bottom), 5, 800, m_waterEffect.m_iHpage);
 	}
 	CStandAloneDialog::OnTimer(nIDEvent);
 }
@@ -122,9 +122,9 @@ void CAboutDlg::OnMouseMove(UINT nFlags, CPoint point)
 		point.y = 64-point.y;
 
 		if (nFlags & MK_LBUTTON)
-			m_waterEffect.Blob(point.x -15,point.y,5,1600,m_waterEffect.m_iHpage);
+			m_waterEffect.Blob(point.x -15,point.y,10,1600,m_waterEffect.m_iHpage);
 		else
-			m_waterEffect.Blob(point.x -15,point.y,2,50,m_waterEffect.m_iHpage);
+			m_waterEffect.Blob(point.x -15,point.y,5,50,m_waterEffect.m_iHpage);
 
 	}
 
