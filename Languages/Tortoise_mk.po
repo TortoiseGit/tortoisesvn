@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-11-09 08:54+0100\n"
+"PO-Revision-Date: 2007-11-15 09:33+0100\n"
 "Last-Translator: Срѓан Стокиќ <srdjan.stokic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -961,6 +961,10 @@ msgstr "Пристап до %1 е одбиен."
 msgid "Action"
 msgstr "Акција"
 
+#. Resource IDs: (65535)
+msgid "Action log"
+msgstr "Дневник со акции"
+
 #. Resource IDs: (117)
 msgid "Actions"
 msgstr "Акции"
@@ -969,7 +973,7 @@ msgstr "Акции"
 msgid "Activate Task List"
 msgstr "Активирај ја листата со задачи"
 
-#. Resource IDs: (155, 209)
+#. Resource IDs: (155, 209, 229)
 msgid "Add"
 msgstr "Додади"
 
@@ -1084,6 +1088,10 @@ msgstr "Сите датотеки (*.*)"
 #. Resource IDs: (157)
 msgid "All Files (*.*)|*.*||"
 msgstr "Сите датотеки (*.*)|*.*||"
+
+#. Resource IDs: (197)
+msgid "Always use the system locale settings to show times and dates"
+msgstr "Секогаш користи ги системските подесувања за приказ на време и датум"
 
 #. Resource IDs: (3867, 3868)
 #, c-format
@@ -1584,7 +1592,7 @@ msgstr "Чистењето е завршено"
 msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "Чистење на преостанатите операции, заклучени датотеки..."
 
-#. Resource IDs: (1273, 1275, 1276, 1279, 1281)
+#. Resource IDs: (1273, 1275, 1276, 1279, 1281, 1427)
 msgid "Clear"
 msgstr "Бриши"
 
@@ -1670,7 +1678,7 @@ msgstr "Командна линија за извшување:"
 msgid "Command failed."
 msgstr "Наредбата не е извршена."
 
-#. Resource IDs: (135, 209, 1083)
+#. Resource IDs: (135, 209, 229, 1083)
 msgid "Commit"
 msgstr "Зачувај"
 
@@ -2165,6 +2173,10 @@ msgstr "Брише датотеки / директориуми од контро
 msgid "Deletes files / folders from version control but keeps the file"
 msgstr "Брише датотеки / директориуми од контрола на верзии но ја задржува датотеката"
 
+#. Resource IDs: (198)
+msgid "Deletes the action log file"
+msgstr "Ја брише датотеката на дневникот со акции"
+
 #. Resource IDs: (263)
 msgid "Deleting"
 msgstr "Бришење"
@@ -2495,7 +2507,7 @@ msgstr "Исклучи ги патеките:"
 msgid "Explore to"
 msgstr "Истражи до"
 
-#. Resource IDs: (238)
+#. Resource IDs: (229, 238)
 msgid "Export"
 msgstr "Извези"
 
@@ -2953,6 +2965,11 @@ msgstr "С&криј ги неповрзаните изменети патеки"
 #. Resource IDs: (1353, 1354)
 msgid "HEAD"
 msgstr "ГЛАВНО"
+
+#. Resource IDs: (106)
+#, c-format
+msgid "Head revision is %s"
+msgstr "Главна ревизија е %s"
 
 #. Resource IDs: (73, 1004)
 msgid "Help"
@@ -3590,7 +3607,7 @@ msgstr ""
 "Локација каде содржината на\n"
 "URL складиштето ќе биде сочувана."
 
-#. Resource IDs: (207, 221, 65535)
+#. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
 msgstr "Заклучи"
 
@@ -3718,6 +3735,10 @@ msgstr "Максимум"
 #. Resource IDs: (1317)
 msgid "Max. items to keep in the log message history"
 msgstr "Најголем број на пораки за преглед во историјата"
+
+#. Resource IDs: (65535)
+msgid "Max. lines in action log"
+msgstr "Максимален број на линии во дневник"
 
 #. Resource IDs: (109, 110, 111, 276, 278, 65535)
 msgid "Merge"
@@ -3898,6 +3919,10 @@ msgstr "Премести ставки тука"
 #. Resource IDs: (209)
 msgid "Move to changelist"
 msgstr "Премести во листа со измени"
+
+#. Resource IDs: (229)
+msgid "Move/Rename"
+msgstr "Премести/Преименувај"
 
 #. Resource IDs: (98)
 #, c-format
@@ -4776,7 +4801,7 @@ msgstr "Потребно е корисничко име и лозинка"
 msgid "Res&olved..."
 msgstr "Разрешен&о..."
 
-#. Resource IDs: (207)
+#. Resource IDs: (207, 229)
 msgid "Resolve"
 msgstr "Разреши"
 
@@ -4845,7 +4870,7 @@ msgstr "Повторен обид"
 msgid "Reverse merge"
 msgstr "Обратно спојување"
 
-#. Resource IDs: (175)
+#. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Поврати"
 
@@ -5306,6 +5331,11 @@ msgid "Short URL of Subversion items"
 msgstr "Краток URL на верзионираните датотеки"
 
 # е да се замени со акцентирано е
+#. Resource IDs: (1382)
+msgid "Show"
+msgstr "Покажи"
+
+# е да се замени со акцентирано е
 #. Resource IDs: (115, 1031)
 msgid "Show &All"
 msgstr "Покажи с&е"
@@ -5322,7 +5352,7 @@ msgstr "Пок&ажи ги сите ревизии"
 msgid "Show &changes"
 msgstr "Покажи &измени"
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1132, 1228, 1420, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 32784)
 msgid "Show &log"
 msgstr "Покажи &дневник"
 
@@ -5464,6 +5494,10 @@ msgstr "Ги прикажува сите ревизии за кои е напр�
 #. Resource IDs: (10)
 msgid "Shows information about TortoiseSVN"
 msgstr "Прикажува информации за TortoiseSVN"
+
+#. Resource IDs: (198)
+msgid "Shows the action log file in the default text editor"
+msgstr "Прикажува дневник во основниот текстуален прегледник"
 
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
@@ -5868,6 +5902,14 @@ msgstr "Линија која означува стара датотека не 
 #. Resource IDs: (251)
 msgid "The lock has already been broken from another working copy"
 msgstr "Заклучувањето е веќе скршено од некоја друга работна копија"
+
+#. Resource IDs: (198)
+msgid ""
+"The maximum number of action log lines to keep.\n"
+"Any lines added over this limit will remove the oldest lines from the file."
+msgstr ""
+"Максимален број на линии во дневникот. \n"
+"Секоја линија после оваа ќе ја отстрани најстарата линија во датотеката."
 
 #. Resource IDs: (63)
 msgid ""
@@ -6428,7 +6470,7 @@ msgstr ""
 msgid "Unknown depth"
 msgstr "Непозната длабочина"
 
-#. Resource IDs: (221, 242)
+#. Resource IDs: (221, 230, 242)
 msgid "Unlock"
 msgstr "Отклучи"
 
@@ -6457,7 +6499,7 @@ msgstr "Неверзионирани датотеки го означуваат 
 msgid "Unversioning %s"
 msgstr "Одверзионирам: %s"
 
-#. Resource IDs: (152)
+#. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "Обнови"
 
@@ -6547,6 +6589,10 @@ msgstr "Користи складиште"
 #. Resource IDs: (1066)
 msgid "Use stri&keout for removed lines"
 msgstr "&Користи прецртано за отстранетите линии"
+
+#. Resource IDs: (1426)
+msgid "Use system locale for date/time"
+msgstr "Користи ги системските подесувања за датум/време"
 
 #. Resource IDs: (251, 32820)
 msgid "Use text block from \"&mine\""
@@ -6717,7 +6763,7 @@ msgstr ""
 msgid "With URL:"
 msgstr "Со URL:"
 
-#. Resource IDs: (158)
+#. Resource IDs: (158, 65535)
 msgid "Working Copy"
 msgstr "Работна копија"
 
@@ -7214,14 +7260,29 @@ msgstr ""
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of\n"
-"a relative directory path, optional revision flags, and a URL. For example\n"
+"a relative directory path, optional revision flags, and an URL. For example\n"
 "foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag"
+"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"\n"
+"The URLs can either be full URLs or relative. The format for\n"
+"the relative URLs is:\n"
+"../\trelative to the parent directory of the external\n"
+"^/\trelative to the repository root\n"
+"//\trelative to the URL scheme\n"
+"/\trelative to the server's hostname"
 msgstr ""
 "svn:externals\n"
-"A newline separated list of module specifiers, each of which consists of a relative directory path, optional revision flags, and an URL. For example\n"
+"A newline separated list of module specifiers, each of which consists of\n"
+"a relative directory path, optional revision flags, and an URL. For example\n"
 "foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag"
+"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"\n"
+"The URLs can either be full URLs or relative. The format for\n"
+"the relative URLs is:\n"
+"../\trelative to the parent directory of the external\n"
+"^/\trelative to the repository root\n"
+"//\trelative to the URL scheme\n"
+"/\trelative to the server's hostname"
 
 #. Resource IDs: (576)
 msgid ""
