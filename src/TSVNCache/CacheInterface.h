@@ -31,6 +31,8 @@
 #define TSVN_CACHE_WINDOW_NAME _T("TSVNCacheWindow")
 #endif
 
+CString GetCachePipeName();
+CString GetCacheCommandPipeName();
 
 /**
  * \ingroup TSVNCache

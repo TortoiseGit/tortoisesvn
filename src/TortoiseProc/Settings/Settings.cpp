@@ -132,7 +132,7 @@ void CSettings::HandleRestart()
 		::SendMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, 0, 0, SMTO_ABORTIFHUNG, 20, &res);
 		// tell the cache to refresh everything
 		HANDLE hPipe = CreateFile( 
-			TSVN_CACHE_COMMANDPIPE_NAME,	// pipe name 
+			GetCacheCommandPipeName(),		// pipe name 
 			GENERIC_READ |					// read and write access 
 			GENERIC_WRITE, 
 			0,								// no sharing 

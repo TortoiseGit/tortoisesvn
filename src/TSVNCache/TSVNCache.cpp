@@ -506,7 +506,7 @@ DWORD WINAPI PipeThread(LPVOID lpvParam)
 	while (*bRun) 
 	{ 
 		hPipe = CreateNamedPipe( 
-			TSVN_CACHE_PIPE_NAME,
+			GetCachePipeName(),
 			PIPE_ACCESS_DUPLEX,       // read/write access 
 			PIPE_TYPE_MESSAGE |       // message type pipe 
 			PIPE_READMODE_MESSAGE |   // message-read mode 
@@ -584,7 +584,7 @@ DWORD WINAPI CommandWaitThread(LPVOID lpvParam)
 	while (*bRun) 
 	{ 
 		hPipe = CreateNamedPipe( 
-			TSVN_CACHE_COMMANDPIPE_NAME,
+			GetCacheCommandPipeName(),
 			PIPE_ACCESS_DUPLEX,       // read/write access 
 			PIPE_TYPE_MESSAGE |       // message type pipe 
 			PIPE_READMODE_MESSAGE |   // message-read mode 

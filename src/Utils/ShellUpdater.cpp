@@ -91,7 +91,7 @@ void CShellUpdater::UpdateShell()
 	// if we use the external cache, we tell the cache directly that something
 	// has changed, without the detour via the shell.
 	HANDLE hPipe = CreateFile( 
-		TSVN_CACHE_COMMANDPIPE_NAME,	// pipe name 
+		GetCacheCommandPipeName(),		// pipe name 
 		GENERIC_READ |					// read and write access 
 		GENERIC_WRITE, 
 		0,								// no sharing 

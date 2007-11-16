@@ -26,7 +26,12 @@
 #include "shlwapi.h"
 #pragma comment(lib, "shlwapi")
 
-#include "..\..\TSVNCache\CacheInterface.h"
+#ifdef WIN64
+#define TSVN_CACHE_WINDOW_NAME _T("TSVNCacheWindow64")
+#else
+#define TSVN_CACHE_WINDOW_NAME _T("TSVNCacheWindow")
+#endif
+
 
 BOOL APIENTRY DllMain( HANDLE hModule, 
                        DWORD  ul_reason_for_call, 

@@ -49,7 +49,7 @@ bool CRemoteCacheLink::EnsurePipeOpen()
 	}
 
 	m_hPipe = CreateFile(
-		TSVN_CACHE_PIPE_NAME,			// pipe name
+		GetCachePipeName(),				// pipe name
 		GENERIC_READ |					// read and write access
 		GENERIC_WRITE,
 		0,								// no sharing
@@ -63,10 +63,10 @@ bool CRemoteCacheLink::EnsurePipeOpen()
 		// TSVNCache is running but is busy connecting a different client.
 		// Do not give up immediately but wait for a few milliseconds until
 		// the server has created the next pipe instance
-		if (WaitNamedPipe(TSVN_CACHE_PIPE_NAME, 50))
+		if (WaitNamedPipe(GetCachePipeName(), 50))
 		{
 			m_hPipe = CreateFile(
-				TSVN_CACHE_PIPE_NAME,			// pipe name
+				GetCachePipeName(),				// pipe name
 				GENERIC_READ |					// read and write access
 				GENERIC_WRITE,
 				0,								// no sharing
