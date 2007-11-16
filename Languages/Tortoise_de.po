@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-11-14 10:21+0100\n"
+"PO-Revision-Date: 2007-11-16 08:56+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -942,6 +942,10 @@ msgstr "Zugriff auf %1 wurde verweigert."
 msgid "Action"
 msgstr "Aktion"
 
+#. Resource IDs: (65535)
+msgid "Action log"
+msgstr "Aktionslog"
+
 #. Resource IDs: (117)
 msgid "Actions"
 msgstr "Aktionen"
@@ -1573,7 +1577,7 @@ msgstr "Aufräumen ist fertig"
 msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "Führt unterbrochene Aktionen zu Ende, hebt Sperren auf, ..."
 
-#. Resource IDs: (1273, 1275, 1276, 1279, 1281)
+#. Resource IDs: (1273, 1275, 1276, 1279, 1281, 1427)
 msgid "Clear"
 msgstr "Löschen"
 
@@ -2152,6 +2156,10 @@ msgstr "Löscht Dateien / Ordner aus der Versionskontrolle"
 #. Resource IDs: (18)
 msgid "Deletes files / folders from version control but keeps the file"
 msgstr "Entfernt Dateien / Ordner aus der Versionskontrolle ohne die Objekte zu löschen"
+
+#. Resource IDs: (198)
+msgid "Deletes the action log file"
+msgstr "Löscht die Aktionslogdatei"
 
 #. Resource IDs: (263)
 msgid "Deleting"
@@ -3721,6 +3729,10 @@ msgstr "Maximum"
 #. Resource IDs: (1317)
 msgid "Max. items to keep in the log message history"
 msgstr "Maximale Anzahl der zu merkenden Log-Einträge"
+
+#. Resource IDs: (65535)
+msgid "Max. lines in action log"
+msgstr "Max. Zeilen im Aktionslog"
 
 #. Resource IDs: (109, 110, 111, 276, 278, 65535)
 msgid "Merge"
@@ -5315,6 +5327,10 @@ msgstr "&Kurzes Datum- / Zeitformat"
 msgid "Short URL of Subversion items"
 msgstr "Kurze URL von Subversion-Objekten"
 
+#. Resource IDs: (1382)
+msgid "Show"
+msgstr "Anzeigen"
+
 #. Resource IDs: (115, 1031)
 msgid "Show &All"
 msgstr "Zeige &Alle"
@@ -5473,6 +5489,10 @@ msgstr "Zeigt alle Revisionen, in denen Änderungen vorgenommen wurden."
 #. Resource IDs: (10)
 msgid "Shows information about TortoiseSVN"
 msgstr "Zeigt Informationen über TortoiseSVN an"
+
+#. Resource IDs: (198)
+msgid "Shows the action log file in the default text editor"
+msgstr "Zeigt das Aktionslog im Standard Texteditor an"
 
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
@@ -5878,6 +5898,14 @@ msgstr "Die Angabe der alten Datei wurde in Zeile %d erwartet!"
 #. Resource IDs: (251)
 msgid "The lock has already been broken from another working copy"
 msgstr "Die Sperre wurde bereits aus einer anderen Arbeitskopie heraus aufgebrochen."
+
+#. Resource IDs: (198)
+msgid ""
+"The maximum number of action log lines to keep.\n"
+"Any lines added over this limit will remove the oldest lines from the file."
+msgstr ""
+"Die maximale Anzahl im Aktionslog aufzubewahrender Zeilen.\n"
+"Darüber hinausgehende Zeilen löschen die ältesten Einträge aus der Datei."
 
 #. Resource IDs: (63)
 msgid ""
