@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-11-08 11:49+0900\n"
+"PO-Revision-Date: 2007-11-16 11:34+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -947,6 +947,10 @@ msgstr "%1 へのアクセスは拒否されました。"
 msgid "Action"
 msgstr "アクション"
 
+#. Resource IDs: (65535)
+msgid "Action log"
+msgstr "アクションログ"
+
 #. Resource IDs: (117)
 msgid "Actions"
 msgstr "アクション"
@@ -955,7 +959,7 @@ msgstr "アクション"
 msgid "Activate Task List"
 msgstr "タスクリストをアクティブにする"
 
-#. Resource IDs: (155, 209)
+#. Resource IDs: (155, 209, 229)
 msgid "Add"
 msgstr "追加"
 
@@ -1070,6 +1074,10 @@ msgstr "全てのファイル (*.*)"
 #. Resource IDs: (157)
 msgid "All Files (*.*)|*.*||"
 msgstr "全てのファイル (*.*)|*.*||"
+
+#. Resource IDs: (197)
+msgid "Always use the system locale settings to show times and dates"
+msgstr "時刻と日付の表示に常にシステムロケール設定を利用する"
 
 #. Resource IDs: (3867, 3868)
 #, c-format
@@ -1568,7 +1576,7 @@ msgstr "クリーンアップは終了しました。"
 msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "中断した処理、ロックファイル、... をクリーンアップする"
 
-#. Resource IDs: (1273, 1275, 1276, 1279, 1281)
+#. Resource IDs: (1273, 1275, 1276, 1279, 1281, 1427)
 msgid "Clear"
 msgstr "クリア"
 
@@ -1653,7 +1661,7 @@ msgstr "実行するコマンドライン:"
 msgid "Command failed."
 msgstr "コマンドの実行に失敗しました。"
 
-#. Resource IDs: (135, 209, 1083)
+#. Resource IDs: (135, 209, 229, 1083)
 msgid "Commit"
 msgstr "コミット"
 
@@ -2147,6 +2155,10 @@ msgstr "バージョン管理からファイル／フォルダを削除する"
 msgid "Deletes files / folders from version control but keeps the file"
 msgstr "バージョン管理からファイル／フォルダを削除し、ファイル自体を保持する"
 
+#. Resource IDs: (198)
+msgid "Deletes the action log file"
+msgstr "アクションログファイルを削除する"
+
 #. Resource IDs: (263)
 msgid "Deleting"
 msgstr "削除中"
@@ -2480,7 +2492,7 @@ msgstr "除外するパス:"
 msgid "Explore to"
 msgstr "エクスプローラで開く"
 
-#. Resource IDs: (238)
+#. Resource IDs: (229, 238)
 msgid "Export"
 msgstr "エクスポート"
 
@@ -2938,6 +2950,11 @@ msgstr "変更されたパスで無関係なものは表示しない(&I)"
 #. Resource IDs: (1353, 1354)
 msgid "HEAD"
 msgstr "HEAD"
+
+#. Resource IDs: (106)
+#, c-format
+msgid "Head revision is %s"
+msgstr "最新のリビジョンは %s"
 
 #. Resource IDs: (73, 1004)
 msgid "Help"
@@ -3571,7 +3588,7 @@ msgid ""
 "repository URL will be saved to."
 msgstr "リポジトリURLの内容を保存する先。"
 
-#. Resource IDs: (207, 221, 65535)
+#. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
 msgstr "ロック"
 
@@ -3698,6 +3715,10 @@ msgstr "最大"
 #. Resource IDs: (1317)
 msgid "Max. items to keep in the log message history"
 msgstr "ログメッセージの履歴で表示する最大の項目数"
+
+#. Resource IDs: (65535)
+msgid "Max. lines in action log"
+msgstr "アクションログに保持する最大の行数"
 
 #. Resource IDs: (109, 110, 111, 276, 278, 65535)
 msgid "Merge"
@@ -3878,6 +3899,10 @@ msgstr "ここに項目を移動"
 #. Resource IDs: (209)
 msgid "Move to changelist"
 msgstr "変更リストへ移動"
+
+#. Resource IDs: (229)
+msgid "Move/Rename"
+msgstr "移動／名前の変更"
 
 #. Resource IDs: (98)
 #, c-format
@@ -4753,7 +4778,7 @@ msgstr "ユーザー名とパスワードを要求"
 msgid "Res&olved..."
 msgstr "問題の解消(&O) ..."
 
-#. Resource IDs: (207)
+#. Resource IDs: (207, 229)
 msgid "Resolve"
 msgstr "問題の解消"
 
@@ -4822,7 +4847,7 @@ msgstr "再試行"
 msgid "Reverse merge"
 msgstr "逆マージ"
 
-#. Resource IDs: (175)
+#. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "元に戻す"
 
@@ -5282,6 +5307,10 @@ msgstr "ログメッセージに短い日付形式を利用する(&D)"
 msgid "Short URL of Subversion items"
 msgstr "Subversion 項目の短いURL"
 
+#. Resource IDs: (1382)
+msgid "Show"
+msgstr "表示"
+
 #. Resource IDs: (115, 1031)
 msgid "Show &All"
 msgstr "全て表示(&A)"
@@ -5298,7 +5327,7 @@ msgstr "全てのリビジョンを表示(&A)"
 msgid "Show &changes"
 msgstr "変更を表示(&C)"
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1132, 1228, 1420, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 32784)
 msgid "Show &log"
 msgstr "ログを表示(&L)"
 
@@ -5440,6 +5469,10 @@ msgstr "この項目に対して変更が行われた全てのリビジョンを
 #. Resource IDs: (10)
 msgid "Shows information about TortoiseSVN"
 msgstr "TortoiseSVN についての情報を表示"
+
+#. Resource IDs: (198)
+msgid "Shows the action log file in the default text editor"
+msgstr "デフォルトのテキストエディタでアクションログファイルを表示する"
 
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
@@ -5845,6 +5878,14 @@ msgstr "古いファイルを示している行は、行 %d だと思われま�
 #. Resource IDs: (251)
 msgid "The lock has already been broken from another working copy"
 msgstr "ロックは他の作業コピーですでに解除されています"
+
+#. Resource IDs: (198)
+msgid ""
+"The maximum number of action log lines to keep.\n"
+"Any lines added over this limit will remove the oldest lines from the file."
+msgstr ""
+"アクションログ内で保持する最大の行数。\n"
+"この行数を超えて追加された場合は、古い行から順に削除されます。"
 
 #. Resource IDs: (63)
 msgid ""
@@ -6408,7 +6449,7 @@ msgstr ""
 msgid "Unknown depth"
 msgstr "未知の深さ"
 
-#. Resource IDs: (221, 242)
+#. Resource IDs: (221, 230, 242)
 msgid "Unlock"
 msgstr "ロック解除"
 
@@ -6437,7 +6478,7 @@ msgstr "バージョン管理外のファイルを含むフォルダに変更マ
 msgid "Unversioning %s"
 msgstr "バージョン管理を解除中 %s"
 
-#. Resource IDs: (152)
+#. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "更新"
 
@@ -6527,6 +6568,10 @@ msgstr "リポジトリを使用する"
 #. Resource IDs: (1066)
 msgid "Use stri&keout for removed lines"
 msgstr "削除された行に取り消し線を引く(&K)"
+
+#. Resource IDs: (1426)
+msgid "Use system locale for date/time"
+msgstr "日付／時刻にシステムロケールを利用する"
 
 #. Resource IDs: (251, 32820)
 msgid "Use text block from \"&mine\""
@@ -6697,7 +6742,7 @@ msgstr ""
 msgid "With URL:"
 msgstr "With URL:"
 
-#. Resource IDs: (158)
+#. Resource IDs: (158, 65535)
 msgid "Working Copy"
 msgstr "作業コピー"
 
@@ -7190,15 +7235,29 @@ msgstr ""
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of\n"
-"a relative directory path, optional revision flags, and a URL. For example\n"
+"a relative directory path, optional revision flags, and an URL. For example\n"
 "foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag"
+"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"\n"
+"The URLs can either be full URLs or relative. The format for\n"
+"the relative URLs is:\n"
+"../\trelative to the parent directory of the external\n"
+"^/\trelative to the repository root\n"
+"//\trelative to the URL scheme\n"
+"/\trelative to the server's hostname"
 msgstr ""
 "svn:externals\n"
-"改行で区切られたモジュールの指定リストであり、関連するディレクトリのパス、リビジョンフラグ、URLで構成される。\n"
+"改行で区切られたモジュールのリストであり、相対的なディレクトリのパス、リビジョンフラグ、URLで構成される。\n"
 "例）\n"
 "foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag"
+"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"\n"
+"URLは完全なURLもしくは相対的に記述することができる。\n"
+"相対的なURLの記述例は:\n"
+"../\t親ディレクトリに対応\n"
+"^/\tリポジトリルートに対応\n"
+"//\tURLスキームに対応\n"
+"/\tサーバーのホスト名に対応"
 
 #. Resource IDs: (576)
 msgid ""
