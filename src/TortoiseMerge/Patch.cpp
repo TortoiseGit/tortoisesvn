@@ -570,8 +570,15 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
 						(lRemoveLine <= PatchLines.GetCount()) &&
 						(sPatchLine.Compare(PatchLines.GetAt(lRemoveLine-1))!=0))
 					{
-						m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, (LPCTSTR)sPatchLine, (LPCTSTR)PatchLines.GetAt(lAddLine-1));
-						return FALSE; 
+						if ((lAddLine < PatchLines.GetCount())&&(sPatchLine.Compare(PatchLines.GetAt(lAddLine))==0))
+							lAddLine++;
+						else if ((lRemoveLine < PatchLines.GetCount())&&(sPatchLine.Compare(PatchLines.GetAt(lRemoveLine))==0))
+							lRemoveLine++;
+						else
+						{
+							m_sErrorMessage.Format(IDS_ERR_PATCH_DOESNOTMATCH, (LPCTSTR)sPatchLine, (LPCTSTR)PatchLines.GetAt(lAddLine-1));
+							return FALSE; 
+						}
 					} 
 					lAddLine++;
 					lRemoveLine++;
