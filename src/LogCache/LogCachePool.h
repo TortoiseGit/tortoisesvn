@@ -50,49 +50,62 @@ class CLogCachePool
 {
 private:
 
-	// where the log cache files are stored
+	/// where the log cache files are stored
 
 	CString cacheFolderPath;
 
-    // cached repository properties
+    /// cached repository properties
 
     CRepositoryInfo repositoryInfo;
 
-	// cache per repository (UUID)
+	/// cache per repository (UUID)
 
 	typedef std::map<CString, CCachedLogInfo*> TCaches;
 	TCaches caches;
 
-	// utility
+	/// utility
 
 	static bool FileExists (const std::wstring& filePath);
 
 public:
 
-	// construction / destruction
-	// (Flush() on destruction)
+	/// construction / destruction
+	/// (Flush() on destruction)
 
 	CLogCachePool (const CString& cacheFolderPath);
 	virtual ~CLogCachePool(void);
 
-	// auto-create and return cache for given repository
+	/// auto-create and return cache for given repository
 
 	CCachedLogInfo* GetCache (const CString& uuid);
 
-    // cached repository info
+    /// cached repository info
 
     CRepositoryInfo& GetRepositoryInfo();
 
-    // cache management
+	/// other data access
+
+	const CString& GetCacheFolderPath() const;
+
+    /// cache management
 	
-	// write all changes to disk
+	/// write all changes to disk
 
 	void Flush();
 
-	// minimize memory usage
+	/// minimize memory usage
 
 	void Clear();
 };
+
+///////////////////////////////////////////////////////////////
+// other data access
+///////////////////////////////////////////////////////////////
+
+const CString& CLogCachePool::GetCacheFolderPath() const
+{
+	return cacheFolderPath;
+}
 
 ///////////////////////////////////////////////////////////////
 // end namespace LogCache
