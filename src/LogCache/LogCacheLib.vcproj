@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8.00"
+	Version="8,00"
 	Name="LogCacheLib"
 	ProjectGUID="{BD0854A3-E300-4E57-8C17-E4771AE1CA01}"
 	RootNamespace="LogCache"
@@ -85,12 +85,13 @@
 			/>
 		</Configuration>
 		<Configuration
-			Name="Debug|x64"
-			OutputDirectory="..\..\obj\$(ProjectName)\$(ConfigurationName)64"
-			IntermediateDirectory="..\..\obj\$(ProjectName)\$(ConfigurationName)64"
+			Name="Release|Win32"
+			OutputDirectory="..\..\obj\$(ProjectName)\$(ConfigurationName)"
+			IntermediateDirectory="..\..\obj\$(ProjectName)\$(ConfigurationName)"
 			ConfigurationType="4"
 			UseOfMFC="2"
 			CharacterSet="1"
+			WholeProgramOptimization="1"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -106,18 +107,15 @@
 			/>
 			<Tool
 				Name="VCMIDLTool"
-				TargetEnvironment="3"
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="0"
+				Optimization="3"
 				AdditionalIncludeDirectories="..\..\ext\apr\include;&quot;..\..\ext\apr-util\include&quot;;..\..\ext\Subversion\subversion\include;..\..\ext\GRETA;..\Utils;..\SVN;..\TortoiseProc"
-				PreprocessorDefinitions="WIN64;_DEBUG;_CONSOLE"
-				MinimalRebuild="true"
-				BasicRuntimeChecks="3"
-				RuntimeLibrary="3"
+				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
+				RuntimeLibrary="2"
 				RuntimeTypeInfo="true"
-				UsePrecompiledHeader="0"
+				UsePrecompiledHeader="2"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="3"
@@ -151,13 +149,12 @@
 			/>
 		</Configuration>
 		<Configuration
-			Name="Release|Win32"
-			OutputDirectory="..\..\obj\$(ProjectName)\$(ConfigurationName)"
-			IntermediateDirectory="..\..\obj\$(ProjectName)\$(ConfigurationName)"
+			Name="Debug|x64"
+			OutputDirectory="..\..\obj\$(ProjectName)\$(ConfigurationName)64"
+			IntermediateDirectory="..\..\obj\$(ProjectName)\$(ConfigurationName)64"
 			ConfigurationType="4"
 			UseOfMFC="2"
 			CharacterSet="1"
-			WholeProgramOptimization="1"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -173,15 +170,18 @@
 			/>
 			<Tool
 				Name="VCMIDLTool"
+				TargetEnvironment="3"
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="3"
+				Optimization="0"
 				AdditionalIncludeDirectories="..\..\ext\apr\include;&quot;..\..\ext\apr-util\include&quot;;..\..\ext\Subversion\subversion\include;..\..\ext\GRETA;..\Utils;..\SVN;..\TortoiseProc"
-				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
-				RuntimeLibrary="2"
+				PreprocessorDefinitions="WIN64;_DEBUG;_CONSOLE"
+				MinimalRebuild="true"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
-				UsePrecompiledHeader="2"
+				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="3"
@@ -303,7 +303,7 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Debug|x64"
+					Name="Release|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -311,7 +311,7 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32"
+					Name="Debug|x64"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -359,6 +359,14 @@
 			</File>
 			<File
 				RelativePath=".\LogCachePool.h"
+				>
+			</File>
+			<File
+				RelativePath=".\LogCacheStatistics.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\LogCacheStatistics.h"
 				>
 			</File>
 			<File
