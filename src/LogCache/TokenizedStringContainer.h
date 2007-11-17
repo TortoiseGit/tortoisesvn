@@ -62,27 +62,23 @@ class CTokenizedStringContainer
 {
 private:
 
-	///////////////////////////////////////////////////////////////
-	//
-	// CPairPacker
-	//
-	//		A utility class that encapsulates the compression
-	//		algorithm. Note, that CTokenizedStringContainer::Insert()
-	//		will not introduce new pairs but only use existing ones.
-	//
-	//		This class will be instantiated temporarily. A number
-	//		of compression rounds are run until there is little or
-	//		no further improvement.
-	//
-	//		Although the algorithm is quite straightforward, there
-	//		is a lot of temporary data involved that can best be
-	//		handled in this separate class.
-	//
-	//		Please note, that the container is always "maximally"
-	//		compressed, i.e. all entries in pairs have actually
-	//		been applied to all strings.
-	//
-	///////////////////////////////////////////////////////////////
+	/**
+	 * A utility class that encapsulates the compression
+	 * algorithm. Note, that CTokenizedStringContainer::Insert()
+	 * will not introduce new pairs but only use existing ones.
+	 * 
+	 * This class will be instantiated temporarily. A number
+	 * of compression rounds are run until there is little or
+	 * no further improvement.
+	 * 
+	 * Although the algorithm is quite straightforward, there
+	 * is a lot of temporary data involved that can best be
+	 * handled in this separate class.
+	 * 
+	 * Please note, that the container is always "maximally"
+	 * compressed, i.e. all entries in pairs have actually
+	 * been applied to all strings.
+	 */
 
 	class CPairPacker
 	{
@@ -90,38 +86,38 @@ private:
 
 		typedef std::vector<index_t>::iterator IT;
 
-		// the container we operate on and the indicies
-		// of all strings that might be compressed
+		/// the container we operate on and the indicies
+		/// of all strings that might be compressed
 
 		CTokenizedStringContainer* container;
 		std::vector<index_t> strings;
 
-		// the pairs we found and the number of places they occur in
+		/// the pairs we found and the number of places they occur in
 
 		CIndexPairDictionary newPairs;
 		std::vector<index_t> counts;
 
-		// tokens smaller than that cannot be compressed
-		// (internal optimization as after the initial round 
-		// only combinations with the latest pairs may yield
-		// further pairs)
+		/// tokens smaller than that cannot be compressed
+		/// (internal optimization as after the initial round 
+		/// only combinations with the latest pairs may yield
+		/// further pairs)
 
 		index_t minimumToken;
 
-		// total number of replacements performed so far
-		// (i.e. number of tokens saved)
+		/// total number of replacements performed so far
+		/// (i.e. number of tokens saved)
 
 		index_t replacements;
 
-		// find all strings that consist of more than one token
+		/// find all strings that consist of more than one token
 
 		void Initialize();
 
-		// efficiently determine the iterator range that spans our string
+		/// efficiently determine the iterator range that spans our string
 
 		void GetStringRange (index_t stringIndex, IT& first, IT& last);
 
-		// add token pairs of one string to our counters
+		/// add token pairs of one string to our counters
 
 		void AccumulatePairs (index_t stringIndex);
 		void AddCompressablePairs();
@@ -129,43 +125,43 @@ private:
 
 	public:
 
-		// construction / destruction
+		/// construction / destruction
 
 		CPairPacker (CTokenizedStringContainer* aContainer);
 		~CPairPacker();
 
-		// perform one round of compression and return the number of tokens saved
+		/// perform one round of compression and return the number of tokens saved
 
 		size_t OneRound();
 
-		// call this after the last round to remove any empty entries
+		/// call this after the last round to remove any empty entries
 
 		void Compact();
 	};
 
 	friend class CPairPacker;
 
-	// useful typedefs
+	/// useful typedefs
 
 	typedef std::vector<index_t>::const_iterator TSDIterator;
 
 	typedef std::vector<index_t>::iterator IT;
 	typedef std::vector<index_t>::const_iterator CIT;
 
-	// the token contents: words and pairs
+	/// the token contents: words and pairs
 
 	CStringDictionary words;
 	CIndexPairDictionary pairs;
 
-	// container for all tokens of all strings
+	/// container for all tokens of all strings
 
 	std::vector<index_t> stringData;
 
-	// marks the ranges within stringData that form the strings
+	/// marks the ranges within stringData that form the strings
 
 	std::vector<index_t> offsets;
 
-	// sub-stream IDs
+	/// sub-stream IDs
 
 	enum
 	{
@@ -175,7 +171,7 @@ private:
 		OFFSETS_STREAM_ID = 4
 	};
 
-	// token coding
+	/// token coding
 
 	enum 
 	{
@@ -210,31 +206,31 @@ private:
 		return pairIndex;
 	}
 
-	// data access utility
+	/// data access utility
 
 	void AppendToken (std::string& target, index_t token) const;
 
-	// insertion utilties
+	/// insertion utilties
 
 	void Append (index_t token);
 	void Append (const std::string& s);
 
-	// range check
+	/// range check
 
 	void CheckIndex (index_t index) const;
 
-	// call this to re-assign indices in an attempt to reduce file size
+	/// call this to re-assign indices in an attempt to reduce file size
 
 	void OptimizePairs();
 
 public:
 
-	// construction / destruction
+	/// construction / destruction
 
 	CTokenizedStringContainer(void);
 	~CTokenizedStringContainer(void);
 
-	// data access
+	/// data access
 
 	index_t size() const
 	{
@@ -243,11 +239,11 @@ public:
 
 	std::string operator[] (index_t index) const;
 
-    // STL-like bahavior
+    /// STL-like bahavior
 
     void swap (CTokenizedStringContainer& rhs);
 
-	// modification
+	/// modification
 
 	index_t Insert (const std::string& s);
     index_t Insert (const std::string& s, size_t count);
@@ -256,29 +252,33 @@ public:
 	void Compress();
 	void AutoCompress();
 
-	// reset content
+	/// reset content
 
 	void Clear();
 
-	// batch modifications
-	// indexes must be in ascending order
+	/// batch modifications
+	/// indexes must be in ascending order
 
-	// indexMap maps target index -> source index, 
-	// entries with target index >= size() will be appended
+	/// indexMap maps target index -> source index, 
+	/// entries with target index >= size() will be appended
 
 	void Remove (const std::vector<index_t>& indexes);
 	void Replace ( const CTokenizedStringContainer& source
 				 , const index_mapping_t& indexMap);
 
-	// stream I/O
+	/// stream I/O
 
 	friend IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 											 , CTokenizedStringContainer& container);
 	friend IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 											  , const CTokenizedStringContainer& container);
+
+	/// for statistics
+
+	friend class CLogCacheStatistics;
 };
 
-// stream I/O
+/// stream I/O
 
 IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 								  , CTokenizedStringContainer& container);

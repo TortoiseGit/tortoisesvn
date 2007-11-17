@@ -44,45 +44,40 @@ namespace LogCache
  * Each pair is assigned an unique, immutable index.
  *
  * Under most circumstances, O(1) lookup is provided.
- *
  * 
  */
 class CIndexPairDictionary
 {
 private:
 
-	///////////////////////////////////////////////////////////////
-	//
-	// CHashFunction
-	//
-	//		A simple string hash function that satisfies quick_hash'
-	//		interface requirements.
-	//
-	///////////////////////////////////////////////////////////////
+	/**
+	 * A simple string hash function that satisfies quick_hash'
+	 * interface requirements.
+	 */
 
 	class CHashFunction
 	{
 	private:
 
-		// the dictionary we index with the hash
-		// (used to map index -> value)
+		/// the dictionary we index with the hash
+		/// (used to map index -> value)
 
 		std::vector<std::pair<index_t, index_t> >* data;
 
 	public:
 
-		// simple construction
+		/// simple construction
 
 		CHashFunction (CIndexPairDictionary* aDictionary);
 
-		// required typedefs and constants
+		/// required typedefs and constants
 
 		typedef std::pair<index_t, index_t> value_type;
 		typedef index_t index_type;
 
 		enum {NO_INDEX = LogCache::NO_INDEX};
 
-		// the actual hash function
+		/// the actual hash function
 
 		size_t operator() (const value_type& value) const
 		{
@@ -95,7 +90,7 @@ private:
 #endif
 		}
 
-		// dictionary lookup
+		/// dictionary lookup
 
 		const value_type& value (index_type index) const
 		{
@@ -103,7 +98,7 @@ private:
 			return (*data)[index];
 		}
 
-		// lookup and comparison
+		/// lookup and comparison
 
 		bool equal (const value_type& value, index_type index) const
 		{
@@ -112,7 +107,7 @@ private:
 		}
 	};
 
-	// sub-stream IDs
+	/// sub-stream IDs
 
 	enum
 	{
@@ -120,22 +115,22 @@ private:
 		SECOND_STREAM_ID = 2
 	};
 
-	// our data pool
+	/// our data pool
 
 	std::vector<std::pair<index_t, index_t> > data;
 
-	// the hash index (for faster lookup)
+	/// the hash index (for faster lookup)
 
 	quick_hash<CHashFunction> hashIndex;
 
 public:
 
-	// construction / destruction
+	/// construction / destruction
 
 	CIndexPairDictionary(void);
 	virtual ~CIndexPairDictionary(void);
 
-	// dictionary operations
+	/// dictionary operations
 
 	index_t size() const
 	{
@@ -159,15 +154,19 @@ public:
 	void Clear();
 	void Swap (CIndexPairDictionary& rhs);
 
-	// stream I/O
+	/// stream I/O
 
 	friend IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 											 , CIndexPairDictionary& dictionary);
 	friend IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 											  , const CIndexPairDictionary& dictionary);
+
+	/// for statistics
+
+	friend class CLogCacheStatistics;
 };
 
-// stream I/O
+/// stream I/O
 
 IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 								  , CIndexPairDictionary& dictionary);

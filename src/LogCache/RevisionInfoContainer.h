@@ -76,77 +76,77 @@ class CRevisionInfoContainer
 {
 private:
 
-	// string pool for author names
+	/// string pool for author names
 
 	CStringDictionary authorPool;
 
-	// common directory for all paths
+	/// common directory for all paths
 
 	CPathDictionary paths;
 
-    // per-revision flags what information is available
-    // (see TChangeAction)
+    /// per-revision flags what information is available
+    /// (see TChangeAction)
 
     std::vector<char> presenceFlags;
 
-	// comment, author and timeStamp per revision index
+	/// comment, author and timeStamp per revision index
 
 	CTokenizedStringContainer comments;
 	std::vector<index_t> authors;
 	std::vector<__time64_t> timeStamps;
 
-	// common root of all changed paths in this revision
+	/// common root of all changed paths in this revision
 
 	std::vector<index_t> rootPaths;
 
-	// superset of all change actions in that revision
+	/// superset of all change actions in that revision
 
 	std::vector<unsigned char> sumChanges;
 
-	// mark the ranges that contain the changed path info
+	/// mark the ranges that contain the changed path info
 
 	std::vector<index_t> changesOffsets;
 	std::vector<index_t> copyFromOffsets;
 
-	// mark the ranges that contain the merged revision info
+	/// mark the ranges that contain the merged revision info
 
 	std::vector<index_t> mergedRevisionsOffsets;
 
-	// mark the ranges that contain the user-defined revision properties
+	/// mark the ranges that contain the user-defined revision properties
 
 	std::vector<index_t> userRevPropOffsets;
 
-	// changed path info
-	// (note, that copyFrom info will have less entries)
+	/// changed path info
+	/// (note, that copyFrom info will have less entries)
 
 	std::vector<unsigned char> changes;
 	std::vector<index_t> changedPaths;
 	std::vector<index_t> copyFromPaths;
 	std::vector<revision_t> copyFromRevisions;
 
-	// merged revisions info
-	// (mergedRangeDeltas[] < 0 -> "undo merge")
+	/// merged revisions info
+	/// (mergedRangeDeltas[] < 0 -> "undo merge")
 
 	std::vector<index_t> mergedFromPaths;
 	std::vector<index_t> mergedToPaths;
 	std::vector<revision_t> mergedRangeStarts;
 	std::vector<revision_t> mergedRangeDeltas;
 
-    // all names of user-defined revision properties
+    /// all names of user-defined revision properties
 
 	CStringDictionary userRevPropsPool;
 
-    // names & values of user-defined revision properties
+    /// names & values of user-defined revision properties
 
     std::vector<index_t> userRevPropNames;
     CTokenizedStringContainer userRevPropValues;
 
-	// for auto-optimization: number of entries on disk
-	// (will be compared with current number of entries)
+	/// for auto-optimization: number of entries on disk
+	/// (will be compared with current number of entries)
 
 	mutable index_t storedSize;
 
-	// sub-stream IDs
+	/// sub-stream IDs
 
 	enum
 	{
@@ -178,11 +178,11 @@ private:
         DATA_PRESENCE_STREAM_ID = 22
 	};
 
-	// index checking utility
+	/// index checking utility
 
 	void CheckIndex (index_t index) const;
 
-	// update / modify utilities
+	/// update / modify utilities
 
 	void UpdateAuthors ( const CRevisionInfoContainer& newData
 					   , const index_mapping_t& indexMap
@@ -213,25 +213,21 @@ private:
 
     void AppendNewEntries (const index_mapping_t& indexMap);
 
-	// the individual optimization steps
+	/// the individual optimization steps
 
 	void OptimizeAuthors();
 	void OptimizeChangeOrder();
 
-	// reconstruct derived data
+	/// reconstruct derived data
 
 	void CalculateSumChanges();
 
 public:
 
-	///////////////////////////////////////////////////////////////
-	//
-	// TChangeAction
-	//
-	//		the action IDs to use with AddChange 
-	//		(actually, a bit mask).
-	//
-	///////////////////////////////////////////////////////////////
+	/**
+	 * the action IDs to use with AddChange 
+	 * (actually, a bit mask).
+	 */
 
 	enum TChangeAction
 	{
@@ -248,14 +244,10 @@ public:
 						| ACTION_DELETED
 	};
 
-	///////////////////////////////////////////////////////////////
-	//
-	// TDataPresenceFlag
-	//
-	//		indicator flags. If set, the respective data is 
-    //      available in / valid for the respective revision.
-	//
-	///////////////////////////////////////////////////////////////
+	/**
+	 * indicator flags. If set, the respective data is 
+     * available in / valid for the respective revision.
+	 */
 
 	enum TDataPresenceFlags
 	{
@@ -281,39 +273,35 @@ public:
                          | HAS_MERGEINFO
 	};
 
-	///////////////////////////////////////////////////////////////
-	//
-	// CChangesIterator
-	//
-	//		a very simplistic forward iterator class.
-	//		It will be used to provide a convenient
-	//		interface to a revision's changes list.
-	//
-	///////////////////////////////////////////////////////////////
+	/**
+	 * a very simplistic forward iterator class.
+	 * It will be used to provide a convenient
+	 * interface to a revision's changes list.
+	 */
 
 	class CChangesIterator
 	{
 	private:
 
-		// the container we operate on 
+		/// the container we operate on 
 
 		const CRevisionInfoContainer* container;
 
-		// the two different change info indices
+		/// the two different change info indices
 
 		index_t changeOffset;
 		index_t copyFromOffset;
 
 	public:
 
-		// construction
+		/// construction
 
 		CChangesIterator();
 		CChangesIterator ( const CRevisionInfoContainer* aContainer
 						 , index_t aChangeOffset
 						 , index_t aCopyFromOffset);
 
-		// data access (raw change: don't mask out HAS_COPY_FROM)
+		/// data access (raw change: don't mask out HAS_COPY_FROM)
 
 		CRevisionInfoContainer::TChangeAction GetAction() const;
 		CRevisionInfoContainer::TChangeAction GetRawChange() const;
@@ -325,55 +313,51 @@ public:
         index_t GetFromPathID() const;
 		revision_t GetFromRevision() const;
 
-		// general status (points to an action)
+		/// general status (points to an action)
 
 		bool IsValid() const;
 
-        // move pointer
+        /// move pointer
 
 		CChangesIterator& operator++();		// prefix
 		CChangesIterator operator++(int);	// postfix
 
-		// comparison
+		/// comparison
 
 		bool operator== (const CChangesIterator& rhs);
 		bool operator!= (const CChangesIterator& rhs);
 
-		// pointer-like behavior
+		/// pointer-like behavior
 
 		const CChangesIterator* operator->() const;
 
-        // pointer arithmetics
+        /// pointer arithmetics
 
         size_t operator- (const CChangesIterator& rhs) const;
 	};
 
-	///////////////////////////////////////////////////////////////
-	//
-	// CMergedRevisionsIterator<>
-	//
-	//		base class template for very simplistic forward 
-    //      iterator classes. It contains an use-case specific
-    //      offset (e.g. within mergedInfo) and a pointer to
-    //      the structure that encapsulates the containers we
-    //      want to access.
-	//
-	///////////////////////////////////////////////////////////////
+	/**
+	 * base class template for very simplistic forward 
+     * iterator classes. It contains an use-case specific
+     * offset (e.g. within mergedInfo) and a pointer to
+     * the structure that encapsulates the containers we
+     * want to access.
+	 */
 
     template<class T>
 	class CPerRevisionInfoIteratorBase
 	{
 	protected:
 
-		// the container we operate on 
+		/// the container we operate on 
 
 		const CRevisionInfoContainer* container;
 
-		// the info index
+		/// the info index
 
 		index_t offset;
 
-		// construction / destruction
+		/// construction / destruction
 
 		CPerRevisionInfoIteratorBase();
 		CPerRevisionInfoIteratorBase ( const CRevisionInfoContainer* container
@@ -382,51 +366,47 @@ public:
 
 	public:
 
-		// move pointer
+		/// move pointer
 
 		T& operator++();	// prefix
 		T operator++(int);	// postfix
 
-		// comparison
+		/// comparison
 
 		bool operator== (const T& rhs);
 		bool operator!= (const T& rhs);
 
-		// pointer-like behavior
+		/// pointer-like behavior
 
 		const T* operator->() const;
 
-        // pointer arithmetics
+        /// pointer arithmetics
 
         size_t operator- (const T& rhs) const;
 	};
 
-	///////////////////////////////////////////////////////////////
-	//
-	// CMergedRevisionsIterator
-	//
-	//		a very simplistic forward iterator class.
-	//		It will be used to provide a convenient
-	//		interface to a revision's merged revision info.
-	//
-	///////////////////////////////////////////////////////////////
+	/**
+	 * a very simplistic forward iterator class.
+	 * It will be used to provide a convenient
+	 * interface to a revision's merged revision info.
+	 */
 
 	class CMergedRevisionsIterator
         : public CPerRevisionInfoIteratorBase<CMergedRevisionsIterator>
 	{
 	public:
 
-		// construction
+		/// construction
 
 		CMergedRevisionsIterator();
 		CMergedRevisionsIterator ( const CRevisionInfoContainer* container
 								 , index_t offset);
 
-		// general status (points to an action)
+		/// general status (points to an action)
 
 		bool IsValid() const;
 
-		// data access
+		/// data access
 
 		CDictionaryBasedPath GetFromPath() const;
 		CDictionaryBasedPath GetToPath() const;
@@ -435,33 +415,29 @@ public:
 		revision_t GetRangeDelta() const;
 	};
 
-	///////////////////////////////////////////////////////////////
-	//
-	// CUserRevPropsIterator
-	//
-	//		a very simplistic forward iterator class.
-	//		It will be used to provide a convenient
-	//		interface to a revision's user-defined revprops.
-	//
-	///////////////////////////////////////////////////////////////
+	/**
+	 * a very simplistic forward iterator class.
+	 * It will be used to provide a convenient
+	 * interface to a revision's user-defined revprops.
+	 */
 
 	class CUserRevPropsIterator
         : public CPerRevisionInfoIteratorBase<CUserRevPropsIterator>
 	{
 	public:
 
-		// construction
+		/// construction
 
 		CUserRevPropsIterator();
 		CUserRevPropsIterator ( const CRevisionInfoContainer* container
 							  , index_t offset);
 
-		// data access
+		/// data access
 
         const char* GetName() const;
         std::string GetValue() const;
 
-		// general status (points to an action)
+		/// general status (points to an action)
 
 		bool IsValid() const;
 	};
@@ -470,14 +446,14 @@ public:
 	friend class CMergedRevisionsIterator;
 	friend class CUserRevPropsIterator;
 
-	// construction / destruction
+	/// construction / destruction
 
 	CRevisionInfoContainer(void);
 	~CRevisionInfoContainer(void);
 
-	// add information
-	// AddChange(), AddMergedRevision() and AddUserRevProp() always 
-    // add to the last revision
+	/// add information
+	/// AddChange(), AddMergedRevision() and AddUserRevProp() always 
+    /// add to the last revision
 
 	index_t Insert ( const std::string& author
 				   , const std::string& comment
@@ -497,11 +473,11 @@ public:
 	void AddUserRevProp ( const std::string& revProp
 				        , const std::string& value);
 
-	// reset content
+	/// reset content
 
 	void Clear();
 
-	// get information
+	/// get information
 
 	index_t size() const;
 
@@ -515,48 +491,52 @@ public:
 	CDictionaryBasedPath GetRootPath (index_t index) const;
 	unsigned char GetSumChanges (index_t index) const;
 
-	// iterate over all changes
+	/// iterate over all changes
 
 	CChangesIterator GetChangesBegin (index_t index) const;
 	CChangesIterator GetChangesEnd (index_t index) const;
 
-	// iterate over all merged revisions
+	/// iterate over all merged revisions
 
 	CMergedRevisionsIterator GetMergedRevisionsBegin (index_t index) const;
 	CMergedRevisionsIterator GetMergedRevisionsEnd (index_t index) const;
 
-	// iterate over all user-defined revision properties
+	/// iterate over all user-defined revision properties
 
 	CUserRevPropsIterator GetUserRevPropsBegin (index_t index) const;
 	CUserRevPropsIterator GetUserRevPropsEnd (index_t index) const;
 
-	// r/o access to internal pools
+	/// r/o access to internal pools
 
 	const CStringDictionary& GetAuthors() const;
 	const CPathDictionary& GetPaths() const;
 	const CTokenizedStringContainer& GetComments() const;
 
-	// update / modify existing data
-	// indexes must be in ascending order
-	// indexes[x] may be size() -> results in an Append()
+	/// update / modify existing data
+	/// indexes must be in ascending order
+	/// indexes[x] may be size() -> results in an Append()
 
 	void Update ( const CRevisionInfoContainer& newData
 				, const index_mapping_t& indexMap
                 , char flags = HAS_ALL
                 , bool keepOldDataForMissingNew = true);
 
-	// rearrange the data to minimize disk and cache footprint.
-	// AutoOptimize() will call Optimize() when size() crossed 2^n boundaries.
+	/// rearrange the data to minimize disk and cache footprint.
+	/// AutoOptimize() will call Optimize() when size() crossed 2^n boundaries.
 
 	void Optimize();
 	void AutoOptimize();
 
-	// stream I/O
+	/// stream I/O
 
 	friend IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 											 , CRevisionInfoContainer& container);
 	friend IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 											  , const CRevisionInfoContainer& container);
+
+	/// for statistics
+
+	friend class CLogCacheStatistics;
 };
 
 ///////////////////////////////////////////////////////////////

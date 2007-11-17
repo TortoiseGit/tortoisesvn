@@ -46,7 +46,7 @@ class CPathDictionary
 {
 private:
 
-	// sub-stream IDs
+	/// sub-stream IDs
 
 	enum
 	{
@@ -54,38 +54,38 @@ private:
 		PATHS_STREAM_ID = 2
 	};
 
-	// string pool containing all used path elements
+	/// string pool containing all used path elements
 
 	CStringDictionary pathElements;
 
-	// the paths as (parent, sub-path) pairs
-	// index 0 is always the root
+	/// the paths as (parent, sub-path) pairs
+	/// index 0 is always the root
 
 	CIndexPairDictionary paths;
 
-	// index check utility
+	/// index check utility
 
 	void CheckParentIndex (index_t index) const;
 
-	// construction utility
+	/// construction utility
 
 	void Initialize();
 
 public:
 
-	// construction (create root path) / destruction
+	/// construction (create root path) / destruction
 
 	CPathDictionary();
 	virtual ~CPathDictionary(void);
 
-    // member access
+    /// member access
 
     const CStringDictionary& GetPathElements() const
     {
         return pathElements;
     }
 
-	// dictionary operations
+	/// dictionary operations
 
 	index_t size() const
 	{
@@ -100,61 +100,66 @@ public:
 	index_t Insert (index_t parent, const char* pathElement);
 	index_t AutoInsert (index_t parent, const char* pathElement);
 
-	// reset content
+	/// reset content
 
 	void Clear();
 
-	// "merge" with another container:
-	// add new entries and return ID mapping for source container
+	/// "merge" with another container:
+	/// add new entries and return ID mapping for source container
 
 	index_mapping_t Merge (const CPathDictionary& source);
 
-	// stream I/O
+	/// stream I/O
 
 	friend IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 											 , CPathDictionary& dictionary);
 	friend IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 											  , const CPathDictionary& dictionary);
+
+	/// for statistics
+
+	friend class CLogCacheStatistics;
 };
 
-// stream I/O
+/// stream I/O
 
 IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 								  , CPathDictionary& dictionary);
 IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 								   , const CPathDictionary& dictionary);
 
-///////////////////////////////////////////////////////////////
-//
-// CDictionaryBasedPath
-//
-///////////////////////////////////////////////////////////////
+/**
+ * A path whose structure is (fully) represented in a @a dictionary.
+ * Basically, this is a (@a dictionary, @a index) pair that identifies
+ * the path unambigously. All path operations are implemented using 
+ * the path dictionary.
+ */
 
 class CDictionaryBasedPath
 {
 private:
 
-	// our dictionary and position within it
+	/// our dictionary and position within it
 
 	const CPathDictionary* dictionary;
 	index_t index;
 
 protected:
 
-	// index manipulation
+	/// index manipulation
 
 	void SetIndex (index_t newIndex) 
 	{
 		index = newIndex;
 	}
 
-	// construction utility: lookup and optionally auto-insert
+	/// construction utility: lookup and optionally auto-insert
 
 	void ParsePath ( const std::string& path
 				   , CPathDictionary* writableDictionary = NULL
 				   , std::vector<std::string>* relPath = NULL);
 
-	// comparison utility
+	/// comparison utility
 
 	bool IsSameOrParentOf (index_t lhsIndex, index_t rhsIndex) const;
 
@@ -168,7 +173,7 @@ protected:
 
 public:
 
-	// construction / destruction
+	/// construction / destruction
 
 	CDictionaryBasedPath (const CPathDictionary* aDictionary, index_t anIndex)
 		: dictionary (aDictionary)
@@ -187,7 +192,7 @@ public:
 	{
 	}
 
-	// data access
+	/// data access
 
 	index_t GetIndex() const
 	{
@@ -199,7 +204,7 @@ public:
 		return dictionary;
 	}
 
-	// path operations
+	/// path operations
 
 	bool IsRoot() const
 	{
@@ -256,7 +261,7 @@ public:
 
     bool Contains (index_t pathElementID) const;
 
-    // general comparison
+    /// general comparison
 
     bool operator==(const CDictionaryBasedPath& rhs) const
     {
@@ -269,7 +274,7 @@ public:
         return !operator==(rhs);
     }
 
-	// convert to string
+	/// convert to string
 
 	std::string GetPath() const;
 };

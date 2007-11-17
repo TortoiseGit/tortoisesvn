@@ -58,85 +58,93 @@ class CRepositoryInfo
 {
 private:
 
+	/**
+	 * Contains all "header" data for a repository.
+	 */
+
     struct SPerRepositoryInfo
     {
-        // the repository root URL
+        /// the repository root URL
 
         CString root;
 
-        // repository URL
+        /// repository URL
 
         CString uuid;
 
-        // path we used to ask SVN for the head revision
+        /// path we used to ask SVN for the head revision
 
         CString headURL;
 
-        // the answer we got
+        /// the answer we got
 
         revision_t headRevision;
 
-        // when we asked the last time
+        /// when we asked the last time
 
         __time64_t headLookupTime;
     };
 
-    // cached repository properties
+    /// cached repository properties
 
     typedef std::map<CString, SPerRepositoryInfo> TData;
     TData data;
 
-    // has the data been modified
+    /// has the data been modified
 
     bool modified;
 
-    // where to store the cached data
+    /// where to store the cached data
 
     CString cacheFolder;
 
-    // construct the dump file name
+    /// construct the dump file name
 
     CString GetFileName() const;
 
-    // read the dump file
+    /// read the dump file
 
     void Load();
 
-    // find cache entry (or data::end())
+    /// find cache entry (or data::end())
 
     TData::iterator Lookup (const CTSVNPath& url);
 
 public:
 
-    // construction / destruction: auto-load and save
+    /// construction / destruction: auto-load and save
 
     CRepositoryInfo(const CString& cacheFolderPath);
     ~CRepositoryInfo(void);
 
-    // look-up and ask SVN if the info is not in cache. 
-    // cache the result.
+    /// look-up and ask SVN if the info is not in cache. 
+    /// cache the result.
 
 	CString GetRepositoryRoot (const CTSVNPath& url);
 	CString GetRepositoryRootAndUUID (const CTSVNPath& url, CString& sUUID);
 
     revision_t GetHeadRevision (const CTSVNPath& url);
 
-    // make sure, we will ask the repository for the HEAD
+    /// make sure, we will ask the repository for the HEAD
 
     void ResetHeadRevision (const CTSVNPath& url);
 
-    // find the root folder to a given UUID (e.g. URL for given cache file).
-    // Returns an empty string, if no suitable entry has been found.
+    /// find the root folder to a given UUID (e.g. URL for given cache file).
+    /// Returns an empty string, if no suitable entry has been found.
 
     CString GetRootFromUUID (const CString& sUUID);
 
-    // write all changes to disk
+    /// write all changes to disk
 
 	void Flush();
 
-    // clear cache
+    /// clear cache
 
     void Clear();
+
+	/// for statistics
+
+	friend class CLogCacheStatistics;
 };
 
 ///////////////////////////////////////////////////////////////

@@ -49,12 +49,12 @@ class CRevisionIndex
 {
 private:
 
-	// the mapping and its bias
+	/// the mapping and its bias
 
 	revision_t firstRevision;
 	std::vector<index_t> indices;
 
-	// sub-stream IDs
+	/// sub-stream IDs
 
 	enum
 	{
@@ -63,13 +63,13 @@ private:
 
 public:
 
-	// construction / destruction
+	/// construction / destruction
 
 	CRevisionIndex(void);
 	~CRevisionIndex(void);
 
-	// range of (possibly available) revisions:
-	// GetFirstRevision() .. GetLastRevision()-1
+	/// range of (possibly available) revisions:
+	/// GetFirstRevision() .. GetLastRevision()-1
 
 	revision_t GetFirstRevision() const
 	{
@@ -80,7 +80,7 @@ public:
 		return firstRevision + (revision_t)indices.size();
 	}
 
-	// read
+	/// read
 
 	index_t operator[](revision_t revision) const
 	{
@@ -90,23 +90,27 @@ public:
 			: NO_INDEX;
 	}
 
-	// insert info (must be NO_INDEX before)
+	/// insert info (must be NO_INDEX before)
 
 	void SetRevisionIndex (revision_t revision, index_t index);
 
-	// reset content
+	/// reset content
 
 	void Clear();
 
-	// stream I/O
+	/// stream I/O
 
 	friend IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 											 , CRevisionIndex& container);
 	friend IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 											  , const CRevisionIndex& container);
+
+	/// for statistics
+
+	friend class CLogCacheStatistics;
 };
 
-// stream I/O
+/// stream I/O
 
 IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 								  , CRevisionIndex& container);
