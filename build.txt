@@ -1,9 +1,12 @@
+// To build this file, execute "nant APIDocs"
+// After that, you can read the compiled version at TortoiseSVN\doc\output\TortoiseSVNAPI.chm
+
 /** 
 \page build Build instructions
 
 \section Requirements Requirements
 
-First, you need to install the compiler package.
+\subsection Requirements1 First, you need to install the compiler package.
 
 -# You need VS.NET2005 (or at least Visual C++ .NET 2005) to allow
    building of the full TortoiseSVN package. This is the recommended
@@ -11,7 +14,6 @@ First, you need to install the compiler package.
    If you want to build the msi make sure the "Tools for Redistributing
    Applications" are installed.
    Also, make sure ServicePack 1 for VS.NET2005 is installed.
-
 -# If you do not have access to VS.NET you can download the free
    Visual C++ 2005 Express Edition.
    This will allow you to build the subversion libraries and the
@@ -21,45 +23,46 @@ First, you need to install the compiler package.
    with the Express Edition!
    - Install Visual C++ 2005 Express Edition.
      Download it from http://msdn.microsoft.com/vstudio/express/visualc/
-   - Install Microsoft SDK for Windows Vista (February 2007 Update)
-       - http://www.microsoft.com/downloads/details.aspx?FamilyID=FF6467E6-5BBA-4BF5-B562-9199BE864D29
    - Install MASM 6.15 from: http://win32assembly.online.fr/files/masm615.zip
      and add it to the PATH environment variable
-   Do not bother to install WiX and Votive as you cannot build very much.
-
+   \note Do not bother to install WiX and Votive as you cannot build very much.
 -# If you plan to build 64 bit packages, install the package 
    - "Language Tools" -> "Visual C++" -> "X64 Compilers and Tools" 
      available in the VS.NET2005 Professional and higher. 
      This will provide you with a cross-compiler and a suitable 
      command shell. On XP64, there will also be a native compiler.
-   - Using the x64 SDK (available for free download in the Windows 
-     Server 2003 Platform SDK on http://www.microsoft.com/downloads)
-     may work as well but has not been tested.
+-# \b Optional but recommended: Install Microsoft SDK for Windows Vista (February 2007 Update)
+   - http://www.microsoft.com/downloads/details.aspx?FamilyID=FF6467E6-5BBA-4BF5-B562-9199BE864D29 .
+     Make sure you install the x64 compiler, header and libraries if you want to build in x64.
+   - Open "Microsoft Windows SDK", "Visual Studio Registration", "Integrate Windows SDK with Visual Studio 2005"
+     to make sure Visual Studio uses the latest SDK headers and libraries.
+-# \b Optional: Install the MSDN Library (documentation) from
+   http://www.microsoft.com/downloads/details.aspx?familyid=B8704100-0127-4D88-9B5D-896B9B388313
+   You can always access it online at http://msdn2.microsoft.com/en-us/Library
+
+\subsection Requirements2 Next you need to install some utilities/programs.
+- Java runtime                http://java.sun.com http://java.sun.com/webapps/getjava/BrowserRedirect
+- Python 2.4(\b 1)            http://www.python.org/windows/
+- libxml2 python bindings     http://users.skynet.be/sbi/libxml-python/
+- Perl                        http://www.activestate.com/Products/ActivePerl/
+- WiX(\b 1)                   http://wix.sourceforge.net
+- Votive(\b 2)                http://wix.sourceforge.net
+- NAnt(\b 1)                  http://nant.sourceforge.net
+- gdiplus merge module(\b 3)  http://www.installshield.com/downloads/modules.asp?prod=ISX&lan=english&xmlUse=y
+.
+(\b 1) Add the paths of the binaries to the PATH environment variable. You may have to
+    logoff/logon to make the new environment variables take effect!
+
+(\b 2) Install Votive to be able to load .wixproj project files.
+
+(\b 3) Copy/Move the gdiplus.msm file to the "%CommonProgramFiles%\Merge Modules" directory
 
 
-Next you need to install some utilities/programs:
-- Java runtime            : http://java.sun.com, http://java.sun.com/webapps/getjava/BrowserRedirect
-- Python 2.4(*)           : http://www.python.org/windows/
-- libxml2 python bindings : http://users.skynet.be/sbi/libxml-python/
-- Perl                    : http://www.activestate.com/Products/ActivePerl/
-- WiX(*)                  : http://wix.sourceforge.net
-- Votive(&)               : http://wix.sourceforge.net
-- NAnt(*)                 : http://nant.sourceforge.net
-- gdiplus merge module(#) : http://www.installshield.com/downloads/modules.asp?prod=ISX&lan=english&xmlUse=y
-
-(*) Add the paths of the binaries to the PATH environment variable
-    You may have to logoff/logon to make the new environment variables take effect!
-(&) Install Votive to be able to load .wixproj project files.
-(#) Copy/Move the gdiplus.msm file to the "%CommonProgramFiles%\Merge Modules" directory
-
-
-Next you need to download some more:
-- OpenSSL source          : http://www.openssl.org/source/
-- ZLib source             : http://www.gzip.org/zlib/
-- tools collection        : http://tortoisesvn.tigris.org/files/documents/406/37871/Tools.zip
-- dictionaries/thesauri(*): http://lingucomponent.openoffice.org/
-
-(*) These are not really required, but recommended
+\subsection Requirements3 Next you need to download some more.
+- OpenSSL source              http://www.openssl.org/source/
+- ZLib source                 http://www.gzip.org/zlib/
+- tools collection            http://tortoisesvn.tigris.org/files/documents/406/37871/Tools.zip
+- dictionaries/thesauri(\b Optional) http://lingucomponent.openoffice.org/
 
 \section Preparations Preparations
 
@@ -91,7 +94,7 @@ Now you're almost ready. Only a few more steps to do:
 \section build32 Building 32 bit packages
 
   Hint: before you can start building TortoiseSVN, you need to call the vsvars32.bat
-  file which is located in %VS80COMNTOOLS%. 
+  file which is located in \%VS80COMNTOOLS%. 
   
   Note that for the Express edition you need to sort out the vars for the platform SDK
   as well. The easiest way I found was to edit the supplied VC++ file
@@ -138,7 +141,7 @@ Now you're almost ready. Only a few more steps to do:
   There is already a line to set this up which you need to un-comment:
 
 \verbatim
-	<property name="buildtool" value="vcexpress.exe" />
+  <property name="buildtool" value="vcexpress.exe" />
 \endverbatim
 
   Now you need to build the Subversion libraries:
@@ -165,36 +168,58 @@ Now you're almost ready. Only a few more steps to do:
   First, we build some 32-bit SVN utilities you will need later 
   during the build process. Follow the instruction above or just
   open "Microsoft Visual Studio 2005" -> "Visual Studio Tools" ->
-  "Visual Studio 2005 Command Prompt", change to the TSVN source
+  "Visual Studio 2005 Command Prompt", change to the TortoiseSVN source
   directory and run
 
 \verbatim
-	nant release binaries
+  > nant release binaries
 \endverbatim
 
   Now, build the x64 packages: Open 
   "Microsoft Visual Studio 2005" -> "Visual Studio Tools" -> 
   "Visual Studio 2005 x64 Cross Tools Command Prompt", change to the
-  TSVN source directory and run
+  TortoiseSVN source directory and run
 
 \verbatim
-	nant x64 cross release setup
+  > nant x64 cross release setup
 \endverbatim
 
-  After the script finished, the packages can be found in .\bin .
-
+  After the script finished, the packages can be found in bin.
 
 \section build64 Building 64 bit packages on x64
 
   To build native packages on your 64 bit Windows, just open
   "Microsoft Visual Studio 2005" -> "Visual Studio Tools" -> 
   "Visual Studio 2005 Win64 Command Prompt", change to the
-  TSVN source directory and run
+  TortoiseSVN source directory and run
 
 \verbatim
-	nant x64 release setup
+  > nant x64 release setup
 \endverbatim
 
-  After the script finished, the packages can be found in .\bin .
+  After the script finished, the packages can be found in bin.
+
+\section clean Cleaning the build directories
+
+  To clean the files you just built, open a command prompt as explained
+  above, change to the TortoiseSVN source directory and run
+
+\verbatim
+  > nant release clean
+\endverbatim
+
+  You have to clean when alterning between x86 and x64 builds. You will find that
+  Language\Tortoise.pot gets deleted. This is normal. This is a generated file
+  that is in the repository so the translators don't need to build the whole
+  thing to update documentation.
+
+\section buildhelp Learning the current build options
+
+  Many other settings can be used. You can have a description of the possible targets
+  by running
+
+\verbatim
+  > nant help
+\endverbatim
 
 */
