@@ -102,7 +102,7 @@ public:
 // other data access
 ///////////////////////////////////////////////////////////////
 
-const CString& CLogCachePool::GetCacheFolderPath() const
+inline const CString& CLogCachePool::GetCacheFolderPath() const
 {
 	return cacheFolderPath;
 }
