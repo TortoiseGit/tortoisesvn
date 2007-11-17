@@ -27,6 +27,9 @@
 #include "PackedIntegerInStream.h"
 #include "PackedIntegerOutStream.h"
 
+#include "DirFileEnum.h"
+#include "PathUtils.h"
+
 // begin namespace LogCache
 
 namespace LogCache
@@ -83,6 +86,64 @@ CCachedLogInfo* CLogCachePool::GetCache (const CString& uuid)
 CRepositoryInfo& CLogCachePool::GetRepositoryInfo()
 {
     return repositoryInfo;
+}
+
+/// delete a cache along with all file(s)
+
+void CLogCachePool::DropCache (const CString& uuid)
+{
+	// delete cache object
+
+	TCaches::iterator iter = caches.find (uuid);
+	if (iter != caches.end())
+	{
+		delete iter->second;
+		caches.erase (iter);
+	}
+
+	// delete cache file
+
+	std::wstring fileName = (LPCTSTR)(cacheFolderPath + uuid);
+	if (FileExists (fileName))
+		DeleteFile (fileName.c_str());
+
+	// remove from cache info list
+
+	repositoryInfo.DropEntry (uuid);
+}
+
+// other data access
+// return as URL -> UUID map
+
+std::map<CString, CString> CLogCachePool::GetRepositoryURLs() const
+{
+	std::map<CString, CString> result;
+
+	// find all cache files 
+
+	CString filePath;
+	CDirFileEnum logenum (cacheFolderPath);
+	while (logenum.NextFile (filePath, NULL))
+	{
+		CString uuid = CPathUtils::GetFileNameFromPath (filePath);
+		CString rootURL = repositoryInfo.GetRootFromUUID (uuid);
+
+		result[rootURL.IsEmpty() ? uuid : rootURL] = uuid;
+	}
+
+	// add in-RAM-only caches
+
+	for ( TCaches::const_iterator iter = caches.begin(), end = caches.end()
+		; iter != end
+		; ++iter)
+	{
+		CString uuid = iter->first;
+		CString rootURL = repositoryInfo.GetRootFromUUID (uuid);
+
+		result[rootURL.IsEmpty() ? uuid : rootURL] = uuid;
+	}
+
+	return result;
 }
 
 // cache management

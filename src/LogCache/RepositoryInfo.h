@@ -132,9 +132,13 @@ public:
     /// find the root folder to a given UUID (e.g. URL for given cache file).
     /// Returns an empty string, if no suitable entry has been found.
 
-    CString GetRootFromUUID (const CString& sUUID);
+    CString GetRootFromUUID (const CString& sUUID) const;
 
-    /// write all changes to disk
+	/// remove a specific entry
+
+    void DropEntry (const CString& sUUID);
+
+	/// write all changes to disk
 
 	void Flush();
 

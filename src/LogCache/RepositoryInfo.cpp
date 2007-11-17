@@ -212,7 +212,7 @@ void CRepositoryInfo::ResetHeadRevision (const CTSVNPath& url)
 // find the root folder to a given UUID (e.g. URL for given cache file).
 // Returns an empty string, if no suitable entry has been found.
 
-CString CRepositoryInfo::GetRootFromUUID (const CString& sUUID)
+CString CRepositoryInfo::GetRootFromUUID (const CString& sUUID) const
 {
     // scan all data
 
@@ -227,6 +227,22 @@ CString CRepositoryInfo::GetRootFromUUID (const CString& sUUID)
     // not found
 
     return CString();
+}
+
+// remove a specific entry
+
+void CRepositoryInfo::DropEntry (const CString& sUUID)
+{
+    for ( TData::iterator iter = data.begin(), end = data.end()
+        ; iter != end
+        ; ++iter)
+    {
+        if (iter->second.uuid == sUUID)
+		{
+			data.erase (iter);
+            return;
+		}
+    }
 }
 
 // write all changes to disk

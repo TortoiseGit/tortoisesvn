@@ -83,9 +83,17 @@ public:
 
     CRepositoryInfo& GetRepositoryInfo();
 
+	/// delete a cache along with all file(s)
+
+	void DropCache (const CString& uuid);
+
 	/// other data access
 
 	const CString& GetCacheFolderPath() const;
+
+	/// return as URL -> UUID map
+
+	std::map<CString, CString> GetRepositoryURLs() const;
 
     /// cache management
 	
