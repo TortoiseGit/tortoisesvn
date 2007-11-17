@@ -51,25 +51,25 @@ class CCachedLogInfo
 {
 private:
 
-	// where we load / save our cached data
+	/// where we load / save our cached data
 
 	std::wstring fileName;
 
-	// revision index and the log info itself
+	/// revision index and the log info itself
 
 	CRevisionIndex revisions;
 	CRevisionInfoContainer logInfo;
 	CSkipRevisionInfo skippedRevisions;
 
-	// revision has been added or Clear() has been called
+	/// revision has been added or Clear() has been called
 
 	bool modified;
 
-	// revision has been added (otherwise, AddChange is forbidden)
+	/// revision has been added (otherwise, AddChange is forbidden)
 
 	bool revisionAdded;
 
-	// stream IDs
+	/// stream IDs
 
 	enum
 	{
@@ -80,32 +80,32 @@ private:
 
 public:
 
-	// for convenience
+	/// for convenience
 
 	typedef CRevisionInfoContainer::TChangeAction TChangeAction;
 
-	// construction / destruction (nothing to do)
+	/// construction / destruction (nothing to do)
 
 	CCachedLogInfo();
 	CCachedLogInfo (const std::wstring& aFileName);
 	~CCachedLogInfo (void);
 
-	// cache persistence
+	/// cache persistence
 
 	void Load();
-	bool IsModified();
+	bool IsModified() const;
 	void Save();
 	void Save (const std::wstring& newFileName);
 
-	// data access
+	/// data access
 
 	const std::wstring& GetFileName() const;
 	const CRevisionIndex& GetRevisions() const;
 	const CRevisionInfoContainer& GetLogInfo() const;
 	const CSkipRevisionInfo& GetSkippedRevisions() const;
 
-	// data modification 
-	// (mirrors CRevisionInfoContainer and CSkipRevisionInfo)
+	/// data modification 
+	/// (mirrors CRevisionInfoContainer and CSkipRevisionInfo)
 
 	void Insert ( revision_t revision
 				, const std::string& author
@@ -132,18 +132,22 @@ public:
 
 	void Clear();
 
-	// update / modify existing data
+	/// update / modify existing data
 
 	void Update ( const CCachedLogInfo& newData
                 , char flags = CRevisionInfoContainer::HAS_ALL
                 , bool keepOldDataForMissingNew = true);
+
+	/// for statistics
+
+	friend class CLogCacheStatistics;
 };
 
 ///////////////////////////////////////////////////////////////
 // cache persistence
 ///////////////////////////////////////////////////////////////
 
-inline bool CCachedLogInfo::IsModified()
+inline bool CCachedLogInfo::IsModified() const
 {
 	return modified;
 }
