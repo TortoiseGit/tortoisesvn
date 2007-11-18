@@ -410,6 +410,8 @@ public:
 
 		CDictionaryBasedPath GetFromPath() const;
 		CDictionaryBasedPath GetToPath() const;
+		index_t GetFromPathID() const;
+		index_t GetToPathID() const;
 
 		revision_t GetRangeStart() const;
 		revision_t GetRangeDelta() const;
@@ -435,6 +437,7 @@ public:
 		/// data access
 
         const char* GetName() const;
+        index_t GetNameID() const;
         std::string GetValue() const;
 
 		/// general status (points to an action)
@@ -511,6 +514,7 @@ public:
 	const CStringDictionary& GetAuthors() const;
 	const CPathDictionary& GetPaths() const;
 	const CTokenizedStringContainer& GetComments() const;
+	const CStringDictionary& GetUserRevProps() const;
 
 	/// update / modify existing data
 	/// indexes must be in ascending order
@@ -777,7 +781,7 @@ template<class T>
 inline const T* 
 CRevisionInfoContainer::CPerRevisionInfoIteratorBase<T>::operator->() const
 {
-	return static_cast<T*>(this);
+	return static_cast<const T*>(this);
 }
 
 ///////////////////////////////////////////////////////////////
@@ -826,6 +830,18 @@ CRevisionInfoContainer::CMergedRevisionsIterator::GetToPath() const
 {
 	index_t pathID = container->mergedToPaths [offset];
 	return CDictionaryBasedPath (&container->paths, pathID);
+}
+
+inline index_t 
+CRevisionInfoContainer::CMergedRevisionsIterator::GetFromPathID() const
+{
+	return container->mergedFromPaths [offset];
+}
+
+inline index_t 
+CRevisionInfoContainer::CMergedRevisionsIterator::GetToPathID() const
+{
+	return container->mergedToPaths [offset];
 }
 
 inline revision_t 
@@ -878,6 +894,12 @@ CRevisionInfoContainer::CUserRevPropsIterator::GetName() const
 {
     index_t revPropName = container->userRevPropNames[offset];
     return container->userRevPropsPool [revPropName];
+}
+
+inline index_t 
+CRevisionInfoContainer::CUserRevPropsIterator::GetNameID() const
+{
+    return container->userRevPropNames[offset];
 }
 
 inline std::string 
@@ -1033,6 +1055,11 @@ inline const CPathDictionary& CRevisionInfoContainer::GetPaths() const
 inline const CTokenizedStringContainer& CRevisionInfoContainer::GetComments() const
 {
 	return comments;
+}
+
+inline const CStringDictionary& CRevisionInfoContainer::GetUserRevProps() const
+{
+	return userRevPropsPool;
 }
 
 ///////////////////////////////////////////////////////////////
