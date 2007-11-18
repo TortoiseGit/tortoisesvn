@@ -126,7 +126,7 @@
 						<literal>%PATH%</literal>
 						<literal>%PATHS%</literal>
 						<literal>%DEPTH%</literal>
-						<literal>%MESSAGEPATH%</literal>
+						<literal>%MESSAGEFILE%</literal>
 					</para>
 				</listitem>
 			</varlistentry>
@@ -137,7 +137,7 @@
 						<literal>%PATH%</literal>
 						<literal>%PATHS%</literal>
 						<literal>%DEPTH%</literal>
-						<literal>%MESSAGEPATH%</literal>
+						<literal>%MESSAGEFILE%</literal>
 						<literal>%REVISION%</literal>
 						<literal>%ERROR%</literal>
 					</para>
@@ -268,7 +268,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term condition="pot">%MESSAGEPATH%</term>
+				<term condition="pot">%MESSAGEFILE%</term>
 				<listitem>
 					<para>
 						Path to a file containing the log message for
