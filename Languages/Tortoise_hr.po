@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-11-02 23:38+0100\n"
+"PO-Revision-Date: 2007-11-18 08:43+0100\n"
 "Last-Translator: Mario Šarić <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -374,6 +374,10 @@ msgstr "&Razlike"
 #. Resource IDs: (17)
 msgid "&Diff with URL"
 msgstr "&Razlike s URL"
+
+#. Resource IDs: (14)
+msgid "&Diff with previous version"
+msgstr "&Usporedi sa prijašnjom revizijom"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -959,6 +963,10 @@ msgstr "Pristup prema %1 je zabranjen."
 msgid "Action"
 msgstr "Akcija"
 
+#. Resource IDs: (65535)
+msgid "Action log"
+msgstr "Dnevnik akcija"
+
 #. Resource IDs: (117)
 msgid "Actions"
 msgstr "Akcije"
@@ -967,7 +975,7 @@ msgstr "Akcije"
 msgid "Activate Task List"
 msgstr "Aktiviraj popis zadataka"
 
-#. Resource IDs: (155, 209)
+#. Resource IDs: (155, 209, 229)
 msgid "Add"
 msgstr "Dodaj"
 
@@ -1082,6 +1090,10 @@ msgstr "Sve datoteke (*.*)"
 #. Resource IDs: (157)
 msgid "All Files (*.*)|*.*||"
 msgstr "Sve datoteke (*.*)|*.*||"
+
+#. Resource IDs: (197)
+msgid "Always use the system locale settings to show times and dates"
+msgstr "Uvijek koristi sistemske postavke za prikaz datuma i vremena"
 
 #. Resource IDs: (3867, 3868)
 #, c-format
@@ -1588,7 +1600,7 @@ msgstr "Čišćenje je završeno"
 msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "Čisti prekinute operacije, zaključane datoteke, ..."
 
-#. Resource IDs: (1273, 1275, 1276, 1279, 1281)
+#. Resource IDs: (1273, 1275, 1276, 1279, 1281, 1427)
 msgid "Clear"
 msgstr "Briši"
 
@@ -1673,7 +1685,7 @@ msgstr "Naredba koju treba izvršiti:"
 msgid "Command failed."
 msgstr "Naredba nije izvršena."
 
-#. Resource IDs: (135, 209, 1083)
+#. Resource IDs: (135, 209, 229, 1083)
 msgid "Commit"
 msgstr "Pohrane"
 
@@ -1953,6 +1965,10 @@ msgstr "Nije moguće obrisati  \"%s\" zbog"
 msgid "Could not delete property \"%s\" on %s because"
 msgstr "Nije moguće obrisati svojstvo \"%s\" od %s zbog"
 
+#. Resource IDs: (83)
+msgid "Could not determine the last committed revision!"
+msgstr "Nije moguće ustanoviti zadnju pohranjenu reviziju!"
+
 #. Resource IDs: (81)
 msgid "Could not get the status!"
 msgstr "Nisam mogao dobiti status!"
@@ -2163,6 +2179,10 @@ msgstr "Uklanja datoteke / mape iz upravljanja verzijama"
 msgid "Deletes files / folders from version control but keeps the file"
 msgstr "Uklanja datoteke / mape iz upravljanja verzijama, ne briše datoteke"
 
+#. Resource IDs: (198)
+msgid "Deletes the action log file"
+msgstr "Briše datoteku dnevničkih zapisa"
+
 #. Resource IDs: (263)
 msgid "Deleting"
 msgstr "Brisanje"
@@ -2183,10 +2203,6 @@ msgstr "Odredišni disk je pun."
 msgid "Dialog sizes and positions"
 msgstr "Veličine i položaji dijaloga"
 
-#. Resource IDs: (146)
-msgid "Diff With URL"
-msgstr "Razlike s URL"
-
 #. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "Datoteka razlika:"
@@ -2195,6 +2211,10 @@ msgstr "Datoteka razlika:"
 msgid "Diff options"
 msgstr "Opcije razlika"
 
+#. Resource IDs: (146, 279)
+msgid "Diff with URL"
+msgstr "Razlike preko URL"
+
 #. Resource IDs: (1302)
 msgid "Difference between"
 msgstr "Razlika između"
@@ -2202,6 +2222,10 @@ msgstr "Razlika između"
 #. Resource IDs: (1022)
 msgid "Diffing"
 msgstr "Izrada razlika"
+
+#. Resource IDs: (14)
+msgid "Diffs the working copy file with the one before the last commit."
+msgstr "Prikazuje razliku datoteke radne kopije sa onom prije zadnje pohrane."
 
 #. Resource IDs: (65535)
 msgid "Directory:"
@@ -2492,7 +2516,7 @@ msgstr "Izostavi staze:"
 msgid "Explore to"
 msgstr "Istraži do"
 
-#. Resource IDs: (238)
+#. Resource IDs: (229, 238)
 msgid "Export"
 msgstr "Izvezi"
 
@@ -2950,6 +2974,11 @@ msgstr "S&akrij nepovezane promijenjene staze"
 #. Resource IDs: (1353, 1354)
 msgid "HEAD"
 msgstr "GLAVNO"
+
+#. Resource IDs: (106)
+#, c-format
+msgid "Head revision is %s"
+msgstr "Glavna revizija je %s"
 
 #. Resource IDs: (73, 1004)
 msgid "Help"
@@ -3593,7 +3622,7 @@ msgstr ""
 "Mjesto gdje će sadržaj skladišta\n"
 "određenog URL-om biti snimljen."
 
-#. Resource IDs: (207, 221, 65535)
+#. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
 msgstr "Lokot"
 
@@ -3722,6 +3751,10 @@ msgstr "Maksimum"
 #. Resource IDs: (1317)
 msgid "Max. items to keep in the log message history"
 msgstr "Dopušteni broj poruka za pregled dnevnika"
+
+#. Resource IDs: (65535)
+msgid "Max. lines in action log"
+msgstr "Najveći broj linija dnevnika"
 
 #. Resource IDs: (109, 110, 111, 276, 278, 65535)
 msgid "Merge"
@@ -3904,6 +3937,10 @@ msgstr "Premjesti datoteke ovdje"
 #. Resource IDs: (209)
 msgid "Move to changelist"
 msgstr "Premjesti na skup izmjena"
+
+#. Resource IDs: (229)
+msgid "Move/Rename"
+msgstr "Premjesti/Promijeni ime"
 
 #. Resource IDs: (98)
 #, c-format
@@ -4785,7 +4822,7 @@ msgstr "Traži korisničko ime i zaporku"
 msgid "Res&olved..."
 msgstr "Raz&riješeno..."
 
-#. Resource IDs: (207)
+#. Resource IDs: (207, 229)
 msgid "Resolve"
 msgstr "Razriješi"
 
@@ -4854,7 +4891,7 @@ msgstr "Pokušaj ponovo"
 msgid "Reverse merge"
 msgstr "Vrati"
 
-#. Resource IDs: (175)
+#. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Vrati na staro"
 
@@ -5314,6 +5351,10 @@ msgstr "Kratki oblik &datuma/vremena u dnevniku poruka"
 msgid "Short URL of Subversion items"
 msgstr "Kratki URL Subversion stavaka"
 
+#. Resource IDs: (1382)
+msgid "Show"
+msgstr "Prikaži"
+
 #. Resource IDs: (115, 1031)
 msgid "Show &All"
 msgstr "Prikaži &sve"
@@ -5330,7 +5371,7 @@ msgstr "Prikaži &sve revizije"
 msgid "Show &changes"
 msgstr "Prikaži &izmjene"
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1132, 1228, 1420, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 32784)
 msgid "Show &log"
 msgstr "Prikaži &dnevnik"
 
@@ -5473,6 +5514,10 @@ msgstr "Prikazuje sve revizije u kojima je mijenjana ova stavka"
 #. Resource IDs: (10)
 msgid "Shows information about TortoiseSVN"
 msgstr "Prikaz podataka o TortoiseSVN"
+
+#. Resource IDs: (198)
+msgid "Shows the action log file in the default text editor"
+msgstr "Prikazuje dnevnik u postavljenom editoru teksta"
 
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
@@ -5878,6 +5923,14 @@ msgstr "Red koji ukazuje na staru datoteku se očekivao u liniji br. %d!"
 #. Resource IDs: (251)
 msgid "The lock has already been broken from another working copy"
 msgstr "Lokot je već uklonjen iz neke druge radne kopije"
+
+#. Resource IDs: (198)
+msgid ""
+"The maximum number of action log lines to keep.\n"
+"Any lines added over this limit will remove the oldest lines from the file."
+msgstr ""
+"Najveći broj redaka koji se spremaju u datoteci dnevnika.\n"
+"Svaka linija koja se doda iza ovog broja će ukloniti nastariju iz datoteke."
 
 #. Resource IDs: (63)
 msgid ""
@@ -6443,7 +6496,7 @@ msgstr ""
 msgid "Unknown depth"
 msgstr "Nepoznata dubina"
 
-#. Resource IDs: (221, 242)
+#. Resource IDs: (221, 230, 242)
 msgid "Unlock"
 msgstr "Odključaj"
 
@@ -6472,7 +6525,7 @@ msgstr "Datoteke izvan sustava verzija označavaju mapu kao izmijenjenu"
 msgid "Unversioning %s"
 msgstr "Skidanje verzija %s"
 
-#. Resource IDs: (152)
+#. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "Obnovi"
 
@@ -6563,6 +6616,10 @@ msgstr "Koristi skladište"
 #. Resource IDs: (1066)
 msgid "Use stri&keout for removed lines"
 msgstr "Koristi pre&crtani tekst za obrisane retke"
+
+#. Resource IDs: (1426)
+msgid "Use system locale for date/time"
+msgstr "Koristi sistemske postavke datuma/vremena"
 
 #. Resource IDs: (251, 32820)
 msgid "Use text block from \"&mine\""
@@ -6733,7 +6790,7 @@ msgstr ""
 msgid "With URL:"
 msgstr "URL:"
 
-#. Resource IDs: (158)
+#. Resource IDs: (158, 65535)
 msgid "Working Copy"
 msgstr "Radna kopija"
 
@@ -7231,15 +7288,29 @@ msgstr ""
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of\n"
-"a relative directory path, optional revision flags, and a URL. For example\n"
+"a relative directory path, optional revision flags, and an URL. For example\n"
 "foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag"
+"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"\n"
+"The URLs can either be full URLs or relative. The format for\n"
+"the relative URLs is:\n"
+"../\trelative to the parent directory of the external\n"
+"^/\trelative to the repository root\n"
+"//\trelative to the URL scheme\n"
+"/\trelative to the server's hostname"
 msgstr ""
 "svn:externals\n"
 "Popis opisnika modula odvojenih novim redom, pri čemu se svaki od njih sastoji od\n"
 "relativne staze mape, neobavezne zastavice revizije i URL-a. Na primjer:\n"
 "foo\t\thttp://primjer.hr/repos/cik\n"
-"foo/bar -r 1234\thttp://primjer.hr/repos/cak"
+"foo/bar -r 1234\thttp://primjer.hr/repos/cak\n"
+"\n"
+"URLovi mogu biti relativni ili puni. Format za\n"
+"relativne URLove je:\n"
+"../\trelativno u odnosu na mapu iznad\n"
+"^/\trelativno u odnosu na osnovu mapu skladišta\n"
+"//\trelativno u odnosu na URL schemu\n"
+"/\trelativno u odnosu na ime poslužitelja"
 
 #. Resource IDs: (576)
 msgid ""
