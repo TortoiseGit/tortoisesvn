@@ -768,6 +768,9 @@ bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& r
 			// browse local directories
 			CBrowseFolder folderBrowser;
 			folderBrowser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
+			// remove the 'file:///' so the shell can recognize the local path
+			strUrl = strUrl.Mid(8);
+			strUrl.Replace('/', '\\');
 			if (folderBrowser.Show(pParent->GetSafeHwnd(), strUrl) == CBrowseFolder::OK)
 			{
 				SVN::PathToUrl(strUrl);
