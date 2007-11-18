@@ -39,6 +39,8 @@ typedef struct SubWCRev_t
 	BOOL HasMods;			// True if local modifications found
 	BOOL bFolders;			// If TRUE, status of folders is included
 	BOOL bExternals;		// If TRUE, status of externals is included
+	BOOL bHexPlain;			// If TRUE, revision numbers are output in HEX
+	BOOL bHexX;				// If TRUE, revision numbers are output in HEX with '0x'
 	char Url[URL_BUF];		// URL of working copy
 	char UUID[1024];		// The repository UUID of the working copy
 	char Author[URL_BUF];	// The author of the wcPath

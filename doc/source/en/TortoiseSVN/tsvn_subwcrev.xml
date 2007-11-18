@@ -114,6 +114,21 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 								The default behaviour is to ignore externals.
 							</entry>
 						</row>
+						<row>
+							<entry condition="pot">-x</entry>
+							<entry>
+								If this switch is given, SubWCRev will 
+								output the revision numbers in HEX.
+							</entry>
+						</row>
+						<row>
+							<entry condition="pot">-X</entry>
+							<entry>
+								If this switch is given, SubWCRev will 
+								output the revision numbers in HEX, with
+								'0X' prepended.
+							</entry>
+						</row>
 					</tbody>
 				</tgroup>
 			</table>

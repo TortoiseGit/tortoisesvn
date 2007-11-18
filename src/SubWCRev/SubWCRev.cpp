@@ -60,6 +60,11 @@ DstVersionFile     :   path to save the resulting parsed file.\n\
                        with svn:externals, but only if they're from the\n\
                        same repository.\n"
 #define HelpText3 "\
+-x                 :   if given, then SubWCRev will write the revisions\n\
+                       numbers in HEX instead of decimal\n\
+-X                 :   if given, then SubWCRev will write the revisions\n\
+                       numbers in HEX with '0x' before them\n"
+#define HelpText4 "\
 Switches must be given in a single argument, eg. '-nm' not '-n -m'.\n\
 \n\
 SubWCRev reads the Subversion status of all files in a working copy\n\
@@ -127,7 +132,7 @@ int FindPlaceholder(char *def, char *pBuf, size_t & index, size_t filelength)
 
 int InsertRevision(char * def, char * pBuf, size_t & index,
 					size_t & filelength, size_t maxlength,
-					long MinRev, long MaxRev)
+					long MinRev, long MaxRev, SubWCRev_t * SubStat)
 {
 	// Search for first occurrence of def in the buffer, starting at index.
 	if (!FindPlaceholder(def, pBuf, index, filelength))
@@ -139,11 +144,21 @@ int InsertRevision(char * def, char * pBuf, size_t & index,
 	char destbuf[40];
 	if (MinRev == -1 || MinRev == MaxRev)
 	{
-		sprintf_s(destbuf, 40, "%Ld", MaxRev);
+		if ((SubStat)&&(SubStat->bHexPlain))
+			sprintf_s(destbuf, 40, "%LX", MaxRev);
+		else if ((SubStat)&&(SubStat->bHexX))
+			sprintf_s(destbuf, 40, "%#LX", MaxRev);
+		else
+			sprintf_s(destbuf, 40, "%Ld", MaxRev);
 	}
 	else
 	{
-		sprintf_s(destbuf, 40, "%Ld:%Ld", MinRev, MaxRev);
+		if ((SubStat)&&(SubStat->bHexPlain))
+			sprintf_s(destbuf, 40, "%LX:%LX", MinRev, MaxRev);
+		else if ((SubStat)&&(SubStat->bHexX))
+			sprintf_s(destbuf, 40, "%#LX:%#LX", MinRev, MaxRev);
+		else
+			sprintf_s(destbuf, 40, "%Ld:%Ld", MinRev, MaxRev);
 	}
 	// Replace the $WCxxx$ string with the actual revision number
 	char * pBuild = pBuf + index;
@@ -385,6 +400,10 @@ int _tmain(int argc, _TCHAR* argv[])
 				SubStat.bFolders = TRUE;
 			if (_tcschr(Params, 'e') != 0)
 				SubStat.bExternals = TRUE;
+			if (_tcschr(Params, 'x') != 0)
+				SubStat.bHexPlain = TRUE;
+			if (_tcschr(Params, 'X') != 0)
+				SubStat.bHexX = TRUE;
 		}
 		else
 		{
@@ -402,6 +421,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		_putts(_T(HelpText1));
 		_putts(_T(HelpText2));
 		_putts(_T(HelpText3));
+		_putts(_T(HelpText4));
 		return ERR_SYNTAX;
 	}
 
@@ -517,19 +537,39 @@ int _tmain(int argc, _TCHAR* argv[])
 	
 	if (bErrOnMixed && (SubStat.MinRev != SubStat.MaxRev))
 	{
-		_tprintf(_T("Working copy contains mixed revisions %Ld:%Ld!\n"), SubStat.MinRev, SubStat.MaxRev);
+		if (SubStat.bHexPlain)
+			_tprintf(_T("Working copy contains mixed revisions %LX:%LX!\n"), SubStat.MinRev, SubStat.MaxRev);
+		else if (SubStat.bHexX)
+			_tprintf(_T("Working copy contains mixed revisions %#LX:%#LX!\n"), SubStat.MinRev, SubStat.MaxRev);
+		else
+			_tprintf(_T("Working copy contains mixed revisions %Ld:%Ld!\n"), SubStat.MinRev, SubStat.MaxRev);
 		return ERR_SVN_MIXED;
 	}
 
-	_tprintf(_T("Last committed at revision %Ld\n"), SubStat.CmtRev);
+	if (SubStat.bHexPlain)
+		_tprintf(_T("Last committed at revision %LX\n"), SubStat.CmtRev);
+	else if (SubStat.bHexX)
+		_tprintf(_T("Last committed at revision %#LX\n"), SubStat.CmtRev);
+	else
+		_tprintf(_T("Last committed at revision %Ld\n"), SubStat.CmtRev);
 
 	if (SubStat.MinRev != SubStat.MaxRev)
 	{
-		_tprintf(_T("Mixed revision range %Ld:%Ld\n"), SubStat.MinRev, SubStat.MaxRev);
+		if (SubStat.bHexPlain)
+			_tprintf(_T("Mixed revision range %LX:%LX\n"), SubStat.MinRev, SubStat.MaxRev);
+		else if (SubStat.bHexX)
+			_tprintf(_T("Mixed revision range %#LX:%#LX\n"), SubStat.MinRev, SubStat.MaxRev);
+		else
+			_tprintf(_T("Mixed revision range %Ld:%Ld\n"), SubStat.MinRev, SubStat.MaxRev);
 	}
 	else
 	{
-		_tprintf(_T("Updated to revision %Ld\n"), SubStat.MaxRev);
+		if (SubStat.bHexPlain)
+			_tprintf(_T("Updated to revision %LX\n"), SubStat.MaxRev);
+		else if (SubStat.bHexX)
+			_tprintf(_T("Updated to revision %#LX\n"), SubStat.MaxRev);
+		else
+			_tprintf(_T("Updated to revision %Ld\n"), SubStat.MaxRev);
 	}
 	
 	if (SubStat.HasMods)
@@ -546,10 +586,10 @@ int _tmain(int argc, _TCHAR* argv[])
 	
 	size_t index = 0;
 	
-	while (InsertRevision(VERDEF, pBuf, index, filelength, maxlength, -1, SubStat.CmtRev));
+	while (InsertRevision(VERDEF, pBuf, index, filelength, maxlength, -1, SubStat.CmtRev, &SubStat));
 	
 	index = 0;
-	while (InsertRevision(RANGEDEF, pBuf, index, filelength, maxlength, SubStat.MinRev, SubStat.MaxRev));
+	while (InsertRevision(RANGEDEF, pBuf, index, filelength, maxlength, SubStat.MinRev, SubStat.MaxRev, &SubStat));
 	
 	index = 0;
 	while (InsertDate(DATEDEF, pBuf, index, filelength, maxlength, SubStat.CmtDate));
