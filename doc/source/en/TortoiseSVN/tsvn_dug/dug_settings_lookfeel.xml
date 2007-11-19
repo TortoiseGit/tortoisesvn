@@ -136,6 +136,19 @@
 		for that specific drive type, or by an exclude path specified above.
 	</para>
 	<para>
+		Users sometimes ask how these three settings interact, and the definitive
+		answer is:
+<screen>
+if (path is in include list)
+  show overlays
+if (path is allowed drive type) AND (path is not in exclude list)
+  show overlays
+</screen>
+		The include list <emphasis>always</emphasis> makes the overlays show.
+		Otherwise, overlays are shown for all marked drive types
+		<emphasis>unless</emphasis> the path is excluded.
+	</para>
+	<para>
 		TSVNCache.exe also uses these paths to restrict its scanning. If you
 		want it to look only in particular folders, disable all drive types
 		and include only the folders you specifically want to be scanned.
