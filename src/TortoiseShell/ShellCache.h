@@ -61,7 +61,7 @@ public:
 		unversionedasmodified = CRegStdWORD(_T("Software\\TortoiseSVN\\UnversionedAsModified"), FALSE);
 		getlocktop = CRegStdWORD(_T("Software\\TortoiseSVN\\GetLockTop"), TRUE);
 		excludedasnormal = CRegStdWORD(_T("Software\\TortoiseSVN\\ShowExcludedAsNormal"), TRUE);
-		cachetypeticker = GetTickCount();
+		cachetypeticker = GetTickCount()-DRIVETYPETIMEOUT;
 		recursiveticker = cachetypeticker;
 		folderoverlayticker = cachetypeticker;
 		driveticker = cachetypeticker;
