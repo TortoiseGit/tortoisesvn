@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-11-12 15:01+0100\n"
+"PO-Revision-Date: 2007-11-19 09:44+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -104,7 +104,7 @@ msgstr "%1 inneholdt et uventet objekt."
 #. Resource IDs: (3868)
 #, c-format
 msgid "%1 contains an incorrect schema."
-msgstr "%1 inneholder et ikke-korrekt skjema."
+msgstr "%1 inneholder et ukorrekt skjema."
 
 #. Resource IDs: (3867)
 #, c-format
@@ -114,17 +114,17 @@ msgstr "%1 inneholder en ugyldig filsti."
 #. Resource IDs: (3867)
 #, c-format
 msgid "%1 could not be created because the directory is full."
-msgstr "%1 kunne ikke opprettes fordi at katalogen er full."
+msgstr "%1 kunne ikke opprettes fordi katalogen er full."
 
 #. Resource IDs: (3867)
 #, c-format
 msgid "%1 could not be opened because there are too many open files."
-msgstr "%1 kunne ikke åpnes, fordi at det er for mange åpne filer."
+msgstr "%1 kunne ikke åpnes, fordi det er for mange åpne filer."
 
 #. Resource IDs: (3867)
 #, c-format
 msgid "%1 could not be removed because it is the current directory."
-msgstr "%1 kunne ikke slettes fordi at det er gjeldende katalog."
+msgstr "%1 kunne ikke slettes fordi det er gjeldende katalog."
 
 #. Resource IDs: (3868)
 #, c-format
@@ -169,7 +169,7 @@ msgstr "%I64d kByte overført"
 #. Resource IDs: (169)
 #, c-format
 msgid "%d files selected, %d files total"
-msgstr "%d er valgt, totalt %d filer"
+msgstr "%d filer valgt, totalt %d filer"
 
 #. Resource IDs: (357)
 #, c-format
@@ -238,7 +238,7 @@ msgid ""
 "Do you want to remove it anyway?"
 msgstr ""
 "%s\n"
-"Vil du slette uansett?"
+"Vil du slette den likevel?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -248,7 +248,7 @@ msgid ""
 "TortoiseMerge can't diff directories."
 msgstr ""
 "%s\n"
-"er en katalog, ikke en fil.\n"
+"er en katalog, ikke en fil!\n"
 "TortoiseMerge kan ikke diffe kataloger."
 
 #. Resource IDs: (286)
@@ -993,6 +993,10 @@ msgstr "Tilgang til %1 ble nektet."
 msgid "Action"
 msgstr "Handling"
 
+#. Resource IDs: (65535)
+msgid "Action log"
+msgstr "Handlingslogg"
+
 #. Resource IDs: (117)
 msgid "Actions"
 msgstr "Handlinger"
@@ -1001,7 +1005,7 @@ msgstr "Handlinger"
 msgid "Activate Task List"
 msgstr "Aktiver oppgaveliste"
 
-#. Resource IDs: (155, 209)
+#. Resource IDs: (155, 209, 229)
 msgid "Add"
 msgstr "Legg til"
 
@@ -1116,6 +1120,10 @@ msgstr "Alle filer (*.*)"
 #. Resource IDs: (157)
 msgid "All Files (*.*)|*.*||"
 msgstr "Alle filer (*.*)|*.*||"
+
+#. Resource IDs: (197)
+msgid "Always use the system locale settings to show times and dates"
+msgstr "Bruk alltid de lokale systeminstillinger for visning av tid og dato"
 
 #. Resource IDs: (3867, 3868)
 #, c-format
@@ -1616,7 +1624,7 @@ msgstr "Oppryddingen er ferdig"
 msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "Rydder opp avbrutte operasjoner, låste filer, ..."
 
-#. Resource IDs: (1273, 1275, 1276, 1279, 1281)
+#. Resource IDs: (1273, 1275, 1276, 1279, 1281, 1427)
 msgid "Clear"
 msgstr "Blank ut"
 
@@ -1701,7 +1709,7 @@ msgstr "Kommandolinje som skal utføres:"
 msgid "Command failed."
 msgstr "Komandoen feilet."
 
-#. Resource IDs: (135, 209, 1083)
+#. Resource IDs: (135, 209, 229, 1083)
 msgid "Commit"
 msgstr "Send inn"
 
@@ -2195,6 +2203,10 @@ msgstr "Sletter filer/mapper fra versjonskontroll"
 msgid "Deletes files / folders from version control but keeps the file"
 msgstr "Sletter filer/mapper fra versjonskontroll men beholder filen"
 
+#. Resource IDs: (198)
+msgid "Deletes the action log file"
+msgstr "Sletter handlingsloggfilen"
+
 #. Resource IDs: (263)
 msgid "Deleting"
 msgstr "Sletter"
@@ -2525,7 +2537,7 @@ msgstr "Stier å ekskludere:"
 msgid "Explore to"
 msgstr "Utforsk til"
 
-#. Resource IDs: (238)
+#. Resource IDs: (229, 238)
 msgid "Export"
 msgstr "Eksportér"
 
@@ -3612,7 +3624,7 @@ msgstr ""
 "Plasseringen som inneholdet i\n"
 "depoets adresse lagres til."
 
-#. Resource IDs: (207, 221, 65535)
+#. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
 msgstr "Sperre"
 
@@ -3739,6 +3751,10 @@ msgstr "Maks"
 #. Resource IDs: (1317)
 msgid "Max. items to keep in the log message history"
 msgstr "Maks. elementer som skal beholdes i loggmeldingshistorien"
+
+#. Resource IDs: (65535)
+msgid "Max. lines in action log"
+msgstr "Maks. linjer i handlingslogg"
 
 #. Resource IDs: (109, 110, 111, 276, 278, 65535)
 msgid "Merge"
@@ -3919,6 +3935,10 @@ msgstr "Flytt elementer hit"
 #. Resource IDs: (209)
 msgid "Move to changelist"
 msgstr "Flytt til endringsliste"
+
+#. Resource IDs: (229)
+msgid "Move/Rename"
+msgstr "Flytt/Omdøp"
 
 #. Resource IDs: (98)
 #, c-format
@@ -4555,7 +4575,7 @@ msgid ""
 "Redo the previously undone action\n"
 "Redo"
 msgstr ""
-"Gjenta forrige angring\n"
+"Gjenta sist angrede handling\n"
 "Gjenta"
 
 #. Resource IDs: (32819)
@@ -4796,7 +4816,7 @@ msgstr "Ber om et brukernavn og passord"
 msgid "Res&olved..."
 msgstr "&Løst..."
 
-#. Resource IDs: (207)
+#. Resource IDs: (207, 229)
 msgid "Resolve"
 msgstr "Løs"
 
@@ -4865,7 +4885,7 @@ msgstr "Prøv igjen"
 msgid "Reverse merge"
 msgstr "Revers fletting"
 
-#. Resource IDs: (175)
+#. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Tilbakestill"
 
@@ -5325,6 +5345,10 @@ msgstr "Kort &tids- og dato-format i loggmeldinger"
 msgid "Short URL of Subversion items"
 msgstr "Kort URL til Subversion-elementer"
 
+#. Resource IDs: (1382)
+msgid "Show"
+msgstr "Vis"
+
 #. Resource IDs: (115, 1031)
 msgid "Show &All"
 msgstr "Vis &alle"
@@ -5483,6 +5507,10 @@ msgstr "Viser alle revisjoner hvor dette elementet ble endret"
 #. Resource IDs: (10)
 msgid "Shows information about TortoiseSVN"
 msgstr "Viser informasjon om TortoiseSVN"
+
+#. Resource IDs: (198)
+msgid "Shows the action log file in the default text editor"
+msgstr "Viser handlingsloggen i standard tekstredigeringsprogram"
 
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
@@ -5887,6 +5915,14 @@ msgstr "Linjen indikerer at den gamle filen var forventet i linjenummer %d !"
 #. Resource IDs: (251)
 msgid "The lock has already been broken from another working copy"
 msgstr "Sperren er allerede opphevet fra en annen arbeidskopi"
+
+#. Resource IDs: (198)
+msgid ""
+"The maximum number of action log lines to keep.\n"
+"Any lines added over this limit will remove the oldest lines from the file."
+msgstr ""
+"Maksimalt antall linjer som skal beholdes i handlingsloggen.\n"
+"Hvis flere linjer enn dette legges til, slettes de eldste linjene fra filen."
 
 #. Resource IDs: (63)
 msgid ""
@@ -6447,7 +6483,7 @@ msgstr ""
 msgid "Unknown depth"
 msgstr "Ukjent dybde"
 
-#. Resource IDs: (221, 242)
+#. Resource IDs: (221, 230, 242)
 msgid "Unlock"
 msgstr "Opphev sperre"
 
@@ -6476,7 +6512,7 @@ msgstr "Ikke-versjonerte filer markerer mappen over som endret"
 msgid "Unversioning %s"
 msgstr "Av-versjonerer %s"
 
-#. Resource IDs: (152)
+#. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "Oppdater"
 
@@ -6566,6 +6602,10 @@ msgstr "Bruke depoet"
 #. Resource IDs: (1066)
 msgid "Use stri&keout for removed lines"
 msgstr "Bruk &overstreking for slettede linjer"
+
+#. Resource IDs: (1426)
+msgid "Use system locale for date/time"
+msgstr "Bruk systemets formater for dato/tid"
 
 #. Resource IDs: (251, 32820)
 msgid "Use text block from \"&mine\""
