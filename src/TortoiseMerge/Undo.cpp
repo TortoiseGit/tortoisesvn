@@ -43,6 +43,7 @@ CUndo& CUndo::GetInstance()
 
 CUndo::CUndo()
 {
+	m_originalstate = 0;
 }
 
 CUndo::~CUndo()
@@ -61,6 +62,7 @@ bool CUndo::Undo(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom)
 {
 	if (!CanUndo())
 		return false;
+
 	if (m_groups.size() && m_groups.back() == m_caretpoints.size())
 	{
 		m_groups.pop_back();
@@ -71,6 +73,27 @@ bool CUndo::Undo(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom)
 	}
 	else
 		UndoOne(pLeft, pRight, pBottom);
+
+	CBaseView * pActiveView = pLeft;
+
+	if (pRight && pRight->HasCaret())
+		pActiveView = pRight;
+
+	if (pBottom && pBottom->HasCaret())
+		pActiveView = pBottom;
+
+	if (pActiveView) {
+		pActiveView->ClearSelection();
+		pActiveView->EnsureCaretVisible();
+		pActiveView->UpdateCaret();
+		pActiveView->SetModified(m_viewstates.size() != m_originalstate);
+		pActiveView->RefreshViews();
+	}
+
+	if (m_viewstates.size() < m_originalstate)
+		// Can never get back to original state now
+		m_originalstate = 1;
+
 	return true;
 }
 
@@ -108,19 +131,16 @@ void CUndo::Undo(const viewstate& state, CBaseView * pView)
 	if (!pView)
 		return;
 
-	bool bModified = false;
 	for (std::list<int>::const_iterator it = state.addedlines.begin(); it != state.addedlines.end(); ++it)
 	{
 		if (pView->m_pViewData)
 			pView->m_pViewData->RemoveData(*it);
-		bModified = true;
 	}
 	for (std::map<int, DWORD>::const_iterator it = state.linelines.begin(); it != state.linelines.end(); ++it)
 	{
 		if (pView->m_pViewData)
 		{
 			pView->m_pViewData->SetLineNumber(it->first, it->second);
-			bModified = true;
 		}
 	}
 	for (std::map<int, DWORD>::const_iterator it = state.linestates.begin(); it != state.linestates.end(); ++it)
@@ -128,7 +148,6 @@ void CUndo::Undo(const viewstate& state, CBaseView * pView)
 		if (pView->m_pViewData)
 		{
 			pView->m_pViewData->SetState(it->first, (DiffStates)it->second);
-			bModified = true;
 		}
 	}
 	for (std::map<int, CString>::const_iterator it = state.difflines.begin(); it != state.difflines.end(); ++it)
@@ -136,7 +155,6 @@ void CUndo::Undo(const viewstate& state, CBaseView * pView)
 		if (pView->m_pViewData)
 		{
 			pView->m_pViewData->SetLine(it->first, it->second);
-			bModified = true;
 		}
 	}
 	for (std::map<int, viewdata>::const_iterator it = state.removedlines.begin(); it != state.removedlines.end(); ++it)
@@ -144,11 +162,15 @@ void CUndo::Undo(const viewstate& state, CBaseView * pView)
 		if (pView->m_pViewData)
 		{
 			pView->m_pViewData->InsertData(it->first, it->second.sLine, it->second.state, it->second.linenumber, it->second.ending);
-			bModified = true;
 		}
 	}
+}
 
-	pView->DocumentUpdated();
-	if (bModified)
-		pView->SetModified();
+
+void CUndo::Clear()
+{
+	m_viewstates.clear();
+	m_caretpoints.clear();
+	m_groups.clear();
+	m_originalstate = 0;
 }

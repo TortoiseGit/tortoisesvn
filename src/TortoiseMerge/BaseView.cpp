@@ -1892,6 +1892,9 @@ void CBaseView::OnMergePreviousconflict()
 		RecalcAllVertScrollBars(TRUE);
 		SetupSelection(m_nSelBlockStart, m_nSelBlockEnd);
 		SetupDiffBars(m_nDiffBlockStart, m_nDiffBlockEnd);
+		m_ptCaretPos.x = 0;
+		m_ptCaretPos.y = m_nSelBlockEnd;
+		UpdateCaret();
 		ShowDiffLines(m_nDiffBlockStart);
 	}
 }
@@ -1942,6 +1945,9 @@ void CBaseView::OnMergeNextconflict()
 		RecalcAllVertScrollBars(TRUE);
 		SetupSelection(m_nSelBlockStart, m_nSelBlockEnd);
 		SetupDiffBars(m_nDiffBlockStart, m_nDiffBlockEnd);
+		m_ptCaretPos.x = 0;
+		m_ptCaretPos.y = m_nSelBlockStart;
+		UpdateCaret();
 		ShowDiffLines(m_nDiffBlockStart);
 	}
 }
@@ -2303,6 +2309,8 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 						m_pViewData->SetState(m_ptCaretPos.y, DIFFSTATE_EDITED);
 					}
 					ClearSelection();
+					EnsureCaretVisible();
+					UpdateCaret();
 					SetModified(true);
 					Invalidate(FALSE);
 				}
@@ -2854,6 +2862,8 @@ void CBaseView::RemoveLine(int nLineIndex)
 	if (m_pViewData == NULL)
 		return;
 	m_pViewData->RemoveData(nLineIndex);
+	if (m_ptCaretPos.y >= GetLineCount())
+		m_ptCaretPos.y = GetLineCount()-1;
 	Invalidate(FALSE);
 }
 
@@ -2988,6 +2998,7 @@ void CBaseView::OnCaretDown()
 		ClearSelection();
 	EnsureCaretVisible();
 	UpdateCaret();
+	ShowDiffLines(m_ptCaretPos.y);
 }
 
 bool CBaseView::MoveCaretLeft()
@@ -3059,6 +3070,7 @@ void CBaseView::OnCaretUp()
 		ClearSelection();
 	EnsureCaretVisible();
 	UpdateCaret();
+	ShowDiffLines(m_ptCaretPos.y);
 }
 
 bool CBaseView::IsWordSeparator(wchar_t ch) const

@@ -56,12 +56,15 @@ public:
 	bool IsGrouping() { return m_groups.size() % 2 == 1; }
 	void BeginGrouping() { ASSERT(!IsGrouping()); m_groups.push_back(m_caretpoints.size()); }
 	void EndGrouping(){ ASSERT(IsGrouping()); m_groups.push_back(m_caretpoints.size()); }
+	void Clear();
+	void MarkAsOriginalState() { m_originalstate = m_viewstates.size(); }
 protected:
 	void Undo(const viewstate& state, CBaseView * pView);
 	void UndoOne(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom);
 	std::list<viewstate> m_viewstates;
 	std::list<POINT> m_caretpoints;
 	std::list< std::list<int>::size_type > m_groups;
+	unsigned int m_originalstate;
 private:
 	CUndo();
 	~CUndo();

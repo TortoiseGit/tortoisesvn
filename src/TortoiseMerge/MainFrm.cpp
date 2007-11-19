@@ -233,7 +233,7 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT /*lpcs*/, CCreateContext* pContex
 		1, 2, // the new splitter is 1 row, 2 columns
 		WS_CHILD | WS_VISIBLE | WS_BORDER, // style, WS_BORDER is needed 
 		m_wndSplitter.IdFromRowCol(0, 0) 
-		// new splitter is in the first column, 2nd column of first splitter 
+		// new splitter is in the first row, 1st column of first splitter 
 		)) 
 	{ 
 		TRACE0("Failed to create nested splitter\n"); 
@@ -501,6 +501,10 @@ bool CMainFrame::LoadViews(bool bRetainPosition)
 		m_Data.m_mergedFile.SetOutOfUse();
 		return false;
 	}
+
+	m_pwndRightView->UseCaret(false);
+	m_pwndBottomView->UseCaret(false);
+
 	if (!m_Data.IsBaseFileInUse())
 	{
 		if (m_Data.IsYourFileInUse() && m_Data.IsTheirFileInUse())
@@ -575,7 +579,10 @@ bool CMainFrame::LoadViews(bool bRetainPosition)
 			m_pwndLeftView->texttype = m_Data.m_arYourFile.GetUnicodeType();
 			m_pwndLeftView->lineendings = m_Data.m_arYourFile.GetLineEndings();
 			m_pwndLeftView->m_sWindowName = m_Data.m_baseFile.GetWindowName() + _T(" - ") + m_Data.m_yourFile.GetWindowName();
-			m_pwndLeftView->m_sFullFilePath = m_pwndLeftView->m_sWindowName;
+			m_pwndLeftView->m_sFullFilePath = m_Data.m_baseFile.GetFilename() + _T(" - ") + m_Data.m_yourFile.GetFilename();
+
+			m_pwndRightView->m_pViewData = NULL;
+			m_pwndBottomView->m_pViewData = NULL;
 
 			if (!m_wndSplitter.IsRowHidden(1))
 				m_wndSplitter.HideRow(1);
@@ -601,7 +608,9 @@ bool CMainFrame::LoadViews(bool bRetainPosition)
 			m_pwndRightView->m_sWindowName = m_Data.m_yourFile.GetWindowName();
 			m_pwndRightView->m_sFullFilePath = m_Data.m_yourFile.GetFilename();
 		
-			if (!m_wndSplitter.IsRowHidden(1))
+			m_pwndBottomView->m_pViewData = NULL;
+
+      		if (!m_wndSplitter.IsRowHidden(1))
 				m_wndSplitter.HideRow(1);
 			m_pwndLeftView->SetHidden(FALSE);
 			m_pwndRightView->SetHidden(FALSE);
@@ -669,6 +678,7 @@ bool CMainFrame::LoadViews(bool bRetainPosition)
 	// Avoid incorrect rendering of active pane.
 	pwndActiveView->ScrollToChar(0);
 	CheckResolved();
+	CUndo::GetInstance().Clear();
 	return true;
 }
 
@@ -837,6 +847,7 @@ void CMainFrame::SaveFile(const CString& sFilePath)
 			m_pwndBottomView->SetModified(FALSE);
 		if (m_pwndRightView)
 			m_pwndRightView->SetModified(FALSE);
+		CUndo::GetInstance().MarkAsOriginalState();
 	}
 }
 

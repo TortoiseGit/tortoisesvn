@@ -62,6 +62,9 @@ public:
 	bool			HasCaret() {return !m_bCaretHidden;}
 	void			SetCaretPosition(POINT pt) {m_ptCaretPos = pt; UpdateCaret();}
 	void			EnsureCaretVisible();
+	void			UpdateCaret();
+	void			ClearSelection();
+	void			RefreshViews();
 
 	void			SelectLines(int nLine1, int nLine2 = -1);
 	void			HiglightLines(int start, int end = -1);
@@ -181,7 +184,6 @@ protected:
 	CFont *			GetFont(BOOL bItalic = FALSE, BOOL bBold = FALSE, BOOL bStrikeOut = FALSE);
 	int				GetLineFromPoint(CPoint point);
 	int				GetMarginWidth();
-	void			RefreshViews();
 	COLORREF		IntenseColor(long scale, COLORREF col);
 	COLORREF		InlineDiffColor(int nLineIndex);
 	void			CheckOtherView();
@@ -202,12 +204,10 @@ protected:
 	bool			IsRightViewGood() const {return ((m_pwndRight)&&(m_pwndRight->IsWindowVisible()));}
 	bool			IsBottomViewGood() const {return ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()));}
 
-	void			UpdateCaret();
 	int				CalculateActualOffset(int nLineIndex, int nCharIndex);
 	POINT			TextToClient(const POINT& point);
 	void			DrawText(CDC * pDC, const CRect &rc, LPCTSTR text, int textlength, int nLineIndex, POINT coords, bool bModified, bool bInlineDiff);
 	void			ClearCurrentSelection();
-	void			ClearSelection();
 	void			AdjustSelection(bool bStartSelection, bool bForward);
 
 	void			RemoveLine(int nLineIndex);
