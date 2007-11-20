@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2007 - TortoioseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -52,13 +52,14 @@ public:
 	 */
 	int AddString(CString str, INT_PTR pos = -1);
 
-// Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CHistoryCombo)
-	protected:
+protected:
+	DECLARE_MESSAGE_MAP()
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	//}}AFX_VIRTUAL
+	virtual void PreSubclassWindow();
+	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
+
 
 // Implementation
 public:
@@ -124,15 +125,16 @@ protected:
 	BOOL RemoveSelectedItem();
 
 protected:
-	CStringArray m_arEntries;
-	CString m_sSection;
-	CString m_sKeyPrefix;
-	int m_nMaxHistoryItems;
-	BOOL m_bAllowSortStyle;
-	BOOL m_bURLHistory;
-	BOOL m_bPathHistory;
-
-	DECLARE_MESSAGE_MAP()
+	CStringArray	m_arEntries;
+	CString			m_sSection;
+	CString			m_sKeyPrefix;
+	int				m_nMaxHistoryItems;
+	BOOL			m_bAllowSortStyle;
+	BOOL			m_bURLHistory;
+	BOOL			m_bPathHistory;
+	HWND			m_hWndToolTip;
+	TOOLINFO		m_ToolInfo;
+	BOOL			m_ttShown;
 };
 
 
