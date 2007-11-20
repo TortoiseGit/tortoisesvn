@@ -27,6 +27,22 @@
 #include "TSVNPath.h"
 #include "PathUtils.h"
 
+SVNInfoData::SVNInfoData()
+    : kind(svn_node_none)
+    , lastchangedtime(0)
+    , lock_davcomment(false)
+    , lock_createtime(0)
+    , lock_expirationtime(0)
+    , size(0)
+    , hasWCInfo(false)
+    , schedule(svn_wc_schedule_normal)
+    , texttime(0)
+    , proptime(0)
+    , depth(svn_depth_unknown)
+    , working_size(0)
+{
+}
+
 SVNInfo::SVNInfo(void)
 {
 	m_pool = svn_pool_create (NULL);

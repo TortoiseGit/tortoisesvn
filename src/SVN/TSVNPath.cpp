@@ -37,12 +37,16 @@ CTSVNPath::CTSVNPath(void) :
 	m_bIsURL(false),
 	m_bURLKnown(false),
 	m_bHasAdminDirKnown(false),
+	m_bHasAdminDir(false),
 	m_bIsValidOnWindowsKnown(false),
 	m_bIsReadOnly(false),
 	m_bIsAdminDirKnown(false),
 	m_bIsAdminDir(false),
 	m_bExists(false),
-	m_bExistsKnown(false)
+	m_bExistsKnown(false),
+	m_bLastWriteTimeKnown(0),
+	m_lastWriteTime(0),
+	m_customData(NULL)
 {
 }
 
@@ -56,12 +60,16 @@ CTSVNPath::CTSVNPath(const CString& sUnknownPath) :
 	m_bIsURL(false),
 	m_bURLKnown(false),
 	m_bHasAdminDirKnown(false),
+	m_bHasAdminDir(false),
 	m_bIsValidOnWindowsKnown(false),
 	m_bIsReadOnly(false),
 	m_bIsAdminDirKnown(false),
 	m_bIsAdminDir(false),
 	m_bExists(false),
-	m_bExistsKnown(false)
+	m_bExistsKnown(false),
+	m_bLastWriteTimeKnown(0),
+	m_lastWriteTime(0),
+	m_customData(NULL)
 {
 	SetFromUnknown(sUnknownPath);
 }

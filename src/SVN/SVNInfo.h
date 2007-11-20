@@ -29,7 +29,7 @@
 class SVNInfoData
 {
 public:
-	SVNInfoData(){}
+	SVNInfoData();
 
 	CString				url;
 	SVNRev				rev;

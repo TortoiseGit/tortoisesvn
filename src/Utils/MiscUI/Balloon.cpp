@@ -19,7 +19,22 @@
 #include "stdafx.h"
 #include "Balloon.h"
 
+tagBALLOON_INFO::tagBALLOON_INFO()
+    : hIcon(NULL),			
+	  sBalloonTip(),
+	  nMask(0),
+	  nStyles(0),
+	  nDirection(0),
+	  nEffect(0),
+	  nBehaviour(0),
+	  crBegin(0),
+	  crMid(0),
+	  crEnd(0)
+{
+}
+
 CBalloon::CBalloon()
+    : m_nStyles (0)
 {
 	m_pParentWnd = NULL;
 	m_hCurrentWnd = NULL;

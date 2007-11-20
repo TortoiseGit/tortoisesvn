@@ -60,6 +60,8 @@ typedef struct tagBALLOON_INFO
 	COLORREF	crBegin;		///<Begin Color
 	COLORREF    crMid;			///<Mid Color
 	COLORREF	crEnd;			///<End Color
+
+    tagBALLOON_INFO();          ///<proper initialization of all members
 } BALLOON_INFO;
 
 /**
