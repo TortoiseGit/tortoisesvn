@@ -72,7 +72,7 @@ void CHierachicalOutStreamBase::WriteThisStream()
 	// add it to the target file
 
 	buffer->Add (packedData.first, packedData.second);
-	delete packedData.first;
+	delete[] packedData.first;
 }
 
 void CHierachicalOutStreamBase::Close()

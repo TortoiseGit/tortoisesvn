@@ -103,7 +103,7 @@ CHierachicalInStreamBase::~CHierachicalInStreamBase()
 		; ++iter)
 		delete iter->second;
 
-	delete first;
+	delete[] first;
 }
 
 // implement IHierarchicalOutStream

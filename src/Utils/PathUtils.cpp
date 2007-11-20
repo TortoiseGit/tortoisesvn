@@ -46,8 +46,8 @@ BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
 	} while ((pPath++)&&(_tcschr(pPath, '\\')));
 	
 	BOOL bRet = CreateDirectory(internalpathbuf, &attribs);
-	delete buf;
-	delete internalpathbuf;
+	delete[] buf;
+	delete[] internalpathbuf;
 	return bRet;
 }
 
@@ -224,7 +224,7 @@ CString CPathUtils::GetLongPathname(const CString& path)
 		TCHAR * pathbuf = new TCHAR[ret+2];	
 		ret = ::GetLongPathName(pathbufcanonicalized, pathbuf, ret+1);
 		sRet = CString(pathbuf, ret);
-		delete pathbuf;
+		delete[] pathbuf;
 	}
 	else
 	{
@@ -232,7 +232,7 @@ CString CPathUtils::GetLongPathname(const CString& path)
 		TCHAR * pathbuf = new TCHAR[ret+2];
 		ret = ::GetLongPathName(path, pathbuf, ret+1);
 		sRet = CString(pathbuf, ret);
-		delete pathbuf;
+		delete[] pathbuf;
 	}
 	if (ret == 0)
 		return path;
