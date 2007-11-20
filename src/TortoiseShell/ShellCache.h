@@ -61,7 +61,7 @@ public:
 		unversionedasmodified = CRegStdWORD(_T("Software\\TortoiseSVN\\UnversionedAsModified"), FALSE);
 		getlocktop = CRegStdWORD(_T("Software\\TortoiseSVN\\GetLockTop"), TRUE);
 		excludedasnormal = CRegStdWORD(_T("Software\\TortoiseSVN\\ShowExcludedAsNormal"), TRUE);
-		cachetypeticker = GetTickCount()-DRIVETYPETIMEOUT;
+		cachetypeticker = GetTickCount();
 		recursiveticker = cachetypeticker;
 		folderoverlayticker = cachetypeticker;
 		driveticker = cachetypeticker;
@@ -266,12 +266,12 @@ public:
 				stdstring str = I->substr(0, I->size()-1);
 				if (_tcsnicmp(str.c_str(), path, str.size())==0)
 					return TRUE;
-				if (str.size() && (str.at(str.size()-1) == '\\') && (str.size()-1 == _tcslen(path)))
+				if (str.size() && (str.at(str.size()-1) == '\\') && (_tcsnicmp(str.c_str(), path, str.size()-1)==0))
 					return TRUE;
 			}
 			else if (_tcsicmp(I->c_str(), path)==0)
 				return TRUE;
-			else if ((I->at(I->size()-1) == '\\') && (I->size()-1 == _tcslen(path)))
+			else if (I->size() && (I->at(I->size()-1) == '\\') && (_tcsnicmp(I->c_str(), path, I->size()-1)==0))
 				return TRUE;
 
 		}
@@ -338,7 +338,7 @@ public:
 		{
 			if (I->empty())
 				continue;
-			if (I->at(I->size()-1)=='*')
+			if (I->size() && I->at(I->size()-1)=='*')
 			{
 				stdstring str = I->substr(0, I->size()-1);
 				if (_tcsnicmp(str.c_str(), path, str.size())==0)
