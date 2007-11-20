@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-11-14 13:27+0900\n"
+"PO-Revision-Date: 2007-11-20 13:08+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -938,6 +938,10 @@ msgstr "%1에 접근하는 것이 거부되었습니다."
 msgid "Action"
 msgstr "명령"
 
+#. Resource IDs: (65535)
+msgid "Action log"
+msgstr "명령 로그"
+
 #. Resource IDs: (117)
 msgid "Actions"
 msgstr "명령"
@@ -1563,7 +1567,7 @@ msgstr "정리 완료"
 msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "중단된 명령, 잠긴 파일들을 정리 합니다."
 
-#. Resource IDs: (1273, 1275, 1276, 1279, 1281)
+#. Resource IDs: (1273, 1275, 1276, 1279, 1281, 1427)
 msgid "Clear"
 msgstr "초기화"
 
@@ -2141,6 +2145,10 @@ msgstr "버전 컨트롤에서 파일과 폴더를 삭제"
 #. Resource IDs: (18)
 msgid "Deletes files / folders from version control but keeps the file"
 msgstr "작업 사본을 유지하면서 버전 컨트롤에서 파일과 폴더를 삭제"
+
+#. Resource IDs: (198)
+msgid "Deletes the action log file"
+msgstr "명령 로그 파일을 삭제"
 
 #. Resource IDs: (263)
 msgid "Deleting"
@@ -3696,6 +3704,10 @@ msgstr "최대"
 msgid "Max. items to keep in the log message history"
 msgstr "사용되었던 로그 저장 개수"
 
+#. Resource IDs: (65535)
+msgid "Max. lines in action log"
+msgstr "명령 로그의 최대 개수"
+
 #. Resource IDs: (109, 110, 111, 276, 278, 65535)
 msgid "Merge"
 msgstr "병합"
@@ -4108,7 +4120,7 @@ msgstr ""
 
 #. Resource IDs: (1424)
 msgid "Only record the merge"
-msgstr "병합만 기록함"
+msgstr "병합 정보만 기록함"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -4418,7 +4430,7 @@ msgstr "속성 %s : 작업 베이스"
 #. Resource IDs: (151)
 #, c-format
 msgid "Property %s : working copy"
-msgstr "속성 %s : 작없 사본"
+msgstr "속성 %s : 작업 사본"
 
 #. Resource IDs: (107)
 msgid "Property Page"
@@ -5284,6 +5296,10 @@ msgstr "로그 메시지에 짧은 형태의 날짜/시간 형식을 사용합�
 msgid "Short URL of Subversion items"
 msgstr "버전 관리 대상의 짧은 URL"
 
+#. Resource IDs: (1382)
+msgid "Show"
+msgstr "보기"
+
 #. Resource IDs: (115, 1031)
 msgid "Show &All"
 msgstr "모두 보기(&A)"
@@ -5442,6 +5458,10 @@ msgstr "이 파일에 대하여 변경된 모든 리비전을 보여줌"
 #. Resource IDs: (10)
 msgid "Shows information about TortoiseSVN"
 msgstr "TortoiseSVN에 대한 정보 보기"
+
+#. Resource IDs: (198)
+msgid "Shows the action log file in the default text editor"
+msgstr "명령 로그 파일을 메모장으로 보기"
 
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
@@ -5843,6 +5863,14 @@ msgstr "이전 파일을 지시하는 곳은 %d 행 입니다."
 #. Resource IDs: (251)
 msgid "The lock has already been broken from another working copy"
 msgstr "잠금이 다른 작업 사본에 의해 이미 깨졌습니다."
+
+#. Resource IDs: (198)
+msgid ""
+"The maximum number of action log lines to keep.\n"
+"Any lines added over this limit will remove the oldest lines from the file."
+msgstr ""
+"명령 로그를 저장할 최대 개수\n"
+"가장 오래된 것부터 파일에서 제거 됩니다."
 
 #. Resource IDs: (63)
 msgid ""
