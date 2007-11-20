@@ -151,13 +151,15 @@ void CMergeWizardOptions::OnBnClickedDryrun()
 	{
 		if (pWizard->revRangeArray.GetCount())
 		{
-			pWizard->revRangeArray.AdjustForMerge(!!pWizard->bReverseMerge);
-			progDlg.SetRevisionRanges(pWizard->revRangeArray);
+			SVNRevRangeArray tempRevArray = pWizard->revRangeArray;
+			tempRevArray.AdjustForMerge(!!pWizard->bReverseMerge);
+			progDlg.SetRevisionRanges(tempRevArray);
 		}
 		else
 		{
-			progDlg.SetRevision(SVNRev());
-			progDlg.SetRevisionEnd(SVNRev());
+			SVNRevRangeArray tempRevArray;
+			tempRevArray.AddRevRange(SVNRev(), SVNRev());
+			progDlg.SetRevisionRanges(tempRevArray);
 		}
 	}
 	else
