@@ -180,7 +180,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
 		sRelativePath.Trim(_T("/\\"));
 		CTSVNPath diffpath = CTSVNPath(sRelativePath);
 		svn_depth_t depth = path[fileindex].IsDirectory() ? svn_depth_empty : svn_depth_files;
-		if (!svn.Diff(diffpath, SVNRev::REV_BASE, diffpath, SVNRev::REV_WC, depth, FALSE, FALSE, FALSE, _T(""), true, tempPatchFilePath))
+		if (!svn.CreatePatch(diffpath, SVNRev::REV_BASE, diffpath, SVNRev::REV_WC, depth, FALSE, FALSE, FALSE, _T(""), true, tempPatchFilePath))
 		{
 			progDlg.Stop();
 			::MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);

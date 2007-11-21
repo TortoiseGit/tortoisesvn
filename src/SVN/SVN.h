@@ -486,6 +486,7 @@ public:
 	 */
 	BOOL Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, svn_depth_t depth, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype, CString options, bool bAppend, const CTSVNPath& outputfile, const CTSVNPath& errorfile);
 	BOOL Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, svn_depth_t depth, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype, CString options, bool bAppend, const CTSVNPath& outputfile);
+	BOOL CreatePatch(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, svn_depth_t depth, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype, CString options, bool bAppend, const CTSVNPath& outputfile);
 
 	/**
 	 * Produce diff output which describes the delta between the filesystem object \a path in 

@@ -1021,6 +1021,25 @@ BOOL SVN::SuggestMergeSources(const CTSVNPath& targetpath, const SVNRev& revisio
 	return TRUE;
 }
 
+BOOL SVN::CreatePatch(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, svn_depth_t depth, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, bool bAppend, const CTSVNPath& outputfile)
+{
+	// to create a patch, we need to remove any custom diff tools which might be set in the config file
+	svn_config_t * cfg = (svn_config_t *)apr_hash_get (m_pctx->config, SVN_CONFIG_CATEGORY_CONFIG, APR_HASH_KEY_STRING);
+	const char * value;
+	svn_config_get(cfg, &value, SVN_CONFIG_SECTION_HELPERS, SVN_CONFIG_OPTION_DIFF_CMD, "");
+	CStringA diffCmd = CStringA(value);
+	svn_config_get(cfg, &value, SVN_CONFIG_SECTION_HELPERS, SVN_CONFIG_OPTION_DIFF3_CMD, "");
+	CStringA diff3Cmd = CStringA(value);
+
+	svn_config_set(cfg, SVN_CONFIG_SECTION_HELPERS, SVN_CONFIG_OPTION_DIFF_CMD, "");
+	svn_config_set(cfg, SVN_CONFIG_SECTION_HELPERS, SVN_CONFIG_OPTION_DIFF3_CMD, "");
+
+	BOOL bRet = Diff(path1, revision1, path2, revision2, depth, ignoreancestry, nodiffdeleted, ignorecontenttype, options, bAppend, outputfile, CTSVNPath());
+	svn_config_set(cfg, SVN_CONFIG_SECTION_HELPERS, SVN_CONFIG_OPTION_DIFF_CMD, (LPCSTR)diffCmd);
+	svn_config_set(cfg, SVN_CONFIG_SECTION_HELPERS, SVN_CONFIG_OPTION_DIFF3_CMD, (LPCSTR)diff3Cmd);
+	return bRet;
+}
+
 BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, svn_depth_t depth, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype,  CString options, bool bAppend, const CTSVNPath& outputfile)
 {
 	return Diff(path1, revision1, path2, revision2, depth, ignoreancestry, nodiffdeleted, ignorecontenttype, options, bAppend, outputfile, CTSVNPath());
