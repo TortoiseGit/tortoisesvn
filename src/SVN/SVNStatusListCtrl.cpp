@@ -2708,11 +2708,18 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					break;
 				case IDSVNLC_LOG:
 					{
-						CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
-						int limit = (int)(LONG)reg;
-						CLogDlg dlg;
-						dlg.SetParams(filepath, SVNRev(), SVNRev::REV_HEAD, 1, limit);
-						dlg.DoModal();
+						CString sCmd;
+						sCmd.Format(_T("\"%s\" /command:log /path:\"%s\""),
+							CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), filepath);
+
+						if (!filepath.IsUrl())
+						{
+							sCmd += _T(" /propspath:\"");
+							sCmd += filepath.GetWinPathString();
+							sCmd += _T("\"");
+						}	
+
+						CAppUtils::LaunchApplication(sCmd, NULL, false);
 					}
 					break;
 				case IDSVNLC_OPEN:
