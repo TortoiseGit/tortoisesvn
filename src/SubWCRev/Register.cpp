@@ -422,7 +422,7 @@ static inline UINT WINAPI GetDirLen(LPCOLESTR lpszPathName) throw()
 	LPCOLESTR lpszTemp = lpszPathName;
 	for (LPCOLESTR lpsz = lpszPathName; *lpsz != NULL; )
 	{
-		LPCOLESTR lp = CharNextO(lpsz);
+		LPCOLESTR lp = CharNextW(lpsz);
 		// remember last directory/drive separator
 		if (*lpsz == OLESTR('\\') || *lpsz == OLESTR('/') || *lpsz == OLESTR(':'))
 			lpszTemp = lp;
