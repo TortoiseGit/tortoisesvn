@@ -835,13 +835,6 @@ public:
 	static void formatDate(TCHAR date_native[], FILETIME& date, bool force_short_fmt = false);
 
 	/**
-	 * Reads the proxy settings from Internet Explorer and sets them for Subversion
-	 * to use. Doesn't work as reliable as hoped, that's why this method isn't
-	 * currently used.
-	 */
-	static void UseIEProxySettings(apr_hash_t * cfg);
-
-	/**
 	 * Returns a string which can be passed as the options string for the Merge()
 	 * methods and the Blame() method.
 	 */
