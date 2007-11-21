@@ -78,7 +78,7 @@
 				<define name="WIN32" />
 				<define name="_WINDOWS" />
 				<define name="_WIN32" />
-				<define name="_WIN32_WINNT" value="0x0500" />
+				<define name="_WIN32_WINNT" value="0x0501" />
 				<define name="WIN64" if="${platform == 'x64'}" />
 				<define name="_WINDLL" if="${static != 'static'}" />
 				<define name='VERSION=\"expat_1.95.2\"' />
