@@ -45,7 +45,7 @@
 		<property name="bindirextension" value="64" />
 	</target>
 
-	<target name="cross">
+	<target name="cross" depends="x64">
 		<description>
 			Cross-compiles on win32 for a different platform.
 		</description>
