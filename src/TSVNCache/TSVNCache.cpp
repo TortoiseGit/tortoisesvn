@@ -282,7 +282,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			{
 				CString sInfoTip;
 				NOTIFYICONDATA SystemTray;
-				sInfoTip.Format(_T("Cached Directories : %ld"), CSVNStatusCache::Instance().GetCacheSize());
+				sInfoTip.Format(_T("Cached Directories : %ld\nWatched paths : %ld"), 
+					CSVNStatusCache::Instance().GetCacheSize(),
+					CSVNStatusCache::Instance().GetNumberOfWatchedPaths());
 
 				SystemTray.cbSize = sizeof(NOTIFYICONDATA);
 				SystemTray.hWnd   = hTrayWnd;

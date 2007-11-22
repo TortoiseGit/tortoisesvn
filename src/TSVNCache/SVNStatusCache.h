@@ -79,6 +79,7 @@ public:
 	void UpdateShell(const CTSVNPath& path);
 
 	size_t GetCacheSize() {return m_directoryCache.size();}
+	int GetNumberOfWatchedPaths() {return watcher.GetNumberOfWatchedPaths();}
 
 	void Init();
 	void Stop();
