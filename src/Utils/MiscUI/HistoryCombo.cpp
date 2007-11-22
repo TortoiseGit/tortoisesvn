@@ -34,6 +34,7 @@ CHistoryCombo::CHistoryCombo(BOOL bAllowSortStyle /*=FALSE*/ )
 	m_bPathHistory = FALSE;
 	m_hWndToolTip = NULL;
 	m_ttShown = FALSE;
+	m_bDyn = FALSE;
 }
 
 CHistoryCombo::~CHistoryCombo()
@@ -45,6 +46,7 @@ BOOL CHistoryCombo::PreCreateWindow(CREATESTRUCT& cs)
 	if (!m_bAllowSortStyle)  //turn off CBS_SORT style
 		cs.style &= ~CBS_SORT;
 	cs.style |= CBS_AUTOHSCROLL;
+	m_bDyn = TRUE;
 	return CComboBoxEx::PreCreateWindow(cs);
 }
 
@@ -77,6 +79,7 @@ BOOL CHistoryCombo::PreTranslateMessage(MSG* pMsg)
 BEGIN_MESSAGE_MAP(CHistoryCombo, CComboBoxEx)
 	ON_WM_MOUSEMOVE()
 	ON_WM_TIMER()
+	ON_WM_CREATE()
 END_MESSAGE_MAP()
 
 int CHistoryCombo::AddString(CString str, INT_PTR pos)
@@ -384,36 +387,8 @@ void CHistoryCombo::PreSubclassWindow()
 {
 	CComboBoxEx::PreSubclassWindow();
 
-	// create tooltip
-	m_hWndToolTip = ::CreateWindowEx(WS_EX_TOPMOST,
-		TOOLTIPS_CLASS,
-		NULL,
-		TTS_NOPREFIX | TTS_ALWAYSTIP,
-		CW_USEDEFAULT,
-		CW_USEDEFAULT,
-		CW_USEDEFAULT,
-		CW_USEDEFAULT,
-		m_hWnd,
-		NULL,
-		NULL,
-		NULL);
-
-	// initialize toolinfo struct
-	memset(&m_ToolInfo, 0, sizeof(m_ToolInfo));
-	m_ToolInfo.cbSize = sizeof(m_ToolInfo);
-	m_ToolInfo.uFlags = TTF_TRACK | TTF_TRANSPARENT;
-	m_ToolInfo.hwnd = m_hWnd;
-
-	::SendMessage(m_hWndToolTip, TTM_SETMAXTIPWIDTH, 0, SHRT_MAX);
-	::SendMessage(m_hWndToolTip, TTM_ADDTOOL, 0, (LPARAM) (LPTOOLINFO) &m_ToolInfo);
-	::SendMessage(m_hWndToolTip, TTM_SETTIPBKCOLOR, ::GetSysColor(COLOR_HIGHLIGHT), 0);
-	::SendMessage(m_hWndToolTip, TTM_SETTIPTEXTCOLOR, ::GetSysColor(COLOR_HIGHLIGHTTEXT), 0);
-
-	CRect rectMargins(0,-1,0,-1);
-	::SendMessage(m_hWndToolTip, TTM_SETMARGIN, 0, (LPARAM)&rectMargins);
-
-	CFont *pFont = GetFont();
-	::SendMessage(m_hWndToolTip, WM_SETFONT, (WPARAM)(HFONT)*pFont, FALSE);
+	if (!m_bDyn)
+		CreateToolTip();
 }
 
 void CHistoryCombo::OnMouseMove(UINT nFlags, CPoint point)
@@ -512,4 +487,49 @@ void CHistoryCombo::OnTimer(UINT_PTR nIDEvent)
 	}
 
 	CComboBoxEx::OnTimer(nIDEvent);
+}
+
+void CHistoryCombo::CreateToolTip()
+{
+	// create tooltip
+	m_hWndToolTip = ::CreateWindowEx(WS_EX_TOPMOST,
+		TOOLTIPS_CLASS,
+		NULL,
+		TTS_NOPREFIX | TTS_ALWAYSTIP,
+		CW_USEDEFAULT,
+		CW_USEDEFAULT,
+		CW_USEDEFAULT,
+		CW_USEDEFAULT,
+		m_hWnd,
+		NULL,
+		NULL,
+		NULL);
+
+	// initialize toolinfo struct
+	memset(&m_ToolInfo, 0, sizeof(m_ToolInfo));
+	m_ToolInfo.cbSize = sizeof(m_ToolInfo);
+	m_ToolInfo.uFlags = TTF_TRACK | TTF_TRANSPARENT;
+	m_ToolInfo.hwnd = m_hWnd;
+
+	::SendMessage(m_hWndToolTip, TTM_SETMAXTIPWIDTH, 0, SHRT_MAX);
+	::SendMessage(m_hWndToolTip, TTM_ADDTOOL, 0, (LPARAM) (LPTOOLINFO) &m_ToolInfo);
+	::SendMessage(m_hWndToolTip, TTM_SETTIPBKCOLOR, ::GetSysColor(COLOR_HIGHLIGHT), 0);
+	::SendMessage(m_hWndToolTip, TTM_SETTIPTEXTCOLOR, ::GetSysColor(COLOR_HIGHLIGHTTEXT), 0);
+
+	CRect rectMargins(0,-1,0,-1);
+	::SendMessage(m_hWndToolTip, TTM_SETMARGIN, 0, (LPARAM)&rectMargins);
+
+	CFont *pFont = GetFont();
+	::SendMessage(m_hWndToolTip, WM_SETFONT, (WPARAM)(HFONT)*pFont, FALSE);
+}
+
+int CHistoryCombo::OnCreate(LPCREATESTRUCT lpCreateStruct)
+{
+	if (CComboBoxEx::OnCreate(lpCreateStruct) == -1)
+		return -1;
+
+	if (m_bDyn)
+		CreateToolTip();
+
+	return 0;
 }

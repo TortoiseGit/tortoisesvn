@@ -57,9 +57,12 @@ protected:
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	virtual void PreSubclassWindow();
+
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
+	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 
+	void CreateToolTip();
 
 // Implementation
 public:
@@ -135,6 +138,7 @@ protected:
 	HWND			m_hWndToolTip;
 	TOOLINFO		m_ToolInfo;
 	BOOL			m_ttShown;
+	BOOL			m_bDyn;
 };
 
 
