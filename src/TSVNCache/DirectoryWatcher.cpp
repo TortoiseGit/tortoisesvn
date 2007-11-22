@@ -255,7 +255,9 @@ void CDirectoryWatcher::WorkerThread()
 				m_hCompPort = NULL;
 				for (int i=0; i<watchedPaths.GetCount(); ++i)
 				{
-					HANDLE hDir = CreateFile(watchedPaths[i].GetWinPath(), 
+					CTSVNPath watchedPath = watchedPaths[i];
+
+					HANDLE hDir = CreateFile(watchedPath.GetWinPath(), 
 											FILE_LIST_DIRECTORY, 
 											FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE,
 											NULL, //security attributes
@@ -270,7 +272,7 @@ void CDirectoryWatcher::WorkerThread()
 						CloseHandle(m_hCompPort);
 						m_hCompPort = INVALID_HANDLE_VALUE;
 						AutoLocker lock(m_critSec);
-						watchedPaths.RemovePath(watchedPaths[i]);
+						watchedPaths.RemovePath(watchedPath);
 						i--; if (i<0) i=0;
 						break;
 					}
@@ -282,17 +284,17 @@ void CDirectoryWatcher::WorkerThread()
 					NotificationFilter.dbch_handle = hDir;
 					NotificationFilter.dbch_hdevnotify = RegisterDeviceNotification(hWnd, &NotificationFilter, DEVICE_NOTIFY_WINDOW_HANDLE);
 
-					CDirWatchInfo * pDirInfo = new CDirWatchInfo(hDir, watchedPaths[i]);
+					CDirWatchInfo * pDirInfo = new CDirWatchInfo(hDir, watchedPath);
 					pDirInfo->m_hDevNotify = NotificationFilter.dbch_hdevnotify;
 					m_hCompPort = CreateIoCompletionPort(hDir, m_hCompPort, (ULONG_PTR)pDirInfo, 0);
 					if (m_hCompPort == NULL)
 					{
-						ATLTRACE(_T("CDirectoryWatcher: CreateIoCompletionPort failed. Can't watch directory %s\n"), watchedPaths[i].GetWinPath());
+						ATLTRACE(_T("CDirectoryWatcher: CreateIoCompletionPort failed. Can't watch directory %s\n"), watchedPath.GetWinPath());
 						AutoLocker lock(m_critSec);
 						ClearInfoMap();
 						delete pDirInfo;
 						pDirInfo = NULL;
-						watchedPaths.RemovePath(watchedPaths[i]);
+						watchedPaths.RemovePath(watchedPath);
 						i--; if (i<0) i=0;
 						break;
 					}
@@ -305,12 +307,12 @@ void CDirectoryWatcher::WorkerThread()
 												&pDirInfo->m_Overlapped,
 												NULL))	//no completion routine!
 					{
-						ATLTRACE(_T("CDirectoryWatcher: ReadDirectoryChangesW failed. Can't watch directory %s\n"), watchedPaths[i].GetWinPath());
+						ATLTRACE(_T("CDirectoryWatcher: ReadDirectoryChangesW failed. Can't watch directory %s\n"), watchedPath.GetWinPath());
 						AutoLocker lock(m_critSec);
 						ClearInfoMap();
 						delete pDirInfo;
 						pDirInfo = NULL;
-						watchedPaths.RemovePath(watchedPaths[i]);
+						watchedPaths.RemovePath(watchedPath);
 						i--; if (i<0) i=0;
 						break;
 					}
