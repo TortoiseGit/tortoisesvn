@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-11-14 11:41+0100\n"
+"PO-Revision-Date: 2007-11-22 09:24+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -516,9 +516,8 @@ msgid "&Limit search to modified lines"
 msgstr "&Begränsa sökningar till ändrade rader"
 
 #. Resource IDs: (32797)
-#, fuzzy
 msgid "&Link image positions"
-msgstr "&Länka ihop bilderna"
+msgstr "&Koppla ihop bildpositionerna"
 
 #. Resource IDs: (1172)
 msgid "&List View"
@@ -962,6 +961,10 @@ msgstr "Åtkomst till  %1 nekades."
 #. Resource IDs: (77, 319)
 msgid "Action"
 msgstr "Åtgärd"
+
+#. Resource IDs: (65535)
+msgid "Action log"
+msgstr "Åtgärdslogg"
 
 #. Resource IDs: (117)
 msgid "Actions"
@@ -1596,7 +1599,7 @@ msgstr "Rensning klar"
 msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "Rensar bort efter avbrutna åtgärder; låsta filer etc"
 
-#. Resource IDs: (1273, 1275, 1276, 1279, 1281)
+#. Resource IDs: (1273, 1275, 1276, 1279, 1281, 1427)
 msgid "Clear"
 msgstr "Rensa"
 
@@ -2180,6 +2183,10 @@ msgstr "Tar bort filer / mappar ur arkivet"
 #. Resource IDs: (18)
 msgid "Deletes files / folders from version control but keeps the file"
 msgstr "Tar bort filer / mappar från versionshantering men behåller den lokala filen"
+
+#. Resource IDs: (198)
+msgid "Deletes the action log file"
+msgstr "Tar bort åtgärdsloggfilen"
 
 #. Resource IDs: (263)
 msgid "Deleting"
@@ -3748,6 +3755,10 @@ msgstr "Max"
 msgid "Max. items to keep in the log message history"
 msgstr "Max antal sparade logmeddelanden"
 
+#. Resource IDs: (65535)
+msgid "Max. lines in action log"
+msgstr "Övre gräns för antal rader i åtgärdsloggen"
+
 #. Resource IDs: (109, 110, 111, 276, 278, 65535)
 msgid "Merge"
 msgstr "Förena"
@@ -4455,9 +4466,9 @@ msgid "Property"
 msgstr "Egenskap"
 
 #. Resource IDs: (151)
-#, fuzzy, c-format
+#, c-format
 msgid "Property %s : Revision %s"
-msgstr "Kopiera %s till %s, Revision %s"
+msgstr "Egenskap %s : Revision %s"
 
 #. Resource IDs: (151)
 #, c-format
@@ -5349,6 +5360,10 @@ msgstr "Kort &datum/tid format i loggmeddelanden"
 msgid "Short URL of Subversion items"
 msgstr "URL av objekt i arkivet (kort)"
 
+#. Resource IDs: (1382)
+msgid "Show"
+msgstr "Visa"
+
 #. Resource IDs: (115, 1031)
 msgid "Show &All"
 msgstr "Visa &alla"
@@ -5512,6 +5527,10 @@ msgstr "Visa alla revisioner där detta objekt ändrades"
 #. Resource IDs: (10)
 msgid "Shows information about TortoiseSVN"
 msgstr "Visar information om TortoiseSVN"
+
+#. Resource IDs: (198)
+msgid "Shows the action log file in the default text editor"
+msgstr "Visar åtgärdsloggen i standardprogrammet för textredigering"
 
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
@@ -5917,6 +5936,14 @@ msgstr "Raden som visar den gamla filen förväntas på rad %d!"
 #. Resource IDs: (251)
 msgid "The lock has already been broken from another working copy"
 msgstr "Låset har redan blivit brutet i en annan arbetskopia"
+
+#. Resource IDs: (198)
+msgid ""
+"The maximum number of action log lines to keep.\n"
+"Any lines added over this limit will remove the oldest lines from the file."
+msgstr ""
+"Den övre gränsen för antalet rader i åtgärdsloggen.\n"
+"När gränsen är nådd så tas den äldsta raden bort när en ny läggs till. "
 
 #. Resource IDs: (63)
 msgid ""
