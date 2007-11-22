@@ -271,7 +271,8 @@ public:
 			}
 			else if (_tcsicmp(I->c_str(), path)==0)
 				return TRUE;
-			else if (I->size() && (I->at(I->size()-1) == '\\') && (_tcsnicmp(I->c_str(), path, I->size()-1)==0))
+			else if (I->size() && (I->at(I->size()-1) == '\\') && 
+				((_tcsnicmp(I->c_str(), path, I->size())==0) || (_tcsicmp(I->c_str(), path)==0)) )
 				return TRUE;
 
 		}
