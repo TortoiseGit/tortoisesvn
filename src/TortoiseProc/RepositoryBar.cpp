@@ -187,6 +187,7 @@ void CRepositoryBar::GotoUrl(const CString& url, SVNRev rev, bool bAlreadyChecke
 		// check if the entered url is valid
 		SVNInfo info;
 		const SVNInfoData * data = NULL;
+		CString orig_url = new_url;
 		do 
 		{
 			data = info.GetFirstFileInfo(CTSVNPath(new_url),new_rev, new_rev);
@@ -201,6 +202,8 @@ void CRepositoryBar::GotoUrl(const CString& url, SVNRev rev, bool bAlreadyChecke
 				new_url = new_url.Left(new_url.ReverseFind('/'));
 			}
 		} while(!new_url.IsEmpty() && ((data == NULL) || (data->kind != svn_node_dir)));
+		if (new_url.IsEmpty())
+			new_url = orig_url;
 	}
 
 	if ((!m_headRev.IsValid())||(!bAlreadyChecked))
