@@ -71,7 +71,7 @@ void CFolderCrawler::Initialise()
 	m_bRun = true;
 	unsigned int threadId;
 	m_hThread = (HANDLE)_beginthreadex(NULL,0,ThreadEntry,this,0,&threadId);
-	SetThreadPriority(m_hThread, THREAD_PRIORITY_LOWEST);
+	SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_IDLE);
 }
 
 void CFolderCrawler::AddDirectoryForUpdate(const CTSVNPath& path)
@@ -120,10 +120,21 @@ void CFolderCrawler::WorkerThread()
 	bool bFirstRunAfterWakeup = false;
 	DWORD currentTicks = 0;
 
+	// Quick check if we're on Vista
+	OSVERSIONINFOEX inf;
+	ZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
+	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
+	GetVersionEx((OSVERSIONINFO *)&inf);
+	WORD fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);
+
 	for(;;)
 	{
 		bool bRecursive = !!(DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay"), TRUE);
 
+		if (fullver >= 0x0600)
+		{
+			SetThreadPriority(GetCurrentThread(), THREAD_MODE_BACKGROUND_END);
+		}
 		DWORD waitResult = WaitForMultipleObjects(sizeof(hWaitHandles)/sizeof(hWaitHandles[0]), hWaitHandles, FALSE, INFINITE);
 		
 		// exit event/working loop if the first event (m_hTerminationEvent)
@@ -133,6 +144,11 @@ void CFolderCrawler::WorkerThread()
 		{
 			// Termination event
 			break;
+		}
+
+		if (fullver >= 0x0600)
+		{
+			SetThreadPriority(GetCurrentThread(), THREAD_MODE_BACKGROUND_BEGIN);
 		}
 
 		// If we get here, we've been woken up by something being added to the queue.

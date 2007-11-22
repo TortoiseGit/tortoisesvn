@@ -137,21 +137,6 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 		return 0;
 	}
 
-	// Set the priority class of the process
-	DWORD priority = IDLE_PRIORITY_CLASS;
-
-	// Quick check if we're on Vista and use the background priority instead.
-	OSVERSIONINFOEX inf;
-	ZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
-	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
-	GetVersionEx((OSVERSIONINFO *)&inf);
-	WORD fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);
-	if (fullver >= 0x0600)
-	{
-		priority = PROCESS_MODE_BACKGROUND_BEGIN;
-	}
-	SetPriorityClass(GetCurrentProcess(), priority);
-
 	apr_initialize();
 	svn_dso_initialize();
 	g_SVNAdminDir.Init();
