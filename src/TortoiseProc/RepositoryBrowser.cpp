@@ -1312,7 +1312,7 @@ int CRepositoryBrowser::ListSort(LPARAM lParam1, LPARAM lParam2, LPARAM lParam3)
 			break;
 		// fall through
 	case 5: // date
-		nRet = int(pItem1->time - pItem2->time);
+		nRet = (pItem1->time - pItem2->time) > 0 ? 1 : -1;
 		if (nRet != 0)
 			break;
 		// fall through
