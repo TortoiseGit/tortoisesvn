@@ -38,6 +38,7 @@
 #include "SVNError.h"
 #include "SVNLogQuery.h"
 #include "CacheLogQuery.h"
+#include "RepositoryInfo.h"
 #include "MessageBox.h"
 
 
@@ -1927,7 +1928,11 @@ CString SVN::GetRepositoryRoot(const CTSVNPath& url)
 
         CRepositoryInfo& cachedProperties = logCachePool.GetRepositoryInfo();
 
-	    return cachedProperties.GetRepositoryRoot (canonicalURL);
+        CString result = cachedProperties.GetRepositoryRoot (canonicalURL);
+        if (result.IsEmpty())
+            Err = svn_error_dup (cachedProperties.GetLastError());
+
+        return result;
     }
     else
     {
@@ -2036,7 +2041,18 @@ BOOL SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& re
         CRepositoryInfo& cachedProperties = logCachePool.GetRepositoryInfo();
 
 	    url.SetFromSVN (cachedProperties.GetRepositoryRoot (canonicalURL));
-        rev = cachedProperties.GetHeadRevision (canonicalURL);
+        if (url.IsEmpty())
+        {
+            Err = svn_error_dup (cachedProperties.GetLastError());
+        }
+        else
+        {
+            rev = cachedProperties.GetHeadRevision (canonicalURL);
+            if (rev == NO_REVISION)
+                Err = svn_error_dup (cachedProperties.GetLastError());
+        }
+
+        return Err == NULL ? TRUE : FALSE;
     }
     else
     {

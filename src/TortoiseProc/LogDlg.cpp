@@ -43,6 +43,7 @@
 #include "SVNHelpers.h"
 #include "LogDlgHelper.h"
 #include "CachedLogInfo.h"
+#include "RepositoryInfo.h"
 
 #define ICONITEMBORDER 5
 
