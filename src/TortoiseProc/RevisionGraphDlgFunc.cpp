@@ -443,7 +443,7 @@ CTSVNPath CRevisionGraphWnd::DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIs
 		if (!svn.PegDiff(url1, SVNRev(m_SelectedEntry1->revision), 
 			bHead ? SVNRev(SVNRev::REV_HEAD) : SVNRev(m_SelectedEntry1->revision), 
 			bHead ? SVNRev(SVNRev::REV_HEAD) : SVNRev(m_SelectedEntry2->revision), 
-			svn_depth_infinity, TRUE, FALSE, FALSE, CString(), tempfile))
+			CTSVNPath(), svn_depth_infinity, TRUE, FALSE, FALSE, CString(), tempfile))
 		{
 			CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			theApp.DoWaitCursor(-1);
@@ -454,7 +454,7 @@ CTSVNPath CRevisionGraphWnd::DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIs
 	{
 		if (!svn.Diff(url1, bHead ? SVNRev(SVNRev::REV_HEAD) : SVNRev(m_SelectedEntry1->revision), 
 			url2, bHead ? SVNRev(SVNRev::REV_HEAD) : SVNRev(m_SelectedEntry2->revision), 
-			svn_depth_infinity, TRUE, FALSE, FALSE, CString(), false, tempfile))
+			CTSVNPath(), svn_depth_infinity, TRUE, FALSE, FALSE, CString(), false, tempfile))
 		{
 			CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);		
 			theApp.DoWaitCursor(-1);

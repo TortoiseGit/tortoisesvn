@@ -517,9 +517,6 @@ CString SVNStatus::GetDepthString(svn_depth_t depth)
 	case svn_depth_unknown:
 		sDepth.LoadString(IDS_SVN_DEPTH_UNKNOWN);
 		break;
-	case svn_depth_exclude:
-		sDepth.LoadString(IDS_SVN_DEPTH_EXCLUDE);
-		break;
 	case svn_depth_empty:
 		sDepth.LoadString(IDS_SVN_DEPTH_EMPTY);
 		break;
@@ -543,9 +540,6 @@ void SVNStatus::GetDepthString(HINSTANCE hInst, svn_depth_t depth, TCHAR * strin
 	{
 	case svn_depth_unknown:
 		LoadStringEx(hInst, IDS_SVN_DEPTH_UNKNOWN, string, size, lang);
-		break;
-	case svn_depth_exclude:
-		LoadStringEx(hInst, IDS_SVN_DEPTH_EXCLUDE, string, size, lang);
 		break;
 	case svn_depth_empty:
 		LoadStringEx(hInst, IDS_SVN_DEPTH_EMPTY, string, size, lang);
