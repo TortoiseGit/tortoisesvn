@@ -24,6 +24,7 @@
 #include "CopyFollowingLogIterator.h"
 #include "StrictLogIterator.h"
 #include "LogCachePool.h"
+#include "RepositoryInfo.h"
 
 #include "svn_client.h"
 #include "svn_opt.h"
@@ -989,28 +990,22 @@ CDictionaryBasedTempPath CCacheLogQuery::TranslatePegRevisionPath
 // extract the repository-relative path of the URL / file name
 // and open the cache
 
-CDictionaryBasedTempPath CCacheLogQuery::GetRelativeRepositoryPath (SVNInfoData& info)
+CDictionaryBasedTempPath CCacheLogQuery::GetRelativeRepositoryPath 
+    (const CTSVNPath& url)
 {
+    CString uuid;
+
 	// resolve URL
 
-	URL.Empty();
-	if (info.reposUUID.IsEmpty())
-	{
-		URL = CUnicodeUtils::GetUTF8 
-				(repositoryInfoCache->GetRepositoryRootAndUUID 
-                    ( CTSVNPath (info.url)
-					, info.reposUUID));
-	}
-
-	if (URL.IsEmpty())
-		URL = CUnicodeUtils::GetUTF8 (info.reposRoot);
+	URL = CUnicodeUtils::GetUTF8 
+    		(repositoryInfoCache->GetRepositoryRootAndUUID (url, uuid));
 
 	// load / create cache
 
-	assert(!info.reposUUID.IsEmpty());
+	assert(!uuid.IsEmpty());
 	if (caches != NULL)
 	{
-		cache = caches->GetCache (info.reposUUID);
+		cache = caches->GetCache (uuid);
 	}
 	else
 	{
@@ -1020,18 +1015,11 @@ CDictionaryBasedTempPath CCacheLogQuery::GetRelativeRepositoryPath (SVNInfoData&
 		cache = tempCache;
 	}
 
-	// workaround for 1.2.x (and older) working copies
-
-	if (URL.IsEmpty())
-	{
-		URL = CUnicodeUtils::GetUTF8 
-				(repositoryInfoCache->GetRepositoryRoot (CTSVNPath (info.url)));
-	}
-
 	// get path object 
 	// (URLs are always escaped, so we must unescape them)
 
-	CStringA relPath = CUnicodeUtils::GetUTF8 (info.url).Mid (URL.GetLength());
+	CStringA relPath = CUnicodeUtils::GetUTF8 (url.GetSVNPathString())
+                          .Mid (URL.GetLength());
 	relPath = CPathUtils::PathUnescape (relPath);
 
 	const CPathDictionary* paths = &cache->GetLogInfo().GetPaths();
@@ -1073,9 +1061,8 @@ SVNInfoData& CCacheLogQuery::GetRepositoryInfo ( const CTSVNPath& path
 // and will be used to cache these values.
 
 revision_t CCacheLogQuery::DecodeRevision ( const CTSVNPath& path
-			  							  , const SVNRev& revision
-										  , SVNInfoData& baseInfo
-										  , SVNInfoData& headInfo) const
+			  							  , const CTSVNPath& url
+				  			              , const SVNRev& revision) const
 {
 	if (!revision.IsValid())
 		throw SVNError ( SVN_ERR_CLIENT_BAD_REVISION
@@ -1089,40 +1076,27 @@ revision_t CCacheLogQuery::DecodeRevision ( const CTSVNPath& path
 		return static_cast<LONG>(revision);
 
 	case svn_opt_revision_head:
-		if (!headInfo.IsValid())
+        {
+            CRepositoryInfo& info = SVN().GetLogCachePool()->GetRepositoryInfo();
+            revision_t head = info.GetHeadRevision (url);
+
+			if (head == NO_REVISION)
+				throw SVNError (info.GetLastError());
+
+        	return head;
+        }
+
+    default:
 		{
 			SVNInfo info;
-			const SVNInfoData * pHeadInfo = info.GetFirstFileInfo (path, SVNRev(), revision);
-			if (pHeadInfo)
-				headInfo = *pHeadInfo;
-			else
+			const SVNInfoData * baseInfo 
+                = info.GetFirstFileInfo (path, SVNRev(), revision);
+			if (baseInfo == NULL)
 				throw SVNError(info.GetError());
-		}
-		return static_cast<LONG>(headInfo.rev);
 
-	case svn_opt_revision_base:
-	case svn_opt_revision_working:
-		if (!baseInfo.IsValid())
-		{
-			SVNInfo info;
-			const SVNInfoData * pBaseInfo = info.GetFirstFileInfo (path, SVNRev(), revision);
-			if (pBaseInfo)
-				baseInfo = *pBaseInfo;
-			else
-				throw SVNError(info.GetError());
-		}
-
-		return static_cast<LONG>(baseInfo.rev);
+       		return static_cast<LONG>(baseInfo->rev);
+        }
 	}
-
-	// more unusual cases:
-
-	SVNInfo infoProvider;
-	const SVNInfoData* info 
-		= infoProvider.GetFirstFileInfo (path, SVNRev(), revision);
-	if (info)
-		return static_cast<LONG>(info->rev);
-	throw SVNError(infoProvider.GetError());	
 }
 
 // get the (exactly) one path from targets
@@ -1174,27 +1148,25 @@ void CCacheLogQuery::Log ( const CTSVNPathList& targets
 
 	CTSVNPath path = GetPath (targets);
 
+    // get the URL for that path
+
+    CTSVNPath url = path.IsUrl()
+        ? path
+        : CTSVNPath (SVN().GetURLFromPath (path));
+
 	// decode revisions
 
-	SVNInfoData baseInfo;
-	SVNInfoData headInfo;
-
-	revision_t startRevision = DecodeRevision (path, start, baseInfo, headInfo);
-	revision_t endRevision = DecodeRevision (path, end, baseInfo, headInfo);
+	revision_t startRevision = DecodeRevision (path, url, start);
+	revision_t endRevision = DecodeRevision (path, url, end);
 
 	// The svn_client_log3() API defaults the peg revision to HEAD for URLs 
 	// and WC for local paths if it isn't set explicitly.
 
-	revision_t pegRevision = 0;
+    SVNRev temp = peg_revision;
 	if (!peg_revision.IsValid())
-	{
-		if (path.IsUrl())
-			pegRevision = DecodeRevision (path, SVNRev::REV_HEAD, baseInfo, headInfo);
-		else
-			pegRevision = DecodeRevision (path, SVNRev::REV_WC, baseInfo, headInfo);
-	}
-	else
-		pegRevision = DecodeRevision (path, peg_revision, baseInfo, headInfo);
+        temp = path.IsUrl() ? SVNRev::REV_HEAD : SVNRev::REV_WC;
+
+    revision_t pegRevision = DecodeRevision (path, url, temp);
 
 	// order revisions
 
@@ -1208,17 +1180,10 @@ void CCacheLogQuery::Log ( const CTSVNPathList& targets
     // (don't get the repo info from SVN, if it had to be fetched from the server
     //  -> let GetRelativeRepositoryPath() use our repository property cache)
 
-    SVNInfoData& info = path.IsUrl()
-        ? headInfo 
-        : GetRepositoryInfo (path, peg_revision, baseInfo, headInfo);
-
-    if (info.url.IsEmpty())
-        info.url = path.GetSVNPathString();
-
 	CDictionaryBasedTempPath startPath 
 		= TranslatePegRevisionPath ( pegRevision
 								   , startRevision
-								   , GetRelativeRepositoryPath (info));
+								   , GetRelativeRepositoryPath (url));
 
 	// do it 
 

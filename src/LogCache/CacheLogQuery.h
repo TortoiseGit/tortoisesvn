@@ -330,7 +330,8 @@ private:
 
 	/// extract the repository-relative path of the URL / file name
 	/// and open the cache
-	CDictionaryBasedTempPath GetRelativeRepositoryPath (SVNInfoData& info);
+	CDictionaryBasedTempPath GetRelativeRepositoryPath 
+        ( const CTSVNPath& info);
 
 	/// get UUID & repository-relative path
 	SVNInfoData& GetRepositoryInfo ( const CTSVNPath& path
@@ -342,9 +343,8 @@ private:
 	/// base / head must be initialized with NO_REVISION
 	/// and will be used to cache these values.
 	revision_t DecodeRevision ( const CTSVNPath& path
-				  			  , const SVNRev& revision
-							  , SVNInfoData& baseInfo
-							  , SVNInfoData& headInfo) const;
+				  			  , const CTSVNPath& url
+				  			  , const SVNRev& revision) const;
 
 	/// get the (exactly) one path from targets
 	/// throw an exception, if there are none or more than one
