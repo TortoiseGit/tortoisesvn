@@ -32,6 +32,16 @@
 namespace LogCache
 {
 
+// Auto-alloc access to the svn member
+
+SVN* CRepositoryInfo::GetSVN()
+{
+    if (svn == NULL)
+        svn = new SVN();
+
+    return svn;
+}
+
 // construct the dump file name
 
 CString CRepositoryInfo::GetFileName() const
@@ -107,12 +117,14 @@ CRepositoryInfo::Lookup (const CTSVNPath& url)
 CRepositoryInfo::CRepositoryInfo (const CString& cacheFolderPath)
     : cacheFolder (cacheFolderPath)
     , modified (false)
+    , svn (NULL)
 {
     Load();
 }
 
 CRepositoryInfo::~CRepositoryInfo(void)
 {
+    delete svn;
 }
 
 // look-up and ask SVN if the info is not in cache. 
@@ -131,7 +143,7 @@ CString CRepositoryInfo::GetRepositoryRootAndUUID ( const CTSVNPath& url
     if (iter == data.end())
     {
         SPerRepositoryInfo info;
-        info.root = SVN().GetRepositoryRootAndUUID (url, info.uuid);
+        info.root = GetSVN()->GetRepositoryRootAndUUID (url, info.uuid);
         info.headRevision = NO_REVISION;
         info.headLookupTime = -1;
 
@@ -176,13 +188,14 @@ revision_t CRepositoryInfo::GetHeadRevision (const CTSVNPath& url)
 
     if (   (now - iter->second.headLookupTime > useLogCache)
         || (   url.GetSVNPathString().Left (iter->second.headURL.GetLength())
-            != iter->second.headURL))
+            != iter->second.headURL)
+        || (iter->second.headRevision == NO_REVISION))
     {
         // entry outdated or for not valid for this path
 
         iter->second.headLookupTime = now;
         iter->second.headURL = url.GetSVNPathString();
-        iter->second.headRevision = SVN().GetHEADRevision (url);
+        iter->second.headRevision = GetSVN()->GetHEADRevision (url);
 
         modified = true;
     }
@@ -278,6 +291,15 @@ void CRepositoryInfo::Flush()
 void CRepositoryInfo::Clear()
 {
     data.clear();
+}
+
+/// access to the result of the last SVN operation
+
+svn_error_t* CRepositoryInfo::GetLastError() const
+{
+    assert (svn != NULL);
+
+    return svn != NULL ? svn->Err : NULL;
 }
 
 // end namespace LogCache

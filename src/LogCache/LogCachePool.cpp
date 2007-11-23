@@ -19,6 +19,7 @@
 #include "StdAfx.h"
 #include "LogCachePool.h"
 #include "CachedLogInfo.h"
+#include "RepositoryInfo.h"
 
 #include "CompositeInStream.h"
 #include "CompositeOutStream.h"
@@ -47,13 +48,16 @@ bool CLogCachePool::FileExists (const std::wstring& filePath)
 
 CLogCachePool::CLogCachePool (const CString& cacheFolderPath)
 	: cacheFolderPath (cacheFolderPath)
-    , repositoryInfo (cacheFolderPath)
+    , repositoryInfo (new CRepositoryInfo (cacheFolderPath))
 {
 }
 
 CLogCachePool::~CLogCachePool()
 {
-	Clear();
+    delete repositoryInfo;
+    repositoryInfo = NULL;
+
+    Clear();
 }
 
 // auto-create and return cache for given repository
@@ -85,7 +89,7 @@ CCachedLogInfo* CLogCachePool::GetCache (const CString& uuid)
 
 CRepositoryInfo& CLogCachePool::GetRepositoryInfo()
 {
-    return repositoryInfo;
+    return *repositoryInfo;
 }
 
 /// delete a cache along with all file(s)
@@ -109,7 +113,7 @@ void CLogCachePool::DropCache (const CString& uuid)
 
 	// remove from cache info list
 
-	repositoryInfo.DropEntry (uuid);
+	repositoryInfo->DropEntry (uuid);
 }
 
 // other data access
@@ -126,7 +130,7 @@ std::map<CString, CString> CLogCachePool::GetRepositoryURLs() const
 	while (logenum.NextFile (filePath, NULL))
 	{
 		CString uuid = CPathUtils::GetFileNameFromPath (filePath);
-		CString rootURL = repositoryInfo.GetRootFromUUID (uuid);
+		CString rootURL = repositoryInfo->GetRootFromUUID (uuid);
 
 		result[rootURL.IsEmpty() ? uuid : rootURL] = uuid;
 	}
@@ -138,7 +142,7 @@ std::map<CString, CString> CLogCachePool::GetRepositoryURLs() const
 		; ++iter)
 	{
 		CString uuid = iter->first;
-		CString rootURL = repositoryInfo.GetRootFromUUID (uuid);
+		CString rootURL = repositoryInfo->GetRootFromUUID (uuid);
 
 		result[rootURL.IsEmpty() ? uuid : rootURL] = uuid;
 	}
@@ -170,7 +174,7 @@ void CLogCachePool::Flush()
 		}
 	}
 
-    repositoryInfo.Flush();
+    repositoryInfo->Flush();
 }
 
 // minimize memory usage
@@ -184,7 +188,8 @@ void CLogCachePool::Clear()
 		delete toDelete;
 	}
 
-    repositoryInfo.Clear();
+    if (repositoryInfo != NULL)
+        repositoryInfo->Clear();
 }
 
 // end namespace LogCache

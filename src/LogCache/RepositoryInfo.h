@@ -28,7 +28,10 @@
 // forward declarations
 ///////////////////////////////////////////////////////////////
 
+struct svn_error_t;
+
 class CTSVNPath;
+class SVN;
 
 ///////////////////////////////////////////////////////////////
 // begin namespace LogCache
@@ -98,6 +101,14 @@ private:
 
     CString cacheFolder;
 
+    /// use this instance for all SVN access
+
+    SVN* svn;
+
+    /// Auto-alloc access to the svn member
+
+    SVN* GetSVN();
+
     /// construct the dump file name
 
     CString GetFileName() const;
@@ -145,6 +156,10 @@ public:
     /// clear cache
 
     void Clear();
+
+    /// access to the result of the last SVN operation
+
+    svn_error_t* GetLastError() const;
 
 	/// for statistics
 
