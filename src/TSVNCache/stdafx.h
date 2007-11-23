@@ -12,6 +12,8 @@
 #define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS	// some CString constructors will be explicit
 
 #include <WinSock2.h>
+#include <Ws2tcpip.h>
+#include <Wspiapi.h>
 
 #include <atlbase.h>
 #include <atlstr.h>

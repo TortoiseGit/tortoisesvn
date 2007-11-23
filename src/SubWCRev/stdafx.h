@@ -14,6 +14,8 @@
 
 #define WIN32_LEAN_AND_MEAN		// Exclude rarely-used stuff from Windows headers
 #include <WinSock2.h>
+#include <Ws2tcpip.h>
+#include <Wspiapi.h>
 #include <windows.h>
 
 

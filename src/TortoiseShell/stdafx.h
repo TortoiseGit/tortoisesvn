@@ -24,6 +24,8 @@
 #define ISOLATION_AWARE_ENABLED 1
 
 #include <WinSock2.h>
+#include <Ws2tcpip.h>
+#include <Wspiapi.h>
 #include <windows.h>
 
 #include <commctrl.h>

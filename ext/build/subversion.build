@@ -34,6 +34,13 @@
 			</filterchain>
 		</loadfile>
 		<echo file="subversion\svn_private_config.h" message="${configfile}" />
+		<!-- With the Vista SDK, it's necessary to define _WIN32_WINNT to 0x0501 to gt IPv6 support,
+		     but that value also breaks the app on Win2k. To get a stub compiled in, we must include
+		     Wspiapi.h, this will make it work again on win2k. -->
+		<copy file="..\build\win32_xlate.c" tofile="subversion\libsvn_subr\win32_xlate.c" overwrite="true" />
+		<copy file="..\build\config_win.c" tofile="subversion\libsvn_subr\config_win.c" overwrite="true" />
+		
+
 		<property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
 		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
 		<foreach item="Folder" property="foldername">

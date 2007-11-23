@@ -54,6 +54,8 @@
 #include <tchar.h>
 
 #include <WinSock2.h>
+#include <Ws2tcpip.h>
+#include <Wspiapi.h>
 #include <windows.h>
 #include <assert.h>
 #include <time.h>

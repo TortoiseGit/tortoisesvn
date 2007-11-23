@@ -41,6 +41,8 @@
 #include <afxmt.h>
 
 #include <WinSock2.h>
+#include <Ws2tcpip.h>
+#include <Wspiapi.h>
 
 #include <atlbase.h>
 
