@@ -94,7 +94,6 @@
 				<define name="NE_HAVE_SSL" />
 				<define name="HAVE_OPENSSL" />
 				<define name="OPENSSL_STATIC" />
-				<define name="USE_GETADDRINFO" />
 				<define name="HAVE_EXPAT" />
 				<define name="HAVE_EXPAT_H" />
 				<define name="NE_HAVE_DAV" />
@@ -103,6 +102,7 @@
 				<define name="_WINDOWS" />
 				<define name="_WIN32" />
 				<define name="_WIN32_WINNT" value="0x0501" />
+				<define name="ENABLE_IPV6" value="1" />
 				<define name="WIN64" if="${platform == 'x64'}" />
 				<define name="NDEBUG" if="${configuration == 'release'}"/>
 				<define name="_DEBUG" if="${configuration != 'release'}"/>

@@ -23,6 +23,7 @@
 #define _WIN32_IE 0x0501
 #endif
 
+
 #define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS	// some CString constructors will be explicit
 
 // turns off MFC's hiding of some common and often safely ignored warning messages
@@ -30,6 +31,9 @@
 
 #include <afxwin.h>         // MFC core and standard components
 #include <afxext.h>         // MFC extensions
+#include <WinSock2.h>
+#include <Ws2tcpip.h>
+#include <Wspiapi.h>
 
 #include <afxdtctl.h>		// MFC support for Internet Explorer 4 Common Controls
 #ifndef _AFX_NO_AFXCMN_SUPPORT
@@ -40,9 +44,6 @@
 #include <afxtempl.h>
 #include <afxmt.h>
 
-#include <WinSock2.h>
-#include <Ws2tcpip.h>
-#include <Wspiapi.h>
 
 #include <atlbase.h>
 
