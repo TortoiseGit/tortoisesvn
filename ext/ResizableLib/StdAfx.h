@@ -44,6 +44,9 @@
 #include <afxwin.h>         // MFC core and standard components
 #include <afxext.h>         // MFC extensions
 #include <afxcmn.h>			// MFC support for Windows Common Controls
+#include <WinSock2.h>
+#include <Ws2tcpip.h>
+#include <Wspiapi.h>
 
 #ifndef WS_EX_LAYOUTRTL
 #pragma message("Please update your Windows header files, get the latest SDK")
