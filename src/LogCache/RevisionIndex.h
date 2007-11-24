@@ -80,6 +80,12 @@ public:
 		return firstRevision + (revision_t)indices.size();
 	}
 
+	/// range of actually available revisions:
+	/// GetFirstCachedRevision() .. GetLastCachedRevision()-1
+
+	revision_t GetFirstCachedRevision() const;
+	revision_t GetLastCachedRevision() const;
+
 	/// read
 
 	index_t operator[](revision_t revision) const

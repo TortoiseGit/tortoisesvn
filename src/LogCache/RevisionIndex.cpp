@@ -38,6 +38,27 @@ CRevisionIndex::~CRevisionIndex(void)
 {
 }
 
+// range of actually available revisions:
+// GetFirstCachedRevision() .. GetLastCachedRevision()-1
+
+revision_t CRevisionIndex::GetFirstCachedRevision() const
+{
+    for (size_t i = 0, count = indices.size(); i < count; ++i)
+        if (indices[i] != NO_INDEX)
+            return firstRevision + static_cast<revision_t>(i);
+
+    return NO_REVISION;
+}
+
+revision_t CRevisionIndex::GetLastCachedRevision() const
+{
+    for (size_t i = indices.size(); i > 0; --i)
+        if (indices[i-1] != NO_INDEX)
+            return firstRevision + static_cast<revision_t>(i);
+
+    return NO_REVISION;
+}
+
 // insert info (must be NO_INDEX before)
 
 void CRevisionIndex::SetRevisionIndex (revision_t revision, index_t index)
