@@ -105,6 +105,10 @@ void CCachedLogInfo::Save (const std::wstring& newFileName)
 	// all fine -> connect to the new file name
 
 	fileName = newFileName;
+
+    // the data is no longer "modified"
+
+    modified = false;
 }
 
 // data modification (mirrors CRevisionInfoContainer)
