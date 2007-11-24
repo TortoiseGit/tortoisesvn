@@ -59,6 +59,30 @@ namespace LogCache
 
 class CRepositoryInfo
 {
+public:
+
+    /**
+     * Per-repository server connectivity state: Default is 
+     * @a online, user can switch to one of the other states
+     * upon connection failure. Refreshing a view will always 
+     * reset to default.
+     */
+
+    enum ConnectionState 
+    {
+        /// call the server whenever necessary (default)
+
+        online = 0,
+
+        /// don't call the server, except when HEAD info needs to be refreshed
+
+        tempOffline = 2,
+
+        /// don't contact the server for any reason whatsoever
+
+        offline = 4
+    };
+
 private:
 
 	/**
@@ -86,6 +110,20 @@ private:
         /// when we asked the last time
 
         __time64_t headLookupTime;
+
+        /// flag to control the repository access
+
+        ConnectionState connectionState;
+    };
+
+    /**
+     * File version identifiers.
+     **/
+
+    enum
+    {
+        VERSION = 20071023,
+        MIN_COMPATIBLE_VERSION = VERSION
     };
 
     /// cached repository properties
@@ -120,6 +158,14 @@ private:
     /// find cache entry (or data::end())
 
     TData::iterator Lookup (const CTSVNPath& url);
+
+    /// does the user want to be this repository off-line?
+
+    bool IsOffline (SPerRepositoryInfo& info);
+
+    /// try to get the HEAD revision from the log cache
+
+    void SetHeadFromCache (SPerRepositoryInfo& iter);
 
 public:
 

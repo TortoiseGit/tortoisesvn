@@ -19,13 +19,16 @@
 
 #include "StdAfx.h"
 #include "RepositoryInfo.h"
+#include "CachedLogInfo.h"
 
 #include "svn_client.h"
 
 #include "SVN.h"
 #include "TSVNPath.h"
 #include "PathUtils.h"
+#include "resource.h"
 #include "Registry.h"
+#include "GoOffline.h"
 
 // begin namespace LogCache
 
@@ -63,17 +66,37 @@ void CRepositoryInfo::Load()
 	CFile file (GetFileName(), CFile::modeRead | CFile::shareDenyWrite);
     CArchive stream (&file, CArchive::load);
 
+    // format ID
+
+    int version = 0;
+    stream >> version;
+
+    // number of entries to read
+    // (old file don't have a version info -> "version" is the count)
+
     int count = 0;
-    stream >> count;
+    if (version >= MIN_COMPATIBLE_VERSION)
+        stream >> count;
+    else
+        count = version;
+
+    // actually load the data
 
     for (int i = 0; i < count; ++i)
     {
+        int connectionState = online;
+
         SPerRepositoryInfo info;
         stream >> info.root 
                >> info.uuid
                >> info.headURL
                >> info.headRevision
                >> info.headLookupTime;
+
+        if (version >= MIN_COMPATIBLE_VERSION)
+            stream >> connectionState;
+
+        info.connectionState = static_cast<ConnectionState>(connectionState);
 
         data[info.root] = info;
     }
@@ -112,6 +135,53 @@ CRepositoryInfo::Lookup (const CTSVNPath& url)
     return data.end();
 }
 
+// does the user want to be this repository off-line?
+
+bool CRepositoryInfo::IsOffline (SPerRepositoryInfo& info)
+{
+    // default connectivity setting
+
+    CRegStdWORD defaultConnectionState (_T("Software\\TortoiseSVN\\DefaultConnectionState"), 0);
+
+    // is this repository already off-line?
+
+    if (info.connectionState != online)
+        return true;
+
+    // something went wrong. 
+
+    if (defaultConnectionState == online)
+    {
+        // Default behavior is "Ask the user what to do"
+
+        CGoOffline dialog;
+        dialog.DoModal();
+        if (dialog.asDefault)
+            defaultConnectionState = dialog.selection;
+
+        info.connectionState = dialog.selection;
+        return info.connectionState != online;
+    }
+    else
+    {
+        // set default
+
+        info.connectionState = static_cast<ConnectionState>
+                                (static_cast<int>(defaultConnectionState));
+        return true;
+    }
+}
+
+// try to get the HEAD revision from the log cache
+
+void CRepositoryInfo::SetHeadFromCache (SPerRepositoryInfo& info)
+{
+    CCachedLogInfo* cache = SVN().GetLogCachePool()->GetCache (info.uuid);
+    info.headRevision = cache != NULL
+        ? cache->GetRevisions().GetLastCachedRevision()-1
+        : NO_REVISION;
+}
+
 // construction / destruction: auto-load and save
 
 CRepositoryInfo::CRepositoryInfo (const CString& cacheFolderPath)
@@ -146,6 +216,7 @@ CString CRepositoryInfo::GetRepositoryRootAndUUID ( const CTSVNPath& url
         info.root = GetSVN()->GetRepositoryRootAndUUID (url, info.uuid);
         info.headRevision = NO_REVISION;
         info.headLookupTime = -1;
+        info.connectionState = online;
 
         if (!info.root.IsEmpty())
         {
@@ -193,9 +264,24 @@ revision_t CRepositoryInfo::GetHeadRevision (const CTSVNPath& url)
     {
         // entry outdated or for not valid for this path
 
-        iter->second.headLookupTime = now;
-        iter->second.headURL = url.GetSVNPathString();
-        iter->second.headRevision = GetSVN()->GetHEADRevision (url);
+        if (iter->second.connectionState == online)
+        {
+            // we ain't off-line -> contact the server
+
+            iter->second.headLookupTime = now;
+            iter->second.headURL = url.GetSVNPathString();
+            iter->second.headRevision = GetSVN()->GetHEADRevision (url);
+        }
+
+        // if we couldn't connect to the server, ask the user
+
+        if (  (iter->second.headRevision == NO_REVISION)
+            && IsOffline (iter->second))
+        {
+            // user wants to go off-line
+
+            SetHeadFromCache (iter->second);
+        }
 
         modified = true;
     }
@@ -215,9 +301,12 @@ void CRepositoryInfo::ResetHeadRevision (const CTSVNPath& url)
     if (iter != data.end())
     {
         // there is actually a cache for this URL.
-        // Invalidate the HEAD info
+        // Invalidate the HEAD info and make sure we will
+        // connect the server for an update the next time
+        // we want to get connect.
 
         iter->second.headLookupTime = 0;
+        iter->second.connectionState = online;
     }
 }
 
@@ -270,17 +359,24 @@ void CRepositoryInfo::Flush()
 	CFile file (filename, CFile::modeWrite | CFile::modeCreate);
     CArchive stream (&file, CArchive::store);
 
+    stream << static_cast<int>(VERSION);
     stream << static_cast<int>(data.size());
 
     for ( TData::const_iterator iter = data.begin(), end = data.end()
         ; iter != end
         ; ++iter)
     {
+        // temp offline -> be online the next time
+
+        ConnectionState connectionState 
+            = static_cast<ConnectionState>(iter->second.connectionState & offline);
+
         stream << iter->second.root 
                << iter->second.uuid 
                << iter->second.headURL 
                << iter->second.headRevision 
-               << iter->second.headLookupTime;
+               << iter->second.headLookupTime
+               << connectionState;
     }
 
     modified = false;
