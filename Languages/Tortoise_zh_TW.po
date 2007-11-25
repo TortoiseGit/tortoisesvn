@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-11-14 22:47+0800\n"
+"PO-Revision-Date: 2007-11-25 11:13+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -939,6 +939,10 @@ msgstr "拒絕存取 %1."
 msgid "Action"
 msgstr "行動"
 
+#. Resource IDs: (65535)
+msgid "Action log"
+msgstr "行為紀錄"
+
 #. Resource IDs: (117)
 msgid "Actions"
 msgstr "行動"
@@ -1565,7 +1569,7 @@ msgstr "清理完成."
 msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "清理未完成的作業, 鎖定檔等..."
 
-#. Resource IDs: (1273, 1275, 1276, 1279, 1281)
+#. Resource IDs: (1273, 1275, 1276, 1279, 1281, 1427)
 msgid "Clear"
 msgstr "清除"
 
@@ -2143,6 +2147,10 @@ msgstr "從版本控制樹中刪除檔案/資料夾"
 #. Resource IDs: (18)
 msgid "Deletes files / folders from version control but keeps the file"
 msgstr "從版本控制樹中刪除但保留檔案"
+
+#. Resource IDs: (198)
+msgid "Deletes the action log file"
+msgstr "刪除行為紀錄"
 
 #. Resource IDs: (263)
 msgid "Deleting"
@@ -3698,6 +3706,10 @@ msgstr "最大"
 msgid "Max. items to keep in the log message history"
 msgstr "訊息紀錄最大保留筆數"
 
+#. Resource IDs: (65535)
+msgid "Max. lines in action log"
+msgstr "行為紀錄最大行數"
+
 #. Resource IDs: (109, 110, 111, 276, 278, 65535)
 msgid "Merge"
 msgstr "合併"
@@ -4040,10 +4052,6 @@ msgstr "正常"
 #. Resource IDs: (3857)
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "並未移除全部的登錄紀錄 (或 INI 檔案)."
-
-#. Resource IDs: (20)
-msgid "Not descending"
-msgstr "不展開"
 
 #. Resource IDs: (83)
 msgid "Not enough memory to complete operation."
@@ -5286,6 +5294,10 @@ msgstr "記錄訊息使用簡短日期/時間格式(&D)"
 msgid "Short URL of Subversion items"
 msgstr "Subversion 項目的短 URL"
 
+#. Resource IDs: (1382)
+msgid "Show"
+msgstr "顯示"
+
 #. Resource IDs: (115, 1031)
 msgid "Show &All"
 msgstr "顯示全部(&A)"
@@ -5444,6 +5456,10 @@ msgstr "顯示所有更動過這個項目的版本"
 #. Resource IDs: (10)
 msgid "Shows information about TortoiseSVN"
 msgstr "顯示關於 TortoiseSVN 的資訊"
+
+#. Resource IDs: (198)
+msgid "Shows the action log file in the default text editor"
+msgstr "用預設的文字編輯器顯示行為紀錄"
 
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
@@ -5848,6 +5864,14 @@ msgstr "舊檔案的標示行應該位於第 %d 行!"
 #. Resource IDs: (251)
 msgid "The lock has already been broken from another working copy"
 msgstr "鎖定已被另一份工作複本破壞"
+
+#. Resource IDs: (198)
+msgid ""
+"The maximum number of action log lines to keep.\n"
+"Any lines added over this limit will remove the oldest lines from the file."
+msgstr ""
+"行為紀錄的最大保留行數.\n"
+"超過上限的時候會從最舊的開始移除."
 
 #. Resource IDs: (63)
 msgid ""
