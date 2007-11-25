@@ -921,7 +921,9 @@ protected:
 	DWORD		progress_lastTicks;
 	std::vector<apr_off_t> progress_vector;
 
-	static LogCache::CLogCachePool logCachePool;
+	// the logCachePool must not be static: it uses apr/svn pools, and static objects
+	// will get cleaned up *after* we shut down apr.
+	LogCache::CLogCachePool logCachePool;
 };
 
 static UINT WM_SVNPROGRESS = RegisterWindowMessage(_T("TORTOISESVN_SVNPROGRESS_MSG"));

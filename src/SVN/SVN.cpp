@@ -49,7 +49,6 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 
-LogCache::CLogCachePool SVN::logCachePool (CPathUtils::GetAppDataDirectory()+_T("logcache\\"));
 LCID SVN::s_locale = MAKELCID((DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)), SORT_DEFAULT);
 bool SVN::s_useSystemLocale = !!(DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\UseSystemLocaleForDates"), TRUE);
 
@@ -60,6 +59,7 @@ SVN::SVN(void) : m_progressWnd(0)
 	, progress_total(0)
 	, progress_lastprogress(0)
 	, progress_lasttotal(0)
+	, logCachePool(CPathUtils::GetAppDataDirectory()+_T("logcache\\"))
 {
 	parentpool = svn_pool_create(NULL);
 	svn_error_clear(svn_client_create_context(&m_pctx, parentpool));
