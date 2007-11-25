@@ -43,7 +43,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-11-07 17:13+0800\n"
+"PO-Revision-Date: 2007-11-25 14:41+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -990,6 +990,10 @@ msgstr "存取 %1 被拒绝。"
 msgid "Action"
 msgstr "操作"
 
+#. Resource IDs: (65535)
+msgid "Action log"
+msgstr "动作记录"
+
 #. Resource IDs: (117)
 msgid "Actions"
 msgstr "操作"
@@ -998,7 +1002,7 @@ msgstr "操作"
 msgid "Activate Task List"
 msgstr "当前工作列表"
 
-#. Resource IDs: (155, 209)
+#. Resource IDs: (155, 209, 229)
 msgid "Add"
 msgstr "加入"
 
@@ -1113,6 +1117,10 @@ msgstr "所有文件 (*.*)"
 #. Resource IDs: (157)
 msgid "All Files (*.*)|*.*||"
 msgstr "所有文件 (*.*)|*.*||"
+
+#. Resource IDs: (197)
+msgid "Always use the system locale settings to show times and dates"
+msgstr "始终使用系统区域设置显示时间和日期"
 
 #. Resource IDs: (3867, 3868)
 #, c-format
@@ -1610,7 +1618,7 @@ msgstr "清理完成。"
 msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "清理未完成的操作，锁定文件等…"
 
-#. Resource IDs: (1273, 1275, 1276, 1279, 1281)
+#. Resource IDs: (1273, 1275, 1276, 1279, 1281, 1427)
 msgid "Clear"
 msgstr "清除"
 
@@ -1695,7 +1703,7 @@ msgstr "要执行的命令行："
 msgid "Command failed."
 msgstr "命令失败。"
 
-#. Resource IDs: (135, 209, 1083)
+#. Resource IDs: (135, 209, 229, 1083)
 msgid "Commit"
 msgstr "提交"
 
@@ -2189,6 +2197,10 @@ msgstr "从版本控制树中删除文件/文件夹"
 msgid "Deletes files / folders from version control but keeps the file"
 msgstr "只从版本控制树中删除文件/文件夹，保留本地文件"
 
+#. Resource IDs: (198)
+msgid "Deletes the action log file"
+msgstr "删除动作记录文件"
+
 #. Resource IDs: (263)
 msgid "Deleting"
 msgstr "正在删除"
@@ -2516,7 +2528,7 @@ msgstr "排除路径："
 msgid "Explore to"
 msgstr "浏览"
 
-#. Resource IDs: (238)
+#. Resource IDs: (229, 238)
 msgid "Export"
 msgstr "导出"
 
@@ -2974,6 +2986,11 @@ msgstr "隐藏无关的修改路径(&I)"
 #. Resource IDs: (1353, 1354)
 msgid "HEAD"
 msgstr "HEAD"
+
+#. Resource IDs: (106)
+#, c-format
+msgid "Head revision is %s"
+msgstr "最新版本是 %s"
 
 #. Resource IDs: (73, 1004)
 msgid "Help"
@@ -3604,7 +3621,7 @@ msgid ""
 "repository URL will be saved to."
 msgstr "版本库 URL 的内容将要保存到的位置。"
 
-#. Resource IDs: (207, 221, 65535)
+#. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
 msgstr "锁定"
 
@@ -3731,6 +3748,10 @@ msgstr "最大"
 #. Resource IDs: (1317)
 msgid "Max. items to keep in the log message history"
 msgstr "日志中保留的最大条目数量"
+
+#. Resource IDs: (65535)
+msgid "Max. lines in action log"
+msgstr "动作记录最大行数"
 
 #. Resource IDs: (109, 110, 111, 276, 278, 65535)
 msgid "Merge"
@@ -3912,6 +3933,10 @@ msgstr "移动项到此"
 msgid "Move to changelist"
 msgstr "移动到修改列表"
 
+#. Resource IDs: (229)
+msgid "Move/Rename"
+msgstr "移动/改名"
+
 #. Resource IDs: (98)
 #, c-format
 msgid "Move: New name for %s"
@@ -4068,10 +4093,6 @@ msgstr "正常"
 #. Resource IDs: (3857)
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "没有删除全部的注册表项（或 INI 文件）。"
-
-#. Resource IDs: (20)
-msgid "Not descending"
-msgstr "不是降序"
 
 #. Resource IDs: (83)
 msgid "Not enough memory to complete operation."
@@ -4783,7 +4804,7 @@ msgstr "需要用户名和密码"
 msgid "Res&olved..."
 msgstr "已解决的(&O)..."
 
-#. Resource IDs: (207)
+#. Resource IDs: (207, 229)
 msgid "Resolve"
 msgstr "解决"
 
@@ -4852,7 +4873,7 @@ msgstr "重试"
 msgid "Reverse merge"
 msgstr "反向合并"
 
-#. Resource IDs: (175)
+#. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "还原"
 
@@ -5312,6 +5333,10 @@ msgstr "日志信息使用短日期/时间格式(&D)"
 msgid "Short URL of Subversion items"
 msgstr "Subversion 项目的短 URL"
 
+#. Resource IDs: (1382)
+msgid "Show"
+msgstr "显示"
+
 #. Resource IDs: (115, 1031)
 msgid "Show &All"
 msgstr "全部显示(&A)"
@@ -5328,7 +5353,7 @@ msgstr "显示全部版本(&A)"
 msgid "Show &changes"
 msgstr "显示改变(&C)..."
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1132, 1228, 1420, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 32784)
 msgid "Show &log"
 msgstr "显示日志(&L)"
 
@@ -5470,6 +5495,10 @@ msgstr "显示所有修改过该项的版本"
 #. Resource IDs: (10)
 msgid "Shows information about TortoiseSVN"
 msgstr "显示关于 TortoiseSVN 的信息"
+
+#. Resource IDs: (198)
+msgid "Shows the action log file in the default text editor"
+msgstr "在默认文本编辑器中显示动作记录"
 
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
@@ -5874,6 +5903,14 @@ msgstr "旧文件的标示行应该位于第 %d 行！"
 #. Resource IDs: (251)
 msgid "The lock has already been broken from another working copy"
 msgstr "锁定已被其它工作副本解除。"
+
+#. Resource IDs: (198)
+msgid ""
+"The maximum number of action log lines to keep.\n"
+"Any lines added over this limit will remove the oldest lines from the file."
+msgstr ""
+"保存的最大动作记录行数。\n"
+"如果新增的行超过此限制，最旧的行会被删除。"
 
 #. Resource IDs: (63)
 msgid ""
@@ -6432,7 +6469,7 @@ msgstr ""
 msgid "Unknown depth"
 msgstr "未知深度"
 
-#. Resource IDs: (221, 242)
+#. Resource IDs: (221, 230, 242)
 msgid "Unlock"
 msgstr "解除锁定"
 
@@ -6461,7 +6498,7 @@ msgstr "如果文件夹包含无版本控制的文件，则标识为已修改"
 msgid "Unversioning %s"
 msgstr "正在将 %s 去除版本控制"
 
-#. Resource IDs: (152)
+#. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "更新"
 
@@ -6551,6 +6588,10 @@ msgstr "使用版本库"
 #. Resource IDs: (1066)
 msgid "Use stri&keout for removed lines"
 msgstr "用双删除线表示已删除行(&K)"
+
+#. Resource IDs: (1426)
+msgid "Use system locale for date/time"
+msgstr "对日期/时间使用系统区域"
 
 #. Resource IDs: (251, 32820)
 msgid "Use text block from \"&mine\""
@@ -6719,7 +6760,7 @@ msgstr "当锁定一个或多个文件时，显示对话框询问锁定的描述
 msgid "With URL:"
 msgstr "URL："
 
-#. Resource IDs: (158)
+#. Resource IDs: (158, 65535)
 msgid "Working Copy"
 msgstr "工作副本"
 
@@ -7215,14 +7256,27 @@ msgstr ""
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of\n"
-"a relative directory path, optional revision flags, and a URL. For example\n"
+"a relative directory path, optional revision flags, and an URL. For example\n"
 "foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag"
+"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"\n"
+"The URLs can either be full URLs or relative. The format for\n"
+"the relative URLs is:\n"
+"../\trelative to the parent directory of the external\n"
+"^/\trelative to the repository root\n"
+"//\trelative to the URL scheme\n"
+"/\trelative to the server's hostname"
 msgstr ""
 "svn:externals\n"
 "以换行字符分隔的模块指示列表, 每行包含相对路径，可选的版本标记，以及 URL。例如：\n"
 "foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag"
+"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"\n"
+"URL 通常是全路径，也可以是相对路径。相对路径的格式是：\n"
+"../\t相对于外部路径的父目录\n"
+"^/\t相对于版本库的根\n"
+"//\t相对于 URL 方案\n"
+"/\t相对于服务器的主机名称"
 
 #. Resource IDs: (576)
 msgid ""
