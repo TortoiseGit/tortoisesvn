@@ -43,7 +43,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-11-25 14:41+0800\n"
+"PO-Revision-Date: 2007-11-25 21:09+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -409,6 +409,10 @@ msgstr "以URL比较(&D)"
 msgid "&Diff with previous version"
 msgstr "与前一版本比较(&D)"
 
+#. Resource IDs: (2)
+msgid "&Don't go offline"
+msgstr "不要离线(&D)"
+
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
 msgstr "编辑(&E)"
@@ -615,6 +619,10 @@ msgstr "下一条差异(&N)"
 msgid "&OK"
 msgstr "确定(&O)"
 
+#. Resource IDs: (1)
+msgid "&Offline for now"
+msgstr "立即离线(&O)"
+
 #. Resource IDs: (101, 113, 32773)
 msgid "&Open"
 msgstr "打开(&O)"
@@ -634,6 +642,10 @@ msgstr "密码(&P)："
 #. Resource IDs: (376, 501)
 msgid "&Paste"
 msgstr "粘贴(&P)"
+
+#. Resource IDs: (1382)
+msgid "&Permanently offline"
+msgstr "永远离线(&P)"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -2931,6 +2943,10 @@ msgstr "正在获取标准差异"
 msgid "Global ignore &pattern:"
 msgstr "全局忽略样式(&P)："
 
+#. Resource IDs: (280)
+msgid "Go offline?"
+msgstr "是否离线？"
+
 #. Resource IDs: (130)
 msgid "Go to line"
 msgstr "跳转到行号"
@@ -3712,6 +3728,10 @@ msgstr "最低显示版本 %ld - 最高显示版本：%ld - 最新版本：%ld"
 #. Resource IDs: (3866)
 msgid "Mail system DLL is invalid."
 msgstr "邮件系统 DLL 无效。"
+
+#. Resource IDs: (1431)
+msgid "Make this the default"
+msgstr "设为默认值"
 
 #. Resource IDs: (17)
 msgid "Manage Subversion properties"
@@ -6131,6 +6151,18 @@ msgid ""
 msgstr ""
 "有尚未保存的修改！\n"
 "是否要保存你做的修改？"
+
+#. Resource IDs: (65535)
+msgid ""
+"There has been a problem connecting the server.\n"
+"Do you want to see the cached data instead?\n"
+"\n"
+"Please understand that the cached data may be outdated,\n"
+"incomplete or even misleading due to incomplete history."
+msgstr ""
+"连接服务器失败。你想看缓存中的数据吗？\n"
+"\n"
+"请注意缓存中的数据可能已经过时、不完全，甚至由于不完全的历史而令人误解。"
 
 #. Resource IDs: (82)
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
