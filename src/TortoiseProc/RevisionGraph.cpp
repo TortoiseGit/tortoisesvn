@@ -366,8 +366,6 @@ void CRevisionGraph::ReceiveLog ( LogChangedPathArray* changes
 
     // we passed revs_only to Log()
 
-    assert (changes == NULL);
-    assert (stdRevProps == NULL);
     assert (userRevProps == NULL);
     assert (mergesFollow == false);
 
@@ -433,7 +431,6 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 	CTSVNPath urlpath;
 	urlpath.SetFromSVN(url);
 
-	SVN svn;
 	m_sRepoRoot = svn.GetRepositoryRoot(urlpath);
     url = m_sRepoRoot;
 	urlpath.SetFromSVN(url);
@@ -464,12 +461,12 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 				   , headRevision
 				   , SVNRev(0)
 				   , 0
-				   , false
+				   , false		// strictNodeHistory
 				   , this
-                   , false
-                   , false
-                   , false
-                   , false
+                   , false		// includeChanges
+                   , false		// includeMerges
+                   , true		// includeStandardRevProps
+                   , false		// includeUserRevProps
                    , TRevPropNames());
 	}
 	catch (SVNError& e)

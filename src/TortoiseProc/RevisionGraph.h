@@ -18,6 +18,7 @@
 //
 #pragma once
 
+#include "SVN.h"
 #include "SVNPrompt.h"
 #include "SVNLogQuery.h"
 #include "CacheLogQuery.h"
@@ -293,6 +294,7 @@ public:
 	apr_pool_t *				pool;			///< memory pool
 	svn_client_ctx_t 			m_ctx;
 	SVNPrompt					m_prompt;
+	SVN							svn;
 
 private:
 
