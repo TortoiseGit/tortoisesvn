@@ -86,6 +86,7 @@
 				<include name="Languages/LanguagePack.build" />
 			</buildfiles>
 		</nant>
+	</target>
 
 	<target name="docs" depends="VSNET,env,VersionInfo">
 		<description>
