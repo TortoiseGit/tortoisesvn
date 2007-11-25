@@ -21,12 +21,14 @@
 			Cleans previous built files.
 		</description>
 		
-		<delete>
-			<fileset>
-				<include name="${configuration}${static}_${platform}\**" />
-				<include name="xml\expat\lib\${configuration}${static}_${platform}\**" />
-			</fileset>
-		</delete>
+		<if test="${cleanup == 'yes'}">
+			<delete>
+				<fileset>
+					<include name="${configuration}${static}_${platform}\**" />
+					<include name="xml\expat\lib\${configuration}${static}_${platform}\**" />
+				</fileset>
+			</delete>
+		</if>
 	</target>
 
 	<target name="xml">
@@ -97,7 +99,7 @@
 		</lib>
 	</target>
 
-	<target name="build" depends="xml">
+	<target name="build" depends="clean,xml">
 		<mkdir dir="${configuration}${static}_${platform}" />
 		<copy file="..\build\apu.hw" tofile="include\apu.h" overwrite="true" />
 		<copy file="include\apu_want.hw" tofile="include\apu_want.h" overwrite="true" />

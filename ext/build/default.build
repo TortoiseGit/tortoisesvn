@@ -8,15 +8,17 @@
 		<description>
 			Cleans every subproject.
 		</description>
-		<nant target="clean">
-			<buildfiles>
-				<include name="*.build" />
-				<exclude name="default.build" />
-			</buildfiles>
-		</nant>
+		<if test="${cleanup == 'yes'}">
+			<nant target="clean">
+				<buildfiles>
+					<include name="*.build" />
+					<exclude name="default.build" />
+				</buildfiles>
+			</nant>
+		</if>
 	</target>
 
-	<target name="build">
+	<target name="build" depends="clean">
 		<nant target="build" buildfile="apr.build" />
 		<nant target="build" buildfile="aprutil.build" />
 

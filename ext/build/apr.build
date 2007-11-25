@@ -11,14 +11,16 @@
 			Cleans previous built files.
 		</description>
 		
-		<delete>
-			<fileset>
-				<include name="${configuration}${static}_${platform}\**" />
-			</fileset>
-		</delete>
+		<if test="${cleanup == 'yes'}">
+			<delete>
+				<fileset>
+					<include name="${configuration}${static}_${platform}\**" />
+				</fileset>
+			</delete>
+		</if>
 	</target>
 
-	<target name="build" >
+	<target name="build" depends="clean">
 		<mkdir dir="${configuration}${static}_${platform}" />
 		<copy file="include\apr.hw" tofile="include\apr.h" overwrite="true" />
 		<loadfile file="include\apr.hw" property="configfile">

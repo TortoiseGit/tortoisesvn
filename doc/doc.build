@@ -70,13 +70,15 @@ All user/site specific configuration is stored in doc.build.user.
 <!-- ====================================================================== -->
 
 	<target name="clean" description="remove all generated files">
-		<delete dir="output" failonerror="false"/>
+		<if test="${cleanup == 'yes'}">
+			<delete dir="output" failonerror="false"/>
+		</if>
 	</target>
 	
 <!-- ====================================================================== -->
 <!-- ====================================================================== -->
 
-	<target name="prepare" description="Create directories">
+	<target name="prepare" description="Create directories" depends="clean">
 		<mkdir dir="output"/>
 		<call target="prepare.custom" if="${target::exists('prepare.custom')}"/>
 

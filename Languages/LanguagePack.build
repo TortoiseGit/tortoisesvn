@@ -26,12 +26,14 @@ NAnt build script for the TortoiseSVN language pack installers
 		<description>
 			Removes all previously built language pack installers.
 		</description>
-		<delete>
-			<fileset>
-				<include name="..\bin\Tortoise*.dll" />
-				<include name="..\bin\LanguagePack_*-${platform}-*.msi" />
-			</fileset>
-		</delete>
+		<if test="${cleanup == 'yes'}">
+			<delete>
+				<fileset>
+					<include name="..\bin\Tortoise*.dll" />
+					<include name="..\bin\LanguagePack_*-${platform}-*.msi" />
+				</fileset>
+			</delete>
+		</if>
 	</target>
 
 	<target name="createecho2">
@@ -221,7 +223,7 @@ NAnt build script for the TortoiseSVN language pack installers
 		</script>
 	</target>
 	
-	<target name="all">
+	<target name="all" depends="clean">
 		<description>
 			Builds the installers.
 		</description>

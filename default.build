@@ -16,6 +16,8 @@
 	<property name="crosscompile" value="" />
 	<!-- default: we link dynamically -->
 	<property name="static" value="" />
+	<!-- default: we don't clean first -->
+	<property name="cleanup" value="" />
 
 	<include buildfile="default.build.user" />
 	
@@ -65,9 +67,17 @@
 <!-- ====================================================================== -->
 	<target name="clean" depends="VSNET">
 		<description>
+			Cleans before building the target
+		</description>
+		<property name="cleanup" value="yes" />
+	</target>
+
+	<target name="cleanall" depends="VSNET">
+		<description>
 			Cleans every subproject.
 		</description>
 		<nant target="clean">
+			<property name="cleanup" value="yes" />
 			<buildfiles>
 				<include name="doc/doc.build" />
 				<include name="src/TortoiseSVN.build" />
@@ -76,7 +86,6 @@
 				<include name="Languages/LanguagePack.build" />
 			</buildfiles>
 		</nant>
-	</target>
 
 	<target name="docs" depends="VSNET,env,VersionInfo">
 		<description>

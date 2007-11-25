@@ -11,14 +11,16 @@
 			Cleans previous built files.
 		</description>
 		
-		<delete>
-			<fileset>
-				<include name="${configuration}${static}_${platform}\**" />
-			</fileset>
-		</delete>
+		<if test="${cleanup == 'yes'}">
+			<delete>
+				<fileset>
+					<include name="${configuration}${static}_${platform}\**" />
+				</fileset>
+			</delete>
+		</if>
 	</target>
 
-	<target name="build" >
+	<target name="build" depends="clean">
 		<mkdir dir="${configuration}${static}_${platform}" />
 		<if test="${platform == 'win32'}">
 			<copy todir="." overwrite="true">

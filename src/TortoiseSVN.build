@@ -2,32 +2,33 @@
 <project name="TortoiseSVN" default="all">
 
 	<target name="clean">
-        <if test="${static != 'static'}">
-            <delete>
-                <fileset>
-                    <include name="utils\scintilla\bin\*.dll" />
-                    <include name="utils\scintilla\bin\*.exp" />
-                    <include name="utils\scintilla\bin\*.lib" />
-                    <include name="utils\scintilla\bin\*.pdb" />
-                    <include name="utils\scintilla\win32\*.obj" />
-                    <include name="utils\scintilla\win32\*.res" />
-                    <include name="utils\scintilla\win32\*.pdb" />
-                </fileset>
-            </delete>
-            <exec program="devenv.com" >
-                <arg value="TortoiseSVN.sln" />
-                <arg value="/clean" />
-                <arg value="${configuration}|${platform}" />
-            </exec>
+		<if test="${cleanup == 'yes'}">
+			<if test="${static != 'static'}">
+				<delete>
+					<fileset>
+						<include name="utils\scintilla\bin\*.dll" />
+						<include name="utils\scintilla\bin\*.exp" />
+						<include name="utils\scintilla\bin\*.lib" />
+						<include name="utils\scintilla\bin\*.pdb" />
+						<include name="utils\scintilla\win32\*.obj" />
+						<include name="utils\scintilla\win32\*.res" />
+						<include name="utils\scintilla\win32\*.pdb" />
+					</fileset>
+				</delete>
+				<exec program="devenv.com" >
+					<arg value="TortoiseSVN.sln" />
+					<arg value="/clean" />
+					<arg value="${configuration}|${platform}" />
+				</exec>
+			</if>
+			<if test="${static == 'static'}">
+				<exec program="devenv.com" >
+					<arg value="TortoiseSVN.sln" />
+					<arg value="/clean" />
+					<arg value="${configuration}_static|${platform}" />
+				</exec>
+			</if>
 		</if>
-        <if test="${static == 'static'}">
-            <exec program="devenv.com" >
-                <arg value="TortoiseSVN.sln" />
-                <arg value="/clean" />
-                <arg value="${configuration}_static|${platform}" />
-            </exec>
-		</if>
-		
 	</target>
 
 	<target name="scintilla">
@@ -89,7 +90,7 @@
 		<echo file="version.h" message="${versionheaderfile}" />
 	</target>
 
-	<target name="TortoiseSVN" depends="versioninfo,scintilla">
+	<target name="TortoiseSVN" depends="clean,versioninfo,scintilla">
         <if test="${static != 'static'}">
             <exec program="devenv.com" >
                 <arg value="TortoiseSVN.sln" />

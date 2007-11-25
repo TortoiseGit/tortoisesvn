@@ -11,17 +11,19 @@
 			Cleans previous built files.
 		</description>
 		
-		<delete>
-			<fileset>
-				<include name="${configuration}${static}_${platform}\**" />
-				<include name=".version" />
-				<include name="config.hw" />
-				<include name="config.h" />
-			</fileset>
-		</delete>
+		<if test="${cleanup == 'yes'}">
+			<delete>
+				<fileset>
+					<include name="${configuration}${static}_${platform}\**" />
+					<include name=".version" />
+					<include name="config.hw" />
+					<include name="config.h" />
+				</fileset>
+			</delete>
+		</if>
 	</target>
 
-	<target name="build" >
+	<target name="build" depends="clean">
 		<mkdir dir="${configuration}${static}_${platform}" />
 		<loadfile file="NEWS" property="versionfile" />
 		<regex pattern="^Changes in release (?'NEON_MAJOR_VERSION'\d+)\.(?'NEON_MINOR_VERSION'\d+)\.(?'NEON_MICRO_VERSION'\d+):" input="${versionfile}" />
