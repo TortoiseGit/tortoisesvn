@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-11-16 11:34+0900\n"
+"PO-Revision-Date: 2007-11-26 13:53+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -366,6 +366,10 @@ msgstr "URL と差分(&D)"
 msgid "&Diff with previous version"
 msgstr "以前のバージョンと差分(&D)"
 
+#. Resource IDs: (2)
+msgid "&Don't go offline"
+msgstr "オフラインにしない(&D)"
+
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
 msgstr "編集(&E)"
@@ -572,6 +576,10 @@ msgstr "次の相違点へ(&N)"
 msgid "&OK"
 msgstr "&OK"
 
+#. Resource IDs: (1)
+msgid "&Offline for now"
+msgstr "オフラインにする(&O)"
+
 #. Resource IDs: (101, 113, 32773)
 msgid "&Open"
 msgstr "開く(&O)"
@@ -591,6 +599,10 @@ msgstr "パスワード(&P):"
 #. Resource IDs: (376, 501)
 msgid "&Paste"
 msgstr "貼り付け(&P)"
+
+#. Resource IDs: (1382)
+msgid "&Permanently offline"
+msgstr "永久にオフライン(&P)"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -2895,6 +2907,10 @@ msgstr "Unified Diff を取得中 ..."
 msgid "Global ignore &pattern:"
 msgstr "除外／無視するパターン(&P):"
 
+#. Resource IDs: (280)
+msgid "Go offline?"
+msgstr "オフラインにしますか？"
+
 #. Resource IDs: (130)
 msgid "Go to line"
 msgstr "指定した行へ移動"
@@ -3680,6 +3696,10 @@ msgstr "表示リビジョンの範囲: %ld - %ld、 最新リビジョン: %ld"
 msgid "Mail system DLL is invalid."
 msgstr "メールシステムDLLは無効です。"
 
+#. Resource IDs: (1431)
+msgid "Make this the default"
+msgstr "デフォルトに設定する"
+
 #. Resource IDs: (17)
 msgid "Manage Subversion properties"
 msgstr "Subversion の属性を管理する"
@@ -4062,10 +4082,6 @@ msgstr "通常"
 #. Resource IDs: (3857)
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "システムレジストリのエントリ（INIファイル）が全て削除されたわけではありません。"
-
-#. Resource IDs: (20)
-msgid "Not descending"
-msgstr "深さ方向は無し"
 
 #. Resource IDs: (83)
 msgid "Not enough memory to complete operation."
@@ -6108,6 +6124,20 @@ msgid ""
 msgstr ""
 "保存されていない変更が存在します！\n"
 "変更を保存しますか？"
+
+#. Resource IDs: (65535)
+msgid ""
+"There has been a problem connecting the server.\n"
+"Do you want to see the cached data instead?\n"
+"\n"
+"Please understand that the cached data may be outdated,\n"
+"incomplete or even misleading due to incomplete history."
+msgstr ""
+"サーバーに接続する際に問題が発生しました。\n"
+"代わりにキャッシュされているデータを利用しますか？\n"
+"\n"
+"キャッシュされているデータは古くて不完全、もしくは、履歴が\n"
+"不完全なために誤解を招く可能性があることをご理解ください。"
 
 #. Resource IDs: (82)
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
