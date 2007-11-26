@@ -11,13 +11,13 @@
 # Stanislav Petrakov <stannic@gmail.com>
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 11360: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 11447: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-11-15 18:43+0300\n"
+"PO-Revision-Date: 2007-11-26 18:51+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -400,6 +400,10 @@ msgstr "&Различия с файлом по URL"
 msgid "&Diff with previous version"
 msgstr "С&равнить с предыдущей версией"
 
+#. Resource IDs: (2)
+msgid "&Don't go offline"
+msgstr "Не использовать автономный &режим"
+
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
 msgstr "&Правка"
@@ -612,6 +616,10 @@ msgstr "&Следующее различие"
 msgid "&OK"
 msgstr "O&K"
 
+#. Resource IDs: (1)
+msgid "&Offline for now"
+msgstr "Автономно в &этот раз"
+
 #. Resource IDs: (101, 113, 32773)
 msgid "&Open"
 msgstr "&Открыть"
@@ -631,6 +639,10 @@ msgstr "&Пароль:"
 #. Resource IDs: (376, 501)
 msgid "&Paste"
 msgstr "&Вставить"
+
+#. Resource IDs: (1382)
+msgid "&Permanently offline"
+msgstr "Всегда работать &автономно"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -2964,6 +2976,10 @@ msgstr "Получение объединённых различий"
 msgid "Global ignore &pattern:"
 msgstr "Шаблоны &игнорирования:"
 
+#. Resource IDs: (280)
+msgid "Go offline?"
+msgstr "Переход в автономный режим"
+
 #. Resource IDs: (130)
 msgid "Go to line"
 msgstr "Перейти к строке"
@@ -3764,6 +3780,10 @@ msgstr "Показанные ревизии:- младшая: %ld - старша
 msgid "Mail system DLL is invalid."
 msgstr "Не подходящий DLL почтовой системы."
 
+#. Resource IDs: (1431)
+msgid "Make this the default"
+msgstr "Выбирать по умолчанию"
+
 #. Resource IDs: (17)
 msgid "Manage Subversion properties"
 msgstr "Управление свойствами Subversion "
@@ -4149,10 +4169,6 @@ msgstr "Нормальное"
 #. Resource IDs: (3857)
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Не все компоненты в системном реестре (либо INI-файлы) удалены."
-
-#. Resource IDs: (20)
-msgid "Not descending"
-msgstr "Без спуска"
 
 #. Resource IDs: (83)
 msgid "Not enough memory to complete operation."
@@ -6215,6 +6231,21 @@ msgid ""
 msgstr ""
 "Произведённые изменения не были сохранены!\n"
 "Вы хотите сохранить эти изменения?"
+
+#. Resource IDs: (65535)
+msgid ""
+"There has been a problem connecting the server.\n"
+"Do you want to see the cached data instead?\n"
+"\n"
+"Please understand that the cached data may be outdated,\n"
+"incomplete or even misleading due to incomplete history."
+msgstr ""
+"Возникла проблема подключения к серверу, из-за чего\n"
+"невозможно получение актуальных данных.\n"
+"Желаете ли вы посмотреть данные, закэшированные ранее?\n"
+"\n"
+"Пожалуйста, имейте ввиду, что закэшированные данные могут быть\n"
+"устаревшими, неполными и даже неверными из-за неполноты истории."
 
 #. Resource IDs: (82)
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
