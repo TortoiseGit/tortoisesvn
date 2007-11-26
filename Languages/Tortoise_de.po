@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-11-16 08:56+0100\n"
+"PO-Revision-Date: 2007-11-26 11:04+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -360,6 +360,10 @@ msgstr "&Vergleich mit URL"
 msgid "&Diff with previous version"
 msgstr "&Vergleiche mit vorheriger Revision"
 
+#. Resource IDs: (2)
+msgid "&Don't go offline"
+msgstr "&Nicht offline gehen"
+
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
 msgstr "&Bearbeiten"
@@ -566,6 +570,10 @@ msgstr "&Nächster Unterschied"
 msgid "&OK"
 msgstr "&OK"
 
+#. Resource IDs: (1)
+msgid "&Offline for now"
+msgstr "&Jetzt offline gehen"
+
 #. Resource IDs: (101, 113, 32773)
 msgid "&Open"
 msgstr "Ö&ffnen"
@@ -585,6 +593,10 @@ msgstr "&Passwort:"
 #. Resource IDs: (376, 501)
 msgid "&Paste"
 msgstr "E&infügen"
+
+#. Resource IDs: (1382)
+msgid "&Permanently offline"
+msgstr "&Ständig offline"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -1563,7 +1575,7 @@ msgstr "Prüfsumme:"
 
 #. Resource IDs: (1402)
 msgid "Choose item:"
-msgstr "Objekt auswählen"
+msgstr "Objekt auswählen:"
 
 #. Resource IDs: (146)
 msgid "Cleaning up."
@@ -2894,6 +2906,10 @@ msgstr "Hole Standard-Diff"
 msgid "Global ignore &pattern:"
 msgstr "Globale &Ignoriermuster:"
 
+#. Resource IDs: (280)
+msgid "Go offline?"
+msgstr "Offline gehen?"
+
 #. Resource IDs: (130)
 msgid "Go to line"
 msgstr "Gehe zu Zeile"
@@ -3694,6 +3710,10 @@ msgstr "Kleinste angezeigte Revision: %ld - Größte angezeigte Revision: %ld - 
 msgid "Mail system DLL is invalid."
 msgstr "Mail System DLL ist ungültig."
 
+#. Resource IDs: (1431)
+msgid "Make this the default"
+msgstr "Diese Einstellung immer verwenden"
+
 #. Resource IDs: (17)
 msgid "Manage Subversion properties"
 msgstr "Subversion-Eigenschaften bearbeiten"
@@ -4080,10 +4100,6 @@ msgstr "Normal"
 #. Resource IDs: (3857)
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Nicht alle Einträge der System-Registry (oder INI Datei) wurden gelöscht."
-
-#. Resource IDs: (20)
-msgid "Not descending"
-msgstr "Nicht absteigend"
 
 #. Resource IDs: (83)
 msgid "Not enough memory to complete operation."
@@ -6135,6 +6151,21 @@ msgstr ""
 "Die Änderungen sind noch nicht gespeichert!\n"
 "Wollen Sie Ihre Änderungen speichern?"
 
+#. Resource IDs: (65535)
+msgid ""
+"There has been a problem connecting the server.\n"
+"Do you want to see the cached data instead?\n"
+"\n"
+"Please understand that the cached data may be outdated,\n"
+"incomplete or even misleading due to incomplete history."
+msgstr ""
+"Es gibt ein Problem mit der Verbindung zum Server.\n"
+"Wollen Sie stattdessen die lokal gespeicherten Daten sehen?\n"
+"\n"
+"Bitte beachten Sie, dass diese Daten unter Umständen nicht\n"
+"aktuell oder unvollständig sind und deshalb irreführende\n"
+"Informationen beinhalten können."
+
 #. Resource IDs: (82)
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
 msgstr "Es gibt nichts hinzuzufügen. Alle Dateien und Ordner befinden sich entweder bereits unter Versionskontrolle oder sie werden aufgrund der 'svn:ignore' Eigenschaft beziehungsweise der globalen Ausschlussmuster ignoriert."
@@ -7373,7 +7404,7 @@ msgstr "gewechselt zu:"
 
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
-msgstr "es widersrpüchliche Änderungen gibt."
+msgstr "es widersprüchliche Änderungen gibt."
 
 #. Resource IDs: (80, 103, 284)
 #, c-format
