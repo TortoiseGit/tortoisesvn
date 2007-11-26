@@ -1077,7 +1077,8 @@ revision_t CCacheLogQuery::DecodeRevision ( const CTSVNPath& path
 
 	case svn_opt_revision_head:
         {
-            CRepositoryInfo& info = SVN().GetLogCachePool()->GetRepositoryInfo();
+			SVN svn;
+            CRepositoryInfo& info = svn.GetLogCachePool()->GetRepositoryInfo();
             revision_t head = info.GetHeadRevision (url);
 
 			if (head == NO_REVISION)

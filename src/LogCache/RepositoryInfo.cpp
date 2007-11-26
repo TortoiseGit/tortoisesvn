@@ -176,7 +176,8 @@ bool CRepositoryInfo::IsOffline (SPerRepositoryInfo& info)
 
 void CRepositoryInfo::SetHeadFromCache (SPerRepositoryInfo& info)
 {
-    CCachedLogInfo* cache = SVN().GetLogCachePool()->GetCache (info.uuid);
+	SVN svn;
+    CCachedLogInfo* cache = svn.GetLogCachePool()->GetCache (info.uuid);
     info.headRevision = cache != NULL
         ? cache->GetRevisions().GetLastCachedRevision()-1
         : NO_REVISION;
