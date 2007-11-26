@@ -463,7 +463,7 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 				   , 0
 				   , false		// strictNodeHistory
 				   , this
-                   , false		// includeChanges
+                   , true		// includeChanges
                    , false		// includeMerges
                    , true		// includeStandardRevProps
                    , false		// includeUserRevProps
