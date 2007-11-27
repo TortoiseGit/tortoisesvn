@@ -446,12 +446,12 @@ Don't touch these lines:
 <screen>
 TortoiseProc.exe /command:commit
                  /path:"c:\svn_wc\file1.txt*c:\svn_wc\file2.txt"
-                 /logmsg:"test log message" /closeonend
+                 /logmsg:"test log message" /closeonend:0
 
-TortoiseProc.exe /command:update /path:"c:\svn_wc\" /closeonend
+TortoiseProc.exe /command:update /path:"c:\svn_wc\" /closeonend:0
 
 TortoiseProc.exe /command:log /path:"c:\svn_wc\file1.txt"
-                 /startrev:50 /endrev:60 /closeonend
+                 /startrev:50 /endrev:60 /closeonend:0
 </screen>
 		</para>
 	</sect1>
