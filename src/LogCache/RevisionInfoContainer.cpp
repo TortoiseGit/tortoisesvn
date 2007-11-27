@@ -168,7 +168,7 @@ void CRevisionInfoContainer::UpdateChanges
 		}
 		else
 		{
-			// keep exisiting data
+			// keep existing data
 
 		    index_t firstChange = changesOffsets[i];
 			index_t lastChange = changesOffsets[i+1];
@@ -670,6 +670,7 @@ void CRevisionInfoContainer::AddChange ( TChangeAction action
 
 		++(*copyFromOffsets.rbegin());
 	}
+
 }
 
 void CRevisionInfoContainer::AddMergedRevision ( const std::string& fromPath
