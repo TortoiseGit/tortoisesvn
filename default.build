@@ -76,8 +76,8 @@
 		<description>
 			Cleans every subproject.
 		</description>
+		<property name="cleanup" value="yes" />
 		<nant target="clean">
-			<property name="cleanup" value="yes" />
 			<buildfiles>
 				<include name="doc/doc.build" />
 				<include name="src/TortoiseSVN.build" />
