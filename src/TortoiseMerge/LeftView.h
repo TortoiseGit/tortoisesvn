@@ -30,6 +30,6 @@ public:
 	CLeftView(void);
 	~CLeftView(void);
 protected:
-	void	OnContextMenu(CPoint point, int nLine, DiffStates state);
+	bool	OnContextMenu(CPoint point, int nLine, DiffStates state);
 	
 };

@@ -74,15 +74,12 @@ CBaseView::CBaseView()
 	m_bCaretHidden = true;
 	m_ptCaretPos.x = 0;
 	m_ptCaretPos.y = 0;
-	m_ptSelectionStartPos.x = 0;
-	m_ptSelectionStartPos.y = 0;
-	m_ptSelectionEndPos.x = 0;
-	m_ptSelectionEndPos.y = 0;
-	m_ptSelectionDrawStartPos.x = 0;
-	m_ptSelectionDrawStartPos.y = 0;
-	m_ptSelectionDrawEndPos.x = 0;
-	m_ptSelectionDrawEndPos.y = 0;
+	m_nCaretGoalPos = 0;
+	m_ptSelectionStartPos = m_ptCaretPos;
+	m_ptSelectionEndPos = m_ptCaretPos;
+	m_ptSelectionOrigin = m_ptCaretPos;
 	m_bFocused = FALSE;
+	m_bShowSelection = true;
 	texttype = CFileTextLines::AUTOTYPE;
 	m_bViewWhitespace = CRegDWORD(_T("Software\\TortoiseMerge\\ViewWhitespaces"), 1);
 	m_bViewLinenumbers = CRegDWORD(_T("Software\\TortoiseMerge\\ViewLinenumbers"), 1);
@@ -493,23 +490,8 @@ int CBaseView::GetLineActualLength(int index) const
 {
 	if (m_pViewData == NULL)
 		return 0;
-	const CString& sLine = m_pViewData->GetLine(index);
-	const TCHAR*pLine = (LPCTSTR)sLine;
-	
-	int nTabSize = GetTabSize();
-	int nLineLength = 0;
 
-	int len = sLine.GetLength();
-	for (int i=0; i<len; i++)
-	{
-		if (pLine[i] == _T('\t'))
-			nLineLength += (nTabSize - nLineLength % nTabSize);
-		else
-			nLineLength ++;
-	}
-
-	ASSERT(nLineLength >= 0);
-	return nLineLength;
+	return CalculateActualOffset(index, GetLineLength(index));
 }
 
 int CBaseView::GetLineLength(int index) const
@@ -1238,11 +1220,11 @@ void CBaseView::DrawBlockLine(CDC *pDC, const CRect &rc, int nLineIndex)
 {
 	const int THICKNESS = 2;
 	COLORREF rectcol = GetSysColor(m_bFocused ? COLOR_WINDOWTEXT : COLOR_GRAYTEXT);
-	if ((nLineIndex == m_nDiffBlockStart) || (nLineIndex == m_nSelBlockStart))
+	if ((nLineIndex == m_nSelBlockStart) && m_bShowSelection)
 	{
 		pDC->FillSolidRect(rc.left, rc.top, rc.Width(), THICKNESS, rectcol);
 	}		
-	if ((nLineIndex == m_nDiffBlockEnd) || (nLineIndex == m_nSelBlockEnd))
+	if ((nLineIndex == m_nSelBlockEnd) && m_bShowSelection)
 	{
 		pDC->FillSolidRect(rc.left, rc.bottom - THICKNESS, rc.Width(), THICKNESS, rectcol);
 	}
@@ -1257,25 +1239,28 @@ void CBaseView::DrawText(
 	// first suppose the whole line is selected
 	int selectedStart = 0, selectedEnd = textlength;
 	
-	if ((m_ptSelectionDrawStartPos.y > nLineIndex) || (m_ptSelectionDrawEndPos.y < nLineIndex))
+	if ((m_ptSelectionStartPos.y > nLineIndex) || (m_ptSelectionEndPos.y < nLineIndex)
+		|| ! m_bShowSelection)
 	{
 		// this line has no selected text
 		selectedStart = textlength;
 	}
-	else if ((m_ptSelectionDrawStartPos.y == nLineIndex) || (m_ptSelectionDrawEndPos.y == nLineIndex))
+	else if ((m_ptSelectionStartPos.y == nLineIndex) || (m_ptSelectionEndPos.y == nLineIndex))
 	{
 		// the line is partially selected
 		int xoffs = m_nOffsetChar + (coords.x - GetMarginWidth()) / GetCharWidth();
-		if (m_ptSelectionDrawStartPos.y == nLineIndex)
+		if (m_ptSelectionStartPos.y == nLineIndex)
 		{
 			// the first line of selection
-			selectedStart = max(min(m_ptSelectionDrawStartPos.x - xoffs, textlength), 0);
+			int nSelectionStartOffset = CalculateActualOffset(m_ptSelectionStartPos.y, m_ptSelectionStartPos.x);
+			selectedStart = max(min(nSelectionStartOffset - xoffs, textlength), 0);
 		}
 
-		if (m_ptSelectionDrawEndPos.y == nLineIndex)
+		if (m_ptSelectionEndPos.y == nLineIndex)
 		{
 			// the last line of selection
-			selectedEnd = max(min(m_ptSelectionDrawEndPos.x - xoffs, textlength), 0);
+			int nSelectionEndOffset = CalculateActualOffset(m_ptSelectionEndPos.y, m_ptSelectionEndPos.x);
+			selectedEnd = max(min(nSelectionEndOffset - xoffs, textlength), 0);
 		}
 	}
 
@@ -1672,8 +1657,9 @@ int CBaseView::GetLineFromPoint(CPoint point)
 	return (((point.y - HEADERHEIGHT) / GetLineHeight()) + m_nTopLine);
 }
 
-void CBaseView::OnContextMenu(CPoint /*point*/, int /*nLine*/, DiffStates /*state*/)
+bool CBaseView::OnContextMenu(CPoint /*point*/, int /*nLine*/, DiffStates /*state*/)
 {
+	return false;
 }
 
 void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
@@ -1715,7 +1701,10 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 					m_nSelBlockEnd = nIndex;
 				else
 					m_nSelBlockEnd = nIndex-1;
-				Invalidate();
+				SetupSelection(m_nSelBlockStart, m_nSelBlockEnd);
+				m_ptCaretPos.x = 0;
+				m_ptCaretPos.y = nLine - 1;
+				UpdateCaret();
 			}
 		}
 		if (((state == DIFFSTATE_NORMAL)||(state == DIFFSTATE_UNKNOWN)) &&
@@ -1729,9 +1718,9 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 					break;
 			}
 		}
-		OnContextMenu(point, nLine, state);
-		m_nSelBlockStart = -1;
-		m_nSelBlockEnd = -1;
+		bool bKeepSelection = OnContextMenu(point, nLine, state);
+		if (! bKeepSelection)
+			ClearSelection();
 		RefreshViews();
 	}
 }
@@ -1777,50 +1766,35 @@ void CBaseView::GoToFirstDifference()
 		{
 			m_pwndLeft->m_ptCaretPos.x = 0;
 			m_pwndLeft->m_ptCaretPos.y = nCenterPos;
+			m_pwndLeft->m_nCaretGoalPos = 0;
 		}
 		if (m_pwndRight)
 		{
 			m_pwndRight->m_ptCaretPos.x = 0;
 			m_pwndRight->m_ptCaretPos.y = nCenterPos;
+			m_pwndRight->m_nCaretGoalPos = 0;
 		}
 		if (m_pwndBottom)
 		{
 			m_pwndBottom->m_ptCaretPos.x = 0;
 			m_pwndBottom->m_ptCaretPos.y = nCenterPos;
+			m_pwndBottom->m_nCaretGoalPos = 0;
 		}
 		ScrollAllToLine(nTopPos);
 		RecalcAllVertScrollBars(TRUE);
 	}
 }
 
-void CBaseView::SetupDiffBars(int start, int end)
-{
-	if (IsBottomViewGood())
-	{
-		m_pwndBottom->m_nDiffBlockStart = start;
-		m_pwndBottom->m_nDiffBlockEnd = end;
-		m_pwndBottom->Invalidate();
-	}
-	if (IsLeftViewGood())
-	{
-		m_pwndLeft->m_nDiffBlockStart = start;
-		m_pwndLeft->m_nDiffBlockEnd = end;
-		m_pwndLeft->Invalidate();
-	}
-	if (IsRightViewGood())
-	{
-		m_pwndRight->m_nDiffBlockStart = start;
-		m_pwndRight->m_nDiffBlockEnd = end;
-		m_pwndRight->Invalidate();
-	}
-}
-
 void CBaseView::HiglightLines(int start, int end /* = -1 */)
 {
-	m_nDiffBlockStart = start;
+	ClearSelection();
+	m_nSelBlockStart = start;
 	if (end < 0)
 		end = start;
-	m_nDiffBlockEnd = end;
+	m_nSelBlockEnd = end;
+	m_ptCaretPos.x = 0;
+	m_ptCaretPos.y = start;
+	UpdateCaret();
 	Invalidate();
 }
 
@@ -1848,211 +1822,85 @@ void CBaseView::SetupSelection(int start, int end)
 
 void CBaseView::OnMergePreviousconflict()
 {
-	int nCenterPos = m_nTopLine + (GetScreenLines()/2);
-	if ((m_nSelBlockStart >= 0)&&(m_nSelBlockEnd >= 0))
-		nCenterPos = m_nSelBlockStart;
-	if ((m_pViewData)&&(m_nTopLine < m_pViewData->GetCount()))
-	{
-		if (nCenterPos >= m_pViewData->GetCount())
-			nCenterPos = m_pViewData->GetCount()-1;
-		DiffStates state = m_pViewData->GetState(nCenterPos);
-		while ((nCenterPos >= 0) &&
-			(m_pViewData->GetState(nCenterPos--)==state))
-			;
-		if (nCenterPos < (m_pViewData->GetCount()-1))
-			nCenterPos++;
-		while (nCenterPos >= 0)
-		{
-			DiffStates linestate = m_pViewData->GetState(nCenterPos);
-			if ((linestate == DIFFSTATE_CONFLICTADDED) ||
-				(linestate == DIFFSTATE_CONFLICTED_IGNORED) ||
-				(linestate == DIFFSTATE_CONFLICTED) ||
-				(linestate == DIFFSTATE_CONFLICTEMPTY))
-				break;
-			nCenterPos--;
-		}
-		if (nCenterPos < 0)
-			nCenterPos = 0;
-		m_nSelBlockStart = nCenterPos;
-		m_nSelBlockEnd = nCenterPos;
-		DiffStates linestate = m_pViewData->GetState(nCenterPos);
-		while ((m_nSelBlockStart < (m_pViewData->GetCount()-1))&&(m_nSelBlockStart > 0))
-		{
-			if (linestate != m_pViewData->GetState(--m_nSelBlockStart))
-				break;
-		}
-		if (((m_nSelBlockStart == (m_pViewData->GetCount()-1))&&(linestate == m_pViewData->GetState(m_nSelBlockStart)))||m_nSelBlockStart==0)
-			m_nSelBlockStart = m_nSelBlockStart;
-		else
-			m_nSelBlockStart = m_nSelBlockStart+1;
-		int nTopPos = nCenterPos - (GetScreenLines()/2);
-		if (nTopPos < 0)
-			nTopPos = 0;
-		ScrollAllToLine(nTopPos, FALSE);
-		RecalcAllVertScrollBars(TRUE);
-		SetupSelection(m_nSelBlockStart, m_nSelBlockEnd);
-		SetupDiffBars(m_nDiffBlockStart, m_nDiffBlockEnd);
-		m_ptCaretPos.x = 0;
-		m_ptCaretPos.y = m_nSelBlockEnd;
-		UpdateCaret();
-		ShowDiffLines(m_nDiffBlockStart);
-	}
+	SelectNextBlock(-1, true);
 }
 
 void CBaseView::OnMergeNextconflict()
 {
-	int nCenterPos = m_nTopLine + (GetScreenLines()/2);
-	if ((m_nSelBlockStart >= 0)&&(m_nSelBlockEnd >= 0))
-		nCenterPos = m_nSelBlockEnd;
-	if ((m_pViewData)&&(m_nTopLine < m_pViewData->GetCount()))
-	{
-		if (nCenterPos >= m_pViewData->GetCount())
-			nCenterPos = m_pViewData->GetCount()-1;
-		DiffStates state = m_pViewData->GetState(nCenterPos);
-		while ((nCenterPos < m_pViewData->GetCount()) &&
-			(m_pViewData->GetState(nCenterPos++)==state))
-			;
-		if (nCenterPos > 0)
-			nCenterPos--;
-		while (nCenterPos < m_pViewData->GetCount())
-		{
-			DiffStates linestate = m_pViewData->GetState(nCenterPos);
-			if ((linestate == DIFFSTATE_CONFLICTADDED) ||
-				(linestate == DIFFSTATE_CONFLICTED_IGNORED) ||
-				(linestate == DIFFSTATE_CONFLICTED) ||
-				(linestate == DIFFSTATE_CONFLICTEMPTY))
-				break;
-			nCenterPos++;
-		}
-		if (nCenterPos > (m_pViewData->GetCount()-1))
-			nCenterPos = m_pViewData->GetCount()-1;
-		m_nSelBlockStart = nCenterPos;
-		m_nSelBlockEnd = nCenterPos;
-		DiffStates linestate = m_pViewData->GetState(nCenterPos);
-		while (m_nSelBlockEnd < (m_pViewData->GetCount()-1))
-		{
-			if (linestate != m_pViewData->GetState(++m_nSelBlockEnd))
-				break;
-		}
-		if ((m_nSelBlockEnd == (m_pViewData->GetCount()-1))&&(linestate == m_pViewData->GetState(m_nSelBlockEnd)))
-			m_nSelBlockEnd = m_nSelBlockEnd;
-		else
-			m_nSelBlockEnd = m_nSelBlockEnd-1;
-		int nTopPos = nCenterPos - (GetScreenLines()/2);
-		if (nTopPos < 0)
-			nTopPos = 0;
-		ScrollAllToLine(nTopPos, FALSE);
-		RecalcAllVertScrollBars(TRUE);
-		SetupSelection(m_nSelBlockStart, m_nSelBlockEnd);
-		SetupDiffBars(m_nDiffBlockStart, m_nDiffBlockEnd);
-		m_ptCaretPos.x = 0;
-		m_ptCaretPos.y = m_nSelBlockStart;
-		UpdateCaret();
-		ShowDiffLines(m_nDiffBlockStart);
-	}
+	SelectNextBlock(1, true);
 }
 
 void CBaseView::OnMergeNextdifference()
 {
-	int nCenterPos = m_nTopLine + (GetScreenLines()/2);
-	if ((m_nDiffBlockStart >= 0)&&(m_nDiffBlockEnd >= 0))
-		nCenterPos = m_nDiffBlockEnd;
-	if ((m_pViewData)&&(m_nTopLine < m_pViewData->GetCount()))
-	{
-		if (nCenterPos >= m_pViewData->GetCount())
-			nCenterPos = m_pViewData->GetCount()-1;
-		DiffStates state = m_pViewData->GetState(nCenterPos);
-		while ((nCenterPos < m_pViewData->GetCount()) &&
-			(m_pViewData->GetState(nCenterPos++)==state))
-			;
-		if (nCenterPos > 0)
-			nCenterPos--;
-		while (nCenterPos < m_pViewData->GetCount())
-		{
-			DiffStates linestate = m_pViewData->GetState(nCenterPos);
-			if ((linestate != DIFFSTATE_NORMAL) &&
-				(linestate != DIFFSTATE_UNKNOWN))
-				break;
-			nCenterPos++;
-		}
-		if (nCenterPos > (m_pViewData->GetCount()-1))
-			nCenterPos = m_pViewData->GetCount()-1;
-		m_nDiffBlockStart = nCenterPos;
-		m_nDiffBlockEnd = nCenterPos;
-		DiffStates linestate = m_pViewData->GetState(nCenterPos);
-		while (m_nDiffBlockEnd < (m_pViewData->GetCount()-1))
-		{
-			if (linestate != m_pViewData->GetState(++m_nDiffBlockEnd))
-				break;
-		}
-		if ((m_nDiffBlockEnd == (m_pViewData->GetCount()-1))&&(linestate == m_pViewData->GetState(m_nDiffBlockEnd)))
-			m_nDiffBlockEnd = m_nDiffBlockEnd;
-		else
-			m_nDiffBlockEnd = m_nDiffBlockEnd-1;
-		int nTopPos = nCenterPos - (GetScreenLines()/2);
-		if (nTopPos < 0)
-			nTopPos = 0;
-			
-		SetupSelection(m_nDiffBlockStart, m_nDiffBlockEnd);
-		ScrollAllToLine(nTopPos, FALSE);
-		RecalcAllVertScrollBars(TRUE);
-		SetupDiffBars(m_nDiffBlockStart, m_nDiffBlockEnd);
-		m_ptCaretPos.x = 0;
-		m_ptCaretPos.y = m_nDiffBlockStart;
-		UpdateCaret();
-		ShowDiffLines(m_nDiffBlockStart);
-	}
+	SelectNextBlock(1, false);
 }
 
 void CBaseView::OnMergePreviousdifference()
 {
-	int nCenterPos = m_nTopLine + (GetScreenLines()/2);
-	if ((m_nDiffBlockStart >= 0)&&(m_nDiffBlockEnd >= 0))
-		nCenterPos = m_nDiffBlockStart;
-	if ((m_pViewData)&&(m_nTopLine < m_pViewData->GetCount()))
+	SelectNextBlock(-1, false);
+}
+
+void CBaseView::SelectNextBlock(int nDirection, bool bConflict)
+{
+	if (! m_pViewData)
+		return;
+
+	int nCenterPos = m_ptCaretPos.y;
+	int nLimit = 0;
+	if (nDirection > 0)
+		nLimit = m_pViewData->GetCount() - 1;
+
+	if (nCenterPos >= m_pViewData->GetCount())
+		nCenterPos = m_pViewData->GetCount()-1;
+
+	// Find end of current block
+	DiffStates state = m_pViewData->GetState(nCenterPos);
+	while ((nCenterPos != nLimit) && 
+		   (m_pViewData->GetState(nCenterPos)==state))
+		nCenterPos += nDirection;
+
+	// Find next diff/conflict block
+	while (nCenterPos != nLimit)
 	{
-		if (nCenterPos >= m_pViewData->GetCount())
-			nCenterPos = m_pViewData->GetCount()-1;
-		DiffStates state = m_pViewData->GetState(nCenterPos);
-		while ((nCenterPos >= 0) &&
-			(m_pViewData->GetState(nCenterPos--)==state))
-			;
-		if (nCenterPos < (m_pViewData->GetCount()-1))
-			nCenterPos++;
-		while (nCenterPos >= 0)
-		{
-			DiffStates linestate = m_pViewData->GetState(nCenterPos);
-			if ((linestate != DIFFSTATE_NORMAL) &&
-				(linestate != DIFFSTATE_UNKNOWN))
-				break;
-			nCenterPos--;
-		}
-		if (nCenterPos < 0)
-			nCenterPos = 0;
-		m_nDiffBlockStart = nCenterPos;
-		m_nDiffBlockEnd = nCenterPos;
 		DiffStates linestate = m_pViewData->GetState(nCenterPos);
-		while ((m_nDiffBlockStart < (m_pViewData->GetCount()-1))&&(m_nDiffBlockStart > 0))
-		{
-			if (linestate != m_pViewData->GetState(--m_nDiffBlockStart))
-				break;
-		}
-		if (((m_nDiffBlockStart == (m_pViewData->GetCount()-1))&&(linestate == m_pViewData->GetState(m_nDiffBlockStart)))||m_nDiffBlockStart==0)
-			m_nDiffBlockStart = m_nDiffBlockStart;
-		else
-			m_nDiffBlockStart = m_nDiffBlockStart+1;
-		int nTopPos = nCenterPos - (GetScreenLines()/2);
-		if (nTopPos < 0)
-			nTopPos = 0;
-		SetupSelection(m_nDiffBlockStart, m_nDiffBlockEnd);
-		ScrollAllToLine(nTopPos, FALSE);
-		RecalcAllVertScrollBars(TRUE);
-		SetupDiffBars(m_nDiffBlockStart, m_nDiffBlockEnd);
-		m_ptCaretPos.x = 0;
-		m_ptCaretPos.y = m_nDiffBlockEnd;
-		UpdateCaret();
-		ShowDiffLines(m_nDiffBlockStart);
+		if (!bConflict &&
+			(linestate != DIFFSTATE_NORMAL) &&
+			(linestate != DIFFSTATE_UNKNOWN))
+			break;
+		if (bConflict &&
+			((linestate == DIFFSTATE_CONFLICTADDED) ||
+			 (linestate == DIFFSTATE_CONFLICTED_IGNORED) ||
+			 (linestate == DIFFSTATE_CONFLICTED) ||
+			 (linestate == DIFFSTATE_CONFLICTEMPTY)))
+			break;
+
+		nCenterPos += nDirection;
 	}
+
+	// Find end of new block
+	state = m_pViewData->GetState(nCenterPos);
+	int nBlockEnd = nCenterPos;
+	while ((nBlockEnd != nLimit) &&  
+		   (state == m_pViewData->GetState(nBlockEnd + nDirection)))
+		nBlockEnd += nDirection;
+
+	int nTopPos = nCenterPos - (GetScreenLines()/2);
+	if (nTopPos < 0)
+		nTopPos = 0;
+
+	m_ptCaretPos.x = 0;
+	m_ptCaretPos.y = nCenterPos;
+	ClearSelection();
+	if (nDirection > 0)
+		SetupSelection(nCenterPos, nBlockEnd);
+	else
+		SetupSelection(nBlockEnd, nCenterPos);
+
+	ScrollAllToLine(nTopPos, FALSE);
+	RecalcAllVertScrollBars(TRUE);
+	m_nCaretGoalPos = 0;
+	UpdateCaret();
+	ShowDiffLines(nCenterPos);
 }
 
 BOOL CBaseView::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pResult)
@@ -2141,29 +1989,31 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	{
 	case VK_PRIOR:
 		{
-			bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
 			m_ptCaretPos.y -= GetScreenLines();
-            m_ptCaretPos.y = max(m_ptCaretPos.y, 0);
+			m_ptCaretPos.y = max(m_ptCaretPos.y, 0);
+			m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nCaretGoalPos);
 			if (bShift)
-				AdjustSelection(bStartSelection, false);
+				AdjustSelection();
 			else
 				ClearSelection();
-			EnsureCaretVisible();
 			UpdateCaret();
+			EnsureCaretVisible();
+			ShowDiffLines(m_ptCaretPos.y);
 		}
 		break;
 	case VK_NEXT:
 		{
-			bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
 			m_ptCaretPos.y += GetScreenLines();
-            if (m_ptCaretPos.y >= GetLineCount())
-                m_ptCaretPos.y = GetLineCount()-1;
+			if (m_ptCaretPos.y >= GetLineCount())
+				m_ptCaretPos.y = GetLineCount()-1;
+			m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nCaretGoalPos);
 			if (bShift)
-				AdjustSelection(bStartSelection, true);
+				AdjustSelection();
 			else
 				ClearSelection();
-			EnsureCaretVisible();
 			UpdateCaret();
+			EnsureCaretVisible();
+			ShowDiffLines(m_ptCaretPos.y);
 		}
 		break;
 	case VK_HOME:
@@ -2173,14 +2023,15 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 				ScrollAllToLine(0);
 				m_ptCaretPos.x = 0;
 				m_ptCaretPos.y = 0;
+				m_nCaretGoalPos = 0;
 				UpdateCaret();
 			}
 			else
 			{
-				bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
 				m_ptCaretPos.x = 0;
+				m_nCaretGoalPos = 0;
 				if (bShift)
-					AdjustSelection(bStartSelection, false);
+					AdjustSelection();
 				else
 					ClearSelection();
 				EnsureCaretVisible();
@@ -2195,14 +2046,15 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 				ScrollAllToLine(GetLineCount()-GetAllMinScreenLines());
 				m_ptCaretPos.y = GetLineCount()-1;
 				m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
+				UpdateGoalPos();
 				UpdateCaret();
 			}
 			else
 			{
-				bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
 				m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
+				UpdateGoalPos();
 				if (bShift)
-					AdjustSelection(bStartSelection, true);
+					AdjustSelection();
 				else
 					ClearSelection();
 				EnsureCaretVisible();
@@ -2215,76 +2067,14 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			if (m_bCaretHidden)
 				break;
 
-			if (HasTextSelection())
-			{
-				RemoveSelectedText();
+			if (! HasTextSelection()) {
+				if (m_ptCaretPos.y == 0 && m_ptCaretPos.x == 0)
+					break;
+				m_ptSelectionEndPos = m_ptCaretPos;
+				MoveCaretLeft();
+				m_ptSelectionStartPos = m_ptCaretPos;
 			}
-			else if (m_ptCaretPos.x)
-			{
-				AddUndoLine(m_ptCaretPos.y);
-				CString sLine = GetLineChars(m_ptCaretPos.y);
-				sLine.Delete(m_ptCaretPos.x-1);
-				if (m_pViewData)
-				{
-					m_pViewData->SetLine(m_ptCaretPos.y, sLine);
-					m_pViewData->SetState(m_ptCaretPos.y, DIFFSTATE_EDITED);
-				}
-				m_ptCaretPos.x--;
-				ClearSelection();
-				EnsureCaretVisible();
-				UpdateCaret();
-				SetModified(true);
-				Invalidate(FALSE);
-			}
-			else
-			{
-				// append the line to the previous one, remove the line, then move the cursor a line up
-				if (m_ptCaretPos.y && m_pViewData)
-				{
-					viewstate rightstate;
-					viewstate bottomstate;
-					viewstate leftstate;
-					if ((m_pwndLeft)&&(m_pwndLeft->m_pViewData))
-					{
-						leftstate.difflines[m_ptCaretPos.y-1] = m_pwndLeft->m_pViewData->GetLine(m_ptCaretPos.y-1);
-						leftstate.linestates[m_ptCaretPos.y-1] = m_pwndLeft->m_pViewData->GetState(m_ptCaretPos.y-1);
-						leftstate.removedlines[m_ptCaretPos.y] = m_pwndLeft->m_pViewData->GetData(m_ptCaretPos.y);
-					}
-					if ((m_pwndRight)&&(m_pwndRight->m_pViewData))
-					{
-						rightstate.difflines[m_ptCaretPos.y-1] = m_pwndRight->m_pViewData->GetLine(m_ptCaretPos.y-1);
-						rightstate.linestates[m_ptCaretPos.y-1] = m_pwndRight->m_pViewData->GetState(m_ptCaretPos.y-1);
-						rightstate.removedlines[m_ptCaretPos.y] = m_pwndRight->m_pViewData->GetData(m_ptCaretPos.y);
-					}
-					if ((m_pwndBottom)&&(m_pwndBottom->m_pViewData))
-					{
-						bottomstate.difflines[m_ptCaretPos.y-1] = m_pwndBottom->m_pViewData->GetLine(m_ptCaretPos.y-1);
-						bottomstate.linestates[m_ptCaretPos.y-1] = m_pwndBottom->m_pViewData->GetState(m_ptCaretPos.y-1);
-						bottomstate.removedlines[m_ptCaretPos.y] = m_pwndBottom->m_pViewData->GetData(m_ptCaretPos.y);
-					}
-					CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
-
-					m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y-1);
-					if (m_pViewData)
-					{
-						m_pViewData->SetLine(m_ptCaretPos.y-1, 
-							m_pViewData->GetLine(m_ptCaretPos.y-1)+m_pViewData->GetLine(m_ptCaretPos.y));
-						m_pViewData->SetState(m_ptCaretPos.y-1, DIFFSTATE_EDITED);
-					}
-					if (m_pwndLeft)
-						m_pwndLeft->RemoveLine(m_ptCaretPos.y);
-					if (m_pwndRight)
-						m_pwndRight->RemoveLine(m_ptCaretPos.y);
-					if (m_pwndBottom)
-						m_pwndBottom->RemoveLine(m_ptCaretPos.y);
-					m_ptCaretPos.y--;
-					ClearSelection();
-					EnsureCaretVisible();
-					UpdateCaret();
-					SetModified(true);
-					Invalidate(FALSE);
-				}
-			}
+			RemoveSelectedText();
 		}
 		break;
 	case VK_DELETE:
@@ -2292,76 +2082,14 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			if (m_bCaretHidden)
 				break;
 
-			if (HasTextSelection())
-			{
-				RemoveSelectedText();
+			if (! HasTextSelection()) {
+				if (! MoveCaretRight())
+					break;
+				m_ptSelectionEndPos = m_ptCaretPos;
+				MoveCaretLeft();
+				m_ptSelectionStartPos = m_ptCaretPos;
 			}
-			else
-			{
-				AddUndoLine(m_ptCaretPos.y);
-				CString sLine = GetLineChars(m_ptCaretPos.y);
-				if (m_ptCaretPos.x < sLine.GetLength())
-				{
-					sLine.Delete(m_ptCaretPos.x);
-					if (m_pViewData)
-					{
-						m_pViewData->SetLine(m_ptCaretPos.y, sLine);
-						m_pViewData->SetState(m_ptCaretPos.y, DIFFSTATE_EDITED);
-					}
-					ClearSelection();
-					EnsureCaretVisible();
-					UpdateCaret();
-					SetModified(true);
-					Invalidate(FALSE);
-				}
-				else
-				{
-					// append the next line to this one, remove the next line
-					if (m_ptCaretPos.y < (GetLineCount()-1))
-					{
-						viewstate rightstate;
-						viewstate bottomstate;
-						viewstate leftstate;
-						if ((m_pwndLeft)&&(m_pwndLeft->m_pViewData))
-						{
-							leftstate.difflines[m_ptCaretPos.y] = m_pwndLeft->m_pViewData->GetLine(m_ptCaretPos.y);
-							leftstate.linestates[m_ptCaretPos.y] = m_pwndLeft->m_pViewData->GetState(m_ptCaretPos.y);
-							leftstate.removedlines[m_ptCaretPos.y+1] = m_pwndLeft->m_pViewData->GetData(m_ptCaretPos.y+1);
-						}
-						if ((m_pwndRight)&&(m_pwndRight->m_pViewData))
-						{
-							rightstate.difflines[m_ptCaretPos.y] = m_pwndRight->m_pViewData->GetLine(m_ptCaretPos.y);
-							rightstate.linestates[m_ptCaretPos.y] = m_pwndRight->m_pViewData->GetState(m_ptCaretPos.y);
-							rightstate.removedlines[m_ptCaretPos.y+1] = m_pwndRight->m_pViewData->GetData(m_ptCaretPos.y+1);
-						}
-						if ((m_pwndBottom)&&(m_pwndBottom->m_pViewData))
-						{
-							bottomstate.difflines[m_ptCaretPos.y] = m_pwndBottom->m_pViewData->GetLine(m_ptCaretPos.y);
-							bottomstate.linestates[m_ptCaretPos.y] = m_pwndBottom->m_pViewData->GetState(m_ptCaretPos.y);
-							bottomstate.removedlines[m_ptCaretPos.y+1] = m_pwndBottom->m_pViewData->GetData(m_ptCaretPos.y+1);
-						}
-						CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
-
-						sLine = GetLineChars(m_ptCaretPos.y+1);
-						if (m_pViewData)
-						{
-							m_pViewData->SetLine(m_ptCaretPos.y, m_pViewData->GetLine(m_ptCaretPos.y)+sLine);
-							m_pViewData->SetState(m_ptCaretPos.y, DIFFSTATE_EDITED);
-						}
-						if (m_pwndLeft)
-							m_pwndLeft->RemoveLine(m_ptCaretPos.y+1);
-						if (m_pwndRight)
-							m_pwndRight->RemoveLine(m_ptCaretPos.y+1);
-						if (m_pwndBottom)
-							m_pwndBottom->RemoveLine(m_ptCaretPos.y+1);
-						ClearSelection();
-						EnsureCaretVisible();
-						UpdateCaret();
-						SetModified(true);
-						Invalidate(FALSE);
-					}
-				}
-			}
+			RemoveSelectedText();
 		}
 		break;
 	}
@@ -2374,60 +2102,21 @@ void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
 	nClickedLine--;		//we need the index
 	if ((nClickedLine >= m_nTopLine)&&(nClickedLine < GetLineCount()))
 	{
-		m_nDiffBlockEnd = -1;
-		m_nDiffBlockStart = -1;
+		m_ptCaretPos.y = nClickedLine;
+		m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth());
+		UpdateGoalPos();
+
 		if (nFlags & MK_SHIFT)
-		{
-			if (m_nSelBlockStart > nClickedLine)
-				m_nSelBlockStart = nClickedLine;
-			else if ((m_nSelBlockEnd < nClickedLine)&&(m_nSelBlockStart >= 0))
-				m_nSelBlockEnd = nClickedLine;
-			else
-			{
-				m_nSelBlockStart = m_nSelBlockEnd = nClickedLine;
-			}
-		}
+			AdjustSelection();
+		else if ((m_nSelBlockStart == nClickedLine) && (m_nSelBlockEnd == nClickedLine))
+			// deselect!
+			ClearSelection();
 		else
 		{
-			if ((m_nSelBlockStart == nClickedLine) && (m_nSelBlockEnd == nClickedLine))
-			{
-				// deselect!
-				m_nSelBlockStart = -1;
-				m_nSelBlockEnd = -1;
-			}
-			else
-			{
-				// select the line
-				m_nSelBlockStart = m_nSelBlockEnd = nClickedLine;
-			}
-		}
-		SetupSelection(m_nSelBlockStart, m_nSelBlockEnd);
-
-		m_ptCaretPos.y = nClickedLine;
-		m_ptCaretPos.x = m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth();
-		// the caret x position is the char in the line. We have to check whether
-		// there are tabs before the current char x position and adjust the caret
-		// x position accordingly
-		CString line = GetLineChars(m_ptCaretPos.y);
-		int nOff = 0;
-		while ((nOff >= 0) && (nOff <= m_ptCaretPos.x))
-		{
-			nOff = line.Find('\t', nOff);
-			if ((nOff >= 0)&&(nOff <= m_ptCaretPos.x))
-			{
-				m_ptCaretPos.x -= (GetTabSize()-1);
-				nOff++;
-			}
+			ClearSelection();
+			SetupSelection(m_ptCaretPos.y, m_ptCaretPos.y);
 		}
 
-		m_ptCaretPos.x = min(m_ptCaretPos.x, GetLineLength(nClickedLine));
-		m_ptCaretPos.x = max(m_ptCaretPos.x, 0);
-		m_ptSelectionStartPos = m_ptCaretPos;
-		m_ptSelectionEndPos = m_ptCaretPos;
-		m_ptSelectionDrawStartPos = m_ptCaretPos;
-		m_ptSelectionDrawEndPos = m_ptCaretPos;
-		m_ptSelectionDrawStartPos.x = CalculateActualOffset(m_ptSelectionDrawStartPos.y, m_ptSelectionDrawStartPos.x);
-		m_ptSelectionDrawEndPos.x = CalculateActualOffset(m_ptSelectionDrawEndPos.y, m_ptSelectionDrawEndPos.x);
 		UpdateCaret();
 
 		Invalidate();
@@ -2474,39 +2163,9 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
 			((nMouseLine >= m_nTopLine)&&(nMouseLine < GetLineCount())))
 		{
 			m_ptCaretPos.y = nMouseLine;
-			m_ptCaretPos.x = m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth();
-			// the caret x position is the char in the line. We have to check whether
-			// there are tabs before the current char x position and adjust the caret
-			// x position accordingly
-			CString line = GetLineChars(m_ptCaretPos.y);
-			int nOff = 0;
-			while ((nOff >= 0) && (nOff <= m_ptCaretPos.x))
-			{
-				nOff = line.Find('\t', nOff);
-				if ((nOff >= 0)&&(nOff <= m_ptCaretPos.x))
-				{
-					m_ptCaretPos.x -= (GetTabSize()-1);
-					nOff++;
-				}
-			}
-			m_ptCaretPos.x = min(m_ptCaretPos.x, GetLineActualLength(nMouseLine));
-			m_ptCaretPos.x = max(m_ptCaretPos.x, 0);
-			if ((m_ptSelectionStartPos.y < m_ptCaretPos.y)||
-				((m_ptSelectionStartPos.y == m_ptCaretPos.y)&&(m_ptSelectionStartPos.x < m_ptCaretPos.x)))
-			{
-				m_ptSelectionEndPos = m_ptCaretPos;
-			}
-			else
-			{
-				m_ptSelectionStartPos = m_ptCaretPos;
-			}
-			m_ptSelectionDrawStartPos = m_ptSelectionStartPos;
-			m_ptSelectionDrawEndPos = m_ptSelectionEndPos;
-			m_ptSelectionDrawStartPos.x = CalculateActualOffset(m_ptSelectionDrawStartPos.y, m_ptSelectionDrawStartPos.x);
-			m_ptSelectionDrawEndPos.x = CalculateActualOffset(m_ptSelectionDrawEndPos.y, m_ptSelectionDrawEndPos.x);
-			m_nSelBlockStart = m_ptSelectionStartPos.y;
-			m_nSelBlockEnd = m_ptSelectionEndPos.y;
-			SetupSelection(m_nSelBlockStart, m_nSelBlockEnd);
+			m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth());
+			UpdateGoalPos();
+			AdjustSelection();
 			UpdateCaret();
 			Invalidate();
 			UpdateWindow();
@@ -2550,8 +2209,8 @@ void CBaseView::ShowDiffLines(int nLine)
 
 void CBaseView::UseTheirAndYourBlock(viewstate &rightstate, viewstate &bottomstate, viewstate &leftstate)
 {
-    if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
-        return;
+	if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
+		return;
 	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 	{
 		bottomstate.difflines[i] = m_pwndBottom->m_pViewData->GetLine(i);
@@ -2596,8 +2255,8 @@ void CBaseView::UseTheirAndYourBlock(viewstate &rightstate, viewstate &bottomsta
 
 void CBaseView::UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomstate, viewstate &leftstate)
 {
-    if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
-        return;
+	if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
+		return;
 	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 	{
 		bottomstate.difflines[i] = m_pwndBottom->m_pViewData->GetLine(i);
@@ -2645,8 +2304,8 @@ void CBaseView::UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomsta
 
 void CBaseView::UseBothRightFirst(viewstate &rightstate, viewstate &leftstate)
 {
-    if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
-        return;
+	if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
+		return;
 	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
 	{
 		rightstate.linestates[i] = m_pwndRight->m_pViewData->GetState(i);
@@ -2673,8 +2332,8 @@ void CBaseView::UseBothRightFirst(viewstate &rightstate, viewstate &leftstate)
 	// now insert an empty block in the left view
 	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
 	{
-		leftstate.addedlines.push_back(m_nSelBlockEnd+1);
-		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockEnd+1, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
+		leftstate.addedlines.push_back(m_nSelBlockStart);
+		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockStart, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
 	}
 	RecalcAllVertScrollBars();
 	m_pwndLeft->SetModified();
@@ -2683,8 +2342,8 @@ void CBaseView::UseBothRightFirst(viewstate &rightstate, viewstate &leftstate)
 
 void CBaseView::UseBothLeftFirst(viewstate &rightstate, viewstate &leftstate)
 {
-    if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
-        return;
+	if ((m_nSelBlockStart == -1)||(m_nSelBlockEnd == -1))
+		return;
 	// get line number from just before the block
 	long linenumber = 0;
 	if (m_nSelBlockStart > 0)
@@ -2703,11 +2362,11 @@ void CBaseView::UseBothLeftFirst(viewstate &rightstate, viewstate &leftstate)
 			m_pwndRight->m_pViewData->SetLineNumber(i, oldline+(m_nSelBlockEnd-m_nSelBlockStart)+1);
 	}
 
-	// now insert an empty block in both yours and theirs
+	// now insert an empty block in left view
 	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
 	{
-		leftstate.addedlines.push_back(m_nSelBlockStart);
-		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockStart, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
+		leftstate.addedlines.push_back(m_nSelBlockEnd + 1);
+		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockEnd + 1, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
 	}
 	RecalcAllVertScrollBars();
 	m_pwndLeft->SetModified();
@@ -2724,12 +2383,14 @@ void CBaseView::UpdateCaret()
 		m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
 	if (m_ptCaretPos.x < 0)
 		m_ptCaretPos.x = 0;
+
+	int nCaretOffset = CalculateActualOffset(m_ptCaretPos.y, m_ptCaretPos.x);
+
 	if (m_bFocused && !m_bCaretHidden &&
-		CalculateActualOffset(m_ptCaretPos.y, m_ptCaretPos.x) >= m_nOffsetChar &&
 		m_ptCaretPos.y >= m_nTopLine &&
 		m_ptCaretPos.y < (m_nTopLine+GetScreenLines()) &&
-		m_ptCaretPos.x >= m_nOffsetChar &&
-		m_ptCaretPos.x < (m_nOffsetChar+GetScreenChars()))
+		nCaretOffset >= m_nOffsetChar &&
+		nCaretOffset < (m_nOffsetChar+GetScreenChars()))
 	{
 		CreateSolidCaret(2, GetLineHeight());
 		SetCaretPos(TextToClient(m_ptCaretPos));
@@ -2743,17 +2404,19 @@ void CBaseView::UpdateCaret()
 
 void CBaseView::EnsureCaretVisible()
 {
+	int nCaretOffset = CalculateActualOffset(m_ptCaretPos.y, m_ptCaretPos.x);
+
 	if (m_ptCaretPos.y < m_nTopLine)
 		ScrollAllToLine(m_ptCaretPos.y);
 	if (m_ptCaretPos.y >= (m_nTopLine+GetScreenLines()))
 		ScrollAllToLine(m_ptCaretPos.y-GetScreenLines()+1);
-	if (m_ptCaretPos.x < m_nOffsetChar)
-		ScrollToChar(m_ptCaretPos.x);
-	if (CalculateActualOffset(m_ptCaretPos.y, m_ptCaretPos.x) > (m_nOffsetChar+GetScreenChars()-1))
-		ScrollToChar(CalculateActualOffset(m_ptCaretPos.y, m_ptCaretPos.x)-GetScreenChars()+1);
+	if (nCaretOffset < m_nOffsetChar)
+		ScrollToChar(nCaretOffset);
+	if (nCaretOffset > (m_nOffsetChar+GetScreenChars()-1))
+		ScrollToChar(nCaretOffset-GetScreenChars()+1);
 }
 
-int CBaseView::CalculateActualOffset(int nLineIndex, int nCharIndex)
+int CBaseView::CalculateActualOffset(int nLineIndex, int nCharIndex) const
 {
 	int nLength = GetLineLength(nLineIndex);
 	ASSERT(nCharIndex >= 0);
@@ -2772,21 +2435,29 @@ int CBaseView::CalculateActualOffset(int nLineIndex, int nCharIndex)
 	return nOffset;
 }
 
-POINT CBaseView::TextToClient(const POINT& point)
+int	CBaseView::CalculateCharIndex(int nLineIndex, int nActualOffset) const
 {
-	LPCTSTR pszLine = GetLineChars(point.y);
-
-	POINT pt;
-	pt.y = max(0, (point.y - m_nTopLine) * GetLineHeight());
-	pt.x = 0;
+	int nLength = GetLineLength(nLineIndex);
+	LPCTSTR pszLine = GetLineChars(nLineIndex);
+	int nIndex = 0;
+	int nOffset = 0;
 	int nTabSize = GetTabSize();
-	for (int nIndex = 0; nIndex < point.x; nIndex ++)
+	while (nOffset < nActualOffset && nIndex < nLength)
 	{
 		if (pszLine[nIndex] == _T('\t'))
-			pt.x += (nTabSize - pt.x % nTabSize);
+			nOffset += (nTabSize - nOffset % nTabSize);
 		else
-			pt.x++;
+			++nOffset;
+		++nIndex;
 	}
+	return nIndex;
+}
+
+POINT CBaseView::TextToClient(const POINT& point)
+{
+	POINT pt;
+	pt.y = max(0, (point.y - m_nTopLine) * GetLineHeight());
+	pt.x = CalculateActualOffset(point.y, point.x);
 
 	pt.x = (pt.x - m_nOffsetChar) * GetCharWidth() + GetMarginWidth();
 	pt.y = (pt.y + GetLineHeight() + HEADERHEIGHT);
@@ -2812,6 +2483,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		m_pViewData->SetLine(m_ptCaretPos.y, sLine);
 		m_pViewData->SetState(m_ptCaretPos.y, DIFFSTATE_EDITED);
 		m_ptCaretPos.x++;
+		UpdateGoalPos();
 	}
 	else if (nChar == VK_RETURN)
 	{
@@ -2820,6 +2492,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 		// move the cursor to the new line
 		m_ptCaretPos.y++;
 		m_ptCaretPos.x = 0;
+		UpdateGoalPos();
 	}
 	else
 		return; // Unknown control character -- ignore it.
@@ -2944,8 +2617,10 @@ void CBaseView::RemoveSelectedText()
 		}
 	}
 	m_ptCaretPos = m_ptSelectionStartPos;
+	UpdateGoalPos();
 	ClearSelection();
 	UpdateCaret();
+	EnsureCaretVisible();
 	Invalidate(FALSE);
 }
 
@@ -2989,15 +2664,15 @@ void CBaseView::PasteText()
 
 void CBaseView::OnCaretDown()
 {
-	bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
 	m_ptCaretPos.y++;
 	m_ptCaretPos.y = min(m_ptCaretPos.y, GetLineCount()-1);
+	m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nCaretGoalPos);
 	if (GetKeyState(VK_SHIFT)&0x8000)
-		AdjustSelection(bStartSelection, true);
+		AdjustSelection();
 	else
 		ClearSelection();
-	EnsureCaretVisible();
 	UpdateCaret();
+	EnsureCaretVisible();
 	ShowDiffLines(m_ptCaretPos.y);
 }
 
@@ -3015,6 +2690,8 @@ bool CBaseView::MoveCaretLeft()
 	}
 	else
 		--m_ptCaretPos.x;
+
+	UpdateGoalPos();
 	return true;
 }
 
@@ -3032,15 +2709,21 @@ bool CBaseView::MoveCaretRight()
 	}
 	else
 		++m_ptCaretPos.x;
+
+	UpdateGoalPos();
 	return true;
+}
+
+void CBaseView::UpdateGoalPos()
+{
+	m_nCaretGoalPos = CalculateActualOffset(m_ptCaretPos.y, m_ptCaretPos.x);
 }
 
 void CBaseView::OnCaretLeft()
 {
-	bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
 	MoveCaretLeft();
 	if (GetKeyState(VK_SHIFT)&0x8000)
-		AdjustSelection(bStartSelection, false);
+		AdjustSelection();
 	else
 		ClearSelection();
 	EnsureCaretVisible();
@@ -3049,10 +2732,9 @@ void CBaseView::OnCaretLeft()
 
 void CBaseView::OnCaretRight()
 {
-	bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
 	MoveCaretRight();
 	if (GetKeyState(VK_SHIFT)&0x8000)
-		AdjustSelection(bStartSelection, true);
+		AdjustSelection();
 	else
 		ClearSelection();
 	EnsureCaretVisible();
@@ -3061,15 +2743,15 @@ void CBaseView::OnCaretRight()
 
 void CBaseView::OnCaretUp()
 {
-	bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
 	m_ptCaretPos.y--;
 	m_ptCaretPos.y = max(0, m_ptCaretPos.y);
+	m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nCaretGoalPos);
 	if (GetKeyState(VK_SHIFT)&0x8000)
-		AdjustSelection(bStartSelection, false);
+		AdjustSelection();
 	else
 		ClearSelection();
-	EnsureCaretVisible();
 	UpdateCaret();
+	EnsureCaretVisible();
 	ShowDiffLines(m_ptCaretPos.y);
 }
 
@@ -3094,12 +2776,11 @@ bool CBaseView::IsCaretAtWordBoundary() const
 
 void CBaseView::OnCaretWordleft()
 {
-	bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
 	while (MoveCaretLeft() && !IsCaretAtWordBoundary())
 	{
 	}
 	if (GetKeyState(VK_SHIFT)&0x8000)
-		AdjustSelection(bStartSelection, false);
+		AdjustSelection();
 	else
 		ClearSelection();
 	EnsureCaretVisible();
@@ -3108,12 +2789,11 @@ void CBaseView::OnCaretWordleft()
 
 void CBaseView::OnCaretWordright()
 {
-	bool bStartSelection = ((m_ptSelectionStartPos.x == m_ptCaretPos.x)&&(m_ptSelectionStartPos.y == m_ptCaretPos.y));
 	while (MoveCaretRight() && !IsCaretAtWordBoundary())
 	{
 	}
 	if (GetKeyState(VK_SHIFT)&0x8000)
-		AdjustSelection(bStartSelection, true);
+		AdjustSelection();
 	else
 		ClearSelection();
 	EnsureCaretVisible();
@@ -3124,10 +2804,7 @@ void CBaseView::ClearCurrentSelection()
 {
 	m_ptSelectionStartPos = m_ptCaretPos;
 	m_ptSelectionEndPos = m_ptCaretPos;
-	m_ptSelectionDrawStartPos = m_ptSelectionStartPos;
-	m_ptSelectionDrawEndPos = m_ptSelectionEndPos;
-	m_ptSelectionDrawStartPos.x = CalculateActualOffset(m_ptSelectionDrawStartPos.y, m_ptSelectionDrawStartPos.x);
-	m_ptSelectionDrawEndPos.x = CalculateActualOffset(m_ptSelectionDrawEndPos.y, m_ptSelectionDrawEndPos.x);
+	m_ptSelectionOrigin = m_ptCaretPos;
 	m_nSelBlockStart = -1;
 	m_nSelBlockEnd = -1;
 	Invalidate(FALSE);
@@ -3143,28 +2820,21 @@ void CBaseView::ClearSelection()
 		m_pwndBottom->ClearCurrentSelection();
 }
 
-void CBaseView::AdjustSelection(bool bStartSelection, bool bForward)
+void CBaseView::AdjustSelection()
 {
-	if 	((m_ptSelectionStartPos.x == m_ptSelectionEndPos.x)&&(m_ptSelectionStartPos.y == m_ptSelectionEndPos.y))
-		bStartSelection = !bForward;
-
-	if (bStartSelection)
-		m_ptSelectionStartPos = m_ptCaretPos;
-	else
-		m_ptSelectionEndPos = m_ptCaretPos;
-	if ((m_ptSelectionEndPos.y < m_ptSelectionStartPos.y) ||
-		((m_ptSelectionEndPos.y == m_ptSelectionStartPos.y)&&
-		(m_ptSelectionEndPos.x < m_ptSelectionStartPos.x)))
+	if ((m_ptCaretPos.y < m_ptSelectionOrigin.y) || 
+		(m_ptCaretPos.y == m_ptSelectionOrigin.y && m_ptCaretPos.x <= m_ptSelectionOrigin.x))
 	{
-		POINT pt = m_ptSelectionStartPos;
-		m_ptSelectionStartPos = m_ptSelectionEndPos;
-		m_ptSelectionEndPos = pt;
+		m_ptSelectionStartPos = m_ptCaretPos;
+		m_ptSelectionEndPos = m_ptSelectionOrigin;
 	}
 
-	m_ptSelectionDrawStartPos = m_ptSelectionStartPos;
-	m_ptSelectionDrawEndPos = m_ptSelectionEndPos;
-	m_ptSelectionDrawStartPos.x = CalculateActualOffset(m_ptSelectionDrawStartPos.y, m_ptSelectionDrawStartPos.x);
-	m_ptSelectionDrawEndPos.x = CalculateActualOffset(m_ptSelectionDrawEndPos.y, m_ptSelectionDrawEndPos.x);
+	if ((m_ptCaretPos.y > m_ptSelectionOrigin.y) || 
+		(m_ptCaretPos.y == m_ptSelectionOrigin.y && m_ptCaretPos.x >= m_ptSelectionOrigin.x))
+	{
+		m_ptSelectionStartPos = m_ptSelectionOrigin;
+		m_ptSelectionEndPos = m_ptCaretPos;
+	}
 
 	SetupSelection(min(m_ptSelectionStartPos.y, m_ptSelectionEndPos.y), max(m_ptSelectionStartPos.y, m_ptSelectionEndPos.y));
 

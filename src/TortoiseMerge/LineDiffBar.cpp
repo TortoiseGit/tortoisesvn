@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -131,27 +131,24 @@ void CLineDiffBar::OnPaint()
 		{
 			BOOL bViewWhiteSpace = m_pMainFrm->m_pwndLeftView->m_bViewWhitespace;
 			BOOL bInlineDiffs = m_pMainFrm->m_pwndLeftView->m_bShowInlineDiff;
-			int nDiffBlockStart = m_pMainFrm->m_pwndLeftView->m_nDiffBlockStart;
-			int nDiffBlockEnd = m_pMainFrm->m_pwndLeftView->m_nDiffBlockEnd;
+			
 			m_pMainFrm->m_pwndLeftView->m_bViewWhitespace = TRUE;
 			m_pMainFrm->m_pwndLeftView->m_bShowInlineDiff = TRUE;
+			m_pMainFrm->m_pwndLeftView->m_bShowSelection = false;
 			m_pMainFrm->m_pwndRightView->m_bViewWhitespace = TRUE;
 			m_pMainFrm->m_pwndRightView->m_bShowInlineDiff = TRUE;
-			m_pMainFrm->m_pwndLeftView->m_nDiffBlockStart = -1;
-			m_pMainFrm->m_pwndLeftView->m_nDiffBlockEnd = -1;
-			m_pMainFrm->m_pwndRightView->m_nDiffBlockStart = -1;
-			m_pMainFrm->m_pwndRightView->m_nDiffBlockEnd = -1;
+			m_pMainFrm->m_pwndRightView->m_bShowSelection = false;
+
 			// Use left and right view to display lines next to each other
 			m_pMainFrm->m_pwndLeftView->DrawSingleLine(&cacheDC, &upperrect, m_nLineIndex);
 			m_pMainFrm->m_pwndRightView->DrawSingleLine(&cacheDC, &lowerrect, m_nLineIndex);
+
 			m_pMainFrm->m_pwndLeftView->m_bViewWhitespace = bViewWhiteSpace;
 			m_pMainFrm->m_pwndLeftView->m_bShowInlineDiff = bInlineDiffs;
+			m_pMainFrm->m_pwndLeftView->m_bShowSelection = true;
 			m_pMainFrm->m_pwndRightView->m_bViewWhitespace = bViewWhiteSpace;
 			m_pMainFrm->m_pwndRightView->m_bShowInlineDiff = bInlineDiffs;
-			m_pMainFrm->m_pwndLeftView->m_nDiffBlockStart = nDiffBlockStart;
-			m_pMainFrm->m_pwndLeftView->m_nDiffBlockEnd = nDiffBlockEnd;
-			m_pMainFrm->m_pwndRightView->m_nDiffBlockStart = nDiffBlockStart;
-			m_pMainFrm->m_pwndRightView->m_nDiffBlockEnd = nDiffBlockEnd;
+			m_pMainFrm->m_pwndRightView->m_bShowSelection = true;
 		}
 	} 
 

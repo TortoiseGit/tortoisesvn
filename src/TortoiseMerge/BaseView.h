@@ -60,7 +60,7 @@ public:
 	void			ScrollToChar(int nNewOffsetChar, BOOL bTrackScrollBar = TRUE);
 	void			UseCaret(bool bUse = true) {m_bCaretHidden = !bUse;}
 	bool			HasCaret() {return !m_bCaretHidden;}
-	void			SetCaretPosition(POINT pt) {m_ptCaretPos = pt; UpdateCaret();}
+	void			SetCaretPosition(POINT pt) {m_ptCaretPos = pt ; m_nCaretGoalPos = pt.x; UpdateCaret();}
 	void			EnsureCaretVisible();
 	void			UpdateCaret();
 	void			ClearSelection();
@@ -91,6 +91,7 @@ public:
 
 	BOOL			m_bViewWhitespace;	///< If TRUE, then SPACE and TAB are shown as special characters
 	BOOL			m_bShowInlineDiff;	///< If TRUE, diffs in lines are marked colored
+	bool			m_bShowSelection;	///< If true, selection bars are shown and selected text darkened
 	int				m_nTopLine;			///< The topmost text line in the view
 
 	static CLocatorBar * m_pwndLocator;	///< Pointer to the locator bar on the left
@@ -161,7 +162,6 @@ protected:
 	void			OnDoHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar, CBaseView * master);
 	void			OnDoVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar, CBaseView * master);
 
-	void			SetupDiffBars(int start, int end);
 	void			SetupSelection(int start, int end);
 	void			ShowDiffLines(int nLine);
 	
@@ -189,7 +189,8 @@ protected:
 	void			CheckOtherView();
 	static CString	GetWhitespaceBlock(CViewData *viewData, int nLineIndex);
 
-	virtual	void	OnContextMenu(CPoint point, int nLine, DiffStates state);
+	/// Returns true if selection should be kept
+	virtual	bool	OnContextMenu(CPoint point, int nLine, DiffStates state);
 	/**
 	 * Updates the status bar pane. Call this if the document changed.
 	 */
@@ -204,11 +205,13 @@ protected:
 	bool			IsRightViewGood() const {return ((m_pwndRight)&&(m_pwndRight->IsWindowVisible()));}
 	bool			IsBottomViewGood() const {return ((m_pwndBottom)&&(m_pwndBottom->IsWindowVisible()));}
 
-	int				CalculateActualOffset(int nLineIndex, int nCharIndex);
+	int				CalculateActualOffset(int nLineIndex, int nCharIndex) const;
+	int				CalculateCharIndex(int nLineIndex, int nActualOffset) const;
 	POINT			TextToClient(const POINT& point);
 	void			DrawText(CDC * pDC, const CRect &rc, LPCTSTR text, int textlength, int nLineIndex, POINT coords, bool bModified, bool bInlineDiff);
 	void			ClearCurrentSelection();
-	void			AdjustSelection(bool bStartSelection, bool bForward);
+	void			AdjustSelection();
+	void            SelectNextBlock(int nDirection, bool bConflict);
 
 	void			RemoveLine(int nLineIndex);
 	void			RemoveSelectedText();
@@ -217,6 +220,8 @@ protected:
 	
 	bool			MoveCaretLeft();
 	bool			MoveCaretRight();
+	void			UpdateGoalPos();
+
 	bool			IsWordSeparator(wchar_t ch) const;
 	bool			IsCaretAtWordBoundary() const;
 
@@ -244,17 +249,15 @@ protected:
 
 	int				m_nSelBlockStart;
 	int				m_nSelBlockEnd;
-	int				m_nDiffBlockStart;
-	int				m_nDiffBlockEnd;
 
 	int				m_nMouseLine;
 
 	bool			m_bCaretHidden;
 	POINT			m_ptCaretPos;
+	int				m_nCaretGoalPos;
 	POINT			m_ptSelectionStartPos;
 	POINT			m_ptSelectionEndPos;
-	POINT			m_ptSelectionDrawStartPos;
-	POINT			m_ptSelectionDrawEndPos;
+	POINT			m_ptSelectionOrigin;
 
 
 	HICON			m_hAddedIcon;

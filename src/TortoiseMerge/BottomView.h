@@ -36,6 +36,6 @@ public:
 	void UseTheirThenMyTextBlock();
 
 protected:
-	void	OnContextMenu(CPoint point, int nLine, DiffStates state);
+	bool	OnContextMenu(CPoint point, int nLine, DiffStates state);
 	
 };

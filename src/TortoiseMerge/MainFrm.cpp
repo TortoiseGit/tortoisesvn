@@ -569,7 +569,6 @@ bool CMainFrame::LoadViews(bool bRetainPosition)
 	{
 		//diff between YOUR and BASE
 		m_pwndRightView->UseCaret();
-		pwndActiveView = m_pwndRightView;
 		if (m_bOneWay)
 		{
 			if (!m_wndSplitter2.IsColumnHidden(1))
@@ -593,6 +592,7 @@ bool CMainFrame::LoadViews(bool bRetainPosition)
 		}
 		else
 		{
+			pwndActiveView = m_pwndRightView;
 			if (m_wndSplitter2.IsColumnHidden(1))
 				m_wndSplitter2.ShowColumn();
 
@@ -666,8 +666,14 @@ bool CMainFrame::LoadViews(bool bRetainPosition)
 
 	if (bRetainPosition && pwndActiveView->m_pViewData && nOldLineNumber >= 0)
 	{
-		if(int n = pwndActiveView->m_pViewData->FindLineNumber(nOldLineNumber))
+		if (int n = pwndActiveView->m_pViewData->FindLineNumber(nOldLineNumber))
+		{
 			pwndActiveView->ScrollAllToLine(n);
+			POINT p;
+			p.x = 0;
+			p.y = n;
+			pwndActiveView->SetCaretPosition(p);
+		}
 	}
 	else
 	{
