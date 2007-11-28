@@ -653,15 +653,15 @@ void CRevisionInfoContainer::AddChange ( TChangeAction action
 
 	// add changes info (flags), and indicate presence of fromPath (if given)
 
-	*sumChanges.rbegin() |= (char)action;
-	if (fromPath.empty())
-	{
-		changes.push_back ((char)action);
-	}
-	else
-	{
-		changes.push_back ((char)action + HAS_COPY_FROM);
+    char flags = fromPath.empty()
+        ? (char)action 
+        : (char)action | HAS_COPY_FROM;
 
+	*sumChanges.rbegin() |= (char)flags;
+	changes.push_back ((char)flags);
+
+	if (!fromPath.empty())
+	{
 		// add fromPath info
 
 		CDictionaryBasedPath parsedFromPath (&paths, fromPath, false);
