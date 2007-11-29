@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Develop\TSVN\TortoiseSVN\src\Resources\TortoiseProcENG.rc
+// Used by d:\Development\SVN\TortoiseSVN\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MAINFRAME                   1
 #define IDC_USELOCAL                    3
@@ -721,6 +721,8 @@
 #define IDC_MAXLINES                    1428
 #define IDC_DEFAULTOFFLINE              1431
 #define IDC_ASDEFAULTOFFLINE            1431
+#define IDC_CHECK1                      1432
+#define IDC_FORCE                       1432
 #define IDS_CHECKOUT_TT_DIR             1500
 #define IDS_CHECKOUT_EXPORTDIR          1501
 #define IDS_EXPORT_TT_EOL               1505
@@ -1302,7 +1304,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        281
 #define _APS_NEXT_COMMAND_VALUE         32829
-#define _APS_NEXT_CONTROL_VALUE         1432
+#define _APS_NEXT_CONTROL_VALUE         1433
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

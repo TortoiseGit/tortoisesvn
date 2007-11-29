@@ -51,7 +51,7 @@ bool BlameCommand::Execute()
 			options = SVN::GetOptionsString(dlg.m_bIgnoreEOL, dlg.m_IgnoreSpaces);
 		tempfile = blame.BlameToTempFile(cmdLinePath, dlg.StartRev, dlg.EndRev, 
 			cmdLinePath.IsUrl() ? SVNRev() : SVNRev::REV_WC, logfile, 
-			options, TRUE);
+			options, TRUE, dlg.m_bForce);
 		if (!tempfile.IsEmpty())
 		{
 			if (dlg.m_bTextView)

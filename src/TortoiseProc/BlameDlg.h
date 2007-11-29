@@ -54,6 +54,7 @@ protected:
 public:
 	SVNRev	StartRev;
 	SVNRev	EndRev;
+	BOOL	m_bForce;
 	BOOL	m_bTextView;
 	BOOL	m_bIgnoreEOL;
 	svn_diff_file_ignore_space_t	m_IgnoreSpaces;
