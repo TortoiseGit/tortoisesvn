@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-11-15 09:33+0100\n"
+"PO-Revision-Date: 2007-11-30 16:18+0100\n"
 "Last-Translator: Срѓан Стокиќ <srdjan.stokic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -382,6 +382,10 @@ msgstr "&Разлики со URL"
 msgid "&Diff with previous version"
 msgstr "&Разлики со претходна ревизија"
 
+#. Resource IDs: (2)
+msgid "&Don't go offline"
+msgstr "&Не иди offline"
+
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
 msgstr "&Измени"
@@ -589,6 +593,10 @@ msgstr "&Следна разлика"
 msgid "&OK"
 msgstr "&Во ред"
 
+#. Resource IDs: (1)
+msgid "&Offline for now"
+msgstr "&Offline за сега"
+
 #. Resource IDs: (101, 113, 32773)
 msgid "&Open"
 msgstr "&Отвори"
@@ -608,6 +616,10 @@ msgstr "&Лозинка:"
 #. Resource IDs: (376, 501)
 msgid "&Paste"
 msgstr "&Paste"
+
+#. Resource IDs: (1382)
+msgid "&Permanently offline"
+msgstr "&Перманентно offline"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -2799,6 +2811,10 @@ msgstr "За помош, притисни F1. Скролувај хоризон�
 msgid "For complete history deselect \"Stop on copy/rename\""
 msgstr "За целосна историја оневозможете го \"Застани на копирање/преименување\""
 
+#. Resource IDs: (1432)
+msgid "Force blame"
+msgstr "Насилно blame"
+
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "Од:"
@@ -2914,6 +2930,10 @@ msgstr "Превземам листа со обединети разлики"
 #. Resource IDs: (65535)
 msgid "Global ignore &pattern:"
 msgstr "Глобален шаблон за &игнорирање"
+
+#. Resource IDs: (280)
+msgid "Go offline?"
+msgstr "Иди Offline?"
 
 #. Resource IDs: (130)
 msgid "Go to line"
@@ -3705,6 +3725,10 @@ msgstr "Најниска прикажана ревизија: %ld - Највис
 msgid "Mail system DLL is invalid."
 msgstr "Неисправен DLL за електронска пошта"
 
+#. Resource IDs: (1431)
+msgid "Make this the default"
+msgstr "Направи го ова основно"
+
 #. Resource IDs: (17)
 msgid "Manage Subversion properties"
 msgstr "Управување со Subversion својствата"
@@ -4087,10 +4111,6 @@ msgstr "Вообичаено"
 #. Resource IDs: (3857)
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Не сите системски вредности во registry (или INI датотеката) се отстранети."
-
-#. Resource IDs: (20)
-msgid "Not descending"
-msgstr "Не е опаѓачки"
 
 #. Resource IDs: (83)
 msgid "Not enough memory to complete operation."
@@ -5049,8 +5069,8 @@ msgid "SVN Export to here"
 msgstr "SVN Извези тука"
 
 #. Resource IDs: (16)
-msgid "SVN Lock owner"
-msgstr "SVN Власник на клучот"
+msgid "SVN Local lock owner"
+msgstr "SVN Локален влсник на клучот"
 
 #. Resource IDs: (17)
 msgid "SVN Move and rename versioned files here"
@@ -6135,6 +6155,20 @@ msgid ""
 msgstr ""
 "Постојат незачувани измени!\n"
 "Дали сакате да ги зачувате измените?"
+
+#. Resource IDs: (65535)
+msgid ""
+"There has been a problem connecting the server.\n"
+"Do you want to see the cached data instead?\n"
+"\n"
+"Please understand that the cached data may be outdated,\n"
+"incomplete or even misleading due to incomplete history."
+msgstr ""
+"Настана проблем при конекција со сервер.\n"
+"Дали сакаде да ги видите кешираните податоци?\n"
+"\n"
+"Кешираните податоци можат да бидат застарени,\n"
+"некомплетни или дури и грешни поради нецелосната историја."
 
 #. Resource IDs: (82)
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
