@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-11-19 09:44+0100\n"
+"PO-Revision-Date: 2007-11-30 11:11+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -417,6 +417,10 @@ msgstr "&Sammenlign med URL"
 msgid "&Diff with previous version"
 msgstr "&Sammenlign med forrige revisjon"
 
+#. Resource IDs: (2)
+msgid "&Don't go offline"
+msgstr "&Ikke koble fra"
+
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
 msgstr "&Rediger"
@@ -623,6 +627,10 @@ msgstr "&Neste forskjell"
 msgid "&OK"
 msgstr "&OK"
 
+#. Resource IDs: (1)
+msgid "&Offline for now"
+msgstr "&Frakoblet foreløpig"
+
 #. Resource IDs: (101, 113, 32773)
 msgid "&Open"
 msgstr "Å&pne"
@@ -642,6 +650,10 @@ msgstr "&Passord:"
 #. Resource IDs: (376, 501)
 msgid "&Paste"
 msgstr "&Lim inn"
+
+#. Resource IDs: (1382)
+msgid "&Permanently offline"
+msgstr "&Permanent frakoblet"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -2829,6 +2841,10 @@ msgstr "For hjelp, trykk F1. Rull horisontalt med Ctrl-Rullehjul"
 msgid "For complete history deselect \"Stop on copy/rename\""
 msgstr "For fullstendig historie slå av \"Stopp ved kopi/omdøping\""
 
+#. Resource IDs: (1432)
+msgid "Force blame"
+msgstr "Tving skyld"
+
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "Fra:"
@@ -2944,6 +2960,10 @@ msgstr "Henter enhetlig diff"
 #. Resource IDs: (65535)
 msgid "Global ignore &pattern:"
 msgstr "Globalt &mønster for ignoréring:"
+
+#. Resource IDs: (280)
+msgid "Go offline?"
+msgstr "Jobbe frakoblet?"
 
 #. Resource IDs: (130)
 msgid "Go to line"
@@ -3721,6 +3741,10 @@ msgstr "Laveste revisjon: %ld - Høyeste revisjon: %ld - Hode-revisjon: %ld"
 msgid "Mail system DLL is invalid."
 msgstr "Dynamisk bibliotek for e-postsystemet er ugyldig."
 
+#. Resource IDs: (1431)
+msgid "Make this the default"
+msgstr "Gjør dette til standard"
+
 #. Resource IDs: (17)
 msgid "Manage Subversion properties"
 msgstr "Behandle Subversion-egenskaper"
@@ -4103,10 +4127,6 @@ msgstr "Normal"
 #. Resource IDs: (3857)
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Ikke alle oppføringene i registeret (eller INI-filen) ble fjernet."
-
-#. Resource IDs: (20)
-msgid "Not descending"
-msgstr "Ikke avtagende"
 
 #. Resource IDs: (83)
 msgid "Not enough memory to complete operation."
@@ -5064,8 +5084,8 @@ msgid "SVN Export to here"
 msgstr "SVN Eksporter hit"
 
 #. Resource IDs: (16)
-msgid "SVN Lock owner"
-msgstr "SVN Sperrens eier"
+msgid "SVN Local lock owner"
+msgstr "SVN Eier av lokal sperre"
 
 #. Resource IDs: (17)
 msgid "SVN Move and rename versioned files here"
@@ -6147,6 +6167,20 @@ msgid ""
 msgstr ""
 "Det finnes endringer som ikke er lagret!\n"
 "Vil du lagre dine endringer?"
+
+#. Resource IDs: (65535)
+msgid ""
+"There has been a problem connecting the server.\n"
+"Do you want to see the cached data instead?\n"
+"\n"
+"Please understand that the cached data may be outdated,\n"
+"incomplete or even misleading due to incomplete history."
+msgstr ""
+"Det oppstod et problem med å kontakte tjeneren.\n"
+"Vil du bruke de mellomlagrede dataene i stedet?\n"
+"\n"
+"Vær oppmerksom på at de mellomlagrede dataene kan være utdaterte,\n"
+"manglende eller til og med misvisende på grunn av manglende historie."
 
 #. Resource IDs: (82)
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
