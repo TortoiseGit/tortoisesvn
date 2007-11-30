@@ -16,13 +16,13 @@
 # Stanislav Petrakov <stannic@gmail.com>
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 11447: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 11472: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-11-26 18:51+0300\n"
+"PO-Revision-Date: 2007-11-30 14:32+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2863,6 +2863,10 @@ msgstr "Для справки нажмите F1. Для горизонтальн
 msgid "For complete history deselect \"Stop on copy/rename\""
 msgstr "Для получения полного списка разотметьте \"Остановиться на копировании/переименовании\""
 
+#. Resource IDs: (1432)
+msgid "Force blame"
+msgstr "Принудительное получение авторства"
+
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "С:"
@@ -5141,8 +5145,8 @@ msgid "SVN Export to here"
 msgstr "SVN Экспортировать сюда"
 
 #. Resource IDs: (16)
-msgid "SVN Lock owner"
-msgstr "SVN Владелец блокировки"
+msgid "SVN Local lock owner"
+msgstr "SVN Владелец локальной блокировки"
 
 #. Resource IDs: (17)
 msgid "SVN Move and rename versioned files here"
