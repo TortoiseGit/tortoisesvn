@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8,00"
+	Version="9.00"
 	Name="TortoiseProc"
 	ProjectGUID="{50797F06-39C5-4802-8E2B-7B7A4EF03214}"
 	RootNamespace="TortoiseProc"
 	Keyword="MFCProj"
+	TargetFrameworkVersion="131072"
 	>
 	<Platforms>
 		<Platform
@@ -73,12 +74,14 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="delayimp.lib wininet.lib shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib Version.lib gdiplus.lib ../../obj\ResizableLib\Debug\ResizableLib.lib ../../obj\LogCacheLib\Debug\LogCacheLib.lib ../../ext/berkeley-db\db4.4-win32\lib\libdb44d.lib ../../ext/Subversion\debug_win32\libsvn_repos.lib ../../ext/Subversion\debug_win32\libsvn_diff.lib ../../ext/Subversion\debug_win32\libsvn_fs.lib ../../ext/Subversion\debug_win32\libsvn_fs_base.lib ../../ext/Subversion\debug_win32\libsvn_fs_fs.lib ../../ext/Subversion\debug_win32\libsvn_fs_util.lib ../../ext/Subversion\debug_win32\libsvn_ra_neon.lib ../../ext/Subversion\debug_win32\libsvn_ra_serf.lib ../../ext/Subversion\debug_win32\libsvn_ra_local.lib ../../ext/Subversion\debug_win32\libsvn_ra.lib ../../ext/Subversion\debug_win32\libsvn_ra_svn.lib ../../ext/neon\debug_win32\libneon.lib ../../ext/serf\debug_win32\libserf.lib ../../ext/Subversion\debug_win32\libsvn_wc.lib ../../ext/Subversion\debug_win32\libsvn_subr.lib ../../ext/Subversion\debug_win32\libsvn_client.lib ../../ext/Subversion\debug_win32\libsvn_delta.lib ../../ext/apr\debug_win32\libapr_tsvn.lib ../../ext/cyrus-SASL\2.1.22-win32\lib\debug\libsasl.lib ../../ext/apr-util\debug_win32\libaprutil_tsvn.lib ../../ext/apr-util\xml\expat\lib\debug_win32\xml.lib ../../ext/libintl/libintl3-win32/lib/intl3_tsvn.lib"
+				AdditionalDependencies="delayimp.lib wininet.lib shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib Version.lib gdiplus.lib ../../obj\ResizableLib\Debug\ResizableLib.lib ../../obj\LogCacheLib\Debug\LogCacheLib.lib ../../ext/berkeley-db\db4.4-win32\lib\libdb44d.lib ../../ext/Subversion\debug_win32\libsvn_repos.lib ../../ext/Subversion\debug_win32\libsvn_diff.lib ../../ext/Subversion\debug_win32\libsvn_fs.lib ../../ext/Subversion\debug_win32\libsvn_fs_base.lib ../../ext/Subversion\debug_win32\libsvn_fs_fs.lib ../../ext/Subversion\debug_win32\libsvn_fs_util.lib ../../ext/Subversion\debug_win32\libsvn_ra_neon.lib ../../ext/Subversion\debug_win32\libsvn_ra_serf.lib ../../ext/Subversion\debug_win32\libsvn_ra_local.lib ../../ext/Subversion\debug_win32\libsvn_ra.lib ../../ext/Subversion\debug_win32\libsvn_ra_svn.lib ../../ext/neon\debug_win32\libneon.lib ../../ext/serf\debug_win32\libserf.lib ../../ext/Subversion\debug_win32\libsvn_wc.lib ../../ext/Subversion\debug_win32\libsvn_subr.lib ../../ext/Subversion\debug_win32\libsvn_client.lib ../../ext/Subversion\debug_win32\libsvn_delta.lib ../../ext/apr\debug_win32\libapr_tsvn.lib ../../ext/cyrus-SASL\debug_win32\libsasl.lib ../../ext/apr-util\debug_win32\libaprutil_tsvn.lib ../../ext/apr-util\xml\expat\lib\debug_win32\xml.lib ../../ext/libintl/libintl3-win32/lib/intl3_tsvn.lib"
 				LinkIncremental="2"
 				IgnoreDefaultLibraryNames="shell32;msvcrt.lib"
 				DelayLoadDLLs="gdiplus.dll"
 				GenerateDebugInformation="true"
 				SubSystem="2"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -98,9 +101,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
@@ -162,12 +162,14 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="delayimp.lib wininet.lib shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib Version.lib gdiplus.lib ../../obj\ResizableLib\Debug64\ResizableLib.lib ../../obj\LogCacheLib\Debug64\LogCacheLib.lib ../../ext/berkeley-db\db4.4-x64\lib\libdb44d.lib ../../ext/Subversion\debug_x64\libsvn_repos.lib ../../ext/Subversion\debug_x64\libsvn_diff.lib ../../ext/Subversion\debug_x64\libsvn_fs.lib ../../ext/Subversion\debug_x64\libsvn_fs_base.lib ../../ext/Subversion\debug_x64\libsvn_fs_fs.lib ../../ext/Subversion\debug_x64\libsvn_fs_util.lib ../../ext/Subversion\debug_x64\libsvn_ra_neon.lib ../../ext/Subversion\debug_x64\libsvn_ra_serf.lib ../../ext/Subversion\debug_x64\libsvn_ra_local.lib ../../ext/Subversion\debug_x64\libsvn_ra.lib ../../ext/Subversion\debug_x64\libsvn_ra_svn.lib ../../ext/neon\debug_x64\libneon.lib ../../ext/serf\debug_x64\libserf.lib ../../ext/Subversion\debug_x64\libsvn_wc.lib ../../ext/Subversion\debug_x64\libsvn_subr.lib ../../ext/Subversion\debug_x64\libsvn_client.lib ../../ext/Subversion\debug_x64\libsvn_delta.lib ../../ext/apr\debug_x64\libapr_tsvn.lib ../../ext/apr-util\debug_x64\libaprutil_tsvn.lib ../../ext/apr-util\xml\expat\lib\debug_x64\xml.lib ../../ext/libintl/libintl3-x64/lib/intl3_tsvn.lib ../../ext/cyrus-SASL\2.1.22-x64\lib\debug\libsasl.lib"
+				AdditionalDependencies="delayimp.lib wininet.lib shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib Version.lib gdiplus.lib ../../obj\ResizableLib\Debug64\ResizableLib.lib ../../obj\LogCacheLib\Debug64\LogCacheLib.lib ../../ext/berkeley-db\db4.4-x64\lib\libdb44d.lib ../../ext/Subversion\debug_x64\libsvn_repos.lib ../../ext/Subversion\debug_x64\libsvn_diff.lib ../../ext/Subversion\debug_x64\libsvn_fs.lib ../../ext/Subversion\debug_x64\libsvn_fs_base.lib ../../ext/Subversion\debug_x64\libsvn_fs_fs.lib ../../ext/Subversion\debug_x64\libsvn_fs_util.lib ../../ext/Subversion\debug_x64\libsvn_ra_neon.lib ../../ext/Subversion\debug_x64\libsvn_ra_serf.lib ../../ext/Subversion\debug_x64\libsvn_ra_local.lib ../../ext/Subversion\debug_x64\libsvn_ra.lib ../../ext/Subversion\debug_x64\libsvn_ra_svn.lib ../../ext/neon\debug_x64\libneon.lib ../../ext/serf\debug_x64\libserf.lib ../../ext/Subversion\debug_x64\libsvn_wc.lib ../../ext/Subversion\debug_x64\libsvn_subr.lib ../../ext/Subversion\debug_x64\libsvn_client.lib ../../ext/Subversion\debug_x64\libsvn_delta.lib ../../ext/apr\debug_x64\libapr_tsvn.lib ../../ext/apr-util\debug_x64\libaprutil_tsvn.lib ../../ext/apr-util\xml\expat\lib\debug_x64\xml.lib ../../ext/libintl/libintl3-x64/lib/intl3_tsvn.lib ../../ext/cyrus-SASL\debug_x64\libsasl.lib"
 				LinkIncremental="2"
 				IgnoreDefaultLibraryNames="shell32;msvcrt.lib"
 				DelayLoadDLLs="gdiplus.dll"
 				GenerateDebugInformation="true"
 				SubSystem="2"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				TargetMachine="17"
 			/>
 			<Tool
@@ -187,9 +189,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
@@ -253,7 +252,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="delayimp.lib wininet.lib shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib Version.lib gdiplus.lib ../../obj/ResizableLib/Release/ResizableLib.Lib ../../obj\LogCacheLib\Release\LogCacheLib.lib ../../ext/berkeley-db\db4.4-win32\lib\libdb44.lib ../../ext/Subversion\release_win32\libsvn_repos.lib ../../ext/Subversion\release_win32\libsvn_diff.lib ../../ext/Subversion\release_win32\libsvn_fs.lib ../../ext/Subversion\release_win32\libsvn_fs_base.lib ../../ext/Subversion\release_win32\libsvn_fs_fs.lib ../../ext/Subversion\release_win32\libsvn_fs_util.lib ../../ext/Subversion\release_win32\libsvn_ra_neon.lib ../../ext/Subversion\release_win32\libsvn_ra_serf.lib ../../ext/Subversion\release_win32\libsvn_ra_local.lib ../../ext/Subversion\release_win32\libsvn_ra.lib ../../ext/Subversion\release_win32\libsvn_ra_svn.lib ../../ext/neon\release_win32\libneon.lib ../../ext/serf\release_win32\libserf.lib ../../ext/Subversion\release_win32\libsvn_wc.lib ../../ext/Subversion\release_win32\libsvn_subr.lib ../../ext/Subversion\release_win32\libsvn_client.lib ../../ext/Subversion\release_win32\libsvn_delta.lib ../../ext/apr\release_win32\libapr_tsvn.lib ../../ext/apr-util\release_win32\libaprutil_tsvn.lib ../../ext/apr-util\xml\expat\lib\release_win32\xml.lib ../../ext/libintl/libintl3-win32/lib/intl3_tsvn.lib ../../ext/cyrus-SASL\2.1.22-win32\lib\release\libsasl.lib"
+				AdditionalDependencies="delayimp.lib wininet.lib shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib Version.lib gdiplus.lib ../../obj/ResizableLib/Release/ResizableLib.Lib ../../obj\LogCacheLib\Release\LogCacheLib.lib ../../ext/berkeley-db\db4.4-win32\lib\libdb44.lib ../../ext/Subversion\release_win32\libsvn_repos.lib ../../ext/Subversion\release_win32\libsvn_diff.lib ../../ext/Subversion\release_win32\libsvn_fs.lib ../../ext/Subversion\release_win32\libsvn_fs_base.lib ../../ext/Subversion\release_win32\libsvn_fs_fs.lib ../../ext/Subversion\release_win32\libsvn_fs_util.lib ../../ext/Subversion\release_win32\libsvn_ra_neon.lib ../../ext/Subversion\release_win32\libsvn_ra_serf.lib ../../ext/Subversion\release_win32\libsvn_ra_local.lib ../../ext/Subversion\release_win32\libsvn_ra.lib ../../ext/Subversion\release_win32\libsvn_ra_svn.lib ../../ext/neon\release_win32\libneon.lib ../../ext/serf\release_win32\libserf.lib ../../ext/Subversion\release_win32\libsvn_wc.lib ../../ext/Subversion\release_win32\libsvn_subr.lib ../../ext/Subversion\release_win32\libsvn_client.lib ../../ext/Subversion\release_win32\libsvn_delta.lib ../../ext/apr\release_win32\libapr_tsvn.lib ../../ext/apr-util\release_win32\libaprutil_tsvn.lib ../../ext/apr-util\xml\expat\lib\release_win32\xml.lib ../../ext/libintl/libintl3-win32/lib/intl3_tsvn.lib ../../ext/cyrus-SASL\release_win32\libsasl.lib"
 				LinkIncremental="1"
 				IgnoreDefaultLibraryNames="libcd.lib;libc;shell32;"
 				DelayLoadDLLs="gdiplus.dll"
@@ -262,6 +261,8 @@
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				OptimizeForWindows98="1"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -281,9 +282,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
@@ -348,7 +346,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="delayimp.lib wininet.lib shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib Version.lib gdiplus.lib ../../obj/ResizableLib/Release64/ResizableLib.Lib ../../obj\LogCacheLib\Release64\LogCacheLib.lib ../../ext/berkeley-db\db4.4-x64\lib\libdb44.lib ../../ext/Subversion\release_x64\libsvn_repos.lib ../../ext/Subversion\release_x64\libsvn_diff.lib ../../ext/Subversion\release_x64\libsvn_fs.lib ../../ext/Subversion\release_x64\libsvn_fs_base.lib ../../ext/Subversion\release_x64\libsvn_fs_fs.lib ../../ext/Subversion\release_x64\libsvn_fs_util.lib ../../ext/Subversion\release_x64\libsvn_ra_neon.lib ../../ext/Subversion\release_x64\libsvn_ra_serf.lib ../../ext/Subversion\release_x64\libsvn_ra_local.lib ../../ext/Subversion\release_x64\libsvn_ra.lib ../../ext/Subversion\release_x64\libsvn_ra_svn.lib ../../ext/neon\release_x64\libneon.lib ../../ext/serf\release_x64\libserf.lib ../../ext/Subversion\release_x64\libsvn_wc.lib ../../ext/Subversion\release_x64\libsvn_subr.lib ../../ext/Subversion\release_x64\libsvn_client.lib ../../ext/Subversion\release_x64\libsvn_delta.lib ../../ext/apr\release_x64\libapr_tsvn.lib ../../ext/apr-util\release_x64\libaprutil_tsvn.lib ../../ext/apr-util\xml\expat\lib\release_x64\xml.lib ../../ext/libintl/libintl3-x64/lib/intl3_tsvn.lib ../../ext/cyrus-SASL\2.1.22-x64\lib\release\libsasl.lib"
+				AdditionalDependencies="delayimp.lib wininet.lib shfolder.lib shell32.lib comctl32.lib mswsock.lib ws2_32.lib rpcrt4.lib shlwapi.lib Version.lib gdiplus.lib ../../obj/ResizableLib/Release64/ResizableLib.Lib ../../obj\LogCacheLib\Release64\LogCacheLib.lib ../../ext/berkeley-db\db4.4-x64\lib\libdb44.lib ../../ext/Subversion\release_x64\libsvn_repos.lib ../../ext/Subversion\release_x64\libsvn_diff.lib ../../ext/Subversion\release_x64\libsvn_fs.lib ../../ext/Subversion\release_x64\libsvn_fs_base.lib ../../ext/Subversion\release_x64\libsvn_fs_fs.lib ../../ext/Subversion\release_x64\libsvn_fs_util.lib ../../ext/Subversion\release_x64\libsvn_ra_neon.lib ../../ext/Subversion\release_x64\libsvn_ra_serf.lib ../../ext/Subversion\release_x64\libsvn_ra_local.lib ../../ext/Subversion\release_x64\libsvn_ra.lib ../../ext/Subversion\release_x64\libsvn_ra_svn.lib ../../ext/neon\release_x64\libneon.lib ../../ext/serf\release_x64\libserf.lib ../../ext/Subversion\release_x64\libsvn_wc.lib ../../ext/Subversion\release_x64\libsvn_subr.lib ../../ext/Subversion\release_x64\libsvn_client.lib ../../ext/Subversion\release_x64\libsvn_delta.lib ../../ext/apr\release_x64\libapr_tsvn.lib ../../ext/apr-util\release_x64\libaprutil_tsvn.lib ../../ext/apr-util\xml\expat\lib\release_x64\xml.lib ../../ext/libintl/libintl3-x64/lib/intl3_tsvn.lib ../../ext/cyrus-SASL\release_x64\libsasl.lib"
 				LinkIncremental="1"
 				IgnoreDefaultLibraryNames="libcd.lib;libc;shell32;"
 				DelayLoadDLLs="gdiplus.dll"
@@ -357,6 +355,8 @@
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				OptimizeForWindows98="1"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				TargetMachine="17"
 			/>
 			<Tool
@@ -376,9 +376,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"

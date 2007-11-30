@@ -193,9 +193,11 @@
             </lib>
         </if>
         <if test="${static != 'static'}">
+            <property name="berkeleylib" value="libdb44" />
+            <property name="berkeleylib" value="libdb44_8" if="${vsversion == '8'}" />
             <link 
                 output="${configuration}${static}_${platform}\libaprutil_tsvn.dll" 
-                options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\libaprutil_tsvn.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/libaprutil_tsvn.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"0x6EE60000" /IMPLIB:".\${configuration}${static}_${platform}/libaprutil_tsvn.lib" ${machineoption} ${configuration}${static}_${platform}\libaprutil_tsvn.res ..\apr\${configuration}${static}_${platform}\libapr_tsvn.lib ..\berkeley-db\db4.4-win32\lib\libdb44.lib ws2_32.lib Wldap32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+                options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\libaprutil_tsvn.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/libaprutil_tsvn.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"0x6EE60000" /IMPLIB:".\${configuration}${static}_${platform}/libaprutil_tsvn.lib" ${machineoption} ${configuration}${static}_${platform}\libaprutil_tsvn.res ..\apr\${configuration}${static}_${platform}\libapr_tsvn.lib ..\berkeley-db\db4.4-win32\lib\${berkeleylib}.lib ws2_32.lib Wldap32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
                 <sources>
                     <include name="${configuration}${static}_${platform}\*.obj" />
                     <include name="xml\expat\lib\${configuration}${static}_${platform}\*.obj" />

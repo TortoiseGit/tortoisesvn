@@ -1,0 +1,325 @@
+<?xml version="1.0"?>
+<project name="sasl" default="build" basedir="..\cyrus-sasl">
+
+<!-- ====================================================================== -->
+<!-- Project targets														-->
+<!-- ====================================================================== -->
+	<target name="rebuild" depends="clean,build" />
+	
+	<target name="clean">
+		<description>
+			Cleans previous built files.
+		</description>
+		
+		<delete>
+			<fileset>
+				<include name="${configuration}_${platform}\**" />
+			</fileset>
+		</delete>
+	</target>
+
+	<target name="build" >
+		<mkdir dir="${configuration}_${platform}" />
+		<copy file="include\prop.h" tofile="include\orig_prop.h" overwrite="true" />
+		<loadfile file="include\prop.h" property="propfile">
+			<filterchain>
+				<replacestring from="#  define LIBSASL_API  __declspec(dllexport)" to="#  define LIBSASL_API  " />
+				<replacestring from="#  define LIBSASL_VAR  __declspec(dllexport)" to="#  define LIBSASL_VAR  " />
+				<replacestring from="#  define LIBSASL_API  __declspec(dllimport)" to="#  define LIBSASL_API  " />
+				<replacestring from="#  define LIBSASL_VAR  __declspec(dllimport)" to="#  define LIBSASL_VAR  " />
+			</filterchain>
+		</loadfile>
+		<echo file="include\prop.h" message="${propfile}" />
+		<cl outputdir="${configuration}_${platform}">
+			<arg value="/O2" if="${configuration == 'release'}" />
+			<arg value="/Ob1" if="${configuration == 'release'}" />
+			<arg value="/Od" if="${configuration != 'release'}" />
+			<arg value="/GF" if="${configuration == 'release'}" />
+			<arg value="/FD" />
+			<arg value="/EHsc" />
+			<arg value="/MD" if="${(configuration == 'release')}" />
+			<arg value="/MDd" if="${(configuration != 'release')}" />
+			<arg value="/Gy" />
+			<arg value="/W3" />
+			<arg value="/nologo" />
+			<arg value="/c" />
+			<arg value="/Zi" />
+			<arg value="/errorReport:prompt" />
+			<sources>
+				<include name="lib\auxprop.c" />
+				<include name="lib\canonusr.c" />
+				<include name="lib\checkpw.c" />
+				<include name="lib\client.c" />
+				<include name="lib\common.c" />
+				<include name="lib\config.c" />
+				<include name="lib\external.c" />
+				<include name="lib\md5.c" />
+				<include name="lib\saslutil.c" />
+				<include name="lib\server.c" />
+				<include name="lib\seterror.c" />
+				<include name="lib\windlopen.c" />
+				<include name="lib\getsubopt.c" />
+				<include name="lib\plugin_common.c" />
+			</sources>
+			<includedirs>
+				<include name="include" />
+				<include name="lib" />
+				<include name="win32\include" />
+			</includedirs>
+			<defines>
+				<define name="_CRT_NONSTDC_NO_DEPRECATE" />
+				<define name="_CRT_SECURE_NO_DEPRECATE" />
+				<define name="LIBSASL_EXPORTS" />
+				<define name="WIN32" />
+				<define name="_WINDOWS" />
+				<define name="_WIN32" />
+				<define name="_WIN32_WINNT" value="0x0501" />
+				<define name="TARGET_WIN_SYSTEM" value="50" />
+				<define name="WIN64" if="${platform == 'x64'}" />
+				<define name="NDEBUG" if="${configuration == 'release'}"/>
+				<define name="_DEBUG" if="${configuration != 'release'}"/>
+			</defines>
+		</cl>
+		<property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}"  />
+		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
+
+		<lib 
+			output="${configuration}_${platform}\libsasls.lib" 
+			options='/NOLOGO /SUBSYSTEM:WINDOWS ${machineoption}'>
+			<sources>
+				<include name="${configuration}_${platform}\*.obj" />
+			</sources>
+		</lib>
+		
+		<delete>
+			<fileset>
+				<include name="${configuration}_${platform}\*.obj" />
+			</fileset>
+		</delete>
+		<copy file="include\orig_prop.h" tofile="include\prop.h" overwrite="true" />
+
+		<cl outputdir="${configuration}_${platform}">
+			<arg value="/O2" if="${configuration == 'release'}" />
+			<arg value="/Ob1" if="${configuration == 'release'}" />
+			<arg value="/Od" if="${configuration != 'release'}" />
+			<arg value="/GF" if="${configuration == 'release'}" />
+			<arg value="/FD" />
+			<arg value="/EHsc" />
+			<arg value="/MD" if="${(configuration == 'release')}" />
+			<arg value="/MDd" if="${(configuration != 'release')}" />
+			<arg value="/Gy" />
+			<arg value="/W3" />
+			<arg value="/nologo" />
+			<arg value="/c" />
+			<arg value="/Zi" />
+			<arg value="/errorReport:prompt" />
+			<sources>
+				<include name="lib\auxprop.c" />
+				<include name="lib\canonusr.c" />
+				<include name="lib\checkpw.c" />
+				<include name="lib\client.c" />
+				<include name="lib\common.c" />
+				<include name="lib\config.c" />
+				<include name="lib\external.c" />
+				<include name="lib\md5.c" />
+				<include name="lib\saslutil.c" />
+				<include name="lib\server.c" />
+				<include name="lib\seterror.c" />
+				<include name="lib\windlopen.c" />
+				<include name="lib\getsubopt.c" />
+				<include name="lib\plugin_common.c" />
+			</sources>
+			<includedirs>
+				<include name="include" />
+				<include name="lib" />
+				<include name="win32\include" />
+			</includedirs>
+			<defines>
+				<define name="_CRT_NONSTDC_NO_DEPRECATE" />
+				<define name="_CRT_SECURE_NO_DEPRECATE" />
+				<define name="_USRDLL" />
+				<define name="LIBSASL_EXPORTS" />
+				<define name="WIN32" />
+				<define name="_WINDOWS" />
+				<define name="_WIN32" />
+				<define name="_WIN32_WINNT" value="0x0501" />
+				<define name="TARGET_WIN_SYSTEM" value="50" />
+				<define name="WIN64" if="${platform == 'x64'}" />
+				<define name="NDEBUG" if="${configuration == 'release'}"/>
+				<define name="_DEBUG" if="${configuration != 'release'}"/>
+			</defines>
+		</cl>
+		<property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}"  />
+		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
+		<link 
+			output="${configuration}_${platform}\libsasl.dll" 
+			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\libsasl.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/libsasl.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}_${platform}/libsasl.lib" ${machineoption} ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+			<sources>
+				<include name="${configuration}_${platform}\*.obj" />
+			</sources>
+		</link>
+		<exec program="mt.exe">
+			<arg value="-nologo" />
+			<arg value="-manifest" />
+			<arg value=".\${configuration}_${platform}\libsasl.dll.manifest" />
+			<arg value='/outputresource:".\${configuration}_${platform}\libsasl.dll;#2"' />
+		</exec>
+		
+		<delete>
+			<fileset>
+				<include name="${configuration}_${platform}\*.obj" />
+			</fileset>
+		</delete>
+		
+		<cl outputdir="${configuration}_${platform}">
+			<arg value="/O2" if="${configuration == 'release'}" />
+			<arg value="/Ob1" if="${configuration == 'release'}" />
+			<arg value="/Od" if="${configuration != 'release'}" />
+			<arg value="/GF" if="${configuration == 'release'}" />
+			<arg value="/FD" />
+			<arg value="/EHsc" />
+			<arg value="/MD" if="${(configuration == 'release')}" />
+			<arg value="/MDd" if="${(configuration != 'release')}" />
+			<arg value="/Gy" />
+			<arg value="/W3" />
+			<arg value="/nologo" />
+			<arg value="/c" />
+			<arg value="/Zi" />
+			<arg value="/errorReport:prompt" />
+			<sources>
+				<include name="plugins\plugin_common.c" />
+				<include name="plugins\anonymous.c" />
+				<include name="plugins\anonymous_init.c" />
+				<include name="plugins\plain.c" />
+				<include name="plugins\plain_init.c" />
+				<include name="plugins\cram.c" />
+				<include name="plugins\crammd5_init.c" />
+				<include name="plugins\digestmd5.c" />
+				<include name="plugins\digestmd5_init.c" />
+				<include name="plugins\login.c" />
+				<include name="plugins\login_init.c" />
+				<include name="plugins\ntlm.c" />
+				<include name="plugins\ntlm_init.c" />
+			</sources>
+			<includedirs>
+				<include name="include" />
+				<include name="plugins" />
+				<include name="win32\include" />
+				<include name="..\..\..\common\openssl\inc32" />
+			</includedirs>
+			<defines>
+				<define name="_CRT_NONSTDC_NO_DEPRECATE" />
+				<define name="_CRT_SECURE_NO_DEPRECATE" />
+				<define name="_USRDLL" />
+				<define name="WIN32" />
+				<define name="_WINDOWS" />
+				<define name="_WIN32" />
+				<define name="_WIN32_WINNT" value="0x0501" />
+				<define name="TARGET_WIN_SYSTEM" value="50" />
+				<define name="WIN64" if="${platform == 'x64'}" />
+				<define name="NDEBUG" if="${configuration == 'release'}"/>
+				<define name="_DEBUG" if="${configuration != 'release'}"/>
+			</defines>
+		</cl>
+		<property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}"  />
+		<property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
+
+		<link 
+			output="${configuration}_${platform}\saslANONYMOUS.dll" 
+			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslANONYMOUS.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslANONYMOUS.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslANONYMOUS.lib" ${machineoption} ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+			<sources>
+				<include name="${configuration}_${platform}\plugin_common.obj" />
+				<include name="${configuration}_${platform}\anonymous*.obj" />
+			</sources>
+		</link>
+		<exec program="mt.exe">
+			<arg value="-nologo" />
+			<arg value="-manifest" />
+			<arg value=".\${configuration}_${platform}\saslANONYMOUS.dll.manifest" />
+			<arg value='/outputresource:".\${configuration}_${platform}\saslANONYMOUS.dll;#2"' />
+		</exec>
+
+		<link 
+			output="${configuration}_${platform}\saslCRAMMD5.dll" 
+			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslCRAMMD5.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslCRAMMD5.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslCRAMMD5.lib" ${machineoption} ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+			<sources>
+				<include name="${configuration}_${platform}\plugin_common.obj" />
+				<include name="${configuration}_${platform}\cram*.obj" />
+			</sources>
+		</link>
+		<exec program="mt.exe">
+			<arg value="-nologo" />
+			<arg value="-manifest" />
+			<arg value=".\${configuration}_${platform}\saslCRAMMD5.dll.manifest" />
+			<arg value='/outputresource:".\${configuration}_${platform}\saslCRAMMD5.dll;#2"' />
+		</exec>
+
+		<link 
+			output="${configuration}_${platform}\saslDIGESTMD5.dll" 
+			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslDIGESTMD5.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslDIGESTMD5.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslDIGESTMD5.lib" ${machineoption} ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+			<sources>
+				<include name="${configuration}_${platform}\plugin_common.obj" />
+				<include name="${configuration}_${platform}\digest*.obj" />
+			</sources>
+		</link>
+		<exec program="mt.exe">
+			<arg value="-nologo" />
+			<arg value="-manifest" />
+			<arg value=".\${configuration}_${platform}\saslDIGESTMD5.dll.manifest" />
+			<arg value='/outputresource:".\${configuration}_${platform}\saslDIGESTMD5.dll;#2"' />
+		</exec>
+
+		<link 
+			output="${configuration}_${platform}\saslLOGIN.dll" 
+			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslLOGIN.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslLOGIN.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslLOGIN.lib" ${machineoption} ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+			<sources>
+				<include name="${configuration}_${platform}\plugin_common.obj" />
+				<include name="${configuration}_${platform}\login*.obj" />
+			</sources>
+		</link>
+		<exec program="mt.exe">
+			<arg value="-nologo" />
+			<arg value="-manifest" />
+			<arg value=".\${configuration}_${platform}\saslLOGIN.dll.manifest" />
+			<arg value='/outputresource:".\${configuration}_${platform}\saslLOGIN.dll;#2"' />
+		</exec>
+
+		<link 
+			output="${configuration}_${platform}\saslNTLM.dll" 
+			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslNTLM.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslNTLM.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslNTLM.lib" ${machineoption} ..\..\..\common\openssl\out32\libeay32.lib ..\..\..\common\openssl\out32\ssleay32.lib ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
+			<sources>
+				<include name="${configuration}_${platform}\plugin_common.obj" />
+				<include name="${configuration}_${platform}\ntlm*.obj" />
+			</sources>
+		</link>
+		<exec program="mt.exe">
+			<arg value="-nologo" />
+			<arg value="-manifest" />
+			<arg value=".\${configuration}_${platform}\saslNTLM.dll.manifest" />
+			<arg value='/outputresource:".\${configuration}_${platform}\saslNTLM.dll;#2"' />
+		</exec>
+
+		<link 
+			output="${configuration}_${platform}\saslPLAIN.dll" 
+			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslPLAIN.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslPLAIN.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslPLAIN.lib" ${machineoption} ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+			<sources>
+				<include name="${configuration}_${platform}\plugin_common.obj" />
+				<include name="${configuration}_${platform}\plain*.obj" />
+			</sources>
+		</link>
+		<exec program="mt.exe">
+			<arg value="-nologo" />
+			<arg value="-manifest" />
+			<arg value=".\${configuration}_${platform}\saslPLAIN.dll.manifest" />
+			<arg value='/outputresource:".\${configuration}_${platform}\saslPLAIN.dll;#2"' />
+		</exec>
+
+		<copy todir="..\..\bin\${configuration}" overwrite="true" flatten="true" failonerror="false">
+			<fileset>
+				<include name="${configuration}_${platform}\*.dll" />
+			</fileset>
+		</copy>
+
+	</target>
+
+</project>

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8.00"
+	Version="9.00"
 	Name="TortoiseProcLang"
 	ProjectGUID="{1B3C273E-6DDF-4FBE-BA31-F9F39C6DAC99}"
 	RootNamespace="TortoiseProcLang"
 	Keyword="Win32Proj"
+	TargetFrameworkVersion="131072"
 	>
 	<Platforms>
 		<Platform
@@ -70,6 +71,8 @@
 				EnableCOMDATFolding="2"
 				OptimizeForWindows98="1"
 				ResourceOnlyDLL="true"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="1"
 			/>
@@ -90,9 +93,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
@@ -152,6 +152,8 @@
 				EnableCOMDATFolding="2"
 				OptimizeForWindows98="1"
 				ResourceOnlyDLL="true"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="17"
 			/>
@@ -172,9 +174,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
@@ -233,6 +232,8 @@
 				EnableCOMDATFolding="2"
 				OptimizeForWindows98="1"
 				ResourceOnlyDLL="true"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="1"
 			/>
@@ -253,9 +254,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
@@ -315,6 +313,8 @@
 				EnableCOMDATFolding="2"
 				OptimizeForWindows98="1"
 				ResourceOnlyDLL="true"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="17"
 			/>
@@ -335,9 +335,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
@@ -443,15 +440,11 @@
 			</File>
 		</Filter>
 		<File
-			RelativePath="..\Languages\res\bin167.avi"
-			>
-		</File>
-		<File
 			RelativePath="..\Resources\bin167.avi"
 			>
 		</File>
 		<File
-			RelativePath="..\Languages\res\bin168.avi"
+			RelativePath="..\Languages\res\bin167.avi"
 			>
 		</File>
 		<File
@@ -459,11 +452,15 @@
 			>
 		</File>
 		<File
+			RelativePath="..\Languages\res\bin168.avi"
+			>
+		</File>
+		<File
 			RelativePath="..\Resources\search.avi"
 			>
 		</File>
 		<File
-			RelativePath="..\Languages\res\TortoiseProc.manifest"
+			RelativePath="..\Resources\TortoiseProc.manifest"
 			>
 			<FileConfiguration
 				Name="Release|Win32"
@@ -499,7 +496,7 @@
 			</FileConfiguration>
 		</File>
 		<File
-			RelativePath="..\Resources\TortoiseProc.manifest"
+			RelativePath="..\Languages\res\TortoiseProc.manifest"
 			>
 			<FileConfiguration
 				Name="Release|Win32"

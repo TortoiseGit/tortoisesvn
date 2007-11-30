@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8,00"
+	Version="9.00"
 	Name="TortoiseStub"
 	ProjectGUID="{DB98402B-2CF6-4EC6-89F9-D19365EE8DE3}"
 	RootNamespace="TortoiseStub"
+	TargetFrameworkVersion="131072"
 	>
 	<Platforms>
 		<Platform
@@ -82,6 +83,8 @@
 				ModuleDefinitionFile=".\TortoiseStub.def"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/TortoiseStub.pdb"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				ImportLibrary="..\..\obj\TortoiseStub\Debug/TortoiseStub.lib"
 				TargetMachine="1"
 			/>
@@ -104,9 +107,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
@@ -177,6 +177,8 @@
 				ModuleDefinitionFile=".\TortoiseStub.def"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/TortoiseStub.pdb"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				ImportLibrary="..\..\obj\TortoiseStub\Debug64/TortoiseStub.lib"
 				TargetMachine="17"
 			/>
@@ -201,9 +203,6 @@
 				Name="VCAppVerifierTool"
 			/>
 			<Tool
-				Name="VCWebDeploymentTool"
-			/>
-			<Tool
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
@@ -213,7 +212,7 @@
 			IntermediateDirectory="..\..\obj\TortoiseStub\Release"
 			ConfigurationType="2"
 			UseOfMFC="0"
-			ATLMinimizesCRunTimeLibraryUsage="true"
+			ATLMinimizesCRunTimeLibraryUsage="false"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
 			>
@@ -281,6 +280,8 @@
 				EnableCOMDATFolding="2"
 				OptimizeForWindows98="1"
 				BaseAddress="0x5940000"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				ImportLibrary="..\..\obj\TortoiseStub\Release/TortoiseStub.lib"
 				TargetMachine="1"
 			/>
@@ -305,9 +306,6 @@
 				Name="VCAppVerifierTool"
 			/>
 			<Tool
-				Name="VCWebDeploymentTool"
-			/>
-			<Tool
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
@@ -317,7 +315,7 @@
 			IntermediateDirectory="..\..\obj\TortoiseStub\Release64"
 			ConfigurationType="2"
 			UseOfMFC="0"
-			ATLMinimizesCRunTimeLibraryUsage="true"
+			ATLMinimizesCRunTimeLibraryUsage="false"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
 			>
@@ -385,6 +383,8 @@
 				EnableCOMDATFolding="2"
 				OptimizeForWindows98="1"
 				BaseAddress="0x5940000"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				ImportLibrary="..\..\obj\TortoiseStub\Release64/TortoiseStub.lib"
 				TargetMachine="17"
 			/>
@@ -407,9 +407,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"

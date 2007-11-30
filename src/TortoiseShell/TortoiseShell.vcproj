@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8.00"
+	Version="9.00"
 	Name="TortoiseShell"
 	ProjectGUID="{E873DD32-5A31-4DE1-8341-A56A2A5489EA}"
 	RootNamespace="TortoiseShell"
+	TargetFrameworkVersion="131072"
 	>
 	<Platforms>
 		<Platform
@@ -92,6 +93,8 @@
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/TortoiseSVN.pdb"
 				BaseAddress="0x5960000"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				ImportLibrary="..\..\obj\TortoiseShell\Debug/TortoiseSVN.lib"
 				TargetMachine="1"
 			/>
@@ -112,9 +115,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
@@ -194,6 +194,8 @@
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/TortoiseSVN.pdb"
 				BaseAddress="0x5960000"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				ImportLibrary="..\..\obj\TortoiseShell\Debug64/TortoiseSVN.lib"
 				TargetMachine="17"
 			/>
@@ -214,9 +216,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
@@ -303,6 +302,8 @@
 				EnableCOMDATFolding="2"
 				OptimizeForWindows98="1"
 				BaseAddress="0x5960000"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				ImportLibrary="..\..\obj\TortoiseShell\Release/TortoiseSVN.lib"
 				TargetMachine="1"
 			/>
@@ -323,9 +324,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
@@ -411,6 +409,8 @@
 				EnableCOMDATFolding="2"
 				OptimizeForWindows98="1"
 				BaseAddress="0x5960000"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				ImportLibrary="..\..\obj\TortoiseShell\Release64/TortoiseSVN.lib"
 				TargetMachine="17"
 			/>
@@ -431,9 +431,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
