@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-11-26 11:04+0100\n"
+"PO-Revision-Date: 2007-11-30 08:50+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2795,6 +2795,10 @@ msgstr "Drücken Sie F1 für Hilfe. Mit Strg+Mausrad horizontal verschieben."
 msgid "For complete history deselect \"Stop on copy/rename\""
 msgstr "Wählen Sie 'Bei Kopien/Umbenennen anhalten' ab, um eine vollständige Historie zu erhalten."
 
+#. Resource IDs: (1432)
+msgid "Force blame"
+msgstr "Annotieren erzwingen"
+
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "Von:"
@@ -5062,8 +5066,8 @@ msgid "SVN Export to here"
 msgstr "SVN Hierher exportieren"
 
 #. Resource IDs: (16)
-msgid "SVN Lock owner"
-msgstr "SVN Sperreigner"
+msgid "SVN Local lock owner"
+msgstr "SVN lokale Sperre"
 
 #. Resource IDs: (17)
 msgid "SVN Move and rename versioned files here"
