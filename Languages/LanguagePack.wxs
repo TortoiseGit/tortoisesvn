@@ -1,5 +1,13 @@
 <?xml version='1.0' encoding='windows-1252'?>
 <Wix xmlns='http://schemas.microsoft.com/wix/2003/01/wi'>
+	<?if $(env.Platform) = "x64" ?>
+	<?define Win64YesNo="yes" ?>
+	<?define PackagePlatforms="x64" ?>
+	<?else?>
+	<?define Win64YesNo="no" ?>
+	<?define PackagePlatforms="Intel" ?>
+	<?endif?>
+
   <Product
   UpgradeCode="9ECED698-D4D9-42fd-946D-51CC049D1F6F"
   Name='$LANGNATIVE$ Languagepack for TortoiseSVN'
@@ -11,17 +19,16 @@
 
     <Package Id='????????-????-????-????-????????????' Keywords='Installer'
       Description="$LANGUI$ language pack for TortoiseSVN"
-      Comments='http://tortoisesvn.net' Manufacturer='TortoiseSVN'
-      InstallerVersion='100' Languages='1033' Compressed='yes' SummaryCodepage='1252' />
+      Comments='http://tortoisesvn.net' 
+      Manufacturer="Stefan Kueng" 
+      Platforms="$(var.PackagePlatforms)"  
+      InstallerVersion='100' 
+      Languages='1033' 
+      Compressed='yes' 
+      SummaryCodepage='1252' />
 
     <Media Id='1' Cabinet='langpack.cab' EmbedCab='yes' CompressionLevel="high" />
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
-
-    <?if $(env.Platform) = "x64" ?>
-    <?define Win64YesNo="yes" ?>
-    <?else?>
-    <?define Win64YesNo="no" ?>
-    <?endif?>
 
     <Property Id="INSTALLDIR">
       <RegistrySearch Id="TSVNInstallationDir" Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Type="raw" Win64="$(var.Win64YesNo)"/>
