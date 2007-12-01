@@ -4326,7 +4326,8 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 			bOpenWith = true;
 		case ID_OPEN:
 			{
-				Open(bOpenWith,changedpaths[0],rev1);
+				SVNRev getrev = pLogEntry->pArChangedPaths->GetAt(selIndex)->action == LOGACTIONS_DELETED ? rev2 : rev1;
+				Open(bOpenWith,changedpaths[0],getrev);
 			}
 			break;
 		case ID_BLAME:
