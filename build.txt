@@ -8,27 +8,31 @@
 
 \subsection Requirements1 First, you need to install the compiler package.
 
--# You need VS.NET2005 (or at least Visual C++ .NET 2005) to allow
+-# You need VS2008 (or at least Visual C++ 2008) to allow
    building of the full TortoiseSVN package. This is the recommended
    option, but it is not free :-(
+   Note: it's also possible to build TortoiseSVN with VS.NET2005, but
+   we can't guarantee that the solution and vcproj files work with the
+   latest changes - they might be a little bit out-of-sync.
    If you want to build the msi make sure the "Tools for Redistributing
    Applications" are installed.
-   Also, make sure ServicePack 1 for VS.NET2005 is installed.
+   Also, make sure that if you're using VS.NET2005 you have 
+   ServicePack 1 installed.
 -# If you do not have access to VS.NET you can download the free
-   Visual C++ 2005 Express Edition.
+   Visual C++ 2008 Express Edition.
    This will allow you to build the subversion libraries and the
    SubWCRev, TortoiseBlame, TortoiseUDiff, TortoiseIDiff, CrashRpt
    and ResText projects only. You can not build the main parts of
    TortoiseSVN (shell extension, TortoiseProc, TSVNCache, TortoiseMerge)
    with the Express Edition!
-   - Install Visual C++ 2005 Express Edition.
+   - Install Visual C++ 2008 Express Edition.
      Download it from http://msdn.microsoft.com/vstudio/express/visualc/
    - Install MASM 6.15 from: http://win32assembly.online.fr/files/masm615.zip
      and add it to the PATH environment variable
    \note Do not bother to install WiX and Votive as you cannot build very much.
 -# If you plan to build 64 bit packages, install the package 
    - "Language Tools" -> "Visual C++" -> "X64 Compilers and Tools" 
-     available in the VS.NET2005 Professional and higher. 
+     available in the VS.NET2005/8 Professional and higher. 
      This will provide you with a cross-compiler and a suitable 
      command shell. On XP64, there will also be a native compiler.
 -# \b Optional but recommended: Install Microsoft SDK for Windows Vista (February 2007 Update)
@@ -95,11 +99,11 @@ Now you're almost ready. Only a few more steps to do:
 \section build32 Building 32 bit packages
 
   Hint: before you can start building TortoiseSVN, you need to call the vsvars32.bat
-  file which is located in \%VS80COMNTOOLS%. 
+  file which is located in \%VS90COMNTOOLS% (or \%VS80COMNTOOLS% ). 
   
   Note that for the Express edition you need to sort out the vars for the platform SDK
   as well. The easiest way I found was to edit the supplied VC++ file
-  C:\Program Files\Microsoft Visual Studio 8\VC\vcvarsall.bat
+  C:\Program Files\Microsoft Visual Studio 9.0\VC\vcvarsall.bat
   Look for the :x86 label and add an extra call to setenv.cmd as shown below:
 
 \code
