@@ -89,7 +89,7 @@
 		<property name="cleanup" value="yes" />
 	</target>
 
-	<target name="cleanall" depends="VSNET">
+	<target name="cleanall" depends="VSNET,VSNETVER">
 		<description>
 			Cleans every subproject.
 		</description>
