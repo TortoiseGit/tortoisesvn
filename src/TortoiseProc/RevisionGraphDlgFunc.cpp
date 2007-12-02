@@ -346,7 +346,6 @@ void CRevisionGraphWnd::CompareRevs(bool bHead)
 	ASSERT(m_SelectedEntry1 != NULL);
 	ASSERT(m_SelectedEntry2 != NULL);
 
-	SVN svn;
 	CString sRepoRoot;
 	if (SVN::PathIsURL(m_sPath))
 		sRepoRoot = svn.GetRepositoryRoot(CTSVNPath(m_sPath));
@@ -372,7 +371,6 @@ void CRevisionGraphWnd::UnifiedDiffRevs(bool bHead)
 	ASSERT(m_SelectedEntry1 != NULL);
 	ASSERT(m_SelectedEntry2 != NULL);
 
-	SVN svn;
 	CString sRepoRoot;
 	if (SVN::PathIsURL(m_sPath))
 		sRepoRoot = svn.GetRepositoryRoot(CTSVNPath(m_sPath));
@@ -413,7 +411,6 @@ CTSVNPath CRevisionGraphWnd::DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIs
 		bIsFolder = CTSVNPath(m_sPath).IsDirectory();
 	}
 	
-	SVN svn;
 	CString sRepoRoot;
 	if (SVN::PathIsURL(m_sPath))
 		sRepoRoot = svn.GetRepositoryRoot(CTSVNPath(m_sPath));

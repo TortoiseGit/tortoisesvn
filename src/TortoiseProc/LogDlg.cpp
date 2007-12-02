@@ -3635,9 +3635,8 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				{
 					// should we show a progress dialog here? Copies are done really fast
 					// and without much network traffic.
-					SVN svn;
-					if (!svn.Copy(CTSVNPathList(CTSVNPath(pathURL)), CTSVNPath(dlg.m_URL), dlg.m_CopyRev, dlg.m_CopyRev, dlg.m_sLogMessage))
-						CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+					if (!Copy(CTSVNPathList(CTSVNPath(pathURL)), CTSVNPath(dlg.m_URL), dlg.m_CopyRev, dlg.m_CopyRev, dlg.m_sLogMessage))
+						CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 					else
 						CMessageBox::Show(this->m_hWnd, IDS_LOG_COPY_SUCCESS, IDS_APPNAME, MB_ICONINFORMATION);
 				}
@@ -3711,29 +3710,28 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				{
 					CTSVNPath tempfile;
 					tempfile.SetFromWin(revFilename);
-					SVN svn;
 					CProgressDlg progDlg;
 					progDlg.SetTitle(IDS_APPNAME);
 					progDlg.SetAnimation(IDR_DOWNLOAD);
 					CString sInfoLine;
 					sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, m_path.GetWinPath(), revSelected.ToString());
 					progDlg.SetLine(1, sInfoLine);
-					svn.SetAndClearProgressInfo(&progDlg);
+					SetAndClearProgressInfo(&progDlg);
 					progDlg.ShowModeless(m_hWnd);
-					if (!svn.Cat(m_path, SVNRev(SVNRev::REV_HEAD), revSelected, tempfile))
+					if (!Cat(m_path, SVNRev(SVNRev::REV_HEAD), revSelected, tempfile))
 					{
 						// try again with another peg revision
-						if (!svn.Cat(m_path, revSelected, revSelected, tempfile))
+						if (!Cat(m_path, revSelected, revSelected, tempfile))
 						{
 							progDlg.Stop();
-							svn.SetAndClearProgressInfo((HWND)NULL);
-							CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+							SetAndClearProgressInfo((HWND)NULL);
+							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							EnableOKButton();
 							break;
 						}
 					}
 					progDlg.Stop();
-					svn.SetAndClearProgressInfo((HWND)NULL);
+					SetAndClearProgressInfo((HWND)NULL);
 				}
 			}
 			break;
@@ -3818,23 +3816,22 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		case ID_UPDATE:
 			{
 				//now first get the revision which is selected
-				SVN svn;
 				CProgressDlg progDlg;
 				progDlg.SetTitle(IDS_APPNAME);
 				progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROGRESSWAIT)));
 				progDlg.SetTime(false);
-				svn.SetAndClearProgressInfo(&progDlg);
+				SetAndClearProgressInfo(&progDlg);
 				progDlg.ShowModeless(m_hWnd);
-				if (!svn.Update(CTSVNPathList(m_path), revSelected, svn_depth_unknown, FALSE))
+				if (!Update(CTSVNPathList(m_path), revSelected, svn_depth_unknown, FALSE))
 				{
 					progDlg.Stop();
-					svn.SetAndClearProgressInfo((HWND)NULL);
-					CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+					SetAndClearProgressInfo((HWND)NULL);
+					CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 					EnableOKButton();
 					break;
 				}
 				progDlg.Stop();
-				svn.SetAndClearProgressInfo((HWND)NULL);
+				SetAndClearProgressInfo((HWND)NULL);
 			}
 			break;
 		case ID_FINDENTRY:
