@@ -127,6 +127,7 @@ private:
     };
 
     /// cached repository properties
+	/// map URL -> PerRepoInfo
 
     typedef std::map<CString, SPerRepositoryInfo> TData;
     TData data;
@@ -153,6 +154,7 @@ private:
 
     /// find cache entry (or data::end())
 
+    TData::iterator Lookup (const CString& url);
     TData::iterator Lookup (const CTSVNPath& url);
 
     /// does the user want to be this repository off-line?
@@ -186,6 +188,11 @@ public:
     /// Returns an empty string, if no suitable entry has been found.
 
     CString GetRootFromUUID (const CString& sUUID) const;
+
+	/// is the repository offline? 
+	/// Don't modify the state if askUser is false.
+
+    bool IsOffline (const CString& url, bool askUser);
 
 	/// remove a specific entry
 

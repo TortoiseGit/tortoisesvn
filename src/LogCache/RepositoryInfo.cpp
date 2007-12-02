@@ -95,13 +95,11 @@ void CRepositoryInfo::Load()
 // find cache entry (or data::end())
 
 CRepositoryInfo::TData::iterator 
-CRepositoryInfo::Lookup (const CTSVNPath& url)
+CRepositoryInfo::Lookup (const CString& url)
 {
-    CString fullURL (url.GetSVNPathString());
-
     // the repository root URL should be a prefix of url
 
-    TData::iterator iter = data.lower_bound (fullURL);
+    TData::iterator iter = data.lower_bound (url);
 
     // no suitable prefix?
 
@@ -110,19 +108,25 @@ CRepositoryInfo::Lookup (const CTSVNPath& url)
 
     // does prefix match?
 
-    if ((iter != data.end()) && (iter->first == fullURL))
+    if ((iter != data.end()) && (iter->first == url))
         return iter;
 
     if (iter != data.begin())
     {
         --iter;
-        if (iter->first == fullURL.Left (iter->first.GetLength()))
+        if (iter->first == url.Left (iter->first.GetLength()))
             return iter;
     }
 
     // not found
 
     return data.end();
+}
+
+CRepositoryInfo::TData::iterator 
+CRepositoryInfo::Lookup (const CTSVNPath& url)
+{
+    return Lookup (url.GetSVNPathString());
 }
 
 // does the user want to be this repository off-line?
@@ -319,6 +323,32 @@ CString CRepositoryInfo::GetRootFromUUID (const CString& sUUID) const
     // not found
 
     return CString();
+}
+
+/// is the repository offline? 
+/// Don't modify the state if askUser is false.
+
+bool CRepositoryInfo::IsOffline (const CString& url, bool askUser)
+{
+	// find the info
+
+    TData::iterator iter = Lookup (url);
+
+	// no info -> assume online (i.e. just try to reach the server)
+
+	if (iter == data.end())
+		return false;
+
+	// update the online/offline state by contacting the user?
+	// (the dialog will only be shown if online and no 
+	// offline-defaults have been set)
+
+	if (askUser)
+		IsOffline (iter->second);
+
+	// return state
+
+	return iter->second.connectionState != online;
 }
 
 // remove a specific entry
