@@ -18,6 +18,9 @@ All user/site specific configuration is stored in doc.build.user.
 		Builds the Documentation in all languages and all output formats
 	</description>
 	
+	<!-- default: we don't clean first -->
+	<property name="cleanup" value="" overwrite="false" />
+
 	<include buildfile="doc.build.include"/>
 
 <!-- ====================================================================== -->
