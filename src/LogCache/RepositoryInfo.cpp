@@ -35,16 +35,6 @@
 namespace LogCache
 {
 
-// Auto-alloc access to the svn member
-
-SVN* CRepositoryInfo::GetSVN()
-{
-    if (svn == NULL)
-        svn = new SVN();
-
-    return svn;
-}
-
 // construct the dump file name
 
 CString CRepositoryInfo::GetFileName() const
@@ -185,17 +175,16 @@ void CRepositoryInfo::SetHeadFromCache (SPerRepositoryInfo& info)
 
 // construction / destruction: auto-load and save
 
-CRepositoryInfo::CRepositoryInfo (const CString& cacheFolderPath)
+CRepositoryInfo::CRepositoryInfo (SVN& svn, const CString& cacheFolderPath)
     : cacheFolder (cacheFolderPath)
     , modified (false)
-    , svn (NULL)
+    , svn (svn)
 {
     Load();
 }
 
 CRepositoryInfo::~CRepositoryInfo(void)
 {
-    delete svn;
 }
 
 // look-up and ask SVN if the info is not in cache. 
@@ -214,7 +203,7 @@ CString CRepositoryInfo::GetRepositoryRootAndUUID ( const CTSVNPath& url
     if (iter == data.end())
     {
         SPerRepositoryInfo info;
-        info.root = GetSVN()->GetRepositoryRootAndUUID (url, info.uuid);
+        info.root = svn.GetRepositoryRootAndUUID (url, info.uuid);
         info.headRevision = NO_REVISION;
         info.headLookupTime = -1;
         info.connectionState = online;
@@ -271,7 +260,7 @@ revision_t CRepositoryInfo::GetHeadRevision (const CTSVNPath& url)
 
             iter->second.headLookupTime = now;
             iter->second.headURL = url.GetSVNPathString();
-            iter->second.headRevision = GetSVN()->GetHEADRevision (url);
+            iter->second.headRevision = svn.GetHEADRevision (url);
         }
 
         // if we couldn't connect to the server, ask the user
@@ -390,13 +379,18 @@ void CRepositoryInfo::Clear()
     data.clear();
 }
 
-/// access to the result of the last SVN operation
+// get the owning SVN instance
+
+SVN& CRepositoryInfo::GetSVN() const
+{
+	return svn;
+}
+
+// access to the result of the last SVN operation
 
 svn_error_t* CRepositoryInfo::GetLastError() const
 {
-    assert (svn != NULL);
-
-    return svn != NULL ? svn->Err : NULL;
+    return svn.Err;
 }
 
 // end namespace LogCache

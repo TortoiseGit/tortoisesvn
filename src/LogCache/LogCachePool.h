@@ -19,6 +19,12 @@
 #pragma once
 
 ///////////////////////////////////////////////////////////////
+// forward declarations
+///////////////////////////////////////////////////////////////
+
+class SVN;
+
+///////////////////////////////////////////////////////////////
 // begin namespace LogCache
 ///////////////////////////////////////////////////////////////
 
@@ -67,7 +73,7 @@ public:
 	/// construction / destruction
 	/// (Flush() on destruction)
 
-	CLogCachePool (const CString& cacheFolderPath);
+	CLogCachePool (SVN& svn, const CString& cacheFolderPath);
 	virtual ~CLogCachePool(void);
 
 	/// auto-create and return cache for given repository

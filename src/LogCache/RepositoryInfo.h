@@ -141,11 +141,7 @@ private:
 
     /// use this instance for all SVN access
 
-    SVN* svn;
-
-    /// Auto-alloc access to the svn member
-
-    SVN* GetSVN();
+    SVN& svn;
 
     /// construct the dump file name
 
@@ -171,8 +167,8 @@ public:
 
     /// construction / destruction: auto-load and save
 
-    CRepositoryInfo(const CString& cacheFolderPath);
-    ~CRepositoryInfo(void);
+    CRepositoryInfo (SVN& svn, const CString& cacheFolderPath);
+    ~CRepositoryInfo();
 
     /// look-up and ask SVN if the info is not in cache. 
     /// cache the result.
@@ -202,6 +198,10 @@ public:
     /// clear cache
 
     void Clear();
+
+	/// get the owning SVN instance
+
+	SVN& GetSVN() const;
 
     /// access to the result of the last SVN operation
 

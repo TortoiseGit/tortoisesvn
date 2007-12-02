@@ -46,9 +46,9 @@ bool CLogCachePool::FileExists (const std::wstring& filePath)
 // construction / destruction
 // (Flush() on destruction)
 
-CLogCachePool::CLogCachePool (const CString& cacheFolderPath)
+CLogCachePool::CLogCachePool (SVN& svn, const CString& cacheFolderPath)
 	: cacheFolderPath (cacheFolderPath)
-    , repositoryInfo (new CRepositoryInfo (cacheFolderPath))
+    , repositoryInfo (new CRepositoryInfo (svn, cacheFolderPath))
 {
 }
 

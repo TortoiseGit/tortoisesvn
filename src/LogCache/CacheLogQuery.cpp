@@ -1077,12 +1077,10 @@ revision_t CCacheLogQuery::DecodeRevision ( const CTSVNPath& path
 
 	case svn_opt_revision_head:
         {
-			SVN svn;
-            CRepositoryInfo& info = svn.GetLogCachePool()->GetRepositoryInfo();
-            revision_t head = info.GetHeadRevision (url);
+            revision_t head = repositoryInfoCache->GetHeadRevision (url);
 
 			if (head == NO_REVISION)
-				throw SVNError (info.GetLastError());
+				throw SVNError (repositoryInfoCache->GetLastError());
 
         	return head;
         }
@@ -1153,7 +1151,7 @@ void CCacheLogQuery::Log ( const CTSVNPathList& targets
 
     CTSVNPath url = path.IsUrl()
         ? path
-        : CTSVNPath (SVN().GetURLFromPath (path));
+		: CTSVNPath (repositoryInfoCache->GetSVN().GetURLFromPath (path));
 
 	// decode revisions
 
