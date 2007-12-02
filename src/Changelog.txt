@@ -2,6 +2,7 @@
 - NEW: Log content will be cached. See issue #45 for details. (Stefan Fuhrmann)
 - NEW: Repository properties will be cached. Reduces or even eliminates 
        latency in log dialog and revison graph. (Stefan Fuhrmann)
+- NEW: Show log and revision graph w/o repository connection. (Stefan Fuhrmann)
 - NEW: A warning is shown when a modified file is about to be deleted
        in the various dialogs. See issue #274 for details. (Stefan)
 - NEW: External diff/merge programs can be specified by mime-type,

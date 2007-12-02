@@ -168,6 +168,7 @@ private:
         /// (merge them into cache when necessary)
 		CCachedLogInfo* cache;
         CCachedLogInfo* updateData;
+	    CRepositoryInfo* repositoryInfoCache;
 		CStringA URL;
 
 		/// connection to the SVN repository
@@ -180,6 +181,9 @@ private:
 
         /// log options (including receiver)
         CLogOptions options;
+
+		/// don't ask for going off-line, if this is set
+		bool receiverError;
 
 		/// make sure, we can iterator over the given range for the given path
 		void MakeRangeIterable ( const CDictionaryBasedPath& path
@@ -202,7 +206,7 @@ private:
 	public:
 
         /// default construction / destruction
-        CLogFiller();
+        explicit CLogFiller (CRepositoryInfo* repositoryInfoCache);
         ~CLogFiller();
 
 		/// actually call SVN

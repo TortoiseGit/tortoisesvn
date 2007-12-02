@@ -111,7 +111,11 @@ CCacheLogQuery::CDataAvailable::CDataAvailable ( CCachedLogInfo* cache
                                                , const CLogOptions& options)
     : revisions (cache->GetRevisions())
     , logInfo (cache->GetLogInfo())
-    , requiredMask (options.GetPresenceMask())
+
+	// for iteration, we always need the changed path list!
+
+    , requiredMask (  options.GetPresenceMask() 
+					| CRevisionInfoContainer::HAS_CHANGEDPATHS)
 {
 }
 
@@ -172,14 +176,14 @@ void CCacheLogQuery::CLogFiller::MakeRangeIterable ( const CDictionaryBasedPath&
 
 	// o.k., some data is missing. Ask for it.
 
-	CLogFiller().FillLog ( cache
-						 , URL
-						 , svnQuery
-						 , iterator.GetRevision()
-						 , startRevision
-						 , CDictionaryBasedTempPath (path)
-						 , 0
-                         , CLogOptions());
+	CLogFiller (repositoryInfoCache).FillLog ( cache
+											 , URL
+											 , svnQuery
+											 , iterator.GetRevision()
+											 , startRevision
+											 , CDictionaryBasedTempPath (path)
+											 , 0
+											 , CLogOptions());
 }
 
 // cache data
@@ -305,68 +309,84 @@ void CCacheLogQuery::CLogFiller::ReceiveLog
     , UserRevPropArray* userRevProps
     , bool mergesFollow)
 {
-    // store the data we just received
-
-	revision_t revision = static_cast<revision_t>(rev);
-    WriteToCache (changes, rev, stdRevProps, userRevProps);
-
-	// due to renames / copies, we may continue on a different path
-
-	if (!options.GetStrictNodeHistory())
+	try
 	{
-        // maybe the revision was known before but we had no changes info
-        // -> we received them now
-        // -> update the cache in that case
+		// so far, it has not be our fault 
 
-        index_t index = cache->GetRevisions()[revision];
-        if ((  cache->GetLogInfo().GetPresenceFlags (index) 
-             & CRevisionInfoContainer::HAS_CHANGEDPATHS) == 0)
-        {
-            cache->Update (*updateData);
-            updateData->Clear();
-        }
+		receiverError = false;
 
-        // now, iterate as usual
+		// store the data we just received
 
-		CCopyFollowingLogIterator iterator (cache, revision, *currentPath);
-		iterator.Advance();
+		revision_t revision = static_cast<revision_t>(rev);
+		WriteToCache (changes, rev, stdRevProps, userRevProps);
 
-		*currentPath = iterator.GetPath();
+		// due to renames / copies, we may continue on a different path
+
+		if (!options.GetStrictNodeHistory())
+		{
+			// maybe the revision was known before but we had no changes info
+			// -> we received them now
+			// -> update the cache in that case
+
+			index_t index = cache->GetRevisions()[revision];
+			if ((  cache->GetLogInfo().GetPresenceFlags (index) 
+				 & CRevisionInfoContainer::HAS_CHANGEDPATHS) == 0)
+			{
+				cache->Update (*updateData);
+				updateData->Clear();
+			}
+
+			// now, iterate as usual
+
+			CCopyFollowingLogIterator iterator (cache, revision, *currentPath);
+			iterator.Advance();
+
+			*currentPath = iterator.GetPath();
+		}
+
+		// the first revision we may not have information about is the one
+		// immediately preceding the on we just received from the server
+
+		firstNARevision = revision-1;
+
+		// hand on to the original log receiver
+
+		if (options.GetReceiver() != NULL)
+			if (options.GetRevsOnly())
+			{
+    			options.GetReceiver()->ReceiveLog ( NULL
+												  , rev
+												  , NULL
+												  , NULL
+												  , mergesFollow);
+			}
+			else
+			{
+    			options.GetReceiver()->ReceiveLog ( changes
+												  , rev
+												  , stdRevProps
+												  , userRevProps
+												  , mergesFollow);
+			}
 	}
+	catch (...)
+	{
+		// this was (probably) not a genuine SVN error
 
-	// the first revision we may not have information about is the one
-	// immediately preceding the on we just received from the server
-
-	firstNARevision = revision-1;
-
-	// hand on to the original log receiver
-
-	if (options.GetReceiver() != NULL)
-        if (options.GetRevsOnly())
-        {
-    		options.GetReceiver()->ReceiveLog ( NULL
-                                              , rev
-                                              , NULL
-                                              , NULL
-                                              , mergesFollow);
-        }
-        else
-        {
-    		options.GetReceiver()->ReceiveLog ( changes
-                                              , rev
-                                              , stdRevProps
-                                              , userRevProps
-                                              , mergesFollow);
-        }
+		receiverError = true;
+		throw;
+	}
 }
 
 // default construction / destruction
 
-CCacheLogQuery::CLogFiller::CLogFiller()
+CCacheLogQuery::CLogFiller::CLogFiller (CRepositoryInfo* repositoryInfoCache)
     : cache (NULL)
     , updateData (new CCachedLogInfo())
+	, repositoryInfoCache (repositoryInfoCache)
     , svnQuery (NULL)
     , firstNARevision (NO_REVISION)
+	, receiverError (false)
 {
 }
 
@@ -405,23 +425,41 @@ CCacheLogQuery::CLogFiller::FillLog ( CCachedLogInfo* cache
     else
 	    path.SetFromSVN (URL + startPath.GetPath().c_str());
 
-	svnQuery->Log ( CTSVNPathList (path)
-				  , static_cast<long>(startRevision)
-				  , static_cast<long>(startRevision)
-				  , static_cast<long>(endRevision)
-			      , limit
-				  , options.GetStrictNodeHistory()
-				  , this
-                  , true
-                  , false
-                  , options.GetIncludeStandardRevProps()
-                  , options.GetIncludeUserRevProps()
-                  , TRevPropNames());
+	CString url = CUnicodeUtils::GetUnicode (URL);
+
+	try
+	{
+		svnQuery->Log ( CTSVNPathList (path)
+					  , static_cast<long>(startRevision)
+					  , static_cast<long>(startRevision)
+					  , static_cast<long>(endRevision)
+					  , limit
+					  , options.GetStrictNodeHistory()
+					  , this
+					  , true
+					  , false
+					  , options.GetIncludeStandardRevProps()
+					  , options.GetIncludeUserRevProps()
+					  , TRevPropNames());
+	}
+	catch (SVNError&)
+	{
+		// if the problem was caused by SVN and the user wants
+		// to go off-line, swallow the error
+
+		if (receiverError || !repositoryInfoCache->IsOffline (url, true))
+			throw;
+	}
+
+	// update the cache with the data we may have received
 
     cache->Update (*updateData);
     updateData->Clear();
 
-	if (firstNARevision == startRevision) 
+	// update skip ranges etc. if we are still connected
+
+	if (   (firstNARevision == startRevision) 
+		&& !repositoryInfoCache->IsOffline (url, false))
 	{
 		// the log was empty
 
@@ -654,14 +692,15 @@ revision_t CCacheLogQuery::FillLog ( revision_t startRevision
 
 	// now, fill the cache (somewhat) and forward to the receiver
 
-	return CLogFiller().FillLog ( cache
-								, URL
-								, svnQuery
-								, startRevision
-								, max (min (startRevision, endRevision), 1)
-								, startPath
-								, limit
-								, options);
+	return CLogFiller(repositoryInfoCache)
+		       .FillLog ( cache
+						, URL
+						, svnQuery
+						, startRevision
+						, max (min (startRevision, endRevision), 1)
+						, startPath
+						, limit
+						, options);
 }
 
 // fill the receiver's change list buffer 
@@ -878,6 +917,10 @@ void CCacheLogQuery::InternalLog ( revision_t startRevision
 	if (endRevision < 1)
 		endRevision = 1;
 
+	// we may need this more than once
+
+	CString url = CUnicodeUtils::GetUnicode (URL);
+
 	// crawl & update the cache, report entries found
 
 	while ((iterator->GetRevision() >= endRevision) && !iterator->EndOfPath())
@@ -889,18 +932,31 @@ void CCacheLogQuery::InternalLog ( revision_t startRevision
 
 			assert (iterator->GetRevision() < lastReported);
 
-			// our cache is incomplete -> fill it.
-			// Report entries immediately to the receiver 
-			// (as to allow the user to cancel this action).
+			// don't try to fetch data when in "disconnected" mode
+			
+			if (repositoryInfoCache->IsOffline (url, false))
+			{
+				// just skip unknown revisions
+				// (we already warned the use that this might
+				// result bogus results)
 
-			lastReported = FillLog ( iterator->GetRevision()
-								   , endRevision
-								   , iterator->GetPath()
-								   , limit
-                                   , options
-                                   , dataAvailable);
+				iterator->ToNextAvailableData();
+			}
+			else
+			{
+				// our cache is incomplete -> fill it.
+				// Report entries immediately to the receiver 
+				// (as to allow the user to cancel this action).
 
-			iterator->Retry();
+				lastReported = FillLog ( iterator->GetRevision()
+									   , endRevision
+									   , iterator->GetPath()
+									   , limit
+									   , options
+									   , dataAvailable);
+
+				iterator->Retry();
+			}
 		}
 		else
 		{
