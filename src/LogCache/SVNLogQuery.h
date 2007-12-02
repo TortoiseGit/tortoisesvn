@@ -33,15 +33,15 @@ class CSVNLogQuery : public ILogQuery
 {
 private:
 
-	// our client context info
+	/// our client context info
 
 	svn_client_ctx_t *context;
 
-	// the memory pool to use
+	/// the memory pool to use
 
 	apr_pool_t *pool;
 
-    // callback baton structure
+    /// callback baton structure
 
     struct SBaton
     {
@@ -51,17 +51,17 @@ private:
         bool includeUserRevProps;
     };
 
-    // SVN API utility
+    /// SVN API utility
 
     static void AppendStrings ( SVNPool& pool
                               , apr_array_header_t* array
                               , const std::vector<CString>& strings);
 
-    // standard revision properties
+    /// standard revision properties
 
     const TRevPropNames& GetStandardRevProps();
 
-    // SVN callback. Route data to receiver
+    /// SVN callback. Route data to receiver
 
     static svn_error_t* LogReceiver ( void *baton
                                     , svn_log_entry_t *log_entry
@@ -69,14 +69,14 @@ private:
 
 public:
 
-	// construction / destruction
+	/// construction / destruction
 
 	CSVNLogQuery ( svn_client_ctx_t *context
 				 , apr_pool_t *pool);
 	virtual ~CSVNLogQuery(void);
 
-	// query a section from log for multiple paths
-	// (special revisions, like "HEAD", supported)
+	/// query a section from log for multiple paths
+	/// (special revisions, like "HEAD", supported)
 
 	virtual void Log ( const CTSVNPathList& targets
 					 , const SVNRev& peg_revision
