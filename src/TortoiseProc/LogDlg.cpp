@@ -1594,15 +1594,30 @@ void CLogDlg::DiffSelectedFile()
 			if (changedpath->action == LOGACTIONS_DELETED)
 				r = rev1-1;
 			m_bCancelled = false;
+
+			CProgressDlg progDlg;
+			progDlg.SetTitle(IDS_APPNAME);
+			progDlg.SetAnimation(IDR_DOWNLOAD);
+			CString sInfoLine;
+			sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, m_sRepositoryRoot + changedpath->sPath, SVNRev(rev).ToString());
+			progDlg.SetLine(1, sInfoLine);
+			SetAndClearProgressInfo(&progDlg);
+			progDlg.ShowModeless(m_hWnd);
+
 			if (!Cat(CTSVNPath(m_sRepositoryRoot + changedpath->sPath), r, r, tempfile))
 			{
 				m_bCancelled = false;
 				if (!Cat(CTSVNPath(m_sRepositoryRoot + changedpath->sPath), SVNRev::REV_HEAD, r, tempfile))
 				{
+					progDlg.Stop();
+					SetAndClearProgressInfo((HWND)NULL);
 					CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 					return;
 				}
 			}
+			progDlg.Stop();
+			SetAndClearProgressInfo((HWND)NULL);
+
 			CString sName1, sName2;
 			sName1.Format(_T("%s - Revision %ld"), CPathUtils::GetFileNameFromPath(changedpath->sPath), (svn_revnum_t)rev1);
 			sName2.Format(_T("%s - Revision %ld"), CPathUtils::GetFileNameFromPath(changedpath->sPath), (svn_revnum_t)rev1-1);
