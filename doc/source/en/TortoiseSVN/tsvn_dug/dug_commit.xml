@@ -213,6 +213,26 @@
 			</para>
 		</tip>
 	</sect2>
+	<sect2 id="tsvn-dug-commit-ignore">
+		<title>Excluding Items from the Commit List</title>
+		<para>
+			Sometimes you have versioned files that change frequently but that you
+			really don't want to commit. Sometimes this indicates a flaw in your
+			build process - why are those files versioned? should you be using
+			template files? But occasionally it is inevitable. A classic reason
+			is that your IDE changes a timestamp in the project file every time
+			you build. The project file has to be versioned as it includes all the
+			build settings, but it doesn't need to be committed just because the
+			timestamp changed.
+		</para>
+		<para>
+			To help out in awkward cases like this, we have reserved a changelist
+			called <literal>ignore-on-commit</literal>. Any file added to this
+			changelist will automatically be unchecked in the commit dialog.
+			You can still commit changes, but you have to select it manually
+			in the commit dialog.
+		</para>
+	</sect2>
 	<sect2 id="tsvn-dug-commit-log">
 		<title>Commit Log Messages</title>
 		<para>
