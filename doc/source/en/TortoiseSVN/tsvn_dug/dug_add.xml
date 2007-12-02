@@ -34,8 +34,8 @@
 			You can also use the Add command on already versioned
 			folders. In that case, the add dialog will show you all
 			unversioned files inside that versioned folder.
-			This helps if you have many new files and need them to
-			add at once.
+			This helps if you have many new files and need to add
+			them all at once.
 		</para>
 	</tip>
 	<para>
@@ -74,5 +74,13 @@
 	<para>
 		You can also add files within a working copy simply by left-dragging and
 		dropping them onto the commit dialog.
+	</para>
+	<para>
+		If you add a file or folder by mistake, you can undo the addition
+		before you commit using
+		<menuchoice>
+			<guimenu>TortoiseSVN</guimenu>
+			<guimenuitem>Undo add...</guimenuitem>
+		</menuchoice>.
 	</para>
 </sect1>
