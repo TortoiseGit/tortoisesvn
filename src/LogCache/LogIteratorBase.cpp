@@ -265,6 +265,25 @@ revision_t CLogIteratorBase::SkipNARevisions()
 
 // log scanning
 
+void CLogIteratorBase::AdvanceOneStep()
+{
+	// perform at least one step
+
+	ToNextRevision();
+
+	// skip ranges of missing data, if we know
+	// that they don't affect our path
+
+	while (InternalDataIsMissing())
+	{
+		revision_t nextRevision = SkipNARevisions(); 
+		if (nextRevision != NO_REVISION)
+			revision = nextRevision;
+		else
+			break;
+	}
+}
+
 void CLogIteratorBase::InternalAdvance()
 {
 	// find next entry that mentions the path
@@ -272,21 +291,7 @@ void CLogIteratorBase::InternalAdvance()
 
 	do
 	{
-		// perform at least one step
-
-		ToNextRevision();
-
-		// skip ranges of missing data, if we know
-		// that they don't affect our path
-
-		while (InternalDataIsMissing())
-		{
-			revision_t nextRevision = SkipNARevisions(); 
-			if (nextRevision != NO_REVISION)
-				revision = nextRevision;
-			else
-				break;
-		}
+		AdvanceOneStep();
 	}
 	while ((revision > 0) && !InternalDataIsMissing() && !PathInRevision());
 }
@@ -351,6 +356,18 @@ void CLogIteratorBase::Advance()
 			InternalAdvance();
 		}
 	}
+}
+
+void CLogIteratorBase::ToNextAvailableData()
+{
+	// find next available entry
+	// stop @ revision 0
+
+	do
+	{
+		AdvanceOneStep();
+	}
+	while ((revision > 0) && InternalDataIsMissing());
 }
 
 void CLogIteratorBase::Retry()

@@ -45,19 +45,23 @@ class ILogIterator
 {
 public:
 
-	// data access
+	/// data access
 
 	virtual bool DataIsMissing() const = 0;
 	virtual revision_t GetRevision() const = 0;
 	virtual const CDictionaryBasedTempPath& GetPath() const = 0;
 	virtual bool EndOfPath() const = 0;
 
-	// to next / previous revision for our path
+	/// to next / previous revision for our path
 
 	virtual void Advance() = 0;
 
-	// call this after DataIsMissing() and you added new
-	// revisions to the cache
+	/// call this to efficiently skip ranges where DataIsMissing()
+
+	virtual void ToNextAvailableData() = 0;
+
+	/// call this after DataIsMissing() and you added new
+	/// revisions to the cache
 
 	virtual void Retry() = 0;
 };

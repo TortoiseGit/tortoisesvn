@@ -67,7 +67,7 @@ protected:
 
 	// react on cache updates
 
-	virtual void HandleCacheUpdates();
+	void HandleCacheUpdates();
 
 	// do we have data for that revision?
 
@@ -80,7 +80,7 @@ protected:
 		, const CRevisionInfoContainer::CChangesIterator& last
 		, const CDictionaryBasedTempPath& path);
 
-	virtual bool PathInRevision() const;
+	bool PathInRevision() const;
 
 	// utilities for efficient HandleCopyAndDelete() implementation
 
@@ -101,12 +101,13 @@ protected:
 
 	// log scanning sub-routines
 
-	virtual revision_t SkipNARevisions();
-	virtual void ToNextRevision();
+	revision_t SkipNARevisions();
+	void ToNextRevision();
 
 	// log scanning
 
-	virtual void InternalAdvance();
+	void AdvanceOneStep();
+	void InternalAdvance();
 
 public:
 
@@ -122,6 +123,7 @@ public:
 	virtual bool EndOfPath() const;
 
 	virtual void Advance();
+	virtual void ToNextAvailableData();
 
 	virtual void Retry();
 };
