@@ -257,7 +257,7 @@ public:
 	 */
 	BOOL Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, 
 		SVNRev revision, SVNRev pegrev, CString logmsg = CString(), 
-		bool copy_as_child = false, bool make_parents = false, bool withMergeHistory = true);
+		bool copy_as_child = false, bool make_parents = false);
 	/**
 	 * Move srcPath to destPath.
 	 * 
@@ -286,7 +286,7 @@ public:
 	 */
 	BOOL Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath, 
 				BOOL force, CString message = _T(""), bool move_as_child = false, 
-				bool make_parents = false, bool withMergeHistory = true);
+				bool make_parents = false);
 	/**
 	 * If path is a URL, use the message to immediately
 	 * attempt to commit the creation of the directory URL in the

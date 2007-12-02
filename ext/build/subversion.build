@@ -41,6 +41,8 @@
 		     Wspiapi.h, this will make it work again on win2k. -->
 		<copy file="..\build\win32_xlate.c" tofile="subversion\libsvn_subr\win32_xlate.c" overwrite="true" />
 		<copy file="..\build\config_win.c" tofile="subversion\libsvn_subr\config_win.c" overwrite="true" />
+		<copy file="..\build\util.c" tofile="subversion\libsvn_ra_serf\util.c" overwrite="true" />
+		<copy file="..\build\win32_auth_sspi.c" tofile="subversion\libsvn_ra_serf\win32_auth_sspi.c" overwrite="true" />
 		
 
 		<property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
