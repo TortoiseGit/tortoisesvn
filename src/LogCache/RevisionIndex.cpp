@@ -47,7 +47,7 @@ revision_t CRevisionIndex::GetFirstCachedRevision() const
         if (indices[i] != NO_INDEX)
             return firstRevision + static_cast<revision_t>(i);
 
-    return NO_REVISION;
+    return (revision_t)NO_REVISION;
 }
 
 revision_t CRevisionIndex::GetLastCachedRevision() const
@@ -56,7 +56,7 @@ revision_t CRevisionIndex::GetLastCachedRevision() const
         if (indices[i-1] != NO_INDEX)
             return firstRevision + static_cast<revision_t>(i);
 
-    return NO_REVISION;
+    return (revision_t)NO_REVISION;
 }
 
 // insert info (must be NO_INDEX before)
@@ -97,7 +97,7 @@ void CRevisionIndex::SetRevisionIndex (revision_t revision, index_t index)
 			? 0
 			: min (firstRevision - indexSize, revision);
 
-		indices.insert (indices.begin(), firstRevision - newFirstRevision, NO_INDEX);
+		indices.insert (indices.begin(), firstRevision - newFirstRevision, (index_t)NO_INDEX);
 		firstRevision = newFirstRevision;
 	}
 	else
@@ -108,7 +108,7 @@ void CRevisionIndex::SetRevisionIndex (revision_t revision, index_t index)
 			// efficiently grow on the upper end
 
 			size_t toAdd = max (size, revision + 1 - firstRevision - size);
-			indices.insert (indices.end(), toAdd, NO_INDEX);
+			indices.insert (indices.end(), toAdd, (index_t)NO_INDEX);
 		}
 	}
 

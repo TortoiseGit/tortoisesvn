@@ -43,7 +43,7 @@ bool CStrictLogIterator::HandleCopyAndDelete()
 	{
 		// stop on copy
 
-		revision = NO_REVISION;
+		revision = (revision_t)NO_REVISION;
 	}
 
 	return result;

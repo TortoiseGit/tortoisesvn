@@ -74,7 +74,6 @@ protected:
 		if (GetRemaining() < size)
 			return NULL;
 
-		const unsigned char* result = current;
 		current += size;
 
 		return current;

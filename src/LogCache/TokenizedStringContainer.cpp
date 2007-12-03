@@ -149,7 +149,7 @@ bool CTokenizedStringContainer::CPairPacker::CompressString (index_t stringIndex
 				lastToken = container->GetPairToken (pairIndex);
 				if (++iter == end)
 				{
-					token = EMPTY_TOKEN;
+					token = (index_t)EMPTY_TOKEN;
 					--iter;
 				}
 				else
@@ -174,7 +174,7 @@ bool CTokenizedStringContainer::CPairPacker::CompressString (index_t stringIndex
 	// fill up the empty space at the end
 
 	for (++target; (target != end); ++target)
-		*target = EMPTY_TOKEN;
+		*target = (unsigned long)EMPTY_TOKEN;
 	
 	// was there a compression?
 
@@ -339,7 +339,7 @@ void CTokenizedStringContainer::Append (const std::string& s)
 {
 	static const std::string delimiters (" \t\n\\/");
 
-	index_t lastToken = EMPTY_TOKEN;
+	index_t lastToken = (index_t)EMPTY_TOKEN;
 	size_t nextPos = std::string::npos;
 
 	size_t stringStart = stringData.size();
@@ -368,7 +368,7 @@ void CTokenizedStringContainer::Append (const std::string& s)
 			{
 				// there is no previous token -> end of compression chain
 
-				lastToken = NO_INDEX;
+				lastToken = (index_t)NO_INDEX;
 			}
 			else
 			{
@@ -590,7 +590,7 @@ void CTokenizedStringContainer::Remove (index_t index)
 	// terminate the previous string 
 
 	assert (offsets[index] != offsets[index+1]);
-	stringData[offsets[index]] = EMPTY_TOKEN;
+	stringData[offsets[index]] = (index_t)EMPTY_TOKEN;
 
 	// remove string from index but keep its tokens
 	// (they remain hidden and will be removed upon

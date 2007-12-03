@@ -46,13 +46,13 @@ revision_t CSkipRevisionInfo::SPerPathRanges::FindNext (revision_t revision) con
 	// special case
 
 	if (ranges.empty())
-		return NO_REVISION;
+		return (revision_t)NO_REVISION;
 
 	// look for the first range *behind* revision
 
 	TRanges::const_iterator iter = ranges.upper_bound (revision);
 	if (iter == ranges.begin())
-		return NO_REVISION;
+		return (revision_t)NO_REVISION;
 
 	// return end of previous range, if revision is within this range
 
@@ -68,13 +68,13 @@ revision_t CSkipRevisionInfo::SPerPathRanges::FindPrevious (revision_t revision)
 	// special case
 
 	if (ranges.empty())
-		return NO_REVISION;
+		return (revision_t)NO_REVISION;
 
 	// look for the first range *behind* revision
 
 	TRanges::const_iterator iter = ranges.upper_bound (revision);
 	if (iter == ranges.begin())
-		return NO_REVISION;
+		return (revision_t)NO_REVISION;
 
 	// return start-1 of previous range, if revision is within this range
 
@@ -145,7 +145,6 @@ index_t CSkipRevisionInfo::CPacker::RemoveParentRanges()
 
 	// remove all parent ranges
 
-	std::vector<SPerPathRanges*>& data = parent->data;
 	const CPathDictionary& paths = parent->paths;
 
 	for (size_t i = 0, count = parent->data.size(); i < count; ++i)
@@ -421,7 +420,7 @@ revision_t CSkipRevisionInfo::GetNextRevision ( const CDictionaryBasedPath& path
 	// above the root or invalid parameter ?
 
 	if (!path.IsValid() || (revision == NO_REVISION))
-		return NO_REVISION;
+		return (revision_t)NO_REVISION;
 
 	// lookup the extry for this path
 
@@ -446,8 +445,7 @@ revision_t CSkipRevisionInfo::GetNextRevision ( const CDictionaryBasedPath& path
 
 		if (ranges != NULL)
 		{
-			revision_t next = ranges->FindNext (revision);
-			if (parentNext != NO_REVISION)
+			if (parentNext != (revision_t)NO_REVISION)
 				revision = parentNext;
 		}
 	}
@@ -466,7 +464,7 @@ revision_t CSkipRevisionInfo::GetPreviousRevision ( const CDictionaryBasedPath& 
 	// above the root or invalid parameter ?
 
 	if (!path.IsValid() || (revision == NO_REVISION))
-		return NO_REVISION;
+		return (revision_t)NO_REVISION;
 
 	// lookup the entry for this path
 

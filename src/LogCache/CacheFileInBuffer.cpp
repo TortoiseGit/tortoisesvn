@@ -65,7 +65,7 @@ void CCacheFileInBuffer::ReadStreamOffsets()
 
 	// consistency check
 
-	if (lastStream - GetBuffer() != contentEnd)
+	if ((size_t)(lastStream - GetBuffer()) != contentEnd)
 		throw std::exception ("stream directory corrupted");
 }
 

@@ -208,7 +208,7 @@ CString CRepositoryInfo::GetRepositoryRootAndUUID ( const CTSVNPath& url
     {
         SPerRepositoryInfo info;
         info.root = svn.GetRepositoryRootAndUUID (url, info.uuid);
-        info.headRevision = NO_REVISION;
+        info.headRevision = (revision_t)NO_REVISION;
         info.headLookupTime = -1;
         info.connectionState = online;
 
@@ -241,7 +241,7 @@ revision_t CRepositoryInfo::GetHeadRevision (const CTSVNPath& url)
     {
         // there was some problem connecting to the repository
 
-        return NO_REVISION;
+        return (revision_t)NO_REVISION;
     }
 
     // get time stamps and maximum head info age (default: 5 mins)

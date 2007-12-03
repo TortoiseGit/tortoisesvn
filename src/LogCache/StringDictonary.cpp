@@ -236,7 +236,7 @@ void CStringDictionary::Clear()
 index_mapping_t CStringDictionary::Merge (const CStringDictionary& source)
 {
 	index_mapping_t result;
-	result.insert (NO_INDEX, NO_INDEX);
+	result.insert ((index_t)NO_INDEX, (index_t)NO_INDEX);
 
 	for (index_t i = 0, count = source.size(); i < count; ++i)
 		result.insert (i, AutoInsert (source[i]));
@@ -267,8 +267,6 @@ void CStringDictionary::Reorder (const std::vector<index_t>& sourceIndices)
 	char* targetString = &target.at(0);
 
     // copy string by string
-
-	index_t targetOffset = 0;
 
 	for (index_t i = 0, count = size(); i < count; ++i)
     {

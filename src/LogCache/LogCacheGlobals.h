@@ -45,7 +45,7 @@ namespace LogCache
 	enum
 	{
 		/// invalid/unknown index
-		NO_INDEX = 0xffffffff,
+		NO_INDEX = (revision_t)0xffffffff,
 		/// invalid/unknown revision
 		NO_REVISION = NO_INDEX,
 	};

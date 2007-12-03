@@ -212,7 +212,7 @@ bool CLogIteratorBase::InternalHandleCopyAndDelete
                     {
                         // the path we are following actually started here.
 
-    					searchRevision = NO_REVISION;
+    					searchRevision = (revision_t)NO_REVISION;
                         return true;
                     }
 				}

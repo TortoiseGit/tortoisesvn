@@ -385,7 +385,7 @@ CCacheLogQuery::CLogFiller::CLogFiller (CRepositoryInfo* repositoryInfoCache)
     , updateData (new CCachedLogInfo())
 	, repositoryInfoCache (repositoryInfoCache)
     , svnQuery (NULL)
-    , firstNARevision (NO_REVISION)
+    , firstNARevision ((revision_t)NO_REVISION)
 	, receiverError (false)
 {
 }
@@ -606,8 +606,6 @@ revision_t CCacheLogQuery::FindOldestGap ( const CDictionaryBasedTempPath& path
 
     const CRevisionInfoContainer& logInfo = cache->GetLogInfo();
 	const CRevisionIndex& revisions = cache->GetRevisions();
-	revision_t lastRevisionToCheck = min ( endRevision
-										 , revisions.GetFirstRevision());
 
     // length of the current sequence of known data
 
@@ -1170,7 +1168,7 @@ CTSVNPath CCacheLogQuery::GetPath (const CTSVNPathList& targets) const
 
 CCacheLogQuery::CCacheLogQuery (CLogCachePool* caches, ILogQuery* svnQuery)
 	: caches (caches)
-    , repositoryInfoCache (&caches->GetRepositoryInfo())
+	, repositoryInfoCache (caches ? &caches->GetRepositoryInfo() : NULL)
     , cache (NULL)
 	, tempCache (NULL)
 	, URL()

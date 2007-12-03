@@ -131,10 +131,8 @@ void CRevisionInfoContainer::UpdateChanges
     index_mapping_t::const_iterator mapEnd = indexMap.end();
 	for (index_t i = 0, count = size(); i < count; ++i)
 	{
-		index_t firstChange = lastChange;
 		lastChange = changesOffsets[i+1];
 
-	    index_t firstCopy = lastCopy;
 		lastCopy = copyFromOffsets[i+1];
 
         index_mapping_t::const_iterator iter = indexMap.find (i);
@@ -404,10 +402,10 @@ void CRevisionInfoContainer::AppendNewEntries
 	{
         // append a new revision info
 
-        authors.insert (authors.end(), toAppend, NO_INDEX);
+        authors.insert (authors.end(), toAppend, (index_t)NO_INDEX);
         timeStamps.insert (timeStamps.end(), toAppend, 0);
         presenceFlags.insert (presenceFlags.end(), toAppend, 0);
-        rootPaths.insert (rootPaths.end(), toAppend, NO_INDEX);
+        rootPaths.insert (rootPaths.end(), toAppend, (index_t)NO_INDEX);
         sumChanges.insert (sumChanges.end(), toAppend, 0);
 
         static const std::string emptyComment;
@@ -501,7 +499,7 @@ void CRevisionInfoContainer::OptimizeChangeOrder()
 
 		SPerChangeInfo (const CRevisionInfoContainer::CChangesIterator& iter)
 			: changedPath (iter->GetPathID())
-			, change (iter->GetRawChange())
+			, change ((unsigned char)iter->GetRawChange())
 		{
 			if (iter->HasFromPath())
 			{
@@ -609,7 +607,7 @@ index_t CRevisionInfoContainer::Insert ( const std::string& author
 
 	// no changes yet -> no common root path info
 
-	rootPaths.push_back (NO_INDEX);
+	rootPaths.push_back ((index_t)NO_INDEX);
 	sumChanges.push_back (0);
 
 	// empty range for changes 

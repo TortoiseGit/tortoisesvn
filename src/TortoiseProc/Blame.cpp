@@ -140,11 +140,11 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 	m_progressDlg.SetProgress(0, m_nHeadRev);
 
 	m_bHasMerges = false;
-	BOOL bBlameSuccesful = this->Blame(path, startrev, endrev, pegrev, options, ignoremimetype);
+	BOOL bBlameSuccesful = this->Blame(path, startrev, endrev, pegrev, options, !!ignoremimetype);
 	if ( !bBlameSuccesful && !pegrev.IsValid() )
 	{
 		// retry with the endrev as pegrev
-		if ( this->Blame(path, startrev, endrev, endrev, options, ignoremimetype) )
+		if ( this->Blame(path, startrev, endrev, endrev, options, !!ignoremimetype) )
 		{
 			bBlameSuccesful = TRUE;
 			pegrev = endrev;
@@ -210,11 +210,11 @@ bool CBlame::BlameToFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, 
 	if (m_nHeadRev < 0)
 		m_nHeadRev = GetHEADRevision(path);
 
-	BOOL bBlameSuccesful = this->Blame(path, startrev, endrev, peg, options, ignoremimetype);
+	BOOL bBlameSuccesful = this->Blame(path, startrev, endrev, peg, options, !!ignoremimetype);
 	if ( !bBlameSuccesful && !peg.IsValid() )
 	{
 		// retry with the endrev as pegrev
-		if ( this->Blame(path, startrev, endrev, endrev, options, ignoremimetype) )
+		if ( this->Blame(path, startrev, endrev, endrev, options, !!ignoremimetype) )
 		{
 			bBlameSuccesful = TRUE;
 			peg = endrev;

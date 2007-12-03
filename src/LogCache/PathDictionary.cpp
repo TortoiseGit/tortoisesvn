@@ -118,7 +118,7 @@ index_mapping_t CPathDictionary::Merge (const CPathDictionary& source)
 {
 	index_mapping_t result;
 	result.insert (0, 0);
-	result.insert (NO_INDEX, NO_INDEX);
+	result.insert ((index_t)NO_INDEX, (index_t)NO_INDEX);
 
 	index_mapping_t elementMapping = pathElements.Merge (source.pathElements);
 	for (index_t i = 1, count = source.size(); i < count; ++i)
