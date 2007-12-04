@@ -26,8 +26,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2000-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-10-31 21:06+0100\n"
-"Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
+"PO-Revision-Date: 2007-12-04 22:19+0100\n"
+"Last-Translator: Jean-Marc van Leerdam <jeanmarc@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -369,6 +369,14 @@ msgstr "&Verschil"
 msgid "&Diff with URL"
 msgstr "&Verschil met URL"
 
+#. Resource IDs: (14)
+msgid "&Diff with previous version"
+msgstr "&Vergelijk met vorige revisie"
+
+#. Resource IDs: (2)
+msgid "&Don't go offline"
+msgstr "&Niet offline werken"
+
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
 msgstr "Wijzig&en"
@@ -575,6 +583,10 @@ msgstr "&Volgend verschil"
 msgid "&OK"
 msgstr "&OK"
 
+#. Resource IDs: (1)
+msgid "&Offline for now"
+msgstr "&Voorlopig offline"
+
 #. Resource IDs: (101, 113, 32773)
 msgid "&Open"
 msgstr "&Openen"
@@ -594,6 +606,10 @@ msgstr "&Wachtwoord:"
 #. Resource IDs: (376, 501)
 msgid "&Paste"
 msgstr "&Plakken"
+
+#. Resource IDs: (1382)
+msgid "&Permanently offline"
+msgstr "&Permanent offline"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -950,6 +966,10 @@ msgstr "Toegang tot %1 geweigerd."
 msgid "Action"
 msgstr "Actie"
 
+#. Resource IDs: (65535)
+msgid "Action log"
+msgstr "Actie-log"
+
 #. Resource IDs: (117)
 msgid "Actions"
 msgstr "Acties"
@@ -958,7 +978,7 @@ msgstr "Acties"
 msgid "Activate Task List"
 msgstr "Takenlijst activeren"
 
-#. Resource IDs: (155, 209)
+#. Resource IDs: (155, 209, 229)
 msgid "Add"
 msgstr "Toevoegen"
 
@@ -1073,6 +1093,10 @@ msgstr "Alle bestanden (*.*)"
 #. Resource IDs: (157)
 msgid "All Files (*.*)|*.*||"
 msgstr "Alle Bestanden (*.*)|*.*||"
+
+#. Resource IDs: (197)
+msgid "Always use the system locale settings to show times and dates"
+msgstr "Gebruik altijd de systeem landinstellingen bij het tonen van datum en tijd"
 
 #. Resource IDs: (3867, 3868)
 #, c-format
@@ -1571,7 +1595,7 @@ msgstr "Schonen gereed"
 msgid "Cleanup interrupted operations, locked files, ..."
 msgstr "Schonen van onderbroken acties, geblokkeerde bestanden, ..."
 
-#. Resource IDs: (1273, 1275, 1276, 1279, 1281)
+#. Resource IDs: (1273, 1275, 1276, 1279, 1281, 1427)
 msgid "Clear"
 msgstr "Wissen"
 
@@ -1656,7 +1680,7 @@ msgstr "Uit te voeren commando:"
 msgid "Command failed."
 msgstr "Opdracht mislukt."
 
-#. Resource IDs: (135, 209, 1083)
+#. Resource IDs: (135, 209, 229, 1083)
 msgid "Commit"
 msgstr "Vastleggen"
 
@@ -1938,6 +1962,10 @@ msgstr "Kon \"%s\" niet verwijderen omdat"
 msgid "Could not delete property \"%s\" on %s because"
 msgstr "Kon \"%s\" niet verwijderen van %s omdat"
 
+#. Resource IDs: (83)
+msgid "Could not determine the last committed revision!"
+msgstr "Kon de laatst vastgelegde revisie niet bepalen!"
+
 #. Resource IDs: (81)
 msgid "Could not get the status!"
 msgstr "Kon de status niet ophalen!"
@@ -2146,6 +2174,10 @@ msgstr "Verwijdert bestanden/mappen uit versiebeheer"
 msgid "Deletes files / folders from version control but keeps the file"
 msgstr "Verwijdert bestanden/mappen uit versiebeheer, maar laat ze staan"
 
+#. Resource IDs: (198)
+msgid "Deletes the action log file"
+msgstr "Verwijdert het actie-log bestand"
+
 #. Resource IDs: (263)
 msgid "Deleting"
 msgstr "Verwijderen"
@@ -2166,10 +2198,6 @@ msgstr "De doelschijf is vol."
 msgid "Dialog sizes and positions"
 msgstr "Venster afmetingen en posities"
 
-#. Resource IDs: (146)
-msgid "Diff With URL"
-msgstr "Verschil met URL"
-
 #. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "Diff-bestand:"
@@ -2178,6 +2206,10 @@ msgstr "Diff-bestand:"
 msgid "Diff options"
 msgstr "Vergelijkingsopties"
 
+#. Resource IDs: (146, 279)
+msgid "Diff with URL"
+msgstr "Verschil met URL"
+
 #. Resource IDs: (1302)
 msgid "Difference between"
 msgstr "Verschil tussen"
@@ -2185,6 +2217,10 @@ msgstr "Verschil tussen"
 #. Resource IDs: (1022)
 msgid "Diffing"
 msgstr "Vergelijken"
+
+#. Resource IDs: (14)
+msgid "Diffs the working copy file with the one before the last commit."
+msgstr "Vergelijkt het bestand in de werkkopie met de versie vóór de laatste vastlegging."
 
 #. Resource IDs: (65535)
 msgid "Directory:"
@@ -2472,7 +2508,7 @@ msgstr "Te negeren paden:"
 msgid "Explore to"
 msgstr "Verkennen naar"
 
-#. Resource IDs: (238)
+#. Resource IDs: (229, 238)
 msgid "Export"
 msgstr "Exporteer"
 
@@ -2759,6 +2795,10 @@ msgstr "Druk op F1 voor hulp. Horizontaal scrollen gaat met Ctrl-Scrollwiel"
 msgid "For complete history deselect \"Stop on copy/rename\""
 msgstr "Deactiveer \"Stoppen bij kopie/hernoemd bestand\" voor de volledige historie"
 
+#. Resource IDs: (1432)
+msgid "Force blame"
+msgstr "Forceer verklaren"
+
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "Van:"
@@ -2875,6 +2915,10 @@ msgstr "Unified diff ophalen..."
 msgid "Global ignore &pattern:"
 msgstr "Globaal &negeer-patroon:"
 
+#. Resource IDs: (280)
+msgid "Go offline?"
+msgstr "Offline gaan?"
+
 #. Resource IDs: (130)
 msgid "Go to line"
 msgstr "Ga naar regel"
@@ -2930,6 +2974,11 @@ msgstr "&Verberg ongerelateerde wijzigingspaden"
 #. Resource IDs: (1353, 1354)
 msgid "HEAD"
 msgstr "HEAD"
+
+#. Resource IDs: (106)
+#, c-format
+msgid "Head revision is %s"
+msgstr "Head revisie is %s"
 
 #. Resource IDs: (73, 1004)
 msgid "Help"
@@ -3554,7 +3603,7 @@ msgstr ""
 "Plaats waar de inhoud van de\n"
 "archief-URL opgeslagen zal worden."
 
-#. Resource IDs: (207, 221, 65535)
+#. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
 msgstr "Blokkade"
 
@@ -3646,6 +3695,10 @@ msgstr "Laagste getoonde revisie: %ld - Hoogste getoonde revisie: %ld - HEAD rev
 msgid "Mail system DLL is invalid."
 msgstr "De DLL van het mailsysteem is ongeldig."
 
+#. Resource IDs: (1431)
+msgid "Make this the default"
+msgstr "Maak dit de standaard"
+
 #. Resource IDs: (17)
 msgid "Manage Subversion properties"
 msgstr "Subversion eigenschappen beheren"
@@ -3681,6 +3734,10 @@ msgstr "Max"
 #. Resource IDs: (1317)
 msgid "Max. items to keep in the log message history"
 msgstr "Maximum aantal boodschappen in de geschiedenis van logboek-boodschappen"
+
+#. Resource IDs: (65535)
+msgid "Max. lines in action log"
+msgstr "Max. regels in actie-log"
 
 #. Resource IDs: (109, 110, 111, 276, 278, 65535)
 msgid "Merge"
@@ -3862,6 +3919,10 @@ msgstr "Verplaats onderdelen hierheen"
 msgid "Move to changelist"
 msgstr "Verplaats naar werkset"
 
+#. Resource IDs: (229)
+msgid "Move/Rename"
+msgstr "Verplaats/hernoemen"
+
 #. Resource IDs: (98)
 #, c-format
 msgid "Move: New name for %s"
@@ -4020,10 +4081,6 @@ msgstr "Normaal"
 #. Resource IDs: (3857)
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Niet alle registersleutels (of INI bestand) zijn verwijderd."
-
-#. Resource IDs: (20)
-msgid "Not descending"
-msgstr "Niet aflopend"
 
 #. Resource IDs: (83)
 msgid "Not enough memory to complete operation."
@@ -4384,6 +4441,11 @@ msgstr "Eigenschap"
 
 #. Resource IDs: (151)
 #, c-format
+msgid "Property %s : Revision %s"
+msgstr "Eigenschap %s : Revisie %s"
+
+#. Resource IDs: (151)
+#, c-format
 msgid "Property %s : remote"
 msgstr "Eigenschap %s : remote"
 
@@ -4732,7 +4794,7 @@ msgstr "Vraagt om een gebruikersnaam en wachtwoord"
 msgid "Res&olved..."
 msgstr "&Opgelost..."
 
-#. Resource IDs: (207)
+#. Resource IDs: (207, 229)
 msgid "Resolve"
 msgstr "Oplossen"
 
@@ -4801,7 +4863,7 @@ msgstr "Opnieuw"
 msgid "Reverse merge"
 msgstr "Omgekeerd samenvoegen"
 
-#. Resource IDs: (175)
+#. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Ongedaan maken"
 
@@ -4975,8 +5037,8 @@ msgid "SVN Export to here"
 msgstr "SVN Exporteer hierheen"
 
 #. Resource IDs: (16)
-msgid "SVN Lock owner"
-msgstr "SVN Blokkade-eigenaar"
+msgid "SVN Local lock owner"
+msgstr "SVN Lokale blokkade-eigenaar"
 
 #. Resource IDs: (17)
 msgid "SVN Move and rename versioned files here"
@@ -5261,6 +5323,10 @@ msgstr "Verkorte &datum/tijd in logboek-boodschappen"
 msgid "Short URL of Subversion items"
 msgstr "Korte URL van Subversion onderdelen"
 
+#. Resource IDs: (1382)
+msgid "Show"
+msgstr "Toon"
+
 #. Resource IDs: (115, 1031)
 msgid "Show &All"
 msgstr "Toon &Alles"
@@ -5277,7 +5343,7 @@ msgstr "Toon &alle revisies"
 msgid "Show &changes"
 msgstr "Toon &wijzigingen"
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1132, 1228, 1420, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 32784)
 msgid "Show &log"
 msgstr "Toon &logboek"
 
@@ -5419,6 +5485,10 @@ msgstr "Toont alle revisies waarin dit onderdeel gewijzigd is"
 #. Resource IDs: (10)
 msgid "Shows information about TortoiseSVN"
 msgstr "Toont informatie over TortoiseSVN"
+
+#. Resource IDs: (198)
+msgid "Shows the action log file in the default text editor"
+msgstr "Toont actie-log bestand in de standaard tekst-editor"
 
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
@@ -5825,6 +5895,14 @@ msgstr "De regel met de indicatie voor het oude bestand is niet aangetroffen op 
 msgid "The lock has already been broken from another working copy"
 msgstr "De blokkade is al vanuit een andere werkkopie verbroken"
 
+#. Resource IDs: (198)
+msgid ""
+"The maximum number of action log lines to keep.\n"
+"Any lines added over this limit will remove the oldest lines from the file."
+msgstr ""
+"Het maximale aantal regels in de actie-log.\n"
+"Bij het toevoegen van meer regels worden de oudste regels verwijderd."
+
 #. Resource IDs: (63)
 msgid ""
 "The old file does not match the new file.\n"
@@ -6046,6 +6124,20 @@ msgid ""
 msgstr ""
 "Wijzigingen zijn nog niet opgeslagen!\n"
 "Wilt u de wijzigingen opslaan?"
+
+#. Resource IDs: (65535)
+msgid ""
+"There has been a problem connecting the server.\n"
+"Do you want to see the cached data instead?\n"
+"\n"
+"Please understand that the cached data may be outdated,\n"
+"incomplete or even misleading due to incomplete history."
+msgstr ""
+"Verbinding met de server is niet geslaagd.\n"
+"Wilt u de lokaal bewaarde gegevens zien?\n"
+"\n"
+"Realiseer dat deze lokale gegevens verouderd,\n"
+"onvolledig of zelfs misleidend kunnen zijn."
 
 #. Resource IDs: (82)
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
@@ -6389,7 +6481,7 @@ msgstr ""
 msgid "Unknown depth"
 msgstr "Onbekende diepte"
 
-#. Resource IDs: (221, 242)
+#. Resource IDs: (221, 230, 242)
 msgid "Unlock"
 msgstr "Blokkade opheffen"
 
@@ -6418,7 +6510,7 @@ msgstr "Bestanden zonder versiebeheer markeren map als gewijzigd"
 msgid "Unversioning %s"
 msgstr "Versiebeheer verwijderen van %s"
 
-#. Resource IDs: (152)
+#. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "Verversen"
 
@@ -6510,6 +6602,10 @@ msgstr "Gebruik archiefversie"
 #. Resource IDs: (1066)
 msgid "Use stri&keout for removed lines"
 msgstr "Gebruik &doorhalen voor verwijderde regels"
+
+#. Resource IDs: (1426)
+msgid "Use system locale for date/time"
+msgstr "Gebruik systeem landinstellingen voor datum/tijd"
 
 #. Resource IDs: (251, 32820)
 msgid "Use text block from \"&mine\""
@@ -6680,7 +6776,7 @@ msgstr ""
 msgid "With URL:"
 msgstr "Met URL:"
 
-#. Resource IDs: (158)
+#. Resource IDs: (158, 65535)
 msgid "Working Copy"
 msgstr "Werkkopie"
 
@@ -7176,15 +7272,29 @@ msgstr ""
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of\n"
-"a relative directory path, optional revision flags, and a URL. For example\n"
+"a relative directory path, optional revision flags, and an URL. For example\n"
 "foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag"
+"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"\n"
+"The URLs can either be full URLs or relative. The format for\n"
+"the relative URLs is:\n"
+"../\trelative to the parent directory of the external\n"
+"^/\trelative to the repository root\n"
+"//\trelative to the URL scheme\n"
+"/\trelative to the server's hostname"
 msgstr ""
 "svn:externals\n"
 "Een met regelovergangen gescheiden lijst van module-verwijzingen, die elk\n"
 "bestaan uit een relatief pad, optionele revisie vlaggen en een URL. Bijvoorbeeld\n"
 "foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag"
+"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"\n"
+"De URLs kunnen volledige of relatieve URLs zijn. Het formaat voor\n"
+"relatieve URLs is:\n"
+"../\trelatief t.o.v. de ouder-map van de externe map\n"
+"^/\trelatief t.o.v. de basis van het archief (repository root)\n"
+"//\trelatief t.o.v. het URL schema\n"
+"/\trelatief t.o.v. de naam van de server"
 
 #. Resource IDs: (576)
 msgid ""
