@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-11-25 11:13+0800\n"
+"PO-Revision-Date: 2007-12-04 23:22+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -363,6 +363,10 @@ msgstr "以URL比對(&R)"
 msgid "&Diff with previous version"
 msgstr "與前一個版本比對(&D)"
 
+#. Resource IDs: (2)
+msgid "&Don't go offline"
+msgstr "不離線(&D)"
+
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
 msgstr "編輯(&E)"
@@ -569,6 +573,10 @@ msgstr "下一筆差異(&N)"
 msgid "&OK"
 msgstr "確定(&O)"
 
+#. Resource IDs: (1)
+msgid "&Offline for now"
+msgstr "暫時離線(&O)"
+
 #. Resource IDs: (101, 113, 32773)
 msgid "&Open"
 msgstr "開啟(&O)"
@@ -588,6 +596,10 @@ msgstr "密碼(&P):"
 #. Resource IDs: (376, 501)
 msgid "&Paste"
 msgstr "貼上(&P)"
+
+#. Resource IDs: (1382)
+msgid "&Permanently offline"
+msgstr "永久離線(&P)"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -2774,6 +2786,10 @@ msgstr "請按 F1 以取得說明. 使用 Ctrl-捲動可進行橫向捲動."
 msgid "For complete history deselect \"Stop on copy/rename\""
 msgstr "要列出完整歷程紀錄請勿選擇\"複製/重新命名時停止\""
 
+#. Resource IDs: (1432)
+msgid "Force blame"
+msgstr "強制譴責"
+
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "從:"
@@ -2889,6 +2905,10 @@ msgstr "正在取得單一差異檔"
 #. Resource IDs: (65535)
 msgid "Global ignore &pattern:"
 msgstr "除外/忽略樣式(&P):"
+
+#. Resource IDs: (280)
+msgid "Go offline?"
+msgstr "要離線嗎?"
 
 #. Resource IDs: (130)
 msgid "Go to line"
@@ -3674,6 +3694,10 @@ msgstr "最低版本: %ld - 最高版本: %ld - 最新版本: %ld"
 #. Resource IDs: (3866)
 msgid "Mail system DLL is invalid."
 msgstr "郵件系統 DLL 錯誤."
+
+#. Resource IDs: (1431)
+msgid "Make this the default"
+msgstr "設為預設值"
 
 #. Resource IDs: (17)
 msgid "Manage Subversion properties"
@@ -5013,8 +5037,8 @@ msgid "SVN Export to here"
 msgstr "SVN 匯出至此"
 
 #. Resource IDs: (16)
-msgid "SVN Lock owner"
-msgstr "SVN 鎖定持有人"
+msgid "SVN Local lock owner"
+msgstr "SVN 本地鎖定持有人"
 
 #. Resource IDs: (17)
 msgid "SVN Move and rename versioned files here"
@@ -6099,6 +6123,20 @@ msgid ""
 msgstr ""
 "還有尚未儲存的變更!\n"
 "是否要儲存你所做的異動?"
+
+#. Resource IDs: (65535)
+msgid ""
+"There has been a problem connecting the server.\n"
+"Do you want to see the cached data instead?\n"
+"\n"
+"Please understand that the cached data may be outdated,\n"
+"incomplete or even misleading due to incomplete history."
+msgstr ""
+"連接至伺服器時發生問題.\n"
+"要改用快取中的資料嗎?\n"
+"\n"
+"請注意: 快取中的資料可能已經過期,\n"
+"不完整, 或是因資料不完整而難以理解."
 
 #. Resource IDs: (82)
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
