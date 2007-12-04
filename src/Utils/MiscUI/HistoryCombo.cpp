@@ -67,11 +67,14 @@ BOOL CHistoryCombo::PreTranslateMessage(MSG* pMsg)
 	}
 	if (pMsg->message == WM_MOUSEMOVE) 
 	{
-		CPoint pt;
-		pt.x = LOWORD(pMsg->lParam);
-		pt.y = HIWORD(pMsg->lParam);
-		OnMouseMove(pMsg->wParam, pt);
-		return TRUE;
+		if ((pMsg->wParam & MK_LBUTTON) == 0)
+		{
+			CPoint pt;
+			pt.x = LOWORD(pMsg->lParam);
+			pt.y = HIWORD(pMsg->lParam);
+			OnMouseMove(pMsg->wParam, pt);
+			return TRUE;
+		}
 	}
 	return CComboBoxEx::PreTranslateMessage(pMsg);
 }
