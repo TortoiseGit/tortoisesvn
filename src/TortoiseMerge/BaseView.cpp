@@ -518,6 +518,8 @@ LPCTSTR CBaseView::GetLineChars(int index) const
 {
 	if (m_pViewData == NULL)
 		return 0;
+	if (m_pViewData->GetCount() == 0)
+		return 0;
 	return m_pViewData->GetLine(index);
 }
 
