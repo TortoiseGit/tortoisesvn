@@ -89,33 +89,13 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 
 	// parse revprops
 
-
-
-
-
     StandardRevProps standardRevProps;
     UserRevPropArray userRevProps;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	try
 	{
-        if (log_entry->revision != SVN_INVALID_REVNUM)
+        if (   (log_entry->revision != SVN_INVALID_REVNUM)
+            && (log_entry->revprops != NULL))
         {
             for ( apr_hash_index_t *index  
                     = apr_hash_first (pool, log_entry->revprops)
