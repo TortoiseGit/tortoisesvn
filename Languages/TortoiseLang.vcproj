@@ -38,6 +38,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="..\bin\debug\bin\ResText extract ..\bin\debug\bin\TortoiseProcLang.dll ..\bin\debug\bin\TortoiseMergeLang.dll ..\bin\debug\bin\TortoiseBlameLang.dll ..\bin\debug\bin\TortoiseIDiffLang.dll Tortoise.pot"
 			/>
 		</Configuration>
 		<Configuration
@@ -82,7 +83,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine=""
+				CommandLine="..\bin\release\bin\ResText extract ..\bin\release\bin\TortoiseProcLang.dll ..\bin\release\bin\TortoiseMergeLang.dll ..\bin\release\bin\TortoiseBlameLang.dll ..\bin\release\bin\TortoiseIDiffLang.dll Tortoise.pot"
 			/>
 		</Configuration>
 		<Configuration
