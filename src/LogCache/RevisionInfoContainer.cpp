@@ -655,8 +655,8 @@ void CRevisionInfoContainer::AddChange ( TChangeAction action
         ? (char)action 
         : (char)action | HAS_COPY_FROM;
 
-	*sumChanges.rbegin() |= (char)flags;
-	changes.push_back ((char)flags);
+	*sumChanges.rbegin() |= flags;
+	changes.push_back (flags);
 
 	if (!fromPath.empty())
 	{
