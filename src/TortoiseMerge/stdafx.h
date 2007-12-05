@@ -74,3 +74,5 @@
 #pragma warning(pop)
 
 #define USE_GDI_GRADIENT
+
+#define XMESSAGEBOX_APPREGPATH "Software\\TortoiseMerge\\"

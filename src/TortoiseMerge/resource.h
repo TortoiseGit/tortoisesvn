@@ -183,6 +183,7 @@
 #define IDS_NOTFOUNDVIEWTITLEINDICATOR  5009
 #define IDS_WARNABSOLUTEPATHFOUND       5010
 #define IDS_WARNABSOLUTEPATHNOTFOUND    5011
+#define IDS_DELETEWHENEMPTY             5012
 #define IDS_PATCH_ALL                   6000
 #define IDS_PATCH_TITLE                 6001
 #define IDS_DIFF_TITLE                  6002

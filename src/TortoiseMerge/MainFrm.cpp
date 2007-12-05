@@ -774,7 +774,7 @@ int CMainFrame::CheckResolved()
 	return -1;
 }
 
-void CMainFrame::SaveFile(const CString& sFilePath)
+int CMainFrame::SaveFile(const CString& sFilePath)
 {
 	CViewData * pViewData = NULL;
 	CFileTextLines * pOriginFile = &m_Data.m_arBaseFile;
@@ -795,7 +795,7 @@ void CMainFrame::SaveFile(const CString& sFilePath)
 	else
 	{
 		// nothing to save!
-		return;
+		return -1;
 	}
 	if ((pViewData)&&(pOriginFile))
 	{
@@ -846,7 +846,7 @@ void CMainFrame::SaveFile(const CString& sFilePath)
 		if (!file.Save(sFilePath, false))
 		{
 			CMessageBox::Show(m_hWnd, file.GetErrorString(), _T("TortoiseMerge"), MB_ICONERROR);
-			return;
+			return -1;
 		}
 		m_dlgFilePatches.SetFileStatusAsPatched(sFilePath);
 		if (m_pwndBottomView)
@@ -854,7 +854,9 @@ void CMainFrame::SaveFile(const CString& sFilePath)
 		if (m_pwndRightView)
 			m_pwndRightView->SetModified(FALSE);
 		CUndo::GetInstance().MarkAsOriginalState();
+		return file.GetCount();
 	}
+	return -1;
 }
 
 void CMainFrame::OnFileSave()
@@ -895,7 +897,18 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
 		DeleteFile(m_Data.m_mergedFile.GetFilename() + _T(".bak"));
 		MoveFile(m_Data.m_mergedFile.GetFilename(), m_Data.m_mergedFile.GetFilename() + _T(".bak"));
 	}
-	SaveFile(m_Data.m_mergedFile.GetFilename());
+	if (SaveFile(m_Data.m_mergedFile.GetFilename())==0)
+	{
+		// file was saved with 0 lines!
+		// ask the user if the file should be deleted
+		CString sTemp;
+		sTemp.Format(IDS_DELETEWHENEMPTY, m_Data.m_mergedFile.GetFilename());
+		if (CMessageBox::ShowCheck(m_hWnd, sTemp, _T("TortoiseMerge"), MB_YESNO, _T("DeleteFileWhenEmpty")) == IDYES)
+		{
+			DeleteFile(m_Data.m_mergedFile.GetFilename());
+		}
+	}
+	
 	if (bDoesNotExist)
 	{
 		// call TortoiseProc to add the new file to version control

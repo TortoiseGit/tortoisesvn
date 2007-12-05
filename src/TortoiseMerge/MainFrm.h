@@ -108,7 +108,7 @@ protected:
 	virtual BOOL	DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString sRev2);
 	int				CheckResolved();
 	BOOL			MarkAsResolved();
-	void			SaveFile(const CString& sFilePath);
+	int				SaveFile(const CString& sFilePath);
 	void			WriteWindowPlacement(WINDOWPLACEMENT * pwp);
 	BOOL			ReadWindowPlacement(WINDOWPLACEMENT * pwp);
 	bool			FileSave(bool bCheckResolved=true);
