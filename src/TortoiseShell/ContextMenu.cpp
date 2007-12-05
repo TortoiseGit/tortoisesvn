@@ -564,8 +564,14 @@ void CShellExt::InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UIN
 	if ((fullver < 0x500)||(fullver == 0x500 && !uFlags))
 	{
 		InsertMenu(menu, pos, MF_BYPOSITION | MF_STRING , id, menutextbuffer);
-		HBITMAP bmp = IconToBitmap(icon); 
-		SetMenuItemBitmaps(menu, pos, MF_BYPOSITION, bmp, bmp);
+		if (fullver >= 0x500)
+		{
+			// on win2k, the context menu does not work properly if we use
+			// icon bitmaps. At least the menu text is empty in the context menu
+			// for folder backgrounds (seems like a win2k bug).
+			HBITMAP bmp = IconToBitmap(icon); 
+			SetMenuItemBitmaps(menu, pos, MF_BYPOSITION, bmp, bmp);
+		}
 	}
 	else
 	{
