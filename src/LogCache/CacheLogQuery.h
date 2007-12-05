@@ -36,6 +36,7 @@
 
 class SVNInfoData;
 class CTSVNPath;
+class SVN;
 
 namespace LogCache
 {
@@ -359,6 +360,7 @@ public:
 	// construction / destruction
 
 	CCacheLogQuery (CLogCachePool* caches, ILogQuery* svnQuery);
+	CCacheLogQuery (SVN& svn, ILogQuery* svnQuery);
 	virtual ~CCacheLogQuery(void);
 
 	/// query a section from log for multiple paths

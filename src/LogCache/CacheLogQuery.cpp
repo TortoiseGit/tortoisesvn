@@ -1168,7 +1168,7 @@ CTSVNPath CCacheLogQuery::GetPath (const CTSVNPathList& targets) const
 
 CCacheLogQuery::CCacheLogQuery (CLogCachePool* caches, ILogQuery* svnQuery)
 	: caches (caches)
-	, repositoryInfoCache (caches ? &caches->GetRepositoryInfo() : NULL)
+	, repositoryInfoCache (&caches->GetRepositoryInfo())
     , cache (NULL)
 	, tempCache (NULL)
 	, URL()
@@ -1176,9 +1176,25 @@ CCacheLogQuery::CCacheLogQuery (CLogCachePool* caches, ILogQuery* svnQuery)
 {
 }
 
+CCacheLogQuery::CCacheLogQuery (SVN& svn, ILogQuery* svnQuery)
+	: caches (NULL)
+	, repositoryInfoCache (NULL)
+    , cache (NULL)
+	, tempCache (NULL)
+	, URL()
+	, svnQuery (svnQuery)
+{
+    repositoryInfoCache = new CRepositoryInfo (svn, CString());
+}
+
 CCacheLogQuery::~CCacheLogQuery(void)
 {
+    // temporary cache objects?
+
 	delete tempCache;
+
+    if (caches == NULL)
+        delete repositoryInfoCache;
 }
 
 // query a section from log for multiple paths
@@ -1240,7 +1256,7 @@ void CCacheLogQuery::Log ( const CTSVNPathList& targets
 
 	// do it 
 
-    CLogOptions options (strictNodeHistory
+    CLogOptions options ( strictNodeHistory
 				        , receiver
                         , includeChanges
                         , includeMerges
