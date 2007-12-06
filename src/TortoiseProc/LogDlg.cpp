@@ -1938,6 +1938,7 @@ void CLogDlg::EditLogMessage(int index)
 			else
 				dlg.m_sInputText.Empty();
 			pLogEntry->sMessage = dlg.m_sInputText;
+			pLogEntry->sBugIDs = m_ProjectProperties.FindBugID(dlg.m_sInputText);
 			CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
 			pMsgView->SetWindowText(_T(" "));
 			pMsgView->SetWindowText(dlg.m_sInputText);
