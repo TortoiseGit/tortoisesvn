@@ -675,6 +675,38 @@ BOOL SVN::Resolve(const CTSVNPath& path, svn_wc_conflict_choice_t result, BOOL r
 {
 	SVNPool subpool(pool);
 	svn_error_clear(Err);
+	// before marking a file as resolved, we move the conflicted parts
+	// to the trash bin: just in case the user later wants to get those
+	// files back anyway
+	svn_wc_status2_t * s;
+	SVNStatus status;
+	CTSVNPath retPath;
+	if ((s = status.GetFirstFileStatus(path, retPath, false, svn_depth_empty, true, true))!=0)
+	{
+		if (s && s->entry)
+		{
+			CTSVNPathList conflictedEntries;
+			if (s->entry->conflict_new)
+			{
+				CTSVNPath conflictpath = path.GetContainingDirectory();
+				conflictpath.AppendPathString(CUnicodeUtils::GetUnicode(s->entry->conflict_new));
+				conflictedEntries.AddPath(conflictpath);
+			}
+			if (s->entry->conflict_old)
+			{
+				CTSVNPath conflictpath = path.GetContainingDirectory();
+				conflictpath.AppendPathString(CUnicodeUtils::GetUnicode(s->entry->conflict_old));
+				conflictedEntries.AddPath(conflictpath);
+			}
+			if (s->entry->conflict_wrk)
+			{
+				CTSVNPath conflictpath = path.GetContainingDirectory();
+				conflictpath.AppendPathString(CUnicodeUtils::GetUnicode(s->entry->conflict_wrk));
+				conflictedEntries.AddPath(conflictpath);
+			}
+			conflictedEntries.DeleteAllFiles(true);
+		}
+	}
 	Err = svn_client_resolved2(path.GetSVNApiPath(subpool),
 								recurse ? svn_depth_infinity : svn_depth_empty,
 								result,
