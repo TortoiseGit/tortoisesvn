@@ -66,7 +66,7 @@
 		<title>Installing Apache</title>
 		<para>
 			The first thing you need before installing Apache is a computer
-			with Windows 2000, Windows XP+SP1 or Windows 2003.
+			with Windows 2000, Windows XP+SP1, Windows 2003, Vista or Server 2008.
 			<warning>
 				<para>
 					Please note that Windows XP without the service pack 1
@@ -82,8 +82,14 @@
 						<ulink url="http://httpd.apache.org/download.cgi">
 							<citetitle>http://httpd.apache.org/download.cgi</citetitle>
 						</ulink>.
-						Make sure that you download the version &gt; 2.0.54 -
+						Make sure that you download the version 2.2.x -
 						the version 1.3.xx won't work!
+					</para>
+					<para>
+						The msi installer for Apache can be found by clicking on <literal>other files</literal>,
+						then browse to <filename>binaries/win32</filename>. You may want to choose
+						the msi file <filename>apache-2.2.x-win32-x86-openssl-0.9.x.msi</filename> (the one
+						that includes openssl).
 					</para>
 				</listitem>
 				<listitem>
@@ -155,10 +161,6 @@
 						If you have Apache 2.2.x go to
 						<ulink url="http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=8100">
 							<citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=8100</citetitle>
-						</ulink>.
-						If you still have the older Apache 2.0.x go to
-						<ulink url="http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91">
-							<citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle>
 						</ulink>.
 					</para>
 				</listitem>
@@ -591,8 +593,8 @@ trevor = rw
 		<itemizedlist>
 			<listitem>
 				<para>
-					Download the module, copy the file
-					<filename>mod_auth_sspi.so</filename>
+					Download the module which matches your apache version, 
+					then copy the file <filename>mod_auth_sspi.so</filename>
 					into the Apache modules folder.
 				</para>
 			</listitem>
@@ -684,62 +686,6 @@ SSPIOfferBasic On
 				everything working.
 			</para>
 		</tip>
-		<important>
-			<title>SSL and Internet Explorer</title>
-			<para>
-				If you're securing your server with SSL and use authentication
-				against a windows domain you will encounter that browsing
-				the repository with the Internet Explorer doesn't work
-				anymore. Don't worry - this is only the Internet Explorer
-				not able to authenticate. Other browsers don't have that
-				problem and TortoiseSVN and any other Subversion client are
-				still able to authenticate.
-			</para>
-			<para>
-				If you still want to use IE to browse the repository
-				you can either:
-				<itemizedlist>
-					<listitem>
-						<para>
-							define a separate <literal>&lt;Location /path&gt;</literal>
-							directive in the Apache config file, and add the
-							<literal>SSPIBasicPreferred On</literal>.
-							This will allow IE to authenticate again, but
-							other browsers and Subversion won't be able to
-							authenticate against that location.
-						</para>
-					</listitem>
-					<listitem>
-						<para>
-							Offer browsing with unencrypted authentication
-							(without SSL) too. Strangely IE doesn't have any
-							problems with authenticating if the connection
-							is not secured with SSL.
-						</para>
-					</listitem>
-					<listitem>
-						<para>
-						In the SSL "standard" setup there's often the 
-						following statement in Apache's virtual SSL host:
-<screen>
-SetEnvIf User-Agent ".*MSIE.*" \
-             nokeepalive ssl-unclean-shutdown \
-             downgrade-1.0 force-response-1.0
-</screen>
-						There are (were?) good reasons for this configuration, 
-						see
-						<ulink url="http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49">
-								<citetitle>http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49</citetitle>
-							</ulink>
-						But if you want NTLM authentication you have to use <literal>keepalive</literal>.
-						If You uncomment the whole <literal>SetEnvIf</literal> you should be able to
-						authenticate IE with windows authentication over SSL against 
-						the Apache on Win32 with included <literal>mod_auth_sspi</literal>.
-						</para>
-					</listitem>
-				</itemizedlist>
-			</para>
-		</important>
 	</sect2>
 	<sect2 id="tsvn-serversetup-apache-6">
 		<title>Multiple Authentication Sources</title>
@@ -805,121 +751,29 @@ Require valid-user
 			<primary>SSL</primary>
 		</indexterm>
 		<para>
-			The Apache server doesn't have SSL support installed by default
-			due to US-export restrictions. But you can easily download the
-			required module from somewhere else and install it yourself.
+			Even though Apache 2.2.x has OpenSSL support, it is not
+			activated by default. You need to activate this manually.
 		</para>
 		<orderedlist>
 			<listitem>
 				<para>
-					First you need the required files to enable
-					SSL. You can find those in the package available at
-					<ulink url="http://hunter.campbus.com/">
-						<citetitle>http://hunter.campbus.com/</citetitle>
-					</ulink>.
-					Just unzip the package and then copy
-					<filename>mod_ssl.so</filename> to the
-					<filename>modules</filename> folder of Apache and the file
-					<filename>openssl.exe</filename> to the
-					<filename>bin</filename> folder. Also copy the file
-					<filename>conf/ssl.conf</filename> to the
-					<filename>conf</filename> folder of Apache.
-				</para>
-			</listitem>
-			<listitem>
-				<para>
-					Open the file
-					<filename>ssl.conf</filename>
-					in the Apache <filename>conf</filename> folder with a text editor.
-				</para>
-			</listitem>
-			<listitem>
-				<para>
-					Place a comment char (<literal>#</literal>) in front
-					of the following lines:
-<screen>
-DocumentRoot "c:/apache/htdocs"
-ServerName www.example.com:443
-ServerAdmin you@example.com
-ErrorLog logs/error_log
-TransferLog logs/access_log
-</screen>
-				</para>
-			</listitem>
-			<listitem>
-				<para>
-					change the line
-<screen>
-SSLCertificateFile conf/ssl.crt/server.crt
-</screen>
-					to
-<screen>
-SSLCertificateFile conf/ssl/my-server.cert
-</screen>
-					the line
-<screen>
-SSLCertificateKeyFile conf/ssl.key/server.key
-</screen>
-					to
-<screen>
-SSLCertificateKeyFile conf/ssl/my-server.key
-</screen>
-					and the line
-<screen>
-SSLMutex  file:logs/ssl_mutex
-</screen>
-					to
-<screen>
-SSLMutex  default
-</screen>
-				</para>
-			</listitem>
-			<listitem>
-				<para>
-					Delete the lines
-<screen>
-&lt;IfDefine SSL&gt;
-</screen>
-					and
-<screen>
-&lt;/IfDefine&gt;
-</screen>
-				</para>
-			</listitem>
-			<listitem>
-				<para>
-					If you want that all the Apache modules are aware of the
-					SSL ability, change the registry key
-					<filename>HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Apache2\ImagePath</filename>
-					from <filename>"C:\Program Files\Apache Group\Apache2\bin\Apache.exe" -k runservice</filename>
-					to <filename>"C:\Program Files\Apache Group\Apache2\bin\Apache.exe" -D SSL -k runservice</filename>.
-				</para>
-				<para>
-					This will set an internal flag which Apache modules can 
-					read the next time you start the Apache service.
-				</para>
-			</listitem>
-			<listitem>
-				<para>
-					Open the Apache config file
-					(<filename>httpd.conf</filename>) and uncomment the line
+					In the apache config file, uncomment the lines:
 <screen>
 #LoadModule ssl_module modules/mod_ssl.so
 </screen>
-				</para>
-			</listitem>
-			<listitem>
-				<para>
-					OpenSSL needs a config file. You can download
-					a working one from
-					<ulink url="http://tud.at/programm/openssl.cnf">
-						<citetitle>http://tud.at/programm/openssl.cnf</citetitle>
-					</ulink>.
-					Save the file to <filename>bin/openssl.cnf</filename>.
-					Please note: the file has the type
-					<filename>*.cnf</filename>.
-					Windows treats such files in a special way but it
-					really is just a text file!
+					and at the bottom
+<screen>
+#Include conf/extra/httpd-ssl.conf
+</screen>
+					then change the line
+<screen>
+SSLMutex "file:C:/Program Files/Apache Software Foundation/Apache2.2/logs/ssl_mutex"
+</screen>
+					to
+<screen>
+SSLMutex default
+</screen>
+					
 				</para>
 			</listitem>
 			<listitem>
@@ -943,35 +797,35 @@ bin\openssl req -config bin\openssl.cnf -new -out my-server.csr
 					automatically, but if it isn't you need to type this command
 					to generate it:
 <screen>
-bin\openssl genrsa -out privkey.pem 2048
+bin\openssl genrsa -out conf\privkey.pem 2048
 </screen>
 				</para>
 				<para>
 					Next type the commands
 <screen>
-bin\openssl rsa -in privkey.pem -out my-server.key
+bin\openssl rsa -in conf\privkey.pem -out conf\server.key
 </screen>
-					and (on one line)
+					and
 <screen>
-bin\openssl x509 -in my-server.csr -out my-server.cert
-                 -req -signkey my-server.key -days 4000
+bin\openssl req -new -key conf\server.key -out conf\server.csr -config conf\openssl.cnf
+</screen>
+					and then (on one line)
+<screen>
+bin\openssl x509 -in conf\server.csr -out conf\server.crt
+                 -req -signkey conf\server.key -days 4000
 </screen>
 					This will create a certificate which will expire in
 					4000 days. And finally enter:
 <screen>
-bin\openssl x509 -in my-server.cert -out my-server.der.crt -outform DER
+bin\openssl x509 -in conf\server.cert -out conf\server.der.crt -outform DER
 </screen>
-					These commands created some files in the Apache folder 
-					(<filename>my-server.der.crt</filename>,
-					<filename>my-server.csr</filename>,
-					<filename>my-server.key</filename>,
+					These commands created some files in the Apache conf folder 
+					(<filename>server.der.crt</filename>,
+					<filename>server.csr</filename>,
+					<filename>server.key</filename>,
 					<filename>.rnd</filename>,
 					<filename>privkey.pem</filename>,
-					<filename>my-server.cert</filename>).
-					Copy the files to the folder
-					<filename>conf/ssl</filename> (e.g.
-					<filename>C:\program files\apache group\apache2\conf\ssl</filename>)
-					- if this folder does not exist you have to create it first.
+					<filename>server.cert</filename>).
 				</para>
 			</listitem>
 			<listitem>
@@ -987,6 +841,62 @@ bin\openssl x509 -in my-server.cert -out my-server.der.crt -outform DER
 				</para>
 			</listitem>
 		</orderedlist>
+		<important>
+			<title>SSL and Internet Explorer</title>
+			<para>
+				If you're securing your server with SSL and use authentication
+				against a windows domain you will encounter that browsing
+				the repository with the Internet Explorer doesn't work
+				anymore. Don't worry - this is only the Internet Explorer
+				not able to authenticate. Other browsers don't have that
+				problem and TortoiseSVN and any other Subversion client are
+				still able to authenticate.
+			</para>
+			<para>
+				If you still want to use IE to browse the repository
+				you can either:
+				<itemizedlist>
+					<listitem>
+						<para>
+							define a separate <literal>&lt;Location /path&gt;</literal>
+							directive in the Apache config file, and add the
+							<literal>SSPIBasicPreferred On</literal>.
+							This will allow IE to authenticate again, but
+							other browsers and Subversion won't be able to
+							authenticate against that location.
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							Offer browsing with unencrypted authentication
+							(without SSL) too. Strangely IE doesn't have any
+							problems with authenticating if the connection
+							is not secured with SSL.
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+						In the SSL "standard" setup there's often the 
+						following statement in Apache's virtual SSL host:
+<screen>
+SetEnvIf User-Agent ".*MSIE.*" \
+             nokeepalive ssl-unclean-shutdown \
+             downgrade-1.0 force-response-1.0
+</screen>
+						There are (were?) good reasons for this configuration, 
+						see
+						<ulink url="http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49">
+								<citetitle>http://www.modssl.org/docs/2.8/ssl_faq.html#ToC49</citetitle>
+							</ulink>
+						But if you want NTLM authentication you have to use <literal>keepalive</literal>.
+						If You uncomment the whole <literal>SetEnvIf</literal> you should be able to
+						authenticate IE with windows authentication over SSL against 
+						the Apache on Win32 with included <literal>mod_auth_sspi</literal>.
+						</para>
+					</listitem>
+				</itemizedlist>
+			</para>
+		</important>
 		<important>
 			<title>Forcing SSL access</title>
 			<para>
