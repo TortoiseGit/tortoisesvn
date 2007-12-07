@@ -759,7 +759,10 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 				if (g_SVNAdminDir.IsAdminDirPath(srcfile))
 					continue;
 				CString destination = destPath.GetWinPathString() + _T("\\") + srcfile.Mid(srcPath.GetWinPathString().GetLength());
+				bool bNet = (destination.Left(2).Compare(_T("\\\\")) == 0);
 				destination.Replace(_T("\\\\"), _T("\\"));
+				if (bNet)
+					destination = _T("\\") + destination;
 				copyMap[srcfile] = destination;
 			}
 		}
