@@ -92,7 +92,25 @@ CRepositoryInfo& CLogCachePool::GetRepositoryInfo()
     return *repositoryInfo;
 }
 
-/// delete a cache along with all file(s)
+// return the size of the repository cache file 
+// (returns 0 for new files)
+
+size_t CLogCachePool::FileSize (const CString& uuid)
+{
+    // return 0 for unknown caches
+
+	WIN32_FILE_ATTRIBUTE_DATA fileInfo;
+	if (GetFileAttributesEx ( cacheFolderPath + uuid
+						    , GetFileExInfoStandard
+							, &fileInfo) == FALSE)
+        return 0;
+
+    // return result
+
+    return fileInfo.nFileSizeLow;
+}
+
+// delete a cache along with all file(s)
 
 void CLogCachePool::DropCache (const CString& uuid)
 {

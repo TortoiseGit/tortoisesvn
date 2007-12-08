@@ -84,6 +84,11 @@ public:
 
     CRepositoryInfo& GetRepositoryInfo();
 
+	/// return the size of the repository cache file 
+    /// (returns 0 for new files)
+
+	size_t FileSize (const CString& uuid);
+
 	/// delete a cache along with all file(s)
 
 	void DropCache (const CString& uuid);
