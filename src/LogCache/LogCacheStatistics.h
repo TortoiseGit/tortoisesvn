@@ -24,7 +24,7 @@
 // necessary includes
 ///////////////////////////////////////////////////////////////
 
-#include "LogCacheGlobals.h"
+#include "RepositoryInfo.h"
 #include "QuickHash.h"
 
 ///////////////////////////////////////////////////////////////
@@ -49,21 +49,19 @@ class CSkipRevisionInfo;
 class CLogCachePool;
 
 /**
- * Collects size, access and completeness info for a given
- * cached repository log. All values are 0 for unknown
- * (e.g. non-cached) repositories.
- *
- * Needs full (friend) access to cache container internals.
+ * Contains all data we may get for a repository log cache.
  */
 
-class CLogCacheStatistics
+struct CLogCacheStatisticsData
 {
-private:
+public:
 
 	/// all the data we can get ...
 
 	size_t fileSize;
 	size_t ramSize;
+
+    CRepositoryInfo::ConnectionState connectionState;
 
 	__time64_t headTimeStamp; 
 	__time64_t lastWriteAccess;
@@ -92,8 +90,21 @@ private:
 	revision_t userRevPropRevisionCount;
 	revision_t userRevPropMissingRevisionCount;
 	size_t userRevPropCount;
+};
 
-	/// utilities
+/**
+ * Collects size, access and completeness info for a given
+ * cached repository log. All values are 0 for unknown
+ * (e.g. non-cached) repositories.
+ *
+ * Needs full (friend) access to cache container internals.
+ */
+
+class CLogCacheStatistics : private CLogCacheStatisticsData
+{
+private:
+
+    /// utilities
 
 	static size_t GetSizeOf (const CStringDictionary& container);
 	static size_t GetSizeOf (const CIndexPairDictionary& container);
@@ -130,6 +141,10 @@ public:
 	/// all back to zero
 
 	void Reset();
+
+    /// data access
+
+    const CLogCacheStatisticsData& GetData() const;
 };
 
 ///////////////////////////////////////////////////////////////
@@ -149,6 +164,15 @@ static size_t CLogCacheStatistics::GetSizeOf (const quick_hash<T>& container)
 
 	return container.statisitics().capacity * sizeof(index_type[1]) 
 		 + sizeof (container);
+}
+
+///////////////////////////////////////////////////////////////
+// data access
+///////////////////////////////////////////////////////////////
+
+inline const CLogCacheStatisticsData& CLogCacheStatistics::GetData() const
+{
+    return *this;
 }
 
 ///////////////////////////////////////////////////////////////

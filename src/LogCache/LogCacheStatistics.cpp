@@ -125,8 +125,8 @@ __time64_t CLogCacheStatistics::GetTime (FILETIME& fileTime)
 	FileTimeToSystemTime (&fileTime, &systemTime);
 
 	tm time = {0,0,0, 0,0,0, 0,0,0};
-	time.tm_year = systemTime.wYear;
-	time.tm_mon = systemTime.wMonth;
+	time.tm_year = systemTime.wYear - 1900;
+	time.tm_mon = systemTime.wMonth - 1;
 	time.tm_mday = systemTime.wDay;
 	time.tm_hour = systemTime.wHour;
 	time.tm_min = systemTime.wMinute;
@@ -158,9 +158,9 @@ void CLogCacheStatistics::CollectData ( CLogCachePool& pool
 	{
 		if (iter->second.uuid == uuid)
 		{
-			// found it
+			// found it (convert to apr_time_t)
 
-			headTimeStamp = iter->second.headLookupTime;
+			headTimeStamp = iter->second.headLookupTime * 1000000L;
 
 			// file properties
 
@@ -188,10 +188,12 @@ void CLogCacheStatistics::CollectData (const CCachedLogInfo& source)
 
 	// revisions
 
-	revisionCount = (revision_t)std::count ( source.revisions.indices.begin()
-										   , source.revisions.indices.end()
-										   , NO_INDEX);
-	maxRevision = source.revisions.GetLastRevision();
+	revisionCount 
+        = (revision_t) (  source.revisions.indices.size()
+                        - std::count ( source.revisions.indices.begin()
+									 , source.revisions.indices.end()
+									 , NO_INDEX));
+	maxRevision = source.revisions.GetLastCachedRevision()-1;
 
 	// container sizes
 
@@ -299,6 +301,8 @@ CLogCacheStatistics::CLogCacheStatistics ( CLogCachePool& pool
 	CollectData (pool, uuid);
 	if (CacheExists())
 		CollectData (*pool.GetCache (uuid));
+
+    connectionState = pool.GetRepositoryInfo().GetConnectionState (uuid);
 }
 
 CLogCacheStatistics::~CLogCacheStatistics()
@@ -313,6 +317,8 @@ void CLogCacheStatistics::Reset()
 {
 	fileSize = 0;
 	ramSize = 0;
+
+    connectionState = CRepositoryInfo::online;
 
 	headTimeStamp = 0; 
 	lastWriteAccess = 0;
