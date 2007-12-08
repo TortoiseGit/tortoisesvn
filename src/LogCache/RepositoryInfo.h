@@ -190,7 +190,11 @@ public:
 
     bool IsOffline (const CString& url, bool askUser);
 
-	/// remove a specific entry
+    /// get the connection state (uninterpreted)
+
+    ConnectionState GetConnectionState (const CString& uuid);
+
+    /// remove a specific entry
 
     void DropEntry (const CString& sUUID);
 

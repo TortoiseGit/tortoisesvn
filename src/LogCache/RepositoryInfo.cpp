@@ -325,8 +325,8 @@ CString CRepositoryInfo::GetRootFromUUID (const CString& sUUID) const
     return CString();
 }
 
-/// is the repository offline? 
-/// Don't modify the state if askUser is false.
+// is the repository offline? 
+// Don't modify the state if askUser is false.
 
 bool CRepositoryInfo::IsOffline (const CString& url, bool askUser)
 {
@@ -349,6 +349,22 @@ bool CRepositoryInfo::IsOffline (const CString& url, bool askUser)
 	// return state
 
 	return iter->second.connectionState != online;
+}
+
+// get the connection state (uninterpreted)
+
+CRepositoryInfo::ConnectionState 
+CRepositoryInfo::GetConnectionState (const CString& uuid)
+{
+	// find the info
+
+    TData::iterator iter = Lookup (GetRootFromUUID (uuid));
+
+	// no info -> assume online (i.e. just try to reach the server)
+
+	return iter == data.end()
+        ? online
+        : iter->second.connectionState;
 }
 
 // remove a specific entry
