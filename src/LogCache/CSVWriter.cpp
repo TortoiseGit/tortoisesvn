@@ -53,7 +53,7 @@ void CCSVWriter::WritePathList (std::ostream& os, const CPathDictionary& diction
 	for (index_t i = 0, count = dictionary.size(); i < count; ++i)
 	{
 		os << i << ',' 
-		   << dictionary.GetParent(i) << ",\"" 
+		   << (int)dictionary.GetParent(i) << ",\"" 
 		   << dictionary.GetPathElement(i) << "\",\"" 
 		   << CDictionaryBasedPath (&dictionary, i).GetPath().c_str()
 		   << "\"\r\n";
@@ -80,6 +80,9 @@ void CCSVWriter::WriteChanges (std::ostream& os, const CCachedLogInfo& cache)
 		; ++revision)
 	{
 		index_t index = revisions[revision];
+        if (index == NO_INDEX)
+            continue;
+
 		typedef CRevisionInfoContainer::CChangesIterator CI;
 
 		if (  logInfo.GetPresenceFlags (index) 
@@ -138,6 +141,9 @@ void CCSVWriter::WriteMerges (std::ostream& os, const CCachedLogInfo& cache)
 		; ++revision)
 	{
 		index_t index = revisions[revision];
+        if (index == NO_INDEX)
+            continue;
+
 		typedef CRevisionInfoContainer::CMergedRevisionsIterator MI;
 
 		if (  logInfo.GetPresenceFlags (index) 
@@ -183,6 +189,9 @@ void CCSVWriter::WriteRevProps (std::ostream& os, const CCachedLogInfo& cache)
 		; ++revision)
 	{
 		index_t index = revisions[revision];
+        if (index == NO_INDEX)
+            continue;
+
 		typedef CRevisionInfoContainer::CUserRevPropsIterator RI;
 
 		if (  logInfo.GetPresenceFlags (index) 
@@ -227,6 +236,8 @@ void CCSVWriter::WriteRevisions (std::ostream& os, const CCachedLogInfo& cache)
 		; ++revision)
 	{
 		index_t index = revisions[revision];
+        if (index == NO_INDEX)
+            continue;
 
 		std::string comment = logInfo.GetComment (index);
 		Escape (comment);
