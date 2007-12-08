@@ -79,7 +79,8 @@
 		<setenv>
 			<variable name="VSVersion" value="${vsversion}" />
 		</setenv>
-        <echo message="version = ${vsversion}" />
+        <echo message="visual studio version = ${vsversion}" />
+        <delete file="vsversion.txt" />
 	</target>
 
 	<target name="clean" depends="VSNET">
