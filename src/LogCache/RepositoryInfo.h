@@ -76,11 +76,11 @@ public:
 
         /// don't call the server, except when HEAD info needs to be refreshed
 
-        tempOffline = 2,
+        tempOffline = 1,
 
         /// don't contact the server for any reason whatsoever
 
-        offline = 4
+        offline = 2
     };
 
 private:
@@ -143,10 +143,6 @@ private:
     /// use this instance for all SVN access
 
     SVN& svn;
-
-    /// construct the dump file name
-
-    CString GetFileName() const;
 
     /// read the dump file
 
@@ -213,6 +209,10 @@ public:
     /// access to the result of the last SVN operation
 
     svn_error_t* GetLastError() const;
+
+    /// construct the dump file name
+
+    CString GetFileName() const;
 
 	/// for statistics
 

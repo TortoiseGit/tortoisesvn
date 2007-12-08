@@ -129,10 +129,15 @@ std::map<CString, CString> CLogCachePool::GetRepositoryURLs() const
 	CDirFileEnum logenum (cacheFolderPath);
 	while (logenum.NextFile (filePath, NULL))
 	{
-		CString uuid = CPathUtils::GetFileNameFromPath (filePath);
-		CString rootURL = repositoryInfo->GetRootFromUUID (uuid);
+        // the repository list itself is not a repository cache
 
-		result[rootURL.IsEmpty() ? uuid : rootURL] = uuid;
+        if (filePath != repositoryInfo->GetFileName())
+        {
+		    CString uuid = CPathUtils::GetFileNameFromPath (filePath);
+		    CString rootURL = repositoryInfo->GetRootFromUUID (uuid);
+
+		    result[rootURL.IsEmpty() ? uuid : rootURL] = uuid;
+        }
 	}
 
 	// add in-RAM-only caches

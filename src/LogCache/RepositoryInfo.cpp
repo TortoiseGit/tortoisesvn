@@ -39,7 +39,7 @@ namespace LogCache
 
 CString CRepositoryInfo::GetFileName() const
 {
-    return cacheFolder + _T("\\Repositories.dat");
+    return cacheFolder + _T("Repositories.dat");
 }
 
 // read the dump file
