@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\SVN\TortoiseSVN\src\Resources\TortoiseProcENG.rc
+// Used by d:\Develop\TortoiseSVN\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MAINFRAME                   1
 #define IDC_USELOCAL                    3
@@ -155,6 +155,8 @@
 #define IDD_DIALOG1                     279
 #define IDD_URLDIFF                     279
 #define IDD_GOOFFLINE                   280
+#define IDD_SETTINGSLOGCACHE            281
+#define IDD_LOGCACHESTATISTICS          282
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -543,6 +545,7 @@
 #define IDC_BUTTON4                     1279
 #define IDC_AUTHHISTCLEAR               1279
 #define IDC_HOOKADDBUTTON               1279
+#define IDC_CACHEDETAILS                1279
 #define IDC_REPOLOG                     1280
 #define IDS_ERR_THREADSTARTFAILED       1281
 #define IDC_EDITPROPLIST                1281
@@ -656,6 +659,7 @@
 #define IDC_REPOTREE                    1371
 #define IDC_LIST1                       1372
 #define IDC_REPOLIST                    1372
+#define IDC_REPOSITORYLIST              1372
 #define IDC_DEPTH                       1373
 #define IDC_GROUPTOP                    1374
 #define IDC_GROUPBOTTOM                 1375
@@ -670,6 +674,7 @@
 #define IDC_DRYRUN                      1382
 #define IDC_ACTIONLOGSHOW               1382
 #define IDC_PERMANENTLYOFFLINE          1382
+#define IDC_CACHEDELETE                 1382
 #define IDC_REPOGROUP                   1383
 #define IDC_TOURLLABEL                  1384
 #define IDC_FROMGROUP                   1385
@@ -723,6 +728,37 @@
 #define IDC_ASDEFAULTOFFLINE            1431
 #define IDC_CHECK1                      1432
 #define IDC_FORCE                       1432
+#define IDC_MAXIMINHEADAGE              1433
+#define IDC_ENABLELOGCACHING            1434
+#define IDC_GOOFFLINESETTING            1435
+#define IDC_CACHEUPDATE                 1436
+#define IDC_CACHEEXPORT                 1437
+#define IDC_HEADAGELABEL                1438
+#define IDC_SIZERAM                     1438
+#define IDC_CONNECTIVITYLABEL           1439
+#define IDC_SIZEDISK                    1439
+#define IDC_REPOSITORIESGROUP           1440
+#define IDC_CONNECTIONSTATE             1440
+#define IDC_LASTREAD                    1441
+#define IDC_LASTWRITE                   1442
+#define IDC_LASTHEADUPDATE              1443
+#define IDC_AUTHORS                     1444
+#define IDC_PATHS                       1445
+#define IDC_SKIPRANGES                  1446
+#define IDC_WORDTOKENS                  1447
+#define IDC_PAIRTOKENS                  1448
+#define IDC_TEXTSIZE                    1449
+#define IDC_MAXREVISION                 1450
+#define IDC_REVISIONCOUNT               1451
+#define IDC_CHANGESTOTAL                1452
+#define IDC_CHANGEDREVISIONS            1453
+#define IDC_CHANGESMISSING              1454
+#define IDC_MERGESTOTAL                 1455
+#define IDC_MERGESREVISIONS             1456
+#define IDC_MERGESMISSING               1457
+#define IDC_USERREVPROPSTOTAL           1458
+#define IDC_USERREVPROPSREVISISONS      1459
+#define IDC_USERREVPROPSMISSING         1460
 #define IDS_CHECKOUT_TT_DIR             1500
 #define IDS_CHECKOUT_EXPORTDIR          1501
 #define IDS_EXPORT_TT_EOL               1505
@@ -976,6 +1012,11 @@
 #define IDS_SETTINGS_SHOWACTIONLOG_TT   3158
 #define IDS_SETTINGS_CLEARACTIONLOG_TT  3159
 #define IDS_SETTINGS_MAXACTIONLOGLINES_TT 3160
+#define IDS_SETTINGS_REPOSITORY_URL     3170
+#define IDS_SETTINGS_REPOSITORY_SIZE    3171
+#define IDS_SETTINGS_CONNECTIVITY_ASKUSER 3172
+#define IDS_SETTINGS_CONNECTIVITY_OFFLINENOW 3173
+#define IDS_SETTINGS_CONNECTIVITY_OFFLINEFOREVER 3174
 #define IDS_CHECKNEWER_YOURVERSION      3200
 #define IDS_CHECKNEWER_CURRENTVERSION   3201
 #define IDS_CHECKNEWER_YOURUPTODATE     3202
@@ -1265,6 +1306,9 @@
 #define IDS_MERGEWIZARD_REVRANGESUBTITLE 9515
 #define IDS_MERGEWIZARD_OPTIONSTITLE    9516
 #define IDS_MERGEWIZARD_OPTIONSSUBTITLE 9517
+#define IDS_CONNECTIONSTATE_ONLINE      9600
+#define IDS_CONNECTIONSTATE_TEMPOFFLINE 9601
+#define IDS_CONNECTIONSTATE_OFFLINE     9602
 #define ID_FILE_SAVEGRAPHAS             32771
 #define ID_VIEW_ZOOMIN                  32772
 #define ID_VIEW_ZOOMOUT                 32773
@@ -1302,9 +1346,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        281
+#define _APS_NEXT_RESOURCE_VALUE        283
 #define _APS_NEXT_COMMAND_VALUE         32829
-#define _APS_NEXT_CONTROL_VALUE         1433
+#define _APS_NEXT_CONTROL_VALUE         1461
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

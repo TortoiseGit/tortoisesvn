@@ -119,7 +119,102 @@ IDC_PANCURDOWN          CURSOR                  "pandown.cur"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// Deutsch (Deutschland) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+#ifdef _WIN32
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_LOGCACHESTATISTICS DIALOGEX 0, 0, 298, 269
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Log Cache Statistics"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,123,246,50,14
+    LTEXT           "RAM [kB]: ",IDC_STATIC,18,18,66,8,0,WS_EX_RIGHT
+    LTEXT           "disk [kB]: ",IDC_STATIC,18,30,66,8,0,WS_EX_RIGHT
+    GROUPBOX        "Size and status",IDC_STATIC,12,6,132,54
+    LTEXT           "",IDC_SIZERAM,90,18,48,8
+    LTEXT           "",IDC_LASTREAD,234,18,48,8
+    GROUPBOX        "Age",IDC_STATIC,156,6,132,54
+    LTEXT           "last read: ",IDC_STATIC,162,18,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_SIZEDISK,90,30,48,8
+    LTEXT           "",IDC_LASTWRITE,234,30,48,8
+    LTEXT           "last update: ",IDC_STATIC,162,30,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_LASTHEADUPDATE,234,42,48,8
+    LTEXT           "last head update: ",IDC_STATIC,162,42,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_AUTHORS,90,84,48,8
+    GROUPBOX        "Container sizes",IDC_STATIC,12,72,276,54
+    LTEXT           "authors: ",IDC_STATIC,18,84,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_PATHS,90,96,48,8
+    LTEXT           "paths: ",IDC_STATIC,18,96,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_SKIPRANGES,90,108,48,8
+    LTEXT           "skip ranges: ",IDC_STATIC,18,108,66,8,0,WS_EX_RIGHT
+    LTEXT           "connection: ",IDC_STATIC,18,42,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_CONNECTIONSTATE,90,42,48,8
+    LTEXT           "",IDC_WORDTOKENS,234,84,48,8
+    LTEXT           "word tokens: ",IDC_STATIC,162,84,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_PAIRTOKENS,234,96,48,8
+    LTEXT           "pair tokens: ",IDC_STATIC,162,96,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_TEXTSIZE,234,108,48,8
+    LTEXT           "text [token count]: ",IDC_STATIC,144,108,84,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_MAXREVISION,90,150,48,8
+    GROUPBOX        "Revisions",IDC_STATIC,12,138,276,96
+    LTEXT           "revision count: ",IDC_STATIC,18,162,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_REVISIONCOUNT,90,162,48,8
+    LTEXT           "max revision: ",IDC_STATIC,18,150,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_MERGESTOTAL,234,150,48,8
+    LTEXT           "merges total:",IDC_STATIC,162,150,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_MERGESREVISIONS,234,162,48,8
+    LTEXT           "revisions: ",IDC_STATIC,162,162,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_MERGESMISSING,234,174,48,8
+    LTEXT           "missing in: ",IDC_STATIC,144,174,84,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_USERREVPROPSTOTAL,234,192,48,8
+    LTEXT           "user revprops total: ",IDC_STATIC,162,192,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_USERREVPROPSREVISISONS,234,204,48,8
+    LTEXT           "revisions: ",IDC_STATIC,162,204,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_USERREVPROPSMISSING,234,216,48,8
+    LTEXT           "missing in: ",IDC_STATIC,144,216,84,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_CHANGESTOTAL,90,192,48,8
+    LTEXT           "changes total: ",IDC_STATIC,18,192,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_CHANGEDREVISIONS,90,204,48,8
+    LTEXT           "revisions: ",IDC_STATIC,18,204,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_CHANGESMISSING,90,216,48,8
+    LTEXT           "missing in: ",IDC_STATIC,18,216,66,8,0,WS_EX_RIGHT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_LOGCACHESTATISTICS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 291
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 262
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Deutsch (Deutschland) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Englisch (USA) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -967,6 +1062,26 @@ BEGIN
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,130,238,10
 END
 
+IDD_SETTINGSLOGCACHE DIALOGEX 0, 0, 300, 217
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "General::Log Caching"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    CONTROL         "&Enable log caching",IDC_ENABLELOGCACHING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,18,269,10
+    COMBOBOX        IDC_GOOFFLINESETTING,14,44,270,64,CBS_DROPDOWNLIST | WS_TABSTOP
+    EDITTEXT        IDC_MAXIMINHEADAGE,252,78,31,12,ES_AUTOHSCROLL | ES_NUMBER,WS_EX_RIGHT
+    CONTROL         "",IDC_REPOSITORYLIST,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,14,114,270,70
+    PUSHBUTTON      "Details",IDC_CACHEDETAILS,72,190,50,14
+    PUSHBUTTON      "Update",IDC_CACHEUPDATE,126,190,50,14
+    PUSHBUTTON      "Export",IDC_CACHEEXPORT,180,190,50,14
+    PUSHBUTTON      "Delete",IDC_CACHEDELETE,234,190,50,14
+    GROUPBOX        "Global settings",IDC_STATIC,7,7,285,58
+    GROUPBOX        "Cached Repositories",IDC_REPOSITORIESGROUP,7,101,285,109
+    LTEXT           "&Timeout in seconds before updating the HEAD revision",IDC_HEADAGELABEL,14,81,231,8,SS_NOTIFY
+    LTEXT           "If the repository can not be contacted",IDC_CONNECTIVITYLABEL,14,34,143,8,SS_NOTIFY
+    GROUPBOX        "Timeouts",IDC_STATIC,7,67,285,32
+END
+
 IDD_SETTINGSSAVEDDATA DIALOGEX 0, 0, 300, 217
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION
 CAPTION "Saved Data"
@@ -1741,6 +1856,17 @@ BEGIN
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 293
+        VERTGUIDE, 14
+        VERTGUIDE, 252
+        VERTGUIDE, 284
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 210
+    END
+
+    IDD_SETTINGSLOGCACHE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 292
         VERTGUIDE, 14
         VERTGUIDE, 252
         VERTGUIDE, 284
@@ -2925,6 +3051,23 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_SETTINGS_REPOSITORY_URL "Repository URL"
+    IDS_SETTINGS_REPOSITORY_SIZE "Cache size [kB]"
+    IDS_SETTINGS_CONNECTIVITY_ASKUSER "Ask user"
+    IDS_SETTINGS_CONNECTIVITY_OFFLINENOW "Operate from log cache for now only"
+    IDS_SETTINGS_CONNECTIVITY_OFFLINEFOREVER 
+                            "Never try to contact the repository again"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CONNECTIONSTATE_ONLINE "online"
+    IDS_CONNECTIONSTATE_TEMPOFFLINE "temp. offline"
+    IDS_CONNECTIONSTATE_OFFLINE "offline"
+END
+
+STRINGTABLE 
+BEGIN
     IDS_SVN_PROGRESS_SPEED  "Transferring at %s"
     IDS_SVN_PROGRESS_TOTALTRANSFERRED "%I64d kBytes transferred"
     IDS_SVN_PROGRESS_TOTALMBTRANSFERRED "%.2f MBytes transferred"
@@ -3355,12 +3498,12 @@ BEGIN
     IDS_PROGRS_CMD_UPDATE   "Update"
 END
 
-#endif    // English (U.S.) resources
+#endif    // Englisch (USA) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Switzerland) resources
+// Deutsch (Schweiz) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -3439,7 +3582,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // German (Switzerland) resources
+#endif    // Deutsch (Schweiz) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

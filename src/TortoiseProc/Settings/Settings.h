@@ -30,6 +30,7 @@
 #include "SetDialogs.h"
 #include "SettingsColors.h"
 #include "SetMisc.h"
+#include "SetLogCache.h"
 #include "SetSavedDataPage.h"
 #include "SetHooks.h"
 #include "SettingsTBlame.h"
@@ -71,6 +72,7 @@ private:
 	CSetDialogs *			m_pDialogsPage;
 	CSettingsColors *		m_pColorsPage;
 	CSetMisc *				m_pMiscPage;
+	CSetLogCache *			m_pLogCachePage;
 	CSetSavedDataPage *		m_pSavedPage;
 	CSetHooks *				m_pHooksPage;
 	CSettingsTBlame *		m_pTBlamePage;
