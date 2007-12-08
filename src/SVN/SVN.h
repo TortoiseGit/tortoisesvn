@@ -833,6 +833,14 @@ public:
 	 * format.
 	 */
 	static void formatDate(TCHAR date_native[], FILETIME& date, bool force_short_fmt = false);
+	/**
+	 * Returns a string representing the date w/o time in the OS local format.
+	 */
+	static CString formatDate (apr_time_t& date_svn);
+	/**
+	 * Returns a string representing the time w/o date in the OS local format.
+	 */
+	static CString formatTime (apr_time_t& date_svn);
 
 	/**
 	 * Returns a string which can be passed as the options string for the Merge()

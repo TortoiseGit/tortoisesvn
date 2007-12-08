@@ -2337,6 +2337,52 @@ void SVN::formatDate(TCHAR date_native[], FILETIME& filetime, bool force_short_f
 	}
 }
 
+CString SVN::formatDate(apr_time_t& date_svn)
+{
+	apr_time_exp_t exploded_time = {0};
+	
+    SYSTEMTIME systime = {0,0,0,0,0,0,0,0};
+    TCHAR datebuf[SVN_DATE_BUFFER] = {0};
+
+	LCID locale = s_useSystemLocale ? MAKELCID(MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), SORT_DEFAULT) : s_locale;
+
+	apr_time_exp_lt (&exploded_time, date_svn);
+	
+	systime.wDay = (WORD)exploded_time.tm_mday;
+	systime.wDayOfWeek = (WORD)exploded_time.tm_wday;
+	systime.wMonth = (WORD)exploded_time.tm_mon+1;
+	systime.wYear = (WORD)exploded_time.tm_year+1900;
+
+	GetDateFormat(locale, DATE_SHORTDATE, &systime, NULL, datebuf, SVN_DATE_BUFFER);
+	
+    return datebuf;
+}
+
+CString SVN::formatTime (apr_time_t& date_svn)
+{
+	apr_time_exp_t exploded_time = {0};
+	
+    SYSTEMTIME systime = {0,0,0,0,0,0,0,0};
+    TCHAR timebuf[SVN_DATE_BUFFER] = {0};
+
+	LCID locale = s_useSystemLocale ? MAKELCID(MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), SORT_DEFAULT) : s_locale;
+
+	apr_time_exp_lt (&exploded_time, date_svn);
+	
+	systime.wDay = (WORD)exploded_time.tm_mday;
+	systime.wDayOfWeek = (WORD)exploded_time.tm_wday;
+	systime.wHour = (WORD)exploded_time.tm_hour;
+	systime.wMilliseconds = (WORD)(exploded_time.tm_usec/1000);
+	systime.wMinute = (WORD)exploded_time.tm_min;
+	systime.wMonth = (WORD)exploded_time.tm_mon+1;
+	systime.wSecond = (WORD)exploded_time.tm_sec;
+	systime.wYear = (WORD)exploded_time.tm_year+1900;
+
+    GetTimeFormat(locale, 0, &systime, NULL, timebuf, SVN_DATE_BUFFER);
+
+    return timebuf;
+}
+
 CStringA SVN::MakeSVNUrlOrPath(const CString& UrlOrPath)
 {
 	CStringA url = CUnicodeUtils::GetUTF8(UrlOrPath);
