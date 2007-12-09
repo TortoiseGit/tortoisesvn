@@ -223,7 +223,16 @@ void CSetLogCache::FillRepositoryList()
 
     for (IT iter = urls.begin(), end = urls.end(); iter != end; ++iter, ++count)
     {
-        m_cRepositoryList.InsertItem (count, iter->first);
+        CString url = iter->first;
+        if (url == iter->second)
+        {
+            // we don't know a repository URL for this one
+            // -> probably a delete
+
+            url.Format(IDS_SETTINGS_DELETEDCACHE, iter->second);
+        }
+
+        m_cRepositoryList.InsertItem (count, url);
         size_t fileSize = caches->FileSize (iter->second) / 1024;
 
         CString sizeText;
@@ -253,8 +262,11 @@ void CSetLogCache::ReceiveLog ( LogChangedPathArray*
 		lastProgressCall = GetTickCount();
 
 		CString temp;
-		temp.Format(IDS_REVGRAPH_PROGCURRENTREV, rev);
+		temp.LoadString(IDS_REVGRAPH_PROGGETREVS);
+		progress->SetLine(1, temp);
+        temp.Format(IDS_REVGRAPH_PROGCURRENTREV, rev);
 		progress->SetLine(2, temp);
+
 		progress->SetProgress (headRevision - rev, headRevision);
 		if (progress->HasUserCancelled())
 			throw SVNError (SVN_ERR_CANCELLED, "");
