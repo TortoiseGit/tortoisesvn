@@ -157,6 +157,7 @@
 #define IDD_GOOFFLINE                   280
 #define IDD_SETTINGSLOGCACHE            281
 #define IDD_LOGCACHESTATISTICS          282
+#define IDI_CACHE                       283
 #define IDS_CHSTAT_FILECOL              1000
 #define IDS_CHSTAT_WCCOL                1001
 #define IDS_CHSTAT_REPOCOL              1002
@@ -1346,7 +1347,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        283
+#define _APS_NEXT_RESOURCE_VALUE        284
 #define _APS_NEXT_COMMAND_VALUE         32829
 #define _APS_NEXT_CONTROL_VALUE         1461
 #define _APS_NEXT_SYMED_VALUE           195

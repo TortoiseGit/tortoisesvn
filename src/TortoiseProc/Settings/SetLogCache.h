@@ -38,7 +38,7 @@ public:
 	CSetLogCache();
 	virtual ~CSetLogCache();
 	
-	UINT GetIconID() {return IDI_DIALOGS;}
+	UINT GetIconID() {return IDI_CACHE;}
 
 // Dialog Data
 	enum { IDD = IDD_SETTINGSLOGCACHE };
