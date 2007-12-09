@@ -323,14 +323,17 @@ void CRevisionInfoContainer::UpdateUserRevProps
 		{
 			// copy & translate
 
-			index_t sourceIndex = iter->value;
-            for ( index_t k = newData.userRevPropNames [sourceIndex]
+			if ( newData.userRevPropNames.size() )
+			{
+				index_t sourceIndex = iter->value;
+				for ( index_t k = newData.userRevPropNames [sourceIndex]
 				, last = newData.userRevPropNames [sourceIndex+1]
 				; k != last
-				; ++k)
-			{
-				userRevPropNames.push_back (*propIDMapping.find (newData.userRevPropNames [k]));
-                newValueMapping.insert (valueIndex++, k);
+					; ++k)
+				{
+					userRevPropNames.push_back (*propIDMapping.find (newData.userRevPropNames [k]));
+					newValueMapping.insert (valueIndex++, k);
+				}
 			}
 		}
 		else
