@@ -148,6 +148,20 @@ void CLogCacheStatistics::CollectData ( CLogCachePool& pool
 	lastWriteAccess = 0;
 	lastReadAccess = 0;
 
+	// file properties
+
+	CString fileName = pool.GetCacheFolderPath() + uuid;
+
+	WIN32_FILE_ATTRIBUTE_DATA fileInfo;
+	if (GetFileAttributesEx ( fileName
+						    , GetFileExInfoStandard
+							, &fileInfo) != FALSE)
+	{
+		fileSize = fileInfo.nFileSizeLow;
+		lastReadAccess = GetTime (fileInfo.ftLastAccessTime);
+		lastWriteAccess = GetTime (fileInfo.ftLastWriteTime);
+	}
+
 	// try to find the pool entry
 
 	const CRepositoryInfo::TData& data = pool.GetRepositoryInfo().data;
@@ -161,20 +175,6 @@ void CLogCacheStatistics::CollectData ( CLogCachePool& pool
 			// found it (convert to apr_time_t)
 
 			headTimeStamp = iter->second.headLookupTime * 1000000L;
-
-			// file properties
-
-			CString fileName = pool.GetCacheFolderPath() + uuid;
-
-			WIN32_FILE_ATTRIBUTE_DATA fileInfo;
-			if (GetFileAttributesEx ( fileName
-								    , GetFileExInfoStandard
-									, &fileInfo) != FALSE)
-			{
-				fileSize = fileInfo.nFileSizeLow;
-				lastReadAccess = GetTime (fileInfo.ftLastAccessTime);
-				lastWriteAccess = GetTime (fileInfo.ftLastWriteTime);
-			}
 		}
 	}
 }
