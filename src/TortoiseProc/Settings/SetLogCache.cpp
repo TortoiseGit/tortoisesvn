@@ -76,6 +76,7 @@ BEGIN_MESSAGE_MAP(CSetLogCache, ISettingsPropPage)
 	ON_BN_CLICKED(IDC_CACHEDELETE, OnBnClickedDelete)
 
 	ON_MESSAGE(WM_REFRESH_REPOSITORYLIST, OnRefeshRepositoryList)
+	ON_NOTIFY(NM_DBLCLK, IDC_REPOSITORYLIST, &CSetLogCache::OnNMDblclkRepositorylist)
 END_MESSAGE_MAP()
 
 void CSetLogCache::OnChanged()
@@ -320,5 +321,11 @@ UINT CSetLogCache::WorkerThread(LPVOID pVoid)
     dialog->PostMessage (WM_REFRESH_REPOSITORYLIST);
 
 	return 0;
+}
+
+void CSetLogCache::OnNMDblclkRepositorylist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
+{
+	OnBnClickedDetails();
+	*pResult = 0;
 }
 

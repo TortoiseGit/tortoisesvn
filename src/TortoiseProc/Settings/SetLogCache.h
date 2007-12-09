@@ -56,6 +56,7 @@ protected:
 	afx_msg void OnBnClickedDelete();
 
 	afx_msg LRESULT OnRefeshRepositoryList (WPARAM wParam, LPARAM lParam);
+	afx_msg void OnNMDblclkRepositorylist(NMHDR *pNMHDR, LRESULT *pResult);
 
     DECLARE_MESSAGE_MAP()
 private:
