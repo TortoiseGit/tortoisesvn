@@ -39,13 +39,13 @@ IMPLEMENT_DYNAMIC(CSetLogCache, ISettingsPropPage)
 CSetLogCache::CSetLogCache()
 	: ISettingsPropPage(CSetLogCache::IDD)
 	, m_bEnableLogCaching(FALSE)
-	, m_dwMaxHeadAge(300)
+	, m_dwMaxHeadAge(0)
     , progress(NULL)
 {
 	m_regEnableLogCaching = CRegDWORD(_T("Software\\TortoiseSVN\\UseLogCaching"), TRUE);
 	m_bEnableLogCaching = (DWORD)m_regEnableLogCaching;
 	m_regDefaultConnectionState = CRegDWORD(_T("Software\\TortoiseSVN\\DefaultConnectionState"), 0);
-	m_regMaxHeadAge = CRegDWORD(_T("Software\\TortoiseSVN\\HeadCacheAgeLimit"), 300);
+	m_regMaxHeadAge = CRegDWORD(_T("Software\\TortoiseSVN\\HeadCacheAgeLimit"), 0);
 	m_dwMaxHeadAge = (DWORD)m_regMaxHeadAge;
 }
 
