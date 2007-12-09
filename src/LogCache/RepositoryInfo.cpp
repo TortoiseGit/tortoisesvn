@@ -249,7 +249,7 @@ revision_t CRepositoryInfo::GetHeadRevision (const CTSVNPath& url)
     __time64_t now = CTime::GetCurrentTime().GetTime();
     CRegStdWORD useLogCache (_T("Software\\TortoiseSVN\\HeadCacheAgeLimit"), 300);
 
-    // if there a valid cached entry?
+    // is there a valid cached entry?
 
     if (   (now - iter->second.headLookupTime > useLogCache)
         || (   url.GetSVNPathString().Left (iter->second.headURL.GetLength())
