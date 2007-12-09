@@ -36,19 +36,19 @@ bool CleanupCommand::Execute()
 	progress.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROC_CLEANUP_INFO1)));
 	progress.SetLine(2, CString(MAKEINTRESOURCE(IDS_PROC_CLEANUP_INFO2)));
 	progress.ShowModeless(hwndExplorer);
+	
+	CString strSuccessfullPaths, strFailedPaths;
 	for (int i=0; i<pathList.GetCount(); ++i)
 	{
 		SVN svn;
 		if (!svn.CleanUp(pathList[i]))
 		{
-			progress.Stop();
-			CString errorMessage;
-			errorMessage.Format(IDS_ERR_CLEANUP, (LPCTSTR)svn.GetLastErrorMessage());
-			CMessageBox::Show(hwndExplorer, errorMessage, _T("TortoiseSVN"), MB_ICONERROR);
-			break;
+			strFailedPaths += _T("- ") + pathList[i].GetWinPathString() + _T("\n");
 		}
 		else
 		{
+			strSuccessfullPaths += _T("- ") + pathList[i].GetWinPathString() + _T("\n");
+
 			// after the cleanup has finished, crawl the path downwards and send a change
 			// notification for every directory to the shell. This will update the
 			// overlays in the left treeview of the explorer.
@@ -75,6 +75,23 @@ bool CleanupCommand::Execute()
 		}
 	}
 	progress.Stop();
-	CMessageBox::Show(hwndExplorer, IDS_PROC_CLEANUPFINISHED, IDS_APPNAME, MB_OK | MB_ICONINFORMATION);
+	
+	CString strMessage;
+	if ( !strSuccessfullPaths.IsEmpty() )
+	{
+		CString tmp;
+		tmp.Format(IDS_PROC_CLEANUPFINISHED, strSuccessfullPaths);
+		strMessage += tmp;
+	}
+	if ( !strFailedPaths.IsEmpty() )
+	{
+		if (!strMessage.IsEmpty())
+			strMessage += _T("\n");
+		CString tmp;
+		tmp.Format(IDS_PROC_CLEANUPFINISHED_FAILED, strFailedPaths);
+		strMessage += tmp;
+	}
+	CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_OK | (strFailedPaths.IsEmpty()?MB_ICONINFORMATION:MB_ICONERROR));
+
 	return true;
 }
