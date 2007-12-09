@@ -197,7 +197,7 @@ void CLogCacheStatistics::CollectData (const CCachedLogInfo& source)
 
 	// container sizes
 
-	authorCount = source.logInfo.authorPool.size();
+	authorCount = source.logInfo.authorPool.size() -1;
 	pathCount = source.logInfo.paths.size();
 	
 	skipDeltaCount = 0;
