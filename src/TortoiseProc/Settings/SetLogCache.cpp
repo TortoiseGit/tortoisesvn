@@ -268,7 +268,7 @@ UINT CSetLogCache::WorkerThread(LPVOID pVoid)
 	CSetLogCache* dialog = (CSetLogCache*)pVoid;
 
     dialog->progress = new CProgressDlg();
-	dialog->progress->SetTitle(IDS_REVGRAPH_PROGTITLE);
+	dialog->progress->SetTitle(IDS_SETTINGS_LOGCACHE_UPDATETITLE);
 	dialog->progress->SetCancelMsg(IDS_REVGRAPH_PROGCANCEL);
 	dialog->progress->SetTime();
 	dialog->progress->ShowModal (dialog->m_hWnd);

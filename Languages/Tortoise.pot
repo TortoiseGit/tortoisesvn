@@ -349,6 +349,10 @@ msgstr ""
 msgid "&Enable Proxy Server"
 msgstr ""
 
+#. Resource IDs: (1434)
+msgid "&Enable log caching"
+msgstr ""
+
 #. Resource IDs: (1213)
 msgid "&Enter a message describing why you are locking the file(s)."
 msgstr ""
@@ -669,6 +673,10 @@ msgstr ""
 
 #. Resource IDs: (1382)
 msgid "&Test merge"
+msgstr ""
+
+#. Resource IDs: (1438)
+msgid "&Timeout in seconds before updating the HEAD revision"
 msgstr ""
 
 #. Resource IDs: (1222)
@@ -993,6 +1001,10 @@ msgstr ""
 msgid "Advanced merge settings"
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "Age"
+msgstr ""
+
 #. Resource IDs: (3841)
 msgid "All Files (*.*)"
 msgstr ""
@@ -1069,6 +1081,10 @@ msgstr ""
 
 #. Resource IDs: (32793)
 msgid "Arrange &Vertical"
+msgstr ""
+
+#. Resource IDs: (199)
+msgid "Ask user"
 msgstr ""
 
 #. Resource IDs: (264)
@@ -1260,8 +1276,12 @@ msgstr ""
 msgid "CAP"
 msgstr ""
 
-#. Resource IDs: (1126)
-msgid "Cache log messages"
+#. Resource IDs: (199)
+msgid "Cache size [kB]"
+msgstr ""
+
+#. Resource IDs: (1440)
+msgid "Cached Repositories"
 msgstr ""
 
 #. Resource IDs: (197)
@@ -1633,6 +1653,10 @@ msgstr ""
 msgid "Conflicts: %d"
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "Container sizes"
+msgstr ""
+
 #. Resource IDs: (73)
 msgid "Continue"
 msgstr ""
@@ -1944,6 +1968,10 @@ msgstr ""
 msgid "Default path:"
 msgstr ""
 
+#. Resource IDs: (1382)
+msgid "Delete"
+msgstr ""
+
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
 msgstr ""
@@ -1986,6 +2014,10 @@ msgstr ""
 
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
+msgstr ""
+
+#. Resource IDs: (1279)
+msgid "Details"
 msgstr ""
 
 #. Resource IDs: (1277)
@@ -2563,6 +2595,10 @@ msgstr ""
 msgid "General::Dialogs 2"
 msgstr ""
 
+#. Resource IDs: (281)
+msgid "General::Log Caching"
+msgstr ""
+
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr ""
@@ -2615,6 +2651,10 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Global ignore &pattern:"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Global settings"
 msgstr ""
 
 #. Resource IDs: (280)
@@ -2879,6 +2919,10 @@ msgstr ""
 
 #. Resource IDs: (196)
 msgid "If set, then unversioned files will mark the status of the parent directory as modified\ni.e. they get the modified overlay icon."
+msgstr ""
+
+#. Resource IDs: (1439)
+msgid "If the repository can not be contacted"
 msgstr ""
 
 #. Resource IDs: (196)
@@ -3165,6 +3209,10 @@ msgstr ""
 
 #. Resource IDs: (126)
 msgid "Log"
+msgstr ""
+
+#. Resource IDs: (282)
+msgid "Log Cache Statistics"
 msgstr ""
 
 #. Resource IDs: (211)
@@ -3463,6 +3511,10 @@ msgstr ""
 msgid "Network"
 msgstr ""
 
+#. Resource IDs: (199)
+msgid "Never try to contact the repository again"
+msgstr ""
+
 #. Resource IDs: (30721)
 msgid "New"
 msgstr ""
@@ -3660,6 +3712,10 @@ msgstr ""
 
 #. Resource IDs: (13)
 msgid "Opens the repository browser to tweak the repository online"
+msgstr ""
+
+#. Resource IDs: (199)
+msgid "Operate from log cache for now only"
 msgstr ""
 
 #. Resource IDs: (32779)
@@ -3904,6 +3960,10 @@ msgstr ""
 msgid "R&evert to this revision"
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "RAM [kB]: "
+msgstr ""
+
 #. Resource IDs: (3697)
 msgid "REC"
 msgstr ""
@@ -4116,6 +4176,10 @@ msgstr ""
 
 #. Resource IDs: (153)
 msgid "Repository Browser"
+msgstr ""
+
+#. Resource IDs: (199)
+msgid "Repository URL"
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -4786,6 +4850,10 @@ msgstr ""
 msgid "Size"
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "Size and status"
+msgstr ""
+
 #. Resource IDs: (74)
 msgid "Skipped"
 msgstr ""
@@ -5257,6 +5325,10 @@ msgstr ""
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "Timeouts"
+msgstr ""
+
 #. Resource IDs: (224)
 msgid "To commit recursively and work around this error,\nmake sure that all child items of a checked folder\nare also checked in the commit dialog.\nOtherwise, TortoiseSVN must do a non-recursive commit\nwhich does not allow directory deletion."
 msgstr ""
@@ -5499,6 +5571,10 @@ msgstr ""
 
 #. Resource IDs: (283)
 msgid "Updating and retrying the lock..."
+msgstr ""
+
+#. Resource IDs: (199)
+msgid "Updating log cache"
 msgstr ""
 
 #. Resource IDs: (1064)
@@ -5846,6 +5922,10 @@ msgstr ""
 msgid "author"
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "authors: "
+msgstr ""
+
 #. Resource IDs: (577)
 msgid "bugtraq:append\nSet to \"false\" if you want the bugtracking ID to be inserted at the top of the\nlog message. The default is \"true\" which means the bugtracking ID\nis appended to the log message."
 msgstr ""
@@ -5872,6 +5952,10 @@ msgstr ""
 msgid "bugtraq:url\nURL pointing to the issue tracker. It must contain \"%BUGID%\" which\ngets replaced with the issue number."
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "changes total: "
+msgstr ""
+
 #. Resource IDs: (145)
 msgid "cleaning up"
 msgstr ""
@@ -5882,6 +5966,10 @@ msgstr ""
 
 #. Resource IDs: (11)
 msgid "conflicted"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "connection: "
 msgstr ""
 
 #. Resource IDs: (208)
@@ -5895,6 +5983,10 @@ msgstr ""
 
 #. Resource IDs: (10)
 msgid "deleted"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "disk [kB]: "
 msgstr ""
 
 #. Resource IDs: (1342)
@@ -5942,6 +6034,18 @@ msgstr ""
 msgid "item kept locally"
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "last head update: "
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "last read: "
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "last update: "
+msgstr ""
+
 #. Resource IDs: (11, 195)
 msgid "locked"
 msgstr ""
@@ -5950,8 +6054,16 @@ msgstr ""
 msgid "locked:"
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "max revision: "
+msgstr ""
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "merges total:"
 msgstr ""
 
 #. Resource IDs: (10)
@@ -5960,6 +6072,10 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "missing / deleted / replaced"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "missing in: "
 msgstr ""
 
 #. Resource IDs: (10)
@@ -5994,8 +6110,24 @@ msgstr ""
 msgid "obstructed"
 msgstr ""
 
+#. Resource IDs: (601)
+msgid "offline"
+msgstr ""
+
+#. Resource IDs: (601)
+msgid "online"
+msgstr ""
+
 #. Resource IDs: (1406, 1407)
 msgid "or"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "pair tokens: "
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "paths: "
 msgstr ""
 
 #. Resource IDs: (3869)
@@ -6027,9 +6159,21 @@ msgstr ""
 msgid "revision %s-%s, revision %s-%s"
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "revision count: "
+msgstr ""
+
 #. Resource IDs: (326)
 #, c-format
 msgid "revisions %s-%s, %s"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "revisions: "
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "skip ranges: "
 msgstr ""
 
 #. Resource IDs: (576)
@@ -6071,6 +6215,14 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "switched:"
+msgstr ""
+
+#. Resource IDs: (601)
+msgid "temp. offline"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "text [token count]: "
 msgstr ""
 
 #. Resource IDs: (583)
@@ -6126,6 +6278,10 @@ msgstr ""
 msgid "tsvn:warnifnoissue\nSet to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "user revprops total: "
+msgstr ""
+
 #. Resource IDs: (563)
 msgid "values are different"
 msgstr ""
@@ -6142,6 +6298,10 @@ msgstr ""
 
 #. Resource IDs: (245)
 msgid "week"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "word tokens: "
 msgstr ""
 
 #. Resource IDs: (245)
