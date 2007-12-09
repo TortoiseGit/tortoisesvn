@@ -38,7 +38,6 @@ CSetDialogs::CSetDialogs()
 	, m_bUseWCURL(FALSE)
 	, m_sDefaultCheckoutPath(_T(""))
 	, m_sDefaultCheckoutUrl(_T(""))
-	, m_bCacheLogs(FALSE)
 	, m_bDiffByDoubleClick(FALSE)
 	, m_bUseSystemLocaleForDates(FALSE)
 {
@@ -51,7 +50,6 @@ CSetDialogs::CSetDialogs()
 	m_regUseWCURL = CRegDWORD(_T("Software\\TortoiseSVN\\MergeWCURL"), FALSE);
 	m_regDefaultCheckoutPath = CRegString(_T("Software\\TortoiseSVN\\DefaultCheckoutPath"));
 	m_regDefaultCheckoutUrl = CRegString(_T("Software\\TortoiseSVN\\DefaultCheckoutUrl"));
-	m_regCacheLogs = CRegDWORD(_T("Software\\TortoiseSVN\\UseLogCache"), TRUE);
 	m_regDiffByDoubleClick = CRegDWORD(_T("Software\\TortoiseSVN\\DiffByDoubleClickInLog"), FALSE);
 }
 
@@ -77,7 +75,6 @@ void CSetDialogs::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_WCURLFROM, m_bUseWCURL);
 	DDX_Text(pDX, IDC_CHECKOUTPATH, m_sDefaultCheckoutPath);
 	DDX_Text(pDX, IDC_CHECKOUTURL, m_sDefaultCheckoutUrl);
-	DDX_Check(pDX, IDC_CACHELOGS, m_bCacheLogs);
 	DDX_Check(pDX, IDC_DIFFBYDOUBLECLICK, m_bDiffByDoubleClick);
 	DDX_Check(pDX, IDC_SYSTEMLOCALEFORDATES, m_bUseSystemLocaleForDates);
 }
@@ -94,7 +91,6 @@ BEGIN_MESSAGE_MAP(CSetDialogs, ISettingsPropPage)
 	ON_BN_CLICKED(IDC_BROWSECHECKOUTPATH, &CSetDialogs::OnBnClickedBrowsecheckoutpath)
 	ON_EN_CHANGE(IDC_CHECKOUTPATH, OnChange)
 	ON_EN_CHANGE(IDC_CHECKOUTURL, OnChange)
-	ON_BN_CLICKED(IDC_CACHELOGS, OnChange)
 	ON_BN_CLICKED(IDC_DIFFBYDOUBLECLICK, OnChange)
 END_MESSAGE_MAP()
 
@@ -130,7 +126,6 @@ BOOL CSetDialogs::OnInitDialog()
 	m_bUseWCURL = m_regUseWCURL;
 	m_sDefaultCheckoutPath = m_regDefaultCheckoutPath;
 	m_sDefaultCheckoutUrl = m_regDefaultCheckoutUrl;
-	m_bCacheLogs = m_regCacheLogs;
 	m_bDiffByDoubleClick = m_regDiffByDoubleClick;
 
 	SHAutoComplete(GetDlgItem(IDC_CHECKOUTPATH)->m_hWnd, SHACF_FILESYSTEM);
@@ -234,9 +229,6 @@ BOOL CSetDialogs::OnApply()
 	m_regDefaultCheckoutUrl = m_sDefaultCheckoutUrl;
 	if (m_regDefaultCheckoutUrl.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regDefaultCheckoutUrl.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-	m_regCacheLogs = m_bCacheLogs;
-	if (m_regCacheLogs.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regCacheLogs.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	m_regDiffByDoubleClick = m_bDiffByDoubleClick;
 	if (m_regDiffByDoubleClick.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regDiffByDoubleClick.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);

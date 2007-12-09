@@ -119,7 +119,7 @@ IDC_PANCURDOWN          CURSOR                  "pandown.cur"
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Deutschland) resources
+// German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 #ifdef _WIN32
@@ -209,12 +209,12 @@ BEGIN
 END
 #endif    // APSTUDIO_INVOKED
 
-#endif    // Deutsch (Deutschland) resources
+#endif    // German (Germany) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Englisch (USA) resources
+// English (U.S.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
@@ -228,33 +228,6 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 //
 
 IDR_REVGRAPHBAR         BITMAP                  "revgraphbar.bmp"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Toolbar
-//
-
-IDR_REVGRAPHBAR TOOLBAR  20, 20
-BEGIN
-    BUTTON      ID_VIEW_ZOOMIN
-    BUTTON      ID_VIEW_ZOOMOUT
-    BUTTON      ID_VIEW_ZOOM100
-    BUTTON      ID_VIEW_ZOOMALL
-    SEPARATOR
-    BUTTON      ID_REVGRAPH_ZOOMCOMBO
-    SEPARATOR
-    BUTTON      ID_VIEW_SHOWALLREVISIONS
-    BUTTON      ID_VIEW_GROUPBRANCHES
-    BUTTON      ID_VIEW_TOPDOWN
-    BUTTON      ID_VIEW_SHOWHEAD
-    BUTTON      ID_VIEW_EXACTCOPYSOURCE
-    BUTTON      ID_VIEW_SPLITBRANCHES
-    BUTTON      ID_VIEW_FOLDTAGS
-    BUTTON      ID_VIEW_REDUCECROSSLINES
-    SEPARATOR
-    BUTTON      ID_VIEW_SHOWOVERVIEW
-END
-
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -946,9 +919,8 @@ BEGIN
     COMBOBOX        IDC_FONTSIZES,253,34,31,47,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
     CONTROL         "Short &date/time format in log messages",IDC_SHORTDATEFORMAT,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,53,271,10
-    CONTROL         "Cache log messages",IDC_CACHELOGS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,77,270,10
     CONTROL         "Can double-click in log list to compare with previous revision",IDC_DIFFBYDOUBLECLICK,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,89,270,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,85,270,10
     GROUPBOX        "Progress",IDC_STATIC,7,105,286,31
     LTEXT           "&Autoclose:",IDC_STATIC,14,116,85,16,SS_CENTERIMAGE
     COMBOBOX        IDC_AUTOCLOSECOMBO,107,119,177,75,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
@@ -962,7 +934,7 @@ BEGIN
     PUSHBUTTON      "...",IDC_BROWSECHECKOUTPATH,271,174,12,14
     EDITTEXT        IDC_CHECKOUTURL,107,191,161,14,ES_AUTOHSCROLL
     CONTROL         "Use system locale for date/time",IDC_SYSTEMLOCALEFORDATES,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,65,270,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,69,270,10
 END
 
 IDD_RESOLVE DIALOGEX 0, 0, 244, 153
@@ -1070,7 +1042,7 @@ BEGIN
     CONTROL         "&Enable log caching",IDC_ENABLELOGCACHING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,18,269,10
     COMBOBOX        IDC_GOOFFLINESETTING,14,44,270,64,CBS_DROPDOWNLIST | WS_TABSTOP
     EDITTEXT        IDC_MAXIMINHEADAGE,252,78,31,12,ES_AUTOHSCROLL | ES_NUMBER,WS_EX_RIGHT
-    CONTROL         "",IDC_REPOSITORYLIST,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,14,114,270,70
+    CONTROL         "",IDC_REPOSITORYLIST,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,14,114,270,70
     PUSHBUTTON      "Details",IDC_CACHEDETAILS,72,190,50,14
     PUSHBUTTON      "Update",IDC_CACHEUPDATE,126,190,50,14
     PUSHBUTTON      "Export",IDC_CACHEEXPORT,180,190,50,14
@@ -2084,6 +2056,33 @@ BEGIN
     END
 END
 #endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_REVGRAPHBAR TOOLBAR  20, 20
+BEGIN
+    BUTTON      ID_VIEW_ZOOMIN
+    BUTTON      ID_VIEW_ZOOMOUT
+    BUTTON      ID_VIEW_ZOOM100
+    BUTTON      ID_VIEW_ZOOMALL
+    SEPARATOR
+    BUTTON      ID_REVGRAPH_ZOOMCOMBO
+    SEPARATOR
+    BUTTON      ID_VIEW_SHOWALLREVISIONS
+    BUTTON      ID_VIEW_GROUPBRANCHES
+    BUTTON      ID_VIEW_TOPDOWN
+    BUTTON      ID_VIEW_SHOWHEAD
+    BUTTON      ID_VIEW_EXACTCOPYSOURCE
+    BUTTON      ID_VIEW_SPLITBRANCHES
+    BUTTON      ID_VIEW_FOLDTAGS
+    BUTTON      ID_VIEW_REDUCECROSSLINES
+    SEPARATOR
+    BUTTON      ID_VIEW_SHOWOVERVIEW
+END
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -3498,12 +3497,12 @@ BEGIN
     IDS_PROGRS_CMD_UPDATE   "Update"
 END
 
-#endif    // Englisch (USA) resources
+#endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// Deutsch (Schweiz) resources
+// German (Switzerland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
 #ifdef _WIN32
@@ -3582,7 +3581,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // Deutsch (Schweiz) resources
+#endif    // German (Switzerland) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

@@ -71,8 +71,6 @@ private:
 	CString			m_sDefaultCheckoutPath;
 	CRegString		m_regDefaultCheckoutUrl;
 	CString			m_sDefaultCheckoutUrl;
-	CRegDWORD		m_regCacheLogs;
-	BOOL			m_bCacheLogs;
 	CRegDWORD		m_regDiffByDoubleClick;
 	BOOL			m_bDiffByDoubleClick;
 
