@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-11-20 13:08+0900\n"
+"PO-Revision-Date: 2007-12-10 13:52+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -51,30 +51,15 @@ msgstr "%.2f kBytes/s"
 msgid "%1 contained an unexpected object."
 msgstr "%1에 알 수 없는 객체가 있습니다."
 
+#. Resource IDs: (3867)
+#, c-format
+msgid "%1 contains an incorrect path."
+msgstr "%1이/가 잘못된 경로를 가지고 있습니다."
+
 #. Resource IDs: (3868)
 #, c-format
 msgid "%1 contains an incorrect schema."
 msgstr "%1이 잘못된 스키마를 가지고 있습니다."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "%1 contains an invalid path."
-msgstr "%1이 잘못된 경로를 포함하고 있습니다."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "%1 could not be created because the directory is full."
-msgstr "디렉토리가 꽉차서 %1을 생성할 수 없습니다."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "%1 could not be opened because there are too many open files."
-msgstr "너무 많은 파일이 열린 상태라서, %1을 열 수 없습니다."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "%1 could not be removed because it is the current directory."
-msgstr "현재 디렉토리(%1)는 지울 수 없습니다."
 
 #. Resource IDs: (3868)
 #, c-format
@@ -100,7 +85,7 @@ msgstr ""
 msgid ""
 "%1\n"
 "Cannot find this file.\n"
-"Please verify that the correct path and file name are given."
+"Verify that the correct path and file name are given."
 msgstr ""
 "%1\n"
 "위 파일을 찾을 수 없습니다.\n"
@@ -362,6 +347,10 @@ msgstr "특정 URL과 차이를 구합니다. (&D)"
 msgid "&Diff with previous version"
 msgstr "이전 리비전 비교(&D)"
 
+#. Resource IDs: (2)
+msgid "&Don't go offline"
+msgstr "오프라인으로 진행하지 마세요(&D)"
+
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
 msgstr "편집(&E)"
@@ -377,6 +366,10 @@ msgstr "편집(&E)..."
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
 msgstr "프록시 서버 사용(&E)"
+
+#. Resource IDs: (1434)
+msgid "&Enable log caching"
+msgstr "로크 캐싱 사용함(&E)"
 
 #. Resource IDs: (1213)
 msgid "&Enter a message describing why you are locking the file(s)."
@@ -568,6 +561,10 @@ msgstr "다음 차이점(&N)"
 msgid "&OK"
 msgstr "확인(&O)"
 
+#. Resource IDs: (1)
+msgid "&Offline for now"
+msgstr "이제부터 오프라인으로 작업(&O)"
+
 #. Resource IDs: (101, 113, 32773)
 msgid "&Open"
 msgstr "열기(&O)"
@@ -587,6 +584,10 @@ msgstr "암호(&P):"
 #. Resource IDs: (376, 501)
 msgid "&Paste"
 msgstr "붙여넣기(&P)"
+
+#. Resource IDs: (1382)
+msgid "&Permanently offline"
+msgstr "영구 오프라인(&P)"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -691,6 +692,10 @@ msgstr "탭 크기(&T):"
 #. Resource IDs: (1382)
 msgid "&Test merge"
 msgstr "시험 병합(&T)"
+
+#. Resource IDs: (1438)
+msgid "&Timeout in seconds before updating the HEAD revision"
+msgstr "HEAD 리비전을 업데이트하는 타임아웃(초) 설정(&T)"
 
 #. Resource IDs: (1222)
 msgid "&Timeout in seconds to stop the auto-completion parsing"
@@ -857,16 +862,6 @@ msgstr "<새로운 변경 리스트>"
 msgid "?"
 msgstr "?"
 
-#. Resource IDs: (3867)
-#, c-format
-msgid "A hardware I/O error was reported while accessing %1."
-msgstr "%1에 접근하는 동안 하드웨어 I/O 오류가 보고 되었습니다."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "A locking violation occurred while accessing %1."
-msgstr "%1에 접근하는 동안 잠금 오류가 발생하였습니다."
-
 #. Resource IDs: (201)
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
 msgstr "새 버전이 나왔습니다. http://tortoisesvn.tigris.org/ 에서 다운로드 할 수 있습니다. _here_를 클릭하면 이동합니다."
@@ -892,11 +887,6 @@ msgstr ""
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
 msgstr "지정하신 자원은 유효하지 않습니다."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "A sharing violation occurred while accessing %1."
-msgstr "%1을 접근하는 중에 공유 위반이 발생하였습니다."
 
 #. Resource IDs: (79)
 msgid ""
@@ -1063,6 +1053,10 @@ msgstr "비교 고급 설정"
 msgid "Advanced merge settings"
 msgstr "병합 고급 설정"
 
+#. Resource IDs: (65535)
+msgid "Age"
+msgstr "나이"
+
 #. Resource IDs: (3841)
 msgid "All Files (*.*)"
 msgstr "모든 파일 (*.*)"
@@ -1074,21 +1068,6 @@ msgstr "모든 파일 (*.*)|*.*||"
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "날짜와 시간을 나타내기 위해 항상 시스템 국가 설정을 사용합니다"
-
-#. Resource IDs: (3867, 3868)
-#, c-format
-msgid "An attempt was made to access %1 past its end."
-msgstr "%1에 대한 접근이 마지막을 지남"
-
-#. Resource IDs: (3868)
-#, c-format
-msgid "An attempt was made to read from the writing %1."
-msgstr "%1에 대해 읽기 시도함"
-
-#. Resource IDs: (3868)
-#, c-format
-msgid "An attempt was made to write to the reading %1."
-msgstr "%1에 대해 쓰기 시도함"
 
 #. Resource IDs: (78)
 #, c-format
@@ -1126,24 +1105,10 @@ msgstr ""
 "%mine\t\t사용자가 수정한 파일\n"
 "%base\t\t사용자가 수정하기 전 파일"
 
-#. Resource IDs: (3843)
-msgid "An invalid argument was encountered."
-msgstr "잘못된 인자를 발견하였습니다."
-
 #. Resource IDs: (3867)
 #, c-format
-msgid "An invalid file handle was associated with %1."
+msgid "An incorrect file handle was associated with %1."
 msgstr "%1과 관련하여 잘못된 파일 핸들이 연관되어있습니다."
-
-#. Resource IDs: (3859)
-#, c-format
-msgid "An unexpected error occurred while reading %1."
-msgstr "%1을 읽는 중에 예기치 않은 오류가 발생하였습니다."
-
-#. Resource IDs: (3859)
-#, c-format
-msgid "An unexpected error occurred while writing %1."
-msgstr "%1을 쓰는 중에 예기치 않은 오류가 발생하였습니다."
 
 #. Resource IDs: (3843)
 msgid "An unknown error has occurred."
@@ -1158,10 +1123,6 @@ msgstr "%1을 접근하는 중에 알 수 없는 오류가 발생하였습니다
 #, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "알 수 없는 라인 종류가 발견되었습니다. 라인번호 %d !"
-
-#. Resource IDs: (3843)
-msgid "An unsupported operation was attempted."
-msgstr "지원하지 않는 명령을 시도하였습니다."
 
 #. Resource IDs: (269)
 msgid "Analyze revision data..."
@@ -1204,6 +1165,10 @@ msgstr "정말 %d개의 아이템을 되돌리시겠습니까? 마지막 업데�
 msgid "Arrange &Vertical"
 msgstr "수직으로 정렬(&V)"
 
+#. Resource IDs: (199)
+msgid "Ask user"
+msgstr "사용자에게 질문"
+
 #. Resource IDs: (264)
 #, c-format
 msgid "Assigned to changelist \"%s\""
@@ -1213,6 +1178,25 @@ msgstr "변경 리스트 \"%s\"로 할당됨"
 #, c-format
 msgid "At revision: %d"
 msgstr "리비전: %d"
+
+#. Resource IDs: (3843)
+msgid "Attempted an unsupported operation."
+msgstr "지원하지 않는 명령을 시도하였습니다."
+
+#. Resource IDs: (3867, 3868)
+#, c-format
+msgid "Attempted to access %1 past its end."
+msgstr "%1에 대한 접근이 마지막을 지남."
+
+#. Resource IDs: (3868)
+#, c-format
+msgid "Attempted to read from the writing %1."
+msgstr "%1 을/를 쓰는 중 읽기 시도함"
+
+#. Resource IDs: (3868)
+#, c-format
+msgid "Attempted to write to the reading %1."
+msgstr "%1 을/를 읽는 중 쓰기 시도함"
 
 #. Resource IDs: (131, 160)
 msgid "Authentication"
@@ -1378,9 +1362,13 @@ msgstr "잘라내기(&U)"
 msgid "CAP"
 msgstr "CAP"
 
-#. Resource IDs: (1126)
-msgid "Cache log messages"
-msgstr "캐시된 로그 메시지"
+#. Resource IDs: (199)
+msgid "Cache size [kB]"
+msgstr "캐시 크기 [kB]"
+
+#. Resource IDs: (1440)
+msgid "Cached Repositories"
+msgstr "캐시된 저장소"
 
 #. Resource IDs: (197)
 msgid "Caches the log messages to speed up log fetching"
@@ -1775,6 +1763,10 @@ msgstr "충돌"
 msgid "Conflicts: %d"
 msgstr "충돌: %d"
 
+#. Resource IDs: (65535)
+msgid "Container sizes"
+msgstr "컨테이너 크기"
+
 #. Resource IDs: (73)
 msgid "Continue"
 msgstr "계속"
@@ -1927,6 +1919,11 @@ msgstr ""
 "<hr=100%%>\n"
 "%s"
 
+#. Resource IDs: (3867)
+#, c-format
+msgid "Could not create %1 because the directory is full."
+msgstr "디렉토리가 꽉차서 %1을 생성할 수 없습니다."
+
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not delete \"%s\" because"
@@ -1955,6 +1952,11 @@ msgstr "\"%s\" 을/를 병합할 수 없습니다. 사유:"
 msgid "Could not merge property \"%s\" on %s because"
 msgstr "속성 \"%s\" (%s 소유)을/를 병합할 수 없습니다. 사유:"
 
+#. Resource IDs: (3867)
+#, c-format
+msgid "Could not open %1 because there are too many open files."
+msgstr "너무 많은 파일이 열린 상태라서, %1을 열 수 없습니다."
+
 #. Resource IDs: (69)
 #, c-format
 msgid ""
@@ -1963,6 +1965,11 @@ msgid ""
 msgstr ""
 "파일을 열 수 없습니다.\n"
 "%s"
+
+#. Resource IDs: (3867)
+#, c-format
+msgid "Could not remove %1 because it is the current directory."
+msgstr "현재 디렉토리(%1)는 지울 수 없습니다."
 
 #. Resource IDs: (82)
 #, c-format
@@ -2127,6 +2134,10 @@ msgstr "기본 URL:"
 msgid "Default path:"
 msgstr "기본 경로:"
 
+#. Resource IDs: (1382)
+msgid "Delete"
+msgstr "삭제"
+
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
 msgstr "버전관리 대상이 아닌 아이템 삭제"
@@ -2170,6 +2181,10 @@ msgstr "변경 리스트 선택하지 않음"
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
 msgstr "목적지 디스크가 꽉 찼습니다."
+
+#. Resource IDs: (1279)
+msgid "Details"
+msgstr "세부사항"
 
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
@@ -2403,6 +2418,35 @@ msgstr ""
 "tsvn:projectlanguage 가 설정된 경우에만\n"
 "철자검사를 수행합니다."
 
+#. Resource IDs: (3867)
+#, c-format
+msgid "Encountered a hardware I/O error while accessing %1."
+msgstr "%1에 접근하는 동안 하드웨어 I/O 오류가 보고 되었습니다."
+
+#. Resource IDs: (3867)
+#, c-format
+msgid "Encountered a locking violation while accessing %1."
+msgstr "%1에 접근하는 동안 잠금 오류가 발생하였습니다."
+
+#. Resource IDs: (3867)
+#, c-format
+msgid "Encountered a sharing violation while accessing %1."
+msgstr "%1을 접근하는 중에 공유 위반이 발생하였습니다."
+
+#. Resource IDs: (3843)
+msgid "Encountered an improper argument."
+msgstr "잘못된 아규먼트를 받았습니다"
+
+#. Resource IDs: (3859)
+#, c-format
+msgid "Encountered an unexpected error while reading %1."
+msgstr "%1을 읽는 중에 예기치 않은 오류가 발생하였습니다."
+
+#. Resource IDs: (3859)
+#, c-format
+msgid "Encountered an unexpected error while writing %1."
+msgstr "%1을 쓰는 중에 예기치 않은 오류가 발생하였습니다."
+
 #. Resource IDs: (65535)
 msgid "End Revision"
 msgstr "종료 리비전"
@@ -2419,6 +2463,22 @@ msgstr "로그 메시지를 입력하세요"
 msgid "Enter URL"
 msgstr "URL 입력"
 
+#. Resource IDs: (3858)
+msgid "Enter a GUID."
+msgstr "GUID를 입력하십시오."
+
+#. Resource IDs: (3858)
+msgid "Enter a currency."
+msgstr "금액을 입력하십시오."
+
+#. Resource IDs: (3858)
+msgid "Enter a date and/or time."
+msgstr "날짜, 시간을 입력하십시오."
+
+#. Resource IDs: (3858)
+msgid "Enter a date."
+msgstr "날짜를 입력하십시오."
+
 #. Resource IDs: (313)
 msgid "Enter a lock message (optional):"
 msgstr "잠금 알림 메시지 (선택사항):"
@@ -2427,6 +2487,36 @@ msgstr "잠금 알림 메시지 (선택사항):"
 msgid "Enter a name for the changelist:"
 msgstr "변경 리스트에 대한 이름:"
 
+#. Resource IDs: (3858)
+#, c-format
+msgid "Enter a number between %1 and %2."
+msgstr "%1 ~ %2사이의 값을 입력하십시오."
+
+#. Resource IDs: (3858)
+msgid "Enter a number."
+msgstr "숫자를 입력하십시오."
+
+#. Resource IDs: (3858)
+msgid "Enter a positive integer."
+msgstr "양의 정수를 입력하십시오."
+
+#. Resource IDs: (3858)
+msgid "Enter a time."
+msgstr "시간을 입력하십시오."
+
+#. Resource IDs: (3858)
+#, c-format
+msgid "Enter an integer between %1 and %2."
+msgstr "%1 ~ %2 사이의 정수를 입력하십시오."
+
+#. Resource IDs: (3858)
+msgid "Enter an integer between 0 and 255."
+msgstr "0 ~ 255 사이의 정수를 입력하십시오."
+
+#. Resource IDs: (3858)
+msgid "Enter an integer."
+msgstr "정수를 입력하십시오."
+
 #. Resource IDs: (1065)
 msgid "Enter log &message:"
 msgstr "로그 메시지 입력(&M):"
@@ -2434,6 +2524,11 @@ msgstr "로그 메시지 입력(&M):"
 #. Resource IDs: (126)
 msgid "Enter log message:"
 msgstr "로그 메시지 입력:"
+
+#. Resource IDs: (3858)
+#, c-format
+msgid "Enter no more than %1 characters."
+msgstr "글자 %1개까지만 입력하십시오."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -2772,6 +2867,10 @@ msgstr "도움말은 F1을 누르시고, 좌우 스크롤은 Ctrl을 누른 상�
 msgid "For complete history deselect \"Stop on copy/rename\""
 msgstr "모든 로그를 보려면 \"복사/이름변경 시점에서 중지\"을 끄면 됩니다."
 
+#. Resource IDs: (1432)
+msgid "Force blame"
+msgstr "강제로 작성자를 봄"
+
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "시작:"
@@ -2825,6 +2924,10 @@ msgstr "일반::대화상자 1"
 #. Resource IDs: (213)
 msgid "General::Dialogs 2"
 msgstr "일반::대화상자 2"
+
+#. Resource IDs: (281)
+msgid "General::Log Caching"
+msgstr "일반::로그 캐싱"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
@@ -2887,6 +2990,14 @@ msgstr "unified diff 만드는 중..."
 #. Resource IDs: (65535)
 msgid "Global ignore &pattern:"
 msgstr "제외/무시 패턴(&P):"
+
+#. Resource IDs: (65535)
+msgid "Global settings"
+msgstr "전체 설정"
+
+#. Resource IDs: (280)
+msgid "Go offline?"
+msgstr "오프라인으로 진행할까요?"
 
 #. Resource IDs: (130)
 msgid "Go to line"
@@ -3219,6 +3330,10 @@ msgstr ""
 "체크하면, 버전 관리 대상이 아닌 파일이 있는 경우 상위 디렉토리를 수정된 것으로 표시합니다.\n"
 "즉, 수정됨을 뜻하는 아이콘이 겹쳐서 나타나게 됩니다."
 
+#. Resource IDs: (1439)
+msgid "If the repository can not be contacted"
+msgstr "저장소가 접근 불가능한 상태라면"
+
 #. Resource IDs: (196)
 msgid ""
 "If you change this value, your existing working copies won't be recognized anymore!\n"
@@ -3349,6 +3464,10 @@ msgstr "다음 리비전 구간만 포함:"
 msgid "Include paths:"
 msgstr "포함 경로:"
 
+#. Resource IDs: (3857)
+msgid "Incorrect filename."
+msgstr "잘못된 파일명."
+
 #. Resource IDs: (76)
 msgid "Initial import"
 msgstr "최초 임포트"
@@ -3380,10 +3499,6 @@ msgstr "내부 오류."
 #. Resource IDs: (102)
 msgid "Invalid data object dropped!"
 msgstr "유효하지 않은 데이터를 제거하였습니다."
-
-#. Resource IDs: (3857)
-msgid "Invalid filename."
-msgstr "잘못된 파일명."
 
 #. Resource IDs: (82)
 msgid ""
@@ -3635,6 +3750,10 @@ msgstr "다른 사람에 대해 파일을 잠그고, 자신에게만 수정가�
 msgid "Log"
 msgstr "로그"
 
+#. Resource IDs: (282)
+msgid "Log Cache Statistics"
+msgstr "로크 캐시 통계"
+
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "사용되었던 로그"
@@ -3672,6 +3791,10 @@ msgstr "최하위 리비전: %ld - 최상위 리비전: %ld - 최신(HEAD) 리�
 #. Resource IDs: (3866)
 msgid "Mail system DLL is invalid."
 msgstr "메일 시스템 DLL이 유효하지 않습니다."
+
+#. Resource IDs: (1431)
+msgid "Make this the default"
+msgstr "기본값으로 지정"
 
 #. Resource IDs: (17)
 msgid "Manage Subversion properties"
@@ -3939,6 +4062,10 @@ msgstr "중첩됨"
 msgid "Network"
 msgstr "네트워크"
 
+#. Resource IDs: (199)
+msgid "Never try to contact the repository again"
+msgstr "다시는 저장소에 접근 시도하지 않음"
+
 #. Resource IDs: (30721)
 msgid "New"
 msgstr "New"
@@ -4054,10 +4181,6 @@ msgstr "보통"
 #. Resource IDs: (3857)
 msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "일부 레지스트리(혹은 INI파일)이 삭제되지 않았습니다."
-
-#. Resource IDs: (20)
-msgid "Not descending"
-msgstr "히스토리를 따르지 않음"
 
 #. Resource IDs: (83)
 msgid "Not enough memory to complete operation."
@@ -4175,6 +4298,10 @@ msgstr ""
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "저장소를 직접 조작하려면 저장소 브라우저를 사용하십시오."
 
+#. Resource IDs: (199)
+msgid "Operate from log cache for now only"
+msgstr "지금만 로그 캐시로부터 수행"
+
 #. Resource IDs: (32779)
 msgid "Ori&ginal size"
 msgstr "원본 크기(&G)"
@@ -4247,64 +4374,13 @@ msgstr "그림 파일 (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.p
 msgid "Pie Graph"
 msgstr "파이 그래프"
 
-#. Resource IDs: (3858)
-msgid "Please enter a GUID."
-msgstr "GUID를 입력하십시오."
-
-#. Resource IDs: (3858)
-msgid "Please enter a currency."
-msgstr "기간을 입력하십시오."
-
-#. Resource IDs: (3858)
-msgid "Please enter a date and/or time."
-msgstr "날짜, 시간을 입력하십시오."
-
-#. Resource IDs: (3858)
-msgid "Please enter a date."
-msgstr "날짜를 입력하십시오."
-
 #. Resource IDs: (83)
 msgid "Please enter a hook script to execute."
 msgstr "실행할 훅 스크립트를 넣으세요"
 
-#. Resource IDs: (3858)
-#, c-format
-msgid "Please enter a number between %1 and %2."
-msgstr "%1 ~ %2사이의 값을 입력하십시오."
-
-#. Resource IDs: (3858)
-msgid "Please enter a number."
-msgstr "숫자를 입력하십시오."
-
 #. Resource IDs: (83)
 msgid "Please enter a path where to apply the hook script to."
 msgstr "훅 스크립트가 적용될 경로를 입력하세요"
-
-#. Resource IDs: (3858)
-msgid "Please enter a positive integer."
-msgstr "양의 정수를 입력하십시오."
-
-#. Resource IDs: (3858)
-msgid "Please enter a time."
-msgstr "시간을 입력하십시오."
-
-#. Resource IDs: (3858)
-#, c-format
-msgid "Please enter an integer between %1 and %2."
-msgstr "%1 ~ %2 사이의 정수를 입력하십시오."
-
-#. Resource IDs: (3858)
-msgid "Please enter an integer between 0 and 255."
-msgstr "0 ~ 255 사이의 정수를 입력하십시오."
-
-#. Resource IDs: (3858)
-msgid "Please enter an integer."
-msgstr "정수를 입력하십시오."
-
-#. Resource IDs: (3858)
-#, c-format
-msgid "Please enter no more than %1 characters."
-msgstr "글자 %1개까지만 입력하십시오."
 
 #. Resource IDs: (251)
 msgid "Please execute the \"Cleanup\" command."
@@ -4327,10 +4403,6 @@ msgstr ""
 #. Resource IDs: (1287)
 msgid "Please resolve the conflict by choosing one of the following options:"
 msgstr "다음 옵션 중 하나를 선택하여 충돌 상황을 해결 하십시오:"
-
-#. Resource IDs: (3858)
-msgid "Please select a button."
-msgstr "버튼을 선택하십시오."
 
 #. Resource IDs: (83)
 msgid "Please select a hook type"
@@ -4489,6 +4561,10 @@ msgstr "램 드라이브(&A)"
 #. Resource IDs: (114)
 msgid "R&evert to this revision"
 msgstr "이 리비전으로 되돌림(&E)"
+
+#. Resource IDs: (65535)
+msgid "RAM [kB]: "
+msgstr "램 [kB]:"
 
 #. Resource IDs: (3697)
 msgid "REC"
@@ -4760,6 +4836,10 @@ msgstr "저장소"
 msgid "Repository Browser"
 msgstr "저장소 브라우저"
 
+#. Resource IDs: (199)
+msgid "Repository URL"
+msgstr "저장소 URL"
+
 #. Resource IDs: (65535)
 msgid "Repository UUID:"
 msgstr "저장소 UUID:"
@@ -5015,8 +5095,8 @@ msgid "SVN Export to here"
 msgstr "SVN 파일을 여기에 익스포트합니다"
 
 #. Resource IDs: (16)
-msgid "SVN Lock owner"
-msgstr "SVN 잠금 소유자"
+msgid "SVN Local lock owner"
+msgstr "사본의 SVN 잠금 소유자"
 
 #. Resource IDs: (17)
 msgid "SVN Move and rename versioned files here"
@@ -5148,6 +5228,10 @@ msgstr "리비전 선택"
 #. Resource IDs: (78)
 msgid "Select SSH client"
 msgstr "SSH 클라이언트 선택"
+
+#. Resource IDs: (3858)
+msgid "Select a button."
+msgstr "버튼을 선택하십시오."
 
 #. Resource IDs: (3585)
 msgid "Select an object on which to get Help"
@@ -5488,6 +5572,10 @@ msgstr "단일/이중 창 보기(&D)"
 msgid "Size"
 msgstr "크기"
 
+#. Resource IDs: (65535)
+msgid "Size and status"
+msgstr "크기와 상태"
+
 #. Resource IDs: (74)
 msgid "Skipped"
 msgstr "넘김"
@@ -5765,6 +5853,19 @@ msgstr "존재하지 않는 파일: %s"
 #, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "패치 파일에 없는 파일입니다.: %s"
+
+#. Resource IDs: (314)
+#, c-format
+msgid ""
+"The file \n"
+"%s\n"
+"is empty.\n"
+"Do you want to remove the file?"
+msgstr ""
+"삭제 시도하는 파일\n"
+"%s\n"
+"이/가 비어 있습니다\n"
+"파일을 삭제하시겠습니까?"
 
 #. Resource IDs: (69)
 msgid "The file is too big"
@@ -6098,6 +6199,20 @@ msgstr ""
 "바뀐 내용이 저장되지 않았습니다.\n"
 "저장하시겠습니까?"
 
+#. Resource IDs: (65535)
+msgid ""
+"There has been a problem connecting the server.\n"
+"Do you want to see the cached data instead?\n"
+"\n"
+"Please understand that the cached data may be outdated,\n"
+"incomplete or even misleading due to incomplete history."
+msgstr ""
+"서버에 연결하는데 오류가 있었습니다.\n"
+"캐시된 데이터를 보시겠습니까?\n"
+"\n"
+"캐시된 데이터는 오래되고, 불완전한 상태거나\n"
+"잘못된 데이터일 수도 있습니다."
+
 #. Resource IDs: (82)
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
 msgstr "추가할 것이 없습니다. 모든 파일과 폴더는 버전 컨트롤 중에 있거나, svn:ignore 속성 또는 환경설정의 전역 무시 목록에 등록되어 있습니다."
@@ -6161,6 +6276,10 @@ msgstr "이 속성은 폴더에만 적용되며, 파일에는 적용되지 않�
 #. Resource IDs: (15)
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "이 속성은 여러줄로 구성될 수 없습니다. 한 줄로만 가능합니다."
+
+#. Resource IDs: (65535)
+msgid "Timeouts"
+msgstr "타임아웃"
 
 #. Resource IDs: (224)
 msgid ""
@@ -6495,6 +6614,10 @@ msgstr "업데이트 중 %s"
 #. Resource IDs: (283)
 msgid "Updating and retrying the lock..."
 msgstr "업데이트 및 잠금 시도중..."
+
+#. Resource IDs: (199)
+msgid "Updating log cache"
+msgstr "로크 캐시 업데이트 중"
 
 #. Resource IDs: (1064)
 msgid "Use &magnifier on locatorbar"
@@ -6972,6 +7095,10 @@ msgstr "해당 장소에 이미 존재합니다"
 msgid "author"
 msgstr "작성자"
 
+#. Resource IDs: (65535)
+msgid "authors: "
+msgstr "작성자:"
+
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:append\n"
@@ -7034,6 +7161,10 @@ msgstr ""
 "이슈트래커에 대한 URL. URL에는 이슈번호로 대치될\n"
 "\"%BUGID%\"를 포함하여야 합니다."
 
+#. Resource IDs: (65535)
+msgid "changes total: "
+msgstr "변경 합계:"
+
 #. Resource IDs: (145)
 msgid "cleaning up"
 msgstr "정리"
@@ -7045,6 +7176,10 @@ msgstr "커밋"
 #. Resource IDs: (11)
 msgid "conflicted"
 msgstr "충돌"
+
+#. Resource IDs: (65535)
+msgid "connection: "
+msgstr "접속:"
 
 #. Resource IDs: (208)
 #, c-format
@@ -7062,6 +7197,10 @@ msgstr "복사됨:"
 #. Resource IDs: (10)
 msgid "deleted"
 msgstr "삭제됨"
+
+#. Resource IDs: (65535)
+msgid "disk [kB]: "
+msgstr "디스크 [kB]:"
 
 #. Resource IDs: (1342)
 msgid "eol style"
@@ -7116,6 +7255,18 @@ msgstr "버전관리 대상이 아닙니다."
 msgid "item kept locally"
 msgstr "작업사본에서 유지하는 아이템"
 
+#. Resource IDs: (65535)
+msgid "last head update: "
+msgstr "마지막 최신 업데이트:"
+
+#. Resource IDs: (65535)
+msgid "last read: "
+msgstr "마지막 읽기:"
+
+#. Resource IDs: (65535)
+msgid "last update: "
+msgstr "마지막 업데이트:"
+
 #. Resource IDs: (11, 195)
 msgid "locked"
 msgstr "잠김"
@@ -7124,9 +7275,17 @@ msgstr "잠김"
 msgid "locked:"
 msgstr "잠김:"
 
+#. Resource IDs: (65535)
+msgid "max revision: "
+msgstr "최대 리비전:"
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "병합됨"
+
+#. Resource IDs: (65535)
+msgid "merges total:"
+msgstr "병합 합계:"
 
 #. Resource IDs: (10)
 msgid "missing"
@@ -7135,6 +7294,10 @@ msgstr "missing"
 #. Resource IDs: (65535)
 msgid "missing / deleted / replaced"
 msgstr "빠진것 / 삭제된 것 / 바뀐 것"
+
+#. Resource IDs: (65535)
+msgid "missing in: "
+msgstr "missing in:"
 
 #. Resource IDs: (10)
 msgid "modified"
@@ -7168,9 +7331,25 @@ msgstr "일반"
 msgid "obstructed"
 msgstr "차단됨"
 
+#. Resource IDs: (601)
+msgid "offline"
+msgstr "오프라인"
+
+#. Resource IDs: (601)
+msgid "online"
+msgstr "온라인"
+
 #. Resource IDs: (1406, 1407)
 msgid "or"
 msgstr "또는"
+
+#. Resource IDs: (65535)
+msgid "pair tokens: "
+msgstr "쌍으로된 토큰:"
+
+#. Resource IDs: (65535)
+msgid "paths: "
+msgstr "경로:"
 
 #. Resource IDs: (3869)
 msgid "pixels"
@@ -7201,10 +7380,22 @@ msgstr "변경되어온 히스토리를 따름"
 msgid "revision %s-%s, revision %s-%s"
 msgstr "리비전 %s-%s, 리비전 %s-%s"
 
+#. Resource IDs: (65535)
+msgid "revision count: "
+msgstr "리비전 개수: "
+
 #. Resource IDs: (326)
 #, c-format
 msgid "revisions %s-%s, %s"
 msgstr "리비전 %s-%s, %s"
+
+#. Resource IDs: (65535)
+msgid "revisions: "
+msgstr "리비전: "
+
+#. Resource IDs: (65535)
+msgid "skip ranges: "
+msgstr "건너 뛰는 구간:"
 
 #. Resource IDs: (576)
 msgid ""
@@ -7331,6 +7522,14 @@ msgstr ""
 msgid "switched:"
 msgstr "전환됨:"
 
+#. Resource IDs: (601)
+msgid "temp. offline"
+msgstr "임시적인 오프라인"
+
+#. Resource IDs: (65535)
+msgid "text [token count]: "
+msgstr "텍스트 [토큰 개수]:"
+
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
 msgstr "충돌하는 수정사항이 존재합니다"
@@ -7444,6 +7643,10 @@ msgstr ""
 "tsvn:warnifnoissue\n"
 "커밋 대화 상자에서 이슈가 없을 경우 경고를 보이고 싶으면 \"예\"를 선택하십시오."
 
+#. Resource IDs: (65535)
+msgid "user revprops total: "
+msgstr "사용자 리비전 속성 합계:"
+
 #. Resource IDs: (563)
 msgid "values are different"
 msgstr "값들이 다릅니다"
@@ -7475,6 +7678,10 @@ msgstr ""
 #. Resource IDs: (245)
 msgid "week"
 msgstr "주"
+
+#. Resource IDs: (65535)
+msgid "word tokens: "
+msgstr "단어 토큰:"
 
 #. Resource IDs: (245)
 msgid "year"
