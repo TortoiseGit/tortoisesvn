@@ -45,6 +45,7 @@
 #include "CachedLogInfo.h"
 #include "RepositoryInfo.h"
 
+
 #define ICONITEMBORDER 5
 
 const UINT CLogDlg::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
@@ -308,12 +309,7 @@ BOOL CLogDlg::OnInitDialog()
 	m_sMessageBuf.Preallocate(100000);
 
 	// set the dialog title to "Log - path/to/whatever/we/show/the/log/for"
-	if (m_sTitle.IsEmpty())
-		GetWindowText(m_sTitle);
-	if(m_path.IsDirectory())
-		SetWindowText(m_sTitle + _T(" - ") + m_path.GetWinPathString());
-	else
-		SetWindowText(m_sTitle + _T(" - ") + m_path.GetFilename());
+	SetDlgTitle(false);
 
 	m_tooltips.Create(this);
 	CheckRegexpTooltip();
@@ -427,6 +423,29 @@ BOOL CLogDlg::OnInitDialog()
 	}
 	GetDlgItem(IDC_LOGLIST)->SetFocus();
 	return FALSE;
+}
+
+void CLogDlg::SetDlgTitle(bool bOffline)
+{
+	if (m_sTitle.IsEmpty())
+		GetWindowText(m_sTitle);
+
+	if (bOffline)
+	{
+		CString sTemp;
+		if (m_path.IsDirectory())
+			sTemp.Format(IDS_LOG_DLGTITLEOFFLINE, m_sTitle, m_path.GetWinPathString());
+		else
+			sTemp.Format(IDS_LOG_DLGTITLEOFFLINE, m_sTitle, m_path.GetFilename());
+		SetWindowText(sTemp);
+	}
+	else
+	{
+		if (m_path.IsDirectory())
+			SetWindowText(m_sTitle + _T(" - ") + m_path.GetWinPathString());
+		else
+			SetWindowText(m_sTitle + _T(" - ") + m_path.GetFilename());
+	}
 }
 
 void CLogDlg::CheckRegexpTooltip()
@@ -1076,6 +1095,9 @@ UINT CLogDlg::LogThread()
 	DialogEnableWindow(IDC_INCLUDEMERGE, TRUE);
 	DialogEnableWindow(IDC_STATBUTTON, TRUE);
 	DialogEnableWindow(IDC_REFRESH, TRUE);
+
+	LogCache::CRepositoryInfo& cachedProperties = logCachePool.GetRepositoryInfo();
+	SetDlgTitle(cachedProperties.IsOffline(sUrl, false));
 
 	GetDlgItem(IDC_PROGRESS)->ShowWindow(FALSE);
 	m_bCancelled = true;

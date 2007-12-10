@@ -164,6 +164,8 @@ private:
 	void GetChangedPaths(std::vector<CString>& changedpaths, std::vector<LogChangedPath*>& changedlogpaths);
 	void DiffSelectedFile();
 	void DiffSelectedRevWithPrevious();
+	void SetDlgTitle(bool bOffline);
+
 	/**
 	 * Extracts part of commit message suitable for displaying in revision list.
 	 */
