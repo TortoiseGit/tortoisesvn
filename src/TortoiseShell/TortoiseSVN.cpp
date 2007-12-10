@@ -46,11 +46,7 @@ CComCriticalSection	g_csGlobalCOMGuard;
 LPCTSTR				g_MenuIDString = _T("TortoiseSVN");
 extern std::set<CShellExt *> g_exts;
 
-#ifndef WIN64
-#	pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='X86' publicKeyToken='6595b64144ccf1df' language='*'\"")
-#else
-#	pragma comment(linker,"/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='amd64' publicKeyToken='6595b64144ccf1df' language='*'\"") 
-#endif
+#pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
 
 extern "C" int APIENTRY
 DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
