@@ -57,6 +57,7 @@ protected:
 
 	afx_msg LRESULT OnRefeshRepositoryList (WPARAM wParam, LPARAM lParam);
 	afx_msg void OnNMDblclkRepositorylist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnLvnItemchangedRepositorylist(NMHDR *pNMHDR, LRESULT *pResult);
 
     DECLARE_MESSAGE_MAP()
 private:

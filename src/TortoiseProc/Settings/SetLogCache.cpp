@@ -77,6 +77,7 @@ BEGIN_MESSAGE_MAP(CSetLogCache, ISettingsPropPage)
 
 	ON_MESSAGE(WM_REFRESH_REPOSITORYLIST, OnRefeshRepositoryList)
 	ON_NOTIFY(NM_DBLCLK, IDC_REPOSITORYLIST, &CSetLogCache::OnNMDblclkRepositorylist)
+	ON_NOTIFY(LVN_ITEMCHANGED, IDC_REPOSITORYLIST, &CSetLogCache::OnLvnItemchangedRepositorylist)
 END_MESSAGE_MAP()
 
 void CSetLogCache::OnChanged()
@@ -341,3 +342,12 @@ void CSetLogCache::OnNMDblclkRepositorylist(NMHDR * /*pNMHDR*/, LRESULT *pResult
 	*pResult = 0;
 }
 
+void CSetLogCache::OnLvnItemchangedRepositorylist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
+{
+	UINT count = m_cRepositoryList.GetSelectedCount();
+	GetDlgItem(IDC_CACHEDETAILS)->EnableWindow(count == 1);
+	GetDlgItem(IDC_CACHEUPDATE)->EnableWindow(count == 1);
+	GetDlgItem(IDC_CACHEEXPORT)->EnableWindow(count == 1);
+	GetDlgItem(IDC_CACHEDELETE)->EnableWindow(count == 1);
+	*pResult = 0;
+}
