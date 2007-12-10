@@ -1317,6 +1317,7 @@ void CRevisionGraph::FoldTags()
             // if it is unchanged and its path contains "tags"
 
             if (   (target->next == NULL) 
+                && target->copyTargets.empty()
                 && target->path.GetBasePath().Contains (tagsPathElement))
             {
                 entry->tagNames.push_back (target->realPath);
