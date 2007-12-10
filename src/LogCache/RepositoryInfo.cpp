@@ -345,7 +345,17 @@ bool CRepositoryInfo::IsOffline (const CString& url, bool askUser)
 
 	if (askUser)
 		IsOffline (iter->second);
+	else if (iter->second.connectionState == online)
+	{
+		CRegStdWORD defaultConnectionState (_T("Software\\TortoiseSVN\\DefaultConnectionState"), 0);
+		if (defaultConnectionState != online)
+		{
+			// set default
 
+			iter->second.connectionState = static_cast<ConnectionState>
+				(static_cast<int>(defaultConnectionState));
+		}
+	}
 	// return state
 
 	return iter->second.connectionState != online;
