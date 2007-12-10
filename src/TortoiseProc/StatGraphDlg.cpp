@@ -435,7 +435,7 @@ int CStatGraphDlg::GetWeek(const CTime& time)
 			// First week containing at least four days is the first week of that year.
 
 			// Each year can start with any day of the week. But our
-			// weeks always start with monday. So we add the day of week
+			// weeks always start with Monday. So we add the day of week
 			// before calculation of the final week of year.
 			// Rule: is the 1.1 a Mo,Tu,We,Th than the week starts on the 1.1 with
 			// week==1, else a week later, so we add one for all those days if
@@ -464,8 +464,8 @@ int CStatGraphDlg::GetWeek(const CTime& time)
 			else if (iWeekOfYear==53)
 			{
 				// special case week 53. Either we got the correct week 53 or we just got the
-				// week 1 of the next year. So ist the 1.1.(year+1) also a Mo, Tu, We, Th than
-				// we alrady have the week 1, otherwise week 53 is correct
+				// week 1 of the next year. So is the 1.1.(year+1) also a Mo, Tu, We, Th than
+				// we already have the week 1, otherwise week 53 is correct
 
 				dDateFirstJanuary = CTime(iYear+1,1,1,0,0,0);
 				iDayOfWeek =
@@ -1078,7 +1078,7 @@ void CStatGraphDlg::OnNeedText(NMHDR *pnmh, LRESULT * /*pResult*/)
 
 		CString string;
 		int percentage = int(min_commits*100.0/m_nTotalCommits);
-		string.Format(_T("%d most active author(s) with at least %d commits each (%d %%)"), m_Skipper.GetPos(), min_commits, percentage);
+		string.Format(IDS_STATGRAPH_AUTHORSLIDER_TT, m_Skipper.GetPos(), min_commits, percentage);
 		::lstrcpy(pttt->szText, (LPCTSTR) string);
 	}
 }

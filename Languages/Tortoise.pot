@@ -106,6 +106,11 @@ msgstr ""
 msgid "%d files selected, %d files total"
 msgstr ""
 
+#. Resource IDs: (246)
+#, c-format
+msgid "%d most active author(s) with at least %d commits each (%d %%)"
+msgstr ""
+
 #. Resource IDs: (357)
 #, c-format
 msgid "%ld Bytes/s"
@@ -1454,8 +1459,14 @@ msgstr ""
 msgid "Cleaning up."
 msgstr ""
 
+#. Resource IDs: (83)
+#, c-format
+msgid "Cleanup failed to process the following paths:\n%s"
+msgstr ""
+
 #. Resource IDs: (79)
-msgid "Cleanup has finished"
+#, c-format
+msgid "Cleanup has successfully processed the following paths:\n%s"
 msgstr ""
 
 #. Resource IDs: (9)
@@ -3856,6 +3867,11 @@ msgstr ""
 
 #. Resource IDs: (376)
 msgid "Preview patched file"
+msgstr ""
+
+#. Resource IDs: (199)
+#, c-format
+msgid "Probably deleted repository (%s)"
 msgstr ""
 
 #. Resource IDs: (132)
