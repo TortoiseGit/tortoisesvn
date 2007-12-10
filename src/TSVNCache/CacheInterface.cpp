@@ -34,6 +34,7 @@ CString GetCachePipeName()
 		delete [ ] data;
 		CString t;
 		t.Format(_T("-%08x%08x"), uid.HighPart, uid.LowPart);
+		CloseHandle(token);
 		return s + t;
 	}
 	return s;
@@ -54,6 +55,7 @@ CString GetCacheCommandPipeName()
 		delete [ ] data;
 		CString t;
 		t.Format(_T("-%08x%08x"), uid.HighPart, uid.LowPart);
+		CloseHandle(token);
 		return s + t;
 	}
 	return s;
