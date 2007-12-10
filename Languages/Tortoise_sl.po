@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-12-05 19:59+0100\n"
+"PO-Revision-Date: 2007-12-10 20:23+0100\n"
 "Last-Translator: Matjaz Cepon <matjaz.cepon@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -131,6 +131,11 @@ msgstr "Prenesenih %I64d kB"
 #, c-format
 msgid "%d files selected, %d files total"
 msgstr "%d izbranih datotek, skupaj %d datotek"
+
+#. Resource IDs: (246)
+#, c-format
+msgid "%d most active author(s) with at least %d commits each (%d %%)"
+msgstr "%d najbolj aktivnih avtorjev z vsak vsaj %d objavami (%d %%)"
 
 #. Resource IDs: (357)
 #, c-format
@@ -392,6 +397,10 @@ msgstr "&Uredi ..."
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
 msgstr "&Omogoči strežnik prehoda"
+
+#. Resource IDs: (1434)
+msgid "&Enable log caching"
+msgstr "&Omogoči predpomnilnik dnevnika"
 
 #. Resource IDs: (1213)
 msgid "&Enter a message describing why you are locking the file(s)."
@@ -714,6 +723,10 @@ msgstr "Velikost &tabulatorja:"
 #. Resource IDs: (1382)
 msgid "&Test merge"
 msgstr "&Poizkusno spajanje"
+
+#. Resource IDs: (1438)
+msgid "&Timeout in seconds before updating the HEAD revision"
+msgstr "&Časovni rok v sekundah pred posodobitvijo revizije HEAD"
 
 #. Resource IDs: (1222)
 msgid "&Timeout in seconds to stop the auto-completion parsing"
@@ -1071,6 +1084,10 @@ msgstr "\"Napredne nastavitve razlikovanja"
 msgid "Advanced merge settings"
 msgstr "Napredne nastavitve spajanja"
 
+#. Resource IDs: (65535)
+msgid "Age"
+msgstr "Starost"
+
 #. Resource IDs: (3841)
 msgid "All Files (*.*)"
 msgstr "Vse datoteke (*.*)"
@@ -1180,6 +1197,10 @@ msgstr "Ali ste prepričani, da želite povrniti %d elementov? Izgubili boste <b
 #. Resource IDs: (32793)
 msgid "Arrange &Vertical"
 msgstr "Poravnaj &navpično"
+
+#. Resource IDs: (199)
+msgid "Ask user"
+msgstr "Vprašaj uporabnika"
 
 #. Resource IDs: (264)
 #, c-format
@@ -1374,9 +1395,13 @@ msgstr "&Izreži"
 msgid "CAP"
 msgstr "CAP"
 
-#. Resource IDs: (1126)
-msgid "Cache log messages"
-msgstr "Predpomnenje dnevniških zapisov"
+#. Resource IDs: (199)
+msgid "Cache size [kB]"
+msgstr "Velikost predpomnilnika [kB]"
+
+#. Resource IDs: (1440)
+msgid "Cached Repositories"
+msgstr "Skladišča v predpomnilniku"
 
 #. Resource IDs: (197)
 msgid "Caches the log messages to speed up log fetching"
@@ -1560,9 +1585,23 @@ msgstr "Izberite element:"
 msgid "Cleaning up."
 msgstr "Čiščenje."
 
+#. Resource IDs: (83)
+#, c-format
+msgid ""
+"Cleanup failed to process the following paths:\n"
+"%s"
+msgstr ""
+"Čiščenje naslednjih poti ni bilo uspešno:\n"
+"%s"
+
 #. Resource IDs: (79)
-msgid "Cleanup has finished"
-msgstr "Čiščenje zaključeno"
+#, c-format
+msgid ""
+"Cleanup has successfully processed the following paths:\n"
+"%s"
+msgstr ""
+"Čiščenje naslednjih poti je bilo uspešno:\n"
+"%s"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -1770,6 +1809,10 @@ msgstr "Sporno"
 #, c-format
 msgid "Conflicts: %d"
 msgstr "Spori: %d"
+
+#. Resource IDs: (65535)
+msgid "Container sizes"
+msgstr "Velikosti vsebnikov"
 
 #. Resource IDs: (73)
 msgid "Continue"
@@ -2138,6 +2181,10 @@ msgstr "Privzet URL:"
 msgid "Default path:"
 msgstr "Privzeta pot:"
 
+#. Resource IDs: (1382)
+msgid "Delete"
+msgstr "Izbriši"
+
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
 msgstr "Izbriši elemente brez različic"
@@ -2181,6 +2228,10 @@ msgstr "Izključi izbiro seznama sprememb"
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
 msgstr "Ciljni disk je poln."
+
+#. Resource IDs: (1279)
+msgid "Details"
+msgstr "Podrobnosti"
 
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
@@ -2921,6 +2972,10 @@ msgstr "Splošno::Pogovorna okna 1"
 msgid "General::Dialogs 2"
 msgstr "Splošno::Pogovorna okna 2"
 
+#. Resource IDs: (281)
+msgid "General::Log Caching"
+msgstr "Splošno::Predpomnilnik dnevnika"
+
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "Ustvarjanje datoteke popravkov"
@@ -2982,6 +3037,10 @@ msgstr "Pridobivanje poenotene razlike"
 #. Resource IDs: (65535)
 msgid "Global ignore &pattern:"
 msgstr "Splošni &vzorec prezrtih:"
+
+#. Resource IDs: (65535)
+msgid "Global settings"
+msgstr "Splošne nastavitve"
 
 #. Resource IDs: (280)
 msgid "Go offline?"
@@ -3304,6 +3363,10 @@ msgid ""
 msgstr ""
 "Če je možnost izbrana, datoteke brez različic povzročijo, da je stanje vrhnje mape označeno kot spremenjeno,\n"
 "torej prekrivna ikona nakazuje spremembe."
+
+#. Resource IDs: (1439)
+msgid "If the repository can not be contacted"
+msgstr "Če se s skladiščem ni mogoče povezati"
 
 #. Resource IDs: (196)
 msgid ""
@@ -3721,6 +3784,10 @@ msgstr "Zaklene datoteko za druge uporabnike, urejanje dovoli le vam."
 msgid "Log"
 msgstr "Dnevnik"
 
+#. Resource IDs: (282)
+msgid "Log Cache Statistics"
+msgstr "Statistika predpomnilnika dnevnika"
+
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "Zgodovina dnevnika"
@@ -4029,6 +4096,10 @@ msgstr "Vgnezdeno"
 msgid "Network"
 msgstr "Omrežje"
 
+#. Resource IDs: (199)
+msgid "Never try to contact the repository again"
+msgstr "Nikoli več se ne poskusi povezati s skladiščem"
+
 #. Resource IDs: (30721)
 msgid "New"
 msgstr "Nova"
@@ -4261,6 +4332,10 @@ msgstr ""
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Odpre skladiščni brskalnik za neposredno nastavljanje skladišča"
 
+#. Resource IDs: (199)
+msgid "Operate from log cache for now only"
+msgstr "Začasno uporabljaj predpominlnik dnevnika"
+
 #. Resource IDs: (32779)
 msgid "Ori&ginal size"
 msgstr "Izvorna &velikost"
@@ -4414,6 +4489,11 @@ msgstr "Prepreči večino situacij, pri katerih povezovalne črte križajo vozli
 msgid "Preview patched file"
 msgstr "Predoglej popravljeno datoteko"
 
+#. Resource IDs: (199)
+#, c-format
+msgid "Probably deleted repository (%s)"
+msgstr "Skladišče je verjetno izbrisano (%s)"
+
 #. Resource IDs: (132)
 #, c-format
 msgid "Processing revision %d of %d..."
@@ -4519,6 +4599,10 @@ msgstr "Diski R&AM"
 #. Resource IDs: (114)
 msgid "R&evert to this revision"
 msgstr "Po&vrni na to revizijo"
+
+#. Resource IDs: (65535)
+msgid "RAM [kB]: "
+msgstr "RAM [kB]: "
 
 #. Resource IDs: (3697)
 msgid "REC"
@@ -4789,6 +4873,10 @@ msgstr "Skladišče"
 #. Resource IDs: (153)
 msgid "Repository Browser"
 msgstr "Skladiščni brskalnik"
+
+#. Resource IDs: (199)
+msgid "Repository URL"
+msgstr "URL skladišča"
 
 #. Resource IDs: (65535)
 msgid "Repository UUID:"
@@ -5520,6 +5608,10 @@ msgstr "Enodelni/&dvodelni pogled"
 msgid "Size"
 msgstr "Velikost"
 
+#. Resource IDs: (65535)
+msgid "Size and status"
+msgstr "Velikost in stanje"
+
 #. Resource IDs: (74)
 msgid "Skipped"
 msgstr "Preskočeno"
@@ -6224,6 +6316,10 @@ msgstr "Ta lastnost se lahko uporablja samo pri mapah, ne pa tudi pri datotekah.
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Ta lastnost ne sme imeti več vrstic. Dovoljena je ena sama."
 
+#. Resource IDs: (65535)
+msgid "Timeouts"
+msgstr "Časovni roki"
+
 #. Resource IDs: (224)
 msgid ""
 "To commit recursively and work around this error,\n"
@@ -6556,6 +6652,10 @@ msgstr "Posodabljanje %s"
 #. Resource IDs: (283)
 msgid "Updating and retrying the lock..."
 msgstr "Posodabljanje in ponoven poskus zaklepa..."
+
+#. Resource IDs: (199)
+msgid "Updating log cache"
+msgstr "Posodabljanje predpomnilnika dnevnika"
 
 #. Resource IDs: (1064)
 msgid "Use &magnifier on locatorbar"
@@ -7029,6 +7129,10 @@ msgstr "na tem mestu že obstaja nek element"
 msgid "author"
 msgstr "avtor"
 
+#. Resource IDs: (65535)
+msgid "authors: "
+msgstr "avtorji:"
+
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:append\n"
@@ -7091,6 +7195,10 @@ msgstr ""
 "URL sledilnika zadevam. Vsebovati mora \"%BUGID%\", ki\n"
 "ga nadomesti prava številka zadeve."
 
+#. Resource IDs: (65535)
+msgid "changes total: "
+msgstr "skupno število sprememb:"
+
 #. Resource IDs: (145)
 msgid "cleaning up"
 msgstr "čiščenje"
@@ -7102,6 +7210,10 @@ msgstr "objave"
 #. Resource IDs: (11)
 msgid "conflicted"
 msgstr "sporno"
+
+#. Resource IDs: (65535)
+msgid "connection: "
+msgstr "povezava:"
 
 #. Resource IDs: (208)
 #, c-format
@@ -7119,6 +7231,10 @@ msgstr "kopirano:"
 #. Resource IDs: (10)
 msgid "deleted"
 msgstr "izbrisano"
+
+#. Resource IDs: (65535)
+msgid "disk [kB]: "
+msgstr "disk [kB]: "
 
 #. Resource IDs: (1342)
 msgid "eol style"
@@ -7173,6 +7289,18 @@ msgstr "ni pod nadzorom."
 msgid "item kept locally"
 msgstr "obdržana lokalna kopija elementa"
 
+#. Resource IDs: (65535)
+msgid "last head update: "
+msgstr "zadnja posodobitev revizije HEAD"
+
+#. Resource IDs: (65535)
+msgid "last read: "
+msgstr "zadnje branje:"
+
+#. Resource IDs: (65535)
+msgid "last update: "
+msgstr "zadnja posodobitev:"
+
 #. Resource IDs: (11, 195)
 msgid "locked"
 msgstr "zaklenjeno"
@@ -7181,9 +7309,17 @@ msgstr "zaklenjeno"
 msgid "locked:"
 msgstr "zaklenjeno:"
 
+#. Resource IDs: (65535)
+msgid "max revision: "
+msgstr "najvišja revizija:"
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "spojeno"
+
+#. Resource IDs: (65535)
+msgid "merges total:"
+msgstr "število spajanj:"
 
 #. Resource IDs: (10)
 msgid "missing"
@@ -7192,6 +7328,10 @@ msgstr "manjkajoče"
 #. Resource IDs: (65535)
 msgid "missing / deleted / replaced"
 msgstr "manjkajoče / izbrisano / zamenjano"
+
+#. Resource IDs: (65535)
+msgid "missing in: "
+msgstr "manjkajoče v:"
 
 #. Resource IDs: (10)
 msgid "modified"
@@ -7225,9 +7365,25 @@ msgstr "navadno"
 msgid "obstructed"
 msgstr "ovirano"
 
+#. Resource IDs: (601)
+msgid "offline"
+msgstr "nepovezan"
+
+#. Resource IDs: (601)
+msgid "online"
+msgstr "povezan"
+
 #. Resource IDs: (1406, 1407)
 msgid "or"
 msgstr "ali"
+
+#. Resource IDs: (65535)
+msgid "pair tokens: "
+msgstr "pari žetonov:"
+
+#. Resource IDs: (65535)
+msgid "paths: "
+msgstr "poti:"
 
 #. Resource IDs: (3869)
 msgid "pixels"
@@ -7258,10 +7414,22 @@ msgstr "dedovanje upoštevano"
 msgid "revision %s-%s, revision %s-%s"
 msgstr "revizija %s-%s, revizija %s-%s"
 
+#. Resource IDs: (65535)
+msgid "revision count: "
+msgstr "število revizij:"
+
 #. Resource IDs: (326)
 #, c-format
 msgid "revisions %s-%s, %s"
 msgstr "revizije %s-%s, %s"
+
+#. Resource IDs: (65535)
+msgid "revisions: "
+msgstr "revizije:"
+
+#. Resource IDs: (65535)
+msgid "skip ranges: "
+msgstr "preskoči območja:"
 
 #. Resource IDs: (576)
 msgid ""
@@ -7386,6 +7554,14 @@ msgstr ""
 msgid "switched:"
 msgstr "preklopljeno"
 
+#. Resource IDs: (601)
+msgid "temp. offline"
+msgstr "začasno nepovezan način"
+
+#. Resource IDs: (65535)
+msgid "text [token count]: "
+msgstr "besedilo [število žetonov]"
+
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
 msgstr "obstajajo sporne spremembe."
@@ -7499,6 +7675,10 @@ msgstr ""
 "tsvn:warnifnoissue\n"
 "Nastavite na \"yes\", če naj se pojavi opozorilo, ko v pogovornem oknu objave ni navedena nobena zadeva."
 
+#. Resource IDs: (65535)
+msgid "user revprops total: "
+msgstr "število uporabniških lastnosti"
+
 #. Resource IDs: (563)
 msgid "values are different"
 msgstr "vrednosti se razlikujeta"
@@ -7530,6 +7710,10 @@ msgstr ""
 #. Resource IDs: (245)
 msgid "week"
 msgstr "teden"
+
+#. Resource IDs: (65535)
+msgid "word tokens: "
+msgstr "besedni žetoni:"
 
 #. Resource IDs: (245)
 msgid "year"
