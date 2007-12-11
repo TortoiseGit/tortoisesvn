@@ -720,8 +720,9 @@ void CLogDlg::Refresh()
 	m_arShownList.RemoveAll();
 	m_logEntries.ClearAll();
 
-    // reset the cached HEAD property
+    // reset the cached HEAD property & go on-line
 
+	SetDlgTitle (false);
     logCachePool.GetRepositoryInfo().ResetHeadRevision (CTSVNPath (m_sRepositoryRoot));
 
 	InterlockedExchange(&m_bThreadRunning, TRUE);
@@ -960,123 +961,115 @@ UINT CLogDlg::LogThread()
 	// get the repository root url, because the changed-files-list has the
 	// paths shown there relative to the repository root.
 	CTSVNPath rootpath;
-	GetRootAndHead(m_path, rootpath, r);	
-	m_sRepositoryRoot = rootpath.GetSVNPathString();
-	CString sUrl = m_path.GetSVNPathString();
-	// if the log dialog is started from a working copy, we need to turn that
-	// local path into an url here
-	if (!m_path.IsUrl())
-	{
-		sUrl = GetURLFromPath(m_path);
+    BOOL succeeded = GetRootAndHead(m_path, rootpath, r);
 
-		// The URL is escaped because SVN::logReceiver
-		// returns the path in a native format
-		sUrl = CPathUtils::PathUnescape(sUrl);
-	}
-	m_sRelativeRoot = sUrl.Mid(CPathUtils::PathUnescape(m_sRepositoryRoot).GetLength());
+    m_sRepositoryRoot = rootpath.GetSVNPathString();
+    CString sUrl = m_path.GetSVNPathString();
+    // if the log dialog is started from a working copy, we need to turn that
+    // local path into an url here
+    if (succeeded)
+    {
+        if (!m_path.IsUrl())
+        {
+	        sUrl = GetURLFromPath(m_path);
+
+	        // The URL is escaped because SVN::logReceiver
+	        // returns the path in a native format
+	        sUrl = CPathUtils::PathUnescape(sUrl);
+        }
+        m_sRelativeRoot = sUrl.Mid(CPathUtils::PathUnescape(m_sRepositoryRoot).GetLength());
+    }
+
+    if (succeeded && !m_mergePath.IsEmpty() && m_mergedRevs.empty())
+    {
+	    // in case we got a merge path set, retrieve the merge info
+	    // of that path and check whether one of the merge URLs
+	    // match the URL we show the log for.
+	    SVNPool localpool(pool);
+	    svn_error_clear(Err);
+	    apr_hash_t * mergeinfo = NULL;
+	    if (svn_client_mergeinfo_get_merged (&mergeinfo, m_mergePath.GetSVNApiPath(localpool), SVNRev(SVNRev::REV_WC), m_pctx, localpool) == NULL)
+	    {
+		    // now check the relative paths
+		    apr_hash_index_t *hi;
+		    const void *key;
+		    void *val;
+
+		    if (mergeinfo)
+		    {
+			    for (hi = apr_hash_first(localpool, mergeinfo); hi; hi = apr_hash_next(hi))
+			    {
+				    apr_hash_this(hi, &key, NULL, &val);
+				    if (sUrl.Compare(CUnicodeUtils::GetUnicode((char*)key)) == 0)
+				    {
+					    apr_array_header_t * arr = (apr_array_header_t*)val;
+					    if (val)
+					    {
+						    for (long i=0; i<arr->nelts; ++i)
+						    {
+							    svn_merge_range_t * pRange = APR_ARRAY_IDX(arr, i, svn_merge_range_t*);
+							    if (pRange)
+							    {
+								    for (svn_revnum_t r=pRange->start+1; r<=pRange->end; ++r)
+								    {
+									    m_mergedRevs.insert(r);
+								    }
+							    }
+						    }
+					    }
+					    break;
+				    }
+			    }
+		    }
+	    }
+    }
+
+    m_LogProgress.SetPos(1);
+    if (m_startrev == SVNRev::REV_HEAD)
+    {
+	    m_startrev = r;
+    }
+    if (m_endrev == SVNRev::REV_HEAD)
+    {
+	    m_endrev = r;
+    }
+
+    if (m_limit != 0)
+    {
+	    m_limitcounter = m_limit;
+	    m_LogProgress.SetRange32(0, m_limit);
+    }
+    else
+	    m_LogProgress.SetRange32(m_endrev, m_startrev);
 	
-	if (!m_mergePath.IsEmpty() && m_mergedRevs.empty())
-	{
-		// in case we got a merge path set, retrieve the merge info
-		// of that path and check whether one of the merge URLs
-		// match the URL we show the log for.
-		SVNPool localpool(pool);
-		svn_error_clear(Err);
-		apr_hash_t * mergeinfo = NULL;
-		if (svn_client_mergeinfo_get_merged (&mergeinfo, m_mergePath.GetSVNApiPath(localpool), SVNRev(SVNRev::REV_WC), m_pctx, localpool) == NULL)
-		{
-			// now check the relative paths
-			apr_hash_index_t *hi;
-			const void *key;
-			void *val;
+    // TODO:
+    // Subversion currently doesn't like WC or BASE as a peg revision for logs,
+    // so we just work around that problem by setting the peg revision to invalid
+    // here.
+    // Once Subversion can work with WC and BASE peg revisions, we have to
+    // remove this workaround again.
+    if (m_pegrev.IsBase() || m_pegrev.IsWorking())
+	    m_pegrev = SVNRev();
+    if (!m_pegrev.IsValid())
+	    m_pegrev = m_startrev;
+    size_t startcount = m_logEntries.size();
+    m_lowestRev = -1;
+    m_bStrictStopped = false;
 
-			if (mergeinfo)
-			{
-				for (hi = apr_hash_first(localpool, mergeinfo); hi; hi = apr_hash_next(hi))
-				{
-					apr_hash_this(hi, &key, NULL, &val);
-					if (sUrl.Compare(CUnicodeUtils::GetUnicode((char*)key)) == 0)
-					{
-						apr_array_header_t * arr = (apr_array_header_t*)val;
-						if (val)
-						{
-							for (long i=0; i<arr->nelts; ++i)
-							{
-								svn_merge_range_t * pRange = APR_ARRAY_IDX(arr, i, svn_merge_range_t*);
-								if (pRange)
-								{
-									for (svn_revnum_t r=pRange->start+1; r<=pRange->end; ++r)
-									{
-										m_mergedRevs.insert(r);
-									}
-								}
-							}
-						}
-						break;
-					}
-				}
-			}
-		}
-	}
+    if (succeeded == TRUE)
+    {
+        succeeded = ReceiveLog (CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, m_bStrict, m_bIncludeMerges);
+        if ((!succeeded)&&(!m_path.IsUrl()))
+        {
+	        // try again with REV_WC as the start revision, just in case the path doesn't
+	        // exist anymore in HEAD
+	        succeeded = ReceiveLog(CTSVNPathList(m_path), SVNRev(), SVNRev::REV_WC, m_endrev, m_limit, m_bStrict, m_bIncludeMerges);
+        }
+    }
+    if (succeeded == FALSE)
+	    CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 
-	m_LogProgress.SetPos(1);
-	if (m_startrev == SVNRev::REV_HEAD)
-	{
-		m_startrev = r;
-	}
-	if (m_endrev == SVNRev::REV_HEAD)
-	{
-		m_endrev = r;
-	}
-
-	if (m_limit != 0)
-	{
-		m_limitcounter = m_limit;
-		m_LogProgress.SetRange32(0, m_limit);
-	}
-	else
-		m_LogProgress.SetRange32(m_endrev, m_startrev);
-	
-	// TODO:
-	// Subversion currently doesn't like WC or BASE as a peg revision for logs,
-	// so we just work around that problem by setting the peg revision to invalid
-	// here.
-	// Once Subversion can work with WC and BASE peg revisions, we have to
-	// remove this workaround again.
-	if (m_pegrev.IsBase() || m_pegrev.IsWorking())
-		m_pegrev = SVNRev();
-	if (!m_pegrev.IsValid())
-		m_pegrev = m_startrev;
-	size_t startcount = m_logEntries.size();
-	m_lowestRev = -1;
-	m_bStrictStopped = false;
-	if (m_bIncludeMerges)
-	{
-		// if we have to get the logs with the merge info,
-		// we can't use the log cache (because the cache doesn't know about merge info)
-		BOOL bLogRes = ReceiveLog (CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, m_bStrict, TRUE);
-		if ((!bLogRes)&&(!m_path.IsUrl()))
-		{
-			// try again with REV_WC as the start revision, just in case the path doesn't
-			// exist anymore in HEAD
-			bLogRes = ReceiveLog(CTSVNPathList(m_path), SVNRev(), SVNRev::REV_WC, m_endrev, m_limit, m_bStrict, TRUE);
-		}
-		if (!bLogRes)
-			CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-	}
-	else
-	{
-		BOOL bLogRes = ReceiveLog(CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, m_bStrict);
-		if ((!bLogRes)&&(!m_path.IsUrl()))
-		{
-			// try again with REV_WC as the start revision, just in case the path doesn't
-			// exist anymore in HEAD
-			bLogRes = ReceiveLog(CTSVNPathList(m_path), SVNRev(), SVNRev::REV_WC, m_endrev, m_limit, m_bStrict);
-		}
-		if (!bLogRes)
-			CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-	}
-	if (m_bStrict && (m_lowestRev>1) && ((m_limit>0) ? ((startcount + m_limit)>m_logEntries.size()) : (m_endrev<m_lowestRev)))
+    if (m_bStrict && (m_lowestRev>1) && ((m_limit>0) ? ((startcount + m_limit)>m_logEntries.size()) : (m_endrev<m_lowestRev)))
 		m_bStrictStopped = true;
 	m_LogList.SetItemCountEx(ShownCountWithStopped());
 
