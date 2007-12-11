@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-12-06 08:28+0100\n"
+"PO-Revision-Date: 2007-12-11 09:12+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +37,7 @@ msgstr "! %d"
 
 #. Resource IDs: (1262)
 msgid "# authors shown individually:"
-msgstr "Anzahl einzeln angezeigter Autoren:"
+msgstr "Autoren separat auflisten:"
 
 #. Resource IDs: (357)
 #, c-format
@@ -109,6 +109,11 @@ msgstr "%I64d KBytes übertragen"
 msgid "%d files selected, %d files total"
 msgstr "%d Dateien gewählt, %d Dateien insgesamt"
 
+#. Resource IDs: (246)
+#, c-format
+msgid "%d most active author(s) with at least %d commits each (%d %%)"
+msgstr "%d aktivste Autoren mit je mindestens %d Übertragungen (%d %%)"
+
 #. Resource IDs: (357)
 #, c-format
 msgid "%ld Bytes/s"
@@ -128,6 +133,11 @@ msgstr "%ld von %ld"
 #, c-format
 msgid "%ld paths"
 msgstr "%ld Pfade"
+
+#. Resource IDs: (115)
+#, c-format
+msgid "%s (offline) - %s"
+msgstr "%s (offline) - %s"
 
 #. Resource IDs: (226)
 #, c-format
@@ -369,6 +379,10 @@ msgstr "&Bearbeiten..."
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
 msgstr "Aktiviere &Proxy Server"
+
+#. Resource IDs: (1434)
+msgid "&Enable log caching"
+msgstr "Log-Puffer &aktivieren"
 
 #. Resource IDs: (1213)
 msgid "&Enter a message describing why you are locking the file(s)."
@@ -691,6 +705,10 @@ msgstr "&Tab Größe:"
 #. Resource IDs: (1382)
 msgid "&Test merge"
 msgstr "&Trockenlauf"
+
+#. Resource IDs: (1438)
+msgid "&Timeout in seconds before updating the HEAD revision"
+msgstr "&Wartezeit bis zur Aktualisierung der HEAD Revision (sek)"
 
 #. Resource IDs: (1222)
 msgid "&Timeout in seconds to stop the auto-completion parsing"
@@ -1049,6 +1067,10 @@ msgstr "Alternative Vergleichsprogramme"
 msgid "Advanced merge settings"
 msgstr "Alternative Konflikteditoren"
 
+#. Resource IDs: (65535)
+msgid "Age"
+msgstr "Alter"
+
 #. Resource IDs: (3841)
 msgid "All Files (*.*)"
 msgstr "Alle Dateien(*.*)"
@@ -1160,6 +1182,10 @@ msgstr ""
 #. Resource IDs: (32793)
 msgid "Arrange &Vertical"
 msgstr "Übereinander &anzeigen"
+
+#. Resource IDs: (199)
+msgid "Ask user"
+msgstr "Anwender fragen"
 
 #. Resource IDs: (264)
 #, c-format
@@ -1355,13 +1381,17 @@ msgstr "A&usschneiden"
 msgid "CAP"
 msgstr "CAP"
 
-#. Resource IDs: (1126)
-msgid "Cache log messages"
-msgstr "Logmeldungen lokal speichern"
+#. Resource IDs: (199)
+msgid "Cache size [kB]"
+msgstr "Pufferspeicher [kB]"
+
+#. Resource IDs: (1440)
+msgid "Cached Repositories"
+msgstr "Gepufferte Projektarchive"
 
 #. Resource IDs: (197)
 msgid "Caches the log messages to speed up log fetching"
-msgstr "Lokaler Zwischenspeicher, um die Anzeige des Logs zu beschleunigen"
+msgstr "Lokaler Zwischenspeicher zum Beschleunigen der Loganzeige"
 
 #. Resource IDs: (1127)
 msgid "Can double-click in log list to compare with previous revision"
@@ -1542,9 +1572,23 @@ msgstr "Objekt auswählen:"
 msgid "Cleaning up."
 msgstr "Beim Aufräumen."
 
+#. Resource IDs: (83)
+#, c-format
+msgid ""
+"Cleanup failed to process the following paths:\n"
+"%s"
+msgstr ""
+"Die folgenden Pfade konnten nicht aufgeräumt werden:\n"
+"%s"
+
 #. Resource IDs: (79)
-msgid "Cleanup has finished"
-msgstr "Aufräumen ist fertig"
+#, c-format
+msgid ""
+"Cleanup has successfully processed the following paths:\n"
+"%s"
+msgstr ""
+"Die folgenden Pfade wurden erfolgreich aufgeräumt:\n"
+"%s"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -1752,6 +1796,10 @@ msgstr "Konflikt"
 #, c-format
 msgid "Conflicts: %d"
 msgstr "Konflikte: %d"
+
+#. Resource IDs: (65535)
+msgid "Container sizes"
+msgstr "Containergrößen"
 
 #. Resource IDs: (73)
 msgid "Continue"
@@ -2121,6 +2169,10 @@ msgstr "Standard-URL:"
 msgid "Default path:"
 msgstr "Standardpfad:"
 
+#. Resource IDs: (1382)
+msgid "Delete"
+msgstr "&Löschen"
+
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
 msgstr "Nicht versionierte Objekte löschen"
@@ -2164,6 +2216,10 @@ msgstr "Änderungsliste abwählen"
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
 msgstr "Ziel-Partition ist voll."
+
+#. Resource IDs: (1279)
+msgid "Details"
+msgstr "&Details"
 
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
@@ -2531,7 +2587,7 @@ msgstr "Fehler"
 
 #. Resource IDs: (145)
 msgid "Error rebuilding Shell Icon Cache!"
-msgstr "Fehler beim Reparieren des Shell Symbolcache!"
+msgstr "Fehler beim Reparieren des Symbolpuffers der Shell!"
 
 #. Resource IDs: (81)
 #, c-format
@@ -2904,6 +2960,10 @@ msgstr "Allgemein::Dialoge 1"
 msgid "General::Dialogs 2"
 msgstr "Allgemein::Dialoge 2"
 
+#. Resource IDs: (281)
+msgid "General::Log Caching"
+msgstr "Allgemein::Log-Puffer"
+
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "Erzeuge Patchdatei..."
@@ -2965,6 +3025,10 @@ msgstr "Hole Standard-Diff"
 #. Resource IDs: (65535)
 msgid "Global ignore &pattern:"
 msgstr "Globale &Ignoriermuster:"
+
+#. Resource IDs: (65535)
+msgid "Global settings"
+msgstr "Allgemein"
 
 #. Resource IDs: (280)
 msgid "Go offline?"
@@ -3313,6 +3377,10 @@ msgstr ""
 "modifiziert markiert (erhält das 'modifiziert' Symbol) wird, wenn es\n"
 "nicht versionierte Dateien enthält."
 
+#. Resource IDs: (1439)
+msgid "If the repository can not be contacted"
+msgstr "Falls das Projektarchiv nicht erreicht werden kann"
+
 #. Resource IDs: (196)
 msgid ""
 "If you change this value, your existing working copies won't be recognized anymore!\n"
@@ -3433,7 +3501,7 @@ msgstr "Ignorierte Dateien einschließen"
 
 #. Resource IDs: (1126)
 msgid "Include merged revisions"
-msgstr "Revisionen vom Zusammenführen einschließen"
+msgstr "Zusammengeführte Revisionen einschließen"
 
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
@@ -3731,6 +3799,10 @@ msgstr "Sperrt Dateien für andere Anwender und hebt für Sie selbst den Schreib
 #. Resource IDs: (126)
 msgid "Log"
 msgstr "Log"
+
+#. Resource IDs: (282)
+msgid "Log Cache Statistics"
+msgstr "Statistiken"
 
 #. Resource IDs: (211)
 msgid "Log History"
@@ -4040,6 +4112,10 @@ msgstr "Verschachtelt"
 msgid "Network"
 msgstr "Netzwerk"
 
+#. Resource IDs: (199)
+msgid "Never try to contact the repository again"
+msgstr "Das Projektarchiv nie wieder kontaktieren"
+
 #. Resource IDs: (30721)
 msgid "New"
 msgstr "Neu"
@@ -4143,7 +4219,7 @@ msgstr "Keine Korrekturvorschläge"
 
 #. Resource IDs: (196)
 msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
-msgstr "Kein Statuscache. Nur versionierte Ordner erhalten ein überlagertes Symbol, Dateien nicht."
+msgstr "Kein Statuspuffer. Nur versionierte Ordner erhalten ein überlagertes Symbol, Dateien nicht."
 
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
@@ -4276,6 +4352,10 @@ msgstr ""
 #. Resource IDs: (13)
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Programm, um das Projektarchiv direkt zu manipulieren."
+
+#. Resource IDs: (199)
+msgid "Operate from log cache for now only"
+msgstr "Einmalig auf den Log-Puffer zurückgreifen"
 
 #. Resource IDs: (32779)
 msgid "Ori&ginal size"
@@ -4431,6 +4511,11 @@ msgstr "Vermeidet die meisten Fälle, in denen Linien Knoten kreuzen"
 msgid "Preview patched file"
 msgstr "Vorschau der Ergebnisdatei"
 
+#. Resource IDs: (199)
+#, c-format
+msgid "Probably deleted repository (%s)"
+msgstr "Vermutlich gelöschtes PRojektarchiv (%s)"
+
 #. Resource IDs: (132)
 #, c-format
 msgid "Processing revision %d of %d..."
@@ -4536,6 +4621,10 @@ msgstr "&RAM disks"
 #. Resource IDs: (114)
 msgid "R&evert to this revision"
 msgstr "Rü&ckgängig zu dieser Revision"
+
+#. Resource IDs: (65535)
+msgid "RAM [kB]: "
+msgstr "RAM [kB]: "
 
 #. Resource IDs: (3697)
 msgid "REC"
@@ -4806,6 +4895,10 @@ msgstr "Projektarchiv"
 #. Resource IDs: (153)
 msgid "Repository Browser"
 msgstr "Projektarchiv betrachten"
+
+#. Resource IDs: (199)
+msgid "Repository URL"
+msgstr "Projektarchiv URL"
 
 #. Resource IDs: (65535)
 msgid "Repository UUID:"
@@ -5338,7 +5431,7 @@ msgstr "Shell"
 
 #. Resource IDs: (145)
 msgid "Shell Icon Cache was rebuilt!"
-msgstr "Shell Symbolcache wurde wieder hergestellt!"
+msgstr "Pufferspeicher für Symbole wurde wieder hergestellt!"
 
 #. Resource IDs: (101)
 msgid "Sho&w properties"
@@ -5539,6 +5632,10 @@ msgstr "Ein-/&Zweifenstersicht"
 msgid "Size"
 msgstr "Größe"
 
+#. Resource IDs: (65535)
+msgid "Size and status"
+msgstr "Größe und Status"
+
 #. Resource IDs: (74)
 msgid "Skipped"
 msgstr "Übersprungen"
@@ -5620,15 +5717,15 @@ msgstr "Status- und Aktionsfarben"
 
 #. Resource IDs: (65535)
 msgid "Status cache"
-msgstr "Statuscache"
+msgstr "Pufferspeicher"
 
 #. Resource IDs: (196)
 msgid "Status cache kept in an external process, can show the overlay recursively"
-msgstr "Statuscache in einem externen Prozess. Überlagertes Symbole können rekursiv angezeigt werden."
+msgstr "Statuspuffer in einem externen Prozess. Überlagertes Symbole können rekursiv angezeigt werden."
 
 #. Resource IDs: (196)
 msgid "Status cache only for one folder, no recursive overlays"
-msgstr "Statuscache nur für einen Ordner. Keine rekursiv überlagerten Symbole."
+msgstr "Statuspuffer nur für einen Ordner. Keine rekursiv überlagerten Symbole."
 
 #. Resource IDs: (11)
 msgid "Status of item in SVN"
@@ -6182,7 +6279,7 @@ msgid ""
 "incomplete or even misleading due to incomplete history."
 msgstr ""
 "Es gibt ein Problem mit der Verbindung zum Server.\n"
-"Wollen Sie stattdessen die lokal gespeicherten Daten sehen?\n"
+"Wollen Sie stattdessen die lokal gepufferten Daten sehen?\n"
 "\n"
 "Bitte beachten Sie, dass diese Daten unter Umständen nicht\n"
 "aktuell oder unvollständig sind und deshalb irreführende\n"
@@ -6252,6 +6349,10 @@ msgstr "Diese Eigenschaft ist nur für Dateien und nicht für Ordner zugelassen.
 #. Resource IDs: (15)
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Diese Eigenschaft darf nur eine Zeile haben."
+
+#. Resource IDs: (65535)
+msgid "Timeouts"
+msgstr "Wartezeiten"
 
 #. Resource IDs: (224)
 msgid ""
@@ -6586,6 +6687,10 @@ msgstr "Aktualisiere %s"
 #. Resource IDs: (283)
 msgid "Updating and retrying the lock..."
 msgstr "Aktualisiere und versuche noch einmal zu sperren..."
+
+#. Resource IDs: (199)
+msgid "Updating log cache"
+msgstr "Aktualisiere Log-Puffer"
 
 #. Resource IDs: (1064)
 msgid "Use &magnifier on locatorbar"
@@ -7063,6 +7168,10 @@ msgstr "sich ein anderes Objekt an dieser Stelle befindet."
 msgid "author"
 msgstr "Autor"
 
+#. Resource IDs: (65535)
+msgid "authors: "
+msgstr "Autoren:"
+
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:append\n"
@@ -7127,6 +7236,10 @@ msgstr ""
 "URL, die zum Bugtracker zeigt. Muss '%BUGID%' enthalten,\n"
 "welches dann durch die eingegebene ID ersetzt wird."
 
+#. Resource IDs: (65535)
+msgid "changes total: "
+msgstr "Änderungen gesamt:"
+
 #. Resource IDs: (145)
 msgid "cleaning up"
 msgstr "Aufräumen"
@@ -7138,6 +7251,10 @@ msgstr "Übertragungen"
 #. Resource IDs: (11)
 msgid "conflicted"
 msgstr "Konflikt"
+
+#. Resource IDs: (65535)
+msgid "connection: "
+msgstr "Verbindung:"
 
 #. Resource IDs: (208)
 #, c-format
@@ -7155,6 +7272,10 @@ msgstr "kopiert:"
 #. Resource IDs: (10)
 msgid "deleted"
 msgstr "Gelöscht"
+
+#. Resource IDs: (65535)
+msgid "disk [kB]: "
+msgstr "Platte [kB]: "
 
 #. Resource IDs: (1342)
 msgid "eol style"
@@ -7208,6 +7329,18 @@ msgstr "es nicht versioniert ist."
 msgid "item kept locally"
 msgstr "Objekt lokal erhalten"
 
+#. Resource IDs: (65535)
+msgid "last head update: "
+msgstr "HEAD zuletzt aktualisiert:"
+
+#. Resource IDs: (65535)
+msgid "last read: "
+msgstr "Zuletzt gelesen:"
+
+#. Resource IDs: (65535)
+msgid "last update: "
+msgstr "Zuletzt aktualisiert:"
+
 #. Resource IDs: (11, 195)
 msgid "locked"
 msgstr "Gesperrt"
@@ -7216,9 +7349,17 @@ msgstr "Gesperrt"
 msgid "locked:"
 msgstr "gesperrt:"
 
+#. Resource IDs: (65535)
+msgid "max revision: "
+msgstr "Max Revision: "
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "Zusammengeführt"
+
+#. Resource IDs: (65535)
+msgid "merges total:"
+msgstr "Zusammenführen gesamt:"
 
 #. Resource IDs: (10)
 msgid "missing"
@@ -7227,6 +7368,10 @@ msgstr "Fehlt"
 #. Resource IDs: (65535)
 msgid "missing / deleted / replaced"
 msgstr "Gelöscht / fehlend / ersetzt"
+
+#. Resource IDs: (65535)
+msgid "missing in: "
+msgstr "Fehlt in: "
 
 #. Resource IDs: (10)
 msgid "modified"
@@ -7260,9 +7405,25 @@ msgstr "Normal"
 msgid "obstructed"
 msgstr "Versperrt"
 
+#. Resource IDs: (601)
+msgid "offline"
+msgstr "offline"
+
+#. Resource IDs: (601)
+msgid "online"
+msgstr "online"
+
 #. Resource IDs: (1406, 1407)
 msgid "or"
 msgstr "oder"
+
+#. Resource IDs: (65535)
+msgid "pair tokens: "
+msgstr "Paarkürzel:"
+
+#. Resource IDs: (65535)
+msgid "paths: "
+msgstr "Pfade:"
 
 #. Resource IDs: (3869)
 msgid "pixels"
@@ -7293,10 +7454,22 @@ msgstr "Beachte Vorfahren"
 msgid "revision %s-%s, revision %s-%s"
 msgstr "Revision %s-%s, Revision %s-%s"
 
+#. Resource IDs: (65535)
+msgid "revision count: "
+msgstr "Anzahl Revisionen:"
+
 #. Resource IDs: (326)
 #, c-format
 msgid "revisions %s-%s, %s"
 msgstr "Revisionen %s-%s, %s"
+
+#. Resource IDs: (65535)
+msgid "revisions: "
+msgstr "Revisionen:"
+
+#. Resource IDs: (65535)
+msgid "skip ranges: "
+msgstr "Übersprungene Bereiche:"
 
 #. Resource IDs: (576)
 msgid ""
@@ -7424,6 +7597,14 @@ msgstr ""
 msgid "switched:"
 msgstr "gewechselt zu:"
 
+#. Resource IDs: (601)
+msgid "temp. offline"
+msgstr "zeitweilig offline"
+
+#. Resource IDs: (65535)
+msgid "text [token count]: "
+msgstr "Text [Anzahl Kürzel]: "
+
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
 msgstr "es widersprüchliche Änderungen gibt."
@@ -7538,6 +7719,10 @@ msgstr ""
 "tsvn:warnifnoissue\n"
 "Auf 'yes' setzen, wenn eine Warnung ausgegeben werden soll, falls keine Bug-ID im Übertragen-Dialog eingegeben wird."
 
+#. Resource IDs: (65535)
+msgid "user revprops total: "
+msgstr "Revisionseigenschaften gesamt:"
+
 #. Resource IDs: (563)
 msgid "values are different"
 msgstr "Werte sind unterschiedlich"
@@ -7569,6 +7754,10 @@ msgstr ""
 #. Resource IDs: (245)
 msgid "week"
 msgstr "Woche"
+
+#. Resource IDs: (65535)
+msgid "word tokens: "
+msgstr "Wortkürzel:"
 
 #. Resource IDs: (245)
 msgid "year"
