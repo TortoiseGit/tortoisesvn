@@ -1964,7 +1964,7 @@ CString SVN::GetRepositoryRoot(const CTSVNPath& url)
 
         CString result = cachedProperties.GetRepositoryRoot (canonicalURL);
         if (result.IsEmpty())
-            Err = svn_error_dup (cachedProperties.GetLastError());
+            assert (Err != NULL);
 
         return result;
     }
@@ -2077,13 +2077,13 @@ BOOL SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& re
 	    url.SetFromSVN (cachedProperties.GetRepositoryRoot (canonicalURL));
         if (url.IsEmpty())
         {
-            Err = svn_error_dup (cachedProperties.GetLastError());
+            assert (Err != NULL);
         }
         else
         {
             rev = cachedProperties.GetHeadRevision (canonicalURL);
             if (rev == NO_REVISION)
-                Err = svn_error_dup (cachedProperties.GetLastError());
+                assert (Err != NULL);
         }
 
         return Err == NULL ? TRUE : FALSE;
