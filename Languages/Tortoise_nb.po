@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-11-30 11:11+0100\n"
+"PO-Revision-Date: 2007-12-11 12:58+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -106,30 +106,15 @@ msgstr "%.2f kByte/s"
 msgid "%1 contained an unexpected object."
 msgstr "%1 inneholdt et uventet objekt."
 
+#. Resource IDs: (3867)
+#, c-format
+msgid "%1 contains an incorrect path."
+msgstr "%1 inneholder en ukorrekt sti."
+
 #. Resource IDs: (3868)
 #, c-format
 msgid "%1 contains an incorrect schema."
 msgstr "%1 inneholder et ukorrekt skjema."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "%1 contains an invalid path."
-msgstr "%1 inneholder en ugyldig filsti."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "%1 could not be created because the directory is full."
-msgstr "%1 kunne ikke opprettes fordi katalogen er full."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "%1 could not be opened because there are too many open files."
-msgstr "%1 kunne ikke åpnes, fordi det er for mange åpne filer."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "%1 could not be removed because it is the current directory."
-msgstr "%1 kunne ikke slettes fordi det er gjeldende katalog."
 
 #. Resource IDs: (3868)
 #, c-format
@@ -155,7 +140,7 @@ msgstr ""
 msgid ""
 "%1\n"
 "Cannot find this file.\n"
-"Please verify that the correct path and file name are given."
+"Verify that the correct path and file name are given."
 msgstr ""
 "%1\n"
 "Kan ikke finne denne filen.\n"
@@ -176,6 +161,11 @@ msgstr "%I64d kByte overført"
 msgid "%d files selected, %d files total"
 msgstr "%d filer valgt, totalt %d filer"
 
+#. Resource IDs: (246)
+#, c-format
+msgid "%d most active author(s) with at least %d commits each (%d %%)"
+msgstr "%d mest aktive forfatter(e) med minst %d innsendinger hver (%d %%)"
+
 #. Resource IDs: (357)
 #, c-format
 msgid "%ld Bytes/s"
@@ -195,6 +185,11 @@ msgstr "%ld av %ld"
 #, c-format
 msgid "%ld paths"
 msgstr "%ld stier"
+
+#. Resource IDs: (115)
+#, c-format
+msgid "%s (offline) - %s"
+msgstr "%s (frakoblet) - %s"
 
 #. Resource IDs: (226)
 #, c-format
@@ -436,6 +431,10 @@ msgstr "&Rediger..."
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
 msgstr "&Aktiver mellomtjener"
+
+#. Resource IDs: (1434)
+msgid "&Enable log caching"
+msgstr "Slå på &mellomlagring av logg"
 
 #. Resource IDs: (1213)
 msgid "&Enter a message describing why you are locking the file(s)."
@@ -759,6 +758,10 @@ msgstr "&Tabulatorstørrelse:"
 msgid "&Test merge"
 msgstr "&Test fletting"
 
+#. Resource IDs: (1438)
+msgid "&Timeout in seconds before updating the HEAD revision"
+msgstr "&Tidsavbrudd i sekunder før hoderevisjonen oppdateres"
+
 #. Resource IDs: (1222)
 msgid "&Timeout in seconds to stop the auto-completion parsing"
 msgstr "&Tidsavbrudd i sekunder for å stoppe autofullførings-prossessering"
@@ -924,16 +927,6 @@ msgstr "<ny endringsliste>"
 msgid "?"
 msgstr "&?"
 
-#. Resource IDs: (3867)
-#, c-format
-msgid "A hardware I/O error was reported while accessing %1."
-msgstr "En rapport om Inn/Ut-feil  i maskinvaren rapportert under tilgang til %1."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "A locking violation occurred while accessing %1."
-msgstr "En låsovertredelse oppsto under tilgang til %1."
-
 #. Resource IDs: (201)
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
 msgstr "En ny versjon er tilgjengelig. Du kan gå til http://tortoisesvn.tigris.org for å laste den ned. Trykk _her_ for å gå direkte til vårt nettsted."
@@ -959,11 +952,6 @@ msgstr ""
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
 msgstr "En påkrevet ressurs var ikke telgjengelig."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "A sharing violation occurred while accessing %1."
-msgstr "En delingsfeil oppsto under tilgang til %1."
 
 #. Resource IDs: (79)
 msgid ""
@@ -1130,6 +1118,10 @@ msgstr "Avanserte differanse-innstillinger"
 msgid "Advanced merge settings"
 msgstr "Avanserte flette-instillinger"
 
+#. Resource IDs: (65535)
+msgid "Age"
+msgstr "Alder"
+
 #. Resource IDs: (3841)
 msgid "All Files (*.*)"
 msgstr "Alle filer (*.*)"
@@ -1141,21 +1133,6 @@ msgstr "Alle filer (*.*)|*.*||"
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "Bruk alltid de lokale systeminstillinger for visning av tid og dato"
-
-#. Resource IDs: (3867, 3868)
-#, c-format
-msgid "An attempt was made to access %1 past its end."
-msgstr "Et forsøk på tilgang til %1 ble gjort bak dens ende."
-
-#. Resource IDs: (3868)
-#, c-format
-msgid "An attempt was made to read from the writing %1."
-msgstr "Et leseforsøk ble gjort til %1 som er under skriving."
-
-#. Resource IDs: (3868)
-#, c-format
-msgid "An attempt was made to write to the reading %1."
-msgstr "Et skriveforsøk ble gjort til %1 som er under lesning."
 
 #. Resource IDs: (78)
 #, c-format
@@ -1195,24 +1172,10 @@ msgstr ""
 "%mine\t\tDin fil, med dine endringer\n"
 "%base\t\tOrginalfilen uten dine endringer"
 
-#. Resource IDs: (3843)
-msgid "An invalid argument was encountered."
-msgstr "Et ugyldig argument ble mottatt"
-
 #. Resource IDs: (3867)
 #, c-format
-msgid "An invalid file handle was associated with %1."
-msgstr "Et ugyldig referanse ble sammenkoblet med %1."
-
-#. Resource IDs: (3859)
-#, c-format
-msgid "An unexpected error occurred while reading %1."
-msgstr "En uventet feil oppsto under lesning av %1."
-
-#. Resource IDs: (3859)
-#, c-format
-msgid "An unexpected error occurred while writing %1."
-msgstr "En uventet feil oppsto under skriving til %1."
+msgid "An incorrect file handle was associated with %1."
+msgstr "En uriktig filreferanse ble sammenkoblet med %1."
 
 #. Resource IDs: (3843)
 msgid "An unknown error has occurred."
@@ -1227,10 +1190,6 @@ msgstr "En ukjent feil oppsto under tilgang til %1."
 #, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "Det ble funnet en ukjent linjetype i linje nummer %d !"
-
-#. Resource IDs: (3843)
-msgid "An unsupported operation was attempted."
-msgstr "En ustøttet handling ble forsøkt."
 
 #. Resource IDs: (269)
 msgid "Analyze revision data..."
@@ -1273,6 +1232,10 @@ msgstr "Er du sikker på at du vil tilbakestille %d element(er)? Du vil miste <b
 msgid "Arrange &Vertical"
 msgstr "Ordne &vertikalt"
 
+#. Resource IDs: (199)
+msgid "Ask user"
+msgstr "Spørr brukeren"
+
 #. Resource IDs: (264)
 #, c-format
 msgid "Assigned to changelist \"%s\""
@@ -1282,6 +1245,25 @@ msgstr "Tilordnet endringsliste \"%s\""
 #, c-format
 msgid "At revision: %d"
 msgstr "Revisjon: %d"
+
+#. Resource IDs: (3843)
+msgid "Attempted an unsupported operation."
+msgstr "Forsøkte en ustøttet handling."
+
+#. Resource IDs: (3867, 3868)
+#, c-format
+msgid "Attempted to access %1 past its end."
+msgstr "Forsøte å få tilgang forbi slutten av %1."
+
+#. Resource IDs: (3868)
+#, c-format
+msgid "Attempted to read from the writing %1."
+msgstr "Forsøkte å lese fra %1 som er under skriving."
+
+#. Resource IDs: (3868)
+#, c-format
+msgid "Attempted to write to the reading %1."
+msgstr "Forsøkte å skrive til %1 som er under lesning."
 
 #. Resource IDs: (131, 160)
 msgid "Authentication"
@@ -1447,9 +1429,13 @@ msgstr "Klipp &ut"
 msgid "CAP"
 msgstr "CAP"
 
-#. Resource IDs: (1126)
-msgid "Cache log messages"
-msgstr "Mellomlagre loggmeldinger"
+#. Resource IDs: (199)
+msgid "Cache size [kB]"
+msgstr "Plass til mellomlager [kB]"
+
+#. Resource IDs: (1440)
+msgid "Cached Repositories"
+msgstr "Mellomlagrede Depoter"
 
 #. Resource IDs: (197)
 msgid "Caches the log messages to speed up log fetching"
@@ -1633,9 +1619,23 @@ msgstr "Velg element:"
 msgid "Cleaning up."
 msgstr "Rydder opp."
 
+#. Resource IDs: (83)
+#, c-format
+msgid ""
+"Cleanup failed to process the following paths:\n"
+"%s"
+msgstr ""
+"Opprydding klarte ikke å behandle følgende stier:\n"
+"%s"
+
 #. Resource IDs: (79)
-msgid "Cleanup has finished"
-msgstr "Oppryddingen er ferdig"
+#, c-format
+msgid ""
+"Cleanup has successfully processed the following paths:\n"
+"%s"
+msgstr ""
+"Opprydding lyktes i å behandle følgende stier:\n"
+"%s"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -1844,6 +1844,10 @@ msgstr "I konflikt"
 msgid "Conflicts: %d"
 msgstr "Konflikter: %d"
 
+#. Resource IDs: (65535)
+msgid "Container sizes"
+msgstr "Beholder-størrelser"
+
 #. Resource IDs: (73)
 msgid "Continue"
 msgstr "Fortsett"
@@ -1996,6 +2000,11 @@ msgstr ""
 "<hr=100%%>\n"
 "%s"
 
+#. Resource IDs: (3867)
+#, c-format
+msgid "Could not create %1 because the directory is full."
+msgstr "Kunne ikke opprette %1 fordi katalogen er full."
+
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not delete \"%s\" because"
@@ -2024,6 +2033,11 @@ msgstr "Kunne ikke flette \"%s\" fordi"
 msgid "Could not merge property \"%s\" on %s because"
 msgstr "Kunne ikke flette egenskapen \"%s\" på %s fordi"
 
+#. Resource IDs: (3867)
+#, c-format
+msgid "Could not open %1 because there are too many open files."
+msgstr "Kunne ikke åpne %1 fordi det er for mange åpne filer."
+
 #. Resource IDs: (69)
 #, c-format
 msgid ""
@@ -2032,6 +2046,11 @@ msgid ""
 msgstr ""
 "Kunne ikke åpne filen\n"
 "%s"
+
+#. Resource IDs: (3867)
+#, c-format
+msgid "Could not remove %1 because it is the current directory."
+msgstr "Kunne ikke slette %1 fordi den er gjeldende katalog."
 
 #. Resource IDs: (82)
 #, c-format
@@ -2196,6 +2215,10 @@ msgstr "Standard URL:"
 msgid "Default path:"
 msgstr "Standard sti:"
 
+#. Resource IDs: (1382)
+msgid "Delete"
+msgstr "Slett"
+
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
 msgstr "Slett Ikke-versjonerte Elementer"
@@ -2239,6 +2262,10 @@ msgstr "Av-velg endringsliste"
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
 msgstr "Måldisken er full."
+
+#. Resource IDs: (1279)
+msgid "Details"
+msgstr "Detaljer"
 
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
@@ -2472,6 +2499,35 @@ msgstr ""
 "Bruker stavekontroll bare når egenskapen\n"
 "tsvn:projectlanguage er satt på"
 
+#. Resource IDs: (3867)
+#, c-format
+msgid "Encountered a hardware I/O error while accessing %1."
+msgstr "Støtte på Inn/Ut-feil i maskinvaren under tilgang til %1."
+
+#. Resource IDs: (3867)
+#, c-format
+msgid "Encountered a locking violation while accessing %1."
+msgstr "Støtte på en låsovertredelse under tilgang til %1."
+
+#. Resource IDs: (3867)
+#, c-format
+msgid "Encountered a sharing violation while accessing %1."
+msgstr "Støtte på en delingsfeil under tilgang til %1."
+
+#. Resource IDs: (3843)
+msgid "Encountered an improper argument."
+msgstr "Støtte på en upassende parameter"
+
+#. Resource IDs: (3859)
+#, c-format
+msgid "Encountered an unexpected error while reading %1."
+msgstr "Støtte på en uventet feil under lesing av %1."
+
+#. Resource IDs: (3859)
+#, c-format
+msgid "Encountered an unexpected error while writing %1."
+msgstr "Støtte på en uventet feil under skriving til %1."
+
 #. Resource IDs: (65535)
 msgid "End Revision"
 msgstr "Siste Revisjon"
@@ -2488,6 +2544,22 @@ msgstr "Skriv loggmelding"
 msgid "Enter URL"
 msgstr "Angi URL"
 
+#. Resource IDs: (3858)
+msgid "Enter a GUID."
+msgstr "Angi en GUID."
+
+#. Resource IDs: (3858)
+msgid "Enter a currency."
+msgstr "Angi en valuta."
+
+#. Resource IDs: (3858)
+msgid "Enter a date and/or time."
+msgstr "Angi en dato og/eller tidspunkt."
+
+#. Resource IDs: (3858)
+msgid "Enter a date."
+msgstr "Angi en dato."
+
 #. Resource IDs: (313)
 msgid "Enter a lock message (optional):"
 msgstr "Angi er sperringsmelding (valgfritt):"
@@ -2496,6 +2568,36 @@ msgstr "Angi er sperringsmelding (valgfritt):"
 msgid "Enter a name for the changelist:"
 msgstr "Gi et navn til endringslisten:"
 
+#. Resource IDs: (3858)
+#, c-format
+msgid "Enter a number between %1 and %2."
+msgstr "Angi et tall mellom %1 og %2."
+
+#. Resource IDs: (3858)
+msgid "Enter a number."
+msgstr "Angi et tall."
+
+#. Resource IDs: (3858)
+msgid "Enter a positive integer."
+msgstr "Angi et positivt heltall."
+
+#. Resource IDs: (3858)
+msgid "Enter a time."
+msgstr "Angi et tidspunkt."
+
+#. Resource IDs: (3858)
+#, c-format
+msgid "Enter an integer between %1 and %2."
+msgstr "Angi et heltall mellom %1 og %2."
+
+#. Resource IDs: (3858)
+msgid "Enter an integer between 0 and 255."
+msgstr "Angi et heltall mellom 0 og 255."
+
+#. Resource IDs: (3858)
+msgid "Enter an integer."
+msgstr "Angi et heltall."
+
 #. Resource IDs: (1065)
 msgid "Enter log &message:"
 msgstr "Angi logg&melding:"
@@ -2503,6 +2605,11 @@ msgstr "Angi logg&melding:"
 #. Resource IDs: (126)
 msgid "Enter log message:"
 msgstr "Angi loggmelding:"
+
+#. Resource IDs: (3858)
+#, c-format
+msgid "Enter no more than %1 characters."
+msgstr "Skriv maks %1 tegn."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -2899,6 +3006,10 @@ msgstr "Generelt::Dialoger 1"
 msgid "General::Dialogs 2"
 msgstr "Generelt::Dialoger 2"
 
+#. Resource IDs: (281)
+msgid "General::Log Caching"
+msgstr "Generelt::Loggmellomlagring"
+
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "Genererer korreksjonsfil..."
@@ -2960,6 +3071,10 @@ msgstr "Henter enhetlig diff"
 #. Resource IDs: (65535)
 msgid "Global ignore &pattern:"
 msgstr "Globalt &mønster for ignoréring:"
+
+#. Resource IDs: (65535)
+msgid "Global settings"
+msgstr "Globale instillinger"
 
 #. Resource IDs: (280)
 msgid "Go offline?"
@@ -3285,6 +3400,10 @@ msgstr ""
 "Hvis denne er satt, vil en katalog som inneholder ikke-versjonerte filer, markeres som endret\n"
 "dvs. den får et endret-ikon."
 
+#. Resource IDs: (1439)
+msgid "If the repository can not be contacted"
+msgstr "Hvis depotet ikke kan kontaktes"
+
 #. Resource IDs: (196)
 msgid ""
 "If you change this value, your existing working copies won't be recognized anymore!\n"
@@ -3415,6 +3534,10 @@ msgstr "Ta med bare revisjoner i intervallet:"
 msgid "Include paths:"
 msgstr "Stier å inkludere:"
 
+#. Resource IDs: (3857)
+msgid "Incorrect filename."
+msgstr "Ukorrekt filnavn"
+
 #. Resource IDs: (76)
 msgid "Initial import"
 msgstr "Første import"
@@ -3446,10 +3569,6 @@ msgstr "Intern programfeil."
 #. Resource IDs: (102)
 msgid "Invalid data object dropped!"
 msgstr "Ugyldig dataobjekt utlatt!"
-
-#. Resource IDs: (3857)
-msgid "Invalid filename."
-msgstr "Ugyldig filnavn"
 
 #. Resource IDs: (82)
 msgid ""
@@ -3702,6 +3821,10 @@ msgstr "Sperrer en fil for andre brukere og gjør bare du kan redigere den."
 #. Resource IDs: (126)
 msgid "Log"
 msgstr "Logg:"
+
+#. Resource IDs: (282)
+msgid "Log Cache Statistics"
+msgstr "Statistikk Loggmellomlager"
 
 #. Resource IDs: (211)
 msgid "Log History"
@@ -4011,6 +4134,10 @@ msgstr "Nøstet"
 msgid "Network"
 msgstr "Nettverk"
 
+#. Resource IDs: (199)
+msgid "Never try to contact the repository again"
+msgstr "Prøv aldri å ta kontakt med depotet igjen"
+
 #. Resource IDs: (30721)
 msgid "New"
 msgstr "Ny"
@@ -4244,6 +4371,10 @@ msgstr ""
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Åpner depot-utforskeren slik at depoet kan jobbes med når tilkoblet"
 
+#. Resource IDs: (199)
+msgid "Operate from log cache for now only"
+msgstr "Arbeid fra mellomlagret logg bare foreløpig"
+
 #. Resource IDs: (32779)
 msgid "Ori&ginal size"
 msgstr "Ori&ginal størrelse"
@@ -4316,64 +4447,13 @@ msgstr "Bildefiler (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;
 msgid "Pie Graph"
 msgstr "Kakediagram"
 
-#. Resource IDs: (3858)
-msgid "Please enter a GUID."
-msgstr "Angi en GUID."
-
-#. Resource IDs: (3858)
-msgid "Please enter a currency."
-msgstr "Angi en valuta."
-
-#. Resource IDs: (3858)
-msgid "Please enter a date and/or time."
-msgstr "Angi en dato og/eller tidspunkt."
-
-#. Resource IDs: (3858)
-msgid "Please enter a date."
-msgstr "Angi en dato."
-
 #. Resource IDs: (83)
 msgid "Please enter a hook script to execute."
 msgstr "Venligst angi et påhakningsskript som skal kjøres."
 
-#. Resource IDs: (3858)
-#, c-format
-msgid "Please enter a number between %1 and %2."
-msgstr "Skriv inn et nummer mellom %1 og %2."
-
-#. Resource IDs: (3858)
-msgid "Please enter a number."
-msgstr "Skriv inn et nummer."
-
 #. Resource IDs: (83)
 msgid "Please enter a path where to apply the hook script to."
 msgstr "Vennligst angi en sti hvor påhakingsskriptet skal anvendes."
-
-#. Resource IDs: (3858)
-msgid "Please enter a positive integer."
-msgstr "Angi et positivt heltall."
-
-#. Resource IDs: (3858)
-msgid "Please enter a time."
-msgstr "Angi et tidspunkt."
-
-#. Resource IDs: (3858)
-#, c-format
-msgid "Please enter an integer between %1 and %2."
-msgstr "Skriv inn et heltall mellom %1 og %2."
-
-#. Resource IDs: (3858)
-msgid "Please enter an integer between 0 and 255."
-msgstr "Angi et heltall mellom 0 og 255."
-
-#. Resource IDs: (3858)
-msgid "Please enter an integer."
-msgstr "Skriv in et heltall."
-
-#. Resource IDs: (3858)
-#, c-format
-msgid "Please enter no more than %1 characters."
-msgstr "Skriv maks %1 tegn."
 
 #. Resource IDs: (251)
 msgid "Please execute the \"Cleanup\" command."
@@ -4396,10 +4476,6 @@ msgstr ""
 #. Resource IDs: (1287)
 msgid "Please resolve the conflict by choosing one of the following options:"
 msgstr "Vennligst løs konflikten ved å velge en av følgende muligheter:"
-
-#. Resource IDs: (3858)
-msgid "Please select a button."
-msgstr "Velg en knapp."
 
 #. Resource IDs: (83)
 msgid "Please select a hook type"
@@ -4452,6 +4528,11 @@ msgstr "Avverger de fleste tilfeller hvor forbindelseslinjer krysser revisjonsno
 #. Resource IDs: (376)
 msgid "Preview patched file"
 msgstr "Forhåndsvis oppdatert fil"
+
+#. Resource IDs: (199)
+#, c-format
+msgid "Probably deleted repository (%s)"
+msgstr "Antagelig slettet depot (%s)"
 
 #. Resource IDs: (132)
 #, c-format
@@ -4558,6 +4639,10 @@ msgstr "R&AM-disker"
 #. Resource IDs: (114)
 msgid "R&evert to this revision"
 msgstr "&Tilbakestill til denne revisjonen"
+
+#. Resource IDs: (65535)
+msgid "RAM [kB]: "
+msgstr "RAM [kB]"
 
 #. Resource IDs: (3697)
 msgid "REC"
@@ -4828,6 +4913,10 @@ msgstr "Depot"
 #. Resource IDs: (153)
 msgid "Repository Browser"
 msgstr "Depot-utforsker"
+
+#. Resource IDs: (199)
+msgid "Repository URL"
+msgstr "Depotets URL"
 
 #. Resource IDs: (65535)
 msgid "Repository UUID:"
@@ -5218,6 +5307,10 @@ msgstr "Velg revisjon"
 msgid "Select SSH client"
 msgstr "Velg SSH-klient"
 
+#. Resource IDs: (3858)
+msgid "Select a button."
+msgstr "Velg en knapp."
+
 #. Resource IDs: (3585)
 msgid "Select an object on which to get Help"
 msgstr "Velg et objekt du vil ha hjelp om"
@@ -5412,7 +5505,7 @@ msgstr "Vis Filliste"
 
 #. Resource IDs: (2051)
 msgid "Show HEAD revision nodes"
-msgstr "Vis HEAD revisjonsnoder"
+msgstr "Vis hode-revisjonsnoder"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -5556,6 +5649,10 @@ msgstr "Visning i &ett/to paneler"
 #. Resource IDs: (74)
 msgid "Size"
 msgstr "Størrelse"
+
+#. Resource IDs: (65535)
+msgid "Size and status"
+msgstr "Størrelse og status"
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -5835,6 +5932,19 @@ msgstr "Filen %s eksisterer ikke!"
 #, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "Filen %s ble ikke funnet i korreksjonsfilen!"
+
+#. Resource IDs: (314)
+#, c-format
+msgid ""
+"The file \n"
+"%s\n"
+"is empty.\n"
+"Do you want to remove the file?"
+msgstr ""
+"Filen\n"
+"%s\n"
+"er tom.\n"
+"Vil du fjerne filen?"
 
 #. Resource IDs: (69)
 msgid "The file is too big"
@@ -6246,6 +6356,10 @@ msgstr "Denne egenskapen tillates kun for mapper, ikke filer."
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Denne egenskapen kan ikke ha flere linjer. Kun én er tillatt."
 
+#. Resource IDs: (65535)
+msgid "Timeouts"
+msgstr "Tidsavbrudd"
+
 #. Resource IDs: (224)
 msgid ""
 "To commit recursively and work around this error,\n"
@@ -6505,7 +6619,7 @@ msgstr "Uventet filformat."
 
 #. Resource IDs: (274, 32786)
 msgid "Unified &diff of HEAD revisions"
-msgstr "Enhetlige &differ fra hoved-revisjoner"
+msgstr "Enhetlige &differ fra hode-revisjoner"
 
 #. Resource IDs: (81)
 #, c-format
@@ -6579,6 +6693,10 @@ msgstr "Oppdaterer %s"
 #. Resource IDs: (283)
 msgid "Updating and retrying the lock..."
 msgstr "Oppdaterer og prøver sperren på nytt..."
+
+#. Resource IDs: (199)
+msgid "Updating log cache"
+msgstr "Oppdaterer loggmellomlager"
 
 #. Resource IDs: (1064)
 msgid "Use &magnifier on locatorbar"
@@ -7057,6 +7175,10 @@ msgstr "et annet element fins allerede i dets sted."
 msgid "author"
 msgstr "Forfatter"
 
+#. Resource IDs: (65535)
+msgid "authors: "
+msgstr "forfattere: "
+
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:append\n"
@@ -7119,6 +7241,10 @@ msgstr ""
 "URL til \"Issue Tacker\". Den må inneholde \"%BUGID%\" som\n"
 "blir erstattet av saksnummer."
 
+#. Resource IDs: (65535)
+msgid "changes total: "
+msgstr "endringer totalt: "
+
 #. Resource IDs: (145)
 msgid "cleaning up"
 msgstr "rydder opp"
@@ -7130,6 +7256,10 @@ msgstr "Innsendinger"
 #. Resource IDs: (11)
 msgid "conflicted"
 msgstr "i konflikt"
+
+#. Resource IDs: (65535)
+msgid "connection: "
+msgstr "forbindelse: "
 
 #. Resource IDs: (208)
 #, c-format
@@ -7147,6 +7277,10 @@ msgstr "kopiert:"
 #. Resource IDs: (10)
 msgid "deleted"
 msgstr "slettet"
+
+#. Resource IDs: (65535)
+msgid "disk [kB]: "
+msgstr "disk [kB]: "
 
 #. Resource IDs: (1342)
 msgid "eol style"
@@ -7201,6 +7335,18 @@ msgstr "den er ikke versjonert."
 msgid "item kept locally"
 msgstr "elementet holdes lokalt"
 
+#. Resource IDs: (65535)
+msgid "last head update: "
+msgstr "siste oppdatering av hode: "
+
+#. Resource IDs: (65535)
+msgid "last read: "
+msgstr "sist lest: "
+
+#. Resource IDs: (65535)
+msgid "last update: "
+msgstr "siste oppdatering: "
+
 #. Resource IDs: (11, 195)
 msgid "locked"
 msgstr "låst"
@@ -7209,9 +7355,17 @@ msgstr "låst"
 msgid "locked:"
 msgstr "låst:"
 
+#. Resource IDs: (65535)
+msgid "max revision: "
+msgstr "maks revisjon: "
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "flettet"
+
+#. Resource IDs: (65535)
+msgid "merges total:"
+msgstr "flettinger totalt:"
 
 #. Resource IDs: (10)
 msgid "missing"
@@ -7220,6 +7374,10 @@ msgstr "mangler"
 #. Resource IDs: (65535)
 msgid "missing / deleted / replaced"
 msgstr "mangler / slettet / erstattet"
+
+#. Resource IDs: (65535)
+msgid "missing in: "
+msgstr "mangler i: "
 
 #. Resource IDs: (10)
 msgid "modified"
@@ -7253,9 +7411,25 @@ msgstr "normal"
 msgid "obstructed"
 msgstr "sperret"
 
+#. Resource IDs: (601)
+msgid "offline"
+msgstr "frakoblet"
+
+#. Resource IDs: (601)
+msgid "online"
+msgstr "tilkoblet"
+
 #. Resource IDs: (1406, 1407)
 msgid "or"
 msgstr "eller"
+
+#. Resource IDs: (65535)
+msgid "pair tokens: "
+msgstr "par-symboler: "
+
+#. Resource IDs: (65535)
+msgid "paths: "
+msgstr "filstier: "
 
 #. Resource IDs: (3869)
 msgid "pixels"
@@ -7286,10 +7460,22 @@ msgstr "respekterer opphav"
 msgid "revision %s-%s, revision %s-%s"
 msgstr "revisjon %s-%s, revisjon %s-%s"
 
+#. Resource IDs: (65535)
+msgid "revision count: "
+msgstr "revisjonstall: "
+
 #. Resource IDs: (326)
 #, c-format
 msgid "revisions %s-%s, %s"
 msgstr "revisjoner %s-%s, %s"
+
+#. Resource IDs: (65535)
+msgid "revisions: "
+msgstr "revisjoner: "
+
+#. Resource IDs: (65535)
+msgid "skip ranges: "
+msgstr "oversette intervaller: "
 
 #. Resource IDs: (576)
 msgid ""
@@ -7415,6 +7601,14 @@ msgstr ""
 msgid "switched:"
 msgstr "byttet:"
 
+#. Resource IDs: (601)
+msgid "temp. offline"
+msgstr "midlertidig frakoblet"
+
+#. Resource IDs: (65535)
+msgid "text [token count]: "
+msgstr "tekst [antall symboler]:"
+
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
 msgstr "der er endringer i konflikt."
@@ -7527,6 +7721,10 @@ msgstr ""
 "tsvn:warnifnoissue\n"
 "Settes til \"ja\" hvis en advarsel skal vises når ingen sak/feil er angitt i dialogboksen for innsendinger."
 
+#. Resource IDs: (65535)
+msgid "user revprops total: "
+msgstr "brukers revisjonsegenskaper totalt: "
+
 #. Resource IDs: (563)
 msgid "values are different"
 msgstr "verdier er forskjellige"
@@ -7558,6 +7756,10 @@ msgstr ""
 #. Resource IDs: (245)
 msgid "week"
 msgstr "uke"
+
+#. Resource IDs: (65535)
+msgid "word tokens: "
+msgstr "ord-symboler: "
 
 #. Resource IDs: (245)
 msgid "year"
