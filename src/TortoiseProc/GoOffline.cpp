@@ -25,6 +25,8 @@ CGoOffline::~CGoOffline()
 void CGoOffline::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
+
+	DDX_Check(pDX, IDC_ASDEFAULTOFFLINE, asDefault);
 }
 
 

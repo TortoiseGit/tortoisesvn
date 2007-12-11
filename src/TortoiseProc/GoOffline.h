@@ -22,7 +22,7 @@ protected:
 public:
 
     LogCache::CRepositoryInfo::ConnectionState selection;
-    bool asDefault;
+    BOOL asDefault;
 
     afx_msg void OnBnClickedOk();
     afx_msg void OnBnClickedPermanentlyOffline();
