@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-12-10 13:52+0900\n"
+"PO-Revision-Date: 2007-12-11 11:05+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -106,6 +106,11 @@ msgstr "%I64d kB 전송됨"
 msgid "%d files selected, %d files total"
 msgstr "%d개 선택, 전체 %d"
 
+#. Resource IDs: (246)
+#, c-format
+msgid "%d most active author(s) with at least %d commits each (%d %%)"
+msgstr "상위 %d 명의 활발한 작성자 (최소 %d 개의 커밋을 함; %d %%)"
+
 #. Resource IDs: (357)
 #, c-format
 msgid "%ld Bytes/s"
@@ -125,6 +130,11 @@ msgstr "%ld (%ld 중)"
 #, c-format
 msgid "%ld paths"
 msgstr "%ld 개 경로"
+
+#. Resource IDs: (115)
+#, c-format
+msgid "%s (offline) - %s"
+msgstr "%s (오프라인) - %s"
 
 #. Resource IDs: (226)
 #, c-format
@@ -1552,9 +1562,23 @@ msgstr "아이템 선택:"
 msgid "Cleaning up."
 msgstr "정리"
 
+#. Resource IDs: (83)
+#, c-format
+msgid ""
+"Cleanup failed to process the following paths:\n"
+"%s"
+msgstr ""
+"다음 경로에 대해 정리하지 못하였습니다:\n"
+"%s"
+
 #. Resource IDs: (79)
-msgid "Cleanup has finished"
-msgstr "정리 완료"
+#, c-format
+msgid ""
+"Cleanup has successfully processed the following paths:\n"
+"%s"
+msgstr ""
+"다음 경로에 대해 정리하였습니다:\n"
+"%s"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -4455,6 +4479,11 @@ msgstr "연결된 행이 리비전의 노드들을 교차하는 것을 최대한
 #. Resource IDs: (376)
 msgid "Preview patched file"
 msgstr "패치된 파일 미리보기"
+
+#. Resource IDs: (199)
+#, c-format
+msgid "Probably deleted repository (%s)"
+msgstr "저장소에서 지워졌을것으로 추정 (%s)"
 
 #. Resource IDs: (132)
 #, c-format
