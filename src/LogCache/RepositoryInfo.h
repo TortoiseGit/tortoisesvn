@@ -186,9 +186,9 @@ public:
     CString GetRootFromUUID (const CString& sUUID) const;
 
 	/// is the repository offline? 
-	/// Don't modify the state if askUser is false.
+	/// Don't modify the state if autoSet is false.
 
-    bool IsOffline (const CString& url, bool askUser);
+    bool IsOffline (const CString& url, bool autoSet);
 
     /// get the connection state (uninterpreted)
 

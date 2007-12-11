@@ -175,6 +175,10 @@ void CRepositoryInfo::SetHeadFromCache (SPerRepositoryInfo& info)
     info.headRevision = cache != NULL
         ? cache->GetRevisions().GetLastCachedRevision()-1
         : NO_REVISION;
+
+    // HEAD info is outdated
+
+    info.headLookupTime = 0;
 }
 
 // construction / destruction: auto-load and save
@@ -275,6 +279,11 @@ revision_t CRepositoryInfo::GetHeadRevision (const CTSVNPath& url)
             // user wants to go off-line
 
             SetHeadFromCache (iter->second);
+
+            // we just ignore our latest error
+
+        	svn_error_clear (svn.Err);
+            svn.Err = NULL;
         }
 
         modified = true;
@@ -326,9 +335,9 @@ CString CRepositoryInfo::GetRootFromUUID (const CString& sUUID) const
 }
 
 // is the repository offline? 
-// Don't modify the state if askUser is false.
+// Don't modify the state if autoSet is false.
 
-bool CRepositoryInfo::IsOffline (const CString& url, bool askUser)
+bool CRepositoryInfo::IsOffline (const CString& url, bool autoSet)
 {
 	// find the info
 
@@ -343,20 +352,10 @@ bool CRepositoryInfo::IsOffline (const CString& url, bool askUser)
 	// (the dialog will only be shown if online and no 
 	// offline-defaults have been set)
 
-	if (askUser)
+	if (autoSet)
 		IsOffline (iter->second);
-	else if (iter->second.connectionState == online)
-	{
-		CRegStdWORD defaultConnectionState (_T("Software\\TortoiseSVN\\DefaultConnectionState"), 0);
-		if (defaultConnectionState != online)
-		{
-			// set default
 
-			iter->second.connectionState = static_cast<ConnectionState>
-				(static_cast<int>(defaultConnectionState));
-		}
-	}
-	// return state
+    // return state
 
 	return iter->second.connectionState != online;
 }
