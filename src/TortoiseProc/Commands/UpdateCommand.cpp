@@ -28,7 +28,7 @@ bool UpdateCommand::Execute()
 {
 	SVNRev rev = SVNRev(_T("HEAD"));
 	int options = 0;
-	svn_depth_t depth = svn_depth_infinity;
+	svn_depth_t depth = svn_depth_unknown;
 	DWORD exitcode = 0;
 	CString error;
 	if (CHooks::Instance().StartUpdate(pathList, exitcode, error))
