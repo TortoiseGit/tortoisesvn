@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-12-07 15:12+0100\n"
+"PO-Revision-Date: 2007-12-12 15:17+0100\n"
 "Last-Translator: Срѓан Стокиќ <srdjan.stokic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -125,6 +125,11 @@ msgstr "%I64d kB пренесено"
 msgid "%d files selected, %d files total"
 msgstr "%d датотеки изберени, %d датотеки вкупно"
 
+#. Resource IDs: (246)
+#, c-format
+msgid "%d most active author(s) with at least %d commits each (%d %%)"
+msgstr "%d најактивен корисник (корисници) со %d складирања секој (%d %%)"
+
 #. Resource IDs: (357)
 #, c-format
 msgid "%ld Bytes/s"
@@ -144,6 +149,11 @@ msgstr "%ld од %ld"
 #, c-format
 msgid "%ld paths"
 msgstr "%ld патеки"
+
+#. Resource IDs: (115)
+#, c-format
+msgid "%s (offline) - %s"
+msgstr "%s (offline) - %s"
 
 #. Resource IDs: (226)
 #, c-format
@@ -386,6 +396,10 @@ msgstr "&Измени..."
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
 msgstr "&Овозможи го Proxy серверот"
+
+#. Resource IDs: (1434)
+msgid "&Enable log caching"
+msgstr "&Овозможи кеширање на логови"
 
 #. Resource IDs: (1213)
 msgid "&Enter a message describing why you are locking the file(s)."
@@ -710,6 +724,10 @@ msgstr "&Големина на табулација:"
 #. Resource IDs: (1382)
 msgid "&Test merge"
 msgstr "&Пробно спојување"
+
+#. Resource IDs: (1438)
+msgid "&Timeout in seconds before updating the HEAD revision"
+msgstr "&Време во секунди до освежување на HEAD ревизијата"
 
 #. Resource IDs: (1222)
 msgid "&Timeout in seconds to stop the auto-completion parsing"
@@ -1068,6 +1086,10 @@ msgstr "Напредни подесувата за споредба"
 msgid "Advanced merge settings"
 msgstr "Напредни подесувања за спојување"
 
+#. Resource IDs: (65535)
+msgid "Age"
+msgstr "Старост"
+
 #. Resource IDs: (3841)
 msgid "All Files (*.*)"
 msgstr "Сите датотеки (*.*)"
@@ -1177,6 +1199,10 @@ msgstr "Да ли сте сигурни дека сакате да поврат�
 #. Resource IDs: (32793)
 msgid "Arrange &Vertical"
 msgstr "Постави &вертикално"
+
+#. Resource IDs: (199)
+msgid "Ask user"
+msgstr "Прашај корисник"
 
 #. Resource IDs: (264)
 #, c-format
@@ -1371,9 +1397,13 @@ msgstr "И&сечи"
 msgid "CAP"
 msgstr "CAP"
 
-#. Resource IDs: (1126)
-msgid "Cache log messages"
-msgstr "Кеширај ги пораките"
+#. Resource IDs: (199)
+msgid "Cache size [kB]"
+msgstr "Големина на кеш [kB]"
+
+#. Resource IDs: (1440)
+msgid "Cached Repositories"
+msgstr "Кеширани магацини"
 
 #. Resource IDs: (197)
 msgid "Caches the log messages to speed up log fetching"
@@ -1557,9 +1587,23 @@ msgstr "Избери ставка:"
 msgid "Cleaning up."
 msgstr "Чистење."
 
+#. Resource IDs: (83)
+#, c-format
+msgid ""
+"Cleanup failed to process the following paths:\n"
+"%s"
+msgstr ""
+"Чистењето не е извршено за следните патеки:\n"
+"%s"
+
 #. Resource IDs: (79)
-msgid "Cleanup has finished"
-msgstr "Чистењето е завршено"
+#, c-format
+msgid ""
+"Cleanup has successfully processed the following paths:\n"
+"%s"
+msgstr ""
+"Чистењето успешно завршено за следните патеки:\n"
+"%s"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -1769,6 +1813,10 @@ msgstr "Конфликтни"
 #, c-format
 msgid "Conflicts: %d"
 msgstr "Конфликти: %d"
+
+#. Resource IDs: (65535)
+msgid "Container sizes"
+msgstr "Големини на контејнерите"
 
 #. Resource IDs: (73)
 msgid "Continue"
@@ -2137,6 +2185,10 @@ msgstr "Номинален URL:"
 msgid "Default path:"
 msgstr "Стандардна патека:"
 
+#. Resource IDs: (1382)
+msgid "Delete"
+msgstr "Избриши"
+
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
 msgstr "Избриши ги неверзионираните ставки"
@@ -2180,6 +2232,10 @@ msgstr "Деселекција на листата со измени"
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
 msgstr "Одредишниот диск е полн."
+
+#. Resource IDs: (1279)
+msgid "Details"
+msgstr "Детали"
 
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
@@ -2920,6 +2976,10 @@ msgstr "Општо::Дијалози 1"
 msgid "General::Dialogs 2"
 msgstr "Општо::Дијалози 2"
 
+#. Resource IDs: (281)
+msgid "General::Log Caching"
+msgstr "Општо::Кеширање на лог"
+
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "Генерирај датотека со закрпи..."
@@ -2981,6 +3041,10 @@ msgstr "Превземам листа со обединети разлики"
 #. Resource IDs: (65535)
 msgid "Global ignore &pattern:"
 msgstr "Глобален шаблон за &игнорирање"
+
+#. Resource IDs: (65535)
+msgid "Global settings"
+msgstr "Глобални подесувања"
 
 #. Resource IDs: (280)
 msgid "Go offline?"
@@ -3318,6 +3382,10 @@ msgid ""
 msgstr ""
 "Доколку е вклучено, тогаш неверзионираните датотеки ќе го означат статусот на директориумот како изменет\n"
 "односно ќе добијат одговарачка прекривна икона."
+
+#. Resource IDs: (1439)
+msgid "If the repository can not be contacted"
+msgstr "Доколку магацинот не може да биде отворен"
 
 #. Resource IDs: (196)
 msgid ""
@@ -3738,6 +3806,10 @@ msgstr "Ја заклучува датотеката за другите кор�
 msgid "Log"
 msgstr "Дневник"
 
+#. Resource IDs: (282)
+msgid "Log Cache Statistics"
+msgstr "Статистики за кеширан лог"
+
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "Историја на логот"
@@ -4046,6 +4118,10 @@ msgstr "Вгнездено"
 msgid "Network"
 msgstr "Мрежа"
 
+#. Resource IDs: (199)
+msgid "Never try to contact the repository again"
+msgstr "Никогаш не се обидувај да го исконтактираш складиштето"
+
 #. Resource IDs: (30721)
 msgid "New"
 msgstr "Ново"
@@ -4280,6 +4356,10 @@ msgstr ""
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Го отвора прегледникот на складиштето за да го подеси складиштето online"
 
+#. Resource IDs: (199)
+msgid "Operate from log cache for now only"
+msgstr "Работи само од кешираниот лог засега"
+
 #. Resource IDs: (32779)
 msgid "Ori&ginal size"
 msgstr "&Оригинална големина"
@@ -4434,6 +4514,11 @@ msgstr "Ги оневозможува случаите каде што коне�
 msgid "Preview patched file"
 msgstr "Прегледај ја закрпената датотека"
 
+#. Resource IDs: (199)
+#, c-format
+msgid "Probably deleted repository (%s)"
+msgstr "Најверојатно избришан магацин (%s)"
+
 #. Resource IDs: (132)
 #, c-format
 msgid "Processing revision %d of %d..."
@@ -4539,6 +4624,10 @@ msgstr "R&AM драјв"
 #. Resource IDs: (114)
 msgid "R&evert to this revision"
 msgstr "П&овраток на оваа ревизија"
+
+#. Resource IDs: (65535)
+msgid "RAM [kB]: "
+msgstr "RAM [kB]: "
 
 #. Resource IDs: (3697)
 msgid "REC"
@@ -4809,6 +4898,10 @@ msgstr "Складиште"
 #. Resource IDs: (153)
 msgid "Repository Browser"
 msgstr "Прегледник на складиштето"
+
+#. Resource IDs: (199)
+msgid "Repository URL"
+msgstr "URL на складиштето"
 
 #. Resource IDs: (65535)
 msgid "Repository UUID:"
@@ -5544,6 +5637,10 @@ msgstr "Единечен/&двоен поглед"
 msgid "Size"
 msgstr "Големина"
 
+#. Resource IDs: (65535)
+msgid "Size and status"
+msgstr "Големина и статус"
+
 #. Resource IDs: (74)
 msgid "Skipped"
 msgstr "Прескокнато"
@@ -6247,6 +6344,10 @@ msgstr "Ова својство е дозволено само на директ
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Ова својство не смее да има повеќе линии. Само една линија е дозволена."
 
+#. Resource IDs: (65535)
+msgid "Timeouts"
+msgstr "Timeouts"
+
 #. Resource IDs: (224)
 msgid ""
 "To commit recursively and work around this error,\n"
@@ -6579,6 +6680,10 @@ msgstr "Обновувам %s"
 #. Resource IDs: (283)
 msgid "Updating and retrying the lock..."
 msgstr "Обновувам и повторно пробувам заклучување"
+
+#. Resource IDs: (199)
+msgid "Updating log cache"
+msgstr "Обновувам кеш на логот"
 
 #. Resource IDs: (1064)
 msgid "Use &magnifier on locatorbar"
@@ -7056,6 +7161,10 @@ msgstr "друга ставка веќе постои на тоа место."
 msgid "author"
 msgstr "автор"
 
+#. Resource IDs: (65535)
+msgid "authors: "
+msgstr "автори:"
+
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:append\n"
@@ -7118,6 +7227,10 @@ msgstr ""
 "URL pointing to the issue tracker. It must contain \"%BUGID%\" which\n"
 "gets replaced with the issue number."
 
+#. Resource IDs: (65535)
+msgid "changes total: "
+msgstr "вкупно измени:"
+
 #. Resource IDs: (145)
 msgid "cleaning up"
 msgstr "чистење"
@@ -7129,6 +7242,10 @@ msgstr "складира"
 #. Resource IDs: (11)
 msgid "conflicted"
 msgstr "конфликтно"
+
+#. Resource IDs: (65535)
+msgid "connection: "
+msgstr "конекција:"
 
 #. Resource IDs: (208)
 #, c-format
@@ -7146,6 +7263,10 @@ msgstr "Ископирано"
 #. Resource IDs: (10)
 msgid "deleted"
 msgstr "избришано"
+
+#. Resource IDs: (65535)
+msgid "disk [kB]: "
+msgstr "disk [kB]: "
 
 #. Resource IDs: (1342)
 msgid "eol style"
@@ -7200,6 +7321,18 @@ msgstr "е н верзионирано."
 msgid "item kept locally"
 msgstr "ставките се копирани локално"
 
+#. Resource IDs: (65535)
+msgid "last head update: "
+msgstr "последно освежување на главната ревизија: "
+
+#. Resource IDs: (65535)
+msgid "last read: "
+msgstr "последно читање: "
+
+#. Resource IDs: (65535)
+msgid "last update: "
+msgstr "последно освежување:"
+
 #. Resource IDs: (11, 195)
 msgid "locked"
 msgstr "заклучено"
@@ -7208,9 +7341,17 @@ msgstr "заклучено"
 msgid "locked:"
 msgstr "заклучено"
 
+#. Resource IDs: (65535)
+msgid "max revision: "
+msgstr "најголема ревизија:"
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "споено"
+
+#. Resource IDs: (65535)
+msgid "merges total:"
+msgstr "вкупно спојувања:"
 
 #. Resource IDs: (10)
 msgid "missing"
@@ -7219,6 +7360,10 @@ msgstr "недостасува"
 #. Resource IDs: (65535)
 msgid "missing / deleted / replaced"
 msgstr "недостасува / избришан / заменет"
+
+#. Resource IDs: (65535)
+msgid "missing in: "
+msgstr "недостасува во:"
 
 #. Resource IDs: (10)
 msgid "modified"
@@ -7252,9 +7397,25 @@ msgstr "нормално"
 msgid "obstructed"
 msgstr "спречен"
 
+#. Resource IDs: (601)
+msgid "offline"
+msgstr "offline"
+
+#. Resource IDs: (601)
+msgid "online"
+msgstr "online"
+
 #. Resource IDs: (1406, 1407)
 msgid "or"
 msgstr "или"
+
+#. Resource IDs: (65535)
+msgid "pair tokens: "
+msgstr "pair tokens: "
+
+#. Resource IDs: (65535)
+msgid "paths: "
+msgstr "патеки:"
 
 #. Resource IDs: (3869)
 msgid "pixels"
@@ -7285,10 +7446,22 @@ msgstr "почитувајќи го наследството"
 msgid "revision %s-%s, revision %s-%s"
 msgstr "ревизија %s-%s, ревизија %s-%s"
 
+#. Resource IDs: (65535)
+msgid "revision count: "
+msgstr "број на ревизии:"
+
 #. Resource IDs: (326)
 #, c-format
 msgid "revisions %s-%s, %s"
 msgstr "ревизии %s-%s, %s"
+
+#. Resource IDs: (65535)
+msgid "revisions: "
+msgstr "ревизии:"
+
+#. Resource IDs: (65535)
+msgid "skip ranges: "
+msgstr "скокни опсег: "
 
 #. Resource IDs: (576)
 msgid ""
@@ -7417,6 +7590,14 @@ msgstr ""
 "префрлено на\r\n"
 "%s"
 
+#. Resource IDs: (601)
+msgid "temp. offline"
+msgstr "привремено offline"
+
+#. Resource IDs: (65535)
+msgid "text [token count]: "
+msgstr "text [token count]: "
+
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
 msgstr "постојат конфликтни модификации."
@@ -7530,6 +7711,10 @@ msgstr ""
 "tsvn:warnifnoissue\n"
 "Поставете на \"yes\" доколку е потребно да се прикаже предупредување кога ништо не е внесено за спорното прашање."
 
+#. Resource IDs: (65535)
+msgid "user revprops total: "
+msgstr "user revprops total: "
+
 #. Resource IDs: (563)
 msgid "values are different"
 msgstr "вредностите се различни"
@@ -7561,6 +7746,10 @@ msgstr ""
 #. Resource IDs: (245)
 msgid "week"
 msgstr "недела"
+
+#. Resource IDs: (65535)
+msgid "word tokens: "
+msgstr "word tokens: "
 
 #. Resource IDs: (245)
 msgid "year"
