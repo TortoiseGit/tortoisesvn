@@ -2293,10 +2293,50 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
 			}
 		}
 	}
-	else if (!Update(m_targetPathList, m_Revision, m_depth, m_options & ProgOptIgnoreExternals))
+	else 
 	{
-		ReportSVNError();
-		return false;
+		// if we have only one target path, but that target path does not exist,
+		// we have to check whether at least the parent path exists. If not,
+		// then we have to update all paths in between the first path that exists and the
+		// parent path of the one we want to update
+		// This is required so a user can create a sparse checkout without having
+		// to update all intermediate folders manually
+		if ((m_targetPathList.GetCount() == 1) && (!m_targetPathList[0].Exists()))
+		{
+			CTSVNPath wcPath = m_targetPathList[0].GetContainingDirectory();
+			CTSVNPath existingParentPath = wcPath.GetContainingDirectory();
+			while (!existingParentPath.Exists() && (existingParentPath.GetWinPathString().GetLength() > 2))
+			{
+				existingParentPath = existingParentPath.GetContainingDirectory();
+			}
+			if (existingParentPath.GetWinPathString().GetLength() && !existingParentPath.IsEquivalentTo(wcPath))
+			{
+				// update all intermediate directories with depth 'empty'
+				CTSVNPath intermediatepath = existingParentPath;
+				bool bSuccess = true;
+				while (bSuccess && intermediatepath.IsAncestorOf(wcPath) && !intermediatepath.IsEquivalentTo(wcPath))
+				{
+					CString childname = wcPath.GetWinPathString().Mid(intermediatepath.GetWinPathString().GetLength(),
+						wcPath.GetWinPathString().Find('\\', intermediatepath.GetWinPathString().GetLength()+1)-intermediatepath.GetWinPathString().GetLength());
+					if (childname.IsEmpty())
+						intermediatepath = wcPath;
+					else
+						intermediatepath.AppendPathString(childname);
+					bSuccess = Update(CTSVNPathList(intermediatepath), m_Revision, svn_depth_empty, true);
+				}
+
+				if (!bSuccess)
+				{
+					ReportSVNError();
+					return false;
+				}
+			}
+		}
+		if (!Update(m_targetPathList, m_Revision, m_depth, m_options & ProgOptIgnoreExternals))
+		{
+			ReportSVNError();
+			return false;
+		}
 	}
 	if (CHooks::Instance().PostUpdate(m_targetPathList, m_depth, m_RevisionEnd, exitcode, error))
 	{

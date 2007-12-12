@@ -2031,11 +2031,20 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 		{
 			CTSVNPath wcPath = m_path;
 			wcPath.AppendPathString(urlList[0].GetWinPathString().Mid(m_InitialUrl.GetLength()));
-			if (!wcPath.Exists() && wcPath.GetContainingDirectory().Exists())
+			if (!wcPath.Exists())
 			{
-				popup.AppendMenu(MF_SEPARATOR, NULL);
-				temp.LoadString(IDS_LOG_POPUP_UPDATE);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UPDATE, temp);		// "Update item to revision"
+				bool bWCPresent = false;
+				while (!bWCPresent && m_path.IsAncestorOf(wcPath))
+				{
+					bWCPresent = wcPath.GetContainingDirectory().Exists();
+					wcPath = wcPath.GetContainingDirectory();
+				}
+				if (bWCPresent)
+				{
+					popup.AppendMenu(MF_SEPARATOR, NULL);
+					temp.LoadString(IDS_LOG_POPUP_UPDATE);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UPDATE, temp);		// "Update item to revision"
+				}
 			}
 		}
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
