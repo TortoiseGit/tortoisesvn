@@ -133,6 +133,8 @@ BOOL CSetSavedDataPage::OnInitDialog()
 	CDirFileEnum logenum(CPathUtils::GetAppDataDirectory()+_T("logcache"));
 	while (logenum.NextFile(sFile, &bIsDir))
 		nLogHistRepo++;
+	// the "Repositories.dat" is not a cache file
+	nLogHistRepo--;
 
 	BOOL bActionLog = PathFileExists(CPathUtils::GetAppDataDirectory() + _T("logfile.txt"));
 
@@ -140,7 +142,7 @@ BOOL CSetSavedDataPage::OnInitDialog()
 	m_btnUrlHistClear.EnableWindow(nUrlHistItems || nUrlHistWC);
 	m_btnResizableHistClear.EnableWindow(nResizableDialogs);
 	m_btnAuthHistClear.EnableWindow(nSimple || nSSL || nUsername);
-	m_btnRepoLogClear.EnableWindow(nLogHistRepo);
+	m_btnRepoLogClear.EnableWindow(nLogHistRepo >= 0);
 	m_btnActionLogClear.EnableWindow(bActionLog);
 	m_btnActionLogShow.EnableWindow(bActionLog);
 
