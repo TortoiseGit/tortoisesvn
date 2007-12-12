@@ -16,13 +16,13 @@
 # Stanislav Petrakov <stannic@gmail.com>
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 11524: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 11575: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-12-08 23:02+0300\n"
+"PO-Revision-Date: 2007-12-12 18:18+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -52,6 +52,7 @@ msgstr ""
 # log -- журнал
 # merge -- слияние
 # missing -- отсутствующий
+# offline -- автономно
 # overlays -- пометки (на значках)
 # patch -- заплатка
 # release (lock) -- cнятие (блокировки)
@@ -149,6 +150,11 @@ msgstr "%I64d КБайт передано"
 msgid "%d files selected, %d files total"
 msgstr "файлов выбрано:%d, файлов всего: %d"
 
+#. Resource IDs: (246)
+#, c-format
+msgid "%d most active author(s) with at least %d commits each (%d %%)"
+msgstr "%d наиболее активных авторов, по крайней мере %d фиксаций у каждого (%d %%)"
+
 #. Resource IDs: (357)
 #, c-format
 msgid "%ld Bytes/s"
@@ -168,6 +174,11 @@ msgstr "%ld из %ld"
 #, c-format
 msgid "%ld paths"
 msgstr "%ld путей"
+
+#. Resource IDs: (115)
+#, c-format
+msgid "%s (offline) - %s"
+msgstr "%s (автономно) - %s"
 
 #. Resource IDs: (226)
 #, c-format
@@ -410,6 +421,10 @@ msgstr "&Исправить..."
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
 msgstr "&Использовать прокси-сервер"
+
+#. Resource IDs: (1434)
+msgid "&Enable log caching"
+msgstr "Включить &кэширование журнала"
 
 #. Resource IDs: (1213)
 msgid "&Enter a message describing why you are locking the file(s)."
@@ -740,6 +755,10 @@ msgstr "Размер &табул.:"
 #. Resource IDs: (1382)
 msgid "&Test merge"
 msgstr "&Пробное слияние"
+
+#. Resource IDs: (1438)
+msgid "&Timeout in seconds before updating the HEAD revision"
+msgstr "&Таймаут перед обновлением ведущей ревизии (сек)"
 
 #. Resource IDs: (1222)
 msgid "&Timeout in seconds to stop the auto-completion parsing"
@@ -1100,6 +1119,10 @@ msgstr "Дополнительные настройки программы пр�
 msgid "Advanced merge settings"
 msgstr "Дополнительные настройки программы слияния"
 
+#. Resource IDs: (65535)
+msgid "Age"
+msgstr "Возраст"
+
 #. Resource IDs: (3841)
 msgid "All Files (*.*)"
 msgstr "Все файлы (*.*)"
@@ -1209,6 +1232,10 @@ msgstr "Вы действительно хотите убрать изменен
 #. Resource IDs: (32793)
 msgid "Arrange &Vertical"
 msgstr "Выстроить по &вертикали"
+
+#. Resource IDs: (199)
+msgid "Ask user"
+msgstr "Запрос у пользователя"
 
 #. Resource IDs: (264)
 #, c-format
@@ -1406,9 +1433,13 @@ msgstr "В&ырезать"
 msgid "CAP"
 msgstr "CAP"
 
-#. Resource IDs: (1126)
-msgid "Cache log messages"
-msgstr "Кэшировать сообщения журнала"
+#. Resource IDs: (199)
+msgid "Cache size [kB]"
+msgstr "Размер кэша [кБ]"
+
+#. Resource IDs: (1440)
+msgid "Cached Repositories"
+msgstr "Закэшированные хранилища"
 
 #. Resource IDs: (197)
 msgid "Caches the log messages to speed up log fetching"
@@ -1595,9 +1626,23 @@ msgstr "Использовать изменения:"
 msgid "Cleaning up."
 msgstr "Производится очистка."
 
+#. Resource IDs: (83)
+#, c-format
+msgid ""
+"Cleanup failed to process the following paths:\n"
+"%s"
+msgstr ""
+"Очистке не удалось обработать следующие пути:\n"
+"%s"
+
 #. Resource IDs: (79)
-msgid "Cleanup has finished"
-msgstr "Очистка закончена"
+#, c-format
+msgid ""
+"Cleanup has successfully processed the following paths:\n"
+"%s"
+msgstr ""
+"Очистка успешно обработала следующие пути:\n"
+"%s"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -1809,6 +1854,10 @@ msgstr "Конфликтующее"
 #, c-format
 msgid "Conflicts: %d"
 msgstr "Конфликты: %d"
+
+#. Resource IDs: (65535)
+msgid "Container sizes"
+msgstr "Размеры контейнеров"
 
 #. Resource IDs: (73)
 msgid "Continue"
@@ -2180,6 +2229,10 @@ msgstr "URL по умолчанию:"
 msgid "Default path:"
 msgstr "Путь по умолчанию:"
 
+#. Resource IDs: (1382)
+msgid "Delete"
+msgstr "Удалить"
+
 # Заголовок окна
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
@@ -2224,6 +2277,10 @@ msgstr "Разотметить группу изменений"
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
 msgstr "Диск назначения полон."
+
+#. Resource IDs: (1279)
+msgid "Details"
+msgstr "Подробнее"
 
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
@@ -2972,6 +3029,10 @@ msgstr "Общее::Диалоги 1"
 msgid "General::Dialogs 2"
 msgstr "Общее::Диалоги 2"
 
+#. Resource IDs: (281)
+msgid "General::Log Caching"
+msgstr "Общее::Кэширование журнала"
+
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "Генерация файла заплаток..."
@@ -3035,6 +3096,10 @@ msgstr "Получение объединённых различий"
 #. Resource IDs: (65535)
 msgid "Global ignore &pattern:"
 msgstr "Шаблоны &игнорирования:"
+
+#. Resource IDs: (65535)
+msgid "Global settings"
+msgstr "Общие настройки"
 
 #. Resource IDs: (280)
 msgid "Go offline?"
@@ -3375,6 +3440,10 @@ msgid ""
 msgstr ""
 "Если отмечено, то наличие неверсированных файлов помечает родительскую папку как изменённую,\n"
 "т.е. у неё на значке будет пометка 'изменена'."
+
+#. Resource IDs: (1439)
+msgid "If the repository can not be contacted"
+msgstr "Если невозможно соединиться с хранилищем"
 
 #. Resource IDs: (196)
 msgid ""
@@ -3799,6 +3868,10 @@ msgstr "Блокирует файл для других пользователе
 msgid "Log"
 msgstr "Журнал"
 
+#. Resource IDs: (282)
+msgid "Log Cache Statistics"
+msgstr "Статистика кэша журнала"
+
 # Заголовок окна
 #. Resource IDs: (211)
 msgid "Log History"
@@ -4110,6 +4183,10 @@ msgstr "Вложен"
 msgid "Network"
 msgstr "Сеть"
 
+#. Resource IDs: (199)
+msgid "Never try to contact the repository again"
+msgstr "Больше никогда не связываться с хранилищем"
+
 #. Resource IDs: (30721)
 msgid "New"
 msgstr "Новый"
@@ -4348,6 +4425,10 @@ msgstr ""
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "Открывает обозреватель хранилища для оперативной работы с хранилищем"
 
+#. Resource IDs: (199)
+msgid "Operate from log cache for now only"
+msgstr "Использовать кэш журнала только в этот раз"
+
 #. Resource IDs: (32779)
 msgid "Ori&ginal size"
 msgstr "Исходный &размер"
@@ -4502,6 +4583,11 @@ msgstr "Существенно сокращает число случаев, к�
 msgid "Preview patched file"
 msgstr "Предпросмотр файла с заплаткой"
 
+#. Resource IDs: (199)
+#, c-format
+msgid "Probably deleted repository (%s)"
+msgstr "Хранилище с неизвестным URL (%s)"
+
 #. Resource IDs: (132)
 #, c-format
 msgid "Processing revision %d of %d..."
@@ -4607,6 +4693,10 @@ msgstr "RAM &диски"
 #. Resource IDs: (114)
 msgid "R&evert to this revision"
 msgstr "&Вернуть к этой ревизии"
+
+#. Resource IDs: (65535)
+msgid "RAM [kB]: "
+msgstr "ОЗУ [кБ]:"
 
 #. Resource IDs: (3697)
 msgid "REC"
@@ -4880,6 +4970,10 @@ msgstr "Хранилище"
 #. Resource IDs: (153)
 msgid "Repository Browser"
 msgstr "Обозреватель хранилища"
+
+#. Resource IDs: (199)
+msgid "Repository URL"
+msgstr "URL хранилища"
 
 #. Resource IDs: (65535)
 msgid "Repository UUID:"
@@ -5622,6 +5716,10 @@ msgstr "Одно-/&двухпанельный вид"
 msgid "Size"
 msgstr "Размер"
 
+#. Resource IDs: (65535)
+msgid "Size and status"
+msgstr "Размер и состояние"
+
 #. Resource IDs: (74)
 msgid "Skipped"
 msgstr "Пропущено"
@@ -6333,6 +6431,10 @@ msgstr "У файла не может быть этого свойства, то
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Для этого свойства разрешена только одна строка."
 
+#. Resource IDs: (65535)
+msgid "Timeouts"
+msgstr "Таймауты"
+
 #. Resource IDs: (224)
 msgid ""
 "To commit recursively and work around this error,\n"
@@ -6675,6 +6777,10 @@ msgstr "Обновляется %s"
 #. Resource IDs: (283)
 msgid "Updating and retrying the lock..."
 msgstr "Производится обновление и повторная блокировка..."
+
+#. Resource IDs: (199)
+msgid "Updating log cache"
+msgstr "Обновляение кэша журнала"
 
 #. Resource IDs: (1064)
 msgid "Use &magnifier on locatorbar"
@@ -7160,6 +7266,10 @@ msgstr "другой элемент уже существует на этом м
 msgid "author"
 msgstr "автор"
 
+#. Resource IDs: (65535)
+msgid "authors: "
+msgstr "Авторы:"
+
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:append\n"
@@ -7222,6 +7332,10 @@ msgstr ""
 "URL указывает на программу отслеживания проблем. Он должен содержать подстроку \"%BUGID%\",\n"
 "которая будет заменена на номер проблемы."
 
+#. Resource IDs: (65535)
+msgid "changes total: "
+msgstr "Изменений всего:"
+
 #. Resource IDs: (145)
 msgid "cleaning up"
 msgstr "идет очистка"
@@ -7233,6 +7347,10 @@ msgstr "фиксации"
 #. Resource IDs: (11)
 msgid "conflicted"
 msgstr "конфликт"
+
+#. Resource IDs: (65535)
+msgid "connection: "
+msgstr "Соединение:"
 
 #. Resource IDs: (208)
 #, c-format
@@ -7250,6 +7368,10 @@ msgstr "скопировано:"
 #. Resource IDs: (10)
 msgid "deleted"
 msgstr "удалён"
+
+#. Resource IDs: (65535)
+msgid "disk [kB]: "
+msgstr "Диск [кБ]:"
 
 #. Resource IDs: (1342)
 msgid "eol style"
@@ -7304,6 +7426,18 @@ msgstr "этот элемент не версирован."
 msgid "item kept locally"
 msgstr "элемент оставлен локально"
 
+#. Resource IDs: (65535)
+msgid "last head update: "
+msgstr "Ведущая ревизия:"
+
+#. Resource IDs: (65535)
+msgid "last read: "
+msgstr "Последнее чтение:"
+
+#. Resource IDs: (65535)
+msgid "last update: "
+msgstr "Обновление:"
+
 #. Resource IDs: (11, 195)
 msgid "locked"
 msgstr "заблокирован"
@@ -7312,9 +7446,17 @@ msgstr "заблокирован"
 msgid "locked:"
 msgstr "заблокировано:"
 
+#. Resource IDs: (65535)
+msgid "max revision: "
+msgstr "Max ревизия:"
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "слит"
+
+#. Resource IDs: (65535)
+msgid "merges total:"
+msgstr "Слияний всего:"
 
 #. Resource IDs: (10)
 msgid "missing"
@@ -7323,6 +7465,10 @@ msgstr "отсутствует"
 #. Resource IDs: (65535)
 msgid "missing / deleted / replaced"
 msgstr "отсутствует / удалён / замещён"
+
+#. Resource IDs: (65535)
+msgid "missing in: "
+msgstr "Отсутствующих:"
 
 #. Resource IDs: (10)
 msgid "modified"
@@ -7359,9 +7505,25 @@ msgstr "нормальный"
 msgid "obstructed"
 msgstr "мешающий"
 
+#. Resource IDs: (601)
+msgid "offline"
+msgstr "автономно"
+
+#. Resource IDs: (601)
+msgid "online"
+msgstr "подключено"
+
 #. Resource IDs: (1406, 1407)
 msgid "or"
 msgstr "или"
+
+#. Resource IDs: (65535)
+msgid "pair tokens: "
+msgstr "Токенов пар:"
+
+#. Resource IDs: (65535)
+msgid "paths: "
+msgstr "Пути:"
 
 #. Resource IDs: (3869)
 msgid "pixels"
@@ -7394,10 +7556,22 @@ msgstr "с учётом предков"
 msgid "revision %s-%s, revision %s-%s"
 msgstr "ревизия %s-%s, ревизия %s-%s"
 
+#. Resource IDs: (65535)
+msgid "revision count: "
+msgstr "Ревизий всего:"
+
 #. Resource IDs: (326)
 #, c-format
 msgid "revisions %s-%s, %s"
 msgstr "ревизии %s-%s, %s"
+
+#. Resource IDs: (65535)
+msgid "revisions: "
+msgstr "Ревизий:"
+
+#. Resource IDs: (65535)
+msgid "skip ranges: "
+msgstr "Проп. диапазоны:"
 
 #. Resource IDs: (576)
 msgid ""
@@ -7524,6 +7698,14 @@ msgstr ""
 msgid "switched:"
 msgstr "переключено:"
 
+#. Resource IDs: (601)
+msgid "temp. offline"
+msgstr "врем.автономно"
+
+#. Resource IDs: (65535)
+msgid "text [token count]: "
+msgstr "Текст [всего токенов]:"
+
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
 msgstr "есть конфликтующие изменения."
@@ -7638,6 +7820,10 @@ msgstr ""
 "tsvn:warnifnoissue\n"
 "При установке в \"yes\" будет появлятся предупреждение, если не указать номер проблемы в диалоге фиксации."
 
+#. Resource IDs: (65535)
+msgid "user revprops total: "
+msgstr "Польз.свойств всего:"
+
 #. Resource IDs: (563)
 msgid "values are different"
 msgstr "значения различны"
@@ -7670,6 +7856,10 @@ msgstr ""
 #. Resource IDs: (245)
 msgid "week"
 msgstr "неделя"
+
+#. Resource IDs: (65535)
+msgid "word tokens: "
+msgstr "Токенов слов:"
 
 # статистика: годы
 #. Resource IDs: (245)
