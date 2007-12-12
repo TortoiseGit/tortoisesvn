@@ -190,8 +190,21 @@ void CSetLogCache::OnBnClickedExport()
 
 void CSetLogCache::OnBnClickedDelete()
 {
-    SVN().GetLogCachePool()->DropCache (GetSelectedUUID());
-    FillRepositoryList();
+	int nSelCount = m_cRepositoryList.GetSelectedCount();
+	CString sQuestion;
+	sQuestion.Format(IDS_SETTINGS_CACHEDELETEQUESTION, nSelCount);
+	if (CMessageBox::Show(m_hWnd, sQuestion, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
+	{
+		POSITION pos = m_cRepositoryList.GetFirstSelectedItemPosition();
+		while (pos)
+		{
+			int index = m_cRepositoryList.GetNextSelectedItem(pos);
+			IT iter = urls.begin();
+			std::advance (iter, index);
+			SVN().GetLogCachePool()->DropCache (iter->second);
+		}
+		FillRepositoryList();
+	}
 }
 
 LRESULT CSetLogCache::OnRefeshRepositoryList (WPARAM, LPARAM)
@@ -348,6 +361,6 @@ void CSetLogCache::OnLvnItemchangedRepositorylist(NMHDR * /*pNMHDR*/, LRESULT *p
 	GetDlgItem(IDC_CACHEDETAILS)->EnableWindow(count == 1);
 	GetDlgItem(IDC_CACHEUPDATE)->EnableWindow(count == 1);
 	GetDlgItem(IDC_CACHEEXPORT)->EnableWindow(count == 1);
-	GetDlgItem(IDC_CACHEDELETE)->EnableWindow(count == 1);
+	GetDlgItem(IDC_CACHEDELETE)->EnableWindow(count >= 1);
 	*pResult = 0;
 }
