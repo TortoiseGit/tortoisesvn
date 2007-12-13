@@ -16,13 +16,13 @@
 # Stanislav Petrakov <stannic@gmail.com>
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 11575: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 11589: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-12-12 18:18+0300\n"
+"PO-Revision-Date: 2007-12-13 13:08+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1223,6 +1223,11 @@ msgstr "Применение объединённых различий"
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
 msgstr "Вы уверены, что хотите пометить конфликтные файлы как улаженные?"
+
+#. Resource IDs: (199)
+#, c-format
+msgid "Are you sure you want to remove the cache of the selected %d items?"
+msgstr "Вы уверены, что хотите удалить кэш для %d выбранных элементов?"
 
 #. Resource IDs: (79)
 #, c-format
