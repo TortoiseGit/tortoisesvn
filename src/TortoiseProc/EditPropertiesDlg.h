@@ -54,6 +54,8 @@ protected:
 	afx_msg void OnNMDblclkEditproplist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnBnClickedSaveprop();
 	afx_msg void OnBnClickedAddprops();
+	afx_msg void OnBnClickedExport();
+	afx_msg void OnBnClickedImport();
 
 	DECLARE_MESSAGE_MAP()
 private:

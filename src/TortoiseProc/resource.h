@@ -677,6 +677,7 @@
 #define IDC_ACTIONLOGSHOW               1382
 #define IDC_PERMANENTLYOFFLINE          1382
 #define IDC_CACHEDELETE                 1382
+#define IDC_EXPORT                      1382
 #define IDC_REPOGROUP                   1383
 #define IDC_TOURLLABEL                  1384
 #define IDC_FROMGROUP                   1385
@@ -761,6 +762,7 @@
 #define IDC_USERREVPROPSTOTAL           1458
 #define IDC_USERREVPROPSREVISISONS      1459
 #define IDC_USERREVPROPSMISSING         1460
+#define IDC_IMPORT                      1461
 #define IDS_CHECKOUT_TT_DIR             1500
 #define IDS_CHECKOUT_EXPORTDIR          1501
 #define IDS_EXPORT_TT_EOL               1505
@@ -948,6 +950,7 @@
 #define IDS_CERTIFICATESFILEFILTER      2502
 #define IDS_PATCHFILEFILTER             2503
 #define IDS_PICTUREFILEFILTER           2504
+#define IDS_PROPSFILEFILTER             2505
 #define IDS_CHECKUPDATE_SUMMARY         2600
 #define IDS_COMMITDLG_EXTERNALS         2700
 #define IDS_COMMITDLG_STATISTICSFORMAT  2701
@@ -1255,6 +1258,7 @@
 #define IDS_EDITPROPS_ADDTITLE          9007
 #define IDS_EDITPROPS_EDITTITLE         9008
 #define IDS_EDITPROPS_BINVALUE          9020
+#define IDS_EDITPROPS_ERRIMPORTFORMAT   9030
 #define IDS_HOOKTYPE_STARTCOMMIT        9100
 #define IDS_HOOKTYPE_PRECOMMIT          9101
 #define IDS_HOOKTYPE_POSTCOMMIT         9102
@@ -1355,7 +1359,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        284
 #define _APS_NEXT_COMMAND_VALUE         32829
-#define _APS_NEXT_CONTROL_VALUE         1461
+#define _APS_NEXT_CONTROL_VALUE         1462
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

@@ -59,6 +59,8 @@ BEGIN_MESSAGE_MAP(CEditPropertiesDlg, CResizableStandAloneDialog)
 	ON_NOTIFY(NM_DBLCLK, IDC_EDITPROPLIST, &CEditPropertiesDlg::OnNMDblclkEditproplist)
 	ON_BN_CLICKED(IDC_SAVEPROP, &CEditPropertiesDlg::OnBnClickedSaveprop)
 	ON_BN_CLICKED(IDC_ADDPROPS, &CEditPropertiesDlg::OnBnClickedAddprops)
+	ON_BN_CLICKED(IDC_EXPORT, &CEditPropertiesDlg::OnBnClickedExport)
+	ON_BN_CLICKED(IDC_IMPORT, &CEditPropertiesDlg::OnBnClickedImport)
 END_MESSAGE_MAP()
 
 void CEditPropertiesDlg::OnBnClickedHelp()
@@ -101,6 +103,8 @@ BOOL CEditPropertiesDlg::OnInitDialog()
 	AddAnchor(IDC_GROUP, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_PROPPATH, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_EDITPROPLIST, TOP_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_IMPORT, BOTTOM_RIGHT);
+	AddAnchor(IDC_EXPORT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SAVEPROP, BOTTOM_RIGHT);
 	AddAnchor(IDC_REMOVEPROPS, BOTTOM_RIGHT);
 	AddAnchor(IDC_EDITPROPS, BOTTOM_RIGHT);
@@ -266,6 +270,7 @@ void CEditPropertiesDlg::OnLvnItemchangedEditproplist(NMHDR * /*pNMHDR*/, LRESUL
 	int selIndex = m_propList.GetSelectionMark();
 	if (selIndex < 0)
 	{
+		DialogEnableWindow(IDC_EXPORT, FALSE);
 		DialogEnableWindow(IDC_REMOVEPROPS, FALSE);
 		DialogEnableWindow(IDC_SAVEPROP, FALSE);
 		DialogEnableWindow(IDC_EDITPROPS, FALSE);
@@ -278,6 +283,7 @@ void CEditPropertiesDlg::OnLvnItemchangedEditproplist(NMHDR * /*pNMHDR*/, LRESUL
 		DialogEnableWindow(IDC_EDITPROPS, FALSE);
 		return;
 	}
+	DialogEnableWindow(IDC_EXPORT, TRUE);
 	DialogEnableWindow(IDC_REMOVEPROPS, TRUE);
 	DialogEnableWindow(IDC_SAVEPROP, TRUE);
 	DialogEnableWindow(IDC_EDITPROPS, TRUE);
@@ -519,4 +525,148 @@ void CEditPropertiesDlg::OnBnClickedSaveprop()
 	}
 }
 
+void CEditPropertiesDlg::OnBnClickedExport()
+{
+	if (m_propList.GetSelectedCount() == 0)
+		return;
 
+	CString savePath;
+	if (!CAppUtils::FileOpenSave(savePath, IDS_REPOBROWSE_SAVEAS, IDS_PROPSFILEFILTER, false, m_hWnd))
+		return;
+
+	// we save the list of selected properties not in a text file but in our own
+	// binary format. That's because properties can be binary themselves, a text
+	// or xml file just won't do it properly.
+	CString sName;
+	CString sValue;
+	FILE * stream;
+	errno_t err = 0;
+
+	if ((err = _tfopen_s(&stream, (LPCTSTR)savePath, _T("wbS")))==0)
+	{
+		POSITION pos = m_propList.GetFirstSelectedItemPosition();
+		int len = m_propList.GetSelectedCount();
+		fwrite(&len, sizeof(int), 1, stream);										// number of properties
+		while (pos)
+		{
+			int index = m_propList.GetNextSelectedItem(pos);
+			sName = m_propList.GetItemText(index, 0);
+			PropValue& prop = m_properties[stdstring(sName)];
+			sValue = prop.value.c_str();
+			int len = sName.GetLength()*sizeof(TCHAR);
+			fwrite(&len, sizeof(int), 1, stream);									// length of property name in bytes
+			fwrite(sName, sizeof(TCHAR), sName.GetLength(), stream);				// property name
+			len = prop.value.size();
+			fwrite(&len, sizeof(int), 1, stream);									// length of property value in bytes
+			fwrite(prop.value.c_str(), sizeof(char), prop.value.size(), stream);	// property value
+		}
+		fclose(stream);
+	}
+	else
+	{
+		TCHAR strErr[4096] = {0};
+		_tcserror_s(strErr, 4096, err);
+		CMessageBox::Show(m_hWnd, strErr, _T("TortoiseSVN"), MB_ICONERROR);
+	}
+}
+
+void CEditPropertiesDlg::OnBnClickedImport()
+{
+	CString openPath;
+	if (!CAppUtils::FileOpenSave(openPath, IDS_REPOBROWSE_OPEN, IDS_PROPSFILEFILTER, true, m_hWnd))
+	{
+		return;
+	}
+	// first check the size of the file
+	FILE * stream;
+	_tfopen_s(&stream, openPath, _T("rbS"));
+	int nProperties = 0;
+	if (fread(&nProperties, sizeof(int), 1, stream) == 1)
+	{
+		bool bFailed = false;
+		if ((nProperties < 0)||(nProperties > 4096))
+		{
+			CMessageBox::Show(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
+			bFailed = true;
+		}
+		CProgressDlg prog;
+		CString sTemp;
+		sTemp.LoadString(IDS_SETPROPTITLE);
+		prog.SetTitle(sTemp);
+		sTemp.LoadString(IDS_PROPWAITCANCEL);
+		prog.SetCancelMsg(sTemp);
+		prog.SetTime(TRUE);
+		prog.SetShowProgressBar(TRUE);
+		prog.ShowModeless(m_hWnd);
+		while ((nProperties-- > 0)&&(!bFailed))
+		{
+			int nNameBytes = 0;
+			if ((nNameBytes < 0)||(nNameBytes > 4096))
+			{
+				prog.Stop();
+				CMessageBox::Show(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
+				bFailed = true;
+			}
+			if (fread(&nNameBytes, sizeof(int), 1, stream) == 1)
+			{
+				TCHAR * pNameBuf = new TCHAR[nNameBytes/sizeof(TCHAR)];
+				if (fread(pNameBuf, 1, nNameBytes, stream) == (size_t)nNameBytes)
+				{
+					CString sName = CString(pNameBuf, nNameBytes/sizeof(TCHAR));
+					int nValueBytes = 0;
+					if (fread(&nValueBytes, sizeof(int), 1, stream) == 1)
+					{
+						BYTE * pValueBuf = new BYTE[nValueBytes];
+						if (fread(pValueBuf, sizeof(char), nValueBytes, stream) == (size_t)nValueBytes)
+						{
+							std::string propertyvalue;
+							propertyvalue.assign((const char*)pValueBuf, nValueBytes);
+
+							for (int i=0; i<m_pathlist.GetCount() && !bFailed; ++i)
+							{
+								prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
+								SVNProperties props(m_pathlist[i], m_revision);
+								if (!props.Add(sName, propertyvalue, svn_depth_empty))
+								{
+									prog.Stop();
+									CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
+									bFailed = true;
+								}
+							}
+						}
+						else
+						{
+							prog.Stop();
+							CMessageBox::Show(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
+							bFailed = true;
+						}
+						delete [] pValueBuf;
+					}
+					else
+					{
+						prog.Stop();
+						CMessageBox::Show(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
+						bFailed = true;
+					}
+				}
+				else
+				{
+					prog.Stop();
+					CMessageBox::Show(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
+					bFailed = true;
+				}
+				delete [] pNameBuf;
+			}
+			else
+			{
+				prog.Stop();
+				CMessageBox::Show(m_hWnd, IDS_EDITPROPS_ERRIMPORTFORMAT, IDS_APPNAME, MB_ICONERROR);
+				bFailed = true;
+			}
+		}
+		prog.Stop();
+		fclose(stream);
+	}
+
+	Refresh();
+}
