@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-12-04 23:22+0800\n"
+"PO-Revision-Date: 2007-12-13 23:04+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -52,30 +52,15 @@ msgstr "%.2f k位元組/秒"
 msgid "%1 contained an unexpected object."
 msgstr "%1 含有預期外的物件."
 
+#. Resource IDs: (3867)
+#, c-format
+msgid "%1 contains an incorrect path."
+msgstr "%1 含有不正確的路徑."
+
 #. Resource IDs: (3868)
 #, c-format
 msgid "%1 contains an incorrect schema."
 msgstr "%1 含有不正確的綱要."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "%1 contains an invalid path."
-msgstr "%1 含有不正確的路徑."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "%1 could not be created because the directory is full."
-msgstr "因為目錄已滿, %1  無法建立."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "%1 could not be opened because there are too many open files."
-msgstr "無法開啟 %1, 因為已經開啟過多的檔案."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "%1 could not be removed because it is the current directory."
-msgstr "%1 是目前目錄, 無法移除."
 
 #. Resource IDs: (3868)
 #, c-format
@@ -101,7 +86,7 @@ msgstr ""
 msgid ""
 "%1\n"
 "Cannot find this file.\n"
-"Please verify that the correct path and file name are given."
+"Verify that the correct path and file name are given."
 msgstr ""
 "%1\n"
 "找不到這個檔案.\n"
@@ -122,6 +107,11 @@ msgstr "傳輸了 %I64d k位元組"
 msgid "%d files selected, %d files total"
 msgstr "選擇了 %d 個檔案, 共有 %d 個檔案"
 
+#. Resource IDs: (246)
+#, c-format
+msgid "%d most active author(s) with at least %d commits each (%d %%)"
+msgstr "%d 個最活躍的作者 (至少有 %d(%d%%) 次送交數)"
+
 #. Resource IDs: (357)
 #, c-format
 msgid "%ld Bytes/s"
@@ -141,6 +131,11 @@ msgstr "%ld / %ld"
 #, c-format
 msgid "%ld paths"
 msgstr "%ld 組路徑"
+
+#. Resource IDs: (115)
+#, c-format
+msgid "%s (offline) - %s"
+msgstr "%s (離線) - %s"
 
 #. Resource IDs: (226)
 #, c-format
@@ -382,6 +377,10 @@ msgstr "編輯(&E)..."
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
 msgstr "啟用 Proxy 伺服器(&E)"
+
+#. Resource IDs: (1434)
+msgid "&Enable log caching"
+msgstr "啟動訊息快取(&E)"
 
 #. Resource IDs: (1213)
 msgid "&Enter a message describing why you are locking the file(s)."
@@ -705,6 +704,10 @@ msgstr "Tab 寬度(&T):"
 msgid "&Test merge"
 msgstr "測試合併(&T)"
 
+#. Resource IDs: (1438)
+msgid "&Timeout in seconds before updating the HEAD revision"
+msgstr "更新最新版本之前的暫停時間(&T)"
+
 #. Resource IDs: (1222)
 msgid "&Timeout in seconds to stop the auto-completion parsing"
 msgstr "停止自動完成列表處理的時間上限(&T)"
@@ -870,16 +873,6 @@ msgstr "<新變更列表>"
 msgid "?"
 msgstr "?"
 
-#. Resource IDs: (3867)
-#, c-format
-msgid "A hardware I/O error was reported while accessing %1."
-msgstr "存取 %1 時發生硬體 I/O 錯誤."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "A locking violation occurred while accessing %1."
-msgstr "存取 %1 時發生鎖定錯誤."
-
 #. Resource IDs: (201)
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
 msgstr "有更新的版本. 請至 http://tortoisesvn.tigris.org 下載! 點擊 _here_ 直接連至我們的網站."
@@ -905,11 +898,6 @@ msgstr ""
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
 msgstr "找不到需要的資源檔."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "A sharing violation occurred while accessing %1."
-msgstr "存取 %1 時發生共享錯誤."
 
 #. Resource IDs: (79)
 msgid ""
@@ -1076,6 +1064,10 @@ msgstr "進階差異比對設定"
 msgid "Advanced merge settings"
 msgstr "進階合併設定"
 
+#. Resource IDs: (65535)
+msgid "Age"
+msgstr "年紀"
+
 #. Resource IDs: (3841)
 msgid "All Files (*.*)"
 msgstr "所有檔案 (*.*)"
@@ -1087,21 +1079,6 @@ msgstr "所有檔案 (*.*)|*.*||"
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "一律使用系統語系顯示時間與日期"
-
-#. Resource IDs: (3867, 3868)
-#, c-format
-msgid "An attempt was made to access %1 past its end."
-msgstr "試圖存取超過 %1 長度的部分."
-
-#. Resource IDs: (3868)
-#, c-format
-msgid "An attempt was made to read from the writing %1."
-msgstr "試圖讀取寫入中的 %1."
-
-#. Resource IDs: (3868)
-#, c-format
-msgid "An attempt was made to write to the reading %1."
-msgstr "試圖寫入讀取中的 %1."
 
 #. Resource IDs: (78)
 #, c-format
@@ -1140,24 +1117,10 @@ msgstr ""
 "%mine\t\t包含你所做變更的檔案\n"
 "%base\t\t不包含你所做變更的原始檔"
 
-#. Resource IDs: (3843)
-msgid "An invalid argument was encountered."
-msgstr "發現不正確的參數."
-
 #. Resource IDs: (3867)
 #, c-format
-msgid "An invalid file handle was associated with %1."
+msgid "An incorrect file handle was associated with %1."
 msgstr "%1 關聯到不正確的檔案代碼."
-
-#. Resource IDs: (3859)
-#, c-format
-msgid "An unexpected error occurred while reading %1."
-msgstr "讀取 %1 時發生預期外的錯誤."
-
-#. Resource IDs: (3859)
-#, c-format
-msgid "An unexpected error occurred while writing %1."
-msgstr "寫入 %1 時發生預期外的錯誤."
 
 #. Resource IDs: (3843)
 msgid "An unknown error has occurred."
@@ -1172,10 +1135,6 @@ msgstr "存取 %1 時發生不明錯誤."
 #, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "在第 %d 行發現不明型態資料!"
-
-#. Resource IDs: (3843)
-msgid "An unsupported operation was attempted."
-msgstr "試圖進行不支援的作業."
 
 #. Resource IDs: (269)
 msgid "Analyze revision data..."
@@ -1209,6 +1168,11 @@ msgstr "套用單一差異檔"
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
 msgstr "確定要把衝突的檔案(們)標記為已解決嗎?"
 
+#. Resource IDs: (199)
+#, c-format
+msgid "Are you sure you want to remove the cache of the selected %d items?"
+msgstr "確定要移除選定 %d 項的快取?"
+
 #. Resource IDs: (79)
 #, c-format
 msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
@@ -1217,6 +1181,10 @@ msgstr "確定要復原 %d 項目嗎? 從上一版本之後的<b>所有</b>變�
 #. Resource IDs: (32793)
 msgid "Arrange &Vertical"
 msgstr "垂直調整(&V)"
+
+#. Resource IDs: (199)
+msgid "Ask user"
+msgstr "詢問使用者"
 
 #. Resource IDs: (264)
 #, c-format
@@ -1227,6 +1195,25 @@ msgstr "指定為變更列表: %s"
 #, c-format
 msgid "At revision: %d"
 msgstr "於版本: %d"
+
+#. Resource IDs: (3843)
+msgid "Attempted an unsupported operation."
+msgstr "試圖進行不支援的作業."
+
+#. Resource IDs: (3867, 3868)
+#, c-format
+msgid "Attempted to access %1 past its end."
+msgstr "試圖存取超過 %1 長度的部分."
+
+#. Resource IDs: (3868)
+#, c-format
+msgid "Attempted to read from the writing %1."
+msgstr "試圖讀取寫入中的 %1."
+
+#. Resource IDs: (3868)
+#, c-format
+msgid "Attempted to write to the reading %1."
+msgstr "試圖寫入讀取中的 %1."
 
 #. Resource IDs: (131, 160)
 msgid "Authentication"
@@ -1392,9 +1379,13 @@ msgstr "剪下(&U)"
 msgid "CAP"
 msgstr "CAP"
 
-#. Resource IDs: (1126)
-msgid "Cache log messages"
-msgstr "快取紀錄訊息"
+#. Resource IDs: (199)
+msgid "Cache size [kB]"
+msgstr "快取大小 [kB]"
+
+#. Resource IDs: (1440)
+msgid "Cached Repositories"
+msgstr "快取中的檔案庫"
 
 #. Resource IDs: (197)
 msgid "Caches the log messages to speed up log fetching"
@@ -1578,9 +1569,23 @@ msgstr "選擇項目:"
 msgid "Cleaning up."
 msgstr "正在清除."
 
+#. Resource IDs: (83)
+#, c-format
+msgid ""
+"Cleanup failed to process the following paths:\n"
+"%s"
+msgstr ""
+"清理以下路徑時發生錯誤:\n"
+"%s"
+
 #. Resource IDs: (79)
-msgid "Cleanup has finished"
-msgstr "清理完成."
+#, c-format
+msgid ""
+"Cleanup has successfully processed the following paths:\n"
+"%s"
+msgstr ""
+"以下路徑已清理完成:\n"
+"%s"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -1789,6 +1794,10 @@ msgstr "衝突"
 msgid "Conflicts: %d"
 msgstr "衝突: %d"
 
+#. Resource IDs: (65535)
+msgid "Container sizes"
+msgstr "容器大小"
+
 #. Resource IDs: (73)
 msgid "Continue"
 msgstr "繼續"
@@ -1941,6 +1950,11 @@ msgstr ""
 "<hr=100%%>\n"
 "%s"
 
+#. Resource IDs: (3867)
+#, c-format
+msgid "Could not create %1 because the directory is full."
+msgstr "因為目錄已滿, %1  無法建立."
+
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not delete \"%s\" because"
@@ -1969,6 +1983,11 @@ msgstr "無法合併 \"%s\" :"
 msgid "Could not merge property \"%s\" on %s because"
 msgstr "無法合併性質 \"%s\" 至 \"%s\":"
 
+#. Resource IDs: (3867)
+#, c-format
+msgid "Could not open %1 because there are too many open files."
+msgstr "無法開啟 %1, 因為已經開啟過多的檔案."
+
 #. Resource IDs: (69)
 #, c-format
 msgid ""
@@ -1977,6 +1996,11 @@ msgid ""
 msgstr ""
 "無法開啟檔案\n"
 "%s"
+
+#. Resource IDs: (3867)
+#, c-format
+msgid "Could not remove %1 because it is the current directory."
+msgstr "%1 是目前目錄, 無法移除."
 
 #. Resource IDs: (82)
 #, c-format
@@ -2141,6 +2165,10 @@ msgstr "預設 URL:"
 msgid "Default path:"
 msgstr "預設路徑:"
 
+#. Resource IDs: (1382)
+msgid "Delete"
+msgstr "刪除"
+
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
 msgstr "刪除無版本控制的檔案"
@@ -2184,6 +2212,10 @@ msgstr "取消選取變更列表"
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
 msgstr "目的磁碟已滿."
+
+#. Resource IDs: (1279)
+msgid "Details"
+msgstr "細節"
 
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
@@ -2417,6 +2449,35 @@ msgstr ""
 "設定 tsvn:projectlanguage 時\n"
 "才啟動拼字檢查."
 
+#. Resource IDs: (3867)
+#, c-format
+msgid "Encountered a hardware I/O error while accessing %1."
+msgstr "存取 %1 時發生硬體 I/O 錯誤."
+
+#. Resource IDs: (3867)
+#, c-format
+msgid "Encountered a locking violation while accessing %1."
+msgstr "存取 %1 時發生鎖定錯誤."
+
+#. Resource IDs: (3867)
+#, c-format
+msgid "Encountered a sharing violation while accessing %1."
+msgstr "存取 %1 時發生共享錯誤."
+
+#. Resource IDs: (3843)
+msgid "Encountered an improper argument."
+msgstr "發現不正確的參數."
+
+#. Resource IDs: (3859)
+#, c-format
+msgid "Encountered an unexpected error while reading %1."
+msgstr "讀取 %1 時發生預期外的錯誤."
+
+#. Resource IDs: (3859)
+#, c-format
+msgid "Encountered an unexpected error while writing %1."
+msgstr "寫入 %1 時發生預期外的錯誤."
+
 #. Resource IDs: (65535)
 msgid "End Revision"
 msgstr "結束版本"
@@ -2433,6 +2494,22 @@ msgstr "輸入紀錄訊息"
 msgid "Enter URL"
 msgstr "輸入 URL"
 
+#. Resource IDs: (3858)
+msgid "Enter a GUID."
+msgstr "請輸入 GUID."
+
+#. Resource IDs: (3858)
+msgid "Enter a currency."
+msgstr "請輸入貨幣."
+
+#. Resource IDs: (3858)
+msgid "Enter a date and/or time."
+msgstr "請輸入日期或時間."
+
+#. Resource IDs: (3858)
+msgid "Enter a date."
+msgstr "請輸入日期."
+
 #. Resource IDs: (313)
 msgid "Enter a lock message (optional):"
 msgstr "輸入鎖定訊息(可不寫):"
@@ -2441,6 +2518,36 @@ msgstr "輸入鎖定訊息(可不寫):"
 msgid "Enter a name for the changelist:"
 msgstr "輸入此變更列表的名稱:"
 
+#. Resource IDs: (3858)
+#, c-format
+msgid "Enter a number between %1 and %2."
+msgstr "請輸入介於 %1 與 %2 之間的數字."
+
+#. Resource IDs: (3858)
+msgid "Enter a number."
+msgstr "請輸入數字."
+
+#. Resource IDs: (3858)
+msgid "Enter a positive integer."
+msgstr "請輸入正整數."
+
+#. Resource IDs: (3858)
+msgid "Enter a time."
+msgstr "請輸入時間."
+
+#. Resource IDs: (3858)
+#, c-format
+msgid "Enter an integer between %1 and %2."
+msgstr "請輸入介於 %1 與 %2 之間的整數."
+
+#. Resource IDs: (3858)
+msgid "Enter an integer between 0 and 255."
+msgstr "請輸入介於 0 到 255 之間的整數."
+
+#. Resource IDs: (3858)
+msgid "Enter an integer."
+msgstr "請輸入整數."
+
 #. Resource IDs: (1065)
 msgid "Enter log &message:"
 msgstr "輸入紀錄訊息(&M):"
@@ -2448,6 +2555,11 @@ msgstr "輸入紀錄訊息(&M):"
 #. Resource IDs: (126)
 msgid "Enter log message:"
 msgstr "輸入紀錄訊息:"
+
+#. Resource IDs: (3858)
+#, c-format
+msgid "Enter no more than %1 characters."
+msgstr "請勿輸入超過 %1 個字."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -2844,6 +2956,10 @@ msgstr "一般::視窗 1"
 msgid "General::Dialogs 2"
 msgstr "一般::視窗 2"
 
+#. Resource IDs: (281)
+msgid "General::Log Caching"
+msgstr "一般::紀錄訊息快取"
+
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "正在產生補綴檔..."
@@ -2905,6 +3021,10 @@ msgstr "正在取得單一差異檔"
 #. Resource IDs: (65535)
 msgid "Global ignore &pattern:"
 msgstr "除外/忽略樣式(&P):"
+
+#. Resource IDs: (65535)
+msgid "Global settings"
+msgstr "全域設定"
 
 #. Resource IDs: (280)
 msgid "Go offline?"
@@ -3239,6 +3359,10 @@ msgstr ""
 "啟用此選項時, 含有無版本控制的檔案會使上層的資料夾顯示為異動\n"
 "也就是會顯示異動的圖示."
 
+#. Resource IDs: (1439)
+msgid "If the repository can not be contacted"
+msgstr "如果檔案庫無法連接"
+
 #. Resource IDs: (196)
 msgid ""
 "If you change this value, your existing working copies won't be recognized anymore!\n"
@@ -3369,6 +3493,10 @@ msgstr "僅包括下列版本區間:"
 msgid "Include paths:"
 msgstr "包含路徑:"
 
+#. Resource IDs: (3857)
+msgid "Incorrect filename."
+msgstr "檔案名稱錯誤."
+
 #. Resource IDs: (76)
 msgid "Initial import"
 msgstr "初次匯入"
@@ -3400,10 +3528,6 @@ msgstr "內部程式錯誤."
 #. Resource IDs: (102)
 msgid "Invalid data object dropped!"
 msgstr "拖曳物件錯誤!"
-
-#. Resource IDs: (3857)
-msgid "Invalid filename."
-msgstr "檔案名稱錯誤."
 
 #. Resource IDs: (82)
 msgid ""
@@ -3656,6 +3780,10 @@ msgstr "鎖定某些檔案, 只能由你修改."
 #. Resource IDs: (126)
 msgid "Log"
 msgstr "紀錄"
+
+#. Resource IDs: (282)
+msgid "Log Cache Statistics"
+msgstr "紀錄訊息快取統計"
 
 #. Resource IDs: (211)
 msgid "Log History"
@@ -3965,6 +4093,10 @@ msgstr "多層次"
 msgid "Network"
 msgstr "網路"
 
+#. Resource IDs: (199)
+msgid "Never try to contact the repository again"
+msgstr "不再重試連接檔案庫"
+
 #. Resource IDs: (30721)
 msgid "New"
 msgstr "新增"
@@ -4198,6 +4330,10 @@ msgstr ""
 msgid "Opens the repository browser to tweak the repository online"
 msgstr "開啟檔案庫瀏覽器, 進行線上調校檔案庫"
 
+#. Resource IDs: (199)
+msgid "Operate from log cache for now only"
+msgstr "目前暫時從紀錄訊息快取中作業"
+
 #. Resource IDs: (32779)
 msgid "Ori&ginal size"
 msgstr "原始大小(&G)"
@@ -4270,64 +4406,13 @@ msgstr "圖片 (*.jpg, *.png, *.bmp, *.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|所�
 msgid "Pie Graph"
 msgstr "圓餅圖"
 
-#. Resource IDs: (3858)
-msgid "Please enter a GUID."
-msgstr "請輸入 GUID."
-
-#. Resource IDs: (3858)
-msgid "Please enter a currency."
-msgstr "請輸入貨幣."
-
-#. Resource IDs: (3858)
-msgid "Please enter a date and/or time."
-msgstr "請輸入日期或時間."
-
-#. Resource IDs: (3858)
-msgid "Please enter a date."
-msgstr "請輸入日期."
-
 #. Resource IDs: (83)
 msgid "Please enter a hook script to execute."
 msgstr "請輸入要指定的掛勾指令檔"
 
-#. Resource IDs: (3858)
-#, c-format
-msgid "Please enter a number between %1 and %2."
-msgstr "請輸入介於 %1 與 %2 之間的數字."
-
-#. Resource IDs: (3858)
-msgid "Please enter a number."
-msgstr "請輸入數字."
-
 #. Resource IDs: (83)
 msgid "Please enter a path where to apply the hook script to."
 msgstr "請輸入要套用這個掛勾指令檔的路徑"
-
-#. Resource IDs: (3858)
-msgid "Please enter a positive integer."
-msgstr "請輸入正整數."
-
-#. Resource IDs: (3858)
-msgid "Please enter a time."
-msgstr "請輸入時間."
-
-#. Resource IDs: (3858)
-#, c-format
-msgid "Please enter an integer between %1 and %2."
-msgstr "請輸入介於 %1 與 %2 之間的整數."
-
-#. Resource IDs: (3858)
-msgid "Please enter an integer between 0 and 255."
-msgstr "請輸入介於 0 到 255 之間的整數."
-
-#. Resource IDs: (3858)
-msgid "Please enter an integer."
-msgstr "請輸入整數."
-
-#. Resource IDs: (3858)
-#, c-format
-msgid "Please enter no more than %1 characters."
-msgstr "請勿輸入超過 %1 個字."
 
 #. Resource IDs: (251)
 msgid "Please execute the \"Cleanup\" command."
@@ -4349,10 +4434,6 @@ msgstr ""
 #. Resource IDs: (1287)
 msgid "Please resolve the conflict by choosing one of the following options:"
 msgstr "請選擇以下選項來處理衝突:"
-
-#. Resource IDs: (3858)
-msgid "Please select a button."
-msgstr "請選擇按鈕."
 
 #. Resource IDs: (83)
 msgid "Please select a hook type"
@@ -4405,6 +4486,11 @@ msgstr "儘量防止發生連接線與節點交錯的情形"
 #. Resource IDs: (376)
 msgid "Preview patched file"
 msgstr "預覽補綴後的檔案"
+
+#. Resource IDs: (199)
+#, c-format
+msgid "Probably deleted repository (%s)"
+msgstr "檔案庫可能已刪除 (%s)"
 
 #. Resource IDs: (132)
 #, c-format
@@ -4511,6 +4597,10 @@ msgstr "虛擬磁碟(&A)"
 #. Resource IDs: (114)
 msgid "R&evert to this revision"
 msgstr "復原至此版本(&E)"
+
+#. Resource IDs: (65535)
+msgid "RAM [kB]: "
+msgstr "RAM [kB]"
 
 #. Resource IDs: (3697)
 msgid "REC"
@@ -4781,6 +4871,10 @@ msgstr "檔案庫"
 #. Resource IDs: (153)
 msgid "Repository Browser"
 msgstr "檔案庫瀏覽器"
+
+#. Resource IDs: (199)
+msgid "Repository URL"
+msgstr "檔案庫 URL"
 
 #. Resource IDs: (65535)
 msgid "Repository UUID:"
@@ -5171,6 +5265,10 @@ msgstr "選擇版本"
 msgid "Select SSH client"
 msgstr "選擇 SSH 用戶端程式"
 
+#. Resource IDs: (3858)
+msgid "Select a button."
+msgstr "請選擇按鈕."
+
 #. Resource IDs: (3585)
 msgid "Select an object on which to get Help"
 msgstr "選擇要查詢說明的物件"
@@ -5510,6 +5608,10 @@ msgstr "單一/雙重區塊檢視(&D)"
 msgid "Size"
 msgstr "大小"
 
+#. Resource IDs: (65535)
+msgid "Size and status"
+msgstr "大小與狀態"
+
 #. Resource IDs: (74)
 msgid "Skipped"
 msgstr "略過"
@@ -5788,6 +5890,19 @@ msgstr "檔案 %s 不存在!"
 #, c-format
 msgid "The file %s was not found in the patch file!"
 msgstr "補綴檔中找不到檔案: %s!"
+
+#. Resource IDs: (314)
+#, c-format
+msgid ""
+"The file \n"
+"%s\n"
+"is empty.\n"
+"Do you want to remove the file?"
+msgstr ""
+"檔案 \n"
+"%s\n"
+"是空的.\n"
+"確定要刪除嗎?"
 
 #. Resource IDs: (69)
 msgid "The file is too big"
@@ -6202,6 +6317,10 @@ msgstr "這個性質只能設置在資料夾上, 檔案不能."
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "這個性質不能有分行. 只能輸入單行資料."
 
+#. Resource IDs: (65535)
+msgid "Timeouts"
+msgstr "暫停"
+
 #. Resource IDs: (224)
 msgid ""
 "To commit recursively and work around this error,\n"
@@ -6533,6 +6652,10 @@ msgstr "正在更新 %s"
 #. Resource IDs: (283)
 msgid "Updating and retrying the lock..."
 msgstr "更新並重試鎖定中..."
+
+#. Resource IDs: (199)
+msgid "Updating log cache"
+msgstr "正在更新紀錄訊息快取"
 
 #. Resource IDs: (1064)
 msgid "Use &magnifier on locatorbar"
@@ -7009,6 +7132,10 @@ msgstr "已經存在同名的項目."
 msgid "author"
 msgstr "作者"
 
+#. Resource IDs: (65535)
+msgid "authors: "
+msgstr "作者:"
+
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:append\n"
@@ -7070,6 +7197,10 @@ msgstr ""
 "指向問題追蹤的 URL. 必須含有 \"%BUGID%\", \n"
 "用來代換問題編號."
 
+#. Resource IDs: (65535)
+msgid "changes total: "
+msgstr "變更總數:"
+
 #. Resource IDs: (145)
 msgid "cleaning up"
 msgstr "正在清除"
@@ -7081,6 +7212,10 @@ msgstr "送交紀錄"
 #. Resource IDs: (11)
 msgid "conflicted"
 msgstr "衝突"
+
+#. Resource IDs: (65535)
+msgid "connection: "
+msgstr "連線:"
 
 #. Resource IDs: (208)
 #, c-format
@@ -7098,6 +7233,10 @@ msgstr "複製:"
 #. Resource IDs: (10)
 msgid "deleted"
 msgstr "刪除"
+
+#. Resource IDs: (65535)
+msgid "disk [kB]: "
+msgstr "磁碟 [kB]:"
 
 #. Resource IDs: (1342)
 msgid "eol style"
@@ -7152,6 +7291,18 @@ msgstr "無版本控制."
 msgid "item kept locally"
 msgstr "檔案保留於本地端"
 
+#. Resource IDs: (65535)
+msgid "last head update: "
+msgstr "上次更新最新版本:"
+
+#. Resource IDs: (65535)
+msgid "last read: "
+msgstr "上次讀取:"
+
+#. Resource IDs: (65535)
+msgid "last update: "
+msgstr "最後更新:"
+
 #. Resource IDs: (11, 195)
 msgid "locked"
 msgstr "鎖定"
@@ -7160,9 +7311,17 @@ msgstr "鎖定"
 msgid "locked:"
 msgstr "鎖定:"
 
+#. Resource IDs: (65535)
+msgid "max revision: "
+msgstr "最大版本:"
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "合併"
+
+#. Resource IDs: (65535)
+msgid "merges total:"
+msgstr "訊息總數:"
 
 #. Resource IDs: (10)
 msgid "missing"
@@ -7171,6 +7330,10 @@ msgstr "缺少"
 #. Resource IDs: (65535)
 msgid "missing / deleted / replaced"
 msgstr "缺少/已刪除/已取代"
+
+#. Resource IDs: (65535)
+msgid "missing in: "
+msgstr "缺少於:"
 
 #. Resource IDs: (10)
 msgid "modified"
@@ -7204,9 +7367,25 @@ msgstr "一般"
 msgid "obstructed"
 msgstr "阻礙"
 
+#. Resource IDs: (601)
+msgid "offline"
+msgstr "離線"
+
+#. Resource IDs: (601)
+msgid "online"
+msgstr "連線"
+
 #. Resource IDs: (1406, 1407)
 msgid "or"
 msgstr "或"
+
+#. Resource IDs: (65535)
+msgid "pair tokens: "
+msgstr "配對符號:"
+
+#. Resource IDs: (65535)
+msgid "paths: "
+msgstr "路徑:"
 
 #. Resource IDs: (3869)
 msgid "pixels"
@@ -7237,10 +7416,22 @@ msgstr "參考之前版本"
 msgid "revision %s-%s, revision %s-%s"
 msgstr "正在取得檔案 %s-%s, 版本 %s-%s"
 
+#. Resource IDs: (65535)
+msgid "revision count: "
+msgstr "版本數: "
+
 #. Resource IDs: (326)
 #, c-format
 msgid "revisions %s-%s, %s"
 msgstr "版本 %s-%s, %s"
+
+#. Resource IDs: (65535)
+msgid "revisions: "
+msgstr "版本: "
+
+#. Resource IDs: (65535)
+msgid "skip ranges: "
+msgstr "略過範圍:"
 
 #. Resource IDs: (576)
 msgid ""
@@ -7366,6 +7557,14 @@ msgstr ""
 msgid "switched:"
 msgstr "切換:"
 
+#. Resource IDs: (601)
+msgid "temp. offline"
+msgstr "暫時離線"
+
+#. Resource IDs: (65535)
+msgid "text [token count]: "
+msgstr "文字數:"
+
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
 msgstr "有衝突的更動."
@@ -7479,6 +7678,10 @@ msgstr ""
 "tsvn:warnifnoissue\n"
 "如果設為 \"yes\", 在送交對話窗沒有輸入問題時, 會顯示警告訊息."
 
+#. Resource IDs: (65535)
+msgid "user revprops total: "
+msgstr "使用者 revprops 總數"
+
 #. Resource IDs: (563)
 msgid "values are different"
 msgstr "不同的值"
@@ -7510,6 +7713,10 @@ msgstr ""
 #. Resource IDs: (245)
 msgid "week"
 msgstr "週"
+
+#. Resource IDs: (65535)
+msgid "word tokens: "
+msgstr "單字數:"
 
 #. Resource IDs: (245)
 msgid "year"
