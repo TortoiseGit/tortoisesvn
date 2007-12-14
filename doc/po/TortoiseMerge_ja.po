@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2007-10-30 00:10 +0000\n"
-"PO-Revision-Date: 2007-11-01 01:43+0900\n"
+"POT-Creation-Date: 2007-11-08 10:58 +0000\n"
+"PO-Revision-Date: 2007-12-14 11:24+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -412,7 +412,7 @@ msgstr "そう言った変更は、表示の左側に白円で表します。そ
 #. (para)
 #: ../source/TortoiseMerge_en.xml:449
 msgid "Hand editing of the file in the right pane is possible in two-pane view. Such changes are marked with a pencil symbol."
-msgstr ""
+msgstr "2 ペイン表示では、右ペインにあるファイルの手編集が可能です。そのような変更は鉛筆マークが付きます。"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:420
@@ -582,42 +582,42 @@ msgstr "行状態アイコン"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:686
 msgid "Changed lines are marked with an icon to indicate what type of change has occurred."
-msgstr ""
+msgstr "変更のある行は、どのような変更が行われたかを表すアイコンで、マーク付けがなされます。"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:690
-msgid "<graphic fileref=\"../images/TMerge_lineadded.png\"/> A line has been added."
-msgstr "<graphic fileref=\"../images/TMerge_lineadded.png\"/> 追加した行。"
+msgid "<graphic fileref=\"images/TMerge_lineadded.png\"/> A line has been added."
+msgstr "<graphic fileref=\"images/TMerge_lineadded.png\"/> 追加した行です。"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:694
-msgid "<graphic fileref=\"../images/TMerge_lineremoved.png\"/> A line has been removed."
-msgstr "<graphic fileref=\"../images/TMerge_lineremoved.png\"/> 削除した行。"
+msgid "<graphic fileref=\"images/TMerge_lineremoved.png\"/> A line has been removed."
+msgstr "<graphic fileref=\"images/TMerge_lineremoved.png\"/> 削除した行です。"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:698
-msgid "<graphic fileref=\"../images/TMerge_lineequal.png\"/> A change has been undone by reverting to the original content of the line."
-msgstr "<graphic fileref=\"../images/TMerge_lineequal.png\"/> オリジナルな内容に戻して、変更されていない行。"
+msgid "<graphic fileref=\"images/TMerge_lineequal.png\"/> A change has been undone by reverting to the original content of the line."
+msgstr "<graphic fileref=\"images/TMerge_lineequal.png\"/> オリジナルな内容に戻して、変更されていない行です。"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:702
-msgid "<graphic fileref=\"../images/TMerge_linewhitespace.png\"/> This line contains only whitespace changes. Where several consecutive lines are marked, the paragraph may have been re-wrapped, causing words to shuffle onto adjacent lines."
-msgstr ""
+msgid "<graphic fileref=\"images/TMerge_linewhitespace.png\"/> This line contains only whitespace changes. Where several consecutive lines are marked, the paragraph may have been re-wrapped, causing words to shuffle onto adjacent lines."
+msgstr "<graphic fileref=\"images/TMerge_linewhitespace.png\"/> この行には空白の変更しかありません。連続した行がマークされている場合、単語が隣接行に移されて、再度折り返しが行われた可能性があります。"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:708
-msgid "<graphic fileref=\"../images/TMerge_lineedited.png\"/> A line has been edited by hand, using TortoiseMerge as a text editor."
-msgstr ""
+msgid "<graphic fileref=\"images/TMerge_lineedited.png\"/> A line has been edited by hand, using TortoiseMerge as a text editor."
+msgstr "<graphic fileref=\"images/TMerge_lineedited.png\"/> 追加した行です。"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:712
-msgid "<graphic fileref=\"../images/TMerge_lineconflicted.png\"/> This line is in conflict."
-msgstr "<graphic fileref=\"../images/TMerge_lineconflicted.png\"/> 競合のある行。"
+msgid "<graphic fileref=\"images/TMerge_lineconflicted.png\"/> This line is in conflict."
+msgstr "<graphic fileref=\"images/TMerge_lineconflicted.png\"/> 競合のある行です。"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:716
-msgid "<graphic fileref=\"../images/TMerge_lineconflictedignored.png\"/> This line is conflicted, but the effect is hidden by whitespace or line-ending settings."
-msgstr ""
+msgid "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> This line is conflicted, but the effect is hidden by whitespace or line-ending settings."
+msgstr "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> 競合がありますが、空白や改行の設定により効果が見えない行です。"
 
 #. (title)
 #: ../source/TortoiseMerge_en.xml:723
