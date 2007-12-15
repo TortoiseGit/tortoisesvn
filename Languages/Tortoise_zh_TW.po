@@ -14,9 +14,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-12-13 23:04+0800\n"
-"Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 1900-01-01 00:00+0000\n"
+"PO-Revision-Date: 2007-12-15 20:25+0800\n"
+"Last-Translator: Wang Yanning <wangyn@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -237,10 +238,6 @@ msgstr "自動關閉(&A):"
 #. Resource IDs: (1015)
 msgid "&Backup original file"
 msgstr "備份原始檔(&B)"
-
-#. Resource IDs: (1128)
-msgid "&Berkeley database (BDB)"
-msgstr "柏克萊資料庫(&BDB)"
 
 #. Resource IDs: (114)
 msgid "&Blame changes"
@@ -538,10 +535,6 @@ msgstr "合併(&M)..."
 #. Resource IDs: (1012)
 msgid "&Merging"
 msgstr "合併(&M)"
-
-#. Resource IDs: (1129)
-msgid "&Native filesystem (FSFS)"
-msgstr "原生檔案系統(FSFS)(&N)"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -1036,6 +1029,10 @@ msgstr ""
 msgid "Adding"
 msgstr "正在加入"
 
+#. Resource IDs: (582)
+msgid "Adds a new property"
+msgstr "新增性質"
+
 #. Resource IDs: (9)
 msgid "Adds file(s) to Subversion control"
 msgstr "加入檔案至 Subversion 版本控制"
@@ -1241,7 +1238,7 @@ msgstr "作者欄有大小寫之分"
 
 #. Resource IDs: (65535)
 msgid "Authors:"
-msgstr "作者"
+msgstr "作者:"
 
 #. Resource IDs: (99)
 msgid "Auto Rename"
@@ -2083,10 +2080,6 @@ msgstr "建立變更列表"
 msgid "Create Patch"
 msgstr "建立補綴"
 
-#. Resource IDs: (178)
-msgid "Create Repository"
-msgstr "建立檔案庫"
-
 #. Resource IDs: (1385)
 msgid "Create copy in the repository from:"
 msgstr "建立分支/標記於伺服器端:"
@@ -2425,6 +2418,10 @@ msgstr "編輯紀錄訊息"
 msgid "Edit..."
 msgstr "編輯..."
 
+#. Resource IDs: (581)
+msgid "Edits the selected property value"
+msgstr "編輯選擇的性質"
+
 #. Resource IDs: (79)
 msgid "Either the name or IP of the proxy server"
 msgstr "輸入 proxy 伺服器的 IP 或名稱"
@@ -2643,6 +2640,10 @@ msgstr "正在匯出..."
 #. Resource IDs: (10)
 msgid "Exports a repository to a clean working copy without the svn administrative folders"
 msgstr "從檔案庫中匯出乾淨的工作複本, 不含 svn 管理用資料夾"
+
+#. Resource IDs: (581)
+msgid "Exports a set of properties to a file"
+msgstr "檔案匯入性質集至檔案"
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -3440,6 +3441,10 @@ msgstr "匯入訊息(&M)"
 #. Resource IDs: (77)
 msgid "Import - TortoiseSVN"
 msgstr "匯入 - TortoiseSVN"
+
+#. Resource IDs: (581)
+msgid "Import a previously saved set of properties from a file"
+msgstr "從檔案匯出性質集"
 
 #. Resource IDs: (127)
 #, c-format
@@ -4503,7 +4508,7 @@ msgstr "程式"
 
 #. Resource IDs: (157)
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
-msgstr "程式 (*.exe)|*.*|所有檔案 (*.*)|*.*||"
+msgstr "程式 (*.exe)|*.exe|所有檔案 (*.*)|*.*||"
 
 #. Resource IDs: (134, 65535)
 msgid "Progress"
@@ -4512,6 +4517,10 @@ msgstr "進度"
 #. Resource IDs: (17, 177, 226)
 msgid "Properties"
 msgstr "性質"
+
+#. Resource IDs: (157)
+msgid "Properties (*.svnprops)|*.svnprops|All Files (*.*)|*.*||"
+msgstr "性質 (*.svnprops)|*.svnprops|所有檔案 (*.*)|*.*||"
 
 #. Resource IDs: (1287)
 msgid "Properties for"
@@ -4801,6 +4810,10 @@ msgstr "移除所有無版本控制和忽略的項目"
 #. Resource IDs: (15)
 msgid "Removes the file or filemask from the list of ignored items"
 msgstr "從忽略列表中移除檔案或檔案遮罩"
+
+#. Resource IDs: (581)
+msgid "Removes the selected properties"
+msgstr "移除選擇的性質"
 
 #. Resource IDs: (151)
 msgid "Rename"
@@ -5136,7 +5149,7 @@ msgstr "SVN 本地鎖定持有人"
 
 #. Resource IDs: (17)
 msgid "SVN Move and rename versioned files here"
-msgstr "SVN 複製與重新命名控管的檔案至此"
+msgstr "SVN 移動與重新命名控管的檔案至此"
 
 #. Resource IDs: (12)
 msgid "SVN Move versioned files here"
@@ -5210,6 +5223,10 @@ msgstr "複製至剪貼簿"
 #. Resource IDs: (108)
 msgid "Saved Data"
 msgstr "已存資料"
+
+#. Resource IDs: (581)
+msgid "Saves the selected property value to a file"
+msgstr "儲存選擇的性質至檔案"
 
 #. Resource IDs: (103)
 #, c-format
@@ -5360,10 +5377,6 @@ msgstr "選擇版本範圍"
 #. Resource IDs: (595)
 msgid "Select the type of merge"
 msgstr "選擇合併類型"
-
-#. Resource IDs: (65535)
-msgid "Select the type of repository you want to create:"
-msgstr "選擇你要建立的檔案庫類型:"
 
 #. Resource IDs: (595)
 msgid "Select the urls for the tree merge"
@@ -6607,6 +6620,10 @@ msgstr "解鎖失敗"
 msgid "Unlocked"
 msgstr "未鎖定"
 
+#. Resource IDs: (565)
+msgid "Unrecognized or invalid property file format!"
+msgstr "錯誤的性質檔案格式！"
+
 #. Resource IDs: (3841)
 msgid "Untitled"
 msgstr "未命名"
@@ -7725,4 +7742,3 @@ msgstr "年"
 #. Resource IDs: (18, 1002, 1011, 1012)
 msgid "yes"
 msgstr "是"
-
