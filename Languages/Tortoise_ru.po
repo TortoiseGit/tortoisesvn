@@ -16,13 +16,13 @@
 # Stanislav Petrakov <stannic@gmail.com>
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 11596: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 11615: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-12-14 16:32+0300\n"
+"PO-Revision-Date: 2007-12-15 20:42+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -280,10 +280,6 @@ msgstr "&Автозакрытие:"
 #. Resource IDs: (1015)
 msgid "&Backup original file"
 msgstr "Сохранять &резервную копию файла"
-
-#. Resource IDs: (1128)
-msgid "&Berkeley database (BDB)"
-msgstr "&Berkeley database (BDB)"
 
 #. Resource IDs: (114)
 msgid "&Blame changes"
@@ -587,10 +583,6 @@ msgstr "&Слить..."
 #. Resource IDs: (1012)
 msgid "&Merging"
 msgstr "&Слияние"
-
-#. Resource IDs: (1129)
-msgid "&Native filesystem (FSFS)"
-msgstr "&Native filesystem (FSFS)"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -1090,6 +1082,10 @@ msgstr ""
 #. Resource IDs: (263)
 msgid "Adding"
 msgstr "Добавление"
+
+#. Resource IDs: (582)
+msgid "Adds a new property"
+msgstr "Добавляет новое свойство"
 
 #. Resource IDs: (9)
 msgid "Adds file(s) to Subversion control"
@@ -2151,11 +2147,6 @@ msgstr "Создать группу изменений"
 msgid "Create Patch"
 msgstr "Создание заплатки"
 
-# Заголовок окна
-#. Resource IDs: (178)
-msgid "Create Repository"
-msgstr "Создание хранилища"
-
 #. Resource IDs: (1385)
 msgid "Create copy in the repository from:"
 msgstr "Создать копию в хранилище из:"
@@ -2497,6 +2488,10 @@ msgstr "Изменить сообщение журнала"
 msgid "Edit..."
 msgstr "Поправить..."
 
+#. Resource IDs: (581)
+msgid "Edits the selected property value"
+msgstr "Редактирует значение выбранного свойства"
+
 #. Resource IDs: (79)
 msgid "Either the name or IP of the proxy server"
 msgstr "Введите имя либо IP-адрес прокси-сервера"
@@ -2717,6 +2712,10 @@ msgstr "Экспортирование..."
 #. Resource IDs: (10)
 msgid "Exports a repository to a clean working copy without the svn administrative folders"
 msgstr "Экспортирует хранилище в чистую рабочую копию без административных svn-папок"
+
+#. Resource IDs: (581)
+msgid "Exports a set of properties to a file"
+msgstr "Экспортирует набор свойств в файл"
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -3379,7 +3378,7 @@ msgid ""
 "with the keywords expanded and the line endings adjusted."
 msgstr ""
 "Если выбрано, TortoiseSVN создает временный файл базовой версии для сравнения,\n"
-"в котором ключевые слова заменены их значениями и настроены окончания строк."
+"в котором ключевые слова заменены их значениями и настроены завершения строк."
 
 #. Resource IDs: (197)
 msgid "If checked, double-clicking on a revision in the log list compares it with the previous revision"
@@ -3529,6 +3528,10 @@ msgstr "&Сообщение импорта"
 #. Resource IDs: (77)
 msgid "Import - TortoiseSVN"
 msgstr "Импорт - TortoiseSVN"
+
+#. Resource IDs: (581)
+msgid "Import a previously saved set of properties from a file"
+msgstr "Импортирует ранее сохранённый набор свойств из файла"
 
 #. Resource IDs: (127)
 #, c-format
@@ -4908,6 +4911,10 @@ msgstr "Убирает все неверсированные и игнориру
 msgid "Removes the file or filemask from the list of ignored items"
 msgstr "Удаляет файлы или маску файлов из списка игнорирования"
 
+#. Resource IDs: (581)
+msgid "Removes the selected properties"
+msgstr "Удаляет выбранные свойства"
+
 # Заголовок окна
 #. Resource IDs: (151)
 msgid "Rename"
@@ -5324,6 +5331,10 @@ msgstr "Сохранить в буфер обмена"
 msgid "Saved Data"
 msgstr "Сохранённые данные"
 
+#. Resource IDs: (581)
+msgid "Saves the selected property value to a file"
+msgstr "Сохраняет значение выбранного свойства в файл"
+
 #. Resource IDs: (103)
 #, c-format
 msgid "Saving file %s"
@@ -5475,10 +5486,6 @@ msgstr "Выберите ревизии для слияния"
 #. Resource IDs: (595)
 msgid "Select the type of merge"
 msgstr "Выберите тип слияния"
-
-#. Resource IDs: (65535)
-msgid "Select the type of repository you want to create:"
-msgstr "Выберите тип создаваемого хранилища:"
 
 #. Resource IDs: (595)
 msgid "Select the urls for the tree merge"
@@ -5706,7 +5713,7 @@ msgstr "Показывает журнал действий в текстовом
 
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
-msgstr "Показывает значение свойства eol-style (окончания строк)"
+msgstr "Показывает значение свойства eol-style (завершения строк)"
 
 #. Resource IDs: (12)
 msgid "Shows the log for the selected file / folder"
@@ -6740,7 +6747,7 @@ msgid "Unlocked"
 msgstr "Разблокирован"
 
 #. Resource IDs: (565)
-msgid "Unrecognized or invallid property file format!"
+msgid "Unrecognized or invalid property file format!"
 msgstr "Неопознанный или неправильный формат файла свойств!"
 
 # Род?
@@ -7388,7 +7395,7 @@ msgstr "Диск [кБ]:"
 
 #. Resource IDs: (1342)
 msgid "eol style"
-msgstr "окончания строк"
+msgstr "завершения строк"
 
 #. Resource IDs: (79)
 #, c-format
