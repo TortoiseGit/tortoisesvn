@@ -267,26 +267,12 @@ void CEditPropertiesDlg::OnLvnItemchangedEditproplist(NMHDR * /*pNMHDR*/, LRESUL
 	*pResult = 0;
 	// disable the "remove" button if nothing
 	// is selected, enable it otherwise
-	int selIndex = m_propList.GetSelectionMark();
-	if (selIndex < 0)
-	{
-		DialogEnableWindow(IDC_EXPORT, FALSE);
-		DialogEnableWindow(IDC_REMOVEPROPS, FALSE);
-		DialogEnableWindow(IDC_SAVEPROP, FALSE);
-		DialogEnableWindow(IDC_EDITPROPS, FALSE);
-		return;
-	}
-	else if (m_propList.GetSelectedCount()==0)
-	{
-		DialogEnableWindow(IDC_REMOVEPROPS, FALSE);
-		DialogEnableWindow(IDC_SAVEPROP, FALSE);
-		DialogEnableWindow(IDC_EDITPROPS, FALSE);
-		return;
-	}
-	DialogEnableWindow(IDC_EXPORT, TRUE);
-	DialogEnableWindow(IDC_REMOVEPROPS, TRUE);
-	DialogEnableWindow(IDC_SAVEPROP, TRUE);
-	DialogEnableWindow(IDC_EDITPROPS, TRUE);
+	int selCount = m_propList.GetSelectedCount();
+	DialogEnableWindow(IDC_EXPORT, selCount >= 1);
+	DialogEnableWindow(IDC_REMOVEPROPS, selCount >= 1);
+	DialogEnableWindow(IDC_SAVEPROP, selCount == 1);
+	DialogEnableWindow(IDC_EDITPROPS, selCount == 1);
+
 	*pResult = 0;
 }
 
