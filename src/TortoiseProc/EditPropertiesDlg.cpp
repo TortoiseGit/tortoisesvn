@@ -23,6 +23,7 @@
 #include "EditPropertiesDlg.h"
 #include "EditPropertyValueDlg.h"
 #include "UnicodeUtils.h"
+#include "PathUtils.h"
 #include "AppUtils.h"
 #include "StringUtils.h"
 #include "ProgressDlg.h"
@@ -520,6 +521,11 @@ void CEditPropertiesDlg::OnBnClickedExport()
 	if (!CAppUtils::FileOpenSave(savePath, IDS_REPOBROWSE_SAVEAS, IDS_PROPSFILEFILTER, false, m_hWnd))
 		return;
 
+	if (CPathUtils::GetFileExtFromPath(savePath).Compare(_T(".svnprops")))
+	{
+		// append the default ".svnprops" extension since the user did not specify it himself
+		savePath += _T(".svnprops");
+	}
 	// we save the list of selected properties not in a text file but in our own
 	// binary format. That's because properties can be binary themselves, a text
 	// or xml file just won't do it properly.
