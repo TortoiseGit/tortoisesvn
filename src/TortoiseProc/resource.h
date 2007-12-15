@@ -48,7 +48,6 @@
 #define IDD_CHECKFORUPDATES             174
 #define IDD_REVERT                      175
 #define IDD_PROPERTIES                  177
-#define IDD_REPOCREATE                  178
 #define IDD_STATGRAPH                   179
 #define IDD_PATCH_FILE_OPEN_CUSTOM      180
 #define IDD_REVISIONGRAPH               182
@@ -308,8 +307,6 @@
 #define IDC_F5HINT                      1127
 #define IDC_IGNOREEOL2                  1127
 #define IDC_DIFFBYDOUBLECLICK           1127
-#define IDC_RADIOBDB                    1128
-#define IDC_RADIOFSFS                   1129
 #define IDC_CHECK_STOPONCOPY            1130
 #define IDC_GRAPH                       1131
 #define IDC_STATBUTTON                  1132
