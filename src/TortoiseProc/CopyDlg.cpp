@@ -297,6 +297,8 @@ void CCopyDlg::OnCancel()
 
 BOOL CCopyDlg::PreTranslateMessage(MSG* pMsg)
 {
+	m_tooltips.RelayEvent(pMsg);
+
 	if (pMsg->message == WM_KEYDOWN)
 	{
 		switch (pMsg->wParam)
