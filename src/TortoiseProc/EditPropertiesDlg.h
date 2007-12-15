@@ -19,6 +19,7 @@
 #pragma once
 #include "StandAloneDlg.h"
 #include "SVNRev.h"
+#include "Balloon.h"
 
 /**
  * \ingroup TortoiseProc
@@ -82,4 +83,5 @@ protected:
 	volatile LONG	m_bThreadRunning;
 	std::map<stdstring, PropValue>	m_properties;
 	SVNRev			m_revision;
+	CBalloon		m_tooltips;
 };

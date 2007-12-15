@@ -99,7 +99,13 @@ BOOL CEditPropertiesDlg::OnInitDialog()
 	m_propList.InsertColumn(1, temp);
 	m_propList.SetRedraw(false);
 
-
+	m_tooltips.Create(this);
+	m_tooltips.AddTool(IDC_IMPORT, IDS_PROP_TT_IMPORT);
+	m_tooltips.AddTool(IDC_EXPORT,  IDS_PROP_TT_EXPORT);
+	m_tooltips.AddTool(IDC_SAVEPROP,  IDS_PROP_TT_SAVE);
+	m_tooltips.AddTool(IDC_REMOVEPROPS,  IDS_PROP_TT_REMOVE);
+	m_tooltips.AddTool(IDC_EDITPROPS,  IDS_PROP_TT_EDIT);
+	m_tooltips.AddTool(IDC_ADDPROPS,  IDS_PROP_TT_ADD);
 
 	AddAnchor(IDC_GROUP, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_PROPPATH, TOP_LEFT, TOP_RIGHT);
@@ -448,6 +454,8 @@ void CEditPropertiesDlg::OnCancel()
 
 BOOL CEditPropertiesDlg::PreTranslateMessage(MSG* pMsg)
 {
+	m_tooltips.RelayEvent(pMsg);
+
 	if (pMsg->message == WM_KEYDOWN)
 	{
 		switch (pMsg->wParam)

@@ -3413,6 +3413,11 @@ BEGIN
     IDS_PROP_TT_USERFOLDERPROPERTIES 
                             "tsvn:userfolderproperties\nNewline separated list of user defined properties for folders which will\nbe shown in the property dialog to choose from."
     IDS_PROP_TT_RECURSIVE   "Applies the properties recursively to all files/folders.\nbugtraq: and tsvn: properties are only applied to folders."
+    IDS_PROP_TT_IMPORT      "Import a previously saved set of properties from a file"
+    IDS_PROP_TT_EXPORT      "Exports a set of properties to a file"
+    IDS_PROP_TT_SAVE        "Saves the selected property value to a file"
+    IDS_PROP_TT_REMOVE      "Removes the selected properties"
+    IDS_PROP_TT_EDIT        "Edits the selected property value"
 END
 
 STRINGTABLE 
@@ -3422,6 +3427,7 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_PROP_TT_ADD         "Adds a new property"
     IDS_EDITCONFLICT_ACTIONINFO_ADD "Could not add ""%s"" because"
     IDS_EDITCONFLICT_ACTIONINFO_MODIFY "Could not merge ""%s"" because"
     IDS_EDITCONFLICT_ACTIONINFO_DELETE "Could not delete ""%s"" because"
