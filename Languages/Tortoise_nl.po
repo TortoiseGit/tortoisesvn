@@ -26,7 +26,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2000-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-12-15 00:24+0200\n"
+"PO-Revision-Date: 2007-12-16 21:40+0200\n"
 "Last-Translator: Bob Hulst <bob.hulst@hiq.fi>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -247,10 +247,6 @@ msgstr "&Automatisch sluiten:"
 #. Resource IDs: (1015)
 msgid "&Backup original file"
 msgstr "&Maak reservekopie van origineel"
-
-#. Resource IDs: (1128)
-msgid "&Berkeley database (BDB)"
-msgstr "&Berkeley Database (BDB)"
 
 #. Resource IDs: (114)
 msgid "&Blame changes"
@@ -548,10 +544,6 @@ msgstr "&Samenvoegen..."
 #. Resource IDs: (1012)
 msgid "&Merging"
 msgstr "&Samenvoegen"
-
-#. Resource IDs: (1129)
-msgid "&Native filesystem (FSFS)"
-msgstr "B&estandsysteem (FSFS)"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -1045,6 +1037,10 @@ msgstr ""
 #. Resource IDs: (263)
 msgid "Adding"
 msgstr "Toevoegen"
+
+#. Resource IDs: (582)
+msgid "Adds a new property"
+msgstr "Voeg een nieuwe eigenschap toe"
 
 #. Resource IDs: (9)
 msgid "Adds file(s) to Subversion control"
@@ -2092,10 +2088,6 @@ msgstr "Maak werkset"
 msgid "Create Patch"
 msgstr "Maak patch"
 
-#. Resource IDs: (178)
-msgid "Create Repository"
-msgstr "Maak archief"
-
 #. Resource IDs: (1385)
 msgid "Create copy in the repository from:"
 msgstr "Maak een kopie in het archief van:"
@@ -2434,6 +2426,10 @@ msgstr "Logboek boodschap wijzigen"
 msgid "Edit..."
 msgstr "Wijzigen..."
 
+#. Resource IDs: (581)
+msgid "Edits the selected property value"
+msgstr "Wijzig de geselecteerde waarde van de eigenschap"
+
 #. Resource IDs: (79)
 msgid "Either the name or IP of the proxy server"
 msgstr "De naam of het IP-adres van de proxyserver"
@@ -2652,6 +2648,10 @@ msgstr "Exporteren..."
 #. Resource IDs: (10)
 msgid "Exports a repository to a clean working copy without the svn administrative folders"
 msgstr "Exporteert een archief naar een schone werkkopie zonder de svn administratiemappen"
+
+#. Resource IDs: (581)
+msgid "Exports a set of properties to a file"
+msgstr "Exporteer een set met eigenschappen naar een bestand"
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -3440,6 +3440,10 @@ msgstr "&Boodschap importeren"
 #. Resource IDs: (77)
 msgid "Import - TortoiseSVN"
 msgstr "Importeren - TortoiseSVN"
+
+#. Resource IDs: (581)
+msgid "Import a previously saved set of properties from a file"
+msgstr "Importeer een eerder opgeslagen set me eigenschappen van een bestand"
 
 #. Resource IDs: (127)
 #, c-format
@@ -4806,6 +4810,10 @@ msgstr "Verwijdert alle bestanden die niet onder versiebeheer zijn"
 msgid "Removes the file or filemask from the list of ignored items"
 msgstr "Verwijdert bestand(en) of het bestandspatroon uit de negeerlijst"
 
+#. Resource IDs: (581)
+msgid "Removes the selected properties"
+msgstr "Verwijder de geselecteerde eigenschappen"
+
 #. Resource IDs: (151)
 msgid "Rename"
 msgstr "Hernoemen"
@@ -5215,6 +5223,10 @@ msgstr "Op klembord zetten"
 msgid "Saved Data"
 msgstr "Opgeslagen gegevens"
 
+#. Resource IDs: (581)
+msgid "Saves the selected property value to a file"
+msgstr "Bewaar de waarde van de geselecteerde eigenschap in een bestand "
+
 #. Resource IDs: (103)
 #, c-format
 msgid "Saving file %s"
@@ -5364,10 +5376,6 @@ msgstr "Selecteer revisiebereik"
 #. Resource IDs: (595)
 msgid "Select the type of merge"
 msgstr "Selecteer samenvoeg-type"
-
-#. Resource IDs: (65535)
-msgid "Select the type of repository you want to create:"
-msgstr "Selecteer welk soort archief u wilt maken:"
 
 #. Resource IDs: (595)
 msgid "Select the urls for the tree merge"
