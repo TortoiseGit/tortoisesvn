@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-12-10 20:23+0100\n"
+"PO-Revision-Date: 2007-12-16 18:51+0100\n"
 "Last-Translator: Matjaz Cepon <matjaz.cepon@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -157,6 +157,11 @@ msgstr "%ld od %ld"
 msgid "%ld paths"
 msgstr "Poti %ld"
 
+#. Resource IDs: (115)
+#, c-format
+msgid "%s (offline) - %s"
+msgstr "%s (nepovezano) - %s"
+
 #. Resource IDs: (226)
 #, c-format
 msgid "%s - at revision: %d"
@@ -257,10 +262,6 @@ msgstr "&Samodejno zapiranje:"
 #. Resource IDs: (1015)
 msgid "&Backup original file"
 msgstr "Naredi &varnostno kopijo izvorne datoteke"
-
-#. Resource IDs: (1128)
-msgid "&Berkeley database (BDB)"
-msgstr "Zbirka podatkov &Berkeley (BDB)"
 
 #. Resource IDs: (114)
 msgid "&Blame changes"
@@ -558,10 +559,6 @@ msgstr "&Spoji ..."
 #. Resource IDs: (1012)
 msgid "&Merging"
 msgstr "&Spajanje"
-
-#. Resource IDs: (1129)
-msgid "&Native filesystem (FSFS)"
-msgstr "&Domorodni datotečni sistem (FSFS)"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -1056,6 +1053,10 @@ msgstr ""
 msgid "Adding"
 msgstr "Dodajanje"
 
+#. Resource IDs: (582)
+msgid "Adds a new property"
+msgstr "Doda novo lastnost"
+
 #. Resource IDs: (9)
 msgid "Adds file(s) to Subversion control"
 msgstr "Doda datoteke v siszem nadzora različic Subversion"
@@ -1188,6 +1189,11 @@ msgstr "Uporabi poenoteno razliko"
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
 msgstr "Ali ste prepričani, da želite sporne datoteke označiti kot rešene?"
+
+#. Resource IDs: (199)
+#, c-format
+msgid "Are you sure you want to remove the cache of the selected %d items?"
+msgstr "Ali ste prepričani, da želite odstaniti predpomnilnik izbranih %d elementov?"
 
 #. Resource IDs: (79)
 #, c-format
@@ -2099,10 +2105,6 @@ msgstr "Ustvari seznam sprememb"
 msgid "Create Patch"
 msgstr "Ustvari popravek"
 
-#. Resource IDs: (178)
-msgid "Create Repository"
-msgstr "Ustvari skladišče"
-
 #. Resource IDs: (1385)
 msgid "Create copy in the repository from:"
 msgstr "Ustvari kopijo v skladišču iz:"
@@ -2441,6 +2443,10 @@ msgstr "Uredi dnevniški zapis"
 msgid "Edit..."
 msgstr "Uredi..."
 
+#. Resource IDs: (581)
+msgid "Edits the selected property value"
+msgstr "Uredi vrednost izbrane lastnosti"
+
 #. Resource IDs: (79)
 msgid "Either the name or IP of the proxy server"
 msgstr "Ime ali IP naslov prehoda"
@@ -2659,6 +2665,10 @@ msgstr "Izvažanje..."
 #. Resource IDs: (10)
 msgid "Exports a repository to a clean working copy without the svn administrative folders"
 msgstr "Izvozi skladišče v čisto delovno kopijo brez upravljalskih map svn"
+
+#. Resource IDs: (581)
+msgid "Exports a set of properties to a file"
+msgstr "Izvozi nabor lastnosti v datoteko"
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -3445,6 +3455,10 @@ msgstr "Sporočilo ob &uvozu"
 #. Resource IDs: (77)
 msgid "Import - TortoiseSVN"
 msgstr "Uvozi - TortoiseSVN"
+
+#. Resource IDs: (581)
+msgid "Import a previously saved set of properties from a file"
+msgstr "Uvozi predhodnje shranjen nabor lastnosti iz datoteke"
 
 #. Resource IDs: (127)
 #, c-format
@@ -4515,6 +4529,10 @@ msgstr "Napredek"
 msgid "Properties"
 msgstr "Lastnosti"
 
+#. Resource IDs: (157)
+msgid "Properties (*.svnprops)|*.svnprops|All Files (*.*)|*.*||"
+msgstr "Lastnosti (*.svnprops)|*.svnprops|Vse datoteke (*.*)|*.*||"
+
 #. Resource IDs: (1287)
 msgid "Properties for"
 msgstr "Lastnosti za"
@@ -4803,6 +4821,10 @@ msgstr "Odstrani vse datoteke brez različic in prezrte datoteke."
 #. Resource IDs: (15)
 msgid "Removes the file or filemask from the list of ignored items"
 msgstr "Odstrani datoteko ali masko imena datotek s seznama prezrtih"
+
+#. Resource IDs: (581)
+msgid "Removes the selected properties"
+msgstr "Odstrani izbrane lastnosti"
 
 #. Resource IDs: (151)
 msgid "Rename"
@@ -5213,6 +5235,10 @@ msgstr "Shrani na odložišče"
 msgid "Saved Data"
 msgstr "Shranjeni podatki"
 
+#. Resource IDs: (581)
+msgid "Saves the selected property value to a file"
+msgstr "Shrani vrednost izbrane lastnosti v datoteko"
+
 #. Resource IDs: (103)
 #, c-format
 msgid "Saving file %s"
@@ -5362,10 +5388,6 @@ msgstr "Izberite revizije za spajanje"
 #. Resource IDs: (595)
 msgid "Select the type of merge"
 msgstr "Izberite vrsto spajanja"
-
-#. Resource IDs: (65535)
-msgid "Select the type of repository you want to create:"
-msgstr "Izberite vrsto skladišča, ki ga želite ustvariti:"
 
 #. Resource IDs: (595)
 msgid "Select the urls for the tree merge"
@@ -6606,6 +6628,10 @@ msgstr "Odklepanje ni uspelo"
 #. Resource IDs: (263)
 msgid "Unlocked"
 msgstr "Odklenjeno"
+
+#. Resource IDs: (565)
+msgid "Unrecognized or invalid property file format!"
+msgstr "Neprepoznana ali neveljavna oblika datoteke lastnosti!"
 
 #. Resource IDs: (3841)
 msgid "Untitled"
