@@ -192,7 +192,11 @@ BOOL CTortoiseProcApp::InitInstance()
 		else
 			langId = 0;
 	} while (langId);
-	setlocale(LC_ALL, ""); 
+	setlocale(LC_ALL, "");
+	// create a client name string to be used for all http/https connections
+	char namestring[MAX_PATH] = {0};
+	sprintf_s(namestring, MAX_PATH, "TortoiseSVN-%d.%d.%d.%d", TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);
+	svn_ra_set_client_namestring(namestring);
 	
 	// InitCommonControls() is required on Windows XP if an application
 	// manifest specifies use of ComCtl32.dll version 6 or later to enable
