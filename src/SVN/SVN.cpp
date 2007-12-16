@@ -686,19 +686,19 @@ BOOL SVN::Resolve(const CTSVNPath& path, svn_wc_conflict_choice_t result, BOOL r
 		if (s && s->entry)
 		{
 			CTSVNPathList conflictedEntries;
-			if (s->entry->conflict_new)
+			if ((s->entry->conflict_new)&&(result != svn_wc_conflict_choose_theirs))
 			{
 				CTSVNPath conflictpath = path.GetContainingDirectory();
 				conflictpath.AppendPathString(CUnicodeUtils::GetUnicode(s->entry->conflict_new));
 				conflictedEntries.AddPath(conflictpath);
 			}
-			if (s->entry->conflict_old)
+			if ((s->entry->conflict_old)&&(result != svn_wc_conflict_choose_merged))
 			{
 				CTSVNPath conflictpath = path.GetContainingDirectory();
 				conflictpath.AppendPathString(CUnicodeUtils::GetUnicode(s->entry->conflict_old));
 				conflictedEntries.AddPath(conflictpath);
 			}
-			if (s->entry->conflict_wrk)
+			if ((s->entry->conflict_wrk)&&(result != svn_wc_conflict_choose_mine))
 			{
 				CTSVNPath conflictpath = path.GetContainingDirectory();
 				conflictpath.AppendPathString(CUnicodeUtils::GetUnicode(s->entry->conflict_wrk));
