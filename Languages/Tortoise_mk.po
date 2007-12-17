@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-12-14 16:24+0100\n"
+"PO-Revision-Date: 2007-12-17 14:21+0100\n"
 "Last-Translator: Срѓан Стокиќ <srdjan.stokic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -255,10 +255,6 @@ msgstr "&Аутозатворање:"
 #. Resource IDs: (1015)
 msgid "&Backup original file"
 msgstr "&Сигурносна копија на оригинална датотека"
-
-#. Resource IDs: (1128)
-msgid "&Berkeley database (BDB)"
-msgstr "&Berkeley база на податоци (BDB)"
 
 #. Resource IDs: (114)
 msgid "&Blame changes"
@@ -557,11 +553,6 @@ msgstr "&Соедини..."
 #. Resource IDs: (1012)
 msgid "&Merging"
 msgstr "&Соединување"
-
-# filesystem?
-#. Resource IDs: (1129)
-msgid "&Native filesystem (FSFS)"
-msgstr "&Изворен filesystem (FSFS)"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -1057,6 +1048,10 @@ msgstr ""
 #. Resource IDs: (263)
 msgid "Adding"
 msgstr "Додавање"
+
+#. Resource IDs: (582)
+msgid "Adds a new property"
+msgstr "Додади ново својство"
 
 #. Resource IDs: (9)
 msgid "Adds file(s) to Subversion control"
@@ -2108,10 +2103,6 @@ msgstr "Креирај листа со измени"
 msgid "Create Patch"
 msgstr "Креирај закрпа"
 
-#. Resource IDs: (178)
-msgid "Create Repository"
-msgstr "Креирај складиште"
-
 #. Resource IDs: (1385)
 msgid "Create copy in the repository from:"
 msgstr "Креирај копија во складиштето од:"
@@ -2450,6 +2441,10 @@ msgstr "Измени ја логираната порака"
 msgid "Edit..."
 msgstr "Измени..."
 
+#. Resource IDs: (581)
+msgid "Edits the selected property value"
+msgstr "Измени ја вредноста на избраното својство"
+
 #. Resource IDs: (79)
 msgid "Either the name or IP of the proxy server"
 msgstr "Име или IP на proxy серверот"
@@ -2668,6 +2663,10 @@ msgstr "Извезувам..."
 #. Resource IDs: (10)
 msgid "Exports a repository to a clean working copy without the svn administrative folders"
 msgstr "Извоз на складиштето во чиста работна копија без svn административни директориуми"
+
+#. Resource IDs: (581)
+msgid "Exports a set of properties to a file"
+msgstr "Експортира множество на својства во датотека"
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -3469,6 +3468,10 @@ msgstr "Увези &порака"
 #. Resource IDs: (77)
 msgid "Import - TortoiseSVN"
 msgstr "Увези - TortoiseSVN"
+
+#. Resource IDs: (581)
+msgid "Import a previously saved set of properties from a file"
+msgstr "Импортирај претходно зачувани параметри од датотека"
 
 #. Resource IDs: (127)
 #, c-format
@@ -4838,6 +4841,10 @@ msgstr "Отстрани ги сите неверзионирани и игно�
 msgid "Removes the file or filemask from the list of ignored items"
 msgstr "Отстрани ја датотеката или маската од листата на игнорирани ставки"
 
+#. Resource IDs: (581)
+msgid "Removes the selected properties"
+msgstr "Отстрани ги избраните својства"
+
 #. Resource IDs: (151)
 msgid "Rename"
 msgstr "Преименувај"
@@ -5247,6 +5254,10 @@ msgstr "Зачувај на clipboard"
 msgid "Saved Data"
 msgstr "Зачувани податоци"
 
+#. Resource IDs: (581)
+msgid "Saves the selected property value to a file"
+msgstr "Зачувај го избрераната вредност на својството во датотека"
+
 #. Resource IDs: (103)
 #, c-format
 msgid "Saving file %s"
@@ -5396,10 +5407,6 @@ msgstr "Изберете ревизии за спојување"
 #. Resource IDs: (595)
 msgid "Select the type of merge"
 msgstr "Изберете тип на спојување"
-
-#. Resource IDs: (65535)
-msgid "Select the type of repository you want to create:"
-msgstr "Изберете тип на складиштето кое сакате да биде креирано:"
 
 #. Resource IDs: (595)
 msgid "Select the urls for the tree merge"
@@ -6645,8 +6652,8 @@ msgid "Unlocked"
 msgstr "Отклучено"
 
 #. Resource IDs: (565)
-msgid "Unrecognized or invallid property file format!"
-msgstr "Непрепознаен или невалиден формат на датотека!"
+msgid "Unrecognized or invalid property file format!"
+msgstr "Непрепознаен или невалиден облик на дадотеката"
 
 #. Resource IDs: (3841)
 msgid "Untitled"
