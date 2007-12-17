@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-12-14 10:27+0100\n"
+"PO-Revision-Date: 2007-12-17 09:12+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -240,10 +240,6 @@ msgstr "&Schließen:"
 #. Resource IDs: (1015)
 msgid "&Backup original file"
 msgstr "&Erstelle Sicherheitskopie"
-
-#. Resource IDs: (1128)
-msgid "&Berkeley database (BDB)"
-msgstr "&Berkeley Datenbank (BDB)"
 
 #. Resource IDs: (114)
 msgid "&Blame changes"
@@ -541,10 +537,6 @@ msgstr "&Zusammenführen"
 #. Resource IDs: (1012)
 msgid "&Merging"
 msgstr "&Zusammenführen"
-
-#. Resource IDs: (1129)
-msgid "&Native filesystem (FSFS)"
-msgstr "&Eigenes Dateisystem (FSFS)"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -1039,6 +1031,10 @@ msgstr ""
 #. Resource IDs: (263)
 msgid "Adding"
 msgstr "Füge hinzu"
+
+#. Resource IDs: (582)
+msgid "Adds a new property"
+msgstr "Eine neue Eigenschaft hinzufügen"
 
 #. Resource IDs: (9)
 msgid "Adds file(s) to Subversion control"
@@ -2093,10 +2089,6 @@ msgstr "Erzeuge Änderungsliste"
 msgid "Create Patch"
 msgstr "Erzeuge Patch"
 
-#. Resource IDs: (178)
-msgid "Create Repository"
-msgstr "Projektarchiv hier erstellen"
-
 #. Resource IDs: (1385)
 msgid "Create copy in the repository from:"
 msgstr "Erstelle Kopie im Projektarchiv aus:"
@@ -2435,6 +2427,10 @@ msgstr "Logmeldung bearbeiten"
 msgid "Edit..."
 msgstr "Bearbeiten..."
 
+#. Resource IDs: (581)
+msgid "Edits the selected property value"
+msgstr "Den Wert der markierten Eigenschaft ändern"
+
 #. Resource IDs: (79)
 msgid "Either the name or IP of the proxy server"
 msgstr "Entweder der Name oder die IP Adresse des Proxy Servers"
@@ -2653,6 +2649,10 @@ msgstr "Exportiere..."
 #. Resource IDs: (10)
 msgid "Exports a repository to a clean working copy without the svn administrative folders"
 msgstr "Exportiert ein Projektarchiv in eine 'saubere' Arbeitskopie ohne die Administrationsdateien im Ordner .svn"
+
+#. Resource IDs: (581)
+msgid "Exports a set of properties to a file"
+msgstr "Einen Satz von Eigenschaften in eine Datei exportieren"
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -3464,6 +3464,10 @@ msgstr "Import &Meldung"
 #. Resource IDs: (77)
 msgid "Import - TortoiseSVN"
 msgstr "Importieren - TortoiseSVN"
+
+#. Resource IDs: (581)
+msgid "Import a previously saved set of properties from a file"
+msgstr "Einen Satz von Eigenschaften aus einer Datei importieren"
 
 #. Resource IDs: (127)
 #, c-format
@@ -4836,6 +4840,10 @@ msgstr "Entfernt alle nicht versionierten und ignorierten Objekte"
 msgid "Removes the file or filemask from the list of ignored items"
 msgstr "Entfernt die gewählte(n) Datei(en) oder Dateimasken aus der 'Ignorieren' Liste"
 
+#. Resource IDs: (581)
+msgid "Removes the selected properties"
+msgstr "Entfernt die markierten Eigenschaften"
+
 #. Resource IDs: (151)
 msgid "Rename"
 msgstr "Umbenennen"
@@ -5245,6 +5253,10 @@ msgstr "In Zwischenablage speichern"
 msgid "Saved Data"
 msgstr "Gespeicherte Daten"
 
+#. Resource IDs: (581)
+msgid "Saves the selected property value to a file"
+msgstr "Speichert die markierte Eigenschaft in einer Datei"
+
 #. Resource IDs: (103)
 #, c-format
 msgid "Saving file %s"
@@ -5394,10 +5406,6 @@ msgstr "Wählen sie die Revisionen"
 #. Resource IDs: (595)
 msgid "Select the type of merge"
 msgstr "Was wollen Sie zusammenführen"
-
-#. Resource IDs: (65535)
-msgid "Select the type of repository you want to create:"
-msgstr "Wählen Sie die Art des Projektarchivs, das Sie erstellen möchten:"
 
 #. Resource IDs: (595)
 msgid "Select the urls for the tree merge"
@@ -6653,7 +6661,7 @@ msgid "Unlocked"
 msgstr "Entsperrt"
 
 #. Resource IDs: (565)
-msgid "Unrecognized or invallid property file format!"
+msgid "Unrecognized or invalid property file format!"
 msgstr "Unbekanntes oder ungültiges Format der Eigenschaftsdatei!"
 
 #. Resource IDs: (3841)
@@ -7780,4 +7788,13 @@ msgstr "Jahr"
 #. Resource IDs: (18, 1002, 1011, 1012)
 msgid "yes"
 msgstr "ja"
+
+#~ msgid "&Berkeley database (BDB)"
+#~ msgstr "&Berkeley Datenbank (BDB)"
+#~ msgid "&Native filesystem (FSFS)"
+#~ msgstr "&Eigenes Dateisystem (FSFS)"
+#~ msgid "Create Repository"
+#~ msgstr "Projektarchiv hier erstellen"
+#~ msgid "Select the type of repository you want to create:"
+#~ msgstr "Wählen Sie die Art des Projektarchivs, das Sie erstellen möchten:"
 
