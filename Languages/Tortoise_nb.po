@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-12-11 12:58+0100\n"
+"PO-Revision-Date: 2007-12-17 15:38+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -291,10 +291,6 @@ msgstr "Lukk &automatisk:"
 #. Resource IDs: (1015)
 msgid "&Backup original file"
 msgstr "Sikkerhets&kopiér orginalfilen"
-
-#. Resource IDs: (1128)
-msgid "&Berkeley database (BDB)"
-msgstr "&Berkeley Database (BDB)"
 
 #. Resource IDs: (114)
 msgid "&Blame changes"
@@ -592,10 +588,6 @@ msgstr "&Flett..."
 #. Resource IDs: (1012)
 msgid "&Merging"
 msgstr "&Fletting"
-
-#. Resource IDs: (1129)
-msgid "&Native filesystem (FSFS)"
-msgstr "&Operativsystemets filsystem (FSFS)"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -1090,6 +1082,10 @@ msgstr ""
 msgid "Adding"
 msgstr "Legger til"
 
+#. Resource IDs: (582)
+msgid "Adds a new property"
+msgstr "Legger til en ny egenskap"
+
 #. Resource IDs: (9)
 msgid "Adds file(s) to Subversion control"
 msgstr "Legger filen(e) under Subversion-kontroll"
@@ -1222,6 +1218,11 @@ msgstr "Flett inn enhetlig diff"
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
 msgstr "Er du sikker på at du vil sette status som løst på konfliktstatus-merkede file(r)?"
+
+#. Resource IDs: (199)
+#, c-format
+msgid "Are you sure you want to remove the cache of the selected %d items?"
+msgstr "Er du sikker på at du vil slette mellomlageret til de %d valgte elementene?"
 
 #. Resource IDs: (79)
 #, c-format
@@ -2133,10 +2134,6 @@ msgstr "Lag Endringsliste"
 msgid "Create Patch"
 msgstr "Lag Korreksjon"
 
-#. Resource IDs: (178)
-msgid "Create Repository"
-msgstr "Lag depot"
-
 #. Resource IDs: (1385)
 msgid "Create copy in the repository from:"
 msgstr "Lag kopi i depotet fra:"
@@ -2475,6 +2472,10 @@ msgstr "Rediger loggmelding"
 msgid "Edit..."
 msgstr "Rediger..."
 
+#. Resource IDs: (581)
+msgid "Edits the selected property value"
+msgstr "Redigerer verdien til valgt egenskap"
+
 #. Resource IDs: (79)
 msgid "Either the name or IP of the proxy server"
 msgstr "Enten navnet eller IP-adressen på mellomtjener"
@@ -2693,6 +2694,10 @@ msgstr "Eksporterer..."
 #. Resource IDs: (10)
 msgid "Exports a repository to a clean working copy without the svn administrative folders"
 msgstr "Eksporterer et depot til en ren arbeidskopi som er uten administrative Subversion-mapper"
+
+#. Resource IDs: (581)
+msgid "Exports a set of properties to a file"
+msgstr "Eksporterer en samling egenskaper til en fil"
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -3481,6 +3486,10 @@ msgstr "Importer &melding"
 #. Resource IDs: (77)
 msgid "Import - TortoiseSVN"
 msgstr "Import - TortoiseSVN"
+
+#. Resource IDs: (581)
+msgid "Import a previously saved set of properties from a file"
+msgstr "Importerer en tidligere lagret samling egenskaper fra en fil"
 
 #. Resource IDs: (127)
 #, c-format
@@ -4555,6 +4564,10 @@ msgstr "Fremdrift"
 msgid "Properties"
 msgstr "Egenskaper"
 
+#. Resource IDs: (157)
+msgid "Properties (*.svnprops)|*.svnprops|All Files (*.*)|*.*||"
+msgstr "Egenskaper (*.svnprops)|*.svnprops|Alle Filer (*.*)|*.*||"
+
 #. Resource IDs: (1287)
 msgid "Properties for"
 msgstr "Egenskaper for"
@@ -4843,6 +4856,10 @@ msgstr "Fjerner alle ikke-versjonerte og ignorerte elementer"
 #. Resource IDs: (15)
 msgid "Removes the file or filemask from the list of ignored items"
 msgstr "Fjerbner filen eller jokertegn i ignorerings-listen"
+
+#. Resource IDs: (581)
+msgid "Removes the selected properties"
+msgstr "Fjerner de valgte egenskapene"
 
 #. Resource IDs: (151)
 msgid "Rename"
@@ -5253,6 +5270,10 @@ msgstr "Lagre til utklippstavle"
 msgid "Saved Data"
 msgstr "Lagrede Data"
 
+#. Resource IDs: (581)
+msgid "Saves the selected property value to a file"
+msgstr "Lagrer verdien av valgt egenskap til en fil"
+
 #. Resource IDs: (103)
 #, c-format
 msgid "Saving file %s"
@@ -5402,10 +5423,6 @@ msgstr "Velg revisjoner som skal flettes"
 #. Resource IDs: (595)
 msgid "Select the type of merge"
 msgstr "Velg flettingstype"
-
-#. Resource IDs: (65535)
-msgid "Select the type of repository you want to create:"
-msgstr "Velg den depot-typen du vil ha:"
 
 #. Resource IDs: (595)
 msgid "Select the urls for the tree merge"
@@ -6647,6 +6664,10 @@ msgstr "Oppheving av sperring feilet"
 #. Resource IDs: (263)
 msgid "Unlocked"
 msgstr "Sperring opphevet"
+
+#. Resource IDs: (565)
+msgid "Unrecognized or invalid property file format!"
+msgstr "Ukjent eller ugyldig format på egenskapsfil!"
 
 #. Resource IDs: (3841)
 msgid "Untitled"
