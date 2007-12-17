@@ -3580,7 +3580,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				bool bGotSavePath = false;
 				if ((m_LogList.GetSelectedCount() == 1)&&(!m_path.IsDirectory()))
 				{
-					bGotSavePath = CAppUtils::FileOpenSave(path, IDS_LOG_MERGETO, IDS_COMMONFILEFILTER, true, GetSafeHwnd());
+					bGotSavePath = CAppUtils::FileOpenSave(path, NULL, IDS_LOG_MERGETO, IDS_COMMONFILEFILTER, true, GetSafeHwnd());
 				}
 				else
 				{
@@ -3722,7 +3722,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 					else
 						revFilename.Format(_T("%s-%ld"), (LPCTSTR)strWinPath, revSelected);
 				}
-				if (CAppUtils::FileOpenSave(revFilename, IDS_LOG_POPUP_SAVE, IDS_COMMONFILEFILTER, false, m_hWnd))
+				if (CAppUtils::FileOpenSave(revFilename, NULL, IDS_LOG_POPUP_SAVE, IDS_COMMONFILEFILTER, false, m_hWnd))
 				{
 					CTSVNPath tempfile;
 					tempfile.SetFromWin(revFilename);
@@ -4287,7 +4287,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 						revFilename.Format(_T("%s-%ld%s"), temp.Left(rfind), rev1, temp.Mid(rfind));
 					else
 						revFilename.Format(_T("%s-%ld"), temp, rev1);
-					bTargetSelected = CAppUtils::FileOpenSave(revFilename, IDS_LOG_POPUP_SAVE, IDS_COMMONFILEFILTER, false, m_hWnd);
+					bTargetSelected = CAppUtils::FileOpenSave(revFilename, NULL, IDS_LOG_POPUP_SAVE, IDS_COMMONFILEFILTER, false, m_hWnd);
 					TargetPath.SetFromWin(revFilename);
 					}
 				if (bTargetSelected)

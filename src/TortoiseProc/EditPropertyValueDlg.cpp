@@ -345,7 +345,7 @@ BOOL CEditPropertyValueDlg::PreTranslateMessage(MSG* pMsg)
 void CEditPropertyValueDlg::OnBnClickedLoadprop()
 {
 	CString openPath;
-	if (!CAppUtils::FileOpenSave(openPath, IDS_REPOBROWSE_OPEN, IDS_COMMONFILEFILTER, true, m_hWnd))
+	if (!CAppUtils::FileOpenSave(openPath, NULL, IDS_REPOBROWSE_OPEN, IDS_COMMONFILEFILTER, true, m_hWnd))
 	{
 		return;
 	}

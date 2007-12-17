@@ -153,7 +153,7 @@ void CSetHooksAdv::OnBnClickedHookbrowse()
 void CSetHooksAdv::OnBnClickedHookcommandbrowse()
 {
 	// Display the Open dialog box. 
-	if (CAppUtils::FileOpenSave(m_sCommandLine, IDS_SETTINGS_HOOKS_SELECTSCRIPTFILE, IDS_COMMONFILEFILTER, true, m_hWnd))
+	if (CAppUtils::FileOpenSave(m_sCommandLine, NULL, IDS_SETTINGS_HOOKS_SELECTSCRIPTFILE, IDS_COMMONFILEFILTER, true, m_hWnd))
 	{
 		UpdateData(FALSE);
 	}

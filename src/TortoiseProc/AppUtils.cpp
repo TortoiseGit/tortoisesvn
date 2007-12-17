@@ -813,7 +813,7 @@ bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& r
 	return false;
 }
 
-bool CAppUtils::FileOpenSave(CString& path, UINT title, UINT filter, bool bOpen, HWND hwndOwner)
+bool CAppUtils::FileOpenSave(CString& path, int * filterindex, UINT title, UINT filter, bool bOpen, HWND hwndOwner)
 {
 	OPENFILENAME ofn = {0};				// common dialog box structure
 	TCHAR szFile[MAX_PATH] = {0};		// buffer for file name. Explorer can't handle paths longer than MAX_PATH.
@@ -871,6 +871,8 @@ bool CAppUtils::FileOpenSave(CString& path, UINT title, UINT filter, bool bOpen,
 		if (pszFilters)
 			delete [] pszFilters;
 		path = CString(ofn.lpstrFile);
+		if (filterindex)
+			*filterindex = ofn.nFilterIndex;
 		return true;
 	}
 	if (pszFilters)

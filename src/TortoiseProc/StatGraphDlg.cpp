@@ -20,6 +20,7 @@
 #include "TortoiseProc.h"
 #include "StatGraphDlg.h"
 #include "gdiplus.h"
+#include "AppUtils.h"
 #include "StringUtils.h"
 #include "PathUtils.h"
 #include "MemDC.h"
@@ -1243,42 +1244,10 @@ void CStatGraphDlg::EnableDisableMenu()
 
 void CStatGraphDlg::OnFileSavestatgraphas()
 {
-	CString temp;
-	// ask for the filename to save the picture
-	OPENFILENAME ofn = {0};				// common dialog box structure
-	TCHAR szFile[MAX_PATH] = {0};		// buffer for file name
-	// Initialize OPENFILENAME
-	ofn.lStructSize = sizeof(OPENFILENAME);
-	ofn.hwndOwner = this->m_hWnd;
-	ofn.lpstrFile = szFile;
-	ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-	temp.LoadString(IDS_REVGRAPH_SAVEPIC);
-	CStringUtils::RemoveAccelerators(temp);
-	if (temp.IsEmpty())
-		ofn.lpstrTitle = NULL;
-	else
-		ofn.lpstrTitle = temp;
-	ofn.Flags = OFN_OVERWRITEPROMPT;
-
-	CString sFilter;
-	sFilter.LoadString(IDS_PICTUREFILEFILTER);
-	TCHAR * pszFilters = new TCHAR[sFilter.GetLength()+4];
-	_tcscpy_s (pszFilters, sFilter.GetLength()+4, sFilter);
-	// Replace '|' delimiters with '\0's
-	TCHAR *ptr = pszFilters + _tcslen(pszFilters);  //set ptr at the NULL
-	while (ptr != pszFilters)
-	{
-		if (*ptr == '|')
-			*ptr = '\0';
-		ptr--;
-	}
-	ofn.lpstrFilter = pszFilters;
-	ofn.nFilterIndex = 1;
-	// Display the Open dialog box. 
 	CString tempfile;
-	if (GetSaveFileName(&ofn)==TRUE)
+	int filterindex = 0;
+	if (CAppUtils::FileOpenSave(tempfile, &filterindex, IDS_REVGRAPH_SAVEPIC, IDS_PICTUREFILEFILTER, false, m_hWnd))
 	{
-		tempfile = CString(ofn.lpstrFile);
 		// if the user doesn't specify a file extension, default to
 		// wmf and add that extension to the filename. But only if the
 		// user chose the 'pictures' filter. The filename isn't changed
@@ -1288,14 +1257,13 @@ void CStatGraphDlg::OnFileSavestatgraphas()
 		int slashPos = tempfile.ReverseFind('\\');
 		if (dotPos > slashPos)
 			extension = tempfile.Mid(dotPos);
-		if ((ofn.nFilterIndex == 1)&&(extension.IsEmpty()))
+		if ((filterindex == 1)&&(extension.IsEmpty()))
 		{
 			extension = _T(".wmf");
 			tempfile += extension;
 		}
 		SaveGraph(tempfile);
 	}
-	delete [] pszFilters;
 }
 
 void CStatGraphDlg::SaveGraph(CString sFilename)

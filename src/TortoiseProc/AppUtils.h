@@ -131,7 +131,7 @@ public:
 
 	static bool BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& rev);
 
-	static bool FileOpenSave(CString& path, UINT title, UINT filter, bool bOpen, HWND hwndOwner = NULL);
+	static bool FileOpenSave(CString& path, int * filterindex, UINT title, UINT filter, bool bOpen, HWND hwndOwner = NULL);
 private:
 	static CString PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2);
 	static bool GetMimeType(const CTSVNPath& file, CString& mimetype);

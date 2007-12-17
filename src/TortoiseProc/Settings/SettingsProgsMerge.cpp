@@ -121,7 +121,7 @@ void CSettingsProgsMerge::OnEnChangeExtmerge()
 
 void CSettingsProgsMerge::OnBnClickedExtmergebrowse()
 {
-	if (CAppUtils::FileOpenSave(m_sMergePath, IDS_SETTINGS_SELECTMERGE, IDS_PROGRAMSFILEFILTER, true, m_hWnd))
+	if (CAppUtils::FileOpenSave(m_sMergePath, NULL, IDS_SETTINGS_SELECTMERGE, IDS_PROGRAMSFILEFILTER, true, m_hWnd))
 	{
 		UpdateData(FALSE);
 		SetModified();

@@ -81,7 +81,7 @@ void CSettingsProgsUniDiff::OnEnChangeDiffviewer()
 
 void CSettingsProgsUniDiff::OnBnClickedDiffviewerbrowse()
 {
-	if (CAppUtils::FileOpenSave(m_sDiffViewerPath, IDS_SETTINGS_SELECTDIFFVIEWER, IDS_PROGRAMSFILEFILTER, true, m_hWnd))
+	if (CAppUtils::FileOpenSave(m_sDiffViewerPath, NULL, IDS_SETTINGS_SELECTDIFFVIEWER, IDS_PROGRAMSFILEFILTER, true, m_hWnd))
 	{
 		UpdateData(FALSE);
 		SetModified();
