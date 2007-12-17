@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-12-11 11:05+0900\n"
+"PO-Revision-Date: 2007-12-17 09:56+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -236,10 +236,6 @@ msgstr "자동닫기(&A):"
 #. Resource IDs: (1015)
 msgid "&Backup original file"
 msgstr "원본 파일 백업(&B)"
-
-#. Resource IDs: (1128)
-msgid "&Berkeley database (BDB)"
-msgstr "버클리 데이터베이스(&B) (BDB)"
 
 #. Resource IDs: (114)
 msgid "&Blame changes"
@@ -537,10 +533,6 @@ msgstr "병합(&M)..."
 #. Resource IDs: (1012)
 msgid "&Merging"
 msgstr "병합(&M)"
-
-#. Resource IDs: (1129)
-msgid "&Native filesystem (FSFS)"
-msgstr "고유의 파일시스템 (&Native FS, FSFS)"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -1035,6 +1027,10 @@ msgstr ""
 msgid "Adding"
 msgstr "추가"
 
+#. Resource IDs: (582)
+msgid "Adds a new property"
+msgstr "속성 추가"
+
 #. Resource IDs: (9)
 msgid "Adds file(s) to Subversion control"
 msgstr "파일을 Subversion 관리에 추가"
@@ -1165,6 +1161,11 @@ msgstr "Unified Diff 적용"
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
 msgstr "충돌한 파일들을 해결되었음으로 처리하는 것이 확실합니까?"
+
+#. Resource IDs: (199)
+#, c-format
+msgid "Are you sure you want to remove the cache of the selected %d items?"
+msgstr "선택된 %d 개의 아이템의 캐시를 제거하는 것이 확실합니까?"
 
 #. Resource IDs: (79)
 #, c-format
@@ -2076,10 +2077,6 @@ msgstr "변경 리스트 생성"
 msgid "Create Patch"
 msgstr "패치 생성"
 
-#. Resource IDs: (178)
-msgid "Create Repository"
-msgstr "저장소 생성"
-
 #. Resource IDs: (1385)
 msgid "Create copy in the repository from:"
 msgstr "서버에 직접 사본 만들기. 원본:"
@@ -2418,6 +2415,10 @@ msgstr "로그 메시지 수정"
 msgid "Edit..."
 msgstr "편집..."
 
+#. Resource IDs: (581)
+msgid "Edits the selected property value"
+msgstr "선택된 속성값을 편집합니다"
+
 #. Resource IDs: (79)
 msgid "Either the name or IP of the proxy server"
 msgstr "프록시의 이름이나 IP를 입력하십시오."
@@ -2636,6 +2637,10 @@ msgstr "익스포트 중..."
 #. Resource IDs: (10)
 msgid "Exports a repository to a clean working copy without the svn administrative folders"
 msgstr "svn 관리 폴더를 제외한 깨끗한 사본 얻기"
+
+#. Resource IDs: (581)
+msgid "Exports a set of properties to a file"
+msgstr "파일에 속성값들을 내보냅니다"
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -3435,6 +3440,10 @@ msgstr "임포트 메시지(&M)"
 #. Resource IDs: (77)
 msgid "Import - TortoiseSVN"
 msgstr "임포트 - TortoiseSVN"
+
+#. Resource IDs: (581)
+msgid "Import a previously saved set of properties from a file"
+msgstr "파일에서 이전에 저장된 속성값들을 가져옵니다."
 
 #. Resource IDs: (127)
 #, c-format
@@ -4506,6 +4515,10 @@ msgstr "진행"
 msgid "Properties"
 msgstr "속성"
 
+#. Resource IDs: (157)
+msgid "Properties (*.svnprops)|*.svnprops|All Files (*.*)|*.*||"
+msgstr "속성 (*.svnprops)|*.svnprops|모든 파일들 (*.*)|*.*||"
+
 #. Resource IDs: (1287)
 msgid "Properties for"
 msgstr "속성"
@@ -4794,6 +4807,10 @@ msgstr "버전관리 대상이 아닌 것과 무시목록에 있는 아이템을
 #. Resource IDs: (15)
 msgid "Removes the file or filemask from the list of ignored items"
 msgstr "선택된 파일 또는 파일 마스크를 무시 목록에서 제거"
+
+#. Resource IDs: (581)
+msgid "Removes the selected properties"
+msgstr "선택된 속성값을 제거합니다"
 
 #. Resource IDs: (151)
 msgid "Rename"
@@ -5204,6 +5221,10 @@ msgstr "클립보드에 저장"
 msgid "Saved Data"
 msgstr "저장된 데이터"
 
+#. Resource IDs: (581)
+msgid "Saves the selected property value to a file"
+msgstr "선택된 속성값을 파일로 저장합니다"
+
 #. Resource IDs: (103)
 #, c-format
 msgid "Saving file %s"
@@ -5353,10 +5374,6 @@ msgstr "병합할 리비전 선택"
 #. Resource IDs: (595)
 msgid "Select the type of merge"
 msgstr "병합 방법 선택"
-
-#. Resource IDs: (65535)
-msgid "Select the type of repository you want to create:"
-msgstr "생성하기를 원하는 저장소 형식을 선택하십시오:"
 
 #. Resource IDs: (595)
 msgid "Select the urls for the tree merge"
@@ -6597,6 +6614,10 @@ msgstr "잠금을 해제하지 못하였습니다."
 #. Resource IDs: (263)
 msgid "Unlocked"
 msgstr "잠금 풀림"
+
+#. Resource IDs: (565)
+msgid "Unrecognized or invalid property file format!"
+msgstr "인식할 수 없거나 잘못된 속성 파일 형식입니다"
 
 #. Resource IDs: (3841)
 msgid "Untitled"
