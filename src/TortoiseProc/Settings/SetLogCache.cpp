@@ -42,7 +42,7 @@ CSetLogCache::CSetLogCache()
 	, m_dwMaxHeadAge(0)
     , progress(NULL)
 {
-	m_regEnableLogCaching = CRegDWORD(_T("Software\\TortoiseSVN\\UseLogCaching"), TRUE);
+	m_regEnableLogCaching = CRegDWORD(_T("Software\\TortoiseSVN\\UseLogCache"), TRUE);
 	m_bEnableLogCaching = (DWORD)m_regEnableLogCaching;
 	m_regDefaultConnectionState = CRegDWORD(_T("Software\\TortoiseSVN\\DefaultConnectionState"), 0);
 	m_regMaxHeadAge = CRegDWORD(_T("Software\\TortoiseSVN\\HeadCacheAgeLimit"), 0);
