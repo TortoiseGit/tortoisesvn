@@ -273,7 +273,7 @@ revision_t CRepositoryInfo::GetHeadRevision (const CTSVNPath& url)
 
         // if we couldn't connect to the server, ask the user
 
-        if (  (iter->second.headRevision == NO_REVISION)
+        if (  (svn.Err && (svn.Err->apr_err != SVN_ERR_CANCELLED)) && (iter->second.headRevision == NO_REVISION)
             && IsOffline (iter->second))
         {
             // user wants to go off-line

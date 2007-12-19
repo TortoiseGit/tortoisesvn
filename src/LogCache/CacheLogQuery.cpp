@@ -442,12 +442,12 @@ CCacheLogQuery::CLogFiller::FillLog ( CCachedLogInfo* cache
 					  , options.GetIncludeUserRevProps()
 					  , TRevPropNames());
 	}
-	catch (SVNError&)
+	catch (SVNError& e)
 	{
 		// if the problem was caused by SVN and the user wants
 		// to go off-line, swallow the error
 
-		if (receiverError || !repositoryInfoCache->IsOffline (url, true))
+		if (receiverError || e.GetCode() == SVN_ERR_CANCELLED || !repositoryInfoCache->IsOffline (url, true))
 			throw;
 	}
 
