@@ -1724,6 +1724,8 @@ svn_error_t * SVN::get_url_from_target (const char **URL, const char *target)
 	const char * canontarget = svn_path_canonicalize(target, pool);
 	svn_boolean_t is_url = svn_path_is_url (canontarget);
 
+	*URL = NULL;
+
 	if (is_url)
 		*URL = apr_pstrdup(pool, canontarget);
 
