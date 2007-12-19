@@ -26,8 +26,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2000-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-12-16 21:40+0200\n"
-"Last-Translator: Bob Hulst <bob.hulst@hiq.fi>\n"
+"PO-Revision-Date: 2007-12-19 22:54+0100\n"
+"Last-Translator: Jean-Marc van Leerdam <jeanmarc@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -65,7 +65,7 @@ msgstr "%1 bevatte een onverwacht object."
 #. Resource IDs: (3867)
 #, c-format
 msgid "%1 contains an incorrect path."
-msgstr "%1 bevat een incorrecte locatie."
+msgstr "%1 bevat een onjuist pad."
 
 #. Resource IDs: (3868)
 #, c-format
@@ -120,7 +120,7 @@ msgstr "%d bestanden geselecteerd, %d bestanden totaal"
 #. Resource IDs: (246)
 #, c-format
 msgid "%d most active author(s) with at least %d commits each (%d %%)"
-msgstr "%d meest actieve auteur(s) met ieder minimaal %d commits (%d %%)"
+msgstr "%d meest actieve auteur(s) met elk minstens %d vastleggingen (%d %%)"
 
 #. Resource IDs: (357)
 #, c-format
@@ -145,7 +145,7 @@ msgstr "%ld paden"
 #. Resource IDs: (115)
 #, c-format
 msgid "%s (offline) - %s"
-msgstr "%s in %s"
+msgstr "%s (offline) - %s"
 
 #. Resource IDs: (226)
 #, c-format
@@ -708,7 +708,7 @@ msgstr "&Test samenvoegen"
 
 #. Resource IDs: (1438)
 msgid "&Timeout in seconds before updating the HEAD revision"
-msgstr "&Maximale tijd voor het zoeken naar automatische aanvullingen"
+msgstr "&Timeout in seconden voordat de HEAD revisie ververst wordt"
 
 #. Resource IDs: (1222)
 msgid "&Timeout in seconds to stop the auto-completion parsing"
@@ -724,7 +724,7 @@ msgstr "&Naar URL:"
 
 #. Resource IDs: (1305)
 msgid "&To URL: "
-msgstr "&Naar URL:"
+msgstr "&Naar URL: "
 
 #. Resource IDs: (59392)
 msgid "&Toolbar"
@@ -1040,7 +1040,7 @@ msgstr "Toevoegen"
 
 #. Resource IDs: (582)
 msgid "Adds a new property"
-msgstr "Voeg een nieuwe eigenschap toe"
+msgstr "Voegt een nieuwe eigenschap toe"
 
 #. Resource IDs: (9)
 msgid "Adds file(s) to Subversion control"
@@ -1177,7 +1177,7 @@ msgstr "Weet u zeker dat u de conflicterende bestanden als opgelost wilt markere
 #. Resource IDs: (199)
 #, c-format
 msgid "Are you sure you want to remove the cache of the selected %d items?"
-msgstr "Weet u zeker dat u de cache met deze bestanden %d wilt verwijderen?"
+msgstr "Weet u zeker dat u de cache wilt verwijderen van de %d geselecteerde onderdelen?"
 
 #. Resource IDs: (79)
 #, c-format
@@ -1190,7 +1190,7 @@ msgstr "&Vertikaal rangschikken"
 
 #. Resource IDs: (199)
 msgid "Ask user"
-msgstr "Vraag de gebruiker"
+msgstr "Vraag gebruiker"
 
 #. Resource IDs: (264)
 #, c-format
@@ -1391,7 +1391,7 @@ msgstr "Cache grootte [kB]"
 
 #. Resource IDs: (1440)
 msgid "Cached Repositories"
-msgstr "Maak archief"
+msgstr "Archieven in de cache"
 
 #. Resource IDs: (197)
 msgid "Caches the log messages to speed up log fetching"
@@ -1580,7 +1580,7 @@ msgid ""
 "Cleanup failed to process the following paths:\n"
 "%s"
 msgstr ""
-"Opschoon process niet gelukt voor de volgende locaties:\n"
+"Schonen kon de volgende paden niet behandelen:\n"
 "%s"
 
 #. Resource IDs: (79)
@@ -1589,7 +1589,7 @@ msgid ""
 "Cleanup has successfully processed the following paths:\n"
 "%s"
 msgstr ""
-"Opschoon process is gelukt voor de volgende locaties:\n"
+"Schonen heeft de volgende paden succesvol behandeld:\n"
 "%s"
 
 #. Resource IDs: (9)
@@ -1801,7 +1801,7 @@ msgstr "In conflict: %d"
 
 #. Resource IDs: (65535)
 msgid "Container sizes"
-msgstr "Container omvang"
+msgstr "Container formaten"
 
 #. Resource IDs: (73)
 msgid "Continue"
@@ -1960,7 +1960,7 @@ msgstr ""
 #. Resource IDs: (3867)
 #, c-format
 msgid "Could not create %1 because the directory is full."
-msgstr "%1 kan niet gemaakt worden omdat de map vol is."
+msgstr "%1 kon niet worden gemaakt omdat de map vol is."
 
 #. Resource IDs: (582)
 #, c-format
@@ -1993,7 +1993,7 @@ msgstr "Kon \"%s\" niet samenvoegen bij %s omdat"
 #. Resource IDs: (3867)
 #, c-format
 msgid "Could not open %1 because there are too many open files."
-msgstr "%1 kan niet worden geopend omdat er teveel bestanden open zijn."
+msgstr "%1 kon niet worden geopend omdat er teveel bestanden open zijn."
 
 #. Resource IDs: (69)
 #, c-format
@@ -2005,7 +2005,7 @@ msgstr "Kan bestand %s niet openen"
 #. Resource IDs: (3867)
 #, c-format
 msgid "Could not remove %1 because it is the current directory."
-msgstr "%1 kan niet verwijderd worden omdat het de huidige map is."
+msgstr "%1 kon niet worden verwijderd omdat het de huidige map is."
 
 #. Resource IDs: (82)
 #, c-format
@@ -2168,7 +2168,7 @@ msgstr "Standaard pad:"
 
 #. Resource IDs: (1382)
 msgid "Delete"
-msgstr "Verwijder"
+msgstr "Verwijderen"
 
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
@@ -2428,7 +2428,7 @@ msgstr "Wijzigen..."
 
 #. Resource IDs: (581)
 msgid "Edits the selected property value"
-msgstr "Wijzig de geselecteerde waarde van de eigenschap"
+msgstr "Wijzigt de waarde van de geselecteerde eigenschap"
 
 #. Resource IDs: (79)
 msgid "Either the name or IP of the proxy server"
@@ -2462,26 +2462,26 @@ msgstr "Een fysieke I/O fout is opgetreden bij het benaderen van %1."
 #. Resource IDs: (3867)
 #, c-format
 msgid "Encountered a locking violation while accessing %1."
-msgstr "Bestand %1 kan niet exclusief geopend worden."
+msgstr "Een locking fout is opgetreden bij het benaderen van %1."
 
 #. Resource IDs: (3867)
 #, c-format
 msgid "Encountered a sharing violation while accessing %1."
-msgstr "Bestand %1 kan niet gedeeld geopend worden."
+msgstr "Een sharing fout is opgetreden bij het benaderen van %1."
 
 #. Resource IDs: (3843)
 msgid "Encountered an improper argument."
-msgstr "Er is een incorrect argument gevonden."
+msgstr "Onjuist argument gebruikt."
 
 #. Resource IDs: (3859)
 #, c-format
 msgid "Encountered an unexpected error while reading %1."
-msgstr "Er is een onverwachte fout opgetreden bij het lezen van %1."
+msgstr "Een onverwachte fout is opgetreden bij het lezen van %1."
 
 #. Resource IDs: (3859)
 #, c-format
 msgid "Encountered an unexpected error while writing %1."
-msgstr "Er is een onverwachte fout opgetreden bij het schrijven van %1."
+msgstr "Een onverwachte fout is opgetreden bij het schrijven van %1."
 
 #. Resource IDs: (65535)
 msgid "End Revision"
@@ -2651,7 +2651,7 @@ msgstr "Exporteert een archief naar een schone werkkopie zonder de svn administr
 
 #. Resource IDs: (581)
 msgid "Exports a set of properties to a file"
-msgstr "Exporteer een set met eigenschappen naar een bestand"
+msgstr "Exporteert een set eigenschappen naar een bestand"
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -2967,7 +2967,7 @@ msgstr "Algemeen::Dialogen 2"
 
 #. Resource IDs: (281)
 msgid "General::Log Caching"
-msgstr "Algemeen::Log Caching"
+msgstr "Algemeen::Log caching"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
@@ -3033,7 +3033,7 @@ msgstr "Globaal &negeer-patroon:"
 
 #. Resource IDs: (65535)
 msgid "Global settings"
-msgstr "Globale Instellingen"
+msgstr "Instellingen"
 
 #. Resource IDs: (280)
 msgid "Go offline?"
@@ -3361,7 +3361,7 @@ msgstr ""
 
 #. Resource IDs: (1439)
 msgid "If the repository can not be contacted"
-msgstr "If the repository can not be contacted"
+msgstr "Indien het archief niet bereikt kan worden"
 
 #. Resource IDs: (196)
 msgid ""
@@ -3443,7 +3443,7 @@ msgstr "Importeren - TortoiseSVN"
 
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
-msgstr "Importeer een eerder opgeslagen set me eigenschappen van een bestand"
+msgstr "Importeert een eerder opgeslagen set eigenschappen uit een bestand"
 
 #. Resource IDs: (127)
 #, c-format
@@ -3680,7 +3680,7 @@ msgstr "Laat geconflicteerd:"
 
 #. Resource IDs: (188)
 msgid "Left View: "
-msgstr "Linker beeld:"
+msgstr "Linker beeld: "
 
 #. Resource IDs: (65535)
 msgid "Left image"
@@ -3787,7 +3787,7 @@ msgstr "Logboek"
 
 #. Resource IDs: (282)
 msgid "Log Cache Statistics"
-msgstr "Log Cache Statistieken"
+msgstr "Log cache statistieken"
 
 #. Resource IDs: (211)
 msgid "Log History"
@@ -4099,7 +4099,7 @@ msgstr "Netwerk"
 
 #. Resource IDs: (199)
 msgid "Never try to contact the repository again"
-msgstr "Raadpleeg het archief niet meer"
+msgstr "Het archief nooit meer benaderen"
 
 #. Resource IDs: (30721)
 msgid "New"
@@ -4336,7 +4336,7 @@ msgstr "Opent de archief-verkenner om het archief online te tweaken"
 
 #. Resource IDs: (199)
 msgid "Operate from log cache for now only"
-msgstr "Gebruik alleen de log cache van nu af aan:"
+msgstr "Gebruik alleen de log cache voor nu"
 
 #. Resource IDs: (32779)
 msgid "Ori&ginal size"
@@ -4494,7 +4494,7 @@ msgstr "Bekijk voorbeeld van gepatched bestand"
 #. Resource IDs: (199)
 #, c-format
 msgid "Probably deleted repository (%s)"
-msgstr "Waarschijnlijk gewist respository (%s)"
+msgstr "Waarschijnlijk verwijderd archief (%s)"
 
 #. Resource IDs: (132)
 #, c-format
@@ -4519,7 +4519,7 @@ msgstr "Eigenschappen"
 
 #. Resource IDs: (157)
 msgid "Properties (*.svnprops)|*.svnprops|All Files (*.*)|*.*||"
-msgstr "Properties (*.svnprops)|*.svnprops|All Files (*.*)|*.*||"
+msgstr "Eigenschappen (*.svnprops)|*.svnprops|Alle Bestanden (*.*)|*.*||"
 
 #. Resource IDs: (1287)
 msgid "Properties for"
@@ -4812,7 +4812,7 @@ msgstr "Verwijdert bestand(en) of het bestandspatroon uit de negeerlijst"
 
 #. Resource IDs: (581)
 msgid "Removes the selected properties"
-msgstr "Verwijder de geselecteerde eigenschappen"
+msgstr "Verwijdert de geselecteerde eigenschappen"
 
 #. Resource IDs: (151)
 msgid "Rename"
@@ -5042,7 +5042,7 @@ msgstr "Revisiebereik om samen te voegen"
 
 #. Resource IDs: (75)
 msgid "Revision: "
-msgstr "Revisie:"
+msgstr "Revisie: "
 
 #. Resource IDs: (272)
 #, c-format
@@ -5092,7 +5092,7 @@ msgstr "Revisies"
 
 #. Resource IDs: (188)
 msgid "Right View: "
-msgstr "Rechter beeld:"
+msgstr "Rechter beeld: "
 
 #. Resource IDs: (65535)
 msgid "Right image"
@@ -5225,7 +5225,7 @@ msgstr "Opgeslagen gegevens"
 
 #. Resource IDs: (581)
 msgid "Saves the selected property value to a file"
-msgstr "Bewaar de waarde van de geselecteerde eigenschap in een bestand "
+msgstr "Bewaart de waarde van geselecteerde eigenschap in een bestand"
 
 #. Resource IDs: (103)
 #, c-format
@@ -5283,7 +5283,7 @@ msgstr "Selecteer een SSH Client"
 
 #. Resource IDs: (3858)
 msgid "Select a button."
-msgstr "Selecteer een toets"
+msgstr "Druk op een knop."
 
 #. Resource IDs: (3585)
 msgid "Select an object on which to get Help"
@@ -5622,7 +5622,7 @@ msgstr "Grootte"
 
 #. Resource IDs: (65535)
 msgid "Size and status"
-msgstr "Grootte en status:"
+msgstr "Grootte en status"
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -5913,7 +5913,8 @@ msgid ""
 msgstr ""
 "Bestand\n"
 "%s\n"
-"is leeg! Wilt u het overschrijven?"
+"is leeg.\n"
+"Wilt u het bestand verwijderen?"
 
 #. Resource IDs: (69)
 msgid "The file is too big"
@@ -6525,7 +6526,7 @@ msgstr "URL:"
 
 #. Resource IDs: (75)
 msgid "URL: "
-msgstr "URL:"
+msgstr "URL: "
 
 #. Resource IDs: (220)
 #, c-format
@@ -6625,7 +6626,7 @@ msgstr "Blokkade opgeheven"
 
 #. Resource IDs: (565)
 msgid "Unrecognized or invalid property file format!"
-msgstr "Niet herkenbaar of ongeldige formaat eigenschapsfile!"
+msgstr "Niet herkend of ongeldig bestandsformaat!"
 
 #. Resource IDs: (3841)
 msgid "Untitled"
@@ -6677,7 +6678,7 @@ msgstr "Opnieuw verversen en blokkade zetten..."
 
 #. Resource IDs: (199)
 msgid "Updating log cache"
-msgstr "Bijwerken van de log cache"
+msgstr "Log cache wordt bijgewerkt"
 
 #. Resource IDs: (1064)
 msgid "Use &magnifier on locatorbar"
@@ -7158,7 +7159,7 @@ msgstr "auteur"
 
 #. Resource IDs: (65535)
 msgid "authors: "
-msgstr "Auteurs:"
+msgstr "auteurs: "
 
 #. Resource IDs: (577)
 msgid ""
@@ -7223,7 +7224,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "changes total: "
-msgstr "veranderingen in totaal:"
+msgstr "totaal wijzigingen: "
 
 #. Resource IDs: (145)
 msgid "cleaning up"
@@ -7239,7 +7240,7 @@ msgstr "geconflicteerd"
 
 #. Resource IDs: (65535)
 msgid "connection: "
-msgstr "verbinding:"
+msgstr "verbinding: "
 
 #. Resource IDs: (208)
 #, c-format
@@ -7260,7 +7261,7 @@ msgstr "verwijderd"
 
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
-msgstr "disk [kB]: "
+msgstr "schijf [kB]: "
 
 #. Resource IDs: (1342)
 msgid "eol style"
@@ -7316,15 +7317,15 @@ msgstr "object lokaal bewaard"
 
 #. Resource IDs: (65535)
 msgid "last head update: "
-msgstr "laatste head wijziging:"
+msgstr "laatste HEAD verversing: "
 
 #. Resource IDs: (65535)
 msgid "last read: "
-msgstr "laatste lees actie:"
+msgstr "laatste leesactie: "
 
 #. Resource IDs: (65535)
 msgid "last update: "
-msgstr "laatste wijziging:"
+msgstr "laatste verversing: "
 
 #. Resource IDs: (11, 195)
 msgid "locked"
@@ -7336,7 +7337,7 @@ msgstr "geblokkeerd:"
 
 #. Resource IDs: (65535)
 msgid "max revision: "
-msgstr "Hoogste revisie:"
+msgstr "hoogste revisie: "
 
 #. Resource IDs: (11, 65535)
 msgid "merged"
@@ -7344,7 +7345,7 @@ msgstr "samengevoegd"
 
 #. Resource IDs: (65535)
 msgid "merges total:"
-msgstr "Alles samenvoegen"
+msgstr "totaal samenvoegingen:"
 
 #. Resource IDs: (10)
 msgid "missing"
@@ -7356,7 +7357,7 @@ msgstr "ontbrekend / verwijderd / vervangen"
 
 #. Resource IDs: (65535)
 msgid "missing in: "
-msgstr "niet gevonden in:"
+msgstr "ontbrekend in: "
 
 #. Resource IDs: (10)
 msgid "modified"
@@ -7392,11 +7393,11 @@ msgstr "versperd"
 
 #. Resource IDs: (601)
 msgid "offline"
-msgstr "Offline gaan?"
+msgstr "offline"
 
 #. Resource IDs: (601)
 msgid "online"
-msgstr "Doorgaan"
+msgstr "online"
 
 #. Resource IDs: (1406, 1407)
 msgid "or"
@@ -7404,11 +7405,11 @@ msgstr "of"
 
 #. Resource IDs: (65535)
 msgid "pair tokens: "
-msgstr "pair tokens: "
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "paths: "
-msgstr "paths:"
+msgstr "paden: "
 
 #. Resource IDs: (3869)
 msgid "pixels"
@@ -7441,7 +7442,7 @@ msgstr "revisie %s-%s, revisie %s-%s"
 
 #. Resource IDs: (65535)
 msgid "revision count: "
-msgstr "Revisie:"
+msgstr "aantal revisies: "
 
 #. Resource IDs: (326)
 #, c-format
@@ -7450,11 +7451,11 @@ msgstr "revisies %s-%s, %s"
 
 #. Resource IDs: (65535)
 msgid "revisions: "
-msgstr "Revisie:"
+msgstr "revisies: "
 
 #. Resource IDs: (65535)
 msgid "skip ranges: "
-msgstr "waarden overslaan:"
+msgstr "bereiken overslaan: "
 
 #. Resource IDs: (576)
 msgid ""
@@ -7583,11 +7584,11 @@ msgstr "gewisseld:"
 
 #. Resource IDs: (601)
 msgid "temp. offline"
-msgstr "Offline gaan?"
+msgstr "tijdelijk offline"
 
 #. Resource IDs: (65535)
 msgid "text [token count]: "
-msgstr "text [token count]: "
+msgstr "tekst [token aantal]: "
 
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
@@ -7708,7 +7709,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
-msgstr "gebruiker revprops totaal:"
+msgstr "totaal gebruikers revprops: "
 
 #. Resource IDs: (563)
 msgid "values are different"
@@ -7744,7 +7745,7 @@ msgstr "week"
 
 #. Resource IDs: (65535)
 msgid "word tokens: "
-msgstr "word tokens:"
+msgstr "woorden: "
 
 #. Resource IDs: (245)
 msgid "year"
