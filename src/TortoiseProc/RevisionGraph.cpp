@@ -449,12 +449,11 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 	try
 	{
 		CRegStdWORD useLogCache (_T("Software\\TortoiseSVN\\UseLogCache"), TRUE);
-		CLogCachePool* caches = useLogCache != FALSE 
-							  ? svn.GetLogCachePool() 
-							  : NULL;
 
 		svnQuery.reset (new CSVNLogQuery (&m_ctx, pool));
-		query.reset (new CCacheLogQuery (caches, svnQuery.get()));
+		query.reset (useLogCache != FALSE
+                        ? new CCacheLogQuery (svn.GetLogCachePool(), svnQuery.get())
+                        : new CCacheLogQuery (svn, svnQuery.get()));
 
 		query->Log ( CTSVNPathList (urlpath)
 				   , headRevision
