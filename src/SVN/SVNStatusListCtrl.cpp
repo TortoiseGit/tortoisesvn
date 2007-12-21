@@ -649,7 +649,7 @@ CSVNStatusListCtrl::AddNewFileEntry(
 		entry->last_commit_author = CUnicodeUtils::GetUnicode(pSVNStatus->entry->cmt_author);
 
 	if (pSVNStatus->entry)
-		entry->isConflicted = pSVNStatus->entry->conflict_wrk ? true : false;
+		entry->isConflicted = (pSVNStatus->entry->conflict_wrk && PathFileExists(CUnicodeUtils::GetUnicode(pSVNStatus->entry->conflict_wrk))) ? true : false;
 
 	if ((entry->status == svn_wc_status_conflicted)||(entry->isConflicted))
 	{
