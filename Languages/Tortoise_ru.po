@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-12-15 20:42+0300\n"
+"PO-Revision-Date: 2007-12-21 10:43+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -497,7 +497,7 @@ msgstr "Ведущая &ревизия (HEAD)"
 
 #. Resource IDs: (1019, 1032, 1034)
 msgid "&HEAD revision"
-msgstr "Ведущая &ревизия (HEAD)"
+msgstr "Ве&дущая (HEAD)"
 
 # д.б. согласовано с "из ..."
 #. Resource IDs: (1182)
@@ -535,7 +535,7 @@ msgstr "Информация о &картинке"
 
 #. Resource IDs: (9)
 msgid "&Import..."
-msgstr "И&мпортировать..."
+msgstr "И&мпорт..."
 
 #. Resource IDs: (32825)
 msgid "&Inline diff word-wise"
@@ -671,7 +671,7 @@ msgstr "&Переименовать"
 
 #. Resource IDs: (1316)
 msgid "&Reopen commit and branch/tag dialog after a commit failed"
-msgstr "&Переоткрывать диалоги фиксации и ответвления/метки после неудавшейся фиксации"
+msgstr "&Переоткрывать диалоги фиксации/ответвлен. после неуспешной фиксации"
 
 #. Resource IDs: (13)
 msgid "&Repo-browser"
@@ -1619,9 +1619,10 @@ msgstr "Извлечение из %s, ревизия %s, %s, %s"
 msgid "Checksum:"
 msgstr "Контрольная сумма:"
 
+# Так помещается
 #. Resource IDs: (1402)
 msgid "Choose item:"
-msgstr "Использовать изменения:"
+msgstr "Применить изменения"
 
 #. Resource IDs: (146)
 msgid "Cleaning up."
@@ -3765,7 +3766,7 @@ msgstr "Наименее активный автор:"
 
 #. Resource IDs: (1404)
 msgid "Leave conflicted:"
-msgstr "Оставить с конфликтом:"
+msgstr "Оставить конфликт:"
 
 #. Resource IDs: (188)
 msgid "Left View: "
@@ -3923,7 +3924,7 @@ msgstr "Не подходящий DLL почтовой системы."
 
 #. Resource IDs: (1431)
 msgid "Make this the default"
-msgstr "Выбирать по умолчанию"
+msgstr "Применять по умолчанию"
 
 #. Resource IDs: (17)
 msgid "Manage Subversion properties"
@@ -4491,7 +4492,7 @@ msgstr "Применить заплатку к отмеченным"
 
 #. Resource IDs: (157)
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
-msgstr "Файлы заплаток(*.diff, *.patch)|*.diff;*.patch|Все файлы (*.*)|*.*||"
+msgstr "Файлы заплаток (*.diff, *.patch)|*.diff;*.patch|Все файлы (*.*)|*.*||"
 
 #. Resource IDs: (20, 77, 198)
 msgid "Path"
@@ -6376,12 +6377,13 @@ msgid ""
 "Please understand that the cached data may be outdated,\n"
 "incomplete or even misleading due to incomplete history."
 msgstr ""
-"Возникла проблема подключения к серверу, из-за чего\n"
+"Возникла проблема при подключении к серверу, из-за чего\n"
 "невозможно получение актуальных данных.\n"
 "Желаете ли вы посмотреть данные, закэшированные ранее?\n"
 "\n"
-"Пожалуйста, имейте ввиду, что закэшированные данные могут быть\n"
-"устаревшими, неполными и даже неверными из-за неполноты истории."
+"Имейте ввиду, что закэшированные данные могут быть\n"
+"устаревшими, недостаточными и даже неверными из-за\n"
+"неполноты истории."
 
 #. Resource IDs: (82)
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
