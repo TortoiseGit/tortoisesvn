@@ -1080,36 +1080,6 @@ CDictionaryBasedTempPath CCacheLogQuery::GetRelativeRepositoryPath
 	return CDictionaryBasedTempPath (paths, (const char*)relPath);
 }
 
-// get UUID & repository-relative path
-
-SVNInfoData& CCacheLogQuery::GetRepositoryInfo ( const CTSVNPath& path
-											   , const SVNRev& pegRevision
- 								               , SVNInfoData& baseInfo
-									           , SVNInfoData& headInfo) const
-{
-	// already known?
-
-	if (baseInfo.IsValid())
-		return baseInfo;
-
-	if (headInfo.IsValid())
-		return headInfo;
-
-	// look it up
-
-	SVNInfo info;
-	if (path.IsUrl())
-	{
-		headInfo = *info.GetFirstFileInfo (path, pegRevision, pegRevision);
-		return headInfo;
-	}
-	else
-	{
-		baseInfo = *info.GetFirstFileInfo (path, SVNRev(), SVNRev());
-		return baseInfo;
-	}
-}
-
 // decode special revisions:
 // base / head must be initialized with NO_REVISION
 // and will be used to cache these values.

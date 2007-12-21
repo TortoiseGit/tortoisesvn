@@ -338,12 +338,6 @@ private:
 	CDictionaryBasedTempPath GetRelativeRepositoryPath 
         ( const CTSVNPath& info);
 
-	/// get UUID & repository-relative path
-	SVNInfoData& GetRepositoryInfo ( const CTSVNPath& path
-								   , const SVNRev& pegRevision
- 								   , SVNInfoData& baseInfo
-								   , SVNInfoData& headInfo) const;
-
 	/// decode special revisions:
 	/// base / head must be initialized with NO_REVISION
 	/// and will be used to cache these values.
