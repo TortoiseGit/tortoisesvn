@@ -40,6 +40,7 @@
 #include "CacheLogQuery.h"
 #include "RepositoryInfo.h"
 #include "MessageBox.h"
+#include "..\version.h"
 
 
 #ifdef _DEBUG
@@ -93,6 +94,10 @@ SVN::SVN(void) : m_progressWnd(0)
 	m_pctx->cancel_baton = this;
 	m_pctx->progress_func = progress_func;
 	m_pctx->progress_baton = this;
+	char namestring[MAX_PATH] = {0};
+	sprintf_s(namestring, MAX_PATH, "TortoiseSVN-%d.%d.%d.%d", TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);
+	m_pctx->client_name = apr_pstrdup(pool, namestring);
+
 
 	//set up the SVN_SSH param
 	CString tsvn_ssh = CRegString(_T("Software\\TortoiseSVN\\SSH"));
