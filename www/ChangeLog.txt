@@ -1,3 +1,17 @@
+Version 1.4.6
+- BUG: When upgrading, the MFC/CRT libs weren't updated if
+       the user didn't have Admin rights without an error. (Stefan)
+- BUG: The overlay include paths weren't checked correctly which lead
+       to paths directly below the include paths *not* to be included.
+       (Stefan)
+- BUG: Sorting in the commit dialog sometimes lost the check marks
+       if the list had previously been refreshed. (Tobias Schäfer)
+- BUG: Memory leak in the shell context menu. (Stefan)
+- BUG: Exporting could leave the exported folders still versioned. (Stefan)
+- BUG: Pressing the tabulator deleted the contents of the log message in
+       the commit dialog. (Tobias Schäfer)
+
+
 Version 1.4.5
 - BUG: The setting "unversioned files mark parent folder as modified" for the
        overlays marked folders as modified even if the unversioned files
