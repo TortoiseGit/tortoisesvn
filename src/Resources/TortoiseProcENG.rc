@@ -235,16 +235,16 @@ IDR_REVGRAPHBAR         BITMAP                  "revgraphbar.bmp"
 // Dialog
 //
 
-IDD_GOOFFLINE DIALOGEX 0, 0, 242, 106
+IDD_GOOFFLINE DIALOGEX 0, 0, 242, 116
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Go offline?"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     LTEXT           "There has been a problem connecting the server.\nDo you want to see the cached data instead?\n\nPlease understand that the cached data may be outdated,\nincomplete or even misleading due to incomplete history.",IDC_STATIC,7,7,222,60
     CONTROL         "Make this the default",IDC_ASDEFAULTOFFLINE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,71,226,10
-    DEFPUSHBUTTON   "&Offline for now",IDOK,7,87,72,14
-    PUSHBUTTON      "&Permanently offline",IDC_PERMANENTLYOFFLINE,85,87,72,14
-    PUSHBUTTON      "&Don't go offline",IDCANCEL,163,87,72,14
+    DEFPUSHBUTTON   "&Offline for now",IDOK,7,87,72,24,BS_MULTILINE
+    PUSHBUTTON      "&Permanently offline",IDC_PERMANENTLYOFFLINE,85,87,72,24,BS_MULTILINE
+    PUSHBUTTON      "&Don't go offline",IDCANCEL,163,87,72,24,BS_MULTILINE
 END
 
 IDD_ABOUT DIALOGEX 0, 0, 333, 297
@@ -845,8 +845,8 @@ BEGIN
     CONTROL         "&External",IDC_EXTDIFF_ON,"Button",BS_AUTORADIOBUTTON,92,23,71,10
     EDITTEXT        IDC_EXTDIFF,14,41,256,14,ES_AUTOHSCROLL | WS_GROUP
     PUSHBUTTON      "...",IDC_EXTDIFFBROWSE,274,41,14,14
-    LTEXT           "Click on ""Advanced"" to specify alternate diff programs based on file extension",IDC_STATIC,16,73,160,19
-    PUSHBUTTON      "&Advanced...",IDC_EXTDIFFADVANCED,201,73,87,14
+    LTEXT           "Click on ""Advanced"" to specify alternate diff programs based on file extension",IDC_STATIC,16,65,160,25
+    PUSHBUTTON      "&Advanced...",IDC_EXTDIFFADVANCED,201,65,87,14
     CONTROL         "&Convert files when diffing against BASE",IDC_DONTCONVERT,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,176,286,10
     GROUPBOX        "Configure the program used for comparing different revisions of files",IDC_STATIC,7,7,286,87
@@ -1014,7 +1014,7 @@ BEGIN
     CONTROL         "&Contact the repository on startup",IDC_REPOCHECK,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,165,271,10
     CONTROL         "&Reopen commit and branch/tag dialog after a commit failed",IDC_REOPENCOMMIT,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,114,237,10
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,114,271,10
     GROUPBOX        "Lock",IDC_STATIC,7,185,286,25
     CONTROL         "Show Lock dialog before locking files",IDC_SHOWLOCKDLG,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,196,270,10
@@ -1038,7 +1038,7 @@ BEGIN
     GROUPBOX        "Global settings",IDC_STATIC,7,7,285,58
     GROUPBOX        "Cached Repositories",IDC_REPOSITORIESGROUP,7,101,285,109
     LTEXT           "&Timeout in seconds before updating the HEAD revision",IDC_HEADAGELABEL,14,81,231,8,SS_NOTIFY
-    LTEXT           "If the repository can not be contacted",IDC_CONNECTIVITYLABEL,14,34,143,8,SS_NOTIFY
+    LTEXT           "If the repository can not be contacted",IDC_CONNECTIVITYLABEL,14,34,270,8,SS_NOTIFY
     GROUPBOX        "Timeouts",IDC_STATIC,7,67,285,32
 END
 
