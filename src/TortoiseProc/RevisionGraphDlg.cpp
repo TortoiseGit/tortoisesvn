@@ -105,6 +105,7 @@ BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CResizableStandAloneDialog)
 	ON_COMMAND(ID_VIEW_SPLITBRANCHES, &CRevisionGraphDlg::OnViewSplitBranches)
 	ON_COMMAND(ID_VIEW_FOLDTAGS, &CRevisionGraphDlg::OnViewFoldTags)
 	ON_COMMAND(ID_VIEW_REDUCECROSSLINES, &CRevisionGraphDlg::OnViewReduceCrosslines)
+	ON_COMMAND(ID_VIEW_REMOVEDELETEDONES, &CRevisionGraphDlg::OnViewRemoveDeletedOnes)
 	ON_CBN_SELCHANGE(ID_REVGRAPH_ZOOMCOMBO, OnChangeZoom)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTW, 0, 0xFFFF, OnToolTipNotify)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, OnToolTipNotify)
@@ -185,6 +186,7 @@ BOOL CRevisionGraphDlg::InitializeToolbar()
 					 , ID_VIEW_SPLITBRANCHES
 					 , ID_VIEW_FOLDTAGS
 					 , ID_VIEW_REDUCECROSSLINES
+                     , ID_VIEW_REMOVEDELETEDONES
 					 , 0};
 
 	for (UINT* itemID = itemIDs, *style = styles; *style != 0; ++itemID)
@@ -249,6 +251,7 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 	SetOption(ID_VIEW_SPLITBRANCHES, m_options.splitBranches);
 	SetOption(ID_VIEW_FOLDTAGS, m_options.foldTags);
 	SetOption(ID_VIEW_REDUCECROSSLINES, m_options.reduceCrossLines);
+    SetOption(ID_VIEW_REMOVEDELETEDONES, m_options.removeDeletedOnes);
 
 	CMenu * pMenu = GetMenu();
 	if (pMenu)
@@ -585,6 +588,11 @@ void CRevisionGraphDlg::OnViewFoldTags()
 void CRevisionGraphDlg::OnViewReduceCrosslines()
 {
     OnToggleOption (ID_VIEW_REDUCECROSSLINES, m_options.reduceCrossLines);
+}
+
+void CRevisionGraphDlg::OnViewRemoveDeletedOnes()
+{
+    OnToggleOption (ID_VIEW_REMOVEDELETEDONES, m_options.removeDeletedOnes);
 }
 
 void CRevisionGraphDlg::OnCancel()

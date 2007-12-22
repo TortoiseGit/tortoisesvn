@@ -2062,6 +2062,7 @@ BEGIN
     BUTTON      ID_VIEW_SPLITBRANCHES
     BUTTON      ID_VIEW_FOLDTAGS
     BUTTON      ID_VIEW_REDUCECROSSLINES
+    BUTTON      ID_VIEW_REMOVEDELETEDONES
     SEPARATOR
     BUTTON      ID_VIEW_SHOWOVERVIEW
 END
@@ -2090,6 +2091,7 @@ BEGIN
         MENUITEM "Split long &branches",        ID_VIEW_SPLITBRANCHES
         MENUITEM "Fold &tags",                  ID_VIEW_FOLDTAGS
         MENUITEM "Reduce cross-&lines",         ID_VIEW_REDUCECROSSLINES
+        MENUITEM "Remove &deleted paths",       ID_VIEW_REMOVEDELETEDONES
         MENUITEM "&Filter",                     ID_VIEW_FILTER
         MENUITEM SEPARATOR
         MENUITEM "Zoom &in\tCtrl-+",            ID_VIEW_ZOOMIN
@@ -3116,6 +3118,8 @@ BEGIN
     ID_VIEW_FOLDTAGS        "Show tags on the copy source, not as separate nodes"
     ID_VIEW_REDUCECROSSLINES 
                             "Prevents most cases in which connection lines cross revision nodes"
+    ID_VIEW_REMOVEDELETEDONES
+                            "Remove deleted branches and tags"
 END
 
 STRINGTABLE 

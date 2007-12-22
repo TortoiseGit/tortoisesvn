@@ -1352,8 +1352,9 @@
 #define ID_VIEW_SPLITBRANCHES           32817
 #define ID_VIEW_FOLDTAGS                32818
 #define ID_VIEW_REDUCECROSSLINES        32819
-#define ID_LOGDLG_REFRESH               32820
-#define ID_LOGDLG_FIND                  32821
+#define ID_VIEW_REMOVEDELETEDONES       32820
+#define ID_LOGDLG_REFRESH               32821
+#define ID_LOGDLG_FIND                  32822
 #define ID_LOGDLG_FOCUSFILTER           32825
 
 // Next default values for new objects
