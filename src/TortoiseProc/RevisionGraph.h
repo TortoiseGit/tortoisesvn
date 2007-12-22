@@ -267,6 +267,7 @@ public:
         bool splitBranches;         // long sections with no change will be replaced by "split nodes"
         bool foldTags;              // show tags as property to the source - not as separate nodes
         bool reduceCrossLines;      // minimize places with lines crossing a node box
+        bool removeDeletedOnes;     // remove all deleted branches and tags
     };
 
 	CRevisionGraph(void);
@@ -335,8 +336,11 @@ private:
 											  , const SOptions& options);
 
     void                        FindReplacements();
+    bool                        RemoveIfDeleted (CRevisionEntry * startEntry, const SOptions& options);
+    void                        RemoveDeletedOnes(const SOptions& options);
     void                        FoldTags();
 	void						ApplyFilter();
+    void                        Compact();
 	void						Optimize (const SOptions& options);
 
 	int							AssignOneRowPerRevision();

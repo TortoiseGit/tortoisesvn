@@ -58,6 +58,7 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 	m_options.exactCopySources = ((dwOpts & 0x20) != 0);
 	m_options.splitBranches = ((dwOpts & 0x40) != 0);
 	m_options.foldTags = ((dwOpts & 0x80) != 0);
+	m_options.removeDeletedOnes = ((dwOpts & 0x100) != 0);
 }
 
 CRevisionGraphDlg::~CRevisionGraphDlg()
@@ -72,6 +73,7 @@ CRevisionGraphDlg::~CRevisionGraphDlg()
 	dwOpts |= m_options.exactCopySources ? 0x20 : 0;
 	dwOpts |= m_options.splitBranches ? 0x40 : 0;
 	dwOpts |= m_options.foldTags ? 0x80 : 0;
+    dwOpts |= m_options.removeDeletedOnes ? 0x100 : 0;
 	regOpts = dwOpts;
 }
 

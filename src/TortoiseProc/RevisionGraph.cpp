@@ -1291,6 +1291,97 @@ void CRevisionGraph::FindReplacements()
 	}
 }
 
+bool CRevisionGraph::RemoveIfDeleted (CRevisionEntry * startEntry, const SOptions& options)
+{
+    bool isEntirelyDeleted = true;
+
+    // follow this branch to its end and check all side-branches
+
+    CRevisionEntry * entry = startEntry;
+    while ((entry != NULL) && (entry->action != CRevisionEntry::deleted))
+    {
+        // remove all deleted side-branches
+
+        std::vector<CRevisionEntry*>& targets = entry->copyTargets;
+		for (size_t k = targets.size(); k > 0; --k)
+        {
+            if (!RemoveIfDeleted (targets[k-1], options))
+            {
+                // one side-branch of this node has not been deleted
+                // -> keep at least the copy source
+
+                startEntry = entry->next;
+                isEntirelyDeleted = false;
+            }
+            else
+            {
+                // remove copy source, 
+                // if it is a simple change and is no longer needed
+
+                if (   !options.includeSubPathChanges
+                    && targets.empty()
+                    && (entry->next != NULL)
+                    && (entry->action == CRevisionEntry::source))
+                {
+                    assert (entry->prev != NULL);
+                    assert (entry->copySources.empty());
+
+                    // de-link and mark for removal
+
+                    entry->prev->next = entry->next;
+                    entry->next->prev = entry->prev;
+
+                    entry->action = CRevisionEntry::nothing;
+                }
+            }
+        }
+
+        // next entry
+
+        entry = entry->next;
+    }
+
+    // reached end of branch / tag
+    // no deletion?
+
+    if (entry == NULL)
+        return false;
+
+    // this node is a deletion node
+
+    assert (entry->action == CRevisionEntry::deleted);
+    assert (startEntry != NULL);
+
+    // mark all nodes of the deleted section for removal
+
+    for (entry = startEntry; entry != NULL; entry = entry->next)
+        entry->action = CRevisionEntry::nothing;
+
+    // remove references from source node
+
+    if (startEntry->prev != NULL)
+        startEntry->prev->next = NULL;
+
+    if (!startEntry->copySources.empty())
+    {
+        assert (startEntry->copySources.size() == 1);
+        std::vector<CRevisionEntry*>& targets 
+            = startEntry->copySources[0]->copyTargets;
+
+        targets.erase (std::find (targets.begin(), targets.end(), startEntry));
+    }
+
+    // whole branch has been deleted, if no sub-branch survived
+
+    return isEntirelyDeleted;
+}
+
+void CRevisionGraph::RemoveDeletedOnes (const SOptions& options)
+{
+    if (!m_entryPtrs.empty())
+        RemoveIfDeleted (m_entryPtrs[0], options);
+}
+
 void CRevisionGraph::FoldTags()
 {
     // lookup the id of the "tags" element in any path
@@ -1387,23 +1478,8 @@ void CRevisionGraph::ApplyFilter()
 	}
 }
 
-void CRevisionGraph::Optimize (const SOptions& options)
+void CRevisionGraph::Compact()
 {
-	// say "renamed" for "Deleted"/"Added" entries
-
-    FindReplacements();
-
-	// apply the custom filter
-
-	ApplyFilter();
-	
-	// fold tags if requested
-
-    if (options.foldTags)
-        FoldTags();
-
-	// compact
-
 	std::vector<CRevisionEntry*>::iterator target = m_entryPtrs.begin();
 	for ( std::vector<CRevisionEntry*>::iterator source = target
 		, end = m_entryPtrs.end()
@@ -1422,6 +1498,31 @@ void CRevisionGraph::Optimize (const SOptions& options)
 	}
 
 	m_entryPtrs.erase (target, m_entryPtrs.end());
+}
+
+void CRevisionGraph::Optimize (const SOptions& options)
+{
+	// say "renamed" for "Deleted"/"Added" entries
+
+    FindReplacements();
+
+    // remove all paths that have been deleted
+
+    if (options.removeDeletedOnes)
+        RemoveDeletedOnes (options);
+
+	// apply the custom filter
+
+	ApplyFilter();
+	
+	// fold tags if requested
+
+    if (options.foldTags)
+        FoldTags();
+
+    // compact
+
+    Compact();
 }
 
 // assign columns to branches recursively from the left to the right 
