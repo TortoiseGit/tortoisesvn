@@ -204,6 +204,13 @@ CString CRepositoryInfo::GetRepositoryRoot (const CTSVNPath& url)
     return GetRepositoryRootAndUUID (url, uuid);
 }
 
+CString CRepositoryInfo::GetRepositoryUUID (const CTSVNPath& url)
+{
+    CString uuid;
+    GetRepositoryRootAndUUID (url, uuid);
+    return uuid;
+}
+
 CString CRepositoryInfo::GetRepositoryRootAndUUID ( const CTSVNPath& url
                                                   , CString& sUUID)
 {

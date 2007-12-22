@@ -59,6 +59,31 @@ revision_t CRevisionIndex::GetLastCachedRevision() const
     return (revision_t)NO_REVISION;
 }
 
+// first revision that is not cached
+
+revision_t CRevisionIndex::GetFirstMissingRevision() const
+{
+    // empty cache?
+
+    if (indices.empty())
+        return 0;
+
+    // do we know the beginning of the history?
+
+    if (firstRevision > 1)
+        return 1;
+
+    // find first gap
+
+    for (size_t i = 1, count = indices.size(); i < count; ++i)
+        if (indices[i] == NO_INDEX)
+            return firstRevision + static_cast<revision_t>(i);
+
+    // first gap is last entry+1
+
+    return firstRevision + static_cast<revision_t>(indices.size());
+}
+
 // insert info (must be NO_INDEX before)
 
 void CRevisionIndex::SetRevisionIndex (revision_t revision, index_t index)

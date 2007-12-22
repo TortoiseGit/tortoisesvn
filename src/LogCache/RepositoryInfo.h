@@ -172,6 +172,7 @@ public:
     /// cache the result.
 
 	CString GetRepositoryRoot (const CTSVNPath& url);
+	CString GetRepositoryUUID (const CTSVNPath& url);
 	CString GetRepositoryRootAndUUID (const CTSVNPath& url, CString& sUUID);
 
     revision_t GetHeadRevision (const CTSVNPath& url);

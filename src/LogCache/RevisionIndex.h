@@ -86,7 +86,12 @@ public:
 	revision_t GetFirstCachedRevision() const;
 	revision_t GetLastCachedRevision() const;
 
-	/// read
+	/// first revision that is not cached
+	/// 0 for empty caches, 1 or greater elsewise
+
+	revision_t GetFirstMissingRevision() const;
+
+    /// read
 
 	index_t operator[](revision_t revision) const
 	{

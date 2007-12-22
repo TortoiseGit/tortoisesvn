@@ -28,6 +28,7 @@
 #include ".\revisiongraph.h"
 #include "SVNError.h"
 #include "CachedLogInfo.h"
+#include "RepositoryInfo.h"
 #include "RevisionIndex.h"
 #include "CopyFollowingLogIterator.h"
 #include "StrictLogIterator.h"
@@ -366,6 +367,7 @@ void CRevisionGraph::ReceiveLog ( LogChangedPathArray* changes
 
     // we passed revs_only to Log()
 
+    assert (changes == NULL);
     assert (userRevProps == NULL);
     assert (mergesFollow == false);
 
@@ -450,19 +452,31 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 	{
 		CRegStdWORD useLogCache (_T("Software\\TortoiseSVN\\UseLogCache"), TRUE);
 
+        // select / construct query object and optimize revision range to fetch
+
 		svnQuery.reset (new CSVNLogQuery (&m_ctx, pool));
-		query.reset (useLogCache != FALSE
-                        ? new CCacheLogQuery (svn.GetLogCachePool(), svnQuery.get())
-                        : new CCacheLogQuery (svn, svnQuery.get()));
+        SVNRev firstRevision = 0;
+        if (useLogCache != FALSE)
+        {
+            CLogCachePool* pool = svn.GetLogCachePool();
+		    query.reset (new CCacheLogQuery (pool, svnQuery.get()));
+
+            CString uuid = pool->GetRepositoryInfo().GetRepositoryUUID (urlpath);
+            firstRevision = pool->GetCache (uuid)->GetRevisions().GetFirstMissingRevision();
+        }
+        else
+		    query.reset (new CCacheLogQuery (svn, svnQuery.get()));
+
+        // actually fetch the data
 
 		query->Log ( CTSVNPathList (urlpath)
 				   , headRevision
 				   , headRevision
-				   , SVNRev(0)
+				   , firstRevision
 				   , 0
 				   , false		// strictNodeHistory
 				   , this
-                   , true		// includeChanges
+                   , false		// includeChanges (log cache fetches them automatically)
                    , false		// includeMerges
                    , true		// includeStandardRevProps
                    , false		// includeUserRevProps
