@@ -1277,6 +1277,9 @@ void CRevisionGraph::FindReplacements()
 				entry->next = renameTarget;
                 renameTarget->prev = entry;
 
+                assert (renameTarget->copySources.size() == 1);
+                renameTarget->copySources.clear();
+
 				entry->copyTargets[renameIndex] = *entry->copyTargets.rbegin();
                 entry->copyTargets.pop_back();
 
