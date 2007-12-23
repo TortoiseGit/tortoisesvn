@@ -25,6 +25,8 @@
 
 #include <algorithm>
 
+BOOL g_bNoCrashHandler;// don't use the crashhandler but let the system handle it
+
 // maps crash objects to processes
 map<DWORD, CCrashHandler*> _crashStateMap;
 
@@ -35,6 +37,11 @@ LONG WINAPI CustomUnhandledExceptionFilter(PEXCEPTION_POINTERS pExInfo)
    if (EXCEPTION_BREAKPOINT == pExInfo->ExceptionRecord->ExceptionCode)
    {
 	   // Breakpoint. Don't treat this as a normal crash.
+	   return EXCEPTION_CONTINUE_SEARCH;
+   }
+
+   if (g_bNoCrashHandler)
+   {
 	   return EXCEPTION_CONTINUE_SEARCH;
    }
 
@@ -66,7 +73,8 @@ CCrashHandler::CCrashHandler():
 	m_ipc_event(NULL),
 	m_rpt(NULL),
 	m_installed(false),
-	m_hModule(NULL)
+	m_hModule(NULL),
+	m_bUseUI(TRUE)
 {
    // wtl initialization stuff...
 	HRESULT hRes = ::CoInitialize(NULL);
@@ -114,6 +122,16 @@ void CCrashHandler::EnableUI()
 void CCrashHandler::DisableUI()
 {
 	m_bUseUI = FALSE;
+}
+
+void CCrashHandler::DisableHandler()
+{
+	g_bNoCrashHandler = TRUE;
+}
+
+void CCrashHandler::EnableHandler()
+{
+	g_bNoCrashHandler = FALSE;
 }
 
 CCrashHandler::~CCrashHandler()

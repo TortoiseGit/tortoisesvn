@@ -22,6 +22,9 @@ typedef std::pair<string,string> TStrStrPair;
 typedef std::vector<TStrStrPair> TStrStrVector;
 #endif // !defined TStrStrVector
 
+
+extern BOOL g_bNoCrashHandler;// don't use the crashhandler but let the system handle it
+
 ////////////////////////////// Class Definitions /////////////////////////////
 
 // ===========================================================================
@@ -116,6 +119,36 @@ public:
    //    none
    //
    void DisableUI();
+
+   //-----------------------------------------------------------------------------
+   // DisableUI
+   //    Disables the exception handler
+   //
+   // Parameters
+   //    none
+   //
+   // Return Values
+   //    none
+   //
+   // Remarks
+   //    none
+   //
+   void DisableHandler();
+
+   //-----------------------------------------------------------------------------
+   // DisableUI
+   //    Enables the custom exception handler
+   //
+   // Parameters
+   //    none
+   //
+   // Return Values
+   //    none
+   //
+   // Remarks
+   //    none
+   //
+   void EnableHandler();
 
    //-----------------------------------------------------------------------------
    // ~CCrashHandler

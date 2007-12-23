@@ -62,6 +62,20 @@ CRASHRPTAPI void DisableUIEx(LPVOID lpState)
 	pImpl->DisableUI();
 }
 
+CRASHRPTAPI void EnableHandlerEx(LPVOID lpState)
+{
+	CCrashHandler *pImpl = (CCrashHandler*)lpState;
+	CRASH_ASSERT(pImpl);
+	pImpl->EnableHandler();
+}
+
+CRASHRPTAPI void DisableHandlerEx(LPVOID lpState)
+{
+	CCrashHandler *pImpl = (CCrashHandler*)lpState;
+	CRASH_ASSERT(pImpl);
+	pImpl->DisableHandler();
+}
+
 CRASHRPTAPI void AddFileEx(LPVOID lpState, LPCTSTR lpFile, LPCTSTR lpDesc)
 {
    CCrashHandler *pImpl = (CCrashHandler*)lpState;

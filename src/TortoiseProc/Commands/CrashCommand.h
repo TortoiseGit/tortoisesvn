@@ -20,7 +20,9 @@
 #include "Command.h"
 
 #include "MessageBox.h"
+#include "CrashReport.h"
 
+extern CCrashReport crasher;
 /**
  * \ingroup TortoiseProc
  * crashes the application to test the crashhandler.
@@ -33,6 +35,7 @@ public:
 	 */
 	virtual bool			Execute()
 	{
+		crasher.Enable(!parser.HasKey(_T("nocustom")));
 		CMessageBox::Show(NULL, _T("You are testing the crashhandler.\n<ct=0x0000FF>Do NOT send the crashreport!!!!</ct>"), _T("TortoiseSVN"), MB_ICONINFORMATION);
 		CrashProgram();
 		CMessageBox::Show(NULL, IDS_ERR_NOCOMMAND, IDS_APPNAME, MB_ICONERROR);

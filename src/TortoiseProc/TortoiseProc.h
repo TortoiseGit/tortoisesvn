@@ -55,6 +55,8 @@ public:
 	virtual BOOL InitInstance();
 
 	void CheckUpgrade();
+	void EnableCrashHandler();
+
 // Implementation
 
 private:

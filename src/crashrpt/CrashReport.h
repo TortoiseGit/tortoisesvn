@@ -12,6 +12,8 @@ typedef LPVOID (*InstallEx)(LPGETLOGFILE pfn, LPCSTR lpcszTo, LPCSTR lpcszSubjec
 typedef void (*UninstallEx)(LPVOID lpState);
 typedef void (*EnableUI)(void);
 typedef void (*DisableUI)(void);
+typedef void (*EnableHandler)(void);
+typedef void (*DisableHandler)(void);
 typedef void (*AddFileEx)(LPVOID lpState, LPCSTR lpFile, LPCSTR lpDesc);
 typedef void (*AddRegistryEx)(LPVOID lpState, LPCSTR lpRegistry, LPCSTR lpDesc);
 typedef void (*AddEventLogEx)(LPVOID lpState, LPCSTR lpEventLog, LPCSTR lpDesc);
@@ -142,7 +144,28 @@ public:
 		}
 	}
 
-	
+
+	void Enable(BOOL bEnable)
+	{
+		EnableHandler pfnEnableHandler;
+		DisableHandler pfnDisableHandler;
+		if ((m_hDll)&&(m_lpvState))
+		{
+			if (bEnable)
+			{
+				pfnEnableHandler = (EnableHandler)GetProcAddress(m_hDll, "EnableHandlerEx");
+				(pfnEnableHandler)();
+			}
+			else
+			{
+				OutputDebugString(_T("Calling DisableHandlerEx\n"));
+
+				pfnDisableHandler = (DisableHandler)GetProcAddress(m_hDll, "DisableHandlerEx");
+				(pfnDisableHandler)();
+			}
+		}
+	}
+
 private:
 	HMODULE			m_hDll;
 	LPVOID			m_lpvState;

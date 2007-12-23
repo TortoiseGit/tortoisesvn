@@ -234,7 +234,7 @@ string CExceptionReport::getSymbolFile(int index)
 {
    string ret;
 
-   if (0 < index && index < m_symFiles.size())
+   if (0 < index && index < (int)m_symFiles.size())
       ret = m_symFiles[index];
 
    return ret;
