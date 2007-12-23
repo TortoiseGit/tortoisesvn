@@ -58,11 +58,14 @@ void CLocatorBar::DocumentUpdated()
 {
 	m_bUseMagnifier = CRegDWORD(_T("Software\\TortoiseMerge\\Magnifier"), TRUE);
 	m_pMainFrm = (CMainFrame *)this->GetParentFrame();
-	m_arLeft.RemoveAll();
-	m_arRight.RemoveAll();
-	m_arBottom.RemoveAll();
+	m_arLeftIdent.RemoveAll();
+	m_arLeftState.RemoveAll();
+	m_arRightIdent.RemoveAll();
+	m_arRightState.RemoveAll();
+	m_arBottomIdent.RemoveAll();
+	m_arBottomState.RemoveAll();
 	DiffStates state = DIFFSTATE_UNKNOWN;
-	int identcount = 1;
+	long identcount = 1;
 	m_nLines = 0;
 	if (m_pMainFrm->m_pwndLeftView->m_pViewData)
 	{
@@ -76,12 +79,14 @@ void CLocatorBar::DocumentUpdated()
 			}
 			else
 			{
-				m_arLeft.Add(MAKELONG(identcount, state));
+				m_arLeftIdent.Add(identcount);
+				m_arLeftState.Add(state);
 				state = m_pMainFrm->m_pwndLeftView->m_pViewData->GetState(i);
 				identcount = 1;
 			} 
 		}
-		m_arLeft.Add(MAKELONG(identcount, state));
+		m_arLeftIdent.Add(identcount);
+		m_arLeftState.Add(state);
 	}
 
 	if (m_pMainFrm->m_pwndRightView->m_pViewData)
@@ -97,12 +102,14 @@ void CLocatorBar::DocumentUpdated()
 			}
 			else
 			{
-				m_arRight.Add(MAKELONG(identcount, state));
+				m_arRightIdent.Add(identcount);
+				m_arRightState.Add(state);
 				state = m_pMainFrm->m_pwndRightView->m_pViewData->GetState(i);
 				identcount = 1;
 			}
 		}
-		m_arRight.Add(MAKELONG(identcount, state));
+		m_arRightIdent.Add(identcount);
+		m_arRightState.Add(state);
 	}
 
 	if ((m_pMainFrm->m_pwndBottomView->m_pViewData)&&(m_pMainFrm->m_pwndBottomView->m_pViewData->GetCount()))
@@ -117,12 +124,14 @@ void CLocatorBar::DocumentUpdated()
 			}
 			else
 			{
-				m_arBottom.Add(MAKELONG(identcount, state));
+				m_arBottomIdent.Add(identcount);
+				m_arBottomIdent.Add(state);
 				state = m_pMainFrm->m_pwndBottomView->m_pViewData->GetState(i);
 				identcount = 1;
 			}
 		}
-		m_arBottom.Add(MAKELONG(identcount, state));
+		m_arBottomIdent.Add(identcount);
+		m_arBottomState.Add(state);
 		m_nLines = (int)max(m_pMainFrm->m_pwndBottomView->m_pViewData->GetCount(), m_pMainFrm->m_pwndRightView->m_pViewData->GetCount());
 	}
 	else if (m_pMainFrm->m_pwndRightView->m_pViewData)
@@ -141,10 +150,10 @@ void CLocatorBar::OnPaint()
 	CPaintDC dc(this); // device context for painting
 	CRect rect;
 	GetClientRect(rect);
-	int height = rect.Height();
-	int width = rect.Width();
-	int nTopLine = 0;
-	int nBottomLine = 0;
+	long height = rect.Height();
+	long width = rect.Width();
+	long nTopLine = 0;
+	long nBottomLine = 0;
 	if ((m_pMainFrm)&&(m_pMainFrm->m_pwndLeftView))
 	{
 		nTopLine = m_pMainFrm->m_pwndLeftView->m_nTopLine;
@@ -166,20 +175,20 @@ void CLocatorBar::OnPaint()
 	CDiffColors::GetInstance().GetColors(DIFFSTATE_UNKNOWN, color, color2);
 	cacheDC.FillSolidRect(rect, color);
 	
-	int barwidth = (width/3);
+	long barwidth = (width/3);
 	DWORD state = 0;
-	int identcount = 0;
-	int linecount = 0;
+	long identcount = 0;
+	long linecount = 0;
 	
 	if (m_nLines)
 		cacheDC.FillSolidRect(rect.left, height*nTopLine/m_nLines,
 			rect.Width(), (height*nBottomLine/m_nLines)-(height*nTopLine/m_nLines), RGB(180,180,255));
 	if (m_pMainFrm->m_pwndLeftView->IsWindowVisible())
 	{
-		for (int i=0; i<m_arLeft.GetCount(); i++)
+		for (long i=0; i<m_arLeftIdent.GetCount(); i++)
 		{
-			identcount = LOWORD(m_arLeft.GetAt(i));
-			state = HIWORD(m_arLeft.GetAt(i));
+			identcount = m_arLeftIdent.GetAt(i);
+			state = m_arLeftState.GetAt(i);
 			COLORREF color, color2;
 			CDiffColors::GetInstance().GetColors((DiffStates)state, color, color2);
 			if ((DiffStates)state != DIFFSTATE_NORMAL)
@@ -194,10 +203,10 @@ void CLocatorBar::OnPaint()
 
 	if (m_pMainFrm->m_pwndRightView->IsWindowVisible())
 	{
-		for (int i=0; i<m_arRight.GetCount(); i++)
+		for (long i=0; i<m_arRightIdent.GetCount(); i++)
 		{
-			identcount = LOWORD(m_arRight.GetAt(i));
-			state = HIWORD(m_arRight.GetAt(i));
+			identcount = m_arRightIdent.GetAt(i);
+			state = m_arRightState.GetAt(i);
 			COLORREF color, color2;
 			CDiffColors::GetInstance().GetColors((DiffStates)state, color, color2);
 			if ((DiffStates)state != DIFFSTATE_NORMAL)
@@ -211,10 +220,10 @@ void CLocatorBar::OnPaint()
 	linecount = 0;
 	if (m_pMainFrm->m_pwndBottomView->IsWindowVisible())
 	{
-		for (int i=0; i<m_arBottom.GetCount(); i++)
+		for (long i=0; i<m_arBottomIdent.GetCount(); i++)
 		{
-			identcount = LOWORD(m_arBottom.GetAt(i));
-			state = HIWORD(m_arBottom.GetAt(i));
+			identcount = m_arBottomIdent.GetAt(i);
+			state = m_arBottomState.GetAt(i);
 			COLORREF color, color2;
 			CDiffColors::GetInstance().GetColors((DiffStates)state, color, color2);
 			if ((DiffStates)state != DIFFSTATE_NORMAL)

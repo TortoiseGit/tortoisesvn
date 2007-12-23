@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006-2007 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -52,9 +52,12 @@ protected:
 	CPoint			m_MousePos;
 	BOOL			m_bMouseWithin;
 	BOOL			m_bUseMagnifier;
-	CDWordArray		m_arLeft;
-	CDWordArray		m_arRight;
-	CDWordArray		m_arBottom;
+	CDWordArray		m_arLeftIdent;
+	CDWordArray		m_arLeftState;
+	CDWordArray		m_arRightIdent;
+	CDWordArray		m_arRightState;
+	CDWordArray		m_arBottomIdent;
+	CDWordArray		m_arBottomState;
 
 	DECLARE_MESSAGE_MAP()
 public:
