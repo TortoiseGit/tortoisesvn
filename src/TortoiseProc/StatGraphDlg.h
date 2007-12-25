@@ -175,8 +175,9 @@ protected:
 	MyGraph::GraphType	m_GraphType;
 	bool				m_bStacked;
 
-	CToolTipCtrl* m_pToolTip;
+	CToolTipCtrl*	m_pToolTip;
 
+	int				m_langOrder;
 
 	// ** Member variables holding the statistical data **
 

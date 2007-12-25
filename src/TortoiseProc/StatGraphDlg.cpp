@@ -261,6 +261,20 @@ BOOL CStatGraphDlg::OnInitDialog()
 
 		default : return TRUE;
 	}
+
+	LCID m_locale = MAKELCID((DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)), SORT_DEFAULT);
+
+	bool bUseSystemLocale = !!(DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\UseSystemLocaleForDates"), TRUE);
+	LCID locale = bUseSystemLocale ? MAKELCID(MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), SORT_DEFAULT) : m_locale;
+
+	TCHAR l = 0;
+	GetLocaleInfo(locale, LOCALE_IDATE, &l, sizeof(TCHAR));
+
+	if (l > 0)
+		m_langOrder = l-'0';
+	else
+		m_langOrder = -1;
+
 	RedrawGraph();
 
 	return TRUE;
@@ -1052,23 +1066,53 @@ CString CStatGraphDlg::GetUnitString()
 
 CString CStatGraphDlg::GetUnitLabel(int unit, CTime &lasttime)
 {
-	// TODO : FS#398, do this properly with locales
 	CString temp;
 	switch (GetUnitType())
 	{
 	case Weeks:
-		if ((unit == 1)&&(lasttime.GetMonth() == 12))
-			// in some locales, the last week of a year can actually be
-			// the first week-of-the-year of the next year.
-			temp.Format(_T("%d/%.2d"), unit, (lasttime.GetYear()+1)%100);
-		else
-			temp.Format(_T("%d/%.2d"), unit, lasttime.GetYear()%100);
+		{
+			int year = lasttime.GetYear();
+			if ((unit == 1)&&(lasttime.GetMonth() == 12))
+				year += 1;
+
+			switch (m_langOrder)
+			{
+			case 0: // month day year
+			case 1: // day month year
+			default:
+				temp.Format(_T("%d/%.2d"), unit, year%100);
+				break;
+			case 2: // year month day
+				temp.Format(_T("%.2d/%d"), year%100, unit);
+				break;
+			}
+		}
 		break;
 	case Months:
-		temp.Format(_T("%d/%.2d"), unit, lasttime.GetYear()%100);
+		switch (m_langOrder)
+		{
+		case 0: // month day year
+		case 1: // day month year
+		default:
+			temp.Format(_T("%d/%.2d"), unit, lasttime.GetYear()%100);
+			break;
+		case 2: // year month day
+			temp.Format(_T("%.2d/%d"), lasttime.GetYear()%100, unit);
+			break;
+		}
 		break;
 	case Quarters:
-		temp.Format(IDS_STATGRAPH_QUARTERLABEL, unit, lasttime.GetYear()%100);
+		switch (m_langOrder)
+		{
+		case 0: // month day year
+		case 1: // day month year
+		default:
+			temp.Format(_T("%d/%.2d"), unit, lasttime.GetYear()%100);
+			break;
+		case 2: // year month day
+			temp.Format(_T("%.2d/%d"), lasttime.GetYear()%100, unit);
+			break;
+		}
 		break;
 	case Years:
 		temp.Format(_T("%d"), unit);
