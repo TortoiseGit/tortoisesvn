@@ -135,6 +135,14 @@ void CRevisionGraphWnd::DrawNode(CDC * pDC, const CRect& rect,
 	COLORREF background = GetSysColor(COLOR_WINDOW);
 	COLORREF textcolor = GetSysColor(COLOR_WINDOWTEXT);
 
+    // special case: line deleted but deletion node removed
+
+    if (   (rentry->next == NULL) 
+        && (rentry->classification & CPathClassificator::IS_DELETED))
+    {
+        contour = m_Colors.GetColor(CColors::DeletedNode);
+    }
+
 	COLORREF selcolor = contour;
 	int rval = (GetRValue(background)-GetRValue(contour))/2;
 	int gval = (GetGValue(background)-GetGValue(contour))/2;
