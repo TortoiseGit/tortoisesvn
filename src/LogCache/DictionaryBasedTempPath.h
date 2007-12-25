@@ -90,6 +90,11 @@ public:
 		return *this;
 	}
 
+    const std::vector<std::string>& GetRelPathElements() const
+    {
+        return relPathElements;
+    }
+
 	// path operations
 
 	bool IsValid() const

@@ -481,6 +481,11 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
                    , true		// includeStandardRevProps
                    , false		// includeUserRevProps
                    , TRevPropNames());
+
+        // initialize path classificator
+
+        const CPathDictionary& paths = query->GetCache()->GetLogInfo().GetPaths();
+        pathClassification.reset (new CPathClassificator (paths));
 	}
 	catch (SVNError& e)
 	{
@@ -1305,6 +1310,64 @@ void CRevisionGraph::FindReplacements()
 	}
 }
 
+// classify nodes on by one
+
+void CRevisionGraph::ForwardClassification()
+{
+	for (size_t i = 0, count = m_entryPtrs.size(); i < count; ++i)
+    {
+        CRevisionEntry* entry = m_entryPtrs[i];
+
+        entry->classification = (*pathClassification)[entry->path];
+        if (entry->action == CRevisionEntry::deleted)
+            entry->classification |= CPathClassificator::SUBTREE_DELETED;
+    }
+}
+
+// propagate classifation back along copy history
+
+void CRevisionGraph::BackwardClassification()
+{
+	for (size_t i = m_entryPtrs.size(); i > 0; --i)
+    {
+        CRevisionEntry* entry = m_entryPtrs[i-1];
+        DWORD classification = entry->classification;
+
+        // copy deletion info along the branch / tag / trunk line
+
+        if (entry->next != NULL)
+        {
+            if (  (entry->next->classification & CPathClassificator::SUBTREE_DELETED)
+                == CPathClassificator::SUBTREE_DELETED)
+                classification |= CPathClassificator::SUBTREE_DELETED;
+        }
+
+        // copy classification along copy history
+
+        const std::vector<CRevisionEntry*>& targets = entry->copyTargets;
+        for (size_t k = 0, copyCount = targets.size(); k  < copyCount; ++k)
+        {
+            DWORD targetClassification = targets[k]->classification;
+
+            // transitive and immediate copy info
+
+            classification |=   (targetClassification & 0xf0)
+                              | ((targetClassification & 0xf) * 0x10);
+
+            // deletion info (is there at least one surviving copy?)
+
+            if (  (targetClassification & CPathClassificator::SUBTREE_DELETED)
+                != CPathClassificator::SUBTREE_DELETED)
+                classification &= ~CPathClassificator::ALL_COPIES_DELETED;
+        }
+
+        // write back
+
+        entry->classification = classification;
+    }
+}
+
+
 bool CRevisionGraph::RemoveIfDeleted (CRevisionEntry * startEntry, const SOptions& options)
 {
     bool isEntirelyDeleted = true;
@@ -1519,6 +1582,15 @@ void CRevisionGraph::Optimize (const SOptions& options)
 	// say "renamed" for "Deleted"/"Added" entries
 
     FindReplacements();
+
+    // classify all nodes (needs to fully passes):
+    // classify nodes on by one
+
+    ForwardClassification();
+
+    // propagate classifation back along copy history
+
+    BackwardClassification();
 
     // remove all paths that have been deleted
 

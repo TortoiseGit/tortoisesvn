@@ -22,6 +22,7 @@
 #include "SVNPrompt.h"
 #include "SVNLogQuery.h"
 #include "CacheLogQuery.h"
+#include "PathClassificator.h"
 
 #include <map>
 
@@ -229,6 +230,7 @@ public:
 	CDictionaryBasedPath realPath;
 
 	Action			action;
+    DWORD           classification;
 	CRevisionEntry* prev;
 	CRevisionEntry* next;
 
@@ -287,6 +289,7 @@ public:
 
 	std::auto_ptr<CSVNLogQuery> svnQuery;
 	std::auto_ptr<CCacheLogQuery> query;
+    std::auto_ptr<CPathClassificator> pathClassification;
 
 	CString						GetReposRoot() {return CString(m_sRepoRoot);}
 
@@ -336,6 +339,8 @@ private:
 											  , const SOptions& options);
 
     void                        FindReplacements();
+    void                        ForwardClassification();
+    void                        BackwardClassification();
     bool                        RemoveIfDeleted (CRevisionEntry * startEntry, const SOptions& options);
     void                        RemoveDeletedOnes(const SOptions& options);
     void                        FoldTags();
