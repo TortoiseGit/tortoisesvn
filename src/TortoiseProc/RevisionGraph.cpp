@@ -1319,8 +1319,17 @@ void CRevisionGraph::ForwardClassification()
         CRevisionEntry* entry = m_entryPtrs[i];
 
         entry->classification = (*pathClassification)[entry->path];
-        if (entry->action == CRevisionEntry::deleted)
+        switch (entry->action)
+        {
+        case CRevisionEntry::deleted:
             entry->classification |= CPathClassificator::SUBTREE_DELETED;
+            break;
+
+        case CRevisionEntry::modified:
+        case CRevisionEntry::source:
+        case CRevisionEntry::lastcommit:
+            entry->classification |= CPathClassificator::IS_MODIFIED;
+        }
     }
 }
 
@@ -1333,13 +1342,14 @@ void CRevisionGraph::BackwardClassification()
         CRevisionEntry* entry = m_entryPtrs[i-1];
         DWORD classification = entry->classification;
 
-        // copy deletion info along the branch / tag / trunk line
+        // copy info along the branch / tag / trunk line
 
         if (entry->next != NULL)
         {
-            if (  (entry->next->classification & CPathClassificator::SUBTREE_DELETED)
-                == CPathClassificator::SUBTREE_DELETED)
-                classification |= CPathClassificator::SUBTREE_DELETED;
+            DWORD mask =   CPathClassificator::SUBTREE_DELETED
+                         + CPathClassificator::IS_MODIFIED;
+
+            classification |=  entry->next->classification & mask;
         }
 
         // copy classification along copy history
@@ -1349,10 +1359,13 @@ void CRevisionGraph::BackwardClassification()
         {
             DWORD targetClassification = targets[k]->classification;
 
-            // transitive and immediate copy info
+            // transitive and immediate copy and modification info
 
-            classification |=   (targetClassification & 0xf0)
-                              | ((targetClassification & 0xf) * 0x10);
+            const DWORD transitiveMask =   CPathClassificator::COPIES_TO_MASK
+                                         + CPathClassificator::IS_MODIFIED;
+
+            classification |=   (targetClassification & transitiveMask)
+                              | ((targetClassification & CPathClassificator::IS_MASK) * 0x10);
 
             // deletion info (is there at least one surviving copy?)
 
@@ -1459,50 +1472,103 @@ void CRevisionGraph::RemoveDeletedOnes (const SOptions& options)
         RemoveIfDeleted (m_entryPtrs[0], options);
 }
 
+void CRevisionGraph::FoldTags ( CRevisionEntry * collectorNode
+                              , CRevisionEntry * entry
+                              , size_t depth)
+{
+    bool firstRun = true;
+
+    for (; entry != NULL; entry = entry->next)
+    {
+        // don't remove the collector node
+        // and don't show deletions as new tags
+
+        if (collectorNode != entry)
+        {
+            if (   (entry->action == CRevisionEntry::addedwithhistory)
+                || (entry->action == CRevisionEntry::renamed))
+            {
+                // add tag to collector
+
+                CRevisionEntry::SFoldedTag tag 
+                    ( entry->path
+                    , !firstRun
+                    , (entry->classification & CPathClassificator::IS_DELETED) != 0
+                    , depth);
+
+                collectorNode->tags.push_back (tag);
+            }
+
+            // schedule for deletion
+                
+            entry->action = CRevisionEntry::nothing;
+
+            // remove from collector node
+
+            if (depth == 0)
+            {
+                if (entry->prev == NULL)
+                {
+                    if (!entry->copySources.empty())
+                    {
+                        typedef std::vector<CRevisionEntry*>::iterator TI;
+
+                        std::vector<CRevisionEntry*>& targets 
+                            = collectorNode->copyTargets;
+
+                        TI begin = targets.begin();
+                        TI end = targets.end();
+                        targets.erase (std::find (begin, end, entry));
+                    }
+                }
+                else
+                {
+                    entry->prev->next = NULL;
+                }
+            }
+        }
+
+        // add all copies of that tag
+
+        const std::vector<CRevisionEntry*>& targets = entry->copyTargets;
+        for (size_t i = 0, count = targets.size(); i  < count; ++i)
+            FoldTags (collectorNode, targets[i], depth+1);
+
+        // all others on this line are aliases
+
+        firstRun = false;
+    }
+}
+
 void CRevisionGraph::FoldTags()
 {
-    // lookup the id of the "tags" element in any path
-
-    const CStringDictionary& pathElementDictionary
-        = query->GetCache()->GetLogInfo().GetPaths().GetPathElements();
-
-    index_t tagsPathElement = pathElementDictionary.Find ("tags");
-    if (tagsPathElement == NO_INDEX)
-        return;
-
     // look for copy targets that have no further nodes and contain "tags"
+
+    DWORD nonTagOpMask =   CPathClassificator::IS_MASK 
+                         - CPathClassificator::IS_TAG
+                         + CPathClassificator::COPIES_TO_MASK 
+                         - CPathClassificator::COPIES_TO_TAG
+                         + CPathClassificator::IS_MODIFIED;
 
 	for (size_t i = 0, count = m_entryPtrs.size(); i < count; ++i)
 	{
 		CRevisionEntry * entry = m_entryPtrs[i];
 
-        std::vector<CRevisionEntry*>& targets = entry->copyTargets;
-		for (size_t k = 0, targetsCount = targets.size(); k < targetsCount; ++k)
+        // is this only a tag?
+        // (possibly copied, renamed or deleted but unmodified)
+
+        if (   (entry->action != CRevisionEntry::nothing)
+            && ((entry->classification & nonTagOpMask) == 0))
         {
-    		CRevisionEntry * target = targets[k];
-            assert (   (target->action == CRevisionEntry::addedwithhistory)
-                    || (target->action == CRevisionEntry::renamed));
+            CRevisionEntry * foldInto 
+                = entry->prev != NULL
+                ? entry->prev
+                : entry->copySources.size() == 1
+                    ? entry->copySources[0]
+                    : entry;
 
-            // this copy target will be considered a "tag", 
-            // if it is unchanged and its path contains "tags"
-
-            if (   (target->next == NULL) 
-                && target->copyTargets.empty()
-                && target->path.GetBasePath().Contains (tagsPathElement))
-            {
-                entry->tagNames.push_back (target->realPath);
-                target->action = CRevisionEntry::nothing;
-                targets[k] = NULL;
-            }
+            FoldTags (foldInto, entry, 0);
         }
-
-        // remove all NULLs from targets vector
-
-        targets.erase ( std::remove_copy ( targets.begin()
-                                         , targets.end()
-                                         , targets.begin()
-                                         , (CRevisionEntry*)NULL)
-                      , targets.end());
 	}
 }
 

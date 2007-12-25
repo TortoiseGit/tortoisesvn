@@ -216,6 +216,23 @@ public:
         splitStart = 64,
         splitEnd = 65
 	};
+
+    struct SFoldedTag
+    {
+        CDictionaryBasedTempPath tag;
+        bool isAlias;
+        bool isDeleted;
+        size_t depth;
+
+	    SFoldedTag ( const CDictionaryBasedTempPath& tag
+                   , bool isAlias
+                   , bool isDeleted
+                   , size_t depth)
+    		: tag (tag), isAlias (isAlias), isDeleted (isDeleted), depth (depth)
+        {
+        }
+    };
+
 	//methods
 	CRevisionEntry ( const CDictionaryBasedTempPath& path
 				   , revision_t revision
@@ -236,7 +253,7 @@ public:
 
 	std::vector<CRevisionEntry*>	copyTargets;
 	std::vector<CRevisionEntry*>	copySources;
-    std::vector<CDictionaryBasedPath> tagNames;
+    std::vector<SFoldedTag>         tags;
 
 	int				column;
 	int				row;
@@ -343,6 +360,9 @@ private:
     void                        BackwardClassification();
     bool                        RemoveIfDeleted (CRevisionEntry * startEntry, const SOptions& options);
     void                        RemoveDeletedOnes(const SOptions& options);
+    void                        FoldTags ( CRevisionEntry * collectorNode
+                                         , CRevisionEntry * entry
+                                         , size_t depth);
     void                        FoldTags();
 	void						ApplyFilter();
     void                        Compact();

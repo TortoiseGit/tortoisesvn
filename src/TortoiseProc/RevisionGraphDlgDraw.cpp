@@ -442,7 +442,7 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 
     	// Draw the "tagged" icon
 
-        if (m_nIconSize && !entry->tagNames.empty())
+        if (m_nIconSize && !entry->tags.empty())
 		{
 			// draw the icon
 			CPoint iconpoint = CPoint(noderect.right - 7*m_nIconSize/6, noderect.top + m_nIconSize/6);

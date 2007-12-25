@@ -526,7 +526,7 @@ BOOL CRevisionGraphWnd::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
 			apr_time_t timeStamp = revisionInfo.GetTimeStamp(index);
 			SVN::formatDate(date, timeStamp);
 
-            if (rentry->tagNames.empty())
+            if (rentry->tags.empty())
             {
 			    strTipText.Format(IDS_REVGRAPH_BOXTOOLTIP,
 							    rentry->revision,
@@ -538,8 +538,13 @@ BOOL CRevisionGraphWnd::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
             else
             {
                 std::string tags;
-                for (size_t i = 0; i < rentry->tagNames.size(); ++i)
-                    tags += "\r\n" + rentry->tagNames[i].GetPath();
+                for (size_t i = 0; i < rentry->tags.size(); ++i)
+                {
+                    const CRevisionEntry::SFoldedTag& tag = rentry->tags[i];
+                    tags +=   "\r\n" 
+                            + std::string (tag.depth, '\t') 
+                            + tag.tag.GetPath();
+                }
 
 			    strTipText.Format(IDS_REVGRAPH_BOXTOOLTIP_TAGGED,
 							    rentry->revision,

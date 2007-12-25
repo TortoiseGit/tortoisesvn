@@ -26,15 +26,19 @@ public:
         IS_BRANCH          = 0x02,
         IS_TAG             = 0x04,
         IS_OTHER           = 0x08,
+        IS_MASK            = 0x0f,
 
         COPIES_TO_TRUNK    = 0x10,
         COPIES_TO_BRANCH   = 0x20,
         COPIES_TO_TAG      = 0x40,
         COPIES_TO_OTHER    = 0x80,
+        COPIES_TO_MASK     = 0xf0,
 
-        IS_DELETED         = 0x100,
+        IS_DELETED         = 0x100,     // only propagated along a single line
         ALL_COPIES_DELETED = 0x200,
-        SUBTREE_DELETED    = IS_DELETED | ALL_COPIES_DELETED
+        SUBTREE_DELETED    = IS_DELETED | ALL_COPIES_DELETED,
+
+        IS_MODIFIED        = 0x1000
     };
 
 private:
