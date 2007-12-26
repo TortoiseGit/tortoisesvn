@@ -341,7 +341,8 @@ unsigned char CPathClassificator::GetClassification
         }
     }
 
-    // ready
+    // say "other" only if no classification was made
 
-    return result;
+    result &= ~IS_OTHER;
+    return result == 0 ? (unsigned char)IS_OTHER : result;
 }
