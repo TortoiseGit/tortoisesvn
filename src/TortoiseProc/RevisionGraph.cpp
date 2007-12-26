@@ -1335,7 +1335,7 @@ void CRevisionGraph::ForwardClassification()
 
 // propagate classifation back along copy history
 
-void CRevisionGraph::BackwardClassification()
+void CRevisionGraph::BackwardClassification (const SOptions& options)
 {
 	for (size_t i = m_entryPtrs.size(); i > 0; --i)
     {
@@ -1359,19 +1359,26 @@ void CRevisionGraph::BackwardClassification()
         {
             DWORD targetClassification = targets[k]->classification;
 
-            // transitive and immediate copy and modification info
-
-            const DWORD transitiveMask =   CPathClassificator::COPIES_TO_MASK
-                                         + CPathClassificator::IS_MODIFIED;
-
-            classification |=   (targetClassification & transitiveMask)
-                              | ((targetClassification & CPathClassificator::IS_MASK) * 0x10);
-
             // deletion info (is there at least one surviving copy?)
 
-            if (  (targetClassification & CPathClassificator::SUBTREE_DELETED)
-                != CPathClassificator::SUBTREE_DELETED)
+            bool subTreeDeleted 
+                =    (targetClassification & CPathClassificator::SUBTREE_DELETED)
+                  == CPathClassificator::SUBTREE_DELETED;
+
+            if (!subTreeDeleted)
                 classification &= ~CPathClassificator::ALL_COPIES_DELETED;
+
+            // transitive and immediate copy and modification info
+            // (don't propagate copy target info if it will be removed anyway)
+
+            if (!subTreeDeleted || !options.removeDeletedOnes)
+            {
+                const DWORD transitiveMask =   CPathClassificator::COPIES_TO_MASK
+                                             + CPathClassificator::IS_MODIFIED;
+
+                classification |=   (targetClassification & transitiveMask)
+                                  | ((targetClassification & CPathClassificator::IS_MASK) * 0x10);
+            }
         }
 
         // write back
@@ -1656,7 +1663,7 @@ void CRevisionGraph::Optimize (const SOptions& options)
 
     // propagate classifation back along copy history
 
-    BackwardClassification();
+    BackwardClassification (options);
 
     // remove all paths that have been deleted
 
