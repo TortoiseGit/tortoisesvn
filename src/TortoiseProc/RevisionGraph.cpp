@@ -692,75 +692,75 @@ void CRevisionGraph::AnalyzeRevisions ( const CDictionaryBasedTempPath& path
 					   , searchTree.get()
 					   , lastToCopy);
 
+	    // collect search paths that have been deleted in this container
+	    // (delay potential node deletion until we finished tree traversal)
+
+	    std::vector<CSearchPathTree*> toRemove;
+
 		// we are looking for search paths that (may) overlap 
 		// with the revisions' changes
 
 		CDictionaryBasedPath basePath = revisionInfo.GetRootPath (index);
-		if (!basePath.IsValid())
-			continue;	// empty revision
+		if (basePath.IsValid())
+        {
+		    // pre-order search-tree traversal
 
-		// collect search paths that have been deleted in this container
-		// (delay potential node deletion until we finished tree traversal)
+		    CSearchPathTree* searchNode = searchTree.get();
+		    while (searchNode != NULL)
+		    {
+			    if (basePath.IsSameOrParentOf (searchNode->GetPath().GetBasePath()))
+			    {
+				    // maybe a hit -> match all changes against the whole sub-tree
 
-		std::vector<CSearchPathTree*> toRemove;
+				    // in many cases, we want only to see additions, 
+				    // deletions and replacements
 
-		// pre-order search-tree traversal
+				    if (   options.includeSubPathChanges
+				        || (   revisionInfo.GetSumChanges (index) 
+					        != CRevisionInfoContainer::ACTION_CHANGED))
+				    {
+					    AnalyzeRevisions ( revision
+									     , revisionInfo.GetChangesBegin (index)
+									     , revisionInfo.GetChangesEnd (index)
+									     , searchNode
+									     , options.includeSubPathChanges
+									     , toRemove);
+				    }
+			    }
+			    else
+			    {
+				    bool subTreeTouched 
+					    = searchNode->GetPath().IsSameOrParentOf (basePath);
 
-		CSearchPathTree* searchNode = searchTree.get();
-		while (searchNode != NULL)
-		{
-			if (basePath.IsSameOrParentOf (searchNode->GetPath().GetBasePath()))
-			{
-				// maybe a hit -> match all changes against the whole sub-tree
+				    // show intermediate nodes as well?
 
-				// in many cases, we want only to see additions, 
-				// deletions and replacements
+                    if (   options.includeSubPathChanges 
+					    && subTreeTouched 
+					    && searchNode->YetToCover(revision))
+				    {
+					    AnalyzeRevisions ( revision
+									     , revisionInfo.GetChangesBegin (index)
+									     , revisionInfo.GetChangesEnd (index)
+									     , searchNode
+									     , true
+									     , toRemove);
+				    }
 
-				if (   options.includeSubPathChanges
-				    || (   revisionInfo.GetSumChanges (index) 
-					    != CRevisionInfoContainer::ACTION_CHANGED))
-				{
-					AnalyzeRevisions ( revision
-									 , revisionInfo.GetChangesBegin (index)
-									 , revisionInfo.GetChangesEnd (index)
-									 , searchNode
-									 , options.includeSubPathChanges
-									 , toRemove);
-				}
-			}
-			else
-			{
-				bool subTreeTouched 
-					= searchNode->GetPath().IsSameOrParentOf (basePath);
+				    if ((searchNode->GetFirstChild() != NULL) && subTreeTouched)
+				    {
+					    // the sub-nodes may be a match
 
-				// show intermediate nodes as well?
+					    searchNode = searchNode->GetFirstChild();
+					    continue;
+				    }
+			    }
 
-                if (   options.includeSubPathChanges 
-					&& subTreeTouched 
-					&& searchNode->YetToCover(revision))
-				{
-					AnalyzeRevisions ( revision
-									 , revisionInfo.GetChangesBegin (index)
-									 , revisionInfo.GetChangesEnd (index)
-									 , searchNode
-									 , true
-									 , toRemove);
-				}
+			    // this sub-tree has fully been covered (or been no match at all)
+			    // -> to the next node
 
-				if ((searchNode->GetFirstChild() != NULL) && subTreeTouched)
-				{
-					// the sub-nodes may be a match
-
-					searchNode = searchNode->GetFirstChild();
-					continue;
-				}
-			}
-
-			// this sub-tree has fully been covered (or been no match at all)
-			// -> to the next node
-
-            searchNode = searchNode->GetSkipSubTreeNext();
-		}
+                searchNode = searchNode->GetSkipSubTreeNext();
+		    }
+        }
 
 		// handle remaining copy-to entries
 		// (some may have a fromRevision that does not touch the fromPath)
