@@ -262,8 +262,12 @@ void CPathClassificator::ClassifyPaths (const LogCache::CPathDictionary& paths)
         LogCache::index_t parentID = paths.GetParent(i);
         LogCache::index_t elementID = paths.GetPathElementID(i);
 
-        pathClassification[i] = pathClassification [parentID]
-                              | pathElementClassification [elementID];
+        // let topmost classification win
+
+        unsigned char parentClassification = pathClassification [parentID];
+        pathClassification[i] = parentClassification != 0
+                              ? parentClassification 
+                              : pathElementClassification [elementID];
     }
 
     // set "other" classification where there is no classification, yet
@@ -309,6 +313,13 @@ unsigned char CPathClassificator::GetClassification
     if (path.IsFullyCachedPath())
         return result;
 
+    // let topmost classification win
+
+    if (result != IS_OTHER)
+        return result;
+    else
+        result = 0;
+
     // try to classify the remaining elements as efficient as possible
 
     const std::vector<std::string>& relPathElements 
@@ -316,7 +327,9 @@ unsigned char CPathClassificator::GetClassification
     const LogCache::CStringDictionary& pathElements 
         = path.GetDictionary()->GetPathElements();
 
-    for (size_t i = 0, count = relPathElements.size(); i < count; ++i)
+    for ( size_t i = 0, count = relPathElements.size()
+        ; (i < count) && (result == 0)
+        ; ++i)
     {
         // we should have a classification for this element
         // (this may not be true, if part of the log history is missing)
@@ -343,6 +356,5 @@ unsigned char CPathClassificator::GetClassification
 
     // say "other" only if no classification was made
 
-    result &= ~IS_OTHER;
     return result == 0 ? (unsigned char)IS_OTHER : result;
 }
