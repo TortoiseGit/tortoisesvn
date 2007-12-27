@@ -2816,6 +2816,10 @@ BEGIN
     IDS_REVGRAPH_BOXREVISIONTITLE "Revision %ld"
     IDS_REVGRAPH_BOXTOOLTIP_TAGGED 
                             "Revision: %ld\nURL: %s\r\nAuthor: %s\r\nDate: %s\r\n\r\nTags:%s\r\n\r\nLogmessage:\r\n%s"
+    IDS_REVGRAPH_TAG        "%s"
+    IDS_REVGRAPH_TAGALIAS   "alias: %s"
+    IDS_REVGRAPH_TAGDELETED "(deleted) %s"
+    IDS_REVGRAPH_TAGALIASDELETED "alias (deleted): %s"
     IDS_REVGRAPH_SAVEPIC    "&Save graph as..."
 END
 

@@ -537,13 +537,26 @@ BOOL CRevisionGraphWnd::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
             }
             else
             {
-                std::string tags;
+                CString tags;
                 for (size_t i = 0; i < rentry->tags.size(); ++i)
                 {
                     const CRevisionEntry::SFoldedTag& tag = rentry->tags[i];
-                    tags +=   "\r\n" 
-                            + std::string (tag.depth, '\t') 
-                            + tag.tag.GetPath();
+
+                    UINT format = tag.isAlias
+                                ? tag.isDeleted
+                                    ? IDS_REVGRAPH_TAGALIASDELETED
+                                    : IDS_REVGRAPH_TAGALIAS
+                                : tag.isDeleted
+                                    ? IDS_REVGRAPH_TAGDELETED
+                                    : IDS_REVGRAPH_TAG;
+
+                    CString tagInfo;
+                    tagInfo.Format ( format
+                                   , CUnicodeUtils::StdGetUnicode (tag.tag.GetPath()).c_str());
+
+                    tags +=   _T("\r\n")
+                            + CString (' ', tag.depth * 6) 
+                            + tagInfo;
                 }
 
 			    strTipText.Format(IDS_REVGRAPH_BOXTOOLTIP_TAGGED,
@@ -551,7 +564,7 @@ BOOL CRevisionGraphWnd::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
 							    CUnicodeUtils::StdGetUnicode(rentry->realPath.GetPath()).c_str(),
 							    CUnicodeUtils::StdGetUnicode(revisionInfo.GetAuthor(index)).c_str(), 
 							    date,
-                                CUnicodeUtils::StdGetUnicode(tags).c_str(),
+                                (LPCTSTR)tags,
 							    CUnicodeUtils::StdGetUnicode(revisionInfo.GetComment(index)).c_str());
             }
 		}
