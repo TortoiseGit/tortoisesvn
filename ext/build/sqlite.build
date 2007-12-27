@@ -41,6 +41,9 @@
 			<arg value="/errorReport:prompt" />
 			<sources>
 				<include name="*.c" />
+				<exclude name="mutex_os2.c" />
+				<exclude name="mutex_unix.c" />
+				<exclude name="tclsqlite.c" />
 			</sources>
 			<includedirs>
 				<include name="." />

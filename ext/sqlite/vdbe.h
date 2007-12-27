@@ -15,7 +15,7 @@
 ** or VDBE.  The VDBE implements an abstract machine that runs a
 ** simple program to access and modify the underlying database.
 **
-** $Id: vdbe.h,v 1.108 2007/01/09 14:01:14 drh Exp $
+** $Id: vdbe.h,v 1.115 2007/11/14 06:48:48 danielk1977 Exp $
 */
 #ifndef _SQLITE_VDBE_H_
 #define _SQLITE_VDBE_H_
@@ -72,6 +72,8 @@ typedef struct VdbeOpList VdbeOpList;
 #define P3_TRANSIENT (-9) /* P3 is a pointer to a transient string */
 #define P3_VTAB     (-10) /* P3 is a pointer to an sqlite3_vtab structure */
 #define P3_MPRINTF  (-11) /* P3 is a string obtained from sqlite3_mprintf() */
+#define P3_REAL     (-12) /* P3 is a 64-bit floating point value */
+#define P3_INT64    (-13) /* P3 is a 64-bit signed integer */
 
 /* When adding a P3 argument using P3_KEYINFO, a copy of the KeyInfo structure
 ** is made.  That copy is freed when the Vdbe is finalized.  But if the
@@ -112,7 +114,6 @@ typedef struct VdbeOpList VdbeOpList;
 ** for a description of what each of these routines does.
 */
 Vdbe *sqlite3VdbeCreate(sqlite3*);
-void sqlite3VdbeCreateCallback(Vdbe*, int*);
 int sqlite3VdbeAddOp(Vdbe*,int,int,int);
 int sqlite3VdbeOp3(Vdbe*,int,int,int,const char *zP3,int);
 int sqlite3VdbeAddOpList(Vdbe*, int nOp, VdbeOpList const *aOp);
@@ -121,6 +122,7 @@ void sqlite3VdbeChangeP2(Vdbe*, int addr, int P2);
 void sqlite3VdbeJumpHere(Vdbe*, int addr);
 void sqlite3VdbeChangeToNoop(Vdbe*, int addr, int N);
 void sqlite3VdbeChangeP3(Vdbe*, int addr, const char *zP1, int N);
+void sqlite3VdbeUsesBtree(Vdbe*, int);
 VdbeOp *sqlite3VdbeGetOp(Vdbe*, int);
 int sqlite3VdbeMakeLabel(Vdbe*);
 void sqlite3VdbeDelete(Vdbe*);
@@ -128,16 +130,16 @@ void sqlite3VdbeMakeReady(Vdbe*,int,int,int,int);
 int sqlite3VdbeFinalize(Vdbe*);
 void sqlite3VdbeResolveLabel(Vdbe*, int);
 int sqlite3VdbeCurrentAddr(Vdbe*);
-void sqlite3VdbeTrace(Vdbe*,FILE*);
+#ifdef SQLITE_DEBUG
+  void sqlite3VdbeTrace(Vdbe*,FILE*);
+#endif
 void sqlite3VdbeResetStepResult(Vdbe*);
 int sqlite3VdbeReset(Vdbe*);
-int sqliteVdbeSetVariables(Vdbe*,int,const char**);
 void sqlite3VdbeSetNumCols(Vdbe*,int);
 int sqlite3VdbeSetColName(Vdbe*, int, int, const char *, int);
 void sqlite3VdbeCountChanges(Vdbe*);
 sqlite3 *sqlite3VdbeDb(Vdbe*);
 void sqlite3VdbeSetSql(Vdbe*, const char *z, int n);
-const char *sqlite3VdbeGetSql(Vdbe*);
 void sqlite3VdbeSwap(Vdbe*,Vdbe*);
 
 #ifndef NDEBUG

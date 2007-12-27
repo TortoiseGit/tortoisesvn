@@ -12,7 +12,7 @@
 ** This file contains C code routines that are called by the parser
 ** to handle UPDATE statements.
 **
-** $Id: update.c,v 1.134 2007/02/07 01:06:53 drh Exp $
+** $Id: update.c,v 1.144 2007/12/12 16:06:23 danielk1977 Exp $
 */
 #include "sqliteInt.h"
 
@@ -59,7 +59,8 @@ void sqlite3ColumnDefault(Vdbe *v, Table *pTab, int i){
     sqlite3_value *pValue;
     u8 enc = ENC(sqlite3VdbeDb(v));
     Column *pCol = &pTab->aCol[i];
-    sqlite3ValueFromExpr(pCol->pDflt, enc, pCol->affinity, &pValue);
+    assert( i<pTab->nCol );
+    sqlite3ValueFromExpr(sqlite3VdbeDb(v), pCol->pDflt, enc, pCol->affinity, &pValue);
     if( pValue ){
       sqlite3VdbeChangeP3(v, -1, (const char *)pValue, P3_MEM);
     }else{
@@ -104,6 +105,7 @@ void sqlite3Update(
   NameContext sNC;       /* The name-context to resolve expressions in */
   int iDb;               /* Database containing the table being updated */
   int memCnt = 0;        /* Memory cell used for counting rows changed */
+  int mem1;      /* Memory address storing the rowid for next row to update */
 
 #ifndef SQLITE_OMIT_TRIGGER
   int isView;                  /* Trying to update a view */
@@ -114,10 +116,10 @@ void sqlite3Update(
   int oldIdx      = -1;  /* index of trigger "old" temp table       */
 
   sContext.pParse = 0;
-  if( pParse->nErr || sqlite3MallocFailed() ){
+  db = pParse->db;
+  if( pParse->nErr || db->mallocFailed ){
     goto update_cleanup;
   }
-  db = pParse->db;
   assert( pTabList->nSrc==1 );
 
   /* Locate the table which we want to update. 
@@ -147,7 +149,7 @@ void sqlite3Update(
   if( sqlite3ViewGetColumnNames(pParse, pTab) ){
     goto update_cleanup;
   }
-  aXRef = sqliteMallocRaw( sizeof(int) * pTab->nCol );
+  aXRef = sqlite3DbMallocRaw(db, sizeof(int) * pTab->nCol );
   if( aXRef==0 ) goto update_cleanup;
   for(i=0; i<pTab->nCol; i++) aXRef[i] = -1;
 
@@ -234,7 +236,7 @@ void sqlite3Update(
     if( i<pIdx->nColumn ) nIdx++;
   }
   if( nIdxTotal>0 ){
-    apIdx = sqliteMallocRaw( sizeof(Index*) * nIdx + nIdxTotal );
+    apIdx = sqlite3DbMallocRaw(db, sizeof(Index*) * nIdx + nIdxTotal );
     if( apIdx==0 ) goto update_cleanup;
     aIdxUsed = (char*)&apIdx[nIdx];
   }
@@ -260,6 +262,7 @@ void sqlite3Update(
   if( v==0 ) goto update_cleanup;
   if( pParse->nested==0 ) sqlite3VdbeCountChanges(v);
   sqlite3BeginWriteOperation(pParse, 1, iDb);
+  mem1 = pParse->nMem++;
 
 #ifndef SQLITE_OMIT_VIRTUALTABLE
   /* Virtual tables must be handled separately */
@@ -290,7 +293,7 @@ void sqlite3Update(
   */
   if( isView ){
     Select *pView;
-    pView = sqlite3SelectDup(pTab->pSelect);
+    pView = sqlite3SelectDup(db, pTab->pSelect);
     sqlite3Select(pParse, pView, SRT_EphemTab, iCur, 0, 0, 0, 0);
     sqlite3SelectDelete(pView);
   }
@@ -317,6 +320,7 @@ void sqlite3Update(
   }
 
   if( triggers_exist ){
+    
     /* Create pseudo-tables for NEW and OLD
     */
     sqlite3VdbeAddOp(v, OP_OpenPseudo, oldIdx, 0);
@@ -327,16 +331,16 @@ void sqlite3Update(
     /* The top of the update loop for when there are triggers.
     */
     addr = sqlite3VdbeAddOp(v, OP_FifoRead, 0, 0);
-
+    sqlite3VdbeAddOp(v, OP_StackDepth, -1, 0);
+    sqlite3VdbeAddOp(v, OP_MemStore, mem1, 0);
+    
     if( !isView ){
-      sqlite3VdbeAddOp(v, OP_Dup, 0, 0);
-      sqlite3VdbeAddOp(v, OP_Dup, 0, 0);
       /* Open a cursor and make it point to the record that is
       ** being updated.
       */
       sqlite3OpenTable(pParse, iCur, iDb, pTab, OP_OpenRead);
     }
-    sqlite3VdbeAddOp(v, OP_MoveGe, iCur, 0);
+    sqlite3VdbeAddOp(v, OP_NotExists, iCur, addr);
 
     /* Generate the OLD table
     */
@@ -380,6 +384,10 @@ void sqlite3Update(
           newIdx, oldIdx, onError, addr) ){
       goto update_cleanup;
     }
+    
+    if( !isView ){
+      sqlite3VdbeAddOp(v, OP_MemLoad, mem1, 0);
+    }
   }
 
   if( !isView && !IsVirtual(pTab) ){
@@ -419,9 +427,11 @@ void sqlite3Update(
     */
     if( !triggers_exist ){
       addr = sqlite3VdbeAddOp(v, OP_FifoRead, 0, 0);
-      sqlite3VdbeAddOp(v, OP_Dup, 0, 0);
+      sqlite3VdbeAddOp(v, OP_StackDepth, -1, 0);
+      sqlite3VdbeAddOp(v, OP_MemStore, mem1, 0);
     }
     sqlite3VdbeAddOp(v, OP_NotExists, iCur, addr);
+    sqlite3VdbeAddOp(v, OP_MemLoad, mem1, 0);
 
     /* If the record number will change, push the record number as it
     ** will be after the update. (The old record number is currently
@@ -465,7 +475,7 @@ void sqlite3Update(
 
     /* Create the new index entries and the new record.
     */
-    sqlite3CompleteInsertion(pParse, pTab, iCur, aIdxUsed, chngRowid, 1, -1);
+    sqlite3CompleteInsertion(pParse, pTab, iCur, aIdxUsed, chngRowid, 1, -1, 0);
   }
 
   /* Increment the row counter 
@@ -524,8 +534,8 @@ void sqlite3Update(
 
 update_cleanup:
   sqlite3AuthContextPop(&sContext);
-  sqliteFree(apIdx);
-  sqliteFree(aXRef);
+  sqlite3_free(apIdx);
+  sqlite3_free(aXRef);
   sqlite3SrcListDelete(pTabList);
   sqlite3ExprListDelete(pChanges);
   sqlite3ExprDelete(pWhere);
@@ -568,24 +578,27 @@ static void updateVirtualTable(
   int ephemTab;             /* Table holding the result of the SELECT */
   int i;                    /* Loop counter */
   int addr;                 /* Address of top of loop */
+  sqlite3 *db = pParse->db; /* Database connection */
 
   /* Construct the SELECT statement that will find the new values for
   ** all updated rows. 
   */
-  pEList = sqlite3ExprListAppend(0, sqlite3CreateIdExpr("_rowid_"), 0);
+  pEList = sqlite3ExprListAppend(pParse, 0, 
+                                 sqlite3CreateIdExpr(pParse, "_rowid_"), 0);
   if( pRowid ){
-    pEList = sqlite3ExprListAppend(pEList, sqlite3ExprDup(pRowid), 0);
+    pEList = sqlite3ExprListAppend(pParse, pEList,
+                                   sqlite3ExprDup(db, pRowid), 0);
   }
   assert( pTab->iPKey<0 );
   for(i=0; i<pTab->nCol; i++){
     if( aXRef[i]>=0 ){
-      pExpr = sqlite3ExprDup(pChanges->a[aXRef[i]].pExpr);
+      pExpr = sqlite3ExprDup(db, pChanges->a[aXRef[i]].pExpr);
     }else{
-      pExpr = sqlite3CreateIdExpr(pTab->aCol[i].zName);
+      pExpr = sqlite3CreateIdExpr(pParse, pTab->aCol[i].zName);
     }
-    pEList = sqlite3ExprListAppend(pEList, pExpr, 0);
+    pEList = sqlite3ExprListAppend(pParse, pEList, pExpr, 0);
   }
-  pSelect = sqlite3SelectNew(pEList, pSrc, pWhere, 0, 0, 0, 0, 0, 0);
+  pSelect = sqlite3SelectNew(pParse, pEList, pSrc, pWhere, 0, 0, 0, 0, 0, 0);
   
   /* Create the ephemeral table into which the update results will
   ** be stored.
@@ -617,6 +630,7 @@ static void updateVirtualTable(
   sqlite3VdbeOp3(v, OP_VUpdate, 0, pTab->nCol+2, 
                      (const char*)pTab->pVtab, P3_VTAB);
   sqlite3VdbeAddOp(v, OP_Next, ephemTab, addr);
+  sqlite3VdbeJumpHere(v, addr-1);
   sqlite3VdbeAddOp(v, OP_Close, ephemTab, 0);
 
   /* Cleanup */
