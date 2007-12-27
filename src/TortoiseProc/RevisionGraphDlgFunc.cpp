@@ -165,11 +165,6 @@ void CRevisionGraphWnd::BuildConnections()
 		{
 			CRevisionEntry * targetEntry = sourceEntry->copyTargets[j];
 
-            // don't draw lines for split branch sections
-
-            if (targetEntry->action == CRevisionEntry::splitEnd)
-                continue;
-
 			// reference coordinate for the connection target
 
 			CPoint targetLeftTop;

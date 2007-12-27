@@ -87,7 +87,6 @@ protected:
 	afx_msg void	OnViewTopDown();
 	afx_msg void    OnViewShowHEAD();
 	afx_msg void    OnViewExactCopySource();
-	afx_msg void    OnViewSplitBranches();
 	afx_msg void    OnViewFoldTags();
 	afx_msg void    OnViewReduceCrosslines();
     afx_msg void    OnViewRemoveDeletedOnes();

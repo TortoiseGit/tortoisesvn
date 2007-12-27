@@ -86,7 +86,6 @@
 #define IDI_REVGRAPH_LASTCOMMIT         220
 #define IDI_REVGRAPH_RENAMED            221
 #define IDI_REVGRAPH_REPLACED           222
-#define IDI_REVGRAPH_SPLIT              223
 #define IDR_REVGRAPHBAR                 223
 #define IDI_REVGRAPH_TAGGED             224
 #define IDI_SAVEDDATA                   225
@@ -1353,7 +1352,6 @@
 #define ID_REFRESHBROWSER               32815
 #define ID_VIEW_EXACTCOPYSOURCE         32816
 #define ID_INLINEEDIT                   32816
-#define ID_VIEW_SPLITBRANCHES           32817
 #define ID_VIEW_FOLDTAGS                32818
 #define ID_VIEW_REDUCECROSSLINES        32819
 #define ID_VIEW_REMOVEDELETEDONES       32820

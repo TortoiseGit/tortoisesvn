@@ -213,8 +213,6 @@ public:
 		lastcommit = 50,
 		initial = 51,
 		source = 1,
-        splitStart = 64,
-        splitEnd = 65
 	};
 
     struct SFoldedTag
@@ -283,7 +281,6 @@ public:
         bool oldestAtTop;           // start with latest revision (not first / oldest revision)
         bool showHEAD;              // show HEAD change for all branches
         bool exactCopySources;      // create a copy-source node, even if there was no change in that revision
-        bool splitBranches;         // long sections with no change will be replaced by "split nodes"
         bool foldTags;              // show tags as property to the source - not as separate nodes
         bool reduceCrossLines;      // minimize places with lines crossing a node box
         bool removeDeletedOnes;     // remove all deleted branches and tags
@@ -369,9 +366,6 @@ private:
 
 	int							AssignOneRowPerRevision();
 	int							AssignOneRowPerBranchNode (CRevisionEntry* start, int row);
-    void                        AutoSplitBranch ( CRevisionEntry* entry
-                                                , CRevisionEntry*& nextEntry);
-    void                        SplitBranches();
     void                        ReverseRowOrder (int maxRow);
 	void						AssignCoordinates (const SOptions& options);
 	void						Cleanup();

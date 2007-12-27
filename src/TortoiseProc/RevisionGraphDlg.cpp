@@ -56,7 +56,6 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 	m_options.showHEAD = ((dwOpts & 0x08) != 0);
 	m_options.reduceCrossLines = ((dwOpts & 0x10) != 0);
 	m_options.exactCopySources = ((dwOpts & 0x20) != 0);
-	m_options.splitBranches = ((dwOpts & 0x40) != 0);
 	m_options.foldTags = ((dwOpts & 0x80) != 0);
 	m_options.removeDeletedOnes = ((dwOpts & 0x100) != 0);
 }
@@ -71,7 +70,6 @@ CRevisionGraphDlg::~CRevisionGraphDlg()
 	dwOpts |= m_options.showHEAD ? 0x08 : 0;
 	dwOpts |= m_options.reduceCrossLines ? 0x10 : 0;
 	dwOpts |= m_options.exactCopySources ? 0x20 : 0;
-	dwOpts |= m_options.splitBranches ? 0x40 : 0;
 	dwOpts |= m_options.foldTags ? 0x80 : 0;
     dwOpts |= m_options.removeDeletedOnes ? 0x100 : 0;
 	regOpts = dwOpts;
@@ -102,7 +100,6 @@ BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CResizableStandAloneDialog)
 	ON_COMMAND(ID_VIEW_TOPDOWN, &CRevisionGraphDlg::OnViewTopDown)
 	ON_COMMAND(ID_VIEW_SHOWHEAD, &CRevisionGraphDlg::OnViewShowHEAD)
 	ON_COMMAND(ID_VIEW_EXACTCOPYSOURCE, &CRevisionGraphDlg::OnViewExactCopySource)
-	ON_COMMAND(ID_VIEW_SPLITBRANCHES, &CRevisionGraphDlg::OnViewSplitBranches)
 	ON_COMMAND(ID_VIEW_FOLDTAGS, &CRevisionGraphDlg::OnViewFoldTags)
 	ON_COMMAND(ID_VIEW_REDUCECROSSLINES, &CRevisionGraphDlg::OnViewReduceCrosslines)
 	ON_COMMAND(ID_VIEW_REMOVEDELETEDONES, &CRevisionGraphDlg::OnViewRemoveDeletedOnes)
@@ -183,7 +180,6 @@ BOOL CRevisionGraphDlg::InitializeToolbar()
 					 , ID_VIEW_TOPDOWN
 					 , ID_VIEW_SHOWHEAD
 					 , ID_VIEW_EXACTCOPYSOURCE
-					 , ID_VIEW_SPLITBRANCHES
 					 , ID_VIEW_FOLDTAGS
 					 , ID_VIEW_REDUCECROSSLINES
                      , ID_VIEW_REMOVEDELETEDONES
@@ -248,7 +244,6 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 	SetOption(ID_VIEW_TOPDOWN, m_options.oldestAtTop);
 	SetOption(ID_VIEW_SHOWHEAD, m_options.showHEAD);
 	SetOption(ID_VIEW_EXACTCOPYSOURCE, m_options.exactCopySources);
-	SetOption(ID_VIEW_SPLITBRANCHES, m_options.splitBranches);
 	SetOption(ID_VIEW_FOLDTAGS, m_options.foldTags);
 	SetOption(ID_VIEW_REDUCECROSSLINES, m_options.reduceCrossLines);
     SetOption(ID_VIEW_REMOVEDELETEDONES, m_options.removeDeletedOnes);
@@ -573,11 +568,6 @@ void CRevisionGraphDlg::OnViewShowHEAD()
 void CRevisionGraphDlg::OnViewExactCopySource()
 {
     OnToggleOption (ID_VIEW_EXACTCOPYSOURCE, m_options.exactCopySources);
-}
-
-void CRevisionGraphDlg::OnViewSplitBranches()
-{
-    OnToggleOption (ID_VIEW_SPLITBRANCHES, m_options.splitBranches);
 }
 
 void CRevisionGraphDlg::OnViewFoldTags()

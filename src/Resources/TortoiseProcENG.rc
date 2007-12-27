@@ -60,7 +60,6 @@ IDI_REVGRAPH_DELETED    ICON                    "revgraph_deleted.ico"
 IDI_REVGRAPH_LASTCOMMIT ICON                    "revgraph_lastcommit.ico"
 IDI_REVGRAPH_RENAMED    ICON                    "revgraph_renamed.ico"
 IDI_REVGRAPH_REPLACED   ICON                    "revgraph_replaced.ico"
-IDI_REVGRAPH_SPLIT      ICON                    "revgraph_split.ico"
 IDI_REVGRAPH_TAGGED     ICON                    "revgraph_tag.ico"
 IDI_SAVEDDATA           ICON                    "saveddata.ico"
 IDI_GRAPHBAR            ICON                    "graph-bar.ico"
@@ -2059,7 +2058,6 @@ BEGIN
     BUTTON      ID_VIEW_TOPDOWN
     BUTTON      ID_VIEW_SHOWHEAD
     BUTTON      ID_VIEW_EXACTCOPYSOURCE
-    BUTTON      ID_VIEW_SPLITBRANCHES
     BUTTON      ID_VIEW_FOLDTAGS
     BUTTON      ID_VIEW_REDUCECROSSLINES
     BUTTON      ID_VIEW_REMOVEDELETEDONES
@@ -2088,7 +2086,6 @@ BEGIN
         MENUITEM "Oldest on to&p",              ID_VIEW_TOPDOWN
         MENUITEM "&Show HEAD revisions",        ID_VIEW_SHOWHEAD
         MENUITEM "E&xact copy sources",         ID_VIEW_EXACTCOPYSOURCE
-        MENUITEM "Split long &branches",        ID_VIEW_SPLITBRANCHES
         MENUITEM "Fold &tags",                  ID_VIEW_FOLDTAGS
         MENUITEM "Reduce cross-&lines",         ID_VIEW_REDUCECROSSLINES
         MENUITEM "Remove &deleted paths",       ID_VIEW_REMOVEDELETEDONES
@@ -3118,7 +3115,6 @@ END
 STRINGTABLE 
 BEGIN
     ID_VIEW_EXACTCOPYSOURCE "Branch at copy-from-rev even if there was no change in that revision"
-    ID_VIEW_SPLITBRANCHES   "Split long, inactive branches into segments"
     ID_VIEW_FOLDTAGS        "Show tags on the copy source, not as separate nodes"
     ID_VIEW_REDUCECROSSLINES 
                             "Prevents most cases in which connection lines cross revision nodes"
