@@ -1392,13 +1392,13 @@ void CRevisionGraph::RemoveDeletedOnes()
     // mark all deleted sub-trees for removal
     // and disconnect them from the remaining graph
 
-	for (size_t i = m_entryPtrs.size(); i > 0; --i)
+	for (size_t i = 0, count = m_entryPtrs.size(); i < count; ++i)
     {
-        CRevisionEntry* entry = m_entryPtrs[i-1];
-        if (entry->classification & CPathClassificator::SUBTREE_DELETED)
-        {
-            CRevisionEntry* entry = m_entryPtrs[i-1];
+        CRevisionEntry* entry = m_entryPtrs[i];
 
+        if (   (entry->classification & CPathClassificator::SUBTREE_DELETED)
+            == CPathClassificator::SUBTREE_DELETED)
+        {
             // node predecessor
 
             CRevisionEntry* prev = entry->prev != NULL
