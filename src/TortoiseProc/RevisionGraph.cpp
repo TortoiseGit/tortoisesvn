@@ -1399,6 +1399,10 @@ void CRevisionGraph::RemoveDeletedOnes()
         if (   (entry->classification & CPathClassificator::SUBTREE_DELETED)
             == CPathClassificator::SUBTREE_DELETED)
         {
+            // mark this node for deletion
+
+            entry->action = CRevisionEntry::nothing;
+
             // node predecessor
 
             CRevisionEntry* prev = entry->prev != NULL
@@ -1434,13 +1438,14 @@ void CRevisionGraph::RemoveDeletedOnes()
                 // if it is a simple copy source and is no longer needed
 
                 if (   (prev->action == CRevisionEntry::source)
-                    && (prev->next != NULL)
                     && (prev->copyTargets.empty()))
                 {
                     // de-link and mark for removal
 
-                    prev->prev->next = prev->next;
-                    prev->next->prev = prev->prev;
+                    if (prev->prev != NULL)
+                        prev->prev->next = prev->next;
+                    if (prev->next != NULL)
+                        prev->next->prev = prev->prev;
 
                     prev->action = CRevisionEntry::nothing;
                 }
