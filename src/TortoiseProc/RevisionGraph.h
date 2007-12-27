@@ -358,8 +358,7 @@ private:
     void                        FindReplacements();
     void                        ForwardClassification();
     void                        BackwardClassification (const SOptions& options);
-    bool                        RemoveIfDeleted (CRevisionEntry * startEntry, const SOptions& options);
-    void                        RemoveDeletedOnes(const SOptions& options);
+    void                        RemoveDeletedOnes();
     void                        FoldTags ( CRevisionEntry * collectorNode
                                          , CRevisionEntry * entry
                                          , size_t depth);

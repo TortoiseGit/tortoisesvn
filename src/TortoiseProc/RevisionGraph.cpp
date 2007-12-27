@@ -1387,96 +1387,66 @@ void CRevisionGraph::BackwardClassification (const SOptions& options)
     }
 }
 
-
-bool CRevisionGraph::RemoveIfDeleted (CRevisionEntry * startEntry, const SOptions& options)
+void CRevisionGraph::RemoveDeletedOnes()
 {
-    bool isEntirelyDeleted = true;
+    // mark all deleted sub-trees for removal
+    // and disconnect them from the remaining graph
 
-    // follow this branch to its end and check all side-branches
-
-    CRevisionEntry * entry = startEntry;
-    while ((entry != NULL) && (entry->action != CRevisionEntry::deleted))
+	for (size_t i = m_entryPtrs.size(); i > 0; --i)
     {
-        // remove all deleted side-branches
-
-        std::vector<CRevisionEntry*>& targets = entry->copyTargets;
-		for (size_t k = targets.size(); k > 0; --k)
+        CRevisionEntry* entry = m_entryPtrs[i-1];
+        if (entry->classification & CPathClassificator::SUBTREE_DELETED)
         {
-            if (!RemoveIfDeleted (targets[k-1], options))
-            {
-                // one side-branch of this node has not been deleted
-                // -> keep at least the copy source
+            CRevisionEntry* entry = m_entryPtrs[i-1];
 
-                startEntry = entry->next;
-                isEntirelyDeleted = false;
-            }
-            else
-            {
-                // remove copy source, 
-                // if it is a simple change and is no longer needed
+            // node predecessor
 
-                if (   !options.includeSubPathChanges
-                    && targets.empty()
-                    && (entry->next != NULL)
-                    && (entry->action == CRevisionEntry::source))
+            CRevisionEntry* prev = entry->prev != NULL
+                                 ? entry->prev 
+                                 : entry->copySources.size() == 1
+                                    ? entry->copySources[0]
+                                    : NULL;
+
+            // do nothing if that has been deleted as well
+            // (we are within a deleted sub-tree in that case)
+
+            if ((prev != NULL) && (prev->action != CRevisionEntry::nothing))
+            {
+                // de-link root of deleted sub-tree
+
+                if (entry->prev == NULL)
                 {
-                    assert (entry->prev != NULL);
-                    assert (entry->copySources.empty());
+                    std::vector<CRevisionEntry*>& targets = prev->copyTargets;
+                    targets.erase (std::find ( targets.begin()
+                                             , targets.end()
+                                             , entry));
 
+                    entry->copySources.clear();
+                }
+                else
+                {
+                    assert (entry->copySources.empty());
+                    prev->next = NULL;
+                    entry->prev = NULL;
+                }
+
+                // remove copy source, 
+                // if it is a simple copy source and is no longer needed
+
+                if (   (prev->action == CRevisionEntry::source)
+                    && (prev->next != NULL)
+                    && (prev->copyTargets.empty()))
+                {
                     // de-link and mark for removal
 
-                    entry->prev->next = entry->next;
-                    entry->next->prev = entry->prev;
+                    prev->prev->next = prev->next;
+                    prev->next->prev = prev->prev;
 
-                    entry->action = CRevisionEntry::nothing;
+                    prev->action = CRevisionEntry::nothing;
                 }
             }
         }
-
-        // next entry
-
-        entry = entry->next;
     }
-
-    // reached end of branch / tag
-    // no deletion?
-
-    if (entry == NULL)
-        return false;
-
-    // this node is a deletion node
-
-    assert (entry->action == CRevisionEntry::deleted);
-    assert (startEntry != NULL);
-
-    // mark all nodes of the deleted section for removal
-
-    for (entry = startEntry; entry != NULL; entry = entry->next)
-        entry->action = CRevisionEntry::nothing;
-
-    // remove references from source node
-
-    if (startEntry->prev != NULL)
-        startEntry->prev->next = NULL;
-
-    if (!startEntry->copySources.empty())
-    {
-        assert (startEntry->copySources.size() == 1);
-        std::vector<CRevisionEntry*>& targets 
-            = startEntry->copySources[0]->copyTargets;
-
-        targets.erase (std::find (targets.begin(), targets.end(), startEntry));
-    }
-
-    // whole branch has been deleted, if no sub-branch survived
-
-    return isEntirelyDeleted;
-}
-
-void CRevisionGraph::RemoveDeletedOnes (const SOptions& options)
-{
-    if (!m_entryPtrs.empty())
-        RemoveIfDeleted (m_entryPtrs[0], options);
 }
 
 void CRevisionGraph::FoldTags ( CRevisionEntry * collectorNode
@@ -1668,7 +1638,7 @@ void CRevisionGraph::Optimize (const SOptions& options)
     // remove all paths that have been deleted
 
     if (options.removeDeletedOnes)
-        RemoveDeletedOnes (options);
+        RemoveDeletedOnes();
 
 	// apply the custom filter
 
