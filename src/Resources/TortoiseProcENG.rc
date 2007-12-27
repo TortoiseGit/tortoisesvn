@@ -3046,7 +3046,7 @@ BEGIN
     IDS_SETTINGS_CONNECTIVITY_OFFLINEFOREVER 
                             "Never try to contact the repository again"
     IDS_SETTINGS_LOGCACHE_UPDATETITLE "Updating log cache"
-    IDS_SETTINGS_DELETEDCACHE "Probably deleted repository (%s)"
+    IDS_SETTINGS_DELETEDCACHE "URL not known (UUID: %s)"
     IDS_SETTINGS_CACHEDELETEQUESTION 
                             "Are you sure you want to remove the cache of the selected %d items?"
 END
