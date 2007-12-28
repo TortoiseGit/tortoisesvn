@@ -2110,9 +2110,6 @@ void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
 
 		if (nFlags & MK_SHIFT)
 			AdjustSelection();
-		else if ((m_nSelBlockStart == nClickedLine) && (m_nSelBlockEnd == nClickedLine))
-			// deselect!
-			ClearSelection();
 		else
 		{
 			ClearSelection();
