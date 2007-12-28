@@ -2026,6 +2026,10 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 				m_ptCaretPos.x = 0;
 				m_ptCaretPos.y = 0;
 				m_nCaretGoalPos = 0;
+				if (bShift)
+					AdjustSelection();
+				else
+					ClearSelection();
 				UpdateCaret();
 			}
 			else
@@ -2049,6 +2053,10 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 				m_ptCaretPos.y = GetLineCount()-1;
 				m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
 				UpdateGoalPos();
+				if (bShift)
+					AdjustSelection();
+				else
+					ClearSelection();
 				UpdateCaret();
 			}
 			else
