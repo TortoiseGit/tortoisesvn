@@ -343,11 +343,6 @@ BOOL CTortoiseProcApp::InitInstance()
 		cmd->SetPaths(pathList, cmdLinePath);
 		cmd->Execute();
 		delete cmd;
-
-		if (TSVNMutex)
-			::CloseHandle(TSVNMutex);
-
-		return FALSE;
 	}
 
 	if (TSVNMutex)
