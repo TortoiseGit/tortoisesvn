@@ -2476,6 +2476,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 
 	if ((nChar > 31)||(nChar == VK_TAB))
 	{
+		RemoveSelectedText();
 		AddUndoLine(m_ptCaretPos.y);
 		CString sLine = GetLineChars(m_ptCaretPos.y);
 		sLine.Insert(m_ptCaretPos.x, (wchar_t)nChar);
@@ -2487,6 +2488,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 	else if (nChar == VK_RETURN)
 	{
 		// insert a new, fresh and empty line below the cursor
+		RemoveSelectedText();
 		AddUndoLine(m_ptCaretPos.y, true);
 		// move the cursor to the new line
 		m_ptCaretPos.y++;
