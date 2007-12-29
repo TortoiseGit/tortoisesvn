@@ -1528,7 +1528,7 @@ void CLogDlg::DiffSelectedFile()
 	if (m_bThreadRunning)
 		return;
 	UpdateLogInfoLabel();
-	int selIndex = m_ChangedFileListCtrl.GetSelectionMark();
+	INT_PTR selIndex = m_ChangedFileListCtrl.GetSelectionMark();
 	if (selIndex < 0)
 		return;
 	if (m_ChangedFileListCtrl.GetSelectedCount() == 0)
@@ -1564,7 +1564,7 @@ void CLogDlg::DiffSelectedFile()
 		if ((m_cHidePaths.GetState() & 0x0003)==BST_CHECKED)
 		{
 			// some items are hidden! So find out which item the user really clicked on
-			int selRealIndex = -1;
+			INT_PTR selRealIndex = -1;
 			for (INT_PTR hiddenindex=0; hiddenindex<pLogEntry->pArChangedPaths->GetCount(); ++hiddenindex)
 			{
 				if (pLogEntry->pArChangedPaths->GetAt(hiddenindex)->sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
@@ -1709,7 +1709,7 @@ void CLogDlg::DiffSelectedRevWithPrevious()
   EnableOKButton();
 }
 
-void CLogDlg::DoDiffFromLog(int selIndex, svn_revnum_t rev1, svn_revnum_t rev2, bool blame, bool unified)
+void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t rev2, bool blame, bool unified)
 {
 	DialogEnableWindow(IDOK, FALSE);
 	SetPromptApp(&theApp);
@@ -2554,7 +2554,7 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		{
 			_stprintf_s(pItem->pszText, pItem->cchTextMax, _T("%ld"), pLogEntry->Rev);
 			// to make the child entries indented, add spaces
-			int len = _tcslen(pItem->pszText);
+			size_t len = _tcslen(pItem->pszText);
 			TCHAR * pBuf = pItem->pszText + len;
 			DWORD nSpaces = m_maxChild-pLogEntry->childStackDepth;
 			while ((pItem->cchTextMax >= len)&&(nSpaces))

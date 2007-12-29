@@ -379,7 +379,7 @@ public:
 	/**
 	 * Returns the file entry data for the list control index.
 	 */
-	CSVNStatusListCtrl::FileEntry * GetListEntry(int index);
+	CSVNStatusListCtrl::FileEntry * GetListEntry(UINT_PTR index);
 
 	/**
 	 * Returns the file entry data for the specified path.
@@ -573,7 +573,7 @@ private:
 	/// If the point is not over a group header, -1 is returned
 	int GetGroupFromPoint(POINT * ppt);
 	/// Returns the number of changelists the selection has
-	int GetNumberOfChangelistsInSelection();
+	size_t GetNumberOfChangelistsInSelection();
 
 	/// Puts the item to the corresponding group
 	bool SetItemGroup(int item, int groupindex);
@@ -631,8 +631,8 @@ private:
 	bool						m_bHasChangeLists;
 	typedef std::vector<FileEntry*> FileEntryVector;
 	FileEntryVector				m_arStatusArray;
-	std::vector<DWORD>			m_arListArray;
-	std::map<CString, int>		m_changelists;
+	std::vector<size_t>			m_arListArray;
+	std::map<CString, LONG_PTR>	m_changelists;
 	CTSVNPathList				m_ConflictFileList;
 	CTSVNPathList				m_StatusFileList;
 	CString						m_sLastError;

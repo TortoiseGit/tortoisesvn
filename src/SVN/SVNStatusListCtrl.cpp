@@ -164,13 +164,11 @@ void CSVNStatusListCtrl::ClearStatusArray()
 	m_arStatusArray.clear();
 }
 
-CSVNStatusListCtrl::FileEntry * CSVNStatusListCtrl::GetListEntry(int index)
+CSVNStatusListCtrl::FileEntry * CSVNStatusListCtrl::GetListEntry(UINT_PTR index)
 {
-	if (index < 0)
+	if (index >= (UINT_PTR)m_arListArray.size())
 		return NULL;
-	if (index >= (int)m_arListArray.size())
-		return NULL;
-	if ((INT_PTR)m_arListArray[index] >= m_arStatusArray.size())
+	if (m_arListArray[index] >= m_arStatusArray.size())
 		return NULL;
 	return m_arStatusArray[m_arListArray[index]];
 }
@@ -2417,7 +2415,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					{
 						popup.AppendMenu(MF_SEPARATOR);
 						// changelist commands
-						int numChangelists = GetNumberOfChangelistsInSelection();
+						size_t numChangelists = GetNumberOfChangelistsInSelection();
 						if (numChangelists > 0)
 						{
 							temp.LoadString(IDS_STATUSLIST_CONTEXT_REMOVEFROMCS);
@@ -2439,7 +2437,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								// find the changelist names
 								bool bNeedSeparator = true;
 								int cmdID = IDSVNLC_MOVETOCS;
-								for (std::map<CString, int>::const_iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
+								for (std::map<CString, LONG_PTR>::const_iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
 								{
 									if ((entry->changelist.Compare(it->first))&&(it->first.Compare(SVNSLC_IGNORECHANGELIST)))
 									{
@@ -3394,7 +3392,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						// find the changelist name
 						CString sChangelist;
 						int cmdID = IDSVNLC_MOVETOCS;
-						for (std::map<CString, int>::const_iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
+						for (std::map<CString, LONG_PTR>::const_iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
 						{
 							if ((it->first.Compare(SVNSLC_IGNORECHANGELIST))&&(entry->changelist.Compare(it->first)))
 							{
@@ -3551,7 +3549,7 @@ void CSVNStatusListCtrl::CreateChangeList(const CString& name)
 		grp.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
 		_tcsncpy_s(groupname, 1024, name, 1023);
 		grp.pszHeader = groupname;
-		grp.iGroupId = m_changelists.size()+1;
+		grp.iGroupId = (int)m_changelists.size()+1;
 		grp.uAlign = LVGA_HEADER_LEFT;
 		m_changelists[name] = InsertGroup(-1, &grp);
 
@@ -3913,7 +3911,7 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 
 			COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
 
-			if (m_arListArray.size() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
+			if (m_arListArray.size() > (DWORD_PTR)pLVCD->nmcd.dwItemSpec)
 			{
 				FileEntry * entry = GetListEntry((int)pLVCD->nmcd.dwItemSpec);
 				if (entry == NULL)
@@ -4201,13 +4199,13 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
 {
 	TOOLTIPTEXTW* pTTTW = (TOOLTIPTEXTW*)pNMHDR;
 	CString strTipText;
-	UINT nID = pNMHDR->idFrom;
+	UINT_PTR nID = pNMHDR->idFrom;
 
 	if (nID == 0)
 		return FALSE;
 
-	int row = ((nID-1) >> 10) & 0x3fffff;
-	int col = (nID-1) & 0x3ff;
+	UINT_PTR row = ((nID-1) >> 10) & 0x3fffff;
+	UINT_PTR col = (nID-1) & 0x3ff;
 
 	if (col == 0)
 		return FALSE;	// no custom tooltip for the path, we use the infotip there!
@@ -4876,7 +4874,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 	return CStringUtils::WriteAsciiStringToClipboard(sClipboard);
 }
 
-int CSVNStatusListCtrl::GetNumberOfChangelistsInSelection()
+size_t CSVNStatusListCtrl::GetNumberOfChangelistsInSelection()
 {
 	std::set<CString> changelists;
 	POSITION pos = GetFirstSelectedItemPosition();
@@ -4913,7 +4911,7 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
 
 	// add a new group for each changelist
 	int groupindex = 1;
-	for (std::map<CString,int>::iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
+	for (std::map<CString,LONG_PTR>::iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
 	{
 		LVGROUP grp = {0};
 		grp.cbSize = sizeof(LVGROUP);

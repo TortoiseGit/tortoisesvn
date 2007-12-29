@@ -221,7 +221,7 @@ BOOL CStatGraphDlg::OnInitDialog()
 	GatherData();
 
 	// set the min/max values on the skipper
-	int max_authors_count = max(1, min(m_authorNames.size(),100) );
+	int max_authors_count = max(1, (int)min(m_authorNames.size(),100) );
 	// TODO : limit the max count based on the resolution, for now we use 100
 	m_Skipper.SetRange(1, max_authors_count );
 	m_Skipper.SetPos( min(max_authors_count, 10) );
@@ -343,8 +343,8 @@ void CStatGraphDlg::UpdateWeekCount()
 	// Determine first and last date in dates array
 	__time64_t min_date = (__time64_t)m_parDates->GetAt(0);
 	__time64_t max_date = min_date;
-	unsigned int count = m_parDates->GetCount();
-	for (unsigned int i=0; i<count; ++i) 
+	INT_PTR count = m_parDates->GetCount();
+	for (INT_PTR i=0; i<count; ++i) 
 	{
 		__time64_t d = (__time64_t)m_parDates->GetAt(i);
 		if (d < min_date)		min_date = d;
@@ -672,7 +672,7 @@ void CStatGraphDlg::ShowCommitsByAuthor()
 	}
 
 	// If we have other authors, count them and their commits.
-	int nOthers = others.size();
+	size_t nOthers = others.size();
 	if (nOthers != 0)
 	{
 		int nCommits = 0;
@@ -845,7 +845,7 @@ void CStatGraphDlg::ShowStats()
 		return;
 
 	// Now we can use the gathered data to update the stats dialog.
-	unsigned int nAuthors = m_authorNames.size();
+	size_t nAuthors = m_authorNames.size();
 
 	// Find most and least active author names.
 	stdstring mostActiveAuthor;
@@ -1147,7 +1147,7 @@ void CStatGraphDlg::OnNeedText(NMHDR *pnmh, LRESULT * /*pResult*/)
 	TOOLTIPTEXT* pttt = (TOOLTIPTEXT*) pnmh;
 	if (pttt->hdr.idFrom == (UINT) m_Skipper.GetSafeHwnd())
 	{
-		unsigned int included_authors_count = m_Skipper.GetPos();
+		size_t included_authors_count = m_Skipper.GetPos();
 		// if we only leave out one author, still include him with his name
 		if (included_authors_count + 1 == m_authorNames.size()) 
 			++included_authors_count;
@@ -1497,7 +1497,7 @@ void CStatGraphDlg::StoreCurrentGraphType()
 	UpdateData();
 	DWORD_PTR graphtype = m_cGraphType.GetItemData(m_cGraphType.GetCurSel());
 	// encode the current chart type
-	int statspage = graphtype*10;
+	DWORD_PTR statspage = graphtype*10;
 	if ((m_GraphType == MyGraph::Bar)&&(m_bStacked))
 	{
 		statspage += 1;

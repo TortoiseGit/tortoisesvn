@@ -786,9 +786,9 @@ void CTSVNPathList::Clear()
 	m_commonBaseDirectory.Reset();
 }
 
-const CTSVNPath& CTSVNPathList::operator[](int index) const
+const CTSVNPath& CTSVNPathList::operator[](INT_PTR index) const
 {
-	ATLASSERT(index >= 0 && index < (int)m_paths.size());
+	ATLASSERT(index >= 0 && index < (INT_PTR)m_paths.size());
 	return m_paths[index];
 }
 

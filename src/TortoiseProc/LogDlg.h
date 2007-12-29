@@ -129,7 +129,7 @@ protected:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 
 	void	FillLogMessageCtrl(bool bShow = true);
-	void	DoDiffFromLog(int selIndex, svn_revnum_t rev1, svn_revnum_t rev2, bool blame, bool unified);
+	void	DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t rev2, bool blame, bool unified);
 
 	DECLARE_MESSAGE_MAP()
 
@@ -170,7 +170,7 @@ private:
 	 * Extracts part of commit message suitable for displaying in revision list.
 	 */
 	CString MakeShortMessage(const CString& message);
-	inline int ShownCountWithStopped() const { return m_arShownList.GetCount() + (m_bStrictStopped ? 1 : 0); }
+	inline int ShownCountWithStopped() const { return (int)m_arShownList.GetCount() + (m_bStrictStopped ? 1 : 0); }
 
 
 	virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);

@@ -400,8 +400,8 @@ void CCommitDlg::OnOK()
 	//files from the list since they'll get deleted by the parent
 	//folder automatically.
 	m_ListCtrl.Block(TRUE, FALSE);
-	int nDeleted = arDeleted.GetCount();
-	for (int i=0; i<arDeleted.GetCount(); i++)
+	INT_PTR nDeleted = arDeleted.GetCount();
+	for (INT_PTR i=0; i<arDeleted.GetCount(); i++)
 	{
 		if (m_ListCtrl.GetCheck(arDeleted.GetAt(i)))
 		{

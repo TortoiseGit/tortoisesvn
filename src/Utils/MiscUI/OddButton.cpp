@@ -120,7 +120,7 @@ UINT COddButton::OnGetDlgCode()
 /// BM_SETSTYLE message handler, update internal default state data member
 LRESULT COddButton::OnSetStyle(WPARAM wParam, LPARAM lParam)
 {
-	UINT nNewType = (wParam & ODDBTN_BS_TYPEMASK);
+	UINT_PTR nNewType = (wParam & ODDBTN_BS_TYPEMASK);
 
 	// update default state flag
 	if (nNewType == BS_DEFPUSHBUTTON)

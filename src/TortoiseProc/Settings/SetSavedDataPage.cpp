@@ -58,9 +58,9 @@ BOOL CSetSavedDataPage::OnInitDialog()
 
 	// find out how many log messages and URLs we've stored
 	int nLogHistWC = 0;
-	int nLogHistMsg = 0;
+	INT_PTR nLogHistMsg = 0;
 	int nUrlHistWC = 0;
-	int nUrlHistItems = 0;
+	INT_PTR nUrlHistItems = 0;
 	int nLogHistRepo = 0;
 	CRegistryKey regloghist(_T("Software\\TortoiseSVN\\History"));
 	CStringList loghistlist;
@@ -98,7 +98,7 @@ BOOL CSetSavedDataPage::OnInitDialog()
 	}
 	
 	// find out how many dialog sizes / positions we've stored
-	int nResizableDialogs = 0;
+	INT_PTR nResizableDialogs = 0;
 	CRegistryKey regResizable(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState"));
 	CStringList resizablelist;
 	regResizable.getValues(resizablelist);
@@ -140,7 +140,7 @@ BOOL CSetSavedDataPage::OnInitDialog()
 
 	m_btnLogHistClear.EnableWindow(nLogHistMsg || nLogHistWC);
 	m_btnUrlHistClear.EnableWindow(nUrlHistItems || nUrlHistWC);
-	m_btnResizableHistClear.EnableWindow(nResizableDialogs);
+	m_btnResizableHistClear.EnableWindow(nResizableDialogs > 0);
 	m_btnAuthHistClear.EnableWindow(nSimple || nSSL || nUsername);
 	m_btnRepoLogClear.EnableWindow(nLogHistRepo >= 0);
 	m_btnActionLogClear.EnableWindow(bActionLog);

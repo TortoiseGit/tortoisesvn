@@ -140,7 +140,7 @@ protected:
 	bool		FindStyleChars(const char * line, char styler, int& start, int& end);
 	void		AdvanceUTF8(const char * str, int& pos);
 	BOOL		IsMisspelled(const CString& sWord);
-	DWORD		GetStyleAt(int pos) { return Call(SCI_GETSTYLEAT, pos) & 0x1f; }
+	DWORD		GetStyleAt(int pos) { return (DWORD)Call(SCI_GETSTYLEAT, pos) & 0x1f; }
 	bool		IsUrl(const CString& sText);
 
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);

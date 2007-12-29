@@ -91,7 +91,7 @@ BOOL CStdioFileT::ReadString(CStringA& rString)
 
 		// if string is read completely or EOF
 		if (lpszResult == NULL ||
-			(nLen = strlen(lpsz)) < nMaxSize ||
+			(nLen = (int)strlen(lpsz)) < nMaxSize ||
 			lpsz[nLen-1] == '\n')
 			break;
 

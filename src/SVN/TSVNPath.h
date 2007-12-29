@@ -302,7 +302,7 @@ public:
 
 	int GetCount() const;
 	void Clear();
-	const CTSVNPath& operator[](int index) const;
+	const CTSVNPath& operator[](INT_PTR index) const;
 	bool AreAllPathsFiles() const;
 	bool AreAllPathsFilesInOneDirectory() const;
 	CTSVNPath GetCommonDirectory() const;

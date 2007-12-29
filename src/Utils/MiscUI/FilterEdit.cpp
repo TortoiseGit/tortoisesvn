@@ -376,7 +376,7 @@ void CFilterEdit::DrawDimText()
 	dcDraw.SelectObject((*GetFont()));
 	dcDraw.SetTextColor(GetSysColor(COLOR_GRAYTEXT));
 	dcDraw.SetBkColor(GetSysColor(COLOR_WINDOW));
-	dcDraw.DrawText(m_pCueBanner, _tcslen(m_pCueBanner), &rRect, DT_CENTER | DT_VCENTER);
+	dcDraw.DrawText(m_pCueBanner, (int)_tcslen(m_pCueBanner), &rRect, DT_CENTER | DT_VCENTER);
 	dcDraw.RestoreDC(iState);
 	return;
 }

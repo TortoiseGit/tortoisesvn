@@ -186,7 +186,7 @@ protected:
 	/// The starting date/time for the revision interval.
 	__time64_t				m_minDate;		
 	/// The total number of commits (equals size of the m_parXXX arrays).
-	LONG					m_nTotalCommits;
+	INT_PTR					m_nTotalCommits;
 	/// The total number of file changes.
 	LONG					m_nTotalFileChanges;
 	/// Holds the number of commits per week and author.

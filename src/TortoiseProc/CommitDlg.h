@@ -106,7 +106,7 @@ public:
 	CString				m_sBugID;
 	CString				m_sChangeList;
 	BOOL				m_bKeepChangeList;
-	int					m_itemsCount;
+	INT_PTR				m_itemsCount;
 	bool				m_bSelectFilesForCommit;
 
 private:
