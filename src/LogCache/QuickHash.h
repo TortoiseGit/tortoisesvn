@@ -328,7 +328,7 @@ public:
 	}
 
 	/// read cache performance statistics
-	const statistics_t& statisitics() const
+	const statistics_t& statistics() const
 	{
 		return grower.get_statistics();
 	}

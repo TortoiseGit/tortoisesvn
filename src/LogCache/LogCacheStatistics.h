@@ -164,7 +164,7 @@ static size_t CLogCacheStatistics::GetSizeOf (const quick_hash<T>& container)
 {
 	typedef T::index_type index_type;
 
-	return container.statisitics().capacity * sizeof(index_type[1]) 
+	return container.statistics().capacity * sizeof(index_type[1]) 
 		 + sizeof (container);
 }
 
