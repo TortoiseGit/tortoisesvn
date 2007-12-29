@@ -345,7 +345,7 @@ bool SVNRevRangeArray::FromListString(const CString& string)
 		{
 			if (*result == ',')
 			{
-				SVNRev rev = SVNRev(CString(str, result-str));
+				SVNRev rev = SVNRev(CString(str, (int)(result-str)));
 				if (!rev.IsValid())
 				{
 					Clear();
@@ -361,7 +361,7 @@ bool SVNRevRangeArray::FromListString(const CString& string)
 			}
 			else if (*result == '-')
 			{
-				prevRev = SVNRev(CString(str, result-str));
+				prevRev = SVNRev(CString(str, (int)(result-str)));
 				if (!prevRev.IsValid())
 				{
 					Clear();

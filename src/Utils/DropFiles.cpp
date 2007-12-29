@@ -35,7 +35,7 @@ void CDropFiles::AddFile(const CString &sFile)
 	m_arFiles.Add(sFile);
 }
 
-int CDropFiles::GetCount()
+INT_PTR CDropFiles::GetCount()
 {
 	return m_arFiles.GetCount();
 }

@@ -45,7 +45,7 @@ public:
 	/**
 	 * Returns the number of files which have been added
 	 */
-	int GetCount();
+	INT_PTR GetCount();
 
 	/**
 	 * Call this method when dragging begins. It will fill

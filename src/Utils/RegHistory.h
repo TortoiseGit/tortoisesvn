@@ -34,7 +34,7 @@ public:
 	/// \param lpszSection the section in the registry, e.g., "Software\\CompanyName\\History"
 	/// \param lpszKeyPrefix the name of the registry values, e.g., "historyItem"
 	/// \return the number of history items loaded
-	int Load(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix);
+	size_t Load(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix);
 	/// Saves the history.
 	bool Save() const;
 	/// Adds a new string to the history list.
@@ -46,7 +46,7 @@ public:
 	/// Returns the number of items in the history.
 	size_t GetCount() const {return m_arEntries.size(); }
 	/// Returns the entry at index \c pos
-	LPCTSTR GetEntry(int pos) {return m_arEntries[pos].c_str();}
+	LPCTSTR GetEntry(size_t pos) {return m_arEntries[pos].c_str();}
 
 private:
 	std::wstring m_sSection;
