@@ -300,8 +300,8 @@ CRevisionGraph::~CRevisionGraph(void)
 
 void CRevisionGraph::ClearRevisionEntries()
 {
-	for (size_t i = 0, count = m_entryPtrs.size(); i < count; ++i)
-		delete m_entryPtrs[i];
+	for (size_t i = m_entryPtrs.size(); i > 0; --i)
+		delete m_entryPtrs[i-1];
 
 	m_entryPtrs.clear();
 
