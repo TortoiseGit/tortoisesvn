@@ -203,8 +203,10 @@ void CSearchPathTree::ChainEntries (CRevisionEntry* entry)
 
 		if (entry->action == CRevisionEntry::addedwithhistory)
 		{
+			assert (entry->copySource == NULL);
+
 			lastEntry->copyTargets.push_back (entry);
-			entry->copySources.push_back (lastEntry);
+			entry->copySource = lastEntry;
 		}
 		else
 		{
@@ -396,6 +398,8 @@ void CRevisionGraph::ReceiveLog ( LogChangedPathArray* changes
 
 BOOL CRevisionGraph::FetchRevisionData(CString path)
 {
+	PROFILE_BLOCK
+
 	// set some text on the progress dialog, before we wait
 	// for the log operation to start
 	CString temp;
@@ -498,6 +502,8 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 
 BOOL CRevisionGraph::AnalyzeRevisionData (CString path, const SOptions& options)
 {
+	PROFILE_BLOCK
+
 	svn_error_clear(Err);
 
 	ClearRevisionEntries();
@@ -557,23 +563,23 @@ BOOL CRevisionGraph::AnalyzeRevisionData (CString path, const SOptions& options)
 
 	// step 1: create "copy-to" lists based on the "copy-from" info
 
-	BuildForwardCopies();
+	PROFILE_LINE (BuildForwardCopies());
 
 	// step 2: crawl the history upward, follow branches and create revision info graph
 
-    AnalyzeRevisions (startPath, initialrev, options);
+    PROFILE_LINE (AnalyzeRevisions (startPath, initialrev, options));
 
 	// step 3: reduce graph by saying "renamed" instead of "deleted"+"addedWithHistory" etc.
 
-	Optimize (options);
+	PROFILE_LINE (Optimize (options));
 
 	// step 4: place the nodes on a row, column grid
 
-	AssignCoordinates (options);
+	PROFILE_LINE (AssignCoordinates (options));
 
 	// step 5: final sorting etc.
 
-	Cleanup();
+	PROFILE_LINE (Cleanup());
 
 	return true;
 }
@@ -1296,8 +1302,8 @@ void CRevisionGraph::FindReplacements()
 				entry->next = renameTarget;
                 renameTarget->prev = entry;
 
-                assert (renameTarget->copySources.size() == 1);
-                renameTarget->copySources.clear();
+                assert (renameTarget->copySource != NULL);
+                renameTarget->copySource = NULL;
 
 				entry->copyTargets[renameIndex] = *entry->copyTargets.rbegin();
                 entry->copyTargets.pop_back();
@@ -1407,8 +1413,8 @@ void CRevisionGraph::RemoveDeletedOnes()
 
             CRevisionEntry* prev = entry->prev != NULL
                                  ? entry->prev 
-                                 : entry->copySources.size() == 1
-                                    ? entry->copySources[0]
+                                 : entry->copySource != NULL
+                                    ? entry->copySource
                                     : NULL;
 
             // do nothing if that has been deleted as well
@@ -1425,11 +1431,11 @@ void CRevisionGraph::RemoveDeletedOnes()
                                              , targets.end()
                                              , entry));
 
-                    entry->copySources.clear();
+                    entry->copySource = NULL;
                 }
                 else
                 {
-                    assert (entry->copySources.empty());
+                    assert (entry->copySource == NULL);
                     prev->next = NULL;
                     entry->prev = NULL;
                 }
@@ -1491,7 +1497,7 @@ void CRevisionGraph::FoldTags ( CRevisionEntry * collectorNode
             {
                 if (entry->prev == NULL)
                 {
-                    if (!entry->copySources.empty())
+                    if (entry->copySource != NULL)
                     {
                         typedef std::vector<CRevisionEntry*>::iterator TI;
 
@@ -1545,8 +1551,8 @@ void CRevisionGraph::FoldTags()
             CRevisionEntry * foldInto 
                 = entry->prev != NULL
                 ? entry->prev
-                : entry->copySources.size() == 1
-                    ? entry->copySources[0]
+                : entry->copySource != NULL
+                    ? entry->copySource
                     : entry;
 
             FoldTags (foldInto, entry, 0);
@@ -1576,16 +1582,16 @@ void CRevisionGraph::ApplyFilter()
 			((svn_revnum_t)entry->revision > m_FilterMaxRev) ||
 			(bRemove))
 		{
-			std::vector<CRevisionEntry*>& sources = entry->copySources;
-			for (size_t k = 0, sourcesCount = sources.size(); k < sourcesCount; ++k)
+			CRevisionEntry* source = entry->copySource;
+			if (source != NULL)
 			{
-				CRevisionEntry * src = sources[k];
-
-				for (std::vector<CRevisionEntry*>::iterator it = src->copyTargets.begin(); it != src->copyTargets.end(); ++it)
+				for ( std::vector<CRevisionEntry*>::iterator it = source->copyTargets.begin()
+					; it != source->copyTargets.end()
+					; ++it)
 				{
 					if (*it == entry)
 					{
-						src->copyTargets.erase(it);
+						source->copyTargets.erase(it);
 						break;
 					}
 				}

@@ -237,7 +237,7 @@ public:
 				   , Action action)
 		: path (path), realPath (path.GetBasePath()), revision (revision)
 		, action (action), classification (0)
-		, prev (NULL), next (NULL)
+		, prev (NULL), next (NULL), copySource (NULL)
 		, row (0), column (0) {}
 
 	//members
@@ -251,8 +251,9 @@ public:
 	CRevisionEntry* next;
 
 	std::vector<CRevisionEntry*>	copyTargets;
-	std::vector<CRevisionEntry*>	copySources;
     std::vector<SFoldedTag>         tags;
+
+	CRevisionEntry* copySource;
 
 	int				column;
 	int				row;
