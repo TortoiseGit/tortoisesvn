@@ -224,7 +224,7 @@ void CPathClassificator::ClassifyPathElements
 
     // classify
 
-    for (size_t i = 0, count = elements.size(); i < count; ++i)
+	for (LogCache::index_t i = 0, count = elements.size(); i < count; ++i)
         if (Matches (firstPattern, lastPattern, elements[i], elements.GetLength(i)))
             pathElementClassification[i] |= classification;
 }
@@ -257,7 +257,7 @@ void CPathClassificator::ClassifyPaths (const LogCache::CPathDictionary& paths)
 
     // fill (root is always "other")
 
-    for (size_t i = 1, count = paths.size(); i < count; ++i)
+    for (LogCache::index_t i = 1, count = paths.size(); i < count; ++i)
     {
         LogCache::index_t parentID = paths.GetParent(i);
         LogCache::index_t elementID = paths.GetPathElementID(i);
