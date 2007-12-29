@@ -448,7 +448,16 @@ CCacheLogQuery::CLogFiller::FillLog ( CCachedLogInfo* cache
 		// to go off-line, swallow the error
 
 		if (receiverError || e.GetCode() == SVN_ERR_CANCELLED || !repositoryInfoCache->IsOffline (url, true))
+		{
+			// we want to cache whatever data we could receive so far ..
+
+			cache->Update (*updateData);
+			updateData->Clear();
+
+			// cancel SVN op
+
 			throw;
+		}
 	}
 
 	// update the cache with the data we may have received
