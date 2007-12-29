@@ -109,11 +109,8 @@ CRevisionGraphWnd::CRevisionGraphWnd()
 
 CRevisionGraphWnd::~CRevisionGraphWnd()
 {
-	for (INT_PTR i=0; i<m_arConnections.GetCount(); ++i)
-	{
-		delete [] (CPoint*)m_arConnections.GetAt(i);
-	}
-	m_arConnections.RemoveAll();
+	m_arConnections.clear();
+
 	for (int i=0; i<MAXFONTS; i++)
 	{
 		if (m_apFonts[i] != NULL)
@@ -959,19 +956,4 @@ BOOL CRevisionGraphWnd::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 	SetCursor(hCur);
 	return TRUE;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

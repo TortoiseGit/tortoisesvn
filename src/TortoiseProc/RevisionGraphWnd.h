@@ -97,7 +97,13 @@ protected:
 	CRect			m_GraphRect;
 	CRect			m_OverviewPosRect;
 	CRect			m_OverviewRect;
-	CPtrArray		m_arConnections;
+
+	struct TConnectionPoints
+	{
+		CPoint points[4];
+	};
+
+	std::vector<TConnectionPoints> m_arConnections;
 	BOOL			m_bShowOverview;
 	
 	CRevisionEntry * m_SelectedEntry1;

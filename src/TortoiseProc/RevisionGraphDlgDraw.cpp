@@ -508,9 +508,9 @@ void CRevisionGraphWnd::DrawConnections(CDC* pDC, const CRect& rect, int nVScrol
 	CPen newpen(PS_SOLID, 0, GetSysColor(COLOR_WINDOWTEXT));
 	CPen * pOldPen = pDC->SelectObject(&newpen);
 
-	for (INT_PTR i = 0, count = m_arConnections.GetCount(); i < count; ++i)
+	for (size_t i = 0, count = m_arConnections.size(); i < count; ++i)
 	{
-		CPoint * pt = (CPoint *)m_arConnections.GetAt(i);
+		const CPoint* pt = m_arConnections[i].points;
 
 		// skip connections that are definitely out of view
 

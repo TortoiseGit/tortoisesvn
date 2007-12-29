@@ -29,6 +29,7 @@
 #include "SVNInfo.h"
 #include "SVNDiff.h"
 #include ".\revisiongraphwnd.h"
+#include "CachedLogInfo.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -41,11 +42,7 @@ using namespace Gdiplus;
 void CRevisionGraphWnd::InitView()
 {
 	m_bIsRubberBand = false;
-	for (INT_PTR i=0; i<m_arConnections.GetCount(); ++i)
-	{
-		delete [] (CPoint*)m_arConnections.GetAt(i);
-	}
-	m_arConnections.RemoveAll();
+	m_arConnections.clear();
 	m_GraphRect.SetRectEmpty();
 	m_ViewRect.SetRectEmpty();
 	GetViewSize();
@@ -75,6 +72,7 @@ void CRevisionGraphWnd::BuildPreview()
 		fZoom = 1.0f;
 	int trycounter = 0;
 	m_fZoomFactor = fZoom;
+
 	while ((trycounter < 5)&&((m_GraphRect.Width()>REVGRAPH_PREVIEW_WIDTH)||(m_GraphRect.Height()>REVGRAPH_PREVIEW_HEIGHT)))
 	{
 		m_fZoomFactor = fZoom;
@@ -145,11 +143,11 @@ void CRevisionGraphWnd::BuildConnections()
 {
 	// delete all entries which we might have left
 	// in the array and free the memory they use.
-	for (INT_PTR i=0; i<m_arConnections.GetCount(); ++i)
-	{
-		delete [] (CPoint*)m_arConnections.GetAt(i);
-	}
-	m_arConnections.RemoveAll();
+	m_arConnections.clear();
+
+	// for every node, there should be at most 1 connection
+
+	m_arConnections.reserve (m_entryPtrs.size());
 	
 	// the spacing of the row/col grid (left-top to next left-top)
 
@@ -227,17 +225,17 @@ void CRevisionGraphWnd::BuildConnections()
 
 			// bezier points
 
-			CPoint * pt = new CPoint[4];
-			pt[0] = source;
-			pt[1].x = (source.x + target.x) / 2;		// first control point
-			pt[1].y = source.y;
-			pt[2].x = target.x;							// second control point
-			pt[2].y = source.y;
-			pt[3] = target;
+			TConnectionPoints pt;
+			pt.points[0] = source;
+			pt.points[1].x = (source.x + target.x) / 2;		// first control point
+			pt.points[1].y = source.y;
+			pt.points[2].x = target.x;							// second control point
+			pt.points[2].y = source.y;
+			pt.points[3] = target;
 
 			// put it into the list
 
-			m_arConnections.Add(pt);
+			m_arConnections.push_back (pt);
 		}
 	}
 }
@@ -249,22 +247,48 @@ CRect * CRevisionGraphWnd::GetGraphSize()
 	m_GraphRect.top = 0;
 	m_GraphRect.left = 0;
 
-	if ((m_maxColumn == 0) || (m_maxRow == 0) || (m_maxurllength == 0) || m_maxurl.IsEmpty())
+	if (   (   (m_maxColumn == 0) || (m_maxRow == 0) 
+			|| (m_maxurllength == 0) || m_maxurl.IsEmpty())
+		&& (!m_entryPtrs.empty()))
 	{
-		for (size_t i = 0, count = m_entryPtrs.size(); i < count; ++i)
+		const LogCache::CPathDictionary& paths 
+			= query->GetCache()->GetLogInfo().GetPaths();
+
+		std::vector<bool> pathMeasured;
+		pathMeasured.insert (pathMeasured.begin(), paths.size(), false);
+
+		for (size_t i = m_entryPtrs.size()-1; i > 0; --i)
 		{
-			CRevisionEntry * reventry = m_entryPtrs[i];
+			// graph boundaries 
+			// (start at the end of the array to hit maxColumn / maxRow asap)
+
+			CRevisionEntry * reventry = m_entryPtrs[i-1];
 			if (m_maxColumn < reventry->column)
 				m_maxColumn = reventry->column;
 			if (m_maxRow < reventry->row)
 				m_maxRow = reventry->row;
 
-			size_t len = reventry->path.GetPath().size();
+			// don't check paths multiple times, if it can be avoided
+
+			index_t pathID = reventry->path.GetBasePath().GetIndex();
+			if (   reventry->path.IsFullyCachedPath()
+				&& pathMeasured[pathID])
+				continue;
+
+			// is this path a new record holder?
+
+			std::string path = reventry->path.GetPath();
+			size_t len = path.size();
 			if (m_maxurllength < len)
 			{
 				m_maxurllength = len;
-				m_maxurl = CUnicodeUtils::GetUnicode (reventry->path.GetPath().c_str());
+				m_maxurl = CUnicodeUtils::GetUnicode (path.c_str());
 			}
+
+			// we examinied that path
+
+			if (reventry->path.IsFullyCachedPath())
+				pathMeasured[pathID] = true;
 		}
 	}
 
