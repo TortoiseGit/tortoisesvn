@@ -38,10 +38,12 @@ CLogCacheStatisticsDlg::CLogCacheStatisticsDlg
 
     authors = ToString (data.authorCount);
     paths = ToString (data.pathCount);
+	pathElements = ToString (data.pathElementCount);
     skipRanges = ToString (data.skipDeltaCount);
     wordTokens = ToString (data.wordTokenCount);
     pairTokens = ToString (data.pairTokenCount);
     textSize = ToString (data.textSize);
+	uncompressedSize = ToString (data.uncompressedSize);
 
     maxRevision = ToString (data.maxRevision);
     revisionCount = ToString (data.revisionCount);
@@ -71,11 +73,13 @@ void CLogCacheStatisticsDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Text(pDX, IDC_LASTWRITE, lastWrite);
     DDX_Text(pDX, IDC_LASTHEADUPDATE, lastHeadUpdate);
     DDX_Text(pDX, IDC_AUTHORS, authors);
+    DDX_Text(pDX, IDC_PATHELEMENTS, pathElements);
     DDX_Text(pDX, IDC_PATHS, paths);
     DDX_Text(pDX, IDC_SKIPRANGES, skipRanges);
     DDX_Text(pDX, IDC_WORDTOKENS, wordTokens);
     DDX_Text(pDX, IDC_PAIRTOKENS, pairTokens);
     DDX_Text(pDX, IDC_TEXTSIZE, textSize);
+    DDX_Text(pDX, IDC_UNCOMPRESSEDSIZE, uncompressedSize);
     DDX_Text(pDX, IDC_MAXREVISION, maxRevision);
     DDX_Text(pDX, IDC_REVISIONCOUNT, revisionCount);
     DDX_Text(pDX, IDC_CHANGESTOTAL, changesTotal);

@@ -744,6 +744,81 @@ void CTokenizedStringContainer::Replace ( const CTokenizedStringContainer& sourc
 	}
 }
 
+size_t CTokenizedStringContainer::UncompressedWordCount() const
+{
+	// fill this array with the number of word tokens 
+	// represented by each pair token
+
+	std::vector<index_t> uncompressedTokenSize;
+	index_t pairCount = pairs.size();
+	uncompressedTokenSize.insert (uncompressedTokenSize.begin(), pairCount, 0);
+
+	// for the following tokens we don't know the uncompressed size:
+
+	std::vector<index_t> tokensToProcess = uncompressedTokenSize;
+	for (index_t i = 0; i < pairCount; ++i)
+		tokensToProcess[i] = i;
+
+	// we may need to iterate multiple times 
+
+	bool anyChanges = true;
+	while (anyChanges && !tokensToProcess.empty())
+	{
+		anyChanges = false;
+
+		typedef std::vector<index_t>::iterator TI;
+		TI begin = tokensToProcess.begin();
+		TI end = tokensToProcess.end();
+
+		TI tokensLeft = begin;
+		for (TI iter = begin; iter != end; ++iter)
+		{
+			index_t token = *iter;
+			const std::pair<index_t, index_t>& sourceTokens = pairs[token];
+
+			index_t leftSize = IsDictionaryWord (sourceTokens.first)
+							 ? 1
+							 : uncompressedTokenSize[sourceTokens.first];
+			index_t rightSize = IsDictionaryWord (sourceTokens.second)
+							  ? 1
+							  : uncompressedTokenSize[sourceTokens.second];
+
+			// can we determine the uncompressed size of this token?
+
+			if ((leftSize > 0) && (rightSize > 0))
+			{
+				uncompressedTokenSize[token] = leftSize + rightSize;
+				anyChanges = true;
+			}
+			else
+			{
+				// retry in next run
+
+				*tokensLeft = token;
+				++tokensLeft;
+			}
+		}
+
+		tokensToProcess.erase (tokensLeft, end);
+	}
+
+	// now, just sum all used token sizes
+
+	size_t result = 0;
+	for (size_t i = 0, count = stringData.size(); i < count; ++i)
+	{
+		index_t token = stringData[i];
+		if (IsToken (token))
+			result += IsDictionaryWord (token)
+					? 1
+					: uncompressedTokenSize[token];
+	}
+
+	// ready
+
+	return result;
+}
+
 // stream I/O
 
 IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream

@@ -198,6 +198,7 @@ void CLogCacheStatistics::CollectData (const CCachedLogInfo& source)
 	// container sizes
 
 	authorCount = source.logInfo.authorPool.size() -1;
+	pathElementCount = source.logInfo.paths.pathElements.size();
 	pathCount = source.logInfo.paths.size();
 	
 	skipDeltaCount = 0;
@@ -212,6 +213,7 @@ void CLogCacheStatistics::CollectData (const CCachedLogInfo& source)
 	wordTokenCount = source.logInfo.comments.words.size();
 	pairTokenCount = source.logInfo.comments.pairs.size();
 	textSize = (index_t)source.logInfo.comments.stringData.size();
+	uncompressedSize = source.logInfo.comments.UncompressedWordCount();
 
 	// changes
 

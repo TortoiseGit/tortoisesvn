@@ -37,10 +37,12 @@ private:
     CString lastHeadUpdate;
     CString authors;
     CString paths;
+    CString pathElements;
     CString skipRanges;
     CString wordTokens;
     CString pairTokens;
     CString textSize;
+    CString uncompressedSize;
     CString maxRevision;
     CString revisionCount;
     CString changesTotal;

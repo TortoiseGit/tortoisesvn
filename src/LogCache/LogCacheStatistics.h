@@ -72,12 +72,14 @@ public:
 	revision_t maxRevision;
 
 	index_t authorCount;
+	index_t pathElementCount;
 	index_t pathCount;
 	index_t skipDeltaCount;
 
 	index_t wordTokenCount;
 	index_t pairTokenCount;
 	index_t textSize;
+	size_t uncompressedSize;
 
 	revision_t changesRevisionCount;
 	revision_t changesMissingRevisionCount;

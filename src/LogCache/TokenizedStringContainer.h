@@ -256,6 +256,10 @@ public:
 
 	void Clear();
 
+	/// statistics
+
+	size_t UncompressedWordCount() const;
+
 	/// batch modifications
 	/// indexes must be in ascending order
 

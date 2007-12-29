@@ -132,17 +132,19 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
 // Dialog
 //
 
-IDD_LOGCACHESTATISTICS DIALOGEX 0, 0, 298, 269
+IDD_LOGCACHESTATISTICS DIALOGEX 0, 0, 298, 282
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Log Cache Statistics"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,123,246,50,14
-    LTEXT           "RAM [kB]: ",IDC_STATIC,18,18,66,8,0,WS_EX_RIGHT
-    LTEXT           "disk [kB]: ",IDC_STATIC,18,30,66,8,0,WS_EX_RIGHT
+    DEFPUSHBUTTON   "OK",IDOK,123,258,50,14
     GROUPBOX        "Size and status",IDC_STATIC,12,6,132,54
     LTEXT           "",IDC_SIZERAM,90,18,48,8
+    LTEXT           "RAM [kB]: ",IDC_STATIC,18,18,66,8,0,WS_EX_RIGHT
     LTEXT           "",IDC_LASTREAD,234,18,48,8
+    LTEXT           "disk [kB]: ",IDC_STATIC,18,30,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_CONNECTIONSTATE,90,42,48,8
+    LTEXT           "connection: ",IDC_STATIC,18,42,66,8,0,WS_EX_RIGHT
     GROUPBOX        "Age",IDC_STATIC,156,6,132,54
     LTEXT           "last read: ",IDC_STATIC,162,18,66,8,0,WS_EX_RIGHT
     LTEXT           "",IDC_SIZEDISK,90,30,48,8
@@ -150,44 +152,46 @@ BEGIN
     LTEXT           "last update: ",IDC_STATIC,162,30,66,8,0,WS_EX_RIGHT
     LTEXT           "",IDC_LASTHEADUPDATE,234,42,48,8
     LTEXT           "last head update: ",IDC_STATIC,162,42,66,8,0,WS_EX_RIGHT
+    GROUPBOX        "Container sizes",IDC_STATIC,12,72,276,66
     LTEXT           "",IDC_AUTHORS,90,84,48,8
-    GROUPBOX        "Container sizes",IDC_STATIC,12,72,276,54
     LTEXT           "authors: ",IDC_STATIC,18,84,66,8,0,WS_EX_RIGHT
-    LTEXT           "",IDC_PATHS,90,96,48,8
-    LTEXT           "paths: ",IDC_STATIC,18,96,66,8,0,WS_EX_RIGHT
-    LTEXT           "",IDC_SKIPRANGES,90,108,48,8
-    LTEXT           "skip ranges: ",IDC_STATIC,18,108,66,8,0,WS_EX_RIGHT
-    LTEXT           "connection: ",IDC_STATIC,18,42,66,8,0,WS_EX_RIGHT
-    LTEXT           "",IDC_CONNECTIONSTATE,90,42,48,8
+    LTEXT           "",IDC_PATHELEMENTS,90,96,48,8
+    LTEXT           "path elements: ",IDC_STATIC,18,96,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_PATHS,90,108,48,8
+    LTEXT           "paths: ",IDC_STATIC,18,108,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_SKIPRANGES,90,120,48,8
+    LTEXT           "skip ranges: ",IDC_STATIC,18,120,66,8,0,WS_EX_RIGHT
     LTEXT           "",IDC_WORDTOKENS,234,84,48,8
     LTEXT           "word tokens: ",IDC_STATIC,162,84,66,8,0,WS_EX_RIGHT
     LTEXT           "",IDC_PAIRTOKENS,234,96,48,8
     LTEXT           "pair tokens: ",IDC_STATIC,162,96,66,8,0,WS_EX_RIGHT
     LTEXT           "",IDC_TEXTSIZE,234,108,48,8
     LTEXT           "text [token count]: ",IDC_STATIC,144,108,84,8,0,WS_EX_RIGHT
-    LTEXT           "",IDC_MAXREVISION,90,150,48,8
-    GROUPBOX        "Revisions",IDC_STATIC,12,138,276,96
-    LTEXT           "revision count: ",IDC_STATIC,18,162,66,8,0,WS_EX_RIGHT
-    LTEXT           "",IDC_REVISIONCOUNT,90,162,48,8
-    LTEXT           "max revision: ",IDC_STATIC,18,150,66,8,0,WS_EX_RIGHT
-    LTEXT           "",IDC_MERGESTOTAL,234,150,48,8
-    LTEXT           "merges total:",IDC_STATIC,162,150,66,8,0,WS_EX_RIGHT
-    LTEXT           "",IDC_MERGESREVISIONS,234,162,48,8
-    LTEXT           "revisions: ",IDC_STATIC,162,162,66,8,0,WS_EX_RIGHT
-    LTEXT           "",IDC_MERGESMISSING,234,174,48,8
-    LTEXT           "missing in: ",IDC_STATIC,144,174,84,8,0,WS_EX_RIGHT
-    LTEXT           "",IDC_USERREVPROPSTOTAL,234,192,48,8
-    LTEXT           "user revprops total: ",IDC_STATIC,162,192,66,8,0,WS_EX_RIGHT
-    LTEXT           "",IDC_USERREVPROPSREVISISONS,234,204,48,8
-    LTEXT           "revisions: ",IDC_STATIC,162,204,66,8,0,WS_EX_RIGHT
-    LTEXT           "",IDC_USERREVPROPSMISSING,234,216,48,8
-    LTEXT           "missing in: ",IDC_STATIC,144,216,84,8,0,WS_EX_RIGHT
-    LTEXT           "",IDC_CHANGESTOTAL,90,192,48,8
-    LTEXT           "changes total: ",IDC_STATIC,18,192,66,8,0,WS_EX_RIGHT
-    LTEXT           "",IDC_CHANGEDREVISIONS,90,204,48,8
-    LTEXT           "revisions: ",IDC_STATIC,18,204,66,8,0,WS_EX_RIGHT
-    LTEXT           "",IDC_CHANGESMISSING,90,216,48,8
-    LTEXT           "missing in: ",IDC_STATIC,18,216,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_MAXREVISION,90,162,48,8
+    LTEXT           "words [uncompressed]: ",IDC_STATIC,144,120,84,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_UNCOMPRESSEDSIZE,234,120,48,8
+    GROUPBOX        "Revisions",IDC_STATIC,12,150,276,96
+    LTEXT           "revision count: ",IDC_STATIC,18,174,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_REVISIONCOUNT,90,174,48,8
+    LTEXT           "max revision: ",IDC_STATIC,18,162,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_MERGESTOTAL,234,162,48,8
+    LTEXT           "merges total:",IDC_STATIC,162,162,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_MERGESREVISIONS,234,174,48,8
+    LTEXT           "revisions: ",IDC_STATIC,162,174,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_MERGESMISSING,234,186,48,8
+    LTEXT           "missing in: ",IDC_STATIC,144,186,84,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_USERREVPROPSTOTAL,234,204,48,8
+    LTEXT           "user revprops total: ",IDC_STATIC,162,204,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_USERREVPROPSREVISISONS,234,217,48,8
+    LTEXT           "revisions: ",IDC_STATIC,162,217,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_USERREVPROPSMISSING,234,228,48,8
+    LTEXT           "missing in: ",IDC_STATIC,144,228,84,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_CHANGESTOTAL,90,204,48,8
+    LTEXT           "changes total: ",IDC_STATIC,18,204,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_CHANGEDREVISIONS,90,217,48,8
+    LTEXT           "revisions: ",IDC_STATIC,18,217,66,8,0,WS_EX_RIGHT
+    LTEXT           "",IDC_CHANGESMISSING,90,228,48,8
+    LTEXT           "missing in: ",IDC_STATIC,18,228,66,8,0,WS_EX_RIGHT
 END
 
 
@@ -204,7 +208,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 291
         TOPMARGIN, 7
-        BOTTOMMARGIN, 262
+        BOTTOMMARGIN, 275
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -3118,8 +3122,7 @@ BEGIN
     ID_VIEW_FOLDTAGS        "Show tags on the copy source, not as separate nodes"
     ID_VIEW_REDUCECROSSLINES 
                             "Prevents most cases in which connection lines cross revision nodes"
-    ID_VIEW_REMOVEDELETEDONES
-                            "Remove deleted branches and tags"
+    ID_VIEW_REMOVEDELETEDONES "Remove deleted branches and tags"
 END
 
 STRINGTABLE 

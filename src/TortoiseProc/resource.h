@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by d:\Development\SVN\TortoiseSVN\src\Resources\TortoiseProcENG.rc
+// Used by e:\tsvntrunk3\TortoiseSVN\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MAINFRAME                   1
 #define IDC_USELOCAL                    3
@@ -759,6 +759,9 @@
 #define IDC_USERREVPROPSREVISISONS      1459
 #define IDC_USERREVPROPSMISSING         1460
 #define IDC_IMPORT                      1461
+#define IDC_PATHELEMENTS                1461
+#define IDC_TEXTSIZE2                   1462
+#define IDC_UNCOMPRESSEDSIZE            1462
 #define IDS_CHECKOUT_TT_DIR             1500
 #define IDS_CHECKOUT_EXPORTDIR          1501
 #define IDS_EXPORT_TT_EOL               1505
