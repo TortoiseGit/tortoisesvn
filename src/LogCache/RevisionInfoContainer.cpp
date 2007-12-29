@@ -326,9 +326,9 @@ void CRevisionInfoContainer::UpdateUserRevProps
 			if ( newData.userRevPropNames.size() )
 			{
 				index_t sourceIndex = iter->value;
-				for ( index_t k = newData.userRevPropNames [sourceIndex]
-				, last = newData.userRevPropNames [sourceIndex+1]
-				; k != last
+				for ( index_t k = newData.userRevPropOffsets [sourceIndex]
+					, last = newData.userRevPropOffsets [sourceIndex+1]
+					; k != last
 					; ++k)
 				{
 					userRevPropNames.push_back (*propIDMapping.find (newData.userRevPropNames [k]));
