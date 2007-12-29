@@ -164,9 +164,14 @@ void CRevisionGraphWnd::BuildConnections()
 		sourceLeftTop.x = (long)((sourceEntry->column - 1) * columnSpacing + m_node_space_left);
 		sourceLeftTop.y = (long)((sourceEntry->row - 1) * rowSpacing + m_node_space_top);
 
-		for (size_t j = 0, count = sourceEntry->copyTargets.size(); j < count; ++j)
+		for (size_t j = 0, count = sourceEntry->copyTargets.size()+1; j < count; ++j)
 		{
-			CRevisionEntry * targetEntry = sourceEntry->copyTargets[j];
+			CRevisionEntry * targetEntry 
+				= j == 0
+				? sourceEntry->next
+				: sourceEntry->copyTargets[j-1];
+			if (targetEntry == NULL)
+				continue;
 
 			// reference coordinate for the connection target
 

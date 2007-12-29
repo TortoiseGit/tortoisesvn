@@ -1822,20 +1822,14 @@ inline bool AscendingColumRow ( const CRevisionEntry* lhs
 
 void CRevisionGraph::Cleanup()
 {
-	// add "next" to "targets"
+	// sort targets by level and revision
 
 	for (size_t i = 0, count = m_entryPtrs.size(); i < count; ++i)
 	{
-		// add the parent line to the target list
-
 		CRevisionEntry * entry = m_entryPtrs[i];
 		std::vector<CRevisionEntry*>& targets = entry->copyTargets;
-		if (entry->next != NULL)
-			targets.push_back (entry->next);
-
-		// sort targets by level and revision
-
-		sort (targets.begin(), targets.end(), &AscendingColumRow);
+		if (targets.size() > 1)
+			sort (targets.begin(), targets.end(), &AscendingColumRow);
 	}
 }
 
