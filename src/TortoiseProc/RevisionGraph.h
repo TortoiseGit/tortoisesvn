@@ -235,9 +235,10 @@ public:
 	CRevisionEntry ( const CDictionaryBasedTempPath& path
 				   , revision_t revision
 				   , Action action)
-		: path (path), realPath (path.GetBasePath()), revision (revision), action (action)
+		: path (path), realPath (path.GetBasePath()), revision (revision)
+		, action (action), classification (0)
 		, prev (NULL), next (NULL)
-		, row (0), column (0) {};
+		, row (0), column (0) {}
 
 	//members
 	revision_t		revision;
