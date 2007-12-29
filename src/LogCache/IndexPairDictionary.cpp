@@ -115,8 +115,11 @@ IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 	index_t count = firstStream->GetValue();
 	dictionary.data.resize (count);
 
+	std::pair<index_t, index_t>* dataBegin 
+		= count > 0 ? &dictionary.data.at(0) : NULL;
+
 	for (index_t i = 0; i < count; ++i)
-		dictionary.data[i].first = firstStream->GetValue();
+		(dataBegin + i)->first = firstStream->GetValue();
 
 	// read the second elements
 
@@ -125,7 +128,7 @@ IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 			(stream.GetSubStream (CIndexPairDictionary::SECOND_STREAM_ID));
 
 	for (index_t i = 0; i < count; ++i)
-		dictionary.data[i].second = secondStream->GetValue();
+		(dataBegin + i)->second = secondStream->GetValue();
 
 	// build the hash
 
@@ -135,7 +138,7 @@ IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 	dictionary.hashIndex.reserve (dictionary.data.size());
 
 	for (index_t i = 0; i < count; ++i)
-		dictionary.hashIndex.insert (dictionary.data[i], i);
+		dictionary.hashIndex.insert (*(dataBegin + i), i);
 
 	// ready
 
@@ -154,9 +157,12 @@ IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 			(stream.OpenSubStream ( CIndexPairDictionary::FIRST_STREAM_ID
 								  , DIFF_INTEGER_STREAM_TYPE_ID));
 
+	const std::pair<index_t, index_t>* dataBegin 
+		= size > 0 ? &dictionary.data.at(0) : NULL;
+
 	firstStream->Add ((int)size);
 	for (size_t i = 0; i != size; ++i)
-		firstStream->Add (dictionary.data[i].first);
+		firstStream->Add ((dataBegin + i)->first);
 
 	// write offsets
 
@@ -166,7 +172,7 @@ IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 								  , DIFF_INTEGER_STREAM_TYPE_ID));
 
 	for (size_t i = 0; i != size; ++i)
-		secondStream->Add (dictionary.data[i].second);
+		secondStream->Add ((dataBegin + i)->second);
 
 	// ready
 
