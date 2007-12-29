@@ -59,6 +59,11 @@ void CRevisionGraphWnd::BuildPreview()
 	if (!m_bShowOverview)
 		return;
 
+	// is there a point in drawing this at all?
+
+	if (m_entryPtrs.size() > REVGRAPH_PREVIEW_MAX_NODES)
+		return;
+
 	float origZoom = m_fZoomFactor;
 	// zoom the graph so that it is completely visible in the window
 	DoZoom(1.0);
@@ -493,15 +498,4 @@ void CRevisionGraphWnd::DoZoom(float fZoomFactor)
 	SetScrollPos(SB_HORZ, si2.nPos);
 	Invalidate();
 }
-
-
-
-
-
-
-
-
-
-
-
 

@@ -24,6 +24,15 @@
 #define REVGRAPH_PREVIEW_WIDTH 100
 #define REVGRAPH_PREVIEW_HEIGHT 200
 
+// we need at least 5x2 pixels per node 
+// to draw a meaningful pre-view
+
+#define REVGRAPH_PREVIEW_MAX_NODES (REVGRAPH_PREVIEW_HEIGHT * REVGRAPH_PREVIEW_WIDTH / 10)
+
+// don't try to draw nodes smaller than that:
+
+#define REVGRAPH_MIN_NODE_HIGHT (0.5f)
+
 /**
  * \ingroup TortoiseProc
  * node shapes for the revision graph

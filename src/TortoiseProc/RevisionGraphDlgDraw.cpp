@@ -366,6 +366,9 @@ void CRevisionGraphWnd::DrawNode(CDC * pDC, const CRect& rect,
 
 void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos, bool bDirectDraw)
 {
+	if (m_node_rect_height < REVGRAPH_MIN_NODE_HIGHT)
+		return;
+
 	CDC * memDC;
 	if (bDirectDraw)
 	{
@@ -548,12 +551,4 @@ void CRevisionGraphWnd::DrawRubberBand()
 		max(m_ptRubberStart.x, m_ptRubberEnd.x), max(m_ptRubberStart.y, m_ptRubberEnd.y));
 	ReleaseDC(pDC);
 }
-
-
-
-
-
-
-
-
 
