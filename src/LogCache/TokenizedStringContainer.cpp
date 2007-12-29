@@ -528,8 +528,8 @@ void CTokenizedStringContainer::swap (CTokenizedStringContainer& rhs)
     words.swap (rhs.words);
 	pairs.Swap (rhs.pairs);
 
-    stringData.swap (stringData);
-	offsets.swap (offsets);
+    stringData.swap (rhs.stringData);
+	offsets.swap (rhs.offsets);
 }
 
 // modification
