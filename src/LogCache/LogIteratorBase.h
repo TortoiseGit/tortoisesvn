@@ -107,7 +107,7 @@ protected:
 	// log scanning
 
 	void AdvanceOneStep();
-	void InternalAdvance();
+	void InternalAdvance (revision_t last);
 
 public:
 
@@ -122,10 +122,13 @@ public:
 	virtual const CDictionaryBasedTempPath& GetPath() const;
 	virtual bool EndOfPath() const;
 
-	virtual void Advance();
+	virtual void Advance (revision_t last = 0);
 	virtual void ToNextAvailableData();
 
-	virtual void Retry();
+	virtual void Retry (revision_t last = 0);
+
+	virtual void SetRevision (revision_t revision);
+	virtual void SetPath (const CDictionaryBasedTempPath& path);
 };
 
 ///////////////////////////////////////////////////////////////
@@ -157,6 +160,11 @@ inline const CDictionaryBasedTempPath& CLogIteratorBase::GetPath() const
 inline bool CLogIteratorBase::EndOfPath() const
 {
 	return (revision == NO_REVISION) || (revision == 0);
+}
+
+inline void CLogIteratorBase::SetRevision (revision_t revision)
+{
+	this->revision = revision;
 }
 
 ///////////////////////////////////////////////////////////////

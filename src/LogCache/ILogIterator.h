@@ -54,7 +54,7 @@ public:
 
 	/// to next / previous revision for our path
 
-	virtual void Advance() = 0;
+	virtual void Advance (revision_t last = 0) = 0;
 
 	/// call this to efficiently skip ranges where DataIsMissing()
 
@@ -63,7 +63,12 @@ public:
 	/// call this after DataIsMissing() and you added new
 	/// revisions to the cache
 
-	virtual void Retry() = 0;
+	virtual void Retry (revision_t last = 0) = 0;
+
+	/// modify cursor
+
+	virtual void SetRevision (revision_t revision) = 0;
+	virtual void SetPath (const CDictionaryBasedTempPath& path) = 0;
 };
 
 ///////////////////////////////////////////////////////////////

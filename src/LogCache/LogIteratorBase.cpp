@@ -284,7 +284,7 @@ void CLogIteratorBase::AdvanceOneStep()
 	}
 }
 
-void CLogIteratorBase::InternalAdvance()
+void CLogIteratorBase::InternalAdvance (revision_t last)
 {
 	// find next entry that mentions the path
 	// stop @ revision 0 or missing log data
@@ -293,7 +293,7 @@ void CLogIteratorBase::InternalAdvance()
 	{
 		AdvanceOneStep();
 	}
-	while ((revision > 0) && !InternalDataIsMissing() && !PathInRevision());
+	while ((revision > last) && !InternalDataIsMissing() && !PathInRevision());
 }
 
 // construction 
@@ -321,7 +321,7 @@ bool CLogIteratorBase::DataIsMissing() const
 	return InternalDataIsMissing();
 }
 
-void CLogIteratorBase::Advance()
+void CLogIteratorBase::Advance (revision_t last)
 {
 	// maybe, there was some cache update
 
@@ -329,7 +329,7 @@ void CLogIteratorBase::Advance()
 
 	// end of history?
 
-	if (revision > 0)
+	if (revision > last)
 	{
 		// the current revision may be a copy / rename
 		// -> update our path before we proceed, if necessary
@@ -353,7 +353,7 @@ void CLogIteratorBase::Advance()
 			// find next entry that mentions the path
 			// stop @ revision 0 or missing log data
 
-			InternalAdvance();
+			InternalAdvance (last);
 		}
 	}
 }
@@ -370,7 +370,7 @@ void CLogIteratorBase::ToNextAvailableData()
 	while ((revision > 0) && InternalDataIsMissing());
 }
 
-void CLogIteratorBase::Retry()
+void CLogIteratorBase::Retry (revision_t last)
 {
 	// maybe, there was some cache update
 
@@ -379,7 +379,12 @@ void CLogIteratorBase::Retry()
 	// don't handle copy / rename more than once
 
 	++revision;
-	InternalAdvance();
+	InternalAdvance (last);
+}
+
+void CLogIteratorBase::SetPath (const CDictionaryBasedTempPath& path)
+{
+	this->path = path;
 }
 
 // end namespace LogCache
