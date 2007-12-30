@@ -151,6 +151,17 @@
 		</nant>
 	</target>
 	
+	<target name="Overlays" depends="VSNET,env,VSNETVER" >
+		<description>
+			Builds the TortoiseOverlays install files
+		</description>
+		<nant target="all">
+			<buildfiles>
+				<include name="src/TortoiseOverlays/TortoiseOverlays.build" />
+			</buildfiles>
+		</nant>
+	</target>
+
 	<target name="Subversion" depends="VSNET,env,VSNETVER">
 		<description>
 			Builds all the libraries TortoiseSVN depends on:
