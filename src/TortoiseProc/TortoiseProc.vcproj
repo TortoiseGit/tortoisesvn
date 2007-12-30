@@ -264,6 +264,7 @@
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
 				TargetMachine="1"
+				Profile="true"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -389,6 +390,14 @@
 			Name="Utils"
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;h;hpp;hxx;hm;inl;inc"
 			>
+			<File
+				RelativePath=".\ProfilingInfo.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ProfilingInfo.h"
+				>
+			</File>
 			<Filter
 				Name="General"
 				>

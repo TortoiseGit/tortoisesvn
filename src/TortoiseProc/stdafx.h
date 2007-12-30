@@ -97,3 +97,5 @@
 
 #define USE_GDI_GRADIENT
 #define HISTORYCOMBO_WITH_SYSIMAGELIST
+
+#include "ProfilingInfo.h"
