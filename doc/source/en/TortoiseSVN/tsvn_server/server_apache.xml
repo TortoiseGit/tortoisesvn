@@ -88,8 +88,8 @@
 					<para>
 						The msi installer for Apache can be found by clicking on <literal>other files</literal>,
 						then browse to <filename>binaries/win32</filename>. You may want to choose
-						the msi file <filename>apache-2.2.x-win32-x86-openssl-0.9.x.msi</filename> (the one
-						that includes openssl).
+						the msi file <filename>apache-2.2.x-win32-x86-openssl-0.9.x.msi</filename>
+						(the one that includes OpenSSL).
 					</para>
 				</listitem>
 				<listitem>
@@ -819,7 +819,8 @@ bin\openssl x509 -in conf\server.csr -out conf\server.crt
 <screen>
 bin\openssl x509 -in conf\server.cert -out conf\server.der.crt -outform DER
 </screen>
-					These commands created some files in the Apache conf folder 
+					These commands created some files in the Apache
+					<filename>conf</filename> folder 
 					(<filename>server.der.crt</filename>,
 					<filename>server.csr</filename>,
 					<filename>server.key</filename>,

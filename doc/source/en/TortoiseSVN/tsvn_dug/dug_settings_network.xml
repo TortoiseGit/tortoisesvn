@@ -41,4 +41,25 @@
 		standard Plink. When everything is working, you can use
 		TortoisePlink with exactly the same parameters.
 	</para>
+	<para>
+		TortoisePlink does not have any documentation of its own because it
+		is just a minor variant of Plink. Find out about command line
+		parameters from the
+		<ulink url="http://www.chiark.greenend.org.uk/~sgtatham/putty/">
+			<citetitle>PuTTY website</citetitle>
+		</ulink>
+	</para>
+	<para>
+		To avoid being prompted for a password repeatedly, you might also
+		consider using a password caching tool such as Pageant. This is also
+		available for download from the PuTTY website.
+	</para>
+	<para>
+		Finally, setting up SSH on server and clients is a non-trivial process
+		which is beyond the scope of this help file. However, you can find a
+		guide in the TortoiseSVN FAQ listed under
+		<ulink url="http://tortoisesvn.net/ssh_howto">
+			<citetitle>Subversion/TortoiseSVN SSH How-To</citetitle>
+		</ulink>.
+	</para>
 </sect2>
