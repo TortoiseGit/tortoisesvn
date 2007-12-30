@@ -6,44 +6,49 @@
 			<Directory Id="D__ProgramFilesFolder" Name="PFiles" LongName="Program Files">
 				<Directory Id="INSTALLDIR" Name="TSVN" LongName="TortoiseSVN">
 
-                    <?if $(env.VSVersion) = "8" ?>
-                        <?if $(env.Platform) = "win32" ?>
-                        <Merge Id='CRT' Language='0' src='$(env.MergeModules)\microsoft_vc80_crt_x86.msm' DiskId='1' />
-                        <Merge Id='CRT Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_CRT_x86.msm' DiskId='1' />
-                        <Merge Id='MFC' Language='0' src='$(env.MergeModules)\Microsoft_VC80_MFC_x86.msm' DiskId='1' />
-                        <Merge Id='MFC Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_MFC_x86.msm' DiskId='1' />
-                        <Merge Id='MFCLOC' Language='0' src='$(env.MergeModules)\Microsoft_VC80_MFCLOC_x86.msm' DiskId='1' />
-                        <Merge Id='MFCLOC Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_MFCLOC_x86.msm' DiskId='1' />
-                        <?endif ?>
+					<?if $(env.VSVersion) = "8" ?>
+					<?if $(env.Platform) = "win32" ?>
+					<Merge Id='CRT' Language='0' src='$(env.MergeModules)\microsoft_vc80_crt_x86.msm' DiskId='1' />
+					<Merge Id='CRT Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_CRT_x86.msm' DiskId='1' />
+					<Merge Id='MFC' Language='0' src='$(env.MergeModules)\Microsoft_VC80_MFC_x86.msm' DiskId='1' />
+					<Merge Id='MFC Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_MFC_x86.msm' DiskId='1' />
+					<Merge Id='MFCLOC' Language='0' src='$(env.MergeModules)\Microsoft_VC80_MFCLOC_x86.msm' DiskId='1' />
+					<Merge Id='MFCLOC Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_MFCLOC_x86.msm' DiskId='1' />
+					<?endif ?>
 
-                        <?if $(env.Platform) = "x64" ?>
-                        <Merge Id='CRT' Language='0' src='$(env.MergeModules)\Microsoft_VC80_CRT_x86_x64.msm' DiskId='1' />
-                        <Merge Id='CRT Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_CRT_x86_x64.msm' DiskId='1' />
-                        <Merge Id='MFC' Language='0' src='$(env.MergeModules)\Microsoft_VC80_MFC_x86_x64.msm' DiskId='1' />
-                        <Merge Id='MFC Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_MFC_x86_x64.msm' DiskId='1' />
-                        <Merge Id='MFCLOC' Language='0' src='$(env.MergeModules)\Microsoft_VC80_MFCLOC_x86_x64.msm' DiskId='1' />
-                        <Merge Id='MFCLOC Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_MFCLOC_x86_x64.msm' DiskId='1' />
-                        <?endif ?>
-                    <?else ?>
-                        <?if $(env.Platform) = "win32" ?>
-                        <Merge Id='CRT' Language='0' src='$(env.MergeModules)\microsoft_vc90_crt_x86.msm' DiskId='1' />
-                        <Merge Id='CRT Policy' Language='0' src='$(env.MergeModules)\policy_9_0_Microsoft_VC90_CRT_x86.msm' DiskId='1' />
-                        <Merge Id='MFC' Language='0' src='$(env.MergeModules)\Microsoft_VC90_MFC_x86.msm' DiskId='1' />
-                        <Merge Id='MFC Policy' Language='0' src='$(env.MergeModules)\policy_9_0_Microsoft_VC90_MFC_x86.msm' DiskId='1' />
-                        <Merge Id='MFCLOC' Language='0' src='$(env.MergeModules)\Microsoft_VC90_MFCLOC_x86.msm' DiskId='1' />
-                        <Merge Id='MFCLOC Policy' Language='0' src='$(env.MergeModules)\policy_9_0_Microsoft_VC90_MFCLOC_x86.msm' DiskId='1' />
-                        <?endif ?>
+					<?if $(env.Platform) = "x64" ?>
+					<Merge Id='CRT' Language='0' src='$(env.MergeModules)\Microsoft_VC80_CRT_x86_x64.msm' DiskId='1' />
+					<Merge Id='CRT Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_CRT_x86_x64.msm' DiskId='1' />
+					<Merge Id='MFC' Language='0' src='$(env.MergeModules)\Microsoft_VC80_MFC_x86_x64.msm' DiskId='1' />
+					<Merge Id='MFC Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_MFC_x86_x64.msm' DiskId='1' />
+					<Merge Id='MFCLOC' Language='0' src='$(env.MergeModules)\Microsoft_VC80_MFCLOC_x86_x64.msm' DiskId='1' />
+					<Merge Id='MFCLOC Policy' Language='0' src='$(env.MergeModules)\policy_8_0_Microsoft_VC80_MFCLOC_x86_x64.msm' DiskId='1' />
+					<?endif ?>
+					<?else ?>
+					<?if $(env.Platform) = "win32" ?>
+					<Merge Id='CRT' Language='0' src='$(env.MergeModules)\microsoft_vc90_crt_x86.msm' DiskId='1' />
+					<Merge Id='CRT Policy' Language='0' src='$(env.MergeModules)\policy_9_0_Microsoft_VC90_CRT_x86.msm' DiskId='1' />
+					<Merge Id='MFC' Language='0' src='$(env.MergeModules)\Microsoft_VC90_MFC_x86.msm' DiskId='1' />
+					<Merge Id='MFC Policy' Language='0' src='$(env.MergeModules)\policy_9_0_Microsoft_VC90_MFC_x86.msm' DiskId='1' />
+					<Merge Id='MFCLOC' Language='0' src='$(env.MergeModules)\Microsoft_VC90_MFCLOC_x86.msm' DiskId='1' />
+					<Merge Id='MFCLOC Policy' Language='0' src='$(env.MergeModules)\policy_9_0_Microsoft_VC90_MFCLOC_x86.msm' DiskId='1' />
+					<?endif ?>
 
-                        <?if $(env.Platform) = "x64" ?>
-                        <Merge Id='CRT' Language='0' src='$(env.MergeModules)\Microsoft_VC90_CRT_x86_x64.msm' DiskId='1' />
-                        <Merge Id='CRT Policy' Language='0' src='$(env.MergeModules)\policy_9_0_Microsoft_VC90_CRT_x86_x64.msm' DiskId='1' />
-                        <Merge Id='MFC' Language='0' src='$(env.MergeModules)\Microsoft_VC90_MFC_x86_x64.msm' DiskId='1' />
-                        <Merge Id='MFC Policy' Language='0' src='$(env.MergeModules)\policy_9_0_Microsoft_VC90_MFC_x86_x64.msm' DiskId='1' />
-                        <Merge Id='MFCLOC' Language='0' src='$(env.MergeModules)\Microsoft_VC90_MFCLOC_x86_x64.msm' DiskId='1' />
-                        <Merge Id='MFCLOC Policy' Language='0' src='$(env.MergeModules)\policy_9_0_Microsoft_VC90_MFCLOC_x86_x64.msm' DiskId='1' />
-                        <?endif ?>
-                    <?endif ?>
+					<?if $(env.Platform) = "x64" ?>
+					<Merge Id='CRT' Language='0' src='$(env.MergeModules)\Microsoft_VC90_CRT_x86_x64.msm' DiskId='1' />
+					<Merge Id='CRT Policy' Language='0' src='$(env.MergeModules)\policy_9_0_Microsoft_VC90_CRT_x86_x64.msm' DiskId='1' />
+					<Merge Id='MFC' Language='0' src='$(env.MergeModules)\Microsoft_VC90_MFC_x86_x64.msm' DiskId='1' />
+					<Merge Id='MFC Policy' Language='0' src='$(env.MergeModules)\policy_9_0_Microsoft_VC90_MFC_x86_x64.msm' DiskId='1' />
+					<Merge Id='MFCLOC' Language='0' src='$(env.MergeModules)\Microsoft_VC90_MFCLOC_x86_x64.msm' DiskId='1' />
+					<Merge Id='MFCLOC Policy' Language='0' src='$(env.MergeModules)\policy_9_0_Microsoft_VC90_MFCLOC_x86_x64.msm' DiskId='1' />
+					<?endif ?>
+					<?endif ?>
 
+					<?if $(env.Platform) = "win32" ?>
+					<Merge Id='Ovlays' Language='0' src='..\..\ext\TortoiseOverlays\TortoiseOverlays-1.0.0.11709-win32.msm' DiskId='1' />
+					<?else ?>
+					<Merge Id='Ovlays' Language='0' src='..\..\ext\TortoiseOverlays\TortoiseOverlays-1.0.0.11709-x64.msm' DiskId='1' />
+					<?endif ?>
 					<Component Id="C__infofiles" Guid="$(var.GuidInfoFiles)" Win64="$(var.Win64YesNo)">
 						<File Id="F__changelog" Name="CHANGELG.TXT" LongName="Changelog.txt" DiskId="1" src="..\Changelog.txt" KeyPath="yes" />
 						<File Id="F__subversionlicense" Name="LICENSES.TXT" LongName="Subversion license.txt" DiskId="1" src="..\..\ext\Subversion\subversion\LICENSE" />
@@ -89,10 +94,10 @@
 						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidDeleted)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub.dll" Type="string" />
 						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidDeleted)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
 						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidDeleted)}" Value="TortoiseSVN" Type="string" />
-						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidVersioned)}" Action="createKeyAndRemoveKeyOnUninstall" />
-						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidVersioned)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub.dll" Type="string" />
-						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidVersioned)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
-						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidVersioned)}" Value="TortoiseSVN" Type="string" />
+						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidNormal)}" Action="createKeyAndRemoveKeyOnUninstall" />
+						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidNormal)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub.dll" Type="string" />
+						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidNormal)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
+						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidNormal)}" Value="TortoiseSVN" Type="string" />
 						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidReadonly)}" Action="createKeyAndRemoveKeyOnUninstall" />
 						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidReadonly)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub.dll" Type="string" />
 						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidReadonly)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
@@ -109,54 +114,48 @@
 						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidDropHandler)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
 						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidDropHandler)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub.dll" Type="string" />
 						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidDropHandler)}" Value="TortoiseSVN" Type="string" />
-						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidConflicted)}" Action="createKeyAndRemoveKeyOnUninstall" />
-						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidConflicted)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
-						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidConflicted)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub.dll" Type="string" />
-						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidConflicted)}" Value="TortoiseSVN" Type="string" />
+						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidConflict)}" Action="createKeyAndRemoveKeyOnUninstall" />
+						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidConflict)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
+						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidConflict)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub.dll" Type="string" />
+						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidConflict)}" Value="TortoiseSVN" Type="string" />
 						<Registry Root="HKMU" Key="Software\Classes\lnkfile\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
 						<Registry Root="HKMU" Key="Software\Classes\InternetShortcut\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
 						<Registry Root="HKMU" Key="Software\Classes\*\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
 						<Registry Root="HKMU" Key="Software\Classes\*\shellex\PropertySheetHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
-						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\2TortoiseSVN" Action="createKeyAndRemoveKeyOnUninstall" />
-						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\2TortoiseSVN" Value="{$(var.GuidModified)}" Type="string" />
-						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\3TortoiseSVN" Action="createKeyAndRemoveKeyOnUninstall" />
-						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\3TortoiseSVN" Value="{$(var.GuidConflicted)}" Type="string" />
-						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\5TortoiseSVN" Action="createKeyAndRemoveKeyOnUninstall" />
-						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\5TortoiseSVN" Value="{$(var.GuidDeleted)}" Type="string" />
-						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\1TortoiseSVN" Action="createKeyAndRemoveKeyOnUninstall" />
-						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\1TortoiseSVN" Value="{$(var.GuidVersioned)}" Type="string" />
-						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\4TortoiseSVN" Action="createKeyAndRemoveKeyOnUninstall" />
-						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\4TortoiseSVN" Value="{$(var.GuidReadonly)}" Type="string" />
-						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\6TortoiseSVN" Action="createKeyAndRemoveKeyOnUninstall" />
-						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\6TortoiseSVN" Value="{$(var.GuidLocked)}" Type="string" />
-						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\7TortoiseSVN" Action="createKeyAndRemoveKeyOnUninstall" />
-						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\7TortoiseSVN" Value="{$(var.GuidAdded)}" Type="string" />
 					</Component>
 
 					<Component Id="C__machineregistry" Guid="$(var.GuidMachineRegistry)" Win64="$(var.Win64YesNo)">
 						<Registry Root="HKLM" Key="Software\[Manufacturer]" Action="createKeyAndRemoveKeyOnUninstall" />
-						<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ReadOnlyIcon" Value="[INSTALLDIR]icons\XPStyle\TortoiseReadOnly.ico" Type="string" KeyPath="yes" />
-						<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="DeletedIcon" Value="[INSTALLDIR]icons\XPStyle\TortoiseDeleted.ico" Type="string" />
 						<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ProcPath" Value="[INSTALLDIR]bin\TortoiseProc.exe" Type="string" />
 						<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="CachePath" Value="[INSTALLDIR]bin\TSVNCache.exe" Type="string" />
-						<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="InSubversionIcon" Value="[INSTALLDIR]icons\XPStyle\TortoiseInSubversion.ico" Type="string" />
 						<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="TMergePath" Value="[INSTALLDIR]bin\TortoiseMerge.exe" Type="string" />
-						<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ModifiedIcon" Value="[INSTALLDIR]icons\XPStyle\TortoiseModified.ico" Type="string" />
 						<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Value="[INSTALLDIR]" Type="string" />
-						<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="ConflictIcon" Value="[INSTALLDIR]icons\XPStyle\TortoiseConflict.ico" Type="string" />
-						<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="LockedIcon" Value="[INSTALLDIR]icons\XPStyle\TortoiseLocked.ico" Type="string" />
-						<Registry Root="HKLM" Key="Software\[Manufacturer]" Name="AddedIcon" Value="[INSTALLDIR]icons\XPStyle\TortoiseAdded.ico" Type="string" />
 						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\SubWCRev.exe" Action="createKeyAndRemoveKeyOnUninstall" />
 						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\SubWCRev.exe" Name="Path" Value="[INSTALLDIR]bin" Type="string" />
 						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\SubWCRev.exe" Value="[INSTALLDIR]bin\SubWCRev.exe" Type="string" />
+
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Normal" Action="createKeyAndRemoveKeyOnUninstall" />
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Normal" Name="SVN" Value="{$(var.GuidNormal)}" Type="string" />
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Modified" Action="createKeyAndRemoveKeyOnUninstall" />
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Modified" Name="SVN" Value="{$(var.GuidModified)}" Type="string" />
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Conflict" Action="createKeyAndRemoveKeyOnUninstall" />
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Conflict" Name="SVN" Value="{$(var.GuidConflict)}" Type="string" />
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Deleted" Action="createKeyAndRemoveKeyOnUninstall" />
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Deleted" Name="SVN" Value="{$(var.GuidDeleted)}" Type="string" />
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\ReadOnly" Action="createKeyAndRemoveKeyOnUninstall" />
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\ReadOnly" Name="SVN" Value="{$(var.GuidReadonly)}" Type="string" />
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Locked" Action="createKeyAndRemoveKeyOnUninstall" />
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Locked" Name="SVN" Value="{$(var.GuidLocked)}" Type="string" />
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Added" Action="createKeyAndRemoveKeyOnUninstall" />
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Added" Name="SVN" Value="{$(var.GuidAdded)}" Type="string" />
 					</Component>
 
 					<Component Id="C__approveshellcomponents" Guid="$(var.GuidApproveShellComponents)" Win64="$(var.Win64YesNo)">
-						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidConflicted)}" Value="TortoiseSVN" KeyPath="yes" Type="string" />
+						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidConflict)}" Value="TortoiseSVN" KeyPath="yes" Type="string" />
 						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidModified)}" Value="TortoiseSVN" Type="string" />
 						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidDropHandler)}" Value="TortoiseSVN" Type="string" />
 						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidDeleted)}" Value="TortoiseSVN" Type="string" />
-						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidVersioned)}" Value="TortoiseSVN" Type="string" />
+						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidNormal)}" Value="TortoiseSVN" Type="string" />
 						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidUncontrolled)}" Value="TortoiseSVN" Type="string" />
 						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidReadonly)}" Value="TortoiseSVN" Type="string" />
 						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidLocked)}" Value="TortoiseSVN" Type="string" />
@@ -380,75 +379,65 @@
 						<Directory Id="D_TortoisePrgMenu" Name="TORTOISE" LongName="TortoiseSVN" />
 					</Directory>
 
-					<Directory Id="D__icons" Name="ICONS" LongName="icons" >
-						<Directory Id="D__iconscvsclassic" Name="CVSClass" LongName="CVSClassic" >
+					<Directory Id='CommonFilesFolder' Name='Common'>
+						<Directory Id='TortoioseOverlays' Name='TortOvl' LongName='TortoiseOverlays'>
+							<Directory Id="D__icons" Name="ICONS" LongName="icons" >
+								<Directory Id="D__iconscvsclassic" Name="CVSClass" LongName="CVSClassic" >
 
-							<Component Id="C__iconscvsclassic" Guid="$(var.GuidIconsCVSClassic)" Win64="$(var.Win64YesNo)">
-								<File Id="F__CVSClassicConflictIcon" Name="TORTOI1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseConflict.ico" KeyPath="yes" />
-								<File Id="F__CVSClassicInSubversionIcon" Name="TORTOI2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseInSubversion.ico" />
-								<File Id="F__CVSClassicModifiedIcon" Name="TORTOI3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseModified.ico" />
-								<File Id="F__CVSClassicReadOnlyIcon" Name="TORTOI4.ICO" LongName="TortoiseReadOnly.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseReadOnly.ico" />
-								<File Id="F__CVSClassicDeletedIcon" Name="TORTOI5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseDeleted.ico" />
-								<File Id="F__CVSClassicLockedIcon" Name="TORTOI6.ICO" LongName="TortoiseLocked.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseLocked.ico" />
-								<File Id="F__CVSClassicAddedIcon" Name="TORTOI7.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\TortoiseAdded.ico" />
-							</Component>
+									<Component Id="C__iconscvsclassic" Guid="$(var.GuidIconsCVSClassic)" Win64="$(var.Win64YesNo)">
+										<File Id="F__CVSClassicConflictIcon" Name="TORTOI1.ICO" LongName="ConflictIcon.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\ConflictIcon.ico" KeyPath="yes" />
+										<File Id="F__CVSClassicInSubversionIcon" Name="TORTOI2.ICO" LongName="NormalIcon.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\NormalIcon.ico" />
+										<File Id="F__CVSClassicModifiedIcon" Name="TORTOI3.ICO" LongName="ModifiedIcon.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\ModifiedIcon.ico" />
+										<File Id="F__CVSClassicReadOnlyIcon" Name="TORTOI4.ICO" LongName="ReadOnlyIcon.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\ReadOnlyIcon.ico" />
+										<File Id="F__CVSClassicDeletedIcon" Name="TORTOI5.ICO" LongName="DeletedIcon.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\DeletedIcon.ico" />
+										<File Id="F__CVSClassicLockedIcon" Name="TORTOI6.ICO" LongName="LockedIcon.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\LockedIcon.ico" />
+										<File Id="F__CVSClassicAddedIcon" Name="TORTOI7.ICO" LongName="AddedIcon.ico" DiskId="1" src="..\Resources\Icons\CVSClassic\AddedIcon.ico" />
+									</Component>
 
-						</Directory>
+								</Directory>
 
-						<Directory Id="D__iconsmodern" Name="Modern" >
+								<Directory Id="D__iconsmodern" Name="Modern" >
 
-							<Component Id="C__iconsmodern" Guid="$(var.GuidIconsModern)" Win64="$(var.Win64YesNo)">
-								<File Id="F__ModernConflictIcon" Name="TORTOI1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseConflict.ico" KeyPath="yes" />
-								<File Id="F__ModernInSubversionIcon" Name="TORTOI2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseInSubversion.ico" />
-								<File Id="F__ModernModifiedIcon" Name="TORTOI3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseModified.ico" />
-								<File Id="F__ModernReadOnlyIcon" Name="TORTOI4.ICO" LongName="TortoiseReadOnly.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseReadOnly.ico" />
-								<File Id="F__ModernDeletedIcon" Name="TORTOI5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseDeleted.ico" />
-								<File Id="F__ModernLockedIcon" Name="TORTOI6.ICO" LongName="TortoiseLocked.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseLocked.ico" />
-								<File Id="F__ModernAddedIcon" Name="TORTOI7.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\Modern\TortoiseAdded.ico" />
-							</Component>
+									<Component Id="C__iconsmodern" Guid="$(var.GuidIconsModern)" Win64="$(var.Win64YesNo)">
+										<File Id="F__ModernConflictIcon" Name="TORTOI1.ICO" LongName="ConflictIcon.ico" DiskId="1" src="..\Resources\Icons\Modern\ConflictIcon.ico" KeyPath="yes" />
+										<File Id="F__ModernInSubversionIcon" Name="TORTOI2.ICO" LongName="NormalIcon.ico" DiskId="1" src="..\Resources\Icons\Modern\NormalIcon.ico" />
+										<File Id="F__ModernModifiedIcon" Name="TORTOI3.ICO" LongName="ModifiedIcon.ico" DiskId="1" src="..\Resources\Icons\Modern\ModifiedIcon.ico" />
+										<File Id="F__ModernReadOnlyIcon" Name="TORTOI4.ICO" LongName="ReadOnlyIcon.ico" DiskId="1" src="..\Resources\Icons\Modern\ReadOnlyIcon.ico" />
+										<File Id="F__ModernDeletedIcon" Name="TORTOI5.ICO" LongName="DeletedIcon.ico" DiskId="1" src="..\Resources\Icons\Modern\DeletedIcon.ico" />
+										<File Id="F__ModernLockedIcon" Name="TORTOI6.ICO" LongName="LockedIcon.ico" DiskId="1" src="..\Resources\Icons\Modern\LockedIcon.ico" />
+										<File Id="F__ModernAddedIcon" Name="TORTOI7.ICO" LongName="AddedIcon.ico" DiskId="1" src="..\Resources\Icons\Modern\AddedIcon.ico" />
+									</Component>
 
-						</Directory>
+								</Directory>
 
-						<Directory Id="D__iconsxpstyle" Name="XPStyle" >
+								<Directory Id="D__iconssubclipse" Name="SUBCLI1" LongName="Subclipse" >
 
-							<Component Id="C__iconsxpstyle" Guid="$(var.GuidIconsXPStyle)" Win64="$(var.Win64YesNo)">
-								<File Id="F__XPStyleConflictIcon" Name="TORTOI1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseConflict.ico" KeyPath="yes" />
-								<File Id="F__XPStyleInSubversionIcon" Name="TORTOI2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseInSubversion.ico" />
-								<File Id="F__XPStyleModifiedIcon" Name="TORTOI3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseModified.ico" />
-								<File Id="F__XPStyleReadOnlyIcon" Name="TORTOI4.ICO" LongName="TortoiseReadOnly.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseReadOnly.ico" />
-								<File Id="F__XPStyleDeletedIcon" Name="TORTOI5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseDeleted.ico" />
-								<File Id="F__XPStyleLockedIcon" Name="TORTOI6.ICO" LongName="TortoiseLocked.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseLocked.ico" />
-								<File Id="F__XPStyleAddedIcon" Name="TORTOI7.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\XPStyle\TortoiseAdded.ico" />
-							</Component>
+									<Component Id="C__iconsmarkphippard" Guid="$(var.GuidIconsMarkPhippard)" Win64="$(var.Win64YesNo)">
+										<File Id="F__SubclipseConflictIcon" Name="TORTOI1.ICO" LongName="ConflictIcon.ico" DiskId="1" src="..\Resources\Icons\Subclipse\ConflictIcon.ico" KeyPath="yes" />
+										<File Id="F__SubclipseInSubversionIcon" Name="TORTOI2.ICO" LongName="NormalIcon.ico" DiskId="1" src="..\Resources\Icons\Subclipse\NormalIcon.ico" />
+										<File Id="F__SubclipseModifiedIcon" Name="TORTOI3.ICO" LongName="ModifiedIcon.ico" DiskId="1" src="..\Resources\Icons\Subclipse\ModifiedIcon.ico" />
+										<File Id="F__SubclipseReadOnlyIcon" Name="TORTOI4.ICO" LongName="ReadOnlyIcon.ico" DiskId="1" src="..\Resources\Icons\Subclipse\ReadOnlyIcon.ico" />
+										<File Id="F__SubclipseDeletedIcon" Name="TORTOI5.ICO" LongName="DeletedIcon.ico" DiskId="1" src="..\Resources\Icons\Subclipse\DeletedIcon.ico" />
+										<File Id="F__SubclipseLockedIcon" Name="TORTOI6.ICO" LongName="LockedIcon.ico" DiskId="1" src="..\Resources\Icons\Subclipse\LockedIcon.ico" />
+										<File Id="F__SubclipseAddedIcon" Name="TORTOI7.ICO" LongName="AddedIcon.ico" DiskId="1" src="..\Resources\Icons\Subclipse\AddedIcon.ico" />
+									</Component>
 
-						</Directory>
+								</Directory>
 
-						<Directory Id="D__iconssubclipse" Name="SUBCLI1" LongName="Subclipse" >
+								<Directory Id="D__iconsstraight" Name="Straight" >
 
-							<Component Id="C__iconsmarkphippard" Guid="$(var.GuidIconsMarkPhippard)" Win64="$(var.Win64YesNo)">
-								<File Id="F__SubclipseConflictIcon" Name="TORTOI1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseConflict.ico" KeyPath="yes" />
-								<File Id="F__SubclipseInSubversionIcon" Name="TORTOI2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseInSubversion.ico" />
-								<File Id="F__SubclipseModifiedIcon" Name="TORTOI3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseModified.ico" />
-								<File Id="F__SubclipseReadOnlyIcon" Name="TORTOI4.ICO" LongName="TortoiseReadOnly.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseReadOnly.ico" />
-								<File Id="F__SubclipseDeletedIcon" Name="TORTOI5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseDeleted.ico" />
-								<File Id="F__SubclipseLockedIcon" Name="TORTOI6.ICO" LongName="TortoiseLocked.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseLocked.ico" />
-								<File Id="F__SubclipseAddedIcon" Name="TORTOI7.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\Subclipse\TortoiseAdded.ico" />
-							</Component>
+									<Component Id="C__iconsstraight" Guid="$(var.GuidIconsStraight)" Win64="$(var.Win64YesNo)">
+										<File Id="F__StraightConflictIcon" Name="TORTOI1.ICO" LongName="ConflictIcon.ico" DiskId="1" src="..\Resources\Icons\Straight\ConflictIcon.ico" KeyPath="yes" />
+										<File Id="F__StraightInSubversionIcon" Name="TORTOI2.ICO" LongName="NormalIcon.ico" DiskId="1" src="..\Resources\Icons\Straight\NormalIcon.ico" />
+										<File Id="F__StraightModifiedIcon" Name="TORTOI3.ICO" LongName="ModifiedIcon.ico" DiskId="1" src="..\Resources\Icons\Straight\ModifiedIcon.ico" />
+										<File Id="F__StraightReadOnlyIcon" Name="TORTOI4.ICO" LongName="ReadOnlyIcon.ico" DiskId="1" src="..\Resources\Icons\Straight\ReadOnlyIcon.ico" />
+										<File Id="F__StraightDeletedIcon" Name="TORTOI5.ICO" LongName="DeletedIcon.ico" DiskId="1" src="..\Resources\Icons\Straight\DeletedIcon.ico" />
+										<File Id="F__StraightLockedIcon" Name="TORTOI6.ICO" LongName="LockedIcon.ico" DiskId="1" src="..\Resources\Icons\Straight\LockedIcon.ico" />
+										<File Id="F__StraightAddedIcon" Name="TORTOI7.ICO" LongName="AddedIcon.ico" DiskId="1" src="..\Resources\Icons\Straight\AddedIcon.ico" />
+									</Component>
 
-						</Directory>
-
-						<Directory Id="D__iconsstraight" Name="Straight" >
-
-							<Component Id="C__iconsstraight" Guid="$(var.GuidIconsStraight)" Win64="$(var.Win64YesNo)">
-								<File Id="F__StraightConflictIcon" Name="TORTOI1.ICO" LongName="TortoiseConflict.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseConflict.ico" KeyPath="yes" />
-								<File Id="F__StraightInSubversionIcon" Name="TORTOI2.ICO" LongName="TortoiseInSubVersion.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseInSubversion.ico" />
-								<File Id="F__StraightModifiedIcon" Name="TORTOI3.ICO" LongName="TortoiseModified.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseModified.ico" />
-								<File Id="F__StraightReadOnlyIcon" Name="TORTOI4.ICO" LongName="TortoiseReadOnly.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseReadOnly.ico" />
-								<File Id="F__StraightDeletedIcon" Name="TORTOI5.ICO" LongName="TortoiseDeleted.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseDeleted.ico" />
-								<File Id="F__StraightLockedIcon" Name="TORTOI6.ICO" LongName="TortoiseLocked.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseLocked.ico" />
-								<File Id="F__StraightAddedIcon" Name="TORTOI7.ICO" LongName="TortoiseAdded.ico" DiskId="1" src="..\Resources\Icons\Straight\TortoiseAdded.ico" />
-							</Component>
-
+								</Directory>
+							</Directory>
 						</Directory>
 					</Directory>
 

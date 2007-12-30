@@ -27,7 +27,6 @@
 			<ComponentRef Id="C__ProgramMenuFolder" />
 			<ComponentRef Id="C__Sounds" />
 			<ComponentRef Id="C__DiffScripts" />
-			<ComponentRef Id="C__iconsxpstyle" />
 
 			<Feature Id="F_CRT" Level="1" Title="C-Runtime" Description="The Visual-C Runtime libs" TypicalDefault="install" Display="hidden" >
 				<MergeRef Id="CRT" />
@@ -38,6 +37,9 @@
 				<MergeRef Id="MFC Policy" />
 				<MergeRef Id="MFCLOC" />
 				<MergeRef Id="MFCLOC Policy" />
+			</Feature>
+			<Feature Id="F_OVL" Level="1" Title="Tortoise Overlay handler" Description="The overlay handler for all Tortoise clients" TypicalDefault="install" Display="hidden" >
+				<MergeRef Id="Ovlays" />
 			</Feature>
 
 			<!-- there is no GDIPlus merge module for x64 because it's already installed on XP and later -->

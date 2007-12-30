@@ -33,71 +33,6 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 {
 	PreserveChdir preserveChdir;
 
-    OSVERSIONINFO osv;
-    osv.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
-    if( !GetVersionEx(&osv) )
-    {
-        return S_FALSE;
-    }
-	
-	int nInstalledOverlays = GetInstalledOverlays();
-	
-	if ((m_State == FileStateAddedOverlay)&&(nInstalledOverlays > 12))
-		return S_FALSE;		// don't use the 'added' overlay
-	if ((m_State == FileStateLockedOverlay)&&(nInstalledOverlays > 13))
-		return S_FALSE;		// don't show the 'locked' overlay
-
-    // Get folder icons from registry
-	// Default icons are stored in LOCAL MACHINE
-	// User selected icons are stored in CURRENT USER
-	TCHAR regVal[1024];
-	DWORD len = 1024;
-
-	stdstring icon;
-	stdstring iconName;
-
-	HKEY hkeys [] = { HKEY_CURRENT_USER, HKEY_LOCAL_MACHINE };
-	switch (m_State)
-	{
-		case FileStateVersioned		: iconName = _T("InSubversionIcon"); break;
-		case FileStateModified		: iconName = _T("ModifiedIcon"); break;
-		case FileStateConflict		: iconName = _T("ConflictIcon"); break;
-		case FileStateDeleted		: iconName = _T("DeletedIcon"); break;
-		case FileStateReadOnly		: iconName = _T("ReadOnlyIcon"); break;
-		case FileStateLockedOverlay	: iconName = _T("LockedIcon"); break;
-		case FileStateAddedOverlay	: iconName = _T("AddedIcon"); break;
-	}
-
-	for (int i = 0; i < 2; ++i)
-	{
-		HKEY hkey = 0;
-
-		if (::RegOpenKeyEx (hkeys[i],
-			_T("Software\\TortoiseSVN"),
-                    0,
-                    KEY_QUERY_VALUE,
-                    &hkey) != ERROR_SUCCESS)
-			continue;
-
-		if (icon.empty() == true
-			&& (::RegQueryValueEx (hkey,
-							 iconName.c_str(),
-							 NULL,
-							 NULL,
-							 (LPBYTE) regVal,
-							 &len)) == ERROR_SUCCESS)
-			icon.assign (regVal, len);
-
-		::RegCloseKey(hkey);
-
-	}
-
-    // Add name of appropriate icon
-    if (icon.empty() == false)
-        wcsncpy_s (pwszIconFile, cchMax, icon.c_str(), cchMax);
-    else
-        return S_FALSE;
-
 	// Now here's where we can find out if due to lack of enough overlay
 	// slots some of our overlays won't be shown.
 	// To do that we have to mark every overlay handler that's successfully
@@ -113,9 +48,6 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 		case FileStateAddedOverlay	: g_addedovlloaded = true; break;
 	}
 
-	ATLTRACE2(_T("Icon loaded : %s\n"), icon.c_str());
-    *pIndex = 0;
-    *pdwFlags = ISIOI_ICONFILE;
     return S_OK;
 };
 

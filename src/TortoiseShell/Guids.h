@@ -18,7 +18,7 @@
 //
 
 
-// The class IDs of these Shell extension classs.
+// The class IDs of these Shell extension class.
 //
 // class ids: 
 //
