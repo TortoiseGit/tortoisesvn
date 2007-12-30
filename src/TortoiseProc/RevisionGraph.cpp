@@ -856,6 +856,17 @@ void CRevisionGraph::AnalyzeRevisions ( revision_t revision
 					if (bShowAll && (path.GetBasePath().GetIndex() < changePath.GetIndex()))
 						action = CRevisionEntry::modified;
 
+					if (   (actionValue == CRevisionInfoContainer::ACTION_ADDED)
+						&& (searchNode->GetLastEntry() != NULL))
+					{
+						// we may not add paths that already exist:
+						// D /trunk/OldSub
+						// A /trunk/New
+						// A /trunk/New/OldSub	/trunk/OldSub@r-1
+
+						continue;
+					}
+
 					// create & init the new graph node
 
 					CRevisionEntry* newEntry 
