@@ -33,6 +33,11 @@
 		box popping up every time you authenticate.
 	</para>
 	<para>
+		You must specify the full path to the executable. For TortoisePlink.exe
+		this is the standard TortoiseSVN bin directory. Use the
+		<guibutton>Browse</guibutton> button to help locate it.
+	</para>
+	<para>
 		One side-effect of not having a window is that there is
 		nowhere for any error messages to go, so if authentication
 		fails you will simply get a message saying something like
