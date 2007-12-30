@@ -93,8 +93,23 @@ private:
 
 	CDictionaryBasedTempPath path;
 
+	/// keep the last revision range we know not to contain
+	/// any changes (essential optimization of FillCopyTargets()).
+	/// There is no guarantee that either unchangedStart-1 or
+	/// unchangedEnd points to a changing revision.
+
+	revision_t unchangedStart;
+	revision_t unchangedEnd;
+
+	/// when this entry becomes valid / active
+
 	revision_t startRevision;
+
+	/// previous node for this path (or its copy source)
+
 	CRevisionEntry* lastEntry;
+
+	/// tree pointers
 
 	CSearchPathTree* parent;
 	CSearchPathTree* firstChild;
@@ -102,14 +117,14 @@ private:
 	CSearchPathTree* previous;
 	CSearchPathTree* next;
 
-	// utilities: handle node insertion / removal
+	/// utilities: handle node insertion / removal
 
 	void DeLink();
 	void Link (CSearchPathTree* newParent);
 
 public:
 
-	// construction / destruction
+	/// construction / destruction
 
 	CSearchPathTree (const CPathDictionary* dictionary);
 	CSearchPathTree ( const CDictionaryBasedTempPath& path
@@ -118,17 +133,17 @@ public:
 
 	~CSearchPathTree();
 
-	// add a node for the given path and rev. to the tree
+	/// add a node for the given path and rev. to the tree
 
 	CSearchPathTree* Insert ( const CDictionaryBasedTempPath& path
 							, revision_t startrev);
 	void Remove();
 
-	// there is a new revision entry for this path
+	/// there is a new revision entry for this path
 
 	void ChainEntries (CRevisionEntry* entry);
 
-	// property access
+	/// property access
 
 	const CDictionaryBasedTempPath& GetPath() const
 	{
@@ -180,15 +195,21 @@ public:
 		return !IsActive() && (firstChild == NULL);
 	}
 
-    // return true for active paths that don't have a revEntry for this revision
+    /// return true for active paths that don't have a revEntry for this revision
 
     bool YetToCover (revision_t revision) const;
 
-    // return next node in pre-order
+	/// access to "unchanged" revision range cache
+	/// (may use tree-traversal etc. to improve the result)
+
+	void SetUnchanged (revision_t start, revision_t end);
+	void GetUnchanged (revision_t& start, revision_t& end);
+
+    /// return next node in pre-order
 
     CSearchPathTree* GetPreOrderNext (CSearchPathTree* lastNode = NULL);
 
-    // return next node in pre-order but skip this sub-tree
+    /// return next node in pre-order but skip this sub-tree
 
     CSearchPathTree* GetSkipSubTreeNext (CSearchPathTree* lastNode = NULL);
 };
@@ -241,19 +262,20 @@ public:
 		, row (0), column (0) {}
 
 	//members
-	revision_t		revision;
 	CDictionaryBasedTempPath path;
 	CDictionaryBasedPath realPath;
-
-	Action			action;
-    DWORD           classification;
-	CRevisionEntry* prev;
-	CRevisionEntry* next;
 
 	std::vector<CRevisionEntry*>	copyTargets;
     std::vector<SFoldedTag>         tags;
 
+	CRevisionEntry* prev;
+	CRevisionEntry* next;
+
 	CRevisionEntry* copySource;
+
+	revision_t		revision;
+	Action			action;
+    DWORD           classification;
 
 	int				column;
 	int				row;
@@ -342,6 +364,8 @@ private:
                                                    , revision_t toRevision
                                                    , const CDictionaryBasedPath& fromPath
                                                    , const CDictionaryBasedTempPath& currentPath);
+	revision_t					GetLastChange ( revision_t startRevision
+											  , CSearchPathTree* searchNode);
     void                        AddMissingHeads (CSearchPathTree* rootNode);
     void                        MarkHeads (CSearchPathTree* rootNode);
     void                        AnalyzeHeadRevision ( revision_t revision

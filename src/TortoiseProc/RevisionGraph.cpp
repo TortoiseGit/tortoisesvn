@@ -91,6 +91,8 @@ CSearchPathTree::CSearchPathTree ( const CDictionaryBasedTempPath& path
 								 , revision_t startrev
 								 , CSearchPathTree* parent)
 	: path (path)
+	, unchangedStart (0)
+	, unchangedEnd (1)		// revision 0 is not a change!
 	, startRevision (startrev)
 	, lastEntry (NULL)
 	, parent (NULL)
@@ -224,6 +226,52 @@ bool CSearchPathTree::YetToCover (revision_t revision) const
 {
     return    IsActive() 
            && ((lastEntry == NULL) || (lastEntry->revision < revision));
+}
+
+// access to "unchanged" revision range cache
+// (may use tree-traversal etc. to improve the result)
+
+void CSearchPathTree::SetUnchanged (revision_t start, revision_t end)
+{
+	// no overlap with existing range?
+
+	if ((start < unchangedEnd) || (end > unchangedStart))
+	{
+		// set the new range
+
+		unchangedStart = start;
+		unchangedEnd = end;
+	}
+	else
+	{
+		// just extend the existing range?
+
+		unchangedStart = min (start, unchangedStart);
+		unchangedEnd = max (end, unchangedEnd);
+	}
+}
+
+void CSearchPathTree::GetUnchanged (revision_t& start, revision_t& end)
+{
+	start = unchangedStart;
+	end = unchangedEnd;
+
+	for (CSearchPathTree* node = parent; node != NULL; node = node->parent)
+	{
+		// extend unchanged range if there is suitable parent info
+
+		if (   (node->unchangedStart < start) 
+			&& (node->unchangedEnd >= start))
+		{
+			start = node->unchangedStart;
+		}
+
+		if (   (node->unchangedStart < end) 
+			&& (node->unchangedEnd >= end))
+		{
+			end = node->unchangedStart;
+		}
+	}
 }
 
 // return next node in pre-order
@@ -694,6 +742,8 @@ void CRevisionGraph::AnalyzeRevisions ( const CDictionaryBasedTempPath& path
 		// handle remaining copy-to entries
 		// (some may have a fromRevision that does not touch the fromPath)
 
+		PROFILE_BLOCK
+
 		AddCopiedPaths ( revision
 					   , searchTree.get()
 					   , lastToCopy);
@@ -714,6 +764,8 @@ void CRevisionGraph::AnalyzeRevisions ( const CDictionaryBasedTempPath& path
 		    CSearchPathTree* searchNode = searchTree.get();
 		    while (searchNode != NULL)
 		    {
+				PROFILE_BLOCK
+
 			    if (basePath.IsSameOrParentOf (searchNode->GetPath().GetBasePath()))
 			    {
 				    // maybe a hit -> match all changes against the whole sub-tree
@@ -768,6 +820,8 @@ void CRevisionGraph::AnalyzeRevisions ( const CDictionaryBasedTempPath& path
 		    }
         }
 
+		PROFILE_BLOCK
+
 		// handle remaining copy-to entries
 		// (some may have a fromRevision that does not touch the fromPath)
 
@@ -775,6 +829,8 @@ void CRevisionGraph::AnalyzeRevisions ( const CDictionaryBasedTempPath& path
 						, searchTree.get()
 						, lastFromCopy
                         , options.exactCopySources);
+
+		PROFILE_BLOCK
 
 		// remove deleted search paths
 
@@ -815,6 +871,8 @@ void CRevisionGraph::AnalyzeRevisions ( revision_t revision
 									  , bool bShowAll
 									  , std::vector<CSearchPathTree*>& toRemove)
 {
+	PROFILE_BLOCK
+
 	// cover the whole sub-tree
 
 	CSearchPathTree* searchNode = startNode;
@@ -957,6 +1015,8 @@ void CRevisionGraph::FillCopyTargets ( revision_t revision
 
 	for (TSCopyIterator iter = firstFromCopy; iter != lastFromCopy; ++iter)
 	{
+		PROFILE_BLOCK
+
 		SCopyInfo* copy = *iter;
 		std::vector<SCopyInfo::STarget>& targets = copy->targets;
 
@@ -965,6 +1025,8 @@ void CRevisionGraph::FillCopyTargets ( revision_t revision
 		CSearchPathTree* searchNode = rootNode;
 		while (searchNode != NULL)
 		{
+			PROFILE_BLOCK
+
 			const CDictionaryBasedTempPath& path = searchNode->GetPath();
 
 			// got this path copied?
@@ -972,6 +1034,8 @@ void CRevisionGraph::FillCopyTargets ( revision_t revision
             bool sameOrChild = path.IsSameOrChildOf (copy->fromPathIndex);
 			if (searchNode->IsActive() && sameOrChild)
 			{
+				PROFILE_BLOCK
+
 				CDictionaryBasedPath fromPath ( path.GetDictionary()
 											  , copy->fromPathIndex);
 
@@ -989,21 +1053,11 @@ void CRevisionGraph::FillCopyTargets ( revision_t revision
                 {
                     // o.k. this is actual a copy we have to add to the tree
 
-                    revision_t sourceRevision = revision;
-                    if (!exactCopy)
-                    {
-                	    // find latest change for the source path
-                        // (copy-from-rev may point to a newer revision that
-                        // does not actually modify the source path)
+                    revision_t sourceRevision = exactCopy
+											  ? revision
+											  : GetLastChange (revision, searchNode);
 
-                        CStrictLogIterator logIterator ( query->GetCache()
-											           , revision
-											           , path);
-                	    logIterator.Retry();
-                        sourceRevision = logIterator.GetRevision();
-                    }
-
-				    CRevisionEntry*	entry = searchNode->GetLastEntry();
+					CRevisionEntry*	entry = searchNode->GetLastEntry();
 				    if ((entry == NULL) || (entry->revision < sourceRevision))
 				    {
 					    // the copy source graph node has yet to be created
@@ -1086,6 +1140,45 @@ bool CRevisionGraph::IsLatestCopySource ( const CCachedLogInfo* cache
     // (fromRevision, fromGraph) is the best match
 
     return true;
+}
+
+revision_t CRevisionGraph::GetLastChange ( revision_t startRevision
+				                         , CSearchPathTree* searchNode)
+{
+	// we will need this info for an efficient history scan
+
+	revision_t unchangedStart = 0;
+	revision_t unchangedEnd = 1;
+	searchNode->GetUnchanged (unchangedStart, unchangedEnd);
+
+	// find latest change for the source path
+	// (copy-from-rev may point to a newer revision that
+	// does not actually modify the source path)
+
+	CStrictLogIterator logIterator ( query->GetCache()
+								   , startRevision
+								   , searchNode->GetPath());
+	logIterator.Retry (  startRevision > unchangedStart 
+					   ? unchangedEnd-1 
+					   : 0);
+	revision_t result = logIterator.GetRevision();
+
+	// continue scan below unchanged range, if necessary
+
+	if (result < unchangedEnd)
+	{
+		logIterator.SetRevision (unchangedStart);
+		logIterator.Retry();
+		result = logIterator.GetRevision();
+	}
+
+	// cache new unchanged range
+
+	searchNode->SetUnchanged (result+1, startRevision+1);
+
+	// ready
+
+	return result;
 }
 
 void CRevisionGraph::AddMissingHeads (CSearchPathTree* rootNode)
