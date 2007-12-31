@@ -81,9 +81,9 @@ void CSettings::AddPropPages()
 	AddPage(m_pLookAndFeelPage);
 	AddPage(m_pDialogsPage);
 	AddPage(m_pMiscPage);
-	AddPage(m_pLogCachePage);
 	AddPage(m_pColorsPage);
 	AddPage(m_pSavedPage);
+	AddPage(m_pLogCachePage);
 	AddPage(m_pHooksPage);
 	AddPage(m_pTBlamePage);
 }
