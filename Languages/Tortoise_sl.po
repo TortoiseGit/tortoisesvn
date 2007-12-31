@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-12-16 18:51+0100\n"
+"PO-Revision-Date: 2007-12-31 13:14+0100\n"
 "Last-Translator: Matjaz Cepon <matjaz.cepon@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -156,6 +156,11 @@ msgstr "%ld od %ld"
 #, c-format
 msgid "%ld paths"
 msgstr "Poti %ld"
+
+#. Resource IDs: (272)
+#, c-format
+msgid "%s"
+msgstr "%s"
 
 #. Resource IDs: (115)
 #, c-format
@@ -816,6 +821,11 @@ msgstr "&Delovna kopija"
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
 msgstr "(dvojiška vrednost)"
+
+#. Resource IDs: (272)
+#, c-format
+msgid "(deleted) %s"
+msgstr "(izbrisano) %s"
 
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
@@ -2982,10 +2992,6 @@ msgstr "Splošno::Pogovorna okna 1"
 msgid "General::Dialogs 2"
 msgstr "Splošno::Pogovorna okna 2"
 
-#. Resource IDs: (281)
-msgid "General::Log Caching"
-msgstr "Splošno::Predpomnilnik dnevnika"
-
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "Ustvarjanje datoteke popravkov"
@@ -3218,9 +3224,9 @@ msgstr "ID:32814:V C +L"
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
-#. Accelerator Entry for Menu ID:32821; ''
-msgid "ID:32821:V C +F"
-msgstr "ID:32821:V C +F"
+#. Accelerator Entry for Menu ID:32822; ''
+msgid "ID:32822:V C +F"
+msgstr "ID:32822:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
@@ -3801,6 +3807,10 @@ msgstr "Dnevnik"
 #. Resource IDs: (282)
 msgid "Log Cache Statistics"
 msgstr "Statistika predpomnilnika dnevnika"
+
+#. Resource IDs: (281)
+msgid "Log Caching"
+msgstr "Predpomnilnik dnevnika"
 
 #. Resource IDs: (211)
 msgid "Log History"
@@ -4503,11 +4513,6 @@ msgstr "Prepreči večino situacij, pri katerih povezovalne črte križajo vozli
 msgid "Preview patched file"
 msgstr "Predoglej popravljeno datoteko"
 
-#. Resource IDs: (199)
-#, c-format
-msgid "Probably deleted repository (%s)"
-msgstr "Skladišče je verjetno izbrisano (%s)"
-
 #. Resource IDs: (132)
 #, c-format
 msgid "Processing revision %d of %d..."
@@ -4778,6 +4783,14 @@ msgstr "Odstrani %ld elementov"
 #, c-format
 msgid "Remove %s"
 msgstr "Odstrani %s"
+
+#. Resource IDs: (32820)
+msgid "Remove &deleted paths"
+msgstr "Odstrani &izbrane poti"
+
+#. Resource IDs: (2052)
+msgid "Remove deleted branches and tags"
+msgstr "Odstrani izbrisane veje in oznake"
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
@@ -5664,14 +5677,6 @@ msgstr ""
 msgid "Split lines"
 msgstr "Razdeli vrstice"
 
-#. Resource IDs: (32817)
-msgid "Split long &branches"
-msgstr "Razdeli dolge &veje"
-
-#. Resource IDs: (2052)
-msgid "Split long, inactive branches into segments"
-msgstr "Razdeli dolge, neaktivne veje v segmente"
-
 #. Resource IDs: (3604)
 msgid ""
 "Split the active window into panes\n"
@@ -6518,6 +6523,11 @@ msgstr "URL"
 msgid "URL history"
 msgstr "Zgodovina URL"
 
+#. Resource IDs: (199)
+#, c-format
+msgid "URL not known (UUID: %s)"
+msgstr "Naslov URL neznan (UUID: %s)"
+
 #. Resource IDs: (12)
 msgid "URL of Subversion items"
 msgstr "URL elementov Subversion"
@@ -7135,6 +7145,16 @@ msgstr "dodano"
 msgid "added files"
 msgstr "dodane datoteke"
 
+#. Resource IDs: (272)
+#, c-format
+msgid "alias (deleted): %s"
+msgstr "vzdevek (izrisan): %s"
+
+#. Resource IDs: (272)
+#, c-format
+msgid "alias: %s"
+msgstr "vzdevek: %s"
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "neimenovana datoteka"
@@ -7406,6 +7426,10 @@ msgstr "ali"
 #. Resource IDs: (65535)
 msgid "pair tokens: "
 msgstr "pari žetonov:"
+
+#. Resource IDs: (65535)
+msgid "path elements: "
+msgstr "poti elementov:"
 
 #. Resource IDs: (65535)
 msgid "paths: "
@@ -7740,6 +7764,10 @@ msgstr "teden"
 #. Resource IDs: (65535)
 msgid "word tokens: "
 msgstr "besedni žetoni:"
+
+#. Resource IDs: (65535)
+msgid "words [uncompressed]: "
+msgstr "besede [brez stiskanja]:"
 
 #. Resource IDs: (245)
 msgid "year"
