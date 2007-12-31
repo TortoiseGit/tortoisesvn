@@ -519,10 +519,6 @@ void CTortoiseProcApp::EnableCrashHandler()
 
  #define DATE_AS_INT (((YEAR - 2000) * 12 + MONTH) * 31 + DAY)
 
-	int year = YEAR;
-	int month = MONTH;
-	int day = DAY;
-
 	CTime compiletime(YEAR, MONTH, DAY, 0, 0, 0);
 	CTime now = CTime::GetCurrentTime();
 
