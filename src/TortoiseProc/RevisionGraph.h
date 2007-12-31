@@ -93,13 +93,10 @@ private:
 
 	CDictionaryBasedTempPath path;
 
-	/// keep the last revision range we know not to contain
-	/// any changes (essential optimization of FillCopyTargets()).
-	/// There is no guarantee that either unchangedStart-1 or
-	/// unchangedEnd points to a changing revision.
+	/// for internl use in FindSameOrChild()
+	/// (re-use same object instead of creating it locally)
 
-	revision_t unchangedStart;
-	revision_t unchangedEnd;
+	std::vector<index_t> pathToFind;
 
 	/// when this entry becomes valid / active
 
@@ -155,6 +152,11 @@ public:
 		return startRevision;
 	}
 
+	void SetStartRevision (revision_t revision)
+	{
+		startRevision = revision;
+	}
+
 	CRevisionEntry* GetLastEntry() const
 	{
 		return lastEntry;
@@ -199,12 +201,6 @@ public:
 
     bool YetToCover (revision_t revision) const;
 
-	/// access to "unchanged" revision range cache
-	/// (may use tree-traversal etc. to improve the result)
-
-	void SetUnchanged (revision_t start, revision_t end);
-	void GetUnchanged (revision_t& start, revision_t& end);
-
     /// return next node in pre-order
 
     CSearchPathTree* GetPreOrderNext (CSearchPathTree* lastNode = NULL);
@@ -212,6 +208,11 @@ public:
     /// return next node in pre-order but skip this sub-tree
 
     CSearchPathTree* GetSkipSubTreeNext (CSearchPathTree* lastNode = NULL);
+
+	/// find sub-tree of pathID  
+	/// (return NULL if there is no such node)
+
+	CSearchPathTree* FindSameOrChild (index_t pathID);
 };
 
 /**
@@ -364,8 +365,6 @@ private:
                                                    , revision_t toRevision
                                                    , const CDictionaryBasedPath& fromPath
                                                    , const CDictionaryBasedTempPath& currentPath);
-	revision_t					GetLastChange ( revision_t startRevision
-											  , CSearchPathTree* searchNode);
     void                        AddMissingHeads (CSearchPathTree* rootNode);
     void                        MarkHeads (CSearchPathTree* rootNode);
     void                        AnalyzeHeadRevision ( revision_t revision
