@@ -284,6 +284,18 @@
 				<citetitle>http://www.regular-expressions.info/</citetitle>
 			</ulink>.
 		</para>
+		<para>
+			You can re-use previously entered log messages. Just click on
+			<guibutton>Recent messages</guibutton> to view a list of the last few
+			messages you entered for this working copy. The number of stored messages
+			can be customized in the TortoiseSVN settings dialog.
+		</para>
+		<para>
+			You can clear all stored commit messages from the <guilabel>Saved data</guilabel>
+			page of TortoiseSVN's settings, or you can clear individual messages from
+			within the <guilabel>Recent messages</guilabel> dialog using the
+			<keycap>Delete</keycap> key.
+		</para>
 		<tip>
 			<title>Special Folder Properties</title>
 			<para>
@@ -301,7 +313,7 @@
 				issues should be comma separated. Alternatively, if you are using
 				regex-based bug tracking support, just add your issue references
 				as part of the log message.
-				Learn more <xref linkend="tsvn-dug-bugtracker"/>.
+				Learn more in <xref linkend="tsvn-dug-bugtracker"/>.
 			</para>
 		</tip>
 	</sect2>
