@@ -64,14 +64,18 @@ protected:
 	CString			m_sDeleted;
 	CString			m_sAdded;
 	CString			m_sLocked;
+	CString			m_sIgnored;
+	CString			m_sUnversioned;
 	CImageList		m_ImageList;
 	CImageList		m_ImageListBig;
 
-	CRegString		m_regInSubversion;
+	CRegString		m_regNormal;
 	CRegString		m_regModified;
 	CRegString		m_regConflicted;
 	CRegString		m_regReadOnly;
 	CRegString		m_regDeleted;
 	CRegString		m_regLocked;
 	CRegString		m_regAdded;
+	CRegString		m_regIgnored;
+	CRegString		m_regUnversioned;
 };
