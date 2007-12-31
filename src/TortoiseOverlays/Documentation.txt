@@ -69,18 +69,20 @@ available from all clients.
 
 How to install/redistribute TortoiseOverlays:
 ---------------------------------------------
-You can either install TortoiseOverlays with the provided msi installer,
-or use the also provided merge module in your own msi installer.
+You can either install TortoiseOverlays with the provided merge module
+(which is the recommended way, because it can properly handle the 
+required reference counting of the registry keys and dlls), or use the
+also provided msi installer.
 You MUST NOT try to install the dll and create the registry keys yourself!
 If you have a non-msi installer, you can call the msi installer like this:
-msiexec /i TortoiseOverlays-1.0.0.XXXX-win32.msi /quiet /norestart
-to uninstall it, call
-msiexec /u TortoiseOverlays-1.0.0.XXXX-win32.msi /quiet /norestart
+msiexec /i TortoiseOverlays-1.0.0.XXXX-win32.msi /qn /norestart
+But in that case, you also must not deintall it when your client gets
+deinstalled.
 
-The reason I chose msi is that TortoiseOverlays is a *shared* component,
-and other setup packages can't handle reference counting very well. And
-removing TortoiseOverlays with your client even though some other
-Tortoise client still needs it is not acceptable.
+The reason I chose merge modules/msi is that TortoiseOverlays is a 
+*shared* component, and other setup packages can't handle reference 
+counting very well. And removing TortoiseOverlays with your client even
+though some other Tortoise client still needs it is not acceptable.
 
 
 Using custom icons:

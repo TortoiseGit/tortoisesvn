@@ -21,7 +21,11 @@
 				SummaryCodepage="1252"/>
 
 		<Media Id="1" Cabinet="TOVL.cab" EmbedCab="yes" CompressionLevel="high" />
-
+		
+		<Upgrade Id='$(var.UpgradeGuid)'>
+			<UpgradeVersion Property="NEWERVERSIONDETECTED" Minimum="$(var.VersionNumberInternal)" OnlyDetect="yes" />
+		</Upgrade>
+		
 		<Property Id='ARPSYSTEMCOMPONENT' Value="1" />
 		<Directory Id='TARGETDIR' Name='SourceDir'>
 			<Directory Id='CommonFilesFolder' Name='Common'>
@@ -63,7 +67,7 @@
 		<InstallExecuteSequence>
 			<!-- AppSearch must be done before RemoveExistingProducts and before FindRelatedProducts -->
 			<AppSearch Sequence="1"></AppSearch>
-			<RemoveExistingProducts After="InstallValidate">1</RemoveExistingProducts>
+			<RemoveExistingProducts After="InstallValidate">PREVIOUSVERSIONSINSTALLED</RemoveExistingProducts>
 			<ScheduleReboot After="RegisterProduct" />
 		</InstallExecuteSequence>
 
