@@ -110,6 +110,12 @@ STDMETHODIMP CShellExt::GetPriority(int *pPriority)
 		case FileStateNormal:
 			*pPriority = 6;
 			break;
+		case FileStateUnversioned:
+			*pPriority = 8;
+			break;
+		case FileStateIgnored:
+			*pPriority = 7;
+			break;
 		default:
 			*pPriority = 100;
 			return S_FALSE;
