@@ -271,6 +271,15 @@ char *URL      = "http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/SubWCR
 
 // End of file
 </screen>
+		<tip>
+			<para>
+				A file like this will be included in the build so you would expect it
+				to be versioned. Be sure to version the template file, not the
+				generated file, otherwise each time you regenerate the version file
+				you need to commit the change, which in turn means the version file
+				needs to be updated.
+			</para>
+		</tip>
 	</sect1>
 	<!-- ================================================================= -->
 	<!-- ======================== SECTION 4 ============================== -->
