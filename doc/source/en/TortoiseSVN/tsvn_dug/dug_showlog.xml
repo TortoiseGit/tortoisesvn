@@ -697,4 +697,14 @@
 			then the statistics will not tell you very much.
 		</para>
 	</sect2>
+	<sect2 id="tsvn-dug-showlog-cache">
+		<?dbhh topicname="HIDD_GOOFFLINE"?>
+		<title>Offline Mode</title>
+		<para>
+			If the server is not reachable, and you have log caching enabled
+			you can use the log dialog and revision graph in offline mode.
+			This uses data from the cache, which allows you to continue working
+			although the information may not be up-to-date or even complete.
+		</para>
+	</sect2>
 </sect1>
