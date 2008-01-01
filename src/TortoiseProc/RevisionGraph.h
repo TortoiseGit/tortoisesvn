@@ -93,11 +93,6 @@ private:
 
 	CDictionaryBasedTempPath path;
 
-	/// for internl use in FindSameOrChild()
-	/// (re-use same object instead of creating it locally)
-
-	std::vector<index_t> pathToFind;
-
 	/// when this entry becomes valid / active
 
 	revision_t startRevision;

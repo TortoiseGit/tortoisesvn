@@ -302,12 +302,15 @@ CSearchPathTree* CSearchPathTree::FindCommonParent (index_t pathID)
 
 	// collect all path elements to find *below* this one
 
-	if (!pathToFind.empty())
-		pathToFind.clear();
+	index_t pathToFind[MAX_PATH];
+	size_t index = 0;
 
 	while ((pathID != NO_INDEX) && (pathID > nodePathID))
 	{
-		pathToFind.push_back (pathID);
+		pathToFind[index] = pathID;
+		++index;
+		assert (index < MAX_INDEX);
+
 		pathID = path.GetDictionary()->GetParent (pathID);
 	}
 
@@ -320,11 +323,8 @@ CSearchPathTree* CSearchPathTree::FindCommonParent (index_t pathID)
 	{
 		// follow the desired path until it hits or passes the node
 
-		while (!pathToFind.empty() && (nodePathID > pathID))
-		{
-			pathID = *pathToFind.rbegin();
-			pathToFind.pop_back();
-		}
+		while ((index != 0) && (nodePathID > pathID))
+			pathID = pathToFind[--index];
 
 		// scan sibbling branches for a match, if this node wasn't one.
 		// Since all are on the *same* level, either
@@ -340,13 +340,12 @@ CSearchPathTree* CSearchPathTree::FindCommonParent (index_t pathID)
 
 		// end of search or not in this sub-tree?
 
-		if (pathToFind.empty() || (nodePathID != pathID))
+		if ((index == 0) || (nodePathID != pathID))
 			return node;
 
 		// decend one level
 
-		pathID = *pathToFind.rbegin();
-		pathToFind.pop_back();
+		pathID = pathToFind[--index];
 		
 		oldNode = node;
 		node = node->firstChild;
@@ -796,8 +795,6 @@ void CRevisionGraph::AnalyzeRevisions ( const CDictionaryBasedTempPath& path
 		// handle remaining copy-to entries
 		// (some may have a fromRevision that does not touch the fromPath)
 
-		PROFILE_BLOCK
-
 		AddCopiedPaths ( revision
 					   , searchTree.get()
 					   , lastToCopy);
@@ -928,8 +925,6 @@ void CRevisionGraph::AnalyzeRevisions ( revision_t revision
 									  , bool bShowAll
 									  , std::vector<CSearchPathTree*>& toRemove)
 {
-	PROFILE_BLOCK
-
 	typedef CRevisionInfoContainer::CChangesIterator IT;
 
 	CSearchPathTree* searchNode = startNode;
@@ -1052,8 +1047,6 @@ void CRevisionGraph::AnalyzeChangesOnly ( revision_t revision
 									    , CRevisionInfoContainer::CChangesIterator last
 									    , CSearchPathTree* startNode)
 {
-	PROFILE_BLOCK
-
 	typedef CRevisionInfoContainer::CChangesIterator IT;
 
 	CSearchPathTree* searchNode = startNode;
