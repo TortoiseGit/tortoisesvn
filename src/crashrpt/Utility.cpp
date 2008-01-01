@@ -4,7 +4,7 @@
 //
 //    Desc: See Utility.h
 //
-// Copyright (c) 2007 TortoiseSVN
+// Copyright (c) 2007-2008 TortoiseSVN
 // Copyright (c) 2003 Michael Carruth
 //
 ///////////////////////////////////////////////////////////////////////////////
