@@ -296,13 +296,9 @@ CSearchPathTree* CSearchPathTree::GetSkipSubTreeNext (CSearchPathTree* lastNode)
 // find sub-tree of pathID  
 // (return NULL if there is no such node)
 
-CSearchPathTree* CSearchPathTree::FindSameOrChild (index_t pathID)
+CSearchPathTree* CSearchPathTree::FindCommonParent (index_t pathID)
 {
-	// special case: direct hit
-
 	index_t nodePathID = path.GetBasePath().GetIndex();
-	if (nodePathID == pathID)
-		return this;
 
 	// collect all path elements to find *below* this one
 
@@ -318,6 +314,7 @@ CSearchPathTree* CSearchPathTree::FindSameOrChild (index_t pathID)
 	// start search at *this node
 
 	CSearchPathTree* node = this;
+	CSearchPathTree* oldNode = node;
 
 	while (node != NULL)
 	{
@@ -341,29 +338,17 @@ CSearchPathTree* CSearchPathTree::FindSameOrChild (index_t pathID)
 			nodePathID = node->path.GetBasePath().GetIndex();
 		}
 
-		// end of search ?
+		// end of search or not in this sub-tree?
 
-		if (pathToFind.empty())
-		{
-			// the path may be a true parent 
-			// -> walk up the path hierarchy until we find it or somthing different
-
-			while (nodePathID > pathID)
-				nodePathID = path.GetDictionary()->GetParent (nodePathID);
-
-			return nodePathID == pathID ? node : NULL;
-		}
-
-		// not in this sub-tree?
-
-		if (nodePathID != pathID)
-			return NULL; 
+		if (pathToFind.empty() || (nodePathID != pathID))
+			return node;
 
 		// decend one level
 
 		pathID = *pathToFind.rbegin();
 		pathToFind.pop_back();
 		
+		oldNode = node;
 		node = node->firstChild;
 		if (node != NULL)
 			nodePathID = node->path.GetBasePath().GetIndex();
@@ -371,7 +356,7 @@ CSearchPathTree* CSearchPathTree::FindSameOrChild (index_t pathID)
 
 	// not found
 
-	return NULL;
+	return oldNode;
 }
 
 CRevisionGraph::CRevisionGraph(void) : m_bCancelled(FALSE)
@@ -830,58 +815,71 @@ void CRevisionGraph::AnalyzeRevisions ( const CDictionaryBasedTempPath& path
         {
 		    // pre-order search-tree traversal
 
-		    CSearchPathTree* searchNode = searchTree.get();
-		    while (searchNode != NULL)
-		    {
-				PROFILE_BLOCK
+			CSearchPathTree* startNode 
+				= searchTree->FindCommonParent (basePath.GetIndex());
 
-			    if (basePath.IsSameOrParentOf (searchNode->GetPath().GetBasePath()))
-			    {
-				    // maybe a hit -> match all changes against the whole sub-tree
+			if (startNode->GetPath().IsSameOrChildOf (basePath))
+			{
+				CSearchPathTree* searchNode = startNode;
 
-				    // in many cases, we want only to see additions, 
-				    // deletions and replacements
+				if (   options.includeSubPathChanges
+					|| (   revisionInfo.GetSumChanges (index)
+						!= CRevisionInfoContainer::ACTION_CHANGED))
+				{
+					// maybe a hit -> match all changes against the whole sub-tree
 
-				    AnalyzeRevisions ( revision
+					AnalyzeRevisions ( revision
 								     , revisionInfo.GetChangesBegin (index)
 								     , revisionInfo.GetChangesEnd (index)
 								     , searchNode
 								     , options.includeSubPathChanges
 								     , toRemove);
-			    }
-			    else
-			    {
-				    bool subTreeTouched 
-					    = searchNode->GetPath().IsSameOrParentOf (basePath);
+				}
+				else
+				{
+					// only simple changes, if any
 
-				    // show intermediate nodes as well?
+					AnalyzeChangesOnly ( revision
+									   , revisionInfo.GetChangesBegin (index)
+									   , revisionInfo.GetChangesEnd (index)
+									   , searchNode);
+				}
 
-                    if (   subTreeTouched 
-					    && searchNode->YetToCover(revision))
-				    {
-					    AnalyzeRevisions ( revision
-									     , revisionInfo.GetChangesBegin (index)
-									     , revisionInfo.GetChangesEnd (index)
-									     , searchNode
-									     , options.includeSubPathChanges
-									     , toRemove);
-				    }
+				startNode = startNode->GetParent();
+			}
+			else
+			{
+				CDictionaryBasedPath commonRoot
+					= basePath.GetCommonRoot (searchTree->GetPath().GetBasePath());
+				startNode = searchTree->FindCommonParent (commonRoot.GetIndex());
+			}
 
-				    if ((searchNode->GetFirstChild() != NULL) && subTreeTouched)
-				    {
-					    // the sub-nodes may be a match
+			// mark changes on parent search nodes
 
-					    searchNode = searchNode->GetFirstChild();
-					    continue;
-				    }
-			    }
+			for ( CSearchPathTree* searchNode = startNode
+				; searchNode != NULL
+				; searchNode = searchNode->GetParent())
+		    {
+				if (searchNode->IsActive())
+				{
+					if (options.includeSubPathChanges)
+					{
+						AnalyzeRevisions ( revision
+										 , revisionInfo.GetChangesBegin (index)
+										 , revisionInfo.GetChangesEnd (index)
+										 , searchNode
+										 , true
+										 , toRemove);
+					}
+					else
+					{
+						// this path has been touched in this revision
 
-			    // this sub-tree has fully been covered (or been no match at all)
-			    // -> to the next node
-
-                searchNode = searchNode->GetSkipSubTreeNext();
+						searchNode->SetStartRevision (revision);
+					}
+				}
 		    }
-        }
+		}
 
 		// handle remaining copy-to entries
 		// (some may have a fromRevision that does not touch the fromPath)
@@ -932,22 +930,25 @@ void CRevisionGraph::AnalyzeRevisions ( revision_t revision
 {
 	PROFILE_BLOCK
 
-	// cover the whole sub-tree
+	typedef CRevisionInfoContainer::CChangesIterator IT;
 
 	CSearchPathTree* searchNode = startNode;
 	do
 	{
-		// is this search path active?
+		// in many cases, we want only to see additions, 
+		// deletions and replacements
 
-        if (searchNode->YetToCover (revision))
+		bool skipSubTree = true;
+
+		const CDictionaryBasedTempPath& path = searchNode->GetPath();
+
+		// we must not modify inactive nodes
+
+		if (searchNode->IsActive())
 		{
-			const CDictionaryBasedTempPath& path = searchNode->GetPath();
-
 			// looking for the closet change that affected the path
 
-			for ( CRevisionInfoContainer::CChangesIterator iter = first
-				; iter != last
-				; ++iter)
+			for (IT iter = first; iter != last; ++iter)
 			{
 				index_t changePathID = iter->GetPathID();
 
@@ -956,6 +957,8 @@ void CRevisionGraph::AnalyzeRevisions ( revision_t revision
 					|| (  (iter->GetAction() != CRevisionInfoContainer::ACTION_CHANGED)
 					   && path.GetBasePath().IsSameOrChildOf (changePathID)))
 				{
+					skipSubTree = false;
+
 					CDictionaryBasedPath changePath = iter->GetPath();
 
 					// construct the action member
@@ -1011,14 +1014,86 @@ void CRevisionGraph::AnalyzeRevisions ( revision_t revision
 					if (!bShowAll && path.IsSameOrParentOf (changePathID))
 					{
 						searchNode->SetStartRevision (revision);
+						skipSubTree = false;
 					}
 				}
 			}
 		}
+		else
+		{
+			// can we skip the whole sub-tree?
 
-		// select next node
+			for (IT iter = first; iter != last; ++iter)
+			{
+				index_t changePathID = iter->GetPathID();
 
-        searchNode = searchNode->GetPreOrderNext (startNode);
+				if (   path.IsSameOrParentOf (changePathID)
+					|| (  (iter->GetAction() != CRevisionInfoContainer::ACTION_CHANGED)
+					   && path.GetBasePath().IsSameOrChildOf (changePathID)))
+				{
+					skipSubTree = false;
+					break;
+				}
+			}
+		}
+
+		// to the next node
+
+		searchNode = skipSubTree
+				   ? searchNode->GetSkipSubTreeNext (startNode)
+				   : searchNode->GetPreOrderNext (startNode);
+	}
+	while (searchNode != startNode);
+
+}
+
+void CRevisionGraph::AnalyzeChangesOnly ( revision_t revision
+									    , CRevisionInfoContainer::CChangesIterator first
+									    , CRevisionInfoContainer::CChangesIterator last
+									    , CSearchPathTree* startNode)
+{
+	PROFILE_BLOCK
+
+	typedef CRevisionInfoContainer::CChangesIterator IT;
+
+	CSearchPathTree* searchNode = startNode;
+	do
+	{
+		// in many cases, we want only to see additions, 
+		// deletions and replacements
+
+		bool skipSubTree = true;
+
+		// if the path is not "fully cached", there can be no changes to it
+
+		if (searchNode->GetPath().IsFullyCachedPath())
+		{
+			const CDictionaryBasedPath& path = searchNode->GetPath().GetBasePath();
+
+			// looking for the closet change that affected the path
+
+			for (IT iter = first; iter != last; ++iter)
+			{
+				index_t changePathID = iter->GetPathID();
+
+				// store last modifying revision in search node
+
+				if (path.IsSameOrParentOf (changePathID))
+				{
+					if (searchNode->IsActive())
+						searchNode->SetStartRevision (revision);
+
+					skipSubTree = false;
+					break;
+				}
+			}
+		}
+
+		// to the next node
+
+		searchNode = skipSubTree
+				   ? searchNode->GetSkipSubTreeNext (startNode)
+				   : searchNode->GetPreOrderNext (startNode);
 	}
 	while (searchNode != startNode);
 }
@@ -1088,8 +1163,8 @@ void CRevisionGraph::FillCopyTargets ( revision_t revision
 		// crawl the whole sub-tree for path matches
 
 		CSearchPathTree* startNode 
-			= rootNode->FindSameOrChild (copy->fromPathIndex);
-		if (startNode == NULL)
+			= rootNode->FindCommonParent (copy->fromPathIndex);
+		if (!startNode->GetPath().IsSameOrChildOf (copy->fromPathIndex))
 			continue;
 
 		CSearchPathTree* searchNode = startNode;

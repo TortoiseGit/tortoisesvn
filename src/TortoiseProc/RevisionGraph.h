@@ -210,9 +210,9 @@ public:
     CSearchPathTree* GetSkipSubTreeNext (CSearchPathTree* lastNode = NULL);
 
 	/// find sub-tree of pathID  
-	/// (return NULL if there is no such node)
+	/// (return closet match if there is no such node)
 
-	CSearchPathTree* FindSameOrChild (index_t pathID);
+	CSearchPathTree* FindCommonParent (index_t pathID);
 };
 
 /**
@@ -353,6 +353,10 @@ private:
 												 , CSearchPathTree* startNode
 												 , bool bShowAll
 												 , std::vector<CSearchPathTree*>& toRemove);
+	void						AnalyzeChangesOnly ( revision_t revision
+												   , CRevisionInfoContainer::CChangesIterator first
+												   , CRevisionInfoContainer::CChangesIterator last
+												   , CSearchPathTree* startNode);
 	void						AddCopiedPaths ( revision_t revision
 											   , CSearchPathTree* rootNode
 											   , TSCopyIterator& lastToCopy);
