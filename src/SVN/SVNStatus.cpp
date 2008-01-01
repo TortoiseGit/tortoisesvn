@@ -185,7 +185,7 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, svn_depth_t de
 
 	isDir = path.IsDirectory();
 	if (!path.HasAdminDir())
-		return svn_wc_status_unversioned;
+		return svn_wc_status_none;
 
 	pool = svn_pool_create (NULL);				// create the memory pool
 
@@ -213,7 +213,7 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, svn_depth_t de
 	{
 		svn_error_clear(err);
 		svn_pool_destroy (pool);				//free allocated memory
-		return svn_wc_status_unversioned;	
+		return svn_wc_status_none;	
 	}
 
 	svn_pool_destroy (pool);				//free allocated memory

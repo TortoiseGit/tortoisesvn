@@ -190,11 +190,11 @@ void CStatusCacheEntry::SetAsUnversioned()
 {
 	ZeroMemory(&m_svnStatus, sizeof(m_svnStatus));
 	m_discardAtTime = GetTickCount()+cachetimeout;
-	m_highestPriorityLocalStatus = svn_wc_status_unversioned;
-	m_svnStatus.prop_status = svn_wc_status_unversioned;
-	m_svnStatus.text_status = svn_wc_status_unversioned;
-	m_svnStatus.prop_status = svn_wc_status_unversioned;
-	m_svnStatus.text_status = svn_wc_status_unversioned;
+	m_highestPriorityLocalStatus = svn_wc_status_none;
+	m_svnStatus.prop_status = svn_wc_status_none;
+	m_svnStatus.text_status = svn_wc_status_none;
+	m_svnStatus.prop_status = svn_wc_status_none;
+	m_svnStatus.text_status = svn_wc_status_none;
 	m_lastWriteTime = 0;
 }
 
