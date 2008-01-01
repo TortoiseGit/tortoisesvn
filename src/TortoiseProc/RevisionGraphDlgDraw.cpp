@@ -126,7 +126,7 @@ void CRevisionGraphWnd::DrawNode(CDC * pDC, const CRect& rect,
 								COLORREF contour, CRevisionEntry *rentry, NodeShape shape, 
 								BOOL isSel, HICON hIcon, int penStyle /*= PS_SOLID*/)
 {
-#define minmax(x, y, z) (x > 0 ? min(y, z) : max(y, z))
+#define minmax(x, y, z) (x > 0 ? min<long>(y, z) : max<long>(y, z))
 	CPen* pOldPen = 0L;
 	CBrush* pOldBrush = 0L;
 	CFont* pOldFont = 0L;

@@ -361,6 +361,7 @@ CSearchPathTree* CSearchPathTree::FindCommonParent (index_t pathID)
 CRevisionGraph::CRevisionGraph(void) : m_bCancelled(FALSE)
 	, m_FilterMinRev(-1)
 	, m_FilterMaxRev(LONG_MAX)
+    , nodePool (sizeof (CRevisionEntry), 1024)
 {
 	memset (&m_ctx, 0, sizeof (m_ctx));
 	parentpool = svn_pool_create(NULL);
@@ -401,6 +402,8 @@ CRevisionGraph::CRevisionGraph(void) : m_bCancelled(FALSE)
 
 CRevisionGraph::~CRevisionGraph(void)
 {
+    PROFILE_BLOCK
+
 	svn_error_clear(Err);
 	svn_pool_destroy (parentpool);
 
@@ -410,7 +413,7 @@ CRevisionGraph::~CRevisionGraph(void)
 void CRevisionGraph::ClearRevisionEntries()
 {
 	for (size_t i = m_entryPtrs.size(); i > 0; --i)
-		delete m_entryPtrs[i-1];
+        m_entryPtrs[i-1]->Destroy (nodePool);
 
 	m_entryPtrs.clear();
 
@@ -984,8 +987,8 @@ void CRevisionGraph::AnalyzeRevisions ( revision_t revision
 
 					// create & init the new graph node
 
-					CRevisionEntry* newEntry 
-						= new CRevisionEntry (path, revision, action);
+					PROFILE_LINE (CRevisionEntry* newEntry 
+                        = CRevisionEntry::Create (path, revision, action, nodePool));
 					newEntry->realPath = changePath;
 					m_entryPtrs.push_back (newEntry);
 
@@ -1196,9 +1199,10 @@ void CRevisionGraph::FillCopyTargets ( revision_t revision
 				    {
 					    // the copy source graph node has yet to be created
 
-					    entry = new CRevisionEntry ( path
-											       , revision
-											       , CRevisionEntry::source);
+                        entry = CRevisionEntry::Create ( path
+											           , revision
+											           , CRevisionEntry::source
+                                                       , nodePool);
 					    entry->realPath = fromPath;
 
 					    m_entryPtrs.push_back (entry);
@@ -1421,7 +1425,10 @@ void CRevisionGraph::AnalyzeHeadRevision ( revision_t revision
 			// create & init the new graph node
 
 			CRevisionEntry* newEntry 
-                = new CRevisionEntry (tempPath, revision, CRevisionEntry::lastcommit);
+                = CRevisionEntry::Create ( tempPath
+                                         , revision
+                                         , CRevisionEntry::lastcommit
+                                         , nodePool);
             newEntry->realPath = iter->GetPath();
 			m_entryPtrs.push_back (newEntry);
 
@@ -1814,7 +1821,7 @@ void CRevisionGraph::Compact()
 	{
 		if ((*source)->action == CRevisionEntry::nothing)
 		{
-			delete *source;
+			(*source)->Destroy (nodePool);
 		}
 		else
 		{

@@ -248,16 +248,8 @@ public:
         }
     };
 
-	//methods
-	CRevisionEntry ( const CDictionaryBasedTempPath& path
-				   , revision_t revision
-				   , Action action)
-		: path (path), realPath (path.GetBasePath()), revision (revision)
-		, action (action), classification (0)
-		, prev (NULL), next (NULL), copySource (NULL)
-		, row (0), column (0) {}
+	///members
 
-	//members
 	CDictionaryBasedTempPath path;
 	CDictionaryBasedPath realPath;
 
@@ -275,6 +267,41 @@ public:
 
 	int				column;
 	int				row;
+
+    /// pool type
+
+    typedef boost::pool<> TPool;
+
+    /// construction / destruction via pool
+
+    static CRevisionEntry* Create ( const CDictionaryBasedTempPath& path
+        				          , revision_t revision
+		        		          , Action action
+                                  , TPool& pool)
+    {
+        CRevisionEntry * result = static_cast<CRevisionEntry *>(pool.malloc());
+        new (result) CRevisionEntry (path, revision, action);
+        return result;
+    }
+
+    void Destroy (TPool& pool)
+    {
+        this->~CRevisionEntry();
+        pool.free(this);
+    }
+
+protected:
+
+	/// protect construction / destruction to force usage of pool
+
+	CRevisionEntry ( const CDictionaryBasedTempPath& path
+				   , revision_t revision
+				   , Action action)
+		: path (path), realPath (path.GetBasePath()), revision (revision)
+		, action (action), classification (0)
+		, prev (NULL), next (NULL), copySource (NULL)
+		, row (0), column (0) {}
+    ~CRevisionEntry() {};
 };
 
 /**
@@ -335,6 +362,8 @@ public:
 	SVN							svn;
 
 private:
+
+    CRevisionEntry::TPool       nodePool;
 
 	typedef std::vector<SCopyInfo*>::const_iterator TSCopyIterator;
 
