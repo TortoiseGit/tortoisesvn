@@ -4211,8 +4211,8 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
 		return FALSE;	// no custom tooltip for the path, we use the infotip there!
 
 	// get the internal column from the visible columns
-	int internalcol = 0;
-	int currentcol = 0;
+	UINT_PTR internalcol = 0;
+	UINT_PTR currentcol = 0;
 	if (currentcol != col)
 	{
 		internalcol++;
