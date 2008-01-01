@@ -1,5 +1,5 @@
 // TortoiseOverlays - an overlay handler for Tortoise clients
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007 - TortoiseSVN
 #pragma once
 
 
