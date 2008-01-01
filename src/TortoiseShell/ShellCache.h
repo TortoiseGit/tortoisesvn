@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2008 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -59,6 +59,8 @@ public:
 		excludelist = CRegStdString(_T("Software\\TortoiseSVN\\OverlayExcludeList"));
 		includelist = CRegStdString(_T("Software\\TortoiseSVN\\OverlayIncludeList"));
 		unversionedasmodified = CRegStdWORD(_T("Software\\TortoiseSVN\\UnversionedAsModified"), FALSE);
+		showunversionedoverlay = CRegStdWORD(_T("Software\\TortoiseSVN\\ShowUnversionedOverlay"), FALSE);
+		showignoredoverlay = CRegStdWORD(_T("Software\\TortoiseSVN\\ShowIgnoredOverlay"), FALSE);
 		getlocktop = CRegStdWORD(_T("Software\\TortoiseSVN\\GetLockTop"), TRUE);
 		excludedasnormal = CRegStdWORD(_T("Software\\TortoiseSVN\\ShowExcludedAsNormal"), TRUE);
 		cachetypeticker = GetTickCount();
@@ -71,6 +73,8 @@ public:
 		excludelistticker = cachetypeticker;
 		includelistticker = cachetypeticker;
 		unversionedasmodifiedticker = cachetypeticker;
+		showunversionedoverlayticker = cachetypeticker;
+		showignoredoverlayticker = cachetypeticker;
 		admindirticker = cachetypeticker;
 		columnseverywhereticker = cachetypeticker;
 		getlocktopticker = cachetypeticker;
@@ -120,6 +124,8 @@ public:
 		excludelist.read();
 		includelist.read();
 		unversionedasmodified.read();
+		showunversionedoverlay.read();
+		showignoredoverlay.read();
 		excludedasnormal.read();
 		menulayoutlow.read();
 		menulayouthigh.read();
@@ -204,6 +210,24 @@ public:
 			unversionedasmodified.read();
 		}
 		return (unversionedasmodified);
+	}
+	BOOL ShowUnversionedOverlay()
+	{
+		if ((GetTickCount() - REGISTRYTIMEOUT)>showunversionedoverlayticker)
+		{
+			showunversionedoverlayticker = GetTickCount();
+			showunversionedoverlay.read();
+		}
+		return (showunversionedoverlay);
+	}
+	BOOL ShowIgnoredOverlay()
+	{
+		if ((GetTickCount() - REGISTRYTIMEOUT)>showignoredoverlayticker)
+		{
+			showignoredoverlayticker = GetTickCount();
+			showignoredoverlay.read();
+		}
+		return (showignoredoverlay);
 	}
 	BOOL IsGetLockTop()
 	{
@@ -503,6 +527,8 @@ private:
 	CRegStdWORD menumasklow_cu;
 	CRegStdWORD menumaskhigh_cu;
 	CRegStdWORD unversionedasmodified;
+	CRegStdWORD showunversionedoverlay;
+	CRegStdWORD showignoredoverlay;
 	CRegStdWORD excludedasnormal;
 	CRegStdString excludelist;
 	CRegStdWORD columnseverywhere;
@@ -525,6 +551,8 @@ private:
 	DWORD excludelistticker;
 	DWORD includelistticker;
 	DWORD unversionedasmodifiedticker;
+	DWORD showunversionedoverlayticker;
+	DWORD showignoredoverlayticker;
 	DWORD excludedasnormalticker;
 	DWORD columnseverywhereticker;
 	UINT  drivetypecache[27];

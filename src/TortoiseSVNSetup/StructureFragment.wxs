@@ -45,9 +45,9 @@
 					<?endif ?>
 
 					<?if $(env.Platform) = "win32" ?>
-					<Merge Id='Ovlays' Language='0' src='..\..\ext\TortoiseOverlays\TortoiseOverlays-1.0.0.11709-win32.msm' DiskId='1' />
+					<Merge Id='Ovlays' Language='0' src='..\..\ext\TortoiseOverlays\TortoiseOverlays-1.0.1.11733-win32.msm' DiskId='1' />
 					<?else ?>
-					<Merge Id='Ovlays' Language='0' src='..\..\ext\TortoiseOverlays\TortoiseOverlays-1.0.0.11709-x64.msm' DiskId='1' />
+					<Merge Id='Ovlays' Language='0' src='..\..\ext\TortoiseOverlays\TortoiseOverlays-1.0.1.11733-x64.msm' DiskId='1' />
 					<?endif ?>
 					<Component Id="C__infofiles" Guid="$(var.GuidInfoFiles)" Win64="$(var.Win64YesNo)">
 						<File Id="F__changelog" Name="CHANGELG.TXT" LongName="Changelog.txt" DiskId="1" src="..\Changelog.txt" KeyPath="yes" />
@@ -118,6 +118,14 @@
 						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidConflict)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
 						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidConflict)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub.dll" Type="string" />
 						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidConflict)}" Value="TortoiseSVN" Type="string" />
+						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidIgnored)}" Action="createKeyAndRemoveKeyOnUninstall" />
+						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidIgnored)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
+						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidIgnored)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub.dll" Type="string" />
+						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidIgnored)}" Value="TortoiseSVN" Type="string" />
+						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidUnversioned)}" Action="createKeyAndRemoveKeyOnUninstall" />
+						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidUnversioned)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
+						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidUnversioned)}\InProcServer32" Value="[INSTALLDIR]bin\TortoiseStub.dll" Type="string" />
+						<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidUnversioned)}" Value="TortoiseSVN" Type="string" />
 						<Registry Root="HKMU" Key="Software\Classes\lnkfile\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
 						<Registry Root="HKMU" Key="Software\Classes\InternetShortcut\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
 						<Registry Root="HKMU" Key="Software\Classes\*\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
@@ -148,6 +156,10 @@
 						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Locked" Name="SVN" Value="{$(var.GuidLocked)}" Type="string" />
 						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Added" Action="createKeyAndRemoveKeyOnUninstall" />
 						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Added" Name="SVN" Value="{$(var.GuidAdded)}" Type="string" />
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Ignored" Action="createKeyAndRemoveKeyOnUninstall" />
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Ignored" Name="SVN" Value="{$(var.GuidIgnored)}" Type="string" />
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Unversioned" Action="createKeyAndRemoveKeyOnUninstall" />
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Unversioned" Name="SVN" Value="{$(var.GuidUnversioned)}" Type="string" />
 					</Component>
 
 					<Component Id="C__approveshellcomponents" Guid="$(var.GuidApproveShellComponents)" Win64="$(var.Win64YesNo)">
@@ -160,6 +172,8 @@
 						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidReadonly)}" Value="TortoiseSVN" Type="string" />
 						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidLocked)}" Value="TortoiseSVN" Type="string" />
 						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidAdded)}" Value="TortoiseSVN" Type="string" />
+						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidIgnored)}" Value="TortoiseSVN" Type="string" />
+						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved" Name="{$(var.GuidUnversioned)}" Value="TortoiseSVN" Type="string" />
 					</Component>
 
 					<Component Id="C__svnprotocoll" Guid="$(var.GuidSvnProtocol)" Win64="$(var.Win64YesNo)">

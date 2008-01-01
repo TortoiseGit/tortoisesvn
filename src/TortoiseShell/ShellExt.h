@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -47,6 +47,8 @@ extern bool					g_readonlyovlloaded;
 extern bool					g_deletedovlloaded;
 extern bool					g_lockedovlloaded;
 extern bool					g_addedovlloaded;
+extern bool					g_ignoredovlloaded;
+extern bool					g_unversionedovlloaded;
 extern LPCTSTR				g_MenuIDString;
 
 extern	void				LoadLangDll();

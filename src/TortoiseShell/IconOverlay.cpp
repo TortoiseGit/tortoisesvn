@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,7 +29,7 @@
 //  the name of the file containing the overlay image, and its index within
 //  that file. The Shell then adds the icon overlay to the system image list."
 
-STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD *pdwFlags)
+STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR /*pwszIconFile*/, int /*cchMax*/, int * /*pIndex*/, DWORD * /*pdwFlags*/)
 {
 	PreserveChdir preserveChdir;
 
@@ -39,15 +39,19 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
 	// loaded, so we can later check if some are missing
 	switch (m_State)
 	{
-		case FileStateVersioned		: g_normalovlloaded = true; break;
-		case FileStateModified		: g_modifiedovlloaded = true; break;
-		case FileStateConflict		: g_conflictedovlloaded = true; break;
-		case FileStateDeleted		: g_deletedovlloaded = true; break;
-		case FileStateReadOnly		: g_readonlyovlloaded = true; break;
-		case FileStateLockedOverlay	: g_lockedovlloaded = true; break;
-		case FileStateAddedOverlay	: g_addedovlloaded = true; break;
+		case FileStateVersioned				: g_normalovlloaded = true; break;
+		case FileStateModified				: g_modifiedovlloaded = true; break;
+		case FileStateConflict				: g_conflictedovlloaded = true; break;
+		case FileStateDeleted				: g_deletedovlloaded = true; break;
+		case FileStateReadOnly				: g_readonlyovlloaded = true; break;
+		case FileStateLockedOverlay			: g_lockedovlloaded = true; break;
+		case FileStateAddedOverlay			: g_addedovlloaded = true; break;
+		case FileStateIgnoredOverlay		: g_ignoredovlloaded = true; break;
+		case FileStateUnversionedOverlay	: g_unversionedovlloaded = true; break;
 	}
 
+	// we don't have to set the icon file and/or the index here:
+	// the icons are handled by the TortoiseOverlays dll.
     return S_OK;
 };
 
@@ -236,6 +240,18 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 		case svn_wc_status_none:
 			return S_FALSE;
 		case svn_wc_status_unversioned:
+			if (g_ShellCache.ShowUnversionedOverlay() && g_unversionedovlloaded && (m_State == FileStateUnversionedOverlay))
+			{
+				g_filepath.clear();
+				return S_OK;
+			}
+			return S_FALSE;
+		case svn_wc_status_ignored:
+			if (g_ShellCache.ShowIgnoredOverlay() && g_ignoredovlloaded && (m_State == FileStateIgnoredOverlay))
+			{
+				g_filepath.clear();
+				return S_OK;
+			}
 			return S_FALSE;
 		case svn_wc_status_normal:
 		case svn_wc_status_external:
