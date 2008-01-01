@@ -10,7 +10,7 @@
 //
 // Version
 //
-#include "version.h"
+#include "..\version.h"
 VS_VERSION_INFO VERSIONINFO
  FILEVERSION FILEVER
  PRODUCTVERSION PRODUCTVER
@@ -32,7 +32,7 @@ BEGIN
             VALUE "FileDescription", "TortoiseSVN overlay handler shim"
             VALUE "FileVersion", STRFILEVER
             VALUE "InternalName", "TortoiseOverlays.dll"
-            VALUE "LegalCopyright", "Copyright (C) 2007"
+            VALUE "LegalCopyright", "Copyright (C) 2007-2008"
             VALUE "OriginalFilename", "TortoiseOverlays.dll"
             VALUE "ProductName", "TortoiseSVN"
             VALUE "ProductVersion", STRPRODUCTVER
