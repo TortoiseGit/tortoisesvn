@@ -309,7 +309,7 @@ CSearchPathTree* CSearchPathTree::FindCommonParent (index_t pathID)
 	{
 		pathToFind[index] = pathID;
 		++index;
-		assert (index < MAX_INDEX);
+		assert (index < MAX_PATH);
 
 		pathID = path.GetDictionary()->GetParent (pathID);
 	}
