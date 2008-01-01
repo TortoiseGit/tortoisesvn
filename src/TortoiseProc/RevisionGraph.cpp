@@ -402,8 +402,6 @@ CRevisionGraph::CRevisionGraph(void) : m_bCancelled(FALSE)
 
 CRevisionGraph::~CRevisionGraph(void)
 {
-    PROFILE_BLOCK
-
 	svn_error_clear(Err);
 	svn_pool_destroy (parentpool);
 
@@ -502,8 +500,6 @@ void CRevisionGraph::ReceiveLog ( LogChangedPathArray* changes
 
 BOOL CRevisionGraph::FetchRevisionData(CString path)
 {
-	PROFILE_BLOCK
-
 	// set some text on the progress dialog, before we wait
 	// for the log operation to start
 	CString temp;
@@ -606,8 +602,6 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 
 BOOL CRevisionGraph::AnalyzeRevisionData (CString path, const SOptions& options)
 {
-	PROFILE_BLOCK
-
 	svn_error_clear(Err);
 
 	ClearRevisionEntries();
@@ -667,23 +661,23 @@ BOOL CRevisionGraph::AnalyzeRevisionData (CString path, const SOptions& options)
 
 	// step 1: create "copy-to" lists based on the "copy-from" info
 
-	PROFILE_LINE (BuildForwardCopies());
+	BuildForwardCopies();
 
 	// step 2: crawl the history upward, follow branches and create revision info graph
 
-    PROFILE_LINE (AnalyzeRevisions (startPath, initialrev, options));
+    AnalyzeRevisions (startPath, initialrev, options);
 
 	// step 3: reduce graph by saying "renamed" instead of "deleted"+"addedWithHistory" etc.
 
-	PROFILE_LINE (Optimize (options));
+	Optimize (options);
 
 	// step 4: place the nodes on a row, column grid
 
-	PROFILE_LINE (AssignCoordinates (options));
+	AssignCoordinates (options);
 
 	// step 5: final sorting etc.
 
-	PROFILE_LINE (Cleanup());
+	Cleanup();
 
 	return true;
 }
@@ -987,8 +981,8 @@ void CRevisionGraph::AnalyzeRevisions ( revision_t revision
 
 					// create & init the new graph node
 
-					PROFILE_LINE (CRevisionEntry* newEntry 
-                        = CRevisionEntry::Create (path, revision, action, nodePool));
+					CRevisionEntry* newEntry 
+                        = CRevisionEntry::Create (path, revision, action, nodePool);
 					newEntry->realPath = changePath;
 					m_entryPtrs.push_back (newEntry);
 
