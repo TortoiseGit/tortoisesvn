@@ -56,7 +56,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-12-15 22:02+0800\n"
+"PO-Revision-Date: 2008-01-02 18:17+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -172,6 +172,11 @@ msgstr "%ld / %ld"
 #, c-format
 msgid "%ld paths"
 msgstr "%ld 个路径"
+
+#. Resource IDs: (272)
+#, c-format
+msgid "%s"
+msgstr "%s"
 
 #. Resource IDs: (115)
 #, c-format
@@ -832,6 +837,11 @@ msgstr "工作副本(&W)"
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
 msgstr "(二进制)"
+
+#. Resource IDs: (272)
+#, c-format
+msgid "(deleted) %s"
+msgstr "(已删除) %s"
 
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
@@ -2992,10 +3002,6 @@ msgstr "常规::对话框组一"
 msgid "General::Dialogs 2"
 msgstr "常规::对话框组二"
 
-#. Resource IDs: (281)
-msgid "General::Log Caching"
-msgstr "常规::日志缓存"
-
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "正在生成补丁文件..."
@@ -3131,6 +3137,10 @@ msgstr "最新版本是 %s"
 msgid "Help"
 msgstr "帮助"
 
+#. Resource IDs: (32820)
+msgid "Hide &deleted paths"
+msgstr "隐藏已删除的路径(&D)"
+
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
 msgstr "运行时隐藏脚本"
@@ -3240,9 +3250,9 @@ msgstr "ID:32814:V C +L"
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
-#. Accelerator Entry for Menu ID:32821; ''
-msgid "ID:32821:V C +F"
-msgstr "ID:32821:V C +F"
+#. Accelerator Entry for Menu ID:32822; ''
+msgid "ID:32822:V C +F"
+msgstr "ID:32822:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
@@ -3821,6 +3831,10 @@ msgstr "日志"
 #. Resource IDs: (282)
 msgid "Log Cache Statistics"
 msgstr "日志缓存统计"
+
+#. Resource IDs: (281)
+msgid "Log Caching"
+msgstr "日志缓存"
 
 #. Resource IDs: (211)
 msgid "Log History"
@@ -4520,11 +4534,6 @@ msgstr "防止大多数连接行交叉版本节点的情况"
 msgid "Preview patched file"
 msgstr "预览打过补丁的文件"
 
-#. Resource IDs: (199)
-#, c-format
-msgid "Probably deleted repository (%s)"
-msgstr "版本库可能已删除(%s)"
-
 #. Resource IDs: (132)
 #, c-format
 msgid "Processing revision %d of %d..."
@@ -4795,6 +4804,10 @@ msgstr "删除 %ld 项"
 #, c-format
 msgid "Remove %s"
 msgstr "删除 %s"
+
+#. Resource IDs: (2052)
+msgid "Remove deleted branches and tags"
+msgstr "删除已经删除的分支或标签"
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
@@ -5535,8 +5548,8 @@ msgid "Show differences as &unified diff"
 msgstr "以标准差异文件显示修改(&U)"
 
 #. Resource IDs: (1126)
-msgid "Show excluded folders as 'normal'"
-msgstr "将排除的目录显示为“正常”"
+msgid "Show excluded folders as normal"
+msgstr "对排除的目录正常显示"
 
 #. Resource IDs: (1264)
 msgid "Show ignored files"
@@ -5569,6 +5582,14 @@ msgid ""
 msgstr ""
 "显示或隐藏工具栏\n"
 "切换工具栏"
+
+#. Resource IDs: (1432)
+msgid "Show overlay for ignored items"
+msgstr "对忽略的项目覆盖显示"
+
+#. Resource IDs: (1462)
+msgid "Show overlay for unversioned items"
+msgstr "对未版本控制的项目覆盖显示"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -5682,14 +5703,6 @@ msgstr ""
 #. Resource IDs: (376)
 msgid "Split lines"
 msgstr "分割行"
-
-#. Resource IDs: (32817)
-msgid "Split long &branches"
-msgstr "分割长分支(&B)"
-
-#. Resource IDs: (2052)
-msgid "Split long, inactive branches into segments"
-msgstr "将长而不活动的分支分段"
 
 #. Resource IDs: (3604)
 msgid ""
@@ -6531,6 +6544,11 @@ msgstr "URL"
 msgid "URL history"
 msgstr "URL 历史记录"
 
+#. Resource IDs: (199)
+#, c-format
+msgid "URL not known (UUID: %s)"
+msgstr "URL 未知(UUID: %s)"
+
 #. Resource IDs: (12)
 msgid "URL of Subversion items"
 msgstr "Subversion 项目 URL"
@@ -7150,6 +7168,16 @@ msgstr "增加"
 msgid "added files"
 msgstr "增加文件"
 
+#. Resource IDs: (272)
+#, c-format
+msgid "alias (deleted): %s"
+msgstr "别名(已删除): %s"
+
+#. Resource IDs: (272)
+#, c-format
+msgid "alias: %s"
+msgstr "别名：%s"
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "未命名文件"
@@ -7420,6 +7448,10 @@ msgstr "或"
 #. Resource IDs: (65535)
 msgid "pair tokens: "
 msgstr "符号对："
+
+#. Resource IDs: (65535)
+msgid "path elements: "
+msgstr "路径元素："
 
 #. Resource IDs: (65535)
 msgid "paths: "
@@ -7753,6 +7785,10 @@ msgstr "周"
 msgid "word tokens: "
 msgstr "词组："
 
+#. Resource IDs: (65535)
+msgid "words [uncompressed]: "
+msgstr "单词数[非压缩]: "
+
 #. Resource IDs: (245)
 msgid "year"
 msgstr "年"
@@ -7760,15 +7796,3 @@ msgstr "年"
 #. Resource IDs: (18, 1002, 1011, 1012)
 msgid "yes"
 msgstr "是"
-
-#~ msgid "&Berkeley database (BDB)"
-#~ msgstr "Berkeley 数据库(BDB)(&B)"
-
-#~ msgid "&Native filesystem (FSFS)"
-#~ msgstr "本地文件系统(FSFS)(&N)"
-
-#~ msgid "Create Repository"
-#~ msgstr "在此创建版本库"
-
-#~ msgid "Select the type of repository you want to create:"
-#~ msgstr "选择你要创建的版本库类型："
