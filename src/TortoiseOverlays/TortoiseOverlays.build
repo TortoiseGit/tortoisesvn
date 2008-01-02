@@ -12,6 +12,11 @@
 			<arg value="version.build.in" />
 			<arg value="version.build" />
 		</exec>
+		<exec program="${SubWCRevFileName}">
+			<arg value="." />
+			<arg value="version.in" />
+			<arg value="version.h" />
+		</exec>
 		<nant target="setversioninfo">
 			<buildfiles>
 				<include name="version.build" />
