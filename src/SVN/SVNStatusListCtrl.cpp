@@ -576,7 +576,8 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 		{
 			// check if the unversioned folder is maybe versioned. This
 			// could happen with nested layouts
-			if (SVNStatus::GetAllStatus(workingTarget) != svn_wc_status_unversioned)
+			svn_wc_status_kind st = SVNStatus::GetAllStatus(workingTarget);
+			if ((st != svn_wc_status_unversioned)&&(st != svn_wc_status_none))
 			{
 				return true;	// ignore nested layouts
 			}
@@ -802,7 +803,8 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 		{
 			// check if the unversioned folder is maybe versioned. This
 			// could happen with nested layouts
-			if (SVNStatus::GetAllStatus(svnPath) != svn_wc_status_unversioned)
+			svn_wc_status_kind st = SVNStatus::GetAllStatus(svnPath);
+			if ((st != svn_wc_status_unversioned)&&(st != svn_wc_status_none))
 			{
 				FileEntry * entry = new FileEntry();
 				entry->path = svnPath;
