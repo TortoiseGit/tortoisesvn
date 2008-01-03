@@ -913,14 +913,6 @@
 		<Filter
 			Name="Utils"
 			>
-			<File
-				RelativePath="..\Utils\StringUtils.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\Utils\StringUtils.h"
-				>
-			</File>
 			<Filter
 				Name="Source Files"
 				>
@@ -1053,6 +1045,10 @@
 					>
 				</File>
 				<File
+					RelativePath="..\Utils\StringUtils.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\TempFiles.cpp"
 					>
 				</File>
@@ -1158,6 +1154,10 @@
 				</File>
 				<File
 					RelativePath="..\Utils\MiscUI\ScrollTool.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Utils\StringUtils.h"
 					>
 				</File>
 				<File
