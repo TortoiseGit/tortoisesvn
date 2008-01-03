@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: kari.grano@gmail.com\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-12-10 21:40+0200\n"
+"PO-Revision-Date: 2008-01-03 22:38+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -56,6 +56,8 @@ msgstr ""
 # merge             yhdistä
 # merge tracking    yhdistämisten jäljitys
 # obstructed        estynyt
+# offline           yhteydetön
+# online            yhteydellinen
 # overlay           päällys
 # patch             paikka
 # property          ominaisuus
@@ -183,6 +185,16 @@ msgstr "%ld / %ld"
 msgid "%ld paths"
 msgstr "%ld polkua"
 
+#. Resource IDs: (272)
+#, c-format
+msgid "%s"
+msgstr "%s"
+
+#. Resource IDs: (115)
+#, c-format
+msgid "%s (offline) - %s"
+msgstr "%s (yhteydetön) - %s"
+
 #. Resource IDs: (226)
 #, c-format
 msgid "%s - at revision: %d"
@@ -283,10 +295,6 @@ msgstr "&Sulkeminen:"
 #. Resource IDs: (1015)
 msgid "&Backup original file"
 msgstr "Tee alkuperäisestä tiedostosta &varmuuskopio"
-
-#. Resource IDs: (1128)
-msgid "&Berkeley database (BDB)"
-msgstr "&Berkeley-tietokanta (BDB)"
 
 #. Resource IDs: (114)
 msgid "&Blame changes"
@@ -539,7 +547,7 @@ msgstr "&Kuvan tiedot"
 
 #. Resource IDs: (9)
 msgid "&Import..."
-msgstr "&Tuo arkistoon..."
+msgstr "&Tuo..."
 
 #. Resource IDs: (32825)
 msgid "&Inline diff word-wise"
@@ -584,10 +592,6 @@ msgstr "&Yhdistä..."
 #. Resource IDs: (1012)
 msgid "&Merging"
 msgstr "&Yhdistäminen"
-
-#. Resource IDs: (1129)
-msgid "&Native filesystem (FSFS)"
-msgstr "&Tiedostojärjestelmä (FSFS)"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -847,6 +851,11 @@ msgstr "&Työkopiosta"
 msgid "(binary value)"
 msgstr "(binääriarvo)"
 
+#. Resource IDs: (272)
+#, c-format
+msgid "(deleted) %s"
+msgstr "(poistettu) %s"
+
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
 msgstr "(useita kohteita valittu)"
@@ -1083,6 +1092,10 @@ msgstr ""
 msgid "Adding"
 msgstr "Lisäämässä"
 
+#. Resource IDs: (582)
+msgid "Adds a new property"
+msgstr "Lisää uuden ominaisuuden"
+
 #. Resource IDs: (9)
 msgid "Adds file(s) to Subversion control"
 msgstr "Lisää tiedosto(t/n) versionhallintaan"
@@ -1215,6 +1228,11 @@ msgstr "Sovella unified diff"
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
 msgstr "Oletko varma, että haluat merkitä tiedostoristiriidat ratkaistuiksi?"
+
+#. Resource IDs: (199)
+#, c-format
+msgid "Are you sure you want to remove the cache of the selected %d items?"
+msgstr "Oletko varma, että haluat poistaa välimuistin valituilta %d alkiolta?"
 
 #. Resource IDs: (79)
 #, c-format
@@ -2125,10 +2143,6 @@ msgstr "Luo muutoslista"
 msgid "Create Patch"
 msgstr "Luo paikkatiedosto"
 
-#. Resource IDs: (178)
-msgid "Create Repository"
-msgstr "Luo arkisto"
-
 #. Resource IDs: (1385)
 msgid "Create copy in the repository from:"
 msgstr "Luo arkistokopio:"
@@ -2467,6 +2481,10 @@ msgstr "Muokkaa lokiviestiä"
 msgid "Edit..."
 msgstr "Muokkaa..."
 
+#. Resource IDs: (581)
+msgid "Edits the selected property value"
+msgstr "Muokkaa valittua ominaisuutta"
+
 #. Resource IDs: (79)
 msgid "Either the name or IP of the proxy server"
 msgstr "Välityspalvelimen IP-osoite tai nimi"
@@ -2685,6 +2703,10 @@ msgstr "Viedään..."
 #. Resource IDs: (10)
 msgid "Exports a repository to a clean working copy without the svn administrative folders"
 msgstr "Vie arkiston tyhjään työkopioon ilman Subversion-tilakansioita"
+
+#. Resource IDs: (581)
+msgid "Exports a set of properties to a file"
+msgstr "Tallettaa joukon ominaisuuksia tiedostoon"
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -2999,10 +3021,6 @@ msgstr "Yleinen::Ikkunat 1"
 msgid "General::Dialogs 2"
 msgstr "Yleinen::Ikkunat 2"
 
-#. Resource IDs: (281)
-msgid "General::Log Caching"
-msgstr "Yleinen::Lokiviestien talletus"
-
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "Luodaan paikkatiedostoa..."
@@ -3139,6 +3157,10 @@ msgstr "Uusin versio (HEAD) on %s"
 msgid "Help"
 msgstr "Ohje"
 
+#. Resource IDs: (32820)
+msgid "Hide &deleted paths"
+msgstr "Piilota &poistetut polut"
+
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
 msgstr "Piilota komento sen suorituksen ajaksi"
@@ -3249,9 +3271,9 @@ msgstr "ID:32814:V C +L"
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
-#. Accelerator Entry for Menu ID:32821; ''
-msgid "ID:32821:V C +F"
-msgstr "ID:32821:V C +F"
+#. Accelerator Entry for Menu ID:32822; ''
+msgid "ID:32822:V C +F"
+msgstr "ID:32822:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
@@ -3330,8 +3352,8 @@ msgid ""
 "If checked then a new folder is created in the repository.\n"
 "If not checked then the import goes directly to the specified URL."
 msgstr ""
-"Mikäli valittu, uusi kansio luodaan arkistoon.\n"
-"Mikäli ei valittu, arkistoon tuonti käyttää suoraan määritettyä paikanninta."
+"Mikäli valittu, arkistoon luodaan uusi kansio.\n"
+"Muussa tapauksessa arkistoon tuonti käyttää määritettyä paikanninta."
 
 #. Resource IDs: (79)
 msgid ""
@@ -3368,16 +3390,16 @@ msgid ""
 "If enabled, the repository is contacted when the dialog starts up.\n"
 "You don't have to click on \"Check Repository\" anymore."
 msgstr ""
-"Mikäli sallittu, ottaa yhteyden arkistoon, kun ikkuna avataan.\n"
-"Sinun ei enää tarvitse suorittaa toimintoa \"Tarkista arkisto\" erikseen."
+"Mikäli sallittu, arkistoon otetaan yhteys ikkunaa avattaessa.\n"
+"Sinun ei siis enää tarvitse suorittaa toimintoa \"Tarkista arkisto\" erikseen."
 
 #. Resource IDs: (197)
 msgid ""
 "If enabled, working copy folders which are excluded from\n"
 "showing overlays still show the overlay for status 'normal'"
 msgstr ""
-"Mikäli sallittu, kuvakepäällys tilalle 'normaali' näytetään, vaikka\n"
-"kansio olisi lueteltu pois jätettävien polkujen listassa"
+"Mikäli sallittu, kuvakepäällys 'normaali' näytetään myös\n"
+"pois jätettäville työkopiokansioille"
 
 #. Resource IDs: (195)
 msgid ""
@@ -3465,7 +3487,7 @@ msgstr "Välittömät lapset (myös kansiot)"
 
 #. Resource IDs: (139)
 msgid "Import"
-msgstr "Tuo arkistoon"
+msgstr "Tuo"
 
 #. Resource IDs: (127)
 #, c-format
@@ -3484,6 +3506,10 @@ msgstr "&Tuontiviesti"
 #. Resource IDs: (77)
 msgid "Import - TortoiseSVN"
 msgstr "Tuo - TortoiseSVN"
+
+#. Resource IDs: (581)
+msgid "Import a previously saved set of properties from a file"
+msgstr "Lataa joukon aiemmin talletettuja ominaisuuksia tiedostosta"
 
 #. Resource IDs: (127)
 #, c-format
@@ -3829,6 +3855,10 @@ msgstr "Loki"
 #. Resource IDs: (282)
 msgid "Log Cache Statistics"
 msgstr "Lokiviestien välimuistin tilastoja"
+
+#. Resource IDs: (281)
+msgid "Log Caching"
+msgstr "Lokiviestien talletus"
 
 #. Resource IDs: (211)
 msgid "Log History"
@@ -4531,11 +4561,6 @@ msgstr "Estä useimmat tapaukset, joissa kaaret leikkaavat versiosolmuja"
 msgid "Preview patched file"
 msgstr "Esikatsele paikattu tiedosto"
 
-#. Resource IDs: (199)
-#, c-format
-msgid "Probably deleted repository (%s)"
-msgstr "Luultavasti poistettu arkisto (%s)"
-
 #. Resource IDs: (132)
 #, c-format
 msgid "Processing revision %d of %d..."
@@ -4556,6 +4581,10 @@ msgstr "Edistyminen"
 #. Resource IDs: (17, 177, 226)
 msgid "Properties"
 msgstr "Ominaisuudet"
+
+#. Resource IDs: (157)
+msgid "Properties (*.svnprops)|*.svnprops|All Files (*.*)|*.*||"
+msgstr "Ominaisuudet (*.svnprops)|*.svnprops|Kaikki tiedostot (*.*)|*.*||"
 
 #. Resource IDs: (1287)
 msgid "Properties for"
@@ -4805,6 +4834,10 @@ msgstr "Poista %ld tiedostoa"
 msgid "Remove %s"
 msgstr "Poista %s"
 
+#. Resource IDs: (2052)
+msgid "Remove deleted branches and tags"
+msgstr "Piilota poistetut haarat ja merkinnät"
+
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
 msgstr "Poista &ohitettujen listasta"
@@ -4847,6 +4880,10 @@ msgstr "Poistaa kaikki versioimattomat ja ohitetut tiedostot"
 #. Resource IDs: (15)
 msgid "Removes the file or filemask from the list of ignored items"
 msgstr "Poistaa tiedoston tai tiedostomaskin ohitettujen tiedostojen listasta"
+
+#. Resource IDs: (581)
+msgid "Removes the selected properties"
+msgstr "Poistaa valitut ominaisuudet"
 
 #. Resource IDs: (151)
 msgid "Rename"
@@ -5257,6 +5294,10 @@ msgstr "Tallenna leikepöydälle"
 msgid "Saved Data"
 msgstr "Tallennetut tiedot"
 
+#. Resource IDs: (581)
+msgid "Saves the selected property value to a file"
+msgstr "Tallettaa valitun ominaisuuden tiedostoon"
+
 #. Resource IDs: (103)
 #, c-format
 msgid "Saving file %s"
@@ -5407,10 +5448,6 @@ msgstr "Valitse yhdistettävät versiot"
 msgid "Select the type of merge"
 msgstr "Valitse yhdistämislaji"
 
-#. Resource IDs: (65535)
-msgid "Select the type of repository you want to create:"
-msgstr "Valitse luotavan arkiston tyyppi:"
-
 #. Resource IDs: (595)
 msgid "Select the urls for the tree merge"
 msgstr "Valitse paikantimet puuyhdistämiselle"
@@ -5540,8 +5577,8 @@ msgid "Show differences as &unified diff"
 msgstr "Näytä erot &unified diff-muodossa"
 
 #. Resource IDs: (1126)
-msgid "Show excluded folders as 'normal'"
-msgstr "Näytä pois jätetyt työkopiot tilassa 'normaali'"
+msgid "Show excluded folders as normal"
+msgstr "Näytä pois jätetyt työkopiopolut versioituina"
 
 #. Resource IDs: (1264)
 msgid "Show ignored files"
@@ -5572,6 +5609,14 @@ msgid ""
 msgstr ""
 "Näytä tai kätke työkalurivi\n"
 "Työkalurivin tilanvaihto"
+
+#. Resource IDs: (1432)
+msgid "Show overlay for ignored items"
+msgstr "Näytä kuvakepäällys ohitetuille alkioille"
+
+#. Resource IDs: (1462)
+msgid "Show overlay for unversioned items"
+msgstr "Näytä kuvakepäällys versioimattomille alkioille"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -5684,14 +5729,6 @@ msgstr ""
 #. Resource IDs: (376)
 msgid "Split lines"
 msgstr "Jaa rivit"
-
-#. Resource IDs: (32817)
-msgid "Split long &branches"
-msgstr "Jaa pitkät &haarat"
-
-#. Resource IDs: (2052)
-msgid "Split long, inactive branches into segments"
-msgstr "Jaa pitkät, passiiviset haarat osiin"
 
 #. Resource IDs: (3604)
 msgid ""
@@ -6538,6 +6575,11 @@ msgstr "Paikannin"
 msgid "URL history"
 msgstr "Paikanninhistoria"
 
+#. Resource IDs: (199)
+#, c-format
+msgid "URL not known (UUID: %s)"
+msgstr "Tuntematon paikannin (UUID: %s)"
+
 #. Resource IDs: (12)
 msgid "URL of Subversion items"
 msgstr "Subversion-alkioiden paikannin"
@@ -6650,6 +6692,10 @@ msgstr "Lukituksen poisto epäonnistui"
 #. Resource IDs: (263)
 msgid "Unlocked"
 msgstr "Lukitus poistettu"
+
+#. Resource IDs: (565)
+msgid "Unrecognized or invalid property file format!"
+msgstr "Tuntematon tai virheellinen ominaisuustiedoston muoto!"
 
 #. Resource IDs: (3841)
 msgid "Untitled"
@@ -7154,6 +7200,16 @@ msgstr "lisätty"
 msgid "added files"
 msgstr "Lisätyt tiedostot"
 
+#. Resource IDs: (272)
+#, c-format
+msgid "alias (deleted): %s"
+msgstr "toinen nimi (poistettu): %s"
+
+#. Resource IDs: (272)
+#, c-format
+msgid "alias: %s"
+msgstr "toinen nimi: %s"
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "nimetön tiedosto"
@@ -7423,6 +7479,10 @@ msgstr "tai"
 #. Resource IDs: (65535)
 msgid "pair tokens: "
 msgstr "alkiopareja:"
+
+#. Resource IDs: (65535)
+msgid "path elements: "
+msgstr "polkuosia:"
 
 #. Resource IDs: (65535)
 msgid "paths: "
@@ -7756,6 +7816,10 @@ msgstr "viikko"
 #. Resource IDs: (65535)
 msgid "word tokens: "
 msgstr "sana-alkioita:"
+
+#. Resource IDs: (65535)
+msgid "words [uncompressed]: "
+msgstr "sanoja [pakkaamaton]:"
 
 #. Resource IDs: (245)
 msgid "year"
