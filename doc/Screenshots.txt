@@ -155,7 +155,7 @@ MergeWizardTree.png
 	eg the LogCaching branch.
 	Enter the same revision number in both boxes.
 
-MergeWizardOption.png
+MergeWizardOptions.png
 	Last page of the wizard, with default options.
 
 MergeConflictCallback.png
@@ -229,6 +229,12 @@ SettingsHookEdit.png
 	Command line - some fictitious path + start-commit.bat
 	(the hook does not have to exist)
 
+SettingsLogCache.png
+	Just a screenshot, but if you want to hide your personal cached URLs,
+	go to %APPDATA%\TortoiseSVN\logcache and temporarily move any cache directory
+	to the level above. You will have to close and reopen the settings dialog.
+	The cache size gives you a clue which GUID corresponds to which URL.
+
 SettingsMain.png
 	Include an ignore pattern. If you don't have one, use "*.tmp *.~*"
 
@@ -242,6 +248,7 @@ SettingsProgs.png
 SettingsProgsAdv.png
 SettingsProxy.png
 SettingsSavedData.png
+SettingsLogStats.png
 	All other settings dialogs, just get a screenshot of the appropriate page.
 
 StatsByAuthor.png
