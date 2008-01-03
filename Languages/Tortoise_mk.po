@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-12-17 14:21+0100\n"
+"PO-Revision-Date: 2008-01-03 16:33+0100\n"
 "Last-Translator: Срѓан Стокиќ <srdjan.stokic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -149,6 +149,11 @@ msgstr "%ld од %ld"
 #, c-format
 msgid "%ld paths"
 msgstr "%ld патеки"
+
+#. Resource IDs: (272)
+#, c-format
+msgid "%s"
+msgstr "%s"
 
 #. Resource IDs: (115)
 #, c-format
@@ -811,6 +816,11 @@ msgstr "&Работна копија"
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
 msgstr "(бинарна вредност)"
+
+#. Resource IDs: (272)
+#, c-format
+msgid "(deleted) %s"
+msgstr "(избришано) %s"
 
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
@@ -2980,10 +2990,6 @@ msgstr "Општо::Дијалози 1"
 msgid "General::Dialogs 2"
 msgstr "Општо::Дијалози 2"
 
-#. Resource IDs: (281)
-msgid "General::Log Caching"
-msgstr "Општо::Кеширање на лог"
-
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "Генерирај датотека со закрпи..."
@@ -3119,6 +3125,10 @@ msgstr "Главна ревизија е %s"
 msgid "Help"
 msgstr "Помош"
 
+#. Resource IDs: (32820)
+msgid "Hide &deleted paths"
+msgstr "&Скриј ги избришаните патеки"
+
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
 msgstr "Скриј ја скриптата за време на извршување"
@@ -3229,8 +3239,8 @@ msgstr "ID:32814:V C +L"
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
-#. Accelerator Entry for Menu ID:32821; ''
-msgid "ID:32821:V C +F"
+#. Accelerator Entry for Menu ID:32822; ''
+msgid "ID:32822:V C +F"
 msgstr "ID:32771:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
@@ -3817,6 +3827,10 @@ msgstr "Дневник"
 #. Resource IDs: (282)
 msgid "Log Cache Statistics"
 msgstr "Статистики за кеширан лог"
+
+#. Resource IDs: (281)
+msgid "Log Caching"
+msgstr "Кеширање на лог"
 
 #. Resource IDs: (211)
 msgid "Log History"
@@ -4522,11 +4536,6 @@ msgstr "Ги оневозможува случаите каде што коне�
 msgid "Preview patched file"
 msgstr "Прегледај ја закрпената датотека"
 
-#. Resource IDs: (199)
-#, c-format
-msgid "Probably deleted repository (%s)"
-msgstr "Најверојатно избришан магацин (%s)"
-
 #. Resource IDs: (132)
 #, c-format
 msgid "Processing revision %d of %d..."
@@ -4797,6 +4806,10 @@ msgstr "Отстрани %ld ставки"
 #, c-format
 msgid "Remove %s"
 msgstr "Отстрани %s"
+
+#. Resource IDs: (2052)
+msgid "Remove deleted branches and tags"
+msgstr "Отстрани ги избришаните гранки и ознаки"
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
@@ -5539,8 +5552,8 @@ msgid "Show differences as &unified diff"
 msgstr "Прикажи разлики како &обединети разлики"
 
 #. Resource IDs: (1126)
-msgid "Show excluded folders as 'normal'"
-msgstr "Прикажи ги исклучените директориуми како ‘нормални‘"
+msgid "Show excluded folders as normal"
+msgstr "Прикажи ги исклучените директориуми како нормални"
 
 #. Resource IDs: (1264)
 msgid "Show ignored files"
@@ -5573,6 +5586,14 @@ msgid ""
 msgstr ""
 "Прикажи или скриј линија со алатки\n"
 "Префрлање на Toolbar"
+
+#. Resource IDs: (1432)
+msgid "Show overlay for ignored items"
+msgstr "Прикажи overlay за игнорирани ставки"
+
+#. Resource IDs: (1462)
+msgid "Show overlay for unversioned items"
+msgstr "Прикажи overlay за неверзионирани ставки"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -5686,14 +5707,6 @@ msgstr ""
 #. Resource IDs: (376)
 msgid "Split lines"
 msgstr "Поделени линии"
-
-#. Resource IDs: (32817)
-msgid "Split long &branches"
-msgstr "Подели долги &гранки"
-
-#. Resource IDs: (2052)
-msgid "Split long, inactive branches into segments"
-msgstr "Подели долги, неактивни гранки во сегменти"
 
 #. Resource IDs: (3604)
 msgid ""
@@ -6539,6 +6552,11 @@ msgstr "URL"
 msgid "URL history"
 msgstr "URL историја"
 
+#. Resource IDs: (199)
+#, c-format
+msgid "URL not known (UUID: %s)"
+msgstr "URL непознат (UUID: %s)"
+
 #. Resource IDs: (12)
 msgid "URL of Subversion items"
 msgstr "URL на Верзионирани ставки"
@@ -7161,6 +7179,16 @@ msgstr "додадено"
 msgid "added files"
 msgstr "додадени датотеки"
 
+#. Resource IDs: (272)
+#, c-format
+msgid "alias (deleted): %s"
+msgstr "alias (избришан): %s"
+
+#. Resource IDs: (272)
+#, c-format
+msgid "alias: %s"
+msgstr "alias: %s"
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "како датотека без име"
@@ -7432,6 +7460,10 @@ msgstr "или"
 #. Resource IDs: (65535)
 msgid "pair tokens: "
 msgstr "pair tokens: "
+
+#. Resource IDs: (65535)
+msgid "path elements: "
+msgstr "елементи на патеки:"
 
 #. Resource IDs: (65535)
 msgid "paths: "
@@ -7770,6 +7802,10 @@ msgstr "недела"
 #. Resource IDs: (65535)
 msgid "word tokens: "
 msgstr "word tokens: "
+
+#. Resource IDs: (65535)
+msgid "words [uncompressed]: "
+msgstr "зборови [некомпресирано]:"
 
 #. Resource IDs: (245)
 msgid "year"
