@@ -52,6 +52,7 @@ typedef struct LogEntryData
 	DWORD dwFileChanges;
 	LogChangedPathArray* pArChangedPaths;
 	BOOL bCopies;
+	BOOL bCopiedSelf;
 	DWORD actions;
 	BOOL haschildren;
 	DWORD childStackDepth;

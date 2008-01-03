@@ -187,6 +187,8 @@ public:
 private:
 	CString				m_sRelativeRoot;
 	CString				m_sRepositoryRoot;
+	CString				m_sSelfRelativeURL;
+	CString				m_sURL;
 	CListCtrl			m_LogList;
 	CListCtrl			m_ChangedFileListCtrl;
 	CFilterEdit			m_cFilter;

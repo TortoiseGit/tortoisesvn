@@ -875,6 +875,25 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 	// Add as many characters from the log message to the list control
 	PLOGENTRYDATA pLogItem = new LOGENTRYDATA;
 	pLogItem->bCopies = !!copies;
+	
+	// find out if this item was copied in the revision
+	BOOL copiedself = FALSE;
+	if (copies)
+	{
+		for (INT_PTR cpPathIndex = 0; cpPathIndex < cpaths->GetCount(); ++cpPathIndex)
+		{
+			LogChangedPath * cpath = cpaths->GetAt(cpPathIndex);
+			if (!cpath->sCopyFromPath.IsEmpty() && (cpath->sPath.Compare(m_sSelfRelativeURL) == 0))
+			{
+				// note: this only works if the log is fetched top-to-bottom
+				// but since we do that, it shouldn't be a problem
+				m_sSelfRelativeURL = cpath->sCopyFromPath;
+				copiedself = TRUE;
+				break;
+			}
+		}
+	}
+	pLogItem->bCopiedSelf = copiedself;
 	pLogItem->tmDate = ttime;
 	pLogItem->sAuthor = author;
 	pLogItem->sDate = date;
@@ -964,20 +983,21 @@ UINT CLogDlg::LogThread()
     BOOL succeeded = GetRootAndHead(m_path, rootpath, r);
 
     m_sRepositoryRoot = rootpath.GetSVNPathString();
-    CString sUrl = m_path.GetSVNPathString();
+    m_sURL = m_path.GetSVNPathString();
     // if the log dialog is started from a working copy, we need to turn that
     // local path into an url here
     if (succeeded)
     {
         if (!m_path.IsUrl())
         {
-	        sUrl = GetURLFromPath(m_path);
+	        m_sURL = GetURLFromPath(m_path);
 
 	        // The URL is escaped because SVN::logReceiver
 	        // returns the path in a native format
-	        sUrl = CPathUtils::PathUnescape(sUrl);
+	        m_sURL = CPathUtils::PathUnescape(m_sURL);
         }
-        m_sRelativeRoot = sUrl.Mid(CPathUtils::PathUnescape(m_sRepositoryRoot).GetLength());
+        m_sRelativeRoot = m_sURL.Mid(CPathUtils::PathUnescape(m_sRepositoryRoot).GetLength());
+		m_sSelfRelativeURL = m_sRelativeRoot;
     }
 
     if (succeeded && !m_mergePath.IsEmpty() && m_mergedRevs.empty())
@@ -1000,7 +1020,7 @@ UINT CLogDlg::LogThread()
 			    for (hi = apr_hash_first(localpool, mergeinfo); hi; hi = apr_hash_next(hi))
 			    {
 				    apr_hash_this(hi, &key, NULL, &val);
-				    if (sUrl.Compare(CUnicodeUtils::GetUnicode((char*)key)) == 0)
+				    if (m_sURL.Compare(CUnicodeUtils::GetUnicode((char*)key)) == 0)
 				    {
 					    apr_array_header_t * arr = (apr_array_header_t*)val;
 					    if (val)
@@ -1090,7 +1110,7 @@ UINT CLogDlg::LogThread()
 	DialogEnableWindow(IDC_REFRESH, TRUE);
 
 	LogCache::CRepositoryInfo& cachedProperties = logCachePool.GetRepositoryInfo();
-	SetDlgTitle(cachedProperties.IsOffline(sUrl, false));
+	SetDlgTitle(cachedProperties.IsOffline(m_sURL, false));
 
 	GetDlgItem(IDC_PROGRESS)->ShowWindow(FALSE);
 	m_bCancelled = true;
@@ -2155,6 +2175,8 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				PLOGENTRYDATA data = (PLOGENTRYDATA)m_arShownList.GetAt(pLVCD->nmcd.dwItemSpec);
 				if (data)
 				{
+					if (data->bCopiedSelf)
+						pLVCD->clrTextBk = GetSysColor(COLOR_MENU);
 					if (data->bCopies)
 						crText = m_Colors.GetColor(CColors::Modified);
 					if ((data->childStackDepth)||(m_mergedRevs.find(data->Rev) != m_mergedRevs.end()))
@@ -2209,7 +2231,12 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 						brush = ::CreateSolidBrush(::GetSysColor(COLOR_BTNFACE));
 				}
 				else
-					brush = ::CreateSolidBrush(::GetSysColor(COLOR_WINDOW));
+				{
+					if (pLogEntry->bCopiedSelf)
+						brush = ::CreateSolidBrush(::GetSysColor(COLOR_MENU));
+					else
+						brush = ::CreateSolidBrush(::GetSysColor(COLOR_WINDOW));
+				}
 				if (brush == NULL)
 					return;
 
@@ -2557,7 +2584,7 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 			size_t len = _tcslen(pItem->pszText);
 			TCHAR * pBuf = pItem->pszText + len;
 			DWORD nSpaces = m_maxChild-pLogEntry->childStackDepth;
-			while ((pItem->cchTextMax >= len)&&(nSpaces))
+			while ((pItem->cchTextMax >= (int)len)&&(nSpaces))
 			{
 				*pBuf = ' ';
 				pBuf++;
