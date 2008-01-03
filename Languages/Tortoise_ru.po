@@ -16,17 +16,18 @@
 # Stanislav Petrakov <stannic@gmail.com>
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 11615: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 11749: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2007-12-21 10:43+0300\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 1900-01-01 00:00+0000\n"
+"PO-Revision-Date: 2008-01-03 23:37+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -174,6 +175,11 @@ msgstr "%ld из %ld"
 #, c-format
 msgid "%ld paths"
 msgstr "%ld путей"
+
+#. Resource IDs: (272)
+#, c-format
+msgid "%s"
+msgstr "%s"
 
 #. Resource IDs: (115)
 #, c-format
@@ -845,6 +851,11 @@ msgstr "Рабочей &копии"
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
 msgstr "(двоичное значение)"
+
+#. Resource IDs: (272)
+#, c-format
+msgid "(deleted) %s"
+msgstr "(удалён) %s"
 
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
@@ -3034,10 +3045,6 @@ msgstr "Общее::Диалоги 1"
 msgid "General::Dialogs 2"
 msgstr "Общее::Диалоги 2"
 
-#. Resource IDs: (281)
-msgid "General::Log Caching"
-msgstr "Общее::Кэширование журнала"
-
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "Генерация файла заплаток..."
@@ -3175,6 +3182,10 @@ msgstr "Ведущая ревизия: %s"
 msgid "Help"
 msgstr "Справка"
 
+#. Resource IDs: (32820)
+msgid "Hide &deleted paths"
+msgstr "Скрыть у&далённые пути"
+
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
 msgstr "Скрыть скрипт во время работы"
@@ -3285,9 +3296,9 @@ msgstr "ID:32814:V C +L"
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
-#. Accelerator Entry for Menu ID:32821; ''
-msgid "ID:32821:V C +F"
-msgstr "ID:32821:V C +F"
+#. Accelerator Entry for Menu ID:32822; ''
+msgid "ID:32822:V C +F"
+msgstr "ID:32822:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
@@ -3880,6 +3891,10 @@ msgstr "Журнал"
 #. Resource IDs: (282)
 msgid "Log Cache Statistics"
 msgstr "Статистика кэша журнала"
+
+#. Resource IDs: (281)
+msgid "Log Caching"
+msgstr "Кэширование журнала"
 
 # Заголовок окна
 #. Resource IDs: (211)
@@ -4592,11 +4607,6 @@ msgstr "Существенно сокращает число случаев, к�
 msgid "Preview patched file"
 msgstr "Предпросмотр файла с заплаткой"
 
-#. Resource IDs: (199)
-#, c-format
-msgid "Probably deleted repository (%s)"
-msgstr "Хранилище с неизвестным URL (%s)"
-
 #. Resource IDs: (132)
 #, c-format
 msgid "Processing revision %d of %d..."
@@ -4868,6 +4878,10 @@ msgstr "Удаление %ld элементов"
 #, c-format
 msgid "Remove %s"
 msgstr "Удаление %s"
+
+#. Resource IDs: (2052)
+msgid "Remove deleted branches and tags"
+msgstr "Убрать удалённые ответвления и метки"
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
@@ -5618,8 +5632,8 @@ msgid "Show differences as &unified diff"
 msgstr "Показать различия как объединённые разли&чия"
 
 #. Resource IDs: (1126)
-msgid "Show excluded folders as 'normal'"
-msgstr "Показывать исключённые папки как 'нормальные'"
+msgid "Show excluded folders as normal"
+msgstr "Показывать исключённые папки как нормальные"
 
 #. Resource IDs: (1264)
 msgid "Show ignored files"
@@ -5652,6 +5666,14 @@ msgid ""
 msgstr ""
 "Показать или спрятать панель инструментов\n"
 "Переключить панель инструментов"
+
+#. Resource IDs: (1432)
+msgid "Show overlay for ignored items"
+msgstr "Пометки на игнорируемых элементах"
+
+#. Resource IDs: (1462)
+msgid "Show overlay for unversioned items"
+msgstr "Пометки на неверсированных элементах"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -5766,14 +5788,6 @@ msgstr ""
 #. Resource IDs: (376)
 msgid "Split lines"
 msgstr "Разбить на строки"
-
-#. Resource IDs: (32817)
-msgid "Split long &branches"
-msgstr "Разделять большие от&ветвления"
-
-#. Resource IDs: (2052)
-msgid "Split long, inactive branches into segments"
-msgstr "Разделять большие и неактивные ответвления на части"
 
 #. Resource IDs: (3604)
 msgid ""
@@ -6632,6 +6646,11 @@ msgstr "URL"
 msgid "URL history"
 msgstr "Предыдущие URL"
 
+#. Resource IDs: (199)
+#, c-format
+msgid "URL not known (UUID: %s)"
+msgstr "Неизвестный URL (UUID: %s)"
+
 #. Resource IDs: (12)
 msgid "URL of Subversion items"
 msgstr "URL объектов Subversion"
@@ -7268,6 +7287,16 @@ msgstr "добавлен"
 msgid "added files"
 msgstr "добавленные файлы"
 
+#. Resource IDs: (272)
+#, c-format
+msgid "alias (deleted): %s"
+msgstr "псевдоним (удалён): %s"
+
+#. Resource IDs: (272)
+#, c-format
+msgid "alias: %s"
+msgstr "псевдоним: %s"
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "непоименованный файл"
@@ -7542,6 +7571,10 @@ msgstr "или"
 #. Resource IDs: (65535)
 msgid "pair tokens: "
 msgstr "Токенов пар:"
+
+#. Resource IDs: (65535)
+msgid "path elements: "
+msgstr "Элементов путей:"
 
 #. Resource IDs: (65535)
 msgid "paths: "
@@ -7883,6 +7916,10 @@ msgstr "неделя"
 msgid "word tokens: "
 msgstr "Токенов слов:"
 
+#. Resource IDs: (65535)
+msgid "words [uncompressed]: "
+msgstr "слов [несжатых]:"
+
 # статистика: годы
 #. Resource IDs: (245)
 msgid "year"
@@ -7891,4 +7928,11 @@ msgstr "год"
 #. Resource IDs: (18, 1002, 1011, 1012)
 msgid "yes"
 msgstr "да"
+
+#~ msgid "Probably deleted repository (%s)"
+#~ msgstr "Хранилище с неизвестным URL (%s)"
+#~ msgid "Split long &branches"
+#~ msgstr "Разделять большие от&ветвления"
+#~ msgid "Split long, inactive branches into segments"
+#~ msgstr "Разделять большие и неактивные ответвления на части"
 
