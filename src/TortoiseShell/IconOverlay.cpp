@@ -97,7 +97,7 @@ STDMETHODIMP CShellExt::GetPriority(int *pPriority)
 STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 {
 	PreserveChdir preserveChdir;
-	svn_wc_status_kind status = svn_wc_status_unversioned;
+	svn_wc_status_kind status = svn_wc_status_none;
 	bool readonlyoverlay = false;
 	bool lockedoverlay = false;
 	if (pwszPath == NULL)
