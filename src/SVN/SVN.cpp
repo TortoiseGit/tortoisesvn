@@ -1699,6 +1699,8 @@ svn_error_t* svn_cl__get_log_message(const char **log_msg,
 CString SVN::GetURLFromPath(const CTSVNPath& path)
 {
 	const char * URL;
+	if (!path.Exists())
+		return _T("");
 	svn_error_clear(Err);
 	SVNPool subpool(pool);
 	Err = get_url_from_target(&URL, path.GetSVNApiPath(subpool));
@@ -1712,6 +1714,8 @@ CString SVN::GetURLFromPath(const CTSVNPath& path)
 CString SVN::GetUIURLFromPath(const CTSVNPath& path)
 {
 	const char * URL;
+	if (!path.Exists())
+		return _T("");
 	svn_error_clear(Err);
 	SVNPool subpool(pool);
 	Err = get_url_from_target(&URL, path.GetSVNApiPath(subpool));
