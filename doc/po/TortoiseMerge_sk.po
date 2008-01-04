@@ -21,8 +21,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-07-19 23:09GMT Daylight Time\n"
-"PO-Revision-Date: 2007-11-04 23:22+0100\n"
+"POT-Creation-Date: 2007-11-08 10:58 +0000\n"
+"PO-Revision-Date: 2007-12-30 13:20+0100\n"
 "Last-Translator: Oto BREZINA <translate@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -325,7 +325,7 @@ msgstr "Môžete vykonavať jednoduché riadkové zmeny súboru v pravom panely:
 #. (para)
 #: ../source/TortoiseMerge_en.xml:330
 msgid "You can also edit the file in the right pane just as you would in a text editor. Such lines are marked using a pencil icon. Please note that if you want to make any of the line/block-based changes described above, it is better to do those first since once you start editing the file yourself it becomes impossible for TortoiseMerge to keep track of the relationship to the original files."
-msgstr ""
+msgstr "Súbor v pravom panely môžete upravovať ako v textovom editore. Takéto riadky sú označené obrázkom ceruzky. Poznamenávame, ze ak chcete robyť riadkové/blokové zmeny, ako je popísané vyššie, je lepšie vykonať tieto zmeny najprv, pretože keď začnete upravovať súbor už TortoiseMerge nebude schopný sledovať zmeny na určenie vzťahu k pôvodným súborom."
 
 #. (title)
 #: ../source/TortoiseMerge_en.xml:340
@@ -425,7 +425,7 @@ msgstr "Také zmeny sú označené bielym krúžkom na ľavej strane panelu. Ke�
 #. (para)
 #: ../source/TortoiseMerge_en.xml:449
 msgid "Hand editing of the file in the right pane is possible in two-pane view. Such changes are marked with a pencil symbol."
-msgstr ""
+msgstr "Ručné úpravy sú možne v pravom panely pri dvojpanelovom zobrazení. Takéto zmeny sú označené znakom ceruzky."
 
 # Viewing / Merging
 #. (para)
@@ -603,42 +603,42 @@ msgstr "Ikonka stavu riadku"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:686
 msgid "Changed lines are marked with an icon to indicate what type of change has occurred."
-msgstr ""
+msgstr "Zmenené riadky sú označené ikonkou informujúcou o druhu zmeny, ktorá sa v danom riadku nachádza."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:690
-msgid "<graphic fileref=\"../images/TMerge_lineadded.png\"/> A line has been added."
-msgstr "<graphic fileref=\"../images/TMerge_lineadded.png\"/> Pridaný riadok."
+msgid "<graphic fileref=\"images/TMerge_lineadded.png\"/> A line has been added."
+msgstr "<graphic fileref=\"images/TMerge_lineadded.png\"/> Pridaný riadok."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:694
-msgid "<graphic fileref=\"../images/TMerge_lineremoved.png\"/> A line has been removed."
-msgstr "<graphic fileref=\"../images/TMerge_lineremoved.png\"/> Odstranený riadok."
+msgid "<graphic fileref=\"images/TMerge_lineremoved.png\"/> A line has been removed."
+msgstr "<graphic fileref=\"images/TMerge_lineremoved.png\"/> Odstranený riadok."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:698
-msgid "<graphic fileref=\"../images/TMerge_lineequal.png\"/> A change has been undone by reverting to the original content of the line."
-msgstr "<graphic fileref=\"../images/TMerge_lineequal.png\"/> Zmena bola odstranená vratením riadka do pôvodného stavu."
+msgid "<graphic fileref=\"images/TMerge_lineequal.png\"/> A change has been undone by reverting to the original content of the line."
+msgstr "<graphic fileref=\"images/TMerge_lineequal.png\"/> Zmena bola odstranená vratením riadka do pôvodného stavu."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:702
-msgid "<graphic fileref=\"../images/TMerge_linewhitespace.png\"/> This line contains only whitespace changes. Where several consecutive lines are marked, the paragraph may have been re-wrapped, causing words to shuffle onto adjacent lines."
-msgstr "<graphic fileref=\"../images/TMerge_linewhitespace.png\"/> Tento riadok obsahuje iba zmeny bielych znakov. Keď je takto označných viacero nasledujúcich riadkov blok mohol byť preusporiadaný a slová poprehadzované poriadkoch."
+msgid "<graphic fileref=\"images/TMerge_linewhitespace.png\"/> This line contains only whitespace changes. Where several consecutive lines are marked, the paragraph may have been re-wrapped, causing words to shuffle onto adjacent lines."
+msgstr "<graphic fileref=\"images/TMerge_linewhitespace.png\"/> Tento riadok obsahuje iba zmeny bielych znakov. Keď je takto označných viacero nasledujúcich riadkov blok mohol byť preusporiadaný a slová poprehadzované poriadkoch."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:708
-msgid "<graphic fileref=\"../images/TMerge_lineedited.png\"/> A line has been edited by hand, using TortoiseMerge as a text editor."
-msgstr "<graphic fileref=\"../images/TMerge_lineedited.png\"/> Riadok bol manuálne zmenený použitím TortoiseMerga ako textového editora."
+msgid "<graphic fileref=\"images/TMerge_lineedited.png\"/> A line has been edited by hand, using TortoiseMerge as a text editor."
+msgstr "<graphic fileref=\"images/TMerge_lineedited.png\"/> Riadok bol manuálne zmenený použitím TortoiseMerga ako textového editora."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:712
-msgid "<graphic fileref=\"../images/TMerge_lineconflicted.png\"/> This line is in conflict."
-msgstr "<graphic fileref=\"../images/TMerge_lineconflicted.png\"/> Riadok je v konflikte."
+msgid "<graphic fileref=\"images/TMerge_lineconflicted.png\"/> This line is in conflict."
+msgstr "<graphic fileref=\"images/TMerge_lineconflicted.png\"/> Riadok je v konflikte."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:716
-msgid "<graphic fileref=\"../images/TMerge_lineconflictedignored.png\"/> This line is conflicted, but the effect is hidden by whitespace or line-ending settings."
-msgstr "<graphic fileref=\"../images/TMerge_lineconflictedignored.png\"/> Tento riadok je v konflikte, ale je to skryté pretože ide len o zmny v bielych znakoch, alebo koncoch riadkov."
+msgid "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> This line is conflicted, but the effect is hidden by whitespace or line-ending settings."
+msgstr "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> Tento riadok je v konflikte, ale je to skryté pretože ide len o zmny v bielych znakoch, alebo koncoch riadkov."
 
 #. (title)
 #: ../source/TortoiseMerge_en.xml:723
@@ -666,7 +666,7 @@ msgstr "Niekedy prosto chcete oba bloky textov, kontextové menu vám túto mož
 #. (para)
 #: ../source/TortoiseMerge_en.xml:753
 msgid "You can also edit the output file just as you would in a text editor. Such lines are marked using a pencil icon. Please note that if you want to make any of the line/block-based changes described above, it is better to do those first since once you start editing the file yourself it becomes impossible for TortoiseMerge to keep track of the relationship to the original files."
-msgstr ""
+msgstr "Výstupný súbor môžete upravovať ako v textovom editore. Takéto riadky sú označené obrázkom ceruzky. Poznamenávame, ze ak chcete robyť riadkové/blokové zmeny, ako je popísané vyššie, je lepšie vykonať tieto zmeny najprv, pretože keď začnete upravovať súbor už TortoiseMerge nebude schopný sledovať zmeny na určenie vzťahu k pôvodným súborom."
 
 # Merging / Editing Conflicts
 #. (para)
