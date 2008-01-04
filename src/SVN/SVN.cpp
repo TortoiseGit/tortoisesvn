@@ -1906,6 +1906,7 @@ BOOL SVN::Relocate(const CTSVNPath& path, const CTSVNPath& from, const CTSVNPath
 BOOL SVN::IsRepository(const CString& strUrl)
 {
 	svn_error_clear(Err);
+	Err = NULL;
 	// The URL we get here is per definition properly encoded and escaped.
 	svn_repos_t* pRepos;
 	CString url = strUrl;
@@ -1925,7 +1926,7 @@ BOOL SVN::IsRepository(const CString& strUrl)
 		}
 	}
 
-	return Err == NULL;
+	return FALSE;
 }
 
 BOOL SVN::IsBDBRepository(CString url)
