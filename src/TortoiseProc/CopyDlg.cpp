@@ -263,18 +263,9 @@ void CCopyDlg::OnOK()
 
 void CCopyDlg::OnBnClickedBrowse()
 {
-	CString sRevText;
-	GetDlgItem(IDC_COPYREVTEXT)->GetWindowText(sRevText);
-	SVNRev rev;
-	if (GetCheckedRadioButton(IDC_COPYHEAD, IDC_COPYREV) == IDC_COPYHEAD)
-		rev = SVNRev(SVNRev::REV_HEAD);
-	else if (GetCheckedRadioButton(IDC_COPYHEAD, IDC_COPYREV) == IDC_COPYWC)
-		rev = SVNRev(SVNRev::REV_HEAD);
-	else
-		rev = SVNRev(sRevText);
+	SVNRev rev = SVNRev::REV_HEAD;
 
 	CAppUtils::BrowseRepository(m_URLCombo, this, rev);
-	SetRevision(rev);
 }
 
 void CCopyDlg::OnBnClickedHelp()
