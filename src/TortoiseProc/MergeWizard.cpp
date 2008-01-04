@@ -28,6 +28,7 @@ IMPLEMENT_DYNAMIC(CMergeWizard, CPropertySheet)
 CMergeWizard::CMergeWizard(UINT nIDCaption, CWnd* pParentWnd, UINT iSelectPage)
 	:CPropertySheet(nIDCaption, pParentWnd, iSelectPage)
 	, bReverseMerge(FALSE)
+	, bRevRangeMerge(TRUE)
 	, m_bIgnoreAncestry(FALSE)
 	, m_bIgnoreEOL(FALSE)
 	, m_depth(svn_depth_unknown)
@@ -84,7 +85,7 @@ bool CMergeWizard::AutoSetMode()
 	if ((nMergeWizardMode != MODE_TREE) && (nMergeWizardMode != MODE_REVRANGE))
 		return false;
 	bRevRangeMerge = nMergeWizardMode == MODE_REVRANGE;
-	PostMessage(PSM_SETCURSEL, nMergeWizardMode);
+	SendMessage(PSM_SETCURSEL, nMergeWizardMode);
 	return true;
 }
 
