@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-12-17 15:38+0100\n"
+"PO-Revision-Date: 2008-01-04 17:01+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -185,6 +185,11 @@ msgstr "%ld av %ld"
 #, c-format
 msgid "%ld paths"
 msgstr "%ld stier"
+
+#. Resource IDs: (272)
+#, c-format
+msgid "%s"
+msgstr "%s"
 
 #. Resource IDs: (115)
 #, c-format
@@ -845,6 +850,11 @@ msgstr "&Arbeidskopi"
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
 msgstr "(binær verdi)"
+
+#. Resource IDs: (272)
+#, c-format
+msgid "(deleted) %s"
+msgstr "(slettet) %s"
 
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
@@ -3011,10 +3021,6 @@ msgstr "Generelt::Dialoger 1"
 msgid "General::Dialogs 2"
 msgstr "Generelt::Dialoger 2"
 
-#. Resource IDs: (281)
-msgid "General::Log Caching"
-msgstr "Generelt::Loggmellomlagring"
-
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "Genererer korreksjonsfil..."
@@ -3150,6 +3156,10 @@ msgstr "Hoderevisjon er %s"
 msgid "Help"
 msgstr "Hjelp"
 
+#. Resource IDs: (32820)
+msgid "Hide &deleted paths"
+msgstr "Skjul &slettede stier"
+
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
 msgstr "Skul skriptet mens det kjører"
@@ -3247,9 +3257,9 @@ msgstr "ID:32814:V C +L"
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
-#. Accelerator Entry for Menu ID:32821; ''
-msgid "ID:32821:V C +F"
-msgstr "ID:32821:V C +F"
+#. Accelerator Entry for Menu ID:32822; ''
+msgid "ID:32822:V C +F"
+msgstr "ID:32822:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
@@ -3834,6 +3844,10 @@ msgstr "Logg:"
 #. Resource IDs: (282)
 msgid "Log Cache Statistics"
 msgstr "Statistikk Loggmellomlager"
+
+#. Resource IDs: (281)
+msgid "Log Caching"
+msgstr "Loggmellomlagring"
 
 #. Resource IDs: (211)
 msgid "Log History"
@@ -4538,11 +4552,6 @@ msgstr "Avverger de fleste tilfeller hvor forbindelseslinjer krysser revisjonsno
 msgid "Preview patched file"
 msgstr "Forhåndsvis oppdatert fil"
 
-#. Resource IDs: (199)
-#, c-format
-msgid "Probably deleted repository (%s)"
-msgstr "Antagelig slettet depot (%s)"
-
 #. Resource IDs: (132)
 #, c-format
 msgid "Processing revision %d of %d..."
@@ -4813,6 +4822,10 @@ msgstr "Fjern %ld elementer"
 #, c-format
 msgid "Remove %s"
 msgstr "Fjern %s"
+
+#. Resource IDs: (2052)
+msgid "Remove deleted branches and tags"
+msgstr "Fjern slettede grener og merker"
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
@@ -5553,8 +5566,8 @@ msgid "Show differences as &unified diff"
 msgstr "Vis forskjeller som &enhetlige differ"
 
 #. Resource IDs: (1126)
-msgid "Show excluded folders as 'normal'"
-msgstr "Vis ekskluderte mapper som 'normal'"
+msgid "Show excluded folders as normal"
+msgstr "Vis ekskluderte mapper som normalt"
 
 #. Resource IDs: (1264)
 msgid "Show ignored files"
@@ -5587,6 +5600,14 @@ msgid ""
 msgstr ""
 "Vis/skjul verktøylinje\n"
 "Bytt verktøylinje-visning"
+
+#. Resource IDs: (1432)
+msgid "Show overlay for ignored items"
+msgstr "Vis ikonlag for ignorerte filer"
+
+#. Resource IDs: (1462)
+msgid "Show overlay for unversioned items"
+msgstr "Vis ikonlag for ikke-versjonerte filer"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -5700,14 +5721,6 @@ msgstr ""
 #. Resource IDs: (376)
 msgid "Split lines"
 msgstr "Del linjer"
-
-#. Resource IDs: (32817)
-msgid "Split long &branches"
-msgstr "Del lange &grener"
-
-#. Resource IDs: (2052)
-msgid "Split long, inactive branches into segments"
-msgstr "Del lange, inaktive grener i segmenter"
 
 #. Resource IDs: (3604)
 msgid ""
@@ -6553,6 +6566,11 @@ msgstr "URL"
 msgid "URL history"
 msgstr "URL-historie"
 
+#. Resource IDs: (199)
+#, c-format
+msgid "URL not known (UUID: %s)"
+msgstr "Ukjent URL (UUID: %s)"
+
 #. Resource IDs: (12)
 msgid "URL of Subversion items"
 msgstr "URL med Subversion-elemeter"
@@ -7176,6 +7194,16 @@ msgstr "lagt til"
 msgid "added files"
 msgstr "lagt til"
 
+#. Resource IDs: (272)
+#, c-format
+msgid "alias (deleted): %s"
+msgstr "alias (slettet): %s"
+
+#. Resource IDs: (272)
+#, c-format
+msgid "alias: %s"
+msgstr "alias: %s"
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "fil uten navn"
@@ -7447,6 +7475,10 @@ msgstr "eller"
 #. Resource IDs: (65535)
 msgid "pair tokens: "
 msgstr "par-symboler: "
+
+#. Resource IDs: (65535)
+msgid "path elements: "
+msgstr "sti-elementer: "
 
 #. Resource IDs: (65535)
 msgid "paths: "
@@ -7781,6 +7813,10 @@ msgstr "uke"
 #. Resource IDs: (65535)
 msgid "word tokens: "
 msgstr "ord-symboler: "
+
+#. Resource IDs: (65535)
+msgid "words [uncompressed]: "
+msgstr "ord [ukomprimert]: "
 
 #. Resource IDs: (245)
 msgid "year"
