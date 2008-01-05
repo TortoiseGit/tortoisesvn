@@ -1,3 +1,7 @@
+Version 1.4.7
+- BUG: Exporting left admin dirs intact.
+- BUG: Checks for include paths of the cache didn't work correctly.
+
 Version 1.4.6
 - BUG: When upgrading, the MFC/CRT libs weren't updated if
        the user didn't have Admin rights without an error. (Stefan)
