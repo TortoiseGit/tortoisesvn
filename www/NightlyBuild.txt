@@ -14,8 +14,23 @@ Be sure to select the correct one for your operating system.
 All interaction with the repository is handled by subversion itself,
 and usually only official subversion releases, or release candidates are used.
 This greatly reduces your risk exposure when using this Beta code. However,
-we do sometimes build from Subversion trunk just before a major release,
-so check on the mailing list if this is a concern.
+when the forthcoming Subversion release contains many new features, we need
+time to develop new user interfaces, so we build from Subversion trunk, which
+is less stable. Check on the mailing list if this is a concern.
+
+Note also that when a newer version of Subversion is used it may update the
+working copy format. If you use a nightly build, your WC may be upgraded to
+the new format automatically, making it unreadable by other Subversion clients.
+Check on the mailing list if in doubt.
+
+******** WARNING WARNING WARNING WARNING WARNING WARNING WARNING ********
+*
+* TortoiseSVN 1.4.99.x is the pre-release version of 1.5.0
+* It is built against Subversion trunk.
+* It will upgrade your working copies, making them unreadable by
+* 1.4.x subversion clients including the official 1.4.x TortoiseSVN
+*
+******** WARNING WARNING WARNING WARNING WARNING WARNING WARNING ********
 
 We also have a stable branch, eg. 1.4.x which contains the latest release
 plus any recent bugfixes. This build is not updated very often,
