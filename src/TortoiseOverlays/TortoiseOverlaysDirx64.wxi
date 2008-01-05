@@ -2,39 +2,39 @@
 <Include Id="TsvnInclude">
 	<Component Id='OverlayRegistry' Guid='87654321-4321-4321-4321-110987654321' Win64="$(var.Win64YesNo)">
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidNormal)}" Action="createKeyAndRemoveKeyOnUninstall" />
-		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidNormal)}\InProcServer32" Value="[CommonFilesFolder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
+		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidNormal)}\InProcServer32" Value="[CommonFiles64Folder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidNormal)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidNormal)}" Value="TortoiseSVN" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidModified)}" Action="createKeyAndRemoveKeyOnUninstall" />
-		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidModified)}\InProcServer32" Value="[CommonFilesFolder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
+		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidModified)}\InProcServer32" Value="[CommonFiles64Folder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidModified)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidModified)}" Value="TortoiseSVN" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidConflict)}" Action="createKeyAndRemoveKeyOnUninstall" />
-		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidConflict)}\InProcServer32" Value="[CommonFilesFolder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
+		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidConflict)}\InProcServer32" Value="[CommonFiles64Folder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidConflict)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidConflict)}" Value="TortoiseSVN" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidLocked)}" Action="createKeyAndRemoveKeyOnUninstall" />
-		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidLocked)}\InProcServer32" Value="[CommonFilesFolder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
+		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidLocked)}\InProcServer32" Value="[CommonFiles64Folder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidLocked)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidLocked)}" Value="TortoiseSVN" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidReadOnly)}" Action="createKeyAndRemoveKeyOnUninstall" />
-		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidReadOnly)}\InProcServer32" Value="[CommonFilesFolder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
+		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidReadOnly)}\InProcServer32" Value="[CommonFiles64Folder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidReadOnly)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidReadOnly)}" Value="TortoiseSVN" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidDeleted)}" Action="createKeyAndRemoveKeyOnUninstall" />
-		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidDeleted)}\InProcServer32" Value="[CommonFilesFolder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
+		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidDeleted)}\InProcServer32" Value="[CommonFiles64Folder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidDeleted)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidDeleted)}" Value="TortoiseSVN" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidAdded)}" Action="createKeyAndRemoveKeyOnUninstall" />
-		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidAdded)}\InProcServer32" Value="[CommonFilesFolder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
+		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidAdded)}\InProcServer32" Value="[CommonFiles64Folder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidAdded)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidAdded)}" Value="TortoiseSVN" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidIgnored)}" Action="createKeyAndRemoveKeyOnUninstall" />
-		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidIgnored)}\InProcServer32" Value="[CommonFilesFolder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
+		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidIgnored)}\InProcServer32" Value="[CommonFiles64Folder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidIgnored)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidIgnored)}" Value="TortoiseSVN" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidUnversioned)}" Action="createKeyAndRemoveKeyOnUninstall" />
-		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidUnversioned)}\InProcServer32" Value="[CommonFilesFolder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
+		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidUnversioned)}\InProcServer32" Value="[CommonFiles64Folder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidUnversioned)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidUnversioned)}" Value="TortoiseSVN" Type="string" />
 
@@ -60,15 +60,15 @@
 
 	<Component Id="C__machineregistry" Guid="$(var.GuidMachineRegistry)" Win64="$(var.Win64YesNo)">
 		<Registry Root="HKLM" Key="Software\TortoiseOverlays" Action="createKeyAndRemoveKeyOnUninstall" />
-		<Registry Root="HKLM" Key="Software\TortoiseOverlays" Name="NormalIcon" Value="[CommonFilesFolder]TortoiseOverlays\icons\XPStyle\NormalIcon.ico" Type="string" KeyPath="yes" />
-		<Registry Root="HKLM" Key="Software\TortoiseOverlays" Name="ModifiedIcon" Value="[CommonFilesFolder]TortoiseOverlays\icons\XPStyle\ModifiedIcon.ico" Type="string" />
-		<Registry Root="HKLM" Key="Software\TortoiseOverlays" Name="ConflictIcon" Value="[CommonFilesFolder]TortoiseOverlays\icons\XPStyle\ConflictIcon.ico" Type="string" />
-		<Registry Root="HKLM" Key="Software\TortoiseOverlays" Name="DeletedIcon" Value="[CommonFilesFolder]TortoiseOverlays\icons\XPStyle\DeletedIcon.ico" Type="string" />
-		<Registry Root="HKLM" Key="Software\TortoiseOverlays" Name="ReadOnlyIcon" Value="[CommonFilesFolder]TortoiseOverlays\icons\XPStyle\ReadOnlyIcon.ico" Type="string" />
-		<Registry Root="HKLM" Key="Software\TortoiseOverlays" Name="LockedIcon" Value="[CommonFilesFolder]TortoiseOverlays\icons\XPStyle\LockedIcon.ico" Type="string" />
-		<Registry Root="HKLM" Key="Software\TortoiseOverlays" Name="AddedIcon" Value="[CommonFilesFolder]TortoiseOverlays\icons\XPStyle\AddedIcon.ico" Type="string" />
-		<Registry Root="HKLM" Key="Software\TortoiseOverlays" Name="IgnoredIcon" Value="[CommonFilesFolder]TortoiseOverlays\icons\XPStyle\IgnoredIcon.ico" Type="string" />
-		<Registry Root="HKLM" Key="Software\TortoiseOverlays" Name="UnversionedIcon" Value="[CommonFilesFolder]TortoiseOverlays\icons\XPStyle\UnversionedIcon.ico" Type="string" />
+		<Registry Root="HKLM" Key="Software\TortoiseOverlays" Name="NormalIcon" Value="[CommonFiles64Folder]TortoiseOverlays\icons\XPStyle\NormalIcon.ico" Type="string" KeyPath="yes" />
+		<Registry Root="HKLM" Key="Software\TortoiseOverlays" Name="ModifiedIcon" Value="[CommonFiles64Folder]TortoiseOverlays\icons\XPStyle\ModifiedIcon.ico" Type="string" />
+		<Registry Root="HKLM" Key="Software\TortoiseOverlays" Name="ConflictIcon" Value="[CommonFiles64Folder]TortoiseOverlays\icons\XPStyle\ConflictIcon.ico" Type="string" />
+		<Registry Root="HKLM" Key="Software\TortoiseOverlays" Name="DeletedIcon" Value="[CommonFiles64Folder]TortoiseOverlays\icons\XPStyle\DeletedIcon.ico" Type="string" />
+		<Registry Root="HKLM" Key="Software\TortoiseOverlays" Name="ReadOnlyIcon" Value="[CommonFiles64Folder]TortoiseOverlays\icons\XPStyle\ReadOnlyIcon.ico" Type="string" />
+		<Registry Root="HKLM" Key="Software\TortoiseOverlays" Name="LockedIcon" Value="[CommonFiles64Folder]TortoiseOverlays\icons\XPStyle\LockedIcon.ico" Type="string" />
+		<Registry Root="HKLM" Key="Software\TortoiseOverlays" Name="AddedIcon" Value="[CommonFiles64Folder]TortoiseOverlays\icons\XPStyle\AddedIcon.ico" Type="string" />
+		<Registry Root="HKLM" Key="Software\TortoiseOverlays" Name="IgnoredIcon" Value="[CommonFiles64Folder]TortoiseOverlays\icons\XPStyle\IgnoredIcon.ico" Type="string" />
+		<Registry Root="HKLM" Key="Software\TortoiseOverlays" Name="UnversionedIcon" Value="[CommonFiles64Folder]TortoiseOverlays\icons\XPStyle\UnversionedIcon.ico" Type="string" />
 	</Component>
 
 	<Component Id="C__approveshellcomponents" Guid="$(var.GuidApproveShellComponents)" Win64="$(var.Win64YesNo)">

@@ -1,19 +1,32 @@
 <?xml version='1.0'?>
 <Wix xmlns='http://schemas.microsoft.com/wix/2003/01/wi'>
 	<?include Includes.wxi?>
+	<?if $(env.Platform) = "win32" ?>
+	<?define cf="CommonFilesFolder" ?>
+	<?endif ?>
+	<?if $(env.Platform) = "x64" ?>
+	<?define cf="CommonFiles64Folder" ?>
+	<?endif ?>
+
 	<Module Id='TortoiseOverlays' Guid='$(var.UpgradeGuid)' Language='0' Version='1.0.0.0'>
 		<Package Id='????????-????-????-????-????????????' Description='Overlay handler for Tortoise clients'
 				  Comments='Provided by TortoiseSVN'
 				  Manufacturer='TortoiseSVN' InstallerVersion='200' Compressed='yes' />
 		
 		<Directory Id='TARGETDIR' Name='SourceDir'>
-			<Directory Id='CommonFilesFolder' Name='Common'>
+			<Directory Id='$(var.cf)' Name='Common'>
+			
 				<Directory Id='TortoioseOverlays' Name='TortOvl' LongName='TortoiseOverlays'>
 					<Component Id="C__overlaydll" Guid="$(var.OverlayDll)" Win64="$(var.Win64YesNo)">
 						<File Id="F__overlaydll" Name="TORTOVL.DLL" LongName="TortoiseOverlays.dll" src="..\..\bin\$(var.ReleasePath)\bin\TortoiseOverlays.dll" KeyPath="yes" />
 					</Component>
 
+					<?if $(env.Platform) = "win32" ?>
 					<?include TortoiseOverlaysDir.wxi?>
+					<?endif ?>
+					<?if $(env.Platform) = "x64" ?>
+					<?include TortoiseOverlaysDirx64.wxi?>
+					<?endif ?>
 
 					<Directory Id="D__icons" Name="ICONS" LongName="icons" >
 						<Directory Id="D__iconsxpstyle" Name="XPStyle" >

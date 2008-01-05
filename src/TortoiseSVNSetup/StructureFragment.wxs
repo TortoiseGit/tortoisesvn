@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
 	<?include Includes.wxi?>
+	<?if $(env.Platform) = "win32" ?>
+	<?define cf="CommonFilesFolder" ?>
+	<?endif ?>
+	<?if $(env.Platform) = "x64" ?>
+	<?define cf="CommonFiles64Folder" ?>
+	<?endif ?>
 	<Fragment Id="StructureFragment">
 		<Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="D__ProgramFilesFolder" Name="PFiles" LongName="Program Files">
@@ -46,9 +52,12 @@
 
 					<?if $(env.Platform) = "win32" ?>
 					<Merge Id='Ovlays' Language='0' src='..\..\ext\TortoiseOverlays\TortoiseOverlays-1.0.1.11733-win32.msm' DiskId='1' />
-					<?else ?>
+					<?endif ?>
+
+					<?if $(env.Platform) = "x64" ?>
 					<Merge Id='Ovlays' Language='0' src='..\..\ext\TortoiseOverlays\TortoiseOverlays-1.0.1.11733-x64.msm' DiskId='1' />
 					<?endif ?>
+					
 					<Component Id="C__infofiles" Guid="$(var.GuidInfoFiles)" Win64="$(var.Win64YesNo)">
 						<File Id="F__changelog" Name="CHANGELG.TXT" LongName="Changelog.txt" DiskId="1" src="..\Changelog.txt" KeyPath="yes" />
 						<File Id="F__subversionlicense" Name="LICENSES.TXT" LongName="Subversion license.txt" DiskId="1" src="..\..\ext\Subversion\subversion\LICENSE" />
@@ -393,7 +402,7 @@
 						<Directory Id="D_TortoisePrgMenu" Name="TORTOISE" LongName="TortoiseSVN" />
 					</Directory>
 
-					<Directory Id='CommonFilesFolder' Name='Common'>
+					<Directory Id='$(var.cf)' Name='Common'>
 						<Directory Id='TortoioseOverlays' Name='TortOvl' LongName='TortoiseOverlays'>
 							<Directory Id="D__icons" Name="ICONS" LongName="icons" >
 								<Directory Id="D__iconscvsclassic" Name="CVSClass" LongName="CVSClassic" >
