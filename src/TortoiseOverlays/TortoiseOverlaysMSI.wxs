@@ -32,7 +32,6 @@
 			<UpgradeVersion Property="NEWERVERSIONDETECTED" Minimum="$(var.VersionNumberInternal)" OnlyDetect="yes" />
 		</Upgrade>
 		
-		<Property Id='ARPSYSTEMCOMPONENT' Value="1" />
 		<Directory Id='TARGETDIR' Name='SourceDir'>
 			<Directory Id='$(var.cf)' Name='Common'>
 				<Directory Id='TortoioseOverlays' Name='TortOvl' LongName='TortoiseOverlays'>
