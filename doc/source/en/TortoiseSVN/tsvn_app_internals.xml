@@ -84,9 +84,27 @@
 			working copy holds a lock for that file.
 		</para>
 		<para>
-			If no overlay is shown, the item status could be
-			<literal>ignored</literal>, <literal>unversioned</literal> or
-			<literal>none</literal> (if the item is not within a working copy).
+			<graphic fileref="images/IgnoredIcon.png"/>
+			The <emphasis>Ignored</emphasis> overlay is used to
+			represent an item which is in the <literal>ignored</literal>
+			state, either due to a global ignore pattern, or the
+			<literal>svn:ignore</literal> property of the parent folder.
+			This overlay is optional.
+		</para>
+		<para>
+			<graphic fileref="images/UnversionedIcon.png"/>
+			The <emphasis>Unversioned</emphasis> overlay is used to
+			represent an item which is in the <literal>unversioned</literal>
+			state. This is an item in a versioned folder, but which is not
+			under version control itself.
+			This overlay is optional.
+		</para>
+		<para>
+			If an item has subversion status <literal>none</literal> (the item
+			is not within a working copy) then no overlay is shown.
+			If you have chosen to disable the <emphasis>Ignored</emphasis>
+			and <emphasis>Unversioned</emphasis> overlays then no overlay
+			will be shown for those files either.
 		</para>
 		<para>
 			An item can only have one Subversion status value. For example

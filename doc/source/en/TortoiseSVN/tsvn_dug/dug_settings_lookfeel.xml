@@ -9,20 +9,24 @@
 			<graphic fileref="../images/SettingsOverlay.png"/>
 		</figure>
 		This page allows you to choose the items for which TortoiseSVN will
-		display icon overlays. Network drives can be very slow, so by default
-		icons are not shown for working copies located on network shares.
-		You can even disable all icon overlays, but where's the fun in that?
-	</para>
-	<para>
-		USB Flash drives appear to be a special case in that the drive type
-		is identified by the device itself. Some appear as fixed drives,
-		and some as removable drives.
+		display icon overlays.
 	</para>
 	<para>
 		By default, overlay icons and context menus will appear in all open/save
 		dialogs as well as in Windows Explorer. If you want them to appear
 		<emphasis>only</emphasis> in Windows Explorer, check the
 		<guilabel>Show overlays and context menu only in explorer</guilabel> box.
+	</para>
+	<para>
+		Ignored items and Unversioned items are not usually given an overlay.
+		If you want to show an overlay in these cases, just check the boxes.
+	</para>
+	<para>
+		You can also choose to mark folders as
+		modified if they contain unversioned items. This could be useful for
+		reminding you that you have created new files which are not yet versioned.
+		This option is only available when you use the <emphasis>default</emphasis>
+		status cache option (see below).
 	</para>
 	<para>
 		Since it takes quite a while to fetch the status of a working copy,
@@ -106,9 +110,18 @@
 		</variablelist>
 	</para>
 	<para>
-		If you select the default option, you can also choose to mark folders as
-		modified if they contain unversioned items. This could be useful for
-		reminding you that you have created new files which are not yet versioned.
+		The next group allows you to select which classes of storage should
+		show overlays. By default, only hard drives are selected.
+		You can even disable all icon overlays, but where's the fun in that?
+	</para>
+	<para>
+		Network drives can be very slow, so by default
+		icons are not shown for working copies located on network shares.
+	</para>
+	<para>
+		USB Flash drives appear to be a special case in that the drive type
+		is identified by the device itself. Some appear as fixed drives,
+		and some as removable drives.
 	</para>
 	<para>
 		The <guilabel>Exclude Paths</guilabel> are used to tell TortoiseSVN

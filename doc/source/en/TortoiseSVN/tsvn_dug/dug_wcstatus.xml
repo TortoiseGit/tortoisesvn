@@ -76,16 +76,31 @@
 			<emphasis>added</emphasis> to version control.
 		</para>
 		<para>
-			Unlike TortoiseCVS (the CVS shell integration) no overlay icon
-			is shown for unversioned files. We do this because the number
-			of icon overlays is limited system wide and should be used economically.
+			<graphic fileref="../images/IgnoredIcon.png"/> 
+			The question mark sign tells you that a file or folder is
+			<emphasis>ignored</emphasis> for version control purposes.
+			This overlay is optional.
+		</para>
+		<para>
+			<graphic fileref="../images/UnversionedIcon.png"/> 
+			This icon shows files and folders which are not under version control,
+			but have not been ignored.
+			This overlay is optional.
 		</para>
 		<para>
 			In fact, you may find that not all of these icons are used on your system.
 			This is because the number of overlays allowed by Windows is very limited
-			and if you are also using TortoiseCVS, then there are not enough overlay
-			slots available. TortoiseSVN tries to be a <quote>Good Citizen (TM)</quote>
+			and if you are also using an old version of TortoiseCVS, then there are
+			not enough overlay slots available.
+			TortoiseSVN tries to be a <quote>Good Citizen (TM)</quote>
 			and limits its use of overlays to give other apps a chance too.
+		</para>
+		<para>
+			Now that there are more Tortoise clients around (TortoiseCVS, TortoiseHG, ...)
+			the icon limit becomes a real problem. To work around this, the TortoiseSVN
+			project introduced a common shared icon set, loaded as a DLL, which can be
+			used by all Tortoise clients. Check with your client provider to see if
+			this has been integrated yet :-)
 		</para>
 		<para>
 			For a description of how icon overlays correspond to Subversion
