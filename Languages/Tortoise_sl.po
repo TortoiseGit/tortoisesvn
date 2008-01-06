@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2007-12-31 13:14+0100\n"
+"PO-Revision-Date: 2008-01-01 13:11+0100\n"
 "Last-Translator: Matjaz Cepon <matjaz.cepon@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3127,6 +3127,10 @@ msgstr "Revizija HEAD je %s"
 msgid "Help"
 msgstr "Pomoč"
 
+#. Resource IDs: (32820)
+msgid "Hide &deleted paths"
+msgstr "Skrij &izbrisane poti"
+
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
 msgstr "Skrij skripto med izvajanjem"
@@ -4784,10 +4788,6 @@ msgstr "Odstrani %ld elementov"
 msgid "Remove %s"
 msgstr "Odstrani %s"
 
-#. Resource IDs: (32820)
-msgid "Remove &deleted paths"
-msgstr "Odstrani &izbrane poti"
-
 #. Resource IDs: (2052)
 msgid "Remove deleted branches and tags"
 msgstr "Odstrani izbrisane veje in oznake"
@@ -5529,8 +5529,8 @@ msgid "Show differences as &unified diff"
 msgstr "Pokaži razlike kot &poenotene razlike"
 
 #. Resource IDs: (1126)
-msgid "Show excluded folders as 'normal'"
-msgstr "Prikaži izločene mape kot 'navadne'"
+msgid "Show excluded folders as normal"
+msgstr "Prikaži izločene mape kot navadne"
 
 #. Resource IDs: (1264)
 msgid "Show ignored files"
@@ -5563,6 +5563,14 @@ msgid ""
 msgstr ""
 "Pokaži ali skrij orodno vrstico\n"
 "Preklopi orodno vrstico"
+
+#. Resource IDs: (1432)
+msgid "Show overlay for ignored items"
+msgstr "Pokaži prekrivne ikone za prezrte elemente"
+
+#. Resource IDs: (1462)
+msgid "Show overlay for unversioned items"
+msgstr "Pokaži prekrivne ikone za elemente brez različic"
 
 #. Resource IDs: (2049)
 msgid ""
