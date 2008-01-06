@@ -511,7 +511,7 @@ void CHistoryCombo::CreateToolTip()
 	// initialize toolinfo struct
 	memset(&m_ToolInfo, 0, sizeof(m_ToolInfo));
 	m_ToolInfo.cbSize = sizeof(m_ToolInfo);
-	m_ToolInfo.uFlags = TTF_TRACK | TTF_TRANSPARENT;
+	m_ToolInfo.uFlags = TTF_TRANSPARENT;
 	m_ToolInfo.hwnd = m_hWnd;
 
 	::SendMessage(m_hWndToolTip, TTM_SETMAXTIPWIDTH, 0, SHRT_MAX);
@@ -536,3 +536,4 @@ int CHistoryCombo::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	return 0;
 }
+
