@@ -80,6 +80,18 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SubWCRevCOM", "SubWCRev\Sub
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TortoiseOverlays", "TortoiseOverlays\TortoiseOverlays.vcproj", "{C7E54DB1-C1AA-4154-9667-B443C7E18811}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WiX", "WiX", "{3E25834A-06B8-4314-9213-6A03159E7AC3}"
+	ProjectSection(SolutionItems) = preProject
+		TortoiseSVNSetup\FeaturesFragment.wxs = TortoiseSVNSetup\FeaturesFragment.wxs
+		TortoiseSVNSetup\Includes.wxi = TortoiseSVNSetup\Includes.wxi
+		TortoiseSVNSetup\StructureFragment.wxs = TortoiseSVNSetup\StructureFragment.wxs
+		TortoiseSVNSetup\SubWCRev.wxs = TortoiseSVNSetup\SubWCRev.wxs
+		TortoiseSVNSetup\TortoiseSVN.wxs = TortoiseSVNSetup\TortoiseSVN.wxs
+		TortoiseSVNSetup\UIFragment.wxs = TortoiseSVNSetup\UIFragment.wxs
+		TortoiseSVNSetup\VersionNumberInclude.in.wxi = TortoiseSVNSetup\VersionNumberInclude.in.wxi
+		TortoiseSVNSetup\WixUI_Simplest.wxs = TortoiseSVNSetup\WixUI_Simplest.wxs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -349,6 +361,7 @@ Global
 		{DB98402B-2CF6-4EC6-89F9-D19365EE8DE3} = {2F7F71AF-C973-4132-B8F3-D9A11A1D9EE0}
 		{E6D5CCE5-A4A9-43D3-88D2-6637365BF319} = {2F7F71AF-C973-4132-B8F3-D9A11A1D9EE0}
 		{C7E54DB1-C1AA-4154-9667-B443C7E18811} = {2F7F71AF-C973-4132-B8F3-D9A11A1D9EE0}
+		{3E25834A-06B8-4314-9213-6A03159E7AC3} = {2F7F71AF-C973-4132-B8F3-D9A11A1D9EE0}
 		{1B3C273E-6DDF-4FBE-BA31-FCF39C6DBCF9} = {5A449437-9BE5-4364-844F-C40BB1AF487A}
 		{1B3C273E-6DDF-4FBE-BA31-F9F39C6DAC99} = {5A449437-9BE5-4364-844F-C40BB1AF487A}
 		{ED498504-302E-4CE1-974A-A00CAD156C78} = {5A449437-9BE5-4364-844F-C40BB1AF487A}
