@@ -251,11 +251,11 @@
        issue #241 for details. (Stefan)
 - BUG: Tooltip flicker in revision dialog for very long log messages.
        (Stefan Fuhrmann)
-- BUG: Exporting a working copy works on Vista. (Stefan)
 
 Version 1.4.7
-- BUG: Exporting left admin dirs intact.
-- BUG: Checks for include paths of the cache didn't work correctly.
+- BUG: Exporting left admin dirs intact. (Stefan)
+- BUG: Checks for include paths of the cache didn't work correctly. (Stefan)
+- BUG: Exporting a working copy works on Vista. (Stefan)
 
 Version 1.4.6
 - BUG: When upgrading, the MFC/CRT libs weren't updated if
