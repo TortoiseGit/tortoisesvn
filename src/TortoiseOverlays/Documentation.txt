@@ -76,7 +76,7 @@ also provided msi installer.
 You MUST NOT try to install the dll and create the registry keys yourself!
 If you have a non-msi installer, you can call the msi installer like this:
 msiexec /i TortoiseOverlays-1.0.0.XXXX-win32.msi /qn /norestart
-But in that case, you also must not deintall it when your client gets
+But in that case, you also must not deinstall it when your client gets
 deinstalled.
 
 The reason I chose merge modules/msi is that TortoiseOverlays is a 
@@ -108,5 +108,5 @@ to avoid missing icons as soon as your client gets uninstalled. Because
 as the TortoiseOverlays dll your icon sets are shared files, shared
 between all Tortoise clients.
 Also make sure your icon sets include *all* icons, not just the ones
-your client uses. Otherwise the user will have incosistent icons in
+your client uses. Otherwise the user will have inconsistent icons in
 those clients who use all icons.
