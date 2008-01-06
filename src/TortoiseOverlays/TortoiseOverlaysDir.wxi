@@ -38,24 +38,24 @@
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidUnversioned)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
 		<Registry Root="HKMU" Key="Software\Classes\CLSID\{$(var.GuidUnversioned)}" Value="TortoiseSVN" Type="string" />
 
-		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\TortoiseNormal" Action="createKeyAndRemoveKeyOnUninstall" />
-		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\TortoiseNormal" Value="{$(var.GuidNormal)}" Type="string" />
-		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\TortoiseModified" Action="createKeyAndRemoveKeyOnUninstall" />
-		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\TortoiseModified" Value="{$(var.GuidModified)}" Type="string" />
-		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\TortoiseConflict" Action="createKeyAndRemoveKeyOnUninstall" />
-		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\TortoiseConflict" Value="{$(var.GuidConflict)}" Type="string" />
-		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\TortoiseLocked" Action="createKeyAndRemoveKeyOnUninstall" />
-		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\TortoiseLocked" Value="{$(var.GuidLocked)}" Type="string" />
-		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\TortoiseReadOnly" Action="createKeyAndRemoveKeyOnUninstall" />
-		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\TortoiseReadOnly" Value="{$(var.GuidReadOnly)}" Type="string" />
-		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\TortoiseDeleted" Action="createKeyAndRemoveKeyOnUninstall" />
-		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\TortoiseDeleted" Value="{$(var.GuidDeleted)}" Type="string" />
-		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\TortoiseAdded" Action="createKeyAndRemoveKeyOnUninstall" />
-		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\TortoiseAdded" Value="{$(var.GuidAdded)}" Type="string" />
-		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\TortoiseIgnored" Action="createKeyAndRemoveKeyOnUninstall" />
-		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\TortoiseIgnored" Value="{$(var.GuidIgnored)}" Type="string" />
-		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\TortoiseUnversioned" Action="createKeyAndRemoveKeyOnUninstall" />
-		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\TortoiseUnversioned" Value="{$(var.GuidUnversioned)}" Type="string" />
+		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\1TortoiseNormal" Action="createKeyAndRemoveKeyOnUninstall" />
+		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\1TortoiseNormal" Value="{$(var.GuidNormal)}" Type="string" />
+		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\2TortoiseModified" Action="createKeyAndRemoveKeyOnUninstall" />
+		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\2TortoiseModified" Value="{$(var.GuidModified)}" Type="string" />
+		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\3TortoiseConflict" Action="createKeyAndRemoveKeyOnUninstall" />
+		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\3TortoiseConflict" Value="{$(var.GuidConflict)}" Type="string" />
+		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\4TortoiseLocked" Action="createKeyAndRemoveKeyOnUninstall" />
+		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\4TortoiseLocked" Value="{$(var.GuidLocked)}" Type="string" />
+		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\5TortoiseReadOnly" Action="createKeyAndRemoveKeyOnUninstall" />
+		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\5TortoiseReadOnly" Value="{$(var.GuidReadOnly)}" Type="string" />
+		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\6TortoiseDeleted" Action="createKeyAndRemoveKeyOnUninstall" />
+		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\6TortoiseDeleted" Value="{$(var.GuidDeleted)}" Type="string" />
+		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\7TortoiseAdded" Action="createKeyAndRemoveKeyOnUninstall" />
+		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\7TortoiseAdded" Value="{$(var.GuidAdded)}" Type="string" />
+		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\8TortoiseIgnored" Action="createKeyAndRemoveKeyOnUninstall" />
+		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\8TortoiseIgnored" Value="{$(var.GuidIgnored)}" Type="string" />
+		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\9TortoiseUnversioned" Action="createKeyAndRemoveKeyOnUninstall" />
+		<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\9TortoiseUnversioned" Value="{$(var.GuidUnversioned)}" Type="string" />
 	</Component>
 
 	<Component Id="C__machineregistry" Guid="$(var.GuidMachineRegistry)" Win64="$(var.Win64YesNo)">
