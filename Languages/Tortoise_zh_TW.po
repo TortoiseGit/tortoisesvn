@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-01-01 10:07+0800\n"
+"PO-Revision-Date: 2008-01-07 10:44+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3102,6 +3102,10 @@ msgstr "最新版本是 %s"
 msgid "Help"
 msgstr "說明"
 
+#. Resource IDs: (32820)
+msgid "Hide &deleted paths"
+msgstr "隱藏已刪除的路徑(&D)"
+
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
 msgstr "隱藏執行中的指令檔"
@@ -4773,10 +4777,6 @@ msgstr "移除 %ld 項"
 msgid "Remove %s"
 msgstr "移除 %s"
 
-#. Resource IDs: (32820)
-msgid "Remove &deleted paths"
-msgstr "移除已刪除的路徑(&P)"
-
 #. Resource IDs: (2052)
 msgid "Remove deleted branches and tags"
 msgstr "移除已刪除的分支和標記"
@@ -5520,8 +5520,8 @@ msgid "Show differences as &unified diff"
 msgstr "以單一異動檔顯示異動(&U)"
 
 #. Resource IDs: (1126)
-msgid "Show excluded folders as 'normal'"
-msgstr "將除外的資料夾顯示為'正常'"
+msgid "Show excluded folders as normal"
+msgstr "正常顯示排除的資料夾"
 
 #. Resource IDs: (1264)
 msgid "Show ignored files"
@@ -5554,6 +5554,14 @@ msgid ""
 msgstr ""
 "顯示或隱藏工具列\n"
 "開關工具列"
+
+#. Resource IDs: (1432)
+msgid "Show overlay for ignored items"
+msgstr "在忽略的檔案上也顯示覆蓋圖示"
+
+#. Resource IDs: (1462)
+msgid "Show overlay for unversioned items"
+msgstr "在無版本控制的檔案上也顯示覆蓋圖示"
 
 #. Resource IDs: (2049)
 msgid ""
