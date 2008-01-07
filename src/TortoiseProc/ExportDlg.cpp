@@ -162,7 +162,7 @@ void CExportDlg::OnOK()
 
 	// check it the export path is a valid windows path
 	CTSVNPath ExportDirectory;
-	ExportDirectory.SetFromWin(m_strExportDirectory);
+	ExportDirectory = CTSVNPath(m_strExportDirectory);
 	if (!ExportDirectory.IsValidOnWindows())
 	{
 		ShowBalloon(IDC_CHECKOUTDIRECTORY, IDS_ERR_NOVALIDPATH);

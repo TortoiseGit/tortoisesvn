@@ -158,7 +158,7 @@ void CCheckoutDlg::OnOK()
 		return; // don't dismiss dialog (error message already shown by MFC framework)
 
 	CTSVNPath m_CheckoutDirectory;
-	m_CheckoutDirectory.SetFromWin(m_strCheckoutDirectory);
+	m_CheckoutDirectory = CTSVNPath(m_strCheckoutDirectory);
 	if (!m_CheckoutDirectory.IsValidOnWindows())
 	{
 		ShowBalloon(IDC_CHECKOUTDIRECTORY, IDS_ERR_NOVALIDPATH);
