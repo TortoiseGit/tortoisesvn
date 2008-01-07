@@ -328,6 +328,12 @@ BOOL CTortoiseProcApp::InitInstance()
 			// in that the user might need to use the settings dialog to edit the config file.
 			if (CString(parser.GetVal(_T("command"))).Compare(_T("settings"))==0)
 			{
+				// just open the config file
+				TCHAR buf[MAX_PATH];
+				SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, buf);
+				CString path = buf;
+				path += _T("\\Subversion\\config");
+				CAppUtils::StartTextViewer(path);
 				return FALSE;
 			}
 		}
