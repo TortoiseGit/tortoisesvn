@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -255,7 +255,7 @@ revision_t CRepositoryInfo::GetHeadRevision (const CTSVNPath& url)
         return (revision_t)NO_REVISION;
     }
 
-    // get time stamps and maximum head info age (default: 5 mins)
+    // get time stamps and maximum head info age (default: 0 mins)
 
     __time64_t now = CTime::GetCurrentTime().GetTime();
     CRegStdWORD useLogCache (_T("Software\\TortoiseSVN\\HeadCacheAgeLimit"), 0);
