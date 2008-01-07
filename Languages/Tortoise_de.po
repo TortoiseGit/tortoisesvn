@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-12-17 09:12+0100\n"
+"PO-Revision-Date: 2008-01-07 08:54+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -134,6 +134,11 @@ msgstr "%ld von %ld"
 #, c-format
 msgid "%ld paths"
 msgstr "%ld Pfade"
+
+#. Resource IDs: (272)
+#, c-format
+msgid "%s"
+msgstr "%s"
 
 #. Resource IDs: (115)
 #, c-format
@@ -794,6 +799,11 @@ msgstr "&Arbeitskopie"
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
 msgstr "(Binärwert)"
+
+#. Resource IDs: (272)
+#, c-format
+msgid "(deleted) %s"
+msgstr "(gelöscht) %s"
 
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
@@ -2966,10 +2976,6 @@ msgstr "Allgemein::Dialoge 1"
 msgid "General::Dialogs 2"
 msgstr "Allgemein::Dialoge 2"
 
-#. Resource IDs: (281)
-msgid "General::Log Caching"
-msgstr "Allgemein::Log-Puffer"
-
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "Erzeuge Patchdatei..."
@@ -3105,6 +3111,10 @@ msgstr "Die HEAD Revision ist: \"%s\""
 msgid "Help"
 msgstr "Hilfe"
 
+#. Resource IDs: (32820)
+msgid "Hide &deleted paths"
+msgstr "&Gelöschte Pfade verbergen"
+
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
 msgstr "Skript beim Ablauf verbergen"
@@ -3215,9 +3225,9 @@ msgstr "ID:32814:V C +L"
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
-#. Accelerator Entry for Menu ID:32821; ''
-msgid "ID:32821:V C +F"
-msgstr "ID:32821:V C +F"
+#. Accelerator Entry for Menu ID:32822; ''
+msgid "ID:32822:V C +F"
+msgstr "ID:32822:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
@@ -3813,6 +3823,10 @@ msgstr "Log"
 #. Resource IDs: (282)
 msgid "Log Cache Statistics"
 msgstr "Statistiken"
+
+#. Resource IDs: (281)
+msgid "Log Caching"
+msgstr "Log-Puffer"
 
 #. Resource IDs: (211)
 msgid "Log History"
@@ -4521,11 +4535,6 @@ msgstr "Vermeidet die meisten Fälle, in denen Linien Knoten kreuzen"
 msgid "Preview patched file"
 msgstr "Vorschau der Ergebnisdatei"
 
-#. Resource IDs: (199)
-#, c-format
-msgid "Probably deleted repository (%s)"
-msgstr "Vermutlich gelöschtes PRojektarchiv (%s)"
-
 #. Resource IDs: (132)
 #, c-format
 msgid "Processing revision %d of %d..."
@@ -4796,6 +4805,10 @@ msgstr "Lösche %ld Objekte"
 #, c-format
 msgid "Remove %s"
 msgstr "Löschen %s"
+
+#. Resource IDs: (2052)
+msgid "Remove deleted branches and tags"
+msgstr "Gelöschte Zweige und Markierungen entfernen"
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
@@ -5536,7 +5549,7 @@ msgid "Show differences as &unified diff"
 msgstr "Zeige Unterschiede als &Standard-Diff"
 
 #. Resource IDs: (1126)
-msgid "Show excluded folders as 'normal'"
+msgid "Show excluded folders as normal"
 msgstr "Ausgeschlossene Ordner 'normal' anzeigen"
 
 #. Resource IDs: (1264)
@@ -5570,6 +5583,14 @@ msgid ""
 msgstr ""
 "Verberge/Zeige die Werkzeugleiste\n"
 "Verbirgt oder zeigt die Werkzeugleiste"
+
+#. Resource IDs: (1432)
+msgid "Show overlay for ignored items"
+msgstr "Überlagerte Symbole für ignorierte Objekte zeigen"
+
+#. Resource IDs: (1462)
+msgid "Show overlay for unversioned items"
+msgstr "Überlagerte Symbole für nicht versionierte Objekte zeigen"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -5684,14 +5705,6 @@ msgstr ""
 #. Resource IDs: (376)
 msgid "Split lines"
 msgstr "Zeilen splitten"
-
-#. Resource IDs: (32817)
-msgid "Split long &branches"
-msgstr "Lange Zweige &segmentieren"
-
-#. Resource IDs: (2052)
-msgid "Split long, inactive branches into segments"
-msgstr "Lange, inaktive Verzweigungen segmentieren"
 
 #. Resource IDs: (3604)
 msgid ""
@@ -6547,6 +6560,11 @@ msgstr "URL"
 msgid "URL history"
 msgstr "URL-Historie"
 
+#. Resource IDs: (199)
+#, c-format
+msgid "URL not known (UUID: %s)"
+msgstr "Unbekannte URL (UUID: %s)"
+
 #. Resource IDs: (12)
 msgid "URL of Subversion items"
 msgstr "URL von Subversion Objekten"
@@ -7170,6 +7188,16 @@ msgstr "Hinzugefügt"
 msgid "added files"
 msgstr "Hinzugefügte Dateien"
 
+#. Resource IDs: (272)
+#, c-format
+msgid "alias (deleted): %s"
+msgstr "Alias (gelöscht): %s"
+
+#. Resource IDs: (272)
+#, c-format
+msgid "alias: %s"
+msgstr "Alias: %s"
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "eine unbenannte Datei"
@@ -7442,6 +7470,10 @@ msgstr "oder"
 #. Resource IDs: (65535)
 msgid "pair tokens: "
 msgstr "Paarkürzel:"
+
+#. Resource IDs: (65535)
+msgid "path elements: "
+msgstr "Pfadelemente:"
 
 #. Resource IDs: (65535)
 msgid "paths: "
@@ -7781,6 +7813,10 @@ msgstr "Woche"
 msgid "word tokens: "
 msgstr "Wortkürzel:"
 
+#. Resource IDs: (65535)
+msgid "words [uncompressed]: "
+msgstr "Wörter [unkomprimiert]: "
+
 #. Resource IDs: (245)
 msgid "year"
 msgstr "Jahr"
@@ -7789,6 +7825,12 @@ msgstr "Jahr"
 msgid "yes"
 msgstr "ja"
 
+#~ msgid "Probably deleted repository (%s)"
+#~ msgstr "Vermutlich gelöschtes PRojektarchiv (%s)"
+#~ msgid "Split long &branches"
+#~ msgstr "Lange Zweige &segmentieren"
+#~ msgid "Split long, inactive branches into segments"
+#~ msgstr "Lange, inaktive Verzweigungen segmentieren"
 #~ msgid "&Berkeley database (BDB)"
 #~ msgstr "&Berkeley Datenbank (BDB)"
 #~ msgid "&Native filesystem (FSFS)"
