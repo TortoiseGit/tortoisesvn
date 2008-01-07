@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,6 +20,8 @@
 
 #include "ResizableDialog.h"
 #include "Balloon.h"
+
+#pragma comment(lib, "htmlhelp.lib")
 
 /**
  * \ingroup TortoiseProc
@@ -156,6 +158,25 @@ private:
 	HCURSOR OnQueryDragIcon()
 	{
 		return static_cast<HCURSOR>(m_hIcon);
+	}
+
+	virtual void HtmlHelp(DWORD_PTR dwData, UINT nCmd = 0x000F)
+	{
+		CWinApp* pApp = AfxGetApp();
+		ASSERT_VALID(pApp);
+		ASSERT(pApp->m_pszHelpFilePath != NULL);
+		// to call HtmlHelp the m_fUseHtmlHelp must be set in
+		// the application's constructor
+		ASSERT(pApp->m_eHelpType == afxHTMLHelp);
+
+		CWaitCursor wait;
+
+		PrepareForHelp();
+		// run the HTML Help engine
+		if (!::HtmlHelp(m_hWnd, pApp->m_pszHelpFilePath, nCmd, dwData))
+		{
+			AfxMessageBox(AFX_IDP_FAILED_TO_LAUNCH_HELP);
+		}
 	}
 
 	DECLARE_MESSAGE_MAP()
