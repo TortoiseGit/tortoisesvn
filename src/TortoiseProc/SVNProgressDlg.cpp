@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -812,9 +812,9 @@ UINT CSVNProgressDlg::ProgressThread()
 	GetDlgItem(IDOK)->SetFocus();	
 
 	KillTimer(TRANSFERTIMER);
+	CString sFinalInfo;
 	if (!m_sTotalBytesTransferred.IsEmpty())
 	{
-		CString sFinalInfo;
 		CTimeSpan time = CTime::GetCurrentTime() - startTime;
 		temp.Format(IDS_PROGRS_TIME, (LONG)time.GetTotalMinutes(), (LONG)time.GetSeconds());
 		sFinalInfo.Format(IDS_PROGRS_FINALINFO, m_sTotalBytesTransferred, temp);
@@ -846,6 +846,8 @@ UINT CSVNProgressDlg::ProgressThread()
 			temp.Format(_T("%-20s : %s"), data->sActionColumnText, data->sPathColumnText);
 			logfile.AddLine(temp);
 		}
+		if (!sFinalInfo.IsEmpty())
+			logfile.AddLine(sFinalInfo);
 		logfile.Close();
 	}
 
