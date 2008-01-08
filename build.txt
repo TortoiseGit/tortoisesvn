@@ -4,6 +4,17 @@
 /** 
 \page build Build instructions
 
+\section Introduction Introduction
+Compiling TortoiseSVN is not very difficult, but it requires several steps
+to finish, at least the first time.
+
+Unlike other big open source projects, once you have built all the libraries
+TortoiseSVN depends on, you can use the familiar VisualStudio IDE to build
+and debug the binaries. No need to run the build script for every little change.
+
+So don't give up if you read through the next section and all the requirements.
+You only have to do this once.
+
 \section Requirements Requirements
 
 \subsection Requirements1 First, you need to install the compiler package.
