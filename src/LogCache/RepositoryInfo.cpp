@@ -115,7 +115,11 @@ CRepositoryInfo::Lookup (const CString& url)
     {
         --iter;
         if (iter->first == url.Left (iter->first.GetLength()))
-            return iter;
+		{
+			// make sure we have the right entry
+			if ((iter->first == url)||(url.GetAt(iter->first.GetLength())=='/'))
+				return iter;
+		}
     }
 
     // not found
