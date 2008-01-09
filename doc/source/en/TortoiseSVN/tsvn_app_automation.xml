@@ -344,6 +344,9 @@ Don't touch these lines:
 								be used to specify the revision which the repository
 								browser should show. If the <option>/rev:xxx</option>
 								is omitted, it defaults to HEAD.
+								If <option>/path</option> points to an URL, the 
+								<option>/projectpropertiespath:path/to/wc</option> specifies
+								the path from where to read and use the project properties.
 							</entry>
 						</row>
 						<row>
