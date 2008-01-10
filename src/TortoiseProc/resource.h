@@ -764,7 +764,6 @@
 #define IDC_TEXTSIZE2                   1462
 #define IDC_UNCOMPRESSEDSIZE            1462
 #define IDC_SHOWUNVERSIONEDOVERLAY      1462
-#define IDC_CHECK4                      1464
 #define IDS_CHECKOUT_TT_DIR             1500
 #define IDS_CHECKOUT_EXPORTDIR          1501
 #define IDS_EXPORT_TT_EOL               1505
@@ -903,6 +902,8 @@
 #define IDS_INPUT_MOVE                  2019
 #define IDS_INPUT_COPYMORE              2020
 #define IDS_INPUT_MOVEMORE              2021
+#define IDS_INPUT_EDITPROP              2022
+#define IDS_INPUT_REMOVEPROP            2023
 #define IDS_BLAME_PROGRESSTITLE         2100
 #define IDS_BLAME_PROGRESSINFO          2101
 #define IDS_BLAME_PROGRESSCANCEL        2102

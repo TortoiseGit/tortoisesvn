@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,6 +19,7 @@
 #pragma once
 #include "StandAloneDlg.h"
 #include "SVNRev.h"
+#include "ProjectProperties.h"
 #include "Balloon.h"
 
 /**
@@ -37,6 +38,9 @@ public:
 	void	SetRevision(const SVNRev& rev) {m_revision = rev;}
 	void	Refresh();
 	bool	HasChanged() {return m_bChanged;}
+
+	void	SetProjectProperties(ProjectProperties * pProps) {m_pProjectProperties = pProps;}
+	void	SetUUID(const CString& sUUID) {m_sUUID = sUUID;}
 
 // Dialog Data
 	enum { IDD = IDD_EDITPROPERTIES };
@@ -84,4 +88,7 @@ protected:
 	std::map<stdstring, PropValue>	m_properties;
 	SVNRev			m_revision;
 	CBalloon		m_tooltips;
+
+	CString			m_sUUID;
+	ProjectProperties *	m_pProjectProperties;
 };

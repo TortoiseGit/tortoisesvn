@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -2558,6 +2558,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				if (GetRevision().IsHead())
 				{
 					CEditPropertiesDlg dlg;
+					dlg.SetProjectProperties(&m_ProjectProperties);
+					dlg.SetUUID(m_sUUID);
 					CTSVNPathList escapedlist;
 					for (int i=0; i<urlList.GetCount(); ++i)
 					{

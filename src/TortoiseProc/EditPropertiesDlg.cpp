@@ -285,6 +285,7 @@ void CEditPropertiesDlg::OnLvnItemchangedEditproplist(NMHDR * /*pNMHDR*/, LRESUL
 
 void CEditPropertiesDlg::OnBnClickedRemoveProps()
 {
+	CString sLogMsg;
 	POSITION pos = m_propList.GetFirstSelectedItemPosition();
 	while ( pos )
 	{
@@ -292,6 +293,18 @@ void CEditPropertiesDlg::OnBnClickedRemoveProps()
 
 		bool bRecurse = false;
 		CString sName = m_propList.GetItemText(selIndex, 0);
+		if (m_pathlist[0].IsUrl())
+		{
+			CInputLogDlg input(this);
+			input.SetUUID(m_sUUID);
+			input.SetProjectProperties(m_pProjectProperties);
+			CString sHint;
+			sHint.Format(IDS_INPUT_REMOVEPROP, (LPCTSTR)sName, (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
+			input.SetActionText(sHint);
+			if (input.DoModal() != IDOK)
+				return;
+			sLogMsg = input.GetLogMessage();
+		}
 		CString sQuestion;
 		sQuestion.Format(IDS_EDITPROPS_RECURSIVEREMOVEQUESTION, sName);
 		CString sRecursive(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVE));
@@ -322,7 +335,7 @@ void CEditPropertiesDlg::OnBnClickedRemoveProps()
 		{
 			prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
 			SVNProperties props(m_pathlist[i], m_revision);
-			if (!props.Remove(sName, bRecurse ? svn_depth_infinity : svn_depth_empty))
+			if (!props.Remove(sName, bRecurse ? svn_depth_infinity : svn_depth_empty, (LPCTSTR)sLogMsg))
 			{
 				CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
 			}
@@ -398,6 +411,11 @@ void CEditPropertiesDlg::EditProps(bool bAdd /* = false*/)
 			if ((m_pathlist.GetCount())&&(m_pathlist[0].IsUrl()))
 			{
 				CInputLogDlg input(this);
+				input.SetUUID(m_sUUID);
+				input.SetProjectProperties(m_pProjectProperties);
+				CString sHint;
+				sHint.Format(IDS_INPUT_EDITPROP, (LPCTSTR)sName, (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
+				input.SetActionText(sHint);
 				if (input.DoModal() == IDOK)
 				{
 					sMsg = input.GetLogMessage();
