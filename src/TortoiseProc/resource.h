@@ -904,6 +904,7 @@
 #define IDS_INPUT_MOVEMORE              2021
 #define IDS_INPUT_EDITPROP              2022
 #define IDS_INPUT_REMOVEPROP            2023
+#define IDS_INPUT_SETPROP               2024
 #define IDS_BLAME_PROGRESSTITLE         2100
 #define IDS_BLAME_PROGRESSINFO          2101
 #define IDS_BLAME_PROGRESSCANCEL        2102

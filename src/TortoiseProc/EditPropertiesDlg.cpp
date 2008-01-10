@@ -641,16 +641,37 @@ void CEditPropertiesDlg::OnBnClickedImport()
 						{
 							std::string propertyvalue;
 							propertyvalue.assign((const char*)pValueBuf, nValueBytes);
+							CString sMsg;
+							if (m_pathlist[0].IsUrl())
+							{
+								CInputLogDlg input(this);
+								input.SetUUID(m_sUUID);
+								input.SetProjectProperties(m_pProjectProperties);
+								CString sHint;
+								sHint.Format(IDS_INPUT_SETPROP, (LPCTSTR)sName, (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
+								input.SetActionText(sHint);
+								if (input.DoModal() == IDOK)
+								{
+									sMsg = input.GetLogMessage();
+								}
+								else
+									bFailed = true;
+							}
 
 							for (int i=0; i<m_pathlist.GetCount() && !bFailed; ++i)
 							{
 								prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
 								SVNProperties props(m_pathlist[i], m_revision);
-								if (!props.Add(sName, propertyvalue, svn_depth_empty))
+								if (!props.Add(sName, propertyvalue, svn_depth_empty, (LPCTSTR)sMsg))
 								{
 									prog.Stop();
 									CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
 									bFailed = true;
+								}
+								else
+								{
+									if (m_revision.IsNumber())
+										m_revision = (LONG)m_revision + 1;
 								}
 							}
 						}
