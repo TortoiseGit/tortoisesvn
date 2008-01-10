@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -276,7 +276,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, svn_depth_t depth
 		if (m_error != NULL)
 			return FALSE;
 	}
-	if ((!m_path.IsDirectory())&&(((strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0))))
+	if ((!m_path.IsDirectory() && !m_path.IsUrl())&&(((strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0))))
 	{
 		// bugtraq: and tsvn: properties are not allowed on files.
 #ifdef _MFC_VER
