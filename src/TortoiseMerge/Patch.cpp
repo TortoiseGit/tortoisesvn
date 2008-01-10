@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2004-2007 - TortoiseSVN
+// Copyright (C) 2004-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -166,7 +166,20 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 			{
 				sLine.Replace(_T("="), _T(""));
 				if (sLine.IsEmpty())
+				{
+					// if the next line is already the start of the chunk,
+					// then the patch/diff file was not created by svn. But we
+					// still try to use it
+					if (PatchLines.GetCount() > (nIndex + 1))
+					{
+
+						if (PatchLines.GetAt(nIndex+1).Left(2).Compare(_T("@@"))==0)
+						{
+							state += 2;
+						}
+					}
 					state++;
+				}
 				else
 				{
 					//the line
