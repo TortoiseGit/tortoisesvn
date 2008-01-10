@@ -104,7 +104,16 @@ objScript = null;
 word.visible = true;
 
 // Open the new document
-destination = word.Documents.Open(sNewDoc);
+try
+{
+    destination = word.Documents.Open(sNewDoc, true, true);
+}
+catch(e)
+{
+    WScript.Echo("Error opening " + sNewDoc);
+    // Quit
+    WScript.Quit(1);
+}
 
 // If the Type property returns either wdOutlineView or wdMasterView and the Count property returns zero, the current document is an outline.
 if (((destination.ActiveWindow.View.Type == wdOutlineView) || (destination.ActiveWindow.View.Type == wdMasterView)) && (destination.Subdocuments.Count == 0))
@@ -117,12 +126,31 @@ if (((destination.ActiveWindow.View.Type == wdOutlineView) || (destination.Activ
 if (Number(word.Version) <= vOffice2000)
 {
     // Compare for Office 2000 and earlier
-    destination.Compare(sBaseDoc);
+    try
+    {
+        destination.Compare(sBaseDoc);
+    }
+    catch(e)
+    {
+        WScript.Echo("Error comparing " + sBaseDoc + " and " + sNewDoc);
+        // Quit
+        WScript.Quit(1);
+    }
 }
 else
 {
     // Compare for Office XP (2002) and later
-    destination.Compare(sBaseDoc, "Comparison", wdCompareTargetNew, true, true);
+    try
+    {
+        destination.Compare(sBaseDoc, "Comparison", wdCompareTargetNew, true, true);
+    }
+    catch(e)
+    {
+        WScript.Echo("Error comparing " + sBaseDoc + " and " + sNewDoc);
+        // Close the first document and quit
+        destination.Close(wdDoNotSaveChanges);
+        WScript.Quit(1);
+    }
 }
     
 // Show the comparison result
