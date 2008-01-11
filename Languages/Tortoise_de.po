@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-01-07 08:54+0100\n"
+"PO-Revision-Date: 2008-01-11 08:48+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2433,6 +2433,15 @@ msgstr "Konflikteditor für bestimmte Dateitypen einrichten"
 msgid "Edit log message"
 msgstr "Logmeldung bearbeiten"
 
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Edit property \"%s\" on\r\n"
+"%s"
+msgstr ""
+"Ändere Eigenschaft \"%s\" von\r\n"
+"%s"
+
 #. Resource IDs: (1331)
 msgid "Edit..."
 msgstr "Bearbeiten..."
@@ -4818,6 +4827,15 @@ msgstr "Aus &Ignorieren Liste entfernen"
 msgid "Remove from changelist"
 msgstr "Lösche aus Änderungsliste"
 
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Remove property \"%s\" from\r\n"
+"%s"
+msgstr ""
+"Entferne Eigenschaft \"%s\" von\r\n"
+"%s"
+
 #. Resource IDs: (1332)
 msgid "Remove..."
 msgstr "Entfernen..."
@@ -5443,6 +5461,15 @@ msgstr "&Server Adresse:"
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
 msgstr "Dateidatum auf '&Datum der letzten Übertragung' setzen"
+
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Set property \"%s\" on\n"
+"%s"
+msgstr ""
+"Setze Eigenschaft\"%s\" auf\n"
+"%s"
 
 #. Resource IDs: (13)
 msgid "Setting properties..."
