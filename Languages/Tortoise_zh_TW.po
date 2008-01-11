@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-01-07 10:44+0800\n"
+"PO-Revision-Date: 2008-01-11 10:38+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2424,6 +2424,15 @@ msgstr "編輯根據副檔名的合併程式"
 msgid "Edit log message"
 msgstr "編輯紀錄訊息"
 
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Edit property \"%s\" on\r\n"
+"%s"
+msgstr ""
+"編輯性質 \"%s\" 於\n"
+"%s"
+
 #. Resource IDs: (1331)
 msgid "Edit..."
 msgstr "編輯..."
@@ -4789,6 +4798,15 @@ msgstr "自忽略列表移除(&I)"
 msgid "Remove from changelist"
 msgstr "自變更列表移除"
 
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Remove property \"%s\" from\r\n"
+"%s"
+msgstr ""
+"刪除性質 \"%s\" 於\n"
+"%s"
+
 #. Resource IDs: (1332)
 msgid "Remove..."
 msgstr "移除..."
@@ -5414,6 +5432,15 @@ msgstr "伺服器位址(&A):"
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
 msgstr "將檔案日期設定為\"最後一次送交的時間\"(&T)"
+
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Set property \"%s\" on\n"
+"%s"
+msgstr ""
+"設定性質 \"%s\" 於\n"
+"%s"
 
 #. Resource IDs: (13)
 msgid "Setting properties..."
