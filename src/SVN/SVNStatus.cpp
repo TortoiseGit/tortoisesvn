@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,6 +24,7 @@
 #include "SVNStatus.h"
 #include "UnicodeUtils.h"
 #include "SVNGlobal.h"
+#include "SVNHelpers.h"
 #ifdef _MFC_VER
 #	include "SVN.h"
 #	include "MessageBox.h"
@@ -401,6 +402,27 @@ bool SVNStatus::IsExternal(const CTSVNPath& path)
 		return true;
 	return false;
 }
+
+bool SVNStatus::IsInExternal(const CTSVNPath& path)
+{
+	if (apr_hash_count(m_statushash) == 0)
+		return false;
+
+	SVNPool localpool(m_pool);
+	apr_hash_index_t *hi;
+	const char* key;
+	for (hi = apr_hash_first(localpool, m_externalhash); hi; hi = apr_hash_next(hi)) 
+	{
+		apr_hash_this(hi, (const void**)&key, NULL, NULL);
+		if (key)
+		{
+			if (CTSVNPath(CUnicodeUtils::GetUnicode(key)).IsAncestorOf(path))
+				return true;
+		}
+	}
+	return false;
+}
+
 
 void SVNStatus::GetStatusString(svn_wc_status_kind status, size_t buflen, TCHAR * string)
 {

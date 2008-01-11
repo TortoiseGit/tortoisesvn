@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -134,6 +134,10 @@ public:
 	 * status, so with this method it's possible to check if the status also is svn_wc_status_external.
 	 */
 	bool IsExternal(const CTSVNPath& path);
+	/**
+	 * Checks if a path is in an external folder.
+	 */
+	bool IsInExternal(const CTSVNPath& path);
 
 	/**
 	 * Clears the memory pool.
