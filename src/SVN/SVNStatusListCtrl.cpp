@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -799,6 +799,10 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 	while ((s = status.GetNextFileStatus(svnPath)) != NULL)
 	{
 		svn_wc_status_kind wcFileStatus = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
+		if (wcFileStatus == svn_wc_status_external)
+		{
+			int jhgkjhg = 0;
+		}
 		if ((wcFileStatus == svn_wc_status_unversioned) && (svnPath.IsDirectory()))
 		{
 			// check if the unversioned folder is maybe versioned. This
@@ -861,6 +865,25 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 		{
 			arExtPaths.AddPath(svnPath);
 			m_bHasExternals = TRUE;
+		}
+		if ((!bEntryfromDifferentRepo)&&(status.IsInExternal(svnPath)))
+		{
+			// if the externals are inside an unversioned folder (this happens if
+			// the externals are specified with e.g. "ext\folder url" instead of just
+			// "folder url"), then a commit won't succeed.
+			// therefore, we treat those as if the externals come from a different
+			// repository
+			CTSVNPath extpath = svnPath;
+			while (basePath.IsAncestorOf(extpath))
+			{
+				if (!extpath.HasAdminDir())
+				{
+					bEntryfromDifferentRepo = true;
+					break;
+				}
+				extpath = extpath.GetContainingDirectory();
+			}
+
 		}
 		// Do we have any external paths?
 		if(arExtPaths.GetCount() > 0)
