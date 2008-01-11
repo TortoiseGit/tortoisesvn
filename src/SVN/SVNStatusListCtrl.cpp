@@ -799,10 +799,6 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 	while ((s = status.GetNextFileStatus(svnPath)) != NULL)
 	{
 		svn_wc_status_kind wcFileStatus = SVNStatus::GetMoreImportant(s->text_status, s->prop_status);
-		if (wcFileStatus == svn_wc_status_external)
-		{
-			int jhgkjhg = 0;
-		}
 		if ((wcFileStatus == svn_wc_status_unversioned) && (svnPath.IsDirectory()))
 		{
 			// check if the unversioned folder is maybe versioned. This
