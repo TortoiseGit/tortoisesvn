@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2007-12-31 23:59 +0000\n"
-"PO-Revision-Date: 2008-01-09 06:37+0900\n"
+"PO-Revision-Date: 2008-01-10 11:37+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4791,7 +4791,7 @@ msgstr "オフラインモード"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5661
 msgid "If the server is not reachable, and you have log caching enabled you can use the log dialog and revision graph in offline mode. This uses data from the cache, which allows you to continue working although the information may not be up-to-date or even complete."
-msgstr ""
+msgstr "サーバに到達せず、ログキャッシュを有効にしている場合、ログダイアログやリビジョングラフはオフラインモードで利用できます。これはキャッシュからのデータを使用し、作業を継続できますが、おそらく最新でも完全でもありません。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:5670
@@ -5277,7 +5277,7 @@ msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>ブランチ/タ�
 #. (para)
 #: ../source/TortoiseSVN_en.xml:6266
 msgid "You can locate an older version of a file or folder in the log dialog and copy it to a new location in the repository directly from the log dialog using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Create branch/tag from revision</guimenuitem></menuchoice>. Refer to <xref linkend=\"tsvn-dug-showlog-2\"/> to find out more."
-msgstr "<menuchoice><guimenu>Context menu</guimenu><guimenuitem>Create branch/tag from revision</guimenuitem></menuchoice> を利用して、ログダイアログにあるファイルやフォルダの旧バージョンをリポジトリの新しい場所へ、ログダイアログから直接、コピーできます。詳細は、<xref linkend=\"tsvn-dug-showlog-2\"/> をご覧ください。"
+msgstr "<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>リビジョンから分岐／タグを生成</guimenuitem></menuchoice> を利用して、ログダイアログにあるファイルやフォルダの旧バージョンをリポジトリの新しい場所へ、ログダイアログから直接、コピーできます。詳細は、<xref linkend=\"tsvn-dug-showlog-2\"/> をご覧ください。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:6276
@@ -5704,7 +5704,7 @@ msgstr "最後に更新したときからファイルに行った変更をすべ
 #. (para)
 #: ../source/TortoiseSVN_en.xml:6837
 msgid "If you want to undo a deletion or a rename, you need to use Revert on the parent folder as the deleted item does not exist for you to right-click on."
-msgstr ""
+msgstr "削除や名前の変更を元に戻したい場合は、削除して消えてしまった親フォルダで右クリックし、「元に戻す」を実行する必要があります。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:6842
@@ -5857,27 +5857,27 @@ msgstr "プロパティのエクスポートとインポート"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7015
 msgid "Often you will find yourself applying the same set of properties many times, for example <literal>bugtraq:logregex</literal>. To simplify the process of copying properties from one project to another, you can use the Export/Import feature."
-msgstr ""
+msgstr "しばしば、何度も同じプロパティのセット (例: <literal>bugtraq:logregex</literal>) を適用していることに気付くでしょう。あるプロジェクトから別のプロジェクトへ、プロパティを簡単にコピーするのに、エクスポート・インポート機能を利用できます。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7021
 msgid "From the file or folder where the properties are already set, use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>properties</guimenuitem></menuchoice>, select the properties you wish to export and click on <guibutton>Export...</guibutton>. You will be prompted for a filename where the property names and values will be saved."
-msgstr ""
+msgstr "すでにプロパティをセットしているファイル・フォルダで、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>プロパティ</guimenuitem></menuchoice> を使用し、エクスポートしたいプロパティを選択して <guibutton>エクスポート...</guibutton> をクリックしてください。プロパティの名前と値を保存する、ファイルの名前を入力することになります。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7031
 msgid "From the folder(s) where you wish to apply these properties, use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>properties</guimenuitem></menuchoice> and click on <guibutton>Import...</guibutton>. You will be prompted for a filename to import from, so navigate to the place you saved the export file previously and select it. The properties will be added to the folders non-recursively."
-msgstr ""
+msgstr "プロパティを適用したいフォルダで、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>プロパティ</guimenuitem></menuchoice> とし、<guibutton>インポート...</guibutton> をクリックしてください。インポートするファイルを指定することになりますので、先ほど保存したエクスポートファイルを指定してください。プロパティをそのフォルダに、再帰的ではなく追加します。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7042
 msgid "If you want to add properties to a tree recursively, follow the steps above, then in the property dialog select each property in turn, click on <guibutton>Edit...</guibutton>, check the <guilabel>Apply property recursively</guilabel> box and click on <guibutton>OK</guibutton>."
-msgstr ""
+msgstr "プロパティをツリーに対し再帰的に追加する場合、前述の手順の後、プロパティダイアログでプロパティを選び、<guibutton>編集...</guibutton> をクリックしてください。<guilabel>属性を再帰的に適用する</guilabel> チェックボックスをチェックの後、<guibutton>OK</guibutton> をクリックしてください。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7049
 msgid "The Import file format is binary and proprietary to TortoiseSVN. Its only purpose is to transfer properties using Import and Export, so there is no need to edit these files."
-msgstr ""
+msgstr "インポートファイルはバイナリで TortoiseSVN 専用です。インポートやエクスポートでのプロパティの受け渡し専用で、このファイルを編集する必要はありません。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:7056
@@ -6243,7 +6243,7 @@ msgstr "Subversion 内でどのように分岐やマージを行っているか�
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7554
 msgid "The next point to note is that merging <emphasis>always</emphasis> takes place within a working copy. If you want to merge changes <emphasis>into</emphasis> a branch, you have to have a working copy for that branch checked out, and invoke the merge wizard from that working copy using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge...</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "注意する次のポイントは、マージは <emphasis>常に</emphasis> 作業コピーで行われるということです。ブランチの<emphasis>中に</emphasis>、変更をマージしたい場合、ブランチの作業コピーをチェックアウトして、その作業コピーで <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>マージ...</guimenuitem></menuchoice> を行い、マージウィザードを起動しなければなりません。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7565
@@ -6252,9 +6252,8 @@ msgstr "一般に変更を加えていない作業コピーへマージするの
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7572
-#, fuzzy
 msgid "There are two common use cases for merging which are handled in slightly different ways, as described below. The first page of the merge wizard asks you to select the method you need."
-msgstr "マージを行うには、以下で説明するような、少し異なる 2 つの方法があります。"
+msgstr "マージを行うには、以下で説明するような、少し異なる方法で行う、 2 つのよくあるケースがあります。マージウィザードの最初のページで、どちらで行うか確認しますので、選択してください。"
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:7580
@@ -6273,14 +6272,13 @@ msgstr "異なる 2 つの木をマージ"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7592
-#, fuzzy
 msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk. After the merge, trunk and branch are identical."
-msgstr "この方法は、Subversion book で述べた機能ブランチを作成する際の場合を扱います。トランクのすべての変更を、週ごとに機能ブランチに移し、機能が完全になったらトランクにマージします。機能ブランチをトランクと同期させておかねばならないため、ブランチの最新バージョンとトランクは、ブランチへの変更を除いて、絶対に一致するでしょう。そのため特別な場合に、トランクとブランチを比較してマージできます。"
+msgstr "この方法は、Subversion book で述べた機能ブランチを作成する際の場合を扱います。トランクのすべての変更を、週ごとに機能ブランチに移し、機能が完全になったらトランクにマージします。機能ブランチをトランクと同期させておくため、ブランチの最新バージョンとトランクは、ブランチへの変更を除いて、完全に一致するはずです。そのため特別な場合に、トランクとブランチを比較してマージできます。マージ後は、トランクとブランチは一致します。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7603
 msgid "Another use case occurs when you are using vendor branches and you need to merge the changes following a new vendor drop into your trunk code. For more information read the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.advanced.vendorbr.html\"><citetitle>vendor branches</citetitle></ulink> in the Subversion Book."
-msgstr ""
+msgstr "別のケースとしては、ベンダブランチを使用していて、新しくベンダが落としたコードの変更を、トランクにマージする必要がある場合もありえます。詳細は、Subversion Book の <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.advanced.vendorbr.html\"><citetitle>vendor branches</citetitle></ulink> をご覧ください。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:7616
@@ -6300,18 +6298,17 @@ msgstr "<placeholder-1/> <guilabel>元:</guilabel> フィールドには、作�
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7633
 msgid "In the <guilabel>Revision range to merge</guilabel> field enter the list of revisions you want to merge. This can be a single revision, a list of specific revisions separated by commas, or a range of revisions separated by a dash, or any combination of these."
-msgstr ""
+msgstr "<guilabel>マージするリビジョンの範囲</guilabel> フィールドに、マージするリビジョンのリストを入力してください。ここではリビジョン一つ、カンマで区切ったリビジョンの指定、ダッシュでつないだリビジョンの範囲と以上の組み合わせが利用できます。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7640
-#, fuzzy
 msgid "The easiest way to select the range of revisions you need is to click on <guibutton>Show Log</guibutton>, as this will list recent changes with their log comments. If you want to merge the changes from a single revision, just select that revision. If you want to merge changes from several revisions, then select that range (using the usual <keycap>Shift</keycap>-modifier). Click on <guibutton>OK</guibutton> and the list of revision numbers to merge will be filled in for you."
-msgstr "必要なリビジョンの範囲を選択する最も簡単な方法は、<guibutton>ログを表示</guibutton> をクリックすることで、そうすると最近の変更点一覧がログメッセージと共に表示されます。1 リビジョンからマージしたい場合は、単にそのリビジョンを選択してください。複数のリビジョンからマージしたい場合は、その範囲を (通常 <keycap>Shift</keycap> キーを押しながら) 選択してください。<guibutton>OK</guibutton> をクリックすると、マージダイアログの <guilabel>元リビジョン</guilabel> と <guilabel>先リビジョン</guilabel> のリビジョン番号に <emphasis>それぞれ</emphasis> 値が入っているはずです。"
+msgstr "必要なリビジョンの範囲を選択する最も簡単な方法は、<guibutton>ログを表示</guibutton> をクリックして、最近の変更点一覧をログメッセージと共に表示することです。単一リビジョンからマージしたい場合は、そのリビジョンを選択するだけです。複数のリビジョンからマージしたい場合は、その範囲を (通常 <keycap>Shift</keycap> キーを押しながら) 選択してください。<guibutton>OK</guibutton> をクリックすると、マージするリビジョン番号のリストに入力されます。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7651
 msgid "If you want to merge changes back <emphasis>out</emphasis> of your working copy, to revert a change which has already been committed, select the revisions to revert and make sure the <guilabel>Reverse merge</guilabel> box is checked."
-msgstr ""
+msgstr "すでにコミットしてしまった変更を取り消して、作業コピーを<emphasis>元に戻す</emphasis>ようにマージする場合、元に戻すリビジョンを選択して、<guilabel>逆マージ</guilabel> チェックボックスを必ずチェックしてください。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7657
@@ -6321,7 +6318,7 @@ msgstr "このブランチからの変更をすでにマージしてある場合
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7668
 msgid "If you are using the merge tracking features of Subversion, you do not need to remember which revisions have already been merged - Subversion will record that for you. If you leave the revision range blank, all revisions which have not yet been merged will be included. Read <xref linkend=\"tsvn-dug-merge-tracking\"/> to find out more."
-msgstr ""
+msgstr "Subversion のマージ追跡機能を使用する場合、どのリビジョンをすでにマージしたかを覚えておく必要はありません。Subversion が記録しています。リビジョン範囲をからのままにしておくと、まだマージしていないリビジョンすべてが対象になります。詳細は <xref linkend=\"tsvn-dug-merge-tracking\"/> をご覧ください。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7676
@@ -6376,13 +6373,12 @@ msgstr "マージオプション"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7734
 msgid "This page of the wizard lets you specify advanced options, before starting the merge process. Most of the time you can just use the default settings."
-msgstr ""
+msgstr "ウィザードのこのページでは、マージの実行前に、さらにオプションの指定ができます。ほとんどの場合デフォルトの設定使用するだけでしょう。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7739
-#, fuzzy
 msgid "You can specify the depth to use for the merge, i.e. how far down into your working copy the merge should go. The depth terms used are described in <xref linkend=\"tsvn-dug-checkout-depth\"/>. The default depth is <guilabel>Working copy</guilabel>, which uses the existing depth setting, and is almost always what you want."
-msgstr "また、マージする深度も指定できます。深度については <xref linkend=\"tsvn-dug-checkout-depth\"/> で説明しています。デフォルトの深度は <guilabel>作業コピー</guilabel> で、既存の深度をそのまま使用します。"
+msgstr "また、マージする深度も指定できます。これは、作業コピー内をどの程度深くたどってマージを行うべきかということです。深度については <xref linkend=\"tsvn-dug-checkout-depth\"/> で説明しています。デフォルトの深度は <guilabel>作業コピー</guilabel> で、既存の深度をそのまま使用します。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7746
@@ -6401,9 +6397,8 @@ msgstr ""
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7780
-#, fuzzy
 msgid "Now everything is set up, all you have to do is click on the <guibutton>Merge</guibutton> button. If you want to preview the results <guibutton>Test Merge</guibutton> performs the merge operation, but does <emphasis>not</emphasis> modify the working copy at all. It shows you a list of the files that will be changed by a real merge, and notes those areas where conflicts will occur."
-msgstr "<guibutton>動作チェック</guibutton> はマージ操作を行いますが、作業コピーにいずれの変更も<emphasis>加えません</emphasis>。これで実際のマージで変更が入るファイルの一覧を表示し、また競合が発生する範囲も表示します。"
+msgstr "すべての設定が終わって、<guibutton>マージ</guibutton> ボタンを押すだけになったとします。結果のプレビューを行う場合、<guibutton>マージのテスト</guibutton> はマージ操作を行いますが、作業コピーにいずれの変更も<emphasis>加えません</emphasis>。これで実際のマージで変更が入るファイルの一覧を表示し、また競合が発生する範囲も表示します。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7788
@@ -6437,9 +6432,8 @@ msgstr "ブランチ管理は重要です。このブランチをトランクに
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7835
-#, fuzzy
 msgid "If you have just merged a feature branch back into the trunk, the trunk now contains all the new feature code, and the branch is obsolete. You can now delete it from the repository if required."
-msgstr "この場合、もう機能ブランチは必要ありません。新機能はトランクに統合されたからです。機能ブランチは余計なものになってしまい、必要ならリポジトリから削除してかまいません。"
+msgstr "昨日ブランチからトランクへマージが完了すると、トランクには新機能のすべてのコードが含まれ、ブランチは必要なくなります。必要ならリポジトリから削除してかまいません。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7843
@@ -6928,9 +6922,8 @@ msgstr ""
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8495
-#, fuzzy
 msgid "If you want to see the paths involved in the merge, select <menuchoice><guimenu>View</guimenu><guimenuitem>Merge paths</guimenuitem></menuchoice>."
-msgstr "作業コピーで <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>マージ</guimenuitem></menuchoice> を選択してください。"
+msgstr "マージされるパスを確認する場合、<menuchoice><guimenu>表示</guimenu><guimenuitem>パスをマージ</guimenuitem></menuchoice> を選択してください。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8502
@@ -7181,9 +7174,8 @@ msgstr "TortoiseSVN がグラフを生成するには、リポジトリのルー
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8815
-#, fuzzy
 msgid "The good news is that if you are using Log Caching, you only have to suffer this delay once. After that, log data is held locally. Log caching is enabled in TortoiseSVN's settings."
-msgstr "朗報としては、ログキャッシュを使用している場合は、一度この遅さを我慢すればいいということです。これ以後は、ローカルにログデータを保持しています。TortoiseSVN 設定の <guilabel>ダイアログ 1</guilabel> ページで有効にできます。"
+msgstr "朗報としては、ログキャッシュを使用している場合は、一度この遅さを我慢すればいいということです。これ以後は、ローカルにログデータを保持しています。ログキャッシュは TortoiseSVN 設定で有効にできます。"
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:8825
@@ -8805,7 +8797,7 @@ msgstr "パス"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10898
 msgid "The number of paths listed, as you would see using <literal>svn log -v</literal>."
-msgstr ""
+msgstr "<literal>svn log -v</literal> で見られるリストにある、パスの数です。"
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10905
@@ -8815,7 +8807,7 @@ msgstr "スキップ範囲"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10907
 msgid "The number of revision ranges which we have not fetched, simply because they haven't been requested. This is a measure of the number of holes in the cache."
-msgstr ""
+msgstr "取得していないリビジョン範囲の数で、単純にリクエストしていないものです。キャッシュ内のホール数の尺度になります。"
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10915
@@ -8825,7 +8817,7 @@ msgstr "最大リビジョン"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10917
 msgid "The highest revision number stored in the cache."
-msgstr ""
+msgstr "キャッシュに格納されている、リビジョン番号の最大値です。"
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10923
@@ -8835,7 +8827,7 @@ msgstr "リビジョンカウント"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10925
 msgid "The number of revisions stored in the cache. This is another measure of cache completeness."
-msgstr ""
+msgstr "キャッシュに格納されているリビジョン番号の数です。キャッシュの完全性に関する別の尺度になります。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10833
@@ -9524,7 +9516,7 @@ msgstr ""
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11663
 msgid "After running <literal>SubWCRev.exe path\\to\\workingcopy testfile.tmpl testfile.txt</literal>, the output file <literal>testfile.txt</literal> would looks like this:"
-msgstr ""
+msgstr "<literal>SubWCRev.exe path\\to\\workingcopy testfile.tmpl testfile.txt</literal> の実行後、出力ファイル <literal>testfile.txt</literal> は以下のようになります。"
 
 #. (screen)
 #: ../source/TortoiseSVN_en.xml:11667
