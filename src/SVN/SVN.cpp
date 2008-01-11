@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1699,6 +1699,8 @@ svn_error_t* svn_cl__get_log_message(const char **log_msg,
 CString SVN::GetURLFromPath(const CTSVNPath& path)
 {
 	const char * URL;
+	if (path.IsUrl())
+		return path.GetSVNPathString();
 	if (!path.Exists())
 		return _T("");
 	svn_error_clear(Err);
