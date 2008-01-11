@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 11749: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 11843: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-01-03 23:37+0300\n"
+"PO-Revision-Date: 2008-01-11 15:20+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -57,6 +57,7 @@ msgstr ""
 # overlays -- пометки (на значках)
 # patch -- заплатка
 # release (lock) -- cнятие (блокировки)
+# remote -- удалённый/отдалённый
 # repository -- хранилище
 # resolve -- улаживать
 # revert -- убрать изменения / вернуть в прежнее состояние
@@ -99,7 +100,7 @@ msgstr "%1 содержит непредвиденный объект."
 #. Resource IDs: (3867)
 #, c-format
 msgid "%1 contains an incorrect path."
-msgstr "%1 содержит некорректную путь."
+msgstr "%1 содержит некорректный путь."
 
 #. Resource IDs: (3868)
 #, c-format
@@ -233,7 +234,7 @@ msgid ""
 "Do you want to remove it anyway?"
 msgstr ""
 "%s\n"
-"Вы действительно желаете это удалить?"
+"Вы всё равно желаете это удалить?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -1590,7 +1591,7 @@ msgstr "Проверьте введенные путь и/или URL."
 
 #. Resource IDs: (194)
 msgid "Check those menu entries you want to appear in the top context menu instead of the TortoiseSVN submenu"
-msgstr "Отметьте те пункты, которые вы хотите видеть в основном контекстном меню, а не в подменю TortoiseSVN"
+msgstr "Отметьте те пункты, которые вы желаете видеть в основном контекстном меню, а не в подменю TortoiseSVN"
 
 #. Resource IDs: (80)
 msgid "Check to use a less verbose date and time format in log messages"
@@ -2495,6 +2496,15 @@ msgstr "Редактировать программу слияния для ко
 #. Resource IDs: (113, 115)
 msgid "Edit log message"
 msgstr "Изменить сообщение журнала"
+
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Edit property \"%s\" on\r\n"
+"%s"
+msgstr ""
+"Редактирование свойства \"%s\" для\r\n"
+"%s"
 
 #. Resource IDs: (1331)
 msgid "Edit..."
@@ -3979,7 +3989,7 @@ msgstr "Количество сохраняемых предыдущих соо�
 
 #. Resource IDs: (65535)
 msgid "Max. lines in action log"
-msgstr "строк в журнале действий"
+msgstr "Число строк в журнале действий"
 
 #. Resource IDs: (109, 110, 111, 276, 278, 65535)
 msgid "Merge"
@@ -4891,6 +4901,15 @@ msgstr "Удалить из списка &игнорирования"
 msgid "Remove from changelist"
 msgstr "Убрать из группы изменений"
 
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Remove property \"%s\" from\r\n"
+"%s"
+msgstr ""
+"Удаление свойства \"%s\" для\r\n"
+"%s"
+
 #. Resource IDs: (1332)
 msgid "Remove..."
 msgstr "Убрать..."
@@ -5526,6 +5545,15 @@ msgstr "&Адрес сервера:"
 msgid "Set file dates to the \"last commit &time\""
 msgstr "Устанавливать даты файлов на \"время последнего &фиксирования\""
 
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Set property \"%s\" on\n"
+"%s"
+msgstr ""
+"Установка свойства \"%s\" для\r\n"
+"%s"
+
 #. Resource IDs: (13)
 msgid "Setting properties..."
 msgstr "Установка свойств..."
@@ -5669,11 +5697,11 @@ msgstr ""
 
 #. Resource IDs: (1432)
 msgid "Show overlay for ignored items"
-msgstr "Пометки на игнорируемых элементах"
+msgstr "Показывать пометки для игнорируемых элементов"
 
 #. Resource IDs: (1462)
 msgid "Show overlay for unversioned items"
-msgstr "Пометки на неверсированных элементах"
+msgstr "Показывать пометки для неверсированных элементов"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -5887,7 +5915,7 @@ msgstr ""
 # Вообще-то файл называется 'servers'
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
-msgstr "Файл серверов Subversion:"
+msgstr "Файл серверов Subversion (servers):"
 
 #. Resource IDs: (1232)
 msgid "Sw&itch working copy to new branch/tag"
@@ -7570,7 +7598,7 @@ msgstr "или"
 
 #. Resource IDs: (65535)
 msgid "pair tokens: "
-msgstr "Токенов пар:"
+msgstr "Парных токенов:"
 
 #. Resource IDs: (65535)
 msgid "path elements: "
@@ -7626,7 +7654,7 @@ msgstr "Ревизий:"
 
 #. Resource IDs: (65535)
 msgid "skip ranges: "
-msgstr "Проп. диапазоны:"
+msgstr "Пропущ. диапаз.:"
 
 #. Resource IDs: (576)
 msgid ""
@@ -7918,7 +7946,7 @@ msgstr "Токенов слов:"
 
 #. Resource IDs: (65535)
 msgid "words [uncompressed]: "
-msgstr "слов [несжатых]:"
+msgstr "Слов [несжатых]:"
 
 # статистика: годы
 #. Resource IDs: (245)
