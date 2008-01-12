@@ -259,20 +259,6 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 			CCachedDirectory * dirEntry = CSVNStatusCache::Instance().GetDirectoryCacheEntry(path);
 			if ((dirEntry)&&(dirEntry->IsOwnStatusValid()))
 			{
-				// This directory knows its own status
-				// but is it still versioned?
-
-				// CTSVNPath has a default copy constructor, but we *don't* want to use
-				// that one here, because some internal data (here: the m_bHasAdminDirKnown flag)
-				// must be not used. It could have been changed and must be checked again.
-				// That's why we use the CString constructor, which resets all those flags.
-				CTSVNPath svnFilePath(dirEntry->m_directoryPath.GetWinPathString());
-				if (!svnFilePath.HasAdminDir())
-				{
-					CSVNStatusCache::Instance().AddFolderForCrawling(svnFilePath);
-					return CStatusCacheEntry();
-				}
-
 				// To keep recursive status up to date, we'll request that children are all crawled again
 				// This will be very quick if nothing's changed, because it will all be cache hits
 				if (bRecursive)
@@ -503,7 +489,8 @@ CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_wc_status2_t* pSVNSt
 		CCachedDirectory * childDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(path);
 		if (childDir)
 		{
-			childDir->m_ownStatus.SetStatus(pSVNStatus);
+			if ((childDir->GetCurrentFullStatus() != svn_wc_status_ignored)||(pSVNStatus==NULL)||(pSVNStatus->text_status != svn_wc_status_unversioned))
+				childDir->m_ownStatus.SetStatus(pSVNStatus);
 			childDir->m_ownStatus.SetKind(svn_node_dir);
 		}
 	}
@@ -515,7 +502,7 @@ CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_wc_status2_t* pSVNSt
 		{
 			if (pSVNStatus)
 			{
-				if (entry_it->second.GetEffectiveStatus() > svn_wc_status_unversioned &&
+				if (entry_it->second.GetEffectiveStatus() > svn_wc_status_none &&
 					entry_it->second.GetEffectiveStatus() != SVNStatus::GetMoreImportant(pSVNStatus->prop_status, pSVNStatus->text_status))
 				{
 					CSVNStatusCache::Instance().UpdateShell(path);
