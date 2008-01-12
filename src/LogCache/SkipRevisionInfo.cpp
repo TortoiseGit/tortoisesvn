@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -191,10 +191,6 @@ index_t CSkipRevisionInfo::CPacker::RemoveParentRanges()
 
 				if (previous != NO_REVISION)
 				{
-					// must be no complete cover
-
-					assert (previous >= iter->first);
-
 					// reduce the size of the range
 
 					iter->second = previous - iter->first + 1;
