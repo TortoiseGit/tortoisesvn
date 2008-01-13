@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -106,12 +106,12 @@ CString SVNInfo::GetLastErrorMsg()
 	return SVN::GetErrorString(m_err);
 }
 
-const SVNInfoData * SVNInfo::GetFirstFileInfo(const CTSVNPath& path, SVNRev pegrev, SVNRev revision, bool recurse /* = false */)
+const SVNInfoData * SVNInfo::GetFirstFileInfo(const CTSVNPath& path, SVNRev pegrev, SVNRev revision, svn_depth_t depth /* = svn_depth_empty*/)
 {
 	svn_error_clear(m_err);
 	m_arInfo.clear();
 	m_pos = 0;
-	m_err = svn_client_info(path.GetSVNApiPath(m_pool), pegrev, revision, infoReceiver, this, recurse, m_pctx, m_pool);
+	m_err = svn_client_info2(path.GetSVNApiPath(m_pool), pegrev, revision, infoReceiver, this, depth, m_pctx, m_pool);
 	if (m_err != NULL)
 		return NULL;
 	if (m_arInfo.size() == 0)

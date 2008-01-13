@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -329,13 +329,13 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 		progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROGRESS_INFO)));
 		CString sRepoRoot;
 		SVNInfo info;
-		const SVNInfoData * data = info.GetFirstFileInfo(url1, (peg.IsValid() ? peg : m_headPeg), rev1, false);
+		const SVNInfoData * data = info.GetFirstFileInfo(url1, (peg.IsValid() ? peg : m_headPeg), rev1, svn_depth_empty);
 		if (data == NULL)
 		{
-			data = info.GetFirstFileInfo(url1, (peg.IsValid() ? peg : rev1), rev1, false);
+			data = info.GetFirstFileInfo(url1, (peg.IsValid() ? peg : rev1), rev1, svn_depth_empty);
 			if (data == NULL)
 			{
-				data = info.GetFirstFileInfo(url1, (peg.IsValid() ? peg : rev2), rev1, false);
+				data = info.GetFirstFileInfo(url1, (peg.IsValid() ? peg : rev2), rev1, svn_depth_empty);
 				if (data == NULL)
 				{
 					progDlg.Stop();

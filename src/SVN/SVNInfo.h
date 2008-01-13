@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -89,7 +89,7 @@ public:
 	 * \param recurse if TRUE, then GetNextFileInfo() returns the info also
 	 * for all children of \a path.
 	 */
-	const SVNInfoData * GetFirstFileInfo(const CTSVNPath& path, SVNRev pegrev, SVNRev revision, bool recurse = false);
+	const SVNInfoData * GetFirstFileInfo(const CTSVNPath& path, SVNRev pegrev, SVNRev revision, svn_depth_t depth = svn_depth_empty);
 	size_t GetFileCount() {return m_arInfo.size();}
 	/**
 	 * Returns the info of the next file in the filelist. If no more files are in the list then NULL is returned.
