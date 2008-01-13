@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2008-01-01 13:11+0100\n"
+"PO-Revision-Date: 2008-01-11 17:24+0100\n"
 "Last-Translator: Matjaz Cepon <matjaz.cepon@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2449,6 +2449,15 @@ msgstr "Nastavi program za spajanje glede na končnico"
 msgid "Edit log message"
 msgstr "Uredi dnevniški zapis"
 
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Edit property \"%s\" on\r\n"
+"%s"
+msgstr ""
+"Uredi lastnost \"%s\" na\r\n"
+"%s"
+
 #. Resource IDs: (1331)
 msgid "Edit..."
 msgstr "Uredi..."
@@ -4800,6 +4809,15 @@ msgstr "Odstrani s seznama &prezrtih"
 msgid "Remove from changelist"
 msgstr "Odstrani s seznama sprememb"
 
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Remove property \"%s\" from\r\n"
+"%s"
+msgstr ""
+"Odstrani lastnost \"%s\" na\r\n"
+"%s"
+
 #. Resource IDs: (1332)
 msgid "Remove..."
 msgstr "Odstrani..."
@@ -5425,6 +5443,15 @@ msgstr "N&aslov strežnika:"
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
 msgstr "Nastavi datume datotek na \"&čas zadnje objave\""
+
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Set property \"%s\" on\r\n"
+"%s"
+msgstr ""
+"Nastavi lastnost \"%s\" na\r\n"
+"%s"
 
 #. Resource IDs: (13)
 msgid "Setting properties..."
