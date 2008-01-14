@@ -17,30 +17,39 @@ $w['w32']=$v['release'].".".$v['build']."-win32";
 $w['w32wrong']=$v['release'].".".$v['build'].""; 
 $w['x64']=$v['release'].".".$v['build_x64']."-x64"; 
 
+if (!function_exists('get_changelog')) {
 function get_changelog($v)
 {
 $t_ln="http://sourceforge.net/project/shownotes.php?release_id=".$v['sf_release_id'];
 return "<a href=\"$t_ln\">changelog</a>";
 }
+}
 
+if (!function_exists('get_installer')) {
 function get_installer($v, $w)
 {
 $t_ln="TortoiseSVN-".$w."-svn-".$v['svnver'].".msi";
 return "<a href=\"".$v['url1'].$t_ln.$v['url2']."\">$t_ln</a>" ;
 }
+}
 
+if (!function_exists('get_checksum')) {
 function get_checksum($v, $w)
 {
 $t_ln="TortoiseSVN-".$w."-svn-".$v['svnver'].".md5";
 return "<a href=\"".$v['url1'].$t_ln.$v['url2']."\">$t_ln</a>";
 }
+}
 
+if (!function_exists('get_langpack')) {
 function get_langpack($l, $n, $v, $w)
 {
 $t_ln="LanguagePack-".$w."-".$l.".exe";
 return "<a href=\"".$v['url1'].$t_ln.$v['url2']."\">$n</a>";
 }
+}
 
+if (!function_exists('print_langpack')) {
 function print_langpack($i, $postat, $v, $w)
 {
   $infobits=$postat[1];
@@ -77,6 +86,7 @@ function print_langpack($i, $postat, $v, $w)
   echo "<td>$dlmanTSVN</td>";
   echo "<td>$dlmanTMerge</td>";
   echo "</tr>";
+}
 }
 
 //------------------------------------
@@ -126,7 +136,22 @@ Note for x64 users: you can install both the 32 and 64-bit version side by side.
 </div>
 
 <br />
-<?php print adsense_display("468x60",2,1) ?>
+<script type="text/javascript"><!--
+google_ad_client = "pub-0430507460695576";
+google_ad_width = 300;
+google_ad_height = 250;
+google_ad_format = "300x250_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+google_color_border = "ffffff";
+google_color_bg = "ffffff";
+google_color_link = "5B5FAA";
+google_color_url = "5B5FAA";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript"
+ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
 <?php
 
 // Merge translation and country information into one array
@@ -175,29 +200,42 @@ array_multisort($potfile, $country, $transl, $untrans, $fuzzy, $accel, $Tortoise
 </table>
 </div>
 
+<h1>Forthcoming Releases</h1>
+<p>To find out what is happening with the project and when you can expect the next release, take a look at our <a href="/status">project status</a> page.</p>
+
 <h1>Release Candidates</h1>
-<ul>
-<li>We maintain ongoing <a href="http://nightlybuilds.tortoisesvn.net/1.4.x/">Release Candidates</a> as well. These contain the latest offical release plus latest bugfixes. They are not built nightly, but on demand from the current release branch. If you find that a certain bug has been fixed and you do not want to wait until the next release, install one of these. You would also help us tremendously by installing and testing release candidates.
-Please read <a href="http://nightlybuilds.tortoisesvn.net/1.4.x/Readme.txt">Readme.txt</a> first.</li>
-</ul>
+<p>We maintain ongoing <a href="http://nightlybuilds.tortoisesvn.net/1.4.x/">Release Candidates</a> as well. These contain the latest official release plus latest bugfixes. They are not built nightly, but on demand from the current release branch. If you find that a certain bug has been fixed and you do not want to wait until the next release, install one of these. You would also help us tremendously by installing and testing release candidates.
+Please read <a href="http://nightlybuilds.tortoisesvn.net/1.4.x/Readme.txt">Readme.txt</a> first.</p>
 
 <h1>Nightly Builds</h1>
-<ul>
-<li><a href="http://nightlybuilds.tortoisesvn.net/latest/">Nightly Builds</a> are available too. They are built from the current development head and are for testing only. Please read <a href="http://nightlybuilds.tortoisesvn.net/latest/NightlyBuild.txt">NightlyBuild.txt</a> first.</li>
-</ul>
+<p><a href="http://nightlybuilds.tortoisesvn.net/latest/">Nightly Builds</a> are available too. They are built from the current development head and are for testing only. Please read <a href="http://nightlybuilds.tortoisesvn.net/latest/Readme.txt">Readme.txt</a> first.</p>
 
 <h1>Older Releases</h1>
-<ul>
-<li>Older releases are available from the <a href="http://sourceforge.net/project/showfiles.php?group_id=<?php print $v['sf_project']; ?>">Sourceforge files</a> section.</li>
-</ul>
+<p>Older releases are available from the <a href="http://sourceforge.net/project/showfiles.php?group_id=<?php print $v['sf_project']; ?>">Sourceforge files</a> section.</p>
 
 <h1>Sourcecode</h1>
-TortoiseSVN is under the GPL license. That means you can get the whole sourcecode and build the program yourself.
+<p>TortoiseSVN is under the GPL license. That means you can get the whole sourcecode and build the program yourself.
 <br />
 The sourcecode is hosted on <a href="http://www.tigris.org">tigris.org</a> in our own Subversion repository. You can browse the sourcecode with your favorite webbrowser directly on the <a href="http://tortoisesvn.tigris.org/svn/tortoisesvn/">repository</a>. Use <em>guest</em> as the username and an empty password to log in.
 <br />
 If you have TortoiseSVN installed, you can check out the whole sourcecode by clicking on the tortoise icon below:
 <br />
-<a href="tsvn:http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk"><img src="/files/TortoiseCheckout.png" alt="Tortoise Icon"/></a>
+<a href="tsvn:http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk"><img src="/files/TortoiseCheckout.png" alt="Tortoise Icon"/></a></p>
 
+<script type="text/javascript"><!--
+google_ad_client = "pub-0430507460695576";
+google_ad_width = 300;
+google_ad_height = 250;
+google_ad_format = "300x250_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+google_color_border = "ffffff";
+google_color_bg = "ffffff";
+google_color_link = "5B5FAA";
+google_color_url = "5B5FAA";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript"
+ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
 <!--break-->
