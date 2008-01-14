@@ -58,8 +58,8 @@ CSetOverlayPage::CSetOverlayPage()
 	m_regCacheType = CRegDWORD(_T("Software\\TortoiseSVN\\CacheType"), GetSystemMetrics(SM_REMOTESESSION) ? 2 : 1);
 	m_regUnversionedAsModified = CRegDWORD(_T("Software\\TortoiseSVN\\UnversionedAsModified"), FALSE);
 	m_regShowExcludedAsNormal = CRegDWORD(_T("Software\\TortoiseSVN\\ShowExcludedAsNormal"), TRUE);
-	m_regShowIgnoredOverlay = CRegDWORD(_T("Software\\TortoiseSVN\\ShowIgnoredOverlay"), FALSE);
-	m_regShowUnversionedOverlay = CRegDWORD(_T("Software\\TortoiseSVN\\ShowUnversionedOverlay"), FALSE);
+	m_regShowIgnoredOverlay = CRegDWORD(_T("Software\\TortoiseSVN\\ShowIgnoredOverlay"), TRUE);
+	m_regShowUnversionedOverlay = CRegDWORD(_T("Software\\TortoiseSVN\\ShowUnversionedOverlay"), TRUE);
 
 	m_bOnlyExplorer = m_regOnlyExplorer;
 	m_bRemovable = m_regDriveMaskRemovable;
