@@ -976,7 +976,9 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 		return;	//don't do anything in a dry-run.
 
 	const NotificationData * data = m_arData[pNMLV->iItem];
-	ASSERT(data != NULL);
+	if (data == NULL)
+		return;
+
 	if (data->bConflictedActionItem)
 	{
 		// We've double-clicked on a conflicted item - do a three-way merge on it
@@ -989,6 +991,19 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 		SVNDiff diff(this, this->m_hWnd, true);
 		diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 		diff.DiffFileAgainstBase(data->path);
+	}
+	else if ((!data->bAuxItem)&&(data->path.Exists())&&(!data->path.IsDirectory()))
+	{
+		bool bOpenWith = false;
+		int ret = (int)ShellExecute(m_hWnd, NULL, data->path.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
+		if (ret <= HINSTANCE_ERROR)
+			bOpenWith = true;
+		if (bOpenWith)
+		{
+			CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
+			cmd += data->path.GetWinPathString();
+			CAppUtils::LaunchApplication(cmd, NULL, false);
+		}
 	}
 }
 
