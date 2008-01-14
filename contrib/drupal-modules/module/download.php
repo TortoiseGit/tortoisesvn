@@ -60,20 +60,24 @@ function print_langpack($i, $postat, $v, $w)
   
   $dlfile32=get_langpack($lang_cc, 'Setup', $v, $w['w32']);
   $dlfile64=get_langpack($lang_cc, 'Setup', $v, $w['x64']);
-  if ( ($infobits & "01") <> "0")   {
+  if ( ($infobits & "001") <> "0") {
    $t_ln="SpellChecker_".$lang_cc.".exe";
    $dlfilechecker="<a href=\"".$v['url1'].$t_ln.$v['url2']."\">Spellchecker</a>";
-	} else {
+  } else {
    $dlfilechecker="";
   }
   
-  if ( ($infobits & "10") <> "0")   {
+  if ( ($infobits & "010") <> "0") {
    $t_ts="TortoiseSVN-".$v['release'].'-'.$lang_cc.".pdf";
-   $t_tm="TortoiseMerge-".$v['release'].'-'.$lang_cc.".pdf";
    $dlmanTSVN="<a href=\"".$v['url1'].$t_ts.$v['url2']."\">TSVN</a>";
-   $dlmanTMerge="<a href=\"".$v['url1'].$t_tm.$v['url2']."\">TMerge</a>";
   } else {
    $dlmanTSVN="";
+  }
+
+  if ( ($infobits & "100") <> "0") {
+   $t_tm="TortoiseMerge-".$v['release'].'-'.$lang_cc.".pdf";
+   $dlmanTMerge="<a href=\"".$v['url1'].$t_tm.$v['url2']."\">TMerge</a>";
+  } else {
    $dlmanTMerge="";
   }
 
