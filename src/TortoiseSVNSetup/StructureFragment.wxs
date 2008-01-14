@@ -151,23 +151,23 @@
 						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\SubWCRev.exe" Name="Path" Value="[INSTALLDIR]bin" Type="string" />
 						<Registry Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\SubWCRev.exe" Value="[INSTALLDIR]bin\SubWCRev.exe" Type="string" />
 
-						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Normal" Action="createKeyAndRemoveKeyOnUninstall" />
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Normal" Action="createKey" />
 						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Normal" Name="SVN" Value="{$(var.GuidNormal)}" Type="string" />
-						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Modified" Action="createKeyAndRemoveKeyOnUninstall" />
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Modified" Action="createKey" />
 						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Modified" Name="SVN" Value="{$(var.GuidModified)}" Type="string" />
-						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Conflict" Action="createKeyAndRemoveKeyOnUninstall" />
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Conflict" Action="createKey" />
 						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Conflict" Name="SVN" Value="{$(var.GuidConflict)}" Type="string" />
-						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Deleted" Action="createKeyAndRemoveKeyOnUninstall" />
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Deleted" Action="createKey" />
 						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Deleted" Name="SVN" Value="{$(var.GuidDeleted)}" Type="string" />
-						<Registry Root="HKLM" Key="Software\TortoiseOverlays\ReadOnly" Action="createKeyAndRemoveKeyOnUninstall" />
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\ReadOnly" Action="createKey" />
 						<Registry Root="HKLM" Key="Software\TortoiseOverlays\ReadOnly" Name="SVN" Value="{$(var.GuidReadonly)}" Type="string" />
-						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Locked" Action="createKeyAndRemoveKeyOnUninstall" />
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Locked" Action="createKey" />
 						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Locked" Name="SVN" Value="{$(var.GuidLocked)}" Type="string" />
-						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Added" Action="createKeyAndRemoveKeyOnUninstall" />
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Added" Action="createKey" />
 						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Added" Name="SVN" Value="{$(var.GuidAdded)}" Type="string" />
-						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Ignored" Action="createKeyAndRemoveKeyOnUninstall" />
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Ignored" Action="createKey" />
 						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Ignored" Name="SVN" Value="{$(var.GuidIgnored)}" Type="string" />
-						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Unversioned" Action="createKeyAndRemoveKeyOnUninstall" />
+						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Unversioned" Action="createKey" />
 						<Registry Root="HKLM" Key="Software\TortoiseOverlays\Unversioned" Name="SVN" Value="{$(var.GuidUnversioned)}" Type="string" />
 					</Component>
 
