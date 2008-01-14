@@ -131,7 +131,7 @@ BOOL CSVNProgressDlg::Cancel()
 svn_wc_conflict_choice_t CSVNProgressDlg::ConflictResolveCallback(const svn_wc_conflict_description_t *description, CString& mergedfile)
 {
 	// we only bother the user when merging
-	if ((m_Command == SVNProgress_Merge)&&(!m_AlwaysConflicted))
+	if ((m_Command == SVNProgress_Merge)&&(!m_AlwaysConflicted)&&(description))
 	{
 		CConflictResolveDlg dlg(this);
 		dlg.SetConflictDescription(description);
