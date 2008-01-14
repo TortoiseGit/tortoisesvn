@@ -1277,6 +1277,8 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							(data->action == svn_wc_notify_revert)||
 							(data->action == svn_wc_notify_resolved)||
 							(data->action == svn_wc_notify_commit_replaced)||
+							(data->action == svn_wc_notify_commit_modified)||
+							(data->action == svn_wc_notify_commit_postfix_txdelta)||
 							(data->action == svn_wc_notify_update_update))
 						{
 							temp.LoadString(IDS_MENULOG);
