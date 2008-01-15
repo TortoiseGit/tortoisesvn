@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2007-11-08 10:58 +0000\n"
-"PO-Revision-Date: 2008-01-09 07:11+0900\n"
+"PO-Revision-Date: 2008-01-15 15:51+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -316,7 +316,7 @@ msgstr "右ペインにあるファイルに対して、以下のことを含む
 #. (para)
 #: ../source/TortoiseMerge_en.xml:330
 msgid "You can also edit the file in the right pane just as you would in a text editor. Such lines are marked using a pencil icon. Please note that if you want to make any of the line/block-based changes described above, it is better to do those first since once you start editing the file yourself it becomes impossible for TortoiseMerge to keep track of the relationship to the original files."
-msgstr ""
+msgstr "また、右ペインでテキストエディタのように編集もできます。その行は鉛筆アイコンで印がつけられます。前述の行/ブロックベースの変更を行うつもりなら、編集する前に行っておく方がよいでしょう。編集してしまうと、TortoiseMerge が オリジナルファイルとの関連を追跡しておけなくなります。"
 
 #. (title)
 #: ../source/TortoiseMerge_en.xml:340
@@ -642,7 +642,7 @@ msgstr "時には、実際に両方のテキストブロックが必要になり
 #. (para)
 #: ../source/TortoiseMerge_en.xml:753
 msgid "You can also edit the output file just as you would in a text editor. Such lines are marked using a pencil icon. Please note that if you want to make any of the line/block-based changes described above, it is better to do those first since once you start editing the file yourself it becomes impossible for TortoiseMerge to keep track of the relationship to the original files."
-msgstr ""
+msgstr "また、テキストエディタのように出力ファイルの編集もできます。その行は鉛筆アイコンで印がつけられます。前述の行/ブロックベースの変更を行うつもりなら、編集する前に行っておく方がよいでしょう。編集してしまうと、TortoiseMerge が オリジナルファイルとの関連を追跡しておけなくなります。"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:761
@@ -652,7 +652,7 @@ msgstr "3 ペインビュー (時に <emphasis>マージビュー</emphasis> と
 #. (para)
 #: ../source/TortoiseMerge_en.xml:798
 msgid "Sometimes a file will be marked as conflicted in Subversion, yet when you view it using TortoiseMerge there are no conflicts shown. This may be due to the whitespace handling you have chosen. If you choose to ignore line-endings or whitespace changes, those lines will be marked using the <emphasis>Conflict-Ignored</emphasis> icon. To resolve the conflict you still need to pick which version you want to use."
-msgstr ""
+msgstr "時には、TortoiseMerge では競合していないのに、Subversion で競合が発生したと印がつけられることがあります。これは、選択した空白の扱いによるものかもしれません。行末や空白の変更を無視するようにした場合、その行は <emphasis>競合無視</emphasis> アイコンを用いて印がつけられます。競合を解消するために、どのバージョンを採用するか選択する必要があります。"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:806

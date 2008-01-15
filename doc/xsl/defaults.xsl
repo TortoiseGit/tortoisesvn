@@ -6,6 +6,7 @@
   <xsl:param name="section.autolabel" select="1" />
   <xsl:param name="section.label.includes.component.label" select="1" />
   <xsl:param name="generate.index" select="1" />
+  <xsl:param name="glossary.sort" select="1" />
 
 <xsl:attribute-set name="table.cell.padding">
   <xsl:attribute name="padding-left">4pt</xsl:attribute>
