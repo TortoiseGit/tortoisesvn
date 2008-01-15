@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-01-08 19:58 +0000\n"
-"PO-Revision-Date: 2008-01-15 16:08+0900\n"
+"PO-Revision-Date: 2008-01-15 20:32+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -470,7 +470,7 @@ msgstr "バージョン管理のメタデータ"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:479
 msgid "Each file and directory has an invisible set of <quote>properties</quote> attached. You can invent and store any arbitrary key/value pairs you wish. Properties are versioned over time, just like file contents."
-msgstr "ファイルやディレクトリごとに不可視の <quote>プロパティ</quote> が添付されています。望むまま任意のキー/値を作成・格納できます。プロパティはファイルの内容のようにずっとバージョン管理されていきます。"
+msgstr "ファイルやディレクトリごとに不可視の <quote>属性</quote> が添付されています。望むまま任意のキー/値を作成・格納できます。属性はファイルの内容のようにずっとバージョン管理されていきます。"
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:489
@@ -625,7 +625,7 @@ msgstr "辞書ファイルを取得したら、おそらくロケール文字の
 #. (para)
 #: ../source/TortoiseSVN_en.xml:683
 msgid "Check the <literal>tsvn:projectlanguage</literal> setting. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for information about setting project properties."
-msgstr "<literal>tsvn:projectlanguage</literal> の設定を調べます。プロジェクトプロパティの設定に関する情報は、<xref linkend=\"tsvn-dug-propertypage\"/> を参照してください。"
+msgstr "<literal>tsvn:projectlanguage</literal> の設定を調べます。プロジェクト属性の設定に関する情報は、<xref linkend=\"tsvn-dug-propertypage\"/> を参照してください。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:690
@@ -785,7 +785,7 @@ msgstr "以下に例を挙げます。Harry と Sally はそれぞれ同じプ�
 #. (title)
 #: ../source/TortoiseSVN_en.xml:925
 msgid "...Copy-Modify-Merge Continued"
-msgstr "...コピー・変更・マージ (続き)"
+msgstr "...コピー・変更・マージ法 (の続き)"
 
 #. (primary)
 #. (primary)
@@ -1262,7 +1262,7 @@ msgstr "サーバを持ってなかったり、一人で作業していたりす
 #. (title)
 #: ../source/TortoiseSVN_en.xml:1474
 msgid "Apache Based Server"
-msgstr "Apache ベースサーバ"
+msgstr "Apache ベースのサーバ"
 
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:1478
@@ -1356,7 +1356,7 @@ msgstr "Apache をサービスとしてインストールすると決めた場�
 #. (para)
 #: ../source/TortoiseSVN_en.xml:1603
 msgid "Make sure that the account on the server that Apache is running as has an explicit entry in the repository directory's access control list (right-click directory | properties | security), with full control. Otherwise, users will not be able to commit their changes."
-msgstr " リポジトリのあるディレクトリのアクセスコントロールリスト (ディレクトリを右クリック | プロパティ | セキュリティ) で、Apache を実行するサーバ上のアカウントをフルコントロールに明示していなければなりません。そうでなければ、ユーザが行った変更をコミットすることができません。"
+msgstr " リポジトリのあるディレクトリのアクセスコントロールリスト (ディレクトリを右クリック | 属性 | セキュリティ) で、Apache を実行するサーバ上のアカウントをフルコントロールに明示していなければなりません。そうでなければ、ユーザが行った変更をコミットすることができません。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:1609
@@ -2090,7 +2090,7 @@ msgstr "まだ IE でリポジトリの閲覧を行いたいのなら、以下�
 #. (title)
 #: ../source/TortoiseSVN_en.xml:2372
 msgid "Forcing SSL access"
-msgstr "SSL アクセスを強制"
+msgstr "SSL アクセスの強制"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2373
@@ -2323,7 +2323,7 @@ msgstr ""
 "匿名書込アクセスを許可するシンプルな設定は、<screen>\n"
 "[general]\n"
 "anon-access = write\n"
-"</screen> です。しかし、<literal>svn:author</literal> プロパティが空のため、誰がリポジトリに変更を加えたのかがわかりません。誰が変更したのかコントロールできなくなってしまいます。いくらか危険な設定です!"
+"</screen> です。しかし、<literal>svn:author</literal> 属性が空のため、誰がリポジトリに変更を加えたのかがわかりません。誰が変更したのかコントロールできなくなってしまいます。いくらか危険な設定です!"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2637
@@ -2483,7 +2483,7 @@ msgstr "TortoiseSVN でのリポジトリ作成"
 #. (title)
 #: ../source/TortoiseSVN_en.xml:2825
 msgid "The TortoiseSVN menu for unversioned folders"
-msgstr "バージョン管理外フォルダのTortoiseSVN メニュー"
+msgstr "バージョン管理外フォルダの TortoiseSVN メニュー"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2830
@@ -2609,7 +2609,7 @@ msgstr "フック"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2982
 msgid "A hook script is a program triggered by some repository event, such as the creation of a new revision or the modification of an unversioned property. Each hook is handed enough information to tell what that event is, what target(s) it's operating on, and the username of the person who triggered the event. Depending on the hook's output or return status, the hook program may continue the action, stop it, or suspend it in some way. Please refer to the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink> in the Subversion Book for full details about the hooks which are implemented."
-msgstr "フックスクリプトは、リポジトリのイベント (新しいリビジョンの作成やバージョン管理外のプロパティの変更など) を引き金に動作するプログラムです。いずれのフックも、イベントが何か、操作の対象は何か、イベントの引き金を引いた人物のユーザ名といった情報を受け取ります。フックの出力や終了ステータスによって、フックプログラムは動作の続行、停止、中断を切り替えることになります。実装されているフックについての詳細は、Subversion Book の <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink> の章を参照してください。"
+msgstr "フックスクリプトは、リポジトリのイベント (新しいリビジョンの作成やバージョン管理外の属性の変更など) を引き金に動作するプログラムです。いずれのフックも、イベントが何か、操作の対象は何か、イベントの引き金を引いた人物のユーザ名といった情報を受け取ります。フックの出力や終了ステータスによって、フックプログラムは動作の続行、停止、中断を切り替えることになります。実装されているフックについての詳細は、Subversion Book の <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink> の章を参照してください。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2997
@@ -2788,7 +2788,7 @@ msgstr "Windows 2000 を使用している場合、コンテキストメニュ�
 #: ../source/TortoiseSVN_en.xml:3172
 #: ../source/TortoiseSVN_en.xml:4025
 msgid "Drag and Drop"
-msgstr "ドラッグ&amp;ドロップ"
+msgstr "ドラッグ &amp; ドロップ"
 
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:3174
@@ -2820,7 +2820,7 @@ msgstr "<placeholder-1/> 作業コピーの中にファイルやフォルダを 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:3194
 msgid "Common Shortcuts"
-msgstr "共通ショートカット"
+msgstr "共通のショートカット"
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:3201
@@ -2930,7 +2930,7 @@ msgstr "TortoiseSVN のダイアログの多くは、大量の情報を表示し
 #. (title)
 #: ../source/TortoiseSVN_en.xml:3322
 msgid "Importing Data Into A Repository"
-msgstr "データをリポジトリにインポート"
+msgstr "リポジトリへのデータインポート"
 
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:3324
@@ -3178,7 +3178,7 @@ msgstr "インポートしたいフォルダのトップで新しいフォルダ
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3564
 msgid "Use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add...</guimenuitem></menuchoice> on this versioned folder to add some or all of the content. You can add and remove files, set <literal>svn:ignore</literal> properties on folders and make any other changes you need to."
-msgstr "バージョン管理下のフォルダ上で <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>追加...</guimenuitem></menuchoice> を使い、内容の一部または全部を追加してください。ファイルの追加や削除、フォルダへの <literal>svn:ignore</literal> プロパティの設定など、必要な変更を加えることができます。"
+msgstr "バージョン管理下のフォルダ上で <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>追加...</guimenuitem></menuchoice> を使い、内容の一部または全部を追加してください。ファイルの追加や削除、フォルダへの <literal>svn:ignore</literal> 属性の設定など、必要な変更を加えることができます。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3576
@@ -3218,7 +3218,7 @@ msgstr "たとえば、TortoiseSVN のビルドスクリプトを参照してく
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3615
 msgid "So as not to disturb the users, we also added the file <filename>TortoiseVars.bat</filename> to the ignore list of its parent folder, i.e. we've set the Subversion property <literal>svn:ignore</literal> to include that filename. That way it won't show up as unversioned on every commit."
-msgstr "ユーザが不安にならないように、<filename>TortoiseVars.bat</filename> を親フォルダの無視リストに追加してあります。つまり、Subversion のプロパティ <literal>svn:ignore</literal> をそのファイルにセットしています。これにより (バージョン管理外のファイルのよう) コミットごとに表示されることがなくなります。"
+msgstr "ユーザが不安にならないように、<filename>TortoiseVars.bat</filename> を親フォルダの無視リストに追加してあります。つまり、Subversion の <literal>svn:ignore</literal> 属性をそのファイルにセットしています。これにより (バージョン管理外のファイルのよう) コミットごとに表示されることがなくなります。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:3624
@@ -3238,7 +3238,7 @@ msgstr "外部参照"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3631
 msgid "Sometimes it is useful to construct a working copy that is made out of a number of different checkouts. For example, you may want different subdirectories to come from different locations in a repository, or perhaps from different repositories altogether. If you want every user to have the same layout, you can define the <literal>svn:externals</literal> properties."
-msgstr "時には、たくさんの異なるチェックアウトから作業コピーを構成するのは、便利なことがあります。たとえば、リポジトリ内の異なる場所もしくは異なるリポジトリにある、異なるサブディレクトリが必要になるかもしれません。全てのユーザに同じレイアウトを保持して欲しければ、<literal>svn:externals</literal> プロパティを設定できます。"
+msgstr "時には、たくさんの異なるチェックアウトから作業コピーを構成するのは、便利なことがあります。たとえば、リポジトリ内の異なる場所もしくは異なるリポジトリにある、異なるサブディレクトリが必要になるかもしれません。全てのユーザに同じレイアウトを保持して欲しければ、<literal>svn:externals</literal> 属性を設定できます。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3639
@@ -3249,7 +3249,7 @@ msgid ""
 "skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker\n"
 "</screen> Now click <guibutton>Set</guibutton> and commit your changes. When you (or any other user) update your working copy, Subversion will create a sub-folder <filename>D:\\dev\\project1\\sounds</filename> and checkout the sounds project, another sub-folder <filename>D:\\dev\\project1\\quick graphs</filename> containing the graphics project, and finally a nested sub-folder <filename>D:\\dev\\project1\\skins\\toolkit</filename> containing revision 21 of the skin-maker project."
 msgstr ""
-"では <filename>/project1</filename> の作業コピーを <filename>D:\\dev\\project1</filename> にチェックアウトしましょう。<filename>D:\\dev\\project1</filename> フォルダを選択し、<action>右クリック</action> してコンテキストメニューの<menuchoice><guimenu>Windows メニュー</guimenu><guimenuitem>プロパティ</guimenuitem> を選んでください。プロパティダイアログが表示されます。次に Subversion タブを選択します。ここでプロパティを設定できます。<guibutton>追加...</guibutton> をクリックしてください。コンボボックスから  <literal>svn:externals</literal> プロパティを選択し、エディットボックスに <literal>名前 url</literal> の形式か、特定のリビジョンを指定するなら、<literal>名前 -rREV url</literal>の形式でリポジトリの URL を入力してください。1 行ずつ複数の外部参照プロジェクトを追加できます。URL とファイル名は適切にエスケープしなければならないことに注意してください。そうでなければ適切に動きません。たとえば、空白を全て <literal>%20</literal> に置き換えなければなりません。この時、空白の入ったフォルダ名は使用できないことに注意してください。<filename>D:\\dev\\project1</filename> にプロパティをセットしてあると仮定すると、<screen>\n"
+"では <filename>/project1</filename> の作業コピーを <filename>D:\\dev\\project1</filename> にチェックアウトしましょう。<filename>D:\\dev\\project1</filename> フォルダを選択し、<action>右クリック</action> してコンテキストメニューの<menuchoice><guimenu>Windows メニュー</guimenu><guimenuitem>プロパティ</guimenuitem> を選んでください。属性ダイアログが表示されます。次に Subversion タブを選択します。ここで属性を設定できます。<guibutton>追加...</guibutton> をクリックしてください。コンボボックスから  <literal>svn:externals</literal> 属性を選択し、エディットボックスに <literal>名前 url</literal> の形式か、特定のリビジョンを指定するなら、<literal>名前 -rREV url</literal>の形式でリポジトリの URL を入力してください。1 行ずつ複数の外部参照プロジェクトを追加できます。URL とファイル名は適切にエスケープしなければならないことに注意してください。そうでなければ適切に動きません。たとえば、空白を全て <literal>%20</literal> に置き換えなければなりません。この時、空白の入ったフォルダ名は使用できないことに注意してください。<filename>D:\\dev\\project1</filename> に属性をセットしてあると仮定すると、<screen>\n"
 "sounds   http://sounds.red-bean.com/repos\n"
 "quick_graphs  http://graphics.red-bean.com/repos/fast%20graphics\n"
 "skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker\n"
@@ -3277,7 +3277,7 @@ msgstr "外部プロジェクトが別のリポジトリにある場合、メイ
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3709
 msgid "Note that if you change the URL in an <literal>svn:externals</literal> property, then next time you update your working copy Subversion will delete the old external folder and make a fresh checkout, so you will see files being <emphasis>Added</emphasis>, rather than being <emphasis>Updated</emphasis> as you might have expected. This situation might occur if you reference a tag from another project. When a new version of that project is released, you change your external reference to point to the new tag."
-msgstr "<literal>svn:externals</literal> プロパティ内の URL を変更すると、次に作業コピーを更新したときに Subversion は古い外部参照フォルダを削除し、新しいものをチェックアウトします。そのため <emphasis>更新した</emphasis> ファイルを期待していたとしても、<emphasis>追加した</emphasis> ファイルを見ることになります。この状況は他のプロジェクトからタグを参照した場合に起こり得ます。そのプロジェクトの新しいバージョンがリリースされたら、外部参照を新しいタグに変更してください。"
+msgstr "<literal>svn:externals</literal> 属性内の URL を変更すると、次に作業コピーを更新したときに Subversion は古い外部参照フォルダを削除し、新しいものをチェックアウトします。そのため <emphasis>更新した</emphasis> ファイルを期待していたとしても、<emphasis>追加した</emphasis> ファイルを見ることになります。この状況は他のプロジェクトからタグを参照した場合に起こり得ます。そのプロジェクトの新しいバージョンがリリースされたら、外部参照を新しいタグに変更してください。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3719
@@ -3287,7 +3287,7 @@ msgstr "<literal>svn:externals</literal> にある URL の定義は絶対指定�
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3728
 msgid "If you need more information how TortoiseSVN handles Properties read <xref linkend=\"tsvn-dug-propertypage\"/>."
-msgstr "TortoiseSVN がプロパティをどのように扱うかについての詳細な情報は、<xref linkend=\"tsvn-dug-propertypage\"/> を参照してください。"
+msgstr "TortoiseSVN が属性をどのように扱うかについての詳細な情報は、<xref linkend=\"tsvn-dug-propertypage\"/> を参照してください。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3732
@@ -3488,7 +3488,7 @@ msgstr "設定ページで除外リストにファイル (またはワイルド�
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3977
 msgid "add the file to the <literal>svn:ignore</literal> list using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add to ignore list</guimenuitem></menuchoice> This will only affect the directory on which you set the <literal>svn:ignore</literal> property. Using the SVN Property Dialog, you can alter the <literal>svn:ignore</literal> property for a directory."
-msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>無視リストに追加</guimenuitem></menuchoice> で <literal>svn:ignore</literal> にファイルを追加します。<literal>svn:ignore</literal> プロパティを設定したディレクトリにのみ影響します。SVN プロパティダイアログで そのディレクトリの <literal>svn:ignore</literal> プロパティを修正できます。"
+msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>無視リストに追加</guimenuitem></menuchoice> で <literal>svn:ignore</literal> にファイルを追加します。<literal>svn:ignore</literal> 属性を設定したディレクトリにのみ影響します。SVN 属性ダイアログで そのディレクトリの <literal>svn:ignore</literal> 属性を修正できます。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3964
@@ -3612,7 +3612,7 @@ msgstr "メールで使用するような規約を用いて、ログメッセー
 #. (title)
 #: ../source/TortoiseSVN_en.xml:4146
 msgid "The Commit Dialog Spellchecker"
-msgstr "コミットダイアログスペルチェッカ"
+msgstr "コミットダイアログのスペルチェッカ"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4144
@@ -3637,12 +3637,12 @@ msgstr "保存したすべてのコミットメッセージを、TortoiseSVNの�
 #. (title)
 #: ../source/TortoiseSVN_en.xml:4190
 msgid "Special Folder Properties"
-msgstr "特殊なフォルダプロパティ"
+msgstr "特殊なフォルダ属性"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4191
 msgid "There are several special folder properties which can be used to help give more control over the formatting of commit log messages and the language used by the spellchecker module. Read <xref linkend=\"tsvn-dug-propertypage\"/> for further information."
-msgstr "コミットログメッセージのフォーマットを制御したり、スペルチェッカで使用する言語を指定する、特殊なフォルダプロパティがいくつかあります。詳細な情報は <xref linkend=\"tsvn-dug-propertypage\"/> をご覧ください。"
+msgstr "コミットログメッセージのフォーマットを制御したり、スペルチェッカで使用する言語を指定する、特殊なフォルダ属性がいくつかあります。詳細な情報は <xref linkend=\"tsvn-dug-propertypage\"/> をご覧ください。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:4199
@@ -3841,7 +3841,7 @@ msgstr "エクスプローラで複数のファイルやフォルダを選択し
 #. (title)
 #: ../source/TortoiseSVN_en.xml:4425
 msgid "Local File Already Exists"
-msgstr "ローカルファイルがすでに存在する"
+msgstr "既存のローカルファイル"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4426
@@ -3982,7 +3982,7 @@ msgstr "<graphic fileref=\"../images/ConflictIcon.png\"/> 更新中に <emphasis
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4608
 msgid "<graphic fileref=\"../images/ReadOnlyIcon.png\"/> If you have set the <literal>svn:needs-lock</literal> property on a file, Subversion makes that file read-only until you get a lock on that file. Such files have this overlay to indicate that you have to get a lock first before you can edit that file."
-msgstr "<graphic fileref=\"../images/ReadOnlyIcon.png\"/> ファイルに <literal>svn:needs-lock</literal> プロパティをセットしていると、そのファイルにロックをかけるまで Subversion は読み取り専用にします。この読み取り専用ファイルには、編集前にロックするまで、このオーバーレイを表示します。"
+msgstr "<graphic fileref=\"../images/ReadOnlyIcon.png\"/> ファイルに <literal>svn:needs-lock</literal> 属性をセットしていると、そのファイルにロックをかけるまで Subversion は読み取り専用にします。この読み取り専用ファイルには、編集前にロックするまで、このオーバーレイを表示します。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4615
@@ -4299,7 +4299,7 @@ msgstr "<placeholder-1/> いろいろな場所からログダイアログを表�
 #. (title)
 #: ../source/TortoiseSVN_en.xml:5055
 msgid "Revision Log Actions"
-msgstr "リビジョンログアクション"
+msgstr "リビジョンログのアクション"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5056
@@ -4516,7 +4516,7 @@ msgstr "このリビジョンの選択したファイルへの変更を、元に
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5346
 msgid "View the Subversion properties for the selected item."
-msgstr "選択した項目の Subversion プロパティを表示します。"
+msgstr "選択した項目の Subversion 属性を表示します。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5351
@@ -4626,7 +4626,7 @@ msgstr "マージ追跡ログ"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5472
 msgid "Subversion 1.5 and later keeps a record of merges using properties. This allows us to get a more detailed history of merged changes. For example, if you develop a new feature on a branch and then merge that branch back to trunk, the feature development will show up on the trunk log as a single commit for the merge, even though there may have been 1000 commits during branch development."
-msgstr "Subversion 1.5 以降では、プロパティを利用してマージ情報を保持しています。これにより、マージでの変更点の詳細な履歴を得られます。例えば、ブランチで新機能を開発し、ブランチをトランクにマージした場合、たとえブランチでの開発で 1000 コミットしたとしても、トランクでのその機能の開発には、1 コミットしかしていないことになってしまいます。"
+msgstr "Subversion 1.5 以降では、属性を利用してマージ情報を保持しています。これにより、マージでの変更点の詳細な履歴を得られます。例えば、ブランチで新機能を開発し、ブランチをトランクにマージした場合、たとえブランチでの開発で 1000 コミットしたとしても、トランクでのその機能の開発には、1 コミットしかしていないことになってしまいます。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:5481
@@ -4671,7 +4671,7 @@ msgstr "一度、サーバに必要なフックをセットアップしてしま
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5532
 msgid "Because Subversion's revision properties are not versioned, making modifications to such a property (for example, the <literal>svn:log</literal> commit message property) will overwrite the previous value of that property <emphasis>forever</emphasis>."
-msgstr "Subversion のリビジョンプロパティはバージョン管理されないため、そういったプロパティ (例: <literal>svn:log</literal> コミットメッセージプロパティ) を変更すると、以前の値を <emphasis>完全に</emphasis> 上書きしてしまいます。"
+msgstr "Subversion のリビジョン属性はバージョン管理されないため、そういった属性 (例: <literal>svn:log</literal> コミットメッセージ属性) を変更すると、以前の値を <emphasis>完全に</emphasis> 上書きしてしまいます。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:5542
@@ -4706,7 +4706,7 @@ msgstr "また、下部ペインのパス名を、<guilabel>変更されたパ�
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5580
 msgid "Sometimes your working practices will require log messages to follow a particular format, which means that the text describing the changes is not visible in the abbreviated summary shown in the top pane. The property <literal>tsvn:logsummary</literal> can be used to extract a portion of the log message to be shown in the top pane. Read <xref linkend=\"tsvn-dug-propertypage-tsvn-props\"/> to find out how to use this property."
-msgstr "時には運用手順として、ログメッセージを特定のフォーマットにする必要があるかもしれません。これは変更点を説明するテキストが、上部ペインに表示する短縮サマリに表示されないということです。<literal>tsvn:logsummary</literal> プロパティを使用して、上部ペインに表示しているログメッセージの一部を抽出できます。このプロパティの使い方は、<xref linkend=\"tsvn-dug-propertypage-tsvn-props\"/> をご覧ください。"
+msgstr "時には運用手順として、ログメッセージを特定のフォーマットにする必要があるかもしれません。これは変更点を説明するテキストが、上部ペインに表示する短縮サマリに表示されないということです。<literal>tsvn:logsummary</literal> 属性を使用して、上部ペインに表示しているログメッセージの一部を抽出できます。この属性の使い方は、<xref linkend=\"tsvn-dug-propertypage-tsvn-props\"/> をご覧ください。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:5592
@@ -4931,7 +4931,7 @@ msgstr "サードパーティの diff ツールを設定している場合、差
 #. (title)
 #: ../source/TortoiseSVN_en.xml:5873
 msgid "Line-end and Whitespace Options"
-msgstr "改行と空白オプション"
+msgstr "改行コードと空白のオプション"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5874
@@ -5317,7 +5317,7 @@ msgstr "バージョン管理外のファイルで <action>右クリック</acti
 #. (para)
 #: ../source/TortoiseSVN_en.xml:6335
 msgid "If you want to remove one or more items from the ignore list, <action>right click</action> on those items and select <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Remove from Ignore List</guimenuitem></menuchoice> You can also access a folder's <literal>svn:ignore</literal> property directly. That allows you to specify more general patterns using filename globbing, described in the section below. Read <xref linkend=\"tsvn-dug-propertypage\"/> for more information on setting properties directly. Please be aware that each ignore pattern has to be placed on a separate line. Separating them by spaces does not work."
-msgstr "無視リストから項目を削除したい場合、その項目で <action>右クリック</action> し、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>無視リストから削除</guimenuitem></menuchoice> を選択してください。フォルダの <literal>svn:ignore</literal> プロパティに直接アクセスすることもできます。これにより、ファイル名展開にもっと一般的なパターンが指定ができます。プロパティを直接指定することについては、<xref linkend=\"tsvn-dug-propertypage\"/> をご覧ください。無視パターンは行ごとに区切らなければならないことをご承知おきください。空白で区切ったパターンは動作しません。"
+msgstr "無視リストから項目を削除したい場合、その項目で <action>右クリック</action> し、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>無視リストから削除</guimenuitem></menuchoice> を選択してください。フォルダの <literal>svn:ignore</literal> 属性に直接アクセスすることもできます。これにより、ファイル名展開にもっと一般的なパターンが指定ができます。属性を直接指定することについては、<xref linkend=\"tsvn-dug-propertypage\"/> をご覧ください。無視パターンは行ごとに区切らなければならないことをご承知おきください。空白で区切ったパターンは動作しません。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:6350
@@ -5327,7 +5327,7 @@ msgstr "共通無視リスト"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:6351
 msgid "Another way to ignore files is to add them to the <firstterm>global ignore list</firstterm>. The big difference here is that the global ignore list is a client property. It applies to <emphasis>all</emphasis> Subversion projects, but on the client PC only. In general it is better to use the <filename>svn:ignore</filename> property where possible, because it can be applied to specific project areas, and it works for everyone who checks out the project. Read <xref linkend=\"tsvn-dug-settings-main\"/> for more information."
-msgstr "ファイルを無視する別の方法は、<firstterm>共通無視リスト</firstterm> に追加することです。共通無視リストはクライアントのプロパティということが、大きく違います。これは <emphasis>全</emphasis> Subversion プロジェクトに適用されますが、クライアント PC でしか適用されません。一般的には、可能なら <filename>svn:ignore</filename> プロパティを使用する方がよいです。指定したプロジェクトエリアで適用され、プロジェクトをチェックアウトした人すべてに適用されるからです。詳細は <xref linkend=\"tsvn-dug-settings-main\"/> をご覧ください。"
+msgstr "ファイルを無視する別の方法は、<firstterm>共通無視リスト</firstterm> に追加することです。共通無視リストはクライアントの属性ということが、大きく違います。これは <emphasis>全</emphasis> Subversion プロジェクトに適用されますが、クライアント PC でしか適用されません。一般的には、可能なら <filename>svn:ignore</filename> 属性を使用する方がよいです。指定したプロジェクトエリアで適用され、プロジェクトをチェックアウトした人すべてに適用されるからです。詳細は <xref linkend=\"tsvn-dug-settings-main\"/> をご覧ください。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:6364
@@ -5487,7 +5487,7 @@ msgstr "TortoiseSVN コンテキストメニューを使用しないで、<empha
 #. (title)
 #: ../source/TortoiseSVN_en.xml:6571
 msgid "Getting a deleted file or folder back"
-msgstr "削除したファイルやフォルダの取り戻し"
+msgstr "削除したファイルやフォルダの取り消し"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:6572
@@ -5557,7 +5557,7 @@ msgstr "外部参照の SVN 移動はしないでください"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:6667
 msgid "You should <emphasis>not</emphasis> use the TortoiseSVN <guilabel>Move</guilabel> or <guilabel>Rename</guilabel> commands on a folder which has been created using <literal>svn:externals</literal>. This action would cause the external item to be deleted from its parent repository, probably upsetting many other people. If you need to move an externals folder you should use an ordinary shell move, then adjust the <literal>svn:externals</literal> properties of the source and destination parent folders."
-msgstr "<literal>svn:externals</literal> で作成したフォルダに対して、TortoiseSVN <guilabel>移動</guilabel> や <guilabel>名前の変更</guilabel> コマンドを実行するべきでは<emphasis>ありません</emphasis>。このアクションは外部参照項目を親リポジトリから削除してしまい、おそらく他の人たちを驚かせてしまいます。外部参照フォルダを移動する必要があるときには、通常の (シェルでの) 移動を行い、移動元と異動先それぞれ親フォルダに対して <literal>svn:externals</literal> プロパティを調整してください。"
+msgstr "<literal>svn:externals</literal> で作成したフォルダに対して、TortoiseSVN <guilabel>移動</guilabel> や <guilabel>名前の変更</guilabel> コマンドを実行するべきでは<emphasis>ありません</emphasis>。このアクションは外部参照項目を親リポジトリから削除してしまい、おそらく他の人たちを驚かせてしまいます。外部参照フォルダを移動する必要があるときには、通常の (シェルでの) 移動を行い、移動元と異動先それぞれ親フォルダに対して <literal>svn:externals</literal> 属性を調整してください。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:6682
@@ -5639,7 +5639,7 @@ msgstr "この場合どちらかを残し、一方をリポジトリから削除
 #. (title)
 #: ../source/TortoiseSVN_en.xml:6766
 msgid "Preventing two files with the same name"
-msgstr "2つのファイルが同じ名前にならないようにする方法"
+msgstr "2 つのファイルが同じ名前にならないようにする方法"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:6767
@@ -5777,7 +5777,7 @@ msgstr "プロジェクト設定"
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:6925
 msgid "properties"
-msgstr "プロパティ"
+msgstr "属性"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:6929
@@ -5787,177 +5787,177 @@ msgstr "エクスプローラプロパティページの Subversion タブ"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:6927
 msgid "<placeholder-1/> Sometimes you want to have more detailed information about a file/directory than just the icon overlay. You can get all the information Subversion provides in the explorer properties dialog. Just select the file or directory and select <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice> in the context menu (note: this is the normal properties menu entry the explorer provides, not the one in the TortoiseSVN submenu!). In the properties dialog box TortoiseSVN has added a new property page for files/folders under Subversion control, where you can see all relevant information about the selected file/directory."
-msgstr "<placeholder-1/> 時にオーバーレイアイコンより詳しい、ファイル・ディレクトリに関する情報が欲しいことがあるでしょう。そういったとき Subversion が提供するすべての情報をエクスプローラのプロパティダイアログから取得することができます。単にファイルやディレクトリを選択し、コンテキストメニューの <menuchoice><guimenu>Windows メニュー</guimenu><guimenuitem>プロパティ</guimenuitem></menuchoice> を選択してください。(注: エクスプローラが提供する通常のプロパティメニューで、TortoiseSVN のサブメニュー内のものではありません!) Subversion 管理下にあるファイル・フォルダのプロパティダイアログボックスには、TortoiseSVN が追加した新しいプロパティページがあります。ここで、選択したファイル・フォルダに関連する情報を、すべて見ることができます。"
+msgstr "<placeholder-1/> 時にオーバーレイアイコンより詳しい、ファイル・ディレクトリに関する情報が欲しいことがあるでしょう。そういったとき Subversion が提供するすべての情報をエクスプローラのプロパティダイアログから取得することができます。単にファイルやディレクトリを選択し、コンテキストメニューの <menuchoice><guimenu>Windows メニュー</guimenu><guimenuitem>プロパティ</guimenuitem></menuchoice> を選択してください。(注: エクスプローラが提供する通常のプロパティメニューで、TortoiseSVN のサブメニュー内のものではありません!) Subversion 管理下にあるファイル・フォルダの属性ダイアログボックスには、TortoiseSVN が追加した新しい属性ページがあります。ここで、選択したファイル・フォルダに関連する情報を、すべて見ることができます。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:6949
 msgid "Subversion Properties"
-msgstr "Subversion のプロパティ"
+msgstr "Subversion の属性"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:6954
 msgid "Subversion property page"
-msgstr "Subversion プロパティページ"
+msgstr "Subversion の属性ページ"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:6952
 msgid "<placeholder-1/> You can read and set the Subversion properties from the Windows properties dialog, but also from <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>properties</guimenuitem></menuchoice> and within TortoiseSVN's status lists, from <menuchoice><guimenu>Context menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice>."
-msgstr "<placeholder-1/> Windows のプロパティダイアログから、Subversion のプロパティを確認・設定できますが、さらに <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>プロパティ</guimenuitem></menuchoice> や <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>プロパティ</guimenuitem></menuchoice> からの TortoiseSVN の状態リストでも確認できます。"
+msgstr "<placeholder-1/> Windows のプロパティダイアログから、Subversion の属性を確認・設定できますが、さらに <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>属性</guimenuitem></menuchoice> や <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>属性</guimenuitem></menuchoice> からの TortoiseSVN の状態リストでも確認できます。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:6969
 msgid "You can add your own properties, or some properties with a special meaning in Subversion. These begin with <literal>svn:</literal>. <literal>svn:externals</literal> is such a property; see how to handle externals in <xref linkend=\"tsvn-dug-import-4\"/>. For more information about properties in Subversion see the <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.advanced.props.html\"><citetitle>Special Properties</citetitle></ulink>."
-msgstr "自分で定義したプロパティの他、Subversion で特別な意味のあるプロパティも追加できます。これは <literal>svn:</literal> で始まります。<literal>svn:externals</literal> も、そのようなプロパティです。<xref linkend=\"tsvn-dug-import-4\"/> で外部参照の説明していますのでご覧ください。Subversion プロパティについての詳細は <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.advanced.props.html\"><citetitle>Special Properties</citetitle></ulink> をご覧ください。(訳注: 日本語版は<ulink url=\"http://subversion.bluegate.org/doc/ch07s02.html#svn.advanced.props.special\"><citetitle>Subversion によるバージョン管理</citetitle></ulink> をご覧ください)"
+msgstr "自分で定義した属性の他、Subversion で特別な意味のある属性も追加できます。これは <literal>svn:</literal> で始まります。<literal>svn:externals</literal> も、そのような属性です。<xref linkend=\"tsvn-dug-import-4\"/> で外部参照の説明をしていますのでご覧ください。Subversion の属性についての詳細は <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.advanced.props.html\"><citetitle>Special Properties</citetitle></ulink> をご覧ください。(訳注: 日本語版は<ulink url=\"http://subversion.bluegate.org/doc/ch07s02.html#svn.advanced.props.special\"><citetitle>Subversion によるバージョン管理</citetitle></ulink> をご覧ください)"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:6980
 msgid "Adding and Editing Properties"
-msgstr "プロパティの追加と編集"
+msgstr "属性の追加と編集"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:6983
 msgid "Adding properties"
-msgstr "プロパティの追加"
+msgstr "属性の追加"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:6981
 msgid "<placeholder-1/> To add a new property, first click on <guilabel>Add...</guilabel>. Select the required property name from the combo box, or type in a name of your own choice, then enter a value in the box below. Properties which take multiple values, such as an ignore list, can be entered on multiple lines. Click on <guibutton>OK</guibutton> to add that property to the list."
-msgstr "<placeholder-1/> 新しいプロパティをセットするには、まず <guilabel>追加...</guilabel> をクリックしてください。必要なプロパティ名をコンボボックスから選択・入力し、下のテキストボックスに値を入力してください。無視リストのような複数の値を持つプロパティは、複数行で入力してください。<guibutton>OK</guibutton> をクリックして、このプロパティをリストに追加してください。"
+msgstr "<placeholder-1/> 新しい属性をセットするには、まず <guilabel>追加...</guilabel> をクリックしてください。必要な属性名をコンボボックスから選択・入力し、下のテキストボックスに値を入力してください。無視リストのような複数の値を持つ属性は、複数行で入力してください。<guibutton>OK</guibutton> をクリックして、この属性をリストに追加してください。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:6993
 msgid "If you want to apply a property to many items at once, select the files/folders in explorer, then select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice>"
-msgstr "一度にたくさんの項目に対してプロパティを設定する場合は、エクスプローラでファイル/フォルダを選択し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>プロパティ</guimenuitem></menuchoice> を選択してください。"
+msgstr "一度にたくさんの項目に対して属性を設定する場合は、エクスプローラでファイル/フォルダを選択し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>属性</guimenuitem></menuchoice> を選択してください。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7001
 msgid "If you want to apply the property to <emphasis>every</emphasis> file and folder in the hierarchy below the current folder, check the <guilabel>Recursive</guilabel> checkbox."
-msgstr "現在のフォルダ以下にある <emphasis>すべての</emphasis> ファイルやフォルダに対してプロパティを適用する場合、<guilabel>再帰</guilabel> チェックボックスをチェックしてください。"
+msgstr "現在のフォルダ以下にある <emphasis>すべての</emphasis> ファイルやフォルダに対して属性を適用する場合、<guilabel>再帰</guilabel> チェックボックスをチェックしてください。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7006
 msgid "Some properties, for example <literal>svn:needs-lock</literal>, can only be applied to files, so the property name doesn't appear in the drop down list for folders. You can still apply such a property recursively to all files in a hierarchy, but you have to type in the property name yourself."
-msgstr "<literal>svn:needs-lock</literal> のようないくつかのプロパティは、ファイルにしか適用できず、フォルダのドロップダウンリストにはプロパティ名が表示されません。その階層内すべてのファイルにそういったプロパティを適用できますが、プロパティ名は自分で入力しなければなりません。"
+msgstr "<literal>svn:needs-lock</literal> のようないくつかの属性は、ファイルにしか適用できず、フォルダのドロップダウンリストには属性名が表示されません。その階層内すべてのファイルにそういった属性を適用できますが、属性名は自分で入力しなければなりません。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7013
 msgid "If you wish to edit an existing property, select that property from the list of existing properties, then click on <guibutton>Edit...</guibutton>."
-msgstr "既存のプロパティを編集する場合、既存プロパティの一覧から編集するプロパティを選択し、<guibutton>編集...</guibutton> をクリックしてください。"
+msgstr "既存の属性を編集する場合、属性の一覧から編集する属性を選択し、<guibutton>編集...</guibutton> をクリックしてください。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7017
 msgid "If you wish to remove an existing property, select that property from the list of existing properties, then click on <guibutton>Remove</guibutton>."
-msgstr "既存のプロパティを削除したい場合、既存プロパティの一覧から削除するプロパティを選択し、<guibutton>削除</guibutton> をクリックしてください。"
+msgstr "既存の属性を削除したい場合、属性の一覧から削除する属性を選択し、<guibutton>削除</guibutton> をクリックしてください。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7021
 msgid "The <literal>svn:externals</literal> property can be used to pull in other projects from the same repository or a completely different repository. For more information, read <xref linkend=\"tsvn-dug-import-4\"/>."
-msgstr "<literal>svn:externals</literal> プロパティは、同じリポジトリからでも完全に異なるリポジトリからでも他のプロジェクトを取得するのに使用できます。詳細な情報は <xref linkend=\"tsvn-dug-import-4\"/> をご覧ください。"
+msgstr "<literal>svn:externals</literal> 属性は、同じリポジトリからでも完全に異なるリポジトリからでも他のプロジェクトを取得するのに使用できます。詳細は <xref linkend=\"tsvn-dug-import-4\"/> をご覧ください。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:7029
 msgid "Exporting and Importing Properties"
-msgstr "プロパティのエクスポートとインポート"
+msgstr "属性のエクスポートとインポート"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7030
 msgid "Often you will find yourself applying the same set of properties many times, for example <literal>bugtraq:logregex</literal>. To simplify the process of copying properties from one project to another, you can use the Export/Import feature."
-msgstr "しばしば、何度も同じプロパティのセット (例: <literal>bugtraq:logregex</literal>) を適用していることに気付くでしょう。あるプロジェクトから別のプロジェクトへ、プロパティを簡単にコピーするのに、エクスポート・インポート機能を利用できます。"
+msgstr "しばしば、何度も同じ属性のセット (例: <literal>bugtraq:logregex</literal>) を適用していることに気付くでしょう。あるプロジェクトから別のプロジェクトへ、属性を簡単にコピーするのに、エクスポート・インポート機能を利用できます。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7036
 msgid "From the file or folder where the properties are already set, use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>properties</guimenuitem></menuchoice>, select the properties you wish to export and click on <guibutton>Export...</guibutton>. You will be prompted for a filename where the property names and values will be saved."
-msgstr "すでにプロパティをセットしているファイル・フォルダで、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>プロパティ</guimenuitem></menuchoice> を使用し、エクスポートしたいプロパティを選択して <guibutton>エクスポート...</guibutton> をクリックしてください。プロパティの名前と値を保存する、ファイルの名前を入力することになります。"
+msgstr "すでに属性をセットしているファイル・フォルダで、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>属性</guimenuitem></menuchoice> を使用し、エクスポートしたい属性を選択して <guibutton>エクスポート...</guibutton> をクリックしてください。属性の名前と値を保存するファイル名を入力することになります。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7046
 msgid "From the folder(s) where you wish to apply these properties, use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>properties</guimenuitem></menuchoice> and click on <guibutton>Import...</guibutton>. You will be prompted for a filename to import from, so navigate to the place you saved the export file previously and select it. The properties will be added to the folders non-recursively."
-msgstr "プロパティを適用したいフォルダで、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>プロパティ</guimenuitem></menuchoice> とし、<guibutton>インポート...</guibutton> をクリックしてください。インポートするファイルを指定することになりますので、先ほど保存したエクスポートファイルを指定してください。プロパティをそのフォルダに、再帰的ではなく追加します。"
+msgstr "属性を適用したいフォルダで、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>属性</guimenuitem></menuchoice> とし、<guibutton>インポート...</guibutton> をクリックしてください。インポートするファイルを指定することになりますので、先ほど保存したエクスポートファイルを指定してください。属性をそのフォルダに、再帰的ではなく追加します。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7057
 msgid "If you want to add properties to a tree recursively, follow the steps above, then in the property dialog select each property in turn, click on <guibutton>Edit...</guibutton>, check the <guilabel>Apply property recursively</guilabel> box and click on <guibutton>OK</guibutton>."
-msgstr "プロパティをツリーに対し再帰的に追加する場合、前述の手順の後、プロパティダイアログでプロパティを選び、<guibutton>編集...</guibutton> をクリックしてください。<guilabel>属性を再帰的に適用する</guilabel> チェックボックスをチェックの後、<guibutton>OK</guibutton> をクリックしてください。"
+msgstr "属性をツリーに対し再帰的に追加する場合、前述の手順の後、属性ダイアログで属性を選び、<guibutton>編集...</guibutton> をクリックしてください。<guilabel>属性を再帰的に適用する</guilabel> チェックボックスをチェックの後、<guibutton>OK</guibutton> をクリックしてください。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7064
 msgid "The Import file format is binary and proprietary to TortoiseSVN. Its only purpose is to transfer properties using Import and Export, so there is no need to edit these files."
-msgstr "インポートファイルはバイナリで TortoiseSVN 専用です。インポートやエクスポートでのプロパティの受け渡し専用で、このファイルを編集する必要はありません。"
+msgstr "インポートファイルはバイナリで TortoiseSVN 専用です。インポートやエクスポートでの属性の受け渡し専用で、このファイルを編集する必要はありません。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:7071
 msgid "Binary Properties"
-msgstr "バイナリプロパティ"
+msgstr "バイナリ属性"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7072
 msgid "TortoiseSVN can handle binary property values using files. To read a binary property value, <guibutton>Save...</guibutton> to a file. To set a binary value, use a hex editor or other appropriate tool to create a file with the content you require, then <guibutton>Load...</guibutton> from that file."
-msgstr "TortoiseSVN は、ファイルを使用することでバイナリのプロパティ値を扱えます。バイナリプロパティ値を読むには、ファイルに <guibutton>保存...</guibutton> してください。バイナリ値をセットするには、十六進エディタや他の適切なツールを利用して必要な内容を持つファイルを作成し、そのファイルから <guibutton>開く...</guibutton> としてください。"
+msgstr "TortoiseSVN は、ファイルを使用することでバイナリの属性値を扱えます。バイナリ属性値を読むには、ファイルに <guibutton>保存...</guibutton> してください。バイナリ値をセットするには、十六進エディタや他の適切なツールを利用して必要な内容を持つファイルを作成し、そのファイルから <guibutton>開く...</guibutton> としてください。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7079
 msgid "Although binary properties are not often used, they can be useful in some applications. For example if you are storing huge graphics files, or if the application used to load the file is huge, you might want to store a thumbnail as a property so you can obtain a preview quickly."
-msgstr "バイナリプロパティはあまり使用されませんが、いくつかのアプリケーションでは便利です。例えば、巨大な画像ファイルを格納している場合や、アプリケーションが読み込むファイルが巨大な場合、プレビューを素早く得るのに、プロパティにサムネイルを格納しておきたいでしょう。"
+msgstr "バイナリ属性はあまり使用されませんが、いくつかのアプリケーションでは便利です。例えば、巨大な画像ファイルを格納している場合や、アプリケーションが読み込むファイルが巨大な場合、プレビューを素早く得るのに、属性にサムネイルを格納しておきたいでしょう。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:7087
 msgid "Commit properties"
-msgstr "コミットプロパティ"
+msgstr "属性のコミット"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7088
 msgid "Subversion properties are versioned. After you change or add a property you have to commit your changes."
-msgstr "Subversion プロパティはバージョン管理されます。プロパティを変更したり追加した後には、変更をコミットする必要があります。"
+msgstr "Subversion の属性はバージョン管理されます。属性を変更したり追加した後には、変更をコミットする必要があります。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:7094
 msgid "Conflicts on properties"
-msgstr "プロパティの競合"
+msgstr "属性の競合"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7095
 msgid "If there's a conflict on committing the changes, because another user has changed the same property, Subversion generates a <filename>.prej</filename> file. Delete this file after you have resolved the conflict."
-msgstr "他のユーザが同じプロパティを変更したなどして、コミット時に競合が発生した場合、Subversion は <filename>.prej</filename> ファイルを生成します。競合を解消した後にこのファイルを削除してください。"
+msgstr "他のユーザが同じ属性を変更したなどして、コミット時に競合が発生した場合、Subversion は <filename>.prej</filename> ファイルを生成します。競合を解消した後にこのファイルを削除してください。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:7103
 msgid "Automatic property setting"
-msgstr "自動プロパティ設定"
+msgstr "属性の自動設定"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7104
 msgid "You can configure Subversion to set properties automatically on files and folders when they are added to the repository. Read <xref linkend=\"tsvn-dug-settings\"/> for further information."
-msgstr "ファイルやフォルダをリポジトリに追加した際に、自動的にプロパティを設定するように Subversion を設定できます。詳細情報は <xref linkend=\"tsvn-dug-settings\"/> をご覧ください。"
+msgstr "ファイルやフォルダをリポジトリに追加した際に、自動的に属性を設定するように Subversion を設定できます。詳細情報は <xref linkend=\"tsvn-dug-settings\"/> をご覧ください。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:7112
 msgid "TortoiseSVN Project Properties"
-msgstr "TortoiseSVN プロジェクトプロパティ"
+msgstr "TortoiseSVN のプロジェクト属性"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7118
 msgid "<literal>tsvn:logminsize</literal> sets the minimum length of a log message for a commit. If you enter a shorter message than specified here, the commit is disabled. This feature is very useful for reminding you to supply a proper descriptive message for every commit. If this property is not set, or the value is zero, empty log messages are allowed."
-msgstr "<literal>tsvn:logminsize</literal> はコミット時に入力するログメッセージの長さの最小値を設定します。ここで指定した長さより短いメッセージを入力するとコミットできません。この機能はコミットごとに適切に説明するメッセージを入力するのを忘れないようにするのに便利です。このプロパティが設定されていなかったり、値が 0 の場合、ログメッセージが空でも良くなります。"
+msgstr "<literal>tsvn:logminsize</literal> はコミット時に入力するログメッセージの長さの最小値を設定します。ここで指定した長さより短いメッセージを入力するとコミットできません。この機能はコミットごとに適切に説明するメッセージを入力するのを忘れないようにするのに便利です。この属性が設定されていなかったり、値が 0 の場合、ログメッセージが空でも良くなります。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7127
 msgid "<literal>tsvn:lockmsgminsize</literal> sets the minimum length of a lock message. If you enter a shorter message than specified here, the lock is disabled. This feature is very useful for reminding you to supply a proper descriptive message for every lock you get. If this property is not set, or the value is zero, empty lock messages are allowed."
-msgstr "<literal>tsvn:lockmsgminsize</literal> はロックメッセージの長さの最小値を設定します。ここで指定した長さより短いメッセージを入力するとロックできません。この機能はロックするごとに適切に説明するメッセージを入力するのを忘れないようにするのに便利です。このプロパティが設定されていなかったり、値が 0 の場合、ロックメッセージが空でも良くなります。"
+msgstr "<literal>tsvn:lockmsgminsize</literal> はロックメッセージの長さの最小値を設定します。ここで指定した長さより短いメッセージを入力するとロックできません。この機能はロックするごとに適切に説明するメッセージを入力するのを忘れないようにするのに便利です。この属性が設定されていなかったり、値が 0 の場合、ロックメッセージが空でも良くなります。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7138
 msgid "<literal>tsvn:logwidthmarker</literal> is used with projects which require log messages to be formatted with some maximum width (typically 80 characters) before a line break. Setting this property to a non-zero will do 2 things in the log message entry dialog: it places a marker to indicate the maximum width, and it disables word wrap in the display, so that you can see whether the text you entered is too long. Note: this feature will only work correctly if you have a fixed-width font selected for log messages."
-msgstr "<literal>tsvn:logwidthmarker</literal> はログのフォーマットとして、行の最大長 (通常 80 文字) をそろえる必要があるプロジェクトで使用します。このプロパティが0以外に設定されていると、ログメッセージ入力ダイアログで以下のことが起きます。入力したテキストが長すぎないかどうかを確認できるように、最大長を示すマーカを配置し、表示時のワードラップが無効になります。注: この機能はログメッセージに固定長フォントを選択していないと、正しく動作しません。"
+msgstr "<literal>tsvn:logwidthmarker</literal> はログのフォーマットとして、行の最大長 (通常 80 文字) をそろえる必要があるプロジェクトで使用します。この属性が 0 以外に設定されていると、ログメッセージ入力ダイアログで以下のことが起きます。入力したテキストが長すぎないかどうかを確認できるように、最大長を示すマーカを配置し、表示時のワードラップが無効になります。注: この機能はログメッセージに固定長フォントを選択していないと、正しく動作しません。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7151
 msgid "<literal>tsvn:logtemplate</literal> is used with projects which have rules about log message formatting. The property holds a multi-line text string which will be inserted in the commit message box when you start a commit. You can then edit it to include the required information. Note: if you are also using <literal>tsvn:logminsize</literal>, be sure to set the length longer than the template or you will lose the protection mechanism."
-msgstr "<literal>tsvn:logtemplate</literal> はログメッセージを整形するルールを持つプロジェクトで使用します。このプロパティは複数行の文字列を保持しており、コミットを開始するとコミットメッセージボックスにそれが挿入されます。これにより必要な情報を持つコミットメッセージを編集できます。注: <literal>tsvn:logminsize</literal> も使用している場合、テンプレートより長い値を必ずセットするか、そうでなければ保護機構を失うかのどちらかとなります。"
+msgstr "<literal>tsvn:logtemplate</literal> はログメッセージを整形するルールを持つプロジェクトで使用します。この属性は複数行の文字列を保持しており、コミットを開始するとコミットメッセージボックスにそれが挿入されます。これにより必要な情報を持つコミットメッセージを編集できます。注: <literal>tsvn:logminsize</literal> も使用している場合、テンプレートより長い値を必ずセットするか、そうでなければ保護機構を失うかのどちらかとなります。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7162
 msgid "Subversion allows you to set <quote>autoprops</quote> which will be applied to newly added or imported files, based on the file extension. This depends on every client having set appropriate autoprops in their subversion configuration file. <literal>tsvn:autoprops</literal> can be set on folders and these will be merged with the user's local autoprops when importing or adding files."
-msgstr "新しくファイルの追加やインポートした際に、拡張子を元にプロパティを付加するように、Subversion は <quote>autoprops</quote> を設定できます。これはクライアントごとに、Subversion 設定ファイルに適切に autoprops が設定されているかどうかに依存します。<literal>tsvn:autoprops</literal> をフォルダに設定しておくと、インポートやファイル追加の際に、ユーザのローカルに autoprops をマージするようになります。"
+msgstr "新しくファイルの追加やインポートした際に、拡張子を元に属性を付加するように、Subversion は <quote>autoprops</quote> を設定できます。これはクライアントごとに、Subversion 設定ファイルに適切に autoprops が設定されているかどうかに依存します。<literal>tsvn:autoprops</literal> をフォルダに設定しておくと、インポートやファイル追加の際に、ユーザのローカルに autoprops をマージするようになります。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7171
@@ -5967,12 +5967,12 @@ msgstr "ローカルの autoprops と <literal>tsvn:autoprops</literal> が競�
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7178
 msgid "In the Commit dialog you have the option to paste in the list of changed files, including the status of each file (added, modified, etc). <literal>tsvn:logfilelistenglish</literal> defines whether the file status is inserted in English or in the localized language. If the property is not set, the default is <literal>true</literal>."
-msgstr "コミットダイアログでは、変更したファイルをファイルごとに状態 (追加、変更、etc.) 込みで張り付けるオプションがあります。<literal>tsvn:logfilelistenglish</literal> は状態を英語で挿入するか、各国後で挿入するかを定義できます。このプロパティがセットされていなければ、デフォルトでは <literal>true</literal> となります。"
+msgstr "コミットダイアログでは、変更したファイルをファイルごとに状態 (追加、変更、etc.) 込みで張り付けるオプションがあります。<literal>tsvn:logfilelistenglish</literal> は状態を英語で挿入するか、各国後で挿入するかを定義できます。この属性がセットされていなければ、デフォルトでは <literal>true</literal> となります。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7189
 msgid "TortoiseSVN can use spell checker modules which are also used by OpenOffice and Mozilla. If you have those installed this property will determine which spell checker to use, i.e. in which language the log messages for your project should be written. <literal>tsvn:projectlanguage</literal> sets the language module the spell checking engine should use when you enter a log message. You can find the values for your language on this page: <ulink url=\"http://msdn2.microsoft.com/en-us/library/ms776260.aspx\"><citetitle>MSDN: Language Identifiers</citetitle></ulink>."
-msgstr "TortoiseSVN は OpenOffice や Mozilla で使われるスペルチェッカモジュールを使用できます。スペルチェッカをインストールしている場合、このプロパティでどのスペルチェッカを使用するか決定します。つまり、どの言語でこのプロジェクトのログメッセージを書くかということでもあります。<literal>tsvn:projectlanguage</literal> では、ログメッセージ入力時にスペルチェックエンジンがどの言語でチェックを行うかを設定します。あなたの言語の値は <ulink url=\"http://msdn2.microsoft.com/en-us/library/ms776260.aspx\"><citetitle>MSDN: Language Identifiers</citetitle></ulink> で確認できます。"
+msgstr "TortoiseSVN は OpenOffice や Mozilla で使われるスペルチェッカモジュールを使用できます。スペルチェッカをインストールしている場合、この属性でどのスペルチェッカを使用するか決定します。つまり、どの言語でこのプロジェクトのログメッセージを書くかということでもあります。<literal>tsvn:projectlanguage</literal> では、ログメッセージ入力時にスペルチェックエンジンがどの言語でチェックを行うかを設定します。あなたの言語の値は <ulink url=\"http://msdn2.microsoft.com/en-us/library/ms776260.aspx\"><citetitle>MSDN: Language Identifiers</citetitle></ulink> で確認できます。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7203
@@ -5982,12 +5982,12 @@ msgstr "この値を 10 進数や頭に <literal>0x</literal>を頭に付けた 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7211
 msgid "The property <literal>tsvn:logsummary</literal> is used to extract a portion of the log message which is then shown in the log dialog as the log message summary."
-msgstr "<literal>tsvn:logsummary</literal> プロパティは、ログメッセージのサマリとしてログダイアログに表示する、ログメッセージの一部を抽出するのに使用します。"
+msgstr "<literal>tsvn:logsummary</literal> 属性は、ログメッセージのサマリとしてログダイアログに表示する、ログメッセージの一部を抽出するのに使用します。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7216
 msgid "The value of the <literal>tsvn:logsummary</literal> property must be set to a one line regex string which contains one regex group. Whatever matches that group is used as the summary."
-msgstr "<literal>tsvn:logsummary</literal> プロパティの値は、正規表現グループを含む正規表現文字列を、1 行で表したものでなければなりません。そのグループにマッチするものであれば、なんでもサマリとして扱います。"
+msgstr "<literal>tsvn:logsummary</literal> 属性の値は、正規表現グループを含む正規表現文字列を、1 行で表したものでなければなりません。そのグループにマッチするものであれば、なんでもサマリとして扱います。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7222
@@ -5997,54 +5997,54 @@ msgstr "例: <literal>\\[SUMMARY\\]:\\s+(.*)</literal> は、ログメッセー�
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7230
 msgid "When you want to add a new property, you can either pick one from the list in the combo box, or you can enter any property name you like. If your project uses some custom properties, and you want those properties to appear in the list in the combo box (to avoid typos when you enter a property name), you can create a list of your custom properties using <literal>tsvn:userfileproperties</literal> and <literal>tsvn:userdirproperties</literal>. Apply these properties to a folder. When you go to edit the properties of any child item, your custom properties will appear in the list of pre-defined property names."
-msgstr "新しいプロパティを加える際に、コンボボックスから選択するか、お好みのプロパティ名を入力できます。プロジェクトでカスタムプロパティを使用し、そのプロパティをコンボボックスに表示する (プロパティ名の入力ミスを防ぐ) 場合、<literal>tsvn:userfileproperties</literal> や <literal>tsvn:userdirproperties</literal> でカスタムプロパティを作成できます。このプロパティはフォルダに適用してください。そのフォルダ以下でファイルを作成すると、定義したプロパティ名ごとにカスタムプロパティを表示します。"
+msgstr "新しい属性を加える際に、コンボボックスから選択するか、任意の属性名を入力できます。プロジェクトでカスタム属性を使用し、その属性をコンボボックスに表示する (属性名の入力ミスを防ぐ) 場合、<literal>tsvn:userfileproperties</literal> や <literal>tsvn:userdirproperties</literal> でカスタム属性を作成できます。この属性はフォルダに適用してください。そのフォルダ以下でファイルを作成すると、定義した属性名ごとにカスタム属性を表示します。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7113
 msgid "TortoiseSVN has a few special properties of its own, and these begin with <literal>tsvn:</literal>. <placeholder-1/>"
-msgstr "TortoiseSVN は自身が持つ特殊なプロパティをいくつか持っています。これは <literal>tsvn:</literal> で始まります。<placeholder-1/>"
+msgstr "TortoiseSVN は自身が持つ特殊な属性をいくつか持っています。これは <literal>tsvn:</literal> で始まります。<placeholder-1/>"
 
 #. (para)
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7246
 #: ../source/TortoiseSVN_en.xml:9427
 msgid "Some <literal>tsvn:</literal> properties require a <literal>true/false</literal> value. TortoiseSVN also understands <literal>yes</literal> as a synonym for <literal>true</literal> and <literal>no</literal> as a synonym for <literal>false</literal>."
-msgstr "<literal>tsvn:</literal> プロパティのいくつかは <literal>true/false</literal> 値をとります。TortoiseSVN は <literal>yes</literal> を <literal>true</literal> と同義に、<literal>no</literal> を <literal>false</literal> と同義に解釈します。"
+msgstr "<literal>tsvn:</literal> 属性のいくつかは <literal>true/false</literal> 値をとります。TortoiseSVN は <literal>yes</literal> を <literal>true</literal> と同義に、<literal>no</literal> を <literal>false</literal> と同義に解釈します。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7252
 msgid "TortoiseSVN can integrate with some bug tracking tools. This uses project properties that start with <literal>bugtraq:</literal>. Read <xref linkend=\"tsvn-dug-bugtracker\"/> for further information."
-msgstr "TortoiseSVN はいくつかのバグ追跡ツールと統合できます。このとき <literal>bugtraq:</literal> で始まるプロジェクトプロパティを使用します。詳細情報は <xref linkend=\"tsvn-dug-bugtracker\"/> をご覧ください。"
+msgstr "TortoiseSVN はいくつかのバグ追跡ツールと統合できます。このとき <literal>bugtraq:</literal> で始まるプロジェクト属性を使用します。詳細情報は <xref linkend=\"tsvn-dug-bugtracker\"/> をご覧ください。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7257
 msgid "It can also integrate with some web-based repository browsers, using project properties that start with <literal>webviewer:</literal>. Read <xref linkend=\"tsvn-dug-repoviewer\"/> for further information."
-msgstr "TortoiseSVN は、<literal>webviewer:</literal> で始まるプロジェクトプロパティを使用して、いくつかの Web ベースリポジトリブラウザとも統合できます。詳細は <xref linkend=\"tsvn-dug-repoviewer\"/> をご覧ください。"
+msgstr "TortoiseSVN は、<literal>webviewer:</literal> で始まるプロジェクト属性を使用して、いくつかの Web ベースリポジトリブラウザとも統合できます。詳細は <xref linkend=\"tsvn-dug-repoviewer\"/> をご覧ください。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:7263
 msgid "Set the project properties on folders"
-msgstr "フォルダへのプロジェクトプロパティ設定"
+msgstr "フォルダへのプロジェクト属性の設定"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7264
 msgid "These special project properties must be set on <emphasis>folders</emphasis> for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some sub-folder, then it is sufficient to set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each sub-folder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
-msgstr "以上の 特殊なプロジェクトプロパティは、動作するシステムの <emphasis>フォルダ</emphasis> に設定しなければなりません。ファイルやフォルダをコミットする際に、プロパティはフォルダから読み込まれます。プロパティが見つからない場合、TortoiseSVN はフォルダツリーを上位階層に向かって検索します。これはバージョン管理外フォルダに到達するか、ツリーのルート (例: <literal>C:\\</literal>) に到達するまで行います。各ユーザが <filename>trunk/</filename> からチェックアウトしていて、サブフォルダからチェックアウトしていないことが確認できるのであれば、<filename>trunk/</filename> にそのプロパティを設定するだけで十分です。確認できない場合、各サブフォルダに対し再帰的にプロパティを設定しなければなりません。プロジェクト階層の深い場所のプロパティ設定は、高い階層 (<filename>trunk/</filename> に近い場所) の設定を上書きします。"
+msgstr "以上の 特殊なプロジェクト属性は、動作するシステムの <emphasis>フォルダ</emphasis> に設定しなければなりません。ファイルやフォルダをコミットする際に、属性はフォルダから読み込まれます。属性が見つからない場合、TortoiseSVN はフォルダツリーを上位階層に向かって検索します。これはバージョン管理外フォルダに到達するか、ツリーのルート (例: <literal>C:\\</literal>) に到達するまで行います。各ユーザが <filename>trunk/</filename> からチェックアウトしていて、サブフォルダからチェックアウトしていないことが確認できるのであれば、<filename>trunk/</filename> にその属性を設定するだけで十分です。確認できない場合、各サブフォルダに対し再帰的に属性を設定しなければなりません。プロジェクト階層の深い場所の属性設定は、高い階層 (<filename>trunk/</filename> に近い場所) の設定を上書きします。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7278
 msgid "For project properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
-msgstr "プロジェクトプロパティ <emphasis>だけ</emphasis> ですが、<guilabel>再帰</guilabel>チェックボックスを使って階層の全サブフォルダにプロパティをセットできます。このとき全ファイルが対象になるわけではありません。"
+msgstr "プロジェクト属性 <emphasis>だけ</emphasis> ですが、<guilabel>再帰</guilabel>チェックボックスを使って階層の全サブフォルダに属性をセットできます。このとき全ファイルが対象になるわけではありません。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7285
 msgid "When you add new sub-folders using TortoiseSVN, any project properties present in the parent folder will automatically be added to the new child folder too."
-msgstr "TortoiseSVN で新しいサブフォルダを作成する際、親フォルダに設定されているプロジェクトプロパティは、新しいサブフォルダに自動的に追加されます。"
+msgstr "TortoiseSVN で新しいサブフォルダを作成する際、親フォルダに設定されているプロジェクト属性は、新しいサブフォルダに自動的に追加されます。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7291
 msgid "Although TortoiseSVN's project properties are extremely useful, they only work with TortoiseSVN, and some will only work in newer versions of TortoiseSVN. If people working on your project use a variety of Subversion clients, or possibly have old versions of TortoiseSVN, you may want to use repository hooks to enforce project policies. project properties can only help to implement a policy, they cannot enforce it."
-msgstr "TortoiseSVN のプロジェクトプロパティは非常に便利ですが、TortoiseSVN でしか動作せず、またいくつかは TortoiseSVN の新しいバージョンでしか動作しません。プロジェクトのメンバが様々な Subversion のクライアントを使用している場合や、古い TortoiseSVN しか持てない場合、プロジェクトポリシーを強制するのに、リポジトリフックを使用することになるでしょう。プロジェクトプロパティは、ポリシー実装の補助にしかならず、強制することはできません。"
+msgstr "TortoiseSVN のプロジェクト属性は非常に便利ですが、TortoiseSVN でしか動作せず、またいくつかは TortoiseSVN の新しいバージョンでしか動作しません。プロジェクトのメンバが様々な Subversion のクライアントを使用している場合や、古い TortoiseSVN しか持てない場合、プロジェクトポリシーを強制するのに、リポジトリフックを使用することになるでしょう。プロジェクト属性は、ポリシー実装の補助にしかならず、強制することはできません。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:7304
@@ -6418,7 +6418,7 @@ msgstr "マージ結果のレビュー"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7817
 msgid "The merge is now complete. It's a good idea to have a look at the merge and see if it's as expected. Merging is usually quite complicated. Conflicts often arise if the branch has drifted far from the trunk."
-msgstr ""
+msgstr "さて、マージが完了しました。マージ結果を見て期待通りになっているかを確認するのがいいでしょう。通常マージはかなり複雑です。ブランチがトランクからかなりずれてしまえば、しばしば競合を引き起こします。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7822
@@ -6483,7 +6483,7 @@ msgstr "Subversion 1.5 は、マージ追跡機構を導入しました。ある
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7902
 msgid "Merge tracking information is stored in the <literal>svn:mergeinfo</literal> property by the client when it performs a merge. When the merge is committed the server stores that information in a database, and when you request merge, log or blame information, the server can respond appropriately. For the system to work properly you must ensure that the server and all clients are upgraded. Earlier clients will not store the <literal>svn:mergeinfo</literal> property and earlier servers will not provide the information requested by new clients."
-msgstr "マージを行う際、クライアントはマージ追跡情報を、<literal>svn:mergeinfo</literal> に格納します。マージをコミットする際には、サーバはその情報をデータベースに格納し、マージやログ、注釈情報などのリクエストに適切に応答します。システムが適切に動作するには、サーバと全クライアントを確実にアップグレードしなければなりません。以前のクライアントでは、<literal>svn:mergeinfo</literal> プロパティを格納しませんし、以前のサーバでは、新しいクライアントが要求した情報を提供できません。"
+msgstr "マージを行う際、クライアントはマージ追跡情報を、<literal>svn:mergeinfo</literal> に格納します。マージをコミットする際には、サーバはその情報をデータベースに格納し、マージやログ、注釈情報などのリクエストに適切に応答します。システムが適切に動作するには、サーバと全クライアントを確実にアップグレードしなければなりません。以前のクライアントでは、<literal>svn:mergeinfo</literal> 属性を格納しませんし、以前のサーバでは、新しいクライアントが要求した情報を提供できません。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7911
@@ -6493,7 +6493,7 @@ msgstr "マージ追跡についての詳細は、Subversion の <ulink url=\"ht
 #. (title)
 #: ../source/TortoiseSVN_en.xml:7919
 msgid "Handling Conflicts during Merge"
-msgstr "マージ中競合の扱い"
+msgstr "マージ中に発生した競合の扱い"
 
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:7922
@@ -6603,7 +6603,7 @@ msgstr "ファイルの<firstterm>ロックを取得</firstterm>すると、あ�
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8050
 msgid "However, other users will not necessarily know that you have taken out a lock. Unless they check the lock status regularly, the first they will know about it is when their commit fails, which in most cases is not very useful. To make it easier to manage locks, there is a new Subversion property <literal>svn:needs-lock</literal>. When this property is set (to any value) on a file, whenever the file is checked out or updated, the local copy is made read-only <emphasis>unless</emphasis> that working copy holds a lock for the file. This acts as a warning that you should not edit that file unless you have first acquired a lock. Files which are versioned and read-only are marked with a special overlay in TortoiseSVN to indicate that you need to acquire a lock before editing."
-msgstr "しかし他のユーザは、あなたがロックしたことを知る必要はありません。定期的にロック状態をチェックしなければ、まず他のユーザはコミットが失敗して気が付くでしょう。ほとんどこのケースでしょうがあまり便利ではありません。ロックの管理を簡単にするには、新しい Subversion プロパティの <literal>svn:needs-lock</literal> があります。ファイルにこのプロパティが (値は何でも) セットされていると、ファイルをチェックアウトや更新すると常に手元のコピーは読み取り専用になります。ファイルにロックを<emphasis>取得しない限り</emphasis>このままです。この動作は、まずロックを取得するまでファイルの編集ができないということを警告しています。バージョン管理下で読み取り専用のファイルは、編集前にロックする必要があることを示すように、TortoiseSVN では特別なオーバーレイアイコンでマークされます。"
+msgstr "しかし他のユーザは、あなたがロックしたことを知る必要はありません。定期的にロック状態をチェックしなければ、まず他のユーザはコミットが失敗して気が付くでしょう。ほとんどこのケースでしょうがあまり便利ではありません。ロックの管理を簡単にするには、新しい Subversion の属性で <literal>svn:needs-lock</literal> があります。ファイルにこの属性が (値は何でも) セットされていると、ファイルをチェックアウトや更新すると常に手元のコピーは読み取り専用になります。ファイルにロックを<emphasis>取得しない限り</emphasis>このままです。この動作は、まずロックを取得するまでファイルの編集ができないということを警告しています。バージョン管理下で読み取り専用のファイルは、編集前にロックする必要があることを示すように、TortoiseSVN では特別なオーバーレイアイコンでマークされます。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8066
@@ -6678,7 +6678,7 @@ msgstr "ここのコンテキストメニューから、他の人が保持して
 #. (title)
 #: ../source/TortoiseSVN_en.xml:8172
 msgid "Avoid Breaking and Stealing Locks"
-msgstr "ロックの破壊・横取りは避けましょう"
+msgstr "ロックの破壊・横取りは避ける"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8173
@@ -6693,12 +6693,12 @@ msgstr "ロックしていないファイルを読み込み専用にするには
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8186
 msgid "As mentioned above, the most effective way to use locking is to set the <literal>svn:needs-lock</literal> property on files. Refer to <xref linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set properties. Files with this property set will always be checked out and updated with the read-only flag set unless your working copy holds a lock. <graphic fileref=\"../images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN uses a special overlay to indicate this."
-msgstr "上記のように、ロックを使用するのに最も効果的な方法は、<literal>svn:needs-lock</literal> プロパティを設定することです。プロパティの設定については <xref linkend=\"tsvn-dug-propertypage\"/> をご覧ください。このプロパティを持つファイルは、ロックを取得していないと、チェックアウトや更新をしたときに常に読み込み専用になります。<graphic fileref=\"../images/ReadOnlyIcon.png\"/> TortoiseSVN は、忘れないように特別なオーバーレイアイコンで表示します。"
+msgstr "上記のように、ロックを使用するのに最も効果的な方法は、<literal>svn:needs-lock</literal> 属性を設定することです。属性の設定については <xref linkend=\"tsvn-dug-propertypage\"/> をご覧ください。この属性を持つファイルは、ロックを取得していないと、チェックアウトや更新をしたときに常に読み込み専用になります。<graphic fileref=\"../images/ReadOnlyIcon.png\"/> TortoiseSVN は、忘れないように特別なオーバーレイアイコンで表示します。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8196
 msgid "If you operate a policy where every file has to be locked then you may find it easier to use Subversion's auto-props feature to set the property automatically every time you add new files. Read <xref linkend=\"tsvn-dug-settings\"/> for further information."
-msgstr "ファイルやフォルダをリポジトリに追加した際に、自動的にプロパティを設定するように Subversion を設定できます。詳細情報は <xref linkend=\"tsvn-dug-settings\"/> をご覧ください。"
+msgstr "ファイルやフォルダをリポジトリに追加した際に、自動的に属性を設定するように Subversion を設定できます。詳細情報は <xref linkend=\"tsvn-dug-settings\"/> をご覧ください。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:8204
@@ -7085,7 +7085,7 @@ msgstr "リポジトリの別の場所や、同じリポジトリに属する作
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8711
 msgid "View/Edit the folder's properties."
-msgstr "フォルダのプロパティの表示・編集"
+msgstr "フォルダの属性の表示・編集"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8716
@@ -7365,7 +7365,7 @@ msgstr "URL からエクスポートダイアログ"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9052
 msgid "<placeholder-1/> If you execute this command on an unversioned folder, TortoiseSVN will assume that the selected folder is the target, and open a dialog for you to enter the URL and revision to export from. This dialog has options to export only the top level folder, to omit external references, and to override the line end style for files which have the <literal>svn:eol-style</literal> property set."
-msgstr "<placeholder-1/> バージョン管理外のフォルダでこのコマンドを実行すると、TortoiseSVN は選択したフォルダをターゲットと見なし、エクスポートする URL とリビジョンを入力するダイアログを開きます。このダイアログでは、最上位フォルダのみかどうか、外部参照を省略するかどうか、<literal>svn:eol-style</literal> プロパティが設定されているファイルの行末を書き換えるかどうかといったオプションがあります。"
+msgstr "<placeholder-1/> バージョン管理外のフォルダでこのコマンドを実行すると、TortoiseSVN は選択したフォルダをターゲットと見なし、エクスポートする URL とリビジョンを入力するダイアログを開きます。このダイアログでは、最上位フォルダのみかどうか、外部参照を省略するかどうか、<literal>svn:eol-style</literal> 属性が設定されているファイルの行末を書き換えるかどうかといったオプションがあります。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9064
@@ -7517,12 +7517,12 @@ msgstr "TortoiseSVN は、以下の 2 種類の方法でユーザの補助を行
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9246
 msgid "You can integrate a bug tracking tool of your choice in TortoiseSVN. To do this, you have to define some properties, which start with <literal>bugtraq:</literal>. They must be set on Folders: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
-msgstr "TortoiseSVN はいくつかのバグ追跡ツールと統合できます。このとき <literal>bugtraq:</literal> で始まるプロパティを使用します。以下のようにフォルダに設定しなければなりません。 (<xref linkend=\"tsvn-dug-propertypage\"/>)"
+msgstr "TortoiseSVN はいくつかのバグ追跡ツールと統合できます。このとき <literal>bugtraq:</literal> で始まる属性を使用します。以下のようにフォルダに設定しなければなりません。 (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9260
 msgid "Set this property to the URL of your bug tracking tool. It must be properly URI encoded and it has to contain <literal>%BUGID%</literal>. <literal>%BUGID%</literal> is replaced with the Issue number you entered. This allows TortoiseSVN to display a link in the log dialog, so when you are looking at the revision log you can jump directly to your bug tracking tool. You do not have to provide this property, but then TortoiseSVN shows only the issue number and not the link to it. e.g the TortoiseSVN project is using <literal>http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</literal>"
-msgstr "このプロパティには、バグ追跡ツールの URL を設定します。適切に URI エンコードし、<literal>%BUGID%</literal> を含まなければなりません。<literal>%BUGID%</literal> は入力した課題番号に置換されます。これにより TortoiseSVN はログダイアログにリンクを生成し、リビジョンログ参照時に、バグ追跡ツールへ直接ジャンプできるようになります。このプロパティがないと、TortoiseSVN は課題番号を表示するだけで、リンクを生成しません。例: TortoiseSVN プロジェクトは <literal>http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</literal> を使用しています。"
+msgstr "この属性には、バグ追跡ツールの URL を設定します。適切に URI エンコードし、<literal>%BUGID%</literal> を含まなければなりません。<literal>%BUGID%</literal> は入力した課題番号に置換されます。これにより TortoiseSVN はログダイアログにリンクを生成し、リビジョンログ参照時に、バグ追跡ツールへ直接ジャンプできるようになります。この属性がないと、TortoiseSVN は課題番号を表示するだけで、リンクを生成しません。例: TortoiseSVN プロジェクトは <literal>http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</literal> を使用しています。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9280
@@ -7532,17 +7532,17 @@ msgstr "課題番号テキストフィールドが空の場合、TortoiseSVN が
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9252
 msgid "There are two ways to integrate TortoiseSVN with issue trackers. One is based on simple strings, the other is based on <emphasis>regular expressions</emphasis>. The properties used by both approaches are: <placeholder-1/>"
-msgstr "TortoiseSVN と課題トラッカを統合するには、2 つ方法があります。ひとつは単純な文字列によるもの、もうひとつは <emphasis>正規表現</emphasis> によるものです。プロパティにはどちらの方法も使用できます。 <placeholder-1/>"
+msgstr "TortoiseSVN と課題トラッカを統合するには、2 つ方法があります。ひとつは単純な文字列によるもの、もうひとつは <emphasis>正規表現</emphasis> によるものです。属性にはどちらの方法も使用できます。 <placeholder-1/>"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9301
 msgid "This property activates the bug tracking system in <emphasis>Input field</emphasis> mode. If this property is set, then TortoiseSVN will prompt you to enter an issue number when you commit your changes. It's used to add a line at the end of the log message. It must contain <literal>%BUGID%</literal>, which is replaced with the issue number on commit. This ensures that your commit log contains a reference to the issue number which is always in a consistent format and can be parsed by your bug tracking tool to associate the issue number with a particular commit. e.g the TortoiseSVN project is using <literal>Issue : %BUGID%</literal>, but this depends on your Tool."
-msgstr "このプロパティは、<emphasis>入力フィールド</emphasis>モードでバグ追跡システムを有効にします。このプロパティが設定されると、変更をコミットする際に、TortoiseSVN は課題番号を入力するよううながします。これはログメッセージの最後に行を追加するのに使用します。コミットの際に課題番号に置換される、<literal>%BUGID%</literal> を含まねばなりません。コミットログが課題番号への参照を含むのを確実に行います。課題番号は常に一貫した形式で、特殊なコミットで課題番号を関連付けるよう、バグ追跡ツールが解釈できます。例: TortoiseSVN プロジェクトは <literal>Issue : %BUGID%</literal> を使用していますが、これは自分のツールに依存します。"
+msgstr "この属性は、<emphasis>入力フィールド</emphasis>モードでバグ追跡システムを有効にします。この属性が設定されると、変更をコミットする際に、TortoiseSVN は課題番号を入力するよううながします。これはログメッセージの最後に行を追加するのに使用します。コミットの際に課題番号に置換される、<literal>%BUGID%</literal> を含まねばなりません。コミットログが課題番号への参照を含むのを確実に行います。課題番号は常に一貫した形式で、特殊なコミットで課題番号を関連付けるよう、バグ追跡ツールが解釈できます。例: TortoiseSVN プロジェクトは <literal>Issue : %BUGID%</literal> を使用していますが、これは自分のツールに依存します。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9322
 msgid "This property defines if the bug-ID is appended (true) to the end of the log message or inserted (false) at the start of the log message. Valid values are <literal>true/false</literal>. <emphasis> If not defined, <literal>true</literal> is assumed, so that existing projects don't break. </emphasis>"
-msgstr "バグ ID をログメッセージの最後に追加する (true) ときや、ログメッセージの先頭に挿入する (false) ときにこのプロパティを定義します。有効な値は <literal>true/false</literal> です。<emphasis> 既存のプロジェクトが壊れないよう、これが定義されていない場合、<literal>true</literal> として扱います。</emphasis>"
+msgstr "バグ ID をログメッセージの最後に追加する (true) ときや、ログメッセージの先頭に挿入する (false) ときにこの属性を定義します。有効な値は <literal>true/false</literal> です。<emphasis> 既存のプロジェクトが壊れないよう、これが定義されていない場合、<literal>true</literal> として扱います。</emphasis>"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9337
@@ -7562,7 +7562,7 @@ msgstr "シンプルアプローチでは、TortoiseSVN はユーザに、バグ
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9375
 msgid "<emphasis> This property activates the bug tracking system in <literal>Regex</literal> mode. </emphasis> It contains one or two regular expressions, separated by a newline."
-msgstr "このプロパティは、<literal>Regex</literal> モードでバグ追跡システムを有効にします。ここには改行で区切って 1, 2 個の正規表現を設定できます。"
+msgstr "この属性は、<literal>Regex</literal> モードでバグ追跡システムを有効にします。ここには改行で区切って 1, 2 個の正規表現を設定できます。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9382
@@ -7604,21 +7604,21 @@ msgstr "pre-commit フックスクリプトで解釈していれば、課題ト�
 #: ../source/TortoiseSVN_en.xml:9434
 #: ../source/TortoiseSVN_en.xml:9536
 msgid "Set the Properties on Folders"
-msgstr "フォルダへのプロパティ設定"
+msgstr "フォルダへの属性の設定"
 
 #. (para)
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9435
 #: ../source/TortoiseSVN_en.xml:9537
 msgid "These properties must be set on folders for the system to work. When you commit a file or folder the properties are read from that folder. If the properties are not found there, TortoiseSVN will search upwards through the folder tree to find them until it comes to an unversioned folder, or the tree root (eg. <literal>C:\\</literal>) is found. If you can be sure that each user checks out only from e.g <filename>trunk/</filename> and not some sub-folder, then it's enough if you set the properties on <filename>trunk/</filename>. If you can't be sure, you should set the properties recursively on each sub-folder. A property setting deeper in the project hierarchy overrides settings on higher levels (closer to <filename>trunk/</filename>)."
-msgstr "システムが動作するのに、上記のプロパティはフォルダにセットしなければなりません。ファイルやフォルダをコミットする際に、このフォルダからプロパティが読み込まれます。そこにプロパティがない場合、TortoiseSVN は、バージョン管理外フォルダか、ツリーのルート (例: <literal>C:\\</literal>) に行き着くまで、フォルダツリーをさかのぼって探します。ユーザがそれぞれ、例えば<filename>trunk/</filename> からのみチェックアウトして、サブフォルダを含まないことが確かならば、<filename>trunk/</filename> にのみセットすれば十分です。確かでなければ、各サブフォルダに再帰的にプロパティを設定する必要があります。プロジェクト階層の深いところで設定されたプロパティは、高いレベル (<filename>trunk/</filename> に近い) のものを上書きします。"
+msgstr "システムが動作するのに、上記の属性はフォルダにセットしなければなりません。ファイルやフォルダをコミットする際に、このフォルダから属性が読み込まれます。そこに属性がない場合、TortoiseSVN は、バージョン管理外フォルダか、ツリーのルート (例: <literal>C:\\</literal>) に行き着くまで、フォルダツリーをさかのぼって探します。ユーザがそれぞれ、例えば<filename>trunk/</filename> からのみチェックアウトして、サブフォルダを含まないことが確かならば、<filename>trunk/</filename> にのみセットすれば十分です。確かでなければ、各サブフォルダに再帰的に属性を設定する必要があります。プロジェクト階層の深いところで設定された属性は、高いレベル (<filename>trunk/</filename> に近い) のものを上書きします。"
 
 #. (para)
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9449
 #: ../source/TortoiseSVN_en.xml:9551
 msgid "For <literal>tsvn:</literal> properties <emphasis>only</emphasis> you can use the <guilabel>Recursive</guilabel> checkbox to set the property to all sub-folders in the hierarchy, without also setting it on all files."
-msgstr "<literal>tsvn:</literal> プロパティ <emphasis>だけ</emphasis> ですが、<guilabel>再帰</guilabel>チェックボックスを使って階層の全サブフォルダにプロパティをセットできます。このとき全ファイルが対象になるわけではありません。"
+msgstr "<literal>tsvn:</literal> 属性 <emphasis>だけ</emphasis> ですが、<guilabel>再帰</guilabel>チェックボックスを使って階層の全サブフォルダに属性をセットできます。このとき全ファイルが対象になるわけではありません。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9456
@@ -7648,17 +7648,17 @@ msgstr "<ulink url=\"http://www.viewvc.org/\"><citetitle>ViewVC</citetitle></uli
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9484
 msgid "You can integrate a repo viewer of your choice in TortoiseSVN. To do this, you have to define some properties which define the linkage. They must be set on Folders: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
-msgstr "TortoiseSVN はお好みのリポジトリビューアと統合できます。そのためには、リンク用に用意されているプロパティを定義する必要があります。以下のようにフォルダに設定しなければなりません。 (<xref linkend=\"tsvn-dug-propertypage\"/>)"
+msgstr "TortoiseSVN はお好みのリポジトリビューアと統合できます。そのためには、リンク用に用意されている属性を定義する必要があります。以下のようにフォルダに設定しなければなりません。 (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9494
 msgid "Set this property to the URL of your repo viewer to view all changes in a specific revision. It must be properly URI encoded and it has to contain <literal>%REVISION%</literal>. <literal>%REVISION%</literal> is replaced with the revision number in question. This allows TortoiseSVN to display a context menu entry in the log dialog <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision in webviewer</guimenuitem></menuchoice>"
-msgstr "指定したリビジョンの全変更点を表示するリポジトリビューアの URL を、このプロパティにセットしてください。適切に URI エンコードされていなければならず、<literal>%REVISION%</literal> を含んでいる必要があります。<literal>%REVISION%</literal> は問い合わせるリビジョン番号に置換されます。これにより TortoiseSVN は、ログダイアログのコンテキストメニューに <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>リビジョンをウェブビューアで表示</guimenuitem></menuchoice> を表示するようになります。"
+msgstr "指定したリビジョンの全変更点を表示するリポジトリビューアの URL を、この属性にセットしてください。適切に URI エンコードされていなければならず、<literal>%REVISION%</literal> を含んでいる必要があります。<literal>%REVISION%</literal> は問い合わせるリビジョン番号に置換されます。これにより TortoiseSVN は、ログダイアログのコンテキストメニューに <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>リビジョンをウェブビューアで表示</guimenuitem></menuchoice> を表示するようになります。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9513
 msgid "Set this property to the URL of your repo viewer to view changes to a specific file in a specific revision. It must be properly URI encoded and it has to contain <literal>%REVISION%</literal> and <literal>%PATH%</literal>. <literal>%PATH%</literal> is replaced with the path relative to the repository root. This allows TortoiseSVN to display a context menu entry in the log dialog <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision and path in webviewer</guimenuitem></menuchoice> For example, if you right-click in the log dialog bottom pane on a file entry <literal>/trunk/src/file</literal> then the <literal>%PATH%</literal> in the URL will be replaced with <literal>/trunk/src/file</literal>."
-msgstr "指定したリビジョン、指定したファイルの変更点を表示するリポジトリビューアの URL を、このプロパティにセットしてください。適切に URI エンコードされていなければならず、<literal>%REVISION%</literal> と <literal>%PATH%</literal> を含んでいる必要があります。<literal>%PATH%</literal> は、リポジトリのルートからの取得するパスに置換されます。これにより TortoiseSVN は、ログダイアログのコンテキストメニューに <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>リビジョンとパスをウェブビューアで表示</guimenuitem></menuchoice> を表示するようになります。例えば、ログダイアログの下部ペインにある <literal>/trunk/src/file</literal> エントリで右クリックした場合、URL の <literal>%PATH%</literal> は <literal>/trunk/src/file</literal> に置換されます。"
+msgstr "指定したリビジョン、指定したファイルの変更点を表示するリポジトリビューアの URL を、この属性にセットしてください。適切に URI エンコードされていなければならず、<literal>%REVISION%</literal> と <literal>%PATH%</literal> を含んでいる必要があります。<literal>%PATH%</literal> は、リポジトリのルートからの取得するパスに置換されます。これにより TortoiseSVN は、ログダイアログのコンテキストメニューに <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>リビジョンとパスをウェブビューアで表示</guimenuitem></menuchoice> を表示するようになります。例えば、ログダイアログの下部ペインにある <literal>/trunk/src/file</literal> エントリで右クリックした場合、URL の <literal>%PATH%</literal> は <literal>/trunk/src/file</literal> に置換されます。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:9560
@@ -7773,7 +7773,7 @@ msgstr "<literal>共通無視</literal>パターンを設定した Subversion �
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9673
 msgid "This ignore pattern will affect all your projects. It is not versioned, so it will not affect other users. By contrast you can also use the versioned <literal>svn:ignore</literal> property to exclude files or directories from version control. Read <xref linkend=\"tsvn-dug-ignore\"/> for more information."
-msgstr "この無視パターンはすべてのプロジェクトに影響を与えます。バージョン管理されませんので、他のユーザには影響しません。対照的に、バージョン管理で <literal>svn:ignore</literal> プロパティを使用し、バージョン管理からファイルやディレクトリを除外することもできます。詳細は <xref linkend=\"tsvn-dug-ignore\"/> をご覧ください。"
+msgstr "この無視パターンはすべてのプロジェクトに影響を与えます。バージョン管理されませんので、他のユーザには影響しません。対照的に、バージョン管理で <literal>svn:ignore</literal> 属性を使用し、バージョン管理からファイルやディレクトリを除外することもできます。詳細は <xref linkend=\"tsvn-dug-ignore\"/> をご覧ください。"
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:9685
@@ -7833,7 +7833,7 @@ msgstr "<placeholder-1/> このページでは、メインコンテキストメ�
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9764
 msgid "There is a special case for <guilabel>Get Lock</guilabel>. You can of course promote it to the top level using the list above, but as most files don't need locking this just adds clutter. However, a file with the <literal>svn:needs-lock</literal> property needs this action every time it is edited, so in that case it is very useful to have at the top level. Checking the box here means that when a file is selected which has the <literal>svn:needs-lock</literal> property set, <guilabel>Get Lock</guilabel> will always appear at the top level."
-msgstr "<guilabel>ロックを取得</guilabel> は特殊です。もちろん上のリストを用いてトップレベルに表示できますが、ロックの必要がないほとんどのファイルにとっては乱雑なだけです。しかし、<literal>svn:needs-lock</literal> プロパティが設定されているファイルには、いつでも編集できるように、このアクションが必要です。この場合トップレベルに表示している方が便利です。このボックスをチェックしておくと、<literal>svn:needs-lock</literal> プロパティが設定されているファイルを選択すると、<guilabel>ロックを取得</guilabel> がいつでもトップレベルに表示されるようになります。"
+msgstr "<guilabel>ロックを取得</guilabel> は特殊です。もちろん上のリストを用いてトップレベルに表示できますが、ロックの必要がないほとんどのファイルにとっては乱雑なだけです。しかし、<literal>svn:needs-lock</literal> 属性が設定されているファイルには、いつでも編集できるように、このアクションが必要です。この場合トップレベルに表示している方が便利です。このボックスをチェックしておくと、<literal>svn:needs-lock</literal> 属性が設定されているファイルを選択すると、<guilabel>ロックを取得</guilabel> がいつでもトップレベルに表示されるようになります。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:9776
@@ -8003,7 +8003,7 @@ msgstr "<literal>tsvn:projectlanguage</literal> が設定されている場合�
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9980
 msgid "If you don't wish to use the spellchecker for all commits, check this box. The spellchecker will still be enabled where the project properties require it."
-msgstr "コミット時にスペルチェッカを使用しない場合、ここにチェックをつけてください。プロジェクトプロパティで必要だと指定したときだけ、動作するようになります。"
+msgstr "コミット時にスペルチェッカを使用しない場合、ここにチェックをつけてください。プロジェクト属性で必要だと指定したときだけ、動作するようになります。"
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:9988
@@ -8063,12 +8063,12 @@ msgstr "フォルダにたいしてロックコマンドを使用する場合、
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10054
 msgid "If your project is using the <literal>tsvn:lockmsgminsize</literal> property, you will see the lock dialog regardless of this setting because the project <emphasis>requires</emphasis> lock messages."
-msgstr "プロジェクトで <literal>tsvn:lockmsgminsize</literal> プロパティを使用している場合、そのプロジェクトはロックメッセージが <emphasis>必須</emphasis> なので、設定がどうであってもロックダイアログを表示します。"
+msgstr "プロジェクトで <literal>tsvn:lockmsgminsize</literal> 属性を使用している場合、そのプロジェクトはロックメッセージが <emphasis>必須</emphasis> なので、設定がどうであってもロックダイアログを表示します。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10064
 msgid "TortoiseSVN Colour Settings"
-msgstr "TortoiseSVN 色の設定"
+msgstr "TortoiseSVN での色設定"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10068
@@ -8335,7 +8335,7 @@ msgstr ""
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10350
 msgid "Icon Set Selection"
-msgstr "アイコンセット選択"
+msgstr "アイコンセットの選択"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10354
@@ -8494,7 +8494,7 @@ msgstr "キーワード、特にファイルの <emphasis>リビジョン</empha
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10537
 msgid "You can also specify a different diff tool to use on Subversion properties. Since these tend to be short simple text strings, you may want to use a simpler more compact viewer."
-msgstr "Subversion のプロパティ用に別の diff ツールを指定することもできます。プロパティは短く簡単な文字列である傾向があるので、シンプルでもっとコンパクトなビューアを使いたくなるかもしれません。"
+msgstr "Subversion の属性用に別の diff ツールを指定することもできます。属性は短く簡単な文字列である傾向があるので、シンプルでもっとコンパクトなビューアを使いたくなるかもしれません。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10542
@@ -8567,7 +8567,7 @@ msgstr ""
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10652
 msgid "Diff/Merge Advanced Settings"
-msgstr "差分/マージの高度な設定"
+msgstr "差分 / マージの高度な設定"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10656
@@ -8582,7 +8582,7 @@ msgstr "<placeholder-1/> 高度な設定では、ファイルの拡張子ごと�
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10665
 msgid "To associate using a file extension, you need to specify the extension. Use <literal>.bmp</literal> to describe Windows bitmap files. To associate using the <literal>svn:mime-type</literal> property, specify the mime type, including a slash, for example <literal>text/xml</literal>."
-msgstr "拡張子を関連付けるには、拡張子を指定する必要があります。Windows ビットマップファイルを指定するには、<literal>.BMP</literal>としてください。<literal>svn:mime-type</literal> プロパティを使用して関連付けるには、<literal>text/xml</literal> のようにスラッシュを含めて mime type を指定してください。"
+msgstr "拡張子を関連付けるには、拡張子を指定する必要があります。Windows ビットマップファイルを指定するには、<literal>.BMP</literal>としてください。<literal>svn:mime-type</literal> 属性を使用して関連付けるには、<literal>text/xml</literal> のようにスラッシュを含めて mime type を指定してください。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10674
@@ -8602,7 +8602,7 @@ msgstr "オリジナルの Windows メモ帳は 行末が CR-LF でないファ�
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10701
 msgid "Saved Data Settings"
-msgstr "保存データ設定"
+msgstr "保存データの設定"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10704
@@ -8742,7 +8742,7 @@ msgstr ""
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10858
 msgid "Log Cache Statistics"
-msgstr "ログキャッシュ統計"
+msgstr "ログキャッシュの統計"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10861
@@ -8902,7 +8902,7 @@ msgstr "ここで言うフックは、コミット後にバージョン番号を
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11003
 msgid "For various security and implementation reasons, hook scripts are defined locally on a machine, rather than as project properties. You define what happens, no matter what someone else commits to the repository. Of course you can always choose to call a script which is itself under version control."
-msgstr "様々なセキュリティ上、実装上の理由により、フックスクリプトはプロジェクトプロパティとしてではなく、マシンローカルに定義されます。他の誰かがリポジトリにコミットするのを考慮する必要なく、何を行うかを定義してください。もちろん、スクリプトをバージョン管理下に置くかどうかを、いつでも選べます。"
+msgstr "様々なセキュリティ上、実装上の理由により、フックスクリプトはプロジェクト属性としてではなく、マシンローカルに定義されます。他の誰かがリポジトリにコミットするのを考慮する必要なく、何を行うかを定義してください。もちろん、スクリプトをバージョン管理下に置くかどうかを、いつでも選べます。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:11011
@@ -9139,7 +9139,7 @@ msgstr "ファイルの内容にタブ文字があった場合、空白を何文
 #. (title)
 #: ../source/TortoiseSVN_en.xml:11291
 msgid "Registry Settings"
-msgstr "レジストリ設定"
+msgstr "レジストリの設定"
 
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:11293
@@ -9209,7 +9209,7 @@ msgstr "TortoiseSVN は外部 diff ビューアを使用できます。しかし
 #. (title)
 #: ../source/TortoiseSVN_en.xml:11379
 msgid "Subversion Working Folders"
-msgstr "Subversion 作業フォルダ"
+msgstr "Subversion の作業フォルダ"
 
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:11381
@@ -9587,7 +9587,7 @@ msgstr "COM インターフェース"
 #. (title)
 #: ../source/TortoiseSVN_en.xml:11730
 msgid "COM/automation methods supported"
-msgstr "COM/オートメーションをサポートします。"
+msgstr "COM・オートメーションのサポート"
 
 #. (entry)
 #: ../source/TortoiseSVN_en.xml:11736
@@ -9834,7 +9834,7 @@ msgstr "この付録には TortoiseSVN を使用する上での 問題や疑問�
 #. (title)
 #: ../source/TortoiseSVN_en.xml:11890
 msgid "Move/copy a lot of files at once"
-msgstr "一度にたくさんのファイルを移動・コピーする"
+msgstr "大量のファイルの同時移動・コピー"
 
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:11892
@@ -9854,7 +9854,7 @@ msgstr "お奨めの方法は、ファイルを新しい場所に <action>右ド
 #. (title)
 #: ../source/TortoiseSVN_en.xml:11926
 msgid "Force users to enter a log message"
-msgstr "ログメッセージの入力を強制する"
+msgstr "ログメッセージの入力の強制"
 
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:11928
@@ -9889,27 +9889,27 @@ msgstr "TortoiseSVN 以外に他の Subversion クライアントも使用する
 #. (title)
 #: ../source/TortoiseSVN_en.xml:11963
 msgid "Project properties"
-msgstr "プロジェクトプロパティ"
+msgstr "プロジェクト属性"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11964
 msgid "TortoiseSVN uses properties to control some of its features. One of those properties is the <literal>tsvn:logminsize</literal> property."
-msgstr "TortoiseSVN は機能を制御するのにプロパティを使用します。そういったプロパティのひとつに、<literal>tsvn:logminsize</literal> プロパティがあります。"
+msgstr "TortoiseSVN は機能を制御するのに属性を使用します。そういった属性のひとつに、<literal>tsvn:logminsize</literal> 属性があります。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11968
 msgid "If you set that property on a folder, then TortoiseSVN will disable the <guibutton>OK</guibutton> button in all commit dialogs until the user has entered a log message with at least the length specified in the property."
-msgstr "フォルダにこのプロパティをセットすると、プロパティで指定した長さ以上ログメッセージを入力するまで、TortoiseSVN はコミットダイアログの <guibutton>OK</guibutton> ボタンを無効にします。"
+msgstr "フォルダにこの属性をセットすると、属性で指定した長さ以上ログメッセージを入力するまで、TortoiseSVN はコミットダイアログの <guibutton>OK</guibutton> ボタンを無効にします。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11973
 msgid "For detailed information on those project properties, please refer to <xref linkend=\"tsvn-dug-propertypage\"/>"
-msgstr "TortoiseSVN がプロパティをどのように扱うかについての詳細な情報は、<xref linkend=\"tsvn-dug-propertypage\"/> を参照してください。"
+msgstr "TortoiseSVN が属性をどのように扱うかについての詳細な情報は、<xref linkend=\"tsvn-dug-propertypage\"/> を参照してください。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:11980
 msgid "Update selected files from the repository"
-msgstr "選択したファイルをリポジトリから更新する"
+msgstr "リポジトリからの選択したファイルの更新"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11984
@@ -9924,7 +9924,7 @@ msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>変更をチェ�
 #. (title)
 #: ../source/TortoiseSVN_en.xml:12006
 msgid "Roll back revisions in the repository"
-msgstr "リポジトリのリビジョンをロールバックする"
+msgstr "リポジトリのリビジョンのロールバック"
 
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:12008
@@ -9934,7 +9934,7 @@ msgstr "ロールバック"
 #. (title)
 #: ../source/TortoiseSVN_en.xml:12011
 msgid "Use the revision log dialog"
-msgstr "リビジョンログダイアログの使用する"
+msgstr "リビジョンログダイアログの利用"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12012
@@ -9971,7 +9971,7 @@ msgstr "変更の取り消しは作業コピーに対して行われます。結
 #. (title)
 #: ../source/TortoiseSVN_en.xml:12075
 msgid "Use the merge dialog"
-msgstr "マージダイアログを使用する"
+msgstr "マージダイアログの利用"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12076
@@ -10011,7 +10011,7 @@ msgstr "マージを完了するには <guibutton>OK</guibutton> をクリック
 #. (title)
 #: ../source/TortoiseSVN_en.xml:12132
 msgid "Use <literal>svndumpfilter</literal>"
-msgstr "<literal>svndumpfilter</literal> の使用"
+msgstr "<literal>svndumpfilter</literal> の利用"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12133
@@ -10026,7 +10026,7 @@ msgstr "リポジトリからデータを削除する唯一の方法は、Subver
 #. (title)
 #: ../source/TortoiseSVN_en.xml:12155
 msgid "Compare two revisions of a file"
-msgstr "ファイルの 2 つのリビジョンを比較する"
+msgstr "ファイルの 2 つのリビジョンの比較"
 
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:12157
@@ -10066,12 +10066,12 @@ msgstr "時に、作業コピーに別プロジェクト、おそらくライブ
 #. (title)
 #: ../source/TortoiseSVN_en.xml:12220
 msgid "Use svn:externals"
-msgstr "svn:externals を使用する"
+msgstr "svn:externals の利用"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12221
 msgid "Set the <literal>svn:externals</literal> property for a folder in your project. This property consists of one or more lines; each line has the name of a sub-folder which you want the use as the checkout folder for common code, and the repository URL that you want to be checked out there. For full details refer to <xref linkend=\"tsvn-dug-import-4\"/>."
-msgstr "プロジェクトの中のあるフォルダに <literal>svn:externals</literal> プロパティをセットしてください。このプロパティは複数行からなります。各行には、共通コードをチェックアウトするフォルダとして使用するサブフォルダ名と、そこにチェックアウトするリポジトリの URL を記述します。もっと詳しいことは <xref linkend=\"tsvn-dug-import-4\"/> をご覧ください。"
+msgstr "プロジェクトの中のあるフォルダに <literal>svn:externals</literal> 属性をセットしてください。この属性は複数行からなります。各行には、共通コードをチェックアウトするフォルダとして使用するサブフォルダ名と、そこにチェックアウトするリポジトリの URL を記述します。もっと詳しいことは <xref linkend=\"tsvn-dug-import-4\"/> をご覧ください。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12229
@@ -10081,12 +10081,12 @@ msgstr "新しいフォルダをコミットしてください。そこで更新
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12248
 msgid "Of the three methods described, this is the only one which needs no setup on the client side. Once externals are specified in the folder properties, all clients will get populated folders when they update."
-msgstr "説明した 3 つの方法のうち、クライアント側でセットアップが必要ないものは 1 つだけです。一度フォルダプロパティに外部参照を設定すると、すべてのクライアントで、更新時に設定したフォルダを取得します。"
+msgstr "説明した 3 つの方法のうち、クライアント側でセットアップが必要ないものは 1 つだけです。一度フォルダ属性に外部参照を設定すると、すべてのクライアントで、更新時に設定したフォルダを取得します。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:12256
 msgid "Use a nested working copy"
-msgstr "ネストした作業コピーを使用する"
+msgstr "ネストした作業コピーの利用"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12257
@@ -10106,7 +10106,7 @@ msgstr "2 つの作業コピーは独立しています。親作業コピーの�
 #. (title)
 #: ../source/TortoiseSVN_en.xml:12278
 msgid "Use a relative location"
-msgstr "相対位置を使用する"
+msgstr "相対位置の利用"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12279
@@ -10148,7 +10148,7 @@ msgstr "この方法は全てが PC の環境でのみ動作します。また�
 #. (title)
 #: ../source/TortoiseSVN_en.xml:12322
 msgid "Create a shortcut to a repository"
-msgstr "リポジトリへのショートカットを作成する"
+msgstr "リポジトリへのショートカットの作成"
 
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:12324
@@ -10169,7 +10169,7 @@ msgstr ""
 #. (title)
 #: ../source/TortoiseSVN_en.xml:12338
 msgid "Ignore files which are already versioned"
-msgstr "バージョン管理外のファイルを無視する"
+msgstr "バージョン管理外のファイルの無視"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12342
@@ -10204,7 +10204,7 @@ msgstr "ファイルが既にリポジトリに入ってしまっていたら、
 #. (title)
 #: ../source/TortoiseSVN_en.xml:12394
 msgid "Unversion a working copy"
-msgstr "作業コピーをバージョン管理外にする"
+msgstr "作業コピーをバージョン管理外に"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12395
@@ -10214,7 +10214,7 @@ msgstr "作業コピーから <literal>.svn</literal> ディレクトリを削�
 #. (title)
 #: ../source/TortoiseSVN_en.xml:12403
 msgid "Remove a working copy"
-msgstr "作業コピーを削除する"
+msgstr "作業コピーの削除"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12404
@@ -10325,7 +10325,7 @@ msgid ""
 "msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE\n"
 "</screen>"
 msgstr ""
-"しかし、このオプションはユーザに対して隠されているだけです。TortoiseSVN のインストーラにこの環境変数を設定するように強制するには、<literal>ASPDOTNETHACK</literal> プロパティを TRUE にしてください。例えば、インストーラを起動する際に以下のようにしてください。<screen>\n"
+"しかし、このオプションはユーザに対して隠されているだけです。TortoiseSVN のインストーラにこの環境変数を設定するように強制するには、<literal>ASPDOTNETHACK</literal> 属性を TRUE にしてください。例えば、インストーラを起動する際に以下のようにしてください。<screen>\n"
 "msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE\n"
 "</screen>"
 
@@ -10562,7 +10562,7 @@ msgstr "ロックの削除"
 #. (entry)
 #: ../source/TortoiseSVN_en.xml:12674
 msgid "Properties"
-msgstr "プロパティ"
+msgstr "属性"
 
 #. (entry)
 #: ../source/TortoiseSVN_en.xml:12678
@@ -10877,7 +10877,7 @@ msgstr "/bugid:\"the bug id here\""
 #. (entry)
 #: ../source/TortoiseSVN_en.xml:12892
 msgid "Opens the commit dialog. The <placeholder-1/> specifies the target directory or the list of files to commit. You can also specify the <placeholder-2/> switch to pass a predefined log message to the commit dialog. Or, if you don't want to pass the log message on the command line, use <placeholder-3/>, where <placeholder-4/> points to a file containing the log message. To pre-fill the bug ID box (in case you've set up integration with bug trackers properly), you can use the <placeholder-5/> to do that."
-msgstr "コミットダイアログを開きます。コミットする対象ディレクトリかファイルリストを、<placeholder-1/> に指定します。<placeholder-2/> スイッチで、コミットダイアログに渡す定義済みのログメッセージを指定することもできます。または、コマンドラインからログメッセージを渡したくなければ、<placeholder-3/> を使用してください。<placeholder-4/> にはログメッセージのファイルを指定します。(バグトラッカのプロパティで統合の設定をしてある場合) バグ ID ボックスをあらかじめ入力しておくには、<placeholder-5/> を使用できます。"
+msgstr "コミットダイアログを開きます。コミットする対象ディレクトリかファイルリストを、<placeholder-1/> に指定します。<placeholder-2/> スイッチで、コミットダイアログに渡す定義済みのログメッセージを指定することもできます。または、コマンドラインからログメッセージを渡したくなければ、<placeholder-3/> を使用してください。<placeholder-4/> にはログメッセージのファイルを指定します。(バグトラッカの属性で統合の設定をしてある場合) バグ ID ボックスをあらかじめ入力しておくには、<placeholder-5/> を使用できます。"
 
 #. (entry)
 #: ../source/TortoiseSVN_en.xml:12909
@@ -11020,7 +11020,7 @@ msgstr "svn:ignore"
 #. (entry)
 #: ../source/TortoiseSVN_en.xml:13069
 msgid "Adds all targets in <placeholder-1/> to the ignore list, i.e. adds the <placeholder-2/> property to those files."
-msgstr "<placeholder-1/> の全対象を無視リストに追加します。つまり <placeholder-2/> プロパティをそのファイルに追加します。"
+msgstr "<placeholder-1/> の全対象を無視リストに追加します。つまり <placeholder-2/> 属性をそのファイルに追加します。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:13078
@@ -11085,7 +11085,7 @@ msgstr "Windows のアイコンキャッシュを再生成します。Windows �
 #. (entry)
 #: ../source/TortoiseSVN_en.xml:13153
 msgid "Shows the properties dialog for the path given in <placeholder-1/>."
-msgstr "<placeholder-1/> で指定したパスのプロパティダイアログを表示します。"
+msgstr "<placeholder-1/> で指定したパスの属性ダイアログを表示します。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:13162
@@ -11187,7 +11187,7 @@ msgstr ""
 #. (title)
 #: ../source/TortoiseSVN_en.xml:13279
 msgid "Command Line Interface Cross Reference"
-msgstr "コマンドラインインターフェースクロスリファレンス"
+msgstr "コマンドラインインターフェースのクロスリファレンス"
 
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:13281
@@ -11793,7 +11793,7 @@ msgstr ""
 #. (para)
 #: ../source/TortoiseSVN_en.xml:13745
 msgid "Because the svn:ignore property is often a multi-line value, it is shown here as being changed via a text file rather than directly on the command line."
-msgstr "svn:ignore プロパティは複数行の値をとることがあるため、ここでは、直接コマンドラインで指定するのではなく、テキストファイルで変更する方法を示します。"
+msgstr "svn:ignore 属性は複数行の値をとることがあるため、ここでは、直接コマンドラインで指定するのではなく、テキストファイルで変更する方法を示します。"
 
 #. (screen)
 #: ../source/TortoiseSVN_en.xml:13753
@@ -11863,7 +11863,7 @@ msgstr "<graphic fileref=\"images/InSubVersionIcon.png\"/> <emphasis>Subversion 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:13840
 msgid "<graphic fileref=\"images/ReadOnlyIcon.png\"/> The <emphasis>Needs Lock</emphasis> overlay is used to indicate when a file has the <literal>svn:needs-lock</literal> property set. For working copies which were created using Subversion 1.4.0 and later, the <literal>svn:needs-lock</literal> status is cached locally by Subversion and this is used to determine when to show this overlay. For working copies which are in pre-1.4.x format, TortoiseSVN shows this overlay when the file has read-only status. Note that Subversion automatically upgrades working copies when you update them, although the caching of the <literal>svn:needs-lock</literal> property may not happen until the file itself is updated."
-msgstr "<graphic fileref=\"images/ReadOnlyIcon.png\"/> <emphasis>要ロック</emphasis> オーバーレイアイコンは、<literal>svn:needs-lock</literal> プロパティを設定しているファイルに表示されます。Subversion 1.4.0 以降で作成した作業コピー向けに、<literal>svn:needs-lock</literal> 状態は、Subversion がローカルにキャッシュし、このオーバーレイアイコンを表示するかどうか決めるにに使用します。1.4.x 以前の形式の作業コピー向けには、TortoiseSVN は読込専用ファイルにこのオーバーレイアイコンを表示します。Subversion は自動的に作業コピーをアップグレードしますが、<literal>svn:needs-lock</literal> プロパティのキャッシュは、そのファイル自体の更新が発生するまで更新されません。"
+msgstr "<graphic fileref=\"images/ReadOnlyIcon.png\"/> <emphasis>要ロック</emphasis> オーバーレイアイコンは、<literal>svn:needs-lock</literal> 属性を設定しているファイルに表示されます。Subversion 1.4.0 以降で作成した作業コピー向けに、<literal>svn:needs-lock</literal> 状態は、Subversion がローカルにキャッシュし、このオーバーレイアイコンを表示するかどうか決めるにに使用します。1.4.x 以前の形式の作業コピー向けには、TortoiseSVN は読込専用ファイルにこのオーバーレイアイコンを表示します。Subversion は自動的に作業コピーをアップグレードしますが、<literal>svn:needs-lock</literal> 属性のキャッシュは、そのファイル自体の更新が発生するまで更新されません。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:13854
@@ -11873,7 +11873,7 @@ msgstr "<graphic fileref=\"images/LockedIcon.png\"/> ローカルの作業コピ
 #. (para)
 #: ../source/TortoiseSVN_en.xml:13859
 msgid "<graphic fileref=\"images/IgnoredIcon.png\"/> The <emphasis>Ignored</emphasis> overlay is used to represent an item which is in the <literal>ignored</literal> state, either due to a global ignore pattern, or the <literal>svn:ignore</literal> property of the parent folder. This overlay is optional."
-msgstr "<graphic fileref=\"images/IgnoredIcon.png\"/> <emphasis>無視</emphasis> オーバーレイアイコンは、<literal>無視</literal> 状態の項目を、共通無視リストにあるか、親フォルダに <literal>svn:ignore</literal> プロパティが設定されているかにかかわらず表すのに使用します。このオーバーレイはオプションです。"
+msgstr "<graphic fileref=\"images/IgnoredIcon.png\"/> <emphasis>無視</emphasis> オーバーレイアイコンは、<literal>無視</literal> 状態の項目を、共通無視リストにあるか、親フォルダに <literal>svn:ignore</literal> 属性が設定されているかにかかわらず表すのに使用します。このオーバーレイはオプションです。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:13867
@@ -11883,7 +11883,7 @@ msgstr "<graphic fileref=\"images/UnversionedIcon.png\"/> <emphasis>バージョ
 #. (para)
 #: ../source/TortoiseSVN_en.xml:13875
 msgid "If an item has subversion status <literal>none</literal> (the item is not within a working copy) then no overlay is shown. If you have chosen to disable the <emphasis>Ignored</emphasis> and <emphasis>Unversioned</emphasis> overlays then no overlay will be shown for those files either."
-msgstr ""
+msgstr "Subversion の状態が <literal>none</literal> (作業コピーにない項目) の場合はオーバーレイを表示しません。<emphasis>無視</emphasis> や <emphasis>バージョン管理外</emphasis> のオーバーレイを無効にした場合は、そのファイルにもオーバーレイを表示しません。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:13882
@@ -12098,12 +12098,12 @@ msgstr "作業コピーにテキストファイルの変更のみある場合、
 #. (glossterm)
 #: ../source/TortoiseSVN_en.xml:14196
 msgid "Property"
-msgstr "プロパティ"
+msgstr "属性"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:14198
 msgid "In addition to versioning your directories and files, Subversion allows you to add versioned metadata - referred to as <quote>properties</quote> to each of your versioned directories and files. Each property has a name and a value, rather like a registry key. Subversion has some special properties which it uses internally, such as <literal>svn:eol-style</literal>. TortoiseSVN has some too, such as <literal>tsvn:logminsize</literal>. You can add your own properties with any name and value you choose."
-msgstr "ディレクトリやファイルをバージョン管理下に置くのに加えて、Subversion はバージョン管理下のメタデータを追加できます。これは、バージョン管理下のディレクトリ・ファイルごとの <quote>プロパティ</quote> として参照されます。プロパティには、レジストリキーと同じように、それぞれ名前と値があります。Subversion には、<literal>svn:eol-style</literal> のような内部で使用する特殊なプロパティがいくつかあります。TortoiseSVN にも <literal>tsvn:logminsize</literal> のような特殊なプロパティがあります。お好みの名前と値を持つプロパティの追加もできます。"
+msgstr "ディレクトリやファイルをバージョン管理下に置くのに加えて、Subversion はバージョン管理下のメタデータを追加できます。これは、バージョン管理下のディレクトリ・ファイルごとの <quote>属性</quote> として参照されます。属性には、レジストリキーと同じように、それぞれ名前と値があります。Subversion には、<literal>svn:eol-style</literal> のような内部で使用する特殊な属性がいくつかあります。TortoiseSVN にも <literal>tsvn:logminsize</literal> のような特殊な属性があります。お好みの名前と値を持つ属性の追加もできます。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:14213
@@ -12153,12 +12153,12 @@ msgstr "言い換えると、リビジョンは、リビジョンが作成され
 #. (glossterm)
 #: ../source/TortoiseSVN_en.xml:14278
 msgid "Revision Property (revprop)"
-msgstr "リビジョンプロパティ (revprop)"
+msgstr "リビジョン属性 (revprop)"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:14280
 msgid "Just as files can have properties, so can each revision in the repository. Some special revprops are added automatically when the revision is created, namely: <literal>svn:date svn:author svn:log</literal> which represent the commit date/time, the committer and the log message respectively. These properties can be edited, but they are not versioned, so any change is permanent and cannot be undone."
-msgstr "ちょうどファイルがプロパティを持てるように、リポジトリの各リビジョンもプロパティを持てます。リビジョンが作成されるときに、<literal>svn:date svn:author svn:log</literal> といった特殊な revprops が自動的に作成され、それぞれコミット日時、コミッタ、ログメッセージを表しています。これらのプロパティは編集できますが、バージョン管理できません。そのため変更は永続的で元に戻せません。"
+msgstr "ちょうどファイルが属性を持てるように、リポジトリの各リビジョンも属性を持てます。リビジョンが作成されるときに、<literal>svn:date svn:author svn:log</literal> といった特殊な revprops が自動的に作成され、それぞれコミット日時、コミッタ、ログメッセージを表しています。これらの属性は編集できますが、バージョン管理できません。そのため変更は永続的で元に戻せません。"
 
 #. (glossterm)
 #: ../source/TortoiseSVN_en.xml:14292
