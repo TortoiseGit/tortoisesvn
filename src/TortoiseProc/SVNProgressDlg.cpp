@@ -121,6 +121,7 @@ BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableStandAloneDialog)
 	ON_EN_SETFOCUS(IDC_INFOTEXT, &CSVNProgressDlg::OnEnSetfocusInfotext)
 	ON_NOTIFY(LVN_BEGINDRAG, IDC_SVNPROGRESS, &CSVNProgressDlg::OnLvnBegindragSvnprogress)
 	ON_WM_SIZE()
+	ON_NOTIFY(LVN_GETDISPINFO, IDC_SVNPROGRESS, &CSVNProgressDlg::OnLvnGetdispinfoSvnprogress)
 END_MESSAGE_MAP()
 
 BOOL CSVNProgressDlg::Cancel()
@@ -158,16 +159,9 @@ void CSVNProgressDlg::AddItemToList(const NotificationData* pData)
 	int iInsertedAt = m_ProgList.InsertItem(count, pData->sActionColumnText);
 	if (iInsertedAt != -1)
 	{
-		m_ProgList.SetItemText(iInsertedAt, 1, pData->sPathColumnText);
-		m_ProgList.SetItemText(iInsertedAt, 2, pData->mime_type);
-
 		// make columns width fit
-		if (iFirstResized < 30)
+		if (iFirstResized < 2)
 		{
-			// only resize the columns for the first 30 or so entries.
-			// after that, don't resize them anymore because that's an
-			// expensive function call and the columns will be sized
-			// close enough already.
 			ResizeColumns();
 			iFirstResized++;
 		}
@@ -926,6 +920,47 @@ void CSVNProgressDlg::OnCancel()
 	if ((m_bCancelled)&&(!m_bThreadRunning))
 		__super::OnCancel();
 	m_bCancelled = TRUE;
+}
+
+void CSVNProgressDlg::OnLvnGetdispinfoSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	NMLVDISPINFO *pDispInfo = reinterpret_cast<NMLVDISPINFO*>(pNMHDR);
+
+	if (pDispInfo)
+	{
+		if (pDispInfo->item.mask & LVIF_TEXT)
+		{
+			if (pDispInfo->item.iItem < (int)m_arData.size())
+			{
+				const NotificationData * data = m_arData[pDispInfo->item.iItem];
+				int cWidth = m_ProgList.GetColumnWidth(1);
+				cWidth += 20;
+				switch (pDispInfo->item.iSubItem)
+				{
+				case 0:
+					_tcscpy_s(m_columnbuf, MAX_PATH, data->sActionColumnText);
+					break;
+				case 1:
+					_tcscpy_s(m_columnbuf, MAX_PATH, data->sPathColumnText);
+					if (!data->bAuxItem)
+					{
+						CDC * pDC = m_ProgList.GetDC();
+						CFont * pFont = pDC->SelectObject(m_ProgList.GetFont());
+						PathCompactPath(pDC->GetSafeHdc(), m_columnbuf, cWidth);
+						pDC->SelectObject(pFont);
+					}
+					break;
+				case 2:
+					_tcscpy_s(m_columnbuf, MAX_PATH, data->mime_type);
+					break;
+				default:
+					m_columnbuf[0] = 0;
+				}
+				pDispInfo->item.pszText = m_columnbuf;
+			}
+		}
+	}
+	*pResult = 0;
 }
 
 void CSVNProgressDlg::OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
@@ -2324,4 +2359,5 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
 
 	return true;
 }
+
 

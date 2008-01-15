@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -188,6 +188,7 @@ protected:
 	virtual void						DoDataExchange(CDataExchange* pDX);
 
 	afx_msg void	OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void	OnLvnGetdispinfoSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void	OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void	OnBnClickedLogbutton();
 	afx_msg void	OnBnClickedOk();
@@ -282,6 +283,8 @@ private:
 	StringRevMap			m_UpdateStartRevMap;
 	StringRevMap			m_FinishedRevMap;
 
+	TCHAR					m_columnbuf[MAX_PATH];
+
 	BOOL					m_bCancelled;
 	int						m_nConflicts;
 	bool					m_bErrorsOccurred;
@@ -312,5 +315,4 @@ private:
 	CString					sRespectAncestry;
 	CString					sDryRun;
 	CString					sRecordOnly;
-
 };
