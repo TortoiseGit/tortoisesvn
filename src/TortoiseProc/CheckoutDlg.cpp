@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -77,11 +77,12 @@ BOOL CCheckoutDlg::OnInitDialog()
 	AdjustControlSize(IDC_REVISION_N);
 
 	m_sCheckoutDirOrig = m_strCheckoutDirectory;
-	m_bAutoCreateTargetName = !PathIsDirectoryEmpty(m_sCheckoutDirOrig);
 
 	CString sUrlSave = m_URL;
 	m_URLCombo.SetURLHistory(TRUE);
+	m_bAutoCreateTargetName = FALSE;
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
+	m_bAutoCreateTargetName = !PathIsDirectoryEmpty(m_sCheckoutDirOrig);
 	m_URLCombo.SetCurSel(0);
 
 	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_INFINITE)));
@@ -299,7 +300,8 @@ void CCheckoutDlg::OnBnClickedBrowse()
 			name = tempURL.Mid(tempURL.ReverseFind('/')+1);
 			tempURL = tempURL.Left(tempURL.ReverseFind('/'));
 		}
-		m_strCheckoutDirectory = m_sCheckoutDirOrig.TrimRight('\\')+_T('\\')+name;
+		if (CPathUtils::GetFileNameFromPath(m_strCheckoutDirectory).CompareNoCase(name))
+			m_strCheckoutDirectory = m_sCheckoutDirOrig.TrimRight('\\')+_T('\\')+name;
 		if (m_strCheckoutDirectory.IsEmpty())
 		{
 			CRegString lastCheckoutPath = CRegString(_T("Software\\TortoiseSVN\\History\\lastCheckoutPath"));
@@ -422,7 +424,8 @@ void CCheckoutDlg::OnCbnEditchangeUrlcombo()
 		name = tempURL.Mid(tempURL.ReverseFind('/')+1);
 		tempURL = tempURL.Left(tempURL.ReverseFind('/'));
 	}
-	m_strCheckoutDirectory = m_sCheckoutDirOrig.TrimRight('\\')+_T('\\')+name;
+	if (CPathUtils::GetFileNameFromPath(m_strCheckoutDirectory).CompareNoCase(name))
+		m_strCheckoutDirectory = m_sCheckoutDirOrig.TrimRight('\\')+_T('\\')+name;
 	if (m_strCheckoutDirectory.IsEmpty())
 	{
 		CRegString lastCheckoutPath = CRegString(_T("Software\\TortoiseSVN\\History\\lastCheckoutPath"));
