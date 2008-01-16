@@ -59,7 +59,7 @@
 	</Component>
 
 	<Component Id="C__machineregistry" Guid="$(var.GuidMachineRegistry)" Win64="$(var.Win64YesNo)">
-		<Registry Root="HKLM" Key="Software\TortoiseOverlays" Action="createKeyAndRemoveKeyOnUninstall" />
+		<Registry Root="HKLM" Key="Software\TortoiseOverlays" Action="createKey" />
 		<Registry Root="HKLM" Key="Software\TortoiseOverlays" Name="NormalIcon" Value="[CommonFiles64Folder]TortoiseOverlays\icons\XPStyle\NormalIcon.ico" Type="string" KeyPath="yes" />
 		<Registry Root="HKLM" Key="Software\TortoiseOverlays" Name="ModifiedIcon" Value="[CommonFiles64Folder]TortoiseOverlays\icons\XPStyle\ModifiedIcon.ico" Type="string" />
 		<Registry Root="HKLM" Key="Software\TortoiseOverlays" Name="ConflictIcon" Value="[CommonFiles64Folder]TortoiseOverlays\icons\XPStyle\ConflictIcon.ico" Type="string" />
