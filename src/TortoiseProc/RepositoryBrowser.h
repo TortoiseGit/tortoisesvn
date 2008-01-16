@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2008 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -290,6 +290,8 @@ private:
 
 	svn_node_kind_t		m_diffKind;
 	CTSVNPath			m_diffURL;
+
+	CString				m_origDlgTitle;
 };
 
 static UINT WM_AFTERINIT = RegisterWindowMessage(_T("TORTOISESVN_AFTERINIT_MSG"));

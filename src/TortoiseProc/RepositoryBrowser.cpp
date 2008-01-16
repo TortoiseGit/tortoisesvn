@@ -190,6 +190,8 @@ BOOL CRepositoryBrowser::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
+	GetWindowText(m_origDlgTitle);
+
 	m_hAccel = LoadAccelerators(AfxGetResourceHandle(),MAKEINTRESOURCE(IDR_ACC_REPOBROWSER));
 
 	m_cnrRepositoryBar.SubclassDlgItem(IDC_REPOS_BAR_CNR, this);
@@ -317,6 +319,7 @@ void CRepositoryBrowser::InitRepo()
 	m_strReposRoot = data->reposRoot;
 	m_sUUID = data->reposUUID;
 	m_strReposRoot = CPathUtils::PathUnescape(m_strReposRoot);
+	SetWindowText(m_strReposRoot + _T(" - ") + m_origDlgTitle);
 	// now check the repository root for the url type, then
 	// set the corresponding background image
 	if (!m_strReposRoot.IsEmpty())
