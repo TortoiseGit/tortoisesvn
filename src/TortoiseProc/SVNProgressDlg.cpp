@@ -160,10 +160,10 @@ void CSVNProgressDlg::AddItemToList(const NotificationData* pData)
 	if (iInsertedAt != -1)
 	{
 		// make columns width fit
-		if (iFirstResized < 2)
+		if (iFirstResized < 30)
 		{
 			ResizeColumns();
-			iFirstResized++;
+            iFirstResized++;
 		}
 
 		// Make sure the item is *entirely* visible even if the horizontal
@@ -591,8 +591,26 @@ void CSVNProgressDlg::SetSelectedList(const CTSVNPathList& selPaths)
 void CSVNProgressDlg::ResizeColumns()
 {
 	m_ProgList.SetRedraw(FALSE);
-
-	CAppUtils::ResizeAllListCtrlCols(&m_ProgList);
+	int maxcol = ((CHeaderCtrl*)(m_ProgList.GetDlgItem(0)))->GetItemCount()-1;
+	for (int col = 0; col <= maxcol; col++)
+	{
+		if (col != 1)
+			m_ProgList.SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
+		else
+		{
+			// find the longest width of all items
+			int cx = 20;
+			int count = m_ProgList.GetItemCount();
+			for (int index = 0; index<count; ++index)
+			{
+				// get the width of the string and add 12 pixels for the column separator and margins
+				int linewidth = m_ProgList.GetStringWidth(m_arData[index]->sPathColumnText) + 12;
+				if (cx < linewidth)
+					cx = linewidth;
+			}
+			m_ProgList.SetColumnWidth(col, cx);
+		}
+	}
 
 	m_ProgList.SetRedraw(TRUE);	
 }
