@@ -9,7 +9,7 @@
 # $Rev$
 #
 # Authors:
-# Dongsheng Song <dongsheng.song@gmail.com>, 2006-2007
+# Dongsheng Song <dongsheng.song@gmail.com>, 2006-2008
 # NetCobra <netcobra@gmail.com>
 # Cecil Sheng <zcecil@csie.org>
 # Xingyu.Wang <xingyu.wang@gmail.com>
@@ -56,7 +56,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-01-02 18:17+0800\n"
+"PO-Revision-Date: 2008-01-16 13:00+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2008,7 +2008,7 @@ msgstr "无法删除 “%s”，因为"
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not delete property \"%s\" on %s because"
-msgstr "无法删除属性 “%s” 于 “%s”，因为"
+msgstr "无法删除属性“%s”于“%s”，因为"
 
 #. Resource IDs: (83)
 msgid "Could not determine the last committed revision!"
@@ -2458,6 +2458,15 @@ msgstr "编辑根据扩展名的合并程序"
 #. Resource IDs: (113, 115)
 msgid "Edit log message"
 msgstr "编辑日志信息"
+
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Edit property \"%s\" on\r\n"
+"%s"
+msgstr ""
+"编辑属性“%s”于\r\n"
+"%s"
 
 #. Resource IDs: (1331)
 msgid "Edit..."
@@ -4817,6 +4826,15 @@ msgstr "从忽略列表删除(&I)"
 msgid "Remove from changelist"
 msgstr "从修改列表删除"
 
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Remove property \"%s\" from\r\n"
+"%s"
+msgstr ""
+"删除属性“%s”于\r\n"
+"%s"
+
 #. Resource IDs: (1332)
 msgid "Remove..."
 msgstr "移除..."
@@ -5442,6 +5460,15 @@ msgstr "服务器地址(&A)："
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
 msgstr "将文件日期设置为“最后提交时间”(&T)"
+
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Set property \"%s\" on\r\n"
+"%s"
+msgstr ""
+"设置属性“%s”于\r\n"
+"%s"
 
 #. Resource IDs: (13)
 msgid "Setting properties..."
