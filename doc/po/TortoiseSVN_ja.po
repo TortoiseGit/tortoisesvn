@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-01-08 19:58 +0000\n"
-"PO-Revision-Date: 2008-01-15 20:32+0900\n"
+"PO-Revision-Date: 2008-01-16 19:19+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7040,7 +7040,7 @@ msgstr "リポジトリの別の場所や、同じリポジトリに属する作
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8664
 msgid "View/Edit the file's properties."
-msgstr ""
+msgstr "ファイルの属性を表示・編集します。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8627
@@ -8198,13 +8198,12 @@ msgstr "デフォルトでは、オーバレイアイコンやコンテキスト
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10179
 msgid "Ignored items and Unversioned items are not usually given an overlay. If you want to show an overlay in these cases, just check the boxes."
-msgstr ""
+msgstr "無視する項目やバージョン管理外の項目は、通常オーバーレイを表示しません。これらもオーバーレイを表示する場合は、このチェックボックスにチェックしてください。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10183
-#, fuzzy
 msgid "You can also choose to mark folders as modified if they contain unversioned items. This could be useful for reminding you that you have created new files which are not yet versioned. This option is only available when you use the <emphasis>default</emphasis> status cache option (see below)."
-msgstr "デフォルトを選択すると、バージョン管理外のファイルを含むフォルダに、変更済マークをつけるようにできます。これにより、まだバージョン管理下に入れてない新しいファイルを作成したのを、覚えておくのに便利です。"
+msgstr "バージョン管理外のファイルを含むフォルダに、変更済マークをつけるようにもできます。これにより、まだバージョン管理下に入れてない新しいファイルを作成したのを、覚えておくのに便利です。このオプションは、キャッシュオプション (後述) が <emphasis>デフォルト</emphasis> の場合にのみ有効です。"
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10198
@@ -8279,7 +8278,7 @@ msgstr "次のグループでは、オーバーレイを表示するストレー
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10276
 msgid "Network drives can be very slow, so by default icons are not shown for working copies located on network shares."
-msgstr ""
+msgstr "ネットワークドライブはとても遅いので、デフォルトでは、ネットワーク共有上にある作業コピーにアイコンを表示しません。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10280
@@ -8304,7 +8303,7 @@ msgstr "<filename>f:\\development\\SVN\\Subversion*</filename> では、<filenam
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10305
 msgid "The same applies to the <guilabel>Include Paths</guilabel>. Except that for those paths the overlays are shown even if the overlays are disabled for that specific drive type, or by an exclude path specified above."
-msgstr "<guilabel>Include Paths</guilabel> にも同じことが言えます。オーバーレイが無効になるドライブタイプや、除外パスで指定したパスでも、オーバーレイされるようになります。"
+msgstr "<guilabel>含めるパス</guilabel> にも同じことが言えます。オーバーレイが無効になるドライブタイプや、除外パスで指定したパスでも、オーバーレイされるようになります。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10310
@@ -8316,6 +8315,12 @@ msgid ""
 "  show overlays\n"
 "</screen> The include list <emphasis>always</emphasis> makes the overlays show. Otherwise, overlays are shown for all marked drive types <emphasis>unless</emphasis> the path is excluded."
 msgstr ""
+"この 3 つの設定はどのように影響するのかといった問い合わせが、たまにあります。間違いない回答は以下になります。<screen>\n"
+"if (含めるリストにあるパス)\n"
+"  オーバーレイを表示\n"
+"if (許可されたドライブの種類に属するパス) AND (除外するリストにないパス)\n"
+"  オーバーレイを表示\n"
+"</screen> 含めるリストは <emphasis>常に</emphasis> オーバーレイを表示します。一方、ドライブの種類でチェックされたドライブは、除外するパスを <emphasis>除いて</emphasis>、すべて表示されます。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10323
@@ -8330,7 +8335,7 @@ msgstr "時には、作業コピーに含まれる領域を TSVNCache の検索�
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10341
 msgid "As a special exception to this, drives <literal>A:</literal> and <literal>B:</literal> are never considered for the <guilabel>Show excluded folders as 'normal'</guilabel> option. This is because Windows is forced to look on the drive, which can result in a delay of several seconds when starting Explorer, even if your PC does have a floppy drive."
-msgstr ""
+msgstr "この特殊な例外として、<literal>A:</literal> ドライブと <literal>B:</literal> ドライブは<guilabel>'通常' として除外フォルダを表示する</guilabel> オプションのようには動作しません。これは、Windows がエクスプローラの起動時に、PC にフロッピードライブがあっても、数秒の遅延が考えられるドライブを強制的に参照するからです。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10350
@@ -8400,7 +8405,7 @@ msgstr "パスワードを繰り返し入力しなくてもいいように、Pag
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10422
 msgid "Finally, setting up SSH on server and clients is a non-trivial process which is beyond the scope of this help file. However, you can find a guide in the TortoiseSVN FAQ listed under <ulink url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>Subversion/TortoiseSVN SSH How-To</citetitle></ulink>."
-msgstr ""
+msgstr "最終的に、サーバとクライアントにSSHを設定するのは、このヘルプファイルの範疇を超えている重要なプロセスです。しかし、TortoiseSVN FAQ にリストされている <ulink url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>Subversion/TortoiseSVN SSH How-To</citetitle></ulink> にガイドがあります。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10432
@@ -8692,7 +8697,7 @@ msgstr "設定ダイアログ、ログキャッシュページ"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10787
 msgid "<placeholder-1/> This dialog allows you to configure the log caching feature of TortoiseSVN, which retains a local copy of log messages and changed paths to avoid time-consuming downloads from the server. Using the log cache can dramatically speed up the log dialog and the revision graph. Another useful feature is that the log messages can still be accessed when offline."
-msgstr ""
+msgstr "<placeholder-1/> このダイアログでは、TortoiseSVNのログキャッシュ機能の設定ができます。これはログメッセージと変更したパスのローカルコピーを保持し、サーバからダウンロードの時間消費を防ぎます。ログキャッシュを使用すると、ログダイアログやリビジョングラフが劇的に速くなります。その他にも、オフライン時にもログメッセージを参照できるといった便利な特徴もあります。"
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10802
@@ -8702,12 +8707,12 @@ msgstr "ログのキャッシュを有効にする"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10804
 msgid "Enables log caching whenever log data is requested. If checked, data will be retrieved from the cache when available, and any messages not in the cache will be retrieved from the server and added to the cache."
-msgstr ""
+msgstr "ログデータが必要な時は常にログのキャッシュを有効にします。チェックすると、キャッシュが有効ならキャッシュからデータを取得します。キャッシュにメッセージがなければ、サーバから取得しキャッシュに追加します。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10810
 msgid "If caching is disabled, data will always be retrieved directly from the server and not stored locally."
-msgstr ""
+msgstr "キャッシュを無効にすると、データを常にサーバから直接取得し、ローカルに保存しません。"
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10817
@@ -8852,7 +8857,7 @@ msgstr "キャッシュに格納されているリビジョン番号の数です
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10859
 msgid "<placeholder-1/> Click on the <guibutton>Details</guibutton> button to see detailed statistics for a particular cache. Many of the fields shown here are mainly of interest to the developers of TortoiseSVN, so they are not all described in detail. <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> <guibutton>詳細</guibutton> ボタンをクリックすると、特定のキャッシュの詳細統計を表示します。ここではたくさんの項目が表示され、これは主に TortoiseSVN の開発者が興味を引く項目です。そのため、すべてを詳細に説明することはしません。<placeholder-2/>"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10960
