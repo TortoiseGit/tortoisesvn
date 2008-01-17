@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-01-06 18:02+0900\n"
+"PO-Revision-Date: 2008-01-17 10:51+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2433,6 +2433,16 @@ msgstr "拡張子に対応したマージプログラムを編集"
 msgid "Edit log message"
 msgstr "ログメッセージを編集"
 
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Edit property \"%s\" on\r\n"
+"%s"
+msgstr ""
+"属性 \"%s\" を\r\n"
+"%s\r\n"
+"で編集する"
+
 #. Resource IDs: (1331)
 msgid "Edit..."
 msgstr "編集 ..."
@@ -4797,6 +4807,16 @@ msgstr "無視リストから削除(&I)"
 msgid "Remove from changelist"
 msgstr "変更リストから削除"
 
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Remove property \"%s\" from\r\n"
+"%s"
+msgstr ""
+"属性 \"%s\" を\r\n"
+"%s\r\n"
+"から削除する"
+
 #. Resource IDs: (1332)
 msgid "Remove..."
 msgstr "削除 ..."
@@ -5422,6 +5442,16 @@ msgstr "サーバーアドレス(&A):"
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
 msgstr "ファイルの日付を \"最後にコミットした日付\" に設定する(&T)"
+
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Set property \"%s\" on\r\n"
+"%s"
+msgstr ""
+"属性 \"%s\" を\r\n"
+"%s\r\n"
+"に設定する"
 
 #. Resource IDs: (13)
 msgid "Setting properties..."
