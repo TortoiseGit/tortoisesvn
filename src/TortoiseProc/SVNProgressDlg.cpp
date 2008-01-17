@@ -1298,30 +1298,36 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				CString temp;
 				bool bAdded = false;
 				NotificationData * data = m_arData[selIndex];
-				if (m_ProgList.GetSelectedCount() == 1)
+				if ((data)&&(!data->path.IsDirectory()))
 				{
-					if ((data)&&(!data->path.IsDirectory()))
+					if (data->action == svn_wc_notify_update_update || data->action == svn_wc_notify_resolved)
 					{
-						if (data->action == svn_wc_notify_update_update || data->action == svn_wc_notify_resolved)
+						if (m_ProgList.GetSelectedCount() == 1)
 						{
 							temp.LoadString(IDS_LOG_POPUP_COMPARE);
 							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
 							bAdded = true;
-							if (data->bConflictedActionItem)
+						}
+						if (data->bConflictedActionItem)
+						{
+							if (m_ProgList.GetSelectedCount() == 1)
 							{
 								temp.LoadString(IDS_MENUCONFLICT);
 								popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITCONFLICT, temp);
 								popup.SetDefaultItem(ID_EDITCONFLICT, FALSE);
 								temp.LoadString(IDS_SVNPROGRESS_MENUMARKASRESOLVED);
 								popup.AppendMenu(MF_STRING | MF_ENABLED, ID_CONFLICTRESOLVE, temp);
-								temp.LoadString(IDS_SVNPROGRESS_MENUUSETHEIRS);
-								popup.AppendMenu(MF_STRING | MF_ENABLED, ID_CONFLICTUSETHEIRS, temp);
-								temp.LoadString(IDS_SVNPROGRESS_MENUUSEMINE);
-								popup.AppendMenu(MF_STRING | MF_ENABLED, ID_CONFLICTUSEMINE, temp);
 							}
-							else if ((data->content_state == svn_wc_notify_state_merged)||(SVNProgress_Merge == m_Command)||(data->action == svn_wc_notify_resolved))
-								popup.SetDefaultItem(ID_COMPARE, FALSE);
+							temp.LoadString(IDS_SVNPROGRESS_MENUUSETHEIRS);
+							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_CONFLICTUSETHEIRS, temp);
+							temp.LoadString(IDS_SVNPROGRESS_MENUUSEMINE);
+							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_CONFLICTUSEMINE, temp);
 						}
+						else if ((data->content_state == svn_wc_notify_state_merged)||(SVNProgress_Merge == m_Command)||(data->action == svn_wc_notify_resolved))
+							popup.SetDefaultItem(ID_COMPARE, FALSE);
+					}
+					if (m_ProgList.GetSelectedCount() == 1)
+					{
 						if ((data->action == svn_wc_notify_add)||
 							(data->action == svn_wc_notify_update_add)||
 							(data->action == svn_wc_notify_commit_added)||
@@ -1344,7 +1350,10 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPENWITH, temp);
 							bAdded = true;
 						}
-					} // if ((data)&&(!data->path.IsDirectory()))
+					}
+				} // if ((data)&&(!data->path.IsDirectory()))
+				if (m_ProgList.GetSelectedCount() == 1)
+				{
 					if (data)
 					{
 						CString sPath = CPathUtils::ParsePathInString(data->sPathColumnText);
@@ -1359,7 +1368,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							}
 						}
 					}
-				} // if (m_ProgList.GetSelectedCount() == 1)
+				}
 				if (m_ProgList.GetSelectedCount() > 0)
 				{
 					if (bAdded)
@@ -1518,38 +1527,53 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								break;
 							}
 							SVN svn;
-							if (!svn.Resolve(data->path, result, FALSE))
+							POSITION pos = m_ProgList.GetFirstSelectedItemPosition();
+							CString sResolvedPaths;
+							while (pos)
 							{
-								ReportSVNError();
-								DialogEnableWindow(IDOK, TRUE);
-								break;
-							}
-							else
-							{
-								data->color = ::GetSysColor(COLOR_WINDOWTEXT);
-								CString sAction;
-								sAction.LoadString(IDS_SVNACTION_RESOLVE);
-								m_ProgList.SetItemText(selIndex, 0, sAction);
-								data->action = svn_wc_notify_resolved;
-								data->bConflictedActionItem = false;
-								m_nConflicts--;
-								m_ProgList.Invalidate();
-
-								CString info = BuildInfoString();
-								SetDlgItemText(IDC_INFOTEXT, info);
-
-								if (m_nConflicts==0)
+								int nItem = m_ProgList.GetNextSelectedItem(pos);
+								NotificationData * data = m_arData[nItem];
+								if (data)
 								{
-									// When the last conflict is resolved we remove
-									// the warning which we assume is in the last line.
-									int nIndex = m_ProgList.GetItemCount()-1;
-									VERIFY(m_ProgList.DeleteItem(nIndex));
+									if (data->bConflictedActionItem)
+									{
+										if (!svn.Resolve(data->path, result, FALSE))
+										{
+											ReportSVNError();
+											DialogEnableWindow(IDOK, TRUE);
+											break;
+										}
+										else
+										{
+											data->color = ::GetSysColor(COLOR_WINDOWTEXT);
+											data->action = svn_wc_notify_resolved;
+											data->sActionColumnText.LoadString(IDS_SVNACTION_RESOLVE);
+											data->bConflictedActionItem = false;
+											m_nConflicts--;
 
-									delete m_arData[nIndex];
-									m_arData.pop_back();
+											if (m_nConflicts==0)
+											{
+												// When the last conflict is resolved we remove
+												// the warning which we assume is in the last line.
+												int nIndex = m_ProgList.GetItemCount()-1;
+												VERIFY(m_ProgList.DeleteItem(nIndex));
+
+												delete m_arData[nIndex];
+												m_arData.pop_back();
+											}
+											sResolvedPaths += data->path.GetWinPathString() + _T("\n");
+										}
+									}
 								}
+							}
+							m_ProgList.Invalidate();
+							CString info = BuildInfoString();
+							SetDlgItemText(IDC_INFOTEXT, info);
+
+							if (!sResolvedPaths.IsEmpty())
+							{
 								CString msg;
-								msg.Format(IDS_SVNPROGRESS_RESOLVED, data->path.GetWinPath());
+								msg.Format(IDS_SVNPROGRESS_RESOLVED, sResolvedPaths);
 								CMessageBox::Show(m_hWnd, msg, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
 							}
 						}
