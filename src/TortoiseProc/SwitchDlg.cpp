@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -185,7 +185,8 @@ void CSwitchDlg::OnBnClickedLog()
 	UpdateData(TRUE);
 	if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
 		return;
-	if (!m_path.IsEmpty())
+	m_URL = m_URLCombo.GetString();
+	if (!m_URL.IsEmpty())
 	{
 		delete m_pLogDlg;
 		m_pLogDlg = new CLogDlg();
@@ -194,8 +195,9 @@ void CSwitchDlg::OnBnClickedLog()
 		m_pLogDlg->SetSelect(true);
 		m_pLogDlg->m_pNotifyWindow = this;
 		m_pLogDlg->m_wParam = 0;
-		m_pLogDlg->SetParams(CTSVNPath(m_path), SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, limit, TRUE);
+		m_pLogDlg->SetParams(CTSVNPath(m_URL), SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, limit, TRUE);
 		m_pLogDlg->ContinuousSelection(true);
+		m_pLogDlg->SetProjectPropertiesPath(CTSVNPath(m_path));
 		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
 		m_pLogDlg->ShowWindow(SW_SHOW);
 	}
