@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -567,6 +567,10 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 
             CString uuid = pool->GetRepositoryInfo().GetRepositoryUUID (urlpath);
             firstRevision = pool->GetCache (uuid)->GetRevisions().GetFirstMissingRevision();
+			// if the cache is already complete, the firstRevision here is
+			// HEAD+1 - that revision does not exist and would throw an error later
+			if (svn_revnum_t(firstRevision) > svn_revnum_t(headRevision))
+				firstRevision = headRevision;
         }
         else
 		    query.reset (new CCacheLogQuery (svn, svnQuery.get()));
