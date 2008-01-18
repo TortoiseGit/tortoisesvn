@@ -221,7 +221,7 @@ private:
 	void		ReportNotification(const CString& sNotification);
 	void		ReportCmd(const CString& sCmd);
 	void		ReportString(CString sMessage, const CString& sMsgKind, COLORREF color = ::GetSysColor(COLOR_WINDOWTEXT));
-	void		AddItemToList(const NotificationData* pData);
+	void		AddItemToList();
 	CString		BuildInfoString();
 
 	/**
@@ -292,6 +292,7 @@ private:
 
 	int						iFirstResized;
 	BOOL					bSecondResized;
+	int						nEnsureVisibleCount;
 
 	CString					m_sTotalBytesTransferred;
 

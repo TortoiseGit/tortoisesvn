@@ -41,8 +41,8 @@
 BOOL	CSVNProgressDlg::m_bAscending = FALSE;
 int		CSVNProgressDlg::m_nSortedColumn = -1;
 
-#define TRANSFERTIMER 100
-
+#define TRANSFERTIMER	100
+#define VISIBLETIMER	101
 
 enum SVNProgressDlgContextMenuCommands
 {
@@ -152,29 +152,31 @@ svn_wc_conflict_choice_t CSVNProgressDlg::ConflictResolveCallback(const svn_wc_c
 	return svn_wc_conflict_choose_postpone;
 }
 
-void CSVNProgressDlg::AddItemToList(const NotificationData* pData)
+void CSVNProgressDlg::AddItemToList()
 {
-	int count = m_ProgList.GetItemCount();
+	int totalcount = m_ProgList.GetItemCount();
 
-	int iInsertedAt = m_ProgList.InsertItem(count, pData->sActionColumnText);
-	if (iInsertedAt != -1)
+	m_ProgList.SetItemCountEx(totalcount+1, LVSICF_NOSCROLL|LVSICF_NOINVALIDATEALL);
+	// make columns width fit
+	if (iFirstResized < 30)
 	{
-		// make columns width fit
-		if (iFirstResized < 30)
-		{
-			ResizeColumns();
-            iFirstResized++;
-		}
+		ResizeColumns();
+		iFirstResized++;
+	}
 
-		// Make sure the item is *entirely* visible even if the horizontal
-		// scroll bar is visible.
-		int count = m_ProgList.GetCountPerPage();
-		if (iInsertedAt <= (m_ProgList.GetTopIndex() + count + 2))
-		{
-			m_ProgList.EnsureVisible(iInsertedAt, false);
-			m_bLastVisible = true;
-		}
-		else if (IsIconic() == 0)
+	// Make sure the item is *entirely* visible even if the horizontal
+	// scroll bar is visible.
+	int count = m_ProgList.GetCountPerPage();
+	if (totalcount <= (m_ProgList.GetTopIndex() + count + nEnsureVisibleCount + 2))
+	{
+		nEnsureVisibleCount++;
+		//m_ProgList.EnsureVisible(totalcount, false);
+		m_bLastVisible = true;
+	}
+	else
+	{
+		nEnsureVisibleCount = 0;
+		if (IsIconic() == 0)
 			m_bLastVisible = false;
 	}
 }
@@ -330,7 +332,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 				// We're going to add another aux item - let's shove this current onto the list first
 				// I don't really like this, but it will do for the moment.
 				m_arData.push_back(data);
-				AddItemToList(data);
+				AddItemToList();
 
 				data = new NotificationData();
 				data->bAuxItem = true;
@@ -379,7 +381,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 	case svn_wc_notify_failed_lock:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_FAILEDLOCK);
 		m_arData.push_back(data);
-		AddItemToList(data);
+		AddItemToList();
 		ReportError(SVN::GetErrorString(err));
 		bDoAddData = false;
 		if (err->apr_err == SVN_ERR_FS_OUT_OF_DATE)
@@ -390,7 +392,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 	case svn_wc_notify_failed_unlock:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_FAILEDUNLOCK);
 		m_arData.push_back(data);
-		AddItemToList(data);
+		AddItemToList();
 		ReportError(SVN::GetErrorString(err));
 		bDoAddData = false;
 		if (err->apr_err == SVN_ERR_FS_OUT_OF_DATE)
@@ -423,7 +425,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		if (bDoAddData)
 		{
 			m_arData.push_back(data);
-			AddItemToList(data);
+			AddItemToList();
 			if ((!data->bAuxItem)&&(m_itemCount > 0))
 			{
 				m_itemCount--;
@@ -650,6 +652,8 @@ BOOL CSVNProgressDlg::OnInitDialog()
 	// text gets added.
 	ResizeColumns();
 
+	SetTimer(VISIBLETIMER, 300, NULL);
+
 	AddAnchor(IDC_SVNPROGRESS, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_PROGRESSLABEL, BOTTOM_LEFT, BOTTOM_CENTER);
 	AddAnchor(IDC_PROGRESSBAR, BOTTOM_CENTER, BOTTOM_RIGHT);
@@ -725,7 +729,7 @@ void CSVNProgressDlg::ReportString(CString sMessage, const CString& sMsgKind, CO
 		else
 			sMessage.Empty();
 		m_arData.push_back(data);
-		AddItemToList(data);
+		AddItemToList();
 	}
 }
 
@@ -824,6 +828,7 @@ UINT CSVNProgressDlg::ProgressThread()
 	GetDlgItem(IDOK)->SetFocus();	
 
 	KillTimer(TRANSFERTIMER);
+	KillTimer(VISIBLETIMER);
 	CString sFinalInfo;
 	if (!m_sTotalBytesTransferred.IsEmpty())
 	{
@@ -845,7 +850,7 @@ UINT CSVNProgressDlg::ProgressThread()
 		data->bAuxItem = true;
 		data->sActionColumnText.LoadString(IDS_PROGRS_FINISHED);
 		m_arData.push_back(data);
-		AddItemToList(data);
+		AddItemToList();
 	}
 
 	CLogFile logfile;
@@ -951,17 +956,17 @@ void CSVNProgressDlg::OnLvnGetdispinfoSvnprogress(NMHDR *pNMHDR, LRESULT *pResul
 			if (pDispInfo->item.iItem < (int)m_arData.size())
 			{
 				const NotificationData * data = m_arData[pDispInfo->item.iItem];
-				int cWidth = m_ProgList.GetColumnWidth(1);
-				cWidth += 20;
 				switch (pDispInfo->item.iSubItem)
 				{
 				case 0:
-					_tcscpy_s(m_columnbuf, MAX_PATH, data->sActionColumnText);
+					lstrcpyn(m_columnbuf, data->sActionColumnText, MAX_PATH);
 					break;
 				case 1:
-					_tcscpy_s(m_columnbuf, MAX_PATH, data->sPathColumnText);
+					lstrcpyn(m_columnbuf, data->sPathColumnText, pDispInfo->item.cchTextMax);
 					if (!data->bAuxItem)
 					{
+						int cWidth = m_ProgList.GetColumnWidth(1);
+						cWidth = max(12, cWidth-12);
 						CDC * pDC = m_ProgList.GetDC();
 						CFont * pFont = pDC->SelectObject(m_ProgList.GetFont());
 						PathCompactPath(pDC->GetSafeHdc(), m_columnbuf, cWidth);
@@ -969,7 +974,7 @@ void CSVNProgressDlg::OnLvnGetdispinfoSvnprogress(NMHDR *pNMHDR, LRESULT *pResul
 					}
 					break;
 				case 2:
-					_tcscpy_s(m_columnbuf, MAX_PATH, data->mime_type);
+					lstrcpyn(m_columnbuf, data->mime_type, MAX_PATH);
 					break;
 				default:
 					m_columnbuf[0] = 0;
@@ -1075,10 +1080,7 @@ void CSVNProgressDlg::OnHdnItemclickSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 	CString temp;
 	m_ProgList.SetRedraw(FALSE);
 	m_ProgList.DeleteAllItems();
-	for (size_t i=0; i<m_arData.size(); i++)
-	{
-		AddItemToList(m_arData[i]);
-	} 
+	m_ProgList.SetItemCountEx(m_arData.size());
 
 	m_ProgList.SetRedraw(TRUE);
 
@@ -1132,6 +1134,12 @@ void CSVNProgressDlg::OnTimer(UINT_PTR nIDEvent)
 		progText.Format(IDS_SVN_PROGRESS_TOTALANDSPEED, m_sTotalBytesTransferred, progSpeed);
 		SetDlgItemText(IDC_PROGRESSLABEL, progText);
 		KillTimer(TRANSFERTIMER);
+	}
+	if (nIDEvent == VISIBLETIMER)
+	{
+		if (nEnsureVisibleCount)
+			m_ProgList.EnsureVisible(m_ProgList.GetItemCount()-1, false);
+		nEnsureVisibleCount = 0;
 	}
 }
 
