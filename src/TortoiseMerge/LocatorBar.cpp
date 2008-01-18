@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007 - Stefan Kueng
+// Copyright (C) 2006-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -112,9 +112,10 @@ void CLocatorBar::DocumentUpdated()
 		m_arRightState.Add(state);
 	}
 
-	if ((m_pMainFrm->m_pwndBottomView->m_pViewData)&&(m_pMainFrm->m_pwndBottomView->m_pViewData->GetCount()))
+	if (m_pMainFrm->m_pwndBottomView->m_pViewData)
 	{
-		state = m_pMainFrm->m_pwndBottomView->m_pViewData->GetState(0);
+		if (m_pMainFrm->m_pwndBottomView->m_pViewData->GetCount())
+			state = m_pMainFrm->m_pwndBottomView->m_pViewData->GetState(0);
 		identcount = 1;
 		for (int i=0; i<m_pMainFrm->m_pwndBottomView->m_pViewData->GetCount(); i++)
 		{
@@ -125,7 +126,7 @@ void CLocatorBar::DocumentUpdated()
 			else
 			{
 				m_arBottomIdent.Add(identcount);
-				m_arBottomIdent.Add(state);
+				m_arBottomState.Add(state);
 				state = m_pMainFrm->m_pwndBottomView->m_pViewData->GetState(i);
 				identcount = 1;
 			}
