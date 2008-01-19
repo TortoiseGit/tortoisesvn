@@ -54,6 +54,12 @@
 					revisions to a branch (or to the trunk) and you want to port
 					those changes across to a different branch.
 				</para>
+				<para>
+					What you are asking Subversion to do is this:
+					<quote>Calculate the changes necessary to get [FROM] revision 1
+					of branch A [TO] revision 7 of branch A, and apply those changes
+					to my working copy (of trunk or branch B).</quote>
+				</para>
 			</listitem>
 		</varlistentry>
 		<varlistentry>
@@ -68,7 +74,19 @@
 					the latest versions of branch and trunk will be absolutely
 					identical except for your branch changes. So in this special case,
 					you would merge by comparing the branch with the trunk.
-					After the merge, trunk and branch are identical.
+				</para>
+				<para>
+					In this case what you are asking Subversion to do is:
+					<quote>Calculate the changes necessary to get [FROM] the head
+					revision of the trunk [TO] the head revision of the branch, and
+					apply those changes to my working copy (of the trunk).</quote>
+					The net result is that trunk now looks exactly like the branch.
+				</para>
+				<para>
+					After the merge, trunk and branch are identical and branch
+					development has been completely merged back into the main
+					development line. The branch is now redundant and can
+					be deleted.
 				</para>
 				<para>
 					Another use case occurs when you are using vendor branches
