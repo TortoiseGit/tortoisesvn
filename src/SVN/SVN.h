@@ -156,7 +156,7 @@ public:
 	 * \param recurse 
 	 * \return TRUE if successful
 	 */
-	BOOL Revert(const CTSVNPathList& pathlist, BOOL recurse);
+	BOOL Revert(const CTSVNPathList& pathlist, const CStringArray& changelists, BOOL recurse);
 	/**
 	 * Schedule a working copy path for addition to the repository.
 	 * path's parent must be under revision control already, but path is
@@ -179,12 +179,12 @@ public:
 	 * Assigns the files/folders in \c pathList to a \c changelist.
 	 * \return TRUE if successful
 	 */
-	BOOL AddToChangeList(const CTSVNPathList& pathList, const CString& changelist);
+	BOOL AddToChangeList(const CTSVNPathList& pathList, const CString& changelist, svn_depth_t depth, const CStringArray& changelists = CStringArray());
 	/**
 	 * Removes the files/folders in \c pathList from the \c changelist.
 	 * \return TRUE if successful
 	 */
-	BOOL RemoveFromChangeList(const CTSVNPathList& pathList, const CString& changelist);
+	BOOL RemoveFromChangeList(const CTSVNPathList& pathList, const CStringArray& changelists, svn_depth_t depth);
 	/**
 	 * Update working tree path to revision.
 	 * \param pathList the files/directories to update
@@ -202,7 +202,7 @@ public:
 	 * \return TRUE if successful
 	 */
 	BOOL Update(const CTSVNPathList& pathList, SVNRev revision, svn_depth_t depth, 
-		BOOL ignoreexternals, BOOL bAllow_unver_obstructions = TRUE);
+		BOOL depthIsSticky, BOOL ignoreexternals, BOOL bAllow_unver_obstructions = TRUE);
 	/**
 	 * Commit file or directory path into repository, using message as
 	 * the log message.
@@ -225,7 +225,7 @@ public:
 	 * \return the resulting revision number.
 	 */
 	svn_revnum_t Commit(const CTSVNPathList& pathlist, CString message, 
-		const CString& changelist, BOOL keepchangelist, svn_depth_t depth, BOOL keep_locks);
+		const CStringArray& changelists, BOOL keepchangelist, svn_depth_t depth, BOOL keep_locks);
 	/**
 	 * Copy srcPath to destPath.
 	 * 
@@ -358,7 +358,7 @@ public:
 	 * if there are any unversioned obstructing items.
 	 * \return TRUE if successful
 	 */
-	BOOL Switch(const CTSVNPath& path, const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegrev, svn_depth_t depth, BOOL ignore_externals, BOOL allow_unver_obstruction = TRUE);
+	BOOL Switch(const CTSVNPath& path, const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegrev, svn_depth_t depth, BOOL depthIsSticky, BOOL ignore_externals, BOOL allow_unver_obstruction = TRUE);
 	/**
 	 * Import file or directory path into repository directory url at
 	 * head and using LOG_MSG as the log message for the (implied)
@@ -849,6 +849,7 @@ protected:
 
 	/// Convert a TSVNPathList into an array of SVN copy paths
 	apr_array_header_t * MakeCopyArray(const CTSVNPathList& pathList, const SVNRev& rev, const SVNRev& pegrev);
+	apr_array_header_t * MakeChangeListArray(const CStringArray& changelists, apr_pool_t * pool);
 
 	svn_error_t * get_url_from_target (const char **URL, const char *target);
 	svn_error_t * get_uuid_from_target (const char **UUID, const char *target);

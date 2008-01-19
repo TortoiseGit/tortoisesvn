@@ -2570,7 +2570,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							}
 							delList.DeleteAllFiles(true);
 
-							if (!svn.Revert(targetList, FALSE))
+							if (!svn.Revert(targetList, CStringArray(), FALSE))
 							{
 								CMessageBox::Show(this->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 							}
@@ -3370,7 +3370,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						CTSVNPathList changelistItems;
 						FillListOfSelectedItemPaths(changelistItems);
 						SVN svn;
-						if (svn.RemoveFromChangeList(changelistItems, CString()))
+						if (svn.RemoveFromChangeList(changelistItems, CStringArray(), svn_depth_empty))
 						{
 							// The changelists were removed, but we now need to run through the selected items again
 							// and update their changelist
@@ -3427,7 +3427,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						if (!sChangelist.IsEmpty())
 						{
 							SVN svn;
-							if (svn.AddToChangeList(changelistItems, sChangelist))
+							if (svn.AddToChangeList(changelistItems, sChangelist, svn_depth_empty))
 							{
 								// The changelists were moved, but we now need to run through the selected items again
 								// and update their changelist
@@ -3551,7 +3551,7 @@ void CSVNStatusListCtrl::CreateChangeList(const CString& name)
 	CTSVNPathList changelistItems;
 	FillListOfSelectedItemPaths(changelistItems);
 	SVN svn;
-	if (svn.AddToChangeList(changelistItems, name))
+	if (svn.AddToChangeList(changelistItems, name, svn_depth_empty))
 	{
 		// The changelists were removed, but we now need to run through the selected items again
 		// and update their changelist

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -3865,7 +3865,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				progDlg.SetTime(false);
 				SetAndClearProgressInfo(&progDlg);
 				progDlg.ShowModeless(m_hWnd);
-				if (!Update(CTSVNPathList(m_path), revSelected, svn_depth_unknown, FALSE))
+				if (!Update(CTSVNPathList(m_path), revSelected, svn_depth_unknown, FALSE, FALSE))
 				{
 					progDlg.Stop();
 					SetAndClearProgressInfo((HWND)NULL);

@@ -1836,7 +1836,9 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 	}
 
 	ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_COMMIT)));
-	if (!Commit(m_targetPathList, m_sMessage, m_changelist, m_keepchangelist, 
+	CStringArray changelists;
+	changelists.Add(m_changelist);
+	if (!Commit(m_targetPathList, m_sMessage, changelists, m_keepchangelist, 
 		m_depth, m_options & ProgOptKeeplocks))
 	{
 		ReportSVNError();
@@ -1881,9 +1883,9 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
 	}
 	if (m_options & ProgOptSwitchAfterCopy)
 	{
-		if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, SVNRev::REV_HEAD, m_depth, m_options & ProgOptIgnoreExternals))
+		if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, SVNRev::REV_HEAD, m_depth, TRUE, m_options & ProgOptIgnoreExternals))
 		{
-			if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, m_Revision, m_depth, m_options & ProgOptIgnoreExternals))
+			if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, m_Revision, m_depth, TRUE, m_options & ProgOptIgnoreExternals))
 			{
 				ReportSVNError();
 				return false;
@@ -1962,7 +1964,7 @@ bool CSVNProgressDlg::CmdLock(CString& sWindowTitle, bool& /*localoperation*/)
 		if (CMessageBox::Show(m_hWnd, IDS_WARN_LOCKOUTDATED, IDS_APPNAME, MB_ICONQUESTION|MB_YESNO)==IDYES)
 		{
 			ReportString(CString(MAKEINTRESOURCE(IDS_SVNPROGRESS_UPDATEANDRETRY)), CString(MAKEINTRESOURCE(IDS_WARN_NOTE)));
-			if (!Update(m_targetPathList, SVNRev::REV_HEAD, svn_depth_empty, true))
+			if (!Update(m_targetPathList, SVNRev::REV_HEAD, svn_depth_empty, false, true))
 			{
 				ReportSVNError();
 				return false;
@@ -2191,7 +2193,7 @@ bool CSVNProgressDlg::CmdRevert(CString& sWindowTitle, bool& localoperation)
 	delList.DeleteAllFiles(true);
 
 	ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_REVERT)));
-	if (!Revert(m_targetPathList, !!(m_options & ProgOptRecursive)))
+	if (!Revert(m_targetPathList, CStringArray(), !!(m_options & ProgOptRecursive)))
 	{
 		ReportSVNError();
 		return false;
@@ -2221,7 +2223,7 @@ bool CSVNProgressDlg::CmdSwitch(CString& sWindowTitle, bool& /*localoperation*/)
 		(LPCTSTR)m_Revision.ToString());
 	ReportCmd(sCmdInfo);
 
-	if (!Switch(m_targetPathList[0], m_url, m_Revision, m_Revision, m_depth, m_options & ProgOptIgnoreExternals))
+	if (!Switch(m_targetPathList[0], m_url, m_Revision, m_Revision, m_depth, TRUE, m_options & ProgOptIgnoreExternals))
 	{
 		ReportSVNError();
 		return false;
@@ -2339,7 +2341,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
 			CString sNotify;
 			sNotify.Format(IDS_PROGRS_UPDATEPATH, m_basePath.GetWinPath());
 			ReportString(sNotify, CString(MAKEINTRESOURCE(IDS_WARN_NOTE)));
-			if (!Update(CTSVNPathList(targetPath), revstore, m_depth, m_options & ProgOptIgnoreExternals))
+			if (!Update(CTSVNPathList(targetPath), revstore, m_depth, TRUE, m_options & ProgOptIgnoreExternals))
 			{
 				ReportSVNError();
 				return false;
@@ -2375,7 +2377,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
 						intermediatepath = wcPath;
 					else
 						intermediatepath.AppendPathString(childname);
-					bSuccess = !!Update(CTSVNPathList(intermediatepath), m_Revision, svn_depth_empty, true);
+					bSuccess = !!Update(CTSVNPathList(intermediatepath), m_Revision, svn_depth_empty, false, true);
 				}
 
 				if (!bSuccess)
@@ -2385,7 +2387,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
 				}
 			}
 		}
-		if (!Update(m_targetPathList, m_Revision, m_depth, m_options & ProgOptIgnoreExternals))
+		if (!Update(m_targetPathList, m_Revision, m_depth, TRUE, m_options & ProgOptIgnoreExternals))
 		{
 			ReportSVNError();
 			return false;

@@ -388,13 +388,18 @@ BOOL SVN::Remove(const CTSVNPathList& pathlist, BOOL force, BOOL keeplocal, CStr
 	return TRUE;
 }
 
-BOOL SVN::Revert(const CTSVNPathList& pathlist, BOOL recurse)
+BOOL SVN::Revert(const CTSVNPathList& pathlist, const CStringArray& changelists, BOOL recurse)
 {
 	TRACE("Reverting list of %d files\n", pathlist.GetCount());
 	SVNPool subpool(pool);
+	apr_array_header_t * clists = MakeChangeListArray(changelists, subpool);
 
 	svn_error_clear(Err);
-	Err = svn_client_revert2(pathlist.MakePathArray(subpool), recurse ? svn_depth_infinity : svn_depth_empty, m_pctx, subpool);
+	Err = svn_client_revert2(pathlist.MakePathArray(subpool), 
+		recurse ? svn_depth_infinity : svn_depth_empty, 
+		clists,
+		m_pctx, 
+		subpool);
 
 	if(Err != NULL)
 	{
@@ -449,11 +454,19 @@ BOOL SVN::Add(const CTSVNPathList& pathList, ProjectProperties * props, svn_dept
 	return TRUE;
 }
 
-BOOL SVN::AddToChangeList(const CTSVNPathList& pathList, const CString& changelist)
+BOOL SVN::AddToChangeList(const CTSVNPathList& pathList, const CString& changelist, svn_depth_t depth, const CStringArray& changelists)
 {
 	SVNPool subpool(pool);
 	svn_error_clear(Err);
-	Err = svn_client_add_to_changelist(pathList.MakePathArray(subpool), changelist.IsEmpty() ? NULL : (LPCSTR)CUnicodeUtils::GetUTF8(changelist), m_pctx, subpool);
+
+	apr_array_header_t *clists = MakeChangeListArray(changelists, subpool);
+
+	Err = svn_client_add_to_changelist(pathList.MakePathArray(subpool), 
+		changelist.IsEmpty() ? NULL : (LPCSTR)CUnicodeUtils::GetUTF8(changelist), 
+		depth,
+		clists,
+		m_pctx, 
+		subpool);
 	if(Err != NULL)
 	{
 		return FALSE;
@@ -462,11 +475,17 @@ BOOL SVN::AddToChangeList(const CTSVNPathList& pathList, const CString& changeli
 	return TRUE;
 }
 
-BOOL SVN::RemoveFromChangeList(const CTSVNPathList& pathList, const CString& changelist)
+BOOL SVN::RemoveFromChangeList(const CTSVNPathList& pathList, const CStringArray& changelists, svn_depth_t depth)
 {
 	SVNPool subpool(pool);
 	svn_error_clear(Err);
-	Err = svn_client_remove_from_changelist(pathList.MakePathArray(subpool), changelist.IsEmpty() ? NULL : (LPCSTR)CUnicodeUtils::GetUTF8(changelist), m_pctx, subpool);
+	apr_array_header_t * clists = MakeChangeListArray(changelists, subpool);
+
+	Err = svn_client_remove_from_changelists(pathList.MakePathArray(subpool), 
+		depth,
+		clists, 
+		m_pctx, 
+		subpool);
 	if(Err != NULL)
 	{
 		return FALSE;
@@ -475,7 +494,7 @@ BOOL SVN::RemoveFromChangeList(const CTSVNPathList& pathList, const CString& cha
 	return TRUE;
 }
 
-BOOL SVN::Update(const CTSVNPathList& pathList, SVNRev revision, svn_depth_t depth, BOOL ignoreexternals, BOOL bAllow_unver_obstructions)
+BOOL SVN::Update(const CTSVNPathList& pathList, SVNRev revision, svn_depth_t depth, BOOL depthIsSticky, BOOL ignoreexternals, BOOL bAllow_unver_obstructions)
 {
 	SVNPool(localpool);
 	svn_error_clear(Err);
@@ -483,6 +502,7 @@ BOOL SVN::Update(const CTSVNPathList& pathList, SVNRev revision, svn_depth_t dep
 							pathList.MakePathArray(pool),
 							revision,
 							depth,
+							depthIsSticky,
 							ignoreexternals,
 							bAllow_unver_obstructions,
 							m_pctx,
@@ -497,12 +517,14 @@ BOOL SVN::Update(const CTSVNPathList& pathList, SVNRev revision, svn_depth_t dep
 }
 
 svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, CString message, 
-						 const CString& changelist, BOOL keepchangelist, svn_depth_t depth, BOOL keep_locks)
+						 const CStringArray& changelists, BOOL keepchangelist, svn_depth_t depth, BOOL keep_locks)
 {
 	SVNPool localpool(pool);
 
 	svn_error_clear(Err);
 	svn_commit_info_t *commit_info = svn_create_commit_info(localpool);
+
+	apr_array_header_t *clists = MakeChangeListArray(changelists, localpool);
 
 	message.Replace(_T("\r"), _T(""));
 	m_pctx->log_msg_baton3 = logMessage(CUnicodeUtils::GetUTF8(message));
@@ -511,7 +533,7 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, CString message,
 							depth,
 							keep_locks,
 							keepchangelist,
-							changelist.IsEmpty() ? NULL : (LPCSTR)CUnicodeUtils::GetUTF8(changelist),
+							clists,
 							m_pctx,
 							localpool);
 	m_pctx->log_msg_baton3 = logMessage("");
@@ -892,7 +914,7 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 	return TRUE;
 }
 
-BOOL SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegrev, svn_depth_t depth, BOOL ignore_externals, BOOL allow_unver_obstruction)
+BOOL SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegrev, svn_depth_t depth, BOOL depthIsSticky, BOOL ignore_externals, BOOL allow_unver_obstruction)
 {
 	SVNPool subpool(pool);
 	svn_error_clear(Err);
@@ -902,6 +924,7 @@ BOOL SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, const SVNRev& revi
 							 pegrev,
 							 revision,
 							 depth,
+							 depthIsSticky,
 							 ignore_externals,
 							 allow_unver_obstruction,
 							 m_pctx,
@@ -1136,6 +1159,7 @@ BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2,
 						   APR_LOCALE_CHARSET,
 						   outfile,
 						   errfile,
+						   NULL,		// we don't deal with changelists when diffing
 						   m_pctx,
 						   localpool);
 	if (Err)
@@ -1202,6 +1226,7 @@ BOOL SVN::PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SV
 		APR_LOCALE_CHARSET,
 		outfile,
 		errfile,
+		NULL, // we don't deal with changelists when diffing
 		m_pctx,
 		localpool);
 	if (Err)
@@ -1221,7 +1246,7 @@ bool SVN::DiffSummarize(const CTSVNPath& path1, SVNRev rev1, const CTSVNPath& pa
 	svn_error_clear(Err);
 	Err = svn_client_diff_summarize2(path1.GetSVNApiPath(localpool), rev1,
 									path2.GetSVNApiPath(localpool), rev2,
-									depth, ignoreancestry,
+									depth, ignoreancestry, NULL, 
 									summarize_func, this,
 									m_pctx, localpool);
 	if(Err != NULL)
@@ -1236,7 +1261,7 @@ bool SVN::DiffSummarizePeg(const CTSVNPath& path, SVNRev peg, SVNRev rev1, SVNRe
 	SVNPool localpool(pool);
 	svn_error_clear(Err);
 	Err = svn_client_diff_summarize_peg2(path.GetSVNApiPath(localpool), peg, rev1, rev2,
-										depth, ignoreancestry,
+										depth, ignoreancestry, NULL, 
 										summarize_func, this,
 										m_pctx, localpool);
 	if(Err != NULL)
@@ -2411,6 +2436,22 @@ apr_array_header_t * SVN::MakeCopyArray(const CTSVNPathList& pathList, const SVN
 		APR_ARRAY_PUSH(sources, svn_client_copy_source_t *) = source;
 	}
 	return sources;
+}
+
+apr_array_header_t * SVN::MakeChangeListArray(const CStringArray& changelists, apr_pool_t * pool)
+{
+	apr_array_header_t * arr = NULL;
+	if (!changelists.IsEmpty())
+	{
+		apr_array_make (pool, changelists.GetCount(), sizeof(const char *));
+
+		for (int nItem = 0; nItem < changelists.GetCount(); nItem++)
+		{
+			const char * c = apr_pstrdup(pool, (LPCSTR)CUnicodeUtils::GetUTF8(changelists[nItem]));
+			(*((const char **) apr_array_push(arr))) = c;
+		}
+	}
+	return arr;
 }
 
 void SVN::SetAndClearProgressInfo(HWND hWnd)
