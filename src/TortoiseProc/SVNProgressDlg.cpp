@@ -160,6 +160,10 @@ void CSVNProgressDlg::AddItemToList()
 	// make columns width fit
 	if (iFirstResized < 30)
 	{
+		// only resize the columns for the first 30 or so entries.
+		// after that, don't resize them anymore because that's an
+		// expensive function call and the columns will be sized
+		// close enough already.
 		ResizeColumns();
 		iFirstResized++;
 	}
