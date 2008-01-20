@@ -227,7 +227,7 @@
 							<guimenuitem>Show Log</guimenuitem>
 						</menuchoice>
 						Useful for slow server connections. You can always use
-						<guibutton>Get All</guibutton> or
+						<guibutton>Show All</guibutton> or
 						<guibutton>Next 100</guibutton> to get more messages.
 					</para>
 				</listitem>
@@ -249,25 +249,6 @@
 					<para>
 						If the standard long messages use up too much 
 						space on your screen use the short format.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>Cache log messages</term>
-				<listitem>
-					<para>
-						Fetching log messages can take a long time on some repositories,
-						depending on how good the connection is, server load, etc.
-						TortoiseSVN has the facility to cache log messages locally to
-						avoid the need to fetch them from the server. The cache is filled
-						in as part of the normal log message fetch, so there is no need
-						to take any other action.
-					</para>
-					<para>
-						You should keep in mind that log messages can be edited, so if
-						someone else changes a log message and you have a cached copy,
-						you will not see the changes unless you clear the log message
-						cache. Use the <guilabel>Saved Data</guilabel> tab to do that.
 					</para>
 				</listitem>
 			</varlistentry>
