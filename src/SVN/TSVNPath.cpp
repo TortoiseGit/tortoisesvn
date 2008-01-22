@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,11 +20,11 @@
 #include "TSVNPath.h"
 #include "UnicodeUtils.h"
 #include "SVNAdminDir.h"
+#include "PathUtils.h"
 #if defined(_MFC_VER)
 #include "regexpr2.h"
 #include "MessageBox.h"
 #include "AppUtils.h"
-#include "PathUtils.h"
 
 using namespace std;
 using namespace regex;
@@ -196,15 +196,12 @@ const char* CTSVNPath::GetSVNApiPath(apr_pool_t *pool) const
 	{
 		SetUTF8FwdslashPath(m_sFwdslashPath);
 	}
-#if defined(_MFC_VER)
-//BUGBUG HORRIBLE!!! - CPathUtils::PathEscape doesn't need to be MFC-only
 	if (svn_path_is_url(m_sUTF8FwdslashPath))
 	{
 		m_sUTF8FwdslashPathEscaped = CPathUtils::PathEscape(m_sUTF8FwdslashPath);
 		m_sUTF8FwdslashPath = svn_path_canonicalize(m_sUTF8FwdslashPath, pool);
 		return m_sUTF8FwdslashPathEscaped;
 	}
-#endif // _MFC_VER
 	m_sUTF8FwdslashPath = svn_path_canonicalize(m_sUTF8FwdslashPath, pool);
 
 	return m_sUTF8FwdslashPath;

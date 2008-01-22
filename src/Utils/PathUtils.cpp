@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -191,6 +191,51 @@ void CPathUtils::ConvertToBackslash(LPTSTR dest, LPCTSTR src, size_t len)
 			*p = '\\';
 }
 
+CStringA CPathUtils::PathEscape(const CStringA& path)
+{
+	CStringA ret2;
+	int c;
+	int i;
+	for (i=0; path[i]; ++i)
+	{
+		c = (unsigned char)path[i];
+		if (iri_escape_chars[c])
+		{
+			// no escaping needed for that char
+			ret2 += (unsigned char)path[i];
+		}
+		else
+		{
+			// char needs escaping
+			CStringA temp;
+			temp.Format("%%%02X", (unsigned char)c);
+			ret2 += temp;
+		}
+	}
+	CStringA ret;
+	for (i=0; ret2[i]; ++i)
+	{
+		c = (unsigned char)ret2[i];
+		if (uri_autoescape_chars[c])
+		{
+			// no escaping needed for that char
+			ret += (unsigned char)ret2[i];
+		}
+		else
+		{
+			// char needs escaping
+			CStringA temp;
+			temp.Format("%%%02X", (unsigned char)c);
+			ret += temp;
+		}
+	}
+
+	ret.Replace(("file:///%5C"), ("file:///\\"));
+	ret.Replace(("file:////%5C"), ("file:////\\"));
+
+	return ret;
+}
+
 #ifdef _MFC_VER
 CString CPathUtils::GetFileNameFromPath(CString sPath)
 {
@@ -304,50 +349,6 @@ CString CPathUtils::GetAppDataDirectory()
 	return CString (path) + _T('\\');
 }
 
-CStringA CPathUtils::PathEscape(const CStringA& path)
-{
-	CStringA ret2;
-	int c;
-	int i;
-	for (i=0; path[i]; ++i)
-	{
-		c = (unsigned char)path[i];
-		if (iri_escape_chars[c])
-		{
-			// no escaping needed for that char
-			ret2 += (unsigned char)path[i];
-		}
-		else
-		{
-			// char needs escaping
-			CStringA temp;
-			temp.Format("%%%02X", (unsigned char)c);
-			ret2 += temp;
-		}
-	}
-	CStringA ret;
-	for (i=0; ret2[i]; ++i)
-	{
-		c = (unsigned char)ret2[i];
-		if (uri_autoescape_chars[c])
-		{
-			// no escaping needed for that char
-			ret += (unsigned char)ret2[i];
-		}
-		else
-		{
-			// char needs escaping
-			CStringA temp;
-			temp.Format("%%%02X", (unsigned char)c);
-			ret += temp;
-		}
-	}
-
-	ret.Replace(("file:///%5C"), ("file:///\\"));
-	ret.Replace(("file:////%5C"), ("file:////\\"));
-
-	return ret;
-}
 
 CStringA CPathUtils::PathUnescape(const CStringA& path)
 {

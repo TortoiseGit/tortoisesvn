@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,6 +31,12 @@ public:
 	 * Replaces escaped sequences with the corresponding characters in a string.
 	 */
 	static void Unescape(char * psz);
+
+	/**
+	 * Replaces non-URI chars with the corresponding escape sequences.
+	 */
+	static CStringA PathEscape(const CStringA& path);
+
 
 #ifdef _MFC_VER
 	/**
@@ -82,11 +88,6 @@ public:
 	 * \remark the path returned has a trailing backslash
 	 */
 	static CString GetAppDataDirectory();
-
-	/**
-	 * Replaces non-URI chars with the corresponding escape sequences.
-	 */
-	static CStringA PathEscape(const CStringA& path);
 
 	/**
 	 * Replaces escaped sequences with the corresponding characters in a string.
