@@ -1400,8 +1400,6 @@ BOOL SVN::Blame(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev pe
 	// since it actually blamed the BASE file and not the working copy file.
 	// Until that's implemented, we 'fall back' here to the old behavior and
 	// just change and REV_WC to REV_BASE.
-	if (peg.IsWorking())
-		peg = SVNRev::REV_BASE;
 	if (startrev.IsWorking())
 		startrev = SVNRev::REV_BASE;
 	if (endrev.IsWorking())
