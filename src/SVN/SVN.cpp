@@ -2441,9 +2441,13 @@ apr_array_header_t * SVN::MakeCopyArray(const CTSVNPathList& pathList, const SVN
 apr_array_header_t * SVN::MakeChangeListArray(const CStringArray& changelists, apr_pool_t * pool)
 {
 	apr_array_header_t * arr = NULL;
+    // special case: the changelist array contains one empty string
+    if ((changelists.GetCount() == 1)&&(changelists[0].IsEmpty()))
+        return arr;
+
 	if (!changelists.IsEmpty())
 	{
-		apr_array_make (pool, changelists.GetCount(), sizeof(const char *));
+		arr = apr_array_make (pool, changelists.GetCount(), sizeof(const char *));
 
 		for (int nItem = 0; nItem < changelists.GetCount(); nItem++)
 		{

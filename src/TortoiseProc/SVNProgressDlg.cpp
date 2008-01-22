@@ -1841,7 +1841,8 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 
 	ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_COMMIT)));
 	CStringArray changelists;
-	changelists.Add(m_changelist);
+    if (!m_changelist.IsEmpty())
+	    changelists.Add(m_changelist);
 	if (!Commit(m_targetPathList, m_sMessage, changelists, m_keepchangelist, 
 		m_depth, m_options & ProgOptKeeplocks))
 	{
