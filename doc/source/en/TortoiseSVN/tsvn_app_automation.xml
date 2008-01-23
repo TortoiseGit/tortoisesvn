@@ -303,6 +303,9 @@ Don't touch these lines:
 								To explicitly set the revision numbers use
 								<option>/startrev:xxx</option> and
 								<option>/endrev:xxx</option>.
+								If <option>/blame</option> is set and <option>/path2</option>
+								is not set, then the diff is done by first blaming 
+								the files with the given revisions.
 							</entry>
 						</row>
 						<row>
