@@ -1,6 +1,6 @@
 #
 # German translation for TortoiseSVN
-# Copyright (C) 2004-2007 the TortoiseSVN team
+# Copyright (C) 2004-2008 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
 # Last commit by:
@@ -9,14 +9,14 @@
 # $Rev$
 #
 # Authors:
-# Stefan Küng steveking@tigris.org, 2004-2007
-# Lübbe Onken luebbe@tigris.org>, 2004-2007
+# Stefan Küng steveking@tigris.org, 2004-2008
+# Lübbe Onken luebbe@tigris.org>, 2004-2008
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-01-20 13:05 +0000\n"
-"PO-Revision-Date: 2008-01-21 12:31+0100\n"
+"PO-Revision-Date: 2008-01-23 13:50+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6318,9 +6318,8 @@ msgstr "Zusammenführen zweier Bäume"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7613
-#, fuzzy
 msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
-msgstr "Diese Methode behandelt den Fall dass Sie einen Funktionszweig (feature branch), wie im Subversion Buch behandelt, angelegt haben. Alle Änderungen am Stamm wurden Woche für Woche mit dem Zweig zusammengeführt, und nun möchten Sie, da die Funktion im Zweig fertig ist, diese mit dem Stamm zusammenführen. Weil Sie den Funktionszweig immer mit dem Stamm synchronisiert haben, sind die letzten Versionen des Funktionszweiges und des Stammes, mit Ausnahme der auf dem Funktionszweig implementierten Funktion identisch. In diesem speziellen Fall können Sie das Zusammenführen durch einen Vergleich des Funktionszweigs mit dem Stamm durchführen."
+msgstr "Diese Methode behandelt den Fall dass Sie einen Funktionszweig (feature branch), wie im Subversion Buch behandelt, angelegt haben. Alle Änderungen am Stamm wurden Woche für Woche mit dem Zweig zusammengeführt, und nun möchten Sie, da die Funktion im Zweig fertig ist, diese wieder im Stamm zusammenführen. Weil Sie den Funktionszweig immer mit dem Stamm synchronisiert haben, sind die letzten Versionen des Funktionszweiges und des Stammes, mit Ausnahme der auf dem Funktionszweig implementierten Neuerungen identisch. In diesem speziellen Fall können Sie das Zusammenführen durch einen Vergleich des Funktionszweigs mit dem Stamm durchführen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7623
@@ -6985,9 +6984,8 @@ msgstr "Wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Zus
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8535
-#, fuzzy
 msgid "The settings for TortoiseBlame can be accessed using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings...</guimenuitem></menuchoice> on the TortoiseBlame tab. Refer to <xref linkend=\"tsvn-dug-settings-tortoiseblame\"/>."
-msgstr "Einzelne Dateien können auch mit Hilfe des <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Umbenennen...</guimenuitem> </menuchoice> Befehls verschoben werden, aber wenn Sie viele Dateien verschieben wollen, ist das zu langsam und zu viel Arbeit."
+msgstr "Die Einstellungen für TortoiseBlame können Sie über<menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Einstellungen</guimenuitem> </menuchoice> auf dem Karteireiter TortoiseBlame anpassen. Siehe <xref linkend=\"tsvn-dug-settings-tortoiseblame\"/>."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:8546
@@ -7094,7 +7092,7 @@ msgstr "Erstellt eine Kopie der Datei, entweder in einem anderen Teil des Projek
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8682
 msgid "View/Edit the file's properties."
-msgstr ""
+msgstr "Die Dateieigenschaften anzeigen/bearbeiten."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8645
@@ -8074,7 +8072,7 @@ msgstr "Objekte automatisch auswählen"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10013
 msgid "The normal behaviour in the commit dialog is for all modified (versioned) items to be selected for commit automatically. If you prefer to start with nothing selected and pick the items for commit manually, uncheck this box."
-msgstr ""
+msgstr "Das normale Verhalten des Übertragen-Dialogs ist es, dass alle veränderten, versionierten Objekte zur Übertragung gewählt sind. Wenn Sie möchten, dass keine Vorauswahl getroffen wird, deaktivieren Sie diese Option."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10022
@@ -8239,7 +8237,7 @@ msgstr "Standardmäßig werden die überlagerten Symbole in allen Öffnen/Speich
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10178
 msgid "Ignored items and Unversioned items are not usually given an overlay. If you want to show an overlay in these cases, just check the boxes."
-msgstr ""
+msgstr "Ignorierte und nicht versionierte Objekte erhalten normalerweise kein überlagertes Symbol. Falls Sie diese Objekte in Arbeitskopien kennzeichnen wollen, markieren Sie die entsprechenden Optionen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10182
@@ -8249,7 +8247,7 @@ msgstr "Sie können auch festlegen, dass Ordner als modifiziert angezeigt werden
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10197
 msgid "Default"
-msgstr "Standardeinstellung"
+msgstr "Standard"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10199
@@ -8319,7 +8317,7 @@ msgstr "Auf dieser Seite können Sie einstellen, für welche Laufwerkstypen übe
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10275
 msgid "Network drives can be very slow, so by default icons are not shown for working copies located on network shares."
-msgstr ""
+msgstr "Der Zugriff auf Netzwerklaufwerke kann sehr langsam sein, weshalb standardmäßig keine überlagerten Symbole für Netzwerklaufwerke angezeigt werden."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10279
@@ -8356,6 +8354,14 @@ msgid ""
 "  show overlays\n"
 "</screen> The include list <emphasis>always</emphasis> makes the overlays show. Otherwise, overlays are shown for all marked drive types <emphasis>unless</emphasis> the path is excluded."
 msgstr ""
+"Anwender fragen manchmal, wie diese Einstellungen zusammenhängen. Die Antwort lautet:<programlisting>\n"
+"WENN (der Pfad eingeschlossen ist)\n"
+"     Zeige Symbole\n"
+"WENN (der Pfad ein erlaubter Laufwerkstyp ist)\n"
+" UND (der Pfad nicht ausgeschlossen ist)\n"
+"     Zeige Symbole\n"
+"</programlisting>\n"
+"Für eingeschlossene Pfade werden die überlagerten Symbole <emphasis>immer</emphasis> angezeigt. Andernfalls werden die Symbole für die gewünschten Laufwerkstypen angezeigt <emphasis>es sei denn</emphasis> der Pfad ist ausgeschlossen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10322
@@ -8370,7 +8376,7 @@ msgstr "Manchmal möchten Sie vielleicht Ordner, die Arbeitskopien enthalten von
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10340
 msgid "As a special exception to this, drives <literal>A:</literal> and <literal>B:</literal> are never considered for the <guilabel>Show excluded folders as 'normal'</guilabel> option. This is because Windows is forced to look on the drive, which can result in a delay of several seconds when starting Explorer, even if your PC does have a floppy drive."
-msgstr ""
+msgstr "Als Ausnahme davon werden die Laufwerke <literal>A:</literal> und <literal>B:</literal> niemals bei der <guilabel>Ausgeschlossene Ordner 'normal' anzeigen<</guilabel> Option berücksichtigt. Der Grund dafür ist, dass Windows gezwungen ist, auf diese Laufwerke zuzugreifen, was für selbst dann für eine Verzögerung von mehreren Sekunden sorgen kann, wenn Ihr PC mit einem Diskettenlaufwerk ausgestattet ist."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10349
@@ -8537,9 +8543,8 @@ msgstr "Sie können auch ein eigenes Programm für Subversion Eigenschaften ange
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10541
-#, fuzzy
 msgid "If you have configured an alternate diff tool, you can access TortoiseMerge <emphasis>and</emphasis> the third party tool from the context menus. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Diff</guimenuitem></menuchoice> uses the primary diff tool, and <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Shift-Diff</guimenuitem></menuchoice> uses the secondary diff tool."
-msgstr "Aus dem Kontextmenü des Dialoges heraus können Sie sich die Unterschiede anzeigen lassen. Wählen sie die lokalen Änderungen, die <emphasis>Sie</emphasis> gemacht haben, mittels <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Vergleiche mit Basis</guimenuitem> </menuchoice>. Prüfen Sie die Änderungen im Projektarchiv, die andere gemacht haben, mittels <guimenu>Kontextmenü</guimenu> <guimenuitem>Zeige Unterschiede als Standard-Diff</guimenuitem> </menuchoice>."
+msgstr "Wenn Sie ein alternatives Vergleichsprogramm eingerichtet haben, können Sie TortoiseMerge <emphasis>und</emphasis> das andere Programm aus den Kontextmenüs heraus aufrufen. <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Vergleich</guimenuitem> </menuchoice> ruft das primäre Vergleichprogramm und <keycap>Umsch</keycap> <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Vergleich</guimenuitem> </menuchoice> das sekundäre Vergleichprogramm auf."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10558
