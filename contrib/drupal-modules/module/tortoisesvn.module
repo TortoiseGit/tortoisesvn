@@ -171,7 +171,7 @@ Translations were made by many people, you find them on the <a href="translator_
 function print_table_header($name, $summary, $postat, $vars)
 {
 ?>
-<h2><?php echo $summary ?></h2>
+<h2><a name="<?php echo $name ?>"></a><?php echo $summary ?></h2>
 <div class="table">
 <table class="translations" summary="<?php echo $summary ?>">
 <tr>

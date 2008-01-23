@@ -69,13 +69,13 @@ array_multisort($potfile, $country, $transl, $untrans, $fuzzy, $accel, $Tortoise
 print_header($vars);
 
 // Print Alphabetical statistics
-print_table_header('alpha', 'Languages ordered by country', $TortoiseGUI['zzz'], $vars);
+print_table_header('sort_alpha', 'Languages ordered by country', $TortoiseGUI['zzz'], $vars);
 print_all_stats($TortoiseGUI, $vars);
 print_table_footer();
 
 array_multisort($potfile, SORT_ASC, $transl, SORT_DESC, $untrans, SORT_ASC, $fuzzy, SORT_ASC, $accel, SORT_ASC, $country, SORT_ASC, $TortoiseGUI);
 
-print_table_header('toplist', 'Languages by translation status', $TortoiseGUI['zzz'], $vars);
+print_table_header('sort_status', 'Languages by translation status', $TortoiseGUI['zzz'], $vars);
 print_all_stats($TortoiseGUI, $vars);
 print_table_footer();
 
