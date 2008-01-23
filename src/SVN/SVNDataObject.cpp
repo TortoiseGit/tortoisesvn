@@ -105,10 +105,13 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 		// Since we can't get such a read stream, we have to fetch the file in whole first to
 		// a temp location and then pass the shell an IStream for that temp file.
 		CTSVNPath filepath = CTempFiles::Instance().GetTempFilePath(true);
-		if (!m_svn.Cat(CTSVNPath(m_allPaths[pformatetcIn->lindex].infodata.url), m_pegRev, m_revision, filepath))
+		if ((pformatetcIn->lindex >= 0)&&(pformatetcIn->lindex < (LONG)m_allPaths.size()))
 		{
-			DeleteFile(filepath.GetWinPath());
-			return STG_E_ACCESSDENIED;
+			if (!m_svn.Cat(CTSVNPath(m_allPaths[pformatetcIn->lindex].infodata.url), m_pegRev, m_revision, filepath))
+			{
+				DeleteFile(filepath.GetWinPath());
+				return STG_E_ACCESSDENIED;
+			}
 		}
 
 		IStream * pIStream = NULL;
