@@ -319,7 +319,7 @@
 			<arg value='/outputresource:".\${configuration}_${platform}\saslPLAIN.dll;#2"' />
 		</exec>
 
-		<copy todir="..\..\bin\${configuration}" overwrite="true" flatten="true" failonerror="false">
+		<copy todir="..\..\bin\${configuration}${bindirextension}\bin" overwrite="true" flatten="true" failonerror="false">
 			<fileset>
 				<include name="${configuration}_${platform}\*.dll" />
 			</fileset>
