@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-01-20 13:05 +0000\n"
-"PO-Revision-Date: 2008-01-23 17:26+0900\n"
+"PO-Revision-Date: 2008-01-24 19:35+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8722,12 +8722,12 @@ msgstr "リポジトリにアクセスできない場合"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10818
 msgid "If you are working offline, or if the repository server is down, the log cache can still be used to supply log messages already held in the cache. Of course the cache may not be up-to-date, so there are options to allow you to select whether this feature should be used."
-msgstr ""
+msgstr "オフラインで作業していたり、リポジトリサーバがダウンしていたりした場合でも、ログキャッシュを利用して、すでにキャッシュに保持したログメッセージを提供できます。もちろんキャッシュは最新の状態ではありませんから、この機能を使用するかどうかの選択肢があります。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10825
 msgid "When log data is being taken from the cache without contacting the server, the dialog using those message will show the offline state in its title bar."
-msgstr ""
+msgstr "サーバに接続せず、キャッシュからログデータを取得する際、ダイアログはオフライン状態であることをタイトルバーに表示します。"
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10833
@@ -8737,12 +8737,12 @@ msgstr "最新のリビジョンへの更新がタイムアウトになるまで
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10835
 msgid "When you invoke the log dialog you will normally want to contact the server to check for any newer log messages. If the timeout set here is non-zero then the server will only be contacted when the timeout has elapsed since the last time contact. This can reduce server round-trips if you open the log dialog frequently and the server is slow, but the data shown may not be completely up-to-date. If you want to use this feature we suggest using a value of 300 (5 minutes) as a compromise."
-msgstr ""
+msgstr "ログダイアログを表示する際、通常、新しいログメッセージをチェックするのにサーバに接続すると思います。ここでタイムアウトに 0 以外を指定したばあい、前回の接続からその秒数経過しているときだけ、サーバに接続します。頻繁にログダイアログを開き、サーバが遅い場合、これによりサーバとのやりとりを抑えることができますが、表示されるデータが完全に最新であるとは限りません。この機能を使用する場合は、折衷案として 300 (5 分) とするのをお奨めします。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10850
 msgid "Below the settings you can see a list of the repositories that are cached locally, and the space used for the cache. If you select one of the repositories you can then use the buttons underneath."
-msgstr ""
+msgstr "設定の下部では、ローカルにキャッシュしたリポジトリの一覧を、キャッシュに使用した領域とともに参照できます。リポジトリを選択すると、その下のボタンを使用できます。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10857
@@ -8862,17 +8862,17 @@ msgstr "<placeholder-1/> <guibutton>詳細</guibutton> ボタンをクリック�
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10959
 msgid "Click on the <guibutton>Update</guibutton> to completely refresh the cache and fill in any holes. For a large repository this could be very time consuming, but useful if you are about to go offline and want the best available cache."
-msgstr ""
+msgstr "<guibutton>更新</guibutton> をクリックすると、キャッシュを完全に再読込し、抜けたところを補完します。大きなリポジトリでは、非常に時間がかかりますが、オフラインで作業し、もっともよい状態のキャッシュが必要な場合に便利です。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10965
 msgid "Click on the <guibutton>Export</guibutton> button to export the entire cache as a CVS file. This could be useful if you want to process the log data using an external program, although it is mainly useful to the developers."
-msgstr ""
+msgstr "<guibutton>エクスポート</guibutton> ボタンをクリックすると、キャッシュ全体を CVS ファイル (訳注: CSV ファイルの誤り?) でエクスポートします。ログデータを外部プログラムで処理をする際に便利ですが、主に開発者用でしょう。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10971
 msgid "Click on <guibutton>Delete</guibutton> to remove all cached data for the selected repositories. This does not disable caching for the repository so the next time you request log data, a new cache will be created."
-msgstr ""
+msgstr "<guibutton>削除</guibutton> をクリックすると、選択したリポジトリのキャッシュデータをすべて削除します。これはそのリポジトリのキャッシュを無効にするものではなく、次回ログデータが必要になると、新しいキャッシュを作成します。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10980
@@ -9582,7 +9582,7 @@ msgstr ""
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11709
 msgid "A file like this will be included in the build so you would expect it to be versioned. Be sure to version the template file, not the generated file, otherwise each time you regenerate the version file you need to commit the change, which in turn means the version file needs to be updated."
-msgstr ""
+msgstr "このようなファイルがそのビルドに含まれるため、そのファイルがバージョン管理されていると思われるでしょう。バージョン管理下にあるのはテンプレートファイルであって、生成したファイルではありません。そうでなければ、 バージョンファイルを生成するたびに変更をコミットしなければなりません。そして順次バージョンファイルを更新しなければなりません。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:11722
