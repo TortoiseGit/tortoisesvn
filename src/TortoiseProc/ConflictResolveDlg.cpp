@@ -31,6 +31,7 @@ CConflictResolveDlg::CConflictResolveDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CConflictResolveDlg::IDD, pParent)
 	, m_pConflictDescription(NULL)
 	, m_choice(svn_wc_conflict_choose_postpone)
+	, m_bCancelled(false)
 {
 
 }
@@ -52,6 +53,7 @@ BEGIN_MESSAGE_MAP(CConflictResolveDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_RESOLVED, &CConflictResolveDlg::OnBnClickedResolved)
 	ON_BN_CLICKED(IDC_RESOLVEALLLATER, &CConflictResolveDlg::OnBnClickedResolvealllater)
 	ON_BN_CLICKED(IDHELP, &CConflictResolveDlg::OnBnClickedHelp)
+	ON_BN_CLICKED(IDC_ABORT, &CConflictResolveDlg::OnBnClickedAbort)
 END_MESSAGE_MAP()
 
 
@@ -137,6 +139,8 @@ BOOL CConflictResolveDlg::OnInitDialog()
 	// the "resolved" button must not be enabled as long as the user hasn't used
 	// the "edit" button.
 	GetDlgItem(IDC_RESOLVED)->EnableWindow(FALSE);
+
+	m_bCancelled = false;
 	
 	AddAnchor(IDC_INFOLABEL, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_GROUP, BOTTOM_LEFT, BOTTOM_RIGHT);
@@ -151,6 +155,7 @@ BOOL CConflictResolveDlg::OnInitDialog()
 	AddAnchor(IDC_LEAVELABEL, BOTTOM_LEFT);
 	AddAnchor(IDCANCEL, BOTTOM_LEFT);
 	AddAnchor(IDC_RESOLVEALLLATER, BOTTOM_RIGHT);
+	AddAnchor(IDC_ABORT, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
 	
 	
@@ -240,4 +245,11 @@ void CConflictResolveDlg::OnCancel()
 void CConflictResolveDlg::OnBnClickedHelp()
 {
 	OnHelp();
+}
+
+void CConflictResolveDlg::OnBnClickedAbort()
+{
+	m_bCancelled = true;
+	m_choice = svn_wc_conflict_choose_postpone;
+	CResizableStandAloneDialog::OnCancel();
 }

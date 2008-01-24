@@ -146,6 +146,7 @@ svn_wc_conflict_choice_t CSVNProgressDlg::ConflictResolveCallback(const svn_wc_c
 			}
 		}
 		mergedfile = dlg.GetMergedFile();
+		m_bCancelled = dlg.IsCancelled();
 		return dlg.GetResult();
 	}
 

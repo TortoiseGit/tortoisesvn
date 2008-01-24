@@ -1280,6 +1280,7 @@ BEGIN
     PUSHBUTTON      "Resolve all later",IDC_RESOLVEALLLATER,204,99,96,14
     LTEXT           "or",IDC_ORLABEL,15,68,40,8
     LTEXT           "or",IDC_ORLABEL2,15,90,40,8
+    PUSHBUTTON      "Abort &Merge",IDC_ABORT,204,129,50,14
     PUSHBUTTON      "&Help",IDHELP,259,129,50,14
 END
 
