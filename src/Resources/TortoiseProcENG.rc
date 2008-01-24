@@ -2446,6 +2446,8 @@ BEGIN
     IDS_CHSTAT_FILECOL      "File"
     IDS_CHSTAT_WCCOL        "Local status"
     IDS_CHSTAT_REPOCOL      "Remote status"
+    IDS_WARN_CONFIRM_MOVE_SPECIAL_DIRECTORY 
+                            "One of the paths you are attempting to move appears to be a special path\n(one of 'branches', 'tags' or 'trunk').\n\nAre you sure you want to move the selected paths?"
 END
 
 STRINGTABLE 

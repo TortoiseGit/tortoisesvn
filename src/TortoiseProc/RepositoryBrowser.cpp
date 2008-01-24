@@ -1584,6 +1584,33 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 	// if it's a local path, we do an import
 	if (PathIsURL(pathlist[0].GetSVNPathString()))
 	{
+		// If any of the paths are 'special' (branches, tags, or trunk) and we are
+		// about to perform a move, we should warn the user and get them to confirm
+		// that this is what they intended. Yes, I *have* accidentally moved the
+		// trunk when I was trying to create a tag! :)
+		if (DROPEFFECT_COPY != dwEffect)
+		{
+			bool pathListIsSpecial = false;
+			int pathCount = pathlist.GetCount();
+			for (int i=0 ; i<pathCount ; ++i)
+			{
+				const CTSVNPath& path = pathlist[i];
+				if (path.IsSpecialDirectory())
+				{
+					pathListIsSpecial = true;
+					break;
+				}
+			}
+			if (pathListIsSpecial)
+			{
+				UINT msgResult = CMessageBox::Show(GetSafeHwnd(), IDS_WARN_CONFIRM_MOVE_SPECIAL_DIRECTORY, IDS_APPNAME, MB_ICONQUESTION | MB_YESNO);
+				if (IDYES != msgResult)
+				{
+					return false;
+				}
+			}
+		}
+
 		// drag-n-drop inside the repobrowser
 		CInputLogDlg input(this);
 		input.SetUUID(m_sUUID);

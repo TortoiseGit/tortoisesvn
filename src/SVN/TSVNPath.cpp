@@ -46,7 +46,9 @@ CTSVNPath::CTSVNPath(void) :
 	m_bExistsKnown(false),
 	m_bLastWriteTimeKnown(0),
 	m_lastWriteTime(0),
-	m_customData(NULL)
+	m_customData(NULL),
+	m_bIsSpecialDirectoryKnown(false),
+	m_bIsSpecialDirectory(false)
 {
 }
 
@@ -69,7 +71,9 @@ CTSVNPath::CTSVNPath(const CString& sUnknownPath) :
 	m_bExistsKnown(false),
 	m_bLastWriteTimeKnown(0),
 	m_lastWriteTime(0),
-	m_customData(NULL)
+	m_customData(NULL),
+	m_bIsSpecialDirectoryKnown(false),
+	m_bIsSpecialDirectory(false)
 {
 	SetFromUnknown(sUnknownPath);
 }
@@ -414,7 +418,9 @@ void CTSVNPath::Reset()
 	m_bIsValidOnWindowsKnown = false;
 	m_bIsAdminDirKnown = false;
 	m_bExistsKnown = false;
-	
+	m_bIsSpecialDirectoryKnown = false;
+	m_bIsSpecialDirectory = false;
+
 	m_sBackslashPath.Empty();
 	m_sFwdslashPath.Empty();
 	m_sUTF8FwdslashPath.Empty();
@@ -754,6 +760,29 @@ bool CTSVNPath::IsValidOnWindows() const
 	return m_bIsValidOnWindows;
 }
 #endif
+
+bool CTSVNPath::IsSpecialDirectory() const
+{
+	if (m_bIsSpecialDirectoryKnown)
+		return m_bIsSpecialDirectory;
+
+	static LPCTSTR specialDirectories[]
+		= { _T("trunk"), _T("tags"), _T("branches") };
+
+	for (int i=0 ; i<(sizeof(specialDirectories) / sizeof(specialDirectories[0])) ; ++i)
+	{
+		CString name = GetFileOrDirectoryName();
+		if (0 == name.CompareNoCase(specialDirectories[i]))
+		{
+			m_bIsSpecialDirectory = true;
+			break;
+		}
+	}
+
+	m_bIsSpecialDirectoryKnown = true;
+
+	return m_bIsSpecialDirectory;
+}
 
 //////////////////////////////////////////////////////////////////////////
 

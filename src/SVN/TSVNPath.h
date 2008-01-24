@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -220,6 +220,11 @@ public:
 	 */
 	bool IsValidOnWindows() const;
 #endif
+	/**
+	 * Checks to see if the path or URL represents one of the special directories
+	 * (branches, tags, or trunk).
+	 */
+	bool IsSpecialDirectory() const;
 private:
 	// All these functions are const, and all the data
 	// is mutable, in order that the hidden caching operations
@@ -264,6 +269,8 @@ private:
 	mutable bool m_bExists;
 	mutable bool m_bExistsKnown;
 	mutable LPARAM m_customData;
+	mutable bool m_bIsSpecialDirectoryKnown;
+	mutable bool m_bIsSpecialDirectory;
 
 	friend bool operator<(const CTSVNPath& left, const CTSVNPath& right);
 };
