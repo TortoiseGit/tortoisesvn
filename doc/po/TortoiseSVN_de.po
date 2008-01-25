@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-01-20 13:05 +0000\n"
-"PO-Revision-Date: 2008-01-24 16:48+0100\n"
+"PO-Revision-Date: 2008-01-25 10:09+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -35,6 +35,7 @@ msgstr ""
 # tags           - Marken/Markierungen
 # to branch      - verzweigen
 # to tag         - markieren
+# build          - erstellen
 #. (title)
 #. (secondary)
 #: ../source/TortoiseSVN_en.xml:4
@@ -3233,7 +3234,7 @@ msgstr "In solchen Fällen empfehlen wir die Verwendung von so genannten <emphas
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3604
 msgid "As an example, you can have a look at TortoiseSVN's build script. It calls a file named <filename>TortoiseVars.bat</filename> which doesn't exist in the repository. Only the file <filename>TortoiseVars.tmpl</filename>. <filename>TortoiseVars.tmpl</filename> is the template file which every developer has to create a copy from and rename that file to <filename>TortoiseVars.bat</filename>. Inside that file, we added comments so that the users will see which lines they have to edit and change according to their local setup to get it working."
-msgstr "Als Beispiel sehen Sie sich das Build-Skript von TortoiseSVN mal an. Es ruft eine Datei namens <filename>TortoiseVars.bat</filename> auf, die im Projektarchiv gar nicht existiert! Es existiert aber die Datei <filename>TortoiseVars.tmpl</filename>, welche die Schablone für die Datei <filename>TortoiseVars.bat</filename> darstellt. Bevor also das Build-Skript ausgeführt werden kann muss jeder Benutzer eine Kopie von <filename>TortoiseVars.tmpl</filename> erstellen und die Kopie in <filename>TortoiseVars.bat</filename> umbenennen. Dann kann die Datei <filename>TortoiseVars.bat</filename> ohne Probleme so verändert werden, dass die absoluten Pfade zu den zur Erstellung von TortoiseSVN notwendigen Programmen mit den lokalen Pfaden übereinstimmen."
+msgstr "Als Beispiel sehen Sie sich einma das Erstellungsskript von TortoiseSVN an. Es ruft eine Datei namens <filename>TortoiseVars.bat</filename> auf, die im Projektarchiv gar nicht existiert! Es existiert aber die Datei <filename>TortoiseVars.tmpl</filename>, welche die Schablone für die Datei <filename>TortoiseVars.bat</filename> darstellt. Bevor also das Skript ausgeführt werden kann muss jeder Benutzer eine Kopie von <filename>TortoiseVars.tmpl</filename> erstellen und die Kopie in <filename>TortoiseVars.bat</filename> umbenennen. Dann kann die Datei <filename>TortoiseVars.bat</filename> ohne Probleme so verändert werden, dass die absoluten Pfade zu den zur Erstellung von TortoiseSVN notwendigen Programmen mit den lokalen Pfaden übereinstimmen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3615
@@ -3608,7 +3609,7 @@ msgstr "Objekte vom Übertragen ausschließen"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4108
 msgid "Sometimes you have versioned files that change frequently but that you really don't want to commit. Sometimes this indicates a flaw in your build process - why are those files versioned? should you be using template files? But occasionally it is inevitable. A classic reason is that your IDE changes a timestamp in the project file every time you build. The project file has to be versioned as it includes all the build settings, but it doesn't need to be committed just because the timestamp changed."
-msgstr "Manchmal arbeiten Sie mit versionierten Dateien, die sich häufig ändern, die Sie aber nicht übertragen wollen. Eventuell deutet das auf einen Mangel in Ihrem Buildprozess hin - Warum sind diese Dateien versioniert? sollten Sie nicht besser mit Vorlagen arbeiten? Aber manchmal ist dies unvermeidlich. Ein klassischer Grund ist, dass Ihre Entwicklungsumgebung bei jedem Generieren einen Zeitstempel in der Projektdatei verändert. Die Projektdatei muss versioniert sein, da sie all zum Generieren erforderlichen Einstellungen enthält, jedoch muss sie nicht übertragen werden, nur weil sich der Zeitstempel geändert hat."
+msgstr "Manchmal arbeiten Sie mit versionierten Dateien, die sich häufig ändern, die Sie aber nicht übertragen wollen. Eventuell deutet das auf einen Mangel in Ihrem Erstellungsprozess hin - Warum sind diese Dateien versioniert? sollten Sie nicht besser mit Vorlagen arbeiten? Aber manchmal ist dies unvermeidlich. Ein klassischer Grund ist, dass Ihre Entwicklungsumgebung bei jedem Generieren einen Zeitstempel in der Projektdatei verändert. Die Projektdatei muss versioniert sein, da sie all zum Generieren erforderlichen Einstellungen enthält, jedoch muss sie nicht übertragen werden, nur weil sich der Zeitstempel geändert hat."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4118
@@ -3643,7 +3644,7 @@ msgstr "<placeholder-1/> TortoiseSVN enthält eine Rechtschreibprüfung die Sie 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4156
 msgid "The log message window also includes a filename and function auto-completion facility. This uses regular expressions to extract class and function names from the (text) files you are committing, as well as the filenames themselves. If a word you are typing matches anything in the list (after you have typed at least 3 characters, or pressed <action>CTRL+Space</action>), a drop-down appears allowing you to select the full name. The regular expressions supplied with TortoiseSVN are held in the TortoiseSVN installation <filename>bin</filename> folder. You can also define your own regexes and store them in <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename>. Of course your private autolist will not be overwritten when you update your installation of TortoiseSVN. If you are unfamiliar with regular expressions, take a look at the introduction at <ulink url=\"http://en.wikipedia.org/wiki/Regular_expression\"><citetitle>http://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>, and the online documentation and tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
-msgstr "Das Eingabefeld verfügt außerdem über eine Auto-Vervollständigen Funktion für Datei- und Funktionsnamen. Diese verwendet reguläre Ausdrücke, um Klassen- und Funktionsnamen aus den zu übertragenden Dateien sowie den Dateinamen selbst zu extrahieren. Sobald Sie die ersten drei Zeichen eines Wortes (oder <action>Strg+Leer</action>) eingeben haben, wird, falls es Übereinstimmungen gibt, eine Liste angezeigt, aus der Sie das vollständige Wort auswählen können. Die zusammen mit TortoiseSVN installierten regulären Ausdrücke finden sich im <filename>bin</filename> Ordner. Sie können obendrein Ihre eigenen regulären Ausdrücke definieren und in der Datei <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename> abspeichern. Diese private Liste wird beim Aktualisieren von TortoiseSVN nicht überschrieben. Wenn Sie sich mit regulären Ausdrücken nicht auskennen, finden Sie ausführliche Informationen unter <ulink url=\"http://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck/\"> <citetitle>http://de.wikipedia.org/wiki/Regulärer_Ausdruck</citetitle></ulink>."
+msgstr "Das Eingabefeld verfügt außerdem über eine automatisch Vervollständigen Funktion für Datei- und Funktionsnamen. Diese verwendet reguläre Ausdrücke, um Klassen- und Funktionsnamen aus den zu übertragenden Dateien sowie den Dateinamen selbst zu extrahieren. Sobald Sie die ersten drei Zeichen eines Wortes (oder <action>Strg+Leer</action>) eingeben haben, wird, falls es Übereinstimmungen gibt, eine Liste angezeigt, aus der Sie das vollständige Wort auswählen können. Die zusammen mit TortoiseSVN installierten regulären Ausdrücke finden sich im <filename>bin</filename> Ordner. Sie können obendrein Ihre eigenen regulären Ausdrücke definieren und in der Datei <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename> abspeichern. Diese private Liste wird beim Aktualisieren von TortoiseSVN nicht überschrieben. Wenn Sie sich mit regulären Ausdrücken nicht auskennen, finden Sie ausführliche Informationen unter <ulink url=\"http://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck/\"> <citetitle>http://de.wikipedia.org/wiki/Regulärer_Ausdruck</citetitle></ulink>."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4177
@@ -8018,7 +8019,7 @@ msgstr "Wenn diese Option aktiviert ist (Vorgabe), werden jedes Mal, wenn ein ni
 #. (term)
 #: ../source/TortoiseSVN_en.xml:9954
 msgid "Use auto-completion of file paths and keywords"
-msgstr "Dateinamen und Schlüsselwörter automatisch vervollständigen"
+msgstr "Dateinamen und Schlüsselwörter automatisch Vervollständigen"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9956
@@ -8033,7 +8034,7 @@ msgstr "Wartezeit in Sekunden zum Stop der Datei-Analyse für das automatische V
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9968
 msgid "The auto-completion parser can be quite slow if there are a lot of large files to check. This timeout stops the commit dialog being held up for too long. If you are missing important auto-completion information, you can extend the timeout."
-msgstr "Der Parser für das automatische Vervollständigen kann sehr langsam sein wenn Sie sehr viele und große Dateien ausgewählt haben. Diese Wartezeit stoppt den Parser und übergibt die bisher gefundenen Daten an die Editor-Box. Wenn Sie wichtige Informationen für das automatisch Vervollständigen vermissen, können Sie hier die Wartezeit erhöhen."
+msgstr "Der Parser für das automatische Vervollständigen kann sehr langsam sein, wenn Sie sehr viele und große Dateien ausgewählt haben. Diese Wartezeit stoppt den Parser und übergibt die bisher gefundenen Daten an die Editor-Box. Wenn Sie wichtige Informationen für das automatische Vervollständigen vermissen, können Sie hier die Wartezeit erhöhen."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:9977
@@ -9199,7 +9200,7 @@ msgstr "Einige selten verwendete Einstellungen können nur über die Windows Reg
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11302
 msgid "You can specify a different location for the Subversion configuration file using registry location <literal>HKCU\\Software\\TortoiseSVN\\ConfigDir</literal>. This will affect all TortoiseSVN operations."
-msgstr "Sie können einen anderen Ort für die Subversion Konfigurationsdateien angeben, indem Sie den Schlüssel<literal>HKCU\\Software\\TortoiseSVN\\ConfigDir</literal> ändern. Dies beeinflusst alle TortoiseSVN Aktionen."
+msgstr "Sie können einen anderen Ort für die Subversion Konfigurationsdateien angeben, indem Sie den Schlüssel <literal>HKCU\\Software\\TortoiseSVN\\ConfigDir</literal> ändern. Dies beeinflusst alle TortoiseSVN Aktionen."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:11311
@@ -9209,47 +9210,47 @@ msgstr "Statuszeilensymbol für Cache"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11313
 msgid "To add a cache tray icon for the TSVNCache program, create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\CacheTrayIcon</literal>. This is really only useful for developers as it allows you to terminate the program gracefully."
-msgstr "Um ein Cache-Symbol zur Statusleiste hinzuzufügen, erzeugen Sie einen <literal>DWORD</literal> mit dem Wert in <literal>HKCU\\Software\\TortoiseSVN\\CacheTrayIcon</literal>. Diese Einstellung ist eigentlich nur für Entwickler gedacht, die den TortoiseSVN Cache sanft beenden wollen."
+msgstr "Um ein Cache-Symbol zur Statusleiste hinzuzufügen, erzeugen Sie einen <literal>DWORD</literal> Schlüssel namens <literal>HKCU\\Software\\TortoiseSVN\\CacheTrayIcon</literal> mit dem Wert 1. Diese Einstellung ist eigentlich nur für Entwickler gedacht, die den TortoiseSVN Cache sanft beenden wollen."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:11323
 msgid "Filenames without extensions in auto-completion list"
-msgstr ""
+msgstr "Dateinamen ohne Erweiterung in automatisch Vervollständigen Liste aufnehmen"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11325
 msgid "The auto-completion list shown in the commit message editor displays the names of files listed for commit. To also include these names with extensions removed, create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\AutocompleteRemovesExtensions</literal>."
-msgstr ""
+msgstr "Die automatisch Vervollständigen Liste im Übertragen-Dialog enthält die Namen der zu übertragenden Dateien. Um die Dateinamen zusätzlich ohne Erweiterung in die Liste aufzunehmen, erzeugen Sie einen <literal>DWORD</literal> Schlüssel namens <literal>HKCU\\Software\\TortoiseSVN\\AutocompleteRemovesExtensions</literal> mit dem Wert 1."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:11335
 msgid "Explorer columns everywhere"
-msgstr "Explorer Spalten überall"
+msgstr "Explorer Spalten überall verfügbar"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11337
 msgid "The extra columns the TortoiseSVN adds to the details view in Windows Explorer are normally only active in a working copy. If you want those to be accessible everywhere, not just in working copies, create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\ColumnsEveryWhere</literal>."
-msgstr ""
+msgstr "Die Extraspalten, die TortoiseSVN zur Detailansicht des Explorers hinzufügt, stehen normalerweise nur in Arbeitskopien zur Verfügung. Wenn Sie überall auf diese Spalten zugreifen möchten, erzeugen Sie einen <literal>DWORD</literal> Schlüssel namens <literal>HKCU\\Software\\TortoiseSVN\\ColumnsEveryWhere</literal> mit dem Wert 1."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:11348
 msgid "Merge log separator"
-msgstr ""
+msgstr "Separator für Datenintegration"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11350
 msgid "When you merge revisions from another branch, and merge tracking information is available, the log messages from the revisions you merge will be collected to make up a commit log message. A pre-defined string is used to separate the individual log messages of the merged revisions. If you prefer, you can create a <literal>SZ</literal> key at <literal>HKCU\\Software\\TortoiseSVN\\MergeLogSeparator</literal> containing a separator string of your choice."
-msgstr ""
+msgstr "Wenn Sie Revisionen von einem anderen Zweig zusammenführen und die Funktionen zum Protokollieren der Datenintegration zur Verfügung stehen, werden die Logmeldungen der zusammengeführten Revisionen zu einer neuen Log-Meldung zusammengefasst. Eine vordefinierte Zeichenkette wird zum Trennen der einzelnen Logmeldungen verwendet. Wenn Sie möchten, können Sie einen individuellen Trenner angeben, indem Sie einen <literal>SZ</literal> Schlüssel namens <literal>HKCU\\Software\\TortoiseSVN\\MergeLogSeparator</literal> anlegen, der die Zeichenkette Ihrer Wahl enthält."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:11363
 msgid "Always blame changes with TortoiseMerge"
-msgstr ""
+msgstr "Stets mit TortoiseMerge annotieren"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11365
 msgid "TortoiseSVN allows you to assign external diff viewer. Most such viewers, however, are not suited for change blaming (<xref linkend=\"tsvn-dug-blame-diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To do so, create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\DiffBlamesWithTortoiseMerge</literal>."
-msgstr ""
+msgstr "TortoiseSVN ermöglicht es ihnen, externe Vergleichsprogramme zu verwenden. Die meisten dieser Programme sind allerdings nicht dazu in de Lage, Änderungen zu annotieren (<xref linkend=\"tsvn-dug-blame-diffs\"/>), so dass Sie dafür wieder TortoiseMerge verwenden möchten. Dazu erzeugen Sie einen <literal>DWORD</literal> Schlüssel namens <literal>HKCU\\Software\\TortoiseSVN\\DiffBlamesWithTortoiseMerge</literal> mit dem Wert 1."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:11378
@@ -9274,7 +9275,7 @@ msgstr "VS.NET kann, wenn es mit Webprojekten genutzt wird, nicht mit den <liter
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11391
 msgid "As of Version 1.3.0 of Subversion and TortoiseSVN, you can set the environment variable <literal>SVN_ASP_DOT_NET_HACK</literal>. If that variable is set, then Subversion will use <literal>_svn</literal> folders instead of <literal>.svn</literal> folders. You must restart your shell for that environment variable to take effect. Normally that means rebooting your PC. To make this easier, you can now do this from the general settings page using a simple checkbox - refer to <xref linkend=\"tsvn-dug-settings-main\"/>."
-msgstr "Seit Version 1.3.0 von Subversion and TortoiseSVN, können Sie die Umgebungsvariable<literal>SVN_ASP_DOT_NET_HACK</literal> setzen. Wenn diese Variable gesetzt ist, wird Subversion <literal>_svn</literal> Ordner anstelle von <literal>.svn</literal> für seine Adminverzeichnisse verwenden. Sie müssen den Explorer neu starten, damit diese Änderung wirksam wird. Normalerweise erfordert das einen Neustart Ihres PC. Um das zu vereinfachen, können Sie in den allgemeinen Einstellungen eine Option setzen. Siehe <xref linkend=\"tsvn-dug-settings-main\"/>."
+msgstr "Seit Version 1.3.0 von Subversion und TortoiseSVN, können Sie die Umgebungsvariable <literal>SVN_ASP_DOT_NET_HACK</literal> setzen. Wenn diese Variable gesetzt ist, wird Subversion <literal>_svn</literal> Ordner anstelle von <literal>.svn</literal> für seine Adminverzeichnisse verwenden. Sie müssen den Explorer neu starten, damit diese Änderung wirksam wird. Normalerweise erfordert das einen Neustart Ihres PC. Um das zu vereinfachen, können Sie in den allgemeinen Einstellungen eine Option setzen. Siehe <xref linkend=\"tsvn-dug-settings-main\"/>."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11401
@@ -9299,7 +9300,7 @@ msgstr "Obwohl TortoiseSVN und TortoiseMerge für Sie als Anwender kostenlos sin
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11424
 msgid "While working on TortoiseSVN we love to listen to music. And since we spend many hours on the project we need a <emphasis>lot</emphasis> of music. Therefore we have set up some wish-lists with our favourite music CDs and DVDs: <ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink> Please also have a look at the list of people who contributed to the project by sending in patches or translations."
-msgstr "Während wir an TortoiseMerge und TortoiseSVN arbeiten hören wir gerne Musik. Und weil wir viele viele Stunden an TortoiseSVN arbeiten, benötigen wir immer wieder <emphasis>neue</emphasis> Musik. Aus diesem Grund haben wir im Internet Seiten eingerichtet, von denen aus Sie uns Musik-CD's und auch mal eine DVD schenken können: <ulink url=\"http://tortoisesvn.tigris.org/donate.html\"> <citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle> </ulink> Bitte schauen Sie sich auch die Liste der Personen an, die das Projekt durch z.B. Übersetzungen unterstützt haben."
+msgstr "Während wir an TortoiseMerge und TortoiseSVN arbeiten hören wir gerne Musik. Und weil wir viele viele Stunden an TortoiseSVN arbeiten, benötigen wir immer wieder <emphasis>neue</emphasis> Musik. Aus diesem Grund haben wir im Internet Seiten eingerichtet, von denen aus Sie uns Musik-CD's und auch mal eine DVD schenken können: <ulink url=\"http://tortoisesvn.tigris.org/donate.html\"> <citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle> </ulink>. Bitte werfen Sie auch einen Blick auf die Liste der Personen, die das Projekt z.B. durch Übersetzungen unterstützt haben."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:11438
@@ -9475,7 +9476,7 @@ msgstr "Onlinereferenz"
 #. (entry)
 #: ../source/TortoiseSVN_en.xml:11600
 msgid "Replaced with the commit date/time of the highest commit revision. By default, international format is used: <placeholder-1/>. Alternatively, you can specify a custom format which will be used with <placeholder-2/>, for example: <placeholder-3/>. For a list of available formatting characters, look at the <ulink url=\"http://www.cppreference.com/stddate/strftime.html\"><placeholder-4/></ulink>."
-msgstr ""
+msgstr "Wird durch Datum/Zeit der höchsten übertragenen Revision ersetzt. Als Vorgabe wird das internationale Format genutzt: <placeholder-1/>. Alternativ können Sie ein eigenes Format angeben, das mittels <placeholder-2/> formatiert wird, z.B. <placeholder-3/>. Eine Liste der verfügbaren Formatieranweisungen finden Sie unter folgender <ulink url=\"http://www.cppreference.com/stddate/strftime.html\"><placeholder-4/></ulink>."
 
 #. (entry)
 #: ../source/TortoiseSVN_en.xml:11617
@@ -9621,7 +9622,7 @@ msgstr ""
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11709
 msgid "A file like this will be included in the build so you would expect it to be versioned. Be sure to version the template file, not the generated file, otherwise each time you regenerate the version file you need to commit the change, which in turn means the version file needs to be updated."
-msgstr ""
+msgstr "Eine solche Datei ist meist in den Erstellungsprozess integriert und man würde normalerweise annehmen, dass die Datei dann auch versioniert sein sollte. Stellen Sie sicher, dass Sie nur die Vorlage und nicht die generierte Datei versionieren. Andernfalls müssen Sie nach jedem Generieren die Änderungen an der Versionsdatei übertragen, was in der Folge bedeutet, dass Sie die Versionsdatei neu generieren müssen."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:11722
