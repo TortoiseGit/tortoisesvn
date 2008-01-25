@@ -21,6 +21,7 @@
 
 #include "PathUtils.h"
 #include "StringUtils.h"
+#include "AppUtils.h"
 #include "CreatePatch.h"
 #include "SVN.h"
 #include "TempFile.h"
@@ -212,6 +213,8 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
 			CStringUtils::WriteDiffToClipboard(sClipdata);
 		}
 	}
+	else
+		CAppUtils::StartUnifiedDiffViewer(tempPatchFilePath, tempPatchFilePath.GetFilename());
 
 	progDlg.Stop();
 	return TRUE;
