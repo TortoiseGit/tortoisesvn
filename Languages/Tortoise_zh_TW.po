@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-01-16 16:15+0800\n"
+"PO-Revision-Date: 2008-01-26 00:59+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -921,6 +921,10 @@ msgstr "加入資料夾(&D)..."
 #. Resource IDs: (73)
 msgid "Abort"
 msgstr "放棄"
+
+#. Resource IDs: (1465)
+msgid "Abort &Merge"
+msgstr "放棄合併(&M)"
 
 #. Resource IDs: (136)
 msgid "About TortoiseMerge"
@@ -4285,6 +4289,18 @@ msgstr "忽略外部設定(&X)"
 #. Resource IDs: (145)
 msgid "Omit externals"
 msgstr "忽略外部設定"
+
+#. Resource IDs: (63)
+msgid ""
+"One of the paths you are attempting to move appears to be a special path\n"
+"(one of 'branches', 'tags' or 'trunk').\n"
+"\n"
+"Are you sure you want to move the selected paths?"
+msgstr ""
+"你想要移動的路徑中可能有特殊路徑\n"
+"(例如 'branches', 'tags', 或 'trunk').\n"
+"\n"
+"確定要移動選定的路徑嗎?"
 
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
