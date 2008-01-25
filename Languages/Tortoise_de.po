@@ -1,6 +1,6 @@
 #
 # German translation for TortoiseSVN
-# Copyright (C) 2004-2007 the TortoiseSVN team
+# Copyright (C) 2004-2008 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
 # Last commit by:
@@ -9,14 +9,14 @@
 # $Rev$
 #
 # Authors:
-# Lübbe Onken, <luebbe@tigris.org>, 2004-2007.
+# Lübbe Onken, <luebbe@tigris.org>, 2004-2008
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-01-18 14:36+0100\n"
+"PO-Revision-Date: 2008-01-25 09:23+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -924,6 +924,10 @@ msgstr "Ordner hinzu&fügen..."
 #. Resource IDs: (73)
 msgid "Abort"
 msgstr "Abbrechen"
+
+#. Resource IDs: (1465)
+msgid "Abort &Merge"
+msgstr "Zusammenführen &Abbrechen"
 
 #. Resource IDs: (136)
 msgid "About TortoiseMerge"
@@ -4313,6 +4317,18 @@ msgstr "E&xternals auslassen"
 #. Resource IDs: (145)
 msgid "Omit externals"
 msgstr "Externals auslassen"
+
+#. Resource IDs: (63)
+msgid ""
+"One of the paths you are attempting to move appears to be a special path\n"
+"(one of 'branches', 'tags' or 'trunk').\n"
+"\n"
+"Are you sure you want to move the selected paths?"
+msgstr ""
+"Bei einem der Pfade, die sie verschieben wollen scheint es sich um einen \n"
+"besonderen Pfad ('branches', 'tags' oder 'trunk') zu handeln.\n"
+"\n"
+"Sind Sie sicher, dass Sie die gewählten Pfade verschieben wollen?"
 
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
