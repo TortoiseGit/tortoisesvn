@@ -194,7 +194,7 @@ hooktype CHooks::GetHookType(const CString& s)
 	return unknown_hook;
 }
 
-bool CHooks::StartCommit(const CTSVNPathList& pathList, DWORD& exitcode, CString& error)
+bool CHooks::StartCommit(const CTSVNPathList& pathList, CString& message, DWORD& exitcode, CString& error)
 {
 	hookiterator it = FindItem(start_commit_hook, pathList);
 	if (it == end())
@@ -206,8 +206,19 @@ bool CHooks::StartCommit(const CTSVNPathList& pathList, DWORD& exitcode, CString
 		pathList.WriteToFile(temppath.GetWinPathString(), true);
 		sCmd.Replace(_T("%PATH%"), temppath.GetWinPathString());
 	}
+	CTSVNPath temppath;
+	if (sCmd.Find(_T("%MESSAGEFILE%")) >= 0)
+	{
+		temppath = CTempFiles::Instance().GetTempFilePath(true);
+		CStringUtils::WriteStringToTextFile(temppath.GetWinPath(), (LPCTSTR)message);
+		sCmd.Replace(_T("%MESSAGEFILE%"), temppath.GetWinPathString());
+	}
 	sCmd.Replace(_T("%PATHS%"), pathList.CreateAsteriskSeparatedString());
 	exitcode = RunScript(sCmd, error, it->second.bWait, it->second.bShow);
+	if (!exitcode && !temppath.IsEmpty())
+	{
+		CStringUtils::ReadStringFromTextFile(temppath.GetWinPathString(), message);
+	}
 	return true;
 }
 

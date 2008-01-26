@@ -161,15 +161,19 @@ public:
 	 * Executes the Start-Commit-Hook that first matches one of the paths in
 	 * \c pathList.
 	 * \param pathList a list of paths to look for the hook scripts
+	 * \param message a commit message
 	 * \param exitcode on return, contains the exit code of the hook script
 	 * \param error the data the hook script outputs to stderr
 	 * \remark the string "%PATHS% in the command line of the hook script is 
 	 * replaced with the path to a temporary file which contains a list of files
 	 * in \c pathList, separated by newlines. The hook script can parse this
 	 * file to get all the paths the commit is about to be done on.
+	 * The string %MESSAGEFILE% is replaced with path to temporary file containing
+	 * \c message. If the script finishes successfully, contents of this file
+	 * is read back into \c message parameter.
 	 */
-	bool				StartCommit(const CTSVNPathList& pathList, DWORD& exitcode, 
-									CString& error);
+	bool				StartCommit(const CTSVNPathList& pathList, CString& message,
+									DWORD& exitcode, CString& error);
 	/**
 	 * Executes the Pre-Commit-Hook that first matches one of the paths in
 	 * \c pathList.
