@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2008-01-14 09:02+0100\n"
+"PO-Revision-Date: 2008-01-26 10:32+0100\n"
 "Last-Translator: Срѓан Стокиќ <srdjan.stokic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -942,6 +942,10 @@ msgstr "Д&одади директориум..."
 msgid "Abort"
 msgstr "Прекини"
 
+#. Resource IDs: (1465)
+msgid "Abort &Merge"
+msgstr "Откажи &Спојување"
+
 #. Resource IDs: (136)
 msgid "About TortoiseMerge"
 msgstr "За TortoiseMerge"
@@ -1495,6 +1499,11 @@ msgstr "Изменети датотеки помеѓу %s, %s и %s, %s"
 #, c-format
 msgid "Changed files: %d"
 msgstr "Изменети датотеки: %d"
+
+#. Resource IDs: (264)
+#, c-format
+msgid "Changelist %s moved"
+msgstr "Листата со измени %s е преместена"
 
 #. Resource IDs: (65535)
 msgid "Changelist:"
@@ -4313,6 +4322,18 @@ msgstr "Изостави &надворешни"
 #. Resource IDs: (145)
 msgid "Omit externals"
 msgstr "Изостави надворешни"
+
+#. Resource IDs: (63)
+msgid ""
+"One of the paths you are attempting to move appears to be a special path\n"
+"(one of 'branches', 'tags' or 'trunk').\n"
+"\n"
+"Are you sure you want to move the selected paths?"
+msgstr ""
+"Една од патеките која се обидувате да ја преместите е специјална\n"
+"(една од 'гранки', 'тагови' или 'стебло').\n"
+"\n"
+"Да ли сте сигурни дека сакате да ја поместите?"
 
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
