@@ -48,7 +48,8 @@
 					<para>
 						Called before the commit dialog is shown.
 						You might want to use this if the hook modifies a versioned
-						file and affects the list of files that need to be committed.
+						file and affects the list of files that need to be committed
+						and/or commit message.
 					</para>
 				</listitem>
 			</varlistentry>
@@ -116,6 +117,7 @@
 					<para>
 						<literal>%PATH%</literal>
 						<literal>%PATHS%</literal>
+						<literal>%MESSAGEFILE%</literal>
 					</para>
 				</listitem>
 			</varlistentry>
@@ -273,7 +275,9 @@
 					<para>
 						Path to a file containing the log message for
 						the commit. The file contains the text in UTF8
-						encoding.
+						encoding. After successful execution of
+						start-commit hook log message is read back,
+						giving the hook a chance to modify it.
 					</para>
 				</listitem>
 			</varlistentry>
