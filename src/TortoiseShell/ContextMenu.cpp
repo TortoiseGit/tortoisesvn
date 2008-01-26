@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1015,7 +1015,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	ZeroMemory(&menuiteminfo, sizeof(menuiteminfo));
 	menuiteminfo.cbSize = sizeof(menuiteminfo);
 	menuiteminfo.fType = MFT_STRING;
- 	menuiteminfo.dwTypeData = _T("TortoiseSVN\0\0");
+ 	menuiteminfo.dwTypeData = _T("TortoiseS&VN\0\0");
 
 	UINT uIcon = bShowIcons ? IDI_APP : 0;
 	if (folder_.size())
