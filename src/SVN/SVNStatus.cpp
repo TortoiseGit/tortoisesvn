@@ -206,6 +206,7 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, svn_depth_t de
 							FALSE,		//update
 							TRUE,		//noignore
 							FALSE,		//ignore externals
+							NULL,
 							ctx,
 							pool);
 
@@ -297,6 +298,7 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
 							update,		//update
 							noignore,		//noignore
 							noexternals,
+							NULL,
 							ctx,
 							m_pool);
 
@@ -345,6 +347,7 @@ svn_wc_status2_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVNPat
 							update,		//update
 							bNoIgnore,	//noignore
 							bNoExternals,		//noexternals
+							NULL,
 							ctx,
 							m_pool);
 

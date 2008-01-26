@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -171,6 +171,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
 					FALSE,		//update
 					TRUE,		//noignore
 					FALSE,		//ignore externals
+					NULL,
 					localctx,
 					pool);
 			}
@@ -222,6 +223,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
 			FALSE,		//update
 			TRUE,		//noignore
 			FALSE,		//ignore externals
+			NULL,
 			localctx,
 			pool);
 	}
