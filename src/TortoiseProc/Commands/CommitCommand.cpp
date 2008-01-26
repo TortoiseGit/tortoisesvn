@@ -25,11 +25,45 @@
 #include "Hooks.h"
 #include "MessageBox.h"
 
+CString CommitCommand::LoadLogMessage()
+{
+	CString msg;
+	if (parser.HasKey(_T("logmsg")))
+	{
+		msg = parser.GetVal(_T("logmsg"));
+	}
+	if (parser.HasKey(_T("logmsgfile")))
+	{
+		CString logmsgfile = parser.GetVal(_T("logmsgfile"));
+		if (PathFileExists(logmsgfile))
+		{
+			try
+			{
+				CStdioFile msgfile;
+				if (msgfile.Open(logmsgfile, CFile::modeRead | CFile::shareDenyWrite))
+				{
+					CStringA filecontent;
+					int filelength = (int)msgfile.GetLength();
+					int bytesread = (int)msgfile.Read(filecontent.GetBuffer(filelength), filelength);
+					filecontent.ReleaseBuffer(bytesread);
+					msg = CUnicodeUtils::GetUnicode(filecontent);
+					msgfile.Close();
+				}
+			} 
+			catch (CFileException* /*pE*/)
+			{
+				msg.Empty();
+			}
+		}
+	}
+	return msg;
+}
+
 bool CommitCommand::Execute()
 {
 	bool bFailed = true;
 	CTSVNPathList selectedList;
-	CString sLogMsg;
+	CString sLogMsg = LoadLogMessage();
 	bool bSelectFilesForCommit = !!DWORD(CRegStdWORD(_T("Software\\TortoiseSVN\\SelectFilesForCommit"), TRUE));
 	DWORD exitcode = 0;
 	CString error;
@@ -47,40 +81,11 @@ bool CommitCommand::Execute()
 	{
 		bFailed = false;
 		CCommitDlg dlg;
-		if (parser.HasKey(_T("logmsg")))
-		{
-			dlg.m_sLogMessage = parser.GetVal(_T("logmsg"));
-		}
-		if (parser.HasKey(_T("logmsgfile")))
-		{
-			CString logmsgfile = parser.GetVal(_T("logmsgfile"));
-			if (PathFileExists(logmsgfile))
-			{
-				try
-				{
-					CStdioFile msgfile;
-					if (msgfile.Open(logmsgfile, CFile::modeRead | CFile::shareDenyWrite))
-					{
-						CStringA filecontent;
-						int filelength = (int)msgfile.GetLength();
-						int bytesread = (int)msgfile.Read(filecontent.GetBuffer(filelength), filelength);
-						filecontent.ReleaseBuffer(bytesread);
-						dlg.m_sLogMessage = CUnicodeUtils::GetUnicode(filecontent);
-						msgfile.Close();
-					}
-				} 
-				catch (CFileException* /*pE*/)
-				{
-					dlg.m_sLogMessage.Empty();
-				}
-			}
-		}
 		if (parser.HasKey(_T("bugid")))
 		{
 			dlg.m_sBugID = parser.GetVal(_T("bugid"));
 		}
-		if (!sLogMsg.IsEmpty())
-			dlg.m_sLogMessage = sLogMsg;
+		dlg.m_sLogMessage = sLogMsg;
 		dlg.m_pathList = pathList;
 		dlg.m_checkedPathList = selectedList;
 		dlg.m_bSelectFilesForCommit = bSelectFilesForCommit;
