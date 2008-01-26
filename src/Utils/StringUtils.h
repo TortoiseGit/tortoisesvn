@@ -83,6 +83,10 @@ public:
 	*/
 	static bool WriteDiffToClipboard(const CStringA& sClipdata, HWND hOwningWnd = NULL);
 
+	/**
+	 * Reads the string \text from the file \path in utf8 encoding.
+	 */
+	static bool ReadStringFromTextFile(const CString& path, CString& text);
 #endif
 
 	/**

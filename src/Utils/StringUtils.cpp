@@ -387,6 +387,30 @@ bool CStringUtils::WriteDiffToClipboard(const CStringA& sClipdata, HWND hOwningW
 	return false;
 }
 
+bool CStringUtils::ReadStringFromTextFile(const CString& path, CString& text)
+{
+	if (!PathFileExists(path))
+		return false;
+	try
+	{
+		CStdioFile file;
+		if (!file.Open(path, CFile::modeRead | CFile::shareDenyWrite))
+			return false;
+
+		CStringA filecontent;
+		UINT filelength = (UINT)file.GetLength();
+		int bytesread = (int)file.Read(filecontent.GetBuffer(filelength), filelength);
+		filecontent.ReleaseBuffer(bytesread);
+		text = CUnicodeUtils::GetUnicode(filecontent);
+		file.Close();
+	} 
+	catch (CFileException* /*pE*/)
+	{
+		text.Empty();
+	}
+	return true;
+}
+
 #endif // #ifdef _MFC_VER
 
 bool CStringUtils::WriteStringToTextFile(const std::wstring& path, const std::wstring& text, bool bUTF8 /* = true */)
@@ -416,8 +440,6 @@ bool CStringUtils::WriteStringToTextFile(const std::wstring& path, const std::ws
 	CloseHandle(hFile);
 	return true;
 }
-
-
 
 #define IsCharNumeric(C) (!IsCharAlpha(C) && IsCharAlphaNumeric(C))
 

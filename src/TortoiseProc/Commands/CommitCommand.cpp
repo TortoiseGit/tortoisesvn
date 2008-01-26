@@ -21,7 +21,7 @@
 
 #include "CommitDlg.h"
 #include "SVNProgressDlg.h"
-#include "UnicodeUtils.h"
+#include "StringUtils.h"
 #include "Hooks.h"
 #include "MessageBox.h"
 
@@ -35,26 +35,7 @@ CString CommitCommand::LoadLogMessage()
 	if (parser.HasKey(_T("logmsgfile")))
 	{
 		CString logmsgfile = parser.GetVal(_T("logmsgfile"));
-		if (PathFileExists(logmsgfile))
-		{
-			try
-			{
-				CStdioFile msgfile;
-				if (msgfile.Open(logmsgfile, CFile::modeRead | CFile::shareDenyWrite))
-				{
-					CStringA filecontent;
-					int filelength = (int)msgfile.GetLength();
-					int bytesread = (int)msgfile.Read(filecontent.GetBuffer(filelength), filelength);
-					filecontent.ReleaseBuffer(bytesread);
-					msg = CUnicodeUtils::GetUnicode(filecontent);
-					msgfile.Close();
-				}
-			} 
-			catch (CFileException* /*pE*/)
-			{
-				msg.Empty();
-			}
-		}
+		CStringUtils::ReadStringFromTextFile(logmsgfile, msg);
 	}
 	return msg;
 }
