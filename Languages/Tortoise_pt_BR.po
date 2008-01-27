@@ -14,14 +14,15 @@
 # Humberto Osório <humberto@vdl.ufc.br>
 # CRAb <crab@yahoogroups.com>
 # Victor Westmann <victor.westmann@gmail.com>
+# Tiago Deliberali Santos <tiago@gtplenus.com.br>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-09-24 12:31+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2008-01-26 02:10-0300\n"
+"Last-Translator: Tiago Deliberali Santos <tiago@gtplenus.com.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -236,7 +237,7 @@ msgid "&Clean up"
 msgstr "&Limpar"
 
 msgid "&Color age of lines"
-msgstr ""
+msgstr "&Colorir linhas por idade"
 
 msgid "&Commit..."
 msgstr "&Submeter..."
@@ -392,9 +393,8 @@ msgstr "Informação da &Imagem"
 msgid "&Import..."
 msgstr "&Importar..."
 
-#, fuzzy
 msgid "&Inline diff word-wise"
-msgstr "Diferenças em linha"
+msgstr "Diferenças em linha por palavra"
 
 msgid "&Jump to first difference when loading"
 msgstr "&Saltar para a primeira diferença ao carregar"
@@ -405,9 +405,8 @@ msgstr "&Idioma:"
 msgid "&Limit search to modified lines"
 msgstr "&Limitar busca para linhas modificadas"
 
-#, fuzzy
 msgid "&Link image positions"
-msgstr "&Vincular imagens juntas"
+msgstr "&Vincular posição das imagens"
 
 msgid "&List View"
 msgstr "Visão de &Lista"
@@ -485,9 +484,8 @@ msgstr "&Remover"
 msgid "&Rename"
 msgstr "&Renomear"
 
-#, fuzzy
 msgid "&Reopen commit and branch/tag dialog after a commit failed"
-msgstr "&Reabrir diálogo de submissão após falha na submissão"
+msgstr "&Reabre caixa de diálogo de submissão e ramificação/rótulação após falha na submissão"
 
 msgid "&Repo-browser"
 msgstr "&Repo-Browser"
@@ -519,9 +517,8 @@ msgstr "&Salvar..."
 msgid "&Settings"
 msgstr "&Preferências"
 
-#, fuzzy
 msgid "&Show HEAD revisions"
-msgstr "&Revisão Mais Recente"
+msgstr "&Mostrar revisão Mais Recente"
 
 msgid "&Specific revision in repository"
 msgstr "&Revisão específica no repositório"
@@ -541,9 +538,8 @@ msgstr "&Visão de Símbolos"
 msgid "&Tab size:"
 msgstr "&Tamanho da Tabulação:"
 
-#, fuzzy
 msgid "&Timeout in seconds to stop the auto-completion parsing"
-msgstr "&Timeout, em segundos, para interromper a interpretação do autocompletar"
+msgstr "&Timeout, em segundos, para parar a interpretação do autocompletar"
 
 msgid "&To Revision"
 msgstr "&Para a Revisão"
@@ -983,14 +979,12 @@ msgstr "Fechar automaticamente se não houver erros"
 msgid "Auto-close if no merges, adds or deletes"
 msgstr "Fechar automaticamente se não houver combinações, adições ou exclusões"
 
-#, fuzzy
 msgid ""
 "Auto-complete suggests words (usually class or member names)\n"
 "from the files that you have changed as you type a log message."
 msgstr ""
-"Autocompletar sugere palavras (usualmente nomes de classes e\n"
-"membros) a partir dos arquivos que você alterou conforme você\n"
-"digita uma mensagem de log."
+"A medida que você digita sua mensagem de log, o autocompletar sugere palavras (usualmente nomes de classes ou\n"
+"membros)."
 
 msgid "Automatic"
 msgstr "Automático"
@@ -1020,7 +1014,7 @@ msgid "Blames each line of a file on an author"
 msgstr "Atribui a responsabilidade de cada linha de um arquivo a um autor"
 
 msgid "Blend Alpha"
-msgstr ""
+msgstr "Combinar Alpha"
 
 msgid "Br&owse..."
 msgstr "&Navegar..."
@@ -1029,7 +1023,7 @@ msgid "Branch / tag created successfully!"
 msgstr "Ramo / Rótulo criado com sucesso!"
 
 msgid "Branch at copy-from-rev even if there was no change in that revision"
-msgstr ""
+msgstr "Ramifica na cópia-da-revisão se não houver mudanças naquela revisão"
 
 msgid "Branch/&tag..."
 msgstr "Ramo/Ró&tulo..."
@@ -1070,12 +1064,11 @@ msgstr "C&riar Pasta..."
 msgid "CAP"
 msgstr "CAP"
 
-#, fuzzy
 msgid "Cache log messages"
-msgstr "Pesquisar &histórico..."
+msgstr "Armazenar mensagens de log"
 
 msgid "Caches the log messages to speed up log fetching"
-msgstr ""
+msgstr "Armazena as mensagens de log para acelerar a obtenção de log"
 
 #, c-format
 msgid ""
@@ -1196,20 +1189,18 @@ msgstr "&Diretório de destino:"
 msgid "Checkout - TortoiseSVN"
 msgstr "Obeter - TortoiseSVN"
 
-#, fuzzy
 msgid "Checkout Depth"
 msgstr "Obter Profundidade"
 
-#, fuzzy, c-format
+#, c-format
 msgid "Checkout from %s, revision %s, %s, %s"
-msgstr "Obtendo arquivo %s, revisão %s"
+msgstr "Obter arquivo %s, revisão %s, %s, %s"
 
-#, fuzzy
 msgid "Checksum:"
 msgstr "Checksum:"
 
 msgid "Choose item:"
-msgstr ""
+msgstr "Escolher item:"
 
 msgid "Cleaning up."
 msgstr "Limpando."
@@ -1237,7 +1228,7 @@ msgstr "Limpar %ld pares usuário/senha, %ld certificados ssl e %ld usuários"
 
 #, c-format
 msgid "Clears cached logs from %ld repositories"
-msgstr ""
+msgstr "Limpar logs armazenados dos %ld repositórios"
 
 msgid ""
 "Clears the stored authentication.\n"
@@ -1738,7 +1729,7 @@ msgstr ""
 msgid "Do you really want to move this file or folder?"
 msgstr "Você realmente deseja mover esse arquivo ou pasta?"
 
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Do you really want to revert all changes in\n"
 "%s\n"
@@ -1746,17 +1737,17 @@ msgid ""
 msgstr ""
 "Você deseja realmente reverter todas as alterações em\n"
 "%s\n"
-"e voltar para essa revisão? As alterações serão revertidas por combinação-reversão das revisões na sua cópia de trabalho."
+"e voltar para essa revisão? As alterações serão desfeitas revertendo-se as combinações das revisões na sua cópia de trabalho."
 
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Do you really want to revert all changes in\n"
 "%s\n"
 "which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
 msgstr ""
-"Você deseja realmente reverter todas as alterações para\n"
+"Você deseja reverter todas as alterações em\n"
 "%s\n"
-"que foram feitas nesta revisão? As alterações serão revertidas por combinação-reversão das revisões na sua cópia de trabalho."
+"que foram feitas nesta revisão? As alterações serão desfeitas revertendo as combinações da revisão de sua cópia de trabalho."
 
 msgid "Do you want to proceed?"
 msgstr "Você deseja continuar?"
@@ -1779,6 +1770,8 @@ msgid ""
 "Documentation : Simon Large\n"
 "Code : Tobias Schäfer, Stefan Fuhrmann"
 msgstr ""
+"Documentação: Simon Large\n"
+"Código: Tobias Schäfer, Stefan Fuhrmann"
 
 msgid "Don't show this message again"
 msgstr "Não exibir essa mensagem novamente"
@@ -1790,7 +1783,7 @@ msgid "Dry Run"
 msgstr "Simulação"
 
 msgid "E&xact copy sources"
-msgstr ""
+msgstr "Cópia e&xata da fonte"
 
 msgid "E&xit"
 msgstr "Sai&r"
@@ -1962,13 +1955,11 @@ msgstr "Programas Externos::Ferramenta de Combinação"
 msgid "External Programs::Unified Diff Viewer"
 msgstr "Programas Externos::Visualizador de Arquivo de Comparação Unificado"
 
-#, fuzzy
 msgid "Externals excluded"
-msgstr "Externo"
+msgstr "Projetos externos excluídos"
 
-#, fuzzy
 msgid "Externals included"
-msgstr "Externo"
+msgstr "Projetos externos incluidos"
 
 msgid "Failed revert"
 msgstr "Reversão falhou"
@@ -1985,7 +1976,7 @@ msgstr "Falha ao abrir documento."
 msgid "Failed to save document."
 msgstr "Falha ao salvar documento."
 
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to set/remove changelist \"%s\""
 msgstr "falha ao definir/remover a lista de alterações \"%s\""
 
@@ -2014,7 +2005,7 @@ msgstr "Lista de arquivos vazia"
 msgid "File patches"
 msgstr "Correções de arquivo"
 
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "File size:\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
@@ -2024,15 +2015,15 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"Tamanho do arquivo:\t\t\t%s\n"
+"Tamanho do arquivo:\t\t\t%s (%s)\n"
 "Largura:\t\t\t%ld pixel\n"
 "Altura:\t\t\t%ld pixel\n"
 "Resolução Horizontal:\t%.1f dpi\n"
-"REsolução Vertical:\t\t%.1f dpi\n"
+"Resolução Vertical:\t\t%.1f dpi\n"
 "Profundidade:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "File size:\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
@@ -2050,8 +2041,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"%s\n"
-"Tamanho do arquivo:\t\t\t%s\n"
+"Tamanho do arquivo:\t\t%s (%s)\n"
 "Largura:\t\t\t%ld pixel\n"
 "Altura:\t\t\t%ld pixel\n"
 "Resolução Horizontal:\t%.1f dpi\n"
@@ -2059,15 +2049,14 @@ msgstr ""
 "Profundidade:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%\n"
 "\n"
-"%s\n"
-"Tamanho do arquivo:\t\t\t%s\n"
+"Tamanho do arquivo:\t\t%s (%s)\n"
 "Largura:\t\t\t%ld pixel\n"
 "Altura:\t\t\t%ld pixel\n"
 "Resolução Horizontal:\t%.1f dpi\n"
 "Resolução Vertical:\t\t%.1f dpi\n"
-"Profundidade:\t\t\t%d bit"
+"Profundidade:\t\t\t%d bitZoom:\t\t\t%d%%"
 
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "File size:\t\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
@@ -2077,15 +2066,15 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"Tamanho do arquivo:\t\t\t%s\n"
+"Tamanho do arquivo:\t\t\t%s (%s)\n"
 "Largura:\t\t\t%ld pixel\n"
 "Altura:\t\t\t%ld pixel\n"
 "Resolução Horizontal:\t%.1f dpi\n"
-"REsolução Vertical:\t\t%.1f dpi\n"
+"Resolução Vertical:\t\t%.1f dpi\n"
 "Profundidade:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "File size:\t\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
@@ -2103,8 +2092,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"%s\n"
-"Tamanho do arquivo:\t\t\t%s\n"
+"Tamanho do arquivo:\t\t\t%s (%s)\n"
 "Largura:\t\t\t%ld pixel\n"
 "Altura:\t\t\t%ld pixel\n"
 "Resolução Horizontal:\t%.1f dpi\n"
@@ -2112,20 +2100,18 @@ msgstr ""
 "Profundidade:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%\n"
 "\n"
-"%s\n"
-"Tamanho do arquivo:\t\t\t%s\n"
+"Tamanho do arquivo:\t\t\t%s (%s)\n"
 "Largura:\t\t\t%ld pixel\n"
 "Altura:\t\t\t%ld pixel\n"
 "Resolução Horizontal:\t%.1f dpi\n"
 "Resolução Vertical:\t\t%.1f dpi\n"
-"Profundidade:\t\t\t%d bit"
+"Profundidade:\t\t\t%d bitZoom:\t\t\t%d%%"
 
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
 msgstr "Filtre os seguintes caminhos (separe múltiplos arquivos pelo caracter '*'):"
 
-#, fuzzy
 msgid "Filter paths"
-msgstr "Correções de arquivo"
+msgstr "Filtro de caminhos para arquivos"
 
 msgid "Find"
 msgstr "Localizar"
@@ -2140,19 +2126,17 @@ msgstr ""
 msgid "Finished!"
 msgstr "Concluído!"
 
-#, fuzzy
 msgid "Fit image &sizes"
-msgstr "&Vincular imagens juntas"
+msgstr "Ajustar tamanho das imagens"
 
 msgid "Floppy drives (A: B:)"
 msgstr "Disquetes (A: B:)"
 
 msgid "Fold &tags"
-msgstr ""
+msgstr "Recolher &rótulos"
 
-#, fuzzy
 msgid "Font"
-msgstr "&Fonte:"
+msgstr "Fonte"
 
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
 msgstr "Para ajuda, pressione F1. Role a barra de rolamento horizontalmente com CTRL-roda do mouse"
@@ -2166,7 +2150,6 @@ msgstr "De:"
 msgid "From: (start URL and revision of the range to merge)"
 msgstr "De: (revisão e URL iniciais do intervalo para combinar)"
 
-#, fuzzy
 msgid "Fully recursive"
 msgstr "Completamente recursivo"
 
@@ -2198,7 +2181,7 @@ msgid "Get loc&k..."
 msgstr "Obter tra&va..."
 
 msgid "Get merge logs"
-msgstr ""
+msgstr "Recuperar logs de combinação"
 
 msgid ""
 "Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\n"
@@ -2415,9 +2398,8 @@ msgstr "Sobreposição de Ícones / Colunas de Status"
 msgid "Icons/Design/Code:     Luebbe Onken"
 msgstr "Ícones/Projeto/Código:     Luebbe Onken"
 
-#, fuzzy
 msgid "If activated, prevents the overlays and the context menu from showing in \"save as...\" or \"open\" dialogs"
-msgstr "Se ativado, impede que as sobreposições apareçam nos diálogos \"Salvar como..\" ou \"Abrir\""
+msgstr "Se ativado, impede que as sobreposições ou menus de contexto apareçam nas caixas de diálogos \"Salvar como..\" ou \"Abrir\""
 
 msgid ""
 "If activated, the menu entry \"Get Lock\" is always shown in the top level menu\n"
@@ -2468,6 +2450,8 @@ msgid ""
 "If enabled, working copy folders which are excluded from\n"
 "showing overlays still show the overlay for status 'normal'"
 msgstr ""
+"Se habilitado, as pastas da cópia de trabalho que estão excluidas da\n"
+"exibição de sobreposição serão mostradas para as sobreposições com status 'normal'"
 
 msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\n"
@@ -2523,7 +2507,6 @@ msgstr "Ignorar descendência"
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignorar fins d&e linha (recomendado)"
 
-#, fuzzy
 msgid "Ignore line endings"
 msgstr "Ignorar fins de linha"
 
@@ -2533,7 +2516,6 @@ msgstr "Ignorar alterações de espaços em branco"
 msgid "Ignored items included"
 msgstr "itens ignorados incluídos"
 
-#, fuzzy
 msgid "Immediate children, including folders"
 msgstr "Filhos diretos, incluindo pastas"
 
@@ -2544,11 +2526,9 @@ msgstr "Importar"
 msgid "Import %ld items"
 msgstr "Importar %ld itens"
 
-#, fuzzy, c-format
+#, c-format
 msgid "Import %s to %s%s"
-msgstr ""
-"Importar arquivo %s\r\n"
-"para %s"
+msgstr "Importar arquivo %spara %s%s"
 
 msgid "Import &message"
 msgstr "Importar &mensagem"
@@ -2590,9 +2570,8 @@ msgstr "Importar o diretório para um repositório"
 msgid "Include ignored files"
 msgstr "Incluir arquivos ignorados"
 
-#, fuzzy
 msgid "Include merged revisions"
-msgstr "Selecionar revisão final"
+msgstr "Incluir revisão combinada"
 
 msgid "Include only the following revision range:"
 msgstr "Incluir somente o seguinte intervalo de revisões:"
@@ -2747,9 +2726,8 @@ msgstr "Abre um programa externo de comparação / combinação para resolver os
 msgid "Least active author:"
 msgstr "Autor menos ativo:"
 
-#, fuzzy
 msgid "Leave conflicted:"
-msgstr "em conflito"
+msgstr "Em conflito:"
 
 msgid "Left View: "
 msgstr "Visão da Esquerda:"
@@ -2763,9 +2741,8 @@ msgstr "Linha"
 msgid "Line Graph"
 msgstr "Gráfico em Linha"
 
-#, fuzzy
 msgid "Line differences"
-msgstr "Diferenças na linha"
+msgstr "Diferenças de linha"
 
 msgid "Line:"
 msgstr "Linha:"
@@ -2848,11 +2825,9 @@ msgstr "Mensagem de log"
 msgid "Log messages"
 msgstr "Mensagens de log"
 
-#, fuzzy
 msgid "Log messages (Input dialog)"
-msgstr "Mensagens de log"
+msgstr "Mensagens de log (Caixa de diálogo de entrada)"
 
-#, fuzzy
 msgid "Log messages (Show log dialog)"
 msgstr "Mensagens de Log (Mostra diálogo de log)"
 
@@ -2919,28 +2894,24 @@ msgstr "Combinar"
 msgid "Merge - TortoiseSVN"
 msgstr "Combinar - TortoiseSVN"
 
-#, fuzzy
 msgid "Merge depth:"
-msgstr "Combinar"
+msgstr "Combinar profundidade:"
 
-#, fuzzy
 msgid "Merge revision to..."
-msgstr "Salvar revisão &para..."
+msgstr "Combinar revisão &para..."
 
-#, fuzzy
 msgid "Merge revisions to..."
-msgstr "Salvar revisão &para..."
+msgstr "Combinar revisão &para..."
 
-#, fuzzy
 msgid "Merge settings"
-msgstr "Opções avançadas de combinação"
+msgstr "Opções de combinação"
 
 msgid "Merged"
 msgstr "Combinado"
 
-#, fuzzy, c-format
+#, c-format
 msgid "Merged revision(s) %s from %s:\n"
-msgstr "Obtendo revisão %s do arquivo:"
+msgstr "Combinando revisão(ões) %s de %s:\n"
 
 msgid "Merges a branch into the main trunk"
 msgstr "Combina uma ramificação ao tronco principal"
@@ -2950,19 +2921,19 @@ msgstr "Combinando"
 
 #, c-format
 msgid "Merging %s from revision %s to %s into %s, %s%s"
-msgstr ""
+msgstr "Combinando %s da revisão %s para %s em %s, %s%s"
 
 #, c-format
 msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
-msgstr ""
+msgstr "Combinando de %s, revisão %s para %s, revisão %s em %s, %s%s"
 
-#, fuzzy, c-format
+#, c-format
 msgid "Merging r%ld"
-msgstr "Combinando"
+msgstr "Combinando r%ld"
 
 #, c-format
 msgid "Merging r%ld through r%ld"
-msgstr ""
+msgstr "Combinando r%ld através de r%ld"
 
 msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
 msgstr "Combinar, requer diferentes revisões ou diferentes URLs em 'De:' e 'Para:'"
@@ -2994,9 +2965,8 @@ msgstr "Miscelânea"
 msgid "Mixed"
 msgstr "Misto"
 
-#, fuzzy
 msgid "Modification date"
-msgstr "Data de criação da trava:"
+msgstr "Data de modificação:"
 
 msgid "Modified"
 msgstr "Modificado"
@@ -3110,6 +3080,9 @@ msgid ""
 "Check one or more settings below to see unversioned, ignored and/or unmodified files.\n"
 "To see remote changes, click on \"Check Repository\""
 msgstr ""
+"Nenhum arquivo encontrado com as configurações atuais.\n"
+"Verifique uma ou mais configurações abaixo para ver arquivos não0versionados, ignorados ou não-modificados.\n"
+"Para ver mudanças remotas, clique em \"Verificar Repositório\""
 
 msgid ""
 "No files were changed or added since\n"
@@ -3157,7 +3130,7 @@ msgid "Not all of the system registry entries (or INI file) were removed."
 msgstr "Nem todas as entradas de registro (ou arquivo INI) foram removidas."
 
 msgid "Not descending"
-msgstr ""
+msgstr "Não-decrescendo"
 
 msgid "Not enough memory to complete operation."
 msgstr "Memória insuficiente para completar a operação."
@@ -3181,9 +3154,8 @@ msgid "OVR"
 msgstr "OVR"
 
 msgid "Older lines"
-msgstr ""
+msgstr "Linhas mais antigas"
 
-#, fuzzy
 msgid "Oldest on to&p"
 msgstr "Mais rece&nte em cima"
 
@@ -3350,7 +3322,6 @@ msgstr "Por favor, insira até %1 caracteres."
 msgid "Please execute the \"Cleanup\" command."
 msgstr "Por favor, execute o comando \"Limpar\"."
 
-#, fuzzy
 msgid ""
 "Please note:\n"
 "Your working copy remains on the previous path. If you want your next changes\n"
@@ -3358,13 +3329,14 @@ msgid ""
 "then you need to switch your working copy over to the new URL.\n"
 "Use the Switch command to do that."
 msgstr ""
-"Por favor, note:\n"
+"Atenção:\n"
 "sua cópia de trabalho permanece no caminho anterior. Se você quer que as suas\n"
-"próximas alterações estejam na cópia recém criada, você precisa alternar para\n"
-"o caminho da cópia. Use o comando Alternar pra fazer isso."
+"próximas alterações sejam submetidas para a cópia ou ramo recém-criado,\n"
+"você deve trocar sua cópia de trabalho para a nova URL.\n"
+"Use o comando Trocar para isso."
 
 msgid "Please resolve the conflict by choosing one of the following options:"
-msgstr ""
+msgstr "Resolva o conflito escolhendo uma das seguintes opções:"
 
 msgid "Please select a button."
 msgstr "Por favor, selecione um botão."
@@ -3384,9 +3356,8 @@ msgstr "Por favor, aguarde, cancelando..."
 msgid "Please wait while differences are obtained..."
 msgstr "Por favor, aguarde enquanto as diferenças são encontradas..."
 
-#, fuzzy
 msgid "Please wait while the repository browser is initializing..."
-msgstr "Por favor, espere enquanto o navegador de repositório é inicializado..."
+msgstr "Aguarde enquanto o navegador do repositório é iniciado..."
 
 msgid "Please wait..."
 msgstr "Por favor, aguarde..."
@@ -3404,7 +3375,7 @@ msgid "Pre-Update Hook"
 msgstr "Pre-Atualizar Gancho"
 
 msgid "Prevents most cases in which connection lines cross revision nodes"
-msgstr ""
+msgstr "Previne a maioria dos casos nos quais linhas de conexão cruzam nós de revisão"
 
 msgid "Preview patched file"
 msgstr "Pré visualizar arquivo corrigido"
@@ -3490,12 +3461,11 @@ msgstr "Re&verter..."
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Leia o 'Guia de Uso Diário' antes que você fique empacado..."
 
-#, fuzzy
 msgid "Recently modified lines"
-msgstr "&Limitar busca para linhas modificadas"
+msgstr "Linhas recentemente modificadas"
 
 msgid "Record Only"
-msgstr ""
+msgstr "Gravar"
 
 msgid "Recurse into unversioned folders"
 msgstr "Usar recursão nas pastas sem controle de versão"
@@ -3511,7 +3481,7 @@ msgstr ""
 "Refazer"
 
 msgid "Reduce cross-&lines"
-msgstr ""
+msgstr "Reduzir cruzamento de &linhas"
 
 msgid "Reduce the window to an icon"
 msgstr "Reduz a janela a um ícone"
@@ -3537,6 +3507,21 @@ msgid ""
 "\\d\t\t\tdigits 0-9\n"
 "\\s\t\t\twhitespaces"
 msgstr ""
+"Filtro de Expressões Regulares:\n"
+".\t\t\tqualquer caracter\n"
+"c+\t\t\tcorresponde ao caracter c uma ou mais vezes\n"
+"c*\t\t\tcorresponde ao caracter c zero ou mais vezes\n"
+"^\t\t\tinício da linha\n"
+"$\t\t\tfim da linha\n"
+"(string){n}\tcorresponde a uma string repetida n vezes\n"
+"(abcd)\t\tsub expressão\n"
+"[aei0-9]\t\tcorresponde a a,e,i e 0..9\n"
+"[^aei0-9]\tqualquer coisa exceto a,e,i e 0..9\n"
+"<hr=100%>\n"
+"\\w\t\t\tencotra a-z,A-Z,0-9 e _\n"
+"\\W\t\t\tqualquer caracter não-alfanumérico\n"
+"\\d\t\t\tdigitos de 0-9\n"
+"\\s\t\t\tespaço em branco"
 
 msgid "Reject"
 msgstr "Rejeitar"
@@ -3680,9 +3665,8 @@ msgstr "Repositório"
 msgid "Repository Browser"
 msgstr "Navegador de Repositório"
 
-#, fuzzy
 msgid "Repository UUID:"
-msgstr "Repositório"
+msgstr "Repositório UUID:"
 
 msgid "Requests a username and a password"
 msgstr "Solicita um nome de usuário e uma senha"
@@ -3696,13 +3680,11 @@ msgstr "Resolver"
 msgid "Resolve - TortoiseSVN"
 msgstr "Resolver - TortoiseSVN"
 
-#, fuzzy
 msgid "Resolve Conflict"
-msgstr "Resolve os arquivos com conflito"
+msgstr "Resolver Conflito"
 
-#, fuzzy
 msgid "Resolve all later"
-msgstr "Remover %ld itens"
+msgstr "Resolver todos depois"
 
 msgid "Resolve conflict using \"mine\""
 msgstr "Resolver conflito usando \"meu\""
@@ -3710,13 +3692,11 @@ msgstr "Resolver conflito usando \"meu\""
 msgid "Resolve conflict using \"theirs\""
 msgstr "Resolver conflito usando \"deles\""
 
-#, fuzzy
 msgid "Resolve conflict:"
-msgstr "Resolve os arquivos com conflito"
+msgstr "Resolver conflito"
 
-#, fuzzy
 msgid "Resolve later"
-msgstr "Resolver"
+msgstr "Resolver depois"
 
 msgid "Resolved"
 msgstr "Resolvido"
@@ -3813,7 +3793,7 @@ msgstr ""
 "Messagem de log:\r\n"
 "%s"
 
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Revision: %ld\n"
 "URL: %s\r\n"
@@ -3830,7 +3810,9 @@ msgstr ""
 "Autor: %s\r\n"
 "Data: %s\r\n"
 "\r\n"
-"Messagem de log:\r\n"
+"Rótulos:%s\r\n"
+"\r\n"
+"Mensagem de Log:\r\n"
 "%s"
 
 msgid "Revisions"
@@ -4015,9 +3997,8 @@ msgstr "Selecionar arquivo script de gancho"
 msgid "Select merge application"
 msgstr "Selecionar aplicação de combinação"
 
-#, fuzzy
 msgid "Select merge target"
-msgstr "Selecionar aplicação de combinação"
+msgstr "Selecionar alvo para combinar"
 
 msgid "Select revision range"
 msgstr "Selecionar intervalo de revisões"
@@ -4054,7 +4035,6 @@ msgstr "Enviando conteúdo"
 msgid "Server &address:"
 msgstr "&Endereço do Servidor:"
 
-#, fuzzy
 msgid "Set file dates to the \"last commit &time\""
 msgstr "Ajusta as da&tas dos arquivos para \"hora da última submissão\""
 
@@ -4103,7 +4083,6 @@ msgstr "Exibir &histórico"
 msgid "Show &log..."
 msgstr "Mensagens de &log..."
 
-#, fuzzy
 msgid "Show &overlays and context menu only in explorer"
 msgstr "Visualizar s&obreposições apenas no explorer"
 
@@ -4113,23 +4092,25 @@ msgstr "Exibir arq&uivos sem controle de versão"
 msgid "Show File List"
 msgstr "Mostrar Lista de Arquivos"
 
-#, fuzzy
 msgid "Show HEAD revision nodes"
-msgstr "Mostrar tod&as as revisões"
+msgstr "Mostrar nós das revisões Mais Recentes"
 
 msgid ""
 "Show Inline-Diff word by word\n"
 "Inline diff word-wise"
 msgstr ""
+"Mostrar Diferenças em Linhas palavra por palavra\n"
+"Diferença em linha por palavraShow Inline-Diff word by word\n"
+"Inline diff word-wise"
 
 msgid "Show Lock dialog before locking files"
-msgstr ""
+msgstr "Mostrar caixa de diálogo antes de travar arquivos"
 
 msgid "Show Ove&rview"
 msgstr "Exibir visão ge&ral"
 
 msgid "Show an overview of the whole graph"
-msgstr ""
+msgstr "Mostrar a visão geral do gráfico todo"
 
 msgid "Show changes as &unified diff"
 msgstr "Exibir diferenças como comparação &unificada"
@@ -4138,7 +4119,7 @@ msgid "Show differences as &unified diff"
 msgstr "Exibir diferenças como comparação &unificada"
 
 msgid "Show excluded folders as 'normal'"
-msgstr ""
+msgstr "Apresentar pastas apagadas como 'normal'"
 
 msgid "Show ignored files"
 msgstr "Mostrar arquivos ignorados"
@@ -4149,9 +4130,8 @@ msgstr "Exibir barra de comparação em li&nha"
 msgid "Show linenumber&s"
 msgstr "Exibir linhas numerada&s"
 
-#, fuzzy
 msgid "Show oldest node at top"
-msgstr "Apresentando %ld nós"
+msgstr "Apresenta o nó mais velho no topo"
 
 msgid ""
 "Show or hide the status bar\n"
@@ -4175,7 +4155,7 @@ msgstr ""
 "Mostrar Espaços em Branco"
 
 msgid "Show tags on the copy source, not as separate nodes"
-msgstr ""
+msgstr "Mostrar rótulos no fonte copiada, não como um nó separado"
 
 msgid "Show unmodified files"
 msgstr "Mostrar arquivos não modificados"
@@ -4244,13 +4224,13 @@ msgid "Specify the revision range which you want to merge:"
 msgstr "Especifique o intervalo de revisões que você quer combinar:"
 
 msgid "Split lines"
-msgstr ""
+msgstr "Separar linhas"
 
 msgid "Split long &branches"
-msgstr ""
+msgstr "Separar &ramos grandes"
 
 msgid "Split long, inactive branches into segments"
-msgstr ""
+msgstr "Separar ramos longos e inativos em segmentos"
 
 msgid ""
 "Split the active window into panes\n"
@@ -4406,7 +4386,7 @@ msgid "Tagged the working copy to %s"
 msgstr "Cópia atual rotulada para %s"
 
 msgid "Target"
-msgstr ""
+msgstr "Alvo"
 
 msgid "Text Status:"
 msgstr "Status do Texto:"
@@ -4436,9 +4416,8 @@ msgstr "O tamanho do bloco não coincide com o número de linhas adicionadas/rem
 msgid "The chunk start \"@@\" was expected in line %d !"
 msgstr "O início de bloco \"@@\" era esperado na linha %d !"
 
-#, fuzzy
 msgid "The default URL to checkout from if nothing else is specified"
-msgstr "URL padrão para obter caso nenhuma outra tenha sido especificada"
+msgstr "URL padrão para obtenção caso nenhuma outra tenha sido especificada"
 
 msgid "The default path to checkout to if nothing else is specified"
 msgstr "Path padrão para obter caso nenhum outro tenha sido especificado"
@@ -4569,7 +4548,6 @@ msgstr ""
 "%s\n"
 "não conincidem!"
 
-#, fuzzy
 msgid ""
 "The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
@@ -4580,10 +4558,12 @@ msgid ""
 "Do you want to proceed anyway?"
 msgstr ""
 "O caminho/URL que você digitou parece ser ilegal no Windows!\n"
-"Você pode tentar mesmo assim, mas poderá obter um erro depois.\n"
+"Você pode tentar mesmo assim, mas isso poderá gerar um erro.\n"
 "\n"
-"Um caminho válido no windows não pode conter '<>|\"?*:' ou um dos seguintes nomes de dispositivo:\n"
-"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+"Um caminho válido no windows não pode conter '<<>|\"?*:' ou um dos seguintes nomes de dispositivo:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
+"\n"
+"Você deseja continuar?"
 
 #, c-format
 msgid ""
@@ -4605,7 +4585,7 @@ msgstr ""
 "\n"
 " Você deseja usar o caminho sugerido? Caso a resposta seja 'não', o TortoiseMerge será fechado."
 
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "The path\n"
 "<i>%s</i>\n"
@@ -4614,7 +4594,7 @@ msgid ""
 msgstr ""
 "O caminho\n"
 "<i>%s</i>\n"
-", no arquivo de correção, não existe.\n"
+"no arquivo de correção, não existe.\n"
 "O TortoiseMerge tentou aplicar a correção, retirando prefixos, mas nenhum caminho semelhante foi encontrado."
 
 #, c-format
@@ -4665,15 +4645,14 @@ msgstr ""
 "não está vazia!\n"
 "Você tem certeza que deseja obter/exportar nessa pasta?"
 
-#, fuzzy
 msgid ""
 "The time in seconds after which the parsing of the selected files stops.\n"
 "A lower value will make the auto-completion list available sooner,\n"
 "but maybe not scan all files."
 msgstr ""
 "O tempo em segundos depois do qual a interpretação dos arquivos selecionados pára.\n"
-"Um valor menor tornará a lista de autocompletamento disponível mais cedo,\n"
-"mas talvez sem interpretar todos os arquivos."
+"Um valor menor tornará a lista do autocompletar disponível mais cedo,\n"
+"mas talvez sem retornar todos os arquivos."
 
 msgid ""
 "The two selected URL's are not created from the same root.\n"
@@ -4753,14 +4732,13 @@ msgstr ""
 "Essa não é uma URL válida.\n"
 "Por favor, tente outra URL aqui."
 
-#, fuzzy
 msgid ""
 "This is not a valid path!\n"
 "A valid path must not contain '<<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
 "Esse não é um caminho válido!\n"
-"Um caminho válido não pode conter '<>|\"?*:' ou um dos seguintes nomes de dispositivo:\n"
+"Um caminho válido não pode conter '<<>|\"?*:' ou um dos seguintes nomes de dispositivo:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -4801,6 +4779,8 @@ msgid ""
 "To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\n"
 "This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 msgstr ""
+"Para obter a trava, clique com o botão direito sobre o diretório-pai desse item e selecione \"Obter Trava\" do menu de contexto.\n"
+"Isso irá abrir uma caixa de diálogo na qual você poderá impor o travamento, i.e., 'roubá-lo' de quem estava com ele."
 
 msgid "To:"
 msgstr "Para:"
@@ -4811,21 +4791,19 @@ msgstr "Para: (revisão e URL finais do intervalo para combinar)"
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
 
-#, fuzzy
 msgid ""
 "TortoiseBlame can't be started directly!\n"
 "TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
 msgstr ""
-"TortoiseBlame não pode ser inicializado diretamente!\n"
-"TortoiseBlame.exe blamefile [[arquivodelog] [vertítulo]] [/linha:númerodalinha]"
+"TortoiseBlame não pode ser iniciado diretamente!\n"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:numerodalinha] [/path:caminhooriginal]"
 
 msgid "TortoiseIDiff"
 msgstr "TortoiseIDiff"
 
 msgid "TortoiseIDiff - An image diff tool, part of TortoiseSVN"
-msgstr ""
+msgstr "TortoiseIDiff - Uma ferramenta de comparação para imagens, parte do TortoiseSVN"
 
-#, fuzzy
 msgid ""
 "TortoiseIDiff: the image diff viewer for TortoiseSVN\n"
 "\n"
@@ -4841,10 +4819,13 @@ msgstr ""
 "TortoiseIDiff: o visualizador para comparação entre imagens para TortoiseSVN\n"
 "\n"
 "Parâmetros disponíveis por linha de comando são:\n"
-"/esquerda:\"caminho para a figura da esquerda\"\n"
-"/títuloesquerdo:\"título para mostrar para a figura da esquerda\"\n"
-"/direita:\"caminho para a figura da direita\"\n"
-"/títulodireito:\"título para mostrar para a figura da direita\""
+"/left:\"caminho para a figura a esquerda\"\n"
+"/lefttitle:\"titulo para a figura da esquerda\"\n"
+"/right:\"caminho para a figura da direita\"\n"
+"/righttitle:\"titulo para a figura da direita\"\n"
+"/overlay\t\tpara o modo de sobreposição\n"
+"/fit\t\tpara ajustar o tamanho das imagens\n"
+"/showinfo\t\tpara mostrar as caixas de informações das imagens"
 
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
@@ -4994,7 +4975,6 @@ msgstr ""
 "  Assinatura Digital: %s\n"
 "  Identificador: %s"
 
-#, fuzzy
 msgid "Unknown depth"
 msgstr "Profundidade desconhecida"
 
@@ -5074,14 +5054,12 @@ msgstr "Use ambos blocos de texto (este aqui primeiro)"
 msgid "Use both text blocks (this one last)"
 msgstr "Use ambos blocos de texto (este aqui último)"
 
-#, fuzzy
 msgid "Use local"
 msgstr "Usar local"
 
 msgid "Use regular expression"
-msgstr ""
+msgstr "Usar expressão regular"
 
-#, fuzzy
 msgid "Use repository"
 msgstr "Usar repositório"
 
@@ -5204,6 +5182,8 @@ msgid ""
 "When locking one or more selected files, shows a dialog\n"
 "asking for a descriptive message about the locking"
 msgstr ""
+"Quando travar um ou mais arquivos selecionados, mostrar uma\n"
+"caixa de diálogo pedindo por uma mensagem a respeito do travamento"
 
 msgid "With URL:"
 msgstr "Com URL:"
@@ -5361,6 +5341,11 @@ msgid ""
 "If you branch/tag from the HEAD revision, your local changes won't\n"
 "show up in the branch/tag!"
 msgstr ""
+"Sua cópia local possui modificações.\n"
+"Se você ramificou/rotulou a partir de uma revisão Mais Recente,\n"
+"suas modificações locais não serão mostradas no ramo/rótulo!Your working copy has local modifications.\n"
+"If you branch/tag from the HEAD revision, your local changes won't\n"
+"show up in the branch/tag!"
 
 msgid "Zoo&m out"
 msgstr "Menos zoo&m"
@@ -5403,7 +5388,7 @@ msgid "and support the developers"
 msgstr "e apóie os desenvolvedores"
 
 msgid "another item already exists in its place."
-msgstr ""
+msgstr "Outro item já existe nesse local."
 
 msgid "author"
 msgstr "autor"
@@ -5506,7 +5491,7 @@ msgid "external"
 msgstr "externo"
 
 msgid "http://tortoisesvn.net"
-msgstr ""
+msgstr "http://tortoisesvn.net"
 
 msgid "ignored"
 msgstr "ignorado"
@@ -5521,7 +5506,7 @@ msgid "it does not exist."
 msgstr "não existe."
 
 msgid "it is already deleted."
-msgstr ""
+msgstr "já foi apagado."
 
 msgid "it is unversioned."
 msgstr "está sem controle de versão."
@@ -5609,7 +5594,6 @@ msgstr ""
 "svn:executable\n"
 "Se presente, torna o arquivo excutável. Esta propriedade não pode ser ajustada em um diretório. Tentar ajustá-la não recursivamente irá falhar, e recursivamente ajustará a propriedade apenas nos arquivos pertencentes ao diretório."
 
-#, fuzzy
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of\n"
@@ -5618,7 +5602,7 @@ msgid ""
 "foo/bar -r 1234\thttp://example.com/repos/zag"
 msgstr ""
 "svn:externals\n"
-"Uma lista de especificadores de módulo separados por quebra de linha, cada qual consistindo de um caminho de diretório relativo, flags de revisão opcionais, e uma URL. Por exemplo\n"
+"Uma lista de especificadores de módulo separados por quebra de linha, cada qual consistindo de um caminho de diretório relativo, flags de revisão opcionais e uma URL. Por exemplo\n"
 "foo\t\thttp://exemplo.com.br/repos/zig\n"
 "foo/bar -r 1234\thttp://exemplo.com.br/repos/zag"
 
@@ -5653,6 +5637,11 @@ msgid ""
 "For example\n"
 "/trunk:123-125,129"
 msgstr ""
+"svn:mergeinfo\n"
+"A newline separated list of merge tracking info. Each line consists of an absolute\n"
+"path followed by a colon and a list of comma separated revision numbers.\n"
+"For example\n"
+"/trunk:123-125,129"
 
 # XXX: This is no longer truth, application/xml and others are also treated as text. -- jr
 msgid ""
@@ -5703,6 +5692,10 @@ msgid ""
 "Format: <filemask> = property=value;property=value\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 msgstr ""
+"tsvn:autoprops\n"
+"Uma lista com as propriedades separadas por quebras-de-linha que são automaticamente adicionadas quando um arquivo é importado/exportado.\n"
+"Formato: <filemask> = property=value;property=value\n"
+"Exemplo: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 msgid ""
 "tsvn:lockmsgminsize\n"
