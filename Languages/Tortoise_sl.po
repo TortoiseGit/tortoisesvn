@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2008-01-11 17:24+0100\n"
+"PO-Revision-Date: 2008-01-27 20:05+0100\n"
 "Last-Translator: Matjaz Cepon <matjaz.cepon@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -946,6 +946,10 @@ msgstr "&Dodaj mapo ..."
 msgid "Abort"
 msgstr "Prekini"
 
+#. Resource IDs: (1465)
+msgid "Abort &Merge"
+msgstr "Prekini &spajanje"
+
 #. Resource IDs: (136)
 msgid "About TortoiseMerge"
 msgstr "O TortoiseMerge"
@@ -1343,6 +1347,14 @@ msgstr "Okrivi avtorja za vsako vrstico datoteke"
 msgid "Blend Alpha"
 msgstr "Blend Alpha"
 
+#. Resource IDs: (83)
+msgid ""
+"Both /logmsg and /logmsgfile were specified!\n"
+"Only one of those can be specified."
+msgstr ""
+"Nastavili ste parametra /logmsg and /logmsgfile!\n"
+"Uporabite lahko le enga izmed teh dveh parametrov."
+
 #. Resource IDs: (1003)
 msgid "Br&owse..."
 msgstr "Prebrs&kaj..."
@@ -1499,6 +1511,11 @@ msgstr "Spremenjene datoteke med %s, %s in %s, %s"
 #, c-format
 msgid "Changed files: %d"
 msgstr "Spremenjene datoteke: %d"
+
+#. Resource IDs: (264)
+#, c-format
+msgid "Changelist %s moved"
+msgstr "Seznam sprememb %s premaknjen"
 
 #. Resource IDs: (65535)
 msgid "Changelist:"
@@ -1662,7 +1679,7 @@ msgstr "Počisti shranjene velikosti in položaje %ld pogovornih oken"
 
 #. Resource IDs: (170)
 msgid "Click here to select a recently typed message"
-msgstr "Kliknite sem za vnos pred kratkim natipkanega sporočila"
+msgstr "Kliknite sem za vnos pred kratkim vnesenega sporočila"
 
 #. Resource IDs: (65535)
 msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
@@ -3765,7 +3782,7 @@ msgstr "Mesto, kamor bo shranjena vsebina skladišča."
 
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
-msgstr "Zakleni"
+msgstr "Zaklep"
 
 #. Resource IDs: (191)
 msgid "Lock Files"
@@ -4296,6 +4313,18 @@ msgstr "Izpusti &zunanje"
 #. Resource IDs: (145)
 msgid "Omit externals"
 msgstr "Izpusti zunanje"
+
+#. Resource IDs: (63)
+msgid ""
+"One of the paths you are attempting to move appears to be a special path\n"
+"(one of 'branches', 'tags' or 'trunk').\n"
+"\n"
+"Are you sure you want to move the selected paths?"
+msgstr ""
+"Ena od poti, ki jo želite premakniti, je posebna pot\n"
+"('branches', 'tags' ali 'trunk').\n"
+"\n"
+"Ali ste prepričani, da želite premakniti izbrane poti?"
 
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
