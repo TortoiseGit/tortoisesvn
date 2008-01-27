@@ -13,17 +13,17 @@
 # Shura Zam <tonal@promsoft.ru>
 # Dimitry Ivanov [dimitry@dimitry.ru]
 # Dimitry Mardiyan <dimitry.mardiyan@gmail.com>
-# Stanislav Petrakov <stannic@gmail.com>
+# Stanislav Petrakov <stannic@gmail.com>, 2005-2008
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 11850: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 11948: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-01-15 10:57+0300\n"
+"PO-Revision-Date: 2008-01-27 16:54+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -468,7 +468,7 @@ msgstr "Вписать картинки в &окно"
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
-msgstr "&Жесткие диски"
+msgstr "&Жёсткие диски"
 
 #. Resource IDs: (65535)
 msgid "&Font for log messages:"
@@ -977,6 +977,10 @@ msgstr "&Добавить папку..."
 msgid "Abort"
 msgstr "Прервать"
 
+#. Resource IDs: (1465)
+msgid "Abort &Merge"
+msgstr "Прервать с&лияние"
+
 #. Resource IDs: (136)
 msgid "About TortoiseMerge"
 msgstr "O TortoiseMerge"
@@ -1078,7 +1082,7 @@ msgstr "Объекты добавлены удалённо"
 
 #. Resource IDs: (65535)
 msgid "Added node"
-msgstr "Добавленнный узел"
+msgstr "Добавленный узел"
 
 #. Resource IDs: (145)
 #, c-format
@@ -1315,15 +1319,15 @@ msgstr "Авто-переименовать"
 
 #. Resource IDs: (222)
 msgid "Auto-close for local operations"
-msgstr "Автозакрытие: при локальных операциях"
+msgstr "Автозакрытие при локальных операциях"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
-msgstr "Автозакрытие: при отсутствии конфликтов"
+msgstr "Автозакрытие при отсутствии конфликтов"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no errors"
-msgstr "Автозакрытие: при отсутствии ошибок"
+msgstr "Автозакрытие при отсутствии ошибок"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no merges, adds or deletes"
@@ -1377,6 +1381,14 @@ msgstr "Показывает для каждой строки файла её а
 #. Resource IDs: (32812)
 msgid "Blend Alpha"
 msgstr "Альфа-сопряжение"
+
+#. Resource IDs: (83)
+msgid ""
+"Both /logmsg and /logmsgfile were specified!\n"
+"Only one of those can be specified."
+msgstr ""
+"Были указаны оба параметра: /logmsg и /logmsgfile!\n"
+"Может быть указан только один из них."
 
 #. Resource IDs: (1003)
 msgid "Br&owse..."
@@ -1535,6 +1547,11 @@ msgstr "Изменённые файлы между %s, %s и %s, %s"
 #, c-format
 msgid "Changed files: %d"
 msgstr "Изменённых файлов: %d"
+
+#. Resource IDs: (264)
+#, c-format
+msgid "Changelist %s moved"
+msgstr "Группа изменений %s перемещена"
 
 #. Resource IDs: (65535)
 msgid "Changelist:"
@@ -3485,7 +3502,7 @@ msgstr ""
 
 #. Resource IDs: (251)
 msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
-msgstr "Если вы хотите прервать блокировку, используйте диалог \"Проверить на наличие изменений\"."
+msgstr "Если вы хотите прервать блокировку, используйте диалог \"Проверка на наличие изменений\"."
 
 #. Resource IDs: (73)
 msgid "Ignore"
@@ -4386,6 +4403,18 @@ msgstr "Пропустить в&нешние"
 #. Resource IDs: (145)
 msgid "Omit externals"
 msgstr "Пропустить внешние"
+
+#. Resource IDs: (63)
+msgid ""
+"One of the paths you are attempting to move appears to be a special path\n"
+"(one of 'branches', 'tags' or 'trunk').\n"
+"\n"
+"Are you sure you want to move the selected paths?"
+msgstr ""
+"Один из путей, которые вы пытетесь переместить,\n"
+"похож на особый путь ('branches', 'tags' или 'trunk').\n"
+"\n"
+"Вы уверены, что вы желаете переместить выбранные пути?"
 
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
@@ -7313,7 +7342,7 @@ msgstr "добавлен"
 
 #. Resource IDs: (65535)
 msgid "added files"
-msgstr "добавленные файлы"
+msgstr "Добавленные файлы"
 
 #. Resource IDs: (272)
 #, c-format
@@ -7531,7 +7560,7 @@ msgstr "Max ревизия:"
 
 #. Resource IDs: (11, 65535)
 msgid "merged"
-msgstr "слит"
+msgstr "Слит"
 
 #. Resource IDs: (65535)
 msgid "merges total:"
@@ -7543,7 +7572,7 @@ msgstr "отсутствует"
 
 #. Resource IDs: (65535)
 msgid "missing / deleted / replaced"
-msgstr "отсутствует / удалён / замещён"
+msgstr "Отсутствует / удалён / замещён"
 
 #. Resource IDs: (65535)
 msgid "missing in: "
@@ -7555,7 +7584,7 @@ msgstr "изменён"
 
 #. Resource IDs: (65535)
 msgid "modified / copied"
-msgstr "изменён / скопирован"
+msgstr "Изменён / скопирован"
 
 # статистика: месяцы
 #. Resource IDs: (245)
@@ -7615,7 +7644,7 @@ msgstr "пикселы"
 # слова 'возможно или действительно' не помещаются
 #. Resource IDs: (65535)
 msgid "possible or real conflict / obstructed"
-msgstr "конфликтующий / мешающий"
+msgstr "Конфликтующий / мешающий"
 
 # статистика: кварталы
 #. Resource IDs: (245)
