@@ -44,6 +44,11 @@ bool CommitCommand::Execute()
 {
 	bool bFailed = true;
 	CTSVNPathList selectedList;
+	if (parser.HasKey(_T("logmsg")) && (parser.HasKey(_T("logmsgfile"))))
+	{
+		CMessageBox::Show(hwndExplorer, IDS_ERR_TWOLOGPARAMS, IDS_APPNAME, MB_ICONERROR);
+		return false;
+	}
 	CString sLogMsg = LoadLogMessage();
 	bool bSelectFilesForCommit = !!DWORD(CRegStdWORD(_T("Software\\TortoiseSVN\\SelectFilesForCommit"), TRUE));
 	DWORD exitcode = 0;

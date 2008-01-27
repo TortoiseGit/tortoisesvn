@@ -2321,6 +2321,7 @@ BEGIN
     IDS_ERR_NOPREVREVISION  "Could not determine the last committed revision!"
     IDS_PROC_CLEANUPFINISHED_FAILED 
                             "Cleanup failed to process the following paths:\n%s"
+    IDS_ERR_TWOLOGPARAMS    "Both /logmsg and /logmsgfile were specified!\nOnly one of those can be specified."
 END
 
 STRINGTABLE 

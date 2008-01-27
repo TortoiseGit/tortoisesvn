@@ -625,6 +625,7 @@
 #define IDC_HOOKBROWSE                  1324
 #define IDS_PROC_CLEANUPFINISHED_FAILED 1324
 #define IDC_HOOKCOMMANDLINE             1325
+#define IDS_ERR_TWOLOGPARAMS            1325
 #define IDC_HIDECHECK                   1326
 #define IDC_WAITCHECK                   1327
 #define IDC_HOOKTYPECOMBO               1329
@@ -1374,7 +1375,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        284
+#define _APS_NEXT_RESOURCE_VALUE        285
 #define _APS_NEXT_COMMAND_VALUE         32829
 #define _APS_NEXT_CONTROL_VALUE         1466
 #define _APS_NEXT_SYMED_VALUE           195
