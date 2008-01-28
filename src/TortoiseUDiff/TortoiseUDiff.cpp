@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2008 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -45,7 +45,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	{
 		TCHAR buf[1024];
 		LoadString(hInstance, IDS_COMMANDLINEHELP, buf, sizeof(buf)/sizeof(TCHAR));
-		MessageBox(NULL, buf, _T("TortoiseIDiff"), MB_ICONINFORMATION);
+		MessageBox(NULL, buf, _T("TortoiseUDiff"), MB_ICONINFORMATION);
 		return 0;
 	}
 
