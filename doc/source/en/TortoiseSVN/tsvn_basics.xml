@@ -67,9 +67,9 @@
 			sees only the latest version of the filesystem tree. But the
 			client also has the ability to view
 			<emphasis>previous</emphasis> states of the filesystem. For
-			example, a client can ask historical questions like, "what did
-			this directory contain last Wednesday?", or "who was the last
-			person to change this file, and what changes did they make?"
+			example, a client can ask historical questions like, <quote>what did
+			this directory contain last Wednesday?</quote>, or <quote>who was the last
+			person to change this file, and what changes did they make?</quote>
 			These are the sorts of questions that are at the heart of any
 			<firstterm>version control system</firstterm>: systems that are
 			designed to record and track changes to data over time.
@@ -115,7 +115,7 @@
 				<firstterm>lock-modify-unlock</firstterm> model to address
 				this problem, which is a very simple solution. In such a
 				system, the repository allows only one person to change a file
-				at a time. First Harry must "lock" the file before he can begin
+				at a time. First Harry must <emphasis>lock</emphasis> the file before he can begin
 				making changes to it. Locking a file is a lot like borrowing
 				a book from the library; if Harry has locked a file, then Sally
 				cannot make any changes to it. If she tries to lock the file,
@@ -193,7 +193,7 @@
 				Here's an example. Say that Harry and Sally each create
 				working copies of the same project, copied from the
 				repository. They work concurrently, and make changes to the
-				same file "A" within their copies. Sally saves her changes to
+				same file <filename>A</filename> within their copies. Sally saves her changes to
 				the repository first. When Harry attempts to save his changes
 				later, the repository informs him that his file A is
 				<firstterm>out-of-date</firstterm>. In other words, that file
@@ -295,7 +295,7 @@
 			<para>
 				After you've made some changes to the files in your
 				working copy and verified that they work properly, Subversion
-				provides you with commands to "publish" your changes to the
+				provides you with commands to <emphasis>publish</emphasis> your changes to the
 				other people working with you on your project (by writing to
 				the repository). If other people publish their own changes,
 				Subversion provides you with commands to merge those changes
@@ -336,7 +336,7 @@
 			<para>
 				To get a working copy, you must <firstterm>check
 				out</firstterm> some subtree of the repository. (The term
-				"check out" may sound like it has something to do with locking
+				<emphasis>check out</emphasis> may sound like it has something to do with locking
 				or reserving resources, but it doesn't; it simply creates a
 				private copy of the project for you).
 			</para>
@@ -679,10 +679,10 @@ calc/Makefile:6
 					<listitem>
 						<para>
 							The file has been changed both in the
-							working directory, and in the repository. A <command>commit
-							</command> of the file will fail with an "out-of-date"
-							error. The file should be updated first; an <command>update
-							</command> command will attempt to merge the public
+							working directory, and in the repository. A <command>commit</command>
+							of the file will fail with an <emphasis>out-of-date</emphasis>
+							error. The file should be updated first; an <command>update</command>
+							command will attempt to merge the public
 							changes with the local changes. If Subversion can't
 							complete the merge in a plausible way automatically, it
 							leaves it to the user to resolve the

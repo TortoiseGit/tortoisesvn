@@ -290,8 +290,9 @@ msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE
 			</table>
 		</para>
 		<para>
-			Example: to disable the "Relocate" the "Delete unversioned items"
-			and the "Settings" menu entries, add the values assigned
+			Example: to disable the <quote>Relocate</quote> the 
+			<quote>Delete unversioned items</quote>
+			and the <quote>Settings</quote> menu entries, add the values assigned
 			to the entries like this:
 <screen>
   0x0000000000080000
