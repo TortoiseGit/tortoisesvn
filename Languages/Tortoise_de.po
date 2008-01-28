@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-01-25 09:23+0100\n"
+"PO-Revision-Date: 2008-01-28 12:48+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1329,6 +1329,14 @@ msgstr "Zeigt, welcher Autor eine Zeile zuletzt geändert hat."
 msgid "Blend Alpha"
 msgstr "Differenz / Überblenden"
 
+#. Resource IDs: (83)
+msgid ""
+"Both /logmsg and /logmsgfile were specified!\n"
+"Only one of those can be specified."
+msgstr ""
+"Die beiden Parameter /logmsg und /logmsgfile\n"
+"dürfen nicht gleichzeitig angegeben werden!"
+
 #. Resource IDs: (1003)
 msgid "Br&owse..."
 msgstr "Su&chen..."
@@ -1486,6 +1494,11 @@ msgstr "Geänderte Dateien zwischen %s, %s und %s, %s"
 #, c-format
 msgid "Changed files: %d"
 msgstr "Geänderte Dateien: %d"
+
+#. Resource IDs: (264)
+#, c-format
+msgid "Changelist %s moved"
+msgstr "Änderungsliste %s verschoben"
 
 #. Resource IDs: (65535)
 msgid "Changelist:"
