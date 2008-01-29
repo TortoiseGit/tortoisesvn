@@ -56,7 +56,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-01-16 13:00+0800\n"
+"PO-Revision-Date: 2008-01-29 10:40+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -962,6 +962,10 @@ msgstr "加入文件夹(&D)..."
 msgid "Abort"
 msgstr "放弃"
 
+#. Resource IDs: (1465)
+msgid "Abort &Merge"
+msgstr "取消合并(&M)"
+
 #. Resource IDs: (136)
 msgid "About TortoiseMerge"
 msgstr "关于 TortoiseMerge"
@@ -1356,6 +1360,14 @@ msgstr "列出文件每一行的作者"
 msgid "Blend Alpha"
 msgstr "Alpha 混和"
 
+#. Resource IDs: (83)
+msgid ""
+"Both /logmsg and /logmsgfile were specified!\n"
+"Only one of those can be specified."
+msgstr ""
+"同时指定了 /logmsg 和 /logmsgfile !\n"
+"它们只能指定一个。"
+
 #. Resource IDs: (1003)
 msgid "Br&owse..."
 msgstr "浏览(&O)..."
@@ -1512,6 +1524,11 @@ msgstr "从 %s，%s 到 %s，%s 所改变的文件"
 #, c-format
 msgid "Changed files: %d"
 msgstr "变动文件数：%d"
+
+#. Resource IDs: (264)
+#, c-format
+msgid "Changelist %s moved"
+msgstr "修改列表 %s 已经删除"
 
 #. Resource IDs: (65535)
 msgid "Changelist:"
@@ -4315,6 +4332,17 @@ msgstr "省略外部(&X)"
 #. Resource IDs: (145)
 msgid "Omit externals"
 msgstr "省略外部"
+
+#. Resource IDs: (63)
+msgid ""
+"One of the paths you are attempting to move appears to be a special path\n"
+"(one of 'branches', 'tags' or 'trunk').\n"
+"\n"
+"Are you sure you want to move the selected paths?"
+msgstr ""
+"你试图删除的目录中包含特殊目录(“branches”，“tags”或“trunk”)。\n"
+"\n"
+"你确认要删除这些目录吗?"
 
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
