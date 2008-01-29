@@ -524,6 +524,16 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
     svn_revnum_t headRevision = NO_REVISION;
     svn.GetRootAndHead (urlpath, dummy, headRevision);
 
+	// find the revision the working copy is on, we mark that revision
+	// later in the graph
+	svn_revnum_t minrev;
+	bool switched, modified;
+	if (!svn.GetWCRevisionStatus(CTSVNPath(path), true, minrev, m_wcRev, switched, modified))
+	{
+		m_wcRev = -1;
+	}
+
+
 	if (m_sRepoRoot.IsEmpty())
 	{
 		Err = svn_error_dup(svn.Err);
@@ -557,7 +567,7 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
         // actually fetch the data
 
 		query->Log ( CTSVNPathList (urlpath)
-				   , headRevision
+				   , m_wcRev
 				   , headRevision
 				   , firstRevision
 				   , 0
