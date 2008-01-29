@@ -274,9 +274,9 @@
 				<listitem>
 					<para>
 						Path to a file containing the log message for
-						the commit. The file contains the text in UTF8
-						encoding. After successful execution of
-						start-commit hook log message is read back,
+						the commit. The file contains the text in UTF-8
+						encoding. After successful execution of the
+						start-commit hook, the log message is read back,
 						giving the hook a chance to modify it.
 					</para>
 				</listitem>

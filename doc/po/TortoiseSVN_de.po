@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2008-01-28 15:45 +0000\n"
-"PO-Revision-Date: 2008-01-28 17:17+0100\n"
+"POT-Creation-Date: 2008-01-29 08:23 +0000\n"
+"PO-Revision-Date: 2008-01-29 10:14+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3413,7 +3413,7 @@ msgstr "Sie können die <firstterm>Tiefe</firstterm> der Rekursion beim Auscheck
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3834
 msgid "If you check out a sparse working copy (i.e., by choosing something other than <literal>fully recursive</literal> for the checkout depth), you can fetch additional sub-folders by using the repository browser (<xref linkend=\"tsvn-dug-repobrowser\"/>). <action>Right click</action> on the checked out folder, then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> to bring up the repository browser. Find the sub-folder you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice> That menu will only be visible if the selected item does not exist yet in your working copy, but the parent item does exist."
-msgstr "Wenn Sie eine dünn besiedelte Arbeitskopie auschecken, indem Sie etwas anders als <literal>vollständig rekursiv</literal> als Auschecktiefe wählen, können Sie später weitere Ordner mittels des Projektarchivbetrachters holen (<xref linkend=\"tsvn-dug-repobrowser\"/>). Rufen Sie mit einem <action>Rechtsklick</action> auf den ausgecheckten Ordner den Projektarchivbetrachter auf. Suchen Sie den Unterordner, den Sie zu Ihrer Arbeitskopie hinzufügen wollen und wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Aktualisier Objekt zu Revision...</guimenuitem> </menuchoice> Dieser Menüeintrag ist nur sichtbar, wenn das markierte Objekt noch nicht in der Arbeitskopie vorhanden ist, aber sein Elternobjekt bereits existiert."
+msgstr "Wenn Sie eine dünn besiedelte Arbeitskopie auschecken, indem Sie etwas anders als <literal>vollständig rekursiv</literal> als Auschecktiefe wählen, können Sie später weitere Ordner mittels des Projektarchivbetrachters holen (<xref linkend=\"tsvn-dug-repobrowser\"/>). Rufen Sie mit einem <action>Rechtsklick</action> auf den ausgecheckten Ordner den Projektarchivbetrachter auf. Suchen Sie den Unterordner, den Sie zu Ihrer Arbeitskopie hinzufügen wollen und wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Aktualisiere Objekt zu Revision...</guimenuitem> </menuchoice> Dieser Menüeintrag ist nur sichtbar, wenn das markierte Objekt noch nicht in der Arbeitskopie vorhanden ist, aber sein Elternobjekt bereits existiert."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3854
@@ -4730,7 +4730,7 @@ msgstr "Mit Hilfe der Filter am oberen Rand des Log-Dialogs können Sie die Logm
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5555
 msgid "Click on the search icon to select which information you want to search in, and to choose <emphasis>regex</emphasis> mode. Normally you will only need a simple text search, but if you need to more flexible search terms, you can use regular expressions. If you hover the mouse over the box, a tooltip will give hints on how to use the regex functions. You can also find online documentation and a tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
-msgstr ""
+msgstr "Klicken Sie auf das Suchsymbol, um auswzuwählen welche Werte Sie durchsuchen möchten und um die Suche mit regulären Ausdrücken zu aktivieren. Normalerweise benötigen Sie nur eine einfache Textsuche, aber falls Sie komplexere Suchbegriffe formulieren wollen, können Sie reguläre Ausdrücke verwenden. Wenn Sie mit dem Mauszeiger über das Eingabefeld fahren, erscheint ein Hinweistext zu den regulären Ausdrücken. Unter<ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink> stehen eine Dokumentation und Übungen zur Verfügung."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5567
@@ -8773,17 +8773,17 @@ msgstr ""
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10833
 msgid "Timeout before updating the HEAD revision"
-msgstr ""
+msgstr "Wartezeit vor Aktualisierung der HEAD Revision"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10835
 msgid "When you invoke the log dialog you will normally want to contact the server to check for any newer log messages. If the timeout set here is non-zero then the server will only be contacted when the timeout has elapsed since the last time contact. This can reduce server round-trips if you open the log dialog frequently and the server is slow, but the data shown may not be completely up-to-date. If you want to use this feature we suggest using a value of 300 (5 minutes) as a compromise."
-msgstr ""
+msgstr "Wenn Sie den Log-Dialog aufrufen, soll normalerweise der Server kontaktiert werden, um neue Log-Meldungen abzurufen. Wenn die eingestellte Wartezeit nicht Null ist, wird der Server nur kontaktiert, falls die Wartezeit seit dem letzten Aufruf abgelaufen ist. Dies kann die Reaktionszeit beim Aufruf des Log-Dialogs beschleunigen, wenn Sie diesen häufig aufrufen und der Server langsam ist. Andererseits ist es mögliche, dass die Log-Daten dadurch nicht aktuell sind. Wenn Sie diese Funktion nutzen wollen, würden wir einen Wert von 300 Sekunden (5 Minuten) als Kompromiss vorschlagen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10850
 msgid "Below the settings you can see a list of the repositories that are cached locally, and the space used for the cache. If you select one of the repositories you can then use the buttons underneath."
-msgstr ""
+msgstr "Unter den Einstellungen sehen Sie eine Liste der Projektarchive, die lokal gepuffert sind sowie den vom Puffer belegten Speicherplatz. Wenn Sie eines der Projektarchive wählen, können Sie die weiteren Funktionen aufrufen."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10857
@@ -8798,22 +8798,22 @@ msgstr "Der Einstellungsdialog, Log-Puffer Statistiken"
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10869
 msgid "RAM"
-msgstr ""
+msgstr "RAM"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10871
 msgid "The amount of memory required to service this cache."
-msgstr ""
+msgstr "Der für diesen Puffer benötigte Hauptspeicher"
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10877
 msgid "Disk"
-msgstr ""
+msgstr "Platte"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10879
 msgid "The amount of disk space used for the cache. Data is compressed, so disk usage is generally fairly modest."
-msgstr ""
+msgstr "Der für den Puffer benötigte Festplattenspeicher. Die Daten sind komprimiert, so dass sich der Verbrauch normalerweise in Grenzen hält."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10886
@@ -8823,7 +8823,7 @@ msgstr "Verbindung"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10888
 msgid "Shows whether the repository was available last time the cache was used."
-msgstr ""
+msgstr "Zeigt an, ob das Projektarchiv beim letzten Zugriff auf den Puffer verfügbar war."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10895
@@ -8843,7 +8843,7 @@ msgstr "Letzte HEAD Aktualisierung"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10905
 msgid "The last time we requested the HEAD revision from the server."
-msgstr ""
+msgstr "Das letzte Mal, dass eine HEAD Revision vom Server abgerufen wurde."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10912
@@ -8853,7 +8853,7 @@ msgstr "Autoren"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10914
 msgid "The number of different authors with messages recorded in the cache."
-msgstr ""
+msgstr "Die Anzahl verschiedener Autoren mit Log-Meldungen, die im Puffer gespeichert ist."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10921
@@ -8863,17 +8863,17 @@ msgstr "Pfade"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10923
 msgid "The number of paths listed, as you would see using <literal>svn log -v</literal>."
-msgstr ""
+msgstr "Die Anzahl der aufgelisteten Pfade, wie man sie mit <literal>svn log -v</literal> sehen würde."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10930
 msgid "Skip ranges"
-msgstr ""
+msgstr "Übersprungene Bereiche"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10932
 msgid "The number of revision ranges which we have not fetched, simply because they haven't been requested. This is a measure of the number of holes in the cache."
-msgstr ""
+msgstr "Die Anzahl von Revisionsbereichen, welche noch nicht gepuffert sind, weil sie bisher nicht abgefragt wurden. Dies ist ein Maß für die Anzahl der Löcher im Puffer."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10940
@@ -8883,7 +8883,7 @@ msgstr "Max Revision"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10942
 msgid "The highest revision number stored in the cache."
-msgstr ""
+msgstr "Die höchste, im Puffer gespeicherte, Revisionsnummer"
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10948
@@ -8893,27 +8893,27 @@ msgstr "Anzahl Revisionen"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10950
 msgid "The number of revisions stored in the cache. This is another measure of cache completeness."
-msgstr ""
+msgstr "Die Anzahl der im Puffer gespeicherten Revisionen. Dies ist ein weiteres Maß für die Vollständigkeit des Puffers."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10858
 msgid "<placeholder-1/> Click on the <guibutton>Details</guibutton> button to see detailed statistics for a particular cache. Many of the fields shown here are mainly of interest to the developers of TortoiseSVN, so they are not all described in detail. <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> Klicken Sie auf <guibutton>Details</guibutton>, um detaillierte Statistiken für einen bestimmten Puffer anzusehen. Viele der dort angezeigten Werte sind vor allem für die Entwickler von TortoiseSVN interessant, so dass sie nicht alle im Detail angezeigt werden. <placeholder-2/>"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10959
 msgid "Click on the <guibutton>Update</guibutton> to completely refresh the cache and fill in any holes. For a large repository this could be very time consuming, but useful if you are about to go offline and want the best available cache."
-msgstr ""
+msgstr "Klicken Sie auf <guibutton>Aktualisieren</guibutton>, um den Puffer aufzufrischen und alle Löcher zu füllen. Für ein großes Projektarchiv kann das sehr viel Zeit in Anspruch nehmen. Wenn Sie nicht am Netz sind, steht Ihnen dafür der bestmögliche Puffer zur Verfügung."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10965
 msgid "Click on the <guibutton>Export</guibutton> button to export the entire cache as a CVS file. This could be useful if you want to process the log data using an external program, although it is mainly useful to the developers."
-msgstr ""
+msgstr "Klicken Sie auf <guibutton>Export</guibutton>, um den gesamten Puffer in eine CVS Datei zu exportieren. Dies könnte Ihnen nützlich sein, wenn Sie die Logdaten in einem externen Programm weiter verarbeiten wollen, ist aber in erster Linie für die TortoiseSVN Entwickler gedacht."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10971
 msgid "Click on <guibutton>Delete</guibutton> to remove all cached data for the selected repositories. This does not disable caching for the repository so the next time you request log data, a new cache will be created."
-msgstr ""
+msgstr "Klicken Sie auf <guibutton>Löschen</guibutton>, um sämtliche gepufferten Daten für die gewählten Projektarchive zu löschen. Dadurch wird der Puffer für die Projektarchive nicht deaktiviert, so dass beim nächsten Zugriff auf das Log, der Puffer neu aufgebaut wird."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10980
@@ -9109,9 +9109,8 @@ msgstr "Mögliche Werte sind: <placeholder-1/>"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11208
-#, fuzzy
-msgid "Path to a file containing the log message for the commit. The file contains the text in UTF8 encoding. After successful execution of start-commit hook log message is read back, giving the hook a chance to modify it."
-msgstr "Pfad zu einer Datei, die die Logmeldung für die Übertragung im UTF8 Format enthält. Nach erfolgreicher Ausführung der <quote>start-commit</quote> Aktion "
+msgid "Path to a file containing the log message for the commit. The file contains the text in UTF-8 encoding. After successful execution of the start-commit hook, the log message is read back, giving the hook a chance to modify it."
+msgstr "Pfad zu einer Datei, die die Log-Meldung für die Übertragung im UTF-8 Format enthält. Nach erfolgreicher Ausführung der <emphasis>start-commit</emphasis> Aktion, wird die Log-Meldung zurückgelesen, so dass die Aktion die Meldung zwischendurch modifizieren kann."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11220
