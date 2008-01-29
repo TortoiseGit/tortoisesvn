@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -42,6 +42,7 @@ protected:
 	virtual void OnCancel();
 	virtual void OnOK();
 	afx_msg void OnBnClickedSelectall();
+	afx_msg void OnBnClickedShowunversioned();
 	afx_msg void OnBnClickedHelp();
 	afx_msg LRESULT	OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
 	afx_msg LRESULT OnFileDropped(WPARAM, LPARAM lParam);
@@ -51,12 +52,14 @@ protected:
 private:
 	static UINT PatchThreadEntry(LPVOID pVoid);
 	UINT PatchThread();
+	DWORD	ShowMask();
 
 private:
 	CSVNStatusListCtrl	m_PatchList;
 	LONG				m_bThreadRunning;
 	CButton				m_SelectAll;
 	bool				m_bCancelled;
+	BOOL				m_bShowUnversioned;
 public:
 	/// the list of files to include in the patch
 	CTSVNPathList		m_pathList;

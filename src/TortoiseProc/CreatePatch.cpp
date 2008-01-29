@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -43,11 +43,13 @@ void CCreatePatch::DoDataExchange(CDataExchange* pDX)
 	CResizableStandAloneDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_PATCHLIST, m_PatchList);
 	DDX_Control(pDX, IDC_SELECTALL, m_SelectAll);
+	DDX_Check(pDX, IDC_SHOWUNVERSIONED, m_bShowUnversioned);
 }
 
 
 BEGIN_MESSAGE_MAP(CCreatePatch, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
+	ON_BN_CLICKED(IDC_SHOWUNVERSIONED, OnBnClickedShowunversioned)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_ADDFILE, OnFileDropped)
@@ -58,6 +60,9 @@ BOOL CCreatePatch::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
+	m_bShowUnversioned = TRUE;
+	UpdateData(FALSE);
+
 	m_PatchList.Init(0, _T("CreatePatchDlg"), SVNSLC_POPALL ^ (SVNSLC_POPIGNORE|SVNSLC_POPCOMMIT));
 	m_PatchList.SetConfirmButton((CButton*)GetDlgItem(IDOK));
 	m_PatchList.SetSelectButton(&m_SelectAll);
@@ -65,9 +70,11 @@ BOOL CCreatePatch::OnInitDialog()
 	m_PatchList.EnableFileDrop();
 
 	AdjustControlSize(IDC_SELECTALL);
+	AdjustControlSize(IDC_SHOWUNVERSIONED);
 
 	AddAnchor(IDC_PATCHLIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT);
+	AddAnchor(IDC_SHOWUNVERSIONED, BOTTOM_LEFT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
@@ -90,11 +97,20 @@ UINT CCreatePatch::PatchThreadEntry(LPVOID pVoid)
 {
 	return ((CCreatePatch*)pVoid)->PatchThread();
 }
+
+DWORD CCreatePatch::ShowMask()
+{
+	return
+		SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS | SVNSLC_SHOWDIRECTFILES |
+		(m_bShowUnversioned ? SVNSLC_SHOWUNVERSIONED : 0); 
+}
+
 UINT CCreatePatch::PatchThread()
 {
 	// get the status of all selected file/folders recursively
 	// and show the ones which can be included in a patch (i.e. the versioned and not-normal ones)
 	DialogEnableWindow(IDOK, false);
+	DialogEnableWindow(IDC_SHOWUNVERSIONED, false);
 	m_bCancelled = false;
 
 	if (!m_PatchList.GetStatus(m_pathList))
@@ -102,9 +118,10 @@ UINT CCreatePatch::PatchThread()
 		CMessageBox::Show(m_hWnd, m_PatchList.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
 	}
 
-	m_PatchList.Show(SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS, 
-						SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS);
+	m_PatchList.Show(
+		ShowMask(),	SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS);
 
+	DialogEnableWindow(IDC_SHOWUNVERSIONED, true);
 	InterlockedExchange(&m_bThreadRunning, FALSE);
 	return 0;
 }
@@ -159,6 +176,13 @@ void CCreatePatch::OnBnClickedSelectall()
 	theApp.DoWaitCursor(1);
 	m_PatchList.SelectAll(state == BST_CHECKED);
 	theApp.DoWaitCursor(-1);
+}
+
+void CCreatePatch::OnBnClickedShowunversioned()
+{
+	UpdateData();
+	if (!m_bThreadRunning)
+		m_PatchList.Show(ShowMask());
 }
 
 void CCreatePatch::OnBnClickedHelp()
