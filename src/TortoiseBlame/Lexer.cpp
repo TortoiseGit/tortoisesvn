@@ -1,6 +1,6 @@
 // TortoiseBlame - a Viewer for Subversion Blames
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -166,6 +166,20 @@ final finally float for function goto if implements import in instanceof \
 int interface long native new package private protected public \
 return short static super switch synchronized this throw throws \
 transient try typeof var void volatile while with"));
+			SetupCppLexer();
+		}
+		if ((_tcscmp(line, _T("pas"))==0)||
+			(_tcscmp(line, _T("dpr"))==0)||
+			(_tcscmp(line, _T("pp"))==0))
+		{
+			SendEditor(SCI_SETLEXER, SCLEX_PASCAL);
+			SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)_T("and array as begin case class const constructor \
+destructor div do downto else end except file finally \
+for function goto if implementation in inherited \
+interface is mod not object of on or packed \
+procedure program property raise record repeat \
+set shl shr then threadvar to try type unit \
+until uses var while with xor"));
 			SetupCppLexer();
 		}
 		if ((_tcscmp(line, _T("as"))==0)||
