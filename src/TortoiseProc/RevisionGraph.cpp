@@ -229,6 +229,7 @@ void CSearchPathTree::Remove()
 		node = node->parent;
 
 		delete temp;
+		temp = NULL;
 	}
 }
 
@@ -508,29 +509,7 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 
 	// prepare the path for Subversion
 	SVN::preparePath(path);
-	CStringA url = CUnicodeUtils::GetUTF8(path);
-
-	svn_error_clear(Err);
-	// convert a working copy path into an URL if necessary
-	if (!svn_path_is_url(url))
-	{
-		//not an url, so get the URL from the working copy path first
-		svn_wc_adm_access_t *adm_access;          
-		const svn_wc_entry_t *entry;  
-		const char * canontarget = svn_path_canonicalize(url, pool);
-#pragma warning(push)
-#pragma warning(disable: 4127)	// conditional expression is constant
-			Err = svn_wc_adm_probe_open2 (&adm_access, NULL, canontarget,
-				FALSE, 0, pool);
-			if (Err) return FALSE;
-			Err =  svn_wc_entry (&entry, canontarget, adm_access, FALSE, pool);
-			if (Err) return FALSE;
-			Err = svn_wc_adm_close (adm_access);
-			if (Err) return FALSE;
-#pragma warning(pop)
-
-			url = entry ? entry->url : "";
-	}
+	CStringA url = CUnicodeUtils::GetUTF8(svn.GetURLFromPath(CTSVNPath(path)));
 	url = CPathUtils::PathEscape(url);
 
 	// we have to get the log from the repository root
