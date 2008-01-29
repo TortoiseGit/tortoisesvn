@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -218,7 +218,7 @@ void CRevisionGraphWnd::DrawNode(CDC * pDC, const CRect& rect,
 			pOldBrush = 0L;
 		}
 
-		pen2.CreatePen(penStyle, 1, contour);
+		pen2.CreatePen(penStyle, rentry->bWorkingCopy ? 3 : 1, contour);
 		pDC->SelectObject(&pen2);
 
 		// Draw the main shape
@@ -430,7 +430,6 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 			DrawNode(memDC, noderect, m_Colors.GetColor(CColors::RenamedNode), entry, TSVNOctangle, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hRenamedIcon);
 			break;
 		case CRevisionEntry::lastcommit:
-		case CRevisionEntry::initial:
 			DrawNode(memDC, noderect, m_Colors.GetColor(CColors::LastCommitNode), entry, TSVNEllipse, ((m_SelectedEntry1==entry)||(m_SelectedEntry2==entry)), hLastCommitIcon);
 			break;
 		default:
