@@ -14,8 +14,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-01-17 10:51+0900\n"
+"PO-Revision-Date: 2008-01-29 17:30+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -929,6 +930,10 @@ msgstr "フォルダを追加(&D) ..."
 msgid "Abort"
 msgstr "中止"
 
+#. Resource IDs: (1465)
+msgid "Abort &Merge"
+msgstr "マージについて(&M)"
+
 #. Resource IDs: (136)
 msgid "About TortoiseMerge"
 msgstr "TortoiseMerge について"
@@ -1326,6 +1331,14 @@ msgstr "ファイルのそれぞれの行に注釈履歴をつける"
 msgid "Blend Alpha"
 msgstr "アルファブレンド"
 
+#. Resource IDs: (83)
+msgid ""
+"Both /logmsg and /logmsgfile were specified!\n"
+"Only one of those can be specified."
+msgstr ""
+"/logmsg と /logmsgfile が指定されました！\n"
+"これらのうち、一つだけ指定することができます。"
+
 #. Resource IDs: (1003)
 msgid "Br&owse..."
 msgstr "参照(&O) ..."
@@ -1482,6 +1495,11 @@ msgstr "%s, %s と %s, %s の間に変更されたファイル"
 #, c-format
 msgid "Changed files: %d"
 msgstr "変更されたファイル: %d"
+
+#. Resource IDs: (264)
+#, c-format
+msgid "Changelist %s moved"
+msgstr "変更リスト %s を移動しました"
 
 #. Resource IDs: (65535)
 msgid "Changelist:"
@@ -4295,6 +4313,18 @@ msgstr "外部参照を除外する(&X)"
 #. Resource IDs: (145)
 msgid "Omit externals"
 msgstr "外部参照を除外する"
+
+#. Resource IDs: (63)
+msgid ""
+"One of the paths you are attempting to move appears to be a special path\n"
+"(one of 'branches', 'tags' or 'trunk').\n"
+"\n"
+"Are you sure you want to move the selected paths?"
+msgstr ""
+"あなたが移動させようとしているパスの一つは特別なパスのように思われます\n"
+"（'branches'、'tags'、'trunk' のどれか）。\n"
+"\n"
+"本当に選択したパスを移動させてもよろしいですか？"
 
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
