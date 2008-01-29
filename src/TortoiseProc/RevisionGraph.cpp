@@ -620,6 +620,17 @@ BOOL CRevisionGraph::AnalyzeRevisionData (CString path, const SOptions& options)
 	url = CPathUtils::PathUnescape(url);
 	url = url.Mid(CPathUtils::PathUnescape(m_sRepoRoot).GetLength());
 
+	m_wcURL = url;
+
+	// find the revision the working copy is on, we mark that revision
+	// later in the graph
+	svn_revnum_t minrev;
+	bool switched, modified;
+	if (!svn.GetWCRevisionStatus(CTSVNPath(path), true, minrev, m_wcRev, switched, modified))
+	{
+		m_wcRev = -1;
+	}
+
 	// in case our path was renamed and had a different name in the past,
 	// we have to find out that name now, because we will analyze the data
 	// from lower to higher revisions
@@ -871,6 +882,55 @@ void CRevisionGraph::AnalyzeRevisions ( const CDictionaryBasedTempPath& path
 		for (size_t i = 0, count = toRemove.size(); i < count; ++i)
 			toRemove[i]->Remove();
 	}
+
+
+	bool bFoundWCNode = false;
+	if (m_wcRev >= 0)
+	{
+		for (size_t i = 0, count = m_entryPtrs.size(); i < count; ++i)
+		{
+			CRevisionEntry* entry = m_entryPtrs[i];
+			if (entry->revision == (revision_t)m_wcRev)
+			{
+				if (entry->path.GetPath().compare((LPCSTR)m_wcURL) == 0)
+				{
+					entry->bWorkingCopy = true;
+					bFoundWCNode = true;
+					break;
+				}
+			}
+		}
+		if (!bFoundWCNode)
+		{
+			for (size_t i = 0, count = m_entryPtrs.size(); i < count; ++i)
+			{
+				CRevisionEntry* entry = m_entryPtrs[i];
+				if (entry->path.GetPath().compare((LPCSTR)m_wcURL) == 0)
+				{
+					while ((entry->revision < (revision_t)m_wcRev) && (entry->next))
+					{
+						entry = entry->next;
+					}
+					CRevisionEntry* newEntry 
+						= CRevisionEntry::Create (path, m_wcRev, CRevisionEntry::source, nodePool);
+					newEntry->bWorkingCopy = true;
+					m_entryPtrs.push_back (newEntry);
+					std::sort ( m_entryPtrs.begin()
+						, m_entryPtrs.end()
+						, &CompareByRevision);
+
+					entry = entry->prev;
+					newEntry->next = entry->next;
+					newEntry->prev = entry;
+					entry->next = newEntry;
+
+					break;
+				}
+			}
+		}
+	}
+
+
 
     // add head revisions, 
     // if requested by options and not already provided by showAll

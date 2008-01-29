@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -263,6 +263,7 @@ public:
 
 	revision_t		revision;
 	Action			action;
+	bool			bWorkingCopy;
     DWORD           classification;
 
 	int				column;
@@ -300,7 +301,7 @@ protected:
 		: path (path), realPath (path.GetBasePath()), revision (revision)
 		, action (action), classification (0)
 		, prev (NULL), next (NULL), copySource (NULL)
-		, row (0), column (0) {}
+		, row (0), column (0), bWorkingCopy(false) {}
     ~CRevisionEntry() {};
 };
 
@@ -426,6 +427,8 @@ private:
 	
 	CStringA					m_sRepoRoot;
 	revision_t					m_lHeadRevision;
+	CStringA					m_wcURL;
+	svn_revnum_t				m_wcRev;
 
 	std::set<std::string>		m_filterpaths;
 	svn_revnum_t				m_FilterMinRev;
