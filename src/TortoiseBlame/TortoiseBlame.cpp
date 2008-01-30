@@ -225,7 +225,7 @@ BOOL TortoiseBlame::OpenFile(const char *fileName)
 	do
 	{
 		File.getline(line, sizeof(line)/sizeof(TCHAR));
-		if (File.gcount()>0)
+		if (File.gcount()>139)
 		{
 			mergelines.push_back((line[0] != ' '));
 			lineptr = &line[9];
