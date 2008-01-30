@@ -10,14 +10,15 @@
 #
 # Authors:
 # Fernando P. Nájera Cano <yo@FernandoNajera.com>
+# Franco Catena <francocatena@gmail.com>
 # Antonio Romero Lopez
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-12-09 20:36+0100\n"
-"Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
+"PO-Revision-Date: 2008-01-29 23:21-0300\n"
+"Last-Translator: Franco Catena <francocatena@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -109,6 +110,11 @@ msgstr "%I64d kBytes transferidos"
 msgid "%d files selected, %d files total"
 msgstr "%d archivos seleccionados, %d archivos en total"
 
+#. Resource IDs: (246)
+#, c-format
+msgid "%d most active author(s) with at least %d commits each (%d %%)"
+msgstr "%d autor(es) más activo(s) con al menos %d confirmaciones cada (%d %%)"
+
 #. Resource IDs: (357)
 #, c-format
 msgid "%ld Bytes/s"
@@ -128,6 +134,16 @@ msgstr "%ld de %ld"
 #, c-format
 msgid "%ld paths"
 msgstr "%ld rutas"
+
+#. Resource IDs: (272)
+#, c-format
+msgid "%s"
+msgstr "%s"
+
+#. Resource IDs: (115)
+#, c-format
+msgid "%s (offline) - %s"
+msgstr "%s (desconectado) - %s"
 
 #. Resource IDs: (226)
 #, c-format
@@ -229,10 +245,6 @@ msgstr "&Autocerrar:"
 #. Resource IDs: (1015)
 msgid "&Backup original file"
 msgstr "&Realizar copia de seguridad del archivo original"
-
-#. Resource IDs: (1128)
-msgid "&Berkeley database (BDB)"
-msgstr "&Berkeley Database (BDB)"
 
 #. Resource IDs: (114)
 msgid "&Blame changes"
@@ -531,10 +543,6 @@ msgstr "&Fusionar..."
 msgid "&Merging"
 msgstr "&Fusionando"
 
-#. Resource IDs: (1129)
-msgid "&Native filesystem (FSFS)"
-msgstr "&Native Filesystem (FSFS)"
-
 #. Resource IDs: (65535)
 msgid "&Navigate"
 msgstr "&Navegar"
@@ -792,6 +800,11 @@ msgstr "&Copia de trabajo"
 msgid "(binary value)"
 msgstr "(valor binario)"
 
+#. Resource IDs: (272)
+#, c-format
+msgid "(deleted) %s"
+msgstr "(eliminado) %s"
+
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
 msgstr "(multiples destinos seleccionados)"
@@ -911,6 +924,10 @@ msgstr "Aña&dir carpeta..."
 msgid "Abort"
 msgstr "Abortar"
 
+#. Resource IDs: (1465)
+msgid "Abort &Merge"
+msgstr "Abortar &Fusionado"
+
 #. Resource IDs: (136)
 msgid "About TortoiseMerge"
 msgstr "Acerca de TortoiseMerge"
@@ -1027,6 +1044,10 @@ msgstr ""
 #. Resource IDs: (263)
 msgid "Adding"
 msgstr "Añadiendo"
+
+#. Resource IDs: (582)
+msgid "Adds a new property"
+msgstr "Añadir una nueva propiedad"
 
 #. Resource IDs: (9)
 msgid "Adds file(s) to Subversion control"
@@ -1160,6 +1181,11 @@ msgstr "Aplicar diff unificado"
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
 msgstr "¿Está seguro de querer marcar el/los fichero(s) con conflicto como resueltos?"
+
+#. Resource IDs: (199)
+#, c-format
+msgid "Are you sure you want to remove the cache of the selected %d items?"
+msgstr "¿Está seguro de borrar el caché de los %d items seleccionados?"
 
 #. Resource IDs: (79)
 #, c-format
@@ -1299,6 +1325,14 @@ msgstr "Muestra el 'autor' de cada línea de un archivo"
 #. Resource IDs: (32812)
 msgid "Blend Alpha"
 msgstr "Combinación Alfa"
+
+#. Resource IDs: (83)
+msgid ""
+"Both /logmsg and /logmsgfile were specified!\n"
+"Only one of those can be specified."
+msgstr ""
+"¡/logmsg y /logmsgfile fueron especificados!\n"
+"Sólo debe especificarse uno de ellos."
 
 #. Resource IDs: (1003)
 msgid "Br&owse..."
@@ -1457,6 +1491,11 @@ msgstr "Ficheros cambiados entre %s, %s y %s, %s"
 msgid "Changed files: %d"
 msgstr "Archivos cambiados: %d"
 
+#. Resource IDs: (264)
+#, c-format
+msgid "Changelist %s moved"
+msgstr "Lista de cambios %s movida"
+
 #. Resource IDs: (65535)
 msgid "Changelist:"
 msgstr "Lista de cambios:"
@@ -1558,9 +1597,23 @@ msgstr "Elegir ítem:"
 msgid "Cleaning up."
 msgstr "Limpiando."
 
+#. Resource IDs: (83)
+#, c-format
+msgid ""
+"Cleanup failed to process the following paths:\n"
+"%s"
+msgstr ""
+"La limpieza falló al procesar una de las siguientes rutas:\n"
+"%s"
+
 #. Resource IDs: (79)
-msgid "Cleanup has finished"
-msgstr "La limpieza ha terminado"
+#, c-format
+msgid ""
+"Cleanup has successfully processed the following paths:\n"
+"%s"
+msgstr ""
+"La limpieza ha procesado satisfactoriamente las siguientes rutas:\n"
+"%s"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -2058,10 +2111,6 @@ msgstr "Crear lista de cambios"
 msgid "Create Patch"
 msgstr "Crear Parche"
 
-#. Resource IDs: (178)
-msgid "Create Repository"
-msgstr "Crear Repositorio"
-
 #. Resource IDs: (1385)
 msgid "Create copy in the repository from:"
 msgstr "Crear una copia en el repositorio desde:"
@@ -2397,9 +2446,20 @@ msgstr "Modificar programa de fusión según la extensión"
 msgid "Edit log message"
 msgstr "Editar mensaje de registro"
 
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Edit property \"%s\" on\r\n"
+"%s"
+msgstr "Editar la propiedad \"%s\" en %s"
+
 #. Resource IDs: (1331)
 msgid "Edit..."
 msgstr "Editar..."
+
+#. Resource IDs: (581)
+msgid "Edits the selected property value"
+msgstr "Editar el valor de la propiedad seleccionada"
 
 #. Resource IDs: (79)
 msgid "Either the name or IP of the proxy server"
@@ -2619,6 +2679,10 @@ msgstr "Exportando..."
 #. Resource IDs: (10)
 msgid "Exports a repository to a clean working copy without the svn administrative folders"
 msgstr "Exporta un repositorio a una copia de trabajo limpia sin las carpetas administrativas svn"
+
+#. Resource IDs: (581)
+msgid "Exports a set of properties to a file"
+msgstr "Exportar un grupo de propiedades a un archivo"
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -2932,10 +2996,6 @@ msgstr "General::Diálogos 1"
 msgid "General::Dialogs 2"
 msgstr "General::Diálogos 2"
 
-#. Resource IDs: (281)
-msgid "General::Log Caching"
-msgstr "General::Caché de registro"
-
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "Generando archivo de parche..."
@@ -3070,6 +3130,10 @@ msgstr "La revisión Head es %s"
 #. Resource IDs: (73, 1004)
 msgid "Help"
 msgstr "Ayuda"
+
+#. Resource IDs: (32820)
+msgid "Hide &deleted paths"
+msgstr "Ocultar rutas &eliminadas"
 
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
@@ -3207,9 +3271,9 @@ msgstr "ID:32814:VA  +D"
 # updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
-#. Accelerator Entry for Menu ID:32821; ''
-msgid "ID:32821:V C +F"
-msgstr "ID:32821:V C +F"
+#. Accelerator Entry for Menu ID:32822; ''
+msgid "ID:32822:V C +F"
+msgstr "ID:32822:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
@@ -3444,6 +3508,10 @@ msgstr "&Mensaje de importación"
 #. Resource IDs: (77)
 msgid "Import - TortoiseSVN"
 msgstr "Importar - TortoiseSVN"
+
+#. Resource IDs: (581)
+msgid "Import a previously saved set of properties from a file"
+msgstr "Importar desde un archivo un grupo de propiedades"
 
 #. Resource IDs: (127)
 #, c-format
@@ -3789,6 +3857,10 @@ msgstr "Registro"
 #. Resource IDs: (282)
 msgid "Log Cache Statistics"
 msgstr "Estadísticas de la caché de registro"
+
+#. Resource IDs: (281)
+msgid "Log Caching"
+msgstr "Caché de registro"
 
 #. Resource IDs: (211)
 msgid "Log History"
@@ -4263,6 +4335,18 @@ msgstr "Omitir e&xternos"
 msgid "Omit externals"
 msgstr "Omitir externos"
 
+#. Resource IDs: (63)
+msgid ""
+"One of the paths you are attempting to move appears to be a special path\n"
+"(one of 'branches', 'tags' or 'trunk').\n"
+"\n"
+"Are you sure you want to move the selected paths?"
+msgstr ""
+"Una de las rutas que intenta mover parece ser de un tipo especial\n"
+"(como 'braches', 'tags' o 'trunk').\n"
+"\n"
+"¿Está seguro que desea mover las rutas seleccionadas?"
+
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
 msgstr "Unos o más archivos están en estado en conflicto."
@@ -4515,6 +4599,10 @@ msgstr "Progreso"
 msgid "Properties"
 msgstr "Propiedades"
 
+#. Resource IDs: (157)
+msgid "Properties (*.svnprops)|*.svnprops|All Files (*.*)|*.*||"
+msgstr "Propiedades (*.svnprops)|*.svnprops|Todos los archivos (*.*)|*.*||"
+
 #. Resource IDs: (1287)
 msgid "Properties for"
 msgstr "Propiedades de"
@@ -4762,6 +4850,10 @@ msgstr "Eliminar %ld ítems"
 msgid "Remove %s"
 msgstr "Eliminar %s"
 
+#. Resource IDs: (2052)
+msgid "Remove deleted branches and tags"
+msgstr "Eliminar ramas y etiquetas borradas"
+
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
 msgstr "Quitar de la lista de &ignorados"
@@ -4769,6 +4861,15 @@ msgstr "Quitar de la lista de &ignorados"
 #. Resource IDs: (209)
 msgid "Remove from changelist"
 msgstr "Quitar de la lista de cambios"
+
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Remove property \"%s\" from\r\n"
+"%s"
+msgstr ""
+"Eliminar propiedad \"%s\" de\r\n"
+"%s"
 
 #. Resource IDs: (1332)
 msgid "Remove..."
@@ -4804,6 +4905,10 @@ msgstr "Elimina todos los ítems no versionados o ignorados"
 #. Resource IDs: (15)
 msgid "Removes the file or filemask from the list of ignored items"
 msgstr "Quita el fichero o la máscara de la lista de ítems ignorados"
+
+#. Resource IDs: (581)
+msgid "Removes the selected properties"
+msgstr "Eliminar las propiedades seleccionadas"
 
 #. Resource IDs: (151)
 msgid "Rename"
@@ -5214,6 +5319,10 @@ msgstr "Grabar en el portapapeles"
 msgid "Saved Data"
 msgstr "Datos Almacenados"
 
+#. Resource IDs: (581)
+msgid "Saves the selected property value to a file"
+msgstr "Guardar el valor de la propiedad seleccionada a un archivo"
+
 #. Resource IDs: (103)
 #, c-format
 msgid "Saving file %s"
@@ -5364,10 +5473,6 @@ msgstr "Seleccione las revisiones a fusionar"
 msgid "Select the type of merge"
 msgstr "Seleccione el tipo de fusión"
 
-#. Resource IDs: (65535)
-msgid "Select the type of repository you want to create:"
-msgstr "Seleccione el tipo de repositorio que desea crear:"
-
 #. Resource IDs: (595)
 msgid "Select the urls for the tree merge"
 msgstr "Seleccione las URLs para la fusión de árboles"
@@ -5391,6 +5496,15 @@ msgstr "&Dirección del servidor:"
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
 msgstr "Establecer las fechas de ficheros a la \"&hora de la última confirmación\""
+
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Set property \"%s\" on\r\n"
+"%s"
+msgstr ""
+"Establecer propiedad \"%s\" a\r\n"
+"%s"
 
 #. Resource IDs: (13)
 msgid "Setting properties..."
@@ -5497,8 +5611,8 @@ msgid "Show differences as &unified diff"
 msgstr "Mostrar diferencias como 'diff &unificado'"
 
 #. Resource IDs: (1126)
-msgid "Show excluded folders as 'normal'"
-msgstr "Muestra las carpetas excluídas como 'normal'"
+msgid "Show excluded folders as normal"
+msgstr "Mostrar carpetas excluidas como normales"
 
 #. Resource IDs: (1264)
 msgid "Show ignored files"
@@ -5531,6 +5645,14 @@ msgid ""
 msgstr ""
 "Mostrar u ocultar la barra de herramientas\n"
 "Mostrar barra de herramientas"
+
+#. Resource IDs: (1432)
+msgid "Show overlay for ignored items"
+msgstr "Mostrar la superposición de archivos ignorados"
+
+#. Resource IDs: (1462)
+msgid "Show overlay for unversioned items"
+msgstr "Mostrar la superposición de archivos no versionados"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -5644,14 +5766,6 @@ msgstr ""
 #. Resource IDs: (376)
 msgid "Split lines"
 msgstr "Dividir líneas"
-
-#. Resource IDs: (32817)
-msgid "Split long &branches"
-msgstr "Dividir &ramas grandes"
-
-#. Resource IDs: (2052)
-msgid "Split long, inactive branches into segments"
-msgstr "Dividir ramas grandes e inactivas en segmentos"
 
 #. Resource IDs: (3604)
 msgid ""
@@ -6359,11 +6473,13 @@ msgstr "TortoiseBlame"
 
 #. Resource IDs: (13)
 msgid ""
-"TortoiseBlame can't be started directly!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
+"TortoiseBlame should not be started directly!\n"
+"Use TortoiseProc.exe /command:blame instead.\n"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 msgstr ""
 "¡TortoiseBlame no se puede iniciar directamente!\n"
-"TortoiseBlame.exe ficherodeautoría [[ficherolog] [títulovisor]] [/line:númerodelínea] [/path:rutaoriginal]"
+"En su lugar utilice: TortoiseProc.exe /command:blame\n"
+"TortoiseBlame.exe archivoblame [[archivoregistro] [título]] [/line:númerodelínea] [/path:rutaoriginal] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
@@ -6499,6 +6615,11 @@ msgstr "URL"
 msgid "URL history"
 msgstr "Historial de URL"
 
+#. Resource IDs: (199)
+#, c-format
+msgid "URL not known (UUID: %s)"
+msgstr "URL desconocida (UUID: %s)"
+
 #. Resource IDs: (12)
 msgid "URL of Subversion items"
 msgstr "URL de los items en Subversion"
@@ -6610,6 +6731,10 @@ msgstr "El desbloqueo falló"
 #. Resource IDs: (263)
 msgid "Unlocked"
 msgstr "Desbloqueado"
+
+#. Resource IDs: (565)
+msgid "Unrecognized or invalid property file format!"
+msgstr "¡Formato de propiedades inválido o desconocido!"
 
 #. Resource IDs: (3841)
 msgid "Untitled"
@@ -7116,6 +7241,16 @@ msgstr "añadido"
 msgid "added files"
 msgstr "ficheros añadidos"
 
+#. Resource IDs: (272)
+#, c-format
+msgid "alias (deleted): %s"
+msgstr "alias (borrado): %s"
+
+#. Resource IDs: (272)
+#, c-format
+msgid "alias: %s"
+msgstr "alias: %s"
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "un archivo sin nombre"
@@ -7387,6 +7522,10 @@ msgstr "o"
 #. Resource IDs: (65535)
 msgid "pair tokens: "
 msgstr "pares de tokens: "
+
+#. Resource IDs: (65535)
+msgid "path elements: "
+msgstr "elementos de la ruta:"
 
 #. Resource IDs: (65535)
 msgid "paths: "
@@ -7724,6 +7863,10 @@ msgstr "semana"
 #. Resource IDs: (65535)
 msgid "word tokens: "
 msgstr "tokens palabra: "
+
+#. Resource IDs: (65535)
+msgid "words [uncompressed]: "
+msgstr "palabras [descomprimidas]:"
 
 #. Resource IDs: (245)
 msgid "year"
