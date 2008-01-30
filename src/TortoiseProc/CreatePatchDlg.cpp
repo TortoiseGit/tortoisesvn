@@ -20,9 +20,8 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "MessageBox.h"
-#include "CreatePatch.h"
+#include "CreatePatchDlg.h"
 #include "SVN.h"
-#include ".\createpatch.h"
 
 #define REFRESHTIMER   100
 

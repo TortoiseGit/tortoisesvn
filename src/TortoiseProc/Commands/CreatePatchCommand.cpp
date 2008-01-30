@@ -22,7 +22,7 @@
 #include "PathUtils.h"
 #include "StringUtils.h"
 #include "AppUtils.h"
-#include "CreatePatch.h"
+#include "CreatePatchDlg.h"
 #include "SVN.h"
 #include "TempFile.h"
 #include "ProgressDlg.h"
