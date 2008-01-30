@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-01-29 08:23 +0000\n"
-"PO-Revision-Date: 2008-01-29 10:14+0100\n"
+"PO-Revision-Date: 2008-01-30 14:24+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3649,12 +3649,12 @@ msgstr "Das Eingabefeld verfügt außerdem über eine automatisch Vervollständi
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4177
 msgid "You can re-use previously entered log messages. Just click on <guibutton>Recent messages</guibutton> to view a list of the last few messages you entered for this working copy. The number of stored messages can be customized in the TortoiseSVN settings dialog."
-msgstr "Sie können die zuletzt verwendeten Log-Meldungen wiederverwenden. Dazu klicken Sie auf <guibutton>Letzte Meldungen</guibutton> und wählen einen Eintrag aus der Liste der Meldungen für dieses Projektarchiv aus. Die Anzahl der zu speichernden Log-Meldungen kann in den Einstellungen festgelegt werden."
+msgstr "Sie können die zuletzt verwendeten Logmeldungen wiederverwenden. Dazu klicken Sie auf <guibutton>Letzte Meldungen</guibutton> und wählen einen Eintrag aus der Liste der Meldungen für dieses Projektarchiv aus. Die Anzahl der zu speichernden Logmeldungen kann in den Einstellungen festgelegt werden."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4183
 msgid "You can clear all stored commit messages from the <guilabel>Saved data</guilabel> page of TortoiseSVN's settings, or you can clear individual messages from within the <guilabel>Recent messages</guilabel> dialog using the <keycap>Delete</keycap> key."
-msgstr "Auf der <guilabel>Gespeicherte Daten</guilabel> Seite in den TortoiseSVN Einstellungen können Sie alle gespeicherten Log-Meldungen auf einmal löschen. Alternativ können Sie im <guilabel>Letzte Meldungen</guilabel> Meldungen markieren und mittels <keycap>Entfernen</keycap> einzeln löschen ."
+msgstr "Auf der <guilabel>Gespeicherte Daten</guilabel> Seite in den TortoiseSVN Einstellungen können Sie alle gespeicherten Logmeldungen auf einmal löschen. Alternativ können Sie im <guilabel>Letzte Meldungen</guilabel> Meldungen markieren und mittels <keycap>Entfernen</keycap> einzeln löschen ."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:4190
@@ -4835,7 +4835,7 @@ msgstr "Offline Modus"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5676
 msgid "If the server is not reachable, and you have log caching enabled you can use the log dialog and revision graph in offline mode. This uses data from the cache, which allows you to continue working although the information may not be up-to-date or even complete."
-msgstr ""
+msgstr "Wenn der Server nicht erreichbar ist und Sie den Log-Puffer aktiviert haben, können Sie den Log-Dialog und den Revisionsgraphen auch offline benutzen. Dabei werden die Daten aus dem Puffer gelesen, so dass Sie wie gewohnt weiterarbeiten können. Allerdings können die angezeigten Informationen nicht aktuell oder unvollständig sein."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:5685
@@ -7633,7 +7633,7 @@ msgstr "Wenn zwei reguläre Ausdrücke gesetzt sind, wird der erste Ausdruck ver
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9413
 msgid "If you want to catch every pattern <quote>issue #XXX</quote> and <quote>issue #890, #789</quote> inside a log message you could use the following regex strings: <literal>[Ii]ssue #?(\\d+)(,? ?#(\\d+))*</literal> and the second expression as <literal>(\\d+)</literal>"
-msgstr "Wenn Sie alle Zeichenketten <quote>issue #XXX</quote> und <quote>issue #123, #456</quote> in einer Log-Meldung finden möchten, können Sie folgende beiden regulären Ausdrücke verwenden: <literal>[Ii]ssue #?(\\d+)(,? ?#(\\d+))*</literal> mit dem zweiten Ausdruck <literal>(\\d+)</literal>"
+msgstr "Wenn Sie alle Zeichenketten <quote>issue #XXX</quote> und <quote>issue #123, #456</quote> in einer Logmeldung finden möchten, können Sie folgende beiden regulären Ausdrücke verwenden: <literal>[Ii]ssue #?(\\d+)(,? ?#(\\d+))*</literal> mit dem zweiten Ausdruck <literal>(\\d+)</literal>"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9419
@@ -8738,7 +8738,7 @@ msgstr "Der Einstellungsdialog, Log-Puffer"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10786
 msgid "<placeholder-1/> This dialog allows you to configure the log caching feature of TortoiseSVN, which retains a local copy of log messages and changed paths to avoid time-consuming downloads from the server. Using the log cache can dramatically speed up the log dialog and the revision graph. Another useful feature is that the log messages can still be accessed when offline."
-msgstr ""
+msgstr "<placeholder-1/> Dieser Dialog ermöglicht es Ihnen, den Log-Puffer von TortoiseSVN einzurichten. Dieser hält eine lokale Kopie von Logmeldungen und geänderten Pfaden vor, um zeitraubende Zugriffe auf den Server zu sparen. Die Verwendung des Log-Puffers kann die Anzeige des Log-Dialogs und des Revisionsgraphen drastisch beschleunigen. Ein weitere Vorteil ist, dass auch ohne Kontakt zum Server auf die Logmeldungen zugegriffen werden kann."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10801
@@ -8748,12 +8748,12 @@ msgstr "Log-Puffer aktivieren"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10803
 msgid "Enables log caching whenever log data is requested. If checked, data will be retrieved from the cache when available, and any messages not in the cache will be retrieved from the server and added to the cache."
-msgstr ""
+msgstr "Aktiviert den Log-Puffer sobald Logdaten angefragt werden. Falls aktiv, werden Daten, sofern verfügbar, aus dem Puffer gelesen und nicht im Puffer vorhandene Meldungen werden vom Server geholt und im Puffer abgelegt."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10809
 msgid "If caching is disabled, data will always be retrieved directly from the server and not stored locally."
-msgstr ""
+msgstr "Wenn der Puffer nicht aktiviert ist, werden die Daten stets vom Server geholt und nicht lokal gespeichert."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10816
@@ -8763,12 +8763,12 @@ msgstr "Falls das Projektarchiv nicht erreichbar ist"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10818
 msgid "If you are working offline, or if the repository server is down, the log cache can still be used to supply log messages already held in the cache. Of course the cache may not be up-to-date, so there are options to allow you to select whether this feature should be used."
-msgstr ""
+msgstr "Wenn Sie keine Verbindung zum Netz haben oder der Server nicht verfügbar ist, kann mit Hilfe des Log-Puffers weiterhin auf die Logmeldungen zugegriffen werden. Natürlich ist es möglich, dass diese Daten nicht mehr aktuell sind. Aus diesem Grund können Sie mit Optionen festlegen, ob diese Funktion genutzt werden soll."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10825
 msgid "When log data is being taken from the cache without contacting the server, the dialog using those message will show the offline state in its title bar."
-msgstr ""
+msgstr "Wenn Logdaten ohne Zugriff auf den Server aus dem Puffer genommen werden, zeigt der Dialog, der diese Daten verwendet den <emphasis>Offline</emphasis> Status in der Titelzeile an."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10833
@@ -8778,7 +8778,7 @@ msgstr "Wartezeit vor Aktualisierung der HEAD Revision"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10835
 msgid "When you invoke the log dialog you will normally want to contact the server to check for any newer log messages. If the timeout set here is non-zero then the server will only be contacted when the timeout has elapsed since the last time contact. This can reduce server round-trips if you open the log dialog frequently and the server is slow, but the data shown may not be completely up-to-date. If you want to use this feature we suggest using a value of 300 (5 minutes) as a compromise."
-msgstr "Wenn Sie den Log-Dialog aufrufen, soll normalerweise der Server kontaktiert werden, um neue Log-Meldungen abzurufen. Wenn die eingestellte Wartezeit nicht Null ist, wird der Server nur kontaktiert, falls die Wartezeit seit dem letzten Aufruf abgelaufen ist. Dies kann die Reaktionszeit beim Aufruf des Log-Dialogs beschleunigen, wenn Sie diesen häufig aufrufen und der Server langsam ist. Andererseits ist es mögliche, dass die Log-Daten dadurch nicht aktuell sind. Wenn Sie diese Funktion nutzen wollen, würden wir einen Wert von 300 Sekunden (5 Minuten) als Kompromiss vorschlagen."
+msgstr "Wenn Sie den Log-Dialog aufrufen, soll normalerweise der Server kontaktiert werden, um neue Logmeldungen abzurufen. Wenn die eingestellte Wartezeit nicht Null ist, wird der Server nur kontaktiert, falls die Wartezeit seit dem letzten Aufruf abgelaufen ist. Dies kann die Reaktionszeit beim Aufruf des Log-Dialogs beschleunigen, wenn Sie diesen häufig aufrufen und der Server langsam ist. Andererseits ist es mögliche, dass die Log-Daten dadurch nicht aktuell sind. Wenn Sie diese Funktion nutzen wollen, würden wir einen Wert von 300 Sekunden (5 Minuten) als Kompromiss vorschlagen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10850
@@ -8853,7 +8853,7 @@ msgstr "Autoren"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10914
 msgid "The number of different authors with messages recorded in the cache."
-msgstr "Die Anzahl verschiedener Autoren mit Log-Meldungen, die im Puffer gespeichert ist."
+msgstr "Die Anzahl verschiedener Autoren mit Logmeldungen, die im Puffer gespeichert ist."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10921
@@ -8868,12 +8868,12 @@ msgstr "Die Anzahl der aufgelisteten Pfade, wie man sie mit <literal>svn log -v<
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10930
 msgid "Skip ranges"
-msgstr "Übersprungene Bereiche"
+msgstr "Lücken"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10932
 msgid "The number of revision ranges which we have not fetched, simply because they haven't been requested. This is a measure of the number of holes in the cache."
-msgstr "Die Anzahl von Revisionsbereichen, welche noch nicht gepuffert sind, weil sie bisher nicht abgefragt wurden. Dies ist ein Maß für die Anzahl der Löcher im Puffer."
+msgstr "Die Anzahl von Revisionsbereichen, welche noch nicht gepuffert sind, weil sie bisher nicht abgefragt wurden. Dies ist ein Maß für die Anzahl der Lücken im Puffer."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10940
@@ -8970,7 +8970,7 @@ msgstr "Start Übertragung"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11022
 msgid "Called before the commit dialog is shown. You might want to use this if the hook modifies a versioned file and affects the list of files that need to be committed and/or commit message."
-msgstr "Wird aufgerufen, bevor der Übertragen-Dialog angezeigt wird. Dieses Skript können Sie zum Beispiel benutzen, wenn sich durch die Aktion die Liste der zu übertragenden Dateien oder die Log-Meldung ändert."
+msgstr "Wird aufgerufen, bevor der Übertragen-Dialog angezeigt wird. Dieses Skript können Sie zum Beispiel benutzen, wenn sich durch die Aktion die Liste der zu übertragenden Dateien oder die Logmeldung ändert."
 
 #. (term)
 #. (term)
@@ -9110,7 +9110,7 @@ msgstr "Mögliche Werte sind: <placeholder-1/>"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11208
 msgid "Path to a file containing the log message for the commit. The file contains the text in UTF-8 encoding. After successful execution of the start-commit hook, the log message is read back, giving the hook a chance to modify it."
-msgstr "Pfad zu einer Datei, die die Log-Meldung für die Übertragung im UTF-8 Format enthält. Nach erfolgreicher Ausführung der <emphasis>start-commit</emphasis> Aktion, wird die Log-Meldung zurückgelesen, so dass die Aktion die Meldung zwischendurch modifizieren kann."
+msgstr "Pfad zu einer Datei, die die Logmeldung für die Übertragung im UTF-8 Format enthält. Nach erfolgreicher Ausführung der <emphasis>start-commit</emphasis> Aktion, wird die Logmeldung zurückgelesen, so dass die Aktion die Meldung zwischendurch modifizieren kann."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11220
@@ -9240,7 +9240,7 @@ msgstr "Separator für Datenintegration"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11353
 msgid "When you merge revisions from another branch, and merge tracking information is available, the log messages from the revisions you merge will be collected to make up a commit log message. A pre-defined string is used to separate the individual log messages of the merged revisions. If you prefer, you can create a <literal>SZ</literal> key at <literal>HKCU\\Software\\TortoiseSVN\\MergeLogSeparator</literal> containing a separator string of your choice."
-msgstr "Wenn Sie Revisionen von einem anderen Zweig zusammenführen und die Funktionen zum Protokollieren der Datenintegration zur Verfügung stehen, werden die Logmeldungen der zusammengeführten Revisionen zu einer neuen Log-Meldung zusammengefasst. Eine vordefinierte Zeichenkette wird zum Trennen der einzelnen Logmeldungen verwendet. Wenn Sie möchten, können Sie einen individuellen Trenner angeben, indem Sie einen <literal>SZ</literal> Schlüssel namens <literal>HKCU\\Software\\TortoiseSVN\\MergeLogSeparator</literal> anlegen, der die Zeichenkette Ihrer Wahl enthält."
+msgstr "Wenn Sie Revisionen von einem anderen Zweig zusammenführen und die Funktionen zum Protokollieren der Datenintegration zur Verfügung stehen, werden die Logmeldungen der zusammengeführten Revisionen zu einer neuen Logmeldung zusammengefasst. Eine vordefinierte Zeichenkette wird zum Trennen der einzelnen Logmeldungen verwendet. Wenn Sie möchten, können Sie einen individuellen Trenner angeben, indem Sie einen <literal>SZ</literal> Schlüssel namens <literal>HKCU\\Software\\TortoiseSVN\\MergeLogSeparator</literal> anlegen, der die Zeichenkette Ihrer Wahl enthält."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:11366
@@ -12081,7 +12081,7 @@ msgstr "Kopieren"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:14071
 msgid "In a Subversion repository you can create a copy of a single file or an entire tree. These are implemented as <quote>cheap copies</quote> which act a bit like a link to the original in that they take up almost no space. Making a copy preserves the history of the item in the copy, so you can trace changes made before the copy was made."
-msgstr "In einem Subversion Projektarchiv können Sie eine Kopie einer einzelnen Datei oder eines ganzen Baumes erstellen. Diese sind als <quote>billige Kopien</quote> in Form eines Verweises auf das Original implementiert. Somit benötigt selbst die Kopie eines Dateibaumes fast keinen Platz. Eine Kopie behält die Historie ihrer Vorgänger, so dass auch Log-Meldungen über die Kopie hinaus verfolgt werden können."
+msgstr "In einem Subversion Projektarchiv können Sie eine Kopie einer einzelnen Datei oder eines ganzen Baumes erstellen. Diese sind als <quote>billige Kopien</quote> in Form eines Verweises auf das Original implementiert. Somit benötigt selbst die Kopie eines Dateibaumes fast keinen Platz. Eine Kopie behält die Historie ihrer Vorgänger, so dass auch Logmeldungen über die Kopie hinaus verfolgt werden können."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:14083
@@ -12236,7 +12236,7 @@ msgstr "Revisionseigenschaft (revprop)"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:14289
 msgid "Just as files can have properties, so can each revision in the repository. Some special revprops are added automatically when the revision is created, namely: <literal>svn:date svn:author svn:log</literal> which represent the commit date/time, the committer and the log message respectively. These properties can be edited, but they are not versioned, so any change is permanent and cannot be undone."
-msgstr "So wie Dateien Eigenschaften haben können, hat auch jede Revision im Projektarchiv Eigenschaften. Einige spezielle Revisionseigenschaften werden automatisch hinzugefügt, wenn die Revision erstellt wird. Diese sind: <literal>svn:date, svn:author svn:log</literal> welche das Übertragungsdatum, die Person welche die Übertragung gemacht hat und die Log-Meldung darstellen. Diese Eigenschaften können verändert werden, aber sie sind nicht versioniert, was bedeutet dass jede Änderung permanent ist und nicht rückgängig gemacht werden kann."
+msgstr "So wie Dateien Eigenschaften haben können, hat auch jede Revision im Projektarchiv Eigenschaften. Einige spezielle Revisionseigenschaften werden automatisch hinzugefügt, wenn die Revision erstellt wird. Diese sind: <literal>svn:date, svn:author svn:log</literal> welche das Übertragungsdatum, die Person welche die Übertragung gemacht hat und die Logmeldung darstellen. Diese Eigenschaften können verändert werden, aber sie sind nicht versioniert, was bedeutet dass jede Änderung permanent ist und nicht rückgängig gemacht werden kann."
 
 #. (glossterm)
 #: ../source/TortoiseSVN_en.xml:14301
