@@ -1,6 +1,6 @@
 // TortoiseBlame - a Viewer for Subversion Blames
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -118,8 +118,8 @@ public:
 	std::vector<std::string>	authors;
 	std::vector<std::string>	paths;
 	std::map<LONG, std::string>	logmessages;
-	char						m_szTip[MAX_LOG_LENGTH*2+5];
-	wchar_t						m_wszTip[MAX_LOG_LENGTH*2+5];
+	char						m_szTip[MAX_LOG_LENGTH*2+6];
+	wchar_t						m_wszTip[MAX_LOG_LENGTH*2+6];
 	void StringExpand(LPSTR str);
 	void StringExpand(LPWSTR str);
 	BOOL						ttVisible;

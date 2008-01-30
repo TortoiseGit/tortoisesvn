@@ -1,6 +1,6 @@
 // TortoiseBlame - a Viewer for Subversion Blames
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -151,7 +151,7 @@ BOOL TortoiseBlame::OpenLogFile(const char *fileName)
 	int slength = 0;
 	int reallength = 0;
 	size_t len = 0;
-	wchar_t wbuf[MAX_LOG_LENGTH+4];
+	wchar_t wbuf[MAX_LOG_LENGTH+6];
 	for (;;)
 	{
 		len = fread(&rev, sizeof(LONG), 1, File);
@@ -188,9 +188,9 @@ BOOL TortoiseBlame::OpenLogFile(const char *fileName)
 			fseek(File, reallength-MAX_LOG_LENGTH, SEEK_CUR);
 			msg = msg + _T("\n...");
 		}
-		int len = ::MultiByteToWideChar(CP_UTF8, NULL, msg.c_str(), -1, wbuf, MAX_LOG_LENGTH);
+		int len = ::MultiByteToWideChar(CP_UTF8, NULL, msg.c_str(), min(msg.size(), MAX_LOG_LENGTH+5), wbuf, MAX_LOG_LENGTH+5);
 		wbuf[len] = 0;
-		len = ::WideCharToMultiByte(CP_ACP, NULL, wbuf, len, logmsgbuf, MAX_LOG_LENGTH, NULL, NULL);
+		len = ::WideCharToMultiByte(CP_ACP, NULL, wbuf, len, logmsgbuf, MAX_LOG_LENGTH+5, NULL, NULL);
 		logmsgbuf[len] = 0;
 		msg = std::string(logmsgbuf);
 		logmessages[rev] = msg;
@@ -1634,14 +1634,14 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 						msg = _T(" ");
 					if (pNMHDR->code == TTN_NEEDTEXTA)
 					{
-						lstrcpyn(app.m_szTip, msg.c_str(), MAX_LOG_LENGTH+5);
+						lstrcpyn(app.m_szTip, msg.c_str(), MAX_LOG_LENGTH*2);
 						app.StringExpand(app.m_szTip);
 						pTTTA->lpszText = app.m_szTip;
 					}
 					else
 					{
 						pTTTW->lpszText = app.m_wszTip;
-						::MultiByteToWideChar( CP_ACP , 0, msg.c_str(), -1, app.m_wszTip, MAX_LOG_LENGTH+5);
+						::MultiByteToWideChar( CP_ACP , 0, msg.c_str(), min(msg.size(), MAX_LOG_LENGTH*2), app.m_wszTip, MAX_LOG_LENGTH*2);
 						app.StringExpand(app.m_wszTip);
 					}
 				}
