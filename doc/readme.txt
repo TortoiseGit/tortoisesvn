@@ -79,8 +79,8 @@ If you want to translate the docs into a new language (assume french), just go a
 and copy po\doc.pot to po\fr.po. Start to translate phrases and test your translation
 with "TranslateDoc fr" and "makedoc tortoisesvn fr".
 
-Place localized screenshots in images\fr. We document which images need updating in
-ImageStatus.txt. Just add another column for french.
+Place localized screenshots in images\fr. The file "screenshots.txt" contains some 
+instructions on how/where the images have been captured. 
 
 Now go ahead and translate the rest.
 
