@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 09:49+0200\n"
-"PO-Revision-Date: 2008-01-18 11:30+0900\n"
+"PO-Revision-Date: 2008-01-30 18:42+0900\n"
 "Last-Translator: Hojin Choi <hojin.choi@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -920,6 +920,10 @@ msgstr "폴더 추가(&D)"
 msgid "Abort"
 msgstr "취소"
 
+#. Resource IDs: (1465)
+msgid "Abort &Merge"
+msgstr "병합 취소(&M)"
+
 #. Resource IDs: (136)
 msgid "About TortoiseMerge"
 msgstr "TortoiseMerge 란?"
@@ -1315,6 +1319,14 @@ msgstr "소스 파일의 각 행에 대해 마지막으로 수정한 사람을 �
 msgid "Blend Alpha"
 msgstr "Blend Alpha(번역필요)"
 
+#. Resource IDs: (83)
+msgid ""
+"Both /logmsg and /logmsgfile were specified!\n"
+"Only one of those can be specified."
+msgstr ""
+"/logmsg, /logmsgfile이 동시에 사용되었습니다\n"
+"둘 중하나만 사용하세요."
+
 #. Resource IDs: (1003)
 msgid "Br&owse..."
 msgstr "찾아보기(&O)"
@@ -1471,6 +1483,11 @@ msgstr "바뀐 파일들 (%s, %s ~ %s, %s)"
 #, c-format
 msgid "Changed files: %d"
 msgstr "바뀐 파일 수: %d"
+
+#. Resource IDs: (264)
+#, c-format
+msgid "Changelist %s moved"
+msgstr "변경 리스트 %s 이동됨"
 
 #. Resource IDs: (65535)
 msgid "Changelist:"
@@ -4282,6 +4299,18 @@ msgstr "외부 경로는 누락시킴(&X)"
 msgid "Omit externals"
 msgstr "외부 경로는 누락시킴"
 
+#. Resource IDs: (63)
+msgid ""
+"One of the paths you are attempting to move appears to be a special path\n"
+"(one of 'branches', 'tags' or 'trunk').\n"
+"\n"
+"Are you sure you want to move the selected paths?"
+msgstr ""
+"이동하려는 경로 중 하나가 특별한 경로입니다.\n"
+"('branches', 'tags', 'trunk' 중 하나)\n"
+"\n"
+"선택된 경로를 옮기는 것이 확실합니까?"
+
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
 msgstr "한 개 이상의 파일이 충돌 상태입니다."
@@ -6403,11 +6432,13 @@ msgstr "TortoiseBlame"
 
 #. Resource IDs: (13)
 msgid ""
-"TortoiseBlame can't be started directly!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
+"TortoiseBlame should not be started directly!\n"
+"Use TortoiseProc.exe /command:blame instead.\n"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 msgstr ""
 "TortoiseBlame은 직접 실행할 수 없습니다.\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
+"TortoiseProc.exe /command:blame 을 사용하세요.\n"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
