@@ -30,6 +30,7 @@ CCreatePatch::CCreatePatch(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CCreatePatch::IDD, pParent)
 	, m_bThreadRunning(FALSE)
 	, m_bCancelled(false)
+	, m_bShowUnversioned(FALSE)
 {
 }
 
@@ -59,7 +60,6 @@ BOOL CCreatePatch::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
-	m_bShowUnversioned = TRUE;
 	UpdateData(FALSE);
 
 	m_PatchList.Init(0, _T("CreatePatchDlg"), SVNSLC_POPALL ^ (SVNSLC_POPIGNORE|SVNSLC_POPCOMMIT));
