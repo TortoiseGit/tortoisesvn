@@ -1,6 +1,6 @@
 #
 # Russian translation for TortoiseSVN
-# Copyright (C) 2004-2007 the TortoiseSVN team
+# Copyright (C) 2004-2008 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
 # Last commit by:
@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2008
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 11948: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 11974: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-01-27 16:54+0300\n"
+"PO-Revision-Date: 2008-01-30 18:20+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -354,7 +354,7 @@ msgstr "&Связываться с хранилищем при начале ра
 
 #. Resource IDs: (1073)
 msgid "&Convert files when diffing against BASE"
-msgstr "&Преобразовывать файлы при сравнении с BASE"
+msgstr "&Преобразовывать файлы при сравнении с базой"
 
 #. Resource IDs: (501, 1367, 57634)
 msgid "&Copy"
@@ -6561,11 +6561,14 @@ msgstr "TortoiseBlame"
 
 #. Resource IDs: (13)
 msgid ""
-"TortoiseBlame can't be started directly!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
+"TortoiseBlame should not be started directly!\n"
+"Use TortoiseProc.exe /command:blame instead.\n"
+"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 msgstr ""
-"TortoiseBlame не может быть запущена без параметров!\n"
-"TortoiseBlame.exe имя_файла [[файл_журнала] [заголовок]] [/line:номер_строки] [/path:исходный_путь]"
+"TortoiseBlame не должна вызываться без параметров!\n"
+"(Воспользуйтесь лучше TortoiseProc.exe /command:blame /path:путь_к_исходному_файлу)\n"
+"TortoiseBlame.exe файл_авторства [[файл_журнала] [заголовок]] [/line:номер_строки]\n"
+"                [/path:путь_к_исходному_файлу] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
