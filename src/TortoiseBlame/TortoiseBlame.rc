@@ -129,7 +129,7 @@ END
 
 STRINGTABLE 
 BEGIN
-IDS_COMMANDLINE_INFO    "TortoiseBlame should not be started directly!\nUse TortoiseProc.exe /command:blame instead.\nTortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
+    IDS_COMMANDLINE_INFO    "TortoiseBlame should not be started directly! Use\nTortoiseProc.exe /command:blame /path:""path\to\014ile""\ninstead.\n\nTortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 END
 
 STRINGTABLE 
@@ -160,6 +160,45 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_SWISS
 
 /////////////////////////////////////////////////////////////////////////////
 //
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,4,99,11971
+ PRODUCTVERSION 1,4,99,11971
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040004e4"
+        BEGIN
+            VALUE "CompanyName", "http://tortoisesvn.net"
+            VALUE "FileDescription", "TortoiseBlame"
+            VALUE "FileVersion", "1, 4, 99, 11971"
+            VALUE "InternalName", "TortoiseBlame.exe"
+            VALUE "LegalCopyright", "Copyright (C) 2007"
+            VALUE "OriginalFilename", "TortoiseBlame.exe"
+            VALUE "ProductName", "TortoiseBlame"
+            VALUE "ProductVersion", "1, 4, 99, 11971"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x400, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
 // Icon
 //
 
@@ -184,12 +223,14 @@ BEGIN
     "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
     "#include ""windows.h""\r\n"
     "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
-    "#include ""TortoiseBlame.rc2""\r\n\0"
+    "#include ""TortoiseBlame.rc2""\r\n"
+    "\0"
 END
 
 3 TEXTINCLUDE 
 BEGIN
-    "\r\n\0"
+    "\r\n"
+    "\0"
 END
 
 #endif    // APSTUDIO_INVOKED
