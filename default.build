@@ -21,6 +21,7 @@
 
 	<include buildfile="default.build.user" />
 	
+	<loadfile file="gpgpassphrase.txt" property="gpgpassphrase" failonerror="false" />
 	
 <!-- ====================================================================== -->
 <!-- Configuration targets													-->
@@ -226,10 +227,16 @@
 				<include name="TortoiseMerge.exe" />
 			</fileset>
 		</zip>
-		<exec program="md5">
-			<arg value="-obin\TortoiseDiff.md5" />
-			<arg value="bin\TortoiseDiff.zip" />
-		</exec>
+		<if test="${configuration == 'release'}">
+			  <exec program="gpg.exe">
+				  <arg value="-sba" />
+				  <arg value="--yes" />
+				  <arg value="--batch" />
+				  <arg value="--passphrase" />
+				  <arg value="${gpgpassphrase}" />
+				  <arg value="bin\TortoiseDiff.zip" />
+			</exec>
+		</if>
 	</target>
 
 	<target name="setup" depends="env,VSNETVER,binaries,docs,LanguagePacks">
@@ -280,52 +287,12 @@
 		</nant>
 	</target>
 
-	<target name="SourceTarball" depends="VersionInfo">
-		<description>
-			Creates a source tarball, without the external libs.
-		</description>
-		<property name="verstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}.${environment::get-variable('WCREV')}" />
-		<property name="zipfilename" value="TortoiseSVN-${verstring}${devrelease}-src.zip" />
-		<zip zipfile="bin\${zipfilename}" ziplevel="9">
-			<fileset basedir="." prefix="TortoiseSVN">
-				<include name="**/*" />
-				<exclude name="**/*.ncb" />
-				<exclude name="**/*.suo" />
-				<exclude name="**/*.user" />
-				<exclude name="**/*.mo" />
-				<exclude name="**/*.exe" />
-				<exclude name="**/*.bak" />
-				<exclude name="**/*.log" />
-				<exclude name="www/**" />
-				<exclude name="bin/**" />
-				<exclude name="obj/**" />
-				<exclude name="Tools/**" />
-				<exclude name="MYBUILD" />
-				<exclude name="toolpaths.build" />
-				<exclude name="TortoiseVars.bat" />
-				<exclude name="version.build" />
-				<exclude name="doc/source/de/**" />
-				<exclude name="doc/source/es/**" />
-				<exclude name="doc/source/ja/**" />
-				<exclude name="doc/output/**" />
-				<exclude name="ext/apr/**" />
-				<exclude name="ext/apr-util/**" />
-				<exclude name="ext/neon/**" />
-				<exclude name="ext/Subversion/**" />
-			</fileset>
-		</zip>
-		<exec program="md5">
-			<arg value="-obin\TortoiseSVN-${verstring}${devrelease}-src.md5" />
-			<arg value="bin\TortoiseSVN-${verstring}${devrelease}-src.zip" />
-		</exec>
-	</target>
-
-	<target name="MakeRelease" depends="VSNET,env,clean,setup,SourceTarball">
+	<target name="MakeRelease" depends="VSNET,env,clean,setup">
 		<description>
 			executes all Nant targets required for a release.
 		</description>
 	</target>
-
+	
 <!-- ====================================================================== -->
 <!-- Help target															-->
 <!-- ====================================================================== -->
@@ -345,7 +312,6 @@
 		<echo message="binaries		: builds all binaries (TortoiseSVN, Subversion, Libs)" />
 		<echo message="setup		: creates an msi installer for TortoiseSVN" />
 		<echo message="LanguagePacks: creates the Languagepack installers" />
-		<echo message="SourceTarball: creates a zip file with the sourcefiles" />
 		<echo message="msi			: creates the msi, but doesn't build the libs first" />
 		<echo />
 		<echo message="The following targets can be used to tweak the builds:" />

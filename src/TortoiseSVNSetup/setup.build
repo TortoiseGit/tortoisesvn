@@ -98,11 +98,17 @@
 			  </fileset>
 		  </delete>
   		
-		  <exec program="md5" workingdir="..\..\bin">
-			  <arg value="-o${msifilename}.md5" />
+		<if test="${configuration == 'release'}">
+		  <exec program="gpg.exe" workingdir="..\..\bin">
+			  <arg value="-sba" />
+			  <arg value="--yes" />
+			  <arg value="--batch" />
+			  <arg value="--passphrase" />
+			  <arg value="${gpgpassphrase}" />
 			  <arg value="${msifilename}.msi" />
 		  </exec>
-		</if>
+        </if>
+	  </if>
 	</target>
 
 </project>

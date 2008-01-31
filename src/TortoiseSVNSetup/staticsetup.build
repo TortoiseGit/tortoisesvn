@@ -52,10 +52,16 @@
 			  </fileset>
 		  </delete>
   		
-		  <exec program="md5" workingdir="..\..\bin">
-			  <arg value="-oSubWCRev-${verstring}.md5" />
-			  <arg value="SubWCRev-${verstring}.msi" />
-		  </exec>
+		  <if test="${configuration == 'release'}">
+			  <exec program="gpg.exe">
+				  <arg value="-sba" />
+				  <arg value="--yes" />
+				  <arg value="--batch" />
+				  <arg value="--passphrase" />
+				  <arg value="${gpgpassphrase}" />
+				  <arg value="..\..\bin\SubWCRev-${verstring}.msi" />
+			  </exec>
+		  </if>
 		</if>
 	</target>
 
