@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-01-29 08:23 +0000\n"
-"PO-Revision-Date: 2008-01-30 14:24+0100\n"
+"PO-Revision-Date: 2008-01-31 16:13+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5748,7 +5748,7 @@ msgstr "Wenn Sie Änderungen, welche Sie an Dateien vorgenommen haben, wieder r�
 #. (para)
 #: ../source/TortoiseSVN_en.xml:6852
 msgid "If you want to undo a deletion or a rename, you need to use Revert on the parent folder as the deleted item does not exist for you to right-click on."
-msgstr ""
+msgstr "Wenn Sie ein umbenanntes oder gelöschtes Objekt wieder herstellen möchten, müssen Sie <emphasis>Rückgängig<emphasis> auf dem Elternordner aufrufen, da das gelöschte Objekt für einen Rechtsklick nicht zur Verfügung steht."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:6857
@@ -6021,17 +6021,17 @@ msgstr "Sie können diesen Wert als Dezimalzahl, oder wenn Sie das bevorzugen al
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7211
 msgid "The property <literal>tsvn:logsummary</literal> is used to extract a portion of the log message which is then shown in the log dialog as the log message summary."
-msgstr ""
+msgstr "Die Eigenschaft <literal>tsvn:logsummary</literal> wird verwendet, um einen Abschnitt aus der Logmeldung zu extrahieren, der dann als Zusammenfassung der Logmeldung im Log-Dialog angezeigt wird."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7216
 msgid "The value of the <literal>tsvn:logsummary</literal> property must be set to a one line regex string which contains one regex group. Whatever matches that group is used as the summary."
-msgstr ""
+msgstr "Die <literal>tsvn:logsummary</literal> Eigenschaft muss einen einzeiligen regulären Ausdruck enthalten, der eine RegEx-Gruppe enthält. Der Inhalt dieser Gruppe wird als Zusammenfassung verwendet"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7222
 msgid "An example: <literal>\\[SUMMARY\\]:\\s+(.*)</literal> Will catch everything after <quote>[SUMMARY]</quote> in the log message and use that as the summary."
-msgstr ""
+msgstr "Ein Beispiel: <literal>\\[ZUSAMMENFASSUNG\\]:\\s+(.*)</literal> Dieser Ausdruck wird alles nach <quote>[ZUSAMMENFASSUNG]</quote> aus der Logmeldung ausschneiden und als Zusammenfassung verwenden."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7230
