@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2008
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 11974: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 11996: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-01-30 18:20+0300\n"
+"PO-Revision-Date: 2008-01-31 20:17+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6561,13 +6561,16 @@ msgstr "TortoiseBlame"
 
 #. Resource IDs: (13)
 msgid ""
-"TortoiseBlame should not be started directly!\n"
-"Use TortoiseProc.exe /command:blame instead.\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
+"TortoiseBlame should not be started directly! Use\n"
+"TortoiseProc.exe /command:blame /path:\"path\\to\\file\"\n"
+"instead.\n"
+"\n"
+"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 msgstr ""
-"TortoiseBlame не должна вызываться без параметров!\n"
-"(Воспользуйтесь лучше TortoiseProc.exe /command:blame /path:путь_к_исходному_файлу)\n"
-"TortoiseBlame.exe файл_авторства [[файл_журнала] [заголовок]] [/line:номер_строки]\n"
+"TortoiseBlame не должна вызываться без параметров! Лучше воспользоваться командой\n"
+"TortoiseProc.exe /command:blame /path:\"путь\\к\\файлу\"\n"
+"\n"
+"TortoiseBlame.exe файл_авторства [файл_журнала [заголовок]] [/line:номер_строки]\n"
 "                [/path:путь_к_исходному_файлу] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
