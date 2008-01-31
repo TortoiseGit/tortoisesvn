@@ -26,8 +26,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2000-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-12-19 22:54+0100\n"
-"Last-Translator: Jean-Marc van Leerdam <jeanmarc@bemy.demon.nl>\n"
+"PO-Revision-Date: 2008-01-31 19:52+0100\n"
+"Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -141,6 +141,11 @@ msgstr "%ld of %ld"
 #, c-format
 msgid "%ld paths"
 msgstr "%ld paden"
+
+#. Resource IDs: (272)
+#, c-format
+msgid "%s"
+msgstr "%s"
 
 #. Resource IDs: (115)
 #, c-format
@@ -802,6 +807,11 @@ msgstr "&Werkkopie"
 msgid "(binary value)"
 msgstr "(binaire waarde)"
 
+#. Resource IDs: (272)
+#, c-format
+msgid "(deleted) %s"
+msgstr "(verwijderd) %s"
+
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
 msgstr "(meerdere doelen geselecteerd)"
@@ -920,6 +930,10 @@ msgstr "Ma&p toevoegen..."
 #. Resource IDs: (73)
 msgid "Abort"
 msgstr "Afbreken"
+
+#. Resource IDs: (1465)
+msgid "Abort &Merge"
+msgstr "Samenvoegen &Afbreken"
 
 #. Resource IDs: (136)
 msgid "About TortoiseMerge"
@@ -1317,6 +1331,14 @@ msgstr "Geeft van een bestand de auteur per regel"
 msgid "Blend Alpha"
 msgstr "Alpha-mixen"
 
+#. Resource IDs: (83)
+msgid ""
+"Both /logmsg and /logmsgfile were specified!\n"
+"Only one of those can be specified."
+msgstr ""
+"Zowel /logmsg als /logmsgfile zijn opgegeven!\n"
+"U kunt slechts één van deze twee gebruiken."
+
 #. Resource IDs: (1003)
 msgid "Br&owse..."
 msgstr "&Bladeren..."
@@ -1472,6 +1494,11 @@ msgstr "Gewijzigde bestanden tussen %s, %s en %s, %s"
 #, c-format
 msgid "Changed files: %d"
 msgstr "Gewijzigde bestanden: %d"
+
+#. Resource IDs: (264)
+#, c-format
+msgid "Changelist %s moved"
+msgstr "Werkset %s verplaatst"
 
 #. Resource IDs: (65535)
 msgid "Changelist:"
@@ -2422,6 +2449,15 @@ msgstr "Wijzig extensie-specifiek merge-programma"
 msgid "Edit log message"
 msgstr "Logboek boodschap wijzigen"
 
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Edit property \"%s\" on\r\n"
+"%s"
+msgstr ""
+"Wijzig eigenschap \"%s\" van\r\n"
+"%s"
+
 #. Resource IDs: (1331)
 msgid "Edit..."
 msgstr "Wijzigen..."
@@ -2965,10 +3001,6 @@ msgstr "Algemeen::Dialogen 1"
 msgid "General::Dialogs 2"
 msgstr "Algemeen::Dialogen 2"
 
-#. Resource IDs: (281)
-msgid "General::Log Caching"
-msgstr "Algemeen::Log caching"
-
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "Patchfile maken..."
@@ -3104,6 +3136,10 @@ msgstr "Head revisie is %s"
 msgid "Help"
 msgstr "Help"
 
+#. Resource IDs: (32820)
+msgid "Hide &deleted paths"
+msgstr "Verberg &verwijderde paden"
+
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
 msgstr "Verberg script bij uitvoeren"
@@ -3201,9 +3237,9 @@ msgstr "ID:32814:V C +L"
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
-#. Accelerator Entry for Menu ID:32821; ''
-msgid "ID:32821:V C +F"
-msgstr "ID:32821:V C +F"
+#. Accelerator Entry for Menu ID:32822; ''
+msgid "ID:32822:V C +F"
+msgstr "ID:32822:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
@@ -3789,6 +3825,10 @@ msgstr "Logboek"
 msgid "Log Cache Statistics"
 msgstr "Log cache statistieken"
 
+#. Resource IDs: (281)
+msgid "Log Caching"
+msgstr "Log caching"
+
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "Logboek geschiedenis"
@@ -4262,6 +4302,18 @@ msgstr "&Externen uitsluiten"
 msgid "Omit externals"
 msgstr "Externen uitsluiten"
 
+#. Resource IDs: (63)
+msgid ""
+"One of the paths you are attempting to move appears to be a special path\n"
+"(one of 'branches', 'tags' or 'trunk').\n"
+"\n"
+"Are you sure you want to move the selected paths?"
+msgstr ""
+"Een van de paden die u probeert te verplaatsen lijkt een speciaal pad te zijn\n"
+"(een van 'branches', 'tags' of 'trunk').\n"
+"\n"
+"Weet u zeker dat u de geselecteerde paden wilt verplaatsen?"
+
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
 msgstr "Een of meerdere bestanden bevinden zich in een conflict status."
@@ -4490,11 +4542,6 @@ msgstr "Voorkomt de meeste situaties waarin verbindingslijnen revisieknooppunten
 #. Resource IDs: (376)
 msgid "Preview patched file"
 msgstr "Bekijk voorbeeld van gepatched bestand"
-
-#. Resource IDs: (199)
-#, c-format
-msgid "Probably deleted repository (%s)"
-msgstr "Waarschijnlijk verwijderd archief (%s)"
 
 #. Resource IDs: (132)
 #, c-format
@@ -4767,6 +4814,10 @@ msgstr "Verwijder %ld zaken"
 msgid "Remove %s"
 msgstr "Verwijder %s"
 
+#. Resource IDs: (2052)
+msgid "Remove deleted branches and tags"
+msgstr "Verwijder weggeggoide takken en labels"
+
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
 msgstr "Verwijder uit &negeerlijst"
@@ -4774,6 +4825,15 @@ msgstr "Verwijder uit &negeerlijst"
 #. Resource IDs: (209)
 msgid "Remove from changelist"
 msgstr "Verwijderen uit werkset"
+
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Remove property \"%s\" from\r\n"
+"%s"
+msgstr ""
+"Verwijder eigenschap \"%s\" van\r\n"
+"%s"
 
 #. Resource IDs: (1332)
 msgid "Remove..."
@@ -5401,6 +5461,15 @@ msgstr "Server &adres:"
 msgid "Set file dates to the \"last commit &time\""
 msgstr "Zet datum/tijd van bestanden op \"tijdstip &laatste vastlegging\""
 
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Set property \"%s\" on\r\n"
+"%s"
+msgstr ""
+"Zet eigenschap \"%s\" van \r\n"
+"%s"
+
 #. Resource IDs: (13)
 msgid "Setting properties..."
 msgstr "Bezig met eigenschappen wijzigen..."
@@ -5506,7 +5575,7 @@ msgid "Show differences as &unified diff"
 msgstr "Toon verschillen als &unified diff"
 
 #. Resource IDs: (1126)
-msgid "Show excluded folders as 'normal'"
+msgid "Show excluded folders as normal"
 msgstr "Toon uitgesloten mappen als 'normaal'"
 
 #. Resource IDs: (1264)
@@ -5540,6 +5609,14 @@ msgid ""
 msgstr ""
 "Toon of verberg de knoppenbalk\n"
 "Wissel knoppenbalk"
+
+#. Resource IDs: (1432)
+msgid "Show overlay for ignored items"
+msgstr "Toon overlay bij genegeerde bestanden"
+
+#. Resource IDs: (1462)
+msgid "Show overlay for unversioned items"
+msgstr "Toon overlay bij bestanden zonder versiebeheer"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -5653,14 +5730,6 @@ msgstr ""
 #. Resource IDs: (376)
 msgid "Split lines"
 msgstr "Splits regels"
-
-#. Resource IDs: (32817)
-msgid "Split long &branches"
-msgstr "Splits lange &takken"
-
-#. Resource IDs: (2052)
-msgid "Split long, inactive branches into segments"
-msgstr "Breek lange inactieve takken in segmenten"
 
 #. Resource IDs: (3604)
 msgid ""
@@ -6371,11 +6440,17 @@ msgstr "TortoiseBlame"
 
 #. Resource IDs: (13)
 msgid ""
-"TortoiseBlame can't be started directly!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
+"TortoiseBlame should not be started directly! Use\n"
+"TortoiseProc.exe /command:blame /path:\"path\\to\\file\"\n"
+"instead.\n"
+"\n"
+"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 msgstr ""
-"TortoiseBlame kan niet direct gestart worden!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
+"TortoiseBlame mag niet direct gestart worden! Gebruik\n"
+"TortoiseProc.exe /command:blame /path:\"pad\\n"
+"aar\\bestand\"\n"
+"\n"
+"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
@@ -6511,6 +6586,11 @@ msgstr "URL"
 #. Resource IDs: (1272)
 msgid "URL history"
 msgstr "URL geschiedenis"
+
+#. Resource IDs: (199)
+#, c-format
+msgid "URL not known (UUID: %s)"
+msgstr "URL onbekend (UUID: %s)"
 
 #. Resource IDs: (12)
 msgid "URL of Subversion items"
@@ -7137,6 +7217,16 @@ msgstr "toegevoegd"
 msgid "added files"
 msgstr "toegevoegde bestanden"
 
+#. Resource IDs: (272)
+#, c-format
+msgid "alias (deleted): %s"
+msgstr "alias (verwijderd): %s"
+
+#. Resource IDs: (272)
+#, c-format
+msgid "alias: %s"
+msgstr "alias: %s"
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "een bestand zonder naam"
@@ -7405,7 +7495,11 @@ msgstr "of"
 
 #. Resource IDs: (65535)
 msgid "pair tokens: "
-msgstr ""
+msgstr "token paren:"
+
+#. Resource IDs: (65535)
+msgid "path elements: "
+msgstr "pad-elementen: "
 
 #. Resource IDs: (65535)
 msgid "paths: "
@@ -7746,6 +7840,10 @@ msgstr "week"
 #. Resource IDs: (65535)
 msgid "word tokens: "
 msgstr "woorden: "
+
+#. Resource IDs: (65535)
+msgid "words [uncompressed]: "
+msgstr "woorden [ongecomprimeerd]:"
 
 #. Resource IDs: (245)
 msgid "year"
