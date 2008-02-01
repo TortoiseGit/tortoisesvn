@@ -9,11 +9,16 @@
 		<primary>_svn folder</primary>
 	</indexterm>
 	<para>
-		VS.NET when used with web projects can't handle the <literal>.svn</literal>
+		VS.NET 2003 when used with web projects can't handle the <literal>.svn</literal>
 		folders that Subversion uses to store its internal information.
-		This is not a bug in Subversion. The bug is in VS.NET and the frontpage
+		This is not a bug in Subversion. The bug is in VS.NET 2003 and the frontpage
 		extensions it uses.
 	</para>
+	<sidebar>
+		<para>
+			Note that the bug is fixed in VS2005 and later versions.
+		</para>
+	</sidebar>
 	<para>
 		As of Version 1.3.0 of Subversion and TortoiseSVN, you can set
 		the environment variable <literal>SVN_ASP_DOT_NET_HACK</literal>.
@@ -27,7 +32,7 @@
 	<para>
 		For more information, and other ways to avoid this problem in the
 		first place, check out the article about this in our
-		<ulink url="http://tortoisesvn.net/node/aspdotnethack">
+		<ulink url="http://tortoisesvn.net/aspdotnethack">
 			<citetitle>FAQ</citetitle>
 		</ulink>.
 	</para>
