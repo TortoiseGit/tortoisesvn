@@ -228,6 +228,7 @@
 #define IDC_VERSIONABOUT                1054
 #define IDC_STATIC1                     1055
 #define IDC_STATIC2                     1056
+#define IDC_BUGTEXTBUTTON               1057
 #define IDC_STATIC4                     1058
 #define IDC_CLEARAUTH                   1059
 #define IDC_UNKNOWN                     1061
@@ -1277,6 +1278,7 @@
 #define IDS_HOOKTYPE_STARTUPDATE        9103
 #define IDS_HOOKTYPE_PREUPDATE          9104
 #define IDS_HOOKTYPE_POSTUPDATE         9105
+#define IDS_HOOKTYPE_ISSUETRACKER	9106
 #define IDS_PROP_TT_IGNORE              9200
 #define IDS_PROP_TT_KEYWORDS            9201
 #define IDS_PROP_TT_EXECUTABLE          9202

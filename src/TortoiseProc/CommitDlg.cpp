@@ -29,6 +29,7 @@
 #include "Registry.h"
 #include "SVNStatus.h"
 #include "HistoryDlg.h"
+#include "Hooks.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -82,6 +83,7 @@ BEGIN_MESSAGE_MAP(CCommitDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_BN_CLICKED(IDC_SHOWUNVERSIONED, OnBnClickedShowunversioned)
 	ON_BN_CLICKED(IDC_HISTORY, OnBnClickedHistory)
+	ON_BN_CLICKED(IDC_BUGTEXTBUTTON, OnBnClickedBugtextbutton)
 	ON_EN_CHANGE(IDC_LOGMESSAGE, OnEnChangeLogmessage)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED, OnSVNStatusListCtrlItemCountChanged)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
@@ -130,21 +132,30 @@ BOOL CCommitDlg::OnInitDialog()
 	
 	m_SelectAll.SetCheck(BST_INDETERMINATE);
 	
-	if (m_ProjectProperties.sMessage.IsEmpty())
+	if (CHooks::Instance().HasIssueTracker(m_pathList))
 	{
 		GetDlgItem(IDC_BUGID)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_BUGIDLABEL)->ShowWindow(SW_HIDE);
+		GetDlgItem(IDC_BUGTEXTBUTTON)->ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_LOGMESSAGE)->SetFocus();
 	}
-	else
+	else if (!m_ProjectProperties.sMessage.IsEmpty())
 	{
 		GetDlgItem(IDC_BUGID)->ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_BUGIDLABEL)->ShowWindow(SW_SHOW);
 		if (!m_ProjectProperties.sLabel.IsEmpty())
 			SetDlgItemText(IDC_BUGIDLABEL, m_ProjectProperties.sLabel);
+		GetDlgItem(IDC_BUGTEXTBUTTON)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_BUGID)->SetFocus();
 	}
-		
+	else
+	{
+		GetDlgItem(IDC_BUGID)->ShowWindow(SW_HIDE);
+		GetDlgItem(IDC_BUGIDLABEL)->ShowWindow(SW_HIDE);
+		GetDlgItem(IDC_BUGTEXTBUTTON)->ShowWindow(SW_HIDE);
+		GetDlgItem(IDC_LOGMESSAGE)->SetFocus();
+	}
+
 	if (!m_sLogMessage.IsEmpty())
 		m_cLogMessage.SetText(m_sLogMessage);
 		
@@ -160,6 +171,7 @@ BOOL CCommitDlg::OnInitDialog()
 	AddAnchor(IDC_COMMITLABEL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_BUGIDLABEL, TOP_RIGHT);
 	AddAnchor(IDC_BUGID, TOP_RIGHT);
+	AddAnchor(IDC_BUGTEXTBUTTON, TOP_RIGHT);
 	AddAnchor(IDC_COMMIT_TO, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_MESSAGEGROUP, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_HISTORY, TOP_LEFT);
@@ -1092,6 +1104,17 @@ void CCommitDlg::OnBnClickedHistory()
 
 	UpdateOKButton();
 	GetDlgItem(IDC_LOGMESSAGE)->SetFocus();
+}
+
+void CCommitDlg::OnBnClickedBugtextbutton()
+{
+	CString sMsg = m_cLogMessage.GetText();
+	DWORD exitcode = 0;
+	CString sError;
+	if (CHooks::Instance().IssueTracker(m_pathList, sMsg, exitcode, sError)&&exitcode==0)
+	{
+		m_cLogMessage.SetText(sMsg);
+	}
 }
 
 LRESULT CCommitDlg::OnSVNStatusListCtrlCheckChanged(WPARAM, LPARAM)

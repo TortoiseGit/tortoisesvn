@@ -34,7 +34,8 @@ typedef enum hooktype
 	post_commit_hook,
 	start_update_hook,
 	pre_update_hook,
-	post_update_hook
+	post_update_hook,
+	issue_tracker_hook
 } hooktype;
 
 /**
@@ -216,6 +217,11 @@ public:
 	bool				PostCommit(const CTSVNPathList& pathList, svn_depth_t depth, 
 									SVNRev rev, const CString& message, 
 									DWORD& exitcode, CString& error);
+
+	bool				HasIssueTracker(const CTSVNPathList& pathList);
+	bool				IssueTracker(const CTSVNPathList& pathList, CString& message,
+										DWORD& exitcode, CString& error);
+
 private:
 	/**
 	 * Starts a new process, specified in \c cmd.
