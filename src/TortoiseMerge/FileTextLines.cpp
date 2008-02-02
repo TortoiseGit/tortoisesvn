@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -276,12 +276,8 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 	{
 		// UTF16 have two bytes per char
 		dwReadBytes/=2; 
-		// ignore the BOM
-		++pTextBuf; 
-		++pLineStart;
-		--dwReadBytes; 
 	}
-	if (m_UnicodeType == UTF8BOM)
+	if ((m_UnicodeType == UTF8BOM)||(m_UnicodeType == UNICODE_LE))
 	{
 		// ignore the BOM
 		++pTextBuf; 
