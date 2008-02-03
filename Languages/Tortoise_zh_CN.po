@@ -56,7 +56,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-01-29 10:40+0800\n"
+"PO-Revision-Date: 2008-02-03 17:39+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1403,6 +1403,10 @@ msgstr "查找外部比较差异工具"
 #. Resource IDs: (1069)
 msgid "Browse..."
 msgstr "浏览..."
+
+#. Resource IDs: (1382)
+msgid "Bug Tracker..."
+msgstr "问题追踪..."
 
 #. Resource IDs: (1119)
 msgid "Bug-&ID / Issue-Nr:"
@@ -3683,6 +3687,10 @@ msgstr ""
 "合法版本是数字和 HEAD，用逗号隔开。\n"
 "范围用减号指定。\n"
 "例如: 2-5,7,10,44-70,300-HEAD"
+
+#. Resource IDs: (570)
+msgid "Issue Tracker Hook"
+msgstr "问题追踪钩子"
 
 #. Resource IDs: (145)
 msgid ""
@@ -6460,11 +6468,17 @@ msgstr "TortoiseBlame"
 
 #. Resource IDs: (13)
 msgid ""
-"TortoiseBlame can't be started directly!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
+"TortoiseBlame should not be started directly! Use\n"
+"TortoiseProc.exe /command:blame /path:\"path\\to\\file\"\n"
+"instead.\n"
+"\n"
+"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 msgstr ""
-"TortoiseBlame 不能被直接启动！\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
+"TortoiseBlame 不应该被直接启动！请使用\n"
+"TortoiseProc.exe /command:blame /path:\"path\\to\\file\"\n"
+"来代替。\n"
+"\n"
+"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
