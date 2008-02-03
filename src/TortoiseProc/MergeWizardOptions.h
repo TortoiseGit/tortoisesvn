@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,7 +18,7 @@
 //
 #pragma once
 #include "MergeWizardBasePage.h"
-
+#include "Balloon.h"
 
 /**
  * Last page in the merge wizard for selecting the merge options.
@@ -40,10 +40,12 @@ protected:
 	virtual LRESULT		OnWizardBack();
 	virtual BOOL		OnWizardFinish();
 	virtual BOOL		OnSetActive();
+	virtual BOOL		PreTranslateMessage(MSG* pMsg);
 	afx_msg void		OnBnClickedDryrun();
 
 	DECLARE_MESSAGE_MAP()
 	
 	
 	CComboBox						m_depthCombo;
+	CBalloon						m_tooltips;
 };
