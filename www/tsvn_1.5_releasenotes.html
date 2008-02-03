@@ -49,6 +49,11 @@ servers and clients. Of course, some of the new 1.5 features may not
 be available unless both client and server are the latest version
 (e.g. <a href="http://subversion.tigris.org/merge-tracking/func-spec.html#migration-and-interoperability">Merge Tracking</a>).</p>
 
+<p>
+TortoiseSVN 1.5.x clients can communicate with all Subversion servers, no
+matter which version the server runs on.
+</p>
+
 <p>Due to certain improvements made to the working copy
 library, the version number of the working copy format has been
 incremented. This means that Subversion clients earlier than 1.5 will
@@ -85,12 +90,12 @@ working copy format change</a>.
 functionality to <a
 href="http://www.orcaware.com/svn/wiki/Svnmerge.py">svnmerge.py</a>,
 recording and using merge history to avoid common cases of the
-repeated merge problem, and allowing for cherry-picking of changes.
+<a href="#repeated-merge">repeated merge</a> problem, and allowing for cherry-picking of changes.
 It exposes merge history via properties, and allows for repository
 dump/load (including the ability to re-create the merge history
 index).</p>
 
-<p>Some merge tracking features can't be used for repositories served
+<p>Note: Some merge tracking features can't be used for repositories served
 by pre-1.5.x servers.</p>
 
 <div class="h3" id="repeated-merge">
@@ -201,6 +206,14 @@ can also select groups for commit.
 <img src="/images/ChangeList.png" alt="Commit dialog showing changelists
 grouped together" />
 
+<p>
+TortoiseSVN also provides a special changelist named <em>ignore-on-commit</em>.
+Files which belong to that changelist are <em>not</em> selected in the
+commit dialog. This helps if you have a file which you must keep versioned
+but which you don't want its modifications to get committed.
+</p>
+
+
 </div>  <!-- changelist-support -->
 
 
@@ -208,7 +221,8 @@ grouped together" />
 <h2>Log Cache</h2>
 
 <p>Fetching the log information from the repository can take a long
-time, especially for repositories with thousands of revisions.</p>
+time, especially for repositories with thousands of revisions or if
+the repository is not on a fast connection.</p>
 
 <p>TortoiseSVN 1.5 can cache the log entries on the local drive. Only
 the entries which are not yet in the local cache are fetched from the
@@ -229,8 +243,13 @@ view on the left and the file/folder list on the right.</p>
 
 <img src="/images/RepositoryBrowser.png" alt="Repository Browser" />
 
-<p>Part of the rewrite also included a performance improvement when
+<p>Part of the rewrite also includes a performance improvement when
 showing very big directories.</p>
+
+<p>
+It is also possible to drag files/folders from the repository browser
+directly to the explorer.
+</p>
 
 </div>  <!-- repository-browser -->
 
@@ -296,12 +315,39 @@ certain operations. The available hooks are:
 <h2>SubWCRev</h2>
 
 <p>
-The SubWCRev tool has a COM interface for easy access from scripting
+The SubWCRev tool now has a COM interface for easy access from scripting
 languages. This makes it possible to embed the revision information
 in e.g., MS Word documents.
 </p>
 
 </div>  <!-- SubWCRev -->
+
+<div class="h2" id="Overlays" title="Overlay Icons">
+<h2>Overlay Icons</h2>
+
+<p>
+If you're using other Tortoise clients like TortoiseCVS you might know
+about the problem with the limited overlay slots in Windows. With both
+TortoiseSVN and TortoiseCVS installed, some of the overlays won't show
+up anymore. This is due to the fact that Windows only has about 12 slots
+available for overlays and with both applications installed, that limit
+is exhausted.
+</p>
+
+<p>
+To solve this issue, we've implemented a common overlay handler for
+all Tortoise clients to use. With this handler, all Tortoise clients will
+show the same overlay icons and use the same overlay slots. That way
+we won't hit the Windows limit so easily anymore.
+</p>
+
+<p>
+TortoiseSVN 1..5.x and the TortoiseCVS unstable releases already use
+this new overlay handler.
+</p>
+
+</div>  <!-- TortoiseIDiff -->
+
 
 </div>  <!-- app -->
 </body>
