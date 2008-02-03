@@ -11,8 +11,6 @@
 #include "storage.h"
 #include "ssh.h"
 
-#include "LoginDialog.h"
-
 int console_batch_mode = FALSE;
 
 static void *console_logctx = NULL;
@@ -308,6 +306,9 @@ static void console_data_untrusted(HANDLE hout, const char *data, int len)
 
 int console_get_userpass_input(prompts_t *p, unsigned char *in, int inlen)
 {
+    HANDLE hin, hout;
+    size_t curr_prompt;
+
     /*
      * Zero all the results, in case we abort half-way through.
      */
@@ -320,10 +321,63 @@ int console_get_userpass_input(prompts_t *p, unsigned char *in, int inlen)
     if (console_batch_mode)
 	return 0;
 
-	if (DoLoginDialog((*p->prompts)->result, (*p->prompts)->result_len, (*p->prompts)->prompt))
-		return 1;
+    hin = GetStdHandle(STD_INPUT_HANDLE);
+    hout = GetStdHandle(STD_OUTPUT_HANDLE);
+    if (hin == INVALID_HANDLE_VALUE || hout == INVALID_HANDLE_VALUE) {
+	fprintf(stderr, "Cannot get standard input/output handles\n");
+	cleanup_exit(1);
+    }
+
+    /*
+     * Preamble.
+     */
+    /* We only print the `name' caption if we have to... */
+    if (p->name_reqd && p->name) {
+	size_t l = strlen(p->name);
+	console_data_untrusted(hout, p->name, l);
+	if (p->name[l-1] != '\n')
+	    console_data_untrusted(hout, "\n", 1);
+    }
+    /* ...but we always print any `instruction'. */
+    if (p->instruction) {
+	size_t l = strlen(p->instruction);
+	console_data_untrusted(hout, p->instruction, l);
+	if (p->instruction[l-1] != '\n')
+	    console_data_untrusted(hout, "\n", 1);
+    }
+
+    for (curr_prompt = 0; curr_prompt < p->n_prompts; curr_prompt++) {
+
+	DWORD savemode, newmode, i = 0;
+	prompt_t *pr = p->prompts[curr_prompt];
+	BOOL r;
+
+	GetConsoleMode(hin, &savemode);
+	newmode = savemode | ENABLE_PROCESSED_INPUT | ENABLE_LINE_INPUT;
+	if (!pr->echo)
+	    newmode &= ~ENABLE_ECHO_INPUT;
 	else
-		cleanup_exit(1);
+	    newmode |= ENABLE_ECHO_INPUT;
+	SetConsoleMode(hin, newmode);
+
+	console_data_untrusted(hout, pr->prompt, strlen(pr->prompt));
+
+	r = ReadFile(hin, pr->result, pr->result_len - 1, &i, NULL);
+
+	SetConsoleMode(hin, savemode);
+
+	if ((int) i > pr->result_len)
+	    i = pr->result_len - 1;
+	else
+	    i = i - 2;
+	pr->result[i] = '\0';
+
+	if (!pr->echo) {
+	    DWORD dummy;
+	    WriteFile(hout, "\r\n", 2, &dummy, NULL);
+	}
+
+    }
 
     return 1; /* success */
 
