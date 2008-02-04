@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-02-01 09:07+0100\n"
+"PO-Revision-Date: 2008-02-04 09:43+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1372,6 +1372,10 @@ msgstr "Suche nach dem externen Vergleichsprogramm"
 #. Resource IDs: (1069)
 msgid "Browse..."
 msgstr "Suchen..."
+
+#. Resource IDs: (1382)
+msgid "Bug Tracker..."
+msgstr "Fehlerverfolgungssystem..."
 
 #. Resource IDs: (1119)
 msgid "Bug-&ID / Issue-Nr:"
@@ -3673,6 +3677,10 @@ msgstr ""
 "Ein Bereich wird durch einen Bindestrich angegeben.\n"
 "Beispiel: 2-5,7,10,44-70,300-HEAD"
 
+#. Resource IDs: (570)
+msgid "Issue Tracker Hook"
+msgstr "Für Fehlerverfolgungssystem"
+
 #. Resource IDs: (145)
 msgid ""
 "It is not possible to rename a file by changing the case of its name alone.\n"
@@ -3919,6 +3927,10 @@ msgid ""
 msgstr ""
 "Markiert einen Dateikonflikt in Subversion als aufgelöst\n"
 "Als aufgelöst markieren"
+
+#. Resource IDs: (596)
+msgid "Marks the revisions as merged, without actually doing the merge"
+msgstr "Markiert die Revisionen als zusammengeführt, ohne die Daten tatsächlich zu integrieren"
 
 #. Resource IDs: (1064)
 msgid "Match &case"
@@ -7135,7 +7147,7 @@ msgid ""
 "You haven't entered an issue number!\n"
 "Are you sure you want to commit without an issue number?"
 msgstr ""
-"Sie haben keine Bugtracker ID angegeben\n"
+"Sie haben keine Fehlerverfolgungs-ID angegeben\n"
 "Sind Sie sicher, dass Sie ohne ID übertragen wollen?"
 
 #. Resource IDs: (196)
@@ -7302,7 +7314,7 @@ msgid ""
 "Label text to show for the edit box where the user enters the issue number."
 msgstr ""
 "bugtraq:label\n"
-"Beschriftung für das Eingabefeld der Bugtracker ID."
+"Beschriftung für das Eingabefeld der Fehlerverfolgungs-ID."
 
 #. Resource IDs: (577)
 msgid ""
@@ -7313,10 +7325,9 @@ msgid ""
 msgstr ""
 "bugtraq:logregex\n"
 "zwei durch eine Leerzeile getrennte reguläre Ausdrücke.\n"
-"Der erste Ausdruck dient dazu, eine Zeichenkette, die sich\n"
-"auf einen Bugtrackereintrag bezieht, zu identifizieren. Der\n"
-"zweite Ausdruck wird verwendet, um die Eintrags-ID aus der\n"
-"Zeichenkette zu extrahieren."
+"Der erste Ausdruck dient dazu, eine Zeichenkette, die sich auf\n"
+"einen Eintrag bezieht, zu finden. Der zweite Ausdruck wird\n"
+"verwendet, um die Eintrags-ID aus der Zeichenkette zu extrahieren."
 
 #. Resource IDs: (577)
 #, c-format
@@ -7335,7 +7346,7 @@ msgid ""
 "Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
 "bugtraq:number\n"
-"Auf 'false' setzen, falls Ihr Bugtracker die Einträge nicht über Nummern referenziert."
+"Auf 'false' setzen, falls Ihr Fehlerverfolgungssystem die Einträge nicht über Nummern referenziert."
 
 #. Resource IDs: (577)
 #, c-format
@@ -7345,8 +7356,8 @@ msgid ""
 "gets replaced with the issue number."
 msgstr ""
 "bugtraq:url\n"
-"URL, die zum Bugtracker zeigt. Muss '%BUGID%' enthalten,\n"
-"welches dann durch die eingegebene ID ersetzt wird."
+"URL, die zum Fehlerverfolgungssystem zeigt. Muss '%BUGID%\n"
+"enthalten, welches dann durch die eingegebene ID ersetzt wird."
 
 #. Resource IDs: (65535)
 msgid "changes total: "
