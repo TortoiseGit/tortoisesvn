@@ -2055,7 +2055,15 @@ BOOL SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& re
         {
             rev = cachedProperties.GetHeadRevision (canonicalURL);
             if (rev == NO_REVISION)
-                assert (Err != NULL);
+            {
+                Err = svn_client_open_ra_session (&ra_session, urla, m_pctx, localpool);
+                if (Err)
+                    return FALSE;
+
+                Err = svn_ra_get_latest_revnum(ra_session, &rev, localpool);
+                if (Err)
+                    return FALSE;
+            }
         }
 
         return Err == NULL ? TRUE : FALSE;
