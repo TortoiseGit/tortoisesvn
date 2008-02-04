@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -233,7 +233,7 @@ void CCopyDlg::OnOK()
 		
 	CString combourl;
 	m_URLCombo.GetWindowText(combourl);
-	if (m_wcURL.CompareNoCase(combourl)==0)
+	if ((m_wcURL.CompareNoCase(combourl)==0)&&(m_CopyRev.IsHead()))
 	{
 		CString temp;
 		temp.Format(IDS_ERR_COPYITSELF, (LPCTSTR)m_wcURL, (LPCTSTR)m_URLCombo.GetString());
