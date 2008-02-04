@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-01-29 17:30+0900\n"
+"PO-Revision-Date: 2008-02-04 20:12+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1375,6 +1375,10 @@ msgstr "外部差分ツールを参照"
 msgid "Browse..."
 msgstr "参照 ..."
 
+#. Resource IDs: (1382)
+msgid "Bug Tracker..."
+msgstr "バグ追跡 ..."
+
 #. Resource IDs: (1119)
 msgid "Bug-&ID / Issue-Nr:"
 msgstr "Bug-&ID / Issue-Nr:"
@@ -2390,10 +2394,10 @@ msgstr "変更を保存しますか？"
 #. Resource IDs: (65535)
 msgid ""
 "Documentation : Simon Large\n"
-"Code : Tobias Schäfer, Stefan Fuhrmann"
+"Code : Tobias Schafer, Stefan Fuhrmann"
 msgstr ""
 "ドキュメント : Simon Large\n"
-"コード : Tobias Schäfer, Stefan Fuhrmann"
+"コード : Tobias Schafer, Stefan Fuhrmann"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -3663,6 +3667,10 @@ msgstr ""
 "範囲はハイフンで指定することができます。\n"
 "例: 2-5,7,10,44-70,300-HEAD"
 
+#. Resource IDs: (570)
+msgid "Issue Tracker Hook"
+msgstr "問題追跡フック"
+
 #. Resource IDs: (145)
 msgid ""
 "It is not possible to rename a file by changing the case of its name alone.\n"
@@ -3906,6 +3914,10 @@ msgid ""
 msgstr ""
 "バージョン管理下のファイルに解消マークを付ける\n"
 "解消マークを付ける"
+
+#. Resource IDs: (596)
+msgid "Marks the revisions as merged, without actually doing the merge"
+msgstr "実際にマージを行わずに、リビジョンをマージ済としてマークする。"
 
 #. Resource IDs: (1064)
 msgid "Match &case"
@@ -5810,8 +5822,8 @@ msgid "Steal the lock"
 msgstr "ロックを横取りする"
 
 #. Resource IDs: (65535)
-msgid "Stefan Küng, Lübbe Onken"
-msgstr "Stefan Küng, Lübbe Onken"
+msgid "Stefan Kung, Lubbe Onken"
+msgstr "Stefan Kung, Lubbe Onken"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
@@ -6452,11 +6464,17 @@ msgstr "TortoiseBlame"
 
 #. Resource IDs: (13)
 msgid ""
-"TortoiseBlame can't be started directly!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
+"TortoiseBlame should not be started directly! Use\n"
+"TortoiseProc.exe /command:blame /path:\"path\\to\\file\"\n"
+"instead.\n"
+"\n"
+"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 msgstr ""
 "TortoiseBlame を直接起動することはできません！\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
+"TortoiseProc.exe /command:blame /path:\"path\\to\\file\"\n"
+"を使用してください。\n"
+"\n"
+"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
