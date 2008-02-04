@@ -190,7 +190,8 @@
        with DELETE key. (Alexander Klenin)
 - NEW: Support for IPV6. See issue #352 for details. (Stefan)
 - NEW: Import/Export of properties. See issue #412 for details. (Stefan)
-
+- NEW: Merge dialog redesigned to wizard style. (Stefan)
+--
 - CHG: Revision graph code mainly rewritten resulting in a major 
        performance improvement. (Stefan Fuhrmann)
 - CHG: The working copy is now the default in the branch/tag dialog
@@ -244,6 +245,7 @@
        destination is in a working copy. (Tobias Schäfer)
 - CHG: Context menu (log, merge) available also for deleted nodes in 
        revision dialog (Stefan Fuhrmann)
+--
 - BUG: TortoiseMerge didn't always ask to save the modifications first before
        the user did something which would lose those modifications
        (e.g. open new files). (Stefan)
