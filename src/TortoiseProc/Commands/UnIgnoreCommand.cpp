@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -53,7 +53,7 @@ bool UnIgnoreCommand::Execute()
 		value.Remove('\r');
 		value.Replace("\n\n", "\n");
 
-		// Delete all occurences of 'name'
+		// Delete all occurrences of 'name'
 		// "\n" is temporarily prepended to make the algorithm easier
 		value = "\n" + value;
 		value.Replace("\n" + CUnicodeUtils::GetUTF8(name) + "\n", "\n");
