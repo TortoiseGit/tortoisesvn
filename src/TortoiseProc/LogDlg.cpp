@@ -1062,14 +1062,6 @@ UINT CLogDlg::LogThread()
     else
 	    m_LogProgress.SetRange32(m_endrev, m_startrev);
 	
-    // TODO:
-    // Subversion currently doesn't like WC or BASE as a peg revision for logs,
-    // so we just work around that problem by setting the peg revision to invalid
-    // here.
-    // Once Subversion can work with WC and BASE peg revisions, we have to
-    // remove this workaround again.
-    if (m_pegrev.IsBase() || m_pegrev.IsWorking())
-	    m_pegrev = SVNRev();
     if (!m_pegrev.IsValid())
 	    m_pegrev = m_startrev;
     size_t startcount = m_logEntries.size();
@@ -1693,40 +1685,40 @@ void CLogDlg::DiffSelectedRevWithPrevious()
 	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 	long rev1 = pLogEntry->Rev;
 	long rev2 = rev1-1;
-  CTSVNPath path = m_path;
+	CTSVNPath path = m_path;
 
-  // See how many files under the relative root were changed in selected revision
+	// See how many files under the relative root were changed in selected revision
 	int nChanged = 0;
-  LogChangedPath * changed = NULL;
-  for (INT_PTR c = 0; c < pLogEntry->pArChangedPaths->GetCount(); ++c)
-  {
-    LogChangedPath * cpath = pLogEntry->pArChangedPaths->GetAt(c);
-    if (cpath  &&  cpath -> sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
-    {
-      ++nChanged;
-      changed = cpath;
-    }
-  }
+	LogChangedPath * changed = NULL;
+	for (INT_PTR c = 0; c < pLogEntry->pArChangedPaths->GetCount(); ++c)
+	{
+		LogChangedPath * cpath = pLogEntry->pArChangedPaths->GetAt(c);
+		if (cpath  &&  cpath -> sPath.Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot)==0)
+		{
+			++nChanged;
+			changed = cpath;
+		}
+	}
 
 	if (m_path.IsDirectory() && nChanged == 1) 
-  {
+	{
 		// We're looking at the log for a directory and only one file under dir was changed in the revision
 		// Do diff on that file instead of whole directory
-    path.AppendPathString(changed->sPath.Mid(m_sRelativeRoot.GetLength()));
-  } 
+		path.AppendPathString(changed->sPath.Mid(m_sRelativeRoot.GetLength()));
+	} 
 
-  m_bCancelled = FALSE;
-  DialogEnableWindow(IDOK, FALSE);
-  SetPromptApp(&theApp);
-  theApp.DoWaitCursor(1);
+	m_bCancelled = FALSE;
+	DialogEnableWindow(IDOK, FALSE);
+	SetPromptApp(&theApp);
+	theApp.DoWaitCursor(1);
 
-  SVNDiff diff(this, m_hWnd, true);
-  diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
-  diff.SetHEADPeg(m_LogRevision);
-  diff.ShowCompare(path, rev2, path, rev1);
+	SVNDiff diff(this, m_hWnd, true);
+	diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+	diff.SetHEADPeg(m_LogRevision);
+	diff.ShowCompare(path, rev2, path, rev1);
 
-  theApp.DoWaitCursor(-1);
-  EnableOKButton();
+	theApp.DoWaitCursor(-1);
+	EnableOKButton();
 }
 
 void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t rev2, bool blame, bool unified)
@@ -2544,7 +2536,6 @@ void CLogDlg::SetFilterCueText()
 	// to make the cue banner text appear more to the right of the edit control
 	temp = _T("   ")+temp;
 	m_cFilter.SetCueBanner(temp);
-	//::SendMessage(GetDlgItem(IDC_SEARCHEDIT)->GetSafeHwnd(), EM_SETCUEBANNER, 0, (LPARAM)(LPCTSTR)temp);
 }
 
 void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
