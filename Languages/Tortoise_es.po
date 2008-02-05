@@ -16,9 +16,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-01-29 23:21-0300\n"
-"Last-Translator: Franco Catena <francocatena@gmail.com>\n"
+"PO-Revision-Date: 2008-02-05 22:14+0100\n"
+"Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -113,7 +114,7 @@ msgstr "%d archivos seleccionados, %d archivos en total"
 #. Resource IDs: (246)
 #, c-format
 msgid "%d most active author(s) with at least %d commits each (%d %%)"
-msgstr "%d autor(es) más activo(s) con al menos %d confirmaciones cada (%d %%)"
+msgstr "%d autor(es) más activo(s) con al menos %d confirmaciones cada uno (%d %%)"
 
 #. Resource IDs: (357)
 #, c-format
@@ -1047,7 +1048,7 @@ msgstr "Añadiendo"
 
 #. Resource IDs: (582)
 msgid "Adds a new property"
-msgstr "Añadir una nueva propiedad"
+msgstr "Añade una nueva propiedad"
 
 #. Resource IDs: (9)
 msgid "Adds file(s) to Subversion control"
@@ -1185,7 +1186,7 @@ msgstr "¿Está seguro de querer marcar el/los fichero(s) con conflicto como res
 #. Resource IDs: (199)
 #, c-format
 msgid "Are you sure you want to remove the cache of the selected %d items?"
-msgstr "¿Está seguro de borrar el caché de los %d items seleccionados?"
+msgstr "¿Está seguro de querer borrar la caché de los %d ítems seleccionados?"
 
 #. Resource IDs: (79)
 #, c-format
@@ -1331,8 +1332,8 @@ msgid ""
 "Both /logmsg and /logmsgfile were specified!\n"
 "Only one of those can be specified."
 msgstr ""
-"¡/logmsg y /logmsgfile fueron especificados!\n"
-"Sólo debe especificarse uno de ellos."
+"¡Se ha especificado tanto /logmsg como /logmsgfile!\n"
+"Sólo se puede utilizar uno de ellos."
 
 #. Resource IDs: (1003)
 msgid "Br&owse..."
@@ -1369,6 +1370,10 @@ msgstr "Buscar el programa de diferencias externo"
 #. Resource IDs: (1069)
 msgid "Browse..."
 msgstr "Buscar..."
+
+#. Resource IDs: (1382)
+msgid "Bug Tracker..."
+msgstr "Gestión de incidencias..."
 
 #. Resource IDs: (1119)
 msgid "Bug-&ID / Issue-Nr:"
@@ -2451,7 +2456,9 @@ msgstr "Editar mensaje de registro"
 msgid ""
 "Edit property \"%s\" on\r\n"
 "%s"
-msgstr "Editar la propiedad \"%s\" en %s"
+msgstr ""
+"Editar la propiedad \"%s\" en \r\n"
+"%s"
 
 #. Resource IDs: (1331)
 msgid "Edit..."
@@ -2459,7 +2466,7 @@ msgstr "Editar..."
 
 #. Resource IDs: (581)
 msgid "Edits the selected property value"
-msgstr "Editar el valor de la propiedad seleccionada"
+msgstr "Edita el valor de la propiedad seleccionada"
 
 #. Resource IDs: (79)
 msgid "Either the name or IP of the proxy server"
@@ -2682,7 +2689,7 @@ msgstr "Exporta un repositorio a una copia de trabajo limpia sin las carpetas ad
 
 #. Resource IDs: (581)
 msgid "Exports a set of properties to a file"
-msgstr "Exportar un grupo de propiedades a un archivo"
+msgstr "Exporta un grupo de propiedades a un archivo"
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -3681,6 +3688,10 @@ msgstr ""
 "Se pueden especificar rangos mediante un guión.\n"
 "Ejemplo: 2-5,7,10,44-70,300-HEAD"
 
+#. Resource IDs: (570)
+msgid "Issue Tracker Hook"
+msgstr "Gancho de gestión de incidencias"
+
 #. Resource IDs: (145)
 msgid ""
 "It is not possible to rename a file by changing the case of its name alone.\n"
@@ -3927,6 +3938,10 @@ msgid ""
 msgstr ""
 "Marca un fichero como resuelto en Subversion\n"
 "Marcar como resuelto"
+
+#. Resource IDs: (596)
+msgid "Marks the revisions as merged, without actually doing the merge"
+msgstr "Marca las revisiones como fusionadas, sin que realmente se realice la fusión"
 
 #. Resource IDs: (1064)
 msgid "Match &case"
@@ -4908,7 +4923,7 @@ msgstr "Quita el fichero o la máscara de la lista de ítems ignorados"
 
 #. Resource IDs: (581)
 msgid "Removes the selected properties"
-msgstr "Eliminar las propiedades seleccionadas"
+msgstr "Elimina las propiedades seleccionadas"
 
 #. Resource IDs: (151)
 msgid "Rename"
@@ -5321,7 +5336,7 @@ msgstr "Datos Almacenados"
 
 #. Resource IDs: (581)
 msgid "Saves the selected property value to a file"
-msgstr "Guardar el valor de la propiedad seleccionada a un archivo"
+msgstr "Guarda el valor de la propiedad seleccionada a un archivo"
 
 #. Resource IDs: (103)
 #, c-format
@@ -5503,7 +5518,7 @@ msgid ""
 "Set property \"%s\" on\r\n"
 "%s"
 msgstr ""
-"Establecer propiedad \"%s\" a\r\n"
+"Establecer propiedad \"%s\" en\r\n"
 "%s"
 
 #. Resource IDs: (13)
@@ -5648,11 +5663,11 @@ msgstr ""
 
 #. Resource IDs: (1432)
 msgid "Show overlay for ignored items"
-msgstr "Mostrar la superposición de archivos ignorados"
+msgstr "Mostrar la superposición para ítems ignorados"
 
 #. Resource IDs: (1462)
 msgid "Show overlay for unversioned items"
-msgstr "Mostrar la superposición de archivos no versionados"
+msgstr "Mostrar la superposición para ítems no versionados"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -6473,13 +6488,16 @@ msgstr "TortoiseBlame"
 
 #. Resource IDs: (13)
 msgid ""
-"TortoiseBlame should not be started directly!\n"
-"Use TortoiseProc.exe /command:blame instead.\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
+"TortoiseBlame should not be started directly! Use\n"
+"TortoiseProc.exe /command:blame /path:\"path\\to\\file\"\n"
+"instead.\n"
+"\n"
+"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 msgstr ""
-"¡TortoiseBlame no se puede iniciar directamente!\n"
-"En su lugar utilice: TortoiseProc.exe /command:blame\n"
-"TortoiseBlame.exe archivoblame [[archivoregistro] [título]] [/line:númerodelínea] [/path:rutaoriginal] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
+"¡TortoiseBlame no debería iniciarse directamente! En su lugar, utilice\n"
+"TortoiseProc.exe /command:blame /path:\"ruta\\al\\archivo\"\n"
+"\n"
+"TortoiseBlame.exe archivoblame [archivoregistro [título]] [/line:númerodelínea] [/path:rutaoriginal] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
@@ -6969,6 +6987,10 @@ msgstr "Versión"
 msgid "Version %d.%d.%d.%d"
 msgstr "Versión %d.%d.%d.%d"
 
+#. Resource IDs: (1075)
+msgid "Version Information"
+msgstr "Información de la Versión"
+
 #. Resource IDs: (264)
 msgid "Versioned"
 msgstr "Versionado"
@@ -7324,7 +7346,7 @@ msgid ""
 "Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
 "bugtraq:number\n"
-"Márquelo a \"false\" si su sistema de control de bugs tiene identificadores de incidencias no numéricos."
+"Márquelo a \"false\" si su sistema de control de incidencias tiene identificadores de incidencias no numéricos."
 
 #. Resource IDs: (577)
 #, c-format
