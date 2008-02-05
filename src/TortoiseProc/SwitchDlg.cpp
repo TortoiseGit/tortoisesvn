@@ -135,7 +135,7 @@ void CSwitchDlg::OnOK()
 	if (!UpdateData(TRUE))
 		return; // don't dismiss dialog (error message already shown by MFC framework)
 
-	// if head revision, set revision as -1
+	// if head revision, set revision as HEAD
 	if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
 	{
 		m_rev = _T("HEAD");
