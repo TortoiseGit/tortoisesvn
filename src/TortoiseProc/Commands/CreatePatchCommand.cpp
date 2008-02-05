@@ -164,29 +164,12 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
 		sDir = CTSVNPath(root);
 	if (sDir.IsEmpty())
 		sDir = root;
-	if (!sDir.IsDirectory())
-	{
-		::SetCurrentDirectory(sDir.GetDirectory().GetWinPath());
-	}
-	else
-	{
-		::SetCurrentDirectory(sDir.GetWinPath());
-	}
 
 	SVN svn;
 	for (int fileindex = 0; fileindex < path.GetCount(); ++fileindex)
 	{
-		// TODO: once the bug in the svn lib is fixed (error about relative path
-		// not being a parent of a temp file and the temp file being created due to
-		// the BASE file getting translated first), pass our real relative path and the full paths
-		// of the files to patch - also remove the 'SetCurrentDirectory() calls above.
-
-		// use the relative path
-		CString sRelativePath = path[fileindex].GetWinPathString().Mid(sDir.GetDirectory().GetWinPathString().GetLength());
-		sRelativePath.Trim(_T("/\\"));
-		CTSVNPath diffpath = CTSVNPath(sRelativePath);
 		svn_depth_t depth = path[fileindex].IsDirectory() ? svn_depth_empty : svn_depth_files;
-		if (!svn.CreatePatch(diffpath, SVNRev::REV_BASE, diffpath, SVNRev::REV_WC, CTSVNPath(), depth, FALSE, FALSE, FALSE, _T(""), true, tempPatchFilePath))
+		if (!svn.CreatePatch(path[fileindex], SVNRev::REV_BASE, path[fileindex], SVNRev::REV_WC, sDir, depth, FALSE, FALSE, FALSE, _T(""), true, tempPatchFilePath))
 		{
 			progDlg.Stop();
 			::MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
