@@ -684,8 +684,9 @@ public:
 	 * \param maxrev the max revision of the working copy
 	 * \param switched true if one or more items in the working copy are switched
 	 * \param modified true if there are modified files in the working copy
+	 * \param sparse true if the entry is not of depth svn_depth_infinity
 	 */
-	BOOL GetWCRevisionStatus(const CTSVNPath& wcpath, bool bCommitted, svn_revnum_t& minrev, svn_revnum_t& maxrev, bool& switched, bool& modified);
+	BOOL GetWCRevisionStatus(const CTSVNPath& wcpath, bool bCommitted, svn_revnum_t& minrev, svn_revnum_t& maxrev, bool& switched, bool& modified, bool& sparse);
 
 	/**
 	 * Returns the URL associated with the \c path.

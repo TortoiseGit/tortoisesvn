@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -90,6 +90,7 @@ private:
 	svn_revnum_t	m_maxrev;
 	bool			m_bswitched;
 	bool			m_bmodified;
+	bool			m_bSparse;
 	bool			m_bSettingChanged;
 	static UINT		FindRevThreadEntry(LPVOID pVoid);
 	UINT			FindRevThread();

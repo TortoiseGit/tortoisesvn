@@ -185,7 +185,7 @@ UINT CCopyDlg::FindRevThreadEntry(LPVOID pVoid)
 
 UINT CCopyDlg::FindRevThread()
 {
-	if (GetWCRevisionStatus(m_path, true, m_minrev, m_maxrev, m_bswitched, m_bmodified))
+	if (GetWCRevisionStatus(m_path, true, m_minrev, m_maxrev, m_bswitched, m_bmodified, m_bSparse))
 	{
 		SendMessage(WM_TSVN_MAXREVFOUND);
 	}

@@ -2131,7 +2131,7 @@ BOOL SVN::GetLocks(const CTSVNPath& url, std::map<CString, SVNLock> * locks)
 	return TRUE;
 }
 
-BOOL SVN::GetWCRevisionStatus(const CTSVNPath& wcpath, bool bCommitted, svn_revnum_t& minrev, svn_revnum_t& maxrev, bool& switched, bool& modified)
+BOOL SVN::GetWCRevisionStatus(const CTSVNPath& wcpath, bool bCommitted, svn_revnum_t& minrev, svn_revnum_t& maxrev, bool& switched, bool& modified, bool& sparse)
 {
 	SVNPool localpool(pool);
 	svn_error_clear(Err);
@@ -2144,12 +2144,14 @@ BOOL SVN::GetWCRevisionStatus(const CTSVNPath& wcpath, bool bCommitted, svn_revn
 		maxrev = 0;
 		switched = false;
 		modified = false;
+		sparse = false;
 		return FALSE;
 	}
 	minrev = revstatus->min_rev;
 	maxrev = revstatus->max_rev;
 	switched = !!revstatus->switched;
 	modified = !!revstatus->modified;
+	sparse = !!revstatus->sparse_checkout;
 	return TRUE;
 }
 

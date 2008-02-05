@@ -527,8 +527,8 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 	// find the revision the working copy is on, we mark that revision
 	// later in the graph
 	svn_revnum_t minrev;
-	bool switched, modified;
-	if (!svn.GetWCRevisionStatus(CTSVNPath(path), true, minrev, m_wcRev, switched, modified))
+	bool switched, modified, sparse;
+	if (!svn.GetWCRevisionStatus(CTSVNPath(path), true, minrev, m_wcRev, switched, modified, sparse))
 	{
 		m_wcRev = -1;
 	}
@@ -614,8 +614,8 @@ BOOL CRevisionGraph::AnalyzeRevisionData (CString path, const SOptions& options)
 	// find the revision the working copy is on, we mark that revision
 	// later in the graph
 	svn_revnum_t minrev;
-	bool switched, modified;
-	if (!svn.GetWCRevisionStatus(CTSVNPath(path), true, minrev, m_wcRev, switched, modified))
+	bool switched, modified, sparse;
+	if (!svn.GetWCRevisionStatus(CTSVNPath(path), true, minrev, m_wcRev, switched, modified, sparse))
 	{
 		m_wcRev = -1;
 	}
