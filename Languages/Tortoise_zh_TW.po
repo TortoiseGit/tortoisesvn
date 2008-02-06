@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-01-30 19:16+0800\n"
+"PO-Revision-Date: 2008-02-06 10:24+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1365,6 +1365,10 @@ msgstr "尋找外部比對差異工具"
 #. Resource IDs: (1069)
 msgid "Browse..."
 msgstr "瀏覽..."
+
+#. Resource IDs: (1382)
+msgid "Bug Tracker..."
+msgstr "Bug 追踪..."
 
 #. Resource IDs: (1119)
 msgid "Bug-&ID / Issue-Nr:"
@@ -3650,6 +3654,10 @@ msgstr ""
 "可以使用 - 號來表示範圍.\n"
 "例如: 2-5,7,10,44-70,300-HEAD"
 
+#. Resource IDs: (570)
+msgid "Issue Tracker Hook"
+msgstr "Bug 追踪掛勾"
+
 #. Resource IDs: (145)
 msgid ""
 "It is not possible to rename a file by changing the case of its name alone.\n"
@@ -3895,6 +3903,10 @@ msgid ""
 msgstr ""
 "將檔案標記為已解決衝突狀態\n"
 "標記為已解決"
+
+#. Resource IDs: (596)
+msgid "Marks the revisions as merged, without actually doing the merge"
+msgstr "將版本視為已合併, 但不進行合併動作"
 
 #. Resource IDs: (1064)
 msgid "Match &case"
@@ -6439,13 +6451,16 @@ msgstr "TortoiseBlame"
 
 #. Resource IDs: (13)
 msgid ""
-"TortoiseBlame should not be started directly!\n"
-"Use TortoiseProc.exe /command:blame instead.\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
+"TortoiseBlame should not be started directly! Use\n"
+"TortoiseProc.exe /command:blame /path:\"path\\to\\file\"\n"
+"instead.\n"
+"\n"
+"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 msgstr ""
 "不能直接使用 TortoiseBlame.exe!\n"
-"請改用 TortoiseProc.exe /command:blame.\n"
-"參數: 檔名 [[紀錄檔] [視窗標題]] [/line:行號] [/path:原始路徑] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
+"請改用 TortoiseProc.exe /command:blame /path:\"檔案\\的\\路徑\"\n"
+"\n"
+"TortoiseBlame.exe 檔名 [[紀錄檔] [視窗標題]] [/line:行號] [/path:原始路徑] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
@@ -6932,6 +6947,10 @@ msgstr "版本"
 #, c-format
 msgid "Version %d.%d.%d.%d"
 msgstr "版本 %d.%d.%d.%d"
+
+#. Resource IDs: (1075)
+msgid "Version Information"
+msgstr "版本資訊"
 
 #. Resource IDs: (264)
 msgid "Versioned"
