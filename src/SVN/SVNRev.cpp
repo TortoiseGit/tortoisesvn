@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -100,7 +100,7 @@ void SVNRev::Create(CString sRev)
 		if (bAllNumbers)
 		{
 			LONG nRev = _ttol(sRev);
-			if (nRev > 0)
+			if (nRev >= 0)
 			{
 				rev.kind = svn_opt_revision_number;
 				rev.value.number = nRev;
