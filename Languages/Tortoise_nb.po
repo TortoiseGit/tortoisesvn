@@ -15,9 +15,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-01-04 17:01+0100\n"
-"Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
+"PO-Revision-Date: 2008-02-05 21:23+0100\n"
+"Last-Translator: Lasse Vågsæther Karlsen <lasse@vkarlsen.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -975,6 +976,10 @@ msgstr "&Legg til mappe..."
 msgid "Abort"
 msgstr "Avbryt"
 
+#. Resource IDs: (1465)
+msgid "Abort &Merge"
+msgstr "Avbryt &Fletting"
+
 #. Resource IDs: (136)
 msgid "About TortoiseMerge"
 msgstr "Om TortoiseMerge"
@@ -1372,6 +1377,14 @@ msgstr "Gir skylden for hver linje i en fil til en forfatter"
 msgid "Blend Alpha"
 msgstr "Blandings-alfa"
 
+#. Resource IDs: (83)
+msgid ""
+"Both /logmsg and /logmsgfile were specified!\n"
+"Only one of those can be specified."
+msgstr ""
+"Både /logmsg og /logmsgfile ble spesifisert!\n"
+"Bare en av disse kan spesifiseres av gangen."
+
 #. Resource IDs: (1003)
 msgid "Br&owse..."
 msgstr "&Utforsk..."
@@ -1407,6 +1420,10 @@ msgstr "Bla gjennom etter eksternt diff-program"
 #. Resource IDs: (1069)
 msgid "Browse..."
 msgstr "Utforsk..."
+
+#. Resource IDs: (1382)
+msgid "Bug Tracker..."
+msgstr "Feil-Sporingssystem..."
 
 #. Resource IDs: (1119)
 msgid "Bug-&ID / Issue-Nr:"
@@ -1528,6 +1545,11 @@ msgstr "Endrede filer mellom %s, %s og %s, %s"
 #, c-format
 msgid "Changed files: %d"
 msgstr "Endrede filer: %d"
+
+#. Resource IDs: (264)
+#, c-format
+msgid "Changelist %s moved"
+msgstr "Endringsliste %s flyttet"
 
 #. Resource IDs: (65535)
 msgid "Changelist:"
@@ -2477,6 +2499,15 @@ msgstr "Rediger et filendelse-spesifikt flette-program"
 #. Resource IDs: (113, 115)
 msgid "Edit log message"
 msgstr "Rediger loggmelding"
+
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Edit property \"%s\" on\r\n"
+"%s"
+msgstr ""
+"Rediger egenskap \"%s\" på\r\n"
+"%s"
 
 #. Resource IDs: (1331)
 msgid "Edit..."
@@ -3669,6 +3700,10 @@ msgstr ""
 "Et intervall kan angis med en bindestrek.\n"
 "Eksempel: 2-5,7,10,44-70,300-HEAD"
 
+#. Resource IDs: (570)
+msgid "Issue Tracker Hook"
+msgstr "Saks-Sporingssystem Påhaking"
+
 #. Resource IDs: (145)
 msgid ""
 "It is not possible to rename a file by changing the case of its name alone.\n"
@@ -3914,6 +3949,10 @@ msgid ""
 msgstr ""
 "Merker en fil som løst i Subversion\n"
 "Merk som løst"
+
+#. Resource IDs: (596)
+msgid "Marks the revisions as merged, without actually doing the merge"
+msgstr "Markerer revisjonene som flettet, uten å gjøre selve flettingen"
 
 #. Resource IDs: (1064)
 msgid "Match &case"
@@ -4321,6 +4360,18 @@ msgstr "Utelukk e&ksterne"
 #. Resource IDs: (145)
 msgid "Omit externals"
 msgstr "Utelukk eksterne"
+
+#. Resource IDs: (63)
+msgid ""
+"One of the paths you are attempting to move appears to be a special path\n"
+"(one of 'branches', 'tags' or 'trunk').\n"
+"\n"
+"Are you sure you want to move the selected paths?"
+msgstr ""
+"En av stiene du forsøker å flytte ser ut til å være en spesiell sti\n"
+"(en av 'branches', 'tags', eller 'trunk').\n"
+"\n"
+"Er du sikker på at du vil flytte de valgte stiene?"
 
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
@@ -4834,6 +4885,15 @@ msgstr "Fjern fra &ignoreringslisten"
 #. Resource IDs: (209)
 msgid "Remove from changelist"
 msgstr "Fjern fra endringslisten"
+
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Remove property \"%s\" from\r\n"
+"%s"
+msgstr ""
+"Fjern egenskap \"%s\" fra\r\n"
+"%s"
 
 #. Resource IDs: (1332)
 msgid "Remove..."
@@ -5460,6 +5520,15 @@ msgstr "Tjener&adresse:"
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
 msgstr "Sett fildatoer til \"siste innsendings-&tidspunkt\""
+
+#. Resource IDs: (127)
+#, c-format
+msgid ""
+"Set property \"%s\" on\r\n"
+"%s"
+msgstr ""
+"Sett egenskap \"%s\" på\r\n"
+"%s"
 
 #. Resource IDs: (13)
 msgid "Setting properties..."
@@ -6426,11 +6495,18 @@ msgstr "TortoiseBlame"
 
 #. Resource IDs: (13)
 msgid ""
-"TortoiseBlame can't be started directly!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
+"TortoiseBlame should not be started directly! Use\n"
+"TortoiseProc.exe /command:blame /path:\"path\\to\\file\"\n"
+"instead.\n"
+"\n"
+"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 msgstr ""
 "TortoiseBlame kan ikke startes direkte!\n"
-"TortoiseBlame.exe skyldfil [[loggfil] [vindustittel]] [/line:linjenummer] [/path:opprinnelig sti]"
+" Bruk\n"
+"TortoiseProc.exe /command:blame /path:\"sti\\til\\fil\"\n"
+"isteden.\n"
+"\n"
+"TortoiseBlame.exe skyldfil [loggfil [vindustittel]] [/line:linjenummer] [/path:opprinnelig sti] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
@@ -6919,6 +6995,10 @@ msgstr "Versjon"
 #, c-format
 msgid "Version %d.%d.%d.%d"
 msgstr "Versjon %d.%d.%d.%d"
+
+#. Resource IDs: (1075)
+msgid "Version Information"
+msgstr "Versjons-informasjon"
 
 #. Resource IDs: (264)
 msgid "Versioned"

@@ -18,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2007-09-26 21:35+0100\n"
-"Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
+"PO-Revision-Date: 2008-02-04 19:05+0100\n"
+"Last-Translator: Jean-Christophe MAZENC <jc.mazenc@relvicom.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -620,7 +620,7 @@ msgid "(property change only)"
 msgstr "(changement de propriété seulement)"
 
 msgid "(unknown)"
-msgstr ""
+msgstr "(inconnu)"
 
 #, c-format
 msgid "+ %d"
@@ -1024,7 +1024,7 @@ msgid "Branch / tag created successfully!"
 msgstr "Branche / étiquette créée avec succès !"
 
 msgid "Branch at copy-from-rev even if there was no change in that revision"
-msgstr ""
+msgstr "Effectuer un branchement sur révision de copie même si il n'y a pas eu de changement sur cette révision"
 
 msgid "Branch/&tag..."
 msgstr "Branche/é&tiquette..."
@@ -1792,7 +1792,7 @@ msgid "Dry Run"
 msgstr "Exécution fictive"
 
 msgid "E&xact copy sources"
-msgstr ""
+msgstr "Copie exacte des sources"
 
 msgid "E&xit"
 msgstr "&Quitter"
@@ -2906,9 +2906,8 @@ msgstr "Fusionner"
 msgid "Merge - TortoiseSVN"
 msgstr "Fusionner - TortoiseSVN"
 
-#, fuzzy
 msgid "Merge depth:"
-msgstr "Fusionné"
+msgstr "Profondeur de fusion :"
 
 msgid "Merge revision to..."
 msgstr "Fusionner la révision vers..."
@@ -2946,7 +2945,7 @@ msgstr "Fusion"
 
 #, c-format
 msgid "Merging r%ld through r%ld"
-msgstr ""
+msgstr "Fusionner r%ld à travers r%ld"
 
 msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
 msgstr "La fusion nécessite des révisions ou des URLs différentes dans 'De :' et 'À :'"
@@ -3093,6 +3092,9 @@ msgid ""
 "Check one or more settings below to see unversioned, ignored and/or unmodified files.\n"
 "To see remote changes, click on \"Check Repository\""
 msgstr ""
+"Pas de fichiers à afficher avec les paramètres actuels. \n"
+"Modifiez un ou plusieurs paramèters ci-dessous pour voir les fichiers non versionnés, ignorés et/ou non modifiés.\n"
+"Pour voir les changements distants, cliquez sur \" Vérifiez le dépôt\""
 
 msgid ""
 "No files were changed or added since\n"
@@ -3167,7 +3169,7 @@ msgid "Older lines"
 msgstr "Lines plus vieilles"
 
 msgid "Oldest on to&p"
-msgstr ""
+msgstr "Le plus ancien en haut"
 
 msgid "Omit e&xternals"
 msgstr "Omettre les e&xternes"
@@ -3474,7 +3476,7 @@ msgid "Recently modified lines"
 msgstr "Lignes récemment modifiées"
 
 msgid "Record Only"
-msgstr ""
+msgstr "Enregistrement seul"
 
 msgid "Recurse into unversioned folders"
 msgstr "Parcourir récursivement les répertoires non versionnés"
@@ -4146,7 +4148,7 @@ msgstr ""
 "Voir les espaces"
 
 msgid "Show tags on the copy source, not as separate nodes"
-msgstr ""
+msgstr "Afficher les étiquettes sur la copie, pas comme des noeuds séparés"
 
 msgid "Show unmodified files"
 msgstr "Afficher les fichiers non modifiés"
@@ -5054,7 +5056,7 @@ msgid "Use local"
 msgstr "Annulé par l'utilisateur"
 
 msgid "Use regular expression"
-msgstr ""
+msgstr "Utilisez une expression régulière"
 
 msgid "Use repository"
 msgstr "Utiliser le référentiel "
@@ -5337,7 +5339,7 @@ msgid ""
 "Your working copy has local modifications.\n"
 "If you branch/tag from the HEAD revision, your local changes won't\n"
 "show up in the branch/tag!"
-msgstr ""
+msgstr " "
 
 msgid "Zoo&m out"
 msgstr "Ré&duire"
@@ -5498,11 +5500,10 @@ msgid "it does not exist."
 msgstr "Le fichier %s n'existe pas !"
 
 msgid "it is already deleted."
-msgstr ""
+msgstr "c'est déjà supprimé"
 
-#, fuzzy
 msgid "it is unversioned."
-msgstr "non versionné"
+msgstr "non versionné."
 
 msgid "item kept locally"
 msgstr "élément conservé localement"
@@ -5632,6 +5633,11 @@ msgid ""
 "For example\n"
 "/trunk:123-125,129"
 msgstr ""
+"svn: info de fusion\n"
+"Une nouvelle ligne d'informations de suivi de fusion. Chaque ligne consiste en un chemin absolu suivi d'une liste de numéros de révisions.\n"
+"Les numéros sont séparés par des virgules.\n"
+"Par exemple\n"
+"/trunk:123-125,129 "
 
 msgid ""
 "svn:mime-type\n"
