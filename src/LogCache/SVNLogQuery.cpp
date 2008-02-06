@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -209,17 +209,21 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 
 	try
 	{
-        receiver->ReceiveLog ( receiverBaton->includeChanges 
-                                   ? &changedPaths 
-                                   : NULL
-							 , log_entry->revision
-                             , receiverBaton->includeStandardRevProps 
-                                   ? &standardRevProps 
-                                   : NULL
-                             , receiverBaton->includeUserRevProps 
-                                   ? &userRevProps 
-                                   : NULL
-                             , log_entry->has_children != FALSE);
+		// treat revision 0 special: only report/show it if either the author or a message is set, or if user props are set
+		if ((log_entry->revision)||(userRevProps.GetCount())||(!standardRevProps.author.IsEmpty())||(!standardRevProps.message.IsEmpty()))
+		{
+			receiver->ReceiveLog ( receiverBaton->includeChanges 
+									   ? &changedPaths 
+									   : NULL
+								 , log_entry->revision
+								 , receiverBaton->includeStandardRevProps 
+									   ? &standardRevProps 
+									   : NULL
+								 , receiverBaton->includeUserRevProps 
+									   ? &userRevProps 
+									   : NULL
+								 , log_entry->has_children != FALSE);
+		}
 	}
 	catch (SVNError& e)
 	{

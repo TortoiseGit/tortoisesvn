@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -704,7 +704,7 @@ revision_t CCacheLogQuery::FillLog ( revision_t startRevision
 						, URL
 						, svnQuery
 						, startRevision
-						, max (min (startRevision, endRevision), 1)
+						, max (min (startRevision, endRevision), 0)
 						, startPath
 						, limit
 						, options);
@@ -919,10 +919,10 @@ void CCacheLogQuery::InternalLog ( revision_t startRevision
 
 	revision_t lastReported = startRevision+1;
 
-	// we cannot receive logs for rev 0 (or earlier)
+	// we cannot receive logs for rev < 0
 
-	if (endRevision < 1)
-		endRevision = 1;
+	if (endRevision < 0)
+		endRevision = 0;
 
 	// we may need this more than once
 
