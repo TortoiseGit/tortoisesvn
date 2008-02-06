@@ -32,6 +32,13 @@
 			file or folder or its parent folder is under version control or not.
 			You can also see the TortoiseSVN menu as part of the Explorer file menu.
 		</para>
+		<tip>
+			<para>
+				Some commands which are very rarely used are only available in the
+				extended context menu. To bring up the extended context menu, hold
+				down the <keycap>shift</keycap> key when you <action>right-click</action>.
+			</para>
+		</tip>
 		<para>
 			In some cases you may see several TortoiseSVN entries. This is not a bug!
 			<figure id="tsvn-dug-explorer-file-menu">
@@ -161,33 +168,21 @@
 					</para>
 				</listitem>
 			</itemizedlist>
-			There is one file for each server that you access, formatted as
-			plain text, so you can use a text editor to check which server
-			it applies to. In order to make Subversion and TortoiseSVN
-			(and any other Subversion client) forget your credentials for
-			a particular server, simply delete the corresponding file.
 		</para>
 		<para>
-			If you want to clear the authentication cache for <emphasis>all</emphasis>
-			servers, you can do so from the <guilabel>General</guilabel> page
+			If you want to clear the authentication cache for all
+			servers, you can do so from the <guilabel>Saved Data</guilabel> page
 			of TortoiseSVN's settings dialog. That button will clear all cached
 			authentication data from the Subversion <filename>auth</filename>
 			directories, as well as any authentication
 			data stored in the registry by earlier versions of TortoiseSVN.
-			Refer to <xref linkend="tsvn-dug-settings-main"/>.
+			Refer to <xref linkend="tsvn-dug-settings-saved-data"/>.
 		</para>
 		<para>
 			For more information on how to set up your server for
 			authentication and access control, refer to
 			<xref linkend="tsvn-serversetup"/>
 		</para>
-		<tip>
-			<para>
-				If you have to authenticate against a Windows NT domain,
-				enter your username including the domain name, like:
-				<filename>MYDOMAIN\johnd</filename>.
-			</para>
-		</tip>
 	</sect2>
 	<sect2 id="tsvn-dug-general-window-max">
 		<title>Maximizing Windows</title>
