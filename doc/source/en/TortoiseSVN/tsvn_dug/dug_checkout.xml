@@ -26,19 +26,6 @@
 		If you enter a folder name that does not yet exist, then a
 		directory with that name is created.
 	</para>
-	<important>
-		<para>
-			When you checkout an existing source tree from the repository,
-			you should do so in an empty directory. If you try to check out
-			your source tree into the same directory that you imported from,
-			Subversion will throw an error message because it will not overwrite
-			the existing unversioned files with versioned ones, even if they are
-			identical. You will have to check out into a different directory or
-			delete the existing source tree first. Better still, read
-			<xref linkend="tsvn-dug-import-in-place"/> which describes a
-			method that avoids this problem.
-		</para>
-	</important>
 	<sect2 id="tsvn-dug-checkout-depth">
 		<title>Checkout Depth</title>
 		<para>
@@ -135,7 +122,7 @@
 				<guimenu>TortoiseSVN</guimenu>
 				<guimenuitem>Update</guimenuitem>
 			</menuchoice>.
-			The standard update will include all sub-folders and all externals.
+			The standard update will include all externals and keep the existing depth.
 		</para>
 	</important>
 	<para>
