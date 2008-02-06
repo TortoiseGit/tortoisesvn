@@ -52,6 +52,74 @@
 			special meaning in Subversion. These begin with <literal>svn:</literal>. 
 			<literal>svn:externals</literal> is such a property; see how to handle
 			externals in <xref linkend="tsvn-dug-import-4"/>.
+		</para>
+		<sect3 id="tsvn-dug-propertypage-props-keywords">
+			<title>svn:keywords</title>
+			<indexterm>
+				<primary>keywords</primary>
+			</indexterm>
+			<para>
+				Subversion supports CVS-like keyword expansion which can be
+				used to embed filename and revision information within the
+				file itself. Keywords currently supported are:
+				<variablelist>
+					<varlistentry>
+						<term condition="pot">$Date$</term>
+						<listitem>
+							<para>
+								Date of last known commit. This is based on
+								information obtained when you update your working
+								copy. It does <emphasis>not</emphasis> check the
+								repository to find more recent changes.
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term condition="pot">$Revision$</term>
+						<listitem>
+							<para>
+								Revision of last known commit.
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term condition="pot">$Author$</term>
+						<listitem>
+							<para>
+								Author who made the last known commit.
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term condition="pot">$HeadURL$</term>
+						<listitem>
+							<para>
+								The full URL of this file in the repository.
+							</para>
+						</listitem>
+					</varlistentry>
+					<varlistentry>
+						<term condition="pot">$Id$</term>
+						<listitem>
+							<para>
+								A compressed combination of the previous
+								four keywords.
+							</para>
+						</listitem>
+					</varlistentry>
+				</variablelist>
+			</para>
+			<para>
+				To find out how to use these keywords, look at the
+				<ulink url="http://svnbook.red-bean.com/en/1.4/svn.advanced.props.special.keywords.html">
+					<citetitle>svn:keywords section</citetitle>
+				</ulink>
+				in the Subversion book, which gives a full description of these
+				keywords and how to enable and use them.
+			</para>
+		</sect3>
+
+		<para>
 			For more information about properties in Subversion see the 
 			<ulink url="http://svnbook.red-bean.com/en/1.4/svn.advanced.props.html">
 				<citetitle>Special Properties</citetitle>

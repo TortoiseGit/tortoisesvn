@@ -129,6 +129,12 @@
 			to the right of those currently displayed. You can reorder them by
 			drag and drop, or resize them, so that they fit your needs.
 		</para>
+		<important>
+			<para>The additional columns in the Windows Explorer are not
+			available on Vista, since Microsoft decided to not allow such
+			columns for <emphasis>all</emphasis> files anymore but only
+			for specific file types.</para>
+		</important>
 		<tip>
 			<para>
 				If you want the current layout to be displayed in all your
@@ -351,70 +357,5 @@
 				one. 
 			</para>
 		</tip>
-	</sect2>
-	<sect2>
-		<title>Keyword Expansion</title>
-		<indexterm>
-			<primary>keywords</primary>
-		</indexterm>
-		<para>
-			Subversion supports CVS-like keyword expansion which can be
-			used to embed filename and revision information within the
-			file itself. Keywords currently supported are:
-			<variablelist>
-				<varlistentry>
-					<term condition="pot">$Date$</term>
-					<listitem>
-						<para>
-							Date of last known commit. This is based on
-							information obtained when you update your working
-							copy. It does <emphasis>not</emphasis> check the
-							repository to find more recent changes.
-						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term condition="pot">$Revision$</term>
-					<listitem>
-						<para>
-							Revision of last known commit.
-						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term condition="pot">$Author$</term>
-					<listitem>
-						<para>
-							Author who made the last known commit.
-						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term condition="pot">$HeadURL$</term>
-					<listitem>
-						<para>
-							The full URL of this file in the repository.
-						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term condition="pot">$Id$</term>
-					<listitem>
-						<para>
-							A compressed combination of the previous
-							four keywords.
-						</para>
-					</listitem>
-				</varlistentry>
-			</variablelist>
-		</para>
-		<para>
-			To find out how to use these keywords, look at the
-			<ulink url="http://svnbook.red-bean.com/en/1.4/svn.advanced.props.special.keywords.html">
-				<citetitle>svn:keywords section</citetitle>
-			</ulink>
-			in the Subversion book, which gives a full description of these
-			keywords and how to enable and use them.
-		</para>
 	</sect2>
 </sect1>
