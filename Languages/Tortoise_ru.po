@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-01-31 20:17+0300\n"
+"PO-Revision-Date: 2008-02-06 13:10+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1425,6 +1425,10 @@ msgstr "Выбрать внешнюю программу различий"
 #. Resource IDs: (1069)
 msgid "Browse..."
 msgstr "Обзор..."
+
+#. Resource IDs: (1382)
+msgid "Bug Tracker..."
+msgstr "Отслеживание ошибок..."
 
 #. Resource IDs: (1119)
 msgid "Bug-&ID / Issue-Nr:"
@@ -3741,6 +3745,10 @@ msgstr ""
 "Диапазон может быть указан при помощи тире.\n"
 "Например: 2-5,7,10,44-70,300-HEAD"
 
+#. Resource IDs: (570)
+msgid "Issue Tracker Hook"
+msgstr "Ловушка системы отслеживания проблем"
+
 #. Resource IDs: (145)
 msgid ""
 "It is not possible to rename a file by changing the case of its name alone.\n"
@@ -3991,6 +3999,10 @@ msgid ""
 msgstr ""
 "Отмечает файл как улаженный в Subversion\n"
 "Отметить как улаженный"
+
+#. Resource IDs: (596)
+msgid "Marks the revisions as merged, without actually doing the merge"
+msgstr "Помечает ревизию как слитую, без реального выполнения слияния"
 
 #. Resource IDs: (1064)
 msgid "Match &case"
@@ -5764,7 +5776,7 @@ msgstr "Показано узлов: %ld"
 #. Resource IDs: (115)
 #, c-format
 msgid "Showing %ld revision(s), from revision %ld to revision %ld - %ld revision(s) selected."
-msgstr "Показано ревизий: %ld, с ревизии %ld по ревизию %ld - выбрано ревизий: %ld."
+msgstr "Показано ревизий: %ld, с ревизии %ld по ревизию %ld, выбрано ревизий: %ld."
 
 #. Resource IDs: (272)
 #, c-format
@@ -7072,6 +7084,10 @@ msgstr "Версия"
 #, c-format
 msgid "Version %d.%d.%d.%d"
 msgstr "Версия: %d.%d.%d.%d"
+
+#. Resource IDs: (1075)
+msgid "Version Information"
+msgstr "Информация о версии"
 
 #. Resource IDs: (264)
 msgid "Versioned"
