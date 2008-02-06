@@ -97,9 +97,7 @@
 		<para>
 			Since TortoiseSVN already uses the Subversion library, which has a
 			nice diffing engine built in, it was just natural to use this
-			library instead of the GNU diff. Also it reduces the size of the
-			executable since TortoiseSVN and TortoiseMerge can both use the
-			same DLLs.
+			library instead of the GNU diff.
 		</para>
 	</sect1>
 </chapter>
