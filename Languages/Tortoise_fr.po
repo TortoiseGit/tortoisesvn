@@ -14,12 +14,14 @@
 # Jean-Christophe Gigogne <jc.gigogne@wanadoo.fr>
 # Lübbe Onken <luebbe@tigris.org>
 # Jérémy Badier
+# Jean-Christophe MAZENC
+# Christophe SAUVEUR
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-02-04 19:05+0100\n"
-"Last-Translator: Jean-Christophe MAZENC <jc.mazenc@relvicom.com>\n"
+"PO-Revision-Date: 2008-02-07 12:25+0100\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -482,9 +484,8 @@ msgstr "&Effacer"
 msgid "&Rename"
 msgstr "&Renommer"
 
-#, fuzzy
 msgid "&Reopen commit and branch/tag dialog after a commit failed"
-msgstr "&Réouvrir la boîte de dialogue Livrer après qu'une livraison ait échouée."
+msgstr "&Réouvrir les boîtes de dialogue Livrer et Branche/Etiquette après qu'une livraison ait échouée."
 
 msgid "&Repo-browser"
 msgstr "Navigateur de &référentiel"
@@ -516,9 +517,8 @@ msgstr "&Enregistrer..."
 msgid "&Settings"
 msgstr "Confi&guration"
 
-#, fuzzy
 msgid "&Show HEAD revisions"
-msgstr "Révision &HEAD"
+msgstr "Voir les révisions &HEAD"
 
 msgid "&Specific revision in repository"
 msgstr "Révision &spécifique dans le référentiel"
@@ -1024,7 +1024,7 @@ msgid "Branch / tag created successfully!"
 msgstr "Branche / étiquette créée avec succès !"
 
 msgid "Branch at copy-from-rev even if there was no change in that revision"
-msgstr "Effectuer un branchement sur révision de copie même si il n'y a pas eu de changement sur cette révision"
+msgstr "Créer une branche comme copie-de-révision même s'il n'y a pas de changement dans cette révision"
 
 msgid "Branch/&tag..."
 msgstr "Branche/é&tiquette..."
@@ -1461,9 +1461,9 @@ msgstr "&Corrections"
 msgid "Could not add %s to the ignore list!"
 msgstr "Ne peut pas ajouter %s à la liste des ignorés !"
 
-#, fuzzy, c-format
+#, c-format
 msgid "Could not add \"%s\" because"
-msgstr "Ne peut pas ajouter %s à la liste des ignorés !"
+msgstr "Ne peut pas ajouter %s parce que"
 
 msgid "Could not check for a newer version!"
 msgstr "Ne peut pas vérifier la disponibilité d'une nouvelle version !"
@@ -1478,16 +1478,16 @@ msgstr ""
 "<hr=100%%>\n"
 "%s"
 
-#, fuzzy, c-format
+#, c-format
 msgid "Could not delete \"%s\" because"
-msgstr "Ne peut pas obtenir l'état !"
+msgstr "Ne peut pas supprimer \"%s\" parce que"
 
 msgid "Could not get the status!"
 msgstr "Ne peut pas obtenir l'état !"
 
-#, fuzzy, c-format
+#, c-format
 msgid "Could not merge \"%s\" because"
-msgstr "Ne peut pas obtenir l'état !"
+msgstr "Ne peut pas fusionner \"%s\" parce que"
 
 #, c-format
 msgid ""
@@ -1583,9 +1583,8 @@ msgstr ""
 msgid "Create repositor&y here"
 msgstr "Créer un ré&férentiel ici..."
 
-#, fuzzy
 msgid "Create unified diff file"
-msgstr "Obtention diff standard"
+msgstr "Créer un fichier diff unifié"
 
 msgid "Created folder remotely"
 msgstr "Créé répertoire à distance"
@@ -1757,6 +1756,9 @@ msgid ""
 "This will remove all Subversion admin directories from\n"
 "%s!"
 msgstr ""
+"Voulez-vous rendre cette copie de travail non versionnée ?\n"
+"Cela va supprimer tous les répertoires administrateur Subversion de\n"
+"%s!"
 
 msgid "Do you want to proceed?"
 msgstr "Voulez-vous exécuter?"
@@ -1792,7 +1794,7 @@ msgid "Dry Run"
 msgstr "Exécution fictive"
 
 msgid "E&xact copy sources"
-msgstr "Copie exacte des sources"
+msgstr "Copie e&xacte des sources"
 
 msgid "E&xit"
 msgstr "&Quitter"
@@ -2032,7 +2034,7 @@ msgstr ""
 "Profondeur :\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "File size:\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
@@ -2050,42 +2052,41 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"%s\n"
-"Taille du fichier :\t\t\t%s\n"
+"Taille du fichier :\t%s (%s)\n"
 "Largeur :\t\t\t%ld pixel\n"
 "Hauteur :\t\t\t%ld pixel\n"
 "Résolution horizontale :\t%.1f dpi\n"
-"Résolution verticale :\t\t%.1f dpi\n"
-"Profondeur :\t\t\t%d bit\n"
+"Résolution verticale :\t%.1f dpi\n"
+"Profondeur :\t\t%d bit\n"
 "Zoom :\t\t\t%d%%\n"
 "\n"
-"%s\n"
-"Taille du fichier :\t\t\t%s\n"
+"Taille du fichier :\t%s (%s)\n"
 "Largeur :\t\t\t%ld pixel\n"
 "Hauteur :\t\t\t%ld pixel\n"
 "Résolution horizontale :\t%.1f dpi\n"
-"Résolution verticale :\t\t%.1f dpi\n"
-"Profondeur :\t\t\t%d bit"
-
-#, fuzzy, c-format
-msgid ""
-"File size:\t\t\t%s (%s)\n"
-"Width:\t\t\t%ld pixel\n"
-"Height:\t\t\t%ld pixel\n"
-"Horizontal Resolution:\t%.1f dpi\n"
-"Vertical Resolution:\t\t%.1f dpi\n"
-"Depth:\t\t\t%d bit\n"
-"Zoom:\t\t\t%d%%"
-msgstr ""
-"Taille du fichier:\t\t\t%s\n"
-"Largeur :\t\t\t%ld pixel\n"
-"Hauteur :\t\t\t%ld pixel\n"
-"Résolution horizontale :\t%.1f dpi\n"
-"Résolution verticale :\t\t%.1f dpi\n"
-"Profondeur :\t\t\t%d bit\n"
+"Résolution verticale :\t%.1f dpi\n"
+"Profondeur :\t\t%d bit\n"
 "Zoom :\t\t\t%d%%"
 
-#, fuzzy, c-format
+#, c-format
+msgid ""
+"File size:\t\t\t%s (%s)\n"
+"Width:\t\t\t%ld pixel\n"
+"Height:\t\t\t%ld pixel\n"
+"Horizontal Resolution:\t%.1f dpi\n"
+"Vertical Resolution:\t\t%.1f dpi\n"
+"Depth:\t\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
+msgstr ""
+"Taille du fichier :\t\t%s (%s)\n"
+"Largeur :\t\t\t%ld pixel\n"
+"Hauteur :\t\t\t%ld pixel\n"
+"Résolution horizontale :\t%.1f dpi\n"
+"Résolution verticale :\t%.1f dpi\n"
+"Profondeur :\t\t%d bit\n"
+"Zoom :\t\t\t%d%%"
+
+#, c-format
 msgid ""
 "File size:\t\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
@@ -2103,22 +2104,21 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"%s\n"
-"Taille du fichier :\t\t\t%s\n"
+"Taille du fichier :\t%s (%s)\n"
 "Largeur :\t\t\t%ld pixel\n"
 "Hauteur :\t\t\t%ld pixel\n"
 "Résolution horizontale :\t%.1f dpi\n"
-"Résolution verticale :\t\t%.1f dpi\n"
-"Profondeur :\t\t\t%d bit\n"
+"Résolution verticale :\t%.1f dpi\n"
+"Profondeur :\t\t%d bit\n"
 "Zoom :\t\t\t%d%%\n"
 "\n"
-"%s\n"
-"Taille du fichier :\t\t\t%s\n"
+"Taille du fichier :\t%s (%s)\n"
 "Largeur :\t\t\t%ld pixel\n"
 "Hauteur :\t\t\t%ld pixel\n"
 "Résolution horizontale :\t%.1f dpi\n"
-"Résolution verticale :\t\t%.1f dpi\n"
-"Profondeur :\t\t\t%d bit"
+"Résolution verticale :\t%.1f dpi\n"
+"Profondeur :\t\t%d bit\n"
+"Zoom:\t\t\t%d%%"
 
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
 msgstr "Filtrer les chemins suivants (séparer les chemins avec le caractère '*') :"
@@ -2737,9 +2737,8 @@ msgstr "Lancement de l'outil externe de diff / fusion pour résoudre les conflit
 msgid "Least active author:"
 msgstr "Auteur le moins actif :"
 
-#, fuzzy
 msgid "Leave conflicted:"
-msgstr "en conflit"
+msgstr "Laissé en conflit:"
 
 msgid "Left View: "
 msgstr "Vue de gauche :"
@@ -2907,7 +2906,7 @@ msgid "Merge - TortoiseSVN"
 msgstr "Fusionner - TortoiseSVN"
 
 msgid "Merge depth:"
-msgstr "Profondeur de fusion :"
+msgstr "Profondeur de fusion:"
 
 msgid "Merge revision to..."
 msgstr "Fusionner la révision vers..."
@@ -2921,9 +2920,9 @@ msgstr "Configuration de la fusion"
 msgid "Merged"
 msgstr "Fusionné"
 
-#, fuzzy, c-format
+#, c-format
 msgid "Merged revision(s) %s from %s:\n"
-msgstr "Récupération de la révision %s du fichier :"
+msgstr "Révision(s) fusionnée(s) %s depuis %s:\n"
 
 msgid "Merges a branch into the main trunk"
 msgstr "Fusionner une branche dans le tronc principal"
@@ -2939,13 +2938,13 @@ msgstr "Fusionner %s de la révision %s vers %s dans %s, %s%s"
 msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s"
 msgstr "Fusionner de %s, révision %s vers %s, révision %s dans %s, %s%s"
 
-#, fuzzy, c-format
+#, c-format
 msgid "Merging r%ld"
-msgstr "Fusion"
+msgstr "Fusion de r%ld"
 
 #, c-format
 msgid "Merging r%ld through r%ld"
-msgstr "Fusionner r%ld à travers r%ld"
+msgstr "Fusionner r%ld jusqu'à r%ld"
 
 msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
 msgstr "La fusion nécessite des révisions ou des URLs différentes dans 'De :' et 'À :'"
@@ -3092,9 +3091,9 @@ msgid ""
 "Check one or more settings below to see unversioned, ignored and/or unmodified files.\n"
 "To see remote changes, click on \"Check Repository\""
 msgstr ""
-"Pas de fichiers à afficher avec les paramètres actuels. \n"
-"Modifiez un ou plusieurs paramèters ci-dessous pour voir les fichiers non versionnés, ignorés et/ou non modifiés.\n"
-"Pour voir les changements distants, cliquez sur \" Vérifiez le dépôt\""
+"Aucun fichier à afficher avec les paramètres actuels.\n"
+"Cochez un des paramètres ci-dessous pour voir les fichiers non-versionnés, ignorés et/ou non modifiés.\n"
+"Pour voir les changements de la version distance, cliquez sur \"Vérifier le Dépôt\""
 
 msgid ""
 "No files were changed or added since\n"
@@ -3169,7 +3168,7 @@ msgid "Older lines"
 msgstr "Lines plus vieilles"
 
 msgid "Oldest on to&p"
-msgstr "Le plus ancien en haut"
+msgstr "&Plus vieux en haut"
 
 msgid "Omit e&xternals"
 msgstr "Omettre les e&xternes"
@@ -3476,7 +3475,7 @@ msgid "Recently modified lines"
 msgstr "Lignes récemment modifiées"
 
 msgid "Record Only"
-msgstr "Enregistrement seul"
+msgstr "Enregistrement Seul"
 
 msgid "Recurse into unversioned folders"
 msgstr "Parcourir récursivement les répertoires non versionnés"
@@ -3518,6 +3517,21 @@ msgid ""
 "\\d\t\t\tdigits 0-9\n"
 "\\s\t\t\twhitespaces"
 msgstr ""
+"Filter d'expressions régulières:\n"
+".\t\tn'importe quel caractère\n"
+"c+\t\tcorrespond au caractère c une ou plusieurs fois\n"
+"c*\t\tcorrespond au caractère c zéro ou plusieurs fois\n"
+"^\t\tdébut de la ligne\n"
+"$\t\tfin de la ligne\n"
+"(chaîne){n}\tcorrespond à la chaîne n fois\n"
+"(abcd)\tsous-expression\n"
+"[aei0-9]\t\tcorrespond à a,e,i et 0..9\n"
+"[^aei0-9]\tn'importe quoi sauf a,e,i et 0..9\n"
+"<hr=100%>\n"
+"\\w\t\t\tcorrespond à a-z,A-Z,0-9 et _\n"
+"\\W\t\t\tn'importe quel caractère non alpha-numérique\n"
+"\\d\t\t\tchifre de 0 à 9\n"
+"\\s\t\t\tespace blanc"
 
 msgid "Reject"
 msgstr "Rejet"
@@ -4086,14 +4100,15 @@ msgstr "Voir les fichiers non &versionnés"
 msgid "Show File List"
 msgstr "Afficher la liste des fichiers"
 
-#, fuzzy
 msgid "Show HEAD revision nodes"
-msgstr "&Afficher toutes les révisions"
+msgstr "Montrer les noeuds de révision HEAD"
 
 msgid ""
 "Show Inline-Diff word by word\n"
 "Inline diff word-wise"
 msgstr ""
+"Voir les différences en ligne mot par mot\n"
+"Différence en ligne par mot"
 
 msgid "Show Lock dialog before locking files"
 msgstr "Afficher la boîte de dialogue verou avant de verrouiller les fichiers"
@@ -4122,9 +4137,8 @@ msgstr "Voir la barre de différe&nce de ligne"
 msgid "Show linenumber&s"
 msgstr "Voir les numéros de ligne&s"
 
-#, fuzzy
 msgid "Show oldest node at top"
-msgstr "Affiche %ld noeuds"
+msgstr "Afficher le plus vieux noeud en haut"
 
 msgid ""
 "Show or hide the status bar\n"
@@ -4148,7 +4162,7 @@ msgstr ""
 "Voir les espaces"
 
 msgid "Show tags on the copy source, not as separate nodes"
-msgstr "Afficher les étiquettes sur la copie, pas comme des noeuds séparés"
+msgstr "Voir les étiquettes dans la copie de travail, pas comme des noeuds séparés"
 
 msgid "Show unmodified files"
 msgstr "Afficher les fichiers non modifiés"
@@ -4219,12 +4233,11 @@ msgstr "Spécifiez la plage de révisions que vous voulez fusionner :"
 msgid "Split lines"
 msgstr "Séparer lignes"
 
-#, fuzzy
 msgid "Split long &branches"
-msgstr "Séparer lignes"
+msgstr "Séparer les &branches longues"
 
 msgid "Split long, inactive branches into segments"
-msgstr ""
+msgstr "Séparer les branches longues et inactives en segments"
 
 msgid ""
 "Split the active window into panes\n"
@@ -4433,7 +4446,7 @@ msgstr ""
 "%s\n"
 "existe déjà ! Voulez-vous l'écraser ?"
 
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "The file\n"
 "%s\n"
@@ -4537,7 +4550,6 @@ msgstr ""
 "%s\n"
 "ne correspondent pas !"
 
-#, fuzzy
 msgid ""
 "The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
@@ -4551,7 +4563,9 @@ msgstr ""
 "Vous pouvez quand même essayer, mais vous aurez peut-être une erreur plus tard.\n"
 "\n"
 "Un chemin valide sous windows ne doit pas contenir '<<>|\"?*:' ou l'un des noms de périphériques suivant :\n"
-"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
+"\n"
+"Voulez-vous continuer malgré tout ?"
 
 #, c-format
 msgid ""
@@ -4636,7 +4650,6 @@ msgstr ""
 "n'est pas vide !\n"
 "Etes vous sûr de vouloir extraire/exporter dans ce répertoire ?"
 
-#, fuzzy
 msgid ""
 "The time in seconds after which the parsing of the selected files stops.\n"
 "A lower value will make the auto-completion list available sooner,\n"
@@ -4795,7 +4808,6 @@ msgstr "TortoiseIDiff"
 msgid "TortoiseIDiff - An image diff tool, part of TortoiseSVN"
 msgstr "TortoiseIDiff - Un outil de comparaison d'images, partie de TortoiseSVN"
 
-#, fuzzy
 msgid ""
 "TortoiseIDiff: the image diff viewer for TortoiseSVN\n"
 "\n"
@@ -4814,7 +4826,10 @@ msgstr ""
 "/left:\"chemin de l'image de gauche\"\n"
 "/lefttitle:\"titre à afficher pour l'image de gauche\"\n"
 "/right:\"chemin de l'image de droite\"\n"
-"/righttitle:\"titre à afficher pour l'image de droite\""
+"/righttitle:\"titre à afficher pour l'image de droite\"\n"
+"/overlay\t\tActiver le mode overlay\n"
+"/fit\t\tAdapter les tailles des images\n"
+"/showinfo\t\tAfficher les boîtes d'information des images"
 
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
@@ -4979,16 +4994,15 @@ msgstr "Déverrouillé"
 msgid "Untitled"
 msgstr "Sans nom"
 
-#, fuzzy
 msgid "Unversion"
-msgstr "Révision"
+msgstr "Rendre non-versionné"
 
 msgid "Unversioned files mark parent folder as modified"
 msgstr "Les fichiers non versionnés marquent le dossier parent comme modifié"
 
-#, fuzzy, c-format
+#, c-format
 msgid "Unversioning %s"
-msgstr "La version courante est : %s"
+msgstr "Render %s non-versionné"
 
 msgid "Update"
 msgstr "Mettre à jour"
@@ -5051,12 +5065,11 @@ msgstr "Utiliser les deux blocs de texte (celui-ci en premier)"
 msgid "Use both text blocks (this one last)"
 msgstr "Utiliser les deux blocs de texte (celui-ci en dernier)"
 
-#, fuzzy
 msgid "Use local"
-msgstr "Annulé par l'utilisateur"
+msgstr "Utiliser la copie locale"
 
 msgid "Use regular expression"
-msgstr "Utilisez une expression régulière"
+msgstr "Utiliser les expressions régulières"
 
 msgid "Use repository"
 msgstr "Utiliser le référentiel "
@@ -5339,7 +5352,10 @@ msgid ""
 "Your working copy has local modifications.\n"
 "If you branch/tag from the HEAD revision, your local changes won't\n"
 "show up in the branch/tag!"
-msgstr " "
+msgstr ""
+"Votre copie de travail comprend des modifications locales.\n"
+"Si vous créer une branche/étiquette depuis la révision HEAD, vos modifications locales\n"
+"n'apparaîtront pas dans la branche/étiquette!"
 
 msgid "Zoo&m out"
 msgstr "Ré&duire"
@@ -5495,15 +5511,14 @@ msgstr "ignorant origine"
 msgid "incomplete"
 msgstr "incomplet"
 
-#, fuzzy
 msgid "it does not exist."
-msgstr "Le fichier %s n'existe pas !"
+msgstr "cela n'existe pas."
 
 msgid "it is already deleted."
-msgstr "c'est déjà supprimé"
+msgstr "cela a déjà été supprimé."
 
 msgid "it is unversioned."
-msgstr "non versionné."
+msgstr "cela n'est pas versionné."
 
 msgid "item kept locally"
 msgstr "élément conservé localement"
@@ -5589,7 +5604,6 @@ msgstr ""
 "Si présent, rend le fichier exécutable. Cette propriété ne peut pas être affectée sur un répertoire.\n"
 "Un essai non récursif échouera, et un essai récursif va mettre la propriété seulement sur les fichiers enfants du répertoire."
 
-#, fuzzy
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of\n"
@@ -5633,11 +5647,11 @@ msgid ""
 "For example\n"
 "/trunk:123-125,129"
 msgstr ""
-"svn: info de fusion\n"
-"Une nouvelle ligne d'informations de suivi de fusion. Chaque ligne consiste en un chemin absolu suivi d'une liste de numéros de révisions.\n"
-"Les numéros sont séparés par des virgules.\n"
+"svn:mergeinfo\n"
+"Une liste d'informations de suivi séparée par des sauts de ligne. Chaque ligne consiste en un chemin\n"
+"absolu suivi par deux points et une liste de numéros de révisions séparés par des virgules.\n"
 "Par exemple\n"
-"/trunk:123-125,129 "
+"/trunk:123-125,129"
 
 msgid ""
 "svn:mime-type\n"
@@ -5671,11 +5685,8 @@ msgstr ""
 "allé sur\r\n"
 "%s"
 
-#, fuzzy
 msgid "switched:"
-msgstr ""
-"allé sur\r\n"
-"%s"
+msgstr "basculé:"
 
 msgid "there are conflicting modifications."
 msgstr "il existe des modifications en conflit."
