@@ -2248,6 +2248,11 @@ BOOL SVN::PathIsURL(const CString& path)
 
 void SVN::formatDate(TCHAR date_native[], apr_time_t& date_svn, bool force_short_fmt)
 {
+	if (date_svn == NULL)
+	{
+		_tcscpy_s(date_native, SVN_DATE_BUFFER, _T("(no date)"));
+		return;
+	}
 	date_native[0] = '\0';
 	apr_time_exp_t exploded_time = {0};
 	
