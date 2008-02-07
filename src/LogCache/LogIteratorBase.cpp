@@ -378,7 +378,8 @@ void CLogIteratorBase::Retry (revision_t last)
 
 	// don't handle copy / rename more than once
 
-	++revision;
+	if (revision)
+		++revision;
 	InternalAdvance (last);
 }
 
