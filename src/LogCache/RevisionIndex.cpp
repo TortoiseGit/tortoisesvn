@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -70,12 +70,12 @@ revision_t CRevisionIndex::GetFirstMissingRevision() const
 
     // do we know the beginning of the history?
 
-    if (firstRevision > 1)
-        return 1;
+    if (firstRevision > 0)
+        return 0;
 
     // find first gap
 
-    for (size_t i = 1, count = indices.size(); i < count; ++i)
+    for (size_t i = 0, count = indices.size(); i < count; ++i)
         if (indices[i] == NO_INDEX)
             return firstRevision + static_cast<revision_t>(i);
 

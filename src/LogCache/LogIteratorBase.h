@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -159,7 +159,7 @@ inline const CDictionaryBasedTempPath& CLogIteratorBase::GetPath() const
 
 inline bool CLogIteratorBase::EndOfPath() const
 {
-	return (revision == NO_REVISION) || (revision == 0);
+	return (revision == NO_REVISION);
 }
 
 inline void CLogIteratorBase::SetRevision (revision_t revision)

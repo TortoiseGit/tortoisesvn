@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -329,7 +329,7 @@ void CLogIteratorBase::Advance (revision_t last)
 
 	// end of history?
 
-	if (revision > last)
+	if (revision >= last)
 	{
 		// the current revision may be a copy / rename
 		// -> update our path before we proceed, if necessary
@@ -351,7 +351,7 @@ void CLogIteratorBase::Advance (revision_t last)
 		else
 		{
 			// find next entry that mentions the path
-			// stop @ revision 0 or missing log data
+			// stop @ revision -1 or missing log data
 
 			InternalAdvance (last);
 		}
@@ -361,13 +361,13 @@ void CLogIteratorBase::Advance (revision_t last)
 void CLogIteratorBase::ToNextAvailableData()
 {
 	// find next available entry
-	// stop @ revision 0
+	// stop @ revision -1
 
 	do
 	{
 		AdvanceOneStep();
 	}
-	while ((revision > 0) && InternalDataIsMissing());
+	while ((revision != NO_INDEX) && InternalDataIsMissing());
 }
 
 void CLogIteratorBase::Retry (revision_t last)

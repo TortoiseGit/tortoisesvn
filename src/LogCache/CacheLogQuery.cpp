@@ -1277,7 +1277,7 @@ void CCacheLogQuery::LogRevision ( revision_t revision
                                       , std::string());
 
         FillLog ( revision
-			    , 1
+			    , 0
 			    , root
 			    , 100
                 , fillOptions
