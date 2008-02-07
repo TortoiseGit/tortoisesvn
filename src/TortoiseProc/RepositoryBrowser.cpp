@@ -234,7 +234,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	// set up the list control
 	// set the extended style of the listcontrol
 	// the style LVS_EX_FULLROWSELECT interferes with the background watermark image but it's more important to be able to select in the whole row.
-	CRegDWORD regFullRowSelect(_T("Software\\TortoiseSVN\\FullRowSelect"), TRUE);
+	CRegDWORD regFullRowSelect(_T("Software\\TortoiseSVN\\FullRowSelect"), FALSE);
 	DWORD exStyle = LVS_EX_HEADERDRAGDROP | LVS_EX_DOUBLEBUFFER | LVS_EX_INFOTIP | LVS_EX_SUBITEMIMAGES;
 	if (DWORD(regFullRowSelect))
 		exStyle |= LVS_EX_FULLROWSELECT;
