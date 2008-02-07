@@ -510,7 +510,6 @@ void CSkipRevisionInfo::Add ( const CDictionaryBasedPath& path
 	// violating these assertions will break our lookup algorithms
 
 	assert (path.IsValid());
-	assert (revision > 0);
 	assert (revision != NO_REVISION);
 	assert (size != NO_REVISION);
 	assert (2*size > size);
