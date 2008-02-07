@@ -90,6 +90,7 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 	// parse revprops
 
     StandardRevProps standardRevProps;
+	standardRevProps.timeStamp = NULL;
     UserRevPropArray userRevProps;
 
 	try
