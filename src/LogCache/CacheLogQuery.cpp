@@ -631,6 +631,8 @@ revision_t CCacheLogQuery::FindOldestGap ( const CDictionaryBasedTempPath& path
 		CStrictLogIterator iterator (cache, startRevision, path);
 		iterator.Retry();
 		startRevision = iterator.GetRevision();
+		if( startRevision == NO_REVISION )
+			break;
 
 		// found the next cache entry for this path?
 
