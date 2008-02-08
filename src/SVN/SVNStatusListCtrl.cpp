@@ -201,7 +201,7 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 	Locker lock(m_critSec);
 	m_sColumnInfoContainer = sColumnInfoContainer;
 	bool bUseSavedColumnData = true;
-	CRegDWORD regColVersion(_T("Software\\TortoiseSVN\\StatusColumnsVersion"), 0);
+	CRegDWORD regColVersion(_T("Software\\TortoiseSVN\\StatusColumns\\")+sColumnInfoContainer+_T("Version"), 0);
 	if (DWORD(regColVersion) != 1)
 	{
 		bUseSavedColumnData = false;
