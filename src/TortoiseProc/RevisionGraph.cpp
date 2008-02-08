@@ -745,6 +745,87 @@ inline bool CompareByRevision (CRevisionEntry* lhs, CRevisionEntry* rhs)
     return lhs->revision < rhs->revision;
 }
 
+void CRevisionGraph::InsertWCRevision (const CDictionaryBasedTempPath& wcPath)
+{
+    // maybe, we don't have a WC revision
+
+	if (m_wcRev == 0)
+        return;
+
+    // for technical reasons (use of std::upper_bound), 
+    // we always create a new entry for the WC rev.
+    // We may have to delete it soon after, though.
+
+    CRevisionEntry* newEntry 
+		= CRevisionEntry::Create (wcPath, m_wcRev, CRevisionEntry::modified, nodePool);
+
+    // where the new entry belongs within the node list
+    // (all sorted by revision)
+
+    typedef std::vector<CRevisionEntry*>::iterator IT;
+    IT lowerBound
+        = std::lower_bound ( m_entryPtrs.begin()
+                           , m_entryPtrs.end()
+                           , newEntry
+                           , &CompareByRevision);
+    IT upperBound
+        = std::upper_bound ( m_entryPtrs.begin()
+                           , m_entryPtrs.end()
+                           , newEntry
+                           , &CompareByRevision);
+
+    // node already there?
+
+	for (IT iter = lowerBound; iter < upperBound; ++iter)
+	{
+		CRevisionEntry* entry = *iter;
+        if (entry->path == wcPath)
+		{
+			entry->bWorkingCopy = true;
+            newEntry->Destroy (nodePool);
+
+            return;
+		}
+	}
+
+    // find previous entry
+
+    for (size_t i = lowerBound - m_entryPtrs.begin(); i > 0; --i)
+    {
+		CRevisionEntry* entry = m_entryPtrs[i-1];
+		if (entry->path == wcPath)
+		{
+            // insert it right here
+
+            assert (entry->revision < (revision_t)m_wcRev);
+            assert (  (entry->next == NULL) 
+                    || (entry->next->revision > (revision_t)m_wcRev));
+
+            m_entryPtrs.insert (upperBound, newEntry);
+
+            // link it properly
+
+			newEntry->bWorkingCopy = true;
+            newEntry->next = entry->next;
+            newEntry->prev = entry;
+            entry->next = newEntry;
+
+            if (newEntry->next)
+                newEntry->next->prev = newEntry;
+
+            // ready
+
+            return;
+        }
+    }
+
+    // insertion position not found
+    // (maybe, we worked from outdated off-line cache?)
+
+    newEntry->Destroy (nodePool);
+}
+
+
 void CRevisionGraph::AnalyzeRevisions ( const CDictionaryBasedTempPath& path
 									  , revision_t startrev
 									  , const SOptions& options)
@@ -872,55 +953,6 @@ void CRevisionGraph::AnalyzeRevisions ( const CDictionaryBasedTempPath& path
 			toRemove[i]->Remove();
 	}
 
-
-	bool bFoundWCNode = false;
-	if (m_wcRev >= 0)
-	{
-		for (size_t i = 0, count = m_entryPtrs.size(); i < count; ++i)
-		{
-			CRevisionEntry* entry = m_entryPtrs[i];
-			if (entry->revision == (revision_t)m_wcRev)
-			{
-				if (entry->path.GetPath().compare((LPCSTR)m_wcURL) == 0)
-				{
-					entry->bWorkingCopy = true;
-					bFoundWCNode = true;
-					break;
-				}
-			}
-		}
-		if (!bFoundWCNode)
-		{
-			for (size_t i = 0, count = m_entryPtrs.size(); i < count; ++i)
-			{
-				CRevisionEntry* entry = m_entryPtrs[i];
-				if (entry->path.GetPath().compare((LPCSTR)m_wcURL) == 0)
-				{
-					while ((entry->revision < (revision_t)m_wcRev) && (entry->next))
-					{
-						entry = entry->next;
-					}
-					CRevisionEntry* newEntry 
-						= CRevisionEntry::Create (path, m_wcRev, CRevisionEntry::source, nodePool);
-					newEntry->bWorkingCopy = true;
-					m_entryPtrs.push_back (newEntry);
-					std::sort ( m_entryPtrs.begin()
-						, m_entryPtrs.end()
-						, &CompareByRevision);
-
-					entry = entry->prev;
-					newEntry->next = entry->next;
-					newEntry->prev = entry;
-					entry->next = newEntry;
-
-					break;
-				}
-			}
-		}
-	}
-
-
-
     // add head revisions, 
     // if requested by options and not already provided by showAll
 
@@ -940,6 +972,11 @@ void CRevisionGraph::AnalyzeRevisions ( const CDictionaryBasedTempPath& path
                            , m_entryPtrs.end()
                            , &CompareByRevision);
     }
+
+    // mark the WC revision and path
+
+    CDictionaryBasedTempPath wcPath (path.GetDictionary(), (const char*)m_wcURL);
+    InsertWCRevision (wcPath);
 
     // mark all heads
 

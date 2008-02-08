@@ -369,6 +369,7 @@ private:
 	typedef std::vector<SCopyInfo*>::const_iterator TSCopyIterator;
 
 	void						BuildForwardCopies();
+    void                        InsertWCRevision (const CDictionaryBasedTempPath& wcPath);
 	void						AnalyzeRevisions ( const CDictionaryBasedTempPath& url
 												 , revision_t startrev
 												 , const SOptions& options);
