@@ -200,8 +200,19 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 {
 	Locker lock(m_critSec);
 	m_sColumnInfoContainer = sColumnInfoContainer;
-	CRegDWORD regColInfo(_T("Software\\TortoiseSVN\\StatusColumns\\")+sColumnInfoContainer, dwColumns);
-	m_dwColumns = regColInfo;
+	bool bUseSavedColumnData = true;
+	CRegDWORD regColVersion(_T("Software\\TortoiseSVN\\StatusColumnsVersion"), 0);
+	if (DWORD(regColVersion) != 1)
+	{
+		bUseSavedColumnData = false;
+		regColVersion = 1;
+	}
+	m_dwColumns = dwColumns;
+	if (bUseSavedColumnData)
+	{
+		CRegDWORD regColInfo(_T("Software\\TortoiseSVN\\StatusColumns\\")+sColumnInfoContainer, dwColumns);
+		m_dwColumns = regColInfo;
+	}
 	m_dwContextMenus = dwContextMenus;
 	m_bHasCheckboxes = bHasCheckboxes;
 	// set the extended style of the listcontrol
@@ -230,6 +241,10 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 	temp.LoadString(IDS_STATUSLIST_COLFILE);
 	m_ColumnShown[nCol] = true;
 	InsertColumn(nCol++, temp);
+	temp.LoadString(IDS_STATUSLIST_COLFILENAME);
+	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLFILENAME;
+	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
+	nCol++;
 	temp.LoadString(IDS_STATUSLIST_COLEXT);
 	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLEXT;
 	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
@@ -294,17 +309,20 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLMODIFICATIONDATE;
 	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
 
-	CRegString regColOrder(_T("Software\\TortoiseSVN\\StatusColumns\\")+sColumnInfoContainer+_T("_Order"));
-	CRegString regColWidths(_T("Software\\TortoiseSVN\\StatusColumns\\")+sColumnInfoContainer+_T("_Width"));
-	int arr[SVNSLC_NUMCOLUMNS];
-	if (!CString(regColOrder).IsEmpty())
+	if (bUseSavedColumnData)
 	{
-		StringToOrderArray(regColOrder, arr);
-		SetColumnOrderArray(SVNSLC_NUMCOLUMNS, arr);
-	}
-	if (!CString(regColWidths).IsEmpty())
-	{
-		StringToWidthArray(regColWidths, m_arColumnWidths);
+		CRegString regColOrder(_T("Software\\TortoiseSVN\\StatusColumns\\")+sColumnInfoContainer+_T("_Order"));
+		CRegString regColWidths(_T("Software\\TortoiseSVN\\StatusColumns\\")+sColumnInfoContainer+_T("_Width"));
+		int arr[SVNSLC_NUMCOLUMNS];
+		if (!CString(regColOrder).IsEmpty())
+		{
+			StringToOrderArray(regColOrder, arr);
+			SetColumnOrderArray(SVNSLC_NUMCOLUMNS, arr);
+		}
+		if (!CString(regColWidths).IsEmpty())
+		{
+			StringToWidthArray(regColWidths, m_arColumnWidths);
+		}
 	}
 	int maxcol = ((CHeaderCtrl*)(GetDlgItem(0)))->GetItemCount()-1;
 	int col;
@@ -1254,6 +1272,8 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	}
 	// relative path
 	InsertItem(index, entryname, icon_idx);
+	// SVNSLC_COLFILENAME
+	SetItemText(index, nCol++, entry->path.GetFileOrDirectoryName());
 	// SVNSLC_COLEXT
 	SetItemText(index, nCol++, entry->path.GetFileExtension());
 	// SVNSLC_COLSTATUS
@@ -1466,7 +1486,7 @@ bool CSVNStatusListCtrl::SortCompare(const FileEntry* entry1, const FileEntry* e
 	int result = 0;
 	switch (m_nSortedColumn)
 	{
-	case 16:
+	case 17:
 		{
 			if (result == 0)
 			{
@@ -1479,109 +1499,116 @@ bool CSVNStatusListCtrl::SortCompare(const FileEntry* entry1, const FileEntry* e
 				result = CompareFileTime(filetime1,filetime2);
 			}
 		}
-	case 15:
+	case 16:
 		{
 			if (result == 0)
 			{
 				result = entry1->copyfrom_url.CompareNoCase(entry2->copyfrom_url);
 			}
 		}
-	case 14:
+	case 15:
 		{
 			if (result == 0)
 			{
 				result = SGN(entry1->needslock - entry2->needslock);
 			}
 		}
-	case 13:
+	case 14:
 		{
 			if (result == 0)
 			{
 				result = SGN(entry1->last_commit_date - entry2->last_commit_date);
 			}
 		}
-	case 12:
+	case 13:
 		{
 			if (result == 0)
 			{
 				result = entry1->last_commit_rev - entry2->last_commit_rev;
 			}
 		}
-	case 11:
+	case 12:
 		{
 			if (result == 0)
 			{
 				result = entry1->last_commit_author.CompareNoCase(entry2->last_commit_author);
 			}
 		}
-	case 10:
+	case 11:
 		{
 			if (result == 0)
 			{
 				result = entry1->lock_comment.CompareNoCase(entry2->lock_comment);
 			}
 		}
-	case 9:
+	case 10:
 		{
 			if (result == 0)
 			{
 				result = entry1->lock_owner.CompareNoCase(entry2->lock_owner);
 			}
 		}
-	case 8:
+	case 9:
 		{
 			if (result == 0)
 			{
 				result = entry1->url.CompareNoCase(entry2->url);
 			}
 		}
-	case 7:
+	case 8:
 		{
 			if (result == 0)
 			{
 				result = entry1->remotepropstatus - entry2->remotepropstatus;
 			}
 		}
-	case 6:
+	case 7:
 		{
 			if (result == 0)
 			{
 				result = entry1->remotetextstatus - entry2->remotetextstatus;
 			}
 		}
-	case 5:
+	case 6:
 		{
 			if (result == 0)
 			{
 				result = entry1->propstatus - entry2->propstatus;
 			}
 		}
-	case 4:
+	case 5:
 		{
 			if (result == 0)
 			{
 				result = entry1->textstatus - entry2->textstatus;
 			}
 		}
-	case 3:
+	case 4:
 		{
 			if (result == 0)
 			{
 				result = entry1->remotestatus - entry2->remotestatus;
 			}
 		}
-	case 2:
+	case 3:
 		{
 			if (result == 0)
 			{
 				result = entry1->status - entry2->status;
 			}
 		}
-	case 1:
+	case 2:
 		{
 			if (result == 0)
 			{
 				result = entry1->path.GetFileExtension().CompareNoCase(entry2->path.GetFileExtension());
+			}
+		}
+	case 1:
+		{
+			if (result == 0)
+			{
+				result = entry1->path.GetFileOrDirectoryName().CompareNoCase(entry2->path.GetFileOrDirectoryName());
 			}
 		}
 	case 0:		// path column
@@ -3493,6 +3520,8 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				popup.AppendMenu(IsGroupViewEnabled() ? uCheckedFlags : uUnCheckedFlags, SVNSLC_NUMCOLUMNS, temp);
 				popup.AppendMenu(MF_SEPARATOR);
 			}
+			temp.LoadString(IDS_STATUSLIST_COLFILENAME);
+			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
 			temp.LoadString(IDS_STATUSLIST_COLEXT);
 			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
 			temp.LoadString(IDS_STATUSLIST_COLSTATUS);
@@ -4237,6 +4266,12 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
 	if (currentcol != col)
 	{
 		internalcol++;
+		if (m_dwColumns & SVNSLC_COLFILENAME)
+			currentcol++;
+	}
+	if (currentcol != col)
+	{
+		internalcol++;
 		if (m_dwColumns & SVNSLC_COLEXT)
 			currentcol++;
 	}
@@ -4434,7 +4469,10 @@ bool CSVNStatusListCtrl::StringToOrderArray(const CString& OrderString, int Orde
 		{
 			// This case only occurs when upgrading from an older
 			// TSVN version in which there were fewer columns.
-			OrderArray[i] = i;
+			// In this case, we revert back to the default ordering
+			for (int j=0; j<SVNSLC_NUMCOLUMNS; ++j)
+				OrderArray[j] = j;
+			return true;
 		}
 		else
 		{
@@ -4466,7 +4504,9 @@ bool CSVNStatusListCtrl::StringToWidthArray(const CString& WidthString, int Widt
 		{
 			// This case only occurs when upgrading from an older
 			// TSVN version in which there were fewer columns.
-			WidthArray[i] = 0;
+			for (int j=0; j<SVNSLC_NUMCOLUMNS; ++j)
+				WidthArray[j] = 0;
+			return true;
 		}
 		else
 		{
@@ -4634,6 +4674,11 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 	// first add the column titles as the first line
 	temp.LoadString(IDS_STATUSLIST_COLFILE);
 	sClipboard = temp;
+	if (dwCols & SVNSLC_COLFILENAME)
+	{
+		temp.LoadString(IDS_STATUSLIST_COLFILENAME);
+		sClipboard += _T("\t")+temp;
+	}
 	if (dwCols & SVNSLC_COLEXT)
 	{
 		temp.LoadString(IDS_STATUSLIST_COLEXT);
@@ -4712,6 +4757,10 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 	{
 		FileEntry * entry = GetListEntry(index);
 		sClipboard += entry->GetDisplayName();
+		if (dwCols & SVNSLC_COLFILENAME)
+		{
+			sClipboard += _T("\t")+entry->path.GetFileOrDirectoryName();
+		}
 		if (dwCols & SVNSLC_COLEXT)
 		{
 			sClipboard += _T("\t")+entry->path.GetFileExtension();
