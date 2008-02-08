@@ -83,6 +83,7 @@ private:
 	~CHooks();
 	void SubstitutePaths(CString& sCmd, const CTSVNPathList& pathList);
 	void SubstituteDepth(CString& sCmd, svn_depth_t depth);
+	void SubstituteCWD(CString& sCmd, const CTSVNPathList& pathList);
 	CTSVNPath SubstituteMessageFile(CString& sCmd, const CString& message);
 public:
 	/// Create the singleton. Call this at the start of the program.

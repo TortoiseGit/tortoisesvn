@@ -118,6 +118,7 @@
 						<literal>%PATH%</literal>
 						<literal>%PATHS%</literal>
 						<literal>%MESSAGEFILE%</literal>
+						<literal>%CWD%</literal>
 					</para>
 				</listitem>
 			</varlistentry>
@@ -129,6 +130,7 @@
 						<literal>%PATHS%</literal>
 						<literal>%DEPTH%</literal>
 						<literal>%MESSAGEFILE%</literal>
+						<literal>%CWD%</literal>
 					</para>
 				</listitem>
 			</varlistentry>
@@ -142,6 +144,7 @@
 						<literal>%MESSAGEFILE%</literal>
 						<literal>%REVISION%</literal>
 						<literal>%ERROR%</literal>
+						<literal>%CWD%</literal>
 					</para>
 				</listitem>
 			</varlistentry>
@@ -151,6 +154,7 @@
 					<para>
 						<literal>%PATH%</literal>
 						<literal>%PATHS%</literal>
+						<literal>%CWD%</literal>
 					</para>
 				</listitem>
 			</varlistentry>
@@ -162,6 +166,7 @@
 						<literal>%PATHS%</literal>
 						<literal>%DEPTH%</literal>
 						<literal>%REVISION%</literal>
+						<literal>%CWD%</literal>
 					</para>
 				</listitem>
 			</varlistentry>
@@ -173,6 +178,7 @@
 						<literal>%PATHS%</literal>
 						<literal>%REVISION%</literal>
 						<literal>%ERROR%</literal>
+						<literal>%CWD%</literal>
 					</para>
 				</listitem>
 			</varlistentry>
@@ -296,6 +302,15 @@
 					<para>
 						Empty if the operation was successful, or the error message
 						if the operation was unsuccessful.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term condition="pot">%CWD%</term>
+				<listitem>
+					<para>
+						The current working directory with which the script is run.
+						The CWD is set to the common root directory of all affected paths.
 					</para>
 				</listitem>
 			</varlistentry>
