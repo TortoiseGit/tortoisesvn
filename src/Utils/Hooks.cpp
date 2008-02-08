@@ -349,6 +349,15 @@ hookiterator CHooks::FindItem(hooktype t, const CTSVNPathList& pathList)
 			path = path.GetContainingDirectory();
 		} while(!path.IsEmpty());
 	}
+	// look for a script with a path as '*'
+	key.htype = t;
+	key.path = CTSVNPath(_T("*"));
+	hookiterator it = find(key);
+	if (it != end())
+	{
+		return it;
+	}
+
 	return end();
 }
 
