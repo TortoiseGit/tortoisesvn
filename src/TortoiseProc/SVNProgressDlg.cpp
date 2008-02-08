@@ -629,7 +629,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
 {
 	__super::OnInitDialog();
 
-	m_ProgList.SetExtendedStyle (LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_DOUBLEBUFFER);
+	m_ProgList.SetExtendedStyle (LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
 
 	m_ProgList.DeleteAllItems();
 	int c = ((CHeaderCtrl*)(m_ProgList.GetDlgItem(0)))->GetItemCount()-1;
