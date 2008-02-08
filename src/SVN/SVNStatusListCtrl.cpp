@@ -4454,6 +4454,16 @@ void CSVNStatusListCtrl::OnHdnItemchanging(NMHDR *pNMHDR, LRESULT *pResult)
 		return;
 	if (m_ColumnShown[phdr->iItem])
 	{
+		// check whether the horizontal scrollbar should be shown
+		int maxcol = ((CHeaderCtrl*)(GetDlgItem(0)))->GetItemCount()-1;
+		int colwidth = 0;
+		for (int col = 0; col <= maxcol; col++)
+		{
+			colwidth += GetColumnWidth(col);
+		}
+		CRect rc;
+		GetClientRect(rc);
+		ShowScrollBar(SB_HORZ, colwidth >= rc.Width());
 		return;
 	}
 	*pResult = 1;
