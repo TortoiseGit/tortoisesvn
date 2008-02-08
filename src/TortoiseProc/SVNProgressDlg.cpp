@@ -976,9 +976,12 @@ void CSVNProgressDlg::OnLvnGetdispinfoSvnprogress(NMHDR *pNMHDR, LRESULT *pResul
 						int cWidth = m_ProgList.GetColumnWidth(1);
 						cWidth = max(12, cWidth-12);
 						CDC * pDC = m_ProgList.GetDC();
-						CFont * pFont = pDC->SelectObject(m_ProgList.GetFont());
-						PathCompactPath(pDC->GetSafeHdc(), m_columnbuf, cWidth);
-						pDC->SelectObject(pFont);
+                        if (pDC != NULL)
+                        {
+						    CFont * pFont = pDC->SelectObject(m_ProgList.GetFont());
+						    PathCompactPath(pDC->GetSafeHdc(), m_columnbuf, cWidth);
+						    pDC->SelectObject(pFont);
+                        }
 					}
 					break;
 				case 2:
