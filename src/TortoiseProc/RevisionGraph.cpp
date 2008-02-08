@@ -827,7 +827,7 @@ void CRevisionGraph::AnalyzeRevisions ( const CDictionaryBasedTempPath& path
 			else
 			{
 				CDictionaryBasedPath commonRoot
-					= basePath.GetCommonRoot (searchTree->GetPath().GetBasePath());
+					= basePath.GetCommonRoot (startNode->GetPath().GetBasePath());
 				startNode = searchTree->FindCommonParent (commonRoot.GetIndex());
 			}
 
