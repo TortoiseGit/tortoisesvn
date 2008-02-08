@@ -236,7 +236,7 @@ bool CHooks::StartCommit(const CTSVNPathList& pathList, CString& message, DWORD&
 	CString sCmd = it->second.commandline;
 	SubstitutePaths(sCmd, pathList);
 	CTSVNPath temppath = SubstituteMessageFile(sCmd, message);
-	exitcode = RunScript(sCmd, pathList.GetCount() == 1 ? pathList[0].GetWinPath() : NULL, error, it->second.bWait, it->second.bShow);
+	exitcode = RunScript(sCmd, pathList.GetCommonRoot().GetWinPath(), error, it->second.bWait, it->second.bShow);
 	if (!exitcode && !temppath.IsEmpty())
 	{
 		CStringUtils::ReadStringFromTextFile(temppath.GetWinPathString(), message);
@@ -253,7 +253,7 @@ bool CHooks::PreCommit(const CTSVNPathList& pathList, svn_depth_t depth, const C
 	SubstitutePaths(sCmd, pathList);
 	SubstituteDepth(sCmd, depth);
 	SubstituteMessageFile(sCmd, message);
-	exitcode = RunScript(sCmd, pathList.GetCount() == 1 ? pathList[0].GetWinPath() : NULL, error, it->second.bWait, it->second.bShow);
+	exitcode = RunScript(sCmd, pathList.GetCommonRoot().GetWinPath(), error, it->second.bWait, it->second.bShow);
 	return true;
 }
 
@@ -267,7 +267,7 @@ bool CHooks::PostCommit(const CTSVNPathList& pathList, svn_depth_t depth, SVNRev
 	SubstituteDepth(sCmd, depth);
 	sCmd.Replace(_T("%REVISION%"), rev.ToString());
 	SubstituteMessageFile(sCmd, message);
-	exitcode = RunScript(sCmd, pathList.GetCount() == 1 ? pathList[0].GetWinPath() : NULL, error, it->second.bWait, it->second.bShow);
+	exitcode = RunScript(sCmd, pathList.GetCommonRoot().GetWinPath(), error, it->second.bWait, it->second.bShow);
 	return true;
 }
 
@@ -278,7 +278,7 @@ bool CHooks::StartUpdate(const CTSVNPathList& pathList, DWORD& exitcode, CString
 		return false;
 	CString sCmd = it->second.commandline;
 	SubstitutePaths(sCmd, pathList);
-	exitcode = RunScript(sCmd, pathList.GetCount() == 1 ? pathList[0].GetWinPath() : NULL, error, it->second.bWait, it->second.bShow);
+	exitcode = RunScript(sCmd, pathList.GetCommonRoot().GetWinPath(), error, it->second.bWait, it->second.bShow);
 	return true;
 }
 
@@ -290,7 +290,7 @@ bool CHooks::PreUpdate(const CTSVNPathList& pathList, svn_depth_t depth, SVNRev 
 	CString sCmd = it->second.commandline;
 	SubstitutePaths(sCmd, pathList);
 	SubstituteDepth(sCmd, depth);
-	exitcode = RunScript(sCmd, pathList.GetCount() == 1 ? pathList[0].GetWinPath() : NULL, error, it->second.bWait, it->second.bShow);
+	exitcode = RunScript(sCmd, pathList.GetCommonRoot().GetWinPath(), error, it->second.bWait, it->second.bShow);
 	return true;
 }
 
@@ -303,7 +303,7 @@ bool CHooks::PostUpdate(const CTSVNPathList& pathList, svn_depth_t depth, SVNRev
 	SubstitutePaths(sCmd, pathList);
 	SubstituteDepth(sCmd, depth);
 	sCmd.Replace(_T("%REVISION%"), rev.ToString());
-	exitcode = RunScript(sCmd, pathList.GetCount() == 1 ? pathList[0].GetWinPath() : NULL, error, it->second.bWait, it->second.bShow);
+	exitcode = RunScript(sCmd, pathList.GetCommonRoot().GetWinPath(), error, it->second.bWait, it->second.bShow);
 	return true;
 }
 
@@ -323,7 +323,7 @@ bool CHooks::IssueTracker(const CTSVNPathList& pathList, CString& message, DWORD
 	CString sCmd = it->second.commandline;
 	SubstitutePaths(sCmd, pathList);
 	CTSVNPath temppath = SubstituteMessageFile(sCmd, message);
-	exitcode = RunScript(sCmd, pathList.GetCount() == 1 ? pathList[0].GetWinPath() : NULL, error, it->second.bWait, it->second.bShow);
+	exitcode = RunScript(sCmd, pathList.GetCommonRoot().GetWinPath(), error, it->second.bWait, it->second.bShow);
 	if (!exitcode && !temppath.IsEmpty())
 	{
 		CStringUtils::ReadStringFromTextFile(temppath.GetWinPathString(), message);
