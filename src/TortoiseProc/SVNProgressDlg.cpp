@@ -981,6 +981,7 @@ void CSVNProgressDlg::OnLvnGetdispinfoSvnprogress(NMHDR *pNMHDR, LRESULT *pResul
 						    CFont * pFont = pDC->SelectObject(m_ProgList.GetFont());
 						    PathCompactPath(pDC->GetSafeHdc(), m_columnbuf, cWidth);
 						    pDC->SelectObject(pFont);
+							ReleaseDC(pDC);
                         }
 					}
 					break;
