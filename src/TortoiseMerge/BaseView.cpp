@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -345,8 +345,13 @@ void CBaseView::UpdateStatusBar()
 		}
 		m_pwndStatusBar->GetPaneInfo(nIndex, nID, nStyle, cxWidth);
 		//calculate the width of the text
-		CSize size = m_pwndStatusBar->GetDC()->GetTextExtent(sBarText);
-		m_pwndStatusBar->SetPaneInfo(nIndex, nID, nStyle, size.cx+2);
+		CDC * pDC = m_pwndStatusBar->GetDC();
+		if (pDC)
+		{
+			CSize size = pDC->GetTextExtent(sBarText);
+			m_pwndStatusBar->SetPaneInfo(nIndex, nID, nStyle, size.cx+2);
+			ReleaseDC(pDC);
+		}
 		m_pwndStatusBar->SetPaneText(nIndex, sBarText);
 	}
 }
@@ -390,7 +395,12 @@ CFont* CBaseView::GetFont(BOOL bItalic /*= FALSE*/, BOOL bBold /*= FALSE*/, BOOL
 		m_lfBaseFont.lfStrikeOut = (BYTE) bStrikeOut;
 		if (bStrikeOut)
 			m_lfBaseFont.lfStrikeOut = (BYTE)(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\StrikeOut"), TRUE);
-		m_lfBaseFont.lfHeight = -MulDiv((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\LogFontSize"), 10), GetDeviceCaps(this->GetDC()->m_hDC, LOGPIXELSY), 72);
+		CDC * pDC = GetDC();
+		if (pDC)
+		{
+			m_lfBaseFont.lfHeight = -MulDiv((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\LogFontSize"), 10), GetDeviceCaps(pDC->m_hDC, LOGPIXELSY), 72);
+			ReleaseDC(pDC);
+		}
 		_tcsncpy_s(m_lfBaseFont.lfFaceName, 32, (LPCTSTR)(CString)CRegString(_T("Software\\TortoiseMerge\\LogFontName"), _T("Courier New")), 32);
 		if (!m_apFonts[nIndex]->CreateFontIndirect(&m_lfBaseFont))
 		{
