@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -416,7 +416,7 @@ BOOL CSciEdit::IsMisspelled(const CString& sWord)
 	}
 	else
 		sWordA = CStringA(sWord);
-	
+	sWordA.Trim("\'\".,");
 	return
 		!_istdigit(sWord.GetAt(0)) &&
 		(m_autolist.find(sWord) == m_autolist.end()) && // check if the word is in our autocompletion list
