@@ -227,7 +227,7 @@
 				<include name="TortoiseMerge.exe" />
 			</fileset>
 		</zip>
-		<if test="${configuration == 'release'}">
+		<if test="${devrelease == ''}">
 			  <exec program="gpg.exe">
 				  <arg value="-sba" />
 				  <arg value="--yes" />

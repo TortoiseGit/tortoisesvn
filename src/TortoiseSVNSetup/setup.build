@@ -98,7 +98,7 @@
 			  </fileset>
 		  </delete>
   		
-		<if test="${configuration == 'release'}">
+		<if test="${devrelease == ''}">
 		  <exec program="gpg.exe" workingdir="..\..\bin">
 			  <arg value="-sba" />
 			  <arg value="--yes" />
