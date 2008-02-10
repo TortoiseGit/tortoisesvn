@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-02-10 18:25 +0000\n"
-"PO-Revision-Date: 2008-02-10 23:44+0300\n"
+"PO-Revision-Date: 2008-02-11 01:11+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -287,7 +287,7 @@ msgstr "за прекрасные значки, логотипы, отлов о�
 #. (term)
 #: ../source/TortoiseSVN_en.xml:208
 msgid "Simon Large"
-msgstr "Simon Large"
+msgstr "Саймону Ладжу (Simon Large)"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:210
@@ -9303,7 +9303,6 @@ msgstr "Вы можете выбрать начертание и размер ш
 msgid "Tabs"
 msgstr "Размер табул."
 
-# !!! СП: дальше пока не смотрел
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11304
 msgid "Defines how many spaces to use for expansion when a tab character is found in the file content."
@@ -9312,7 +9311,7 @@ msgstr "Опеределяет, сколько пробелов использо
 #. (title)
 #: ../source/TortoiseSVN_en.xml:11313
 msgid "Registry Settings"
-msgstr "Параметры реестра"
+msgstr "Настройки в реестре"
 
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:11315
@@ -9322,126 +9321,115 @@ msgstr "реестр"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11317
 msgid "A few infrequently used settings are available only by editing the registry directly."
-msgstr "Редко используемые параметры доступны только через непосредственное редактирование реестра."
+msgstr "Несколько редкоиспользуемых настроек доступны только путём непосредственного редактирования реестра."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11325
 msgid "You can specify a different location for the Subversion configuration file using registry location <literal>HKCU\\Software\\TortoiseSVN\\ConfigDir</literal>. This will affect all TortoiseSVN operations."
-msgstr "Вы можете указать другое место для файла конфигурации используя ключ <literal>HKCU\\Software\\TortoiseSVN\\ConfigDir</literal>. Этот параметр влияет на все операции TortoiseSVN."
+msgstr "Вы можете указать другое месторасположение файла конфигурации Subversion при помощи ключа <literal>HKCU\\Software\\TortoiseSVN\\ConfigDir</literal>. Это окажет воздействие на все операции TortoiseSVN."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:11334
-#, fuzzy
 msgid "Cache tray icon"
-msgstr "Значок в трее для кэша"
+msgstr "Значок для кэша в трее"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11336
 msgid "To add a cache tray icon for the TSVNCache program, create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\CacheTrayIcon</literal>. This is really only useful for developers as it allows you to terminate the program gracefully."
-msgstr "Для добавления в трей значка для программы TSVNCache, создайте ключ <literal>HKCU\\Software\\TortoiseSVN\\CacheTrayIcon</literal> типа <literal>DWORD</literal> со значением 1. Реально это полезно только для разработчика так как позволяет корректно завершить программу."
+msgstr "Для добавления в трей значка для программы TSVNCache, создайте ключ <literal>HKCU\\Software\\TortoiseSVN\\CacheTrayIcon</literal> типа <literal>DWORD</literal> со значением 1. На самом деле это пригодиться только разработчикам, поскольку позволяет элегантно завершать программу."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:11346
 msgid "Filenames without extensions in auto-completion list"
-msgstr ""
+msgstr "Имена файлов без расширений в списке автозавершения"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11348
 msgid "The auto-completion list shown in the commit message editor displays the names of files listed for commit. To also include these names with extensions removed, create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\AutocompleteRemovesExtensions</literal>."
-msgstr ""
+msgstr "Список автозавершения, показываемый в редакторе сообщений фиксации, отображает имена файлов, предназначенных для фиксации. Для включения этих же имён, но без расширений, создайте ключ <literal>HKCU\\Software\\TortoiseSVN\\AutocompleteRemovesExtensions</literal> типа <literal>DWORD</literal> со значением 1."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:11358
 msgid "Explorer columns everywhere"
-msgstr "колонки в Проводнике"
+msgstr "Колонки TortoiseSVN везде в Проводнике"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11360
 msgid "The extra columns the TortoiseSVN adds to the details view in Windows Explorer are normally only active in a working copy. If you want those to be accessible everywhere, not just in working copies, create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\ColumnsEveryWhere</literal>."
-msgstr ""
+msgstr "Дополнительные колонки, добавляемые TortoiseSVN в Проводнике Windows в режиме отображения 'таблица' обычно отображаются только в рабочей копии. Если вы желаете, чтобы они были доступны везде, а не только в рабочих копиях, создайте ключ <literal>HKCU\\Software\\TortoiseSVN\\ColumnsEveryWhere</literal> типа <literal>DWORD</literal> со значением 1."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:11371
 msgid "Merge log separator"
-msgstr ""
+msgstr "Разделитель сообщений журнала при слиянии "
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11373
 msgid "When you merge revisions from another branch, and merge tracking information is available, the log messages from the revisions you merge will be collected to make up a commit log message. A pre-defined string is used to separate the individual log messages of the merged revisions. If you prefer, you can create a <literal>SZ</literal> key at <literal>HKCU\\Software\\TortoiseSVN\\MergeLogSeparator</literal> containing a separator string of your choice."
-msgstr ""
+msgstr "Когда выполняется слияние ревизий из другого ответвления, и доступна информация отслеживания слияний, сообщения журнала для сливаемых ревизий накапливаются, чтобы сформироваться в сообщение журнала при фиксации. Для разделения отдельных сообщений сливаемых ревизий используется предопределённая строка. При желании, вы можете создать ключ <literal>HKCU\\Software\\TortoiseSVN\\MergeLogSeparator</literal> типа <literal>SZ</literal>, содержащий разделительную строку по вашему выбору."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:11386
 msgid "Always blame changes with TortoiseMerge"
-msgstr ""
+msgstr "Всегда получать авторство изменений при помощи TortoiseMerge"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11388
 msgid "TortoiseSVN allows you to assign external diff viewer. Most such viewers, however, are not suited for change blaming (<xref linkend=\"tsvn-dug-blame-diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To do so, create a <literal>DWORD</literal> key with a value of 1 at <literal>HKCU\\Software\\TortoiseSVN\\DiffBlamesWithTortoiseMerge</literal>."
-msgstr ""
+msgstr "TortoiseSVN позволяет указать внешнюю программу просмотра различий. Большинство таких программ, однако, не предназначено для отображения авторства изменений (<xref linkend=\"tsvn-dug-blame-diffs\"/>), и поэтому вы можете пожелать обратиться к TortoiseMerge в этом случае. Чтобы это сделать, создайте ключ <literal>HKCU\\Software\\TortoiseSVN\\DiffBlamesWithTortoiseMerge</literal> типа <literal>DWORD</literal> со значением 1."
 
-# =
 #. (title)
 #: ../source/TortoiseSVN_en.xml:11401
 msgid "Subversion Working Folders"
 msgstr "Рабочие папки Subversion"
 
-# =
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:11403
 msgid ".svn folder"
 msgstr "папка .svn"
 
-# =
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:11406
 msgid "_svn folder"
 msgstr "папка _svn"
 
-# =
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11408
-#, fuzzy
 msgid "VS.NET 2003 when used with web projects can't handle the <literal>.svn</literal> folders that Subversion uses to store its internal information. This is not a bug in Subversion. The bug is in VS.NET 2003 and the frontpage extensions it uses."
-msgstr "VS.NET при использовании с web-проектами не может обрабатывать папки <literal>.svn</literal>, используемые Subversion для хранения своей внутренней информации. Это не ошибка в Subversion, это ошибка в VS.NET и используемых им расширениях frontpage."
+msgstr "VS.NET 2003 при использовании с web-проектами не может обрабатывать папки <literal>.svn</literal>, используемые Subversion для хранения своей внутренней информации. Это не ошибка в Subversion, это ошибка в VS.NET 2003 и используемых им расширениях frontpage."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11415
 msgid "Note that the bug is fixed in VS2005 and later versions."
-msgstr ""
+msgstr "Обратите внимание: эта ошибка была исправлена в VS 2005 и более поздних версиях."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11419
-#, fuzzy
 msgid "As of Version 1.3.0 of Subversion and TortoiseSVN, you can set the environment variable <literal>SVN_ASP_DOT_NET_HACK</literal>. If that variable is set, then Subversion will use <literal>_svn</literal> folders instead of <literal>.svn</literal> folders. You must restart your shell for that environment variable to take effect. Normally that means rebooting your PC. To make this easier, you can now do this from the general settings page using a simple checkbox - refer to <xref linkend=\"tsvn-dug-settings-main\"/>."
-msgstr "Начиная с версии 1.3.0 Subversion и TortoiseSVN, вы можете установить переменную окружения <literal>SVN_ASP_DOT_NET_HACK</literal>. Если эта переменная установлена, тогда Subversion будет использовать папки <literal>_svn</literal> вместо папок <literal>.svn</literal>. Вы должны перезагрузить вашу оболочку для того чтобы переменная вступила в действие. Обычно это означает, что вы должны перезагрузить ПК. Для облегчения этой задачи, вы можете сделать это со страницы основных установок при помощи простого флажка - подробнее об этом рассказывает <xref linkend=\"tsvn-dug-settings-main\"/>."
+msgstr "Начиная с версии 1.3.0 Subversion и TortoiseSVN, вы можете установить переменную окружения <literal>SVN_ASP_DOT_NET_HACK</literal>. Если эта переменная установлена, тогда Subversion будет использовать папки <literal>_svn</literal> вместо папок <literal>.svn</literal>. Вы должны перезагрузить вашу оболочку для того, чтобы эта переменная возимела действие. Обычно это означает, что вы должны перезагрузить ПК. Для облегчения этой задачи, вы можете сделать это со страницы основных установок при помощи простого флажка - подробнее об этом рассказывает <xref linkend=\"tsvn-dug-settings-main\"/>."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11429
-#, fuzzy
 msgid "For more information, and other ways to avoid this problem in the first place, check out the article about this in our <ulink url=\"http://tortoisesvn.net/aspdotnethack\"><citetitle>FAQ</citetitle></ulink>."
-msgstr "Больше информации, и другие пути обхождения этой проблемы содержаться в <ulink url=\"http://tortoisesvn.sourceforge.net/node/15\"><citetitle>FAQ</citetitle></ulink>."
+msgstr "Для дополнительной информации, а также чтобы узнать о других способах изначального предотвращения этой проблемы, ознакомьтесь со статьёй об этом в нашем <ulink url=\"http://tortoisesvn.net/aspdotnethack\"><citetitle>ЧаВо (FAQ)</citetitle></ulink>."
 
 # ---- 5.29
-# =
 #. (title)
 #: ../source/TortoiseSVN_en.xml:11439
 msgid "Final Step"
 msgstr "Последний шаг"
 
-# =
 #. (title)
 #: ../source/TortoiseSVN_en.xml:11445
 msgid "Donate!"
 msgstr "Вознаграждение"
 
-# =
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11446
 msgid "Even though TortoiseSVN and TortoiseMerge are free, you can support the developers by sending in patches and play an active role in the development. You can also help to cheer us up during the endless hours we spend in front of our computers."
 msgstr "Хотя TortoiseSVN и TortoiseMerge и бесплатны, вы можете посодействовать разработчикам, присылая заплатки и активно участвуя в разработке. Вы также можете помочь нам, подбодрив нас в то нескончаемое время, которое мы проводим за нашими компьютерами."
 
-# =
+# !!! СП: дальше пока не смотрел
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11452
 msgid "While working on TortoiseSVN we love to listen to music. And since we spend many hours on the project we need a <emphasis>lot</emphasis> of music. Therefore we have set up some wish-lists with our favourite music CDs and DVDs: <ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink> Please also have a look at the list of people who contributed to the project by sending in patches or translations."
@@ -12613,6 +12601,7 @@ msgstr "Когда ваше хранилище перемещается, воз�
 msgid "Note: you should only use this command if your working copy is referring to the same location in the same repository, but the repository itself has moved. In any other circumstance you probably need the <quote>Switch</quote> command instead."
 msgstr "Обратите внимание: вы должны использовать эту команду только в случае, если ваша рабочая копия относится к тому же местоположению в том же хранилище, но само хранилище было перемещено. В любом другом случае вам, вероятно, вместо этой команды необходимо использовать команду <quote>Переключить</quote>."
 
+# =
 #. (glossterm)
 #: ../source/TortoiseSVN_en.xml:14316
 msgid "Repository"
