@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -65,10 +65,22 @@ public:
 	virtual HRESULT __stdcall get_Author(/*[out, retval]*/VARIANT* author);
 
 	virtual HRESULT __stdcall get_HasModifications(/*[out, retval]*/VARIANT_BOOL* modifications);
+	
+	virtual HRESULT __stdcall get_IsSvnItem(/*[out, retval]*/VARIANT_BOOL* svn_item);
 
-
+	virtual HRESULT __stdcall get_NeedsLocking(/*[out, retval]*/VARIANT_BOOL* needs_locking);
+	
+	virtual HRESULT __stdcall get_IsLocked(/*[out, retval]*/VARIANT_BOOL* locked);
+	
+	virtual HRESULT __stdcall get_LockCreationDate(/*[out, retval]*/VARIANT* date);
+	
+	virtual HRESULT __stdcall get_LockOwner(/*[out, retval]*/VARIANT* owner);
+	
+	virtual HRESULT __stdcall get_LockComment(/*[out, retval]*/VARIANT* comment);
 
 private:
+	BOOL CopyDateToString(WCHAR *destbuf, int buflen, apr_time_t time);
+	BOOL IsLockDataAvailable();
 
 	HRESULT LoadTypeInfo(ITypeInfo ** pptinfo, const CLSID& libid, const CLSID& iid, LCID lcid);
 

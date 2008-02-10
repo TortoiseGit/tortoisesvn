@@ -221,6 +221,60 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 								copy path passed to SubWCRev.
 							</entry>
 						</row>
+						<row>
+							<entry condition="pot">$WCNOW$</entry>
+							<entry>
+								Replaced with the current time and date
+							</entry>
+						</row>
+						<row>
+							<entry condition="pot">$WCNOW=</entry>
+							<entry>
+								Replaced with the current time and date in standard format
+							</entry>
+						</row>
+						<row>
+							<entry condition="pot">$WCINSVN$</entry>
+							<entry>
+								<literal>$WCINSVN?TText:FText$</literal> is
+								replaced with <literal>TText</literal> if the entry is versioned,
+								or <literal>FText</literal> if not.
+							</entry>
+						</row>
+						<row>
+							<entry condition="pot">$WCNEEDSLOCK$</entry>
+							<entry>
+								<literal>$WCNEEDSLOCK?TText:FText$</literal> is
+								replaced with <literal>TText</literal> if the entry has the svn:needs-lock
+								property set, or <literal>FText</literal> if not.
+							</entry>
+						</row>
+						<row>
+							<entry condition="pot">$WCISLOCKED$</entry>
+							<entry>
+								<literal>$WCISLOCKED?TText:FText$</literal> is
+								replaced with <literal>TText</literal> if the entry is locked,
+								or <literal>FText</literal> if not.
+							</entry>
+						</row>
+						<row>
+							<entry condition="pot">$WCLOCKDATE$</entry>
+							<entry>
+								Replaced with the lock date
+							</entry>
+						</row>
+						<row>
+							<entry condition="pot">$WCLOCKOWNER$</entry>
+							<entry>
+								Replaced with the name of the lock owner
+							</entry>
+						</row>
+						<row>
+							<entry condition="pot">$WCLOCKCOMMENT$</entry>
+							<entry>
+								Replaced with the comment of the lock
+							</entry>
+						</row>
 					</tbody>
 				</tgroup>
 			</table>

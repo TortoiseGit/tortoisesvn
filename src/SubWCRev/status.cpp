@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -42,7 +42,7 @@ void UnescapeCopy(char * src, char * dest, int buf_len)
 	// in the *pszDest is assumed to be <= the number of characters
 	// in pszSource (they are both the same string anyway)
 
-	while (*pszSource != '\0' && ++len < buf_len)
+	while ((*pszSource != '\0') && (++len < buf_len))
 	{
 		if (*pszSource == '%')
 		{
@@ -61,7 +61,7 @@ void UnescapeCopy(char * src, char * dest, int buf_len)
 
 			*pszSource = (char) toupper(*pszSource);
 			pszHigh = strchr(szHex, *pszSource);
-
+			
 			if (pszHigh != NULL)
 			{
 				pszSource++;
@@ -88,12 +88,17 @@ void UnescapeCopy(char * src, char * dest, int buf_len)
 void getallstatus(void * baton, const char * path, svn_wc_status2_t * status)
 {
 	SubWCRev_StatusBaton_t * sb = (SubWCRev_StatusBaton_t *) baton;
-	if ((status)&&(sb->SubStat->bExternals)&&(status->text_status == svn_wc_status_external))
+	if((NULL == status) || (NULL == sb) || (NULL == sb->SubStat))
+	{
+		return;
+	}
+
+	if ((sb->SubStat->bExternals)&&(status->text_status == svn_wc_status_external) && (NULL != sb->extarray))
 	{
 		const char * copypath = apr_pstrdup(sb->pool, path);
 		sb->extarray->push_back(copypath);
 	}
-	if ((status)&&(status->entry)&&(status->entry->uuid))
+	if ((status->entry)&&(status->entry->uuid))
 	{
 		if (sb->SubStat->UUID[0] == 0)
 		{
@@ -102,9 +107,9 @@ void getallstatus(void * baton, const char * path, svn_wc_status2_t * status)
 		if (strncmp(sb->SubStat->UUID, status->entry->uuid, MAX_PATH) != 0)
 			return;
 	}
-	if ((status)&&(status->entry)&&(status->entry->cmt_author))
+	if ((status->entry)&&(status->entry->cmt_author))
 	{
-		if ((sb->SubStat->Author[0] == 0)&&(status->url))
+		if ((sb->SubStat->Author[0] == 0)&&(status->url)&&(status->entry->url))
 		{
 			char EntryUrl[URL_BUF];
 			UnescapeCopy((char *)status->entry->url,EntryUrl, URL_BUF);
@@ -114,7 +119,7 @@ void getallstatus(void * baton, const char * path, svn_wc_status2_t * status)
 			}
 		}
 	}
-	if ((status)&&(status->entry))
+	if (status->entry)
 	{
 		if ((status->entry->kind == svn_node_file)||(sb->SubStat->bFolders))
 		{
@@ -133,33 +138,64 @@ void getallstatus(void * baton, const char * path, svn_wc_status2_t * status)
 			sb->SubStat->MinRev = status->entry->revision;
 		}
 	}
-	if (status)
+	
+	sb->SubStat->bIsSvnItem = false; 
+	switch (status->text_status)
 	{
-		switch (status->text_status)
+	case svn_wc_status_none:
+	case svn_wc_status_unversioned:
+	case svn_wc_status_ignored:
+		break;
+	case svn_wc_status_external:
+	case svn_wc_status_incomplete:
+	case svn_wc_status_normal:
+		sb->SubStat->bIsSvnItem = true; 
+		break;
+	default:
+		sb->SubStat->bIsSvnItem = true; 
+		sb->SubStat->HasMods = TRUE;
+		break;			
+	}
+
+	switch (status->prop_status)
+	{
+	case svn_wc_status_none:
+	case svn_wc_status_unversioned:
+	case svn_wc_status_ignored:
+		break;
+	case svn_wc_status_external:
+	case svn_wc_status_incomplete:
+	case svn_wc_status_normal:
+		sb->SubStat->bIsSvnItem = true; 
+		break;
+	default:
+		sb->SubStat->bIsSvnItem = true; 
+		sb->SubStat->HasMods = TRUE;
+		break;	
+	}
+	
+	// Assign the values for the lock information
+	sb->SubStat->LockData.NeedsLocks = false;
+	sb->SubStat->LockData.IsLocked = false;
+	if (status->entry)
+	{
+		if(status->entry->present_props)
 		{
-		case svn_wc_status_external:
-		case svn_wc_status_none:
-		case svn_wc_status_unversioned:
-		case svn_wc_status_ignored:
-		case svn_wc_status_incomplete:
-		case svn_wc_status_normal:
-			break;
-		default:
-			sb->SubStat->HasMods = TRUE;
-			break;			
-		}
-		switch (status->prop_status)
-		{
-		case svn_wc_status_none:
-		case svn_wc_status_unversioned:
-		case svn_wc_status_ignored:
-		case svn_wc_status_external:
-		case svn_wc_status_incomplete:
-		case svn_wc_status_normal:
-			break;
-		default:
-			sb->SubStat->HasMods = TRUE;
-			break;			
+			if (strstr(status->entry->present_props, "svn:needs-lock"))
+			{
+				sb->SubStat->LockData.NeedsLocks = true;
+				
+				if(status->entry->lock_token)
+				{
+					if((status->entry->lock_token[0] != 0))
+					{
+						sb->SubStat->LockData.IsLocked = true;
+						strncpy_s(sb->SubStat->LockData.Owner, OWNER_BUF, status->entry->lock_owner, OWNER_BUF);
+						strncpy_s(sb->SubStat->LockData.Comment, COMMENT_BUF, status->entry->lock_comment, COMMENT_BUF);	
+						sb->SubStat->LockData.CreationDate = status->entry->lock_creation_date;
+					}
+				}
+			}
 		}
 	}
 }

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,6 +25,7 @@
 #include <windows.h>
 #include <shlwapi.h>
 #include <Shellapi.h>
+#include <comutil.h>
 
 #include <apr_pools.h>
 #include "svn_error.h"
@@ -45,7 +46,7 @@ int APIENTRY _tWinMain(HINSTANCE /*hInstance*/,
 {
 	int argc = 0;
 	LPWSTR * argv = CommandLineToArgvW(GetCommandLine(), &argc);
-	if (argc >= 2 && argc <= 5)
+	if ((NULL != argv) && (argc >= 2) && (argc <= 5))
 	{
 		if (_tcscmp(argv[1], _T("/automation"))==0)
 		{
@@ -237,24 +238,16 @@ HRESULT __stdcall SubWCRev::get_MaxRev(/*[out, retval]*/VARIANT* rev)
 HRESULT __stdcall SubWCRev::get_Date(/*[out, retval]*/VARIANT* date)
 {
 	date->vt = VT_BSTR;
-
-	__time64_t ttime;
-	ttime = SubStat.CmtDate/1000000L;
-
-	struct tm newtime;
-	if (_localtime64_s(&newtime, &ttime))
-		return FALSE;
-	// Format the date/time in international format as yyyy/mm/dd hh:mm:ss
+	
 	WCHAR destbuf[32];
-	_stprintf_s(destbuf, 32, _T("%04d/%02d/%02d %02d:%02d:%02d"),
-		newtime.tm_year + 1900,
-		newtime.tm_mon + 1,
-		newtime.tm_mday,
-		newtime.tm_hour,
-		newtime.tm_min,
-		newtime.tm_sec);
+	HRESULT result = CopyDateToString(destbuf, 32, SubStat.CmtDate);
+	if(FALSE == result)
+	{
+		_stprintf_s(destbuf, 2, _T(""));
+	}
+	
 	date->bstrVal = SysAllocStringLen(destbuf, _tcslen(destbuf));
-	return S_OK;
+	return result;
 }
 
 HRESULT __stdcall SubWCRev::get_Url(/*[out, retval]*/VARIANT* url)
@@ -295,6 +288,171 @@ HRESULT __stdcall SubWCRev::get_HasModifications(VARIANT_BOOL* modifications)
 		*modifications = VARIANT_FALSE;
 	return S_OK;
 }
+
+HRESULT __stdcall SubWCRev::get_IsSvnItem(/*[out, retval]*/VARIANT_BOOL* svn_item)
+{
+	if (SubStat.bIsSvnItem)
+		*svn_item = VARIANT_TRUE;
+	else
+		*svn_item = VARIANT_FALSE;
+	return S_OK;
+}
+
+HRESULT __stdcall SubWCRev::get_NeedsLocking(/*[out, retval]*/VARIANT_BOOL* needs_locking)
+{
+	if(false == SubStat.LockData.NeedsLocks)
+	{
+		*needs_locking = VARIANT_FALSE;
+	}
+	else
+	{
+		*needs_locking = VARIANT_TRUE;
+	}
+	
+	return S_OK;
+}
+
+HRESULT __stdcall SubWCRev::get_IsLocked(/*[out, retval]*/VARIANT_BOOL* locked)
+{
+	if(false == SubStat.LockData.IsLocked)
+	{
+		*locked = VARIANT_FALSE;
+	}
+	else
+	{
+		*locked = VARIANT_TRUE;
+	}
+	
+	return S_OK;
+}
+
+	
+HRESULT __stdcall SubWCRev::get_LockCreationDate(/*[out, retval]*/VARIANT* date)
+{
+	date->vt = VT_BSTR;
+
+	WCHAR destbuf[32];
+	HRESULT result = S_OK;
+	if(FALSE == IsLockDataAvailable())
+	{
+		_stprintf_s(destbuf, 2, _T(""));
+		result = S_FALSE;
+	}
+	else
+	{
+		result = CopyDateToString(destbuf, 32, SubStat.LockData.CreationDate);
+		if(FALSE == result)
+		{
+			_stprintf_s(destbuf, 2, _T(""));
+		}
+	}
+	
+	date->bstrVal = SysAllocStringLen(destbuf, _tcslen(destbuf));
+	return result;
+}
+
+	
+HRESULT __stdcall SubWCRev::get_LockOwner(/*[out, retval]*/VARIANT* owner)
+{	
+	owner->vt = VT_BSTR;
+
+	HRESULT result;
+	WCHAR * buf;
+	int len;
+
+	if(FALSE == IsLockDataAvailable())
+	{
+		len = 0;
+		result = S_FALSE;
+	}
+	else
+	{
+		len = strlen(SubStat.LockData.Owner);
+		result = S_OK;
+	}
+
+	buf = new WCHAR[len*4 + 1];
+	ZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
+	
+	if(TRUE == SubStat.LockData.NeedsLocks)
+	{
+		MultiByteToWideChar(CP_UTF8, 0, SubStat.LockData.Owner, -1, buf, len*4);
+	}
+
+	owner->bstrVal = SysAllocString(buf);
+	delete [] buf;
+
+	return result;
+}
+
+
+HRESULT __stdcall SubWCRev::get_LockComment(/*[out, retval]*/VARIANT* comment)
+{	
+	comment->vt = VT_BSTR;
+
+	HRESULT result;
+	WCHAR * buf;
+	int len;
+
+	if(FALSE == IsLockDataAvailable())
+	{
+		len = 0;
+		result = S_FALSE;
+	}
+	else
+	{
+		len = strlen(SubStat.LockData.Comment);
+		result = S_OK;
+	}
+
+	buf = new WCHAR[len*4 + 1];
+	ZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
+	
+	if(TRUE == SubStat.LockData.NeedsLocks)
+	{
+		MultiByteToWideChar(CP_UTF8, 0, SubStat.LockData.Comment, -1, buf, len*4);
+	}
+
+	comment->bstrVal = SysAllocString(buf);
+	delete [] buf;
+
+	return result;
+}
+
+//
+// Get a readable string from a apr_time_t date
+//
+BOOL SubWCRev::CopyDateToString(WCHAR *destbuf, int buflen, apr_time_t time)
+{
+	const int min_buflen = 32;
+	if((NULL == destbuf) || (min_buflen > buflen))
+	{
+		return FALSE;
+	}
+
+	__time64_t ttime;
+	ttime = time/1000000L;
+
+	struct tm newtime;
+	if (_localtime64_s(&newtime, &ttime))
+		return FALSE;
+	// Format the date/time in international format as yyyy/mm/dd hh:mm:ss
+	_stprintf_s(destbuf, min_buflen, _T("%04d/%02d/%02d %02d:%02d:%02d"),
+		newtime.tm_year + 1900,
+		newtime.tm_mon + 1,
+		newtime.tm_mday,
+		newtime.tm_hour,
+		newtime.tm_min,
+		newtime.tm_sec);
+	return TRUE;
+}
+
+BOOL SubWCRev::IsLockDataAvailable()
+{
+	BOOL bResult = (SubStat.LockData.NeedsLocks && SubStat.LockData.IsLocked);
+	return bResult;
+}
+
 
 HRESULT SubWCRev::LoadTypeInfo(ITypeInfo ** pptinfo, const CLSID &libid, const CLSID &iid, LCID lcid)
 {

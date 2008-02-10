@@ -40,6 +40,24 @@ library LibSubWCRev
 
 		[propget, helpstring("TRUE if the working copy has modifications")]
 		HRESULT HasModifications([out, retval]VARIANT_BOOL* modifications);
+		
+		[propget, helpstring("TRUE if the file or folder is under SVN version control")]
+		HRESULT IsSvnItem([out, retval]VARIANT_BOOL* svn_item);
+
+		[propget, helpstring("TRUE if locking is generally required for the requested file / folder")]
+		HRESULT NeedsLocking([out, retval]VARIANT_BOOL* needs_locking);
+		
+		[propget, helpstring("TRUE if the file or folder is locked")]
+		HRESULT IsLocked([out, retval]VARIANT_BOOL* locked);
+		
+		[propget, helpstring("Returns the creation date of the lock")]
+		HRESULT LockCreationDate([out, retval]VARIANT* date);
+	
+		[propget, helpstring("Returns the owner of the lock")]
+		HRESULT LockOwner([out, retval]VARIANT* owner);
+
+		[propget, helpstring("Returns the comment of the lock")]
+		HRESULT LockComment([out, retval]VARIANT* comment);
 	}
 
 

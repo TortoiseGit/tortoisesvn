@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,6 +24,23 @@
 #include "svn_path.h"
 
 #define URL_BUF	2048
+#define OWNER_BUF	2048
+#define COMMENT_BUF	4096
+
+/**
+ * \ingroup SubWCRev
+ * This structure is used as a part of the status baton for WC crawling
+ * and contains all the information we are collecting regarding the lock status.
+ */
+typedef struct SubWcLockData_t
+{
+	BOOL NeedsLocks;			// TRUE if a lock can be applied in generally; if FALSE, the values of the other parms in this struct are invalid
+	BOOL IsLocked;				// TRUE if the file or folder is locked
+	char Owner[OWNER_BUF];		// the username which owns the lock
+	char Comment[COMMENT_BUF];	// lock comment
+	apr_time_t CreationDate;    // when lock was made
+	
+} SubWcLockData_t;
 
 /**
  * \ingroup SubWCRev
@@ -44,6 +61,8 @@ typedef struct SubWCRev_t
 	char Url[URL_BUF];		// URL of working copy
 	char UUID[1024];		// The repository UUID of the working copy
 	char Author[URL_BUF];	// The author of the wcPath
+	BOOL  bIsSvnItem;			// True if the item is under SVN
+	SubWcLockData_t LockData;	// Data regarding the lock of the file
 } SubWCRev_t;
 
 /**

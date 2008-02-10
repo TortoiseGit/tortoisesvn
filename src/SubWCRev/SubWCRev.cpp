@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -100,6 +100,12 @@ than 64 characters, and must not produce output greater than 128 characters.\n"
 #define URLDEF		"$WCURL$"
 #define NOWDEF		"$WCNOW$"
 #define NOWWFMTDEF	"$WCNOW="
+#define ISINSVN		"$WCINSVN?"
+#define NEEDSLOCK	"$WCNEEDSLOCK?"
+#define ISLOCKED	"$WCISLOCKED?"
+#define LOCKDATE	"$WCLOCKDATE$"
+#define LOCKOWNER	"$WCLOCKOWNER$"
+#define LOCKCOMMENT	"$WCLOCKCOMMENT$"
 
 // Internal error codes
 #define ERR_SYNTAX		1	// Syntax error
@@ -611,7 +617,25 @@ int _tmain(int argc, _TCHAR* argv[])
 	
 	index = 0;
 	while (InsertUrl(URLDEF, pBuf, index, filelength, maxlength, SubStat.Url));
-	
+
+	index = 0;
+	while (InsertBoolean(ISINSVN, pBuf, index, filelength, SubStat.bIsSvnItem));
+
+	index = 0;
+	while (InsertBoolean(NEEDSLOCK, pBuf, index, filelength, SubStat.LockData.NeedsLocks));
+
+	index = 0;
+	while (InsertBoolean(ISLOCKED, pBuf, index, filelength,  SubStat.LockData.IsLocked));
+
+	index = 0;
+	while (InsertDate(LOCKDATE, pBuf, index, filelength, maxlength, SubStat.LockData.CreationDate));
+
+	index = 0;
+	while (InsertUrl(LOCKOWNER, pBuf, index, filelength, maxlength, SubStat.LockData.Owner));
+
+	index = 0;
+	while (InsertUrl(LOCKCOMMENT, pBuf, index, filelength, maxlength, SubStat.LockData.Comment));
+
 	hFile = CreateFile(dst, GENERIC_WRITE|GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_ALWAYS, NULL, NULL);
 	if (hFile == INVALID_HANDLE_VALUE)
 	{
