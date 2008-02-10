@@ -36,7 +36,7 @@ bool UnIgnoreCommand::Execute()
 		}
 		filelist += name + _T("\n");
 		CTSVNPath parentfolder = pathList[nPath].GetContainingDirectory();
-		SVNProperties props(parentfolder);
+		SVNProperties props(parentfolder, SVNRev::REV_WC, false);
 		CStringA value;
 		for (int i=0; i<props.GetCount(); i++)
 		{

@@ -157,7 +157,7 @@ UINT CEditPropertiesDlg::PropsThread()
 	m_properties.clear();
 	for (int i=0; i<m_pathlist.GetCount(); ++i)
 	{
-		SVNProperties props(m_pathlist[i], m_revision);
+		SVNProperties props(m_pathlist[i], m_revision, false);
 		for (int p=0; p<props.GetCount(); ++p)
 		{
 			wide_string prop_str = props.GetItemName(p);
@@ -334,7 +334,7 @@ void CEditPropertiesDlg::OnBnClickedRemoveProps()
 		for (int i=0; i<m_pathlist.GetCount(); ++i)
 		{
 			prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
-			SVNProperties props(m_pathlist[i], m_revision);
+			SVNProperties props(m_pathlist[i], m_revision, false);
 			if (!props.Remove(sName, bRecurse ? svn_depth_infinity : svn_depth_empty, (LPCTSTR)sLogMsg))
 			{
 				CMessageBox::Show(m_hWnd, props.GetLastErrorMsg().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -437,7 +437,7 @@ void CEditPropertiesDlg::EditProps(bool bAdd /* = false*/)
 				for (int i=0; i<m_pathlist.GetCount(); ++i)
 				{
 					prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
-					SVNProperties props(m_pathlist[i], m_revision);
+					SVNProperties props(m_pathlist[i], m_revision, false);
 					if (!props.Add(sName, dlg.IsBinary() ? dlg.GetPropertyValue() : dlg.GetPropertyValue().c_str(), 
 						dlg.GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg))
 					{
@@ -661,7 +661,7 @@ void CEditPropertiesDlg::OnBnClickedImport()
 							for (int i=0; i<m_pathlist.GetCount() && !bFailed; ++i)
 							{
 								prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
-								SVNProperties props(m_pathlist[i], m_revision);
+								SVNProperties props(m_pathlist[i], m_revision, false);
 								if (!props.Add(sName, propertyvalue, svn_depth_empty, (LPCTSTR)sMsg))
 								{
 									prog.Stop();

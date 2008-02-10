@@ -646,8 +646,8 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, SVNRev rev1, SVNRev rev2)
 {
 	bool retvalue = false;
 	// diff the properties
-	SVNProperties propswc(filePath, rev1);
-	SVNProperties propsbase(filePath, rev2);
+	SVNProperties propswc(filePath, rev1, false);
+	SVNProperties propsbase(filePath, rev2, false);
 
 	// check for properties that got removed
 	for (int baseindex = 0; baseindex < propsbase.GetCount(); ++baseindex)

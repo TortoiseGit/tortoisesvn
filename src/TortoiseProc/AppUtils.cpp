@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -40,7 +40,7 @@ CAppUtils::~CAppUtils(void)
 
 bool CAppUtils::GetMimeType(const CTSVNPath& file, CString& mimetype)
 {
-	SVNProperties props(file);
+	SVNProperties props(file, SVNRev::REV_WC, false);
 	for (int i = 0; i < props.GetCount(); ++i)
 	{
 		if (props.GetItemName(i).compare(_T("svn:mime-type"))==0)

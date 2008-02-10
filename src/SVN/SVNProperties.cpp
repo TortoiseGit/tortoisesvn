@@ -73,15 +73,30 @@ svn_error_t*	SVNProperties::Refresh()
 	rev.kind = svn_opt_revision_unspecified;
 	rev.value.number = -1;
 #endif
-	m_error = svn_client_proplist3 (m_path.GetSVNApiPath(m_pool),
-								&rev,
-								&rev,
-								svn_depth_empty,
-								NULL,
-								proplist_receiver,
-								this,
-								m_pctx,
-								m_pool);
+	if (m_bRevProps)
+	{
+		svn_revnum_t rev_set;
+		apr_hash_t * props;
+		m_error = svn_client_revprop_list(	&props, 
+											m_path.GetSVNApiPath(m_pool),
+											&rev,
+											&rev_set,
+											m_pctx,
+											m_pool);
+		m_props[std::string("")] = apr_hash_copy(m_pool, props);
+	}
+	else
+	{
+		m_error = svn_client_proplist3 (m_path.GetSVNApiPath(m_pool),
+										&rev,
+										&rev,
+										svn_depth_empty,
+										NULL,
+										proplist_receiver,
+										this,
+										m_pctx,
+										m_pool);
+	}
 	if(m_error != NULL)
 		return m_error;
 
@@ -95,13 +110,15 @@ svn_error_t*	SVNProperties::Refresh()
 
 #ifdef _MFC_VER
 
-SVNProperties::SVNProperties(const CTSVNPath& filepath, SVNRev rev)
-: m_rev(SVNRev::REV_WC)
+SVNProperties::SVNProperties(const CTSVNPath& filepath, SVNRev rev, bool bRevProps)
+	: m_rev(SVNRev::REV_WC)
+	, m_bRevProps(bRevProps)
 {
 	m_rev = rev;
 #else
 
-SVNProperties::SVNProperties(const CTSVNPath& filepath)
+SVNProperties::SVNProperties(const CTSVNPath& filepath, bool bRevProps)
+	: m_bRevProps(bRevProps)
 {
 #endif
 	m_pool = svn_pool_create (NULL);				// create the memory pool
@@ -191,7 +208,7 @@ std::string SVNProperties::GetItem(int index, BOOL name)
 
 			// If this is a special Subversion property, it is stored as
 			// UTF8, so convert to the native format.
-			if ((svn_prop_needs_translation (pname_utf8))||(strncmp(pname_utf8, "bugtraq:", 8)==0)||(strncmp(pname_utf8, "tsvn:", 5)==0))
+			if (m_bRevProps||(svn_prop_needs_translation (pname_utf8))||(strncmp(pname_utf8, "bugtraq:", 8)==0)||(strncmp(pname_utf8, "tsvn:", 5)==0))
 			{
 				m_error = svn_subst_detranslate_string (&propval, propval, FALSE, m_pool);
 				if (m_error != NULL)
@@ -271,13 +288,13 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, svn_depth_t depth
 	pval = svn_string_ncreate (Value.c_str(), Value.size(), subpool);
 
 	pname_utf8 = StringToUTF8(Name);
-	if ((svn_prop_needs_translation (pname_utf8.c_str()))||(strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0))
+	if (m_bRevProps||(svn_prop_needs_translation (pname_utf8.c_str()))||(strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0))
 	{
 		m_error = svn_subst_translate_string (&pval, pval, NULL, subpool);
 		if (m_error != NULL)
 			return FALSE;
 	}
-	if ((!m_path.IsDirectory() && !m_path.IsUrl())&&(((strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0))))
+	if ((!m_bRevProps)&&((!m_path.IsDirectory() && !m_path.IsUrl())&&(((strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0)))))
 	{
 		// bugtraq: and tsvn: properties are not allowed on files.
 #ifdef _MFC_VER
@@ -315,7 +332,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, svn_depth_t depth
 			}
 		}
 	}
-	if ((depth != svn_depth_empty)&&((strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0)))
+	if ((!m_bRevProps)&&((depth != svn_depth_empty)&&((strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0))))
 	{
 		// The bugtraq and tsvn properties must only be set on folders.
 		CTSVNPath path;
@@ -351,7 +368,15 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, svn_depth_t depth
 			baton->pool = subpool;
 			m_pctx->log_msg_baton3 = baton;
 		}
-		m_error = svn_client_propset3 (&commit_info, pname_utf8.c_str(), pval, m_path.GetSVNApiPath(subpool), depth, false, m_rev, NULL, m_pctx, subpool);
+		if (m_bRevProps)
+		{
+			svn_revnum_t rev_set;
+			m_error = svn_client_revprop_set(pname_utf8.c_str(), pval, m_path.GetSVNApiPath(subpool), m_rev, &rev_set, false, m_pctx, subpool);
+		}
+		else
+		{
+			m_error = svn_client_propset3 (&commit_info, pname_utf8.c_str(), pval, m_path.GetSVNApiPath(subpool), depth, false, m_rev, NULL, m_pctx, subpool);
+		}
 	}
 	if (m_error != NULL)
 	{
@@ -391,7 +416,15 @@ BOOL SVNProperties::Remove(const TCHAR * Name, svn_depth_t depth, const TCHAR * 
 		m_pctx->log_msg_baton3 = baton;
 	}
 
-	m_error = svn_client_propset3 (&commit_info, pname_utf8.c_str(), NULL, m_path.GetSVNApiPath(subpool), depth, false, m_rev, NULL, m_pctx, subpool);
+	if (m_bRevProps)
+	{
+		svn_revnum_t rev_set;
+		m_error = svn_client_revprop_set(pname_utf8.c_str(), NULL, m_path.GetSVNApiPath(subpool), m_rev, &rev_set, false, m_pctx, subpool);
+	}
+	else
+	{
+		m_error = svn_client_propset3 (&commit_info, pname_utf8.c_str(), NULL, m_path.GetSVNApiPath(subpool), depth, false, m_rev, NULL, m_pctx, subpool);
+	}
 
 	if (m_error != NULL)
 	{

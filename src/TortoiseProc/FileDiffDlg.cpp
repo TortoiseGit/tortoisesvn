@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -345,8 +345,8 @@ void CFileDiffDlg::DiffProps(int selIndex)
 	CTSVNPath url1 = CTSVNPath(m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
 	CTSVNPath url2 = m_bDoPegDiff ? url1 : CTSVNPath(m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
 
-	SVNProperties propsurl1(url1, m_rev1);
-	SVNProperties propsurl2(url2, m_rev2);
+	SVNProperties propsurl1(url1, m_rev1, false);
+	SVNProperties propsurl2(url2, m_rev2, false);
 	
 	// collect the properties of both revisions in a set
 	std::set<stdstring> properties;

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -45,7 +45,7 @@ class SVNProperties
 public:
 
 #ifdef _MFC_VER
-	SVNProperties(const CTSVNPath& filepath, SVNRev rev = SVNRev::REV_WC);
+	SVNProperties(const CTSVNPath& filepath, SVNRev rev, bool bRevProps);
 	void SaveAuthentication(BOOL save);
 #else
 	/**
@@ -53,7 +53,7 @@ public:
 	 * the specified file/directory.
 	 * \param filepath the file/directory
 	 */
-	SVNProperties(const CTSVNPath& filepath);
+	SVNProperties(const CTSVNPath& filepath, bool bRevProps);
 #endif
 	~SVNProperties(void);
 
@@ -134,6 +134,7 @@ private:		//members
 	int							m_propCount;		///< number of properties found
 	svn_error_t *				m_error;
 	SVNRev						m_rev;
+	bool						m_bRevProps;
 #ifdef _MFC_VER
 	SVNPrompt					m_prompt;
 #endif

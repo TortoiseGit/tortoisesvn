@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -81,7 +81,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 		
 	for (;;)
 	{
-		SVNProperties props(path);
+		SVNProperties props(path, SVNRev::REV_WC, false);
 		for (int i=0; i<props.GetCount(); ++i)
 		{
 			CString sPropName = props.GetItemName(i).c_str();
@@ -824,7 +824,7 @@ bool ProjectProperties::AddAutoProps(const CTSVNPath& path)
 	bool bRet = true;
 
 	char buf[1024] = {0};
-	SVNProperties props(path);
+	SVNProperties props(path, SVNRev::REV_WC, false);
 	if (!sLabel.IsEmpty())
 		bRet = props.Add(BUGTRAQPROPNAME_LABEL, CUnicodeUtils::StdGetUTF8((LPCTSTR)sLabel)) && bRet;
 	if (!sMessage.IsEmpty())

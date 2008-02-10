@@ -2885,7 +2885,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						for (it = parentlist.begin(); it != parentlist.end(); ++it)
 						{
 							CTSVNPath parentFolder = (*it).GetDirectory();
-							SVNProperties props(parentFolder);
+							SVNProperties props(parentFolder, SVNRev::REV_WC, false);
 							CStringA value;
 							for (int i=0; i<props.GetCount(); i++)
 							{
@@ -3032,7 +3032,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							}
 							CString name = CPathUtils::PathPatternEscape(ignorelist[j].GetFileOrDirectoryName());
 							CTSVNPath parentfolder = ignorelist[j].GetContainingDirectory();
-							SVNProperties props(parentfolder);
+							SVNProperties props(parentfolder, SVNRev::REV_WC, false);
 							CStringA value;
 							for (int i=0; i<props.GetCount(); i++)
 							{
