@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2008 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -49,6 +49,7 @@ public:
 	void			SetDialogTitle(const CString& sTitle) {m_sTitle = sTitle;}
 	void			SetPathList(const CTSVNPathList& pathlist) {m_pathList = pathlist;}
 
+	void			RevProps(bool bRevProps = false) {m_bRevProps = bRevProps;}
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
@@ -73,6 +74,7 @@ protected:
 	bool		m_bFolder;
 	bool		m_bMultiple;
 	bool		m_bIsBinary;
+	bool		m_bRevProps;
 	CTSVNPathList		m_pathList;
 	ProjectProperties	m_ProjectProperties;
 };

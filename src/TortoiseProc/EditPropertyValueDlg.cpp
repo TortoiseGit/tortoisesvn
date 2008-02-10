@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -34,6 +34,7 @@ CEditPropertyValueDlg::CEditPropertyValueDlg(CWnd* pParent /*=NULL*/)
 	, m_bFolder(false)
 	, m_bMultiple(false)
 	, m_bIsBinary(false)
+	, m_bRevProps(false)
 {
 }
 
@@ -67,90 +68,93 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 	// get the property values for user defined property files
 	m_ProjectProperties.ReadPropsPathList(m_pathList);
 
+	bool bFound = false;
+
 	// fill the combobox control with all the
 	// known properties
-	if ((!m_bFolder)||(m_bMultiple))
-		m_PropNames.AddString(_T("svn:eol-style"));
-	if ((!m_bFolder)||(m_bMultiple))
-		m_PropNames.AddString(_T("svn:executable"));
-	if ((m_bFolder)||(m_bMultiple))
-		m_PropNames.AddString(_T("svn:externals"));
-	if ((m_bFolder)||(m_bMultiple))
-		m_PropNames.AddString(_T("svn:ignore"));
-	if ((!m_bFolder)||(m_bMultiple))
-		m_PropNames.AddString(_T("svn:keywords"));
-	if ((!m_bFolder)||(m_bMultiple))
-		m_PropNames.AddString(_T("svn:needs-lock"));
-	if ((!m_bFolder)||(m_bMultiple))
-		m_PropNames.AddString(_T("svn:mime-type"));
-	if ((m_bFolder)||(m_bMultiple))
-		m_PropNames.AddString(_T("svn:mergeinfo"));
-	if ((!m_bFolder)||(m_bMultiple))
+	if (!m_bRevProps)
 	{
-		if (!m_ProjectProperties.sFPPath.IsEmpty())
+		if ((!m_bFolder)||(m_bMultiple))
+			m_PropNames.AddString(_T("svn:eol-style"));
+		if ((!m_bFolder)||(m_bMultiple))
+			m_PropNames.AddString(_T("svn:executable"));
+		if ((m_bFolder)||(m_bMultiple))
+			m_PropNames.AddString(_T("svn:externals"));
+		if ((m_bFolder)||(m_bMultiple))
+			m_PropNames.AddString(_T("svn:ignore"));
+		if ((!m_bFolder)||(m_bMultiple))
+			m_PropNames.AddString(_T("svn:keywords"));
+		if ((!m_bFolder)||(m_bMultiple))
+			m_PropNames.AddString(_T("svn:needs-lock"));
+		if ((!m_bFolder)||(m_bMultiple))
+			m_PropNames.AddString(_T("svn:mime-type"));
+		if ((m_bFolder)||(m_bMultiple))
+			m_PropNames.AddString(_T("svn:mergeinfo"));
+		if ((!m_bFolder)||(m_bMultiple))
 		{
-			resToken = m_ProjectProperties.sFPPath.Tokenize(_T("\n"),curPos);
-			while (resToken != "")
+			if (!m_ProjectProperties.sFPPath.IsEmpty())
 			{
-				m_PropNames.AddString(resToken);
 				resToken = m_ProjectProperties.sFPPath.Tokenize(_T("\n"),curPos);
+				while (resToken != "")
+				{
+					m_PropNames.AddString(resToken);
+					resToken = m_ProjectProperties.sFPPath.Tokenize(_T("\n"),curPos);
+				}
 			}
 		}
-	}
 
-	if ((m_bFolder)||(m_bMultiple))
-	{
-		m_PropNames.AddString(_T("bugtraq:url"));
-		m_PropNames.AddString(_T("bugtraq:logregex"));
-		m_PropNames.AddString(_T("bugtraq:label"));
-		m_PropNames.AddString(_T("bugtraq:message"));
-		m_PropNames.AddString(_T("bugtraq:number"));
-		m_PropNames.AddString(_T("bugtraq:warnifnoissue"));
-		m_PropNames.AddString(_T("bugtraq:append"));
-
-		m_PropNames.AddString(_T("tsvn:logtemplate"));
-		m_PropNames.AddString(_T("tsvn:logwidthmarker"));
-		m_PropNames.AddString(_T("tsvn:logminsize"));
-		m_PropNames.AddString(_T("tsvn:lockmsgminsize"));
-		m_PropNames.AddString(_T("tsvn:logfilelistenglish"));
-		m_PropNames.AddString(_T("tsvn:logsummary"));
-		m_PropNames.AddString(_T("tsvn:projectlanguage"));
-		m_PropNames.AddString(_T("tsvn:userfileproperties"));
-		m_PropNames.AddString(_T("tsvn:userdirproperties"));
-		m_PropNames.AddString(_T("tsvn:autoprops"));
-
-		m_PropNames.AddString(_T("webviewer:revision"));
-		m_PropNames.AddString(_T("webviewer:pathrevision"));
-
-		if (!m_ProjectProperties.sDPPath.IsEmpty())
+		if ((m_bFolder)||(m_bMultiple))
 		{
-			curPos = 0;
-			resToken = m_ProjectProperties.sDPPath.Tokenize(_T("\n"),curPos);
+			m_PropNames.AddString(_T("bugtraq:url"));
+			m_PropNames.AddString(_T("bugtraq:logregex"));
+			m_PropNames.AddString(_T("bugtraq:label"));
+			m_PropNames.AddString(_T("bugtraq:message"));
+			m_PropNames.AddString(_T("bugtraq:number"));
+			m_PropNames.AddString(_T("bugtraq:warnifnoissue"));
+			m_PropNames.AddString(_T("bugtraq:append"));
 
-			while (resToken != "")
+			m_PropNames.AddString(_T("tsvn:logtemplate"));
+			m_PropNames.AddString(_T("tsvn:logwidthmarker"));
+			m_PropNames.AddString(_T("tsvn:logminsize"));
+			m_PropNames.AddString(_T("tsvn:lockmsgminsize"));
+			m_PropNames.AddString(_T("tsvn:logfilelistenglish"));
+			m_PropNames.AddString(_T("tsvn:logsummary"));
+			m_PropNames.AddString(_T("tsvn:projectlanguage"));
+			m_PropNames.AddString(_T("tsvn:userfileproperties"));
+			m_PropNames.AddString(_T("tsvn:userdirproperties"));
+			m_PropNames.AddString(_T("tsvn:autoprops"));
+
+			m_PropNames.AddString(_T("webviewer:revision"));
+			m_PropNames.AddString(_T("webviewer:pathrevision"));
+
+			if (!m_ProjectProperties.sDPPath.IsEmpty())
 			{
-				m_PropNames.AddString(resToken);
+				curPos = 0;
 				resToken = m_ProjectProperties.sDPPath.Tokenize(_T("\n"),curPos);
+
+				while (resToken != "")
+				{
+					m_PropNames.AddString(resToken);
+					resToken = m_ProjectProperties.sDPPath.Tokenize(_T("\n"),curPos);
+				}
+			}
+		}
+		else
+			GetDlgItem(IDC_PROPRECURSIVE)->EnableWindow(FALSE);
+
+		// select the pre-set property in the combobox
+		for (int i=0; i<m_PropNames.GetCount(); ++i)
+		{
+			CString sText;
+			m_PropNames.GetLBText(i, sText);
+			if (m_sPropName.Compare(sText)==0)
+			{
+				m_PropNames.SetCurSel(i);
+				bFound = true;
+				break;
 			}
 		}
 	}
-	else
-		GetDlgItem(IDC_PROPRECURSIVE)->EnableWindow(FALSE);
-
-	// select the pre-set property in the combobox
-	bool bFound = false;
-	for (int i=0; i<m_PropNames.GetCount(); ++i)
-	{
-		CString sText;
-		m_PropNames.GetLBText(i, sText);
-		if (m_sPropName.Compare(sText)==0)
-		{
-			m_PropNames.SetCurSel(i);
-			bFound = true;
-			break;
-		}
-	}
-
 	if (!bFound)
 	{
 		m_PropNames.SetWindowText(m_sPropName);
@@ -167,6 +171,8 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 		SetWindowText(m_sTitle);
 
 	AdjustControlSize(IDC_PROPRECURSIVE);
+
+	GetDlgItem(IDC_PROPRECURSIVE)->ShowWindow(m_bRevProps ? SW_HIDE : SW_SHOW);
 
 	AddAnchor(IDC_PROPNAME, TOP_LEFT, TOP_CENTER);
 	AddAnchor(IDC_PROPNAMECOMBO, TOP_CENTER, TOP_RIGHT);

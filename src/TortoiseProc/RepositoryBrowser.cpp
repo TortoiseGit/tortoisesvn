@@ -72,6 +72,7 @@ enum RepoBrowserContextMenuCommands
 	ID_COPYTO,
 	ID_URLTOCLIPBOARD,
 	ID_PROPS,
+	ID_REVPROPS,
 	ID_GNUDIFF,
 	ID_DIFF,
 	ID_PREPAREDIFF,
@@ -1964,8 +1965,13 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 
 			temp.LoadString(IDS_REPOBROWSE_SHOWPROP);
 			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_PROPS, temp);			// "Show Properties"
-
-
+			// Revision properties are not associated to paths
+			// so we only show that context menu on the repository root
+			if (urlList[0].GetSVNPathString().Compare(m_strReposRoot)==0)
+			{
+				temp.LoadString(IDS_REPOBROWSE_SHOWREVPROP);					// "Show Revision Properties"
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVPROPS, temp);
+			}
 			if (nFolders == 1)
 			{
 				popup.AppendMenu(MF_SEPARATOR, NULL);
@@ -2606,6 +2612,22 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					dlg.m_Path = CTSVNPath(EscapeUrl(urlList[0]));
 					dlg.DoModal();
 				}
+			}
+			break;
+		case ID_REVPROPS:
+			{
+				CEditPropertiesDlg dlg;
+				dlg.SetProjectProperties(&m_ProjectProperties);
+				dlg.SetUUID(m_sUUID);
+				CTSVNPathList escapedlist;
+				for (int i=0; i<urlList.GetCount(); ++i)
+				{
+					escapedlist.AddPath(CTSVNPath(EscapeUrl(urlList[i])));
+				}
+				dlg.SetPathList(escapedlist);
+				dlg.SetRevision(GetRevision());
+				dlg.RevProps(true);
+				dlg.DoModal();
 			}
 			break;
 		case ID_BLAME:

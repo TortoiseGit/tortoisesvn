@@ -41,6 +41,7 @@ public:
 
 	void	SetProjectProperties(ProjectProperties * pProps) {m_pProjectProperties = pProps;}
 	void	SetUUID(const CString& sUUID) {m_sUUID = sUUID;}
+	void	RevProps(bool bRevProps = false) {m_bRevProps = bRevProps;}
 
 // Dialog Data
 	enum { IDD = IDD_EDITPROPERTIES };
@@ -84,6 +85,7 @@ protected:
 	CListCtrl		m_propList;
 	BOOL			m_bRecursive;
 	bool			m_bChanged;
+	bool			m_bRevProps;
 	volatile LONG	m_bThreadRunning;
 	std::map<stdstring, PropValue>	m_properties;
 	SVNRev			m_revision;
