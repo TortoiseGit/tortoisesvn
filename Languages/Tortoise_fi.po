@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: kari.grano@gmail.com\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-01-16 01:04+0200\n"
+"PO-Revision-Date: 2008-02-11 22:14+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -975,6 +975,10 @@ msgstr "&Lisää kansio..."
 msgid "Abort"
 msgstr "Peruuta"
 
+#. Resource IDs: (1465)
+msgid "Abort &Merge"
+msgstr "&Keskeytä"
+
 #. Resource IDs: (136)
 msgid "About TortoiseMerge"
 msgstr "Tietoa TortoiseMerge-ohjelmasta"
@@ -1372,6 +1376,12 @@ msgstr "Selvittää tiedoston jokaiselle riville tiedot sen tekijästä ja versi
 msgid "Blend Alpha"
 msgstr "Läpinäkyvyystila"
 
+#. Resource IDs: (83)
+msgid ""
+"Both /logmsg and /logmsgfile were specified!\n"
+"Only one of those can be specified."
+msgstr "Valitsimet /logmsg ja /logmsgfile eivät voi esiintyä yhdessä!"
+
 #. Resource IDs: (1003)
 msgid "Br&owse..."
 msgstr "&Selaa..."
@@ -1407,6 +1417,10 @@ msgstr "Selaa ulkoinen diff-ohjelma"
 #. Resource IDs: (1069)
 msgid "Browse..."
 msgstr "Selaa..."
+
+#. Resource IDs: (1382)
+msgid "Bug Tracker..."
+msgstr "Ongelmajäljitin..."
 
 #. Resource IDs: (1119)
 msgid "Bug-&ID / Issue-Nr:"
@@ -1528,6 +1542,11 @@ msgstr "Muuttuneet tiedostot välillä %s, %s ja %s, %s"
 #, c-format
 msgid "Changed files: %d"
 msgstr "Muuttuneet tiedostot: %d"
+
+#. Resource IDs: (264)
+#, c-format
+msgid "Changelist %s moved"
+msgstr "Muutoslista %s siirretty"
 
 #. Resource IDs: (65535)
 msgid "Changelist:"
@@ -2923,6 +2942,10 @@ msgstr ""
 "Syvyys:\t\t\t%d bittiä\n"
 "Zoomaus:\t\t\t%d%%"
 
+#. Resource IDs: (208)
+msgid "Filename"
+msgstr "Tiedostonimi"
+
 #. Resource IDs: (65535)
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
 msgstr "Suodata pois seuraavat polut (erota useat polut merkillä '*'):"
@@ -3689,6 +3712,10 @@ msgstr ""
 "Väli määritellään väliviivan avulla.\n"
 "Esimerkki: 2-5,7,10,44-70,300-HEAD"
 
+#. Resource IDs: (570)
+msgid "Issue Tracker Hook"
+msgstr "Ongelmajäljitin"
+
 #. Resource IDs: (145)
 msgid ""
 "It is not possible to rename a file by changing the case of its name alone.\n"
@@ -3934,6 +3961,10 @@ msgid ""
 msgstr ""
 "Merkitse tiedoston ristiriidat ratkaistuksi\n"
 "Merkitse ratkaistuksi"
+
+#. Resource IDs: (596)
+msgid "Marks the revisions as merged, without actually doing the merge"
+msgstr "Merkitsee versiot yhdistetyiksi suorittamatta yhdistämistä"
 
 #. Resource IDs: (1064)
 msgid "Match &case"
@@ -4339,6 +4370,18 @@ msgstr "Ohita &ulkoiset polut (svn:external)"
 #. Resource IDs: (145)
 msgid "Omit externals"
 msgstr "Ohita svn:externals -kansiot"
+
+#. Resource IDs: (63)
+msgid ""
+"One of the paths you are attempting to move appears to be a special path\n"
+"(one of 'branches', 'tags' or 'trunk').\n"
+"\n"
+"Are you sure you want to move the selected paths?"
+msgstr ""
+"Yhdellä poluista, joita olet siirtämässä, on erityismerkitys\n"
+"(se on nimeltään 'branches', 'tags' tai 'trunk').\n"
+"\n"
+"Oletko varma, että haluat siirtää valitut polut?"
 
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
@@ -5645,6 +5688,10 @@ msgstr "Näytä kuvakepäällys ohitetuille tiedostoille"
 msgid "Show overlay for unversioned items"
 msgstr "Näytä kuvakepäällys versioimattomille tiedostoille"
 
+#. Resource IDs: (102)
+msgid "Show revision properties"
+msgstr "Näytä versio-ominaisuudet"
+
 #. Resource IDs: (2049)
 msgid ""
 "Show special characters for whitespaces\n"
@@ -6463,11 +6510,16 @@ msgstr "TortoiseBlame"
 
 #. Resource IDs: (13)
 msgid ""
-"TortoiseBlame can't be started directly!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
+"TortoiseBlame should not be started directly! Use\n"
+"TortoiseProc.exe /command:blame /path:\"path\\to\\file\"\n"
+"instead.\n"
+"\n"
+"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 msgstr ""
-"TortoiseBlame-ohjelmaa ei voi käynnistää suoraan!\n"
-"TortoiseBlame.exe tekijätiedosto [[lokitiedosto] [ikkunaotsikko]] [/line:rivinumero] [/path:alkuperäinen polku]"
+"TortoiseBlame-ohjelmaa ei pitäisi käynnistää suoraan!\n"
+"Käytä sen sijaan komentoa TortoiseProc.exe /command:blame /path:\"polku\\tiedostoon\".\n"
+"\n"
+"TortoiseBlame.exe tekijätiedosto [lokitiedosto [ikkunaotsikko]] [/line:rivinumero] [/path:alkuperäinen polku] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
@@ -6956,6 +7008,10 @@ msgstr "Versio"
 #, c-format
 msgid "Version %d.%d.%d.%d"
 msgstr "Versio %d.%d.%d.%d"
+
+#. Resource IDs: (1075)
+msgid "Version Information"
+msgstr "Versiotiedot"
 
 #. Resource IDs: (264)
 msgid "Versioned"
