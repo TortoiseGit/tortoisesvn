@@ -381,7 +381,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 								itemStates |= ITEMIS_IGNORED;
 								// the item is ignored. Get the svn:ignored properties so we can (maybe) later
 								// offer a 'remove from ignored list' entry
-								SVNProperties props(strpath.GetContainingDirectory());
+								SVNProperties props(strpath.GetContainingDirectory(), false);
 								ignoredprops.empty();
 								for (int p=0; p<props.GetCount(); ++p)
 								{

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -236,7 +236,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 					return S_FALSE;
 				if (g_ShellCache.IsPathAllowed(path))
 				{
-					SVNProperties props = SVNProperties(CTSVNPath(path));
+					SVNProperties props = SVNProperties(CTSVNPath(path), false);
 					for (int i=0; i<props.GetCount(); i++)
 					{
 						if (props.GetItemName(i).compare(_T("svn:mime-type"))==0)
@@ -255,7 +255,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 					return S_FALSE;
 				if (g_ShellCache.IsPathAllowed(path))
 				{
-					SVNProperties props = SVNProperties(CTSVNPath(path));
+					SVNProperties props = SVNProperties(CTSVNPath(path), false);
 					for (int i=0; i<props.GetCount(); i++)
 					{
 						if (props.GetItemName(i).compare(_T("svn:eol-style"))==0)
