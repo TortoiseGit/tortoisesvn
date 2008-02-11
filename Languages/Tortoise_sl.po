@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2008-01-27 20:05+0100\n"
+"PO-Revision-Date: 2008-02-11 19:06+0100\n"
 "Last-Translator: Matjaz Cepon <matjaz.cepon@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1390,6 +1390,10 @@ msgstr "Prebrskaj in poišči zunanji program za razlikovanje"
 #. Resource IDs: (1069)
 msgid "Browse..."
 msgstr "Prebrskaj..."
+
+#. Resource IDs: (1382)
+msgid "Bug Tracker..."
+msgstr "Sledilnik zadev..."
 
 #. Resource IDs: (1119)
 msgid "Bug-&ID / Issue-Nr:"
@@ -2912,6 +2916,10 @@ msgstr ""
 "Globina:\t\t\t%d bit\n"
 "Povečava:\t\t\t%d%%"
 
+#. Resource IDs: (208)
+msgid "Filename"
+msgstr "Ime datoteke"
+
 #. Resource IDs: (65535)
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
 msgstr "Izloči naslednje poti (poti ločite z znakom '*'):"
@@ -3456,7 +3464,7 @@ msgstr "Prezri &zaključke vrstic (priporočeno)"
 
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line endings"
-msgstr "Prezri zaključje vrstic"
+msgstr "Prezri zaključke vrstic"
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace changes"
@@ -3663,6 +3671,10 @@ msgstr ""
 "Veljavne revizije so številke in HEAD, ločene z vejicami.\n"
 "Območje je lahko podano z uporabo vezaja.\n"
 "Primer: 2-5,7,10,44-70,300-HEAD"
+
+#. Resource IDs: (570)
+msgid "Issue Tracker Hook"
+msgstr "Akcijska skripta sledilnika zadev"
 
 #. Resource IDs: (145)
 msgid ""
@@ -3907,6 +3919,10 @@ msgid ""
 msgstr ""
 "Označi datoteko kot rešeno v sistemu Subversion\n"
 "Označi kot rešeno"
+
+#. Resource IDs: (596)
+msgid "Marks the revisions as merged, without actually doing the merge"
+msgstr "Označi revizije kot spojene brez dejanskega spajanja"
 
 #. Resource IDs: (1064)
 msgid "Match &case"
@@ -5628,6 +5644,10 @@ msgstr "Pokaži prekrivne ikone za prezrte elemente"
 msgid "Show overlay for unversioned items"
 msgstr "Pokaži prekrivne ikone za elemente brez različic"
 
+#. Resource IDs: (102)
+msgid "Show revision properties"
+msgstr "Pokaži lastnosti revizije"
+
 #. Resource IDs: (2049)
 msgid ""
 "Show special characters for whitespaces\n"
@@ -6447,11 +6467,17 @@ msgstr "TortoiseBlame"
 
 #. Resource IDs: (13)
 msgid ""
-"TortoiseBlame can't be started directly!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
+"TortoiseBlame should not be started directly! Use\n"
+"TortoiseProc.exe /command:blame /path:\"path\\to\\file\"\n"
+"instead.\n"
+"\n"
+"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 msgstr ""
-"Programa TortoiseBlame ne morete pognati neposredno!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber][/path:originalpath]"
+"Programa TortoiseBlame ne poganjajte neposredno! Uporabite\n"
+"TortoiseProc.exe /command:blame /path:\"path\\to\\file\"\n"
+".\n"
+"\n"
+"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
@@ -6939,6 +6965,10 @@ msgstr "Verzija"
 #, c-format
 msgid "Version %d.%d.%d.%d"
 msgstr "Verzija %d.%d.%d.%d"
+
+#. Resource IDs: (1075)
+msgid "Version Information"
+msgstr "Podatki o verziji"
 
 #. Resource IDs: (264)
 msgid "Versioned"
