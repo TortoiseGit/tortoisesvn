@@ -257,6 +257,11 @@
 - BUG: Tooltip flicker in revision dialog for very long log messages.
        (Stefan Fuhrmann)
 
+Version 1.4.8
+- NEW: linked with neon 0.27.2 to avoid problems with e.g., locking (Stefan)
+- BUG: blaming files with authornames bigger than 30 chars lead to corrupted
+       blame window/text. (Stefan)
+
 Version 1.4.7
 - BUG: Exporting left admin dirs intact. (Stefan)
 - BUG: Checks for include paths of the cache didn't work correctly. (Stefan)
