@@ -44,6 +44,7 @@
 #include "LogDlgHelper.h"
 #include "CachedLogInfo.h"
 #include "RepositoryInfo.h"
+#include "EditPropertiesDlg.h"
 
 
 #define ICONITEMBORDER 5
@@ -84,7 +85,8 @@ enum LogDlgContextMenuCommands
 	ID_EXPORT,
 	ID_COMPAREWITHPREVIOUS,
 	ID_BLAMEWITHPREVIOUS,
-	ID_GETMERGELOGS
+	ID_GETMERGELOGS,
+	ID_REVPROPS
 };
 
 
@@ -3524,6 +3526,8 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITAUTHOR, temp);
 			temp.LoadString(IDS_LOG_POPUP_EDITLOG);
 			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITLOG, temp);
+			temp.LoadString(IDS_REPOBROWSE_SHOWREVPROP);					// "Show Revision Properties"
+			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVPROPS, temp);
 			popup.AppendMenu(MF_SEPARATOR, NULL);
 		}
 		if (m_LogList.GetSelectedCount() != 0)
@@ -3902,6 +3906,17 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		case ID_EDITAUTHOR:
 			{
 				EditAuthor(selIndex);
+			}
+			break;
+		case ID_REVPROPS:
+			{
+				CEditPropertiesDlg dlg;
+				dlg.SetProjectProperties(&m_ProjectProperties);
+				CTSVNPathList escapedlist;
+				dlg.SetPathList(CTSVNPathList(CTSVNPath(pathURL)));
+				dlg.SetRevision(revSelected);
+				dlg.RevProps(true);
+				dlg.DoModal();
 			}
 			break;
 		case ID_COPYCLIPBOARD:
