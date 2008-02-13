@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-02-04 20:12+0900\n"
+"PO-Revision-Date: 2008-02-13 11:28+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2394,10 +2394,10 @@ msgstr "変更を保存しますか？"
 #. Resource IDs: (65535)
 msgid ""
 "Documentation : Simon Large\n"
-"Code : Tobias Schafer, Stefan Fuhrmann"
+"Code : Tobias Schäfer, Stefan Fuhrmann"
 msgstr ""
 "ドキュメント : Simon Large\n"
-"コード : Tobias Schafer, Stefan Fuhrmann"
+"コード : Tobias Schäfer, Stefan Fuhrmann"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -2901,6 +2901,10 @@ msgstr ""
 "垂直方向の解像度:\t%.1f dpi\n"
 "色深度:\t\t%d bit\n"
 "ズーム:\t\t\t%d%%"
+
+#. Resource IDs: (208)
+msgid "Filename"
+msgstr "ファイル名"
 
 #. Resource IDs: (65535)
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
@@ -5643,6 +5647,10 @@ msgstr "無視項目にオーバーレイ表示をする"
 msgid "Show overlay for unversioned items"
 msgstr "バージョン管理外の項目にオーバーレイ表示をする"
 
+#. Resource IDs: (102)
+msgid "Show revision properties"
+msgstr "リビジョンの属性を表示"
+
 #. Resource IDs: (2049)
 msgid ""
 "Show special characters for whitespaces\n"
@@ -5822,8 +5830,8 @@ msgid "Steal the lock"
 msgstr "ロックを横取りする"
 
 #. Resource IDs: (65535)
-msgid "Stefan Kung, Lubbe Onken"
-msgstr "Stefan Kung, Lubbe Onken"
+msgid "Stefan Küng, Lübbe Onken"
+msgstr "Stefan Küng, Lübbe Onken"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
@@ -6963,6 +6971,10 @@ msgstr "バージョン"
 #, c-format
 msgid "Version %d.%d.%d.%d"
 msgstr "バージョン %d.%d.%d.%d"
+
+#. Resource IDs: (1075)
+msgid "Version Information"
+msgstr "バージョン情報"
 
 #. Resource IDs: (264)
 msgid "Versioned"
