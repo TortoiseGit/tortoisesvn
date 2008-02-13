@@ -1354,8 +1354,18 @@ BOOL InitInstance(HINSTANCE hResource, int nCmdShow)
    CRegStdWORD state(_T("Software\\TortoiseSVN\\TBlameState"), 0);
    if (DWORD(pos) && DWORD(width))
    {
-		MoveWindow(app.wMain, LOWORD(DWORD(pos)), HIWORD(DWORD(pos)),
-					LOWORD(DWORD(width)), HIWORD(DWORD(width)), FALSE);
+	   RECT rc;
+	   rc.left = LOWORD(DWORD(pos));
+	   rc.top = HIWORD(DWORD(pos));
+	   rc.right = rc.left + LOWORD(DWORD(width));
+	   rc.bottom = rc.top + HIWORD(DWORD(width));
+	   HMONITOR hMon = MonitorFromRect(&rc, MONITOR_DEFAULTTONULL);
+	   if (hMon)
+	   {
+		   // only restore the window position if the monitor is valid
+		   MoveWindow(app.wMain, LOWORD(DWORD(pos)), HIWORD(DWORD(pos)),
+			   LOWORD(DWORD(width)), HIWORD(DWORD(width)), FALSE);
+	   }
    }
    if (DWORD(state) == SW_MAXIMIZE)
 	   ShowWindow(app.wMain, SW_MAXIMIZE);
