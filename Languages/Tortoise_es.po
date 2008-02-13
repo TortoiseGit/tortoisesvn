@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-02-05 22:14+0100\n"
+"PO-Revision-Date: 2008-02-13 19:39+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -144,7 +144,7 @@ msgstr "%s"
 #. Resource IDs: (115)
 #, c-format
 msgid "%s (offline) - %s"
-msgstr "%s (desconectado) - %s"
+msgstr "%s (sin conexión) - %s"
 
 #. Resource IDs: (226)
 #, c-format
@@ -2897,6 +2897,10 @@ msgstr ""
 "Profundidad:\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 
+#. Resource IDs: (208)
+msgid "Filename"
+msgstr " Nombre de fichero"
+
 #. Resource IDs: (65535)
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
 msgstr "Excluir las sigiuentes rutas (separar rutas múltiples con el caracter '*'):"
@@ -3562,7 +3566,7 @@ msgstr "Incluir ficheros ignorados"
 
 #. Resource IDs: (1126)
 msgid "Include merged revisions"
-msgstr "Incluír revisiones fusionadas"
+msgstr "Incluir revisiones fusionadas"
 
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
@@ -5668,6 +5672,10 @@ msgstr "Mostrar la superposición para ítems ignorados"
 #. Resource IDs: (1462)
 msgid "Show overlay for unversioned items"
 msgstr "Mostrar la superposición para ítems no versionados"
+
+#. Resource IDs: (102)
+msgid "Show revision properties"
+msgstr "Mostrar propiedades de la revisión"
 
 #. Resource IDs: (2049)
 msgid ""
