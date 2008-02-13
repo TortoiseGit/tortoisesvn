@@ -1354,8 +1354,8 @@ BOOL InitInstance(HINSTANCE hResource, int nCmdShow)
    CRegStdWORD state(_T("Software\\TortoiseSVN\\TBlameState"), 0);
    if (DWORD(pos) && DWORD(width))
    {
-	   MoveWindow(app.wMain, LOWORD(DWORD(pos)), HIWORD(DWORD(pos)),
-		   LOWORD(DWORD(width)), HIWORD(DWORD(width)), FALSE);
+		MoveWindow(app.wMain, LOWORD(DWORD(pos)), HIWORD(DWORD(pos)),
+					LOWORD(DWORD(width)), HIWORD(DWORD(width)), FALSE);
    }
    if (DWORD(state) == SW_MAXIMIZE)
 	   ShowWindow(app.wMain, SW_MAXIMIZE);
@@ -1434,7 +1434,7 @@ void TortoiseBlame::InitSize()
     blamerc.left = rc.left;
     blamerc.top = rc.top;
 	LONG w = GetBlameWidth();
-    blamerc.right = w > (rc.right - rc.left) ? rc.right : w + rc.left;
+    blamerc.right = w > abs(rc.right - rc.left) ? rc.right : w + rc.left;
     blamerc.bottom = rc.bottom;
     sourcerc.left = blamerc.right;
     sourcerc.top = rc.top;
