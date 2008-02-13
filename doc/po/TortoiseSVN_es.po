@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-02-10 18:25 +0000\n"
-"PO-Revision-Date: 2008-02-13 19:42+0100\n"
+"PO-Revision-Date: 2008-02-13 20:41+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3651,7 +3651,7 @@ msgstr "Además de dar una indicación visual inmediata de las agrupaciones, tam
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4083
 msgid "On XP, there is a context menu when you right click on a group heading which gives you the choice to un/check all group entries. On Vista however the context menu is not necessary: click on the group header to select all entries, then check one of the selected entries to check all."
-msgstr ""
+msgstr "En XP hay un menú contextual que aparece cuando hace click con el botón derecho en una cabecera de grupo y que le ofrece la posibilidad de marcar o desmarcar todas las entradas de grupo. En Vista sin embargo el menú contextual no es necesario, haga click en la cabecera de grupo para seleccionar todas las entradas, y luego marque una de las entradas seleccionadas para marcarlas todas."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4090
@@ -6517,7 +6517,7 @@ msgstr "En el campo <guilabel>Desde:</guilabel> introduzca la URL completa de la
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7677
 msgid "In the <guilabel>Revision range to merge</guilabel> field enter the list of revisions you want to merge. This can be a single revision, a list of specific revisions separated by commas, or a range of revisions separated by a dash, or any combination of these."
-msgstr ""
+msgstr "En el campo <guilabel>Rango de revisiones a fusionar</guilabel> introduzca la lista de revisiones que desea fusionar. Puede ser una única revisión, una lista de revisiones específicas separadas por comas, un rango de revisiones separado por un guión, o cualquier combinación de éstas."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7684
@@ -6528,7 +6528,7 @@ msgstr "La manera más sencilla de seleccionar el rango de revisiones que necesi
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7695
 msgid "If you want to merge changes back <emphasis>out</emphasis> of your working copy, to revert a change which has already been committed, select the revisions to revert and make sure the <guilabel>Reverse merge</guilabel> box is checked."
-msgstr ""
+msgstr "Si desea fusionar los cambios de nuevo <emphasis>fuera</emphasis> de su copia de trabajo, para revertir un cambio que ya ha sido confirmado, seleccoine las revisiones a revertir y asegúrese de que la casilla <guilabel>Fusión inversa</guilabel> está marcada."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7701
@@ -6538,7 +6538,7 @@ msgstr "Si ya ha fusionado algunos cambios desde esta rama, esperemos que haya a
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7712
 msgid "If you are using the merge tracking features of Subversion, you do not need to remember which revisions have already been merged - Subversion will record that for you. If you leave the revision range blank, all revisions which have not yet been merged will be included. Read <xref linkend=\"tsvn-dug-merge-tracking\"/> to find out more."
-msgstr ""
+msgstr "Si está utilizando las características de registro de fusiones de Subversion, no necesita recordar qué revisiones ya han sido fusionadas - Subversion lo apuntará por usted. Si deja el rango de revisiones en blanco, se incluirán todas las revisiones que no hayan sido aún fusionadas. Lea <xref linkend=\"tsvn-dug-merge-tracking\"/> para saber más."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7720
@@ -6548,7 +6548,7 @@ msgstr "Si hay otras personas que puedan estar confirmando cambios, entonces ten
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7726
 msgid "Click <guibutton>Next</guibutton> and go to <xref linkend=\"tsvn-dug-merge-options\"/>"
-msgstr ""
+msgstr "Haga click en <guibutton>Siguiente</guibutton> y vaya a <xref linkend=\"tsvn-dug-merge-options\"/>"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:7732
@@ -6558,7 +6558,7 @@ msgstr "Fusionando dos árboles diferentes"
 #. (title)
 #: ../source/TortoiseSVN_en.xml:7736
 msgid "The Merge Wizard - Tree Merge"
-msgstr ""
+msgstr "El asistente de fusión - Fusión de árboles"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7734
@@ -6598,12 +6598,12 @@ msgstr "herramientas de fusión"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7778
 msgid "This page of the wizard lets you specify advanced options, before starting the merge process. Most of the time you can just use the default settings."
-msgstr ""
+msgstr "Esta página del asistente le permite especificar opciones avanzadas antes de empezar el proceso de fusión. La mayoría de las veces puede simplemente utilizar las opciones por defecto."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7783
 msgid "You can specify the depth to use for the merge, i.e. how far down into your working copy the merge should go. The depth terms used are described in <xref linkend=\"tsvn-dug-checkout-depth\"/>. The default depth is <guilabel>Working copy</guilabel>, which uses the existing depth setting, and is almost always what you want."
-msgstr ""
+msgstr "Puede especificar la profundidad de la fusión, es decir, cuántos niveles debe bajar la fusión en su copia de trabajo. Los términos de profundidad se describen en <xref linkend=\"tsvn-dug-checkout-depth\"/>. La profundidad por defecto es <guilabel>Copia de trabajo</guilabel>, que utiliza la configuración de profundidad existente, y que casi siempre es lo que quiere hacer."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7790
@@ -6614,12 +6614,12 @@ msgstr "La mayoría del tiempo desea fusionar para tener en cuenta el historial 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7807
 msgid "You can specify the way that line ending and whitespace changes are handled. These options are described in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. The default behaviour is to treat all whitespace and line-end differences as real changes to be merged."
-msgstr ""
+msgstr "Puede especificar la forma en la que se manejan los cambios en los finales de línea y en los espacios en blanco. Estas opciones se describen en <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. El comportamiento por defecto es tratar todos los espacios en blanco y las diferencias en los finales de líneas como cambios reales que deben fusionarse."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7813
 msgid "If you are using merge tracking and you want to mark a revision as having been merged, without actually doing the merge here, check the <guilabel>Only record the merge</guilabel> checkbox. There are two possible reasons you might want to do this. It may be that the merge is too complicated for the merge algorithms, so you code the changes by hand, then mark the change as merged so that the merge tracking algorithm is aware of it. Or you might want to prevent a particular revision from being merged. Marking it as already merged will prevent the merge occurring with merge-tracking-aware clients."
-msgstr ""
+msgstr "Si está utilizando el registro de fusiones y desea marcar una revisión como que ya se ha fusionado, sin hacer realmente efectiva la fusión aquí, marque la casilla <guilabel>Sólo registrar la fusión</guilabel>. Hay dos posibles razones por las que puede querer hacer esto. Puede ser que la fusión es demasiado complicada para los algoritmos de fusión, por lo que hace los cambios en el código a mano, y luego marca el cambio como fusionado para que el algoritmo de registro de fusión se de por enterado. O quizás quiera evitar que una revisión en concreto se fusione. Marcándola como ya fusionada evitará que la fusión se produzca con los clientes manejan la información de registro de fusión."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7824
@@ -6630,7 +6630,7 @@ msgstr "<guibutton>Simular</guibutton> realiza la operación de fusión, pero <e
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7832
 msgid "The merge progress dialog shows each stage of the merge, with the revision ranges involved. This may indicate one more revision than you were expecting. For example if you asked to merge revision 123 the progress dialog will report <quote>Merging revisions 122 through 123</quote>. To understand this you need to remember that Merge is closely related to Diff. The merge process works by generating a list of differences between two points in the repository, and applying those differences to your working copy. The progress dialog is simply showing the start and end points for the diff."
-msgstr ""
+msgstr "El diálogo de progreso de fusión muestra cada etapa de la fusión, con los rangos de revisiones involucrados. Esto puede indicar un número de revisión más del que esperaba. Por ejemplo, si pidió fusionar la revisión 123, el diálogo de progreso mostrará <quote>Fusionando de r122 a r123</quote>. Para entenderlo debe recordar que Fusionar está íntimamente relacionado con Diferenciar. El proceso de fusión funciona generando una lista de diferencias entre dos puntos del repositorio, y posteriormente aplicando esas diferencias a su copia de trabajo. El diálogo de progreso está simplemente mostrando los puntos de inicio y fin de la diferenciación."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:7845
@@ -6641,7 +6641,7 @@ msgstr "Previsualizando los resultados de la fusión"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7846
 msgid "The merge is now complete. It's a good idea to have a look at the merge and see if it's as expected. Merging is usually quite complicated. Conflicts often arise if the branch has drifted far from the trunk."
-msgstr ""
+msgstr "La fusión ya ha concluído. Es una buena idea observar la fusión y comprobar si el resultado es el esperado. Normalmente fusionar es un proceso complicado. A menudo aparecen conflictos cuando la rama se ha desviado mucho del tronco."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7851
@@ -6652,7 +6652,7 @@ msgstr "Cuando haya comprobado los cambios y vaya a confirmar esta revisión, su
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7865
 msgid "If your server and all clients are running Subversion 1.5 or higher, the merge tracking facility will record the revisions merged and avoid a revision being merged more than once. This makes your life much simpler as you can simply merge the entire revision range each time and know that only new revisions will actually be merged."
-msgstr ""
+msgstr "Si su servidor y todos los clientes están ejecutando Subverison 1.5 o superior, las facilidades de registro de fusiones apuntarán las revisiones fusionadas y evitarán que una revisión se fusione más de una vez. Esto le facilita mucho la vida ya que puede simplemente fusionar el rango entero de revisiones cada vez y saber qué sólo las nuevas revisiones serán realmente fusionadas."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7872
@@ -6686,32 +6686,32 @@ msgstr "controlando errores"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7907
 msgid "You can avoid the danger of merging the same revision twice (repeated merge problem). Once a revision is marked as having been merged, future merges which include that revision in the range will skip over it."
-msgstr ""
+msgstr "Puede evitar el peligro de fusionar la misma revisión dos veces (problema de fusiones repetidas). Una vez que una revisión se ha marcado como que ha sido fusionada, las fusiones futuras que incluyan esa revisión en el rango la saltarán."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7913
 msgid "When you merge a branch back into trunk, the log dialog can show you the branch commits as part of the trunk log, giving better traceability of changes."
-msgstr ""
+msgstr "Cuando fusiona una rama de nuevo al tronco, el diálogo de registro le puede mostrar las confirmaciones de la rama como parte del registro del tronco, proporcionando una mejor trazabilidad de los cambios."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7918
 msgid "When showing blame information for a file, you can choose to show the original author of merged revisions, rather than the person who did the merge."
-msgstr ""
+msgstr "Cuando muestre información de autoría para un fichero, puede elegir mostrar el autor original de la revisión fusionada, en vez de la persona que hizo la fusión."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7923
 msgid "You can mark revisions as <emphasis>do not merge</emphasis> by including them in the list of merged revisions without actually doing the merge."
-msgstr ""
+msgstr "Puede marcar revisiones como <emphasis>no fusionar</emphasis> si las incluye en la lista de revisiones fusionadas sin ejecutar relamente la fusión."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7901
 msgid "Subversion 1.5 introduced facilities for merge tracking. When you merge changes from one tree into another, the revision numbers merged are stored and this information can be used for several different purposes. <placeholder-1/>"
-msgstr ""
+msgstr "Subversion 1.5 introdujo facilidades para el registro de fusiones.. Cuando fusiona cambios de un árbol en otro, los números de revisión fusionados se almacenan, y esta información se puede utilizar para diferentes propósitos. <placeholder-1/>"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7931
 msgid "Merge tracking information is stored in the <literal>svn:mergeinfo</literal> property by the client when it performs a merge. When the merge is committed the server stores that information in a database, and when you request merge, log or blame information, the server can respond appropriately. For the system to work properly you must ensure that the server and all clients are upgraded. Earlier clients will not store the <literal>svn:mergeinfo</literal> property and earlier servers will not provide the information requested by new clients."
-msgstr ""
+msgstr "La información de registro de fusiones es almacenado en la propiedad <literal>svn:mergeinfo</literal> por parte del cliente que realiza la fusión. Cuando la fusión se confirma el servidor almacena dicha información en una base de datos, y cuando le pide información de la fusión, registro o autoría, el servidor puede responer apropiadamente. Para que el sistema funcione correctamente debe asegurarse de que el servidor y todos los clientes estén actualizados. Los clientes anteriores no almacenarán la propiedad <literal>svn:mergeinfo</literal> y los servidores anteriores no proporcionarán la información que piden los nuevos clientes."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7940
@@ -6722,7 +6722,7 @@ msgstr "Descargue la última versión de Subversion desde <ulink url=\"http://su
 #. (title)
 #: ../source/TortoiseSVN_en.xml:7948
 msgid "Handling Conflicts during Merge"
-msgstr ""
+msgstr "Manejando conflictos durante la fusión"
 
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:7951
@@ -6738,23 +6738,24 @@ msgstr "El diálogo Fusionar"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7953
+#, fuzzy
 msgid "Merging does not always go smoothly. Sometimes there is a conflict, and if you are merging multiple ranges, you generally want to resolve the conflict before merging of the next range starts. TortoiseSVN helps you through this process by showing the <emphasis>merge conflict callback</emphasis> dialog. <placeholder-1/>"
-msgstr ""
+msgstr "Las fusiones no siempre son fáciles. A menudo ocurre algún conflicto, y si está fusionando múltiples rangos, generalmente querrá resolver el conflicto antes de que comience la fusión del siguiente rango. TortoiseSVN le ayuda durante este proceso mostrándole el diálogo <emphasis>callback de conflicto de fusión</emphasis>. <placeholder-1/>"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7969
 msgid "You may decide that your local changes are much more important, so you want to discard the version from the repository and keep your local version. Or you might discard your local changes in favour of the repository version. Either way, no attempt is made to merge the changes - you choose one or the other."
-msgstr ""
+msgstr "Puede decidir que sus cambios locales son mucho más importantes, por lo que querrá descartar la versión del repositorio y mantener su versión local. O puede querer descartar sus cambios locales en favor de la versión del repositorio. De cualquier forma, no se intenta fusionar los cambios - simplemente elige una u otra."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7979
 msgid "Normally you will want to look at the conflicts and resolve them. In that case, choose the <guibutton>Edit Conflict</guibutton> which will start up your merge tool. When you are satisfied with the result, click <guibutton>Resolved</guibutton>."
-msgstr ""
+msgstr "Normalmente querrá ver los conflictos y resolverlos. En ese caso, seleccione <guibutton>Editar conflicto</guibutton>, lo que iniciará su herramienta de fusionado. Cuando esté satisfecho con el resultado, pulse en <guibutton>Resuelto</guibutton>."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7987
 msgid "The last option is to postpone resolution and continue with merging. You can choose to do that for the current conflicted file, or for all files in the rest of the merge. However, if there are further changes in that file, it will not be possible to complete the merge."
-msgstr ""
+msgstr "La última opción es posponer la resolución y continuar con el fusionado. Puede elegir hacerlo para el fichero en conflicto actual, o para todos los ficheros durante el resto de la fusión. Sin embargo, si hay más cambios en ese fichero, no será posible completar la fusión."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7964
@@ -6765,7 +6766,7 @@ msgstr "Ahora debe elegir el origen de la copia. Aquí tiene tres opciones: <pla
 #. (title)
 #: ../source/TortoiseSVN_en.xml:7999
 msgid "Merge All Changes"
-msgstr ""
+msgstr "Fusionar todos los cambios"
 
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:8002
@@ -6782,12 +6783,12 @@ msgstr "El diálogo Fusionar"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8004
 msgid "If you want to merge all changes from trunk to the branch you are currently working on, then you can use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge all...</guimenuitem></menuchoice> from the extended context menu (hold down the <keycap>Shift</keycap> key while you right click on the file). <placeholder-1/> This dialog is very easy. All you have to do is set the options for the merge, as described in <xref linkend=\"tsvn-dug-merge-options\"/>. The rest is done by TortoiseSVN automatically using merge tracking."
-msgstr ""
+msgstr "Si desea fusionar todos los cambios desde el tronco hacia la rama en la que está trabajando, puede utilizar <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Fusionar todo...</guimenuitem></menuchoice> desde el menú contextual extendido (mantenga pulsada la tecla <keycap>Mayús</keycap> mientras hace click con el botón derecho en el fichero). <placeholder-1/> Este diálogo es muy simple. Todo lo que debe hacer es seleccionar las opciones para la fusión, como se describe en <xref linkend=\"tsvn-dug-merge-options\"/>. El resto lo realiza automáticamente TortoiseSVN utilizando el registro de fusiones."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8021
 msgid "If you use this feature you must be sure that all clients are using merge tracking, otherwise the merge history may be incomplete. Also, if the server does not have a merge tracking database, gathering the information will be very slow."
-msgstr ""
+msgstr "Si utiliza esta característica debe asegurarse de que todos los clientes estén utilizando registro de fusiones, porque si no la historia de fusión estará incompleta. Además, si el servidor no tiene una base de datos de registro de fusiones, la obtención de la información será muy lenta."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:8030
@@ -7014,7 +7015,7 @@ msgstr "Simplemente grabe el fichero utilizando un nombre de fichero de su elecc
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8324
 msgid "You can also save the patch to the clipboard instead of to a file. You might want to do this so that you can paste it into an email for review by others. Or if you have two working copies on one machine and you want to transfer changes from one to the other, a patch on the clipboard is a convenient way of doing this."
-msgstr ""
+msgstr "También puede almacenar el parche en el portapapeles en vez de en un fichero. Puede querer hacer esto para poder pegarlo en un email de forma que lo revisen otros. O si tiene dos copias de trabajo en una máquina y quiere transferir cambios de una a otra, un parche en el portapapeles es una forma cómoda de hacerlo."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:8333
@@ -7111,7 +7112,7 @@ msgstr "Por defecto, el fichero de autoría se ve utilizando <firstterm>Tortoise
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8441
 msgid "You can specify the way that line ending and whitespace changes are handled. These options are described in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. The default behaviour is to treat all whitespace and line-end differences as real changes, but if you want to ignore an indentation change and find the original author, you can choose an appropriate option here."
-msgstr ""
+msgstr "Puede especificar la forma en la que se manejarán los cambios en los finales de línea y en los espacios en blanco. Estas opciones se describen en <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. El comportamiento por defecto es tratar todas las diferencias en los espacios en blanco y en los finales de línea como cambios reales, pero si desea ignorar un cambio en la indentación y encontrar al autor original, puede elegir la opción apropiada aquí."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8448
@@ -7151,17 +7152,17 @@ msgstr "También puede ir directamente a un número de línea concreto utilizand
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8499
 msgid "When the mouse is over the blame info columns, a context menu is available which helps with comparing revisions and examining history, using the revision number of the line under the mouse as a reference. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Blame previous revision</guimenuitem></menuchoice> generates a blame report for the same file, but using the previous revision as the upper limit. This gives you the blame report for the state of the file just before the line you are looking at was last changed. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Show changes</guimenuitem></menuchoice> starts your diff viewer, showing you what changed in the referenced revision. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Show log</guimenuitem></menuchoice> displays the revision log dialog starting with the referenced revision."
-msgstr ""
+msgstr "Cuando el ratón se coloca encima de las columnas de información de autoría, tiene disponible un menú contextual que le ayuda a comparar revisiones y examinar la historia, utilizando el número de revisión bajo el ratón como referencia. <menuchoice><guimenu>Menú contextual</guimenu><guimenuitem>Ver autoría de la revisión anterior</guimenuitem></menuchoice> genera un informe de autoría para el mismo fichero, pero utilizando la revisión anterior como límite superior. Esto le da el informe de autoría para el estado del fichero justo antes de que la línea que está viendo cambiara. <menuchoice><guimenu>Menú contextual</guimenu><guimenuitem>Mostrar cambios</guimenuitem></menuchoice> inicia su visor de diferencias, mostrándole lo que cambió en la revisión referenciada. <menuchoice><guimenu>Menú contextual</guimenu><guimenuitem>Mostrar registro</guimenuitem></menuchoice> le muestra el diálogo de registro de revisiones empezando en la revisión referenciada."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8521
 msgid "If you need a better visual indicator of where the oldest and newest changes are, select <menuchoice><guimenu>View</guimenu><guimenuitem>Color age of lines</guimenuitem></menuchoice>. This will use a colour gradient to show newer lines in red and older lines in blue. The default colouring is quite light, but you can change it using the TortoiseBlame settings."
-msgstr ""
+msgstr "Si necesita un indicador visual mejor de dónde están los cambios más antiguos y más nuevos, seleccione <menuchoice><guimenu>Ver</guimenu><guimenuitem>Colorear la antigüedad de las líneas</guimenuitem></menuchoice>. Esto utilizará un gradiente de color para mostrar las líneas más nuevas en rojo y las más antiguas en azul. La paleta de color por defecto es bastante suave, pero puede cambiarla utilizando la configuración de TortoiseBlame."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8532
 msgid "If you are using Merge Tracking, where lines have changed as a result of merging from another path, TortoiseBlame will show the revision and author of the last change in the original file rather than the revision where the merge took place. These lines are indicated by showing the revision and author in italics."
-msgstr ""
+msgstr "Si está utilizando Registro de fusiones, cuando las líneas hayan cambiado como resultado de una fusión desde otra ruta, TortoiseBlame le mostrará la revisión y el autor del último cambio en el fichero original, en vez de la revisión en la que se realizó la revisión. Estas líneas se muestran con la revisión y el autor en cursiva."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8539
@@ -7248,12 +7249,12 @@ msgstr "A veces necesitará trabajar directamente en el repositorio, sin tener u
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8642
 msgid "The repository browser looks very similar to the Windows explorer, except that it is showing the content of the repository at a particular revision rather than files on your computer. In the left pane you can see a directory tree, and in the right pane are the contents of the selected directory. At the top of the Repository Browser Window you can enter the URL of the repository and the revision you want to browse."
-msgstr ""
+msgstr "El navegador de repositorios se parecerá al explorador de Windows, excepto que está mostrando el contenido del repositorio en una revisión concreta en vez de los ficheros de su ordenador. En el panel izquierdo puede ver un árbol de directorios, y en el panel derecho están los contenidos del directorio seleccionado. En la parte superior de la ventana del visor de repositorios puede introducir la URL del repositorio y la revisión que desea visualizar."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8651
 msgid "Just like Windows explorer, you can click on the column headings in the right pane if you want to set the sort order. And as in explorer there are context menus available in both panes."
-msgstr ""
+msgstr "Al igual que el explorador de Windows, puede pulsar sobre los encabezados de las columnas en el panel derecho si desea establecer la ordenación. Y como en el explorador hay menús contextuales en ambos paneles."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8666
@@ -7264,47 +7265,47 @@ msgstr "cree una nueva carpeta en su disco duro"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8671
 msgid "Show the revision log for that file, or show a graph of all revisions so you can see where the file came from."
-msgstr ""
+msgstr "Mostrar el registro de las revisiones para ese fichero, o mostrar un gráfico de todas las revisiones para que pueda ver de dónde vino el fichero."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8677
 msgid "Blame the file, to see who changed which line and when."
-msgstr ""
+msgstr "Ver la autoría del fichero, para saber quién cambió qué línea y cuándo."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8682
 msgid "Delete or rename the file."
-msgstr ""
+msgstr "Eliminar o renombrar el fichero."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8687
 msgid "Make a copy of the file, either to a different part of the repository, or to a working copy rooted in the same repository."
-msgstr ""
+msgstr "Hacer una copia del fichero, bien a una parte diferente del repositorio, o bien a una copia de trabajo incluída dentro del mismo repositorio."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8693
 msgid "View/Edit the file's properties."
-msgstr ""
+msgstr "Ver/editar las propiedades del fichero."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8656
 msgid "The context menu for a file allows you to: <placeholder-1/>"
-msgstr ""
+msgstr "El menú contextual para un fichero le permite: <placeholder-1/>"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8703
 msgid "Show the revision log for that folder, or show a graph of all revisions so you can see where the folder came from."
-msgstr ""
+msgstr "Mostrar el registro de revisiones para la carpeta, o mostrar un gráfico de todas las revisiones para que pueda ver de dónde vino la carpeta."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8709
 msgid "Export the folder to a local unversioned copy on your hard drive."
-msgstr ""
+msgstr "Exportar la carpeta a una copia local no versionada de su disco duro."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8714
 msgid "Checkout the folder to produce a local working copy on your hard drive."
-msgstr ""
+msgstr "Obtener la carpeta para producir una copia de trabajo local en su disco duro."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8719
@@ -7321,12 +7322,12 @@ msgstr "Ítems añadidos al repositorio."
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8729
 msgid "Delete or rename the folder."
-msgstr ""
+msgstr "Borrar o eliminar la carpeta."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8734
 msgid "Make a copy of the folder, either to a different part of the repository, or to a working copy rooted in the same repository."
-msgstr ""
+msgstr "Hacer una copia de la carpeta, bien a una parte diferente del repositorio, o bien a una copia de trabajo dentro del mismo repositorio."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8740
@@ -7337,7 +7338,7 @@ msgstr "Propiedades especiales de carpetas"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8745
 msgid "Mark the folder for comparison. A marked folder is shown in bold."
-msgstr ""
+msgstr "Marcar la carpeta para comparación. La carpeta marcada se mostrará en negrita."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8750
@@ -7348,7 +7349,7 @@ msgstr "Si selecciona dos ítems, puede ver las diferencias bien como diff unifi
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8699
 msgid "The context menu for a folder allows you to: <placeholder-1/>"
-msgstr ""
+msgstr "El menú contextual para una carpeta le parmite: <placeholder-1/>"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8759
@@ -7359,7 +7360,7 @@ msgstr "Si selecciona dos ítems, puede ver las diferencias bien como diff unifi
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8764
 msgid "If you select multiple folders in the right pane, you can checkout all of them at once into a common parent folder."
-msgstr ""
+msgstr "Si selecciona múltiples carpetas en el panel derecho, puede obtenerlos todos a la vez en una carpeta padre común."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8768
@@ -7369,7 +7370,7 @@ msgstr "Si selecciona dos etiquetas que se han copiado desde la misma raíz (tip
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8777
 msgid "You can use <action>F5</action> to refresh the view as usual. This will refresh everything which is currently displayed. If you want to pre-fetch or refresh the information for nodes which have not been opened yet, use <action>CTRL-F5</action>. After that, expanding any node will happen instantly without a network delay while the information is fetched."
-msgstr ""
+msgstr "Puede utilizar <action>F5</action> para refrescar la vista como siempre. Esto refrescará todo lo que se esté viendo actualmente. Si quiere precargar o refrescar la información para los nodos que aún no han sido abiertos, utilice <action>CTRL-F5</action>. Después de eso, la expansión de cualquier nodo ocurrirá automáticamente sin que haya una pausa por la red mientras se recoge la información."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8784
@@ -7431,7 +7432,7 @@ msgstr "Para generar el gráfico, TortoiseSVN debe obtener todos los mensajes de
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8857
 msgid "The good news is that if you are using Log Caching, you only have to suffer this delay once. After that, log data is held locally. Log caching is enabled in TortoiseSVN's settings."
-msgstr ""
+msgstr "La buena noticia es que si está utilizando Caché de registro, sólo tendrá que sufrir este retraso una vez. Después, la información de registro se maneja localmente. El caché de registro se habilita desde la configuración de TortoiseSVN."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:8867
@@ -7488,12 +7489,12 @@ msgstr "rama"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8919
 msgid "The default behavior (grouping off) will use one row per revision and all rows are sorted strictly by revision. As a result, long-living branches occupy a whole column for only a few changes and the graph becomes very broad."
-msgstr ""
+msgstr "El comportamiento por defecto (sin agrupaciones) utilizará una fila por revisión y todas las filas estarán ordenadas estrictamente por revisión. Como resultado, las ramas con una larga vida ocupan una columna completa sólo para unos pocos cambios, y el gráfico resulta muy ancho."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8925
 msgid "This mode groups changes by branch, so that there is no global revision ordering: Consecutive revisions on a branch will be shown in (often) consecutive lines. Sub-branches, however, are arranged in such a way that later branches will be shown in the same column above older branches to keep the graph slim. As a result, a given row may contain changes from different revisions."
-msgstr ""
+msgstr "Este modo agrupa los cambios por ramas, de forma que no hay una ordenación global por revisiones: las revisiones consecutivas en una rama se mostrarán (a menudo) como líneas consecutivas. Las sub-ramas, sin embargo, se colocarán de forma que las ramas más nuevas se muestren encima de las ramas más antiguas para mantener el gráfico más delgado. Como resultado, una fila cualquier puede contener cambios de diferentes revisiones."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:8937
@@ -8220,22 +8221,22 @@ msgstr "En el diálogo de fusión, el comportamiento por defecto es que la URL <
 #. (term)
 #: ../source/TortoiseSVN_en.xml:9915
 msgid "Default checkout path"
-msgstr ""
+msgstr "Ruta de obtención por defecto"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9917
 msgid "You can specify the default path for checkouts. If you keep all your checkouts in one place, it is useful to have the drive and folder pre-filled so you only have to add the new folder name to the end."
-msgstr ""
+msgstr "Puede especificar la ruta por defecto para las obtenciones. Si mantiene todas sus obtenciones en un mismo lugar, es útil tener la unidad y la carpeta pre-rellenados para que así sólo tenga que añadir el nombre de la nueva carpeta al final."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:9926
 msgid "Default checkout URL"
-msgstr ""
+msgstr "URL de obtención por defecto"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9928
 msgid "You can also specify the default URL for checkouts. If you often checkout sub-projects of some very large project, it can be useful to have the URL pre-filled so you only have to add the sub-project name to the end."
-msgstr ""
+msgstr "También puede especificar la URL por defecto para las obtenciones. Si obtiene a menudo subprojectos de un projecto muy grante, puede ser útil tener la URL pre-rellenada de forma que sólo tenga que añadir el nombre del subprojecto al final."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:9939
@@ -8322,7 +8323,7 @@ msgstr "<option>/closeonend:0</option> no cierra el diálogo automáticamente"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10024
 msgid "The normal behaviour in the commit dialog is for all modified (versioned) items to be selected for commit automatically. If you prefer to start with nothing selected and pick the items for commit manually, uncheck this box."
-msgstr ""
+msgstr "El comportamiento normal en el diálogo de confirmación es que todos los ítems (versionados) modificados se seleccionen automáticamente para la confirmación. Si prefiere empezar sin nada seleccionado y seleccionar los ficheros para la confirmación manualmente, desmarque esta casilla."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10033
