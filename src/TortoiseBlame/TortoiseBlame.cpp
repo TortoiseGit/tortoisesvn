@@ -249,11 +249,10 @@ BOOL TortoiseBlame::OpenFile(const char *fileName)
 				lineptr +=61;
 			else
 				lineptr = (trimptr+1);
-			trimptr = _tcschr(lineptr, ' ');
-			if (trimptr)
-				*trimptr = 0;
-			else
-				trimptr = lineptr;
+			trimptr = lineptr+30;
+			while ((*trimptr == ' ')&&(trimptr > lineptr))
+				trimptr--;
+			*(trimptr+1) = 0;
 			authors.push_back(std::string(lineptr));
 			lineptr += 31;
 			// in case we find an UTF8 BOM at the beginning of the line, we remove it
