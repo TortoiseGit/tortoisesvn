@@ -64,6 +64,8 @@ BOOL CBlame::BlameCallback(LONG linenumber, svn_revnum_t revision, const CString
 		m_bHasMerges = true;
 	}
 
+	if (authorA.GetLength() > 30 )
+		authorA = authorA.Left(30);
 	if (m_bNoLineNo)
 		infolineA.Format("%c %6ld %-30s %-60s %-30s ", c, revision, dateA, pathA, authorA);
 	else
