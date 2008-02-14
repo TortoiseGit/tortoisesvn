@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2008-01-26 10:32+0100\n"
+"PO-Revision-Date: 2008-02-14 11:33+0100\n"
 "Last-Translator: Срѓан Стокиќ <srdjan.stokic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1343,6 +1343,14 @@ msgstr "Прикажува автори кои се криви за секоја
 msgid "Blend Alpha"
 msgstr "Спој Alpha"
 
+#. Resource IDs: (83)
+msgid ""
+"Both /logmsg and /logmsgfile were specified!\n"
+"Only one of those can be specified."
+msgstr ""
+"И /logmsg и /logmsgfile се специфицирани!\n"
+"Само едно од тие може да биде специфицирано."
+
 #. Resource IDs: (1003)
 msgid "Br&owse..."
 msgstr "Пре&гледај..."
@@ -1378,6 +1386,10 @@ msgstr "Побарај надворепен програм за споредба
 #. Resource IDs: (1069)
 msgid "Browse..."
 msgstr "Прегледај..."
+
+#. Resource IDs: (1382)
+msgid "Bug Tracker..."
+msgstr "Следење на багови..."
 
 #. Resource IDs: (1119)
 msgid "Bug-&ID / Issue-Nr:"
@@ -2902,6 +2914,10 @@ msgstr ""
 "Длабочина:\t\t\t%d бити\n"
 "Зум:\t\t\t%d%%"
 
+#. Resource IDs: (208)
+msgid "Filename"
+msgstr "Име на  датотека"
+
 #. Resource IDs: (65535)
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
 msgstr "Филтрирај ги следните патеки (одделени со знакот '*'):"
@@ -3669,6 +3685,10 @@ msgstr ""
 "Опсег може да е дефиниран со црта.\n"
 "На пример: 2-5,7,10,44-70,300-HEAD"
 
+#. Resource IDs: (570)
+msgid "Issue Tracker Hook"
+msgstr "Issue Tracker Hook"
+
 #. Resource IDs: (145)
 msgid ""
 "It is not possible to rename a file by changing the case of its name alone.\n"
@@ -3915,6 +3935,10 @@ msgid ""
 msgstr ""
 "Обележи ја датотеката како решена во Subversion\n"
 "Обележи како решено"
+
+#. Resource IDs: (596)
+msgid "Marks the revisions as merged, without actually doing the merge"
+msgstr "Обележи ги ревизиите како споени, без навистина да се направи спојување."
 
 #. Resource IDs: (1064)
 msgid "Match &case"
@@ -5643,6 +5667,10 @@ msgstr "Прикажи overlay за игнорирани ставки"
 msgid "Show overlay for unversioned items"
 msgstr "Прикажи overlay за неверзионирани ставки"
 
+#. Resource IDs: (102)
+msgid "Show revision properties"
+msgstr "Покажи својства на ревизијата"
+
 #. Resource IDs: (2049)
 msgid ""
 "Show special characters for whitespaces\n"
@@ -6461,11 +6489,17 @@ msgstr "TortoiseBlame"
 
 #. Resource IDs: (13)
 msgid ""
-"TortoiseBlame can't be started directly!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
+"TortoiseBlame should not be started directly! Use\n"
+"TortoiseProc.exe /command:blame /path:\"path\\to\\file\"\n"
+"instead.\n"
+"\n"
+"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 msgstr ""
-"TortoiseBlame не може да се стартува директно!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
+"TortoiseBlame не би требало да се пушта диерктно! Користете\n"
+"TortoiseProc.exe /command:blame /path:\"path\\to\\file\"\n"
+"\n"
+"\n"
+"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
@@ -6953,6 +6987,10 @@ msgstr "Верзија"
 #, c-format
 msgid "Version %d.%d.%d.%d"
 msgstr "Вашата верзија е: %d.%d.%d.%d"
+
+#. Resource IDs: (1075)
+msgid "Version Information"
+msgstr "Информација за верзија..."
 
 #. Resource IDs: (264)
 msgid "Versioned"
