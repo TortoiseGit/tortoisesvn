@@ -56,7 +56,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-02-03 17:39+0800\n"
+"PO-Revision-Date: 2008-02-14 16:18+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2926,6 +2926,10 @@ msgstr ""
 "色深：\t\t\t%d 位\n"
 "缩放比例:\t\t\t%d%%"
 
+#. Resource IDs: (208)
+msgid "Filename"
+msgstr "文件名称"
+
 #. Resource IDs: (65535)
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
 msgstr "过滤掉以下路径（多个路径之间用“*”字符分隔）："
@@ -3935,6 +3939,10 @@ msgid ""
 msgstr ""
 "把一个文件在 Subversion 中标记为已解决\n"
 "标记为已解决"
+
+#. Resource IDs: (596)
+msgid "Marks the revisions as merged, without actually doing the merge"
+msgstr "标记这些版本已经合并，但是实际不执行合并"
 
 #. Resource IDs: (1064)
 msgid "Match &case"
@@ -5654,6 +5662,10 @@ msgstr "对忽略的项目覆盖显示"
 msgid "Show overlay for unversioned items"
 msgstr "对未版本控制的项目覆盖显示"
 
+#. Resource IDs: (102)
+msgid "Show revision properties"
+msgstr "显示版本属性"
+
 #. Resource IDs: (2049)
 msgid ""
 "Show special characters for whitespaces\n"
@@ -6965,6 +6977,10 @@ msgstr "版本"
 #, c-format
 msgid "Version %d.%d.%d.%d"
 msgstr "版本 %d.%d.%d.%d"
+
+#. Resource IDs: (1075)
+msgid "Version Information"
+msgstr "版本取信息"
 
 #. Resource IDs: (264)
 msgid "Versioned"
