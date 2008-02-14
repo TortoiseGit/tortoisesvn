@@ -110,7 +110,7 @@
 		</para>
 		<para>
 			You can select or deselect items by clicking on the checkbox to the
-			left of the item. For directories you can use <action>SHIFT-Select</action>
+			left of the item. For directories you can use <keycap>SHIFT</keycap>-<action>select</action>
 			to make the action recursive.
 		</para>
 		<para>
@@ -275,7 +275,7 @@
 			facility. This uses regular expressions to extract class and function names
 			from the (text) files you are committing, as well as the filenames themselves.
 			If a word you are typing matches anything in the list (after you have typed at
-			least 3 characters, or pressed <action>CTRL+Space</action>),
+			least 3 characters, or pressed <keycap>CTRL+Space</keycap>),
 			a drop-down appears allowing you to select the full name.
 			The regular expressions supplied with TortoiseSVN are held in the TortoiseSVN
 			installation <filename>bin</filename> folder. You can also define your own

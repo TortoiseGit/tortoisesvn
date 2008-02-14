@@ -182,7 +182,7 @@
 		</variablelist>
 		<para>
 			If you have configured a third party diff tool, you can use
-			<action>SHIFT</action> when selecting the Diff command to
+			<keycap>SHIFT</keycap> when selecting the Diff command to
 			use the alternate tool.
 			Read <xref linkend="tsvn-dug-settings-progs"/> to
 			find out about configuring other diff tools.
@@ -260,8 +260,8 @@
 		<para>
 			If you want to export the list of files <emphasis>and</emphasis>
 			the actions (modified, added, deleted) as well, you can do that using
-			the keyboard shortcuts <action>Ctrl-A</action> to select all entries
-			and <action>Ctrl-C</action> to copy the detailed list to the clipboard.
+			the keyboard shortcuts <keycap>Ctrl-A</keycap> to select all entries
+			and <keycap>Ctrl-C</keycap> to copy the detailed list to the clipboard.
 		</para>
 		<para>
 			The button at the top allows you to change the direction of
@@ -332,7 +332,7 @@
 			(alpha blend) is controlled by a slider control at the left side.
 			You can click anywhere in the slider to set the blend directly, or you
 			can drag the slider to change the blend interactively.
-			<action>Ctrl-Shift-Wheel</action> to change the blend.
+			<keycap>Ctrl+Shift</keycap>-<action>Wheel</action> to change the blend.
 		</para>
 		<para>
 			The button above the slider toggles between two preset blends, indicated
