@@ -177,6 +177,9 @@ void getallstatus(void * baton, const char * path, svn_wc_status2_t * status)
 	// Assign the values for the lock information
 	sb->SubStat->LockData.NeedsLocks = false;
 	sb->SubStat->LockData.IsLocked = false;
+	strcpy_s(sb->SubStat->LockData.Owner, OWNER_BUF, "");
+	strcpy_s(sb->SubStat->LockData.Comment, COMMENT_BUF, "");
+	sb->SubStat->LockData.CreationDate = 0;
 	if (status->entry)
 	{
 		if(status->entry->present_props)
@@ -190,8 +193,10 @@ void getallstatus(void * baton, const char * path, svn_wc_status2_t * status)
 					if((status->entry->lock_token[0] != 0))
 					{
 						sb->SubStat->LockData.IsLocked = true;
-						strncpy_s(sb->SubStat->LockData.Owner, OWNER_BUF, status->entry->lock_owner, OWNER_BUF);
-						strncpy_s(sb->SubStat->LockData.Comment, COMMENT_BUF, status->entry->lock_comment, COMMENT_BUF);	
+						if(NULL != status->entry->lock_owner)
+							strncpy_s(sb->SubStat->LockData.Owner, OWNER_BUF, status->entry->lock_owner, OWNER_BUF);
+						if(NULL != status->entry->lock_comment)
+							strncpy_s(sb->SubStat->LockData.Comment, COMMENT_BUF, status->entry->lock_comment, COMMENT_BUF);	
 						sb->SubStat->LockData.CreationDate = status->entry->lock_creation_date;
 					}
 				}
