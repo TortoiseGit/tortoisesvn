@@ -581,6 +581,9 @@ trevor = rw
 		<indexterm>
 			<primary>SSPI</primary>
 		</indexterm>
+		<indexterm>
+			<primary>NTLM</primary>
+		</indexterm>
 		<para>
 			The original SSPI module was offered by Syneapps including
 			source code. But the development for it has been stopped. 
@@ -647,6 +650,17 @@ SSPIOfferBasic On
 			to reference <literal>DOMAIN\username</literal> as well.
 
 		</para>
+		<important>
+			<para>
+				The SSPI authentication is only enabled for SSL secured
+				connections (https). If you're only using normal http
+				connections to your server, it won't work.
+			</para>
+			<para>
+				To enable SSL on your server, see the chapter:
+				<xref linkend="tsvn-serversetup-apache-7"/>
+			</para>
+		</important>
 		<tip>
 			<para>
 				Subversion <filename>AuthzSVNAccessFile</filename> files are
