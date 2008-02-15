@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-01-27 21:37+0100\n"
+"PO-Revision-Date: 2008-02-15 19:13+0100\n"
 "Last-Translator: Mario Šarić <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1391,6 +1391,10 @@ msgstr "Potraži vanjski program za pregled razlika"
 #. Resource IDs: (1069)
 msgid "Browse..."
 msgstr "Pretraži..."
+
+#. Resource IDs: (1382)
+msgid "Bug Tracker..."
+msgstr "Registar grešaka..."
 
 #. Resource IDs: (1119)
 msgid "Bug-&ID / Issue-Nr:"
@@ -2919,6 +2923,10 @@ msgstr ""
 "Dubina:\t\t\t%d bita\n"
 "Zoom:\t\t\t%d%%"
 
+#. Resource IDs: (208)
+msgid "Filename"
+msgstr "Datoteka"
+
 #. Resource IDs: (65535)
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
 msgstr "Izdvoji slijedeće staze (odvojene znakom \"*\"):"
@@ -3689,6 +3697,10 @@ msgstr ""
 "Raspon može biti napisan pomoću crtice.\n"
 "Na primjer: 2-5,7,10,44-70,300-HEAD"
 
+#. Resource IDs: (570)
+msgid "Issue Tracker Hook"
+msgstr "Skripta za registar grešaka"
+
 #. Resource IDs: (145)
 msgid ""
 "It is not possible to rename a file by changing the case of its name alone.\n"
@@ -3938,6 +3950,10 @@ msgid ""
 msgstr ""
 "Označava datoteku kao razriješenu u Subversionu\n"
 "Označi kao razriješeno"
+
+#. Resource IDs: (596)
+msgid "Marks the revisions as merged, without actually doing the merge"
+msgstr "Označava reviziju stopljenom, no zapravo ne radi stapanje"
 
 #. Resource IDs: (1064)
 msgid "Match &case"
@@ -5670,6 +5686,10 @@ msgstr "Prikaži sloz za zanemarene datoteke"
 msgid "Show overlay for unversioned items"
 msgstr "Prikaži sloj za datoteke bez verzija"
 
+#. Resource IDs: (102)
+msgid "Show revision properties"
+msgstr "Prikaži svojstva revizije"
+
 #. Resource IDs: (2049)
 msgid ""
 "Show special characters for whitespaces\n"
@@ -6493,11 +6513,17 @@ msgstr "TortoiseBlame"
 
 #. Resource IDs: (13)
 msgid ""
-"TortoiseBlame can't be started directly!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber] [/path:originalpath]"
+"TortoiseBlame should not be started directly! Use\n"
+"TortoiseProc.exe /command:blame /path:\"path\\to\\file\"\n"
+"instead.\n"
+"\n"
+"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 msgstr ""
-"TortoiseBlame se ne može direktno pokrenuti!\n"
-"TortoiseBlame.exe datoteka  [[log_datoteka] [naslov]] [/line:broj_redka] [/path:osnovna_staza]"
+"TortoiseBlame se ne može direktno pokrenuti! Koristi\n"
+"TortoiseProc.exe /command:blame /path:\"staza\\do\\datoteke\"\n"
+"umjesto TortoiseBlame.\n"
+"\n"
+"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:brojretka] [/path:početnastaza] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
@@ -6988,6 +7014,10 @@ msgstr "Verzija"
 #, c-format
 msgid "Version %d.%d.%d.%d"
 msgstr "Verzija %d.%d.%d.%d"
+
+#. Resource IDs: (1075)
+msgid "Version Information"
+msgstr "Informacija o verziji"
 
 #. Resource IDs: (264)
 msgid "Versioned"
