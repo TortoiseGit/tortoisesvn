@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -33,16 +33,25 @@ public:
 
 public:
 	bool GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCacheResponse* pReturnedStatus, bool bRecursive);
+	bool ReleaseLockForPath(const CTSVNPath& path);
 
 private:
 	bool EnsurePipeOpen();
 	void ClosePipe();
 
+	bool EnsureCommandPipeOpen();
+	void CloseCommandPipe();
+
 private:
 	HANDLE m_hPipe;
 	OVERLAPPED m_Overlapped;
 	HANDLE m_hEvent;
+
+	HANDLE m_hCommandPipe;
+
+
 	CComCriticalSection m_critSec;
 	svn_wc_status2_t m_dummyStatus;
 	long m_lastTimeout;
+
 };
