@@ -85,6 +85,7 @@ public:
 	void Stop();
 
 	void CloseWatcherHandles(HDEVNOTIFY hdev);
+	void CSVNStatusCache::CloseWatcherHandles(const CTSVNPath& path);
 
 	void WaitToRead() {m_rwSection.WaitToRead();}
 	void WaitToWrite() {m_rwSection.WaitToWrite();}

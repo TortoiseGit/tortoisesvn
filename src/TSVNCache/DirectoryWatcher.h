@@ -77,6 +77,7 @@ public:
 	void Stop();
 
 	CTSVNPath CloseInfoMap(HDEVNOTIFY hdev = INVALID_HANDLE_VALUE);
+	bool CloseHandlesForPath(const CTSVNPath& path);
 
 private:
 	static unsigned int __stdcall ThreadEntry(void* pContext);

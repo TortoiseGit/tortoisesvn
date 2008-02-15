@@ -751,6 +751,17 @@ DWORD WINAPI CommandThread(LPVOID lpvParam)
 				CSVNStatusCache::Instance().Refresh();
 				CSVNStatusCache::Instance().Done();
 				break;
+			case TSVNCACHECOMMAND_RELEASE:
+				{
+					CTSVNPath changedpath;
+					changedpath.SetFromWin(CString(command.path), true);
+					ATLTRACE(_T("release handle for path %s\n"), changedpath.GetWinPath());
+					CSVNStatusCache::Instance().WaitToWrite();
+					CSVNStatusCache::Instance().CloseWatcherHandles(changedpath);
+					CSVNStatusCache::Instance().Done();
+				}
+				break;
+
 		}
 	} 
 

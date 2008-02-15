@@ -464,3 +464,8 @@ void CSVNStatusCache::CloseWatcherHandles(HDEVNOTIFY hdev)
 	m_folderCrawler.BlockPath(path);
 }
 
+void CSVNStatusCache::CloseWatcherHandles(const CTSVNPath& path)
+{
+	watcher.CloseHandlesForPath(path);
+	m_folderCrawler.BlockPath(path);
+}

@@ -467,6 +467,29 @@ CTSVNPath CDirectoryWatcher::CloseInfoMap(HDEVNOTIFY hdev)
 	return path;
 }
 
+bool CDirectoryWatcher::CloseHandlesForPath(const CTSVNPath& path)
+{
+	if (watchInfoMap.size() == 0)
+		return false;
+	AutoLocker lock(m_critSec);
+	for (std::map<HANDLE, CDirWatchInfo *>::iterator I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
+	{
+		CDirectoryWatcher::CDirWatchInfo * info = I->second;
+		CTSVNPath p = CTSVNPath(info->m_DirPath);
+		if (path.IsAncestorOf(p))
+		{
+			RemovePathAndChildren(p);
+			BlockPath(p);
+		}
+		info->CloseDirectoryHandle();
+	}
+	watchInfoMap.clear();
+	if (m_hCompPort != INVALID_HANDLE_VALUE)
+		CloseHandle(m_hCompPort);
+	m_hCompPort = INVALID_HANDLE_VALUE;
+	return true;
+}
+
 CDirectoryWatcher::CDirWatchInfo::CDirWatchInfo(HANDLE hDir, const CTSVNPath& DirectoryName) :
 	m_hDir(hDir),
 	m_DirName(DirectoryName)
