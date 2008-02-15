@@ -67,6 +67,10 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
 		{
 			bInShellTest = true;
 		}
+		if ((_tcsicmp(&buf[pathLength-13], _T("\\verclsid.exe"))) == 0)
+		{
+			bInShellTest = true;
+		}
 	}
 
 	if (!::IsDebuggerPresent() && !bInShellTest)
