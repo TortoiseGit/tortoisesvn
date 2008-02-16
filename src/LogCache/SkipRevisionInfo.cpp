@@ -258,7 +258,7 @@ void CSkipRevisionInfo::CPacker::RemoveKnownRevisions()
 				   && (firstKnownRevision < lastRevision))
 				++firstKnownRevision;
 
-			nextUnknownRevision = firstKnownRevision+1;
+			nextUnknownRevision = firstKnownRevision;
 			while (   (parent->DataAvailable (nextUnknownRevision)) 
 				   && (nextUnknownRevision < lastRevision))
 				++nextUnknownRevision;
