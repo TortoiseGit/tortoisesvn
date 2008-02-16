@@ -363,9 +363,9 @@ void CCacheLogQuery::CLogFiller::ReceiveLog
 			iterator.Advance();
 
             if (iterator.EndOfPath())
-                currentPath = NULL;
+                currentPath.reset();
             else
-			    *currentPath;
+                *currentPath = iterator.GetPath();
 		}
 
 		// the first revision we may not have information about is the one
@@ -497,11 +497,15 @@ CCacheLogQuery::CLogFiller::FillLog ( CCachedLogInfo* cache
         // (no-op, if end-of-log was reached;
         //  only valid for a bounded log, i.e. limit != 0)
 
-	    if (   (receiveCount < limit)
-            && !options.GetStrictNodeHistory())
-	    {
+        // if we haven't received *any* data, there is no log info 
+        // for this path even if we didn't follow renamed 
+        // (we will not get here in case of an error or user cancel)
+
+        if (   (receiveCount == 0)
+            || (!options.GetStrictNodeHistory() && (receiveCount < limit)))
+        {
             AutoAddSkipRange (max (endRevision,1)-1);
-	    }
+        }
     }
 
 	return firstNARevision+1;
