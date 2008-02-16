@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -239,12 +239,14 @@ STDMETHODIMP CShellExt::QueryInterface(REFIID riid, LPVOID FAR *ppv)
     {
         *ppv = (LPSHELLPROPSHEETEXT)this;
     }
-#if _WIN32_IE >= 0x0500
 	else if (IsEqualIID(riid, IID_IColumnProvider)) 
 	{ 
 		*ppv = (IColumnProvider *)this;
 	} 
-#endif
+	else if (IsEqualIID(riid, IID_IShellCopyHook))
+	{
+		*ppv = (ICopyHook *)this;
+	}
     if (*ppv)
     {
         AddRef();
@@ -282,3 +284,16 @@ STDMETHODIMP CShellExt::Load(LPCOLESTR /*pszFileName*/, DWORD /*dwMode*/)
     return S_OK;
 }
 
+// ICopyHook member
+UINT __stdcall CShellExt::CopyCallback(HWND /*hWnd*/, UINT wFunc, UINT /*wFlags*/, LPCTSTR pszSrcFile, DWORD /*dwSrcAttribs*/, LPCTSTR /*pszDestFile*/, DWORD /*dwDestAttribs*/)
+{
+	if (wFunc == FO_COPY)
+		return IDYES;	// copying is not a problem for us
+
+	m_remoteCacheLink.ReleaseLockForPath(CTSVNPath(pszSrcFile));
+	// we could now wait a little bit to give the cache time to release the handles.
+	// but the explorer/shell already retries any action for about two seconds
+	// if it first fails. So if the cache hasn't released the handle yet, the explorer
+	// will retry anyway, so we just leave here immediately.
+	return IDYES;
+}

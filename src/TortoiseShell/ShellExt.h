@@ -69,7 +69,8 @@ class CShellExt : public IContextMenu3,
 							IColumnProvider,
 							IShellExtInit,
 							IShellIconOverlayIdentifier,
-							IShellPropSheetExt
+							IShellPropSheetExt,
+							ICopyHookW
 
 // COMPILER ERROR? You need the latest version of the
 // platform SDK which has references to IColumnProvider 
@@ -280,4 +281,12 @@ public:
 	STDMETHODIMP	AddPages(LPFNADDPROPSHEETPAGE lpfnAddPage, LPARAM lParam);
 	STDMETHODIMP	ReplacePage (UINT, LPFNADDPROPSHEETPAGE, LPARAM);
 	//@}
+
+	/** \name ICopyHook 
+	 * ICopyHook members
+	 */
+	//@{
+	STDMETHODIMP_(UINT) CopyCallback(HWND hWnd, UINT wFunc, UINT wFlags, LPCTSTR pszSrcFile, DWORD dwSrcAttribs, LPCTSTR pszDestFile, DWORD dwDestAttribs);
+	//@}
+
 };

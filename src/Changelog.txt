@@ -194,6 +194,8 @@
 - NEW: Executed commands are logged into a file. 
        See issue #320 for details. (Stefan)
 - NEW: Editing of revision properties from the repository browser. (Stefan)
+- NEW: Copy-Hook handler to release cache locks when renaming/moving/deleting
+       folders in explorer. (Stefan)
 --
 - CHG: Revision graph code mainly rewritten resulting in a major 
        performance improvement. (Stefan Fuhrmann)

@@ -139,6 +139,7 @@
 						<Registry Root="HKMU" Key="Software\Classes\InternetShortcut\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
 						<Registry Root="HKMU" Key="Software\Classes\*\shellex\ContextMenuHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
 						<Registry Root="HKMU" Key="Software\Classes\*\shellex\PropertySheetHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
+						<Registry Root="HKMU" Key="Software\Classes\Directory\shellex\CopyHookHandlers\TortoiseSVN" Value="{$(var.GuidUncontrolled)}" Type="string" />
 					</Component>
 
 					<Component Id="C__machineregistry" Guid="$(var.GuidMachineRegistry)" Win64="$(var.Win64YesNo)">
