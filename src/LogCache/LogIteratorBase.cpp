@@ -288,6 +288,7 @@ void CLogIteratorBase::InternalAdvance (revision_t last)
 {
 	// find next entry that mentions the path
 	// stop @ revision 0 or missing log data
+    // (note that revision 0 will actually be hit)
 
 	do
 	{
@@ -351,7 +352,7 @@ void CLogIteratorBase::Advance (revision_t last)
 		else
 		{
 			// find next entry that mentions the path
-			// stop @ revision -1 or missing log data
+			// stop @ revision 0 or missing log data
 
 			InternalAdvance (last);
 		}
