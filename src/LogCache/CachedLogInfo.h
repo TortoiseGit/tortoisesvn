@@ -94,6 +94,7 @@ public:
 
 	void Load();
 	bool IsModified() const;
+    bool IsEmpty() const;
 	void Save();
 	void Save (const std::wstring& newFileName);
 

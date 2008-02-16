@@ -84,6 +84,11 @@ void CCachedLogInfo::Load()
 	}
 }
 
+bool CCachedLogInfo::IsEmpty() const
+{
+    return revisions.GetFirstCachedRevision() == NO_REVISION;
+}
+
 void CCachedLogInfo::Save (const std::wstring& newFileName)
 {
 	CRootOutStream stream (newFileName);
@@ -157,6 +162,12 @@ void CCachedLogInfo::Update ( const CCachedLogInfo& newData
 							, char flags
                             , bool keepOldDataForMissingNew)
 {
+    // newData is often empty -> don't copy existing data around
+    // (e.g. when we received known revision only)
+
+    if (newData.IsEmpty() && keepOldDataForMissingNew)
+        return;
+
 	// build revision index map
 
 	index_mapping_t indexMap;
