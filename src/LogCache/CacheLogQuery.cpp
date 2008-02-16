@@ -142,6 +142,47 @@ bool CCacheLogQuery::CDataAvailable::operator() (revision_t revision) const
 ///////////////////////////////////////////////////////////////
 // CLogFiller
 ///////////////////////////////////////////////////////////////
+// utlity method
+///////////////////////////////////////////////////////////////
+
+void CCacheLogQuery::CLogFiller::MergeFromUpdateCache()
+{
+    cache->Update (*updateData);
+    updateData->Clear();
+}
+
+///////////////////////////////////////////////////////////////
+// if there is a gap in the log, mark it
+///////////////////////////////////////////////////////////////
+
+void CCacheLogQuery::CLogFiller::AutoAddSkipRange (revision_t revision)
+{
+    if ((firstNARevision > revision) && (currentPath.get() != NULL))
+	{
+		// due to only the parent path being renamed, the currentPath
+		// may not have shown up in the log -> don't mark the range
+		// as N/A for some *parent*.
+
+		if (currentPath->IsFullyCachedPath())
+		{
+			cache->AddSkipRange ( currentPath->GetBasePath()
+								, revision+1
+								, firstNARevision - revision);
+		}
+		else
+		{
+			// we must fill this range! Otherwise, we will stumble
+			// over this gap and will try to fetch the data again
+			// to no avail ... causing an endless loop.
+
+			MakeRangeIterable ( currentPath->GetBasePath()
+							  , revision+1
+							  , firstNARevision - revision);
+		}
+	}
+}
+
+///////////////////////////////////////////////////////////////
 // make sure, we can iterator over the given range for the given path
 ///////////////////////////////////////////////////////////////
 
@@ -151,8 +192,7 @@ void CCacheLogQuery::CLogFiller::MakeRangeIterable ( const CDictionaryBasedPath&
 {
     // update the cache before parsing its content
 
-    cache->Update (*updateData);
-    updateData->Clear();
+    MergeFromUpdateCache();
 
 	// trim the range to cover only missing data
 	// (we may already have enough information
@@ -275,29 +315,7 @@ void CCacheLogQuery::CLogFiller::WriteToCache
 
 	// mark the gap and update the current path
 
-	if (firstNARevision > revision)
-	{
-		// due to only the parent path being renamed, the currentPath
-		// may not have shown up in the log -> don't mark the range
-		// as N/A for some *parent*.
-
-		if (currentPath->IsFullyCachedPath())
-		{
-			cache->AddSkipRange ( currentPath->GetBasePath()
-								, revision+1
-								, firstNARevision - revision);
-		}
-		else
-		{
-			// we must fill this range! Otherwise, we will stumble
-			// over this gap and will try to fetch the data again
-			// to no avail ... causing an endless loop.
-
-			MakeRangeIterable ( currentPath->GetBasePath()
-							  , revision+1
-							  , firstNARevision - revision);
-		}
-	}
+    AutoAddSkipRange (revision);
 }
 
 // implement ILogReceiver
@@ -314,6 +332,10 @@ void CCacheLogQuery::CLogFiller::ReceiveLog
 		// so far, it has not be our fault 
 
 		receiverError = false;
+
+        // one entry more that we received
+
+        ++receiveCount;
 
 		// store the data we just received
 
@@ -332,8 +354,7 @@ void CCacheLogQuery::CLogFiller::ReceiveLog
 			if ((  cache->GetLogInfo().GetPresenceFlags (index) 
 				 & CRevisionInfoContainer::HAS_CHANGEDPATHS) == 0)
 			{
-				cache->Update (*updateData);
-				updateData->Clear();
+                MergeFromUpdateCache();
 			}
 
 			// now, iterate as usual
@@ -341,7 +362,10 @@ void CCacheLogQuery::CLogFiller::ReceiveLog
 			CCopyFollowingLogIterator iterator (cache, revision, *currentPath);
 			iterator.Advance();
 
-			*currentPath = iterator.GetPath();
+            if (iterator.EndOfPath())
+                currentPath = NULL;
+            else
+			    *currentPath;
 		}
 
 		// the first revision we may not have information about is the one
@@ -387,6 +411,7 @@ CCacheLogQuery::CLogFiller::CLogFiller (CRepositoryInfo* repositoryInfoCache)
     , svnQuery (NULL)
     , firstNARevision ((revision_t)NO_REVISION)
 	, receiverError (false)
+    , receiveCount (0)
 {
 }
 
@@ -412,6 +437,7 @@ CCacheLogQuery::CLogFiller::FillLog ( CCachedLogInfo* cache
 	this->URL = URL;
     this->svnQuery = svnQuery;
     this->options = options;
+    this->receiveCount = 0;
 
     firstNARevision = startRevision;
 	currentPath.reset (new CDictionaryBasedTempPath (startPath));
@@ -451,8 +477,7 @@ CCacheLogQuery::CLogFiller::FillLog ( CCachedLogInfo* cache
 		{
 			// we want to cache whatever data we could receive so far ..
 
-			cache->Update (*updateData);
-			updateData->Clear();
+            MergeFromUpdateCache();
 
 			// cancel SVN op
 
@@ -462,29 +487,22 @@ CCacheLogQuery::CLogFiller::FillLog ( CCachedLogInfo* cache
 
 	// update the cache with the data we may have received
 
-    cache->Update (*updateData);
-    updateData->Clear();
+    MergeFromUpdateCache();
 
 	// update skip ranges etc. if we are still connected
 
-	if (   (firstNARevision == startRevision) 
-		&& !repositoryInfoCache->IsOffline (url, false))
-	{
-		// the log was empty
+    if (!repositoryInfoCache->IsOffline (url, false))
+    {
+        // do we miss some data at the end of the log?
+        // (no-op, if end-of-log was reached;
+        //  only valid for a bounded log, i.e. limit != 0)
 
-		if (currentPath->IsFullyCachedPath())
-		{
-			cache->AddSkipRange ( currentPath->GetBasePath()
-								, endRevision
-								, startRevision - endRevision + 1);
-		}
-		else
-		{
-			MakeRangeIterable ( currentPath->GetBasePath()
-							  , endRevision
-							  , startRevision - endRevision + 1);
-		}
-	}
+	    if (   (receiveCount < limit)
+            && !options.GetStrictNodeHistory())
+	    {
+            AutoAddSkipRange (max (endRevision,1)-1);
+	    }
+    }
 
 	return firstNARevision+1;
 }

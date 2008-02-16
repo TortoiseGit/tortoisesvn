@@ -186,6 +186,15 @@ private:
 		/// don't ask for going off-line, if this is set
 		bool receiverError;
 
+        /// number of revisions received (i.e.: has limit been reached?)
+        int receiveCount;
+
+        /// utlity method
+        void MergeFromUpdateCache();
+
+        /// if there is a gap in the log, mark it
+        void AutoAddSkipRange (revision_t revision);
+
 		/// make sure, we can iterator over the given range for the given path
 		void MakeRangeIterable ( const CDictionaryBasedPath& path
 							   , revision_t startRevision
