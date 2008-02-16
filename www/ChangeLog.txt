@@ -1,6 +1,12 @@
+Version 1.4.8
+- NEW: linked with neon 0.27.2 to avoid problems with e.g., locking (Stefan)
+- BUG: blaming files with authornames bigger than 30 chars lead to corrupted
+       blame window/text. (Stefan)
+
 Version 1.4.7
-- BUG: Exporting left admin dirs intact.
-- BUG: Checks for include paths of the cache didn't work correctly.
+- BUG: Exporting left admin dirs intact. (Stefan)
+- BUG: Checks for include paths of the cache didn't work correctly. (Stefan)
+- BUG: Exporting a working copy works on Vista. (Stefan)
 
 Version 1.4.6
 - BUG: When upgrading, the MFC/CRT libs weren't updated if
