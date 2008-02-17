@@ -1,4 +1,5 @@
 #pragma once
+#include "Balloon.h"
 
 ///////////////////////////////////////////////////////////////
 // forward declarations
@@ -9,21 +10,21 @@ namespace LogCache
     struct CLogCacheStatisticsData;
 }
 
-// CLogCacheStatisticsDlg-Dialogfeld
 
 class CLogCacheStatisticsDlg : public CDialog
 {
 	DECLARE_DYNAMIC(CLogCacheStatisticsDlg)
 
 public:
-    CLogCacheStatisticsDlg (const LogCache::CLogCacheStatisticsData& data);   // Standardkonstruktor
+    CLogCacheStatisticsDlg (const LogCache::CLogCacheStatisticsData& data, CWnd * pParentWnd = NULL); 
 	virtual ~CLogCacheStatisticsDlg();
 
-// Dialogfelddaten
 	enum { IDD = IDD_LOGCACHESTATISTICS };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV-Unterstützung
+	virtual void DoDataExchange(CDataExchange* pDX); 
+	virtual BOOL OnInitDialog();
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
 
 	DECLARE_MESSAGE_MAP()
 
@@ -57,4 +58,6 @@ private:
 
     CString DateToString (__time64_t time);
     CString ToString (__int64 value);
+
+	CBalloon m_tooltips;
 };

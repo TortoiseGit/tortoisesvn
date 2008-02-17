@@ -2775,6 +2775,10 @@ msgstr ""
 msgid "Hide/Show the patch file list\nHides or shows the patch file list"
 msgstr ""
 
+#. Resource IDs: (339)
+msgid "Highest revision number in the cache"
+msgstr ""
+
 #. Resource IDs: (1127)
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
 msgstr ""
@@ -3124,6 +3128,10 @@ msgstr ""
 msgid "Internal application error."
 msgstr ""
 
+#. Resource IDs: (338, 339)
+msgid "Internal value indicating compression quality"
+msgstr ""
+
 #. Resource IDs: (102)
 msgid "Invalid data object dropped!"
 msgstr ""
@@ -3167,6 +3175,18 @@ msgstr ""
 
 #. Resource IDs: (11)
 msgid "Last saved revision of item"
+msgstr ""
+
+#. Resource IDs: (338)
+msgid "Last time the cache content was changed"
+msgstr ""
+
+#. Resource IDs: (338)
+msgid "Last time the cache was accessed"
+msgstr ""
+
+#. Resource IDs: (338)
+msgid "Last time the repository was asked for the HEAD revision number"
 msgstr ""
 
 #. Resource IDs: (12)
@@ -3691,8 +3711,48 @@ msgstr ""
 msgid "Notice"
 msgstr ""
 
+#. Resource IDs: (338)
+msgid "Number of authors in the cache"
+msgstr ""
+
 #. Resource IDs: (1161)
 msgid "Number of authors:"
+msgstr ""
+
+#. Resource IDs: (339)
+msgid "Number of cached merged revisions"
+msgstr ""
+
+#. Resource IDs: (339)
+msgid "Number of cached revisions"
+msgstr ""
+
+#. Resource IDs: (339)
+msgid "Number of cached user revision properties"
+msgstr ""
+
+#. Resource IDs: (339)
+msgid "Number of changed cached revisions"
+msgstr ""
+
+#. Resource IDs: (339)
+msgid "Number of changed revisions that are not cached yet"
+msgstr ""
+
+#. Resource IDs: (338)
+msgid "Number of different paths shown in the log dialog, including parent paths"
+msgstr ""
+
+#. Resource IDs: (339)
+msgid "Number of merged revisions that are not cached yet"
+msgstr ""
+
+#. Resource IDs: (338)
+msgid "Number of path elements. This is an internal value indicating the compression level."
+msgstr ""
+
+#. Resource IDs: (339)
+msgid "Number of user revision properties that are not cached yet"
 msgstr ""
 
 #. Resource IDs: (1160)
@@ -4965,6 +5025,14 @@ msgstr ""
 msgid "Size and status"
 msgstr ""
 
+#. Resource IDs: (339)
+msgid "Size of all cached text information"
+msgstr ""
+
+#. Resource IDs: (339)
+msgid "Size of the cache if it were not compressed"
+msgstr ""
+
 #. Resource IDs: (74)
 msgid "Skipped"
 msgstr ""
@@ -5509,6 +5577,18 @@ msgstr ""
 msgid "Total file changes:"
 msgstr ""
 
+#. Resource IDs: (339)
+msgid "Total number of changed revisions"
+msgstr ""
+
+#. Resource IDs: (339)
+msgid "Total number of user revision properties"
+msgstr ""
+
+#. Resource IDs: (339)
+msgid "Totall number of merge informations"
+msgstr ""
+
 #. Resource IDs: (357)
 #, c-format
 msgid "Transferring at %s"
@@ -6008,6 +6088,10 @@ msgstr ""
 
 #. Resource IDs: (2051)
 msgid "Zoom to fit"
+msgstr ""
+
+#. Resource IDs: (338)
+msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
 msgstr ""
 
 #. Resource IDs: (10)
