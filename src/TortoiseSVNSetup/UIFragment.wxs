@@ -57,15 +57,13 @@
       <Property Id="DlgTitleFont"><![CDATA[{&DlgFontBold8}]]></Property>
 
       <!-- UI Other .................................................................... -->
-      <Property Id="ALLUSERS" Value="2"></Property>
-      <!-- Who to install for http://www.appdeploy.com/faq/detail.asp?id=69  -->
       <Property Id="ErrorDialog">ErrorPopup</Property>
       <Property Id="INSTALLLEVEL">3</Property>
-      <!-- http://msdn.microsoft.com/library/default.asp?url=/library/en-us/msi/setup/installlevel.asp -->
+      <!-- http://msdn2.microsoft.com/en-us/library/aa369536.aspx -->
       <Property Id="ProductID">none</Property>
-      <!-- http://msdn.microsoft.com/library/default.asp?url=/library/en-us/msi/setup/productid.asp -->
+      <!-- http://msdn2.microsoft.com/en-us/library/aa370855.aspx -->
       <Property Id="PROMPTROLLBACKCOST">P</Property>
-      <!-- http://msdn.microsoft.com/library/default.asp?url=/library/en-us/msi/setup/promptrollbackcost.asp -->
+      <!-- http://msdn2.microsoft.com/en-us/library/aa370887.aspx -->
 
       <!-- UI Binaries ................................................................. -->
       <Binary Id="Up" src="include\Up.ico" />
@@ -231,7 +229,6 @@
         <Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="[ButtonText_Next]">
           <Publish Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
           <Subscribe Event="SelectionNoItems" Attribute="Enabled" />
-          <Publish Property="ALLUSERS" Value="2"><![CDATA[VersionNT>=400 AND Privileged=1]]></Publish>
         </Control>
         <Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Cancel="yes" Text="[ButtonText_Cancel]">
           <Publish Event="SpawnDialog" Value="CancelPopup">1</Publish>
