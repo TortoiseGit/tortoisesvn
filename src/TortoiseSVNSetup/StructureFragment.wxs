@@ -57,7 +57,7 @@
 					<?if $(env.Platform) = "x64" ?>
 					<Merge Id='Ovlays' Language='0' src='..\..\ext\TortoiseOverlays\TortoiseOverlays-1.0.4.11886-x64.msm' DiskId='1' />
 					<?endif ?>
-					
+
 					<Component Id="C__infofiles" Guid="$(var.GuidInfoFiles)" Win64="$(var.Win64YesNo)">
 						<File Id="F__changelog" Name="CHANGELG.TXT" LongName="Changelog.txt" DiskId="1" src="..\Changelog.txt" KeyPath="yes" />
 						<File Id="F__subversionlicense" Name="LICENSES.TXT" LongName="Subversion license.txt" DiskId="1" src="..\..\ext\Subversion\subversion\LICENSE" />
@@ -211,10 +211,6 @@
 
 					<Directory Id="D__Bin" Name="BIN" LongName="bin" >
 
-						<?if $(env.Platform) = "win32" ?>
-						<Merge Id='GDIPLUS' Language='0' src='$(env.MergeModules)\GDIPlus.msm' DiskId='1' />
-						<?endif ?>
-
 						<Component Id="C__berkeleydb" Guid="$(var.GuidBerkeleyDB)" Win64="$(var.Win64YesNo)">
 							<File Id="F__libdb44" Name="LIBDB44.DLL" LongName="libdb44.dll" DiskId="1" src="..\..\ext\berkeley-db\db4.4-$(var.PlatformPathExtension)\bin\libdb44.dll" KeyPath="yes" />
 						</Component>
@@ -297,11 +293,11 @@
 						<Component Id="C__TortoiseSVNShortcuts" Guid="$(var.GuidTortoiseSVNShortcuts)" Win64="$(var.Win64YesNo)">
 							<Registry Root="HKCU" Key="Software\TortoiseSVN" KeyPath="yes" Name="TortoiseSVN" Value="TortoiseSVN" Type="string" />
 							<Shortcut Id="S__Website" Directory="D_TortoisePrgMenu" Name="Web" LongName="Website" Advertise="no"
-							  Target="[INSTALLDIR]bin\website.url" Description="TortoiseSVN Website" />
+							Target="[INSTALLDIR]bin\website.url" Description="TortoiseSVN Website" />
 							<Shortcut Id="S__RTFM" Directory="D_TortoisePrgMenu" Name="TSVN" LongName="TortoiseSVN" Advertise="no"
-							  Target="[INSTALLDIR]bin\TortoiseProc.exe" Description="TortoiseSVN" Arguments="/command:rtfm" Show="normal" />
+							Target="[INSTALLDIR]bin\TortoiseProc.exe" Description="TortoiseSVN" Arguments="/command:rtfm" Show="normal" />
 							<Shortcut Id="S__TortoiseProc" Directory="D_TortoisePrgMenu" Name="HELP" LongName="Help" Advertise="no"
-							  Target="[INSTALLDIR]bin\TortoiseProc.exe" Description="Documentation about TortoiseSVN" Arguments="/command:help" Show="normal" />
+							Target="[INSTALLDIR]bin\TortoiseProc.exe" Description="Documentation about TortoiseSVN" Arguments="/command:help" Show="normal" />
 						</Component>
 
 						<Component Id="C__TortoiseMerge" Guid="$(var.GuidTortoiseMerge)" Win64="$(var.Win64YesNo)">
@@ -311,7 +307,7 @@
 						<Component Id="C__TortoiseMergeShortcuts" Guid="$(var.GuidTortoiseMergeShortcuts)" Win64="$(var.Win64YesNo)">
 							<Registry Root="HKCU" Key="Software\TortoiseSVN" KeyPath="yes" Name="TortoiseMerge" Value="TortoiseMerge" Type="string" />
 							<Shortcut Id="S__TortoiseMerge" Directory="D_TortoisePrgMenu" Name="TMERGE" LongName="TortoiseMerge" Advertise="no"
-							  Target="[INSTALLDIR]bin\TortoiseMerge.exe" Description="View Diff's, Merge Diff's, Resolve Conflicted Files and Apply Patches" Show="normal" />
+							Target="[INSTALLDIR]bin\TortoiseMerge.exe" Description="View Diff's, Merge Diff's, Resolve Conflicted Files and Apply Patches" Show="normal" />
 						</Component>
 
 						<Component Id="C__Sounds" Guid="$(var.GuidSounds)" Win64="$(var.Win64YesNo)">
@@ -332,7 +328,7 @@
 						<Component Id="C__TortoiseIDiffShortcuts" Guid="$(var.GuidTortoiseIDiffShortcuts)" Win64="$(var.Win64YesNo)">
 							<Registry Root="HKCU" Key="Software\TortoiseSVN" KeyPath="yes" Name="TortoiseIDiff" Value="TortoiseIDiff" Type="string" />
 							<Shortcut Id="S__TortoiseIDiff" Directory="D_TortoisePrgMenu" Name="TIDIFF" LongName="TortoiseIDiff" Advertise="no"
-							  Target="[INSTALLDIR]bin\TortoiseIDiff.exe" Description="View Diff's of image files" Show="normal" />
+							Target="[INSTALLDIR]bin\TortoiseIDiff.exe" Description="View Diff's of image files" Show="normal" />
 						</Component>
 
 						<Component Id="C__TortoiseUDiff" Guid="$(var.GuidTortoiseUDiff)" Win64="$(var.Win64YesNo)">
@@ -352,14 +348,14 @@
 							<Registry Root="HKCU" Key="Software\TortoiseSVN" KeyPath="yes" Name="TortoiseSVN" Value="TortoiseSVN" Type="string" />
 							<Condition><![CDATA[NOT VersionNT64]]></Condition>
 							<Shortcut Id="S__PlainConfig" Directory="D_TortoisePrgMenu" Name="SETTINGS" LongName="Settings" Advertise="no"
-							  Target="[INSTALLDIR]bin\TortoiseProc.exe" Description="TortoiseSVN" Arguments="/command:settings" Show="normal" />
+							Target="[INSTALLDIR]bin\TortoiseProc.exe" Description="TortoiseSVN" Arguments="/command:settings" Show="normal" />
 						</Component>
 
 						<Component Id="C__PlatformSettingsShortcuts" Guid="$(var.GuidPlatformSettingsShortcuts)" Win64="$(var.Win64YesNo)">
 							<Registry Root="HKCU" Key="Software\TortoiseSVN" KeyPath="yes" Name="TortoiseSVN" Value="TortoiseSVN" Type="string" />
 							<Condition>VersionNT64</Condition>
 							<Shortcut Id="S__PlatformConfig" Directory="D_TortoisePrgMenu" Name="SETTINGS" LongName="Settings $(var.PlatformUserVisible)" Advertise="no"
-							  Target="[INSTALLDIR]bin\TortoiseProc.exe" Description="TortoiseSVN" Arguments="/command:settings" Show="normal" />
+							Target="[INSTALLDIR]bin\TortoiseProc.exe" Description="TortoiseSVN" Arguments="/command:settings" Show="normal" />
 						</Component>
 
 					</Directory>

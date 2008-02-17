@@ -63,14 +63,11 @@ You only have to do this once.
 - WiX(\b 1)                   http://wix.sourceforge.net
 - Votive(\b 2)                http://wix.sourceforge.net
 - NAnt(\b 1)                  http://nant.sourceforge.net
-- gdiplus merge module(\b 3)  http://www.installshield.com/downloads/modules.asp?prod=ISX&lan=english&xmlUse=y
 .
 (\b 1) Add the paths of the binaries to the PATH environment variable. You may have to
     logoff/logon to make the new environment variables take effect!
 
 (\b 2) Install Votive to be able to load .wixproj project files.
-
-(\b 3) Copy/Move the gdiplus.msm file to the "%CommonProgramFiles%\Merge Modules" directory
 
 
 \subsection Requirements3 Next you need to download some more.
