@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-02-10 22:14+0100\n"
+"PO-Revision-Date: 2008-02-17 19:01+0100\n"
 "Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3157,6 +3157,10 @@ msgid ""
 "Hides or shows the patch file list"
 msgstr "Afficher/Cacher la liste des fichiers patchAffiche ou cache la liste des fichiers patch"
 
+#. Resource IDs: (339)
+msgid "Highest revision number in the cache"
+msgstr "Numéro de révision le plus haut dans le cache"
+
 #. Resource IDs: (1127)
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
 msgstr "Astuce : Pressez F5 pour rafraîchir le sous-arbre sélectionné et Ctrl-F5 pour charger tous les enfants aussi"
@@ -3584,6 +3588,10 @@ msgstr "Mémoire insuffisante pour exécuter l'opération."
 msgid "Internal application error."
 msgstr "Erreur interne de l'application."
 
+#. Resource IDs: (338, 339)
+msgid "Internal value indicating compression quality"
+msgstr "Valeur interne indiquant la qualité de la compression"
+
 #. Resource IDs: (102)
 msgid "Invalid data object dropped!"
 msgstr "Objet aux données invalides supprimé !"
@@ -3670,7 +3678,7 @@ msgstr ""
 
 #. Resource IDs: (570)
 msgid "Issue Tracker Hook"
-msgstr ""
+msgstr "Point d'Accroche du Système de Suivi de Problèmes"
 
 #. Resource IDs: (145)
 msgid ""
@@ -3724,6 +3732,18 @@ msgstr "Dernière révision livrée :"
 #. Resource IDs: (11)
 msgid "Last saved revision of item"
 msgstr "Dernière révision sauvée de l'élément"
+
+#. Resource IDs: (338)
+msgid "Last time the cache content was changed"
+msgstr "Dernières fois que le contenu du cache a été changé"
+
+#. Resource IDs: (338)
+msgid "Last time the cache was accessed"
+msgstr "Dernière fois que le cache a été consulté"
+
+#. Resource IDs: (338)
+msgid "Last time the repository was asked for the HEAD revision number"
+msgstr "Dernière fois que le référentiel a été contacté pour obtenir le numéro de révision de tête"
 
 #. Resource IDs: (12)
 msgid "Launches the external diff / merge program to solve the conflicts"
@@ -4297,9 +4317,49 @@ msgstr "Non récursif"
 msgid "Notice"
 msgstr "Instructions"
 
+#. Resource IDs: (338)
+msgid "Number of authors in the cache"
+msgstr "Nombre d'auteurs dans le cache"
+
 #. Resource IDs: (1161)
 msgid "Number of authors:"
 msgstr "Nombre d'auteurs :"
+
+#. Resource IDs: (339)
+msgid "Number of cached merged revisions"
+msgstr "Nombre de révisions fusionnées dans le cache"
+
+#. Resource IDs: (339)
+msgid "Number of cached revisions"
+msgstr "Nombre de révisions dans le cache"
+
+#. Resource IDs: (339)
+msgid "Number of cached user revision properties"
+msgstr "Nombre de propriétés utilisateur de révision dans le cache"
+
+#. Resource IDs: (339)
+msgid "Number of changed cached revisions"
+msgstr "Nombre de révisions modifiées dans le cache"
+
+#. Resource IDs: (339)
+msgid "Number of changed revisions that are not cached yet"
+msgstr "Nombre de révision modifiées qui ne sont pas encore dans le cache"
+
+#. Resource IDs: (338)
+msgid "Number of different paths shown in the log dialog, including parent paths"
+msgstr "Nombre de chemins différents affichés dans la boîte de dialogue du journal, en incluant les chemins des parents"
+
+#. Resource IDs: (339)
+msgid "Number of merged revisions that are not cached yet"
+msgstr "Nombre de révision fusionnées qui ne sont pas encore dans le cache"
+
+#. Resource IDs: (338)
+msgid "Number of path elements. This is an internal value indicating the compression level."
+msgstr "Nombre d'éléments de chemin. Il s'agit d'une valeur interne indiquant le niveau de compression."
+
+#. Resource IDs: (339)
+msgid "Number of user revision properties that are not cached yet"
+msgstr "Nombre de propriétés utilisateur de révision qui ne sont pas encore dans le cache"
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -5733,6 +5793,14 @@ msgstr "Taille"
 msgid "Size and status"
 msgstr "Taille et état"
 
+#. Resource IDs: (339)
+msgid "Size of all cached text information"
+msgstr "Taille de la totalité des informations textuelles mises en cache"
+
+#. Resource IDs: (339)
+msgid "Size of the cache if it were not compressed"
+msgstr "Taille du cache s'il n'était pas compressé"
+
 #. Resource IDs: (74)
 msgid "Skipped"
 msgstr "Omis"
@@ -6581,6 +6649,18 @@ msgstr "Total de livraisons analysées :"
 msgid "Total file changes:"
 msgstr "Total de modifications de fichier :"
 
+#. Resource IDs: (339)
+msgid "Total number of changed revisions"
+msgstr "Nombre total de révisions modifiées"
+
+#. Resource IDs: (339)
+msgid "Total number of user revision properties"
+msgstr "Nombre total de propriétés utilisateur de révision"
+
+#. Resource IDs: (339)
+msgid "Totall number of merge informations"
+msgstr "Nombre total d'informations de fusion"
+
 #. Resource IDs: (357)
 #, c-format
 msgid "Transferring at %s"
@@ -7238,6 +7318,10 @@ msgstr "Réduire"
 #. Resource IDs: (2051)
 msgid "Zoom to fit"
 msgstr "Adapter à la fenêtre"
+
+#. Resource IDs: (338)
+msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
+msgstr "Le texte \"plages évitées\" est utilisé pour marquer les plages de révision qui ne sont pas encore dans le cache"
 
 #. Resource IDs: (10)
 msgid "added"
