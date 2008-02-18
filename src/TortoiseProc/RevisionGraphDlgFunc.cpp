@@ -262,7 +262,7 @@ CRect * CRevisionGraphWnd::GetGraphSize()
 		std::vector<bool> pathMeasured;
 		pathMeasured.insert (pathMeasured.begin(), paths.size(), false);
 
-		for (size_t i = m_entryPtrs.size()-1; i > 0; --i)
+		for (size_t i = m_entryPtrs.size(); i > 0; --i)
 		{
 			// graph boundaries 
 			// (start at the end of the array to hit maxColumn / maxRow asap)
