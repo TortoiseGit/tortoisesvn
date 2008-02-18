@@ -2053,7 +2053,7 @@ void CRevisionGraph::ReverseRowOrder (int maxRow)
 	for (size_t i = 0, count = m_entryPtrs.size(); i < count; ++i)
     {
 		CRevisionEntry * entry = m_entryPtrs[i];
-        entry->row = maxRow+1 - entry->row;
+        entry->row = maxRow - entry->row;
     }
 }
 
