@@ -187,12 +187,12 @@ CSearchPathTree* CSearchPathTree::Insert ( const CDictionaryBasedTempPath& path
 	CDictionaryBasedPath cachedPath = path.GetBasePath();
 	for (CSearchPathTree* child = firstChild; child != NULL; child = child->next)
 	{
-		CDictionaryBasedPath commonPath 
-			= child->path.GetBasePath().GetCommonRoot (cachedPath);
+		CDictionaryBasedTempPath commonPath
+			= child->path.GetCommonRoot (path);
 
-		if (commonPath != this->path.GetBasePath())
+		if (commonPath != this->path)
 		{
-			if (child->path.GetBasePath() == cachedPath)
+			if (child->path == path)
 			{
 				// there is already a node for the exact same path
 				// -> use it, if unused so far; append a new node otherwise
