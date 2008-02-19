@@ -61,29 +61,14 @@ msgstr ""
 msgid "%1 contained an unexpected object."
 msgstr ""
 
+#. Resource IDs: (3867)
+#, c-format
+msgid "%1 contains an incorrect path."
+msgstr ""
+
 #. Resource IDs: (3868)
 #, c-format
 msgid "%1 contains an incorrect schema."
-msgstr ""
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "%1 contains an invalid path."
-msgstr ""
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "%1 could not be created because the directory is full."
-msgstr ""
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "%1 could not be opened because there are too many open files."
-msgstr ""
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "%1 could not be removed because it is the current directory."
 msgstr ""
 
 #. Resource IDs: (3868)
@@ -103,7 +88,7 @@ msgstr ""
 
 #. Resource IDs: (3859)
 #, c-format
-msgid "%1\nCannot find this file.\nPlease verify that the correct path and file name are given."
+msgid "%1\nCannot find this file.\nVerify that the correct path and file name are given."
 msgstr ""
 
 #. Resource IDs: (357)
@@ -861,16 +846,6 @@ msgstr ""
 msgid "?"
 msgstr ""
 
-#. Resource IDs: (3867)
-#, c-format
-msgid "A hardware I/O error was reported while accessing %1."
-msgstr ""
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "A locking violation occurred while accessing %1."
-msgstr ""
-
 #. Resource IDs: (201)
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
 msgstr ""
@@ -885,11 +860,6 @@ msgstr ""
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
-msgstr ""
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "A sharing violation occurred while accessing %1."
 msgstr ""
 
 #. Resource IDs: (79)
@@ -1067,21 +1037,6 @@ msgstr ""
 msgid "Always use the system locale settings to show times and dates"
 msgstr ""
 
-#. Resource IDs: (3867, 3868)
-#, c-format
-msgid "An attempt was made to access %1 past its end."
-msgstr ""
-
-#. Resource IDs: (3868)
-#, c-format
-msgid "An attempt was made to read from the writing %1."
-msgstr ""
-
-#. Resource IDs: (3868)
-#, c-format
-msgid "An attempt was made to write to the reading %1."
-msgstr ""
-
 #. Resource IDs: (78)
 #, c-format
 msgid "An external diff program used\nfor comparing different revisions of files\n<hr=100%>\nYou can specify the following parameters to the path:\n%base\tthe base file\n%mine\tthe modified file"
@@ -1092,23 +1047,9 @@ msgstr ""
 msgid "An external merge program used\nto resolve conflicted files.\n<hr=100%>\nYou can specify the following parameters to the path:\n%merged\tthe conflicted file, where to save\n%theirs\t\tthe file as it is in the repository\n%mine\t\tyour own file, with your changes\n%base\t\tthe original file without your changes"
 msgstr ""
 
-#. Resource IDs: (3843)
-msgid "An invalid argument was encountered."
-msgstr ""
-
 #. Resource IDs: (3867)
 #, c-format
-msgid "An invalid file handle was associated with %1."
-msgstr ""
-
-#. Resource IDs: (3859)
-#, c-format
-msgid "An unexpected error occurred while reading %1."
-msgstr ""
-
-#. Resource IDs: (3859)
-#, c-format
-msgid "An unexpected error occurred while writing %1."
+msgid "An incorrect file handle was associated with %1."
 msgstr ""
 
 #. Resource IDs: (3843)
@@ -1123,10 +1064,6 @@ msgstr ""
 #. Resource IDs: (63)
 #, c-format
 msgid "An unknown line type was found in line %d !"
-msgstr ""
-
-#. Resource IDs: (3843)
-msgid "An unsupported operation was attempted."
 msgstr ""
 
 #. Resource IDs: (269)
@@ -1183,6 +1120,25 @@ msgstr ""
 #. Resource IDs: (77)
 #, c-format
 msgid "At revision: %d"
+msgstr ""
+
+#. Resource IDs: (3843)
+msgid "Attempted an unsupported operation."
+msgstr ""
+
+#. Resource IDs: (3867, 3868)
+#, c-format
+msgid "Attempted to access %1 past its end."
+msgstr ""
+
+#. Resource IDs: (3868)
+#, c-format
+msgid "Attempted to read from the writing %1."
+msgstr ""
+
+#. Resource IDs: (3868)
+#, c-format
+msgid "Attempted to write to the reading %1."
 msgstr ""
 
 #. Resource IDs: (131, 160)
@@ -1879,6 +1835,11 @@ msgstr ""
 msgid "Could not copy the files!\n<hr=100%%>\n%s"
 msgstr ""
 
+#. Resource IDs: (3867)
+#, c-format
+msgid "Could not create %1 because the directory is full."
+msgstr ""
+
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not delete \"%s\" because"
@@ -1907,9 +1868,19 @@ msgstr ""
 msgid "Could not merge property \"%s\" on %s because"
 msgstr ""
 
+#. Resource IDs: (3867)
+#, c-format
+msgid "Could not open %1 because there are too many open files."
+msgstr ""
+
 #. Resource IDs: (69)
 #, c-format
 msgid "Could not open the file\n%s"
+msgstr ""
+
+#. Resource IDs: (3867)
+#, c-format
+msgid "Could not remove %1 because it is the current directory."
 msgstr ""
 
 #. Resource IDs: (82)
@@ -2276,6 +2247,35 @@ msgstr ""
 msgid "Enables the spellchecker only if the\ntsvn:projectlanguage property is set."
 msgstr ""
 
+#. Resource IDs: (3867)
+#, c-format
+msgid "Encountered a hardware I/O error while accessing %1."
+msgstr ""
+
+#. Resource IDs: (3867)
+#, c-format
+msgid "Encountered a locking violation while accessing %1."
+msgstr ""
+
+#. Resource IDs: (3867)
+#, c-format
+msgid "Encountered a sharing violation while accessing %1."
+msgstr ""
+
+#. Resource IDs: (3843)
+msgid "Encountered an improper argument."
+msgstr ""
+
+#. Resource IDs: (3859)
+#, c-format
+msgid "Encountered an unexpected error while reading %1."
+msgstr ""
+
+#. Resource IDs: (3859)
+#, c-format
+msgid "Encountered an unexpected error while writing %1."
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "End Revision"
 msgstr ""
@@ -2292,6 +2292,22 @@ msgstr ""
 msgid "Enter URL"
 msgstr ""
 
+#. Resource IDs: (3858)
+msgid "Enter a GUID."
+msgstr ""
+
+#. Resource IDs: (3858)
+msgid "Enter a currency."
+msgstr ""
+
+#. Resource IDs: (3858)
+msgid "Enter a date and/or time."
+msgstr ""
+
+#. Resource IDs: (3858)
+msgid "Enter a date."
+msgstr ""
+
 #. Resource IDs: (313)
 msgid "Enter a lock message (optional):"
 msgstr ""
@@ -2300,12 +2316,47 @@ msgstr ""
 msgid "Enter a name for the changelist:"
 msgstr ""
 
+#. Resource IDs: (3858)
+#, c-format
+msgid "Enter a number between %1 and %2."
+msgstr ""
+
+#. Resource IDs: (3858)
+msgid "Enter a number."
+msgstr ""
+
+#. Resource IDs: (3858)
+msgid "Enter a positive integer."
+msgstr ""
+
+#. Resource IDs: (3858)
+msgid "Enter a time."
+msgstr ""
+
+#. Resource IDs: (3858)
+#, c-format
+msgid "Enter an integer between %1 and %2."
+msgstr ""
+
+#. Resource IDs: (3858)
+msgid "Enter an integer between 0 and 255."
+msgstr ""
+
+#. Resource IDs: (3858)
+msgid "Enter an integer."
+msgstr ""
+
 #. Resource IDs: (1065)
 msgid "Enter log &message:"
 msgstr ""
 
 #. Resource IDs: (126)
 msgid "Enter log message:"
+msgstr ""
+
+#. Resource IDs: (3858)
+#, c-format
+msgid "Enter no more than %1 characters."
 msgstr ""
 
 #. Resource IDs: (3603)
@@ -3049,6 +3100,10 @@ msgstr ""
 msgid "Include paths:"
 msgstr ""
 
+#. Resource IDs: (3857)
+msgid "Incorrect filename."
+msgstr ""
+
 #. Resource IDs: (76)
 msgid "Initial import"
 msgstr ""
@@ -3079,10 +3134,6 @@ msgstr ""
 
 #. Resource IDs: (102)
 msgid "Invalid data object dropped!"
-msgstr ""
-
-#. Resource IDs: (3857)
-msgid "Invalid filename."
 msgstr ""
 
 #. Resource IDs: (82)
@@ -3872,63 +3923,12 @@ msgstr ""
 msgid "Pie Graph"
 msgstr ""
 
-#. Resource IDs: (3858)
-msgid "Please enter a GUID."
-msgstr ""
-
-#. Resource IDs: (3858)
-msgid "Please enter a currency."
-msgstr ""
-
-#. Resource IDs: (3858)
-msgid "Please enter a date and/or time."
-msgstr ""
-
-#. Resource IDs: (3858)
-msgid "Please enter a date."
-msgstr ""
-
 #. Resource IDs: (83)
 msgid "Please enter a hook script to execute."
 msgstr ""
 
-#. Resource IDs: (3858)
-#, c-format
-msgid "Please enter a number between %1 and %2."
-msgstr ""
-
-#. Resource IDs: (3858)
-msgid "Please enter a number."
-msgstr ""
-
 #. Resource IDs: (83)
 msgid "Please enter a path where to apply the hook script to."
-msgstr ""
-
-#. Resource IDs: (3858)
-msgid "Please enter a positive integer."
-msgstr ""
-
-#. Resource IDs: (3858)
-msgid "Please enter a time."
-msgstr ""
-
-#. Resource IDs: (3858)
-#, c-format
-msgid "Please enter an integer between %1 and %2."
-msgstr ""
-
-#. Resource IDs: (3858)
-msgid "Please enter an integer between 0 and 255."
-msgstr ""
-
-#. Resource IDs: (3858)
-msgid "Please enter an integer."
-msgstr ""
-
-#. Resource IDs: (3858)
-#, c-format
-msgid "Please enter no more than %1 characters."
 msgstr ""
 
 #. Resource IDs: (251)
@@ -3941,10 +3941,6 @@ msgstr ""
 
 #. Resource IDs: (1287)
 msgid "Please resolve the conflict by choosing one of the following options:"
-msgstr ""
-
-#. Resource IDs: (3858)
-msgid "Please select a button."
 msgstr ""
 
 #. Resource IDs: (83)
@@ -4691,6 +4687,10 @@ msgstr ""
 
 #. Resource IDs: (78)
 msgid "Select SSH client"
+msgstr ""
+
+#. Resource IDs: (3858)
+msgid "Select a button."
 msgstr ""
 
 #. Resource IDs: (3585)
@@ -5582,11 +5582,11 @@ msgid "Total number of changed revisions"
 msgstr ""
 
 #. Resource IDs: (339)
-msgid "Total number of user revision properties"
+msgid "Total number of merged revisions"
 msgstr ""
 
 #. Resource IDs: (339)
-msgid "Totall number of merge informations"
+msgid "Total number of user revision properties"
 msgstr ""
 
 #. Resource IDs: (357)
