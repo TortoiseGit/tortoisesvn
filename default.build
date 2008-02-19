@@ -67,22 +67,6 @@
 <!-- ====================================================================== -->
 <!-- Project targets														-->
 <!-- ====================================================================== -->
-	<target name="VSNETVER">
-        <description>
-            Finds the version of the currently set visual studio. Should
-            either be 8 or 9.
-        </description>
-        <exec program="devenv.com" output="vsversion.txt">
-            <arg value="/?" />
-        </exec>
-        <loadfile file="vsversion.txt" property="versionfile" />
-        <regex pattern=".*Visual Studio Version (?'vsversion'\d+).*" input="${versionfile}" />
-		<setenv>
-			<variable name="VSVersion" value="${vsversion}" />
-		</setenv>
-        <echo message="visual studio version = ${vsversion}" />
-        <delete file="vsversion.txt" />
-	</target>
 
 	<target name="clean" depends="VSNET">
 		<description>
@@ -91,7 +75,7 @@
 		<property name="cleanup" value="yes" />
 	</target>
 
-	<target name="cleanall" depends="VSNET,VSNETVER">
+	<target name="cleanall" depends="VSNET">
 		<description>
 			Cleans every subproject.
 		</description>
@@ -140,7 +124,7 @@
 		</nant>
 	</target>
 	
-	<target name="VersionInfo" depends="VSNET,env,VSNETVER">
+	<target name="VersionInfo" depends="VSNET,env">
 		<description>
 			Sets the version information as properties, env variables
 			and sets up the different version specific files.
@@ -152,7 +136,7 @@
 		</nant>
 	</target>
 	
-	<target name="Overlays" depends="VSNET,env,VSNETVER" >
+	<target name="Overlays" depends="VSNET,env" >
 		<description>
 			Builds the TortoiseOverlays install files
 		</description>
@@ -163,7 +147,7 @@
 		</nant>
 	</target>
 
-	<target name="Subversion" depends="VSNET,env,VSNETVER">
+	<target name="Subversion" depends="VSNET,env">
 		<description>
 			Builds all the libraries TortoiseSVN depends on:
 			Subversion, apr, OpenSSL, ...
@@ -180,7 +164,7 @@
 		</nant>
 	</target>
 
-	<target name="SubversionOnly" depends="VSNET,env,VSNETVER">
+	<target name="SubversionOnly" depends="VSNET,env">
 		<description>
 			Builds only the Subversion libraries
 		</description>
@@ -191,7 +175,7 @@
 		</nant>
 	</target>
 
-	<target name="TortoiseSVN" depends="VSNET,env,VSNETVER">
+	<target name="TortoiseSVN" depends="VSNET,env">
 		<description>
 			Builds TortoiseSVN. The libraries must have been built
 			before.
@@ -203,14 +187,14 @@
 		</nant>
 	</target>
 
-	<target name="binaries" depends="VSNET,env,VSNETVER,Subversion,TortoiseSVN">
+	<target name="binaries" depends="VSNET,env,Subversion,TortoiseSVN">
 		<description>
 			Builds all binaries (TortoiseSVN with all the required
 			libraries)
 		</description>
 	</target>
 
-	<target name="statictools" depends="VSNET,env,VSNETVER,static,Subversion,TortoiseSVN">
+	<target name="statictools" depends="VSNET,env,static,Subversion,TortoiseSVN">
 		<description>
 			Builds the libraries for static linking, and all the tools
 			we ship separately from TSVN (therefore statically linked
@@ -239,7 +223,7 @@
 		</if>
 	</target>
 
-	<target name="setup" depends="env,VSNETVER,binaries,docs,LanguagePacks">
+	<target name="setup" depends="env,binaries,docs,LanguagePacks">
 		<description>
 			Uses WiX to create an msi installer file.
 		</description>
@@ -276,7 +260,7 @@
 		</if>
 	</target>
 
-	<target name="msi" depends="env,VSNETVER">
+	<target name="msi" depends="env">
 		<description>
 			Builds the msi installer from already built binaries.
 		</description>

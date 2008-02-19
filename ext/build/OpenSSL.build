@@ -16,8 +16,7 @@
 		<!-- OpenSSL links against bufferoverflowu.lib for x64 builds, but with VS2008, that library is no
 		     longer required: the functions are built in the c-runtime. To prevent a linker error (not finding
 		     the library) we patch the openssl configure script to omit that library if we're using VS2008 -->
-		<copy file="VC-32.pl" tofile="..\..\..\common\openssl\util\pl\VC-32.pl" overwrite="true" if="${vsversion != '8'}" />
-		<copy file="VC-32-orig.pl" tofile="..\..\..\common\openssl\util\pl\VC-32.pl" overwrite="true" if="${vsversion == '8'}" />
+		<copy file="VC-32.pl" tofile="..\..\..\common\openssl\util\pl\VC-32.pl" overwrite="true" />
 		<if test="${platform == 'win32'}">
 			<exec program="perl" workingdir="..\..\..\common\openssl">
 				<arg value="Configure" />

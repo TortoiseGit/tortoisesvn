@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <project name="TortoiseSVN" default="all">
 
-    <property name="solutionname" value="TortoiseSVN.sln" />
-    <property name="solutionname" value="TortoiseSVN8.sln" if="${vsversion == '8'}" />
 
 	<target name="clean">
 
@@ -20,14 +18,14 @@
 					</fileset>
 				</delete>
 				<exec program="devenv.com" >
-					<arg value="${solutionname}" />
+					<arg value="TortoiseSVN.sln" />
 					<arg value="/clean" />
 					<arg value="${configuration}|${platform}" />
 				</exec>
 			</if>
 			<if test="${static == 'static'}">
 				<exec program="devenv.com" >
-					<arg value="${solutionname}" />
+					<arg value="TortoiseSVN.sln" />
 					<arg value="/clean" />
 					<arg value="${configuration}_static|${platform}" />
 				</exec>
@@ -71,24 +69,13 @@
 				<include name="..\ext\cyrus-SASL\${configuration}_${platform}\libsasl.dll" />
 			</fileset>
 		</copy>
-		<copy todir="..\bin\${configuration}${bindirextension}\bin" overwrite="true" flatten="true" failonerror="false" if="${vsversion != '8'}" >
+		<copy todir="..\bin\${configuration}${bindirextension}\bin" overwrite="true" flatten="true" failonerror="false" >
 			<fileset>
 				<include name="..\ext\libintl\libintl3-${platform}\bin\intl3_tsvn.dll" />
 				<include name="..\ext\berkeley-db\db4.4-${platform}\bin\libdb44.dll"/>
 				<include name="..\ext\berkeley-db\db4.4-${platform}\bin\libdb44d.dll"/>
 			</fileset>
 		</copy>
-		<if test="${vsversion == '8'}" >
-			<copy file="..\ext\libintl\libintl3-${platform}\bin\intl3_tsvn8.dll" 
-			      tofile="..\bin\${configuration}${bindirextension}\bin\intl3_tsvn.dll" 
-			      overwrite="true" failonerror="false" />
-			<copy file="..\ext\berkeley-db\db4.4-${platform}\bin\libdb44_8.dll" 
-			      tofile="..\bin\${configuration}${bindirextension}\bin\libdb44.dll" 
-			      overwrite="true" failonerror="false" />
-			<copy file="..\ext\berkeley-db\db4.4-${platform}\bin\libdb44d_8.dll" 
-			      tofile="..\bin\${configuration}${bindirextension}\bin\libdb44d.dll" 
-			      overwrite="true" failonerror="false" />
-		</if>
 		<nant target="versioninfo">
 			<buildfiles>
 				<include name="..\versioninfo.build" />
@@ -112,14 +99,14 @@
 	<target name="TortoiseSVN" depends="clean,versioninfo,scintilla">
         <if test="${static != 'static'}">
             <exec program="devenv.com" >
-                <arg value="${solutionname}" />
+                <arg value="TortoiseSVN.sln" />
                 <arg value="/rebuild" />
                 <arg value="${configuration}|${platform}" />
             </exec>
         </if>
         <if test="${static == 'static'}">
             <exec program="devenv.com" >
-                <arg value="${solutionname}" />
+                <arg value="TortoiseSVN.sln" />
                 <arg value="/rebuild" />
                 <arg value="${configuration}_static|${platform}" />
             </exec>

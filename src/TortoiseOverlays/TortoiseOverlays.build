@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <project name="TortoiseSVN" default="all">
 
-    <property name="solutionname" value="TortoiseOverlays.sln" />
-    <property name="solutionname" value="TortoiseOverlays8.sln" if="${vsversion == '8'}" />
 	<property name="SubWCRevFileName" value="bin\${configuration}${bindirextension}\bin\SubWCRev.exe"/>
 
 	<target name="all">
@@ -53,12 +51,12 @@
 
 
 		<exec program="devenv.com" >
-			<arg value="${solutionname}" />
+			<arg value="TortoiseOverlays.sln" />
 			<arg value="/rebuild" />
 			<arg value="release|win32" />
 		</exec>
 		<exec program="devenv.com" >
-			<arg value="${solutionname}" />
+			<arg value="TortoiseOverlays.sln" />
 			<arg value="/rebuild" />
 			<arg value="release|x64" />
 		</exec>
