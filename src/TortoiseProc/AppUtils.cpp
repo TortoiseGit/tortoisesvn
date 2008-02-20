@@ -490,7 +490,7 @@ BOOL CAppUtils::StartTextViewer(CString file)
 		viewer += file;
 	}
 
-	if(!LaunchApplication(viewer, IDS_ERR_DIFFVIEWSTART, false))
+	if(!LaunchApplication(viewer, IDS_ERR_TEXTVIEWSTART, false))
 	{
 		return FALSE;
 	}
