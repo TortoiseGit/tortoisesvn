@@ -1463,7 +1463,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								SVN svn;
 								if (!svn.Cat(data->path, SVNRev(SVNRev::REV_WC), rev, basefile))
 								{
-									ReportSVNError();
+									CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 									DialogEnableWindow(IDOK, TRUE);
 									break;
 								}
@@ -1496,7 +1496,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								SVN svn;
 								if (!svn.Cat(data->path, SVNRev(SVNRev::REV_WC), rev, tempfile))
 								{
-									ReportSVNError();
+									CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 									DialogEnableWindow(IDOK, TRUE);
 									break;
 								}
@@ -1559,7 +1559,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 									{
 										if (!svn.Resolve(data->path, result, FALSE))
 										{
-											ReportSVNError();
+											CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 											DialogEnableWindow(IDOK, TRUE);
 											break;
 										}
