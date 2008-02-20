@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-02-11 12:39+0800\n"
+"PO-Revision-Date: 2008-02-20 09:29+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -493,7 +493,7 @@ msgstr "無視空白字元變更(&I)"
 msgid "&Image Info"
 msgstr "影像資訊(&I)"
 
-#. Resource IDs: (9)
+#. Resource IDs: (9, 1461)
 msgid "&Import..."
 msgstr "匯入(&I)..."
 
@@ -1366,7 +1366,7 @@ msgstr "尋找外部比對差異工具"
 msgid "Browse..."
 msgstr "瀏覽..."
 
-#. Resource IDs: (1382)
+#. Resource IDs: (1057)
 msgid "Bug Tracker..."
 msgstr "Bug 追踪..."
 
@@ -2405,7 +2405,7 @@ msgstr "完整複製來源(&X)"
 msgid "E&xit"
 msgstr "離開(&X)"
 
-#. Resource IDs: (9)
+#. Resource IDs: (9, 1382)
 msgid "E&xport..."
 msgstr "匯出(&X)..."
 
@@ -2648,7 +2648,7 @@ msgstr "除外路徑:"
 msgid "Explore to"
 msgstr "瀏覽至"
 
-#. Resource IDs: (229, 238)
+#. Resource IDs: (229, 238, 1437)
 msgid "Export"
 msgstr "匯出"
 
@@ -2763,7 +2763,7 @@ msgstr "正在取得檔案..."
 msgid "Fetching revision %s of file:"
 msgstr "正在取得第 %s 版的:"
 
-#. Resource IDs: (63, 74, 77, 207, 319)
+#. Resource IDs: (63, 74, 77, 319)
 msgid "File"
 msgstr "檔案"
 
@@ -3151,6 +3151,10 @@ msgid ""
 msgstr ""
 "隱藏/顯示補綴檔列表\n"
 "隱藏或顯示補綴檔案列表"
+
+#. Resource IDs: (339)
+msgid "Highest revision number in the cache"
+msgstr "快取中的最新版本編號"
 
 #. Resource IDs: (1127)
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
@@ -3574,6 +3578,10 @@ msgstr "記憶體不足, 無法完成作業."
 msgid "Internal application error."
 msgstr "內部程式錯誤."
 
+#. Resource IDs: (338, 339)
+msgid "Internal value indicating compression quality"
+msgstr "表示壓縮品質的內部值"
+
 #. Resource IDs: (102)
 msgid "Invalid data object dropped!"
 msgstr "拖曳物件錯誤!"
@@ -3714,6 +3722,18 @@ msgstr "上次送交版本:"
 #. Resource IDs: (11)
 msgid "Last saved revision of item"
 msgstr "上一次儲存的項目版本"
+
+#. Resource IDs: (338)
+msgid "Last time the cache content was changed"
+msgstr "前一次變更快取內容的時間"
+
+#. Resource IDs: (338)
+msgid "Last time the cache was accessed"
+msgstr "前一次存取快取的時間"
+
+#. Resource IDs: (338)
+msgid "Last time the repository was asked for the HEAD revision number"
+msgstr "前一次自此檔案庫要求 HEAD 版本編號的時間"
 
 #. Resource IDs: (12)
 msgid "Launches the external diff / merge program to solve the conflicts"
@@ -4287,9 +4307,49 @@ msgstr "非遞迴"
 msgid "Notice"
 msgstr "注意"
 
+#. Resource IDs: (338)
+msgid "Number of authors in the cache"
+msgstr "快取中的作者數"
+
 #. Resource IDs: (1161)
 msgid "Number of authors:"
 msgstr "作者數:"
+
+#. Resource IDs: (339)
+msgid "Number of cached merged revisions"
+msgstr "快取中的合併版本總數"
+
+#. Resource IDs: (339)
+msgid "Number of cached revisions"
+msgstr "快取中的版本總數"
+
+#. Resource IDs: (339)
+msgid "Number of cached user revision properties"
+msgstr "快取中的用戶版本性質總數"
+
+#. Resource IDs: (339)
+msgid "Number of changed cached revisions"
+msgstr "快取中的變更版本總數"
+
+#. Resource IDs: (339)
+msgid "Number of changed revisions that are not cached yet"
+msgstr "尚未快取的變更版本總數"
+
+#. Resource IDs: (338)
+msgid "Number of different paths shown in the log dialog, including parent paths"
+msgstr "在紀錄視窗中顯示的不同路徑總數, 包含上層路徑."
+
+#. Resource IDs: (339)
+msgid "Number of merged revisions that are not cached yet"
+msgstr "尚未快取的合併版本總數"
+
+#. Resource IDs: (338)
+msgid "Number of path elements. This is an internal value indicating the compression level."
+msgstr "路徑元素總數. 這是用來表示壓縮等級的內部值."
+
+#. Resource IDs: (339)
+msgid "Number of user revision properties that are not cached yet"
+msgstr "尚未快取的用戶版本性質總數"
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -4463,7 +4523,7 @@ msgstr "補綴選定的項目"
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "補綴檔(*.diff, *.patch)|*.diff;*.patch|所有檔案(*.*)|*.*||"
 
-#. Resource IDs: (20, 77, 198)
+#. Resource IDs: (20, 77, 198, 207)
 msgid "Path"
 msgstr "路徑"
 
@@ -5163,7 +5223,7 @@ msgstr ""
 "記錄訊息:\r\n"
 "%s"
 
-#. Resource IDs: (116)
+#. Resource IDs: (116, 65535)
 msgid "Revisions"
 msgstr "版本"
 
@@ -5721,6 +5781,14 @@ msgstr "大小"
 #. Resource IDs: (65535)
 msgid "Size and status"
 msgstr "大小與狀態"
+
+#. Resource IDs: (339)
+msgid "Size of all cached text information"
+msgstr "所有快取中文字資訊的大小"
+
+#. Resource IDs: (339)
+msgid "Size of the cache if it were not compressed"
+msgstr "未壓縮的快取大小"
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -6571,6 +6639,18 @@ msgstr "總分析送交紀錄:"
 msgid "Total file changes:"
 msgstr "總檔案變更:"
 
+#. Resource IDs: (339)
+msgid "Total number of changed revisions"
+msgstr "變更的版本總數"
+
+#. Resource IDs: (339)
+msgid "Total number of merged revisions"
+msgstr "合併的版本總數"
+
+#. Resource IDs: (339)
+msgid "Total number of user revision properties"
+msgstr "用戶版本性質總數"
+
 #. Resource IDs: (357)
 #, c-format
 msgid "Transferring at %s"
@@ -6742,7 +6822,7 @@ msgstr "含有無版本控制的檔案時, 上層資料夾顯示為異動"
 msgid "Unversioning %s"
 msgstr "正在清除 %s 的版本控制資訊"
 
-#. Resource IDs: (152, 230)
+#. Resource IDs: (152, 230, 1436)
 msgid "Update"
 msgstr "更新"
 
@@ -7225,6 +7305,10 @@ msgstr "縮小"
 #. Resource IDs: (2051)
 msgid "Zoom to fit"
 msgstr "符合螢幕"
+
+#. Resource IDs: (338)
+msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
+msgstr "\"略過範圍\" 用來表示還沒有被快取的版本範圍"
 
 #. Resource IDs: (10)
 msgid "added"
@@ -7816,7 +7900,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
-msgstr "使用者 revprops 總數"
+msgstr "用戶版本性質總數:"
 
 #. Resource IDs: (563)
 msgid "values are different"
