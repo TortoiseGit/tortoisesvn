@@ -3171,10 +3171,10 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						switch (cmd)
 						{
 						case IDSVNLC_RESOLVETHEIRS:
-							result = svn_wc_conflict_choose_theirs;
+							result = svn_wc_conflict_choose_theirs_full;
 							break;
 						case IDSVNLC_RESOLVEMINE:
-							result = svn_wc_conflict_choose_mine;
+							result = svn_wc_conflict_choose_mine_full;
 							break;
 						case IDSVNLC_RESOLVECONFLICT:
 							result = svn_wc_conflict_choose_merged;

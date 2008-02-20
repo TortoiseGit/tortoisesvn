@@ -164,13 +164,13 @@ BOOL CConflictResolveDlg::OnInitDialog()
 
 void CConflictResolveDlg::OnBnClickedUselocal()
 {
-	m_choice = svn_wc_conflict_choose_mine;
+	m_choice = svn_wc_conflict_choose_mine_full;
 	EndDialog(IDOK);
 }
 
 void CConflictResolveDlg::OnBnClickedUserepo()
 {
-	m_choice = svn_wc_conflict_choose_theirs;
+	m_choice = svn_wc_conflict_choose_theirs_full;
 	EndDialog(IDOK);
 }
 
