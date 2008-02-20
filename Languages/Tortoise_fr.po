@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-02-17 19:01+0100\n"
+"PO-Revision-Date: 2008-02-20 12:57+0100\n"
 "Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -499,7 +499,7 @@ msgstr "&Ignorer les changements d'espaces"
 msgid "&Image Info"
 msgstr "&Informations de l'image"
 
-#. Resource IDs: (9)
+#. Resource IDs: (9, 1461)
 msgid "&Import..."
 msgstr "&Importer..."
 
@@ -1373,7 +1373,7 @@ msgstr "Choix d'un programme externe de gestion des différences"
 msgid "Browse..."
 msgstr "Parcourir..."
 
-#. Resource IDs: (1382)
+#. Resource IDs: (1057)
 msgid "Bug Tracker..."
 msgstr "Pisteur de bogues..."
 
@@ -2412,7 +2412,7 @@ msgstr "Copie e&xacte des sources"
 msgid "E&xit"
 msgstr "&Quitter"
 
-#. Resource IDs: (9)
+#. Resource IDs: (9, 1382)
 msgid "E&xport..."
 msgstr "E&xporter..."
 
@@ -2655,7 +2655,7 @@ msgstr "Chemins exclus :"
 msgid "Explore to"
 msgstr "Explorer vers"
 
-#. Resource IDs: (229, 238)
+#. Resource IDs: (229, 238, 1437)
 msgid "Export"
 msgstr "Exporter"
 
@@ -2770,7 +2770,7 @@ msgstr "Récupération fichier..."
 msgid "Fetching revision %s of file:"
 msgstr "Récupération de la révision %s du fichier :"
 
-#. Resource IDs: (63, 74, 77, 207, 319)
+#. Resource IDs: (63, 74, 77, 319)
 msgid "File"
 msgstr "Fichier"
 
@@ -4533,7 +4533,7 @@ msgstr "Patch sélectionné"
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "Fichiers patch (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 
-#. Resource IDs: (20, 77, 198)
+#. Resource IDs: (20, 77, 198, 207)
 msgid "Path"
 msgstr "Chemin"
 
@@ -5234,7 +5234,7 @@ msgstr ""
 "Commentaire :\r\n"
 "%s"
 
-#. Resource IDs: (116)
+#. Resource IDs: (116, 65535)
 msgid "Revisions"
 msgstr "Révisions"
 
@@ -6654,12 +6654,12 @@ msgid "Total number of changed revisions"
 msgstr "Nombre total de révisions modifiées"
 
 #. Resource IDs: (339)
-msgid "Total number of user revision properties"
-msgstr "Nombre total de propriétés utilisateur de révision"
+msgid "Total number of merged revisions"
+msgstr "Nombre total de révisions fusionnées"
 
 #. Resource IDs: (339)
-msgid "Totall number of merge informations"
-msgstr "Nombre total d'informations de fusion"
+msgid "Total number of user revision properties"
+msgstr "Nombre total de propriétés utilisateur de révision"
 
 #. Resource IDs: (357)
 #, c-format
@@ -6832,7 +6832,7 @@ msgstr "Les fichiers non versionnés marquent le dossier parent comme modifié"
 msgid "Unversioning %s"
 msgstr "Render %s non-versionné"
 
-#. Resource IDs: (152, 230)
+#. Resource IDs: (152, 230, 1436)
 msgid "Update"
 msgstr "Mettre à jour"
 
@@ -7962,6 +7962,8 @@ msgstr "année"
 msgid "yes"
 msgstr "oui"
 
+#~ msgid "Totall number of merge informations"
+#~ msgstr "Nombre total d'informations de fusion"
 #~ msgid "%1 contains an invalid path."
 #~ msgstr "%1 contient un chemin invalide."
 #~ msgid "&Berkeley database (BDB)"
