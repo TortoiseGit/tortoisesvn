@@ -865,13 +865,27 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 				// we don't have an UUID - maybe an added file/folder
 				if (!strCurrentRepositoryUUID.IsEmpty())
 				{
-					if ((SVNStatus::IsImportant(wcFileStatus))&&
-						(!lastexternalpath.IsEmpty())&&
+					if ((!lastexternalpath.IsEmpty())&&
 						(lastexternalpath.IsAncestorOf(svnPath)))
 					{
 						bEntryfromDifferentRepo = true;
 						m_bHasExternalsFromDifferentRepos = TRUE;
 					}
+				}
+			}
+		}
+		else
+		{
+			// if unversioned items lie around in external
+			// directories from different repos, we have to mark them
+			// as such too.
+			if (!strCurrentRepositoryUUID.IsEmpty())
+			{
+				if ((!lastexternalpath.IsEmpty())&&
+					(lastexternalpath.IsAncestorOf(svnPath)))
+				{
+					bEntryfromDifferentRepo = true;
+					m_bHasExternalsFromDifferentRepos = TRUE;
 				}
 			}
 		}
@@ -897,7 +911,6 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 				}
 				extpath = extpath.GetContainingDirectory();
 			}
-
 		}
 		// Do we have any external paths?
 		if(arExtPaths.GetCount() > 0)
