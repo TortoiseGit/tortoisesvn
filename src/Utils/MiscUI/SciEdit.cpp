@@ -451,10 +451,19 @@ void CSciEdit::CheckSpelling()
 		}
 		ATLASSERT(textrange.chrg.cpMax >= textrange.chrg.cpMin);
 		char * textbuffer = new char[textrange.chrg.cpMax - textrange.chrg.cpMin + 2];
+		SecureZeroMemory(textbuffer, textrange.chrg.cpMax - textrange.chrg.cpMin + 2);
 		textrange.lpstrText = textbuffer;
 		textrange.chrg.cpMax++;
 		Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
 		int len = strlen(textrange.lpstrText);
+		if (len == 0)
+		{
+			textrange.chrg.cpMax--;
+			Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
+			len = strlen(textrange.lpstrText);
+			textrange.chrg.cpMax++;
+			len++;
+		}
 		if (len && textrange.lpstrText[len - 1] == '.')
 		{
 			// Try to ignore file names from the autolist.
@@ -464,20 +473,22 @@ void CSciEdit::CheckSpelling()
 			twoWords.chrg.cpMin = textrange.chrg.cpMin;
 			twoWords.chrg.cpMax = Call(SCI_WORDENDPOSITION, textrange.chrg.cpMax + 1, TRUE);
 			twoWords.lpstrText = new char[twoWords.chrg.cpMax - twoWords.chrg.cpMin + 1];
+			SecureZeroMemory(twoWords.lpstrText, twoWords.chrg.cpMax - twoWords.chrg.cpMin + 1);
 			Call(SCI_GETTEXTRANGE, 0, (LPARAM)&twoWords);
 			CString sWord = StringFromControl(twoWords.lpstrText);
-			delete twoWords.lpstrText;
+			delete [] twoWords.lpstrText;
 			if (m_autolist.find(sWord) != m_autolist.end())
 			{
 				//mark word as correct (remove the squiggle line)
 				Call(SCI_STARTSTYLING, twoWords.chrg.cpMin, INDICS_MASK);
 				Call(SCI_SETSTYLING, twoWords.chrg.cpMax - twoWords.chrg.cpMin, 0);
 				textrange.chrg.cpMax = twoWords.chrg.cpMax;
-				delete textbuffer;
+				delete [] textbuffer;
 				continue;
 			}
 		}
-		textrange.lpstrText[len - 1] = 0;
+		if (len)
+			textrange.lpstrText[len - 1] = 0;
 		textrange.chrg.cpMax--;
 		if (strlen(textrange.lpstrText) > 0)
 		{
@@ -495,7 +506,7 @@ void CSciEdit::CheckSpelling()
 				Call(SCI_SETSTYLING, textrange.chrg.cpMax - textrange.chrg.cpMin, 0);
 			}
 		}
-		delete textbuffer;
+		delete [] textbuffer;
 	}
 }
 
