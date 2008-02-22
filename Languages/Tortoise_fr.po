@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-02-20 12:57+0100\n"
+"PO-Revision-Date: 2008-02-22 11:44+0100\n"
 "Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2101,6 +2101,17 @@ msgstr ""
 #. Resource IDs: (3857)
 msgid "Could not start print job."
 msgstr "Ne peut pas démarrer l'impression."
+
+#. Resource IDs: (83)
+#, c-format
+msgid ""
+"Could not start text viewer!\n"
+"<hr=100%%>\n"
+"%s"
+msgstr ""
+"Impossible de démarrer l'éditeur de texte !\n"
+"<hr=100%%>\n"
+"%s"
 
 #. Resource IDs: (81)
 msgid "Could not start thread!"
