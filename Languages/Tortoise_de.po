@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-02-18 10:56+0100\n"
+"PO-Revision-Date: 2008-02-22 09:21+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -55,30 +55,15 @@ msgstr "%.2f kBytes/s"
 msgid "%1 contained an unexpected object."
 msgstr "%1 enthielt ein unerwartetes Objekt."
 
+#. Resource IDs: (3867)
+#, c-format
+msgid "%1 contains an incorrect path."
+msgstr "%1 enthält einen ungültigen Pfad."
+
 #. Resource IDs: (3868)
 #, c-format
 msgid "%1 contains an incorrect schema."
 msgstr "%1 enthält ein ungültiges Schema."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "%1 contains an invalid path."
-msgstr "%1 enthält einen ungültigen Pfad."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "%1 could not be created because the directory is full."
-msgstr "Konnte %1 nicht erstellen, weil der Ordner voll ist."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "%1 could not be opened because there are too many open files."
-msgstr "Konnte %1 nicht öffnen, weil zu viele Dateien geöffnet sind."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "%1 could not be removed because it is the current directory."
-msgstr "Konnte %1 konnte nicht entfernen, da es der aktuelle Ordner ist."
 
 #. Resource IDs: (3868)
 #, c-format
@@ -104,7 +89,7 @@ msgstr ""
 msgid ""
 "%1\n"
 "Cannot find this file.\n"
-"Please verify that the correct path and file name are given."
+"Verify that the correct path and file name are given."
 msgstr ""
 "%1\n"
 "Konnte diese Datei nicht finden.\n"
@@ -894,16 +879,6 @@ msgstr "<neue Änderungsliste>"
 msgid "?"
 msgstr "?"
 
-#. Resource IDs: (3867)
-#, c-format
-msgid "A hardware I/O error was reported while accessing %1."
-msgstr "Beim Zugriff auf %1 trat ein Hardware I/O Fehler auf."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "A locking violation occurred while accessing %1."
-msgstr "Beim Zugriff auf %1 trat eine Sperrverletzung auf."
-
 #. Resource IDs: (201)
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
 msgstr "Eine neue Version steht zur Verfügung. Bitte gehen Sie zu http://tortoisesvn.tigris.org, um sich die aktuelle Version herunterzuladen! Klicken sie _hier_, um direkt zur Webseite zu gelangen."
@@ -928,11 +903,6 @@ msgstr ""
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
 msgstr "Eine benötigte Ressource war nicht verfügbar."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "A sharing violation occurred while accessing %1."
-msgstr "Beim gemeinsamen Zugriff auf %1 trat eine Schutzverletzung auf."
 
 #. Resource IDs: (79)
 msgid ""
@@ -1124,21 +1094,6 @@ msgstr "Alle Dateien(*.*)|*.*||"
 msgid "Always use the system locale settings to show times and dates"
 msgstr "Stets die Systemeinstellungen für Uhrzeit und Datum verwenden"
 
-#. Resource IDs: (3867, 3868)
-#, c-format
-msgid "An attempt was made to access %1 past its end."
-msgstr "Es wurde versucht, über das Ende von %1 hinaus zuzugreifen."
-
-#. Resource IDs: (3868)
-#, c-format
-msgid "An attempt was made to read from the writing %1."
-msgstr "Es wurde versucht, vom schreibenden %1 zu lesen."
-
-#. Resource IDs: (3868)
-#, c-format
-msgid "An attempt was made to write to the reading %1."
-msgstr "Es wurde versucht, auf den lesenden %1 zu schreiben."
-
 #. Resource IDs: (78)
 #, c-format
 msgid ""
@@ -1177,24 +1132,10 @@ msgstr ""
 "%mine\t\tDie Datei aus der Arbeitskopie mit Ihren eigenen Änderungen\n"
 "%merged\tDie Ergebnisdatei mit den zusammengeführten Änderungen."
 
-#. Resource IDs: (3843)
-msgid "An invalid argument was encountered."
-msgstr "Ein ungültiger Parameter wurde gefunden."
-
 #. Resource IDs: (3867)
 #, c-format
-msgid "An invalid file handle was associated with %1."
+msgid "An incorrect file handle was associated with %1."
 msgstr "Ein ungültiges Datei-Handle wurde mit %1 verbunden."
-
-#. Resource IDs: (3859)
-#, c-format
-msgid "An unexpected error occurred while reading %1."
-msgstr "Beim Lesen von %1 trat ein unerwarteter Fehler auf."
-
-#. Resource IDs: (3859)
-#, c-format
-msgid "An unexpected error occurred while writing %1."
-msgstr "Beim Schreiben von %1 trat ein unerwarteter Fehler auf."
 
 #. Resource IDs: (3843)
 msgid "An unknown error has occurred."
@@ -1209,10 +1150,6 @@ msgstr "Ein unbekannter Fehler ist beim Zugriff auf %1 aufgetreten."
 #, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "Ein unbekannter Zeilentyp wurde in Zeile %d gefunden!"
-
-#. Resource IDs: (3843)
-msgid "An unsupported operation was attempted."
-msgstr "Es wurde versucht, eine nicht unterstützte Operation durchzuführen."
 
 #. Resource IDs: (269)
 msgid "Analyze revision data..."
@@ -1275,6 +1212,25 @@ msgstr "Der Änderungsliste '%s' zugewiesen"
 #, c-format
 msgid "At revision: %d"
 msgstr "In Revision: %d"
+
+#. Resource IDs: (3843)
+msgid "Attempted an unsupported operation."
+msgstr "Es wurde versucht, eine nicht unterstützte Operation durchzuführen."
+
+#. Resource IDs: (3867, 3868)
+#, c-format
+msgid "Attempted to access %1 past its end."
+msgstr "Es wurde versucht, über das Ende von %1 hinaus zuzugreifen."
+
+#. Resource IDs: (3868)
+#, c-format
+msgid "Attempted to read from the writing %1."
+msgstr "Es wurde versucht, vom schreibenden %1 zu lesen."
+
+#. Resource IDs: (3868)
+#, c-format
+msgid "Attempted to write to the reading %1."
+msgstr "Es wurde versucht, auf den lesenden %1 zu schreiben."
 
 #. Resource IDs: (131, 160)
 msgid "Authentication"
@@ -2030,6 +1986,11 @@ msgstr ""
 "<hr=100%%>\n"
 "%s"
 
+#. Resource IDs: (3867)
+#, c-format
+msgid "Could not create %1 because the directory is full."
+msgstr "Konnte %1 nicht erstellen, weil der Ordner voll ist."
+
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not delete \"%s\" because"
@@ -2058,6 +2019,11 @@ msgstr "Konnte '%s' nicht zusammenführen, weil"
 msgid "Could not merge property \"%s\" on %s because"
 msgstr "Konnte Eigenschaft '%s' nicht in %s zusammenführen, weil"
 
+#. Resource IDs: (3867)
+#, c-format
+msgid "Could not open %1 because there are too many open files."
+msgstr "Konnte %1 nicht öffnen, weil zu viele Dateien geöffnet sind."
+
 #. Resource IDs: (69)
 #, c-format
 msgid ""
@@ -2067,6 +2033,11 @@ msgstr ""
 "Konnte die Datei\n"
 "%s\n"
 "nicht öffnen."
+
+#. Resource IDs: (3867)
+#, c-format
+msgid "Could not remove %1 because it is the current directory."
+msgstr "Konnte %1 konnte nicht entfernen, da es der aktuelle Ordner ist."
 
 #. Resource IDs: (82)
 #, c-format
@@ -2132,6 +2103,17 @@ msgstr ""
 #. Resource IDs: (3857)
 msgid "Could not start print job."
 msgstr "Konnte Druckauftrag nicht starten."
+
+#. Resource IDs: (83)
+#, c-format
+msgid ""
+"Could not start text viewer!\n"
+"<hr=100%%>\n"
+"%s"
+msgstr ""
+"Konnte den Text-Betrachter nicht starten!\n"
+"<hr=100%%>\n"
+"%s"
 
 #. Resource IDs: (81)
 msgid "Could not start thread!"
@@ -2524,6 +2506,35 @@ msgstr ""
 "Verwende Rechtschreibkorrektur nur,\n"
 "wenn 'tsvn:projectlanguage' gesetzt ist."
 
+#. Resource IDs: (3867)
+#, c-format
+msgid "Encountered a hardware I/O error while accessing %1."
+msgstr "Beim Zugriff auf %1 trat ein Hardware I/O Fehler auf."
+
+#. Resource IDs: (3867)
+#, c-format
+msgid "Encountered a locking violation while accessing %1."
+msgstr "Beim Zugriff auf %1 trat eine Sperrverletzung auf."
+
+#. Resource IDs: (3867)
+#, c-format
+msgid "Encountered a sharing violation while accessing %1."
+msgstr "Beim gemeinsamen Zugriff auf %1 trat eine Schutzverletzung auf."
+
+#. Resource IDs: (3843)
+msgid "Encountered an improper argument."
+msgstr "Ungültiger Parameter gefunden."
+
+#. Resource IDs: (3859)
+#, c-format
+msgid "Encountered an unexpected error while reading %1."
+msgstr "Beim Lesen von %1 trat ein unerwarteter Fehler auf."
+
+#. Resource IDs: (3859)
+#, c-format
+msgid "Encountered an unexpected error while writing %1."
+msgstr "Beim Schreiben von %1 trat ein unerwarteter Fehler auf."
+
 #. Resource IDs: (65535)
 msgid "End Revision"
 msgstr "Endrevision"
@@ -2540,6 +2551,22 @@ msgstr "Logmeldung eingeben"
 msgid "Enter URL"
 msgstr "URL eingeben"
 
+#. Resource IDs: (3858)
+msgid "Enter a GUID."
+msgstr "Bitte geben Sie eine GUID ein."
+
+#. Resource IDs: (3858)
+msgid "Enter a currency."
+msgstr "Bitte geben Sie eine Währung ein."
+
+#. Resource IDs: (3858)
+msgid "Enter a date and/or time."
+msgstr "Bitte geben Sie ein Datum und/oder eine Zeit ein."
+
+#. Resource IDs: (3858)
+msgid "Enter a date."
+msgstr "Bitte geben Sie ein Datum ein."
+
 #. Resource IDs: (313)
 msgid "Enter a lock message (optional):"
 msgstr "Geben Sie eine optionale Sperrmeldung ein:"
@@ -2548,6 +2575,36 @@ msgstr "Geben Sie eine optionale Sperrmeldung ein:"
 msgid "Enter a name for the changelist:"
 msgstr "Geben Sie einen Namen für die Änderungsliste ein:"
 
+#. Resource IDs: (3858)
+#, c-format
+msgid "Enter a number between %1 and %2."
+msgstr "Bitte geben Sie eine Zahl zwischen %1 und %2 ein."
+
+#. Resource IDs: (3858)
+msgid "Enter a number."
+msgstr "Bitte geben Sie eine Zahl ein."
+
+#. Resource IDs: (3858)
+msgid "Enter a positive integer."
+msgstr "Bitte geben Sie eine positive Ganzzahl ein."
+
+#. Resource IDs: (3858)
+msgid "Enter a time."
+msgstr "Bitte geben Sie eine Zeit ein."
+
+#. Resource IDs: (3858)
+#, c-format
+msgid "Enter an integer between %1 and %2."
+msgstr "Bitte geben Sie eine Ganzzahl zwischen %1 und %2 ein."
+
+#. Resource IDs: (3858)
+msgid "Enter an integer between 0 and 255."
+msgstr "Bitte geben Sie eine Ganzzahl zwischen 0 und 255 ein."
+
+#. Resource IDs: (3858)
+msgid "Enter an integer."
+msgstr "Bitte geben Sie eine Ganzzahl ein."
+
 #. Resource IDs: (1065)
 msgid "Enter log &message:"
 msgstr "Log-&Meldung eingeben"
@@ -2555,6 +2612,11 @@ msgstr "Log-&Meldung eingeben"
 #. Resource IDs: (126)
 msgid "Enter log message:"
 msgstr "Logmeldung eingeben:"
+
+#. Resource IDs: (3858)
+#, c-format
+msgid "Enter no more than %1 characters."
+msgstr "Bitte nicht mehr als %1 Zeichen eingeben."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -3518,6 +3580,10 @@ msgstr "Nur den folgenden Revisionsbereich einschließen:"
 msgid "Include paths:"
 msgstr "Pfade &einschließen:"
 
+#. Resource IDs: (3857)
+msgid "Incorrect filename."
+msgstr "Ungültiger Dateiname."
+
 #. Resource IDs: (76)
 msgid "Initial import"
 msgstr "Erster Import"
@@ -3553,10 +3619,6 @@ msgstr "Interner Maß für die Kompressionsqualität"
 #. Resource IDs: (102)
 msgid "Invalid data object dropped!"
 msgstr "Ungültiges Datenobjekt fallen gelassen!"
-
-#. Resource IDs: (3857)
-msgid "Invalid filename."
-msgstr "Ungültiger Dateiname."
 
 #. Resource IDs: (82)
 msgid ""
@@ -4516,64 +4578,13 @@ msgstr "Bilder (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bm
 msgid "Pie Graph"
 msgstr "Tortendiagramm"
 
-#. Resource IDs: (3858)
-msgid "Please enter a GUID."
-msgstr "Bitte geben Sie eine GUID ein."
-
-#. Resource IDs: (3858)
-msgid "Please enter a currency."
-msgstr "Bitte geben Sie eine Währung ein."
-
-#. Resource IDs: (3858)
-msgid "Please enter a date and/or time."
-msgstr "Bitte geben Sie ein Datum und/oder eine Zeit ein."
-
-#. Resource IDs: (3858)
-msgid "Please enter a date."
-msgstr "Bitte geben Sie ein Datum ein."
-
 #. Resource IDs: (83)
 msgid "Please enter a hook script to execute."
 msgstr "Bitte wählen Sie das auszuführende Skript aus."
 
-#. Resource IDs: (3858)
-#, c-format
-msgid "Please enter a number between %1 and %2."
-msgstr "Bitte geben Sie eine Zahl zwischen %1 und %2 ein."
-
-#. Resource IDs: (3858)
-msgid "Please enter a number."
-msgstr "Bitte geben Sie eine Zahl ein."
-
 #. Resource IDs: (83)
 msgid "Please enter a path where to apply the hook script to."
 msgstr "Bitte geben Sie einen Pfad an auf den das Skript angewendet wird."
-
-#. Resource IDs: (3858)
-msgid "Please enter a positive integer."
-msgstr "Bitte geben Sie eine positive Ganzzahl ein."
-
-#. Resource IDs: (3858)
-msgid "Please enter a time."
-msgstr "Bitte geben Sie eine Zeit ein."
-
-#. Resource IDs: (3858)
-#, c-format
-msgid "Please enter an integer between %1 and %2."
-msgstr "Bitte geben Sie eine Ganzzahl zwischen %1 und %2 ein."
-
-#. Resource IDs: (3858)
-msgid "Please enter an integer between 0 and 255."
-msgstr "Bitte geben Sie eine Ganzzahl zwischen 0 und 255 ein."
-
-#. Resource IDs: (3858)
-msgid "Please enter an integer."
-msgstr "Bitte geben Sie eine Ganzzahl ein."
-
-#. Resource IDs: (3858)
-#, c-format
-msgid "Please enter no more than %1 characters."
-msgstr "Bitte nicht mehr als %1 Zeichen eingeben."
 
 #. Resource IDs: (251)
 msgid "Please execute the \"Cleanup\" command."
@@ -4596,10 +4607,6 @@ msgstr ""
 #. Resource IDs: (1287)
 msgid "Please resolve the conflict by choosing one of the following options:"
 msgstr "Bitte lösen Sie den Konflikt mit einer der folgenden Optionen auf:"
-
-#. Resource IDs: (3858)
-msgid "Please select a button."
-msgstr "Bitte wählen Sie eine Schaltfläche."
 
 #. Resource IDs: (83)
 msgid "Please select a hook type"
@@ -5450,6 +5457,10 @@ msgstr "Revision wählen"
 #. Resource IDs: (78)
 msgid "Select SSH client"
 msgstr "Wähle einen SSH Client"
+
+#. Resource IDs: (3858)
+msgid "Select a button."
+msgstr "Bitte wählen Sie eine Schaltfläche."
 
 #. Resource IDs: (3585)
 msgid "Select an object on which to get Help"
@@ -6682,12 +6693,12 @@ msgid "Total number of changed revisions"
 msgstr "Gesamtzahl der geänderten Revisionen"
 
 #. Resource IDs: (339)
-msgid "Total number of user revision properties"
-msgstr "Gesamtzahl der benutzerdefinierten Revisionseigenschaften"
+msgid "Total number of merged revisions"
+msgstr "Gesamtzahl der zusammengeführten Revisionen"
 
 #. Resource IDs: (339)
-msgid "Totall number of merge informations"
-msgstr "Gesamtzahl der zusammengeführten Revisionen"
+msgid "Total number of user revision properties"
+msgstr "Gesamtzahl der benutzerdefinierten Revisionseigenschaften"
 
 #. Resource IDs: (357)
 #, c-format
@@ -7994,10 +8005,16 @@ msgstr "Jahr"
 msgid "yes"
 msgstr "ja"
 
-#~ msgid "Encountered an improper argument."
-#~ msgstr "Ungültiger Parameter gefunden."
-#~ msgid "Encountered an unexpected error while reading %1."
+#~ msgid "%1 contains an invalid path."
+#~ msgstr "%1 enthält einen ungültigen Pfad."
+#~ msgid "An invalid argument was encountered."
+#~ msgstr "Ein ungültiger Parameter wurde gefunden."
+#~ msgid "An unexpected error occurred while reading %1."
 #~ msgstr "Beim Lesen von %1 trat ein unerwarteter Fehler auf."
+#~ msgid "An unexpected error occurred while writing %1."
+#~ msgstr "Beim Schreiben von %1 trat ein unerwarteter Fehler auf."
+#~ msgid "Totall number of merge informations"
+#~ msgstr "Gesamtzahl der zusammengeführten Revisionen"
 #~ msgid "Probably deleted repository (%s)"
 #~ msgstr "Vermutlich gelöschtes PRojektarchiv (%s)"
 #~ msgid "Split long &branches"
