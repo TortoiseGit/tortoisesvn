@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-02-06 14:11+0100\n"
+"PO-Revision-Date: 2008-02-22 11:21+0100\n"
 "Last-Translator: Arnau <aperello@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -501,7 +501,7 @@ msgstr "&Ignora canvis d'espais en blanc"
 msgid "&Image Info"
 msgstr "&Informació de la imatge"
 
-#. Resource IDs: (9)
+#. Resource IDs: (9, 1461)
 msgid "&Import..."
 msgstr "&Importa..."
 
@@ -1374,7 +1374,7 @@ msgstr "Navega per trobar programa de comparació extern"
 msgid "Browse..."
 msgstr "Navega..."
 
-#. Resource IDs: (1382)
+#. Resource IDs: (1057)
 msgid "Bug Tracker..."
 msgstr "Comprovador de Bugs..."
 
@@ -2103,6 +2103,17 @@ msgstr ""
 msgid "Could not start print job."
 msgstr "No s'ha pogut iniciar la tasca d'impressió."
 
+#. Resource IDs: (83)
+#, c-format
+msgid ""
+"Could not start text viewer!\n"
+"<hr=100%%>\n"
+"%s"
+msgstr ""
+"No s'ha pogut iniciar el visualitzador de text!\n"
+"<hr=100%%>\n"
+"%s"
+
 #. Resource IDs: (81)
 msgid "Could not start thread!"
 msgstr "No s'ha pogut iniciar el thread!"
@@ -2413,7 +2424,7 @@ msgstr "Còpies E&xactes de les fonts"
 msgid "E&xit"
 msgstr "S&urt"
 
-#. Resource IDs: (9)
+#. Resource IDs: (9, 1382)
 msgid "E&xport..."
 msgstr "E&xporta..."
 
@@ -2656,7 +2667,7 @@ msgstr "No incloguis aquests paths:"
 msgid "Explore to"
 msgstr "Explora a"
 
-#. Resource IDs: (229, 238)
+#. Resource IDs: (229, 238, 1437)
 msgid "Export"
 msgstr "Exporta"
 
@@ -2771,7 +2782,7 @@ msgstr "Obtenint fitxer..."
 msgid "Fetching revision %s of file:"
 msgstr "Obtenint revisió %s de fitxer:"
 
-#. Resource IDs: (63, 74, 77, 207, 319)
+#. Resource IDs: (63, 74, 77, 319)
 msgid "File"
 msgstr "Fitxer"
 
@@ -2898,6 +2909,10 @@ msgstr ""
 "Resolució Vertical:\t\t%.1f dpi\n"
 "Profunditat:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
+
+#. Resource IDs: (208)
+msgid "Filename"
+msgstr "Nom del fitxer"
 
 #. Resource IDs: (65535)
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
@@ -3155,6 +3170,10 @@ msgid ""
 msgstr ""
 "Amaga/Mostra el llistat de fitxers pedaç\n"
 "Amaga o mostra el llistat de fitxers pedaç"
+
+#. Resource IDs: (339)
+msgid "Highest revision number in the cache"
+msgstr "Número revisió més alt en el cache"
 
 #. Resource IDs: (1127)
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
@@ -3580,6 +3599,10 @@ msgstr "Memòria insuficient per fer la operació."
 msgid "Internal application error."
 msgstr "Error intern de l'aplicació."
 
+#. Resource IDs: (338, 339)
+msgid "Internal value indicating compression quality"
+msgstr "Valor intern que indica la qualitat de compressió"
+
 #. Resource IDs: (102)
 msgid "Invalid data object dropped!"
 msgstr "Objecte de amb dades invàlides ha sigut rebutjat!"
@@ -3720,6 +3743,18 @@ msgstr "Darrera revisió entregada:"
 #. Resource IDs: (11)
 msgid "Last saved revision of item"
 msgstr "Darrera revisió gravada del item"
+
+#. Resource IDs: (338)
+msgid "Last time the cache content was changed"
+msgstr "Darrer cop que el contingut del cache va ser canviat"
+
+#. Resource IDs: (338)
+msgid "Last time the cache was accessed"
+msgstr "Darrer cop que el caxhe va ser accedit"
+
+#. Resource IDs: (338)
+msgid "Last time the repository was asked for the HEAD revision number"
+msgstr "Darrer cop que al repositori se li va preguntar perl número de revisió HEAD"
 
 #. Resource IDs: (12)
 msgid "Launches the external diff / merge program to solve the conflicts"
@@ -4293,9 +4328,49 @@ msgstr "No recursiu"
 msgid "Notice"
 msgstr "Nota"
 
+#. Resource IDs: (338)
+msgid "Number of authors in the cache"
+msgstr "Nombre d'autors al cache"
+
 #. Resource IDs: (1161)
 msgid "Number of authors:"
 msgstr "Nombre d'autors"
+
+#. Resource IDs: (339)
+msgid "Number of cached merged revisions"
+msgstr "Nombre de  revisions fusionades al cache"
+
+#. Resource IDs: (339)
+msgid "Number of cached revisions"
+msgstr "Nombre de revisions fusionades"
+
+#. Resource IDs: (339)
+msgid "Number of cached user revision properties"
+msgstr "Nombre de propietats de revisió d'usuari al cache"
+
+#. Resource IDs: (339)
+msgid "Number of changed cached revisions"
+msgstr "Nombre de revisions canviades al cache"
+
+#. Resource IDs: (339)
+msgid "Number of changed revisions that are not cached yet"
+msgstr "Nombre de revisions canviades que encara no són al cache"
+
+#. Resource IDs: (338)
+msgid "Number of different paths shown in the log dialog, including parent paths"
+msgstr "Nombre de paths diferents no mostrats al diàleg de log, incloent-hi paths superiors"
+
+#. Resource IDs: (339)
+msgid "Number of merged revisions that are not cached yet"
+msgstr "Nombre de revisions foses que encara no son al cache"
+
+#. Resource IDs: (338)
+msgid "Number of path elements. This is an internal value indicating the compression level."
+msgstr "Nombre d'elements de path. Aquest és un valor  intern indicant el nivell de compressió."
+
+#. Resource IDs: (339)
+msgid "Number of user revision properties that are not cached yet"
+msgstr "Nombre de propietats de revisió d'usuari que encara no són al cache"
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -4469,7 +4544,7 @@ msgstr "Pedaç seleccionat"
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "Fitxers Pedaç (*.diff, *.patch)|*.diff;*.patch|Tots (*.*)|*.*||"
 
-#. Resource IDs: (20, 77, 198)
+#. Resource IDs: (20, 77, 198, 207)
 msgid "Path"
 msgstr "Path"
 
@@ -5170,7 +5245,7 @@ msgstr ""
 "Missatge de log:\r\n"
 "%s"
 
-#. Resource IDs: (116)
+#. Resource IDs: (116, 65535)
 msgid "Revisions"
 msgstr "Revisions"
 
@@ -5642,6 +5717,10 @@ msgstr "Mostra sobreposició per a items ignorats"
 msgid "Show overlay for unversioned items"
 msgstr "Mostra sobreposició per a items sense versionar"
 
+#. Resource IDs: (102)
+msgid "Show revision properties"
+msgstr "Mostra propietats de la revisió"
+
 #. Resource IDs: (2049)
 msgid ""
 "Show special characters for whitespaces\n"
@@ -5724,6 +5803,14 @@ msgstr "Tamany"
 #. Resource IDs: (65535)
 msgid "Size and status"
 msgstr "Tamany i estat"
+
+#. Resource IDs: (339)
+msgid "Size of all cached text information"
+msgstr "Tamany de tota la informació al cache"
+
+#. Resource IDs: (339)
+msgid "Size of the cache if it were not compressed"
+msgstr "Tamany del cache sense comprimir"
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -6575,6 +6662,18 @@ msgstr "Nombre total d'entregues analitzades:"
 msgid "Total file changes:"
 msgstr "Nombre total de canvis al fitxer:"
 
+#. Resource IDs: (339)
+msgid "Total number of changed revisions"
+msgstr "Nombre total de revisions canviades"
+
+#. Resource IDs: (339)
+msgid "Total number of merged revisions"
+msgstr "Nombre total de revisions fusionades"
+
+#. Resource IDs: (339)
+msgid "Total number of user revision properties"
+msgstr "Nombre total de propietats revisió d'usuari"
+
 #. Resource IDs: (357)
 #, c-format
 msgid "Transferring at %s"
@@ -6746,7 +6845,7 @@ msgstr "Els fitxers sense versionar marquen la carpeta contenidora com a modific
 msgid "Unversioning %s"
 msgstr "Desversionant %s"
 
-#. Resource IDs: (152, 230)
+#. Resource IDs: (152, 230, 1436)
 msgid "Update"
 msgstr "Actualitza"
 
@@ -7231,6 +7330,10 @@ msgstr "Zoom enfora"
 msgid "Zoom to fit"
 msgstr "Zoom per encabre"
 
+#. Resource IDs: (338)
+msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
+msgstr "\"rangs no inclosos\" indica rangs de revisions que encara no són al cache"
+
 #. Resource IDs: (10)
 msgid "added"
 msgstr "afegit"
@@ -7573,7 +7676,7 @@ msgstr "revisions: "
 
 #. Resource IDs: (65535)
 msgid "skip ranges: "
-msgstr "esquivar rangs: "
+msgstr "rangs no inclosos: "
 
 #. Resource IDs: (576)
 msgid ""
