@@ -44,7 +44,7 @@
 				<FileSearch LongName="GDIPlus.dll" />
 			</DirectorySearch>
 		</Property>
-		<Condition Message="You must have GDIPlus installed. Please download it from Microsoft and copy the GDIPlus.dll into your Windows\System32 folder."><![CDATA[GDIPLUSINSTALLED<>""]]></Condition>
+		<Condition Message="You must have GDIPlus installed. Please download it from Microsoft and copy the GDIPlus.dll into your Windows\System32 folder."><![CDATA[((GDIPLUSINSTALLED<>"") OR (VersionNT <> 500))]]></Condition>
 		<?endif ?>
 
 		<Property Id="ShowChangelogCheck">1</Property>
