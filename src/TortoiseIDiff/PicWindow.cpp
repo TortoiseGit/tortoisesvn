@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006 - 2007 - TortoiseSVN
+// Copyright (C) 2006-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -970,7 +970,7 @@ void CPicWindow::FitSizes(bool bFit)
 
 void CPicWindow::ShowPicWithBorder(HDC hdc, const RECT &bounds, CPicture &pic, double scale)
 {
-	::SetBkColor(hdc, ::GetSysColor(COLOR_WINDOW));
+	::SetBkColor(hdc, transparentColor);
 	::ExtTextOut(hdc, 0, 0, ETO_OPAQUE, &bounds, NULL, 0, NULL);
 
 	RECT picrect;
@@ -1024,7 +1024,7 @@ void CPicWindow::Paint(HWND hwnd)
 		if ((pSecondPic)&&(m_blend != BLEND_ALPHA))
 		{
 			// erase the place where the alpha slider would be
-			::SetBkColor(memDC, ::GetSysColor(COLOR_WINDOW));
+			::SetBkColor(memDC, transparentColor);
 			RECT bounds = {0, m_inforect.top-4, SLIDER_WIDTH, m_inforect.bottom+4};
 			::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &bounds, NULL, 0, NULL);
 		}
@@ -1043,7 +1043,7 @@ void CPicWindow::Paint(HWND hwnd)
 				if ((pSecondPic)&&(m_blend != BLEND_ALPHA))
 				{
 					// erase the place where the alpha slider would be
-					::SetBkColor(secondhdc, ::GetSysColor(COLOR_WINDOW));
+					::SetBkColor(secondhdc, transparentColor);
 					RECT bounds = {0, m_inforect.top-4, SLIDER_WIDTH, m_inforect.bottom+4};
 					::ExtTextOut(secondhdc, 0, 0, ETO_OPAQUE, &bounds, NULL, 0, NULL);
 				}
@@ -1095,7 +1095,7 @@ void CPicWindow::Paint(HWND hwnd)
 			m_inforect.right = rect.right+sliderwidth;
 			m_inforect.bottom = rect.bottom;
 
-			SetBkColor(memDC, ::GetSysColor(COLOR_WINDOW));
+			SetBkColor(memDC, transparentColor);
 			if (bShowInfo)
 			{
 				TCHAR infostring[8192];
