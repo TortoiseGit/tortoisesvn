@@ -1996,6 +1996,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\TortoiseBlame\TortoiseBlame.ico"
+				>
+			</File>
+			<File
 				RelativePath="..\Resources\TortoiseMerge.ico"
 				>
 			</File>
@@ -2827,19 +2831,19 @@
 				Name="CreatePatch"
 				>
 				<File
-					RelativePath=".\CreatePatchDlg.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\CreatePatchDlg.h"
-					>
-				</File>
-				<File
 					RelativePath=".\Commands\CreatePatchCommand.cpp"
 					>
 				</File>
 				<File
 					RelativePath=".\Commands\CreatePatchCommand.h"
+					>
+				</File>
+				<File
+					RelativePath=".\CreatePatchDlg.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\CreatePatchDlg.h"
 					>
 				</File>
 			</Filter>
