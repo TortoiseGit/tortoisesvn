@@ -604,22 +604,29 @@ void CSVNProgressDlg::ResizeColumns()
 	int maxcol = ((CHeaderCtrl*)(m_ProgList.GetDlgItem(0)))->GetItemCount()-1;
 	for (int col = 0; col <= maxcol; col++)
 	{
-		if (col != 1)
-			m_ProgList.SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
-		else
+		// find the longest width of all items
+		int cx = 20;
+		int count = m_ProgList.GetItemCount();
+		for (int index = 0; index<count; ++index)
 		{
-			// find the longest width of all items
-			int cx = 20;
-			int count = m_ProgList.GetItemCount();
-			for (int index = 0; index<count; ++index)
+			// get the width of the string and add 12 pixels for the column separator and margins
+			int linewidth = cx;
+			switch (col)
 			{
-				// get the width of the string and add 12 pixels for the column separator and margins
-				int linewidth = m_ProgList.GetStringWidth(m_arData[index]->sPathColumnText) + 12;
-				if (cx < linewidth)
-					cx = linewidth;
+			case 0:
+				linewidth = m_ProgList.GetStringWidth(m_arData[index]->sActionColumnText) + 12;
+				break;
+			case 1:
+				linewidth = m_ProgList.GetStringWidth(m_arData[index]->sPathColumnText) + 12;
+				break;
+			case 2:
+				linewidth = m_ProgList.GetStringWidth(m_arData[index]->mime_type) + 12;
+				break;
 			}
-			m_ProgList.SetColumnWidth(col, cx);
+			if (cx < linewidth)
+				cx = linewidth;
 		}
+		m_ProgList.SetColumnWidth(col, cx);
 	}
 
 	m_ProgList.SetRedraw(TRUE);	
