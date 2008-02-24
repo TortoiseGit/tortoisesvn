@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-02-11 21:02+0200\n"
+"PO-Revision-Date: 2008-02-24 20:28+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -528,7 +528,7 @@ msgstr "&Игнориране на промените в празните сим
 msgid "&Image Info"
 msgstr "&Информация за картинката"
 
-#. Resource IDs: (9)
+#. Resource IDs: (9, 1461)
 msgid "&Import..."
 msgstr "&Внос..."
 
@@ -1402,7 +1402,7 @@ msgstr "Избор на външна програма за сравняване"
 msgid "Browse..."
 msgstr "Избор..."
 
-#. Resource IDs: (1382)
+#. Resource IDs: (1057)
 msgid "Bug Tracker..."
 msgstr "Проследяване на дефекти..."
 
@@ -2133,6 +2133,17 @@ msgstr ""
 msgid "Could not start print job."
 msgstr "Грешка при отпечатване."
 
+#. Resource IDs: (83)
+#, c-format
+msgid ""
+"Could not start text viewer!\n"
+"<hr=100%%>\n"
+"%s"
+msgstr ""
+"Грешка при стартиране на програмата за разглеждане на текст!\n"
+"<hr=100%%>\n"
+"%s"
+
 #. Resource IDs: (81)
 msgid "Could not start thread!"
 msgstr "Грешка при стартиране на нишка!"
@@ -2442,7 +2453,7 @@ msgstr "&Точни източници на копиране"
 msgid "E&xit"
 msgstr "&Изход"
 
-#. Resource IDs: (9)
+#. Resource IDs: (9, 1382)
 msgid "E&xport..."
 msgstr "&Износ..."
 
@@ -2683,7 +2694,7 @@ msgstr "Пътища за изключване:"
 msgid "Explore to"
 msgstr "Отваряне в Windows Explorer на"
 
-#. Resource IDs: (229, 238)
+#. Resource IDs: (229, 238, 1437)
 msgid "Export"
 msgstr "&Износ"
 
@@ -2798,7 +2809,7 @@ msgstr "Изтегляне на файл..."
 msgid "Fetching revision %s of file:"
 msgstr "Изтегляне на ревизия %s на файл:"
 
-#. Resource IDs: (63, 74, 77, 207, 319)
+#. Resource IDs: (63, 74, 77, 319)
 msgid "File"
 msgstr "Файл"
 
@@ -3184,6 +3195,10 @@ msgid ""
 msgstr ""
 "Скриване/показване на списъка с файлове с кръпки\n"
 "Скрива или показва списъка с файлове с кръпки"
+
+#. Resource IDs: (339)
+msgid "Highest revision number in the cache"
+msgstr "Номер на най-новата ревзия в кеша"
 
 #. Resource IDs: (1127)
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
@@ -3611,6 +3626,10 @@ msgstr "Недостиг на оперативна памет за извърш�
 msgid "Internal application error."
 msgstr "Вътрешна програмна грешка."
 
+#. Resource IDs: (338, 339)
+msgid "Internal value indicating compression quality"
+msgstr "Вътрешна стойност, показваща качеството на компресия"
+
 #. Resource IDs: (102)
 msgid "Invalid data object dropped!"
 msgstr "Пуснат е невалиден обект."
@@ -3751,6 +3770,18 @@ msgstr "Ревизия на последното поверяване:"
 #. Resource IDs: (11)
 msgid "Last saved revision of item"
 msgstr "Последна записана ревизия на обект"
+
+#. Resource IDs: (338)
+msgid "Last time the cache content was changed"
+msgstr "Време на последната промяна на съдържанието на кеша"
+
+#. Resource IDs: (338)
+msgid "Last time the cache was accessed"
+msgstr "Време на последният достъп до кеша"
+
+#. Resource IDs: (338)
+msgid "Last time the repository was asked for the HEAD revision number"
+msgstr "Време на последното запиване до хранилището за номера  на главната ревизия"
 
 #. Resource IDs: (12)
 msgid "Launches the external diff / merge program to solve the conflicts"
@@ -4324,9 +4355,49 @@ msgstr "Нерекурсивно"
 msgid "Notice"
 msgstr "Забележка"
 
+#. Resource IDs: (338)
+msgid "Number of authors in the cache"
+msgstr "Брой автори в кеша"
+
 #. Resource IDs: (1161)
 msgid "Number of authors:"
 msgstr "Брой автори:"
+
+#. Resource IDs: (339)
+msgid "Number of cached merged revisions"
+msgstr "Брой кеширани слети ревизии"
+
+#. Resource IDs: (339)
+msgid "Number of cached revisions"
+msgstr "Брой кеширани ревизии"
+
+#. Resource IDs: (339)
+msgid "Number of cached user revision properties"
+msgstr "Брой кеширани потребителски свойства на ревизии"
+
+#. Resource IDs: (339)
+msgid "Number of changed cached revisions"
+msgstr "Брой кеширани променени ревизии"
+
+#. Resource IDs: (339)
+msgid "Number of changed revisions that are not cached yet"
+msgstr "Брой променени ревизии, които все още не са кеширани"
+
+#. Resource IDs: (338)
+msgid "Number of different paths shown in the log dialog, including parent paths"
+msgstr "Брой различни пътища, показвани в дневника, включително и родителските пътища"
+
+#. Resource IDs: (339)
+msgid "Number of merged revisions that are not cached yet"
+msgstr "Брой слети ревизии, които все още не са кеширани"
+
+#. Resource IDs: (338)
+msgid "Number of path elements. This is an internal value indicating the compression level."
+msgstr "Брой елементи от тип път. Това е вътрешна стойност, показваща нивото на компресия."
+
+#. Resource IDs: (339)
+msgid "Number of user revision properties that are not cached yet"
+msgstr "Брой потребителски свойства на ревизии, които все още не са кеширани"
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -4500,7 +4571,7 @@ msgstr "Закърпване на избраното"
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "Файлове с кръпки (*.diff;*.patch)|*.diff;*.patch|Всички (*.*)|*.*||"
 
-#. Resource IDs: (20, 77, 198)
+#. Resource IDs: (20, 77, 198, 207)
 msgid "Path"
 msgstr "Път"
 
@@ -5201,7 +5272,7 @@ msgstr ""
 "Съобщение от дневника:\r\n"
 "%s"
 
-#. Resource IDs: (116)
+#. Resource IDs: (116, 65535)
 msgid "Revisions"
 msgstr "Ревизии"
 
@@ -5759,6 +5830,14 @@ msgstr "Размер"
 #. Resource IDs: (65535)
 msgid "Size and status"
 msgstr "Размер и състояние"
+
+#. Resource IDs: (339)
+msgid "Size of all cached text information"
+msgstr "Размер на цялата кеширана текстова информация"
+
+#. Resource IDs: (339)
+msgid "Size of the cache if it were not compressed"
+msgstr "Размер на кеша, ако не беше компресиран"
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -6610,6 +6689,18 @@ msgstr "Всичко анализирани поверявания:"
 msgid "Total file changes:"
 msgstr "Файлови промени всяка седмица:"
 
+#. Resource IDs: (339)
+msgid "Total number of changed revisions"
+msgstr "Общ брой променени ревизии"
+
+#. Resource IDs: (339)
+msgid "Total number of merged revisions"
+msgstr "Общ брой слети ревизии"
+
+#. Resource IDs: (339)
+msgid "Total number of user revision properties"
+msgstr "Общ брой потребителски свойства на ревизии"
+
 #. Resource IDs: (357)
 #, c-format
 msgid "Transferring at %s"
@@ -6781,7 +6872,7 @@ msgstr "Неконтролираните файлове бележат съдъ�
 msgid "Unversioning %s"
 msgstr "Разконтролиране на %s"
 
-#. Resource IDs: (152, 230)
+#. Resource IDs: (152, 230, 1436)
 msgid "Update"
 msgstr "Обновяване"
 
@@ -7264,6 +7355,10 @@ msgstr "Смаляване"
 #. Resource IDs: (2051)
 msgid "Zoom to fit"
 msgstr "Оптимален мащаб"
+
+#. Resource IDs: (338)
+msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
+msgstr "с \"пропуснати обхвати\" се отбелязват обхвати от ревизии, които все още не са кеширани"
 
 #. Resource IDs: (10)
 msgid "added"
