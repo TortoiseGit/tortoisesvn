@@ -62,7 +62,6 @@
 		<CustomAction Id="Set_ShowChangelog" Property="ShowChangelog" Value="Yes" Return="check" />
 		<CustomAction Id="ShowChangelogAction" Property="TEXTEDITOR" ExeCommand="[INSTALLDIR]changelog.txt" Return="asyncNoWait" />
 		<CustomAction Id="KillCache" BinaryKey="CustomActionsDLL" DllEntry="TerminateCache" />
-		<CustomAction Id="CleanupRegistry" BinaryKey="CustomActionsDLL" DllEntry="ClearRegistry" />
 		<Binary Id="CustomActionsDLL" src="..\..\bin\$(var.ReleasePath)\bin\CustomActions.dll" />
 
 		<!-- Unsafe-check properties and custom actions .......................................................................... -->
@@ -95,8 +94,7 @@
 			<AppSearch Sequence="1"></AppSearch>
 			<LaunchConditions After="AppSearch" />
 			<RemoveExistingProducts After="InstallValidate"><![CDATA[PREVIOUSVERSIONSINSTALLED OR (NOT NEWERVERSIONDETECTED AND OKTODOWNGRADE = 1)]]></RemoveExistingProducts>
-			<Custom Action="CleanupRegistry" After="RemoveExistingProducts">PREVIOUSVERSIONSINSTALLED</Custom>
-			<Custom Action="KillCache" After="CleanupRegistry">Installed</Custom>
+			<Custom Action="KillCache" After="RemoveExistingProducts">Installed</Custom>
 			<ScheduleReboot After="RegisterProduct" />
 		</InstallExecuteSequence>
 
