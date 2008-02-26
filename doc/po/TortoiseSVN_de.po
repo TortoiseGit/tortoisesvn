@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-02-14 09:07 +0000\n"
-"PO-Revision-Date: 2008-02-15 14:26+0100\n"
+"PO-Revision-Date: 2008-02-26 16:27+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -36,6 +36,7 @@ msgstr ""
 # to branch      - verzweigen
 # to tag         - markieren
 # build          - erstellen
+# vendor branch  - Herstellerzweig
 #. (title)
 #. (secondary)
 #: ../source/TortoiseSVN_en.xml:4
@@ -6307,7 +6308,7 @@ msgstr "Es ist wichtig zu verstehen, wie Verzweigen und Zusammenführen in Subve
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7568
 msgid "The next point to note is that merging <emphasis>always</emphasis> takes place within a working copy. If you want to merge changes <emphasis>into</emphasis> a branch, you have to have a working copy for that branch checked out, and invoke the merge wizard from that working copy using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge...</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Der nächste wichtige Punkt ist, dass Zusammenführen <emphasis>immer</emphasis> in der Arbeitskopie stattfindet. Wenn Sie Änderungen <emphasis>in einem Zweig</emphasis> zusammenführen möchten, müssen Sie eine Arbeitskopie für diesen Zweig auschecken und den Assistenten mittels <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Zusammenführen...</guimenuitem></menuchoice> in dieser Arbeitskopie aufrufen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7579
@@ -6332,7 +6333,7 @@ msgstr "Diese Methode wird benutzt wenn Sie Änderungen an einem Zweig (branch) 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7601
 msgid "What you are asking Subversion to do is this: <quote>Calculate the changes necessary to get [FROM] revision 1 of branch A [TO] revision 7 of branch A, and apply those changes to my working copy (of trunk or branch B).</quote>"
-msgstr ""
+msgstr "Damit weisen Sie Subversion an, folgendes zu tun: <quote>Berechne die Änderungen, die nötig sind um <emphasis>von</emphasis> Revision X des Zweiges A <emphasis>zu</emphasis> Revision Y des Zweiges A zu gelangen und wende diese Änderungen auf meine Arbeitskopie (von Stamm oder Zweig B) an.</quote>"
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:7610
@@ -6347,17 +6348,17 @@ msgstr "Diese Methode behandelt den Fall dass Sie einen Funktionszweig (feature 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7622
 msgid "In this case what you are asking Subversion to do is: <quote>Calculate the changes necessary to get [FROM] the head revision of the trunk [TO] the head revision of the branch, and apply those changes to my working copy (of the trunk).</quote> The net result is that trunk now looks exactly like the branch."
-msgstr ""
+msgstr "Damit weisen Sie Subversion an, folgendes zu tun: <quote>Berechne die Änderungen, die nötig sind um <emphasis>von</emphasis> der HEAD Revision des Stammes <emphasis>zur</emphasis> HEAD Revision des Zweiges zu gelangen und wende diese Änderungen auf meine Arbeitskopie (des Stammes) an.</quote> Das Ergebnis ist, dass der Stamm danach exakt wie der Zweig aussieht."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7629
 msgid "After the merge, trunk and branch are identical and branch development has been completely merged back into the main development line. The branch is now redundant and can be deleted."
-msgstr ""
+msgstr "Nach dem Zusammenführen sind Stamm und Zweig identisch und der Entwicklungszweig ist komplett in die Hauptentwicklungslinie zurückgeführt worden. Der Zweig ist nun überflüssig und kann gelöscht werden."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7635
 msgid "Another use case occurs when you are using vendor branches and you need to merge the changes following a new vendor drop into your trunk code. For more information read the chapter on <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.advanced.vendorbr.html\"><citetitle>vendor branches</citetitle></ulink> in the Subversion Book."
-msgstr ""
+msgstr "Ein anderer Anwendungsfall tritt auf, wenn Sie mit Herstellerzweigen arbeiten und die Änderungen aufgrund einer neuen Auslieferung in Ihrem Stamm zusammenführen müssen. Für weiterführende Informationen lesen Sie bitte das Kapitel <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.advanced.vendorbr.html\"><citetitle>vendor branches</citetitle></ulink> im Subversion Buch."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:7648
@@ -6367,7 +6368,7 @@ msgstr "Einen Revisionsbereich zusammenführen"
 #. (title)
 #: ../source/TortoiseSVN_en.xml:7652
 msgid "The Merge Wizard - Select Revision Range"
-msgstr ""
+msgstr "Der Assistent - Revisionsbereich wählen"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7650
@@ -6407,7 +6408,7 @@ msgstr "Falls außer Ihnen noch andere Personen Daten in das Projektarchiv über
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7714
 msgid "Click <guibutton>Next</guibutton> and go to <xref linkend=\"tsvn-dug-merge-options\"/>"
-msgstr ""
+msgstr "Klicken Sie auf <guibutton>Weiter</guibutton> und gehen Sie zu <xref linkend=\"tsvn-dug-merge-options\"/>"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:7720
