@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2008-02-18 21:14+0100\n"
+"PO-Revision-Date: 2008-02-27 20:10+0100\n"
 "Last-Translator: Matjaz Cepon <matjaz.cepon@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -77,30 +77,15 @@ msgstr "%.2f kB/s"
 msgid "%1 contained an unexpected object."
 msgstr "%1 vsebuje nepričakovan predmet."
 
+#. Resource IDs: (3867)
+#, c-format
+msgid "%1 contains an incorrect path."
+msgstr "%1 vsebuje nepravilno pot."
+
 #. Resource IDs: (3868)
 #, c-format
 msgid "%1 contains an incorrect schema."
 msgstr "%1 vsebuje nepravilno shemo."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "%1 contains an invalid path."
-msgstr "%1 vsebuje nepravilno pot."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "%1 could not be created because the directory is full."
-msgstr "%1 ni mogoče ustvariti, ker je mapa polna."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "%1 could not be opened because there are too many open files."
-msgstr "%1 ni mogoče odpreti, ker je odprtih preveč datotek."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "%1 could not be removed because it is the current directory."
-msgstr "%1 ni mogoče izbrisati, ker je to trenutna mapa."
 
 #. Resource IDs: (3868)
 #, c-format
@@ -126,7 +111,7 @@ msgstr ""
 msgid ""
 "%1\n"
 "Cannot find this file.\n"
-"Please verify that the correct path and file name are given."
+"Verify that the correct path and file name are given."
 msgstr ""
 "%1\n"
 "Te datoteke ni mogoče najti.\n"
@@ -915,16 +900,6 @@ msgstr "<nov seznam sprememb>"
 msgid "?"
 msgstr "?"
 
-#. Resource IDs: (3867)
-#, c-format
-msgid "A hardware I/O error was reported while accessing %1."
-msgstr "Pri dostopu do %1 je prišlo do strojne V/I napake."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "A locking violation occurred while accessing %1."
-msgstr "Prišlo je do kršitve zaklepanja pri dostopanju do %1."
-
 #. Resource IDs: (201)
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
 msgstr "Na voljo je novejša različica. Pojdite na http://tortoisesvn.tigris.org in prenesite trenutno različico! Kliknite _tukaj_ za dostop do naše spletne strani."
@@ -950,11 +925,6 @@ msgstr ""
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
 msgstr "Potrebno sredstvo ni bilo na voljo."
-
-#. Resource IDs: (3867)
-#, c-format
-msgid "A sharing violation occurred while accessing %1."
-msgstr "Prišlo je do kršitve souporabe pri dostopanju do %1."
 
 #. Resource IDs: (79)
 msgid ""
@@ -1145,21 +1115,6 @@ msgstr "Vse datoteke (*.*)|*.*||"
 msgid "Always use the system locale settings to show times and dates"
 msgstr "Za prikaz datuma in časa vedno uporabi sistemske nastavitve"
 
-#. Resource IDs: (3867, 3868)
-#, c-format
-msgid "An attempt was made to access %1 past its end."
-msgstr "Prišlo je do poskusa dostopa prek meja datoteke %1."
-
-#. Resource IDs: (3868)
-#, c-format
-msgid "An attempt was made to read from the writing %1."
-msgstr "Prišlo je do poskusa branja med pisanjem %1."
-
-#. Resource IDs: (3868)
-#, c-format
-msgid "An attempt was made to write to the reading %1."
-msgstr "Prišlo je do poskusa pisanja med branjem %1."
-
 #. Resource IDs: (78)
 #, c-format
 msgid ""
@@ -1198,24 +1153,10 @@ msgstr ""
 "%mine\t\tvaša datoteka, z vašimi spremembami\n"
 "%base\t\tizvirna datoteka brez vaših sprememb\""
 
-#. Resource IDs: (3843)
-msgid "An invalid argument was encountered."
-msgstr "Zaznan je bil nepravilen parameter."
-
 #. Resource IDs: (3867)
 #, c-format
-msgid "An invalid file handle was associated with %1."
+msgid "An incorrect file handle was associated with %1."
 msgstr "Z %1 je povezanana neveljavna ročica datoteke."
-
-#. Resource IDs: (3859)
-#, c-format
-msgid "An unexpected error occurred while reading %1."
-msgstr "Pri dostopu do %1 je prišlo do nepričakovane napake."
-
-#. Resource IDs: (3859)
-#, c-format
-msgid "An unexpected error occurred while writing %1."
-msgstr "Pri pisanju %1 je prišlo do nepričakovane napake."
 
 #. Resource IDs: (3843)
 msgid "An unknown error has occurred."
@@ -1230,10 +1171,6 @@ msgstr "Pri dostopu do %1 je prišlo do neznane napake."
 #, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "V vrstici %d je neznana vrsta vrstice!"
-
-#. Resource IDs: (3843)
-msgid "An unsupported operation was attempted."
-msgstr "Poskus nepodprte operacije."
 
 #. Resource IDs: (269)
 msgid "Analyze revision data..."
@@ -1294,6 +1231,25 @@ msgstr "Dodano seznamu sprememb \"%s\""
 #, c-format
 msgid "At revision: %d"
 msgstr "Na reviziji: %d"
+
+#. Resource IDs: (3843)
+msgid "Attempted an unsupported operation."
+msgstr "Poskus nepodprte operacije."
+
+#. Resource IDs: (3867, 3868)
+#, c-format
+msgid "Attempted to access %1 past its end."
+msgstr "Prišlo je do poskusa dostopa prek meja datoteke %1."
+
+#. Resource IDs: (3868)
+#, c-format
+msgid "Attempted to read from the writing %1."
+msgstr "Prišlo je do poskusa branja med pisanjem %1."
+
+#. Resource IDs: (3868)
+#, c-format
+msgid "Attempted to write to the reading %1."
+msgstr "Prišlo je do poskusa pisanja med branjem %1."
 
 #. Resource IDs: (131, 160)
 msgid "Authentication"
@@ -1725,6 +1681,10 @@ msgstr ""
 msgid "Clears the stored sizes and positions of %ld dialogs"
 msgstr "Počisti shranjene velikosti in položaje %ld pogovornih oken"
 
+#. Resource IDs: (1466)
+msgid "Click here to go to the website"
+msgstr "Kliknite za vstop na spletno stran"
+
 #. Resource IDs: (170)
 msgid "Click here to select a recently typed message"
 msgstr "Kliknite sem za vnos pred kratkim vnesenega sporočila"
@@ -2047,6 +2007,11 @@ msgstr ""
 "<hr=100%%>\n"
 "%s"
 
+#. Resource IDs: (3867)
+#, c-format
+msgid "Could not create %1 because the directory is full."
+msgstr "%1 ni mogoče ustvariti, ker je mapa polna."
+
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not delete \"%s\" because"
@@ -2075,6 +2040,11 @@ msgstr "\"%s\" ni mogoče spojiti, ker"
 msgid "Could not merge property \"%s\" on %s because"
 msgstr "Lastnosti \"%s\" ni mogoče spojiti s %s, ker"
 
+#. Resource IDs: (3867)
+#, c-format
+msgid "Could not open %1 because there are too many open files."
+msgstr "%1 ni mogoče odpreti, ker je odprtih preveč datotek."
+
 #. Resource IDs: (69)
 #, c-format
 msgid ""
@@ -2083,6 +2053,11 @@ msgid ""
 msgstr ""
 "Datoteke %s\n"
 "ni mogoče odpreti."
+
+#. Resource IDs: (3867)
+#, c-format
+msgid "Could not remove %1 because it is the current directory."
+msgstr "%1 ni mogoče izbrisati, ker je to trenutna mapa."
 
 #. Resource IDs: (82)
 #, c-format
@@ -2148,6 +2123,17 @@ msgstr ""
 #. Resource IDs: (3857)
 msgid "Could not start print job."
 msgstr "Tiskalniškega opravila ni mogoče zagnati."
+
+#. Resource IDs: (83)
+#, c-format
+msgid ""
+"Could not start text viewer!\n"
+"<hr=100%%>\n"
+"%s"
+msgstr ""
+"Pregledovalnika besedila ni mogoče zagnati!\n"
+"<hr=100%%>\n"
+"%s"
 
 #. Resource IDs: (81)
 msgid "Could not start thread!"
@@ -2540,6 +2526,35 @@ msgstr ""
 "Omogoči črkovalnik samo v primeru, ko je\n"
 "nastavljena lastnost tsvn:projectlanguage."
 
+#. Resource IDs: (3867)
+#, c-format
+msgid "Encountered a hardware I/O error while accessing %1."
+msgstr "Pri dostopu do %1 je prišlo do strojne V/I napake."
+
+#. Resource IDs: (3867)
+#, c-format
+msgid "Encountered a locking violation while accessing %1."
+msgstr "Prišlo je do kršitve zaklepanja pri dostopanju do %1."
+
+#. Resource IDs: (3867)
+#, c-format
+msgid "Encountered a sharing violation while accessing %1."
+msgstr "Prišlo je do kršitve souporabe pri dostopanju do %1."
+
+#. Resource IDs: (3843)
+msgid "Encountered an improper argument."
+msgstr "Zaznan napačen parameter."
+
+#. Resource IDs: (3859)
+#, c-format
+msgid "Encountered an unexpected error while reading %1."
+msgstr "Pri branju %1 je prišlo do nepričakovane napake."
+
+#. Resource IDs: (3859)
+#, c-format
+msgid "Encountered an unexpected error while writing %1."
+msgstr "Pri pisanju %1 je prišlo do nepričakovane napake."
+
 #. Resource IDs: (65535)
 msgid "End Revision"
 msgstr "Končna revizija"
@@ -2556,6 +2571,22 @@ msgstr "Vnesite dnevniški zapis"
 msgid "Enter URL"
 msgstr "Vnesite URL"
 
+#. Resource IDs: (3858)
+msgid "Enter a GUID."
+msgstr "Vnesite GUID."
+
+#. Resource IDs: (3858)
+msgid "Enter a currency."
+msgstr "Vnesite valuto."
+
+#. Resource IDs: (3858)
+msgid "Enter a date and/or time."
+msgstr "Vnesite datum in/ali čas."
+
+#. Resource IDs: (3858)
+msgid "Enter a date."
+msgstr "Vnesite datum."
+
 #. Resource IDs: (313)
 msgid "Enter a lock message (optional):"
 msgstr "Vnesite sporočilo zaklepa (neobvezno):"
@@ -2564,6 +2595,36 @@ msgstr "Vnesite sporočilo zaklepa (neobvezno):"
 msgid "Enter a name for the changelist:"
 msgstr "Vnesite ime seznama sprememb:"
 
+#. Resource IDs: (3858)
+#, c-format
+msgid "Enter a number between %1 and %2."
+msgstr "Vnesite število med %1 in %2."
+
+#. Resource IDs: (3858)
+msgid "Enter a number."
+msgstr "Vnesite število."
+
+#. Resource IDs: (3858)
+msgid "Enter a positive integer."
+msgstr "Vnesite pozitivno celo število."
+
+#. Resource IDs: (3858)
+msgid "Enter a time."
+msgstr "Vnesite čas."
+
+#. Resource IDs: (3858)
+#, c-format
+msgid "Enter an integer between %1 and %2."
+msgstr "Vnesite celo število med %1 in %2."
+
+#. Resource IDs: (3858)
+msgid "Enter an integer between 0 and 255."
+msgstr "Vnesite celo število med 0 in 255."
+
+#. Resource IDs: (3858)
+msgid "Enter an integer."
+msgstr "Vnesite celo število."
+
 #. Resource IDs: (1065)
 msgid "Enter log &message:"
 msgstr "Vnesite dnevniški &zapis:"
@@ -2571,6 +2632,11 @@ msgstr "Vnesite dnevniški &zapis:"
 #. Resource IDs: (126)
 msgid "Enter log message:"
 msgstr "Vnesite dnevniški zapis:"
+
+#. Resource IDs: (3858)
+#, c-format
+msgid "Enter no more than %1 characters."
+msgstr "Vnesite največ %1 znak(ov)."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -3509,6 +3575,10 @@ msgstr "Vključi samo naslednje območje revizij:"
 msgid "Include paths:"
 msgstr "Vključene poti:"
 
+#. Resource IDs: (3857)
+msgid "Incorrect filename."
+msgstr "Neveljavno ime datoteke."
+
 #. Resource IDs: (76)
 msgid "Initial import"
 msgstr "Začetni uvoz"
@@ -3544,10 +3614,6 @@ msgstr "Interna vrednost, ki pove kvaliteto stiskanja"
 #. Resource IDs: (102)
 msgid "Invalid data object dropped!"
 msgstr "Odvrženi neveljavni podatkovni element!"
-
-#. Resource IDs: (3857)
-msgid "Invalid filename."
-msgstr "Neveljavno ime datoteke."
 
 #. Resource IDs: (82)
 msgid ""
@@ -4499,64 +4565,13 @@ msgstr "Slike (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp
 msgid "Pie Graph"
 msgstr "Potični graf"
 
-#. Resource IDs: (3858)
-msgid "Please enter a GUID."
-msgstr "Vnesite GUID."
-
-#. Resource IDs: (3858)
-msgid "Please enter a currency."
-msgstr "Vnesite valuto."
-
-#. Resource IDs: (3858)
-msgid "Please enter a date and/or time."
-msgstr "Vnesite datum in/ali čas."
-
-#. Resource IDs: (3858)
-msgid "Please enter a date."
-msgstr "Vnesite datum."
-
 #. Resource IDs: (83)
 msgid "Please enter a hook script to execute."
 msgstr "Vnesite skripto akcije za izvajanje:"
 
-#. Resource IDs: (3858)
-#, c-format
-msgid "Please enter a number between %1 and %2."
-msgstr "Vnesite število med %1 in %2."
-
-#. Resource IDs: (3858)
-msgid "Please enter a number."
-msgstr "Vnesite število."
-
 #. Resource IDs: (83)
 msgid "Please enter a path where to apply the hook script to."
 msgstr "Vnesite pot, kjer naj se skripta akcije uporabi."
-
-#. Resource IDs: (3858)
-msgid "Please enter a positive integer."
-msgstr "Vnesite pozitivno število."
-
-#. Resource IDs: (3858)
-msgid "Please enter a time."
-msgstr "Vnesite čas."
-
-#. Resource IDs: (3858)
-#, c-format
-msgid "Please enter an integer between %1 and %2."
-msgstr "Vnesite celo število med %1 in %2."
-
-#. Resource IDs: (3858)
-msgid "Please enter an integer between 0 and 255."
-msgstr "Vnesite celo število med 0 in 255."
-
-#. Resource IDs: (3858)
-msgid "Please enter an integer."
-msgstr "Vnesite celo število."
-
-#. Resource IDs: (3858)
-#, c-format
-msgid "Please enter no more than %1 characters."
-msgstr "Vnesite največ %1 znak(ov)."
 
 #. Resource IDs: (251)
 msgid "Please execute the \"Cleanup\" command."
@@ -4578,10 +4593,6 @@ msgstr ""
 #. Resource IDs: (1287)
 msgid "Please resolve the conflict by choosing one of the following options:"
 msgstr "Z izbiro ene od naslednjih možnosti rešite spor:"
-
-#. Resource IDs: (3858)
-msgid "Please select a button."
-msgstr "Izberite gumb."
 
 #. Resource IDs: (83)
 msgid "Please select a hook type"
@@ -5432,6 +5443,10 @@ msgstr "Izberite revizijo"
 #. Resource IDs: (78)
 msgid "Select SSH client"
 msgstr "Izberite odjemalca SSH"
+
+#. Resource IDs: (3858)
+msgid "Select a button."
+msgstr "Izberite gumb."
 
 #. Resource IDs: (3585)
 msgid "Select an object on which to get Help"
@@ -6653,12 +6668,12 @@ msgid "Total number of changed revisions"
 msgstr "Skupno število spremenjenih revizij"
 
 #. Resource IDs: (339)
-msgid "Total number of user revision properties"
-msgstr "Skupno število uporabniških lastnosti revizij"
+msgid "Total number of merged revisions"
+msgstr "Skupno število spojenih revizij"
 
 #. Resource IDs: (339)
-msgid "Totall number of merge informations"
-msgstr "Skupno število podatkov o spajanjih"
+msgid "Total number of user revision properties"
+msgstr "Skupno število uporabniških lastnosti revizij"
 
 #. Resource IDs: (357)
 #, c-format
