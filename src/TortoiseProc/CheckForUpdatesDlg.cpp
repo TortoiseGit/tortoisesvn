@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -42,6 +42,7 @@ CCheckForUpdatesDlg::~CCheckForUpdatesDlg()
 void CCheckForUpdatesDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CStandAloneDialog::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_LINK, m_link);
 }
 
 
@@ -147,14 +148,19 @@ UINT CCheckForUpdatesDlg::CheckThread()
 				}
 				else if (bNewer)
 				{
-					if(file.ReadString(temp) && !temp.IsEmpty()){	// Read the next line, it could contain a message for the user
+					if(file.ReadString(temp) && !temp.IsEmpty())
+					{	// Read the next line, it could contain a message for the user
 						CString tempLink;
-						if(file.ReadString(tempLink) && !tempLink.IsEmpty()){	// Read another line to find out the download link-URL, if any
+						if(file.ReadString(tempLink) && !tempLink.IsEmpty())
+						{	// Read another line to find out the download link-URL, if any
 							m_sUpdateDownloadLink = tempLink;
+							m_link.ShowWindow(SW_SHOW);
+							m_link.SetURL(m_sUpdateDownloadLink);
 						}
 
 					}
-					else{
+					else
+					{
 						temp.LoadString(IDS_CHECKNEWER_NEWERVERSIONAVAILABLE);
 					}
 					SetDlgItemText(IDC_CHECKRESULT, temp);
@@ -192,10 +198,6 @@ void CCheckForUpdatesDlg::OnStnClickedCheckresult()
 	if ((UINT)result <= HINSTANCE_ERROR)
 	{
 		result = ShellExecute(NULL, _T("open"), m_sUpdateDownloadLink, NULL,NULL, SW_SHOWNORMAL);
-	}
-	if ((UINT)result > HINSTANCE_ERROR)
-	{
-		EndDialog(0);
 	}
 }
 

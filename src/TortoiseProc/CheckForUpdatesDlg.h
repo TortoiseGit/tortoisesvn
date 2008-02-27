@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2008 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,6 +19,7 @@
 #pragma once
 
 #include "StandAloneDlg.h"
+#include "HyperLink.h"
 
 /**
  * \ingroup TortoiseProc
@@ -58,5 +59,6 @@ public:
 
 private:
 	CString		m_sUpdateDownloadLink;			///< Where to send a user looking to download a update
+	CHyperLink	m_link;
 };
 
