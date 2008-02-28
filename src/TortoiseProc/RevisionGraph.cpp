@@ -749,7 +749,7 @@ void CRevisionGraph::InsertWCRevision (const CDictionaryBasedTempPath& wcPath)
 {
     // maybe, we don't have a WC revision
 
-	if (m_wcRev == 0)
+	if (m_wcRev <= 0)
         return;
 
     // for technical reasons (use of std::upper_bound), 
