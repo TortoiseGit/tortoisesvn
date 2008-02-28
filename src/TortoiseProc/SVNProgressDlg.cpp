@@ -1465,8 +1465,8 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							// if the file was merged during update, do a three way diff between OLD, MINE, THEIRS
 							if (data->content_state == svn_wc_notify_state_merged)
 							{
-								CTSVNPath basefile = CTempFiles::Instance().GetTempFilePath(true, data->path, rev);
-								CTSVNPath newfile = CTempFiles::Instance().GetTempFilePath(true, data->path, SVNRev::REV_HEAD);
+								CTSVNPath basefile = CTempFiles::Instance().GetTempFilePath(false, data->path, rev);
+								CTSVNPath newfile = CTempFiles::Instance().GetTempFilePath(false, data->path, SVNRev::REV_HEAD);
 								SVN svn;
 								if (!svn.Cat(data->path, SVNRev(SVNRev::REV_WC), rev, basefile))
 								{
@@ -1499,7 +1499,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							}
 							else
 							{
-								CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, data->path, rev);
+								CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false, data->path, rev);
 								SVN svn;
 								if (!svn.Cat(data->path, SVNRev(SVNRev::REV_WC), rev, tempfile))
 								{

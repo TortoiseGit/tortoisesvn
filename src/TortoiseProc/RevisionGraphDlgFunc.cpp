@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -420,7 +420,7 @@ void CRevisionGraphWnd::UnifiedDiffRevs(bool bHead)
 CTSVNPath CRevisionGraphWnd::DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIsFolder)
 {
 	theApp.DoWaitCursor(1);
-	CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, CTSVNPath(_T("test.diff")));
+	CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false, CTSVNPath(_T("test.diff")));
 	// find selected objects
 	ASSERT(m_SelectedEntry1 != NULL);
 	ASSERT(m_SelectedEntry2 != NULL);

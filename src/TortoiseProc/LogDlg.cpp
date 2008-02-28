@@ -1616,8 +1616,8 @@ void CLogDlg::DiffSelectedFile()
 		}
 		else 
 		{
-			CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, CTSVNPath(changedpath->sPath));
-			CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(true, CTSVNPath(changedpath->sPath));
+			CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false, CTSVNPath(changedpath->sPath));
+			CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(false, CTSVNPath(changedpath->sPath));
 			SVNRev r = rev1;
 			// deleted files must be opened from the revision before the deletion
 			if (changedpath->action == LOGACTIONS_DELETED)
@@ -1829,7 +1829,7 @@ BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, svn_revnum_t rev)
 	SetAndClearProgressInfo(&progDlg);
 	progDlg.ShowModeless(m_hWnd);
 
-	CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, CTSVNPath(filepath), rev);
+	CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false, CTSVNPath(filepath), rev);
 	m_bCancelled = false;
 	if (!Cat(CTSVNPath(filepath), SVNRev(rev), rev, tempfile))
 	{
@@ -3785,7 +3785,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				progDlg.SetLine(1, sInfoLine);
 				SetAndClearProgressInfo(&progDlg);
 				progDlg.ShowModeless(m_hWnd);
-				CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, m_path, revSelected);
+				CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false, m_path, revSelected);
 				bool bSuccess = true;
 				if (!Cat(m_path, SVNRev(SVNRev::REV_HEAD), revSelected, tempfile))
 				{

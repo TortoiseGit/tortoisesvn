@@ -2280,7 +2280,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					}
 				}
 				// in all other cases, we have to 'cat' the file and open it.
-				CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, urlList[0], GetRevision());
+				CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false, urlList[0], GetRevision());
 				CWaitCursorEx wait_cursor;
 				CProgressDlg progDlg;
 				progDlg.SetTitle(IDS_APPNAME);

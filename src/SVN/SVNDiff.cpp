@@ -85,7 +85,7 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
 
 	if (remotetext_status > svn_wc_status_normal)
 	{
-		remotePath = CTempFiles::Instance().GetTempFilePath(true, filePath, SVNRev::REV_HEAD);
+		remotePath = CTempFiles::Instance().GetTempFilePath(false, filePath, SVNRev::REV_HEAD);
 
 		CProgressDlg progDlg;
 		progDlg.SetTitle(IDS_APPNAME);
@@ -324,7 +324,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 		// no working copy path!
 		progDlg.ShowModeless(m_hWnd);
 
-		tempfile = CTempFiles::Instance().GetTempFilePath(true, url1);		
+		tempfile = CTempFiles::Instance().GetTempFilePath(false, url1);		
 		// first find out if the url points to a file or dir
 		progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROGRESS_INFO)));
 		CString sRepoRoot;
@@ -587,7 +587,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 					progDlg.Stop();
 					m_pSVN->SetAndClearProgressInfo((HWND)NULL);
 					SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
-					CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(true, url1);
+					CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(false, url1);
 					if (!blamer.BlameToFile(url1, 1, SVNRev::REV_WC, SVNRev::REV_WC, tempfile2, _T(""), TRUE))
 					{
 						progDlg.Stop();
@@ -666,8 +666,8 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, SVNRev rev1, SVNRev rev2)
 		if (!bFound)
 		{
 			// write the old property value to temporary file
-			CTSVNPath wcpropfile = CTempFiles::Instance().GetTempFilePath(true);
-			CTSVNPath basepropfile = CTempFiles::Instance().GetTempFilePath(true);
+			CTSVNPath wcpropfile = CTempFiles::Instance().GetTempFilePath(false);
+			CTSVNPath basepropfile = CTempFiles::Instance().GetTempFilePath(false);
 			FILE * pFile;
 			_tfopen_s(&pFile, wcpropfile.GetWinPath(), _T("wb"));
 			if (pFile)
@@ -750,8 +750,8 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, SVNRev rev1, SVNRev rev2)
 		if (bDiffRequired)
 		{
 			// write both property values to temporary files
-			CTSVNPath wcpropfile = CTempFiles::Instance().GetTempFilePath(true);
-			CTSVNPath basepropfile = CTempFiles::Instance().GetTempFilePath(true);
+			CTSVNPath wcpropfile = CTempFiles::Instance().GetTempFilePath(false);
+			CTSVNPath basepropfile = CTempFiles::Instance().GetTempFilePath(false);
 			FILE * pFile;
 			_tfopen_s(&pFile, wcpropfile.GetWinPath(), _T("wb"));
 			if (pFile)

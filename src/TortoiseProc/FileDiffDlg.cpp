@@ -285,7 +285,7 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
 	if (fd.node == svn_node_dir)
 		return;
 
-	CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, m_path1, m_rev1);
+	CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false, m_path1, m_rev1);
 	CString sTemp;
 	CProgressDlg progDlg;
 	progDlg.SetTitle(IDS_PROGRESSWAIT);
@@ -308,7 +308,7 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
 	progDlg.SetProgress(1, 2);
 	progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, url2.GetUIPathString());
 	progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISIONTEXT, m_rev2.ToString());
-	CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(true, url2, m_rev2);
+	CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(false, url2, m_rev2);
 	if ((fd.kind != svn_client_diff_summarize_kind_deleted)&&(!blame)&&(!Cat(url2, m_bDoPegDiff ? m_peg : m_rev2, m_rev2, tempfile2)))
 	{
 		CMessageBox::Show(NULL, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -393,8 +393,8 @@ void CFileDiffDlg::DiffProps(int selIndex)
 		if (url2value.compare(url1value)!=0)
 		{
 			// write both property values to temporary files
-			CTSVNPath url1propfile = CTempFiles::Instance().GetTempFilePath(true);
-			CTSVNPath url2propfile = CTempFiles::Instance().GetTempFilePath(true);
+			CTSVNPath url1propfile = CTempFiles::Instance().GetTempFilePath(false);
+			CTSVNPath url2propfile = CTempFiles::Instance().GetTempFilePath(false);
 			FILE * pFile;
 			_tfopen_s(&pFile, url1propfile.GetWinPath(), _T("wb"));
 			if (pFile)
