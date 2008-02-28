@@ -362,7 +362,7 @@ BOOL CLogDlg::OnInitDialog()
 	SetPromptParentWindow(m_hWnd);
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("LogDlg"));
+	EnableSaveRestore(_T("LogDlg"), TRUE);
 
 	DWORD yPos1 = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer1"));
 	DWORD yPos2 = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer2"));
@@ -788,15 +788,18 @@ BOOL CLogDlg::Cancel()
 
 void CLogDlg::SaveSplitterPos()
 {
-	CRegDWORD regPos1 = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer1"));
-	CRegDWORD regPos2 = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer2"));
-	RECT rectSplitter;
-	m_wndSplitter1.GetWindowRect(&rectSplitter);
-	ScreenToClient(&rectSplitter);
-	regPos1 = rectSplitter.top;
-	m_wndSplitter2.GetWindowRect(&rectSplitter);
-	ScreenToClient(&rectSplitter);
-	regPos2 = rectSplitter.top;
+	if (!IsIconic())
+	{
+		CRegDWORD regPos1 = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer1"));
+		CRegDWORD regPos2 = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer2"));
+		RECT rectSplitter;
+		m_wndSplitter1.GetWindowRect(&rectSplitter);
+		ScreenToClient(&rectSplitter);
+		regPos1 = rectSplitter.top;
+		m_wndSplitter2.GetWindowRect(&rectSplitter);
+		ScreenToClient(&rectSplitter);
+		regPos2 = rectSplitter.top;
+	}
 }
 
 void CLogDlg::OnCancel()
