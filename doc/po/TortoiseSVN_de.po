@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-02-14 09:07 +0000\n"
-"PO-Revision-Date: 2008-02-26 16:27+0100\n"
+"PO-Revision-Date: 2008-02-28 13:14+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6378,7 +6378,7 @@ msgstr "<placeholder-1/> Im <guilabel>Von:</guilabel> Feld geben Sie die URL des
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7665
 msgid "In the <guilabel>Revision range to merge</guilabel> field enter the list of revisions you want to merge. This can be a single revision, a list of specific revisions separated by commas, or a range of revisions separated by a dash, or any combination of these."
-msgstr ""
+msgstr "Geben Sie den zusammenzuführenden Revisonsbereich in das Feld <guilabel>Revisionsbereich</guilabel> ein. Das kann eine einzelne Revision, eine durch Kommata getrennte Liste von Revisionen, ein durch Bindestrich getrennter Revisionsbereich oder eine Kombination aus allem sein."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7672
@@ -6388,7 +6388,7 @@ msgstr "Der einfachste Weg um den Revisionsbereich zu wählen, ist ein Klick auf
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7683
 msgid "If you want to merge changes back <emphasis>out</emphasis> of your working copy, to revert a change which has already been committed, select the revisions to revert and make sure the <guilabel>Reverse merge</guilabel> box is checked."
-msgstr ""
+msgstr "Wenn Sie bereits übertragene Änderungen rückgängig machen wollen, erreichen Sie das, indem Sie den gewünschten Revisionsbereich <guilabel>Rückwärts zusammenführen</guilabel>. Dadurch werden die Änderungen dieses Revisionsbereichs aus Ihrer Arbeitskopie entfernt."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7689
@@ -6398,7 +6398,7 @@ msgstr "Wenn Sie bereits Änderungen aus diesem Zweig zusammengeführt haben, so
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7700
 msgid "If you are using the merge tracking features of Subversion, you do not need to remember which revisions have already been merged - Subversion will record that for you. If you leave the revision range blank, all revisions which have not yet been merged will be included. Read <xref linkend=\"tsvn-dug-merge-tracking\"/> to find out more."
-msgstr ""
+msgstr "Neuere Versionen von Subversion protokollieren die bisher durchgeführten Datenintegrationen mit. Deshalb müssen Sie sich nicht merken, welche Revisionen Sie bereits zusammengeführt haben. Wenn Sie den Revisionsbereich leer lassen, werden alle bisher noch nicht integrierten Revisionen ausgewählt. Lesen Sie in <xref linkend=\"tsvn-dug-merge-tracking\"/> wie das funktioniert."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7708
@@ -6433,12 +6433,12 @@ msgstr "Im <guilabel>Von:</guilabel> Feld geben Sie die URL des <emphasis>Stamme
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7744
 msgid "In the <guilabel>To:</guilabel> field enter the full folder URL of the feature branch."
-msgstr "Im <guilabel>Zu:</guilabel> Feld geben Sie die vollständige URL des Zweiges an."
+msgstr "Im <guilabel>Bis:</guilabel> Feld geben Sie die vollständige URL des Zweiges an."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7748
 msgid "In both the <guilabel>From Revision</guilabel> field and the <guilabel>To Revision</guilabel> field, enter the last revision number at which the two trees were synchronized. If you are sure no-one else is making commits you can use the HEAD revision in both cases. If there is a chance that someone else may have made a commit since that synchronization, use the specific revision number to avoid losing more recent commits."
-msgstr "Sowohl im <guilabel>Von Revision</guilabel> Feld als auch im <guilabel>Zu Revision</guilabel> Feld geben Sie die letzte Revision an in der die beiden Zweige synchron waren. Wenn Sie sicher sind dass niemand anders seit Ihrer letzten Synchronisation eine Übertragung gemacht hat, können Sie in beiden Feldern die <literal>HEAD</literal> Revision angeben. Falls jedoch in der Zwischenzeit die Möglichkeit einer Übertragung besteht, geben Sie die letzte Revision Ihrer Synchronisation an."
+msgstr "Sowohl im <guilabel>Von Revision</guilabel> Feld als auch im <guilabel>Bis Revision</guilabel> Feld geben Sie die letzte Revision an in der die beiden Zweige synchron waren. Wenn Sie sicher sind dass niemand anders seit Ihrer letzten Synchronisation eine Übertragung gemacht hat, können Sie in beiden Feldern die <literal>HEAD</literal> Revision angeben. Falls jedoch in der Zwischenzeit die Möglichkeit einer Übertragung besteht, geben Sie die letzte Revision Ihrer Synchronisation an."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7758
@@ -6453,7 +6453,7 @@ msgstr "Optionen beim Zusammenführen"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7766
 msgid "This page of the wizard lets you specify advanced options, before starting the merge process. Most of the time you can just use the default settings."
-msgstr ""
+msgstr "Auf dieser Seite des Assistenten können Sie weitere Optionen angeben, bevor Sie das Zusammenführen starten. In den meisten Fällen können Sie die Standardeinstellungen verwenden."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7771
