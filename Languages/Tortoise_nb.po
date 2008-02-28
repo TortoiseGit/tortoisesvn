@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-02-12 09:36+0100\n"
+"PO-Revision-Date: 2008-02-28 09:47+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -547,7 +547,7 @@ msgstr "&Ignorer mellomromsendringer"
 msgid "&Image Info"
 msgstr "&Bildeinformasjon"
 
-#. Resource IDs: (9)
+#. Resource IDs: (9, 1461)
 msgid "&Import..."
 msgstr "&Importér..."
 
@@ -1421,7 +1421,7 @@ msgstr "Bla gjennom etter eksternt diff-program"
 msgid "Browse..."
 msgstr "Utforsk..."
 
-#. Resource IDs: (1382)
+#. Resource IDs: (1057)
 msgid "Bug Tracker..."
 msgstr "Feil-Sporingssystem..."
 
@@ -1704,12 +1704,16 @@ msgid ""
 "You will have to enter your username/password again for all repositories."
 msgstr ""
 "Sletter lagret autentisering.\n"
-"Du kommer til å måtte angi brukernavn og passord for alle depoter igjen."
+"Du vil måtte angi brukernavn og passord for alle depoter igjen."
 
 #. Resource IDs: (196)
 #, c-format
 msgid "Clears the stored sizes and positions of %ld dialogs"
 msgstr "Sletter lagret størrelse og plassering for %ld dialoger"
+
+#. Resource IDs: (1466)
+msgid "Click here to go to the website"
+msgstr "Klikk her for å gå til nettstedet"
 
 #. Resource IDs: (170)
 msgid "Click here to select a recently typed message"
@@ -1717,11 +1721,11 @@ msgstr "Klikk her for å velge en nylig skrevet melding"
 
 #. Resource IDs: (65535)
 msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
-msgstr "Klikk på \"Avansert\" for å bruke alternative diff-programmer basert på fil-endelser."
+msgstr "Klikk på \"Avansert\" for å angi alternative diff-programmer basert på fil-endelser."
 
 #. Resource IDs: (65535)
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
-msgstr "Klikk på \"Avansert\" for å bruke alternative flette-programmer basert på fil-endelser."
+msgstr "Klikk på \"Avansert\" for å angi alternative flette-programmer basert på fil-endelser."
 
 #. Resource IDs: (257)
 msgid "Clipboard"
@@ -2150,6 +2154,17 @@ msgstr ""
 msgid "Could not start print job."
 msgstr "Kunne ikke starte utskriftsjobb."
 
+#. Resource IDs: (83)
+#, c-format
+msgid ""
+"Could not start text viewer!\n"
+"<hr=100%%>\n"
+"%s"
+msgstr ""
+"Kunne ikke starte tekstviseren!\n"
+"<hr=100%%>\n"
+"%s"
+
 #. Resource IDs: (81)
 msgid "Could not start thread!"
 msgstr "Kunne ikke starte tråd!"
@@ -2460,7 +2475,7 @@ msgstr "E&ksakt kilde for kopi"
 msgid "E&xit"
 msgstr "&Avslutt"
 
-#. Resource IDs: (9)
+#. Resource IDs: (9, 1382)
 msgid "E&xport..."
 msgstr "E&ksportér..."
 
@@ -2703,7 +2718,7 @@ msgstr "Stier å ekskludere:"
 msgid "Explore to"
 msgstr "Utforsk til"
 
-#. Resource IDs: (229, 238)
+#. Resource IDs: (229, 238, 1437)
 msgid "Export"
 msgstr "Eksportér"
 
@@ -2818,7 +2833,7 @@ msgstr "Henter fil..."
 msgid "Fetching revision %s of file:"
 msgstr "Henter revisjon %s av filen:"
 
-#. Resource IDs: (63, 74, 77, 207, 319)
+#. Resource IDs: (63, 74, 77, 319)
 msgid "File"
 msgstr "Fil"
 
@@ -3206,6 +3221,10 @@ msgid ""
 msgstr ""
 "Skjul/vis listen over korreksjonsfiler\n"
 "Skjuler eller viser listen over korreksjonsfiler"
+
+#. Resource IDs: (339)
+msgid "Highest revision number in the cache"
+msgstr "Høyste revisjonsnummer i mellomlageret"
 
 #. Resource IDs: (1127)
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
@@ -3620,6 +3639,10 @@ msgstr "For lite minne for å utføre operasjonen."
 msgid "Internal application error."
 msgstr "Intern programfeil."
 
+#. Resource IDs: (338, 339)
+msgid "Internal value indicating compression quality"
+msgstr "Intern verdi som angir komprimeringskvallitet"
+
 #. Resource IDs: (102)
 msgid "Invalid data object dropped!"
 msgstr "Ugyldig dataobjekt utlatt!"
@@ -3760,6 +3783,18 @@ msgstr "Siste innsendte rev.:"
 #. Resource IDs: (11)
 msgid "Last saved revision of item"
 msgstr "Elementets siste lagrede revisjon"
+
+#. Resource IDs: (338)
+msgid "Last time the cache content was changed"
+msgstr "Siste gang innholdet i mellomlageret ble endret"
+
+#. Resource IDs: (338)
+msgid "Last time the cache was accessed"
+msgstr "Siste gang mellomlageret ble brukt"
+
+#. Resource IDs: (338)
+msgid "Last time the repository was asked for the HEAD revision number"
+msgstr "Siste gang depotet ble spurt om hode-revisjonsnummeret"
 
 #. Resource IDs: (12)
 msgid "Launches the external diff / merge program to solve the conflicts"
@@ -4333,9 +4368,49 @@ msgstr "Ikke rekursivt"
 msgid "Notice"
 msgstr "Notis"
 
+#. Resource IDs: (338)
+msgid "Number of authors in the cache"
+msgstr "Antall forfattere i mellomlageret"
+
 #. Resource IDs: (1161)
 msgid "Number of authors:"
 msgstr "Antall forfattere:"
+
+#. Resource IDs: (339)
+msgid "Number of cached merged revisions"
+msgstr "Antall mellomlagrede flettede revisjoner"
+
+#. Resource IDs: (339)
+msgid "Number of cached revisions"
+msgstr "Antall mellomlagrede revisjoner"
+
+#. Resource IDs: (339)
+msgid "Number of cached user revision properties"
+msgstr "Antall mellomlagrede bruker-revisjonsegenskaper"
+
+#. Resource IDs: (339)
+msgid "Number of changed cached revisions"
+msgstr "Antall endrede mellomlagrede revisjoner"
+
+#. Resource IDs: (339)
+msgid "Number of changed revisions that are not cached yet"
+msgstr "Antall endrede revisjoner som ikke ennå er mellomlagret"
+
+#. Resource IDs: (338)
+msgid "Number of different paths shown in the log dialog, including parent paths"
+msgstr "Antall forskjellige stier som vises i loggdialogen, inkludert til overkataloger"
+
+#. Resource IDs: (339)
+msgid "Number of merged revisions that are not cached yet"
+msgstr "Antall flettede revisjoner som ikke ennå er mellomlagret"
+
+#. Resource IDs: (338)
+msgid "Number of path elements. This is an internal value indicating the compression level."
+msgstr "Antall stielementer. Dette er en intern verdi som indikerer kompresjonsnivå."
+
+#. Resource IDs: (339)
+msgid "Number of user revision properties that are not cached yet"
+msgstr "Antall bruker-revisjonsegenskaper som ikke ennå er mellomlagret"
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -4509,7 +4584,7 @@ msgstr "Korriger valgte"
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "Korreksjonsfiler (*.diff, *.patch)|*.diff;*.patch|Alle (*.*)|*.*||"
 
-#. Resource IDs: (20, 77, 198)
+#. Resource IDs: (20, 77, 198, 207)
 msgid "Path"
 msgstr "Filsti"
 
@@ -5210,7 +5285,7 @@ msgstr ""
 "Loggmelding:\r\n"
 "%s"
 
-#. Resource IDs: (116)
+#. Resource IDs: (116, 65535)
 msgid "Revisions"
 msgstr "Revisjoner"
 
@@ -5768,6 +5843,14 @@ msgstr "Størrelse"
 #. Resource IDs: (65535)
 msgid "Size and status"
 msgstr "Størrelse og status"
+
+#. Resource IDs: (339)
+msgid "Size of all cached text information"
+msgstr "Størrelsen på all mellomlagret tekstinformasjon"
+
+#. Resource IDs: (339)
+msgid "Size of the cache if it were not compressed"
+msgstr "Mellomlagerets størrelse hvis det ikke var komprimert"
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -6617,6 +6700,18 @@ msgstr "Totalt analyserte innsendiger:"
 msgid "Total file changes:"
 msgstr "Totalt antall filendringer:"
 
+#. Resource IDs: (339)
+msgid "Total number of changed revisions"
+msgstr "Totalt antall endrede revisjoner"
+
+#. Resource IDs: (339)
+msgid "Total number of merged revisions"
+msgstr "Totalt antall flettede revisjoner"
+
+#. Resource IDs: (339)
+msgid "Total number of user revision properties"
+msgstr "Totalt antall bruker-revisjonsegenskaper"
+
 #. Resource IDs: (357)
 #, c-format
 msgid "Transferring at %s"
@@ -6788,7 +6883,7 @@ msgstr "Ikke-versjonerte filer markerer mappen over som endret"
 msgid "Unversioning %s"
 msgstr "Av-versjonerer %s"
 
-#. Resource IDs: (152, 230)
+#. Resource IDs: (152, 230, 1436)
 msgid "Update"
 msgstr "Oppdater"
 
@@ -7273,6 +7368,10 @@ msgstr "Zoom ut"
 #. Resource IDs: (2051)
 msgid "Zoom to fit"
 msgstr "Zoom til ramme"
+
+#. Resource IDs: (338)
+msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
+msgstr "\"oversette intervaller\" brukes for å merke revisjonsintervaller som ikke ennå har blitt mellomlagret"
 
 #. Resource IDs: (10)
 msgid "added"
