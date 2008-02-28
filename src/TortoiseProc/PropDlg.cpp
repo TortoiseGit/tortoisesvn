@@ -80,7 +80,7 @@ BOOL CPropDlg::OnInitDialog()
 
 	AddAnchor(IDC_PROPERTYLIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_CENTER);
-	EnableSaveRestore(_T("PropDlg"));
+	EnableSaveRestore(_T("PropDlg"), TRUE);
 	return TRUE;
 }
 

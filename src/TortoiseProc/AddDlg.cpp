@@ -78,7 +78,7 @@ BOOL CAddDlg::OnInitDialog()
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("AddDlg"));
+	EnableSaveRestore(_T("AddDlg"), TRUE);
 
 	//first start a thread to obtain the file list with the status without
 	//blocking the dialog

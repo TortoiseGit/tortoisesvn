@@ -149,7 +149,7 @@ BOOL CCheckoutDlg::OnInitDialog()
 
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("CheckoutDlg"));
+	EnableSaveRestore(_T("CheckoutDlg"), TRUE);
 	return TRUE;
 }
 

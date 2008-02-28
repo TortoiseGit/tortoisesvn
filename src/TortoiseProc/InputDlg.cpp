@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -101,7 +101,7 @@ BOOL CInputDlg::OnInitDialog()
 	AddAnchor(IDC_CHECKBOX, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
-	EnableSaveRestore(_T("InputDlg"));
+	EnableSaveRestore(_T("InputDlg"), TRUE);
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	GetDlgItem(IDC_INPUTTEXT)->SetFocus();

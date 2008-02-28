@@ -110,7 +110,7 @@ BOOL CSwitchDlg::OnInitDialog()
 
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("SwitchDlg"));
+	EnableSaveRestore(_T("SwitchDlg"), TRUE);
 	return TRUE;
 }
 

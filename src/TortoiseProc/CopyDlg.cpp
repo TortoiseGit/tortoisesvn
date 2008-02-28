@@ -165,7 +165,7 @@ BOOL CCopyDlg::OnInitDialog()
 
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("CopyDlg"));
+	EnableSaveRestore(_T("CopyDlg"), TRUE);
 
 	m_bSettingChanged = false;
 	// start a thread to obtain the highest revision number of the working copy

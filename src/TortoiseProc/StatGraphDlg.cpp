@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -214,7 +214,7 @@ BOOL CStatGraphDlg::OnInitDialog()
 	AddAnchor(IDC_SKIPPER, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SKIPPERLABEL, BOTTOM_LEFT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
-	EnableSaveRestore(_T("StatGraphDlg"));
+	EnableSaveRestore(_T("StatGraphDlg"), TRUE);
 
 	// gather statistics data, only needs to be updated when the checkbox with 
 	// the case sensitivity of author names is changed

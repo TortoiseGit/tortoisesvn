@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2008 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -109,7 +109,7 @@ BOOL CLockDlg::OnInitDialog()
 
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("LockDlg"));
+	EnableSaveRestore(_T("LockDlg"), TRUE);
 
 	// start a thread to obtain the file list with the status without
 	// blocking the dialog

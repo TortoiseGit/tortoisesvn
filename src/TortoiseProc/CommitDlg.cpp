@@ -191,7 +191,7 @@ BOOL CCommitDlg::OnInitDialog()
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("CommitDlg"));
+	EnableSaveRestore(_T("CommitDlg"), TRUE);
 	DWORD yPos = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\CommitDlgSizer"));
 	if (yPos)
 	{

@@ -679,7 +679,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
 	SetPromptParentWindow(this->m_hWnd);
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("SVNProgressDlg"));
+	EnableSaveRestore(_T("SVNProgressDlg"), TRUE);
 	return TRUE;
 }
 

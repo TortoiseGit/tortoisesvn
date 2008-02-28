@@ -161,7 +161,7 @@ BOOL CFileDiffDlg::OnInitDialog()
 	
 	SetURLLabels();
 
-	EnableSaveRestore(_T("FileDiffDlg"));
+	EnableSaveRestore(_T("FileDiffDlg"), TRUE);
 
 	InterlockedExchange(&m_bThreadRunning, TRUE);
 	if (AfxBeginThread(DiffThreadEntry, this)==NULL)

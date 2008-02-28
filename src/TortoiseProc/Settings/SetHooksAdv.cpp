@@ -105,7 +105,7 @@ BOOL CSetHooksAdv::OnInitDialog()
 	AddAnchor(IDC_HIDECHECK, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
-	EnableSaveRestore(_T("SetHooksAdvDlg"));
+	EnableSaveRestore(_T("SetHooksAdvDlg"), TRUE);
 	return TRUE;
 }
 

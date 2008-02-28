@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -98,7 +98,7 @@ BOOL CImportDlg::OnInitDialog()
 
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("ImportDlg"));
+	EnableSaveRestore(_T("ImportDlg"), TRUE);
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 

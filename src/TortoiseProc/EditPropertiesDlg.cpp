@@ -127,7 +127,7 @@ BOOL CEditPropertiesDlg::OnInitDialog()
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("EditPropertiesDlg"));
+	EnableSaveRestore(_T("EditPropertiesDlg"), TRUE);
 
 	InterlockedExchange(&m_bThreadRunning, TRUE);
 	if (AfxBeginThread(PropsThreadEntry, this)==NULL)
