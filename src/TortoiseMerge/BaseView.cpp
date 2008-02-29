@@ -2153,7 +2153,8 @@ void CBaseView::OnEditCopy()
 		sCopyData += m_pViewData->GetLine(i);
 		sCopyData += _T("\r\n");
 	}
-	sCopyData.TrimRight(_T("\r\n"));
+	// remove the last \r\n
+	sCopyData = sCopyData.Left(sCopyData.GetLength()-2);
 	// remove the non-selected chars from the first line
 	sCopyData = sCopyData.Mid(m_ptSelectionStartPos.x);
 	// remove the non-selected chars from the last line
