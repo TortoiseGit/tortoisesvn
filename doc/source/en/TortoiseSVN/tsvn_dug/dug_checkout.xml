@@ -84,10 +84,15 @@
 			</variablelist>
 		</para>
 		<para>
+			<para>
 			If you check out a sparse working copy (i.e., by choosing something other
 			than <literal>fully recursive</literal> for the checkout depth), you can
 			fetch additional sub-folders by using the repository browser
-			(<xref linkend="tsvn-dug-repobrowser" />).
+			(<xref linkend="tsvn-dug-repobrowser" />) or the check for modifications dialog
+			(<xref linkend="tsvn-dug-wcstatus-2" />).
+			</para>
+			<para>
+			In the repository browser,
 			<action>Right click</action> on the checked out folder, then use
 			<menuchoice>
 				<guimenu>TortoiseSVN</guimenu>
@@ -101,6 +106,19 @@
 			</menuchoice>
 			That menu will only be visible if the selected item does not exist yet
 			in your working copy, but the parent item does exist.
+			</para>
+			<para>
+			In the check for modifications dialog, first click on the button
+			<guibutton>Check repository</guibutton>. The dialog will show all
+			the files and folders which are in the repository but which you
+			have not checked out as <literal>remotely added</literal>.
+			<action>Right click</action> on the folder(s) you like to add
+			to your working copy, then use
+			<menuchoice>
+				<guimenu>Context menu</guimenu>
+				<guimenuitem>Update</guimenuitem>
+			</menuchoice>.
+			</para>
 		</para>
 	</sect2>
 	<para>
