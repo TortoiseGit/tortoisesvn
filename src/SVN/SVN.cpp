@@ -1055,6 +1055,30 @@ BOOL SVN::PegMerge(const CTSVNPath& source, SVNRevRangeArray revrangearray, SVNR
 	return TRUE;
 }
 
+BOOL SVN::MergeReintegrate(const CTSVNPath& source, SVNRev pegrevision, const CTSVNPath& wcpath, BOOL force, BOOL dryrun, const CString& options)
+{
+	SVNPool subpool(pool);
+	apr_array_header_t *opts;
+
+	opts = svn_cstring_split (CUnicodeUtils::GetUTF8(options), " \t\n\r", TRUE, subpool);
+
+	svn_error_clear(Err);
+	Err = svn_client_merge_reintegrate(source.GetSVNApiPath(subpool),
+		pegrevision,
+		wcpath.GetSVNApiPath(subpool),
+		force,
+		dryrun,
+		opts,
+		m_pctx,
+		subpool);
+	if (Err != NULL)
+	{
+		return FALSE;
+	}
+
+	return TRUE;
+}
+
 BOOL SVN::SuggestMergeSources(const CTSVNPath& targetpath, const SVNRev& revision, CTSVNPathList& sourceURLs)
 {
 	SVNPool subpool(pool);

@@ -456,6 +456,10 @@ public:
 		const CTSVNPath& destpath, BOOL force, svn_depth_t depth, const CString& options, 
 		BOOL ignoreancestry = FALSE, BOOL dryrun = FALSE, BOOL record_only = FALSE);
 	/**
+	 * Performs a reintegration merge of \c source into \c wcpath.
+	 */
+	BOOL MergeReintegrate(const CTSVNPath& source, SVNRev pegrevision, const CTSVNPath& wcpath, BOOL force, BOOL dryrun, const CString& options);
+	/**
 	 * Returns a list of suggested source URLs for the given \c targetpath in \c revision.
 	 */
 	BOOL SuggestMergeSources(const CTSVNPath& targetpath, const SVNRev& revision, CTSVNPathList& sourceURLs);
