@@ -2707,11 +2707,33 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					{
 						CTSVNPathList targetList;
 						FillListOfSelectedItemPaths(targetList);
-						CSVNProgressDlg dlg;
-						dlg.SetCommand(CSVNProgressDlg::SVNProgress_Update);
-						dlg.SetPathList(targetList);
-						dlg.SetRevision(SVNRev::REV_HEAD);
-						dlg.DoModal();
+						bool bAllExist = true;
+						for (int i=0; i<targetList.GetCount(); ++i)
+						{
+							if (!targetList[i].Exists())
+							{
+								bAllExist = false;
+								break;
+							}
+						}
+						if (bAllExist)
+						{
+							CSVNProgressDlg dlg;
+							dlg.SetCommand(CSVNProgressDlg::SVNProgress_Update);
+							dlg.SetPathList(targetList);
+							dlg.SetRevision(SVNRev::REV_HEAD);
+							dlg.DoModal();
+						}
+						else
+						{
+							CString sTempFile = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString();
+							targetList.WriteToFile(sTempFile, false);
+							CString sCmd;
+							sCmd.Format(_T("\"%s\" /command:update /rev /pathfile:\"%s\" /deletepathfile"),
+								CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), sTempFile);
+
+							CAppUtils::LaunchApplication(sCmd, NULL, false);
+						}
 					}
 					break;
 				case IDSVNLC_LOG:
