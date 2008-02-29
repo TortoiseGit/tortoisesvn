@@ -753,7 +753,10 @@ CSVNStatusListCtrl::AddNewFileEntry(
 	}
 	else
 	{
-		entry->isfolder = path.IsDirectory();
+		if (pSVNStatus->ood_kind == svn_node_none)
+			entry->isfolder = path.IsDirectory();
+		else
+			entry->isfolder = (pSVNStatus->ood_kind == svn_node_dir);
 	}
 	if (pSVNStatus->repos_lock)
 	{
