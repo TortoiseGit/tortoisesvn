@@ -30,12 +30,12 @@
 			where you can either choose
 			<menuchoice>
 				<guimenu>Context Menu</guimenu>
-				<guimenuitem>Copy in Subversion to here</guimenuitem>
+				<guimenuitem>SVN Copy versioned files here</guimenuitem>
 			</menuchoice>.
 			or
 			<menuchoice>
 				<guimenu>Context Menu</guimenu>
-				<guimenuitem>Move in Subversion to here</guimenuitem>
+				<guimenuitem>SVN Move versioned files here</guimenuitem>
 			</menuchoice>.
 		</para>
 		<para>
@@ -154,7 +154,7 @@
 							<guimenuitem>Show Log</guimenuitem>
 						</menuchoice>
 						to display a list of revisions. You may need to use
-						<guibutton>Get All</guibutton> or
+						<guibutton>Show All</guibutton> or
 						<guibutton>Next 100</guibutton>
 						to show the revision(s) you are interested in.
 					</para>
@@ -163,7 +163,7 @@
 					<para>
 						Select the revision you wish to revert. If you want
 						to undo a range of revisions, select the first one
-						and hold the shift key while selecting the last one.
+						and hold the <keycap>Shift</keycap> key while selecting the last one.
 						Note that for multiple revisions, the range must be
 						unbroken with no gaps.
 						<action>Right click</action> on the selected revision(s),
