@@ -2015,9 +2015,9 @@ int CRevisionGraph::AssignOneRowPerRevision()
 		entry->row = row;
 	}
 
-	// return number of rows
+	// return first unused rows
 
-	return row;
+	return row+1;
 }
 
 int CRevisionGraph::AssignOneRowPerBranchNode (CRevisionEntry* start, int row)
@@ -2043,7 +2043,7 @@ int CRevisionGraph::AssignOneRowPerBranchNode (CRevisionEntry* start, int row)
 		}
 	}
 
-	// return number of rows
+	// return first unused row
 
 	return maxRow;
 }
