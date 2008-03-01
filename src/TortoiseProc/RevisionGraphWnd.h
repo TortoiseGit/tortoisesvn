@@ -64,7 +64,8 @@ enum NodeShape
 #define NODE_SPACE_BOTTOM		20.0f
 
 #define MAXFONTS				4
-#define	MAX_TT_LENGTH			1000
+#define	MAX_TT_LENGTH			60000
+#define	MAX_TT_LENGTH_DEFAULT	1000
 
 
 
@@ -160,6 +161,10 @@ private:
 	CRect *			GetViewSize();
 	CRect *			GetGraphSize();
 	CFont*			GetFont(BOOL bItalic = FALSE, BOOL bBold = FALSE);
+
+    CSize           UsableTooltipRect();
+    CString         DisplayableText (const CString& wholeText, const CSize& tooltipSize);
+    CString         TooltipText (CRevisionEntry* rentry);
 
     CRevisionEntry* GetHitNode (CPoint point) const;
 

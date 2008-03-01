@@ -512,59 +512,7 @@ BOOL CRevisionGraphWnd::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
 	{
         rentry = GetHitNode (point);
         if (rentry)
-		{
-			const CCachedLogInfo* cache = query->GetCache();
-			const CRevisionIndex& revisions = cache->GetRevisions();
-			const CRevisionInfoContainer& revisionInfo = cache->GetLogInfo();
-
-			index_t index = revisions[rentry->revision];
-
-			TCHAR date[SVN_DATE_BUFFER];
-			apr_time_t timeStamp = revisionInfo.GetTimeStamp(index);
-			SVN::formatDate(date, timeStamp);
-
-            if (rentry->tags.empty())
-            {
-			    strTipText.Format(IDS_REVGRAPH_BOXTOOLTIP,
-							    rentry->revision,
-							    CUnicodeUtils::StdGetUnicode(rentry->realPath.GetPath()).c_str(),
-								CUnicodeUtils::StdGetUnicode(revisionInfo.GetAuthor(index)).c_str(), 
-							    date,
-								CUnicodeUtils::StdGetUnicode(revisionInfo.GetComment(index)).c_str());
-            }
-            else
-            {
-                CString tags;
-                for (size_t i = 0; i < rentry->tags.size(); ++i)
-                {
-                    const CRevisionEntry::SFoldedTag& tag = rentry->tags[i];
-
-                    UINT format = tag.isAlias
-                                ? tag.isDeleted
-                                    ? IDS_REVGRAPH_TAGALIASDELETED
-                                    : IDS_REVGRAPH_TAGALIAS
-                                : tag.isDeleted
-                                    ? IDS_REVGRAPH_TAGDELETED
-                                    : IDS_REVGRAPH_TAG;
-
-                    CString tagInfo;
-                    tagInfo.Format ( format
-                                   , CUnicodeUtils::StdGetUnicode (tag.tag.GetPath()).c_str());
-
-                    tags +=   _T("\r\n")
-                            + CString (' ', tag.depth * 6) 
-                            + tagInfo;
-                }
-
-			    strTipText.Format(IDS_REVGRAPH_BOXTOOLTIP_TAGGED,
-							    rentry->revision,
-							    CUnicodeUtils::StdGetUnicode(rentry->realPath.GetPath()).c_str(),
-							    CUnicodeUtils::StdGetUnicode(revisionInfo.GetAuthor(index)).c_str(), 
-							    date,
-                                (LPCTSTR)tags,
-							    CUnicodeUtils::StdGetUnicode(revisionInfo.GetComment(index)).c_str());
-            }
-		}
+            strTipText = TooltipText (rentry);
 	}
 	else
 		return FALSE;
@@ -573,27 +521,200 @@ BOOL CRevisionGraphWnd::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
 	if (strTipText.IsEmpty())
 		return TRUE;
 		
-	if (strTipText.GetLength() >= MAX_TT_LENGTH)
-    {
-		strTipText = strTipText.Left(MAX_TT_LENGTH-4) + _T(" ...");
-    }
+    CSize tooltipSize = UsableTooltipRect();
+    strTipText = DisplayableText (strTipText, tooltipSize);
 
 	if (pNMHDR->code == TTN_NEEDTEXTA)
 	{
-		::SendMessage(pNMHDR->hwndFrom, TTM_SETMAXTIPWIDTH, 0, 600);
+        ::SendMessage(pNMHDR->hwndFrom, TTM_SETMAXTIPWIDTH, 0, tooltipSize.cx);
 		pTTTA->lpszText = m_szTip;
 		WideCharToMultiByte(CP_ACP, 0, strTipText, -1, m_szTip, strTipText.GetLength()+1, 0, 0);
 	}
 	else
 	{
-		::SendMessage(pNMHDR->hwndFrom, TTM_SETMAXTIPWIDTH, 0, 600);
+		::SendMessage(pNMHDR->hwndFrom, TTM_SETMAXTIPWIDTH, 0, tooltipSize.cx);
 		lstrcpyn(m_wszTip, strTipText, strTipText.GetLength()+1);
 		pTTTW->lpszText = m_wszTip;
 	}
+
 	// show the tooltip for 32 seconds. A higher value than 32767 won't work
 	// even though it's nowhere documented!
 	::SendMessage(pNMHDR->hwndFrom, TTM_SETDELAYTIME, TTDT_AUTOPOP, 32767);
 	return TRUE;    // message was handled
+}
+
+CSize CRevisionGraphWnd::UsableTooltipRect()
+{
+    // get screen size
+
+    int screenWidth = GetSystemMetrics(SM_CXSCREEN);
+    int screenHeight = GetSystemMetrics(SM_CYSCREEN);
+
+    // get current mouse position
+
+    CPoint cursorPos;
+    if (GetCursorPos (&cursorPos) == FALSE)
+    {
+        // we could not determine the mouse position 
+        // use screen / 2 minus some safety margin
+
+        return CSize (screenWidth / 2 - 10, screenHeight / 2 - 10);
+    }
+
+    // tool tip will display in the biggest sector beside the cursor
+    // deduct some safety margin (for the mouse cursor itself
+
+    CSize biggestSector
+        ( max (screenWidth - cursorPos.x - 20, cursorPos.x - 4)
+        , max (screenHeight - cursorPos.y - 20, cursorPos.y - 4));
+
+    return biggestSector;
+}
+
+CString CRevisionGraphWnd::DisplayableText ( const CString& wholeText
+                                           , const CSize& tooltipSize)
+{
+    CDC* dc = GetDC();
+    if (dc == NULL)
+    {
+        // no access to the device context -> truncate hard at 1000 chars
+
+        return wholeText.GetLength() >= MAX_TT_LENGTH_DEFAULT
+            ? wholeText.Left (MAX_TT_LENGTH_DEFAULT-4) + _T(" ...")
+            : wholeText;
+    }
+
+    // select the tooltip font
+
+    NONCLIENTMETRICS metrics;
+    metrics.cbSize = sizeof (metrics);
+    SystemParametersInfo (SPI_GETNONCLIENTMETRICS, sizeof(NONCLIENTMETRICS), &metrics, 0);
+
+    CFont font;
+    font.CreateFontIndirect(&metrics.lfStatusFont);
+    CFont* pOldFont = dc->SelectObject (&font); 
+
+    // split into lines and fill the tooltip rect
+
+    CString result;
+
+    int remainingHeight = tooltipSize.cy;
+    int pos = 0;
+    while (pos < wholeText.GetLength())
+    {
+        // extract a whole line
+
+        int nextPos = wholeText.Find ('\n', pos);
+        if (nextPos < 0)
+            nextPos = wholeText.GetLength();
+
+        CString line = wholeText.Mid (pos, nextPos-pos+1);
+
+        // find a way to make it fit
+
+        CSize size = dc->GetTextExtent (line);
+        while (size.cx > tooltipSize.cx)
+        {
+            line.Delete (line.GetLength()-1);
+            int nextPos = line.ReverseFind (' ');
+            if (nextPos < 0)
+                break;
+
+            line.Delete (pos+1, line.GetLength() - pos-1);
+            size = dc->GetTextExtent (line);
+        }
+
+        // enough room for the new line?
+
+        remainingHeight -= size.cy;
+        if (remainingHeight <= size.cy)
+        {
+            result += _T("...");
+            break;
+        }
+
+        // add the line
+
+        result += line;
+        pos += line.GetLength();
+    }
+        
+    // relase temp. resources
+
+    dc->SelectObject (pOldFont);
+    ReleaseDC(dc);
+
+    // ready
+
+    return result;
+}
+
+CString CRevisionGraphWnd::TooltipText (CRevisionEntry* rentry)
+{
+    CString strTipText;
+
+    const CCachedLogInfo* cache = query->GetCache();
+    const CRevisionIndex& revisions = cache->GetRevisions();
+    const CRevisionInfoContainer& revisionInfo = cache->GetLogInfo();
+
+    // find the revision in our cache. 
+    // May not be present if this is the WC / HEAD revision.
+
+    index_t index = revisions[rentry->revision];
+    if (index == NO_INDEX)
+        return strTipText;
+
+    // construct the tooltip
+
+	TCHAR date[SVN_DATE_BUFFER];
+	apr_time_t timeStamp = revisionInfo.GetTimeStamp(index);
+	SVN::formatDate(date, timeStamp);
+
+    if (rentry->tags.empty())
+    {
+	    strTipText.Format(IDS_REVGRAPH_BOXTOOLTIP,
+					    rentry->revision,
+					    CUnicodeUtils::StdGetUnicode(rentry->realPath.GetPath()).c_str(),
+						CUnicodeUtils::StdGetUnicode(revisionInfo.GetAuthor(index)).c_str(), 
+					    date,
+						CUnicodeUtils::StdGetUnicode(revisionInfo.GetComment(index)).c_str());
+    }
+    else
+    {
+        CString tags;
+        for (size_t i = 0; i < rentry->tags.size(); ++i)
+        {
+            const CRevisionEntry::SFoldedTag& tag = rentry->tags[i];
+
+            UINT format = tag.isAlias
+                        ? tag.isDeleted
+                            ? IDS_REVGRAPH_TAGALIASDELETED
+                            : IDS_REVGRAPH_TAGALIAS
+                        : tag.isDeleted
+                            ? IDS_REVGRAPH_TAGDELETED
+                            : IDS_REVGRAPH_TAG;
+
+            CString tagInfo;
+            tagInfo.Format ( format
+                           , CUnicodeUtils::StdGetUnicode (tag.tag.GetPath()).c_str());
+
+            tags +=   _T("\r\n")
+                    + CString (' ', tag.depth * 6) 
+                    + tagInfo;
+        }
+
+	    strTipText.Format(IDS_REVGRAPH_BOXTOOLTIP_TAGGED,
+					    rentry->revision,
+					    CUnicodeUtils::StdGetUnicode(rentry->realPath.GetPath()).c_str(),
+					    CUnicodeUtils::StdGetUnicode(revisionInfo.GetAuthor(index)).c_str(), 
+					    date,
+                        (LPCTSTR)tags,
+					    CUnicodeUtils::StdGetUnicode(revisionInfo.GetComment(index)).c_str());
+    }
+
+    // ready
+
+    return strTipText;
 }
 
 void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
