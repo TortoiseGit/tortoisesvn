@@ -135,7 +135,7 @@ BOOL CSetLogCache::OnInitDialog()
 	temp.LoadString(IDS_SETTINGS_REPOSITORY_URL);
 	m_cRepositoryList.InsertColumn (0, temp, LVCFMT_LEFT, 289);
 	temp.LoadString(IDS_SETTINGS_REPOSITORY_SIZE);
-	m_cRepositoryList.InsertColumn (1, temp, LVCFMT_RIGHT, 96);
+	m_cRepositoryList.InsertColumn (1, temp, LVCFMT_RIGHT, 95);
 
     FillRepositoryList();
 
