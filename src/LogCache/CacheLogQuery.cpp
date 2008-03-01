@@ -738,8 +738,8 @@ revision_t CCacheLogQuery::FillLog ( revision_t startRevision
 
 void CCacheLogQuery::GetChanges 
     ( LogChangedPathArray& result
-    , CRevisionInfoContainer::CChangesIterator& first
-    , CRevisionInfoContainer::CChangesIterator& last)
+    , CRevisionInfoContainer::CChangesIterator first
+    , const CRevisionInfoContainer::CChangesIterator& last)
 {
 	for (; first != last; ++first)
 	{
@@ -791,8 +791,8 @@ void CCacheLogQuery::GetChanges
 
 void CCacheLogQuery::GetUserRevProps 
     ( UserRevPropArray& result
-    , CRevisionInfoContainer::CUserRevPropsIterator& first
-	, CRevisionInfoContainer::CUserRevPropsIterator& last
+    , CRevisionInfoContainer::CUserRevPropsIterator first
+	, const CRevisionInfoContainer::CUserRevPropsIterator& last
     , const TRevPropNames& userRevProps)
 {
     TRevPropNames::const_iterator begin = userRevProps.begin();
@@ -1055,9 +1055,15 @@ CDictionaryBasedTempPath CCacheLogQuery::TranslatePegRevisionPath
 	CCopyFollowingLogIterator iterator (cache, pegRevision, startPath);
 	iterator.Retry();
 
+	CString url = CUnicodeUtils::GetUnicode (URL);
+    bool offline = repositoryInfoCache->IsOffline (url, false);
+
 	while ((iterator.GetRevision() > startRevision) && !iterator.EndOfPath())
 	{
-		if (iterator.DataIsMissing())
+        // try to fill gaps but try to connect the server only once
+        // (i.e. if we went "offline", don't try to connect a second time)
+
+		if (!offline && iterator.DataIsMissing())
         {
             CLogOptions options (false);
 			FillLog ( iterator.GetRevision()
@@ -1066,9 +1072,16 @@ CDictionaryBasedTempPath CCacheLogQuery::TranslatePegRevisionPath
 					, 0
 					, options
                     , CDataAvailable (cache, options));
+
+            offline = repositoryInfoCache->IsOffline (url, false);
         }
 
-		iterator.Advance();
+        // skip ranges of missing data (happens if we are "offline")
+
+		if (offline && iterator.DataIsMissing())
+            iterator.ToNextAvailableData();
+        else
+    		iterator.Advance();
 	}
 
 	return iterator.GetPath();

@@ -306,13 +306,13 @@ private:
 
 	/// fill the receiver's change list buffer 
 	void GetChanges ( LogChangedPathArray& result
-                    , CRevisionInfoContainer::CChangesIterator& first
-		            , CRevisionInfoContainer::CChangesIterator& last);
+                    , CRevisionInfoContainer::CChangesIterator first
+		            , const CRevisionInfoContainer::CChangesIterator& last);
 
     /// fill the receiver's user rev-prop list buffer 
     void GetUserRevProps ( UserRevPropArray& result
-                         , CRevisionInfoContainer::CUserRevPropsIterator& first
-	                     , CRevisionInfoContainer::CUserRevPropsIterator& last
+                         , CRevisionInfoContainer::CUserRevPropsIterator first
+	                     , const CRevisionInfoContainer::CUserRevPropsIterator& last
                          , const TRevPropNames& userRevProps);
 
     /// relay an existing cache entry to the receiver
