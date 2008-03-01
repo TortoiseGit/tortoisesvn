@@ -50,22 +50,26 @@ All user/site specific configuration is stored in doc.build.user.
 			<property name="doc.target.name" value="${app}_${lang.target}"/>
 			<property name="doc.target.work" value="output/${doc.target.name}"/>
 			<property name="doc.target.source" value="source/${lang.target}/${app}/${app}.xml"/>
+			<property name="pofiletotranslate" value="po/${app}_${lang.target}.po" />
 
 			<echo message="------------------------------------------------------------"/>
 			<echo message="Creating '${doc.target.name}' documentation"/>
 
-			<call target="translate" unless="${lang.base==lang.target}"/>
+			<if test="${file::exists(pofiletotranslate)}" >
+				<call target="translate" unless="${lang.base==lang.target}" />
+			</if>
+			<if test="${lang.base==lang.target or file::exists(pofiletotranslate)}" >
+				<!-- update version info in version.xml -->
+				<call target="UpdateVersionInfo"/>
 
-			<!-- update version info in version.xml -->
-			<call target="UpdateVersionInfo"/>
+				<call target="spellcheck" if="${property::exists('spellcheck') and spellcheck=='true'}"/>
+				<call target="copyimages"/>
 
-			<call target="spellcheck" if="${property::exists('spellcheck') and spellcheck=='true'}"/>
-			<call target="copyimages"/>
-
-			<property name="xslt.source" value="${doc.target.source}"/>
-			<foreach item="String" in="${docformats}" delim="," property="docformat">
-				<call target="${docformat}"/>
-			</foreach>
+				<property name="xslt.source" value="${doc.target.source}"/>
+				<foreach item="String" in="${docformats}" delim="," property="docformat">
+					<call target="${docformat}"/>
+				</foreach>
+			</if>
 		</foreach>
 	</target>
 	
