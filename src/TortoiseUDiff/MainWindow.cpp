@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -280,7 +280,12 @@ bool CMainWindow::Initialize()
 	m_directPointer = SendMessage(m_hWndEdit, SCI_GETDIRECTPOINTER, 0, 0);
 
 	// Set up the global default style. These attributes are used wherever no explicit choices are made.
-	SetAStyle(STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOWTEXT), ::GetSysColor(COLOR_WINDOW), 10, "Courier New");
+	SetAStyle(STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOWTEXT), ::GetSysColor(COLOR_WINDOW),
+		// Reusing TortoiseBlame's setting which already have an user friendly
+		// pane in TortoiseSVN's Settings dialog, while there is no such
+		// pane for TortoiseUDiff.
+		CRegStdWORD(_T("Software\\TortoiseSVN\\BlameFontSize"), 10),
+		WideToMultibyte(CRegStdString(_T("Software\\TortoiseSVN\\BlameFontName"), _T("Courier New"))).c_str());
 	SendEditor(SCI_SETTABWIDTH, 4);
 	SendEditor(SCI_SETREADONLY, TRUE);
 	LRESULT pix = SendEditor(SCI_TEXTWIDTH, STYLE_LINENUMBER, (LPARAM)"_99999");
