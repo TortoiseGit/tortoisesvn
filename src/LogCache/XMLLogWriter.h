@@ -63,8 +63,8 @@ private:
 	// write <paths> tag
 	
 	static void WriteChanges ( CBufferedOutFile& file
-							 , CChangesIterator& iter	
-							 , CChangesIterator& last);
+							 , CChangesIterator iter	
+							 , const CChangesIterator& last);
 
 	// write <logentry> tag
 

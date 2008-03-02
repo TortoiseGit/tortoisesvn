@@ -72,8 +72,8 @@ void CXMLLogWriter::WriteTimeStamp ( CBufferedOutFile& file
 ///////////////////////////////////////////////////////////////
 
 void CXMLLogWriter::WriteChanges ( CBufferedOutFile& file
-								 , CChangesIterator& iter	
-								 , CChangesIterator& last)	
+								 , CChangesIterator iter	
+								 , const CChangesIterator& last)	
 {
 	// empty change sets won't show up in the log
 
