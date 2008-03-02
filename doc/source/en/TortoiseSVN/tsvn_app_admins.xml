@@ -17,6 +17,15 @@
 		<indexterm>
 			<primary>GPO</primary>
 		</indexterm>
+		<indexterm>
+			<primary>msi</primary>
+		</indexterm>
+		<indexterm>
+			<primary>domain controller</primary>
+		</indexterm>
+		<indexterm>
+			<primary>deploy</primary>
+		</indexterm>
 		<para>
 			The TortoiseSVN installer comes as an MSI file, which means you
 			should have no problems adding that MSI file to the group policies
@@ -44,6 +53,12 @@
 		<title>Redirect the upgrade check</title>
 		<indexterm>
 			<primary>upgrade check</primary>
+		</indexterm>
+		<indexterm>
+			<primary>check new version</primary>
+		</indexterm>
+		<indexterm>
+			<primary>version</primary>
 		</indexterm>
 		<para>
 			TortoiseSVN checks if there's a new version available every few days.
@@ -89,6 +104,12 @@ http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi
 		<indexterm>
 			<primary>SVN_ASP_DOT_NET_HACK</primary>
 		</indexterm>
+		<indexterm>
+			<primary>VS2003</primary>
+		</indexterm>
+		<indexterm>
+			<primary>ASP projects</primary>
+		</indexterm>
 		<para>
 			As of version 1.4.0 and later, the TortoiseSVN installer doesn't provide
 			the user with the option to set the <literal>SVN_ASP_DOT_NET_HACK</literal>
@@ -111,6 +132,12 @@ msiexec /i TortoiseSVN-1.4.0.msi ASPDOTNETHACK=TRUE
 		<title>Disable context menu entries</title>
 		<indexterm>
 			<primary>context menu entries</primary>
+		</indexterm>
+		<indexterm>
+			<primary>disable functions</primary>
+		</indexterm>
+		<indexterm>
+			<primary>group policies</primary>
 		</indexterm>
 		<para>
 			As of version 1.5.0 and later, TortoiseSVN allows you to disable (actually, hide)

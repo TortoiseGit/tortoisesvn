@@ -28,6 +28,9 @@
 	</para>
 	<sect2 id="tsvn-dug-propertypage-props">
 		<title>Subversion Properties</title>
+		<indexterm>
+			<primary>Subversion properties</primary>
+		</indexterm>
 		<?dbhh topicname="HIDD_EDITPROPERTIES"?>
 		<?dbhh topicname="HIDD_EDITPROPERTYVALUE"?>
 		<para>
@@ -57,6 +60,9 @@
 			<title>svn:keywords</title>
 			<indexterm>
 				<primary>keywords</primary>
+			</indexterm>
+			<indexterm>
+				<primary>expand keywords</primary>
 			</indexterm>
 			<para>
 				Subversion supports CVS-like keyword expansion which can be
@@ -259,6 +265,12 @@
 	</sect2>
 	<sect2 id="tsvn-dug-propertypage-tsvn-props">
 		<title>TortoiseSVN Project Properties</title>
+		<indexterm>
+			<primary>project properties</primary>
+		</indexterm>
+		<indexterm>
+			<primary>TortoiseSVN properties</primary>
+		</indexterm>
 		<para>
 			TortoiseSVN has a few special properties of its own, and these begin
 			with <literal>tsvn:</literal>.

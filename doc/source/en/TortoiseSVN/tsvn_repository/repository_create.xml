@@ -2,6 +2,9 @@
 <!DOCTYPE sect1 SYSTEM "../../../dtd/dblite.dtd">
 <sect1 id="tsvn-repository-create">
 	<title>Repository Creation</title>
+	<indexterm>
+		<primary>create repository</primary>
+	</indexterm>
 	<para>
 		You can create a repository with the FSFS backend or with the
 		older Berkeley Database (BDB) format. The FSFS format

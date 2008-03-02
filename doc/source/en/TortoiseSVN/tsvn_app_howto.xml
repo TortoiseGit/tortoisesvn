@@ -13,6 +13,12 @@
 		<indexterm>
 			<primary>moving</primary>
 		</indexterm>
+		<indexterm>
+			<primary>rename</primary>
+		</indexterm>
+		<indexterm>
+			<primary>reorganize</primary>
+		</indexterm>
 		<para>
 			Moving/Copying single files can be done by using
 			<menuchoice>
@@ -48,6 +54,12 @@
 		<title>Force users to enter a log message</title>
 		<indexterm>
 			<primary>log message</primary>
+		</indexterm>
+		<indexterm>
+			<primary>commit message</primary>
+		</indexterm>
+		<indexterm>
+			<primary>empty message</primary>
 		</indexterm>
 		<para>
 			There are two ways to prevent users from committing with an empty
@@ -128,6 +140,15 @@
 		<title>Roll back (Undo) revisions in the repository</title>
 		<indexterm>
 			<primary>rollback</primary>
+		</indexterm>
+		<indexterm>
+			<primary>revert</primary>
+		</indexterm>
+		<indexterm>
+			<primary>undo commit</primary>
+		</indexterm>
+		<indexterm>
+			<primary>undo change</primary>
 		</indexterm>
 		<sect2 id="tsvn-howto-rollback-log">
 			<title>Use the revision log dialog</title>
@@ -278,6 +299,9 @@
 		<indexterm>
 			<primary>compare files</primary>
 		</indexterm>
+		<indexterm>
+			<primary>changes</primary>
+		</indexterm>
 		<para>
 			If you want to compare two revisions in a file's history,
 			for example revisions 100 and 200 of the same file, just use
@@ -328,6 +352,12 @@
 		<title>Include a common sub-project</title>
 		<indexterm>
 			<primary>common projects</primary>
+		</indexterm>
+		<indexterm>
+			<primary>externals</primary>
+		</indexterm>
+		<indexterm>
+			<primary>vendor projects</primary>
 		</indexterm>
 		<para>
 			Sometimes you will want to include another project within
@@ -460,6 +490,12 @@ TortoiseProc.exe /command:repobrowser /path:"url/to/repository"
 		<title>Ignore files which are already versioned</title>
 		<indexterm>
 			<primary>unversion</primary>
+		</indexterm>
+		<indexterm>
+			<primary>remove versioning</primary>
+		</indexterm>
+		<indexterm>
+			<primary>detach from repository</primary>
 		</indexterm>
 		<para>
 			If you accidentally added some files which should have been
