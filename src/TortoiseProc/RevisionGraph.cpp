@@ -686,6 +686,7 @@ void CRevisionGraph::BuildForwardCopies()
 
 	// for all revisions ...
 
+	copiesContainer.reserve (revisions.GetLastRevision());
 	for ( revision_t revision = revisions.GetFirstRevision()
 		, last = revisions.GetLastRevision()
 		; revision < last
