@@ -1055,7 +1055,7 @@ BOOL SVN::PegMerge(const CTSVNPath& source, SVNRevRangeArray revrangearray, SVNR
 	return TRUE;
 }
 
-BOOL SVN::MergeReintegrate(const CTSVNPath& source, SVNRev pegrevision, const CTSVNPath& wcpath, BOOL force, BOOL dryrun, const CString& options)
+BOOL SVN::MergeReintegrate(const CTSVNPath& source, SVNRev pegrevision, const CTSVNPath& wcpath, BOOL dryrun, const CString& options)
 {
 	SVNPool subpool(pool);
 	apr_array_header_t *opts;
@@ -1066,7 +1066,6 @@ BOOL SVN::MergeReintegrate(const CTSVNPath& source, SVNRev pegrevision, const CT
 	Err = svn_client_merge_reintegrate(source.GetSVNApiPath(subpool),
 		pegrevision,
 		wcpath.GetSVNApiPath(subpool),
-		force,
 		dryrun,
 		opts,
 		m_pctx,

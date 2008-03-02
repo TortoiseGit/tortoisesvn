@@ -458,7 +458,7 @@ public:
 	/**
 	 * Performs a reintegration merge of \c source into \c wcpath.
 	 */
-	BOOL MergeReintegrate(const CTSVNPath& source, SVNRev pegrevision, const CTSVNPath& wcpath, BOOL force, BOOL dryrun, const CString& options);
+	BOOL MergeReintegrate(const CTSVNPath& source, SVNRev pegrevision, const CTSVNPath& wcpath, BOOL dryrun, const CString& options);
 	/**
 	 * Returns a list of suggested source URLs for the given \c targetpath in \c revision.
 	 */
