@@ -70,7 +70,7 @@ revision_t CRevisionIndex::GetFirstMissingRevision() const
 
     // do we know the beginning of the history?
 
-    if (firstRevision > 0)
+    if (firstRevision > 1)
         return 0;
 
     // find first gap
