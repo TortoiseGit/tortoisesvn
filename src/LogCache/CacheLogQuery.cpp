@@ -530,7 +530,11 @@ void CCacheLogQuery::CMergeLogger::ReceiveLog
     assert (stdRevProps == NULL);
     assert (userRevProps == NULL);
 
-    // special case: end of merge list?
+    UNREFERENCED_PARAMETER(changes);
+    UNREFERENCED_PARAMETER(stdRevProps);
+    UNREFERENCED_PARAMETER(userRevProps);
+
+	// special case: end of merge list?
 
     if (rev == SVN_INVALID_REVNUM)
     {
