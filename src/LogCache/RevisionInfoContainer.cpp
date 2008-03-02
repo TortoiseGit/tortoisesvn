@@ -40,7 +40,6 @@ void CRevisionInfoContainer::UpdateAuthors
 {
 	index_mapping_t idMapping = authorPool.Merge (newData.authorPool);
 
-	index_t count = size();
 	for ( index_mapping_t::const_iterator iter = indexMap.begin()
 		, end = indexMap.end()
 		; iter != end
@@ -60,7 +59,6 @@ void CRevisionInfoContainer::UpdateTimeStamps
 	, const index_mapping_t& indexMap
     , bool keepOldDataForMissingNew)
 {
-	index_t count = size();
 	for ( index_mapping_t::const_iterator iter = indexMap.begin()
 		, end = indexMap.end()
 		; iter != end
@@ -82,7 +80,6 @@ void CRevisionInfoContainer::UpdateComments
 {
 	index_mapping_t toReplace;
 
-	index_t count = size();
 	for ( index_mapping_t::const_iterator iter = indexMap.begin()
 		, end = indexMap.end()
 		; iter != end
