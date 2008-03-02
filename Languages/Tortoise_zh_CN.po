@@ -56,7 +56,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-02-14 16:18+0800\n"
+"PO-Revision-Date: 2008-03-02 11:21+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -533,7 +533,7 @@ msgstr "忽略空白字符的变化(&I)"
 msgid "&Image Info"
 msgstr "图像信息(&I)"
 
-#. Resource IDs: (9)
+#. Resource IDs: (9, 1461)
 msgid "&Import..."
 msgstr "导入(&I)..."
 
@@ -1404,7 +1404,7 @@ msgstr "查找外部比较差异工具"
 msgid "Browse..."
 msgstr "浏览..."
 
-#. Resource IDs: (1382)
+#. Resource IDs: (1057)
 msgid "Bug Tracker..."
 msgstr "问题追踪..."
 
@@ -1693,6 +1693,10 @@ msgstr ""
 #, c-format
 msgid "Clears the stored sizes and positions of %ld dialogs"
 msgstr "清除存储的%ld个对话框的大小和位置数据"
+
+#. Resource IDs: (1466)
+msgid "Click here to go to the website"
+msgstr "点击这里进入网站"
 
 #. Resource IDs: (170)
 msgid "Click here to select a recently typed message"
@@ -2133,6 +2137,17 @@ msgstr ""
 msgid "Could not start print job."
 msgstr "无法启动打印任务。"
 
+#. Resource IDs: (83)
+#, c-format
+msgid ""
+"Could not start text viewer!\n"
+"<hr=100%%>\n"
+"%s"
+msgstr ""
+"无法启动文本查看器！\n"
+"<hr=100%%>\n"
+"%s"
+
 #. Resource IDs: (81)
 msgid "Could not start thread!"
 msgstr "无法启动线程！"
@@ -2440,7 +2455,7 @@ msgstr "解开复制源(&X)"
 msgid "E&xit"
 msgstr "退出(&X)"
 
-#. Resource IDs: (9)
+#. Resource IDs: (9, 1382)
 msgid "E&xport..."
 msgstr "导出(&X)..."
 
@@ -2683,7 +2698,7 @@ msgstr "排除路径："
 msgid "Explore to"
 msgstr "浏览"
 
-#. Resource IDs: (229, 238)
+#. Resource IDs: (229, 238, 1437)
 msgid "Export"
 msgstr "导出"
 
@@ -2798,7 +2813,7 @@ msgstr "正在获取文件..."
 msgid "Fetching revision %s of file:"
 msgstr "正在获取文件的 %s 版本："
 
-#. Resource IDs: (63, 74, 77, 207, 319)
+#. Resource IDs: (63, 74, 77, 319)
 msgid "File"
 msgstr "文件"
 
@@ -3186,6 +3201,10 @@ msgid ""
 msgstr ""
 "隐藏/显示补丁文件列表\n"
 "隐藏或显示补丁文件的列表"
+
+#. Resource IDs: (339)
+msgid "Highest revision number in the cache"
+msgstr "最高版本号在缓存中"
 
 #. Resource IDs: (1127)
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
@@ -3608,6 +3627,10 @@ msgstr "内存不足，无法完成操作。"
 msgid "Internal application error."
 msgstr "内部程序错误。"
 
+#. Resource IDs: (338, 339)
+msgid "Internal value indicating compression quality"
+msgstr "指定压缩级别的内部值"
+
 #. Resource IDs: (102)
 msgid "Invalid data object dropped!"
 msgstr "已删除无效的数据对象！"
@@ -3748,6 +3771,18 @@ msgstr "上次提交版本："
 #. Resource IDs: (11)
 msgid "Last saved revision of item"
 msgstr "上一次保存的项目版本"
+
+#. Resource IDs: (338)
+msgid "Last time the cache content was changed"
+msgstr "最后一次修改缓存的时间"
+
+#. Resource IDs: (338)
+msgid "Last time the cache was accessed"
+msgstr "最后一次访问缓存的时间"
+
+#. Resource IDs: (338)
+msgid "Last time the repository was asked for the HEAD revision number"
+msgstr "最后一次查询版本库最新版本号的时间"
 
 #. Resource IDs: (12)
 msgid "Launches the external diff / merge program to solve the conflicts"
@@ -4317,9 +4352,49 @@ msgstr "非递归"
 msgid "Notice"
 msgstr "告示"
 
+#. Resource IDs: (338)
+msgid "Number of authors in the cache"
+msgstr "缓存作者数量："
+
 #. Resource IDs: (1161)
 msgid "Number of authors:"
 msgstr "作者数量："
+
+#. Resource IDs: (339)
+msgid "Number of cached merged revisions"
+msgstr "缓存合并版本数量"
+
+#. Resource IDs: (339)
+msgid "Number of cached revisions"
+msgstr "缓存版本数量"
+
+#. Resource IDs: (339)
+msgid "Number of cached user revision properties"
+msgstr "缓存用户版本属性数量"
+
+#. Resource IDs: (339)
+msgid "Number of changed cached revisions"
+msgstr "缓存版本的修改次数"
+
+#. Resource IDs: (339)
+msgid "Number of changed revisions that are not cached yet"
+msgstr "尚未缓存的版本的修改次数"
+
+#. Resource IDs: (338)
+msgid "Number of different paths shown in the log dialog, including parent paths"
+msgstr "在日志对话框中显示的不同路径(包含父路径)数量"
+
+#. Resource IDs: (339)
+msgid "Number of merged revisions that are not cached yet"
+msgstr "尚未缓存的已经合并版本的数量"
+
+#. Resource IDs: (338)
+msgid "Number of path elements. This is an internal value indicating the compression level."
+msgstr "路径元素数量。它是指定压缩级别的内部值。"
+
+#. Resource IDs: (339)
+msgid "Number of user revision properties that are not cached yet"
+msgstr "尚未缓存的用户版本属性数量"
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -4490,7 +4565,7 @@ msgstr "选定的补丁"
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "补丁文件(*.diff, *.patch)|*.diff;*.patch|所有文件(*.*)|*.*||"
 
-#. Resource IDs: (20, 77, 198)
+#. Resource IDs: (20, 77, 198, 207)
 msgid "Path"
 msgstr "路径"
 
@@ -5190,7 +5265,7 @@ msgstr ""
 "日志信息：\r\n"
 "%s"
 
-#. Resource IDs: (116)
+#. Resource IDs: (116, 65535)
 msgid "Revisions"
 msgstr "版本"
 
@@ -5748,6 +5823,14 @@ msgstr "大小"
 #. Resource IDs: (65535)
 msgid "Size and status"
 msgstr "大小和状态"
+
+#. Resource IDs: (339)
+msgid "Size of all cached text information"
+msgstr "缓存的全部文本信息的大小"
+
+#. Resource IDs: (339)
+msgid "Size of the cache if it were not compressed"
+msgstr "没有压缩时缓存的大小"
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -6592,6 +6675,18 @@ msgstr "提交分析统计："
 msgid "Total file changes:"
 msgstr "文件改动次数合计："
 
+#. Resource IDs: (339)
+msgid "Total number of changed revisions"
+msgstr "已经修改的版本总数"
+
+#. Resource IDs: (339)
+msgid "Total number of merged revisions"
+msgstr "已经合并的版本总数"
+
+#. Resource IDs: (339)
+msgid "Total number of user revision properties"
+msgstr "用户版本属性总数"
+
 #. Resource IDs: (357)
 #, c-format
 msgid "Transferring at %s"
@@ -6762,7 +6857,7 @@ msgstr "如果文件夹包含无版本控制的文件，则标识为已修改"
 msgid "Unversioning %s"
 msgstr "正在将 %s 去除版本控制"
 
-#. Resource IDs: (152, 230)
+#. Resource IDs: (152, 230, 1436)
 msgid "Update"
 msgstr "更新"
 
@@ -7244,6 +7339,10 @@ msgstr "缩小"
 #. Resource IDs: (2051)
 msgid "Zoom to fit"
 msgstr "缩放到适当比例"
+
+#. Resource IDs: (338)
+msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
+msgstr "使用“忽略范围”标记了尚未缓存的版本范围"
 
 #. Resource IDs: (10)
 msgid "added"
