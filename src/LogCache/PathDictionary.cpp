@@ -37,8 +37,12 @@ namespace LogCache
 
 void CPathDictionary::CheckParentIndex (index_t index) const
 {
+#if !defined (_SECURE_SCL)
 	if (index >= paths.size())
 		throw std::exception ("parent path index out of range");
+#else
+    UNREFERENCED_PARAMETER(index);
+#endif
 }
 
 // construction utility

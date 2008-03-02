@@ -399,8 +399,12 @@ void CTokenizedStringContainer::Append (const std::string& s)
 
 void CTokenizedStringContainer::CheckIndex (index_t index) const
 {
+#if !defined (_SECURE_SCL)
 	if (index >= offsets.size()-1)
 		throw std::exception ("string container index out of range");
+#else
+    UNREFERENCED_PARAMETER(index);
+#endif
 }
 
 // call this to re-assign indices in an attempt to reduce file size

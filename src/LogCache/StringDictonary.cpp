@@ -170,17 +170,21 @@ index_t CStringDictionary::Find (const char* string) const
 
 const char* CStringDictionary::operator[](index_t index) const
 {
-	if (index+1 >= (index_t)offsets.size())
+#if !defined (_SECURE_SCL)
+	if (index+1 < (index_t)offsets.size())
 		throw std::exception ("dictionary string index out of range");
+#endif
 
 	return &packedStrings.at(0) + offsets[index];
 }
 
 index_t CStringDictionary::GetLength (index_t index) const
 {
-	if (index+1 >= (index_t)offsets.size())
+#if !defined (_SECURE_SCL)
+	if (index+1 < (index_t)offsets.size())
 		throw std::exception ("dictionary string index out of range");
-
+#endif
+		
 	return offsets[index+1] - offsets[index] - 1;
 }
 

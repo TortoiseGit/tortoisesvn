@@ -141,8 +141,10 @@ public:
 
 	const std::pair<index_t, index_t>& operator[](index_t index) const
 	{
+	#if !defined (_SECURE_SCL)
 		if (index >= data.size())
 			throw std::exception ("pair dictionary index out of range");
+	#endif
 
 		return data[index];
 	}

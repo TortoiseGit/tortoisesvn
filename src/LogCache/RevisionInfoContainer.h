@@ -927,8 +927,12 @@ CRevisionInfoContainer::CUserRevPropsIterator::IsValid() const
 
 inline void CRevisionInfoContainer::CheckIndex (index_t index) const
 {
+#if !defined (_SECURE_SCL)
 	if (index >= (index_t)size())
 		throw std::exception ("revision info index out of range");
+#else
+    UNREFERENCED_PARAMETER(index);
+#endif
 }
 
 ///////////////////////////////////////////////////////////////
