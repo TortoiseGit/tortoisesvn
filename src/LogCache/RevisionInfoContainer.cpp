@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -45,7 +45,6 @@ void CRevisionInfoContainer::UpdateAuthors
 		; iter != end
 		; ++iter)
 	{
-		assert (iter->key < count);
         if (   !keepOldDataForMissingNew 
             || (newData.presenceFlags[iter->value] & HAS_AUTHOR))
         {
@@ -64,7 +63,6 @@ void CRevisionInfoContainer::UpdateTimeStamps
 		; iter != end
 		; ++iter)
 	{
-		assert (iter->key < count);
         if (   !keepOldDataForMissingNew 
             || (newData.presenceFlags[iter->value] & HAS_TIME_STAMP))
         {
@@ -85,7 +83,6 @@ void CRevisionInfoContainer::UpdateComments
 		; iter != end
 		; ++iter)
 	{
-		assert (iter->key < count);
         if (   !keepOldDataForMissingNew 
             || (newData.presenceFlags[iter->value] & HAS_COMMENT))
         {
