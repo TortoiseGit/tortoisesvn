@@ -555,7 +555,7 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 		    query.reset (new CCacheLogQuery (pool, svnQuery.get()));
 
             CString uuid = pool->GetRepositoryInfo().GetRepositoryUUID (urlpath);
-            firstRevision = pool->GetCache (uuid)->GetRevisions().GetFirstMissingRevision();
+            firstRevision = pool->GetCache (uuid)->GetRevisions().GetFirstMissingRevision(1);
 			// if the cache is already complete, the firstRevision here is
 			// HEAD+1 - that revision does not exist and would throw an error later
 			if (svn_revnum_t(firstRevision) > svn_revnum_t(headRevision))

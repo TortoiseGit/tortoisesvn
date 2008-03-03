@@ -61,23 +61,27 @@ revision_t CRevisionIndex::GetLastCachedRevision() const
 
 // first revision that is not cached
 
-revision_t CRevisionIndex::GetFirstMissingRevision() const
+revision_t CRevisionIndex::GetFirstMissingRevision (revision_t start) const
 {
     // empty cache?
 
     if (indices.empty())
-        return 0;
+        return start;
 
     // do we know the beginning of the history?
 
-    if (firstRevision > 1)
-        return 0;
+    if (firstRevision > start)
+        return start;
 
     // find first gap
 
-    for (size_t i = 0, count = indices.size(); i < count; ++i)
+    for ( size_t i = start - firstRevision, count = indices.size()
+		; i < count
+		; ++i)
+	{
         if (indices[i] == NO_INDEX)
             return firstRevision + static_cast<revision_t>(i);
+	}
 
     // first gap is last entry+1
 

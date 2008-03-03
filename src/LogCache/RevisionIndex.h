@@ -87,9 +87,9 @@ public:
 	revision_t GetLastCachedRevision() const;
 
 	/// first revision that is not cached
-	/// 0 for empty caches, 1 or greater elsewise
+	/// (returns start for empty caches)
 
-	revision_t GetFirstMissingRevision() const;
+	revision_t GetFirstMissingRevision (revision_t start) const;
 
     /// read
 
