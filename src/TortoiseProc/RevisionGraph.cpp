@@ -26,6 +26,7 @@
 #include "SVN.h"
 #include "TSVNPath.h"
 #include ".\revisiongraph.h"
+#include "SVNInfo.h"
 #include "SVNError.h"
 #include "CachedLogInfo.h"
 #include "RepositoryInfo.h"
@@ -524,21 +525,31 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
     svn_revnum_t headRevision = NO_REVISION;
     svn.GetRootAndHead (urlpath, dummy, headRevision);
 
-	// find the revision the working copy is on, we mark that revision
-	// later in the graph
-	svn_revnum_t minrev;
-	bool switched, modified, sparse;
-	if (!svn.GetWCRevisionStatus(CTSVNPath(path), true, minrev, m_wcRev, switched, modified, sparse))
-	{
-		m_wcRev = -1;
-	}
-
-
 	if (m_sRepoRoot.IsEmpty())
 	{
 		Err = svn_error_dup(svn.Err);
 		return FALSE;
 	}
+
+	// find the revision the working copy is on, we mark that revision
+	// later in the graph
+
+	CTSVNPath svnPath (path);
+	if (svnPath.IsUrl())
+	{
+		m_wcRev = -1;
+	}
+	else
+	{
+		SVNInfo info;
+		const SVNInfoData * baseInfo 
+			= info.GetFirstFileInfo (svnPath, SVNRev(), SVNRev());
+		m_wcRev = baseInfo == NULL
+      			? -1
+				: baseInfo->lastchangedrev;
+	}
+
+	// fetch missing data from the repository
 
 	m_lHeadRevision = (revision_t)NO_REVISION;
 	try
@@ -556,8 +567,10 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 
             CString uuid = pool->GetRepositoryInfo().GetRepositoryUUID (urlpath);
             firstRevision = pool->GetCache (uuid)->GetRevisions().GetFirstMissingRevision(1);
+
 			// if the cache is already complete, the firstRevision here is
 			// HEAD+1 - that revision does not exist and would throw an error later
+
 			if (svn_revnum_t(firstRevision) > svn_revnum_t(headRevision))
 				firstRevision = headRevision;
         }
