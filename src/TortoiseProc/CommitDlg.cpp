@@ -210,6 +210,8 @@ BOOL CCommitDlg::OnInitDialog()
 			m_pathwatcher.AddPath(m_pathList[i]);
 	}
 
+	m_updatedPathList = m_pathList;
+
 	//first start a thread to obtain the file list with the status without
 	//blocking the dialog
 	m_pThread = AfxBeginThread(StatusThreadEntry, this, THREAD_PRIORITY_NORMAL,0,CREATE_SUSPENDED);
@@ -774,6 +776,8 @@ LRESULT CCommitDlg::OnFileDropped(WPARAM, LPARAM lParam)
 		{
 			m_pathList.AddPath(path);
 			m_pathList.RemoveDuplicates();
+			m_updatedPathList.AddPath(path);
+			m_updatedPathList.RemoveDuplicates();
 		}
 		else
 		{
@@ -794,6 +798,8 @@ LRESULT CCommitDlg::OnFileDropped(WPARAM, LPARAM lParam)
 			{
 				m_pathList.AddPath(path);
 				m_pathList.RemoveDuplicates();
+				m_updatedPathList.AddPath(path);
+				m_updatedPathList.RemoveDuplicates();
 			}
 		}
 	}

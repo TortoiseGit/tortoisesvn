@@ -98,6 +98,7 @@ protected:
 
 public:
 	CTSVNPathList		m_pathList;
+	CTSVNPathList		m_updatedPathList;
 	CTSVNPathList		m_selectedPathList;
 	CTSVNPathList		m_checkedPathList;
 	BOOL				m_bRecursive;
