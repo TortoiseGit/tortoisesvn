@@ -611,15 +611,6 @@ BOOL CRevisionGraph::AnalyzeRevisionData (CString path, const SOptions& options)
 
 	m_wcURL = url;
 
-	// find the revision the working copy is on, we mark that revision
-	// later in the graph
-	svn_revnum_t minrev;
-	bool switched, modified, sparse;
-	if (!svn.GetWCRevisionStatus(CTSVNPath(path), true, minrev, m_wcRev, switched, modified, sparse))
-	{
-		m_wcRev = -1;
-	}
-
 	// in case our path was renamed and had a different name in the past,
 	// we have to find out that name now, because we will analyze the data
 	// from lower to higher revisions
