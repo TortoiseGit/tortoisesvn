@@ -150,26 +150,38 @@ void CMergeWizardOptions::OnBnClickedDryrun()
 	progDlg.SetPathList(CTSVNPathList(pWizard->wcPath));
 	progDlg.SetUrl(pWizard->URL1);
 	progDlg.SetSecondUrl(pWizard->URL2);
-	if (pWizard->bRevRangeMerge)
+
+	switch (pWizard->nRevRangeMerge)
 	{
-		if (pWizard->revRangeArray.GetCount())
+	case MERGEWIZARD_REVRANGE:
 		{
-			SVNRevRangeArray tempRevArray = pWizard->revRangeArray;
-			tempRevArray.AdjustForMerge(!!pWizard->bReverseMerge);
-			progDlg.SetRevisionRanges(tempRevArray);
+			if (pWizard->revRangeArray.GetCount())
+			{
+				SVNRevRangeArray tempRevArray = pWizard->revRangeArray;
+				tempRevArray.AdjustForMerge(!!pWizard->bReverseMerge);
+				progDlg.SetRevisionRanges(tempRevArray);
+			}
+			else
+			{
+				SVNRevRangeArray tempRevArray;
+				tempRevArray.AddRevRange(SVNRev(), SVNRev());
+				progDlg.SetRevisionRanges(tempRevArray);
+			}
 		}
-		else
+		break;
+	case MERGEWIZARD_TREE:
 		{
-			SVNRevRangeArray tempRevArray;
-			tempRevArray.AddRevRange(SVNRev(), SVNRev());
-			progDlg.SetRevisionRanges(tempRevArray);
+			progDlg.SetRevision(pWizard->startRev);
+			progDlg.SetRevisionEnd(pWizard->endRev);
 		}
+		break;
+	case MERGEWIZARD_REINTEGRATE:
+		{
+			progDlg.SetCommand(CSVNProgressDlg::SVNProgress_MergeReintegrate);
+		}
+		break;
 	}
-	else
-	{
-		progDlg.SetRevision(pWizard->startRev);
-		progDlg.SetRevisionEnd(pWizard->endRev);
-	}
+
 	progDlg.SetDepth(pWizard->m_depth);
 	progDlg.SetDiffOptions(SVN::GetOptionsString(pWizard->m_bIgnoreEOL, pWizard->m_IgnoreSpaces));
 	progDlg.DoModal();

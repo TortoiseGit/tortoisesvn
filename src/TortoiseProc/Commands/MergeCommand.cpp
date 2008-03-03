@@ -38,24 +38,34 @@ bool MergeCommand::Execute()
 		progDlg.SetPathList(CTSVNPathList(wizard.wcPath));
 		progDlg.SetUrl(wizard.URL1);
 		progDlg.SetSecondUrl(wizard.URL2);
-		if (wizard.bRevRangeMerge)
+		switch (wizard.nRevRangeMerge)
 		{
-			if (wizard.revRangeArray.GetCount())
+		case MERGEWIZARD_REVRANGE:
 			{
-				wizard.revRangeArray.AdjustForMerge(!!wizard.bReverseMerge);
-				progDlg.SetRevisionRanges(wizard.revRangeArray);
+				if (wizard.revRangeArray.GetCount())
+				{
+					wizard.revRangeArray.AdjustForMerge(!!wizard.bReverseMerge);
+					progDlg.SetRevisionRanges(wizard.revRangeArray);
+				}
+				else
+				{
+					SVNRevRangeArray tempRevArray;
+					tempRevArray.AddRevRange(1, SVNRev::REV_HEAD);
+					progDlg.SetRevisionRanges(tempRevArray);
+				}
 			}
-			else
+			break;
+		case MERGEWIZARD_TREE:
 			{
-				SVNRevRangeArray tempRevArray;
-				tempRevArray.AddRevRange(1, SVNRev::REV_HEAD);
-				progDlg.SetRevisionRanges(tempRevArray);
+				progDlg.SetRevision(wizard.startRev);
+				progDlg.SetRevisionEnd(wizard.endRev);
 			}
-		}
-		else
-		{
-			progDlg.SetRevision(wizard.startRev);
-			progDlg.SetRevisionEnd(wizard.endRev);
+			break;
+		case MERGEWIZARD_REINTEGRATE:
+			{
+				progDlg.SetCommand(CSVNProgressDlg::SVNProgress_MergeReintegrate);
+			}
+			break;
 		}
 		progDlg.SetDepth(wizard.m_depth);
 		progDlg.SetDiffOptions(SVN::GetOptionsString(wizard.m_bIgnoreEOL, wizard.m_IgnoreSpaces));

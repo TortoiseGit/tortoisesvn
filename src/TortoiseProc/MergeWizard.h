@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,8 +23,11 @@
 #include "MergeWizardTree.h"
 #include "MergeWizardRevRange.h"
 #include "MergeWizardOptions.h"
+#include "MergeWizardReintegrate.h"
 
-// CMergeWizard
+#define MERGEWIZARD_REVRANGE	0
+#define MERGEWIZARD_TREE		1
+#define MERGEWIZARD_REINTEGRATE	2
 
 class CMergeWizard : public CPropertySheet
 {
@@ -42,12 +45,13 @@ protected:
 	CMergeWizardTree				tree;
 	CMergeWizardRevRange			revrange;
 	CMergeWizardOptions				options;
+	CMergeWizardReintegrate			reintegrate;
 
 public:
 	CTSVNPath						wcPath;
 	CString							url;
 	CString							sUUID;
-	bool							bRevRangeMerge;
+	int								nRevRangeMerge;
 
 	CString							URL1;
 	CString							URL2;
@@ -65,8 +69,7 @@ public:
 	
 	bool		AutoSetMode();
 	void		SaveMode();
-	LRESULT		GetSecondPage()
-		{ return bRevRangeMerge ? IDD_MERGEWIZARD_REVRANGE : IDD_MERGEWIZARD_TREE; }
+	LRESULT		GetSecondPage();
 
 private:
 	bool							m_FirstPageActivation;

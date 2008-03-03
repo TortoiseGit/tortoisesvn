@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -51,7 +51,19 @@ LRESULT CMergeWizardStart::OnWizardNext()
 	int nButton = GetCheckedRadioButton(IDC_MERGE_REVRANGE, IDC_MERGE_TREE);
 
 	CMergeWizard* wiz = (CMergeWizard*)GetParent();
-	wiz->bRevRangeMerge = nButton == IDC_MERGE_REVRANGE;
+	switch (nButton)
+	{
+	case IDC_MERGE_REVRANGE:
+		wiz->nRevRangeMerge = MERGEWIZARD_REVRANGE;
+		break;
+	case IDC_MERGE_TREE:
+		wiz->nRevRangeMerge = MERGEWIZARD_TREE;
+		break;
+	case IDC_MERGE_REINTEGRATE:
+		wiz->nRevRangeMerge = MERGEWIZARD_REINTEGRATE;
+		break;
+	}
+
 	wiz->SaveMode();
 
 	return wiz->GetSecondPage();
@@ -64,10 +76,13 @@ BOOL CMergeWizardStart::OnInitDialog()
 	CString sLabel;
 	sLabel.LoadString(IDS_MERGEWIZARD_REVRANGELABEL);
 	SetDlgItemText(IDC_MERGERANGELABEL, sLabel);
+	sLabel.LoadString(IDS_MERGEWIZARD_REINTEGRATELABEL);
+	SetDlgItemText(IDC_MERGEREINTEGRATELABEL, sLabel);
 	sLabel.LoadString(IDS_MERGEWIZARD_TREELABEL);
 	SetDlgItemText(IDC_TREELABEL, sLabel);
 
 	AdjustControlSize(IDC_MERGE_REVRANGE);
+	AdjustControlSize(IDC_MERGE_REINTEGRATE);
 	AdjustControlSize(IDC_MERGE_TREE);
 
 	return TRUE;
@@ -83,9 +98,22 @@ BOOL CMergeWizardStart::OnSetActive()
 	wiz->SetWizardButtons(PSWIZB_NEXT);
 	SetButtonTexts();
 
+	int nButton = IDC_MERGE_REVRANGE;
+	switch (wiz->nRevRangeMerge)
+	{
+	case MERGEWIZARD_REVRANGE:
+		nButton = IDC_MERGE_REVRANGE;
+		break;
+	case MERGEWIZARD_REINTEGRATE:
+		nButton = IDC_MERGE_REINTEGRATE;
+		break;
+	case MERGEWIZARD_TREE:
+		nButton = IDC_MERGE_TREE;
+		break;
+	}
 	CheckRadioButton(
 		IDC_MERGE_REVRANGE, IDC_MERGE_TREE,
-		wiz->bRevRangeMerge ? IDC_MERGE_REVRANGE : IDC_MERGE_TREE);
+		nButton);
 
 	return CMergeWizardBasePage::OnSetActive();
 }

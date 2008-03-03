@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,7 +28,7 @@ IMPLEMENT_DYNAMIC(CMergeWizard, CPropertySheet)
 CMergeWizard::CMergeWizard(UINT nIDCaption, CWnd* pParentWnd, UINT iSelectPage)
 	:CPropertySheet(nIDCaption, pParentWnd, iSelectPage)
 	, bReverseMerge(FALSE)
-	, bRevRangeMerge(TRUE)
+	, nRevRangeMerge(MERGEWIZARD_REVRANGE)
 	, m_bIgnoreAncestry(FALSE)
 	, m_bIgnoreEOL(FALSE)
 	, m_depth(svn_depth_unknown)
@@ -40,6 +40,7 @@ CMergeWizard::CMergeWizard(UINT nIDCaption, CWnd* pParentWnd, UINT iSelectPage)
 	AddPage(&tree);
 	AddPage(&revrange);
 	AddPage(&options);
+	AddPage(&reintegrate);
 
 	m_psh.dwFlags |= PSH_WIZARD97|PSP_HASHELP|PSH_HEADER;
 	m_psh.pszbmHeader = MAKEINTRESOURCE(IDB_MERGEWIZARDTITLE);
@@ -72,9 +73,6 @@ BOOL CMergeWizard::OnInitDialog()
 
 // Mode numbers coincide with wizard page indexes.
 
-#define MODE_TREE 1
-#define MODE_REVRANGE 2
-
 bool CMergeWizard::AutoSetMode()
 {
 	if (!m_FirstPageActivation)
@@ -82,9 +80,9 @@ bool CMergeWizard::AutoSetMode()
 	m_FirstPageActivation = false;
 	DWORD nMergeWizardMode =
 		(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\MergeWizardMode"), 0);
-	if ((nMergeWizardMode != MODE_TREE) && (nMergeWizardMode != MODE_REVRANGE))
+	if ((nMergeWizardMode != IDD_MERGEWIZARD_TREE) && (nMergeWizardMode != IDD_MERGEWIZARD_REVRANGE) && (nMergeWizardMode != IDD_MERGEWIZARD_REINTEGRATE))
 		return false;
-	bRevRangeMerge = nMergeWizardMode == MODE_REVRANGE;
+	nRevRangeMerge = nMergeWizardMode;
 	SendMessage(PSM_SETCURSEL, nMergeWizardMode);
 	return true;
 }
@@ -94,6 +92,20 @@ void CMergeWizard::SaveMode()
 	CRegDWORD regMergeWizardMode(_T("Software\\TortoiseSVN\\MergeWizardMode"), 0);
 	if (DWORD(regMergeWizardMode))
 	{
-		regMergeWizardMode = bRevRangeMerge ? MODE_REVRANGE : MODE_TREE;
+		regMergeWizardMode = nRevRangeMerge;
 	}
+}
+
+LRESULT CMergeWizard::GetSecondPage()
+{
+	switch (nRevRangeMerge)
+	{
+	case MERGEWIZARD_REVRANGE:
+		return IDD_MERGEWIZARD_REVRANGE;
+	case MERGEWIZARD_TREE:
+		return IDD_MERGEWIZARD_TREE;
+	case MERGEWIZARD_REINTEGRATE:
+		return IDD_MERGEWIZARD_REINTEGRATE;
+	}
+	return IDD_MERGEWIZARD_REVRANGE;
 }

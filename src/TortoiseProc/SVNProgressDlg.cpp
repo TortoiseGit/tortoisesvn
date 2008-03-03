@@ -802,6 +802,9 @@ UINT CSVNProgressDlg::ProgressThread()
 	case SVNProgress_MergeAll:
 		bSuccess = CmdMergeAll(sWindowTitle, localoperation);
 		break;
+	case SVNProgress_MergeReintegrate:
+		bSuccess = CmdMergeReintegrate(sWindowTitle, localoperation);
+		break;
 	case SVNProgress_Rename:
 		bSuccess = CmdRename(sWindowTitle, localoperation);
 		break;
@@ -2118,6 +2121,28 @@ bool CSVNProgressDlg::CmdMergeAll(CString& sWindowTitle, bool& /*localoperation*
 	if (!PegMerge(suggestedSources[0], revarray, 
 		SVNRev::REV_HEAD,
 		m_targetPathList[0], true, m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), FALSE))
+	{
+		ReportSVNError();
+		return false;
+	}
+
+	return true;
+}
+
+bool CSVNProgressDlg::CmdMergeReintegrate(CString& sWindowTitle, bool& /*localoperation*/)
+{
+	ASSERT(m_targetPathList.GetCount() == 1);
+	sWindowTitle.LoadString(IDS_PROGRS_TITLE_MERGEREINTEGRATE);
+	SetBackgroundImage(IDI_MERGE_BKG);
+	SetWindowText(sWindowTitle);
+
+	CString sCmdInfo;
+	sCmdInfo.Format(IDS_PROGRS_CMD_MERGEREINTEGRATE, 
+		(LPCTSTR)m_url.GetSVNPathString(),
+		m_targetPathList[0].GetWinPath());
+	ReportCmd(sCmdInfo);
+
+	if (!MergeReintegrate(m_url, SVNRev::REV_HEAD, m_targetPathList[0], !!(m_options & ProgOptDryRun), m_diffoptions))
 	{
 		ReportSVNError();
 		return false;
