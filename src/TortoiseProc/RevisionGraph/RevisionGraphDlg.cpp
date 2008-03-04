@@ -288,40 +288,42 @@ UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
 	pDlg = (CRevisionGraphDlg*)pVoid;
 	InterlockedExchange(&pDlg->m_Graph.m_bThreadRunning, TRUE);
 	CoInitialize(NULL);
-	pDlg->m_Graph.m_pProgress = new CProgressDlg();
-	pDlg->m_Graph.m_pProgress->SetTitle(IDS_REVGRAPH_PROGTITLE);
-	pDlg->m_Graph.m_pProgress->SetCancelMsg(IDS_REVGRAPH_PROGCANCEL);
-	pDlg->m_Graph.m_pProgress->SetTime();
-	pDlg->m_Graph.m_pProgress->ShowModeless(pDlg->m_hWnd);
-	pDlg->m_Graph.m_pProgress->SetProgress(0, 100);
-	pDlg->m_Graph.m_bNoGraph = FALSE;
-	if (   (pDlg->m_bFetchLogs)
-        && (!pDlg->m_Graph.FetchRevisionData(pDlg->m_Graph.m_sPath, pDlg->m_options)))
-	{
-		CMessageBox::Show(pDlg->m_hWnd, pDlg->m_Graph.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-		pDlg->m_Graph.m_bNoGraph = TRUE;
-		goto cleanup;
-	}
-	pDlg->m_bFetchLogs = false;	// we've got the logs, no need to fetch them a second time
+
+    pDlg->m_Graph.m_bNoGraph = FALSE;
+    if (pDlg->m_bFetchLogs)
+    {
+	    pDlg->m_Graph.m_pProgress = new CProgressDlg();
+	    pDlg->m_Graph.m_pProgress->SetTitle(IDS_REVGRAPH_PROGTITLE);
+	    pDlg->m_Graph.m_pProgress->SetCancelMsg(IDS_REVGRAPH_PROGCANCEL);
+	    pDlg->m_Graph.m_pProgress->SetTime();
+	    pDlg->m_Graph.m_pProgress->ShowModeless(pDlg->m_hWnd);
+	    pDlg->m_Graph.m_pProgress->SetProgress(0, 100);
+
+	    if (!pDlg->m_Graph.FetchRevisionData(pDlg->m_Graph.m_sPath, pDlg->m_options))
+	    {
+		    CMessageBox::Show(pDlg->m_hWnd, pDlg->m_Graph.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+		    pDlg->m_Graph.m_bNoGraph = TRUE;
+	    }
+
+        pDlg->m_Graph.m_pProgress->Stop();
+        delete pDlg->m_Graph.m_pProgress;
+        pDlg->m_Graph.m_pProgress = NULL;
+
+    	pDlg->m_bFetchLogs = false;	// we've got the logs, no need to fetch them a second time
+    }
 
     // standard plus user settings
 
-	if (!pDlg->m_Graph.AnalyzeRevisionData(pDlg->m_Graph.m_sPath, pDlg->m_options))
-	{
-		CMessageBox::Show(pDlg->m_hWnd, pDlg->m_Graph.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-		pDlg->m_Graph.m_bNoGraph = TRUE;
-	}
-	pDlg->UpdateStatusBar();
-cleanup:
-	pDlg->m_Graph.m_pProgress->Stop();
-	delete pDlg->m_Graph.m_pProgress;
-	pDlg->m_Graph.m_pProgress = NULL;
-	pDlg->m_Graph.InitView();
-	pDlg->m_Graph.BuildPreview();
-	pDlg->m_Graph.UpdateWindow();
+    if (pDlg->m_Graph.m_bNoGraph == FALSE)
+    {
+	    pDlg->m_Graph.AnalyzeRevisionData(pDlg->m_Graph.m_sPath, pDlg->m_options);
+	    pDlg->UpdateStatusBar();
+    }
+
 	CoUninitialize();
 	InterlockedExchange(&pDlg->m_Graph.m_bThreadRunning, FALSE);
-	pDlg->Invalidate();
+
+    pDlg->m_Graph.SendMessage (CRevisionGraphWnd::WM_WORKERTHREADDONE, 0, 0);
 	return 0;
 }
 

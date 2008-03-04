@@ -264,7 +264,7 @@ BOOL CRevisionGraph::FetchRevisionData (CString path, const SOptions& options)
 	return TRUE;
 }
 
-BOOL CRevisionGraph::AnalyzeRevisionData (CString path, const SOptions& options)
+void CRevisionGraph::AnalyzeRevisionData (CString path, const SOptions& options)
 {
 	svn_error_clear(Err);
 
@@ -344,8 +344,6 @@ BOOL CRevisionGraph::AnalyzeRevisionData (CString path, const SOptions& options)
 	// step 5: final sorting etc.
 
 	Cleanup();
-
-	return true;
 }
 
 inline bool AscendingFromRevision (const SCopyInfo* lhs, const SCopyInfo* rhs)

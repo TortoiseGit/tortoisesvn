@@ -144,6 +144,7 @@ BEGIN_MESSAGE_MAP(CRevisionGraphWnd, CWnd)
 	ON_WM_MOUSEMOVE()
 	ON_WM_LBUTTONUP()
 	ON_WM_SETCURSOR()
+    ON_MESSAGE(WM_WORKERTHREADDONE,OnWorkerThreadDone)
 END_MESSAGE_MAP()
 
 void CRevisionGraphWnd::Init(CWnd * pParent, LPRECT rect)
@@ -1078,3 +1079,11 @@ BOOL CRevisionGraphWnd::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 	return TRUE;
 }
 
+LRESULT CRevisionGraphWnd::OnWorkerThreadDone(WPARAM, LPARAM)
+{
+	InitView();
+	BuildPreview();
+    Invalidate(FALSE);
+
+    return 0;
+}

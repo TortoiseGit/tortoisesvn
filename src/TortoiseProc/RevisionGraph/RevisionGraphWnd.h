@@ -81,7 +81,11 @@ class CRevisionGraphWnd : public CWnd, public CRevisionGraph
 public:
 	CRevisionGraphWnd();   // standard constructor
 	virtual ~CRevisionGraphWnd();
-	enum { IDD = IDD_REVISIONGRAPH };
+	enum 
+    { 
+        IDD = IDD_REVISIONGRAPH,
+        WM_WORKERTHREADDONE = WM_USER +1
+    };
 
 
 	CString			m_sPath;
@@ -151,6 +155,7 @@ protected:
 	afx_msg void	OnMouseMove(UINT nFlags, CPoint point);
 	afx_msg void	OnLButtonUp(UINT nFlags, CPoint point);
 	afx_msg BOOL	OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
+	afx_msg LRESULT	OnWorkerThreadDone(WPARAM, LPARAM);
 
 	DECLARE_MESSAGE_MAP()
 private:
