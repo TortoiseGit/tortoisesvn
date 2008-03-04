@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-02-13 11:28+0900\n"
+"PO-Revision-Date: 2008-03-04 11:46+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -501,7 +501,7 @@ msgstr "空白の変更は無視する(&I)"
 msgid "&Image Info"
 msgstr "画像情報を表示する(&I)"
 
-#. Resource IDs: (9)
+#. Resource IDs: (9, 1461)
 msgid "&Import..."
 msgstr "インポート(&I)"
 
@@ -1375,7 +1375,7 @@ msgstr "外部差分ツールを参照"
 msgid "Browse..."
 msgstr "参照 ..."
 
-#. Resource IDs: (1382)
+#. Resource IDs: (1057)
 msgid "Bug Tracker..."
 msgstr "バグ追跡 ..."
 
@@ -1662,6 +1662,10 @@ msgstr ""
 #, c-format
 msgid "Clears the stored sizes and positions of %ld dialogs"
 msgstr "保存されている %ld 個のダイアログの位置と大きさをクリアする"
+
+#. Resource IDs: (1466)
+msgid "Click here to go to the website"
+msgstr "WEBサイトへ行くにはここをクリックしてください"
 
 #. Resource IDs: (170)
 msgid "Click here to select a recently typed message"
@@ -2102,6 +2106,17 @@ msgstr ""
 msgid "Could not start print job."
 msgstr "印刷ジョブを開始できません。"
 
+#. Resource IDs: (83)
+#, c-format
+msgid ""
+"Could not start text viewer!\n"
+"<hr=100%%>\n"
+"%s"
+msgstr ""
+"テキストビューアを開始できませんでした！\n"
+"<hr=100%%>\n"
+"%s"
+
 #. Resource IDs: (81)
 msgid "Could not start thread!"
 msgstr "スレッドを開始できません！"
@@ -2415,7 +2430,7 @@ msgstr "正確なコピー元の表示(&X)"
 msgid "E&xit"
 msgstr "終了(&X)"
 
-#. Resource IDs: (9)
+#. Resource IDs: (9, 1382)
 msgid "E&xport..."
 msgstr "エクスポート(&X)"
 
@@ -2659,7 +2674,7 @@ msgstr "除外するパス:"
 msgid "Explore to"
 msgstr "エクスプローラで開く"
 
-#. Resource IDs: (229, 238)
+#. Resource IDs: (229, 238, 1437)
 msgid "Export"
 msgstr "エクスポート"
 
@@ -2774,7 +2789,7 @@ msgstr "ファイルを取り出す ..."
 msgid "Fetching revision %s of file:"
 msgstr "ファイルのリビジョン %s 取得中:"
 
-#. Resource IDs: (63, 74, 77, 207, 319)
+#. Resource IDs: (63, 74, 77, 319)
 msgid "File"
 msgstr "ファイル"
 
@@ -3162,6 +3177,10 @@ msgid ""
 msgstr ""
 "パッチファイルのリストを非表示／非表示\n"
 "パッチファイルのリストを非表示もしくは表示する"
+
+#. Resource IDs: (339)
+msgid "Highest revision number in the cache"
+msgstr "キャッシュ内のリビジョン番号の最大値"
 
 #. Resource IDs: (1127)
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
@@ -3587,6 +3606,10 @@ msgstr "操作を行うのに、十分なメモリがありません。"
 msgid "Internal application error."
 msgstr "内部アプリケーションエラー。"
 
+#. Resource IDs: (338, 339)
+msgid "Internal value indicating compression quality"
+msgstr "圧縮の品質を示す内部値"
+
 #. Resource IDs: (102)
 msgid "Invalid data object dropped!"
 msgstr "無効なデータオブジェクトがドロップされました！"
@@ -3727,6 +3750,18 @@ msgstr "最終コミットリビジョン:"
 #. Resource IDs: (11)
 msgid "Last saved revision of item"
 msgstr "最後に保存した項目のリビジョン"
+
+#. Resource IDs: (338)
+msgid "Last time the cache content was changed"
+msgstr "キャッシュの内容が変更された最後の日時"
+
+#. Resource IDs: (338)
+msgid "Last time the cache was accessed"
+msgstr "キャッシュにアクセスした最後の日時"
+
+#. Resource IDs: (338)
+msgid "Last time the repository was asked for the HEAD revision number"
+msgstr "リポジトリへ最新のリビジョン番号を問い合わせた最後の日時"
 
 #. Resource IDs: (12)
 msgid "Launches the external diff / merge program to solve the conflicts"
@@ -4298,9 +4333,49 @@ msgstr "非再帰的"
 msgid "Notice"
 msgstr "注意"
 
+#. Resource IDs: (338)
+msgid "Number of authors in the cache"
+msgstr "キャッシュ内の作者の数"
+
 #. Resource IDs: (1161)
 msgid "Number of authors:"
 msgstr "作者の数:"
+
+#. Resource IDs: (339)
+msgid "Number of cached merged revisions"
+msgstr "キャッシュされているマージされたリビジョンの数"
+
+#. Resource IDs: (339)
+msgid "Number of cached revisions"
+msgstr "キャッシュされているリビジョンの数"
+
+#. Resource IDs: (339)
+msgid "Number of cached user revision properties"
+msgstr "キャッシュされているユーザーリビジョン属性の数"
+
+#. Resource IDs: (339)
+msgid "Number of changed cached revisions"
+msgstr "キャッシュされている変更されたリビジョンの数"
+
+#. Resource IDs: (339)
+msgid "Number of changed revisions that are not cached yet"
+msgstr "キャッシュされていない変更されたりビジョンの数"
+
+#. Resource IDs: (338)
+msgid "Number of different paths shown in the log dialog, including parent paths"
+msgstr "ログダイアログに表示される異なるパス（親のパスを含む）の数"
+
+#. Resource IDs: (339)
+msgid "Number of merged revisions that are not cached yet"
+msgstr "キャッシュされていないマージされたりビジョンの数"
+
+#. Resource IDs: (338)
+msgid "Number of path elements. This is an internal value indicating the compression level."
+msgstr "パス要素の数。これは圧縮レベルを示す内部値です。"
+
+#. Resource IDs: (339)
+msgid "Number of user revision properties that are not cached yet"
+msgstr "キャッシュされていないユーザーリビジョン属性の数"
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -4472,7 +4547,7 @@ msgstr "選択されたパッチ"
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "パッチファイル (*.diff;*.patch)|*.diff;*.patch|全てのファイル (*.*)|*.*||"
 
-#. Resource IDs: (20, 77, 198)
+#. Resource IDs: (20, 77, 198, 207)
 msgid "Path"
 msgstr "パス"
 
@@ -5174,7 +5249,7 @@ msgstr ""
 "ログメッセージ:\r\n"
 "%s"
 
-#. Resource IDs: (116)
+#. Resource IDs: (116, 65535)
 msgid "Revisions"
 msgstr "リビジョン"
 
@@ -5733,6 +5808,14 @@ msgstr "サイズ"
 #. Resource IDs: (65535)
 msgid "Size and status"
 msgstr "サイズと状態"
+
+#. Resource IDs: (339)
+msgid "Size of all cached text information"
+msgstr "全てのキャッシュされているテキスト情報のサイズ"
+
+#. Resource IDs: (339)
+msgid "Size of the cache if it were not compressed"
+msgstr "圧縮されていない場合はキャッシュのサイズ"
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -6585,6 +6668,18 @@ msgstr "解析を行った総コミット数:"
 msgid "Total file changes:"
 msgstr "総変更ファイル数:"
 
+#. Resource IDs: (339)
+msgid "Total number of changed revisions"
+msgstr "変更されたリビジョンの総数"
+
+#. Resource IDs: (339)
+msgid "Total number of merged revisions"
+msgstr "マージされたリビジョンの総数"
+
+#. Resource IDs: (339)
+msgid "Total number of user revision properties"
+msgstr "ユーザーリビジョン属性の総数"
+
 #. Resource IDs: (357)
 #, c-format
 msgid "Transferring at %s"
@@ -6756,7 +6851,7 @@ msgstr "バージョン管理外のファイルを含むフォルダに変更マ
 msgid "Unversioning %s"
 msgstr "バージョン管理を解除中 %s"
 
-#. Resource IDs: (152, 230)
+#. Resource IDs: (152, 230, 1436)
 msgid "Update"
 msgstr "更新"
 
@@ -7237,6 +7332,10 @@ msgstr "ズームアウト"
 #. Resource IDs: (2051)
 msgid "Zoom to fit"
 msgstr "自動調整"
+
+#. Resource IDs: (338)
+msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
+msgstr "\"スキップ範囲\" はキャッシュされていないリビジョンの範囲をマークするのに利用します"
 
 #. Resource IDs: (10)
 msgid "added"
