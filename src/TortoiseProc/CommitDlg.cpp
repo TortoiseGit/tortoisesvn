@@ -147,6 +147,11 @@ BOOL CCommitDlg::OnInitDialog()
 			SetDlgItemText(IDC_BUGIDLABEL, m_ProjectProperties.sLabel);
 		GetDlgItem(IDC_BUGTEXTBUTTON)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_BUGID)->SetFocus();
+		CString sBugID = m_ProjectProperties.GetBugIDFromLog(m_sLogMessage);
+		if (!sBugID.IsEmpty())
+		{
+			SetDlgItemText(IDC_BUGID, sBugID);
+		}
 	}
 	else
 	{
