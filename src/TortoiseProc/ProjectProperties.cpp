@@ -295,7 +295,15 @@ CString ProjectProperties::GetBugIDFromLog(CString& msg)
 		sLastPart = sMessage.Mid(sMessage.Find(_T("%BUGID%"))+7);
 		msg.TrimRight('\n');
 		if (msg.ReverseFind('\n')>=0)
-			sBugLine = msg.Mid(msg.ReverseFind('\n')+1);
+		{
+			if (bAppend)
+				sBugLine = msg.Mid(msg.ReverseFind('\n')+1);
+			else
+			{
+				sBugLine = msg.Left(msg.Find('\n'));
+				bTop = TRUE;
+			}
+		}
 		else
 		{
 			if (bNumber)
@@ -487,7 +495,15 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 		CString sMsg = msg;
 		sMsg.TrimRight('\n');
 		if (sMsg.ReverseFind('\n')>=0)
-			sBugLine = sMsg.Mid(sMsg.ReverseFind('\n')+1);
+		{
+			if (bAppend)
+				sBugLine = msg.Mid(msg.ReverseFind('\n')+1);
+			else
+			{
+				sBugLine = msg.Left(msg.Find('\n'));
+				bTop = TRUE;
+			}
+		}
 		else
 			sBugLine = sMsg;
 		if (sBugLine.Left(sFirstPart.GetLength()).Compare(sFirstPart)!=0)
@@ -670,7 +686,15 @@ CString ProjectProperties::FindBugID(const CString& msg)
 		CString sMsg = msg;
 		sMsg.TrimRight('\n');
 		if (sMsg.ReverseFind('\n')>=0)
-			sBugLine = sMsg.Mid(sMsg.ReverseFind('\n')+1);
+		{
+			if (bAppend)
+				sBugLine = msg.Mid(msg.ReverseFind('\n')+1);
+			else
+			{
+				sBugLine = msg.Left(msg.Find('\n'));
+				bTop = TRUE;
+			}
+		}
 		else
 			sBugLine = sMsg;
 		if (sBugLine.Left(sFirstPart.GetLength()).Compare(sFirstPart)!=0)

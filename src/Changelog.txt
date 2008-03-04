@@ -1,3 +1,9 @@
+- NEW: Implemented 'merge reintegrate': new page in the merge wizard. (Stefan)
+- BUG: Inserting a history log message in the commit dialog when 
+       bugtraq:append is set to 'false' inserted the bug ID and the commit
+       message reversed. (Stefan)
+
+
 Version 1.5.0-alpha1
 - NEW: Various new layout options in revision graph. (Stefan Fuhrmann)
 - NEW: Log content will be cached. See issue #45 for details. (Stefan Fuhrmann)
