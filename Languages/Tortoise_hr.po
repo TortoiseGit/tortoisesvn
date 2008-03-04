@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-02-15 19:13+0100\n"
+"PO-Revision-Date: 2008-03-05 00:56+0100\n"
 "Last-Translator: Mario Šarić <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -513,7 +513,7 @@ msgstr "&Zanemari promjene praznina"
 msgid "&Image Info"
 msgstr "&O slici"
 
-#. Resource IDs: (9)
+#. Resource IDs: (9, 1461)
 msgid "&Import..."
 msgstr "&Uvoz..."
 
@@ -1392,7 +1392,7 @@ msgstr "Potraži vanjski program za pregled razlika"
 msgid "Browse..."
 msgstr "Pretraži..."
 
-#. Resource IDs: (1382)
+#. Resource IDs: (1057)
 msgid "Bug Tracker..."
 msgstr "Registar grešaka..."
 
@@ -1683,6 +1683,10 @@ msgstr ""
 #, c-format
 msgid "Clears the stored sizes and positions of %ld dialogs"
 msgstr "Čisti spremljene veličine i položaje %ld dijaloga"
+
+#. Resource IDs: (1466)
+msgid "Click here to go to the website"
+msgstr "Kliknite ovdje za odlazak na web stranicu"
 
 #. Resource IDs: (170)
 msgid "Click here to select a recently typed message"
@@ -2123,6 +2127,17 @@ msgstr ""
 msgid "Could not start print job."
 msgstr "Nisam mogao pokrenuti ispis."
 
+#. Resource IDs: (83)
+#, c-format
+msgid ""
+"Could not start text viewer!\n"
+"<hr=100%%>\n"
+"%s"
+msgstr ""
+"Nisam mogao pokrenuti preglednik teksta\n"
+"<hr=100%%>\n"
+"%s"
+
 #. Resource IDs: (81)
 msgid "Could not start thread!"
 msgstr "Nisam mogao pokrenuti dretvu!"
@@ -2435,7 +2450,7 @@ msgstr "I&zdvoji izvore kopiranja"
 msgid "E&xit"
 msgstr "I&zlaz"
 
-#. Resource IDs: (9)
+#. Resource IDs: (9, 1382)
 msgid "E&xport..."
 msgstr "I&zvezi..."
 
@@ -2680,7 +2695,7 @@ msgstr "Izostavi staze:"
 msgid "Explore to"
 msgstr "Istraži do"
 
-#. Resource IDs: (229, 238)
+#. Resource IDs: (229, 238, 1437)
 msgid "Export"
 msgstr "Izvezi"
 
@@ -2795,7 +2810,7 @@ msgstr "Dohvaćam datoteku..."
 msgid "Fetching revision %s of file:"
 msgstr "Dohvaćam reviziju %s datoteke:"
 
-#. Resource IDs: (63, 74, 77, 207, 319)
+#. Resource IDs: (63, 74, 77, 319)
 msgid "File"
 msgstr "Datoteka"
 
@@ -3183,6 +3198,10 @@ msgid ""
 msgstr ""
 "Sakrij/pokaži popis zakrpa\n"
 "Sakriva ili pokazuje popis datoteka zakrpa"
+
+#. Resource IDs: (339)
+msgid "Highest revision number in the cache"
+msgstr "Najviša revizija u spremniku"
 
 #. Resource IDs: (1127)
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
@@ -3613,6 +3632,10 @@ msgstr "Nedostatna memorija za izvršavanje operacije."
 msgid "Internal application error."
 msgstr "Unutarnja pogreška aplikacije."
 
+#. Resource IDs: (338, 339)
+msgid "Internal value indicating compression quality"
+msgstr "Interna vrijednost kvalitete sažimanja"
+
 #. Resource IDs: (102)
 msgid "Invalid data object dropped!"
 msgstr "Neispravan podatkovni objekt je odbačen!"
@@ -3753,6 +3776,18 @@ msgstr "Zadnja pohranjena rev.:"
 #. Resource IDs: (11)
 msgid "Last saved revision of item"
 msgstr "Zadnja snimljena revizija stavke"
+
+#. Resource IDs: (338)
+msgid "Last time the cache content was changed"
+msgstr "Zadnja promjena sadržaja spremnika"
+
+#. Resource IDs: (338)
+msgid "Last time the cache was accessed"
+msgstr "Zadnji pristup spremniku"
+
+#. Resource IDs: (338)
+msgid "Last time the repository was asked for the HEAD revision number"
+msgstr "Vrijeme zadnjeg upita skladištu za broj HEAD inačice"
 
 #. Resource IDs: (12)
 msgid "Launches the external diff / merge program to solve the conflicts"
@@ -4336,9 +4371,49 @@ msgstr "Nije poniruće"
 msgid "Notice"
 msgstr "Bilješka"
 
+#. Resource IDs: (338)
+msgid "Number of authors in the cache"
+msgstr "Broj autora u spremniku"
+
 #. Resource IDs: (1161)
 msgid "Number of authors:"
 msgstr "Broj autora:"
+
+#. Resource IDs: (339)
+msgid "Number of cached merged revisions"
+msgstr "Broj spremljenih stopljenih revizija"
+
+#. Resource IDs: (339)
+msgid "Number of cached revisions"
+msgstr "Broj spremljenih revizija"
+
+#. Resource IDs: (339)
+msgid "Number of cached user revision properties"
+msgstr "Broj korisničkih svojstava u spremniku"
+
+#. Resource IDs: (339)
+msgid "Number of changed cached revisions"
+msgstr "Broj promijenjenih revizija u spremniku"
+
+#. Resource IDs: (339)
+msgid "Number of changed revisions that are not cached yet"
+msgstr "Broj promijenjenih inačica koje još nisu u spremniku"
+
+#. Resource IDs: (338)
+msgid "Number of different paths shown in the log dialog, including parent paths"
+msgstr "Broj različitih staza u dijalogu dnevnika, uključivo početne (parent) staze"
+
+#. Resource IDs: (339)
+msgid "Number of merged revisions that are not cached yet"
+msgstr "Broj stopljenih inačica koje još nisu u spremniku"
+
+#. Resource IDs: (338)
+msgid "Number of path elements. This is an internal value indicating the compression level."
+msgstr "Broj elemenata staze. To je interna vrijednost razine sažimanja."
+
+#. Resource IDs: (339)
+msgid "Number of user revision properties that are not cached yet"
+msgstr "Broj korisničkih svojstava koje još nisu u spremniku"
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -4513,7 +4588,7 @@ msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "Datoteke zakrpa (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 
 # Put, putanja?
-#. Resource IDs: (20, 77, 198)
+#. Resource IDs: (20, 77, 198, 207)
 msgid "Path"
 msgstr "Staza"
 
@@ -5214,7 +5289,7 @@ msgstr ""
 "Poruka dnevnika:\r\n"
 "%s"
 
-#. Resource IDs: (116)
+#. Resource IDs: (116, 65535)
 msgid "Revisions"
 msgstr "Revizije"
 
@@ -5773,6 +5848,14 @@ msgstr "Veličina"
 #. Resource IDs: (65535)
 msgid "Size and status"
 msgstr "Veličina i status"
+
+#. Resource IDs: (339)
+msgid "Size of all cached text information"
+msgstr "Veličina svih tekst informacija u spremniku"
+
+#. Resource IDs: (339)
+msgid "Size of the cache if it were not compressed"
+msgstr "Veličina spremnika (bez sažimanja)"
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -6626,6 +6709,18 @@ msgstr "Ukupno analizirano pohrana:"
 msgid "Total file changes:"
 msgstr "Ukupno izmijenjenih datoteka:"
 
+#. Resource IDs: (339)
+msgid "Total number of changed revisions"
+msgstr "Ukupan broj promijenjenih revizija"
+
+#. Resource IDs: (339)
+msgid "Total number of merged revisions"
+msgstr "Ukupan broj stopljenih revizija"
+
+#. Resource IDs: (339)
+msgid "Total number of user revision properties"
+msgstr "Ukupan broj korisničkih svojstava"
+
 #. Resource IDs: (357)
 #, c-format
 msgid "Transferring at %s"
@@ -6798,7 +6893,7 @@ msgstr "Datoteke izvan sustava verzija označavaju mapu kao izmijenjenu"
 msgid "Unversioning %s"
 msgstr "Skidanje verzija %s"
 
-#. Resource IDs: (152, 230)
+#. Resource IDs: (152, 230, 1436)
 msgid "Update"
 msgstr "Obnovi"
 
@@ -7283,6 +7378,10 @@ msgstr "Udalji"
 #. Resource IDs: (2051)
 msgid "Zoom to fit"
 msgstr "Zumiraj da se uklopi"
+
+#. Resource IDs: (338)
+msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
+msgstr "\"preskoči raspon\" se koristi za označavanje raspona revizija koje još nisu završile u spremniku"
 
 #. Resource IDs: (10)
 msgid "added"
