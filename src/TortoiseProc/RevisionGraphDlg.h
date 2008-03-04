@@ -90,6 +90,7 @@ protected:
 	afx_msg void    OnViewFoldTags();
 	afx_msg void    OnViewReduceCrosslines();
     afx_msg void    OnViewRemoveDeletedOnes();
+    afx_msg void    OnViewShowWCRev();
 	afx_msg void	OnViewShowoverview();
 	afx_msg void	OnFileSavegraphas();
 	afx_msg void	OnMenuexit();

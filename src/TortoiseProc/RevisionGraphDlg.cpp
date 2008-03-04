@@ -48,7 +48,7 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 	, m_bFetchLogs(true)
 	, m_fZoomFactor(1.0)
 {
-	DWORD dwOpts = CRegStdWORD(_T("Software\\TortoiseSVN\\RevisionGraphOptions"), 1);
+	DWORD dwOpts = CRegStdWORD(_T("Software\\TortoiseSVN\\RevisionGraphOptions"), 0x211);
 
 	m_options.groupBranches = ((dwOpts & 0x01) != 0);
 	m_options.includeSubPathChanges = ((dwOpts & 0x02) != 0);
@@ -58,6 +58,7 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 	m_options.exactCopySources = ((dwOpts & 0x20) != 0);
 	m_options.foldTags = ((dwOpts & 0x80) != 0);
 	m_options.removeDeletedOnes = ((dwOpts & 0x100) != 0);
+	m_options.showWCRev = ((dwOpts & 0x200) != 0);
 }
 
 CRevisionGraphDlg::~CRevisionGraphDlg()
@@ -72,6 +73,7 @@ CRevisionGraphDlg::~CRevisionGraphDlg()
 	dwOpts |= m_options.exactCopySources ? 0x20 : 0;
 	dwOpts |= m_options.foldTags ? 0x80 : 0;
     dwOpts |= m_options.removeDeletedOnes ? 0x100 : 0;
+    dwOpts |= m_options.showWCRev ? 0x200 : 0;
 	regOpts = dwOpts;
 }
 
@@ -103,6 +105,7 @@ BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CResizableStandAloneDialog)
 	ON_COMMAND(ID_VIEW_FOLDTAGS, &CRevisionGraphDlg::OnViewFoldTags)
 	ON_COMMAND(ID_VIEW_REDUCECROSSLINES, &CRevisionGraphDlg::OnViewReduceCrosslines)
 	ON_COMMAND(ID_VIEW_REMOVEDELETEDONES, &CRevisionGraphDlg::OnViewRemoveDeletedOnes)
+	ON_COMMAND(ID_VIEW_SHOWWCREV, &CRevisionGraphDlg::OnViewShowWCRev)
 	ON_CBN_SELCHANGE(ID_REVGRAPH_ZOOMCOMBO, OnChangeZoom)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTW, 0, 0xFFFF, OnToolTipNotify)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, OnToolTipNotify)
@@ -183,6 +186,7 @@ BOOL CRevisionGraphDlg::InitializeToolbar()
 					 , ID_VIEW_FOLDTAGS
 					 , ID_VIEW_REDUCECROSSLINES
                      , ID_VIEW_REMOVEDELETEDONES
+                     , ID_VIEW_SHOWWCREV
 					 , 0};
 
 	for (UINT* itemID = itemIDs, *style = styles; *style != 0; ++itemID)
@@ -247,6 +251,7 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 	SetOption(ID_VIEW_FOLDTAGS, m_options.foldTags);
 	SetOption(ID_VIEW_REDUCECROSSLINES, m_options.reduceCrossLines);
     SetOption(ID_VIEW_REMOVEDELETEDONES, m_options.removeDeletedOnes);
+    SetOption(ID_VIEW_SHOWWCREV, m_options.showWCRev);
 
 	CMenu * pMenu = GetMenu();
 	if (pMenu)
@@ -290,7 +295,8 @@ UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
 	pDlg->m_Graph.m_pProgress->ShowModeless(pDlg->m_hWnd);
 	pDlg->m_Graph.m_pProgress->SetProgress(0, 100);
 	pDlg->m_Graph.m_bNoGraph = FALSE;
-	if ((pDlg->m_bFetchLogs)&&(!pDlg->m_Graph.FetchRevisionData(pDlg->m_Graph.m_sPath)))
+	if (   (pDlg->m_bFetchLogs)
+        && (!pDlg->m_Graph.FetchRevisionData(pDlg->m_Graph.m_sPath, pDlg->m_options)))
 	{
 		CMessageBox::Show(pDlg->m_hWnd, pDlg->m_Graph.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		pDlg->m_Graph.m_bNoGraph = TRUE;
@@ -583,6 +589,11 @@ void CRevisionGraphDlg::OnViewReduceCrosslines()
 void CRevisionGraphDlg::OnViewRemoveDeletedOnes()
 {
     OnToggleOption (ID_VIEW_REMOVEDELETEDONES, m_options.removeDeletedOnes);
+}
+
+void CRevisionGraphDlg::OnViewShowWCRev()
+{
+    OnToggleOption (ID_VIEW_SHOWWCREV, m_options.showWCRev);
 }
 
 void CRevisionGraphDlg::OnCancel()

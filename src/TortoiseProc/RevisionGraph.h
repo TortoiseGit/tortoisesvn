@@ -332,11 +332,12 @@ public:
         bool foldTags;              // show tags as property to the source - not as separate nodes
         bool reduceCrossLines;      // minimize places with lines crossing a node box
         bool removeDeletedOnes;     // remove all deleted branches and tags
+        bool showWCRev;				// highlight the current WC revision if path points to a WC
     };
 
 	CRevisionGraph(void);
 	~CRevisionGraph(void);
-	BOOL						FetchRevisionData(CString path);
+	BOOL						FetchRevisionData(CString path, const SOptions& options);
 	BOOL						AnalyzeRevisionData(CString path, const SOptions& options);
 	virtual BOOL				ProgressCallback(CString text1, CString text2, DWORD done, DWORD total);
 	svn_revnum_t				GetHeadRevision() {return m_lHeadRevision;}

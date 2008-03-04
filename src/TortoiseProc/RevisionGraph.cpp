@@ -26,7 +26,6 @@
 #include "SVN.h"
 #include "TSVNPath.h"
 #include ".\revisiongraph.h"
-#include "SVNInfo.h"
 #include "SVNError.h"
 #include "CachedLogInfo.h"
 #include "RepositoryInfo.h"
@@ -364,6 +363,7 @@ CRevisionGraph::CRevisionGraph(void) : m_bCancelled(FALSE)
 	, m_FilterMinRev(-1)
 	, m_FilterMaxRev(LONG_MAX)
     , nodePool (sizeof (CRevisionEntry), 1024)
+    , m_wcRev (-1)
 {
 	memset (&m_ctx, 0, sizeof (m_ctx));
 	parentpool = svn_pool_create(NULL);
@@ -500,7 +500,7 @@ void CRevisionGraph::ReceiveLog ( LogChangedPathArray* changes
 	}
 }
 
-BOOL CRevisionGraph::FetchRevisionData(CString path)
+BOOL CRevisionGraph::FetchRevisionData (CString path, const SOptions& options)
 {
 	// set some text on the progress dialog, before we wait
 	// for the log operation to start
@@ -531,26 +531,6 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 		return FALSE;
 	}
 
-	// find the revision the working copy is on, we mark that revision
-	// later in the graph
-
-	CTSVNPath svnPath (path);
-	if (svnPath.IsUrl())
-	{
-		m_wcRev = -1;
-	}
-	else
-	{
-		SVNInfo info;
-		const SVNInfoData * baseInfo 
-			= info.GetFirstFileInfo (svnPath, SVNRev(), SVNRev());
-		m_wcRev = baseInfo == NULL
-      			? -1
-				: baseInfo->lastchangedrev;
-	}
-
-	// fetch missing data from the repository
-
 	m_lHeadRevision = (revision_t)NO_REVISION;
 	try
 	{
@@ -567,10 +547,8 @@ BOOL CRevisionGraph::FetchRevisionData(CString path)
 
             CString uuid = pool->GetRepositoryInfo().GetRepositoryUUID (urlpath);
             firstRevision = pool->GetCache (uuid)->GetRevisions().GetFirstMissingRevision(1);
-
 			// if the cache is already complete, the firstRevision here is
 			// HEAD+1 - that revision does not exist and would throw an error later
-
 			if (svn_revnum_t(firstRevision) > svn_revnum_t(headRevision))
 				firstRevision = headRevision;
         }
@@ -623,6 +601,27 @@ BOOL CRevisionGraph::AnalyzeRevisionData (CString path, const SOptions& options)
 	url = url.Mid(CPathUtils::PathUnescape(m_sRepoRoot).GetLength());
 
 	m_wcURL = url;
+
+	// find the revision the working copy is on, we mark that revision
+	// later in the graph
+    // (handle option.showWCRev changes properly!)
+
+    if ((m_wcRev == -1) == options.showWCRev)
+    {
+	    svn_revnum_t minrev;
+	    bool switched, modified, sparse;
+	    if (   !options.showWCRev 
+		    || !svn.GetWCRevisionStatus ( CTSVNPath(path)
+									    , true
+									    , minrev
+									    , m_wcRev
+									    , switched
+									    , modified
+									    , sparse))
+	    {
+		    m_wcRev = -1;
+	    }
+    }
 
 	// in case our path was renamed and had a different name in the past,
 	// we have to find out that name now, because we will analyze the data
