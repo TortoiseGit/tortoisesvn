@@ -366,14 +366,24 @@ BOOL CLogDlg::OnInitDialog()
 
 	DWORD yPos1 = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer1"));
 	DWORD yPos2 = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer2"));
+	RECT rcDlg, rcLogList, rcChgMsg;
+	GetClientRect(&rcDlg);
+	m_LogList.GetWindowRect(&rcLogList);
+	ScreenToClient(&rcLogList);
+	m_ChangedFileListCtrl.GetWindowRect(&rcChgMsg);
+	ScreenToClient(&rcChgMsg);
 	if (yPos1)
 	{
 		RECT rectSplitter;
 		m_wndSplitter1.GetWindowRect(&rectSplitter);
 		ScreenToClient(&rectSplitter);
 		int delta = yPos1 - rectSplitter.top;
-		m_wndSplitter1.SetWindowPos(NULL, 0, yPos1, 0, 0, SWP_NOSIZE);
-		DoSizeV1(delta);
+
+		if ((rcLogList.bottom + delta > rcLogList.top)&&(rcLogList.bottom + delta < rcChgMsg.bottom - 30))
+		{
+			m_wndSplitter1.SetWindowPos(NULL, 0, yPos1, 0, 0, SWP_NOSIZE);
+			DoSizeV1(delta);
+		}
 	}
 	if (yPos2)
 	{
@@ -381,8 +391,12 @@ BOOL CLogDlg::OnInitDialog()
 		m_wndSplitter2.GetWindowRect(&rectSplitter);
 		ScreenToClient(&rectSplitter);
 		int delta = yPos2 - rectSplitter.top;
-		m_wndSplitter2.SetWindowPos(NULL, 0, yPos2, 0, 0, SWP_NOSIZE);
-		DoSizeV2(delta);
+
+		if ((rcChgMsg.top + delta < rcChgMsg.bottom)&&(rcChgMsg.top + delta > rcLogList.top + 30))
+		{
+			m_wndSplitter2.SetWindowPos(NULL, 0, yPos2, 0, 0, SWP_NOSIZE);
+			DoSizeV2(delta);
+		}
 	}
 
 	
