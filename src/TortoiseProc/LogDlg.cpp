@@ -802,7 +802,7 @@ BOOL CLogDlg::Cancel()
 
 void CLogDlg::SaveSplitterPos()
 {
-	if (!IsIconic())
+	if (!IsIconic() && !IsZoomed())
 	{
 		CRegDWORD regPos1 = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer1"));
 		CRegDWORD regPos2 = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer2"));
