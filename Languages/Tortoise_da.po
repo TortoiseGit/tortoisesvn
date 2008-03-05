@@ -1,6 +1,6 @@
 #
 # Danish translation for TortoiseSVN
-# Copyright (C) 2004-2007 the TortoiseSVN team
+# Copyright (C) 2004-2008 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
 # Last commit by:
@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-04 18:40+0100\n"
+"PO-Revision-Date: 2008-03-05 20:53+0100\n"
 "Last-Translator: Zero3Cool\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -32,17 +32,19 @@ msgstr ""
 # Nøgleord i oversættelsen:
 # -------------------------------
 # Abort = Afbryd
-# Apply (patch) = Påfør korrekturark
+# Apply (patch) = Påfør korrekturark (?)
 # Apply (property) = Anvend egenskab
 # Blame = Ansvar
 # Branch = Forgrening
 # Browser = Browser
+# Cache = Cache
 # Cancel = Annuller
 # Changes = Ændringer (ikke rettelser)
+# Check = Vælg (når der snakkes om "fluebensbokse")
 # Checkout = Hent arbejdskopi
 # Cleanup = Oprydning
 # Commit = Arkivér (med accent for at undgå at ligne flertal af arkiv)
-# Corrections = Rettelser (ikke ændringer)
+# Corrections = Rettelser
 # Delete = Slet
 # Diff = Sammenlign
 # Diff program = Sammenligningsprogram
@@ -59,6 +61,9 @@ msgstr ""
 # Password = Adgangskode
 # Patch = Korrekturark
 # Patch file = Korrekturfil
+# Port = Overføre (f.eks.: "To port these changes to the trunk..." -> "For at overføre disse ændringer til stamen...")
+# Property = Egenskab
+# Record = Registrer
 # Relocate = Omlæg
 # Remove = Fjern
 # Repository = Versionsarkiv
@@ -601,10 +606,10 @@ msgstr "B&illedinfo"
 msgid "&Import..."
 msgstr "Im&porter..."
 
+# Oversættelse af "inline"?
 #. Resource IDs: (32825)
-#, fuzzy
 msgid "&Inline diff word-wise"
-msgstr "&Ord-for-ord forskelle i linje"
+msgstr ""
 
 #. Resource IDs: (1016)
 msgid "&Jump to first difference when loading"
@@ -809,9 +814,8 @@ msgid "&Test merge"
 msgstr "&Test fletning"
 
 #. Resource IDs: (1438)
-#, fuzzy
 msgid "&Timeout in seconds before updating the HEAD revision"
-msgstr "&Timeout i sekunder før stop af filanalyse til automatisk udfyldning"
+msgstr "&Timeout i sekunder før opdatering af HEAD-revisionen"
 
 #. Resource IDs: (1222)
 msgid "&Timeout in seconds to stop the auto-completion parsing"
@@ -894,9 +898,8 @@ msgid "&Whitespaces"
 msgstr "&Blanktegn"
 
 #. Resource IDs: (1066)
-#, fuzzy
 msgid "&Whole word"
-msgstr "&Hele ord"
+msgstr "&Helt ord"
 
 #. Resource IDs: (1183)
 msgid "&Working copy"
@@ -907,9 +910,9 @@ msgid "(binary value)"
 msgstr "(binær værdi)"
 
 #. Resource IDs: (272)
-#, fuzzy, c-format
+#, c-format
 msgid "(deleted) %s"
-msgstr "slettet"
+msgstr "(slettet) %s"
 
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
@@ -1152,9 +1155,8 @@ msgid "Adding"
 msgstr "Tilføjer"
 
 #. Resource IDs: (582)
-#, fuzzy
 msgid "Adds a new property"
-msgstr "Tilføj egenskaber"
+msgstr "Tilføjer en ny egenskab"
 
 #. Resource IDs: (9)
 msgid "Adds file(s) to Subversion control"
@@ -1185,9 +1187,8 @@ msgid "Advanced merge settings"
 msgstr "Avancerede indstillinger for fletning"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Age"
-msgstr "Gennemsnit"
+msgstr "Alder"
 
 #. Resource IDs: (3841)
 msgid "All Files (*.*)"
@@ -1240,9 +1241,9 @@ msgstr ""
 "%base%\t\tden originale fil uden dine ændringer"
 
 #. Resource IDs: (3867)
-#, fuzzy, c-format
+#, c-format
 msgid "An incorrect file handle was associated with %1."
-msgstr "En ugyldig fil-handle blev associeret med %1."
+msgstr "Et ugyldigt filkendetegn blev associeret med %1."
 
 #. Resource IDs: (3843)
 msgid "An unknown error has occurred."
@@ -1274,6 +1275,7 @@ msgstr ""
 "Anvender rekursivt egenskaberne på alle filer/mapper.\n"
 "Egenskaberne bugtraq: og tsvn: anvendes kun på mapper."
 
+# Oversættelse af "patch"?
 #. Resource IDs: (13)
 #, fuzzy
 msgid "Apply &patch..."
@@ -1292,9 +1294,9 @@ msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
 msgstr "Er du sikker på, at filen/filerne med konflikter skal markeres som løst?"
 
 #. Resource IDs: (199)
-#, fuzzy, c-format
+#, c-format
 msgid "Are you sure you want to remove the cache of the selected %d items?"
-msgstr "Er du sikker på, at filen/filerne med konflikter skal markeres som løst?"
+msgstr "Er du sikker på at du vil fjerne cachen af de valgte %d emner?"
 
 #. Resource IDs: (79)
 #, c-format
@@ -1320,24 +1322,23 @@ msgid "At revision: %d"
 msgstr "Ved revision: %d"
 
 #. Resource IDs: (3843)
-#, fuzzy
 msgid "Attempted an unsupported operation."
-msgstr "En ikke-understøttet handling blev forsøgt udført."
+msgstr "Forsøgte at udføre en handling der ikke er understøttet."
 
 #. Resource IDs: (3867, 3868)
-#, fuzzy, c-format
+#, c-format
 msgid "Attempted to access %1 past its end."
-msgstr "Der blev forsøgt at tilgå %1 ud over dens slutning."
+msgstr "Forsøgte at tilgå %1 ud over dets slutning."
 
 #. Resource IDs: (3868)
-#, fuzzy, c-format
+#, c-format
 msgid "Attempted to read from the writing %1."
-msgstr "Der blev forsøgt at læse samtidig med en igangværende skriveoperation på %1."
+msgstr "Forsøgte at læse fra skrivningen %1."
 
 #. Resource IDs: (3868)
-#, fuzzy, c-format
+#, c-format
 msgid "Attempted to write to the reading %1."
-msgstr "Der blev forsøgt at skrive samtidig med en igangværende læseoperation på %1."
+msgstr "Forsøgte at skrive til læsningen %1."
 
 #. Resource IDs: (131, 160)
 msgid "Authentication"
@@ -1360,9 +1361,8 @@ msgid "Authors"
 msgstr "Forfattere"
 
 #. Resource IDs: (1265)
-#, fuzzy
 msgid "Authors case sensitive"
-msgstr "Ignorer store/små bogstaver for forfattere"
+msgstr "Forfattere er følsom overfor store/små bogstaver."
 
 #. Resource IDs: (65535)
 msgid "Authors:"
@@ -1432,6 +1432,7 @@ msgstr "Ansvar - TortoiseSVN"
 msgid "Blames each line of a file on an author"
 msgstr "Viser den ansvarlige forfatter for hver linje i en fil"
 
+# Oversættelse af "blend alpha"?
 #. Resource IDs: (32812)
 #, fuzzy
 msgid "Blend Alpha"
@@ -1522,18 +1523,16 @@ msgid "Cache size [kB]"
 msgstr "Cache størrelse [kB]"
 
 #. Resource IDs: (1440)
-#, fuzzy
 msgid "Cached Repositories"
-msgstr "Opret versionsarkiv"
+msgstr "Cachede versionsarkiver"
 
 #. Resource IDs: (197)
 msgid "Caches the log messages to speed up log fetching"
 msgstr "Cacher logbeskederne for hurtigere at hente logs"
 
 #. Resource IDs: (1127)
-#, fuzzy
 msgid "Can double-click in log list to compare with previous revision"
-msgstr "Sammenlign med forrige version"
+msgstr "Kan dobbeltklikke i loglisten for at sammenligne med tidligere revision"
 
 #. Resource IDs: (82)
 #, c-format
@@ -1609,9 +1608,9 @@ msgid "Changed files: %d"
 msgstr "Ændrede filer: %d"
 
 #. Resource IDs: (264)
-#, fuzzy, c-format
+#, c-format
 msgid "Changelist %s moved"
-msgstr "Ændringsliste:"
+msgstr "Ændringsliste %s flyttet"
 
 #. Resource IDs: (65535)
 msgid "Changelist:"
@@ -1675,9 +1674,8 @@ msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Marker denne for at benytte et kortere dato- og tidsformat i logbeskeder"
 
 #. Resource IDs: (270)
-#, fuzzy
 msgid "Checking for forward copies"
-msgstr "Søger efter fremadrettede kopier"
+msgstr "Checker efter fremadrettede kopier"
 
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -2136,7 +2134,7 @@ msgstr "Kunne ikke flette \"%s\" fordi"
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not merge property \"%s\" on %s because"
-msgstr ""
+msgstr "Kunne ikke flette egenskaben \"%s\" på %s fordi"
 
 #. Resource IDs: (3867)
 #, fuzzy, c-format
@@ -2406,7 +2404,7 @@ msgstr "Sammenligner"
 
 #. Resource IDs: (14)
 msgid "Diffs the working copy file with the one before the last commit."
-msgstr ""
+msgstr "Sammenligner filen i arbejdskopien med versionen før sidste arkivering"
 
 #. Resource IDs: (65535)
 msgid "Directory:"
@@ -2643,7 +2641,7 @@ msgstr "En overtrædelse af deling opstod under adgang til %1."
 
 #. Resource IDs: (3843)
 msgid "Encountered an improper argument."
-msgstr ""
+msgstr "Stødte på et fejlagtigt argument."
 
 #. Resource IDs: (3859)
 #, fuzzy, c-format
@@ -3129,7 +3127,7 @@ msgstr "Generelt::Farver"
 
 #. Resource IDs: (195)
 msgid "General::Context Menu"
-msgstr ""
+msgstr "Generelt::Kontekstmenu"
 
 #. Resource IDs: (196)
 #, fuzzy
@@ -3480,7 +3478,7 @@ msgstr ""
 
 #. Resource IDs: (197)
 msgid "If checked, double-clicking on a revision in the log list compares it with the previous revision"
-msgstr ""
+msgstr "Hvis valgt, sammenlignes der med den tidligere revision, når der dobbeltklikkes på en revision i loglisten."
 
 #. Resource IDs: (196)
 msgid ""
@@ -3717,7 +3715,7 @@ msgstr "Intern programfejl."
 
 #. Resource IDs: (338, 339)
 msgid "Internal value indicating compression quality"
-msgstr ""
+msgstr "Intern værdi der indikerer komprimeringskvalitet"
 
 #. Resource IDs: (102)
 msgid "Invalid data object dropped!"
@@ -3798,6 +3796,10 @@ msgid ""
 "A range can be specified with a dash.\n"
 "Example: 2-5,7,10,44-70,300-HEAD"
 msgstr ""
+"Ugyldigt revisionsinterval!\n"
+"Gyldige revisioner er numre og HEAD, separeret af kommaer.\n"
+"Et interval kan specificeres med en tankestreg.\n"
+"Eksempel: 2-5,7,10,44-70,300-HEAD"
 
 #. Resource IDs: (570)
 msgid "Issue Tracker Hook"
@@ -4142,9 +4144,11 @@ msgstr "Flettede revision(er) %s fra %s:\n"
 msgid "Merges a branch into the main trunk"
 msgstr "Fletter en forgrening ind i hovedstammen"
 
+# Oversættelse af "merge-tracking information"?
 #. Resource IDs: (14)
+#, fuzzy
 msgid "Merges all missing revisions back into the working copy using merge-tracking information"
-msgstr ""
+msgstr "Fletter alle manglende revisioner tilbage i arbejdskopien ved brug af sporingsinformation om fletninger."
 
 # Dette er overskrift i en dialog
 #. Resource IDs: (65535)
@@ -4484,7 +4488,7 @@ msgstr "Antal af stielementer. Dette er en intern værdi der indikerer komprimer
 
 #. Resource IDs: (339)
 msgid "Number of user revision properties that are not cached yet"
-msgstr ""
+msgstr "Antal af bruger-revisionsegenskaber der endnu ikke er cachede."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -4521,6 +4525,10 @@ msgid ""
 "\n"
 "Are you sure you want to move the selected paths?"
 msgstr ""
+"En af stierne du prøver at flytte er tilsyneladende en speciel sti\n"
+"(enten 'branches', 'tags' eller 'trunk').\n"
+"\n"
+"Er du sikker på at du vil flytte de markerede stier?"
 
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
@@ -4545,7 +4553,7 @@ msgstr ""
 
 #. Resource IDs: (1424)
 msgid "Only record the merge"
-msgstr ""
+msgstr "Registrer kun fletningen"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -4896,9 +4904,8 @@ msgid "Recently modified lines"
 msgstr "Nyligt ændrede linjer"
 
 #. Resource IDs: (276)
-#, fuzzy
 msgid "Record Only"
-msgstr "Kun historik"
+msgstr "Registrer kun"
 
 #. Resource IDs: (1260)
 msgid "Recurse into unversioned folders"
@@ -5042,11 +5049,13 @@ msgid "Remove from changelist"
 msgstr "Fjern fra ændringsliste"
 
 #. Resource IDs: (127)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Remove property \"%s\" from\r\n"
 "%s"
-msgstr "Egenskabstatus på server"
+msgstr ""
+"Fjern egenskab  \"%s\" fra\r\n"
+"%s"
 
 #. Resource IDs: (1332)
 msgid "Remove..."
@@ -5122,9 +5131,8 @@ msgid "Renames files / folders inside version control"
 msgstr "Omdøber filer/mapper under versionskontrol"
 
 #. Resource IDs: (209)
-#, fuzzy
 msgid "Repair move"
-msgstr "Reparer flytning"
+msgstr "Reparationsflytning"
 
 # Autogenereret, bruges formodentlig ikke
 #. Resource IDs: (3603)
@@ -5265,9 +5273,8 @@ msgid "Reverts all changes you made since the last update"
 msgstr "Tilbagefører alle ændringer, du har foretaget siden sidste opdatering"
 
 #. Resource IDs: (14)
-#, fuzzy
 msgid "Reverts an addition to version control"
-msgstr "Føjer fil(er) til Subversion-kontrol"
+msgstr "Tilbagefører en tilføjelse til versionskontrol"
 
 #. Resource IDs: (19, 76, 208, 1306, 1375, 1393, 65535)
 msgid "Revision"
@@ -5399,9 +5406,8 @@ msgid "SVN Author"
 msgstr "SVN Forfatter"
 
 #. Resource IDs: (12)
-#, fuzzy
 msgid "SVN Copy and add files to this WC"
-msgstr "SVN Tilføj filer i denne arbejdskopi"
+msgstr "SVN Kopier og tilføj filer til denne arbejdskopi"
 
 #. Resource IDs: (16)
 msgid "SVN Copy and rename versioned file here"
@@ -5760,6 +5766,7 @@ msgstr "Vis &ikke-versionerede filer"
 msgid "Show File List"
 msgstr "Vis filliste"
 
+# Oversættelse af "nodes"?
 #. Resource IDs: (2051)
 #, fuzzy
 msgid "Show HEAD revision nodes"
@@ -5793,6 +5800,7 @@ msgstr "Vis ændringer som &unified diff"
 msgid "Show differences as &unified diff"
 msgstr "Vis forskelle i &unified diff-format"
 
+# Oversættelse af "as normal"?
 #. Resource IDs: (1126)
 #, fuzzy
 msgid "Show excluded folders as normal"
@@ -5850,6 +5858,7 @@ msgstr ""
 "Vis specielle tegn for blanktegn\n"
 "Vis blanktegn"
 
+# Oversættelse af "nodes"?
 #. Resource IDs: (2052)
 #, fuzzy
 msgid "Show tags on the copy source, not as separate nodes"
@@ -5916,7 +5925,7 @@ msgstr "Viser mime-typen for den versionerede fil"
 
 #. Resource IDs: (32775)
 msgid "Single/&double-pane view"
-msgstr ""
+msgstr "Enkelt-/&dobbeltrudet visning"
 
 #. Resource IDs: (74)
 msgid "Size"
@@ -5928,11 +5937,11 @@ msgstr "Størrelse of status"
 
 #. Resource IDs: (339)
 msgid "Size of all cached text information"
-msgstr ""
+msgstr "Størrelse af alt cached tekstinformation"
 
 #. Resource IDs: (339)
 msgid "Size of the cache if it were not compressed"
-msgstr ""
+msgstr "Størrelse af cachen if den ikke var komprimeret"
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -6561,6 +6570,11 @@ msgid ""
 "Please understand that the cached data may be outdated,\n"
 "incomplete or even misleading due to incomplete history."
 msgstr ""
+"Der opstod et problem med at forbinde til serveren.\n"
+"Vil du se de cachede data i stedet?\n"
+"\n"
+"Vær opmærksom på at de cachede data kan være forældede,\n"
+"ufuldstændige eller endda misvisende på grund af mangelfuld historie."
 
 #. Resource IDs: (82)
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
@@ -6594,11 +6608,11 @@ msgstr ""
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
-msgstr ""
+msgstr "Denne metode dækker tilfældet når du har lavet en funktionsgren, som diskuteret i Subversion-bogen. Alle stammeændringerne er blevet overført til funktionsgrenen, uge efter uge, og nu hvor funktionen er færdig, vil du gerne flette den tilbage ind i stammen. Fordi du har holdt funktionsgrenen synkroniseret med stammen, er de nyeste versioner af gren og stamme fuldstændig identiske, på nær dine ændringer i grenen. Så i dette specielle tilfælde, vil du flette ved at sammenligne grenen med stammen."
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
-msgstr ""
+msgstr "Denne metode dækker tilfældet når du har lavet en eller flere revisioner til en gren (eller til stammen), og du ønsker at overføre disse ændringer tværs over til en anden gren."
 
 #. Resource IDs: (65535)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -6665,7 +6679,6 @@ msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
 
 #. Resource IDs: (13)
-#, fuzzy
 msgid ""
 "TortoiseBlame should not be started directly! Use\n"
 "TortoiseProc.exe /command:blame /path:\"path\\to\\file\"\n"
@@ -6673,8 +6686,11 @@ msgid ""
 "\n"
 "TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 msgstr ""
-"TortoiseBlame kan ikke startes direkte.\n"
-"TortoiseBlame.exe ansvarsfil [[logfil] [titel]] [/line:linjenummer] [/path:originalsti]"
+"TortoiseBlame bør ikke startes direkte! Brug\n"
+"TortoiseProc.exe /command:blame /path:\"sti\\til\\fil\"\n"
+"i stedet.\n"
+"\n"
+"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linjenumber] [/path:originalsti] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
@@ -6788,9 +6804,8 @@ msgid "Total number of merged revisions"
 msgstr "Samlet antal flettede revisioner"
 
 #. Resource IDs: (339)
-#, fuzzy
 msgid "Total number of user revision properties"
-msgstr "Samlet antal af bruger-revisionsegenskaber"
+msgstr "Samlet antal af brugerrevisionsegenskaber"
 
 #. Resource IDs: (357)
 #, c-format
@@ -6944,7 +6959,7 @@ msgstr "Låst op"
 
 #. Resource IDs: (565)
 msgid "Unrecognized or invalid property file format!"
-msgstr ""
+msgstr "Ugenkendeligt eller ugyldigt egenskabsfil-format!"
 
 #. Resource IDs: (3841)
 msgid "Untitled"
@@ -7450,7 +7465,7 @@ msgstr "Tilpas zoom"
 
 #. Resource IDs: (338)
 msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
-msgstr ""
+msgstr "\"intervaller der skal springes over\" bruges til at markere revisionsintervaller der endnu ikke er blevet cachede"
 
 #. Resource IDs: (10)
 msgid "added"
@@ -7491,9 +7506,8 @@ msgid "author"
 msgstr "forfatter"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "authors: "
-msgstr "Forfattere:"
+msgstr "forfattere:"
 
 #. Resource IDs: (577)
 msgid ""
@@ -7558,16 +7572,14 @@ msgstr ""
 "erstattes af sagsnummeret."
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "changes total: "
-msgstr "Gem ændringer som %1?"
+msgstr "ændringer i alt:"
 
 #. Resource IDs: (145)
 msgid "cleaning up"
 msgstr "Rydder op"
 
 #. Resource IDs: (244, 245)
-#, fuzzy
 msgid "commits"
 msgstr "arkiveringer"
 
@@ -7576,9 +7588,8 @@ msgid "conflicted"
 msgstr "konflikter"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "connection: "
-msgstr "Rettelser"
+msgstr "forbindelse:"
 
 #. Resource IDs: (208)
 #, c-format
@@ -7602,9 +7613,8 @@ msgid "disk [kB]: "
 msgstr "disk [kB]:"
 
 #. Resource IDs: (1342)
-#, fuzzy
 msgid "eol style"
-msgstr "eol-type"
+msgstr "eol-stil"
 
 #. Resource IDs: (79)
 #, c-format
@@ -7676,9 +7686,8 @@ msgid "locked:"
 msgstr "låst:"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "max revision: "
-msgstr "Ved revision: %d"
+msgstr "højeste revision:"
 
 #. Resource IDs: (11, 65535)
 msgid "merged"
@@ -7697,9 +7706,8 @@ msgid "missing / deleted / replaced"
 msgstr "mangler / slettet / erstattet"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "missing in: "
-msgstr "mangler"
+msgstr "mangler i:"
 
 #. Resource IDs: (10)
 msgid "modified"
@@ -7738,9 +7746,8 @@ msgid "offline"
 msgstr "offline"
 
 #. Resource IDs: (601)
-#, fuzzy
 msgid "online"
-msgstr "Fortsæt"
+msgstr "online"
 
 #. Resource IDs: (1406, 1407)
 msgid "or"
@@ -7757,9 +7764,8 @@ msgid "path elements: "
 msgstr "stielementer:"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "paths: "
-msgstr "Stier"
+msgstr "stier:"
 
 #. Resource IDs: (3869)
 msgid "pixels"
@@ -7792,9 +7798,8 @@ msgid "revision %s-%s, revision %s-%s"
 msgstr "revision %s-%s, revision %s-%s"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "revision count: "
-msgstr "Revision: "
+msgstr "revisionsantal:"
 
 #. Resource IDs: (326)
 #, c-format
@@ -7802,13 +7807,12 @@ msgid "revisions %s-%s, %s"
 msgstr "revisioner %s-%s, %s"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "revisions: "
-msgstr "Revision: "
+msgstr "revisioner:"
 
 #. Resource IDs: (65535)
 msgid "skip ranges: "
-msgstr "intervaller der springes over:"
+msgstr "intervaller der skal springes over:"
 
 #. Resource IDs: (576)
 msgid ""
