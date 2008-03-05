@@ -2,6 +2,8 @@
 - BUG: Inserting a history log message in the commit dialog when 
        bugtraq:append is set to 'false' inserted the bug ID and the commit
        message reversed. (Stefan)
+- BUG: The slider positions could be restored incorrectly in the commit and
+       log dialog. (Stefan)
 
 
 Version 1.5.0-alpha1

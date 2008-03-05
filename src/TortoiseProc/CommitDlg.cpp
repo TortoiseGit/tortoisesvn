@@ -198,14 +198,23 @@ BOOL CCommitDlg::OnInitDialog()
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	EnableSaveRestore(_T("CommitDlg"), TRUE);
 	DWORD yPos = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\CommitDlgSizer"));
+	RECT rcDlg, rcLogMsg, rcFileList;
+	GetClientRect(&rcDlg);
+	m_cLogMessage.GetWindowRect(&rcLogMsg);
+	ScreenToClient(&rcLogMsg);
+	m_ListCtrl.GetWindowRect(&rcFileList);
+	ScreenToClient(&rcFileList);
 	if (yPos)
 	{
 		RECT rectSplitter;
 		m_wndSplitter.GetWindowRect(&rectSplitter);
 		ScreenToClient(&rectSplitter);
 		int delta = yPos - rectSplitter.top;
-		m_wndSplitter.SetWindowPos(NULL, 0, yPos, 0, 0, SWP_NOSIZE);
-		DoSize(delta);
+		if ((rcLogMsg.bottom + delta > rcLogMsg.top)&&(rcLogMsg.bottom + delta < rcFileList.bottom - 30))
+		{
+			m_wndSplitter.SetWindowPos(NULL, 0, yPos, 0, 0, SWP_NOSIZE);
+			DoSize(delta);
+		}
 	}
 
 	// add all directories to the watcher
