@@ -501,11 +501,14 @@ void CCommitDlg::OnOK()
 
 void CCommitDlg::SaveSplitterPos()
 {
-	CRegDWORD regPos = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\CommitDlgSizer"));
-	RECT rectSplitter;
-	m_wndSplitter.GetWindowRect(&rectSplitter);
-	ScreenToClient(&rectSplitter);
-	regPos = rectSplitter.top;
+	if (!IsIconic() && !IsZoomed())
+	{
+		CRegDWORD regPos = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\CommitDlgSizer"));
+		RECT rectSplitter;
+		m_wndSplitter.GetWindowRect(&rectSplitter);
+		ScreenToClient(&rectSplitter);
+		regPos = rectSplitter.top;
+	}
 }
 
 UINT CCommitDlg::StatusThreadEntry(LPVOID pVoid)
