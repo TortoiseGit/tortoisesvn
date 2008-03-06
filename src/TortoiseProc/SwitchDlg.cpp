@@ -70,6 +70,7 @@ BOOL CSwitchDlg::OnInitDialog()
 	CResizableStandAloneDialog::OnInitDialog();
 
 	CTSVNPath svnPath(m_path);
+	SetDlgItemText(IDC_SWITCHPATH, m_path);
 	m_bFolder = svnPath.IsDirectory();
 	SVN svn;
 	CString url = svn.GetURLFromPath(svnPath);
