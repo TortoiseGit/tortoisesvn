@@ -429,7 +429,7 @@ msgid "&Go To Line..."
 msgstr ""
 
 #. Resource IDs: (32799)
-msgid "&Group branches"
+msgid "&Group by branch"
 msgstr ""
 
 #. Resource IDs: (1032, 1115)
@@ -1035,6 +1035,10 @@ msgstr ""
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
+msgstr ""
+
+#. Resource IDs: (339)
+msgid "Amount of memory required to load the cache"
 msgstr ""
 
 #. Resource IDs: (78)
@@ -1701,6 +1705,10 @@ msgstr ""
 msgid "Conflicts: %d"
 msgstr ""
 
+#. Resource IDs: (345)
+msgid "Connect to the repository server and download missing log data"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Container sizes"
 msgstr ""
@@ -2248,6 +2256,10 @@ msgstr ""
 msgid "Empty"
 msgstr ""
 
+#. Resource IDs: (344)
+msgid "Enable log caching to speed up log and revision graph dialogs"
+msgstr ""
+
 #. Resource IDs: (196)
 msgid "Enable this only if you're working with web projects on VS.NET2003!\nYou must restart the system for this setting to take effect."
 msgstr ""
@@ -2420,6 +2432,10 @@ msgstr ""
 
 #. Resource IDs: (94)
 msgid "Export directory:"
+msgstr ""
+
+#. Resource IDs: (345)
+msgid "Export the selected cache as a set of Comma Separated Value (CSV) files"
 msgstr ""
 
 #. Resource IDs: (79)
@@ -2613,6 +2629,10 @@ msgstr ""
 msgid "Force blame"
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "From URL:"
+msgstr ""
+
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr ""
@@ -2747,12 +2767,12 @@ msgstr ""
 msgid "Graph type:"
 msgstr ""
 
-#. Resource IDs: (214)
-msgid "Group changelists"
+#. Resource IDs: (2050)
+msgid "Group by branch"
 msgstr ""
 
-#. Resource IDs: (2050)
-msgid "Groups branches together"
+#. Resource IDs: (214)
+msgid "Group changelists"
 msgstr ""
 
 #. Resource IDs: (1229)
@@ -3243,6 +3263,10 @@ msgstr ""
 msgid "List Help topics\nHelp Topics"
 msgstr ""
 
+#. Resource IDs: (344)
+msgid "List of repositories for which log information has been cached"
+msgstr ""
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr ""
@@ -3367,6 +3391,10 @@ msgstr ""
 msgid "Mark as resolved"
 msgstr ""
 
+#. Resource IDs: (2052)
+msgid "Mark current revision of your working copy"
+msgstr ""
+
 #. Resource IDs: (101)
 msgid "Mark for comparison"
 msgstr ""
@@ -3401,6 +3429,10 @@ msgstr ""
 
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
+msgstr ""
+
+#. Resource IDs: (221)
+msgid "Merge Reintegrate"
 msgstr ""
 
 #. Resource IDs: (1416)
@@ -3737,19 +3769,27 @@ msgid "Number of cached revisions"
 msgstr ""
 
 #. Resource IDs: (339)
-msgid "Number of cached user revision properties"
+msgid "Number of cached revisions that have a non-empty change list"
 msgstr ""
 
 #. Resource IDs: (339)
-msgid "Number of changed cached revisions"
+msgid "Number of cached revisions that have user revision properties"
 msgstr ""
 
 #. Resource IDs: (339)
-msgid "Number of changed revisions that are not cached yet"
+msgid "Number of cached revisions whose change list is not cached yet"
+msgstr ""
+
+#. Resource IDs: (339)
+msgid "Number of cached revisions whose user revision properties are not cached yet"
 msgstr ""
 
 #. Resource IDs: (338)
 msgid "Number of different paths shown in the log dialog, including parent paths"
+msgstr ""
+
+#. Resource IDs: (338)
+msgid "Number of different words used in log messages"
 msgstr ""
 
 #. Resource IDs: (339)
@@ -3757,11 +3797,7 @@ msgid "Number of merged revisions that are not cached yet"
 msgstr ""
 
 #. Resource IDs: (338)
-msgid "Number of path elements. This is an internal value indicating the compression level."
-msgstr ""
-
-#. Resource IDs: (339)
-msgid "Number of user revision properties that are not cached yet"
+msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
 msgstr ""
 
 #. Resource IDs: (1160)
@@ -4171,6 +4207,15 @@ msgstr ""
 msgid "Regular expressions filter:\n.\t\t\tany character\nc+\t\t\tmatch character c one or more times\nc*\t\t\tmatch character c zero or more times\n^\t\t\tstart of line\n$\t\t\tend of line\n(string){n}\tmatch string n times\n(abcd)\t\tsubexpression\n[aei0-9]\t\tmatch a,e,i and 0..9\n[^aei0-9]\tanything but a,e,i and 0..9\n<hr=100%>\n\\w\t\t\tmatches a-z,A-Z,0-9 and _\n\\W\t\t\tany non-alphanumeric character\n\\d\t\t\tdigits 0-9\n\\s\t\t\twhitespaces"
 msgstr ""
 
+#. Resource IDs: (1469)
+msgid "Reintegrate a branch"
+msgstr ""
+
+#. Resource IDs: (230)
+#, c-format
+msgid "Reintegrate merge %s into %s"
+msgstr ""
+
 #. Resource IDs: (82)
 msgid "Reject"
 msgstr ""
@@ -4248,6 +4293,10 @@ msgstr ""
 #. Resource IDs: (127)
 #, c-format
 msgid "Remove property \"%s\" from\r\n%s"
+msgstr ""
+
+#. Resource IDs: (345)
+msgid "Remove the selected cache(s) from disk"
 msgstr ""
 
 #. Resource IDs: (1332)
@@ -4640,6 +4689,10 @@ msgstr ""
 msgid "Saved Data"
 msgstr ""
 
+#. Resource IDs: (344)
+msgid "Saves expensive server roundtrips when set to longer than 0 seconds"
+msgstr ""
+
 #. Resource IDs: (581)
 msgid "Saves the selected property value to a file"
 msgstr ""
@@ -4859,6 +4912,10 @@ msgstr ""
 msgid "Show &Range..."
 msgstr ""
 
+#. Resource IDs: (32826)
+msgid "Show &WC revision"
+msgstr ""
+
 #. Resource IDs: (32796)
 msgid "Show &all revisions"
 msgstr ""
@@ -4959,6 +5016,10 @@ msgstr ""
 msgid "Show special characters for whitespaces\nShow Whitespaces"
 msgstr ""
 
+#. Resource IDs: (345)
+msgid "Show statistics for the selected log cache"
+msgstr ""
+
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr ""
@@ -5036,6 +5097,10 @@ msgstr ""
 
 #. Resource IDs: (339)
 msgid "Size of all cached text information"
+msgstr ""
+
+#. Resource IDs: (339)
+msgid "Size of the cache file on disk"
 msgstr ""
 
 #. Resource IDs: (339)
@@ -5198,6 +5263,10 @@ msgstr ""
 
 #. Resource IDs: (9)
 msgid "Switch working copy to another branch / tag"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Switch:"
 msgstr ""
 
 #. Resource IDs: (325)
@@ -5472,11 +5541,15 @@ msgid "This is not a valid path!\nA valid path must not contain '<<>|\"?*:' or o
 msgstr ""
 
 #. Resource IDs: (594)
-msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
+msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. Use this to merge all changes of a branch back to trunk."
 msgstr ""
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
+msgstr ""
+
+#. Resource IDs: (594)
+msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -5587,7 +5660,7 @@ msgid "Total file changes:"
 msgstr ""
 
 #. Resource IDs: (339)
-msgid "Total number of changed revisions"
+msgid "Total number of changes over all cached revisions"
 msgstr ""
 
 #. Resource IDs: (339)
@@ -5955,6 +6028,10 @@ msgstr ""
 msgid "Warning!"
 msgstr ""
 
+#. Resource IDs: (344)
+msgid "When connecting to the respository server is not possible,\nTSVN can switch to using cached data only.\nSelect the default beviour here."
+msgstr ""
+
 #. Resource IDs: (197)
 msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
 msgstr ""
@@ -6137,6 +6214,10 @@ msgstr ""
 msgid "another item already exists in its place."
 msgstr ""
 
+#. Resource IDs: (340)
+msgid "ask repository first if 'online' -\nwork entierely from cache if 'offline'"
+msgstr ""
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr ""
@@ -6282,7 +6363,7 @@ msgid "merged"
 msgstr ""
 
 #. Resource IDs: (65535)
-msgid "merges total:"
+msgid "merges total: "
 msgstr ""
 
 #. Resource IDs: (10)
