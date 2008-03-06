@@ -278,7 +278,9 @@ BOOL CLogDlg::OnInitDialog()
 	m_LogList.InsertColumn(3, temp);
 	if (m_bShowBugtraqColumn)
 	{
-		temp.LoadString(IDS_LOG_BUGIDS);
+		temp = m_ProjectProperties.sLabel;
+		if (temp.IsEmpty())
+			temp.LoadString(IDS_LOG_BUGIDS);
 		m_LogList.InsertColumn(4, temp);
 	}
 	temp.LoadString(IDS_LOG_MESSAGE);
