@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-03-02 08:45 +0000\n"
-"PO-Revision-Date: 2008-03-03 10:09+0100\n"
+"PO-Revision-Date: 2008-03-07 16:16+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3493,7 +3493,7 @@ msgstr "Rufen Sie mit einem <action>Rechtsklick</action> auf den ausgecheckten O
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3881
 msgid "In the check for modifications dialog, first click on the button <guibutton>Check repository</guibutton>. The dialog will show all the files and folders which are in the repository but which you have not checked out as <literal>remotely added</literal>. <action>Right click</action> on the folder(s) you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Im <quote>Prüfe auf Änderungen</quote> Dialog klicken Sie zunächst auf <guibutton>Check repository</guibutton>. Der Dialog wird alle Dateien, die sich im Projektarchiv befinden, aber von Ihnen noch nicht ausgecheckt wurden als <literal>hinzugefügt</literal>. Mit einem <action>Rechtsklick</action> auf den Ordner, den Sie zu Ihrer Arbeitskopie hinzufügen möchten wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Aktualsieren</guimenuitem> </menuchoice>."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3894
@@ -6641,7 +6641,7 @@ msgstr "Auf dieser Seite des Assistenten können Sie weitere Optionen angeben, b
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7891
 msgid "You can specify the depth to use for the merge, i.e. how far down into your working copy the merge should go. The depth terms used are described in <xref linkend=\"tsvn-dug-checkout-depth\"/>. The default depth is <guilabel>Working copy</guilabel>, which uses the existing depth setting, and is almost always what you want."
-msgstr ""
+msgstr "Sie können die Tiefe für das Zusammenführen festlegen, das heißt, wie weit das Zusammenführen in Ihre Arbeitskopie herabsteigen soll. Die Tiefendefinitionen sind in <xref linkend=\"tsvn-dug-checkout-depth\"/> beschrieben. Die Vorgabe ist <guilabel>Arbeitskopie</guilabel>, was den aktuell eingestellten Wert verwendet und meistens korrekt sein wird."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7898
@@ -6651,12 +6651,12 @@ msgstr "Meistens möchten Sie, dass die Vergangenheit von Dateien berücksichtig
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7915
 msgid "You can specify the way that line ending and whitespace changes are handled. These options are described in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. The default behaviour is to treat all whitespace and line-end differences as real changes to be merged."
-msgstr ""
+msgstr "Sie können festlegen, wie Änderungen an Zeilenumbrüchen und Leerzeichen behandelt werden sollen. Diese Optionen sind in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/> beschrieben. Die Vorgabe ist, dass alle Zeilenenden- und Leerzeichenänderungen als echte, zusammenzuführende Änderungen behandelt werden."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7921
 msgid "If you are using merge tracking and you want to mark a revision as having been merged, without actually doing the merge here, check the <guilabel>Only record the merge</guilabel> checkbox. There are two possible reasons you might want to do this. It may be that the merge is too complicated for the merge algorithms, so you code the changes by hand, then mark the change as merged so that the merge tracking algorithm is aware of it. Or you might want to prevent a particular revision from being merged. Marking it as already merged will prevent the merge occurring with merge-tracking-aware clients."
-msgstr ""
+msgstr "Falls Sie Ihre Datenintegrationsschritte verfolgen und eine Revision als zusammengeführt markieren wollen, ohne die Daten wirklich zusammmenzuführen, markieren Sie <guilabel>Zusammenführen nur aufzeichnen</guilabel>. Es gibt mehrere Gründe, dies zu tun. Zum Beispiel könnten die zusammenzuführenden Änderungen zu komplex für den Algorithmus sein, so dass Sie die Daten von Hand integrieren und die Revisionen als zusammengeführt markieren, damit die Änderungsverfolgung darüber informiert ist. Oder Sie möchten verhindern, dass eine bestimmte Revision zusammengeführt werden kann. Clients die die Verfolgung der Datenintegration bereits beherrschen, werden diese Revision dann überspringen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7932
@@ -6666,7 +6666,7 @@ msgstr "Nun, da alles vorbereitet ist, müssen Sie nur noch auf <guibutton>Zusam
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7940
 msgid "The merge progress dialog shows each stage of the merge, with the revision ranges involved. This may indicate one more revision than you were expecting. For example if you asked to merge revision 123 the progress dialog will report <quote>Merging revisions 122 through 123</quote>. To understand this you need to remember that Merge is closely related to Diff. The merge process works by generating a list of differences between two points in the repository, and applying those differences to your working copy. The progress dialog is simply showing the start and end points for the diff."
-msgstr ""
+msgstr "Der Fortschrittsdialog zeigt nun jeden Schritt des Zusammenführens mit den betroffenen Revisionen an. Eventuell wird hier eine Revision mehr, als von Ihnen erwartet, angezeigt. So wird zum Beispiel, falls Sie die Revision 123 zusammenführen, im Fortschrittsdialog <quote>Zusammenführen von Revisionen 122 bis 123</quote> angezeigt. Das Zusammenführen ist mit dem Vergleichen verwandt. Der Prozess erzeugt eine Liste von Änderungen zwischen zwei Punkten im Projektarchiv und wendet diese Änderungen auf Ihre Arbeitskopie an. Der Fortschrittsdialog zeigt lediglich den Start- und Endpunkt der Differenzbildung an."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:7953
@@ -6676,7 +6676,7 @@ msgstr "Ergebnisse des Zusammenführens betrachten"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7954
 msgid "The merge is now complete. It's a good idea to have a look at the merge and see if it's as expected. Merging is usually quite complicated. Conflicts often arise if the branch has drifted far from the trunk."
-msgstr ""
+msgstr "Das Zusammenführen ist nun beendet. Es ist eine gute Idee, wenn Sie sich das Ergebnis anschauen und prüfen, ob es Ihren Erwartungen entspricht. Datenintegration ist normalerweise eine komplizierte Sache. Konflikte können auftreten, wenn der Zweig sich zu weit vom Stamm entfernt hat."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7959
@@ -6716,32 +6716,32 @@ msgstr "Datenintegration"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8015
 msgid "You can avoid the danger of merging the same revision twice (repeated merge problem). Once a revision is marked as having been merged, future merges which include that revision in the range will skip over it."
-msgstr ""
+msgstr "Sie können vermeiden, dass eine Revision mehrfach integriert wird. Sobald eine Revision als bereits zusammengeführt markiert ist, werden zukünftige Datenintegrationen diese Revision überspringen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8021
 msgid "When you merge a branch back into trunk, the log dialog can show you the branch commits as part of the trunk log, giving better traceability of changes."
-msgstr ""
+msgstr "Wenn Sie einen Zweig in den Stamm zurückintegrieren, kann Ihnen der Log-Dialog die Übertragungen des Zweiges im Log des Stamms anzeigen und Ihnen damit die Verfolgung der Änderungen vereinfachen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8026
 msgid "When showing blame information for a file, you can choose to show the original author of merged revisions, rather than the person who did the merge."
-msgstr ""
+msgstr "Wenn Sie die Annotierungen für eine Datei anzeigen, können Sie sich den Originalautor der Änderungen anstelle des Autors, der die Änderungen zusammengeführt hat, anzeigen lassen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8031
 msgid "You can mark revisions as <emphasis>do not merge</emphasis> by including them in the list of merged revisions without actually doing the merge."
-msgstr ""
+msgstr "Sie können Revisionen als <emphasis>nicht zusammenführbar</emphasis> markieren, indem Sie diese in die Liste der bereits zusammengeführten Revisionen aufnehmen, ohne das Zusammenführen tatsächlich anzustoßen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8009
 msgid "Subversion 1.5 introduced facilities for merge tracking. When you merge changes from one tree into another, the revision numbers merged are stored and this information can be used for several different purposes. <placeholder-1/>"
-msgstr ""
+msgstr "Mit Subversion 1.5 wurden Möglichkeiten zur Verfolgung der Datenintegration einfeführt. Wenn Sie Änderungen von einem Baum in einem anderen zusammenführen, werden die entsprechenden Revisionsnummern gespeichert. Diese Information kann für weitere Zwecke herangezogen werden. <placeholder-1/>"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8039
 msgid "Merge tracking information is stored in the <literal>svn:mergeinfo</literal> property by the client when it performs a merge. When the merge is committed the server stores that information in a database, and when you request merge, log or blame information, the server can respond appropriately. For the system to work properly you must ensure that the server and all clients are upgraded. Earlier clients will not store the <literal>svn:mergeinfo</literal> property and earlier servers will not provide the information requested by new clients."
-msgstr ""
+msgstr "Die zusammengeführten Revisionen und Pfade werden durch den Subversion Client beim Zusammenführen in der <literal>svn:mergeinfo</literal> Eigenschaft abgespeichert. Sobald die Änderungen übertragen wurden, speichert der Server sie in einer Datenbank. Falls jetzt Logdaten, Annotierungen oder Zusammenführen angefordert werden, kann der Server entsprechend reagieren. Damit das System korrekt arbeitet, müssen Sie sicherstellen, dass der Server und alle Clients aktualisiert werden. Ältere Clients füllen die <literal>svn:mergeinfo</literal> nicht aus und ältere Server beantworten die Anfragen neuerer Clients nicht."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8048
@@ -6751,7 +6751,7 @@ msgstr "Lesen Sie mehr über die Verfolgung der Datenintegration in Subversions 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:8056
 msgid "Handling Conflicts during Merge"
-msgstr ""
+msgstr "Behandeln von Konflikten beim Zusammenführen"
 
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:8059
