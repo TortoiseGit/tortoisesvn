@@ -1871,7 +1871,7 @@ BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, svn_revnum_t rev)
 	if (bOpenWith)
 	{
 		CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
-		cmd += tempfile.GetWinPathString();
+		cmd += tempfile.GetWinPathString() + _T(" ");
 		CAppUtils::LaunchApplication(cmd, NULL, false);
 	}
 	EnableOKButton();
@@ -3831,7 +3831,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 					if ((ret <= HINSTANCE_ERROR)||bOpenWith)
 					{
 						CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
-						cmd += tempfile.GetWinPathString();
+						cmd += tempfile.GetWinPathString() + _T(" ");
 						CAppUtils::LaunchApplication(cmd, NULL, false);
 					}
 				}

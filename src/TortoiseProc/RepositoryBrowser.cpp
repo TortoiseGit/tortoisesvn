@@ -2312,7 +2312,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				else
 				{
 					CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
-					cmd += tempfile.GetWinPathString();
+					cmd += tempfile.GetWinPathString() + _T(" ");
 					CAppUtils::LaunchApplication(cmd, NULL, false);
 				}
 			}
