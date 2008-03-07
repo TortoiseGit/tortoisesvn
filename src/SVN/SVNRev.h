@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -140,6 +140,23 @@ public:
 
 	bool				FromListString(const CString& string);
 	CString				ToListString();
+
+	struct AscSort
+	{
+		bool operator()(SVNRevRange& pStart, SVNRevRange& pEnd)
+		{
+			return svn_revnum_t(pStart.GetStartRevision()) < svn_revnum_t(pEnd.GetStartRevision());
+		}
+	};
+
+	struct DescSort
+	{
+		bool operator()(SVNRevRange& pStart, SVNRevRange& pEnd)
+		{
+			return svn_revnum_t(pStart.GetStartRevision()) > svn_revnum_t(pEnd.GetStartRevision());
+		}
+	};
+
 private:
 	std::vector<SVNRevRange>	m_array;
 };

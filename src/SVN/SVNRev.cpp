@@ -314,6 +314,10 @@ void SVNRevRangeArray::AdjustForMerge(bool bReverse /* = false */)
 			}
 		}
 	}
+	if (bReverse)
+		std::sort(m_array.begin(), m_array.end(), SVNRevRangeArray::DescSort());
+	else
+		std::sort(m_array.begin(), m_array.end(), SVNRevRangeArray::AscSort());
 }
 
 int SVNRevRangeArray::GetCount() const
