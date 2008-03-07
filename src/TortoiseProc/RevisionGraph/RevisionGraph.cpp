@@ -180,7 +180,7 @@ void CRevisionGraph::ReceiveLog ( LogChangedPathArray* changes
 	}
 }
 
-BOOL CRevisionGraph::FetchRevisionData (CString path, const SOptions& options)
+BOOL CRevisionGraph::FetchRevisionData (CString path, const SOptions& /*options*/)
 {
 	// set some text on the progress dialog, before we wait
 	// for the log operation to start
