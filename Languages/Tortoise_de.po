@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-02-28 08:41+0100\n"
+"PO-Revision-Date: 2008-03-07 11:34+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -451,8 +451,8 @@ msgid "&Go To Line..."
 msgstr "&Gehe zu Zeile..."
 
 #. Resource IDs: (32799)
-msgid "&Group branches"
-msgstr "Verzweigungen &gruppieren"
+msgid "&Group by branch"
+msgstr "&Gruppiere nach Zweig"
 
 #. Resource IDs: (1032, 1115)
 msgid "&HEAD Revision"
@@ -1093,6 +1093,10 @@ msgstr "Alle Dateien(*.*)|*.*||"
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "Stets die Systemeinstellungen für Uhrzeit und Datum verwenden"
+
+#. Resource IDs: (339)
+msgid "Amount of memory required to load the cache"
+msgstr "Zu Laden des Puffers benötigter Arbeitsspeicher"
 
 #. Resource IDs: (78)
 #, c-format
@@ -1834,6 +1838,10 @@ msgstr "Konflikt"
 msgid "Conflicts: %d"
 msgstr "Konflikte: %d"
 
+#. Resource IDs: (345)
+msgid "Connect to the repository server and download missing log data"
+msgstr "Mit dem Projektarchiv verbinden und die fehlenden Logdaten herunterladen"
+
 #. Resource IDs: (65535)
 msgid "Container sizes"
 msgstr "Containergrößen"
@@ -2494,6 +2502,10 @@ msgstr "Entweder der Name oder die IP Adresse des Proxy Servers"
 msgid "Empty"
 msgstr "Leer"
 
+#. Resource IDs: (344)
+msgid "Enable log caching to speed up log and revision graph dialogs"
+msgstr "Logpuffer aktivieren, um Log und Revisionsgraph zu beschleunigen"
+
 #. Resource IDs: (196)
 msgid ""
 "Enable this only if you're working with web projects on VS.NET2003!\n"
@@ -2687,6 +2699,10 @@ msgstr "Exportieren - TortoiseSVN"
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "Exportverzeichnis:"
+
+#. Resource IDs: (345)
+msgid "Export the selected cache as a set of Comma Separated Value (CSV) files"
+msgstr "Den gewählten Puffer als Satz von CSV Dateien exportieren"
 
 #. Resource IDs: (79)
 msgid "Export unversioned files too"
@@ -2971,6 +2987,10 @@ msgstr "Wählen Sie 'Bei Kopien/Umbenennen anhalten' ab, um eine vollständige H
 msgid "Force blame"
 msgstr "Annotieren erzwingen"
 
+#. Resource IDs: (65535)
+msgid "From URL:"
+msgstr "Von URL:"
+
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "Von:"
@@ -3135,13 +3155,13 @@ msgstr ""
 msgid "Graph type:"
 msgstr "Diagrammtyp:"
 
+#. Resource IDs: (2050)
+msgid "Group by branch"
+msgstr "Gruppiere nach Zweig"
+
 #. Resource IDs: (214)
 msgid "Group changelists"
 msgstr "Änderungslisten gruppieren"
-
-#. Resource IDs: (2050)
-msgid "Groups branches together"
-msgstr "Verzweigungen gruppieren"
 
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
@@ -3823,6 +3843,10 @@ msgstr ""
 "Listet Inhaltsverzeichnis der Hilfe auf\n"
 "Hilfe"
 
+#. Resource IDs: (344)
+msgid "List of repositories for which log information has been cached"
+msgstr "Liste der Projektarchive für die Loginformationen gepuffert werden"
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Lade Bilder"
@@ -3895,7 +3919,7 @@ msgstr "Log"
 
 #. Resource IDs: (282)
 msgid "Log Cache Statistics"
-msgstr "Statistiken"
+msgstr "Log-Puffer Statistiken"
 
 #. Resource IDs: (281)
 msgid "Log Caching"
@@ -3955,6 +3979,10 @@ msgstr "Als &aufgelöst markieren"
 msgid "Mark as resolved"
 msgstr "Als aufgelöst markieren"
 
+#. Resource IDs: (2052)
+msgid "Mark current revision of your working copy"
+msgstr "Aktuelle Revision Ihrer Arbeitskopie markieren"
+
 #. Resource IDs: (101)
 msgid "Mark for comparison"
 msgstr "Für Vergleich auswählen"
@@ -3994,6 +4022,10 @@ msgstr "Zusammenführen"
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
 msgstr "Zusammenführen - TortoiseSVN"
+
+#. Resource IDs: (221)
+msgid "Merge Reintegrate"
+msgstr "Erneut zusammenführen"
 
 #. Resource IDs: (1416)
 msgid "Merge a range of revisions"
@@ -4367,32 +4399,36 @@ msgid "Number of cached revisions"
 msgstr "Anzahl der gepufferten Revisionen"
 
 #. Resource IDs: (339)
-msgid "Number of cached user revision properties"
-msgstr "Anzahl der gepufferten Revisionseigenschaften"
+msgid "Number of cached revisions that have a non-empty change list"
+msgstr "Anzahl der gepufferten Revisionen mit einer nicht leeren Änderungsliste"
 
 #. Resource IDs: (339)
-msgid "Number of changed cached revisions"
-msgstr "Anzahl der geänderten gepufferten Revisionen"
+msgid "Number of cached revisions that have user revision properties"
+msgstr "Anzahl der gepufferten Revisionen mit benutzerdefinierten Revisionseigenschaften"
 
 #. Resource IDs: (339)
-msgid "Number of changed revisions that are not cached yet"
-msgstr "Anzahl der geänderten Revisionen, die noch nicht gepuffert sind"
+msgid "Number of cached revisions whose change list is not cached yet"
+msgstr "Anzahl der gepufferten Revisionen deren Änderungsliste noch nicht gepuffert ist"
+
+#. Resource IDs: (339)
+msgid "Number of cached revisions whose user revision properties are not cached yet"
+msgstr "Anzahl der gepufferten Revisionen deren benutzerdefinierte Revisionseigenschaften noch nicht gepuffert sind"
 
 #. Resource IDs: (338)
 msgid "Number of different paths shown in the log dialog, including parent paths"
 msgstr "Anzahl der unterschiedlichen, im Log-Dialog angezeigten Pfade, inklusive Elternpfade"
+
+#. Resource IDs: (338)
+msgid "Number of different words used in log messages"
+msgstr "Anzahl unterschiedlicher in Logmeldungen verwendeter Wörter"
 
 #. Resource IDs: (339)
 msgid "Number of merged revisions that are not cached yet"
 msgstr "Anzahl der zusammengeführten Revisionen, die noch nicht gepuffert sind"
 
 #. Resource IDs: (338)
-msgid "Number of path elements. This is an internal value indicating the compression level."
-msgstr "Anzahl der Pfadelemente. Dies ist ein internes Maß für die Kompressionsstärke"
-
-#. Resource IDs: (339)
-msgid "Number of user revision properties that are not cached yet"
-msgstr "Anzahl benutzerdefinierter Revisionseigenschaften, die noch nicht gepuffert sind"
+msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
+msgstr "Anzahl von Pfadelementen. Ein Pfadelement ist ein Datei- oder Ordnername wie 'foo.txt' oder 'meinzweig'."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -4869,6 +4905,15 @@ msgstr ""
 "\\d\t\t\tZiffern 0-9\n"
 "\\s\t\t\tLeerzeichen"
 
+#. Resource IDs: (1469)
+msgid "Reintegrate a branch"
+msgstr "Zweig erneut integrieren"
+
+#. Resource IDs: (230)
+#, c-format
+msgid "Reintegrate merge %s into %s"
+msgstr "Erneut %s in %s zusammenführen"
+
 #. Resource IDs: (82)
 msgid "Reject"
 msgstr "Ablehnen"
@@ -4955,6 +5000,10 @@ msgid ""
 msgstr ""
 "Entferne Eigenschaft \"%s\" von\r\n"
 "%s"
+
+#. Resource IDs: (345)
+msgid "Remove the selected cache(s) from disk"
+msgstr "Löscht die markierten Puffer von der Festplatte"
 
 #. Resource IDs: (1332)
 msgid "Remove..."
@@ -5404,6 +5453,10 @@ msgstr "In Zwischenablage speichern"
 msgid "Saved Data"
 msgstr "Gespeicherte Daten"
 
+#. Resource IDs: (344)
+msgid "Saves expensive server roundtrips when set to longer than 0 seconds"
+msgstr "Spart teure Serveranfragen, wenn der Wert größer als 0 Sekunden ist"
+
 #. Resource IDs: (581)
 msgid "Saves the selected property value to a file"
 msgstr "Speichert die markierte Eigenschaft in einer Datei"
@@ -5635,6 +5688,10 @@ msgstr "Zeige &Alle"
 msgid "Show &Range..."
 msgstr "&Zeige Bereich"
 
+#. Resource IDs: (32826)
+msgid "Show &WC revision"
+msgstr "Zeige &Revision der Arbeitskopie"
+
 #. Resource IDs: (32796)
 msgid "Show &all revisions"
 msgstr "Zeige &alle Revisionen"
@@ -5751,6 +5808,10 @@ msgstr ""
 "Leerzeichen durch Sonderzeichen hervorheben\n"
 "Leerzeichen anzeigen"
 
+#. Resource IDs: (345)
+msgid "Show statistics for the selected log cache"
+msgstr "Zeige Statistiken für den gewählten Log-Puffer"
+
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Zeige Markierungen an der Quelle, nicht als separate Knoten"
@@ -5829,6 +5890,10 @@ msgstr "Größe und Status"
 #. Resource IDs: (339)
 msgid "Size of all cached text information"
 msgstr "Gesamtgröße der gepufferten Textinformation"
+
+#. Resource IDs: (339)
+msgid "Size of the cache file on disk"
+msgstr "Größe des Puffers auf der Festplatte"
 
 #. Resource IDs: (339)
 msgid "Size of the cache if it were not compressed"
@@ -6028,6 +6093,10 @@ msgstr "Wechsle zum vorherigen Dokument"
 #. Resource IDs: (9)
 msgid "Switch working copy to another branch / tag"
 msgstr "Die Arbeitskopie zu anderem Zweig / anderer Markierung wechseln"
+
+#. Resource IDs: (65535)
+msgid "Switch:"
+msgstr "Wechseln:"
 
 # Two left brackets needed! Otherwise the text is treated as a html tag
 #. Resource IDs: (325)
@@ -6507,12 +6576,16 @@ msgstr ""
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #. Resource IDs: (594)
-msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
-msgstr "Diese Methode deckt den Fall ab, dass Sie einen Entwicklungszweig, wie im Subversion Buch beschrieben, angelegt haben. Sämtliche Änderungen im Stamm sind Woche für Woche in den Zweig übertragen worden und nun ist die Entwicklung dort abgeschlossen und sie wollen die Neuentwicklung in den Stamm zurückführen. Da Sie den Entwicklungszweig mit dem Stamm synchron gehalten haben, sind die jeweils neuesten Versionen, bis auf die Neuentwicklung, identisch. In diesem Spezialfall führen Sie die Änderungen durch einen Vergleich des Zweiges mit dem Stamm zusammen."
+msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. Use this to merge all changes of a branch back to trunk."
+msgstr "Diese Methode deckt den Fall ab, dass Sie, wie im Subversion Buch beschrieben, einen Funktionszweig angelegt haben und diese Änderungen in den Stamm zurück übertragen wollen."
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
 msgstr "Diese Methode deckt den Fall ab, dass Sie Änderungen an einem Zweig (oder dem Stamm) vorgenommen haben und diese Änderungen in einen anderen Zweig übertragen wollen."
+
+#. Resource IDs: (594)
+msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
+msgstr "Diese Methode deckt den Fall ab, dass Sie die Unterschiede zwisch zwei verschiedenen Zweigen in Ihrer Arbeitskopie zusammenführen möchten."
 
 #. Resource IDs: (65535)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -6693,8 +6766,8 @@ msgid "Total file changes:"
 msgstr "Dateiänderungen gesamt:"
 
 #. Resource IDs: (339)
-msgid "Total number of changed revisions"
-msgstr "Gesamtzahl der geänderten Revisionen"
+msgid "Total number of changes over all cached revisions"
+msgstr "Gesamtzahl der Änderungen aller gepufferten Revisionen"
 
 #. Resource IDs: (339)
 msgid "Total number of merged revisions"
@@ -7132,6 +7205,16 @@ msgstr "Warnung"
 msgid "Warning!"
 msgstr "Warnung!"
 
+#. Resource IDs: (344)
+msgid ""
+"When connecting to the respository server is not possible,\n"
+"TSVN can switch to using cached data only.\n"
+"Select the default beviour here."
+msgstr ""
+"Wenn die Verbindung zu einem Projektarchiv nicht möglich ist,\n"
+"kann TortoiseSVN ausschließlich auf die gepufferten Daten zurückgreifen.\n"
+"Stellen Sie das gewünschte Verhalten hier ein."
+
 #. Resource IDs: (197)
 msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
 msgstr "Aktivieren Sie diese Option, damit die versionierten Objekte im Übertragen-Dialog automatisch markiert werden."
@@ -7399,6 +7482,14 @@ msgstr "und unterstützen Sie die Entwickler"
 msgid "another item already exists in its place."
 msgstr "sich ein anderes Objekt an dieser Stelle befindet."
 
+#. Resource IDs: (340)
+msgid ""
+"ask repository first if 'online' -\n"
+"work entierely from cache if 'offline'"
+msgstr ""
+"Zuerst das Projektarchiv auf 'online' prüfen -\n"
+"Auf den Puffer zugreifen, falls 'offline'"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "Autor"
@@ -7592,8 +7683,8 @@ msgid "merged"
 msgstr "Zusammengeführt"
 
 #. Resource IDs: (65535)
-msgid "merges total:"
-msgstr "Gesamt Zusammenf:"
+msgid "merges total: "
+msgstr "Gesamt Zusammenf: "
 
 #. Resource IDs: (10)
 msgid "missing"
@@ -7774,7 +7865,7 @@ msgid ""
 "Id\t\t\t\tA compressed summary of the previous 4 keywords."
 msgstr ""
 "svn:keywords\n"
-"Schlüsselworte, die expandiert werden sollen. Gültige Schlüsselworte sind:\n"
+"Schlüsselwörter, die expandiert werden sollen. Gültige Schlüsselwörter sind:\n"
 "URL, HeadURL\t\t\tDie URL für die neueste Revision des Objektes.\n"
 "Author, LastChangedBy\t\tDie letzte Person, die die Datei geändert hat.\n"
 "Date, LastChangedDate\t\tDas Datum / die Zeit, zu der das Objekt zuletzt geändert wurde.\n"
@@ -8009,6 +8100,33 @@ msgstr "Jahr"
 msgid "yes"
 msgstr "ja"
 
+#~ msgid "Groups branches together"
+#~ msgstr "Verzweigungen gruppieren"
+#~ msgid "Number of changed cached revisions"
+#~ msgstr "Anzahl der geänderten gepufferten Revisionen"
+#~ msgid ""
+#~ "Number of path elements. This is an internal value indicating the "
+#~ "compression level."
+#~ msgstr ""
+#~ "Anzahl der Pfadelemente. Dies ist ein internes Maß für die "
+#~ "Kompressionsstärke"
+#~ msgid ""
+#~ "This method covers the case when you have made a feature branch as "
+#~ "discussed in the Subversion book. All trunk changes have been ported to "
+#~ "the feature branch, week by week, and now the feature is complete you "
+#~ "want to merge it back into the trunk. Because you have kept the feature "
+#~ "branch synchronized with the trunk, the latest versions of branch and "
+#~ "trunk will be absolutely identical except for your branch changes. So in "
+#~ "this special case, you would merge by comparing the branch with the trunk."
+#~ msgstr ""
+#~ "Diese Methode deckt den Fall ab, dass Sie einen Entwicklungszweig, wie im "
+#~ "Subversion Buch beschrieben, angelegt haben. Sämtliche Änderungen im "
+#~ "Stamm sind Woche für Woche in den Zweig übertragen worden und nun ist die "
+#~ "Entwicklung dort abgeschlossen und sie wollen die Neuentwicklung in den "
+#~ "Stamm zurückführen. Da Sie den Entwicklungszweig mit dem Stamm synchron "
+#~ "gehalten haben, sind die jeweils neuesten Versionen, bis auf die "
+#~ "Neuentwicklung, identisch. In diesem Spezialfall führen Sie die "
+#~ "Änderungen durch einen Vergleich des Zweiges mit dem Stamm zusammen."
 #~ msgid "%1 contains an invalid path."
 #~ msgstr "%1 enthält einen ungültigen Pfad."
 #~ msgid "An invalid argument was encountered."
