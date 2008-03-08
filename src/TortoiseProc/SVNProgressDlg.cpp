@@ -601,12 +601,21 @@ void CSVNProgressDlg::SetSelectedList(const CTSVNPathList& selPaths)
 void CSVNProgressDlg::ResizeColumns()
 {
 	m_ProgList.SetRedraw(FALSE);
+
+	TCHAR textbuf[MAX_PATH];
+
 	int maxcol = ((CHeaderCtrl*)(m_ProgList.GetDlgItem(0)))->GetItemCount()-1;
 	for (int col = 0; col <= maxcol; col++)
 	{
 		// find the longest width of all items
-		int cx = 20;
 		int count = m_ProgList.GetItemCount();
+		HDITEM hdi = {0};
+		hdi.mask = HDI_TEXT;
+		hdi.pszText = textbuf;
+		hdi.cchTextMax = sizeof(textbuf);
+		((CHeaderCtrl*)(m_ProgList.GetDlgItem(0)))->GetItem(col, &hdi);
+		int cx = m_ProgList.GetStringWidth(hdi.pszText)+20; // 20 pixels for col separator and margin
+
 		for (int index = 0; index<count; ++index)
 		{
 			// get the width of the string and add 12 pixels for the column separator and margins
