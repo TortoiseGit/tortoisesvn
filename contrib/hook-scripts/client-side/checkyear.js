@@ -12,9 +12,9 @@ var objArgs,num;
 
 objArgs = WScript.Arguments;
 num = objArgs.length;
-if (num != 1)
+if (num != 4)
 {
-    WScript.Echo("Usage: [CScript | WScript] checkyear.js path/to/file");
+    WScript.Echo("Usage: [CScript | WScript] checkyear.js path/to/pathsfile depth path/to/messagefile path/to/CWD");
     WScript.Quit(1);
 }
 
@@ -26,8 +26,7 @@ var fs, a, ForAppending, rv, r;
 ForReading = 1;
 fs = new ActiveXObject("Scripting.FileSystemObject");
 // remove the quotes
-var filesstring = objArgs(0).replace(/\"(.*)\"/, "$1");
-var files = filesstring.split("*");
+var files = readPaths(objArgs(0));
 var fileindex=0;
 var errormsg = "";
 while (fileindex < files.length)
@@ -69,3 +68,24 @@ if (found == false)
 }
 
 WScript.Quit(!found);
+
+
+function readPaths(path)
+{
+	var retPaths = new Array();
+	var fs = new ActiveXObject("Scripting.FileSystemObject");
+	if (fs.FileExists(path))
+	{
+		var a = fs.OpenTextFile(path, 1, false);
+		var i = 0;
+		while (!a.AtEndOfStream)
+		{
+			var line = a.ReadLine();
+			retPaths[i] = line;
+			i = i + 1;
+		}
+		a.Close();
+	}
+	return retPaths;
+	
+}

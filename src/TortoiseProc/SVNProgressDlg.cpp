@@ -1874,6 +1874,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 		m_depth, m_options & ProgOptKeeplocks))
 	{
 		ReportSVNError();
+		error = GetLastErrorMessage();
 		// if a non-recursive commit failed with SVN_ERR_UNSUPPORTED_FEATURE,
 		// that means a folder deletion couldn't be committed.
 		if ((m_Revision != 0)&&(Err->apr_err == SVN_ERR_UNSUPPORTED_FEATURE))

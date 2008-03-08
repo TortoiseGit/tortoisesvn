@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect2 SYSTEM "../../../dtd/dblite.dtd">
 <sect2 id="tsvn-dug-settings-hooks">
+	<title>Client Side Hook Scripts</title>
 	<?dbhh topicname="HIDD_SETTINGSHOOKS"?>
 	<?dbhh topicname="HIDD_SETTINGSHOOKCONFIG"?>
-	<title>Client Side Hook Scripts</title>
 	<indexterm>
 		<primary>client hooks</primary>
 	</indexterm>
@@ -108,17 +108,17 @@
 		has a valid windows file association, eg. a perl script.
 	</para>
 	<para>
-		The command line can include several parameters which get filled in
+		The command line includes several parameters which get filled in
 		by TortoiseSVN. The parameters available depend upon which hook is called.
+		Each hook has its own parameters which are passed in the following order:
 		<variablelist>
 			<varlistentry>
 				<term>Start-commit</term>
 				<listitem condition="pot">
 					<para>
-						<literal>%PATH%</literal>
-						<literal>%PATHS%</literal>
-						<literal>%MESSAGEFILE%</literal>
-						<literal>%CWD%</literal>
+						<literal>PATH</literal>
+						<literal>MESSAGEFILE</literal>
+						<literal>CWD</literal>
 					</para>
 				</listitem>
 			</varlistentry>
@@ -126,11 +126,10 @@
 				<term>Pre-commit</term>
 				<listitem condition="pot">
 					<para>
-						<literal>%PATH%</literal>
-						<literal>%PATHS%</literal>
-						<literal>%DEPTH%</literal>
-						<literal>%MESSAGEFILE%</literal>
-						<literal>%CWD%</literal>
+						<literal>PATH</literal>
+						<literal>DEPTH</literal>
+						<literal>MESSAGEFILE</literal>
+						<literal>CWD</literal>
 					</para>
 				</listitem>
 			</varlistentry>
@@ -138,13 +137,12 @@
 				<term>Post-commit</term>
 				<listitem condition="pot">
 					<para>
-						<literal>%PATH%</literal>
-						<literal>%PATHS%</literal>
-						<literal>%DEPTH%</literal>
-						<literal>%MESSAGEFILE%</literal>
-						<literal>%REVISION%</literal>
-						<literal>%ERROR%</literal>
-						<literal>%CWD%</literal>
+						<literal>PATH</literal>
+						<literal>DEPTH</literal>
+						<literal>MESSAGEFILE</literal>
+						<literal>REVISION</literal>
+						<literal>ERROR</literal>
+						<literal>CWD</literal>
 					</para>
 				</listitem>
 			</varlistentry>
@@ -152,9 +150,8 @@
 				<term>Start-update</term>
 				<listitem condition="pot">
 					<para>
-						<literal>%PATH%</literal>
-						<literal>%PATHS%</literal>
-						<literal>%CWD%</literal>
+						<literal>PATH</literal>
+						<literal>CWD</literal>
 					</para>
 				</listitem>
 			</varlistentry>
@@ -162,11 +159,10 @@
 				<term>Pre-update</term>
 				<listitem condition="pot">
 					<para>
-						<literal>%PATH%</literal>
-						<literal>%PATHS%</literal>
-						<literal>%DEPTH%</literal>
-						<literal>%REVISION%</literal>
-						<literal>%CWD%</literal>
+						<literal>PATH</literal>
+						<literal>DEPTH</literal>
+						<literal>REVISION</literal>
+						<literal>CWD</literal>
 					</para>
 				</listitem>
 			</varlistentry>
@@ -174,21 +170,21 @@
 				<term>Post-update</term>
 				<listitem condition="pot">
 					<para>
-						<literal>%PATH%</literal>
-						<literal>%PATHS%</literal>
-						<literal>%REVISION%</literal>
-						<literal>%ERROR%</literal>
-						<literal>%CWD%</literal>
+						<literal>PATH</literal>
+						<literal>DEPTH</literal>
+						<literal>REVISION</literal>
+						<literal>ERROR</literal>
+						<literal>CWD</literal>
 					</para>
 				</listitem>
 			</varlistentry>
 		</variablelist>
 	</para>
 	<para>
-		The meaning of each of these variables is described here:
+		The meaning of each of these parameters is described here:
 		<variablelist>
 			<varlistentry>
-				<term condition="pot">%PATH%</term>
+				<term condition="pot">PATH</term>
 				<listitem>
 					<para>
 						A path to a temporary file which contains all the
@@ -198,24 +194,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term condition="pot">%PATHS%</term>
-				<listitem>
-					<para>
-						The paths which were selected when the operation was
-						started, eg. the paths selected in Explorer when
-						invoking the Commit dialog.
-						If multiple paths were selected they are separated
-						by a <literal>*</literal> character.
-					</para>
-					<para>
-						Note that if possible, you should use <literal>%PATH%</literal>
-						instead of <literal>%PATHS%</literal> to avoid running into
-						the size limit of the command line.
-					</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term condition="pot">%DEPTH%</term>
+				<term condition="pot">DEPTH</term>
 				<listitem>
 					<para>
 						The depth with which the commit/update is done.
@@ -276,7 +255,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term condition="pot">%MESSAGEFILE%</term>
+				<term condition="pot">MESSAGEFILE</term>
 				<listitem>
 					<para>
 						Path to a file containing the log message for
@@ -288,7 +267,7 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term condition="pot">%REVISION%</term>
+				<term condition="pot">REVISION</term>
 				<listitem>
 					<para>
 						The repository revision to which the update should
@@ -297,16 +276,16 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term condition="pot">%ERROR%</term>
+				<term condition="pot">ERROR</term>
 				<listitem>
 					<para>
-						Empty if the operation was successful, or the error message
-						if the operation was unsuccessful.
+						Path to a file containing the error message.
+						If there was no error, the file will be empty.
 					</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term condition="pot">%CWD%</term>
+				<term condition="pot">CWD</term>
 				<listitem>
 					<para>
 						The current working directory with which the script is run.

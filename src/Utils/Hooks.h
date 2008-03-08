@@ -81,10 +81,12 @@ class CHooks : public std::map<hookkey, hookcmd>
 private:
 	CHooks();
 	~CHooks();
-	void SubstitutePaths(CString& sCmd, const CTSVNPathList& pathList);
-	void SubstituteDepth(CString& sCmd, svn_depth_t depth);
-	void SubstituteCWD(CString& sCmd, const CTSVNPathList& pathList);
-	CTSVNPath SubstituteMessageFile(CString& sCmd, const CString& message);
+	void AddPathParam(CString& sCmd, const CTSVNPathList& pathList);
+	void AddDepthParam(CString& sCmd, svn_depth_t depth);
+	void AddCWDParam(CString& sCmd, const CTSVNPathList& pathList);
+	void AddErrorParam(CString& sCmd, const CString& error);
+	void AddParam(CString& sCmd, const CString& param);
+	CTSVNPath AddMessageFileParam(CString& sCmd, const CString& message);
 public:
 	/// Create the singleton. Call this at the start of the program.
 	static bool			Create();
