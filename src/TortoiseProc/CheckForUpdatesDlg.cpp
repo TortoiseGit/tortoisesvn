@@ -154,8 +154,6 @@ UINT CCheckForUpdatesDlg::CheckThread()
 						if(file.ReadString(tempLink) && !tempLink.IsEmpty())
 						{	// Read another line to find out the download link-URL, if any
 							m_sUpdateDownloadLink = tempLink;
-							m_link.ShowWindow(SW_SHOW);
-							m_link.SetURL(m_sUpdateDownloadLink);
 						}
 
 					}
@@ -185,6 +183,12 @@ UINT CCheckForUpdatesDlg::CheckThread()
 		temp.LoadString(IDS_CHECKNEWER_NETERROR);
 		SetDlgItemText(IDC_CHECKRESULT, temp);
 	}
+	if (!m_sUpdateDownloadLink.IsEmpty())
+	{
+		m_link.ShowWindow(SW_SHOW);
+		m_link.SetURL(m_sUpdateDownloadLink);
+	}
+
 	DeleteFile(tempfile);
 	m_bThreadRunning = FALSE;
 	DialogEnableWindow(IDOK, TRUE);
