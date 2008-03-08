@@ -3,7 +3,7 @@
 // This file is part of ResizableLib
 // http://sourceforge.net/projects/resizablelib
 //
-// Copyright (C) 2000-2004 by Paolo Messina
+// Copyright (C) 2000-2004,2008 by Paolo Messina
 // http://www.geocities.com/ppescher - mailto:ppescher@hotmail.com
 //
 // The contents of this file are subject to the Artistic License (the "License").
@@ -126,8 +126,10 @@ BOOL CResizableWndState::LoadWindowRect(LPCTSTR pszName, BOOL bRectOnly)
 			wp.flags = 0;
 			return GetResizableWnd()->SetWindowPlacement(&wp);
 		}
-		else	// restore also min/max state
+		else	// restore also max state
 		{
+			if (wp.showCmd == SW_SHOWMINIMIZED)
+				wp.showCmd = SW_SHOWNORMAL;
 			return GetResizableWnd()->SetWindowPlacement(&wp);
 		}
 	}
