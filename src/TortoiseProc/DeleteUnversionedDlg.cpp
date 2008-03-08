@@ -75,7 +75,7 @@ BOOL CDeleteUnversionedDlg::OnInitDialog()
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("DeleteUnversionedDlg"), TRUE);
+	EnableSaveRestore(_T("DeleteUnversionedDlg"));
 
 	// first start a thread to obtain the file list with the status without
 	// blocking the dialog

@@ -80,7 +80,7 @@ BOOL CRevertDlg::OnInitDialog()
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("RevertDlg"), TRUE);
+	EnableSaveRestore(_T("RevertDlg"));
 
 	// first start a thread to obtain the file list with the status without
 	// blocking the dialog

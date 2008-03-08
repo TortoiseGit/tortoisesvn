@@ -109,7 +109,7 @@ BOOL CLockDlg::OnInitDialog()
 
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("LockDlg"), TRUE);
+	EnableSaveRestore(_T("LockDlg"));
 
 	// start a thread to obtain the file list with the status without
 	// blocking the dialog

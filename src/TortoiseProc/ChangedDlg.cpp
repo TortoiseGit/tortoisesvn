@@ -96,7 +96,7 @@ BOOL CChangedDlg::OnInitDialog()
 	SetPromptParentWindow(m_hWnd);
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("ChangedDlg"), TRUE);
+	EnableSaveRestore(_T("ChangedDlg"));
 
 	m_bRemote = !!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\CheckRepo"), FALSE);
 	

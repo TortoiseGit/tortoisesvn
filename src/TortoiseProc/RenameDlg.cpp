@@ -63,7 +63,7 @@ BOOL CRenameDlg::OnInitDialog()
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("RenameDlg"), TRUE);
+	EnableSaveRestore(_T("RenameDlg"));
 	GetDlgItem(IDOK)->EnableWindow(FALSE);
 	return TRUE;
 }

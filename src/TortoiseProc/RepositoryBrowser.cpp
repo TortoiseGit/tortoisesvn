@@ -252,7 +252,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
-	EnableSaveRestore(_T("RepositoryBrowser"), TRUE);
+	EnableSaveRestore(_T("RepositoryBrowser"));
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	m_bThreadRunning = true;

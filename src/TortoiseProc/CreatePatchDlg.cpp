@@ -79,7 +79,7 @@ BOOL CCreatePatch::OnInitDialog()
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("CreatePatchDlg"), TRUE);
+	EnableSaveRestore(_T("CreatePatchDlg"));
 
 	// first start a thread to obtain the file list with the status without
 	// blocking the dialog

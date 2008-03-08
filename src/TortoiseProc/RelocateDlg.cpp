@@ -65,7 +65,7 @@ BOOL CRelocateDlg::OnInitDialog()
 	m_URLCombo.SetWindowText(m_sFromUrl);
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("RelocateDlg"), TRUE);
+	EnableSaveRestore(_T("RelocateDlg"));
 	return TRUE;
 }
 

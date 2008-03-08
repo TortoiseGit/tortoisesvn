@@ -364,7 +364,7 @@ BOOL CLogDlg::OnInitDialog()
 	SetPromptParentWindow(m_hWnd);
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("LogDlg"), TRUE);
+	EnableSaveRestore(_T("LogDlg"));
 
 	DWORD yPos1 = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer1"));
 	DWORD yPos2 = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer2"));
@@ -804,7 +804,7 @@ BOOL CLogDlg::Cancel()
 
 void CLogDlg::SaveSplitterPos()
 {
-	if (!IsIconic() && !IsZoomed())
+	if (!IsIconic())
 	{
 		CRegDWORD regPos1 = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer1"));
 		CRegDWORD regPos2 = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer2"));

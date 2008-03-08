@@ -271,7 +271,7 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 	m_Graph.SetOwner(this);
 	m_Graph.UpdateWindow();
 
-	EnableSaveRestore(_T("RevisionGraphDlg"), TRUE);
+	EnableSaveRestore(_T("RevisionGraphDlg"));
 
 	if (AfxBeginThread(WorkerThread, this)==NULL)
 	{

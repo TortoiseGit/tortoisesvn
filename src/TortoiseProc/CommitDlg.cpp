@@ -196,7 +196,7 @@ BOOL CCommitDlg::OnInitDialog()
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("CommitDlg"), TRUE);
+	EnableSaveRestore(_T("CommitDlg"));
 	DWORD yPos = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\CommitDlgSizer"));
 	RECT rcDlg, rcLogMsg, rcFileList;
 	GetClientRect(&rcDlg);
@@ -510,7 +510,7 @@ void CCommitDlg::OnOK()
 
 void CCommitDlg::SaveSplitterPos()
 {
-	if (!IsIconic() && !IsZoomed())
+	if (!IsIconic())
 	{
 		CRegDWORD regPos = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\CommitDlgSizer"));
 		RECT rectSplitter;

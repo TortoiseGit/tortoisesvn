@@ -82,7 +82,7 @@ BOOL CHistoryDlg::OnInitDialog()
 	AddAnchor(IDC_HISTORYLIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
-	EnableSaveRestore(_T("HistoryDlg"), TRUE);
+	EnableSaveRestore(_T("HistoryDlg"));
 	m_List.SetFocus();
 	return FALSE;
 }

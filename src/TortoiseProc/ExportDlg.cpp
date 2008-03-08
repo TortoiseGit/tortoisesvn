@@ -151,7 +151,7 @@ BOOL CExportDlg::OnInitDialog()
 
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
-	EnableSaveRestore(_T("ExportDlg"), TRUE);
+	EnableSaveRestore(_T("ExportDlg"));
 	return TRUE;
 }
 

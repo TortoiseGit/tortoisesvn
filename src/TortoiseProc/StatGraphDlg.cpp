@@ -214,7 +214,7 @@ BOOL CStatGraphDlg::OnInitDialog()
 	AddAnchor(IDC_SKIPPER, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SKIPPERLABEL, BOTTOM_LEFT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
-	EnableSaveRestore(_T("StatGraphDlg"), TRUE);
+	EnableSaveRestore(_T("StatGraphDlg"));
 
 	// gather statistics data, only needs to be updated when the checkbox with 
 	// the case sensitivity of author names is changed

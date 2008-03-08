@@ -101,7 +101,7 @@ BOOL CInputDlg::OnInitDialog()
 	AddAnchor(IDC_CHECKBOX, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
-	EnableSaveRestore(_T("InputDlg"), TRUE);
+	EnableSaveRestore(_T("InputDlg"));
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	GetDlgItem(IDC_INPUTTEXT)->SetFocus();
