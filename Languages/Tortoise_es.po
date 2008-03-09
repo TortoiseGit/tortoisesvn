@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-02-13 19:39+0100\n"
+"PO-Revision-Date: 2008-03-09 20:46+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -285,7 +285,7 @@ msgstr "&Limpiar"
 
 #. Resource IDs: (32785)
 msgid "&Color age of lines"
-msgstr "&Colorea la antigüedad de las líneas"
+msgstr "&Colorear la antigüedad de las líneas"
 
 #. Resource IDs: (8)
 msgid "&Commit..."
@@ -452,8 +452,8 @@ msgid "&Go To Line..."
 msgstr "&Ir a la línea..."
 
 #. Resource IDs: (32799)
-msgid "&Group branches"
-msgstr "&Agrupar ramas"
+msgid "&Group by branch"
+msgstr "&Agrupar por ramas"
 
 #. Resource IDs: (1032, 1115)
 msgid "&HEAD Revision"
@@ -496,7 +496,7 @@ msgstr "&Ignorar cambios en espacios en blanco"
 msgid "&Image Info"
 msgstr "&Información de la imagen"
 
-#. Resource IDs: (9)
+#. Resource IDs: (9, 1461)
 msgid "&Import..."
 msgstr "&Importar..."
 
@@ -1094,6 +1094,10 @@ msgstr "Todos los archivos (*.*)|*.*||"
 msgid "Always use the system locale settings to show times and dates"
 msgstr "Utilizar siempre la configuración local del sistema para mostrar fechas y horas"
 
+#. Resource IDs: (339)
+msgid "Amount of memory required to load the cache"
+msgstr "Cantidad de memoria necesaria para cargar la caché"
+
 #. Resource IDs: (78)
 #, c-format
 msgid ""
@@ -1371,7 +1375,7 @@ msgstr "Buscar el programa de diferencias externo"
 msgid "Browse..."
 msgstr "Buscar..."
 
-#. Resource IDs: (1382)
+#. Resource IDs: (1057)
 msgid "Bug Tracker..."
 msgstr "Gestión de incidencias..."
 
@@ -1661,6 +1665,10 @@ msgstr ""
 msgid "Clears the stored sizes and positions of %ld dialogs"
 msgstr "Elimina los tamaños y las posiciones almacenadas de %ld diálogos"
 
+#. Resource IDs: (1466)
+msgid "Click here to go to the website"
+msgstr "Pulse aquí para ir al sitio web"
+
 #. Resource IDs: (170)
 msgid "Click here to select a recently typed message"
 msgstr "Pulse aquí para seleccionar un mensaje escrito recientemente"
@@ -1826,6 +1834,10 @@ msgstr "Conflicto"
 #, c-format
 msgid "Conflicts: %d"
 msgstr "Conflictos: %d"
+
+#. Resource IDs: (345)
+msgid "Connect to the repository server and download missing log data"
+msgstr "Conectar al servidor de repositorios y descargar los datos de registro faltantes"
 
 #. Resource IDs: (65535)
 msgid "Container sizes"
@@ -2099,6 +2111,17 @@ msgstr ""
 #. Resource IDs: (3857)
 msgid "Could not start print job."
 msgstr "No se pudo iniciar el trabajo de impresión."
+
+#. Resource IDs: (83)
+#, c-format
+msgid ""
+"Could not start text viewer!\n"
+"<hr=100%%>\n"
+"%s"
+msgstr ""
+"¡No se puede iniciar el visor de texto!\n"
+"<hr=100%%>\n"
+"%s"
 
 #. Resource IDs: (81)
 msgid "Could not start thread!"
@@ -2411,7 +2434,7 @@ msgstr "Orígenes de copia e&xactos"
 msgid "E&xit"
 msgstr "&Salir"
 
-#. Resource IDs: (9)
+#. Resource IDs: (9, 1382)
 msgid "E&xport..."
 msgstr "E&xportar..."
 
@@ -2475,6 +2498,10 @@ msgstr "El nombre o bien la IP del servidor proxy"
 #. Resource IDs: (65535)
 msgid "Empty"
 msgstr "Vacío"
+
+#. Resource IDs: (344)
+msgid "Enable log caching to speed up log and revision graph dialogs"
+msgstr "Habilita la caché de registro para acelerar los diálogos de mostrar gráfico de revisiones y registro."
 
 #. Resource IDs: (196)
 msgid ""
@@ -2654,7 +2681,7 @@ msgstr "Excluir rutas:"
 msgid "Explore to"
 msgstr "Explorar a"
 
-#. Resource IDs: (229, 238)
+#. Resource IDs: (229, 238, 1437)
 msgid "Export"
 msgstr "Exportar"
 
@@ -2669,6 +2696,10 @@ msgstr "Exportar - TortoiseSVN"
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "Directorio de exportación:"
+
+#. Resource IDs: (345)
+msgid "Export the selected cache as a set of Comma Separated Value (CSV) files"
+msgstr "Exporta la caché seleccionada como un conjunto de ficheros de Valores Separados por Comas (CSV)"
 
 #. Resource IDs: (79)
 msgid "Export unversioned files too"
@@ -2769,7 +2800,7 @@ msgstr "Obteniendo fichero..."
 msgid "Fetching revision %s of file:"
 msgstr "Obteniendo revisión %s del archivo:"
 
-#. Resource IDs: (63, 74, 77, 207, 319)
+#. Resource IDs: (63, 74, 77, 319)
 msgid "File"
 msgstr "Archivo"
 
@@ -2953,6 +2984,10 @@ msgstr "Para obtener la historia completa desmarque \"Parar en copia/cambio de n
 msgid "Force blame"
 msgstr "Forzar autoría"
 
+#. Resource IDs: (65535)
+msgid "From URL:"
+msgstr "Desde la URL:"
+
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "Desde:"
@@ -3117,13 +3152,13 @@ msgstr ""
 msgid "Graph type:"
 msgstr "Tipo de gráfico:"
 
+#. Resource IDs: (2050)
+msgid "Group by branch"
+msgstr "Agrupar por rama"
+
 #. Resource IDs: (214)
 msgid "Group changelists"
 msgstr "Agrupar listas de cambios"
-
-#. Resource IDs: (2050)
-msgid "Groups branches together"
-msgstr "Hace grupos juntando ramas"
 
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
@@ -3157,6 +3192,10 @@ msgid ""
 msgstr ""
 "Ocultar/Mostrar la lista de ficheros de parche\n"
 "Ocutla o muestra la lsita de ficheros de parche"
+
+#. Resource IDs: (339)
+msgid "Highest revision number in the cache"
+msgstr "Número de revisión más alto en la caché"
 
 #. Resource IDs: (1127)
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
@@ -3608,6 +3647,10 @@ msgstr "No hay memoria suficiente para realizar la operación."
 msgid "Internal application error."
 msgstr "Error interno de la aplicación."
 
+#. Resource IDs: (338, 339)
+msgid "Internal value indicating compression quality"
+msgstr "Valor interno que indica la calidad de la compresión"
+
 #. Resource IDs: (102)
 msgid "Invalid data object dropped!"
 msgstr "¡Ha soltado un objeto con datos no válidos!"
@@ -3750,6 +3793,18 @@ msgstr "Revisión última confirmación:"
 msgid "Last saved revision of item"
 msgstr "Última revisión almacenada del item"
 
+#. Resource IDs: (338)
+msgid "Last time the cache content was changed"
+msgstr "Última vez en que se cambió el contenido de la caché"
+
+#. Resource IDs: (338)
+msgid "Last time the cache was accessed"
+msgstr "Última vez en que se accedió a la caché"
+
+#. Resource IDs: (338)
+msgid "Last time the repository was asked for the HEAD revision number"
+msgstr "Última vez en que se preguntó al repositorio el número de la revisión HEAD"
+
 #. Resource IDs: (12)
 msgid "Launches the external diff / merge program to solve the conflicts"
 msgstr "Lanza la aplicación externa de diferencias / fusión para resolver los conflictos"
@@ -3798,6 +3853,10 @@ msgid ""
 msgstr ""
 "Describir los tópicos de Ayuda\n"
 "Tópicos de Ayuda"
+
+#. Resource IDs: (344)
+msgid "List of repositories for which log information has been cached"
+msgstr "Lista de repositorios para los que existe información de registro cacheada"
 
 #. Resource IDs: (130)
 msgid "Load Images"
@@ -3931,6 +3990,10 @@ msgstr "Marcar como &resuelto"
 msgid "Mark as resolved"
 msgstr "Marcar como resuelto"
 
+#. Resource IDs: (2052)
+msgid "Mark current revision of your working copy"
+msgstr "Marca la revisión actual de su copia de trabajo"
+
 #. Resource IDs: (101)
 msgid "Mark for comparison"
 msgstr "Marcar para comparación"
@@ -3971,6 +4034,10 @@ msgstr "Fusionar"
 msgid "Merge - TortoiseSVN"
 msgstr "Fusión - TortoiseSVN"
 
+#. Resource IDs: (221)
+msgid "Merge Reintegrate"
+msgstr "Fusionar reintegración"
+
 #. Resource IDs: (1416)
 msgid "Merge a range of revisions"
 msgstr "Fusionar un rango de revisiones"
@@ -3981,7 +4048,7 @@ msgstr "Fusionar todo"
 
 #. Resource IDs: (14)
 msgid "Merge all..."
-msgstr "Fusioanr todo..."
+msgstr "Fusionar todo..."
 
 #. Resource IDs: (65535)
 msgid "Merge depth:"
@@ -4322,9 +4389,53 @@ msgstr "No recursivo"
 msgid "Notice"
 msgstr "Atención"
 
+#. Resource IDs: (338)
+msgid "Number of authors in the cache"
+msgstr "Número de autores en la caché"
+
 #. Resource IDs: (1161)
 msgid "Number of authors:"
 msgstr "Número de autores:"
+
+#. Resource IDs: (339)
+msgid "Number of cached merged revisions"
+msgstr "Número de revisiones fusionadas cacheadas"
+
+#. Resource IDs: (339)
+msgid "Number of cached revisions"
+msgstr "Número de revisiones cacheadas"
+
+#. Resource IDs: (339)
+msgid "Number of cached revisions that have a non-empty change list"
+msgstr "Número de revisiones cacheadas que tienen una lista de cambios no vacía"
+
+#. Resource IDs: (339)
+msgid "Number of cached revisions that have user revision properties"
+msgstr "Número de revisiones cacheadas que tienen propiedades de usuario de revisión"
+
+#. Resource IDs: (339)
+msgid "Number of cached revisions whose change list is not cached yet"
+msgstr "Número de revisiones cacheadas cuya lista de cambios no está aún cacheada"
+
+#. Resource IDs: (339)
+msgid "Number of cached revisions whose user revision properties are not cached yet"
+msgstr "Número de revisiones cacheadas cuyas propiedades de usuario de revisión no están aún cacheadas"
+
+#. Resource IDs: (338)
+msgid "Number of different paths shown in the log dialog, including parent paths"
+msgstr "Número de rutas distintas mostradas en el diálogo de revisión, incluyendo rutas padre"
+
+#. Resource IDs: (338)
+msgid "Number of different words used in log messages"
+msgstr "Número de palabras diferentes utilizadas en los mensajes de registro"
+
+#. Resource IDs: (339)
+msgid "Number of merged revisions that are not cached yet"
+msgstr "Número de revisiones fusionadas que no están aún en la caché"
+
+#. Resource IDs: (338)
+msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
+msgstr "Número de elementos de ruta. Un elemento de ruta es un nombre de carpeta o fichero como 'foo.txt' o 'mirama'."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -4499,7 +4610,7 @@ msgstr "Parchear seleccionado"
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "Ficheros de parche (*.diff, *.patch)|*.diff;*.patch|Todos los archivos (*.*)|*.*||"
 
-#. Resource IDs: (20, 77, 198)
+#. Resource IDs: (20, 77, 198, 207)
 msgid "Path"
 msgstr "Ruta"
 
@@ -4803,6 +4914,15 @@ msgstr ""
 "\\d\t\t\tcifras del 0-9\n"
 "\\s\t\t\tespacios en blanco"
 
+#. Resource IDs: (1469)
+msgid "Reintegrate a branch"
+msgstr "Reintegra una rama"
+
+#. Resource IDs: (230)
+#, c-format
+msgid "Reintegrate merge %s into %s"
+msgstr "Reintegrando la fusión %s en %s"
+
 #. Resource IDs: (82)
 msgid "Reject"
 msgstr "Rechazar"
@@ -4889,6 +5009,10 @@ msgid ""
 msgstr ""
 "Eliminar propiedad \"%s\" de\r\n"
 "%s"
+
+#. Resource IDs: (345)
+msgid "Remove the selected cache(s) from disk"
+msgstr "Eliminar la(s) caché(s) seleccionada(s) del disco"
 
 #. Resource IDs: (1332)
 msgid "Remove..."
@@ -5201,7 +5325,7 @@ msgstr ""
 "Mensaje de registro:\r\n"
 "%s"
 
-#. Resource IDs: (116)
+#. Resource IDs: (116, 65535)
 msgid "Revisions"
 msgstr "Revisiones"
 
@@ -5337,6 +5461,10 @@ msgstr "Grabar en el portapapeles"
 #. Resource IDs: (108)
 msgid "Saved Data"
 msgstr "Datos Almacenados"
+
+#. Resource IDs: (344)
+msgid "Saves expensive server roundtrips when set to longer than 0 seconds"
+msgstr "Evita costosas visitas al servidor cuando se establece a más de 0 segundos"
 
 #. Resource IDs: (581)
 msgid "Saves the selected property value to a file"
@@ -5569,6 +5697,10 @@ msgstr "Mostrar &Todo"
 msgid "Show &Range..."
 msgstr "Mostrar &Rango..."
 
+#. Resource IDs: (32826)
+msgid "Show &WC revision"
+msgstr "Mostrar revisión &copia de trabajo"
+
 #. Resource IDs: (32796)
 msgid "Show &all revisions"
 msgstr "Mostrar &todas las revisiones"
@@ -5685,6 +5817,10 @@ msgstr ""
 "Mostrar caracteres especiales en lugar de espacios\n"
 "Mostrar espacios en blanco"
 
+#. Resource IDs: (345)
+msgid "Show statistics for the selected log cache"
+msgstr "Mostrar estadísticas para la caché de registro seleccionada"
+
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Mostrar etiquetas en la copia de origen, no como nodos separados"
@@ -5759,6 +5895,18 @@ msgstr "Tamaño"
 #. Resource IDs: (65535)
 msgid "Size and status"
 msgstr "Tamaño y estado"
+
+#. Resource IDs: (339)
+msgid "Size of all cached text information"
+msgstr "Tamaño de toda la información textual cacheada"
+
+#. Resource IDs: (339)
+msgid "Size of the cache file on disk"
+msgstr "Tamaño del fichero de caché en el disco"
+
+#. Resource IDs: (339)
+msgid "Size of the cache if it were not compressed"
+msgstr "Tamaño de la caché si no estuviera comprimida"
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -5953,6 +6101,10 @@ msgstr "Cambiar a la ventana de documento previa"
 #. Resource IDs: (9)
 msgid "Switch working copy to another branch / tag"
 msgstr "Cambia la copia de trabajo a otra rama / etiqueta"
+
+#. Resource IDs: (65535)
+msgid "Switch:"
+msgstr "Cambiar:"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<<->right"
@@ -6423,12 +6575,16 @@ msgstr ""
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #. Resource IDs: (594)
-msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
-msgstr "Este método cubre la situación que se produce cuando ha creado una rama de características como se explica en el libro de Subversion. Todos los cambios del tronco se han portado a la rama de la característica, semana a semana, y ahora que la característica se ha terminado quiere fusionarla de nuevo en el tronco. Dado que ha mantenido la rama de la característica sincronizada con el tronco, las últimas versiones de la rama y del tronco serán exactamente iguales salvo por los cambios de su rama. Por lo que en este caso especial, fusionaría comparando la rama con el tronco."
+msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. Use this to merge all changes of a branch back to trunk."
+msgstr "Este método cubre la situación que se produce cuando ha creado una rama de característica como se comenta en el libro de Subversion. Utilice esto para fusionar todos los cambios de una rama de nuevo al tronco."
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
 msgstr "Este método cubre la situación que se produce cuando ha hecho una o más revisiones a una rama (o al tronco) y quiere portar esos cambios a otra rama diferente."
+
+#. Resource IDs: (594)
+msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
+msgstr "Este método cubre la situación que se produce cuando desea fusionar las diferencias de dos ramas distintas en su copia de trabajo."
 
 #. Resource IDs: (65535)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -6608,6 +6764,18 @@ msgstr "Total de confirmaciones analizadas:"
 msgid "Total file changes:"
 msgstr "Total de cambios de ficheros:"
 
+#. Resource IDs: (339)
+msgid "Total number of changes over all cached revisions"
+msgstr "Número total de cambios entre todas las revisiones cacheadas"
+
+#. Resource IDs: (339)
+msgid "Total number of merged revisions"
+msgstr "Número total de revisiones fusionadas"
+
+#. Resource IDs: (339)
+msgid "Total number of user revision properties"
+msgstr "Número total de propiedades de usuario de revisión"
+
 #. Resource IDs: (357)
 #, c-format
 msgid "Transferring at %s"
@@ -6779,7 +6947,7 @@ msgstr "Ficheros sin versionar marcan la carpeta padre como modificada"
 msgid "Unversioning %s"
 msgstr "Desversionando %s"
 
-#. Resource IDs: (152, 230)
+#. Resource IDs: (152, 230, 1436)
 msgid "Update"
 msgstr "Actualizar"
 
@@ -7035,6 +7203,16 @@ msgstr "Atención"
 msgid "Warning!"
 msgstr "¡Atención!"
 
+#. Resource IDs: (344)
+msgid ""
+"When connecting to the respository server is not possible,\n"
+"TSVN can switch to using cached data only.\n"
+"Select the default beviour here."
+msgstr ""
+"Cuando no es posible la conexión con el servidor,\n"
+"TSVN puede configurarse para utilizar sólo datos cacheados.\n"
+"Seleccione el comportamiento por defecto aquí."
+
 #. Resource IDs: (197)
 msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
 msgstr "Cuando se habilita, los ítems versionados mostrados en el diálogo de confirmación se seleccionan automáticamente"
@@ -7263,6 +7441,10 @@ msgstr "Alejar zoom"
 msgid "Zoom to fit"
 msgstr "Zoom para ajustar"
 
+#. Resource IDs: (338)
+msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
+msgstr "\"saltar rangos\" se utiliza para marcar rangos de revisiones que aún no han sido cacheados."
+
 #. Resource IDs: (10)
 msgid "added"
 msgstr "añadido"
@@ -7296,6 +7478,14 @@ msgstr "y ayude a los desarrolladores"
 #. Resource IDs: (583)
 msgid "another item already exists in its place."
 msgstr "ya existe otro ítem en su lugar."
+
+#. Resource IDs: (340)
+msgid ""
+"ask repository first if 'online' -\n"
+"work entirely from cache if 'offline'"
+msgstr ""
+"preguntar al repositorio antes (modo 'en linea') -\n"
+"trabajar enteramente desde la caché (modo 'sin conexión')"
 
 #. Resource IDs: (245)
 msgid "author"
@@ -7490,8 +7680,8 @@ msgid "merged"
 msgstr "fusionado"
 
 #. Resource IDs: (65535)
-msgid "merges total:"
-msgstr "total fusiones:"
+msgid "merges total: "
+msgstr "total fusiones: "
 
 #. Resource IDs: (10)
 msgid "missing"
@@ -7905,4 +8095,24 @@ msgstr "año"
 #. Resource IDs: (18, 1002, 1011, 1012)
 msgid "yes"
 msgstr "sí"
+
+#~ msgid "Groups branches together"
+#~ msgstr "Hace grupos juntando ramas"
+#~ msgid ""
+#~ "This method covers the case when you have made a feature branch as "
+#~ "discussed in the Subversion book. All trunk changes have been ported to "
+#~ "the feature branch, week by week, and now the feature is complete you "
+#~ "want to merge it back into the trunk. Because you have kept the feature "
+#~ "branch synchronized with the trunk, the latest versions of branch and "
+#~ "trunk will be absolutely identical except for your branch changes. So in "
+#~ "this special case, you would merge by comparing the branch with the trunk."
+#~ msgstr ""
+#~ "Este método cubre la situación que se produce cuando ha creado una rama "
+#~ "de características como se explica en el libro de Subversion. Todos los "
+#~ "cambios del tronco se han portado a la rama de la característica, semana "
+#~ "a semana, y ahora que la característica se ha terminado quiere fusionarla "
+#~ "de nuevo en el tronco. Dado que ha mantenido la rama de la característica "
+#~ "sincronizada con el tronco, las últimas versiones de la rama y del tronco "
+#~ "serán exactamente iguales salvo por los cambios de su rama. Por lo que en "
+#~ "este caso especial, fusionaría comparando la rama con el tronco."
 
