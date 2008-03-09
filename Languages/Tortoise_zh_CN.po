@@ -30,6 +30,7 @@
 # age               年代
 # BASE revision     基础版本
 # blame             追溯
+# branch            分枝
 # checkout          检出
 # default           默认
 # HEAD revision     最新版本
@@ -56,7 +57,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-02 11:21+0800\n"
+"PO-Revision-Date: 2008-03-09 15:07+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -489,8 +490,8 @@ msgid "&Go To Line..."
 msgstr "跳转到指定行(&G)..."
 
 #. Resource IDs: (32799)
-msgid "&Group branches"
-msgstr "分组分支(&G)"
+msgid "&Group by branch"
+msgstr "按照分枝分组(&G)"
 
 #. Resource IDs: (1032, 1115)
 msgid "&HEAD Revision"
@@ -668,7 +669,7 @@ msgstr "改名(&R)"
 
 #. Resource IDs: (1316)
 msgid "&Reopen commit and branch/tag dialog after a commit failed"
-msgstr "在提交失败后，重新打开提交或分支/标签对话框(&R)"
+msgstr "在提交失败后，重新打开提交或分枝/标签对话框(&R)"
 
 #. Resource IDs: (13)
 msgid "&Repo-browser"
@@ -1131,6 +1132,10 @@ msgstr "所有文件 (*.*)|*.*||"
 msgid "Always use the system locale settings to show times and dates"
 msgstr "始终使用系统区域设置显示时间和日期"
 
+#. Resource IDs: (339)
+msgid "Amount of memory required to load the cache"
+msgstr "加载缓存需要的内存数量"
+
 #. Resource IDs: (78)
 #, c-format
 msgid ""
@@ -1189,7 +1194,7 @@ msgstr "在第 %d 行发现不明型态数据！"
 
 #. Resource IDs: (269)
 msgid "Analyze revision data..."
-msgstr "分析分支数据..."
+msgstr "分析分枝数据..."
 
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
@@ -1374,15 +1379,15 @@ msgstr "浏览(&O)..."
 
 #. Resource IDs: (115)
 msgid "Branch / tag created successfully!"
-msgstr "分支/标记创建成功！"
+msgstr "分枝/标记创建成功！"
 
 #. Resource IDs: (2052)
 msgid "Branch at copy-from-rev even if there was no change in that revision"
-msgstr "在 copy-from-rev 分支，不管此版本是否修改"
+msgstr "在 copy-from-rev 分枝，不管此版本是否修改"
 
 #. Resource IDs: (9)
 msgid "Branch/&tag..."
-msgstr "分支/标记(&T)..."
+msgstr "分枝/标记(&T)..."
 
 #. Resource IDs: (16)
 msgid "Break loc&k"
@@ -1426,7 +1431,7 @@ msgstr "立即检查(&H)"
 
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
-msgstr "从版本创建分支/标记(&R)"
+msgstr "从版本创建分枝/标记(&R)"
 
 #. Resource IDs: (101)
 msgid "C&reate folder..."
@@ -1864,6 +1869,10 @@ msgstr "冲突"
 msgid "Conflicts: %d"
 msgstr "冲突：%d"
 
+#. Resource IDs: (345)
+msgid "Connect to the repository server and download missing log data"
+msgstr "连接版本库服务器下载缺少的日志数据"
+
 #. Resource IDs: (65535)
 msgid "Container sizes"
 msgstr "容器大小"
@@ -1918,7 +1927,7 @@ msgstr ""
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
-msgstr "复制（分支/标记）"
+msgstr "复制（分枝/标记）"
 
 #. Resource IDs: (78)
 msgid "Copy - TortoiseSVN"
@@ -2191,7 +2200,7 @@ msgstr "远程创建文件夹完成"
 
 #. Resource IDs: (10)
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
-msgstr "在版本库中快速创建副本用作分支或标记"
+msgstr "在版本库中快速创建副本用作分枝或标记"
 
 #. Resource IDs: (10)
 msgid "Creates a repository database at the current location"
@@ -2520,6 +2529,10 @@ msgstr "输入代理服务器的 IP 地址或名称"
 msgid "Empty"
 msgstr "空的"
 
+#. Resource IDs: (344)
+msgid "Enable log caching to speed up log and revision graph dialogs"
+msgstr "启用缓存来加速日志和版本图对话框"
+
 #. Resource IDs: (196)
 msgid ""
 "Enable this only if you're working with web projects on VS.NET2003!\n"
@@ -2713,6 +2726,10 @@ msgstr "导出 - TortoiseSVN"
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "导出目录："
+
+#. Resource IDs: (345)
+msgid "Export the selected cache as a set of Comma Separated Value (CSV) files"
+msgstr "将选中的缓存导出为逗号分割(CSV)的文件"
 
 #. Resource IDs: (79)
 msgid "Export unversioned files too"
@@ -2997,6 +3014,10 @@ msgstr "取消选择“副本/改名时停止”以查看完整的历史列表"
 msgid "Force blame"
 msgstr "强制追溯"
 
+#. Resource IDs: (65535)
+msgid "From URL:"
+msgstr "从 URL："
+
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "起始："
@@ -3161,13 +3182,13 @@ msgstr ""
 msgid "Graph type:"
 msgstr "MIME 类型"
 
+#. Resource IDs: (2050)
+msgid "Group by branch"
+msgstr "按照分枝分组"
+
 #. Resource IDs: (214)
 msgid "Group changelists"
 msgstr "分组修改列表"
-
-#. Resource IDs: (2050)
-msgid "Groups branches together"
-msgstr "分组分支"
 
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
@@ -3833,6 +3854,10 @@ msgstr ""
 "列出帮助主题\n"
 "帮助主题"
 
+#. Resource IDs: (344)
+msgid "List of repositories for which log information has been cached"
+msgstr "列出被缓存日志信息的对话框"
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "载入图片"
@@ -3963,6 +3988,10 @@ msgstr "标记为已解决(&R)"
 msgid "Mark as resolved"
 msgstr "标记为已解决"
 
+#. Resource IDs: (2052)
+msgid "Mark current revision of your working copy"
+msgstr "标记工作副本的当前版本号"
+
 #. Resource IDs: (101)
 msgid "Mark for comparison"
 msgstr "为比较标记"
@@ -4002,6 +4031,10 @@ msgstr "合并"
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
 msgstr "合并 - TortoiseSVN"
+
+#. Resource IDs: (221)
+msgid "Merge Reintegrate"
+msgstr "合并复兴分枝"
 
 #. Resource IDs: (1416)
 msgid "Merge a range of revisions"
@@ -4054,7 +4087,7 @@ msgstr "已合并版本 %s 自 %s:\n"
 
 #. Resource IDs: (10)
 msgid "Merges a branch into the main trunk"
-msgstr "将分支树合并回主干"
+msgstr "将分枝树合并回主干"
 
 #. Resource IDs: (14)
 msgid "Merges all missing revisions back into the working copy using merge-tracking information"
@@ -4366,35 +4399,39 @@ msgstr "缓存合并版本数量"
 
 #. Resource IDs: (339)
 msgid "Number of cached revisions"
-msgstr "缓存版本数量"
+msgstr "缓存的版本数量"
 
 #. Resource IDs: (339)
-msgid "Number of cached user revision properties"
-msgstr "缓存用户版本属性数量"
+msgid "Number of cached revisions that have a non-empty change list"
+msgstr "有非空修改列表的缓存的版本数量"
 
 #. Resource IDs: (339)
-msgid "Number of changed cached revisions"
-msgstr "缓存版本的修改次数"
+msgid "Number of cached revisions that have user revision properties"
+msgstr "有用户版本属性的缓存的版本数量"
 
 #. Resource IDs: (339)
-msgid "Number of changed revisions that are not cached yet"
-msgstr "尚未缓存的版本的修改次数"
+msgid "Number of cached revisions whose change list is not cached yet"
+msgstr "有尚未缓存的修改列表的缓存的版本数量"
+
+#. Resource IDs: (339)
+msgid "Number of cached revisions whose user revision properties are not cached yet"
+msgstr "有尚未缓存的用户版本属性的缓存的版本数量"
 
 #. Resource IDs: (338)
 msgid "Number of different paths shown in the log dialog, including parent paths"
 msgstr "在日志对话框中显示的不同路径(包含父路径)数量"
+
+#. Resource IDs: (338)
+msgid "Number of different words used in log messages"
+msgstr "在日志对话框中使用的唯一单词数量"
 
 #. Resource IDs: (339)
 msgid "Number of merged revisions that are not cached yet"
 msgstr "尚未缓存的已经合并版本的数量"
 
 #. Resource IDs: (338)
-msgid "Number of path elements. This is an internal value indicating the compression level."
-msgstr "路径元素数量。它是指定压缩级别的内部值。"
-
-#. Resource IDs: (339)
-msgid "Number of user revision properties that are not cached yet"
-msgstr "尚未缓存的用户版本属性数量"
+msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
+msgstr "路径元素数量：路径元素是目录或文件名称，例如“foo.txt”或“mybranch”。"
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -4603,7 +4640,7 @@ msgid ""
 msgstr ""
 "请注意：\n"
 "你的工作副本仍设为原来的路径。如果你想要之后的修改会\n"
-"提交到刚才创建的地址或分支，你必须先切换到新的URL。\n"
+"提交到刚才创建的地址或分枝，你必须先切换到新的URL。\n"
 "可使用切换指令来执行此操作。"
 
 #. Resource IDs: (1287)
@@ -4867,6 +4904,15 @@ msgstr ""
 "\\d\t\t\t数字 0-9\n"
 "\\s\t\t\t空白"
 
+#. Resource IDs: (1469)
+msgid "Reintegrate a branch"
+msgstr "复兴分枝"
+
+#. Resource IDs: (230)
+#, c-format
+msgid "Reintegrate merge %s into %s"
+msgstr "复兴合并 %s 到 %s"
+
 #. Resource IDs: (82)
 msgid "Reject"
 msgstr "拒绝"
@@ -4935,7 +4981,7 @@ msgstr "删除 %s"
 
 #. Resource IDs: (2052)
 msgid "Remove deleted branches and tags"
-msgstr "删除已经删除的分支或标签"
+msgstr "删除已经删除的分枝或标签"
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
@@ -4954,9 +5000,13 @@ msgstr ""
 "删除属性“%s”于\r\n"
 "%s"
 
+#. Resource IDs: (345)
+msgid "Remove the selected cache(s) from disk"
+msgstr "从磁盘删除选择的缓存"
+
 #. Resource IDs: (1332)
 msgid "Remove..."
-msgstr "移除..."
+msgstr "删除..."
 
 #. Resource IDs: (65535)
 msgid "Removed"
@@ -5184,7 +5234,7 @@ msgstr "版本 %d"
 #. Resource IDs: (269, 270, 272)
 #, c-format
 msgid "Revision %ld"
-msgstr "版本分支 %ld"
+msgstr "版本分枝 %ld"
 
 #. Resource IDs: (120)
 #, c-format
@@ -5193,7 +5243,7 @@ msgstr "版本 %s"
 
 #. Resource IDs: (15)
 msgid "Revision &graph"
-msgstr "版本分支图(&G)"
+msgstr "版本分枝图(&G)"
 
 #. Resource IDs: (65535)
 msgid "Revision / Author:"
@@ -5201,11 +5251,11 @@ msgstr "版本/作者："
 
 #. Resource IDs: (182)
 msgid "Revision Graph"
-msgstr "版本分支图"
+msgstr "版本分枝图"
 
 #. Resource IDs: (239)
 msgid "Revision Graph Filter"
-msgstr "版本分支图过滤器"
+msgstr "版本分枝图过滤器"
 
 #. Resource IDs: (228)
 msgid "Revision Range"
@@ -5213,7 +5263,7 @@ msgstr "版本范围："
 
 #. Resource IDs: (269, 65535)
 msgid "Revision graph"
-msgstr "版本分支图"
+msgstr "版本分枝图"
 
 #. Resource IDs: (65535)
 msgid "Revision range to merge"
@@ -5401,6 +5451,10 @@ msgstr "保存到剪切板"
 #. Resource IDs: (108)
 msgid "Saved Data"
 msgstr "已保存数据"
+
+#. Resource IDs: (344)
+msgid "Saves expensive server roundtrips when set to longer than 0 seconds"
+msgstr "当设置为大于0的值十节约昂贵的服务器往返时间"
 
 #. Resource IDs: (581)
 msgid "Saves the selected property value to a file"
@@ -5633,6 +5687,10 @@ msgstr "全部显示(&A)"
 msgid "Show &Range..."
 msgstr "显示范围(&R)..."
 
+#. Resource IDs: (32826)
+msgid "Show &WC revision"
+msgstr "显示工作副本的版本号(&W)"
+
 #. Resource IDs: (32796)
 msgid "Show &all revisions"
 msgstr "显示全部版本(&A)"
@@ -5749,6 +5807,10 @@ msgstr ""
 "以特殊字符显示空白字符\n"
 "显示空白字符"
 
+#. Resource IDs: (345)
+msgid "Show statistics for the selected log cache"
+msgstr "显示选定的日志缓存统计"
+
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "在复制源显示标签，而不是单独节点"
@@ -5782,7 +5844,7 @@ msgstr "显示 %s 的图形"
 
 #. Resource IDs: (15)
 msgid "Shows a graphical representation of copies/tags/branches"
-msgstr "以图形方式显示版本和标签的分支图"
+msgstr "以图形方式显示版本和标签的分枝图"
 
 #. Resource IDs: (13)
 msgid "Shows all files which were changed since the last update, locally and in the repository"
@@ -5827,6 +5889,10 @@ msgstr "大小和状态"
 #. Resource IDs: (339)
 msgid "Size of all cached text information"
 msgstr "缓存的全部文本信息的大小"
+
+#. Resource IDs: (339)
+msgid "Size of the cache file on disk"
+msgstr "磁盘缓存文件的大小"
 
 #. Resource IDs: (339)
 msgid "Size of the cache if it were not compressed"
@@ -5963,7 +6029,7 @@ msgstr "Subversion 服务器设置："
 
 #. Resource IDs: (1232)
 msgid "Sw&itch working copy to new branch/tag"
-msgstr "切换工作副本至新分支/标记(&I)"
+msgstr "切换工作副本至新分枝/标记(&I)"
 
 #. Resource IDs: (229)
 #, c-format
@@ -5980,7 +6046,7 @@ msgstr "左右切换"
 
 #. Resource IDs: (140)
 msgid "Switch To Branch / Tag"
-msgstr "切换至分支/标记"
+msgstr "切换至分枝/标记"
 
 #. Resource IDs: (3606)
 msgid ""
@@ -6024,7 +6090,11 @@ msgstr "切换至前一个文件窗口"
 
 #. Resource IDs: (9)
 msgid "Switch working copy to another branch / tag"
-msgstr "切换工作副本至其它分支/标记"
+msgstr "切换工作副本至其它分枝/标记"
+
+#. Resource IDs: (65535)
+msgid "Switch:"
+msgstr "切换："
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<<->right"
@@ -6491,12 +6561,16 @@ msgstr ""
 "com1-com9，lpt1-lpt9，prn，aux，con，nul，clock$"
 
 #. Resource IDs: (594)
-msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
-msgstr "这个方法覆盖了你已经创建了在 Subversion 手册中讨论的特性分支的情况。所有主干修改已经每周合并到此特性分支，现在完成了新特性，你需要将它合并回主干。因为你已经保持特性分支与主干同步，分支和主干的最新版本除了你的分支修改都相同。所以在这种情况下，你可以通过比较分支与主干来合并。"
+msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. Use this to merge all changes of a branch back to trunk."
+msgstr "这个方法适用于你创建了在 Subversion 手册中讨论的新特性分枝，要合并分枝到主干的场合。"
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
-msgstr "这个方法覆盖了你已经在分支(或主干)提交了版本，要合并这些修改到不同分支的情况。"
+msgstr "这个方法适用于你已经在分枝(或主干)提交了版本，要合并这些修改到不同分枝的场合。"
+
+#. Resource IDs: (594)
+msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
+msgstr "此方法适用于合并两个分枝的差异到工作副本"
 
 #. Resource IDs: (65535)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -6676,8 +6750,8 @@ msgid "Total file changes:"
 msgstr "文件改动次数合计："
 
 #. Resource IDs: (339)
-msgid "Total number of changed revisions"
-msgstr "已经修改的版本总数"
+msgid "Total number of changes over all cached revisions"
+msgstr "在缓存的版本中已经修改的版本数量"
 
 #. Resource IDs: (339)
 msgid "Total number of merged revisions"
@@ -7113,6 +7187,15 @@ msgstr "警告"
 msgid "Warning!"
 msgstr "警告！"
 
+#. Resource IDs: (344)
+msgid ""
+"When connecting to the respository server is not possible,\n"
+"TSVN can switch to using cached data only.\n"
+"Select the default beviour here."
+msgstr ""
+"当不能连接到版本库服务器时，TSVN 可以只使用缓存。\n"
+"此处选择缺省行为。"
+
 #. Resource IDs: (197)
 msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
 msgstr "启用时，在提交对话框中列出的受版本控制的项目会被自动选择"
@@ -7284,7 +7367,7 @@ msgid ""
 "Do you want to commit anyway?"
 msgstr ""
 "你的工作副本正处于标记的路径下！\n"
-"你必须先切换至主版本或分支才能进行提交动作。\n"
+"你必须先切换至主版本或分枝才能进行提交动作。\n"
 "\n"
 "确定要继续提交吗？"
 
@@ -7295,8 +7378,8 @@ msgid ""
 "won't look exactly as it was in the revision you're updating to!"
 msgstr ""
 "您本地的工作副本已经修改！\n"
-"提示：更新到另一个分支不会丢失这些修改，因此工作副本\n"
-"可能看上去和你要更新到的那个分支不是完全一致！"
+"提示：更新到另一个分枝不会丢失这些修改，因此工作副本\n"
+"可能看上去和你要更新到的那个分枝不是完全一致！"
 
 #. Resource IDs: (89)
 msgid ""
@@ -7305,7 +7388,7 @@ msgid ""
 "show up in the branch/tag!"
 msgstr ""
 "你的工作副本已经有本地修改。\n"
-"如果你从 HEAD 版本创建分支/标签，你的本地修改不会在分支/标签中出现！"
+"如果你从 HEAD 版本创建分枝/标签，你的本地修改不会在分枝/标签中出现！"
 
 #. Resource IDs: (32783)
 msgid "Zoo&m out"
@@ -7377,6 +7460,14 @@ msgstr "并请支持开发者"
 #. Resource IDs: (583)
 msgid "another item already exists in its place."
 msgstr "其它项目已经存在。"
+
+#. Resource IDs: (340)
+msgid ""
+"ask repository first if 'online' -\n"
+"work entirely from cache if 'offline'"
+msgstr ""
+"当在线的时候首先询问版本库 -\n"
+"如果离线则全部使用缓存工作"
 
 #. Resource IDs: (245)
 msgid "author"
@@ -7570,7 +7661,7 @@ msgid "merged"
 msgstr "合并"
 
 #. Resource IDs: (65535)
-msgid "merges total:"
+msgid "merges total: "
 msgstr "合并总计："
 
 #. Resource IDs: (10)
@@ -7980,3 +8071,15 @@ msgstr "年"
 #. Resource IDs: (18, 1002, 1011, 1012)
 msgid "yes"
 msgstr "是"
+
+#~ msgid "Groups branches together"
+#~ msgstr "分组分枝"
+
+#~ msgid "Number of changed cached revisions"
+#~ msgstr "缓存版本的修改次数"
+
+#~ msgid "Number of path elements. This is an internal value indicating the compression level."
+#~ msgstr "路径元素数量。它是指定压缩级别的内部值。"
+
+#~ msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
+#~ msgstr "这个方法覆盖了你已经创建了在 Subversion 手册中讨论的特性分枝的情况。所有主干修改已经每周合并到此特性分枝，现在完成了新特性，你需要将它合并回主干。因为你已经保持特性分枝与主干同步，分枝和主干的最新版本除了你的分枝修改都相同。所以在这种情况下，你可以通过比较分枝与主干来合并。"
