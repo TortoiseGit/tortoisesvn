@@ -102,7 +102,7 @@ Now you're almost ready. Only a few more steps to do:
 \section build32 Building 32 bit packages
 
   Hint: before you can start building TortoiseSVN, you need to call the vsvars32.bat
-  file which is located in \%VS90COMNTOOLS% (or \%VS80COMNTOOLS% ). 
+  file which is located in \%VS90COMNTOOLS%. 
   
   Note that for the Express edition you need to sort out the vars for the platform SDK
   as well. The easiest way I found was to edit the supplied VC++ file

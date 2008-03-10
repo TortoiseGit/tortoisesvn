@@ -7,7 +7,7 @@
 	<property name="devrelease" value="-dev" unless="${property::exists('devrelease')}"/>
 	<!-- default build for win32 platform -->
 	<property name="platform" value="win32" />
-	<!-- default build tool is VS.NET2005 -->
+	<!-- default build tool is VS.NET2008 -->
 	<property name="buildtool" value="devenv.com" />
 	<!-- default: don't add a platform specific extension 
 		 to the bin folders 'release' / 'debug'	 -->
