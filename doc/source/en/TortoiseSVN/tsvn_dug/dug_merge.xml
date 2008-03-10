@@ -40,7 +40,7 @@
 		<emphasis>all</emphasis> changes including any you made before the merge.
 	</para>
 	<para>
-		There are two common use cases for merging which are handled in
+		There are three common use cases for merging which are handled in
 		slightly different ways, as described below.
 		The first page of the merge wizard asks you to select the method
 		you need.
@@ -63,7 +63,7 @@
 			</listitem>
 		</varlistentry>
 		<varlistentry>
-			<term>Merge two different trees</term>
+			<term>Reintegrate a branch</term>
 			<listitem>
 				<para>
 					This method covers the case when you have made a feature branch
@@ -72,23 +72,39 @@
 					is complete you want to merge it back into the trunk. Because
 					you have kept the feature branch synchronized with the trunk,
 					the latest versions of branch and trunk will be absolutely
-					identical except for your branch changes. So in this special case,
-					you would merge by comparing the branch with the trunk.
+					identical except for your branch changes.
 				</para>
 				<para>
-					In this case what you are asking Subversion to do is:
+					This is a special case of the tree merge described below,
+					and it requires only the URL to merge from (normally) your
+					development branch. It uses the merge-tracking features of
+					Subversion to calculate the correct revision ranges to use,
+					and perform additional checks which ensure that the branch has
+					been fully updated with trunk changes. This ensures that you don't
+					accidentally undo work that others have committed to trunk since
+					you last synchronized changes.
+				</para>
+				<para>
+					After the merge, all branch development has been completely
+					merged back into the main development line. The branch is now
+					redundant and can be deleted.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>Merge two different trees</term>
+			<listitem>
+				<para>
+					This is a more general case of the reintegrate method.
+					What you are asking Subversion to do is:
 					<quote>Calculate the changes necessary to get [FROM] the head
 					revision of the trunk [TO] the head revision of the branch, and
 					apply those changes to my working copy (of the trunk).</quote>
 					The net result is that trunk now looks exactly like the branch.
 				</para>
 				<para>
-					After the merge, trunk and branch are identical and branch
-					development has been completely merged back into the main
-					development line. The branch is now redundant and can
-					be deleted.
-				</para>
-				<para>
+					If your server/repository does not support merge-tracking
+					then this is the only way to merge a branch back to trunk.
 					Another use case occurs when you are using vendor branches
 					and you need to merge the changes following a new vendor drop
 					into your trunk code. For more information read the chapter on
@@ -172,6 +188,35 @@
 			<xref linkend="tsvn-dug-merge-options"/>
 		</para>
 	</sect2>
+	<sect2 id="tsvn-dug-merge-reintegrate">
+		<title>Reintegrate a Branch</title>
+		<?dbhh topicname="HIDD_MERGEWIZARD_REINTEGRATE"?>
+		<para>
+			<figure id="tsvn-dug-merge-wizard-reintegrate">
+				<title>The Merge Wizard - Reintegrate Merge</title>
+				<graphic fileref="../images/MergeWizardReintegrate.png"/>
+			</figure>
+			To merge a feature branch back into the trunk you must start the
+			merge wizard from within a working copy of the trunk.
+		</para>
+		<para>
+			In the <guilabel>From URL:</guilabel> field enter the full
+			folder URL of the branch that you want to merge back.
+			You may also click
+			<guibutton>...</guibutton>
+			to browse the repository.
+		</para>
+		<para>
+			There are some conditions which apply to a reintegrate merge.
+			Firstly, the server must support merge tracking.
+			The working copy must be of depth infinite (no sparse checkouts),
+			and it must not have any local modifications, switched items or
+			items that have been updated to revisions other than HEAD.
+			All changes to trunk made during branch development must have
+			been merged across to the branch (or marked as having been merged).
+			The range of revisions to merge will be calculated automatically.
+		</para>
+	</sect2>
 	<sect2 id="tsvn-dug-merge-tree">
 		<title>Merging Two Different Trees</title>
 		<?dbhh topicname="HIDD_MERGEWIZARD_TREE"?>
@@ -180,13 +225,8 @@
 				<title>The Merge Wizard - Tree Merge</title>
 				<graphic fileref="../images/MergeWizardTree.png"/>
 			</figure>
-			To merge a feature branch back into the trunk you need to go to
-			a working copy of the trunk.
-			Select
-			<menuchoice>
-				<guimenu>TortoiseSVN</guimenu>
-				<guimenuitem>Merge...</guimenuitem>
-			</menuchoice>
+			If you are using this method to merge a feature branch back to trunk,
+			you need to start the merge wizard from within a working copy of trunk.
 		</para>
 		<para>
 			In the <guilabel>From:</guilabel> field enter the full
@@ -377,7 +417,8 @@
 			property by the client when it performs a merge. When the merge is committed
 			the server stores that information in a database, and when you request merge,
 			log	or blame information, the server can respond appropriately. For the system
-			to work properly you must ensure that the server and all clients are upgraded.
+			to work properly you must ensure that the server, the repository and all clients
+			are upgraded.
 			Earlier clients will not store the <literal>svn:mergeinfo</literal> property
 			and earlier servers will not provide the information requested by new clients.
 		</para>
