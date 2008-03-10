@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-04 09:09+0800\n"
+"PO-Revision-Date: 2008-03-10 10:13+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -449,8 +449,8 @@ msgid "&Go To Line..."
 msgstr "前往行數(&G)..."
 
 #. Resource IDs: (32799)
-msgid "&Group branches"
-msgstr "分枝分群(&G)"
+msgid "&Group by branch"
+msgstr "依分支分組(&G)"
 
 #. Resource IDs: (1032, 1115)
 msgid "&HEAD Revision"
@@ -1090,6 +1090,10 @@ msgstr "所有檔案 (*.*)|*.*||"
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "一律使用系統語系顯示時間與日期"
+
+#. Resource IDs: (339)
+msgid "Amount of memory required to load the cache"
+msgstr "載入快取所需要的記憶體量"
 
 #. Resource IDs: (78)
 #, c-format
@@ -1826,6 +1830,10 @@ msgstr "衝突"
 msgid "Conflicts: %d"
 msgstr "衝突: %d"
 
+#. Resource IDs: (345)
+msgid "Connect to the repository server and download missing log data"
+msgstr "連線至檔案庫並下載缺少的紀錄訊息資料"
+
 #. Resource IDs: (65535)
 msgid "Container sizes"
 msgstr "容器大小"
@@ -2485,6 +2493,10 @@ msgstr "輸入 proxy 伺服器的 IP 或名稱"
 msgid "Empty"
 msgstr "空的"
 
+#. Resource IDs: (344)
+msgid "Enable log caching to speed up log and revision graph dialogs"
+msgstr "啟用紀錄訊息快取以加速顯示紀錄和版本圖"
+
 #. Resource IDs: (196)
 msgid ""
 "Enable this only if you're working with web projects on VS.NET2003!\n"
@@ -2678,6 +2690,10 @@ msgstr "匯出 - TortoiseSVN"
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "匯出目錄:"
+
+#. Resource IDs: (345)
+msgid "Export the selected cache as a set of Comma Separated Value (CSV) files"
+msgstr "將選擇的快取匯出為 CSV 檔案"
 
 #. Resource IDs: (79)
 msgid "Export unversioned files too"
@@ -2962,6 +2978,10 @@ msgstr "要列出完整歷程紀錄請勿選擇\"複製/重新命名時停止\""
 msgid "Force blame"
 msgstr "強制譴責"
 
+#. Resource IDs: (65535)
+msgid "From URL:"
+msgstr "從 URL:"
+
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "從:"
@@ -3126,13 +3146,13 @@ msgstr ""
 msgid "Graph type:"
 msgstr "圖型類別:"
 
+#. Resource IDs: (2050)
+msgid "Group by branch"
+msgstr "依分支分組"
+
 #. Resource IDs: (214)
 msgid "Group changelists"
 msgstr "變更列表分組"
-
-#. Resource IDs: (2050)
-msgid "Groups branches together"
-msgstr "將分枝以群組方式顯示"
 
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
@@ -3799,6 +3819,10 @@ msgstr ""
 "列出說明主題\n"
 "說明主題"
 
+#. Resource IDs: (344)
+msgid "List of repositories for which log information has been cached"
+msgstr "紀錄訊息已快取的檔案庫列表"
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "載入影像"
@@ -3931,6 +3955,10 @@ msgstr "標記為已解決(&R)"
 msgid "Mark as resolved"
 msgstr "標記為已解決"
 
+#. Resource IDs: (2052)
+msgid "Mark current revision of your working copy"
+msgstr "標記工作複本目前版本"
+
 #. Resource IDs: (101)
 msgid "Mark for comparison"
 msgstr "選取比對用項目"
@@ -3970,6 +3998,10 @@ msgstr "合併"
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
 msgstr "合併 - TortoiseSVN"
+
+#. Resource IDs: (221)
+msgid "Merge Reintegrate"
+msgstr "合併-重新整合"
 
 #. Resource IDs: (1416)
 msgid "Merge a range of revisions"
@@ -4339,32 +4371,36 @@ msgid "Number of cached revisions"
 msgstr "快取中的版本總數"
 
 #. Resource IDs: (339)
-msgid "Number of cached user revision properties"
-msgstr "快取中的用戶版本性質總數"
+msgid "Number of cached revisions that have a non-empty change list"
+msgstr "有變更列表的快取中版本總數"
 
 #. Resource IDs: (339)
-msgid "Number of changed cached revisions"
-msgstr "快取中的變更版本總數"
+msgid "Number of cached revisions that have user revision properties"
+msgstr "有用戶版本性質的快取中版本總數"
 
 #. Resource IDs: (339)
-msgid "Number of changed revisions that are not cached yet"
-msgstr "尚未快取的變更版本總數"
+msgid "Number of cached revisions whose change list is not cached yet"
+msgstr "變更列表尚未快取的快取中版本總數"
+
+#. Resource IDs: (339)
+msgid "Number of cached revisions whose user revision properties are not cached yet"
+msgstr "用戶版本性質尚未快取的快取中版本總數"
 
 #. Resource IDs: (338)
 msgid "Number of different paths shown in the log dialog, including parent paths"
 msgstr "在紀錄視窗中顯示的不同路徑總數, 包含上層路徑."
+
+#. Resource IDs: (338)
+msgid "Number of different words used in log messages"
+msgstr "記錄訊息中使用的不同單字數"
 
 #. Resource IDs: (339)
 msgid "Number of merged revisions that are not cached yet"
 msgstr "尚未快取的合併版本總數"
 
 #. Resource IDs: (338)
-msgid "Number of path elements. This is an internal value indicating the compression level."
-msgstr "路徑元素總數. 這是用來表示壓縮等級的內部值."
-
-#. Resource IDs: (339)
-msgid "Number of user revision properties that are not cached yet"
-msgstr "尚未快取的用戶版本性質總數"
+msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
+msgstr "路徑元素數目."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -4840,6 +4876,15 @@ msgstr ""
 "\\d\t\t\t數字 0到9\n"
 "\\s\t\t\t空白字元"
 
+#. Resource IDs: (1469)
+msgid "Reintegrate a branch"
+msgstr "重新整合分支"
+
+#. Resource IDs: (230)
+#, c-format
+msgid "Reintegrate merge %s into %s"
+msgstr "重新整合 %s 至 %s"
+
 #. Resource IDs: (82)
 msgid "Reject"
 msgstr "拒絕"
@@ -4926,6 +4971,10 @@ msgid ""
 msgstr ""
 "刪除性質 \"%s\" 於\n"
 "%s"
+
+#. Resource IDs: (345)
+msgid "Remove the selected cache(s) from disk"
+msgstr "移除選擇的快取"
 
 #. Resource IDs: (1332)
 msgid "Remove..."
@@ -5375,6 +5424,10 @@ msgstr "複製至剪貼簿"
 msgid "Saved Data"
 msgstr "已存資料"
 
+#. Resource IDs: (344)
+msgid "Saves expensive server roundtrips when set to longer than 0 seconds"
+msgstr "設定為0秒以上時可節省昂貴的與伺服器通訊時間"
+
 #. Resource IDs: (581)
 msgid "Saves the selected property value to a file"
 msgstr "儲存選擇的性質至檔案"
@@ -5606,6 +5659,10 @@ msgstr "顯示全部(&A)"
 msgid "Show &Range..."
 msgstr "顯示範圍(&R)..."
 
+#. Resource IDs: (32826)
+msgid "Show &WC revision"
+msgstr "顯示工作複本的版本(&W)"
+
 #. Resource IDs: (32796)
 msgid "Show &all revisions"
 msgstr "顯示所有版本(&A)"
@@ -5722,6 +5779,10 @@ msgstr ""
 "以特殊字元顯示空白字元\n"
 "顯示空白字元"
 
+#. Resource IDs: (345)
+msgid "Show statistics for the selected log cache"
+msgstr "顯示選擇的紀錄快取的統計資料"
+
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "在複製來源處顯示標籤, 而不顯示在獨立節點上"
@@ -5800,6 +5861,10 @@ msgstr "大小與狀態"
 #. Resource IDs: (339)
 msgid "Size of all cached text information"
 msgstr "所有快取中文字資訊的大小"
+
+#. Resource IDs: (339)
+msgid "Size of the cache file on disk"
+msgstr "快取檔案大小"
 
 #. Resource IDs: (339)
 msgid "Size of the cache if it were not compressed"
@@ -5998,6 +6063,10 @@ msgstr "切換至前一個文件視窗"
 #. Resource IDs: (9)
 msgid "Switch working copy to another branch / tag"
 msgstr "切換工作複本至其他分支/標記"
+
+#. Resource IDs: (65535)
+msgid "Switch:"
+msgstr "切換:"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<<->right"
@@ -6469,12 +6538,16 @@ msgstr ""
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #. Resource IDs: (594)
-msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
-msgstr "這個方法用來合併一個功能分支(請參考 Subversion book). 所有主幹上的變更都已經逐一套用到功能分支上了, 而功能的開發已經完成, 你想要合併回主幹. 因為主幹上的變更和功能分支上的是同步的, 所以主幹和分支的最新版本應該是完全一致的, 除了你增加的新功能. 在這種情況下, 你應該以比對主幹與分支的方式進行合併."
+msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. Use this to merge all changes of a branch back to trunk."
+msgstr "這個功能包含了\"依照 Subversion book 中的說明, 建立了一個功能分支\"的情況. 使用這個功能可以把分支上的所有變更合併回主幹."
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
 msgstr "這個方式用在對一個分支(或主幹)建立了一個以上的版本, 而你想要從不同的分支合併變更時."
+
+#. Resource IDs: (594)
+msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
+msgstr "這個功能包含了 \"想要合併不同分支中的差異至工作複本\" 的情況."
 
 #. Resource IDs: (65535)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -6655,8 +6728,8 @@ msgid "Total file changes:"
 msgstr "總檔案變更:"
 
 #. Resource IDs: (339)
-msgid "Total number of changed revisions"
-msgstr "變更的版本總數"
+msgid "Total number of changes over all cached revisions"
+msgstr "所有快取中版本的變更總數"
 
 #. Resource IDs: (339)
 msgid "Total number of merged revisions"
@@ -7091,6 +7164,16 @@ msgstr "警告"
 msgid "Warning!"
 msgstr "警告!"
 
+#. Resource IDs: (344)
+msgid ""
+"When connecting to the respository server is not possible,\n"
+"TSVN can switch to using cached data only.\n"
+"Select the default beviour here."
+msgstr ""
+"在無法正常連線到檔案庫伺服器時,\n"
+"TSVN 可以僅靠快取的資料工作.\n"
+"請選擇預設的行為."
+
 #. Resource IDs: (197)
 msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
 msgstr "啟用時, 送交視窗中, 有版本控制的項目會自動被選取."
@@ -7359,6 +7442,14 @@ msgstr "並請支持開發者"
 msgid "another item already exists in its place."
 msgstr "已經存在同名的項目."
 
+#. Resource IDs: (340)
+msgid ""
+"ask repository first if 'online' -\n"
+"work entirely from cache if 'offline'"
+msgstr ""
+"'連線' 狀態下先詢問檔案庫 -\n"
+"'離線' 狀態下完全從快取工作"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "作者"
@@ -7551,8 +7642,8 @@ msgid "merged"
 msgstr "合併"
 
 #. Resource IDs: (65535)
-msgid "merges total:"
-msgstr "訊息總數:"
+msgid "merges total: "
+msgstr "合併總數:"
 
 #. Resource IDs: (10)
 msgid "missing"
@@ -7964,4 +8055,26 @@ msgstr "年"
 #. Resource IDs: (18, 1002, 1011, 1012)
 msgid "yes"
 msgstr "是"
+
+#~ msgid "Groups branches together"
+#~ msgstr "將分枝以群組方式顯示"
+#~ msgid "Number of changed cached revisions"
+#~ msgstr "快取中的變更版本總數"
+#~ msgid ""
+#~ "Number of path elements. This is an internal value indicating the "
+#~ "compression level."
+#~ msgstr "路徑元素總數. 這是用來表示壓縮等級的內部值."
+#~ msgid ""
+#~ "This method covers the case when you have made a feature branch as "
+#~ "discussed in the Subversion book. All trunk changes have been ported to "
+#~ "the feature branch, week by week, and now the feature is complete you "
+#~ "want to merge it back into the trunk. Because you have kept the feature "
+#~ "branch synchronized with the trunk, the latest versions of branch and "
+#~ "trunk will be absolutely identical except for your branch changes. So in "
+#~ "this special case, you would merge by comparing the branch with the trunk."
+#~ msgstr ""
+#~ "這個方法用來合併一個功能分支(請參考 Subversion book). 所有主幹上的變更都已"
+#~ "經逐一套用到功能分支上了, 而功能的開發已經完成, 你想要合併回主幹. 因為主幹"
+#~ "上的變更和功能分支上的是同步的, 所以主幹和分支的最新版本應該是完全一致的, "
+#~ "除了你增加的新功能. 在這種情況下, 你應該以比對主幹與分支的方式進行合併."
 
