@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-04 11:46+0900\n"
+"PO-Revision-Date: 2008-03-10 12:51+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -457,8 +457,8 @@ msgid "&Go To Line..."
 msgstr "指定した行へ移動(&G) ..."
 
 #. Resource IDs: (32799)
-msgid "&Group branches"
-msgstr "分岐をグループ化(&G)"
+msgid "&Group by branch"
+msgstr "分岐でグループ化(&G)"
 
 #. Resource IDs: (1032, 1115)
 msgid "&HEAD Revision"
@@ -1098,6 +1098,10 @@ msgstr "全てのファイル (*.*)|*.*||"
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "時刻と日付の表示に常にシステムロケール設定を利用する"
+
+#. Resource IDs: (339)
+msgid "Amount of memory required to load the cache"
+msgstr "キャッシュを読み込むために必要なメモリ量"
 
 #. Resource IDs: (78)
 #, c-format
@@ -1833,6 +1837,10 @@ msgstr "競合"
 msgid "Conflicts: %d"
 msgstr "競合: %d"
 
+#. Resource IDs: (345)
+msgid "Connect to the repository server and download missing log data"
+msgstr "リポジトリサーバーに接続し、取得していないログデータをダウンロードする"
+
 #. Resource IDs: (65535)
 msgid "Container sizes"
 msgstr "コンテナサイズ"
@@ -2496,6 +2504,10 @@ msgstr "プロクシサーバの名前もしくは IP を入力します"
 msgid "Empty"
 msgstr "空"
 
+#. Resource IDs: (344)
+msgid "Enable log caching to speed up log and revision graph dialogs"
+msgstr "ログとリビジョングラフの各ダイアログを高速化するためにログのキャッシュを有効にする"
+
 #. Resource IDs: (196)
 msgid ""
 "Enable this only if you're working with web projects on VS.NET2003!\n"
@@ -2689,6 +2701,10 @@ msgstr "エクスポート - TortoiseSVN"
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "エクスポート先ディレクトリ:"
+
+#. Resource IDs: (345)
+msgid "Export the selected cache as a set of Comma Separated Value (CSV) files"
+msgstr "CSVファイルの集合として選択されているキャッシュをエクスポートする"
 
 #. Resource IDs: (79)
 msgid "Export unversioned files too"
@@ -2927,7 +2943,7 @@ msgstr "次のパスを除外する ('*' 文字で複数のパスを分ける):"
 
 #. Resource IDs: (321)
 msgid "Filter paths"
-msgstr "フィルターパス"
+msgstr "パスフィルター"
 
 #. Resource IDs: (139)
 msgid "Find"
@@ -2972,6 +2988,10 @@ msgstr "すべての履歴を表示するためには \"コピー／名前の変
 #. Resource IDs: (1432)
 msgid "Force blame"
 msgstr "強制的に注釈履歴を実行する"
+
+#. Resource IDs: (65535)
+msgid "From URL:"
+msgstr "元 URL:"
 
 #. Resource IDs: (1200, 65535)
 msgid "From:"
@@ -3137,13 +3157,13 @@ msgstr ""
 msgid "Graph type:"
 msgstr "グラフの種類:"
 
+#. Resource IDs: (2050)
+msgid "Group by branch"
+msgstr "分岐でグループ化する"
+
 #. Resource IDs: (214)
 msgid "Group changelists"
 msgstr "変更リストのグループ化"
-
-#. Resource IDs: (2050)
-msgid "Groups branches together"
-msgstr "互いに分岐をグループ化する"
 
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
@@ -3812,6 +3832,10 @@ msgstr ""
 "ヘルプトピックを列挙\n"
 "ヘルプトピック"
 
+#. Resource IDs: (344)
+msgid "List of repositories for which log information has been cached"
+msgstr "ログ情報をキャッシュしているリポジトリのリスト"
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "画像を開く"
@@ -3942,6 +3966,10 @@ msgstr "解消マークを付ける(&R)"
 msgid "Mark as resolved"
 msgstr "解消マークを付ける"
 
+#. Resource IDs: (2052)
+msgid "Mark current revision of your working copy"
+msgstr "作業コピーの現在のリビジョンをマーク"
+
 #. Resource IDs: (101)
 msgid "Mark for comparison"
 msgstr "比較対象としてマーク"
@@ -3981,6 +4009,10 @@ msgstr "マージ"
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
 msgstr "マージ - TortoiseSVN"
+
+#. Resource IDs: (221)
+msgid "Merge Reintegrate"
+msgstr "マージの再統合"
 
 #. Resource IDs: (1416)
 msgid "Merge a range of revisions"
@@ -4350,32 +4382,36 @@ msgid "Number of cached revisions"
 msgstr "キャッシュされているリビジョンの数"
 
 #. Resource IDs: (339)
-msgid "Number of cached user revision properties"
-msgstr "キャッシュされているユーザーリビジョン属性の数"
+msgid "Number of cached revisions that have a non-empty change list"
+msgstr "空でない変更リストを持つキャッシュ済みのリビジョンの数"
 
 #. Resource IDs: (339)
-msgid "Number of changed cached revisions"
-msgstr "キャッシュされている変更されたリビジョンの数"
+msgid "Number of cached revisions that have user revision properties"
+msgstr "ユーザーリビジョン属性を持つキャッシュ済みのリビジョンの数"
 
 #. Resource IDs: (339)
-msgid "Number of changed revisions that are not cached yet"
-msgstr "キャッシュされていない変更されたりビジョンの数"
+msgid "Number of cached revisions whose change list is not cached yet"
+msgstr "変更リストをまだキャッシュしていないキャッシュ済みのリビジョンの数"
+
+#. Resource IDs: (339)
+msgid "Number of cached revisions whose user revision properties are not cached yet"
+msgstr "ユーザーリビジョン属性をまだキャッシュしていないキャッシュ済みのリビジョンの数"
 
 #. Resource IDs: (338)
 msgid "Number of different paths shown in the log dialog, including parent paths"
 msgstr "ログダイアログに表示される異なるパス（親のパスを含む）の数"
 
+#. Resource IDs: (338)
+msgid "Number of different words used in log messages"
+msgstr "ログメッセージ内で用いられている異なる単語の数"
+
 #. Resource IDs: (339)
 msgid "Number of merged revisions that are not cached yet"
-msgstr "キャッシュされていないマージされたりビジョンの数"
+msgstr "キャッシュされていないマージされたリビジョンの数"
 
 #. Resource IDs: (338)
-msgid "Number of path elements. This is an internal value indicating the compression level."
-msgstr "パス要素の数。これは圧縮レベルを示す内部値です。"
-
-#. Resource IDs: (339)
-msgid "Number of user revision properties that are not cached yet"
-msgstr "キャッシュされていないユーザーリビジョン属性の数"
+msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
+msgstr "パス要素の数。パス要素はフォルダ名やファイル名であり、'foo.txt' や 'mybranch' に対応します。"
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -4850,6 +4886,15 @@ msgstr ""
 "\\d\t\t\t10 進数字 0-9 と一致\n"
 "\\s\t\t\t空白"
 
+#. Resource IDs: (1469)
+msgid "Reintegrate a branch"
+msgstr "分岐を再統合する"
+
+#. Resource IDs: (230)
+#, c-format
+msgid "Reintegrate merge %s into %s"
+msgstr "マージ %s を %s に再統合する"
+
 #. Resource IDs: (82)
 msgid "Reject"
 msgstr "拒否"
@@ -4937,6 +4982,10 @@ msgstr ""
 "属性 \"%s\" を\r\n"
 "%s\r\n"
 "から削除する"
+
+#. Resource IDs: (345)
+msgid "Remove the selected cache(s) from disk"
+msgstr "ディスクから選択されているキャッシュを削除する"
 
 #. Resource IDs: (1332)
 msgid "Remove..."
@@ -5386,6 +5435,10 @@ msgstr "クリップボードに保存"
 msgid "Saved Data"
 msgstr "保存データ"
 
+#. Resource IDs: (344)
+msgid "Saves expensive server roundtrips when set to longer than 0 seconds"
+msgstr "0秒より大きい値を設定した場合、サーバーへの時間のかかる通信を減らします"
+
 #. Resource IDs: (581)
 msgid "Saves the selected property value to a file"
 msgstr "選択されている属性値をファイルに保存する"
@@ -5618,6 +5671,10 @@ msgstr "全て表示(&A)"
 msgid "Show &Range..."
 msgstr "範囲を表示(&R) ..."
 
+#. Resource IDs: (32826)
+msgid "Show &WC revision"
+msgstr "作業コピーのリビジョンを表示(&W)"
+
 #. Resource IDs: (32796)
 msgid "Show &all revisions"
 msgstr "全てのリビジョンを表示(&A)"
@@ -5734,6 +5791,10 @@ msgstr ""
 "空白文字用に特殊な記号を表示する\n"
 "空白を表示"
 
+#. Resource IDs: (345)
+msgid "Show statistics for the selected log cache"
+msgstr "選択したログキャッシュの統計データを表示"
+
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "ノードとして分割せずにコピー元にタグを表示する"
@@ -5812,6 +5873,10 @@ msgstr "サイズと状態"
 #. Resource IDs: (339)
 msgid "Size of all cached text information"
 msgstr "全てのキャッシュされているテキスト情報のサイズ"
+
+#. Resource IDs: (339)
+msgid "Size of the cache file on disk"
+msgstr "ディスク上のキャッシュファイルのサイズ"
 
 #. Resource IDs: (339)
 msgid "Size of the cache if it were not compressed"
@@ -6012,6 +6077,10 @@ msgstr "前のドキュメントウィンドウに切り替える"
 msgid "Switch working copy to another branch / tag"
 msgstr "他の分岐／タグへ作業コピーを切り替え"
 
+#. Resource IDs: (65535)
+msgid "Switch:"
+msgstr "切り替え:"
+
 #. Resource IDs: (325)
 msgid "Switches the comparison left<<->right"
 msgstr "左右の比較対象を入れ替える"
@@ -6068,7 +6137,7 @@ msgstr "何も指定しない場合にチェックアウトするデフォルト
 
 #. Resource IDs: (196)
 msgid "The default path to checkout to if nothing else is specified"
-msgstr "何も指定されない場合はデフォルトのパスにチェックアウトする"
+msgstr "何も指定しない場合にチェックアウトするデフォルトのパス"
 
 #. Resource IDs: (68)
 #, c-format
@@ -6482,12 +6551,16 @@ msgstr ""
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #. Resource IDs: (594)
-msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
-msgstr "これは、Subversion 本で議論されている feature branch を作成した場合に使用します。すべての trunk に対する変更は、週毎に feature branch にポートされ、trunk にマージしたい feature が完成したとします。feature branch を trunk と同期させているので、分岐の最新バージョンと trunk は分岐に加えた変更を除いて完全に同一です。このような特別な場合に、trunk と分岐を比較しながらマージするのに使用します。"
+msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. Use this to merge all changes of a branch back to trunk."
+msgstr "この方法は、Subversion book で述べられている機能ブランチを作成する場合に利用します。分岐での全ての変更を trunk へマージしたい場合にこの方法を利用してください。"
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
 msgstr "これは、1つ以上のリビジョンが分岐（もしくはtrunk）に存在し、それらの変更を別の分岐にポートしたいような場合に使用します。"
+
+#. Resource IDs: (594)
+msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
+msgstr "この方法は、異なる2つの分岐間の差分を作業コピーにマージしたい場合に利用します。"
 
 #. Resource IDs: (65535)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -6669,8 +6742,8 @@ msgid "Total file changes:"
 msgstr "総変更ファイル数:"
 
 #. Resource IDs: (339)
-msgid "Total number of changed revisions"
-msgstr "変更されたリビジョンの総数"
+msgid "Total number of changes over all cached revisions"
+msgstr "キャッシュされている全てのリビジョンにわたる変更されたリビジョンの総数"
 
 #. Resource IDs: (339)
 msgid "Total number of merged revisions"
@@ -7107,6 +7180,16 @@ msgstr "警告"
 msgid "Warning!"
 msgstr "警告！"
 
+#. Resource IDs: (344)
+msgid ""
+"When connecting to the respository server is not possible,\n"
+"TSVN can switch to using cached data only.\n"
+"Select the default beviour here."
+msgstr ""
+"リポジトリサーバーへの接続ができない場合、TSVNは\n"
+"キャッシュデータのみを利用するように切り替えることができます。\n"
+"ここでデフォルトの動作を選択してください。"
+
 #. Resource IDs: (197)
 msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
 msgstr "有効にした場合、コミットダイアログに表示されるバージョン管理されている項目は自動的に選択されます。"
@@ -7371,6 +7454,14 @@ msgstr "そして、開発者たちをサポートしてください。"
 msgid "another item already exists in its place."
 msgstr "その場所には別の項目がすでに存在しています。"
 
+#. Resource IDs: (340)
+msgid ""
+"ask repository first if 'online' -\n"
+"work entirely from cache if 'offline'"
+msgstr ""
+"'オンライン' の場合はリポジトリへ最初に問い合わせる\n"
+"'オフライン' の場合はキャッシュのみで完全に動作する"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "作者"
@@ -7563,7 +7654,7 @@ msgid "merged"
 msgstr "結合"
 
 #. Resource IDs: (65535)
-msgid "merges total:"
+msgid "merges total: "
 msgstr "総マージ数: "
 
 #. Resource IDs: (10)
@@ -7976,4 +8067,28 @@ msgstr "年"
 #. Resource IDs: (18, 1002, 1011, 1012)
 msgid "yes"
 msgstr "はい"
+
+#~ msgid "Groups branches together"
+#~ msgstr "互いに分岐をグループ化する"
+#~ msgid "Number of changed cached revisions"
+#~ msgstr "キャッシュされている変更されたリビジョンの数"
+#~ msgid ""
+#~ "Number of path elements. This is an internal value indicating the "
+#~ "compression level."
+#~ msgstr "パス要素の数。これは圧縮レベルを示す内部値です。"
+#~ msgid ""
+#~ "This method covers the case when you have made a feature branch as "
+#~ "discussed in the Subversion book. All trunk changes have been ported to "
+#~ "the feature branch, week by week, and now the feature is complete you "
+#~ "want to merge it back into the trunk. Because you have kept the feature "
+#~ "branch synchronized with the trunk, the latest versions of branch and "
+#~ "trunk will be absolutely identical except for your branch changes. So in "
+#~ "this special case, you would merge by comparing the branch with the trunk."
+#~ msgstr ""
+#~ "これは、Subversion 本で議論されている feature branch を作成した場合に使用"
+#~ "します。すべての trunk に対する変更は、週毎に feature branch にポートさ"
+#~ "れ、trunk にマージしたい feature が完成したとします。feature branch を "
+#~ "trunk と同期させているので、分岐の最新バージョンと trunk は分岐に加えた変"
+#~ "更を除いて完全に同一です。このような特別な場合に、trunk と分岐を比較しなが"
+#~ "らマージするのに使用します。"
 
