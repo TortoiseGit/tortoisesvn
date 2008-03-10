@@ -72,7 +72,7 @@ void CEditPropertiesDlg::OnBnClickedHelp()
 
 BOOL CEditPropertiesDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CResizableStandAloneDialog::OnInitDialog();
 
 	// fill in the path edit control
 	if (m_pathlist.GetCount() == 1)
