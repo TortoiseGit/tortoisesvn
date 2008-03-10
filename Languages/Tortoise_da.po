@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-09 14:45+0100\n"
+"PO-Revision-Date: 2008-03-11 00:12+0100\n"
 "Last-Translator: Zero3Cool\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -59,8 +59,8 @@ msgstr ""
 # Nested = Indlejret
 # Operation = Handling
 # Password = Adgangskode
-# Patch = Korrekturark
-# Patch file = Korrekturfil
+# Patch = Rettelse
+# Patch file = Rettelsesfil
 # Port = Overføre (f.eks.: "To port these changes to the trunk..." -> "For at overføre disse ændringer til stamen...")
 # Property = Egenskab
 # Record = Registrer
@@ -73,6 +73,7 @@ msgstr ""
 # Script = Script (Bedre oversættelse?)
 # Shell = Skal (Bedre oversættelse?)
 # Tag = Mærke
+# Token = Symbol (Bedre oversættelse?)
 # Unified diff = Unified diff
 # Viewer = Visningsprogram
 # ------------------
@@ -261,10 +262,11 @@ msgstr "%s - ved revision: %d"
 msgid "%s : Remote file"
 msgstr "%s : Fil på server"
 
+# Oversættelse af "working base"?
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Working Base"
-msgstr "%s : Arbejdsbasis"
+msgstr ""
 
 #. Resource IDs: (151)
 #, c-format
@@ -953,9 +955,10 @@ msgstr "..."
 msgid ": Revision %d"
 msgstr ": Revision %d"
 
+# Oversættelse af "working base"?
 #. Resource IDs: (151)
 msgid ": working base"
-msgstr ": arbejdsbasis"
+msgstr ""
 
 #. Resource IDs: (151)
 msgid ": working copy"
@@ -1018,8 +1021,8 @@ msgid ""
 "A viewer program for GNU diff files (patch files).\n"
 "If you don't have one use NotePad."
 msgstr ""
-"Et program til visning af GNU diff-filer (korrekturfiler).\n"
-"Hvis du ikke har et sådant program, kan du benytte Notesblok."
+"Et visningsprogram for GNU diff-filer (rettelsesfiler).\n"
+"Hvis du ikke har et, kan Notesblok benyttes."
 
 #. Resource IDs: (9)
 msgid "A&bout"
@@ -1279,11 +1282,9 @@ msgstr ""
 "Anvender rekursivt egenskaberne på alle filer/mapper.\n"
 "Egenskaberne bugtraq: og tsvn: anvendes kun på mapper."
 
-# Oversættelse af "patch"?
 #. Resource IDs: (13)
-#, fuzzy
 msgid "Apply &patch..."
-msgstr "Påfør korrekturark..."
+msgstr "Påfør &rettelser"
 
 #. Resource IDs: (1294)
 msgid "Apply property recursively"
@@ -1932,7 +1933,7 @@ msgstr "Indstil programmet, der bruges til at løse konflikter i filer."
 
 #. Resource IDs: (65535)
 msgid "Configure viewer program for GNU diff files (patch files)."
-msgstr "Indstil visningsprogrammet til GNU diff-filer (korrekturark)."
+msgstr "Indstil visningsprogrammet til GNU diff-filer (rettelsesfiler)."
 
 #. Resource IDs: (65535)
 msgid "Conflict resolved"
@@ -2157,6 +2158,7 @@ msgstr ""
 "Det lykkedes ikke at åbne filen\n"
 "%s"
 
+# Oversættelse af "current"?
 #. Resource IDs: (3867)
 #, fuzzy, c-format
 msgid "Could not remove %1 because it is the current directory."
@@ -2182,8 +2184,8 @@ msgid ""
 "Could not retrieve revision %s of the file %s.\n"
 "Patching is not possible!"
 msgstr ""
-"Revisionen %s af filen %s kunne ikke hentes.\n"
-"Korrektur kan ikke foretages!"
+"Kunne ikke hente revision %s af filen %s.\n"
+"Rettelser kan ikke foretages!"
 
 #. Resource IDs: (64)
 #, c-format
@@ -2228,13 +2230,13 @@ msgid "Could not start print job."
 msgstr "Udskriftsjobbet kunne ikke startes."
 
 #. Resource IDs: (83)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Could not start text viewer!\n"
 "<hr=100%%>\n"
 "%s"
 msgstr ""
-"Sammenligningsprogrammet kunne ikke startes!\n"
+"Skriveprogrammet kunne ikke startes!\n"
 "<hr=100%%>\n"
 "%s"
 
@@ -2244,7 +2246,7 @@ msgstr "Tråden kunne ikke startes!"
 
 #. Resource IDs: (13)
 msgid "Create &patch..."
-msgstr "Opret korrekturark"
+msgstr "Opret &rettelse"
 
 #. Resource IDs: (243)
 msgid "Create Changelist"
@@ -2252,7 +2254,7 @@ msgstr "Opret ændringsliste"
 
 #. Resource IDs: (208)
 msgid "Create Patch"
-msgstr "Opret korrekturark"
+msgstr "Opret rettelse"
 
 #. Resource IDs: (1385)
 msgid "Create copy in the repository from:"
@@ -2273,7 +2275,7 @@ msgstr "Opret versions&arkiv her"
 
 #. Resource IDs: (32828)
 msgid "Create unified diff file"
-msgstr "Opret \"unified diff\"-fil"
+msgstr "Opret unified diff-fil"
 
 #. Resource IDs: (126)
 msgid "Created folder remotely"
@@ -2432,7 +2434,7 @@ msgstr "Disken blev fyldt op under behandling af %1."
 #. Resource IDs: (3860)
 #, c-format
 msgid "Dispatch exception: %1"
-msgstr "Undtagelse: %1"
+msgstr "Undtagelse ved ekspedering: %1"
 
 #. Resource IDs: (3605)
 msgid ""
@@ -2540,10 +2542,10 @@ msgstr "Vis ikke denne meddelelse igen"
 msgid "Drive Types"
 msgstr "Drevtyper"
 
+# Kontekst?
 #. Resource IDs: (32816)
-#, fuzzy
 msgid "E&xact copy sources"
-msgstr "N&øjagtige kopi-kilder"
+msgstr ""
 
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
@@ -2636,33 +2638,33 @@ msgstr ""
 "egenskaben tsvn:projectlanguage er sat."
 
 #. Resource IDs: (3867)
-#, fuzzy, c-format
+#, c-format
 msgid "Encountered a hardware I/O error while accessing %1."
-msgstr "En hardware-I/O-fejl opstod under adgang til %1."
+msgstr "Der opstod en hardware-I/O-fejl under adgang til %1."
 
 #. Resource IDs: (3867)
-#, fuzzy, c-format
+#, c-format
 msgid "Encountered a locking violation while accessing %1."
-msgstr "En overtrædelse af låsning opstod under adgang til %1."
+msgstr "Der opstod et låsningsproblem under adgang til %1."
 
 #. Resource IDs: (3867)
-#, fuzzy, c-format
+#, c-format
 msgid "Encountered a sharing violation while accessing %1."
-msgstr "En overtrædelse af deling opstod under adgang til %1."
+msgstr "Der opstod et delingsproblem under adgang til %1."
 
 #. Resource IDs: (3843)
 msgid "Encountered an improper argument."
 msgstr "Stødte på et fejlagtigt argument."
 
 #. Resource IDs: (3859)
-#, fuzzy, c-format
+#, c-format
 msgid "Encountered an unexpected error while reading %1."
-msgstr "Der opstod en fejl under læsning af %1."
+msgstr "Der opstod en uforudset fejl under læsning af %1."
 
 #. Resource IDs: (3859)
-#, fuzzy, c-format
+#, c-format
 msgid "Encountered an unexpected error while writing %1."
-msgstr "Der opstod en fejl under skrivning af %1."
+msgstr "Der opstod en uforudset fejl under skrivning af %1."
 
 #. Resource IDs: (65535)
 msgid "End Revision"
@@ -2934,7 +2936,7 @@ msgstr "Fillisten er tom"
 
 #. Resource IDs: (135, 376)
 msgid "File patches"
-msgstr "Korrekturark"
+msgstr "Filrettelser"
 
 #. Resource IDs: (7)
 #, c-format
@@ -3156,7 +3158,7 @@ msgstr "Tema::Dialoger 2"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
-msgstr "Opretter korrekturfil..."
+msgstr "Genererer rettelsesfil..."
 
 #. Resource IDs: (16)
 msgid "Get loc&k..."
@@ -3298,13 +3300,12 @@ msgid "Hide the script while running"
 msgstr "Skjul scriptet under kørsel"
 
 #. Resource IDs: (2052)
-#, fuzzy
 msgid ""
 "Hide/Show the patch file list\n"
 "Hides or shows the patch file list"
 msgstr ""
-"Vis/skjul listen over filer\n"
-"Skjuler eller viser listen over filer"
+"Skjul/Vis listen over rettelsesfiler\n"
+"Skjulet eller viser listen over rettelsesfiler"
 
 #. Resource IDs: (339)
 msgid "Highest revision number in the cache"
@@ -4207,9 +4208,9 @@ msgid "Merging requires different revisions or different URLs in 'From:' and 'To
 msgstr "Fletning kræver forskellige revisioner eller forskellige URL'er i \"Fra:\" og \"Til:\""
 
 #. Resource IDs: (229)
-#, fuzzy, c-format
+#, c-format
 msgid "Merging revisions %s of %s into %s, %s%s"
-msgstr "Fletter %s fra revision %s til %s ind i %s, %s%s"
+msgstr "Fletter revisioner %s af %s ind i %s, %s%s"
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
@@ -4468,6 +4469,10 @@ msgstr "Der er ikke nok hukommelse til at færdiggøre handlingen."
 msgid "Not recursive"
 msgstr "Ikke-rekursivt"
 
+#. Resource IDs: (65535)
+msgid "Note: the font settings also affect the TortoiseUDiff viewer"
+msgstr "Bemærk: Skrifttypeindstillingerne påvirker også visningsprogrammet TortoiseUDiff"
+
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Bemærk"
@@ -4492,15 +4497,16 @@ msgstr "Antal af cachede revisioner"
 msgid "Number of cached revisions that have a non-empty change list"
 msgstr "Antal af cachede revisioner der har en ikke-tom ændringsliste"
 
+# Oversættelse af "user revision properties"?
 #. Resource IDs: (339)
-#, fuzzy
 msgid "Number of cached revisions that have user revision properties"
-msgstr "Rediger Subversion-egenskaber"
+msgstr ""
 
 #. Resource IDs: (339)
 msgid "Number of cached revisions whose change list is not cached yet"
 msgstr "Antal af cachede revisioner hvis ændringsliste endnu ikke er cached"
 
+# Oversættelse af "user revision properties"?
 #. Resource IDs: (339)
 #, fuzzy
 msgid "Number of cached revisions whose user revision properties are not cached yet"
@@ -4686,15 +4692,15 @@ msgstr "Indsæt filnavne"
 
 #. Resource IDs: (376)
 msgid "Patch all"
-msgstr "Påfør korrektur på alle"
+msgstr "Ret alle"
 
 #. Resource IDs: (376)
 msgid "Patch selected"
-msgstr "Påfør korrektur på valgt"
+msgstr "Ret valgte"
 
 #. Resource IDs: (157)
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
-msgstr "Korrekturfiler (*.diff, *.patch)|*.diff;*.patch|Alle (*.*)|*.*||"
+msgstr "Rettelsesfiler (*.diff, *.patch)|*.diff;*.patch|Alle (*.*)|*.*||"
 
 #. Resource IDs: (20, 77, 198, 207)
 msgid "Path"
@@ -4792,7 +4798,7 @@ msgstr "Undgår for det meste at forbindelseslinjer krydser revisions-knuder"
 
 #. Resource IDs: (376)
 msgid "Preview patched file"
-msgstr "Forhåndsvis lappede fil"
+msgstr "Forhåndsvis rettet fil"
 
 #. Resource IDs: (132)
 #, c-format
@@ -4816,9 +4822,8 @@ msgid "Properties"
 msgstr "Egenskaber"
 
 #. Resource IDs: (157)
-#, fuzzy
 msgid "Properties (*.svnprops)|*.svnprops|All Files (*.*)|*.*||"
-msgstr "Programmer (*.exe)|*.exe|Alle filer (*.*)|*.*||"
+msgstr "Egenskaber (*.svnprops)|*.svnprops|Alle filer (*.*)|*.*||"
 
 #. Resource IDs: (1287)
 msgid "Properties for"
@@ -4840,12 +4845,13 @@ msgstr "Egenskab %s : Revision %s"
 #. Resource IDs: (151)
 #, c-format
 msgid "Property %s : remote"
-msgstr ""
+msgstr "Egenskab %s : på server"
 
+# Oversættelse af "working base"?
 #. Resource IDs: (151)
-#, c-format
+#, fuzzy, c-format
 msgid "Property %s : working base"
-msgstr ""
+msgstr "Egenskab %s : lokalt"
 
 #. Resource IDs: (151)
 #, c-format
@@ -5102,7 +5108,7 @@ msgstr ""
 
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
-msgstr ""
+msgstr "Fjern de valgte cacher fra harddisken"
 
 #. Resource IDs: (1332)
 msgid "Remove..."
@@ -5573,7 +5579,7 @@ msgstr "Gemmer filer"
 
 #. Resource IDs: (144)
 msgid "Saving patchfile to:"
-msgstr "Gemmer korrekturfil som:"
+msgstr "Gemmer rettelsesfil til:"
 
 # Autogenereret, bruges ikke
 #. Resource IDs: (1014, 1017, 1064, 1212)
@@ -5854,7 +5860,7 @@ msgstr "Vis ændringer som &unified diff"
 
 #. Resource IDs: (113)
 msgid "Show differences as &unified diff"
-msgstr "Vis forskelle i &unified diff-format"
+msgstr "Vis forskelle som &unified diff"
 
 # Oversættelse af "as normal"?
 #. Resource IDs: (1126)
@@ -6233,7 +6239,7 @@ msgstr "Tabstørrelse:"
 #. Resource IDs: (79)
 #, c-format
 msgid "Tagged the working copy to %s"
-msgstr "Arbejdskopien blev mærket som %s"
+msgstr "Arbejdskopien blev mærket til %s"
 
 #. Resource IDs: (219)
 msgid "Test Only"
@@ -6281,7 +6287,7 @@ msgstr "Filen %s eksisterer ikke!"
 #. Resource IDs: (64)
 #, c-format
 msgid "The file %s was not found in the patch file!"
-msgstr "Filen %s blev ikke fundet i korrekturfilen!"
+msgstr "Filen %s blev ikke fundet i rettelsesfilen!"
 
 #. Resource IDs: (314)
 #, c-format
@@ -6438,9 +6444,9 @@ msgid ""
 "%s\n"
 "do not match!"
 msgstr ""
-"Korrekturfilen lader til at være forældet. Linjen\n"
+"Rettelsesfilen er tilsyneladende forældet! Linjen\n"
 "%s\n"
-" i filen og patch-linjen\n"
+"og rettelseslinien\n"
 "%s\n"
 "stemmer ikke overens!"
 
@@ -6476,10 +6482,10 @@ msgid ""
 msgstr ""
 "Stien\n"
 "<i>%s</i>\n"
-"i korrekturfilen findes ikke.\n"
+"i rettelsesfilen findes ikke.\n"
 "TortoiseMerge fandt den relative sti\n"
 "<i>%s</i>\n"
-"som lader til at matche mappen du er ved at påføre korrekturfilen på.\n"
+"som lader til at passe til mappen du er ved at påføre rettelsesfilen på.\n"
 "\n"
 "Ønsker du at benytte den foreslåede sti? Hvis du svarer 'nej', afsluttes TortoiseMerge."
 
@@ -6493,8 +6499,8 @@ msgid ""
 msgstr ""
 "Stien\n"
 "<i>%s</i>\n"
-"i korrekturfilen findes ikke.\n"
-"TortoiseMerge har forsøgt at påføre korrekturfilen ved af fjerne præfikser, men der kunne ikke findes en passende sti."
+"i rettelsesfilen findes ikke.\n"
+"TortoiseMerge har forsøgt at påføre rettelsesfilen ved af fjerne præfikser, men der kunne ikke findes en passende sti."
 
 #. Resource IDs: (314)
 #, c-format
@@ -6508,7 +6514,7 @@ msgid ""
 msgstr ""
 "Stien\n"
 "<i>%s</i>\n"
-"lader ikke til at stemme overens med stierne i korrekturfilen.\n"
+"lader ikke til at stemme overens med stierne i rettelsesfilen.\n"
 "TortoiseMerge fandt ud af at stien \n"
 "<i>%s</i>\n"
 "passer bedre. Vil du benytte den foreslåede sti i stedet?"
@@ -7116,7 +7122,7 @@ msgstr "Benyt URL for &arbejdskopi som standard \"Fra:\"-URL"
 
 #. Resource IDs: (1064)
 msgid "Use Unified Diff from clipboard"
-msgstr "Benyt \"unified diff\" fra udklipsholder"
+msgstr "Benyt unified diff fra udklipsholder"
 
 #. Resource IDs: (1296)
 msgid "Use \"_svn\" instead of \".svn\" directories"
@@ -7250,7 +7256,7 @@ msgstr ""
 "/theirs:<sti til deres fil>\n"
 "/mine:<sti til din fil>\n"
 "/merged:<sti til den resulterende, flettede fil>\n"
-"/diff:<sti til forenet forskelsfil>\n"
+"/diff:<sti til unified diff-fil>\n"
 "/patchpath:<sti til mappe>"
 
 #. Resource IDs: (11)
@@ -7844,11 +7850,9 @@ msgstr "online"
 msgid "or"
 msgstr "eller"
 
-# Oversættelse af "tokens"?
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "pair tokens: "
-msgstr "par tokens:"
+msgstr "sanmensæt symboler:"
 
 #. Resource IDs: (65535)
 msgid "path elements: "
@@ -8037,11 +8041,9 @@ msgstr "skiftet:"
 msgid "temp. offline"
 msgstr "midl. offline"
 
-# Oversættelse af "token"?
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "text [token count]: "
-msgstr "tekst [antal tokens]:"
+msgstr "tekst [antal symboler]:"
 
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
@@ -8173,7 +8175,7 @@ msgid "values are different"
 msgstr "værdierne er forskellige"
 
 #. Resource IDs: (579)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "webviewer:pathrevision\n"
 "URL pointing to the web viewer for the repository for a specific file and revision.\n"
@@ -8181,30 +8183,28 @@ msgid ""
 "the string %PATH% is replaced with the path to the file relative to the repository root."
 msgstr ""
 "webviewer:pathrevision\n"
-"URL, der peger på web-viseren til en bestemt revision i versionsarkivet.\n"
+"URL, der peger på web-visningsprogrammet for versionsarkivet for en bestemt fil og revision.\n"
 "Strengen %REVISION% i URL'en bliver erstattet med revisionsnummeret,\n"
-"og strengen %PATH% bliver erstattet af stien til filen relativt til versionsarkivets rod."
+"og strengen %PATH% bliver erstattet med stien til filen, relativt til versionsarkivets rod."
 
 #. Resource IDs: (579)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "webviewer:revision\n"
 "URL pointing to the web viewer for the repository for a specific revision.\n"
 "The string %REVISION% in that URL is replaced with the revision number."
 msgstr ""
 "webviewer:revision\n"
-"URL, der peger på web-viseren til en bestemt revision i versionsarkivet.\n"
-"Strengen %REVISION% i denne URL bliver erstattet med revisionsnummeret."
+"URL, der peger på web-visningsprogrammet for versionsarkivet for en bestemt revision.\n"
+"Strengen %REVISION% i URL'en bliver erstattet med revisionsnummeret."
 
 #. Resource IDs: (245)
 msgid "week"
 msgstr "uge"
 
-# Oversættelse af "tokens"?
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "word tokens: "
-msgstr "ord-tokens:"
+msgstr "ord-symboler:"
 
 #. Resource IDs: (65535)
 msgid "words [uncompressed]: "
