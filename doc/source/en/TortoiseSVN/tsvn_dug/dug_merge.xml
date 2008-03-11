@@ -119,6 +119,10 @@
 	<sect2 id="tsvn-dug-merge-range">
 		<title>Merging a Range of Revisions</title>
 		<?dbhh topicname="HIDD_MERGEWIZARD_REVRANGE"?>
+		<indexterm>
+			<primary>merge</primary>
+			<secondary>revision range</secondary>
+		</indexterm>
 		<para>
 			<figure id="tsvn-dug-merge-wizard-range">
 				<title>The Merge Wizard - Select Revision Range</title>
@@ -189,8 +193,12 @@
 		</para>
 	</sect2>
 	<sect2 id="tsvn-dug-merge-reintegrate">
-		<title>Reintegrate a Branch</title>
+		<title>Reintegrate a branch</title>
 		<?dbhh topicname="HIDD_MERGEWIZARD_REINTEGRATE"?>
+		<indexterm>
+			<primary>merge</primary>
+			<secondary>reintegrate</secondary>
+		</indexterm>
 		<para>
 			<figure id="tsvn-dug-merge-wizard-reintegrate">
 				<title>The Merge Wizard - Reintegrate Merge</title>
@@ -220,6 +228,10 @@
 	<sect2 id="tsvn-dug-merge-tree">
 		<title>Merging Two Different Trees</title>
 		<?dbhh topicname="HIDD_MERGEWIZARD_TREE"?>
+		<indexterm>
+			<primary>merge</primary>
+			<secondary>two trees</secondary>
+		</indexterm>
 		<para>
 			<figure id="tsvn-dug-merge-wizard-trees">
 				<title>The Merge Wizard - Tree Merge</title>
