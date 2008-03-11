@@ -5,6 +5,8 @@
 - BUG: The slider positions could be restored incorrectly in the commit and
        log dialog. (Stefan)
 - BUG: The merge ranges were not properly sorted for a rev-range merge. (Stefan)
+- CHG: Client-side hook scripts are now called with the predefined parameters
+       in a predefined order. (Stefan)
 
 
 Version 1.5.0-alpha1
