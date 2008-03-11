@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-06 03:22+0200\n"
+"PO-Revision-Date: 2008-03-10 22:12+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -484,8 +484,8 @@ msgid "&Go To Line..."
 msgstr "&Преход до ред..."
 
 #. Resource IDs: (32799)
-msgid "&Group branches"
-msgstr "&Групиране на разклоненията"
+msgid "&Group by branch"
+msgstr "&Групиране по разклонение"
 
 #. Resource IDs: (1032, 1115)
 msgid "&HEAD Revision"
@@ -1125,6 +1125,10 @@ msgstr "Всички файлове (*.*)|*.*||"
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "При показване на дата и час винаги се използват настройките на системния локал"
+
+#. Resource IDs: (339)
+msgid "Amount of memory required to load the cache"
+msgstr "Размер на паметта, нужна за зареждане на кеша"
 
 #. Resource IDs: (78)
 #, c-format
@@ -1862,6 +1866,10 @@ msgstr "С конфликти"
 msgid "Conflicts: %d"
 msgstr "Конфликти: %d"
 
+#. Resource IDs: (345)
+msgid "Connect to the repository server and download missing log data"
+msgstr "Свързване със сървъра на хранилището и изтегляне на липсващата информация от дневника"
+
 #. Resource IDs: (65535)
 msgid "Container sizes"
 msgstr "Размери на контейнера"
@@ -2522,6 +2530,10 @@ msgstr "Името или IP адреса на proxy сървъра"
 msgid "Empty"
 msgstr "Празни"
 
+#. Resource IDs: (344)
+msgid "Enable log caching to speed up log and revision graph dialogs"
+msgstr "Включване на кеширането на дневника за ускоряване на диалоговите прозорци на дневника и на диаграмата на ревизиите"
+
 #. Resource IDs: (196)
 msgid ""
 "Enable this only if you're working with web projects on VS.NET2003!\n"
@@ -2713,6 +2725,10 @@ msgstr "Износ - TortoiseSVN"
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "Директория за износ:"
+
+#. Resource IDs: (345)
+msgid "Export the selected cache as a set of Comma Separated Value (CSV) files"
+msgstr "Износ на избраният кеш като набор от файлове със стойности, отделени със запетая (CSV)"
 
 #. Resource IDs: (79)
 msgid "Export unversioned files too"
@@ -2995,6 +3011,10 @@ msgstr "За пълна история изключете \"Спиране пр�
 msgid "Force blame"
 msgstr "Принудително получаване на авторство"
 
+#. Resource IDs: (65535)
+msgid "From URL:"
+msgstr "От URL:"
+
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "От:"
@@ -3159,13 +3179,13 @@ msgstr ""
 msgid "Graph type:"
 msgstr "Тип на диаграмата:"
 
+#. Resource IDs: (2050)
+msgid "Group by branch"
+msgstr "Групиране по разклонение"
+
 #. Resource IDs: (214)
 msgid "Group changelists"
 msgstr "Групиране на списъци с промени"
-
-#. Resource IDs: (2050)
-msgid "Groups branches together"
-msgstr "Групира разклоненията заедно"
 
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
@@ -3836,6 +3856,10 @@ msgstr ""
 "Изброява темите в системната помощ\n"
 "Помощни теми"
 
+#. Resource IDs: (344)
+msgid "List of repositories for which log information has been cached"
+msgstr "Списък с хранилища, които имат кеширана част от дневника"
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Зареждане на картинките"
@@ -3968,6 +3992,10 @@ msgstr "Отбелязване като &разрешен"
 msgid "Mark as resolved"
 msgstr "Отбелязване като разрешен"
 
+#. Resource IDs: (2052)
+msgid "Mark current revision of your working copy"
+msgstr "Отбелязване на текущата ревизия на работното Ви копие"
+
 #. Resource IDs: (101)
 msgid "Mark for comparison"
 msgstr "Отбелязване за сравнение"
@@ -4007,6 +4035,10 @@ msgstr "Сливане"
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
 msgstr "Сливане - TortoiseSVN"
+
+#. Resource IDs: (221)
+msgid "Merge Reintegrate"
+msgstr "Сливане / повторна интеграция"
 
 #. Resource IDs: (1416)
 msgid "Merge a range of revisions"
@@ -4355,6 +4387,10 @@ msgstr "Недостиг на оперативна памет за извърш�
 msgid "Not recursive"
 msgstr "Нерекурсивно"
 
+#. Resource IDs: (65535)
+msgid "Note: the font settings also affect the TortoiseUDiff viewer"
+msgstr "Забележка: настройките на шрифта се отразяват и на TortoiseUDiff"
+
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Забележка"
@@ -4376,32 +4412,36 @@ msgid "Number of cached revisions"
 msgstr "Брой кеширани ревизии"
 
 #. Resource IDs: (339)
-msgid "Number of cached user revision properties"
-msgstr "Брой кеширани потребителски свойства на ревизии"
+msgid "Number of cached revisions that have a non-empty change list"
+msgstr "Брой на кешираните ревизии, които имат непразен списък на промените"
 
 #. Resource IDs: (339)
-msgid "Number of changed cached revisions"
-msgstr "Брой кеширани променени ревизии"
+msgid "Number of cached revisions that have user revision properties"
+msgstr "Брой на кешираните ревизии, които имат потребителски свойства на ревизиите"
 
 #. Resource IDs: (339)
-msgid "Number of changed revisions that are not cached yet"
-msgstr "Брой променени ревизии, които все още не са кеширани"
+msgid "Number of cached revisions whose change list is not cached yet"
+msgstr "Брой на кешираните ревизии, чийто списък с промени все още не е кеширан"
+
+#. Resource IDs: (339)
+msgid "Number of cached revisions whose user revision properties are not cached yet"
+msgstr "Брой на кешираните ревизии, чиито потребителски свойства на ревизиите все още не са кеширани"
 
 #. Resource IDs: (338)
 msgid "Number of different paths shown in the log dialog, including parent paths"
 msgstr "Брой различни пътища, показвани в дневника, включително и родителските пътища"
+
+#. Resource IDs: (338)
+msgid "Number of different words used in log messages"
+msgstr "Брой различни думи, използвани в съобщенията в дневника"
 
 #. Resource IDs: (339)
 msgid "Number of merged revisions that are not cached yet"
 msgstr "Брой слети ревизии, които все още не са кеширани"
 
 #. Resource IDs: (338)
-msgid "Number of path elements. This is an internal value indicating the compression level."
-msgstr "Брой елементи от тип път. Това е вътрешна стойност, показваща нивото на компресия."
-
-#. Resource IDs: (339)
-msgid "Number of user revision properties that are not cached yet"
-msgstr "Брой потребителски свойства на ревизии, които все още не са кеширани"
+msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
+msgstr "Брой елементи от тип път. Елементи от тип път са имена на папка или файл като 'foo.txt' или 'mybranch'."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -4878,6 +4918,15 @@ msgstr ""
 "\\d\t\t\tцифри 0-9\n"
 "\\s\t\t\tпразни символи"
 
+#. Resource IDs: (1469)
+msgid "Reintegrate a branch"
+msgstr "Повторна интеграция на разклонение"
+
+#. Resource IDs: (230)
+#, c-format
+msgid "Reintegrate merge %s into %s"
+msgstr "Повторна интеграция на сливане %s във %s"
+
 #. Resource IDs: (82)
 msgid "Reject"
 msgstr "Отхвърляне"
@@ -4964,6 +5013,10 @@ msgid ""
 msgstr ""
 "Премахване на свойството \"%s\" от\r\n"
 "%s"
+
+#. Resource IDs: (345)
+msgid "Remove the selected cache(s) from disk"
+msgstr "Премахване на избраният кеш от диска"
 
 #. Resource IDs: (1332)
 msgid "Remove..."
@@ -5413,6 +5466,10 @@ msgstr "Запис в системния буфер"
 msgid "Saved Data"
 msgstr "Съхранени данни"
 
+#. Resource IDs: (344)
+msgid "Saves expensive server roundtrips when set to longer than 0 seconds"
+msgstr "Спестява скъпи разходки до сървъра, когато е установено на повече от 0 секунди"
+
 #. Resource IDs: (581)
 msgid "Saves the selected property value to a file"
 msgstr "Записва стойността на избраното свойство във файл"
@@ -5644,6 +5701,10 @@ msgstr "&Всички"
 msgid "Show &Range..."
 msgstr "&Обхват от ревизии..."
 
+#. Resource IDs: (32826)
+msgid "Show &WC revision"
+msgstr "Ревизия на &работнoто копие"
+
 #. Resource IDs: (32796)
 msgid "Show &all revisions"
 msgstr "&Всички ревизии"
@@ -5760,6 +5821,10 @@ msgstr ""
 "Показване на специални символи за празните символи\n"
 "Показване на празните символи"
 
+#. Resource IDs: (345)
+msgid "Show statistics for the selected log cache"
+msgstr "Статистика за избрания кеш на дневника"
+
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Показване на етикетите при източниците на копиране, а не като самостоятелни възли"
@@ -5838,6 +5903,10 @@ msgstr "Размер и състояние"
 #. Resource IDs: (339)
 msgid "Size of all cached text information"
 msgstr "Размер на цялата кеширана текстова информация"
+
+#. Resource IDs: (339)
+msgid "Size of the cache file on disk"
+msgstr "Размер на файла на кеша на диска"
 
 #. Resource IDs: (339)
 msgid "Size of the cache if it were not compressed"
@@ -6036,6 +6105,10 @@ msgstr "Превключване към предишния прозорец на
 #. Resource IDs: (9)
 msgid "Switch working copy to another branch / tag"
 msgstr "Превключване на работното копие към друго разклонение / етикет"
+
+#. Resource IDs: (65535)
+msgid "Switch:"
+msgstr "Превключване:"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<<->right"
@@ -6507,12 +6580,16 @@ msgstr ""
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #. Resource IDs: (594)
-msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
-msgstr "Този метод се използва, когато сте създали разклонение за нов модул (feature branch), както е споменато в книгата за Subversion. Всички промени в основното течение се пренасят в това разклонение, седмица след седмица, и сега, когато новият модул е завършен, Вие искате да слеете разклонението обратно в основното течение. Поради това, че сте разклонението синхронизирано с основното течение, най-новите версии на разклонението и основното течение ще са идентични, с изключение на промените в разклонението. Затова, в този специален случай, ще слеете чрез сравняване на разклонението с основното течение."
+msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. Use this to merge all changes of a branch back to trunk."
+msgstr "Този метод се използва, когато сте направили модулно разклонение, така както е обсъдено в книгата на \"Subversion\". Използвайте това, за да слеете вскички промени от разклонението в основното течение."
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
 msgstr "Този метод се използва, когато сте направили една или повече ревизии в разклониение (или в основното течение) и искате да пренесете тези промени в друго разклонение."
+
+#. Resource IDs: (594)
+msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
+msgstr "Този метод се използва, когато искате да слеете в работното Ви копие разликите от две разлчини разклонения."
 
 #. Resource IDs: (65535)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -6694,8 +6771,8 @@ msgid "Total file changes:"
 msgstr "Файлови промени всяка седмица:"
 
 #. Resource IDs: (339)
-msgid "Total number of changed revisions"
-msgstr "Общ брой променени ревизии"
+msgid "Total number of changes over all cached revisions"
+msgstr "Общ брой промени във всички кеширани ревизии"
 
 #. Resource IDs: (339)
 msgid "Total number of merged revisions"
@@ -7132,6 +7209,16 @@ msgstr "Предупреждение"
 msgid "Warning!"
 msgstr "Внимание!"
 
+#. Resource IDs: (344)
+msgid ""
+"When connecting to the respository server is not possible,\n"
+"TSVN can switch to using cached data only.\n"
+"Select the default beviour here."
+msgstr ""
+"Когато е невъзможно свързването с хранилището,\n"
+"ТSVN може да превключи в режим на работа само с кешираните данни.\n"
+"Изберете режима по подразбиране."
+
 #. Resource IDs: (197)
 msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
 msgstr "Ако е включено, контролираните обекти, включени в списъка на диалоговия прозорец за поверяване, са маркирани автоматично"
@@ -7398,6 +7485,14 @@ msgstr "и подкрепете разработчиците"
 msgid "another item already exists in its place."
 msgstr "вече съществува друг обект на негово място."
 
+#. Resource IDs: (340)
+msgid ""
+"ask repository first if 'online' -\n"
+"work entirely from cache if 'offline'"
+msgstr ""
+"първо се обръща към хранилището, ако е 'онлайн' -\n"
+"работи изцяло от кеша, ако е 'без връзка'"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "автор"
@@ -7591,8 +7686,8 @@ msgid "merged"
 msgstr "слят"
 
 #. Resource IDs: (65535)
-msgid "merges total:"
-msgstr "сливания общо:"
+msgid "merges total: "
+msgstr "общо сливания: "
 
 #. Resource IDs: (10)
 msgid "missing"
@@ -8004,6 +8099,34 @@ msgstr "година"
 msgid "yes"
 msgstr "да"
 
+#~ msgid "Groups branches together"
+#~ msgstr "Групира разклоненията заедно"
+#~ msgid "Number of changed cached revisions"
+#~ msgstr "Брой кеширани променени ревизии"
+#~ msgid ""
+#~ "Number of path elements. This is an internal value indicating the "
+#~ "compression level."
+#~ msgstr ""
+#~ "Брой елементи от тип път. Това е вътрешна стойност, показваща нивото на "
+#~ "компресия."
+#~ msgid ""
+#~ "This method covers the case when you have made a feature branch as "
+#~ "discussed in the Subversion book. All trunk changes have been ported to "
+#~ "the feature branch, week by week, and now the feature is complete you "
+#~ "want to merge it back into the trunk. Because you have kept the feature "
+#~ "branch synchronized with the trunk, the latest versions of branch and "
+#~ "trunk will be absolutely identical except for your branch changes. So in "
+#~ "this special case, you would merge by comparing the branch with the trunk."
+#~ msgstr ""
+#~ "Този метод се използва, когато сте създали разклонение за нов модул "
+#~ "(feature branch), както е споменато в книгата за Subversion. Всички "
+#~ "промени в основното течение се пренасят в това разклонение, седмица след "
+#~ "седмица, и сега, когато новият модул е завършен, Вие искате да слеете "
+#~ "разклонението обратно в основното течение. Поради това, че сте "
+#~ "разклонението синхронизирано с основното течение, най-новите версии на "
+#~ "разклонението и основното течение ще са идентични, с изключение на "
+#~ "промените в разклонението. Затова, в този специален случай, ще слеете "
+#~ "чрез сравняване на разклонението с основното течение."
 #~ msgid "Probably deleted repository (%s)"
 #~ msgstr "Вероятно изтрито хранилище (%s)"
 #~ msgid "Split long &branches"
