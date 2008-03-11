@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-10 12:51+0900\n"
+"PO-Revision-Date: 2008-03-11 18:52+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -932,7 +932,7 @@ msgstr "中止"
 
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
-msgstr "マージについて(&M)"
+msgstr "マージ中止(&M)"
 
 #. Resource IDs: (136)
 msgid "About TortoiseMerge"
@@ -4360,6 +4360,10 @@ msgstr "操作を完了するのに、十分なメモリがありません。"
 #. Resource IDs: (563)
 msgid "Not recursive"
 msgstr "非再帰的"
+
+#. Resource IDs: (65535)
+msgid "Note: the font settings also affect the TortoiseUDiff viewer"
+msgstr "注意： フォントの設定は TortoiseUDiff ビューアにも影響します"
 
 #. Resource IDs: (88)
 msgid "Notice"
