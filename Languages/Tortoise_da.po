@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-11 00:12+0100\n"
+"PO-Revision-Date: 2008-03-11 23:51+0100\n"
 "Last-Translator: Zero3Cool\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -35,7 +35,7 @@ msgstr ""
 # Apply (patch) = Påfør korrekturark (?)
 # Apply (property) = Anvend egenskab
 # Blame = Ansvar
-# Branch = Forgrening
+# Branch = Gren (Bydeform: Forgren)
 # Browser = Browser
 # Cache = Cache
 # Cancel = Annuller
@@ -51,6 +51,7 @@ msgstr ""
 # Explorer = Windows Stifinder
 # Hook = Tilkobling
 # Icon overlay = Ikonoverdækning
+# (Re)integrate = (Re)integrer
 # Issue = Sag
 # Issue tracker = Sagsbehandler
 # Item = Emne (Bedre oversættelse?)
@@ -73,9 +74,11 @@ msgstr ""
 # Script = Script (Bedre oversættelse?)
 # Shell = Skal (Bedre oversættelse?)
 # Tag = Mærke
+# User (revision properties) = Brugerdefinerede (revisionsegenskaber)
 # Token = Symbol (Bedre oversættelse?)
 # Unified diff = Unified diff
 # Viewer = Visningsprogram
+# Working base = Grundrevision af arbejdskopi
 # ------------------
 # Bemærkninger:
 # ------------------
@@ -262,11 +265,10 @@ msgstr "%s - ved revision: %d"
 msgid "%s : Remote file"
 msgstr "%s : Fil på server"
 
-# Oversættelse af "working base"?
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Working Base"
-msgstr ""
+msgstr "%s : Grundrevision af arbejdskopi"
 
 #. Resource IDs: (151)
 #, c-format
@@ -649,7 +651,6 @@ msgstr "&Flettestier"
 msgid "&Merge..."
 msgstr "Fl&et..."
 
-# Overskrift i dialog
 #. Resource IDs: (1012)
 msgid "&Merging"
 msgstr "&Fletning"
@@ -955,10 +956,9 @@ msgstr "..."
 msgid ": Revision %d"
 msgstr ": Revision %d"
 
-# Oversættelse af "working base"?
 #. Resource IDs: (151)
 msgid ": working base"
-msgstr ""
+msgstr ": grundrevision af arbejdskopi"
 
 #. Resource IDs: (151)
 msgid ": working copy"
@@ -1457,11 +1457,13 @@ msgstr "Ge&nnemse..."
 
 #. Resource IDs: (115)
 msgid "Branch / tag created successfully!"
-msgstr "Forgrening / mærke oprettet!"
+msgstr "Gren / mærke oprettet!"
 
+# Oversættelse af "copy-fromrev"?
 #. Resource IDs: (2052)
+#, fuzzy
 msgid "Branch at copy-from-rev even if there was no change in that revision"
-msgstr "Lav forgrening ud fra kopier-fra-revision selvom der ikke var nogen ændringer i denne revision"
+msgstr "Forgren ud fra kopier-fra-revision selvom der ikke var nogen ændringer i denne revision"
 
 #. Resource IDs: (9)
 msgid "Branch/&tag..."
@@ -1509,7 +1511,7 @@ msgstr "C&heck nu"
 
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
-msgstr "O&pret forgrening/mærke fra revision"
+msgstr "O&pret gren/mærke fra revision"
 
 #. Resource IDs: (101)
 msgid "C&reate folder..."
@@ -1876,11 +1878,11 @@ msgstr "Sammenlign &HEAD-revisioner"
 
 #. Resource IDs: (114)
 msgid "Compare and &blame with working BASE"
-msgstr "Sammenlign med og angiv &ansvar i forhold til basisfilen"
+msgstr "Sammenlign og angiv &ansvar i forhold til grundrevisionen af arbejdskopien"
 
 #. Resource IDs: (114)
 msgid "Compare and blame with previous revision"
-msgstr "Sammenling med og vis ansvar i forhold til forrige revision"
+msgstr "Sammenling og angiv ansvar i forhold til forrige revision"
 
 #. Resource IDs: (1390)
 msgid "Compare whitespaces"
@@ -1953,9 +1955,7 @@ msgstr "Konflikter: %d"
 msgid "Connect to the repository server and download missing log data"
 msgstr "Forbind til versionsarkivserveren og download manglende logdata"
 
-# Oversættelse af "Container"?
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Container sizes"
 msgstr "Beholderstørrelser"
 
@@ -2283,7 +2283,7 @@ msgstr "Mappen blev oprettet på serveren"
 
 #. Resource IDs: (10)
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
-msgstr "Opretter en 'hurtig' kopi indeni versionsarkivet til brug som forgrening eller mærkning"
+msgstr "Opretter en 'hurtig' kopi indeni versionsarkivet til brug for forgrening eller mærkning"
 
 #. Resource IDs: (10)
 msgid "Creates a repository database at the current location"
@@ -4114,10 +4114,9 @@ msgstr "Flet"
 msgid "Merge - TortoiseSVN"
 msgstr "Flet - TortoiseSVN"
 
-# Oversættelse af "reintegrate"?
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
-msgstr ""
+msgstr "Reintegreringsfletning"
 
 #. Resource IDs: (1416)
 msgid "Merge a range of revisions"
@@ -4170,15 +4169,14 @@ msgstr "Flettede revision(er) %s fra %s:\n"
 
 #. Resource IDs: (10)
 msgid "Merges a branch into the main trunk"
-msgstr "Fletter en forgrening ind i hovedstammen"
+msgstr "Fletter en gren ind i hovedstammen"
 
-# Oversættelse af "merge-tracking information"?
+# Bedre oversættelse af "merge-tracking information"?
 #. Resource IDs: (14)
-#, fuzzy
 msgid "Merges all missing revisions back into the working copy using merge-tracking information"
-msgstr "Fletter alle manglende revisioner tilbage i arbejdskopien ved brug af sporingsinformation om fletninger."
+msgstr "Fletter alle manglende revisioner tilbage i arbejdskopien ved hjælp af sporingsinformation om fletninger."
 
-# Dette er overskrift i en dialog
+# Dette er overskriften i en dialog
 #. Resource IDs: (65535)
 msgid "Merging"
 msgstr "Fletning"
@@ -4497,20 +4495,17 @@ msgstr "Antal af cachede revisioner"
 msgid "Number of cached revisions that have a non-empty change list"
 msgstr "Antal af cachede revisioner der har en ikke-tom ændringsliste"
 
-# Oversættelse af "user revision properties"?
 #. Resource IDs: (339)
 msgid "Number of cached revisions that have user revision properties"
-msgstr ""
+msgstr "Antal af cachede revisioner der har brugerdefinerede revisionsegenskaber"
 
 #. Resource IDs: (339)
 msgid "Number of cached revisions whose change list is not cached yet"
 msgstr "Antal af cachede revisioner hvis ændringsliste endnu ikke er cached"
 
-# Oversættelse af "user revision properties"?
 #. Resource IDs: (339)
-#, fuzzy
 msgid "Number of cached revisions whose user revision properties are not cached yet"
-msgstr "Antal af bruger-revisionsegenskaber der endnu ikke er cachede."
+msgstr "Antal af cachede revisioner hvis brugerdefinerede revisionsegenskaber endnu ikke er cachede"
 
 #. Resource IDs: (338)
 msgid "Number of different paths shown in the log dialog, including parent paths"
@@ -4740,7 +4735,7 @@ msgid ""
 msgstr ""
 "Bemærk:\n"
 "Din arbejdskopi forbliver på den samme sti. Hvis du ønsker at dine fremtidige ændringer\n"
-"skal arkiveres i den nyoprettede kopi eller forgrening,\n"
+"skal arkiveres i den nyoprettede kopi eller gren,\n"
 "skal du skifte over på URL'en for kopien.\n"
 "Benyt kommandoen Skift for at gøre dette."
 
@@ -4847,11 +4842,10 @@ msgstr "Egenskab %s : Revision %s"
 msgid "Property %s : remote"
 msgstr "Egenskab %s : på server"
 
-# Oversættelse af "working base"?
 #. Resource IDs: (151)
-#, fuzzy, c-format
+#, c-format
 msgid "Property %s : working base"
-msgstr "Egenskab %s : lokalt"
+msgstr "Egenskab %s : grundrevision af arbejdskopi"
 
 #. Resource IDs: (151)
 #, c-format
@@ -4890,7 +4884,8 @@ msgstr "Proxy-indstillinger"
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 msgstr "Føj \"Llås\" i øverste menu, når svn:needs-lock er sat"
 
-# Q = Quarter => K = Kvartal
+# Engelsk: Q = Quarter
+# Dansk: K = Kvartal
 #. Resource IDs: (246)
 #, c-format
 msgid "Q%d/%.2d"
@@ -5008,16 +5003,14 @@ msgstr ""
 "\\d\t\t\tcifrene 0-9\n"
 "\\s\t\t\tblanktegn"
 
-# Oversættelse af "Reintegrate"?
 #. Resource IDs: (1469)
 msgid "Reintegrate a branch"
-msgstr ""
+msgstr "Reintegrer en gren"
 
-# Oversættelse af "reintegrate"?
 #. Resource IDs: (230)
 #, c-format
 msgid "Reintegrate merge %s into %s"
-msgstr ""
+msgstr "Reintegreringsflet %s ind i %s"
 
 #. Resource IDs: (82)
 msgid "Reject"
@@ -5087,7 +5080,7 @@ msgstr "Fjern %s"
 
 #. Resource IDs: (2052)
 msgid "Remove deleted branches and tags"
-msgstr "Fjern slettede forgreninger og mærker"
+msgstr "Fjern slettede grene og mærker"
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
@@ -5862,11 +5855,10 @@ msgstr "Vis ændringer som &unified diff"
 msgid "Show differences as &unified diff"
 msgstr "Vis forskelle som &unified diff"
 
-# Oversættelse af "as normal"?
+# Definition af "normal": http://tortoisesvn.net/docs/nightly/TortoiseSVN_hr/tsvn-dug-settings.html
 #. Resource IDs: (1126)
-#, fuzzy
 msgid "Show excluded folders as normal"
-msgstr "Vis udelukkede mapper som normal"
+msgstr "Vis udelukkede mapper som versionerede"
 
 #. Resource IDs: (1264)
 msgid "Show ignored files"
@@ -5959,7 +5951,7 @@ msgstr "Viser graf for %s"
 
 #. Resource IDs: (15)
 msgid "Shows a graphical representation of copies/tags/branches"
-msgstr "Viser en grafisk repræsentation af kopier/mærker/forgreninger"
+msgstr "Viser en grafisk repræsentation af kopier/mærker/grene"
 
 #. Resource IDs: (13)
 msgid "Shows all files which were changed since the last update, locally and in the repository"
@@ -6144,7 +6136,7 @@ msgstr "Subversion server-fil:"
 
 #. Resource IDs: (1232)
 msgid "Sw&itch working copy to new branch/tag"
-msgstr "S&kift arbejdskopi til ny forgrening/mærke"
+msgstr "S&kift arbejdskopi til ny gren/mærke"
 
 #. Resource IDs: (229)
 #, c-format
@@ -6161,7 +6153,7 @@ msgstr "Ombyt Venstre<->Højre"
 
 #. Resource IDs: (140)
 msgid "Switch To Branch / Tag"
-msgstr "Skift til forgrening / mærke"
+msgstr "Skift til gren / mærke"
 
 #. Resource IDs: (3606)
 msgid ""
@@ -6205,7 +6197,7 @@ msgstr "Skift til foregående dokumentvindue"
 
 #. Resource IDs: (9)
 msgid "Switch working copy to another branch / tag"
-msgstr "Skift arbejdskopi til en anden forgrening / mærke"
+msgstr "Skift arbejdskopi til en anden gren / mærke"
 
 # Kontekst?
 #. Resource IDs: (65535)
@@ -6815,7 +6807,7 @@ msgstr "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
 
 # Dansk oversættelse af "build"?
 #. Resource IDs: (107)
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
@@ -6884,7 +6876,7 @@ msgstr "Samlet antal flettede revisioner"
 
 #. Resource IDs: (339)
 msgid "Total number of user revision properties"
-msgstr "Samlet antal af brugerrevisionsegenskaber"
+msgstr "Samlet antal af brugerdefinerede revisionsegenskaber"
 
 #. Resource IDs: (357)
 #, c-format
@@ -7495,7 +7487,7 @@ msgid ""
 "Do you want to commit anyway?"
 msgstr ""
 "Din arbejdskopi ser ud til at befinde sig på stien til et mærke!\n"
-"Du bør først skifte til en forgrening eller hovedstammen før du arkiverer.\n"
+"Du bør først skifte til en gren eller hovedstammen før du arkiverer.\n"
 "\n"
 "Vil du arkivere alligevel?"
 
@@ -7516,7 +7508,7 @@ msgid ""
 "show up in the branch/tag!"
 msgstr ""
 "Din arbejdskopi har lokale ændringer.\n"
-"Hvis du laver en forgrening eller etiket fra HEAD-revisionen, vil dine lokale ændringer\n"
+"Hvis du laver en gren eller etiket fra HEAD-revisionen, vil dine lokale ændringer\n"
 "ikke dukke op i forgreningen/mærket!"
 
 #. Resource IDs: (32783)
@@ -7928,9 +7920,10 @@ msgstr ""
 "Hvis denne er angivet, bliver filen eksekverbar. Denne egenskab kan ikke sættes på en mappe.\n"
 "Et ikke-rekursivt forsøg vil fejle, og et rekursivt forsøg vil kun sætte egenskaben på alle filerne i mappen."
 
-# Dansk oversættelse af "of the external"?
-# Dansk oversættelse af "scheme"?
+# Oversættelse af "of the external"?
+# Oversættelse af "scheme"?
 #. Resource IDs: (576)
+#, fuzzy
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of\n"
@@ -8092,15 +8085,14 @@ msgstr ""
 "tsvn:logminsize\n"
 "Angiver det mindste antal tegn, en logbesked skal indeholde, før arkivering kan foretages."
 
-# Oversættelse af "in its first group" (kontekst)?
+# "in its first group" er tilsyneladende underforstået / kun til forvirring.
 #. Resource IDs: (578)
-#, fuzzy
 msgid ""
 "tsvn:logsummary\n"
 "A regex string which extracts a summary from a log message in its first group."
 msgstr ""
 "tsvn:logsummary\n"
-"En regex-streng som udtrækker et sammendrag fra en logbesked i dens første gruppe."
+"En regex-streng som udtrækker et sammendrag fra en logbesked."
 
 #. Resource IDs: (578)
 msgid ""
@@ -8132,29 +8124,25 @@ msgstr ""
 "Sæt denne til nummeret på det sprog, som du ønsker at skrive logbeskeder i.\n"
 "TortoiseSVN vil automatisk hente det tilsvarende modul til stavekontrol, hvis det findes."
 
-# Dansk oversættelse af "property"?
 #. Resource IDs: (581)
-#, fuzzy
 msgid ""
 "tsvn:userfileproperties\n"
 "Newline separated list of user defined properties for files which will\n"
 "be shown in the property dialog to choose from."
 msgstr ""
 "tsvn:userfileproperties\n"
-"En linjesepareret liste  af brugerdefinerede egenskaber for filer.\n"
-"Disse vil kunne vælges i dialogen \"Egenskaber\"."
+"En linjesepareret liste af brugerdefinerede egenskaber for filer, som vil\n"
+"bliver vist i egenskabsdialogen, til at vælge fra."
 
-# Dansk oversættelse af "property"?
 #. Resource IDs: (581)
-#, fuzzy
 msgid ""
 "tsvn:userfolderproperties\n"
 "Newline separated list of user defined properties for folders which will\n"
 "be shown in the property dialog to choose from."
 msgstr ""
 "tsvn:userfolderproperties\n"
-"En linjesepareret liste af brugerdefinerede egenskaber for mapper.\n"
-"Disse vil kunne vælges i dialogen \"Egenskaber\"."
+"En linjesepareret liste af brugerdefinerede egenskaber for mapper, som vil\n"
+"blive vist i egenskabsdialogen, til at vælge fra."
 
 #. Resource IDs: (577)
 msgid ""
@@ -8164,11 +8152,9 @@ msgstr ""
 "tsvn:warnifnoissue\n"
 "Sæt denne værdi til \"yes\", hvis der skal vises en advarsel, hvis der ikke indtastes et sagsnummer i arkiveringsdialogen."
 
-# Oversættelse af "revprops"?
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "user revprops total: "
-msgstr "brugte revprops i alt:"
+msgstr "brugerdefinerede revisionsegenskaber i alt:"
 
 #. Resource IDs: (563)
 msgid "values are different"
