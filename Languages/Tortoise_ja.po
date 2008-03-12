@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-11 18:52+0900\n"
+"PO-Revision-Date: 2008-03-12 11:27+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -386,7 +386,7 @@ msgstr "編集(&E) ..."
 
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
-msgstr "プロクシサーバを有効にする(&E)"
+msgstr "プロキシサーバを有効にする(&E)"
 
 #. Resource IDs: (1434)
 msgid "&Enable log caching"
@@ -604,7 +604,7 @@ msgstr "貼り付け(&P)"
 
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
-msgstr "永久にオフライン(&P)"
+msgstr "永続的にオフライン(&P)"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -873,7 +873,7 @@ msgstr ""
 "<b>TortoiseSVN</b> はシェル拡張です。\n"
 "つまり、エクスプローラに統合されます。\n"
 "<b>TortoiseSVN</b> を利用するために、エクスプローラを開いて適当なフォルダ上で右クリックし、\n"
-"コンテキストメニューを表示させて <b>TortoiseSVN</b> の全コマンドを探してみてください。\n"
+"<b>TortoiseSVN</b> の全てのコマンドが利用できるコンテキストメニューを表示させてください。\n"
 "あと、 <u>マニュアルも読んでね！！</u>"
 
 #. Resource IDs: (209)
@@ -948,7 +948,7 @@ msgstr "一度だけ受理する"
 
 #. Resource IDs: (82)
 msgid "Accept permanently"
-msgstr "永久に受理する"
+msgstr "永続的に受理する"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -1237,7 +1237,7 @@ msgstr "書き込み中の %1 から読み込もうとしました。"
 #. Resource IDs: (3868)
 #, c-format
 msgid "Attempted to write to the reading %1."
-msgstr "読み取り中の %1 へ書き込みが行われました。"
+msgstr "読み取り中の %1 へ書き込もうとしました。"
 
 #. Resource IDs: (131, 160)
 msgid "Authentication"
@@ -1293,7 +1293,7 @@ msgid ""
 "from the files that you have changed as you type a log message."
 msgstr ""
 "ログメッセージを入力する際に、変更したファイル内の単語\n"
-"（たいていクラスやメンバの名前）が自動動補完により提示されます。"
+"（クラスやメンバの名前）が自動動補完により提示されます。"
 
 #. Resource IDs: (438)
 msgid "Automatic"
@@ -2498,7 +2498,7 @@ msgstr "選択されている属性を編集する"
 
 #. Resource IDs: (79)
 msgid "Either the name or IP of the proxy server"
-msgstr "プロクシサーバの名前もしくは IP を入力します"
+msgstr "プロｷシサーバの名前もしくは IP を入力します"
 
 #. Resource IDs: (65535)
 msgid "Empty"
@@ -2773,7 +2773,7 @@ msgstr "元に戻せませんでした"
 
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
-msgstr "空のドキュメントの生成に失敗しました。"
+msgstr "空のドキュメントの作成に失敗しました。"
 
 #. Resource IDs: (3857)
 msgid "Failed to launch help."
@@ -4274,7 +4274,7 @@ msgstr "何のコマンド値も指定されません！"
 
 #. Resource IDs: (82)
 msgid "No differences found!"
-msgstr "違いは何も見つかりませんでした！"
+msgstr "差分は見つかりませんでした！"
 
 #. Resource IDs: (3843)
 msgid "No error message is available."
@@ -4764,11 +4764,11 @@ msgstr "属性値:"
 
 #. Resource IDs: (1412)
 msgid "Proxy &timeout in seconds:"
-msgstr "プロクシのタイムアウト(&T):"
+msgstr "プロキシのタイムアウト(&T):"
 
 #. Resource IDs: (1080)
 msgid "Proxy Settings"
-msgstr "プロクシの設定"
+msgstr "プロキシの設定"
 
 #. Resource IDs: (1338)
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
@@ -5535,7 +5535,7 @@ msgid ""
 "You might need to create a new folder before performing this export."
 msgstr ""
 "エクスポート先のフォルダを選択してください。\n"
-"これを実行する前に新しいフォルダを生成する必要があるかもしれません。"
+"これを実行する前に新しいフォルダを作成する必要があるかもしれません。"
 
 #. Resource IDs: (197)
 msgid "Select folder to run script for"
@@ -5741,7 +5741,7 @@ msgstr "&Unified Diff 形式で差分を表示"
 
 #. Resource IDs: (1126)
 msgid "Show excluded folders as normal"
-msgstr "通常として除外フォルダを表示する"
+msgstr "除外フォルダを通常として表示する"
 
 #. Resource IDs: (1264)
 msgid "Show ignored files"
@@ -6615,8 +6615,8 @@ msgid ""
 "To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\n"
 "This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 msgstr ""
-"ロックを奪うために、この項目の親フォルダ上で右クリックし、コンテキストメニューから \"ロックを取得\" を選択してください。\n"
-"これにより、ロックを実行する所でロックダイアログが表示されます（例えば、現在ロックを保持している人からロックを '奪う' など）。"
+"ロックを横取りするために、この項目の親フォルダ上で右クリックし、コンテキストメニューから \"ロックを取得\" を選択してください。\n"
+"これにより、ロックを実行する所でロックダイアログが表示されます（例えば、現在ロックを保持している人からロックを '横取り' など）。"
 
 #. Resource IDs: (1201, 65535)
 msgid "To:"
