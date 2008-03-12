@@ -144,6 +144,8 @@ UINT CChangedDlg::ChangedStatusThread()
 	DialogEnableWindow(IDC_SHOWUNMODIFIED, TRUE);
 	DialogEnableWindow(IDC_SHOWIGNORED, TRUE);
 	InterlockedExchange(&m_bBlock, FALSE);
+	// revert the remote flag back to the default
+	m_bRemote = !!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\CheckRepo"), FALSE);
 	RefreshCursor();
 	return 0;
 }
