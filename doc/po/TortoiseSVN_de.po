@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-03-11 09:04 +0000\n"
-"PO-Revision-Date: 2008-03-11 11:23+0100\n"
+"PO-Revision-Date: 2008-03-13 17:28+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -35,8 +35,9 @@ msgstr ""
 # tags           - Marken/Markierungen
 # to branch      - verzweigen
 # to tag         - markieren
-# build          - erstellen
+# feature branch - Funktionszweig
 # vendor branch  - Herstellerzweig
+# build          - erstellen
 #. (title)
 #. (secondary)
 #: ../source/TortoiseSVN_en.xml:4
@@ -173,7 +174,7 @@ msgstr "<emphasis>SubWCRev</emphasis> ist ein separates Programm des TortoiseSVN
 #. (para)
 #: ../source/TortoiseSVN_en.xml:125
 msgid "The <emphasis>How Do I...</emphasis> section answers some common questions about performing tasks which are not explicitly covered elsewhere."
-msgstr "Der <emphasis>Wie kann ich...</emphasis> Abschnitt beantwortet einige allgemeine Fragen zu Aufgraben, die anderweitig nicht beschrieben werden."
+msgstr "Der <emphasis>Wie kann ich...</emphasis> Abschnitt beantwortet einige allgemeine Fragen zu Aufgaben, die anderweitig nicht beschrieben werden."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:129
@@ -2966,7 +2967,7 @@ msgstr "Anmeldedialog"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3303
 msgid "<filename>svn.simple</filename> contains credentials for basic authentication (username/password)."
-msgstr "<filename>svn.simple</filename> enthält die Daten für das einfache Anmeldeverfahren (Name/Password)."
+msgstr "<filename>svn.simple</filename> enthält die Daten für das einfache Anmeldeverfahren (Name/Passwort)."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3309
@@ -3478,7 +3479,7 @@ msgstr "Behält die in der Arbeitskopie angegebene Rekursionstiefe bei. Diese Op
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3803
 msgid "You can choose the <firstterm>depth</firstterm> you want to checkout, which allows you to specify the depth of recursion into child folders. If you want just a few sections of a large tree, You can checkout the top level folder only, then update selected folders recursively. <placeholder-1/>"
-msgstr "Sie können die <firstterm>Tiefe</firstterm> der Rekursion beim Auschecken festlegen. Wenn Sie nur einige Bereiche eines großen Quellbaumes wollen, können Sie den oberten Ordner auschecken und danach die gewünschten Ordner rekursiv aktualisieren. <placeholder-1/>"
+msgstr "Sie können die <firstterm>Tiefe</firstterm> der Rekursion beim Auschecken festlegen. Wenn Sie nur einige Bereiche eines großen Quellbaumes wollen, können Sie den obersten Ordner auschecken und danach die gewünschten Ordner rekursiv aktualisieren. <placeholder-1/>"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3858
@@ -3493,7 +3494,7 @@ msgstr "Rufen Sie mit einem <action>Rechtsklick</action> auf den ausgecheckten O
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3881
 msgid "In the check for modifications dialog, first click on the button <guibutton>Check repository</guibutton>. The dialog will show all the files and folders which are in the repository but which you have not checked out as <literal>remotely added</literal>. <action>Right click</action> on the folder(s) you would like to add to your working copy, then use <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update</guimenuitem></menuchoice>."
-msgstr "Im <quote>Prüfe auf Änderungen</quote> Dialog klicken Sie zunächst auf <guibutton>Check repository</guibutton>. Der Dialog wird alle Dateien, die sich im Projektarchiv befinden, aber von Ihnen noch nicht ausgecheckt wurden als <literal>hinzugefügt</literal>. Mit einem <action>Rechtsklick</action> auf den Ordner, den Sie zu Ihrer Arbeitskopie hinzufügen möchten wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Aktualsieren</guimenuitem> </menuchoice>."
+msgstr "Im <quote>Prüfe auf Änderungen</quote> Dialog klicken Sie zunächst auf <guibutton>Check repository</guibutton>. Der Dialog wird alle Dateien, die sich im Projektarchiv befinden, aber von Ihnen noch nicht ausgecheckt wurden als <literal>hinzugefügt</literal>. Mit einem <action>Rechtsklick</action> auf den Ordner, den Sie zu Ihrer Arbeitskopie hinzufügen möchten wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Aktualisieren</guimenuitem> </menuchoice>."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3894
@@ -3664,12 +3665,12 @@ msgstr "Änderungsliste"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4108
 msgid "In an ideal world, you only ever work on one thing at a time, and your working copy contains only one set of logical changes. OK, back to reality. It often happens that you have to work on several unrelated tasks at once, and when you look in the commit dialog, all the changes are mixed in together. The <firstterm>changelist</firstterm> feature helps you group files together, making it easier to see what you are doing. Of course this can only work if the changes do not overlap. If two different tasks affect the same file, there is no way to separate the changes."
-msgstr "In einer idealen Welt würden Sie normalerweise nur an einer Aufgabe zur Zeit arbeiten und Ihre Arbeitskopie enthielte nur einen logischen Satz an Änderungen. Aber zurück zur Realität. Es kommt mit Sicherheit häufiger vor, dass Sie an mehrern unzusammenhängenden Aufgaben gleichzeitig arbeiten und beim Übertragen alle Änderungen im Dialog angezeigt bekommen. Die <firstterm>Änderungslisten</firstterm> ermöglichen es Ihnen, Dateien in Gruppen zusammenzufassen. Dies kann natürlich nur sinnvoll funktionieren, wenn sich die Änderungen nicht überschneiden. Wenn mehrere Änderungen dieselbe Datei betreffen, gibt es keine Möglichkeit, die Änderungen auseinander zu halten."
+msgstr "In einer idealen Welt würden Sie normalerweise nur an einer Aufgabe zur Zeit arbeiten und Ihre Arbeitskopie enthielte nur einen logischen Satz an Änderungen. Aber zurück zur Realität. Es kommt mit Sicherheit häufiger vor, dass Sie an mehreren unzusammenhängenden Aufgaben gleichzeitig arbeiten und beim Übertragen alle Änderungen im Dialog angezeigt bekommen. Die <firstterm>Änderungslisten</firstterm> ermöglichen es Ihnen, Dateien in Gruppen zusammenzufassen. Dies kann natürlich nur sinnvoll funktionieren, wenn sich die Änderungen nicht überschneiden. Wenn mehrere Änderungen dieselbe Datei betreffen, gibt es keine Möglichkeit, die Änderungen auseinander zu halten."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4119
 msgid "The changelist feature in TortoiseSVN is only available in Windows XP and later, as it depends on a shell capability which is not present in Windows 2000. Sorry, but Win2K is really quite old now, so please don't complain."
-msgstr "Die Änderungslisten stehen nur under Windows XP und neuer zur Verfügung, da sie eine Shell-Funktionalität benötigen, die unter Windows 2000 nicht zur Verfügung steht. Sorry, Win2K ist mittlerweile recht alt, also bitte nicht beschweren."
+msgstr "Die Änderungslisten stehen nur unter Windows XP und neuer zur Verfügung, da sie eine Shell-Funktionalität benötigen, die unter Windows 2000 nicht zur Verfügung steht. Sorry, Win2K ist mittlerweile recht alt, also bitte nicht beschweren."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:4138
@@ -4295,7 +4296,7 @@ msgstr "Wenn Sie sich eine Datei genauer anschauen wollen, können Sie diese von
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4902
 msgid "The columns are customizable. If you <action>right click</action> on any column header you will see a context menu allowing you to select which columns are displayed. You can also change column width by using the drag handle which appears when you move the mouse over a column boundary. These customizations are preserved, so you will see the same headings next time."
-msgstr "Die angezeigten Spalten können angepasst werden. Wenn Sie einen <action>Rechtsklick</action> auf einen Spaltenkopf machen, erscheint ein Kontextmenü aus dem Sie die anzuzeigenden Spalten auswählen können. Sie können auch die Spaltenbreiten anpassen, indem sie die Spaltenköpfe mit den Ziehmarken justieren. Diese Einstellungen werden gespeichert, so dass Sie beim nächsten Mal weider dieselben Spalten sehen."
+msgstr "Die angezeigten Spalten können angepasst werden. Wenn Sie einen <action>Rechtsklick</action> auf einen Spaltenkopf machen, erscheint ein Kontextmenü aus dem Sie die anzuzeigenden Spalten auswählen können. Sie können auch die Spaltenbreiten anpassen, indem sie die Spaltenköpfe mit den Ziehmarken justieren. Diese Einstellungen werden gespeichert, so dass Sie beim nächsten Mal wieder dieselben Spalten sehen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4911
@@ -4817,7 +4818,7 @@ msgstr "Mit Hilfe der Filter am oberen Rand des Log-Dialogs können Sie die Logm
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5567
 msgid "Click on the search icon to select which information you want to search in, and to choose <emphasis>regex</emphasis> mode. Normally you will only need a simple text search, but if you need to more flexible search terms, you can use regular expressions. If you hover the mouse over the box, a tooltip will give hints on how to use the regex functions. You can also find online documentation and a tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
-msgstr "Klicken Sie auf das Suchsymbol, um auswzuwählen welche Werte Sie durchsuchen möchten und um die Suche mit regulären Ausdrücken zu aktivieren. Normalerweise benötigen Sie nur eine einfache Textsuche, aber falls Sie komplexere Suchbegriffe formulieren wollen, können Sie reguläre Ausdrücke verwenden. Wenn Sie mit dem Mauszeiger über das Eingabefeld fahren, erscheint ein Hinweistext zu den regulären Ausdrücken. Unter<ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink> stehen eine Dokumentation und Übungen zur Verfügung."
+msgstr "Klicken Sie auf das Suchsymbol, um auszuwählen welche Werte Sie durchsuchen möchten und um die Suche mit regulären Ausdrücken zu aktivieren. Normalerweise benötigen Sie nur eine einfache Textsuche, aber falls Sie komplexere Suchbegriffe formulieren wollen, können Sie reguläre Ausdrücke verwenden. Wenn Sie mit dem Mauszeiger über das Eingabefeld fahren, erscheint ein Hinweistext zu den regulären Ausdrücken. Unter<ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink> stehen eine Dokumentation und Übungen zur Verfügung."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5579
@@ -5004,7 +5005,7 @@ msgstr "Wenn Sie die Unterschiede zwischen zwei bereits übertragenen Revisionen
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5796
 msgid "If you did this from the revision log for a folder, a Compare Revisions dialog appears, showing a list of changed files in that folder. Read more in <xref linkend=\"tsvn-dug-compare-revs\"/>."
-msgstr "Wenn Sie diese Option für das Log eines Ordners wählen, erschein ein weiterer Dialog, der die geänderten Dateien anzeigt und Ihnen weitere Vergleichsoptionen anbietet. Lesen Sie mehr dazu in <xref linkend=\"tsvn-dug-compare-revs\"/>."
+msgstr "Wenn Sie diese Option für das Log eines Ordners wählen, erscheint ein weiterer Dialog, der die geänderten Dateien anzeigt und Ihnen weitere Vergleichsoptionen anbietet. Lesen Sie mehr dazu in <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:5805
@@ -5094,7 +5095,7 @@ msgstr "<guilabel>Ignoriere alle Leerzeichen</guilabel> schließt sämtliche Än
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5921
 msgid "Naturally, any line with changed content is always included in the diff."
-msgstr "Selbstverständtlich wird jede Zeile mit geänderten Inhalten stets als Differenz angezeigt."
+msgstr "Selbstverständlich wird jede Zeile mit geänderten Inhalten stets als Differenz angezeigt."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:5927
@@ -5639,7 +5640,7 @@ msgstr "Wenn Sie mittels <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuite
 #. (para)
 #: ../source/TortoiseSVN_en.xml:6566
 msgid "If you want to delete an item from the repository, but keep it locally as an unversioned file/folder, use <menuchoice><guimenu>Extended Context Menu</guimenu><guimenuitem>Delete (keep local)</guimenuitem></menuchoice>. You have to hold the <keycap>Shift</keycap> key while right clicking on the item in the explorer list pane (right pane) in order to see this in the extended context menu."
-msgstr "Wenn Sie eine Datei oder einen Ordner aus dem Projektarchiv löschen, aber lokal noch als unversioniertes Objekt beibehalten wollen, wählen Sie <menuchoice> <guimenu>Erweitertes Kontextmenü>/guimenu> <guimenuitem>Löschen (lokal erhalten)</guimenuitem> </menuchoice>. Sie müssen die <keycap>Umsch</keycap>-Taste gedrückt halten, während Sie einen <action>Rechtsklick</action> auf Objekt im rechten Fenster des Explorers machen, um das erweiterte Kontextmenü zu sehen."
+msgstr "Wenn Sie eine Datei oder einen Ordner aus dem Projektarchiv löschen, aber lokal noch als unversioniertes Objekt beibehalten wollen, wählen Sie <menuchoice> <guimenu>Erweitertes Kontextmenü</guimenu> <guimenuitem>Löschen (lokal erhalten)</guimenuitem> </menuchoice>. Sie müssen die <keycap>Umsch</keycap>-Taste gedrückt halten, während Sie einen <action>Rechtsklick</action> auf Objekt im rechten Fenster des Explorers machen, um das erweiterte Kontextmenü zu sehen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:6577
@@ -5850,7 +5851,7 @@ msgstr "Meistens tragen Sie in Ihre Ignorieren-Liste sämtliche generierten Date
 #. (para)
 #: ../source/TortoiseSVN_en.xml:6844
 msgid "TortoiseSVN provides just such an option using <menuchoice><guimenu>Extended Context Menu</guimenu><guimenuitem>Delete unversioned items...</guimenuitem></menuchoice>. You have to hold the <keycap>Shift</keycap> while right clicking on a folder in the explorer list pane (right pane) in order to see this in the extended context menu. This will produce a dialog which lists all unversioned files anywhere in your working copy. You can then select or deselect items to be removed."
-msgstr "TortoiseSVN stellt eine solche Funktion unter <menuchoice> <guimenu>Erweitertes Kontextmenü>/guimenu> <guimenuitem>Unversionierte Objekte löschen...</guimenuitem> </menuchoice> zur Verfügung. Sie müssen die <keycap>Umschalt</keycap> Taste drücken, während Sie einen <action>Rechtsklick</action> auf einen Ordner im rechten Fenster des Explorers machen, um das erweiterte Kontextmenü zu sehen. Daraufhin wird ein Dialog mit sämtlichen nicht versionierten Dateien in Ihrer Arbeitskopie angezeigt, in dem Sie die zu löschenden Objekte auswählen können."
+msgstr "TortoiseSVN stellt eine solche Funktion unter <menuchoice> <guimenu>Erweitertes Kontextmenü</guimenu> <guimenuitem>Unversionierte Objekte löschen...</guimenuitem> </menuchoice> zur Verfügung. Sie müssen die <keycap>Umsch</keycap> Taste drücken, während Sie einen <action>Rechtsklick</action> auf einen Ordner im rechten Fenster des Explorers machen, um das erweiterte Kontextmenü zu sehen. Daraufhin wird ein Dialog mit sämtlichen nicht versionierten Dateien in Ihrer Arbeitskopie angezeigt, in dem Sie die zu löschenden Objekte auswählen können."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:6856
@@ -6539,7 +6540,7 @@ msgstr "Diese Methode behandelt den Fall dass Sie einen Funktionszweig, wie im S
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7741
 msgid "This is a special case of the tree merge described below, and it requires only the URL to merge from (normally) your development branch. It uses the merge-tracking features of Subversion to calculate the correct revision ranges to use, and perform additional checks which ensure that the branch has been fully updated with trunk changes. This ensures that you don't accidentally undo work that others have committed to trunk since you last synchronized changes."
-msgstr ""
+msgstr "Hierbei handelt es sich um einen Spezialfall des weiter unten beschriebenen Zusammenführens von Bäumen. Es wird als Quelle nur die URL des Entwicklungsszweiges benötigt. Die Funktion verwendet die Protokollierung der Datenintegration, um die korrekten Revisionsbereiche zu ermitteln und führt zusätzlich Überprüfungen durch ob der Zweig mit allen Änderungen aus dem Stamm zusammengeführt wurde. Dadurch wird sichergestellt, dass Sie nicht versehentlich Änderungen von anderen zurücknehmen, die seit Ihrer letzten Synchronisation mit dem Stamm übertragen wurden."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7751
@@ -6584,7 +6585,7 @@ msgstr "<placeholder-1/> Im <guilabel>Von:</guilabel> Feld geben Sie die URL des
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7805
 msgid "In the <guilabel>Revision range to merge</guilabel> field enter the list of revisions you want to merge. This can be a single revision, a list of specific revisions separated by commas, or a range of revisions separated by a dash, or any combination of these."
-msgstr "Geben Sie den zusammenzuführenden Revisonsbereich in das Feld <guilabel>Revisionsbereich</guilabel> ein. Das kann eine einzelne Revision, eine durch Kommata getrennte Liste von Revisionen, ein durch Bindestrich getrennter Revisionsbereich oder eine Kombination aus allem sein."
+msgstr "Geben Sie den zusammenzuführenden Revisionsbereich in das Feld <guilabel>Revisionsbereich</guilabel> ein. Das kann eine einzelne Revision, eine durch Kommata getrennte Liste von Revisionen, ein durch Bindestrich getrennter Revisionsbereich oder eine Kombination aus allem sein."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7812
@@ -6639,7 +6640,7 @@ msgstr "Im <guilabel>Von:</guilabel> Feld geben Sie die vollständige URL des <e
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7881
 msgid "There are some conditions which apply to a reintegrate merge. Firstly, the server must support merge tracking. The working copy must be of depth infinite (no sparse checkouts), and it must not have any local modifications, switched items or items that have been updated to revisions other than HEAD. All changes to trunk made during branch development must have been merged across to the branch (or marked as having been merged). The range of revisions to merge will be calculated automatically."
-msgstr ""
+msgstr "Um einen Zweig erneut zusammenführen, müssen einige Bedingungen erfüllt sein. Zunächst muss der Server die Verfolgung der Datenintegration unterstützen. Die Tiefe der Arbeitskopie muss unendlich sein (keine dünn besiedelte Arbeitskopie) und sie darf weder lokalen Änderungen noch Objekte auf einer anderen URL oder einer anderen Revision als HEAD enthalten. Alle Änderungen am Stamm während der Entwicklung des Zweiges müssen in den Zweig übertragen worden sein (oder als übertragen markiert worden sein). Der Bereich der zusammenzuführenden Revisionen wird dann automatisch berechnet."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:7893
@@ -6664,7 +6665,7 @@ msgstr "<placeholder-1/> Um mit dieser Methode einen Funktionszweig mit dem Stam
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7907
 msgid "In the <guilabel>From:</guilabel> field enter the full folder URL of the <emphasis>trunk</emphasis>. This may sound wrong, but remember that the trunk is the start point to which you want to add the branch changes. You may also click <guibutton>...</guibutton> to browse the repository."
-msgstr "Im <guilabel>Von:</guilabel> Feld geben Sie die URL des <emphasis>Stammes (trunk)</emphasis> an. Dies mag Ihnen jetzt vielleicht falsch vorkommen, aber bedenken Sie dass der Stamm der Ausgangspunkt ist von dem aus Sie die Änderungen des Funktionszweigs zusammenführen möchten. Sie können auch auf <guibutton>...</guibutton> klicken um die URL besser zu finden."
+msgstr "Im <guilabel>Von:</guilabel> Feld geben Sie die URL des <emphasis>Stammes (trunk)</emphasis> an. Dies mag Ihnen jetzt vielleicht falsch vorkommen, aber bedenken Sie dass der Stamm der Ausgangspunkt ist von dem aus Sie die Änderungen des Funktionszweiges zusammenführen möchten. Sie können auch auf <guibutton>...</guibutton> klicken um die URL besser zu finden."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7916
@@ -6699,7 +6700,7 @@ msgstr "Sie können die Tiefe für das Zusammenführen festlegen, das heißt, wi
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7950
 msgid "Most of the time you want merge to take account of the file's history, so that changes relative to a common ancestor are merged. Sometimes you may need to merge files which are perhaps related, but not in your repository. For example you may have imported versions 1 and 2 of a third party library into two separate directories. Although they are logically related, Subversion has no knowledge of this because it only sees the tarballs you imported. If you attempt to merge the difference between these two trees you would see a complete removal followed by a complete add. To make Subversion use only path-based differences rather than history-based differences, check the <guilabel>Ignore ancestry</guilabel> box. Read more about this topic in the Subversion book, <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.branchmerge.copychanges.html#svn.branchmerge.copychanges.bestprac.ancestry\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>"
-msgstr "Meistens möchten Sie, dass die Vergangenheit von Dateien berücksichtigt wird, so dass Änderungen relativ zu einem gemeinsamen Vorgänger zusammengeführt werden. Manchmal möchten Sie aber auch Dateien zusammenführen, zwischen denen eine Beziehung besteht - allerdings nicht in Ihrem Projektarchiv. Sie haben zum Beispiel Versionen 1 und 2 einer externen Bibliothek in zwei verschiedene Verzeichnisse importiert. Obwohl zwischen diesen ein logischer Zusammenhang besteht, weiß Subversion nichts davon, weil es nur die separat importierten Dateibäume sieht. Wenn Sie versuchen, die Unterschiede zwischen den beiden Versionen zusammenzuführen, werden Sie ein vollständiges Entfernen gefolgt von einem vollständigen Hinzufügen erhalten. Damit Subversion nur pfadbasierte Differenzen anstelle von vergangentheitsbasierten Differenzen erzeugt, wählen Sie die <guilabel>Vorfahren ignorieren</guilabel> Option. Weitere Informationen zu diesem Thema finden Sie im Subversion Buch in <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.branchmerge.copychanges.html#svn.branchmerge.copychanges.bestprac.ancestry\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>"
+msgstr "Meistens möchten Sie, dass die Vergangenheit von Dateien berücksichtigt wird, so dass Änderungen relativ zu einem gemeinsamen Vorgänger zusammengeführt werden. Manchmal möchten Sie aber auch Dateien zusammenführen, zwischen denen eine Beziehung besteht - allerdings nicht in Ihrem Projektarchiv. Sie haben zum Beispiel Versionen 1 und 2 einer externen Bibliothek in zwei verschiedene Verzeichnisse importiert. Obwohl zwischen diesen ein logischer Zusammenhang besteht, weiß Subversion nichts davon, weil es nur die separat importierten Dateibäume sieht. Wenn Sie versuchen, die Unterschiede zwischen den beiden Versionen zusammenzuführen, werden Sie ein vollständiges Entfernen gefolgt von einem vollständigen Hinzufügen erhalten. Damit Subversion nur pfadbasierte Differenzen anstelle von vergangenheitsbasierten Differenzen erzeugt, wählen Sie die <guilabel>Vorfahren ignorieren</guilabel> Option. Weitere Informationen zu diesem Thema finden Sie im Subversion Buch in <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.branchmerge.copychanges.html#svn.branchmerge.copychanges.bestprac.ancestry\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7967
@@ -6739,7 +6740,7 @@ msgstr "Bei Subversion Clients vor Version 1.5 müssen Informationen über zusam
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8025
 msgid "If your server and all clients are running Subversion 1.5 or higher, the merge tracking facility will record the revisions merged and avoid a revision being merged more than once. This makes your life much simpler as you can simply merge the entire revision range each time and know that only new revisions will actually be merged."
-msgstr ""
+msgstr "Wenn Ihr Server und alle Clients unter Subversion 1.5 oder neuer laufen, wird die Protokollierung der Datenintegration sämtliche zusammengeführten Revisionen aufzeichnen und verhindern, dass eine Revision mehr als einmal integriert wird. Das vereinfacht Ihre Arbeit ungemein, da sie nun jedes Mal den gesamten Revisionsbereich wählen können und sichergestellt ist, dass nur neue Revisionen wirklich zusammengeführt werden."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8032
@@ -6789,7 +6790,7 @@ msgstr "Sie können Revisionen als <emphasis>nicht zusammenführbar</emphasis> m
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8061
 msgid "Subversion 1.5 introduced facilities for merge tracking. When you merge changes from one tree into another, the revision numbers merged are stored and this information can be used for several different purposes. <placeholder-1/>"
-msgstr "Mit Subversion 1.5 wurden Möglichkeiten zur Verfolgung der Datenintegration einfeführt. Wenn Sie Änderungen von einem Baum in einem anderen zusammenführen, werden die entsprechenden Revisionsnummern gespeichert. Diese Information kann für weitere Zwecke herangezogen werden. <placeholder-1/>"
+msgstr "Mit Subversion 1.5 wurden Möglichkeiten zur Verfolgung der Datenintegration eingeführt. Wenn Sie Änderungen von einem Baum in einem anderen zusammenführen, werden die entsprechenden Revisionsnummern gespeichert. Diese Information kann für weitere Zwecke herangezogen werden. <placeholder-1/>"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8091
@@ -6819,22 +6820,22 @@ msgstr "Der Rückfrage-Dialog für Konflikte"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8114
 msgid "Merging does not always go smoothly. Sometimes there is a conflict, and if you are merging multiple ranges, you generally want to resolve the conflict before merging of the next range starts. TortoiseSVN helps you through this process by showing the <emphasis>merge conflict callback</emphasis> dialog. <placeholder-1/>"
-msgstr ""
+msgstr "Zusammenführen geht nicht immer glatt. Manchmal gibt es einen Konflikt, und wenn Sie mehrere Bereiche zusammenführen, möchten Sie normalerweise die Konflikte auflösen, bevor Sie den nächsten Bereich angehen. TortoiseSVN hilft Ihnen durch diesen Prozess, indem es den <emphasis>Der Rückfrage-Dialog für Konflikte</emphasis> anzeigt. <placeholder-1/>"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8130
 msgid "You may decide that your local changes are much more important, so you want to discard the version from the repository and keep your local version. Or you might discard your local changes in favour of the repository version. Either way, no attempt is made to merge the changes - you choose one or the other."
-msgstr ""
+msgstr "Sie können entscheiden, dass Ihre lokalen Änderungen wichtiger sind und die Version aus dem Projektarchiv verwerfen, um die lokale Version zu behalten. Oder sie verwerfen Ihre lokalen Änderungen zugunsten der Serverversion. Welche Option Sie auch immer wählen, es werden nie Daten zusammengeführt - Sie erhalten eine der beiden Dateien."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8140
 msgid "Normally you will want to look at the conflicts and resolve them. In that case, choose the <guibutton>Edit Conflict</guibutton> which will start up your merge tool. When you are satisfied with the result, click <guibutton>Resolved</guibutton>."
-msgstr ""
+msgstr "Normalerweise werden Sie die Konflikte ansehen und beseitigen wollen. In diesem Fall wählen Sie <guibutton>Konflikt bearbeiten</guibutton>, wodurch Ihr Konflikteditor gestartet wird. Sobald Sie mit dem Ergebnis zufrieden sind, wählen Sie <guibutton>Aufgelöst</guibutton>."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8148
 msgid "The last option is to postpone resolution and continue with merging. You can choose to do that for the current conflicted file, or for all files in the rest of the merge. However, if there are further changes in that file, it will not be possible to complete the merge."
-msgstr ""
+msgstr "Die letzte Option ist, das Auflösen der Konflikte zu verschieben und mit dem Zusammenführen fortzufahren. Sie können das für die aktuelle Datei oder für alle weiteren Dateien beim Zusammenführen festlegen. Wenn es jedoch weitere Änderungen in dieser Datei gibt, können Sie das Zusammenführen nicht abschließen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8125
@@ -6859,12 +6860,12 @@ msgstr "Der Dialog Alle zusammenführen "
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8165
 msgid "If you want to merge all changes from trunk to the branch you are currently working on, then you can use the <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge all...</guimenuitem></menuchoice> from the extended context menu (hold down the <keycap>Shift</keycap> key while you right click on the file). <placeholder-1/> This dialog is very easy. All you have to do is set the options for the merge, as described in <xref linkend=\"tsvn-dug-merge-options\"/>. The rest is done by TortoiseSVN automatically using merge tracking."
-msgstr ""
+msgstr "Wenn Sie sämtliche Änderungen des Stammes in den Zweig, an dem Sie gerade arbeiten, übertragen möchten, können Sie <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Alle Zusammenführen</guimenuitem></menuchoice> aus dem erweiterten Kontextmenü aufrufen (Halten Sie die <keycap>Umsch</keycap> Taste gedrückt, währen Sie einen Rechtsklick auf die Datei machen). <placeholder-1/> Dieser Dialog ist sehr einfach. Sie müssen lediglich die in <xref linkend=\"tsvn-dug-merge-options\"/> beschriebenen Optionen einstellen. Der Rest wird mit Hilfe der protokollierten Integrationen automatisch von TortoiseSVN erledigt."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8182
 msgid "If you use this feature you must be sure that all clients are using merge tracking, otherwise the merge history may be incomplete. Also, if the server does not have a merge tracking database, gathering the information will be very slow."
-msgstr ""
+msgstr "Wenn Sie diese Funktion verwenden wollen, müssen Sie sicherstellen, dass alle Clients die Protokollierung der Datenintegration unterstützen. Andernfalls kann die Aufzeichnung unvollständig sein. Falls der Server diese Funktion nicht unterstützt, wird das Zusamenstellen der Informationen sehr langsam sein."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:8191
@@ -7194,7 +7195,7 @@ msgstr "Standardmäßig wird die annotierte Datei in <firstterm>TortoiseBlame</f
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8611
 msgid "You can specify the way that line ending and whitespace changes are handled. These options are described in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. The default behaviour is to treat all whitespace and line-end differences as real changes, but if you want to ignore an indentation change and find the original author, you can choose an appropriate option here."
-msgstr ""
+msgstr "Sie können festlegen, wie Änderungen an Zeilenumbrüchen und Leerzeichen behandelt werden sollen. Diese Optionen sind in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/> beschrieben. Die Vorgabe ist, dass alle Zeilenenden- und Leerzeichenänderungen als echte Änderungen behandelt werden, aber wenn Sie solche Änderungen ignorieren und den Originalautor finden wollen, können Sie hier die entsprechende Option wählen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8618
@@ -7239,17 +7240,17 @@ msgstr "Wenn die Maus sich über dem Annotieren Fenster befindet, steht ein Kont
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8691
 msgid "If you need a better visual indicator of where the oldest and newest changes are, select <menuchoice><guimenu>View</guimenu><guimenuitem>Color age of lines</guimenuitem></menuchoice>. This will use a colour gradient to show newer lines in red and older lines in blue. The default colouring is quite light, but you can change it using the TortoiseBlame settings."
-msgstr ""
+msgstr "Wenn Sie einen schnell sehen möchten, wo die ältesten und die neuesten Änderungen sind, wählen Sie <menuchoice><guimenu>Ansicht</guimenu><guimenuitem>Farbcodierung für Alter der Zeilen</guimenuitem></menuchoice>. Dann werden neue Zeilen in rot, ältere Zeilen in blau mit einem Farbgradienten hinterlegt. Die Standardfarben sind recht hell, können aber in den TortoiseBlame Einstellungen geändert werden."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8702
 msgid "If you are using Merge Tracking, where lines have changed as a result of merging from another path, TortoiseBlame will show the revision and author of the last change in the original file rather than the revision where the merge took place. These lines are indicated by showing the revision and author in italics."
-msgstr ""
+msgstr "Wenn Sie die Protokollierung der Datenintegration verwenden, wird TortoiseBlame Zeilen, die als Folge des Zusammenführens geändert wurden, mit dem Autor und der Revision der letzten Änderung der Originaldatei anzeigen und nicht mit der Revision, in der die Daten zusammengeführt wurden. In diesen Zeilen werden Autor und Revision in Kursivschrift dargestellt."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8709
 msgid "If you want to see the paths involved in the merge, select <menuchoice><guimenu>View</guimenu><guimenuitem>Merge paths</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Wenn Sie sehen wollen, welche Pfade zusammengeführt wurden, wählen Sie <menuchoice><guimenu>Ansicht</guimenu><guimenuitem>Zusammengeführte Pfade</guimenuitem></menuchoice>."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8716
@@ -7593,7 +7594,7 @@ msgstr "HEAD Revisionen zeigen"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9128
 msgid "This ensures that the latest revision on every branch is always shown on the graph."
-msgstr "Diese Option stellt sicher, dass immer die neuesten Revisonen aller Zweige im Graphen angezeigt werden."
+msgstr "Diese Option stellt sicher, dass immer die neuesten Revisionen aller Zweige im Graphen angezeigt werden."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:9135
@@ -7668,7 +7669,7 @@ msgstr "Mit einem <action>Rechtsklick</action> auf eine Revision, können Sie si
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9223
 msgid "You can also merge changes in the selected revision(s) into a different working copy. A folder selection dialog allows you to choose the working copy to merge into, but after that there is no confirmation dialog, nor any opportunity to try a dry run. It is a good idea to merge into an unmodified working copy so that you can revert the changes if it doesn't work out! This is a useful feature if you want to merge selected revisions from one branch to another."
-msgstr ""
+msgstr "Sie können auch die Änderungen der gewählten Revisionen in einer anderen Arbeitskopie zusammenführe. Ein Ordnerauswahldialog ermöglicht es Ihnen, eine andere Arbeitskopie als Ziel zu wählen, aber danach gibt es weder einen Bestätigungsdialog noch einen Möglichkeit für einen Trockenlauf. Es ist eine gute Idee, Änderungen in einer unmodifizierten Arbeitskopie zusammenzuführen, so dass Sie diese stets rückgängig machen können, wenn etwas nicht klappt! Dies ist eine nützliche Funktion, wenn Sie bestimmte Revisionen von einem Zweig in einen anderen übertragen wollen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9234
@@ -8181,7 +8182,7 @@ msgstr "Wenn Sie das Verhalten von Subversion und TortoiseSVN verändern wollen 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9971
 msgid "You should note that changing this option will not automatically convert existing working copies to use the new admin directory. You will have to do that yourself using a script (See our FAQ) or simply check out a fresh working copy."
-msgstr "Beachten Sie dass das Ändern dieser Option nicht automatisch existierende Arbeitskopien auf das neue Adminverzeichnis umstellt. Sie müssen das selbst mit Hilfe eines Skripts erledigen (Siehe FAQ) oder eine neue Arbeitskopie auschecken."
+msgstr "Beachten Sie dass das Ändern dieser Option nicht automatisch existierende Arbeitskopien auf den neuen Administrationsordner umstellt. Sie müssen das selbst mit Hilfe eines Skripts erledigen (Siehe FAQ) oder eine neue Arbeitskopie auschecken."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:9981
@@ -8201,7 +8202,7 @@ msgstr "<placeholder-1/> Auf dieser Seite können Sie einstellen, welche Einträ
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9993
 msgid "There is a special case for <guilabel>Get Lock</guilabel>. You can of course promote it to the top level using the list above, but as most files don't need locking this just adds clutter. However, a file with the <literal>svn:needs-lock</literal> property needs this action every time it is edited, so in that case it is very useful to have at the top level. Checking the box here means that when a file is selected which has the <literal>svn:needs-lock</literal> property set, <guilabel>Get Lock</guilabel> will always appear at the top level."
-msgstr "Es gibt einen Sonderfall für <guilabel>Hole Sperre</guilabel>. Sie können diese Funktion natürlich in die oberste Ebene verschieben, aber da die meisten Dateien keine Sperre benötigen, wird es dadurch nur unübersichtlich. Andererseits erforder eine Datei mit der <literal>svn:needs-lock</literal> diese Aktion jedes Mal, weshalb die Funktion in diesem Falle auf der obersten Ebene nützlich wäre. Wenn Sie diese Option markieren, wird, sobald eine Datei mit der <literal>svn:needs-lock</literal> Eigenschaft markiert wird, <guilabel>Hole Sperre</guilabel> in der obersten Menüebene angezeigt."
+msgstr "Es gibt einen Sonderfall für <guilabel>Hole Sperre</guilabel>. Sie können diese Funktion natürlich in die oberste Ebene verschieben, aber da die meisten Dateien keine Sperre benötigen, wird es dadurch nur unübersichtlich. Andererseits erfordert eine Datei mit der <literal>svn:needs-lock</literal> diese Aktion jedes Mal, weshalb die Funktion in diesem Falle auf der obersten Ebene nützlich wäre. Wenn Sie diese Option markieren, wird, sobald eine Datei mit der <literal>svn:needs-lock</literal> Eigenschaft markiert wird, <guilabel>Hole Sperre</guilabel> in der obersten Menüebene angezeigt."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10005
@@ -8596,7 +8597,7 @@ msgstr "Vorteil: benötigt nur sehr wenig Hauptspeicher (zirka 1 MB) und kann de
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10449
 msgid "Disadvantage: Since only one folder is cached, the overlays don't show the status recursively. For big working copies, it can take more time to show a folder in explorer than with the default cache. Also the mime-type column is not available."
-msgstr "Nachteil: Da nur ein Ordner zwischengespeichert wird, kann der Status nicht rekursiv angezeigt werden. Bei großen Arbeitskopien kann es länger als mit dem Standardcache dauern, einen Ordner anzuzeigen. Obendrein steht die MIME-Typ Spalte nicht zur Verfügung."
+msgstr "Nachteil: Da nur ein Ordner zwischengespeichert wird, kann der Status nicht rekursiv angezeigt werden. Bei großen Arbeitskopien kann es länger als mit dem Standardpuffer dauern, einen Ordner anzuzeigen. Obendrein steht die MIME-Typ Spalte nicht zur Verfügung."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10459
@@ -8690,7 +8691,7 @@ msgstr "Manchmal möchten Sie vielleicht Ordner, die Arbeitskopien enthalten von
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10551
 msgid "As a special exception to this, drives <literal>A:</literal> and <literal>B:</literal> are never considered for the <guilabel>Show excluded folders as 'normal'</guilabel> option. This is because Windows is forced to look on the drive, which can result in a delay of several seconds when starting Explorer, even if your PC does have a floppy drive."
-msgstr "Als Ausnahme davon werden die Laufwerke <literal>A:</literal> und <literal>B:</literal> niemals bei der <guilabel>Ausgeschlossene Ordner 'normal' anzeigen<</guilabel> Option berücksichtigt. Der Grund dafür ist, dass Windows gezwungen ist, auf diese Laufwerke zuzugreifen, was für selbst dann für eine Verzögerung von mehreren Sekunden sorgen kann, wenn Ihr PC mit einem Diskettenlaufwerk ausgestattet ist."
+msgstr "Als Ausnahme davon werden die Laufwerke <literal>A:</literal> und <literal>B:</literal> niemals bei der <guilabel>Ausgeschlossene Ordner 'normal' anzeigen</guilabel> Option berücksichtigt. Der Grund dafür ist, dass Windows gezwungen ist, auf diese Laufwerke zuzugreifen, was für selbst dann für eine Verzögerung von mehreren Sekunden sorgen kann, wenn Ihr PC mit einem Diskettenlaufwerk ausgestattet ist."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10560
@@ -9582,7 +9583,7 @@ msgstr "Beachten Sie bitte, dass dieser Fehler in VS2005 und neueren Versionen b
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11604
 msgid "As of Version 1.3.0 of Subversion and TortoiseSVN, you can set the environment variable <literal>SVN_ASP_DOT_NET_HACK</literal>. If that variable is set, then Subversion will use <literal>_svn</literal> folders instead of <literal>.svn</literal> folders. You must restart your shell for that environment variable to take effect. Normally that means rebooting your PC. To make this easier, you can now do this from the general settings page using a simple checkbox - refer to <xref linkend=\"tsvn-dug-settings-main\"/>."
-msgstr "Seit Version 1.3.0 von Subversion und TortoiseSVN, können Sie die Umgebungsvariable <literal>SVN_ASP_DOT_NET_HACK</literal> setzen. Wenn diese Variable gesetzt ist, wird Subversion <literal>_svn</literal> Ordner anstelle von <literal>.svn</literal> für seine Adminverzeichnisse verwenden. Sie müssen den Explorer neu starten, damit diese Änderung wirksam wird. Normalerweise erfordert das einen Neustart Ihres PC. Um das zu vereinfachen, können Sie in den allgemeinen Einstellungen eine Option setzen. Siehe <xref linkend=\"tsvn-dug-settings-main\"/>."
+msgstr "Seit Version 1.3.0 von Subversion und TortoiseSVN, können Sie die Umgebungsvariable <literal>SVN_ASP_DOT_NET_HACK</literal> setzen. Wenn diese Variable gesetzt ist, wird Subversion <literal>_svn</literal> Ordner anstelle von <literal>.svn</literal> für seine Administrationsordner verwenden. Sie müssen den Explorer neu starten, damit diese Änderung wirksam wird. Normalerweise erfordert das einen Neustart Ihres PC. Um das zu vereinfachen, können Sie in den allgemeinen Einstellungen eine Option setzen. Siehe <xref linkend=\"tsvn-dug-settings-main\"/>."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11614
@@ -10113,7 +10114,7 @@ msgstr "Wird durch die URL des Projektarchivs ersetzt, auf das die an <placehold
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12002
 msgid "If you need to access Subversion revision information from other programs, you can use the COM interface of SubWCRev. The object to create is <literal>SubWCRev.object</literal>, and the following methods are supported: <placeholder-1/>"
-msgstr "Wenn sie Zugriff auf Subversion Revisionsinformationen aus anderen Progammen benötigen, können Sie die COM Schnittstelle von SubWCRev benutzen. Das zu erzeugende Objekt heißt <literal>SubWCRev.object</literal> und unterstützt die folgenden Methoden: <placeholder-1/>"
+msgstr "Wenn sie Zugriff auf Subversion Revisionsinformationen aus anderen Programmen benötigen, können Sie die COM Schnittstelle von SubWCRev benutzen. Das zu erzeugende Objekt heißt <literal>SubWCRev.object</literal> und unterstützt die folgenden Methoden: <placeholder-1/>"
 
 #. (programlisting)
 #: ../source/TortoiseSVN_en.xml:12081
@@ -11238,7 +11239,7 @@ msgstr "Um den Fortschrittsdialog am Ende einer Aktion automatisch zu schließen
 #. (para)
 #: ../source/TortoiseSVN_en.xml:13160
 msgid "The table below lists all the commands which can be accessed using the TortoiseProc.exe command line. As described above, these should be used in the form <literal>/command:abcd</literal>. In the table, the <literal>/command</literal> prefix is omitted to save space."
-msgstr "Die untenstehende Tabell listet alle Befehle, die mittels TortoiseProc.exe ausgeführt werden können. Wie oben beschrieben, müssen sie in der Form <literal>/command:abcd</literal> aufgerufen werden. In der Tabelle wird der <literal>/command</literal> Präfix weggelassen, um Platz zu sparen."
+msgstr "Die untenstehende Tabelle listet alle Befehle, die mittels TortoiseProc.exe ausgeführt werden können. Wie oben beschrieben, müssen sie in der Form <literal>/command:abcd</literal> aufgerufen werden. In der Tabelle wird der <literal>/command</literal> Präfix weggelassen, um Platz zu sparen."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:13179
