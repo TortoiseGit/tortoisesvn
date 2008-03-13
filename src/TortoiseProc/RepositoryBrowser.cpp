@@ -1442,6 +1442,7 @@ void CRepositoryBrowser::OnBeginDrag(NMHDR *pNMHDR)
 		return;
 	}
 	pdobj->AddRef();
+	pdobj->SetAsyncMode(TRUE);
 
 	CDragSourceHelper dragsrchelper;
 	dragsrchelper.InitializeFromWindow(m_RepoList.GetSafeHwnd(), pNMLV->ptAction, pdobj);

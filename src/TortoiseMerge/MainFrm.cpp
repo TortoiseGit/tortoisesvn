@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2004-2007 - TortoiseSVN
+// Copyright (C) 2004-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1679,18 +1679,34 @@ void CMainFrame::OnUpdateEditCopy(CCmdUI *pCmdUI)
 
 void CMainFrame::OnViewSwitchleft()
 {
-	CWorkingFile file = m_Data.m_baseFile;
-	m_Data.m_baseFile = m_Data.m_yourFile;
-	m_Data.m_yourFile = file;
-	if (m_Data.m_mergedFile.GetFilename().CompareNoCase(m_Data.m_yourFile.GetFilename())==0)
+	int ret = IDNO;
+	if (((m_pwndBottomView)&&(m_pwndBottomView->IsModified())) ||
+		((m_pwndRightView)&&(m_pwndRightView->IsModified())))
 	{
-		m_Data.m_mergedFile = m_Data.m_baseFile;
+		CString sTemp;
+		sTemp.LoadString(IDS_ASKFORSAVE);
+		ret = MessageBox(sTemp, 0, MB_YESNOCANCEL | MB_ICONQUESTION);
+		if (ret == IDYES)
+		{
+			if (!FileSave())
+				return;
+		}
 	}
-	else if (m_Data.m_mergedFile.GetFilename().CompareNoCase(m_Data.m_baseFile.GetFilename())==0)
+	if ((ret == IDNO)||(ret == IDYES))
 	{
-		m_Data.m_mergedFile = m_Data.m_yourFile;
+		CWorkingFile file = m_Data.m_baseFile;
+		m_Data.m_baseFile = m_Data.m_yourFile;
+		m_Data.m_yourFile = file;
+		if (m_Data.m_mergedFile.GetFilename().CompareNoCase(m_Data.m_yourFile.GetFilename())==0)
+		{
+			m_Data.m_mergedFile = m_Data.m_baseFile;
+		}
+		else if (m_Data.m_mergedFile.GetFilename().CompareNoCase(m_Data.m_baseFile.GetFilename())==0)
+		{
+			m_Data.m_mergedFile = m_Data.m_yourFile;
+		}
+		LoadViews();
 	}
-	LoadViews();
 }
 
 void CMainFrame::OnUpdateViewSwitchleft(CCmdUI *pCmdUI)
