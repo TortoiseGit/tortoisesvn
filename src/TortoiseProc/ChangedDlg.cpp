@@ -57,6 +57,7 @@ BEGIN_MESSAGE_MAP(CChangedDlg, CResizableStandAloneDialog)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED, OnSVNStatusListCtrlItemCountChanged)
 	ON_BN_CLICKED(IDC_SHOWIGNORED, &CChangedDlg::OnBnClickedShowignored)
+	ON_BN_CLICKED(IDC_REFRESH, &CChangedDlg::OnBnClickedRefresh)
 END_MESSAGE_MAP()
 
 BOOL CChangedDlg::OnInitDialog()
@@ -91,6 +92,7 @@ BOOL CChangedDlg::OnInitDialog()
 	AddAnchor(IDC_SHOWUNMODIFIED, BOTTOM_LEFT);
 	AddAnchor(IDC_SHOWIGNORED, BOTTOM_LEFT);
 	AddAnchor(IDC_INFOLABEL, BOTTOM_RIGHT);
+	AddAnchor(IDC_REFRESH, BOTTOM_RIGHT);
 	AddAnchor(IDC_CHECKREPO, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	SetPromptParentWindow(m_hWnd);
@@ -120,6 +122,7 @@ UINT CChangedDlg::ChangedStatusThread()
 	InterlockedExchange(&m_bBlock, TRUE);
 	m_bCanceled = false;
 	SetDlgItemText(IDOK, CString(MAKEINTRESOURCE(IDS_MSGBOX_CANCEL)));
+	DialogEnableWindow(IDC_REFRESH, FALSE);
 	DialogEnableWindow(IDC_CHECKREPO, FALSE);
 	DialogEnableWindow(IDC_SHOWUNVERSIONED, FALSE);
 	DialogEnableWindow(IDC_SHOWUNMODIFIED, FALSE);
@@ -139,6 +142,7 @@ UINT CChangedDlg::ChangedStatusThread()
 	CTSVNPath commonDir = m_FileListCtrl.GetCommonDirectory(false);
 	SetWindowText(m_sTitle + _T(" - ") + commonDir.GetWinPathString());
 	SetDlgItemText(IDOK, CString(MAKEINTRESOURCE(IDS_MSGBOX_OK)));
+	DialogEnableWindow(IDC_REFRESH, TRUE);
 	DialogEnableWindow(IDC_CHECKREPO, TRUE);
 	DialogEnableWindow(IDC_SHOWUNVERSIONED, TRUE);
 	DialogEnableWindow(IDC_SHOWUNMODIFIED, TRUE);
@@ -250,6 +254,17 @@ BOOL CChangedDlg::PreTranslateMessage(MSG* pMsg)
 	return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
 }
 
+void CChangedDlg::OnBnClickedRefresh()
+{
+	if (!m_bBlock)
+	{
+		if (AfxBeginThread(ChangedStatusThreadEntry, this)==NULL)
+		{
+			CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+		}
+	}
+}
+
 void CChangedDlg::UpdateStatistics()
 {
 	LONG lMin, lMax;
@@ -270,3 +285,4 @@ void CChangedDlg::UpdateStatistics()
 	temp.Replace(_T("\n"), _T(", "));
 	SetDlgItemText(IDC_INFOLABEL, temp);
 }
+
