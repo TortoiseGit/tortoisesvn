@@ -347,7 +347,10 @@ private:
 	CDictionaryBasedTempPath GetRelativeRepositoryPath 
         ( const CTSVNPath& info);
 
-	/// decode special revisions:
+    /// utility method: we throw that error in several places
+    void ThrowBadRevision() const;
+
+    /// decode special revisions:
 	/// base / head must be initialized with NO_REVISION
 	/// and will be used to cache these values.
 	revision_t DecodeRevision ( const CTSVNPath& path

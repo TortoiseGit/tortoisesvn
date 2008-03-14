@@ -1130,6 +1130,14 @@ CDictionaryBasedTempPath CCacheLogQuery::GetRelativeRepositoryPath
 	return CDictionaryBasedTempPath (paths, (const char*)relPath);
 }
 
+// utility method: we throw that error in several places
+
+void CCacheLogQuery::ThrowBadRevision() const
+{
+	throw SVNError ( SVN_ERR_CLIENT_BAD_REVISION
+				   , "Invalid revision passed to Log().");
+}
+
 // decode special revisions:
 // base / head must be initialized with NO_REVISION
 // and will be used to cache these values.
@@ -1139,24 +1147,26 @@ revision_t CCacheLogQuery::DecodeRevision ( const CTSVNPath& path
 				  			              , const SVNRev& revision) const
 {
 	if (!revision.IsValid())
-		throw SVNError ( SVN_ERR_CLIENT_BAD_REVISION
-					   , "Invalid revision passed to Log().");
+        ThrowBadRevision();
 
 	// efficiently decode standard cases: revNum, HEAD, BASE/WORKING
 
+    revision_t result = NO_REVISION;
 	switch (revision.GetKind())
 	{
 	case svn_opt_revision_number:
-		return static_cast<LONG>(revision);
+        {
+            result = static_cast<LONG>(revision);
+		    break;
+        }
 
 	case svn_opt_revision_head:
         {
-            revision_t head = repositoryInfoCache->GetHeadRevision (url);
+            result = repositoryInfoCache->GetHeadRevision (url);
 
-			if (head == NO_REVISION)
+			if (result == NO_REVISION)
 				throw SVNError (repositoryInfoCache->GetLastError());
-
-        	return head;
+            break;
         }
 
     default:
@@ -1167,9 +1177,16 @@ revision_t CCacheLogQuery::DecodeRevision ( const CTSVNPath& path
 			if (baseInfo == NULL)
 				throw SVNError(info.GetError());
 
-       		return static_cast<LONG>(baseInfo->rev);
+            result = static_cast<LONG>(baseInfo->rev);
         }
 	}
+
+    // did we actually get a valid revision?
+
+	if (result == NO_REVISION)
+        ThrowBadRevision();
+
+	return result;
 }
 
 // get the (exactly) one path from targets
@@ -1244,6 +1261,7 @@ void CCacheLogQuery::Log ( const CTSVNPathList& targets
 		: CTSVNPath (repositoryInfoCache->GetSVN().GetURLFromPath (path));
 
 	// decode revisions
+    // makes also sure that these aren't NO_REVISION values
 
 	revision_t startRevision = DecodeRevision (path, url, start);
 	revision_t endRevision = DecodeRevision (path, url, end);
