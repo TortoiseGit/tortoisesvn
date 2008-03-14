@@ -1285,7 +1285,8 @@ void CBaseView::DrawText(
 
 	pDC->SetBkColor(crBkgnd);
 	pDC->SetTextColor(crText);
-	VERIFY(pDC->ExtTextOut(coords.x, coords.y, ETO_CLIPPED, &rc, text, selectedStart, NULL));
+	if (selectedStart>=0)
+		VERIFY(pDC->ExtTextOut(coords.x, coords.y, ETO_CLIPPED, &rc, text, selectedStart, NULL));
 
 	long intenseColorScale = m_bFocused ? 70 : 30;
 	pDC->SetBkColor(IntenseColor(intenseColorScale, crBkgnd));
@@ -1296,9 +1297,10 @@ void CBaseView::DrawText(
 
 	pDC->SetBkColor(crBkgnd);
 	pDC->SetTextColor(crText);
-	VERIFY(pDC->ExtTextOut(
-		coords.x + selectedEnd * GetCharWidth(), coords.y, ETO_CLIPPED, &rc,
-		text + selectedEnd, textlength - selectedEnd, NULL));
+	if (textlength - selectedEnd >= 0)
+		VERIFY(pDC->ExtTextOut(
+					coords.x + selectedEnd * GetCharWidth(), coords.y, ETO_CLIPPED, &rc,
+					text + selectedEnd, textlength - selectedEnd, NULL));
 }
 
 bool CBaseView::DrawInlineDiff(CDC *pDC, const CRect &rc, int nLineIndex, const CString &line, CPoint &origin)
