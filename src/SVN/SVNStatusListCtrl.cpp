@@ -888,7 +888,6 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 					(lastexternalpath.IsAncestorOf(svnPath)))
 				{
 					bEntryfromDifferentRepo = true;
-					m_bHasExternalsFromDifferentRepos = TRUE;
 				}
 			}
 		}
