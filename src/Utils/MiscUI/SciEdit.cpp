@@ -117,7 +117,7 @@ void CSciEdit::Init(LONG lLanguage)
 			continue;
 		else if (i < 0x20 || i == ' ')
 			sWhiteSpace += (char)i;
-		else if (isalnum(i) || i == '_' || i == '\'')
+		else if (isalnum(i) || i == '\'')
 			sWordChars += (char)i;
 	}
 	Call(SCI_SETWORDCHARS, 0, (LPARAM)(LPCSTR)sWordChars);
@@ -417,11 +417,46 @@ BOOL CSciEdit::IsMisspelled(const CString& sWord)
 	else
 		sWordA = CStringA(sWord);
 	sWordA.Trim("\'\".,");
-	return
-		!_istdigit(sWord.GetAt(0)) &&
-		(m_autolist.find(sWord) == m_autolist.end()) && // check if the word is in our autocompletion list
-		!pChecker->spell(sWordA) &&
-		!m_personalDict.FindWord(sWord);
+	// words starting with a digit are treated as correctly spelled
+	if (_istdigit(sWord.GetAt(0)))
+		return FALSE;
+	// words in the personal dictionary are correct too
+	if (m_personalDict.FindWord(sWord))
+		return FALSE;
+
+	// now we actually check the spelling...
+	if (!pChecker->spell(sWordA))
+	{
+		// the word is marked as misspelled, we now check whether the word
+		// is maybe a composite identifier
+		// a composite identifier consists of multiple words, with each word
+		// separated by a change in lower to uppercase letters
+		if (sWord.GetLength() > 1)
+		{
+			int wordstart = 0;
+			int wordend = 1;
+			while (wordend < sWord.GetLength())
+			{
+				while ((wordend < sWord.GetLength())&&(!_istupper(sWord[wordend])))
+					wordend++;
+				if ((wordstart == 0)&&(wordend == sWord.GetLength()))
+				{
+					// words in the autolist are also assumed correctly spelled
+					if (m_autolist.find(sWord) != m_autolist.end())
+						return FALSE;
+					return TRUE;
+				}
+				sWordA = CStringA(sWord.Mid(wordstart, wordend-wordstart));
+				if ((sWordA.GetLength() > 2)&&(!pChecker->spell(sWordA)))
+				{
+					return TRUE;
+				}
+				wordstart = wordend;
+				wordend++;
+			}
+		}
+	}
+	return FALSE;
 }
 
 void CSciEdit::CheckSpelling()
