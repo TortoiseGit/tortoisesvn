@@ -24,7 +24,9 @@
 
 #include "stdafx.h"
 #include "shlwapi.h"
+#include "shellapi.h"
 #pragma comment(lib, "shlwapi")
+#pragma comment(lib, "shell32")
 
 #ifdef WIN64
 #define TSVN_CACHE_WINDOW_NAME _T("TSVNCacheWindow64")
@@ -74,6 +76,11 @@ UINT __stdcall TerminateCache(MSIHANDLE hModule)
 	return ERROR_SUCCESS;
 }
 
+UINT __stdcall OpenDonatePage(MSIHANDLE hModule)
+{
+	ShellExecute(NULL, _T("open"), _T("http://tortoisesvn.tigris.org/donate.html"), NULL,NULL, SW_SHOW);
+	return ERROR_SUCCESS;
+}
 
 UINT __stdcall MsgBox(MSIHANDLE hModule)
 {
