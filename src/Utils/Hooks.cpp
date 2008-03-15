@@ -214,7 +214,7 @@ void CHooks::AddPathParam(CString& sCmd, const CTSVNPathList& pathList)
 
 void CHooks::AddCWDParam(CString& sCmd, const CTSVNPathList& pathList)
 {
-	AddParam(sCmd, pathList.GetCommonRoot().GetWinPathString());
+	AddParam(sCmd, pathList.GetCommonRoot().GetDirectory().GetWinPathString());
 }
 
 void CHooks::AddDepthParam(CString& sCmd, svn_depth_t depth)
@@ -250,7 +250,7 @@ bool CHooks::StartCommit(const CTSVNPathList& pathList, CString& message, DWORD&
 	AddPathParam(sCmd, pathList);
 	CTSVNPath temppath = AddMessageFileParam(sCmd, message);
 	AddCWDParam(sCmd, pathList);
-	exitcode = RunScript(sCmd, pathList.GetCommonRoot().GetWinPath(), error, it->second.bWait, it->second.bShow);
+	exitcode = RunScript(sCmd, pathList.GetCommonRoot().GetDirectory().GetWinPath(), error, it->second.bWait, it->second.bShow);
 	if (!exitcode && !temppath.IsEmpty())
 	{
 		CStringUtils::ReadStringFromTextFile(temppath.GetWinPathString(), message);
@@ -268,7 +268,7 @@ bool CHooks::PreCommit(const CTSVNPathList& pathList, svn_depth_t depth, const C
 	AddDepthParam(sCmd, depth);
 	AddMessageFileParam(sCmd, message);
 	AddCWDParam(sCmd, pathList);
-	exitcode = RunScript(sCmd, pathList.GetCommonRoot().GetWinPath(), error, it->second.bWait, it->second.bShow);
+	exitcode = RunScript(sCmd, pathList.GetCommonRoot().GetDirectory().GetWinPath(), error, it->second.bWait, it->second.bShow);
 	return true;
 }
 
@@ -284,7 +284,7 @@ bool CHooks::PostCommit(const CTSVNPathList& pathList, svn_depth_t depth, SVNRev
 	AddParam(sCmd, rev.ToString());
 	AddErrorParam(sCmd, error);
 	AddCWDParam(sCmd, pathList);
-	exitcode = RunScript(sCmd, pathList.GetCommonRoot().GetWinPath(), error, it->second.bWait, it->second.bShow);
+	exitcode = RunScript(sCmd, pathList.GetCommonRoot().GetDirectory().GetWinPath(), error, it->second.bWait, it->second.bShow);
 	return true;
 }
 
@@ -296,7 +296,7 @@ bool CHooks::StartUpdate(const CTSVNPathList& pathList, DWORD& exitcode, CString
 	CString sCmd = it->second.commandline;
 	AddPathParam(sCmd, pathList);
 	AddCWDParam(sCmd, pathList);
-	exitcode = RunScript(sCmd, pathList.GetCommonRoot().GetWinPath(), error, it->second.bWait, it->second.bShow);
+	exitcode = RunScript(sCmd, pathList.GetCommonRoot().GetDirectory().GetWinPath(), error, it->second.bWait, it->second.bShow);
 	return true;
 }
 
@@ -310,7 +310,7 @@ bool CHooks::PreUpdate(const CTSVNPathList& pathList, svn_depth_t depth, SVNRev 
 	AddDepthParam(sCmd, depth);
 	AddParam(sCmd, rev.ToString());
 	AddCWDParam(sCmd, pathList);
-	exitcode = RunScript(sCmd, pathList.GetCommonRoot().GetWinPath(), error, it->second.bWait, it->second.bShow);
+	exitcode = RunScript(sCmd, pathList.GetCommonRoot().GetDirectory().GetWinPath(), error, it->second.bWait, it->second.bShow);
 	return true;
 }
 
@@ -325,7 +325,7 @@ bool CHooks::PostUpdate(const CTSVNPathList& pathList, svn_depth_t depth, SVNRev
 	AddParam(sCmd, rev.ToString());
 	AddErrorParam(sCmd, error);
 	AddCWDParam(sCmd, pathList);
-	exitcode = RunScript(sCmd, pathList.GetCommonRoot().GetWinPath(), error, it->second.bWait, it->second.bShow);
+	exitcode = RunScript(sCmd, pathList.GetCommonRoot().GetDirectory().GetWinPath(), error, it->second.bWait, it->second.bShow);
 	return true;
 }
 
@@ -346,7 +346,7 @@ bool CHooks::IssueTracker(const CTSVNPathList& pathList, CString& message, DWORD
 	AddPathParam(sCmd, pathList);
 	AddCWDParam(sCmd, pathList);
 	CTSVNPath temppath = AddMessageFileParam(sCmd, message);
-	exitcode = RunScript(sCmd, pathList.GetCommonRoot().GetWinPath(), error, it->second.bWait, it->second.bShow);
+	exitcode = RunScript(sCmd, pathList.GetCommonRoot().GetDirectory().GetWinPath(), error, it->second.bWait, it->second.bShow);
 	if (!exitcode && !temppath.IsEmpty())
 	{
 		CStringUtils::ReadStringFromTextFile(temppath.GetWinPathString(), message);

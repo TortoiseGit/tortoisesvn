@@ -988,6 +988,8 @@ CTSVNPath CTSVNPathList::GetCommonRoot() const
 	CString sRoot, sTempRoot;
 	bool bEqual = true;
 
+	if (GetCount() == 1)
+		return m_paths[0];
 	for (int i=0; i<MAX_PATH; ++i)
 	{
 		sTempRoot.Empty();
@@ -1387,11 +1389,14 @@ private:
 	{
 		CTSVNPath pathA (_T("C:\\Development\\LogDlg.cpp"));
 		CTSVNPath pathB (_T("C:\\Development\\LogDlg.h"));
+		CTSVNPath pathC (_T("C:\\Development\\SomeDir\\LogDlg.h"));
 		
 		CTSVNPathList list;
 		list.AddPath(pathA);
+		ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("C:\\Development\\LogDlg.cpp"))==0);
 		list.AddPath(pathB);
-		
+		ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("C:\\Development"))==0);
+		list.AddPath(pathC);
 		ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("C:\\Development"))==0);
 	}
 	

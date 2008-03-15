@@ -39,12 +39,7 @@ bool CreatePatchCommand::Execute()
 	{
 		if (cmdLinePath.IsEmpty())
 		{
-			if (pathList.GetCount() == 1)
-				cmdLinePath = pathList[0];
-			else
-			{
-				cmdLinePath = pathList.GetCommonRoot();
-			}
+			cmdLinePath = pathList.GetCommonRoot();
 		}
 		CreatePatch(cmdLinePath, dlg.m_pathList, CTSVNPath(savepath));
 		SVN svn;
@@ -158,10 +153,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
 	::DeleteFile(tempPatchFilePath.GetWinPath());
 
 	CTSVNPath sDir;
-	if (root.GetWinPathString().Find('*')>=0)
-		sDir = path.GetCommonRoot();
-	else
-		sDir = CTSVNPath(root);
+	sDir = path.GetCommonRoot();
 	if (sDir.IsEmpty())
 		sDir = root;
 
