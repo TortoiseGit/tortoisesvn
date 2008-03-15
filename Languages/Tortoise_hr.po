@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-05 00:56+0100\n"
+"PO-Revision-Date: 2008-03-15 19:44+0100\n"
 "Last-Translator: Mario Šarić <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -469,8 +469,8 @@ msgid "&Go To Line..."
 msgstr "&Skoči na redak..."
 
 #. Resource IDs: (32799)
-msgid "&Group branches"
-msgstr "&Grupiraj grane"
+msgid "&Group by branch"
+msgstr "&Grupiraj po grani"
 
 #. Resource IDs: (1032, 1115)
 msgid "&HEAD Revision"
@@ -637,6 +637,10 @@ msgstr "&Nedavne poruke"
 #. Resource IDs: (376)
 msgid "&Redo"
 msgstr "&Ponovi"
+
+#. Resource IDs: (1382)
+msgid "&Refresh"
+msgstr "&Osvježi"
 
 #. Resource IDs: (1100, 1285)
 msgid "&Remove"
@@ -1112,6 +1116,10 @@ msgstr "Sve datoteke (*.*)|*.*||"
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "Uvijek koristi sistemske postavke za prikaz datuma i vremena"
+
+#. Resource IDs: (339)
+msgid "Amount of memory required to load the cache"
+msgstr "Količina memorije potrebna za učitavanje spremnika"
 
 #. Resource IDs: (78)
 #, c-format
@@ -1854,6 +1862,10 @@ msgstr "U sukobu"
 msgid "Conflicts: %d"
 msgstr "Sukobi: %d"
 
+#. Resource IDs: (345)
+msgid "Connect to the repository server and download missing log data"
+msgstr "Spoji se na skladišni poslužitelj i spusti podatke dnevnika koji nedostaju"
+
 #. Resource IDs: (65535)
 msgid "Container sizes"
 msgstr "Veličine spremnika"
@@ -2516,6 +2528,10 @@ msgstr "Ime ili IP zamjenskog poslužitelja"
 msgid "Empty"
 msgstr "Prazno"
 
+#. Resource IDs: (344)
+msgid "Enable log caching to speed up log and revision graph dialogs"
+msgstr "Omogući pohranu dnevnika kako bi se ubrzali dijalozi za dnevnik i graf revizija"
+
 #. Resource IDs: (196)
 msgid ""
 "Enable this only if you're working with web projects on VS.NET2003!\n"
@@ -2710,6 +2726,10 @@ msgstr "Izvezi - TortoiseSVN"
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "Direktorij za izvoz:"
+
+#. Resource IDs: (345)
+msgid "Export the selected cache as a set of Comma Separated Value (CSV) files"
+msgstr "Izvoz označenog spremnika u skup nekoliko CSV datoteka"
 
 #. Resource IDs: (79)
 msgid "Export unversioned files too"
@@ -2994,6 +3014,10 @@ msgstr "Za cjelokupni dnevnik maknite oznaku \"Zaustavi se na kopiranom/preimeno
 msgid "Force blame"
 msgstr "Okrivi (bez odgađanja)"
 
+#. Resource IDs: (65535)
+msgid "From URL:"
+msgstr "Iz URL-a:"
+
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "Od:"
@@ -3158,13 +3182,13 @@ msgstr ""
 msgid "Graph type:"
 msgstr "Vrsta grafa:"
 
+#. Resource IDs: (2050)
+msgid "Group by branch"
+msgstr "Grupiraj po grani"
+
 #. Resource IDs: (214)
 msgid "Group changelists"
 msgstr "Grupiraj popis izmjena"
-
-#. Resource IDs: (2050)
-msgid "Groups branches together"
-msgstr "Grupira grane"
 
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
@@ -3841,6 +3865,10 @@ msgstr ""
 "Prikaži sadržaj pomoći\n"
 "Sadržaj pomoći"
 
+#. Resource IDs: (344)
+msgid "List of repositories for which log information has been cached"
+msgstr "Popis skladišta za koja se u spremnik pohranjuju informacije dnevnika"
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Učitaj slike"
@@ -3974,6 +4002,10 @@ msgstr "Označi kao &riješeno"
 msgid "Mark as resolved"
 msgstr "Označi kao riješeno"
 
+#. Resource IDs: (2052)
+msgid "Mark current revision of your working copy"
+msgstr "Označi trenutnu reviziju svoje radne kopije"
+
 #. Resource IDs: (101)
 msgid "Mark for comparison"
 msgstr "Označi za usporedbu"
@@ -4014,6 +4046,10 @@ msgstr "Stopi"
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
 msgstr "Stopi - TortoiseSVN"
+
+#. Resource IDs: (221)
+msgid "Merge Reintegrate"
+msgstr "Stopi Reintegriraj (!?)"
 
 #. Resource IDs: (1416)
 msgid "Merge a range of revisions"
@@ -4366,6 +4402,10 @@ msgstr "Nedovoljno memorije za izvršenje operacije."
 msgid "Not recursive"
 msgstr "Nije poniruće"
 
+#. Resource IDs: (65535)
+msgid "Note: the font settings also affect the TortoiseUDiff viewer"
+msgstr "Napomena: postavke pisma utječu i na TortoiseUDiff preglednik"
+
 # Opaska, bilješka, napomena?
 #. Resource IDs: (88)
 msgid "Notice"
@@ -4388,32 +4428,36 @@ msgid "Number of cached revisions"
 msgstr "Broj spremljenih revizija"
 
 #. Resource IDs: (339)
-msgid "Number of cached user revision properties"
-msgstr "Broj korisničkih svojstava u spremniku"
+msgid "Number of cached revisions that have a non-empty change list"
+msgstr "Broj pohranjenih revizija koje imaju listu izmjena"
 
 #. Resource IDs: (339)
-msgid "Number of changed cached revisions"
-msgstr "Broj promijenjenih revizija u spremniku"
+msgid "Number of cached revisions that have user revision properties"
+msgstr "Broj pohranjenih revizija koje imaju postavljena korisnička svojstva"
 
 #. Resource IDs: (339)
-msgid "Number of changed revisions that are not cached yet"
-msgstr "Broj promijenjenih inačica koje još nisu u spremniku"
+msgid "Number of cached revisions whose change list is not cached yet"
+msgstr "Broj pohranjenih revizija čije liste izmjena još nisu u spremniku"
+
+#. Resource IDs: (339)
+msgid "Number of cached revisions whose user revision properties are not cached yet"
+msgstr "Broj pohranjenih revizija čija korisnička svojstava još nisu u spremniku"
 
 #. Resource IDs: (338)
 msgid "Number of different paths shown in the log dialog, including parent paths"
 msgstr "Broj različitih staza u dijalogu dnevnika, uključivo početne (parent) staze"
+
+#. Resource IDs: (338)
+msgid "Number of different words used in log messages"
+msgstr "Broj različitih riječi upotrebljenih u porukama dnevnika"
 
 #. Resource IDs: (339)
 msgid "Number of merged revisions that are not cached yet"
 msgstr "Broj stopljenih inačica koje još nisu u spremniku"
 
 #. Resource IDs: (338)
-msgid "Number of path elements. This is an internal value indicating the compression level."
-msgstr "Broj elemenata staze. To je interna vrijednost razine sažimanja."
-
-#. Resource IDs: (339)
-msgid "Number of user revision properties that are not cached yet"
-msgstr "Broj korisničkih svojstava koje još nisu u spremniku"
+msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
+msgstr "Broj elemenata staze. Element staze je mapa ili ime datoteke kao 'foo.txt' ili 'mojaGrana'."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -4891,6 +4935,15 @@ msgstr ""
 "\\d\t\t\tbrojevi 0-9\n"
 "\\s\t\t\trazmak ili tab"
 
+#. Resource IDs: (1469)
+msgid "Reintegrate a branch"
+msgstr "Reintegriraj(!?) granu"
+
+#. Resource IDs: (230)
+#, c-format
+msgid "Reintegrate merge %s into %s"
+msgstr "Reintegrirajuće(!?) stapanje %s u %s"
+
 #. Resource IDs: (82)
 msgid "Reject"
 msgstr "Odbaci"
@@ -4977,6 +5030,10 @@ msgid ""
 msgstr ""
 "Ukloni svojstvo \"%s\" na\r\n"
 "%s"
+
+#. Resource IDs: (345)
+msgid "Remove the selected cache(s) from disk"
+msgstr "Uklanja odabran/e spremnik/e sa diska"
 
 #. Resource IDs: (1332)
 msgid "Remove..."
@@ -5426,6 +5483,10 @@ msgstr "Snimi u međuspremnik"
 msgid "Saved Data"
 msgstr "Snimljeni podaci"
 
+#. Resource IDs: (344)
+msgid "Saves expensive server roundtrips when set to longer than 0 seconds"
+msgstr "Pohranjuje skupi promet prema poslužitelju kad se postavi na više od 0 sekundi"
+
 #. Resource IDs: (581)
 msgid "Saves the selected property value to a file"
 msgstr "Sprema vrijednost odabranog svojstva u datoteku"
@@ -5657,6 +5718,10 @@ msgstr "Prikaži &sve"
 msgid "Show &Range..."
 msgstr "Prikaži &raspon..."
 
+#. Resource IDs: (32826)
+msgid "Show &WC revision"
+msgstr "Prikaži revizije radnih &kopija"
+
 #. Resource IDs: (32796)
 msgid "Show &all revisions"
 msgstr "Prikaži &sve revizije"
@@ -5773,6 +5838,10 @@ msgstr ""
 "Prikaži posebne znakove za razmake\n"
 "Prikaži razmake"
 
+#. Resource IDs: (345)
+msgid "Show statistics for the selected log cache"
+msgstr "Prikaži statistiku spremnika za označen dnevnik"
+
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Pokaži oznake na izvoru kopiranja, a ne kao odvojene čvorove"
@@ -5852,6 +5921,10 @@ msgstr "Veličina i status"
 #. Resource IDs: (339)
 msgid "Size of all cached text information"
 msgstr "Veličina svih tekst informacija u spremniku"
+
+#. Resource IDs: (339)
+msgid "Size of the cache file on disk"
+msgstr "Veličina spremnika na disku"
 
 #. Resource IDs: (339)
 msgid "Size of the cache if it were not compressed"
@@ -6050,6 +6123,10 @@ msgstr "Prebaci na prozor s prethodnim dokumentom"
 #. Resource IDs: (9)
 msgid "Switch working copy to another branch / tag"
 msgstr "Mijenja radnu kopiju drugom granom / oznakom"
+
+#. Resource IDs: (65535)
+msgid "Switch:"
+msgstr "Zamjena (switch!?):"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<<->right"
@@ -6450,10 +6527,10 @@ msgstr "Njihovo"
 
 #. Resource IDs: (169)
 msgid ""
-"There are changes inside one or more directories which you have included with svn:externals.\n"
+"There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
 "Those files are <b>not</b> listed for commit. You need to commit those files separately."
 msgstr ""
-"Postoje izmjene unutar jednog ili više direktorija koji su uključeni preko svn:externals.\n"
+"Postoje izmjene ili datoteke bez verzija unutar jedne ili više mapa koje su uključene preko svojstva svn:externals.\n"
 "Te datoteke <b>nisu</b> na popisu za pohranu. Njih morate pohraniti zasebno."
 
 #. Resource IDs: (66)
@@ -6523,12 +6600,16 @@ msgstr ""
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #. Resource IDs: (594)
-msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
-msgstr "Ova metoda obrađuje slučaj kad ste napravili granu razvoja kako se opisuje u Subversion knjizi. Sve izmjene glavne grane prenešene su u razvojnu granu, tjedan za tjedan, i kad je razvoj završen želite stopiti te izmjene sa glavnom granom. Kako ste održavali razvoju granu s glavnom, zadnja verzija razvojne grane i glavne grane su absolutno identične osim izmjena razvojne grane. U takvom slučaju, stopiti ćete grane usporedbom razvojne grane s glavnom."
+msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. Use this to merge all changes of a branch back to trunk."
+msgstr "Metoda se koristi u slučaju kad ste napravili razvojnu granu kako je opisano u Subversion knjizi. Koristiti za stapanje svih izmjena razvojne natrag u glavnu granu."
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
 msgstr "Metoda se koristi u slučaju kad ste napravili jednu ili više revizija u grani (ili glavnoj grani) i želite prenesti te izmjene u neku drugu granu."
+
+#. Resource IDs: (594)
+msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
+msgstr "Ova metoda pokriva slučaj kada želite stopiti razlike sa dvije različite grane u svoju radnu kopiju."
 
 #. Resource IDs: (65535)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -6710,8 +6791,8 @@ msgid "Total file changes:"
 msgstr "Ukupno izmijenjenih datoteka:"
 
 #. Resource IDs: (339)
-msgid "Total number of changed revisions"
-msgstr "Ukupan broj promijenjenih revizija"
+msgid "Total number of changes over all cached revisions"
+msgstr "Ukupan broj izmjena u svim pohranjenim revizijama"
 
 #. Resource IDs: (339)
 msgid "Total number of merged revisions"
@@ -7150,6 +7231,16 @@ msgstr "Upozorenje"
 msgid "Warning!"
 msgstr "Upozorenje!"
 
+#. Resource IDs: (344)
+msgid ""
+"When connecting to the respository server is not possible,\n"
+"TSVN can switch to using cached data only.\n"
+"Select the default beviour here."
+msgstr ""
+"Kada spajanje s poslužiteljem nije moguće,\n"
+"TSVN može prijeći na modus korištenja lokalno pohranjenjih podataka.\n"
+"Odaberite ovdje željeno ponašanje."
+
 #. Resource IDs: (197)
 msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
 msgstr "Kad je omogućeno, stavke s verzijama u popisu dijaloga pohrane se automatski odabiru"
@@ -7418,6 +7509,14 @@ msgstr "i podržite TortoiseSVN programere"
 msgid "another item already exists in its place."
 msgstr "neka druga stavka već postoji na tom mjestu."
 
+#. Resource IDs: (340)
+msgid ""
+"ask repository first if 'online' -\n"
+"work entirely from cache if 'offline'"
+msgstr ""
+"prvo provjeri skladište (ako veza postoji)  -\n"
+"radi potpuno lokalno (ako nema veze)"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "autor"
@@ -7612,7 +7711,7 @@ msgid "merged"
 msgstr "stopljeno"
 
 #. Resource IDs: (65535)
-msgid "merges total:"
+msgid "merges total: "
 msgstr "stapanja ukupno:"
 
 #. Resource IDs: (10)
@@ -8029,6 +8128,30 @@ msgstr "godina"
 msgid "yes"
 msgstr "da"
 
+#~ msgid "Groups branches together"
+#~ msgstr "Grupira grane"
+#~ msgid "Number of changed cached revisions"
+#~ msgstr "Broj promijenjenih revizija u spremniku"
+#~ msgid ""
+#~ "Number of path elements. This is an internal value indicating the "
+#~ "compression level."
+#~ msgstr "Broj elemenata staze. To je interna vrijednost razine sažimanja."
+#~ msgid ""
+#~ "This method covers the case when you have made a feature branch as "
+#~ "discussed in the Subversion book. All trunk changes have been ported to "
+#~ "the feature branch, week by week, and now the feature is complete you "
+#~ "want to merge it back into the trunk. Because you have kept the feature "
+#~ "branch synchronized with the trunk, the latest versions of branch and "
+#~ "trunk will be absolutely identical except for your branch changes. So in "
+#~ "this special case, you would merge by comparing the branch with the trunk."
+#~ msgstr ""
+#~ "Ova metoda obrađuje slučaj kad ste napravili granu razvoja kako se "
+#~ "opisuje u Subversion knjizi. Sve izmjene glavne grane prenešene su u "
+#~ "razvojnu granu, tjedan za tjedan, i kad je razvoj završen želite stopiti "
+#~ "te izmjene sa glavnom granom. Kako ste održavali razvoju granu s glavnom, "
+#~ "zadnja verzija razvojne grane i glavne grane su absolutno identične osim "
+#~ "izmjena razvojne grane. U takvom slučaju, stopiti ćete grane usporedbom "
+#~ "razvojne grane s glavnom."
 #~ msgid "Split long &branches"
 #~ msgstr "Razdijeli dugačke &grane"
 #~ msgid "Split long, inactive branches into segments"
