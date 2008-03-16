@@ -473,8 +473,8 @@ msgid "&Go To Line..."
 msgstr "&Pojdi na vrstico ..."
 
 #. Resource IDs: (32799)
-msgid "&Group branches"
-msgstr "&Razdeli veje v skupine"
+msgid "&Group by branch"
+msgstr "&Veje v skupinah"
 
 #. Resource IDs: (1032, 1115)
 msgid "&HEAD Revision"
@@ -641,6 +641,10 @@ msgstr "&Zadnja sporočila"
 #. Resource IDs: (376)
 msgid "&Redo"
 msgstr "&Ponovi"
+
+#. Resource IDs: (1382)
+msgid "&Refresh"
+msgstr "&Osveži"
 
 #. Resource IDs: (1100, 1285)
 msgid "&Remove"
@@ -1114,6 +1118,10 @@ msgstr "Vse datoteke (*.*)|*.*||"
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "Za prikaz datuma in časa vedno uporabi sistemske nastavitve"
+
+#. Resource IDs: (339)
+msgid "Amount of memory required to load the cache"
+msgstr "Velikost spomina, ki je potrebna za nalaganje predpomnilnika"
 
 #. Resource IDs: (78)
 #, c-format
@@ -1851,6 +1859,10 @@ msgstr "Sporno"
 msgid "Conflicts: %d"
 msgstr "Spori: %d"
 
+#. Resource IDs: (345)
+msgid "Connect to the repository server and download missing log data"
+msgstr "Poveži se s skladiščem in prenesi manjkajoče podatke"
+
 #. Resource IDs: (65535)
 msgid "Container sizes"
 msgstr "Velikosti vsebnikov"
@@ -2510,6 +2522,10 @@ msgstr "Ime ali IP naslov prehoda"
 msgid "Empty"
 msgstr "Prazno"
 
+#. Resource IDs: (344)
+msgid "Enable log caching to speed up log and revision graph dialogs"
+msgstr "Omogoči predpomnenje zapisov za hitrejši prikaz dnevnika in grafa revizij"
+
 #. Resource IDs: (196)
 msgid ""
 "Enable this only if you're working with web projects on VS.NET2003!\n"
@@ -2703,6 +2719,10 @@ msgstr "Izvozi - TortoiseSVN"
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "Izvozi v mapo:"
+
+#. Resource IDs: (345)
+msgid "Export the selected cache as a set of Comma Separated Value (CSV) files"
+msgstr "Izvozi izbran predpomnilnik v obliko CSV (podatki, ločeni z vejicami)"
 
 #. Resource IDs: (79)
 msgid "Export unversioned files too"
@@ -2987,6 +3007,10 @@ msgstr "Za prikaz celotne zgodovine izklopite možnost \"Ustavi ob kopiranju/pre
 msgid "Force blame"
 msgstr "Vsili krivdo"
 
+#. Resource IDs: (65535)
+msgid "From URL:"
+msgstr "Iz URL:"
+
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "Od:"
@@ -3151,13 +3175,13 @@ msgstr ""
 msgid "Graph type:"
 msgstr "Vrsta grafa:"
 
+#. Resource IDs: (2050)
+msgid "Group by branch"
+msgstr "Veje v skupinah"
+
 #. Resource IDs: (214)
 msgid "Group changelists"
 msgstr "Razdeli sezname sprememb v skupine"
-
-#. Resource IDs: (2050)
-msgid "Groups branches together"
-msgstr "Združi veje skupaj"
 
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
@@ -3813,6 +3837,10 @@ msgstr ""
 "Naštej teme pomoči\n"
 "Teme pomoči"
 
+#. Resource IDs: (344)
+msgid "List of repositories for which log information has been cached"
+msgstr "Seznam skladišč, za katera obstaja predpomnilnik"
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Naloži slike"
@@ -3943,6 +3971,10 @@ msgstr "Označi kot &rešeno"
 msgid "Mark as resolved"
 msgstr "Označi kot rešeno"
 
+#. Resource IDs: (2052)
+msgid "Mark current revision of your working copy"
+msgstr "Označi trenutno revizijo vaše delovne kopije"
+
 #. Resource IDs: (101)
 msgid "Mark for comparison"
 msgstr "Označi za primerjanje"
@@ -3982,6 +4014,10 @@ msgstr "Spoji"
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
 msgstr "Spoji - TortoiseSVN"
+
+#. Resource IDs: (221)
+msgid "Merge Reintegrate"
+msgstr "Spojitev veje"
 
 #. Resource IDs: (1416)
 msgid "Merge a range of revisions"
@@ -4329,6 +4365,10 @@ msgstr "Premalo pomnilnika za izvedbo operacije."
 msgid "Not recursive"
 msgstr "Nerekurzivno"
 
+#. Resource IDs: (65535)
+msgid "Note: the font settings also affect the TortoiseUDiff viewer"
+msgstr "Opomba: nastavitve pisave vplivajo tudi na pregledovalnik TortoiseUDiff"
+
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Opomba"
@@ -4350,32 +4390,36 @@ msgid "Number of cached revisions"
 msgstr "Število revizij v predpomnilniku"
 
 #. Resource IDs: (339)
-msgid "Number of cached user revision properties"
-msgstr "Število uporabniških lastnosti revizij v predpomnilniku"
+msgid "Number of cached revisions that have a non-empty change list"
+msgstr "Število revizij s seznamom sprememb v predpomnilniku"
 
 #. Resource IDs: (339)
-msgid "Number of changed cached revisions"
-msgstr "Število spremenjenih revizij v predpomnilniku"
+msgid "Number of cached revisions that have user revision properties"
+msgstr "Število revizij z uporabniškimi lastnostmi revizij v predpomnilniku"
 
 #. Resource IDs: (339)
-msgid "Number of changed revisions that are not cached yet"
-msgstr "Število spremenjenih revizij, ki še niso v predpomnilniku"
+msgid "Number of cached revisions whose change list is not cached yet"
+msgstr "Število revizij v predpomnilniku, katerih seznama sprememb še ni v predpomnilniku"
+
+#. Resource IDs: (339)
+msgid "Number of cached revisions whose user revision properties are not cached yet"
+msgstr "Število revizij v predpomnilniku, katerih uporabniške lastnosti revizij še niso v predpomnilniku"
 
 #. Resource IDs: (338)
 msgid "Number of different paths shown in the log dialog, including parent paths"
 msgstr "Število različnih poti v oknu dnevniških sporočil, vključno z nadrejenimi potmi"
+
+#. Resource IDs: (338)
+msgid "Number of different words used in log messages"
+msgstr "Število različnih besed, uporabljenih v sporočilih"
 
 #. Resource IDs: (339)
 msgid "Number of merged revisions that are not cached yet"
 msgstr "Število spojenih revizij, ki še niso v predpomnilniku"
 
 #. Resource IDs: (338)
-msgid "Number of path elements. This is an internal value indicating the compression level."
-msgstr "Število elementov poti. Internat vrednost, ki nakazuje stopnjo stiskanja."
-
-#. Resource IDs: (339)
-msgid "Number of user revision properties that are not cached yet"
-msgstr "Število uporabniških lastnosti revizij, ki še niso v predpomnilniku"
+msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
+msgstr "Število elementov poti. Element poti je mapa ali datoteka (npr. 'foo.txt' ali 'mojaveja')."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -4851,6 +4895,15 @@ msgstr ""
 "\\d\t\t\tcifre 0-9\n"
 "\\s\t\t\tpresledki"
 
+#. Resource IDs: (1469)
+msgid "Reintegrate a branch"
+msgstr "Vključitev veje"
+
+#. Resource IDs: (230)
+#, c-format
+msgid "Reintegrate merge %s into %s"
+msgstr "Vključitev veje %s v %s"
+
 #. Resource IDs: (82)
 msgid "Reject"
 msgstr "Zavrni"
@@ -4937,6 +4990,10 @@ msgid ""
 msgstr ""
 "Odstrani lastnost \"%s\" na\r\n"
 "%s"
+
+#. Resource IDs: (345)
+msgid "Remove the selected cache(s) from disk"
+msgstr "Odstrani izbrane predpomnilnike iz diska"
 
 #. Resource IDs: (1332)
 msgid "Remove..."
@@ -5386,6 +5443,10 @@ msgstr "Shrani na odložišče"
 msgid "Saved Data"
 msgstr "Shranjeni podatki"
 
+#. Resource IDs: (344)
+msgid "Saves expensive server roundtrips when set to longer than 0 seconds"
+msgstr "Kadar je vrednost več kot 0 sekund, prihrani drage dostope do strežnika"
+
 #. Resource IDs: (581)
 msgid "Saves the selected property value to a file"
 msgstr "Shrani vrednost izbrane lastnosti v datoteko"
@@ -5617,6 +5678,10 @@ msgstr "Pokaži &vse"
 msgid "Show &Range..."
 msgstr "Pokaži &obseg..."
 
+#. Resource IDs: (32826)
+msgid "Show &WC revision"
+msgstr "Pokaži revizijo &delovno kepije"
+
 #. Resource IDs: (32796)
 msgid "Show &all revisions"
 msgstr "Pokaži &vse revizije"
@@ -5731,6 +5796,10 @@ msgstr ""
 "Pokaže posebne znake namesto presledkov\n"
 "Pokaži presledke"
 
+#. Resource IDs: (345)
+msgid "Show statistics for the selected log cache"
+msgstr "Pokaži statistiko za izbran predpomnilnik"
+
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Prikaži oznake na viru kopiranja, ne kot ločena vozlišča"
@@ -5809,6 +5878,10 @@ msgstr "Velikost in stanje"
 #. Resource IDs: (339)
 msgid "Size of all cached text information"
 msgstr "Velikost besedila v predpomnilniku"
+
+#. Resource IDs: (339)
+msgid "Size of the cache file on disk"
+msgstr "Velikost predpomnilnika na disku"
 
 #. Resource IDs: (339)
 msgid "Size of the cache if it were not compressed"
@@ -6007,6 +6080,10 @@ msgstr "Preklopi na prejšnje okno z dokumentom"
 #. Resource IDs: (9)
 msgid "Switch working copy to another branch / tag"
 msgstr "Preklopi delovno kopijo na drugo vejo / oznako"
+
+#. Resource IDs: (65535)
+msgid "Switch:"
+msgstr "Preklop:"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<<->right"
@@ -6405,11 +6482,11 @@ msgstr "Njihov"
 
 #. Resource IDs: (169)
 msgid ""
-"There are changes inside one or more directories which you have included with svn:externals.\n"
+"There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
 "Those files are <b>not</b> listed for commit. You need to commit those files separately."
 msgstr ""
-"V eni ali več mapah, ki ste jih vključili s svn:externals, so spremembe.\n"
-"Te datoteke <b>niso</b> v seznamu za objavo. Objaviti jih boste morali ločeno."
+"V eni ali več mapah, ki ste jih vključili s svn:externals, so spremembe ali elementi brez različic.\n"
+"Te datoteke <b>niso</b> na seznamu za objavo. Objaviti jih boste morali ločeno."
 
 #. Resource IDs: (66)
 #, c-format
@@ -6477,12 +6554,16 @@ msgstr ""
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #. Resource IDs: (594)
-msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
-msgstr "Ta metoda velja za primer veje za razvoj nove zmožnosti programa, kot je to opisano v The Subversion Book. Vse spremembe na glavni veji so bile tedensko spajane na stransko vejo. Razvoj nove zmožnosti programa na stranski veji je končan in sedaj želite vejo spojiti nazaj v glavno vejo. Ker je stranska veja sinhronizirana z glavno vejo, je zadnja različica stranske veje identična glavni veji, razlika je le v spremembah, ki so bile dodane kot del razvoja na stranski veji. V tem posebnem primeru spajanje poteka tako, da primerjate stransko in glavno vejo."
+msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. Use this to merge all changes of a branch back to trunk."
+msgstr "Ta način uporabite, kadar uporabljate vejo za razvoj nove zmožnosti, kot je to opisano v knjigi The Subversion Book. S tem vse spremembe iz stranske veje spojite na glavno vejo."
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
 msgstr "Ta metoda velja za primer, ko ste naredili nekaj objav na določeni veji, sedaj pa želite te spremembe prenesti na drugo vejo."
+
+#. Resource IDs: (594)
+msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
+msgstr "Ta metoda se uporablja vprimeru, ko želite spojiti razlike dveh vej v delovno kopijo."
 
 #. Resource IDs: (65535)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -6664,8 +6745,8 @@ msgid "Total file changes:"
 msgstr "Število sprememb datotek:"
 
 #. Resource IDs: (339)
-msgid "Total number of changed revisions"
-msgstr "Skupno število spremenjenih revizij"
+msgid "Total number of changes over all cached revisions"
+msgstr "Število sprememb v vseh revizijah v predpomnilniku"
 
 #. Resource IDs: (339)
 msgid "Total number of merged revisions"
@@ -7101,6 +7182,16 @@ msgstr "Opozorilo"
 msgid "Warning!"
 msgstr "Opozorilo!"
 
+#. Resource IDs: (344)
+msgid ""
+"When connecting to the respository server is not possible,\n"
+"TSVN can switch to using cached data only.\n"
+"Select the default beviour here."
+msgstr ""
+"Kadar dostop do skladišča ni strežniku ni mogoč,\n"
+"lahko TSVN uporablja podatke iz predpomnilnika.\n"
+"Tu izberite privzeto obnašanje."
+
 #. Resource IDs: (197)
 msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
 msgstr "Če je možnost izbrana, so elementi pod nadzorom v oknu za objave samodejno izbrani"
@@ -7364,6 +7455,14 @@ msgstr "in podprite razvijalce"
 msgid "another item already exists in its place."
 msgstr "na tem mestu že obstaja nek element"
 
+#. Resource IDs: (340)
+msgid ""
+"ask repository first if 'online' -\n"
+"work entirely from cache if 'offline'"
+msgstr ""
+"če je skladišče dostopno, ga uporabi,\n"
+"v nasprotnem primeru uporabi predpomnilnik"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "avtor"
@@ -7557,7 +7656,7 @@ msgid "merged"
 msgstr "spojeno"
 
 #. Resource IDs: (65535)
-msgid "merges total:"
+msgid "merges total: "
 msgstr "število spajanj:"
 
 #. Resource IDs: (10)
