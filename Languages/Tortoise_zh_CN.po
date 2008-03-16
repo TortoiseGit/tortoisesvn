@@ -659,6 +659,10 @@ msgstr "最近信息(&R)"
 msgid "&Redo"
 msgstr "重做(&R)"
 
+#. Resource IDs: (1382)
+msgid "&Refresh"
+msgstr "刷新(&R)"
+
 #. Resource IDs: (1100, 1285)
 msgid "&Remove"
 msgstr "删除(&R)"
@@ -6495,10 +6499,10 @@ msgstr "远程文件（theirs）"
 
 #. Resource IDs: (169)
 msgid ""
-"There are changes inside one or more directories which you have included with svn:externals.\n"
+"There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
 "Those files are <b>not</b> listed for commit. You need to commit those files separately."
 msgstr ""
-"以 svn:externals 指定的目录中有修改。\n"
+"以 svn:externals 包含的目录中有修改。\n"
 "那些文件<b>不会</b>在提交列表中列出，您需要自行处理。"
 
 #. Resource IDs: (66)
