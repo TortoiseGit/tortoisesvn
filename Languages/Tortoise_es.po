@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-09 20:46+0100\n"
+"PO-Revision-Date: 2008-03-16 23:18+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -620,6 +620,10 @@ msgstr "&Mensajes recientes"
 #. Resource IDs: (376)
 msgid "&Redo"
 msgstr "&Rehacer"
+
+#. Resource IDs: (1382)
+msgid "&Refresh"
+msgstr "&Actualizar"
 
 #. Resource IDs: (1100, 1285)
 msgid "&Remove"
@@ -4385,6 +4389,10 @@ msgstr "No hay memoria suficiente para completar la operación."
 msgid "Not recursive"
 msgstr "No recursivo"
 
+#. Resource IDs: (65535)
+msgid "Note: the font settings also affect the TortoiseUDiff viewer"
+msgstr "Nota: la configuración de las fuentes también afecta al visor TortoiseUDiff."
+
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Atención"
@@ -6504,10 +6512,10 @@ msgstr "De ellos"
 
 #. Resource IDs: (169)
 msgid ""
-"There are changes inside one or more directories which you have included with svn:externals.\n"
+"There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
 "Those files are <b>not</b> listed for commit. You need to commit those files separately."
 msgstr ""
-"Hay cambios dentro de uno o más directorios que han sido incluidos con svn:externals.\n"
+"Hay cambios o ítems sin versionar dentro de uno o más directorios que han sido incluidos con svn:externals.\n"
 "Esos archivos <b>NO</b> se muestran para su confirmación. Necesita confirmar esos ficheros de forma separada."
 
 #. Resource IDs: (66)
