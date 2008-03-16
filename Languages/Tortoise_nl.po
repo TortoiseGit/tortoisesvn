@@ -26,7 +26,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2000-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-02-21 22:15+0100\n"
+"PO-Revision-Date: 2008-03-16 21:00+0100\n"
 "Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -458,8 +458,8 @@ msgid "&Go To Line..."
 msgstr "&Ga naar regel..."
 
 #. Resource IDs: (32799)
-msgid "&Group branches"
-msgstr "Takken &groeperen"
+msgid "&Group by branch"
+msgstr "&Groeperen per tak"
 
 #. Resource IDs: (1032, 1115)
 msgid "&HEAD Revision"
@@ -626,6 +626,10 @@ msgstr "&Recente boodschappen"
 #. Resource IDs: (376)
 msgid "&Redo"
 msgstr "&Opnieuw"
+
+#. Resource IDs: (1382)
+msgid "&Refresh"
+msgstr "&Verversen"
 
 #. Resource IDs: (1100, 1285)
 msgid "&Remove"
@@ -1099,6 +1103,10 @@ msgstr "Alle Bestanden (*.*)|*.*||"
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "Gebruik altijd de systeem landinstellingen bij het tonen van datum en tijd"
+
+#. Resource IDs: (339)
+msgid "Amount of memory required to load the cache"
+msgstr "Hoeveelheid geheugen benodigd om de cache te laden"
 
 #. Resource IDs: (78)
 #, c-format
@@ -1664,6 +1672,10 @@ msgstr ""
 msgid "Clears the stored sizes and positions of %ld dialogs"
 msgstr "Wist opgeslagen afmetingen en posities van %ld vensters"
 
+#. Resource IDs: (1466)
+msgid "Click here to go to the website"
+msgstr "Klik hier om naar de website te gaan"
+
 #. Resource IDs: (170)
 msgid "Click here to select a recently typed message"
 msgstr "Klik hier voor recent ingevoerde boodschappen"
@@ -1829,6 +1841,10 @@ msgstr "In conflict"
 #, c-format
 msgid "Conflicts: %d"
 msgstr "In conflict: %d"
+
+#. Resource IDs: (345)
+msgid "Connect to the repository server and download missing log data"
+msgstr "Haal ontbrekende log data op uit het archief"
 
 #. Resource IDs: (65535)
 msgid "Container sizes"
@@ -2489,6 +2505,10 @@ msgstr "De naam of het IP-adres van de proxyserver"
 msgid "Empty"
 msgstr "Leeg"
 
+#. Resource IDs: (344)
+msgid "Enable log caching to speed up log and revision graph dialogs"
+msgstr "Activeer log cache om de log- en revisieschemadialoog te versnellen"
+
 #. Resource IDs: (196)
 msgid ""
 "Enable this only if you're working with web projects on VS.NET2003!\n"
@@ -2682,6 +2702,10 @@ msgstr "Exporteren - TortoiseSVN"
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "Export-map:"
+
+#. Resource IDs: (345)
+msgid "Export the selected cache as a set of Comma Separated Value (CSV) files"
+msgstr "Exporteer de geselecteerde cahce als een set CSV-bestanden (komma-gescheiden waarden)"
 
 #. Resource IDs: (79)
 msgid "Export unversioned files too"
@@ -2966,6 +2990,10 @@ msgstr "Deactiveer \"Stoppen bij kopie/hernoemd bestand\" voor de volledige hist
 msgid "Force blame"
 msgstr "Forceer verklaren"
 
+#. Resource IDs: (65535)
+msgid "From URL:"
+msgstr "Van URL:"
+
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "Van:"
@@ -3130,13 +3158,13 @@ msgstr ""
 msgid "Graph type:"
 msgstr "Soort grafiek:"
 
+#. Resource IDs: (2050)
+msgid "Group by branch"
+msgstr "Groeperen per tak"
+
 #. Resource IDs: (214)
 msgid "Group changelists"
 msgstr "Werksets groeperen"
-
-#. Resource IDs: (2050)
-msgid "Groups branches together"
-msgstr "Groepeert takken"
 
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
@@ -3794,6 +3822,10 @@ msgstr ""
 "Toon helponderwerpen\n"
 "Helponderwerpen"
 
+#. Resource IDs: (344)
+msgid "List of repositories for which log information has been cached"
+msgstr "Lijst van archieven waavoor log informatie is ge-cached"
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Afbeeldingen laden"
@@ -3926,6 +3958,10 @@ msgstr "Markeer als &opgelost"
 msgid "Mark as resolved"
 msgstr "Markeer als opgelost"
 
+#. Resource IDs: (2052)
+msgid "Mark current revision of your working copy"
+msgstr "Markeer huidige revisie van uw werkkopie"
+
 #. Resource IDs: (101)
 msgid "Mark for comparison"
 msgstr "Markeer om te vergelijken"
@@ -3965,6 +4001,10 @@ msgstr "Samenvoegen"
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
 msgstr "Samenvoegen - TortoiseSVN"
+
+#. Resource IDs: (221)
+msgid "Merge Reintegrate"
+msgstr "Reïntegratie samenvoeging"
 
 #. Resource IDs: (1416)
 msgid "Merge a range of revisions"
@@ -4313,6 +4353,10 @@ msgstr "Onvoldoende geheugen om de opdracht uit te voeren."
 msgid "Not recursive"
 msgstr "Niet recursief"
 
+#. Resource IDs: (65535)
+msgid "Note: the font settings also affect the TortoiseUDiff viewer"
+msgstr "N.B.: de lettertype instellingen gelden ook voor TortoiseUDiff"
+
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Opmerking"
@@ -4334,32 +4378,36 @@ msgid "Number of cached revisions"
 msgstr "Aantal revisies in de cache"
 
 #. Resource IDs: (339)
-msgid "Number of cached user revision properties"
-msgstr "Aantal revisie-eigenschappen van de gebruiker in de cache"
+msgid "Number of cached revisions that have a non-empty change list"
+msgstr "Aantal gecachede revisies die een wijzigingslijst hebben"
 
 #. Resource IDs: (339)
-msgid "Number of changed cached revisions"
-msgstr "Aantal gewijzigde revisies in de cache"
+msgid "Number of cached revisions that have user revision properties"
+msgstr "Aantal gecachede revisies met gebruikers-revisie-eigenschappen"
 
 #. Resource IDs: (339)
-msgid "Number of changed revisions that are not cached yet"
-msgstr "Aantal gewijzigde revisies die nog niet gecached zijn"
+msgid "Number of cached revisions whose change list is not cached yet"
+msgstr "Aantal gecachede revisies waarvan de wijzigingslijst nog niet becshikbaar is"
+
+#. Resource IDs: (339)
+msgid "Number of cached revisions whose user revision properties are not cached yet"
+msgstr "Aantal gacachede revisies waarvan de gebruikers-revisie-eigenschappen nog niet beschikbaar zijn"
 
 #. Resource IDs: (338)
 msgid "Number of different paths shown in the log dialog, including parent paths"
 msgstr "Aantal verschillende paden in de log dialoog, inclusief ouder-paden"
+
+#. Resource IDs: (338)
+msgid "Number of different words used in log messages"
+msgstr "Aantal verschillende woorden in logboekboodschappen"
 
 #. Resource IDs: (339)
 msgid "Number of merged revisions that are not cached yet"
 msgstr "Aantal samengevoegde revisies die nog niet in de cache zitten"
 
 #. Resource IDs: (338)
-msgid "Number of path elements. This is an internal value indicating the compression level."
-msgstr "Aantal pad-elementen. Dit is een interne waarde die het compressie-nivo aangeeft."
-
-#. Resource IDs: (339)
-msgid "Number of user revision properties that are not cached yet"
-msgstr "Aantal revisie-eigenschappen van de gebruiker die nog niet gecached zijn"
+msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
+msgstr "Aantal pad-elementen. Een pad-element is een map of bestandsnaam."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -4835,6 +4883,15 @@ msgstr ""
 "\\d\t\t\tcijfers 0-9\n"
 "\\s\t\t\tspaties en tabs"
 
+#. Resource IDs: (1469)
+msgid "Reintegrate a branch"
+msgstr "Een tak reïntegreren"
+
+#. Resource IDs: (230)
+#, c-format
+msgid "Reintegrate merge %s into %s"
+msgstr "Reïntegreer %s in %s"
+
 #. Resource IDs: (82)
 msgid "Reject"
 msgstr "Verwerpen"
@@ -4921,6 +4978,10 @@ msgid ""
 msgstr ""
 "Verwijder eigenschap \"%s\" van\r\n"
 "%s"
+
+#. Resource IDs: (345)
+msgid "Remove the selected cache(s) from disk"
+msgstr "Verwijder de geselecteerde cache(s) van de schijf"
 
 #. Resource IDs: (1332)
 msgid "Remove..."
@@ -5370,6 +5431,10 @@ msgstr "Op klembord zetten"
 msgid "Saved Data"
 msgstr "Opgeslagen gegevens"
 
+#. Resource IDs: (344)
+msgid "Saves expensive server roundtrips when set to longer than 0 seconds"
+msgstr "Bespaart dure server contacten indien meer dan 0 seconden is ingesteld"
+
 #. Resource IDs: (581)
 msgid "Saves the selected property value to a file"
 msgstr "Bewaart de waarde van geselecteerde eigenschap in een bestand"
@@ -5601,6 +5666,10 @@ msgstr "Toon &Alles"
 msgid "Show &Range..."
 msgstr "Toon &Bereik..."
 
+#. Resource IDs: (32826)
+msgid "Show &WC revision"
+msgstr "Toon revisie van &werkkopie"
+
 #. Resource IDs: (32796)
 msgid "Show &all revisions"
 msgstr "Toon &alle revisies"
@@ -5717,6 +5786,10 @@ msgstr ""
 "Toon speciale tekens voor spaties en witregels\n"
 "Toon witregels"
 
+#. Resource IDs: (345)
+msgid "Show statistics for the selected log cache"
+msgstr "Toon statistieken van de geselecteerde cache"
+
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Toon labels op de bron van de kopie en niet als apart knooppunt"
@@ -5795,6 +5868,10 @@ msgstr "Grootte en status"
 #. Resource IDs: (339)
 msgid "Size of all cached text information"
 msgstr "Grootte van alle tekstinformatie in de cache"
+
+#. Resource IDs: (339)
+msgid "Size of the cache file on disk"
+msgstr "Grootte van cache-bestand op schijf"
 
 #. Resource IDs: (339)
 msgid "Size of the cache if it were not compressed"
@@ -5993,6 +6070,10 @@ msgstr "Ga naar het vorige documentvenster"
 #. Resource IDs: (9)
 msgid "Switch working copy to another branch / tag"
 msgstr "Schakel werkkopie naar een andere tak/label"
+
+#. Resource IDs: (65535)
+msgid "Switch:"
+msgstr "Wissel:"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<<->right"
@@ -6393,10 +6474,10 @@ msgstr "Van hun"
 
 #. Resource IDs: (169)
 msgid ""
-"There are changes inside one or more directories which you have included with svn:externals.\n"
+"There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
 "Those files are <b>not</b> listed for commit. You need to commit those files separately."
 msgstr ""
-"Er zijn wijzigingen in een of meer mappen die u heeft meegenomen met svn:externals.\n"
+"Er zijn wijzigingen of bestanden zonder versiebeheer in een of meer mappen die u heeft meegenomen met svn:externals.\n"
 "Deze bestanden worden <b>niet</b> vastgelegd. U moet deze bestanden apart vastleggen."
 
 #. Resource IDs: (66)
@@ -6465,12 +6546,16 @@ msgstr ""
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #. Resource IDs: (594)
-msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
-msgstr "Deze methode wordt gebruikt als u een zgn. 'feature branch' heeft zoals in het Subversion boek besproken wordt. Alle wijzigingen uit de basislijn zijn wekelijks aan de 'feature branch' toegevoegd en nu is de zijtak klaar en wilt u de wijzigingen toevoegen aan de basislijn. Aangezien de zijtak synchroon gehouden is met de basislijn, bestaat het verschil tussen de zijtak een de basislijn alleen uit de wijzigingen die in de zijtak zijn uitgevoerd. In dit speciale geval kunt u samenvoegen door de zijtak met de basislijn te vergelijken."
+msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. Use this to merge all changes of a branch back to trunk."
+msgstr "Deze methode wordt gebruikt als u een 'feature branch' heeft zoals besproken in het Subversion boek. Gebruik deze methode om alle wijzigingen uit een tak in de basislijn samen te voegen."
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
 msgstr "Deze methode wordt gebruikt als u één of meer wijzigingen in een tak (of de basislijn) heeft aangebracht en deze ook wilt toepassen op een andere tak."
+
+#. Resource IDs: (594)
+msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
+msgstr "Deze keuze is bedoeld als u het verschil tussen twee verschillende takken in uw werkkopie wilt opnemen."
 
 #. Resource IDs: (65535)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -6654,8 +6739,8 @@ msgid "Total file changes:"
 msgstr "Totaal aantal bestandswijzigingen:"
 
 #. Resource IDs: (339)
-msgid "Total number of changed revisions"
-msgstr "Totaal aantal gewijzigde revisies"
+msgid "Total number of changes over all cached revisions"
+msgstr "Totaal aantal wijzigingen van alle gecachede revisies"
 
 #. Resource IDs: (339)
 msgid "Total number of merged revisions"
@@ -7094,6 +7179,16 @@ msgstr "Waarschuwing"
 msgid "Warning!"
 msgstr "Waarschuwing!"
 
+#. Resource IDs: (344)
+msgid ""
+"When connecting to the respository server is not possible,\n"
+"TSVN can switch to using cached data only.\n"
+"Select the default beviour here."
+msgstr ""
+"Als geen verbinding mogelijk is met de archief-server,\n"
+"dan kan TSVN omschakelen op gebruik van lokaal gecachede data.\n"
+"Kies hier de gewenste standaard."
+
 #. Resource IDs: (197)
 msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
 msgstr "Activeer deze optie om alle onderdelen onder versiebeheer automatisch te selecteren bij het vastleggen"
@@ -7362,6 +7457,14 @@ msgstr "en ondersteun de ontwikkelaars"
 msgid "another item already exists in its place."
 msgstr "een ander onderdeel zich al op die plaats bevindt."
 
+#. Resource IDs: (340)
+msgid ""
+"ask repository first if 'online' -\n"
+"work entirely from cache if 'offline'"
+msgstr ""
+"eerst archief vragen indien 'online' -\n"
+"alleen cache gebruiken indien 'offline'"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "auteur"
@@ -7553,7 +7656,7 @@ msgid "merged"
 msgstr "samengevoegd"
 
 #. Resource IDs: (65535)
-msgid "merges total:"
+msgid "merges total: "
 msgstr "totaal samenvoegingen:"
 
 #. Resource IDs: (10)
