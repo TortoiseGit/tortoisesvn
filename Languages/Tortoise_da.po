@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-15 03:20+0100\n"
+"PO-Revision-Date: 2008-03-17 03:29+0100\n"
 "Last-Translator: Zero3Cool\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -58,6 +58,7 @@ msgstr ""
 # Log (messages) = Log(beskeder)
 # Merge program = Fletningsprogram
 # Nested = Indlejret
+# Node = Knude
 # Operation = Handling
 # Password = Adgangskode
 # Patch = Rettelse
@@ -610,10 +611,12 @@ msgstr "B&illedinfo"
 msgid "&Import..."
 msgstr "Im&porter..."
 
-# Oversættelse af "inline"?
+# Bedre oversættelse af "inline diff word-wise"?
+# Kontekst: http://tortoisesvn.net/docs/nightly/TortoiseMerge_en/help-onepage.html#tmerge-dug-toolbar
 #. Resource IDs: (32825)
+#, fuzzy
 msgid "&Inline diff word-wise"
-msgstr ""
+msgstr "&Sammenlign hele ord ved sammenligning på linjenvieau"
 
 #. Resource IDs: (1016)
 msgid "&Jump to first difference when loading"
@@ -1443,9 +1446,8 @@ msgstr "Viser den ansvarlige forfatter for hver linje i en fil"
 
 # Oversættelse af "blend alpha"?
 #. Resource IDs: (32812)
-#, fuzzy
 msgid "Blend Alpha"
-msgstr "Alfa-overgang"
+msgstr ""
 
 #. Resource IDs: (83)
 msgid ""
@@ -2631,7 +2633,7 @@ msgid ""
 "You must restart the system for this setting to take effect."
 msgstr ""
 "Slå kun denne til, hvis du arbejder med web-projekter på VS.NET2003!\n"
-"Du skal genstarte computeren, før denne ændring træder i kraft."
+"Du skal genstarte computeren, før denne indstilling træder i kraft."
 
 #. Resource IDs: (195)
 msgid ""
@@ -3594,10 +3596,9 @@ msgstr "Ignorer &store/små bogstaver"
 msgid "Ignore all whitespaces"
 msgstr "Ignorer alle blanktegn"
 
-# Oversættelse af "ancestry"?
 #. Resource IDs: (1267)
 msgid "Ignore ancestry"
-msgstr ""
+msgstr "Ignorer forældreskab"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
@@ -3707,7 +3708,7 @@ msgstr "Forkert filnavn."
 msgid "Initial import"
 msgstr "Oprindelig import"
 
-# Oversættelse af "inline"?
+# Kontekst?
 #. Resource IDs: (65535)
 msgid "Inline differences"
 msgstr ""
@@ -4663,7 +4664,7 @@ msgid ""
 "Files which don't have this property set are not affected."
 msgstr ""
 "Overskriv egenskaben svn:eol-style.\n"
-"Filer, som ikke har denne egenskab, bliver ikke påvirket."
+"Filer, som ikke har denne egenskab, bliver ikke påvirkede."
 
 #. Resource IDs: (99)
 msgid "Overwrite"
@@ -4794,7 +4795,7 @@ msgstr "\"Før opdatering\"-tilkobling"
 
 #. Resource IDs: (2052)
 msgid "Prevents most cases in which connection lines cross revision nodes"
-msgstr "Undgår for det meste at forbindelseslinjer krydser revisions-knuder"
+msgstr "Forhindrer de fleste tilfælde hvor forbindelseslinjer krydser revisionsknuder"
 
 #. Resource IDs: (376)
 msgid "Preview patched file"
@@ -5557,10 +5558,10 @@ msgstr "Gem i udklipsholder"
 msgid "Saved Data"
 msgstr "Gemt data"
 
-# Oversættelse af "roundtrips"?
+# Bedre oversættelse af "roundtrips"?
 #. Resource IDs: (344)
 msgid "Saves expensive server roundtrips when set to longer than 0 seconds"
-msgstr ""
+msgstr "Sparer kostbare serverressourcer når sat til længere end 0 sekunder"
 
 #. Resource IDs: (581)
 msgid "Saves the selected property value to a file"
@@ -5752,7 +5753,7 @@ msgstr ""
 
 #. Resource IDs: (13)
 msgid "Setting properties..."
-msgstr "Sætter egenskaber..."
+msgstr "Indstiller egenskaber..."
 
 #. Resource IDs: (107)
 msgid "Settings"
@@ -5826,19 +5827,19 @@ msgstr "Vis &ikke-versionerede filer"
 msgid "Show File List"
 msgstr "Vis filliste"
 
-# Oversættelse af "nodes"?
 #. Resource IDs: (2051)
-#, fuzzy
 msgid "Show HEAD revision nodes"
-msgstr "Vis knuder for HEAD-revision"
+msgstr "Vis knuder for HEAD-revisionen"
 
+# Bedre oversættelse af "inline diff word-wise"?
 #. Resource IDs: (2052)
+#, fuzzy
 msgid ""
 "Show Inline-Diff word by word\n"
 "Inline diff word-wise"
 msgstr ""
-"Vis forskelle i linje ord for ord\n"
-"Ord-for-ord forskelle i linje"
+"Vis linjesammenligning ord for ord\n"
+"Hele ord ved sammenligning på linjenvieau"
 
 #. Resource IDs: (1126)
 msgid "Show Lock dialog before locking files"
@@ -5921,9 +5922,7 @@ msgstr ""
 msgid "Show statistics for the selected log cache"
 msgstr "Vis statistik for den valgte logcache"
 
-# Oversættelse af "nodes"?
 #. Resource IDs: (2052)
-#, fuzzy
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Vis mærker på kilden til kopieringen, ikke som separate knuder"
 
@@ -6804,15 +6803,15 @@ msgstr ""
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
 
-# Dansk ord for "build"?
+# Dansk oversættelse af "build"?
 #. Resource IDs: (107)
-#, fuzzy, c-format
+#, c-format
 msgid "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
 msgstr "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
 
 # Dansk oversættelse af "build"?
 #. Resource IDs: (107)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "TortoiseMerge %d.%d.%d, Build %d - %s, %s\r\n"
 "libsvn_diff %d.%d.%d, %s\r\n"
@@ -7879,11 +7878,9 @@ msgstr "skrivebeskyttet"
 msgid "replaced"
 msgstr "erstattet"
 
-# Oversættelse af "ancestry"?
 #. Resource IDs: (220)
-#, fuzzy
 msgid "respecting ancestry"
-msgstr "respekterer forældreskab"
+msgstr "respekterer afstamning"
 
 #. Resource IDs: (326)
 #, c-format
