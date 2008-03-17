@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-12 11:27+0900\n"
+"PO-Revision-Date: 2008-03-17 10:56+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -625,6 +625,10 @@ msgstr "最近のログメッセージ(&R)"
 #. Resource IDs: (376)
 msgid "&Redo"
 msgstr "やり直し(&R)"
+
+#. Resource IDs: (1382)
+msgid "&Refresh"
+msgstr " 更新(&R)"
 
 #. Resource IDs: (1100, 1285)
 msgid "&Remove"
@@ -6483,11 +6487,11 @@ msgstr "Theirs"
 
 #. Resource IDs: (169)
 msgid ""
-"There are changes inside one or more directories which you have included with svn:externals.\n"
+"There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
 "Those files are <b>not</b> listed for commit. You need to commit those files separately."
 msgstr ""
-"svn:externals でインクルードされた１つ以上のディレクトリ内に変更が存在します。\n"
-"それらのファイルは <b>決して</b> コミットのリストには現れません。それらのファイルは別々にコミットする必要があります。"
+"svn:externals でインクルードされた１つ以上のディレクトリ内に変更もしくはバージョン管理外の項目が存在します。\n"
+"それらのファイルはコミットのリストには<b>現れません</b>。それらのファイルは別途コミットする必要があります。"
 
 #. Resource IDs: (66)
 #, c-format
