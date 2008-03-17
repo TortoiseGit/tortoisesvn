@@ -2299,7 +2299,7 @@ void CBaseView::UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomsta
 		index++;
 	}
 	// adjust line numbers
-	for (int i=m_nSelBlockEnd+1; i<GetLineCount(); ++i)
+	for (int i=m_nSelBlockEnd+1; i<m_pwndBottom->GetLineCount(); ++i)
 	{
 		long oldline = (long)m_pwndBottom->m_pViewData->GetLineNumber(i);
 		if (oldline >= 0)
@@ -2342,7 +2342,7 @@ void CBaseView::UseBothRightFirst(viewstate &rightstate, viewstate &leftstate)
 	}
 	// adjust line numbers
 	index--;
-	for (int i=m_nSelBlockEnd+1; i<GetLineCount(); ++i)
+	for (int i=m_nSelBlockEnd+1; i<m_pwndRight->GetLineCount(); ++i)
 	{
 		long oldline = (long)m_pwndRight->m_pViewData->GetLineNumber(i);
 		if (oldline >= 0)
@@ -2375,7 +2375,7 @@ void CBaseView::UseBothLeftFirst(viewstate &rightstate, viewstate &leftstate)
 		m_pwndRight->m_pViewData->InsertData(i, m_pwndLeft->m_pViewData->GetLine(i), DIFFSTATE_THEIRSADDED, linenumber++, m_pwndLeft->m_pViewData->GetLineEnding(i));
 	}
 	// adjust line numbers
-	for (int i=m_nSelBlockEnd+1; i<GetLineCount(); ++i)
+	for (int i=m_nSelBlockEnd+1; i<m_pwndRight->GetLineCount(); ++i)
 	{
 		long oldline = (long)m_pwndRight->m_pViewData->GetLineNumber(i);
 		if (oldline >= 0)
