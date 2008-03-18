@@ -1773,6 +1773,8 @@ void CBaseView::GoToFirstDifference()
 				break;
 			nCenterPos++;
 		}
+		if (nCenterPos >= m_pViewData->GetCount())
+			nCenterPos = m_pViewData->GetCount()-1;
 		int nTopPos = nCenterPos - (GetScreenLines()/2);
 		if (nTopPos < 0)
 			nTopPos = 0;
