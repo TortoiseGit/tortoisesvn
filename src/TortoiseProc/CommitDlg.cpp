@@ -597,6 +597,7 @@ UINT CCommitDlg::StatusThread()
 	m_autolist.clear();
 	// we don't have to block the commit dialog while we fetch the
 	// auto completion list.
+	m_pathwatcher.ClearChangedPaths();
 	InterlockedExchange(&m_bBlock, FALSE);
 	if ((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\Autocompletion"), TRUE)==TRUE)
 	{
