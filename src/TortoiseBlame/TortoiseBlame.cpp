@@ -68,6 +68,7 @@ TortoiseBlame::TortoiseBlame()
 	m_mouseauthorcolor = InterColor(m_windowcolor, m_textcolor, 10);
 	m_selectedrevcolor = ::GetSysColor(COLOR_HIGHLIGHT);
 	m_selectedauthorcolor = InterColor(m_selectedrevcolor, m_texthighlightcolor, 35);
+	m_mouserev = -2;
 
 	m_selectedrev = -1;
 	m_SelectedLine = -1;
@@ -1702,13 +1703,9 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 				}
 				if (app.revs[line] != app.m_mouserev)
 				{
-					LONG revstore = app.m_mouserev;
 					app.m_mouserev = app.revs[line];
-					if (revstore != -2)
-					{
-						::InvalidateRect(app.wBlame, NULL, FALSE);
-						SendMessage(app.hwndTT, TTM_UPDATE, 0, 0);
-					}
+					::InvalidateRect(app.wBlame, NULL, FALSE);
+					SendMessage(app.hwndTT, TTM_UPDATE, 0, 0);
 				}
 			}
 		}
