@@ -120,6 +120,7 @@ CBaseView::CBaseView()
 									IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
 	for (int i=0; i<1024; ++i)
 		m_sConflictedText += _T("??");
+	m_sNoLineNr.LoadString(IDS_EMPTYLINETT);
 	EnableToolTips();
 }
 
@@ -773,7 +774,7 @@ void CBaseView::OnDoVScroll(UINT nSBCode, UINT /*nPos*/, CScrollBar* /*pScrollBa
 			if (line >= 0)
 				m_ScrollTool.SetText(&thumbpoint, sFormat, m_nDigits, GetLineNumber(nNewTopLine)+1);
 			else
-				m_ScrollTool.SetText(&thumbpoint, _T(" "));
+				m_ScrollTool.SetText(&thumbpoint, m_sNoLineNr);
 		}
 		break;
 	default:
