@@ -82,6 +82,8 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 	for (; nIndex<PatchLines.GetCount(); nIndex++)
 	{
 		sLine = PatchLines.GetAt(nIndex);
+		if (sLine.Left(4).Compare(_T("--- "))==0)
+			break;
 		if ((nIndex+1)<PatchLines.GetCount())
 		{
 			sLine = PatchLines.GetAt(nIndex+1);
@@ -110,6 +112,25 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 		ending = PatchLines.GetLineEnding(nIndex);
 		if (ending != EOL_NOENDING)
 			ending = EOL_AUTOLINE;
+		if (state == 0)
+		{
+			if ((sLine.Left(4).Compare(_T("--- "))==0)&&(sLine.Find('\t') >= 0))
+			{
+				state = 2;
+				if (chunks)
+				{
+					//this is a new filediff, so add the last one to 
+					//our array.
+					m_arFileDiffs.Add(chunks);
+				}
+				chunks = new Chunks();
+				int nTab = sLine.Find('\t');
+				if (nTab >= 0)
+				{
+					chunks->sFilePath = sLine.Mid(4, nTab-4).Trim();
+				}
+			}
+		}
 		switch (state)
 		{
 		case 0:	//Index: <filepath>
@@ -220,7 +241,10 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 				num = num.Trim(0xff09);
 				chunks->sRevision = num;
 				if (bracket < 0)
-					chunks->sFilePath = sLine.Trim();
+				{
+					if (chunks->sFilePath.IsEmpty())
+						chunks->sFilePath = sLine.Trim();
+				}
 				else
 					chunks->sFilePath = sLine.Left(bracket-1).Trim();
 				if (chunks->sFilePath.Find('\t')>=0)
