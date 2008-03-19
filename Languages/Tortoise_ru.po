@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2008
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 12200: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 12341: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-02-28 13:20+0300\n"
+"PO-Revision-Date: 2008-03-18 19:44+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -495,8 +495,8 @@ msgid "&Go To Line..."
 msgstr "&Перейти к строке..."
 
 #. Resource IDs: (32799)
-msgid "&Group branches"
-msgstr "С&группировать ответвления"
+msgid "&Group by branch"
+msgstr "С&группировать по ответвлениям"
 
 #. Resource IDs: (1032, 1115)
 msgid "&HEAD Revision"
@@ -667,6 +667,10 @@ msgstr "Недавние &сообщения"
 #. Resource IDs: (376)
 msgid "&Redo"
 msgstr "&Вернуть"
+
+#. Resource IDs: (1382)
+msgid "&Refresh"
+msgstr "&Обновить"
 
 #. Resource IDs: (1100, 1285)
 msgid "&Remove"
@@ -1147,6 +1151,10 @@ msgstr "Все файлы (*.*)|*.*||"
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "Всегда использовать настройки локализации системы для отображения времени и даты"
+
+#. Resource IDs: (339)
+msgid "Amount of memory required to load the cache"
+msgstr "Объём памяти, необходимой для загрузки кэша"
 
 #. Resource IDs: (78)
 #, c-format
@@ -1895,6 +1903,10 @@ msgstr "Конфликтующее"
 msgid "Conflicts: %d"
 msgstr "Конфликты: %d"
 
+#. Resource IDs: (345)
+msgid "Connect to the repository server and download missing log data"
+msgstr "Подключиться к серверу хранилища и загрузить недостающие данные журнала"
+
 #. Resource IDs: (65535)
 msgid "Container sizes"
 msgstr "Размеры контейнеров"
@@ -2560,6 +2572,10 @@ msgstr "Введите имя либо IP-адрес прокси-сервера
 msgid "Empty"
 msgstr "Отсутствующее"
 
+#. Resource IDs: (344)
+msgid "Enable log caching to speed up log and revision graph dialogs"
+msgstr "Включить кэширование журнала для ускорения диалога журнала и графа ревизий"
+
 #. Resource IDs: (196)
 msgid ""
 "Enable this only if you're working with web projects on VS.NET2003!\n"
@@ -2754,6 +2770,10 @@ msgstr "Экспорт - TortoiseSVN"
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "Папка экспорта:"
+
+#. Resource IDs: (345)
+msgid "Export the selected cache as a set of Comma Separated Value (CSV) files"
+msgstr "Экспорт выбранного кэша в виде набора CSV-файлов (CSV, Comma Separated Value - данные, разделённые запятыми)."
 
 #. Resource IDs: (79)
 msgid "Export unversioned files too"
@@ -3042,6 +3062,10 @@ msgstr "Для получения полного списка разотметь
 msgid "Force blame"
 msgstr "Принудительное получение авторства"
 
+#. Resource IDs: (65535)
+msgid "From URL:"
+msgstr "Исходный URL:"
+
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "С:"
@@ -3208,13 +3232,13 @@ msgstr ""
 msgid "Graph type:"
 msgstr "Тип графика:"
 
+#. Resource IDs: (2050)
+msgid "Group by branch"
+msgstr "Сгруппировано по ответвлениям"
+
 #. Resource IDs: (214)
 msgid "Group changelists"
 msgstr "Разбить по группам изменений"
-
-#. Resource IDs: (2050)
-msgid "Groups branches together"
-msgstr "Сгруппировать ответвления друг с другом"
 
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
@@ -3891,6 +3915,10 @@ msgstr ""
 "Показать разделы справки\n"
 "Разделы справки"
 
+#. Resource IDs: (344)
+msgid "List of repositories for which log information has been cached"
+msgstr "Список хранилищ, для которых закэширована журнальная информация"
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Загрузить картинки"
@@ -4028,6 +4056,10 @@ msgstr "Пометить как &улаженный"
 msgid "Mark as resolved"
 msgstr "Пометить как улаженный"
 
+#. Resource IDs: (2052)
+msgid "Mark current revision of your working copy"
+msgstr "Отметить текущую ревизию вашей рабочей копии"
+
 #. Resource IDs: (101)
 msgid "Mark for comparison"
 msgstr "Пометить для сравнения"
@@ -4067,6 +4099,10 @@ msgstr "Слияние"
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
 msgstr "Слияние - TortoiseSVN"
+
+#. Resource IDs: (221)
+msgid "Merge Reintegrate"
+msgstr "Воссоединительное слияние"
 
 #. Resource IDs: (1416)
 msgid "Merge a range of revisions"
@@ -4418,6 +4454,10 @@ msgstr "Недостаточно памяти для завершения опе
 msgid "Not recursive"
 msgstr "Не рекурсивно"
 
+#. Resource IDs: (65535)
+msgid "Note: the font settings also affect the TortoiseUDiff viewer"
+msgstr "Обратите внимание: настройки шрифта распространяются также и на TortoiseUDiff"
+
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Уведомление"
@@ -4439,32 +4479,36 @@ msgid "Number of cached revisions"
 msgstr "Количество закэшированных ревизий"
 
 #. Resource IDs: (339)
-msgid "Number of cached user revision properties"
-msgstr "Количество закэшированных пользовательских свойств ревизий"
+msgid "Number of cached revisions that have a non-empty change list"
+msgstr "Количество закэшированных ревизий с непустым списком изменений"
 
 #. Resource IDs: (339)
-msgid "Number of changed cached revisions"
-msgstr "Количество изменённых закэшированных ревизий"
+msgid "Number of cached revisions that have user revision properties"
+msgstr "Количество закэшированных ревизий, у которых есть пользовательские свойства"
 
 #. Resource IDs: (339)
-msgid "Number of changed revisions that are not cached yet"
-msgstr "Количество изменённых, но пока ещё незакэшированных ревизий"
+msgid "Number of cached revisions whose change list is not cached yet"
+msgstr "Количество закэшированных ревизий, чей список изменений пока не закэширован"
+
+#. Resource IDs: (339)
+msgid "Number of cached revisions whose user revision properties are not cached yet"
+msgstr "Количество закэшированных ревизий, чьи пользовательские свойства пока не закэшированы"
 
 #. Resource IDs: (338)
 msgid "Number of different paths shown in the log dialog, including parent paths"
 msgstr "Количество различных путей, отображаемых в диалоге журнала, включая родительские"
+
+#. Resource IDs: (338)
+msgid "Number of different words used in log messages"
+msgstr "Количество различных слов, использованных в сообщениях журнала"
 
 #. Resource IDs: (339)
 msgid "Number of merged revisions that are not cached yet"
 msgstr "Количество слитых, но пока ещё незакэшированных ревизий"
 
 #. Resource IDs: (338)
-msgid "Number of path elements. This is an internal value indicating the compression level."
-msgstr "Количество элементов пути. Это внутреннее значение, показывающее уровень сжатия."
-
-#. Resource IDs: (339)
-msgid "Number of user revision properties that are not cached yet"
-msgstr "Количество пока ещё незакэшированных пользовательских свойств ревизий"
+msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
+msgstr "Количество элементов пути. Элемент пути - это имя файла или папки, вроде 'foo.txt' или 'моё_ответвление'."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -4943,6 +4987,15 @@ msgstr ""
 "\\d\t\t\tцифры 0-9\n"
 "\\s\t\t\tнепечатаемые знаки (пробельные символы)"
 
+#. Resource IDs: (1469)
+msgid "Reintegrate a branch"
+msgstr "Воссоединение с ответвлением"
+
+#. Resource IDs: (230)
+#, c-format
+msgid "Reintegrate merge %s into %s"
+msgstr "Воссоединительное слияние %s с %s"
+
 #. Resource IDs: (82)
 msgid "Reject"
 msgstr "Отклонить"
@@ -5030,6 +5083,10 @@ msgid ""
 msgstr ""
 "Удаление свойства \"%s\" для\r\n"
 "%s"
+
+#. Resource IDs: (345)
+msgid "Remove the selected cache(s) from disk"
+msgstr "Удаляет выбранный кэш с диска"
 
 #. Resource IDs: (1332)
 msgid "Remove..."
@@ -5486,6 +5543,10 @@ msgstr "Сохранить в буфер обмена"
 msgid "Saved Data"
 msgstr "Сохранённые данные"
 
+#. Resource IDs: (344)
+msgid "Saves expensive server roundtrips when set to longer than 0 seconds"
+msgstr "Экономит затратные обращения к серверу, если установить больше, чем 0 секунд"
+
 #. Resource IDs: (581)
 msgid "Saves the selected property value to a file"
 msgstr "Сохраняет значение выбранного свойства в файл"
@@ -5719,6 +5780,10 @@ msgstr "Показать &все"
 msgid "Show &Range..."
 msgstr "Показать &ряд..."
 
+#. Resource IDs: (32826)
+msgid "Show &WC revision"
+msgstr "Показать ревизию &рабочей копии"
+
 #. Resource IDs: (32796)
 msgid "Show &all revisions"
 msgstr "Показать &все ревизии"
@@ -5836,6 +5901,10 @@ msgstr ""
 "Показать специальные символы для непечатаемых знаков\n"
 "Показать непечатаемые знаки"
 
+#. Resource IDs: (345)
+msgid "Show statistics for the selected log cache"
+msgstr "Показывает статистику для выбранного кэша журнала"
+
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Показать метки на источнике копирования, а не как отдельные узлы"
@@ -5915,6 +5984,10 @@ msgstr "Размер и состояние"
 #. Resource IDs: (339)
 msgid "Size of all cached text information"
 msgstr "Размер всей закэшированной текстовой информации"
+
+#. Resource IDs: (339)
+msgid "Size of the cache file on disk"
+msgstr "Размер файла кэша на диске"
 
 #. Resource IDs: (339)
 msgid "Size of the cache if it were not compressed"
@@ -6115,6 +6188,10 @@ msgstr "Переключиться на предыдущее окно докум
 #. Resource IDs: (9)
 msgid "Switch working copy to another branch / tag"
 msgstr "Переключить рабочую копию на другое ответвление / метку"
+
+#. Resource IDs: (65535)
+msgid "Switch:"
+msgstr "Переключение:"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<<->right"
@@ -6517,11 +6594,11 @@ msgstr "Их"
 
 #. Resource IDs: (169)
 msgid ""
-"There are changes inside one or more directories which you have included with svn:externals.\n"
+"There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
 "Those files are <b>not</b> listed for commit. You need to commit those files separately."
 msgstr ""
-"Есть изменения в папках, которые включены в svn:externals.\n"
-"Эти файлы <b>не</b> включены в список фиксирования. Их необходимо фиксировать отдельно."
+"Есть изменения или неверсированные элементы в папках, содержащихся в svn:externals.\n"
+"Эти файлы <b>не включены</b> в список фиксирования. Их необходимо зафиксировать отдельно."
 
 #. Resource IDs: (66)
 #, c-format
@@ -6591,12 +6668,16 @@ msgstr ""
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #. Resource IDs: (594)
-msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
-msgstr "Этот метод применяется в случае, когда вы сделали ответвление для разработки новой функции, как описано в книге по Subversion. Все изменения неделя за неделей переносились из ствола в это ответвление, и теперь, когда разработка функции завершена, вы желаете произвести её слияние обратно со стволом. Поскольку вы регулярно синхронизировали ответвление со стволом, последние версии ответвления и ствола будут полностью идентичными, за исключением ваших изменений в ответвлении. Поэтому, в этом частном случае, вы можете произвести слияние путём сравнения ответвления со стволом."
+msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. Use this to merge all changes of a branch back to trunk."
+msgstr "Этот метод применяется в случае, когда вы сделали ответвление для новой функции, как описано в книге о Subversion. Используйте его для слияния всех изменений из ответвления обратно в ствол."
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
 msgstr "Этот метод применяется в случае, когда вы сделали одну или несколько ревизий в ответвлении (или в основном стволе) и желаете перенести эти изменения и в другое ответвление."
+
+#. Resource IDs: (594)
+msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
+msgstr "Этот метод применяется в случае, когда вы желаете выполнить слияние вашей рабочей копии с различиями между двумя разными ответвлениями."
 
 #. Resource IDs: (65535)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -6780,8 +6861,8 @@ msgid "Total file changes:"
 msgstr "Всего файлов изменено:"
 
 #. Resource IDs: (339)
-msgid "Total number of changed revisions"
-msgstr "Общее число изменённых ревизий"
+msgid "Total number of changes over all cached revisions"
+msgstr "Общее число изменений во всех закэшированных ревизиях"
 
 #. Resource IDs: (339)
 msgid "Total number of merged revisions"
@@ -7226,6 +7307,16 @@ msgstr "Предупреждение"
 msgid "Warning!"
 msgstr "Предупреждение!"
 
+#. Resource IDs: (344)
+msgid ""
+"When connecting to the respository server is not possible,\n"
+"TSVN can switch to using cached data only.\n"
+"Select the default beviour here."
+msgstr ""
+"Когда подключение к серверу невозможно, TortoiseSVN\n"
+"может переключится на использование только данных из кэша.\n"
+"Здесь можно выбрать поведение по умолчанию."
+
 #. Resource IDs: (197)
 msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
 msgstr "Если включено, перечисленные в диалоге фиксации версированные элементы автоматически отмечаются как выбранные "
@@ -7497,6 +7588,14 @@ msgstr "и поддержать разработчиков"
 msgid "another item already exists in its place."
 msgstr "другой элемент уже существует на этом месте."
 
+#. Resource IDs: (340)
+msgid ""
+"ask repository first if 'online' -\n"
+"work entirely from cache if 'offline'"
+msgstr ""
+"сначала запрашивать хранилище, если 'подключено' -\n"
+"работать польностью из кэша, если 'автономно'"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "автор"
@@ -7690,7 +7789,7 @@ msgid "merged"
 msgstr "Слит"
 
 #. Resource IDs: (65535)
-msgid "merges total:"
+msgid "merges total: "
 msgstr "Слияний всего:"
 
 #. Resource IDs: (10)
@@ -8113,6 +8212,34 @@ msgstr "год"
 msgid "yes"
 msgstr "да"
 
+#~ msgid "Groups branches together"
+#~ msgstr "Сгруппировать ответвления друг с другом"
+#~ msgid "Number of changed cached revisions"
+#~ msgstr "Количество изменённых закэшированных ревизий"
+#~ msgid ""
+#~ "Number of path elements. This is an internal value indicating the "
+#~ "compression level."
+#~ msgstr ""
+#~ "Количество элементов пути. Это внутреннее значение, показывающее уровень "
+#~ "сжатия."
+#~ msgid ""
+#~ "This method covers the case when you have made a feature branch as "
+#~ "discussed in the Subversion book. All trunk changes have been ported to "
+#~ "the feature branch, week by week, and now the feature is complete you "
+#~ "want to merge it back into the trunk. Because you have kept the feature "
+#~ "branch synchronized with the trunk, the latest versions of branch and "
+#~ "trunk will be absolutely identical except for your branch changes. So in "
+#~ "this special case, you would merge by comparing the branch with the trunk."
+#~ msgstr ""
+#~ "Этот метод применяется в случае, когда вы сделали ответвление для "
+#~ "разработки новой функции, как описано в книге по Subversion. Все "
+#~ "изменения неделя за неделей переносились из ствола в это ответвление, и "
+#~ "теперь, когда разработка функции завершена, вы желаете произвести её "
+#~ "слияние обратно со стволом. Поскольку вы регулярно синхронизировали "
+#~ "ответвление со стволом, последние версии ответвления и ствола будут "
+#~ "полностью идентичными, за исключением ваших изменений в ответвлении. "
+#~ "Поэтому, в этом частном случае, вы можете произвести слияние путём "
+#~ "сравнения ответвления со стволом."
 #~ msgid "%1 contains an invalid path."
 #~ msgstr "%1 содержит некорректный путь."
 #~ msgid "An invalid argument was encountered."
