@@ -41,7 +41,7 @@ bool CreatePatchCommand::Execute()
 		{
 			cmdLinePath = pathList.GetCommonRoot();
 		}
-		CreatePatch(cmdLinePath, dlg.m_pathList, CTSVNPath(savepath));
+		CreatePatch(cmdLinePath.GetDirectory(), dlg.m_pathList, CTSVNPath(savepath));
 		SVN svn;
 		svn.Revert(dlg.m_filesToRevert, CStringArray(), false);
 	}
