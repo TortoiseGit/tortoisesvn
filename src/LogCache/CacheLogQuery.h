@@ -393,6 +393,10 @@ public:
 	/// access to the cache
 	/// (only valid after calling Log())
 	CCachedLogInfo* GetCache();
+
+    /// for tempCaches: write content to "real" cache files
+    /// (no-op if this is does not use a temp. cache)
+    void UpdateCache (CLogCachePool* caches);
 };
 
 /// Log options inline implementations for data access

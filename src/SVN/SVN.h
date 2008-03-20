@@ -548,9 +548,12 @@ public:
 	 * \param changed TRUE if the log should follow changed paths 
 	 * \param withMerges TRUE if the log should contain merged revisions 
      *        as children
+	 * \param refresh fetch data from repository even if log caching
+     *        is enabled. Merge the result with the existing caches.
+     *        Ignored if log caching has been disabled.
 	 * \return TRUE if successful
 	 */
-	BOOL ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionPeg, SVNRev revisionStart, SVNRev revisionEnd, int limit, BOOL strict = FALSE, BOOL withMerges = FALSE);
+	BOOL ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionPeg, SVNRev revisionStart, SVNRev revisionEnd, int limit, BOOL strict, BOOL withMerges, bool refresh);
 
 	/**
 	 * Checks out a file with \a revision to \a localpath.

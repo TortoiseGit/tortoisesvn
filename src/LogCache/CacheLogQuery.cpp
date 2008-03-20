@@ -1151,7 +1151,7 @@ revision_t CCacheLogQuery::DecodeRevision ( const CTSVNPath& path
 
 	// efficiently decode standard cases: revNum, HEAD, BASE/WORKING
 
-    revision_t result = NO_REVISION;
+    revision_t result = (revision_t)NO_REVISION;
 	switch (revision.GetKind())
 	{
 	case svn_opt_revision_number:
@@ -1354,4 +1354,25 @@ CCachedLogInfo* CCacheLogQuery::GetCache()
 {
 	assert (cache != NULL);
 	return cache;
+}
+
+// for tempCaches: write content to "real" cache files
+// (no-op if this is does not use a temp. cache)
+
+void CCacheLogQuery::UpdateCache (CLogCachePool* caches)
+{
+	// resolve URL
+
+	CTSVNPath path;
+    path.SetFromSVN (URL);
+
+    CString uuid = repositoryInfoCache->GetRepositoryUUID (path);
+
+	// load / create cache and merge it with our results
+
+	assert(!uuid.IsEmpty());
+
+    CCachedLogInfo* cache = caches->GetCache (uuid);
+    if ((cache != this->cache) && (this->cache != NULL))
+        cache->Update (*this->cache);
 }

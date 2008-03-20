@@ -978,6 +978,10 @@ UINT CLogDlg::LogThread()
 {
 	InterlockedExchange(&m_bThreadRunning, TRUE);
 
+    //does the user force the cache to refresh (shift or control key down)?
+    bool refresh =    (GetKeyState (VK_CONTROL) < 0) 
+                   || (GetKeyState (VK_SHIFT) < 0);
+
 	//disable the "Get All" button while we're receiving
 	//log messages.
 	DialogEnableWindow(IDC_GETALL, FALSE);
@@ -1094,12 +1098,12 @@ UINT CLogDlg::LogThread()
 
     if (succeeded == TRUE)
     {
-        succeeded = ReceiveLog (CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, m_bStrict, m_bIncludeMerges);
+        succeeded = ReceiveLog (CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, m_bStrict, m_bIncludeMerges, refresh);
         if ((!succeeded)&&(!m_path.IsUrl()))
         {
 	        // try again with REV_WC as the start revision, just in case the path doesn't
 	        // exist anymore in HEAD
-	        succeeded = ReceiveLog(CTSVNPathList(m_path), SVNRev(), SVNRev::REV_WC, m_endrev, m_limit, m_bStrict, m_bIncludeMerges);
+	        succeeded = ReceiveLog(CTSVNPathList(m_path), SVNRev(), SVNRev::REV_WC, m_endrev, m_limit, m_bStrict, m_bIncludeMerges, refresh);
         }
     }
     if (succeeded == FALSE)

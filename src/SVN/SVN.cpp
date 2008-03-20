@@ -1304,7 +1304,7 @@ LogCache::CCachedLogInfo* SVN::GetLogCache (const CTSVNPath& path)
     return logCachePool.GetCache (uuid);
 }
 
-BOOL SVN::ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionPeg, SVNRev revisionStart, SVNRev revisionEnd, int limit, BOOL strict /* = FALSE */, BOOL withMerges /* = FALSE */)
+BOOL SVN::ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionPeg, SVNRev revisionStart, SVNRev revisionEnd, int limit, BOOL strict, BOOL withMerges, bool refresh)
 {
 	svn_error_clear(Err);
 	Err = NULL;
@@ -1312,11 +1312,13 @@ BOOL SVN::ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionPeg, SVNRev r
 	{
 		SVNPool localpool(pool);
 
-		CSVNLogQuery svnQuery (m_pctx, localpool);
+        CSVNLogQuery svnQuery (m_pctx, localpool);
 		CCacheLogQuery cacheQuery (&logCachePool, &svnQuery);
+		CCacheLogQuery refreshQuery (*this, &svnQuery);
 
 		ILogQuery* query = logCachePool.IsEnabled()
-						 ? static_cast<ILogQuery*>(&cacheQuery)
+						 ? refresh ? static_cast<ILogQuery*>(&refreshQuery)
+                                   : static_cast<ILogQuery*>(&cacheQuery)
 						 : static_cast<ILogQuery*>(&svnQuery);
 
 		query->Log ( pathlist
@@ -1331,6 +1333,9 @@ BOOL SVN::ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionPeg, SVNRev r
                    , true
                    , false
                    , TRevPropNames());
+
+        if (refresh && logCachePool.IsEnabled())
+            refreshQuery.UpdateCache (&logCachePool);
 	}
 	catch (SVNError& e)
 	{
