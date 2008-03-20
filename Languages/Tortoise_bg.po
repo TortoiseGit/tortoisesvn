@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-10 22:12+0200\n"
+"PO-Revision-Date: 2008-03-20 21:19+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -653,6 +653,10 @@ msgstr "&Последни съобщения"
 msgid "&Redo"
 msgstr "&Повтаряне"
 
+#. Resource IDs: (1382)
+msgid "&Refresh"
+msgstr "&Опресняване"
+
 #. Resource IDs: (1100, 1285)
 msgid "&Remove"
 msgstr "&Премахване"
@@ -845,6 +849,10 @@ msgstr "(избрани са няколко цели)"
 #. Resource IDs: (213)
 msgid "(no changelist)"
 msgstr "(няма списък с промени)"
+
+#. Resource IDs: (314)
+msgid "(no line number)"
+msgstr "(няма номер на ред)"
 
 #. Resource IDs: (314)
 msgid "(not found)"
@@ -6508,10 +6516,10 @@ msgstr "Техен"
 
 #. Resource IDs: (169)
 msgid ""
-"There are changes inside one or more directories which you have included with svn:externals.\n"
+"There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
 "Those files are <b>not</b> listed for commit. You need to commit those files separately."
 msgstr ""
-"Има промени в една или повече директории, които сте добавили чрез svn:externals.\n"
+"Има промени или неконтролирани обекти в една или повече директории, които сте добавили чрез svn:externals.\n"
 "Тези файлове <b>не</b> са в списъка за поверяване. Трябва да поверите тези файлове отделно."
 
 #. Resource IDs: (66)
