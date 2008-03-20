@@ -1296,8 +1296,7 @@ bool SVN::DiffSummarizePeg(const CTSVNPath& path, SVNRev peg, SVNRev rev1, SVNRe
 
 LogCache::CCachedLogInfo* SVN::GetLogCache (const CTSVNPath& path)
 {
-	CRegStdWORD useLogCache (_T("Software\\TortoiseSVN\\UseLogCache"), TRUE);
-	if (useLogCache == FALSE)
+	if (!logCachePool.IsEnabled())
         return NULL;
 
     CString uuid;
@@ -1316,8 +1315,7 @@ BOOL SVN::ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionPeg, SVNRev r
 		CSVNLogQuery svnQuery (m_pctx, localpool);
 		CCacheLogQuery cacheQuery (&logCachePool, &svnQuery);
 
-		CRegStdWORD useLogCache (_T("Software\\TortoiseSVN\\UseLogCache"), TRUE);
-		ILogQuery* query = useLogCache != FALSE
+		ILogQuery* query = logCachePool.IsEnabled()
 						 ? static_cast<ILogQuery*>(&cacheQuery)
 						 : static_cast<ILogQuery*>(&svnQuery);
 
@@ -1946,8 +1944,7 @@ CString SVN::GetRepositoryRoot(const CTSVNPath& url)
 	
     // use cached information, if allowed
 
-    CRegStdWORD useLogCache (_T("Software\\TortoiseSVN\\UseLogCache"), TRUE);
-	if (useLogCache != FALSE)
+	if (logCachePool.IsEnabled())
     {
         // look up in cached repository properties
         // (missing entries will be added automatically)
@@ -2058,8 +2055,7 @@ BOOL SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& re
 
     // use cached information, if allowed
 
-    CRegStdWORD useLogCache (_T("Software\\TortoiseSVN\\UseLogCache"), TRUE);
-	if (useLogCache != FALSE)
+	if (logCachePool.IsEnabled())
     {
         // look up in cached repository properties
         // (missing entries will be added automatically)

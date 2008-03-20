@@ -110,6 +110,10 @@ public:
 	/// minimize memory usage
 
 	void Clear();
+
+    /// has log caching been enabled?
+
+    bool IsEnabled() const;
 };
 
 ///////////////////////////////////////////////////////////////

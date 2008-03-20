@@ -214,13 +214,11 @@ BOOL CRevisionGraph::FetchRevisionData (CString path, const SOptions& /*options*
 	m_lHeadRevision = (revision_t)NO_REVISION;
 	try
 	{
-		CRegStdWORD useLogCache (_T("Software\\TortoiseSVN\\UseLogCache"), TRUE);
-
         // select / construct query object and optimize revision range to fetch
 
 		svnQuery.reset (new CSVNLogQuery (&m_ctx, pool));
         SVNRev firstRevision = 0;
-        if (useLogCache != FALSE)
+        if (svn.GetLogCachePool()->IsEnabled())
         {
             CLogCachePool* pool = svn.GetLogCachePool();
 		    query.reset (new CCacheLogQuery (pool, svnQuery.get()));

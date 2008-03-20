@@ -30,6 +30,7 @@
 
 #include "DirFileEnum.h"
 #include "PathUtils.h"
+#include "Registry.h"
 
 // begin namespace LogCache
 
@@ -213,6 +214,14 @@ void CLogCachePool::Clear()
 
     if (repositoryInfo != NULL)
         repositoryInfo->Clear();
+}
+
+// has log caching been enabled?
+
+bool CLogCachePool::IsEnabled() const
+{
+	CRegStdWORD useLogCache (_T("Software\\TortoiseSVN\\UseLogCache"), TRUE);
+	return useLogCache != FALSE;
 }
 
 // end namespace LogCache
