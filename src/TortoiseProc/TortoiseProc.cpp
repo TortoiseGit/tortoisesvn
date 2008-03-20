@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -451,6 +451,10 @@ void CTortoiseProcApp::CheckUpgrade()
 		sCL = _T("wscript.exe \"") + CPathUtils::GetAppParentDirectory()+_T("Diff-Scripts\\merge-doc.vbs\"");
 		if (sDiff.Left(sCL.GetLength()).CompareNoCase(sCL)==0)
 			mergereg = _T("");
+	}
+	if (lVersion <= 0x01040000)
+	{
+		CRegStdWORD(_T("Software\\TortoiseSVN\\OwnerdrawnMenus")).removeValue();
 	}
 	
 	// set the custom diff scripts for every user
