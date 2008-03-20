@@ -219,7 +219,11 @@ public:
 
     CString GetFileName() const;
 
-	/// for statistics
+    /// is this only temporary data?
+
+    bool IsPermanent() const;
+
+    /// for statistics
 
 	friend class CLogCacheStatistics;
 };

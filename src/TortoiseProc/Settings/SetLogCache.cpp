@@ -39,11 +39,14 @@ IMPLEMENT_DYNAMIC(CSetLogCache, ISettingsPropPage)
 CSetLogCache::CSetLogCache()
 	: ISettingsPropPage(CSetLogCache::IDD)
 	, m_bEnableLogCaching(FALSE)
+	, m_bSupportAmbiguousURL(FALSE)
 	, m_dwMaxHeadAge(0)
     , progress(NULL)
 {
 	m_regEnableLogCaching = CRegDWORD(_T("Software\\TortoiseSVN\\UseLogCache"), TRUE);
 	m_bEnableLogCaching = (DWORD)m_regEnableLogCaching;
+	m_regSupportAmbiguousURL = CRegDWORD(_T("Software\\TortoiseSVN\\SupportAmbiguousURL"), FALSE);
+	m_bSupportAmbiguousURL = (DWORD)m_regSupportAmbiguousURL;
 	m_regDefaultConnectionState = CRegDWORD(_T("Software\\TortoiseSVN\\DefaultConnectionState"), 0);
 	m_regMaxHeadAge = CRegDWORD(_T("Software\\TortoiseSVN\\HeadCacheAgeLimit"), 0);
 	m_dwMaxHeadAge = (DWORD)m_regMaxHeadAge;
@@ -57,6 +60,7 @@ void CSetLogCache::DoDataExchange(CDataExchange* pDX)
 {
 	ISettingsPropPage::DoDataExchange(pDX);
 	DDX_Check(pDX, IDC_ENABLELOGCACHING, m_bEnableLogCaching);
+	DDX_Check(pDX, IDC_SUPPORTAMBIGUOUSURL, m_bSupportAmbiguousURL);
 	DDX_Text(pDX, IDC_MAXIMINHEADAGE, m_dwMaxHeadAge);
 
     DDX_Control(pDX, IDC_GOOFFLINESETTING, m_cDefaultConnectionState);
@@ -67,6 +71,7 @@ void CSetLogCache::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CSetLogCache, ISettingsPropPage)
 	ON_BN_CLICKED(IDC_ENABLELOGCACHING, OnChanged)
+	ON_BN_CLICKED(IDC_SUPPORTAMBIGUOUSURL, OnChanged)
 	ON_CBN_SELCHANGE(IDC_GOOFFLINESETTING, OnChanged)
 	ON_EN_CHANGE(IDC_MAXIMINHEADAGE, OnChanged)
 
@@ -92,6 +97,9 @@ BOOL CSetLogCache::OnApply()
 	m_regEnableLogCaching = m_bEnableLogCaching;
 	if (m_regEnableLogCaching.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regEnableLogCaching.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	m_regSupportAmbiguousURL = m_bSupportAmbiguousURL;
+	if (m_regSupportAmbiguousURL.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regSupportAmbiguousURL.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
     m_regDefaultConnectionState = m_cDefaultConnectionState.GetCurSel();
 	if (m_regDefaultConnectionState.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regDefaultConnectionState.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -144,6 +152,7 @@ BOOL CSetLogCache::OnInitDialog()
 	m_tooltips.Create(this);
 
 	m_tooltips.AddTool(IDC_ENABLELOGCACHING, IDS_SETTINGS_LOGCACHE_ENABLE);
+	m_tooltips.AddTool(IDC_SUPPORTAMBIGUOUSURL, IDS_SETTINGS_LOGCACHE_AMBIGUOUSURL);
 	m_tooltips.AddTool(IDC_GOOFFLINESETTING, IDS_SETTINGS_LOGCACHE_GOOFFLINE);
 
     m_tooltips.AddTool(IDC_MAXIMINHEADAGE, IDS_SETTINGS_LOGCACHE_HEADAGE);

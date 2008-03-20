@@ -65,6 +65,8 @@ private:
 
 	CRegDWORD		m_regEnableLogCaching;
 	BOOL			m_bEnableLogCaching;
+	CRegDWORD		m_regSupportAmbiguousURL;
+	BOOL			m_bSupportAmbiguousURL;
     CRegDWORD		m_regDefaultConnectionState;
     CRegDWORD		m_regMaxHeadAge;
 	DWORD			m_dwMaxHeadAge;

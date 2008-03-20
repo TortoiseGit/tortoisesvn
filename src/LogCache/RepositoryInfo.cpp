@@ -192,7 +192,10 @@ CRepositoryInfo::CRepositoryInfo (SVN& svn, const CString& cacheFolderPath)
     , modified (false)
     , svn (svn)
 {
-    Load();
+    // load the list only if the URL->UUID,head etc. mapping cache shall be used
+
+    if (IsPermanent())
+        Load();
 }
 
 CRepositoryInfo::~CRepositoryInfo(void)
@@ -407,8 +410,11 @@ void CRepositoryInfo::DropEntry (const CString& sUUID)
 
 void CRepositoryInfo::Flush()
 {
-    if (!modified)
+    if (!modified || !IsPermanent())
+    {
+        modified = false;
         return;
+    }
 
 	CString filename = GetFileName();
 	CPathUtils::MakeSureDirectoryPathExists(filename.Left(filename.ReverseFind('\\')));
@@ -457,6 +463,14 @@ SVN& CRepositoryInfo::GetSVN() const
 svn_error_t* CRepositoryInfo::GetLastError() const
 {
     return svn.Err;
+}
+
+// is this only temporary data?
+
+bool CRepositoryInfo::IsPermanent() const
+{
+	CRegStdWORD ambiguousURL (_T("Software\\TortoiseSVN\\SupportAmbiguousURL"), FALSE);
+	return ambiguousURL == FALSE;
 }
 
 // end namespace LogCache
