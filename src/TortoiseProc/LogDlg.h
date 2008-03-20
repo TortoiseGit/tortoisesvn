@@ -136,7 +136,7 @@ protected:
 private:
 	static UINT LogThreadEntry(LPVOID pVoid);
 	UINT LogThread();
-	void Refresh();
+	void Refresh (bool autoGoOnline = false);
 	BOOL IsDiffPossible(LogChangedPath * changedpath, svn_revnum_t rev);
 	BOOL Open(bool bOpenWith, CString changedpath, svn_revnum_t rev);
 	void EditAuthor(int index);

@@ -698,10 +698,10 @@ void CLogDlg::GetAll(bool bForceAll /* = false */)
 
 void CLogDlg::OnBnClickedRefresh()
 {
-	Refresh();
+	Refresh (true);
 }
 
-void CLogDlg::Refresh()
+void CLogDlg::Refresh (bool autoGoOnline)
 {
 	// refreshing means re-downloading the already shown log messages
 	UpdateData();
@@ -740,8 +740,11 @@ void CLogDlg::Refresh()
 
     // reset the cached HEAD property & go on-line
 
-	SetDlgTitle (false);
-    logCachePool.GetRepositoryInfo().ResetHeadRevision (CTSVNPath (m_sRepositoryRoot));
+    if (autoGoOnline)
+    {
+	    SetDlgTitle (false);
+        logCachePool.GetRepositoryInfo().ResetHeadRevision (CTSVNPath (m_sRepositoryRoot));
+    }
 
 	InterlockedExchange(&m_bThreadRunning, TRUE);
 	if (AfxBeginThread(LogThreadEntry, this)==NULL)
@@ -4557,7 +4560,7 @@ void CLogDlg::OnSize(UINT nType, int cx, int cy)
 void CLogDlg::OnRefresh()
 {
 	if (GetDlgItem(IDC_GETALL)->IsWindowEnabled())
-		Refresh();
+		Refresh (true);
 }
 
 void CLogDlg::OnFind()
