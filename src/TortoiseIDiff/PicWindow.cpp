@@ -154,15 +154,39 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 		}
 		else
 		{
-			OnVScroll(LOWORD(wParam), HIWORD(wParam));
+			UINT nPos = HIWORD(wParam);
+			if (LOWORD(wParam) == SB_THUMBTRACK || LOWORD(wParam) == SB_THUMBPOSITION)
+			{
+				// Get true 32-bit scroll position
+				SCROLLINFO si;
+				si.cbSize = sizeof(SCROLLINFO);
+				si.fMask = SIF_TRACKPOS;
+				GetScrollInfo(*this, SB_VERT, &si);
+				nPos = si.nTrackPos;
+			}
+
+			OnVScroll(LOWORD(wParam), nPos);
 			if (bLinkedPositions)
-				pTheOtherPic->OnVScroll(LOWORD(wParam), HIWORD(wParam));
+				pTheOtherPic->OnVScroll(LOWORD(wParam), nPos);
 		}
 		break;
 	case WM_HSCROLL:
-		OnHScroll(LOWORD(wParam), HIWORD(wParam));
-		if (bLinkedPositions)
-			pTheOtherPic->OnHScroll(LOWORD(wParam), HIWORD(wParam));
+		{
+			UINT nPos = HIWORD(wParam);
+			if (LOWORD(wParam) == SB_THUMBTRACK || LOWORD(wParam) == SB_THUMBPOSITION)
+			{
+				// Get true 32-bit scroll position
+				SCROLLINFO si;
+				si.cbSize = sizeof(SCROLLINFO);
+				si.fMask = SIF_TRACKPOS;
+				GetScrollInfo(*this, SB_VERT, &si);
+				nPos = si.nTrackPos;
+			}
+
+			OnHScroll(LOWORD(wParam), nPos);
+			if (bLinkedPositions)
+				pTheOtherPic->OnHScroll(LOWORD(wParam), nPos);
+		}
 		break;
 	case WM_MOUSEWHEEL:
 		{
@@ -577,27 +601,82 @@ void CPicWindow::SetupScrollBars()
 		height = max(height, double(pSecondPic->m_Height)*pTheOtherPic->GetZoom());
 	}
 
-	bool bPicWidthBigger = (nHScrollPos > 0) || (width-nHScrollPos > rect.right);
-	bool bPicHeightBigger = (nVScrollPos > 0) || (height-nVScrollPos > rect.bottom);
-
-	width  -= nHScrollPos;
-	height -= nVScrollPos;
+	bool bShowHScrollBar = (nHScrollPos > 0); // left of pic is left of window
+	bShowHScrollBar      = bShowHScrollBar || (width-nHScrollPos > rect.right); // right of pic is outside right of window
+	bShowHScrollBar      = bShowHScrollBar || (width+nHScrollPos > rect.right); // right of pic is outside right of window
+	bool bShowVScrollBar = (nVScrollPos > 0); // top of pic is above window
+	bShowVScrollBar      = bShowVScrollBar || (height-nVScrollPos+rect.top > rect.bottom); // bottom of pic is below window
+	bShowVScrollBar      = bShowVScrollBar || (height+nVScrollPos+rect.top > rect.bottom); // bottom of pic is below window
 
 	// if the image is smaller than the window, we don't need the scrollbars
-	ShowScrollBar(*this, SB_HORZ, bPicWidthBigger);
-	ShowScrollBar(*this, SB_VERT, bPicHeightBigger);
+	ShowScrollBar(*this, SB_HORZ, bShowHScrollBar);
+	ShowScrollBar(*this, SB_VERT, bShowVScrollBar);
 
-	si.nPos  = nVScrollPos;
-	si.nPage = rect.bottom-rect.top;
-	si.nMin  = 0;
-	si.nMax  = int(height);
-	SetScrollInfo(*this, SB_VERT, &si, TRUE);
+	if (bShowVScrollBar)
+	{
+		si.nPos  = nVScrollPos;
+		si.nPage = rect.bottom-rect.top;
+		if (height < rect.bottom-rect.top)
+		{
+			if (nVScrollPos > 0)
+			{
+				si.nMin  = 0;
+				si.nMax  = rect.bottom+nVScrollPos-rect.top;
+			}
+			else
+			{
+				si.nMin  = nVScrollPos;
+				si.nMax  = int(height);
+			}
+		}
+		else
+		{
+			if (nVScrollPos > 0)
+			{
+				si.nMin  = 0;
+				si.nMax  = int(max(height, rect.bottom+nVScrollPos-rect.top));
+			}
+			else
+			{
+				si.nMin  = 0;
+				si.nMax  = int(height-nVScrollPos);
+			}
+		}
+		SetScrollInfo(*this, SB_VERT, &si, TRUE);
+	}
 
-	si.nPos  = nHScrollPos;
-	si.nPage = rect.right-rect.left;
-	si.nMin  = 0;
-	si.nMax  = int(width);
-	SetScrollInfo(*this, SB_HORZ, &si, TRUE);
+	if (bShowHScrollBar)
+	{
+		si.nPos  = nHScrollPos;
+		si.nPage = rect.right-rect.left;
+		if (width < rect.right-rect.left)
+		{
+			if (nHScrollPos > 0)
+			{
+				si.nMin  = 0;
+				si.nMax  = rect.right+nHScrollPos-rect.left;
+			}
+			else
+			{
+				si.nMin  = nHScrollPos;
+				si.nMax  = int(width);
+			}
+		}
+		else
+		{
+			if (nHScrollPos > 0)
+			{
+				si.nMin  = 0;
+				si.nMax  = int(max(width, rect.right+nHScrollPos-rect.left));
+			}
+			else
+			{
+				si.nMin  = 0;
+				si.nMax  = int(width-nHScrollPos);
+			}
+		}
+		SetScrollInfo(*this, SB_HORZ, &si, TRUE);
+	}
 
 	PositionChildren();
 }
@@ -606,6 +685,7 @@ void CPicWindow::OnVScroll(UINT nSBCode, UINT nPos)
 {
 	RECT rect;
 	GetClientRect(&rect);
+
 	switch (nSBCode)
 	{
 	case SB_BOTTOM:
@@ -649,6 +729,7 @@ void CPicWindow::OnHScroll(UINT nSBCode, UINT nPos)
 {
 	RECT rect;
 	GetClientRect(&rect);
+
 	switch (nSBCode)
 	{
 	case SB_RIGHT:
