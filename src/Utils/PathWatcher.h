@@ -76,7 +76,7 @@ public:
 	/**
 	 * Clears the list of changed paths
 	 */
-	void ClearChangedPaths() {m_changedPaths.Clear();}
+	void ClearChangedPaths() {AutoLocker lock(m_critSec); m_changedPaths.Clear();}
 
 private:
 	static unsigned int __stdcall ThreadEntry(void* pContext);
