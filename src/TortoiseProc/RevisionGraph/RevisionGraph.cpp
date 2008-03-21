@@ -203,9 +203,9 @@ BOOL CRevisionGraph::FetchRevisionData (CString path, const SOptions& /*options*
 
 	CTSVNPath dummy;
     svn_revnum_t headRevision = NO_REVISION;
-    svn.GetRootAndHead (urlpath, dummy, headRevision);
 
-	if (m_sRepoRoot.IsEmpty())
+	if (   (svn.GetRootAndHead (urlpath, dummy, headRevision) == FALSE)
+        || m_sRepoRoot.IsEmpty())
 	{
 		Err = svn_error_dup(svn.Err);
 		return FALSE;
