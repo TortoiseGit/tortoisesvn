@@ -198,6 +198,9 @@ BOOL CRevisionGraphWnd::ProgressCallback(CString text, CString text2, DWORD done
 		m_dwTicks = GetTickCount();
 		m_pProgress->SetLine(1, text);
 		m_pProgress->SetLine(2, text2);
+        if (!m_pProgress->IsVisible())
+    	    m_pProgress->ShowModeless (GetParent());
+
 		m_pProgress->SetProgress(done, total);
 		if (m_pProgress->HasUserCancelled())
 			return FALSE;

@@ -296,7 +296,6 @@ UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
 	    pDlg->m_Graph.m_pProgress->SetTitle(IDS_REVGRAPH_PROGTITLE);
 	    pDlg->m_Graph.m_pProgress->SetCancelMsg(IDS_REVGRAPH_PROGCANCEL);
 	    pDlg->m_Graph.m_pProgress->SetTime();
-	    pDlg->m_Graph.m_pProgress->ShowModeless(pDlg->m_hWnd);
 	    pDlg->m_Graph.m_pProgress->SetProgress(0, 100);
 
 	    if (!pDlg->m_Graph.FetchRevisionData(pDlg->m_Graph.m_sPath, pDlg->m_options))
@@ -353,22 +352,6 @@ void CRevisionGraphDlg::OnSize(UINT nType, int cx, int cy)
 
 BOOL CRevisionGraphDlg::PreTranslateMessage(MSG* pMsg)
 {
-	if (::IsWindow(m_Graph.m_pDlgTip->m_hWnd) && pMsg->hwnd == m_hWnd)
-	{
-		switch(pMsg->message)
-		{
-		case WM_LBUTTONDOWN: 
-		case WM_MOUSEMOVE:
-		case WM_LBUTTONUP: 
-		case WM_RBUTTONDOWN:
-		case WM_MBUTTONDOWN: 
-		case WM_RBUTTONUP:
-		case WM_MBUTTONUP:
-			// This will reactivate the tooltip
-			m_Graph.m_pDlgTip->Activate(TRUE);
-			break;
-		}
-	}
 #define SCROLL_STEP  20
 	if (pMsg->message == WM_KEYDOWN)
 	{

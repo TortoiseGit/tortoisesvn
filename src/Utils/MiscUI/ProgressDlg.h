@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -158,6 +158,11 @@ public:
 	 * you MUST NOT use the current instance of this class.
 	 */
     bool IsValid() const { return m_bValid; }
+
+	/**
+	 * Checks whether the window is shown.
+	 */
+    bool IsVisible() const { return m_isVisible; }
 
 	/**
 	 * After a call to Stop() to hide the progress dialog,
