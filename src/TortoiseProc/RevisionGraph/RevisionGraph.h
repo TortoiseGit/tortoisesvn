@@ -133,7 +133,7 @@ public:
 	std::auto_ptr<CCacheLogQuery> query;
     std::auto_ptr<CPathClassificator> pathClassification;
 
-	CString						GetReposRoot() {return CString(m_sRepoRoot);}
+    CString				        GetReposRoot();
 
 	BOOL						m_bCancelled;
 

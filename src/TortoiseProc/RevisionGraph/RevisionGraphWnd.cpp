@@ -33,6 +33,7 @@
 #include "RevisionGraphDlg.h"
 #include "CachedLogInfo.h"
 #include "RevisionIndex.h"
+#include "RepositoryInfo.h"
 #include "BrowseFolder.h"
 #include "SVNProgressDlg.h"
 
@@ -1085,5 +1086,24 @@ LRESULT CRevisionGraphWnd::OnWorkerThreadDone(WPARAM, LPARAM)
 	BuildPreview();
     Invalidate(FALSE);
 
+	LogCache::CRepositoryInfo& cachedProperties 
+        = svn.GetLogCachePool()->GetRepositoryInfo();
+	SetDlgTitle (cachedProperties.IsOffline (GetReposRoot(), false));
+
     return 0;
 }
+
+void CRevisionGraphWnd::SetDlgTitle (bool offline)
+{
+	if (m_sTitle.IsEmpty())
+		GetParent()->GetWindowText(m_sTitle);
+
+	CString newTitle;
+	if (offline)
+    	newTitle.Format (IDS_REVGRAPH_DLGTITLEOFFLINE, m_sTitle);
+    else
+        newTitle = m_sTitle;
+
+	GetParent()->SetWindowText (newTitle);
+}
+

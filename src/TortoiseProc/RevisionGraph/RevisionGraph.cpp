@@ -1793,3 +1793,9 @@ CString CRevisionGraph::GetLastErrorMessage()
 {
 	return SVN::GetErrorString(Err);
 }
+
+CString CRevisionGraph::GetReposRoot() 
+{
+    return CUnicodeUtils::GetUnicode (CPathUtils::PathUnescape (m_sRepoRoot));
+}
+
