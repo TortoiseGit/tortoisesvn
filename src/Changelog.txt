@@ -6,6 +6,8 @@
        log dialog. (Stefan)
 - BUG: The merge ranges were not properly sorted for a rev-range merge. (Stefan)
 - BUG: Switching the left/right view in TortoiseMerge lost edits. (Stefan)
+- BUG: The repo browser showed an empty entry when showing a repository on an
+       UNC path. (Stefan)
 - CHG: Client-side hook scripts are now called with the predefined parameters
        in a predefined order. (Stefan)
 
