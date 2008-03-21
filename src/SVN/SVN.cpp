@@ -1728,8 +1728,7 @@ void SVN::UrlToPath(CString &url)
 	url.Trim();
 	url.Replace('\\','/');
 	url = url.Mid(7);	// "file://" has seven chars
-	if (url.GetAt(1) != '/')
-		url = url.Mid(1);
+	url.TrimLeft('/');
 	SVN::preparePath(url);
 	// now we need to unescape the url
 	url = CPathUtils::PathUnescape(url);
