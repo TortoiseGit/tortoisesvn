@@ -148,6 +148,7 @@ CString SVN::CheckConfigFile()
 			msg += _T("\n") + temp;
 		}
 		svn_error_clear(Err);
+        Err = NULL;
 	}
 	return msg;
 }
@@ -415,6 +416,8 @@ BOOL SVN::Add(const CTSVNPathList& pathList, ProjectProperties * props, svn_dept
 	// the add command should use the mime-type file
 	const char *mimetypes_file;
 	svn_error_clear(Err);
+    Err = NULL;
+
 	svn_config_t * opt = (svn_config_t *)apr_hash_get (m_pctx->config, SVN_CONFIG_CATEGORY_CONFIG,
 		APR_HASH_KEY_STRING);
 	svn_config_get(opt, &mimetypes_file,
@@ -702,6 +705,8 @@ BOOL SVN::Resolve(const CTSVNPath& path, svn_wc_conflict_choice_t result, BOOL r
 {
 	SVNPool subpool(pool);
 	svn_error_clear(Err);
+    Err = NULL;
+
 	// before marking a file as resolved, we move the conflicted parts
 	// to the trash bin: just in case the user later wants to get those
 	// files back anyway
@@ -752,6 +757,8 @@ BOOL SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, SVNRev peg
 				 BOOL extended, CString eol)
 {
 	svn_error_clear(Err);
+    Err = NULL;
+
 	if (revision.IsWorking())
 	{
 		if (g_SVNAdminDir.IsAdminDirPath(srcPath.GetWinPath()))
@@ -2014,6 +2021,7 @@ svn_revnum_t SVN::GetHEADRevision(const CTSVNPath& url)
 
 	SVNPool localpool(pool);
 	svn_error_clear(Err);
+    Err = NULL;
 
 	if (!url.IsUrl())
 		SVN::get_url_from_target(&urla, url.GetSVNApiPath(localpool));
