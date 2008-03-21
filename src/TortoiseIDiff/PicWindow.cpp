@@ -155,6 +155,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 		else
 		{
 			UINT nPos = HIWORD(wParam);
+			bool bForceUpdate = false;
 			if (LOWORD(wParam) == SB_THUMBTRACK || LOWORD(wParam) == SB_THUMBPOSITION)
 			{
 				// Get true 32-bit scroll position
@@ -163,16 +164,22 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 				si.fMask = SIF_TRACKPOS;
 				GetScrollInfo(*this, SB_VERT, &si);
 				nPos = si.nTrackPos;
+				bForceUpdate = true;
 			}
 
 			OnVScroll(LOWORD(wParam), nPos);
 			if (bLinkedPositions)
+			{
 				pTheOtherPic->OnVScroll(LOWORD(wParam), nPos);
+				if (bForceUpdate)
+					::UpdateWindow(*pTheOtherPic);
+			}
 		}
 		break;
 	case WM_HSCROLL:
 		{
 			UINT nPos = HIWORD(wParam);
+			bool bForceUpdate = false;
 			if (LOWORD(wParam) == SB_THUMBTRACK || LOWORD(wParam) == SB_THUMBPOSITION)
 			{
 				// Get true 32-bit scroll position
@@ -181,11 +188,16 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
 				si.fMask = SIF_TRACKPOS;
 				GetScrollInfo(*this, SB_VERT, &si);
 				nPos = si.nTrackPos;
+				bForceUpdate = true;
 			}
 
 			OnHScroll(LOWORD(wParam), nPos);
 			if (bLinkedPositions)
+			{
 				pTheOtherPic->OnHScroll(LOWORD(wParam), nPos);
+				if (bForceUpdate)
+					::UpdateWindow(*pTheOtherPic);
+			}
 		}
 		break;
 	case WM_MOUSEWHEEL:
