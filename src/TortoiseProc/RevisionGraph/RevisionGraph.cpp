@@ -265,6 +265,7 @@ BOOL CRevisionGraph::FetchRevisionData (CString path, const SOptions& /*options*
 void CRevisionGraph::AnalyzeRevisionData (CString path, const SOptions& options)
 {
 	svn_error_clear(Err);
+    Err = NULL;
 
 	ClearRevisionEntries();
 	m_maxurllength = 0;

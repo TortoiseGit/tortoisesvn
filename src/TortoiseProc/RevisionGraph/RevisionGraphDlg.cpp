@@ -32,6 +32,7 @@
 #include "SVNDiff.h"
 #include "RevGraphFilterDlg.h"
 #include ".\revisiongraphdlg.h"
+#include "RepositoryInfo.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -388,6 +389,17 @@ BOOL CRevisionGraphDlg::PreTranslateMessage(MSG* pMsg)
 			m_Graph.SetScrollPos(SB_VERT, pos + 10*SCROLL_STEP);
 			m_Graph.Invalidate();
 			break;
+		case VK_F5:
+	        m_Graph.SetDlgTitle (false);
+
+        	LogCache::CRepositoryInfo& cachedProperties 
+                = m_Graph.svn.GetLogCachePool()->GetRepositoryInfo();
+            cachedProperties.ResetHeadRevision (CTSVNPath (m_Graph.GetReposRoot()));
+
+            m_bFetchLogs = true;
+            StartWorkerThread();
+
+			break;
 		}
 	}
 	if ((m_hAccel)&&(pMsg->message >= WM_KEYFIRST && pMsg->message <= WM_KEYLAST))
@@ -529,10 +541,18 @@ void CRevisionGraphDlg::OnToggleOption(int controlID, bool& option)
 		option = true;
 	}
 
-	InterlockedExchange(&m_Graph.m_bThreadRunning, TRUE);
+    StartWorkerThread();
+}
+
+void CRevisionGraphDlg::StartWorkerThread()
+{
+	if (InterlockedExchange(&m_Graph.m_bThreadRunning, TRUE) == TRUE)
+        return;
+
 	if (AfxBeginThread(WorkerThread, this)==NULL)
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+	    InterlockedExchange(&m_Graph.m_bThreadRunning, FALSE);
 	}
 }
 

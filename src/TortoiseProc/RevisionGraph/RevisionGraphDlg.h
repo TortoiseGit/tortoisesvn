@@ -107,7 +107,9 @@ protected:
 	void			UpdateStatusBar();
 
 private:
+    void            StartWorkerThread();
 	static UINT		WorkerThread(LPVOID pVoid);
+
 	CRevisionGraphWnd	m_Graph;
 	CStatusBarCtrl		m_StatusBar;
 	CRevGraphToolBar	m_ToolBar;
