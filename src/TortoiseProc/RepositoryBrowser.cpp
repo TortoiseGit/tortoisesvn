@@ -292,7 +292,8 @@ void CRepositoryBrowser::InitRepo()
 				(m_InitialUrl.Compare(_T("https://")) == 0)||
 				(m_InitialUrl.Compare(_T("svn://")) == 0)||
 				(m_InitialUrl.Compare(_T("svn+ssh://")) == 0)||
-				(m_InitialUrl.Compare(_T("file:///")) == 0))
+				(m_InitialUrl.Compare(_T("file:///")) == 0)||
+				(m_InitialUrl.Compare(_T("file://")) == 0))
 			{
 				m_InitialUrl.Empty();
 			}
@@ -335,6 +336,8 @@ void CRepositoryBrowser::InitRepo()
 		if (m_strReposRoot.Left(10).CompareNoCase(_T("svn+ssh://"))==0)
 			nID = IDI_REPO_SVNSSH;
 		if (m_strReposRoot.Left(8).CompareNoCase(_T("file:///"))==0)
+			nID = IDI_REPO_FILE;
+		if (m_strReposRoot.Left(7).CompareNoCase(_T("file://"))==0)
 			nID = IDI_REPO_FILE;
 		CAppUtils::SetListCtrlBackgroundImage(m_RepoList.GetSafeHwnd(), nID);
 	}
@@ -943,27 +946,31 @@ HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url
 		sUrl = sUrl.Mid(slash+1);
 		ATLTRACE(_T("created tree entry %s, url %s\n"), sTemp, pTreeItem->url);
 	}
-	CTreeItem * pTreeItem = new CTreeItem();
-	sTemp = sUrl;
-	pTreeItem->unescapedname = sTemp;
-	pTreeItem->url = fullurl;
-	UINT state = pTreeItem->url.CompareNoCase(m_diffURL.GetSVNPathString()) ? 0 : TVIS_BOLD;
-	TVINSERTSTRUCT tvinsert = {0};
-	tvinsert.hParent = hNewItem;
-	tvinsert.hInsertAfter = TVI_SORT;
-	tvinsert.itemex.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_PARAM | TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE | TVIF_STATE;
-	tvinsert.itemex.state = state;
-	tvinsert.itemex.stateMask = state;
-	tvinsert.itemex.pszText = sTemp.GetBuffer(sTemp.GetLength());
-	tvinsert.itemex.cChildren = 1;
-	tvinsert.itemex.lParam = (LPARAM)pTreeItem;
-	tvinsert.itemex.iImage = m_nIconFolder;
-	tvinsert.itemex.iSelectedImage = m_nOpenIconFolder;
+	if (!sUrl.IsEmpty())
+	{
+		CTreeItem * pTreeItem = new CTreeItem();
+		sTemp = sUrl;
+		pTreeItem->unescapedname = sTemp;
+		pTreeItem->url = fullurl;
+		UINT state = pTreeItem->url.CompareNoCase(m_diffURL.GetSVNPathString()) ? 0 : TVIS_BOLD;
+		TVINSERTSTRUCT tvinsert = {0};
+		tvinsert.hParent = hNewItem;
+		tvinsert.hInsertAfter = TVI_SORT;
+		tvinsert.itemex.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_PARAM | TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE | TVIF_STATE;
+		tvinsert.itemex.state = state;
+		tvinsert.itemex.stateMask = state;
+		tvinsert.itemex.pszText = sTemp.GetBuffer(sTemp.GetLength());
+		tvinsert.itemex.cChildren = 1;
+		tvinsert.itemex.lParam = (LPARAM)pTreeItem;
+		tvinsert.itemex.iImage = m_nIconFolder;
+		tvinsert.itemex.iSelectedImage = m_nOpenIconFolder;
 
-	hNewItem = m_RepoTree.InsertItem(&tvinsert);
-	sTemp.ReleaseBuffer();
-	m_RepoTree.SortChildren(hNewItem);
-	return hNewItem;
+		hNewItem = m_RepoTree.InsertItem(&tvinsert);
+		sTemp.ReleaseBuffer();
+		m_RepoTree.SortChildren(hNewItem);
+		return hNewItem;
+	}
+	return NULL;
 }
 
 bool CRepositoryBrowser::RefreshNode(const CString& url, bool force /* = false*/, bool recursive /* = false*/)
