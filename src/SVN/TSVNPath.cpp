@@ -268,8 +268,6 @@ void CTSVNPath::SetBackslashPath(const CString& sPath) const
 
 void CTSVNPath::SetUTF8FwdslashPath(const CString& sPath) const
 {
-	// Only set this from a forward-slash path
-	ATLASSERT(sPath.Find('\\') == -1);
 	m_sUTF8FwdslashPath = CUnicodeUtils::GetUTF8(sPath);
 }
 
