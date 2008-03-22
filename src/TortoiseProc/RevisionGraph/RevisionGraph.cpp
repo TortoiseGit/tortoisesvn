@@ -250,8 +250,16 @@ BOOL CRevisionGraph::FetchRevisionData (CString path, const SOptions& /*options*
 
         // initialize path classificator
 
+        CRegStdString trunkPattern (_T("Software\\TortoiseSVN\\RevisionGraph\\TrunkPattern"), _T("trunk"));
+        CRegStdString branchesPattern (_T("Software\\TortoiseSVN\\RevisionGraph\\BranchPattern"), _T("branches"));
+        CRegStdString tagsPattern (_T("Software\\TortoiseSVN\\RevisionGraph\\TagsPattern"), _T("tags"));
+
         const CPathDictionary& paths = query->GetCache()->GetLogInfo().GetPaths();
-        pathClassification.reset (new CPathClassificator (paths));
+        pathClassification.reset 
+            (new CPathClassificator ( paths
+                                    , CUnicodeUtils::StdGetUTF8 (trunkPattern)
+                                    , CUnicodeUtils::StdGetUTF8 (branchesPattern)
+                                    , CUnicodeUtils::StdGetUTF8 (tagsPattern)));
 	}
 	catch (SVNError& e)
 	{
