@@ -45,6 +45,7 @@ protected:
 	BOOL				CheckData(bool bShowErrors = true);
 
 	afx_msg void		OnBnClickedShowmergelog();
+	afx_msg void		OnBnClickedBrowse();
 
 
 	DECLARE_MESSAGE_MAP()

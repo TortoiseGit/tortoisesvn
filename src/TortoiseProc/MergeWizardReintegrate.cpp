@@ -56,6 +56,7 @@ void CMergeWizardReintegrate::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CMergeWizardReintegrate, CMergeWizardBasePage)
 	ON_BN_CLICKED(IDC_SHOWMERGELOG, &CMergeWizardReintegrate::OnBnClickedShowmergelog)
+	ON_BN_CLICKED(IDC_BROWSE, &CMergeWizardReintegrate::OnBnClickedBrowse)
 END_MESSAGE_MAP()
 
 
@@ -139,4 +140,10 @@ void CMergeWizardReintegrate::OnBnClickedShowmergelog()
 		m_pLogDlg->Create(IDD_LOGMESSAGE, this);
 		m_pLogDlg->ShowWindow(SW_SHOW);
 	}
+}
+
+void CMergeWizardReintegrate::OnBnClickedBrowse()
+{
+	SVNRev rev(SVNRev::REV_HEAD);
+	CAppUtils::BrowseRepository(m_URLCombo, this, rev);
 }
