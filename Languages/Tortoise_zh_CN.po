@@ -57,7 +57,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-20 15:41+0800\n"
+"PO-Revision-Date: 2008-03-22 23:38+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -179,6 +179,11 @@ msgstr "%ld 个路径"
 msgid "%s"
 msgstr "%s"
 
+#. Resource IDs: (93)
+#, c-format
+msgid "%s (offline)"
+msgstr "%s(离线)"
+
 #. Resource IDs: (115)
 #, c-format
 msgid "%s (offline) - %s"
@@ -272,6 +277,10 @@ msgstr "增加(&A)..."
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
 msgstr "高级设置(&A)..."
+
+#. Resource IDs: (1471)
+msgid "&Allow ambiguous URLs"
+msgstr "允许不明确的 URL(&A)"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -1136,6 +1145,14 @@ msgstr "所有文件 (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "所有文件 (*.*)|*.*||"
 
+#. Resource IDs: (345)
+msgid ""
+"Allow different repositories to use the same URL, e.g. http://localhost/myrepos/\n"
+"Note: This will disable offline log access."
+msgstr ""
+"允许不同的版本库使用同一 URL, 例如: http://localhost/myrepos/\n"
+"说明: 这会禁用离线日志访问。"
+
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "始终使用系统区域设置显示时间和日期"
@@ -1199,10 +1216,6 @@ msgstr "存取 %1 时发生不明错误。"
 #, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "在第 %d 行发现不明型态数据！"
-
-#. Resource IDs: (269)
-msgid "Analyze revision data..."
-msgstr "分析分枝数据..."
 
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
@@ -1606,10 +1619,6 @@ msgstr "选中你希望出现在右键菜单，二不是 TortoiseSVN 子菜单�
 #. Resource IDs: (80)
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "选中可在日志信息中使用较简短的日期及时间"
-
-#. Resource IDs: (270)
-msgid "Checking for forward copies"
-msgstr "正在检查更新的版本"
 
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
