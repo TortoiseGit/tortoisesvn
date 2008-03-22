@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-22 13:51+0100\n"
+"PO-Revision-Date: 2008-03-22 19:35+0100\n"
 "Last-Translator: Zero3Cool\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -222,7 +222,7 @@ msgstr "%I64d kBytes overført"
 #. Resource IDs: (169)
 #, c-format
 msgid "%d files selected, %d files total"
-msgstr "%d valgte filer, %d filer i alt"
+msgstr "%d fil(er) valgt, %d fil(er) i alt"
 
 #. Resource IDs: (246)
 #, c-format
@@ -1463,11 +1463,10 @@ msgstr "Ansvar - TortoiseSVN"
 msgid "Blames each line of a file on an author"
 msgstr "Viser den ansvarlige forfatter for hver linje i en fil"
 
-# Oversættelse af "blend alpha"?
-# Kontekst?
+# Kontekst: "Alpha blending in TortoiseIDiff (two images overlapping, with their alpha channel adjusted so both images are 'shining through')."
 #. Resource IDs: (32812)
 msgid "Blend Alpha"
-msgstr ""
+msgstr "Mix alpha-kanaler"
 
 #. Resource IDs: (83)
 msgid ""
@@ -2564,10 +2563,11 @@ msgstr "Vis ikke denne meddelelse igen"
 msgid "Drive Types"
 msgstr "Drevtyper"
 
-# Kontekst?
+# Kontekst: "Revision graph. Shows the *exact* copy sources. Otherwise the graph will merge some copy sources together (helps to reduce the complexity of the graph)."
+# Bedre oversættelse af "Exact copy sources"?
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
-msgstr ""
+msgstr "&Præcise kopioprindelser"
 
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
@@ -6217,10 +6217,10 @@ msgstr "Skift til foregående dokumentvindue"
 msgid "Switch working copy to another branch / tag"
 msgstr "Skift arbejdskopi til en anden gren / mærke"
 
-# Kontekst?
+# Kontekst: "Skift denne sti [til ...]" i skift-dialogen
 #. Resource IDs: (65535)
 msgid "Switch:"
-msgstr ""
+msgstr "Skift:"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<<->right"
