@@ -155,9 +155,13 @@ void CSetHooksAdv::OnBnClickedHookbrowse()
 
 void CSetHooksAdv::OnBnClickedHookcommandbrowse()
 {
+	CString sCmdLine = m_sCommandLine;
+	if (!PathFileExists(sCmdLine))
+		sCmdLine.Empty();
 	// Display the Open dialog box. 
-	if (CAppUtils::FileOpenSave(m_sCommandLine, NULL, IDS_SETTINGS_HOOKS_SELECTSCRIPTFILE, IDS_COMMONFILEFILTER, true, m_hWnd))
+	if (CAppUtils::FileOpenSave(sCmdLine, NULL, IDS_SETTINGS_HOOKS_SELECTSCRIPTFILE, IDS_COMMONFILEFILTER, true, m_hWnd))
 	{
+		m_sCommandLine = sCmdLine;
 		UpdateData(FALSE);
 	}
 }
