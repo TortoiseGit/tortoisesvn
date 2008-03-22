@@ -265,11 +265,11 @@ revision_t CRepositoryInfo::GetHeadRevision (const CTSVNPath& url)
     // get time stamps and maximum head info age (default: 0 mins)
 
     __time64_t now = CTime::GetCurrentTime().GetTime();
-    CRegStdWORD useLogCache (_T("Software\\TortoiseSVN\\HeadCacheAgeLimit"), 0);
+    CRegStdWORD ageLimit (_T("Software\\TortoiseSVN\\HeadCacheAgeLimit"), 0);
 
     // is there a valid cached entry?
 
-    if (   (now - iter->second.headLookupTime > useLogCache)
+    if (   (now - iter->second.headLookupTime > ageLimit)
         || (   url.GetSVNPathString().Left (iter->second.headURL.GetLength())
             != iter->second.headURL)
         || (iter->second.headRevision == NO_REVISION))
