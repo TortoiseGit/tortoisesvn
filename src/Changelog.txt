@@ -1,3 +1,4 @@
+Version 1.5.0-beta1
 - NEW: Implemented 'merge reintegrate': new page in the merge wizard. (Stefan)
 - BUG: Inserting a history log message in the commit dialog when 
        bugtraq:append is set to 'false' inserted the bug ID and the commit
@@ -8,9 +9,12 @@
 - BUG: Switching the left/right view in TortoiseMerge lost edits. (Stefan)
 - BUG: The repo browser showed an empty entry when showing a repository on an
        UNC path. (Stefan)
+- BUG: The browse button in the merge wizard reintegrate page did
+       not work at all. (Stefan)
+- BUG: The file-open dialog in the hook scripts dialog did not show if the
+       path in the edit box did not exist. (Stefan)
 - CHG: Client-side hook scripts are now called with the predefined parameters
        in a predefined order. (Stefan)
-
 
 Version 1.5.0-alpha1
 - NEW: Various new layout options in revision graph. (Stefan Fuhrmann)
