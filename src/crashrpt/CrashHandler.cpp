@@ -99,6 +99,9 @@ void CCrashHandler::Install(LPGETLOGFILE lpfn, LPCTSTR lpcszTo, LPCTSTR lpcszSub
    m_sSubject = lpcszSubject;
    m_bUseUI = bUseUI;
 
+   // This is needed for CRT to not show dialog for invalid param
+   // failures and instead let the code handle it.
+   _CrtSetReportMode(_CRT_ASSERT, 0);
    // add this filter in the exception callback chain
    m_oldFilter = SetUnhandledExceptionFilter(CustomUnhandledExceptionFilter);
 /*m_oldErrorMode=*/ SetErrorMode( SEM_FAILCRITICALERRORS );
