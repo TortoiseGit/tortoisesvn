@@ -1342,7 +1342,24 @@ BOOL SVN::ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionPeg, SVNRev r
                    , TRevPropNames());
 
         if (refresh && logCachePool.IsEnabled())
-            refreshQuery.UpdateCache (&logCachePool);
+        {
+            // handle cache refresh results
+
+            if (refreshQuery.GotAnyData())
+            {
+                refreshQuery.UpdateCache (&logCachePool);
+            }
+            else
+            {
+                // no connection to the repository but also not cancelled 
+                // (no exception thrown) -> re-run from cache
+
+                return ReceiveLog ( pathlist
+                                  , revisionPeg, revisionStart, revisionEnd
+                                  , limit, strict, withMerges
+                                  , false);
+            }
+        }
 	}
 	catch (SVNError& e)
 	{
