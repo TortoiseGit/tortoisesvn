@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-20 08:32+0100\n"
+"PO-Revision-Date: 2008-03-23 09:55+0100\n"
 "Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -144,6 +144,11 @@ msgstr "%ld chemins"
 msgid "%s"
 msgstr "%s"
 
+#. Resource IDs: (93)
+#, c-format
+msgid "%s (offline)"
+msgstr "%s (hors-ligne)"
+
 #. Resource IDs: (115)
 #, c-format
 msgid "%s (offline) - %s"
@@ -237,6 +242,10 @@ msgstr "&Ajouter..."
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
 msgstr "&Avancé..."
+
+#. Resource IDs: (1471)
+msgid "&Allow ambiguous URLs"
+msgstr "&Autoriser les URLs ambiguës"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -1101,6 +1110,14 @@ msgstr "Tous fichiers (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "Tous fichiers (*.*)|*.*||"
 
+#. Resource IDs: (345)
+msgid ""
+"Allow different repositories to use the same URL, e.g. http://localhost/myrepos/\n"
+"Note: This will disable offline log access."
+msgstr ""
+"Autoriser différents référentiels à utiliser la même URL, ex. http://localhost/myrepos/\n"
+"Note : Cela désactivera l'accès au journal hors ligne."
+
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "Toujours utiliser les réglages internationaux du système pour afficher les heures et les dates"
@@ -1165,10 +1182,6 @@ msgstr "Une erreur inconnue est survenue lors de l'accès à %1."
 #, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "Un type de ligne inconnu a été trouvé à la ligne %d !"
-
-#. Resource IDs: (269)
-msgid "Analyze revision data..."
-msgstr "Analyser les données de révision..."
 
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
@@ -1574,10 +1587,6 @@ msgstr "Sélectionnez les entrées de menu que vous voulez faire apparaître dan
 #. Resource IDs: (80)
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Sélectionnez pour utiliser un format de date et heure moins détaillé dans le journal"
-
-#. Resource IDs: (270)
-msgid "Checking for forward copies"
-msgstr "Vérification les copies vers l'avant"
 
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -8080,6 +8089,10 @@ msgstr "année"
 msgid "yes"
 msgstr "oui"
 
+#~ msgid "Analyze revision data..."
+#~ msgstr "Analyser les données de révision..."
+#~ msgid "Checking for forward copies"
+#~ msgstr "Vérification les copies vers l'avant"
 #~ msgid "Groups branches together"
 #~ msgstr "Regrouper les branches ensemble"
 #~ msgid "Number of changed cached revisions"
