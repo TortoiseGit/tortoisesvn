@@ -1104,9 +1104,19 @@ CDictionaryBasedTempPath CCacheLogQuery::GetRelativeRepositoryPath
 	URL = CUnicodeUtils::GetUTF8 
     		(repositoryInfoCache->GetRepositoryRootAndUUID (url, uuid));
 
+    // URL and / or uuid may be unknown if there is no repository list entry
+    // (e.g. this is a temp. cache object) and there is no server connection
+
+    assert (uuid.IsEmpty() == URL.IsEmpty());
+    if (uuid.IsEmpty())
+    {
+        // we can't cache the data -> return an invalid path
+
+        return CDictionaryBasedTempPath (NULL);
+    }
+
 	// load / create cache
 
-	assert(!uuid.IsEmpty());
 	if (caches != NULL)
 	{
 		cache = caches->GetCache (uuid);
@@ -1287,10 +1297,14 @@ void CCacheLogQuery::Log ( const CTSVNPathList& targets
     // (don't get the repo info from SVN, if it had to be fetched from the server
     //  -> let GetRelativeRepositoryPath() use our repository property cache)
 
+    CDictionaryBasedTempPath repoPath = GetRelativeRepositoryPath (url);
+    if (!repoPath.IsValid())
+        return;
+
 	CDictionaryBasedTempPath startPath 
 		= TranslatePegRevisionPath ( pegRevision
 								   , startRevision
-								   , GetRelativeRepositoryPath (url));
+								   , repoPath);
 
 	// do it 
 
@@ -1350,10 +1364,17 @@ void CCacheLogQuery::LogRevision ( revision_t revision
 
 // access to the cache
 
-CCachedLogInfo* CCacheLogQuery::GetCache()
+CCachedLogInfo* CCacheLogQuery::GetCache() const
 {
 	assert (cache != NULL);
 	return cache;
+}
+
+// could we get at least some data
+
+bool CCacheLogQuery::GotAnyData() const
+{
+    return cache != NULL;
 }
 
 // for tempCaches: write content to "real" cache files
@@ -1367,6 +1388,12 @@ void CCacheLogQuery::UpdateCache (CLogCachePool* caches)
     path.SetFromSVN (URL);
 
     CString uuid = repositoryInfoCache->GetRepositoryUUID (path);
+
+    // UUID may be unknown if there is no repository list entry
+    // (e.g. this is a temp. cache object) and there is no server connection
+
+    if (uuid.IsEmpty())
+        return;
 
 	// load / create cache and merge it with our results
 

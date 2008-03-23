@@ -392,7 +392,11 @@ public:
 
 	/// access to the cache
 	/// (only valid after calling Log())
-	CCachedLogInfo* GetCache();
+	CCachedLogInfo* GetCache() const;
+
+    /// could we get at least some data?
+    /// (such as an empty log but still UUID and HEAD info)
+    bool GotAnyData() const;
 
     /// for tempCaches: write content to "real" cache files
     /// (no-op if this is does not use a temp. cache)
