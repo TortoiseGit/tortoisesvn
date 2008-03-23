@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE appendix SYSTEM "../../../dtd/dblite.dtd">
+<appendix id="tsvn-ssh-clientcertificates">
+	<title>How do I get client certificates to work?</title>
+	<simplesect>
+		<para>
+			Sent to the TortoiseSVN mailing list by Nigel Green, Thanks!
+		</para>
+	</simplesect>
+	<sect1 id="tsvn-ssh-clientcertificatesstart">
+		<title>How do I get client certificates to work?</title>
+		<para>
+			The final workaround that I came up with may well be helpful 
+			to others trying to solve the same problem, so I thought 
+			it worthwhile to detail my findings below ........
+		</para>
+		<para>
+			What I was trying to achieve was a single server containing 
+			2 virtual SSL hosts: The first one was for public access, 
+			with no requirement for a client certificate. The second 
+			one was to be totally secure with a required client 
+			certificate, running a Subversion that I could access with 
+			TortoiseSVN.
+		</para>
+		<para>
+			Adding a "SSLVerifyClient Optional" directive to the 
+			"per-server" section of the Apache configuration $
+			(i.e. OUTSIDE of any "VirtualHost" and "Directory" locks) 
+			forces Apache to request a "Client Certificate" in the 
+			initial SSL handshake. It appears to be essential for 
+			TortoiseSVN that the certificate is requested at this point. 
+			TortoiseSVN does not appear to work with Client Certificates 
+			if the SSL connection is re-negotiated. [I understand from 
+			quotes on the web that this is a bug in mod_ssl which is 
+			used by TortoiseSVN.]
+		</para>
+		<para>
+			However, this left me with a big problem. As the 
+			"SSLVerifyClient" directive is server-wide, it seemed that 
+			I could not make one virtual host require client 
+			certificates, and the other one not. I could not put any 
+			other "SSLVerifyClient" directives in the host 
+			configuration, as they are overridden by the server-wide 
+			directive, and I could not move the "SSLVerifyClient" 
+			directive to a "per-directory" level as TortoiseSVN would 
+			not cope with the SSL re-negotiation. A different approach 
+			was called for. In the end, the solution was quite simple; 
+			to add the following directive to the virtual host Directory 
+			that I wanted to lock down for Subversion:
+			<screen>
+SSLRequire %{SSL_CLIENT_VERIFY} eq "SUCCESS"
+			</screen>
+			This directive grants access to the directory only if a 
+			client certificate was received and verified successfully. 
+			i.e. it was just what I wanted to achieve.
+		</para>
+		<para>
+			So to summarise, the relevant lines of my new Apache configuration that solve this problem are:
+			<screen>
+SSLVerifyClient Optional
+
+### Virtual host configuration for the PUBLIC host (not requiring a certificate)
+
+&lt;VirtualHost 127.0.0.1:443&gt;
+  &lt;Directory "pathtopublicfileroot"&gt;
+  &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+
+### Virtual host configuration for SUBVERSION (requiring a client certificate)
+&lt;VirtualHost 127.0.0.1:443&gt;
+  &lt;Directory "subversion host root path"&gt;
+    SSLRequire %{SSL_CLIENT_VERIFY} eq "SUCCESS"
+  &lt;/Directory&gt;
+
+  &lt;Location /svn&gt;
+    DAV svn
+    SVNParentPath /pathtorepository
+  &lt;/Location&gt;
+&lt;/VirtualHost&gt;
+			</screen>
+		</para>
+	</sect1>
+</appendix>

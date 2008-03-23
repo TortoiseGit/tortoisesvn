@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE appendix SYSTEM "../../../dtd/dblite.dtd">
+<appendix id="tsvn-ssh-publickeyauth">
+	<title>SVN+SSH+public key authentication on Windows Box as server</title>
+	<simplesect>
+		<para>
+			This walkthrough on getting SVN+SSH up and running on a 
+			Windows Box was provided by Thorsten Müller. Thanks!
+		</para>
+	</simplesect>
+	<sect1 id="tsvn-ssh-publickeyauthwalkthrough">
+		<title>Walkthrough</title>
+		<para>
+			I just want to provide my solution to the community since 
+			I have found out that there might be many people struggling 
+			with the same issue.		
+		</para>
+		<para>
+			<orderedlist>
+				<listitem>
+					<para>
+						Server: Install Cygwin SSH daemon as described here: 
+						<ulink url="http://pigtail.net/LRP/printsrv/cygwin-sshd.html">
+							<citetitle>http://pigtail.net/LRP/printsrv/cygwin-sshd.html</citetitle>
+						</ulink>
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Install SVN on the server (as described in the Subversion doku)
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Server: Create an account (for instance "SVNuser") 
+						which you will later use for logging in. Check 
+						that the user permissions are sufficient to read 
+						and write your SVN repository directory on the server.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Server (if not already done): Open Cygwin console and run 
+						<screen>
+mkpasswd -l > /etc/passwd
+						</screen>
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Client: Download PuTTY and PuTTYgen 
+						<ulink url="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">
+							<citetitle>http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</citetitle>
+						</ulink>
+						and place it in a directory which is part of 
+						the PATH, for instance <filename>C:\Windows</filename>
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Client: Create a key pair with PuTTYgen an save the keys.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Transfer the public key to the server file: <filename>/home/&lt;svnuser&gt;/.ssh/authorized_keys</filename>
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Create a PuTTY session for loggin in to the server as described here:
+						<xref linkend="tsvn-ssh-howto" />
+						Do not forget to activate auto login, i.e. set the user name.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Test whether you can log in to the server with the key.
+						Server: If that works you might want to disable 
+						password authentication for SSH by editing 
+						<filename>/etc/sshd_config</filename>. Change/edit 
+						lines as follows (and restart SSH service afterwards):
+						<screen>
+PubkeyAuthentication yes
+PasswordAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+						</screen>
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Server: Modify <filename>/home/&lt;svnuser&gt;/.ssh/authorized_keys</filename>
+						as follows. Note that every user which is supposed 
+						to use SVN uses the same login but a different 
+						key, thus you have to add one line for every user/key.
+					</para>
+					<para>
+						Note: This is all on one very long line.
+						<screen>
+command="svnserve -t -r c:/mySVNroot/ --tunnel-user=&lt;SVNuser&gt;",no-port-forwarding,no-agent-forwarding,no-X11-forwarding,no-pty ssh-rsa &lt;thePublicKey&gt; &lt;publicKeyComment&gt;
+						</screen>
+						The trick here is to use the slash instead of backslash to specifiy the SVN repository root:
+						<screen>
+-r c:/mySVNroot
+						</screen>
+						Another important thing is --tunnel-user=&lt;SVNuser&gt;.
+						Since all users later will do a SSH login with 
+						the same login name (but different keys) you 
+						have to map each key to a SVN user - remember 
+						that SVN maintains its own users/userrights.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						Client: Access the repository with a URL like:
+						<screen>
+svn+ssh://&lt;PuTTYSessionName&gt; /&lt;MyRepository&gt;/trunk
+						</screen>
+					</para>
+				</listitem>
+			</orderedlist>
+		</para>
+		<para>
+			In various documentations and news group postings you will 
+			read that the URL has to contain the real path on the 
+			server. But this is not neccessary if the -r parameter was 
+			set correctly, see 10. I swear, for me it works fine.
+		</para>
+	</sect1>
+</appendix>
