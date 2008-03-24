@@ -43,7 +43,7 @@
 <li><a href="#ovlmessed">Why do the overlay icons sometimes change to random graphics?</a></li>
 </ul>
 
-<h4>general questions:</h4>
+<h4>General questions:</h4>
 <ul>
 <li><a href="#100cpu">100% CPU, when I right-click on a file.</a></li>
 <li><a href="#repoonshare">Can I create a local repository on a network directory?</a></li>
@@ -118,13 +118,13 @@ Only if you want to set up a server then you will need the Subversion package.</
 <div class="h3" id="uninstall" title="uninstall">
 <h3>How do I uninstall TortoiseSVN?</h3>
 <p>Simply uninstall from Add/Remove Programs in the Windows control panel. 
-This does not effect your repositories or working copies at all.</p>
+This does not affect your repositories or working copies at all.</p>
 </div>
 
 <div class="h3" id="msidisabled" title="msidisabled">
 <h3>MSI installation is disabled on my machine. Is there a .exe installer?</h3>
 <p>An exe installation file wouldn't help. If msi installation is really disabled 
-on your machine, then you don't have ADMIN priviledges either. And you would need 
+on your machine, then you don't have ADMIN privileges either. And you would need 
 those to install TortoiseSVN (shell extensions require ADMIN rights to install).
 But first make sure that msi installation is really disabled - that can only be 
 if your domain administrator disabled it.</p>
@@ -276,7 +276,7 @@ The Windows icon cache is a fairly buggy creature. You can solve this in one of 
 
 <div class="h3" id="100cpu" title="100cpu">
 <h3>100% CPU, when I right-click on a file.</h3>
-<p>Everytime I right click on a file, the CPU goes to 100% (whilst the right click 
+<p>Every time I right click on a file, the CPU goes to 100% (whilst the right click 
 menu is displayed.) If I select something from the menu, CPU goes back to normal. 
 If I right click on 'nothing' then the CPU is OK. What is happening?</p>
 <p>XP contains a known bug that causes the CPU usage to spike to 100 percent when 
@@ -314,7 +314,7 @@ covers this process in detail.</p>
 <p>
 To access an FSFS repository on a network share you need to do one of the following:
 <ol>
-<li>Use drive mapping, eg. map //server/shared to S:</li>
+<li>Use drive mapping, e.g. map //server/shared to S:</li>
 <li>Specify a UNC path using the syntax below:
 <dl>
 <dt>Subversion >= 1.2</dt>
@@ -341,7 +341,7 @@ specific versioning system would be very useful.</p>
 <p>Unfortunately, this is a limitation in the Subversion libraries that both the 
 command-line client and TortoiseSVN uses. It does not have the capability to 
 arbitrarily enumerate repositories on a server.</p>
-<p>Some might even argue that the lack of this feature is incitament for end 
+<p>Some might even argue that the lack of this feature is incitement for end 
 users to just jumble everything into one big repository, when it would be more 
 appropriate to split things up.</p>
 </div>
@@ -522,7 +522,7 @@ in the Subversion book.</p>
 <p>Subversion is designed to work with case-sensitive file systems such as are 
 used on Linux. When it comes to the Windows case-insensitive file system, things 
 do not always run as you might expect. A case in point is renaming a file where 
-only the case changes, eg. renaming Makefile to MAKEFILE. You cannot do this 
+only the case changes, e.g. renaming Makefile to MAKEFILE. You cannot do this 
 easily within your working copy as Subversion requires both names to exist 
 simultaneously for a short time, and Windows cannot support this.</p>
 <p>By far the easiest way is to rename directly using the repository browser:
@@ -658,7 +658,7 @@ again. Take a look at these <a href="#casechange">instructions</a>. </p>
 <div class="h3" id="inuse" title="inuse">
 <h3>Can't open file 'XXX\nnn-n.txn\changes': The process cannot access the file because it is being used by another process</h3>
 <p>People who report this error often state that it happens randomly, and often 
-part way through a large commit. Retrying the commit may succeed, or it may 
+part way through a large commit. Retrying the commit may succeed or it may 
 fail at a different point.</p>
 <p>The most likely cause is a virus scanner holding a file handle open when 
 it shouldn't. Try disabling the scanner, or get it to ignore your repository.</p>
@@ -774,9 +774,9 @@ write the error message to.</p>
 see there what error message really is thrown and then fix the setup.</p>
 <p>If normal plink just hangs, then the wrong params are passed to it 
 (settings dialog, network tab).</p>
-<p>Another possibility is that the SSH daemon is most likey not able to find the 
+<p>Another possibility is that the SSH daemon is most likely not able to find the 
 svnserve binary. Login with your target user (here myuser) into the server and 
-type &quot;which svnserve&quot;. If you dont see the path to the binary, make 
+type &quot;which svnserve&quot;. If you don't see the path to the binary, make 
 this file (and most likely the other subversion binaries) globally accessible 
 to this user.</p>
 </div>
@@ -813,9 +813,9 @@ trailing '/' slash, after the repository name.</p>
 <li><strong>PROPFIND Request Failed</strong>
 You tried to browse the parent path of a repository instead of the repository itself using an older version of TortoiseSVN.  Try appending the name of the repository you wish to access, or upgrade TortoiseSVN to 1.2.3 or newer.</li>
 <li><strong>PROPFIND Request Failed</strong>
-You forgot to append a '/' slash to the end of the URL you entered.  Older versions of TSVN requires that there be a '/' after the repository name.  If you forget this, TSVN will strip the repository name from the URL and therefore try to access the parent directory.</li>
+You forgot to append a '/' slash to the end of the URL you entered.  Older versions of TSVN require that there be a '/' after the repository name.  If you forget this, TSVN will strip the repository name from the URL and therefore try to access the parent directory.</li>
 <li><strong>PROPFIND Request Failed</strong>
-You try to access the repository through a proxy which does not allow DAV requests. Usually you can browse your repository with your webbrowser just fine, only if you use an svn client you get this error. You have to configure your proxy/firewall server to let DAV requests through. Or try using https instead of http: most proxies can't analyze encrypted network packets and therefore can't block DAV requests anymore.
+You try to access the repository through a proxy which does not allow DAV requests. Usually you can browse your repository with your webbrowser just fine, only if you use a svn client you get this error. You have to configure your proxy/firewall server to let DAV requests through. Or try using https instead of http: most proxies can't analyze encrypted network packets and therefore can't block DAV requests anymore.
 <br />
 Another possibility for this error is a virus scanner/firewall you have running on your machine. A lot of those filter out DAV requests without you even noticing it. Try disabling the scanner/firewalll.</li>
 <li><strong>Lock Request Failed</strong>
