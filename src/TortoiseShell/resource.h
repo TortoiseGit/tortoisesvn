@@ -204,6 +204,8 @@
 #define IDI_MENUMULTIPLE                5157
 #define IDI_PROPERTIES                  5158
 #define IDI_DELUNVERSIONED              5159
+#define IDI_ICON1                       5160
+#define IDI_APPSMALL                    5160
 #define IDC_LOCKOWNER                   11019
 #define IDC_LOCKDATE                    11020
 #define IDC_EDITPROPERTIES              11021
@@ -218,7 +220,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        5160
+#define _APS_NEXT_RESOURCE_VALUE        5161
 #define _APS_NEXT_COMMAND_VALUE         40001
 #define _APS_NEXT_CONTROL_VALUE         11026
 #define _APS_NEXT_SYMED_VALUE           5101
