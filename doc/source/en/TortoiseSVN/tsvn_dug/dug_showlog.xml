@@ -713,4 +713,23 @@
 			although the information may not be up-to-date or even complete.
 		</para>
 	</sect2>
+	<sect2 id="tsvn-dug-showlog-refresh">
+		<title>Refreshing the View</title>
+		<para>
+			If you want to check the server again for newer log messages,
+			you can simply refresh the view using <keycap>F5</keycap>. If you
+			are using the log cache (enabled by default), this will check the
+			repository for newer messages and fetch only the new ones.
+			If the log cache was in offline mode, this will also attempt to
+			go back online.
+		</para>
+		<para>
+			If you are using the log cache and you think the message content
+			or author may have changed, you can use <keycap>Shift-F5</keycap>
+			or <keycap>Ctrl-F5</keycap> to re-fetch the displayed messages from
+			the server and update the log cache. Note that this only affects
+			messages currently shown and does not invalidate the entire cache
+			for that repository.
+		</para>
+	</sect2>
 </sect1>
