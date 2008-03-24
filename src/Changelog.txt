@@ -1,3 +1,8 @@
+- BUG: <SHIFT>-F5 and <CTRL>-F not working in log view (Stefan Fuhrmann)
+- CHG: Fall back to cached log data if forced refresh fails in log view
+       and the user chooses to go off-line again. (Stefan Fuhrmann)
+- CHG: Finalize toolbar button icons. (Stefan Fuhrmann)
+
 Version 1.5.0-beta1
 - NEW: Implemented 'merge reintegrate': new page in the merge wizard. (Stefan)
 - NEW: In log window: <SHIFT> or <CTRL> when hitting 'Refresh' or F5
