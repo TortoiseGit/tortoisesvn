@@ -25,12 +25,13 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"POT-Creation-Date: 2000-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-16 21:00+0100\n"
-"Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 1900-01-01 00:00+0000\n"
+"PO-Revision-Date: 2008-03-24 15:40+0100\n"
+"Last-Translator: Jean-Marc van Leerdam <jeanmarc@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 # A single space
@@ -147,6 +148,11 @@ msgstr "%ld paden"
 msgid "%s"
 msgstr "%s"
 
+#. Resource IDs: (93)
+#, c-format
+msgid "%s (offline)"
+msgstr "%s (offline)"
+
 #. Resource IDs: (115)
 #, c-format
 msgid "%s (offline) - %s"
@@ -240,6 +246,10 @@ msgstr "&Toevoegen..."
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
 msgstr "&Geavanceerd..."
+
+#. Resource IDs: (1471)
+msgid "&Allow ambiguous URLs"
+msgstr "Sta &ambigue URLs toe"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -825,6 +835,10 @@ msgid "(no changelist)"
 msgstr "(geen werkset)"
 
 #. Resource IDs: (314)
+msgid "(no line number)"
+msgstr "(geen regelnummer)"
+
+#. Resource IDs: (314)
 msgid "(not found)"
 msgstr "(niet gevonden)"
 
@@ -1100,6 +1114,14 @@ msgstr "Alle bestanden (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "Alle Bestanden (*.*)|*.*||"
 
+#. Resource IDs: (345)
+msgid ""
+"Allow different repositories to use the same URL, e.g. http://localhost/myrepos/\n"
+"Note: This will disable offline log access."
+msgstr ""
+"Sta toe dat verschillende archieven dezelfde URL gebruiken, bijvoorbeeld http://localhost/mijnrepo/\n"
+"N.B.: Hierdoor is 'offline' gebruik van de log cache niet mogelijk"
+
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "Gebruik altijd de systeem landinstellingen bij het tonen van datum en tijd"
@@ -1163,10 +1185,6 @@ msgstr "Een onbekende fout bij het benaderen van %1."
 #, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "Een onbekend soort regel aangetroffen op regel %d !"
-
-#. Resource IDs: (269)
-msgid "Analyze revision data..."
-msgstr "Analyseer revisiedata..."
 
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
@@ -1571,10 +1589,6 @@ msgstr "Selecteer de menuopties die in het contextmenu moeten verschijnen in pla
 #. Resource IDs: (80)
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Kies deze optie voor een verkorte datum en tijd in logboodschappen"
-
-#. Resource IDs: (270)
-msgid "Checking for forward copies"
-msgstr "Controleren op voorwaartse kopieën"
 
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -8074,4 +8088,9 @@ msgstr "jaar"
 #. Resource IDs: (18, 1002, 1011, 1012)
 msgid "yes"
 msgstr "ja"
+
+#~ msgid "Analyze revision data..."
+#~ msgstr "Analyseer revisiedata..."
+#~ msgid "Checking for forward copies"
+#~ msgstr "Controleren op voorwaartse kopieën"
 
