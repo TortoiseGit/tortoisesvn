@@ -335,8 +335,6 @@ void CRepositoryBrowser::InitRepo()
 			nID = IDI_REPO_SVN;
 		if (m_strReposRoot.Left(10).CompareNoCase(_T("svn+ssh://"))==0)
 			nID = IDI_REPO_SVNSSH;
-		if (m_strReposRoot.Left(8).CompareNoCase(_T("file:///"))==0)
-			nID = IDI_REPO_FILE;
 		if (m_strReposRoot.Left(7).CompareNoCase(_T("file://"))==0)
 			nID = IDI_REPO_FILE;
 		CAppUtils::SetListCtrlBackgroundImage(m_RepoList.GetSafeHwnd(), nID);

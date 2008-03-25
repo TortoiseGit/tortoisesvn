@@ -644,7 +644,7 @@ public:
 	CString GetRepositoryRootAndUUID(const CTSVNPath& url, CString& sUUID);
 
 	/**
-	 * Checks if a file:/// url points to a BDB repository.
+	 * Checks if a file:// url points to a BDB repository.
 	 */
 	static BOOL IsBDBRepository(CString url);
 

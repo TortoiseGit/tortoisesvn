@@ -242,15 +242,6 @@ void CTSVNPath::SetFwdslashPath(const CString& sPath) const
 	if ((m_sFwdslashPath.GetLength() == 2)&&(m_sFwdslashPath[1] == ':'))
 		m_sFwdslashPath += _T("/");
 
-	//workaround for Subversions UNC-path bug
-	if (m_sFwdslashPath.Left(10).CompareNoCase(_T("file://///"))==0)
-	{
-		m_sFwdslashPath.Replace(_T("file://///"), _T("file:///\\"));
-	}
-	else if (m_sFwdslashPath.Left(9).CompareNoCase(_T("file:////"))==0)
-	{
-		m_sFwdslashPath.Replace(_T("file:////"), _T("file:///\\"));
-	}
 	m_sUTF8FwdslashPath.Empty();
 }
 

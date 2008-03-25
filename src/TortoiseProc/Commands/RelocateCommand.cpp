@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -73,10 +73,14 @@ bool RelocateCommand::Execute()
 		CString sTempUrl = dlg.m_sFromUrl;
 		if (sTempUrl.Left(8).Compare(_T("file:///"))==0)
 			sTempUrl.Replace(_T("file:///"), _T("file://"));
+		if (sTempUrl.Left(8).Compare(_T("file://\\"))==0)
+			sTempUrl.Replace(_T("file://\\"), _T("file://"));
 		InternetCrackUrl((LPCTSTR)sTempUrl, sTempUrl.GetLength(), 0, &components1);
 		sTempUrl = dlg.m_sToUrl;
 		if (sTempUrl.Left(8).Compare(_T("file:///"))==0)
 			sTempUrl.Replace(_T("file:///"), _T("file://"));
+		if (sTempUrl.Left(8).Compare(_T("file://\\"))==0)
+			sTempUrl.Replace(_T("file://\\"), _T("file://"));
 		InternetCrackUrl((LPCTSTR)sTempUrl, sTempUrl.GetLength(), 0, &components2);
 		// now compare the url components.
 		// If the 'main' parts differ (e.g. hostname, port, scheme, ...) then a relocate is

@@ -230,8 +230,8 @@ CStringA CPathUtils::PathEscape(const CStringA& path)
 		}
 	}
 
-	ret.Replace(("file:///%5C"), ("file:///\\"));
-	ret.Replace(("file:////%5C"), ("file:////\\"));
+	ret.Replace(("file:///%5C"), ("file://"));
+	ret.Replace(("file:////%5C"), ("file://"));
 
 	return ret;
 }

@@ -1728,11 +1728,9 @@ void SVN::PathToUrl(CString &path)
 	path.Trim();
 	// convert \ to /
 	path.Replace('\\','/');
-	// prepend file:///
-	if (path.GetAt(0) == '/')
-		path.Insert(0, _T("file://"));
-	else
-		path.Insert(0, _T("file:///"));
+	path.TrimLeft('/');
+	// prepend file://
+	path.Insert(0, _T("file://"));
 	path.TrimRight(_T("/\\"));			//remove trailing slashes
 }
 
@@ -1745,28 +1743,29 @@ void SVN::UrlToPath(CString &url)
 	url.Trim();
 	url.Replace('\\','/');
 	url = url.Mid(7);	// "file://" has seven chars
+	url.TrimLeft('/');
 	// if we have a ':' that means the file:// url points to an absolute path
 	// like file:///D:/Development/test
 	// if we don't have a ':' we assume it points to an UNC path, and those
 	// actually _need_ the slashes before the paths
-	if (url.Find(':')>=0)
-		url.TrimLeft('/');
+	if ((url.Find(':')<0) && (url.Find('|')<0))
+		url.Insert(0, _T("\\\\"));
 	SVN::preparePath(url);
 	// now we need to unescape the url
 	url = CPathUtils::PathUnescape(url);
 }
 
-void	SVN::preparePath(CString &path)
+void SVN::preparePath(CString &path)
 {
 	path.Trim();
 	path.TrimRight(_T("/\\"));			//remove trailing slashes
 	path.Replace('\\','/');
-	// workaround for Subversions UNC-path bug
+
 	if (path.Left(10).CompareNoCase(_T("file://///"))==0)
 	{
-		path.Replace(_T("file://///"), _T("file:///\\"));
+		path.Replace(_T("file://///"), _T("file://"));
 	}
-	else if (path.Left(9).CompareNoCase(_T("file:////"))==0)
+	else if (path.Left(9).CompareNoCase(_T("file://"))==0)
 	{
 		path.Replace(_T("file:////"), _T("file:///\\"));
 	}

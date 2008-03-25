@@ -743,6 +743,7 @@ bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& r
 {
 	CString strUrl;
 	combo.GetWindowText(strUrl);
+	strUrl.Replace('\\', '/');
 	strUrl.Replace(_T("%"), _T("%25"));
 	strUrl = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(strUrl)));
 	if (strUrl.Left(7) == _T("file://"))
@@ -754,6 +755,7 @@ bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& r
 		if (svn.IsRepository(strFile))
 		{
 			// browse repository - show repository browser
+			SVN::preparePath(strUrl);
 			CRepositoryBrowser browser(strUrl, rev, pParent);
 			if (browser.DoModal() == IDOK)
 			{
@@ -769,8 +771,7 @@ bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& r
 			CBrowseFolder folderBrowser;
 			folderBrowser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
 			// remove the 'file:///' so the shell can recognize the local path
-			strUrl = strUrl.Mid(8);
-			strUrl.Replace('/', '\\');
+			SVN::UrlToPath(strUrl);
 			if (folderBrowser.Show(pParent->GetSafeHwnd(), strUrl) == CBrowseFolder::OK)
 			{
 				SVN::PathToUrl(strUrl);
