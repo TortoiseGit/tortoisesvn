@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-20 21:19+0200\n"
+"PO-Revision-Date: 2008-03-21 21:51+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -173,6 +173,11 @@ msgstr "%ld пътя"
 msgid "%s"
 msgstr "%s"
 
+#. Resource IDs: (93)
+#, c-format
+msgid "%s (offline)"
+msgstr "%s (без връзка)"
+
 #. Resource IDs: (115)
 #, c-format
 msgid "%s (offline) - %s"
@@ -266,6 +271,10 @@ msgstr "&Добавяне..."
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
 msgstr "&Допълнителни..."
+
+#. Resource IDs: (1471)
+msgid "&Allow ambiguous URLs"
+msgstr "&Разрешаване на нееднозначни URL"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -1130,6 +1139,14 @@ msgstr "Всички файлове (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "Всички файлове (*.*)|*.*||"
 
+#. Resource IDs: (345)
+msgid ""
+"Allow different repositories to use the same URL, e.g. http://localhost/myrepos/\n"
+"Note: This will disable offline log access."
+msgstr ""
+"Разрешава различни хранилища да използват едно и също URL, например http://localhost/myrepos/\n"
+"Забележка: В този случай се изключва кеширането на дневника."
+
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "При показване на дата и час винаги се използват настройките на системния локал"
@@ -1194,10 +1211,6 @@ msgstr "Неизвестна грешка при достъп до %1."
 #, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "Неизвестен тип на ред бе открит на ред %d !"
-
-#. Resource IDs: (269)
-msgid "Analyze revision data..."
-msgstr "Анализ на данните от ревизиите..."
 
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
@@ -1603,10 +1616,6 @@ msgstr "Изберете тези команди, които желаете да
 #. Resource IDs: (80)
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Включете за по-кратък формат за час и дата в дневника"
-
-#. Resource IDs: (270)
-msgid "Checking for forward copies"
-msgstr "Проверка за последващи копия"
 
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -8107,6 +8116,10 @@ msgstr "година"
 msgid "yes"
 msgstr "да"
 
+#~ msgid "Analyze revision data..."
+#~ msgstr "Анализ на данните от ревизиите..."
+#~ msgid "Checking for forward copies"
+#~ msgstr "Проверка за последващи копия"
 #~ msgid "Groups branches together"
 #~ msgstr "Групира разклоненията заедно"
 #~ msgid "Number of changed cached revisions"
