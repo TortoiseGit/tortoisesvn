@@ -497,10 +497,10 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 		if (sMsg.ReverseFind('\n')>=0)
 		{
 			if (bAppend)
-				sBugLine = msg.Mid(msg.ReverseFind('\n')+1);
+				sBugLine = sMsg.Mid(sMsg.ReverseFind('\n')+1);
 			else
 			{
-				sBugLine = msg.Left(msg.Find('\n'));
+				sBugLine = sMsg.Left(sMsg.Find('\n'));
 				bTop = TRUE;
 			}
 		}
@@ -688,10 +688,10 @@ CString ProjectProperties::FindBugID(const CString& msg)
 		if (sMsg.ReverseFind('\n')>=0)
 		{
 			if (bAppend)
-				sBugLine = msg.Mid(msg.ReverseFind('\n')+1);
+				sBugLine = sMsg.Mid(sMsg.ReverseFind('\n')+1);
 			else
 			{
-				sBugLine = msg.Left(msg.Find('\n'));
+				sBugLine = sMsg.Left(sMsg.Find('\n'));
 				bTop = TRUE;
 			}
 		}
