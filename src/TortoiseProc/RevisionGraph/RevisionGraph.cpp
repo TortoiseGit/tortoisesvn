@@ -731,7 +731,7 @@ void CRevisionGraph::AnalyzeRevisions ( revision_t revision
 					if (bShowAll && (path.GetBasePath().GetIndex() < changePath.GetIndex()))
 						action = CRevisionEntry::modified;
 
-					if (   (actionValue == CRevisionInfoContainer::ACTION_ADDED)
+					if (   (action == CRevisionEntry::added)
 						&& (searchNode->GetLastEntry() != NULL))
 					{
 						// we may not add paths that already exist:
