@@ -7243,8 +7243,8 @@ msgid ""
 "is appended to the log message."
 msgstr ""
 "bugrraq:append\n"
-"아니오로 설정해놓으면, 버그 트래킹 ID를 로그 메시지 상단에 넣지 않습니다.\n"
-"기본값은 \"예\"이며, 이것은 로그 메시지 상단에 버그트래킹 ID를 넣는것을\n"
+"\"false\"로 설정해 놓으면, 버그 트래킹 ID를 로그 메시지 상단에 넣지 않습니다.\n"
+"기본값은 \"true\"이며, 이것은 로그 메시지 상단에 버그트래킹 ID를 넣는 것을\n"
 "의미합니다."
 
 #. Resource IDs: (577)
@@ -7284,7 +7284,7 @@ msgid ""
 "Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
 "bugtraq:number\n"
-"버그트래킹 시스템이 숫자로 참조되는 구조가 아니면 \"아니오\"를 선택하십시오."
+"버그트래킹 시스템이 숫자로 참조되는 구조가 아니면 \"false\"로 설정하십시오."
 
 #. Resource IDs: (577)
 #, c-format
@@ -7781,7 +7781,7 @@ msgid ""
 "Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
 "tsvn:warnifnoissue\n"
-"커밋 대화 상자에서 이슈가 없을 경우 경고를 보이고 싶으면 \"예\"를 선택하십시오."
+"커밋 대화 상자에서 이슈가 없을 경우 경고를 보이고 싶으면 \"yes\"로 설정하십시오."
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
