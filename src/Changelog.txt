@@ -1,4 +1,5 @@
 - BUG: <SHIFT>-F5 and <CTRL>-F not working in log view (Stefan Fuhrmann)
+- BUG: The property page showed the changelist instead of the GUUID. (Stefan)
 - CHG: Fall back to cached log data if forced refresh fails in log view
        and the user chooses to go off-line again. (Stefan Fuhrmann)
 - CHG: Finalize toolbar button icons. (Stefan Fuhrmann)
