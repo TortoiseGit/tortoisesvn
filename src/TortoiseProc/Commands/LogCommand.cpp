@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,14 +31,14 @@ bool LogCommand::Execute()
 		// support deprecated parameter prior 1.5.0
 		val = parser.GetVal(_T("revstart"));
 	}
-	long revstart = _tstol(val);
+	SVNRev revstart = SVNRev(val);
 	val = parser.GetVal(_T("endrev"));
 	if ( val.IsEmpty() )
 	{
 		// support deprecated parameter prior 1.5.0
 		val = parser.GetVal(_T("revend"));
 	}
-	long revend = _tstol(val);
+	SVNRev revend = SVNRev(val);
 	val = parser.GetVal(_T("limit"));
 	int limit = _tstoi(val);
 	val = parser.GetVal(_T("pegrev"));
@@ -47,16 +47,12 @@ bool LogCommand::Execute()
 		// support deprecated parameter prior 1.5.0
 		val = parser.GetVal(_T("revpeg"));
 	}
-	SVNRev pegrev = _tstol(val);
+	SVNRev pegrev = SVNRev(val);
 	if (val.IsEmpty())
 		pegrev = SVNRev();
-	if (revstart == 0)
+	if (!revstart.IsValid())
 	{
 		revstart = SVNRev::REV_HEAD;
-	}
-	if (revend == 0)
-	{
-		revend = 0;
 	}
 	if (limit == 0)
 	{

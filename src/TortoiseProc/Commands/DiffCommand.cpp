@@ -43,9 +43,9 @@ bool DiffCommand::Execute()
 			diff.SetAlternativeTool(bAlternativeTool);
 			if ( parser.HasKey(_T("startrev")) && parser.HasKey(_T("endrev")) )
 			{
-				LONG nStartRevision = parser.GetLongVal(_T("startrev"));
-				LONG nEndRevision = parser.GetLongVal(_T("endrev"));
-				diff.ShowCompare(cmdLinePath, nStartRevision, cmdLinePath, nEndRevision, SVNRev(), false, bBlame);
+				SVNRev StartRevision = SVNRev(parser.GetLongVal(_T("startrev")));
+				SVNRev EndRevision = SVNRev(parser.GetLongVal(_T("endrev")));
+				diff.ShowCompare(cmdLinePath, StartRevision, cmdLinePath, EndRevision, SVNRev(), false, bBlame);
 			}
 			else
 			{
