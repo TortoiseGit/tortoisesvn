@@ -527,15 +527,18 @@ void CStatGraphDlg::GatherData() {
 	m_filechangesPerWeekAndAuthor.clear();
 	m_commitsPerAuthor.clear();
 
-	LONG timeIntervalLength = 604800; // we define the interval to be one week
-
+	int interval = 0;
+	__time64_t d = (__time64_t)m_parDates->GetAt(0);
+	int nLastWeek = GetWeek(d);
 	// Now loop over all weeks and gather the info
 	for (LONG i=0; i<m_nTotalCommits; ++i) 
 	{
 		// Find the interval number
 		__time64_t commitDate = (__time64_t)m_parDates->GetAt(i);
-		double secsSinceMinDate = _difftime64(commitDate, m_minDate);
-		int interval = (int)floor(secsSinceMinDate/timeIntervalLength);
+		int w = GetWeek(commitDate);
+		if (nLastWeek != w)
+			interval++;
+		nLastWeek = w;
 		// Find the authors name
 		CString sAuth = m_parAuthors->GetAt(i);
 		if (!m_bAuthorsCaseSensitive)
