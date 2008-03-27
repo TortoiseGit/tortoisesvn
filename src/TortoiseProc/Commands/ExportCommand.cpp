@@ -48,7 +48,7 @@ bool ExportCommand::Execute()
 			dlg.m_strExportDirectory = cmdLinePath.GetWinPathString();
 		if (parser.HasKey(_T("revision")))
 		{
-			SVNRev Rev = SVNRev(parser.GetLongVal(_T("revision")));
+			SVNRev Rev = SVNRev(parser.GetVal(_T("revision")));
 			dlg.Revision = Rev;
 		}
 		if (dlg.DoModal() == IDOK)
