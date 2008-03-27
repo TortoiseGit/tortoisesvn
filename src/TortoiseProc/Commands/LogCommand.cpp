@@ -31,14 +31,14 @@ bool LogCommand::Execute()
 		// support deprecated parameter prior 1.5.0
 		val = parser.GetVal(_T("revstart"));
 	}
-	SVNRev revstart = SVNRev(val);
+	SVNRev revstart = val.IsEmpty() ? SVNRev() : SVNRev(val);
 	val = parser.GetVal(_T("endrev"));
 	if ( val.IsEmpty() )
 	{
 		// support deprecated parameter prior 1.5.0
 		val = parser.GetVal(_T("revend"));
 	}
-	SVNRev revend = SVNRev(val);
+	SVNRev revend = val.IsEmpty() ? SVNRev() : SVNRev(val);
 	val = parser.GetVal(_T("limit"));
 	int limit = _tstoi(val);
 	val = parser.GetVal(_T("pegrev"));
@@ -47,13 +47,12 @@ bool LogCommand::Execute()
 		// support deprecated parameter prior 1.5.0
 		val = parser.GetVal(_T("revpeg"));
 	}
-	SVNRev pegrev = SVNRev(val);
-	if (val.IsEmpty())
-		pegrev = SVNRev();
+	SVNRev pegrev = val.IsEmpty() ? SVNRev() : SVNRev(val);
 	if (!revstart.IsValid())
-	{
 		revstart = SVNRev::REV_HEAD;
-	}
+	if (!revend.IsValid())
+		revend = 0;
+
 	if (limit == 0)
 	{
 		CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
