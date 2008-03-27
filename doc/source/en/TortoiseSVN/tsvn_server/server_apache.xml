@@ -938,4 +938,60 @@ Require valid-user
 			</para>
 		</important>
 	</sect2>
+	<sect2 id="tsvn-serversetup-apache-sslcerts">
+		<title>Using client certificates with virtual SSL hosts</title>
+		<para>
+			Sent to the TortoiseSVN mailing list by Nigel Green. Thanks!
+		</para>
+		<para>
+			In some server configurations you may need to setup a single server
+			containing 2 virtual SSL hosts: The first one for public web access, 
+			with no requirement for a client certificate. The second one to be
+			secure with a required client certificate, running a Subversion server.
+		</para>
+		<para>
+			Adding an <literal>SSLVerifyClient Optional</literal> directive to the 
+			<emphasis>per-server</emphasis> section of the Apache configuration
+			(i.e. outside of any <literal>VirtualHost</literal> and
+			<literal>Directory</literal> blocks) forces Apache to request a client
+			Certificate in the initial SSL handshake. Due to a bug in
+			<literal>mod_ssl</literal> it is essential that the certificate is
+			requested at this point as it does not work if the SSL connection
+			is re-negotiated.
+		</para>
+		<para>
+			The solution is to add the following directive to the virtual host
+			directory that you want to lock down for Subversion:
+<screen>
+SSLRequire %{SSL_CLIENT_VERIFY} eq "SUCCESS"
+</screen>
+			This directive grants access to the directory only if a 
+			client certificate was received and verified successfully. 
+		</para>
+		<para>
+			To summarise, the relevant lines of the Apache configuration are:
+<screen>
+SSLVerifyClient Optional
+
+### Virtual host configuration for the PUBLIC host (not requiring a certificate)
+
+&lt;VirtualHost 127.0.0.1:443&gt;
+  &lt;Directory "pathtopublicfileroot"&gt;
+  &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+
+### Virtual host configuration for SUBVERSION (requiring a client certificate)
+&lt;VirtualHost 127.0.0.1:443&gt;
+  &lt;Directory "subversion host root path"&gt;
+    SSLRequire %{SSL_CLIENT_VERIFY} eq "SUCCESS"
+  &lt;/Directory&gt;
+
+  &lt;Location /svn&gt;
+    DAV svn
+    SVNParentPath /pathtorepository
+  &lt;/Location&gt;
+&lt;/VirtualHost&gt;
+</screen>
+		</para>
+	</sect2>
 </sect1>
