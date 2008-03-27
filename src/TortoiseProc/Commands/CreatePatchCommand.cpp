@@ -161,7 +161,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
 	for (int fileindex = 0; fileindex < path.GetCount(); ++fileindex)
 	{
 		svn_depth_t depth = path[fileindex].IsDirectory() ? svn_depth_empty : svn_depth_files;
-		if (!svn.CreatePatch(path[fileindex], SVNRev::REV_BASE, path[fileindex], SVNRev::REV_WC, sDir, depth, FALSE, FALSE, FALSE, _T(""), true, tempPatchFilePath))
+		if (!svn.CreatePatch(path[fileindex], SVNRev::REV_BASE, path[fileindex], SVNRev::REV_WC, sDir.GetDirectory(), depth, FALSE, FALSE, FALSE, _T(""), true, tempPatchFilePath))
 		{
 			progDlg.Stop();
 			::MessageBox(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
