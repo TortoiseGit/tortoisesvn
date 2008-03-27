@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-22 19:35+0100\n"
+"PO-Revision-Date: 2008-03-27 23:24+0100\n"
 "Last-Translator: Zero3Cool\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -157,7 +157,7 @@ msgstr "# forfattere vist enkeltvis:"
 #. Resource IDs: (357)
 #, c-format
 msgid "%.2f MBytes transferred"
-msgstr "%.2f MBytes overført"
+msgstr "%.2f MB overført"
 
 #. Resource IDs: (357)
 #, c-format
@@ -212,12 +212,12 @@ msgstr ""
 #. Resource IDs: (357)
 #, c-format
 msgid "%I64d Bytes transferred"
-msgstr "%I64d Bytes overført"
+msgstr "%I64d byte overført"
 
 #. Resource IDs: (357)
 #, c-format
 msgid "%I64d kBytes transferred"
-msgstr "%I64d kBytes overført"
+msgstr "%I64d KB overført"
 
 #. Resource IDs: (169)
 #, c-format
@@ -7385,22 +7385,22 @@ msgstr "Du har allerede den nyeste version installeret."
 msgid ""
 "You are creating a repository on a network share.\n"
 "This is safe, but once the repository is created you must access it by some other means.\n"
-"Accessing a repository via file:/// on a network share may corrupt your data!\n"
+"Accessing a repository via file:// on a network share may corrupt your data!\n"
 "Create the repository anyway?"
 msgstr ""
 "Du er ved at oprette et versionsarkiv på et netværksdrev.\n"
 "Dette er ganske sikkert, men når versionarkivet først er oprettet, skal du tilgå det på en anden måde.\n"
-"Tilgang til versionsarkivet via file:/// på et netværksdrev kan ødelægge dine data!\n"
+"Tilgang til versionsarkivet via file:// på et netværksdrev kan ødelægge dine data!\n"
 "Vil du alligevel oprette versionarkivet?"
 
 #. Resource IDs: (88)
 msgid ""
-"You are trying to access a repository via file:/// on\n"
+"You are trying to access a repository via file:// on\n"
 "a shared network drive.\n"
 "This could lead to severe repository corruption!\n"
 "Do you really want to do that?"
 msgstr ""
-"Du forsøger at opnå adgang til et versionsarkiv via file:/// på\n"
+"Du forsøger at opnå adgang til et versionsarkiv via file:// på\n"
 "et netværksdrev.\n"
 "Dette kan forårsage alvorlig ødelæggelse af versionsarkivet!\n"
 "Er du sikker på at du vil fortsætte?"
