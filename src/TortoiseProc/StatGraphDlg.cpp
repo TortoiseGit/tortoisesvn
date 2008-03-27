@@ -130,6 +130,10 @@ BOOL CStatGraphDlg::OnInitDialog()
 		m_pToolTip->Activate(TRUE);
 	}
 	
+	m_bAuthorsCaseSensitive = DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\StatAuthorsCaseSensitive")));
+	m_bSortByCommitCount = DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\StatSortByCommitCount")));
+	UpdateData(FALSE);
+
 	CString temp;
 	int sel = 0;
 	temp.LoadString(IDS_STATGRAPH_STATS);
@@ -1525,4 +1529,10 @@ void CStatGraphDlg::StoreCurrentGraphType()
 	// store current chart type in registry
 	CRegDWORD lastStatsPage = CRegDWORD(_T("Software\\TortoiseSVN\\LastViewedStatsPage"), 0);
 	lastStatsPage = statspage;
+
+	CRegDWORD regAuthors = CRegDWORD(_T("Software\\TortoiseSVN\\StatAuthorsCaseSensitive"));
+	regAuthors = m_bAuthorsCaseSensitive;
+
+	CRegDWORD regSort = CRegDWORD(_T("Software\\TortoiseSVN\\StatSortByCommitCount"));
+	regSort = m_bSortByCommitCount;
 }
