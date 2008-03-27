@@ -739,11 +739,11 @@ BOOL SVN::Resolve(const CTSVNPath& path, svn_wc_conflict_choice_t result, BOOL r
 			conflictedEntries.DeleteAllFiles(true);
 		}
 	}
-	Err = svn_client_resolved2(path.GetSVNApiPath(subpool),
-								recurse ? svn_depth_infinity : svn_depth_empty,
-								result,
-								m_pctx,
-								subpool);
+	Err = svn_client_resolve(path.GetSVNApiPath(subpool),
+							 recurse ? svn_depth_infinity : svn_depth_empty,
+							 result,
+							 m_pctx,
+							 subpool);
 	if(Err != NULL)
 	{
 		return FALSE;
