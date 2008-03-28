@@ -355,23 +355,9 @@ void CStatGraphDlg::UpdateWeekCount()
 		else if (d > max_date)	max_date = d;
 	}
 
-	// Here we must round the min_data to the first day of the week
-	// to align the interval min_data ... max_date with the week start
-	TCHAR loc[2];
-	GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IFIRSTDAYOFWEEK, loc, sizeof(loc));
-	int iFirstDayOfWeek = int(loc[0]-'0');
-	try
-	{
-		CTime start_time(min_date);
-		int iDayOfWeek = (start_time.GetDayOfWeek()+iFirstDayOfWeek)%7;
-		start_time -= CTimeSpan(iDayOfWeek,0,0,0);
-		// Store start date of the interval in the member variable m_minDate
-		m_minDate = start_time.GetTime();
-	}
-	catch (CException* e)
-	{
-		e->Delete();
-	}
+	// Store start date of the interval in the member variable m_minDate
+	m_minDate = min_date;
+	m_maxDate = max_date;
 	
 	// How many weeks does the time period cover?
 
@@ -393,7 +379,7 @@ int CStatGraphDlg::GetWeek(const CTime& time)
 	iFirstDayOfWeek = int(loc[0]-'0');
 	GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IFIRSTWEEKOFYEAR, loc, sizeof(loc));
 	iFirstWeekOfYear = int(loc[0]-'0');
-	CTime dDateFirstJanuary(iYear,1,1,12,1,1);
+	CTime dDateFirstJanuary(iYear,1,1,0,0,0);
 	int iDayOfWeek = (dDateFirstJanuary.GetDayOfWeek()+5+iFirstDayOfWeek)%7;
 
 	// Select mode
@@ -516,7 +502,8 @@ int CStatGraphDlg::GetWeek(const CTime& time)
 	return iWeekOfYear;
 }
 
-void CStatGraphDlg::GatherData() {
+void CStatGraphDlg::GatherData() 
+{
 	// Sanity check
 	if ((m_parAuthors==NULL)||(m_parDates==NULL)||(m_parFileChanges==NULL))
 		return;
@@ -762,10 +749,10 @@ void CStatGraphDlg::ShowCommitsByDate()
 	}
 	// Loop over all intervals/weeks and collect filtered data.
 	// Sum up data in each interval until the time unit changes.
-	for (int i=m_firstInterval; i<=m_lastInterval; ++i)
+	for (int i=m_lastInterval; i>=m_firstInterval; --i)
 	{
 		// Get the time corresponding to the current interval
-		CTime t = CTime(m_minDate) + CTimeSpan(7*i,0,0,0);
+		CTime t = CTime(m_maxDate) - CTimeSpan(7*i,0,0,0);
 		int unit = GetUnit(t);
 
 		// Check if new interval has started, so that we can add 

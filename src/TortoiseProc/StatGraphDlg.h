@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -184,7 +184,9 @@ protected:
 	/// Number of weeks in the revision interval.
 	int						m_nWeeks;		
 	/// The starting date/time for the revision interval.
-	__time64_t				m_minDate;		
+	__time64_t				m_minDate;
+	/// The ending date/time for the revision interval.
+	__time64_t				m_maxDate;		
 	/// The total number of commits (equals size of the m_parXXX arrays).
 	INT_PTR					m_nTotalCommits;
 	/// The total number of file changes.
