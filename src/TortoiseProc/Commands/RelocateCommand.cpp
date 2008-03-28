@@ -71,16 +71,12 @@ bool RelocateCommand::Execute()
 		components2.lpszPassword = password2;
 		components2.dwPasswordLength = INTERNET_MAX_URL_LENGTH;
 		CString sTempUrl = dlg.m_sFromUrl;
-		if (sTempUrl.Left(8).Compare(_T("file:///"))==0)
-			sTempUrl.Replace(_T("file:///"), _T("file://"));
-		if (sTempUrl.Left(8).Compare(_T("file://\\"))==0)
-			sTempUrl.Replace(_T("file://\\"), _T("file://"));
+		if (sTempUrl.Left(8).Compare(_T("file:///\\"))==0)
+			sTempUrl.Replace(_T("file:///\\"), _T("file://"));
 		InternetCrackUrl((LPCTSTR)sTempUrl, sTempUrl.GetLength(), 0, &components1);
 		sTempUrl = dlg.m_sToUrl;
-		if (sTempUrl.Left(8).Compare(_T("file:///"))==0)
-			sTempUrl.Replace(_T("file:///"), _T("file://"));
-		if (sTempUrl.Left(8).Compare(_T("file://\\"))==0)
-			sTempUrl.Replace(_T("file://\\"), _T("file://"));
+		if (sTempUrl.Left(8).Compare(_T("file:///\\"))==0)
+			sTempUrl.Replace(_T("file:///\\"), _T("file://"));
 		InternetCrackUrl((LPCTSTR)sTempUrl, sTempUrl.GetLength(), 0, &components2);
 		// now compare the url components.
 		// If the 'main' parts differ (e.g. hostname, port, scheme, ...) then a relocate is

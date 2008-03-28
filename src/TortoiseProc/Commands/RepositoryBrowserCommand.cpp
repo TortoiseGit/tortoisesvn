@@ -50,7 +50,14 @@ bool RepositoryBrowserCommand::Execute()
 				// The path points to a local repository.
 				// Add 'file:///' so the repository browser recognizes
 				// it as an URL to the local repository.
-				url = _T("file://")+cmdLinePath.GetWinPathString();
+				if (cmdLinePath.GetWinPathString().GetAt(0) == '\\')	// starts with '\' means an UNC path
+				{
+					CString p = cmdLinePath.GetWinPathString();
+					p.TrimLeft('\\');
+					url = _T("file://")+cmdLinePath.GetWinPathString();
+				}
+				else
+					url = _T("file:///")+cmdLinePath.GetWinPathString();
 				url.Replace('\\', '/');
 			}
 		}

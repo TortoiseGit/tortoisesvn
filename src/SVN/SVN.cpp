@@ -1725,12 +1725,18 @@ void * SVN::logMessage (const char * message, char * baseDirectory)
 
 void SVN::PathToUrl(CString &path)
 {
+	bool bUNC = false;
 	path.Trim();
+	if (path.Left(2).Compare(_T("\\\\"))==0)
+		bUNC = true;
 	// convert \ to /
 	path.Replace('\\','/');
 	path.TrimLeft('/');
 	// prepend file://
-	path.Insert(0, _T("file://"));
+	if (bUNC)
+		path.Insert(0, _T("file://"));
+	else
+		path.Insert(0, _T("file:///"));
 	path.TrimRight(_T("/\\"));			//remove trailing slashes
 }
 
@@ -1765,9 +1771,9 @@ void SVN::preparePath(CString &path)
 	{
 		path.Replace(_T("file://///"), _T("file://"));
 	}
-	else if (path.Left(9).CompareNoCase(_T("file://"))==0)
+	else if (path.Left(9).CompareNoCase(_T("file:////"))==0)
 	{
-		path.Replace(_T("file:////"), _T("file:///\\"));
+		path.Replace(_T("file:////"), _T("file://"));
 	}
 }
 
