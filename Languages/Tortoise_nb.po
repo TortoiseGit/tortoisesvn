@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-02-28 09:47+0100\n"
+"PO-Revision-Date: 2008-03-28 13:49+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -192,6 +192,11 @@ msgstr "%ld stier"
 msgid "%s"
 msgstr "%s"
 
+#. Resource IDs: (93)
+#, c-format
+msgid "%s (offline)"
+msgstr "%s (frakoblet)"
+
 #. Resource IDs: (115)
 #, c-format
 msgid "%s (offline) - %s"
@@ -285,6 +290,10 @@ msgstr "&Legg til..."
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
 msgstr "&Avansert..."
+
+#. Resource IDs: (1471)
+msgid "&Allow ambiguous URLs"
+msgstr "&Tillat flertydige URLer"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -503,8 +512,8 @@ msgid "&Go To Line..."
 msgstr "&Gå til linje..."
 
 #. Resource IDs: (32799)
-msgid "&Group branches"
-msgstr "&Grupper grener"
+msgid "&Group by branch"
+msgstr "&Grupper etter gren"
 
 #. Resource IDs: (1032, 1115)
 msgid "&HEAD Revision"
@@ -671,6 +680,10 @@ msgstr "&Nylige meldinger"
 #. Resource IDs: (376)
 msgid "&Redo"
 msgstr "&Gjenta"
+
+#. Resource IDs: (1382)
+msgid "&Refresh"
+msgstr "&Gjenoppfrisk"
 
 #. Resource IDs: (1100, 1285)
 msgid "&Remove"
@@ -864,6 +877,10 @@ msgstr "(Flere mål er valgt)"
 #. Resource IDs: (213)
 msgid "(no changelist)"
 msgstr "(ingen endringsliste)"
+
+#. Resource IDs: (314)
+msgid "(no line number)"
+msgstr "(intet linjenummer)"
 
 #. Resource IDs: (314)
 msgid "(not found)"
@@ -1141,9 +1158,21 @@ msgstr "Alle filer (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "Alle filer (*.*)|*.*||"
 
+#. Resource IDs: (345)
+msgid ""
+"Allow different repositories to use the same URL, e.g. http://localhost/myrepos/\n"
+"Note: This will disable offline log access."
+msgstr ""
+"Tillat at forskjellige depoter bruker samme URL, f.eks. http://localhost/myrepos/\n"
+"Merk: Dette vil slå av frakoblet loggtilgang."
+
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "Bruk alltid de lokale systeminstillinger for visning av tid og dato"
+
+#. Resource IDs: (339)
+msgid "Amount of memory required to load the cache"
+msgstr "Mengde minne som kreves for å laste mellomlageret"
 
 #. Resource IDs: (78)
 #, c-format
@@ -1201,10 +1230,6 @@ msgstr "En ukjent feil oppsto under tilgang til %1."
 #, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "Det ble funnet en ukjent linjetype i linje nummer %d !"
-
-#. Resource IDs: (269)
-msgid "Analyze revision data..."
-msgstr "Analyser revisjonsdata..."
 
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
@@ -1611,10 +1636,6 @@ msgstr "Kryss av for de menyvalgene du se i hovedmenyen i stedet for i undermeny
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Kryss for å bruke kortere dato- og tids-formater i loggmeldingsver."
 
-#. Resource IDs: (270)
-msgid "Checking for forward copies"
-msgstr "Sjekker etter forhåndskopier"
-
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Ser etter om en nyere versjon av TortoiseSVN finnes på nettet..."
@@ -1880,6 +1901,10 @@ msgstr "I konflikt"
 #, c-format
 msgid "Conflicts: %d"
 msgstr "Konflikter: %d"
+
+#. Resource IDs: (345)
+msgid "Connect to the repository server and download missing log data"
+msgstr "Kontakt depot-tjeneren og last ned manglende loggdata"
 
 #. Resource IDs: (65535)
 msgid "Container sizes"
@@ -2540,6 +2565,10 @@ msgstr "Enten navnet eller IP-adressen på mellomtjener"
 msgid "Empty"
 msgstr "Tom"
 
+#. Resource IDs: (344)
+msgid "Enable log caching to speed up log and revision graph dialogs"
+msgstr "Slå på loggmellomlagring for å gjøre logg- og revisjonsgrafdialogene hurtigere"
+
 #. Resource IDs: (196)
 msgid ""
 "Enable this only if you're working with web projects on VS.NET2003!\n"
@@ -2733,6 +2762,10 @@ msgstr "Eksport - TortoiseSVN"
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "Eksportkatalog:"
+
+#. Resource IDs: (345)
+msgid "Export the selected cache as a set of Comma Separated Value (CSV) files"
+msgstr "Eksporter det valgte mellomlageret som en samling filer med kommaseparerte verdier (CSV)"
 
 #. Resource IDs: (79)
 msgid "Export unversioned files too"
@@ -3017,6 +3050,10 @@ msgstr "For fullstendig historie slå av \"Stopp ved kopi/omdøping\""
 msgid "Force blame"
 msgstr "Tving skyld"
 
+#. Resource IDs: (65535)
+msgid "From URL:"
+msgstr "Fra URL:"
+
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "Fra:"
@@ -3181,13 +3218,13 @@ msgstr ""
 msgid "Graph type:"
 msgstr "Diagramtype:"
 
+#. Resource IDs: (2050)
+msgid "Group by branch"
+msgstr "Grupper etter gren"
+
 #. Resource IDs: (214)
 msgid "Group changelists"
 msgstr "Grupper endringslister"
-
-#. Resource IDs: (2050)
-msgid "Groups branches together"
-msgstr "Grupperer grener sammen"
 
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
@@ -3845,6 +3882,10 @@ msgstr ""
 "Viser hjelpeemner\n"
 "Hjelpeemner"
 
+#. Resource IDs: (344)
+msgid "List of repositories for which log information has been cached"
+msgstr "Liste av depoter som har mellomlagret logginformasjon"
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Last Bilder"
@@ -3977,6 +4018,10 @@ msgstr "&Merk som løst"
 msgid "Mark as resolved"
 msgstr "Merk som løst"
 
+#. Resource IDs: (2052)
+msgid "Mark current revision of your working copy"
+msgstr "Merk nåværende revisjon av arbeidskopien"
+
 #. Resource IDs: (101)
 msgid "Mark for comparison"
 msgstr "Merk for sammenligning"
@@ -4016,6 +4061,10 @@ msgstr "Flett"
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
 msgstr "Flett - TortoiseSVN"
+
+#. Resource IDs: (221)
+msgid "Merge Reintegrate"
+msgstr "Flett Reintegrering"
 
 #. Resource IDs: (1416)
 msgid "Merge a range of revisions"
@@ -4364,6 +4413,10 @@ msgstr "For lite minne for å utføre operasjonen."
 msgid "Not recursive"
 msgstr "Ikke rekursivt"
 
+#. Resource IDs: (65535)
+msgid "Note: the font settings also affect the TortoiseUDiff viewer"
+msgstr "Merk: Instillinger for skrift påvirker også TortoiseUDiff-viseren"
+
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Notis"
@@ -4385,32 +4438,36 @@ msgid "Number of cached revisions"
 msgstr "Antall mellomlagrede revisjoner"
 
 #. Resource IDs: (339)
-msgid "Number of cached user revision properties"
-msgstr "Antall mellomlagrede bruker-revisjonsegenskaper"
+msgid "Number of cached revisions that have a non-empty change list"
+msgstr "Antall mellomlagrede revisjoner som har en ikke-tom endringsliste"
 
 #. Resource IDs: (339)
-msgid "Number of changed cached revisions"
-msgstr "Antall endrede mellomlagrede revisjoner"
+msgid "Number of cached revisions that have user revision properties"
+msgstr "Antall mellomlagrede revisjoner som har bruker-revisjonssegenskaper"
 
 #. Resource IDs: (339)
-msgid "Number of changed revisions that are not cached yet"
-msgstr "Antall endrede revisjoner som ikke ennå er mellomlagret"
+msgid "Number of cached revisions whose change list is not cached yet"
+msgstr "Antall mellomlagrede revisjoner med endringsliste som ikke ennå er mellomlagret"
+
+#. Resource IDs: (339)
+msgid "Number of cached revisions whose user revision properties are not cached yet"
+msgstr "Antall mellomlagrede revisjoner med bruker-revisjonsegenskaper som ikke ennå er mellomlagret"
 
 #. Resource IDs: (338)
 msgid "Number of different paths shown in the log dialog, including parent paths"
 msgstr "Antall forskjellige stier som vises i loggdialogen, inkludert til overkataloger"
+
+#. Resource IDs: (338)
+msgid "Number of different words used in log messages"
+msgstr "Antall forskjellige ord brukt i loggmeldinger"
 
 #. Resource IDs: (339)
 msgid "Number of merged revisions that are not cached yet"
 msgstr "Antall flettede revisjoner som ikke ennå er mellomlagret"
 
 #. Resource IDs: (338)
-msgid "Number of path elements. This is an internal value indicating the compression level."
-msgstr "Antall stielementer. Dette er en intern verdi som indikerer kompresjonsnivå."
-
-#. Resource IDs: (339)
-msgid "Number of user revision properties that are not cached yet"
-msgstr "Antall bruker-revisjonsegenskaper som ikke ennå er mellomlagret"
+msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
+msgstr "Antall stielementer. Et stielement er et mappe- eller filnavn som 'foo.txt' eller 'mingren'."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -4887,6 +4944,15 @@ msgstr ""
 "\\d\t\t\tsifrene 0-9\n"
 "\\s\t\t\tmellomrom"
 
+#. Resource IDs: (1469)
+msgid "Reintegrate a branch"
+msgstr "Reintegrer en gren"
+
+#. Resource IDs: (230)
+#, c-format
+msgid "Reintegrate merge %s into %s"
+msgstr "Reintegrer flett %s til %s"
+
 #. Resource IDs: (82)
 msgid "Reject"
 msgstr "Nekt"
@@ -4973,6 +5039,10 @@ msgid ""
 msgstr ""
 "Fjern egenskap \"%s\" fra\r\n"
 "%s"
+
+#. Resource IDs: (345)
+msgid "Remove the selected cache(s) from disk"
+msgstr "Fjern de valgte mellomlagrene fra disk"
 
 #. Resource IDs: (1332)
 msgid "Remove..."
@@ -5422,6 +5492,10 @@ msgstr "Lagre til utklippstavle"
 msgid "Saved Data"
 msgstr "Lagrede Data"
 
+#. Resource IDs: (344)
+msgid "Saves expensive server roundtrips when set to longer than 0 seconds"
+msgstr "Sparer dyre turer via tjener når den er satt til mer enn 0 sekunder"
+
 #. Resource IDs: (581)
 msgid "Saves the selected property value to a file"
 msgstr "Lagrer verdien av valgt egenskap til en fil"
@@ -5653,6 +5727,10 @@ msgstr "Vis &alle"
 msgid "Show &Range..."
 msgstr "Vis &Intervall..."
 
+#. Resource IDs: (32826)
+msgid "Show &WC revision"
+msgstr "Vis &arbeidskopi-revisjon"
+
 #. Resource IDs: (32796)
 msgid "Show &all revisions"
 msgstr "Vis &alle revisjoner"
@@ -5769,6 +5847,10 @@ msgstr ""
 "Vis spesialkarakterer i stedet for mellomrom\n"
 "Vis mellomrom"
 
+#. Resource IDs: (345)
+msgid "Show statistics for the selected log cache"
+msgstr "Vis statistikk for det valgte loggmellomlageret"
+
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Vis merker på kopikilde, ikke som egne noder"
@@ -5847,6 +5929,10 @@ msgstr "Størrelse og status"
 #. Resource IDs: (339)
 msgid "Size of all cached text information"
 msgstr "Størrelsen på all mellomlagret tekstinformasjon"
+
+#. Resource IDs: (339)
+msgid "Size of the cache file on disk"
+msgstr "Mellomlagerets størrelse på disk"
 
 #. Resource IDs: (339)
 msgid "Size of the cache if it were not compressed"
@@ -6045,6 +6131,10 @@ msgstr "Bytt til forrige dokumentvindu"
 #. Resource IDs: (9)
 msgid "Switch working copy to another branch / tag"
 msgstr "Bytt arbeidskopi til en annen gren / merke"
+
+#. Resource IDs: (65535)
+msgid "Switch:"
+msgstr "Bytt:"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<<->right"
@@ -6441,10 +6531,10 @@ msgstr "Deres"
 
 #. Resource IDs: (169)
 msgid ""
-"There are changes inside one or more directories which you have included with svn:externals.\n"
+"There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
 "Those files are <b>not</b> listed for commit. You need to commit those files separately."
 msgstr ""
-"Det er endringer inne i en eller flere kataloger som du har inkludert med svn:externals.\n"
+"Det er endringer eller ikke-versjonerte elementer i en eller flere kataloger som du har inkludert med svn:externals.\n"
 "Disse filene er <b>ikke</b> tatt med for innsending og må sendes inn separat."
 
 #. Resource IDs: (66)
@@ -6513,12 +6603,16 @@ msgstr ""
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #. Resource IDs: (594)
-msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
-msgstr "Denne metoden dekker tilfellet hvor du har laget en utviklingsgren, som beskrevet i Subversion-boken. Alle endringer i stammen har blitt reflektert til utviklingsgrenen, uke etter uke, og nå da utviklingen er ferdig, vil du flette den tilbake til stammen. Fordi du har holdt utviklingsgrenen synkronisert med stammen vil siste versjon av grenen og stammen være identiske, unntatt dine endringer i grenen. Så i dette spesialtilfellet vil du flette ved å sammenligne grenen med stammen."
+msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. Use this to merge all changes of a branch back to trunk."
+msgstr "Denne metoden dekker tilfellet hvor du har laget en utviklingsgren som omtalt i Subversion-boken. Bruk dette for å flette alle endringene i grenen tilbake til stammen."
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
 msgstr "Denne metoden dekker tilfellet hvor du har gjort en eller flere revisjoner i en gren (eller i stammen) og du vil reflektere endringene over til en annen gren."
+
+#. Resource IDs: (594)
+msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
+msgstr "Denne metoden dekker tilfellet hvor du vil flette forskjellene mellom to forskjellige grener inn i areidskkopien."
 
 #. Resource IDs: (65535)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -6701,8 +6795,8 @@ msgid "Total file changes:"
 msgstr "Totalt antall filendringer:"
 
 #. Resource IDs: (339)
-msgid "Total number of changed revisions"
-msgstr "Totalt antall endrede revisjoner"
+msgid "Total number of changes over all cached revisions"
+msgstr "Totalt antall endringer over alle mellomlagrede revisjoner"
 
 #. Resource IDs: (339)
 msgid "Total number of merged revisions"
@@ -7139,6 +7233,16 @@ msgstr "Advarsel"
 msgid "Warning!"
 msgstr "Advarsel!"
 
+#. Resource IDs: (344)
+msgid ""
+"When connecting to the respository server is not possible,\n"
+"TSVN can switch to using cached data only.\n"
+"Select the default beviour here."
+msgstr ""
+"Når det ikke er mulig å kontakte depottjeneren\n"
+"kan TSVN gå over til å bruke kun mellomlagrede data.\n"
+"Velg standard oppførsel her."
+
 #. Resource IDs: (197)
 msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
 msgstr "Hvis valgt vil de versjonerte elementene som listes i innsendingsdialogen, velges automatisk"
@@ -7192,22 +7296,22 @@ msgstr "Du har den nyeste versjonen installert."
 msgid ""
 "You are creating a repository on a network share.\n"
 "This is safe, but once the repository is created you must access it by some other means.\n"
-"Accessing a repository via file:/// on a network share may corrupt your data!\n"
+"Accessing a repository via file:// on a network share may corrupt your data!\n"
 "Create the repository anyway?"
 msgstr ""
-"Du lager et depot i en delt nettverks-stasjasjon.\n"
+"Du lager et depot i en delt nettverks-stasjon.\n"
 "Du kan trygt gjøre dette, men du må bruke en annen tilgangsmetode til depoet når det er opprettet.\n"
-"Depoet kan bli ødelagt hvis du bruker 'file:///'-metoden på en delt nettverks-stasjon!\n"
+"Depoet kan bli ødelagt hvis du bruker 'file://'-metoden på en delt nettverks-stasjon!\n"
 "Vil du likevel gjøre dette?"
 
 #. Resource IDs: (88)
 msgid ""
-"You are trying to access a repository via file:/// on\n"
+"You are trying to access a repository via file:// on\n"
 "a shared network drive.\n"
 "This could lead to severe repository corruption!\n"
 "Do you really want to do that?"
 msgstr ""
-"Du forsøker å få tilgang til et depot med file:///\n"
+"Du forsøker å få tilgang til et depot med file://\n"
 "på en delt nettverks-stasjon.\n"
 "Dette kan ødelegge depoet!\n"
 "Vil du likevel fortsette?"
@@ -7407,6 +7511,14 @@ msgstr "og støtt utviklerne"
 msgid "another item already exists in its place."
 msgstr "et annet element fins allerede i dets sted."
 
+#. Resource IDs: (340)
+msgid ""
+"ask repository first if 'online' -\n"
+"work entirely from cache if 'offline'"
+msgstr ""
+"spør depotet først hvis 'tilkoblet' -\n"
+"arbeid kun fra mellomlager hvis 'frakoblet'"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "Forfatter"
@@ -7600,7 +7712,7 @@ msgid "merged"
 msgstr "flettet"
 
 #. Resource IDs: (65535)
-msgid "merges total:"
+msgid "merges total: "
 msgstr "flettinger totalt:"
 
 #. Resource IDs: (10)
@@ -8012,4 +8124,9 @@ msgstr "år"
 #. Resource IDs: (18, 1002, 1011, 1012)
 msgid "yes"
 msgstr "ja"
+
+#~ msgid "Analyze revision data..."
+#~ msgstr "Analyser revisjonsdata..."
+#~ msgid "Checking for forward copies"
+#~ msgstr "Sjekker etter forhåndskopier"
 
