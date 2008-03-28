@@ -2155,8 +2155,34 @@ void CBaseView::OnEditCopy()
 	CString sCopyData;
 	for (int i=m_ptSelectionStartPos.y; i<=m_ptSelectionEndPos.y; i++)
 	{
-		sCopyData += m_pViewData->GetLine(i);
-		sCopyData += _T("\r\n");
+		switch (m_pViewData->GetState(i))
+		{
+		case DIFFSTATE_EMPTY:
+			break;
+		case DIFFSTATE_UNKNOWN:
+		case DIFFSTATE_NORMAL:
+		case DIFFSTATE_REMOVED:
+		case DIFFSTATE_REMOVEDWHITESPACE:
+		case DIFFSTATE_ADDED:
+		case DIFFSTATE_ADDEDWHITESPACE:
+		case DIFFSTATE_WHITESPACE:
+		case DIFFSTATE_WHITESPACE_DIFF:
+		case DIFFSTATE_CONFLICTED:
+		case DIFFSTATE_CONFLICTED_IGNORED:
+		case DIFFSTATE_CONFLICTADDED:
+		case DIFFSTATE_CONFLICTEMPTY:
+		case DIFFSTATE_CONFLICTRESOLVED:
+		case DIFFSTATE_IDENTICALREMOVED:
+		case DIFFSTATE_IDENTICALADDED:
+		case DIFFSTATE_THEIRSREMOVED:
+		case DIFFSTATE_THEIRSADDED:
+		case DIFFSTATE_YOURSREMOVED:
+		case DIFFSTATE_YOURSADDED:
+		case DIFFSTATE_EDITED:
+			sCopyData += m_pViewData->GetLine(i);
+			sCopyData += _T("\r\n");
+			break;
+		}
 	}
 	// remove the last \r\n
 	sCopyData = sCopyData.Left(sCopyData.GetLength()-2);
