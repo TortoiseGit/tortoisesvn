@@ -197,6 +197,18 @@ CSVNStatusListCtrl::FileEntry * CSVNStatusListCtrl::GetListEntry(const CTSVNPath
 	return NULL;
 }
 
+int CSVNStatusListCtrl::GetIndex(const CTSVNPath& path)
+{
+	int itemCount = GetItemCount();
+	for (int i=0; i < itemCount; i++)
+	{
+		FileEntry * entry = GetListEntry(i);
+		if (entry->GetPath().IsEquivalentTo(path))
+			return i;
+	}
+	return -1;
+}
+
 void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContainer, DWORD dwContextMenus /* = SVNSLC_POPALL */, bool bHasCheckboxes /* = true */)
 {
 	Locker lock(m_critSec);
@@ -4642,7 +4654,7 @@ bool CSVNStatusListCtrl::EnableFileDrop()
 {
 	if (m_pDropTarget)
 		return false;
-	m_pDropTarget = new CSVNStatusListCtrlDropTarget(m_hWnd);
+	m_pDropTarget = new CSVNStatusListCtrlDropTarget(this);
 	RegisterDragDrop(m_hWnd,m_pDropTarget);
 	// create the supported formats:
 	FORMATETC ftetc={0};
@@ -5082,4 +5094,133 @@ void CSVNStatusListCtrl::NotifyCheck()
 	{
 		pParent->SendMessage(SVNSLNM_CHECKCHANGED, m_nSelected);
 	}
+}
+
+
+//////////////////////////////////////////////////////////////////////////
+
+bool CSVNStatusListCtrlDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD * /*pdwEffect*/, POINTL pt)
+{
+	if(pFmtEtc->cfFormat == CF_HDROP && medium.tymed == TYMED_HGLOBAL)
+	{
+		HDROP hDrop = (HDROP)GlobalLock(medium.hGlobal);
+		if(hDrop != NULL)
+		{
+			TCHAR szFileName[MAX_PATH];
+
+			UINT cFiles = DragQueryFile(hDrop, 0xFFFFFFFF, NULL, 0);
+
+			POINT clientpoint;
+			clientpoint.x = pt.x;
+			clientpoint.y = pt.y;
+			ScreenToClient(m_hTargetWnd, &clientpoint);
+			if ((m_pSVNStatusListCtrl->IsGroupViewEnabled())&&(m_pSVNStatusListCtrl->GetGroupFromPoint(&clientpoint) >= 0))
+			{
+				CTSVNPathList changelistItems;
+				for(UINT i = 0; i < cFiles; ++i)
+				{
+					DragQueryFile(hDrop, i, szFileName, sizeof(szFileName));
+					changelistItems.AddPath(CTSVNPath(szFileName));
+				}
+				// find the changelist name
+				CString sChangelist;
+				LONG_PTR nGroup = m_pSVNStatusListCtrl->GetGroupFromPoint(&clientpoint);
+				for (std::map<CString, LONG_PTR>::iterator it = m_pSVNStatusListCtrl->m_changelists.begin(); it != m_pSVNStatusListCtrl->m_changelists.end(); ++it)
+					if (it->second == nGroup)
+						sChangelist = it->first;
+				if (!sChangelist.IsEmpty())
+				{
+					SVN svn;
+					if (svn.AddToChangeList(changelistItems, sChangelist, svn_depth_empty))
+					{
+						for (int l=0; l<changelistItems.GetCount(); ++l)
+						{
+							int index = m_pSVNStatusListCtrl->GetIndex(changelistItems[l]);
+							if (index >= 0)
+							{
+								CSVNStatusListCtrl::FileEntry * e = m_pSVNStatusListCtrl->GetListEntry(index);
+								if (e)
+								{
+									e->changelist = sChangelist;
+									if (!e->IsFolder())
+									{
+										if (m_pSVNStatusListCtrl->m_changelists.find(e->changelist)!=m_pSVNStatusListCtrl->m_changelists.end())
+											m_pSVNStatusListCtrl->SetItemGroup(index, m_pSVNStatusListCtrl->m_changelists[e->changelist]);
+										else
+											m_pSVNStatusListCtrl->SetItemGroup(index, m_pSVNStatusListCtrl->m_bHasIgnoreGroup ? m_pSVNStatusListCtrl->m_changelists.size()-1 : m_pSVNStatusListCtrl->m_changelists.size());
+									}
+								}
+							}
+							else
+							{
+								HWND hParentWnd = GetParent(m_hTargetWnd);
+								if (hParentWnd != NULL)
+									::SendMessage(hParentWnd, CSVNStatusListCtrl::SVNSLNM_ADDFILE, 0, (LPARAM)changelistItems[l].GetWinPath());
+							}
+						}
+					}
+					else
+					{
+						CMessageBox::Show(m_pSVNStatusListCtrl->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+					}
+				}
+				else
+				{
+					SVN svn;
+					if (svn.RemoveFromChangeList(changelistItems, CStringArray(), svn_depth_empty))
+					{
+						for (int l=0; l<changelistItems.GetCount(); ++l)
+						{
+							int index = m_pSVNStatusListCtrl->GetIndex(changelistItems[l]);
+							if (index >= 0)
+							{
+								CSVNStatusListCtrl::FileEntry * e = m_pSVNStatusListCtrl->GetListEntry(index);
+								if (e)
+								{
+									e->changelist = sChangelist;
+									m_pSVNStatusListCtrl->SetItemGroup(index, m_pSVNStatusListCtrl->m_bHasIgnoreGroup ? m_pSVNStatusListCtrl->m_changelists.size()-1 : m_pSVNStatusListCtrl->m_changelists.size());
+								}
+							}
+							else
+							{
+								HWND hParentWnd = GetParent(m_hTargetWnd);
+								if (hParentWnd != NULL)
+									::SendMessage(hParentWnd, CSVNStatusListCtrl::SVNSLNM_ADDFILE, 0, (LPARAM)changelistItems[l].GetWinPath());
+							}
+						}
+					}
+					else
+					{
+						CMessageBox::Show(m_pSVNStatusListCtrl->m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+					}
+				}
+			}
+			else
+			{
+				for(UINT i = 0; i < cFiles; ++i)
+				{
+					DragQueryFile(hDrop, i, szFileName, sizeof(szFileName));
+					HWND hParentWnd = GetParent(m_hTargetWnd);
+					if (hParentWnd != NULL)
+						::SendMessage(hParentWnd, CSVNStatusListCtrl::SVNSLNM_ADDFILE, 0, (LPARAM)szFileName);
+				}
+			}
+		}
+		GlobalUnlock(medium.hGlobal);
+	}
+	return true; //let base free the medium
+}
+HRESULT STDMETHODCALLTYPE CSVNStatusListCtrlDropTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect)
+{
+	CIDropTarget::DragOver(grfKeyState, pt, pdwEffect);
+	*pdwEffect = DROPEFFECT_COPY;
+	POINT clientpoint;
+	clientpoint.x = pt.x;
+	clientpoint.y = pt.y;
+	ScreenToClient(m_hTargetWnd, &clientpoint);
+	if ((m_pSVNStatusListCtrl->IsGroupViewEnabled())&&(m_pSVNStatusListCtrl->GetGroupFromPoint(&clientpoint) >= 0))
+	{
+		*pdwEffect = DROPEFFECT_MOVE;
+	}
+	return S_OK;
 }

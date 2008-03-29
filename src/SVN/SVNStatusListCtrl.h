@@ -295,6 +295,7 @@ public:
 		bool					keeplocal;				///< Whether a local copy of this entry should be kept in the working copy after a deletion has been committed
 		svn_depth_t				depth;					///< the depth of this entry
 		friend class CSVNStatusListCtrl;
+		friend class CSVNStatusListCtrlDropTarget;
 	};
 
 	/**
@@ -389,6 +390,12 @@ public:
 	 * \note The entry might not be shown in the list control.
 	 */
 	CSVNStatusListCtrl::FileEntry * GetListEntry(const CTSVNPath& path);
+
+	/**
+	 * Returns the index of the list control entry with the specified path,
+	 * or -1 if the path is not in the list control.
+	 */
+	int GetIndex(const CTSVNPath& path);
 
 	/**
 	 * Returns the file entry data for the specified path in the list control.
@@ -689,33 +696,17 @@ private:
 
 	std::map<CString,bool>		m_mapFilenameToChecked; ///< Remember manually de-/selected items
 	CComCriticalSection			m_critSec;
+
+	friend class CSVNStatusListCtrlDropTarget;
 };
 
 class CSVNStatusListCtrlDropTarget : public CIDropTarget
 {
 public:
-	CSVNStatusListCtrlDropTarget(HWND hTargetWnd):CIDropTarget(hTargetWnd){}
-	virtual bool OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD * /*pdwEffect*/, POINTL /*pt*/)
-	{
-		if(pFmtEtc->cfFormat == CF_HDROP && medium.tymed == TYMED_HGLOBAL)
-		{
-			HDROP hDrop = (HDROP)GlobalLock(medium.hGlobal);
-			if(hDrop != NULL)
-			{
-				TCHAR szFileName[MAX_PATH];
+	CSVNStatusListCtrlDropTarget(CSVNStatusListCtrl * pSVNStatusListCtrl):CIDropTarget(pSVNStatusListCtrl->m_hWnd){m_pSVNStatusListCtrl = pSVNStatusListCtrl;}
 
-				UINT cFiles = DragQueryFile(hDrop, 0xFFFFFFFF, NULL, 0);
-				for(UINT i = 0; i < cFiles; ++i)
-				{
-					DragQueryFile(hDrop, i, szFileName, sizeof(szFileName));
-					HWND hParentWnd = GetParent(m_hTargetWnd);
-					if (hParentWnd != NULL)
-						::SendMessage(hParentWnd, CSVNStatusListCtrl::SVNSLNM_ADDFILE, 0, (LPARAM)szFileName);
-				}
-			}
-			GlobalUnlock(medium.hGlobal);
-		}
-		return true; //let base free the medium
-	}
-
+	virtual bool OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD * /*pdwEffect*/, POINTL pt);
+	virtual HRESULT STDMETHODCALLTYPE DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect);
+private:
+	CSVNStatusListCtrl * m_pSVNStatusListCtrl;
 };
