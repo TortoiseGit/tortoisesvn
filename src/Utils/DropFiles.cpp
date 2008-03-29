@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2006 - Tobias Schäfer
+// Copyright (C) 2006, 2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -96,5 +96,5 @@ void CDropFiles::CreateStructure()
 	memcpy( ::GlobalLock(hMem), GetBuffer(), GetBufferSize() );
 	::GlobalUnlock(hMem);
 	dropData.CacheGlobalData( CF_HDROP, hMem );
-	dropData.DoDragDrop(DROPEFFECT_COPY,NULL);
+	dropData.DoDragDrop(DROPEFFECT_COPY|DROPEFFECT_MOVE|DROPEFFECT_LINK,NULL);
 }
