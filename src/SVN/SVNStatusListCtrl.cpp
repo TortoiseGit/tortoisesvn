@@ -1033,6 +1033,8 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 			showFlags |= SVNSLC_SHOWLOCKS;
 		if (entry->switched)
 			showFlags |= SVNSLC_SHOWSWITCHED;
+		if (!entry->changelist.IsEmpty())
+			showFlags |= SVNSLC_SHOWINCHANGELIST;
 
 		// status_ignored is a special case - we must have the 'direct' flag set to add a status_ignored item
 		if (status != svn_wc_status_ignored || (entry->direct) || (dwShow & SVNSLC_SHOWIGNORED))
@@ -1167,6 +1169,8 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, bo
 		DWORD showFlags = GetShowFlagsFromSVNStatus(status);
 		if (entry->IsLocked())
 			showFlags |= SVNSLC_SHOWLOCKS;
+		if (!entry->changelist.IsEmpty())
+			showFlags |= SVNSLC_SHOWINCHANGELIST;
 
 		// status_ignored is a special case - we must have the 'direct' flag set to add a status_ignored item
 		if (status != svn_wc_status_ignored || (entry->direct) || (dwShow & SVNSLC_SHOWIGNORED))
