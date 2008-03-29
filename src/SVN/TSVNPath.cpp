@@ -203,7 +203,8 @@ const char* CTSVNPath::GetSVNApiPath(apr_pool_t *pool) const
 	if (svn_path_is_url(m_sUTF8FwdslashPath))
 	{
 		m_sUTF8FwdslashPathEscaped = CPathUtils::PathEscape(m_sUTF8FwdslashPath);
-		m_sUTF8FwdslashPath = svn_path_canonicalize(m_sUTF8FwdslashPath, pool);
+		m_sUTF8FwdslashPathEscaped.Replace("file:////", "file:///\\");
+		m_sUTF8FwdslashPathEscaped = svn_path_canonicalize(m_sUTF8FwdslashPathEscaped, pool);
 		return m_sUTF8FwdslashPathEscaped;
 	}
 	m_sUTF8FwdslashPath = svn_path_canonicalize(m_sUTF8FwdslashPath, pool);
