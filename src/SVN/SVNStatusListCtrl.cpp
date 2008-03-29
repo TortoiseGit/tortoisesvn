@@ -1471,7 +1471,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	if (m_changelists.find(entry->changelist) != m_changelists.end())
 		SetItemGroup(index, m_changelists[entry->changelist]);
 	else
-		SetItemGroup(index, 0);
+		SetItemGroup(index, m_bHasIgnoreGroup ? m_changelists.size()-1 : m_changelists.size());
 	m_bBlock = FALSE;
 }
 
@@ -5020,29 +5020,54 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
 
 	TCHAR groupname[1024];
 
+	m_bHasIgnoreGroup = false;
+
+	// add a new group for each changelist
+	int groupindex = 0;
+	for (std::map<CString,LONG_PTR>::iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
+	{
+		if (it->first.Compare(SVNSLC_IGNORECHANGELIST)!=0)
+		{
+			LVGROUP grp = {0};
+			grp.cbSize = sizeof(LVGROUP);
+			grp.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
+			_tcsncpy_s(groupname, 1024, it->first, 1023);
+			grp.pszHeader = groupname;
+			grp.iGroupId = groupindex;
+			grp.uAlign = LVGA_HEADER_LEFT;
+			it->second = InsertGroup(groupindex++, &grp);
+		}
+		else
+			m_bHasIgnoreGroup = true;
+	}
+
+	// now add the items which don't belong to a group
 	LVGROUP grp = {0};
 	grp.cbSize = sizeof(LVGROUP);
 	grp.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
 	CString sUnassignedName(MAKEINTRESOURCE(IDS_STATUSLIST_UNASSIGNED_CHANGESET));
 	_tcsncpy_s(groupname, 1024, (LPCTSTR)sUnassignedName, 1023);
 	grp.pszHeader = groupname;
-	grp.iGroupId = 0;
+	grp.iGroupId = groupindex;
 	grp.uAlign = LVGA_HEADER_LEFT;
-	InsertGroup(0, &grp);
+	InsertGroup(groupindex++, &grp);
 
-	// add a new group for each changelist
-	int groupindex = 1;
-	for (std::map<CString,LONG_PTR>::iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
+	if (m_bHasIgnoreGroup)
 	{
-		LVGROUP grp = {0};
-		grp.cbSize = sizeof(LVGROUP);
-		grp.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
-		_tcsncpy_s(groupname, 1024, it->first, 1023);
-		grp.pszHeader = groupname;
-		grp.iGroupId = groupindex;
-		grp.uAlign = LVGA_HEADER_LEFT;
-		it->second = InsertGroup(groupindex++, &grp);
+		// and now add the group 'ignore-on-commit'
+		std::map<CString,LONG_PTR>::iterator it = m_changelists.find(SVNSLC_IGNORECHANGELIST);
+		if (it != m_changelists.end())
+		{
+			grp.cbSize = sizeof(LVGROUP);
+			grp.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
+			_tcsncpy_s(groupname, 1024, SVNSLC_IGNORECHANGELIST, 1023);
+			grp.pszHeader = groupname;
+			grp.iGroupId = groupindex;
+			grp.uAlign = LVGA_HEADER_LEFT;
+			it->second = InsertGroup(groupindex, &grp);
+		}
 	}
+
 	return bHasGroups;
 }
 
