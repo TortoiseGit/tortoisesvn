@@ -508,6 +508,12 @@ public:
 	 * and the parent folder to be unchecked if one of its children is unchecked.
 	 */
 	void CheckChildrenWithParent(bool bCheck) {m_bCheckChildrenWithParent = bCheck;}
+
+	/**
+	 * Allows checking the items if changelists are present. If set to false,
+	 * items are not checked if at least one changelist is available.
+	 */
+	void CheckIfChangelistsArePresent(bool bCheck) {m_bCheckIfGroupsExist = bCheck;}
 public:
 	CString GetLastErrorMessage() {return m_sLastError;}
 
@@ -661,6 +667,7 @@ private:
 	bool						m_bBusy;
 	bool						m_bEmpty;
 	bool						m_bIgnoreRemoveOnly;
+	bool						m_bCheckIfGroupsExist;
 
 	int							m_nIconFolder;
 

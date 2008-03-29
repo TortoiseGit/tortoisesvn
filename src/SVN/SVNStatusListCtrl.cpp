@@ -142,6 +142,7 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
 	, m_bBlock(false)
 	, m_bBlockUI(false)
 	, m_bHasCheckboxes(false)
+	, m_bCheckIfGroupsExist(true)
 {
 	ZeroMemory(m_arColumnWidths, sizeof(m_arColumnWidths));
 	m_critSec.Init();
@@ -1036,6 +1037,8 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 		if (!entry->changelist.IsEmpty())
 			showFlags |= SVNSLC_SHOWINCHANGELIST;
 
+		bool bAllowCheck = ((entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0) && (m_bCheckIfGroupsExist || (m_changelists.size()==0 || (m_changelists.size()==1 && m_bHasIgnoreGroup))));
+
 		// status_ignored is a special case - we must have the 'direct' flag set to add a status_ignored item
 		if (status != svn_wc_status_ignored || (entry->direct) || (dwShow & SVNSLC_SHOWIGNORED))
 		{
@@ -1046,7 +1049,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 					m_arListArray.push_back(i);
 					if ((dwCheck & SVNSLC_SHOWREMOVEDANDPRESENT)||((dwCheck & SVNSLC_SHOWDIRECTS)&&(entry->direct)))
 					{
-						if (entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0)
+						if (bAllowCheck)
 							entry->checked = true;
 					}
 					AddEntry(entry, langID, listIndex++);
@@ -1057,7 +1060,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 				m_arListArray.push_back(i);
 				if ((dwCheck & showFlags)||((dwCheck & SVNSLC_SHOWDIRECTS)&&(entry->direct)))
 				{
-					if (entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0)
+					if (bAllowCheck)
 						entry->checked = true;
 				}
 				AddEntry(entry, langID, listIndex++);
@@ -1067,7 +1070,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 				m_arListArray.push_back(i);
 				if ((dwCheck & showFlags)||((dwCheck & SVNSLC_SHOWDIRECTS)&&(entry->direct)))
 				{
-					if (entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0)
+					if (bAllowCheck)
 						entry->checked = true;
 				}
 				AddEntry(entry, langID, listIndex++);
@@ -1171,6 +1174,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, bo
 			showFlags |= SVNSLC_SHOWLOCKS;
 		if (!entry->changelist.IsEmpty())
 			showFlags |= SVNSLC_SHOWINCHANGELIST;
+		bool bAllowCheck = ((entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0) && (m_bCheckIfGroupsExist || (m_changelists.size()==0 || (m_changelists.size()==1 && m_bHasIgnoreGroup))));
 
 		// status_ignored is a special case - we must have the 'direct' flag set to add a status_ignored item
 		if (status != svn_wc_status_ignored || (entry->direct) || (dwShow & SVNSLC_SHOWIGNORED))
@@ -1179,7 +1183,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, bo
 			{
 				if (entry->GetPath().IsEquivalentTo(checkedList[npath]))
 				{
-					if (entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0)
+					if (bAllowCheck)
 						entry->checked = true;
 					break;
 				}

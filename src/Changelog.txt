@@ -9,6 +9,8 @@
 - CHG: The changelists are now sorted so that first the user changelists are
        shown, then the items not in a changelist and the ignore-on-commit
        changelist last. (Stefan)
+- CHG: if changelists are present, the items in the commit dialog are not
+       checked by default anymore. (Stefan)
 
 Version 1.5.0-beta1
 - NEW: Implemented 'merge reintegrate': new page in the merge wizard. (Stefan)

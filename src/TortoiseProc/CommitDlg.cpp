@@ -542,6 +542,7 @@ UINT CCommitDlg::StatusThread()
 
 	// Initialise the list control with the status of the files/folders below us
 	BOOL success = m_ListCtrl.GetStatus(m_pathList);
+	m_ListCtrl.CheckIfChangelistsArePresent(false);
 
 	DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS | SVNSLC_SHOWLOCKS | SVNSLC_SHOWINCHANGELIST;
 	dwShow |= DWORD(m_regAddBeforeCommit) ? SVNSLC_SHOWUNVERSIONED : 0;
