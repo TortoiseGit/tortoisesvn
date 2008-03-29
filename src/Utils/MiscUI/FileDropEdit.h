@@ -29,7 +29,7 @@ class CFileDropTarget : public CIDropTarget
 {
 public:
 	CFileDropTarget(HWND hTargetWnd):CIDropTarget(hTargetWnd){}
-	virtual bool OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD * /*pdwEffect*/)
+	virtual bool OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD * /*pdwEffect*/, POINTL /*pt*/)
 	{
 		if(pFmtEtc->cfFormat == CF_TEXT && medium.tymed == TYMED_ISTREAM)
 		{

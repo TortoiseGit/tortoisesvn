@@ -1507,7 +1507,7 @@ void CRepositoryBrowser::OnBeginDragTree(NMHDR *pNMHDR)
 }
 
 
-bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pathlist, DWORD dwEffect)
+bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pathlist, DWORD dwEffect, POINTL /*pt*/)
 {
 	ATLTRACE(_T("dropped %ld items on %s, dwEffect is %ld\n"), pathlist.GetCount(), (LPCTSTR)target.GetSVNPathString(), dwEffect);
 	if (pathlist.GetCount() == 0)

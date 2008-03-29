@@ -224,7 +224,7 @@ protected:
 	void OnBeginDrag(NMHDR *pNMHDR);
 	void OnBeginDragTree(NMHDR *pNMHDR);
 	/// called when a drag-n-drop operation ends and the user dropped something on us.
-	bool OnDrop(const CTSVNPath& target, const CTSVNPathList& pathlist, DWORD dwEffect);
+	bool OnDrop(const CTSVNPath& target, const CTSVNPathList& pathlist, DWORD dwEffect, POINTL pt);
 	/**
 	 * Since all urls we store and use are not properly escaped but "UI friendly", this
 	 * method converts those urls to a properly escaped url which we can use in

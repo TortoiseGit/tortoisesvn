@@ -161,7 +161,7 @@ public:
 	void AddSuportedFormat(FORMATETC& ftetc) { m_formatetc.Add(ftetc); }
 	
 	//return values: true - release the medium. false - don't release the medium 
-	virtual bool OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium,DWORD *pdwEffect) = 0;
+	virtual bool OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium,DWORD *pdwEffect, POINTL pt) = 0;
 
 	virtual HRESULT STDMETHODCALLTYPE QueryInterface( 
 		/* [in] */ REFIID riid,

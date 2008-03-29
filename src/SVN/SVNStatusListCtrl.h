@@ -695,7 +695,7 @@ class CSVNStatusListCtrlDropTarget : public CIDropTarget
 {
 public:
 	CSVNStatusListCtrlDropTarget(HWND hTargetWnd):CIDropTarget(hTargetWnd){}
-	virtual bool OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD * /*pdwEffect*/)
+	virtual bool OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD * /*pdwEffect*/, POINTL /*pt*/)
 	{
 		if(pFmtEtc->cfFormat == CF_HDROP && medium.tymed == TYMED_HGLOBAL)
 		{

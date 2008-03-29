@@ -556,7 +556,7 @@ HRESULT STDMETHODCALLTYPE CIDropTarget::Drop(
 			STGMEDIUM medium;
 			if(pDataObj->GetData(m_pSupportedFrmt, &medium) == S_OK)
 			{
-				if(OnDrop(m_pSupportedFrmt, medium, pdwEffect)) //does derive class wants us to free medium?
+				if(OnDrop(m_pSupportedFrmt, medium, pdwEffect, pt)) //does derive class wants us to free medium?
 					ReleaseStgMedium(&medium);
 			}
 		}
