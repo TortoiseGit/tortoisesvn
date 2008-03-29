@@ -54,7 +54,7 @@ bool RepositoryBrowserCommand::Execute()
 				{
 					CString p = cmdLinePath.GetWinPathString();
 					p.TrimLeft('\\');
-					url = _T("file://")+cmdLinePath.GetWinPathString();
+					url = _T("file://")+p;
 				}
 				else
 					url = _T("file:///")+cmdLinePath.GetWinPathString();
