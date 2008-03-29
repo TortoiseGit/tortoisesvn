@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-29 18:49+0900\n"
+"PO-Revision-Date: 2008-03-29 21:16+0900\n"
 "Last-Translator: Kim TaeDong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1108,6 +1108,8 @@ msgid ""
 "Allow different repositories to use the same URL, e.g. http://localhost/myrepos/\n"
 "Note: This will disable offline log access."
 msgstr ""
+"같은 URL을 사용하기 위해 다른 저장소들을 허용합니다. 예를 들면 http://localhost/myrepos/\n"
+"주의: 이것은 오프라인 로그에 접근하는 것을 비활성화할 것입니다."
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -2420,10 +2422,10 @@ msgstr "바뀐 내용을 저장하시겠습니까?"
 #. Resource IDs: (65535)
 msgid ""
 "Documentation : Simon Large\n"
-"Code : Tobias Schafer, Stefan Fuhrmann"
+"Code : Tobias Schäfer, Stefan Fuhrmann"
 msgstr ""
 "문서 : Simon Large\n"
-"코드 : Tobias Schafer, Stefan Fuhrmann"
+"코드 : Tobias Schäfer, Stefan Fuhrmann"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -4014,7 +4016,7 @@ msgstr "병합 - TortoiseSVN"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
-msgstr ""
+msgstr "재통합 병합"
 
 #. Resource IDs: (1416)
 msgid "Merge a range of revisions"
@@ -4895,12 +4897,12 @@ msgstr ""
 
 #. Resource IDs: (1469)
 msgid "Reintegrate a branch"
-msgstr ""
+msgstr "브랜치를 재통합합니다."
 
 #. Resource IDs: (230)
 #, c-format
 msgid "Reintegrate merge %s into %s"
-msgstr ""
+msgstr "%s를 %s에 재통합 병합합니다."
 
 #. Resource IDs: (82)
 msgid "Reject"
@@ -5443,7 +5445,7 @@ msgstr "저장된 데이터"
 
 #. Resource IDs: (344)
 msgid "Saves expensive server roundtrips when set to longer than 0 seconds"
-msgstr ""
+msgstr "0초보다 긴 시간을 설정하면, 서버에 접속하는 양을 줄여줍니다."
 
 #. Resource IDs: (581)
 msgid "Saves the selected property value to a file"
@@ -5981,8 +5983,8 @@ msgid "Steal the lock"
 msgstr "잠금 훔쳐오기"
 
 #. Resource IDs: (65535)
-msgid "Stefan Kung, Lubbe Onken"
-msgstr "Stefan Kung, Lubbe Onken"
+msgid "Stefan Küng, Lübbe Onken"
+msgstr "Stefan Küng, Lübbe Onken"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
@@ -6552,7 +6554,7 @@ msgstr ""
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. Use this to merge all changes of a branch back to trunk."
-msgstr ""
+msgstr "Subversion 책에서 언급된 특별한 브랜치를 만들었을 때 사용하는 명령입니다.브랜치의 모든 변경사항을 트렁크에 병합하기 위해 이 명령을 사용하십시오."
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
@@ -6560,7 +6562,7 @@ msgstr "하나의 브랜치(혹은 트렁크)에 누적된 변경사항들을 �
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
-msgstr ""
+msgstr "두개의 서로 다른 브랜치의 차이점을 작업사본에 병합하기를 원하는 경우에 사용되는 명령입니다."
 
 #. Resource IDs: (65535)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -7419,7 +7421,7 @@ msgstr "화면에 맞춰 보기"
 
 #. Resource IDs: (338)
 msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
-msgstr ""
+msgstr "\"건너 뛰는 구간\"은 아직 캐시되지 않은 리비전 구간을 지정하기 위해 사용됩니다."
 
 #. Resource IDs: (10)
 msgid "added"
@@ -7460,6 +7462,8 @@ msgid ""
 "ask repository first if 'online' -\n"
 "work entirely from cache if 'offline'"
 msgstr ""
+"'온라인'이면 먼저 저장소에 요청합니다. -\n"
+"'오프라인'이면 완전히 캐시로 동작합니다."
 
 #. Resource IDs: (245)
 msgid "author"
