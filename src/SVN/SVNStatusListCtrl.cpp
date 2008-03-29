@@ -3452,7 +3452,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							{
 								FileEntry * e = GetListEntry(index);
 								e->changelist.Empty();
-								SetItemGroup(index, 0);
+								SetItemGroup(index, m_bHasIgnoreGroup ? m_changelists.size()-1 : m_changelists.size());
 							}
 							// TODO: Should we go through all entries here and check if we also could
 							// remove the changelist from m_changelists ?
@@ -3514,7 +3514,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 										if (m_changelists.find(e->changelist)!=m_changelists.end())
 											SetItemGroup(index, m_changelists[e->changelist]);
 										else
-											SetItemGroup(index, 0);
+											SetItemGroup(index, m_bHasIgnoreGroup ? m_changelists.size()-1 : m_changelists.size());
 									}
 								}
 							}
@@ -3662,7 +3662,7 @@ void CSVNStatusListCtrl::CreateChangeList(const CString& name)
 			if (m_changelists.find(e->changelist)!=m_changelists.end())
 				SetItemGroup(index, m_changelists[e->changelist]);
 			else
-				SetItemGroup(index, 0);
+				SetItemGroup(index, m_bHasIgnoreGroup ? m_changelists.size()-1 : m_changelists.size());
 		}
 	}
 	else
