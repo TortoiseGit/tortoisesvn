@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-16 23:18+0100\n"
+"PO-Revision-Date: 2008-03-29 11:46+0100\n"
 "Last-Translator: Fernando P. Nájera Cano <yo@FernandoNajera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -141,6 +141,11 @@ msgstr "%ld rutas"
 msgid "%s"
 msgstr "%s"
 
+#. Resource IDs: (93)
+#, c-format
+msgid "%s (offline)"
+msgstr "%s (sin conexión)"
+
 #. Resource IDs: (115)
 #, c-format
 msgid "%s (offline) - %s"
@@ -234,6 +239,10 @@ msgstr "&Añadir..."
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
 msgstr "&Avanzado..."
+
+#. Resource IDs: (1471)
+msgid "&Allow ambiguous URLs"
+msgstr "Permitir URLs &ambíguas"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -819,6 +828,10 @@ msgid "(no changelist)"
 msgstr "(no hay lista de cambios)"
 
 #. Resource IDs: (314)
+msgid "(no line number)"
+msgstr "(sin número de línea)"
+
+#. Resource IDs: (314)
 msgid "(not found)"
 msgstr "(no encontrado)"
 
@@ -1094,6 +1107,14 @@ msgstr "Todos los archivos (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "Todos los archivos (*.*)|*.*||"
 
+#. Resource IDs: (345)
+msgid ""
+"Allow different repositories to use the same URL, e.g. http://localhost/myrepos/\n"
+"Note: This will disable offline log access."
+msgstr ""
+"Permite que diferentes repositorios utilicen la misma URL, por ejemplo http://localhost/mirepositorio/\n"
+"Nota: Esto deshabilita el acceso sin conexión al registro de mensajes."
+
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "Utilizar siempre la configuración local del sistema para mostrar fechas y horas"
@@ -1158,10 +1179,6 @@ msgstr "Ocurrió un error desconocido mientras se accedía a %1."
 #, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "¡Se encontró un tipo de línea desconocido en la línea %d !"
-
-#. Resource IDs: (269)
-msgid "Analyze revision data..."
-msgstr "Analizar datos de la revisión..."
 
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
@@ -1568,10 +1585,6 @@ msgstr "Marque las entradas de menú que desea que aparezcan en el menú context
 #. Resource IDs: (80)
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Pruebe a usar un formato de fecha/hora menos redundante en mensajes de registro"
-
-#. Resource IDs: (270)
-msgid "Checking for forward copies"
-msgstr "Comprobando copias hacia delante"
 
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -7274,22 +7287,24 @@ msgstr "Ya tiene instalada la versión más reciente."
 msgid ""
 "You are creating a repository on a network share.\n"
 "This is safe, but once the repository is created you must access it by some other means.\n"
-"Accessing a repository via file:/// on a network share may corrupt your data!\n"
+"Accessing a repository via file:// on a network share may corrupt your data!\n"
 "Create the repository anyway?"
 msgstr ""
 "Está creando un repositorio en una carpeta compartida en red.\n"
-"Esto es seguro, pero una vez el repositorio esté creado debe accederse por otros medios.\n"
-"¡El acceso al repositorio vía file:/// en un recurso compartido puede corromper sus datos!"
+"Esta operación es segura, pero una vez que el repositorio esté creado deberá acceder a él por otros medios.\n"
+"¡El acceso al repositorio utilizando file:// en un recurso compartido de red podría corromper sus datos!\n"
+"¿Desea crear el repositorio de todas formas?"
 
 #. Resource IDs: (88)
 msgid ""
-"You are trying to access a repository via file:/// on\n"
+"You are trying to access a repository via file:// on\n"
 "a shared network drive.\n"
 "This could lead to severe repository corruption!\n"
 "Do you really want to do that?"
 msgstr ""
-"Está intentando acceder a un repositorio en una carpeta compartida en red  vía file:///.\n"
-"¡Esto puede llegar a corromper sus datos severamente!\n"
+"Está intentando acceder a un repositorio utilizando file://\n"
+"sobre una unidad compartida de red.\n"
+"¡Esto puede llegar a corromper gravemente el repositorio!\n"
 "¿Está seguro de querer hacer esto?"
 
 #. Resource IDs: (105)
@@ -8104,6 +8119,10 @@ msgstr "año"
 msgid "yes"
 msgstr "sí"
 
+#~ msgid "Analyze revision data..."
+#~ msgstr "Analizar datos de la revisión..."
+#~ msgid "Checking for forward copies"
+#~ msgstr "Comprobando copias hacia delante"
 #~ msgid "Groups branches together"
 #~ msgstr "Hace grupos juntando ramas"
 #~ msgid ""
