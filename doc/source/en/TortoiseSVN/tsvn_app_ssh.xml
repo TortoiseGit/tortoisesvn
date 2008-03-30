@@ -13,16 +13,16 @@
 			method which does not involve creating a separate SSH user account
 			on the server for every subversion user.
 		</para>
-        <para>
-            In this implementation we create a single SSH user account for
-            all subversion users, and use different authentication keys to
-            differentiate between the real Subversion users.
-        </para>
 		<para>
-            In this appendix we assume that you already have the subversion tools
-            installed, and that you have created a repository as detailed elsewhere
-            in this manual. Note that you should <emphasis>not</emphasis> start
-            svnserve as a service or daemon when used with SSH.
+			In this implementation we create a single SSH user account for
+			all subversion users, and use different authentication keys to
+			differentiate between the real Subversion users.
+		</para>
+		<para>
+			In this appendix we assume that you already have the subversion tools
+			installed, and that you have created a repository as detailed elsewhere
+			in this manual. Note that you should <emphasis>not</emphasis> start
+			svnserve as a service or daemon when used with SSH.
 		</para>
 		<para>
 			Much of the information here comes from a tutorial
@@ -54,7 +54,7 @@ ps xa | grep sshd
 			that the user logging in via SSH needs to execute the svnserve program 
 			and some other binaries. For this reason, either place 
 			<filename>/usr/local/bin</filename> into the <literal>PATH</literal> variable 
-			or create symlinks of your binaries to the <filename>/usr/sbin</filename>
+			or create symbolic links of your binaries to the <filename>/usr/sbin</filename>
 			directory, or to any other directory which is commonly in the
 			<literal>PATH</literal>.
 		</para>
@@ -67,11 +67,11 @@ which svnserve
 			This command should tell you if svnserve is reachable.
 		</para>
 		<para>
-            Create a new user which we will use to access the svn repository:
+			Create a new user which we will use to access the svn repository:
 <screen>
 useradd -m svnuser
 </screen>
-            Be sure to give this user full access rights to the repository.
+			Be sure to give this user full access rights to the repository.
 		</para>
 	</sect1>
 	<sect1 id="tsvn-ssh-windows-server">
@@ -83,16 +83,16 @@ useradd -m svnuser
 			</ulink>
 		</para>
 		<para>
-            Create a new Windows user account <emphasis>svnuser</emphasis> which
-            we will use to access the repository.
-            Be sure to give this user full access rights to the repository.
+			Create a new Windows user account <literal>svnuser</literal> which
+			we will use to access the repository.
+			Be sure to give this user full access rights to the repository.
 		</para>
-        <para>
-            If there is no password file yet then create one from the Cygwin console using:
+		<para>
+			If there is no password file yet then create one from the Cygwin console using:
 <screen>
 mkpasswd -l > /etc/passwd
 </screen>
-        </para>
+		</para>
 	</sect1>
 	<sect1 id="tsvn-ssh-client-tools">
 		<title>SSH Client Tools for use with TortoiseSVN</title>
@@ -107,258 +107,235 @@ mkpasswd -l > /etc/passwd
 			<filename>Pageant</filename> and
 			<filename>Puttygen</filename>.
 		</para>
-    </sect1>
+	</sect1>
 	<sect1 id="tsvn-ssh-create-keys">
-        <title>Creating OpenSSH Certificates</title>
-        <para>
-            The next step is to create a key pair for authentication.
-            There are two possible ways to create keys. The first is to 
-			create the keys with puttygen on the client, upload the public
-			key to your server and use the private key with putty.
+		<title>Creating OpenSSH Certificates</title>
+		<para>
+			The next step is to create a key pair for authentication.
+			There are two possible ways to create keys. The first is to 
+			create the keys with PuTTYgen on the client, upload the public
+			key to your server and use the private key with PuTTY.
 			The other is to create the key pair with the OpenSSH tool
 			ssh-keygen, download the private key to your client and
-			convert the private key to a putty-style private key.
-        </para>
-        <sect2 id="Create Keys using puttygen">
-        </sect2>
-        <sect2 id="Create Keys using ssh-keygen">
-        </sect2>
+			convert the private key to a PuTTY-style private key.
+		</para>
+		<sect2 id="tsvn-ssh-create-ssh-keygen">
+			<title>Create Keys using ssh-keygen</title>
+			<para>
+				Login to the server as <literal>root</literal> or
+				<literal>svnuser</literal> and type:
+<screen>
+ssh-keygen -b 1024 -t dsa -N passphrase -f keyfile
+</screen>
+				substituting a real pass-phrase (which only you know) and key file.
+				We just created a SSH2 DSA key with 1024 bit key-phrase.
+				If you type
+<screen>
+ls -l keyfile*
+</screen>
+				you will see two files, <filename>keyfile</filename> and
+				<filename>keyfile.pub</filename>. As you might guess, the
+				<filename>.pub</filename> file is the public key file, the
+				other is the private one.
+			</para>
+			<para>
+				Append the public key to those in the <filename>.ssh</filename>
+				folder within the <literal>svnuser</literal> home directory:
+<screen>
+cat keyfile.pub &gt;&gt; /home/svnuser/.ssh/authorized_keys
+</screen>
+			</para>
+			<para>
+				In order to use the private key we generated, we have to
+				convert it to a putty format. This is because the private
+				key file format is not specified by a standards body.
+				After you download the private key file to your client PC,
+				start PuTTYgen and use
+				<menuchoice>
+					<guimenu>Conversions</guimenu>
+					<guimenuitem>Import key</guimenuitem>
+				</menuchoice>.
+				Browse to your file <filename>keyfile</filename> which you got
+				from the server the passphrase you used when creating the key.
+				Finally click on <guibutton>Save private key</guibutton> and
+				save the file as <filename>keyfile.PPK</filename>.
+			</para>
+		</sect2>
+		<sect2 id="tsvn-ssh-create-puttygen">
+			<title>Create Keys using PuTTYgen</title>
+			<para>
+				Use PuTTYgen to generate a public-key/private-key pair and
+				save it. Copy the public key to the server and append it to
+				those in the <filename>.ssh</filename> folder within the
+				<literal>svnuser</literal> home directory:
+<screen>
+cat keyfile.pub &gt;&gt; /home/svnuser/.ssh/authorized_keys
+</screen>
+			</para>
+		</sect2>
 	</sect1>
-	
-
-
-
-
-	<sect1 id="tsvn-ssh-opensshcertificates">
-		<title>OpenSSH and certificates (server)</title>
+	<sect1 id="tsvn-ssh-test-putty">
+		<title>Test using PuTTY</title>
 		<para>
-			Assuming OpenSSH is installed, one of the most important 
-			steps is to create a keypair for authentication. There are 
-			two possible ways of creating the keys. The first way is to 
-			create the keys with puttygen (a program of the putty 
-			family), upload the public key to your server and use the 
-			private key with putty. Because of some problems with this 
-			approach, i prefer the other way. This way creates the 
-			keypair with the OpenSSH tool ssh-keygen and download the 
-			private key to your client and convert the private key to a 
-			putty-style private key.
+			To test the connection we will use PuTTY. Start the program and
+			on the <guilabel>Session</guilabel> tab set the hostname to
+			the name or IP address of your server, the protocol to SSH and
+			save the session as <literal>SvnConnection</literal> or whatever
+			name you prefer. On the <guilabel>SSH</guilabel> tab set the
+			preferred SSH protocol version to 2 and from <guilabel>Auth</guilabel>
+			set the full path to the <literal>.PKK</literal> private key file you
+			converted earlier.
+			Go back to the <guilabel>Sessions</guilabel> tab and hit the
+			<guilabel>Save</guilabel> button. You will now see
+			<literal>SvnConnection</literal> in the list of saved sessions.
 		</para>
 		<para>
-			Lets do this step by step:
-			<itemizedlist>
-				<listitem>
-					<para>login to your server</para>
-				</listitem>
-				<listitem>
-					<para>type: ssh-keygen -b 1024 -t dsa -N passphrase -f mykey</para>
-				</listitem>
-				<listitem>
-					<para>change “passphrase” to a secret keyword only you know</para>
-				</listitem>
-				<listitem>
-					<para>type: ls -l mykey*</para>
-				</listitem>
-			</itemizedlist>
-			We just created a SSH2 DSA key with 1024 bit keyphrase. You 
-			will see two files. One named “mykey” and one named 
-			“mykey.pub”. As you might guess, the .pub file is the public 
-			key file, the other is the private one. Next create a user 
-			on the server with a home directory:
-			<itemizedlist>
-				<listitem>
-					<para>type: useradd -m myuse</para>
-				</listitem>
-			</itemizedlist>
-			You will have a directory under /home with the name 
-			“myuser”, create a new directory in “myuser” called “.ssh”:
-			<itemizedlist>
-				<listitem>
-					<para>type: cd /home/myuser</para>
-				</listitem>
-				<listitem>
-					<para>type: mkdir .ssh</para>
-				</listitem>
-			</itemizedlist>
-			Then go to the directory where you created your keys and 
-			copy the public key to the .ssh userfolder with the 
-			following command:
-			<itemizedlist>
-				<listitem>
-					<para>type: cp mykey.pub /home/myuser/.ssh/authorized_keys</para>
-				</listitem>
-			</itemizedlist>
-			Please pay attention to the filename, it really must be 
-			“authorized_keys”. In some old OpenSSH implementations, it 
-			was “authorized_keys2?. Now download the private key file 
-			to your client computer. Remeber, the file was “mykey”
-		</para>
-	</sect1>
-	<sect1 id="tsvn-ssh-sshkeygeneration">
-		<title>SSH key generation and connection check (client)</title>
-		<para>
-			Grab the tools we need for doing SSH on windows on this site:
-			<ulink url="http://www.chiark.greenend.org.uk/~sgtatham/putty/">
-				<citetitle>http://www.chiark.greenend.org.uk/~sgtatham/putty/</citetitle>
-			</ulink>
-			Just go to the download section and get “Putty”, “Plink”, “Pageant” and “Puttygen”
+			Click on <guilabel>Open</guilabel> and you should see a telnet
+			style login prompt. Use <literal>svnuser</literal> as the user name
+			and if all is well you should connect directly without being
+			prompted for a password.
 		</para>
 		<para>
-			In order to use the private key we get from the server, we 
-			have to convert it to a putty format. This is because the 
-			private key file format is not specified by some standard 
-			body. To do this we simple open “puttygen” and open the 
-			“conversions” menu and chose “Import Key”. Then browse to 
-			your file “mykey” which you got from the server enter your 
-			provided passphrase upon creation of the key. Finally click 
-			“Save private key” and save the file as “mykey.PPK” 
-			somewhere on disk.
-		</para>
-		<para>
-			Now we are ready to use this key for the first time to test 
-			the connection. In order to do this, we open the program 
-			“putty” and create a new session like this:
-			<screen>
-Session->HostName: Hostname or IP Adress of your server
-Session->Protocol: SSH
-Session->Saved Sessions: MyConnection
-SSH->Prefered SSH Protocol version: 2
-SSH->Auth->Private Key file for auth: $PATH$\mykey.PKK (replace $PATH$ with real path to the mykey.PKK file)
-			</screen>
-			Then go back to Session tab and hit “save” button. You will 
-			see “MyConnection” in the list of available connections.
-		</para>
-		<para>
-			Next click “open” and you should see a telnet login prompt. 
-			Use “myuser” as username (without double quotes of course) 
-			and if everything is ok, you dont have to provide a 
-			password to your system. If the system still requires a 
-			password, something went wrong. See Debugging Section of 
-			this HowTo.
+			You may need to edit <filename>/etc/sshd_config</filename> on the
+			server. Edit lines as follows and restart the SSH service afterwards.
+<screen>
+PubkeyAuthentication yes
+PasswordAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+</screen>
 		</para>
 	</sect1>
-	<sect1 id="tsvn-ssh-testingssh">
-		<title>Testing SSH with TortoiseSVN (client)</title>
+	<sect1 id="tsvn-ssh-testing-tsvn">
+		<title>Testing SSH with TortoiseSVN</title>
 		<para>
-			After installing TortoiseSVN right click on some folder 
-			inside your Windows Explorer. You will see a menu item 
-			called TortoiseSVN->RepoBrowser. After opening the browser 
-			you have to enter a URL like this:
-			<screen>
-svn+ssh://myuser@MyConnection/usr/local/repos
-			</screen>
-			Lets talk briefly about the URL (if you need more infos, 
-			check the subversion docs). The Schema name is “svn+ssh”, 
-			this tells Tortoise how to handle the requests to the server. 
-			After the double slashed, you can provide the user which is 
-			trying to connect to the server, in our case this is 
-			“myuser”. After the “@”, we supply our putty session name. 
+			So far we have only tested that you can login using SSH. Now we need
+			to make sure that the SSH connection can actually run svnserve.
+			On the server modify <filename>/home/svnuser/.ssh/authorized_keys</filename>
+			as follows to allow many subversion authors to use the same system account,
+			<literal>svnuser</literal>. Note that every subversion author uses the same
+			login but a different authentication key, thus you have to add one line for
+			every author.
+		</para>
+		<para>
+			Note: This is all on one very long line.
+<screen>
+command="svnserve -t -r &lt;ReposRootPath&gt; --tunnel-user=&lt;author&gt;",
+            no-port-forwarding,no-agent-forwarding,no-X11-forwarding,
+            no-pty ssh-rsa &lt;PublicKey&gt; &lt;Comment&gt;
+</screen>
+			There are several values that you need to set according to your setup.
+		</para>
+		<para>
+			<literal>&lt;ReposRootPath&gt;</literal> should be replaced with the
+			path to the directory containing your repositories. This avoids the
+			need to specify full server paths within URLs. Note that you must use
+			forward slashes even on a Windows server, e.g.
+			<filename>c:/svn/reposroot</filename>. In the examples below we assume
+			that you have a repository folder within the repository root called
+			<filename>repos</filename>.
+		</para>
+		<para>
+			<literal>&lt;author&gt;</literal> should be replaced with the svn author
+			that you want to be stored on commit. This also allows svnserve to use
+			its own access rights within <filename>svnserve.conf</filename>.
+		</para>
+		<para>
+			<literal>&lt;PublicKey&gt;</literal> should be replaced with the 
+			public key that you generated earlier.
+		</para>
+		<para>
+			<literal>&lt;Comment&gt;</literal> can be any comment you like, but it is
+			useful for mapping an svn author name to the person's real name.
+		</para>
+		<para>
+			Right click on any folder in Windows Explorer and select
+			<menuchoice>
+				<guimenu>TortoiseSVN</guimenu>
+				<guimenuitem>Repo-Browser</guimenuitem>
+			</menuchoice>.
+			You will be prompted to enter a URL, so enter one in this form:
+<screen>
+svn+ssh://svnuser@SvnConnection/repos
+</screen>
+			What does this URL mean? The Schema name is <literal>svn+ssh</literal>
+			which tells TortoiseSVN how to handle the requests to the server. 
+			After the double slash, you specify the user to connect to the server,
+			in our case <literal>svnuser</literal>. After the <literal>@</literal>
+			we supply our PuTTY session name. 
 			This session name contains all details like where to find 
-			the private key and the servers IP or DNS. Last we have to 
-			provide the full path to the repository. Its assumed that a 
-			subversion repository resides at <filename>/usr/local/repos</filename>
+			the private key and the server's IP or DNS. Lastly we have to 
+			provide the path to the repository, relative to the repository root
+			on the server, as specified in the <filename>authorized_keys</filename> file.
 		</para>
 		<para>
-			If you submit the URL, you will see a opened tree on the 
-			next screen until the node “repos”. Yet, there has not 
-			been made any connection, because the tree representation 
-			comes from the supplied URL. When you hit the “+” button in 
-			front of “repos”, the connection will be established and 
-			you will see the “+” sign dissapearing if you dont have 
-			anything in the repository or you will see your allready 
-			imported projects and files.
-		</para>
-		<para>
-			Right now, you should have a running SSH Tunnel in 
+			Click on <guibutton>OK</guibutton> and you should be able to browse
+			the repository content. If so you now have a running SSH tunnel in 
 			conjunction with TortoiseSVN.
+		</para>
+		<para>
+			Note that by default TortoiseSVN uses its own version of Plink to
+			connect. This avoids a console window popping up for every authentication
+			attempt, but it also means that there is nowhere for error messages to
+			appear. If you receive the error <quote>Unable to write to standard output</quote>,
+			you can try specifying Plink as the client in TortoiseSVN's network settings.
+			This will allow you to see the real error message generated by Plink.
 		</para>
 	</sect1>
 	<sect1 id="tsvn-ssh-configvariants">
-		<title>Configuration Variants (pagent)</title>
-		<para>
-			Now i will continue to show some configuration variants, 
-			that can be helpful during everyday work.
-		</para>
+		<title>SSH Configuration Variants</title>
 		<para>
 			One way to simplify the URL in TortoiseSVN is to set the 
-			user inside the putty session. For this you have to load 
-			your allready defined session “MyConnection” in putty make 
-			the following entry:
-			<screen>
-connection->Auto Login username: myuser
-			</screen>
-			Then save your putty session as before and try the following URL inside Tortoise:
-			<screen>
-svn+ssh://MyConnection/usr/local/repos
-			</screen>
-			This time we only provide the putty session “MyConnection” 
+			user inside the PuTTY session. For this you have to load 
+			your already defined session <literal>SvnConnection</literal>
+			in PuTTY and in the <guilabel>Connection</guilabel> tab set
+			<guilabel>Auto login user</guilabel> to the user name, e.g.
+			<literal>svnuser</literal>. Save your PuTTY session as before
+			and try the following URL inside TortoiseSVN:
+<screen>
+svn+ssh://SvnConnection/repos
+</screen>
+			This time we only provide the PuTTY session <literal>SvnConnection</literal>
 			to the SSH client TortoiseSVN uses (TortoisePlink.exe). 
-			This client is capable of checking the session for all 
-			necessary details like loginuser oder server ip.
+			This client will check the session for all necessary details.
 		</para>
 		<para>
-			Some people like using pageant for storing all their keys 
-			and in fact each howto explains that its important to place 
-			your keys there. In fact, because a putty session is 
-			capable of storing a key, you dont need pageant for normal 
-			business. But imagine you want to store keys for several 
-			users, in that case, you would have to edit the putty 
-			session over and over again, depending on the user you are 
-			trying to connect with. For this situation pagent makes 
-			perfectly sense, because when putty, plink, tortoisePlink or 
-			any other putty-based tool is trying to connect to a SSH 
-			server, it checks all private keys that pageant carries to 
-			initiate the connection.
+			Many people like to use Pageant for storing all their keys.
+			Because a PuTTY session is capable of storing a key, you don't
+			always need Pageant. But imagine you want to store keys for several 
+			different servers; in that case you would have to edit the
+			PuTTY session over and over again, depending on the server you are 
+			trying to connect with. In this situation Pageant makes perfect sense,
+			because when PuTTY, Plink, TortoisePlink or any other PuTTY-based tool
+			is trying to connect to an SSH server, it checks all private keys that
+			Pageant holds to initiate the connection.
 		</para>
 		<para>
-			For this task, simply start pageant and add a key. It 
-			should be the same private key you defined in the putty 
-			session above. If you use pageant for private keys storage, 
-			you can delete the “SSH->Auth->Private Key file for auth” 
-			section inside your putty session. You can add more keys 
-			for other systems or other users of course. If you dont 
-			want to repeat this procedure after every reboot of your 
-			client, you should place the pageant in autostart group of 
-			your windows installation. You can append the keys with 
-			complete paths as command line arguments to pageant.exe
+			For this task, simply run Pageant and add the private key. It should
+			be the same private key you defined in the PuTTY session above.
+			If you use Pageant for private key storage, you can delete the reference
+			to the private key file in your saved PuTTY session.
+			You can add more keys for other servers, or other users of course.
 		</para>
 		<para>
-			The last way to connect to a SSH server is by just using this URL inside TortoiseSVN:
-			<screen>
-svn+ssh://myuser@100.101.102.103/usr/local/repos
-			</screen>
-			As you can see, we dont use a saved putty session but an 
-			IP address as connection target. We also supply the user, 
+			If you don't want to repeat this procedure after every reboot of your 
+			client, you should place Pageant in the auto-start group of your
+			Windows installation. You can append the keys with 
+			complete paths as command line arguments to Pageant.exe
+		</para>
+		<para>
+			The last way to connect to an SSH server is simply by using this URL
+			inside TortoiseSVN:
+<screen>
+svn+ssh://svnuser@100.101.102.103/repos
+svn+ssh://svnuser@mydomain.com/repos
+</screen>
+			As you can see, we don't use a saved PuTTY session but an IP address
+			(or domain name) as the connection target. We also supply the user, 
 			but you might ask how the private key file will be found. 
-			Because TortoisePlink.exe (the standard SSH client for 
-			TortoiseSVN) is a modified version of the plink tool from 
-			the putty suite, also TortoiseSVN looks for a running 
-			pageant and will try all the keys stored in pageant.
-		</para>
-	</sect1>
-	<sect1 id="tsvn-ssh-troubleshooting">
-		<title>Debugging / Troubleshooting</title>
-		<para>
-			Problem: I get “Unable to write to Standard output” when 
-			trying to make a connection with TortoiseSVN
-			Answer: The SSH daemon is most likey not able to find the 
-			svnserve binary. Login with your target user (here myuser) 
-			into the server and type “which svnserve”. If you dont see 
-			the path to the binary, make this file (and most likely the 
-			other subversion binaries) globally accessible to this user.
-		</para>
-		<para>
-			Problem: I get: “No repository found in 
-			’svn+ssh://myuser@100.101.102.103/usr/local/repo’
-			Answer: Check the path to your repository 
-			(here /usr/local/repo) if it really exists on the server 
-			and check the permissions on that folder and its contents.
-		</para>
-		<para>
-			Problem: I am getting the password dialog over and over again
-			Answer: TortoiseSVN (or better its SSH client TortoisePlink) 
-			can't find a key for the current user. Run pageant and add 
-			your private key or define a putty session with a private 
-			key included.
+			Because TortoisePlink.exe is just a modified version of the standard
+			Plink tool from the PuTTY suite, TortoiseSVN will also try all the keys
+			stored in Pageant.
 		</para>
 	</sect1>
 </appendix>
