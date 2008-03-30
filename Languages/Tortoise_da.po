@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-27 23:24+0100\n"
+"PO-Revision-Date: 2008-03-30 13:25+0100\n"
 "Last-Translator: Zero3Cool\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1484,12 +1484,11 @@ msgstr "Ge&nnemse..."
 msgid "Branch / tag created successfully!"
 msgstr "Gren / mærke oprettet!"
 
-# Oversættelse af "copy-fromrev"?
-# Kontekst?
+# Oversættelse af "copy-from-rev"?
+# Kontekst: Se "Exact copy sources"
 #. Resource IDs: (2052)
-#, fuzzy
 msgid "Branch at copy-from-rev even if there was no change in that revision"
-msgstr "Forgren ud fra kopier-fra-revision selvom der ikke var nogen ændringer i denne revision"
+msgstr "Forgren ved copy-from-rev selvom der ikke var nogen ændringer i revisionen"
 
 #. Resource IDs: (9)
 msgid "Branch/&tag..."
@@ -2563,8 +2562,24 @@ msgstr "Vis ikke denne meddelelse igen"
 msgid "Drive Types"
 msgstr "Drevtyper"
 
-# Kontekst: "Revision graph. Shows the *exact* copy sources. Otherwise the graph will merge some copy sources together (helps to reduce the complexity of the graph)."
 # Bedre oversættelse af "Exact copy sources"?
+# Kontekst:
+# "Revision graph. Shows the *exact* copy sources. Otherwise the graph will merge some copy sources together (helps to reduce the complexity of the graph)."
+# "as this is the least obvious feature of the revision graph view,
+# I just want to document here what it actually does.
+# If you show the log for e.g.
+# http://tortoisesvn.tigris.org/svn/tortoisesvn/tags/version_1.2.0RC1
+# you see that it has been created in r3478 as a copy of 
+# /branches/1.2.x@3477.
+# However, the last modification to that branch was in r3466.
+# With 'exact copy sources' enabled, you will get an extra node
+# in the graph for r3477. Otherwise, a node for the last modifying 
+# revision node will be shown (may or may not already be there).
+# It seems that this is mainly an issue with old repositories as
+# I could not reproduce this with newer versions of SVN.
+# Once such information is stored in the repository, it will properly
+# remain there, though.
+# -- Stefan2."
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
 msgstr "&Præcise kopioprindelser"
@@ -7936,10 +7951,8 @@ msgstr ""
 "Hvis angivet, gør filen eksekverbar. Denne egenskab kan ikke sættes på en mappe.\n"
 "Et ikke-rekursivt forsøg vil fejle, og et rekursivt forsøg vil kun sætte egenskaben på alle filerne i mappen."
 
-# Oversættelse af "of the external"? Kontekst?
-# Oversættelse af "scheme"? Kontekst?
+# Kontekst: http://subversion.tigris.org/svn_1.5_releasenotes.html#externals
 #. Resource IDs: (576)
-#, fuzzy
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of\n"
@@ -7956,16 +7969,16 @@ msgid ""
 msgstr ""
 "svn:externals\n"
 "En linjesepareret liste af modulspecifikatorer, hver indeholdende\n"
-"en relativ mappesti, eventuelle revisionmarkeringer, og en URL. Eksempel:\n"
+"en relativ mappesti, eventuelle revisionargumenter, og en URL. Eksempel:\n"
 "foo\t\thttp://eksempel.dk/arkiv/zig\n"
 "foo/bar -r 1234\thttp://eksempel.dk/arkiv/zag\n"
 "\n"
 "URL'erne kan enten være fulde URL'er eller relative. Formatet for\n"
 "relative URL'er er:\n"
-"../\trelativ til mappen over den eksterne\n"
-"^/\trelativ til versionsarkivroden\n"
-"//\trelativ til URL-planen\n"
-"/\trelativ til serverens værtsnavn"
+"../\trelativt til mappen med svn:externals-egenskaben\n"
+"^/\trelativt til versionsarkivroden\n"
+"//\trelativt til URL-opbygningen\n"
+"/\trelativt til serverens rod"
 
 #. Resource IDs: (576)
 msgid ""
