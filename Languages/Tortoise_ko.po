@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-29 21:16+0900\n"
+"PO-Revision-Date: 2008-03-30 20:36+0900\n"
 "Last-Translator: Kim TaeDong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -466,11 +466,11 @@ msgstr "&HEAD 리비전"
 
 #. Resource IDs: (1019, 1032, 1034)
 msgid "&HEAD revision"
-msgstr "최신 리비전(&H)"
+msgstr "&HEAD 리비전"
 
 #. Resource IDs: (1182)
 msgid "&HEAD revision in the repository"
-msgstr "저장소의 최신 리비전(&H)"
+msgstr "저장소의 &HEAD 리비전"
 
 #. Resource IDs: (9, 12, 332, 32781, 57670, 65535)
 msgid "&Help"
@@ -684,7 +684,7 @@ msgstr "설정(&S)"
 
 #. Resource IDs: (32815)
 msgid "&Show HEAD revisions"
-msgstr "최신 리비전 보기(&S)"
+msgstr "HEAD 리비전 보기(&S)"
 
 #. Resource IDs: (1185)
 msgid "&Specific revision in repository"
@@ -1769,7 +1769,7 @@ msgstr ""
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
-msgstr "HEAD 리비전 비교(&H)"
+msgstr "&HEAD 리비전 비교"
 
 #. Resource IDs: (114)
 msgid "Compare and &blame with working BASE"
@@ -3180,7 +3180,7 @@ msgstr "HEAD"
 #. Resource IDs: (106)
 #, c-format
 msgid "Head revision is %s"
-msgstr "최신 리비전은 %s 입니다"
+msgstr "HEAD 리비전은 %s 입니다"
 
 #. Resource IDs: (73, 1004)
 msgid "Help"
@@ -3948,7 +3948,7 @@ msgstr "최하위 리비전: %ld - 최상위 리비전: %ld"
 #. Resource IDs: (238)
 #, c-format
 msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision: %ld"
-msgstr "최하위 리비전: %ld - 최상위 리비전: %ld - 최신(HEAD) 리비전: %ld"
+msgstr "최하위 리비전: %ld - 최상위 리비전: %ld - HEAD 리비전: %ld"
 
 #. Resource IDs: (3866)
 msgid "Mail system DLL is invalid."
@@ -7631,7 +7631,7 @@ msgstr "작업사본에서 유지하는 아이템"
 
 #. Resource IDs: (65535)
 msgid "last head update: "
-msgstr "마지막 최신 업데이트:"
+msgstr "마지막 HEAD 업데이트:"
 
 #. Resource IDs: (65535)
 msgid "last read: "
@@ -7663,15 +7663,15 @@ msgstr "병합 합계: "
 
 #. Resource IDs: (10)
 msgid "missing"
-msgstr "missing"
+msgstr "빠진 것"
 
 #. Resource IDs: (65535)
 msgid "missing / deleted / replaced"
-msgstr "빠진것 / 삭제된 것 / 바뀐 것"
+msgstr "빠진 것 / 삭제된 것 / 바뀐 것"
 
 #. Resource IDs: (65535)
 msgid "missing in: "
-msgstr "missing in:"
+msgstr "빠진 것:"
 
 #. Resource IDs: (10)
 msgid "modified"
