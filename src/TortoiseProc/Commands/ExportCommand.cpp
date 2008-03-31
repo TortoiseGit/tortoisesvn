@@ -58,7 +58,8 @@ bool ExportCommand::Execute()
 			CSVNProgressDlg progDlg;
 			theApp.m_pMainWnd = &progDlg;
 			progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Export);
-			progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
+			if (parser.HasVal(_T("closeonend")))
+				progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
 			DWORD options = dlg.m_bNoExternals ? ProgOptIgnoreExternals : ProgOptNone;
 			if (dlg.m_eolStyle.CompareNoCase(_T("CRLF"))==0)
 				options |= ProgOptEolCRLF;

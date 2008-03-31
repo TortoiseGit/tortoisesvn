@@ -14,6 +14,8 @@
 - BUG: Revisions that only added new files or sub-folders
        were not shown in revision graph (Stefan Fuhrmann)
 - BUG: The log statistics by date were shown in reverse order. (Stefan)
+- BUG: The /closeonend command line param was overwritten by the corresponding
+       user setting if /closeonend:0 was used. (Stefan)
 
 Version 1.5.0-beta1
 - NEW: Implemented 'merge reintegrate': new page in the merge wizard. (Stefan)

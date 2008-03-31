@@ -29,7 +29,8 @@ bool MergeAllCommand::Execute()
 	{
 		CSVNProgressDlg progDlg;
 		progDlg.SetCommand(CSVNProgressDlg::SVNProgress_MergeAll);
-		progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
+		if (parser.HasVal(_T("closeonend")))
+			progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
 		progDlg.SetPathList(pathList);
 		progDlg.SetDepth(dlg.m_depth);
 		progDlg.SetDiffOptions(SVN::GetOptionsString(dlg.m_bIgnoreEOL, dlg.m_IgnoreSpaces));

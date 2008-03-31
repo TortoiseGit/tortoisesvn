@@ -73,7 +73,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	, m_bMergesAddsDeletesOccurred(FALSE)
 	, m_pThread(NULL)
 	, m_options(ProgOptNone)
-	, m_dwCloseOnEnd(0)
+	, m_dwCloseOnEnd((DWORD)-1)
 	, m_bFinishedItemAdded(false)
 	, m_bLastVisible(false)
 	, m_depth(svn_depth_unknown)
@@ -902,7 +902,7 @@ UINT CSVNProgressDlg::ProgressThread()
 	DWORD dwAutoClose = CRegStdWORD(_T("Software\\TortoiseSVN\\AutoClose"));
 	if (m_options & ProgOptDryRun)
 		dwAutoClose = 0;		// dry run means progress dialog doesn't autoclose at all
-	if (m_dwCloseOnEnd != 0)
+	if (m_dwCloseOnEnd != (DWORD)-1)
 		dwAutoClose = m_dwCloseOnEnd;		// command line value has priority over setting value
 	if ((dwAutoClose == CLOSE_NOERRORS)&&(!m_bErrorsOccurred))
 		PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);

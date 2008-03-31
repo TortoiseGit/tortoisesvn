@@ -115,7 +115,8 @@ bool CheckoutCommand::Execute()
 		{
 			CSVNProgressDlg progDlg;
 			theApp.m_pMainWnd = &progDlg;
-			progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
+			if (parser.HasVal(_T("closeonend")))
+				progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
 			progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Checkout);
 			progDlg.SetOptions(foldbrowse.m_bCheck2 ? ProgOptIgnoreExternals : ProgOptNone);
 			progDlg.SetPathList(CTSVNPathList(CTSVNPath(CString(checkoutpath))));
@@ -132,7 +133,8 @@ bool CheckoutCommand::Execute()
 		CSVNProgressDlg progDlg;
 		theApp.m_pMainWnd = &progDlg;
 		progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Checkout);
-		progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
+		if (parser.HasVal(_T("closeonend")))
+			progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
 		progDlg.SetOptions(dlg.m_bNoExternals ? ProgOptIgnoreExternals : ProgOptNone);
 		progDlg.SetPathList(CTSVNPathList(checkoutDirectory));
 		progDlg.SetUrl(dlg.m_URL);
