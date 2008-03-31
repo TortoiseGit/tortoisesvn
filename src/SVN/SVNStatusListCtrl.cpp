@@ -348,6 +348,7 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 		else
 			SetColumnWidth(col, m_arColumnWidths[col]);
 	}
+	EnableFileDrop();
 	SetRedraw(true);
 
 	m_bUnversionedRecurse = !!((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\UnversionedRecurse"), TRUE));
