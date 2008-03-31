@@ -153,7 +153,9 @@ std::map<CString, CString> CLogCachePool::GetRepositoryURLs() const
         if (filePath != repositoryInfo->GetFileName())
         {
 		    CString uuid = CPathUtils::GetFileNameFromPath (filePath);
-		    CString rootURL = repositoryInfo->GetRootFromUUID (uuid);
+		    CString rootURL;
+            if (!repositoryInfo->HasMultipleURLs (uuid)) 
+                rootURL = repositoryInfo->GetRootFromUUID (uuid);
 
 		    result[rootURL.IsEmpty() ? uuid : rootURL] = uuid;
         }

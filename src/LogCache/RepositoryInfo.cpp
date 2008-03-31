@@ -348,6 +348,23 @@ CString CRepositoryInfo::GetRootFromUUID (const CString& sUUID) const
     return CString();
 }
 
+// do multiple URLs use this UUID?
+
+bool CRepositoryInfo::HasMultipleURLs (const CString& uuid) const
+{
+    size_t urlCount = 0;
+
+    for ( TData::const_iterator iter = data.begin(), end = data.end()
+		; iter != end
+		; ++iter)
+	{
+        if (iter->second.uuid == uuid)
+            ++urlCount;
+	}
+
+    return urlCount > 1;
+}
+
 // is the repository offline? 
 // Don't modify the state if autoSet is false.
 
@@ -394,15 +411,16 @@ CRepositoryInfo::GetConnectionState (const CString& uuid)
 
 void CRepositoryInfo::DropEntry (const CString& sUUID)
 {
-    for ( TData::iterator iter = data.begin(), end = data.end()
-        ; iter != end
-        ; ++iter)
+    TData::iterator iter = data.begin();
+    while (iter != data.end())
     {
         if (iter->second.uuid == sUUID)
-		{
-			data.erase (iter);
-            return;
-		}
+        {
+			iter = data.erase (iter);
+            modified = true;
+        }
+        else
+            ++iter;
     }
 }
 

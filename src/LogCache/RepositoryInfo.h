@@ -186,6 +186,10 @@ public:
 
     CString GetRootFromUUID (const CString& sUUID) const;
 
+    /// do multiple URLs use this UUID?
+
+    bool HasMultipleURLs (const CString& uuid) const;
+
 	/// is the repository offline? 
 	/// Don't modify the state if autoSet is false.
 
