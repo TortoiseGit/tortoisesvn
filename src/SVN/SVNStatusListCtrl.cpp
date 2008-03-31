@@ -1195,8 +1195,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, bo
 			{
 				if (entry->GetPath().IsEquivalentTo(checkedList[npath]))
 				{
-					if (bAllowCheck)
-						entry->checked = true;
+					entry->checked = true;
 					break;
 				}
 			}
