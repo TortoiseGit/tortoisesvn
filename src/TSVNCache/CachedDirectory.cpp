@@ -377,7 +377,6 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		{
 			AutoLocker lock(m_critSec);
 			m_mostImportantFileStatus = svn_wc_status_none;
-			m_childDirectories.clear();
 			m_entryCache.clear();
 			m_ownStatus.SetStatus(NULL);
 			m_bRecursive = bRecursive;
@@ -605,7 +604,7 @@ void CCachedDirectory::GetStatusCallback(void *baton, const char *path, svn_wc_s
 		// part of another working copy (nested layouts).
 		// So we have to make sure that such an 'unversioned' folder really
 		// is unversioned.
-		if ((status->text_status == svn_wc_status_unversioned)&&(!svnPath.IsEquivalentToWithoutCase(pThis->m_directoryPath))&&(svnPath.IsDirectory()))
+		if (((status->text_status == svn_wc_status_unversioned)||(status->text_status == svn_wc_status_ignored))&&(!svnPath.IsEquivalentToWithoutCase(pThis->m_directoryPath))&&(svnPath.IsDirectory()))
 		{
 			if (svnPath.HasAdminDir())
 			{
