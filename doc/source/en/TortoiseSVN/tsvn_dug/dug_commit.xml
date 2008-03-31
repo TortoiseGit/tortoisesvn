@@ -172,59 +172,11 @@
 	</sect2>
 	<sect2 id="tsvn-dug-commit-changelists">
 		<title>Change Lists</title>
-		<indexterm>
-			<primary>changelist</primary>
-		</indexterm>
 		<para>
-			In an ideal world, you only ever work on one thing at a time, and your
-			working copy contains only one set of logical changes. OK, back to reality.
-			It often happens that you have to work on several unrelated tasks at once,
-			and when you look in the commit dialog, all the changes are mixed in together.
-			The <firstterm>changelist</firstterm> feature helps you group files together,
-			making it easier to see what you are doing. Of course this can only work if
-			the changes do not overlap. If two different tasks affect the same file, there
-			is no way to separate the changes.
+			The commit dialog supports Subversion's changelist feature to help
+			with grouping related files together. Find out about this feature
+			in <xref linkend="tsvn-dug-changelists"/>.
 		</para>
-		<important>
-			<para>
-				The changelist feature in TortoiseSVN is only available in Windows XP 
-				and later, as it depends on a shell capability which is not present
-				in Windows 2000.
-				Sorry, but Win2K is really quite old now, so please don't complain.
-			</para>
-		</important>
-		<para>
-			Use
-			<menuchoice>
-				<guimenu>Context Menu</guimenu>
-				<guimenuitem>Move to changelist</guimenuitem>
-			</menuchoice>
-			to add an item to a changelist. Initially there will be no changelists,
-			so the first time you do this you will create a new changelist.
-			Give it name which describes what you are using it for, and click
-			<guibutton>OK</guibutton>. The commit dialog will now change to show
-			groups of items.
-			<figure id="tsvn-dug-commit-dia-changelist">
-				<title>Commit dialog with Changelists</title>
-				<graphic fileref="../images/Changelist.png"/>
-			</figure>
-		</para>
-		<para>
-			Apart from giving an immediate visual indication of groupings, you can
-			also use the group headings to select which files to commit.
-		</para>
-		<para>
-			On XP, there is a context menu when you right click on a group heading
-			which gives you the choice to check or uncheck all group entries. On Vista however
-			the context menu is not necessary. Click on the group header to select all
-			entries, then check one of the selected entries to check all.
-		</para>
-		<tip>
-			<para>
-				Changelists are purely a local client feature. Creating and removing
-				changelists will not affect the repository, nor any other client.
-			</para>
-		</tip>
 	</sect2>
 	<sect2 id="tsvn-dug-commit-ignore">
 		<title>Excluding Items from the Commit List</title>
