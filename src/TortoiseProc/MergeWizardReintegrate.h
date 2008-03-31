@@ -52,7 +52,9 @@ protected:
 
 	CHistoryCombo		m_URLCombo;
 	CLogDlg	*			m_pLogDlg;
+	CLogDlg	*			m_pLogDlg2;
 
 public:
 	CString				m_URL;
+	afx_msg void OnBnClickedShowlogwc();
 };

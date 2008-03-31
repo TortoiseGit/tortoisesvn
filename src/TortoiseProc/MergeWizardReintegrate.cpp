@@ -32,6 +32,7 @@ CMergeWizardReintegrate::CMergeWizardReintegrate()
 	: CMergeWizardBasePage(CMergeWizardReintegrate::IDD)
 	, m_URL(_T(""))
 	, m_pLogDlg(NULL)
+	, m_pLogDlg2(NULL)
 {
 	m_psp.dwFlags |= PSP_DEFAULT|PSP_USEHEADERTITLE|PSP_USEHEADERSUBTITLE;
 	m_psp.pszHeaderTitle = MAKEINTRESOURCE(IDS_MERGEWIZARD_TREETITLE);
@@ -45,6 +46,11 @@ CMergeWizardReintegrate::~CMergeWizardReintegrate()
 		m_pLogDlg->DestroyWindow();
 		delete m_pLogDlg;
 	}
+	if (m_pLogDlg2)
+	{
+		m_pLogDlg2->DestroyWindow();
+		delete m_pLogDlg2;
+	}
 }
 
 void CMergeWizardReintegrate::DoDataExchange(CDataExchange* pDX)
@@ -57,6 +63,7 @@ void CMergeWizardReintegrate::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CMergeWizardReintegrate, CMergeWizardBasePage)
 	ON_BN_CLICKED(IDC_SHOWMERGELOG, &CMergeWizardReintegrate::OnBnClickedShowmergelog)
 	ON_BN_CLICKED(IDC_BROWSE, &CMergeWizardReintegrate::OnBnClickedBrowse)
+	ON_BN_CLICKED(IDC_SHOWLOGWC, &CMergeWizardReintegrate::OnBnClickedShowlogwc)
 END_MESSAGE_MAP()
 
 
@@ -70,6 +77,7 @@ BOOL CMergeWizardReintegrate::OnInitDialog()
 	if (!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\MergeWCURL"), FALSE))
 		m_URLCombo.SetCurSel(0);
 
+	SetDlgItemText(IDC_WCEDIT, ((CMergeWizard*)GetParent())->wcPath.GetWinPath());
 
 	return TRUE;
 }
@@ -146,4 +154,23 @@ void CMergeWizardReintegrate::OnBnClickedBrowse()
 {
 	SVNRev rev(SVNRev::REV_HEAD);
 	CAppUtils::BrowseRepository(m_URLCombo, this, rev);
+}
+
+void CMergeWizardReintegrate::OnBnClickedShowlogwc()
+{
+	CTSVNPath wcPath = ((CMergeWizard*)GetParent())->wcPath;
+	if (m_pLogDlg2)
+		m_pLogDlg2->DestroyWindow();
+	delete m_pLogDlg2;
+	m_pLogDlg2 = new CLogDlg();
+	CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
+	int limit = (int)(LONG)reg;
+	m_pLogDlg2->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_MERGE_SELECTRANGE)));
+
+	m_pLogDlg2->m_pNotifyWindow = NULL;
+	m_pLogDlg2->SetParams(wcPath, SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, limit, TRUE, FALSE);
+	m_pLogDlg2->SetProjectPropertiesPath(wcPath);
+	m_pLogDlg2->SetMergePath(wcPath);
+	m_pLogDlg2->Create(IDD_LOGMESSAGE, this);
+	m_pLogDlg2->ShowWindow(SW_SHOW);
 }

@@ -1,9 +1,6 @@
 - NEW: Files can be dragged to new changelists. (Stefan)
-- BUG: <SHIFT>-F5 and <CTRL>-F5 not working in log view (Stefan Fuhrmann)
-- BUG: The property page showed the changelist instead of the GUUID. (Stefan)
-- BUG: Revisions that only added new files or sub-folders
-       were not shown in revision graph (Stefan Fuhrmann)
-- BUG: The log statistics by date were shown in reverse order. (Stefan)
+- NEW: The reintegrate page in the merge wizard shows the target
+       working copy path. (Stefan)
 - CHG: Fall back to cached log data if forced refresh fails in log view
        and the user chooses to go off-line again. (Stefan Fuhrmann)
 - CHG: Finalize toolbar button icons. (Stefan Fuhrmann)
@@ -12,6 +9,11 @@
        changelist last. (Stefan)
 - CHG: if changelists are present, the items in the commit dialog are not
        checked by default anymore. (Stefan)
+- BUG: <SHIFT>-F5 and <CTRL>-F5 not working in log view (Stefan Fuhrmann)
+- BUG: The property page showed the changelist instead of the GUUID. (Stefan)
+- BUG: Revisions that only added new files or sub-folders
+       were not shown in revision graph (Stefan Fuhrmann)
+- BUG: The log statistics by date were shown in reverse order. (Stefan)
 
 Version 1.5.0-beta1
 - NEW: Implemented 'merge reintegrate': new page in the merge wizard. (Stefan)
