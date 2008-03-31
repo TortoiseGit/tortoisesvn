@@ -3639,26 +3639,17 @@ void CSVNStatusListCtrl::CreateChangeList(const CString& name)
 	SVN svn;
 	if (svn.AddToChangeList(changelistItems, name, svn_depth_empty))
 	{
-		// The changelists were removed, but we now need to run through the selected items again
-		// and update their changelist
-		PrepareGroups(true);
-		if (m_changelists.size() == 0)
-		{
-			// there are no groups defined yet.
-			// before we can add our new group, we must assign all entries
-			// to the null-group (not assigned to a changelist)
-			for (int ii = 0; ii < GetItemCount(); ++ii)
-				SetItemGroup(ii, 0);
-		}
 		TCHAR groupname[1024];
 		LVGROUP grp = {0};
 		grp.cbSize = sizeof(LVGROUP);
 		grp.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
 		_tcsncpy_s(groupname, 1024, name, 1023);
 		grp.pszHeader = groupname;
-		grp.iGroupId = (int)m_changelists.size()+1;
+		grp.iGroupId = (int)m_changelists.size();
 		grp.uAlign = LVGA_HEADER_LEFT;
 		m_changelists[name] = InsertGroup(-1, &grp);
+
+		PrepareGroups(true);
 
 		POSITION pos = GetFirstSelectedItemPosition();
 		int index;
