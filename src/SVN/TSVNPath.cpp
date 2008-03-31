@@ -221,6 +221,8 @@ const CString& CTSVNPath::GetUIPathString() const
 		if (IsUrl())
 		{
 			m_sUIPath = CPathUtils::PathUnescape(GetSVNPathString());
+			m_sUIPath.Replace(_T("file:////"), _T("file:///\\"));
+
 		}
 		else
 #endif 
@@ -242,6 +244,8 @@ void CTSVNPath::SetFwdslashPath(const CString& sPath) const
 	// Subversion 1.5 fixed the problem with root paths, but now it expects a slash for root paths
 	if ((m_sFwdslashPath.GetLength() == 2)&&(m_sFwdslashPath[1] == ':'))
 		m_sFwdslashPath += _T("/");
+
+	m_sFwdslashPath.Replace(_T("file:////"), _T("file:///\\"));
 
 	m_sUTF8FwdslashPath.Empty();
 }
