@@ -945,7 +945,7 @@ void CCommitDlg::GetAutocompletionList()
 				m_autolist.insert(sPartPath.Mid(lastPos, dotPos - lastPos));
 		}
 
-		if (!entry->IsChecked())
+		if ((entry->status <= svn_wc_status_normal)||(entry->status == svn_wc_status_ignored))
 			continue;
 
 		CString sExt = entry->GetPath().GetFileExtension();
