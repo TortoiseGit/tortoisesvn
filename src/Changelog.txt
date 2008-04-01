@@ -14,6 +14,7 @@
 - BUG: Revisions that only added new files or sub-folders
        were not shown in revision graph (Stefan Fuhrmann)
 - BUG: The log statistics by date were shown in reverse order. (Stefan)
+- BUG: The log statistics did not match the week/month/quarters exactly. (Stefan)
 - BUG: The /closeonend command line param was overwritten by the corresponding
        user setting if /closeonend:0 was used. (Stefan)
 - BUG: When deleting a log cache (via settings dialog), the URL->UUID map

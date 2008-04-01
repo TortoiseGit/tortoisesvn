@@ -520,16 +520,16 @@ void CStatGraphDlg::GatherData()
 
 	int interval = 0;
 	__time64_t d = (__time64_t)m_parDates->GetAt(0);
-	int nLastWeek = GetWeek(d);
+	int nLastUnit = GetUnit(d);
 	// Now loop over all weeks and gather the info
 	for (LONG i=0; i<m_nTotalCommits; ++i) 
 	{
 		// Find the interval number
 		__time64_t commitDate = (__time64_t)m_parDates->GetAt(i);
-		int w = GetWeek(commitDate);
-		if (nLastWeek != w)
+		int u = GetUnit(commitDate);
+		if (nLastUnit != u)
 			interval++;
-		nLastWeek = w;
+		nLastUnit = u;
 		// Find the authors name
 		CString sAuth = m_parAuthors->GetAt(i);
 		if (!m_bAuthorsCaseSensitive)
@@ -539,6 +539,8 @@ void CStatGraphDlg::GatherData()
 		m_commitsPerAuthor[author]++;
 		// Increase the commit count for this author in this week
 		m_commitsPerWeekAndAuthor[interval][author]++;
+		CTime t = m_parDates->GetAt(i);
+		m_unitNames[interval] = GetUnitLabel(nLastUnit, t);
 		// Increase the filechange count for this author in this week
 		int fileChanges = m_parFileChanges->GetAt(i);
 		m_filechangesPerWeekAndAuthor[interval][author] += fileChanges;
@@ -736,49 +738,13 @@ void CStatGraphDlg::ShowCommitsByDate()
 		authorGraphMap[othersName] = m_graph.AppendGroup(sOthers);
 	}
 
-	int lastunit = 0;
-	CTime lasttime;
-
 	// Mapping to collect commit counts in each interval
 	AuthorDataMap	commitCount;
 
-	if (m_lastInterval != -1)
-	{
-		lasttime = CTime(m_minDate) + CTimeSpan(7*m_firstInterval,0,0,0);
-		lastunit = GetUnit(lasttime);
-	}
 	// Loop over all intervals/weeks and collect filtered data.
 	// Sum up data in each interval until the time unit changes.
 	for (int i=m_lastInterval; i>=m_firstInterval; --i)
 	{
-		// Get the time corresponding to the current interval
-		CTime t = CTime(m_maxDate) - CTimeSpan(7*i,0,0,0);
-		int unit = GetUnit(t);
-
-		// Check if new interval has started, so that we can add 
-		// the previously collected data to the chart!
-		if (unit != lastunit)
-		{
-			// Create a new data series for this unit/interval.
-			MyGraphSeries * graphData = new MyGraphSeries();
-			// Loop over all created graphs and set the corresponding data.
-			if (authorGraphMap.size())
-			{
-				for (AuthorDataMap::const_iterator it = authorGraphMap.begin(); it != authorGraphMap.end(); ++it) 
-				{
-					graphData->SetData(it->second, commitCount[it->first]);
-				}
-			}
-			temp = GetUnitLabel(lastunit, lasttime);
-			graphData->SetLabel(temp);
-			m_graph.AddSeries(*graphData);
-			m_graphDataArray.Add(graphData);
-
-			lastunit = unit;
-			// Reset commit count mapping.
-			commitCount.clear();
-		}
-		lasttime = t;
 		// Collect data for authors listed by name.
 		if (authors.size())
 		{
@@ -803,21 +769,24 @@ void CStatGraphDlg::ShowCommitsByDate()
 				commitCount[othersName] += data_it->second;
 			}
 		}
-	}
-	// All commit intervals done, add the data collected for the last unit
-	// also to the chart.
-	MyGraphSeries * graphData = new MyGraphSeries();
-	if (authorGraphMap.size())
-	{
-		for (AuthorDataMap::const_iterator it = authorGraphMap.begin(); it != authorGraphMap.end(); ++it) 
+
+		// Create a new data series for this unit/interval.
+		MyGraphSeries * graphData = new MyGraphSeries();
+		// Loop over all created graphs and set the corresponding data.
+		if (authorGraphMap.size())
 		{
-			graphData->SetData(it->second, commitCount[it->first]);
+			for (AuthorDataMap::const_iterator it = authorGraphMap.begin(); it != authorGraphMap.end(); ++it) 
+			{
+				graphData->SetData(it->second, commitCount[it->first]);
+			}
 		}
+		graphData->SetLabel(m_unitNames[i].c_str());
+		m_graph.AddSeries(*graphData);
+		m_graphDataArray.Add(graphData);
+
+		// Reset commit count mapping.
+		commitCount.clear();
 	}
-	temp = GetUnitLabel(lastunit, lasttime);
-	graphData->SetLabel(temp);
-	m_graph.AddSeries(*graphData);
-	m_graphDataArray.Add(graphData);
 
 	// Paint the graph now that we're through.
 	m_graph.Invalidate();

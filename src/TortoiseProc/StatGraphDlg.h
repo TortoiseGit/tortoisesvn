@@ -204,5 +204,6 @@ protected:
 	/// The list of author names sorted based on commit count 
 	/// (author with most commits is first in list).
 	std::list<stdstring>	m_authorNames;
+	std::map<LONG, stdstring> m_unitNames;
 
 };
