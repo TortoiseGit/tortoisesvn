@@ -377,6 +377,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 		{
 			AutoLocker lock(m_critSec);
 			m_mostImportantFileStatus = svn_wc_status_none;
+			m_childDirectories.clear();
 			m_entryCache.clear();
 			m_ownStatus.SetStatus(NULL);
 			m_bRecursive = bRecursive;
@@ -708,13 +709,16 @@ void CCachedDirectory::UpdateCurrentStatus()
 
 	if ((newStatus != m_currentFullStatus)&&(m_ownStatus.IsVersioned()))
 	{
-		if (m_currentFullStatus != svn_wc_status_none)
+		if ((m_currentFullStatus != svn_wc_status_none)&&(m_ownStatus.GetEffectiveStatus() != svn_wc_status_ignored))
 		{
 			// Our status has changed - tell the shell
 			ATLTRACE(_T("Dir %s, status change from %d to %d, send shell notification\n"), m_directoryPath.GetWinPath(), m_currentFullStatus, newStatus);		
 			CSVNStatusCache::Instance().UpdateShell(m_directoryPath);
 		}
-		m_currentFullStatus = newStatus;
+		if (m_ownStatus.GetEffectiveStatus() != svn_wc_status_ignored)
+			m_currentFullStatus = newStatus;
+		else
+			m_currentFullStatus = svn_wc_status_ignored;
 	}
 	// And tell our parent, if we've got one...
 	// we tell our parent *always* about our status, even if it hasn't
