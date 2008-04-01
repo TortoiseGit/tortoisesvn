@@ -514,8 +514,8 @@ void CStatGraphDlg::GatherData()
 	UpdateWeekCount();
 
 	// Now create a mapping that holds the information per week.
-	m_commitsPerWeekAndAuthor.clear();
-	m_filechangesPerWeekAndAuthor.clear();
+	m_commitsPerUnitAndAuthor.clear();
+	m_filechangesPerUnitAndAuthor.clear();
 	m_commitsPerAuthor.clear();
 
 	int interval = 0;
@@ -538,21 +538,21 @@ void CStatGraphDlg::GatherData()
 		// Increase total commit count for this author
 		m_commitsPerAuthor[author]++;
 		// Increase the commit count for this author in this week
-		m_commitsPerWeekAndAuthor[interval][author]++;
+		m_commitsPerUnitAndAuthor[interval][author]++;
 		CTime t = m_parDates->GetAt(i);
 		m_unitNames[interval] = GetUnitLabel(nLastUnit, t);
 		// Increase the filechange count for this author in this week
 		int fileChanges = m_parFileChanges->GetAt(i);
-		m_filechangesPerWeekAndAuthor[interval][author] += fileChanges;
+		m_filechangesPerUnitAndAuthor[interval][author] += fileChanges;
 		m_nTotalFileChanges += fileChanges;
 	}
 
 	// Find first and last interval number.
-	if (!m_commitsPerWeekAndAuthor.empty()) 
+	if (!m_commitsPerUnitAndAuthor.empty()) 
 	{
-		IntervalDataMap::iterator interval_it = m_commitsPerWeekAndAuthor.begin();
+		IntervalDataMap::iterator interval_it = m_commitsPerUnitAndAuthor.begin();
 		m_firstInterval = interval_it->first;
-		interval_it = m_commitsPerWeekAndAuthor.end();
+		interval_it = m_commitsPerUnitAndAuthor.end();
 		--interval_it;
 		m_lastInterval = interval_it->first;
 		// Sanity check - if m_lastInterval is too large it could freeze TSVN and take up all memory!!!
@@ -751,8 +751,8 @@ void CStatGraphDlg::ShowCommitsByDate()
 			for (std::list<stdstring>::iterator it = authors.begin(); it != authors.end(); ++it)
 			{
 				// Do we have some data for the current author in the current interval?
-				AuthorDataMap::const_iterator data_it = m_commitsPerWeekAndAuthor[i].find(*it);
-				if (data_it == m_commitsPerWeekAndAuthor[i].end()) 
+				AuthorDataMap::const_iterator data_it = m_commitsPerUnitAndAuthor[i].find(*it);
+				if (data_it == m_commitsPerUnitAndAuthor[i].end()) 
 					continue;
 				commitCount[*it] += data_it->second;
 			}
@@ -763,8 +763,8 @@ void CStatGraphDlg::ShowCommitsByDate()
 			for (std::list<stdstring>::iterator it = others.begin(); it != others.end(); ++it)
 			{
 				// Do we have some data for the author in the current interval?
-				AuthorDataMap::const_iterator data_it = m_commitsPerWeekAndAuthor[i].find(*it);
-				if (data_it == m_commitsPerWeekAndAuthor[i].end()) 
+				AuthorDataMap::const_iterator data_it = m_commitsPerUnitAndAuthor[i].find(*it);
+				if (data_it == m_commitsPerUnitAndAuthor[i].end()) 
 					continue;
 				commitCount[othersName] += data_it->second;
 			}
@@ -836,8 +836,8 @@ void CStatGraphDlg::ShowStats()
 	{
 		// Loop over all commits in this interval and count the number of commits by all authors.
 		int commitCount = 0;
-		AuthorDataMap::iterator commit_endit = m_commitsPerWeekAndAuthor[i].end();
-		for (AuthorDataMap::iterator commit_it = m_commitsPerWeekAndAuthor[i].begin();
+		AuthorDataMap::iterator commit_endit = m_commitsPerUnitAndAuthor[i].end();
+		for (AuthorDataMap::iterator commit_it = m_commitsPerUnitAndAuthor[i].begin();
 			commit_it != commit_endit; ++commit_it)
 		{
 			commitCount += commit_it->second;
@@ -849,8 +849,8 @@ void CStatGraphDlg::ShowStats()
 
 		// Loop over all commits in this interval and count the number of file changes by all authors.
 		int fileChangeCount = 0;
-		AuthorDataMap::iterator filechange_endit = m_filechangesPerWeekAndAuthor[i].end();
-		for (AuthorDataMap::iterator filechange_it = m_filechangesPerWeekAndAuthor[i].begin();
+		AuthorDataMap::iterator filechange_endit = m_filechangesPerUnitAndAuthor[i].end();
+		for (AuthorDataMap::iterator filechange_it = m_filechangesPerUnitAndAuthor[i].begin();
 			filechange_it != filechange_endit; ++filechange_it)
 		{
 			fileChangeCount += filechange_it->second;
@@ -864,9 +864,9 @@ void CStatGraphDlg::ShowStats()
 		if (nAuthors > 0) 
 		{
 			// check if author is present in this interval
-			AuthorDataMap::iterator author_it = m_commitsPerWeekAndAuthor[i].find(mostActiveAuthor);
+			AuthorDataMap::iterator author_it = m_commitsPerUnitAndAuthor[i].find(mostActiveAuthor);
 			long authorCommits;
-			if (author_it == m_commitsPerWeekAndAuthor[i].end())
+			if (author_it == m_commitsPerUnitAndAuthor[i].end())
 				authorCommits = 0;
 			else
 				authorCommits = author_it->second;
@@ -875,8 +875,8 @@ void CStatGraphDlg::ShowStats()
 			if (nMostActiveMinCommits == -1 || authorCommits < nMostActiveMinCommits)
 				nMostActiveMinCommits = authorCommits;
 
-			author_it = m_commitsPerWeekAndAuthor[i].find(leastActiveAuthor);
-			if (author_it == m_commitsPerWeekAndAuthor[i].end())
+			author_it = m_commitsPerUnitAndAuthor[i].find(leastActiveAuthor);
+			if (author_it == m_commitsPerUnitAndAuthor[i].end())
 				authorCommits = 0;
 			else
 				authorCommits = author_it->second;

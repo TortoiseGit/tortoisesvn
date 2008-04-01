@@ -191,10 +191,10 @@ protected:
 	INT_PTR					m_nTotalCommits;
 	/// The total number of file changes.
 	LONG					m_nTotalFileChanges;
-	/// Holds the number of commits per week and author.
-	IntervalDataMap			m_commitsPerWeekAndAuthor;		
-	/// Holds the number of file changes per week and author.
-	IntervalDataMap			m_filechangesPerWeekAndAuthor;
+	/// Holds the number of commits per unit and author.
+	IntervalDataMap			m_commitsPerUnitAndAuthor;		
+	/// Holds the number of file changes per unit and author.
+	IntervalDataMap			m_filechangesPerUnitAndAuthor;
 	/// First interval number (key) in the mappings.
 	int						m_firstInterval;
 	/// Last interval number (key) in the mappings.
@@ -204,6 +204,7 @@ protected:
 	/// The list of author names sorted based on commit count 
 	/// (author with most commits is first in list).
 	std::list<stdstring>	m_authorNames;
+	/// unit names by week/month/quarter
 	std::map<LONG, stdstring> m_unitNames;
 
 };
