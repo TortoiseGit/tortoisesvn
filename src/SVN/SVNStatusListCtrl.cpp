@@ -143,6 +143,8 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
 	, m_bBlockUI(false)
 	, m_bHasCheckboxes(false)
 	, m_bCheckIfGroupsExist(true)
+	, m_bFileDropsEnabled(false)
+	, m_bOwnDrag(false)
 {
 	ZeroMemory(m_arColumnWidths, sizeof(m_arColumnWidths));
 	m_critSec.Init();
@@ -348,7 +350,20 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 		else
 			SetColumnWidth(col, m_arColumnWidths[col]);
 	}
-	EnableFileDrop();
+	// enable file drops
+	if (m_pDropTarget == NULL)
+	{
+		m_pDropTarget = new CSVNStatusListCtrlDropTarget(this);
+		RegisterDragDrop(m_hWnd,m_pDropTarget);
+		// create the supported formats:
+		FORMATETC ftetc={0};
+		ftetc.dwAspect = DVASPECT_CONTENT;
+		ftetc.lindex = -1;
+		ftetc.tymed = TYMED_HGLOBAL;
+		ftetc.cfFormat=CF_HDROP;
+		m_pDropTarget->AddSuportedFormat(ftetc);
+	}
+
 	SetRedraw(true);
 
 	m_bUnversionedRecurse = !!((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\UnversionedRecurse"), TRUE));
@@ -4607,7 +4622,9 @@ void CSVNStatusListCtrl::OnBeginDrag(NMHDR* /*pNMHDR*/, LRESULT* pResult)
 
 	if ( dropFiles.GetCount()>0 )
 	{
+		m_bOwnDrag = true;
 		dropFiles.CreateStructure();
+		m_bOwnDrag = false;
 	}
 
 	*pResult = 0;
@@ -4642,17 +4659,7 @@ void CSVNStatusListCtrl::SaveColumnWidths(bool bSaveToRegistry /* = false */)
 
 bool CSVNStatusListCtrl::EnableFileDrop()
 {
-	if (m_pDropTarget)
-		return false;
-	m_pDropTarget = new CSVNStatusListCtrlDropTarget(this);
-	RegisterDragDrop(m_hWnd,m_pDropTarget);
-	// create the supported formats:
-	FORMATETC ftetc={0};
-	ftetc.dwAspect = DVASPECT_CONTENT;
-	ftetc.lindex = -1;
-	ftetc.tymed = TYMED_HGLOBAL;
-	ftetc.cfFormat=CF_HDROP;
-	m_pDropTarget->AddSuportedFormat(ftetc);
+	m_bFileDropsEnabled = true;
 	return true;
 }
 
@@ -5204,13 +5211,20 @@ HRESULT STDMETHODCALLTYPE CSVNStatusListCtrlDropTarget::DragOver(DWORD grfKeySta
 {
 	CIDropTarget::DragOver(grfKeyState, pt, pdwEffect);
 	*pdwEffect = DROPEFFECT_COPY;
-	POINT clientpoint;
-	clientpoint.x = pt.x;
-	clientpoint.y = pt.y;
-	ScreenToClient(m_hTargetWnd, &clientpoint);
-	if ((m_pSVNStatusListCtrl->IsGroupViewEnabled())&&(m_pSVNStatusListCtrl->GetGroupFromPoint(&clientpoint) >= 0))
+	if (m_pSVNStatusListCtrl)
 	{
-		*pdwEffect = DROPEFFECT_MOVE;
+		POINT clientpoint;
+		clientpoint.x = pt.x;
+		clientpoint.y = pt.y;
+		ScreenToClient(m_hTargetWnd, &clientpoint);
+		if ((m_pSVNStatusListCtrl->IsGroupViewEnabled())&&(m_pSVNStatusListCtrl->GetGroupFromPoint(&clientpoint) >= 0))
+		{
+			*pdwEffect = DROPEFFECT_MOVE;
+		}
+		else if ((!m_pSVNStatusListCtrl->m_bFileDropsEnabled)||(m_pSVNStatusListCtrl->m_bOwnDrag))
+		{
+			*pdwEffect = DROPEFFECT_NONE;
+		}
 	}
 	return S_OK;
 }

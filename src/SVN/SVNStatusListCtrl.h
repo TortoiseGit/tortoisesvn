@@ -675,6 +675,8 @@ private:
 	bool						m_bEmpty;
 	bool						m_bIgnoreRemoveOnly;
 	bool						m_bCheckIfGroupsExist;
+	bool						m_bFileDropsEnabled;
+	bool						m_bOwnDrag;
 
 	int							m_nIconFolder;
 
