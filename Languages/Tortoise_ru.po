@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2008
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 12404: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 12516: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-24 12:22+0300\n"
+"PO-Revision-Date: 2008-04-01 14:39+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7381,30 +7381,29 @@ msgstr "Да для всех"
 msgid "You already have the latest version installed."
 msgstr "У вас уже установлена самая последняя версия."
 
-# Обязательно упоминать, что сетевой ресурс "share"?
-# В таком случае, лучше написать "общий сетевой ресурс".
 #. Resource IDs: (144)
 msgid ""
 "You are creating a repository on a network share.\n"
 "This is safe, but once the repository is created you must access it by some other means.\n"
-"Accessing a repository via file:/// on a network share may corrupt your data!\n"
+"Accessing a repository via file:// on a network share may corrupt your data!\n"
 "Create the repository anyway?"
 msgstr ""
-"Вы создаете хранилище на сетевом ресурсе.\n"
-"Эта операция безопасна, но получать доступ к этому хранилищу вы должны другими способами.\n"
-"Обращение к хранилищу посредством file:/// на сетевых ресурсах может повредить ваши данные!\n"
+"Вы создаёте хранилище на разделяемом сетевом ресурсе.\n"
+"Эта операция безопасна, но доступ к этому хранилищу вы должны получать другими способами.\n"
+"Обращение к хранилищу посредством file:// на сетевых ресурсах может повредить ваши данные!\n"
 "Продолжить создание хранилища?"
 
 #. Resource IDs: (88)
 msgid ""
-"You are trying to access a repository via file:/// on\n"
+"You are trying to access a repository via file:// on\n"
 "a shared network drive.\n"
 "This could lead to severe repository corruption!\n"
 "Do you really want to do that?"
 msgstr ""
-"Вы пытаетесь обратится к хранилищу посредством file:/// на сетевом диске.\n"
+"Вы пытаетесь обратится к хранилищу посредством file://\n"
+"на разделяемом сетевом ресурсе.\n"
 "Это может привести к сильному повреждению хранилища!\n"
-"Вы действительно хотите это сделать?"
+"Вы действительно желаете это сделать?"
 
 #. Resource IDs: (105)
 msgid ""
@@ -7830,6 +7829,11 @@ msgstr "Изменён / скопирован"
 #. Resource IDs: (245)
 msgid "month"
 msgstr "месяц"
+
+#. Resource IDs: (199)
+#, c-format
+msgid "multiple URLs (UUID: %s)"
+msgstr "множественные URL (UUID: %s)"
 
 #. Resource IDs: (18)
 msgid "no"
