@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-17 10:56+0900\n"
+"PO-Revision-Date: 2008-04-01 10:26+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -146,6 +146,11 @@ msgstr "%ld パス"
 msgid "%s"
 msgstr "%s"
 
+#. Resource IDs: (93)
+#, c-format
+msgid "%s (offline)"
+msgstr "%s (オフライン)"
+
 #. Resource IDs: (115)
 #, c-format
 msgid "%s (offline) - %s"
@@ -239,6 +244,10 @@ msgstr "追加(&A) ..."
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
 msgstr "高度な設定(&A) ..."
+
+#. Resource IDs: (1471)
+msgid "&Allow ambiguous URLs"
+msgstr "あいまいなURLを許す(&A)"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -824,6 +833,10 @@ msgid "(no changelist)"
 msgstr "（変更リストは空です）"
 
 #. Resource IDs: (314)
+msgid "(no line number)"
+msgstr "(行番号なし)"
+
+#. Resource IDs: (314)
 msgid "(not found)"
 msgstr "(見つかりません)"
 
@@ -1099,6 +1112,14 @@ msgstr "全てのファイル (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "全てのファイル (*.*)|*.*||"
 
+#. Resource IDs: (345)
+msgid ""
+"Allow different repositories to use the same URL, e.g. http://localhost/myrepos/\n"
+"Note: This will disable offline log access."
+msgstr ""
+"異なるリポジトリで同じURLを用いることを許す、例: http://localhost/myrepos/\n"
+"注意: オフラインでのログアクセスが無効になります。"
+
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "時刻と日付の表示に常にシステムロケール設定を利用する"
@@ -1163,10 +1184,6 @@ msgstr "%1 にアクセス中に未知のエラーが発生しました。"
 #, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "未知の改行コードが、行 %d で見つかりました！"
-
-#. Resource IDs: (269)
-msgid "Analyze revision data..."
-msgstr "リビジョンデータを解析 ..."
 
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
@@ -1570,10 +1587,6 @@ msgstr "TortoiseSVN のサブメニューの代わりに、トップコンテキ
 #. Resource IDs: (80)
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "ログメッセージに短い日時形式を用いる場合はチェックする"
-
-#. Resource IDs: (270)
-msgid "Checking for forward copies"
-msgstr "前方向コピーをチェック中"
 
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -7251,22 +7264,22 @@ msgstr "最新バージョンがインストールされています。"
 msgid ""
 "You are creating a repository on a network share.\n"
 "This is safe, but once the repository is created you must access it by some other means.\n"
-"Accessing a repository via file:/// on a network share may corrupt your data!\n"
+"Accessing a repository via file:// on a network share may corrupt your data!\n"
 "Create the repository anyway?"
 msgstr ""
 "共有ネットワーク上にリポジトリを作成しようとしています。\n"
 "これ自体は安全ですが、リポジトリを作成した後はその他の方法でアクセスする必要があります。\n"
-"共有ネットワーク上のリポジトリに file:/// 経由でアクセスした場合は、データが破壊される可能性があります！\n"
+"共有ネットワーク上のリポジトリに file:// 経由でアクセスした場合は、データが破壊される可能性があります！\n"
 "リポジトリを作成しますか？"
 
 #. Resource IDs: (88)
 msgid ""
-"You are trying to access a repository via file:/// on\n"
+"You are trying to access a repository via file:// on\n"
 "a shared network drive.\n"
 "This could lead to severe repository corruption!\n"
 "Do you really want to do that?"
 msgstr ""
-"file:/// 経由で共有ネットワークドライブ上のリポジトリにアクセスしようとしています。\n"
+"file:// 経由で共有ネットワークドライブ上のリポジトリにアクセスしようとしています。\n"
 "これは、リポジトリを破壊する可能性があります！！\n"
 "本当に実行しますか？"
 
@@ -7689,6 +7702,11 @@ msgstr "変更／コピー"
 msgid "month"
 msgstr "月"
 
+#. Resource IDs: (199)
+#, c-format
+msgid "multiple URLs (UUID: %s)"
+msgstr "複数のURL (UUID: %s)"
+
 #. Resource IDs: (18)
 msgid "no"
 msgstr "いいえ"
@@ -8076,6 +8094,10 @@ msgstr "年"
 msgid "yes"
 msgstr "はい"
 
+#~ msgid "Analyze revision data..."
+#~ msgstr "リビジョンデータを解析 ..."
+#~ msgid "Checking for forward copies"
+#~ msgstr "前方向コピーをチェック中"
 #~ msgid "Groups branches together"
 #~ msgstr "互いに分岐をグループ化する"
 #~ msgid "Number of changed cached revisions"
