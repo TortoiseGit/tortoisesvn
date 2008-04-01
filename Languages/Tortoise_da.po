@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-30 13:25+0100\n"
+"PO-Revision-Date: 2008-04-01 22:22+0100\n"
 "Last-Translator: Zero3Cool\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2569,11 +2569,11 @@ msgstr "Drevtyper"
 # I just want to document here what it actually does.
 # If you show the log for e.g.
 # http://tortoisesvn.tigris.org/svn/tortoisesvn/tags/version_1.2.0RC1
-# you see that it has been created in r3478 as a copy of 
+# you see that it has been created in r3478 as a copy of
 # /branches/1.2.x@3477.
 # However, the last modification to that branch was in r3466.
 # With 'exact copy sources' enabled, you will get an extra node
-# in the graph for r3477. Otherwise, a node for the last modifying 
+# in the graph for r3477. Otherwise, a node for the last modifying
 # revision node will be shown (may or may not already be there).
 # It seems that this is mainly an issue with old repositories as
 # I could not reproduce this with newer versions of SVN.
@@ -7842,6 +7842,11 @@ msgstr "ændret / kopieret"
 #. Resource IDs: (245)
 msgid "month"
 msgstr "måned"
+
+#. Resource IDs: (199)
+#, c-format
+msgid "multiple URLs (UUID: %s)"
+msgstr "flere URL'er (UUID: %s)"
 
 #. Resource IDs: (18)
 msgid "no"
