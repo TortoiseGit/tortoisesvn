@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-04-02 20:18+0100\n"
+"PO-Revision-Date: 2008-04-02 20:34+0100\n"
 "Last-Translator: Zero3Cool\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -84,7 +84,6 @@ msgstr ""
 # ------------------
 # Bemærkninger:
 # ------------------
-# Anvend bindestreg i multisprogede ord for lettere læsning (f.eks.: "Hook scripts" -> "Tilkoblings-scripts")
 # Handlinger magen til Windows egne (Slet, Omdøb, Egenskaber, ...) bør dele samme genvejstast
 # Linje staves med "j"
 # ------------------
@@ -1433,7 +1432,7 @@ msgstr "Automatisk"
 
 #. Resource IDs: (1073)
 msgid "Automatically check for &newer versions every week"
-msgstr "Check automatisk efter &nyere versioner hver uge"
+msgstr "Check automatisk efter &ny version hver uge"
 
 #. Resource IDs: (1157)
 msgid "Average"
@@ -1552,7 +1551,7 @@ msgstr "CAP"
 
 #. Resource IDs: (199)
 msgid "Cache size [kB]"
-msgstr "Cache størrelse [kB]"
+msgstr "Cachestørrelse [kB]"
 
 #. Resource IDs: (1440)
 msgid "Cached Repositories"
@@ -1940,23 +1939,23 @@ msgstr "Gennemført"
 
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
-msgstr "Konfigurer tilkoblings-scripts"
+msgstr "Konfigurer tilkoblinger"
 
 #. Resource IDs: (65535)
 msgid "Configure the program used for comparing different revisions of files"
-msgstr "Indstil programmet, der bruges til at sammenligne forskellige revisioner af filer"
+msgstr "Konfigurer programmet, der bruges til at sammenligne forskellige revisioner af filer"
 
 #. Resource IDs: (65535)
 msgid "Configure the program used for comparing different revisions of properties"
-msgstr "Indstil programmet, der bruges til at sammenligne forskellige revisioner af egenskaber"
+msgstr "Konfigurer programmet, der bruges til at sammenligne forskellige revisioner af egenskaber"
 
 #. Resource IDs: (65535)
 msgid "Configure the program used to resolve conflicted files."
-msgstr "Indstil programmet, der bruges til at løse konflikter i filer."
+msgstr "Konfigurer programmet, der bruges til at løse konflikter i filer."
 
 #. Resource IDs: (65535)
 msgid "Configure viewer program for GNU diff files (patch files)."
-msgstr "Indstil visningsprogrammet til GNU diff-filer (rettelsesfiler)."
+msgstr "Konfigurer visningsprogrammet til GNU diff-filer (rettelsesfiler)."
 
 #. Resource IDs: (65535)
 msgid "Conflict resolved"
@@ -3358,7 +3357,7 @@ msgstr "Tip: Tryk F5 for at genopfriske det valgte deltræ og Ctrl-F5 for at gen
 
 #. Resource IDs: (103)
 msgid "Hook Scripts"
-msgstr "Tilkoblings-scripts"
+msgstr "Tilkoblinger"
 
 #. Resource IDs: (198)
 msgid "Hook Type"
@@ -4049,7 +4048,7 @@ msgstr "Log"
 
 #. Resource IDs: (282)
 msgid "Log Cache Statistics"
-msgstr "Logcache-statistik"
+msgstr "Statistik over logcache"
 
 #. Resource IDs: (281)
 msgid "Log Caching"
@@ -4755,11 +4754,11 @@ msgstr "Lagkagediagram"
 
 #. Resource IDs: (83)
 msgid "Please enter a hook script to execute."
-msgstr "Indtast venligst et tilkoblings-script, der skal udføres."
+msgstr "Indtast venligst en tilkobling, der skal udføres."
 
 #. Resource IDs: (83)
 msgid "Please enter a path where to apply the hook script to."
-msgstr "Indtast venligst en sti, som tilkoblings-scriptet skal anvendes på."
+msgstr "Indtast venligst en sti, som tilkoblingen skal anvendes på."
 
 #. Resource IDs: (251)
 msgid "Please execute the \"Cleanup\" command."
@@ -5702,7 +5701,7 @@ msgstr "Vælg mappen, som de valgte filer skal gemmes i"
 
 #. Resource IDs: (197)
 msgid "Select hook script file"
-msgstr "Vælg tilkoblings-script-fil"
+msgstr "Vælg tilkoblingsfil"
 
 #. Resource IDs: (1405)
 msgid "Select items automatically"
@@ -6247,7 +6246,7 @@ msgstr "Ombytter sammenligningen venstre<<->højre"
 
 #. Resource IDs: (65535)
 msgid "System &sounds"
-msgstr "&System-lyde"
+msgstr "&Systemlyde"
 
 #. Resource IDs: (3857)
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
@@ -6402,7 +6401,7 @@ msgid ""
 "The hook script returned an error:\n"
 "%s"
 msgstr ""
-"Tilkoblings-scriptet returnerede en fejl:\n"
+"Tilkoblingen returnerede en fejl:\n"
 "%s"
 
 #. Resource IDs: (7)
