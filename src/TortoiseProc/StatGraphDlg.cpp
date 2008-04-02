@@ -369,6 +369,20 @@ void CStatGraphDlg::UpdateWeekCount()
 
 int CStatGraphDlg::GetWeek(const CTime& time)
 {
+	// Note:
+	// the calculation of the calendar week is wrong if DST is in effect
+	// and the date to calculate the week for is in DST and within the range
+	// of the DST offset (e.g. one hour).
+	// For example, if DST starts on sunday march 30 and the date to get the week for
+	// is monday, march 31, 0:30:00, then the returned week is one week less than
+	// the real week.
+	// TODO: ?
+	// write a function 
+	// getDSTOffset(const CTime& time)
+	// which returns the DST offset for a given time/date. Then we can use this offset
+	// to correct our GetDays() calculation to get the correct week again
+	// This of course won't work for 'history' dates, because Windows doesn't have
+	// that information (only Vista has such a function: GetTimeZoneInformationForYear() )
 	int iWeekOfYear = 0;
 
 	int iYear = time.GetYear();
