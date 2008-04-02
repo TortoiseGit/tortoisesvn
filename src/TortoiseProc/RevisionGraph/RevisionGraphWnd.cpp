@@ -954,6 +954,15 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 			}
 		}
 
+		// if the context menu is invoked through the keyboard, we have to use
+		// a calculated position on where to anchor the menu on
+		if ((point.x == -1) && (point.y == -1))
+		{
+			CRect rect;
+			GetWindowRect(&rect);
+			point = rect.CenterPoint();
+		}
+
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 		if (m_SelectedEntry1 == NULL)
 			return;

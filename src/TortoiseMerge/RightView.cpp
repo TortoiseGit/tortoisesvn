@@ -104,6 +104,14 @@ bool CRightView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 			popup.AppendMenu(MF_STRING | (CAppUtils::HasClipboardFormat(CF_UNICODETEXT)||CAppUtils::HasClipboardFormat(CF_TEXT) ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_EDIT_PASTE, temp);
 		}
 
+		// if the context menu is invoked through the keyboard, we have to use
+		// a calculated position on where to anchor the menu on
+		if ((point.x == -1) && (point.y == -1))
+		{
+			CRect rect;
+			GetWindowRect(&rect);
+			point = rect.CenterPoint();
+		}
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 		viewstate rightstate;
 		viewstate bottomstate;

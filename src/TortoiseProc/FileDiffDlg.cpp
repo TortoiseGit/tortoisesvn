@@ -537,6 +537,15 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 		return;
 	if (m_cFileList.GetSelectedCount() == 0)
 		return;
+	// if the context menu is invoked through the keyboard, we have to use
+	// a calculated position on where to anchor the menu on
+	if ((point.x == -1) && (point.y == -1))
+	{
+		CRect rect;
+		m_cFileList.GetItemRect(m_cFileList.GetSelectionMark(), &rect, LVIR_LABEL);
+		m_cFileList.ClientToScreen(&rect);
+		point = rect.CenterPoint();
+	}
 	CMenu popup;
 	if (popup.CreatePopupMenu())
 	{

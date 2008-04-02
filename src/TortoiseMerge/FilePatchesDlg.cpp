@@ -296,6 +296,15 @@ void CFilePatchesDlg::OnNMRclickFilelist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 		temp.LoadString(IDS_PATCH_SELECTED);
 		popup.AppendMenu(nFlags, ID_PATCHSELECTED, temp);
 		
+		// if the context menu is invoked through the keyboard, we have to use
+		// a calculated position on where to anchor the menu on
+		if ((point.x == -1) && (point.y == -1))
+		{
+			CRect rect;
+			GetWindowRect(&rect);
+			point = rect.CenterPoint();
+		}
+
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 		switch (cmd)
 		{
