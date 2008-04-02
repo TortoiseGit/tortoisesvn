@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -92,6 +92,7 @@ protected:
 	void				DiffProps(int selIndex);
 	void				SetURLLabels();
 	void				Filter(CString sFilterText);
+	void				CopySelectionToClipboard();
 private:
 	static UINT			DiffThreadEntry(LPVOID pVoid);
 	UINT				DiffThread();

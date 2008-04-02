@@ -35,6 +35,7 @@
 #define ID_BLAME 2
 #define ID_SAVEAS 3
 #define ID_EXPORT 4
+#define ID_CLIPBOARD 5
 
 BOOL	CFileDiffDlg::m_bAscending = FALSE;
 int		CFileDiffDlg::m_nSortedColumn = -1;
@@ -547,6 +548,8 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 		popup.AppendMenu(MF_SEPARATOR, NULL);
 		temp.LoadString(IDS_FILEDIFF_POPSAVELIST);
 		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
+		temp.LoadString(IDS_FILEDIFF_POPCLIPBOARD);
+		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_CLIPBOARD, temp);
 		temp.LoadString(IDS_FILEDIFF_POPEXPORT);
 		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EXPORT, temp);
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
@@ -607,6 +610,11 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						pE->ReportError();
 					}
 				}
+			}
+			break;
+		case ID_CLIPBOARD:
+			{
+				CopySelectionToClipboard();
 			}
 			break;
 		case ID_EXPORT:
@@ -801,18 +809,7 @@ BOOL CFileDiffDlg::PreTranslateMessage(MSG* pMsg)
 			{
 				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
 				{
-					// copy all selected paths to the clipboard
-					POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
-					int index;
-					CString sTextForClipboard;
-					while ((index = m_cFileList.GetNextSelectedItem(pos)) >= 0)
-					{
-						sTextForClipboard += m_cFileList.GetItemText(index, 0);
-						sTextForClipboard += _T("\t");
-						sTextForClipboard += m_cFileList.GetItemText(index, 1);
-						sTextForClipboard += _T("\r\n");
-					}
-					CStringUtils::WriteAsciiStringToClipboard(sTextForClipboard);
+					CopySelectionToClipboard();
 					return TRUE;
 				}
 			}
@@ -1026,4 +1023,19 @@ void CFileDiffDlg::Filter(CString sFilterText)
 	}
 }
 
+void CFileDiffDlg::CopySelectionToClipboard()
+{
+	// copy all selected paths to the clipboard
+	POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
+	int index;
+	CString sTextForClipboard;
+	while ((index = m_cFileList.GetNextSelectedItem(pos)) >= 0)
+	{
+		sTextForClipboard += m_cFileList.GetItemText(index, 0);
+		sTextForClipboard += _T("\t");
+		sTextForClipboard += m_cFileList.GetItemText(index, 1);
+		sTextForClipboard += _T("\r\n");
+	}
+	CStringUtils::WriteAsciiStringToClipboard(sTextForClipboard);
+}
 
