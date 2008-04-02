@@ -5,7 +5,7 @@
 // Only *.cpp and *.h files are checked
 //
 // Set the local hook scripts like this (pre-commit hook):
-// WScript path/to/this/script/file.js "%PATHS%"
+// WScript path/to/this/script/file.js
 // and set "Wait for the script to finish"
 
 var objArgs,num;
