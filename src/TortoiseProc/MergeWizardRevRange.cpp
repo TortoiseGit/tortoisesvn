@@ -159,6 +159,7 @@ LPARAM CMergeWizardRevRange::OnRevSelected(WPARAM wParam, LPARAM lParam)
 	// lParam is a pointer to an SVNRevList, wParam contains the number of elements in that list.
 	if ((lParam)&&(wParam))
 	{
+		UpdateData(TRUE);
 		((CMergeWizard*)GetParent())->revRangeArray = *((SVNRevRangeArray*)lParam);
 		m_sRevRange = ((CMergeWizard*)GetParent())->revRangeArray.ToListString();
 		UpdateData(FALSE);
