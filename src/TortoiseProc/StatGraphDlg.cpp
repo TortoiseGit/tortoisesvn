@@ -367,7 +367,7 @@ void CStatGraphDlg::UpdateWeekCount()
 	m_nWeeks = (int)ceil(secs / 604800.0);
 }
 
-int CStatGraphDlg::GetWeek(const CTime& time)
+int CStatGraphDlg::GetCalendarWeek(const CTime& time)
 {
 	// Note:
 	// the calculation of the calendar week is wrong if DST is in effect
@@ -1011,7 +1011,7 @@ int CStatGraphDlg::GetUnitCount()
 int CStatGraphDlg::GetUnit(const CTime& time)
 {
 	if (m_nWeeks < 15)
-		return GetWeek(time);
+		return GetCalendarWeek(time);
 	if (m_nWeeks < 80)
 		return time.GetMonth();
 	if (m_nWeeks < 320)

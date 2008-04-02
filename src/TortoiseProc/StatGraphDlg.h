@@ -115,7 +115,7 @@ protected:
 	/// of weeks in the revision interval.
 	void UpdateWeekCount();
 	/// Returns the week-of-the-year for the given time.
-	int	GetWeek(const CTime& time);
+	int	GetCalendarWeek(const CTime& time);
 	/// Parses the data given to the dialog and generates mappings with statistical data. 
 	void GatherData();
 	/// Populates the lists passed as arguments based on the commit threshold set with the skipper.
