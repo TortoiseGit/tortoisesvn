@@ -9,7 +9,7 @@
 # $Rev$
 #
 # Authors:
-# Zero3Cool <zero3cool@trashmail.net>
+# Christian Funder Sommerlund <christian@somnet.dk>
 #
 # Based on original translation by:
 # Gunther Strube <gbs@users.sourceforge.net>
@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-04-01 22:22+0100\n"
+"PO-Revision-Date: 2008-04-02 20:18+0100\n"
 "Last-Translator: Zero3Cool\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -520,7 +520,7 @@ msgstr "&Afslut"
 
 #. Resource IDs: (323)
 msgid "&Export selection to..."
-msgstr "&Eksporter valgte emner til..."
+msgstr "&Eksporter markering til..."
 
 #. Resource IDs: (1092, 1094, 1095)
 msgid "&External"
@@ -2064,6 +2064,10 @@ msgstr "Kopier emner hertil"
 msgid "Copy paths to clipboard"
 msgstr "Kopier stier til udklipsholder"
 
+#. Resource IDs: (323)
+msgid "Copy selection to cli&pboard"
+msgstr "Kopiér markering til &udklipsholder"
+
 #. Resource IDs: (3603)
 msgid ""
 "Copy the selection and put it on the Clipboard\n"
@@ -2335,7 +2339,7 @@ msgid ""
 "Cut the selection and put it on the Clipboard\n"
 "Cut"
 msgstr ""
-"Klip det valgte og læg det i udklipsholderen\n"
+"Klip det markerede og læg det i udklipsholderen\n"
 "Klip"
 
 #. Resource IDs: (19, 76, 208)
@@ -3536,8 +3540,8 @@ msgid ""
 "If checked, the commit dialog will be started again automatically after an error,\n"
 "while preserving your last selection and log message."
 msgstr ""
-"Hvis valgt, så vil arkivér-dialogen automatisk åbnes igen, hvis arkiveringen fejler,\n"
-"således at de valgte emner og logbeskeden bevares."
+"Hvis valgt, vil arkiveringsdialogen, automatisk genåbnes efter en fejl,\n"
+"med samme markering og logbesked."
 
 #. Resource IDs: (194)
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
