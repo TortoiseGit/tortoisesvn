@@ -41,6 +41,9 @@ protected:
 	DECLARE_MESSAGE_MAP()
 	virtual BOOL OnInitDialog();
 
+	afx_msg void OnPaint();
+	afx_msg HCURSOR OnQueryDragIcon();
+
 	CMergeWizardStart				page1;
 	CMergeWizardTree				tree;
 	CMergeWizardRevRange			revrange;
@@ -73,6 +76,7 @@ public:
 
 private:
 	bool							m_FirstPageActivation;
+	HICON							m_hIcon;
 };
 
 
