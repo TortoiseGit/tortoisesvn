@@ -9,6 +9,8 @@
        changelist last. (Stefan)
 - CHG: if changelists are present, the items in the commit dialog are not
        checked by default anymore. (Stefan)
+- CHG: The rev-range merge dialog now sorts the revision ranges which are
+       retrieved from the log dialog. (Tobias Schäfer)
 - BUG: <SHIFT>-F5 and <CTRL>-F5 not working in log view (Stefan Fuhrmann)
 - BUG: The property page showed the changelist instead of the GUUID. (Stefan)
 - BUG: Revisions that only added new files or sub-folders

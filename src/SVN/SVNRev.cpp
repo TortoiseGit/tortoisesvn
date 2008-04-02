@@ -393,14 +393,22 @@ bool SVNRevRangeArray::FromListString(const CString& string)
 	return true;
 }
 
-CString SVNRevRangeArray::ToListString()
+CString SVNRevRangeArray::ToListString(bool bReverse /* = false */)
 {
+	// Make a copy so that we don't modify the original array
+	std::vector<SVNRevRange> revrange((*this).m_array);
+
+	if (bReverse)
+		std::sort(revrange.begin(), revrange.end(), SVNRevRangeArray::DescSort());
+	else
+		std::sort(revrange.begin(), revrange.end(), SVNRevRangeArray::AscSort());
+
 	CString sRet;
 	for (int i = 0; i < GetCount(); ++i)
 	{
 		if (!sRet.IsEmpty())
 			sRet += _T(",");
-		SVNRevRange range = (*this)[i];
+		SVNRevRange range = revrange[i];
 		if (range.GetStartRevision().IsEqual(range.GetEndRevision()))
 			sRet += range.GetStartRevision().ToString();
 		else

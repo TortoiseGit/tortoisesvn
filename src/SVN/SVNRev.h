@@ -139,7 +139,7 @@ public:
 	const SVNRevRange&	operator[](int index) const;
 
 	bool				FromListString(const CString& string);
-	CString				ToListString();
+	CString				ToListString(bool bReverse = false);
 
 	struct AscSort
 	{

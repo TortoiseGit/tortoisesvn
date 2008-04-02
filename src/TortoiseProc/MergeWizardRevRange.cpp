@@ -160,8 +160,10 @@ LPARAM CMergeWizardRevRange::OnRevSelected(WPARAM wParam, LPARAM lParam)
 	if ((lParam)&&(wParam))
 	{
 		UpdateData(TRUE);
-		((CMergeWizard*)GetParent())->revRangeArray = *((SVNRevRangeArray*)lParam);
-		m_sRevRange = ((CMergeWizard*)GetParent())->revRangeArray.ToListString();
+		CMergeWizard* dlg = (CMergeWizard*)GetParent();
+		dlg->revRangeArray = *((SVNRevRangeArray*)lParam);
+		bool bReverse = !!dlg->bReverseMerge;
+		m_sRevRange = dlg->revRangeArray.ToListString(bReverse);
 		UpdateData(FALSE);
 	}
 	return 0;
