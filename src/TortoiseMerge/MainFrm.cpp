@@ -682,7 +682,9 @@ bool CMainFrame::LoadViews(bool bRetainPosition)
 			pwndActiveView->GoToFirstDifference();
 	}
 	// Avoid incorrect rendering of active pane.
-	pwndActiveView->ScrollToChar(0);
+	m_pwndBottomView->ScrollToChar(0);
+	m_pwndLeftView->ScrollToChar(0);
+	m_pwndRightView->ScrollToChar(0);
 	CheckResolved();
 	CUndo::GetInstance().Clear();
 	return true;

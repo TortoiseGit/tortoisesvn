@@ -126,6 +126,7 @@ protected:
 	afx_msg void	OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg void	OnEditCopy();
 	afx_msg void	OnMouseMove(UINT nFlags, CPoint point);
+	afx_msg void	OnMouseLeave();
 	afx_msg void	OnChar(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg void	OnCaretDown();
 	afx_msg void	OnCaretLeft();
@@ -237,6 +238,7 @@ protected:
 	BOOL			m_bFocused;
 	BOOL			m_bViewLinenumbers;
 	BOOL			m_bIsHidden;
+	BOOL			m_bMouseWithin;
 	int				m_nLineHeight;
 	int				m_nCharWidth;
 	int				m_nMaxLineLength;

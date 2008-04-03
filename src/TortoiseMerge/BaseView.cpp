@@ -69,6 +69,7 @@ CBaseView::CBaseView()
 	m_nOffsetChar = 0;
 	m_nDigits = 0;
 	m_nMouseLine = -1;
+	m_bMouseWithin = FALSE;
 	m_bIsHidden = FALSE;
 	lineendings = EOL_AUTOLINE;
 	m_bCaretHidden = true;
@@ -183,6 +184,7 @@ BEGIN_MESSAGE_MAP(CBaseView, CView)
 	ON_COMMAND(ID_CARET_WORDRIGHT, &CBaseView::OnCaretWordright)
 	ON_COMMAND(ID_EDIT_CUT, &CBaseView::OnEditCut)
 	ON_COMMAND(ID_EDIT_PASTE, &CBaseView::OnEditPaste)
+	ON_WM_MOUSELEAVE()
 END_MESSAGE_MAP()
 
 
@@ -2221,7 +2223,25 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
 		}
 	}
 
+	if (!m_bMouseWithin)
+	{ 
+		m_bMouseWithin = TRUE;
+		TRACKMOUSEEVENT tme;
+		tme.cbSize = sizeof(TRACKMOUSEEVENT);
+		tme.dwFlags = TME_LEAVE;
+		tme.hwndTrack = m_hWnd;
+		_TrackMouseEvent(&tme);
+	}
+
 	CView::OnMouseMove(nFlags, point);
+}
+
+void CBaseView::OnMouseLeave()
+{
+	ShowDiffLines(-1);
+	m_bMouseWithin = FALSE;
+
+	CView::OnMouseLeave();
 }
 
 void CBaseView::SelectLines(int nLine1, int nLine2)
@@ -2253,6 +2273,10 @@ void CBaseView::ShowDiffLines(int nLine)
 				}
 			}
 		}
+	}
+	else
+	{
+		m_pwndLineDiffBar->ShowLines(nLine);
 	}
 }
 
@@ -2908,3 +2932,4 @@ void CBaseView::OnEditPaste()
 		PasteText();
 	}
 }
+
