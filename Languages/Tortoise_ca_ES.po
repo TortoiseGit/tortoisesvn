@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-03 12:01+0100\n"
+"PO-Revision-Date: 2008-04-03 10:42+0100\n"
 "Last-Translator: Arnau <aperello@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -146,6 +146,11 @@ msgstr "%ld paths"
 msgid "%s"
 msgstr "%s"
 
+#. Resource IDs: (93)
+#, c-format
+msgid "%s (offline)"
+msgstr "%s (offline)"
+
 #. Resource IDs: (115)
 #, c-format
 msgid "%s (offline) - %s"
@@ -239,6 +244,10 @@ msgstr "&Afegeix..."
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
 msgstr "&Avançat..."
+
+#. Resource IDs: (1471)
+msgid "&Allow ambiguous URLs"
+msgstr "&Permet URLs ambigües"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -457,8 +466,8 @@ msgid "&Go To Line..."
 msgstr "&Vés a la línea ..."
 
 #. Resource IDs: (32799)
-msgid "&Group branches"
-msgstr "A&grupa branques"
+msgid "&Group by branch"
+msgstr "A&grupa per branca"
 
 #. Resource IDs: (1032, 1115)
 msgid "&HEAD Revision"
@@ -625,6 +634,10 @@ msgstr "&Missatges recents "
 #. Resource IDs: (376)
 msgid "&Redo"
 msgstr "&Torna a fer"
+
+#. Resource IDs: (1382)
+msgid "&Refresh"
+msgstr "&Refresca"
 
 #. Resource IDs: (1100, 1285)
 msgid "&Remove"
@@ -818,6 +831,10 @@ msgstr "(vàries destinacions seleccionades)"
 #. Resource IDs: (213)
 msgid "(no changelist)"
 msgstr "(sense changelist)"
+
+#. Resource IDs: (314)
+msgid "(no line number)"
+msgstr "(sense número de línia)"
 
 #. Resource IDs: (314)
 msgid "(not found)"
@@ -1094,9 +1111,21 @@ msgstr "Tots els fitxers (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "Tots els fitxers (*.*)|*.*||"
 
+#. Resource IDs: (345)
+msgid ""
+"Allow different repositories to use the same URL, e.g. http://localhost/myrepos/\n"
+"Note: This will disable offline log access."
+msgstr ""
+"Permet a diferents repositoris utilitzar la mateixa URL, p.ex. http://localhost/myrepos/\n"
+"Nota: Això deshabilita accés offline al log."
+
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "Utilitza sempre la configuració local per mostrar hores i dates"
+
+#. Resource IDs: (339)
+msgid "Amount of memory required to load the cache"
+msgstr "Quantitat de memòria requerida per carregar el cache"
 
 #. Resource IDs: (78)
 #, c-format
@@ -1154,10 +1183,6 @@ msgstr "Error desconegut accedint %1."
 #, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "Un tipus de línea desconegut s´ha trobat a la línea %d !"
-
-#. Resource IDs: (269)
-msgid "Analyze revision data..."
-msgstr "Analitzar dades de la revisió..."
 
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
@@ -1564,10 +1589,6 @@ msgstr "Comprova el que vols que apareixi en el menú superior enlloc de en el s
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Marca per utilitzar un format de temps/data simplificat en els missatges del log de les entregues. "
 
-#. Resource IDs: (270)
-msgid "Checking for forward copies"
-msgstr "Comprovant còpies més enllà"
-
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Comprovant si una nova versió de TortoiseSVN és disponible..."
@@ -1834,6 +1855,10 @@ msgstr "En conflicte"
 msgid "Conflicts: %d"
 msgstr "Conflictes: %d"
 
+#. Resource IDs: (345)
+msgid "Connect to the repository server and download missing log data"
+msgstr "Connecta al servidor de repositoris i baixa les dades de log que manquen"
+
 #. Resource IDs: (65535)
 msgid "Container sizes"
 msgstr "Tamanys del contenidor"
@@ -1921,6 +1946,10 @@ msgstr "Copia els items aquí"
 #. Resource IDs: (209)
 msgid "Copy paths to clipboard"
 msgstr "Copia paths al portapapers"
+
+#. Resource IDs: (323)
+msgid "Copy selection to cli&pboard"
+msgstr "Copia al porta&papers"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -2493,6 +2522,10 @@ msgstr "Nom o IP del servidor proxy"
 msgid "Empty"
 msgstr "Buit"
 
+#. Resource IDs: (344)
+msgid "Enable log caching to speed up log and revision graph dialogs"
+msgstr "Habilita cache de log per accelerar diàlegs de log i gràfics de revisió"
+
 #. Resource IDs: (196)
 msgid ""
 "Enable this only if you're working with web projects on VS.NET2003!\n"
@@ -2686,6 +2719,10 @@ msgstr "Exporta - TortoiseSVN"
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "Exporta directori:"
+
+#. Resource IDs: (345)
+msgid "Export the selected cache as a set of Comma Separated Value (CSV) files"
+msgstr "Exporta el cache seleccionat com un fitxer de valors separats per coma (CSV)"
 
 #. Resource IDs: (79)
 msgid "Export unversioned files too"
@@ -2970,6 +3007,10 @@ msgstr "Per a un històric complet deseleccioneu \"Atura còpia/canvi de nom\""
 msgid "Force blame"
 msgstr "Força establir autoria"
 
+#. Resource IDs: (65535)
+msgid "From URL:"
+msgstr "De la URL:"
+
 #. Resource IDs: (1200, 65535)
 msgid "From:"
 msgstr "De:"
@@ -3134,13 +3175,13 @@ msgstr ""
 msgid "Graph type:"
 msgstr "Tipus de gràfic:"
 
+#. Resource IDs: (2050)
+msgid "Group by branch"
+msgstr "Agrupa per branca"
+
 #. Resource IDs: (214)
 msgid "Group changelists"
 msgstr "Agrupa changelists"
-
-#. Resource IDs: (2050)
-msgid "Groups branches together"
-msgstr "Agrupa branques juntes"
 
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
@@ -3809,6 +3850,10 @@ msgstr ""
 "Llista temes de l'Ajuda\n"
 "Temes d'Ajuda"
 
+#. Resource IDs: (344)
+msgid "List of repositories for which log information has been cached"
+msgstr "Llista de repositoris pels quals la informatió de log és al cache"
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Carrega Imatges"
@@ -3941,6 +3986,10 @@ msgstr "Marca com a &resolt"
 msgid "Mark as resolved"
 msgstr "Marca com a resolt"
 
+#. Resource IDs: (2052)
+msgid "Mark current revision of your working copy"
+msgstr "Marca revisió actual de la teva còpia de treball"
+
 #. Resource IDs: (101)
 msgid "Mark for comparison"
 msgstr "Marcar per comparació"
@@ -3980,6 +4029,10 @@ msgstr "Fusiona"
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
 msgstr "Merge - TortoiseSVN"
+
+#. Resource IDs: (221)
+msgid "Merge Reintegrate"
+msgstr "Fusiona Reintegra"
 
 #. Resource IDs: (1416)
 msgid "Merge a range of revisions"
@@ -4328,6 +4381,10 @@ msgstr "No hi ha prou memòria per completar la operació."
 msgid "Not recursive"
 msgstr "No recursiu"
 
+#. Resource IDs: (65535)
+msgid "Note: the font settings also affect the TortoiseUDiff viewer"
+msgstr "Nota: La configuració de font afecta també el visualitzador TortoiseUDiff"
+
 #. Resource IDs: (88)
 msgid "Notice"
 msgstr "Nota"
@@ -4349,32 +4406,36 @@ msgid "Number of cached revisions"
 msgstr "Nombre de revisions fusionades"
 
 #. Resource IDs: (339)
-msgid "Number of cached user revision properties"
-msgstr "Nombre de propietats de revisió d'usuari al cache"
+msgid "Number of cached revisions that have a non-empty change list"
+msgstr "Nombre de revisions al cache que tenen una llista de canvis no buida"
 
 #. Resource IDs: (339)
-msgid "Number of changed cached revisions"
-msgstr "Nombre de revisions canviades al cache"
+msgid "Number of cached revisions that have user revision properties"
+msgstr "Nombre de revisions al cache que tenen propietats de revisió de l'usuari"
 
 #. Resource IDs: (339)
-msgid "Number of changed revisions that are not cached yet"
-msgstr "Nombre de revisions canviades que encara no són al cache"
+msgid "Number of cached revisions whose change list is not cached yet"
+msgstr "Nombre de revisions al cache la llista de canvis de les quals no és encara al cache"
+
+#. Resource IDs: (339)
+msgid "Number of cached revisions whose user revision properties are not cached yet"
+msgstr "Nombre revisions al cache les propietats de revisió de les quals  no són encara al cache"
 
 #. Resource IDs: (338)
 msgid "Number of different paths shown in the log dialog, including parent paths"
 msgstr "Nombre de paths diferents no mostrats al diàleg de log, incloent-hi paths superiors"
+
+#. Resource IDs: (338)
+msgid "Number of different words used in log messages"
+msgstr "Nombre de paraules diferents usada als missatges de log"
 
 #. Resource IDs: (339)
 msgid "Number of merged revisions that are not cached yet"
 msgstr "Nombre de revisions foses que encara no son al cache"
 
 #. Resource IDs: (338)
-msgid "Number of path elements. This is an internal value indicating the compression level."
-msgstr "Nombre d'elements de path. Aquest és un valor  intern indicant el nivell de compressió."
-
-#. Resource IDs: (339)
-msgid "Number of user revision properties that are not cached yet"
-msgstr "Nombre de propietats de revisió d'usuari que encara no són al cache"
+msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
+msgstr "Nombre d'elementsde path. Un element de path és un  carpeta o un nom de fitxer tal com 'pep.txt' o 'meutreball'."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -4851,6 +4912,15 @@ msgstr ""
 "\\d\t\t\tdigits 0-9\n"
 "\\s\t\t\tespais en blanc"
 
+#. Resource IDs: (1469)
+msgid "Reintegrate a branch"
+msgstr "Reintegra una branca"
+
+#. Resource IDs: (230)
+#, c-format
+msgid "Reintegrate merge %s into %s"
+msgstr "Reintegra fusió %s dins de %s"
+
 #. Resource IDs: (82)
 msgid "Reject"
 msgstr "Rebutja"
@@ -4937,6 +5007,10 @@ msgid ""
 msgstr ""
 "Treu propietat \"%s\" de\r\n"
 "%s"
+
+#. Resource IDs: (345)
+msgid "Remove the selected cache(s) from disk"
+msgstr "Treu el(s) cache(s) seleccionat(s) del disc"
 
 #. Resource IDs: (1332)
 msgid "Remove..."
@@ -5386,6 +5460,10 @@ msgstr "Desa al portapapers"
 msgid "Saved Data"
 msgstr "Dades desades"
 
+#. Resource IDs: (344)
+msgid "Saves expensive server roundtrips when set to longer than 0 seconds"
+msgstr "Estalvia giragonces del servidor quan és major de 0 segons"
+
 #. Resource IDs: (581)
 msgid "Saves the selected property value to a file"
 msgstr "Desa el valor de la propietat seleccionada a un fitxer"
@@ -5617,6 +5695,10 @@ msgstr "Mostra &tot"
 msgid "Show &Range..."
 msgstr "Mostra &Rang..."
 
+#. Resource IDs: (32826)
+msgid "Show &WC revision"
+msgstr "Mostra revisió &Còpia de Treball"
+
 #. Resource IDs: (32796)
 msgid "Show &all revisions"
 msgstr "Mostra &totes les revisions"
@@ -5733,6 +5815,10 @@ msgstr ""
 "Mostra caràcters especials pels espais en blanc\n"
 "Mostra espais en blanc"
 
+#. Resource IDs: (345)
+msgid "Show statistics for the selected log cache"
+msgstr "Mostra estadístiques pel cache de log seleccionat"
+
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Mostra etiquetes a les fonts de lacòpia, no com a nodes separats"
@@ -5811,6 +5897,10 @@ msgstr "Tamany i estat"
 #. Resource IDs: (339)
 msgid "Size of all cached text information"
 msgstr "Tamany de tota la informació al cache"
+
+#. Resource IDs: (339)
+msgid "Size of the cache file on disk"
+msgstr "Tamany del fitxer de cache al disc"
 
 #. Resource IDs: (339)
 msgid "Size of the cache if it were not compressed"
@@ -6009,6 +6099,10 @@ msgstr "Canvia a la finestra de document prèvia"
 #. Resource IDs: (9)
 msgid "Switch working copy to another branch / tag"
 msgstr "Canvia còpia de treball a una altra branca / etiqueta"
+
+#. Resource IDs: (65535)
+msgid "Switch:"
+msgstr "Canvia:"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<<->right"
@@ -6408,11 +6502,11 @@ msgstr "Els seus"
 
 #. Resource IDs: (169)
 msgid ""
-"There are changes inside one or more directories which you have included with svn:externals.\n"
+"There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
 "Those files are <b>not</b> listed for commit. You need to commit those files separately."
 msgstr ""
-"Hi ha canvis dins d'un o més directoris que heu inclòs amb svn:externals.\n"
-"Aquests fitxers <b>no</b>han estat inclosos a l'entrega. Heu d'entregar-los separadament."
+"Hi ha canvis dins d'un o més items dins d'un o més directoris  que heu inclòs amb svn:externals.\n"
+"Aquests fitxers <b>no</b>han estat llistats per a  l'entrega. Heu d'entregar-los separadament."
 
 #. Resource IDs: (66)
 #, c-format
@@ -6480,12 +6574,16 @@ msgstr ""
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #. Resource IDs: (594)
-msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. All trunk changes have been ported to the feature branch, week by week, and now the feature is complete you want to merge it back into the trunk. Because you have kept the feature branch synchronized with the trunk, the latest versions of branch and trunk will be absolutely identical except for your branch changes. So in this special case, you would merge by comparing the branch with the trunk."
-msgstr "Aquest mètode tracta el  cas d'una branca característica tal com es tracta al manual del Subversion. Tots els canvis han sigut portats a la branca característica setmana per setmana i ara la branca característica  és completa  i la voleu fusionar amb el tronc. Com que ha d'estar sincronitzada amb el tronc, les darreres versions de la branca i del tronc seran absolutament idèntiques excepte pels vostres canvis de la branca . En aquest cas especial podeu fusionar comparant la branca amb el tronc."
+msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. Use this to merge all changes of a branch back to trunk."
+msgstr "Aquest mètode serveix per quan feu una branca rellevant (feature) tal com es descriu al manual del Subversion. Utilitzeu-la per fusionar tots els canvis d'una branca altre cop cap al tronc."
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
 msgstr "Aquest mètode cobreix el cas de quan feu una o més revisions a una branca (o al tronc) i voleu portar els canvis a una branca diferent."
+
+#. Resource IDs: (594)
+msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
+msgstr "Aquest mètode serveix per fusionar les diferències de dues branques diferents dins la vostra còpia de treball."
 
 #. Resource IDs: (65535)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -6667,8 +6765,8 @@ msgid "Total file changes:"
 msgstr "Nombre total de canvis al fitxer:"
 
 #. Resource IDs: (339)
-msgid "Total number of changed revisions"
-msgstr "Nombre total de revisions canviades"
+msgid "Total number of changes over all cached revisions"
+msgstr "Nombre total de canvis a totes les revisions del cache"
 
 #. Resource IDs: (339)
 msgid "Total number of merged revisions"
@@ -7105,6 +7203,16 @@ msgstr "Atenció"
 msgid "Warning!"
 msgstr "Atenció!"
 
+#. Resource IDs: (344)
+msgid ""
+"When connecting to the respository server is not possible,\n"
+"TSVN can switch to using cached data only.\n"
+"Select the default beviour here."
+msgstr ""
+"Quan no és possible connectar amb el servidor del repositori ,\n"
+"TSVN pot fer que s'utilitzin només dades del cache.\n"
+"Seleccioneu aquí el comportament per defecte."
+
 #. Resource IDs: (197)
 msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
 msgstr "Quan està habilitat, els items versionats llistats se seleccionen automàticament"
@@ -7158,25 +7266,25 @@ msgstr "Ja heu provat la darrera versió instal·lada"
 msgid ""
 "You are creating a repository on a network share.\n"
 "This is safe, but once the repository is created you must access it by some other means.\n"
-"Accessing a repository via file:/// on a network share may corrupt your data!\n"
+"Accessing a repository via file:// on a network share may corrupt your data!\n"
 "Create the repository anyway?"
 msgstr ""
 "Esteu creant un repositori a una xarxa compartida.\n"
 "És una acció segura, però un cop s'hagi creat el repositori l'haureu d'accedir per altres vies.\n"
-"Per accedir un repositori  via fitxer:/// a una xarxa compartida pot corrompre les vostres dades!\n"
+"L'accés a un repositori  via fitxer:// a una xarxa compartida pot corrompre les vostres dades!\n"
 "Crea el repositori de totes maneres?"
 
 #. Resource IDs: (88)
 msgid ""
-"You are trying to access a repository via file:/// on\n"
+"You are trying to access a repository via file:// on\n"
 "a shared network drive.\n"
 "This could lead to severe repository corruption!\n"
 "Do you really want to do that?"
 msgstr ""
-"Esteu tractant d'accedir un repositori via fitxer:/// a\n"
-"una unitat de xarxa compartida.\n"
+"Esteu tractant d'accedir un repositori via fitxer:// a\n"
+"a una unitat de xarxa compartida.\n"
 "Això podria provocar una corrupció greu del repositori!\n"
-"Esteu segur de que voleu fer això?"
+"Teniu la seguretat de voler fer-ho?"
 
 #. Resource IDs: (105)
 msgid ""
@@ -7372,6 +7480,14 @@ msgstr "i suporteu els desenvolupadors"
 msgid "another item already exists in its place."
 msgstr "un altre item ja existeix en el seu lloc."
 
+#. Resource IDs: (340)
+msgid ""
+"ask repository first if 'online' -\n"
+"work entirely from cache if 'offline'"
+msgstr ""
+"pregunta primer al repositori si es troba  'online' -\n"
+"treballa totalment amb el cache si  'offline'"
+
 #. Resource IDs: (245)
 msgid "author"
 msgstr "autor"
@@ -7565,8 +7681,8 @@ msgid "merged"
 msgstr "fusionat"
 
 #. Resource IDs: (65535)
-msgid "merges total:"
-msgstr "total fusions:"
+msgid "merges total: "
+msgstr "total fusions: "
 
 #. Resource IDs: (10)
 msgid "missing"
@@ -7591,6 +7707,11 @@ msgstr "modificat / copiat"
 #. Resource IDs: (245)
 msgid "month"
 msgstr "mes"
+
+#. Resource IDs: (199)
+#, c-format
+msgid "multiple URLs (UUID: %s)"
+msgstr "URLs multiples (UUID: %s)"
 
 #. Resource IDs: (18)
 msgid "no"
