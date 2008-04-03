@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-27 00:17+0100\n"
+"PO-Revision-Date: 2008-04-03 22:59+0100\n"
 "Last-Translator: Oto BREZINA <translate@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -252,7 +252,7 @@ msgstr "&Rozširené..."
 
 #. Resource IDs: (1471)
 msgid "&Allow ambiguous URLs"
-msgstr ""
+msgstr "Povoliť nejednoznačné URL"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -1420,7 +1420,7 @@ msgstr "Prezerať..."
 
 #. Resource IDs: (1057)
 msgid "Bug Tracker..."
-msgstr ""
+msgstr "Sledovanie chýb"
 
 #. Resource IDs: (1119)
 msgid "Bug-&ID / Issue-Nr:"
@@ -1973,6 +1973,10 @@ msgstr "Kopírovať objekty sem"
 #. Resource IDs: (209)
 msgid "Copy paths to clipboard"
 msgstr "Skopíruj cesty do schránky"
+
+#. Resource IDs: (323)
+msgid "Copy selection to cli&pboard"
+msgstr "Kopírovať výber do &schránky"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -3777,7 +3781,7 @@ msgstr ""
 
 #. Resource IDs: (570)
 msgid "Issue Tracker Hook"
-msgstr ""
+msgstr "Pripojený skript sledovania chýb"
 
 #. Resource IDs: (145)
 msgid ""
@@ -4077,9 +4081,8 @@ msgid "Merge - TortoiseSVN"
 msgstr "Zlúčiť - TortoiseSVN"
 
 #. Resource IDs: (221)
-#, fuzzy
 msgid "Merge Reintegrate"
-msgstr "Zlúči rozsah revízií"
+msgstr "Reintegračné zlúčenie"
 
 #. Resource IDs: (1416)
 msgid "Merge a range of revisions"
@@ -4432,7 +4435,7 @@ msgstr "Nerekurzívne"
 
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
-msgstr ""
+msgstr "Poznámka: zmena fontu ovplivní aj prehliadač TortoiseUDiff"
 
 # Upozornenie
 #. Resource IDs: (88)
@@ -4485,7 +4488,7 @@ msgstr "Počet zlúčených revizií, ktoré ešte nie sú v zásobníku"
 
 #. Resource IDs: (338)
 msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
-msgstr ""
+msgstr "Počet elemntov cliest. Element cesty je meno adresara, alebo súboru ako je 'foo.txt' alebo 'mybranch'."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -4966,12 +4969,12 @@ msgstr ""
 
 #. Resource IDs: (1469)
 msgid "Reintegrate a branch"
-msgstr ""
+msgstr "Reintegrovať vetvu"
 
 #. Resource IDs: (230)
-#, fuzzy, c-format
+#, c-format
 msgid "Reintegrate merge %s into %s"
-msgstr "Zlučovanie %s do %s"
+msgstr "Reintegračné zlučovanie %s do %s"
 
 #. Resource IDs: (82)
 msgid "Reject"
@@ -5521,7 +5524,7 @@ msgstr "Uložené dáta"
 
 #. Resource IDs: (344)
 msgid "Saves expensive server roundtrips when set to longer than 0 seconds"
-msgstr ""
+msgstr "Pri hodnote viac ako 0 sekúnd šetrí prístup na server."
 
 #. Resource IDs: (581)
 msgid "Saves the selected property value to a file"
@@ -6640,7 +6643,7 @@ msgstr ""
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. Use this to merge all changes of a branch back to trunk."
-msgstr ""
+msgstr "Táto medóda pokrýva prípad, keď ste spravili vetvu ako je popísané v knihe Subversion. Použite túto možnosť na zlúčenie všetkých zmien vetvy do kmeňa."
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
@@ -7281,6 +7284,9 @@ msgid ""
 "TSVN can switch to using cached data only.\n"
 "Select the default beviour here."
 msgstr ""
+"Keď pripojenie k úložisku nie je možné,\n"
+"TSVN sa môže prepnúť do režimu používania iba dát zo zásobníka.\n"
+"Vyberte predvolené správanie."
 
 #. Resource IDs: (197)
 msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
@@ -7335,22 +7341,23 @@ msgstr "Už máte nainštalovanú aktuálnu verziu."
 msgid ""
 "You are creating a repository on a network share.\n"
 "This is safe, but once the repository is created you must access it by some other means.\n"
-"Accessing a repository via file:/// on a network share may corrupt your data!\n"
+"Accessing a repository via file:// on a network share may corrupt your data!\n"
 "Create the repository anyway?"
 msgstr ""
 "Vytvárate úložisko na sieťovaom disku.\n"
 "Toto je bezpečné, ale potom musíte k nemu pristupovať iným spôsobom.\n"
-"Pristupovanie k úložisku cez file:/// na sieťovom disku može zničiť vaše dáta!\n"
+"Pristupovanie k úložisku cez file:// na sieťovom disku može zničiť vaše dáta!\n"
 "Vytvoriť úložisko napriek tomu?"
 
 #. Resource IDs: (88)
 msgid ""
-"You are trying to access a repository via file:/// on\n"
+"You are trying to access a repository via file:// on\n"
 "a shared network drive.\n"
 "This could lead to severe repository corruption!\n"
 "Do you really want to do that?"
 msgstr ""
-"Snažíte sa pristúpiť k sieťovému úložisku pomocou file:/// \n"
+"Snažíte sa pristúpiť k sieťovému úložisku pomocou file://\n"
+"na zdeilanom disku.\n"
 "Toto može viesť vážnemu poškodeniu úložiska!\n"
 "Naozaj to chcete?"
 
@@ -7513,7 +7520,7 @@ msgstr "Zobraz všetko"
 
 #. Resource IDs: (338)
 msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
-msgstr ""
+msgstr "\"skip ranges\" je použitý na označenie rozsahov revízií, ktoré ešte niesú v zásobníku"
 
 #. Resource IDs: (10)
 msgid "added"
@@ -7556,6 +7563,8 @@ msgid ""
 "ask repository first if 'online' -\n"
 "work entirely from cache if 'offline'"
 msgstr ""
+"získaj data z najprv z úložiska keď je 'pripojený' -\n"
+"používa iba data zo zásobníka keď je 'odpojený'"
 
 #. Resource IDs: (245)
 msgid "author"
@@ -7788,6 +7797,11 @@ msgstr "zmenené / skopírované"
 #. Resource IDs: (245)
 msgid "month"
 msgstr "mesiac"
+
+#. Resource IDs: (199)
+#, c-format
+msgid "multiple URLs (UUID: %s)"
+msgstr "viacnásobné URL (UUID: %s)"
 
 #. Resource IDs: (18)
 msgid "no"
