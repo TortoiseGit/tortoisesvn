@@ -56,6 +56,15 @@ CSetLogCache::~CSetLogCache()
 {
 }
 
+// update cache list
+
+BOOL CSetLogCache::OnSetActive()
+{
+    FillRepositoryList();
+
+    return ISettingsPropPage::OnSetActive();
+}
+
 void CSetLogCache::DoDataExchange(CDataExchange* pDX)
 {
 	ISettingsPropPage::DoDataExchange(pDX);

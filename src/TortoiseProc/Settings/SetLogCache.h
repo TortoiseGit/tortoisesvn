@@ -40,6 +40,10 @@ public:
 	
 	UINT GetIconID() {return IDI_CACHE;}
 
+    // update cache list
+
+	virtual BOOL OnSetActive();
+
 // Dialog Data
 	enum { IDD = IDD_SETTINGSLOGCACHE };
 
