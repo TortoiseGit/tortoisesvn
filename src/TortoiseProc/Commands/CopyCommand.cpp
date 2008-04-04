@@ -27,7 +27,7 @@ bool CopyCommand::Execute()
 	BOOL repeat = FALSE;
 	CCopyDlg dlg;
 	dlg.m_path = cmdLinePath;
-	CString url;
+	CString url = parser.GetVal(_T("url"));
 	CString logmessage;
 	SVNRev copyRev = SVNRev::REV_HEAD;
 	BOOL doSwitch = FALSE;
