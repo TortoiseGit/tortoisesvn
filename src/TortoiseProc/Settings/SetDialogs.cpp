@@ -197,7 +197,7 @@ BOOL CSetDialogs::OnApply()
 	m_regShortDateFormat = m_bShortDateFormat;
 	if (m_regShortDateFormat.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regShortDateFormat.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-	m_regUseSystemLocaleForDates = m_regUseSystemLocaleForDates;
+	m_regUseSystemLocaleForDates = m_bUseSystemLocaleForDates;
 	if (m_regUseSystemLocaleForDates.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regUseSystemLocaleForDates.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	long val = _ttol(m_sDefaultLogs);
