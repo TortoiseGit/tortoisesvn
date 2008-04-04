@@ -379,15 +379,7 @@ void CExportDlg::OnCbnEditchangeUrlcombo()
 	m_URLCombo.GetWindowText(m_URL);
 	if (m_URL.IsEmpty())
 		return;
-	CString tempURL = m_URL;
-	CString name;
-	while (name.IsEmpty() || (name.CompareNoCase(_T("branches"))==0) ||
-		(name.CompareNoCase(_T("tags"))==0) ||
-		(name.CompareNoCase(_T("trunk"))==0))
-	{
-		name = tempURL.Mid(tempURL.ReverseFind('/')+1);
-		tempURL = tempURL.Left(tempURL.ReverseFind('/'));
-	}
+	CString name = CAppUtils::GetProjectNameFromURL(m_URL);
 	m_strExportDirectory = m_sExportDirOrig+_T('\\')+name;
 	UpdateData(FALSE);
 }

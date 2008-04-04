@@ -58,7 +58,6 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 	void		SetRevision(const SVNRev& rev);
-	CString		GetProjectNameFromURL(CString url);
 protected:
 	CBalloon		m_tooltips;
 	CString			m_sRevision;

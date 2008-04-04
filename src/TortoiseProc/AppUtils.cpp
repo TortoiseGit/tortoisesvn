@@ -939,3 +939,28 @@ bool CAppUtils::SetListCtrlBackgroundImage(HWND hListCtrl, UINT nID, int width /
 	ListView_SetBkImage(hListCtrl, &lv);
 	return true;
 }
+
+CString CAppUtils::GetProjectNameFromURL(CString url)
+{
+	CString name;
+	while (name.IsEmpty() || (name.CompareNoCase(_T("branches"))==0) ||
+		(name.CompareNoCase(_T("tags"))==0) ||
+		(name.CompareNoCase(_T("trunk"))==0))
+	{
+		name = url.Mid(url.ReverseFind('/')+1);
+		url = url.Left(url.ReverseFind('/'));
+	}
+	if ((name.Compare(_T("svn")) == 0)||(name.Compare(_T("svnroot")) == 0))
+	{
+		// a name of svn or svnroot indicates that it's not really the project name. In that
+		// case, we try the first part of the URL
+		// of course, this won't work in all cases (but it works for Google project hosting)
+		url.Replace(_T("http://"), _T(""));
+		url.Replace(_T("https://"), _T(""));
+		url.Replace(_T("svn://"), _T(""));
+		url.Replace(_T("svn+ssh://"), _T(""));
+		url.TrimLeft(_T("/"));
+		name = url.Left(url.Find('.'));
+	}
+	return name;
+}
