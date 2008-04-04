@@ -6,6 +6,7 @@
 <xsl:import href="./db_pdfdoc.xsl"/>
 <xsl:import href="./defaults.xsl"/>
 <xsl:param name="paper.type" select="'A4'"></xsl:param>
+<xsl:param name="page.orientation">portrait</xsl:param>
 <xsl:param name="double.sided" select="0"></xsl:param>
 <xsl:param name="variablelist.as.blocks" select="1"></xsl:param>
 <xsl:param name="symbol.font.family" select="'Symbol,ZapfDingbats'"></xsl:param>
@@ -16,7 +17,11 @@
 <xsl:param name="table.cell.border.thickness" select="'1pt'"></xsl:param>
 <xsl:param name="table.cell.border.style" select="'solid'"></xsl:param>
 <xsl:param name="table.cell.border.color" select="'#7099C5'"></xsl:param>
-
+<xsl:attribute-set name="table.properties">
+  <xsl:attribute name="table-layout">fixed</xsl:attribute>
+  <xsl:attribute name="width">100%</xsl:attribute>
+</xsl:attribute-set>
+    
 <xsl:param name="formal.title.placement">
   figure after
   example after

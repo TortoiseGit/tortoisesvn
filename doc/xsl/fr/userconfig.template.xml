@@ -24,23 +24,5 @@
 	<source-resolution>96</source-resolution>
 	<target-resolution>96</target-resolution>
 
-  <renderers>
-    <renderer mime="application/pdf">
-      <fonts>
-        <font metrics-url="xsl/fonts/simhei.xml" kerning="yes" embed-url="%FONTSDIR%\simhei.ttf">
-            <font-triplet name="simhei" style="normal" weight="normal"/>
-            <font-triplet name="simhei" style="normal" weight="bold"/>
-            <font-triplet name="simhei" style="italic" weight="normal"/>
-            <font-triplet name="simhei" style="italic" weight="bold"/>
-        </font>
-        <font metrics-url="xsl/fonts/simsun.xml" kerning="yes" embed-url="%FONTSDIR%\simsun.ttc">
-            <font-triplet name="simsun" style="normal" weight="normal"/>
-            <font-triplet name="simsun" style="normal" weight="bold"/>
-            <font-triplet name="simsun" style="italic" weight="normal"/>
-            <font-triplet name="simsun" style="italic" weight="bold"/>
-        </font>
-      </fonts>
-    </renderer>
-  </renderers>
 
 </fop>

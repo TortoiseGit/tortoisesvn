@@ -15,11 +15,6 @@
   <xsl:param name="paper.type" select="'A4'"></xsl:param>
   <xsl:param name="hyphenate">false</xsl:param>
 
-  <!-- These extensions are required for table printing and other stuff -->
-  <xsl:param name="use.extensions">1</xsl:param>
-  <xsl:param name="tablecolumns.extension">0</xsl:param>
-  <xsl:param name="fop.extensions">1</xsl:param>
-
   <xsl:param name="draft.mode" select="no"/>
 
   <xsl:param name="variablelist.as.blocks" select="1" />
