@@ -60,17 +60,17 @@
 	<sect1 id="tsvn-preface-readingguide">
 		<title>Reading Guide</title>
 		<para>
-			This <emphasis>Preface</emphasis> explains a little about the
+			This <xref linkend="tsvn-preface"/> explains a little about the
 			TortoiseSVN project, the community of people who work on it, and
 			the licensing conditions for using it and distributing it.
 		</para>
 		<para>
-			The <emphasis>Introduction</emphasis> explains what TortoiseSVN is,
+			The <xref linkend="tsvn-introduction"/> explains what TortoiseSVN is,
 			what it does, where it comes from and the basics for installing it
 			on your PC.
 		</para>
 		<para>
-			In <emphasis>Basic Concepts</emphasis> we give a short introduction
+			In <xref linkend="tsvn-basics"/> we give a short introduction
 			to the <emphasis>Subversion</emphasis> revision control system which
 			underlies TortoiseSVN. This is borrowed from the documentation for the
 			Subversion project and explains the different approaches to version
@@ -82,34 +82,34 @@
 			for administrators.
 		</para>
 		<para>
-			The chapter on <emphasis>The Repository</emphasis> explains how to set up
+			The chapter on <xref linkend="tsvn-repository"/> explains how to set up
 			a local repository, which is useful for testing Subversion and TortoiseSVN
 			using a single PC. It also explains a bit about repository administration
 			which is also relevant to repositories located on a server.
 		</para>
 		<para>
-			The <emphasis>Daily Use Guide</emphasis> is the most important section as
+			The <xref linkend="tsvn-dug"/> is the most important section as
 			it explains all the main features of TortoiseSVN and how to use them.
 			It takes the form of a tutorial, starting with checking out a working copy,
 			modifying it, committing your changes, etc. It then progresses to more
 			advanced topics.
 		</para>
 		<para>
-			<emphasis>SubWCRev</emphasis> is a separate program included with TortoiseSVN
+			<xref linkend="tsvn-subwcrev"/> is a separate program included with TortoiseSVN
 			which can extract the information from your working copy and write it into a
 			file. This is useful for including build information in your projects.
 		</para>
 		<para>
-			The <emphasis>How Do I...</emphasis> section answers some common questions
+			The <xref linkend="tsvn-howto"/> section answers some common questions
 			about performing tasks which are not explicitly covered elsewhere.
 		</para>
 		<para>
-			The section on <emphasis>Automating TortoiseSVN</emphasis> shows how the
+			The section on <xref linkend="tsvn-automation"/> shows how the
 			TortoiseSVN GUI dialogs can be called from the command line. This is useful
 			for scripting where you still need user interaction.
 		</para>
 		<para>
-			The <emphasis>Command Line Cross Reference</emphasis> give a correlation
+			The <xref linkend="tsvn-cli"/> give a correlation
 			between TortoiseSVN commands and their equivalents in the Subversion
 			command line client <literal>svn.exe</literal>.
 		</para>
