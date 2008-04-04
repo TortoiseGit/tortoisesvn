@@ -298,7 +298,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 			The example below shows how keywords in a template file are
 			substituted in the output file.
 		</para>
-<screen>
+<programlisting>
 // Test file for SubWCRev: testfile.tmpl
 
 char *Revision = "$WCREV$";
@@ -313,12 +313,12 @@ char *URL      = "$WCURL$";
 #endif
 
 // End of file
-</screen>
+</programlisting>
 		<para>
 			After running <literal>SubWCRev.exe path\to\workingcopy testfile.tmpl testfile.txt</literal>, 
 			the output file <literal>testfile.txt</literal> would looks like this:
 		</para>
-<screen>
+<programlisting>
 // Test file for SubWCRev: testfile.txt
 
 char *Revision = "3701";
@@ -333,7 +333,7 @@ char *URL      = "http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/SubWCR
 #endif
 
 // End of file
-</screen>
+</programlisting>
 		<tip>
 			<para>
 				A file like this will be included in the build so you would expect it

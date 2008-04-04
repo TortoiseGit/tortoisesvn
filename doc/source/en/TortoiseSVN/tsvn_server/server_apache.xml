@@ -238,15 +238,15 @@ LoadModule authz_svn_module modules/mod_authz_svn.so
 						At the end of the config file add the following lines:
 <screen>
 &lt;Location /svn&gt;
-DAV svn
-SVNListParentPath on
-SVNParentPath D:\SVN
-#SVNIndexXSLT "/svnindex.xsl"
-AuthType Basic
-AuthName "Subversion repositories"
-AuthUserFile passwd
-#AuthzSVNAccessFile svnaccessfile
-Require valid-user
+  DAV svn
+  SVNListParentPath on
+  SVNParentPath D:\SVN
+  #SVNIndexXSLT "/svnindex.xsl"
+  AuthType Basic
+  AuthName "Subversion repositories"
+  AuthUserFile passwd
+  #AuthzSVNAccessFile svnaccessfile
+  Require valid-user
 &lt;/Location&gt;
 </screen>
 						This configures Apache so that all your Subversion
@@ -735,26 +735,26 @@ SSPIAuthoritative Off
 			domain and <literal>passwd</literal> file authentication:
 <screen>
 &lt;Location /svn&gt;
-DAV svn
-SVNListParentPath on
-SVNParentPath D:\SVN
+  DAV svn
+  SVNListParentPath on
+  SVNParentPath D:\SVN
 
-AuthName "Subversion repositories"
-AuthzSVNAccessFile svnaccessfile.txt
+  AuthName "Subversion repositories"
+  AuthzSVNAccessFile svnaccessfile.txt
 
 # NT Domain Logins.
-AuthType SSPI
-SSPIAuth On
-SSPIAuthoritative Off
-SSPIDomain &lt;domaincontroller&gt;
-SSPIOfferBasic On
+  AuthType SSPI
+  SSPIAuth On
+  SSPIAuthoritative Off
+  SSPIDomain &lt;domaincontroller&gt;
+  SSPIOfferBasic On
 
 # Htpasswd Logins.
-AuthType Basic
-AuthAuthoritative Off
-AuthUserFile passwd
+  AuthType Basic
+  AuthAuthoritative Off
+  AuthUserFile passwd
 
-Require valid-user
+  Require valid-user
 &lt;/Location&gt;
 </screen>
 		</para>
@@ -779,9 +779,10 @@ Require valid-user
 <screen>
 #Include conf/extra/httpd-ssl.conf
 </screen>
-					then change the line
+					then change the line (on one line)
 <screen>
-SSLMutex "file:C:/Program Files/Apache Software Foundation/Apache2.2/logs/ssl_mutex"
+SSLMutex "file:C:/Program Files/Apache Software Foundation/\
+Apache2.2/logs/ssl_mutex"
 </screen>
 					to
 <screen>
@@ -819,9 +820,10 @@ bin\openssl genrsa -out conf\privkey.pem 2048
 <screen>
 bin\openssl rsa -in conf\privkey.pem -out conf\server.key
 </screen>
-					and
+					and (on one line)
 <screen>
-bin\openssl req -new -key conf\server.key -out conf\server.csr -config conf\openssl.cnf
+bin\openssl req -new -key conf\server.key -out conf\server.csr \
+-config conf\openssl.cnf
 </screen>
 					and then (on one line)
 <screen>
@@ -925,14 +927,14 @@ SetEnvIf User-Agent ".*MSIE.*" \
 					An example <literal>&lt;Location&gt;</literal> block would look like this:
 <screen>
 &lt;Location /svn&gt;
-DAV svn
-SVNParentPath D:\SVN
-SSLRequireSSL
-AuthType Basic
-AuthName "Subversion repositories"
-AuthUserFile passwd
-#AuthzSVNAccessFile svnaccessfile
-Require valid-user
+  DAV svn
+  SVNParentPath D:\SVN
+  SSLRequireSSL
+  AuthType Basic
+  AuthName "Subversion repositories"
+  AuthUserFile passwd
+  #AuthzSVNAccessFile svnaccessfile
+  Require valid-user
 &lt;/Location&gt;
 </screen>
 			</para>
@@ -973,14 +975,16 @@ SSLRequire %{SSL_CLIENT_VERIFY} eq "SUCCESS"
 <screen>
 SSLVerifyClient Optional
 
-### Virtual host configuration for the PUBLIC host (not requiring a certificate)
+### Virtual host configuration for the PUBLIC host 
+### (not requiring a certificate)
 
 &lt;VirtualHost 127.0.0.1:443&gt;
   &lt;Directory "pathtopublicfileroot"&gt;
   &lt;/Directory&gt;
 &lt;/VirtualHost&gt;
 
-### Virtual host configuration for SUBVERSION (requiring a client certificate)
+### Virtual host configuration for SUBVERSION 
+### (requiring a client certificate)
 &lt;VirtualHost 127.0.0.1:443&gt;
   &lt;Directory "subversion host root path"&gt;
     SSLRequire %{SSL_CLIENT_VERIFY} eq "SUCCESS"

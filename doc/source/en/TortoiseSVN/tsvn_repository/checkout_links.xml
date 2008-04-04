@@ -29,9 +29,9 @@
 	<para>
 		To include such a link in your own html page, you need to add
 		code which looks something like this:
-<screen>
+<programlisting>
 &lt;a href="tsvn:https://tortoisesvn.tigris.org/svn/tortoisesvn/trunk"&gt;&lt;/a&gt;
-</screen>
+</programlisting>
 	</para>
 	<para>
 		Of course it would look even better if you included a suitable picture.
@@ -40,9 +40,9 @@
 			<citetitle>TortoiseSVN logo</citetitle>
 		</ulink>
 		or you can provide your own image.
-<screen>
+<programlisting>
 &lt;a href="tsvn:https://tortoisesvn.tigris.org/svn/tortoisesvn/trunk"&gt;
 &lt;img src=TortoiseCheckout.png&gt;&lt;/a&gt;
-</screen>
+</programlisting>
 	</para>
 </sect1>
