@@ -267,6 +267,12 @@ Don't touch these lines:
 								is the working copy to branch/tag from.
 								And the <option>/url</option> is the
 								target URL.
+								You can also specify the <option>/logmsg</option> switch
+								to pass a predefined log message to the branch/tag dialog.
+								Or, if you don't want to pass the log message on the
+								command line, use <option>/logmsgfile:path</option>,
+								where <option>path</option>
+								points to a file containing the log message.
 							</entry>
 						</row>
 						<row>

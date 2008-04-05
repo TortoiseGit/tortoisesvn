@@ -24,8 +24,21 @@
 
 bool CopyCommand::Execute()
 {
+	CString msg;
+	if (parser.HasKey(_T("logmsg")))
+	{
+		msg = parser.GetVal(_T("logmsg"));
+	}
+	if (parser.HasKey(_T("logmsgfile")))
+	{
+		CString logmsgfile = parser.GetVal(_T("logmsgfile"));
+		CStringUtils::ReadStringFromTextFile(logmsgfile, msg);
+	}
+
 	BOOL repeat = FALSE;
 	CCopyDlg dlg;
+	dlg.m_sLogMessage = msg;
+
 	dlg.m_path = cmdLinePath;
 	CString url = parser.GetVal(_T("url"));
 	CString logmessage;

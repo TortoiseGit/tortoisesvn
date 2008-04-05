@@ -3,6 +3,10 @@
        working copy path. (Stefan)
 - NEW: The copy command now can take an /url command line param to
        pre-fill the branch/tag dialog. (Stefan)
+- NEW: Command line command "showcompare" which shows the diff
+       between two urls/revs. (Stefan)
+- NEW: The copy command now can take a /logmsg or /logmsgfile command
+       line param to pre-fill the commit log message. (Stefan)
 - CHG: Fall back to cached log data if forced refresh fails in log view
        and the user chooses to go off-line again. (Stefan Fuhrmann)
 - CHG: Finalize toolbar button icons. (Stefan Fuhrmann)
