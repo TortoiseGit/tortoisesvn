@@ -311,6 +311,24 @@ Don't touch these lines:
 							</entry>
 						</row>
 						<row>
+							<entry condition="pot">:showcompare</entry>
+							<entry>
+								<para>
+								Depending on the URLs and revisions to compare, this
+								either shows a unified diff (if the option <option>unified</option> is set), 
+								a dialog with a list of files that have changed or if 
+								the URLs point to files starts the diff viewer for 
+								those two files.
+								</para>
+								<para>
+								The options <option>url1</option>, <option>url2</option>,
+								<option>revision1</option> and <option>revision2</option>
+								must be specified. The options <option>pegrevision</option>,
+								<option>ignoreancestry</option>, <option>blame</option> and
+								<option>unified</option> are optional.
+							</entry>
+						</row>
+						<row>
 							<entry condition="pot">:conflicteditor</entry>
 							<entry>
 								Starts the conflicteditor specified in the TortoiseSVN

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -58,6 +58,7 @@
 #include "RevisiongraphCommand.h"
 #include "RTFMCommand.h"
 #include "SettingsCommand.h"
+#include "ShowCompare.h"
 #include "SwitchCommand.h"
 #include "UnIgnoreCommand.h"
 #include "UnLockCommand.h"
@@ -106,6 +107,7 @@ typedef enum
 	cmdRevert,
 	cmdRevisionGraph,
 	cmdSettings,
+	cmdShowCompare,
 	cmdSwitch,
 	cmdUnIgnore,
 	cmdUnlock,
@@ -159,6 +161,7 @@ static const struct CommandInfo
 	{	cmdRevert,			_T("revert")			},
 	{	cmdRevisionGraph,	_T("revisiongraph")		},
 	{	cmdSettings,		_T("settings")			},
+	{	cmdShowCompare,		_T("showcompare")		},
 	{	cmdSwitch,			_T("switch")			},
 	{	cmdUnIgnore,		_T("unignore")			},
 	{	cmdUnlock,			_T("unlock")			},
@@ -268,6 +271,8 @@ Command * CommandServer::GetCommand(const CString& sCmd)
 		return new RevisionGraphCommand;
 	case cmdSettings:
 		return new SettingsCommand;
+	case cmdShowCompare:
+		return new ShowCompareCommand;
 	case cmdSwitch:
 		return new SwitchCommand;
 	case cmdUnIgnore:

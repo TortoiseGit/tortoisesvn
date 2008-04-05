@@ -139,6 +139,20 @@ public:
 	 * guesses a name of the project from a repository URL
 	 */
 	static 	CString	GetProjectNameFromURL(CString url);
+
+	/**
+	 * Replacement for SVNDiff::ShowUnifiedDiff(), but started as a separate process.
+	 */
+	static bool StartShowUnifiedDiff(HWND hWnd, const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, const SVNRev& peg = SVNRev(), bool bIgnoreAncestry = false);
+
+	/**
+	 * Replacement for SVNDiff::ShowCompare(), but started as a separate process.
+	 */
+	static bool StartShowCompare(HWND hWnd, const CTSVNPath& url1, const SVNRev& rev1, 
+								const CTSVNPath& url2, const SVNRev& rev2, 
+								SVNRev peg = SVNRev(),
+								bool ignoreancestry = false,
+								bool blame = false);
 private:
 	static CString PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2);
 	static bool GetMimeType(const CTSVNPath& file, CString& mimetype);

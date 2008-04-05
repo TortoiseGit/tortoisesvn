@@ -964,3 +964,59 @@ CString CAppUtils::GetProjectNameFromURL(CString url)
 	}
 	return name;
 }
+
+bool CAppUtils::StartShowUnifiedDiff(HWND hWnd, const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, const SVNRev& peg /* = SVNRev */,  bool bIgnoreAncestry /* = false */)
+{
+	CString sCmd;
+	sCmd.Format(_T("%s /command:showcompare /unified"),
+		CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"));
+	sCmd += _T(" /url1:\"") + url1.GetSVNPathString() + _T("\"");
+	if (rev1.IsValid())
+		sCmd += _T(" /revision1:") + rev1.ToString();
+	sCmd += _T(" /url2:\"") + url2.GetSVNPathString() + _T("\"");
+	if (rev2.IsValid())
+		sCmd += _T(" /revision2:") + rev2.ToString();
+	if (peg.IsValid())
+		sCmd += _T(" /pegrevision:") + peg.ToString();
+	if (bIgnoreAncestry)
+		sCmd += _T(" /ignoreancestry");
+
+	if (hWnd)
+	{
+		sCmd += _T(" /hwnd:");
+		TCHAR buf[30];
+		_stprintf_s(buf, 30, _T("%d"), hWnd);
+		sCmd += buf;
+	}
+
+	return CAppUtils::LaunchApplication(sCmd, NULL, false);
+}
+
+bool CAppUtils::StartShowCompare(HWND hWnd, const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, SVNRev peg /* = SVNRev */,  bool bIgnoreAncestry /* = false */, bool blame /* = false */)
+{
+	CString sCmd;
+	sCmd.Format(_T("%s /command:showcompare /unified"),
+		CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"));
+	sCmd += _T(" /url1:\"") + url1.GetSVNPathString() + _T("\"");
+	if (rev1.IsValid())
+		sCmd += _T(" /revision1:") + rev1.ToString();
+	sCmd += _T(" /url2:\"") + url2.GetSVNPathString() + _T("\"");
+	if (rev2.IsValid())
+		sCmd += _T(" /revision2:") + rev2.ToString();
+	if (peg.IsValid())
+		sCmd += _T(" /pegrevision:") + peg.ToString();
+	if (bIgnoreAncestry)
+		sCmd += _T(" /ignoreancestry");
+	if (blame)
+		sCmd += _T(" /blame");
+
+	if (hWnd)
+	{
+		sCmd += _T(" /hwnd:");
+		TCHAR buf[30];
+		_stprintf_s(buf, 30, _T("%d"), hWnd);
+		sCmd += buf;
+	}
+
+	return CAppUtils::LaunchApplication(sCmd, NULL, false);
+}
