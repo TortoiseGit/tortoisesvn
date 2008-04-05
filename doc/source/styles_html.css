@@ -6,7 +6,6 @@
 /************************************************************************/
 
 @import url("styles_chm.css");
-@import url("../../styles_site.css");
 
 /* Generic tag-level style definitions */
 
@@ -59,5 +58,12 @@ p a, p a:hover {
 
 .warning {
 	background-image: url(images/warning.png);
+}
+
+div.navheader {
+	width:100%; filter:none;
+	background-repeat: no-repeat;
+	background-image: url(images/Tortoise.png);
+	background-position: 50px 0;
 }
 
