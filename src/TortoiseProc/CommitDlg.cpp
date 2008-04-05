@@ -228,17 +228,18 @@ BOOL CCommitDlg::OnInitDialog()
 
 	//first start a thread to obtain the file list with the status without
 	//blocking the dialog
+	InterlockedExchange(&m_bBlock, TRUE);
 	m_pThread = AfxBeginThread(StatusThreadEntry, this, THREAD_PRIORITY_NORMAL,0,CREATE_SUSPENDED);
 	if (m_pThread==NULL)
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+		InterlockedExchange(&m_bBlock, FALSE);
 	}
 	else
 	{
 		m_pThread->m_bAutoDelete = FALSE;
 		m_pThread->ResumeThread();
 	}
-	InterlockedExchange(&m_bBlock, TRUE);
 	CRegDWORD err = CRegDWORD(_T("Software\\TortoiseSVN\\ErrorOccurred"), FALSE);
 	CRegDWORD historyhint = CRegDWORD(_T("Software\\TortoiseSVN\\HistoryHintShown"), FALSE);
 	if ((((DWORD)err)!=FALSE)&&((((DWORD)historyhint)==FALSE)))
@@ -419,6 +420,7 @@ void CCommitDlg::OnOK()
 	if (!svn.Add(itemsToAdd, &m_ProjectProperties, svn_depth_empty, FALSE, FALSE, TRUE))
 	{
 		CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+		InterlockedExchange(&m_bBlock, FALSE);
 		Refresh();
 		return;
 	}
@@ -567,11 +569,12 @@ UINT CCommitDlg::StatusThread()
 	}
 	CString logmsg;
 	GetDlgItem(IDC_LOGMESSAGE)->GetWindowText(logmsg);
-	DialogEnableWindow(IDOK, m_ProjectProperties.nMinLogSize <= logmsg.GetLength());
+	DialogEnableWindow(IDOK, logmsg.GetLength() >= m_ProjectProperties.nMinLogSize);
 	if (!success)
 	{
 		CMessageBox::Show(m_hWnd, m_ListCtrl.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
 		InterlockedExchange(&m_bBlock, FALSE);
+		InterlockedExchange(&m_bThreadRunning, FALSE);
 		SetTimer(ENDDIALOGTIMER, 100, NULL);
 		return (DWORD)-1;
 	}
@@ -716,10 +719,20 @@ BOOL CCommitDlg::PreTranslateMessage(MSG* pMsg)
 
 void CCommitDlg::Refresh()
 {
+	if (m_bThreadRunning)
+		return;
+
 	InterlockedExchange(&m_bBlock, TRUE);
-	if (AfxBeginThread(StatusThreadEntry, this)==NULL)
+	m_pThread = AfxBeginThread(StatusThreadEntry, this, THREAD_PRIORITY_NORMAL,0,CREATE_SUSPENDED);
+	if (m_pThread==NULL)
 	{
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+		InterlockedExchange(&m_bBlock, FALSE);
+	}
+	else
+	{
+		m_pThread->m_bAutoDelete = FALSE;
+		m_pThread->ResumeThread();
 	}
 }
 
