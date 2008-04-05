@@ -2,7 +2,8 @@
 
 <xsl:import href="./db_htmlhelp.xsl"/> 
 <xsl:import href="./defaults.xsl"/> 
- 
+ <xsl:param name="keep.relative.image.uris" select="0"/>
+
 <xsl:param name="suppress.navigation" select="0"/> 
 <xsl:param name="toc.section.depth" select="4"/> 
 <xsl:param name="htmlhelp.force.map.and.alias" select="1"/> 
