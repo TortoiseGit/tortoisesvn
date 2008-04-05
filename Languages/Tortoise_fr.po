@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-23 09:55+0100\n"
+"PO-Revision-Date: 2008-04-05 12:18+0100\n"
 "Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1945,6 +1945,10 @@ msgstr "Copier les éléments ici"
 #. Resource IDs: (209)
 msgid "Copy paths to clipboard"
 msgstr "Copier les chemins dans le presse-papiers"
+
+#. Resource IDs: (323)
+msgid "Copy selection to cli&pboard"
+msgstr "Copier la sélection dans le &presse-papiers"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -7261,24 +7265,24 @@ msgstr "Vous avez déjà la dernière version installée."
 msgid ""
 "You are creating a repository on a network share.\n"
 "This is safe, but once the repository is created you must access it by some other means.\n"
-"Accessing a repository via file:/// on a network share may corrupt your data!\n"
+"Accessing a repository via file:// on a network share may corrupt your data!\n"
 "Create the repository anyway?"
 msgstr ""
-"Vous créer un référentiel sur un partage réseau.\n"
-"Ceci est sûr, mais une fois le référentiel créé, vous devez l'accéder par un autre moyen.\n"
-"L'accès au référentiel par file:/// sur un partage réseau peut corrompre vos données !\n"
-"Voulez-vous créer le référentiel quand même ?"
+"Vous créer un référentiel sur un réseau partagé.\n"
+"Ceci est sûr, mais une fois le référentiel créé, vous devez y accéder par d'autres moyens.\n"
+"L'accès au référentiel par file:// sur un réseau partagé peut corrompre vos données !\n"
+"Créer le référentiel tout de même ?"
 
 #. Resource IDs: (88)
 msgid ""
-"You are trying to access a repository via file:/// on\n"
+"You are trying to access a repository via file:// on\n"
 "a shared network drive.\n"
 "This could lead to severe repository corruption!\n"
 "Do you really want to do that?"
 msgstr ""
-"Vous essayez d'accéder un référentiel avec file:/// sur\n"
-"un partage réseau.\n"
-"Ceci peut créer une grave corruption du référentiel !\n"
+"Vous essayez d'accéder à un référentiel avec file:/// sur\n"
+"un réseau partagé.\n"
+"Ceci peut conduire à une grave corruption du référentiel !\n"
 "Voulez vous vraiment faire ceci ?"
 
 #. Resource IDs: (105)
@@ -7702,6 +7706,11 @@ msgstr "modifié / copié"
 #. Resource IDs: (245)
 msgid "month"
 msgstr "mois"
+
+#. Resource IDs: (199)
+#, c-format
+msgid "multiple URLs (UUID: %s)"
+msgstr "URLs multiples (UUID: %s)"
 
 #. Resource IDs: (18)
 msgid "no"
