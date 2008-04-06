@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,6 +32,7 @@ SVNPrompt::SVNPrompt()
 {
 	m_app = NULL;
 	m_hParentWnd = NULL;
+	m_bPromptShown = false;
 }
 
 SVNPrompt::~SVNPrompt()
@@ -94,6 +95,7 @@ BOOL SVNPrompt::Prompt(CString& info, BOOL hide, CString promptphrase, BOOL& may
 	dlg.m_info = promptphrase;
 	dlg.m_hParentWnd = m_hParentWnd;
 	INT_PTR nResponse = dlg.DoModal();
+	m_bPromptShown = true;
 	if (nResponse == IDOK)
 	{
 		info = dlg.m_sPass;
@@ -130,6 +132,7 @@ BOOL SVNPrompt::SimplePrompt(CString& username, CString& password, const CString
 	dlg.m_hParentWnd = m_hParentWnd;
 	dlg.m_sRealm = Realm;
 	INT_PTR nResponse = dlg.DoModal();
+	m_bPromptShown = true;
 	if (nResponse == IDOK)
 	{
 		username = dlg.m_sUsername;
@@ -264,6 +267,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
 		{
 			*cred_p = (svn_auth_cred_ssl_server_trust_t*)apr_pcalloc (pool, sizeof (**cred_p));
 			(*cred_p)->may_save = FALSE;
+			svn->m_bPromptShown = true;
 		}
 		else
 			*cred_p = NULL;
@@ -274,6 +278,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
 		{
 			*cred_p = (svn_auth_cred_ssl_server_trust_t*)apr_pcalloc (pool, sizeof (**cred_p));
 			(*cred_p)->may_save = FALSE;
+			svn->m_bPromptShown = true;
 		}
 		else
 			*cred_p = NULL;
@@ -288,6 +293,7 @@ svn_error_t* SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
 	SVNPrompt * svn = (SVNPrompt *)baton;
 	const char *cert_file = NULL;
 
+	svn->m_bPromptShown = true;
 	CString filename;
 	OPENFILENAME ofn = {0};				// common dialog box structure
 	TCHAR szFile[MAX_PATH] = {0};		// buffer for file name

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2006,2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -45,6 +45,11 @@ public:
 	 */
 	void Init(apr_pool_t *pool, svn_client_ctx_t* ctx);
 
+	/**
+	 * Returns true if a prompt dialog was shown
+	 */
+	bool PromptShown() {return m_bPromptShown;}
+
 private:
 	BOOL Prompt(CString& info, BOOL hide, CString promptphrase, BOOL& may_save);
 	BOOL SimplePrompt(CString& username, CString& password, const CString& Realm, BOOL& may_save);
@@ -62,5 +67,6 @@ private:
 	CString						m_server;
 	CWinApp *					m_app;
 	HWND						m_hParentWnd;
+	bool						m_bPromptShown;
 
 };
