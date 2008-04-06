@@ -58,7 +58,7 @@
 #include "RevisiongraphCommand.h"
 #include "RTFMCommand.h"
 #include "SettingsCommand.h"
-#include "ShowCompare.h"
+#include "ShowCompareCommand.h"
 #include "SwitchCommand.h"
 #include "UnIgnoreCommand.h"
 #include "UnLockCommand.h"
