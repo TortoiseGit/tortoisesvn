@@ -28,6 +28,7 @@ bool ShowCompareCommand::Execute()
 	SVNRev		rev1;
 	SVNRev		rev2;
 	SVNRev		pegrev;
+	SVNRev		headpeg;
 
 	CTSVNPath	url1 = CTSVNPath(parser.GetVal(_T("url1")));
 	CTSVNPath	url2 = CTSVNPath(parser.GetVal(_T("url2")));
@@ -41,6 +42,9 @@ bool ShowCompareCommand::Execute()
 		rev2 = SVNRev(parser.GetVal(_T("revision2")));
 	if (parser.HasVal(_T("pegrevision")))
 		pegrev = SVNRev(parser.GetVal(_T("pegrevision")));
+	if (parser.HasVal(_T("headpegrevision")))
+		diff.SetHEADPeg(SVNRev(parser.GetVal(_T("headpegrevision"))));
+	diff.SetAlternativeTool(!!parser.HasKey(_T("alternatediff")));
 
 	if (unified)
 		diff.ShowUnifiedDiff(url1, rev1, url2, rev2, pegrev, ignoreancestry);

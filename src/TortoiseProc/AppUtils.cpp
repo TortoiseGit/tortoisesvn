@@ -965,7 +965,10 @@ CString CAppUtils::GetProjectNameFromURL(CString url)
 	return name;
 }
 
-bool CAppUtils::StartShowUnifiedDiff(HWND hWnd, const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, const SVNRev& peg /* = SVNRev */,  bool bIgnoreAncestry /* = false */)
+bool CAppUtils::StartShowUnifiedDiff(HWND hWnd, const CTSVNPath& url1, const SVNRev& rev1, 
+									 const CTSVNPath& url2, const SVNRev& rev2, 
+									 const SVNRev& peg /* = SVNRev */, const SVNRev& headpeg /* = SVNRev */,  
+									 bool bAlternateDiff /* = false */, bool bIgnoreAncestry /* = false */)
 {
 	CString sCmd;
 	sCmd.Format(_T("%s /command:showcompare /unified"),
@@ -978,6 +981,12 @@ bool CAppUtils::StartShowUnifiedDiff(HWND hWnd, const CTSVNPath& url1, const SVN
 		sCmd += _T(" /revision2:") + rev2.ToString();
 	if (peg.IsValid())
 		sCmd += _T(" /pegrevision:") + peg.ToString();
+	if (headpeg.IsValid())
+		sCmd += _T(" /headpegrevision:") + headpeg.ToString();
+
+	if (bAlternateDiff)
+		sCmd += _T(" /alternatediff");
+
 	if (bIgnoreAncestry)
 		sCmd += _T(" /ignoreancestry");
 
@@ -992,7 +1001,10 @@ bool CAppUtils::StartShowUnifiedDiff(HWND hWnd, const CTSVNPath& url1, const SVN
 	return CAppUtils::LaunchApplication(sCmd, NULL, false);
 }
 
-bool CAppUtils::StartShowCompare(HWND hWnd, const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, SVNRev peg /* = SVNRev */,  bool bIgnoreAncestry /* = false */, bool blame /* = false */)
+bool CAppUtils::StartShowCompare(HWND hWnd, const CTSVNPath& url1, const SVNRev& rev1, 
+								 const CTSVNPath& url2, const SVNRev& rev2, 
+								 const SVNRev& peg /* = SVNRev */, const SVNRev& headpeg /* = SVNRev */, 
+								 bool bAlternateDiff /* = false */, bool bIgnoreAncestry /* = false */, bool blame /* = false */)
 {
 	CString sCmd;
 	sCmd.Format(_T("%s /command:showcompare /unified"),
@@ -1005,6 +1017,10 @@ bool CAppUtils::StartShowCompare(HWND hWnd, const CTSVNPath& url1, const SVNRev&
 		sCmd += _T(" /revision2:") + rev2.ToString();
 	if (peg.IsValid())
 		sCmd += _T(" /pegrevision:") + peg.ToString();
+	if (headpeg.IsValid())
+		sCmd += _T(" /headpegrevision:") + headpeg.ToString();
+	if (bAlternateDiff)
+		sCmd += _T(" /alternatediff");
 	if (bIgnoreAncestry)
 		sCmd += _T(" /ignoreancestry");
 	if (blame)
