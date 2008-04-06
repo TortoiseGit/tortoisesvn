@@ -21,6 +21,7 @@
 
 #include "CopyDlg.h"
 #include "SVNProgressDlg.h"
+#include "StringUtils.h"
 
 bool CopyCommand::Execute()
 {
