@@ -25,6 +25,7 @@
 #include "SVN.h"
 #include "TempFile.h"
 #include "UnicodeUtils.h"
+#include "AppUtils.h"
 #include "TSVNPath.h"
 #include "SVNInfo.h"
 #include "SVNDiff.h"
@@ -388,11 +389,18 @@ void CRevisionGraphWnd::CompareRevs(bool bHead)
 
 	SVNRev peg = (SVNRev)(bHead ? m_SelectedEntry1->revision : SVNRev());
 
-	SVNDiff diff(&svn, this->m_hWnd);
-	diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
-	diff.ShowCompare(url1, (bHead ? SVNRev::REV_HEAD : m_SelectedEntry1->revision),
-		url2, (bHead ? SVNRev::REV_HEAD : m_SelectedEntry2->revision),
-		peg);
+	if (m_prompt.PromptShown())
+	{
+		SVNDiff diff(&svn, this->m_hWnd);
+		diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+		diff.ShowCompare(url1, (bHead ? SVNRev::REV_HEAD : m_SelectedEntry1->revision),
+			url2, (bHead ? SVNRev::REV_HEAD : m_SelectedEntry2->revision),
+			peg);
+	}
+	else
+		CAppUtils::StartShowCompare(m_hWnd, url1, (bHead ? SVNRev::REV_HEAD : m_SelectedEntry1->revision),
+									url2, (bHead ? SVNRev::REV_HEAD : m_SelectedEntry2->revision), peg, 
+									SVNRev(), !!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 }
 
 void CRevisionGraphWnd::UnifiedDiffRevs(bool bHead)
@@ -412,9 +420,14 @@ void CRevisionGraphWnd::UnifiedDiffRevs(bool bHead)
 	url2.SetFromSVN (sRepoRoot + CUnicodeUtils::GetUnicode (m_SelectedEntry2->path.GetPath().c_str()));
 
 	SVNDiff diff(&svn, this->m_hWnd);
-	diff.ShowUnifiedDiff(url1, (bHead ? SVNRev::REV_HEAD : m_SelectedEntry1->revision),
+	if (m_prompt.PromptShown())
+		diff.ShowUnifiedDiff(url1, (bHead ? SVNRev::REV_HEAD : m_SelectedEntry1->revision),
 						 url2, (bHead ? SVNRev::REV_HEAD : m_SelectedEntry2->revision),
 						 m_SelectedEntry1->revision);
+	else
+		CAppUtils::StartShowUnifiedDiff(m_hWnd, url1, (bHead ? SVNRev::REV_HEAD : m_SelectedEntry1->revision),
+						url2, (bHead ? SVNRev::REV_HEAD : m_SelectedEntry2->revision),
+						m_SelectedEntry1->revision);
 }
 
 CTSVNPath CRevisionGraphWnd::DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIsFolder)

@@ -1740,10 +1740,17 @@ void CLogDlg::DiffSelectedRevWithPrevious()
 	SetPromptApp(&theApp);
 	theApp.DoWaitCursor(1);
 
-	SVNDiff diff(this, m_hWnd, true);
-	diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
-	diff.SetHEADPeg(m_LogRevision);
-	diff.ShowCompare(path, rev2, path, rev1);
+	if (m_prompt.PromptShown())
+	{
+		SVNDiff diff(this, m_hWnd, true);
+		diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+		diff.SetHEADPeg(m_LogRevision);
+		diff.ShowCompare(path, rev2, path, rev1);
+	}
+	else
+	{
+		CAppUtils::StartShowCompare(m_hWnd, path, rev2, path, rev2, SVNRev(), m_LogRevision, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+	}
 
 	theApp.DoWaitCursor(-1);
 	EnableOKButton();
@@ -1805,7 +1812,12 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t re
 	diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 	diff.SetHEADPeg(m_LogRevision);
 	if (unified)
-		diff.ShowUnifiedDiff(CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1);
+	{
+		if (m_prompt.PromptShown())
+			diff.ShowUnifiedDiff(CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1);
+		else
+			CAppUtils::StartShowUnifiedDiff(m_hWnd, CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1, SVNRev(), m_LogRevision);
+	}
 	else
 	{
 		if (diff.ShowCompare(CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1, SVNRev(), false, blame))
@@ -3573,16 +3585,26 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		{
 		case ID_GNUDIFF1:
 			{
-				SVNDiff diff(this, this->m_hWnd, true);
-				diff.SetHEADPeg(m_LogRevision);
-				diff.ShowUnifiedDiff(m_path, revPrevious, m_path, revSelected);
+				if (m_prompt.PromptShown())
+				{
+					SVNDiff diff(this, this->m_hWnd, true);
+					diff.SetHEADPeg(m_LogRevision);
+					diff.ShowUnifiedDiff(m_path, revPrevious, m_path, revSelected);
+				}
+				else
+					CAppUtils::StartShowUnifiedDiff(m_hWnd, m_path, revPrevious, m_path, revSelected, SVNRev(), m_LogRevision);
 			}
 			break;
 		case ID_GNUDIFF2:
 			{
-				SVNDiff diff(this, this->m_hWnd, true);
-				diff.SetHEADPeg(m_LogRevision);
-				diff.ShowUnifiedDiff(m_path, revSelected2, m_path, revSelected);
+				if (m_prompt.PromptShown())
+				{
+					SVNDiff diff(this, this->m_hWnd, true);
+					diff.SetHEADPeg(m_LogRevision);
+					diff.ShowUnifiedDiff(m_path, revSelected2, m_path, revSelected);
+				}
+				else
+					CAppUtils::StartShowUnifiedDiff(m_hWnd, m_path, revSelected2, m_path, revSelected, SVNRev(), m_LogRevision);
 			}
 			break;
 		case ID_REVERTREV:
@@ -3709,52 +3731,82 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		case ID_COMPARE:
 			{
 				//user clicked on the menu item "compare with working copy"
-				SVNDiff diff(this, m_hWnd, true);
-				diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
-				diff.SetHEADPeg(m_LogRevision);
-				diff.ShowCompare(m_path, SVNRev::REV_WC, m_path, revSelected);
+				if (m_prompt.PromptShown())
+				{
+					SVNDiff diff(this, m_hWnd, true);
+					diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+					diff.SetHEADPeg(m_LogRevision);
+					diff.ShowCompare(m_path, SVNRev::REV_WC, m_path, revSelected);
+				}
+				else
+					CAppUtils::StartShowCompare(m_hWnd, m_path, SVNRev::REV_WC, m_path, revSelected, SVNRev(), m_LogRevision, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 			}
 			break;
 		case ID_COMPARETWO:
 			{
 				//user clicked on the menu item "compare revisions"
-				SVNDiff diff(this, m_hWnd, true);
-				diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
-				diff.SetHEADPeg(m_LogRevision);
-				diff.ShowCompare(CTSVNPath(pathURL), revSelected2, CTSVNPath(pathURL), revSelected);
+				if (m_prompt.PromptShown())
+				{
+					SVNDiff diff(this, m_hWnd, true);
+					diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+					diff.SetHEADPeg(m_LogRevision);
+					diff.ShowCompare(CTSVNPath(pathURL), revSelected2, CTSVNPath(pathURL), revSelected);
+				}
+				else
+					CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pathURL), revSelected2, CTSVNPath(pathURL), revSelected, SVNRev(), m_LogRevision, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 			}
 			break;
 		case ID_COMPAREWITHPREVIOUS:
 			{
-				SVNDiff diff(this, m_hWnd, true);
-				diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
-				diff.SetHEADPeg(m_LogRevision);
-				diff.ShowCompare(CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected);
+				if (m_prompt.PromptShown())
+				{
+					SVNDiff diff(this, m_hWnd, true);
+					diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+					diff.SetHEADPeg(m_LogRevision);
+					diff.ShowCompare(CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected);
+				}
+				else
+					CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected, SVNRev(), m_LogRevision, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 			}
 			break;
 		case ID_BLAMECOMPARE:
 			{
 				//user clicked on the menu item "compare with working copy"
 				//now first get the revision which is selected
-				SVNDiff diff(this, this->m_hWnd, true);
-				diff.SetHEADPeg(m_LogRevision);
-				diff.ShowCompare(m_path, SVNRev::REV_BASE, m_path, revSelected, SVNRev(), false, true);
+				if (m_prompt.PromptShown())
+				{
+					SVNDiff diff(this, this->m_hWnd, true);
+					diff.SetHEADPeg(m_LogRevision);
+					diff.ShowCompare(m_path, SVNRev::REV_BASE, m_path, revSelected, SVNRev(), false, true);
+				}
+				else
+					CAppUtils::StartShowCompare(m_hWnd, m_path, SVNRev::REV_BASE, m_path, revSelected, SVNRev(), m_LogRevision, false, false, true);
 			}
 			break;
 		case ID_BLAMETWO:
 			{
 				//user clicked on the menu item "compare and blame revisions"
-				SVNDiff diff(this, this->m_hWnd, true);
-				diff.SetHEADPeg(m_LogRevision);
-				diff.ShowCompare(CTSVNPath(pathURL), revSelected2, CTSVNPath(pathURL), revSelected, SVNRev(), false, true);
+				if (m_prompt.PromptShown())
+				{
+					SVNDiff diff(this, this->m_hWnd, true);
+					diff.SetHEADPeg(m_LogRevision);
+					diff.ShowCompare(CTSVNPath(pathURL), revSelected2, CTSVNPath(pathURL), revSelected, SVNRev(), false, true);
+				}
+				else
+					CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pathURL), revSelected2, CTSVNPath(pathURL), revSelected, SVNRev(), m_LogRevision, false, false, true);
 			}
 			break;
 		case ID_BLAMEWITHPREVIOUS:
 			{
 				//user clicked on the menu item "Compare and Blame with previous revision"
-				SVNDiff diff(this, this->m_hWnd, true);
-				diff.SetHEADPeg(m_LogRevision);
-				diff.ShowCompare(CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected, SVNRev(), false, true);
+				if (m_prompt.PromptShown())
+				{
+					SVNDiff diff(this, this->m_hWnd, true);
+					diff.SetHEADPeg(m_LogRevision);
+					diff.ShowCompare(CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected, SVNRev(), false, true);
+				}
+				else
+					CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected, SVNRev(), m_LogRevision, false, false, true);
 			}
 			break;
 		case ID_SAVEAS:

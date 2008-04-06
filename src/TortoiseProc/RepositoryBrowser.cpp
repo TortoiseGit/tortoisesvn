@@ -2575,11 +2575,23 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				m_bCancelled = false;
 				SVNDiff diff(this, this->m_hWnd, true);
 				if (urlList.GetCount() == 1)
-					diff.ShowUnifiedDiff(CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
-										CTSVNPath(EscapeUrl(m_diffURL)), GetRevision());
+				{
+					if (m_prompt.PromptShown())
+						diff.ShowUnifiedDiff(CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
+											CTSVNPath(EscapeUrl(m_diffURL)), GetRevision());
+					else
+						CAppUtils::StartShowUnifiedDiff(m_hWnd, CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
+											CTSVNPath(EscapeUrl(m_diffURL)), GetRevision());
+				}
 				else
-					diff.ShowUnifiedDiff(CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
-										CTSVNPath(EscapeUrl(urlList[1])), GetRevision());
+				{
+					if (m_prompt.PromptShown())
+						diff.ShowUnifiedDiff(CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
+											CTSVNPath(EscapeUrl(urlList[1])), GetRevision());
+					else
+						CAppUtils::StartShowUnifiedDiff(m_hWnd, CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
+											CTSVNPath(EscapeUrl(urlList[1])), GetRevision());
+				}
 			}
 			break;
 		case ID_DIFF:
@@ -2588,11 +2600,25 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				SVNDiff diff(this, this->m_hWnd, true);
 				diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 				if (urlList.GetCount() == 1)
-					diff.ShowCompare(CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
-									CTSVNPath(EscapeUrl(m_diffURL)), GetRevision(), SVNRev(), true);
+				{
+					if (m_prompt.PromptShown())
+						diff.ShowCompare(CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
+										CTSVNPath(EscapeUrl(m_diffURL)), GetRevision(), SVNRev(), true);
+					else
+						CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
+										CTSVNPath(EscapeUrl(m_diffURL)), GetRevision(), SVNRev(), SVNRev(), 
+										!!(GetAsyncKeyState(VK_SHIFT) & 0x8000), true);
+				}
 				else
-					diff.ShowCompare(CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
-									CTSVNPath(EscapeUrl(urlList[1])), GetRevision(), SVNRev(), true);
+				{
+					if (m_prompt.PromptShown())
+						diff.ShowCompare(CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
+										CTSVNPath(EscapeUrl(urlList[1])), GetRevision(), SVNRev(), true);
+					else
+						CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
+										CTSVNPath(EscapeUrl(urlList[1])), GetRevision(), SVNRev(), SVNRev(), 
+										!!(GetAsyncKeyState(VK_SHIFT) & 0x8000), true);
+				}
 			}
 			break;
 		case ID_PROPS:
