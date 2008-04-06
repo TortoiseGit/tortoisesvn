@@ -39,7 +39,7 @@ bool DiffCommand::Execute()
 		}
 		else
 		{
-			SVNDiff diff;
+			SVNDiff diff(NULL, hwndExplorer);
 			diff.SetAlternativeTool(bAlternativeTool);
 			if ( parser.HasKey(_T("startrev")) && parser.HasKey(_T("endrev")) )
 			{
