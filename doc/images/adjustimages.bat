@@ -4,6 +4,7 @@
 :: to reduce the size of the images, we use NConvert.exe from
 :: http://www.xnview.com
 ::
+::
 nconvert.exe -dpi 96 -ratio -resize 500 800 -rflag decr de\*.*
 nconvert.exe -dpi 96 -ratio -resize 500 800 -rflag decr en\*.*
 nconvert.exe -dpi 96 -ratio -resize 500 800 -rflag decr es\*.*
