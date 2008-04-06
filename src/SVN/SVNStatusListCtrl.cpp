@@ -2731,9 +2731,9 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						SVNDiff diff(NULL, this->m_hWnd, true);
 
 						if (entry->remotestatus <= svn_wc_status_normal)
-							diff.ShowUnifiedDiff(entry->path, SVNRev::REV_BASE, entry->path, SVNRev::REV_WC);
+							CAppUtils::StartShowUnifiedDiff(m_hWnd, entry->path, SVNRev::REV_BASE, entry->path, SVNRev::REV_WC);
 						else
-							diff.ShowUnifiedDiff(entry->path, SVNRev::REV_WC, entry->path, SVNRev::REV_HEAD);
+							CAppUtils::StartShowUnifiedDiff(m_hWnd, entry->path, SVNRev::REV_WC, entry->path, SVNRev::REV_HEAD);
 					}
 					break;
 				case IDSVNLC_UPDATE:
