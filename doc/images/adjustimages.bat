@@ -1,8 +1,20 @@
 @echo off & setlocal enableextensions enabledelayedexpansion
 :: ============================================================ 
-:: $Date: $
-:: $Author: $
-:: $Rev: $
+:: $Id$
+:: ============================================================ 
+:: This script verifies all .png images to see if they fit
+:: in the PDF version of the documentation. The FOP version we
+:: use doesn't scale images automatically when they are too
+:: wide or high.
+:: We want images to be at most 5.2 inch wide and 8.33 inch
+:: high.
+:: The script retrieves the DPI setting in the image and
+:: and calculates the actual size of the image. If it exceeds
+:: the limits, the DPI setting of the image is increased to
+:: fit the limits.
+::
+:: The image manipulation is done using NConvert.exe from
+:: http://www.xnview.com
 :: ============================================================ 
 :: Set image size limits in 1000ths of an inch
 set /a w_limit = 5200
