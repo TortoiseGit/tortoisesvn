@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,6 +25,7 @@
 #include "AppUtils.h"
 #include "PathUtils.h"
 #include "ShellUpdater.h"
+#include "XPTheme.h"
 
 IMPLEMENT_DYNAMIC(CSetOverlayIcons, ISettingsPropPage)
 CSetOverlayIcons::CSetOverlayIcons()
@@ -123,6 +124,10 @@ BOOL CSetOverlayIcons::OnInitDialog()
 
 	m_sReadOnly.LoadString(IDS_SETTINGS_READONLYNAME);
 	m_sLocked.LoadString(IDS_SETTINGS_LOCKEDNAME);
+
+	CXPTheme theme;
+	theme.SetWindowTheme(m_cIconList.GetSafeHwnd(), L"Explorer", NULL);
+
 	ShowIconSet(true);
 
 	return TRUE;

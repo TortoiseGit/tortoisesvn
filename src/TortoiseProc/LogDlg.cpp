@@ -46,6 +46,15 @@
 #include "RepositoryInfo.h"
 #include "EditPropertiesDlg.h"
 
+enum LISTITEMSTATES_MINE {
+	LISS_NORMAL = 1,
+	LISS_HOT = 2,
+	LISS_SELECTED = 3,
+	LISS_DISABLED = 4,
+	LISS_SELECTEDNOTFOCUS = 5,
+	LISS_HOTSELECTED = 6,
+};
+
 
 #define ICONITEMBORDER 5
 
@@ -119,6 +128,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	, m_maxChild(0)
 	, m_bIncludeMerges(FALSE)
 	, m_hAccel(NULL)
+	, m_bVista(false)
 {
 	m_bFilterWithRegex = !!CRegDWORD(_T("Software\\TortoiseSVN\\UseRegexFilter"), TRUE);
 }
@@ -217,6 +227,13 @@ BOOL CLogDlg::OnInitDialog()
 
 	m_hAccel = LoadAccelerators(AfxGetResourceHandle(),MAKEINTRESOURCE(IDR_ACC_LOGDLG));
 
+	OSVERSIONINFOEX inf;
+	ZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
+	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
+	GetVersionEx((OSVERSIONINFO *)&inf);
+	WORD fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);
+	m_bVista = (fullver >= 0x0600);
+
 	// use the state of the "stop on copy/rename" option from the last time
 	if (!m_bStrict)
 		m_bStrict = m_regLastStrict;
@@ -255,6 +272,9 @@ BOOL CLogDlg::OnInitDialog()
 	// the bugtraq issue id column is only shown if the bugtraq:url or bugtraq:regex is set
 	if ((!m_ProjectProperties.sUrl.IsEmpty())||(!m_ProjectProperties.sBugIDRe.IsEmpty()))
 		m_bShowBugtraqColumn = true;
+
+	theme.SetWindowTheme(m_LogList.GetSafeHwnd(), L"Explorer", NULL);
+	theme.SetWindowTheme(m_ChangedFileListCtrl.GetSafeHwnd(), L"Explorer", NULL);
 
 	// set up the columns
 	m_LogList.DeleteAllItems();
@@ -2253,29 +2273,56 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				rItem.stateMask = LVIS_SELECTED | LVIS_FOCUSED;
 				m_LogList.GetItem(&rItem);
 
+				CRect rect;
+				m_LogList.GetSubItemRect(pLVCD->nmcd.dwItemSpec, pLVCD->iSubItem, LVIR_BOUNDS, rect);
+
 				// Fill the background
-				HBRUSH brush;
-				if (rItem.state & LVIS_SELECTED)
+				if (theme.IsAppThemed() && m_bVista)
 				{
-					if (::GetFocus() == m_LogList.m_hWnd)
-						brush = ::CreateSolidBrush(::GetSysColor(COLOR_HIGHLIGHT));
+					theme.Open(m_hWnd, L"Explorer");
+					int state = LISS_NORMAL;
+					if (rItem.state & LVIS_SELECTED)
+					{
+						if (::GetFocus() == m_LogList.m_hWnd)
+							state |= LISS_SELECTED;
+						else
+							state |= LISS_SELECTEDNOTFOCUS;
+					}
 					else
-						brush = ::CreateSolidBrush(::GetSysColor(COLOR_BTNFACE));
+					{
+						if (pLogEntry->bCopiedSelf)
+							state |= LISS_HOT;
+					}
+
+					if (theme.IsBackgroundPartiallyTransparent(LVP_LISTDETAIL, state))
+						theme.DrawParentBackground(m_hWnd, pLVCD->nmcd.hdc, &rect);
+
+					theme.DrawBackground(pLVCD->nmcd.hdc, LVP_LISTDETAIL, state, &rect, NULL);
 				}
 				else
 				{
-					if (pLogEntry->bCopiedSelf)
-						brush = ::CreateSolidBrush(::GetSysColor(COLOR_MENU));
+					HBRUSH brush;
+					if (rItem.state & LVIS_SELECTED)
+					{
+						if (::GetFocus() == m_LogList.m_hWnd)
+							brush = ::CreateSolidBrush(::GetSysColor(COLOR_HIGHLIGHT));
+						else
+							brush = ::CreateSolidBrush(::GetSysColor(COLOR_BTNFACE));
+					}
 					else
-						brush = ::CreateSolidBrush(::GetSysColor(COLOR_WINDOW));
-				}
-				if (brush == NULL)
-					return;
+					{
+						if (pLogEntry->bCopiedSelf)
+							brush = ::CreateSolidBrush(::GetSysColor(COLOR_MENU));
+						else
+							brush = ::CreateSolidBrush(::GetSysColor(COLOR_WINDOW));
+					}
+					if (brush == NULL)
+						return;
 
-				CRect rect;
-				m_LogList.GetSubItemRect(pLVCD->nmcd.dwItemSpec, pLVCD->iSubItem, LVIR_BOUNDS, rect);
-				::FillRect(pLVCD->nmcd.hdc, &rect, brush);
-				::DeleteObject(brush);
+					::FillRect(pLVCD->nmcd.hdc, &rect, brush);
+					::DeleteObject(brush);
+				}
+
 				// Draw the icon(s) into the compatible DC
 				if (pLogEntry->actions & LOGACTIONS_MODIFIED)
 					::DrawIconEx(pLVCD->nmcd.hdc, rect.left + ICONITEMBORDER, rect.top, m_hModifiedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);

@@ -29,6 +29,7 @@
 #include "SVNLogQuery.h"
 #include "CacheLogQuery.h"
 #include "CSVWriter.h"
+#include "XPTheme.h"
 
 using namespace LogCache;
 
@@ -153,6 +154,9 @@ BOOL CSetLogCache::OnInitDialog()
 	m_cRepositoryList.InsertColumn (0, temp, LVCFMT_LEFT, 289);
 	temp.LoadString(IDS_SETTINGS_REPOSITORY_SIZE);
 	m_cRepositoryList.InsertColumn (1, temp, LVCFMT_RIGHT, 95);
+
+	CXPTheme theme;
+	theme.SetWindowTheme(m_cRepositoryList.GetSafeHwnd(), L"Explorer", NULL);
 
     FillRepositoryList();
 

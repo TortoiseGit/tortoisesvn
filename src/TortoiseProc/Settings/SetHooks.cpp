@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,6 +21,7 @@
 #include "SetHooks.h"
 #include "SetHooksAdv.h"
 #include "Hooks.h"
+#include "XPTheme.h"
 
 IMPLEMENT_DYNAMIC(CSetHooks, ISettingsPropPage)
 
@@ -75,6 +76,9 @@ BOOL CSetHooks::OnInitDialog()
 	m_cHookList.InsertColumn(3, temp);
 	temp.LoadString(IDS_SETTINGS_HOOKS_SHOWCOL);
 	m_cHookList.InsertColumn(4, temp);
+
+	CXPTheme theme;
+	theme.SetWindowTheme(m_cHookList.GetSafeHwnd(), L"Explorer", NULL);
 
 	RebuildHookList();
 

@@ -240,6 +240,9 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 	SetRedraw(false);
 	SetExtendedStyle(exStyle);
 
+	CXPTheme theme;
+	theme.SetWindowTheme(m_hWnd, L"Explorer", NULL);
+
 	m_nIconFolder = SYS_IMAGE_LIST().GetDirIconIndex();
 	SetImageList(&SYS_IMAGE_LIST(), LVSIL_SMALL);
 

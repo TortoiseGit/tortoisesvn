@@ -46,6 +46,7 @@
 #include "SVNInfo.h"
 #include "SVNDataObject.h"
 #include "SVNLogHelper.h"
+#include "XPTheme.h"
 
 
 enum RepoBrowserContextMenuCommands
@@ -244,6 +245,11 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	m_RepoList.ShowText(CString(MAKEINTRESOURCE(IDS_REPOBROWSE_INITWAIT)));
 
 	m_RepoTree.SetImageList(&SYS_IMAGE_LIST(), TVSIL_NORMAL);
+
+	CXPTheme theme;
+	theme.SetWindowTheme(m_RepoList.GetSafeHwnd(), L"Explorer", NULL);
+	theme.SetWindowTheme(m_RepoTree.GetSafeHwnd(), L"Explorer", NULL);
+
 
 	AddAnchor(IDC_REPOS_BAR_CNR, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_F5HINT, BOTTOM_LEFT, BOTTOM_RIGHT);

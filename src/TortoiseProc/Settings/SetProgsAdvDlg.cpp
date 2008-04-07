@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,7 +20,7 @@
 #include "TortoiseProc.h"
 #include "ToolAssocDlg.h"
 #include "SetProgsAdvDlg.h"
-
+#include "XPTheme.h"
 
 IMPLEMENT_DYNAMIC(CSetProgsAdvDlg, CDialog)
 CSetProgsAdvDlg::CSetProgsAdvDlg(const CString& type, CWnd* pParent /*=NULL*/)
@@ -135,6 +135,9 @@ BOOL CSetProgsAdvDlg::OnInitDialog()
 	int c = ((CHeaderCtrl*)(m_ToolListCtrl.GetDlgItem(0)))->GetItemCount()-1;
 	while (c>=0)
 		m_ToolListCtrl.DeleteColumn(c--);
+
+	CXPTheme theme;
+	theme.SetWindowTheme(m_ToolListCtrl.GetSafeHwnd(), L"Explorer", NULL);
 
 	CString temp;
 	temp.LoadString(IDS_PROGS_EXTCOL);
