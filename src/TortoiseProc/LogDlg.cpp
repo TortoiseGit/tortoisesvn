@@ -1047,7 +1047,7 @@ UINT CLogDlg::LogThread()
         m_sRelativeRoot = m_sURL.Mid(CPathUtils::PathUnescape(m_sRepositoryRoot).GetLength());
 		m_sSelfRelativeURL = m_sRelativeRoot;
     }
-/*
+
     if (succeeded && !m_mergePath.IsEmpty() && m_mergedRevs.empty())
     {
 	    // in case we got a merge path set, retrieve the merge info
@@ -1091,7 +1091,7 @@ UINT CLogDlg::LogThread()
 		    }
 	    }
     }
-*/
+
     m_LogProgress.SetPos(1);
     if (m_startrev == SVNRev::REV_HEAD)
     {
