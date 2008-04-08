@@ -305,15 +305,21 @@ memory. Almost no network filesystems provide these features. If you attempt to
 use Berkeley DB on a network share, the results are unpredictable. You may see 
 mysterious errors right away, or it may be months before you discover that your 
 repository database is subtly corrupted.</p>
-<p>If you need multiple computers to access the repository, you create an FSFS 
-repository on the network share, not a Berkeley DB repository. Or better yet, 
-set up a real server process (such as Apache or svnserve), store the repository 
-on a local filesystem which the server can access, and make the repository 
-available over a network. 
+<p>If you need multiple computers to access the repository, you can in theory create 
+an FSFS repository on the network share. In practice this is <em>not</em> recommended. 
+FIrstly you are giving direct write access to all users, so they could accidentally 
+delete or corrupt the repository file system. Secondly not all network file sharing 
+protocols support the locking that Subversion requires. One day you will find your 
+repository has been subtly corrupted. And thirdly you have to set the access permissions 
+in just the right way. SAMBA is particularly difficult in this respect.</p>
+<p>By far the best way is to set up a real server process (such as Apache or svnserve), 
+store the repository on a local filesystem which the server can access, and make the 
+repository available over a network. 
 <a title='Chapter 6. Server Configuration' href='http://svnbook.red-bean.com/svnbook-1.1/ch06.html'>Chapter 6, Server Configuration</a> 
 covers this process in detail.</p>
 <p>
-To access an FSFS repository on a network share you need to do one of the following:
+If you <em>really</em> need to access an FSFS repository on a network share you
+should do one of the following:
 <ol>
 <li>Use drive mapping, e.g. map //server/shared to S:</li>
 <li>Specify a UNC path using the syntax below:
@@ -327,6 +333,7 @@ To access an FSFS repository on a network share you need to do one of the follow
 </li>
 </ol>
 </p>
+<p>But don't say we didn't warn you ...</p>
 </div>
 
 <div class="h3" id="listparentpath" title="listparentpath">
