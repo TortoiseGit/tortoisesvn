@@ -166,11 +166,41 @@ svnadmin create --fs-type fsfs MyNewRepository
 			repository database is subtly corrupted.
 		</para>
 	</warning>
-	<tip>
+	<sect2 id="tsvn-repository-local-share">
+		<title>Accessing a Repository on a Network Share</title>
+		<indexterm>
+			<primary>Network share</primary>
+		</indexterm>
 		<para>
-			If you really need to access a repository through a network share,
-			create the repository with FSFS format. If you need to provide
-			server access as well, you will need Subversion Server 1.1 or higher.
+			Although in theory it is possible to put a FSFS repository on a network
+			share and have multiple users access it using <literal>file:///</literal>
+			protocol, this is most definitely <emphasis>not</emphasis>
+			recommended. In fact we would <emphasis>strongly</emphasis>
+			discourage it, and do not support such use.
 		</para>
-	</tip>
+		<para>
+			Firstly you are giving every user direct write access to the
+			repository, so any user could accidentally delete the entire repository
+			or make it unusable in some other way.
+		</para>
+		<para>
+			Secondly not all network file sharing protocols support the locking
+			that Subversion requires, so you may find your repository gets corrupted.
+			It may not happen straight away, but one day two users will try to access
+			the repository at the same time.
+		</para>
+		<para>
+			Thirdly the file permissions have to be set just so. You may just about
+			get away with it on a native Windows share, but SAMBA is particularly
+			difficult.
+		</para>
+		<para>
+			<literal>file:///</literal> access is intended for local, single-user
+			access only, particularly testing and debugging. When you want to share
+			the repository you <emphasis>really</emphasis> need to set up a proper server,
+			and it is not nearly as difficult as you might think.
+			Read <xref linkend="tsvn-serversetup"/> for guidelines on choosing and
+			setting up a server.
+		</para>
+	</sect2>
 </sect1>
