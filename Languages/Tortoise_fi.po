@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: kari.grano@gmail.com\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-19 00:10+0200\n"
+"PO-Revision-Date: 2008-04-08 01:36+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -194,6 +194,11 @@ msgstr "%ld polkua"
 msgid "%s"
 msgstr "%s"
 
+#. Resource IDs: (93)
+#, c-format
+msgid "%s (offline)"
+msgstr "%s (yhteydetön)"
+
 #. Resource IDs: (115)
 #, c-format
 msgid "%s (offline) - %s"
@@ -287,6 +292,10 @@ msgstr "&Lisää..."
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
 msgstr "&Lisäasetukset..."
+
+#. Resource IDs: (1471)
+msgid "&Allow ambiguous URLs"
+msgstr "&Salli moniselitteiset paikantimet"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -873,6 +882,10 @@ msgid "(no changelist)"
 msgstr "(ei muutoslistaa)"
 
 #. Resource IDs: (314)
+msgid "(no line number)"
+msgstr "(ei rivinumeroa)"
+
+#. Resource IDs: (314)
 msgid "(not found)"
 msgstr "(ei löytynyt)"
 
@@ -1102,7 +1115,7 @@ msgstr ""
 
 #. Resource IDs: (263)
 msgid "Adding"
-msgstr "Lisäämässä"
+msgstr "Lisätään"
 
 #. Resource IDs: (582)
 msgid "Adds a new property"
@@ -1147,6 +1160,14 @@ msgstr "Kaikki tiedostot (*.*)"
 #. Resource IDs: (157)
 msgid "All Files (*.*)|*.*||"
 msgstr "Kaikki tiedostot (*.*)|*.*||"
+
+#. Resource IDs: (345)
+msgid ""
+"Allow different repositories to use the same URL, e.g. http://localhost/myrepos/\n"
+"Note: This will disable offline log access."
+msgstr ""
+"Salli eri arkistojen käyttää samaa paikanninta, esim. http://localhost/myrepos/\n"
+"Huomaa: Tämä estää yhteydettömän lokihistorian käytön."
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -1212,10 +1233,6 @@ msgstr "Tuntematon virhe kytkeydyttäessä osoitteeseen %s."
 #, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "Tuntematon rivityyppi rivillä %d!"
-
-#. Resource IDs: (269)
-msgid "Analyze revision data..."
-msgstr "Analysoi versiotietoja..."
 
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
@@ -1620,10 +1637,6 @@ msgstr "Valitse toiminnot, joiden haluat olevan kontekstivalikon päätasolla To
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Valitse käyttääksesi lyhyempää aika- ja päiväysmuotoa lokiviesteissä"
 
-#. Resource IDs: (270)
-msgid "Checking for forward copies"
-msgstr "Tarkistetaan edessä olevia kopioita"
-
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Tarkistetaan onko ohjelmasta uudempaa versiota..."
@@ -1981,6 +1994,10 @@ msgstr "Kopioi tiedostot tänne"
 #. Resource IDs: (209)
 msgid "Copy paths to clipboard"
 msgstr "Kopioi polut leikepöydälle"
+
+#. Resource IDs: (323)
+msgid "Copy selection to cli&pboard"
+msgstr "Kopioi valinta &leikepöydälle"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -7290,24 +7307,24 @@ msgstr "Sinulla on jo uusin ohjelmaversio."
 msgid ""
 "You are creating a repository on a network share.\n"
 "This is safe, but once the repository is created you must access it by some other means.\n"
-"Accessing a repository via file:/// on a network share may corrupt your data!\n"
+"Accessing a repository via file:// on a network share may corrupt your data!\n"
 "Create the repository anyway?"
 msgstr ""
-"Olet luomassa arkiston verkkojakoon (jaettuun verkkokansioon).\n"
+"Olet luomassa arkistoa verkkojaolle (jaettuun verkkokansioon).\n"
 "Tämä on turvallista, mutta kun arkisto on luotu, sinun on kytkeydyttävä siihen jollain toisella tavalla.\n"
-"Verkkojaossa sijaitsevan arkiston käyttö file:///-käytännöllä voi korruptoida tiedot!\n"
+"Verkkojaossa sijaitsevan arkiston käyttö file://-käytännöllä voi korruptoida tiedot!\n"
 "Luodaanko arkisto silti?"
 
 #. Resource IDs: (88)
 msgid ""
-"You are trying to access a repository via file:/// on\n"
+"You are trying to access a repository via file:// on\n"
 "a shared network drive.\n"
 "This could lead to severe repository corruption!\n"
 "Do you really want to do that?"
 msgstr ""
-"Yrität käyttää jaetulla verkkolevyllä olevaa arkistoa file:///-protokollalla.\n"
+"Yrität kytkeytyä jaetulla verkkolevyllä olevaan arkistoon file://-yhteyskäytännöllä.\n"
 "Tämä voi johtaa arkiston korruptoitumiseen!\n"
-"Haluatko todella tehdä sen?"
+"Haluatko todella jatkaa?"
 
 #. Resource IDs: (105)
 msgid ""
@@ -7728,6 +7745,11 @@ msgstr "Muokattu / kopioitu"
 #. Resource IDs: (245)
 msgid "month"
 msgstr "kuukausi"
+
+#. Resource IDs: (199)
+#, c-format
+msgid "multiple URLs (UUID: %s)"
+msgstr "useita paikantimia (UUID: %s)"
 
 #. Resource IDs: (18)
 msgid "no"
