@@ -366,6 +366,12 @@ is indicated in the filename of the installer, other clients have similar indica
 You have to make sure that those versions match each other in the first two digits.
 For example, all clients using Subversion 1.5.x can be used together (the 'x' indicates
 that this number is not relevant for compatibility).</p>
+<p>You must also be sure that all the clients are built for the same OS. 
+Client compatibility is only guaranteed for a particular OS type and metadata 
+representations may differ. You must <em>not</em> use a native Windows client and 
+the Cygwin client on the same working copy. And if you share a working copy over a 
+network you must <em>not</em> use a Linux and a Windows client on the same working 
+copy.</p>
 </div>
 
 <div class="eol" title="eol">
