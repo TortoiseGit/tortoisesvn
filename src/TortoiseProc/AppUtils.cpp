@@ -1007,7 +1007,7 @@ bool CAppUtils::StartShowCompare(HWND hWnd, const CTSVNPath& url1, const SVNRev&
 								 bool bAlternateDiff /* = false */, bool bIgnoreAncestry /* = false */, bool blame /* = false */)
 {
 	CString sCmd;
-	sCmd.Format(_T("%s /command:showcompare /unified"),
+	sCmd.Format(_T("%s /command:showcompare"),
 		CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"));
 	sCmd += _T(" /url1:\"") + url1.GetSVNPathString() + _T("\"");
 	if (rev1.IsValid())
