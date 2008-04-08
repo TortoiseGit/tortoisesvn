@@ -1504,7 +1504,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	if (m_changelists.find(entry->changelist) != m_changelists.end())
 		SetItemGroup(index, m_changelists[entry->changelist]);
 	else
-		SetItemGroup(index, m_bHasIgnoreGroup ? m_changelists.size()-1 : m_changelists.size());
+		SetItemGroup(index, 0);
 	m_bBlock = FALSE;
 }
 
@@ -3481,7 +3481,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							{
 								FileEntry * e = GetListEntry(index);
 								e->changelist.Empty();
-								SetItemGroup(index, m_bHasIgnoreGroup ? m_changelists.size()-1 : m_changelists.size());
+								SetItemGroup(index, 0);
 							}
 							// TODO: Should we go through all entries here and check if we also could
 							// remove the changelist from m_changelists ?
@@ -3543,7 +3543,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 										if (m_changelists.find(e->changelist)!=m_changelists.end())
 											SetItemGroup(index, m_changelists[e->changelist]);
 										else
-											SetItemGroup(index, m_bHasIgnoreGroup ? m_changelists.size()-1 : m_changelists.size());
+											SetItemGroup(index, 0);
 									}
 								}
 							}
@@ -3682,7 +3682,7 @@ void CSVNStatusListCtrl::CreateChangeList(const CString& name)
 			if (m_changelists.find(e->changelist)!=m_changelists.end())
 				SetItemGroup(index, m_changelists[e->changelist]);
 			else
-				SetItemGroup(index, m_bHasIgnoreGroup ? m_changelists.size()-1 : m_changelists.size());
+				SetItemGroup(index, 0);
 		}
 	}
 	else
@@ -5040,6 +5040,18 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
 
 	// add a new group for each changelist
 	int groupindex = 0;
+
+	// now add the items which don't belong to a group
+	LVGROUP grp = {0};
+	grp.cbSize = sizeof(LVGROUP);
+	grp.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
+	CString sUnassignedName(MAKEINTRESOURCE(IDS_STATUSLIST_UNASSIGNED_CHANGESET));
+	_tcsncpy_s(groupname, 1024, (LPCTSTR)sUnassignedName, 1023);
+	grp.pszHeader = groupname;
+	grp.iGroupId = groupindex;
+	grp.uAlign = LVGA_HEADER_LEFT;
+	InsertGroup(groupindex++, &grp);
+
 	for (std::map<CString,LONG_PTR>::iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
 	{
 		if (it->first.Compare(SVNSLC_IGNORECHANGELIST)!=0)
@@ -5056,17 +5068,6 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
 		else
 			m_bHasIgnoreGroup = true;
 	}
-
-	// now add the items which don't belong to a group
-	LVGROUP grp = {0};
-	grp.cbSize = sizeof(LVGROUP);
-	grp.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
-	CString sUnassignedName(MAKEINTRESOURCE(IDS_STATUSLIST_UNASSIGNED_CHANGESET));
-	_tcsncpy_s(groupname, 1024, (LPCTSTR)sUnassignedName, 1023);
-	grp.pszHeader = groupname;
-	grp.iGroupId = groupindex;
-	grp.uAlign = LVGA_HEADER_LEFT;
-	InsertGroup(groupindex++, &grp);
 
 	if (m_bHasIgnoreGroup)
 	{
@@ -5147,7 +5148,7 @@ bool CSVNStatusListCtrlDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium,
 										if (m_pSVNStatusListCtrl->m_changelists.find(e->changelist)!=m_pSVNStatusListCtrl->m_changelists.end())
 											m_pSVNStatusListCtrl->SetItemGroup(index, m_pSVNStatusListCtrl->m_changelists[e->changelist]);
 										else
-											m_pSVNStatusListCtrl->SetItemGroup(index, m_pSVNStatusListCtrl->m_bHasIgnoreGroup ? m_pSVNStatusListCtrl->m_changelists.size()-1 : m_pSVNStatusListCtrl->m_changelists.size());
+											m_pSVNStatusListCtrl->SetItemGroup(index, 0);
 									}
 								}
 							}
@@ -5178,7 +5179,7 @@ bool CSVNStatusListCtrlDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium,
 								if (e)
 								{
 									e->changelist = sChangelist;
-									m_pSVNStatusListCtrl->SetItemGroup(index, m_pSVNStatusListCtrl->m_bHasIgnoreGroup ? m_pSVNStatusListCtrl->m_changelists.size()-1 : m_pSVNStatusListCtrl->m_changelists.size());
+									m_pSVNStatusListCtrl->SetItemGroup(index, 0);
 								}
 							}
 							else
