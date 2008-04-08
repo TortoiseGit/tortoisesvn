@@ -24,6 +24,7 @@
 #include "AppUtils.h"
 #include "PathUtils.h"
 #include "SVN.h"
+#include "SVNInfo.h"
 #include "TSVNPath.h"
 #include ".\revisiongraph.h"
 #include "SVNError.h"
@@ -44,6 +45,7 @@ CRevisionGraph::CRevisionGraph(void) : m_bCancelled(FALSE)
 	, m_FilterMaxRev(LONG_MAX)
     , nodePool (sizeof (CRevisionEntry), 1024)
     , m_wcRev (-1)
+    , m_pegRev (-1)
 {
 	memset (&m_ctx, 0, sizeof (m_ctx));
 	parentpool = svn_pool_create(NULL);
@@ -211,7 +213,21 @@ BOOL CRevisionGraph::FetchRevisionData (CString path, const SOptions& /*options*
 		return FALSE;
 	}
 
-	m_lHeadRevision = (revision_t)NO_REVISION;
+	// fix issue #360: use WC revision as peg revision
+
+	CTSVNPath svnPath (path);
+	if (!svnPath.IsUrl())
+	{
+		SVNInfo info;
+		const SVNInfoData * baseInfo 
+			= info.GetFirstFileInfo (svnPath, SVNRev(), SVNRev());
+        if (baseInfo != NULL)
+            m_pegRev = baseInfo->lastchangedrev;
+	}
+
+	// fetch missing data from the repository
+
+    m_lHeadRevision = (revision_t)NO_REVISION;
 	try
 	{
         // select / construct query object and optimize revision range to fetch
@@ -236,7 +252,7 @@ BOOL CRevisionGraph::FetchRevisionData (CString path, const SOptions& /*options*
         // actually fetch the data
 
 		query->Log ( CTSVNPathList (urlpath)
-				   , m_wcRev
+				   , -1
 				   , headRevision
 				   , firstRevision
 				   , 0
@@ -315,6 +331,11 @@ void CRevisionGraph::AnalyzeRevisionData (CString path, const SOptions& options)
     if (m_lHeadRevision == NO_REVISION)
         return;
 
+    // if we don't have a peg revision yet, set it to HEAD
+
+    if (m_pegRev == -1)
+        m_pegRev = m_lHeadRevision;
+
 	// in case our path was renamed and had a different name in the past,
 	// we have to find out that name now, because we will analyze the data
 	// from lower to higher revisions
@@ -323,9 +344,9 @@ void CRevisionGraph::AnalyzeRevisionData (CString path, const SOptions& options)
 	const CPathDictionary* paths = &cache->GetLogInfo().GetPaths();
 	CDictionaryBasedTempPath startPath (paths, (const char*)url);
 
-	CCopyFollowingLogIterator iterator (cache, m_lHeadRevision, startPath);
+	CCopyFollowingLogIterator iterator (cache, m_pegRev, startPath);
 	iterator.Retry();
-	revision_t initialrev = m_lHeadRevision;
+	revision_t initialrev = m_pegRev;
 
 	while (   (iterator.GetRevision() > 0) 
 		   && !iterator.EndOfPath()

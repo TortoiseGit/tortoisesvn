@@ -210,6 +210,7 @@ private:
 	revision_t					m_lHeadRevision;
 	CStringA					m_wcURL;
 	svn_revnum_t				m_wcRev;
+    svn_revnum_t                m_pegRev;
 
 	std::set<std::string>		m_filterpaths;
 	svn_revnum_t				m_FilterMinRev;
