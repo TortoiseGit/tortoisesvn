@@ -128,10 +128,13 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 		{
 			CRegStdWORD w = CRegStdWORD(_T("Software\\TortoiseSVN\\UDiffViewerWidth"), (DWORD)CW_USEDEFAULT);
 			CRegStdWORD h = CRegStdWORD(_T("Software\\TortoiseSVN\\UDiffViewerHeight"), (DWORD)CW_USEDEFAULT);
+			CRegStdWORD p = CRegStdWORD(_T("Software\\TortoiseSVN\\UDiffViewerPos"), 0);
+
 			RECT rect;
 			::GetWindowRect(*this, &rect);
 			w = rect.right-rect.left;
 			h = rect.bottom-rect.top;
+			p = MAKELONG(rect.left, rect.top);
 		}
 		::DestroyWindow(m_hwnd);
 		break;
@@ -251,10 +254,24 @@ LRESULT CMainWindow::SendEditor(UINT Msg, WPARAM wParam, LPARAM lParam)
 
 bool CMainWindow::Initialize()
 {
-	::SetWindowPos(*this, HWND_TOP, 0, 0, 
-		(int)(DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\UDiffViewerWidth"), (DWORD)640), 
-		(int)(DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\UDiffViewerHeight"), (DWORD)480),
-		SWP_NOMOVE);
+	CRegStdWORD pos(_T("Software\\TortoiseSVN\\UDiffViewerPos"), 0);
+	CRegStdWORD width(_T("Software\\TortoiseSVN\\UDiffViewerWidth"), (DWORD)640);
+	CRegStdWORD height(_T("Software\\TortoiseSVN\\UDiffViewerHeight"), (DWORD)480);
+	if (DWORD(pos) && DWORD(width) && DWORD(height))
+	{
+		RECT rc;
+		rc.left = LOWORD(DWORD(pos));
+		rc.top = HIWORD(DWORD(pos));
+		rc.right = rc.left + DWORD(width);
+		rc.bottom = rc.top + DWORD(height);
+		HMONITOR hMon = MonitorFromRect(&rc, MONITOR_DEFAULTTONULL);
+		if (hMon)
+		{
+			// only restore the window position if the monitor is valid
+			MoveWindow(*this, LOWORD(DWORD(pos)), HIWORD(DWORD(pos)),
+				DWORD(width), DWORD(height), FALSE);
+		}
+	}
 
 	m_hWndEdit = ::CreateWindow(
 		_T("Scintilla"),
