@@ -17,10 +17,11 @@
 <xsl:param name="table.cell.border.thickness" select="'1pt'"></xsl:param>
 <xsl:param name="table.cell.border.style" select="'solid'"></xsl:param>
 <xsl:param name="table.cell.border.color" select="'#7099C5'"></xsl:param>
-<xsl:attribute-set name="table.properties">
-  <xsl:attribute name="table-layout">fixed</xsl:attribute>
-  <xsl:attribute name="width">100%</xsl:attribute>
+
+<xsl:attribute-set name="formal.object.properties">
+  <xsl:attribute name="keep-together.within-column">auto</xsl:attribute>
 </xsl:attribute-set>
+
     
 <xsl:param name="formal.title.placement">
   figure after
