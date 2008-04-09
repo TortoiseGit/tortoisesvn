@@ -53,6 +53,7 @@ public:
 
 
 	void			SetPath(const CString& sPath) {m_Graph.m_sPath = sPath;}
+    void			SetRegRevision(SVNRev revision) {m_Graph.m_pegRev = revision;}
 	void			UpdateZoomBox();
 	float			m_fZoomFactor;
 protected:

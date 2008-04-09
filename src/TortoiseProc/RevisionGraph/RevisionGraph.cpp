@@ -182,7 +182,7 @@ void CRevisionGraph::ReceiveLog ( LogChangedPathArray* changes
 	}
 }
 
-BOOL CRevisionGraph::FetchRevisionData (CString path, const SOptions& /*options*/)
+BOOL CRevisionGraph::FetchRevisionData (CString path, svn_revnum_t pegRev, const SOptions& /*options*/)
 {
 	// set some text on the progress dialog, before we wait
 	// for the log operation to start
@@ -215,15 +215,19 @@ BOOL CRevisionGraph::FetchRevisionData (CString path, const SOptions& /*options*
 
 	// fix issue #360: use WC revision as peg revision
 
-	CTSVNPath svnPath (path);
-	if (!svnPath.IsUrl())
-	{
-		SVNInfo info;
-		const SVNInfoData * baseInfo 
-			= info.GetFirstFileInfo (svnPath, SVNRev(), SVNRev());
-        if (baseInfo != NULL)
-            m_pegRev = baseInfo->lastchangedrev;
-	}
+    m_pegRev = pegRev;
+    if (m_pegRev == -1)
+    {
+	    CTSVNPath svnPath (path);
+	    if (!svnPath.IsUrl())
+	    {
+		    SVNInfo info;
+		    const SVNInfoData * baseInfo 
+			    = info.GetFirstFileInfo (svnPath, SVNRev(), SVNRev());
+            if (baseInfo != NULL)
+                m_pegRev = baseInfo->lastchangedrev;
+	    }
+    }
 
 	// fetch missing data from the repository
 

@@ -116,7 +116,7 @@ public:
 
 	CRevisionGraph(void);
 	~CRevisionGraph(void);
-	BOOL						FetchRevisionData(CString path, const SOptions& options);
+	BOOL						FetchRevisionData(CString path, svn_revnum_t pegRev, const SOptions& options);
 	void						AnalyzeRevisionData(CString path, const SOptions& options);
 	virtual BOOL				ProgressCallback(CString text1, CString text2, DWORD done, DWORD total);
 	svn_revnum_t				GetHeadRevision() {return m_lHeadRevision;}

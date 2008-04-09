@@ -299,7 +299,11 @@ UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
 	    pDlg->m_Graph.m_pProgress->SetTime();
 	    pDlg->m_Graph.m_pProgress->SetProgress(0, 100);
 
-	    if (!pDlg->m_Graph.FetchRevisionData(pDlg->m_Graph.m_sPath, pDlg->m_options))
+        svn_revnum_t pegRev = pDlg->m_Graph.m_pegRev.IsNumber()
+                            ? (svn_revnum_t)pDlg->m_Graph.m_pegRev
+                            : (svn_revnum_t)-1;
+
+	    if (!pDlg->m_Graph.FetchRevisionData(pDlg->m_Graph.m_sPath, pegRev, pDlg->m_options))
 	    {
 		    CMessageBox::Show(pDlg->m_hWnd, pDlg->m_Graph.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		    pDlg->m_Graph.m_bNoGraph = TRUE;
@@ -316,7 +320,7 @@ UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
 
     if (pDlg->m_Graph.m_bNoGraph == FALSE)
     {
-	    pDlg->m_Graph.AnalyzeRevisionData(pDlg->m_Graph.m_sPath, pDlg->m_options);
+	    pDlg->m_Graph.AnalyzeRevisionData (pDlg->m_Graph.m_sPath, pDlg->m_options);
 	    pDlg->UpdateStatusBar();
     }
 

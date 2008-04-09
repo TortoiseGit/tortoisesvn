@@ -89,6 +89,7 @@ public:
 
 
 	CString			m_sPath;
+    SVNRev          m_pegRev;
 	volatile LONG	m_bThreadRunning;
 	CProgressDlg* 	m_pProgress;
 
