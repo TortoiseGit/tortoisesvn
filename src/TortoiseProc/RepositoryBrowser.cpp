@@ -2272,7 +2272,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			{
 				CRevisionGraphDlg dlg;
 				dlg.SetPath(EscapeUrl(urlList[0]));
-                dlg.SetRegRevision(GetRevision());
+                dlg.SetPegRevision(GetRevision());
 				dlg.DoModal();
 			}
 			break;
