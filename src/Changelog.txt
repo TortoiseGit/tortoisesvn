@@ -33,6 +33,8 @@
        of the active view, not all views. (Stefan)
 - BUG: The setting "Use system locale for date/time" was not saved correctly.
        (Tobias Schäfer)
+- BUG: Revision graph did not handle peg revision info (issue #360)
+       (Stefan Fuhrmann)
 
 Version 1.5.0-beta1
 - NEW: Implemented 'merge reintegrate': new page in the merge wizard. (Stefan)
