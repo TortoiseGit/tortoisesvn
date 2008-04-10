@@ -21,7 +21,7 @@
 #include "resource.h"
 #include "..\\TortoiseShell\\resource.h"
 #include "MessageBox.h"
-#include "MemDC.h"
+#include "MyMemDC.h"
 #include "UnicodeUtils.h"
 #include "AppUtils.h"
 #include "PathUtils.h"
@@ -4481,7 +4481,7 @@ void CSVNStatusListCtrl::OnPaint()
 		}
 		CDC* pDC = GetDC();
 		{
-			CMemDC memDC(pDC, &rc);
+			CMyMemDC memDC(pDC, &rc);
 
 			memDC.SetTextColor(clrText);
 			memDC.SetBkColor(clrTextBk);

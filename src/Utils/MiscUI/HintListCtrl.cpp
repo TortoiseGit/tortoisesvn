@@ -18,7 +18,7 @@
 //
 
 #include "stdafx.h"
-#include "MemDC.h"
+#include "MyMemDC.h"
 #include "HintListCtrl.h"
 
 CHintListCtrl::CHintListCtrl() : CListCtrl()
@@ -72,7 +72,7 @@ void CHintListCtrl::OnPaint()
 		}
 		CDC* pDC = GetDC();
 		{
-			CMemDC memDC(pDC, &rc);
+			CMyMemDC memDC(pDC, &rc);
 
 			memDC.SetTextColor(clrText);
 			memDC.SetBkColor(clrTextBk);

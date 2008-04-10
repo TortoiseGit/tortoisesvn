@@ -3569,7 +3569,7 @@ void CNewMenu::DrawItem_WinXP(LPDRAWITEMSTRUCT lpDIS, BOOL bIsMenuBar)
 
   UINT nFlags = pMenuData->m_nFlags;
 
-  CNewMemDC memDC(&lpDIS->rcItem,lpDIS->hDC);
+  CNewMyMemDC memDC(&lpDIS->rcItem,lpDIS->hDC);
   CDC* pDC;
   if( bIsMenuBar || (nFlags&MF_SEPARATOR) )
   { // For title and menubardrawing disable memory painting
@@ -4201,7 +4201,7 @@ void CNewMenu::DrawItem_XP_2003(LPDRAWITEMSTRUCT lpDIS, BOOL bIsMenuBar)
 
   UINT nFlags = pMenuData->m_nFlags;
 
-  CNewMemDC memDC(&lpDIS->rcItem,lpDIS->hDC);
+  CNewMyMemDC memDC(&lpDIS->rcItem,lpDIS->hDC);
   CDC* pDC;
   if( bIsMenuBar || (nFlags&MF_SEPARATOR) )
   { // For title and menubardrawing disable memory painting
@@ -4907,7 +4907,7 @@ void CNewMenu::DrawItem_SpecialStyle (LPDRAWITEMSTRUCT lpDIS, BOOL bIsMenuBar)
   }
 
   ASSERT(lpDIS != NULL);
-  //CNewMemDC memDC(&lpDIS->rcItem,lpDIS->hDC);
+  //CNewMyMemDC memDC(&lpDIS->rcItem,lpDIS->hDC);
   //CDC* pDC = &memDC;
   CDC* pDC = CDC::FromHandle(lpDIS->hDC);
 
@@ -4995,7 +4995,7 @@ void CNewMenu::DrawItem_Icy(LPDRAWITEMSTRUCT lpDIS, BOOL bIsMenuBar)
   CNewMenuItemData* pMenuData = (CNewMenuItemData*)(lpDIS->itemData);
 
   UINT nFlags = pMenuData->m_nFlags;
-  CNewMemDC memDC(&lpDIS->rcItem,lpDIS->hDC);
+  CNewMyMemDC memDC(&lpDIS->rcItem,lpDIS->hDC);
   CDC* pDC;
   if( bIsMenuBar || (nFlags&MF_SEPARATOR) )
   { // For title and menubardrawing disable memory painting
@@ -5475,7 +5475,7 @@ void CNewMenu::DrawItem_OldStyle (LPDRAWITEMSTRUCT lpDIS, BOOL bIsMenuBar)
 
   UINT nFlags = pMenuData->m_nFlags;
 
-  CNewMemDC memDC(&lpDIS->rcItem,lpDIS->hDC);
+  CNewMyMemDC memDC(&lpDIS->rcItem,lpDIS->hDC);
   CDC* pDC;
   if( bIsMenuBar || (nFlags&MF_SEPARATOR) )
   { // For title and menubardrawing disable memory painting
@@ -8669,8 +8669,8 @@ BOOL CNewMenu::SetMenuText(UINT id, CString string, UINT nFlags/*= MF_BYPOSITION
 void CNewMenu::ColorBitmap(CDC* pDC, CBitmap& bmp, CSize size, COLORREF fill, COLORREF border, int hatchstyle)
 {
   // Create a memory DC
-  CDC MemDC;
-  MemDC.CreateCompatibleDC(pDC);
+  CDC MyMemDC;
+  MyMemDC.CreateCompatibleDC(pDC);
   bmp.CreateCompatibleBitmap(pDC, size.cx, size.cy);
   CPen border_pen(PS_SOLID, 1, border);
 
@@ -8684,15 +8684,15 @@ void CNewMenu::ColorBitmap(CDC* pDC, CBitmap& bmp, CSize size, COLORREF fill, CO
     fill_brush.CreateSolidBrush(fill);
   }
 
-  CBitmap* pOldBitmap = MemDC.SelectObject(&bmp);
-  CPen*    pOldPen    = MemDC.SelectObject(&border_pen);
-  CBrush*  pOldBrush  = MemDC.SelectObject(&fill_brush);
+  CBitmap* pOldBitmap = MyMemDC.SelectObject(&bmp);
+  CPen*    pOldPen    = MyMemDC.SelectObject(&border_pen);
+  CBrush*  pOldBrush  = MyMemDC.SelectObject(&fill_brush);
 
-  MemDC.Rectangle(0,0, size.cx, size.cy);
+  MyMemDC.Rectangle(0,0, size.cx, size.cy);
 
-  if(NULL!=pOldBrush)  { MemDC.SelectObject(pOldBrush);  }
-  if(NULL!=pOldPen)    { MemDC.SelectObject(pOldPen);    }
-  if(NULL!=pOldBitmap) { MemDC.SelectObject(pOldBitmap); }
+  if(NULL!=pOldBrush)  { MyMemDC.SelectObject(pOldBrush);  }
+  if(NULL!=pOldPen)    { MyMemDC.SelectObject(pOldPen);    }
+  if(NULL!=pOldBitmap) { MyMemDC.SelectObject(pOldBitmap); }
 }
 
 void CNewMenu::DrawSpecial_OldStyle(CDC* pDC, LPCRECT pRect, UINT nID, DWORD dwStyle)

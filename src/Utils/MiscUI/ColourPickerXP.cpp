@@ -128,7 +128,7 @@
 #include "stdafx.h"
 #include "ColourPickerXP.h"
 
-#include "MemDC.h"
+#include "MyMemDC.h"
 
 #include <math.h>
 
@@ -768,7 +768,7 @@ void CColourPickerXP::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
 	ASSERT(lpDrawItemStruct);
 
 	CDC*    pDC      = CDC::FromHandle(lpDrawItemStruct->hDC);
-	CMemDC  dcMem(pDC);
+	CMyMemDC  dcMem(pDC);
 	UINT    state    = lpDrawItemStruct->itemState;
     CRect   rDraw    = lpDrawItemStruct->rcItem;
 	CRect	rArrow;

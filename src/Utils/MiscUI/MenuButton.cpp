@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "MenuButton.h"
 
-#include "MemDC.h"
+#include "MyMemDC.h"
 
 
 #ifdef _DEBUG
@@ -185,7 +185,7 @@ void CMenuButton::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
 	ASSERT(lpDrawItemStruct);
 
 	CDC*    pDC      = CDC::FromHandle(lpDrawItemStruct->hDC);
-	CMemDC  dcMem(pDC);
+	CMyMemDC  dcMem(pDC);
 	UINT    state    = lpDrawItemStruct->itemState;
 	CRect   rDraw    = lpDrawItemStruct->rcItem;
 	CRect	rArrow;

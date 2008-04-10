@@ -34,7 +34,7 @@
 #include <tchar.h>
 #include <comdef.h>
 
-#include "MemDC.h"
+#include "MyMemDC.h"
 
 #ifndef stdstring
 #	ifdef UNICODE

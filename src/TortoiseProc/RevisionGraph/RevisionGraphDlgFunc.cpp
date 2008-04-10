@@ -18,7 +18,6 @@
 //
 #include "stdafx.h"
 #include "TortoiseProc.h"
-#include "MemDC.h"
 #include <gdiplus.h>
 #include "Revisiongraphdlg.h"
 #include "MessageBox.h"

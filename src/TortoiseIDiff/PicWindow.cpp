@@ -1115,7 +1115,7 @@ void CPicWindow::Paint(HWND hwnd)
 		if ((pSecondPic)&&(m_blend == BLEND_ALPHA))
 			ExcludeClipRect(hdc, 0, m_inforect.top-4, SLIDER_WIDTH, m_inforect.bottom+4);
 
-		CMemDC memDC(hdc);
+		CMyMemDC memDC(hdc);
 		if ((pSecondPic)&&(m_blend != BLEND_ALPHA))
 		{
 			// erase the place where the alpha slider would be

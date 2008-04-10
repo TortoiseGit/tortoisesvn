@@ -18,7 +18,7 @@
 //
 #include "stdafx.h"
 #include "TortoiseProc.h"
-#include "MemDC.h"
+#include "MyMemDC.h"
 #include <gdiplus.h>
 #include "Revisiongraphdlg.h"
 #include "MessageBox.h"
@@ -376,7 +376,7 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 	}
 	else
 	{
-		memDC = new CMemDC(pDC);
+		memDC = new CMyMemDC(pDC);
 	}
 	
 	memDC->FillSolidRect(rect, GetSysColor(COLOR_WINDOW));
@@ -460,7 +460,7 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 	if ((!bDirectDraw)&&(m_Preview.GetSafeHandle())&&(m_bShowOverview))
 	{
 		// draw the overview image rectangle in the top right corner
-		CMemDC memDC2(memDC, true);
+		CMyMemDC memDC2(memDC, true);
 		memDC2.SetWindowOrg(0, 0);
 		HBITMAP oldhbm = (HBITMAP)memDC2.SelectObject(&m_Preview);
 		memDC->BitBlt(rect.Width()-m_previewWidth, 0, m_previewWidth, m_previewHeight, 

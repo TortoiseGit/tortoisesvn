@@ -1330,9 +1330,9 @@ public:
 
 
 /////////////////////////////////////////////////////////////////////////////
-// CNewMemDC helperclass for drawing off screen 
+// CNewMyMemDC helperclass for drawing off screen 
 
-class GUILIBDLLEXPORT CNewMemDC: public CDC
+class GUILIBDLLEXPORT CNewMyMemDC: public CDC
 {
   CRect m_rect;
   CBitmap* m_pOldBitmap;
@@ -1342,7 +1342,7 @@ class GUILIBDLLEXPORT CNewMemDC: public CDC
   HDC m_hDcOriginal;
 
 public:
-  CNewMemDC(LPCRECT pRect, HDC hdc):m_rect(pRect),m_bCancel(FALSE),m_hDcOriginal(hdc)
+  CNewMyMemDC(LPCRECT pRect, HDC hdc):m_rect(pRect),m_bCancel(FALSE),m_hDcOriginal(hdc)
   {
     CDC *pOrgDC = CDC::FromHandle(m_hDcOriginal);
     CreateCompatibleDC(pOrgDC);
@@ -1355,7 +1355,7 @@ public:
   // Abborting to copy image from memory dc to client
   void DoCancel(){m_bCancel=TRUE;}
 
-  ~CNewMemDC()
+  ~CNewMyMemDC()
   {
     if(!m_bCancel)
     {
