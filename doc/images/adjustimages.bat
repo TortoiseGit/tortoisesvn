@@ -6,7 +6,7 @@
 :: in the PDF version of the documentation. The FOP version we
 :: use doesn't scale images automatically when they are too
 :: wide or high.
-:: We want images to be at most 5.6 inches wide and 9 inches
+:: We want images to be at most 5.9 inches wide and 9 inches
 :: high.
 :: The script retrieves the DPI setting in the image and
 :: and calculates the actual size of the image. If it exceeds
@@ -17,9 +17,15 @@
 :: http://www.xnview.com
 :: ============================================================ 
 :: Set image size limits in 1000ths of an inch
-set /a w_limit = 5600
+set /a w_limit = 5800
 set /a h_limit = 9000
 ::
+::
+if '%1' == '' goto :DoDefault
+for %%? in (%1) do Call :ProcAdjustFile %%?
+endlocal & goto:EOF
+::
+:DoDefault
 for %%? in (de\*.png) do Call :ProcAdjustFile %%?
 for %%? in (en\*.png) do Call :ProcAdjustFile %%?
 for %%? in (es\*.png) do Call :ProcAdjustFile %%?

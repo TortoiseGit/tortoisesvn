@@ -10,6 +10,7 @@ Tools needed:
 There are some tools for processing the XML input that you need to build the docs.
 Scripts and dtd are included, but the executables (formatting processor, microsoft
 help compiler, translation tools) have to be installed separately.
+You will also need to have a Java Runtime Environment version 1.3.x or above.
 
 tools\fop\		- the fop processor
 tools\xsl\		- the docbook xsl files from sourceforge
@@ -18,7 +19,10 @@ tools\			- xsl processor, hhc.exe, ...
 you can download all the required tools as a zip package from our website:
 http://tortoisesvn.tigris.org/servlets/ProjectDocumentList?folderID=616
 
-Currently you can either build the docs using NAnt. Download a current release from:
+Note that building the documentation for TSVN version 1.5 and later, you need the
+Tools-1.5.zip.
+
+Currently you can build the docs using NAnt. Download a current release from:
 http://sourceforge.net/project/showfiles.php?group_id=31650
 
 Please note that having spaces in your directory path will (for the time being)
@@ -53,7 +57,7 @@ dtd\      - contains the tools and the dtd to validate and build the docs.
             however require tweaking the build scripts.
             I'd recommend to leave dtd in place, so the source stays 
             compatible between TSVN doc developers.
-
+            
 Building the docs:
 ==================
 
@@ -61,7 +65,10 @@ NAnt Build:
 -----------
 A NAnt build script has been provided to build the docs. When doc.build is run for
 the first time, the template doc.build.include.template is copied to doc.build.include.
-Adjust the settings for your build environment in doc.build.include, not in the template.
+
+For local customisations, copy the doc.build.user.tmpl file to doc.build.user and
+modify that copy to point to the location of the tools on your system.
+
 If you want to build the Japanese docs, you have to copy xsl\ja\userconfig.template.xml
 to xsl\ja\userconfig.xml and adjust the path settings to the japanese fonts.
 
