@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007 - TortoiseSVN
+// Copyright (C) 2006-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,7 +38,6 @@ CSetMainPage::CSetMainPage()
 	, m_bOnePane(FALSE)
 	, m_bViewLinenumbers(FALSE)
 	, m_bMagnifier(FALSE)
-	, m_bDiffBar(FALSE)
 	, m_bStrikeout(FALSE)
 	, m_bReloadNeeded(FALSE)
 	, m_bDisplayBinDiff(TRUE)
@@ -52,7 +51,6 @@ CSetMainPage::CSetMainPage()
 	m_regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
 	m_regViewLinenumbers = CRegDWORD(_T("Software\\TortoiseMerge\\ViewLinenumbers"), 1);
 	m_regMagnifier = CRegDWORD(_T("Software\\TortoiseMerge\\Magnifier"), TRUE);
-	m_regDiffBar = CRegDWORD(_T("Software\\TortoiseMerge\\DiffBar"), TRUE);
 	m_regStrikeout = CRegDWORD(_T("Software\\TortoiseMerge\\StrikeOut"), TRUE);
 	m_regFontName = CRegString(_T("Software\\TortoiseMerge\\LogFontName"), _T("Courier New"));
 	m_regFontSize = CRegDWORD(_T("Software\\TortoiseMerge\\LogFontSize"), 10);
@@ -67,7 +65,6 @@ CSetMainPage::CSetMainPage()
 	m_nIgnoreWS = m_regIgnoreWS;
 	m_bViewLinenumbers = m_regViewLinenumbers;
 	m_bMagnifier = m_regMagnifier;
-	m_bDiffBar = m_regDiffBar;
 	m_bStrikeout = m_regStrikeout;
 	m_bDisplayBinDiff = m_regDisplayBinDiff;
 	m_bCaseInsensitive = m_regCaseInsensitive;
@@ -97,7 +94,6 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	}
 	DDX_Check(pDX, IDC_LINENUMBERS, m_bViewLinenumbers);
 	DDX_Check(pDX, IDC_MAGNIFIER, m_bMagnifier);
-	DDX_Check(pDX, IDC_DIFFBAR, m_bDiffBar);
 	DDX_Check(pDX, IDC_STRIKEOUT, m_bStrikeout);
 	DDX_Check(pDX, IDC_USEBDIFF, m_bDisplayBinDiff);
 	DDX_Check(pDX, IDC_CASEINSENSITIVE, m_bCaseInsensitive);
@@ -115,7 +111,6 @@ void CSetMainPage::SaveData()
 	m_regFontSize = m_dwFontSize;
 	m_regViewLinenumbers = m_bViewLinenumbers;
 	m_regMagnifier = m_bMagnifier;
-	m_regDiffBar = m_bDiffBar;
 	m_regStrikeout = m_bStrikeout;
 	m_regDisplayBinDiff = m_bDisplayBinDiff;
 	m_regCaseInsensitive = m_bCaseInsensitive;
@@ -149,7 +144,6 @@ BOOL CSetMainPage::OnInitDialog()
 	m_dwFontSize = m_regFontSize;
 	m_bViewLinenumbers = m_regViewLinenumbers;
 	m_bMagnifier = m_regMagnifier;
-	m_bDiffBar = m_regDiffBar;
 	m_bStrikeout = m_regStrikeout;
 	m_bCaseInsensitive = m_bCaseInsensitive;
 
@@ -210,7 +204,6 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_WSIGNOREALL, OnBnClickedWhitespace)
 	ON_BN_CLICKED(IDC_LINENUMBERS, OnBnClickedLinenumbers)
 	ON_BN_CLICKED(IDC_MAGNIFIER, OnBnClickedMagnifier)
-	ON_BN_CLICKED(IDC_DIFFBAR, OnBnClickedDiffbar)
 	ON_BN_CLICKED(IDC_STRIKEOUT, OnBnClickedStrikeout)
 	ON_EN_CHANGE(IDC_TABSIZE, OnEnChangeTabsize)
 	ON_CBN_SELCHANGE(IDC_FONTSIZES, OnCbnSelchangeFontsizes)
@@ -249,11 +242,6 @@ void CSetMainPage::OnBnClickedLinenumbers()
 }
 
 void CSetMainPage::OnBnClickedMagnifier()
-{
-	SetModified();
-}
-
-void CSetMainPage::OnBnClickedDiffbar()
 {
 	SetModified();
 }

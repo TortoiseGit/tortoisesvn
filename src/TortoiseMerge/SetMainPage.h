@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007 - TortoiseSVN
+// Copyright (C) 2006-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -68,8 +68,6 @@ protected:
 	CRegDWORD		m_regViewLinenumbers;
 	BOOL			m_bMagnifier;
 	CRegDWORD		m_regMagnifier;
-	BOOL			m_bDiffBar;
-	CRegDWORD		m_regDiffBar;
 	BOOL			m_bStrikeout;
 	CRegDWORD		m_regStrikeout;
 	BOOL			m_bDisplayBinDiff;
@@ -95,7 +93,6 @@ protected:
 	afx_msg void OnCbnSelchangeFontnames();
 	afx_msg void OnBnClickedLinenumbers();
 	afx_msg void OnBnClickedMagnifier();
-	afx_msg void OnBnClickedDiffbar();
 	afx_msg void OnBnClickedStrikeout();
 	afx_msg void OnBnClickedUsebdiff();
 	afx_msg void OnBnClickedCaseinsensitive();
