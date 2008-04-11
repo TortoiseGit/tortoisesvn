@@ -32,7 +32,6 @@ CLocatorBar::CLocatorBar()
 	m_pMainFrm = NULL;
 	m_pCacheBitmap = NULL;
 	m_bMouseWithin = FALSE;
-	m_bUseMagnifier = TRUE;
 }
 
 CLocatorBar::~CLocatorBar()
@@ -56,7 +55,6 @@ END_MESSAGE_MAP()
 
 void CLocatorBar::DocumentUpdated()
 {
-	m_bUseMagnifier = CRegDWORD(_T("Software\\TortoiseMerge\\Magnifier"), TRUE);
 	m_pMainFrm = (CMainFrame *)this->GetParentFrame();
 	m_arLeftIdent.RemoveAll();
 	m_arLeftState.RemoveAll();
@@ -245,7 +243,7 @@ void CLocatorBar::OnPaint()
 	cacheDC.FillSolidRect(rect.left + (width*2/3), rect.top, 1, height, RGB(0,0,0));
 
 	// draw the fisheye
-	if ((m_bUseMagnifier)&&(m_bMouseWithin))
+	if (m_bMouseWithin)
 	{
 		int fishstart = m_MousePos.y - height/20;
 		int fishheight = height/10;

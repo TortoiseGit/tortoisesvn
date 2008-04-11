@@ -66,8 +66,6 @@ protected:
 	CRegDWORD		m_regIgnoreWS;
 	BOOL			m_bViewLinenumbers;
 	CRegDWORD		m_regViewLinenumbers;
-	BOOL			m_bMagnifier;
-	CRegDWORD		m_regMagnifier;
 	BOOL			m_bStrikeout;
 	CRegDWORD		m_regStrikeout;
 	BOOL			m_bDisplayBinDiff;
@@ -92,7 +90,6 @@ protected:
 	afx_msg void OnCbnSelchangeFontsizes();
 	afx_msg void OnCbnSelchangeFontnames();
 	afx_msg void OnBnClickedLinenumbers();
-	afx_msg void OnBnClickedMagnifier();
 	afx_msg void OnBnClickedStrikeout();
 	afx_msg void OnBnClickedUsebdiff();
 	afx_msg void OnBnClickedCaseinsensitive();

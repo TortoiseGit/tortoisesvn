@@ -51,7 +51,6 @@ protected:
 	int				m_nLines;
 	CPoint			m_MousePos;
 	BOOL			m_bMouseWithin;
-	BOOL			m_bUseMagnifier;
 	CDWordArray		m_arLeftIdent;
 	CDWordArray		m_arLeftState;
 	CDWordArray		m_arRightIdent;

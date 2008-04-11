@@ -37,7 +37,6 @@ CSetMainPage::CSetMainPage()
 	, m_bIgnoreEOL(FALSE)
 	, m_bOnePane(FALSE)
 	, m_bViewLinenumbers(FALSE)
-	, m_bMagnifier(FALSE)
 	, m_bStrikeout(FALSE)
 	, m_bReloadNeeded(FALSE)
 	, m_bDisplayBinDiff(TRUE)
@@ -50,7 +49,6 @@ CSetMainPage::CSetMainPage()
 	m_regOnePane = CRegDWORD(_T("Software\\TortoiseMerge\\OnePane"));
 	m_regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
 	m_regViewLinenumbers = CRegDWORD(_T("Software\\TortoiseMerge\\ViewLinenumbers"), 1);
-	m_regMagnifier = CRegDWORD(_T("Software\\TortoiseMerge\\Magnifier"), TRUE);
 	m_regStrikeout = CRegDWORD(_T("Software\\TortoiseMerge\\StrikeOut"), TRUE);
 	m_regFontName = CRegString(_T("Software\\TortoiseMerge\\LogFontName"), _T("Courier New"));
 	m_regFontSize = CRegDWORD(_T("Software\\TortoiseMerge\\LogFontSize"), 10);
@@ -64,7 +62,6 @@ CSetMainPage::CSetMainPage()
 	m_bOnePane = m_regOnePane;
 	m_nIgnoreWS = m_regIgnoreWS;
 	m_bViewLinenumbers = m_regViewLinenumbers;
-	m_bMagnifier = m_regMagnifier;
 	m_bStrikeout = m_regStrikeout;
 	m_bDisplayBinDiff = m_regDisplayBinDiff;
 	m_bCaseInsensitive = m_regCaseInsensitive;
@@ -93,7 +90,6 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 		m_dwFontSize = _ttoi(t);
 	}
 	DDX_Check(pDX, IDC_LINENUMBERS, m_bViewLinenumbers);
-	DDX_Check(pDX, IDC_MAGNIFIER, m_bMagnifier);
 	DDX_Check(pDX, IDC_STRIKEOUT, m_bStrikeout);
 	DDX_Check(pDX, IDC_USEBDIFF, m_bDisplayBinDiff);
 	DDX_Check(pDX, IDC_CASEINSENSITIVE, m_bCaseInsensitive);
@@ -110,7 +106,6 @@ void CSetMainPage::SaveData()
 	m_regFontName = m_sFontName;
 	m_regFontSize = m_dwFontSize;
 	m_regViewLinenumbers = m_bViewLinenumbers;
-	m_regMagnifier = m_bMagnifier;
 	m_regStrikeout = m_bStrikeout;
 	m_regDisplayBinDiff = m_bDisplayBinDiff;
 	m_regCaseInsensitive = m_bCaseInsensitive;
@@ -143,7 +138,6 @@ BOOL CSetMainPage::OnInitDialog()
 	m_sFontName = m_regFontName;
 	m_dwFontSize = m_regFontSize;
 	m_bViewLinenumbers = m_regViewLinenumbers;
-	m_bMagnifier = m_regMagnifier;
 	m_bStrikeout = m_regStrikeout;
 	m_bCaseInsensitive = m_bCaseInsensitive;
 
@@ -203,7 +197,6 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_WSIGNORECHANGED, OnBnClickedWhitespace)
 	ON_BN_CLICKED(IDC_WSIGNOREALL, OnBnClickedWhitespace)
 	ON_BN_CLICKED(IDC_LINENUMBERS, OnBnClickedLinenumbers)
-	ON_BN_CLICKED(IDC_MAGNIFIER, OnBnClickedMagnifier)
 	ON_BN_CLICKED(IDC_STRIKEOUT, OnBnClickedStrikeout)
 	ON_EN_CHANGE(IDC_TABSIZE, OnEnChangeTabsize)
 	ON_CBN_SELCHANGE(IDC_FONTSIZES, OnCbnSelchangeFontsizes)
@@ -237,11 +230,6 @@ void CSetMainPage::OnBnClickedFirstdiffonload()
 }
 
 void CSetMainPage::OnBnClickedLinenumbers()
-{
-	SetModified();
-}
-
-void CSetMainPage::OnBnClickedMagnifier()
 {
 	SetModified();
 }
