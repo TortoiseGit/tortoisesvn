@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-03-15 19:44+0100\n"
+"PO-Revision-Date: 2008-04-11 20:00+0100\n"
 "Last-Translator: Mario Šarić <msaric@helix.hr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -156,6 +156,11 @@ msgstr "%ld staze"
 msgid "%s"
 msgstr "%s"
 
+#. Resource IDs: (93)
+#, c-format
+msgid "%s (offline)"
+msgstr "%s (offline)"
+
 #. Resource IDs: (115)
 #, c-format
 msgid "%s (offline) - %s"
@@ -249,6 +254,10 @@ msgstr "&Dodaj..."
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
 msgstr "&Napredno..."
+
+#. Resource IDs: (1471)
+msgid "&Allow ambiguous URLs"
+msgstr "&Dozvoli višeznačne URL-ove"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -837,6 +846,10 @@ msgid "(no changelist)"
 msgstr "(nema skupa izmjena)"
 
 #. Resource IDs: (314)
+msgid "(no line number)"
+msgstr "(bez brojeva linija)"
+
+#. Resource IDs: (314)
 msgid "(not found)"
 msgstr "(nije nađeno)"
 
@@ -1113,6 +1126,14 @@ msgstr "Sve datoteke (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "Sve datoteke (*.*)|*.*||"
 
+#. Resource IDs: (345)
+msgid ""
+"Allow different repositories to use the same URL, e.g. http://localhost/myrepos/\n"
+"Note: This will disable offline log access."
+msgstr ""
+"Dozvoli da različita skladišta upotrebljavaju isti URL, napr. http:/localhost/mojrepozitorij/\n"
+"Napomena: Ovo će onemogućiti pristup dnevniku kad nema veze prema skladištu."
+
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "Uvijek koristi sistemske postavke za prikaz datuma i vremena"
@@ -1178,10 +1199,6 @@ msgstr "Pojavila se nepoznata greška prilikom pristupa prema %1."
 #, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr "Nepoznati tip linije je nađen u liniji %d !"
-
-#. Resource IDs: (269)
-msgid "Analyze revision data..."
-msgstr "Analiziraj podatke o reviziji..."
 
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
@@ -1592,10 +1609,6 @@ msgstr "Označite one stavke izbornika za koje želite da se pojave u glavnom ko
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Označite ako želite sažetiji prikaz datuma i vremena u dnevniku poruka"
 
-#. Resource IDs: (270)
-msgid "Checking for forward copies"
-msgstr "Provjeram nadolazeće kopije"
-
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Provjeravam da li je dostupna novija verzija TortoiseSVN..."
@@ -1953,6 +1966,10 @@ msgstr "Kopiraj datoteke ovdje"
 #. Resource IDs: (209)
 msgid "Copy paths to clipboard"
 msgstr "Kopiraj staze u međuspremnik"
+
+#. Resource IDs: (323)
+msgid "Copy selection to cli&pboard"
+msgstr "Kopiraj označeno u &međuspremnik"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -7294,24 +7311,25 @@ msgstr "Vi već imate instaliranu najsvježiju verziju."
 msgid ""
 "You are creating a repository on a network share.\n"
 "This is safe, but once the repository is created you must access it by some other means.\n"
-"Accessing a repository via file:/// on a network share may corrupt your data!\n"
+"Accessing a repository via file:// on a network share may corrupt your data!\n"
 "Create the repository anyway?"
 msgstr ""
-"Vi izrađujete skladište na dijeljenom mrežnom disku.\n"
+"Sada izrađujete skladište na dijeljenom mrežnom disku.\n"
 "To je u redu, ali jednom kada skladište bude napravljeno, morate mu pristupati na neki drugi način.\n"
-"Pristupanje skladištu na dijeljenom mrežnom disku preko file:/// može oštetiti Vaše podatke!\n"
-"Želite li ipak napraviti to skladište?"
+"Pristupanje skladištu na dijeljenom mrežnom disku preko file:// može oštetiti Vaše podatke!\n"
+"Želite li ipak napraviti novo skladište na mrežnom disku?"
 
 #. Resource IDs: (88)
 msgid ""
-"You are trying to access a repository via file:/// on\n"
+"You are trying to access a repository via file:// on\n"
 "a shared network drive.\n"
 "This could lead to severe repository corruption!\n"
 "Do you really want to do that?"
 msgstr ""
-"Pokušavate pristupiti skladištu na dijeljenom mrežnom disku preko file:///\n"
-"Takav postupak može uzrokovati ozbiljna oštećenja skladišta!\n"
-"Da li zaista to želite učiniti?"
+"Pokušavate pristupiti skladištu na dijeljenom\n"
+"mrežnom disku preko file://.\n"
+"Takav postupak može uzrokovati oštećenja skladišta!\n"
+"Da li zaista želite to učiniti?"
 
 #. Resource IDs: (105)
 msgid ""
@@ -7738,6 +7756,11 @@ msgstr "promijenjeno / kopirano"
 msgid "month"
 msgstr "mjesec"
 
+#. Resource IDs: (199)
+#, c-format
+msgid "multiple URLs (UUID: %s)"
+msgstr "višestruki URLovi (UUID: %s)"
+
 #. Resource IDs: (18)
 msgid "no"
 msgstr "ne"
@@ -8128,6 +8151,10 @@ msgstr "godina"
 msgid "yes"
 msgstr "da"
 
+#~ msgid "Analyze revision data..."
+#~ msgstr "Analiziraj podatke o reviziji..."
+#~ msgid "Checking for forward copies"
+#~ msgstr "Provjeram nadolazeće kopije"
 #~ msgid "Groups branches together"
 #~ msgstr "Grupira grane"
 #~ msgid "Number of changed cached revisions"
