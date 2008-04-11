@@ -177,7 +177,8 @@ will respect that depth and not fetch everything again.</p>
 <div class="h2" id="cyrus-sasl" title="cyrus-sasl">
 <h2>Cyrus SASL support for <tt>svnserve</tt></h2>
 
-<p>In Subversion 1.5, svnserve can use SASL for authentication. 
+<p>In Subversion 1.5, svnserve can use SASL (Simple Authentication and Security Layer)
+for authentication and data encryption. 
 TortoiseSVN has SASL implemented too. The following SASL authentication
 methods are available with TortoiseSVN 1.5:
 <ul>
@@ -189,6 +190,9 @@ methods are available with TortoiseSVN 1.5:
 <li>NTLM</li>
 </ul>
 </p>
+<p>SASL also provides data encryption in some of these methods, so you can secure
+your data while it is being transmitted over the internet. Securing your connection
+using SASL should be easier than setting up an SSH infrastructure.</p>
 
 </div> <!-- cyrus-sasl -->
 
