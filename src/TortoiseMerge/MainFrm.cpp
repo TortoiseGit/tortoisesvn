@@ -2015,6 +2015,8 @@ void CMainFrame::OnViewLinediffbar()
 	m_bLineDiff = !m_bLineDiff;
 	m_wndLineDiffBar.ShowPane(m_bLineDiff, false, true);
 	m_wndLineDiffBar.DocumentUpdated();
+	m_wndLocatorBar.ShowPane(m_bLocatorBar, false, true);
+	m_wndLocatorBar.DocumentUpdated();
 }
 
 void CMainFrame::OnUpdateViewLocatorbar(CCmdUI *pCmdUI)
@@ -2028,5 +2030,7 @@ void CMainFrame::OnViewLocatorbar()
 	m_bLocatorBar = !m_bLocatorBar;
 	m_wndLocatorBar.ShowPane(m_bLocatorBar, false, true);
 	m_wndLocatorBar.DocumentUpdated();
+	m_wndLineDiffBar.ShowPane(m_bLineDiff, false, true);
+	m_wndLineDiffBar.DocumentUpdated();
 }
 
