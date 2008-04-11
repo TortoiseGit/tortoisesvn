@@ -152,14 +152,16 @@ svn://localhost/TestRepo
 				started when windows starts.
 <screen>
 sc create svnserve binpath= "c:\svnserve\svnserve.exe --service 
-    --root c:\repos" displayname= "Subversion" depend= tcpip start= auto
+    --root c:\repos" displayname= "Subversion" depend= tcpip 
+    start= auto
 </screen>
 				If any of the paths include spaces, you have to use (escaped) quotes
 				around the path, like this:
 <screen>
 sc create svnserve binpath= "
     \"C:\Program Files\Subversion\bin\svnserve.exe\"
-    --service --root c:\repos" displayname= "Subversion" depend= tcpip start= auto
+    --service --root c:\repos" displayname= "Subversion" 
+    depend= tcpip start= auto
 </screen>
 				You can also add a description after creating the service. This
 				will show up in the Windows Services Manager.

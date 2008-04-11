@@ -831,9 +831,10 @@ bin\openssl x509 -in conf\server.csr -out conf\server.crt
                  -req -signkey conf\server.key -days 4000
 </screen>
 					This will create a certificate which will expire in
-					4000 days. And finally enter:
+					4000 days. And finally enter (on one line):
 <screen>
-bin\openssl x509 -in conf\server.cert -out conf\server.der.crt -outform DER
+bin\openssl x509 -in conf\server.cert -out conf\server.der.crt
+                 -outform DER
 </screen>
 					These commands created some files in the Apache
 					<filename>conf</filename> folder 

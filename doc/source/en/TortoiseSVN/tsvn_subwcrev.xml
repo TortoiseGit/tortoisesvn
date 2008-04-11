@@ -69,7 +69,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 			<table id="tsvn-subwcrev-switch-table">
 				<title>List of available command line switches</title>
 				<tgroup cols="2">
-					<colspec colnum="1" colwidth="1*"/>
+					<colspec colnum="1" colwidth="2*"/>
 					<colspec colnum="2" colwidth="10*"/>
 					<thead>
 						<row>
@@ -154,8 +154,8 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 			<table id="tsvn-subwcrev-switch-table2">
 				<title>List of available command line switches</title>
 				<tgroup cols="2">
-					<colspec colnum="1" colwidth="1*"/>
-					<colspec colnum="2" colwidth="4*"/>
+					<colspec colnum="1" colwidth="3*"/>
+					<colspec colnum="2" colwidth="7*"/>
 					<thead>
 						<row>
 							<entry>Keyword</entry>
@@ -326,7 +326,8 @@ char *Modified = "Modified";
 char *Date     = "2005/06/15 11:15:12";
 char *Range    = "3699:3701";
 char *Mixed    = "Mixed revision WC";
-char *URL      = "http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/SubWCRev";
+char *URL      = "http://tortoisesvn.tigris.org/svn/tortoisesvn/...
+trunk/src/SubWCRev";
 
 #if 1
 #error Source is modified
@@ -360,8 +361,8 @@ char *URL      = "http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/SubWCR
 			<table id="tsvn-subwcrev-COM-table">
 				<title>COM/automation methods supported</title>
 				<tgroup cols="2">
-					<colspec colnum="1" colwidth="1*"/>
-					<colspec colnum="2" colwidth="4*"/>
+					<colspec colnum="1" colwidth="3*"/>
+					<colspec colnum="2" colwidth="7*"/>
 					<thead>
 						<row>
 							<entry>Method</entry>
@@ -443,7 +444,8 @@ SubWCRev3 = new ActiveXObject("SubWCRev.object");
 
 SubWCRev1.GetWCInfo(filesystem.GetAbsolutePathName("."), 0, 0);
 SubWCRev2.GetWCInfo(filesystem.GetAbsolutePathName(".."), 1, 1);
-SubWCRev3.GetWCInfo(filesystem.GetAbsolutePathName("SubWCRev.cpp"), 0, 0);
+SubWCRev3.GetWCInfo(filesystem.GetAbsolutePathName("SubWCRev.cpp"), 
+                    0, 0);
 
 sInfo1 = "Revision = " + SubWCRev1.Revision + 
          "\nMin Revision = " + SubWCRev1.MinRev +
