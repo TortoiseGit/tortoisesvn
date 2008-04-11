@@ -27,8 +27,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-04-07 10:37+0100\n"
-"Last-Translator: J-M. van Leerdam <translator@bemy.demon.nl>\n"
+"PO-Revision-Date: 2008-04-11 20:51+0100\n"
+"Last-Translator: Jean-Marc van Leerdam <jeanmarc@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -251,9 +251,17 @@ msgstr "&Geavanceerd..."
 msgid "&Allow ambiguous URLs"
 msgstr "Sta &ambigue URLs toe"
 
+#. Resource IDs: (65535)
+msgid "&Application Look"
+msgstr "&Programma-uiterlijk"
+
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
 msgstr "&Voer unified diff uit"
+
+#. Resource IDs: (32852)
+msgid "&Aqua Style"
+msgstr "&Aqua stijl"
 
 #. Resource IDs: (65535)
 msgid "&Autoclose:"
@@ -278,6 +286,10 @@ msgstr "Ver&klaar revisies"
 #. Resource IDs: (13)
 msgid "&Blame..."
 msgstr "&Verklaren..."
+
+#. Resource IDs: (32849)
+msgid "&Blue Style"
+msgstr "&Blauwe stijl"
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
@@ -597,10 +609,6 @@ msgstr "&Voorlopig offline"
 msgid "&Open"
 msgstr "&Openen"
 
-#. Resource IDs: (57601)
-msgid "&Open Ctrl-O"
-msgstr "&Openen\tCtrl-O"
-
 #. Resource IDs: (32772)
 msgid "&Overlap images"
 msgstr "Afbeeldingen &overlappen"
@@ -670,8 +678,8 @@ msgid "&SSH client:"
 msgstr "&SSH client:"
 
 #. Resource IDs: (57603)
-msgid "&Save Ctrl-S"
-msgstr "Op&slaan\tCtrl-S"
+msgid "&Save"
+msgstr "&Opslaan"
 
 #. Resource IDs: (1023)
 msgid "&Save authentication"
@@ -696,6 +704,10 @@ msgstr "&Instellingen"
 #. Resource IDs: (32815)
 msgid "&Show HEAD revisions"
 msgstr "&Toon HEAD revisies"
+
+#. Resource IDs: (32851)
+msgid "&Silver Style"
+msgstr "&Zilveren stijl"
 
 #. Resource IDs: (1185)
 msgid "&Specific revision in repository"
@@ -769,10 +781,6 @@ msgstr "&URL:"
 msgid "&Undo"
 msgstr "&Ongedaan maken"
 
-#. Resource IDs: (57643)
-msgid "&Undo\tCtrl+Z"
-msgstr "&Ongedaan maken\tCtrl-Z"
-
 #. Resource IDs: (274, 32785)
 msgid "&Unified diff"
 msgstr "Voer &unified diff uit"
@@ -812,6 +820,10 @@ msgstr "&Spaties en lege regels"
 #. Resource IDs: (1066)
 msgid "&Whole word"
 msgstr "&Heel woord"
+
+#. Resource IDs: (32846)
+msgid "&Windows XP"
+msgstr "&Windows XP"
 
 #. Resource IDs: (1183)
 msgid "&Working copy"
@@ -1328,6 +1340,10 @@ msgstr "Elke week controleren of een &nieuwe versie beschikbaar is"
 #. Resource IDs: (1157)
 msgid "Average"
 msgstr "Gemiddelde"
+
+#. Resource IDs: (32850)
+msgid "B&lack Style"
+msgstr "Z&warte stijl"
 
 #. Resource IDs: (1001)
 msgid "B&rowse..."
@@ -3820,6 +3836,10 @@ msgstr "Regel"
 msgid "Line Graph"
 msgstr "Lijndiagram"
 
+#. Resource IDs: (32853)
+msgid "Line diff bar"
+msgstr "Verschillen-regel"
+
 #. Resource IDs: (65535)
 msgid "Line differences"
 msgstr "Regelverschillen"
@@ -3860,6 +3880,10 @@ msgid ""
 msgstr ""
 "Plaats waar de inhoud van de\n"
 "archief-URL opgeslagen zal worden."
+
+#. Resource IDs: (32854)
+msgid "Locator Bar"
+msgstr "Zoekbalk"
 
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
@@ -4439,6 +4463,18 @@ msgstr "OK"
 #. Resource IDs: (3697)
 msgid "OVR"
 msgstr "OVR"
+
+#. Resource IDs: (32845)
+msgid "Office &XP"
+msgstr "Office &XP"
+
+#. Resource IDs: (32847)
+msgid "Office 200&3"
+msgstr "Office 200&3"
+
+#. Resource IDs: (65535)
+msgid "Office 200&7"
+msgstr "Office 200&7"
 
 #. Resource IDs: (65535)
 msgid "Older lines"
@@ -5757,10 +5793,6 @@ msgstr "Toon uitgesloten mappen als 'normaal'"
 msgid "Show ignored files"
 msgstr "Toon genegeerde bestanden"
 
-#. Resource IDs: (1065)
-msgid "Show li&ne diff bar"
-msgstr "Toon verschillen op een &regel"
-
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
 msgstr "Toon regel&nummers"
@@ -6975,9 +7007,9 @@ msgstr "Opnieuw verversen en blokkade zetten..."
 msgid "Updating log cache"
 msgstr "Log cache wordt bijgewerkt"
 
-#. Resource IDs: (1064)
-msgid "Use &magnifier on locatorbar"
-msgstr "Toon &vergrootglas op zoekwerkbalk"
+#. Resource IDs: (32855)
+msgid "Use &left block"
+msgstr "Gebruik linker stuk"
 
 #. Resource IDs: (1024)
 msgid "Use &one-pane view as default for 2-file diff"
@@ -7013,6 +7045,38 @@ msgstr "Gebruik unified-diff van klembord"
 msgid "Use \"_svn\" instead of \".svn\" directories"
 msgstr "Gebruik \"_svn\" in plaats van \".svn\" mappen"
 
+#. Resource IDs: (2054)
+msgid ""
+"Use all content from the left view\n"
+"use left file"
+msgstr ""
+"Gebruik alle inhoud van het linker venster\n"
+"gebruik linker bestand"
+
+#. Resource IDs: (32857)
+msgid "Use block from left before right"
+msgstr "Gebruik linker stuk voor rechter stuk"
+
+#. Resource IDs: (2054)
+msgid ""
+"Use block from left view before block from right view\n"
+"use block from left before right"
+msgstr ""
+"Gebruik het stuk van het linker venster voor het stuk van het rechter venster\n"
+"gebruik linker stuk voor rechter stuk"
+
+#. Resource IDs: (32859)
+msgid "Use block from right before left"
+msgstr "Gebruik rechter stuk voor linker stuk"
+
+#. Resource IDs: (2054)
+msgid ""
+"Use block from right view before block from left view\n"
+"use block from right before left"
+msgstr ""
+"Gebruik het stuk van het rechter venster voor het stuk van het linker venster\n"
+"gebruik rechter stuk voor linker stuk"
+
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one first)"
 msgstr "Gebruik beide tekstgedeeltes (deze eerst)"
@@ -7020,6 +7084,10 @@ msgstr "Gebruik beide tekstgedeeltes (deze eerst)"
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one last)"
 msgstr "Gebruik beide tekstgedeeltes (deze laatst)"
+
+#. Resource IDs: (32856)
+msgid "Use left file"
+msgstr "Gebruik het linker bestand"
 
 #. Resource IDs: (3)
 msgid "Use local"
@@ -7088,6 +7156,14 @@ msgid ""
 msgstr ""
 "Gebruik tekstgedeelte uit \"hun\"\n"
 "Gebruik \"hun\" tekstgedeelte"
+
+#. Resource IDs: (2054)
+msgid ""
+"Use text block from the left view\n"
+"use left block"
+msgstr ""
+"Gebruik tekstgedeelte uit linker venster\n"
+"gebruik linker stuk"
 
 #. Resource IDs: (251)
 msgid "Use th&is text block"
@@ -7182,6 +7258,10 @@ msgstr "Toon revisie in &webviewer"
 msgid "Visit our website"
 msgstr "Bezoek onze website"
 
+#. Resource IDs: (32848)
+msgid "Visual Studio.NET 200&5"
+msgstr "Visual Studio.NET 200&5"
+
 #. Resource IDs: (198)
 msgid "Wait"
 msgstr "Wacht"
@@ -7219,6 +7299,10 @@ msgid ""
 msgstr ""
 "Toont een dialoog om een boodschap over de blokkade op te\n"
 "geven bij het blokkeren van een of meer bestanden"
+
+#. Resource IDs: (32844)
+msgid "Windows &2000"
+msgstr "Windows &2000"
 
 #. Resource IDs: (146)
 msgid "With URL:"
@@ -8098,4 +8182,13 @@ msgstr "jaar"
 #. Resource IDs: (18, 1002, 1011, 1012)
 msgid "yes"
 msgstr "ja"
+
+#~ msgid "&Open Ctrl-O"
+#~ msgstr "&Openen\tCtrl-O"
+#~ msgid "&Save Ctrl-S"
+#~ msgstr "Op&slaan\tCtrl-S"
+#~ msgid "&Undo\tCtrl+Z"
+#~ msgstr "&Ongedaan maken\tCtrl-Z"
+#~ msgid "Use &magnifier on locatorbar"
+#~ msgstr "Toon &vergrootglas op zoekwerkbalk"
 
