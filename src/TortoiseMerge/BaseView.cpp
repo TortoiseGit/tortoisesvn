@@ -1075,7 +1075,7 @@ void CBaseView::DrawHeader(CDC *pdc, const CRect &rect)
 	int nStringLength = (GetCharWidth()*m_sWindowName.GetLength());
 	if (nStringLength > rect.Width())
 	{
-		int offset = min(m_nOffsetChar, (nStringLength-rect.Width())/GetCharWidth());
+		int offset = min(m_nOffsetChar, (nStringLength-rect.Width())/GetCharWidth()+1);
 
 		sViewTitle = m_sWindowName.Mid(offset);
 	}
