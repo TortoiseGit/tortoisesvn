@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007 - TortoiseSVN
+// Copyright (C) 2006-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,7 +28,7 @@ class CMainFrame;
  * also scrolls the views to the location the user clicks
  * on the bar.
  */
-class CLocatorBar : public CDialogBar
+class CLocatorBar : public CPaneDialog
 {
 	DECLARE_DYNAMIC(CLocatorBar)
 

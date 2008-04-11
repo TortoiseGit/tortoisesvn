@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007 - TortoiseSVN
+// Copyright (C) 2006-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,7 +24,7 @@
 #include "RightView.h"
 #include "BottomView.h"
 
-IMPLEMENT_DYNAMIC(CLineDiffBar, CDialogBar)
+IMPLEMENT_DYNAMIC(CLineDiffBar, CPaneDialog)
 CLineDiffBar::CLineDiffBar()
 {
 	m_pMainFrm = NULL;
@@ -43,7 +43,7 @@ CLineDiffBar::~CLineDiffBar()
 	}
 }
 
-BEGIN_MESSAGE_MAP(CLineDiffBar, CDialogBar)
+BEGIN_MESSAGE_MAP(CLineDiffBar, CPaneDialog)
 	ON_WM_PAINT()
 	ON_WM_SIZE()
 	ON_WM_ERASEBKGND()
@@ -57,45 +57,14 @@ void CLineDiffBar::DocumentUpdated()
 		m_nLineHeight = m_pMainFrm->m_pwndLeftView->GetLineHeight();
 	}
 	CRect rect;
-	GetClientRect(rect);
+	GetWindowRect(rect);
+	CSize size = rect.Size();
+	size.cy = 2 * m_nLineHeight;
+	SetMinSize(size);
+	UpdateVirtualRect();
+	RecalcLayout();
 	if (m_pMainFrm)
 		m_pMainFrm->RecalcLayout();
-}
-
-CSize CLineDiffBar::CalcFixedLayout(BOOL bStretch, BOOL bHorz)
-{
-	CSize size;
-	if (bStretch) // if not docked stretch to fit
-	{
-		size.cx = bHorz ? 32767 : m_sizeDefault.cx;
-		size.cy = bHorz ? 2*m_nLineHeight : 32767;
-		BOOL bDiffBar = CRegDWORD(_T("Software\\TortoiseMerge\\DiffBar"), TRUE);
-		if (!bDiffBar)
-			size.cy = 0;
-		if (m_pMainFrm)
-		{
-			// hide the line bar if either the right view is hidden (one pane view)
-			// or the bottom view is not hidden (three way merge)
-			// hiding is done by setting the height of the pane to zero
-			if ((m_pMainFrm->m_pwndRightView)&&(m_pMainFrm->m_pwndRightView->IsHidden()))
-				size.cy = 0;
-			if ((m_pMainFrm->m_pwndBottomView)&&(!m_pMainFrm->m_pwndBottomView->IsHidden()))
-				size.cy = 0;
-		}
-
-		if (size.cy > 0)
-		{
-			// Convert client to window sizes
-			CRect rc(CPoint(0, 0), size);
-			AdjustWindowRectEx(&rc, GetStyle(), FALSE, GetExStyle());
-			size = rc.Size();
-		}
-	}
-	else
-	{
-		size = m_sizeDefault;
-	}
-	return size;
 }
 
 void CLineDiffBar::ShowLines(int nLineIndex)
@@ -160,7 +129,7 @@ void CLineDiffBar::OnPaint()
 
 void CLineDiffBar::OnSize(UINT nType, int cx, int cy)
 {
-	CDialogBar::OnSize(nType, cx, cy);
+	CPaneDialog::OnSize(nType, cx, cy);
 
 	if (m_pCacheBitmap != NULL)
 	{
@@ -168,6 +137,7 @@ void CLineDiffBar::OnSize(UINT nType, int cx, int cy)
 		delete m_pCacheBitmap;
 		m_pCacheBitmap = NULL;
 	}
+	SetWindowPos(NULL, 0, 0, cx, 2*m_nLineHeight, SWP_NOMOVE);
 	Invalidate();
 }
 

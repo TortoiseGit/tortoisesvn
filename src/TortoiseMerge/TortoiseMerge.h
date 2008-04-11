@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007 - TortoiseSVN
+// Copyright (C) 2006-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,7 +30,7 @@
  * \ingroup TortoiseMerge
  * The application class of TortoiseMerge.
  */
-class CTortoiseMergeApp : public CWinApp
+class CTortoiseMergeApp : public CWinAppEx
 {
 public:
 	CTortoiseMergeApp();
@@ -41,6 +41,8 @@ public:
 	virtual BOOL InitInstance();
 
 // Implementation
+	UINT  m_nAppLook;
+	BOOL  m_bHiColorIcons;
 
 protected:
 	afx_msg void OnAppAbout();

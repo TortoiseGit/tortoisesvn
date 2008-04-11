@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007 - TortoiseSVN
+// Copyright (C) 2006-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,7 +24,6 @@
 #include "FilePatchesDlg.h"
 #include "TempFiles.h"
 #include "XSplitter.h"
-#include "NewToolBar.h"
 #include "Patch.h"
 #include "FindDlg.h"
 
@@ -36,7 +35,7 @@ class CBottomView;
  * \ingroup TortoiseMerge
  * The main frame of TortoiseMerge. Handles all the menu and toolbar commands.
  */
-class CMainFrame : public CNewFrameWnd, public CPatchFilesDlgCallBack //CNewFrameWnd
+class CMainFrame : public CFrameWndEx, public CPatchFilesDlgCallBack //CFrameWndEx
 {
 	
 public:
@@ -56,6 +55,8 @@ protected:
 	bool			LoadViews(bool bRetainPosition = false);
 	void			ClearViewNamesAndPaths();
 	afx_msg LRESULT OnFindDialogMessage(WPARAM wParam, LPARAM lParam);
+	afx_msg void	OnApplicationLook(UINT id);
+	afx_msg void	OnUpdateApplicationLook(CCmdUI* pCmdUI);
 
 	afx_msg void	OnFileSave();
 	afx_msg void	OnFileSaveAs();
@@ -100,6 +101,12 @@ protected:
 	afx_msg void	OnUpdateEditUndo(CCmdUI *pCmdUI);
 	afx_msg void	OnViewInlinediffword();
 	afx_msg void	OnUpdateViewInlinediffword(CCmdUI *pCmdUI);
+	afx_msg void	OnUpdateEditCreateunifieddifffile(CCmdUI *pCmdUI);
+	afx_msg void	OnEditCreateunifieddifffile();
+	afx_msg void	OnUpdateViewLinediffbar(CCmdUI *pCmdUI);
+	afx_msg void	OnViewLinediffbar();
+	afx_msg void	OnUpdateViewLocatorbar(CCmdUI *pCmdUI);
+	afx_msg void	OnViewLocatorbar();
 
 	DECLARE_MESSAGE_MAP()
 protected:
@@ -124,9 +131,9 @@ protected:
 	int				CheckForSave();
 
 protected: 
-	CStatusBar		m_wndStatusBar;
-	CNewToolBar		m_wndToolBar;
-	CReBar			m_wndReBar;
+	CMFCMenuBar     m_wndMenuBar;
+	CMFCStatusBar	m_wndStatusBar;
+	CMFCToolBar		m_wndToolBar;
 	CLocatorBar		m_wndLocatorBar;
 	CLineDiffBar	m_wndLineDiffBar;
 	CXSplitter		m_wndSplitter;
@@ -147,6 +154,8 @@ protected:
 	bool			m_bHasConflicts;
 
 	bool			m_bInlineWordDiff;
+	bool			m_bLineDiff;
+	bool			m_bLocatorBar;
 public:
 	CLeftView *		m_pwndLeftView;
 	CRightView *	m_pwndRightView;
@@ -156,8 +165,6 @@ public:
 	CDiffData		m_Data;
 	bool			m_bReadOnly;
 	bool			m_bBlame;
-	afx_msg void OnUpdateEditCreateunifieddifffile(CCmdUI *pCmdUI);
-	afx_msg void OnEditCreateunifieddifffile();
 };
 
 

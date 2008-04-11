@@ -26,7 +26,7 @@
 #include "DiffColors.h"
 
 
-IMPLEMENT_DYNAMIC(CLocatorBar, CDialogBar)
+IMPLEMENT_DYNAMIC(CLocatorBar, CPaneDialog)
 CLocatorBar::CLocatorBar()
 {
 	m_pMainFrm = NULL;
@@ -45,7 +45,7 @@ CLocatorBar::~CLocatorBar()
 	}
 }
 
-BEGIN_MESSAGE_MAP(CLocatorBar, CDialogBar)
+BEGIN_MESSAGE_MAP(CLocatorBar, CPaneDialog)
 	ON_WM_PAINT()
 	ON_WM_SIZE()
 	ON_WM_ERASEBKGND()
@@ -276,7 +276,7 @@ void CLocatorBar::OnPaint()
 
 void CLocatorBar::OnSize(UINT nType, int cx, int cy)
 {
-	CDialogBar::OnSize(nType, cx, cy);
+	CPaneDialog::OnSize(nType, cx, cy);
 
 	if (m_pCacheBitmap != NULL)
 	{
@@ -307,7 +307,7 @@ void CLocatorBar::OnLButtonDown(UINT nFlags, CPoint point)
 	if ((m_pMainFrm)&&(m_pMainFrm->m_pwndRightView))
 		m_pMainFrm->m_pwndRightView->GoToLine(nLine, FALSE);
 	Invalidate();
-	CDialogBar::OnLButtonDown(nFlags, point);
+	CPaneDialog::OnLButtonDown(nFlags, point);
 }
 
 void CLocatorBar::OnMouseMove(UINT nFlags, CPoint point)

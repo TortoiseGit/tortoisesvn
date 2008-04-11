@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006, 2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,7 +28,7 @@ class CMainFrame;
  * also scrolls the views to the location the user clicks
  * on the bar.
  */
-class CLineDiffBar : public CDialogBar
+class CLineDiffBar : public CPaneDialog
 {
 	DECLARE_DYNAMIC(CLineDiffBar)
 
@@ -42,8 +42,6 @@ protected:
 	afx_msg void	OnPaint();
 	afx_msg void	OnSize(UINT nType, int cx, int cy);
 	afx_msg BOOL	OnEraseBkgnd(CDC* pDC);
-
-	virtual CSize	CalcFixedLayout(BOOL bStretch, BOOL bHorz);
 
 	CBitmap *		m_pCacheBitmap;
 

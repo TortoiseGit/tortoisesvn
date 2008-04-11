@@ -40,15 +40,17 @@
 // CMainFrame
 const UINT CMainFrame::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
 
-IMPLEMENT_DYNAMIC(CMainFrame, CNewFrameWnd)
+IMPLEMENT_DYNAMIC(CMainFrame, CFrameWndEx)
 
-BEGIN_MESSAGE_MAP(CMainFrame, CNewFrameWnd)
+BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
 	ON_WM_CREATE()
+	ON_COMMAND_RANGE(ID_VIEW_APPLOOK_WIN_2000, ID_VIEW_APPLOOK_OFF_2007_AQUA, &CMainFrame::OnApplicationLook)
+	ON_UPDATE_COMMAND_UI_RANGE(ID_VIEW_APPLOOK_WIN_2000, ID_VIEW_APPLOOK_OFF_2007_AQUA, &CMainFrame::OnUpdateApplicationLook)
 	// Global help commands
-	ON_COMMAND(ID_HELP_FINDER, CNewFrameWnd::OnHelpFinder)
-	ON_COMMAND(ID_HELP, CNewFrameWnd::OnHelp)
-	ON_COMMAND(ID_CONTEXT_HELP, CNewFrameWnd::OnContextHelp)
-	ON_COMMAND(ID_DEFAULT_HELP, CNewFrameWnd::OnHelpFinder)
+	ON_COMMAND(ID_HELP_FINDER, CFrameWndEx::OnHelpFinder)
+	ON_COMMAND(ID_HELP, CFrameWndEx::OnHelp)
+	ON_COMMAND(ID_CONTEXT_HELP, CFrameWndEx::OnContextHelp)
+	ON_COMMAND(ID_DEFAULT_HELP, CFrameWndEx::OnHelpFinder)
 	ON_COMMAND(ID_FILE_OPEN, OnFileOpen)
 	ON_COMMAND(ID_VIEW_WHITESPACES, OnViewWhitespaces)
 	ON_WM_SIZE()
@@ -95,6 +97,10 @@ BEGIN_MESSAGE_MAP(CMainFrame, CNewFrameWnd)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_INLINEDIFFWORD, &CMainFrame::OnUpdateViewInlinediffword)
 	ON_UPDATE_COMMAND_UI(ID_EDIT_CREATEUNIFIEDDIFFFILE, &CMainFrame::OnUpdateEditCreateunifieddifffile)
 	ON_COMMAND(ID_EDIT_CREATEUNIFIEDDIFFFILE, &CMainFrame::OnEditCreateunifieddifffile)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_LINEDIFFBAR, &CMainFrame::OnUpdateViewLinediffbar)
+	ON_COMMAND(ID_VIEW_LINEDIFFBAR, &CMainFrame::OnViewLinediffbar)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_LOCATORBAR, &CMainFrame::OnUpdateViewLocatorbar)
+	ON_COMMAND(ID_VIEW_LOCATORBAR, &CMainFrame::OnViewLocatorbar)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -120,6 +126,9 @@ CMainFrame::CMainFrame()
 	m_bReversedPatch = FALSE;
 	m_bHasConflicts = false;
 	m_bInlineWordDiff = true;
+	m_bLineDiff = true;
+	m_bLocatorBar = true;
+	theApp.m_nAppLook = theApp.GetInt(_T("ApplicationLook"), ID_VIEW_APPLOOK_VS_2005);
 }
 
 CMainFrame::~CMainFrame()
@@ -128,11 +137,24 @@ CMainFrame::~CMainFrame()
 
 int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
-	if (CNewFrameWnd::OnCreate(lpCreateStruct) == -1)
+	if (CFrameWndEx::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
-	if (!m_wndToolBar.CreateEx(this, TBSTYLE_FLAT | TBSTYLE_WRAPABLE| CBRS_SIZE_DYNAMIC) ||
-		 !m_wndToolBar.LoadToolBar(IDR_MAINFRAME))
+	OnApplicationLook(theApp.m_nAppLook);
+
+	if (!m_wndMenuBar.Create(this))
+	{
+		TRACE0("Failed to create menubar\n");
+		return -1;      // fail to create
+	}
+
+	m_wndMenuBar.SetPaneStyle(m_wndMenuBar.GetPaneStyle() | CBRS_SIZE_DYNAMIC | CBRS_TOOLTIPS | CBRS_FLYBY);
+
+	// prevent the menu bar from taking the focus on activation
+	CMFCPopupMenu::SetForceMenuFocus(FALSE);
+
+	if (!m_wndToolBar.CreateEx(this, TBSTYLE_FLAT, WS_CHILD | WS_VISIBLE | CBRS_ALIGN_TOP | CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY) ||
+		!m_wndToolBar.LoadToolBar(IDR_MAINFRAME))
 	{
 		TRACE0("Failed to create toolbar\n");
 		return -1;      // fail to create
@@ -147,42 +169,112 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return -1;      // fail to create
 	} 
 
-	m_wndToolBar.SetBarStyle(m_wndToolBar.GetBarStyle() |
-		CBRS_TOOLTIPS | CBRS_FLYBY);
-
 	if (!m_wndLocatorBar.Create(this, IDD_DIFFLOCATOR, 
-		CBRS_ALIGN_LEFT, AFX_IDW_DIALOGBAR))
+		CBRS_ALIGN_LEFT | CBRS_SIZE_FIXED, ID_VIEW_LOCATORBAR))
 	{
 		TRACE0("Failed to create dialogbar\n");
 		return -1;		// fail to create
 	}
 	if (!m_wndLineDiffBar.Create(this, IDD_LINEDIFF, 
-		CBRS_ALIGN_BOTTOM, AFX_IDW_DIALOGBAR))
+		CBRS_ALIGN_BOTTOM | CBRS_SIZE_FIXED, ID_VIEW_LINEDIFFBAR))
 	{
 		TRACE0("Failed to create dialogbar\n");
 		return -1;		// fail to create
 	}
-	//if (!m_wndReBar.Create(this) ||
-	//	!m_wndReBar.AddBar(&m_wndToolBar))
-	//{
-	//	TRACE0("Failed to create rebar\n");
-	//	return -1;      // fail to create
-	//}
 	m_wndLocatorBar.m_pMainFrm = this;
 	m_wndLineDiffBar.m_pMainFrm = this;
-	m_DefaultNewMenu.SetMenuDrawMode(CNewMenu::STYLE_XP);
-	m_DefaultNewMenu.LoadToolBar(IDR_MAINFRAME);
-	m_DefaultNewMenu.SetXpBlending();
-	m_DefaultNewMenu.SetSelectDisableMode(FALSE);
+
+	EnableDocking(CBRS_ALIGN_ANY);
+	m_wndMenuBar.EnableDocking(CBRS_ALIGN_TOP);
+	m_wndToolBar.EnableDocking(CBRS_ALIGN_TOP);
+	DockPane(&m_wndMenuBar);
+	DockPane(&m_wndToolBar);
+	DockPane(&m_wndLocatorBar);
+	DockPane(&m_wndLineDiffBar);
+	ShowPane(&m_wndLocatorBar, true, false, true);
+	ShowPane(&m_wndLineDiffBar, true, false, true);
+
+	CRect rect;
+	m_wndLocatorBar.GetWindowRect(rect);
+	m_wndLocatorBar.SetMinSize(rect.Size());
+
+	m_wndLocatorBar.EnableGripper(FALSE);
+	m_wndLineDiffBar.EnableGripper(FALSE);
+	m_wndLineDiffBar.SetControlBarStyle(m_wndLineDiffBar.GetControlBarStyle() & ~AFX_CBRS_RESIZE);
+
 	return 0;
 }
 
 BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 {
-	CNewMenu::SetMenuDrawMode(CNewMenu::STYLE_XP);
-	if( !CNewFrameWnd::PreCreateWindow(cs) )
+	if( !CFrameWndEx::PreCreateWindow(cs) )
 		return FALSE;
 	return TRUE;
+}
+
+void CMainFrame::OnApplicationLook(UINT id)
+{
+	CWaitCursor wait;
+
+	theApp.m_nAppLook = id;
+
+	switch (theApp.m_nAppLook)
+	{
+	case ID_VIEW_APPLOOK_WIN_2000:
+		CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManager));
+		break;
+
+	case ID_VIEW_APPLOOK_OFF_XP:
+		CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerOfficeXP));
+		break;
+
+	case ID_VIEW_APPLOOK_WIN_XP:
+		CMFCVisualManagerWindows::m_b3DTabsXPTheme = TRUE;
+		CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
+		break;
+
+	case ID_VIEW_APPLOOK_OFF_2003:
+		CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerOffice2003));
+		CDockingManager::SetDockingMode(DT_SMART);
+		break;
+
+	case ID_VIEW_APPLOOK_VS_2005:
+		CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerVS2005));
+		CDockingManager::SetDockingMode(DT_SMART);
+		break;
+
+	default:
+		switch (theApp.m_nAppLook)
+		{
+		case ID_VIEW_APPLOOK_OFF_2007_BLUE:
+			CMFCVisualManagerOffice2007::SetStyle(CMFCVisualManagerOffice2007::Office2007_LunaBlue);
+			break;
+
+		case ID_VIEW_APPLOOK_OFF_2007_BLACK:
+			CMFCVisualManagerOffice2007::SetStyle(CMFCVisualManagerOffice2007::Office2007_ObsidianBlack);
+			break;
+
+		case ID_VIEW_APPLOOK_OFF_2007_SILVER:
+			CMFCVisualManagerOffice2007::SetStyle(CMFCVisualManagerOffice2007::Office2007_Silver);
+			break;
+
+		case ID_VIEW_APPLOOK_OFF_2007_AQUA:
+			CMFCVisualManagerOffice2007::SetStyle(CMFCVisualManagerOffice2007::Office2007_Aqua);
+			break;
+		}
+
+		CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerOffice2007));
+		CDockingManager::SetDockingMode(DT_SMART);
+	}
+
+	RedrawWindow(NULL, NULL, RDW_ALLCHILDREN | RDW_INVALIDATE | RDW_UPDATENOW | RDW_FRAME | RDW_ERASE);
+
+	theApp.WriteInt(_T("ApplicationLook"), theApp.m_nAppLook);
+}
+
+void CMainFrame::OnUpdateApplicationLook(CCmdUI* pCmdUI)
+{
+	pCmdUI->SetRadio(theApp.m_nAppLook == pCmdUI->m_nID);
 }
 
 
@@ -191,12 +283,12 @@ BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 #ifdef _DEBUG
 void CMainFrame::AssertValid() const
 {
-	CNewFrameWnd::AssertValid();
+	CFrameWndEx::AssertValid();
 }
 
 void CMainFrame::Dump(CDumpContext& dc) const
 {
-	CNewFrameWnd::Dump(dc);
+	CFrameWndEx::Dump(dc);
 }
 
 #endif //_DEBUG
@@ -719,7 +811,7 @@ void CMainFrame::OnSize(UINT nType, int cx, int cy)
     {
 		UpdateLayout();
     }
-    CNewFrameWnd::OnSize(nType, cx, cy);
+    CFrameWndEx::OnSize(nType, cx, cy);
 }
 
 void CMainFrame::OnViewWhitespaces()
@@ -1864,4 +1956,30 @@ void CMainFrame::OnEditCreateunifieddifffile()
 		}
 		delete [] pszFilters;
 	}
+}
+
+void CMainFrame::OnUpdateViewLinediffbar(CCmdUI *pCmdUI)
+{
+	pCmdUI->SetCheck(m_bLineDiff);
+	pCmdUI->Enable();
+}
+
+void CMainFrame::OnViewLinediffbar()
+{
+	m_bLineDiff = !m_bLineDiff;
+	m_wndLineDiffBar.ShowPane(m_bLineDiff, false, true);
+	m_wndLineDiffBar.DocumentUpdated();
+}
+
+void CMainFrame::OnUpdateViewLocatorbar(CCmdUI *pCmdUI)
+{
+	pCmdUI->SetCheck(m_bLocatorBar);
+	pCmdUI->Enable();
+}
+
+void CMainFrame::OnViewLocatorbar()
+{
+	m_bLocatorBar = !m_bLocatorBar;
+	m_wndLocatorBar.ShowPane(m_bLocatorBar, false, true);
+	m_wndLocatorBar.DocumentUpdated();
 }

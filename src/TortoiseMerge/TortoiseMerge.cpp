@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007 - TortoiseSVN
+// Copyright (C) 2006-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -33,7 +33,7 @@
 
 #pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
 
-BEGIN_MESSAGE_MAP(CTortoiseMergeApp, CWinApp)
+BEGIN_MESSAGE_MAP(CTortoiseMergeApp, CWinAppEx)
 	ON_COMMAND(ID_APP_ABOUT, OnAppAbout)
 END_MESSAGE_MAP()
 
@@ -134,7 +134,10 @@ BOOL CTortoiseMergeApp::InitInstance()
 	// visual styles.  Otherwise, any window creation will fail.
 	InitCommonControls();
 
-	CWinApp::InitInstance();
+	// Initialize all Managers for usage. They are automatically constructed
+	// if not yet present
+	InitContextMenuManager();
+	InitKeyboardManager();
 
 	CCmdLineParser parser = CCmdLineParser(this->m_lpCmdLine);
 

@@ -50,7 +50,7 @@ CBaseView * CBaseView::m_pwndRight = NULL;
 CBaseView * CBaseView::m_pwndBottom = NULL;
 CLocatorBar * CBaseView::m_pwndLocator = NULL;
 CLineDiffBar * CBaseView::m_pwndLineDiffBar = NULL;
-CStatusBar * CBaseView::m_pwndStatusBar = NULL;
+CMFCStatusBar * CBaseView::m_pwndStatusBar = NULL;
 CMainFrame * CBaseView::m_pMainFrame = NULL;
 
 IMPLEMENT_DYNCREATE(CBaseView, CView)
