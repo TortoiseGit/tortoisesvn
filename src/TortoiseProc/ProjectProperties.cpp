@@ -1023,9 +1023,9 @@ public:
 		props.sBugIDRe = _T("(\\d+)");
 		props.patBugIDRe.init((LPCTSTR)props.sBugIDRe, MULTILINE);
 		props.sUrl = _T("http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%");
-		sRet = props.FindBugID(_T("This is a test for Issue #7463"));
+		sRet = props.FindBugID(_T("This is a test for Issue #7463,#666"));
 		sRet.Trim();
-		ATLASSERT(sRet.Compare(_T("7463"))==0);
+		ATLASSERT(sRet.Compare(_T("666 7463"))==0);
 		props.sCheckRe = _T("^\\[(\\d+)\\].*");
 		props.patCheckRe.init((LPCTSTR)props.sCheckRe, MULTILINE);
 		props.sUrl = _T("http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%");
