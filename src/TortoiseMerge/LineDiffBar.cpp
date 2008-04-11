@@ -31,6 +31,7 @@ CLineDiffBar::CLineDiffBar()
 	m_pCacheBitmap = NULL;
 	m_nLineIndex = -1;
 	m_nLineHeight = 0;
+	m_bExclusiveRow = TRUE;
 }
 
 CLineDiffBar::~CLineDiffBar()
@@ -61,7 +62,7 @@ void CLineDiffBar::DocumentUpdated()
 	CSize size = rect.Size();
 	size.cy = 2 * m_nLineHeight;
 	SetMinSize(size);
-	UpdateVirtualRect();
+	SetWindowPos(NULL, 0, 0, size.cx, 2*m_nLineHeight, SWP_NOMOVE);
 	RecalcLayout();
 	if (m_pMainFrm)
 		m_pMainFrm->RecalcLayout();

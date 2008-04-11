@@ -202,14 +202,8 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	ShowPane(&m_wndLocatorBar, true, false, true);
 	ShowPane(&m_wndLineDiffBar, true, false, true);
 
-	CRect rect;
-	m_wndLocatorBar.GetWindowRect(rect);
-	m_wndLocatorBar.SetMinSize(rect.Size());
-
 	m_wndLocatorBar.EnableGripper(FALSE);
 	m_wndLineDiffBar.EnableGripper(FALSE);
-	m_wndLineDiffBar.SetControlBarStyle(m_wndLineDiffBar.GetControlBarStyle() & ~AFX_CBRS_RESIZE);
-
 	return 0;
 }
 

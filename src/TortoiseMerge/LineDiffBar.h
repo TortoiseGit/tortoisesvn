@@ -35,6 +35,18 @@ class CLineDiffBar : public CPaneDialog
 public:
 	CLineDiffBar();
 	virtual ~CLineDiffBar();
+	BOOL Create(CWnd* pParentWnd, UINT nIDTemplate, UINT nStyle, UINT nID)
+	{
+		BOOL bRet = CPaneDialog::Create(pParentWnd, nIDTemplate, nStyle, nID);
+		m_dwControlBarStyle = 0; // can't float, resize, close, slide
+		return bRet;
+	}
+
+	CSize CalcFixedLayout(BOOL, BOOL)
+	{
+		return CSize(32767, 2*m_nLineHeight);
+	}
+
 	void			ShowLines(int nLineIndex);
 	void			DocumentUpdated();
 

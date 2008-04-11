@@ -35,6 +35,12 @@ class CLocatorBar : public CPaneDialog
 public:
 	CLocatorBar();
 	virtual ~CLocatorBar();
+	BOOL Create(CWnd* pParentWnd, UINT nIDTemplate, UINT nStyle, UINT nID)
+	{
+		BOOL bRet = CPaneDialog::Create(pParentWnd, nIDTemplate, nStyle, nID);
+		m_dwControlBarStyle = 0; // can't float, resize, close, slide
+		return bRet;
+	}
 
 	void			DocumentUpdated();
 
