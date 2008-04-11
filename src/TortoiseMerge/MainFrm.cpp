@@ -101,6 +101,14 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
 	ON_COMMAND(ID_VIEW_LINEDIFFBAR, &CMainFrame::OnViewLinediffbar)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_LOCATORBAR, &CMainFrame::OnUpdateViewLocatorbar)
 	ON_COMMAND(ID_VIEW_LOCATORBAR, &CMainFrame::OnViewLocatorbar)
+	ON_COMMAND(ID_EDIT_USELEFTBLOCK, &CMainFrame::OnEditUseleftblock)
+	ON_UPDATE_COMMAND_UI(ID_EDIT_USELEFTBLOCK, &CMainFrame::OnUpdateEditUseleftblock)
+	ON_COMMAND(ID_EDIT_USELEFTFILE, &CMainFrame::OnEditUseleftfile)
+	ON_UPDATE_COMMAND_UI(ID_EDIT_USELEFTFILE, &CMainFrame::OnUpdateEditUseleftfile)
+	ON_COMMAND(ID_EDIT_USEBLOCKFROMLEFTBEFORERIGHT, &CMainFrame::OnEditUseblockfromleftbeforeright)
+	ON_UPDATE_COMMAND_UI(ID_EDIT_USEBLOCKFROMLEFTBEFORERIGHT, &CMainFrame::OnUpdateEditUseblockfromleftbeforeright)
+	ON_COMMAND(ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT, &CMainFrame::OnEditUseblockfromrightbeforeleft)
+	ON_UPDATE_COMMAND_UI(ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT, &CMainFrame::OnUpdateEditUseblockfromrightbeforeleft)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -1562,6 +1570,50 @@ void CMainFrame::OnUpdateEditUseminethentheirblock(CCmdUI *pCmdUI)
 	pCmdUI->Enable((nSelBlockStart >= 0)&&(nSelBlockEnd >= 0));
 }
 
+void CMainFrame::OnEditUseleftblock()
+{
+	if (m_pwndRightView)
+		m_pwndRightView->UseBlock();
+}
+
+void CMainFrame::OnUpdateEditUseleftblock(CCmdUI *pCmdUI)
+{
+	pCmdUI->Enable(m_pwndRightView && m_pwndRightView->IsWindowVisible() && m_pwndRightView->HasCaret() && m_pwndRightView->HasSelection());
+}
+
+void CMainFrame::OnEditUseleftfile()
+{
+	if (m_pwndRightView)
+		m_pwndRightView->UseFile();
+}
+
+void CMainFrame::OnUpdateEditUseleftfile(CCmdUI *pCmdUI)
+{
+	pCmdUI->Enable(m_pwndRightView && m_pwndRightView->IsWindowVisible() && m_pwndRightView->HasCaret());
+}
+
+void CMainFrame::OnEditUseblockfromleftbeforeright()
+{
+	if (m_pwndRightView)
+		m_pwndRightView->UseLeftBeforeRight();
+}
+
+void CMainFrame::OnUpdateEditUseblockfromleftbeforeright(CCmdUI *pCmdUI)
+{
+	pCmdUI->Enable(m_pwndRightView && m_pwndRightView->IsWindowVisible() && m_pwndRightView->HasCaret() && m_pwndRightView->HasSelection());
+}
+
+void CMainFrame::OnEditUseblockfromrightbeforeleft()
+{
+	if (m_pwndRightView)
+		m_pwndRightView->UseRightBeforeLeft();
+}
+
+void CMainFrame::OnUpdateEditUseblockfromrightbeforeleft(CCmdUI *pCmdUI)
+{
+	pCmdUI->Enable(m_pwndRightView && m_pwndRightView->IsWindowVisible() && m_pwndRightView->HasCaret() && m_pwndRightView->HasSelection());
+}
+
 
 void CMainFrame::OnFileReload()
 {
@@ -1983,3 +2035,4 @@ void CMainFrame::OnViewLocatorbar()
 	m_wndLocatorBar.ShowPane(m_bLocatorBar, false, true);
 	m_wndLocatorBar.DocumentUpdated();
 }
+

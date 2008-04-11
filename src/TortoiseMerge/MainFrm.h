@@ -165,6 +165,14 @@ public:
 	CDiffData		m_Data;
 	bool			m_bReadOnly;
 	bool			m_bBlame;
+	afx_msg void OnEditUseleftblock();
+	afx_msg void OnUpdateEditUseleftblock(CCmdUI *pCmdUI);
+	afx_msg void OnEditUseleftfile();
+	afx_msg void OnUpdateEditUseleftfile(CCmdUI *pCmdUI);
+	afx_msg void OnEditUseblockfromleftbeforeright();
+	afx_msg void OnUpdateEditUseblockfromleftbeforeright(CCmdUI *pCmdUI);
+	afx_msg void OnEditUseblockfromrightbeforeleft();
+	afx_msg void OnUpdateEditUseblockfromrightbeforeleft(CCmdUI *pCmdUI);
 };
 
 

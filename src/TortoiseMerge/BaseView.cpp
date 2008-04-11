@@ -1995,11 +1995,6 @@ INT_PTR CBaseView::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 	return -1;
 }
 
-BOOL CBaseView::PreTranslateMessage(MSG* pMsg)
-{
-	return CView::PreTranslateMessage(pMsg);
-}
-
 void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
 	bool bControl = !!(GetKeyState(VK_CONTROL)&0x8000);

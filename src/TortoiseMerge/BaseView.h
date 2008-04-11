@@ -105,7 +105,6 @@ protected:
 	virtual BOOL	PreCreateWindow(CREATESTRUCT& cs);
 	virtual void	OnDraw(CDC * pDC);
 	virtual INT_PTR OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
-	virtual BOOL	PreTranslateMessage(MSG* pMsg);
 	BOOL			OnToolTipNotify(UINT id, NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void	OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
 	afx_msg void	OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
