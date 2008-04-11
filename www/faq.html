@@ -47,6 +47,7 @@
 <ul>
 <li><a href="#100cpu">100% CPU, when I right-click on a file.</a></li>
 <li><a href="#repoonshare">Can I create a local repository on a network directory?</a></li>
+<li><a href="#reponoserver">Can I keep my repository on a network share instead of setting up a server?</a></li>
 <li><a href="#listparentpath">Can I get a list of all the repositories on my Server?</a></li>
 <li><a href="#multiclients">Can I use different Subversion clients with the same working copy?</a></li>
 <li><a href="#eol">Can TortoiseSVN convert line breaks in text files on the fly?</a></li>
@@ -298,31 +299,27 @@ Another solution that often works is to left-click the file or folder before rig
 <div class="h3" id="repoonshare" title="repoonshare">
 <h3>Can I create a local repository on a network directory?</h3>
 <p><strong>Do not create a Berkeley DB repository on a network share!</strong></p>
-<p>It <em>cannot</em> exist on a remote filesystem such as NFS, AFS, or Windows SMB. 
+<p>A BDB repository <em>cannot</em> exist on a remote filesystem such as NFS, AFS, or Windows SMB. 
 Berkeley DB requires that the underlying filesystem implement strict POSIX locking 
 semantics, and more importantly, the ability to map files directly into process 
 memory. Almost no network filesystems provide these features. If you attempt to 
 use Berkeley DB on a network share, the results are unpredictable. You may see 
 mysterious errors right away, or it may be months before you discover that your 
 repository database is subtly corrupted.</p>
-<p>If you need multiple computers to access the repository, you can in theory create 
-an FSFS repository on the network share. In practice this is <em>not</em> recommended. 
-FIrstly you are giving direct write access to all users, so they could accidentally 
-delete or corrupt the repository file system. Secondly not all network file sharing 
-protocols support the locking that Subversion requires. One day you will find your 
-repository has been subtly corrupted. And thirdly you have to set the access permissions 
-in just the right way. SAMBA is particularly difficult in this respect.</p>
-<p>By far the best way is to set up a real server process (such as Apache or svnserve), 
-store the repository on a local filesystem which the server can access, and make the 
-repository available over a network. 
-<a title='Chapter 6. Server Configuration' href='http://svnbook.red-bean.com/svnbook-1.1/ch06.html'>Chapter 6, Server Configuration</a> 
-covers this process in detail.</p>
-<p>
-If you <em>really</em> need to access an FSFS repository on a network share you
+<p>You can use an FSFS repository on a network share, but only as a single user 
+as you would use a local hard drive. The next FAQ item explains why sharing a repository 
+in this way is a Bad Idea (TM). Unless you have really pressing reasons to keep your 
+repository on a network share it is generally best to avoid doing so.</p>
+<p>If you <em>really</em> need to access an FSFS repository on a network share you
 should do one of the following:
 <ol>
-<li>Use drive mapping, e.g. map //server/shared to S:</li>
-<li>Specify a UNC path using the syntax below:
+<li>Use drive mapping using the syntax below:
+<dl>
+<dt>Map //server/shared to S:</dt>
+<dd><strong>file:///S:/repos</strong> (3 leading slashes before drive letter)</dd>
+</dl>
+</li>
+<li>Specify a UNC path directly using the syntax below:
 <dl>
 <dt>Subversion >= 1.2</dt>
 <dd><strong>file://server/shared/repos</strong> (2 leading slashes)</dd>
@@ -334,6 +331,28 @@ should do one of the following:
 </ol>
 </p>
 <p>But don't say we didn't warn you ...</p>
+</div>
+
+<div class="h3" id="reponoserver" title="reponoserver">
+<h3>Can I keep my repository on a network share instead of setting up a server?</h3>
+<p>If you need multiple computers to access the repository, you can in theory create 
+an FSFS repository (<strong>but not a BDB repository</strong>) on a network share 
+and access it using file:// protocol.
+In practice this is <strong>not</strong> recommended for three very good reasons:
+<ol>
+<li>You are giving direct write access to all users, so they could accidentally 
+delete or corrupt the repository file system.</li>
+<li>Not all network file sharing protocols support the locking that Subversion requires. 
+One day you will find your repository has been subtly corrupted.</li>
+<li>You have to set the access permissions in just the right way. 
+SAMBA is particularly difficult in this respect.</li>
+</ol> 
+</p>
+<p>By far the best way is to set up a real server process (such as Apache or svnserve), 
+store the repository on a local filesystem which the server can access, and make the 
+repository server available over a network. It is easier than you might think. 
+<a title='Chapter 6. Server Configuration' href='http://svnbook.red-bean.com/svnbook-1.1/ch06.html'>Chapter 6, Server Configuration</a> 
+covers this process in detail.</p>
 </div>
 
 <div class="h3" id="listparentpath" title="listparentpath">
