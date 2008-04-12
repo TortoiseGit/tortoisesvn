@@ -22,6 +22,9 @@
 #include "ProjectProperties.h"
 #include "SVNProperties.h"
 #include "TSVNPath.h"
+#include <regex>
+
+using namespace std;
 
 
 ProjectProperties::ProjectProperties(void)
@@ -794,14 +797,10 @@ BOOL ProjectProperties::HasBugID(const CString& sMessage)
 	{
 		try
 		{
-			match_results results;
-			match_results::backref_type br;
-
-			br = patCheckRe.match( restring ((LPCTSTR)sMessage), results );
-			return br.matched;
+			tr1::wregex rx(sCheckRe);
+			return tr1::regex_search((LPCTSTR)sMessage, rx);
 		}
-		catch (bad_alloc) {}
-		catch (bad_regexpr) {}
+		catch (exception) {}
 	}
 	return FALSE;
 }
@@ -1024,6 +1023,8 @@ public:
 		props.patBugIDRe.init((LPCTSTR)props.sBugIDRe, MULTILINE);
 		props.sUrl = _T("http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%");
 		sRet = props.FindBugID(_T("This is a test for Issue #7463,#666"));
+		ATLASSERT(props.HasBugID(_T("This is a test for Issue #7463,#666")));
+		ATLASSERT(!props.HasBugID(_T("This is a test for Issue 7463,666")));
 		sRet.Trim();
 		ATLASSERT(sRet.Compare(_T("666 7463"))==0);
 		props.sCheckRe = _T("^\\[(\\d+)\\].*");
@@ -1038,6 +1039,8 @@ public:
 		sRet = props.FindBugID(_T("test test [[000815]]] some stupid programming error fixed"));
 		sRet.Trim();
 		ATLASSERT(sRet.Compare(_T("000815"))==0);
+		ATLASSERT(props.HasBugID(_T("test test [[000815]]] some stupid programming error fixed")));
+		ATLASSERT(!props.HasBugID(_T("test test [000815]] some stupid programming error fixed")));
 	}
 } PropTest;
 #endif
