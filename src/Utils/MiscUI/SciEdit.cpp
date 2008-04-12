@@ -159,15 +159,6 @@ void CSciEdit::Init(const ProjectProperties& props)
 	m_sCommand = CStringA(CUnicodeUtils::GetUTF8(props.sCheckRe));
 	m_sBugID = CStringA(CUnicodeUtils::GetUTF8(props.sBugIDRe));
 	m_sUrl = CStringA(CUnicodeUtils::GetUTF8(props.sUrl));
-	try
-	{
-		if (!m_sBugID.IsEmpty())
-			m_patBugID.init((LPCTSTR)m_sBugID);
-		if (!m_sCommand.IsEmpty())
-			m_patCommand.init((LPCTSTR)m_sCommand);
-	}
-	catch (bad_alloc){m_sBugID.Empty();m_sCommand.Empty();}
-	catch (bad_regexpr){m_sBugID.Empty();m_sCommand.Empty();}
 	
 	if (props.nLogWidthMarker)
 	{
@@ -1150,8 +1141,6 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 	Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
 	CString msg = CString(textbuffer);
 	delete textbuffer;
-	size_t offset1 = 0;
-	size_t offset2 = 0;
 
 	// used for pattern matching by GRETA
 	restring reMsg = (LPCTSTR)msg;
@@ -1160,126 +1149,69 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 
 	if (!m_sBugID.IsEmpty())
 	{
+		// match with two regex strings (without grouping!)
 		try
 		{
-			match_results results;
-			match_results::backref_type br;
-			do 
+			const tr1::wregex regCheck(m_sCommand);
+			const tr1::wregex regBugID(m_sBugID);
+			const tr1::wsregex_iterator end;
+			wstring s = msg;
+			LONG pos = 0;
+			for (tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
 			{
-				br = m_patCommand.match( reMsg, results, offset1 );
-				if( br.matched ) 
+				// clear the styles up to the match position
+				Call(SCI_SETSTYLING, it->position(0)-pos, STYLE_DEFAULT);
+				pos += it->position(0);
+
+				// (*it)[0] is the matched string
+				wstring matchedString = (*it)[0];
+				LONG pos = it->position(0);
+				for (tr1::wsregex_iterator it2(matchedString.begin(), matchedString.end(), regBugID); it2 != end; ++it2)
 				{
-					// clear the styles up to the match position
-					Call(SCI_SETSTYLING, results.rstart(0), STYLE_DEFAULT);
-					ATLTRACE("STYLE_DEFAULT %d chars\n", results.rstart(0)-offset1);
-					offset1 += results.rstart(0);
-					offset2 = offset1 + results.rlength(0);
-					ATLTRACE(_T("matched string : %s\n"), results.backref(0).str().c_str());
-					{
-						size_t idoffset1=offset1;
-						size_t idoffset2=offset2;
-						match_results idresults;
-						match_results::backref_type idbr;
-						do 
-						{
-							idbr = m_patBugID.match( reMsg, idresults, idoffset1, offset2-idoffset1);
-							if (idbr.matched)
-							{
-								// bold style up to the id match
-								if (idresults.rstart(0) > 0)
-									Call(SCI_SETSTYLING, idresults.rstart(0), STYLE_ISSUEBOLD);
-								idoffset1 += idresults.rstart(0);
-								idoffset2 = idoffset1 + idresults.rlength(0);
-								ATLTRACE(_T("matched id : %s\n"), idresults.backref(0).str().c_str());
-								// bold and recursive style for the bug ID itself
-								if (idoffset2-idoffset1 > 0)
-									Call(SCI_SETSTYLING, idoffset2-idoffset1, STYLE_ISSUEBOLDITALIC);
-								idoffset1 = idoffset2;
-							}
-							else
-							{
-								// bold style for the rest of the string which isn't matched
-								if (offset2-idoffset1 > 0)
-									Call(SCI_SETSTYLING, offset2-idoffset1, STYLE_ISSUEBOLD);
-							}
-						} while((idbr.matched)&&(offset2-idoffset1));
-					}
-					offset1 = offset2;
+					ATLTRACE(_T("matched id : %s\n"), (*it2)[0].str().c_str());
+
+					// bold style up to the id match
+					ATLTRACE("position = %ld\n", it2->position(0));
+					if (it2->position(0)-pos)
+						Call(SCI_SETSTYLING, it2->position(0), STYLE_ISSUEBOLD);
+					// bold and recursive style for the bug ID itself
+					if ((*it2)[0].str().size())
+						Call(SCI_SETSTYLING, (*it2)[0].str().size(), STYLE_ISSUEBOLDITALIC);
 				}
-				else
-				{
-					// bold style for the rest of the string which isn't matched
-					if (end_pos-offset2 > 0)
-						Call(SCI_SETSTYLING, end_pos-offset2, STYLE_DEFAULT);
-				}
-			} while(br.matched);
-			return TRUE;
+			}
+			// bold style for the rest of the string which isn't matched
+			if (s.size()-pos)
+				Call(SCI_SETSTYLING, s.size()-pos, STYLE_DEFAULT);
 		}
-		catch (bad_alloc) {}
-		catch (bad_regexpr){}
-		catch ( ... )
-		{
-			ATLTRACE("exception occurred! most likely a bad regex!\n");
-		}
+		catch (exception) {}
 	}
 	else
 	{
 		try
 		{
-			match_results results;
-			match_results::backref_type br;
-			do 
+			const tr1::wregex regCheck(m_sCommand);
+			const tr1::wsregex_iterator end;
+			wstring s = msg;
+			LONG pos = 0;
+			for (tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
 			{
-				br = m_patCommand.match( reMsg, results, offset1 );
+				// clear the styles up to the match position
+				Call(SCI_SETSTYLING, it->position(0)-pos, STYLE_DEFAULT);
+				pos = it->position(0);
 
-				if( br.matched ) 
+				const tr1::wsmatch match = *it;
+				// we define group 1 as the whole issue text and
+				// group 2 as the bug ID
+				if (match.size() >= 2)
 				{
-					// clear the styles up to the match position
-					ATLTRACE(_T("matched string : %s\n"), results.backref(0).str().c_str());
-					Call(SCI_SETSTYLING, results.rstart(0), STYLE_DEFAULT);
-					ATLTRACE("STYLE_DEFAULT %d chars\n", results.rstart(0));
-					offset1 += results.rstart(0);
-					{
-						ATLTRACE("matched results : %ld\n", results.cbackrefs());
-						for (size_t test=0; test<results.cbackrefs(); ++test)
-						{
-							ATLTRACE(_T("matched (%d): %s\n"), test, results.backref(test).str().c_str());
-						}
-						// we define group 1 as the whole issue text
-						// and group 2 as the issue number
-						if ((results.cbackrefs() > 2)&&(results.backref(2).matched))
-						{
-							if (results.backref(2).str().empty())
-								Call(SCI_SETSTYLING, results.rlength(1), STYLE_ISSUEBOLD);
-							else
-								Call(SCI_SETSTYLING, results.rlength(1)-results.rlength(2), STYLE_ISSUEBOLD);
-							Call(SCI_SETSTYLING, results.rlength(2), STYLE_ISSUEBOLDITALIC);
-						}
-						else if ((results.cbackrefs() > 1)&&(results.backref(1).str().size()>0))
-						{
-							Call(SCI_SETSTYLING, results.rstart(1)-results.rstart(0), STYLE_ISSUEBOLD);
-							Call(SCI_SETSTYLING, results.rlength(1), STYLE_ISSUEBOLDITALIC);
-							Call(SCI_SETSTYLING, results.rlength(0)-results.rlength(1)-(results.rstart(1)-results.rstart(0)), STYLE_ISSUEBOLD);
-						}
-						offset1 += results.rlength(0);
-					}
+					ATLTRACE(_T("matched id : %s\n"), wstring(match[1]).c_str());
+					Call(SCI_SETSTYLING, match[1].first-s.begin()-pos, STYLE_ISSUEBOLD);
+					Call(SCI_SETSTYLING, wstring(match[1]).size(), STYLE_ISSUEBOLDITALIC);
+					pos = match[1].second-s.begin();
 				}
-				else
-				{
-					// bold style for the rest of the string which isn't matched
-					if (end_pos > (int)offset1)
-						Call(SCI_SETSTYLING, end_pos-offset1, STYLE_DEFAULT);
-				}
-			} while ((br.matched)&&((int)offset1<end_pos));
-			msg.ReleaseBuffer();
-			return TRUE;
+			}
 		}
-		catch (bad_alloc) {}
-		catch (bad_regexpr){}
-		catch ( ... )
-		{
-			ATLTRACE("exception occurred! most likely a bad regex!\n");
-		}
+		catch (exception) {}
 	}
 	return FALSE;
 }

@@ -23,9 +23,10 @@
 #include "hunspell\\mythes.hxx"
 #include "ProjectProperties.h"
 #include "PersonalDictionary.h"
+#include <regex>
 
-#include "regexpr2.h"
-using namespace regex;
+using namespace std;
+
 
 //forward declaration
 class CSciEdit;
@@ -124,8 +125,6 @@ private:
 	CString		m_sCommand;
 	CString		m_sBugID;
 	CString		m_sUrl;
-	rpattern	m_patCommand;
-	rpattern	m_patBugID;
 	CArray<CSciEditContextMenuInterface *, CSciEditContextMenuInterface *> m_arContextHandlers;
 	CPersonalDictionary m_personalDict;
 	static bool IsValidURLChar(wchar_t ch);

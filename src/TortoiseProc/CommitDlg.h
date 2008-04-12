@@ -30,6 +30,9 @@
 #define ENDDIALOGTIMER 100
 #define REFRESHTIMER   101
 
+#include "regexpr2.h"
+using namespace regex;
+
 /**
  * \ingroup TortoiseProc
  * helper struct for regex matches
