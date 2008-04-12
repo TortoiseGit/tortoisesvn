@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-04-02 20:34+0100\n"
+"PO-Revision-Date: 2008-04-12 13:22+0100\n"
 "Last-Translator: Zero3Cool\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -357,9 +357,17 @@ msgstr "&Avanceret..."
 msgid "&Allow ambiguous URLs"
 msgstr "&Tillad tvetydige URL'er"
 
+#. Resource IDs: (65535)
+msgid "&Application Look"
+msgstr "&Programudseende"
+
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
 msgstr "&Påfør unified diff"
+
+#. Resource IDs: (32852)
+msgid "&Aqua Style"
+msgstr "&Vand-stil"
 
 #. Resource IDs: (65535)
 msgid "&Autoclose:"
@@ -384,6 +392,10 @@ msgstr "&Angiv ansvar for revisioner"
 #. Resource IDs: (13)
 msgid "&Blame..."
 msgstr "&Ansvar..."
+
+#. Resource IDs: (32849)
+msgid "&Blue Style"
+msgstr "&Blå stil"
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
@@ -705,10 +717,6 @@ msgstr "&Offline indtil videre"
 msgid "&Open"
 msgstr "&Åbn"
 
-#. Resource IDs: (57601)
-msgid "&Open Ctrl-O"
-msgstr "&Åbn Ctrl-O"
-
 #. Resource IDs: (32772)
 msgid "&Overlap images"
 msgstr "&Overlap billeder"
@@ -778,8 +786,8 @@ msgid "&SSH client:"
 msgstr "&SSH-klient:"
 
 #. Resource IDs: (57603)
-msgid "&Save Ctrl-S"
-msgstr "&Gem Ctrl-S"
+msgid "&Save"
+msgstr "&Gem"
 
 #. Resource IDs: (1023)
 msgid "&Save authentication"
@@ -804,6 +812,10 @@ msgstr "Indstillin&ger"
 #. Resource IDs: (32815)
 msgid "&Show HEAD revisions"
 msgstr "&Vis HEAD-revisioner"
+
+#. Resource IDs: (32851)
+msgid "&Silver Style"
+msgstr "&Sølv-stil"
 
 #. Resource IDs: (1185)
 msgid "&Specific revision in repository"
@@ -877,10 +889,6 @@ msgstr "&URL:"
 msgid "&Undo"
 msgstr "&Fortryd"
 
-#. Resource IDs: (57643)
-msgid "&Undo\tCtrl+Z"
-msgstr "&Fortryd\tCtrl+Z"
-
 #. Resource IDs: (274, 32785)
 msgid "&Unified diff"
 msgstr "&Unified diff"
@@ -920,6 +928,10 @@ msgstr "&Blanktegn"
 #. Resource IDs: (1066)
 msgid "&Whole word"
 msgstr "&Helt ord"
+
+#. Resource IDs: (32846)
+msgid "&Windows XP"
+msgstr "&Windows XP"
 
 #. Resource IDs: (1183)
 msgid "&Working copy"
@@ -1437,6 +1449,10 @@ msgstr "Check automatisk efter &ny version hver uge"
 #. Resource IDs: (1157)
 msgid "Average"
 msgstr "Gennemsnit"
+
+#. Resource IDs: (32850)
+msgid "B&lack Style"
+msgstr "S%ort stil"
 
 #. Resource IDs: (1001)
 msgid "B&rowse..."
@@ -3951,6 +3967,11 @@ msgstr "Linje"
 msgid "Line Graph"
 msgstr "Kurvediagram"
 
+# Kontekst?
+#. Resource IDs: (32853)
+msgid "Line diff bar"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Line differences"
 msgstr "Linjeforskelle"
@@ -3991,6 +4012,11 @@ msgid ""
 msgstr ""
 "Placering hvortil indholdet af\n"
 "versionsarkiv-URL'en vil blive gemt."
+
+# Kontekst?
+#. Resource IDs: (32854)
+msgid "Locator Bar"
+msgstr ""
 
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
@@ -4572,6 +4598,18 @@ msgstr "Ok"
 #. Resource IDs: (3697)
 msgid "OVR"
 msgstr "OVR"
+
+#. Resource IDs: (32845)
+msgid "Office &XP"
+msgstr "Office &XP"
+
+#. Resource IDs: (32847)
+msgid "Office 200&3"
+msgstr "Office 200&3"
+
+#. Resource IDs: (65535)
+msgid "Office 200&7"
+msgstr "Office 200&7"
 
 #. Resource IDs: (65535)
 msgid "Older lines"
@@ -5902,10 +5940,6 @@ msgstr "Vis udelukkede mapper som versionerede"
 msgid "Show ignored files"
 msgstr "Vis ignorerede filer"
 
-#. Resource IDs: (1065)
-msgid "Show li&ne diff bar"
-msgstr "Vis område med li&nje-sammenligning"
-
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
 msgstr "Vis lin&jenumre"
@@ -7118,9 +7152,9 @@ msgstr "Opdaterer og forsøger låsning igen..."
 msgid "Updating log cache"
 msgstr "Opdaterer log-cache"
 
-#. Resource IDs: (1064)
-msgid "Use &magnifier on locatorbar"
-msgstr "Benyt &forstørrer på lokationslinje"
+#. Resource IDs: (32855)
+msgid "Use &left block"
+msgstr "Benyt &venstre blok"
 
 #. Resource IDs: (1024)
 msgid "Use &one-pane view as default for 2-file diff"
@@ -7156,6 +7190,38 @@ msgstr "Benyt unified diff fra udklipsholder"
 msgid "Use \"_svn\" instead of \".svn\" directories"
 msgstr "Benyt \"_svn\"-mapper i stedet for \".svn\""
 
+#. Resource IDs: (2054)
+msgid ""
+"Use all content from the left view\n"
+"use left file"
+msgstr ""
+"Brug alt indhold fra den venstre visning\n"
+"brug venstre fil"
+
+#. Resource IDs: (32857)
+msgid "Use block from left before right"
+msgstr "Benyt blok fra venstre før højre"
+
+#. Resource IDs: (2054)
+msgid ""
+"Use block from left view before block from right view\n"
+"use block from left before right"
+msgstr ""
+"Brug blok fra venstre visning før blok fra højre visning\n"
+"brug blok fra venstre før højre"
+
+#. Resource IDs: (32859)
+msgid "Use block from right before left"
+msgstr "Benyt blok fra højre før venstre"
+
+#. Resource IDs: (2054)
+msgid ""
+"Use block from right view before block from left view\n"
+"use block from right before left"
+msgstr ""
+"Brug blok fra højre visning før blok fra venstre visning\n"
+"brug blok fra højre før blok fra venstre"
+
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one first)"
 msgstr "Benyt begge tekstblokke (denne først)"
@@ -7163,6 +7229,10 @@ msgstr "Benyt begge tekstblokke (denne først)"
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one last)"
 msgstr "Benyt begge tekstblokke (denne sidst)"
+
+#. Resource IDs: (32856)
+msgid "Use left file"
+msgstr "Benyt venstre fil"
 
 #. Resource IDs: (3)
 msgid "Use local"
@@ -7231,6 +7301,14 @@ msgid ""
 msgstr ""
 "Benyt tekstblok fra \"deres\"\n"
 "Brug \"deres\" tekstblok"
+
+#. Resource IDs: (2054)
+msgid ""
+"Use text block from the left view\n"
+"use left block"
+msgstr ""
+"Benyt tekstblok fra den venstre visning\n"
+"benyt venstre blok"
 
 #. Resource IDs: (251)
 msgid "Use th&is text block"
@@ -7324,6 +7402,10 @@ msgstr "Vis revision i &webviser"
 msgid "Visit our website"
 msgstr "Besøg vores hjemmeside"
 
+#. Resource IDs: (32848)
+msgid "Visual Studio.NET 200&5"
+msgstr "Visual Studio.NET 200&5"
+
 #. Resource IDs: (198)
 msgid "Wait"
 msgstr "Vent"
@@ -7361,6 +7443,10 @@ msgid ""
 msgstr ""
 "Ved låsning af én eller flere filer vises dialogen\n"
 "hvor der kan indtastes en beskrivende besked om låsningen"
+
+#. Resource IDs: (32844)
+msgid "Windows &2000"
+msgstr "Windows &2000"
 
 #. Resource IDs: (146)
 msgid "With URL:"
@@ -8240,4 +8326,13 @@ msgstr "år"
 #. Resource IDs: (18, 1002, 1011, 1012)
 msgid "yes"
 msgstr "ja"
+
+#~ msgid "&Open Ctrl-O"
+#~ msgstr "&Åbn Ctrl-O"
+#~ msgid "&Save Ctrl-S"
+#~ msgstr "&Gem Ctrl-S"
+#~ msgid "&Undo\tCtrl+Z"
+#~ msgstr "&Fortryd\tCtrl+Z"
+#~ msgid "Use &magnifier on locatorbar"
+#~ msgstr "Benyt &forstørrer på lokationslinje"
 
