@@ -1,13 +1,13 @@
-(MULTILINE) .h, .hpp, .hxx = ^\s*class\s+([\w_]+)|\W([\w_]+)\(
-(MULTILINE) .cpp, .c, .cxx = \W(([\w_]+)::([\w_]+))|\W([\w_]+)\(
+.h, .hpp, .hxx = ^\s*class\s+([\w_]+)|\W([\w_]+)\(
+.cpp, .c, .cxx = \W(([\w_]+)::([\w_]+))|\W([\w_]+)\(
 .js = (?:(?:prototype\.|this\.)(\w+)\s*=\s*)?function\s*(?:(\w*)\s*)\(
-(NOCASE) .pas = (\w+)\s+=\s+(?:class|record|interface)|(?:procedure|function|property|constructor)\s+(\w+)
-(MULTILINE) .py .pyw = ^\s*(?:class|def)\s+(\w+)
-(MULTILINE) .pl, .pm, .cgi = ^\s*sub\s+(\w+)|\s*(?:package|use)\s+([\w\:]+)
-(MULTILINE) .php = ^\s*class\s+(\w+)|^\s*(?:(?:public|private|)\s+function)\s+(\w+)|::(\w+)|->(\w+)
-(MULTILINE|NOCASE) .vb = (?:class|function|sub)\s+(\w+)(?:\s*(?:[\(\']|$))
-(MULTILINE) .bas, .frm, .cls = ^\s*(?:(?:Public (?:Default )?|Private )?(?:Sub|Function|Property Get|Property Set|Property Let) ?)(\w+)\(|^Attribute VB_Name = "(\w+)"
+.pas = (\w+)\s+=\s+(?:class|record|interface)|(?:procedure|function|property|constructor)\s+(\w+)
+.py .pyw = ^\s*(?:class|def)\s+(\w+)
+.pl, .pm, .cgi = ^\s*sub\s+(\w+)|\s*(?:package|use)\s+([\w\:]+)
+.php = ^\s*class\s+(\w+)|^\s*(?:(?:public|private|)\s+function)\s+(\w+)|::(\w+)|->(\w+)
+.vb = (?:class|function|sub)\s+(\w+)(?:\s*(?:[\(\']|$))
+.bas, .frm, .cls = ^\s*(?:(?:Public (?:Default )?|Private )?(?:Sub|Function|Property Get|Property Set|Property Let) ?)(\w+)\(|^Attribute VB_Name = "(\w+)"
 .cs = (?:public|protected|private|internal)\s+(?:[\w\d_\.]+\s+)*([\w\d_\.]+)
-(MULTILINE|NOCASE) .cbl, .cpy = ^.{6} ([A-Z][A-Z0-9-]*)(?: SECTION)?\.
-(MULTILINE|NOCASE) .au3, .auh = Func\s+([\w_]+)|\$([\w_]+)
-(MULTILINE) .asm = ^([\w]+) *
+.cbl, .cpy = ^.{6} ([A-Z][A-Z0-9-]*)(?: SECTION)?\.
+.au3, .auh = Func\s+([\w_]+)|\$([\w_]+)
+.asm = ^([\w]+) *

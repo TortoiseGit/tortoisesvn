@@ -27,21 +27,12 @@
 #include "SplitterControl.h"
 #include "PathWatcher.h"
 
+#include <regex>
+using namespace std;
+
 #define ENDDIALOGTIMER 100
 #define REFRESHTIMER   101
 
-#include "regexpr2.h"
-using namespace regex;
-
-/**
- * \ingroup TortoiseProc
- * helper struct for regex matches
- */
-typedef struct RegexData
-{
-	CString regex;
-	REGEX_FLAGS flags;
-} RegexData;
 
 /**
  * \ingroup TortoiseProc
@@ -90,11 +81,11 @@ protected:
     afx_msg void OnSize(UINT nType, int cx, int cy);
 	void Refresh();
 	void GetAutocompletionList();
-	void ScanFile(const CString& sFilePath, const CString& sRegex, REGEX_FLAGS rflags);
+	void ScanFile(const CString& sFilePath, const CString& sRegex);
 	void DoSize(int delta);
 	void SetSplitterRange();
 	void SaveSplitterPos();
-	void ParseRegexFile(const CString& sFile, std::map<CString, RegexData>& mapRegex);
+	void ParseRegexFile(const CString& sFile, std::map<CString, CString>& mapRegex);
 
 	DECLARE_MESSAGE_MAP()
 

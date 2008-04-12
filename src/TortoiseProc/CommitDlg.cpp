@@ -852,7 +852,7 @@ LRESULT CCommitDlg::OnAutoListReady(WPARAM, LPARAM)
 // functions which run in the status thread
 //////////////////////////////////////////////////////////////////////////
 
-void CCommitDlg::ParseRegexFile(const CString& sFile, std::map<CString, RegexData>& mapRegex)
+void CCommitDlg::ParseRegexFile(const CString& sFile, std::map<CString, CString>& mapRegex)
 {
 	CString strLine;
 	try
@@ -861,26 +861,16 @@ void CCommitDlg::ParseRegexFile(const CString& sFile, std::map<CString, RegexDat
 		while (m_bRunThread && file.ReadString(strLine))
 		{
 			int eqpos = strLine.Find('=');
-			RegexData rdata;
-			rdata.regex = strLine.Mid(eqpos+1).Trim();
-			CString sFlags = (strLine[0] == '(' ? strLine.Left(strLine.Find(')')+1).Trim(_T(" ()")) : _T(""));
-			rdata.flags = NOFLAGS;
-			rdata.flags |= sFlags.Find(_T("GLOBAL"))>=0 ? GLOBAL : NOFLAGS;
-			rdata.flags |= sFlags.Find(_T("MULTILINE"))>=0 ? MULTILINE : NOFLAGS;
-			rdata.flags |= sFlags.Find(_T("SINGLELINE"))>=0 ? SINGLELINE : NOFLAGS;
-			rdata.flags |= sFlags.Find(_T("RIGHTMOST"))>=0 ? RIGHTMOST : NOFLAGS;
-			rdata.flags |= sFlags.Find(_T("NORMALIZE"))>=0 ? NORMALIZE : NOFLAGS;
-			rdata.flags |= sFlags.Find(_T("NOCASE"))>=0 ? NOCASE : NOFLAGS;
+			CString rgx;
+			rgx = strLine.Mid(eqpos+1).Trim();
 
-			if (!sFlags.IsEmpty())
-				strLine = strLine.Mid(strLine.Find(')')+1).Trim();
 			int pos = -1;
 			while (((pos = strLine.Find(','))>=0)&&(pos < eqpos))
 			{
-				mapRegex[strLine.Left(pos)] = rdata;
+				mapRegex[strLine.Left(pos)] = rgx;
 				strLine = strLine.Mid(pos+1).Trim();
 			}
-			mapRegex[strLine.Left(strLine.Find('=')).Trim()] = rdata;
+			mapRegex[strLine.Left(strLine.Find('=')).Trim()] = rgx;
 		}
 		file.Close();
 	}
@@ -902,7 +892,7 @@ void CCommitDlg::GetAutocompletionList()
 	// (MULTILINE|NOCASE) .h, .hpp = (?<=class[\s])\b\w+\b|(\b\w+(?=[\s ]?\(\);))
 	// .cpp = (?<=[^\s]::)\b\w+\b
 	
-	std::map<CString, RegexData> mapRegex;
+	std::map<CString, CString> mapRegex;
 	CString sRegexFile = CPathUtils::GetAppDirectory();
 	CRegDWORD regtimeout = CRegDWORD(_T("Software\\TortoiseSVN\\AutocompleteParseTimeout"), 5);
 	DWORD timeoutvalue = regtimeout*1000;
@@ -964,11 +954,11 @@ void CCommitDlg::GetAutocompletionList()
 		CString sExt = entry->GetPath().GetFileExtension();
 		sExt.MakeLower();
 		// find the regex string which corresponds to the file extension
-		RegexData rdata = mapRegex[sExt];
-		if (rdata.regex.IsEmpty())
+		CString rdata = mapRegex[sExt];
+		if (rdata.IsEmpty())
 			continue;
 
-		ScanFile(entry->GetPath().GetWinPathString(), rdata.regex, rdata.flags);
+		ScanFile(entry->GetPath().GetWinPathString(), rdata);
 		if ((entry->textstatus != svn_wc_status_unversioned) &&
 			(entry->textstatus != svn_wc_status_none) &&
 			(entry->textstatus != svn_wc_status_ignored) &&
@@ -977,15 +967,15 @@ void CCommitDlg::GetAutocompletionList()
 		{
 			CTSVNPath basePath = SVN::GetPristinePath(entry->GetPath());
 			if (!basePath.IsEmpty())
-				ScanFile(basePath.GetWinPathString(), rdata.regex, rdata.flags);
+				ScanFile(basePath.GetWinPathString(), rdata);
 		}
 	}
 	ATLTRACE(_T("Autocompletion list loaded in %d msec\n"), GetTickCount() - starttime);
 }
 
-void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex, REGEX_FLAGS rflags)
+void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex)
 {
-	CString sFileContent;
+	wstring sFileContent;
 	HANDLE hFile = CreateFile(sFilePath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
 	if (hFile != INVALID_HANDLE_VALUE)
 	{
@@ -1010,44 +1000,43 @@ void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex, REGEX
 		}
 		if (opts & IS_TEXT_UNICODE_UNICODE_MASK)
 		{
-			CString sText = CString(buffer, readbytes);
-			sFileContent = sText;
+			sFileContent = wstring((wchar_t*)buffer, readbytes/sizeof(WCHAR));
 		}
 		if ((opts & IS_TEXT_UNICODE_NOT_UNICODE_MASK)||(opts == 0))
 		{
-			CStringA sText = CStringA(buffer, readbytes);
-			sFileContent = CString(sText);
+			int ret = MultiByteToWideChar(CP_ACP, MB_PRECOMPOSED, (LPCSTR)buffer, readbytes, NULL, 0);
+			wchar_t * pWideBuf = new wchar_t[ret];
+			int ret2 = MultiByteToWideChar(CP_ACP, MB_PRECOMPOSED, (LPCSTR)buffer, readbytes, pWideBuf, ret);
+			if (ret2 == ret)
+				sFileContent = wstring(pWideBuf, ret);
+			delete [] pWideBuf;
 		}
 		delete [] buffer;
 	}
-	if (sFileContent.IsEmpty()|| !m_bRunThread)
+	if (sFileContent.empty()|| !m_bRunThread)
 	{
 		return;
 	}
-	match_results results;
-	size_t offset = 0;
+
 	try
 	{
-		rpattern pat( (LPCTSTR)sRegex, rflags ); 
-		match_results::backref_type br;
-		restring reFileContent = (LPCTSTR)sFileContent;
-		do 
+		const tr1::wregex regCheck(sRegex);
+		const tr1::wsregex_iterator end;
+		wstring s = sFileContent;
+		for (tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
 		{
-			br = pat.match( reFileContent, results, offset );
-			if( br.matched ) 
+			const tr1::wsmatch match = *it;
+			for (size_t i=1; i<match.size(); ++i)
 			{
-				for (size_t i=1; i<results.cbackrefs(); ++i)
+				if (match[i].second-match[i].first)
 				{
-					m_autolist.insert((LPCTSTR)results.backref(i).str().c_str());
+					ATLTRACE(_T("matched keyword : %s\n"), wstring(match[i]).c_str());
+					m_autolist.insert(wstring(match[i]).c_str());
 				}
-				offset += results.rstart(0);
-				offset += results.rlength(0);
 			}
-		} while((br.matched)&&(m_bRunThread));
-		sFileContent.ReleaseBuffer();
+		}
 	}
-	catch (bad_alloc) {ATLTRACE(_T("bad alloc exception when parsing file %s\n"), (LPCTSTR)sFilePath);}
-	catch (bad_regexpr) {ATLTRACE(_T("bad regexp exception when parsing file %s\n"), (LPCTSTR)sFilePath);}
+	catch (exception) {}
 }
 
 // CSciEditContextMenuInterface
