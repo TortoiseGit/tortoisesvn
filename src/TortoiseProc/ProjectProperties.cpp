@@ -117,25 +117,10 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 				{
 					sBugIDRe = sCheckRe.Mid(sCheckRe.Find('\n')).Trim();
 					sCheckRe = sCheckRe.Left(sCheckRe.Find('\n')).Trim();
-					if (!sBugIDRe.IsEmpty())
-					{
-						try
-						{
-							patBugIDRe.init((LPCTSTR)sBugIDRe, MULTILINE);
-						}
-						catch (bad_alloc){sBugIDRe.Empty();}
-						catch (bad_regexpr){sBugIDRe.Empty();}
-					}
 				}
 				if (!sCheckRe.IsEmpty())
 				{
 					sCheckRe = sCheckRe.Trim();
-					try
-					{
-						patCheckRe.init((LPCTSTR)sCheckRe, MULTILINE);
-					}
-					catch (bad_alloc){sCheckRe.Empty();}
-					catch (bad_regexpr){sCheckRe.Empty();}
 				}
 				bFoundBugtraqLogRe = TRUE;
 			}
@@ -367,122 +352,71 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 	if (sUrl.IsEmpty())
 		return FALSE;
 
-	// for use with GRETA, actually a basic_string<TCHAR>
-	restring reMsg = (LPCTSTR)msg;
-
 	// first use the checkre string to find bug ID's in the message
 	if (!sCheckRe.IsEmpty())
 	{
 		if (!sBugIDRe.IsEmpty())
 		{
+
 			// match with two regex strings (without grouping!)
 			try
 			{
-				match_results results;
-				match_results::backref_type br;
-				do 
+				const tr1::wregex regCheck(sCheckRe);
+				const tr1::wregex regBugID(sBugIDRe);
+				const tr1::wsregex_iterator end;
+				wstring s = msg;
+				for (tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
 				{
-					br = patCheckRe.match( reMsg, results, offset1 );
-					if( br.matched ) 
+					// (*it)[0] is the matched string
+					wstring matchedString = (*it)[0];
+					LONG matchpos = it->position(0);
+					for (tr1::wsregex_iterator it2(matchedString.begin(), matchedString.end(), regBugID); it2 != end; ++it2)
 					{
-						offset1 += results.rstart(0);
-						offset2 = offset1 + results.rlength(0);
-						ATLTRACE(_T("matched %s\n"), results.backref(0).str().c_str());
-						// now we have a full match. To create the links we need to extract the
-						// bare bug ID's first.
-						{
-							size_t idoffset1=offset1;
-							size_t idoffset2=offset2;
-							match_results idresults;
-							match_results::backref_type idbr;
-							do 
-							{
-								idbr = patBugIDRe.match( reMsg, idresults, idoffset1, offset2-idoffset1);
-								if (idbr.matched)
-								{
-									idoffset1 += idresults.rstart(0);
-									idoffset2 = idoffset1 + idresults.rlength(0);
-									ATLTRACE(_T("matched id : %s\n"), idresults.backref(0).str().c_str());
-									CHARRANGE range = {(LONG)idoffset1, (LONG)idoffset2};
-									pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
-									CHARFORMAT2 format;
-									ZeroMemory(&format, sizeof(CHARFORMAT2));
-									format.cbSize = sizeof(CHARFORMAT2);
-									format.dwMask = CFM_LINK;
-									format.dwEffects = CFE_LINK;
-									pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
-									idoffset1 = idoffset2;
-									bFound = true;
-								}
-							} while(idbr.matched);
-						}
-						offset1 = offset2;
+						ATLTRACE(_T("matched id : %s\n"), (*it2)[0].str().c_str());
+						LONG matchposID = it2->position(0);
+						CHARRANGE range = {matchpos+matchposID, matchpos+matchposID+(*it2)[0].str().size()};
+						pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
+						CHARFORMAT2 format;
+						ZeroMemory(&format, sizeof(CHARFORMAT2));
+						format.cbSize = sizeof(CHARFORMAT2);
+						format.dwMask = CFM_LINK;
+						format.dwEffects = CFE_LINK;
+						pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+						bFound = true;
 					}
-				} while(br.matched);
+				}
 			}
-			catch (bad_alloc) {}
-			catch (bad_regexpr){}
+			catch (exception) {}
 		}
 		else
 		{
 			try
 			{
-				match_results results;
-				match_results::backref_type br;
-
-				do 
+				const tr1::wregex regCheck(sCheckRe);
+				const tr1::wregex regBugID(sBugIDRe);
+				const tr1::wsregex_iterator end;
+				wstring s = msg;
+				for (tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
 				{
-					br = patCheckRe.match( reMsg, results, offset1 );
-					if( br.matched ) 
+					const tr1::wsmatch match = *it;
+					// we define group 1 as the whole issue text and
+					// group 2 as the bug ID
+					if (match.size() >= 2)
 					{
-						// clear the styles up to the match position
-						ATLTRACE(_T("matched string : %s\n"), results.backref(0).str().c_str());
-						offset1 += results.rstart(0);
-						{
-							ATLTRACE("matched results : %ld\n", results.cbackrefs());
-							for (size_t test=0; test<results.cbackrefs(); ++test)
-							{
-								ATLTRACE(_T("matched (%d): %s\n"), test, results.backref(test).str().c_str());
-							}
-							// we define group 1 as the whole issue text
-							// and group 2 as the issue number
-							CHARRANGE range;
-							if ((results.cbackrefs() > 2)&&(results.backref(2).matched))
-							{
-								if (results.backref(2).str().empty())
-									range.cpMin = (LONG)(offset1 + results.rlength(1));
-								else
-									range.cpMin = (LONG)(offset1 + results.rlength(1)-results.rlength(2));
-								range.cpMax =  (LONG)(offset1 + results.rlength(1));
-							}
-							else if ((results.cbackrefs() > 1)&&(results.backref(1).matched)&&(results.backref(1).str().size()>0))
-							{
-								range.cpMin = (LONG)(offset1 + results.rstart(1)-results.rstart(0));
-								range.cpMax = (LONG)(range.cpMin + results.rlength(1));
-							}
-							else
-							{
-								range.cpMin = offset1;
-								range.cpMax = offset1;
-							}
-							if (range.cpMin != range.cpMax)
-							{
-								pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
-								CHARFORMAT2 format;
-								ZeroMemory(&format, sizeof(CHARFORMAT2));
-								format.cbSize = sizeof(CHARFORMAT2);
-								format.dwMask = CFM_LINK;
-								format.dwEffects = CFE_LINK;
-								pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
-								bFound = true;
-							}
-							offset1 += results.rlength(0);
-						}
+						ATLTRACE(_T("matched id : %s\n"), wstring(match[1]).c_str());
+						CHARRANGE range = {match[1].first-s.begin(), match[1].second-s.begin()};
+						pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
+						CHARFORMAT2 format;
+						ZeroMemory(&format, sizeof(CHARFORMAT2));
+						format.cbSize = sizeof(CHARFORMAT2);
+						format.dwMask = CFM_LINK;
+						format.dwEffects = CFE_LINK;
+						pWnd->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
+						bFound = true;
 					}
-				} while ((br.matched)&&((int)offset1<msg.GetLength()));
+				}
 			}
-			catch (bad_alloc) {}
-			catch (bad_regexpr) {}
+			catch (exception) {}
 		}
 	}
 	else if ((!bFound)&&(!sMessage.IsEmpty()))
@@ -572,9 +506,6 @@ CString ProjectProperties::FindBugID(const CString& msg)
 
 	std::set<CString> bugIDs;
 
-	// for use with GRETA, actually a basic_string<TCHAR>
-	restring reMsg = (LPCTSTR)msg;
-
 	// first use the checkre string to find bug ID's in the message
 	if (!sCheckRe.IsEmpty())
 	{
@@ -583,97 +514,44 @@ CString ProjectProperties::FindBugID(const CString& msg)
 			// match with two regex strings (without grouping!)
 			try
 			{
-				match_results results;
-				match_results::backref_type br;
-				do 
+				const tr1::wregex regCheck(sCheckRe);
+				const tr1::wregex regBugID(sBugIDRe);
+				const tr1::wsregex_iterator end;
+				wstring s = msg;
+				for (tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
 				{
-					br = patCheckRe.match( reMsg, results, offset1 );
-					if( br.matched ) 
+					// (*it)[0] is the matched string
+					wstring matchedString = (*it)[0];
+					for (tr1::wsregex_iterator it2(matchedString.begin(), matchedString.end(), regBugID); it2 != end; ++it2)
 					{
-						offset1 += results.rstart(0);
-						offset2 = offset1 + results.rlength(0);
-						ATLTRACE(_T("matched %s\n"), results.backref(0).str().c_str());
-						// now we have a full match. To create the links we need to extract the
-						// bare bug ID's first.
-						{
-							size_t idoffset1=offset1;
-							size_t idoffset2=offset2;
-							match_results idresults;
-							match_results::backref_type idbr;
-							do 
-							{
-								idbr = patBugIDRe.match( reMsg, idresults, idoffset1, offset2-idoffset1);
-								if (idbr.matched)
-								{
-									idoffset1 += idresults.rstart(0);
-									idoffset2 = idoffset1 + idresults.rlength(0);
-									ATLTRACE(_T("matched id : %s\n"), idresults.backref(0).str().c_str());
-									bugIDs.insert(CString(idresults.backref(0).str().c_str()));
-									idoffset1 = idoffset2;
-									bFound = true;
-								}
-							} while ((idbr.matched)&&(offset2-idoffset1));
-						}
-						offset1 = offset2;
+						ATLTRACE(_T("matched id : %s\n"), (*it2)[0].str().c_str());
+						bugIDs.insert(CString((*it2)[0].str().c_str()));
 					}
-				} while(br.matched);
+				}
 			}
-			catch (bad_alloc) {}
-			catch (bad_regexpr){}
+			catch (exception) {}
 		}
 		else
 		{
 			try
 			{
-				match_results results;
-				match_results::backref_type br;
-
-				do 
+				const tr1::wregex regCheck(sCheckRe);
+				const tr1::wregex regBugID(sBugIDRe);
+				const tr1::wsregex_iterator end;
+				wstring s = msg;
+				for (tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
 				{
-					br = patCheckRe.match( reMsg, results, offset1 );
-					if( br.matched ) 
+					const tr1::wsmatch match = *it;
+					// we define group 1 as the whole issue text and
+					// group 2 as the bug ID
+					if (match.size() >= 2)
 					{
-						// clear the styles up to the match position
-						ATLTRACE(_T("matched string : %s\n"), results.backref(0).str().c_str());
-						offset1 += results.rstart(0);
-						{
-							ATLTRACE("matched results : %ld\n", results.cbackrefs());
-							for (size_t test=0; test<results.cbackrefs(); ++test)
-							{
-								ATLTRACE(_T("matched (%d): %s\n"), test, results.backref(test).str().c_str());
-							}
-							// we define group 1 as the whole issue text
-							// and group 2 as the issue number
-							CHARRANGE range;
-							if ((results.cbackrefs() > 2)&&(results.backref(2).matched))
-							{
-								if (results.backref(2).str().empty())
-									range.cpMin = (LONG)(offset1 + results.rlength(1));
-								else
-									range.cpMin = (LONG)(offset1 + results.rlength(1)-results.rlength(2));
-								range.cpMax =  (LONG)(offset1 + results.rlength(1));
-							}
-							else if ((results.cbackrefs() > 1)&&(results.backref(1).matched)&&(results.backref(1).str().size()>0))
-							{
-								range.cpMin = (LONG)(offset1 + results.rstart(1)-results.rstart(0));
-								range.cpMax = (LONG)(range.cpMin + results.rlength(1));
-							}
-							else
-							{
-								range.cpMin = range.cpMax = 0;
-							}
-							if (range.cpMin != range.cpMax)
-							{
-								bugIDs.insert(msg.Mid(range.cpMin, range.cpMax-range.cpMin));
-								bFound = true;
-							}
-							offset1 += results.rlength(0);
-						}
+						ATLTRACE(_T("matched id : %s\n"), wstring(match[1]).c_str());
+						bugIDs.insert(CString(wstring(match[1]).c_str()));
 					}
-				} while ((br.matched)&&((int)offset1<msg.GetLength()));
+				}
 			}
-			catch (bad_alloc) {}
-			catch (bad_regexpr) {}
+			catch (exception) {}
 		}
 	}
 	else if ((!bFound)&&(!sMessage.IsEmpty()))
@@ -933,94 +811,20 @@ public:
 	PropTest()
 	{
 		CString msg = _T("this is a test logmessage: issue 222\nIssue #456, #678, 901  #456");
-		size_t offset1 = 0;
-		size_t offset2 = 0;
 		CString sUrl = _T("http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%");
 		CString sCheckRe = _T("[Ii]ssue #?(\\d+)(,? ?#?(\\d+))+");
 		CString sBugIDRe = _T("(\\d+)");
-		match_results results;
-		rpattern pat( (LPCTSTR)sCheckRe, MULTILINE ); 
-		match_results::backref_type br;
-
-		// for use with GRETA
-		restring reMsg = (LPCTSTR)msg;
-		do 
-		{
-			br = pat.match( reMsg, results, offset1);
-
-			if( br.matched ) 
-			{
-				offset1 += results.rstart(0);
-				offset2 = offset1 + results.rlength(0);
-				ATLTRACE(_T("matched : %s\n"), results.backref(0).str().c_str());
-				{
-					size_t idoffset1=offset1;
-					match_results idresults;
-					rpattern idpat( (LPCTSTR)sBugIDRe, MULTILINE );
-					match_results::backref_type idbr;
-					do 
-					{
-						idbr = idpat.match( reMsg, idresults, idoffset1, offset2-idoffset1);
-						if (idbr.matched)
-						{
-							idoffset1 += idresults.rstart(0);
-							idoffset1 += idresults.rlength(0);
-							ATLTRACE(_T("matched id : %s\n"), idresults.backref(0).str().c_str());
-						}
-					} while(idbr.matched);
-				}
-				offset1 = offset2;
-			}
-		} while(br.matched);
-
-		try
-		{
-			match_results results;
-			match_results::backref_type br;
-			CString sUrl = _T("http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%");
-			CString sCheckRe = _T("[Ii]ssue #?(\\d+),? ?#?(\\d+)?,? ?#?(\\d+)?,? ?#?(\\d+)?,? ?#?(\\d+)?,? ?#?(\\d+)?");
-			CString msg = _T("this is a test logmessage: issue 2222\nIssue #456, 678, #901, #100  #456");
-			offset1 = 0;
-
-			restring reMsg = (LPCTSTR)msg;
-			do 
-			{
-				rpattern pat( (LPCTSTR)sCheckRe, MULTILINE ); 
-
-				br = pat.match( reMsg, results, offset1);
-				ATLTRACE(_T("matched : %s\n"), results.backref(0).str().c_str());
-				if( br.matched ) 
-				{
-					for (size_t i=1; i<results.cbackrefs(); ++i)
-					{
-						ATLTRACE(_T("matched id : %s\n"), results.backref(i).str().c_str());
-					}
-				}
-				if (br.matched)
-				{
-					offset1 += results.rstart(0);
-					offset1 += results.rlength(0);
-				}
-			} while(br.matched);
-			msg.ReleaseBuffer();
-		}
-		catch (bad_alloc) {}
-		catch (bad_regexpr) {}
 		ProjectProperties props;
 		props.sCheckRe = _T("PAF-[0-9]+");
-		props.patCheckRe.init((LPCTSTR)props.sCheckRe, MULTILINE);
 		props.sUrl = _T("http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%");
 		CString sRet = props.FindBugID(_T("This is a test for PAF-88"));
 		ATLASSERT(sRet.IsEmpty());
 		props.sCheckRe = _T("[Ii]ssue #?(\\d+)");
-		props.patCheckRe.init((LPCTSTR)props.sCheckRe, MULTILINE);
 		sRet = props.FindBugID(_T("Testing issue #99"));
 		sRet.Trim();
 		ATLASSERT(sRet.Compare(_T("99"))==0);
 		props.sCheckRe = _T("[Ii]ssues?:?(\\s*(,|and)?\\s*#\\d+)+");
-		props.patCheckRe.init((LPCTSTR)props.sCheckRe, MULTILINE);
 		props.sBugIDRe = _T("(\\d+)");
-		props.patBugIDRe.init((LPCTSTR)props.sBugIDRe, MULTILINE);
 		props.sUrl = _T("http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%");
 		sRet = props.FindBugID(_T("This is a test for Issue #7463,#666"));
 		ATLASSERT(props.HasBugID(_T("This is a test for Issue #7463,#666")));
@@ -1028,13 +832,11 @@ public:
 		sRet.Trim();
 		ATLASSERT(sRet.Compare(_T("666 7463"))==0);
 		props.sCheckRe = _T("^\\[(\\d+)\\].*");
-		props.patCheckRe.init((LPCTSTR)props.sCheckRe, MULTILINE);
 		props.sUrl = _T("http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%");
 		sRet = props.FindBugID(_T("[000815] some stupid programming error fixed"));
 		sRet.Trim();
 		ATLASSERT(sRet.Compare(_T("000815"))==0);
 		props.sCheckRe = _T("\\[\\[(\\d+)\\]\\]\\]");
-		props.patCheckRe.init((LPCTSTR)props.sCheckRe, MULTILINE);
 		props.sUrl = _T("http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%");
 		sRet = props.FindBugID(_T("test test [[000815]]] some stupid programming error fixed"));
 		sRet.Trim();
