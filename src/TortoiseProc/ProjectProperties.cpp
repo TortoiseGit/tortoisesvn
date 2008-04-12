@@ -386,7 +386,6 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 			try
 			{
 				const tr1::wregex regCheck(sCheckRe);
-				const tr1::wregex regBugID(sBugIDRe);
 				const tr1::wsregex_iterator end;
 				wstring s = msg;
 				for (tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
@@ -529,7 +528,6 @@ CString ProjectProperties::FindBugID(const CString& msg)
 			try
 			{
 				const tr1::wregex regCheck(sCheckRe);
-				const tr1::wregex regBugID(sBugIDRe);
 				const tr1::wsregex_iterator end;
 				wstring s = msg;
 				for (tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
