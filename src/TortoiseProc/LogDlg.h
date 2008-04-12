@@ -31,8 +31,8 @@
 #include "FilterEdit.h"
 #include "SVNRev.h"
 
-#include "regexpr2.h"
-using namespace regex;
+#include <regex>
+using namespace std;
 
 
 #define MERGE_REVSELECTSTART	 1
@@ -162,7 +162,7 @@ private:
 	void GetAll(bool bForceAll = false);
 	void UpdateLogInfoLabel();
 	void SaveSplitterPos();
-	bool ValidateRegexp(LPCTSTR regexp_str, rpattern& pat, bool bMatchCase = false);
+	bool ValidateRegexp(LPCTSTR regexp_str, tr1::wregex& pat, bool bMatchCase);
 	void CheckRegexpTooltip();
 	void GetChangedPaths(std::vector<CString>& changedpaths, std::vector<LogChangedPath*>& changedlogpaths);
 	void DiffSelectedFile();

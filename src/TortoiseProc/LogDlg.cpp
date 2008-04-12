@@ -1371,20 +1371,19 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
         CString FindText = m_pFindDialog->GetFindString();
         bool bMatchCase = (m_pFindDialog->MatchCase() == TRUE);
 		bool bFound = false;
-		rpattern pat;
+		tr1::wregex pat;
 		bool bRegex = ValidateRegexp(FindText, pat, bMatchCase);
+
+		tr1::regex_constants::match_flag_type flags = tr1::regex_constants::match_not_null;
 
 		int i;
 		for (i = this->m_nSearchIndex; i<m_arShownList.GetCount()&&!bFound; i++)
 		{
 			if (bRegex)
 			{
-				match_results results;
-				match_results::backref_type br;
 				PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(i));
 
-				br = pat.match( restring((LPCTSTR)pLogEntry->sMessage), results );
-				if (br.matched)
+				if (regex_search(wstring((LPCTSTR)pLogEntry->sMessage), pat, flags))
 				{
 					bFound = true;
 					break;
@@ -1393,15 +1392,13 @@ LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 				for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount(); ++cpPathIndex)
 				{
 					LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
-					br = pat.match( restring ((LPCTSTR)cpath->sCopyFromPath), results);
-					if (br.matched)
+					if (regex_search(wstring((LPCTSTR)cpath->sCopyFromPath), pat, flags))
 					{
 						bFound = true;
 						--i;
 						break;
 					}
-					br = pat.match( restring ((LPCTSTR)cpath->sPath), results);
-					if (br.matched)
+					if (regex_search(wstring((LPCTSTR)cpath->sPath), pat, flags))
 					{
 						bFound = true;
 						--i;
@@ -2819,15 +2816,17 @@ void CLogDlg::OnEnChangeSearchedit()
 		KillTimer(LOGFILTER_TIMER);
 }
 
-bool CLogDlg::ValidateRegexp(LPCTSTR regexp_str, rpattern& pat, bool bMatchCase /* = false */)
+bool CLogDlg::ValidateRegexp(LPCTSTR regexp_str, tr1::wregex& pat, bool bMatchCase /* = false */)
 {
 	try
 	{
-		pat.init(regexp_str, MULTILINE | (bMatchCase ? NOFLAGS : NOCASE));
+		tr1::regex_constants::syntax_option_type type = tr1::regex_constants::ECMAScript;
+		if (!bMatchCase)
+			type |= tr1::regex_constants::icase;
+		pat = tr1::wregex(regexp_str, type);
 		return true;
 	}
-	catch (bad_alloc) {}
-	catch (bad_regexpr) {}
+	catch (exception) {}
 	return false;
 }
 
@@ -2835,29 +2834,28 @@ bool CLogDlg::Validate(LPCTSTR string)
 {
 	if (!m_bFilterWithRegex)
 		return true;
-	rpattern pat;
-	return ValidateRegexp(string, pat);
+	tr1::wregex pat;
+	return ValidateRegexp(string, pat, false);
 }
 
 void CLogDlg::RecalculateShownList(CPtrArray * pShownlist)
 {
 	pShownlist->RemoveAll();
-	rpattern pat;
+	tr1::wregex pat;//(_T("Remove"), tr1::regex_constants::icase);
 	bool bRegex = false;
 	if (m_bFilterWithRegex)
-		bRegex = ValidateRegexp(m_sFilterText, pat);
+		bRegex = ValidateRegexp(m_sFilterText, pat, false);
 
+	tr1::regex_constants::match_flag_type flags = tr1::regex_constants::match_any;
 	CString sRev;
 	for (DWORD i=0; i<m_logEntries.size(); ++i)
 	{
 		if ((bRegex)&&(m_bFilterWithRegex))
 		{
-			match_results results;
-			match_results::backref_type br;
 			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_MESSAGES))
 			{
-				br = pat.match( restring ((LPCTSTR)m_logEntries[i]->sMessage), results );
-				if ((br.matched)&&(IsEntryInDateRange(i)))
+				ATLTRACE(_T("messge = \"%s\"\n"), (LPCTSTR)m_logEntries[i]->sMessage);
+				if (regex_search(wstring((LPCTSTR)m_logEntries[i]->sMessage), pat, flags)&&IsEntryInDateRange(i))
 				{
 					pShownlist->Add(m_logEntries[i]);
 					continue;
@@ -2871,22 +2869,19 @@ void CLogDlg::RecalculateShownList(CPtrArray * pShownlist)
 				for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount() && bGoing; ++cpPathIndex)
 				{
 					LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
-					br = pat.match( restring ((LPCTSTR)cpath->sCopyFromPath), results);
-					if ((br.matched)&&(IsEntryInDateRange(i)))
+					if (regex_search(wstring((LPCTSTR)cpath->sCopyFromPath), pat, flags)&&IsEntryInDateRange(i))
 					{
 						pShownlist->Add(m_logEntries[i]);
 						bGoing = false;
 						continue;
 					}
-					br = pat.match( restring ((LPCTSTR)cpath->sPath), results);
-					if ((br.matched)&&(IsEntryInDateRange(i)))
+					if (regex_search(wstring((LPCTSTR)cpath->sPath), pat, flags)&&IsEntryInDateRange(i))
 					{
 						pShownlist->Add(m_logEntries[i]);
 						bGoing = false;
 						continue;
 					}
-					br = pat.match( restring ((LPCTSTR)cpath->GetAction()), results);
-					if ((br.matched)&&(IsEntryInDateRange(i)))
+					if (regex_search(wstring((LPCTSTR)cpath->GetAction()), pat, flags)&&IsEntryInDateRange(i))
 					{
 						pShownlist->Add(m_logEntries[i]);
 						bGoing = false;
@@ -2898,8 +2893,7 @@ void CLogDlg::RecalculateShownList(CPtrArray * pShownlist)
 			}
 			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_AUTHORS))
 			{
-				br = pat.match( restring ((LPCTSTR)m_logEntries[i]->sAuthor), results );
-				if ((br.matched)&&(IsEntryInDateRange(i)))
+				if (regex_search(wstring((LPCTSTR)m_logEntries[i]->sAuthor), pat, flags)&&IsEntryInDateRange(i))
 				{
 					pShownlist->Add(m_logEntries[i]);
 					continue;
@@ -2908,8 +2902,7 @@ void CLogDlg::RecalculateShownList(CPtrArray * pShownlist)
 			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_REVS))
 			{
 				sRev.Format(_T("%ld"), m_logEntries[i]->Rev);
-				br = pat.match( restring ((LPCTSTR)sRev), results );
-				if ((br.matched)&&(IsEntryInDateRange(i)))
+				if (regex_search(wstring((LPCTSTR)sRev), pat, flags)&&IsEntryInDateRange(i))
 				{
 					pShownlist->Add(m_logEntries[i]);
 					continue;
