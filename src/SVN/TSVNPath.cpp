@@ -21,14 +21,14 @@
 #include "UnicodeUtils.h"
 #include "SVNAdminDir.h"
 #include "PathUtils.h"
+#include <regex>
+
 #if defined(_MFC_VER)
-#include "regexpr2.h"
 #include "MessageBox.h"
 #include "AppUtils.h"
+#endif
 
 using namespace std;
-using namespace regex;
-#endif
 
 
 CTSVNPath::CTSVNPath(void) :
@@ -700,60 +700,56 @@ bool CTSVNPath::IsAdminDir() const
 	return m_bIsAdminDir;
 }
 
-#if defined(_MFC_VER)
 bool CTSVNPath::IsValidOnWindows() const
 {
 	if (m_bIsValidOnWindowsKnown)
 		return m_bIsValidOnWindows;
 
 	m_bIsValidOnWindows = false;
-	match_results results;
-	match_results::backref_type br;
 	EnsureBackslashPathSet();
 	CString sMatch = m_sBackslashPath + _T("\r\n");
-	rpattern pat;
+	wstring sPattern;
 	// the 'file://' URL is just a normal windows path:
 	if (sMatch.Left(7).CompareNoCase(_T("file:\\\\"))==0)
 	{
 		sMatch = sMatch.Mid(7);
 		sMatch.TrimLeft(_T("\\"));
-		pat.init(_T("^(\\\\\\\\\\?\\\\)?(([a-zA-Z]:|\\\\)\\\\)?(((\\.)|(\\.\\.)|([^\\\\/:\\*\\?\"\\|<> ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?))\\\\)*[^\\\\/:\\*\\?\"\\|<> ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?$"), MULTILINE | NOCASE);
+		sPattern = _T("^(\\\\\\\\\\?\\\\)?(([a-zA-Z]:|\\\\)\\\\)?(((\\.)|(\\.\\.)|([^\\\\/:\\*\\?\"\\|<> ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?))\\\\)*[^\\\\/:\\*\\?\"\\|<> ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?$");
 	}
 	else if (IsUrl())
 	{
-		pat.init(_T("^((http|https|svn|svn\\+ssh|file)\\:\\\\+([^\\\\@\\:]+\\:[^\\\\@\\:]+@)?\\\\[^\\\\]+(\\:\\d+)?)?(((\\.)|(\\.\\.)|([^\\\\/:\\*\\?\"\\|<>\\. ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?))\\\\)*[^\\\\/:\\*\\?\"\\|<>\\. ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?$"), MULTILINE | NOCASE);
+		sPattern = _T("^((http|https|svn|svn\\+ssh|file)\\:\\\\+([^\\\\@\\:]+\\:[^\\\\@\\:]+@)?\\\\[^\\\\]+(\\:\\d+)?)?(((\\.)|(\\.\\.)|([^\\\\/:\\*\\?\"\\|<>\\. ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?))\\\\)*[^\\\\/:\\*\\?\"\\|<>\\. ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?$");
 	}
 	else
 	{
-		pat.init(_T("^(\\\\\\\\\\?\\\\)?(([a-zA-Z]:|\\\\)\\\\)?(((\\.)|(\\.\\.)|([^\\\\/:\\*\\?\"\\|<> ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?))\\\\)*[^\\\\/:\\*\\?\"\\|<> ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?$"), MULTILINE | NOCASE);
+		sPattern = _T("^(\\\\\\\\\\?\\\\)?(([a-zA-Z]:|\\\\)\\\\)?(((\\.)|(\\.\\.)|([^\\\\/:\\*\\?\"\\|<> ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?))\\\\)*[^\\\\/:\\*\\?\"\\|<> ](([^\\\\/:\\*\\?\"\\|<>\\. ])|([^\\\\/:\\*\\?\"\\|<>]*[^\\\\/:\\*\\?\"\\|<>\\. ]))?$");
 	}
 
-	// we need this temporary instance to last as long as 
-	// substrings are read from the result
-	restring temp = (LPCTSTR)sMatch;
-
-	br = pat.match (temp, results);
-	if (br.matched)
+	try
 	{
-		CString sMatched = results.backref(0).str().c_str();
-		sMatched = sMatched.Trim();
-		sMatch = sMatch.Trim();
-		if (sMatch.Compare(sMatched)==0)
-			m_bIsValidOnWindows = true;
-	}
-	if (m_bIsValidOnWindows)
-	{
-		// now check for illegal filenames
-		pat.init(_T("\\\\(lpt\\d|com\\d|aux|nul|prn|con|clock\\$)(\\\\|$)"), MULTILINE | NOCASE);
+		tr1::wregex rx(sPattern, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
+		tr1::wsmatch match;
 
-		br = pat.match(restring ((LPCTSTR)sMatch), results);
-		if (br.matched)
-			m_bIsValidOnWindows = false;
+		wstring rmatch = wstring((LPCTSTR)sMatch);
+		if (tr1::regex_match(rmatch, match, rx))
+		{
+			if (wstring(match[0]).compare(sMatch)==0)
+				m_bIsValidOnWindows = true;
+		}
+		if (m_bIsValidOnWindows)
+		{
+			// now check for illegal filenames
+			tr1::wregex rx2(_T("\\\\(lpt\\d|com\\d|aux|nul|prn|con)(\\\\|$)"), tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
+			rmatch = m_sBackslashPath;
+			if (tr1::regex_search(rmatch, rx2, tr1::regex_constants::match_default))
+				m_bIsValidOnWindows = false;
+		}
 	}
+	catch (exception) {}
+
 	m_bIsValidOnWindowsKnown = true;
 	return m_bIsValidOnWindows;
 }
-#endif
 
 bool CTSVNPath::IsSpecialDirectory() const
 {
@@ -1394,7 +1390,6 @@ private:
 		ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("C:\\Development"))==0);
 	}
 	
-#if defined(_MFC_VER)
 	void ValidPathAndUrlTest()
 	{
 		CTSVNPath testPath;
@@ -1485,7 +1480,6 @@ private:
 		ATLASSERT(!testPath.IsValidOnWindows());
 		
 	}
-#endif
 
 } TSVNPathTestobject;
 #endif

@@ -208,7 +208,7 @@ public:
 
 	void SetCustomData(LPARAM lp) {m_customData = lp;}
 	LPARAM GetCustomData() {return m_customData;}
-#if defined(_MFC_VER)
+
 	/**
 	 * Checks if the path or URL is valid on Windows.
 	 * A path is valid if conforms to the specs in the windows API.
@@ -219,7 +219,7 @@ public:
 	 * this function would return \c false for that URL).
 	 */
 	bool IsValidOnWindows() const;
-#endif
+
 	/**
 	 * Checks to see if the path or URL represents one of the special directories
 	 * (branches, tags, or trunk).
