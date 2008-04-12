@@ -46,6 +46,7 @@
 #include "RepositoryInfo.h"
 #include "EditPropertiesDlg.h"
 
+
 enum LISTITEMSTATES_MINE {
 	LISS_NORMAL = 1,
 	LISS_HOT = 2,

@@ -37,7 +37,6 @@ ProjectProperties::ProjectProperties(void)
 	bFileListInEnglish = TRUE;
 	bAppend = TRUE;
 	lProjectLanguage = 0;
-	bHasLogSummaryPattern = false;
 }
 
 ProjectProperties::~ProjectProperties(void)
@@ -240,14 +239,8 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 			}
 			if ((!bFoundLogSummary)&&(sPropName.Compare(PROJECTPROPNAME_LOGSUMMARY)==0))
 			{
-				try
-				{
-					patLogSummary.init((LPCTSTR)sPropVal, MULTILINE);
-					bFoundLogSummary = TRUE;
-					bHasLogSummaryPattern = true;
-				}
-				catch (bad_alloc){}
-				catch (bad_regexpr){}
+				sLogSummaryRe = sPropVal;
+				bFoundLogSummary = TRUE;
 			}
 		}
 		if (PathIsRoot(path.GetWinPath()))
@@ -779,28 +772,30 @@ bool ProjectProperties::AddAutoProps(const CTSVNPath& path)
 
 CString ProjectProperties::GetLogSummary(const CString& sMessage)
 {
-	restring reMsg = restring(sMessage);
 	CString sRet;
-	if (bHasLogSummaryPattern)
+
+	if (!sLogSummaryRe.IsEmpty())
 	{
 		try
 		{
-			match_results results;
-			match_results::backref_type br;
-			br = patLogSummary.match( reMsg, results, 0 );
-			if( br.matched ) 
+			const tr1::wregex regSum(sLogSummaryRe);
+			const tr1::wsregex_iterator end;
+			wstring s = sMessage;
+			for (tr1::wsregex_iterator it(s.begin(), s.end(), regSum); it != end; ++it)
 			{
-				if (results.cbackrefs() > 0)
+				const tr1::wsmatch match = *it;
+				// we define the first group as the summary text
+				if ((*it).size() >= 1)
 				{
-					ATLTRACE(_T("matched id : %s\n"), results.backref(1).str().c_str());
-					sRet = results.backref(1).str().c_str();
-					sRet.Trim();
+					ATLTRACE(_T("matched summary : %s\n"), wstring(match[0]).c_str());
+					sRet += (CString(wstring(match[1]).c_str()));
 				}
 			}
 		}
-		catch (bad_alloc) {}
-		catch (bad_regexpr){}
+		catch (exception) {}
 	}
+	sRet.Trim();
+
 	return sRet;
 }
 
@@ -843,6 +838,8 @@ public:
 		ATLASSERT(sRet.Compare(_T("000815"))==0);
 		ATLASSERT(props.HasBugID(_T("test test [[000815]]] some stupid programming error fixed")));
 		ATLASSERT(!props.HasBugID(_T("test test [000815]] some stupid programming error fixed")));
+		props.sLogSummaryRe = _T("\\[SUMMARY\\]:(.*)");
+		ATLASSERT(props.GetLogSummary(_T("[SUMMARY]: this is my summary")).Compare(_T("this is my summary"))==0);
 	}
 } PropTest;
 #endif

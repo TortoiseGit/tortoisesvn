@@ -31,6 +31,9 @@
 #include "FilterEdit.h"
 #include "SVNRev.h"
 
+#include "regexpr2.h"
+using namespace regex;
+
 
 #define MERGE_REVSELECTSTART	 1
 #define MERGE_REVSELECTEND       2

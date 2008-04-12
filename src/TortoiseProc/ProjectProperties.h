@@ -19,10 +19,8 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include "regexpr2.h"
 #include "TSVNPath.h"
 using namespace std;
-using namespace regex;
 
 #define BUGTRAQPROPNAME_LABEL             _T("bugtraq:label")
 #define BUGTRAQPROPNAME_MESSAGE           _T("bugtraq:message")
@@ -196,10 +194,13 @@ public:
 	 *  with the path relative to the repository root, e.g. "/trunk/src/file" */
 	CString		sWebViewerPathRev;
 
+	/**
+	 * The regex string to extract a summary from a log message. The summary
+	 * is the first matching regex group.
+	 */
+	CString		sLogSummaryRe;
 private:
 	CString		sAutoProps;
-	rpattern	patLogSummary;
-	bool		bHasLogSummaryPattern;
 #ifdef DEBUG
 	friend class PropTest;
 #endif
