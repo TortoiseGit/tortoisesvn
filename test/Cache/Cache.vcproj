@@ -44,7 +44,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;..\..\src\Utils;..\..\src\SVN;..\..\ext\GRETA;..\..\src\TortoiseProc;..\..\src\Utils\MiscUI"
+				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;..\..\src\Utils;..\..\src\SVN;..\..\src\TortoiseProc;..\..\src\Utils\MiscUI"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -128,7 +128,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;..\..\src\Utils;..\..\src\SVN;..\..\ext\GRETA;..\..\src\TortoiseProc;..\..\src\Utils\MiscUI"
+				AdditionalIncludeDirectories="&quot;../../ext/apr-util/include&quot;;&quot;../../ext/apr-util/xml/expat/lib&quot;;../../ext/Subversion/subversion/include;../../ext/Subversion/subversion/libsvn_client;../../ext/apr/include;..\..\src\Utils;..\..\src\SVN;..\..\src\TortoiseProc;..\..\src\Utils\MiscUI"
 				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG"
 				MinimalRebuild="false"
 				RuntimeLibrary="2"

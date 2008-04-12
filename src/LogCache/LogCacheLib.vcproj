@@ -45,7 +45,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\ext\apr\include;&quot;..\..\ext\apr-util\include&quot;;..\..\ext\Subversion\subversion\include;..\..\ext\GRETA;..\Utils;..\SVN;..\TortoiseProc"
+				AdditionalIncludeDirectories="..\..\ext\apr\include;&quot;..\..\ext\apr-util\include&quot;;..\..\ext\Subversion\subversion\include;..\Utils;..\SVN;..\TortoiseProc"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -112,7 +112,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\ext\apr\include;&quot;..\..\ext\apr-util\include&quot;;..\..\ext\Subversion\subversion\include;..\..\ext\GRETA;..\Utils;..\SVN;..\TortoiseProc"
+				AdditionalIncludeDirectories="..\..\ext\apr\include;&quot;..\..\ext\apr-util\include&quot;;..\..\ext\Subversion\subversion\include;..\Utils;..\SVN;..\TortoiseProc"
 				PreprocessorDefinitions="WIN64;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -177,7 +177,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="3"
-				AdditionalIncludeDirectories="..\..\ext\apr\include;&quot;..\..\ext\apr-util\include&quot;;..\..\ext\Subversion\subversion\include;..\..\ext\GRETA;..\Utils;..\SVN;..\TortoiseProc"
+				AdditionalIncludeDirectories="..\..\ext\apr\include;&quot;..\..\ext\apr-util\include&quot;;..\..\ext\Subversion\subversion\include;..\Utils;..\SVN;..\TortoiseProc"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
 				RuntimeLibrary="2"
 				RuntimeTypeInfo="true"
@@ -243,7 +243,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="3"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\..\ext\apr\include;&quot;..\..\ext\apr-util\include&quot;;..\..\ext\Subversion\subversion\include;..\..\ext\GRETA;..\Utils;..\SVN;..\TortoiseProc"
+				AdditionalIncludeDirectories="..\..\ext\apr\include;&quot;..\..\ext\apr-util\include&quot;;..\..\ext\Subversion\subversion\include;..\Utils;..\SVN;..\TortoiseProc"
 				PreprocessorDefinitions="WIN64;NDEBUG;_CONSOLE"
 				RuntimeLibrary="2"
 				RuntimeTypeInfo="true"

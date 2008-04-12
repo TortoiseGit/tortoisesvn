@@ -22,12 +22,10 @@
 #include "PathUtils.h"
 #include "UnicodeUtils.h"
 #include <string>
-#include "regexpr2.h"
 #include "registry.h"
 #include ".\sciedit.h"
 
 using namespace std;
-using namespace regex;
 
 
 void CSciEditContextMenuInterface::InsertMenuItems(CMenu&, int&) {return;}
@@ -1141,9 +1139,6 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 	Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
 	CString msg = CString(textbuffer);
 	delete textbuffer;
-
-	// used for pattern matching by GRETA
-	restring reMsg = (LPCTSTR)msg;
 
 	Call(SCI_STARTSTYLING, start_pos, STYLE_MASK);
 
