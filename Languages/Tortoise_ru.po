@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2008
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 12529: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 12643: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-04-03 18:55+0300\n"
+"PO-Revision-Date: 2008-04-14 00:21+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -48,7 +48,7 @@ msgstr ""
 # help -- cправка
 # hook -- ловушка
 # issue -- проблема (в системе отслеживания ошибок)
-# locatorbar -- полоса местоположения
+# locator bar -- полоса местоположения
 # locking (files) -- блокирование (файлов)
 # log -- журнал
 # merge -- слияние
@@ -286,9 +286,17 @@ msgstr "&Дополнительно..."
 msgid "&Allow ambiguous URLs"
 msgstr "Допускать нео&днозначные URL"
 
+#. Resource IDs: (65535)
+msgid "&Application Look"
+msgstr "Внешний вид &приложения"
+
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
 msgstr "&Применение объединённых различий"
+
+#. Resource IDs: (32852)
+msgid "&Aqua Style"
+msgstr "&Аква стиль"
 
 #. Resource IDs: (65535)
 msgid "&Autoclose:"
@@ -313,6 +321,10 @@ msgstr "&Авторство ревизий"
 #. Resource IDs: (13)
 msgid "&Blame..."
 msgstr "&Авторство..."
+
+#. Resource IDs: (32849)
+msgid "&Blue Style"
+msgstr "&Синий стиль"
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
@@ -638,10 +650,6 @@ msgstr "Автономно в &этот раз"
 msgid "&Open"
 msgstr "&Открыть"
 
-#. Resource IDs: (57601)
-msgid "&Open Ctrl-O"
-msgstr "&Открыть\tCtrl-O"
-
 #. Resource IDs: (32772)
 msgid "&Overlap images"
 msgstr "Разместить с &перекрытием "
@@ -712,8 +720,8 @@ msgid "&SSH client:"
 msgstr "&SSH клиент:"
 
 #. Resource IDs: (57603)
-msgid "&Save Ctrl-S"
-msgstr "&Сохранить\tCtrl-S"
+msgid "&Save"
+msgstr "&Сохранить"
 
 #. Resource IDs: (1023)
 msgid "&Save authentication"
@@ -738,6 +746,10 @@ msgstr "&Настройки"
 #. Resource IDs: (32815)
 msgid "&Show HEAD revisions"
 msgstr "Показать ведущие &ревизии"
+
+#. Resource IDs: (32851)
+msgid "&Silver Style"
+msgstr "Се&ребряный стиль"
 
 # д.б. согласовано с "из ..."
 #. Resource IDs: (1185)
@@ -815,10 +827,6 @@ msgstr "&URL:"
 msgid "&Undo"
 msgstr "&Откатить"
 
-#. Resource IDs: (57643)
-msgid "&Undo\tCtrl+Z"
-msgstr "&Откатить\tCtrl+Z"
-
 #. Resource IDs: (274, 32785)
 msgid "&Unified diff"
 msgstr "Объедин. разли&чия"
@@ -858,6 +866,10 @@ msgstr "Непечатаемые &знаки"
 #. Resource IDs: (1066)
 msgid "&Whole word"
 msgstr "Cлово &целиком"
+
+#. Resource IDs: (32846)
+msgid "&Windows XP"
+msgstr "&Windows XP"
 
 # д.б. согласовано с "из ..."
 #. Resource IDs: (1183)
@@ -1325,8 +1337,8 @@ msgid "Author"
 msgstr "Автор"
 
 #. Resource IDs: (65535)
-msgid "Author:                        Stefan Kueng"
-msgstr "Автор:                        Stefan Kueng"
+msgid "Author:                                    Stefan Kueng"
+msgstr "Автор:                            Stefan Kueng"
 
 #. Resource IDs: (116)
 msgid "Authors"
@@ -1379,6 +1391,10 @@ msgstr "Автоматически проверять наличие &новой
 #. Resource IDs: (1157)
 msgid "Average"
 msgstr "В среднем"
+
+#. Resource IDs: (32850)
+msgid "B&lack Style"
+msgstr "&Чёрный стиль"
 
 #. Resource IDs: (1001)
 msgid "B&rowse..."
@@ -3456,8 +3472,8 @@ msgid "Icon Overlays::Icon Set"
 msgstr "Пометки на значках::Набор значков"
 
 #. Resource IDs: (65535)
-msgid "Icons/Design/Code:     Luebbe Onken"
-msgstr "Значки/Дизайн/Код: Luebbe Onken"
+msgid "Icons/Design/Code:                 Luebbe Onken"
+msgstr "Значки/Дизайн/Код:     Luebbe Onken"
 
 #. Resource IDs: (194)
 msgid "If activated, prevents the overlays and the context menu from showing in \"save as...\" or \"open\" dialogs"
@@ -3912,6 +3928,10 @@ msgstr "Строка"
 msgid "Line Graph"
 msgstr "График"
 
+#. Resource IDs: (32853)
+msgid "Line diff bar"
+msgstr "Панель строковых различий"
+
 #. Resource IDs: (65535)
 msgid "Line differences"
 msgstr "Различия строк"
@@ -3952,6 +3972,10 @@ msgid ""
 msgstr ""
 "Место, куда будет сохранено то, что содержится\n"
 "по указанному URL в хранилище."
+
+#. Resource IDs: (32854)
+msgid "Locator Bar"
+msgstr "Полоса местоположения"
 
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
@@ -4539,6 +4563,18 @@ msgstr "OK"
 #. Resource IDs: (3697)
 msgid "OVR"
 msgstr "OVR"
+
+#. Resource IDs: (32845)
+msgid "Office &XP"
+msgstr "Office &XP"
+
+#. Resource IDs: (32847)
+msgid "Office 200&3"
+msgstr "Office 200&3"
+
+#. Resource IDs: (65535)
+msgid "Office 200&7"
+msgstr "Office 200&7"
 
 #. Resource IDs: (65535)
 msgid "Older lines"
@@ -5871,10 +5907,6 @@ msgstr "Показывать исключённые папки как норма
 msgid "Show ignored files"
 msgstr "Показать игнорируемые файлы"
 
-#. Resource IDs: (1065)
-msgid "Show li&ne diff bar"
-msgstr "Показывать панель &строковых различий"
-
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
 msgstr "Показывать номера ст&рок"
@@ -7101,9 +7133,9 @@ msgstr "Производится обновление и повторная бл
 msgid "Updating log cache"
 msgstr "Обновляение кэша журнала"
 
-#. Resource IDs: (1064)
-msgid "Use &magnifier on locatorbar"
-msgstr "Использовать &увеличитель в полосе местоположения"
+#. Resource IDs: (32855)
+msgid "Use &left block"
+msgstr "Использовать &левый блок"
 
 #. Resource IDs: (1024)
 msgid "Use &one-pane view as default for 2-file diff"
@@ -7139,6 +7171,38 @@ msgstr "Использовать объединённые различия из 
 msgid "Use \"_svn\" instead of \".svn\" directories"
 msgstr "Использовать папки \"_svn\" вместо \".svn\""
 
+#. Resource IDs: (2054)
+msgid ""
+"Use all content from the left view\n"
+"use left file"
+msgstr ""
+"Использовать всё содержимое из левой панели\n"
+"Использовать левый файл"
+
+#. Resource IDs: (32857)
+msgid "Use block from left before right"
+msgstr "Использовать левый блок перед правым"
+
+#. Resource IDs: (2054)
+msgid ""
+"Use block from left view before block from right view\n"
+"use block from left before right"
+msgstr ""
+"Использовать блок из левой панели перед блоком из правой\n"
+"Использовать левый блок перед правым"
+
+#. Resource IDs: (32859)
+msgid "Use block from right before left"
+msgstr "Использовать правый блок перед левым"
+
+#. Resource IDs: (2054)
+msgid ""
+"Use block from right view before block from left view\n"
+"use block from right before left"
+msgstr ""
+"Использовать блок из правой панели перед блоком из левой\n"
+"Использовать правый блок перед левым"
+
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one first)"
 msgstr "Использовать оба текстовых блока (этот в начале)"
@@ -7146,6 +7210,10 @@ msgstr "Использовать оба текстовых блока (этот 
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one last)"
 msgstr "Использовать оба текстовых блока (этот в конце)"
+
+#. Resource IDs: (32856)
+msgid "Use left file"
+msgstr "Использовать левый файл"
 
 # Использовать изменения:
 #. Resource IDs: (3)
@@ -7217,6 +7285,14 @@ msgid ""
 msgstr ""
 "Использовать \"их\" текстовый блок\n"
 "Использовать \"их\" текстовый блок"
+
+#. Resource IDs: (2054)
+msgid ""
+"Use text block from the left view\n"
+"use left block"
+msgstr ""
+"Использовать блок из левой панели\n"
+"Использовать левый блок"
 
 #. Resource IDs: (251)
 msgid "Use th&is text block"
@@ -7309,6 +7385,10 @@ msgstr "Посмотреть ревизию в &веб-обозревателе"
 msgid "Visit our website"
 msgstr "Посетить наш вебсайт"
 
+#. Resource IDs: (32848)
+msgid "Visual Studio.NET 200&5"
+msgstr "Visual Studio.NET 200&5"
+
 #. Resource IDs: (198)
 msgid "Wait"
 msgstr "Ждать"
@@ -7346,6 +7426,10 @@ msgid ""
 msgstr ""
 "При блокировании одного или нескольких выбранных файлов, показывает\n"
 "диалог, в котором необходимо ввести сообщение с описанием блокировки "
+
+#. Resource IDs: (32844)
+msgid "Windows &2000"
+msgstr "Windows &2000"
 
 #. Resource IDs: (146)
 msgid "With URL:"
@@ -8234,6 +8318,14 @@ msgstr "год"
 msgid "yes"
 msgstr "да"
 
+#~ msgid "&Open Ctrl-O"
+#~ msgstr "&Открыть\tCtrl-O"
+#~ msgid "&Save Ctrl-S"
+#~ msgstr "&Сохранить\tCtrl-S"
+#~ msgid "&Undo\tCtrl+Z"
+#~ msgstr "&Откатить\tCtrl+Z"
+#~ msgid "Use &magnifier on locatorbar"
+#~ msgstr "Использовать &увеличитель в полосе местоположения"
 #~ msgid "Analyze revision data..."
 #~ msgstr "Анализ данных ревизии..."
 #~ msgid "Checking for forward copies"
