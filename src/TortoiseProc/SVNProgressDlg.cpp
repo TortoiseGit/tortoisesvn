@@ -409,9 +409,6 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 	case svn_wc_notify_changelist_clear:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_CHANGELISTCLEAR);
 		break;
-	case svn_wc_notify_changelist_failed:
-		data->sActionColumnText.Format(IDS_SVNACTION_CHANGELISTFAILED, data->changelistname);
-		break;
 	case svn_wc_notify_changelist_moved:
 		data->sActionColumnText.Format(IDS_SVNACTION_CHANGELISTMOVED, data->changelistname);
 		break;
