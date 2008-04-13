@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-04-05 11:23+0900\n"
+"PO-Revision-Date: 2008-04-13 12:35+0900\n"
 "Last-Translator: Kim TaeDong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -240,9 +240,17 @@ msgstr "고급 설정(&A)"
 msgid "&Allow ambiguous URLs"
 msgstr "모호한 URL들을 허용합니다.(&A)"
 
+#. Resource IDs: (65535)
+msgid "&Application Look"
+msgstr "어플리케이션 모양(&A)"
+
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
 msgstr "Unified diff 적용(&A)"
+
+#. Resource IDs: (32852)
+msgid "&Aqua Style"
+msgstr "아쿠아 스타일(&A)"
 
 #. Resource IDs: (65535)
 msgid "&Autoclose:"
@@ -267,6 +275,10 @@ msgstr "두 리비전에 대한 수정한 사람 보기(&B)"
 #. Resource IDs: (13)
 msgid "&Blame..."
 msgstr "수정한 사람 보기(&B)..."
+
+#. Resource IDs: (32849)
+msgid "&Blue Style"
+msgstr "블루 스타일(&B)"
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
@@ -586,10 +598,6 @@ msgstr "이제부터 오프라인으로 작업(&O)"
 msgid "&Open"
 msgstr "열기(&O)"
 
-#. Resource IDs: (57601)
-msgid "&Open Ctrl-O"
-msgstr "열기(&O)"
-
 #. Resource IDs: (32772)
 msgid "&Overlap images"
 msgstr "그림 겹치기(&O)"
@@ -659,7 +667,7 @@ msgid "&SSH client:"
 msgstr "SSH 클라이언트(&S):"
 
 #. Resource IDs: (57603)
-msgid "&Save Ctrl-S"
+msgid "&Save"
 msgstr "저장(&S)"
 
 #. Resource IDs: (1023)
@@ -685,6 +693,10 @@ msgstr "설정(&S)"
 #. Resource IDs: (32815)
 msgid "&Show HEAD revisions"
 msgstr "HEAD 리비전 보기(&S)"
+
+#. Resource IDs: (32851)
+msgid "&Silver Style"
+msgstr "실버 스타일(&S)"
 
 #. Resource IDs: (1185)
 msgid "&Specific revision in repository"
@@ -758,10 +770,6 @@ msgstr "&URL:"
 msgid "&Undo"
 msgstr "실행 취소(&U)"
 
-#. Resource IDs: (57643)
-msgid "&Undo\tCtrl+Z"
-msgstr "실행 취소(&U)\tCtrl-Z"
-
 #. Resource IDs: (274, 32785)
 msgid "&Unified diff"
 msgstr "Unified Diff 보기(&U)"
@@ -801,6 +809,10 @@ msgstr "공백(&W)"
 #. Resource IDs: (1066)
 msgid "&Whole word"
 msgstr "전체 단어(&W)"
+
+#. Resource IDs: (32846)
+msgid "&Windows XP"
+msgstr "윈도우 XP(&W)"
 
 #. Resource IDs: (1183)
 msgid "&Working copy"
@@ -1316,6 +1328,10 @@ msgstr "매주 새 버전을 확인합니다.(&N)"
 #. Resource IDs: (1157)
 msgid "Average"
 msgstr "평균"
+
+#. Resource IDs: (32850)
+msgid "B&lack Style"
+msgstr "블랙 스타일(&L)"
 
 #. Resource IDs: (1001)
 msgid "B&rowse..."
@@ -3819,6 +3835,10 @@ msgstr "행"
 msgid "Line Graph"
 msgstr "꺽은선 그래프"
 
+#. Resource IDs: (32853)
+msgid "Line diff bar"
+msgstr "라인 비교 바"
+
 #. Resource IDs: (65535)
 msgid "Line differences"
 msgstr "행별 비교"
@@ -3857,6 +3877,10 @@ msgid ""
 "Location where the contents of the\n"
 "repository URL will be saved to."
 msgstr "저장소 URL의 내용이 저장될 위치"
+
+#. Resource IDs: (32854)
+msgid "Locator Bar"
+msgstr "위치 바"
 
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
@@ -4435,6 +4459,18 @@ msgstr "확인"
 #. Resource IDs: (3697)
 msgid "OVR"
 msgstr "OVR"
+
+#. Resource IDs: (32845)
+msgid "Office &XP"
+msgstr "오피스 XP(&X)"
+
+#. Resource IDs: (32847)
+msgid "Office 200&3"
+msgstr "오피스 2003(&3)"
+
+#. Resource IDs: (65535)
+msgid "Office 200&7"
+msgstr "오피스 2007(&7)"
 
 #. Resource IDs: (65535)
 msgid "Older lines"
@@ -5754,10 +5790,6 @@ msgstr "제외된 폴더를 일반 파일 처럼 보여줌"
 msgid "Show ignored files"
 msgstr "무시되는 파일 보기"
 
-#. Resource IDs: (1065)
-msgid "Show li&ne diff bar"
-msgstr "비교 막대 보기(&N)"
-
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
 msgstr "줄 번호 보기(&S)"
@@ -6961,9 +6993,9 @@ msgstr "업데이트 및 잠금 시도중..."
 msgid "Updating log cache"
 msgstr "로그 캐시 업데이트 중"
 
-#. Resource IDs: (1064)
-msgid "Use &magnifier on locatorbar"
-msgstr "위치 막대에서 돋보기 사용(&M)"
+#. Resource IDs: (32855)
+msgid "Use &left block"
+msgstr "왼쪽 블럭을 사용(&L)"
 
 #. Resource IDs: (1024)
 msgid "Use &one-pane view as default for 2-file diff"
@@ -6999,6 +7031,38 @@ msgstr "클립보드와 Unified diff를 사용"
 msgid "Use \"_svn\" instead of \".svn\" directories"
 msgstr "\".svn\" 디렉토리 대신 \"_svn\"을 사용합니다."
 
+#. Resource IDs: (2054)
+msgid ""
+"Use all content from the left view\n"
+"use left file"
+msgstr ""
+"왼쪽 창의 모든 내용을 사용합니다.\n"
+"왼쪽 파일 사용"
+
+#. Resource IDs: (32857)
+msgid "Use block from left before right"
+msgstr "오른쪽 전에 왼쪽의 블럭을 사용합니다."
+
+#. Resource IDs: (2054)
+msgid ""
+"Use block from left view before block from right view\n"
+"use block from left before right"
+msgstr ""
+"오른쪽 창의 블럭전에 왼쪽 창의 블럭을 사용합니다.\n"
+"오른쪽 전에 왼쪽 블럭을 사용"
+
+#. Resource IDs: (32859)
+msgid "Use block from right before left"
+msgstr "왼쪽 전에 오른쪽 블럭을 사용합니다."
+
+#. Resource IDs: (2054)
+msgid ""
+"Use block from right view before block from left view\n"
+"use block from right before left"
+msgstr ""
+"왼쪽 창의 블럭전에 오른쪽 창의 블럭을 사용합니다.\n"
+"왼쪽 전에 오른쪽 블럭을 사용"
+
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one first)"
 msgstr "두 블럭 모두 사용 (이것을 원본으로 사용)"
@@ -7006,6 +7070,10 @@ msgstr "두 블럭 모두 사용 (이것을 원본으로 사용)"
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one last)"
 msgstr "두 블럭 모두 사용 (이것을 비교본으로 사용)"
+
+#. Resource IDs: (32856)
+msgid "Use left file"
+msgstr "왼쪽 파일을 사용"
 
 #. Resource IDs: (3)
 msgid "Use local"
@@ -7074,6 +7142,14 @@ msgid ""
 msgstr ""
 "\"저장소\"의 텍스트 블럭 사용\n"
 "\"저장소\"의 텍스트 블럭 사용"
+
+#. Resource IDs: (2054)
+msgid ""
+"Use text block from the left view\n"
+"use left block"
+msgstr ""
+"왼쪽창의 텍스트 블럭을 사용합니다.\n"
+"왼쪽 블럭 사용"
 
 #. Resource IDs: (251)
 msgid "Use th&is text block"
@@ -7168,6 +7244,10 @@ msgstr "웹 브라우저에서 리비전 보기(&W)"
 msgid "Visit our website"
 msgstr "웹 사이트 방문"
 
+#. Resource IDs: (32848)
+msgid "Visual Studio.NET 200&5"
+msgstr "비주얼 스튜디오 닷 넷 2005(&5)"
+
 #. Resource IDs: (198)
 msgid "Wait"
 msgstr "대기"
@@ -7205,6 +7285,10 @@ msgid ""
 msgstr ""
 "한개 이상의 파일을 잠글 때, 현재 잠금에 대한\n"
 "사유를 적기 위해 대화 상자가 나타날 것입니다."
+
+#. Resource IDs: (32844)
+msgid "Windows &2000"
+msgstr "윈도우 2000(&2)"
 
 #. Resource IDs: (146)
 msgid "With URL:"
