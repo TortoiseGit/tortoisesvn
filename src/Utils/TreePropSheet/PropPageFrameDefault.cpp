@@ -19,7 +19,7 @@
 
 #include "stdafx.h"
 #include "PropPageFrameDefault.h"
-
+#include "ExtTextOutFL.h"
 
 namespace TreePropSheet
 {
@@ -315,7 +315,9 @@ void CPropPageFrameDefault::DrawCaption(CDC *pDc, CRect rect, LPCTSTR lpszCaptio
 	int				nBkStyle = pDc->SetBkMode(TRANSPARENT);
 	CFont			*pFont = (CFont*)pDc->SelectStockObject(SYSTEM_FONT);
 
-	pDc->DrawText(lpszCaption, rect, DT_LEFT|DT_VCENTER|DT_SINGLELINE|DT_END_ELLIPSIS);
+	//pDc->DrawText(lpszCaption, rect, DT_LEFT|DT_VCENTER|DT_SINGLELINE|DT_END_ELLIPSIS);
+
+	TextOutTryFL(pDc->GetSafeHdc(), rect.left, rect.top, lpszCaption, _tcslen(lpszCaption));
 
 	pDc->SetTextColor(clrPrev);
 	pDc->SetBkMode(nBkStyle);
