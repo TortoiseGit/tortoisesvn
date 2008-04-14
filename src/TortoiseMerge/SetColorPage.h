@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007 - TortoiseSVN
+// Copyright (C) 2006-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,7 +18,6 @@
 //
 #pragma once
 
-#include "ColourPickerXP.h"
 #include "registry.h"
 
 
@@ -50,7 +49,8 @@ protected:
 	virtual BOOL OnInitDialog();
 	virtual BOOL OnApply();
 
-	afx_msg LRESULT OnSelEndOK(WPARAM lParam, LPARAM wParam);
+	afx_msg void OnBnClickedColor();
+
 	DECLARE_MESSAGE_MAP()
 
 protected:
@@ -58,13 +58,13 @@ protected:
 	CRegDWORD		m_regInlineAdded;
 	CRegDWORD		m_regInlineRemoved;
 	CRegDWORD		m_regModifiedBackground;
-	CColourPickerXP m_cBkNormal;
-	CColourPickerXP m_cBkRemoved;
-	CColourPickerXP m_cBkAdded;
-	CColourPickerXP m_cBkInlineAdded;
-	CColourPickerXP m_cBkInlineRemoved;
-	CColourPickerXP m_cBkEmpty;
-	CColourPickerXP m_cBkConflict;
-	CColourPickerXP m_cBkConflictResolved;
-	CColourPickerXP m_cBkModified;
+	CMFCColorButton m_cBkNormal;
+	CMFCColorButton m_cBkRemoved;
+	CMFCColorButton m_cBkAdded;
+	CMFCColorButton m_cBkInlineAdded;
+	CMFCColorButton m_cBkInlineRemoved;
+	CMFCColorButton m_cBkEmpty;
+	CMFCColorButton m_cBkConflict;
+	CMFCColorButton m_cBkConflictResolved;
+	CMFCColorButton m_cBkModified;
 };
