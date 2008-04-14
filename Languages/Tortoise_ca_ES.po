@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-04-03 10:42+0100\n"
+"PO-Revision-Date: 2008-04-14 12:06+0100\n"
 "Last-Translator: Arnau <aperello@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -249,9 +249,17 @@ msgstr "&Avançat..."
 msgid "&Allow ambiguous URLs"
 msgstr "&Permet URLs ambigües"
 
+#. Resource IDs: (65535)
+msgid "&Application Look"
+msgstr "&Estil de l'Aplicació"
+
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
 msgstr "&Aplicar comparació unificada"
+
+#. Resource IDs: (32852)
+msgid "&Aqua Style"
+msgstr "Estil &Aqua "
 
 #. Resource IDs: (65535)
 msgid "&Autoclose:"
@@ -276,6 +284,10 @@ msgstr "&Mostra autoria de les revisions"
 #. Resource IDs: (13)
 msgid "&Blame..."
 msgstr "&Autoria..."
+
+#. Resource IDs: (32849)
+msgid "&Blue Style"
+msgstr "Estil &Blue"
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
@@ -595,10 +607,6 @@ msgstr "&Offline per ara"
 msgid "&Open"
 msgstr "&Obre"
 
-#. Resource IDs: (57601)
-msgid "&Open Ctrl-O"
-msgstr "&Obre Ctrl-O"
-
 #. Resource IDs: (32772)
 msgid "&Overlap images"
 msgstr "&Soreposar imatges"
@@ -668,7 +676,7 @@ msgid "&SSH client:"
 msgstr "&Client SSH:"
 
 #. Resource IDs: (57603)
-msgid "&Save Ctrl-S"
+msgid "&Save"
 msgstr "&Desa"
 
 #. Resource IDs: (1023)
@@ -694,6 +702,10 @@ msgstr "&Configuració"
 #. Resource IDs: (32815)
 msgid "&Show HEAD revisions"
 msgstr "&Mostra revisions HEAD"
+
+#. Resource IDs: (32851)
+msgid "&Silver Style"
+msgstr "Esti &Silver"
 
 #. Resource IDs: (1185)
 msgid "&Specific revision in repository"
@@ -767,10 +779,6 @@ msgstr "&URL:"
 msgid "&Undo"
 msgstr "&Desfés"
 
-#. Resource IDs: (57643)
-msgid "&Undo\tCtrl+Z"
-msgstr "&Desfés\tCtrl+Z"
-
 #. Resource IDs: (274, 32785)
 msgid "&Unified diff"
 msgstr "&Compara Unificat"
@@ -810,6 +818,10 @@ msgstr "&Espais en Blanc"
 #. Resource IDs: (1066)
 msgid "&Whole word"
 msgstr "&Paraula Sencera"
+
+#. Resource IDs: (32846)
+msgid "&Windows XP"
+msgstr "&Windows XP"
 
 #. Resource IDs: (1183)
 msgid "&Working copy"
@@ -1272,8 +1284,8 @@ msgid "Author"
 msgstr "Autor"
 
 #. Resource IDs: (65535)
-msgid "Author:                        Stefan Kueng"
-msgstr "Autor:                        Stefan Kueng"
+msgid "Author:                                    Stefan Kueng"
+msgstr "Autor:                                     Stefan Kueng"
 
 #. Resource IDs: (116)
 msgid "Authors"
@@ -1326,6 +1338,10 @@ msgstr "Comprova si hi ha versions més &noves cada setmana"
 #. Resource IDs: (1157)
 msgid "Average"
 msgstr "Promig"
+
+#. Resource IDs: (32850)
+msgid "B&lack Style"
+msgstr "Estil B&lack"
 
 #. Resource IDs: (1001)
 msgid "B&rowse..."
@@ -3381,8 +3397,8 @@ msgid "Icon Overlays::Icon Set"
 msgstr "Sobreposició d'icones::Conjunt d'icones"
 
 #. Resource IDs: (65535)
-msgid "Icons/Design/Code:     Luebbe Onken"
-msgstr "Icones/Disseny/Codi:     Luebbe Onken"
+msgid "Icons/Design/Code:                 Luebbe Onken"
+msgstr "Icones/Disseny/Codi:                Luebbe Onken"
 
 #. Resource IDs: (194)
 msgid "If activated, prevents the overlays and the context menu from showing in \"save as...\" or \"open\" dialogs"
@@ -3829,6 +3845,10 @@ msgstr "Línea"
 msgid "Line Graph"
 msgstr "Gràfic de línies"
 
+#. Resource IDs: (32853)
+msgid "Line diff bar"
+msgstr "Barra dif de línia"
+
 #. Resource IDs: (65535)
 msgid "Line differences"
 msgstr "Diferències de línea"
@@ -3869,6 +3889,10 @@ msgid ""
 msgstr ""
 "Lloc on els continguts de\n"
 "la URL del repositori es desaran."
+
+#. Resource IDs: (32854)
+msgid "Locator Bar"
+msgstr "Barra Localització"
 
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
@@ -4448,6 +4472,18 @@ msgstr "D'acord"
 #. Resource IDs: (3697)
 msgid "OVR"
 msgstr "OVR"
+
+#. Resource IDs: (32845)
+msgid "Office &XP"
+msgstr "Office &XP"
+
+#. Resource IDs: (32847)
+msgid "Office 200&3"
+msgstr "Office 200&3"
+
+#. Resource IDs: (65535)
+msgid "Office 200&7"
+msgstr "Office 200&7"
 
 #. Resource IDs: (65535)
 msgid "Older lines"
@@ -5767,10 +5803,6 @@ msgstr "Mostra carpetes excloses com a normals"
 msgid "Show ignored files"
 msgstr "Mostra fitxers ignorats"
 
-#. Resource IDs: (1065)
-msgid "Show li&ne diff bar"
-msgstr "Mostra barra de diff de  lí&nea"
-
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
 msgstr "Mostra número&s de línea"
@@ -6980,9 +7012,9 @@ msgstr "Actualitzant i tornant a provar el bloqueig..."
 msgid "Updating log cache"
 msgstr "Actualitzant cache log"
 
-#. Resource IDs: (1064)
-msgid "Use &magnifier on locatorbar"
-msgstr "Utilitza &lupa a la barra de localització"
+#. Resource IDs: (32855)
+msgid "Use &left block"
+msgstr "Utilitza bloc &esquerra"
 
 #. Resource IDs: (1024)
 msgid "Use &one-pane view as default for 2-file diff"
@@ -7018,6 +7050,38 @@ msgstr "Utilitza Diff Unificat des del portapapers"
 msgid "Use \"_svn\" instead of \".svn\" directories"
 msgstr "Utilitza \"_svn\" en lloc dels directoris \".svn\""
 
+#. Resource IDs: (2054)
+msgid ""
+"Use all content from the left view\n"
+"use left file"
+msgstr ""
+"Utilitza tot el contingut de la vista esquerra\n"
+"utilitza fitxer esquerra"
+
+#. Resource IDs: (32857)
+msgid "Use block from left before right"
+msgstr "Utilitza bloc esquerra abans que dreta"
+
+#. Resource IDs: (2054)
+msgid ""
+"Use block from left view before block from right view\n"
+"use block from left before right"
+msgstr ""
+"Utilitza bloc de la vista esquerra abans que bloc de vista dreta\n"
+"Utilitza bloc de l'esquerra abans de la dreta"
+
+#. Resource IDs: (32859)
+msgid "Use block from right before left"
+msgstr "Utilitza bloc dreat abans que esquerra"
+
+#. Resource IDs: (2054)
+msgid ""
+"Use block from right view before block from left view\n"
+"use block from right before left"
+msgstr ""
+"Utilitza bloc de la vista dreta abans que bloc de vista esquerra\n"
+"Utilitza bloc de la dreta abans de l'esquerra"
+
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one first)"
 msgstr "Utilitza els dos blocs de texte (primer aquest)"
@@ -7025,6 +7089,10 @@ msgstr "Utilitza els dos blocs de texte (primer aquest)"
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one last)"
 msgstr "Utilitza els dos blocs de texte (aquest el darrer)"
+
+#. Resource IDs: (32856)
+msgid "Use left file"
+msgstr "Utilitza fitxer esquerra"
 
 #. Resource IDs: (3)
 msgid "Use local"
@@ -7093,6 +7161,14 @@ msgid ""
 msgstr ""
 "Utilitza bloc de texte de \"seu\"\n"
 "Utilitza bloc de texte \"seu\""
+
+#. Resource IDs: (2054)
+msgid ""
+"Use text block from the left view\n"
+"use left block"
+msgstr ""
+"Utilitza bloc texte de la vista esquerra\n"
+"utilitza bloc esquerra"
 
 #. Resource IDs: (251)
 msgid "Use th&is text block"
@@ -7187,6 +7263,10 @@ msgstr "Visualitza revisió al visor &web"
 msgid "Visit our website"
 msgstr "Visiteu el nostre lloc web"
 
+#. Resource IDs: (32848)
+msgid "Visual Studio.NET 200&5"
+msgstr "Visual Studio.NET 200&5"
+
 #. Resource IDs: (198)
 msgid "Wait"
 msgstr "Espereu"
@@ -7224,6 +7304,10 @@ msgid ""
 msgstr ""
 "Quan es bloquegen fitxers, mostra un diàleg\n"
 "demanant una descripció del bloqueig"
+
+#. Resource IDs: (32844)
+msgid "Windows &2000"
+msgstr "Windows &2000"
 
 #. Resource IDs: (146)
 msgid "With URL:"
