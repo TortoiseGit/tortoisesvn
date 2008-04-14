@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-04-07 13:11+0800\n"
+"PO-Revision-Date: 2008-04-14 09:02+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -241,9 +241,17 @@ msgstr "進階設定(&A)..."
 msgid "&Allow ambiguous URLs"
 msgstr "允許模糊的URL(&A)"
 
+#. Resource IDs: (65535)
+msgid "&Application Look"
+msgstr "應用程式外觀(&A)"
+
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
 msgstr "套用單一差異檔(&A)"
+
+#. Resource IDs: (32852)
+msgid "&Aqua Style"
+msgstr "水藍色樣式(&A)"
 
 #. Resource IDs: (65535)
 msgid "&Autoclose:"
@@ -268,6 +276,10 @@ msgstr "譴責版本(&B)"
 #. Resource IDs: (13)
 msgid "&Blame..."
 msgstr "譴責(&B)..."
+
+#. Resource IDs: (32849)
+msgid "&Blue Style"
+msgstr "藍色樣式(&B)"
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
@@ -587,10 +599,6 @@ msgstr "暫時離線(&O)"
 msgid "&Open"
 msgstr "開啟(&O)"
 
-#. Resource IDs: (57601)
-msgid "&Open Ctrl-O"
-msgstr "開啟(&O) Ctrl-O"
-
 #. Resource IDs: (32772)
 msgid "&Overlap images"
 msgstr "重疊影像(&O)"
@@ -660,8 +668,8 @@ msgid "&SSH client:"
 msgstr "SSH 用戶端(&S):"
 
 #. Resource IDs: (57603)
-msgid "&Save Ctrl-S"
-msgstr "儲存(&S) Ctrl-S"
+msgid "&Save"
+msgstr "儲存(&S)"
 
 #. Resource IDs: (1023)
 msgid "&Save authentication"
@@ -686,6 +694,10 @@ msgstr "設定(&S)"
 #. Resource IDs: (32815)
 msgid "&Show HEAD revisions"
 msgstr "顯示最新版本(&S)"
+
+#. Resource IDs: (32851)
+msgid "&Silver Style"
+msgstr "銀色樣式(&S)"
 
 #. Resource IDs: (1185)
 msgid "&Specific revision in repository"
@@ -759,10 +771,6 @@ msgstr "&URL:"
 msgid "&Undo"
 msgstr "復原(&U)"
 
-#. Resource IDs: (57643)
-msgid "&Undo\tCtrl+Z"
-msgstr "還原(&U)\tCtrl+Z"
-
 #. Resource IDs: (274, 32785)
 msgid "&Unified diff"
 msgstr "單一差異檔(&U)"
@@ -802,6 +810,10 @@ msgstr "空白字元(&W)"
 #. Resource IDs: (1066)
 msgid "&Whole word"
 msgstr "符合全字(&W)"
+
+#. Resource IDs: (32846)
+msgid "&Windows XP"
+msgstr "&Windows XP"
 
 #. Resource IDs: (1183)
 msgid "&Working copy"
@@ -1264,7 +1276,7 @@ msgid "Author"
 msgstr "作者"
 
 #. Resource IDs: (65535)
-msgid "Author:                        Stefan Kueng"
+msgid "Author:                                    Stefan Kueng"
 msgstr "作者:                        Stefan Kueng"
 
 #. Resource IDs: (116)
@@ -1318,6 +1330,10 @@ msgstr "每週自動檢查新版(&N)"
 #. Resource IDs: (1157)
 msgid "Average"
 msgstr "平均"
+
+#. Resource IDs: (32850)
+msgid "B&lack Style"
+msgstr "黑色樣式(&L)"
 
 #. Resource IDs: (1001)
 msgid "B&rowse..."
@@ -3373,7 +3389,7 @@ msgid "Icon Overlays::Icon Set"
 msgstr "圖示覆蓋::圖示集"
 
 #. Resource IDs: (65535)
-msgid "Icons/Design/Code:     Luebbe Onken"
+msgid "Icons/Design/Code:                 Luebbe Onken"
 msgstr "圖示 / 設計 / 程式:     Luebbe Onken"
 
 #. Resource IDs: (194)
@@ -3819,6 +3835,10 @@ msgstr "行"
 msgid "Line Graph"
 msgstr "直線圖"
 
+#. Resource IDs: (32853)
+msgid "Line diff bar"
+msgstr "單行差異列"
+
 #. Resource IDs: (65535)
 msgid "Line differences"
 msgstr "單行差異"
@@ -3859,6 +3879,10 @@ msgid ""
 msgstr ""
 "儲存檔案庫 URL 內容\n"
 "的位置."
+
+#. Resource IDs: (32854)
+msgid "Locator Bar"
+msgstr "定位列"
 
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
@@ -4438,6 +4462,18 @@ msgstr "確定"
 #. Resource IDs: (3697)
 msgid "OVR"
 msgstr "OVR"
+
+#. Resource IDs: (32845)
+msgid "Office &XP"
+msgstr "Office &XP"
+
+#. Resource IDs: (32847)
+msgid "Office 200&3"
+msgstr "Office 200&3"
+
+#. Resource IDs: (65535)
+msgid "Office 200&7"
+msgstr "Office 200&7"
 
 #. Resource IDs: (65535)
 msgid "Older lines"
@@ -5756,10 +5792,6 @@ msgstr "正常顯示排除的資料夾"
 msgid "Show ignored files"
 msgstr "顯示忽略的檔案"
 
-#. Resource IDs: (1065)
-msgid "Show li&ne diff bar"
-msgstr "顯示單行差異列(&L)"
-
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
 msgstr "顯示行號(&S)"
@@ -6968,9 +7000,9 @@ msgstr "更新並重試鎖定中..."
 msgid "Updating log cache"
 msgstr "正在更新紀錄訊息快取"
 
-#. Resource IDs: (1064)
-msgid "Use &magnifier on locatorbar"
-msgstr "在定位列上使用放大鏡(&M)"
+#. Resource IDs: (32855)
+msgid "Use &left block"
+msgstr "使用左方區塊(&L)"
 
 #. Resource IDs: (1024)
 msgid "Use &one-pane view as default for 2-file diff"
@@ -7006,6 +7038,38 @@ msgstr "使用剪貼簿中的單一差異檔"
 msgid "Use \"_svn\" instead of \".svn\" directories"
 msgstr "使用 \"_svn\" 目錄存放資料"
 
+#. Resource IDs: (2054)
+msgid ""
+"Use all content from the left view\n"
+"use left file"
+msgstr ""
+"使用左方視窗的全部內容\n"
+"使用左方檔案"
+
+#. Resource IDs: (32857)
+msgid "Use block from left before right"
+msgstr "先使用左方區塊再使用右方"
+
+#. Resource IDs: (2054)
+msgid ""
+"Use block from left view before block from right view\n"
+"use block from left before right"
+msgstr ""
+"先使用左方視窗的文字區塊再使用右方視窗的文字區塊\n"
+"先使用左方區塊再使用右方"
+
+#. Resource IDs: (32859)
+msgid "Use block from right before left"
+msgstr "先使用右方區塊再使用左方"
+
+#. Resource IDs: (2054)
+msgid ""
+"Use block from right view before block from left view\n"
+"use block from right before left"
+msgstr ""
+"先使用右方視窗的文字區塊再使用左方視窗的文字區塊\n"
+"先使用右方區塊再使用左方"
+
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one first)"
 msgstr "使用兩個文字區域(先使用本區塊)"
@@ -7013,6 +7077,10 @@ msgstr "使用兩個文字區域(先使用本區塊)"
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one last)"
 msgstr "使用兩個文字區塊(最後使用本區塊)"
+
+#. Resource IDs: (32856)
+msgid "Use left file"
+msgstr "使用左方檔案"
 
 #. Resource IDs: (3)
 msgid "Use local"
@@ -7079,6 +7147,14 @@ msgid ""
 "Use text block from \"theirs\"\n"
 "Use \"theirs\" text block"
 msgstr "先套用遠端再套用本地的文字區塊(&H)"
+
+#. Resource IDs: (2054)
+msgid ""
+"Use text block from the left view\n"
+"use left block"
+msgstr ""
+"使用左方視窗的文字區塊\n"
+"使用左方區塊"
 
 #. Resource IDs: (251)
 msgid "Use th&is text block"
@@ -7173,6 +7249,10 @@ msgstr "以網頁瀏覽器檢視版本(&W)"
 msgid "Visit our website"
 msgstr "瀏覽我們的網站"
 
+#. Resource IDs: (32848)
+msgid "Visual Studio.NET 200&5"
+msgstr "Visual Studio.NET 200&5"
+
 #. Resource IDs: (198)
 msgid "Wait"
 msgstr "等待"
@@ -7210,6 +7290,10 @@ msgid ""
 msgstr ""
 "在鎖定檔案時, 顯示一個用來詢問\n"
 "鎖定原因的視窗."
+
+#. Resource IDs: (32844)
+msgid "Windows &2000"
+msgstr "Windows &2000"
 
 #. Resource IDs: (146)
 msgid "With URL:"
@@ -8082,6 +8166,14 @@ msgstr "年"
 msgid "yes"
 msgstr "是"
 
+#~ msgid "&Open Ctrl-O"
+#~ msgstr "開啟(&O) Ctrl-O"
+#~ msgid "&Save Ctrl-S"
+#~ msgstr "儲存(&S) Ctrl-S"
+#~ msgid "&Undo\tCtrl+Z"
+#~ msgstr "還原(&U)\tCtrl+Z"
+#~ msgid "Use &magnifier on locatorbar"
+#~ msgstr "在定位列上使用放大鏡(&M)"
 #~ msgid "Analyze revision data..."
 #~ msgstr "分析版本資料..."
 #~ msgid "Checking for forward copies"
