@@ -20,7 +20,6 @@
 
 #include "resource.h"
 #include "registry.h"
-#include "FontPreviewCombo.h"
 
 /**
  * \ingroup TortoiseMerge
@@ -78,7 +77,7 @@ protected:
 	CRegString		m_regFontName;
 	CString			m_sFontName;
 
-	CFontPreviewCombo m_cFontNames;
+	CMFCFontComboBox m_cFontNames;
 	CComboBox		m_cFontSizes;
 protected:
 	afx_msg void OnBnClickedBackup();

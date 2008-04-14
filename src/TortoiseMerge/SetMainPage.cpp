@@ -81,7 +81,6 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_IGNORELF, m_bIgnoreEOL);
 	DDX_Check(pDX, IDC_ONEPANE, m_bOnePane);
 	DDX_Control(pDX, IDC_FONTSIZES, m_cFontSizes);
-	DDX_FontPreviewCombo (pDX, IDC_FONTNAMES, m_sFontName);
 	m_dwFontSize = (DWORD)m_cFontSizes.GetItemData(m_cFontSizes.GetCurSel());
 	if ((m_dwFontSize==0)||(m_dwFontSize == -1))
 	{
@@ -89,6 +88,7 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 		m_cFontSizes.GetWindowText(t);
 		m_dwFontSize = _ttoi(t);
 	}
+	DDX_Control(pDX, IDC_FONTNAMES, m_cFontNames);
 	DDX_Check(pDX, IDC_LINENUMBERS, m_bViewLinenumbers);
 	DDX_Check(pDX, IDC_STRIKEOUT, m_bStrikeout);
 	DDX_Check(pDX, IDC_USEBDIFF, m_bDisplayBinDiff);
@@ -114,6 +114,7 @@ void CSetMainPage::SaveData()
 BOOL CSetMainPage::OnApply()
 {
 	UpdateData();
+	m_sFontName = m_cFontNames.GetSelFont()->m_strName;
 	SaveData();
 	SetModified(FALSE);
 	return CPropertyPage::OnApply();
@@ -121,10 +122,7 @@ BOOL CSetMainPage::OnApply()
 
 BOOL CSetMainPage::OnInitDialog()
 {
-	m_cFontNames.SubclassDlgItem (IDC_FONTNAMES, this);
-	m_cFontNames.SetFontHeight(16, false);
-	m_cFontNames.SetPreviewStyle(CFontPreviewCombo::NAME_THEN_SAMPLE, false);
-	m_cFontNames.Init(true);
+	CMFCFontComboBox::m_bDrawUsingFont = true;
 
 	CPropertyPage::OnInitDialog();
 
@@ -181,7 +179,8 @@ BOOL CSetMainPage::OnInitDialog()
 		temp.Format(_T("%d"), m_dwFontSize);
 		m_cFontSizes.SetWindowText(temp);
 	}
-	m_cFontNames.AdjustHeight(&m_cFontSizes);
+	m_cFontNames.Setup(DEVICE_FONTTYPE|RASTER_FONTTYPE|TRUETYPE_FONTTYPE, 1, FIXED_PITCH);
+	m_cFontNames.SelectFont(m_sFontName);
 
 	UpdateData(FALSE);
 	return TRUE;  // return TRUE unless you set the focus to a control
