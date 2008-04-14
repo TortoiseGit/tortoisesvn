@@ -50,6 +50,8 @@ CCrashReport g_crasher("crashreports@tortoisesvn.tigris.org", "Crashreport for T
 // CTortoiseMergeApp initialization
 BOOL CTortoiseMergeApp::InitInstance()
 {
+	CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
+	CMFCButton::EnableWindowsTheming();
 	//set the resource dll for the required language
 	CRegDWORD loc = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	long langId = loc;
