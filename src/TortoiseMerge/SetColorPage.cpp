@@ -52,16 +52,22 @@ void CSetColorPage::SaveData()
 		cFg = ::GetSysColor(COLOR_WINDOWTEXT);
 
 		cBk = m_cBkNormal.GetColor();
+		if (cBk == -1)
+			cBk = m_cBkNormal.GetAutomaticColor();
 		CDiffColors::GetInstance().SetColors(DIFFSTATE_NORMAL, cBk, cFg);
 		CDiffColors::GetInstance().SetColors(DIFFSTATE_UNKNOWN, cBk, cFg);
 
 		cBk = m_cBkRemoved.GetColor();
+		if (cBk == -1)
+			cBk = m_cBkRemoved.GetAutomaticColor();
 		CDiffColors::GetInstance().SetColors(DIFFSTATE_REMOVED, cBk, cFg);
 		CDiffColors::GetInstance().SetColors(DIFFSTATE_IDENTICALREMOVED, cBk, cFg);
 		CDiffColors::GetInstance().SetColors(DIFFSTATE_THEIRSREMOVED, cBk, cFg);
 		CDiffColors::GetInstance().SetColors(DIFFSTATE_YOURSREMOVED, cBk, cFg);
 
 		cBk = m_cBkAdded.GetColor();
+		if (cBk == -1)
+			cBk = m_cBkAdded.GetAutomaticColor();
 		CDiffColors::GetInstance().SetColors(DIFFSTATE_ADDED, cBk, cFg);
 		CDiffColors::GetInstance().SetColors(DIFFSTATE_IDENTICALADDED, cBk, cFg);
 		CDiffColors::GetInstance().SetColors(DIFFSTATE_THEIRSADDED, cBk, cFg);
@@ -69,15 +75,17 @@ void CSetColorPage::SaveData()
 
 		if ((DWORD)m_regInlineAdded != (DWORD)m_cBkInlineAdded.GetColor())
 			m_bReloadNeeded = true;
-		m_regInlineAdded = m_cBkInlineAdded.GetColor();
+		m_regInlineAdded = (m_cBkInlineAdded.GetColor() == -1 ? m_cBkInlineAdded.GetAutomaticColor() : m_cBkInlineAdded.GetColor());
 		if ((DWORD)m_regInlineRemoved != (DWORD)m_cBkInlineRemoved.GetColor())
 			m_bReloadNeeded = true;
-		m_regInlineRemoved = m_cBkInlineRemoved.GetColor();
+		m_regInlineRemoved = (m_cBkInlineRemoved.GetColor() == -1 ? m_cBkInlineRemoved.GetAutomaticColor() : m_cBkInlineRemoved.GetColor());
 		if ((DWORD)m_regModifiedBackground != (DWORD)m_cBkModified.GetColor())
 			m_bReloadNeeded = true;
-		m_regModifiedBackground = m_cBkModified.GetColor();
+		m_regModifiedBackground = (m_cBkModified.GetColor() == -1 ? m_cBkModified.GetAutomaticColor() : m_cBkModified.GetColor());
 
 		cBk = m_cBkEmpty.GetColor();
+		if (cBk == -1)
+			cBk = m_cBkEmpty.GetAutomaticColor();
 		CDiffColors::GetInstance().SetColors(DIFFSTATE_EMPTY, cBk, cFg);
 
 		// there are three different colors for conflicted lines
@@ -86,6 +94,8 @@ void CSetColorPage::SaveData()
 		// so try to adjust the conflicted added and conflicted removed
 		// colors a little so they look different.
 		cBk = m_cBkConflict.GetColor();
+		if (cBk == -1)
+			cBk = m_cBkConflict.GetAutomaticColor();
 		CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTED, cBk, cFg);
 		CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTED_IGNORED, cBk, cFg);
 		COLORREF adjustedcolor = cBk;
@@ -97,6 +107,8 @@ void CSetColorPage::SaveData()
 		CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTEMPTY, adjustedcolor, cFg);
 		
 		cBk = m_cBkConflictResolved.GetColor();
+		if (cBk == -1)
+			cBk = m_cBkConflictResolved.GetAutomaticColor();
 		CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTRESOLVED, cBk, cFg);
 	}
 }
@@ -143,46 +155,46 @@ BOOL CSetColorPage::OnInitDialog()
 	sCustomText.LoadString(IDS_COLOURPICKER_CUSTOMTEXT);
 
 	CDiffColors::GetInstance().GetColors(DIFFSTATE_NORMAL, cBk, cFg);
-	m_cBkNormal.EnableAutomaticButton(sDefaultText, DIFFSTATE_NORMAL_DEFAULT_BG);
 	m_cBkNormal.SetColor(cBk);
-	m_cBkNormal.SetWindowText(sCustomText);
+	m_cBkNormal.EnableAutomaticButton(sDefaultText, DIFFSTATE_NORMAL_DEFAULT_BG);
+	m_cBkNormal.EnableOtherButton(sCustomText);
 
 	CDiffColors::GetInstance().GetColors(DIFFSTATE_REMOVED, cBk, cFg);
-	m_cBkRemoved.EnableAutomaticButton(sDefaultText, DIFFSTATE_REMOVED_DEFAULT_BG);
 	m_cBkRemoved.SetColor(cBk);
-	m_cBkRemoved.SetWindowText(sCustomText);
+	m_cBkRemoved.EnableAutomaticButton(sDefaultText, DIFFSTATE_REMOVED_DEFAULT_BG);
+	m_cBkRemoved.EnableOtherButton(sCustomText);
 
 	CDiffColors::GetInstance().GetColors(DIFFSTATE_ADDED, cBk, cFg);
-	m_cBkAdded.EnableAutomaticButton(sDefaultText, DIFFSTATE_ADDED_DEFAULT_BG);
 	m_cBkAdded.SetColor(cBk);
-	m_cBkAdded.SetWindowText(sCustomText);
+	m_cBkAdded.EnableAutomaticButton(sDefaultText, DIFFSTATE_ADDED_DEFAULT_BG);
+	m_cBkAdded.EnableOtherButton(sCustomText);
 
-	m_cBkInlineAdded.EnableAutomaticButton(sDefaultText, INLINEADDED_COLOR);
 	m_cBkInlineAdded.SetColor((DWORD)m_regInlineAdded);
-	m_cBkInlineAdded.SetWindowText(sCustomText);
+	m_cBkInlineAdded.EnableAutomaticButton(sDefaultText, INLINEADDED_COLOR);
+	m_cBkInlineAdded.EnableOtherButton(sCustomText);
 
-	m_cBkInlineRemoved.EnableAutomaticButton(sDefaultText, INLINEREMOVED_COLOR);
 	m_cBkInlineRemoved.SetColor((DWORD)m_regInlineRemoved);
-	m_cBkInlineRemoved.SetWindowText(sCustomText);
+	m_cBkInlineRemoved.EnableAutomaticButton(sDefaultText, INLINEREMOVED_COLOR);
+	m_cBkInlineRemoved.EnableOtherButton(sCustomText);
 
-	m_cBkModified.EnableAutomaticButton(sDefaultText, MODIFIED_COLOR);
 	m_cBkModified.SetColor((DWORD)m_regModifiedBackground);
-	m_cBkModified.SetWindowText(sCustomText);
+	m_cBkModified.EnableAutomaticButton(sDefaultText, MODIFIED_COLOR);
+	m_cBkModified.EnableOtherButton(sCustomText);
 
 	CDiffColors::GetInstance().GetColors(DIFFSTATE_EMPTY, cBk, cFg);
-	m_cBkEmpty.EnableAutomaticButton(sDefaultText, DIFFSTATE_EMPTY_DEFAULT_BG);
 	m_cBkEmpty.SetColor(cBk);
-	m_cBkEmpty.SetWindowText(sCustomText);
+	m_cBkEmpty.EnableAutomaticButton(sDefaultText, DIFFSTATE_EMPTY_DEFAULT_BG);
+	m_cBkEmpty.EnableOtherButton(sCustomText);
 
 	CDiffColors::GetInstance().GetColors(DIFFSTATE_CONFLICTED, cBk, cFg);
-	m_cBkConflict.EnableAutomaticButton(sDefaultText, DIFFSTATE_CONFLICTED_DEFAULT_BG);
 	m_cBkConflict.SetColor(cBk);
-	m_cBkConflict.SetWindowText(sCustomText);
+	m_cBkConflict.EnableAutomaticButton(sDefaultText, DIFFSTATE_CONFLICTED_DEFAULT_BG);
+	m_cBkConflict.EnableOtherButton(sCustomText);
 
 	CDiffColors::GetInstance().GetColors(DIFFSTATE_CONFLICTRESOLVED, cBk, cFg);
-	m_cBkConflictResolved.EnableAutomaticButton(sDefaultText, DIFFSTATE_CONFLICTRESOLVED_DEFAULT_BG);
 	m_cBkConflictResolved.SetColor(cBk);
-	m_cBkConflictResolved.SetWindowText(sCustomText);
+	m_cBkConflictResolved.EnableAutomaticButton(sDefaultText, DIFFSTATE_CONFLICTRESOLVED_DEFAULT_BG);
+	m_cBkConflictResolved.EnableOtherButton(sCustomText);
 
 	m_bInit = TRUE;
 
