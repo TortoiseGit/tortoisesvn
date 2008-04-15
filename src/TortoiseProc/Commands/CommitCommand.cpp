@@ -92,8 +92,7 @@ bool CommitCommand::Execute()
 			sLogMsg = dlg.m_sLogMessage;
 			bSelectFilesForCommit = true;
 			CSVNProgressDlg progDlg;
-			if (!dlg.m_sChangeList.IsEmpty())
-				progDlg.SetChangeList(dlg.m_sChangeList, !!dlg.m_bKeepChangeList);
+			progDlg.SetChangeList(dlg.m_sChangeList, !!dlg.m_bKeepChangeList);
 			if (parser.HasVal(_T("closeonend")))
 				progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
 			progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Commit);

@@ -2526,15 +2526,23 @@ apr_array_header_t * SVN::MakeCopyArray(const CTSVNPathList& pathList, const SVN
 
 apr_array_header_t * SVN::MakeChangeListArray(const CStringArray& changelists, apr_pool_t * pool)
 {
-	apr_array_header_t * arr = NULL;
+	// passing NULL if there are no changelists will work only partially: the subversion library
+	// in that case executes the command, but fails to remove the existing changelists from the files
+	// if 'keep changelists' is set to false.
+	// We therefore have to create an empty array instead of passing NULL, only then the
+	// changelists are removed properly.
+	int count = changelists.GetCount();
     // special case: the changelist array contains one empty string
     if ((changelists.GetCount() == 1)&&(changelists[0].IsEmpty()))
-        return arr;
+        count = 0;
+
+	apr_array_header_t * arr = apr_array_make (pool, count, sizeof(const char *));
+
+	if (count == 0)
+		return arr;
 
 	if (!changelists.IsEmpty())
 	{
-		arr = apr_array_make (pool, changelists.GetCount(), sizeof(const char *));
-
 		for (int nItem = 0; nItem < changelists.GetCount(); nItem++)
 		{
 			const char * c = apr_pstrdup(pool, (LPCSTR)CUnicodeUtils::GetUTF8(changelists[nItem]));
