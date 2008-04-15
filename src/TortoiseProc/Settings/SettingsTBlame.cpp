@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -56,17 +56,18 @@ void CSettingsTBlame::DoDataExchange(CDataExchange* pDX)
 		m_cFontSizes.GetWindowText(t);
 		m_dwFontSize = _ttoi(t);
 	}
-	DDX_FontPreviewCombo (pDX, IDC_FONTNAMES, m_sFontName);
+	DDX_Control(pDX, IDC_FONTNAMES, m_cFontNames);
 	DDX_Text(pDX, IDC_TABSIZE, m_dwTabSize);
 }
 
 
 BEGIN_MESSAGE_MAP(CSettingsTBlame, ISettingsPropPage)
-	ON_MESSAGE(CPN_SELCHANGE, OnChanged)
 	ON_BN_CLICKED(IDC_RESTORE, OnBnClickedRestore)
 	ON_CBN_SELCHANGE(IDC_FONTSIZES, OnChange)
 	ON_CBN_SELCHANGE(IDC_FONTNAMES, OnChange)
 	ON_EN_CHANGE(IDC_TABSIZE, OnChange)
+	ON_BN_CLICKED(IDC_NEWLINESCOLOR, &CSettingsTBlame::OnBnClickedColor)
+	ON_BN_CLICKED(IDC_OLDLINESCOLOR, &CSettingsTBlame::OnBnClickedColor)
 END_MESSAGE_MAP()
 
 
@@ -74,10 +75,7 @@ END_MESSAGE_MAP()
 
 BOOL CSettingsTBlame::OnInitDialog()
 {
-	m_cFontNames.SubclassDlgItem (IDC_FONTNAMES, this);
-	m_cFontNames.SetFontHeight(16, false);
-	m_cFontNames.SetPreviewStyle(CFontPreviewCombo::NAME_THEN_SAMPLE, false);
-	m_cFontNames.Init();
+	CMFCFontComboBox::m_bDrawUsingFont = true;
 
 	ISettingsPropPage::OnInitDialog();
 
@@ -87,10 +85,10 @@ BOOL CSettingsTBlame::OnInitDialog()
 	CString sDefaultText, sCustomText;
 	sDefaultText.LoadString(IDS_COLOURPICKER_DEFAULTTEXT);
 	sCustomText.LoadString(IDS_COLOURPICKER_CUSTOMTEXT);
-	m_cNewLinesColor.SetDefaultText(sDefaultText);
-	m_cNewLinesColor.SetCustomText(sCustomText);
-	m_cOldLinesColor.SetDefaultText(sDefaultText);
-	m_cOldLinesColor.SetCustomText(sCustomText);
+	m_cNewLinesColor.EnableAutomaticButton(sDefaultText, RGB(255, 230, 230));
+	m_cNewLinesColor.EnableOtherButton(sCustomText);
+	m_cOldLinesColor.EnableAutomaticButton(sDefaultText, RGB(230, 230, 255));
+	m_cOldLinesColor.EnableOtherButton(sCustomText);
 
 	m_sFontName = m_regFontName;
 	m_dwFontSize = m_regFontSize;
@@ -116,16 +114,11 @@ BOOL CSettingsTBlame::OnInitDialog()
 		temp.Format(_T("%d"), m_dwFontSize);
 		m_cFontSizes.SetWindowText(temp);
 	}
-	m_cFontNames.AdjustHeight(&m_cFontSizes);
+	m_cFontNames.Setup(DEVICE_FONTTYPE|RASTER_FONTTYPE|TRUETYPE_FONTTYPE, 1, FIXED_PITCH);
+	m_cFontNames.SelectFont(m_sFontName);
 
 	UpdateData(FALSE);
 	return TRUE;
-}
-
-LRESULT CSettingsTBlame::OnChanged(WPARAM /*wParam*/, LPARAM /*lParam*/)
-{
-	SetModified(TRUE);
-	return 0;
 }
 
 void CSettingsTBlame::OnChange()
@@ -143,10 +136,10 @@ void CSettingsTBlame::OnBnClickedRestore()
 BOOL CSettingsTBlame::OnApply()
 {
 	UpdateData();
-	m_regNewLinesColor = m_cNewLinesColor.GetColor(TRUE);
+	m_regNewLinesColor = (m_cNewLinesColor.GetColor() == -1 ? m_cNewLinesColor.GetAutomaticColor() : m_cNewLinesColor.GetColor()); 
 	if (m_regNewLinesColor.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regNewLinesColor.getErrorString().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
-	m_regOldLinesColor = m_cOldLinesColor.GetColor(TRUE);
+	m_regOldLinesColor = (m_cOldLinesColor.GetColor() == -1 ? m_cOldLinesColor.GetAutomaticColor() : m_cOldLinesColor.GetColor());
 	if (m_regOldLinesColor.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regOldLinesColor.getErrorString().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
 	m_regFontName = (LPCTSTR)m_sFontName;
@@ -160,4 +153,9 @@ BOOL CSettingsTBlame::OnApply()
 		CMessageBox::Show(m_hWnd, m_regTabSize.getErrorString().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
 	SetModified(FALSE);
 	return ISettingsPropPage::OnApply();
+}
+
+void CSettingsTBlame::OnBnClickedColor()
+{
+	SetModified();
 }

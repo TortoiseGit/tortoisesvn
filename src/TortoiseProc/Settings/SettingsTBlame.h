@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,8 +18,6 @@
 //
 #pragma once
 #include "SettingsPropPage.h"
-#include "ColourPickerXP.h"
-#include "FontPreviewCombo.h"
 #include "registry.h"
 
 
@@ -44,18 +42,18 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
 	virtual BOOL OnApply();
-	afx_msg LRESULT OnChanged(WPARAM wParam, LPARAM lParam);
+	afx_msg void OnBnClickedColor();
 	afx_msg void OnChange();
 	afx_msg void OnBnClickedRestore();
 
 	DECLARE_MESSAGE_MAP()
 private:
-	CColourPickerXP m_cNewLinesColor;
-	CColourPickerXP m_cOldLinesColor;
+	CMFCColorButton m_cNewLinesColor;
+	CMFCColorButton m_cOldLinesColor;
 	CRegStdWORD		m_regNewLinesColor;
 	CRegStdWORD		m_regOldLinesColor;
 
-	CFontPreviewCombo	m_cFontNames;
+	CMFCFontComboBox	m_cFontNames;
 	CComboBox		m_cFontSizes;
 	CRegStdWORD		m_regFontSize;
 	DWORD			m_dwFontSize;
@@ -63,4 +61,5 @@ private:
 	CString			m_sFontName;
 	DWORD			m_dwTabSize;
 	CRegStdWORD		m_regTabSize;
+public:
 };

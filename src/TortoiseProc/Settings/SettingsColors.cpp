@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -47,8 +47,16 @@ void CSettingsColors::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CSettingsColors, ISettingsPropPage)
-	ON_MESSAGE(CPN_SELCHANGE, OnColorChanged)
 	ON_BN_CLICKED(IDC_RESTORE, OnBnClickedRestore)
+	ON_BN_CLICKED(IDC_CONFLICTCOLOR, &CSettingsColors::OnBnClickedColor)
+	ON_BN_CLICKED(IDC_ADDEDCOLOR, &CSettingsColors::OnBnClickedColor)
+	ON_BN_CLICKED(IDC_DELETEDCOLOR, &CSettingsColors::OnBnClickedColor)
+	ON_BN_CLICKED(IDC_MERGEDCOLOR, &CSettingsColors::OnBnClickedColor)
+	ON_BN_CLICKED(IDC_MODIFIEDCOLOR, &CSettingsColors::OnBnClickedColor)
+	ON_BN_CLICKED(IDC_DELETEDNODECOLOR, &CSettingsColors::OnBnClickedColor)
+	ON_BN_CLICKED(IDC_ADDEDNODECOLOR, &CSettingsColors::OnBnClickedColor)
+	ON_BN_CLICKED(IDC_REPLACEDNODECOLOR, &CSettingsColors::OnBnClickedColor)
+	ON_BN_CLICKED(IDC_RENAMEDNODECOLOR, &CSettingsColors::OnBnClickedColor)
 END_MESSAGE_MAP()
 
 BOOL CSettingsColors::OnInitDialog()
@@ -68,60 +76,59 @@ BOOL CSettingsColors::OnInitDialog()
 	CString sDefaultText, sCustomText;
 	sDefaultText.LoadString(IDS_COLOURPICKER_DEFAULTTEXT);
 	sCustomText.LoadString(IDS_COLOURPICKER_CUSTOMTEXT);
-	m_cAdded.SetDefaultText(sDefaultText);
-	m_cAdded.SetCustomText(sCustomText);
-	m_cDeleted.SetDefaultText(sDefaultText);
-	m_cDeleted.SetCustomText(sCustomText);
-	m_cMerged.SetDefaultText(sDefaultText);
-	m_cMerged.SetCustomText(sCustomText);
-	m_cModified.SetDefaultText(sDefaultText);
-	m_cModified.SetCustomText(sCustomText);
-	m_cConflict.SetDefaultText(sDefaultText);
-	m_cConflict.SetCustomText(sCustomText);
-	m_cAddedNode.SetDefaultText(sDefaultText);
-	m_cAddedNode.SetCustomText(sCustomText);
-	m_cDeletedNode.SetDefaultText(sDefaultText);
-	m_cDeletedNode.SetCustomText(sCustomText);
-	m_cRenamedNode.SetDefaultText(sDefaultText);
-	m_cRenamedNode.SetCustomText(sCustomText);
-	m_cReplacedNode.SetDefaultText(sDefaultText);
-	m_cReplacedNode.SetCustomText(sCustomText);
+	m_cAdded.EnableAutomaticButton(sDefaultText, m_Colors.GetColor(CColors::Added, true));
+	m_cAdded.EnableOtherButton(sCustomText);
+	m_cDeleted.EnableAutomaticButton(sDefaultText, m_Colors.GetColor(CColors::Deleted, true));
+	m_cDeleted.EnableOtherButton(sCustomText);
+	m_cMerged.EnableAutomaticButton(sDefaultText, m_Colors.GetColor(CColors::Merged, true));
+	m_cMerged.EnableOtherButton(sCustomText);
+	m_cModified.EnableAutomaticButton(sDefaultText, m_Colors.GetColor(CColors::Modified, true));
+	m_cModified.EnableOtherButton(sCustomText);
+	m_cConflict.EnableAutomaticButton(sDefaultText, m_Colors.GetColor(CColors::Conflict, true));
+	m_cConflict.EnableOtherButton(sCustomText);
+	m_cAddedNode.EnableAutomaticButton(sDefaultText, m_Colors.GetColor(CColors::AddedNode, true));
+	m_cAddedNode.EnableOtherButton(sCustomText);
+	m_cDeletedNode.EnableAutomaticButton(sDefaultText, m_Colors.GetColor(CColors::DeletedNode, true));
+	m_cDeletedNode.EnableOtherButton(sCustomText);
+	m_cRenamedNode.EnableAutomaticButton(sDefaultText, m_Colors.GetColor(CColors::RenamedNode, true));
+	m_cRenamedNode.EnableOtherButton(sCustomText);
+	m_cReplacedNode.EnableAutomaticButton(sDefaultText, m_Colors.GetColor(CColors::ReplacedNode, true));
+	m_cReplacedNode.EnableOtherButton(sCustomText);
 	
 	return TRUE;
 }
 
-LRESULT CSettingsColors::OnColorChanged(WPARAM /*wParam*/, LPARAM /*lParam*/)
-{
-	SetModified(TRUE);
-	return 0;
-}
-
 void CSettingsColors::OnBnClickedRestore()
 {
-	m_cAdded.SetColor(m_Colors.GetColor(CColors::Added, true));
-	m_cDeleted.SetColor(m_Colors.GetColor(CColors::Deleted, true));
-	m_cMerged.SetColor(m_Colors.GetColor(CColors::Merged, true));
-	m_cModified.SetColor(m_Colors.GetColor(CColors::Modified, true));
-	m_cConflict.SetColor(m_Colors.GetColor(CColors::Conflict, true));
-	m_cAddedNode.SetColor(m_Colors.GetColor(CColors::AddedNode, true));
-	m_cDeletedNode.SetColor(m_Colors.GetColor(CColors::DeletedNode, true));
-	m_cRenamedNode.SetColor(m_Colors.GetColor(CColors::RenamedNode, true));
-	m_cReplacedNode.SetColor(m_Colors.GetColor(CColors::ReplacedNode, true));
+	m_cAdded.SetColor(m_Colors.GetColor(CColors::Added));
+	m_cDeleted.SetColor(m_Colors.GetColor(CColors::Deleted));
+	m_cMerged.SetColor(m_Colors.GetColor(CColors::Merged));
+	m_cModified.SetColor(m_Colors.GetColor(CColors::Modified));
+	m_cConflict.SetColor(m_Colors.GetColor(CColors::Conflict));
+	m_cAddedNode.SetColor(m_Colors.GetColor(CColors::AddedNode));
+	m_cDeletedNode.SetColor(m_Colors.GetColor(CColors::DeletedNode));
+	m_cRenamedNode.SetColor(m_Colors.GetColor(CColors::RenamedNode));
+	m_cReplacedNode.SetColor(m_Colors.GetColor(CColors::ReplacedNode));
 	SetModified(TRUE);
 }
 
 BOOL CSettingsColors::OnApply()
 {
-	m_Colors.SetColor(CColors::Added, m_cAdded.GetColor(TRUE));
-	m_Colors.SetColor(CColors::Deleted, m_cDeleted.GetColor(TRUE));
-	m_Colors.SetColor(CColors::Merged, m_cMerged.GetColor(TRUE));
-	m_Colors.SetColor(CColors::Modified, m_cModified.GetColor(TRUE));
-	m_Colors.SetColor(CColors::Conflict, m_cConflict.GetColor(TRUE));
-	m_Colors.SetColor(CColors::AddedNode, m_cAddedNode.GetColor(TRUE));
-	m_Colors.SetColor(CColors::DeletedNode, m_cDeletedNode.GetColor(TRUE));
-	m_Colors.SetColor(CColors::RenamedNode, m_cRenamedNode.GetColor(TRUE));
-	m_Colors.SetColor(CColors::ReplacedNode, m_cReplacedNode.GetColor(TRUE));
-	m_Colors.SetColor(CColors::PropertyChanged, m_cModified.GetColor(TRUE));
+	m_Colors.SetColor(CColors::Added, m_cAdded.GetColor() == -1 ? m_cAdded.GetAutomaticColor() : m_cAdded.GetColor());
+	m_Colors.SetColor(CColors::Deleted, m_cDeleted.GetColor() == -1 ? m_cDeleted.GetAutomaticColor() : m_cDeleted.GetColor());
+	m_Colors.SetColor(CColors::Merged, m_cMerged.GetColor() == -1 ? m_cMerged.GetAutomaticColor() : m_cMerged.GetColor());
+	m_Colors.SetColor(CColors::Modified, m_cModified.GetColor() == -1 ? m_cModified.GetAutomaticColor() : m_cModified.GetColor());
+	m_Colors.SetColor(CColors::Conflict, m_cConflict.GetColor() == -1 ? m_cConflict.GetAutomaticColor() : m_cConflict.GetColor());
+	m_Colors.SetColor(CColors::AddedNode, m_cAddedNode.GetColor() == -1 ? m_cAddedNode.GetAutomaticColor() : m_cAddedNode.GetColor());
+	m_Colors.SetColor(CColors::DeletedNode, m_cDeletedNode.GetColor() == -1 ? m_cDeletedNode.GetAutomaticColor() : m_cDeletedNode.GetColor());
+	m_Colors.SetColor(CColors::RenamedNode, m_cRenamedNode.GetColor() == -1 ? m_cRenamedNode.GetAutomaticColor() : m_cRenamedNode.GetColor());
+	m_Colors.SetColor(CColors::ReplacedNode, m_cReplacedNode.GetColor() == -1 ? m_cReplacedNode.GetAutomaticColor() : m_cReplacedNode.GetColor());
+	m_Colors.SetColor(CColors::PropertyChanged, m_cModified.GetColor() == -1 ? m_cModified.GetAutomaticColor() : m_cModified.GetColor());
 
 	return ISettingsPropPage::OnApply();
+}
+
+void CSettingsColors::OnBnClickedColor()
+{
+	SetModified();
 }

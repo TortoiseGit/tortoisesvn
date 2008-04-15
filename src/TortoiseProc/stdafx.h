@@ -43,7 +43,8 @@
 #include <afxctl.h>
 #include <afxtempl.h>
 #include <afxmt.h>
-
+#include <afxext.h>         // MFC extensions
+#include <afxcontrolbars.h>     // MFC support for ribbons and control bars
 
 #include <atlbase.h>
 

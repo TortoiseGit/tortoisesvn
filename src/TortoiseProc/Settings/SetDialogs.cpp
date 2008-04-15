@@ -68,7 +68,7 @@ void CSetDialogs::DoDataExchange(CDataExchange* pDX)
 		m_cFontSizes.GetWindowText(t);
 		m_dwFontSize = _ttoi(t);
 	}
-	DDX_FontPreviewCombo (pDX, IDC_FONTNAMES, m_sFontName);
+	DDX_Control(pDX, IDC_FONTNAMES, m_cFontNames);
 	DDX_Text(pDX, IDC_DEFAULTLOG, m_sDefaultLogs);
 	DDX_Check(pDX, IDC_SHORTDATEFORMAT, m_bShortDateFormat);
 	DDX_Control(pDX, IDC_AUTOCLOSECOMBO, m_cAutoClose);
@@ -98,10 +98,7 @@ END_MESSAGE_MAP()
 // CSetDialogs message handlers
 BOOL CSetDialogs::OnInitDialog()
 {
-	m_cFontNames.SubclassDlgItem (IDC_FONTNAMES, this);
-	m_cFontNames.SetFontHeight(16, false);
-	m_cFontNames.SetPreviewStyle(CFontPreviewCombo::NAME_THEN_SAMPLE, false);
-	m_cFontNames.Init();
+	CMFCFontComboBox::m_bDrawUsingFont = true;
 
 	ISettingsPropPage::OnInitDialog();
 
@@ -171,7 +168,9 @@ BOOL CSetDialogs::OnInitDialog()
 		temp.Format(_T("%d"), m_dwFontSize);
 		m_cFontSizes.SetWindowText(temp);
 	}
-	m_cFontNames.AdjustHeight(&m_cFontSizes);
+
+	m_cFontNames.Setup(DEVICE_FONTTYPE|RASTER_FONTTYPE|TRUETYPE_FONTTYPE, 1, FIXED_PITCH);
+	m_cFontNames.SelectFont(m_sFontName);
 	
 	UpdateData(FALSE);
 	return TRUE;
@@ -191,6 +190,7 @@ void CSetDialogs::OnChange()
 BOOL CSetDialogs::OnApply()
 {
 	UpdateData();
+	m_sFontName = m_cFontNames.GetSelFont()->m_strName;
 	m_regAutoClose = m_dwAutoClose;
 	if (m_regAutoClose.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regAutoClose.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);

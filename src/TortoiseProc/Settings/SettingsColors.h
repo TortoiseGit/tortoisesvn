@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,7 +18,6 @@
 //
 #pragma once
 #include "SettingsPropPage.h"
-#include "ColourPickerXP.h"
 #include "Colors.h"
 
 /**
@@ -40,20 +39,21 @@ public:
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	virtual BOOL OnInitDialog();
-	afx_msg LRESULT OnColorChanged(WPARAM wParam, LPARAM lParam);
+	afx_msg void OnBnClickedColor();
 	afx_msg void OnBnClickedRestore();
 	virtual BOOL OnApply();
 
 	DECLARE_MESSAGE_MAP()
 private:
-	CColourPickerXP m_cConflict;
-	CColourPickerXP m_cAdded;
-	CColourPickerXP m_cDeleted;
-	CColourPickerXP m_cMerged;
-	CColourPickerXP m_cModified;
-	CColourPickerXP m_cAddedNode;
-	CColourPickerXP m_cDeletedNode;
-	CColourPickerXP m_cRenamedNode;
-	CColourPickerXP m_cReplacedNode;
+	CMFCColorButton m_cConflict;
+	CMFCColorButton m_cAdded;
+	CMFCColorButton m_cDeleted;
+	CMFCColorButton m_cMerged;
+	CMFCColorButton m_cModified;
+	CMFCColorButton m_cAddedNode;
+	CMFCColorButton m_cDeletedNode;
+	CMFCColorButton m_cRenamedNode;
+	CMFCColorButton m_cReplacedNode;
 	CColors			m_Colors;
+public:
 };
