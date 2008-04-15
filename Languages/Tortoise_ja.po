@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-04-04 12:43+0900\n"
+"PO-Revision-Date: 2008-04-15 12:52+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -249,9 +249,17 @@ msgstr "高度な設定(&A) ..."
 msgid "&Allow ambiguous URLs"
 msgstr "あいまいなURLを許す(&A)"
 
+#. Resource IDs: (65535)
+msgid "&Application Look"
+msgstr "アプリケーションの外観(&A)"
+
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
 msgstr "Unified Diff を適用(&A)"
+
+#. Resource IDs: (32852)
+msgid "&Aqua Style"
+msgstr "&Aqua スタイル"
 
 #. Resource IDs: (65535)
 msgid "&Autoclose:"
@@ -276,6 +284,10 @@ msgstr "リビジョンの注釈履歴(&B)"
 #. Resource IDs: (13)
 msgid "&Blame..."
 msgstr "注釈履歴(&B) ..."
+
+#. Resource IDs: (32849)
+msgid "&Blue Style"
+msgstr "&Blue スタイル"
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
@@ -595,10 +607,6 @@ msgstr "オフラインにする(&O)"
 msgid "&Open"
 msgstr "開く(&O)"
 
-#. Resource IDs: (57601)
-msgid "&Open Ctrl-O"
-msgstr "開く(&O)\tCtrl+O"
-
 #. Resource IDs: (32772)
 msgid "&Overlap images"
 msgstr "画像を重ね合わせる(&O)"
@@ -668,8 +676,8 @@ msgid "&SSH client:"
 msgstr "&SSHクライアント:"
 
 #. Resource IDs: (57603)
-msgid "&Save Ctrl-S"
-msgstr "保存(&S)\tCtrl+S"
+msgid "&Save"
+msgstr "保存(&S)"
 
 #. Resource IDs: (1023)
 msgid "&Save authentication"
@@ -694,6 +702,10 @@ msgstr "設定(&S)"
 #. Resource IDs: (32815)
 msgid "&Show HEAD revisions"
 msgstr "最新のリビジョンを表示(&S)"
+
+#. Resource IDs: (32851)
+msgid "&Silver Style"
+msgstr "&Silver スタイル"
 
 #. Resource IDs: (1185)
 msgid "&Specific revision in repository"
@@ -767,10 +779,6 @@ msgstr "&URL:"
 msgid "&Undo"
 msgstr "元に戻す(&U)"
 
-#. Resource IDs: (57643)
-msgid "&Undo\tCtrl+Z"
-msgstr "元に戻す(&U)\tCtrl+Z"
-
 #. Resource IDs: (274, 32785)
 msgid "&Unified diff"
 msgstr "&Unified diff"
@@ -810,6 +818,10 @@ msgstr "空白を表示(&W)"
 #. Resource IDs: (1066)
 msgid "&Whole word"
 msgstr "単語単位(&W)"
+
+#. Resource IDs: (32846)
+msgid "&Windows XP"
+msgstr "&Windows XP"
 
 #. Resource IDs: (1183)
 msgid "&Working copy"
@@ -1273,8 +1285,8 @@ msgid "Author"
 msgstr "作者"
 
 #. Resource IDs: (65535)
-msgid "Author:                        Stefan Kueng"
-msgstr "作者:                        Stefan Kueng"
+msgid "Author:                                    Stefan Kueng"
+msgstr "作者:                                    Stefan Kueng"
 
 #. Resource IDs: (116)
 msgid "Authors"
@@ -1327,6 +1339,10 @@ msgstr "毎週、最新バージョンのチェックを自動的に行う(&N)"
 #. Resource IDs: (1157)
 msgid "Average"
 msgstr "平均"
+
+#. Resource IDs: (32850)
+msgid "B&lack Style"
+msgstr "B&lack スタイル"
 
 #. Resource IDs: (1001)
 msgid "B&rowse..."
@@ -3384,8 +3400,8 @@ msgid "Icon Overlays::Icon Set"
 msgstr "アイコンオーバーレイ::アイコンセット"
 
 #. Resource IDs: (65535)
-msgid "Icons/Design/Code:     Luebbe Onken"
-msgstr "アイコン／デザイン／コード:     Luebbe Onken"
+msgid "Icons/Design/Code:                 Luebbe Onken"
+msgstr "アイコン／デザイン／コード:                 Luebbe Onken"
 
 #. Resource IDs: (194)
 msgid "If activated, prevents the overlays and the context menu from showing in \"save as...\" or \"open\" dialogs"
@@ -3832,6 +3848,10 @@ msgstr "行番号"
 msgid "Line Graph"
 msgstr "折れ線グラフ"
 
+#. Resource IDs: (32853)
+msgid "Line diff bar"
+msgstr "行差分表示バー"
+
 #. Resource IDs: (65535)
 msgid "Line differences"
 msgstr "行差分"
@@ -3870,6 +3890,10 @@ msgid ""
 "Location where the contents of the\n"
 "repository URL will be saved to."
 msgstr "リポジトリURLの内容を保存する先。"
+
+#. Resource IDs: (32854)
+msgid "Locator Bar"
+msgstr "表示位置調整バー"
 
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
@@ -4449,6 +4473,18 @@ msgstr "OK"
 #. Resource IDs: (3697)
 msgid "OVR"
 msgstr "OVR"
+
+#. Resource IDs: (32845)
+msgid "Office &XP"
+msgstr "Office &XP"
+
+#. Resource IDs: (32847)
+msgid "Office 200&3"
+msgstr "Office 200&3"
+
+#. Resource IDs: (65535)
+msgid "Office 200&7"
+msgstr "Office 200&7"
 
 #. Resource IDs: (65535)
 msgid "Older lines"
@@ -5768,10 +5804,6 @@ msgstr "除外フォルダを通常として表示する"
 msgid "Show ignored files"
 msgstr "無視ファイルを表示"
 
-#. Resource IDs: (1065)
-msgid "Show li&ne diff bar"
-msgstr "行単位の差分表示を利用する(&N)"
-
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
 msgstr "行番号を表示する(&S)"
@@ -6982,9 +7014,9 @@ msgstr "更新とロックの取得中 ..."
 msgid "Updating log cache"
 msgstr "ログキャッシュを更新中"
 
-#. Resource IDs: (1064)
-msgid "Use &magnifier on locatorbar"
-msgstr "位置指定バー上の拡大ツールを利用する(&M)"
+#. Resource IDs: (32855)
+msgid "Use &left block"
+msgstr "左側のブロックを利用(&L)"
 
 #. Resource IDs: (1024)
 msgid "Use &one-pane view as default for 2-file diff"
@@ -7020,6 +7052,36 @@ msgstr "クリップボードの Unified Diff を利用"
 msgid "Use \"_svn\" instead of \".svn\" directories"
 msgstr "\".svn\" ディレクトリの代わりに \"_svn\" を利用する"
 
+#. Resource IDs: (2054)
+msgid ""
+"Use all content from the left view\n"
+"use left file"
+msgstr "左側のビューの全てのコンテンツを利用する"
+
+#. Resource IDs: (32857)
+msgid "Use block from left before right"
+msgstr "左→右の順でブロックを利用する"
+
+#. Resource IDs: (2054)
+msgid ""
+"Use block from left view before block from right view\n"
+"use block from left before right"
+msgstr ""
+"右ビューのブロックの前に左ビューのブロックを利用する\n"
+"左→右の順でブロックを利用する"
+
+#. Resource IDs: (32859)
+msgid "Use block from right before left"
+msgstr "右→左の順でブロックを利用する"
+
+#. Resource IDs: (2054)
+msgid ""
+"Use block from right view before block from left view\n"
+"use block from right before left"
+msgstr ""
+"左ビューのブロックの前に右ビューのブロックを利用する\n"
+"右→左の順でブロックを利用する"
+
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one first)"
 msgstr "両方のテキストブロックを利用する（こちらを前にする）"
@@ -7027,6 +7089,10 @@ msgstr "両方のテキストブロックを利用する（こちらを前にす
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one last)"
 msgstr "両方のテキストブロックを利用する（こちらを後にする）"
+
+#. Resource IDs: (32856)
+msgid "Use left file"
+msgstr "左側のファイルを利用"
 
 #. Resource IDs: (3)
 msgid "Use local"
@@ -7095,6 +7161,14 @@ msgid ""
 msgstr ""
 "\"theirs\" のテキストブロックを利用\n"
 "\"theirs\" のテキストブロックを利用する"
+
+#. Resource IDs: (2054)
+msgid ""
+"Use text block from the left view\n"
+"use left block"
+msgstr ""
+"左側のビューのテキストブロックを利用する\n"
+"左側のブロックを利用"
 
 #. Resource IDs: (251)
 msgid "Use th&is text block"
@@ -7189,6 +7263,10 @@ msgstr "リビジョンをウェブビューアで表示(&W)"
 msgid "Visit our website"
 msgstr "私たちのウェブサイトへお越しください"
 
+#. Resource IDs: (32848)
+msgid "Visual Studio.NET 200&5"
+msgstr "Visual Studio.NET 200&5"
+
 #. Resource IDs: (198)
 msgid "Wait"
 msgstr "待機"
@@ -7226,6 +7304,10 @@ msgid ""
 msgstr ""
 "選択している１つ以上のファイルをロックする際に、ロックについての\n"
 "メッセージを問い合わせるダイアログを表示する。"
+
+#. Resource IDs: (32844)
+msgid "Windows &2000"
+msgstr "Windows &2000"
 
 #. Resource IDs: (146)
 msgid "With URL:"
@@ -8098,6 +8180,14 @@ msgstr "年"
 msgid "yes"
 msgstr "はい"
 
+#~ msgid "&Open Ctrl-O"
+#~ msgstr "開く(&O)\tCtrl+O"
+#~ msgid "&Save Ctrl-S"
+#~ msgstr "保存(&S)\tCtrl+S"
+#~ msgid "&Undo\tCtrl+Z"
+#~ msgstr "元に戻す(&U)\tCtrl+Z"
+#~ msgid "Use &magnifier on locatorbar"
+#~ msgstr "位置指定バー上の拡大ツールを利用する(&M)"
 #~ msgid "Analyze revision data..."
 #~ msgstr "リビジョンデータを解析 ..."
 #~ msgid "Checking for forward copies"
