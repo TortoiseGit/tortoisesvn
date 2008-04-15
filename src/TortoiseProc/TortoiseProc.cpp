@@ -103,6 +103,8 @@ BOOL CTortoiseProcApp::InitInstance()
 {
 	EnableCrashHandler();
 	CheckUpgrade();
+	CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
+	CMFCButton::EnableWindowsTheming();
 	//set the resource dll for the required language
 	CRegDWORD loc = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
 	long langId = loc;
