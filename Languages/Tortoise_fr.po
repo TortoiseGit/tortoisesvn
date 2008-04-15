@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-04-05 12:18+0100\n"
+"PO-Revision-Date: 2008-04-15 10:04+0100\n"
 "Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -247,9 +247,17 @@ msgstr "&Avancé..."
 msgid "&Allow ambiguous URLs"
 msgstr "&Autoriser les URLs ambiguës"
 
+#. Resource IDs: (65535)
+msgid "&Application Look"
+msgstr "&Apparence de l'Application"
+
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
 msgstr "&Appliquer un patch"
+
+#. Resource IDs: (32852)
+msgid "&Aqua Style"
+msgstr "Style &Aqua"
 
 #. Resource IDs: (65535)
 msgid "&Autoclose:"
@@ -274,6 +282,10 @@ msgstr "&Condamner les révisions"
 #. Resource IDs: (13)
 msgid "&Blame..."
 msgstr "Con&damner..."
+
+#. Resource IDs: (32849)
+msgid "&Blue Style"
+msgstr "Style &Bleu"
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
@@ -593,10 +605,6 @@ msgstr "H&ors-ligne à partir de maintenant"
 msgid "&Open"
 msgstr "&Ouvrir"
 
-#. Resource IDs: (57601)
-msgid "&Open Ctrl-O"
-msgstr "&Ouvrir Ctrl-O"
-
 #. Resource IDs: (32772)
 msgid "&Overlap images"
 msgstr "Superp&oser les images"
@@ -666,8 +674,8 @@ msgid "&SSH client:"
 msgstr "Client &SSH :"
 
 #. Resource IDs: (57603)
-msgid "&Save Ctrl-S"
-msgstr "&Enregistrer Ctrl-S"
+msgid "&Save"
+msgstr "&Sauvegarder"
 
 #. Resource IDs: (1023)
 msgid "&Save authentication"
@@ -692,6 +700,10 @@ msgstr "Confi&guration"
 #. Resource IDs: (32815)
 msgid "&Show HEAD revisions"
 msgstr "Voir les révisions &HEAD"
+
+#. Resource IDs: (32851)
+msgid "&Silver Style"
+msgstr "Style &Argent"
 
 #. Resource IDs: (1185)
 msgid "&Specific revision in repository"
@@ -765,10 +777,6 @@ msgstr "&URL :"
 msgid "&Undo"
 msgstr "Ann&uler"
 
-#. Resource IDs: (57643)
-msgid "&Undo\tCtrl+Z"
-msgstr "&Annuler\tCtrl+Z"
-
 #. Resource IDs: (274, 32785)
 msgid "&Unified diff"
 msgstr "Diff &unifiée"
@@ -808,6 +816,10 @@ msgstr "&Espacements"
 #. Resource IDs: (1066)
 msgid "&Whole word"
 msgstr "&Mot entier"
+
+#. Resource IDs: (32846)
+msgid "&Windows XP"
+msgstr "&Windows XP"
 
 #. Resource IDs: (1183)
 msgid "&Working copy"
@@ -1271,8 +1283,8 @@ msgid "Author"
 msgstr "Auteur"
 
 #. Resource IDs: (65535)
-msgid "Author:                        Stefan Kueng"
-msgstr "Auteur :                       Stefan Kueng"
+msgid "Author:                                    Stefan Kueng"
+msgstr "Auteur :                                    Stefan Kueng"
 
 #. Resource IDs: (116)
 msgid "Authors"
@@ -1325,6 +1337,10 @@ msgstr "Vérifier automatiquement les &nouvelles versions chaque semaine"
 #. Resource IDs: (1157)
 msgid "Average"
 msgstr "Moyenne"
+
+#. Resource IDs: (32850)
+msgid "B&lack Style"
+msgstr "Style &Noir"
 
 #. Resource IDs: (1001)
 msgid "B&rowse..."
@@ -3378,8 +3394,8 @@ msgid "Icon Overlays::Icon Set"
 msgstr "Recouvrements d'icône::Jeu d'icônes"
 
 #. Resource IDs: (65535)
-msgid "Icons/Design/Code:     Luebbe Onken"
-msgstr "Icônes/Design/Code :    Luebbe Onken"
+msgid "Icons/Design/Code:                 Luebbe Onken"
+msgstr "Icônes/Design/Code :                 Luebbe Onken"
 
 #. Resource IDs: (194)
 msgid "If activated, prevents the overlays and the context menu from showing in \"save as...\" or \"open\" dialogs"
@@ -3829,6 +3845,10 @@ msgstr "Ligne"
 msgid "Line Graph"
 msgstr "Gaphique en ligne"
 
+#. Resource IDs: (32853)
+msgid "Line diff bar"
+msgstr "Ligne de la barre de différence"
+
 #. Resource IDs: (65535)
 msgid "Line differences"
 msgstr "Différences de ligne"
@@ -3869,6 +3889,10 @@ msgid ""
 msgstr ""
 "Lieu où le contenu de l'URL du\n"
 "référentiel va être sauvegardé."
+
+#. Resource IDs: (32854)
+msgid "Locator Bar"
+msgstr "Barre de localisation"
 
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
@@ -4448,6 +4472,18 @@ msgstr "OK"
 #. Resource IDs: (3697)
 msgid "OVR"
 msgstr "RFP"
+
+#. Resource IDs: (32845)
+msgid "Office &XP"
+msgstr "Office &XP"
+
+#. Resource IDs: (32847)
+msgid "Office 200&3"
+msgstr "Office 200&3"
+
+#. Resource IDs: (65535)
+msgid "Office 200&7"
+msgstr "Office 200&7"
 
 #. Resource IDs: (65535)
 msgid "Older lines"
@@ -5767,10 +5803,6 @@ msgstr "Afficher les fichiers exclus comme normaux"
 msgid "Show ignored files"
 msgstr "Afficher les fichiers ignorés"
 
-#. Resource IDs: (1065)
-msgid "Show li&ne diff bar"
-msgstr "Voir la barre de différe&nce de ligne"
-
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
 msgstr "Voir les numéros de ligne&s"
@@ -6978,9 +7010,9 @@ msgstr "Mise à jour et nouvel essai du verrou..."
 msgid "Updating log cache"
 msgstr "Mise à jour du cache du journal"
 
-#. Resource IDs: (1064)
-msgid "Use &magnifier on locatorbar"
-msgstr "Utiliser la &mise en évidence sur la barre de positionnement"
+#. Resource IDs: (32855)
+msgid "Use &left block"
+msgstr "Uti&liser le blog de gauche"
 
 #. Resource IDs: (1024)
 msgid "Use &one-pane view as default for 2-file diff"
@@ -7016,6 +7048,38 @@ msgstr "Utiliser les Différences unifiées du presse-papiers"
 msgid "Use \"_svn\" instead of \".svn\" directories"
 msgstr "Utilisation des dossiers \"_svn\" au lieu de \".svn\" "
 
+#. Resource IDs: (2054)
+msgid ""
+"Use all content from the left view\n"
+"use left file"
+msgstr ""
+"Utiliser tout le contenu de la vue gauche\n"
+"utiliser le fichier gauche"
+
+#. Resource IDs: (32857)
+msgid "Use block from left before right"
+msgstr "Utiliser le bloc de gauche avant celui de droite"
+
+#. Resource IDs: (2054)
+msgid ""
+"Use block from left view before block from right view\n"
+"use block from left before right"
+msgstr ""
+"Utiliser le bloc de la vue gauche avant celui de la vue droite\n"
+"utilser le bloc de gauche avant celui de droite"
+
+#. Resource IDs: (32859)
+msgid "Use block from right before left"
+msgstr "Utiliser le bloc de droite avant celui de gauche"
+
+#. Resource IDs: (2054)
+msgid ""
+"Use block from right view before block from left view\n"
+"use block from right before left"
+msgstr ""
+"Utiliser le bloc de la vue droite avant celui de la vue gauche\n"
+"utilser le bloc de droite avant celui de gauche"
+
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one first)"
 msgstr "Utiliser les deux blocs de texte (celui-ci en premier)"
@@ -7023,6 +7087,10 @@ msgstr "Utiliser les deux blocs de texte (celui-ci en premier)"
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one last)"
 msgstr "Utiliser les deux blocs de texte (celui-ci en dernier)"
+
+#. Resource IDs: (32856)
+msgid "Use left file"
+msgstr "Utiliser le fichier gauche"
 
 #. Resource IDs: (3)
 msgid "Use local"
@@ -7091,6 +7159,14 @@ msgid ""
 msgstr ""
 "Utiliser le bloc de texte du \"leur\"\n"
 "Utiliser \"leur\" bloc de texte"
+
+#. Resource IDs: (2054)
+msgid ""
+"Use text block from the left view\n"
+"use left block"
+msgstr ""
+"Utiliser le bloc de texte de la vue de gauche\n"
+"utiliser le bloc gauche"
 
 #. Resource IDs: (251)
 msgid "Use th&is text block"
@@ -7185,6 +7261,10 @@ msgstr "Voir la révision dans le visualisateur &web"
 msgid "Visit our website"
 msgstr "Visitez notre site Web"
 
+#. Resource IDs: (32848)
+msgid "Visual Studio.NET 200&5"
+msgstr "Visual Studio.NET 200&5"
+
 #. Resource IDs: (198)
 msgid "Wait"
 msgstr "Attendre"
@@ -7223,6 +7303,10 @@ msgstr ""
 "En verrouillant un ou plusieurs fichiers sélectionnés, affiche\n"
 "une boîte de dialogue demandant un message descriptif du\n"
 "verrou."
+
+#. Resource IDs: (32844)
+msgid "Windows &2000"
+msgstr "Windows &2000"
 
 #. Resource IDs: (146)
 msgid "With URL:"
@@ -8098,6 +8182,14 @@ msgstr "année"
 msgid "yes"
 msgstr "oui"
 
+#~ msgid "&Open Ctrl-O"
+#~ msgstr "&Ouvrir Ctrl-O"
+#~ msgid "&Save Ctrl-S"
+#~ msgstr "&Enregistrer Ctrl-S"
+#~ msgid "&Undo\tCtrl+Z"
+#~ msgstr "&Annuler\tCtrl+Z"
+#~ msgid "Use &magnifier on locatorbar"
+#~ msgstr "Utiliser la &mise en évidence sur la barre de positionnement"
 #~ msgid "Analyze revision data..."
 #~ msgstr "Analyser les données de révision..."
 #~ msgid "Checking for forward copies"
