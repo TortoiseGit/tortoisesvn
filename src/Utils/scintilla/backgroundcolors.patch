@@ -1,8 +1,8 @@
 Index: include/Scintilla.h
 ===================================================================
---- include/Scintilla.h	(revision 12674)
+--- include/Scintilla.h	(revision 12675)
 +++ include/Scintilla.h	(working copy)
-@@ -748,6 +748,7 @@
+@@ -750,6 +750,7 @@
  #define SCN_AUTOCSELECTION 2022
  #define SCN_INDICATORCLICK 2023
  #define SCN_INDICATORRELEASE 2024
@@ -12,9 +12,9 @@ Index: include/Scintilla.h
  // These structures are defined to be exactly the same shape as the Win32
 Index: src/Editor.cxx
 ===================================================================
---- src/Editor.cxx	(revision 12674)
+--- src/Editor.cxx	(revision 12675)
 +++ src/Editor.cxx	(working copy)
-@@ -2270,6 +2270,16 @@
+@@ -2277,6 +2277,17 @@
  		}
  	}
  
@@ -28,14 +28,15 @@ Index: src/Editor.cxx
 +		background = scn.lParam;
 +		overrideBackground = true;
 +	}
++
  	bool drawWhitespaceBackground = (vsDraw.viewWhitespace != wsInvisible) &&
  	        (!overrideBackground) && (vsDraw.whitespaceBackgroundSet);
  
 Index: src/Editor.h
 ===================================================================
---- src/Editor.h	(revision 12674)
+--- src/Editor.h	(revision 12675)
 +++ src/Editor.h	(working copy)
-@@ -356,6 +356,7 @@
+@@ -360,6 +360,7 @@
  	virtual void NotifyFocus(bool focus);
  	virtual int GetCtrlID() { return ctrlID; }
  	virtual void NotifyParent(SCNotification scn) = 0;
@@ -45,17 +46,17 @@ Index: src/Editor.h
  	void NotifyMove(int position);
 Index: win32/ScintillaWin.cxx
 ===================================================================
---- win32/ScintillaWin.cxx	(revision 12674)
+--- win32/ScintillaWin.cxx	(revision 12675)
 +++ win32/ScintillaWin.cxx	(working copy)
-@@ -203,6 +203,7 @@
+@@ -204,6 +204,7 @@
  	virtual void NotifyFocus(bool focus);
  	virtual int GetCtrlID();
  	virtual void NotifyParent(SCNotification scn);
 +	virtual void NotifyParent(SCNotification * scn);
  	virtual void NotifyDoubleClick(Point pt, bool shift, bool ctrl, bool alt);
  	virtual void Copy();
- 	virtual bool CanPaste();
-@@ -1215,6 +1216,13 @@
+ 	virtual void CopyAllowLine();
+@@ -1221,6 +1222,13 @@
  	              GetCtrlID(), reinterpret_cast<LPARAM>(&scn));
  }
  
