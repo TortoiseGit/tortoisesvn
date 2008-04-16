@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-04-08 22:10 +0000\n"
-"PO-Revision-Date: 2008-04-09 15:55+0100\n"
+"PO-Revision-Date: 2008-04-16 11:09+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2175,22 +2175,22 @@ msgstr ""
 #. (title)
 #: ../source/TortoiseSVN_en.xml:2420
 msgid "Using client certificates with virtual SSL hosts"
-msgstr ""
+msgstr "Client-Zertifikate mit virtuellen SSL Hosts verwenden"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2421
 msgid "Sent to the TortoiseSVN mailing list by Nigel Green. Thanks!"
-msgstr ""
+msgstr "Danke an Nigel Green für diesen Beitrag an die TortoiseSVN Mailingliste!"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2424
 msgid "In some server configurations you may need to setup a single server containing 2 virtual SSL hosts: The first one for public web access, with no requirement for a client certificate. The second one to be secure with a required client certificate, running a Subversion server."
-msgstr ""
+msgstr "In manchen Serverkonfigurationen müssen Sie einen einzelnen Server mit zwei virtuellen Hosts einrichten: Den ersten für öffentlichen Web-Zugriff ohne Zertifikat, den zweiten, auf dem ein Subversion Server läuft, durch ein für den Client erforderliches Zertifikat abgesichert."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2430
 msgid "Adding an <literal>SSLVerifyClient Optional</literal> directive to the <emphasis>per-server</emphasis> section of the Apache configuration (i.e. outside of any <literal>VirtualHost</literal> and <literal>Directory</literal> blocks) forces Apache to request a client Certificate in the initial SSL handshake. Due to a bug in <literal>mod_ssl</literal> it is essential that the certificate is requested at this point as it does not work if the SSL connection is re-negotiated."
-msgstr ""
+msgstr "Durch das Hinzufügen einer <literal>SSLVerifyClient Optional</literal> Anweisung in die <emphasis>per-server</emphasis> Sektion der Apache Konfiguration (d.h. außerhalb aller <literal>VirtualHost</literal> und <literal>Directory</literal> Blöcke) zwingen Sie Apache, ein Client-Zertifikat während des ersten SSL Handshake anzufordern. Aufgrund eines Fehlers in <literal>mod_ssl</literal> ist es wichtig, dass das Zertifikat zu diesem Zeitpunkg angefordert wird, da es nicht funktioniert, wenn die SSL Verbindung neu ausgehandelt wird."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2440
@@ -2199,6 +2199,9 @@ msgid ""
 "SSLRequire %{SSL_CLIENT_VERIFY} eq \"SUCCESS\"\n"
 "</screen> This directive grants access to the directory only if a client certificate was received and verified successfully."
 msgstr ""
+"Die Lösung besteht darin, dem Virtual Host Verzeichnis, dass sie für Subversion absichern wollen, die folgende Anweisung hinzuzufügen: <screen>SSLRequire %{SSL_CLIENT_VERIFY} eq \"SUCCESS\"\n"
+"</screen>\n"
+"Diese Anweisung ermöglicht nur dann den Zugriff auf das Verzeichnis, falls ein Client-Zertifikat empfangen und erfolgreich verifiziert wurde."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2449
@@ -2228,6 +2231,30 @@ msgid ""
 "&lt;/VirtualHost&gt;\n"
 "</screen>"
 msgstr ""
+"Zusamengefasst sehen die relevanten Zeilen der Apache Konfiguration folgendermaßen aus: <screen>\n"
+"SSLVerifyClient Optional\n"
+"\n"
+"### Virtual Host Konfiguration für den ÖFFENTLICHEN Host \n"
+"### (ohne dass ein Zertifikat benötigt wird)\n"
+"\n"
+"&lt;VirtualHost 127.0.0.1:443&gt;\n"
+"  &lt;Directory \"pathtopublicfileroot\"&gt;\n"
+"  &lt;/Directory&gt;\n"
+"&lt;/VirtualHost&gt;\n"
+"\n"
+"### Virtual Host Konfiguration für SUBVERSION\n"
+"### (ein Client-Zertifikat wird benötigt)\n"
+"&lt;VirtualHost 127.0.0.1:443&gt;\n"
+"  &lt;Directory \"subversion host root path\"&gt;\n"
+"    SSLRequire %{SSL_CLIENT_VERIFY} eq \"SUCCESS\"\n"
+"  &lt;/Directory&gt;\n"
+"\n"
+"  &lt;Location /svn&gt;\n"
+"    DAV svn\n"
+"    SVNParentPath /pathtorepository\n"
+"  &lt;/Location&gt;\n"
+"&lt;/VirtualHost&gt;\n"
+"</screen>"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:2479
