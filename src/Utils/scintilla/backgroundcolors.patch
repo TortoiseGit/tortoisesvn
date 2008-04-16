@@ -1,6 +1,6 @@
 Index: include/Scintilla.h
 ===================================================================
---- include/Scintilla.h	(revision 398)
+--- include/Scintilla.h	(revision 12674)
 +++ include/Scintilla.h	(working copy)
 @@ -748,6 +748,7 @@
  #define SCN_AUTOCSELECTION 2022
@@ -12,7 +12,7 @@ Index: include/Scintilla.h
  // These structures are defined to be exactly the same shape as the Win32
 Index: src/Editor.cxx
 ===================================================================
---- src/Editor.cxx	(revision 398)
+--- src/Editor.cxx	(revision 12674)
 +++ src/Editor.cxx	(working copy)
 @@ -2270,6 +2270,16 @@
  		}
@@ -33,7 +33,7 @@ Index: src/Editor.cxx
  
 Index: src/Editor.h
 ===================================================================
---- src/Editor.h	(revision 398)
+--- src/Editor.h	(revision 12674)
 +++ src/Editor.h	(working copy)
 @@ -356,6 +356,7 @@
  	virtual void NotifyFocus(bool focus);
@@ -45,7 +45,7 @@ Index: src/Editor.h
  	void NotifyMove(int position);
 Index: win32/ScintillaWin.cxx
 ===================================================================
---- win32/ScintillaWin.cxx	(revision 398)
+--- win32/ScintillaWin.cxx	(revision 12674)
 +++ win32/ScintillaWin.cxx	(working copy)
 @@ -203,6 +203,7 @@
  	virtual void NotifyFocus(bool focus);

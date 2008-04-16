@@ -187,6 +187,7 @@ int Scintilla_LinkLexers() {
 	LINK_LEXER(lmLot);
 	LINK_LEXER(lmLout);
 	LINK_LEXER(lmLua);
+	LINK_LEXER(lmMagikSF);
 	LINK_LEXER(lmMake);
 	LINK_LEXER(lmMatlab);
 	LINK_LEXER(lmMETAPOST);
@@ -204,6 +205,7 @@ int Scintilla_LinkLexers() {
 	LINK_LEXER(lmPHPSCRIPT);
 	LINK_LEXER(lmPLM);
 	LINK_LEXER(lmPOV);
+	LINK_LEXER(lmPowerShell);
 	LINK_LEXER(lmProgress);
 	LINK_LEXER(lmProps);
 	LINK_LEXER(lmPS);
