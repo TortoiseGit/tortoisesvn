@@ -1426,12 +1426,23 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 				svnCmd += _T("\"");
 				break;
 			case ShellMenuShowChanged:
-				svnCmd += _T("repostatus /path:\"");
-				if (files_.size() > 0)
-					svnCmd += files_.front();
-				else
-					svnCmd += folder_;
-				svnCmd += _T("\"");
+				if (files_.size() > 1)
+                {
+				    tempfile = WriteFileListToTempFile();
+				    svnCmd += _T("update /pathfile:\"");
+				    svnCmd += tempfile;
+    				svnCmd += _T("\"");
+    				svnCmd += _T(" /deletepathfile");
+                }
+                else
+                {
+                    svnCmd += _T("repostatus /path:\"");
+				    if (files_.size() > 0)
+					    svnCmd += files_.front();
+				    else
+					    svnCmd += folder_;
+    				svnCmd += _T("\"");
+                }
 				break;
 			case ShellMenuRepoBrowse:
 				svnCmd += _T("repobrowser /path:\"");

@@ -36,6 +36,10 @@
 - BUG: Revision graph did not handle peg revision info (issue #360)
        (Stefan Fuhrmann)
 - BUG: Changelists were not removed on commit. (Stefan)
+- BUG: When multiple paths were selected, "show modifications" was only be
+       be called for one of them (Stefan Fuhrmann)
+- BUG: OK button in commit dialog was disabled randomly when tsvn:logminsize 
+       was not 0. (Stefan Fuhrmann)
 
 Version 1.5.0-beta1
 - NEW: Implemented 'merge reintegrate': new page in the merge wizard. (Stefan)
