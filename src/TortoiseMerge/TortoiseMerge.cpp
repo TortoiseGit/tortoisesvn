@@ -182,6 +182,8 @@ BOOL CTortoiseMergeApp::InitInstance()
 	// otherwise changing the language wouldn't work anymore).
 	SHDeleteKey(HKEY_CURRENT_USER, _T("Software\\TortoiseMerge\\TortoiseMerge\\Workspace\\MFCToolBar-59392"));
 	SHDeleteKey(HKEY_CURRENT_USER, _T("Software\\TortoiseMerge\\TortoiseMerge\\Workspace\\MFCToolBar-593980"));
+	// also remove the saved keyboard accelerators
+	SHDeleteKey(HKEY_CURRENT_USER, _T("Software\\TortoiseMerge\\TortoiseMerge\\Workspace\\Keyboard-0"));
 
 
 	// create and load the frame with its resources
