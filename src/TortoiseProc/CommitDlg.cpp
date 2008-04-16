@@ -111,8 +111,6 @@ BOOL CCommitDlg::OnInitDialog()
 
 	UpdateData(FALSE);
 	
-	OnEnChangeLogmessage();
-
 	m_ListCtrl.Init(SVNSLC_COLEXT | SVNSLC_COLTEXTSTATUS | SVNSLC_COLPROPSTATUS | SVNSLC_COLLOCK, _T("CommitDlg"));
 	m_ListCtrl.SetSelectButton(&m_SelectAll);
 	m_ListCtrl.SetStatLabel(GetDlgItem(IDC_STATISTICS));
@@ -125,6 +123,8 @@ BOOL CCommitDlg::OnInitDialog()
 	m_cLogMessage.Init(m_ProjectProperties);
 	m_cLogMessage.SetFont((CString)CRegString(_T("Software\\TortoiseSVN\\LogFontName"), _T("Courier New")), (DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFontSize"), 8));
 	m_cLogMessage.RegisterContextMenuHandler(this);
+
+	OnEnChangeLogmessage();
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_EXTERNALWARNING, IDS_COMMITDLG_EXTERNALS);
@@ -1152,21 +1152,12 @@ LRESULT CCommitDlg::OnSVNStatusListCtrlCheckChanged(WPARAM, LPARAM)
 
 void CCommitDlg::UpdateOKButton()
 {
-	BOOL bValidLogSize;
+	BOOL bValidLogSize = FALSE;
 
-	CString sTemp;
-	GetDlgItem(IDC_LOGMESSAGE)->GetWindowText(sTemp);
-	if (sTemp.GetLength() >= m_ProjectProperties.nMinLogSize)
-	{
+    if (m_cLogMessage.GetText().GetLength() >= m_ProjectProperties.nMinLogSize)
 		bValidLogSize = !m_bBlock;
-	}
-	else
-	{
-		bValidLogSize = FALSE;
-	}
 
 	LONG nSelectedItems = m_ListCtrl.GetSelected();
-
 	DialogEnableWindow(IDOK, bValidLogSize && nSelectedItems>0);
 }
 
