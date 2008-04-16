@@ -472,7 +472,9 @@ void CLogDlg::SetDlgTitle(bool bOffline)
 	if (bOffline)
 	{
 		CString sTemp;
-		if (m_path.IsDirectory())
+		if (m_path.IsUrl())
+			sTemp.Format(IDS_LOG_DLGTITLEOFFLINE, m_sTitle, m_path.GetUIPathString());
+		else if (m_path.IsDirectory())
 			sTemp.Format(IDS_LOG_DLGTITLEOFFLINE, m_sTitle, m_path.GetWinPathString());
 		else
 			sTemp.Format(IDS_LOG_DLGTITLEOFFLINE, m_sTitle, m_path.GetFilename());
@@ -480,7 +482,9 @@ void CLogDlg::SetDlgTitle(bool bOffline)
 	}
 	else
 	{
-		if (m_path.IsDirectory())
+		if (m_path.IsUrl())
+			SetWindowText(m_sTitle + _T(" - ") + m_path.GetUIPathString());
+		else if (m_path.IsDirectory())
 			SetWindowText(m_sTitle + _T(" - ") + m_path.GetWinPathString());
 		else
 			SetWindowText(m_sTitle + _T(" - ") + m_path.GetFilename());
