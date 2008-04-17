@@ -40,7 +40,7 @@
 // CMainFrame
 const UINT CMainFrame::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
 
-IMPLEMENT_DYNAMIC(CMainFrame, CFrameWndEx)
+IMPLEMENT_DYNCREATE(CMainFrame, CFrameWndEx)
 
 BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
 	ON_WM_CREATE()

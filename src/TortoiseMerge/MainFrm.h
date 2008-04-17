@@ -47,7 +47,7 @@ public:
 	virtual void	Dump(CDumpContext& dc) const;
 #endif
 protected: 
-	DECLARE_DYNAMIC(CMainFrame)
+	DECLARE_DYNCREATE(CMainFrame)
 
 	virtual BOOL	PreCreateWindow(CREATESTRUCT& cs);
 	virtual BOOL	OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext);
