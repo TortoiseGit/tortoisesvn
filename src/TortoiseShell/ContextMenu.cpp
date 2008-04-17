@@ -1429,7 +1429,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 				if (files_.size() > 1)
                 {
 				    tempfile = WriteFileListToTempFile();
-				    svnCmd += _T("update /pathfile:\"");
+				    svnCmd += _T("repostatus /pathfile:\"");
 				    svnCmd += tempfile;
     				svnCmd += _T("\"");
     				svnCmd += _T(" /deletepathfile");
