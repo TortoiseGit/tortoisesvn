@@ -46,12 +46,37 @@ bugfixes not present in any earlier release.</p>
 
 <p>Older clients and servers interoperate transparently with 1.5
 servers and clients. Of course, some of the new 1.5 features may not
-be available unless both client and server are the latest version
-(e.g. <a href="http://subversion.tigris.org/merge-tracking/func-spec.html#migration-and-interoperability">Merge Tracking</a>).</p>
+be available unless both client and server are the latest version.
+See the table below about which features require which versions:
 
+<table border="1">
+  <tr>
+    <th>New Feature</th>
+    <th>Minimum Client</th>
+    <th>Minimum Server</th>
+    <th>Minimum Repository</th>
+    <th>Notes</th></tr>
+  <tr>
+    <td><a href="#merge-tracking">Merge tracking</a></td>
+    <td>1.5</td>
+    <td>1.5</td>
+    <td>1.5</td>
+    <td></td></tr>
+  <tr>
+    <td><a href="#cyrus-sasl"> Cyrus SASL support for <code>svn://</code> repository access</td>
+    <td>any<sup>*</sup>, 1.5</td>
+    <td>any<sup>*</sup>, 1.5</td>
+    <td>any</td>
+    <td><sup>*</sup>Limited, only ANONYMOUS and CRAM-MD5 are supported</td></tr>
+</table>
+
+All other features are independent of the server version and can be used without any
+restrictions.
 <p>
-TortoiseSVN 1.5.x clients can communicate with all Subversion servers, no
-matter which version the server runs on.
+For a more detailed compatibility table, see the 
+<a href="http://subversion.tigris.org/svn_1.5_releasenotes.html#new-feature-compatibility-table">Subversion release notes</a>.
+</p>
+
 </p>
 
 <p>Due to certain improvements made to the working copy
