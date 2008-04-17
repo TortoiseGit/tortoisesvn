@@ -2656,8 +2656,9 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							else
 							{
 								// since the entries got reverted we need to remove
-								// them from the list too, if no remote changes are shown
-								// and if the unmodified files are not shown
+								// them from the list too, if no remote changes are shown,
+								// if the unmodified files are not shown
+								// and if the item is not part of a changelist
 								POSITION pos;
 								while ((pos = GetFirstSelectedItemPosition())!=0)
 								{
@@ -2681,7 +2682,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									fentry->textstatus = svn_wc_status_normal;
 									fentry->copied = false;
 									fentry->isConflicted = false;
-									if ((fentry->remotestatus <= svn_wc_status_normal)||(m_dwShow & SVNSLC_SHOWNORMAL))
+									if ((fentry->GetChangeList().IsEmpty()&&(fentry->remotestatus <= svn_wc_status_normal))||(m_dwShow & SVNSLC_SHOWNORMAL))
 									{
 										if ( bAdded )
 										{
