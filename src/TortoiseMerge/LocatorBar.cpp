@@ -27,7 +27,7 @@
 
 
 IMPLEMENT_DYNAMIC(CLocatorBar, CPaneDialog)
-CLocatorBar::CLocatorBar()
+CLocatorBar::CLocatorBar() : CPaneDialog()
 {
 	m_pMainFrm = NULL;
 	m_pCacheBitmap = NULL;

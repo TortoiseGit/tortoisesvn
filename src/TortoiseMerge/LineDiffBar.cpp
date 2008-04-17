@@ -25,7 +25,7 @@
 #include "BottomView.h"
 
 IMPLEMENT_DYNAMIC(CLineDiffBar, CPaneDialog)
-CLineDiffBar::CLineDiffBar()
+CLineDiffBar::CLineDiffBar() : CPaneDialog()
 {
 	m_pMainFrm = NULL;
 	m_pCacheBitmap = NULL;
