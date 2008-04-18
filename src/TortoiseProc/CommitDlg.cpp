@@ -1020,7 +1020,7 @@ void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex)
 
 	try
 	{
-		const tr1::wregex regCheck(sRegex);
+		const tr1::wregex regCheck(sRegex, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
 		const tr1::wsregex_iterator end;
 		wstring s = sFileContent;
 		for (tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
