@@ -26,6 +26,12 @@
       <UpgradeVersion Property="PREVIOUSVERSIONSINSTALLED" Maximum="$(var.VersionNumberInternal)" IncludeMaximum="no" />
     </Upgrade>
 
+	<Property Id="TSVN">
+		<RegistrySearch Id="PreviousInstallLocationRegistrySearch" Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Type="raw"/>
+	</Property>
+
+	<Condition Message="TortoiseSVN is installed on this machine. [ProductName] is already part of TortoiseSVN!">TSVN=""</Condition>
+
     <Media Id='1' Cabinet='SubWCRev.cab' EmbedCab='yes' CompressionLevel="high" />
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
 
