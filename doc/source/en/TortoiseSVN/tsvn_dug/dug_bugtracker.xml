@@ -115,7 +115,7 @@
 						contains a reference to the issue number which is always
 						in a consistent format and can be parsed by your
 						bug tracking tool to associate the issue number with a
-						particular commit. e.g the TortoiseSVN project is using
+						particular commit. As an example you might use
 						<literal>Issue : %BUGID%</literal>, 
 						but this depends on your Tool.
 					</para>
@@ -182,26 +182,50 @@
 							This property activates the bug tracking system
 							in <literal>Regex</literal> mode.
 						</emphasis>
-						It contains one or two regular expressions, separated by a newline.
+						It contains either a single regular expressions,
+						or two regular expressions separated by a newline.
+					</para>
+					<para>
+						If two expressions are set, then the first expression is used as
+						a pre-filter to find expressions which contain bug IDs. The
+						second expression then extracts the bare bug IDs from the
+						result of the first regex. This allows you to use a list
+						of bug IDs and natural language expressions if you wish.
+						e.g. you might fix several bugs and include a string something
+						like this:
+						<quote>This change resolves issues #23, #24 and #25</quote>
+					</para>
+					<para>
+						If you want to catch bug IDs as used in the expression above
+						inside a log message, you could use the following regex strings,
+						which are the ones used by the TortoiseSVN project:
+						<literal>[Ii]ssues?:?(\s*(,|and)?\s*#\d+)+</literal> and
+						<literal>(\d+)</literal>
+					</para>
+					<para>
+						The first expression picks out <quote>issues #23, #24 and #25</quote>
+						from the surrounding log message. Breaking this regex down a little,
+						it must start with the word <quote>issue</quote>, possibly capitalised.
+						This is optionally followed by an <quote>s</quote> (more than one
+						issue) and optionally a colon. This is followed by one or more groups
+						each having zero or more leading whitespace, an optional comma or
+						<quote>and</quote> and more optional space. Finally there is a mandatory
+						<quote>#</quote> and a mandatory decimal number.
+					</para>
+					<para>
+						The second regex extracts plain decimal numbers from the output
+						of the first regex, so it will return
+						<quote>23</quote>, <quote>24</quote> and <quote>25</quote>
+						to use as bug IDs.
 					</para>
 					<para>
 						If only one expression is set, then the bare bug IDs must be matched
 						in the groups of the regex string. Example:
 						<literal>[Ii]ssue(?:s)? #?(\d+)</literal>
-					</para>
-					<para>
-						If two expressions are set, then the first expression is used to find
-						a string which relates to the bug ID but may contain more than just
-						the bug ID (e.g. <quote>Issue #123</quote> or <quote>resolves issue 123</quote>).
-						The second expression is then used to extract the bare bug ID from the string
-						extracted with the first expression.
-						An example:
-					</para>
-					<para>
-						If you want to catch every pattern <quote>issue #XXX</quote> and <quote>issue #890, #789</quote>
-						inside a log message you could use the following regex strings:
-						<literal>[Ii]ssue #?(\d+)(,? ?#(\d+))*</literal> and the second expression as
-						<literal>(\d+)</literal>
+						This method is required by a few issue trackers, e.g. trac,
+						but it is harder to construct the regex. We recommend that you
+						only use this method if your issue tracker documentation
+						tells you to.
 					</para>
 					<para>
 						If you are unfamiliar with regular expressions, take a look at
