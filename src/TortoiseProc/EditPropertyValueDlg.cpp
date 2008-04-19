@@ -299,9 +299,9 @@ void CEditPropertyValueDlg::CheckRecursive()
 		if (sName.Compare(_T("tsvn:projectlanguage"))==0)
 			nText = IDS_PROP_TT_TSVNPROJECTLANGUAGE;
 		if (sName.Compare(_T("tsvn:userfileproperties"))==0)
-			nText = IDS_PROP_TT_TSVNPROJECTLANGUAGE;
+			nText = IDS_PROP_TT_TSVNUSERFILEPROPERTIES;
 		if (sName.Compare(_T("tsvn:userfolderproperties"))==0)
-			nText = IDS_PROP_TT_TSVNPROJECTLANGUAGE;
+			nText = IDS_PROP_TT_TSVNUSERFOLDERPROPERTIES;
 		if (sName.Compare(_T("tsvn:autoprops"))==0)
 			nText = IDS_PROP_TT_TSVNAUTOPROPS;
 
