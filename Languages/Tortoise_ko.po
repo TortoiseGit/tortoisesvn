@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-04-17 10:46+0900\n"
+"PO-Revision-Date: 2008-04-19 17:07+0900\n"
 "Last-Translator: Kim TaeDong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -40,7 +40,7 @@ msgstr "개별적으로 표시되는 작성자 수:"
 #. Resource IDs: (357)
 #, c-format
 msgid "%.2f MBytes transferred"
-msgstr "%.2f MB 전송됨"
+msgstr "%.2f MBytes 전송됨"
 
 #. Resource IDs: (357)
 #, c-format
@@ -95,12 +95,12 @@ msgstr ""
 #. Resource IDs: (357)
 #, c-format
 msgid "%I64d Bytes transferred"
-msgstr "%I64d 바이트 전송됨"
+msgstr "%I64d Bytes 전송됨"
 
 #. Resource IDs: (357)
 #, c-format
 msgid "%I64d kBytes transferred"
-msgstr "%I64d kB 전송됨"
+msgstr "%I64d kBytes 전송됨"
 
 #. Resource IDs: (169)
 #, c-format
@@ -187,6 +187,15 @@ msgstr "%s\\익스포트 (%d) 대상 %s"
 msgid "%s\\Export of %s"
 msgstr "%s\\익스포트 대상 %s"
 
+#. Resource IDs: (3850)
+#, c-format
+msgid ""
+"%s\n"
+"%s"
+msgstr ""
+"%s\n"
+"%s"
+
 #. Resource IDs: (145)
 #, c-format
 msgid ""
@@ -220,6 +229,10 @@ msgstr ""
 "\n"
 "%s\n"
 
+#. Resource IDs: (16923)
+msgid "&..."
+msgstr "&..."
+
 #. Resource IDs: (65535)
 msgid "&?"
 msgstr "&?"
@@ -227,6 +240,18 @@ msgstr "&?"
 #. Resource IDs: (57664)
 msgid "&About TortoiseMerge..."
 msgstr "TortoiseMerge에 대하여(&A)..."
+
+#. Resource IDs: (16920)
+msgid "&Activate"
+msgstr "활성화하기(&A)"
+
+#. Resource IDs: (17075)
+msgid "&Add >>"
+msgstr "추가(&A) >>"
+
+#. Resource IDs: (1064)
+msgid "&Add or Remove Buttons"
+msgstr "버트 추가 및 제거(&A)"
 
 #. Resource IDs: (8, 1098, 1310)
 msgid "&Add..."
@@ -251,6 +276,22 @@ msgstr "Unified diff 적용(&A)"
 #. Resource IDs: (32852)
 msgid "&Aqua Style"
 msgstr "아쿠아 스타일(&A)"
+
+#. Resource IDs: (65535)
+msgid "&Arguments:"
+msgstr "아규먼트(&A):"
+
+#. Resource IDs: (16645)
+msgid "&Assign"
+msgstr "할당(&A)"
+
+#. Resource IDs: (16633)
+msgid "&Associate double-click event with:"
+msgstr "더블클릭 이벤트를 다음과 연결하기(&A):"
+
+#. Resource IDs: (1066)
+msgid "&Auto Hide"
+msgstr "자동으로 숨기기(&A)"
 
 #. Resource IDs: (65535)
 msgid "&Autoclose:"
@@ -280,6 +321,10 @@ msgstr "수정한 사람 보기(&B)..."
 msgid "&Blue Style"
 msgstr "블루 스타일(&B)"
 
+#. Resource IDs: (65535)
+msgid "&Blue:"
+msgstr "파랑색(&B):"
+
 #. Resource IDs: (138)
 msgid "&Browse repository"
 msgstr "이 리비전의 저장소 보기(&B)"
@@ -287,6 +332,14 @@ msgstr "이 리비전의 저장소 보기(&B)"
 #. Resource IDs: (1011)
 msgid "&Browse..."
 msgstr "찾아보기(&B)"
+
+#. Resource IDs: (16913)
+msgid "&Button Appearance..."
+msgstr "버튼 모양(&B)..."
+
+#. Resource IDs: (65535)
+msgid "&Button text:"
+msgstr "버튼 텍스트(&B):"
 
 #. Resource IDs: (1051)
 msgid "&CD-ROM"
@@ -296,13 +349,37 @@ msgstr "&CD-ROM"
 msgid "&Cancel"
 msgstr "취소(&C)"
 
+#. Resource IDs: (65535)
+msgid "&Categories:"
+msgstr "카테고리(&C):"
+
+#. Resource IDs: (65535)
+msgid "&Category:"
+msgstr "카테고리(&C)"
+
+#. Resource IDs: (65535)
+msgid "&Choose commands from:"
+msgstr "다음으로부터 명령 선택하기(&C):"
+
 #. Resource IDs: (8)
 msgid "&Clean up"
 msgstr "정리(&C)"
 
+#. Resource IDs: (58112)
+msgid "&Close"
+msgstr "닫기(&C)"
+
+#. Resource IDs: (16922)
+msgid "&Close Window(s)"
+msgstr "창(들) 닫기(&C)"
+
 #. Resource IDs: (32785)
 msgid "&Color age of lines"
 msgstr "만들어진 순서대로 색을 칠합니다(&C)"
+
+#. Resource IDs: (65535)
+msgid "&Command:"
+msgstr "명령(&C):"
 
 #. Resource IDs: (8)
 msgid "&Commit..."
@@ -335,6 +412,10 @@ msgstr "베이스와 비교할 때, 파일을 변환합니다.(&C)"
 #. Resource IDs: (501, 1367, 57634)
 msgid "&Copy"
 msgstr "복사(&C)"
+
+#. Resource IDs: (16911)
+msgid "&Copy Button Image"
+msgstr "버튼 이미지 복사하기(&C)"
 
 #. Resource IDs: (32776)
 msgid "&Copy log message to clipboard"
@@ -379,6 +460,10 @@ msgstr "특정 URL과 차이를 구합니다. (&D)"
 #. Resource IDs: (14)
 msgid "&Diff with previous version"
 msgstr "이전 리비전 비교(&D)"
+
+#. Resource IDs: (1066)
+msgid "&Docking"
+msgstr "붙이기(&D)"
 
 #. Resource IDs: (2)
 msgid "&Don't go offline"
@@ -444,6 +529,10 @@ msgstr "그림을 윈도우 사이즈에 맞춤(&F)"
 msgid "&Fixed drives"
 msgstr "하드 디스크(&F)"
 
+#. Resource IDs: (1065)
+msgid "&Floating"
+msgstr "띄우기(&F)"
+
 #. Resource IDs: (65535)
 msgid "&Font for log messages:"
 msgstr "로그 메시지 글꼴(&F):"
@@ -467,6 +556,10 @@ msgstr "시작 리비전(&F)"
 #. Resource IDs: (32779)
 msgid "&Go To Line..."
 msgstr "행으로 이동(&G)..."
+
+#. Resource IDs: (65535)
+msgid "&Green:"
+msgstr "녹색(&G):"
 
 #. Resource IDs: (32799)
 msgid "&Group by branch"
@@ -509,13 +602,25 @@ msgstr "%d 개 무시(&I)"
 msgid "&Ignore whitespace changes"
 msgstr "공백의 차이는 무시함(&I)"
 
+#. Resource IDs: (16914)
+msgid "&Image"
+msgstr "이미지(&I)"
+
 #. Resource IDs: (32790)
 msgid "&Image Info"
 msgstr "그림 정보(&I)"
 
+#. Resource IDs: (16505)
+msgid "&Image only"
+msgstr "이미지만(&I)"
+
 #. Resource IDs: (9, 1461)
 msgid "&Import..."
 msgstr "임포트(&I)..."
+
+#. Resource IDs: (65535)
+msgid "&Initial directory:"
+msgstr "초기 디렉토리(&I):"
 
 #. Resource IDs: (32825)
 msgid "&Inline diff word-wise"
@@ -528,6 +633,10 @@ msgstr "모두 읽었으면 처음 차이점으로 이동(&J)"
 #. Resource IDs: (65535)
 msgid "&Language:"
 msgstr "언어(&L):"
+
+#. Resource IDs: (16653)
+msgid "&Large Icons"
+msgstr "큰 아이콘(&L)"
 
 #. Resource IDs: (1065)
 msgid "&Limit search to modified lines"
@@ -545,6 +654,18 @@ msgstr "리스트 뷰(&L)"
 msgid "&Load..."
 msgstr "읽기(&L)..."
 
+#. Resource IDs: (65535)
+msgid "&Lum:"
+msgstr "휘도(&L):"
+
+#. Resource IDs: (16543)
+msgid "&Menu animations:"
+msgstr "메뉴 애니메이션(&M):"
+
+#. Resource IDs: (16921)
+msgid "&Menu contents:"
+msgstr "메뉴 내용(&M):"
+
 #. Resource IDs: (1)
 msgid "&Merge"
 msgstr "병합(&M)"
@@ -561,6 +682,10 @@ msgstr "병합(&M)..."
 msgid "&Merging"
 msgstr "병합(&M)"
 
+#. Resource IDs: (16925)
+msgid "&Minimize"
+msgstr "최소화(&M)"
+
 #. Resource IDs: (65535)
 msgid "&Navigate"
 msgstr "둘러보기(&N)"
@@ -572,6 +697,10 @@ msgstr "네트워크 드라이브(&N)"
 #. Resource IDs: (65535)
 msgid "&New "
 msgstr "새로 만들기(&N)"
+
+#. Resource IDs: (16509, 16615)
+msgid "&New..."
+msgstr "새로 만들기(&N)..."
 
 #. Resource IDs: (115, 1208)
 #, c-format
@@ -586,6 +715,14 @@ msgstr "다음(&N) >"
 msgid "&Next Difference"
 msgstr "다음 차이점(&N)"
 
+#. Resource IDs: (58114)
+msgid "&Next Page"
+msgstr "다음 페이지(&N)"
+
+#. Resource IDs: (16632)
+msgid "&No double-click event"
+msgstr "드블클릭 이벤트 없음(&N)"
+
 #. Resource IDs: (1)
 msgid "&OK"
 msgstr "확인(&O)"
@@ -593,6 +730,10 @@ msgstr "확인(&O)"
 #. Resource IDs: (1)
 msgid "&Offline for now"
 msgstr "이제부터 오프라인으로 작업(&O)"
+
+#. Resource IDs: (3845)
+msgid "&One Page"
+msgstr "한페이지(&O)"
 
 #. Resource IDs: (101, 113, 32773)
 msgid "&Open"
@@ -622,6 +763,14 @@ msgstr "포트(&P):"
 msgid "&Previous Difference"
 msgstr "이전 차이점(&P)"
 
+#. Resource IDs: (1069)
+msgid "&Print Preview"
+msgstr "프린트 미리보기(&P)"
+
+#. Resource IDs: (58116)
+msgid "&Print..."
+msgstr "프린트 하기(&P)..."
+
 #. Resource IDs: (11021)
 msgid "&Properties..."
 msgstr "속성(&P)..."
@@ -629,6 +778,10 @@ msgstr "속성(&P)..."
 #. Resource IDs: (1246)
 msgid "&Recent messages"
 msgstr "최근 메시지(&R)"
+
+#. Resource IDs: (65535)
+msgid "&Red:"
+msgstr "빨강색(&R):"
 
 #. Resource IDs: (376)
 msgid "&Redo"
@@ -648,11 +801,27 @@ msgstr "이름 바꾸기(&R)"
 
 #. Resource IDs: (1316)
 msgid "&Reopen commit and branch/tag dialog after a commit failed"
-msgstr "커밋이 실패하면 커밋/브랜치,태그 대화상자를 다시 엽니다(&R)"
+msgstr "커밋이 실패하면 커밋,브랜치/태그 대화상자를 다시 엽니다(&R)"
 
 #. Resource IDs: (13)
 msgid "&Repo-browser"
 msgstr "저장소 브라우저(&R)"
+
+#. Resource IDs: (16613, 16624)
+msgid "&Reset"
+msgstr "리셋(&R)"
+
+#. Resource IDs: (1019)
+msgid "&Reset Toolbar"
+msgstr "툴바 리셋(&R)"
+
+#. Resource IDs: (16657)
+msgid "&Reset my usage data"
+msgstr "나의 사용 정보 리셋(&R)"
+
+#. Resource IDs: (16910)
+msgid "&Reset to Default"
+msgstr "초기값으로 리셋(&R)"
 
 #. Resource IDs: (113)
 msgid "&Revert changes from this revision"
@@ -665,6 +834,10 @@ msgstr "리비전(&R)"
 #. Resource IDs: (65535)
 msgid "&SSH client:"
 msgstr "SSH 클라이언트(&S):"
+
+#. Resource IDs: (65535)
+msgid "&Sat:"
+msgstr "포화(&S):"
 
 #. Resource IDs: (57603)
 msgid "&Save"
@@ -694,6 +867,14 @@ msgstr "설정(&S)"
 msgid "&Show HEAD revisions"
 msgstr "HEAD 리비전 보기(&S)"
 
+#. Resource IDs: (65535)
+msgid "&Show Menus for:"
+msgstr "다음을 위해 메뉴 보기기(&S):"
+
+#. Resource IDs: (16612)
+msgid "&Show text labels"
+msgstr "텍스트 라벨 보이기(&S)"
+
 #. Resource IDs: (32851)
 msgid "&Silver Style"
 msgstr "실버 스타일(&S)"
@@ -701,6 +882,10 @@ msgstr "실버 스타일(&S)"
 #. Resource IDs: (1185)
 msgid "&Specific revision in repository"
 msgstr "서버상 특정 리비전(&S)"
+
+#. Resource IDs: (16917)
+msgid "&Start Group"
+msgstr "그룹 시작(&S)"
 
 #. Resource IDs: (59393)
 msgid "&Status Bar"
@@ -722,9 +907,21 @@ msgstr "아이콘 뷰(&S)"
 msgid "&Tab size:"
 msgstr "탭 크기(&T):"
 
+#. Resource IDs: (1069)
+msgid "&Tabbed Document"
+msgstr "탭으로 나열된 문서(&T)"
+
 #. Resource IDs: (1382)
 msgid "&Test merge"
 msgstr "시험 병합(&T)"
+
+#. Resource IDs: (16915)
+msgid "&Text"
+msgstr "텍스트(&T)"
+
+#. Resource IDs: (16506)
+msgid "&Text only"
+msgstr "텍스트만(&T)"
 
 #. Resource IDs: (1438)
 msgid "&Timeout in seconds before updating the HEAD revision"
@@ -750,6 +947,14 @@ msgstr "대상 URL(&T): "
 msgid "&Toolbar"
 msgstr "툴바(&T)"
 
+#. Resource IDs: (65535)
+msgid "&Toolbar Name:"
+msgstr "툴바 이름(&T):"
+
+#. Resource IDs: (65535)
+msgid "&Toolbars:"
+msgstr "툴바(&T):"
+
 #. Resource IDs: (1091, 1093, 1094)
 msgid "&TortoiseMerge"
 msgstr "&TortoiseMerge"
@@ -757,6 +962,10 @@ msgstr "&TortoiseMerge"
 #. Resource IDs: (9)
 msgid "&TortoiseSVN"
 msgstr "&TortoiseSVN"
+
+#. Resource IDs: (3845)
+msgid "&Two Page"
+msgstr "두페이지(&T)"
 
 #. Resource IDs: (1058, 1376, 1394)
 msgid "&URL of repository:"
@@ -801,6 +1010,10 @@ msgstr "사용자명(&U):"
 #. Resource IDs: (65535)
 msgid "&View"
 msgstr "보기(&V)"
+
+#. Resource IDs: (65535)
+msgid "&View:"
+msgstr "보기(&V):"
 
 #. Resource IDs: (32774)
 msgid "&Whitespaces"
@@ -861,9 +1074,17 @@ msgstr "+ %d"
 msgid "- %d"
 msgstr "- %d"
 
+#. Resource IDs: (1007)
+msgid "-------------------------------------------------------------------------------------------"
+msgstr "-------------------------------------------------------------------------------------------"
+
 #. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362)
 msgid "..."
 msgstr "..."
+
+#. Resource IDs: (16527)
+msgid "....."
+msgstr "....."
 
 #. Resource IDs: (151)
 #, c-format
@@ -882,6 +1103,18 @@ msgstr ": 작업 사본"
 msgid "< &Back"
 msgstr "< 이전(&B)"
 
+#. Resource IDs: (16506)
+msgid "<.....>"
+msgstr "<.....>"
+
+#. Resource IDs: (1069)
+msgid "<Separator>"
+msgstr "<분리자>"
+
+#. Resource IDs: (1007)
+msgid "<Untitled>"
+msgstr "<제목없음>"
+
 #. Resource IDs: (145)
 msgid ""
 "<b>TortoiseSVN</b> is a shell extension.\n"
@@ -895,6 +1128,10 @@ msgstr ""
 "<b>TortoiseSVN</b>을 사용하려면, 탐색기를 열고 오른쪽 버튼을 폴더 위에서 눌러\n"
 "단축 메뉴를 통해야합니다. 이 메뉴상에 원하는 <b>TortoiseSVN</b> 명령이 있을 것입니다.\n"
 "그리고 <u>메뉴얼을 이용해 주세요!</u>"
+
+#. Resource IDs: (16603)
+msgid "<descr>"
+msgstr "<descr>"
 
 #. Resource IDs: (209)
 msgid "<new changelist>"
@@ -991,6 +1228,19 @@ msgstr "명령"
 msgid "Activate Task List"
 msgstr "작업 목록 활성화"
 
+#. Resource IDs: (1066)
+msgid "Active Files"
+msgstr "활성화된 파일"
+
+#. Resource IDs: (3865)
+#, c-format
+msgid ""
+"ActiveX objects cannot be saved while exiting Windows!\n"
+"Discard all changes to %1?"
+msgstr ""
+"ActiveX 객체는 창을 빠져나가는 중에는 저장될 수 없습니다!\n"
+"%1의 모든 변경사항을 버리겠습니까?"
+
 #. Resource IDs: (155, 209, 229)
 msgid "Add"
 msgstr "추가"
@@ -1027,6 +1277,10 @@ msgstr "확장자에 따른 병합 프로그램 등록"
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
 msgstr "무시 목록에 추가(&I)"
+
+#. Resource IDs: (1068)
+msgid "Add to Quick Access Toolbar"
+msgstr "빠른 접근 툴바에 추가하기"
 
 #. Resource IDs: (209, 1279)
 msgid "Add..."
@@ -1107,6 +1361,10 @@ msgstr "병합 고급 설정"
 msgid "Age"
 msgstr "나이"
 
+#. Resource IDs: (1007)
+msgid "All Commands"
+msgstr "모든 명령들"
+
 #. Resource IDs: (3841)
 msgid "All Files (*.*)"
 msgstr "모든 파일 (*.*)"
@@ -1114,6 +1372,24 @@ msgstr "모든 파일 (*.*)"
 #. Resource IDs: (157)
 msgid "All Files (*.*)|*.*||"
 msgstr "모든 파일 (*.*)|*.*||"
+
+#. Resource IDs: (1008)
+msgid "All your changes will be lost! Do you really want to reset all toolbars and menus?"
+msgstr "모든 변경사항을 잃을 것입니다! 정말로 모든 툴바와 메뉴를 리셋하시겠습니까?"
+
+#. Resource IDs: (1008)
+msgid "All your changes will be lost! Do you really want to reset the keyboard assignments?"
+msgstr "모든 변경사항을 잃을 것입니다! 정말로 키보드 할당을 리셋하시겠습니까?"
+
+#. Resource IDs: (1008)
+#, c-format
+msgid "All your changes will be lost! Do you really want to reset the menu '%s'?"
+msgstr "모든 변경사항을 잃을 것입니다! 정말로 메뉴 '%s'를 리셋하시겠습니까?"
+
+#. Resource IDs: (1007)
+#, c-format
+msgid "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
+msgstr "모든 변경사항을 잃을 것입니다! 정말로 툴바 '%s'를 리셋하시겠습니까?"
 
 #. Resource IDs: (345)
 msgid ""
@@ -1186,6 +1462,10 @@ msgstr "%1을 접근하는 중에 알 수 없는 오류가 발생하였습니다
 msgid "An unknown line type was found in line %d !"
 msgstr "알 수 없는 라인 종류가 발견되었습니다. 라인번호 %d !"
 
+#. Resource IDs: (65535)
+msgid "Application Frame Menus: "
+msgstr "어플리케이션 프레임 메뉴:"
+
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
 msgstr "작업 사본에 Unified diff 파일을 적용합니다."
@@ -1236,6 +1516,10 @@ msgstr "사용자에게 질문"
 #, c-format
 msgid "Assigned to changelist \"%s\""
 msgstr "변경 리스트 \"%s\"로 할당됨"
+
+#. Resource IDs: (16528)
+msgid "Assigned to:"
+msgstr "다음에 할당됨:"
 
 #. Resource IDs: (77)
 #, c-format
@@ -1289,6 +1573,14 @@ msgstr "작성자 대소문자 구별함"
 msgid "Authors:"
 msgstr "작성자:"
 
+#. Resource IDs: (1003)
+msgid "Auto Hide"
+msgstr "자동으로 숨기기"
+
+#. Resource IDs: (1003)
+msgid "Auto Hide All"
+msgstr "모두 자동으로 숨기기"
+
 #. Resource IDs: (99)
 msgid "Auto Rename"
 msgstr "자동으로 이름 바꾸기"
@@ -1337,6 +1629,10 @@ msgstr "블랙 스타일(&L)"
 msgid "B&rowse..."
 msgstr "찾아보기(&R)"
 
+#. Resource IDs: (1064)
+msgid "Back"
+msgstr "뒤로"
+
 #. Resource IDs: (246)
 msgid "Bar Graph"
 msgstr "막대 그래프"
@@ -1344,6 +1640,14 @@ msgstr "막대 그래프"
 #. Resource IDs: (65535)
 msgid "Base file:"
 msgstr "베이스 파일:"
+
+#. Resource IDs: (3850)
+msgid ""
+"Bitmap\n"
+"a bitmap"
+msgstr ""
+"비트맵\n"
+"비트맵"
 
 #. Resource IDs: (114, 162)
 msgid "Blame"
@@ -1421,9 +1725,17 @@ msgstr "버그 ID"
 msgid "Bug-ID / Issue-Nr:"
 msgstr "Bug-ID / Issue-Nr:"
 
+#. Resource IDs: (16132)
+msgid "Button Appearance"
+msgstr "버튼 모양"
+
 #. Resource IDs: (1215)
 msgid "C&heck now"
 msgstr "지금 확인(&H)"
+
+#. Resource IDs: (65535)
+msgid "C&ommands:"
+msgstr "명령들(&O):"
 
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
@@ -1432,6 +1744,10 @@ msgstr "리비전으로부터 태그/브랜치 생성(&R)"
 #. Resource IDs: (101)
 msgid "C&reate folder..."
 msgstr "폴더 생성(&R)"
+
+#. Resource IDs: (65535)
+msgid "C&urrent Keys:"
+msgstr "현재 키들(&U):"
 
 #. Resource IDs: (501)
 msgid "C&ut"
@@ -1457,6 +1773,10 @@ msgstr "커밋로그를 빨리 가져오기 위해 사용되는 캐시"
 msgid "Can double-click in log list to compare with previous revision"
 msgstr "로그 리스트에서 더블 클릭하면 이전 리비전과 비교할 수 있습니다"
 
+#. Resource IDs: (3865)
+msgid "Can not activate a static ActiveX object."
+msgstr "정적인 ActiveX 객체를 활성화할 수 없습니다."
+
 #. Resource IDs: (82)
 #, c-format
 msgid ""
@@ -1469,6 +1789,22 @@ msgstr ""
 "%s\n"
 "->\n"
 "%s"
+
+#. Resource IDs: (1001)
+msgid "Can't copy bitmap image into the clipboard!"
+msgstr "비트맵 이미지를 클립보드로 복사할 수 없습니다!"
+
+#. Resource IDs: (1001)
+msgid "Can't create a new image!"
+msgstr "새로운 이미지를 생성할 수 없습니다!"
+
+#. Resource IDs: (1001)
+msgid "Can't customize menues!"
+msgstr "메뉴를 커스터마이즈 할 수 없습니다!"
+
+#. Resource IDs: (1001)
+msgid "Can't paste bitmap image from the clipboard!"
+msgstr "비트맵 이미지를 클립보드로부터 붙여 넣을 수 없습니다!"
 
 #. Resource IDs: (2, 73, 99, 563)
 msgid "Cancel"
@@ -1486,9 +1822,17 @@ msgstr "취소중..."
 msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr "개행 문자가 같은 종류로 되어 있지 않아 차이점을 보일 수 없습니다."
 
+#. Resource IDs: (16926)
+msgid "Cascade"
+msgstr "중첩된"
+
 #. Resource IDs: (65535)
 msgid "Cascaded context menu"
 msgstr "중첩된 컨텍스트 메뉴"
+
+#. Resource IDs: (65535)
+msgid "Cate&gories:"
+msgstr "카테고리(&G):"
 
 #. Resource IDs: (82)
 msgid "Certificate expired or not yet valid"
@@ -1658,6 +2002,14 @@ msgstr "중단된 명령, 잠긴 파일들을 정리 합니다."
 msgid "Clear"
 msgstr "초기화"
 
+#. Resource IDs: (1057)
+msgid ""
+"Clear Tool\n"
+"Clear"
+msgstr ""
+"지우기 툴\n"
+"지우기"
+
 #. Resource IDs: (196)
 #, c-format
 msgid "Clears %ld URLs stored for %ld working copies"
@@ -1711,6 +2063,22 @@ msgstr "파일 확장자별로 병합하는 프로그램을 등록하려면 고�
 msgid "Clipboard"
 msgstr "클립보드"
 
+#. Resource IDs: (2, 1003, 1007, 1064)
+msgid "Close"
+msgstr "닫기"
+
+#. Resource IDs: (1065)
+msgid "Close Full Screen"
+msgstr "전체 화면 닫기"
+
+#. Resource IDs: (3633)
+msgid ""
+"Close Print Preview\n"
+"&Close"
+msgstr ""
+"프린트 미리보기 닫기\n"
+"닫기(&C)"
+
 #. Resource IDs: (222)
 msgid "Close manually"
 msgstr "수동으로 닫습니다."
@@ -1719,6 +2087,10 @@ msgstr "수동으로 닫습니다."
 msgid "Close the active window and prompts to save the documents"
 msgstr "활성화된 윈도우를 닫고, 문서를 저장할지 물어 봅니다."
 
+#. Resource IDs: (16662)
+msgid "Color"
+msgstr "색상"
+
 #. Resource IDs: (1068)
 msgid "Color co&de in-line changes"
 msgstr "색상 코드 인라인 변경사항(&D)"
@@ -1726,6 +2098,14 @@ msgstr "색상 코드 인라인 변경사항(&D)"
 #. Resource IDs: (138, 65535)
 msgid "Colors"
 msgstr "색상"
+
+#. Resource IDs: (65535)
+msgid "Colors:"
+msgstr "색상들:"
+
+#. Resource IDs: (65535)
+msgid "Comman&ds:"
+msgstr "명령들(&D):"
 
 #. Resource IDs: (220)
 msgid "Command"
@@ -1742,6 +2122,10 @@ msgstr "실행할 명령:"
 #. Resource IDs: (3857)
 msgid "Command failed."
 msgstr "명령 오류."
+
+#. Resource IDs: (16104)
+msgid "Commands"
+msgstr "명령들"
 
 #. Resource IDs: (135, 209, 229, 1083)
 msgid "Commit"
@@ -1869,9 +2253,17 @@ msgstr "저장소 서버에 접속해서 존재하지 않는 로그 데이타를
 msgid "Container sizes"
 msgstr "컨테이너 크기"
 
+#. Resource IDs: (16520)
+msgid "Context Menus: "
+msgstr "컨텍스트 메뉴:"
+
 #. Resource IDs: (73)
 msgid "Continue"
 msgstr "계속"
+
+#. Resource IDs: (1001)
+msgid "Contract docked window"
+msgstr "붙어있는 윈도우를 줄이기"
 
 #. Resource IDs: (376)
 msgid "Cop&y"
@@ -1888,6 +2280,10 @@ msgstr "복사된 원본 경로"
 #. Resource IDs: (126)
 msgid "Copied remotely"
 msgstr "원격 복사됨"
+
+#. Resource IDs: (16991)
+msgid "Copy"
+msgstr "복사"
 
 #. Resource IDs: (127)
 #, c-format
@@ -1924,6 +2320,14 @@ msgstr "복사하기 (브랜치/태그 만들기)"
 #. Resource IDs: (78)
 msgid "Copy - TortoiseSVN"
 msgstr "복사 - TortoiseSVN"
+
+#. Resource IDs: (1057)
+msgid ""
+"Copy Tool\n"
+"Copy"
+msgstr ""
+"복사 툴\n"
+"복사"
 
 #. Resource IDs: (101)
 msgid "Copy URL to clipboard"
@@ -2214,6 +2618,10 @@ msgstr "만든이들:"
 msgid "Cu&t"
 msgstr "잘라내기(&T)"
 
+#. Resource IDs: (65535)
+msgid "Current"
+msgstr "현재"
+
 #. Resource IDs: (1113)
 msgid "Current version is:"
 msgstr "최신 버전:"
@@ -2222,6 +2630,30 @@ msgstr "최신 버전:"
 #, c-format
 msgid "Current version is: %s"
 msgstr "최신 버전: %s"
+
+#. Resource IDs: (17079)
+msgid "Cus&tomize..."
+msgstr "커스터마이즈(&T)..."
+
+#. Resource IDs: (16963)
+msgid "Custom"
+msgstr "커스텀"
+
+#. Resource IDs: (1007, 17074)
+msgid "Customize"
+msgstr "커스터마이즈"
+
+#. Resource IDs: (17076)
+msgid "Customize Keyboard"
+msgstr "키보드 커스터마이즈하기"
+
+#. Resource IDs: (1069)
+msgid "Customize Quick Access Toolbar"
+msgstr "빠른 접근 툴바 커스터마이즈하기"
+
+#. Resource IDs: (1068)
+msgid "Customize Quick Access Toolbar..."
+msgstr "빠른 접근 툴바 커스터마이즈하기..."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -2235,13 +2667,25 @@ msgstr ""
 msgid "Date"
 msgstr "날짜"
 
+#. Resource IDs: (1008)
+msgid "Default"
+msgstr "기본"
+
 #. Resource IDs: (65535)
 msgid "Default &number of log messages"
 msgstr "로그 메시지 기본 개수(&N)"
 
+#. Resource IDs: (1007)
+msgid "Default Menu"
+msgstr "기본 메뉴"
+
 #. Resource IDs: (65535)
 msgid "Default URL:"
 msgstr "기본 URL:"
+
+#. Resource IDs: (1007)
+msgid "Default application menu. Appears when no documents are open."
+msgstr "기본 어플리케이션 메뉴. 열려진 문서가 하나도 없을 때 보여줍니다."
 
 #. Resource IDs: (65535)
 msgid "Default path:"
@@ -2287,6 +2731,14 @@ msgstr "삭제"
 msgid "Depth:"
 msgstr "깊이:"
 
+#. Resource IDs: (1002)
+msgid "Description"
+msgstr "설명"
+
+#. Resource IDs: (65535)
+msgid "Description:"
+msgstr "설명:"
+
 #. Resource IDs: (213)
 msgid "Deselect changelist"
 msgstr "변경 리스트 선택하지 않음"
@@ -2299,9 +2751,17 @@ msgstr "목적지 디스크가 꽉 찼습니다."
 msgid "Details"
 msgstr "세부사항"
 
+#. Resource IDs: (3849)
+msgid ""
+"Device Independent Bitmap\n"
+"a device independent bitmap"
+msgstr ""
+"디바이스에 독립적인 비트맵\n"
+"디바이스에 독립적인 비트맵"
+
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
-msgstr "대화상자 크기와 위치"
+msgstr "대화상자의 크기와 위치"
 
 #. Resource IDs: (65535)
 msgid "Diff file:"
@@ -2349,6 +2809,10 @@ msgstr "%1에 접근하는 동안 디스크 꽉참."
 msgid "Dispatch exception: %1"
 msgstr "가져오기 예외: %1"
 
+#. Resource IDs: (65535)
+msgid "Display &buttons in this order"
+msgstr "이 순서로 버튼 보여주기(&B)"
+
 #. Resource IDs: (3605)
 msgid ""
 "Display help for clicked on buttons, menus and windows\n"
@@ -2380,6 +2844,11 @@ msgid ""
 msgstr ""
 "프로그램 정보 표시, 버전 번호, 저작권\n"
 "프로그램 정보"
+
+#. Resource IDs: (1007)
+#, c-format
+msgid "Do you really want to delete the toolbar '%s'?"
+msgstr "'%s' 툴바를 정말로 삭제하시겠습니까?"
 
 #. Resource IDs: (145)
 msgid "Do you really want to move this file or folder?"
@@ -2440,6 +2909,10 @@ msgid "Do you want to save your changes?"
 msgstr "바뀐 내용을 저장하시겠습니까?"
 
 #. Resource IDs: (65535)
+msgid "Document :"
+msgstr "문서 :"
+
+#. Resource IDs: (65535)
 msgid ""
 "Documentation : Simon Large\n"
 "Code : Tobias Schäfer, Stefan Fuhrmann"
@@ -2450,6 +2923,14 @@ msgstr ""
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
 msgstr "이 메시지를 다시 표시하지 않음"
+
+#. Resource IDs: (1002)
+msgid "Drag to make this menu float"
+msgstr "이 메뉴를 띄우기 위해서 드래그하십시오"
+
+#. Resource IDs: (16513)
+msgid "Draw"
+msgstr "그리기"
 
 #. Resource IDs: (1079)
 msgid "Drive Types"
@@ -2474,6 +2955,10 @@ msgstr "EXT"
 #. Resource IDs: (1237)
 msgid "Edit"
 msgstr "편집"
+
+#. Resource IDs: (16133)
+msgid "Edit Button Image"
+msgstr "버튼 이미지 편집하기"
 
 #. Resource IDs: (227, 564)
 msgid "Edit Properties"
@@ -2523,6 +3008,14 @@ msgstr "선택된 속성값을 편집합니다"
 #. Resource IDs: (79)
 msgid "Either the name or IP of the proxy server"
 msgstr "프록시의 이름이나 IP를 입력하십시오."
+
+#. Resource IDs: (1057)
+msgid ""
+"Ellipse Tools\n"
+"Ellipse"
+msgstr ""
+"타원 툴\n"
+"타원"
 
 #. Resource IDs: (65535)
 msgid "Empty"
@@ -2706,6 +3199,23 @@ msgstr "가져오기 예외:"
 msgid "Exclude paths:"
 msgstr "제외 경로:"
 
+#. Resource IDs: (1002)
+msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
+msgstr "실행파일 (*.exe)|*.exe|명령 (*.com)|*.com|정보 (*.pdf)|*.pdf|배치 (*.bat)|*.bat|모든 파일들 (*.*)|*.*||"
+
+#. Resource IDs: (1002)
+msgid "Existing"
+msgstr "존재하는"
+
+#. Resource IDs: (1002)
+#, c-format
+msgid "Expand (%s)"
+msgstr "확장하기 (%s)"
+
+#. Resource IDs: (1001)
+msgid "Expand docked window"
+msgstr "붙어있는 윈도우를 확장하기"
+
 #. Resource IDs: (209)
 msgid "Explore to"
 msgstr "탐색"
@@ -2795,17 +3305,41 @@ msgstr "외부경로를 포함함"
 msgid "Failed revert"
 msgstr "되돌리기 실패"
 
+#. Resource IDs: (3865)
+msgid ""
+"Failed to connect.\n"
+"Link may be broken."
+msgstr ""
+"연결하는데 실패했습니다.\n"
+"링크가 깨진것 같습니다."
+
+#. Resource IDs: (3865)
+msgid "Failed to convert ActiveX object."
+msgstr "ActiveX 객체를 변환하는데 실패했습니다."
+
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
 msgstr "빈 문서 작성 실패."
+
+#. Resource IDs: (3865)
+msgid "Failed to create object.  Make sure the application is entered in the system registry."
+msgstr "객체를 생성하는데 실패했습니다. 어플리케이션이 시스템 레지스트리에 들어있는지 확인하십시오."
 
 #. Resource IDs: (3857)
 msgid "Failed to launch help."
 msgstr "도움말 시작 오류."
 
+#. Resource IDs: (3865)
+msgid "Failed to launch server application."
+msgstr "서버 어플리케이션을 실행하는데 실패했습니다."
+
 #. Resource IDs: (3857)
 msgid "Failed to open document."
 msgstr "문서 열기에 실패함."
+
+#. Resource IDs: (3865)
+msgid "Failed to perform server operation."
+msgstr "서버 동작을 수행하는데 실패했습니다."
 
 #. Resource IDs: (3857)
 msgid "Failed to save document."
@@ -2961,6 +3495,14 @@ msgstr ""
 msgid "Filename"
 msgstr "파일이름"
 
+#. Resource IDs: (1057)
+msgid ""
+"Fill Tool\n"
+"Fill"
+msgstr ""
+"채우기 툴\n"
+"채우기"
+
 #. Resource IDs: (65535)
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
 msgstr "다음 경로들은 제외합니다 ('*' 문자로 경로를 분리합니다.)"
@@ -2997,6 +3539,10 @@ msgstr "플로피 드라이브 (A: B:)"
 msgid "Fold &tags"
 msgstr "태그 폴더 접기(&T)"
 
+#. Resource IDs: (1002)
+msgid "Folder"
+msgstr "폴더"
+
 #. Resource IDs: (65535)
 msgid "Font"
 msgstr "글꼴"
@@ -3013,6 +3559,10 @@ msgstr "모든 로그를 보려면 \"복사/이름변경 시점에서 중지\"�
 msgid "Force blame"
 msgstr "강제로 작성자를 봄"
 
+#. Resource IDs: (1064)
+msgid "Forward"
+msgstr "다음"
+
 #. Resource IDs: (65535)
 msgid "From URL:"
 msgstr "시작 URL:"
@@ -3024,6 +3574,10 @@ msgstr "시작:"
 #. Resource IDs: (65535)
 msgid "From: (start URL and revision of the range to merge)"
 msgstr "시작: (병합할 범위의 시작 URL과 리비전)"
+
+#. Resource IDs: (1065)
+msgid "Full Screen"
+msgstr "전체 화면"
 
 #. Resource IDs: (19)
 msgid "Fully recursive"
@@ -3181,6 +3735,10 @@ msgstr ""
 msgid "Graph type:"
 msgstr "그래프 종류:"
 
+#. Resource IDs: (16972)
+msgid "Gray"
+msgstr "회색"
+
 #. Resource IDs: (2050)
 msgid "Group by branch"
 msgstr "브랜치별 그룹"
@@ -3192,6 +3750,10 @@ msgstr "그룹 변경 목록"
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
 msgstr "관련없는 변경된 경로를 숨기기(&I)"
+
+#. Resource IDs: (65535)
+msgid "H&ue:"
+msgstr "색상(&U):"
 
 #. Resource IDs: (1353, 1354)
 msgid "HEAD"
@@ -3206,9 +3768,21 @@ msgstr "HEAD 리비전은 %s 입니다"
 msgid "Help"
 msgstr "도움말"
 
+#. Resource IDs: (16982)
+msgid "Help Keyboard"
+msgstr "키보드 도움말"
+
+#. Resource IDs: (16974)
+msgid "Hex"
+msgstr "헥사"
+
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
 msgstr "삭제된 경로를 숨기기(&D)"
+
+#. Resource IDs: (1001)
+msgid "Hide docked window"
+msgstr "붙어있는 윈도우를 숨기기"
 
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
@@ -3229,6 +3803,14 @@ msgstr "캐시에서 가장 높은 리비전 번호"
 #. Resource IDs: (1127)
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
 msgstr "힌트: 선택된 디렉토리를 새로 고치려면, F5를 누르시고, 하위까지 고치려면 Ctrl+F5를 누르세요."
+
+#. Resource IDs: (16519)
+msgid "Hint: select the context menu, change the page to \"Commands\" and drag the toolbar buttons into the menu window."
+msgstr "힌트: 컨텍스트 메뉴를 선택하고, 페이지를 \"명령\"으로 변경한 후에 툴바 버튼을 메뉴 창으로 드래그하십시오."
+
+#. Resource IDs: (1064)
+msgid "Home"
+msgstr "처음으로"
 
 #. Resource IDs: (103)
 msgid "Hook Scripts"
@@ -3536,6 +4118,18 @@ msgstr "공백의 차이는 무시함"
 msgid "Ignored items included"
 msgstr "무시된 아이템들을 포함함"
 
+#. Resource IDs: (16916)
+msgid "Image &and Text"
+msgstr "이미지와 텍스트(&A)"
+
+#. Resource IDs: (16507)
+msgid "Image &and text"
+msgstr "이미지와 텍스트(&A)"
+
+#. Resource IDs: (16508)
+msgid "Images"
+msgstr "이미지들"
+
 #. Resource IDs: (19)
 msgid "Immediate children, including folders"
 msgstr "1차 파일 및 디렉토리에만 적용"
@@ -3653,6 +4247,10 @@ msgstr "내부 오류."
 #. Resource IDs: (338, 339)
 msgid "Internal value indicating compression quality"
 msgstr "압축 품질을 지시하는 내부 값"
+
+#. Resource IDs: (3850)
+msgid "Invalid Currency."
+msgstr "유효하지 않은 단위"
 
 #. Resource IDs: (102)
 msgid "Invalid data object dropped!"
@@ -3787,6 +4385,18 @@ msgstr "잠금 유지(&L)"
 msgid "Keep changelists"
 msgstr "변경 리스트 유지"
 
+#. Resource IDs: (16136)
+msgid "Keyboard"
+msgstr "키보드"
+
+#. Resource IDs: (65535)
+msgid "Keyboard shortcuts:"
+msgstr "키보드 단축키:"
+
+#. Resource IDs: (1002)
+msgid "Keys"
+msgstr "키"
+
 #. Resource IDs: (65535)
 msgid "Last commit revision:"
 msgstr "마지막 커밋 리비전:"
@@ -3835,6 +4445,14 @@ msgstr "행"
 msgid "Line Graph"
 msgstr "꺽은선 그래프"
 
+#. Resource IDs: (1057)
+msgid ""
+"Line Tool\n"
+"Line"
+msgstr ""
+"라인 툴\n"
+"라인"
+
 #. Resource IDs: (32853)
 msgid "Line diff bar"
 msgstr "라인 비교 바"
@@ -3863,6 +4481,10 @@ msgstr ""
 #. Resource IDs: (344)
 msgid "List of repositories for which log information has been cached"
 msgstr "로그 정보가 캐시되어있는 저장소들의 리스트"
+
+#. Resource IDs: (16631, 16992)
+msgid "List1"
+msgstr "리스트1"
 
 #. Resource IDs: (130)
 msgid "Load Images"
@@ -3978,6 +4600,10 @@ msgstr "최하위 리비전: %ld - 최상위 리비전: %ld"
 msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision: %ld"
 msgstr "최하위 리비전: %ld - 최상위 리비전: %ld - HEAD 리비전: %ld"
 
+#. Resource IDs: (16973)
+msgid "Lum"
+msgstr "휘도"
+
 #. Resource IDs: (3866)
 msgid "Mail system DLL is invalid."
 msgstr "메일 시스템 DLL이 유효하지 않습니다."
@@ -4033,6 +4659,22 @@ msgstr "사용되었던 로그 저장 개수"
 #. Resource IDs: (65535)
 msgid "Max. lines in action log"
 msgstr "명령 로그의 최대 개수"
+
+#. Resource IDs: (16655)
+msgid "Me&nus show recently used commands first"
+msgstr "메뉴는 가장 최근에 사용된 명령어들을 먼저 보여줍니다.(&N)"
+
+#. Resource IDs: (16134)
+msgid "Menu"
+msgstr "메뉴"
+
+#. Resource IDs: (1001)
+msgid "Menu Bar"
+msgstr "메뉴 바"
+
+#. Resource IDs: (16626)
+msgid "Menu s&hadows"
+msgstr "메뉴 그림자(&H)"
 
 #. Resource IDs: (109, 110, 111, 276, 278, 65535)
 msgid "Merge"
@@ -4164,6 +4806,10 @@ msgstr "최소"
 msgid "Mine"
 msgstr "작업 사본"
 
+#. Resource IDs: (1068)
+msgid "Minimize the Ribbon"
+msgstr "리본 최소화하기"
+
 #. Resource IDs: (1023)
 msgid "Misc"
 msgstr "기타"
@@ -4180,6 +4826,18 @@ msgstr "수정일"
 msgid "Modified"
 msgstr "수정됨"
 
+#. Resource IDs: (1070)
+msgid "More"
+msgstr "더 보기"
+
+#. Resource IDs: (1002)
+msgid "More Buttons"
+msgstr "더 많은 버튼들"
+
+#. Resource IDs: (1069)
+msgid "More Commands..."
+msgstr "더 많은 명령들..."
+
 #. Resource IDs: (438)
 msgid "More colors..."
 msgstr "다른 색깔..."
@@ -4191,6 +4849,10 @@ msgstr "더 보기..."
 #. Resource IDs: (1136)
 msgid "Most active author:"
 msgstr "가장 활동이 많은 작성자:"
+
+#. Resource IDs: (16135)
+msgid "Mouse"
+msgstr "마우스"
 
 #. Resource IDs: (127)
 #, c-format
@@ -4209,6 +4871,22 @@ msgid ""
 msgstr ""
 "%s (을)를\r\n"
 "%s (으)로 옮깁니다"
+
+#. Resource IDs: (17026)
+msgid "Move &Down"
+msgstr "아래로 이동하기(&D)"
+
+#. Resource IDs: (17025)
+msgid "Move &Up"
+msgstr "위로 이동하기(&U)"
+
+#. Resource IDs: (1002)
+msgid "Move Item Down"
+msgstr "아이템을 아래로 이동"
+
+#. Resource IDs: (1002)
+msgid "Move Item Up"
+msgstr "아이템을 위로 이동"
 
 #. Resource IDs: (104)
 msgid "Move and rename item to here"
@@ -4256,6 +4934,14 @@ msgstr "다음 충돌(&E)"
 msgid "NUM"
 msgstr "NUM"
 
+#. Resource IDs: (17004)
+msgid "Navigation Pane Options"
+msgstr "네비게이션 창 옵션"
+
+#. Resource IDs: (1065)
+msgid "Navigation Pane Options..."
+msgstr "네비게이션 창 옵션..."
+
 #. Resource IDs: (208)
 msgid "Needs lock"
 msgstr "잠금이 요구됨"
@@ -4280,6 +4966,10 @@ msgstr "New"
 msgid "New &name:"
 msgstr "새 이름(&N):"
 
+#. Resource IDs: (1001)
+msgid "New Menu"
+msgstr "새로운 메뉴"
+
 #. Resource IDs: (97)
 #, c-format
 msgid "New name for %s"
@@ -4288,6 +4978,14 @@ msgstr "%s의 새 이름"
 #. Resource IDs: (98)
 msgid "New name:"
 msgstr "새 이름:"
+
+#. Resource IDs: (3633)
+msgid ""
+"Next Page\n"
+"Next Page"
+msgstr ""
+"다음 페이지\n"
+"다음 페이지"
 
 #. Resource IDs: (73)
 msgid "No"
@@ -4580,9 +5278,17 @@ msgstr "저장소를 직접 조작하려면 저장소 브라우저를 사용하�
 msgid "Operate from log cache for now only"
 msgstr "지금만 로그 캐시로부터 수행"
 
+#. Resource IDs: (16137)
+msgid "Options"
+msgstr "옵션들"
+
 #. Resource IDs: (32779)
 msgid "Ori&ginal size"
 msgstr "원본 크기(&G)"
+
+#. Resource IDs: (1065)
+msgid "Other Task Panes"
+msgstr "다른 작업 창"
 
 #. Resource IDs: (245)
 msgid "Others"
@@ -4591,6 +5297,10 @@ msgstr "기타"
 #. Resource IDs: (3843)
 msgid "Out of memory."
 msgstr "메모리 부족."
+
+#. Resource IDs: (3845)
+msgid "Output.prn"
+msgstr "Output.prn"
 
 #. Resource IDs: (95)
 msgid ""
@@ -4616,9 +5326,35 @@ msgstr "PEM"
 msgid "PKCS12"
 msgstr "PKCS12"
 
+#. Resource IDs: (3845)
+#, c-format
+msgid "Page %u"
+msgstr "페이지 %u"
+
+#. Resource IDs: (3845)
+#, c-format
+msgid ""
+"Page %u\n"
+"Pages %u-%u\n"
+msgstr ""
+"페이지 %u\n"
+"페이지 %u-%u\n"
+
+#. Resource IDs: (65535)
+msgid "Page :"
+msgstr "페이지 :"
+
 #. Resource IDs: (69)
 msgid "Password:"
 msgstr "암호:"
+
+#. Resource IDs: (1057)
+msgid ""
+"Paste Tool\n"
+"Paste"
+msgstr ""
+"붙여넣기 툴\n"
+"붙여넣기"
 
 #. Resource IDs: (172)
 msgid "Paste filename list"
@@ -4643,6 +5379,30 @@ msgstr "경로"
 #. Resource IDs: (116)
 msgid "Paths"
 msgstr "경로"
+
+#. Resource IDs: (1057)
+msgid ""
+"Pencil Tool\n"
+"Pencil"
+msgstr ""
+"펜슬 툴\n"
+"펜슬"
+
+#. Resource IDs: (16538)
+msgid "Personalized Menus and Toolbars"
+msgstr "개인화된 메뉴와 툴바"
+
+#. Resource IDs: (3849)
+msgid ""
+"Picture (Metafile)\n"
+"a picture"
+msgstr ""
+"그림 (메타 파일)\n"
+"그림"
+
+#. Resource IDs: (65535)
+msgid "Picture:"
+msgstr "그림:"
 
 #. Resource IDs: (157)
 msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
@@ -4710,6 +5470,10 @@ msgstr "저장소 브라우저가 초기화되는 동안 기다리십시오..."
 msgid "Please wait..."
 msgstr "잠시 기다려주십시오..."
 
+#. Resource IDs: (65535)
+msgid "Port :"
+msgstr "포트 :"
+
 #. Resource IDs: (569)
 msgid "Post-Commit Hook"
 msgstr "커밋 후 확인 훅"
@@ -4717,6 +5481,10 @@ msgstr "커밋 후 확인 훅"
 #. Resource IDs: (570)
 msgid "Post-Update Hook"
 msgstr "업데이트 후 확인 훅"
+
+#. Resource IDs: (58115)
+msgid "Pre&v Page"
+msgstr "이전 페이지(&V)"
 
 #. Resource IDs: (569)
 msgid "Pre-Commit Hook"
@@ -4726,13 +5494,65 @@ msgstr "커밋 전 확인 훅"
 msgid "Pre-Update Hook"
 msgstr "업데이트 전 확인 훅"
 
+#. Resource IDs: (65535)
+msgid "Press &New Shortcut Key:"
+msgstr "새로운 단축키를 누르십시오(&N):"
+
+#. Resource IDs: (65535)
+msgid "Press &new shortcut key:"
+msgstr "새로운 단축키를 누르십시오(&N):"
+
 #. Resource IDs: (2052)
 msgid "Prevents most cases in which connection lines cross revision nodes"
 msgstr "연결된 행이 리비전의 노드들을 교차하는 것을 최대한 방지 (TODO:다듬기)"
 
+#. Resource IDs: (1069)
+msgid "Preview"
+msgstr "미리보기"
+
 #. Resource IDs: (376)
 msgid "Preview patched file"
 msgstr "패치된 파일 미리보기"
+
+#. Resource IDs: (65535)
+msgid "Preview: "
+msgstr "미리보기:"
+
+#. Resource IDs: (3633)
+msgid ""
+"Previous Page\n"
+"Previous Page"
+msgstr ""
+"이전 페이지\n"
+"이전 페이지"
+
+#. Resource IDs: (1069, 16990)
+msgid "Print"
+msgstr "프린트하기"
+
+#. Resource IDs: (3633)
+msgid ""
+"Print Document\n"
+"&Print"
+msgstr ""
+"문서 프린트하기\n"
+"프린트하기(&P)"
+
+#. Resource IDs: (3845)
+msgid "Print to File"
+msgstr "파일로 프린트하기"
+
+#. Resource IDs: (65535)
+msgid "Printer :"
+msgstr "프린터 :"
+
+#. Resource IDs: (3845)
+msgid "Printer Files (*.prn)|*.prn|All Files (*.*)|*.*||"
+msgstr "프린터 파일들 (*.prn)|*.prn|모든 파일들 (*.*)|*.*||"
+
+#. Resource IDs: (65535)
+msgid "Printing"
+msgstr "프린팅"
 
 #. Resource IDs: (132)
 #, c-format
@@ -4840,6 +5660,10 @@ msgstr ""
 msgid "R&AM drives"
 msgstr "램 드라이브(&A)"
 
+#. Resource IDs: (16623)
+msgid "R&eset"
+msgstr "리셋(&E)"
+
 #. Resource IDs: (114)
 msgid "R&evert to this revision"
 msgstr "이 리비전으로 되돌림(&E)"
@@ -4860,6 +5684,14 @@ msgstr "이동식 디스크(&M)"
 msgid "Re&name..."
 msgstr "이름 바꾸기(&N)..."
 
+#. Resource IDs: (16613)
+msgid "Re&set"
+msgstr "리셋(&S)"
+
+#. Resource IDs: (16647)
+msgid "Re&set All"
+msgstr "모두 리셋(&S)"
+
 #. Resource IDs: (8)
 msgid "Re&vert..."
 msgstr "되돌리기(&V)..."
@@ -4868,13 +5700,25 @@ msgstr "되돌리기(&V)..."
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Daily Use Guide 읽기"
 
+#. Resource IDs: (1002)
+msgid "Recent"
+msgstr "최근"
+
 #. Resource IDs: (65535)
 msgid "Recently modified lines"
-msgstr "최근 수정된 행"
+msgstr "최근에 수정된 행"
 
 #. Resource IDs: (276)
 msgid "Record Only"
 msgstr "병합정보만 저장"
+
+#. Resource IDs: (1057)
+msgid ""
+"Rectangle Tool\n"
+"Rectangle"
+msgstr ""
+"사각형 툴\n"
+"사각형"
 
 #. Resource IDs: (1260)
 msgid "Recurse into unversioned folders"
@@ -5022,6 +5866,10 @@ msgstr "삭제된 브랜치나 태그를 제거합니다"
 msgid "Remove from &ignore list"
 msgstr "무시 목록에서 제거(&I)"
 
+#. Resource IDs: (1068)
+msgid "Remove from Quick Access Toolbar"
+msgstr "빠른 접근 툴바에서 제거하기"
+
 #. Resource IDs: (209)
 msgid "Remove from changelist"
 msgstr "변경 리스트에서 제거"
@@ -5077,6 +5925,10 @@ msgstr "선택된 파일 또는 파일 마스크를 무시 목록에서 제거"
 #. Resource IDs: (581)
 msgid "Removes the selected properties"
 msgstr "선택된 속성값을 제거합니다"
+
+#. Resource IDs: (16616)
+msgid "Rena&me..."
+msgstr "이름 변경하기(&M)..."
 
 #. Resource IDs: (151)
 msgid "Rename"
@@ -5163,6 +6015,10 @@ msgstr "사용자명과 암호를 요구합니다."
 #. Resource IDs: (8)
 msgid "Res&olved..."
 msgstr "충돌 해결됨(&O)..."
+
+#. Resource IDs: (16614)
+msgid "Reset &All"
+msgstr "모두 리셋(&A)"
 
 #. Resource IDs: (207, 229)
 msgid "Resolve"
@@ -5354,6 +6210,14 @@ msgstr ""
 msgid "Revisions"
 msgstr "리비전"
 
+#. Resource IDs: (3850)
+msgid ""
+"Rich Text (RTF)\n"
+"text with font and paragraph formatting"
+msgstr ""
+"리치 텍스트 (RTF)\n"
+"폰트와 단락의 형태를 가지고 있는 텍스트"
+
 #. Resource IDs: (188)
 msgid "Right View: "
 msgstr "오른쪽: "
@@ -5362,9 +6226,35 @@ msgstr "오른쪽: "
 msgid "Right image"
 msgstr "오른쪽 그림"
 
+#. Resource IDs: (1070)
+#, c-format
+msgid "Row %d of %d"
+msgstr "%d 행(%d 중에)"
+
+#. Resource IDs: (1070)
+#, c-format
+msgid "Row %d-%d of %d"
+msgstr "%d 행-%d (%d 중에)"
+
+#. Resource IDs: (17045)
+msgid "S&elect..."
+msgstr "선택하기(&E)..."
+
 #. Resource IDs: (32782)
 msgid "S&ettings"
 msgstr "설정(&E)"
+
+#. Resource IDs: (1065)
+msgid "S&how Buttons on One Row"
+msgstr "하나의 행에 버튼을 보여줍니다(&H)"
+
+#. Resource IDs: (1065)
+msgid "S&how Buttons on Two Rows"
+msgstr "두개의 행에 버튼을 보여줍니다(&H)"
+
+#. Resource IDs: (17078)
+msgid "S&how Quick Access Toolbar below the Ribbon"
+msgstr "리본 아래에 빠른 접근 툴바 보여주기(&H)"
 
 #. Resource IDs: (1132)
 msgid "S&tatistics"
@@ -5512,6 +6402,14 @@ msgstr "패치 파일 저장:"
 msgid "Scintilla"
 msgstr "Scintilla"
 
+#. Resource IDs: (1003)
+msgid "Scroll Left"
+msgstr "왼쪽으로 스크롤하기"
+
+#. Resource IDs: (1003)
+msgid "Scroll Right"
+msgstr "오른쪽으로 스크롤하기"
+
 #. Resource IDs: (113)
 msgid "Search &log messages..."
 msgstr "로그 메시지 검색(&l)..."
@@ -5533,9 +6431,29 @@ msgstr "%1 탐색 실패"
 msgid "Select &All"
 msgstr "모두 선택(&A)"
 
+#. Resource IDs: (16529)
+msgid "Select &User-defined Image: "
+msgstr "사용자가 정의한 이미지 선택하기(&U): "
+
+#. Resource IDs: (16508)
+msgid "Select &context menu:"
+msgstr "컨텍스트 메뉴 선택하기(&C):"
+
+#. Resource IDs: (65535)
+msgid "Select &window:"
+msgstr "윈도우 선택하기(&W):"
+
 #. Resource IDs: (1067)
 msgid "Select / deselect &all"
 msgstr "모두 선택 / 선택 해제(&A)"
+
+#. Resource IDs: (1057)
+msgid ""
+"Select Color Tool\n"
+"Select Color"
+msgstr ""
+"색상 선택 툴\n"
+"색상 선택"
 
 #. Resource IDs: (13)
 msgid "Select File..."
@@ -5665,6 +6583,10 @@ msgstr "내용 전송"
 msgid "Server &address:"
 msgstr "서버 주소(&A):"
 
+#. Resource IDs: (65535)
+msgid "Set Accelerator &for:"
+msgstr "다음에 대한 바로가기키 설정(&F):"
+
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
 msgstr "\"마지막 커밋 시간\"으로 파일의 날짜를 바꿉니다.(&T)"
@@ -5714,6 +6636,10 @@ msgstr "버전 관리 대상의 짧은 URL"
 msgid "Show"
 msgstr "보기"
 
+#. Resource IDs: (16996)
+msgid "Show &Accelerator for:"
+msgstr "다음에 대한 바로가기키 보여주기(&A):"
+
 #. Resource IDs: (115, 1031)
 msgid "Show &All"
 msgstr "모두 보기(&A)"
@@ -5750,6 +6676,18 @@ msgstr "탐색기에서만 오버레이와 컨텍스트 메뉴를 보입니다.(
 msgid "Show &unversioned files"
 msgstr "버전관리 대상이 아닌 파일 보기(&U)"
 
+#. Resource IDs: (1069)
+msgid "Show Above the Ribbon"
+msgstr "리본 위에 보이기"
+
+#. Resource IDs: (1069)
+msgid "Show Below the Ribbon"
+msgstr "리본 아래에 보이기"
+
+#. Resource IDs: (1065)
+msgid "Show Fewer Buttons"
+msgstr "더 적은 버튼 보여주기"
+
 #. Resource IDs: (32817)
 msgid "Show File List"
 msgstr "파일 보기"
@@ -5770,9 +6708,25 @@ msgstr ""
 msgid "Show Lock dialog before locking files"
 msgstr "파일을 잠그기 전에 대화상자를 표시"
 
+#. Resource IDs: (1065)
+msgid "Show More Buttons"
+msgstr "더 많은 버튼 보여주기"
+
 #. Resource IDs: (32813)
 msgid "Show Ove&rview"
 msgstr "개요 보기(&r)"
+
+#. Resource IDs: (1068)
+msgid "Show Quick Access Toolbar Above the Ribbon"
+msgstr "리본위에 빠른 접근 툴바 보여주기"
+
+#. Resource IDs: (1068)
+msgid "Show Quick Access Toolbar Below the Ribbon"
+msgstr "리본 아래에 빠른 접근 툴바 보여주기"
+
+#. Resource IDs: (16651)
+msgid "Show Screen&Tips on toolbars"
+msgstr "툴바에 스크린 팁 보여주기(&T)"
 
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
@@ -5788,7 +6742,11 @@ msgstr "Unified Diff 형식으로 차이점 보기(&U)"
 
 #. Resource IDs: (1126)
 msgid "Show excluded folders as normal"
-msgstr "제외된 폴더를 일반 파일 처럼 보여줌"
+msgstr "제외된 폴더를 일반 파일처럼 보여줌"
+
+#. Resource IDs: (16656)
+msgid "Show f&ull menus after a short delay"
+msgstr "짧은 지연후에 전체 메뉴를 보여줍니다(&U)"
 
 #. Resource IDs: (1264)
 msgid "Show ignored files"
@@ -5829,6 +6787,10 @@ msgstr "버전관리 대상이 아닌 파일에 오버레이를 보이기"
 #. Resource IDs: (102)
 msgid "Show revision properties"
 msgstr "리비전 속성 보기"
+
+#. Resource IDs: (16652)
+msgid "Show shortcut &keys in ScreenTips"
+msgstr "스트린 팁에 단축키를 보여줍니다(&K)"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -5954,6 +6916,10 @@ msgstr ""
 "<b>모든</b> 작업사본에서 TortoiseSVN이 버전컨트롤하지 않을 파일이나 폴더를 지정하십시오.\n"
 "패턴들은 공백으로 분리하면 됩니다."
 
+#. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
+msgid "Spin1"
+msgstr "스핀1"
+
 #. Resource IDs: (376)
 msgid "Split lines"
 msgstr "행을 분리함"
@@ -5974,6 +6940,10 @@ msgstr "누적 막대 그래프"
 msgid "Stacked Line Graph"
 msgstr "누적 꺽은선 그래프"
 
+#. Resource IDs: (16962)
+msgid "Standard"
+msgstr "표준"
+
 #. Resource IDs: (569)
 msgid "Start Commit Hook"
 msgstr "커밋 시작 훅"
@@ -5986,6 +6956,10 @@ msgstr "시작 리비전"
 msgid "Start Update Hook"
 msgstr "업데이트 시작 훅"
 
+#. Resource IDs: (16514)
+msgid "Static"
+msgstr "정적인"
+
 #. Resource IDs: (179, 245)
 msgid "Statistics"
 msgstr "통계정보"
@@ -5993,6 +6967,10 @@ msgstr "통계정보"
 #. Resource IDs: (74, 77, 207, 65535)
 msgid "Status"
 msgstr "상태"
+
+#. Resource IDs: (1068)
+msgid "Status Bar Configuration"
+msgstr "상태 바 설정"
 
 #. Resource IDs: (65535)
 msgid "Status and action colors"
@@ -6146,6 +7124,10 @@ msgstr "TORTOISEBLAME"
 msgid "TORTOISEIDIFF"
 msgstr "TORTOISEIDIFF"
 
+#. Resource IDs: (16970)
+msgid "Tab Placeholder"
+msgstr "탭 플레이스홀더"
+
 #. Resource IDs: (65535)
 msgid "Tab size:"
 msgstr "탭 크기:"
@@ -6154,6 +7136,10 @@ msgstr "탭 크기:"
 #, c-format
 msgid "Tagged the working copy to %s"
 msgstr "현재 작업 사본에 태그를 붙입니다. (%s)"
+
+#. Resource IDs: (1064)
+msgid "Tasks Pane"
+msgstr "작업 창"
 
 #. Resource IDs: (219)
 msgid "Test Only"
@@ -6630,6 +7616,18 @@ msgstr "이 속성은 폴더에만 적용되며, 파일에는 적용되지 않�
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "이 속성은 여러줄로 구성될 수 없습니다. 한 줄로만 가능합니다."
 
+#. Resource IDs: (1016)
+msgid "This will delete the record of commands you've used in this application and restore the default set of visible commands to the menus and toolbars. It will not undo any explicit customizations. Are you sure you want to do this?"
+msgstr "이것은 이 어플리케이션에서 사용된 명령들을 저장해 놓은 것을 삭제할 것입니다. 그리고 메뉴와 툴바에서 보이는 명령들을 기본 값으로 되돌릴 것입니다. 이것은 명시적으로 커스터마이징한 것을 되돌리지는 않을 것입니다. 정말로 이것을 수행하시겠습니까?"
+
+#. Resource IDs: (16924)
+msgid "Tile &Horizontally"
+msgstr "수평으로 붙이기(&H)"
+
+#. Resource IDs: (16928)
+msgid "Tile &Vertically"
+msgstr "수직으로 붙이기(&V)"
+
 #. Resource IDs: (65535)
 msgid "Timeouts"
 msgstr "타임아웃"
@@ -6663,6 +7661,40 @@ msgstr "끝:"
 #. Resource IDs: (65535)
 msgid "To: (end URL and revision of the range to merge)"
 msgstr "종료: (병합할 범위의 종료 URL과 리비전)"
+
+#. Resource IDs: (3633)
+msgid ""
+"Toggle One/Two Pages display\n"
+"Toggle One/Two Pages display"
+msgstr "하나/두개의 페이지 보기 토글하기하나/두개의 페이지 보기 토글하기"
+
+#. Resource IDs: (65535)
+msgid "Toolbar"
+msgstr "툴바"
+
+#. Resource IDs: (16130)
+msgid "Toolbar Name"
+msgstr "툴바 이름"
+
+#. Resource IDs: (1064)
+msgid "Toolbar Options"
+msgstr "툴바 옵션들"
+
+#. Resource IDs: (1001)
+msgid "Toolbar internal error. Please contact your application vendor."
+msgstr "툴바 내부 에러. 어플리케이션 제조자에게 연락하십시오."
+
+#. Resource IDs: (16105)
+msgid "Toolbars"
+msgstr "툴바"
+
+#. Resource IDs: (16928)
+msgid "Tools"
+msgstr "툴"
+
+#. Resource IDs: (65535)
+msgid "Tools:"
+msgstr "툴:"
 
 #. Resource IDs: (7, 244)
 msgid "TortoiseBlame"
@@ -6862,6 +7894,10 @@ msgstr ""
 msgid "Unable to load mail system support."
 msgstr "메일 시스템 지원을 읽을 수 없습니다."
 
+#. Resource IDs: (3865)
+msgid "Unable to process command, server busy."
+msgstr "명령을 진행할 수 없습니다. 서버가 바쁩니다."
+
 #. Resource IDs: (3859)
 #, c-format
 msgid "Unable to read from %1, it is opened by someone else."
@@ -6896,6 +7932,15 @@ msgstr "읽기전용 속성이거나 다른 사람이 열고 있어서 파일에
 msgid "Uncheck"
 msgstr "선택 해제"
 
+#. Resource IDs: (1069)
+#, c-format
+msgid "Undo %d Actions"
+msgstr "%d 액션 되돌리기"
+
+#. Resource IDs: (1069)
+msgid "Undo 1 Action"
+msgstr "1 액션 되돌리기"
+
 #. Resource IDs: (14)
 msgid "Undo Add.."
 msgstr "추가 취소하기..."
@@ -6911,6 +7956,14 @@ msgstr ""
 #. Resource IDs: (3859)
 msgid "Unexpected file format."
 msgstr "기타 파일 형식"
+
+#. Resource IDs: (3850)
+msgid ""
+"Unformatted Text\n"
+"text without any formatting"
+msgstr ""
+"포멧팅되지않은 텍스트\n"
+"포멧팅 정보가 없는 텍스트"
 
 #. Resource IDs: (274, 32786)
 msgid "Unified &diff of HEAD revisions"
@@ -6989,6 +8042,10 @@ msgstr "작업 사본을 최신 리비전으로 업데이트 합니다."
 msgid "Updating %s"
 msgstr "업데이트 중 %s"
 
+#. Resource IDs: (3849)
+msgid "Updating ActiveX objects"
+msgstr "ActiveX 객체 업데이트"
+
 #. Resource IDs: (283)
 msgid "Updating and retrying the lock..."
 msgstr "업데이트 및 잠금 시도중..."
@@ -6996,6 +8053,10 @@ msgstr "업데이트 및 잠금 시도중..."
 #. Resource IDs: (199)
 msgid "Updating log cache"
 msgstr "로그 캐시 업데이트 중"
+
+#. Resource IDs: (16530)
+msgid "Use &Default Image: "
+msgstr "기본 이미지 사용하기(&D):"
 
 #. Resource IDs: (32855)
 msgid "Use &left block"
@@ -7290,6 +8351,14 @@ msgstr ""
 "한개 이상의 파일을 잠글 때, 현재 잠금에 대한\n"
 "사유를 적기 위해 대화 상자가 나타날 것입니다."
 
+#. Resource IDs: (1065)
+msgid "Window Position"
+msgstr "윈도우 위치"
+
+#. Resource IDs: (16927)
+msgid "Windows"
+msgstr "윈도우"
+
 #. Resource IDs: (32844)
 msgid "Windows &2000"
 msgstr "윈도우 2000(&2)"
@@ -7364,6 +8433,16 @@ msgstr ""
 "정말 Trunk 폴더를 옮기는 것이\n"
 "확실합니까?"
 
+#. Resource IDs: (1001)
+#, c-format
+msgid "You can paste bitmap with the size (%d x %d) only!"
+msgstr "단지 크기가 (%d x %d)인 비트맵만 붙여 넣을 수 있습니다!"
+
+#. Resource IDs: (1016)
+#, c-format
+msgid "You can't create more than %d user-defined toolbars!"
+msgstr "사용자 정의 툴바를 %d개 이상 생성할 수 없습니다!"
+
 #. Resource IDs: (16)
 msgid ""
 "You can't set this property on folders, only on files!\n"
@@ -7408,6 +8487,11 @@ msgstr ""
 "이슈번호를 입력하지 않았습니다!\n"
 "이슈번호 없이 커밋하시겠습니까?"
 
+#. Resource IDs: (1002)
+#, c-format
+msgid "You may define up to %d tools."
+msgstr "%d개의 툴까지 정의했을지도 모릅니다."
+
 #. Resource IDs: (196)
 msgid "You must restart your system for the changes to take effect."
 msgstr "바뀐 설정을 사용하려면 시스템을 재시작해야합니다."
@@ -7419,6 +8503,14 @@ msgid ""
 msgstr ""
 "선택한 파일은 관리 대상이 아닙니다.\n"
 "이 파일은 커밋할 때 관리 대상으로 추가됩니다."
+
+#. Resource IDs: (1001)
+msgid "You should enter a text!"
+msgstr "텍스트를 입력해야만 합니다!"
+
+#. Resource IDs: (1001)
+msgid "You should select an image!"
+msgstr "이미지를 선택해야만 합니다!"
 
 #. Resource IDs: (195)
 #, c-format
@@ -7482,6 +8574,18 @@ msgstr ""
 msgid "Zoo&m out"
 msgstr "작게 보기(&M)"
 
+#. Resource IDs: (1069)
+msgid "Zoom"
+msgstr "확대/축소"
+
+#. Resource IDs: (58117)
+msgid "Zoom &In"
+msgstr "크게 보기(&I)"
+
+#. Resource IDs: (58118)
+msgid "Zoom &Out"
+msgstr "작게 보기(&O)"
+
 #. Resource IDs: (32772)
 msgid "Zoom &in\tCtrl-+"
 msgstr "크게 보기(&I)\tCtrl-+"
@@ -7494,6 +8598,22 @@ msgstr "작게 보기(&O)\tCtrl--"
 #, c-format
 msgid "Zoom 100%"
 msgstr "100%로 보기"
+
+#. Resource IDs: (3633)
+msgid ""
+"Zoom In\n"
+"Zoom In"
+msgstr ""
+"크게 보기\n"
+"크게 보기"
+
+#. Resource IDs: (3633)
+msgid ""
+"Zoom Out\n"
+"Zoom Out"
+msgstr ""
+"작게 보기\n"
+"작게 보기"
 
 #. Resource IDs: (32784)
 msgid "Zoom i&n"
@@ -7511,9 +8631,17 @@ msgstr "작게 보기"
 msgid "Zoom to fit"
 msgstr "화면에 맞춰 보기"
 
+#. Resource IDs: (1001)
+msgid "[Unassigned]"
+msgstr "[할당되지않음]"
+
 #. Resource IDs: (338)
 msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
 msgstr "\"건너 뛰는 구간\"은 아직 캐시되지 않은 리비전 구간을 지정하기 위해 사용됩니다."
+
+#. Resource IDs: (65535)
+msgid "_POPUP_"
+msgstr "_POPUP_"
 
 #. Resource IDs: (10)
 msgid "added"
@@ -7668,6 +8796,10 @@ msgstr "삭제됨"
 msgid "disk [kB]: "
 msgstr "디스크 [kB]:"
 
+#. Resource IDs: (58116)
+msgid "dummy"
+msgstr "더미"
+
 #. Resource IDs: (1342)
 msgid "eol style"
 msgstr "eol style"
@@ -7806,6 +8938,11 @@ msgstr "차단됨"
 msgid "offline"
 msgstr "오프라인"
 
+#. Resource IDs: (3845)
+#, c-format
+msgid "on %1"
+msgstr "%1 "
+
 #. Resource IDs: (601)
 msgid "online"
 msgstr "온라인"
@@ -7833,6 +8970,10 @@ msgstr "픽셀"
 #. Resource IDs: (65535)
 msgid "possible or real conflict / obstructed"
 msgstr "충돌이 발생한 것 / 차단된 것"
+
+#. Resource IDs: (3845)
+msgid "prn"
+msgstr "prn"
 
 #. Resource IDs: (245)
 msgid "quarter of year"
@@ -8009,6 +9150,11 @@ msgstr "텍스트 [토큰 개수]:"
 msgid "there are conflicting modifications."
 msgstr "충돌하는 수정사항이 존재합니다"
 
+#. Resource IDs: (3845)
+#, c-format
+msgid "to %1"
+msgstr "%1"
+
 #. Resource IDs: (80, 103, 284)
 #, c-format
 msgid "to %s"
@@ -8160,7 +9306,7 @@ msgstr "단어 토큰:"
 
 #. Resource IDs: (65535)
 msgid "words [uncompressed]: "
-msgstr "단어수 [압축되지 않음]:"
+msgstr "단어수 [압축되지 않은]:"
 
 #. Resource IDs: (245)
 msgid "year"
