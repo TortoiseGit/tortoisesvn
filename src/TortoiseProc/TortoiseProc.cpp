@@ -219,7 +219,7 @@ BOOL CTortoiseProcApp::InitInstance()
 	CCmdLineParser parser(AfxGetApp()->m_lpCmdLine);
 
 	// if HKCU\Software\TortoiseSVN\Debug is not 0, show our command line
-	// in a messagebox
+	// in a message box
 	if (CRegDWORD(_T("Software\\TortoiseSVN\\Debug"), FALSE)==TRUE)
 		AfxMessageBox(AfxGetApp()->m_lpCmdLine, MB_OK | MB_ICONINFORMATION);
 

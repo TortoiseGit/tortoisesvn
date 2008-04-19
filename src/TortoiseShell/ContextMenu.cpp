@@ -1482,7 +1482,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 						TCHAR * path = new TCHAR[len+1];
 						TCHAR * tempF = new TCHAR[len+100];
 						GetTempPath (len+1, path);
-						GetTempFileName (path, TEXT("tsm"), 0, tempF);
+						GetTempFileName (path, TEXT("svn"), 0, tempF);
 						std::wstring sTempFile = std::wstring(tempF);
 						delete path;
 						delete tempF;

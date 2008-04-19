@@ -413,7 +413,7 @@ CString CPathUtils::GetVersionFromFile(const CString & p_strDateiname)
 				dwBufferSize,
 				pBuffer);
 
-			// Abfragen der aktuellen Sprache
+			// Check the current language
 			VerQueryValue(	pBuffer,
 				_T("\\VarFileInfo\\Translation"),
 				&lpFixedPointer,
