@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,7 +37,7 @@ public:
 
 	// encoded data chunk type
 	// value counting chunk type
-	// plaintext data chunk type
+	// plain text data chunk type
 
 #ifdef _WIN64
 	typedef QWORD key_type;
@@ -53,7 +53,7 @@ public:
 
 	enum 
 	{
-		// number of different plaintext tokens 
+		// number of different plain text tokens 
 		// (256 because we encode full bytes)
 
 		BUCKET_COUNT = 1 << (8 * sizeof (BYTE)), 

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -58,7 +58,7 @@ void CPackedTime64OutStreamBase::Add (__time64_t value) throw()
 	while ((buffer[size] == 0) && (size > 1))
 		--size;
 
-	// store size in header and preprend header to buffer
+	// store size in header and prepend header to buffer
 
 	head += (unsigned char)((size-1) * 0x10);
 	buffer[0] = head;

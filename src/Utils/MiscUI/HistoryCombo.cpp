@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -326,7 +326,7 @@ CString CHistoryCombo::GetString() const
 	}
 	if ((m_bURLHistory)||(m_bPathHistory))
 	{
-		//URL and path history comboboxes are editable, so get
+		//URL and path history combo boxes are editable, so get
 		//the string directly from the combobox
 		GetLBText(sel, str.GetBuffer(GetLBTextLen(sel)));
 		str.ReleaseBuffer();
@@ -371,7 +371,7 @@ BOOL CHistoryCombo::RemoveSelectedItem()
 		SetCurSel(nIndex);
 	}
 
-	// Since the dialog might be cancelled we
+	// Since the dialog might be canceled we
 	// should now save the history. Before that
 	// set the selection to the first item so that
 	// the items will not be reordered and restore
@@ -486,7 +486,7 @@ void CHistoryCombo::OnTimer(UINT_PTR nIDEvent)
 		// tooltip timeout, just deactivate it
 		::SendMessage(m_hWndToolTip, TTM_TRACKACTIVATE, FALSE, (LPARAM)(LPTOOLINFO) &m_ToolInfo);
 		// don't set m_ttShown to FALSE, because we don't want the tooltip to show up again
-		// without the mousepointer first leaving the control and entering it again
+		// without the mouse pointer first leaving the control and entering it again
 	}
 
 	CComboBoxEx::OnTimer(nIDEvent);
@@ -508,7 +508,7 @@ void CHistoryCombo::CreateToolTip()
 		NULL,
 		NULL);
 
-	// initialize toolinfo struct
+	// initialize tool info struct
 	memset(&m_ToolInfo, 0, sizeof(m_ToolInfo));
 	m_ToolInfo.cbSize = sizeof(m_ToolInfo);
 	m_ToolInfo.uFlags = TTF_TRANSPARENT;

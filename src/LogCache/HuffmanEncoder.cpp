@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,7 @@
 #include "StdAfx.h"
 #include "HuffmanEncoder.h"
 
-// huffman encoding stages:
+// Huffman encoding stages:
 
 // (1) determine distribution
 
@@ -99,7 +99,7 @@ void CHuffmanEncoder::SortByFrequency()
 
 	sortedCount = frequencyOrder.size();
 
-	// recursively construct huffman keys
+	// recursively construct Huffman keys
 
 	if (first != last)
 		AssignEncoding (first, last, 0, 0);
@@ -127,7 +127,7 @@ void CHuffmanEncoder::AssignEncoding ( BYTE* first
 		BYTE* mid;
 		if (((size_t)1 << (MAX_ENCODING_LENGTH-1 - bitCount)) < distance)
 		{
-			// oops .. we have some extremely unfavourable distribution
+			// oops .. we have some extremely unfavorable distribution
 			// -> must artificially limit the key length because it 
 			// might grow to 45+ bits
 
@@ -198,7 +198,7 @@ DWORD CHuffmanEncoder::CalculatePackedSize()
 	return result;
 }
 
-// (5) write a huffman table
+// (5) write a Huffman table
 
 void CHuffmanEncoder::WriteHuffmanTable (BYTE*& dest)
 {

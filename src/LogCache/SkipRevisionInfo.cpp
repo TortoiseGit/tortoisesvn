@@ -418,7 +418,7 @@ revision_t CSkipRevisionInfo::GetNextRevision ( const CDictionaryBasedPath& path
 	if (!path.IsValid() || (revision == NO_REVISION))
 		return (revision_t)NO_REVISION;
 
-	// lookup the extry for this path
+	// lookup the entry for this path
 
 	index_t dataIndex = index.find (path.GetIndex());
 	SPerPathRanges* ranges = dataIndex == NO_INDEX

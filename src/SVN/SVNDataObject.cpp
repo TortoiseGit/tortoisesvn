@@ -126,7 +126,7 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 	}
 	else if ((pformatetcIn->tymed & TYMED_HGLOBAL) && (pformatetcIn->dwAspect == DVASPECT_CONTENT) && (pformatetcIn->cfFormat == CF_FILEDESCRIPTOR))
 	{
-		// now it is time to get all subfolders for the directories we have
+		// now it is time to get all sub folders for the directories we have
 		SVNInfo svnInfo;
 		// find the common directory of all the paths
 		CTSVNPath commonDir;
@@ -185,7 +185,7 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 		for (vector<SVNDataObject::SVNObjectInfoData>::const_iterator it = m_allPaths.begin(); it != m_allPaths.end(); ++it)
 		{
 			CString temp = it->infodata.url.Mid(it->rootpath.GetContainingDirectory().GetSVNPathString().GetLength()+1);
-			// we have to unescape the urls since the local filesystem doesn't need them
+			// we have to unescape the urls since the local file system doesn't need them
 			// escaped and it would only look really ugly (and be wrong).
 			temp = CPathUtils::PathUnescape(temp);
 			_tcscpy_s(files->fgd[i].cFileName, MAX_PATH, (LPCTSTR)temp);
@@ -219,7 +219,7 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 	else if ((pformatetcIn->tymed & TYMED_HGLOBAL) && (pformatetcIn->dwAspect == DVASPECT_CONTENT) && (pformatetcIn->cfFormat == CF_TEXT))
 	{
 		// caller wants text
-		// create the string from the pathlist
+		// create the string from the path list
 		CString text;
 		if (m_svnPaths.GetCount())
 		{
@@ -248,7 +248,7 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 	else if ((pformatetcIn->tymed & TYMED_HGLOBAL) && (pformatetcIn->dwAspect == DVASPECT_CONTENT) && (pformatetcIn->cfFormat == CF_UNICODETEXT))
 	{
 		// caller wants Unicode text
-		// create the string from the pathlist
+		// create the string from the path list
 		CString text;
 		if (m_svnPaths.GetCount())
 		{

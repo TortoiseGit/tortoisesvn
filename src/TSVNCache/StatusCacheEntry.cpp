@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005 - 2006 - Will Dean, Stefan Kueng
+// External Cache Copyright (C) 2005-2006,2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -230,7 +230,7 @@ void CStatusCacheEntry::BuildCacheResponse(TSVNCacheResponse& response, DWORD& r
 		}
 		else
 			response.m_needslock = false;
-		// The whole of response has been zero'd, so this will copy safely 
+		// The whole of response has been zeroed, so this will copy safely 
 		strncat_s(response.m_url, INTERNET_MAX_URL_LENGTH, m_sUrl, _TRUNCATE);
 		strncat_s(response.m_owner, 255, m_sOwner, _TRUNCATE);
 		strncat_s(response.m_author, 255, m_sAuthor, _TRUNCATE);

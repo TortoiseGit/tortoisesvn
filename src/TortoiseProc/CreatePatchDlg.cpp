@@ -211,7 +211,7 @@ void CCreatePatch::OnOK()
 		const CSVNStatusListCtrl::FileEntry * entry = m_PatchList.GetListEntry(j);
 		if (entry->IsChecked())
 		{
-			// Unversioned files are not included in the resulting patchfile!
+			// Unversioned files are not included in the resulting patch file!
 			// We add those files to a list which will be used to add those files
 			// before creating the patch.
 			if ((entry->status == svn_wc_status_none)||(entry->status == svn_wc_status_unversioned))
@@ -232,7 +232,7 @@ void CCreatePatch::OnOK()
 		svn.Add(m_filesToRevert, NULL, svn_depth_empty, false, false, true);
 	}
 	
-	//save only the files the user has selected into the pathlist
+	//save only the files the user has selected into the path list
 	m_PatchList.WriteCheckedNamesToPathList(m_pathList);
 
 	CResizableStandAloneDialog::OnOK();

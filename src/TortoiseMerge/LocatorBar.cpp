@@ -242,7 +242,7 @@ void CLocatorBar::OnPaint()
 	cacheDC.FillSolidRect(rect.left + (width/3), rect.top, 1, height, RGB(0,0,0));
 	cacheDC.FillSolidRect(rect.left + (width*2/3), rect.top, 1, height, RGB(0,0,0));
 
-	// draw the fisheye
+	// draw the fish eye
 	if (m_bMouseWithin)
 	{
 		int fishstart = m_MousePos.y - height/20;

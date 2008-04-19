@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,7 +25,7 @@
 extern CCrashReport crasher;
 /**
  * \ingroup TortoiseProc
- * crashes the application to test the crashhandler.
+ * crashes the application to test the crash handler.
  */
 class CrashCommand : public Command
 {

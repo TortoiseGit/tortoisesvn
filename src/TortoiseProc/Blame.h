@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -61,7 +61,7 @@ private:
 						svn_error_t * err, apr_pool_t * pool);
 	BOOL		Log(svn_revnum_t rev, const CString& author, const CString& date, const CString& message, LogChangedPathArray * cpaths, apr_time_t time, int filechanges, BOOL copies, DWORD actions, BOOL haschildren);
 private:
-	BOOL		m_bCancelled;			///< TRUE if the operation should be cancelled
+	BOOL		m_bCancelled;			///< TRUE if the operation should be canceled
 	LONG		m_nCounter;				///< Counts the number of calls to the Cancel() callback (revisions?)
 	LONG		m_nHeadRev;				///< The HEAD revision of the file
 	bool		m_bNoLineNo;			///< if true, then the line number isn't written to the file

@@ -163,7 +163,7 @@ public:
 	/**
 	 * appends a string to this path. 
 	 *\remark - missing slashes are not added - this is just a string concatenation, but with
-	 * preservation of the proper caching behaviour.
+	 * preservation of the proper caching behavior.
 	 * If you want to join a file- or directory-name onto the path, you should use AppendPathString
 	 */
 	void AppendRawString(const CString& sAppend);
@@ -190,7 +190,7 @@ public:
 	
 	/**
 	 * Deletes the file/folder
-	 * \param bTrash if true, uses the Windows trashbin when deleting.
+	 * \param bTrash if true, uses the Windows trash bin when deleting.
 	 */
 	bool Delete(bool bTrash) const;
 

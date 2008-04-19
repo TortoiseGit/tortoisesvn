@@ -55,7 +55,7 @@ bool CLogIteratorBase::PathInRevision
 			&& path.GetBasePath().IsSameOrParentOf (changedPath))
 			return true;
 
-		// this change affects a true parent path or completly unrelated path
+		// this change affects a true parent path or completely unrelated path
 		// -> ignore mere modifications (e.g. properties on a folder)
 
 		if (iter->GetAction() == CRevisionInfoContainer::ACTION_CHANGED)
@@ -203,7 +203,7 @@ bool CLogIteratorBase::InternalHandleCopyAndDelete
 					// 
 					// this can only happen if
 					// /trunk/project
-					// is added first (usually without a copyfrom path)
+					// is added first (usually without a copy from path)
                     //
                     // Stop iteration only if we found and ADD of
                     // the exact search path.

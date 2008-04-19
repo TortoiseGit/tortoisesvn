@@ -24,7 +24,7 @@
 
 /**
  * \ingroup TortoiseProc
- * This is the mainpage of the settings. It contains all the most important
+ * This is the main page of the settings. It contains all the most important
  * settings.
  */
 class CSetMainPage : public ISettingsPropPage

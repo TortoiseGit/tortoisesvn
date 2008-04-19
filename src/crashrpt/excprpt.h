@@ -64,7 +64,7 @@ private:
    BSTR           m_message;
    vector<string> m_symFiles;
 
-   // used by stack wallback
+   // used by stack walkback
    MSXML2::IXMLDOMElement* m_stack_element;
    MSXML2::IXMLDOMDocument* m_stack_doc;
    int m_frameNumber;

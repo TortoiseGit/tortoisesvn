@@ -387,7 +387,7 @@ void CSVNPropertyPage::InitWorkfileView()
 		if (GetFocus() == logwnd)
 			::SendMessage(m_hwnd, WM_NEXTDLGCTL, 0, FALSE);
 		::EnableWindow(logwnd, FALSE);
-		//get the handle of the listview
+		//get the handle of the list view
 		if (svn.GetStatus(CTSVNPath(filenames.front().c_str()))>(-2))
 		{
 			if (svn.status->entry != NULL)

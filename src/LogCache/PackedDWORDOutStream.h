@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -43,7 +43,7 @@
 //		  (i.e the first byte contains bits 0..6, the next
 //		   byte 7 .. 13 and so on)
 //
-//		However, the incomming data gets run-length encoded
+//		However, the incoming data gets run-length encoded
 //		before being written to the stream. This is because 
 //		most integer streams have larger sections of constant
 //		values (saves approx. 10% of total log cache size).
@@ -51,7 +51,7 @@
 //		Encoding scheme:
 //
 //		* 0 indicates a packed value. It is followed by the
-//		  the number of repititions followed by the value itself
+//		  the number of repetitions followed by the value itself
 //		* an compressed value is stored as value+1
 //		* initial lastValue is 0
 //
@@ -112,12 +112,12 @@ inline void CPackedDWORDOutStreamBase::InternalAdd (DWORD value) throw()
 }
 
 ///////////////////////////////////////////////////////////////
-// compress incomming data and write it to the stream
+// compress incoming data and write it to the stream
 ///////////////////////////////////////////////////////////////
 
 inline void CPackedDWORDOutStreamBase::Add (DWORD value) throw()
 {
-	// that is the only value we cannot represet
+	// that is the only value we cannot represent
 
 	assert (value != (DWORD)-1);
 

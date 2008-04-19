@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2006,2008 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,7 +24,7 @@
  * When created, the current directory is saved and restored
  * as soon as the object is destroyed.
  * Since some of the SVN functions change the current directory
- * which when in the explorer process space causes problems / crashs,
+ * which when in the explorer process space causes problems / crashes,
  * this class is used to reset the current directory after calling
  * those functions.
  */

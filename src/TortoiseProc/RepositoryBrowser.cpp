@@ -234,7 +234,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	m_nIconFolder = SYS_IMAGE_LIST().GetDirIconIndex();
 	m_nOpenIconFolder = SYS_IMAGE_LIST().GetDirOpenIconIndex();
 	// set up the list control
-	// set the extended style of the listcontrol
+	// set the extended style of the list control
 	// the style LVS_EX_FULLROWSELECT interferes with the background watermark image but it's more important to be able to select in the whole row.
 	CRegDWORD regFullRowSelect(_T("Software\\TortoiseSVN\\FullRowSelect"), TRUE);
 	DWORD exStyle = LVS_EX_HEADERDRAGDROP | LVS_EX_DOUBLEBUFFER | LVS_EX_INFOTIP | LVS_EX_SUBITEMIMAGES;
@@ -1034,8 +1034,8 @@ BOOL CRepositoryBrowser::PreTranslateMessage(MSG* pMsg)
 {
 	if (pMsg->message>=WM_KEYFIRST && pMsg->message<=WM_KEYLAST)
 	{
-		// Check if there is an Inplace Edit active:
-		// inplace edits are done with an edit control, where the parent
+		// Check if there is an in place Edit active:
+		// in place edits are done with an edit control, where the parent
 		// is the control with the editable item (tree or list control here)
 		HWND hWndFocus = ::GetFocus();
 		if (hWndFocus)
@@ -1217,7 +1217,7 @@ void CRepositoryBrowser::OnNMDblclkRepolist(NMHDR *pNMHDR, LRESULT *pResult)
 	CItem * pItem = (CItem*)m_RepoList.GetItemData(pNmItemActivate->iItem);
 	if ((pItem)&&(pItem->kind == svn_node_dir))
 	{
-		// a doubleclick on a folder results in selecting that folder
+		// a double click on a folder results in selecting that folder
 		ChangeToUrl(pItem->absolutepath, m_initialRev);
 	}
 }
@@ -1592,7 +1592,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 		}
 
 	}
-	// check the first item in the pathlist:
+	// check the first item in the path list:
 	// if it's an url, we do a copy or move operation
 	// if it's a local path, we do an import
 	if (PathIsURL(pathlist[0].GetSVNPathString()))
@@ -1805,7 +1805,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			m_RepoList.GetHeaderCtrl()->GetWindowRect(&hr);
 			if (!hr.PtInRect(point))
 			{
-				// Seems to be a right-click on the listview background.
+				// Seems to be a right-click on the list view background.
 				// Use the currently selected item in the tree view as the source.
 				m_blockEvents = true;
 				hSelectedTreeItem = m_RepoTree.GetSelectedItem();
@@ -2162,7 +2162,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					}
 					if ((sCopyFrom1.IsEmpty())||(sCopyFrom1.Compare(sCopyFrom2)!=0))
 					{
-						// no common copyfrom URL, so showing a log between
+						// no common copy from URL, so showing a log between
 						// the two urls is not possible.
 						CMessageBox::Show(m_hWnd, IDS_ERR_NOCOMMONCOPYFROM, IDS_APPNAME, MB_ICONERROR);
 						break;							

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -51,7 +51,7 @@ bool CleanupCommand::Execute()
 
 			// after the cleanup has finished, crawl the path downwards and send a change
 			// notification for every directory to the shell. This will update the
-			// overlays in the left treeview of the explorer.
+			// overlays in the left tree view of the explorer.
 			CDirFileEnum crawler(pathList[i].GetWinPathString());
 			CString sPath;
 			bool bDir = false;

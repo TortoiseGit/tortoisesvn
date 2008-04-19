@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -55,7 +55,7 @@ public:
      */
     CSize		GetSize() const { return CSize(GetWidth(), GetHeight()); }
     /**
-     * Returns the image bytefield which can be used to work on.
+     * Returns the image byte field which can be used to work on.
      */
     LPVOID		GetDIBits() { return m_pBits; }
 	/**
@@ -74,14 +74,14 @@ public:
      * Sets the created Bitmap-image (from Create32BitFromPicture) to the internal
 	 * member variables and fills in all required values for this class.
      * \param lpBitmapInfo a pointer to a BITMAPINFO structure
-     * \param lpBits pointer to the image bytefield
+     * \param lpBits pointer to the image byte field
      */
     BOOL		SetBitmap(const LPBITMAPINFO lpBitmapInfo, const LPVOID lpBits);   
 
 public:
     /**
      * Draws the image on the specified device context at the specified point.
-	 * No streching is done!
+	 * No stretching is done!
      * \param pDC the device context to draw on
      * \param ptDest the upper left corner to where the picture should be drawn to
      */

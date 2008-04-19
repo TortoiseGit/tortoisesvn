@@ -92,7 +92,7 @@ public:
 	const SVNInfoData * GetFirstFileInfo(const CTSVNPath& path, SVNRev pegrev, SVNRev revision, svn_depth_t depth = svn_depth_empty);
 	size_t GetFileCount() {return m_arInfo.size();}
 	/**
-	 * Returns the info of the next file in the filelist. If no more files are in the list then NULL is returned.
+	 * Returns the info of the next file in the file list. If no more files are in the list then NULL is returned.
 	 * See GetFirstFileInfo() for details.
 	 */
 	const SVNInfoData * GetNextFileInfo();

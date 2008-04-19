@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2006,2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -250,7 +250,7 @@ void CProgressDlg::Stop()
     {
         m_pIDlg->StopProgressDialog();
 		//Sometimes the progress dialog sticks around after stopping it,
-		//until the mousepointer is moved over it or some other triggers.
+		//until the mouse pointer is moved over it or some other triggers.
 		//This process finds the hwnd of the progress dialog and hides it
 		//immediately.
 		IOleWindow *pOleWindow;

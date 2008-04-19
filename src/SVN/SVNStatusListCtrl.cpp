@@ -230,7 +230,7 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 	}
 	m_dwContextMenus = dwContextMenus;
 	m_bHasCheckboxes = bHasCheckboxes;
-	// set the extended style of the listcontrol
+	// set the extended style of the list control
 	// the style LVS_EX_FULLROWSELECT interferes with the background watermark image but it's more important to be able to select in the whole row.
 	CRegDWORD regFullRowSelect(_T("Software\\TortoiseSVN\\FullRowSelect"), TRUE);
 	DWORD exStyle = LVS_EX_HEADERDRAGDROP | LVS_EX_DOUBLEBUFFER | LVS_EX_INFOTIP | LVS_EX_SUBITEMIMAGES;
@@ -396,7 +396,7 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 		FileEntry * entry = m_arStatusArray[i];
 		if ( bHasChangelists && entry->checked)
 		{
-			// If changelists are present, remember all checked entries
+			// If change lists are present, remember all checked entries
 			CString path = entry->GetPath().GetSVNPathString();
 			m_mapFilenameToChecked[path] = true;
 		}
@@ -2643,7 +2643,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 
 							SVN svn;
 
-							// put all reverted files in the trashbin, except the ones with 'added'
+							// put all reverted files in the trash bin, except the ones with 'added'
 							// status because they are not restored by the revert.
 							CTSVNPathList delList;
 							POSITION pos = GetFirstSelectedItemPosition();
@@ -3481,7 +3481,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						SVN svn;
 						if (svn.RemoveFromChangeList(changelistItems, CStringArray(), svn_depth_empty))
 						{
-							// The changelists were removed, but we now need to run through the selected items again
+							// The change lists were removed, but we now need to run through the selected items again
 							// and update their changelist
 							POSITION pos = GetFirstSelectedItemPosition();
 							int index;
@@ -3544,7 +3544,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							SVN svn;
 							if (svn.AddToChangeList(changelistItems, sChangelist, svn_depth_empty))
 							{
-								// The changelists were moved, but we now need to run through the selected items again
+								// The change lists were moved, but we now need to run through the selected items again
 								// and update their changelist
 								POSITION pos = GetFirstSelectedItemPosition();
 								int index;
@@ -4136,7 +4136,7 @@ void CSVNStatusListCtrl::RemoveListEntry(int index)
 }
 
 ///< Set a checkbox on an entry in the listbox
-// NEVER, EVER call SetCheck directly, because you'll end-up with the checkboxes and the 'checked' flag getting out of sync
+// NEVER, EVER call SetCheck directly, because you'll end-up with the check boxes and the 'checked' flag getting out of sync
 void CSVNStatusListCtrl::SetEntryCheck(FileEntry* pEntry, int listboxIndex, bool bCheck)
 {
 	pEntry->checked = bCheck;
@@ -4337,7 +4337,7 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
 	UINT_PTR col = (nID-1) & 0x3ff;
 
 	if (col == 0)
-		return FALSE;	// no custom tooltip for the path, we use the infotip there!
+		return FALSE;	// no custom tooltip for the path, we use the info tip there!
 
 	// get the internal column from the visible columns
 	UINT_PTR internalcol = 0;

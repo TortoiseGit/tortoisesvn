@@ -1273,7 +1273,7 @@ void CRevisionGraph::FindReplacements()
                 }
             }
 
-            // did we find a unambigous rename target?
+            // did we find a unambiguous rename target?
 
             if (renameTarget != NULL)
             {
@@ -1323,7 +1323,7 @@ void CRevisionGraph::ForwardClassification()
     }
 }
 
-// propagate classifation back along copy history
+// propagate classification back along copy history
 
 void CRevisionGraph::BackwardClassification (const SOptions& options)
 {
@@ -1626,7 +1626,7 @@ void CRevisionGraph::Optimize (const SOptions& options)
 
     ForwardClassification();
 
-    // propagate classifation back along copy history
+    // propagate classification back along copy history
 
     BackwardClassification (options);
 

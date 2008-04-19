@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -135,7 +135,7 @@ private:
     {
     private:
 
-        /// required to map revison -> log entry
+        /// required to map revision -> log entry
 
         const CRevisionIndex& revisions;
         const CRevisionInfoContainer& logInfo;
@@ -189,7 +189,7 @@ private:
         /// number of revisions received (i.e.: has limit been reached?)
         int receiveCount;
 
-        /// utlity method
+        /// utility method
         void MergeFromUpdateCache();
 
         /// if there is a gap in the log, mark it

@@ -66,7 +66,7 @@ public:
 	 */
 	BOOL ReadProps(CTSVNPath path);
 	/**
-	 * Reads the properties from all paths found in a pathlist.
+	 * Reads the properties from all paths found in a path list.
 	 * This method calls ReadProps() for each path .
 	 * \param list of paths
 	 */
@@ -91,7 +91,7 @@ public:
 	
 	/**
 	 * Checks if the bug ID is valid. If bugtraq:number is 'true', then the
-	 * functions checks if the bug ID doens't contain any non-number chars in it.
+	 * functions checks if the bug ID doesn't contain any non-number chars in it.
 	 */
 	BOOL CheckBugID(const CString& sID);
 	
@@ -102,8 +102,8 @@ public:
 	BOOL HasBugID(const CString& sMessage);
 	
 	/**
-	 * Returns the URL pointing to the Issue in the issuetracker. The URL is
-	 * created from the bugtraq:url property and the BugID found in the logmessage.
+	 * Returns the URL pointing to the Issue in the issue tracker. The URL is
+	 * created from the bugtraq:url property and the BugID found in the log message.
 	 * \param msg the BugID extracted from the log message
 	 */
 	CString GetBugIDUrl(const CString& sBugID);
@@ -155,7 +155,7 @@ public:
 	 * an issue number in the commit dialog. */
 	BOOL		bWarnIfNoIssue;
 
-	/** If set to FALSE, then the bugtracking entry is inserted at the top of the
+	/** If set to FALSE, then the bug tracking entry is inserted at the top of the
 	   log message instead of at the bottom. Default is TRUE */
 	BOOL		bAppend;
 
@@ -173,7 +173,7 @@ public:
 	int			nMinLockMsgSize;
 
 	/** TRUE if the file list to be inserted in the commit dialog should be in
-	 * english and not in the localized language. Default is TRUE */
+	 * English and not in the localized language. Default is TRUE */
 	BOOL		bFileListInEnglish;
 	
 	/** The language identifier this project uses for log messages. */

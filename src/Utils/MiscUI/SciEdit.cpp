@@ -381,7 +381,7 @@ void CSciEdit::SetFont(CString sFontName, int iFontSizeInPoints)
 
 void CSciEdit::SetAutoCompletionList(const std::set<CString>& list, const TCHAR separator)
 {
-	//copy the autocompletion list.
+	//copy the auto completion list.
 	
 	//SK: instead of creating a copy of that list, we could accept a pointer
 	//to the list and use that instead. But then the caller would have to make
@@ -430,7 +430,7 @@ BOOL CSciEdit::IsMisspelled(const CString& sWord)
 					wordend++;
 				if ((wordstart == 0)&&(wordend == sWord.GetLength()))
 				{
-					// words in the autolist are also assumed correctly spelled
+					// words in the auto list are also assumed correctly spelled
 					if (m_autolist.find(sWord) != m_autolist.end())
 						return FALSE;
 					return TRUE;
@@ -490,9 +490,9 @@ void CSciEdit::CheckSpelling()
 		}
 		if (len && textrange.lpstrText[len - 1] == '.')
 		{
-			// Try to ignore file names from the autolist.
+			// Try to ignore file names from the auto list.
 			// Do do this, for each word ending with '.' we extract next word and check
-			// whether the combined string is present in autolist. 
+			// whether the combined string is present in auto list. 
 			TEXTRANGEA twoWords;
 			twoWords.chrg.cpMin = textrange.chrg.cpMin;
 			twoWords.chrg.cpMax = Call(SCI_WORDENDPOSITION, textrange.chrg.cpMax + 1, TRUE);
@@ -571,10 +571,10 @@ void CSciEdit::DoAutoCompletion(int nMinPrefixLength)
 		return;
 	CString word = GetWordUnderCursor();
 	if (word.GetLength() < nMinPrefixLength)
-		return;		//don't autocomplete yet, word is too short
+		return;		//don't auto complete yet, word is too short
 	int pos = Call(SCI_GETCURRENTPOS);
 	if (pos != Call(SCI_WORDENDPOSITION, pos, TRUE))
-		return;	//don't autocomplete if we're not at the end of a word
+		return;	//don't auto complete if we're not at the end of a word
 	CString sAutoCompleteList;
 	
 	for (std::set<CString>::const_iterator lowerit = m_autolist.lower_bound(word);
@@ -852,7 +852,7 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		}
 
 #if THESAURUS
-		// add found thesauri to submenu's
+		// add found thesauri to sub menu's
 		CMenu thesaurs;
 		thesaurs.CreatePopupMenu();
 		int nThesaurs = 0;

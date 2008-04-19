@@ -290,7 +290,7 @@ CRect * CRevisionGraphWnd::GetGraphSize()
 				m_maxurl = CUnicodeUtils::GetUnicode (path.c_str());
 			}
 
-			// we examinied that path
+			// we examined that path
 
 			if (reventry->path.IsFullyCachedPath())
 				pathMeasured[pathID] = true;

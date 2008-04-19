@@ -61,7 +61,7 @@ public:
 static CGlobalAtom ga;
 
 /*
- * Static members initilisation
+ * Static members initialization
  */
 COLORREF CHyperLink::g_crLinkColor     = RGB(  0,   0, 255);   // Blue;
 COLORREF CHyperLink::g_crVisitedColor  = RGB( 128,  0, 128);   // Purple;

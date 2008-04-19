@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,7 +31,7 @@
 #define BALLOON_BOTTOM_ALIGN			0x0010
 #define BALLOON_CLOSEBUTTON				0x0020
 
-//The behaviours
+//The behaviors
 #define BALLOON_MULTIPLE_SHOW			0x0001	//Multiple show for single control
 #define	BALLOON_TRACK_MOUSE				0x0002	//ToolTip follows the mouse cursor
 #define BALLOON_DIALOG					0x0004	//Shown as a dialog instead of a tooltip
@@ -42,7 +42,7 @@
 #define BALLOON_MASK_EFFECT				0x0002	//The background's type for the tooltip gets from the structures
 #define BALLOON_MASK_COLORS				0x0004	//The background's colors for the tooltip gets from the structures
 #define BALLOON_MASK_DIRECTION			0x0008  //The align for the tooltip gets from the structures
-#define BALLOON_MASK_BEHAVIOUR			0x0010  //The behaviour for the tooltip gets from the structures
+#define BALLOON_MASK_BEHAVIOUR			0x0010  //The behavior for the tooltip gets from the structures
 
 /**
  * \ingroup Utils
@@ -53,10 +53,10 @@ typedef struct tagBALLOON_INFO
 	HICON		hIcon;			///<The icon of the tooltip
 	CString		sBalloonTip;	///<The string of the tooltip
 	UINT        nMask;			///<The mask 
-	UINT		nStyles;		///<The tooltip's styles
+	UINT		nStyles;		///<The tool tip's styles
 	UINT        nDirection;		///<Direction display the tooltip relate cursor point
 	UINT		nEffect;		///<The color's type or effects
-	UINT        nBehaviour;		///<The tooltip's behaviour
+	UINT        nBehaviour;		///<The tool tip's behavior
 	COLORREF	crBegin;		///<Begin Color
 	COLORREF    crMid;			///<Mid Color
 	COLORREF	crEnd;			///<End Color
@@ -81,8 +81,8 @@ typedef struct tagNM_BALLOON_DISPLAY {
 
 /**
  * \ingroup Utils
- * Shows Balloons with infotext in it. Either as Tooltips or as modeless dialog boxes.
- * Several options are available to customize the look and behaviour of the balloons.
+ * Shows Balloons with info text in it. Either as Tooltips or as modeless dialog boxes.
+ * Several options are available to customize the look and behavior of the balloons.
  * Since this class inherits CHTMLFormatter you can use all the tags CHTMLFormatter
  * provides to format the text.
  * Please refer to the documentation of the methods for details.\n
@@ -109,10 +109,10 @@ typedef struct tagNM_BALLOON_DISPLAY {
  * m_tooltips.Create(this);		//initializes the tooltips
  * m_tooltips.AddTool(IDC_BUTTON, "this button does nothing");
  * m_tooltips.AddTool(IDC_EDITBOX, "enter a value here", IDI_ICON);
- * m_tooltips.SetEffectBk(GetDlgItem(IDC_EDITBOX), CBalloon::BALLOON_EFFECT_HGRADIENT);		//only affects the editbox tooltip
+ * m_tooltips.SetEffectBk(GetDlgItem(IDC_EDITBOX), CBalloon::BALLOON_EFFECT_HGRADIENT);		//only affects the edit box tooltip
  * m_tooltips.SetGradientColors(0x80ffff, 0x000000, 0xffff80);
  * \endcode
- * and last you have to override the PreTranslateMessage() method of your dialogbox:
+ * and last you have to override the PreTranslateMessage() method of your dialog box:
  * \code
  * BOOL CMyDialog::PreTranslateMessage(MSG* pMsg)
  * {
@@ -202,12 +202,12 @@ public:
 	 * the user can enter values. If one or several values are outside
 	 * of valid ranges then just pop up a balloon. That way the user 
 	 * knows exactly \b where the wrong value is (if the balloon is
-	 * placed so that the anchor points to the editbox) and also
+	 * placed so that the anchor points to the edit box) and also
 	 * doesn't have to press "OK" to close the box.
 	 *
 	 * \param pWnd the parent window. Or NULL if no parent window is available.
 	 * \param pt the point where the anchor should point to. For example if you
-	 * want to point to an editbox the point would be:
+	 * want to point to an edit box the point would be:
 	 * \code
 	 * CWnd* ctrl = GetDlgItem(IDC_EDITBOX);
 	 * CRect rt;
@@ -307,7 +307,7 @@ public:
 	 * \param bi pointer to the returned BALLOON_INFO structure.
 	 * \return TRUE if the tooltip exists.
 	 */
-	BOOL	GetTool(CWnd * pWnd, CString & sBalloonTipText, HICON & hIcon); //Gets the tooltip's text
+	BOOL	GetTool(CWnd * pWnd, CString & sBalloonTipText, HICON & hIcon); //Gets the tool tip's text
 	BOOL	GetTool(CWnd * pWnd, BALLOON_INFO & bi); //Gets tool
 
 	/**
@@ -409,7 +409,7 @@ public:
 	 * - BALLOON_MASK_EFFECT		masks out the effects
 	 * - BALLOON_MASK_COLORS		masks out the colors
 	 * - BALLOON_MASK_DIRECTION		masks out the direction
-	 * - BALLOON_MASK_BEHAVIOUR		masks out the behaviour
+	 * - BALLOON_MASK_BEHAVIOUR		masks out the behavior
 	 * 
 	 * The functions either set, modify or read out the masks for specific tooltip windows.
 	 */
@@ -448,7 +448,7 @@ public:
 	/** \name Delaytimes
 	 * Gets or sets the delay times for the tooltips.
 	 * - TTDT_AUTOPOP time in milliseconds until the tooltip automatically closes.
-	 * - TTDT_INITIAL time in milliseconds until the tooltip appears when the mousepointer is over a control.
+	 * - TTDT_INITIAL time in milliseconds until the tooltip appears when the mouse pointer is over a control.
 	 */
 	//@{
 	void	SetDelayTime(DWORD dwDuration, UINT nTime);
@@ -468,11 +468,11 @@ public:
 	UINT	GetDirection(CWnd * pWnd = NULL);
 	//@}
 
-	/** \name Behaviour
-	 * Gets or sets the behaviour of the balloons.
-	 * - BALLOON_MULTIPLE_SHOW		if this is set then the tooltip will appear again if the mousepointer is still over the same control.
-	 * - BALLOON_TRACK_MOUSE		if set then the tooltip will follow the mousepointer
-	 * - BALLOON_DIALOG				the balloon is shown as a dialog instead of a tooltip, i.e. it won't close when the mousepointer leaves the control.
+	/** \name Behavior
+	 * Gets or sets the behavior of the balloons.
+	 * - BALLOON_MULTIPLE_SHOW		if this is set then the tooltip will appear again if the mouse pointer is still over the same control.
+	 * - BALLOON_TRACK_MOUSE		if set then the tooltip will follow the mouse pointer
+	 * - BALLOON_DIALOG				the balloon is shown as a dialog instead of a tooltip, i.e. it won't close when the mouse pointer leaves the control.
 	 * - BALLOON_DIALOG_DESTROY		the object itself is destroyed when the balloon is closed. Use this \b very carefully!
 	 */
 	//@{
@@ -577,7 +577,7 @@ protected:
 	UINT	m_nStyles;
 	UINT	m_nDirection;
 	UINT	m_nEffect;
-	UINT	m_nBehaviour;	 //The tooltip's behaviour 
+	UINT	m_nBehaviour;	 //The tool tip's behavior 
 
 	UINT	m_nTimeAutoPop; 
 	UINT	m_nTimeInitial;
@@ -589,7 +589,7 @@ protected:
 	CRgn    m_rgnShadow;
 
 	CSize	m_szBalloonIcon; //the size of the current icon
-	CSize	m_szBalloonText; //the size of the tooltip's text
+	CSize	m_szBalloonText; //the size of the tool tip's text
 	CSize	m_szCloseButton;
 
 	CRect	m_rtCloseButton;	//the rect for the close button

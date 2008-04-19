@@ -97,7 +97,7 @@ UINT CDeleteUnversionedDlg::StatusThread()
 {
 	// get the status of all selected file/folders recursively
 	// and show the ones which are unversioned/ignored to the user
-	// in a listcontrol. 
+	// in a list control. 
 	DialogEnableWindow(IDOK, false);
 	m_bCancelled = false;
 

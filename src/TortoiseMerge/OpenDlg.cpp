@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007 - TortoiseSVN
+// Copyright (C) 2006-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -81,7 +81,7 @@ BOOL COpenDlg::OnInitDialog()
 
 	CheckRadioButton(IDC_MERGERADIO, IDC_APPLYRADIO, IDC_MERGERADIO);
 
-	// turn on autocompletion for the edit controls
+	// turn on auto completion for the edit controls
 	HWND hwndEdit;
 	GetDlgItem(IDC_BASEFILEEDIT, &hwndEdit);
 	if (hwndEdit)
@@ -182,7 +182,7 @@ BOOL COpenDlg::BrowseForFile(CString& filepath, CString title, UINT nFileFilter)
 		return TRUE;
 	}
 	delete [] pszFilters;
-	return FALSE;			//user cancelled the dialog
+	return FALSE;			//user canceled the dialog
 }
 
 void COpenDlg::OnBnClickedDifffilebrowse()

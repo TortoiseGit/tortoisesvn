@@ -145,7 +145,7 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 	BOOL bBlameSuccesful = this->Blame(path, startrev, endrev, pegrev, options, !!ignoremimetype);
 	if ( !bBlameSuccesful && !pegrev.IsValid() )
 	{
-		// retry with the endrev as pegrev
+		// retry with the end rev as peg rev
 		if ( this->Blame(path, startrev, endrev, endrev, options, !!ignoremimetype) )
 		{
 			bBlameSuccesful = TRUE;
@@ -211,7 +211,7 @@ bool CBlame::BlameToFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, 
 	BOOL bBlameSuccesful = this->Blame(path, startrev, endrev, peg, options, !!ignoremimetype);
 	if ( !bBlameSuccesful && !peg.IsValid() )
 	{
-		// retry with the endrev as pegrev
+		// retry with the end rev as peg rev
 		if ( this->Blame(path, startrev, endrev, endrev, options, !!ignoremimetype) )
 		{
 			bBlameSuccesful = TRUE;

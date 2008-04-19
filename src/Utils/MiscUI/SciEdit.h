@@ -53,7 +53,7 @@ public:
 	 * The handler is called when the user clicks on any context menu entry
 	 * which isn't handled by CSciEdit itself. That means the handler might
 	 * be called for entries it hasn't added itself! 
-	 * \remark the handler should return \a true if it handled the call, otherwis
+	 * \remark the handler should return \a true if it handled the call, otherwise
 	 * it should return \a false
 	 */
 	virtual bool		HandleMenuItemClick(int cmd, CSciEdit * pSciEdit);
@@ -61,9 +61,9 @@ public:
 
 /**
  * \ingroup Utils
- * Encapsulates the Scintilla edit control. Useable as a replacement for the
+ * Encapsulates the Scintilla edit control. Usable as a replacement for the
  * MFC CEdit control, but not a drop-in replacement!
- * Also provides additional features like spell checking, autocompletion, ...
+ * Also provides additional features like spell checking, auto completion, ...
  */
 class CSciEdit : public CWnd
 {
@@ -100,7 +100,7 @@ public:
 	 */
 	void		SetFont(CString sFontName, int iFontSizeInPoints);
 	/**
-	 * Adds a list of words for use in autocompletion.
+	 * Adds a list of words for use in auto completion.
 	 */
 	void		SetAutoCompletionList(const std::set<CString>& list, const TCHAR separator = ';');
 	/**

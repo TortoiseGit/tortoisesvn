@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2006,2008 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,7 +26,7 @@
  * \ingroup SVN
  * Provides methods to diff URL's and paths.
  *
- * \remark this class shows messageboxes for errors.
+ * \remark this class shows message boxes for errors.
  */
 class SVNDiff
 {

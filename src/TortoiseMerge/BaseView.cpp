@@ -1181,7 +1181,7 @@ bool CBaseView::IsLineConflicted(int nLineIndex)
 
 COLORREF CBaseView::IntenseColor(long scale, COLORREF col)
 {
-	// if the color is already dark (grayscale below 127),
+	// if the color is already dark (gray scale below 127),
 	// then lighten the color by 'scale', otherwise darken it
 	int Gray  = (((int)GetRValue(col)) + GetGValue(col) + GetBValue(col))/3;
 	if (Gray > 127)
@@ -1983,7 +1983,7 @@ INT_PTR CBaseView::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 		pTI->uId = (UINT)m_hWnd;
 		pTI->lpszText = LPSTR_TEXTCALLBACK;
 
-		// we want multiline tooltips
+		// we want multi line tooltips
 		CToolTipCtrl* pToolTip = AfxGetModuleThreadState()->m_pToolTip;
 		if (pToolTip->GetSafeHwnd() != NULL)
 		{

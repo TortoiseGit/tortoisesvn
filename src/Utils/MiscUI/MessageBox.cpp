@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -58,7 +58,7 @@ UINT CMessageBox::ShowCheck(HWND hWnd, UINT nMessage, UINT nCaption, int nDef, L
 
 UINT CMessageBox::ShowCheck(HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, int nDef, LPCTSTR icon, LPCTSTR lpButton1, LPCTSTR lpButton2, LPCTSTR lpButton3, LPCTSTR lpRegistry, LPCTSTR lpCheckMessage/* = NULL*/)
 {
-	//check the registry if we have to show the box or just return with the last used returnvalue
+	//check the registry if we have to show the box or just return with the last used return value
 	//this would be the case if the user pressed "do not show again".
 	DWORD dwRetVal;
 	HKEY hKey;
@@ -158,7 +158,7 @@ UINT CMessageBox::ShowCheck(HWND hWnd, UINT nMessage, UINT nCaption, UINT uType,
 
 UINT CMessageBox::ShowCheck(HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, UINT uType, LPCTSTR lpRegistry, LPCTSTR lpCheckMessage)
 {
-	//check the registry if we have to show the box or just return with the last used returnvalue
+	//check the registry if we have to show the box or just return with the last used return value
 	//this would be the case if the user pressed "do not show again".
 	DWORD dwRetVal;
 	HKEY hKey;
@@ -742,7 +742,7 @@ BOOL CMessageBox::OnInitDialog()
 
 	CRect rect(0, 0, 0, 0);
 
-	//determine the required size of the messagebox
+	//determine the required size of the message box
 	CSize szText = GetTextSize(m_sMessage);
 	CSize szIcon = GetIconSize(m_hIcon);
 	CSize szButtons = GetButtonSize();

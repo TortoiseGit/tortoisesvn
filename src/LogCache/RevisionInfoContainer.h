@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -64,13 +64,13 @@ namespace LogCache
  *    Name of revProp is userRevPropsPool[userRevPropNames[n]].
  *
  * Not all information may be available for all revisions. The presenceFlags
- * array describes what information is available for the respective resivion.
+ * array describes what information is available for the respective revision.
  * The individual flags are defined in TDataPresenceFlag.
  *
  * changes contains the TChangeAction values. If a non-empty fromPath has been 
  * passed to AddChange(), "1" is added to the action value. Only in that case, 
  * there will be entries in copyFromPaths and copyFromRevisions. (so, iterators 
- * need two differen change indices to represent their current position).
+ * need two different change indices to represent their current position).
  */
 class CRevisionInfoContainer
 {

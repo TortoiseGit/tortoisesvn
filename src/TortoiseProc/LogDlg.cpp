@@ -878,7 +878,7 @@ CString CLogDlg::MakeShortMessage(const CString& message)
 		bFoundShort = false;
 		sShortMessage = message;
 	}
-	// Remove newlines and tabs 'cause those are not shown nicely in the listcontrol
+	// Remove newlines and tabs 'cause those are not shown nicely in the list control
 	sShortMessage.Replace(_T("\r"), _T(""));
 	sShortMessage.Replace(_T("\t"), _T(" "));
 	
@@ -1532,7 +1532,7 @@ void CLogDlg::OnOK()
 			{
 				// if only one revision is selected, check if the path/url with which the dialog was started
 				// was directly affected in that revision. If it was, then check if our path was copied from somewhere.
-				// if it was copied, use the copyfrom revision as lowerRev
+				// if it was copied, use the copy from revision as lowerRev
 				if ((pLogEntry)&&(pLogEntry->pArChangedPaths)&&(lowerRev == higherRev))
 				{
 					CString sUrl = m_path.GetSVNPathString();
@@ -1579,7 +1579,7 @@ void CLogDlg::OnOK()
 
 void CLogDlg::OnNMDblclkChangedFileList(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
-	// a doubleclick on an entry in the changed-files list has happened
+	// a double click on an entry in the changed-files list has happened
 	*pResult = 0;
 
 	DiffSelectedFile();
@@ -1648,7 +1648,7 @@ void CLogDlg::DiffSelectedFile()
 			else
 			{
 				// if the path was modified but the parent path was 'added with history'
-				// then we have to use the 'copyfrom' revision of the parent path
+				// then we have to use the copy from revision of the parent path
 				CTSVNPath cpath = CTSVNPath(changedpath->sPath);
 				for (int flist = 0; flist < pLogEntry->pArChangedPaths->GetCount(); ++flist)
 				{
@@ -1711,7 +1711,7 @@ void CLogDlg::DiffSelectedFile()
 
 void CLogDlg::OnNMDblclkLoglist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
-	// a doubleclick on an entry in the revision list has happened
+	// a double click on an entry in the revision list has happened
 	*pResult = 0;
 
   if (CRegDWORD(_T("Software\\TortoiseSVN\\DiffByDoubleClickInLog"), FALSE))
@@ -3003,7 +3003,7 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 		{
 			DialogEnableWindow(IDC_STATBUTTON, !(((m_bThreadRunning)||(m_arShownList.IsEmpty()))));
 			// do not return here!
-			// we also need to run the filter if the filtertext is empty:
+			// we also need to run the filter if the filter text is empty:
 			// 1. to clear an existing filter
 			// 2. to rebuild the m_arShownList after sorting
 		}
@@ -3280,12 +3280,12 @@ int CLogDlg::SortCompare(const void * pElem1, const void * pElem2)
 			if (cmp)
 				return cmp;
 			// fall through
-	case 2:	// copyfrom path
+	case 2:	// copy from path
 			cmp = cpath2->sCopyFromPath.Compare(cpath1->sCopyFromPath);
 			if (cmp)
 				return cmp;
 			// fall through
-	case 3:	// copyfrom revision
+	case 3:	// copy from revision
 			return cpath2->lCopyFromRev > cpath1->lCopyFromRev;
 	}
 	return 0;
@@ -4159,7 +4159,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				else
 				{
 					// if the path was modified but the parent path was 'added with history'
-					// then we have to use the 'copyfrom' revision of the parent path
+					// then we have to use the copy from revision of the parent path
 					CTSVNPath cpath = CTSVNPath(changedlogpath->sPath);
 					for (int flist = 0; flist < pLogEntry->pArChangedPaths->GetCount(); ++flist)
 					{
@@ -4482,7 +4482,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 							// the already saved 'file1'.
 							// 
 							// we could maybe find the common root of all selected
-							// items and then create subfolders to save those files
+							// items and then create sub folders to save those files
 							// there.
 							// But I think we should just leave it that way: to check
 							// out multiple items at once, the better way is still to

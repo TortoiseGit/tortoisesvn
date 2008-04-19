@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -36,14 +36,14 @@ public:	//methods
 	 * Removes the whole registry key including all values. So if you set the registry
 	 * entry to be HKCU\Software\Company\Product\key\value there will only be
 	 * HKCU\Software\Company\Product key in the registry.
-	 * \return ERROR_SUCCESS or an nonzero errorcode. Use FormatMessage() to get an error description.
+	 * \return ERROR_SUCCESS or an nonzero error code. Use FormatMessage() to get an error description.
 	 */
 	DWORD removeKey() { RegOpenKeyEx(m_base, m_path, 0, KEY_WRITE, &m_hKey); return SHDeleteKey(m_base, (LPCTSTR)m_path); }
 	/**
 	 * Removes the value of the registry object. If you set the registry entry to
 	 * be HKCU\Software\Company\Product\key\value there will only be
 	 * HKCU\Software\Company\Product\key\ in the registry.
-	 * \return ERROR_SUCCESS or an nonzero errorcode. Use FormatMessage() to get an error description.
+	 * \return ERROR_SUCCESS or an nonzero error code. Use FormatMessage() to get an error description.
 	 */
 	LONG removeValue() { RegOpenKeyEx(m_base, m_path, 0, KEY_WRITE, &m_hKey); return RegDeleteValue(m_hKey, (LPCTSTR)m_key); }
 
@@ -95,7 +95,7 @@ public:	//members
  * \endcode
  * this will set the registry value "MyValue" under HKEY_CURRENT_USER with path 
  * "Software\Company\SubKey" to the variable. If the key does not yet exist or
- * an error occured during read from the registry, a default
+ * an error occurred during read from the registry, a default
  * value of 100 is used when accessing the variable.
  * now the variable can be used like any other DWORD variable:
  * \code
@@ -125,7 +125,7 @@ public:
 	/**
 	 * Constructor.
 	 * \param key the path to the key, including the key. example: "Software\\Company\\SubKey\\MyValue"
-	 * \param def the default value used when the key does not exist or a read error occured
+	 * \param def the default value used when the key does not exist or a read error occurred
 	 * \param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
 	 * \param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
 	 */
@@ -175,7 +175,7 @@ protected:
  * \endcode
  * this will set the registry value "MyValue" under HKEY_CURRENT_USER with path 
  * "Software\Company\SubKey" to the variable. If the key does not yet exist or
- * an error occured during read from the registry, a default
+ * an error occurred during read from the registry, a default
  * value of "default" is used when accessing the variable.
  * now the variable can be used like any other CString variable:
  * \code
@@ -213,7 +213,7 @@ public:
 	/**
 	 * Constructor.
 	 * \param key the path to the key, including the key. example: "Software\\Company\\SubKey\\MyValue"
-	 * \param def the default value used when the key does not exist or a read error occured
+	 * \param def the default value used when the key does not exist or a read error occurred
 	 * \param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
 	 * \param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
 	 */
@@ -250,7 +250,7 @@ protected:
  * \endcode
  * this will set the registry value "MyValue" under HKEY_CURRENT_USER with path 
  * "Software\Company\SubKey" to the variable. If the key does not yet exist or
- * an error occured during read from the registry, a default
+ * an error occurred during read from the registry, a default
  * value of 100,100,200,200 is used when accessing the variable.
  * now the variable can be used like any other CRect variable:
  * \code
@@ -289,7 +289,7 @@ public:
 	/**
 	 * Constructor.
 	 * \param key the path to the key, including the key. example: "Software\\Company\\SubKey\\MyValue"
-	 * \param def the default value used when the key does not exist or a read error occured
+	 * \param def the default value used when the key does not exist or a read error occurred
 	 * \param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
 	 * \param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
 	 */
@@ -336,7 +336,7 @@ protected:
  * \endcode
  * this will set the registry value "MyValue" under HKEY_CURRENT_USER with path 
  * "Software\Company\SubKey" to the variable. If the key does not yet exist or
- * an error occured during read from the registry, a default
+ * an error occurred during read from the registry, a default
  * value of 100,100 is used when accessing the variable.
  * now the variable can be used like any other CPoint variable:
  * \code
@@ -374,7 +374,7 @@ public:
 	/**
 	 * Constructor.
 	 * \param key the path to the key, including the key. example: "Software\\Company\\SubKey\\MyValue"
-	 * \param def the default value used when the key does not exist or a read error occured
+	 * \param def the default value used when the key does not exist or a read error occurred
 	 * \param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
 	 * \param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
 	 */
@@ -401,7 +401,7 @@ protected:
 /**
  * \ingroup Utils
  * Manages a registry key (not a value). Provides methods to create and remove the
- * key and to query the list of values and subkeys.
+ * key and to query the list of values and sub keys.
  */
 class CRegistryKey
 {
@@ -416,19 +416,19 @@ public:	//methods
 
 	/**
 	 * Creates the registry key if it does not already exist.
-	 * \return ERROR_SUCCESS or an nonzero errorcode. Use FormatMessage() to get an error description.
+	 * \return ERROR_SUCCESS or an nonzero error code. Use FormatMessage() to get an error description.
 	 */
 	DWORD createKey();
 	/**
 	 * Removes the whole registry key including all values. So if you set the registry
 	 * entry to be HKCU\Software\Company\Product\key there will only be
 	 * HKCU\Software\Company\Product key in the registry.
-	 * \return ERROR_SUCCESS or an nonzero errorcode. Use FormatMessage() to get an error description.
+	 * \return ERROR_SUCCESS or an nonzero error code. Use FormatMessage() to get an error description.
 	 */
 	DWORD removeKey();
 
 	bool getValues(CStringList& values);		///< returns the list of values
-	bool getSubKeys(CStringList& subkeys);		///< returns the list of subkeys
+	bool getSubKeys(CStringList& subkeys);		///< returns the list of sub keys
 
 public:	//members
 	HKEY m_base;		///< handle to the registry base
@@ -453,14 +453,14 @@ public:	//methods
 	 * Removes the whole registry key including all values. So if you set the registry
 	 * entry to be HKCU\Software\Company\Product\key\value there will only be
 	 * HKCU\Software\Company\Product key in the registry.
-	 * \return ERROR_SUCCESS or an nonzero errorcode. Use FormatMessage() to get an error description.
+	 * \return ERROR_SUCCESS or an nonzero error code. Use FormatMessage() to get an error description.
 	 */
 	DWORD removeKey() { RegOpenKeyEx(m_base, m_path.c_str(), 0, KEY_WRITE, &m_hKey); return SHDeleteKey(m_base, m_path.c_str()); }
 	/**
 	 * Removes the value of the registry object. If you set the registry entry to
 	 * be HKCU\Software\Company\Product\key\value there will only be
 	 * HKCU\Software\Company\Product\key\ in the registry.
-	 * \return ERROR_SUCCESS or an nonzero errorcode. Use FormatMessage() to get an error description.
+	 * \return ERROR_SUCCESS or an nonzero error code. Use FormatMessage() to get an error description.
 	 */
 	LONG removeValue() { RegOpenKeyEx(m_base, m_path.c_str(), 0, KEY_WRITE, &m_hKey); return RegDeleteValue(m_hKey, m_key.c_str()); }
 
@@ -502,7 +502,7 @@ public:	//members
  * \endcode
  * this will set the registry value "MyValue" under HKEY_CURRENT_USER with path 
  * "Software\Company\SubKey" to the variable. If the key does not yet exist or
- * an error occured during read from the registry, a default
+ * an error occurred during read from the registry, a default
  * value of "default" is used when accessing the variable.
  * to avoid too much access to the registry the value is cached inside the object.
  * once the value is read, no more read accesses to the registry will be made.
@@ -526,7 +526,7 @@ public:
 	/**
 	 * Constructor.
 	 * \param key the path to the key, including the key. example: "Software\\Company\\SubKey\\MyValue"
-	 * \param def the default value used when the key does not exist or a read error occured
+	 * \param def the default value used when the key does not exist or a read error occurred
 	 * \param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
 	 * \param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
 	 */
@@ -564,7 +564,7 @@ protected:
  * \endcode
  * this will set the registry value "MyValue" under HKEY_CURRENT_USER with path 
  * "Software\Company\SubKey" to the variable. If the key does not yet exist or
- * an error occured during read from the registry, a default
+ * an error occurred during read from the registry, a default
  * value of 100 is used when accessing the variable.
  * now the variable can be used like any other DWORD variable:
  * \code
@@ -594,7 +594,7 @@ public:
 	/**
 	 * Constructor.
 	 * \param key the path to the key, including the key. example: "Software\\Company\\SubKey\\MyValue"
-	 * \param def the default value used when the key does not exist or a read error occured
+	 * \param def the default value used when the key does not exist or a read error occurred
 	 * \param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
 	 * \param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
 	 */

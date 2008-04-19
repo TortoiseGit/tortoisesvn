@@ -24,14 +24,14 @@ typedef void (*AddEventLogEx)(LPVOID lpState, LPCSTR lpEventLog, LPCSTR lpDesc);
  * offers. To learn more about the CrashRpt-library go to
  * http://www.codeproject.com/debug/crash_report.asp \n
  * To compile the library you need the WTL. You can get the WTL
- * directly from microsoft: 
+ * directly from Microsoft: 
  * http://www.microsoft.com/downloads/details.aspx?FamilyID=128e26ee-2112-4cf7-b28e-7727d9a1f288&DisplayLang=en \n
  * \n
  * Many changes were made to the library so if you read the
- * article on CodeProject also read the changelog in the source
+ * article on CodeProject also read the change log in the source
  * folder.\n
  * The most important changes are:
- * - stacktrace is included in the report, with symbols/linenumbers if available
+ * - stack trace is included in the report, with symbols/linenumbers if available
  * - "save" button so the user can save the report instead of directly send it
  * - can be used by multiple applications
  * - zlib linked statically, so no need to ship the zlib.dll separately
@@ -43,7 +43,7 @@ typedef void (*AddEventLogEx)(LPVOID lpState, LPCSTR lpEventLog, LPCSTR lpDesc);
  * Then you can either declare an instance of the class CCrashReport
  * somewhere globally in your application like this:
  * \code
- * CCrashReport g_crasher("report@mycompany.com", "Crashreport for MyApplication");
+ * CCrashReport g_crasher("report@mycompany.com", "Crash report for MyApplication");
  * \endcode
  * that way you can't add registry keys or additional files to the report, but
  * it's the fastest and easiest way to use the library.

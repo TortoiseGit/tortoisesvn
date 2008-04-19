@@ -36,7 +36,7 @@ const static int ColumnFlags = SHCOLSTATE_TYPE_STR | SHCOLSTATE_ONBYDEFAULT;
 //
 // Because shorter strings will be extended to have exactly MAX_REV_STRING_LEN 
 // characters, large numbers will produce large strings. These, in turn, will
-// affect column autosizing. This setting is a reasonable compromise.
+// affect column auto sizing. This setting is a reasonable compromise.
 //
 // Max rev correctly sorted: 99,999,999 for MAX_REV_STRING_LEN == 10
 

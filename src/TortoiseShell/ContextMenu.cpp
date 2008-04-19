@@ -166,7 +166,7 @@ CShellExt::MenuInfo CShellExt::menuInfo[] =
 	{ ShellMenuAbout,						MENUABOUT,			IDI_ABOUT,				IDS_MENUABOUT,				IDS_MENUDESCABOUT,
 	ITEMIS_FOLDER, 0, 0, ITEMIS_FOLDER, 0, 0, 0, 0 },
 
-	// the submenus - they're not added like the the commands, therefore the menu ID is zero
+	// the sub menus - they're not added like the the commands, therefore the menu ID is zero
 	// but they still need to be in here, because we use the icon and string information anyway.
 	{ ShellSubMenu,							NULL,				IDI_APP,				IDS_MENUSUBMENU,			0,
 	0, 0, 0, 0, 0, 0, 0, 0 },
@@ -411,7 +411,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 					itemStates |= ITEMIS_INVERSIONEDFOLDER;
 				GlobalUnlock(medium.hGlobal);
 
-				// if the item is a versioned folder, check if there's a patchfile
+				// if the item is a versioned folder, check if there's a patch file
 				// in the clipboard to be used in "Apply Patch"
 				UINT cFormat = RegisterClipboardFormat(_T("TSVN_UNIFIEDDIFF"));
 				if (cFormat)
@@ -423,7 +423,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 						{
 							if (enumFormat == cFormat)
 							{
-								// yes, there's a patchfile in the clipboard
+								// yes, there's a patch file in the clipboard
 								itemStates |= ITEMIS_PATCHINCLIPBOARD;
 								break;
 							}
@@ -669,7 +669,7 @@ HBITMAP CShellExt::IconToBitmap(UINT uIcon)
 		return NULL;
 	}
 
-	// Fill the background of the compatible DC with the white colour
+	// Fill the background of the compatible DC with the white color
 	// that is taken by menu routines as transparent
 	::SetBkColor(dst_hdc, RGB(255, 255, 255));
 	::ExtTextOut(dst_hdc, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
@@ -782,7 +782,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	ATLTRACE("Shell :: QueryContextMenu\n");
 	PreserveChdir preserveChdir;
 	
-	//first check if our drophandler is called
+	//first check if our drop handler is called
 	//and then (if true) provide the context menu for the
 	//drop handler
 	if (m_State == FileStateDropHandler)
@@ -883,7 +883,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	LoadLangDll();
 	UINT idCmd = idCmdFirst;
 
-	//create the submenu
+	//create the sub menu
 	HMENU subMenu = CreateMenu();
 	int indexSubMenu = 0;
 
@@ -974,7 +974,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 						idCmd++;
 					}
 					
-					// handle special cases (submenus)
+					// handle special cases (sub menus)
 					if ((menuInfo[menuIndex].command == ShellMenuIgnoreSub)||(menuInfo[menuIndex].command == ShellMenuUnIgnoreSub))
 					{
 						InsertIgnoreSubmenus(idCmd, idCmdFirst, hMenu, subMenu, indexMenu, indexSubMenu, topmenu, bShowIcons);
@@ -1008,7 +1008,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 		menuIndex++;
 	}
 
-	//add submenu to main context menu
+	//add sub menu to main context menu
 	//don't use InsertMenu because this will lead to multiple menu entries in the explorer file menu.
 	//see http://support.microsoft.com/default.aspx?scid=kb;en-us;214477 for details of that.
 	MENUITEMINFO menuiteminfo;
@@ -1118,7 +1118,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 			//"/command:<commandname> /path:<path> /startrev:<startrevision> /endrev:<endrevision>
 			//
 			//* path is a path to a single file/directory for commands which only act on single items (log, checkout, ...)
-			//* pathfile is a path to a temporary file which contains a list of filepaths
+			//* pathfile is a path to a temporary file which contains a list of file paths
 			stdstring svnCmd = _T(" /command:");
 			stdstring tempfile;
 			switch (id_it->second)
@@ -1470,7 +1470,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 			case ShellMenuApplyPatch:
 				if ((itemStates & ITEMIS_PATCHINCLIPBOARD) && ((~itemStates) & ITEMIS_PATCHFILE))
 				{
-					// if there's a patchfile in the clipboard, we save it
+					// if there's a patch file in the clipboard, we save it
 					// to a temporary file and tell TortoiseMerge to use that one
 					UINT cFormat = RegisterClipboardFormat(_T("TSVN_UNIFIEDDIFF"));
 					if ((cFormat)&&(OpenClipboard(NULL)))

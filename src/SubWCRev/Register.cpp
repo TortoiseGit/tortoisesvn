@@ -11,7 +11,26 @@
 
 #include "Register.h"
 
+// TortoiseSVN - a Windows shell extension for easy version control
+
+// Copyright (C) 2005-2008 - TortoiseSVN
+
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; either version 2
+// of the License, or (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+
+// You should have received a copy of the GNU General Public License
+// along with this program; if not, write to the Free Software Foundation,
+// 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+//
 ////////////////////////////////////////////////////////
+
 //
 // Internal helper functions prototypes
 //
@@ -32,7 +51,7 @@ void CLSIDtochar(const CLSID& clsid,
                  TCHAR* szCLSID,
                  int length) ;
 
-// Delete szKeyChild and all of its descendents.
+// Delete szKeyChild and all of its descendants.
 LONG recursiveDeleteKey(HKEY hKeyParent, const TCHAR* szKeyChild) ;
 
 ////////////////////////////////////////////////////////
@@ -248,7 +267,7 @@ void CLSIDtochar(const CLSID& clsid,
 }
 
 //
-// Delete a key and all of its descendents.
+// Delete a key and all of its descendants.
 //
 LONG recursiveDeleteKey(HKEY hKeyParent,           // Parent of key to delete
                         const TCHAR* lpszKeyChild)  // Key to delete
@@ -262,14 +281,14 @@ LONG recursiveDeleteKey(HKEY hKeyParent,           // Parent of key to delete
 		return lRes ;
 	}
 
-	// Enumerate all of the decendents of this child.
+	// Enumerate all of the descendants of this child.
 	FILETIME time ;
 	TCHAR szBuffer[256] ;
 	DWORD dwSize = 256 ;
 	while (RegEnumKeyEx(hKeyChild, 0, szBuffer, &dwSize, NULL,
 	                    NULL, NULL, &time) == S_OK)
 	{
-		// Delete the decendents of this child.
+		// Delete the descendants of this child.
 		lRes = recursiveDeleteKey(hKeyChild, szBuffer) ;
 		if (lRes != ERROR_SUCCESS)
 		{
@@ -289,7 +308,7 @@ LONG recursiveDeleteKey(HKEY hKeyParent,           // Parent of key to delete
 
 //
 // Create a key and set its value.
-//   - This helper function was borrowed and modifed from
+//   - This helper function was borrowed and modified from
 //     Kraig Brockschmidt's book Inside OLE.
 //
 BOOL setKeyAndValue(const TCHAR* szKey,
@@ -299,7 +318,7 @@ BOOL setKeyAndValue(const TCHAR* szKey,
 	HKEY hKey;
 	TCHAR szKeyBuf[1024] ;
 
-	// Copy keyname into buffer.
+	// Copy key name into buffer.
 	_tcscpy_s(szKeyBuf, 1024, szKey) ;
 
 	// Add subkey name to buffer.

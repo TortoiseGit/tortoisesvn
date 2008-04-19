@@ -1189,7 +1189,7 @@ BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2,
 						   APR_LOCALE_CHARSET,
 						   outfile,
 						   errfile,
-						   NULL,		// we don't deal with changelists when diffing
+						   NULL,		// we don't deal with change lists when diffing
 						   m_pctx,
 						   localpool);
 	if (Err)
@@ -1256,7 +1256,7 @@ BOOL SVN::PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SV
 		APR_LOCALE_CHARSET,
 		outfile,
 		errfile,
-		NULL, // we don't deal with changelists when diffing
+		NULL, // we don't deal with change lists when diffing
 		m_pctx,
 		localpool);
 	if (Err)
@@ -1351,7 +1351,7 @@ BOOL SVN::ReceiveLog(const CTSVNPathList& pathlist, SVNRev revisionPeg, SVNRev r
             }
             else
             {
-                // no connection to the repository but also not cancelled 
+                // no connection to the repository but also not canceled 
                 // (no exception thrown) -> re-run from cache
 
                 return ReceiveLog ( pathlist
@@ -2526,11 +2526,11 @@ apr_array_header_t * SVN::MakeCopyArray(const CTSVNPathList& pathList, const SVN
 
 apr_array_header_t * SVN::MakeChangeListArray(const CStringArray& changelists, apr_pool_t * pool)
 {
-	// passing NULL if there are no changelists will work only partially: the subversion library
-	// in that case executes the command, but fails to remove the existing changelists from the files
-	// if 'keep changelists' is set to false.
+	// passing NULL if there are no change lists will work only partially: the subversion library
+	// in that case executes the command, but fails to remove the existing change lists from the files
+	// if 'keep change lists is set to false.
 	// We therefore have to create an empty array instead of passing NULL, only then the
-	// changelists are removed properly.
+	// change lists are removed properly.
 	int count = changelists.GetCount();
     // special case: the changelist array contains one empty string
     if ((changelists.GetCount() == 1)&&(changelists[0].IsEmpty()))

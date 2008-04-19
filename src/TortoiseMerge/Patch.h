@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007 - TortoiseSVN
+// Copyright (C) 2006-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -47,8 +47,8 @@ public:
 	CString		CheckPatchPath(const CString& path);
 
 	/**
-	 * Returns TRUE if stripping prefixes from the paths in the patchfile
-	 * allows the patchfile to being applied. The variable m_nStrip is then set appropriately.
+	 * Returns TRUE if stripping prefixes from the paths in the patch file
+	 * allows the patch file to being applied. The variable m_nStrip is then set appropriately.
 	 * Returns FALSE if stripping prefixes doesn't help. The variable m_nStrip is set to 0.
 	 */
 	BOOL		StripPrefixes(const CString& path);

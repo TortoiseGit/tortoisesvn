@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -73,7 +73,7 @@ protected:
 				// now we have the rectangle the control really needs
 				if ((controlrectorig.right - controlrectorig.left) > (controlrect.right - controlrect.left))
 				{
-					// we're dealing with radio buttons and checkboxes,
+					// we're dealing with radio buttons and check boxes,
 					// which means we have to add a little space for the checkbox
 					controlrectorig.right = controlrectorig.left + (controlrect.right - controlrect.left) + 20;
 					pwndDlgItem->MoveWindow(&controlrectorig);

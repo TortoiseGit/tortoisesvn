@@ -88,7 +88,7 @@ TortoiseBlame::~TortoiseBlame()
 		DeleteObject(m_italicfont);
 }
 
-// Return a colour which is interpolated between c1 and c2.
+// Return a color which is interpolated between c1 and c2.
 // Slider controls the relative proportions as a percentage:
 // Slider = 0 	represents pure c1
 // Slider = 50	represents equal mixture
@@ -103,7 +103,7 @@ COLORREF TortoiseBlame::InterColor(COLORREF c1, COLORREF c2, int Slider)
 	if (Slider > 100)
 		Slider = 100;
 	
-	// The colour components have to be treated individually.
+	// The color components have to be treated individually.
 	r = (GetRValue(c2) * Slider + GetRValue(c1) * (100 - Slider)) / 100;
 	g = (GetGValue(c2) * Slider + GetGValue(c1) * (100 - Slider)) / 100;
 	b = (GetBValue(c2) * Slider + GetBValue(c1) * (100 - Slider)) / 100;

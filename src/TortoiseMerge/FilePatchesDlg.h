@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006, 2008 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,7 +29,7 @@ class CPatchFilesDlgCallBack
 {
 public:
 	/**
-	 * Callback function. Called when the user doubleclicks on a
+	 * Callback function. Called when the user double clicks on a
 	 * specific file to patch. The framework then has to process
 	 * the patching/viewing.
 	 * \param sFilePath the full path to the file to patch
@@ -39,7 +39,7 @@ public:
 	virtual BOOL PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch = FALSE) = 0;
 	
 	/**
-	 * Callback function. Called when the user doubleclicks on a
+	 * Callback function. Called when the user double clicks on a
 	 * specific file to diff. The framework then has to fetch the two
 	 * files from the URL's and revisions specified in the callback function and
 	 * show them in the diff viewer.

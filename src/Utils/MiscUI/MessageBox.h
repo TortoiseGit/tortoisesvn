@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -40,7 +40,7 @@
  * \ingroup Utils
  * Implements an enhanced MessageBox().\n
  * It supports limited html formatting of the text (inherited from CHTMLFormatter). 
- * Also it supports hyperlinks and starts the webbrowser if you click on a link.
+ * Also it supports hyperlinks and starts the web browser if you click on a link.
  * \image html "CMessageBox_1.jpg"
  * \image html "CMessageBox_4.jpg"
  * \image html "CMessageBox_5.jpg"
@@ -256,7 +256,7 @@ public:
 	 * \param nMessage resource ID of the message string
 	 * \param nCaption resource ID of the title string
 	 * \param uType see class description for details
-	 * \param sHelpPath if uType has MB_HELP, this is the path of the helpfile to use
+	 * \param sHelpPath if uType has MB_HELP, this is the path of the help file to use
 	 * \return see class description for details
 	 */
 	static UINT Show(HWND hWnd, UINT nMessage, UINT nCaption, UINT uType, LPCTSTR sHelpPath = NULL);
@@ -305,7 +305,7 @@ public:
 	static UINT ShowCheck(HWND hWnd, UINT nMessage, UINT nCaption, UINT uType, LPCTSTR lpRegistry, UINT nCheckMessage);
 
 	/**
-	 * Shows a messagebox with user defined button texts.
+	 * Shows a message box with user defined button texts.
 	 * \param hWnd handle to the parent window or NULL
 	 * \param lpMessage the message string
 	 * \param lpCaption the title string
@@ -319,7 +319,7 @@ public:
 	 */
 	static UINT Show(HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, int nDef, LPCTSTR icon, LPCTSTR lpButton1, LPCTSTR lpButton2 = NULL, LPCTSTR lpButton3 = NULL);
 	/**
-	 * Shows a messagebox with user defined button texts.
+	 * Shows a message box with user defined button texts.
 	 * \param hWnd handle to the parent window or NULL
 	 * \param nMessage resource ID of the message string
 	 * \param nCaption resource ID of the title string
@@ -333,7 +333,7 @@ public:
 	 */
 	static UINT Show(HWND hWnd, UINT nMessage, UINT nCaption, int nDef, LPCTSTR icon, UINT nButton1, UINT nButton2 = NULL, UINT nButton3 = NULL);
 	/**
-	 * Shows a messagebox with user defined button texts and a checkbox.
+	 * Shows a message box with user defined button texts and a checkbox.
 	 * \param hWnd handle to the parent window or NULL
 	 * \param lpMessage the message string
 	 * \param lpCaption the title string
@@ -346,13 +346,13 @@ public:
 	 * \param lpRegistry  a value string to store the return value of this specific message box. 
 	 * Each one of your message boxes must have it's own value string! Examples for such values
 	 * might be "WarnOverwrite", "InformAboutMissingMailSubject", ...
-	 * \param lpCheckMessage the message to show on the checkbox label. If this parameter is ommitted
+	 * \param lpCheckMessage the message to show on the checkbox label. If this parameter is omitted
 	 * then it defaults to "do not show again" or the string with resource ID IDS_MSGBOX_DONOTSHOWAGAIN.
 	 * \return the number of the button pressed (1,2 or 3)
 	 */
 	static UINT ShowCheck(HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, int nDef, LPCTSTR icon, LPCTSTR lpButton1, LPCTSTR lpButton2, LPCTSTR lpButton3, LPCTSTR lpRegistry, LPCTSTR lpCheckMessage = NULL);
 	/**
-	 * Shows a messagebox with user defined button texts and a checkbox.
+	 * Shows a message box with user defined button texts and a checkbox.
 	 * \param hWnd handle to the parent window or NULL
 	 * \param nMessage resource ID of the message string
 	 * \param nCaption resource ID of the title string
@@ -380,7 +380,7 @@ protected:
 	/**
 	 * Shows the modal dialog 
 	 * \param pWnd handle to the parent window or NULL
-	 * \param title messagebox title
+	 * \param title message box title
 	 * \param msg message to show
 	 * \param nDefaultButton number of the default button
 	 * \return the value stored in the member variables for the buttons (m_uButtonXRet)

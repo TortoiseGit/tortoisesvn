@@ -66,7 +66,7 @@ BOOL CAppUtils::StartExtMerge(
 	if (
 		GetMimeType(yourfile, mimetype) || GetMimeType(theirfile, mimetype) || GetMimeType(basefile, mimetype))
 	{
-		// is there a mimetype specific merge tool?
+		// is there a mime type specific merge tool?
 		CRegString mergetool(_T("Software\\TortoiseSVN\\MergeTools\\") + mimetype);
 		if (CString(mergetool) != "")
 		{
@@ -227,7 +227,7 @@ BOOL CAppUtils::StartExtPatch(const CTSVNPath& patchfile, const CTSVNPath& dir, 
 
 CString CAppUtils::PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2)
 {
-	// Is there a mimetype specific diff tool?
+	// Is there a mime type specific diff tool?
 	CString mimetype;
 	if (GetMimeType(file1, mimetype) ||  GetMimeType(file2, mimetype))
 	{
@@ -911,7 +911,7 @@ bool CAppUtils::SetListCtrlBackgroundImage(HWND hListCtrl, UINT nID, int width /
 				{
 					// Select it into the compatible DC
 					HBITMAP old_dst_bmp = (HBITMAP)::SelectObject(dst_hdc, bmp);
-					// Fill the background of the compatible DC with the given colour
+					// Fill the background of the compatible DC with the given color
 					::SetBkColor(dst_hdc, bkColor);
 					::ExtTextOut(dst_hdc, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
 

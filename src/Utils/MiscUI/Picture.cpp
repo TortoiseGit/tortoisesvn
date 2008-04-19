@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -131,7 +131,7 @@ bool CPicture::Load(stdstring sFilePathName)
 		bHaveGDIPlus = true;
 	}
 	// Since we loaded the gdiplus.dll only to check if it's available, we
-	// can savely free the library here again - GdiplusStartup() loaded it too
+	// can safely free the library here again - GdiplusStartup() loaded it too
 	// and reference counting will make sure that it stays loaded until GdiplusShutdown()
 	// is called.
 	FreeLibrary(hGdiPlusLib);

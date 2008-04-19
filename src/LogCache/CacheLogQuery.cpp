@@ -142,7 +142,7 @@ bool CCacheLogQuery::CDataAvailable::operator() (revision_t revision) const
 ///////////////////////////////////////////////////////////////
 // CLogFiller
 ///////////////////////////////////////////////////////////////
-// utlity method
+// utility method
 ///////////////////////////////////////////////////////////////
 
 void CCacheLogQuery::CLogFiller::MergeFromUpdateCache()
@@ -916,7 +916,7 @@ void CCacheLogQuery::ResetObjectTranslations()
     pathToStringMap.clear();
 }
 
-// log from cach w/o merge history. Auto-fill cache if data is missing.
+// log from cache w/o merge history. Auto-fill cache if data is missing.
 
 void CCacheLogQuery::InternalLog ( revision_t startRevision
 								 , revision_t endRevision
@@ -1342,7 +1342,7 @@ void CCacheLogQuery::LogRevision ( revision_t revision
     CDataAvailable dataAvailable (cache, options);
     if (!dataAvailable (revision))
     {
-        // we will fetch the next ~100 revs at the respository root
+        // we will fetch the next ~100 revs at the repository root
         // but we will not send them to the receiver, yet (cache fill only)
 
         CLogOptions fillOptions (options, NULL);

@@ -531,7 +531,7 @@ UINT CCommitDlg::StatusThread()
 {
 	//get the status of all selected file/folders recursively
 	//and show the ones which have to be committed to the user
-	//in a listcontrol. 
+	//in a list control. 
 	InterlockedExchange(&m_bBlock, TRUE);
 	InterlockedExchange(&m_bThreadRunning, TRUE);// so the main thread knows that this thread is still running
 	InterlockedExchange(&m_bRunThread, TRUE);	// if this is set to FALSE, the thread should stop
@@ -704,7 +704,7 @@ BOOL CCommitDlg::PreTranslateMessage(MSG* pMsg)
 				}
 				if ( GetFocus()==GetDlgItem(IDC_BUGID) )
 				{
-					// Pressing RETURN in the bugid control
+					// Pressing RETURN in the bug id control
 					// moves the focus to the message
 					GetDlgItem(IDC_LOGMESSAGE)->SetFocus();
 					return TRUE;
@@ -876,20 +876,20 @@ void CCommitDlg::ParseRegexFile(const CString& sFile, std::map<CString, CString>
 	}
 	catch (CFileException* pE)
 	{
-		TRACE("CFileException loading autolist regex file\n");
+		TRACE("CFileException loading auto list regex file\n");
 		pE->Delete();
 		return;
 	}
 }
 void CCommitDlg::GetAutocompletionList()
 {
-	// the autocompletion list is made of strings from each selected files.
+	// the auto completion list is made of strings from each selected files.
 	// the strings used are extracted from the files with regexes found
 	// in the file "autolist.txt".
 	// the format of that file is:
 	// file extensions separated with commas '=' regular expression to use
 	// example:
-	// (MULTILINE|NOCASE) .h, .hpp = (?<=class[\s])\b\w+\b|(\b\w+(?=[\s ]?\(\);))
+	// .h, .hpp = (?<=class[\s])\b\w+\b|(\b\w+(?=[\s ]?\(\);))
 	// .cpp = (?<=[^\s]::)\b\w+\b
 	
 	std::map<CString, CString> mapRegex;
@@ -926,7 +926,7 @@ void CCommitDlg::GetAutocompletionList()
 		if (!entry)
 			continue;
 		
-		// add the path parts to the autocompletion list too
+		// add the path parts to the auto completion list too
 		CString sPartPath = entry->GetRelativeSVNPath();
 		m_autolist.insert(sPartPath);
 
@@ -970,7 +970,7 @@ void CCommitDlg::GetAutocompletionList()
 				ScanFile(basePath.GetWinPathString(), rdata);
 		}
 	}
-	ATLTRACE(_T("Autocompletion list loaded in %d msec\n"), GetTickCount() - starttime);
+	ATLTRACE(_T("Auto completion list loaded in %d msec\n"), GetTickCount() - starttime);
 }
 
 void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex)

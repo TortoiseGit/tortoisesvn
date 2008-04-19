@@ -257,7 +257,7 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 	// to such a problem is a reboot and therefore they might loose
 	// valuable data.
 	// One particular situation where the shell could hang is when
-	// the cache crashes and our crashreport dialog comes up.
+	// the cache crashes and our crash report dialog comes up.
 	// Sure, it would be better to have no situations where the shell
 	// even can get blocked, but the timeout of 10 seconds is long enough
 	// so that users still recognize that something might be wrong and

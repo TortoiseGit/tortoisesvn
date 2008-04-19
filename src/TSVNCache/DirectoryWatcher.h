@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005 - 2007 - TortoiseSVN
+// External Cache Copyright (C) 2005-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,17 +25,17 @@
 
 /**
  * \ingroup TSVNCache
- * Watches the filesystem for changes.
+ * Watches the file system for changes.
  * When changes are detected, those changes are reported back to the CFolderCrawler
  * which then can update the status cache.
  *
  * When a CDirectoryWatcher object is created, a new thread is started which
- * waits for filesystem change notifications.
+ * waits for file system change notifications.
  * To add folders to the list of watched folders, call \c AddPath().
  *
  * The folders are watched recursively. To prevent having too many folders watched,
  * children of already watched folders are automatically removed from watching.
- * This leads to having only the roots of filesystems watched (e.g. C:\, D:\,...)
+ * This leads to having only the roots of file systems watched (e.g. C:\, D:\,...)
  * after a few paths have been added to the watched list (at least, when the
  * CSVNStatusCache adds those paths).
  */

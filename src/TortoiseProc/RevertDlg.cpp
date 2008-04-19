@@ -102,7 +102,7 @@ UINT CRevertDlg::RevertThread()
 {
 	// get the status of all selected file/folders recursively
 	// and show the ones which can be reverted to the user
-	// in a listcontrol. 
+	// in a list control. 
 	DialogEnableWindow(IDOK, false);
 	m_bCancelled = false;
 
@@ -141,7 +141,7 @@ void CRevertDlg::OnOK()
 			// add all selected entries to the list, except the ones with 'added'
 			// status: we later *delete* all the entries in the list before
 			// the actual revert is done (so the user has the reverted files
-			// still in the trashbin to recover from), but it's not good to
+			// still in the trash bin to recover from), but it's not good to
 			// delete added files because they're not restored by the revert.
 			if (entry->status != svn_wc_status_added)
 				m_selectedPathList.AddPath(entry->GetPath());

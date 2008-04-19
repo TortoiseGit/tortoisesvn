@@ -260,7 +260,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 			if ((dirEntry)&&(dirEntry->IsOwnStatusValid()))
 			{
 				// To keep recursive status up to date, we'll request that children are all crawled again
-				// This will be very quick if nothing's changed, because it will all be cache hits
+				// This will be very quick if nothings changed, because it will all be cache hits
 				if (bRecursive)
 				{
 					AutoLocker lock(dirEntry->m_critSec);
@@ -423,7 +423,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				svn_error_clear(pErr);
 				// No assert here! Since we _can_ get here, an assertion is not an option!
 				// Reasons to get here: 
-				// - renaming a folder with many subfolders --> results in "not a working copy" if the revert
+				// - renaming a folder with many sub folders --> results in "not a working copy" if the revert
 				//   happens between our checks and the svn_client_status() call.
 				// - reverting a move/copy --> results in "not a working copy" (as above)
 				if (!m_directoryPath.HasAdminDir())
@@ -798,7 +798,7 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
 					// We need to request this item as well
 					GetStatusForMember(filePath,bRecursive);
 					// GetStatusForMember now has recreated the m_entryCache map.
-					// So start the loop again, but add this path to the refreshedpaths set
+					// So start the loop again, but add this path to the refreshed paths set
 					// to make sure we don't refresh this path again. This is to make sure
 					// that we don't end up in an endless loop.
 					lock.Lock();
@@ -810,7 +810,7 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
 				}
 				else if ((bRecursive)&&(itMembers->second.IsDirectory()))
 				{
-					// crawl all subfolders too! Otherwise a change deep inside the
+					// crawl all sub folders too! Otherwise a change deep inside the
 					// tree which has changed won't get propagated up the tree.
 					CSVNStatusCache::Instance().AddFolderForCrawling(filePath);
 				}

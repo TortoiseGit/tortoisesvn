@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -85,7 +85,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
 	
 	itemIDList = SHBrowseForFolder(&browseInfo);
 
-	//is the dialog cancelled?
+	//is the dialog canceled?
 	if (!itemIDList)
 		ret = CANCEL;
 
@@ -213,7 +213,7 @@ int CBrowseFolder::BrowseCallBackProc(HWND hwnd, UINT uMsg, LPARAM lParam, LPARA
 			ScreenToClient(hwnd, &pt);
 			ListViewRect.bottom = pt.y;
 			ListViewRect.right = pt.x;
-			//Sets the listview controls dimensions
+			//Sets the list view controls dimensions
 			SetWindowPos(ListView,0,ListViewRect.left,
 				bSecondCheckbox ? ListViewRect.top+40 : ListViewRect.top+20,
 				(ListViewRect.right-ListViewRect.left),
@@ -261,7 +261,7 @@ int CBrowseFolder::BrowseCallBackProc(HWND hwnd, UINT uMsg, LPARAM lParam, LPARA
 				CBProc = (WNDPROC) SetWindowLongPtr(checkbox2,GWLP_WNDPROC, (LONG_PTR) CheckBoxSubclassProc2); 
 				SendMessage(checkbox2,BM_SETCHECK,(WPARAM)m_bCheck,0);
 			}
-			// send a resize message to the resized listview control. Otherwise it won't show
+			// send a resize message to the resized list view control. Otherwise it won't show
 			// up properly until the user resizes the window!
 			SendMessage(ListView, WM_SIZE, SIZE_RESTORED, MAKELONG(ListViewRect.right-ListViewRect.left, bSecondCheckbox ? (ListViewRect.bottom - ListViewRect.top)-40 : (ListViewRect.bottom - ListViewRect.top)-20));
 		}

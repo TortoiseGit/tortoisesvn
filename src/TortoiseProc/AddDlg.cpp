@@ -96,7 +96,7 @@ void CAddDlg::OnOK()
 	if (m_bThreadRunning)
 		return;
 
-	// save only the files the user has selected into the pathlist
+	// save only the files the user has selected into the path list
 	m_addListCtrl.WriteCheckedNamesToPathList(m_pathList);
 
 	CResizableStandAloneDialog::OnOK();

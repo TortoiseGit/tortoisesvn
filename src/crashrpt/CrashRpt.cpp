@@ -192,7 +192,7 @@ extern "C" void  __stdcall StackTraceVB(int numSkip, int depth, TraceCallbackFun
 	StackTrace(numSkip, depth, pFunction, pContext, data);
 }
 
-// Compatiblity interfaces
+// Compatibility interfaces
 CRASHRPTAPI void Install(LPGETLOGFILE pfn, LPCTSTR lpcszTo, LPCTSTR lpcszSubject, BOOL bUseUI)
 {
 	(void) InstallEx(pfn, lpcszTo, lpcszSubject, bUseUI);

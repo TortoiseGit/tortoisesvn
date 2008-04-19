@@ -372,8 +372,8 @@ int CStatGraphDlg::GetCalendarWeek(const CTime& time)
 	// the calculation of the calendar week is wrong if DST is in effect
 	// and the date to calculate the week for is in DST and within the range
 	// of the DST offset (e.g. one hour).
-	// For example, if DST starts on sunday march 30 and the date to get the week for
-	// is monday, march 31, 0:30:00, then the returned week is one week less than
+	// For example, if DST starts on Sunday march 30 and the date to get the week for
+	// is Monday, march 31, 0:30:00, then the returned week is one week less than
 	// the real week.
 	// TODO: ?
 	// write a function 
@@ -554,7 +554,7 @@ void CStatGraphDlg::GatherData()
 		m_commitsPerUnitAndAuthor[interval][author]++;
 		CTime t = m_parDates->GetAt(i);
 		m_unitNames[interval] = GetUnitLabel(nLastUnit, t);
-		// Increase the filechange count for this author in this week
+		// Increase the file change count for this author in this week
 		int fileChanges = m_parFileChanges->GetAt(i);
 		m_filechangesPerUnitAndAuthor[interval][author] += fileChanges;
 		m_nTotalFileChanges += fileChanges;
@@ -635,8 +635,8 @@ void CStatGraphDlg::ShowCommitsByAuthor()
 	ClearGraph();
 
 	// This function relies on a previous call of GatherData(). 
-	// This can be detected by checking the weekcount. 
-	// If the weekcount is equal to -1, it hasn't been called before.
+	// This can be detected by checking the week count. 
+	// If the week count is equal to -1, it hasn't been called before.
 	if (m_nWeeks == -1)
 		GatherData();
 	// If week count is still -1, something bad has happened, probably invalid data!
@@ -709,8 +709,8 @@ void CStatGraphDlg::ShowCommitsByDate()
 	ClearGraph();
 
 	// This function relies on a previous call of GatherData(). 
-	// This can be detected by checking the weekcount. 
-	// If the weekcount is equal to -1, it hasn't been called before.
+	// This can be detected by checking the week count. 
+	// If the week count is equal to -1, it hasn't been called before.
 	if (m_nWeeks == -1)
 		GatherData();
 	// If week count is still -1, something bad has happened, probably invalid data!
@@ -812,8 +812,8 @@ void CStatGraphDlg::ShowStats()
 	ShowLabels(TRUE);
 
 	// This function relies on a previous call of GatherData(). 
-	// This can be detected by checking the weekcount. 
-	// If the weekcount is equal to -1, it hasn't been called before.
+	// This can be detected by checking the week count. 
+	// If the week count is equal to -1, it hasn't been called before.
 	if (m_nWeeks == -1)
 		GatherData();
 	// If week count is still -1, something bad has happened, probably invalid data!
@@ -1291,7 +1291,7 @@ void CStatGraphDlg::SaveGraph(CString sFilename)
 	CString extension = CPathUtils::GetFileExtFromPath(sFilename);
 	if (extension.CompareNoCase(_T(".wmf"))==0)
 	{
-		// save the graph as an enhanced metafile
+		// save the graph as an enhanced meta file
 		CMyMetaFileDC wmfDC;
 		wmfDC.CreateEnhanced(NULL, sFilename, NULL, _T("TortoiseSVN\0Statistics\0\0"));
 		wmfDC.SetAttribDC(GetDC()->GetSafeHdc());

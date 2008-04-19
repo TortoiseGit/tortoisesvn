@@ -2,7 +2,7 @@
 
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -36,7 +36,7 @@ class CHuffmanEncoder : public CHuffmanBase
 {
 private:
 
-	// for each plaintext value:
+	// for each plain text value:
 	// the compressed value (key), the length of that
 	// key in bits and the number of occurrences of the
 	// original characters.
@@ -45,17 +45,17 @@ private:
 	BYTE keyLength[BUCKET_COUNT];
 	DWORD count[BUCKET_COUNT];
 
-	// plaintext values ordered by frequency (most
+	// plain text values ordered by frequency (most
 	// frequently used first)
 
 	BYTE sorted [BUCKET_COUNT];
 
-	// number of byte values that *actually* occured
-	// in the plaintext buffer.
+	// number of byte values that *actually* occurred
+	// in the plain text buffer.
 
 	size_t sortedCount;
 
-	// huffman encoding stages:
+	// Huffman encoding stages:
 
 	// (1) determine distribution
 

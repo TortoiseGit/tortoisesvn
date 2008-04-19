@@ -209,10 +209,10 @@ public:
    //    none
    //
    // Return Values
-   //    TRUE if succesful
+   //    TRUE if successful
    //
    // Remarks
-   //    First simple MAPI is used if unsucessful CMC is used.
+   //    First simple MAPI is used if unsuccessful CMC is used.
    //
    BOOL Send();
 

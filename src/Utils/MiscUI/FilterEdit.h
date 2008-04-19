@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -100,7 +100,7 @@ public:
 	void SetButtonClickedMessageId(UINT iButtonClickedMessageId, UINT iCancelClickedMessageId);
 
 	/**
-	 * To provide a cue banner even though we require the edit control to be multiline
+	 * To provide a cue banner even though we require the edit control to be multi line
 	 */
 	BOOL SetCueBanner(LPCWSTR lpcwText);
 

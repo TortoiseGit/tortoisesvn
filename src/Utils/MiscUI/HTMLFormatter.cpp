@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2006,2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -246,7 +246,7 @@ CSize CHTMLFormatter::DrawHTML(CDC * pDC, CRect rect, CString str, LOGFONT font,
 				{
 				case _T('>'):
 					i --;
-					//intended fallthrough!
+					//intended fall through!
 				case _T('%'):
 					//Gets the real number from the string
 					if (!strTag.IsEmpty())

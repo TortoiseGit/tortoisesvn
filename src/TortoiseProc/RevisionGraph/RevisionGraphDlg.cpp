@@ -122,7 +122,7 @@ BOOL CRevisionGraphDlg::InitializeToolbar()
 	m_ToolBar.ShowWindow(SW_SHOW);
 	m_ToolBar.SetBarStyle(CBRS_ALIGN_TOP | CBRS_TOOLTIPS | CBRS_FLYBY);
 
-	// toolbars aren't true-color without some tweaking:
+	// tool bars aren't true-color without some tweaking:
 	{
 		CImageList	cImageList;
 		CBitmap		cBitmap;

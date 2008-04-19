@@ -25,8 +25,8 @@
  * not sure, fire up the explorer, right click on a folder and check if
  * the TortoiseSVN menus are there.
  *
- * \section Sourcecode Sourcecode
- * The full sourcecode of TortoiseSVN is available at http://tortoisesvn.net.
+ * \section Sourcecode Source code
+ * The full source code of TortoiseSVN is available at http://tortoisesvn.net.
  * 
  * For information on how to build TortoiseSVN from the source code see \ref build
  *
@@ -47,7 +47,7 @@
  */
 
 /**
- * \page licensesvn Subversion licence
+ * \page licensesvn Subversion license
  * <H1>Subversion License</H1>
  * ================================================================
  * Copyright (c) 2004 CollabNet.  All rights reserved.
@@ -97,7 +97,7 @@
 
 
 /**
- * \page license TortoiseSVN licence
+ * \page license TortoiseSVN license
  * <H1>GNU General Public License</H1>
  * also available at http://www.gnu.org/licenses/gpl.html
  * \n

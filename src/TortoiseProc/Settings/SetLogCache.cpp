@@ -141,7 +141,7 @@ BOOL CSetLogCache::OnInitDialog()
 
     m_cDefaultConnectionState.SetCurSel ((int)m_regDefaultConnectionState);
 
-    // repository list (includingheader text update when language changed)
+    // repository list (including header text update when language changed)
 
 	m_cRepositoryList.SetExtendedStyle(LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_INFOTIP);
 

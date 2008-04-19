@@ -682,7 +682,7 @@ apr_array_header_t * SVNStatus::sort_hash (apr_hash_t *ht,
 		apr_hash_this (hi, &item->key, &item->klen, &item->value);
 	}
 
-	/* now quicksort the array.  */
+	/* now quick sort the array.  */
 	qsort (ary->elts, ary->nelts, ary->elt_size,
 		(int (*)(const void *, const void *))comparison_func);
 

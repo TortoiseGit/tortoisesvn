@@ -314,7 +314,7 @@ CSearchPathTree* CSearchPathTree::FindCommonParent (index_t pathID)
 		while ((index != 0) && (nodePathID > pathID))
 			pathID = pathToFind[--index];
 
-		// scan sibbling branches for a match, if this node wasn't one.
+		// scan sibling branches for a match, if this node wasn't one.
 		// Since all are on the *same* level, either
 		// * one must match
 		// * nodePathID < pathID (i.e. node is a true child)
@@ -331,7 +331,7 @@ CSearchPathTree* CSearchPathTree::FindCommonParent (index_t pathID)
 		if ((index == 0) || (nodePathID != pathID))
 			return node;
 
-		// decend one level
+		// descend one level
 
 		pathID = pathToFind[--index];
 		

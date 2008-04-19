@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005 - 2007 - Will Dean, Stefan Kueng
+// External Cache Copyright (C) 2005-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -138,7 +138,7 @@ void CFolderCrawler::WorkerThread()
 		DWORD waitResult = WaitForMultipleObjects(sizeof(hWaitHandles)/sizeof(hWaitHandles[0]), hWaitHandles, FALSE, INFINITE);
 		
 		// exit event/working loop if the first event (m_hTerminationEvent)
-		// has been signalled or if one of the events has been abandoned
+		// has been signaled or if one of the events has been abandoned
 		// (i.e. ~CFolderCrawler() is being executed)
 		if(m_bRun == false || waitResult == WAIT_OBJECT_0 || waitResult == WAIT_ABANDONED_0 || waitResult == WAIT_ABANDONED_0+1)
 		{
@@ -348,7 +348,7 @@ void CFolderCrawler::WorkerThread()
 					flags |= (bRecursive ? TSVNCACHE_FLAGS_RECUSIVE_STATUS : 0);
 					CSVNStatusCache::Instance().WaitToRead();
 					// Invalidate the cache of folders manually. The cache of files is invalidated
-					// automatically if the status is asked for it and the filetimes don't match
+					// automatically if the status is asked for it and the file times don't match
 					// anymore, so we don't need to manually invalidate those.
 					if (workingPath.IsDirectory())
 					{
@@ -360,7 +360,7 @@ void CFolderCrawler::WorkerThread()
 					if (ce.GetEffectiveStatus() > svn_wc_status_unversioned)
 					{
 						CSVNStatusCache::Instance().UpdateShell(workingPath);
-						ATLTRACE(_T("shell update in foldercrawler for %s\n"), workingPath.GetWinPath());
+						ATLTRACE(_T("shell update in folder crawler for %s\n"), workingPath.GetWinPath());
 					}
 					CSVNStatusCache::Instance().Done();
 					AutoLocker lock(m_critSec);

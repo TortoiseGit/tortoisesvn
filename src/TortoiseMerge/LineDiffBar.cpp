@@ -52,7 +52,7 @@ END_MESSAGE_MAP()
 
 void CLineDiffBar::DocumentUpdated()
 {
-	//resize according to the fontsize
+	//resize according to the font size
 	if ((m_pMainFrm)&&(m_pMainFrm->m_pwndLeftView))
 	{
 		m_nLineHeight = m_pMainFrm->m_pwndLeftView->GetLineHeight();

@@ -26,10 +26,10 @@
 
 /**
  * \ingroup Utils
- * Performs a wildcard compare of two strings.
- * \param wild the wildcard string
- * \param string the string to compare the wildcard to
- * \return TRUE if the wildcard matches the string, 0 otherwise
+ * Performs a wild card compare of two strings.
+ * \param wild the wild card string
+ * \param string the string to compare the wild card to
+ * \return TRUE if the wild card matches the string, 0 otherwise
  * \par example
  * \code 
  * if (strwildcmp("bl?hblah.*", "bliblah.jpeg"))
@@ -78,7 +78,7 @@ public:
 	static bool WriteAsciiStringToClipboard(const CStringW& sClipdata, HWND hOwningWnd = NULL);
 
 	/**
-	* Writes an ASCII CString to the clipboard in TSVN_UNIFIEDDIFF format, which is basically the patchfile
+	* Writes an ASCII CString to the clipboard in TSVN_UNIFIEDDIFF format, which is basically the patch file
 	* as a ASCII string.
 	*/
 	static bool WriteDiffToClipboard(const CStringA& sClipdata, HWND hOwningWnd = NULL);

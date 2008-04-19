@@ -119,7 +119,7 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 				state = 2;
 				if (chunks)
 				{
-					//this is a new filediff, so add the last one to 
+					//this is a new file diff, so add the last one to 
 					//our array.
 					m_arFileDiffs.Add(chunks);
 				}
@@ -146,7 +146,7 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 						{
 							if (chunks)
 							{
-								//this is a new filediff, so add the last one to 
+								//this is a new file diff, so add the last one to 
 								//our array.
 								m_arFileDiffs.Add(chunks);
 							}
@@ -176,7 +176,7 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 						{
 							//the line
 							//Index: <filepath>
-							//was not found at the start of a filediff!
+							//was not found at the start of a file diff!
 							break;
 						}
 					}
@@ -232,12 +232,12 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 				//at the end of the filepath there's a revision number...
 				int bracket = sLine.ReverseFind('(');
 				if (bracket < 0)
-					// some patchfiles can have another '(' char, especially ones created in chinese OS
+					// some patch files can have another '(' char, especially ones created in Chinese OS
 					bracket = sLine.ReverseFind(0xff08);
 				CString num = sLine.Mid(bracket);		//num = "(revision xxxxx)"
 				num = num.Mid(num.Find(' '));
 				num = num.Trim(_T(" )"));
-				// here again, check for the 'chinese' bracket
+				// here again, check for the Chinese bracket
 				num = num.Trim(0xff09);
 				chunks->sRevision = num;
 				if (bracket < 0)
@@ -267,12 +267,12 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 				//at the end of the filepath there's a revision number...
 				int bracket = sLine.ReverseFind('(');
 				if (bracket < 0)
-					// some patchfiles can have another '(' char, especially ones created in chinese OS
+					// some patch files can have another '(' char, especially ones created in Chinese OS
 					bracket = sLine.ReverseFind(0xff08);
 				CString num = sLine.Mid(bracket);		//num = "(revision xxxxx)"
 				num = num.Mid(num.Find(' '));
 				num = num.Trim(_T(" )"));
-				// here again, check for the 'chinese' bracket
+				// here again, check for the Chinese bracket
 				num = num.Trim(0xff09);
 				chunks->sRevision2 = num;
 				if (bracket < 0)
@@ -292,7 +292,7 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 				if (sLine.Left(2).Compare(_T("@@"))!=0)
 				{
 					//chunk doesn't start with "@@"
-					//so there's garbage in between two filediffs
+					//so there's garbage in between two file diffs
 					state = 0;
 					if (chunk)
 					{
@@ -491,7 +491,7 @@ BOOL CPatch::PatchFile(const CString& sPath, const CString& sSavePath, const CSt
 		m_sErrorMessage.Format(IDS_ERR_PATCH_INVALIDPATCHFILE, (LPCTSTR)sPath);
 		return FALSE;
 	}
-	// find the entry in the patchfile which matches the full path given in sPath.
+	// find the entry in the patch file which matches the full path given in sPath.
 	int nIndex = -1;
 	// use the longest path that matches
 	int nMaxMatch = 0;
@@ -670,7 +670,7 @@ CString	CPatch::CheckPatchPath(const CString& path)
 		if (CountMatches(upperpath) > (GetNumberOfFiles()/3))
 			return upperpath;
 	}
-	//still no match found. So try subfolders
+	//still no match found. So try sub folders
 	bool isDir = false;
 	CString subpath;
 	CDirFileEnum filefinder(path);

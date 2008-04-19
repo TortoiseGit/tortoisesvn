@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2007 - 2007 - Stefan Kueng
+// External Cache Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,10 +25,10 @@ typedef CComCritSecLock<CComCriticalSection> AutoLocker;
 
 /**
  * \ingroup Utils
- * Watches the filesystem for changes.
+ * Watches the file system for changes.
  *
  * When a CPathWatcher object is created, a new thread is started which
- * waits for filesystem change notifications.
+ * waits for file system change notifications.
  * To add folders to the list of watched folders, call \c AddPath().
  *
  * The folders are watched recursively. To prevent having too many folders watched,

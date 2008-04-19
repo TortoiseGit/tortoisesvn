@@ -42,7 +42,7 @@ typedef void (*TraceCallbackFunction)(DWORD_PTR address, const char *ImageName,
 
 //-----------------------------------------------------------------------------
 // GetInstance
-//    Returns the instance (state informatin) for the current process. Will create
+//    Returns the instance (state information) for the current process. Will create
 //    one if required; does not install.
 //
 // Parameters

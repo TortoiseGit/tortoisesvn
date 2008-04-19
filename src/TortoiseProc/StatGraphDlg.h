@@ -29,7 +29,7 @@
 
 /**
  * \ingroup TortoiseProc
- * Helper class for drawing and then saving the drawing to a metafile (wmf)
+ * Helper class for drawing and then saving the drawing to a meta file (wmf)
  */
 class CMyMetaFileDC : public CMetaFileDC
 {

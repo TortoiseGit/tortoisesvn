@@ -123,7 +123,7 @@ public:
 	unsigned int GetFileCount() {return apr_hash_count(m_statushash);}
 	unsigned int GetVersionedCount();
 	/**
-	 * Returns the status of the next file in the filelist. If no more files are in the list then NULL is returned.
+	 * Returns the status of the next file in the file list. If no more files are in the list then NULL is returned.
 	 * See GetFirstFileStatus() for details.
 	 */
 	svn_wc_status2_t * GetNextFileStatus(CTSVNPath& retPath);
@@ -212,7 +212,7 @@ private:
 
 	/**
 	 * Callback function which stores the raw status from a svn_client_status() function call
-	 * in a hashtable.
+	 * in a hash table.
 	 */
 	static void getstatushash (void *baton, const char *path, svn_wc_status2_t *status);
 

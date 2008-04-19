@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -69,7 +69,7 @@ public:
 //		T is the stream class.
 //		I is the generic stream interface (either in or out).
 //		B is the corresponding file buffer class 
-//		type is a unqiue type identifier.
+//		type is a unique type identifier.
 //
 //		All instances of this class auto-register to a central
 //		factory pool (see CStreamFactoryPool<>).
@@ -84,7 +84,7 @@ class CStreamFactory : public IStreamFactory<I, B>
 {
 private:
 
-	// singleon -> we hide the constructors
+	// singleton -> we hide the constructors
 	// auto-register to pool during construction
 
 	CStreamFactory()
@@ -169,7 +169,7 @@ private:
 
 public:
 
-	// destuction (nothing to do)
+	// destruction (nothing to do)
 
 	~CStreamFactoryPool() {};
 

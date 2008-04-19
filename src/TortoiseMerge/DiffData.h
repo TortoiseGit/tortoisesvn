@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007 - TortoiseSVN
+// Copyright (C) 2006-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -77,7 +77,7 @@ public:
 
 	CViewData					m_TheirBaseBoth;			///< one-pane view, diff between 'theirs' and 'base' (in three-pane view: left view)
 	CViewData					m_TheirBaseLeft;			///< two-pane view, diff between 'theirs' and 'base', left view
-	CViewData					m_TheirBaseRight;			///< two-pane view, diff between 'theris' and 'base', right view
+	CViewData					m_TheirBaseRight;			///< two-pane view, diff between 'theirs' and 'base', right view
 
 	CViewData					m_Diff3;					///< thee-pane view, bottom pane
 

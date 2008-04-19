@@ -126,7 +126,7 @@ protected:
 				// now we have the rectangle the control really needs
 				if ((controlrectorig.right - controlrectorig.left) > (controlrect.right - controlrect.left))
 				{
-					// we're dealing with radio buttons and checkboxes,
+					// we're dealing with radio buttons and check boxes,
 					// which means we have to add a little space for the checkbox
 					controlrectorig.right = controlrectorig.left + (controlrect.right - controlrect.left) + 20;
 					pwndDlgItem->MoveWindow(&controlrectorig);

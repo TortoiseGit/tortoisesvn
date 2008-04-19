@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -43,7 +43,7 @@ namespace LogCache
  *
  * To handle high revision counts efficiently, only the range of revisions is 
  * stored which actually maps to revision indices (i.e. revisions at the 
- * upper and lower ends may be ommitted).
+ * upper and lower ends may be omitted).
  */
 class CRevisionIndex
 {

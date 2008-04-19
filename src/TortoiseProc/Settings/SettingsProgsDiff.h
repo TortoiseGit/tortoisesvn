@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -71,7 +71,7 @@ private:
 	CSetProgsAdvDlg m_dlgAdvDiff;
 	CBalloon		m_tooltips;
 	CRegDWORD		m_regConvertBase;	///< registry value for the "Don't Convert" flag
-	BOOL			m_bConvertBase;		///< don't convert files when diffing agains BASE
+	BOOL			m_bConvertBase;		///< don't convert files when diffing against BASE
 
 	CFileDropEdit	m_cDiffEdit;
 	CFileDropEdit	m_cDiffPropsEdit;

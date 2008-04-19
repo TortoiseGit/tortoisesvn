@@ -308,7 +308,7 @@ public:
 	 *                             and dwColumns tells which columns are visible.
 	 * \param dwContextMenus mask of context menus to be active, not all make sense for every use of this control.
 	 *                       Use the SVNSLC_POPxxx defines.
-	 * \param bHasCheckboxes TRUE if the control should show checkboxes on the left of each file entry.
+	 * \param bHasCheckboxes TRUE if the control should show check boxes on the left of each file entry.
 	 */
 	void Init(DWORD dwColumns, const CString& sColumnInfoContainer, DWORD dwContextMenus = (SVNSLC_POPALL ^ SVNSLC_POPCOMMIT), bool bHasCheckboxes = true);
 	/**
@@ -376,7 +376,7 @@ public:
 	BOOL HasLocks() const {return m_bHasLocks;}
 
 	/**
-	 * If there are any changelists defined in the working copy, TRUE is returned
+	 * If there are any change lists defined in the working copy, TRUE is returned
 	 */
 	BOOL HasChangeLists() const {return m_bHasChangeLists;}
 
@@ -517,7 +517,7 @@ public:
 	void CheckChildrenWithParent(bool bCheck) {m_bCheckChildrenWithParent = bCheck;}
 
 	/**
-	 * Allows checking the items if changelists are present. If set to false,
+	 * Allows checking the items if change lists are present. If set to false,
 	 * items are not checked if at least one changelist is available.
 	 */
 	void CheckIfChangelistsArePresent(bool bCheck) {m_bCheckIfGroupsExist = bCheck;}
@@ -576,19 +576,19 @@ private:
 		bool bEntryfromDifferentRepo		// if the entry is from a different repository
 		);
 
-	/// Adjust the checkbox-state on all descendents of a specific item
+	/// Adjust the checkbox-state on all descendants of a specific item
 	void SetCheckOnAllDescendentsOf(const FileEntry* parentEntry, bool bCheck);
 
 	/// Build a path list of all the selected items in the list (NOTE - SELECTED, not CHECKED)
 	void FillListOfSelectedItemPaths(CTSVNPathList& pathList, bool bNoIgnored = false);
 
 	/// Enables/Disables group view and adds all groups to the list control.
-	/// If bForce is true, then groupview is enabled and the 'null' group is added.
+	/// If bForce is true, then group view is enabled and the 'null' group is added.
 	bool PrepareGroups(bool bForce = false);
 	/// Returns the group number to which the group header belongs
 	/// If the point is not over a group header, -1 is returned
 	int GetGroupFromPoint(POINT * ppt);
-	/// Returns the number of changelists the selection has
+	/// Returns the number of change lists the selection has
 	size_t GetNumberOfChangelistsInSelection();
 
 	/// Puts the item to the corresponding group

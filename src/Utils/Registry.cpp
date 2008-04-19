@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2006,2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -36,7 +36,7 @@ CRegDWORD::CRegDWORD(void)
 /**
  * Constructor.
  * @param key the path to the key, including the key. example: "Software\\Company\\SubKey\\MyValue"
- * @param def the default value used when the key does not exist or a read error occured
+ * @param def the default value used when the key does not exist or a read error occurred
  * @param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
  * @param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
  */
@@ -151,7 +151,7 @@ CRegString::CRegString(void)
 /**
  * Constructor.
  * @param key the path to the key, including the key. example: "Software\\Company\\SubKey\\MyValue"
- * @param def the default value used when the key does not exist or a read error occured
+ * @param def the default value used when the key does not exist or a read error occurred
  * @param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
  * @param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
  */
@@ -272,7 +272,7 @@ CRegRect::CRegRect(void)
 /**
  * Constructor.
  * @param key the path to the key, including the key. example: "Software\\Company\\SubKey\\MyValue"
- * @param def the default value used when the key does not exist or a read error occured
+ * @param def the default value used when the key does not exist or a read error occurred
  * @param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
  * @param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
  */
@@ -390,7 +390,7 @@ CRegPoint::CRegPoint(void)
 /**
  * Constructor.
  * @param key the path to the key, including the key. example: "Software\\Company\\SubKey\\MyValue"
- * @param def the default value used when the key does not exist or a read error occured
+ * @param def the default value used when the key does not exist or a read error occurred
  * @param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
  * @param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
  */
@@ -585,7 +585,7 @@ CRegStdString::CRegStdString(void)
 /**
  * Constructor.
  * @param key the path to the key, including the key. example: "Software\\Company\\SubKey\\MyValue"
- * @param def the default value used when the key does not exist or a read error occured
+ * @param def the default value used when the key does not exist or a read error occurred
  * @param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
  * @param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
  */
@@ -709,7 +709,7 @@ CRegStdWORD::CRegStdWORD(void)
 /**
  * Constructor.
  * @param key the path to the key, including the key. example: "Software\\Company\\SubKey\\MyValue"
- * @param def the default value used when the key does not exist or a read error occured
+ * @param def the default value used when the key does not exist or a read error occurred
  * @param force set to TRUE if no cache should be used, i.e. always read and write directly from/to registry
  * @param base a predefined base key like HKEY_LOCAL_MACHINE. see the SDK documentation for more information.
  */

@@ -827,7 +827,7 @@ BOOL CFileDiffDlg::PreTranslateMessage(MSG* pMsg)
 			{
 				if (GetFocus() == GetDlgItem(IDC_FILELIST))
 				{
-					// Return pressed in file list. Show diff, as for doubleclick
+					// Return pressed in file list. Show diff, as for double click
 					int selIndex = m_cFileList.GetSelectionMark();
 					if ((selIndex >= 0) && (selIndex < (int)m_arFileList.size()))
 						DoDiff(selIndex, m_bBlame);

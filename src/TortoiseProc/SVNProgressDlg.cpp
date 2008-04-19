@@ -274,7 +274,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 			data->sActionColumnText.LoadString(IDS_SVNACTION_EXISTS);
 		break;
 	case svn_wc_notify_update_update:
-		// if this is an inoperative dir change, don't show the nofification.
+		// if this is an inoperative dir change, don't show the notification.
 		// an inoperative dir change is when a directory gets updated without
 		// any real change in either text or properties.
 		if ((kind == svn_node_dir)
@@ -898,7 +898,7 @@ UINT CSVNProgressDlg::ProgressThread()
 
 	DWORD dwAutoClose = CRegStdWORD(_T("Software\\TortoiseSVN\\AutoClose"));
 	if (m_options & ProgOptDryRun)
-		dwAutoClose = 0;		// dry run means progress dialog doesn't autoclose at all
+		dwAutoClose = 0;		// dry run means progress dialog doesn't auto close at all
 	if (m_dwCloseOnEnd != (DWORD)-1)
 		dwAutoClose = m_dwCloseOnEnd;		// command line value has priority over setting value
 	if ((dwAutoClose == CLOSE_NOERRORS)&&(!m_bErrorsOccurred))
@@ -911,7 +911,7 @@ UINT CSVNProgressDlg::ProgressThread()
 		PostMessage(WM_COMMAND, 1, (LPARAM)GetDlgItem(IDOK)->m_hWnd);
 
 	//Don't do anything here which might cause messages to be sent to the window
-	//The window thread is probably now blocked in OnOK if we've done an autoclose
+	//The window thread is probably now blocked in OnOK if we've done an auto close
 	return 0;
 }
 

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoioseSVN
+// Copyright (C) 2003-2008 - TortoioseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -115,7 +115,7 @@ protected:
 	/**
 	 * Will be called whenever the return key is pressed while the
 	 * history combo has the input focus. A derived class may implement
-	 * a special behaviour for the return key by overriding this method.
+	 * a special behavior for the return key by overriding this method.
 	 * It must return true to prevent the default processing for the
 	 * return key. The default implementation returns false.
 	 */
@@ -123,7 +123,7 @@ protected:
 
 	/**
 	 * Removes the selected item from the combo box and updates
-	 * the registry settings. Returns TRUE if successfull.
+	 * the registry settings. Returns TRUE if successful.
 	 */
 	BOOL RemoveSelectedItem();
 

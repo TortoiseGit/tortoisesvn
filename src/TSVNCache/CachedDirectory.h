@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005 - 2006 - Will Dean, Stefan Kueng
+// External Cache Copyright (C) 2005 - 2006, 2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -55,7 +55,7 @@ private:
 	CStatusCacheEntry LookForItemInCache(const CTSVNPath& path, bool &bFound);
 	void UpdateChildDirectoryStatus(const CTSVNPath& childDir, svn_wc_status_kind childStatus);
 
-	// Calculate the complete, composite status from ourselves, our files, and our decendants
+	// Calculate the complete, composite status from ourselves, our files, and our descendants
 	svn_wc_status_kind CalculateRecursiveStatus();
 
 	// Update our composite status and deal with things if it's changed

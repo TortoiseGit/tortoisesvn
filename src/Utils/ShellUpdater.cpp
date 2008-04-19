@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -54,7 +54,7 @@ void CShellUpdater::AddPathForUpdate(const CTSVNPath& path)
 }
 /** 
 * Add a list of paths for updating.
-* The update will happen when the list is destroyed, at the end of excecution
+* The update will happen when the list is destroyed, at the end of execution
 */
 void CShellUpdater::AddPathsForUpdate(const CTSVNPathList& pathList)
 {

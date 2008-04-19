@@ -23,7 +23,7 @@ typedef std::vector<TStrStrPair> TStrStrVector;
 #endif // !defined TStrStrVector
 
 
-extern BOOL g_bNoCrashHandler;// don't use the crashhandler but let the system handle it
+extern BOOL g_bNoCrashHandler;// don't use the crash handler but let the system handle it
 
 ////////////////////////////// Class Definitions /////////////////////////////
 
@@ -359,7 +359,7 @@ protected:
    //    lpcszDesc   
    //
    // Return Values
-   //    TRUE is sucessful.
+   //    TRUE is successful.
    //
    // Remarks
    //    MAPI is used to send the report.

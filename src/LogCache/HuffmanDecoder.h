@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -36,10 +36,10 @@ private:
 
 	// decoder table:
 	// for each possible key (i.e. encoded char), we store
-	// the plaintext value and the length of the key in bits.
+	// the plain text value and the length of the key in bits.
 
 	// For keys that are shorter than MAX_ENCODING_LENGTH, 
-	// we store the plaintext in for all possible bit
+	// we store the plain text in for all possible bit
 	// combinations after the actual key.
 
 	BYTE value[1 << MAX_ENCODING_LENGTH];
@@ -52,7 +52,7 @@ private:
 	void BuildDecodeTable (const BYTE*& first);
 
 	// efficiently decode the source stream until the
-	// plaintext stream reaches decodedSize.
+	// plain text stream reaches decodedSize.
 
 	void WriteDecodedStream ( const BYTE* first
 							, BYTE* dest

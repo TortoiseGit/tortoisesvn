@@ -149,7 +149,7 @@ public:
     void SetProgress64 ( ULONGLONG u64Progress, ULONGLONG u64ProgressMax );
 
 	/**
-	 * Checks whether the user has cancelled the operation.
+	 * Checks whether the user has canceled the operation.
 	 */
     bool HasUserCancelled();
 

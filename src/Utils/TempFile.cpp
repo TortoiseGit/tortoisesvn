@@ -65,7 +65,7 @@ CTSVNPath CTempFiles::GetTempFilePath(bool bRemoveAtEnd, const CTSVNPath& path /
 			i++;
 		} while (PathFileExists(tempfile.GetWinPath()));
 	}
-	//now create the tempfile, so that subsequent calls to GetTempFile() return
+	//now create the temp file, so that subsequent calls to GetTempFile() return
 	//different filenames.
 	HANDLE hFile = CreateFile(tempfile.GetWinPath(), GENERIC_READ, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_TEMPORARY, NULL);
 	CloseHandle(hFile);

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -43,7 +43,7 @@ namespace LogCache
  * further tokens and so on. Only pairs that have been found more than twice 
  * will be replaced by a pair token.
  *
- * Thus, the tokens are intepreted as follows:
+ * Thus, the tokens are interpreted as follows:
  *
  * -1				empty token (allowed only temporarily)
  * -2 .. MIN_INT	word dictionary index 1 .. MAX_INT-1
@@ -86,7 +86,7 @@ private:
 
 		typedef std::vector<index_t>::iterator IT;
 
-		/// the container we operate on and the indicies
+		/// the container we operate on and the indices
 		/// of all strings that might be compressed
 
 		CTokenizedStringContainer* container;
@@ -210,7 +210,7 @@ private:
 
 	void AppendToken (std::string& target, index_t token) const;
 
-	/// insertion utilties
+	/// insertion utilities
 
 	void Append (index_t token);
 	void Append (const std::string& s);
@@ -239,7 +239,7 @@ public:
 
 	std::string operator[] (index_t index) const;
 
-    /// STL-like bahavior
+    /// STL-like behavior
 
     void swap (CTokenizedStringContainer& rhs);
 

@@ -65,7 +65,7 @@ DstVersionFile     :   path to save the resulting parsed file.\n\
 -X                 :   if given, then SubWCRev will write the revisions\n\
                        numbers in HEX with '0x' before them\n"
 #define HelpText4 "\
-Switches must be given in a single argument, eg. '-nm' not '-n -m'.\n\
+Switches must be given in a single argument, e.g. '-nm' not '-n -m'.\n\
 \n\
 SubWCRev reads the Subversion status of all files in a working copy\n\
 excluding externals. If SrcVersionFile is specified, it is scanned\n\
@@ -464,10 +464,10 @@ int _tmain(int argc, _TCHAR* argv[])
 		filelength = GetFileSize(hFile, NULL);
 		if (filelength == INVALID_FILE_SIZE)
 		{
-			_tprintf(_T("Could not determine filesize of '%s'\n"), src);
+			_tprintf(_T("Could not determine file size of '%s'\n"), src);
 			return ERR_READ;
 		}
-		maxlength = filelength+4096;	// We might be increasing filesize.
+		maxlength = filelength+4096;	// We might be increasing file size.
 		pBuf = new char[maxlength];
 		if (pBuf == NULL)
 		{
@@ -588,7 +588,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		return 0;
 	}
 
-	// now parse the filecontents for version defines.
+	// now parse the file contents for version defines.
 	
 	size_t index = 0;
 	

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005 - 2006 - Will Dean, Stefan Kueng
+// External Cache Copyright (C) 2005-2006,2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -78,7 +78,7 @@ struct TSVNCacheCommand
 
 #define		TSVNCACHECOMMAND_END		0		///< ends the thread handling the pipe communication
 #define		TSVNCACHECOMMAND_CRAWL		1		///< start crawling the specified path for changes
-#define		TSVNCACHECOMMAND_REFRESHALL	2		///< Refreshes the whole cache, usually necessary after the "treat unversiond files as modified" option changed.
+#define		TSVNCACHECOMMAND_REFRESHALL	2		///< Refreshes the whole cache, usually necessary after the "treat unversioned files as modified" option changed.
 #define		TSVNCACHECOMMAND_RELEASE	3		///< Releases all open handles for the specified path and all paths below
 
 

@@ -104,7 +104,7 @@ void MyGraphSeries::SetTipRegion(int nGroup, CRgn* prgn)
 	_ASSERTE(0 <= nGroup);
 	ASSERT_VALID(prgn);
 
-	// If there is an existing resgion, delete it.
+	// If there is an existing region, delete it.
 	CRgn* prgnOld = NULL;
 
 	if (nGroup < m_oaRegions.GetSize()) 
@@ -256,8 +256,8 @@ BEGIN_MESSAGE_MAP(MyGraph, CStatic)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, OnNeedText)
 END_MESSAGE_MAP()
 
-// Called by the framework to allow other necessary subclassing to occur 
-// before the window is subclassed.
+// Called by the framework to allow other necessary sub classing to occur 
+// before the window is sub classed.
 void MyGraph::PreSubclassWindow() 
 {
 	VALIDATE;
@@ -315,7 +315,7 @@ BOOL MyGraph::OnNeedText(UINT /*uiId*/, NMHDR* pNMHDR, LRESULT* pResult)
 	return bReturn;
 }
 
-// The framework calls this member function to detemine whether a point is in
+// The framework calls this member function to determine whether a point is in
 // the bounding rectangle of the specified tool.
 INT_PTR MyGraph::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 {
@@ -1039,7 +1039,7 @@ void MyGraph::DrawSeriesBar(CDC& dc) const
 	VALIDATE;
 	ASSERT_VALID(&dc);
 
-	// How much space does each series get (includes interseries space)?
+	// How much space does each series get (includes inter series space)?
 	// We ignore series whose members are all zero.
 	int nSeriesSpace(0);
 
@@ -1056,7 +1056,7 @@ void MyGraph::DrawSeriesBar(CDC& dc) const
 	// to be empty.  This is a bad assumption.
 	int nBarWidth(0);
 
-	// This is the width of the largest series (no interseries space).
+	// This is the width of the largest series (no inter series space).
 	int nMaxSeriesPlotSize(0);
 
 	if(!m_bStackedGraph){
@@ -1141,7 +1141,7 @@ void MyGraph::DrawSeriesLine(CDC& dc) const
 
 	for (int nGroup = 0; nGroup < GetMaxSeriesSize(); nGroup++) {
 
-		// How much space does each series get (includes interseries space)?
+		// How much space does each series get (includes inter series space)?
 		int nSeriesSpace(0);
 
 		if (m_saLegendLabels.GetSize()) {
@@ -1160,7 +1160,7 @@ void MyGraph::DrawSeriesLine(CDC& dc) const
 			nBarWidth = (int) ((double) nBarWidth * INTERSERIES_PERCENT_USED);
 		}
 
-		// This is the width of the largest series (no interseries space).
+		// This is the width of the largest series (no inter series space).
 		//int nMaxSeriesPlotSize(GetMaxSeriesSize() * nBarWidth);
 
 		// Iterate the series.

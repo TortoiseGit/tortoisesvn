@@ -197,7 +197,7 @@ UINT CCheckForUpdatesDlg::CheckThread()
 
 void CCheckForUpdatesDlg::OnStnClickedCheckresult()
 {
-	// user clicked on the label, start the browser with our webpage
+	// user clicked on the label, start the browser with our web page
 	HINSTANCE result = ShellExecute(NULL, _T("opennew"), m_sUpdateDownloadLink, NULL,NULL, SW_SHOWNORMAL);
 	if ((UINT)result <= HINSTANCE_ERROR)
 	{

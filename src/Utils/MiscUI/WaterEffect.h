@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2006,2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -123,13 +123,13 @@ private:
 	 */
 	void CalcWater(int npage, int density);
 	/**
-	 * Smoothes the waves of the water so that they dissapear after a while
+	 * Smooths the waves of the water so that they disappear after a while
 	 * \param npage the buffer to use
 	 */
 	void SmoothWater(int npage);
 
 	/**
-	 * Draws the watereffect to the resulting image buffer
+	 * Draws the water effect to the resulting image buffer
 	 * \param page the internal buffer to use
 	 * \param LightModifier how much light to use. Higher values give more 'contrast/shadows' of the waves.
 	 * \param pSrcImage the image to use

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -107,7 +107,7 @@ void CRWSection::Done()
 	if (m_nActive == 0)
 	{
 		// Note: If there are always writers waiting, then
-		// it's possible that a reader never get's access
+		// it's possible that a reader never gets access
 		// (reader starvation)
 		if (m_nWaitingWriters > 0)
 		{

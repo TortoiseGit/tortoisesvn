@@ -425,7 +425,7 @@ void CRevisionGraphWnd::OnLButtonDown(UINT nFlags, CPoint point)
 void CRevisionGraphWnd::OnLButtonUp(UINT nFlags, CPoint point)
 {
 	if (!m_bIsRubberBand)
-		return;		// we don't have a rubberband, so no zooming necessary
+		return;		// we don't have a rubber band, so no zooming necessary
 
 	m_bIsRubberBand = false;
 	ReleaseCapture();
@@ -458,7 +458,7 @@ void CRevisionGraphWnd::OnLButtonUp(UINT nFlags, CPoint point)
 	float fZoomfactor = m_fZoomFactor*fact;
 	if (fZoomfactor > 20.0)
 	{
-		// with such a big zoomfactor, the user
+		// with such a big zoom factor, the user
 		// most likely zoomed by accident
 		Invalidate();
 		__super::OnLButtonUp(nFlags, point);
@@ -642,7 +642,7 @@ CString CRevisionGraphWnd::DisplayableText ( const CString& wholeText
         pos += line.GetLength();
     }
         
-    // relase temp. resources
+    // release temp. resources
 
     dc->SelectObject (pOldFont);
     ReleaseDC(dc);
@@ -725,7 +725,7 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
 	CString extension = CPathUtils::GetFileExtFromPath(sSavePath);
 	if (extension.CompareNoCase(_T(".wmf"))==0)
 	{
-		// save the graph as an enhanced metafile
+		// save the graph as an enhanced meta file
 		CMetaFileDC wmfDC;
 		wmfDC.CreateEnhanced(NULL, sSavePath, NULL, _T("TortoiseSVN\0Revision Graph\0\0"));
 		float fZoom = m_fZoomFactor;

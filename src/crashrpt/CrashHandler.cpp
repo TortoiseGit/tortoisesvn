@@ -25,7 +25,7 @@
 
 #include <algorithm>
 
-BOOL g_bNoCrashHandler;// don't use the crashhandler but let the system handle it
+BOOL g_bNoCrashHandler;// don't use the crash handler but let the system handle it
 
 // maps crash objects to processes
 map<DWORD, CCrashHandler*> _crashStateMap;
@@ -418,7 +418,7 @@ BOOL CCrashHandler::GenerateErrorReport(PEXCEPTION_POINTERS pExInfo, BSTR messag
       m_files.push_back(TStrStrPair(rpt.getSymbolFile(i).c_str(), 
       string("Symbol File")));
  
-   //remove the crashhandler, just in case the dialog crashes...
+   //remove the crash handler, just in case the dialog crashes...
    Uninstall();
    if (m_bUseUI)
    {
@@ -453,7 +453,7 @@ BOOL CCrashHandler::GenerateErrorReport(PEXCEPTION_POINTERS pExInfo, BSTR messag
 		   if (PathFileExists((*cur).first.c_str()))
 			   zlib.AddFile((*cur).first);
 	   zlib.Close();
-	   fprintf(stderr, "a zipped crashreport has been saved to\n");
+	   fprintf(stderr, "a zipped crash report has been saved to\n");
 	   _ftprintf(stderr, sTempFileName.c_str());
 	   fprintf(stderr, "\n");
 	   if (!m_sTo.empty())

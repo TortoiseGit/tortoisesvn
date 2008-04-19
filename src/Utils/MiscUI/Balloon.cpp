@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -258,13 +258,13 @@ void CBalloon::OnDraw(CDC * pDC, CRect rect)
 	}
 
 
-	//aligns tooltip's text
+	//aligns tool tip's text
 	if (m_pToolInfo.nStyles & BALLOON_BOTTOM_ALIGN)
 		rect.top = rect.bottom - m_szBalloonText.cy;
 	else if (m_pToolInfo.nStyles & BALLOON_VCENTER_ALIGN)
 		rect.top += (rect.Height() - m_szBalloonText.cy) / 2;
 
-	//prints the tooltip's text
+	//prints the tool tip's text
 	DrawHTML(pDC, rect, m_pToolInfo.sBalloonTip, m_LogFont, FALSE);
 
 	//free resources
@@ -384,7 +384,7 @@ void CBalloon::RelayEvent(MSG* pMsg)
 
 		m_ptOriginal = pMsg->pt; 
 		
-		//get the real window under the mousepointer
+		//get the real window under the mouse pointer
 		pt = pMsg->pt;
 		if (m_pParentWnd)
 			m_pParentWnd->ScreenToClient(&pt);
@@ -460,7 +460,7 @@ void CBalloon::OnTimer(UINT_PTR nIDEvent)
 	{
 	case BALLOON_SHOW:
 		KillTimers(BALLOON_SHOW);
-		//check if mousepointer is still over the right window
+		//check if mouse pointer is still over the right window
 		GetCursorPos(&pt);
 		point = pt;
 		if (m_pParentWnd)
@@ -504,7 +504,7 @@ HWND CBalloon::GetChildWindowFromPoint(CPoint & point) const
     if (!hWnd || hWnd == m_pParentWnd->GetSafeHwnd())
         return NULL;
 
-    //if it's not part of the main parent window heirachy, then we are
+    //if it's not part of the main parent window hierarchy, then we are
     //not interested
     if (!::IsChild(m_pParentWnd->GetSafeHwnd(), hWnd))
         return NULL;
@@ -1436,8 +1436,8 @@ void CBalloon::GetMonitorWorkArea(const CPoint& sourcePoint, CRect& monitorRect)
 {
 	// identify the monitor that contains the sourcePoint
 	// and return the work area (the portion of the screen 
-	// not obscured by the system taskbar or by application 
-	// desktop toolbars) of that monitor
+	// not obscured by the system task bar or by application 
+	// desktop tool bars) of that monitor
 	OSVERSIONINFOEX VersionInformation;
 	ZeroMemory(&VersionInformation, sizeof(OSVERSIONINFOEX));
 	VersionInformation.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);

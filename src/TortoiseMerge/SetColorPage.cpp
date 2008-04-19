@@ -90,7 +90,7 @@ void CSetColorPage::SaveData()
 
 		// there are three different colors for conflicted lines
 		// conflicted, conflicted added, conflicted removed
-		// but only one colorchooser for all three of them
+		// but only one color chooser for all three of them
 		// so try to adjust the conflicted added and conflicted removed
 		// colors a little so they look different.
 		cBk = m_cBkConflict.GetColor();

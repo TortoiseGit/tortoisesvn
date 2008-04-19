@@ -128,7 +128,7 @@ public:
 		SVNRev revision, svn_depth_t depth, BOOL bIgnoreExternals, 
 		BOOL bAllow_unver_obstructions = TRUE);
 	/**
-	 * If pathlist contains an URL, use the MESSAGE to immediately attempt 
+	 * If path list contains an URL, use the MESSAGE to immediately attempt 
 	 * to commit a deletion of the URL from the repository. 
 	 * Else, schedule a working copy path for removal from the repository.
 	 * path's parent must be under revision control. This is just a
@@ -301,7 +301,7 @@ public:
 	BOOL MakeDir(const CTSVNPathList& pathlist, CString message);
 	/**
 	 * Recursively cleanup a working copy directory DIR, finishing any
-	 * incomplete operations, removing lockfiles, etc.
+	 * incomplete operations, removing lock files, etc.
 	 * \param path the file/directory to clean up
 	 * \return TRUE if successful
 	 */
@@ -429,7 +429,7 @@ public:
 	 * name specified by \c source in \c revision1 or \c revision2.
 	 * 
 	 * By "merging", we mean:  apply file differences and schedule 
-	 * additions & deletions when appopriate.
+	 * additions & deletions when appropriate.
 	 *
 	 * If recurse is true (and the paths are directories), apply changes
 	 * recursively; otherwise, only apply changes in the current
@@ -493,7 +493,7 @@ public:
 	BOOL CreatePatch(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2, SVNRev revision2, const CTSVNPath& relativeToDir, svn_depth_t depth, BOOL ignoreancestry, BOOL nodiffdeleted, BOOL ignorecontenttype, CString options, bool bAppend, const CTSVNPath& outputfile);
 
 	/**
-	 * Produce diff output which describes the delta between the filesystem object \a path in 
+	 * Produce diff output which describes the delta between the file system object \a path in 
 	 * peg revision \a pegrevision, as it changed between \a startrev and \a endrev. 
 	 * Print the output of the diff to outputfile, and any errors to errorfile. 
 	 * \a path can be either a working-copy path or URL.
@@ -618,7 +618,7 @@ public:
 	
 	/**
 	 * Removes existing locks from files.
-	 * \param pathList a list of filepaths to remove the lock from
+	 * \param pathList a list of file paths to remove the lock from
 	 * \param bBreakLock if TRUE, the locks are removed even if the committer
 	 * isn't the owner of the locks!
 	 * \return TRUE if successful

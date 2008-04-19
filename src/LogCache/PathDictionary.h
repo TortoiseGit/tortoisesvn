@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -131,7 +131,7 @@ IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 /**
  * A path whose structure is (fully) represented in a @a dictionary.
  * Basically, this is a (@a dictionary, @a index) pair that identifies
- * the path unambigously. All path operations are implemented using 
+ * the path unambiguously. All path operations are implemented using 
  * the path dictionary.
  */
 

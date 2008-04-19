@@ -70,7 +70,7 @@ public:
 	apr_time_t GetDate() const {ATLASSERT(IsDate()); return rev.value.date;}
 	/// Converts the revision into a string representation.
 	CString ToString() const;
-	/// checks wether two SVNRev objects are the same
+	/// checks whether two SVNRev objects are the same
 	bool IsEqual(const SVNRev& revision);
 	
 	operator LONG () const;

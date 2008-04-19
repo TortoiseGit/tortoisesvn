@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,7 +29,7 @@ bool DelUnversionedCommand::Execute()
 	{
 		if (dlg.m_pathList.GetCount() == 0)
 			return FALSE;
-		// now remove all items by moving them to the trashbin
+		// now remove all items by moving them to the trash bin
 		dlg.m_pathList.RemoveChildren();
 		CString filelist;
 		for (INT_PTR i=0; i<dlg.m_pathList.GetCount(); ++i)

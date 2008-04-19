@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -411,13 +411,13 @@ void CTokenizedStringContainer::CheckIndex (index_t index) const
 
 void CTokenizedStringContainer::OptimizePairs()
 {
-	// markes for all pairs that have aready been processed
+	// marks for all pairs that have already been processed
 
 	std::vector<bool> done;
 	done.resize (pairs.size());
 
 	// build new pair order: put directly used pairs in front
-	// and sort them by point of occurance
+	// and sort them by point of occurrence
 
 	std::vector<index_t> new2Old;
 	new2Old.reserve (pairs.size());
@@ -525,7 +525,7 @@ std::string CTokenizedStringContainer::operator[] (index_t index) const
 	return result;
 }
 
-// STL-like bahavior
+// STL-like behavior
 
 void CTokenizedStringContainer::swap (CTokenizedStringContainer& rhs)
 {
@@ -654,7 +654,7 @@ void CTokenizedStringContainer::Clear()
 
 void CTokenizedStringContainer::Remove (const std::vector<index_t>& indexes)
 {
-	// prepatation
+	// preparation
 
 	CIT indexIter = indexes.begin();
 	CIT indexEnd = indexes.end();

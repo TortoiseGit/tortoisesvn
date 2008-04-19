@@ -253,7 +253,7 @@ void CRevisionInfoContainer::UpdateMergers
 		}
 		else
 		{
-			// keep exisiting data
+			// keep existing data
 
 			mergedFromPaths.insert ( mergedFromPaths.end()
 								   , oldMergedFromPaths.begin() + firstMerge
@@ -332,7 +332,7 @@ void CRevisionInfoContainer::UpdateUserRevProps
 		}
 		else
 		{
-			// keep exisiting data
+			// keep existing data
 
 			userRevPropNames.insert ( userRevPropNames.end()
 								    , oldUserRevPropNames.begin() + firstProp
@@ -347,7 +347,7 @@ void CRevisionInfoContainer::UpdateUserRevProps
 		userRevPropOffsets[i+1] = static_cast<index_t>(userRevPropNames.size());
 	}
 
-    // actually write the combined revprop values
+    // actually write the combined rev prop values
 
     userRevPropValues.Replace (oldUserRevPropValues, oldValueMapping);
     userRevPropValues.Replace (newData.userRevPropValues, newValueMapping);
@@ -443,7 +443,7 @@ void CRevisionInfoContainer::OptimizeAuthors()
 	for (index_t i = 0, count = authorPool.size(); i < count; ++i)
 		counter.push_back (i);
 
-	// count occurances
+	// count occurrences
 
 	for ( std::vector<index_t>::const_iterator iter = authors.begin()
 		, end = authors.end()
@@ -774,7 +774,7 @@ void CRevisionInfoContainer::Update ( const CRevisionInfoContainer& newData
 
 	index_mapping_t pathIDMapping = paths.Merge (newData.paths);
 
-	// replace exising data
+	// replace existing data
 
 	if (flags & HAS_AUTHOR)
 		UpdateAuthors (newData, indexMap, keepOldDataForMissingNew);
@@ -815,7 +815,7 @@ void CRevisionInfoContainer::AutoOptimize()
 
 	if ((currentSize <= diffBits) || (storedSize <= diffBits))
 	{
-		// shrink or growth cross a 2^n bounary
+		// shrink or growth cross a 2^n boundary
 
 		Optimize();
 	}

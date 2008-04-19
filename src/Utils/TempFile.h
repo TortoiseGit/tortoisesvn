@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2006,2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,7 +24,7 @@
 /**
 * \ingroup Utils
 * This singleton class handles temporary files.
-* All tempfiles are deleted at the end of a run of SVN operations
+* All temp files are deleted at the end of a run of SVN operations
 */
 class CTempFiles
 {

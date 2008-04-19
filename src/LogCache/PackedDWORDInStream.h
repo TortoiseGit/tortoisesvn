@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,7 +29,7 @@
 // CPackedDWORDInStreamBase
 //
 //		Base class for all read streams containing packed 
-//		integer data. See CPackedDWORDOutStreamBase for datails 
+//		integer data. See CPackedDWORDOutStreamBase for details 
 //		of the storage format.
 //
 ///////////////////////////////////////////////////////////////
@@ -41,7 +41,7 @@ protected:
 	DWORD lastValue;
 	DWORD count;
 
-	// not ment to be instantiated
+	// not meant to be instantiated
 
 	// construction: nothing to do here
 
