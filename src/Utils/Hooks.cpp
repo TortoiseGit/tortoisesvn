@@ -462,7 +462,7 @@ DWORD CHooks::RunScript(CString cmd, LPCTSTR currentDir, CString& error, bool bW
 			}
 			SetLastError(err);
 			cmd.ReleaseBuffer();
-			return FALSE;
+			return (DWORD)-1;
 	}
 	cmd.ReleaseBuffer();
 
