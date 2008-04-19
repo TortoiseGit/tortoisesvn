@@ -132,10 +132,11 @@
 			copy is created <emphasis>inside the repository</emphasis>.
 		</para>
 		<para>
-			Note that creating a Branch or Tag does <emphasis>not</emphasis>
-			affect your working copy. Even if you copy your WC, those changes
-			are committed to the new branch, not to the trunk, so your
-			WC may still be marked as modified.
+			Note that unless you opted to switch your working copy to the newly
+			created branch, creating a Branch or Tag does <emphasis>not</emphasis>
+			affect your working copy. Even if you create the branch from your WC,
+			those changes are committed to the new branch, not to the trunk, so your
+			WC may still be marked as modified with respect to the trunk.
 		</para>
 	</sect2>
 	<sect2 id="tsvn-dug-switch-1">
@@ -145,8 +146,8 @@
 			<primary>switch</primary>
 		</indexterm>
 		<para>
-			...that is (not really) the question. While a checkout checks
-			out everything from the desired branch into your working
+			...that is (not really) the question. While a checkout downloads
+			everything from the desired branch in the repository to your working
 			directory,
 			<menuchoice>
 				<guimenu>TortoiseSVN</guimenu>
@@ -156,7 +157,7 @@
 			working copy. Good for the network load, good for your patience. :-)
 		</para>
 		<para>
-			To be able to work with your freshly generated copy you
+			To be able to work with your freshly generated branch or tag you
 			have several ways to handle it. You can:
 			<itemizedlist>
 				<listitem>
@@ -197,6 +198,18 @@
 						do the Switch. If you do not want this to happen then you
 						must either commit the changes before switching, or revert
 						your working copy to an already-committed revision (typically HEAD).
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						If you want to work on trunk and branch, but don't want
+						the expense of a fresh checkout, you can use Windows Explorer
+						to make a copy of your trunk checkout in another folder, then
+						<menuchoice>
+							<guimenu>TortoiseSVN</guimenu>
+							<guimenuitem>Switch...</guimenuitem>
+						</menuchoice>
+						that copy to your new branch.
 					</para>
 				</listitem>
 			</itemizedlist>
