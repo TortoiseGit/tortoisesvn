@@ -49,7 +49,6 @@ void CSysImageList::Test()
 }
 
 // Operations
-
 int CSysImageList::GetDirIconIndex() const
 {
 	SHFILEINFO sfi;
@@ -67,6 +66,7 @@ int CSysImageList::GetDirIconIndex() const
 int CSysImageList::GetDefaultIconIndex() const
 {
 	SHFILEINFO sfi;
+	// clear the struct
 	ZeroMemory(&sfi, sizeof sfi);
 
 	SHGetFileInfo(

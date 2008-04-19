@@ -43,7 +43,7 @@ void CSysImageList::Cleanup()
 	instance = NULL;
 }
 
-void CSysImageList::Test()
+bool CSysImageList::Test()
 {
 	return true;
 }
@@ -57,9 +57,13 @@ int CSysImageList::GetDirIconIndex() const
 		_T("blablah"),
 		FILE_ATTRIBUTE_DIRECTORY,
 		&sfi, sizeof sfi,
-		SHGFI_SYSICONINDEX | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES);
-
+		SHGFI_SYSICONINDEX | SHGFI_USEFILEATTRIBUTES);
 	return sfi.iIcon;
+}
+
+void CSysImageList::Test()
+{
+	RunTests();
 }
 
 int CSysImageList::GetDefaultIconIndex() const
