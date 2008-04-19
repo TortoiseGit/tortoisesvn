@@ -12,147 +12,47 @@
 		<primary>add files to repository</primary>
 	</indexterm>
 	<?dbhh topicname="HIDD_IMPORT"?>
-	<sect2 id="tsvn-dug-import-1">
-		<title>Repository Layout</title>
-		<para>
-			Before you import your data into the repository you should
-			first think about how you want to organize your data. If you
-			use one of the recommended layouts you will later have it much
-			easier.
-		</para>
-		<para>
-			There are some standard, recommended ways to organize a
-			repository. Most people create a <filename>trunk</filename>
-			directory to hold the <quote>main line</quote> of development, a
-			<filename>branches</filename> directory to contain branch
-			copies, and a <filename>tags</filename> directory to contain
-			tag copies. If a repository holds only one project, then
-			often people create these top-level directories:
-		</para>
-<screen>
-/trunk
-/branches
-/tags
-</screen>
-		<para>
-			If a repository contains multiple projects, people often
-			index their layout by branch:
-		</para>
-<screen>
-/trunk/paint
-/trunk/calc
-/branches/paint
-/branches/calc
-/tags/paint
-/tags/calc
-</screen>
-		<para>
-			...or by project:
-		</para>
-<screen>
-/paint/trunk
-/paint/branches
-/paint/tags
-/calc/trunk
-/calc/branches
-/calc/tags
-</screen>
-		<para>
-			Indexing by project makes sense if the projects are not closely related
-			and each one is checked out individually. For related projects where
-			you may want to check out all projects in one go, or where the projects
-			are all tied together in a single distribution package, it is often better
-			to index by branch. This way you have only one trunk to checkout, and
-			the relationships between the sub-projects is more easily visible.
-		</para>
-		<para>
-			If you adopt a top level <filename>/trunk /tags /branches</filename>
-			approach, there is nothing to say that you have to copy the entire trunk
-			for every branch and tag, and in some ways this structure offers the
-			most flexibility.
-		</para>
-		<para>
-			For unrelated projects you may prefer to use separate repositories.
-			When you commit changes, it is the revision number of the whole
-			repository which changes, not the revision number of the project.
-			Having 2 unrelated projects share a repository can mean large gaps
-			in the revision numbers. The Subversion and TortoiseSVN projects
-			appear at the same host address, but are completely separate
-			repositories allowing independent development, and no confusion
-			over build numbers.
-		</para>
-		<para>
-			Of course, you're free to ignore these common layouts.  You
-			can create any sort of variation, whatever works best for you or
-			your team.  Remember that whatever you choose, it's not a
-			permanent commitment.  You can reorganize your repository at any
-			time.  Because branches and tags are ordinary directories,
-			TortoiseSVN can move or rename them however you wish. 
-		</para>
-		<para>
-			Switching from one layout to another is just a matter of 
-			issuing a series of server-side moves; If you don't like the 
-			way things are organized in the repository, just juggle the 
-			directories around.
-		</para>
-		<para>
-			So if you haven't already created a basic folder structure inside
-			your repository you should do that now:
-			<orderedlist>
-				<listitem>
-					<para>
-						create a new empty folder on your hard drive
-					</para>
-				</listitem>
-				<listitem>
-					<para>
-						create your desired top-level folder structure inside
-						that folder - don't put any files in it yet!
-					</para>
-				</listitem>
-				<listitem>
-					<para>
-						import this structure into the repository via a 
-						<action>right click</action> on the folder and
-						selecting
-						<menuchoice>
-							<guimenu>TortoiseSVN</guimenu>
-							<guimenuitem>Import...</guimenuitem>
-						</menuchoice>
-						This will import your temp
-						folder into the repository root to create the basic
-						repository layout.
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-		<para>
-			Note that the name of the folder you are importing does not appear in
-			the repository, only its contents. For example, create the following folder
-			structure:
-<screen>
-C:\Temp\New\trunk
-C:\Temp\New\branches
-C:\Temp\New\tags
-</screen>
-			Import <filename>C:\Temp\New</filename> into the repository root,
-			which will then look like this:
-<screen>
-/trunk
-/branches
-/tags
-</screen>
-		</para>
-		<para>
-			You can also use the repository browser to create new folders directly
-			in the repository.
-		</para>
-	</sect2>
 	<sect2 id="tsvn-dug-import-2">
 		<title>Import</title>
 		<indexterm>
 			<primary>temporary files</primary>
 		</indexterm>
+		<para>
+			If you are importing into an existing repository which already
+			contains some projects, then the repository structure will already
+			have been decided.
+			If are importing data into a new repository then it is worth
+			taking the time to think about how it will be organised. Read
+			<xref linkend="tsvn-repository-layout"/> for further advice.
+		</para>
+		<para>
+			This section describes the Subversion import command, which was designed
+			for importing a directory hierarchy into the repository in one shot.
+			Although it does the job, it has several shortcomings:
+			<itemizedlist>
+				<listitem>
+					<para>
+						There is no way to select files and folders to include,
+						aside from using the global ignore settings.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						The folder imported does not become a working copy. You have
+						to do a checkout to copy the files back from the server.
+					</para>
+				</listitem>
+				<listitem>
+					<para>
+						It is easy to import to the wrong folder level in the repository.
+					</para>
+				</listitem>
+			</itemizedlist>
+			For these reasons we recommend that you do not use the import command
+			at all but rather follow the two-step method described in
+			<xref linkend="tsvn-dug-import-in-place"/>.
+			But since you are here, this is how the basic import works ...
+		</para>
 		<para>
 			Before you import your project into a repository you should:
 			<orderedlist>
@@ -190,8 +90,25 @@ C:\Temp\New\tags
 			</figure>
 		</para>
 		<para>
-			In this dialog you have to enter the URL of the repository into
-			which you want to import your project.
+			In this dialog you have to enter the URL of the repository location
+			where you want to import your project.
+			It is very important to realise that the local folder you are
+			importing does not itself appear in the repository, only its content.
+			For example if you have a structure:
+<screen>
+C:\Projects\Widget\source
+C:\Projects\Widget\doc
+C:\Projects\Widget\images
+</screen>
+			and you import <filename>C:\Projects\Widget</filename> into
+			<systemitem class="url">http://mydomain.com/svn/trunk</systemitem>
+			then you may be surprised to find that your subdirectories go
+			straight into <literal>trunk</literal> rather than being in a
+			<literal>Widget</literal> subdirectory. You need to specify the
+			subdirectory as part of the URL,
+			<systemitem class="url">http://mydomain.com/svn/trunk/Widget-X</systemitem>.
+			Note that the import command will automatically create subdirectories
+			within the repository if they do not exist.
 		</para>
 		<para>
 			The import message is used as a log message.
@@ -206,8 +123,6 @@ C:\Temp\New\tags
 		<para>
 			As soon as you press <guibutton>OK</guibutton> TortoiseSVN imports the
 			complete directory tree including all files into the repository.
-			As before, the name of the folder you import does not appear in
-			the repository, only the folder contents.
 			The project is now stored in the repository under version control.
 			Please note that the folder you imported is <emphasis>NOT</emphasis>
 			under version control! To get a version-controlled
@@ -221,13 +136,6 @@ C:\Temp\New\tags
 		<indexterm>
 			<primary>import in place</primary>
 		</indexterm>
-		<para>
-			The Subversion import command has limited functionality - you cannot easily
-			pick items for import. Also, the folder you are importing does not
-			become a Subversion working copy - you have to do a separate checkout.
-			But don't worry, there is another way of working which overcomes both
-			these shortcomings :-)
-		</para>
 		<para>
 			Assuming you already have a repository, and you want to add a new folder
 			structure to it, just follow these steps:
