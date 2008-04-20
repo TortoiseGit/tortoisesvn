@@ -7,6 +7,7 @@
        between two urls/revs. (Stefan)
 - NEW: The copy command now can take a /logmsg or /logmsgfile command
        line param to pre-fill the commit log message. (Stefan)
+- NEW: Context menu in the log message box of the log dialog. (Stefan)
 - CHG: Fall back to cached log data if forced refresh fails in log view
        and the user chooses to go off-line again. (Stefan Fuhrmann)
 - CHG: Finalize toolbar button icons. (Stefan Fuhrmann)
@@ -17,6 +18,8 @@
        checked by default anymore. (Stefan)
 - CHG: The rev-range merge dialog now sorts the revision ranges which are
        retrieved from the log dialog. (Tobias Schäfer)
+- CHG: improved the autolist regexes to parse more files. (Stefan)
+- CHG: The URL in the log dialog title is now shown unescaped. (Stefan)
 - BUG: <SHIFT>-F5 and <CTRL>-F5 not working in log view (Stefan Fuhrmann)
 - BUG: The property page showed the changelist instead of the GUUID. (Stefan)
 - BUG: Revisions that only added new files or sub-folders
@@ -40,6 +43,13 @@
        be called for one of them (Stefan Fuhrmann)
 - BUG: OK button in commit dialog was disabled randomly when tsvn:logminsize 
        was not 0. (Stefan Fuhrmann)
+- BUG: When editing a log message, the input dialog had the existing message
+       selected. (Stefan)
+- BUG: Tooltips for some tsvn: properties were wrong. (Stefan)
+- BUG: The log dialog did not show the bug id column if the bugtraq:url property
+       was not set and only the one-line regex was used. (Stefan)
+- BUG: the check state of the items in the commit dialog were not preserved
+       when refreshing the view and changelists were present. (Stefan)
 
 Version 1.5.0-beta1
 - NEW: Implemented 'merge reintegrate': new page in the merge wizard. (Stefan)
