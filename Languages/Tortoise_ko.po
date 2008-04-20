@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-04-19 17:07+0900\n"
-"Last-Translator: Kim TaeDong <fly1004@gmail.com>\n"
+"PO-Revision-Date: 2008-04-20 11:33+0900\n"
+"Last-Translator: Kim Taedong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -160,12 +160,12 @@ msgstr "%s : 원격지 파일"
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Working Base"
-msgstr "%s: 작업 베이스"
+msgstr "%s : 작업 베이스"
 
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Working Copy"
-msgstr "%s: 작업 사본"
+msgstr "%s : 작업 사본"
 
 #. Resource IDs: (226)
 #, c-format
@@ -251,7 +251,7 @@ msgstr "추가(&A) >>"
 
 #. Resource IDs: (1064)
 msgid "&Add or Remove Buttons"
-msgstr "버트 추가 및 제거(&A)"
+msgstr "버튼 추가 및 제거(&A)"
 
 #. Resource IDs: (8, 1098, 1310)
 msgid "&Add..."
@@ -259,7 +259,7 @@ msgstr "추가(&A)..."
 
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
-msgstr "고급 설정(&A)"
+msgstr "고급 설정(&A)..."
 
 #. Resource IDs: (1471)
 msgid "&Allow ambiguous URLs"
@@ -327,11 +327,11 @@ msgstr "파랑색(&B):"
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
-msgstr "이 리비전의 저장소 보기(&B)"
+msgstr "저장소 보기(&B)"
 
 #. Resource IDs: (1011)
 msgid "&Browse..."
-msgstr "찾아보기(&B)"
+msgstr "찾아보기(&B)..."
 
 #. Resource IDs: (16913)
 msgid "&Button Appearance..."
@@ -355,7 +355,7 @@ msgstr "카테고리(&C):"
 
 #. Resource IDs: (65535)
 msgid "&Category:"
-msgstr "카테고리(&C)"
+msgstr "카테고리(&C):"
 
 #. Resource IDs: (65535)
 msgid "&Choose commands from:"
@@ -487,7 +487,7 @@ msgstr "프록시 서버 사용(&E)"
 
 #. Resource IDs: (1434)
 msgid "&Enable log caching"
-msgstr "로그 캐싱 사용함(&E)"
+msgstr "로그 캐싱 사용(&E)"
 
 #. Resource IDs: (1213)
 msgid "&Enter a message describing why you are locking the file(s)."
@@ -523,11 +523,11 @@ msgstr "찾기(&F)..."
 
 #. Resource IDs: (32778)
 msgid "&Fit Images in window"
-msgstr "그림을 윈도우 사이즈에 맞춤(&F)"
+msgstr "이미지를 윈도우 사이즈에 맞춤(&F)"
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
-msgstr "하드 디스크(&F)"
+msgstr "고정된 드라이브(&F)"
 
 #. Resource IDs: (1065)
 msgid "&Floating"
@@ -608,7 +608,7 @@ msgstr "이미지(&I)"
 
 #. Resource IDs: (32790)
 msgid "&Image Info"
-msgstr "그림 정보(&I)"
+msgstr "이미지 정보(&I)"
 
 #. Resource IDs: (16505)
 msgid "&Image only"
@@ -644,7 +644,7 @@ msgstr "수정된 행에 대해서만 찾습니다(&L)"
 
 #. Resource IDs: (32797)
 msgid "&Link image positions"
-msgstr "그림 위치를 서로 연결하기(&L)"
+msgstr "이미지 위치를 서로 연결하기(&L)"
 
 #. Resource IDs: (1172)
 msgid "&List View"
@@ -741,7 +741,7 @@ msgstr "열기(&O)"
 
 #. Resource IDs: (32772)
 msgid "&Overlap images"
-msgstr "그림 겹치기(&O)"
+msgstr "이미지 겹치기(&O)"
 
 #. Resource IDs: (1411, 65535)
 msgid "&Password:"
@@ -1140,6 +1140,14 @@ msgstr "<새로운 변경 리스트>"
 #. Resource IDs: (32814)
 msgid "?"
 msgstr "?"
+
+#. Resource IDs: (579)
+msgid "A list of user defined properties for files to show in the combo box"
+msgstr "콤보 박스에 보이기 위한, 파일에 대해 사용자가 정의한 속성들의 리스트"
+
+#. Resource IDs: (579)
+msgid "A list of user defined properties for folders to show in the combo box"
+msgstr "콤보 박스에 보이기 위한, 폴더에 대해 사용자가 정의한 속성들의 리스트"
 
 #. Resource IDs: (201)
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
@@ -1804,7 +1812,7 @@ msgstr "메뉴를 커스터마이즈 할 수 없습니다!"
 
 #. Resource IDs: (1001)
 msgid "Can't paste bitmap image from the clipboard!"
-msgstr "비트맵 이미지를 클립보드로부터 붙여 넣을 수 없습니다!"
+msgstr "클립보드로부터 비트맵 이미지를 붙여 넣을 수 없습니다!"
 
 #. Resource IDs: (2, 73, 99, 563)
 msgid "Cancel"
@@ -3529,7 +3537,7 @@ msgstr "종료함"
 
 #. Resource IDs: (32810)
 msgid "Fit image &sizes"
-msgstr "그림을 서로 맞추기(&S)"
+msgstr "이미지 사이즈를 서로 맞추기(&S)"
 
 #. Resource IDs: (1315)
 msgid "Floppy drives (A: B:)"
@@ -4435,7 +4443,7 @@ msgstr "왼쪽: "
 
 #. Resource IDs: (65535)
 msgid "Left image"
-msgstr "왼쪽 그림"
+msgstr "왼쪽 이미지"
 
 #. Resource IDs: (19)
 msgid "Line"
@@ -4488,7 +4496,7 @@ msgstr "리스트1"
 
 #. Resource IDs: (130)
 msgid "Load Images"
-msgstr "그림 파일 열기"
+msgstr "이미지 불러오기"
 
 #. Resource IDs: (63)
 msgid "Local status"
@@ -5252,7 +5260,7 @@ msgstr "클립보드로부터 열기"
 
 #. Resource IDs: (7)
 msgid "Open image file..."
-msgstr "그림 파일 열기..."
+msgstr "이미지 파일 열기..."
 
 #. Resource IDs: (282)
 msgid "Open parent folder"
@@ -6224,7 +6232,7 @@ msgstr "오른쪽: "
 
 #. Resource IDs: (65535)
 msgid "Right image"
-msgstr "오른쪽 그림"
+msgstr "오른쪽 이미지"
 
 #. Resource IDs: (1070)
 #, c-format
@@ -7276,7 +7284,7 @@ msgstr ""
 
 #. Resource IDs: (7)
 msgid "The image can not be shown."
-msgstr "그림을 보일 수 없습니다."
+msgstr "이미지를 보일 수 없습니다."
 
 #. Resource IDs: (63)
 #, c-format
@@ -7718,7 +7726,7 @@ msgstr "TortoiseIDiff"
 
 #. Resource IDs: (65535)
 msgid "TortoiseIDiff - An image diff tool, part of TortoiseSVN"
-msgstr "TortoiseIDiff - 그림 비교 도구,TortoiseSVN 구성 프로그램"
+msgstr "TortoiseIDiff - 이미지 파일 비교 도구,TortoiseSVN 구성 프로그램"
 
 #. Resource IDs: (7)
 msgid ""
@@ -7733,15 +7741,15 @@ msgid ""
 "/fit\t\tto fit the images sizes\n"
 "/showinfo\t\tto show the image info boxes"
 msgstr ""
-"TortoiseIDiff: 그림 파일 비교 프로그램\n"
+"TortoiseIDiff: 이미지 파일 비교 프로그램\n"
 "\n"
 "가능한 명령행 인자는 다음과 같습니다:\n"
-"/left:\"왼쪽 그림 경로\"\n"
-"/lefttitle:\"왼쪽 그림의 제목\"\n"
-"/right:\"오른쪽 그림의 경로\"\n"
-"/righttitle:\"오른쪽 그림의 제목\"\n"
+"/left:\"왼쪽 이미지 경로\"\n"
+"/lefttitle:\"왼쪽 이미지의 제목\"\n"
+"/right:\"오른쪽 이미지의 경로\"\n"
+"/righttitle:\"오른쪽 이미지의 제목\"\n"
 "/overlay\t\t오버레이 모드 활성화\n"
-"/fit\t\t그림 크기에 맞춤\n"
+"/fit\t\t이미지 크기에 맞춤\n"
 "/showinfo\t\t이미지 정보 대화 상자를 보임"
 
 #. Resource IDs: (7, 130, 3585)
