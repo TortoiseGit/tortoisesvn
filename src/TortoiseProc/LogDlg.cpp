@@ -1320,13 +1320,56 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 	// we have two separate context menus:
 	// one shown on the log message list control,
 	// the other shown in the changed-files list control
+	int selCount = m_LogList.GetSelectedCount();
 	if (pWnd == &m_LogList)
 	{
 		ShowContextMenuForRevisions(pWnd, point);
 	}
-	if (pWnd == &m_ChangedFileListCtrl)
+	else if (pWnd == &m_ChangedFileListCtrl)
 	{
 		ShowContextMenuForChangedpaths(pWnd, point);
+	}
+	else if ((selCount == 1)&&(pWnd == GetDlgItem(IDC_MSGVIEW)))
+	{
+		POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+		int selIndex = m_LogList.GetNextSelectedItem(pos);
+		if ((point.x == -1) && (point.y == -1))
+		{
+			CRect rect;
+			GetDlgItem(IDC_MSGVIEW)->GetClientRect(&rect);
+			ClientToScreen(&rect);
+			point = rect.CenterPoint();
+		}
+		CString sMenuItemText;
+		CMenu popup;
+		if (popup.CreatePopupMenu())
+		{
+			// add the 'default' entries
+			sMenuItemText.LoadString(IDS_SCIEDIT_COPY);
+			popup.AppendMenu(MF_STRING | MF_ENABLED, WM_COPY, sMenuItemText);
+			sMenuItemText.LoadString(IDS_SCIEDIT_SELECTALL);
+			popup.AppendMenu(MF_STRING | MF_ENABLED, EM_SETSEL, sMenuItemText);
+
+			popup.AppendMenu(MF_SEPARATOR);
+
+			sMenuItemText.LoadString(IDS_LOG_POPUP_EDITLOG);
+			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITAUTHOR, sMenuItemText);
+
+
+			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+			switch (cmd)
+			{
+			case 0:
+				break;	// no command selected
+			case EM_SETSEL:
+			case WM_COPY:
+				::SendMessage(GetDlgItem(IDC_MSGVIEW)->GetSafeHwnd(), cmd, 0, -1);
+				break;
+			case ID_EDITAUTHOR:
+				EditLogMessage(selIndex);
+				break;
+			}
+		}
 	}
 }
 
