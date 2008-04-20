@@ -105,6 +105,8 @@ BOOL CInputDlg::OnInitDialog()
 	if (hWndExplorer)
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	GetDlgItem(IDC_INPUTTEXT)->SetFocus();
+	// clear the selection
+	m_cInput.Call(SCI_SETSEL, -1, -1);
 	return FALSE;
 }
 
