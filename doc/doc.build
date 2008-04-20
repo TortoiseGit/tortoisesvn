@@ -32,6 +32,12 @@ All user/site specific configuration is stored in doc.build.user.
 		depends="prepare" >
 
 		<foreach item="String" in="${languages}" delim="," property="lang.target">
+			<!-- language code for English (US) (default)-->
+			<property name="lang.target.code" value="1033" />
+			<property name="languagebuildfile" value="${path.user.xsl}/${lang.target}/lang.build" />
+			<if test="${file::exists(languagebuildfile)}" >
+				<include buildfile="${languagebuildfile}" />
+			</if>
 			<call target="doit" failonerror="${critical or lang.base==lang.target}"/>
 		</foreach>
 	</target>
@@ -449,8 +455,8 @@ All user/site specific configuration is stored in doc.build.user.
 
 			<copy file="${path.user.css}/styles_chm.css" todir="${doc.target.work}"/>
 
-			<exec program="hhc.exe"
-						commandline="${doc.target.work}/htmlhelp.hhp"
+			<exec program="SBAppLocale.exe"
+						commandline="${lang.target.code} ${path.bin}/hhc.exe ${doc.target.work}/htmlhelp.hhp"
 						basedir="${path.bin}"
 						resultproperty="result.hhc"
 						failonerror="false"
