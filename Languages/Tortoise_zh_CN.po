@@ -19,7 +19,7 @@
 #    msgmerge --update Tortoise_zh_CN.po Tortoise.pot
 #
 # Check translation:
-#    msgfmt --statistics -c Tortoise_zh_CN.po
+#    msgfmt --statistics -c --check-accelerators Tortoise_zh_CN.po
 #
 # Please format your translation before commit:
 #    msgmerge --no-wrap -o Tortoise_zh_CN_new.po Tortoise_zh_CN.po Tortoise.pot
@@ -4705,7 +4705,7 @@ msgstr "动作记录最大行数"
 
 #. Resource IDs: (16655)
 msgid "Me&nus show recently used commands first"
-msgstr "用来显示最近使用的命令列表的菜单"
+msgstr "用来显示最近使用的命令列表的菜单(&N)"
 
 #. Resource IDs: (16134)
 msgid "Menu"
@@ -6284,11 +6284,11 @@ msgstr "设置(&E)"
 
 #. Resource IDs: (1065)
 msgid "S&how Buttons on One Row"
-msgstr "在一行显示按钮(H)"
+msgstr "在一行显示按钮(&H)"
 
 #. Resource IDs: (1065)
 msgid "S&how Buttons on Two Rows"
-msgstr "在两行显示按钮(H)"
+msgstr "在两行显示按钮(&H)"
 
 #. Resource IDs: (17078)
 msgid "S&how Quick Access Toolbar below the Ribbon"
@@ -6828,7 +6828,7 @@ msgstr "显示版本属性"
 
 #. Resource IDs: (16652)
 msgid "Show shortcut &keys in ScreenTips"
-msgstr "在屏幕提示中显示快捷键(K)"
+msgstr "在屏幕提示中显示快捷键(&K)"
 
 #. Resource IDs: (2049)
 msgid ""
