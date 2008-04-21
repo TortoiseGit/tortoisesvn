@@ -122,6 +122,7 @@ BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableStandAloneDialog)
 	ON_NOTIFY(LVN_BEGINDRAG, IDC_SVNPROGRESS, &CSVNProgressDlg::OnLvnBegindragSvnprogress)
 	ON_WM_SIZE()
 	ON_NOTIFY(LVN_GETDISPINFO, IDC_SVNPROGRESS, &CSVNProgressDlg::OnLvnGetdispinfoSvnprogress)
+	ON_BN_CLICKED(IDC_NONINTERACTIVE, &CSVNProgressDlg::OnBnClickedNoninteractive)
 END_MESSAGE_MAP()
 
 BOOL CSVNProgressDlg::Cancel()
@@ -143,6 +144,7 @@ svn_wc_conflict_choice_t CSVNProgressDlg::ConflictResolveCallback(const svn_wc_c
 				// if the result is conflicted and the dialog returned IDOK,
 				// that means we should not ask again in case of a conflict
 				m_AlwaysConflicted = true;
+				::SendMessage(GetDlgItem(IDC_NONINTERACTIVE)->GetSafeHwnd(), BM_SETCHECK, BST_CHECKED, 0);
 			}
 		}
 		mergedfile = dlg.GetMergedFile();
@@ -679,6 +681,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
 	AddAnchor(IDC_PROGRESSLABEL, BOTTOM_LEFT, BOTTOM_CENTER);
 	AddAnchor(IDC_PROGRESSBAR, BOTTOM_CENTER, BOTTOM_RIGHT);
 	AddAnchor(IDC_INFOTEXT, BOTTOM_LEFT, BOTTOM_RIGHT);
+	AddAnchor(IDC_NONINTERACTIVE, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDC_LOGBUTTON, BOTTOM_RIGHT);
@@ -2018,6 +2021,8 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
 	}
 	SetWindowText(sWindowTitle);
 
+	GetDlgItem(IDC_INFOTEXT)->ShowWindow(SW_HIDE);
+	GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_SHOW);
 	// we only accept a revision list to merge for peg merges
 	ATLASSERT((m_revisionArray.GetCount()==0) || (m_revisionArray.GetCount() && (m_url.IsEquivalentTo(m_url2))));
 
@@ -2070,6 +2075,8 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
 			bFailed = true;
 		}
 	}
+	GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_HIDE);
+	GetDlgItem(IDC_INFOTEXT)->ShowWindow(SW_SHOW);
 	return !bFailed;
 }
 
@@ -2437,4 +2444,9 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
 	return true;
 }
 
+void CSVNProgressDlg::OnBnClickedNoninteractive()
+{
+	LRESULT res = ::SendMessage(GetDlgItem(IDC_NONINTERACTIVE)->GetSafeHwnd(), BM_GETCHECK, 0, 0);
+	m_AlwaysConflicted = (res == BST_CHECKED);
+}
 

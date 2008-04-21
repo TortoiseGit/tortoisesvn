@@ -193,6 +193,7 @@ protected:
 	afx_msg void	OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void	OnBnClickedLogbutton();
 	afx_msg void	OnBnClickedOk();
+	afx_msg void	OnBnClickedNoninteractive();
 	afx_msg void	OnHdnItemclickSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg BOOL	OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	afx_msg void	OnClose();
