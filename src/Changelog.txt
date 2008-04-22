@@ -8,6 +8,7 @@
 - NEW: The copy command now can take a /logmsg or /logmsgfile command
        line param to pre-fill the commit log message. (Stefan)
 - NEW: Context menu in the log message box of the log dialog. (Stefan)
+- NEW: Properies (svn:* etc.) can be shown in status dialog. (Stefan Fuhrmann)
 - CHG: Fall back to cached log data if forced refresh fails in log view
        and the user chooses to go off-line again. (Stefan Fuhrmann)
 - CHG: Finalize toolbar button icons. (Stefan Fuhrmann)

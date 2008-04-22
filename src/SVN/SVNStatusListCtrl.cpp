@@ -39,7 +39,7 @@
 #include "TSVNPath.h"
 #include "Registry.h"
 #include "SVNStatus.h"
-#include "SVNDiff.h"
+#include "SVNHelpers.h"
 #include "InputDlg.h"
 #include "ShellUpdater.h"
 #include "SVNAdminDir.h"
@@ -98,6 +98,8 @@ const UINT CSVNStatusListCtrl::SVNSLNM_CHECKCHANGED
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
 	ON_NOTIFY(HDN_ITEMCLICKA, 0, OnHdnItemclick)
 	ON_NOTIFY(HDN_ITEMCLICKW, 0, OnHdnItemclick)
+	ON_NOTIFY(HDN_ENDTRACK, 0, OnColumnResized)
+	ON_NOTIFY(HDN_ENDDRAG, 0, OnColumnMoved)
 	ON_NOTIFY_REFLECT_EX(LVN_ITEMCHANGED, OnLvnItemchanged)
 	ON_WM_CONTEXTMENU()
 	ON_NOTIFY_REFLECT(NM_DBLCLK, OnNMDblclk)
@@ -120,8 +122,987 @@ BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
 END_MESSAGE_MAP()
 
 
-bool	CSVNStatusListCtrl::m_bAscending = false;
-int		CSVNStatusListCtrl::m_nSortedColumn = -1;
+// assign property list
+
+CSVNStatusListCtrl::PropertyList& 
+CSVNStatusListCtrl::PropertyList::operator= (const char* rhs)
+{
+    // do you really want to replace the property list?
+
+    assert (properties.empty());
+    properties.clear();
+
+    // add all properties in the list
+
+    while ((rhs != NULL) && (*rhs != 0))
+    {
+        const char* next = strchr (rhs, ' ');
+
+        CString name (rhs, static_cast<int>(next == NULL ? strlen (rhs) : next - rhs));
+        properties.insert (std::make_pair (name, CString()));
+
+        rhs = next == NULL ? NULL : next+1;
+    }
+
+    // done
+
+    return *this;
+}
+
+// collect property names in a set
+
+void CSVNStatusListCtrl::PropertyList::GetPropertyNames (std::set<CString>& names)
+{
+    for ( CIT iter = properties.begin(), end = properties.end()
+        ; iter != end
+        ; ++iter)
+    {
+        names.insert (iter->first);
+    }
+}
+
+// get a property value. 
+
+CString CSVNStatusListCtrl::PropertyList::operator[](const CString& name) const
+{
+    CIT iter = properties.find (name);
+
+    return iter == properties.end()
+        ? CString()
+        : iter->second;
+}
+
+// set a property value.
+
+CString& CSVNStatusListCtrl::PropertyList::operator[](const CString& name)
+{
+    return properties[name];
+}
+
+/// check whether that property has been set on this item.
+
+bool CSVNStatusListCtrl::PropertyList::HasProperty (const CString& name) const
+{
+    return properties.find (name) != properties.end();
+}
+
+// due to frequent use: special check for svn:needs-lock
+
+bool CSVNStatusListCtrl::PropertyList::IsNeedsLockSet() const
+{
+    static const CString svnNeedsLock = _T("svn:needs-lock");
+    return HasProperty (svnNeedsLock);
+}
+
+// registry access
+
+void CSVNStatusListCtrl::ColumnManager::ReadSettings 
+    ( DWORD defaultColumns
+    , const CString& containerName)
+{
+    // defaults
+
+    DWORD selectedStandardColumns = defaultColumns;
+
+    columns.resize (SVNSLC_NUMCOLUMNS);
+    for (size_t i = 0; i < SVNSLC_NUMCOLUMNS; ++i)
+    {
+        columns[i].index = static_cast<int>(i);
+        columns[i].width = 0;
+        columns[i].visible = true;
+        columns[i].relevant = true;
+    }
+
+    userProps.clear();
+
+    // where the settings are stored within the registry
+
+    registryPrefix 
+        = _T("Software\\TortoiseSVN\\StatusColumns\\") + containerName;
+
+    // we accept settings version 2 only
+    // (version 1 used different placement of hidden columns)
+
+	bool valid = (DWORD)CRegDWORD (registryPrefix + _T("Version"), 0xff) == 2;
+    if (valid)
+    {
+        // read (possibly different) column selection
+
+		selectedStandardColumns 
+            = CRegDWORD (registryPrefix, selectedStandardColumns);
+
+        // read user-prop lists
+
+        CString userPropList 
+            = CRegString (registryPrefix + _T("UserProps"));
+        CString shownUserProps 
+            = CRegString (registryPrefix + _T("ShownUserProps"));
+
+        ParseUserPropSettings (userPropList, shownUserProps);
+
+        // read column widths
+
+        CString colWidths
+            = CRegString (registryPrefix + _T("_Width"));
+
+        ParseWidths (colWidths);
+    }
+
+    // process old-style visibility setting
+
+    SetStandardColumnVisibility (selectedStandardColumns);
+
+	// clear all previously set header columns
+
+	int c = ((CHeaderCtrl*)(control->GetDlgItem(0)))->GetItemCount()-1;
+	while (c>=0)
+		control->DeleteColumn(c--);
+
+    // create columns
+
+    for (int i = 0, count = GetColumnCount(); i < count; ++i)
+        control->InsertColumn (i, GetName(i), LVCFMT_LEFT, GetVisibleWidth(i));
+
+    // restore column ordering
+
+    if (valid)
+        ParseColumnOrder (CRegString (registryPrefix + _T("_Order")));
+    else
+        ParseColumnOrder (CString());
+
+    ApplyColumnOrder();
+}
+
+void CSVNStatusListCtrl::ColumnManager::WriteSettings() const
+{
+    // we are version 2
+
+	CRegDWORD regVersion (registryPrefix + _T("Version"), 0, TRUE);
+    regVersion = 2;
+
+    // write (possibly different) column selection
+
+    CRegDWORD regStandardColumns (registryPrefix, 0, TRUE);
+    regStandardColumns = GetSelectedStandardColumns();
+
+    // write user-prop lists
+
+    CRegString regUserProps (registryPrefix + _T("UserProps"), CString(), TRUE);
+    regUserProps = GetUserPropList();
+
+    CRegString regShownUserProps (registryPrefix + _T("ShownUserProps"), CString(), TRUE);
+    regShownUserProps = GetShownUserProps();
+
+    // write column widths
+
+    CRegString regWidths (registryPrefix + _T("_Width"), CString(), TRUE);
+    regWidths = GetWidthString();
+
+    // write column ordering
+
+    CRegString regColumnOrder (registryPrefix + _T("_Order"), CString(), TRUE);
+    regColumnOrder = GetColumnOrderString();
+}
+
+// read column definitions
+
+int CSVNStatusListCtrl::ColumnManager::GetColumnCount() const
+{
+    return static_cast<int>(columns.size());
+}
+
+bool CSVNStatusListCtrl::ColumnManager::IsVisible (int column) const
+{
+    size_t index = static_cast<size_t>(column);
+    assert (columns.size() > index);
+
+    return columns[index].visible;
+}
+
+bool CSVNStatusListCtrl::ColumnManager::IsRelevant (int column) const
+{
+    size_t index = static_cast<size_t>(column);
+    assert (columns.size() > index);
+
+    return columns[index].relevant;
+}
+
+bool CSVNStatusListCtrl::ColumnManager::IsUserProp (int column) const
+{
+    size_t index = static_cast<size_t>(column);
+    assert (columns.size() > index);
+
+    return columns[index].index >= SVNSLC_USERPROPCOLOFFSET;
+}
+
+CString CSVNStatusListCtrl::ColumnManager::GetName (int column) const
+{
+    static const UINT standardColumnNames[SVNSLC_NUMCOLUMNS] 
+        = { IDS_STATUSLIST_COLFILE
+
+          , IDS_STATUSLIST_COLFILENAME
+          , IDS_STATUSLIST_COLEXT
+		  , IDS_STATUSLIST_COLSTATUS
+
+		  , IDS_STATUSLIST_COLREMOTESTATUS
+		  , IDS_STATUSLIST_COLTEXTSTATUS
+		  , IDS_STATUSLIST_COLPROPSTATUS
+
+		  , IDS_STATUSLIST_COLREMOTETEXTSTATUS
+		  , IDS_STATUSLIST_COLREMOTEPROPSTATUS
+		  , IDS_STATUSLIST_COLURL
+
+		  , IDS_STATUSLIST_COLLOCK
+		  , IDS_STATUSLIST_COLLOCKCOMMENT
+		  , IDS_STATUSLIST_COLAUTHOR
+
+		  , IDS_STATUSLIST_COLREVISION
+		  , IDS_STATUSLIST_COLDATE
+		  , IDS_STATUSLIST_COLSVNLOCK
+
+		  , IDS_STATUSLIST_COLCOPYFROM
+          , IDS_STATUSLIST_COLMODIFICATIONDATE};
+
+    // standard columns
+
+    size_t index = static_cast<size_t>(column);
+    if (index < SVNSLC_NUMCOLUMNS)
+    {
+        CString result;
+        result.LoadString (standardColumnNames[index]);
+        return result;
+    }
+
+    // user-prop columns
+
+    if (index < columns.size())
+        return userProps[columns[index].index - SVNSLC_USERPROPCOLOFFSET].name;
+
+    // default: empty
+
+    return CString();
+}
+
+int CSVNStatusListCtrl::ColumnManager::GetWidth (int column, bool useDefaults) const
+{
+    size_t index = static_cast<size_t>(column);
+    assert (columns.size() > index);
+
+    int width = columns[index].width;
+    if ((width == 0) && useDefaults)
+        width = LVSCW_AUTOSIZE_USEHEADER;
+
+    return width;
+}
+
+int CSVNStatusListCtrl::ColumnManager::GetVisibleWidth (int column) const
+{
+    return IsVisible (column)
+        ? GetWidth (column, true)
+        : 0;
+}
+
+// switch columns on and off
+
+void CSVNStatusListCtrl::ColumnManager::SetVisible 
+    ( int column
+    , bool visible)
+{
+    size_t index = static_cast<size_t>(column);
+    assert (index < columns.size());
+       
+    if (columns[index].visible != visible)
+    {
+        columns[index].visible = visible;
+        columns[index].relevant |= visible;
+        if (!visible)
+            columns[index].width = 0; 
+    }
+}
+
+// tracking column modifications
+
+void CSVNStatusListCtrl::ColumnManager::ColumnMoved (int column, int position)
+{
+    // in front of what column has it been inserted?
+
+    int index = columns[column].index;
+
+    std::set<int> usedIndexes;
+    for (size_t i = 0, count = columns.size(); i < count; ++i)
+        usedIndexes.insert (columns[i].index);
+    usedIndexes.erase (index);
+
+    std::vector<int> usedColumnOrder;
+    for (size_t i = 0, count = columnOrder.size(); i < count; ++i)
+        if (usedIndexes.find (columnOrder[i]) != usedIndexes.end())
+            usedColumnOrder.push_back (columnOrder[i]);
+
+    int next = position == GetColumnCount()-1 
+             ? -1 
+             : usedColumnOrder[position];
+
+    // move logical column index just in front of that "next" column
+
+    columnOrder.erase (std::find ( columnOrder.begin()
+                                 , columnOrder.end()
+                                 , index));
+    columnOrder.insert ( std::find ( columnOrder.begin()
+                                   , columnOrder.end()
+                                   , next)
+                       , index);
+}
+
+void CSVNStatusListCtrl::ColumnManager::ColumnResized (int column)
+{
+    size_t index = static_cast<size_t>(column);
+    assert (index < columns.size());
+    assert (columns[index].visible);
+       
+    int width = control->GetColumnWidth (column);
+    columns[index].width = width;
+
+    int propertyIndex = columns[index].index;
+    if (propertyIndex >= SVNSLC_USERPROPCOLOFFSET)
+        userProps[propertyIndex - SVNSLC_USERPROPCOLOFFSET].width = width;
+}
+
+// call these to update the user-prop list
+// (will also auto-insert /-remove new list columns)
+
+void CSVNStatusListCtrl::ColumnManager::UpdateUserPropList 
+    (const std::vector<FileEntry*>& files)
+{
+    // collect all user-defined props
+
+    std::set<CString> aggregatedProps;
+    for (size_t i = 0, count = files.size(); i < count; ++i)
+        files[i]->present_props.GetPropertyNames (aggregatedProps);
+
+    aggregatedProps.erase (_T("svn:needs-lock"));
+    itemProps = aggregatedProps;
+
+    // add new ones to the internal list
+
+    std::set<CString> newProps = aggregatedProps;
+    for (size_t i = 0, count = userProps.size(); i < count; ++i)
+        newProps.erase (userProps[i].name);
+
+    typedef std::set<CString>::const_iterator CIT;
+    for ( CIT iter = newProps.begin(), end = newProps.end()
+        ; iter != end
+        ; ++iter)
+    {
+        int index = static_cast<int>(userProps.size()) 
+                  + SVNSLC_USERPROPCOLOFFSET;
+        columnOrder.push_back (index);
+
+        UserProp userProp;
+        userProp.name = *iter;
+        userProp.width = 0;
+
+        userProps.push_back (userProp);
+    }
+
+    // remove unused columns from control.
+    // remove used ones from the set of aggregatedProps.
+
+    for (size_t i = columns.size(); i > 0; --i)
+        if (   (columns[i-1].index >= SVNSLC_USERPROPCOLOFFSET)
+            && (aggregatedProps.erase (GetName ((int)i-1)) == 0))
+        {
+            // this user-prop has not been set on any item
+
+            if (!columns[i-1].visible)
+            {
+                control->DeleteColumn (static_cast<int>(i-1));
+                columns.erase (columns.begin() + i-1);
+            }
+        }
+
+    // aggregatedProps now contains new columns only.
+    // we can't use newProps here because some props may have been used
+    // earlier but were not in the recent list of used props.
+    // -> they are neither in columns[] nor in newProps.
+
+    for ( CIT iter = aggregatedProps.begin(), end = aggregatedProps.end()
+        ; iter != end
+        ; ++iter)
+    {
+        // get the logical column index / ID
+
+        int index = -1;
+        int width = 0;
+        for (size_t i = 0, count = userProps.size(); i < count; ++i)
+            if (userProps[i].name == *iter)
+            {
+                index = static_cast<int>(i) + SVNSLC_USERPROPCOLOFFSET;
+                width = userProps[i].width;
+                break;
+            }
+
+        assert (index != -1);
+
+        // find insertion position
+
+        std::vector<ColumnInfo>::iterator columnIter = columns.begin();
+        std::vector<ColumnInfo>::iterator end = columns.end();
+        for (; (columnIter != end) && columnIter->index < index; ++columnIter);
+        int pos = static_cast<int>(columnIter - columns.begin());
+
+        ColumnInfo column;
+        column.index = index;
+        column.width = width;
+        column.visible = false;
+
+        columns.insert (columnIter, column);
+
+        // update control
+
+        int result = control->InsertColumn (pos, *iter, LVCFMT_LEFT, GetVisibleWidth(pos));
+        assert (result != -1);
+    }
+
+    // update column order
+
+    ApplyColumnOrder();
+}
+
+void CSVNStatusListCtrl::ColumnManager::UpdateRelevance 
+    ( const std::vector<FileEntry*>& files
+    , const std::vector<size_t>& visibleFiles)
+{
+    // collect all user-defined props that belong to shown files
+
+    std::set<CString> aggregatedProps;
+    for (size_t i = 0, count = visibleFiles.size(); i < count; ++i)
+        files[visibleFiles[i]]->present_props.GetPropertyNames (aggregatedProps);
+
+    aggregatedProps.erase (_T("svn:needs-lock"));
+    itemProps = aggregatedProps;
+
+    // invisible columns for unused props are not relevant
+
+    for (int i = 0, count = GetColumnCount(); i < count; ++i)
+        if (IsUserProp(i) && !IsVisible(i))
+        {
+            columns[i].relevant 
+                = aggregatedProps.find (GetName(i)) != aggregatedProps.end();
+        }
+}
+
+// don't clutter the context menu with irrelevant prop info
+
+bool CSVNStatusListCtrl::ColumnManager::AnyUnusedProperties() const
+{
+    return columns.size() < userProps.size() + SVNSLC_NUMCOLUMNS;
+}
+
+void CSVNStatusListCtrl::ColumnManager::RemoveUnusedProps()
+{
+    // determine what column indexes / IDs to keep.
+    // map them onto new IDs (we may delete some IDs in between)
+
+    std::map<int, int> validIndices;
+    int userPropID = SVNSLC_USERPROPCOLOFFSET;
+
+    for (size_t i = 0, count = columns.size(); i < count; ++i)
+    {
+        int index = columns[i].index;
+
+        if (   itemProps.find (GetName((int)i)) != itemProps.end()
+            || columns[i].visible
+            || index < SVNSLC_USERPROPCOLOFFSET)
+        {
+            validIndices[index] = index < SVNSLC_USERPROPCOLOFFSET
+                                ? index
+                                : userPropID++;
+        }
+    }
+
+    // remove everything else:
+
+    // remove from columns and control.
+    // also update index values in columns
+
+    for (size_t i = columns.size(); i > 0; --i)
+    {
+        std::map<int, int>::const_iterator iter 
+            = validIndices.find (columns[i-1].index);
+
+        if (iter == validIndices.end())
+        {
+            control->DeleteColumn (static_cast<int>(i-1));
+            columns.erase (columns.begin() + i-1);
+        }
+        else
+        {
+            columns[i-1].index = iter->second;
+        }
+    }
+
+    // remove from user props
+
+    for (size_t i = userProps.size(); i > 0; --i)
+    {
+        int index = static_cast<int>(i)-1 + SVNSLC_USERPROPCOLOFFSET;
+        if (validIndices.find (index) == validIndices.end())
+            userProps.erase (userProps.begin() + i-1);
+    }
+
+    // remove from and update column order
+
+    for (size_t i = columnOrder.size(); i > 0; --i)
+    {
+        std::map<int, int>::const_iterator iter 
+            = validIndices.find (columnOrder[i-1]);
+
+        if (iter == validIndices.end())
+            columnOrder.erase (columnOrder.begin() + i-1);
+        else
+            columnOrder[i-1] = iter->second;
+    }
+}
+
+// bring everything back to its "natural" order
+
+void CSVNStatusListCtrl::ColumnManager::ResetColumns()
+{
+    // update internal data
+
+    std::sort (columnOrder.begin(), columnOrder.end());
+
+    for (size_t i = 0, count = columns.size(); i < count; ++i)
+        columns[i].width = 0;
+
+    for (size_t i = 0, count = userProps.size(); i < count; ++i)
+        userProps[i].width = 0;
+
+    // update UI
+
+    int order[SVNSLC_MAXCOLUMNCOUNT+1];
+    for (int i = 0; i <= SVNSLC_MAXCOLUMNCOUNT; ++i)
+        order[i] = i;
+
+    control->SetColumnOrderArray (GetColumnCount(), order);
+
+    for (int i = 0, count = GetColumnCount(); i < count; ++i)
+        if (IsVisible(i))
+            control->SetColumnWidth (i, GetVisibleWidth(i));
+}
+
+// initialization utilities
+
+void CSVNStatusListCtrl::ColumnManager::ParseUserPropSettings 
+    ( const CString& userPropList
+    , const CString& shownUserProps)
+{
+    assert (userProps.empty());
+
+    static CString delimiters (_T(""));
+
+    // parse list of visible user-props
+
+    std::set<CString> visibles;
+
+    int pos = 0;
+    CString name = shownUserProps.Tokenize (delimiters, pos);
+    while (!name.IsEmpty())
+    {
+        visibles.insert (name);
+        name = shownUserProps.Tokenize (delimiters, pos);
+    }
+
+    // create list of all user-props
+
+    pos = 0;
+    name = userPropList.Tokenize (delimiters, pos);
+    while (!name.IsEmpty())
+    {
+        bool visible = visibles.find (name) != visibles.end();
+
+        UserProp newEntry;
+        newEntry.name = name;
+        newEntry.width = 0;
+
+        userProps.push_back (newEntry);
+
+        // auto-create columns for visible user-props
+        // (others may be added later)
+
+        if (visible)
+        {
+            ColumnInfo newColumn;
+            newColumn.width = 0;
+            newColumn.visible = true;
+            newColumn.relevant = true;
+            newColumn.index = static_cast<int>(userProps.size()) 
+                            + SVNSLC_USERPROPCOLOFFSET - 1;
+
+            columns.push_back (newColumn);
+        }
+
+        name = userPropList.Tokenize (delimiters, pos);
+    }
+}
+
+void CSVNStatusListCtrl::ColumnManager::ParseWidths (const CString& widths)
+{
+    for (int i = 0, count = widths.GetLength() / 8; i < count; ++i)
+    {
+		long width = _tcstol (widths.Mid (i*8, 8), NULL, 16);
+        if (i < SVNSLC_NUMCOLUMNS)
+        {
+            // a standard column
+
+            columns[i].width = width;
+        }
+        else if (i >= SVNSLC_USERPROPCOLOFFSET)
+        {
+            // a user-prop column
+
+            size_t index = static_cast<size_t>(i - SVNSLC_USERPROPCOLOFFSET);
+            assert (index < userProps.size());
+            userProps[index].width = width;
+
+            for (size_t k = 0, count = columns.size(); k < count; ++k)
+                if (columns[k].index == i)
+                    columns[k].width = width;
+        }
+        else
+        {
+            // there is no such column 
+
+            assert (width == 0);
+        }
+    }
+}
+
+void CSVNStatusListCtrl::ColumnManager::SetStandardColumnVisibility 
+    (DWORD visibility)
+{
+    for (size_t i = 0; i < SVNSLC_NUMCOLUMNS; ++i)
+    {
+        columns[i].visible = (visibility & 1) > 0;
+        visibility /= 2;
+    }
+}
+
+void CSVNStatusListCtrl::ColumnManager::ParseColumnOrder 
+    (const CString& widths)
+{
+    std::set<int> alreadyPlaced;
+    columnOrder.clear();
+
+    // place columns according to valid entries in orderString
+
+    int limit = static_cast<int>(SVNSLC_USERPROPCOLOFFSET + userProps.size());
+    for (int i = 0, count = widths.GetLength() / 2; i < count; ++i)
+    {
+		int index = _tcstol (widths.Mid (i*2, 2), NULL, 16);
+        if (   (index < SVNSLC_NUMCOLUMNS)
+            || ((index >= SVNSLC_USERPROPCOLOFFSET) && (index < limit)))
+        {
+            alreadyPlaced.insert (index);
+            columnOrder.push_back (index);
+        }
+    }
+
+    // place the remaining colums behind it
+
+    for (int i = 0; i < SVNSLC_NUMCOLUMNS; ++i)
+        if (alreadyPlaced.find (i) == alreadyPlaced.end())
+            columnOrder.push_back (i);
+
+    for (int i = SVNSLC_USERPROPCOLOFFSET; i < limit; ++i)
+        if (alreadyPlaced.find (i) == alreadyPlaced.end())
+            columnOrder.push_back (i);
+}
+
+void CSVNStatusListCtrl::ColumnManager::ApplyColumnOrder()
+{
+    // extract order of used columns from order of all columns
+
+    int order[SVNSLC_MAXCOLUMNCOUNT+1];
+    ZeroMemory (order, sizeof (order));
+
+    int offset = 0;
+    for (size_t i = 0, count = columnOrder.size(); i < count; ++i)
+    {
+        int index = columnOrder[i];
+        for (size_t k = 0, colCount = columns.size(); k < colCount; ++k)
+            if (columns[k].index == index)
+                order[offset++] = static_cast<int>(k);
+    }
+
+    // we must have placed all columns or something is really fishy ..
+
+    assert (offset == GetColumnCount());
+	assert (offset == ((CHeaderCtrl*)(control->GetDlgItem(0)))->GetItemCount());
+
+    // o.k., apply our column ordering
+
+    control->SetColumnOrderArray (offset, order);
+}
+
+// utilities used when writing data to the registry
+
+DWORD CSVNStatusListCtrl::ColumnManager::GetSelectedStandardColumns() const
+{
+    DWORD result = 0;
+    for (size_t i = SVNSLC_NUMCOLUMNS; i > 0; --i)
+        result = result * 2 + (columns[i-1].visible ? 1 : 0);
+
+    return result;
+}
+
+CString CSVNStatusListCtrl::ColumnManager::GetUserPropList() const
+{
+    CString result;
+
+    for (size_t i = 0, count = userProps.size(); i < count; ++i)
+        result += userProps[i].name + _T(' ');
+
+    return result;
+}
+
+CString CSVNStatusListCtrl::ColumnManager::GetShownUserProps() const
+{
+    CString result;
+
+    for (size_t i = 0, count = columns.size(); i < count; ++i)
+    {
+        size_t index = static_cast<size_t>(columns[i].index);
+        if (columns[i].visible && (index >= SVNSLC_USERPROPCOLOFFSET))
+            result += userProps[index - SVNSLC_USERPROPCOLOFFSET].name 
+                    + _T(' ');
+    }
+
+    return result;
+}
+
+CString CSVNStatusListCtrl::ColumnManager::GetWidthString() const
+{
+    CString result;
+
+    // regular columns
+
+	TCHAR buf[10];
+    for (size_t i = 0; i < SVNSLC_NUMCOLUMNS; ++i)
+	{
+		_stprintf_s (buf, 10, _T("%08X"), columns[i].width);
+		result += buf;
+	}
+
+    // range with no column IDs
+
+    result += CString ('0', 8 * (SVNSLC_USERPROPCOLOFFSET - SVNSLC_NUMCOLUMNS));
+
+    // user-prop columns
+
+    for (size_t i = 0, count = userProps.size(); i < count; ++i)
+	{
+		_stprintf_s (buf, 10, _T("%08X"), userProps[i].width);
+		result += buf;
+	}
+
+    return result;
+}
+
+CString CSVNStatusListCtrl::ColumnManager::GetColumnOrderString() const
+{
+    CString result;
+
+	TCHAR buf[3];
+    for (size_t i = 0, count = columnOrder.size(); i < count; ++i)
+	{
+		_stprintf_s (buf, 3, _T("%02X"), columnOrder[i]);
+		result += buf;
+	}
+
+    return result;
+}
+
+// sorter utility class
+
+CSVNStatusListCtrl::CSorter::CSorter ( ColumnManager* columnManager
+                                     , int sortedColumn
+                                     , bool ascending)
+    : columnManager (columnManager)
+    , sortedColumn (sortedColumn)
+    , ascending (ascending)
+{
+}
+
+bool CSVNStatusListCtrl::CSorter::operator()
+    ( const FileEntry* entry1
+    , const FileEntry* entry2) const
+{
+	#define SGN(x) ((x)==0?0:((x)>0?1:-1))
+
+	int result = 0;
+	switch (sortedColumn)
+	{
+	case 17:
+		{
+			if (result == 0)
+			{
+				__int64 writetime1 = entry1->GetPath().GetLastWriteTime();
+				__int64 writetime2 = entry2->GetPath().GetLastWriteTime();
+
+				FILETIME* filetime1 = (FILETIME*)(__int64*)&writetime1;
+				FILETIME* filetime2 = (FILETIME*)(__int64*)&writetime2;
+	
+				result = CompareFileTime(filetime1,filetime2);
+			}
+		}
+	case 16:
+		{
+			if (result == 0)
+			{
+				result = entry1->copyfrom_url.CompareNoCase(entry2->copyfrom_url);
+			}
+		}
+	case 15:
+		{
+			if (result == 0)
+			{
+				result = SGN(entry1->needslock - entry2->needslock);
+			}
+		}
+	case 14:
+		{
+			if (result == 0)
+			{
+				result = SGN(entry1->last_commit_date - entry2->last_commit_date);
+			}
+		}
+	case 13:
+		{
+			if (result == 0)
+			{
+				result = entry1->last_commit_rev - entry2->last_commit_rev;
+			}
+		}
+	case 12:
+		{
+			if (result == 0)
+			{
+				result = entry1->last_commit_author.CompareNoCase(entry2->last_commit_author);
+			}
+		}
+	case 11:
+		{
+			if (result == 0)
+			{
+				result = entry1->lock_comment.CompareNoCase(entry2->lock_comment);
+			}
+		}
+	case 10:
+		{
+			if (result == 0)
+			{
+				result = entry1->lock_owner.CompareNoCase(entry2->lock_owner);
+			}
+		}
+	case 9:
+		{
+			if (result == 0)
+			{
+				result = entry1->url.CompareNoCase(entry2->url);
+			}
+		}
+	case 8:
+		{
+			if (result == 0)
+			{
+				result = entry1->remotepropstatus - entry2->remotepropstatus;
+			}
+		}
+	case 7:
+		{
+			if (result == 0)
+			{
+				result = entry1->remotetextstatus - entry2->remotetextstatus;
+			}
+		}
+	case 6:
+		{
+			if (result == 0)
+			{
+				result = entry1->propstatus - entry2->propstatus;
+			}
+		}
+	case 5:
+		{
+			if (result == 0)
+			{
+				result = entry1->textstatus - entry2->textstatus;
+			}
+		}
+	case 4:
+		{
+			if (result == 0)
+			{
+				result = entry1->remotestatus - entry2->remotestatus;
+			}
+		}
+	case 3:
+		{
+			if (result == 0)
+			{
+				result = entry1->status - entry2->status;
+			}
+		}
+	case 2:
+		{
+			if (result == 0)
+			{
+				result = entry1->path.GetFileExtension().CompareNoCase(entry2->path.GetFileExtension());
+			}
+		}
+	case 1:
+		{
+			if (result == 0)
+			{
+				result = entry1->path.GetFileOrDirectoryName().CompareNoCase(entry2->path.GetFileOrDirectoryName());
+			}
+		}
+	case 0:		// path column
+		{
+			if (result == 0)
+			{
+				result = CTSVNPath::Compare(entry1->path, entry2->path);
+			}
+		}
+	default:
+		if ((result == 0) && (sortedColumn > 0))
+        {
+            // N/A props are "less than" empty props
+
+            const CString& propName = columnManager->GetName (sortedColumn);
+
+            bool entry1HasProp = entry1->present_props.HasProperty (propName);
+            bool entry2HasProp = entry2->present_props.HasProperty (propName);
+
+            if (entry1HasProp)
+            {
+                result = entry2HasProp
+                        ? entry1->present_props[propName].Compare 
+                            (entry2->present_props[propName])
+                        : 1;
+            }
+            else
+            {
+                result = entry2HasProp ? -1 : 0;
+            }
+        }
+	} // switch (m_nSortedColumn)
+	if (!ascending)
+		result = -result;
+
+	return result < 0;
+}
 
 CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
 	, m_HeadRev(SVNRev::REV_HEAD)
@@ -145,8 +1126,10 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
 	, m_bCheckIfGroupsExist(true)
 	, m_bFileDropsEnabled(false)
 	, m_bOwnDrag(false)
+    , m_ColumnManager(this)
+    , m_bAscending(false)
+    , m_nSortedColumn(-1)
 {
-	ZeroMemory(m_arColumnWidths, sizeof(m_arColumnWidths));
 	m_critSec.Init();
 }
 
@@ -214,23 +1197,11 @@ int CSVNStatusListCtrl::GetIndex(const CTSVNPath& path)
 void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContainer, DWORD dwContextMenus /* = SVNSLC_POPALL */, bool bHasCheckboxes /* = true */)
 {
 	Locker lock(m_critSec);
-	m_sColumnInfoContainer = sColumnInfoContainer;
-	bool bUseSavedColumnData = true;
-	CRegDWORD regColVersion(_T("Software\\TortoiseSVN\\StatusColumns\\")+sColumnInfoContainer+_T("Version"), 0);
-	if (DWORD(regColVersion) != 1)
-	{
-		bUseSavedColumnData = false;
-		regColVersion = 1;
-	}
-	m_dwColumns = dwColumns;
-	if (bUseSavedColumnData)
-	{
-		CRegDWORD regColInfo(_T("Software\\TortoiseSVN\\StatusColumns\\")+sColumnInfoContainer, dwColumns);
-		m_dwColumns = regColInfo;
-	}
-	m_dwContextMenus = dwContextMenus;
+
+    m_dwContextMenus = dwContextMenus;
 	m_bHasCheckboxes = bHasCheckboxes;
-	// set the extended style of the list control
+
+    // set the extended style of the listcontrol
 	// the style LVS_EX_FULLROWSELECT interferes with the background watermark image but it's more important to be able to select in the whole row.
 	CRegDWORD regFullRowSelect(_T("Software\\TortoiseSVN\\FullRowSelect"), TRUE);
 	DWORD exStyle = LVS_EX_HEADERDRAGDROP | LVS_EX_DOUBLEBUFFER | LVS_EX_INFOTIP | LVS_EX_SUBITEMIMAGES;
@@ -246,113 +1217,8 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 	m_nIconFolder = SYS_IMAGE_LIST().GetDirIconIndex();
 	SetImageList(&SYS_IMAGE_LIST(), LVSIL_SMALL);
 
-	// clear all previously set header columns
-	DeleteAllItems();
-	int c = ((CHeaderCtrl*)(GetDlgItem(0)))->GetItemCount()-1;
-	while (c>=0)
-		DeleteColumn(c--);
+    m_ColumnManager.ReadSettings (dwColumns | 1, sColumnInfoContainer);
 
-	// now set up the requested columns
-	CString temp;
-	int nCol = 0;
-	// the relative path is always visible
-	temp.LoadString(IDS_STATUSLIST_COLFILE);
-	m_ColumnShown[nCol] = true;
-	InsertColumn(nCol++, temp);
-	temp.LoadString(IDS_STATUSLIST_COLFILENAME);
-	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLFILENAME;
-	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
-	nCol++;
-	temp.LoadString(IDS_STATUSLIST_COLEXT);
-	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLEXT;
-	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
-	nCol++;
-	temp.LoadString(IDS_STATUSLIST_COLSTATUS);
-	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLSTATUS;
-	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
-	nCol++;
-	temp.LoadString(IDS_STATUSLIST_COLREMOTESTATUS);
-	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLREMOTESTATUS;
-	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
-	nCol++;
-	temp.LoadString(IDS_STATUSLIST_COLTEXTSTATUS);
-	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLTEXTSTATUS;
-	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
-	nCol++;
-	temp.LoadString(IDS_STATUSLIST_COLPROPSTATUS);
-	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLPROPSTATUS;
-	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
-	nCol++;
-	temp.LoadString(IDS_STATUSLIST_COLREMOTETEXTSTATUS);
-	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLREMOTETEXT;
-	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
-	nCol++;
-	temp.LoadString(IDS_STATUSLIST_COLREMOTEPROPSTATUS);
-	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLREMOTEPROP;
-	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
-	nCol++;
-	temp.LoadString(IDS_STATUSLIST_COLURL);
-	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLURL;
-	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
-	nCol++;
-	temp.LoadString(IDS_STATUSLIST_COLLOCK);
-	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLLOCK;
-	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
-	nCol++;
-	temp.LoadString(IDS_STATUSLIST_COLLOCKCOMMENT);
-	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLLOCKCOMMENT;
-	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
-	nCol++;
-	temp.LoadString(IDS_STATUSLIST_COLAUTHOR);
-	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLAUTHOR;
-	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
-	nCol++;
-	temp.LoadString(IDS_STATUSLIST_COLREVISION);
-	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLREVISION;
-	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
-	nCol++;
-	temp.LoadString(IDS_STATUSLIST_COLDATE);
-	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLDATE;
-	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
-	nCol++;
-	temp.LoadString(IDS_STATUSLIST_COLSVNLOCK);
-	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLSVNNEEDSLOCK;
-	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
-	nCol++;
-	temp.LoadString(IDS_STATUSLIST_COLCOPYFROM);
-	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLCOPYFROM;
-	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
-	nCol++;
-	temp.LoadString(IDS_STATUSLIST_COLMODIFICATIONDATE);
-	m_ColumnShown[nCol] = m_dwColumns & SVNSLC_COLMODIFICATIONDATE;
-	InsertColumn(nCol, temp, LVCFMT_LEFT, m_ColumnShown[nCol] ? -1 : 0);
-
-	if (bUseSavedColumnData)
-	{
-		CRegString regColOrder(_T("Software\\TortoiseSVN\\StatusColumns\\")+sColumnInfoContainer+_T("_Order"));
-		CRegString regColWidths(_T("Software\\TortoiseSVN\\StatusColumns\\")+sColumnInfoContainer+_T("_Width"));
-		int arr[SVNSLC_NUMCOLUMNS];
-		if (!CString(regColOrder).IsEmpty())
-		{
-			StringToOrderArray(regColOrder, arr);
-			SetColumnOrderArray(SVNSLC_NUMCOLUMNS, arr);
-		}
-		if (!CString(regColWidths).IsEmpty())
-		{
-			StringToWidthArray(regColWidths, m_arColumnWidths);
-		}
-	}
-	int maxcol = ((CHeaderCtrl*)(GetDlgItem(0)))->GetItemCount()-1;
-	int col;
-	for (col = 0; col <= maxcol; col++)
-	{
-		if (m_ColumnShown[col]==0)
-			HideColumn(col);
-		if (m_arColumnWidths[col] == 0)
-			SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
-		else
-			SetColumnWidth(col, m_arColumnWidths[col]);
-	}
 	// enable file drops
 	if (m_pDropTarget == NULL)
 	{
@@ -377,7 +1243,10 @@ bool CSVNStatusListCtrl::SetBackgroundImage(UINT nID)
 	return CAppUtils::SetListCtrlBackgroundImage(GetSafeHwnd(), nID);
 }
 
-BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /* = FALSE */, bool bShowIgnores /* = false */)
+BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
+                                   , bool bUpdate /* = FALSE */
+                                   , bool bShowIgnores /* = false */
+                                   , bool bShowUserProps /* = false */)
 {
 	Locker lock(m_critSec);
 	int refetchcounter = 0;
@@ -529,12 +1398,86 @@ BOOL CSVNStatusListCtrl::GetStatus(const CTSVNPathList& pathList, bool bUpdate /
 		refetchcounter++;
 	} while(!BuildStatistics() && (refetchcounter < 2) && (*m_pbCanceled==false));
 
+    if (bShowUserProps)
+        FetchUserProperties();
+
+    m_ColumnManager.UpdateUserPropList (m_arStatusArray);
+
 	m_bBlock = FALSE;
 	m_bBusy = false;
 	GetCursorPos(&pt);
 	SetCursorPos(pt.x, pt.y);
 	return bRet;
 }
+
+//
+// Fetch all local properties for all elements in the status array
+//
+void CSVNStatusListCtrl::FetchUserProperties()
+{
+	SVNPool globalPool;
+
+    for (size_t i = 0, count = m_arStatusArray.size(); i < count; ++i)
+    {
+        // local / temp pool to hold parameters and props for a single item
+
+    	SVNPool localPool ((apr_pool_t*)globalPool);
+
+        // open working copy for this path
+
+        const char* path = m_arStatusArray[i]->path.GetSVNApiPath (localPool);
+         
+	    svn_wc_adm_access_t *adm_access = NULL;          
+        svn_error_t * error = svn_wc_adm_probe_open2 ( &adm_access
+                                                     , NULL
+                                                     , path
+                                                     , FALSE
+                                                     , 0
+                                                     , localPool);
+        if (error == NULL)
+        {
+            // get the props and add them to the status info
+
+            apr_hash_t* props = NULL;
+            svn_error_t * error = svn_wc_prop_list ( &props
+                                                   , path
+                                                   , adm_access
+                                                   , localPool);
+            if (error == NULL)
+            {
+                for ( apr_hash_index_t *index 
+                        = apr_hash_first (localPool, props)
+                    ; index != NULL
+                    ; index = apr_hash_next (index))
+                {
+                    // extract next entry from hash
+
+                    const char* key = NULL;
+                    ptrdiff_t keyLen;
+                    const char** val = NULL;
+
+                    apr_hash_this ( index
+                                  , reinterpret_cast<const void**>(&key)
+                                  , &keyLen
+                                  , reinterpret_cast<void**>(&val));
+
+                    // decode / dispatch it
+
+        	        CString name = CUnicodeUtils::GetUnicode (key);
+	                CString value = CUnicodeUtils::GetUnicode (*val);
+
+                    // store in property container (truncate it after ~100 chars)
+
+                    m_arStatusArray[i]->present_props[name] 
+                        = value.Left (SVNSLC_MAXUSERPROPLENGTH);
+                }
+            }
+        }
+
+        svn_error_clear (NULL);
+    }
+}
+
 
 //
 // Work on a single item from the list of paths which is provided to us
@@ -1118,16 +2061,13 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 
 	SetItemCount(listIndex);
 
+    m_ColumnManager.UpdateRelevance (m_arStatusArray, m_arListArray);
+
 	int maxcol = ((CHeaderCtrl*)(GetDlgItem(0)))->GetItemCount()-1;
-	int col;
-	for (col = 0; col <= maxcol; col++)
-	{
-		if (m_arColumnWidths[col] == 0)
-			SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
-		else
-			SetColumnWidth(col, m_arColumnWidths[col]);
-	}
-	SetRedraw(TRUE);
+	for (int col = 0; col <= maxcol; col++)
+        SetColumnWidth (col, m_ColumnManager.GetWidth (col, true));
+
+    SetRedraw(TRUE);
 	GetStatisticsString();
 
 	CHeaderCtrl * pHeader = GetHeaderCtrl();
@@ -1253,15 +2193,10 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, bo
 	SetItemCount(listIndex);
 
 	int maxcol = ((CHeaderCtrl*)(GetDlgItem(0)))->GetItemCount()-1;
-	int col;
-	for (col = 0; col <= maxcol; col++)
-	{
-		if (m_arColumnWidths[col] == 0)
-			SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
-		else
-			SetColumnWidth(col, m_arColumnWidths[col]);
-	}
-	SetRedraw(TRUE);
+	for (int col = 0; col <= maxcol; col++)
+        SetColumnWidth (col, m_ColumnManager.GetWidth (col, true));
+
+    SetRedraw(TRUE);
 	GetStatisticsString();
 
 	CHeaderCtrl * pHeader = GetHeaderCtrl();
@@ -1482,7 +2417,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	else
 		SetItemText(index, nCol++, _T(""));
 	// SVNSLC_COLSVNNEEDSLOCK
-	BOOL bFoundSVNNeedsLock = (entry->present_props.Find(_T("svn:needs-lock"))!=-1);
+    BOOL bFoundSVNNeedsLock = entry->present_props.IsNeedsLockSet();
 	CString strSVNNeedsLock = (bFoundSVNNeedsLock) ? _T("*") : _T("");
 	SetItemText(index, nCol++, strSVNNeedsLock);
 	// SVNSLC_COLCOPYFROM
@@ -1504,6 +2439,21 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	{
 		SetItemText(index, nCol++, _T(""));
 	}
+
+    // user-defined properties
+    for ( int i = SVNSLC_NUMCOLUMNS, count = m_ColumnManager.GetColumnCount()
+        ; i < count
+        ; ++i)
+    {
+        assert (i == nCol++);
+        assert (m_ColumnManager.IsUserProp (i));
+
+        CString name = m_ColumnManager.GetName(i);
+        if (entry->present_props.HasProperty (name))
+            SetItemText(index, i, entry->present_props [name]);
+        else
+            SetItemText(index, i, _T(""));
+    }
 
 	SetCheck(index, entry->checked);
 	if (entry->checked)
@@ -1533,158 +2483,12 @@ bool CSVNStatusListCtrl::SetItemGroup(int item, int groupindex)
 void CSVNStatusListCtrl::Sort()
 {
 	Locker lock(m_critSec);
-	std::sort(m_arStatusArray.begin(), m_arStatusArray.end(), SortCompare);
+
+    CSorter predicate (&m_ColumnManager, m_nSortedColumn, m_bAscending);
+
+	std::sort(m_arStatusArray.begin(), m_arStatusArray.end(), predicate);
 	SaveColumnWidths();
 	Show(m_dwShow, 0, m_bShowFolders);
-}
-
-bool CSVNStatusListCtrl::SortCompare(const FileEntry* entry1, const FileEntry* entry2)
-{
-	#define SGN(x) ((x)==0?0:((x)>0?1:-1))
-
-	int result = 0;
-	switch (m_nSortedColumn)
-	{
-	case 17:
-		{
-			if (result == 0)
-			{
-				__int64 writetime1 = entry1->GetPath().GetLastWriteTime();
-				__int64 writetime2 = entry2->GetPath().GetLastWriteTime();
-
-				FILETIME* filetime1 = (FILETIME*)(__int64*)&writetime1;
-				FILETIME* filetime2 = (FILETIME*)(__int64*)&writetime2;
-	
-				result = CompareFileTime(filetime1,filetime2);
-			}
-		}
-	case 16:
-		{
-			if (result == 0)
-			{
-				result = entry1->copyfrom_url.CompareNoCase(entry2->copyfrom_url);
-			}
-		}
-	case 15:
-		{
-			if (result == 0)
-			{
-				result = SGN(entry1->needslock - entry2->needslock);
-			}
-		}
-	case 14:
-		{
-			if (result == 0)
-			{
-				result = SGN(entry1->last_commit_date - entry2->last_commit_date);
-			}
-		}
-	case 13:
-		{
-			if (result == 0)
-			{
-				result = entry1->last_commit_rev - entry2->last_commit_rev;
-			}
-		}
-	case 12:
-		{
-			if (result == 0)
-			{
-				result = entry1->last_commit_author.CompareNoCase(entry2->last_commit_author);
-			}
-		}
-	case 11:
-		{
-			if (result == 0)
-			{
-				result = entry1->lock_comment.CompareNoCase(entry2->lock_comment);
-			}
-		}
-	case 10:
-		{
-			if (result == 0)
-			{
-				result = entry1->lock_owner.CompareNoCase(entry2->lock_owner);
-			}
-		}
-	case 9:
-		{
-			if (result == 0)
-			{
-				result = entry1->url.CompareNoCase(entry2->url);
-			}
-		}
-	case 8:
-		{
-			if (result == 0)
-			{
-				result = entry1->remotepropstatus - entry2->remotepropstatus;
-			}
-		}
-	case 7:
-		{
-			if (result == 0)
-			{
-				result = entry1->remotetextstatus - entry2->remotetextstatus;
-			}
-		}
-	case 6:
-		{
-			if (result == 0)
-			{
-				result = entry1->propstatus - entry2->propstatus;
-			}
-		}
-	case 5:
-		{
-			if (result == 0)
-			{
-				result = entry1->textstatus - entry2->textstatus;
-			}
-		}
-	case 4:
-		{
-			if (result == 0)
-			{
-				result = entry1->remotestatus - entry2->remotestatus;
-			}
-		}
-	case 3:
-		{
-			if (result == 0)
-			{
-				result = entry1->status - entry2->status;
-			}
-		}
-	case 2:
-		{
-			if (result == 0)
-			{
-				result = entry1->path.GetFileExtension().CompareNoCase(entry2->path.GetFileExtension());
-			}
-		}
-	case 1:
-		{
-			if (result == 0)
-			{
-				result = entry1->path.GetFileOrDirectoryName().CompareNoCase(entry2->path.GetFileOrDirectoryName());
-			}
-		}
-	case 0:		// path column
-		{
-			if (result == 0)
-			{
-				result = CTSVNPath::Compare(entry1->path, entry2->path);
-			}
-		}
-		break;
-	default:
-		break;
-	} // switch (m_nSortedColumn)
-	if (!m_bAscending)
-		result = -result;
-
-	return result < 0;
 }
 
 void CSVNStatusListCtrl::OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult)
@@ -1788,6 +2592,34 @@ BOOL CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
 	NotifyCheck();
 
 	return FALSE;
+}
+
+void CSVNStatusListCtrl::OnColumnResized(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMHEADER header = reinterpret_cast<LPNMHEADER>(pNMHDR);
+    if (   (header != NULL) 
+        && (header->iItem >= 0) 
+        && (header->iItem < m_ColumnManager.GetColumnCount()))
+    {
+        m_ColumnManager.ColumnResized (header->iItem);
+    }
+
+    *pResult = FALSE;
+}
+
+void CSVNStatusListCtrl::OnColumnMoved(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMHEADER header = reinterpret_cast<LPNMHEADER>(pNMHDR);
+    if (   (header != NULL) 
+        && (header->iItem >= 0) 
+        && (header->iItem < m_ColumnManager.GetColumnCount()))
+    {
+        m_ColumnManager.ColumnMoved (header->iItem, header->pitem->iOrder);
+    }
+
+    Invalidate(FALSE);
+
+    *pResult = FALSE;
 }
 
 void CSVNStatusListCtrl::CheckEntry(int index, int nListItems)
@@ -2575,7 +3407,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 					CopySelectedEntriesToClipboard(0);
 					break;
 				case IDSVNLC_COPYEXT:
-					CopySelectedEntriesToClipboard(m_dwColumns);
+					CopySelectedEntriesToClipboard((DWORD)-1);
 					break;
 				case IDSVNLC_PROPERTIES:
 					{
@@ -2643,7 +3475,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 
 							SVN svn;
 
-							// put all reverted files in the trash bin, except the ones with 'added'
+							// put all reverted files in the trashbin, except the ones with 'added'
 							// status because they are not restored by the revert.
 							CTSVNPathList delList;
 							POSITION pos = GetFirstSelectedItemPosition();
@@ -3481,7 +4313,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						SVN svn;
 						if (svn.RemoveFromChangeList(changelistItems, CStringArray(), svn_depth_empty))
 						{
-							// The change lists were removed, but we now need to run through the selected items again
+							// The changelists were removed, but we now need to run through the selected items again
 							// and update their changelist
 							POSITION pos = GetFirstSelectedItemPosition();
 							int index;
@@ -3495,7 +4327,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									RemoveListEntry(index);
 								}
 								else
-									SetItemGroup(index, 0);
+								SetItemGroup(index, 0);
 							}
 							// TODO: Should we go through all entries here and check if we also could
 							// remove the changelist from m_changelists ?
@@ -3544,7 +4376,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							SVN svn;
 							if (svn.AddToChangeList(changelistItems, sChangelist, svn_depth_empty))
 							{
-								// The change lists were moved, but we now need to run through the selected items again
+								// The changelists were moved, but we now need to run through the selected items again
 								// and update their changelist
 								POSITION pos = GetFirstSelectedItemPosition();
 								int index;
@@ -3598,55 +4430,74 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 		CMenu popup;
 		if (popup.CreatePopupMenu())
 		{
+            int columnCount = m_ColumnManager.GetColumnCount();
+
 			CString temp;
-			int nCol = 1;
 			UINT uCheckedFlags = MF_STRING | MF_ENABLED | MF_CHECKED;
 			UINT uUnCheckedFlags = MF_STRING | MF_ENABLED;
-			if (XPorLater)
+
+            // build control menu
+
+            if (XPorLater)
 			{
 				temp.LoadString(IDS_STATUSLIST_SHOWGROUPS);
-				popup.AppendMenu(IsGroupViewEnabled() ? uCheckedFlags : uUnCheckedFlags, SVNSLC_NUMCOLUMNS, temp);
+				popup.AppendMenu(IsGroupViewEnabled() ? uCheckedFlags : uUnCheckedFlags, columnCount, temp);
+            }
+
+            if (m_ColumnManager.AnyUnusedProperties())
+            {
+				temp.LoadString(IDS_STATUSLIST_REMOVEUNUSEDPROPS);
+				popup.AppendMenu(IsGroupViewEnabled() ? uCheckedFlags : uUnCheckedFlags, columnCount+1, temp);
+            }
+
+			temp.LoadString(IDS_STATUSLIST_RESETCOLUMNORDER);
+			popup.AppendMenu(IsGroupViewEnabled() ? uCheckedFlags : uUnCheckedFlags, columnCount+2, temp);
+            popup.AppendMenu(MF_SEPARATOR);
+
+            // standard columns
+
+            for (int i = 1; i < SVNSLC_NUMCOLUMNS; ++i)
+            {
+                popup.AppendMenu ( m_ColumnManager.IsVisible(i) 
+                                      ? uCheckedFlags 
+                                      : uUnCheckedFlags
+                                 , i
+                                 , m_ColumnManager.GetName(i));
+            }
+
+            // user-prop columns:
+            // find relevant ones and sort 'em
+
+            std::map<CString, int> sortedProps;
+            for (int i = SVNSLC_NUMCOLUMNS; i < columnCount; ++i)
+                if (m_ColumnManager.IsRelevant(i))
+                    sortedProps[m_ColumnManager.GetName(i)] = i;
+
+            if (!sortedProps.empty())
+            {
+                // add 'em to the menu
+
 				popup.AppendMenu(MF_SEPARATOR);
-			}
-			temp.LoadString(IDS_STATUSLIST_COLFILENAME);
-			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
-			temp.LoadString(IDS_STATUSLIST_COLEXT);
-			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
-			temp.LoadString(IDS_STATUSLIST_COLSTATUS);
-			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
-			temp.LoadString(IDS_STATUSLIST_COLREMOTESTATUS);
-			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
-			temp.LoadString(IDS_STATUSLIST_COLTEXTSTATUS);
-			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
-			temp.LoadString(IDS_STATUSLIST_COLPROPSTATUS);
-			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
-			temp.LoadString(IDS_STATUSLIST_COLREMOTETEXTSTATUS);
-			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
-			temp.LoadString(IDS_STATUSLIST_COLREMOTEPROPSTATUS);
-			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
-			temp.LoadString(IDS_STATUSLIST_COLURL);
-			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
-			temp.LoadString(IDS_STATUSLIST_COLLOCK);
-			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
-			temp.LoadString(IDS_STATUSLIST_COLLOCKCOMMENT);
-			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
-			temp.LoadString(IDS_STATUSLIST_COLAUTHOR);
-			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
-			temp.LoadString(IDS_STATUSLIST_COLREVISION);
-			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
-			temp.LoadString(IDS_STATUSLIST_COLDATE);
-			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
-			temp.LoadString(IDS_STATUSLIST_COLSVNLOCK);
-			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
-			temp.LoadString(IDS_STATUSLIST_COLCOPYFROM);
-			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
-			temp.LoadString(IDS_STATUSLIST_COLMODIFICATIONDATE);
-			popup.AppendMenu(m_ColumnShown[nCol] ? uCheckedFlags : uUnCheckedFlags, nCol++, temp);
+
+                typedef std::map<CString, int>::const_iterator CIT;
+                for ( CIT iter = sortedProps.begin(), end = sortedProps.end()
+                    ; iter != end
+                    ; ++iter)
+                {
+                    popup.AppendMenu ( m_ColumnManager.IsVisible(iter->second) 
+                                          ? uCheckedFlags 
+                                          : uUnCheckedFlags
+                                     , iter->second
+                                     , iter->first);
+                }
+            }
+
+            // show menu & let user pick an entry
 
 			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-			if ((cmd >= 1)&&(cmd < SVNSLC_NUMCOLUMNS))
+			if ((cmd >= 1)&&(cmd < columnCount))
 			{
-				if (m_ColumnShown[cmd])
+				if (m_ColumnManager.IsVisible(cmd))
 				{
 					HideColumn(cmd);
 				}
@@ -3654,10 +4505,18 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 				{
 					ShowColumn(cmd);
 				}
-			}
-			if (cmd == SVNSLC_NUMCOLUMNS)
+			} 
+            else if (cmd == columnCount)
 			{
 				EnableGroupView(!IsGroupViewEnabled());
+			} 
+            else if (cmd == columnCount+1)
+			{
+				m_ColumnManager.RemoveUnusedProps();
+			} 
+            else if (cmd == columnCount+2)
+			{
+				m_ColumnManager.ResetColumns();
 			}
 		}
 	}
@@ -3707,85 +4566,14 @@ void CSVNStatusListCtrl::CreateChangeList(const CString& name)
 
 void CSVNStatusListCtrl::ShowColumn(int col)
 {
-	m_ColumnShown[col] = 1;
-	SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
-
-	// restore position
-	int arr[SVNSLC_NUMCOLUMNS] = {0};
-	int arr2[SVNSLC_NUMCOLUMNS] = {0};
-	GetColumnOrderArray(arr, SVNSLC_NUMCOLUMNS);
-	int arrIndex = 0;
-	for (int i = 0; i < SVNSLC_NUMCOLUMNS; i++) 
-	{
-		if (m_ColumnShown[arr[i]] == 0)
-		{
-			arr2[arrIndex++] = arr[i];
-		}
-	}
-	bool bInserted = false;
-	for (int i = 0; i < SVNSLC_NUMCOLUMNS; i++) 
-	{
-		if (m_ColumnShown[arr[i]])
-		{
-			if ((arr[i]>col)&&(!bInserted))
-			{
-				arr2[arrIndex++] = col;
-				bInserted = true;
-			}
-			if (arr[i] != col)
-				arr2[arrIndex++] = arr[i];
-		}
-	}
-	if ( !bInserted )
-	{
-		arr2[arrIndex++] = col;
-	}
-
-	SetColumnOrderArray(SVNSLC_NUMCOLUMNS, arr2);
-
-
-	DWORD dwColumns = 0;
-	for (int i=0; i<SVNSLC_NUMCOLUMNS; ++i)
-	{
-		if (m_ColumnShown[i])
-			dwColumns |= (1<<i);
-	}
-	m_dwColumns = dwColumns;
+    m_ColumnManager.SetVisible (col, true);
+	SetColumnWidth (col, LVSCW_AUTOSIZE_USEHEADER);
 }
 
 void CSVNStatusListCtrl::HideColumn(int col)
 {
-	SetColumnWidth(col,0);
-	m_ColumnShown[col] = 0;
-	// move to front of list
-	int arr[SVNSLC_NUMCOLUMNS] = {0};
-	int arr2[SVNSLC_NUMCOLUMNS] = {0};
-	GetColumnOrderArray(arr, SVNSLC_NUMCOLUMNS);
-	int arrIndex = 0;
-	for (int i = 0; i < SVNSLC_NUMCOLUMNS; i++) 
-	{
-		if (m_ColumnShown[arr[i]] == 0)
-		{
-			arr2[arrIndex++] = arr[i];
-		}
-	}
-	for (int i = 0; i < SVNSLC_NUMCOLUMNS; i++) 
-	{
-		if (m_ColumnShown[arr[i]])
-		{
-			arr2[arrIndex++] = arr[i];
-		}
-	}
-
-	SetColumnOrderArray(SVNSLC_NUMCOLUMNS, arr2);
-
-	DWORD dwColumns = 0;
-	for (int i=0; i<SVNSLC_NUMCOLUMNS; ++i)
-	{
-		if (m_ColumnShown[i])
-			dwColumns |= (1<<i);
-	}
-	m_dwColumns = dwColumns;
+	SetColumnWidth (col,0);
+    m_ColumnManager.SetVisible (col, false);
 }
 
 void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
@@ -4136,7 +4924,7 @@ void CSVNStatusListCtrl::RemoveListEntry(int index)
 }
 
 ///< Set a checkbox on an entry in the listbox
-// NEVER, EVER call SetCheck directly, because you'll end-up with the check boxes and the 'checked' flag getting out of sync
+// NEVER, EVER call SetCheck directly, because you'll end-up with the checkboxes and the 'checked' flag getting out of sync
 void CSVNStatusListCtrl::SetEntryCheck(FileEntry* pEntry, int listboxIndex, bool bCheck)
 {
 	pEntry->checked = bCheck;
@@ -4337,87 +5125,16 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
 	UINT_PTR col = (nID-1) & 0x3ff;
 
 	if (col == 0)
-		return FALSE;	// no custom tooltip for the path, we use the info tip there!
+		return FALSE;	// no custom tooltip for the path, we use the infotip there!
 
 	// get the internal column from the visible columns
-	UINT_PTR internalcol = 0;
+	int internalcol = 0;
 	UINT_PTR currentcol = 0;
-	if (currentcol != col)
+    for (;    (currentcol != col) 
+           && (internalcol < m_ColumnManager.GetColumnCount()-1)
+         ; ++internalcol)
 	{
-		internalcol++;
-		if (m_dwColumns & SVNSLC_COLFILENAME)
-			currentcol++;
-	}
-	if (currentcol != col)
-	{
-		internalcol++;
-		if (m_dwColumns & SVNSLC_COLEXT)
-			currentcol++;
-	}
-	if (currentcol != col)
-	{
-		internalcol++;
-		if (m_dwColumns & SVNSLC_COLSTATUS)
-			currentcol++;
-	}
-	if (currentcol != col)
-	{
-		internalcol++;
-		if (m_dwColumns & SVNSLC_COLREMOTESTATUS)
-			currentcol++;
-	}
-	if (currentcol != col)
-	{
-		internalcol++;
-		if (m_dwColumns & SVNSLC_COLTEXTSTATUS)
-			currentcol++;
-	}
-	if (currentcol != col)
-	{
-		internalcol++;
-		if (m_dwColumns & SVNSLC_COLPROPSTATUS)
-			currentcol++;
-	}
-	if (currentcol != col)
-	{
-		internalcol++;
-		if (m_dwColumns & SVNSLC_COLREMOTETEXT)
-			currentcol++;
-	}
-	if (currentcol != col)
-	{
-		internalcol++;
-		if (m_dwColumns & SVNSLC_COLREMOTEPROP)
-			currentcol++;
-	}
-	if (currentcol != col)
-	{
-		internalcol++;
-		if (m_dwColumns & SVNSLC_COLURL)
-			currentcol++;
-	}
-	if (currentcol != col)
-	{
-		internalcol++;
-		if (m_dwColumns & SVNSLC_COLLOCK)
-			currentcol++;
-	}
-	if (currentcol != col)
-	{
-		internalcol++;
-		if (m_dwColumns & SVNSLC_COLLOCKCOMMENT)
-			currentcol++;
-	}
-	if (currentcol != col)
-	{
-		internalcol++;
-		if (m_dwColumns & SVNSLC_COLSVNNEEDSLOCK)
-			currentcol++;
-	}
-	if (currentcol != col)
-	{
-		internalcol++;
-		if (m_dwColumns & SVNSLC_COLMODIFICATIONDATE)
+        if (m_ColumnManager.IsVisible (internalcol))
 			currentcol++;
 	}
 
@@ -4517,7 +5234,8 @@ void CSVNStatusListCtrl::OnHdnBegintrack(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 	if ((phdr->iItem < 0)||(phdr->iItem >= SVNSLC_NUMCOLUMNS))
 		return;
-	if (m_ColumnShown[phdr->iItem])
+
+    if (m_ColumnManager.IsVisible (phdr->iItem))
 	{
 		return;
 	}
@@ -4529,9 +5247,9 @@ void CSVNStatusListCtrl::OnHdnItemchanging(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMHEADER phdr = reinterpret_cast<LPNMHEADER>(pNMHDR);
 	*pResult = 0;
-	if ((phdr->iItem < 0)||(phdr->iItem >= SVNSLC_NUMCOLUMNS))
+    if ((phdr->iItem < 0)||(phdr->iItem >= m_ColumnManager.GetColumnCount()))
 		return;
-	if (m_ColumnShown[phdr->iItem])
+    if (m_ColumnManager.IsVisible (phdr->iItem))
 	{
 		// check whether the horizontal scrollbar should be shown
 		int maxcol = ((CHeaderCtrl*)(GetDlgItem(0)))->GetItemCount()-1;
@@ -4546,75 +5264,6 @@ void CSVNStatusListCtrl::OnHdnItemchanging(NMHDR *pNMHDR, LRESULT *pResult)
 		return;
 	}
 	*pResult = 1;
-}
-
-bool CSVNStatusListCtrl::StringToOrderArray(const CString& OrderString, int OrderArray[])
-{
-	TCHAR * endchar;
-	for (int i=0; i<SVNSLC_NUMCOLUMNS; ++i)
-	{
-		CString hex = OrderString.Mid(i*2, 2);
-		if ( hex.IsEmpty() )
-		{
-			// This case only occurs when upgrading from an older
-			// TSVN version in which there were fewer columns.
-			// In this case, we revert back to the default ordering
-			for (int j=0; j<SVNSLC_NUMCOLUMNS; ++j)
-				OrderArray[j] = j;
-			return true;
-		}
-		else
-		{
-			OrderArray[i] = _tcstol(hex, &endchar, 16);
-		}
-	}
-	return true;
-}
-
-CString CSVNStatusListCtrl::OrderArrayToString(int OrderArray[])
-{
-	CString sResult;
-	TCHAR buf[5];
-	for (int i=0; i<SVNSLC_NUMCOLUMNS; ++i)
-	{
-		_stprintf_s(buf, 5, _T("%02X"), OrderArray[i]);
-		sResult += buf;
-	}
-	return sResult;
-}
-
-bool CSVNStatusListCtrl::StringToWidthArray(const CString& WidthString, int WidthArray[])
-{
-	TCHAR * endchar;
-	for (int i=0; i<SVNSLC_NUMCOLUMNS; ++i)
-	{
-		CString hex = WidthString.Mid(i*8, 8);
-		if ( hex.IsEmpty() )
-		{
-			// This case only occurs when upgrading from an older
-			// TSVN version in which there were fewer columns.
-			for (int j=0; j<SVNSLC_NUMCOLUMNS; ++j)
-				WidthArray[j] = 0;
-			return true;
-		}
-		else
-		{
-			WidthArray[i] = _tcstol(hex, &endchar, 16);
-		}
-	}
-	return true;
-}
-
-CString CSVNStatusListCtrl::WidthArrayToString(int WidthArray[])
-{
-	CString sResult;
-	TCHAR buf[10];
-	for (int i=0; i<SVNSLC_NUMCOLUMNS; ++i)
-	{
-		_stprintf_s(buf, 10, _T("%08X"), WidthArray[i]);
-		sResult += buf;
-	}
-	return sResult;
 }
 
 void CSVNStatusListCtrl::OnDestroy()
@@ -4649,29 +5298,13 @@ void CSVNStatusListCtrl::OnBeginDrag(NMHDR* /*pNMHDR*/, LRESULT* pResult)
 
 void CSVNStatusListCtrl::SaveColumnWidths(bool bSaveToRegistry /* = false */)
 {
-	if (bSaveToRegistry)
-	{
-		int arr[SVNSLC_NUMCOLUMNS];
-		GetColumnOrderArray(arr, SVNSLC_NUMCOLUMNS);
-		CString sOrder = OrderArrayToString(arr);
-		CRegString regColOrder(_T("Software\\TortoiseSVN\\StatusColumns\\")+m_sColumnInfoContainer+_T("_Order"));
-		regColOrder = sOrder;
-	}
-
-	CRegString regColWidth(_T("Software\\TortoiseSVN\\StatusColumns\\")+m_sColumnInfoContainer+_T("_Width"));
 	int maxcol = ((CHeaderCtrl*)(GetDlgItem(0)))->GetItemCount()-1;
 	for (int col = 0; col <= maxcol; col++)
-	{
-		m_arColumnWidths[col] = GetColumnWidth(col);
-	}
-	if (bSaveToRegistry)
-	{
-		CString sWidths = WidthArrayToString(m_arColumnWidths);
-		regColWidth = sWidths;
+        if (m_ColumnManager.IsVisible (col))
+            m_ColumnManager.ColumnResized (col);
 
-		CRegDWORD regColInfo(_T("Software\\TortoiseSVN\\StatusColumns\\")+m_sColumnInfoContainer);
-		regColInfo = m_dwColumns;
-	}
+	if (bSaveToRegistry)
+        m_ColumnManager.WriteSettings();
 }
 
 bool CSVNStatusListCtrl::EnableFileDrop()
@@ -4755,81 +5388,18 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 	// first add the column titles as the first line
 	temp.LoadString(IDS_STATUSLIST_COLFILE);
 	sClipboard = temp;
-	if (dwCols & SVNSLC_COLFILENAME)
-	{
-		temp.LoadString(IDS_STATUSLIST_COLFILENAME);
-		sClipboard += _T("\t")+temp;
-	}
-	if (dwCols & SVNSLC_COLEXT)
-	{
-		temp.LoadString(IDS_STATUSLIST_COLEXT);
-		sClipboard += _T("\t")+temp;
-	}
-	if (dwCols & SVNSLC_COLSTATUS)
-	{
-		temp.LoadString(IDS_STATUSLIST_COLSTATUS);
-		sClipboard += _T("\t")+temp;
-	}
-	if (dwCols & SVNSLC_COLTEXTSTATUS)
-	{
-		temp.LoadString(IDS_STATUSLIST_COLTEXTSTATUS);
-		sClipboard += _T("\t")+temp;
-	}
-	if (dwCols & SVNSLC_COLREMOTESTATUS)
-	{
-		temp.LoadString(IDS_STATUSLIST_COLREMOTESTATUS);
-		sClipboard += _T("\t")+temp;
-	}
-	if (dwCols & SVNSLC_COLPROPSTATUS)
-	{
-		temp.LoadString(IDS_STATUSLIST_COLPROPSTATUS);
-		sClipboard += _T("\t")+temp;
-	}
-	if (dwCols & SVNSLC_COLREMOTETEXT)
-	{
-		temp.LoadString(IDS_STATUSLIST_COLREMOTETEXTSTATUS);
-		sClipboard += _T("\t")+temp;
-	}
-	if (dwCols & SVNSLC_COLREMOTEPROP)
-	{
-		temp.LoadString(IDS_STATUSLIST_COLREMOTEPROPSTATUS);
-		sClipboard += _T("\t")+temp;
-	}
-	if (dwCols & SVNSLC_COLURL)
-	{
-		temp.LoadString(IDS_STATUSLIST_COLURL);
-		sClipboard += _T("\t")+temp;
-	}
-	if (dwCols & SVNSLC_COLLOCK)
-	{
-		temp.LoadString(IDS_STATUSLIST_COLLOCK);
-		sClipboard += _T("\t")+temp;
-	}
-	if (dwCols & SVNSLC_COLLOCKCOMMENT)
-	{
-		temp.LoadString(IDS_STATUSLIST_COLLOCKCOMMENT);
-		sClipboard += _T("\t")+temp;
-	}
-	if (dwCols & SVNSLC_COLAUTHOR)
-	{
-		temp.LoadString(IDS_STATUSLIST_COLAUTHOR);
-		sClipboard += _T("\t")+temp;
-	}
-	if (dwCols & SVNSLC_COLREVISION)
-	{
-		temp.LoadString(IDS_STATUSLIST_COLREVISION);
-		sClipboard += _T("\t")+temp;
-	}
-	if (dwCols & SVNSLC_COLDATE)
-	{
-		temp.LoadString(IDS_STATUSLIST_COLDATE);
-		sClipboard += _T("\t")+temp;
-	}
-	if (dwCols & SVNSLC_COLCOPYFROM)
-	{
-		temp.LoadString(IDS_STATUSLIST_COLCOPYFROM);
-		sClipboard += _T("\t")+temp;
-	}
+
+    DWORD selection = 0;
+    for (int i = 0, count = m_ColumnManager.GetColumnCount(); i < count; ++i)
+        if (   ((dwCols == -1) && m_ColumnManager.IsVisible (i))
+            || ((dwCols != 1) && (i < 32) && ((dwCols & (1 << i)) != 0)))
+        {
+            sClipboard += _T("\t") + m_ColumnManager.GetName(i);
+
+            if (i < 32)
+                selection += 1 << i;
+        }
+
 	sClipboard += _T("\r\n");
 
 	POSITION pos = GetFirstSelectedItemPosition();
@@ -4838,15 +5408,15 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 	{
 		FileEntry * entry = GetListEntry(index);
 		sClipboard += entry->GetDisplayName();
-		if (dwCols & SVNSLC_COLFILENAME)
+		if (selection & SVNSLC_COLFILENAME)
 		{
 			sClipboard += _T("\t")+entry->path.GetFileOrDirectoryName();
 		}
-		if (dwCols & SVNSLC_COLEXT)
+		if (selection & SVNSLC_COLEXT)
 		{
 			sClipboard += _T("\t")+entry->path.GetFileExtension();
 		}
-		if (dwCols & SVNSLC_COLSTATUS)
+		if (selection & SVNSLC_COLSTATUS)
 		{
 			if (entry->isNested)
 			{
@@ -4868,7 +5438,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 			}
 			sClipboard += _T("\t")+temp;
 		}
-		if (dwCols & SVNSLC_COLTEXTSTATUS)
+		if (selection & SVNSLC_COLTEXTSTATUS)
 		{
 			if (entry->isNested)
 			{
@@ -4885,7 +5455,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 			}
 			sClipboard += _T("\t")+temp;
 		}
-		if (dwCols & SVNSLC_COLREMOTESTATUS)
+		if (selection & SVNSLC_COLREMOTESTATUS)
 		{
 			if (entry->isNested)
 			{
@@ -4908,7 +5478,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 			}
 			sClipboard += _T("\t")+temp;
 		}
-		if (dwCols & SVNSLC_COLPROPSTATUS)
+		if (selection & SVNSLC_COLPROPSTATUS)
 		{
 			if (entry->isNested)
 			{
@@ -4925,7 +5495,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 			}
 			sClipboard += _T("\t")+temp;
 		}
-		if (dwCols & SVNSLC_COLREMOTETEXT)
+		if (selection & SVNSLC_COLREMOTETEXT)
 		{
 			if (entry->isNested)
 			{
@@ -4938,7 +5508,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 			}
 			sClipboard += _T("\t")+temp;
 		}
-		if (dwCols & SVNSLC_COLREMOTEPROP)
+		if (selection & SVNSLC_COLREMOTEPROP)
 		{
 			// SVNSLC_COLREMOTEPROP
 			if (entry->isNested)
@@ -4952,9 +5522,9 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 			}
 			sClipboard += _T("\t")+temp;
 		}
-		if (dwCols & SVNSLC_COLURL)
+		if (selection & SVNSLC_COLURL)
 			sClipboard += _T("\t")+entry->url;
-		if (dwCols & SVNSLC_COLLOCK)
+		if (selection & SVNSLC_COLLOCK)
 		{
 			if (!m_HeadRev.IsHead())
 			{
@@ -4989,18 +5559,18 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 				temp = entry->lock_owner;
 			sClipboard += _T("\t")+temp;
 		}
-		if (dwCols & SVNSLC_COLLOCKCOMMENT)
+		if (selection & SVNSLC_COLLOCKCOMMENT)
 			sClipboard += _T("\t")+entry->lock_comment;
-		if (dwCols & SVNSLC_COLAUTHOR)
+		if (selection & SVNSLC_COLAUTHOR)
 			sClipboard += _T("\t")+entry->last_commit_author;
-		if (dwCols & SVNSLC_COLREVISION)
+		if (selection & SVNSLC_COLREVISION)
 		{
 			temp.Format(_T("%ld"), entry->last_commit_rev);
 			if (entry->last_commit_rev == 0)
 				temp.Empty();
 			sClipboard += _T("\t")+temp;
 		}
-		if (dwCols & SVNSLC_COLDATE)
+		if (selection & SVNSLC_COLDATE)
 		{
 			TCHAR datebuf[SVN_DATE_BUFFER];
 			apr_time_t date = entry->last_commit_date;
@@ -5011,7 +5581,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 				temp.Empty();
 			sClipboard += _T("\t")+temp;
 		}
-		if (dwCols & SVNSLC_COLCOPYFROM)
+		if (selection & SVNSLC_COLCOPYFROM)
 		{
 			if (m_sURL.Compare(entry->copyfrom_url.Left(m_sURL.GetLength()))==0)
 				temp = entry->copyfrom_url.Mid(m_sURL.GetLength());
@@ -5019,6 +5589,19 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 				temp = entry->copyfrom_url;
 			sClipboard += _T("\t")+temp;
 		}
+
+        for ( int i = SVNSLC_NUMCOLUMNS, count = m_ColumnManager.GetColumnCount()
+            ; i < count
+            ; ++i)
+        {
+            if ((dwCols == -1) && m_ColumnManager.IsVisible (i))
+            {
+                CString value 
+                    = entry->present_props[m_ColumnManager.GetName(i)];
+                sClipboard += _T("\t") + value;
+            }
+        }
+
 		sClipboard += _T("\r\n");
 	}
 

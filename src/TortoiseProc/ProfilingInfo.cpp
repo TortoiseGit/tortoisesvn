@@ -18,7 +18,32 @@
 //
 
 #include "stdafx.h"
+
+#ifndef __INTRIN_H_
+#include <intrin.h>
+#endif
+
 #include "ProfilingInfo.h"
+
+#ifdef _DEBUG
+
+//////////////////////////////////////////////////////////////////////
+/// construction / destruction
+//////////////////////////////////////////////////////////////////////
+
+CRecordProfileEvent::CRecordProfileEvent (CProfilingRecord* aRecord)
+    : record (aRecord)
+    , start (__rdtsc())
+{
+}
+
+CRecordProfileEvent::~CRecordProfileEvent()
+{
+	if (record)
+		record->Add (__rdtsc() - start);
+}
+
+#endif
 
 //////////////////////////////////////////////////////////////////////
 // construction / destruction

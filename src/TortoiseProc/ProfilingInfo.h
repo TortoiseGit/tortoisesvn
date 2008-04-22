@@ -23,8 +23,10 @@
 // required includes
 //////////////////////////////////////////////////////////////////////
 
+#ifndef _DEBUG
 #ifndef __INTRIN_H_
 #include <intrin.h>
+#endif
 #endif
 
 #ifndef _PSAPI_H_
@@ -123,6 +125,8 @@ public:
 	void Stop();
 };
 
+#ifndef _DEBUG
+
 /// construction / destruction
 
 inline CRecordProfileEvent::CRecordProfileEvent (CProfilingRecord* aRecord)
@@ -136,6 +140,8 @@ inline CRecordProfileEvent::~CRecordProfileEvent()
 	if (record)
 		record->Add (__rdtsc() - start);
 }
+
+#endif
 
 /// don't wait for destruction
 

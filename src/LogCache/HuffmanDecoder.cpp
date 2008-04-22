@@ -141,7 +141,6 @@ void CHuffmanDecoder::WriteDecodedStream ( const BYTE* first
 
 	// fetch encoded data into cache and decode odd bytes
 
-	size_t bytesToFetch = (KEY_BITS - cachedBits) / 8;
 	cachedCode |= *reinterpret_cast<const key_type*>(first) << cachedBits;
 
 	for ( BYTE* byteDest = reinterpret_cast<BYTE*>(blockDest)

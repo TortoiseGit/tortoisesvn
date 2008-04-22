@@ -121,6 +121,21 @@ SVNSLC_SHOWINCOMPLETE|SVNSLC_SHOWEXTERNAL|SVNSLC_SHOWINEXTERNALS)
 
 #define SVNSLC_IGNORECHANGELIST			_T("ignore-on-commit")
 
+// This gives up to 64 standard properties and menu entries
+// plus 192 user-defined properties (should be plenty).
+// User-defined properties will start at column SVNSLC_NUMCOLUMNS+1
+// but in the registry, we will record them starting at SVNSLC_USERPROPCOLOFFSET.
+
+#define SVNSLC_USERPROPCOLOFFSET        0x40
+#define SVNSLC_USERPROPCOLLIMIT         0xff
+#define SVNSLC_MAXCOLUMNCOUNT           0xff
+
+// Supporting extreamly long user props makes no sense here --
+// especially for binary properties. CString uses a pool allocator
+// that works for up to 256 chars. Make sure we are well below that.
+
+#define SVNSLC_MAXUSERPROPLENGTH        0x70
+
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 typedef CComCritSecLock<CComCriticalSection> Locker;
 
@@ -169,6 +184,59 @@ public:
 	/**
 	 * \ingroup TortoiseProc
 	 * Helper class for CSVNStatusListCtrl which represents
+	 * the user properties and their respective values for each file shown.
+	 */
+	class PropertyList
+	{
+	public:
+
+        /// only default construction / destruction
+
+        PropertyList() {};
+        ~PropertyList() {};
+
+        /// assign property list
+
+        PropertyList& operator= (const char* rhs);
+
+        /// collect property names in a set
+
+        void GetPropertyNames (std::set<CString>& names);
+
+        /// get a property value. 
+        /// Returns an empty string if there is no such property.
+
+        CString operator[](const CString& name) const;
+
+        /// set a property value.
+        /// The function assert()s that the name is a key in the 
+        /// properties map. If it is not, a dummy will be returned.
+
+        CString& operator[](const CString& name);
+
+        /// check whether that property has been set on this item.
+
+        bool HasProperty (const CString& name) const;
+
+        /// due to frequent use: special check for svn:needs-lock
+
+        bool IsNeedsLockSet() const;
+
+    private:
+
+        /// all the data we have. map: propname -> value
+
+        std::map<CString,CString> properties;
+
+        /// just a shorthand
+
+        typedef std::map<CString,CString>::const_iterator CIT;
+        typedef std::map<CString,CString>::iterator IT;
+    };
+
+	/**
+	 * \ingroup TortoiseProc
+	 * Helper class for CSVNStatusListCtrl which represents
 	 * the data for each file shown.
 	 */
 	class FileEntry
@@ -194,7 +262,7 @@ public:
 			, isNested(false)
 			, Revision(0)
 			, isConflicted(false)
-			, present_props(_T(""))
+			, present_props()
 			, needslock(false)
 			, working_size(SVN_WC_ENTRY_WORKING_SIZE_UNKNOWN)
 			, keeplocal(false)
@@ -290,13 +358,163 @@ public:
 		bool					isConflicted;			///< TRUE if a file entry is conflicted, i.e. if it has the conflicted paths set
 		bool					needslock;				///< TRUE if the svn:needs-lock property is set
 		svn_revnum_t			Revision;				///< the base revision
-		CString					present_props;			///< cacheable properties present in BASE
+		PropertyList			present_props;			///< cacheable properties present in BASE
 		apr_off_t				working_size;			///< Size of the file after being translated into local representation or SVN_WC_ENTRY_WORKING_SIZE_UNKNOWN
 		bool					keeplocal;				///< Whether a local copy of this entry should be kept in the working copy after a deletion has been committed
 		svn_depth_t				depth;					///< the depth of this entry
 		friend class CSVNStatusListCtrl;
 		friend class CSVNStatusListCtrlDropTarget;
+        friend class CSorter;
 	};
+
+	/**
+	 * \ingroup TortoiseProc
+	 * Helper class for CSVNStatusListCtrl that represents
+	 * the columns visible and their order as well as 
+     * persisting that data in the registry.
+     *
+     * It assigns logical index values to the (potential) columns:
+     * 0 .. SVNSLC_NUMCOLUMNS-1 contain the standard attributes
+     * SVNSLC_USERPROPCOLOFFSET .. SVNSLC_MAXCOLUMNCOUNT are user props.
+     *
+     * The column vector contains the columns that are actually
+     * available in the control.
+     *
+     * Since the set of userprops may change from one WC to another,
+     * we also store the settings (width and order) for those
+     * userprops that are not used in this WC.
+     *
+     * A userprop is considerd "in use", if the respective column
+     * is not hidden or if at least one item has this property set.
+	 */
+	class ColumnManager
+	{
+    public:
+
+        /// construction / destruction
+
+        ColumnManager (CListCtrl* control) : control (control) {};
+        ~ColumnManager() {};
+
+        /// registry access
+
+        void ReadSettings (DWORD defaultColumns, const CString& containerName);
+        void WriteSettings() const;
+
+        /// read column definitions
+
+        int GetColumnCount() const;                     ///< total number of columns
+        bool IsVisible (int column) const;
+        bool IsRelevant (int column) const;
+        bool IsUserProp (int column) const;
+        CString GetName (int column) const;
+        int GetWidth (int column, bool useDefaults = false) const;
+        int GetVisibleWidth (int column) const;
+
+        /// switch columns on and off
+
+        void SetVisible (int column, bool visible);
+
+        /// tracking column modifications
+
+        void ColumnMoved (int column, int position);
+        void ColumnResized (int column);
+
+        /// call these to update the user-prop list
+        /// (will also auto-insert /-remove new list columns)
+
+        void UpdateUserPropList (const std::vector<FileEntry*>& files);
+        void UpdateRelevance ( const std::vector<FileEntry*>& files
+                             , const std::vector<size_t>& visibleFiles);
+
+        /// don't clutter the context menu with irrelevant prop info
+
+        bool AnyUnusedProperties() const;
+        void RemoveUnusedProps();
+
+        /// bring everything back to its "natural" order
+
+        void ResetColumns();
+
+    private:
+
+        /// initialization utilities
+
+        void ParseUserPropSettings ( const CString& userPropList
+                                   , const CString& shownUserProps);
+        void ParseWidths (const CString& widths);
+        void SetStandardColumnVisibility (DWORD visibility);
+        void ParseColumnOrder (const CString& widths);
+        void ApplyColumnOrder();
+
+        /// utilities used when writing data to the registry
+
+        DWORD GetSelectedStandardColumns() const;
+        CString GetUserPropList() const;
+        CString GetShownUserProps() const;
+        CString GetWidthString() const;
+        CString GetColumnOrderString() const;
+
+        /// our parent control and its data
+
+        CListCtrl* control;
+
+        /// where to store in the registry
+
+        CString registryPrefix;
+
+        /// all columns in their "natural" order
+
+        struct ColumnInfo
+        {
+            int index;          ///< is a user prop when < SVNSLC_USERPROPCOLOFFSET
+            int width;
+            bool visible;
+            bool relevant;      ///< set to @a visible, if no *shown* item has that property
+        };
+
+        std::vector<ColumnInfo> columns;
+
+        /// user-defined properties
+
+        struct UserProp
+        {
+            CString name;       ///< is a user prop when < SVNSLC_USERPROPCOLOFFSET
+            int width;
+        };
+
+        std::vector<UserProp> userProps;
+
+        /// stored result from last UpdateUserPropList() call
+
+        std::set<CString> itemProps;
+
+        /// global column ordering including unused user props
+
+        std::vector<int> columnOrder;
+    };
+
+	/**
+	 * \ingroup TortoiseProc
+	 * Simple utility class that defines the sort column order.
+	 */
+    class CSorter
+    {
+    public:
+
+        CSorter ( ColumnManager* columnManager
+                , int sortedColumn
+                , bool ascending);
+
+        bool operator() ( const FileEntry* entry1
+                        , const FileEntry* entry2) const;
+
+    private:
+
+        ColumnManager* columnManager;
+        int sortedColumn;
+        bool ascending;
+    };
 
 	/**
 	 * Initializes the control, sets up the columns.
@@ -337,7 +555,10 @@ public:
 	 * \param bUpdate TRUE if the remote status is requested too.
 	 * \return TRUE on success.
 	 */
-	BOOL GetStatus(const CTSVNPathList& pathList, bool bUpdate = false, bool bShowIgnores = false);
+	BOOL GetStatus ( const CTSVNPathList& pathList
+                   , bool bUpdate = false
+                   , bool bShowIgnores = false
+                   , bool bShowUserProps = false);
 
 	/**
 	 * Populates the list control with the previously (with GetStatus) gathered status information.
@@ -543,7 +764,9 @@ private:
 	void RemoveListEntry(int index);	///< removes an entry from the listcontrol and both arrays
 	bool BuildStatistics();	///< build the statistics and correct the case of files/folders
 	void StartDiff(int fileindex);	///< start the external diff program
-	static bool CSVNStatusListCtrl::SortCompare(const FileEntry* entry1, const FileEntry* entry2);
+
+    /// fetch all user properties for all items
+    void FetchUserProperties();
 
 	/// Process one line of the command file supplied to GetStatus
 	bool FetchStatusForSingleTarget(SVNConfig& config, SVNStatus& status, const CTSVNPath& target, bool bFetchStatusFromRepository, CStringA& strCurrentRepositoryUUID, CTSVNPathList& arExtPaths, bool bAllDirect, svn_depth_t depth = svn_depth_infinity, bool bShowIgnores = false);
@@ -602,11 +825,6 @@ private:
 
 	int CellRectFromPoint(CPoint& point, RECT *cellrect, int *col) const;
 
-	bool StringToOrderArray(const CString& OrderString, int OrderArray[]);
-	CString OrderArrayToString(int OrderArray[]);
-	bool StringToWidthArray(const CString& WidthString, int WidthArray[]);
-	CString WidthArrayToString(int WidthArray[]);
-
 	void HideColumn(int col);
 	void ShowColumn(int col);
 
@@ -618,7 +836,9 @@ private:
 	afx_msg void OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnItemchanging(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg BOOL OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
+    afx_msg void OnColumnResized(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnColumnMoved(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 
 	void CreateChangeList(const CString& name);
 
@@ -636,8 +856,8 @@ private:
 
 private:
 	bool *						m_pbCanceled;
-	static bool					m_bAscending;		///< sort direction
-	static int					m_nSortedColumn;	///< which column to sort
+	bool					    m_bAscending;		///< sort direction
+	int					        m_nSortedColumn;	///< which column to sort
 	bool						m_bHasCheckboxes;
 	bool						m_bUnversionedLast;
 	bool						m_bHasExternalsFromDifferentRepos;
@@ -695,6 +915,8 @@ private:
 
 	bool						m_bCheckChildrenWithParent;
 	CSVNStatusListCtrlDropTarget * m_pDropTarget;
+
+    ColumnManager               m_ColumnManager;
 
 	std::map<CString,bool>		m_mapFilenameToChecked; ///< Remember manually de-/selected items
 	CComCriticalSection			m_critSec;

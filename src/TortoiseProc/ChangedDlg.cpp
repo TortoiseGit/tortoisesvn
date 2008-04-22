@@ -32,6 +32,7 @@ CChangedDlg::CChangedDlg(CWnd* pParent /*=NULL*/)
 	, m_bBlock(FALSE)
 	, m_bCanceled(false)
 	, m_bShowIgnored(FALSE)
+    , m_bShowUserProps(FALSE)
 {
 	m_bRemote = FALSE;
 }
@@ -47,6 +48,7 @@ void CChangedDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_SHOWUNVERSIONED, m_bShowUnversioned);
 	DDX_Check(pDX, IDC_SHOWUNMODIFIED, m_iShowUnmodified);
 	DDX_Check(pDX, IDC_SHOWIGNORED, m_bShowIgnored);
+	DDX_Check(pDX, IDC_SHOWUSERPROPS, m_bShowUserProps);
 }
 
 
@@ -54,6 +56,7 @@ BEGIN_MESSAGE_MAP(CChangedDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_CHECKREPO, OnBnClickedCheckrepo)
 	ON_BN_CLICKED(IDC_SHOWUNVERSIONED, OnBnClickedShowunversioned)
 	ON_BN_CLICKED(IDC_SHOWUNMODIFIED, OnBnClickedShowUnmodified)
+    ON_BN_CLICKED(IDC_SHOWUSERPROPS, OnBnClickedShowUserProps)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
 	ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED, OnSVNStatusListCtrlItemCountChanged)
 	ON_BN_CLICKED(IDC_SHOWIGNORED, &CChangedDlg::OnBnClickedShowignored)
@@ -85,12 +88,14 @@ BOOL CChangedDlg::OnInitDialog()
 	AdjustControlSize(IDC_SHOWUNVERSIONED);
 	AdjustControlSize(IDC_SHOWUNMODIFIED);
 	AdjustControlSize(IDC_SHOWIGNORED);
+    AdjustControlSize(IDC_SHOWUSERPROPS);
 
 	AddAnchor(IDC_CHANGEDLIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SUMMARYTEXT, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SHOWUNVERSIONED, BOTTOM_LEFT);
 	AddAnchor(IDC_SHOWUNMODIFIED, BOTTOM_LEFT);
 	AddAnchor(IDC_SHOWIGNORED, BOTTOM_LEFT);
+	AddAnchor(IDC_SHOWUSERPROPS, BOTTOM_LEFT);
 	AddAnchor(IDC_INFOLABEL, BOTTOM_RIGHT);
 	AddAnchor(IDC_REFRESH, BOTTOM_RIGHT);
 	AddAnchor(IDC_CHECKREPO, BOTTOM_RIGHT);
@@ -127,8 +132,9 @@ UINT CChangedDlg::ChangedStatusThread()
 	DialogEnableWindow(IDC_SHOWUNVERSIONED, FALSE);
 	DialogEnableWindow(IDC_SHOWUNMODIFIED, FALSE);
 	DialogEnableWindow(IDC_SHOWIGNORED, FALSE);
+    DialogEnableWindow(IDC_SHOWUSERPROPS, FALSE);
 	CString temp;
-	if (!m_FileListCtrl.GetStatus(m_pathList, m_bRemote, !!m_bShowIgnored))
+	if (!m_FileListCtrl.GetStatus(m_pathList, m_bRemote, m_bShowIgnored != FALSE, m_bShowUserProps != FALSE))
 	{
 		CMessageBox::Show(m_hWnd, m_FileListCtrl.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
 	}
@@ -147,6 +153,7 @@ UINT CChangedDlg::ChangedStatusThread()
 	DialogEnableWindow(IDC_SHOWUNVERSIONED, TRUE);
 	DialogEnableWindow(IDC_SHOWUNMODIFIED, TRUE);
 	DialogEnableWindow(IDC_SHOWIGNORED, TRUE);
+    DialogEnableWindow(IDC_SHOWUSERPROPS, TRUE);
 	InterlockedExchange(&m_bBlock, FALSE);
 	// revert the remote flag back to the default
 	m_bRemote = !!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\CheckRepo"), FALSE);
@@ -208,6 +215,15 @@ void CChangedDlg::OnBnClickedShowUnmodified()
 }
 
 void CChangedDlg::OnBnClickedShowignored()
+{
+	UpdateData();
+	if (AfxBeginThread(ChangedStatusThreadEntry, this)==NULL)
+	{
+		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
+	}
+}
+
+void CChangedDlg::OnBnClickedShowUserProps()
 {
 	UpdateData();
 	if (AfxBeginThread(ChangedStatusThreadEntry, this)==NULL)
