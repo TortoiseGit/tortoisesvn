@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-04-20 11:33+0900\n"
+"PO-Revision-Date: 2008-04-22 19:05+0900\n"
 "Last-Translator: Kim Taedong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1109,7 +1109,7 @@ msgstr "<.....>"
 
 #. Resource IDs: (1069)
 msgid "<Separator>"
-msgstr "<분리자>"
+msgstr "<Separator>"
 
 #. Resource IDs: (1007)
 msgid "<Untitled>"
@@ -4710,7 +4710,11 @@ msgstr "전체 병합..."
 
 #. Resource IDs: (65535)
 msgid "Merge depth:"
-msgstr "병합 단계:"
+msgstr "병합 깊이:"
+
+#. Resource IDs: (1432)
+msgid "Merge non-interactive"
+msgstr "비-대화식으로 병합"
 
 #. Resource IDs: (595, 65535)
 msgid "Merge options"
@@ -6115,7 +6119,7 @@ msgstr "되돌림"
 
 #. Resource IDs: (9)
 msgid "Reverts all changes you made since the last update"
-msgstr "마지막 업데이이트 이후에 만들어진 모든 변경사항 되돌리기"
+msgstr "마지막 업데이트 이후에 만들어진 모든 변경사항 되돌리기"
 
 #. Resource IDs: (14)
 msgid "Reverts an addition to version control"
@@ -6849,7 +6853,7 @@ msgstr "복사/태그/브랜치를 그래프로 보기"
 
 #. Resource IDs: (13)
 msgid "Shows all files which were changed since the last update, locally and in the repository"
-msgstr "로컬 저장소 및 마지막 업데이트 때 변경된 파일을 모두 보기"
+msgstr "작업 사본과 저장소에서 마지막 업데이트 후에 변경된 모든 파일들 보기"
 
 #. Resource IDs: (2050)
 msgid "Shows all revisions where changes were made to this item"
@@ -7990,7 +7994,7 @@ msgstr ""
 
 #. Resource IDs: (20)
 msgid "Unknown depth"
-msgstr "알 수 없는 단계"
+msgstr "알 수 없는 깊이"
 
 #. Resource IDs: (221, 230, 242)
 msgid "Unlock"
@@ -8033,6 +8037,10 @@ msgstr "업데이트"
 msgid "Update - TortoiseSVN"
 msgstr "업데이트 - TortoiseSVN"
 
+#. Resource IDs: (1377)
+msgid "Update Depth"
+msgstr "업데이트 깊이"
+
 #. Resource IDs: (74)
 msgid "Updated"
 msgstr "업데이트됨"
@@ -8043,7 +8051,7 @@ msgstr "작업 사본을 특정 리비전으로 업데이트"
 
 #. Resource IDs: (9)
 msgid "Updates the working copy to the current revision"
-msgstr "작업 사본을 최신 리비전으로 업데이트 합니다."
+msgstr "작업 사본을 현재 리비전으로 업데이트 합니다."
 
 #. Resource IDs: (226)
 #, c-format
@@ -8485,7 +8493,7 @@ msgstr ""
 
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."
-msgstr "먼저 작업 사본을 업데이트해야 합니다."
+msgstr "먼저 작업 사본을 업데이트해야만 합니다."
 
 #. Resource IDs: (169)
 msgid ""
