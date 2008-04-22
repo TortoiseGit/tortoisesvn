@@ -1972,7 +1972,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst, HMENU hMenu, 
 			}
 		}
 	}
-	else
+	else if ((itemStates & ITEMIS_IGNORED) == 0)
 	{
 		bShowIgnoreMenu = true;
 		ignoresubmenu = CreateMenu();
