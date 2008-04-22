@@ -181,7 +181,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 						}
 						else
 						{
-							status = svn_wc_status_unversioned;
+							status = svn_wc_status_none;
 						}
 					}
 					else

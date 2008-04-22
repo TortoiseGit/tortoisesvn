@@ -85,7 +85,7 @@ SVNFolderStatus::SVNFolderStatus(void)
 	emptyString[0] = 0;
 	invalidstatus.author = emptyString;
 	invalidstatus.askedcounter = -1;
-	invalidstatus.status = svn_wc_status_unversioned;
+	invalidstatus.status = svn_wc_status_none;
 	invalidstatus.url = emptyString;
 	invalidstatus.rev = -1;
 	invalidstatus.owner = emptyString;
@@ -146,7 +146,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
 		{
 			// initialize record members
 			dirstat.rev = -1;
-			dirstat.status = svn_wc_status_unversioned;
+			dirstat.status = svn_wc_status_none;
 			dirstat.author = authors.GetString(NULL);
 			dirstat.url = urls.GetString(NULL);
 			dirstat.owner = owners.GetString(NULL);
@@ -386,7 +386,7 @@ void SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_stat
 		s.rev = -1;
 		s.owner = Stat->owners.GetString(NULL);
 	}
-	s.status = svn_wc_status_unversioned;
+	s.status = svn_wc_status_none;
 	if (status)
 	{
 		s.status = SVNStatus::GetMoreImportant(s.status, status->text_status);
