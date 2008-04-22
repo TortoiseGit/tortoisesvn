@@ -104,7 +104,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_HEADER              "{\\bnsi\\bnsicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fswiss\\fcharset0 Microsoft Sans Serif;}}\n{\\*\\generator Msftedit 5.41.15.1503;}\\viewkind4\\uc1\\pard\\b\\f0\\fs17 %s hat ein Problem festgestellt und wird beendet. Wir entschuldigen uns für Unanehmlichkeiten.\\b0}\n "
+    IDS_HEADER              "{\\bnsi\\bnsicpg1252\\deff0\\deflang1033{\\fonttbl{\\f0\\fswiss\\fcharset0 Microsoft Sans Serif;}}\n{\\*\\generator Msftedit 5.41.15.1503;}\\viewkind4\\uc1\\pard\\b\\f0\\fs17 %s hat ein Problem festgestellt und wird beendet. Wir entschuldigen uns für Unannehmlichkeiten.\\b0}\n "
     IDS_INVALID_EMAIL       "Please enter a valid email address"
     IDS_ZIP_FILTER          "Zip Dateien (*.zip)"
     IDS_HTTP_HEADER_CONTENT_TYPE 
@@ -220,7 +220,7 @@ BEGIN
     "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
     "#ifndef APSTUDIO_INVOKED\r\n"
     "\r\n"
-    "#endi\0"
+    "#endif\0"
 END
 
 #endif    // APSTUDIO_INVOKED
