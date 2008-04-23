@@ -320,6 +320,10 @@ void CSVNStatusListCtrl::ColumnManager::UpdateUserPropList
     for (size_t i = 0, count = userProps.size(); i < count; ++i)
         newProps.erase (userProps[i].name);
 
+    while (   newProps.size() + userProps.size()
+            > SVNSLC_MAXCOLUMNCOUNT - SVNSLC_USERPROPCOLOFFSET)
+        newProps.erase (--newProps.end());
+
     typedef std::set<CString>::const_iterator CIT;
     for ( CIT iter = newProps.begin(), end = newProps.end()
         ; iter != end
