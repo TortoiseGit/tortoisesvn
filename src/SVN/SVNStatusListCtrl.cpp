@@ -1472,9 +1472,9 @@ void CSVNStatusListCtrl::FetchUserProperties()
                         = value.Left (SVNSLC_MAXUSERPROPLENGTH);
                 }
             }
+            error = svn_wc_adm_close (adm_access);
         }
-
-        svn_error_clear (NULL);
+        svn_error_clear (error);
     }
 }
 
