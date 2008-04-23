@@ -1242,13 +1242,14 @@ void CRepositoryBrowser::OnHdnItemclickRepolist(NMHDR *pNMHDR, LRESULT *pResult)
 int CRepositoryBrowser::ListSort(LPARAM lParam1, LPARAM lParam2, LPARAM lParam3)
 {
 	CRepositoryBrowser * pThis = (CRepositoryBrowser*)lParam3;
-	CItem * pItem1 = (CItem*)pThis->m_RepoList.GetItemData(lParam1);
-	CItem * pItem2 = (CItem*)pThis->m_RepoList.GetItemData(lParam2);
+	CItem * pItem1 = (CItem*)pThis->m_RepoList.GetItemData(static_cast<int>(lParam1));
+	CItem * pItem2 = (CItem*)pThis->m_RepoList.GetItemData(static_cast<int>(lParam2));
 	int nRet = 0;
 	switch (pThis->m_nSortedColumn)
 	{
 	case 1: // extension
-		nRet = pThis->m_RepoList.GetItemText(lParam1, 1).CompareNoCase(pThis->m_RepoList.GetItemText(lParam2, 1));
+		nRet = pThis->m_RepoList.GetItemText(static_cast<int>(lParam1), 1)
+                 .CompareNoCase(pThis->m_RepoList.GetItemText(static_cast<int>(lParam2), 1));
 		if (nRet != 0)
 			break;
 		// fall through

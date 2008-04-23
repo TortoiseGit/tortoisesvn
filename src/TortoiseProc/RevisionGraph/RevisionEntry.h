@@ -49,12 +49,12 @@ public:
         CDictionaryBasedTempPath tag;
         bool isAlias;
         bool isDeleted;
-        size_t depth;
+        int depth;
 
 	    SFoldedTag ( const CDictionaryBasedTempPath& tag
                    , bool isAlias
                    , bool isDeleted
-                   , size_t depth)
+                   , int depth)
     		: tag (tag), isAlias (isAlias), isDeleted (isDeleted), depth (depth)
         {
         }

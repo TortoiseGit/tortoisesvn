@@ -505,7 +505,7 @@ void CFileDiffDlg::OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 
 		COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
 
-		if (m_arFilteredList.size() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
+		if (m_arFilteredList.size() > pLVCD->nmcd.dwItemSpec)
 		{
 			FileDiff fd = m_arFilteredList[pLVCD->nmcd.dwItemSpec];
 			switch (fd.kind)
@@ -716,7 +716,7 @@ UINT CFileDiffDlg::ExportThread()
 			}
 		}
 		count++;
-		m_pProgDlg->SetProgress(count,m_arSelectedFileList.GetCount());
+		m_pProgDlg->SetProgress (count, static_cast<DWORD>(m_arSelectedFileList.GetCount()));
 	}					
 	m_pProgDlg->Stop();
 	SetAndClearProgressInfo(NULL, false);

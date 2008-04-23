@@ -1111,7 +1111,7 @@ void CSVNProgressDlg::OnHdnItemclickSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 	CString temp;
 	m_ProgList.SetRedraw(FALSE);
 	m_ProgList.DeleteAllItems();
-	m_ProgList.SetItemCountEx(m_arData.size());
+	m_ProgList.SetItemCountEx (static_cast<int>(m_arData.size()));
 
 	m_ProgList.SetRedraw(TRUE);
 

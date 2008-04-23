@@ -1471,9 +1471,9 @@ int CStatGraphDlg::GetEncoderClsid(const WCHAR* format, CLSID* pClsid)
 void CStatGraphDlg::StoreCurrentGraphType()
 {
 	UpdateData();
-	DWORD_PTR graphtype = m_cGraphType.GetItemData(m_cGraphType.GetCurSel());
+	DWORD graphtype = static_cast<DWORD>(m_cGraphType.GetItemData(m_cGraphType.GetCurSel()));
 	// encode the current chart type
-	DWORD_PTR statspage = graphtype*10;
+	DWORD statspage = graphtype*10;
 	if ((m_GraphType == MyGraph::Bar)&&(m_bStacked))
 	{
 		statspage += 1;

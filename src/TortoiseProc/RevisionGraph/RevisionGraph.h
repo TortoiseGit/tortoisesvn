@@ -193,7 +193,7 @@ private:
     void                        RemoveDeletedOnes();
     void                        FoldTags ( CRevisionEntry * collectorNode
                                          , CRevisionEntry * entry
-                                         , size_t depth);
+                                         , unsigned depth);
     void                        FoldTags();
 	void						ApplyFilter();
     void                        Compact();

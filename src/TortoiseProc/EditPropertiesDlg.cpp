@@ -272,7 +272,7 @@ void CEditPropertiesDlg::OnNMCustomdrawEditproplist(NMHDR *pNMHDR, LRESULT *pRes
 			return;
 
 		COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
-		if (m_propList.GetItemData(pLVCD->nmcd.dwItemSpec)==FALSE)
+		if (m_propList.GetItemData (static_cast<int>(pLVCD->nmcd.dwItemSpec))==FALSE)
 			crText = GetSysColor(COLOR_GRAYTEXT);
 		// Store the color back in the NMLVCUSTOMDRAW struct.
 		pLVCD->clrText = crText;
@@ -588,7 +588,7 @@ void CEditPropertiesDlg::OnBnClickedExport()
 			int len = sName.GetLength()*sizeof(TCHAR);
 			fwrite(&len, sizeof(int), 1, stream);									// length of property name in bytes
 			fwrite(sName, sizeof(TCHAR), sName.GetLength(), stream);				// property name
-			len = prop.value.size();
+			len = static_cast<int>(prop.value.size());
 			fwrite(&len, sizeof(int), 1, stream);									// length of property value in bytes
 			fwrite(prop.value.c_str(), sizeof(char), prop.value.size(), stream);	// property value
 		}

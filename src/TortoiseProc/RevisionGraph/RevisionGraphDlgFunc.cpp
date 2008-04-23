@@ -464,8 +464,8 @@ CTSVNPath CRevisionGraphWnd::DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIs
 	url2.SetFromSVN (sRepoRoot + CUnicodeUtils::GetUnicode (m_SelectedEntry2->path.GetPath().c_str()));
 	CTSVNPath url1_temp = url1;
 	CTSVNPath url2_temp = url2;
-	INT_PTR iMax = min(url1_temp.GetSVNPathString().GetLength(), url2_temp.GetSVNPathString().GetLength());
-	INT_PTR i = 0;
+	int iMax = min(url1_temp.GetSVNPathString().GetLength(), url2_temp.GetSVNPathString().GetLength());
+	int i = 0;
 	for ( ; ((i<iMax) && (url1_temp.GetSVNPathString().GetAt(i)==url2_temp.GetSVNPathString().GetAt(i))); ++i)
 		;
 	while (url1_temp.GetSVNPathString().GetLength()>i)

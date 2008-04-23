@@ -1446,7 +1446,7 @@ void CRevisionGraph::RemoveDeletedOnes()
 
 void CRevisionGraph::FoldTags ( CRevisionEntry * collectorNode
                               , CRevisionEntry * entry
-                              , size_t depth)
+                              , unsigned depth)
 {
     bool firstRun = true;
 
