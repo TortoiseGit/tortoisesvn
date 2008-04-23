@@ -3596,14 +3596,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 			if ((cmd >= 1)&&(cmd < columnCount))
 			{
-				if (m_ColumnManager.IsVisible(cmd))
-				{
-					HideColumn(cmd);
-				}
-				else
-				{
-					ShowColumn(cmd);
-				}
+                m_ColumnManager.SetVisible (cmd, !m_ColumnManager.IsVisible(cmd));
 			} 
             else if (cmd == columnCount)
 			{
@@ -3615,10 +3608,6 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 			} 
             else if (cmd == columnCount+2)
 			{
-                for (int i = 1; i < columnCount; ++i)
-    				if (m_ColumnManager.IsVisible(i))
-    					HideColumn (i);
-
                 m_ColumnManager.ResetColumns (m_dwDefaultColumns);
 			}
 		}
@@ -3665,18 +3654,6 @@ void CSVNStatusListCtrl::CreateChangeList(const CString& name)
 	{
 		CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 	}
-}
-
-void CSVNStatusListCtrl::ShowColumn(int col)
-{
-    m_ColumnManager.SetVisible (col, true);
-	SetColumnWidth (col, LVSCW_AUTOSIZE_USEHEADER);
-}
-
-void CSVNStatusListCtrl::HideColumn(int col)
-{
-	SetColumnWidth (col,0);
-    m_ColumnManager.SetVisible (col, false);
 }
 
 void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
@@ -4352,11 +4329,20 @@ void CSVNStatusListCtrl::OnHdnItemchanging(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
     if ((phdr->iItem < 0)||(phdr->iItem >= m_ColumnManager.GetColumnCount()))
 		return;
+
+    // visible columns may be modified 
+
     if (m_ColumnManager.IsVisible (phdr->iItem))
-	{
 		return;
-	}
-	*pResult = 1;
+
+    // columns already marked as "invisible" internally may be (re-)size to 0
+
+    if (   (phdr->pitem != NULL) 
+        && (phdr->pitem->mask == HDI_WIDTH)
+        && (phdr->pitem->cxy == 0))
+		return;
+
+    *pResult = 1;
 }
 
 void CSVNStatusListCtrl::OnHdnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)

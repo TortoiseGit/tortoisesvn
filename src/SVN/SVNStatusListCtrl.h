@@ -825,9 +825,6 @@ private:
 
 	int CellRectFromPoint(CPoint& point, RECT *cellrect, int *col) const;
 
-	void HideColumn(int col);
-	void ShowColumn(int col);
-
 	virtual void PreSubclassWindow();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	virtual INT_PTR OnToolHitTest(CPoint point, TOOLINFO* pTI) const;

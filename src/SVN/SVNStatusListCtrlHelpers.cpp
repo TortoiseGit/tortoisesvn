@@ -246,6 +246,7 @@ void CSVNStatusListCtrl::ColumnManager::SetVisible
         if (!visible)
             columns[index].width = 0; 
 
+        control->SetColumnWidth (column, GetVisibleWidth (column, true));
         control->Invalidate (FALSE);
     }
 }
