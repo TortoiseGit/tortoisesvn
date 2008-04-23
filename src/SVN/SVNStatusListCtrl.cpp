@@ -294,7 +294,7 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 {
 	Locker lock(m_critSec);
 
-    m_dwDefaultColumns = dwColumns;
+    m_dwDefaultColumns = dwColumns | 1;
     m_dwContextMenus = dwContextMenus;
 	m_bHasCheckboxes = bHasCheckboxes;
 
@@ -314,7 +314,7 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 	m_nIconFolder = SYS_IMAGE_LIST().GetDirIconIndex();
 	SetImageList(&SYS_IMAGE_LIST(), LVSIL_SMALL);
 
-    m_ColumnManager.ReadSettings (dwColumns | 1, sColumnInfoContainer);
+    m_ColumnManager.ReadSettings (m_dwDefaultColumns, sColumnInfoContainer);
 
 	// enable file drops
 	if (m_pDropTarget == NULL)
