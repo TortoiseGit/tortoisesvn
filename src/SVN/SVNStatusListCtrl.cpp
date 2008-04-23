@@ -699,7 +699,7 @@ void CSVNStatusListCtrl::ColumnManager::ParseUserPropSettings
 {
     assert (userProps.empty());
 
-    static CString delimiters (_T(""));
+    static CString delimiters (_T(" "));
 
     // parse list of visible user-props
 
