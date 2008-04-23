@@ -852,6 +852,7 @@ private:
 	afx_msg void OnPaint();
 	afx_msg void OnHdnBegintrack(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnHdnItemchanging(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnHdnItemchanged(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnDestroy();
 
 private:

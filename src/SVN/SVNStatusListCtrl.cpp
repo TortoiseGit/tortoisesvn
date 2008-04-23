@@ -119,6 +119,8 @@ BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
 	ON_WM_DESTROY()
 	ON_NOTIFY_REFLECT(LVN_BEGINDRAG, OnBeginDrag)
 	ON_NOTIFY_REFLECT(LVN_ITEMCHANGING, &CSVNStatusListCtrl::OnLvnItemchanging)
+	ON_NOTIFY(HDN_ITEMCHANGEDA, 0, &CSVNStatusListCtrl::OnHdnItemchanged)
+	ON_NOTIFY(HDN_ITEMCHANGEDW, 0, &CSVNStatusListCtrl::OnHdnItemchanged)
 END_MESSAGE_MAP()
 
 
@@ -4346,6 +4348,17 @@ void CSVNStatusListCtrl::OnHdnItemchanging(NMHDR *pNMHDR, LRESULT *pResult)
 		return;
     if (m_ColumnManager.IsVisible (phdr->iItem))
 	{
+		return;
+	}
+	*pResult = 1;
+}
+
+void CSVNStatusListCtrl::OnHdnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	*pResult = 0;
+	LPNMHEADER phdr = reinterpret_cast<LPNMHEADER>(pNMHDR);
+	if (m_ColumnManager.IsVisible (phdr->iItem))
+	{
 		// check whether the horizontal scrollbar should be shown
 		int maxcol = ((CHeaderCtrl*)(GetDlgItem(0)))->GetItemCount()-1;
 		int colwidth = 0;
@@ -4356,9 +4369,7 @@ void CSVNStatusListCtrl::OnHdnItemchanging(NMHDR *pNMHDR, LRESULT *pResult)
 		CRect rc;
 		GetClientRect(rc);
 		ShowScrollBar(SB_HORZ, colwidth >= rc.Width());
-		return;
 	}
-	*pResult = 1;
 }
 
 void CSVNStatusListCtrl::OnDestroy()
@@ -4924,3 +4935,4 @@ HRESULT STDMETHODCALLTYPE CSVNStatusListCtrlDropTarget::DragOver(DWORD grfKeySta
 	}
 	return S_OK;
 }
+
