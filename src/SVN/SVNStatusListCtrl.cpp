@@ -4377,6 +4377,7 @@ void CSVNStatusListCtrl::OnHdnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
 		ShowScrollBar(SB_HORZ, colwidth >= rc.Width());
 		// force a recalculation of the scrollbar
 		Scroll(CSize(-1,0));
+		Invalidate(FALSE);
 	}
 }
 
