@@ -89,7 +89,7 @@ void CSVNStatusListCtrl::ColumnManager::ReadSettings
     // create columns
 
     for (int i = 0, count = GetColumnCount(); i < count; ++i)
-        control->InsertColumn (i, GetName(i), LVCFMT_LEFT, GetVisibleWidth(i));
+		control->InsertColumn (i, GetName(i), LVCFMT_LEFT, IsVisible(i) ? -1 : GetVisibleWidth(i, false));
 
     // restore column ordering
 
@@ -223,10 +223,10 @@ int CSVNStatusListCtrl::ColumnManager::GetWidth (int column, bool useDefaults) c
     return width;
 }
 
-int CSVNStatusListCtrl::ColumnManager::GetVisibleWidth (int column) const
+int CSVNStatusListCtrl::ColumnManager::GetVisibleWidth (int column, bool useDefaults) const
 {
     return IsVisible (column)
-        ? GetWidth (column, true)
+        ? GetWidth (column, useDefaults)
         : 0;
 }
 
@@ -391,7 +391,7 @@ void CSVNStatusListCtrl::ColumnManager::UpdateUserPropList
 
         // update control
 
-        int result = control->InsertColumn (pos, *iter, LVCFMT_LEFT, GetVisibleWidth(pos));
+        int result = control->InsertColumn (pos, *iter, LVCFMT_LEFT, GetVisibleWidth(pos, false));
         assert (result != -1);
     }
 
@@ -522,7 +522,7 @@ void CSVNStatusListCtrl::ColumnManager::ResetColumns (DWORD defaultColumns)
     control->SetColumnOrderArray (GetColumnCount(), order);
 
     for (int i = 0, count = GetColumnCount(); i < count; ++i)
-        control->SetColumnWidth (i, GetVisibleWidth (i));
+        control->SetColumnWidth (i, GetVisibleWidth (i, true));
 
     control->Invalidate (FALSE);
 }

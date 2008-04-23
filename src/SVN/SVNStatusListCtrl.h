@@ -409,7 +409,7 @@ public:
         bool IsUserProp (int column) const;
         CString GetName (int column) const;
         int GetWidth (int column, bool useDefaults = false) const;
-        int GetVisibleWidth (int column) const;
+        int GetVisibleWidth (int column, bool useDefaults) const;
 
         /// switch columns on and off
 
