@@ -384,7 +384,7 @@ public:
      * we also store the settings (width and order) for those
      * userprops that are not used in this WC.
      *
-     * A userprop is considerd "in use", if the respective column
+     * A userprop is considered "in use", if the respective column
      * is not hidden or if at least one item has this property set.
 	 */
 	class ColumnManager
