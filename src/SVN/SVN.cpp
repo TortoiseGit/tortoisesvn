@@ -1841,8 +1841,8 @@ svn_error_t * SVN::get_url_from_target (const char **URL, const char *target)
 	{
 #pragma warning(push)
 #pragma warning(disable: 4127)	// conditional expression is constant
-		SVN_ERR (svn_wc_adm_probe_open2 (&adm_access, NULL, canontarget,
-			FALSE, 0, pool));
+		SVN_ERR (svn_wc_adm_probe_open3 (&adm_access, NULL, canontarget,
+			FALSE, 0, NULL, NULL, pool));
 		SVN_ERR (svn_wc_entry (&entry, canontarget, adm_access, FALSE, pool));
 		SVN_ERR (svn_wc_adm_close (adm_access));
 #pragma warning(pop)
@@ -1879,8 +1879,8 @@ svn_error_t * SVN::get_uuid_from_target (const char **UUID, const char *target)
 	svn_wc_adm_access_t *adm_access;          
 #pragma warning(push)
 #pragma warning(disable: 4127)	// conditional expression is constant
-	SVN_ERR (svn_wc_adm_probe_open2 (&adm_access, NULL, target,
-		FALSE, 0, pool));
+	SVN_ERR (svn_wc_adm_probe_open3 (&adm_access, NULL, target,
+		FALSE, 0, NULL, NULL, pool));
 	SVN_ERR (svn_client_uuid_from_path(UUID, target, adm_access, m_pctx, pool));
 	SVN_ERR (svn_wc_adm_close (adm_access));
 #pragma warning(pop)
@@ -2281,7 +2281,7 @@ BOOL SVN::GetTranslatedFile(CTSVNPath& sTranslatedFile, const CTSVNPath sFile, B
 	const char * translatedPath = NULL;
 	CStringA temp = sFile.GetSVNApiPath(localpool);
 	const char * originPath = svn_path_canonicalize(temp, localpool);
-	err = svn_wc_adm_probe_open2 (&adm_access, NULL, originPath, FALSE, 0, localpool);
+	err = svn_wc_adm_probe_open3 (&adm_access, NULL, originPath, FALSE, 0, NULL, NULL, localpool);
 	if (err)
 	{
 		svn_error_clear(err);

@@ -1428,11 +1428,13 @@ void CSVNStatusListCtrl::FetchUserProperties()
         const char* path = m_arStatusArray[i]->path.GetSVNApiPath (localPool);
          
 	    svn_wc_adm_access_t *adm_access = NULL;          
-        svn_error_t * error = svn_wc_adm_probe_open2 ( &adm_access
+        svn_error_t * error = svn_wc_adm_probe_open3 ( &adm_access
                                                      , NULL
                                                      , path
-                                                     , FALSE
-                                                     , 0
+                                                     , FALSE	// no write lock
+													 , 0		// lock just the directory/file itself
+                                                     , NULL
+													 , NULL
                                                      , localPool);
         if (error == NULL)
         {
