@@ -245,6 +245,8 @@ void CSVNStatusListCtrl::ColumnManager::SetVisible
         columns[index].relevant |= visible;
         if (!visible)
             columns[index].width = 0; 
+
+        control->Invalidate (FALSE);
     }
 }
 
@@ -293,6 +295,8 @@ void CSVNStatusListCtrl::ColumnManager::ColumnResized (int column)
     int propertyIndex = columns[index].index;
     if (propertyIndex >= SVNSLC_USERPROPCOLOFFSET)
         userProps[propertyIndex - SVNSLC_USERPROPCOLOFFSET].width = width;
+
+    control->Invalidate  (FALSE);
 }
 
 // call these to update the user-prop list
@@ -494,14 +498,17 @@ void CSVNStatusListCtrl::ColumnManager::RemoveUnusedProps()
 
 // bring everything back to its "natural" order
 
-void CSVNStatusListCtrl::ColumnManager::ResetColumns()
+void CSVNStatusListCtrl::ColumnManager::ResetColumns (DWORD defaultColumns)
 {
     // update internal data
 
     std::sort (columnOrder.begin(), columnOrder.end());
 
     for (size_t i = 0, count = columns.size(); i < count; ++i)
+    {
         columns[i].width = 0;
+        columns[i].visible = (i < 32) && (((defaultColumns >> i) & 1) != 0);
+    }
 
     for (size_t i = 0, count = userProps.size(); i < count; ++i)
         userProps[i].width = 0;
@@ -515,8 +522,9 @@ void CSVNStatusListCtrl::ColumnManager::ResetColumns()
     control->SetColumnOrderArray (GetColumnCount(), order);
 
     for (int i = 0, count = GetColumnCount(); i < count; ++i)
-        if (IsVisible(i))
-            control->SetColumnWidth (i, GetVisibleWidth(i));
+        control->SetColumnWidth (i, GetVisibleWidth (i));
+
+    control->Invalidate (FALSE);
 }
 
 // initialization utilities

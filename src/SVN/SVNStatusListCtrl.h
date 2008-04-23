@@ -434,7 +434,7 @@ public:
 
         /// bring everything back to its "natural" order
 
-        void ResetColumns();
+        void ResetColumns (DWORD defaultColumns);
 
     private:
 
@@ -884,7 +884,7 @@ private:
 	LONG						m_nTotal;
 	LONG						m_nSelected;
 
-	DWORD						m_dwColumns;
+	DWORD						m_dwDefaultColumns;
 	DWORD						m_dwShow;
 	bool						m_bShowFolders;
 	bool						m_bShowIgnores;
@@ -910,9 +910,6 @@ private:
 	CString						m_sBusy;
 
 	bool						m_bUnversionedRecurse;
-	DWORD						m_ColumnShown[SVNSLC_NUMCOLUMNS];
-	CString						m_sColumnInfoContainer;
-	int							m_arColumnWidths[SVNSLC_NUMCOLUMNS];
 
 	bool						m_bCheckChildrenWithParent;
 	CSVNStatusListCtrlDropTarget * m_pDropTarget;

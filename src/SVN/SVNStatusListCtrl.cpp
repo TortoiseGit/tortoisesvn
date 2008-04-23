@@ -221,6 +221,7 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
 	, m_bCheckIfGroupsExist(true)
 	, m_bFileDropsEnabled(false)
 	, m_bOwnDrag(false)
+    , m_dwDefaultColumns(0)
     , m_ColumnManager(this)
     , m_bAscending(false)
     , m_nSortedColumn(-1)
@@ -293,6 +294,7 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 {
 	Locker lock(m_critSec);
 
+    m_dwDefaultColumns = dwColumns;
     m_dwContextMenus = dwContextMenus;
 	m_bHasCheckboxes = bHasCheckboxes;
 
@@ -3613,7 +3615,11 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 			} 
             else if (cmd == columnCount+2)
 			{
-				m_ColumnManager.ResetColumns();
+                for (int i = 1; i < columnCount; ++i)
+    				if (m_ColumnManager.IsVisible(i))
+    					HideColumn (i);
+
+                m_ColumnManager.ResetColumns (m_dwDefaultColumns);
 			}
 		}
 	}
