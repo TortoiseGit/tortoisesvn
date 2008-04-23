@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-04-17 08:33+0100\n"
+"PO-Revision-Date: 2008-04-23 14:47+0100\n"
 "Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -194,6 +194,15 @@ msgstr "%s\\Export (%d) de %s"
 msgid "%s\\Export of %s"
 msgstr "%s\\Export de %s"
 
+#. Resource IDs: (3850)
+#, c-format
+msgid ""
+"%s\n"
+"%s"
+msgstr ""
+"%s\n"
+"%s"
+
 #. Resource IDs: (145)
 #, c-format
 msgid ""
@@ -227,6 +236,10 @@ msgstr ""
 "\n"
 "%s\n"
 
+#. Resource IDs: (16923)
+msgid "&..."
+msgstr "&..."
+
 #. Resource IDs: (65535)
 msgid "&?"
 msgstr "&?"
@@ -234,6 +247,18 @@ msgstr "&?"
 #. Resource IDs: (57664)
 msgid "&About TortoiseMerge..."
 msgstr "&A propos de TortoiseMerge..."
+
+#. Resource IDs: (16920)
+msgid "&Activate"
+msgstr "&Activer"
+
+#. Resource IDs: (17075)
+msgid "&Add >>"
+msgstr "&Ajouter >>"
+
+#. Resource IDs: (1064)
+msgid "&Add or Remove Buttons"
+msgstr "&Ajouter ou Supprimer des Boutons"
 
 #. Resource IDs: (8, 1098, 1310)
 msgid "&Add..."
@@ -258,6 +283,22 @@ msgstr "&Appliquer un patch"
 #. Resource IDs: (32852)
 msgid "&Aqua Style"
 msgstr "Style &Aqua"
+
+#. Resource IDs: (65535)
+msgid "&Arguments:"
+msgstr "&Arguments:"
+
+#. Resource IDs: (16645)
+msgid "&Assign"
+msgstr "&Assigner"
+
+#. Resource IDs: (16633)
+msgid "&Associate double-click event with:"
+msgstr "&Associer les événements double-clic avec :"
+
+#. Resource IDs: (1066)
+msgid "&Auto Hide"
+msgstr "Cacher &Automatiquement"
 
 #. Resource IDs: (65535)
 msgid "&Autoclose:"
@@ -287,6 +328,10 @@ msgstr "Con&damner..."
 msgid "&Blue Style"
 msgstr "Style &Bleu"
 
+#. Resource IDs: (65535)
+msgid "&Blue:"
+msgstr "&Bleu :"
+
 #. Resource IDs: (138)
 msgid "&Browse repository"
 msgstr "&Parcourir le référentiel "
@@ -294,6 +339,14 @@ msgstr "&Parcourir le référentiel "
 #. Resource IDs: (1011)
 msgid "&Browse..."
 msgstr "&Parcourir..."
+
+#. Resource IDs: (16913)
+msgid "&Button Appearance..."
+msgstr "Apparence des &Boutons..."
+
+#. Resource IDs: (65535)
+msgid "&Button text:"
+msgstr "Texte du &Bouton :"
 
 #. Resource IDs: (1051)
 msgid "&CD-ROM"
@@ -303,13 +356,37 @@ msgstr "&CD-ROM"
 msgid "&Cancel"
 msgstr "&Annuler"
 
+#. Resource IDs: (65535)
+msgid "&Categories:"
+msgstr "&Catégories:"
+
+#. Resource IDs: (65535)
+msgid "&Category:"
+msgstr "&Catégorie:"
+
+#. Resource IDs: (65535)
+msgid "&Choose commands from:"
+msgstr "&Choisir les commandes depuis:"
+
 #. Resource IDs: (8)
 msgid "&Clean up"
 msgstr "N&ettoyer"
 
+#. Resource IDs: (58112)
+msgid "&Close"
+msgstr "&Fermer"
+
+#. Resource IDs: (16922)
+msgid "&Close Window(s)"
+msgstr "&Fermer la(es) fenêtre(s)"
+
 #. Resource IDs: (32785)
 msgid "&Color age of lines"
 msgstr "&Couleur de l'âge des lignes"
+
+#. Resource IDs: (65535)
+msgid "&Command:"
+msgstr "&Commande:"
 
 #. Resource IDs: (8)
 msgid "&Commit..."
@@ -342,6 +419,10 @@ msgstr "&Convertir les fichiers lors d'une comparaison avec la BASE"
 #. Resource IDs: (501, 1367, 57634)
 msgid "&Copy"
 msgstr "&Copier"
+
+#. Resource IDs: (16911)
+msgid "&Copy Button Image"
+msgstr "&Copier l'Image du Bouton"
 
 #. Resource IDs: (32776)
 msgid "&Copy log message to clipboard"
@@ -386,6 +467,10 @@ msgstr "&Diff avec l'URL"
 #. Resource IDs: (14)
 msgid "&Diff with previous version"
 msgstr "Comparer avec la révision précé&dente"
+
+#. Resource IDs: (1066)
+msgid "&Docking"
+msgstr "&Ranger"
 
 #. Resource IDs: (2)
 msgid "&Don't go offline"
@@ -451,6 +536,10 @@ msgstr "&Adapter les images à la fenêtre"
 msgid "&Fixed drives"
 msgstr "Disques &fixes"
 
+#. Resource IDs: (1065)
+msgid "&Floating"
+msgstr "&Flottant"
+
 #. Resource IDs: (65535)
 msgid "&Font for log messages:"
 msgstr "&Police des commentaires :"
@@ -474,6 +563,10 @@ msgstr "&Depuis la révision"
 #. Resource IDs: (32779)
 msgid "&Go To Line..."
 msgstr "Aller à la li&gne..."
+
+#. Resource IDs: (65535)
+msgid "&Green:"
+msgstr "&Vert:"
 
 #. Resource IDs: (32799)
 msgid "&Group by branch"
@@ -516,13 +609,25 @@ msgstr "&Ignorer %d éléments"
 msgid "&Ignore whitespace changes"
 msgstr "&Ignorer les changements d'espaces"
 
+#. Resource IDs: (16914)
+msgid "&Image"
+msgstr "&Image"
+
 #. Resource IDs: (32790)
 msgid "&Image Info"
 msgstr "&Informations de l'image"
 
+#. Resource IDs: (16505)
+msgid "&Image only"
+msgstr "&Image uniquement"
+
 #. Resource IDs: (9, 1461)
 msgid "&Import..."
 msgstr "&Importer..."
+
+#. Resource IDs: (65535)
+msgid "&Initial directory:"
+msgstr "Répertoire &initial :"
 
 #. Resource IDs: (32825)
 msgid "&Inline diff word-wise"
@@ -535,6 +640,10 @@ msgstr "&Aller directement à la première différence au chargement"
 #. Resource IDs: (65535)
 msgid "&Language:"
 msgstr "&Langue :"
+
+#. Resource IDs: (16653)
+msgid "&Large Icons"
+msgstr "&Grandes Icônes"
 
 #. Resource IDs: (1065)
 msgid "&Limit search to modified lines"
@@ -552,6 +661,18 @@ msgstr "Vue en &liste"
 msgid "&Load..."
 msgstr "&Charger..."
 
+#. Resource IDs: (65535)
+msgid "&Lum:"
+msgstr "&Lum :"
+
+#. Resource IDs: (16543)
+msgid "&Menu animations:"
+msgstr "Animations du &Menu:"
+
+#. Resource IDs: (16921)
+msgid "&Menu contents:"
+msgstr "Contenu du Menu :"
+
 #. Resource IDs: (1)
 msgid "&Merge"
 msgstr "&Fusionnner"
@@ -568,6 +689,10 @@ msgstr "F&usionner..."
 msgid "&Merging"
 msgstr "&Fusion"
 
+#. Resource IDs: (16925)
+msgid "&Minimize"
+msgstr "&Réduire"
+
 #. Resource IDs: (65535)
 msgid "&Navigate"
 msgstr "&Naviguer"
@@ -579,6 +704,10 @@ msgstr "&Disques réseau"
 #. Resource IDs: (65535)
 msgid "&New "
 msgstr "&Nouveau"
+
+#. Resource IDs: (16509, 16615)
+msgid "&New..."
+msgstr "&Nouveau..."
 
 #. Resource IDs: (115, 1208)
 #, c-format
@@ -593,6 +722,14 @@ msgstr "&Suivant >"
 msgid "&Next Difference"
 msgstr "&Prochaine différence"
 
+#. Resource IDs: (58114)
+msgid "&Next Page"
+msgstr "&Page Suivante"
+
+#. Resource IDs: (16632)
+msgid "&No double-click event"
+msgstr "&Pas d'événement double-clic"
+
 #. Resource IDs: (1)
 msgid "&OK"
 msgstr "&OK"
@@ -600,6 +737,10 @@ msgstr "&OK"
 #. Resource IDs: (1)
 msgid "&Offline for now"
 msgstr "H&ors-ligne à partir de maintenant"
+
+#. Resource IDs: (3845)
+msgid "&One Page"
+msgstr "&Une Page"
 
 #. Resource IDs: (101, 113, 32773)
 msgid "&Open"
@@ -629,6 +770,14 @@ msgstr "&Port :"
 msgid "&Previous Difference"
 msgstr "&Précédente différence"
 
+#. Resource IDs: (1069)
+msgid "&Print Preview"
+msgstr "&Prévisualisation de l'Impression"
+
+#. Resource IDs: (58116)
+msgid "&Print..."
+msgstr "&Imprimer..."
+
 #. Resource IDs: (11021)
 msgid "&Properties..."
 msgstr "&Propriétés..."
@@ -636,6 +785,10 @@ msgstr "&Propriétés..."
 #. Resource IDs: (1246)
 msgid "&Recent messages"
 msgstr "Commentaires &récents"
+
+#. Resource IDs: (65535)
+msgid "&Red:"
+msgstr "&Rouge:"
 
 #. Resource IDs: (376)
 msgid "&Redo"
@@ -661,6 +814,22 @@ msgstr "&Réouvrir les boîtes de dialogue Livrer et Branche/Etiquette après qu
 msgid "&Repo-browser"
 msgstr "Navigateur de &référentiel"
 
+#. Resource IDs: (16613, 16624)
+msgid "&Reset"
+msgstr "&Réinitialiser"
+
+#. Resource IDs: (1019)
+msgid "&Reset Toolbar"
+msgstr "&Réinitialiser la Barre d'outils"
+
+#. Resource IDs: (16657)
+msgid "&Reset my usage data"
+msgstr "&Réinitialiser mes données d'utilisation"
+
+#. Resource IDs: (16910)
+msgid "&Reset to Default"
+msgstr "&Réinitialiser aux Valeurs par Défaut"
+
 #. Resource IDs: (113)
 msgid "&Revert changes from this revision"
 msgstr "Annule&r les modifications de cette révision"
@@ -672,6 +841,10 @@ msgstr "&Révision"
 #. Resource IDs: (65535)
 msgid "&SSH client:"
 msgstr "Client &SSH :"
+
+#. Resource IDs: (65535)
+msgid "&Sat:"
+msgstr "&Saturation:"
 
 #. Resource IDs: (57603)
 msgid "&Save"
@@ -701,6 +874,14 @@ msgstr "Confi&guration"
 msgid "&Show HEAD revisions"
 msgstr "Voir les révisions &HEAD"
 
+#. Resource IDs: (65535)
+msgid "&Show Menus for:"
+msgstr "&Afficher les Menus pour:"
+
+#. Resource IDs: (16612)
+msgid "&Show text labels"
+msgstr "&Afficher les labels texte"
+
 #. Resource IDs: (32851)
 msgid "&Silver Style"
 msgstr "Style &Argent"
@@ -708,6 +889,10 @@ msgstr "Style &Argent"
 #. Resource IDs: (1185)
 msgid "&Specific revision in repository"
 msgstr "Révision &spécifique dans le référentiel"
+
+#. Resource IDs: (16917)
+msgid "&Start Group"
+msgstr "Groupe de &Départ"
 
 #. Resource IDs: (59393)
 msgid "&Status Bar"
@@ -729,9 +914,21 @@ msgstr "Vue &symbolique"
 msgid "&Tab size:"
 msgstr "&Taille tabulation :"
 
+#. Resource IDs: (1069)
+msgid "&Tabbed Document"
+msgstr "Document &Tabulé"
+
 #. Resource IDs: (1382)
 msgid "&Test merge"
 msgstr "&Tester la fusion"
+
+#. Resource IDs: (16915)
+msgid "&Text"
+msgstr "&Texte"
+
+#. Resource IDs: (16506)
+msgid "&Text only"
+msgstr "&Texte uniquement"
 
 #. Resource IDs: (1438)
 msgid "&Timeout in seconds before updating the HEAD revision"
@@ -757,6 +954,14 @@ msgstr "&Vers l'URL : "
 msgid "&Toolbar"
 msgstr "&Barre d'outils"
 
+#. Resource IDs: (65535)
+msgid "&Toolbar Name:"
+msgstr "&Nom de la Barre d'outils:"
+
+#. Resource IDs: (65535)
+msgid "&Toolbars:"
+msgstr "&Barres d'outils:"
+
 #. Resource IDs: (1091, 1093, 1094)
 msgid "&TortoiseMerge"
 msgstr "&TortoiseMerge"
@@ -764,6 +969,10 @@ msgstr "&TortoiseMerge"
 #. Resource IDs: (9)
 msgid "&TortoiseSVN"
 msgstr "&TortoiseSVN"
+
+#. Resource IDs: (3845)
+msgid "&Two Page"
+msgstr "&Deux Pages"
 
 #. Resource IDs: (1058, 1376, 1394)
 msgid "&URL of repository:"
@@ -808,6 +1017,10 @@ msgstr "&Nom :"
 #. Resource IDs: (65535)
 msgid "&View"
 msgstr "&Affichage"
+
+#. Resource IDs: (65535)
+msgid "&View:"
+msgstr "&Voir:"
 
 #. Resource IDs: (32774)
 msgid "&Whitespaces"
@@ -868,9 +1081,17 @@ msgstr "+ %d"
 msgid "- %d"
 msgstr "- %d"
 
+#. Resource IDs: (1007)
+msgid "-------------------------------------------------------------------------------------------"
+msgstr "-------------------------------------------------------------------------------------------"
+
 #. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362)
 msgid "..."
 msgstr "..."
+
+#. Resource IDs: (16527)
+msgid "....."
+msgstr "....."
 
 #. Resource IDs: (151)
 #, c-format
@@ -889,6 +1110,18 @@ msgstr ": Copie de travail"
 msgid "< &Back"
 msgstr "< &Retour"
 
+#. Resource IDs: (16506)
+msgid "<.....>"
+msgstr "<.....>"
+
+#. Resource IDs: (1069)
+msgid "<Separator>"
+msgstr "<Séparateur>"
+
+#. Resource IDs: (1007)
+msgid "<Untitled>"
+msgstr "<Sans titre>"
+
 #. Resource IDs: (145)
 msgid ""
 "<b>TortoiseSVN</b> is a shell extension.\n"
@@ -903,6 +1136,10 @@ msgstr ""
 "afin d'ouvrir le menu contextuel où vous trouverez toutes les commandes <b>TortoiseSVN</b>.\n"
 "Et <u>lisez le manuel !</u>"
 
+#. Resource IDs: (16603)
+msgid "<descr>"
+msgstr "<descr>"
+
 #. Resource IDs: (209)
 msgid "<new changelist>"
 msgstr "<nouvelle liste de changements>"
@@ -910,6 +1147,14 @@ msgstr "<nouvelle liste de changements>"
 #. Resource IDs: (32814)
 msgid "?"
 msgstr "?"
+
+#. Resource IDs: (579)
+msgid "A list of user defined properties for files to show in the combo box"
+msgstr "Une liste de propriétés utilisateur pour fichiers à afficher dans la liste déroulante."
+
+#. Resource IDs: (579)
+msgid "A list of user defined properties for folders to show in the combo box"
+msgstr "Une liste de propriétés utilisateur pour dossiers à afficher dans la liste déroulante."
 
 #. Resource IDs: (201)
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
@@ -998,6 +1243,19 @@ msgstr "Actions"
 msgid "Activate Task List"
 msgstr "Liste des tâches courantes"
 
+#. Resource IDs: (1066)
+msgid "Active Files"
+msgstr "Fichiers Actifs"
+
+#. Resource IDs: (3865)
+#, c-format
+msgid ""
+"ActiveX objects cannot be saved while exiting Windows!\n"
+"Discard all changes to %1?"
+msgstr ""
+"Les objets ActiveX ne peuvent pas êre sauvegardés pendant la fermeture de Windows !\n"
+"Annuler toutes les modifications apportées à %1 ?"
+
 #. Resource IDs: (155, 209, 229)
 msgid "Add"
 msgstr "Ajouter"
@@ -1034,6 +1292,10 @@ msgstr "Ajouter un programme de fusion selon l'extension"
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
 msgstr "Ajouter à la liste des &ignorés"
+
+#. Resource IDs: (1068)
+msgid "Add to Quick Access Toolbar"
+msgstr "Ajouter à la Barre d'outils d'Accès Rapide"
 
 #. Resource IDs: (209, 1279)
 msgid "Add..."
@@ -1114,6 +1376,10 @@ msgstr "Configuration avancée de la fusion"
 msgid "Age"
 msgstr "Age"
 
+#. Resource IDs: (1007)
+msgid "All Commands"
+msgstr "Toutes les Commandes"
+
 #. Resource IDs: (3841)
 msgid "All Files (*.*)"
 msgstr "Tous fichiers (*.*)"
@@ -1121,6 +1387,24 @@ msgstr "Tous fichiers (*.*)"
 #. Resource IDs: (157)
 msgid "All Files (*.*)|*.*||"
 msgstr "Tous fichiers (*.*)|*.*||"
+
+#. Resource IDs: (1008)
+msgid "All your changes will be lost! Do you really want to reset all toolbars and menus?"
+msgstr "Toutes vos modifications seront perdues ! Voulez-vous réellement réinitialiser toutes les barres d'outils et tous les menus ?"
+
+#. Resource IDs: (1008)
+msgid "All your changes will be lost! Do you really want to reset the keyboard assignments?"
+msgstr "Toutes vos modifications seront perdues ! Voulez-vous réellement réinitialiser les raccourcis claviers ?"
+
+#. Resource IDs: (1008)
+#, c-format
+msgid "All your changes will be lost! Do you really want to reset the menu '%s'?"
+msgstr "Toutes vos modifications seront perdues ! Voulez-vous réellement réinitialiser le menu '%s' ?"
+
+#. Resource IDs: (1007)
+#, c-format
+msgid "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
+msgstr "Toutes vos modifications seront perdues ! Voulez-vous réellement réinitialiser la barre d'outils '%s' ?"
 
 #. Resource IDs: (345)
 msgid ""
@@ -1195,6 +1479,10 @@ msgstr "Une erreur inconnue est survenue lors de l'accès à %1."
 msgid "An unknown line type was found in line %d !"
 msgstr "Un type de ligne inconnu a été trouvé à la ligne %d !"
 
+#. Resource IDs: (65535)
+msgid "Application Frame Menus: "
+msgstr "Menus de la Bordure de l'Application :"
+
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
 msgstr "Applique un fichier de différence, au format unifié, sur la copie de travail"
@@ -1245,6 +1533,10 @@ msgstr "Demander à l'utilisateur"
 #, c-format
 msgid "Assigned to changelist \"%s\""
 msgstr "Assigné à la liste de changements \"%s\""
+
+#. Resource IDs: (16528)
+msgid "Assigned to:"
+msgstr "Assigné à:"
 
 #. Resource IDs: (77)
 #, c-format
@@ -1298,6 +1590,14 @@ msgstr "Auteurs sensibles à la casse"
 msgid "Authors:"
 msgstr "Auteurs :"
 
+#. Resource IDs: (1003)
+msgid "Auto Hide"
+msgstr "Cacher Automatiquement"
+
+#. Resource IDs: (1003)
+msgid "Auto Hide All"
+msgstr "Cacher Tout Automatiquement"
+
 #. Resource IDs: (99)
 msgid "Auto Rename"
 msgstr "Renommer automatiquement"
@@ -1346,6 +1646,10 @@ msgstr "Style &Noir"
 msgid "B&rowse..."
 msgstr "Parcou&rir..."
 
+#. Resource IDs: (1064)
+msgid "Back"
+msgstr "Retour"
+
 #. Resource IDs: (246)
 msgid "Bar Graph"
 msgstr "Graphique en barre"
@@ -1353,6 +1657,14 @@ msgstr "Graphique en barre"
 #. Resource IDs: (65535)
 msgid "Base file:"
 msgstr "Fichier de base :"
+
+#. Resource IDs: (3850)
+msgid ""
+"Bitmap\n"
+"a bitmap"
+msgstr ""
+"Bitmap\n"
+"un bitmap"
 
 #. Resource IDs: (114, 162)
 msgid "Blame"
@@ -1430,9 +1742,17 @@ msgstr "Bug-ID"
 msgid "Bug-ID / Issue-Nr:"
 msgstr "Bug-ID/ N° d'incident"
 
+#. Resource IDs: (16132)
+msgid "Button Appearance"
+msgstr "Apparence du Bouton"
+
 #. Resource IDs: (1215)
 msgid "C&heck now"
 msgstr "&Vérifier maintenant"
+
+#. Resource IDs: (65535)
+msgid "C&ommands:"
+msgstr "C&ommandes:"
 
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
@@ -1441,6 +1761,10 @@ msgstr "C&réer une branche/étiquette depuis une révision"
 #. Resource IDs: (101)
 msgid "C&reate folder..."
 msgstr "C&réer répertoire..."
+
+#. Resource IDs: (65535)
+msgid "C&urrent Keys:"
+msgstr "Touches Act&uelles :"
 
 #. Resource IDs: (501)
 msgid "C&ut"
@@ -1466,6 +1790,10 @@ msgstr "Met en cache les commentaires pour accélérer la récupération du jour
 msgid "Can double-click in log list to compare with previous revision"
 msgstr "Peut double-cliquer dans la liste du journal pour comparer avec avec la révision précédente"
 
+#. Resource IDs: (3865)
+msgid "Can not activate a static ActiveX object."
+msgstr "Ne peut pas activer un objet ActiveX statique."
+
 #. Resource IDs: (82)
 #, c-format
 msgid ""
@@ -1478,6 +1806,22 @@ msgstr ""
 "%s\n"
 "vers\n"
 "%s"
+
+#. Resource IDs: (1001)
+msgid "Can't copy bitmap image into the clipboard!"
+msgstr "Ne peut pas copier l'image dans le presse-papiers !"
+
+#. Resource IDs: (1001)
+msgid "Can't create a new image!"
+msgstr "Ne peut pas créer une nouvelle image !"
+
+#. Resource IDs: (1001)
+msgid "Can't customize menues!"
+msgstr "Ne peut pas personnaliser les menus !"
+
+#. Resource IDs: (1001)
+msgid "Can't paste bitmap image from the clipboard!"
+msgstr "Ne peut pas coller l'image du presse-papiers !"
 
 #. Resource IDs: (2, 73, 99, 563)
 msgid "Cancel"
@@ -1495,9 +1839,17 @@ msgstr "Annulation de l'opération..."
 msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr "Il n'est pas possible de monter la diff en raison de retours à la ligne incompatibles dans ce fichier"
 
+#. Resource IDs: (16926)
+msgid "Cascade"
+msgstr "Cascade"
+
 #. Resource IDs: (65535)
 msgid "Cascaded context menu"
 msgstr "Menu contextuel en cascade"
+
+#. Resource IDs: (65535)
+msgid "Cate&gories:"
+msgstr "Caté&gories :"
 
 #. Resource IDs: (82)
 msgid "Certificate expired or not yet valid"
@@ -1667,6 +2019,14 @@ msgstr "Nettoyage d'opérations interrompus, de fichiers verrouillés, ..."
 msgid "Clear"
 msgstr "Nettoyer"
 
+#. Resource IDs: (1057)
+msgid ""
+"Clear Tool\n"
+"Clear"
+msgstr ""
+"Outil Effacer\n"
+"Effacer"
+
 #. Resource IDs: (196)
 #, c-format
 msgid "Clears %ld URLs stored for %ld working copies"
@@ -1720,6 +2080,22 @@ msgstr "Cliquez sur \"Avancé\" pour spécifier un programme de fusion par exten
 msgid "Clipboard"
 msgstr "Presse-papiers"
 
+#. Resource IDs: (2, 1003, 1007, 1064)
+msgid "Close"
+msgstr "Fermer"
+
+#. Resource IDs: (1065)
+msgid "Close Full Screen"
+msgstr "Quitter le Mode Plein Ecran"
+
+#. Resource IDs: (3633)
+msgid ""
+"Close Print Preview\n"
+"&Close"
+msgstr ""
+"Fermer l'Aperçu avant Impression\n"
+"&Fermer"
+
 #. Resource IDs: (222)
 msgid "Close manually"
 msgstr "Fermeture manuelle"
@@ -1728,6 +2104,10 @@ msgstr "Fermeture manuelle"
 msgid "Close the active window and prompts to save the documents"
 msgstr "Fermer la fenêtre avec demande de confirmation d'enregistrement"
 
+#. Resource IDs: (16662)
+msgid "Color"
+msgstr "Couleur"
+
 #. Resource IDs: (1068)
 msgid "Color co&de in-line changes"
 msgstr "Coloriser les changements de lignes de co&de "
@@ -1735,6 +2115,14 @@ msgstr "Coloriser les changements de lignes de co&de "
 #. Resource IDs: (138, 65535)
 msgid "Colors"
 msgstr "Couleurs"
+
+#. Resource IDs: (65535)
+msgid "Colors:"
+msgstr "Couleurs:"
+
+#. Resource IDs: (65535)
+msgid "Comman&ds:"
+msgstr "Comman&des:"
 
 #. Resource IDs: (220)
 msgid "Command"
@@ -1751,6 +2139,10 @@ msgstr "Ligne de commande à exécuter :"
 #. Resource IDs: (3857)
 msgid "Command failed."
 msgstr "Echec de la commande."
+
+#. Resource IDs: (16104)
+msgid "Commands"
+msgstr "Commandes"
 
 #. Resource IDs: (135, 209, 229, 1083)
 msgid "Commit"
@@ -1878,9 +2270,17 @@ msgstr "Se connecter au serveur du référentiel et télécharger les données d
 msgid "Container sizes"
 msgstr "Taille des conteneurs"
 
+#. Resource IDs: (16520)
+msgid "Context Menus: "
+msgstr "Menus Contextuels:"
+
 #. Resource IDs: (73)
 msgid "Continue"
 msgstr "Continuer"
+
+#. Resource IDs: (1001)
+msgid "Contract docked window"
+msgstr "Contracter la fenêtre rangée"
 
 #. Resource IDs: (376)
 msgid "Cop&y"
@@ -1897,6 +2297,10 @@ msgstr "Copié depuis l'URL"
 #. Resource IDs: (126)
 msgid "Copied remotely"
 msgstr "Copié à distance"
+
+#. Resource IDs: (16991)
+msgid "Copy"
+msgstr "Copier"
 
 #. Resource IDs: (127)
 #, c-format
@@ -1933,6 +2337,14 @@ msgstr "Copier (Branche / Etiquette)"
 #. Resource IDs: (78)
 msgid "Copy - TortoiseSVN"
 msgstr "Copier - TortoiseSVN"
+
+#. Resource IDs: (1057)
+msgid ""
+"Copy Tool\n"
+"Copy"
+msgstr ""
+"Outil Copier\n"
+"Copier"
 
 #. Resource IDs: (101)
 msgid "Copy URL to clipboard"
@@ -2223,6 +2635,10 @@ msgstr "Crédits :"
 msgid "Cu&t"
 msgstr "C&ouper"
 
+#. Resource IDs: (65535)
+msgid "Current"
+msgstr "Courant"
+
 #. Resource IDs: (1113)
 msgid "Current version is:"
 msgstr "La version courante est :"
@@ -2231,6 +2647,30 @@ msgstr "La version courante est :"
 #, c-format
 msgid "Current version is: %s"
 msgstr "La version courante est : %s"
+
+#. Resource IDs: (17079)
+msgid "Cus&tomize..."
+msgstr "&Personnaliser..."
+
+#. Resource IDs: (16963)
+msgid "Custom"
+msgstr "Personnalisé"
+
+#. Resource IDs: (1007, 17074)
+msgid "Customize"
+msgstr "Personnaliser"
+
+#. Resource IDs: (17076)
+msgid "Customize Keyboard"
+msgstr "Personnaliser le Clavier"
+
+#. Resource IDs: (1069)
+msgid "Customize Quick Access Toolbar"
+msgstr "Personnaliser la Barre d'outils d'Accès Rapide"
+
+#. Resource IDs: (1068)
+msgid "Customize Quick Access Toolbar..."
+msgstr "Personnaliser la Barre d'outils d'Accès Rapide..."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -2244,13 +2684,25 @@ msgstr ""
 msgid "Date"
 msgstr "Date"
 
+#. Resource IDs: (1008)
+msgid "Default"
+msgstr "Défaut"
+
 #. Resource IDs: (65535)
 msgid "Default &number of log messages"
 msgstr "&Nombre par défaut de commentaires"
 
+#. Resource IDs: (1007)
+msgid "Default Menu"
+msgstr "Menu par Défaut"
+
 #. Resource IDs: (65535)
 msgid "Default URL:"
 msgstr "URL par défaut :"
+
+#. Resource IDs: (1007)
+msgid "Default application menu. Appears when no documents are open."
+msgstr "Menu application par défaut. Apparaît quand aucun document n'est ouvert."
 
 #. Resource IDs: (65535)
 msgid "Default path:"
@@ -2296,6 +2748,14 @@ msgstr "Supprime"
 msgid "Depth:"
 msgstr "Complexité :"
 
+#. Resource IDs: (1002)
+msgid "Description"
+msgstr "Description"
+
+#. Resource IDs: (65535)
+msgid "Description:"
+msgstr "Description:"
+
 #. Resource IDs: (213)
 msgid "Deselect changelist"
 msgstr "Déselectionner la liste de changement"
@@ -2307,6 +2767,14 @@ msgstr "Le disque de destination est plein."
 #. Resource IDs: (1279)
 msgid "Details"
 msgstr "Détails"
+
+#. Resource IDs: (3849)
+msgid ""
+"Device Independent Bitmap\n"
+"a device independent bitmap"
+msgstr ""
+"Bitmap Independant du Périphérique\n"
+"un bitmap indépendant du périphérique"
 
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
@@ -2358,6 +2826,10 @@ msgstr "Disque plein pendant l'accès à %1."
 msgid "Dispatch exception: %1"
 msgstr "Envoie l'exception : %1"
 
+#. Resource IDs: (65535)
+msgid "Display &buttons in this order"
+msgstr "Afficher les &boutons dans cet ordre"
+
 #. Resource IDs: (3605)
 msgid ""
 "Display help for clicked on buttons, menus and windows\n"
@@ -2389,6 +2861,11 @@ msgid ""
 msgstr ""
 "Voir les informations du programme, sa version et son copyright\n"
 "À propos"
+
+#. Resource IDs: (1007)
+#, c-format
+msgid "Do you really want to delete the toolbar '%s'?"
+msgstr "Voulez-vous vraiment supprimer la barre d'outils '%s' ?"
 
 #. Resource IDs: (145)
 msgid "Do you really want to move this file or folder?"
@@ -2449,6 +2926,10 @@ msgid "Do you want to save your changes?"
 msgstr "Voulez-vous enregistrer vos modifications?"
 
 #. Resource IDs: (65535)
+msgid "Document :"
+msgstr "Document :"
+
+#. Resource IDs: (65535)
 msgid ""
 "Documentation : Simon Large\n"
 "Code : Tobias Schäfer, Stefan Fuhrmann"
@@ -2459,6 +2940,14 @@ msgstr ""
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
 msgstr "Ne plus afficher ce message"
+
+#. Resource IDs: (1002)
+msgid "Drag to make this menu float"
+msgstr "Glisser pour rendre ce menu flottant"
+
+#. Resource IDs: (16513)
+msgid "Draw"
+msgstr "Dessiner"
 
 #. Resource IDs: (1079)
 msgid "Drive Types"
@@ -2483,6 +2972,10 @@ msgstr "EXT"
 #. Resource IDs: (1237)
 msgid "Edit"
 msgstr "Editer"
+
+#. Resource IDs: (16133)
+msgid "Edit Button Image"
+msgstr "Editer l'Image de Bouton"
 
 #. Resource IDs: (227, 564)
 msgid "Edit Properties"
@@ -2532,6 +3025,14 @@ msgstr "Edite la valeur de la propriété sélectionnée"
 #. Resource IDs: (79)
 msgid "Either the name or IP of the proxy server"
 msgstr "Le nom ou l'adresse IP du serveur de proxy"
+
+#. Resource IDs: (1057)
+msgid ""
+"Ellipse Tools\n"
+"Ellipse"
+msgstr ""
+"Outils Ellipse\n"
+"Ellipse"
 
 #. Resource IDs: (65535)
 msgid "Empty"
@@ -2715,6 +3216,23 @@ msgstr "Exceptions :"
 msgid "Exclude paths:"
 msgstr "Chemins exclus :"
 
+#. Resource IDs: (1002)
+msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
+msgstr "Exécutable (*.exe)|*.exe|Commande (*.com)|*.com|Information (*.pdf)|*.pdf|Procédure (*.bat)|*.bat|Tous les Fichiers (*.*)|*.*||"
+
+#. Resource IDs: (1002)
+msgid "Existing"
+msgstr "Existant"
+
+#. Resource IDs: (1002)
+#, c-format
+msgid "Expand (%s)"
+msgstr "Etendre (%s)"
+
+#. Resource IDs: (1001)
+msgid "Expand docked window"
+msgstr "Etendre la fenêtre rangée"
+
 #. Resource IDs: (209)
 msgid "Explore to"
 msgstr "Explorer vers"
@@ -2804,17 +3322,41 @@ msgstr "Externes inclus"
 msgid "Failed revert"
 msgstr "Echec pour retourner à l'ancienne version"
 
+#. Resource IDs: (3865)
+msgid ""
+"Failed to connect.\n"
+"Link may be broken."
+msgstr ""
+"Impossible de se connecter.\n"
+"Le lien peut être défectueux."
+
+#. Resource IDs: (3865)
+msgid "Failed to convert ActiveX object."
+msgstr "Echec de conversion de l'objet ActiveX."
+
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
 msgstr "Echec de création d'un document vide."
+
+#. Resource IDs: (3865)
+msgid "Failed to create object.  Make sure the application is entered in the system registry."
+msgstr "Echec de la création de l'objet. Assurez-vous que l'application est entrée dans la base de registre du système."
 
 #. Resource IDs: (3857)
 msgid "Failed to launch help."
 msgstr "Echec de lancement de l'aide."
 
+#. Resource IDs: (3865)
+msgid "Failed to launch server application."
+msgstr "Echec du lancement de l'opération serveur."
+
 #. Resource IDs: (3857)
 msgid "Failed to open document."
 msgstr "Echec d'ouverture du document."
+
+#. Resource IDs: (3865)
+msgid "Failed to perform server operation."
+msgstr "L'opération serveur a échoué."
 
 #. Resource IDs: (3857)
 msgid "Failed to save document."
@@ -2970,6 +3512,14 @@ msgstr ""
 msgid "Filename"
 msgstr "Nom de fichier"
 
+#. Resource IDs: (1057)
+msgid ""
+"Fill Tool\n"
+"Fill"
+msgstr ""
+"Outil Remplier\n"
+"Remplir"
+
 #. Resource IDs: (65535)
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
 msgstr "Filtrer les chemins suivants (séparer les chemins avec le caractère '*') :"
@@ -3006,6 +3556,10 @@ msgstr "Lecteurs de disquettes (A: B:)"
 msgid "Fold &tags"
 msgstr "Replier les é&tiquettes"
 
+#. Resource IDs: (1002)
+msgid "Folder"
+msgstr "Dossier"
+
 #. Resource IDs: (65535)
 msgid "Font"
 msgstr "Police"
@@ -3022,6 +3576,10 @@ msgstr "Pour l'historique complet, déselectionnez \"Arrêt à la copie/renommag
 msgid "Force blame"
 msgstr "Forcer un blâme"
 
+#. Resource IDs: (1064)
+msgid "Forward"
+msgstr "En avant"
+
 #. Resource IDs: (65535)
 msgid "From URL:"
 msgstr "Depuis l'URL :"
@@ -3033,6 +3591,10 @@ msgstr "Du :"
 #. Resource IDs: (65535)
 msgid "From: (start URL and revision of the range to merge)"
 msgstr "De : (URL de début et révision de la plage à fusionner)"
+
+#. Resource IDs: (1065)
+msgid "Full Screen"
+msgstr "Plein Ecran"
 
 #. Resource IDs: (19)
 msgid "Fully recursive"
@@ -3190,6 +3752,10 @@ msgstr ""
 msgid "Graph type:"
 msgstr "Type de graphique :"
 
+#. Resource IDs: (16972)
+msgid "Gray"
+msgstr "Gris"
+
 #. Resource IDs: (2050)
 msgid "Group by branch"
 msgstr "Grouper par branche"
@@ -3201,6 +3767,10 @@ msgstr "Regrouper les listes de changements"
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
 msgstr "Cacher les chem&ins changés sans relation"
+
+#. Resource IDs: (65535)
+msgid "H&ue:"
+msgstr "&Teinte:"
 
 #. Resource IDs: (1353, 1354)
 msgid "HEAD"
@@ -3215,9 +3785,21 @@ msgstr "La révision de tête est %s"
 msgid "Help"
 msgstr "Aide"
 
+#. Resource IDs: (16982)
+msgid "Help Keyboard"
+msgstr "Aide au Clavier"
+
+#. Resource IDs: (16974)
+msgid "Hex"
+msgstr "Héx"
+
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
 msgstr "Cacher les chemin &supprimés"
+
+#. Resource IDs: (1001)
+msgid "Hide docked window"
+msgstr "Cacher fenêtre rangée"
 
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
@@ -3236,6 +3818,14 @@ msgstr "Numéro de révision le plus haut dans le cache"
 #. Resource IDs: (1127)
 msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all children too"
 msgstr "Astuce : Pressez F5 pour rafraîchir le sous-arbre sélectionné et Ctrl-F5 pour charger tous les enfants aussi"
+
+#. Resource IDs: (16519)
+msgid "Hint: select the context menu, change the page to \"Commands\" and drag the toolbar buttons into the menu window."
+msgstr "Astuce : sélectionner le menu contextuel, aller à la page \"Commandes\" et glissez les boutons de barre d'outils dans la fenêtre du menu."
+
+#. Resource IDs: (1064)
+msgid "Home"
+msgstr "Accueil"
 
 #. Resource IDs: (103)
 msgid "Hook Scripts"
@@ -3546,6 +4136,18 @@ msgstr "Ignorer les changements d'espaces"
 msgid "Ignored items included"
 msgstr "Éléments ignorés inclus"
 
+#. Resource IDs: (16916)
+msgid "Image &and Text"
+msgstr "Image &et Texte"
+
+#. Resource IDs: (16507)
+msgid "Image &and text"
+msgstr "Image &et texte"
+
+#. Resource IDs: (16508)
+msgid "Images"
+msgstr "Images"
+
 #. Resource IDs: (19)
 msgid "Immediate children, including folders"
 msgstr "Les enfants immédiat, avec les dossiers"
@@ -3663,6 +4265,10 @@ msgstr "Erreur interne de l'application."
 #. Resource IDs: (338, 339)
 msgid "Internal value indicating compression quality"
 msgstr "Valeur interne indiquant la qualité de la compression"
+
+#. Resource IDs: (3850)
+msgid "Invalid Currency."
+msgstr "Monnaie Invalide."
 
 #. Resource IDs: (102)
 msgid "Invalid data object dropped!"
@@ -3797,6 +4403,18 @@ msgstr "Garder &les verrous"
 msgid "Keep changelists"
 msgstr "Conserver les listes de changements"
 
+#. Resource IDs: (16136)
+msgid "Keyboard"
+msgstr "Clavier"
+
+#. Resource IDs: (65535)
+msgid "Keyboard shortcuts:"
+msgstr "Raccourcis clavier :"
+
+#. Resource IDs: (1002)
+msgid "Keys"
+msgstr "Touches"
+
 #. Resource IDs: (65535)
 msgid "Last commit revision:"
 msgstr "Dernière révision livrée :"
@@ -3845,6 +4463,14 @@ msgstr "Ligne"
 msgid "Line Graph"
 msgstr "Gaphique en ligne"
 
+#. Resource IDs: (1057)
+msgid ""
+"Line Tool\n"
+"Line"
+msgstr ""
+"Outil Ligne\n"
+"Ligne"
+
 #. Resource IDs: (32853)
 msgid "Line diff bar"
 msgstr "Ligne de la barre de différence"
@@ -3873,6 +4499,10 @@ msgstr ""
 #. Resource IDs: (344)
 msgid "List of repositories for which log information has been cached"
 msgstr "Liste des référentiels dont les informations de journal ont été mises en cache"
+
+#. Resource IDs: (16631, 16992)
+msgid "List1"
+msgstr "Liste1"
 
 #. Resource IDs: (130)
 msgid "Load Images"
@@ -3990,6 +4620,10 @@ msgstr "Révision affichée la plus basse : %ld - Révision affichée la plus ha
 msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision: %ld"
 msgstr "Révision affichée la plus basse : %ld - Révision affichée la plus haute révision : %ld - Révision HEAD : %ld"
 
+#. Resource IDs: (16973)
+msgid "Lum"
+msgstr "Lum"
+
 #. Resource IDs: (3866)
 msgid "Mail system DLL is invalid."
 msgstr "La DLL du système de mail n'est pas valide."
@@ -4046,6 +4680,22 @@ msgstr "Maximum d'éléments à garder dans les commentaires récents"
 msgid "Max. lines in action log"
 msgstr "Nombre de lignes maximum dans le journal des actions"
 
+#. Resource IDs: (16655)
+msgid "Me&nus show recently used commands first"
+msgstr "Les me&nus affichent les commandes utilisées récemment en premier"
+
+#. Resource IDs: (16134)
+msgid "Menu"
+msgstr "Menu"
+
+#. Resource IDs: (1001)
+msgid "Menu Bar"
+msgstr "Barre de Menu"
+
+#. Resource IDs: (16626)
+msgid "Menu s&hadows"
+msgstr "&Ombres des Menus"
+
 #. Resource IDs: (109, 110, 111, 276, 278, 65535)
 msgid "Merge"
 msgstr "Fusionner"
@@ -4073,6 +4723,10 @@ msgstr "Tout fusionner..."
 #. Resource IDs: (65535)
 msgid "Merge depth:"
 msgstr "Profondeur de fusion:"
+
+#. Resource IDs: (1432)
+msgid "Merge non-interactive"
+msgstr "Fussioner non-itéractifs"
 
 #. Resource IDs: (595, 65535)
 msgid "Merge options"
@@ -4176,6 +4830,10 @@ msgstr "Min"
 msgid "Mine"
 msgstr "Le mien"
 
+#. Resource IDs: (1068)
+msgid "Minimize the Ribbon"
+msgstr "Réduire le Bandeau"
+
 #. Resource IDs: (1023)
 msgid "Misc"
 msgstr "Divers"
@@ -4192,6 +4850,18 @@ msgstr "Date de modification"
 msgid "Modified"
 msgstr "Modifié"
 
+#. Resource IDs: (1070)
+msgid "More"
+msgstr "Plus"
+
+#. Resource IDs: (1002)
+msgid "More Buttons"
+msgstr "Plus de Boutons"
+
+#. Resource IDs: (1069)
+msgid "More Commands..."
+msgstr "Plus de Commandes..."
+
 #. Resource IDs: (438)
 msgid "More colors..."
 msgstr "Plus de couleurs..."
@@ -4203,6 +4873,10 @@ msgstr "Plus..."
 #. Resource IDs: (1136)
 msgid "Most active author:"
 msgstr "Auteur le plus actif :"
+
+#. Resource IDs: (16135)
+msgid "Mouse"
+msgstr "Souris"
 
 #. Resource IDs: (127)
 #, c-format
@@ -4221,6 +4895,22 @@ msgid ""
 msgstr ""
 "Déplacer %s\r\n"
 "vers %s"
+
+#. Resource IDs: (17026)
+msgid "Move &Down"
+msgstr "&Déplacer vers le Bas"
+
+#. Resource IDs: (17025)
+msgid "Move &Up"
+msgstr "Déplacer vers le Ha&ut"
+
+#. Resource IDs: (1002)
+msgid "Move Item Down"
+msgstr "Déplacer l'Elément vers le Bas"
+
+#. Resource IDs: (1002)
+msgid "Move Item Up"
+msgstr "Déplacer l'Elément vers le Haut"
 
 #. Resource IDs: (104)
 msgid "Move and rename item to here"
@@ -4268,6 +4958,14 @@ msgstr "C&onflit suivant"
 msgid "NUM"
 msgstr "NUM"
 
+#. Resource IDs: (17004)
+msgid "Navigation Pane Options"
+msgstr "Options du Panneau de Navigation"
+
+#. Resource IDs: (1065)
+msgid "Navigation Pane Options..."
+msgstr "Options du Panneau de Navigation..."
+
 #. Resource IDs: (208)
 msgid "Needs lock"
 msgstr "Nécessite un verrou"
@@ -4292,6 +4990,10 @@ msgstr "Nouveau"
 msgid "New &name:"
 msgstr "Nouveau &nom :"
 
+#. Resource IDs: (1001)
+msgid "New Menu"
+msgstr "Nouveau Menu"
+
 #. Resource IDs: (97)
 #, c-format
 msgid "New name for %s"
@@ -4300,6 +5002,14 @@ msgstr "Nouveau nom pour %s"
 #. Resource IDs: (98)
 msgid "New name:"
 msgstr "Nouveau nom :"
+
+#. Resource IDs: (3633)
+msgid ""
+"Next Page\n"
+"Next Page"
+msgstr ""
+"Page Suivante\n"
+"Page Suivante"
 
 #. Resource IDs: (73)
 msgid "No"
@@ -4593,9 +5303,17 @@ msgstr "Ouvre le navigateur de référentiel pour optimiser le référentiel en 
 msgid "Operate from log cache for now only"
 msgstr "Travailler uniquement à partir du cache du journal dès maintenant"
 
+#. Resource IDs: (16137)
+msgid "Options"
+msgstr "Options"
+
 #. Resource IDs: (32779)
 msgid "Ori&ginal size"
 msgstr "Taille ori&ginale"
+
+#. Resource IDs: (1065)
+msgid "Other Task Panes"
+msgstr "Autres Panneaux de Tâches"
 
 #. Resource IDs: (245)
 msgid "Others"
@@ -4604,6 +5322,10 @@ msgstr "Autres"
 #. Resource IDs: (3843)
 msgid "Out of memory."
 msgstr "Plus de mémoire."
+
+#. Resource IDs: (3845)
+msgid "Output.prn"
+msgstr "Output.prn"
 
 #. Resource IDs: (95)
 msgid ""
@@ -4629,9 +5351,35 @@ msgstr "PEM"
 msgid "PKCS12"
 msgstr "PKCS12"
 
+#. Resource IDs: (3845)
+#, c-format
+msgid "Page %u"
+msgstr "Page %u"
+
+#. Resource IDs: (3845)
+#, c-format
+msgid ""
+"Page %u\n"
+"Pages %u-%u\n"
+msgstr ""
+"Page %u\n"
+"Pages %u-%u\n"
+
+#. Resource IDs: (65535)
+msgid "Page :"
+msgstr "Page :"
+
 #. Resource IDs: (69)
 msgid "Password:"
 msgstr "Mot de passe :"
+
+#. Resource IDs: (1057)
+msgid ""
+"Paste Tool\n"
+"Paste"
+msgstr ""
+"Outil Coller\n"
+"Coller"
 
 #. Resource IDs: (172)
 msgid "Paste filename list"
@@ -4656,6 +5404,30 @@ msgstr "Chemin"
 #. Resource IDs: (116)
 msgid "Paths"
 msgstr "Chemins"
+
+#. Resource IDs: (1057)
+msgid ""
+"Pencil Tool\n"
+"Pencil"
+msgstr ""
+"Outil Crayon\n"
+"Crayon"
+
+#. Resource IDs: (16538)
+msgid "Personalized Menus and Toolbars"
+msgstr "Barres d'Outils et Menus Personnalisés"
+
+#. Resource IDs: (3849)
+msgid ""
+"Picture (Metafile)\n"
+"a picture"
+msgstr ""
+"Image (Metafile)\n"
+"une image"
+
+#. Resource IDs: (65535)
+msgid "Picture:"
+msgstr "Image:"
 
 #. Resource IDs: (157)
 msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
@@ -4723,6 +5495,10 @@ msgstr "Veuillez patienter pendant l'initialisation du navigateur de référenti
 msgid "Please wait..."
 msgstr "Veuillez patienter..."
 
+#. Resource IDs: (65535)
+msgid "Port :"
+msgstr "Port :"
+
 #. Resource IDs: (569)
 msgid "Post-Commit Hook"
 msgstr "Hook post-livraison"
@@ -4730,6 +5506,10 @@ msgstr "Hook post-livraison"
 #. Resource IDs: (570)
 msgid "Post-Update Hook"
 msgstr "Hook post-mise à jour"
+
+#. Resource IDs: (58115)
+msgid "Pre&v Page"
+msgstr "Page Pré&cédente"
 
 #. Resource IDs: (569)
 msgid "Pre-Commit Hook"
@@ -4739,13 +5519,65 @@ msgstr "Hook pre-livraison"
 msgid "Pre-Update Hook"
 msgstr "Hook pre-mise à jour"
 
+#. Resource IDs: (65535)
+msgid "Press &New Shortcut Key:"
+msgstr "Presser la &Nouvelle Touche de Raccourci :"
+
+#. Resource IDs: (65535)
+msgid "Press &new shortcut key:"
+msgstr "Presser la &nouvelle touche de raccourci :"
+
 #. Resource IDs: (2052)
 msgid "Prevents most cases in which connection lines cross revision nodes"
 msgstr "Empêche la plupart des cas où les connexions des lignes croisent les noeuds de révision"
 
+#. Resource IDs: (1069)
+msgid "Preview"
+msgstr "Prévisualiser"
+
 #. Resource IDs: (376)
 msgid "Preview patched file"
 msgstr "Prévisualiser le fichier patché"
+
+#. Resource IDs: (65535)
+msgid "Preview: "
+msgstr "Prévisualisation :"
+
+#. Resource IDs: (3633)
+msgid ""
+"Previous Page\n"
+"Previous Page"
+msgstr ""
+"Page Précédente\n"
+"Page Précédente"
+
+#. Resource IDs: (1069, 16990)
+msgid "Print"
+msgstr "Imprimer"
+
+#. Resource IDs: (3633)
+msgid ""
+"Print Document\n"
+"&Print"
+msgstr ""
+"Imprimer le Document\n"
+"Im&primer"
+
+#. Resource IDs: (3845)
+msgid "Print to File"
+msgstr "Imprimer dans un Fichier"
+
+#. Resource IDs: (65535)
+msgid "Printer :"
+msgstr "Imprimante :"
+
+#. Resource IDs: (3845)
+msgid "Printer Files (*.prn)|*.prn|All Files (*.*)|*.*||"
+msgstr "Fichiers d'Imprimantes (*.prn)|*.prn|Tous les Fichiers (*.*)|*.*||"
+
+#. Resource IDs: (65535)
+msgid "Printing"
+msgstr "Impression"
 
 #. Resource IDs: (132)
 #, c-format
@@ -4853,6 +5685,10 @@ msgstr ""
 msgid "R&AM drives"
 msgstr "D&isques mémoire"
 
+#. Resource IDs: (16623)
+msgid "R&eset"
+msgstr "Réinitialis&er"
+
 #. Resource IDs: (114)
 msgid "R&evert to this revision"
 msgstr "R&evenir à cette révision"
@@ -4873,6 +5709,14 @@ msgstr "Disques a&movibles"
 msgid "Re&name..."
 msgstr "Re&nommer..."
 
+#. Resource IDs: (16613)
+msgid "Re&set"
+msgstr "Réinitiali&ser"
+
+#. Resource IDs: (16647)
+msgid "Re&set All"
+msgstr "Tout Réinitiali&ser"
+
 #. Resource IDs: (8)
 msgid "Re&vert..."
 msgstr "Re&venir en arrière..."
@@ -4881,6 +5725,10 @@ msgstr "Re&venir en arrière..."
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Lisez le \"Guide journalier\" avant d'être bloqué..."
 
+#. Resource IDs: (1002)
+msgid "Recent"
+msgstr "Récent"
+
 #. Resource IDs: (65535)
 msgid "Recently modified lines"
 msgstr "Lignes récemment modifiées"
@@ -4888,6 +5736,14 @@ msgstr "Lignes récemment modifiées"
 #. Resource IDs: (276)
 msgid "Record Only"
 msgstr "Enregistrement Seul"
+
+#. Resource IDs: (1057)
+msgid ""
+"Rectangle Tool\n"
+"Rectangle"
+msgstr ""
+"Outil Rectangle\n"
+"Rectangle"
 
 #. Resource IDs: (1260)
 msgid "Recurse into unversioned folders"
@@ -5035,6 +5891,10 @@ msgstr "Retirer les branches et les étiquettes supprimées."
 msgid "Remove from &ignore list"
 msgstr "Retirer de la liste des &ignorés"
 
+#. Resource IDs: (1068)
+msgid "Remove from Quick Access Toolbar"
+msgstr "Supprimer de la Barre d'outils d'Accès Rapide"
+
 #. Resource IDs: (209)
 msgid "Remove from changelist"
 msgstr "Retirer de la liste des changements"
@@ -5090,6 +5950,10 @@ msgstr "Retire le fichier ou le filtre de fichier de la liste des ignorés"
 #. Resource IDs: (581)
 msgid "Removes the selected properties"
 msgstr "Supprimer les propriétés sélectionnées"
+
+#. Resource IDs: (16616)
+msgid "Rena&me..."
+msgstr "Reno&mmer..."
 
 #. Resource IDs: (151)
 msgid "Rename"
@@ -5176,6 +6040,14 @@ msgstr "Requiert un nom d'utilisateur et un mot de passe"
 #. Resource IDs: (8)
 msgid "Res&olved..."
 msgstr "Rés&olu..."
+
+#. Resource IDs: (16614)
+msgid "Reset &All"
+msgstr "Tout Réiniti&aliser"
+
+#. Resource IDs: (214)
+msgid "Reset columns"
+msgstr "Réinitialiser les colonnes"
 
 #. Resource IDs: (207, 229)
 msgid "Resolve"
@@ -5367,6 +6239,14 @@ msgstr ""
 msgid "Revisions"
 msgstr "Révisions"
 
+#. Resource IDs: (3850)
+msgid ""
+"Rich Text (RTF)\n"
+"text with font and paragraph formatting"
+msgstr ""
+"Rich Text Format (RTF)\n"
+"Texte avec formattage des polices et paragraphes"
+
 #. Resource IDs: (188)
 msgid "Right View: "
 msgstr "Vue de droite :"
@@ -5375,9 +6255,35 @@ msgstr "Vue de droite :"
 msgid "Right image"
 msgstr "Image de droite"
 
+#. Resource IDs: (1070)
+#, c-format
+msgid "Row %d of %d"
+msgstr "Ligne %d de %d"
+
+#. Resource IDs: (1070)
+#, c-format
+msgid "Row %d-%d of %d"
+msgstr "Ligne %d-%d de %d"
+
+#. Resource IDs: (17045)
+msgid "S&elect..."
+msgstr "Sél&ectionner..."
+
 #. Resource IDs: (32782)
 msgid "S&ettings"
 msgstr "&Configuration"
+
+#. Resource IDs: (1065)
+msgid "S&how Buttons on One Row"
+msgstr "Affic&her les boutons sur une seule ligne"
+
+#. Resource IDs: (1065)
+msgid "S&how Buttons on Two Rows"
+msgstr "Affic&her les boutons sur deux lignes"
+
+#. Resource IDs: (17078)
+msgid "S&how Quick Access Toolbar below the Ribbon"
+msgstr "Affic&her la barre d'outils d'accès rapide sous le bandeau"
 
 #. Resource IDs: (1132)
 msgid "S&tatistics"
@@ -5525,6 +6431,14 @@ msgstr "Sauvegarde fichier patch vers :"
 msgid "Scintilla"
 msgstr "Scintilla"
 
+#. Resource IDs: (1003)
+msgid "Scroll Left"
+msgstr "Défiler à Gauche"
+
+#. Resource IDs: (1003)
+msgid "Scroll Right"
+msgstr "Défiler à Droite"
+
 #. Resource IDs: (113)
 msgid "Search &log messages..."
 msgstr "Recherche dans le fichier journa&l..."
@@ -5546,9 +6460,29 @@ msgstr "Déplacement dans %1 en erreur"
 msgid "Select &All"
 msgstr "Sélectionner &Tout"
 
+#. Resource IDs: (16529)
+msgid "Select &User-defined Image: "
+msgstr "Sélectionner une Image &Utilisateur :"
+
+#. Resource IDs: (16508)
+msgid "Select &context menu:"
+msgstr "Sélectionenr le menu &contextuel :"
+
+#. Resource IDs: (65535)
+msgid "Select &window:"
+msgstr "Sélectionner la &fenêtre :"
+
 #. Resource IDs: (1067)
 msgid "Select / deselect &all"
 msgstr "Sélectionner / désélectionner &tout"
+
+#. Resource IDs: (1057)
+msgid ""
+"Select Color Tool\n"
+"Select Color"
+msgstr ""
+"Outil Sélecteur de Couleur\n"
+"Sélecteur de Couleur"
 
 #. Resource IDs: (13)
 msgid "Select File..."
@@ -5678,6 +6612,10 @@ msgstr "Envoi du contenu"
 msgid "Server &address:"
 msgstr "&Adresse serveur :"
 
+#. Resource IDs: (65535)
+msgid "Set Accelerator &for:"
+msgstr "Définir l'Accélérateur &pour :"
+
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
 msgstr "Met les dates de fichier aux \"da&tes de dernière livraison\""
@@ -5723,9 +6661,17 @@ msgstr "Format court des &dates dans les commentaires"
 msgid "Short URL of Subversion items"
 msgstr "URL courte des éléments Subversion"
 
+#. Resource IDs: (214)
+msgid "Shorten property list"
+msgstr "Raccourcir la liste des propriétés"
+
 #. Resource IDs: (1382)
 msgid "Show"
 msgstr "Afficher"
+
+#. Resource IDs: (16996)
+msgid "Show &Accelerator for:"
+msgstr "Afficher l'&Accélérateur pour :"
 
 #. Resource IDs: (115, 1031)
 msgid "Show &All"
@@ -5763,6 +6709,18 @@ msgstr "V&oir le recouvrement et le menu contextuel uniquement dans l'explorateu
 msgid "Show &unversioned files"
 msgstr "Voir les fichiers non &versionnés"
 
+#. Resource IDs: (1069)
+msgid "Show Above the Ribbon"
+msgstr "Afficher Au-dessus du Bandeau"
+
+#. Resource IDs: (1069)
+msgid "Show Below the Ribbon"
+msgstr "Afficher Au-dessous du Bandeau"
+
+#. Resource IDs: (1065)
+msgid "Show Fewer Buttons"
+msgstr "Afficher Moins de Boutons"
+
 #. Resource IDs: (32817)
 msgid "Show File List"
 msgstr "Afficher la liste des fichiers"
@@ -5783,9 +6741,25 @@ msgstr ""
 msgid "Show Lock dialog before locking files"
 msgstr "Afficher la boîte de dialogue verou avant de verrouiller les fichiers"
 
+#. Resource IDs: (1065)
+msgid "Show More Buttons"
+msgstr "Afficher Plus de Boutons"
+
 #. Resource IDs: (32813)
 msgid "Show Ove&rview"
 msgstr "Afficher la &vue générale"
+
+#. Resource IDs: (1068)
+msgid "Show Quick Access Toolbar Above the Ribbon"
+msgstr "Affic&her la barre d'outils d'accès rapide au-dessus le bandeau"
+
+#. Resource IDs: (1068)
+msgid "Show Quick Access Toolbar Below the Ribbon"
+msgstr "Affic&her la barre d'outils d'accès rapide sous le bandeau"
+
+#. Resource IDs: (16651)
+msgid "Show Screen&Tips on toolbars"
+msgstr "Afficher Screen&Tips sur les barres d'outils"
 
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
@@ -5802,6 +6776,10 @@ msgstr "Voir les différences en mode diff &unifié"
 #. Resource IDs: (1126)
 msgid "Show excluded folders as normal"
 msgstr "Afficher les fichiers exclus comme normaux"
+
+#. Resource IDs: (16656)
+msgid "Show f&ull menus after a short delay"
+msgstr "Afficher les men&us complets après un court délai"
 
 #. Resource IDs: (1264)
 msgid "Show ignored files"
@@ -5839,9 +6817,17 @@ msgstr "Affiche le recouvrement pour les éléments ignorés"
 msgid "Show overlay for unversioned items"
 msgstr "Afficher le recouvrement pour les éléments non-versionnés"
 
+#. Resource IDs: (1265)
+msgid "Show properties"
+msgstr "Voir les propriétés"
+
 #. Resource IDs: (102)
 msgid "Show revision properties"
 msgstr "Voir les propriétés de la révision"
+
+#. Resource IDs: (16652)
+msgid "Show shortcut &keys in ScreenTips"
+msgstr "Afficher les &touches de raccourcis dans ScreenTips"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -5968,6 +6954,10 @@ msgstr ""
 "doit ignorer pour <b>toutes</b> les copies de travail.\n"
 "Séparez les filtres par un espace."
 
+#. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
+msgid "Spin1"
+msgstr "Spin1"
+
 #. Resource IDs: (376)
 msgid "Split lines"
 msgstr "Séparer lignes"
@@ -5988,6 +6978,10 @@ msgstr "Graphique en barre empilé"
 msgid "Stacked Line Graph"
 msgstr "Graphique en ligne empilé"
 
+#. Resource IDs: (16962)
+msgid "Standard"
+msgstr "Standard"
+
 #. Resource IDs: (569)
 msgid "Start Commit Hook"
 msgstr "Hook de début de livraison"
@@ -6000,6 +6994,10 @@ msgstr "Révision de début"
 msgid "Start Update Hook"
 msgstr "Hook de début de mise à jour"
 
+#. Resource IDs: (16514)
+msgid "Static"
+msgstr "Statique"
+
 #. Resource IDs: (179, 245)
 msgid "Statistics"
 msgstr "Statistiques"
@@ -6007,6 +7005,10 @@ msgstr "Statistiques"
 #. Resource IDs: (74, 77, 207, 65535)
 msgid "Status"
 msgstr "Statut"
+
+#. Resource IDs: (1068)
+msgid "Status Bar Configuration"
+msgstr "Configuration de la Barre d'Etat"
 
 #. Resource IDs: (65535)
 msgid "Status and action colors"
@@ -6160,6 +7162,10 @@ msgstr "TORTOISEBLAME"
 msgid "TORTOISEIDIFF"
 msgstr "TORTOISEIDIFF"
 
+#. Resource IDs: (16970)
+msgid "Tab Placeholder"
+msgstr "Substitut de Tabulation"
+
 #. Resource IDs: (65535)
 msgid "Tab size:"
 msgstr "Taille des tabulations :"
@@ -6168,6 +7174,10 @@ msgstr "Taille des tabulations :"
 #, c-format
 msgid "Tagged the working copy to %s"
 msgstr "Etiquettage de la copie de travail sous %s"
+
+#. Resource IDs: (1064)
+msgid "Tasks Pane"
+msgstr "Panneau des Tâches"
 
 #. Resource IDs: (219)
 msgid "Test Only"
@@ -6645,6 +7655,18 @@ msgstr "Cette propriété est seulement autorisée sur les répertoires, pas sur
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Cette propriété ne doit pas avoir plusieurs lignes. Une seule ligne est autorisée. "
 
+#. Resource IDs: (1016)
+msgid "This will delete the record of commands you've used in this application and restore the default set of visible commands to the menus and toolbars. It will not undo any explicit customizations. Are you sure you want to do this?"
+msgstr "Cela supprimera les enregistrements des commandes que vous avez utilisées dans cette application et restorera le jeu par défaut de commandes visibles dans les menus et les barres d'outils. Cela n'annulera pas une quelconque personnalisation explicite. Etes-vous sûr de vouloir continuer ?"
+
+#. Resource IDs: (16924)
+msgid "Tile &Horizontally"
+msgstr "Mosaïque &Horizontale"
+
+#. Resource IDs: (16928)
+msgid "Tile &Vertically"
+msgstr "Mozaïque &Verticale"
+
 #. Resource IDs: (65535)
 msgid "Timeouts"
 msgstr "Limites de temps"
@@ -6678,6 +7700,42 @@ msgstr "Au :"
 #. Resource IDs: (65535)
 msgid "To: (end URL and revision of the range to merge)"
 msgstr "À : (URL de fin et révision de la plage à fusionner)"
+
+#. Resource IDs: (3633)
+msgid ""
+"Toggle One/Two Pages display\n"
+"Toggle One/Two Pages display"
+msgstr ""
+"Basculer l'afficher Une/Deux Pages\n"
+"Basculer l'afficher Une/Deux Pages"
+
+#. Resource IDs: (65535)
+msgid "Toolbar"
+msgstr "Barre d'Outils"
+
+#. Resource IDs: (16130)
+msgid "Toolbar Name"
+msgstr "Nom de la Barre d'Outils"
+
+#. Resource IDs: (1064)
+msgid "Toolbar Options"
+msgstr "Options de la Barre d'outils"
+
+#. Resource IDs: (1001)
+msgid "Toolbar internal error. Please contact your application vendor."
+msgstr "Erreur interne de la barre d'outils. Veuillez contacter le revendeur de votre application."
+
+#. Resource IDs: (16105)
+msgid "Toolbars"
+msgstr "Barres d'outils"
+
+#. Resource IDs: (16928)
+msgid "Tools"
+msgstr "Outils"
+
+#. Resource IDs: (65535)
+msgid "Tools:"
+msgstr "Outils :"
 
 #. Resource IDs: (7, 244)
 msgid "TortoiseBlame"
@@ -6879,6 +7937,10 @@ msgstr ""
 msgid "Unable to load mail system support."
 msgstr "Impossible de charger le système de mail."
 
+#. Resource IDs: (3865)
+msgid "Unable to process command, server busy."
+msgstr "Impossible de traiter la commande, serveur occupé."
+
 #. Resource IDs: (3859)
 #, c-format
 msgid "Unable to read from %1, it is opened by someone else."
@@ -6913,6 +7975,15 @@ msgstr "Impossible d'écrire dans %1, il est en lecture seule ou ouvert par quel
 msgid "Uncheck"
 msgstr "Annuler sélection"
 
+#. Resource IDs: (1069)
+#, c-format
+msgid "Undo %d Actions"
+msgstr "Annuler %d Actions"
+
+#. Resource IDs: (1069)
+msgid "Undo 1 Action"
+msgstr "Annuler 1 Action"
+
 #. Resource IDs: (14)
 msgid "Undo Add.."
 msgstr "Annuler l'ajout..."
@@ -6928,6 +7999,14 @@ msgstr ""
 #. Resource IDs: (3859)
 msgid "Unexpected file format."
 msgstr "Format de fichier non attendu."
+
+#. Resource IDs: (3850)
+msgid ""
+"Unformatted Text\n"
+"text without any formatting"
+msgstr ""
+"Texte non formatté\n"
+"Texte sans formattage"
 
 #. Resource IDs: (274, 32786)
 msgid "Unified &diff of HEAD revisions"
@@ -6989,6 +8068,10 @@ msgstr "Mettre à jour"
 msgid "Update - TortoiseSVN"
 msgstr "Mettre à jour - TortoiseSVN"
 
+#. Resource IDs: (1377)
+msgid "Update Depth"
+msgstr "Mettre à jour la Profondeur"
+
 #. Resource IDs: (74)
 msgid "Updated"
 msgstr "Mis à jour"
@@ -7006,6 +8089,10 @@ msgstr "Met à jour la copie de travail dans le référentiel"
 msgid "Updating %s"
 msgstr "Mise à jour de %s"
 
+#. Resource IDs: (3849)
+msgid "Updating ActiveX objects"
+msgstr "Mise à jour des objets ActiveX"
+
 #. Resource IDs: (283)
 msgid "Updating and retrying the lock..."
 msgstr "Mise à jour et nouvel essai du verrou..."
@@ -7013,6 +8100,10 @@ msgstr "Mise à jour et nouvel essai du verrou..."
 #. Resource IDs: (199)
 msgid "Updating log cache"
 msgstr "Mise à jour du cache du journal"
+
+#. Resource IDs: (16530)
+msgid "Use &Default Image: "
+msgstr "Utiliser l'Image par &Défaut:"
 
 #. Resource IDs: (32855)
 msgid "Use &left block"
@@ -7308,6 +8399,14 @@ msgstr ""
 "une boîte de dialogue demandant un message descriptif du\n"
 "verrou."
 
+#. Resource IDs: (1065)
+msgid "Window Position"
+msgstr "Position de la Fenêtre"
+
+#. Resource IDs: (16927)
+msgid "Windows"
+msgstr "Windows"
+
 #. Resource IDs: (32844)
 msgid "Windows &2000"
 msgstr "Windows &2000"
@@ -7383,6 +8482,16 @@ msgstr ""
 "Êtes-vous absolument certain de vouloir déplacer\n"
 "le répertoire trunk ?"
 
+#. Resource IDs: (1001)
+#, c-format
+msgid "You can paste bitmap with the size (%d x %d) only!"
+msgstr "Vous ne pouvez coller qu'un bitmap de dimension %d x %d !"
+
+#. Resource IDs: (1016)
+#, c-format
+msgid "You can't create more than %d user-defined toolbars!"
+msgstr "Vous ne pouvez pas créer plus de %d barres d'outils utilisateur !"
+
 #. Resource IDs: (16)
 msgid ""
 "You can't set this property on folders, only on files!\n"
@@ -7427,6 +8536,11 @@ msgstr ""
 "Vous n'avez pas saisi de numéro d'incident !\n"
 "Etes-vous sûr de vouloir livrer sans un numéro d'incident ?"
 
+#. Resource IDs: (1002)
+#, c-format
+msgid "You may define up to %d tools."
+msgstr "Vous pouvez définir jusqu'à %d outils."
+
 #. Resource IDs: (196)
 msgid "You must restart your system for the changes to take effect."
 msgstr "Vous devez redémarrer votre système pour prendre en compte les modifications"
@@ -7438,6 +8552,14 @@ msgid ""
 msgstr ""
 "Vous avez sélectionné un fichier non versionné.\n"
 "Le fichier va être ajouté au contrôle de version à la livraison."
+
+#. Resource IDs: (1001)
+msgid "You should enter a text!"
+msgstr "Vous devriez rentrer un texte !"
+
+#. Resource IDs: (1001)
+msgid "You should select an image!"
+msgstr "Vous devriez sélectionner une image !"
 
 #. Resource IDs: (195)
 #, c-format
@@ -7501,6 +8623,18 @@ msgstr ""
 msgid "Zoo&m out"
 msgstr "Ré&duire"
 
+#. Resource IDs: (1069)
+msgid "Zoom"
+msgstr "Zoomer"
+
+#. Resource IDs: (58117)
+msgid "Zoom &In"
+msgstr "Agrand&ir le Zoom"
+
+#. Resource IDs: (58118)
+msgid "Zoom &Out"
+msgstr "Réduire le Z&oom"
+
 #. Resource IDs: (32772)
 msgid "Zoom &in\tCtrl-+"
 msgstr "Agrand&ir\tCtrl-+"
@@ -7513,6 +8647,22 @@ msgstr "&Réduire\tCtrl--"
 #, c-format
 msgid "Zoom 100%"
 msgstr "Taille réelle"
+
+#. Resource IDs: (3633)
+msgid ""
+"Zoom In\n"
+"Zoom In"
+msgstr ""
+"Agrandir le Zoom\n"
+"Agrandir le Zoom"
+
+#. Resource IDs: (3633)
+msgid ""
+"Zoom Out\n"
+"Zoom Out"
+msgstr ""
+"Réduire le Zoom\n"
+"Réduire le Zoom"
 
 #. Resource IDs: (32784)
 msgid "Zoom i&n"
@@ -7530,9 +8680,17 @@ msgstr "Réduire"
 msgid "Zoom to fit"
 msgstr "Adapter à la fenêtre"
 
+#. Resource IDs: (1001)
+msgid "[Unassigned]"
+msgstr "[Non assigné]"
+
 #. Resource IDs: (338)
 msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
 msgstr "Le texte \"plages évitées\" est utilisé pour marquer les plages de révision qui ne sont pas encore dans le cache"
+
+#. Resource IDs: (65535)
+msgid "_POPUP_"
+msgstr "_POPUP_"
 
 #. Resource IDs: (10)
 msgid "added"
@@ -7686,6 +8844,10 @@ msgstr "effacé"
 msgid "disk [kB]: "
 msgstr "disque [ko]:"
 
+#. Resource IDs: (58116)
+msgid "dummy"
+msgstr "dummy"
+
 #. Resource IDs: (1342)
 msgid "eol style"
 msgstr "Style de fin de ligne"
@@ -7824,6 +8986,11 @@ msgstr "gênant"
 msgid "offline"
 msgstr "hors-ligne"
 
+#. Resource IDs: (3845)
+#, c-format
+msgid "on %1"
+msgstr "sur %1"
+
 #. Resource IDs: (601)
 msgid "online"
 msgstr "en ligne"
@@ -7851,6 +9018,10 @@ msgstr "points"
 #. Resource IDs: (65535)
 msgid "possible or real conflict / obstructed"
 msgstr "conflit posible ou réel / bloquant"
+
+#. Resource IDs: (3845)
+msgid "prn"
+msgstr "prn"
 
 #. Resource IDs: (245)
 msgid "quarter of year"
@@ -8024,6 +9195,11 @@ msgstr "texte [nombre de mots]:"
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
 msgstr "il existe des modifications en conflit."
+
+#. Resource IDs: (3845)
+#, c-format
+msgid "to %1"
+msgstr "vers %1"
 
 #. Resource IDs: (80, 103, 284)
 #, c-format
