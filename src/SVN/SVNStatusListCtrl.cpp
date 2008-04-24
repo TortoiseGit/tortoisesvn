@@ -1096,7 +1096,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 	m_arListArray.clear();
 
 	m_arListArray.reserve(m_arStatusArray.size());
-	SetItemCount(m_arStatusArray.size());
+	SetItemCount (static_cast<int>(m_arStatusArray.size()));
 
 	int listIndex = 0;
 	for (size_t i=0; i < m_arStatusArray.size(); ++i)
@@ -1233,7 +1233,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, bo
 	m_arListArray.clear();
 
 	m_arListArray.reserve(m_arStatusArray.size());
-	SetItemCount(m_arStatusArray.size());
+	SetItemCount (static_cast<int>(m_arStatusArray.size()));
 
 	int listIndex = 0;
 	for (size_t i=0; i < m_arStatusArray.size(); ++i)
@@ -2475,7 +2475,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								// find the changelist names
 								bool bNeedSeparator = true;
 								int cmdID = IDSVNLC_MOVETOCS;
-								for (std::map<CString, LONG_PTR>::const_iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
+								for (std::map<CString, int>::const_iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
 								{
 									if ((entry->changelist.Compare(it->first))&&(it->first.Compare(SVNSLC_IGNORECHANGELIST)))
 									{
@@ -3459,7 +3459,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 						// find the changelist name
 						CString sChangelist;
 						int cmdID = IDSVNLC_MOVETOCS;
-						for (std::map<CString, LONG_PTR>::const_iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
+						for (std::map<CString, int>::const_iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
 						{
 							if ((it->first.Compare(SVNSLC_IGNORECHANGELIST))&&(entry->changelist.Compare(it->first)))
 							{
@@ -4750,7 +4750,7 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
 	grp.uAlign = LVGA_HEADER_LEFT;
 	InsertGroup(groupindex++, &grp);
 
-	for (std::map<CString,LONG_PTR>::iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
+	for (std::map<CString,int>::iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
 	{
 		if (it->first.Compare(SVNSLC_IGNORECHANGELIST)!=0)
 		{
@@ -4770,7 +4770,7 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
 	if (m_bHasIgnoreGroup)
 	{
 		// and now add the group 'ignore-on-commit'
-		std::map<CString,LONG_PTR>::iterator it = m_changelists.find(SVNSLC_IGNORECHANGELIST);
+		std::map<CString,int>::iterator it = m_changelists.find(SVNSLC_IGNORECHANGELIST);
 		if (it != m_changelists.end())
 		{
 			grp.cbSize = sizeof(LVGROUP);
@@ -4824,7 +4824,7 @@ bool CSVNStatusListCtrlDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium,
 				// find the changelist name
 				CString sChangelist;
 				LONG_PTR nGroup = m_pSVNStatusListCtrl->GetGroupFromPoint(&clientpoint);
-				for (std::map<CString, LONG_PTR>::iterator it = m_pSVNStatusListCtrl->m_changelists.begin(); it != m_pSVNStatusListCtrl->m_changelists.end(); ++it)
+				for (std::map<CString, int>::iterator it = m_pSVNStatusListCtrl->m_changelists.begin(); it != m_pSVNStatusListCtrl->m_changelists.end(); ++it)
 					if (it->second == nGroup)
 						sChangelist = it->first;
 				if (!sChangelist.IsEmpty())

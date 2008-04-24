@@ -871,7 +871,7 @@ private:
 	typedef std::vector<FileEntry*> FileEntryVector;
 	FileEntryVector				m_arStatusArray;
 	std::vector<size_t>			m_arListArray;
-	std::map<CString, LONG_PTR>	m_changelists;
+	std::map<CString, int>	    m_changelists;
 	bool						m_bHasIgnoreGroup;
 	CTSVNPathList				m_ConflictFileList;
 	CTSVNPathList				m_StatusFileList;
