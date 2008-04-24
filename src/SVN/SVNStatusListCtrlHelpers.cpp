@@ -247,6 +247,8 @@ void CSVNStatusListCtrl::ColumnManager::SetVisible
             columns[index].width = 0; 
 
         control->SetColumnWidth (column, GetVisibleWidth (column, true));
+        ApplyColumnOrder();
+
         control->Invalidate (FALSE);
     }
 }
@@ -259,19 +261,20 @@ void CSVNStatusListCtrl::ColumnManager::ColumnMoved (int column, int position)
 
     int index = columns[column].index;
 
-    std::set<int> usedIndexes;
-    for (size_t i = 0, count = columns.size(); i < count; ++i)
-        usedIndexes.insert (columns[i].index);
-    usedIndexes.erase (index);
+    std::vector<int> gridColumnOrder = GetGridColumnOrder();
 
-    std::vector<int> usedColumnOrder;
-    for (size_t i = 0, count = columnOrder.size(); i < count; ++i)
-        if (usedIndexes.find (columnOrder[i]) != usedIndexes.end())
-            usedColumnOrder.push_back (columnOrder[i]);
+    size_t visiblePosition = static_cast<size_t>(position);
+    size_t columnCount = gridColumnOrder.size();
 
-    int next = position == GetColumnCount()-1 
+    for (;    (visiblePosition < columnCount) 
+           && !columns[gridColumnOrder[visiblePosition]].visible
+         ; ++visiblePosition )
+    {
+    }
+
+    int next = visiblePosition == columnCount
              ? -1 
-             : usedColumnOrder[position];
+             : gridColumnOrder[visiblePosition];
 
     // move logical column index just in front of that "next" column
 
@@ -282,6 +285,10 @@ void CSVNStatusListCtrl::ColumnManager::ColumnMoved (int column, int position)
                                    , columnOrder.end()
                                    , next)
                        , index);
+
+    // make sure, invisible columns are still put in front of all others
+
+    ApplyColumnOrder();
 }
 
 void CSVNStatusListCtrl::ColumnManager::ColumnResized (int column)
@@ -520,14 +527,10 @@ void CSVNStatusListCtrl::ColumnManager::ResetColumns (DWORD defaultColumns)
 
     // update UI
 
-    int order[SVNSLC_MAXCOLUMNCOUNT+1];
-    for (int i = 0; i <= SVNSLC_MAXCOLUMNCOUNT; ++i)
-        order[i] = i;
-
-    control->SetColumnOrderArray (GetColumnCount(), order);
-
     for (int i = 0, count = GetColumnCount(); i < count; ++i)
         control->SetColumnWidth (i, GetVisibleWidth (i, true));
+
+    ApplyColumnOrder();
 
     control->Invalidate (FALSE);
 }
@@ -660,6 +663,41 @@ void CSVNStatusListCtrl::ColumnManager::ParseColumnOrder
             columnOrder.push_back (i);
 }
 
+// map internal column order onto visible column order
+// (all invisibles in front)
+
+std::vector<int> CSVNStatusListCtrl::ColumnManager::GetGridColumnOrder()
+{
+    // extract order of used columns from order of all columns
+
+    std::vector<int> result;
+    result.reserve (SVNSLC_MAXCOLUMNCOUNT+1);
+
+    size_t colCount = columns.size();
+    bool visible = false;
+
+    do
+    {
+        // put invisible cols in front
+
+        for (size_t i = 0, count = columnOrder.size(); i < count; ++i)
+        {
+            int index = columnOrder[i];
+            for (size_t k = 0; k < colCount; ++k)
+            {
+                const ColumnInfo& column = columns[k];
+                if ((column.index == index) && (column.visible == visible))
+                    result.push_back (static_cast<int>(k));
+            }
+        }
+
+        visible = !visible;
+    }
+    while (visible);
+
+    return result;
+}
+
 void CSVNStatusListCtrl::ColumnManager::ApplyColumnOrder()
 {
     // extract order of used columns from order of all columns
@@ -667,23 +705,17 @@ void CSVNStatusListCtrl::ColumnManager::ApplyColumnOrder()
     int order[SVNSLC_MAXCOLUMNCOUNT+1];
     ZeroMemory (order, sizeof (order));
 
-    int offset = 0;
-    for (size_t i = 0, count = columnOrder.size(); i < count; ++i)
-    {
-        int index = columnOrder[i];
-        for (size_t k = 0, colCount = columns.size(); k < colCount; ++k)
-            if (columns[k].index == index)
-                order[offset++] = static_cast<int>(k);
-    }
+    std::vector<int> gridColumnOrder = GetGridColumnOrder();
+    std::copy (gridColumnOrder.begin(), gridColumnOrder.end(), &order[0]);
 
     // we must have placed all columns or something is really fishy ..
 
-    assert (offset == GetColumnCount());
-	assert (offset == ((CHeaderCtrl*)(control->GetDlgItem(0)))->GetItemCount());
+    assert (gridColumnOrder.size() == columns.size());
+	assert (GetColumnCount() == ((CHeaderCtrl*)(control->GetDlgItem(0)))->GetItemCount());
 
     // o.k., apply our column ordering
 
-    control->SetColumnOrderArray (offset, order);
+    control->SetColumnOrderArray (GetColumnCount(), order);
 }
 
 // utilities used when writing data to the registry

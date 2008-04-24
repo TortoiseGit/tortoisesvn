@@ -445,6 +445,11 @@ public:
         void ParseWidths (const CString& widths);
         void SetStandardColumnVisibility (DWORD visibility);
         void ParseColumnOrder (const CString& widths);
+        
+        /// map internal column order onto visible column order
+        /// (all invisibles in front)
+
+        std::vector<int> GetGridColumnOrder();
         void ApplyColumnOrder();
 
         /// utilities used when writing data to the registry
