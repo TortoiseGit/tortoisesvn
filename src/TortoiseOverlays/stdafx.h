@@ -1,5 +1,5 @@
 // TortoiseOverlays - an overlay handler for Tortoise clients
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 #pragma once
 // Modify the following defines if you have to target a platform prior to the ones specified below.
@@ -19,6 +19,8 @@
 #ifndef _WIN32_IE			// Allow use of features specific to IE 4.0 or later.
 #	define _WIN32_IE 0x0500	// Change this to the appropriate value to target IE 5.0 or later.
 #endif
+
+#define _BIND_TO_CURRENT_CRT_VERSION 1
 
 #define ISOLATION_AWARE_ENABLED 1
 

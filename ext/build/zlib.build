@@ -68,6 +68,7 @@
 			<defines>
 				<define name="_CRT_NONSTDC_NO_DEPRECATE" />
 				<define name="_CRT_SECURE_NO_DEPRECATE" />
+				<define name="_BIND_TO_CURRENT_CRT_VERSION" />
 				<define name="_USE_32BIT_TIME_T" if="${platform == 'win32'}" />
 				<define name="APU_DECLARE_EXPORT" if="${static != 'static'}"/>
 				<define name="APR_DECLARE_STATIC" if="${static == 'static'}"/>

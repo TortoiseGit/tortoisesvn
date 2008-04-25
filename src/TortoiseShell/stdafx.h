@@ -21,6 +21,8 @@
 #	define _WIN32_IE 0x0500	// Change this to the appropriate value to target IE 5.0 or later.
 #endif
 
+#define _BIND_TO_CURRENT_CRT_VERSION 1
+
 #define ISOLATION_AWARE_ENABLED 1
 
 #include <WinSock2.h>

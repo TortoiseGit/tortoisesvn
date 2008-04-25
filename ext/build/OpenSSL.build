@@ -24,6 +24,7 @@
 				<arg value="-D_CRT_NONSTDC_NO_DEPRECATE" />
 				<arg value="-D_CRT_SECURE_NO_DEPRECATE" />
 				<arg value="-D_USE_32BIT_TIME_T" />
+				<arg value="-D_BIND_TO_CURRENT_CRT_VERSION" />
 			</exec>
 			<exec program="cmd" workingdir="..\..\..\common\openssl">
 				<arg value="/c" />
@@ -40,6 +41,7 @@
 				<arg value="VC-WIN64A" />
 				<arg value="-D_CRT_NONSTDC_NO_DEPRECATE" />
 				<arg value="-D_CRT_SECURE_NO_DEPRECATE" />
+				<arg value="-D_BIND_TO_CURRENT_CRT_VERSION" />
 			</exec>
 			<exec program="cmd" workingdir="..\..\..\common\openssl">
 				<arg value="/c" />

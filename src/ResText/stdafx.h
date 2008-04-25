@@ -4,6 +4,7 @@
 //
 
 #pragma once
+#define _BIND_TO_CURRENT_CRT_VERSION 1
 
 #pragma warning(push)
 #pragma warning(disable: 4702)	// Unreachable code warnings in xtree

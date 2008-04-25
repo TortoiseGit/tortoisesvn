@@ -23,6 +23,8 @@
 #define _WIN32_IE 0x0501
 #endif
 
+#define _BIND_TO_CURRENT_CRT_VERSION 1
+#define _BIND_TO_CURRENT_MFC_VERSION 1
 
 #define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS	// some CString constructors will be explicit
 
