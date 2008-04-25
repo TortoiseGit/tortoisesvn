@@ -180,7 +180,7 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 		HGLOBAL data = GlobalAlloc(GMEM_MOVEABLE | GMEM_SHARE | GMEM_ZEROINIT, dataSize);
 
 		FILEGROUPDESCRIPTOR* files = (FILEGROUPDESCRIPTOR*)GlobalLock(data);
-		files->cItems = m_allPaths.size();
+		files->cItems = static_cast<UINT>(m_allPaths.size());
 		int i = 0;
 		for (vector<SVNDataObject::SVNObjectInfoData>::const_iterator it = m_allPaths.begin(); it != m_allPaths.end(); ++it)
 		{
@@ -191,8 +191,8 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 			_tcscpy_s(files->fgd[i].cFileName, MAX_PATH, (LPCTSTR)temp);
 			files->fgd[i].dwFlags = FD_ATTRIBUTES | FD_PROGRESSUI | FD_FILESIZE | FD_LINKUI;
 			files->fgd[i].dwFileAttributes = (it->infodata.kind == svn_node_dir) ? FILE_ATTRIBUTE_DIRECTORY : FILE_ATTRIBUTE_NORMAL;
-			files->fgd[i].nFileSizeLow = it->infodata.size;
-			files->fgd[i].nFileSizeHigh = 0;
+			files->fgd[i].nFileSizeLow = static_cast<DWORD>(it->infodata.size);
+			files->fgd[i].nFileSizeHigh = static_cast<DWORD>(static_cast<ULONGLONG>(it->infodata.size) >> 32);
 			++i;
 		}
 

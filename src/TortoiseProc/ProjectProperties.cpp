@@ -362,11 +362,11 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 				{
 					// (*it)[0] is the matched string
 					wstring matchedString = (*it)[0];
-					LONG matchpos = it->position(0);
+					ptrdiff_t matchpos = it->position(0);
 					for (tr1::wsregex_iterator it2(matchedString.begin(), matchedString.end(), regBugID); it2 != end; ++it2)
 					{
 						ATLTRACE(_T("matched id : %s\n"), (*it2)[0].str().c_str());
-						LONG matchposID = it2->position(0);
+						ptrdiff_t matchposID = it2->position(0);
 						CHARRANGE range = {matchpos+matchposID, matchpos+matchposID+(*it2)[0].str().size()};
 						pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
 						CHARFORMAT2 format;

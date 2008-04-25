@@ -1391,7 +1391,7 @@ CPoint MyGraph::WedgeEndFromDegrees(int nDegrees, const CPoint& ptCenter,
 		}
 		// Special handling for this message.
 		else if (WM_QUIT == msg.message) {
-			::PostQuitMessage(msg.wParam);
+			::PostQuitMessage(static_cast<int>(msg.wParam));
 			break;
 		}
 		// Allow one message (like WM_LBUTTONDOWN).
