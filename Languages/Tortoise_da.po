@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-04-24 20:59+0100\n"
+"PO-Revision-Date: 2008-04-25 16:49+0100\n"
 "Last-Translator: Zero3Cool\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -306,13 +306,14 @@ msgstr "%s\\Eksport (%d) af %s"
 msgid "%s\\Export of %s"
 msgstr "%s\\Eksport af %s"
 
-# Example: "123 kBytes transferred in 2 minute(s) and 34 second(s)"
 #. Resource IDs: (3850)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "%s\n"
 "%s"
-msgstr "%s på %s"
+msgstr ""
+"%s\n"
+"%s"
 
 #. Resource IDs: (145)
 #, c-format
@@ -348,9 +349,8 @@ msgstr ""
 "%s\n"
 
 #. Resource IDs: (16923)
-#, fuzzy
 msgid "&..."
-msgstr "..."
+msgstr "&..."
 
 #. Resource IDs: (65535)
 msgid "&?"
@@ -361,14 +361,12 @@ msgid "&About TortoiseMerge..."
 msgstr "&Om TortoiseMerge..."
 
 #. Resource IDs: (16920)
-#, fuzzy
 msgid "&Activate"
-msgstr "Lokationsbar"
+msgstr "&Aktiver"
 
 #. Resource IDs: (17075)
-#, fuzzy
 msgid "&Add >>"
-msgstr "Tilføj"
+msgstr "&Tilføj >>"
 
 #. Resource IDs: (1064)
 msgid "&Add or Remove Buttons"
@@ -411,9 +409,8 @@ msgid "&Associate double-click event with:"
 msgstr "&Associer dobbeltklik med:"
 
 #. Resource IDs: (1066)
-#, fuzzy
 msgid "&Auto Hide"
-msgstr "&Skjul"
+msgstr "&Skjul automatisk"
 
 #. Resource IDs: (65535)
 msgid "&Autoclose:"
@@ -460,9 +457,8 @@ msgid "&Button Appearance..."
 msgstr "&Knapudseende"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "&Button text:"
-msgstr "&Ikoner:"
+msgstr "&Knaptekst:"
 
 #. Resource IDs: (1051)
 msgid "&CD-ROM"
@@ -489,9 +485,8 @@ msgid "&Clean up"
 msgstr "R&yd op"
 
 #. Resource IDs: (58112)
-#, fuzzy
 msgid "&Close"
-msgstr "Farver"
+msgstr "&Luk"
 
 #. Resource IDs: (16922)
 msgid "&Close Window(s)"
@@ -502,9 +497,8 @@ msgid "&Color age of lines"
 msgstr "&Farv linjer efter alder"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "&Command:"
-msgstr "Kommando"
+msgstr "&Kommando:"
 
 #. Resource IDs: (8)
 msgid "&Commit..."
@@ -729,9 +723,8 @@ msgid "&Ignore whitespace changes"
 msgstr "&Ignorer forskelle i blanktegn"
 
 #. Resource IDs: (16914)
-#, fuzzy
 msgid "&Image"
-msgstr "B&illedinfo"
+msgstr "&Billede"
 
 #. Resource IDs: (32790)
 msgid "&Image Info"
@@ -766,9 +759,8 @@ msgid "&Language:"
 msgstr "&Sprog:"
 
 #. Resource IDs: (16653)
-#, fuzzy
 msgid "&Large Icons"
-msgstr "B&illedinfo"
+msgstr "&Store ikoner"
 
 #. Resource IDs: (1065)
 msgid "&Limit search to modified lines"
@@ -796,9 +788,8 @@ msgid "&Menu animations:"
 msgstr "&Menuanimationer"
 
 #. Resource IDs: (16921)
-#, fuzzy
 msgid "&Menu contents:"
-msgstr "Sender indhold"
+msgstr "&Menuindhold:"
 
 #. Resource IDs: (1)
 msgid "&Merge"
@@ -817,9 +808,8 @@ msgid "&Merging"
 msgstr "&Fletning"
 
 #. Resource IDs: (16925)
-#, fuzzy
 msgid "&Minimize"
-msgstr "Min"
+msgstr "M&inimer"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -834,9 +824,8 @@ msgid "&New "
 msgstr "&Ny "
 
 #. Resource IDs: (16509, 16615)
-#, fuzzy
 msgid "&New..."
-msgstr "&Ny "
+msgstr "&Ny..."
 
 #. Resource IDs: (115, 1208)
 #, c-format
@@ -852,9 +841,8 @@ msgid "&Next Difference"
 msgstr "&Næste forskel"
 
 #. Resource IDs: (58114)
-#, fuzzy
 msgid "&Next Page"
-msgstr "&Næste >"
+msgstr "&Næste Side"
 
 #. Resource IDs: (16632)
 msgid "&No double-click event"
@@ -905,9 +893,8 @@ msgid "&Print Preview"
 msgstr "&Vis Udskrift"
 
 #. Resource IDs: (58116)
-#, fuzzy
 msgid "&Print..."
-msgstr "&Rediger..."
+msgstr "&Udskriv..."
 
 #. Resource IDs: (11021)
 msgid "&Properties..."
@@ -918,9 +905,8 @@ msgid "&Recent messages"
 msgstr "&Seneste beskeder"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "&Red:"
-msgstr "&Gentag"
+msgstr "&Rød:"
 
 #. Resource IDs: (376)
 msgid "&Redo"
@@ -1061,9 +1047,8 @@ msgid "&Test merge"
 msgstr "&Test fletning"
 
 #. Resource IDs: (16915)
-#, fuzzy
 msgid "&Text"
-msgstr "&Næste >"
+msgstr "&Tekst"
 
 #. Resource IDs: (16506)
 #, fuzzy
@@ -1097,12 +1082,11 @@ msgstr "&Værktøjslinje"
 #. Resource IDs: (65535)
 #, fuzzy
 msgid "&Toolbar Name:"
-msgstr "&Værktøjslinje"
+msgstr "&Navn på Værktøjslinje:"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "&Toolbars:"
-msgstr "&Værktøjslinje"
+msgstr "&Værktøjslinjer:"
 
 #. Resource IDs: (1091, 1093, 1094)
 msgid "&TortoiseMerge"
@@ -1161,9 +1145,8 @@ msgid "&View"
 msgstr "&Vis"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "&View:"
-msgstr "&Vis"
+msgstr "&Vis:"
 
 #. Resource IDs: (32774)
 msgid "&Whitespaces"
@@ -1233,9 +1216,8 @@ msgid "..."
 msgstr "..."
 
 #. Resource IDs: (16527)
-#, fuzzy
 msgid "....."
-msgstr "..."
+msgstr "....."
 
 #. Resource IDs: (151)
 #, c-format
@@ -1255,9 +1237,8 @@ msgid "< &Back"
 msgstr "< &Tilbage"
 
 #. Resource IDs: (16506)
-#, fuzzy
 msgid "<.....>"
-msgstr "..."
+msgstr "<.....>"
 
 # Autogenereret, bruges ikke
 #. Resource IDs: (1069)
@@ -1265,9 +1246,8 @@ msgid "<Separator>"
 msgstr "<Separator>"
 
 #. Resource IDs: (1007)
-#, fuzzy
 msgid "<Untitled>"
-msgstr "Ikke-navngivet"
+msgstr "<Ikke-navngivet>"
 
 #. Resource IDs: (145)
 msgid ""
@@ -1392,9 +1372,8 @@ msgid "Activate Task List"
 msgstr "Aktiver opgaveliste"
 
 #. Resource IDs: (1066)
-#, fuzzy
 msgid "Active Files"
-msgstr "Lås filer"
+msgstr "Aktive Filer"
 
 #. Resource IDs: (3865)
 #, c-format
@@ -1524,9 +1503,8 @@ msgid "Age"
 msgstr "Alder"
 
 #. Resource IDs: (1007)
-#, fuzzy
 msgid "All Commands"
-msgstr "Kommando"
+msgstr "Alle Kommandoer"
 
 #. Resource IDs: (3841)
 msgid "All Files (*.*)"
@@ -1796,9 +1774,8 @@ msgid "B&rowse..."
 msgstr "&Gennemse..."
 
 #. Resource IDs: (1064)
-#, fuzzy
 msgid "Back"
-msgstr "< &Tilbage"
+msgstr "Tilbage"
 
 #. Resource IDs: (246)
 msgid "Bar Graph"
@@ -1813,6 +1790,8 @@ msgid ""
 "Bitmap\n"
 "a bitmap"
 msgstr ""
+"Bitmap\n"
+"et bitmap"
 
 #. Resource IDs: (114, 162)
 msgid "Blame"
@@ -1895,16 +1874,15 @@ msgstr "Fejl-ID / Sagsnr:"
 
 #. Resource IDs: (16132)
 msgid "Button Appearance"
-msgstr ""
+msgstr "Knapudseende"
 
 #. Resource IDs: (1215)
 msgid "C&heck now"
 msgstr "C&heck nu"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "C&ommands:"
-msgstr "Kommando"
+msgstr "K&ommandoer:"
 
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
@@ -1915,9 +1893,8 @@ msgid "C&reate folder..."
 msgstr "O&pret mappe..."
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "C&urrent Keys:"
-msgstr "Aktuelle version er:"
+msgstr ""
 
 #. Resource IDs: (501)
 msgid "C&ut"
@@ -1945,7 +1922,7 @@ msgstr "Kan dobbeltklikke i loglisten for at sammenligne med tidligere revision"
 
 #. Resource IDs: (3865)
 msgid "Can not activate a static ActiveX object."
-msgstr ""
+msgstr "Kan ikke aktivere et statisk ActiveX-objekt."
 
 #. Resource IDs: (82)
 #, c-format
@@ -2235,9 +2212,8 @@ msgid "Clipboard"
 msgstr "Udklipsholder"
 
 #. Resource IDs: (2, 1003, 1007, 1064)
-#, fuzzy
 msgid "Close"
-msgstr "Farver"
+msgstr "Luk"
 
 #. Resource IDs: (1065)
 msgid "Close Full Screen"
@@ -2248,6 +2224,8 @@ msgid ""
 "Close Print Preview\n"
 "&Close"
 msgstr ""
+"Luk Udskriftsvisning\n"
+"&Luk"
 
 #. Resource IDs: (222)
 msgid "Close manually"
@@ -2258,9 +2236,8 @@ msgid "Close the active window and prompts to save the documents"
 msgstr "Lukker det aktive vindue og spørger, om dokumenterne skal gemmes"
 
 #. Resource IDs: (16662)
-#, fuzzy
 msgid "Color"
-msgstr "Farver"
+msgstr "Farve"
 
 #. Resource IDs: (1068)
 msgid "Color co&de in-line changes"
@@ -2271,14 +2248,12 @@ msgid "Colors"
 msgstr "Farver"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Colors:"
-msgstr "Farver"
+msgstr "Farver:"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Comman&ds:"
-msgstr "Kommando"
+msgstr "Komman&doer:"
 
 #. Resource IDs: (220)
 msgid "Command"
@@ -2297,9 +2272,8 @@ msgid "Command failed."
 msgstr "Kommandoen mislykkedes."
 
 #. Resource IDs: (16104)
-#, fuzzy
 msgid "Commands"
-msgstr "Kommando"
+msgstr "Kommandoer"
 
 #. Resource IDs: (135, 209, 229, 1083)
 msgid "Commit"
@@ -2429,9 +2403,8 @@ msgid "Container sizes"
 msgstr "Beholderstørrelser"
 
 #. Resource IDs: (16520)
-#, fuzzy
 msgid "Context Menus: "
-msgstr "Generelt::Kontekstmenu"
+msgstr "Kontekstmenuer:"
 
 #. Resource IDs: (73)
 msgid "Continue"
@@ -2457,10 +2430,10 @@ msgstr "Kopieret fra URL"
 msgid "Copied remotely"
 msgstr "Kopieret på serveren"
 
+# Kontekst?
 #. Resource IDs: (16991)
-#, fuzzy
 msgid "Copy"
-msgstr "&Kopier"
+msgstr ""
 
 #. Resource IDs: (127)
 #, c-format
@@ -2807,19 +2780,16 @@ msgid "Current version is: %s"
 msgstr "Aktuelle version er: %s"
 
 #. Resource IDs: (17079)
-#, fuzzy
 msgid "Cus&tomize..."
-msgstr "&Arkivér..."
+msgstr ""
 
 #. Resource IDs: (16963)
-#, fuzzy
 msgid "Custom"
-msgstr "&Personlig"
+msgstr "Personlig"
 
 #. Resource IDs: (1007, 17074)
-#, fuzzy
 msgid "Customize"
-msgstr "&Personlig"
+msgstr ""
 
 #. Resource IDs: (17076)
 msgid "Customize Keyboard"
@@ -2846,18 +2816,16 @@ msgid "Date"
 msgstr "Dato"
 
 #. Resource IDs: (1008)
-#, fuzzy
 msgid "Default"
-msgstr "&Standard"
+msgstr "Standard"
 
 #. Resource IDs: (65535)
 msgid "Default &number of log messages"
 msgstr "&Antal af logbeskeder, der vises som standard"
 
 #. Resource IDs: (1007)
-#, fuzzy
 msgid "Default Menu"
-msgstr "&Standard"
+msgstr "Standardmenu"
 
 #. Resource IDs: (65535)
 msgid "Default URL:"
@@ -2912,14 +2880,12 @@ msgid "Depth:"
 msgstr "Dybde:"
 
 #. Resource IDs: (1002)
-#, fuzzy
 msgid "Description"
-msgstr "Egenskaber for sammenligning"
+msgstr "Beskrivelse"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Description:"
-msgstr "Undtagelser:"
+msgstr "Beskrivelse:"
 
 #. Resource IDs: (213)
 msgid "Deselect changelist"
@@ -2991,7 +2957,7 @@ msgstr "Undtagelse ved ekspedering: %1"
 
 #. Resource IDs: (65535)
 msgid "Display &buttons in this order"
-msgstr ""
+msgstr "Vis &knapper i denne rækkefølge"
 
 #. Resource IDs: (3605)
 msgid ""
@@ -3026,9 +2992,9 @@ msgstr ""
 "Om"
 
 #. Resource IDs: (1007)
-#, fuzzy, c-format
+#, c-format
 msgid "Do you really want to delete the toolbar '%s'?"
-msgstr "Er du sikker på, at du vil flytte denne fil eller mappe?"
+msgstr "Er du sikker på at du vil slette værktøjslinien '%s'?"
 
 #. Resource IDs: (145)
 msgid "Do you really want to move this file or folder?"
@@ -3156,9 +3122,8 @@ msgid "Edit"
 msgstr "Rediger"
 
 #. Resource IDs: (16133)
-#, fuzzy
 msgid "Edit Button Image"
-msgstr "Rediger forfatternavn"
+msgstr "Rediger knapbillede"
 
 #. Resource IDs: (227, 564)
 msgid "Edit Properties"
@@ -3402,14 +3367,13 @@ msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|
 msgstr ""
 
 #. Resource IDs: (1002)
-#, fuzzy
 msgid "Existing"
-msgstr "mangler"
+msgstr "Eksisterende"
 
 #. Resource IDs: (1002)
-#, fuzzy, c-format
+#, c-format
 msgid "Expand (%s)"
-msgstr "Eksporterer %s"
+msgstr ""
 
 #. Resource IDs: (1001)
 msgid "Expand docked window"
@@ -3509,12 +3473,13 @@ msgstr "Tilbageføring mislykkedes"
 msgid ""
 "Failed to connect.\n"
 "Link may be broken."
-msgstr "Det lykkedes ikke at oprette et tomt dokument."
+msgstr ""
+"Forbindelse mislykkedes.\n"
+"Link er måske istykker."
 
 #. Resource IDs: (3865)
-#, fuzzy
 msgid "Failed to convert ActiveX object."
-msgstr "Det lykkedes ikke at oprette et tomt dokument."
+msgstr "Det lykkedes ikke at konvertere ActiveX-objekt."
 
 #. Resource IDs: (3857)
 msgid "Failed to create empty document."
@@ -3531,7 +3496,7 @@ msgstr "Det lykkedes ikke at vise hjælpen."
 #. Resource IDs: (3865)
 #, fuzzy
 msgid "Failed to launch server application."
-msgstr "Det lykkedes ikke at vise hjælpen."
+msgstr "Det lykkedes ikke at starte serverprogram."
 
 #. Resource IDs: (3857)
 msgid "Failed to open document."
@@ -3540,7 +3505,7 @@ msgstr "Det lykkedes ikke at åbne dokumentet."
 #. Resource IDs: (3865)
 #, fuzzy
 msgid "Failed to perform server operation."
-msgstr "Der er ikke tilstrækkelig hukommelse til at udføre handlingen."
+msgstr "Der lykkedes ikke at udføre serveroperation."
 
 #. Resource IDs: (3857)
 msgid "Failed to save document."
@@ -3735,9 +3700,8 @@ msgid "Fold &tags"
 msgstr "Fold &mærker sammen"
 
 #. Resource IDs: (1002)
-#, fuzzy
 msgid "Folder"
-msgstr "&Filter"
+msgstr "Mappe"
 
 #. Resource IDs: (65535)
 msgid "Font"
@@ -3774,7 +3738,7 @@ msgstr "Fra: (start-URL og -revision af intervallet der skal flettes)"
 #. Resource IDs: (1065)
 #, fuzzy
 msgid "Full Screen"
-msgstr "Fuldt rekursivt"
+msgstr "Fuldskærmsvisning"
 
 #. Resource IDs: (19)
 msgid "Fully recursive"
@@ -3966,9 +3930,8 @@ msgid "Help"
 msgstr "Hjælp"
 
 #. Resource IDs: (16982)
-#, fuzzy
 msgid "Help Keyboard"
-msgstr "Udklipsholder"
+msgstr "Hjælpetastatur"
 
 #. Resource IDs: (16974)
 msgid "Hex"
@@ -4307,16 +4270,15 @@ msgstr "Ignorerede emner inkluderet"
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
-msgstr ""
+msgstr "Billede &og Tekst"
 
 #. Resource IDs: (16507)
 msgid "Image &and text"
-msgstr ""
+msgstr "Billede &og tekst"
 
 #. Resource IDs: (16508)
-#, fuzzy
 msgid "Images"
-msgstr "Hent billeder"
+msgstr "Billeder"
 
 # Anderledes oversættelse til dansk pga. engelske fagord og kontekst.
 # Se http://tortoisesvn.net/docs/nightly/TortoiseSVN_en/tsvn-dug-checkout.html
@@ -4439,9 +4401,8 @@ msgid "Internal value indicating compression quality"
 msgstr "Intern værdi der indikerer komprimeringskvalitet"
 
 #. Resource IDs: (3850)
-#, fuzzy
 msgid "Invalid Currency."
-msgstr "Indtast en valuta."
+msgstr "Ugyldig Valuta."
 
 #. Resource IDs: (102)
 msgid "Invalid data object dropped!"
@@ -4582,7 +4543,7 @@ msgstr "Tastatur"
 
 #. Resource IDs: (65535)
 msgid "Keyboard shortcuts:"
-msgstr ""
+msgstr "Tastaturgenveje:"
 
 #. Resource IDs: (1002)
 msgid "Keys"
@@ -4868,7 +4829,7 @@ msgstr "Menubar"
 
 #. Resource IDs: (16626)
 msgid "Menu s&hadows"
-msgstr ""
+msgstr "Menus&kygger"
 
 #. Resource IDs: (109, 110, 111, 276, 278, 65535)
 msgid "Merge"
@@ -4899,9 +4860,8 @@ msgid "Merge depth:"
 msgstr "Fletningsdybde:"
 
 #. Resource IDs: (1432)
-#, fuzzy
 msgid "Merge non-interactive"
-msgstr "Reintegreringsfletning"
+msgstr "Flet ikke-interaktive"
 
 #. Resource IDs: (595, 65535)
 msgid "Merge options"
@@ -5028,19 +4988,16 @@ msgid "Modified"
 msgstr "Ændret"
 
 #. Resource IDs: (1070)
-#, fuzzy
 msgid "More"
-msgstr "Mere..."
+msgstr "Mere"
 
 #. Resource IDs: (1002)
-#, fuzzy
 msgid "More Buttons"
-msgstr "Egenskaber for fletning"
+msgstr "Flere Knapper"
 
 #. Resource IDs: (1069)
-#, fuzzy
 msgid "More Commands..."
-msgstr "Flere farver..."
+msgstr "Flere Kommandoer..."
 
 #. Resource IDs: (438)
 msgid "More colors..."
@@ -5085,14 +5042,12 @@ msgid "Move &Up"
 msgstr "Flyt &Ned"
 
 #. Resource IDs: (1002)
-#, fuzzy
 msgid "Move Item Down"
-msgstr "Flyt emner hertil"
+msgstr "Flyt Emne Ned"
 
 #. Resource IDs: (1002)
-#, fuzzy
 msgid "Move Item Up"
-msgstr "Flyt emner hertil"
+msgstr "Flyt Emne Op"
 
 #. Resource IDs: (104)
 msgid "Move and rename item to here"
@@ -5173,9 +5128,8 @@ msgid "New &name:"
 msgstr "Nyt &navn:"
 
 #. Resource IDs: (1001)
-#, fuzzy
 msgid "New Menu"
-msgstr "&Ny "
+msgstr "Ny Menu"
 
 #. Resource IDs: (97)
 #, c-format
@@ -5191,6 +5145,8 @@ msgid ""
 "Next Page\n"
 "Next Page"
 msgstr ""
+"Næste Side\n"
+"Næste Side"
 
 #. Resource IDs: (73)
 msgid "No"
@@ -5486,10 +5442,11 @@ msgstr "Åbner versionsarkivbrowseren for at justere versionsarkivet online"
 msgid "Operate from log cache for now only"
 msgstr "Operer indtil videre kun fra logcachen"
 
+# Kontekst?
 #. Resource IDs: (16137)
 #, fuzzy
 msgid "Options"
-msgstr "Handlinger"
+msgstr "Egenskaber"
 
 #. Resource IDs: (32779)
 msgid "Ori&ginal size"
@@ -5603,6 +5560,8 @@ msgid ""
 "Picture (Metafile)\n"
 "a picture"
 msgstr ""
+"Billede (Metafil)\n"
+"et billede"
 
 #. Resource IDs: (65535)
 msgid "Picture:"
@@ -5675,9 +5634,8 @@ msgid "Please wait..."
 msgstr "Vent venligst..."
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Port :"
-msgstr "&Port:"
+msgstr "Port :"
 
 #. Resource IDs: (569)
 msgid "Post-Commit Hook"
@@ -5688,9 +5646,8 @@ msgid "Post-Update Hook"
 msgstr "\"Efter opdatering\"-tilkobling"
 
 #. Resource IDs: (58115)
-#, fuzzy
 msgid "Pre&v Page"
-msgstr "Egenskabsside"
+msgstr "&Forrige Side"
 
 #. Resource IDs: (569)
 msgid "Pre-Commit Hook"
@@ -5714,22 +5671,23 @@ msgstr "Forhindrer de fleste tilfælde hvor forbindelseslinjer krydser revisions
 
 #. Resource IDs: (1069)
 msgid "Preview"
-msgstr ""
+msgstr "Forhåndsvisning"
 
 #. Resource IDs: (376)
 msgid "Preview patched file"
 msgstr "Forhåndsvis rettet fil"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Preview: "
-msgstr "Venstre visning: "
+msgstr "Forhåndsvisning:"
 
 #. Resource IDs: (3633)
 msgid ""
 "Previous Page\n"
 "Previous Page"
 msgstr ""
+"Forrige Side\n"
+"Forrige Side"
 
 #. Resource IDs: (1069, 16990)
 msgid "Print"
@@ -5752,14 +5710,13 @@ msgid "Printer :"
 msgstr "Printer :"
 
 #. Resource IDs: (3845)
-#, fuzzy
 msgid "Printer Files (*.prn)|*.prn|All Files (*.*)|*.*||"
-msgstr "Egenskaber (*.svnprops)|*.svnprops|Alle filer (*.*)|*.*||"
+msgstr "Printer Filer (*.prn)|*.prn|Alle Filer (*.*)|*.*||"
 
 #. Resource IDs: (65535)
 #, fuzzy
 msgid "Printing"
-msgstr "Advarsel"
+msgstr "Printer"
 
 #. Resource IDs: (132)
 #, c-format
@@ -5870,9 +5827,8 @@ msgid "R&AM drives"
 msgstr "&Hukommelsesdrev"
 
 #. Resource IDs: (16623)
-#, fuzzy
 msgid "R&eset"
-msgstr "Afvis"
+msgstr ""
 
 #. Resource IDs: (114)
 msgid "R&evert to this revision"
@@ -5896,14 +5852,12 @@ msgid "Re&name..."
 msgstr "O&mdøb..."
 
 #. Resource IDs: (16613)
-#, fuzzy
 msgid "Re&set"
-msgstr "Afvis"
+msgstr ""
 
 #. Resource IDs: (16647)
-#, fuzzy
 msgid "Re&set All"
-msgstr "Vælg &alle"
+msgstr ""
 
 #. Resource IDs: (8)
 msgid "Re&vert..."
@@ -5914,9 +5868,8 @@ msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Læs \"Daily Use Guide\" inden du går i stå..."
 
 #. Resource IDs: (1002)
-#, fuzzy
 msgid "Recent"
-msgstr "Afvis"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Recently modified lines"
@@ -6139,7 +6092,6 @@ msgid "Removes the selected properties"
 msgstr "Fjerner de markerede egenskaber"
 
 #. Resource IDs: (16616)
-#, fuzzy
 msgid "Rena&me..."
 msgstr "O&mdøb..."
 
@@ -6231,14 +6183,12 @@ msgid "Res&olved..."
 msgstr "L&øst..."
 
 #. Resource IDs: (16614)
-#, fuzzy
 msgid "Reset &All"
-msgstr "Vælg &alle"
+msgstr ""
 
 #. Resource IDs: (214)
-#, fuzzy
 msgid "Reset columns"
-msgstr "Vælg &alle"
+msgstr ""
 
 #. Resource IDs: (207, 229)
 msgid "Resolve"
@@ -6445,19 +6395,20 @@ msgid "Right image"
 msgstr "Højre billede"
 
 #. Resource IDs: (1070)
-#, fuzzy, c-format
+#, c-format
 msgid "Row %d of %d"
-msgstr "%ld af %ld"
+msgstr "Række %d af %d"
 
 #. Resource IDs: (1070)
-#, fuzzy, c-format
+#, c-format
 msgid "Row %d-%d of %d"
-msgstr "%ld af %ld"
+msgstr "Række %d-%d af %d"
 
+# Før: "&Slet...". Kontekst?
 #. Resource IDs: (17045)
 #, fuzzy
 msgid "S&elect..."
-msgstr "&Slet..."
+msgstr "&Vælg..."
 
 #. Resource IDs: (32782)
 msgid "S&ettings"
@@ -6465,11 +6416,11 @@ msgstr "&Indstillinger"
 
 #. Resource IDs: (1065)
 msgid "S&how Buttons on One Row"
-msgstr ""
+msgstr "V&is Knapper på En Række"
 
 #. Resource IDs: (1065)
 msgid "S&how Buttons on Two Rows"
-msgstr ""
+msgstr "V&is knapper på To Rækker"
 
 #. Resource IDs: (17078)
 msgid "S&how Quick Access Toolbar below the Ribbon"
@@ -6653,19 +6604,16 @@ msgid "Select &All"
 msgstr "Vælg &alle"
 
 #. Resource IDs: (16529)
-#, fuzzy
 msgid "Select &User-defined Image: "
-msgstr "Vælg revisions-interval"
+msgstr "Vælg &Bruger-defineret Billede:"
 
 #. Resource IDs: (16508)
-#, fuzzy
 msgid "Select &context menu:"
-msgstr "Sekundær kontekstmenu"
+msgstr "Vælg &kontekstmenu:"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Select &window:"
-msgstr "Vælg &alle"
+msgstr "Vælg &vindue:"
 
 #. Resource IDs: (1067)
 msgid "Select / deselect &all"
@@ -6855,9 +6803,8 @@ msgid "Short URL of Subversion items"
 msgstr "Kort URL for Subversion-emner"
 
 #. Resource IDs: (214)
-#, fuzzy
 msgid "Shorten property list"
-msgstr "Vis egenskaber for revision"
+msgstr "Forkort egenskabsliste"
 
 #. Resource IDs: (1382)
 msgid "Show"
@@ -7014,9 +6961,8 @@ msgid "Show overlay for unversioned items"
 msgstr "Vis overdækning for ikke-versionerede emner"
 
 #. Resource IDs: (1265)
-#, fuzzy
 msgid "Show properties"
-msgstr "Vis &egenskaber"
+msgstr "Vis egenskaber"
 
 #. Resource IDs: (102)
 msgid "Show revision properties"
@@ -7192,9 +7138,8 @@ msgid "Start Update Hook"
 msgstr "Start opdaterings-tilkobling"
 
 #. Resource IDs: (16514)
-#, fuzzy
 msgid "Static"
-msgstr "Statistik"
+msgstr "Statisk"
 
 #. Resource IDs: (179, 245)
 msgid "Statistics"
@@ -7910,38 +7855,32 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Toolbar"
-msgstr "&Værktøjslinje"
+msgstr "Værktøjslinje"
 
 #. Resource IDs: (16130)
-#, fuzzy
 msgid "Toolbar Name"
-msgstr "&Værktøjslinje"
+msgstr "Navn på Værktøjslinje"
 
 #. Resource IDs: (1064)
-#, fuzzy
 msgid "Toolbar Options"
-msgstr "&Værktøjslinje"
+msgstr "Egenskaber for Værktøjslinje"
 
 #. Resource IDs: (1001)
 msgid "Toolbar internal error. Please contact your application vendor."
 msgstr ""
 
 #. Resource IDs: (16105)
-#, fuzzy
 msgid "Toolbars"
-msgstr "&Værktøjslinje"
+msgstr "Værktøjslinjer"
 
 #. Resource IDs: (16928)
-#, fuzzy
 msgid "Tools"
-msgstr "&Værktøjslinje"
+msgstr ""
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Tools:"
-msgstr "Til:"
+msgstr ""
 
 #. Resource IDs: (7, 244)
 msgid "TortoiseBlame"
@@ -8184,14 +8123,13 @@ msgid "Uncheck"
 msgstr "Fravælg"
 
 #. Resource IDs: (1069)
-#, fuzzy, c-format
+#, c-format
 msgid "Undo %d Actions"
-msgstr "Handlinger"
+msgstr "Fortryd %d Handlinger"
 
 #. Resource IDs: (1069)
-#, fuzzy
 msgid "Undo 1 Action"
-msgstr "Handling"
+msgstr "Fortryd 1 Handling"
 
 #. Resource IDs: (14)
 msgid "Undo Add.."
@@ -8276,9 +8214,8 @@ msgid "Update - TortoiseSVN"
 msgstr "Opdater - TortoiseSVN"
 
 #. Resource IDs: (1377)
-#, fuzzy
 msgid "Update Depth"
-msgstr "Opdater"
+msgstr "Opdateringsdybde"
 
 #. Resource IDs: (74)
 msgid "Updated"
@@ -8299,7 +8236,7 @@ msgstr "Opdaterer %s"
 
 #. Resource IDs: (3849)
 msgid "Updating ActiveX objects"
-msgstr ""
+msgstr "Opdaterer ActiveX-objekter"
 
 #. Resource IDs: (283)
 msgid "Updating and retrying the lock..."
@@ -8310,9 +8247,8 @@ msgid "Updating log cache"
 msgstr "Opdaterer log-cache"
 
 #. Resource IDs: (16530)
-#, fuzzy
 msgid "Use &Default Image: "
-msgstr "Standard-sti:"
+msgstr "Benyt &Standardbillede:"
 
 #. Resource IDs: (32855)
 msgid "Use &left block"
@@ -8609,12 +8545,13 @@ msgstr ""
 #. Resource IDs: (1065)
 #, fuzzy
 msgid "Window Position"
-msgstr "Ret vinduesplaceringen"
+msgstr "Vinduesposition"
 
+# Der menes formentlig operativsystemet.
 #. Resource IDs: (16927)
 #, fuzzy
 msgid "Windows"
-msgstr "&Windows XP"
+msgstr "Windows"
 
 #. Resource IDs: (32844)
 msgid "Windows &2000"
@@ -8833,19 +8770,16 @@ msgid "Zoo&m out"
 msgstr "Zoo&m ud"
 
 #. Resource IDs: (1069)
-#, fuzzy
 msgid "Zoom"
-msgstr "Zoom ind"
+msgstr "Zoom"
 
 #. Resource IDs: (58117)
-#, fuzzy
 msgid "Zoom &In"
-msgstr "Zoom i&nd"
+msgstr "Zoom &Ind"
 
 #. Resource IDs: (58118)
-#, fuzzy
 msgid "Zoom &Out"
-msgstr "Zoom ud"
+msgstr "Zoom &Ud"
 
 #. Resource IDs: (32772)
 msgid "Zoom &in\tCtrl-+"
@@ -8869,11 +8803,12 @@ msgstr ""
 "Zoom Ind"
 
 #. Resource IDs: (3633)
-#, fuzzy
 msgid ""
 "Zoom Out\n"
 "Zoom Out"
-msgstr "Tilpas zoom"
+msgstr ""
+"Zoom Ud\n"
+"Zoom Ud"
 
 #. Resource IDs: (32784)
 msgid "Zoom i&n"
@@ -9201,7 +9136,7 @@ msgstr "offline"
 #. Resource IDs: (3845)
 #, fuzzy, c-format
 msgid "on %1"
-msgstr "til %s"
+msgstr "på %s"
 
 #. Resource IDs: (601)
 msgid "online"
