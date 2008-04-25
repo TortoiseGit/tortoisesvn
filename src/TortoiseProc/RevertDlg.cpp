@@ -108,7 +108,7 @@ UINT CRevertDlg::RevertThread()
 
 	if (!m_RevertList.GetStatus(m_pathList))
 	{
-		CMessageBox::Show(m_hWnd, m_RevertList.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
+		m_RevertList.SetEmptyString(m_RevertList.GetLastErrorMessage());
 	}
 	m_RevertList.Show(SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS | SVNSLC_SHOWDIRECTFILES, 
 						// do not select all files, only the ones the user has selected directly

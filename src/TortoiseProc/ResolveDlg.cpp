@@ -133,7 +133,7 @@ UINT CResolveDlg::ResolveThread()
 
 	if (!m_resolveListCtrl.GetStatus(m_pathList))
 	{
-		CMessageBox::Show(m_hWnd, m_resolveListCtrl.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
+		m_resolveListCtrl.SetEmptyString(m_resolveListCtrl.GetLastErrorMessage());
 	}
 	m_resolveListCtrl.Show(SVNSLC_SHOWCONFLICTED|SVNSLC_SHOWINEXTERNALS, SVNSLC_SHOWCONFLICTED);
 

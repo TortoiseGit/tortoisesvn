@@ -139,7 +139,7 @@ UINT CAddDlg::AddThread()
 	m_bCancelled = false;
 	if (!m_addListCtrl.GetStatus(m_pathList))
 	{
-		CMessageBox::Show(m_hWnd, m_addListCtrl.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
+		m_addListCtrl.SetEmptyString(m_addListCtrl.GetLastErrorMessage());
 	}
 	m_addListCtrl.Show(SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWREMOVEDANDPRESENT, 
 						SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWREMOVEDANDPRESENT);

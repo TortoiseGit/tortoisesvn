@@ -103,7 +103,7 @@ UINT CDeleteUnversionedDlg::StatusThread()
 
 	if (!m_StatusList.GetStatus(m_pathList, false, true))
 	{
-		CMessageBox::Show(m_hWnd, m_StatusList.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
+		m_StatusList.SetEmptyString(m_StatusList.GetLastErrorMessage());
 	}
 	m_StatusList.Show(SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWIGNORED, 
 		SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWIGNORED);

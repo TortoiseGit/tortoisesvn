@@ -114,7 +114,7 @@ UINT CCreatePatch::PatchThread()
 
 	if (!m_PatchList.GetStatus(m_pathList))
 	{
-		CMessageBox::Show(m_hWnd, m_PatchList.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
+		m_PatchList.SetEmptyString(m_PatchList.GetLastErrorMessage());
 	}
 
 	m_PatchList.Show(

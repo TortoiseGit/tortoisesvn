@@ -139,7 +139,7 @@ UINT CUnlockDlg::UnlockThread()
 	m_bCancelled = false;
 	if (!m_unlockListCtrl.GetStatus(m_pathList))
 	{
-		CMessageBox::Show(m_hWnd, m_unlockListCtrl.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
+		m_unlockListCtrl.SetEmptyString(m_unlockListCtrl.GetLastErrorMessage());
 	}
 	m_unlockListCtrl.Show(SVNSLC_SHOWLOCKS | SVNSLC_SHOWDIRECTFILES, 
 		SVNSLC_SHOWLOCKS | SVNSLC_SHOWDIRECTFILES);

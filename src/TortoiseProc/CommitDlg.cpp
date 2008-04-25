@@ -572,7 +572,7 @@ UINT CCommitDlg::StatusThread()
 	DialogEnableWindow(IDOK, logmsg.GetLength() >= m_ProjectProperties.nMinLogSize);
 	if (!success)
 	{
-		CMessageBox::Show(m_hWnd, m_ListCtrl.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
+		m_ListCtrl.SetEmptyString(m_ListCtrl.GetLastErrorMessage());
 		InterlockedExchange(&m_bBlock, FALSE);
 		InterlockedExchange(&m_bThreadRunning, FALSE);
 		SetTimer(ENDDIALOGTIMER, 100, NULL);

@@ -170,7 +170,7 @@ UINT CLockDlg::StatusThread()
 	// Initialise the list control with the status of the files/folders below us
 	if (!m_cFileList.GetStatus(m_pathList))
 	{
-		CMessageBox::Show(m_hWnd, m_cFileList.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
+		m_cFileList.SetEmptyString(m_cFileList.GetLastErrorMessage());
 	}
 
 	// Check if any file doesn't have svn:needs-lock set in BASE. If at least
