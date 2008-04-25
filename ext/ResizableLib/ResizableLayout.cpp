@@ -122,7 +122,7 @@ void CResizableLayout::AddAnchor(HWND hWnd, ANCHOR anchorTopLeft, ANCHOR anchorB
  *
  *  @sa AddAnchor ArrangeLayoutCallback ArrangeLayout
  */
-UINT CResizableLayout::AddAnchorCallback()
+UINT_PTR CResizableLayout::AddAnchorCallback()
 {
 	// one callback control cannot rely upon another callback control's
 	// size and/or position (they're updated all together at the end)
@@ -190,7 +190,7 @@ void CResizableLayout::ArrangeLayout() const
 	GetTotalClientRect(&rectParent);
 
 	// reposition child windows
-	HDWP hdwp = ::BeginDeferWindowPos(count + countCB);
+	HDWP hdwp = ::BeginDeferWindowPos (static_cast<int>(count + countCB));
 	
 	POSITION pos = m_listLayout.GetHeadPosition();
 	while (pos != NULL)

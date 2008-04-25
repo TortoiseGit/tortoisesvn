@@ -90,7 +90,7 @@ typedef struct tagLAYOUTINFO
 	//! Handle of the window the layout of which is being defined
 	HWND hWnd;
 	//! Identification number assigned to the callback slot
-	UINT nCallbackID;
+	UINT_PTR nCallbackID;
 
 	//! Window class name to identify standard controls
 	TCHAR sWndClass[MAX_PATH];
@@ -206,7 +206,7 @@ protected:
 	//@}
 
 	//! @brief Add a callback slot to the layout for dynamic controls or anchor points
-	UINT AddAnchorCallback();
+	UINT_PTR AddAnchorCallback();
 
 	//@{
 	//! @brief Get position and size of a control in the layout from the parent's client area

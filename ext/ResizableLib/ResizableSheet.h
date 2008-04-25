@@ -54,7 +54,7 @@ private:
 	BOOL m_bSavePage;
 
 	// layout vars
-	UINT m_nCallbackID;
+	UINT_PTR m_nCallbackID;
 	CSize m_sizePageTL, m_sizePageBR;
 	BOOL m_bLayoutDone;
 
