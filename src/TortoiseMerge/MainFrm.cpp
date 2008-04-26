@@ -745,6 +745,9 @@ bool CMainFrame::LoadViews(bool bRetainPosition)
 		m_pwndLeftView->SetHidden(FALSE);
 		m_pwndRightView->SetHidden(FALSE);
 		m_pwndBottomView->SetHidden(FALSE);
+		// in three pane view, hide the line diff bar
+		m_wndLineDiffBar.ShowPane(false, false, true);
+		m_wndLineDiffBar.DocumentUpdated();
 	}
 	if (!m_Data.m_mergedFile.InUse())
 	{
@@ -853,6 +856,20 @@ void CMainFrame::OnViewOnewaydiff()
 	if (CheckForSave()==IDCANCEL)
 		return;
 	m_bOneWay = !m_bOneWay;
+	if (m_bOneWay)
+	{
+		// in one way view, hide the line diff bar
+		m_wndLineDiffBar.ShowPane(false, false, true);
+		m_wndLineDiffBar.DocumentUpdated();
+	}
+	else
+	{
+		// restore the line diff bar
+		m_wndLineDiffBar.ShowPane(m_bLineDiff, false, true);
+		m_wndLineDiffBar.DocumentUpdated();
+		m_wndLocatorBar.ShowPane(m_bLocatorBar, false, true);
+		m_wndLocatorBar.DocumentUpdated();
+	}
 	LoadViews(true);
 }
 
