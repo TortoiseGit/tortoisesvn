@@ -3546,11 +3546,11 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
             if (m_ColumnManager.AnyUnusedProperties())
             {
 				temp.LoadString(IDS_STATUSLIST_REMOVEUNUSEDPROPS);
-				popup.AppendMenu(IsGroupViewEnabled() ? uCheckedFlags : uUnCheckedFlags, columnCount+1, temp);
+				popup.AppendMenu(uUnCheckedFlags, columnCount+1, temp);
             }
 
 			temp.LoadString(IDS_STATUSLIST_RESETCOLUMNORDER);
-			popup.AppendMenu(IsGroupViewEnabled() ? uCheckedFlags : uUnCheckedFlags, columnCount+2, temp);
+			popup.AppendMenu(uUnCheckedFlags, columnCount+2, temp);
             popup.AppendMenu(MF_SEPARATOR);
 
             // standard columns
