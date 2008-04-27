@@ -982,7 +982,8 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		case ID_SHOWLOG:
 			{
 				CString sCmd;
-				CString URL = GetReposRoot() + CUnicodeUtils::GetUnicode (m_SelectedEntry1->path.GetPath().c_str());
+				CString URL = GetReposRoot() + CUnicodeUtils::GetUnicode (m_SelectedEntry1->realPath.GetPath().c_str());
+				URL = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(URL)));
 				sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%ld"), 
 					CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), 
 					(LPCTSTR)URL,
@@ -1001,6 +1002,7 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		case ID_MERGETO:
 			{
 				CString URL = GetReposRoot() + CUnicodeUtils::GetUnicode (m_SelectedEntry1->path.GetPath().c_str());
+				URL = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(URL)));
 
 				CString path = m_sPath;
 				CBrowseFolder folderBrowser;
