@@ -190,7 +190,10 @@ void CSetDialogs::OnChange()
 BOOL CSetDialogs::OnApply()
 {
 	UpdateData();
-	m_sFontName = m_cFontNames.GetSelFont()->m_strName;
+	if (m_cFontNames.GetSelFont())
+		m_sFontName = m_cFontNames.GetSelFont()->m_strName;
+	else
+		m_sFontName = m_regFontName;
 	m_regAutoClose = m_dwAutoClose;
 	if (m_regAutoClose.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regAutoClose.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);

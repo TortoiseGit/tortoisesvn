@@ -114,7 +114,10 @@ void CSetMainPage::SaveData()
 BOOL CSetMainPage::OnApply()
 {
 	UpdateData();
-	m_sFontName = m_cFontNames.GetSelFont()->m_strName;
+	if (m_cFontNames.GetSelFont())
+		m_sFontName = m_cFontNames.GetSelFont()->m_strName;
+	else
+		m_sFontName = m_regFontName;
 	SaveData();
 	SetModified(FALSE);
 	return CPropertyPage::OnApply();
