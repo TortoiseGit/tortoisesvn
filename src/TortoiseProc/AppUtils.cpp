@@ -606,8 +606,8 @@ void CAppUtils::ResizeAllListCtrlCols(CListCtrl * pListCtrl)
 		int cx = pListCtrl->GetStringWidth(hdi.pszText)+20; // 20 pixels for col separator and margin
 		for (int index = 0; index<nItemCount; ++index)
 		{
-			// get the width of the string and add 12 pixels for the column separator and margins
-			int linewidth = pListCtrl->GetStringWidth(pListCtrl->GetItemText(index, col)) + 12;
+			// get the width of the string and add 14 pixels for the column separator and margins
+			int linewidth = pListCtrl->GetStringWidth(pListCtrl->GetItemText(index, col)) + 14;
 			if (index == 0)
 			{
 				// add the image size
