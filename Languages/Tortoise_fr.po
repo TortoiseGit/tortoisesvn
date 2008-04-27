@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-04-23 14:47+0100\n"
+"PO-Revision-Date: 2008-04-28 00:06+0100\n"
 "Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5873,6 +5873,10 @@ msgstr "Statut distant"
 msgid "Remote text status"
 msgstr "Statut des propriétés textes distantes"
 
+#. Resource IDs: (1332)
+msgid "Remove"
+msgstr "Supprimer"
+
 #. Resource IDs: (126)
 #, c-format
 msgid "Remove %ld items"
@@ -5911,10 +5915,6 @@ msgstr ""
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
 msgstr "Supprimer le(s) cache(s) sélectionné(s) du disque"
-
-#. Resource IDs: (1332)
-msgid "Remove..."
-msgstr "Supprimer..."
 
 #. Resource IDs: (65535)
 msgid "Removed"
@@ -9362,6 +9362,8 @@ msgstr "année"
 msgid "yes"
 msgstr "oui"
 
+#~ msgid "Remove..."
+#~ msgstr "Supprimer..."
 #~ msgid "&Open Ctrl-O"
 #~ msgstr "&Ouvrir Ctrl-O"
 #~ msgid "&Save Ctrl-S"
