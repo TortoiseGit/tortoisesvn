@@ -249,7 +249,7 @@ C:\Projects\Widget\images
 			<literal>name -rREV url</literal>
 			You can add multiple external projects, 1 per line.
 			Note that URLs must be properly escaped or they will
-			not work properly. For example you must replace each space with
+			not work. For example you must replace each space with
 			<literal>%20</literal>. Note that it is not possible to use
 			folder names with spaces in them.
 			Suppose that you have set these properties on
@@ -300,23 +300,21 @@ skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker
 			those external changes separately.
 		</para>
 		<para>
-			Note that if you change the URL in an <literal>svn:externals</literal>
-			property, then next time you update your working copy Subversion will
-			delete the old external folder and make a fresh checkout, so you
-			will see files being <emphasis>Added</emphasis>, rather than being
-			<emphasis>Updated</emphasis> as you might have expected. This
-			situation might occur if you reference a tag from another
-			project. When a new version of that project is released, you
-			change your external reference to point to the new tag.
+			If you use absolute URLs in <literal>svn:externals</literal>
+			definitions and you have to relocate your working copy (i.e.,
+			if the URL of your repository changes), then your externals
+			won't change and might not work anymore.
 		</para>
 		<para>
-			URLs in <literal>svn:externals</literal> definitions are absolute.
-			You cannot use relative URLs. If you relocate your working copy,
-			or if the external repository is relocated, these URLs will not be
-			updated automatically. Also, if you branch a project which has
-			external references within the same repository, the URLs in the
-			branched copy will be unchanged; you may then want to change trunk
-			references to branch references instead.
+			To avoid such problems, Subversion clients version 1.5 and
+			higher support relative external URLs. The format of those
+			URLs is as follows:
+<screen>
+../	relative to the parent directory of the external
+^/	relative to the repository root
+//	relative to the URL scheme
+/	relative to the server's hostname
+</screen>			
 		</para>
 		<para>
 			If you need more information how TortoiseSVN

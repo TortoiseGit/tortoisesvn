@@ -77,6 +77,23 @@
 						e.g the TortoiseSVN project is using
 						<literal>http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</literal>
 					</para>
+					<para>
+						You can also use relative URLs instead of absolute ones. This is useful
+						in case your issue tracker is on the same domain/server as your source
+						repository. In case the domainname ever changes, you don't have to adjust
+						the <filename>bugtraq:url</filename> property. The format of relative URLs
+						is as follows:
+<screen>
+^/	relative to the repository root
+/	relative to the server's hostname
+</screen>
+						For example, <filename>^/../?do=details&amp;id=%BUGID%</filename> will resolve
+						to <filename>http://tortoisesvn.net/?do=details&amp;id=%BUGID%</filename> if
+						your repository is located on <filename>http://tortoisesvn.net/svn/trunk/</filename>.
+						Or <filename>/?do=details&amp;id=%BUGID%</filename> will resolve
+						to <filename>http://tortoisesvn.net/?do=details&amp;id=%BUGID%</filename> if
+						your repository is located somewhere on <filename>http://tortoisesvn.net</filename>.
+					</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
