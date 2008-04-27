@@ -152,10 +152,9 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
 
 	::DeleteFile(tempPatchFilePath.GetWinPath());
 
-	CTSVNPath sDir;
-	sDir = path.GetCommonRoot();
+	CTSVNPath sDir = root;
 	if (sDir.IsEmpty())
-		sDir = root;
+		sDir = path.GetCommonRoot();
 
 	SVN svn;
 	for (int fileindex = 0; fileindex < path.GetCount(); ++fileindex)

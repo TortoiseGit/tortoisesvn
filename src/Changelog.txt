@@ -2,6 +2,9 @@
 - BUG: Crash when browsing through the settings dialog. (Stefan)
 - BUG: URLs were not properly escaped in the revision graph for showing the
        log or merging. (Stefan)
+- BUG: The root path was not set correctly when creating a patch. This lead
+       to the patchfile containing only the filename and not the relative path
+       if only one file was chosen/available to create the patch for. (Stefan)
 
 Version 1.5.0-RC1
 - NEW: Files can be dragged to new changelists. (Stefan)
