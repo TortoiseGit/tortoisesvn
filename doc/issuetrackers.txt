@@ -79,6 +79,12 @@ That way the resulting URL will point directly to the correct issue.
 NOTE: The URL must be properly URI encoded by the user.
 This URL can be used by clients to create a link to the bug tracking tool when
 showing the logmessage of a revision.
+To allow relative URLs, the following formats can be used (subset of the 
+svn:external relative urls):
+^/   relative to the repository root. Since issue trackers can not reside
+     below a subversion repository, the URL must contain navigations.
+     For example: ^/../../issues/id?123
+/    relative to the server's hostname
 ---------
 
 ---------
