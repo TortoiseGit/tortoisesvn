@@ -75,24 +75,31 @@
 						TortoiseSVN shows only the
 						issue number and not the link to it.
 						e.g the TortoiseSVN project is using
-						<literal>http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</literal>
+						<systemitem class="url">http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>
 					</para>
 					<para>
 						You can also use relative URLs instead of absolute ones. This is useful
 						in case your issue tracker is on the same domain/server as your source
-						repository. In case the domainname ever changes, you don't have to adjust
-						the <literal>bugtraq:url</literal> property. The format of relative URLs
-						is as follows:
-<screen>
-^/	relative to the repository root
-/	relative to the server's hostname
-</screen>
-						For example, <literal>^/../?do=details&amp;id=%BUGID%</literal> will resolve
-						to <literal>http://tortoisesvn.net/?do=details&amp;id=%BUGID%</literal> if
-						your repository is located on <literal>http://tortoisesvn.net/svn/trunk/</literal>.
-						Or <literal>/?do=details&amp;id=%BUGID%</literal> will resolve
-						to <literal>http://tortoisesvn.net/?do=details&amp;id=%BUGID%</literal> if
-						your repository is located somewhere on <literal>http://tortoisesvn.net</literal>.
+						repository. In case the domain name ever changes, you don't have to adjust
+						the <literal>bugtraq:url</literal> property. There are two ways to
+						specify a relative URL:
+					</para>
+					<para>
+						If it begins with the string <literal>^/</literal> it is assumed
+						to be relative to the repository root.
+						For example, <literal>^/../?do=details&amp;id=%BUGID%</literal>
+						will resolve to
+						<systemitem class="url">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>
+						if your repository is located on
+						<systemitem class="url">http://tortoisesvn.net/svn/trunk/</systemitem>.
+					</para>
+					<para>
+						A URL beginning with the string <literal>/</literal> is assumed
+						to be relative to the server's hostname.
+						For example <literal>/?do=details&amp;id=%BUGID%</literal> will resolve to
+						<systemitem class="url">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>
+						if your repository is located anywhere on
+						<systemitem class="url">http://tortoisesvn.net</systemitem>.
 					</para>
 				</listitem>
 			</varlistentry>
@@ -225,7 +232,7 @@
 						and <quote>25</quote> to use as bug IDs.
 					</para>
 					<para>
-						Breaking the fist regex down a little, it must start with the word
+						Breaking the first regex down a little, it must start with the word
 						<quote>issue</quote>, possibly capitalised.
 						This is optionally followed by an <quote>s</quote> (more than one
 						issue) and optionally a colon. This is followed by one or more groups
