@@ -1,0 +1,247 @@
+Issue Tracker Plugins
+=====================
+
+An issue tracker plugin is a COM object that implements the IBugTraqProvider
+interface. It must also be registered as implementing the CATID_BugTraqProvider
+component category.
+
+
+Example Plugins
+---------------
+
+There are two example plugins in this folder.
+
+ - ExampleAtlPlugin, written in C++, using ATL.
+ - ExampleCsPlugin, written in C#.
+ 
+They get the list of available "issues" from a hard-coded list, rather than a
+database or web service, but this should be sufficient to demonstrate the
+plugin API.
+
+
+Licensing and GPL compatibility
+-------------------------------
+
+TortoiseSVN is licensed under the GNU General Public License (see the file
+LICENSE for details).
+
+There is a specific exception for plugins that implement the issue tracker
+plugin interfaces; these do not need to be GPL-licensed.
+
+
+The IBugTraqProvider interface
+------------------------------
+
+In the contrib\issue-tracker-plugins\inc directory, you'll find the following
+files:
+
+ * IBugTraqProvider.idl
+   This is a copy of the src\IBugTraqProvider\IBugTraqProvider.idl file; it's
+   provided for reference, but you should not need to use it.
+   
+ * IBugTraqProvider_h.h, IBugTraqProvider_i.c
+   These are the files you'll probably use if you implement a plugin in C++.
+
+ * Interop.BugTraqProvider.dll
+   Interop Assembly for implementing plugins in .NET. It's not yet a Primary
+   Interop Assembly (PIA).
+   The source code for this project is in the Interop.BugTraqProvider folder.
+
+
+Walkthrough: Creating an issue tracker plugin in C#
+---------------------------------------------------
+
+(This assumes a basic familiarity with creating Windows Forms applications).
+
+In Visual Studio 2005 or 2008, create a new "Class Library" project; give it a
+name.
+
+Delete the "Class1" class; we'll create another one in a moment.
+
+Add a reference to the inc\Interop.BugTraqProvider.dll file.
+
+Create a new class named "MyPlugin".
+
+Derive MyPlugin from the Interop.BugTraqProvider.IBugTraqProvider interface,
+and then implement the first two methods as follows:
+
+The ValidateParameters method should look like this:
+
+    public bool ValidateParameters(IntPtr hParentWnd, string parameters)
+    {
+        return true;
+    }
+
+The GetLinkText method should look like this:
+
+    public string GetLinkText(IntPtr hParentWnd, string parameters)
+    {
+        return "Choose Issue";
+    }
+
+We'll come back to GetCommitMessage shortly.
+
+The class also needs some attributes; it should look like this:
+
+    [ComVisible(true),
+     Guid("PUT-GUID-HERE"),
+     ClassInterface(ClassInterfaceType.None)]
+    public class Provider : IBugTraqProvider
+    {
+		// etc.
+
+(Replace "PUT-GUID-HERE" with a new GUID).
+
+Add a class to hold our example ticket data:
+
+	internal class TicketItem
+	{
+		private readonly int _ticketNumber;
+		private readonly string _ticketSummary;
+
+		public TicketItem(int ticketNumber, string ticketSummary)
+		{
+			_ticketNumber = ticketNumber;
+			_ticketSummary = ticketSummary;
+		}
+
+		public int Number
+		{
+			get { return _ticketNumber; }
+		}
+
+		public string Summary
+		{
+			get { return _ticketSummary; }
+		}
+	}
+
+We can now implement the GetCommitMessage method as follows:
+
+    public string GetCommitMessage(IntPtr hParentWnd, string parameters, string originalMessage)
+    {
+        List<TicketItem> tickets = new List<TicketItem>();
+        tickets.Add(new TicketItem(12, "Service doesn't start on Windows Vista"));
+        tickets.Add(new TicketItem(19, "About box doesn't render correctly in large fonts mode"));
+
+        MyIssuesForm form = new MyIssuesForm(tickets);
+        if (form.ShowDialog() != DialogResult.OK)
+            return originalMessage;
+
+        StringBuilder result = new StringBuilder(originalMessage);
+        if (originalMessage.Length != 0 && !originalMessage.EndsWith("\n"))
+            result.AppendLine();
+
+        foreach (TicketItem ticket in form.TicketsFixed)
+        {
+            result.AppendFormat("Fixed #{0}: {1}", ticket.Number, ticket.Summary);
+            result.AppendLine();
+        }
+
+        return result.ToString();
+    }
+
+This passes the list of open issues to the MyIssuesForm object, where the
+user will be able to check those ones that she's fixed. These are available
+through the TicketsFixed property.
+
+We use these to build a string that looks something like this:
+
+Fixed #12: Service doesn't start on Windows Vista.
+
+A commit message formatted like this will cause, (e.g.) Trac's post-commit
+hook to close the tickets.
+
+Anything that the user has already entered into the commit message is left
+there.
+
+Now we need a dialog box that displays the issues assigned to the
+current user.
+
+Add a Windows Form item to your project. Name it "MyIssuesForm". Set the
+following properties:
+
+ StartPosition = CenterParent
+ MaximizeBox = False
+ MinimizeBox = False
+ ShowIcon = False
+ ShowInTaskbar = False
+
+Put the usual OK and Cancel buttons on it; arrange them and wire them up
+properly.
+
+Add a ListView control to the form and arrange it appropriately. Set the
+following properties:
+
+ Checkboxes = True
+ FullRowSelect = True
+ View = Details
+ HeaderStyle = Nonclickable
+
+Change the class so that it looks like this:
+
+	partial class MyIssuesForm : Form
+	{
+		private readonly IEnumerable<TicketItem> _tickets;
+		private readonly List<TicketItem> _ticketsAffected = new List<TicketItem>();
+
+		public MyIssuesForm(IEnumerable<TicketItem> tickets)
+		{
+			InitializeComponent();
+			_tickets = tickets;
+		}
+
+		public IEnumerable<TicketItem> TicketsFixed
+		{
+			get { return _ticketsAffected; }
+		}
+
+		// etc.
+
+Then implement some event handlers in MyIssuesForm as follows:
+
+        private void MyIssuesForm_Load(object sender, EventArgs e)
+        {
+            listView1.Columns.Add("");
+            listView1.Columns.Add("#");
+            listView1.Columns.Add("Summary");
+
+            foreach(TicketItem ticketItem in _tickets)
+            {
+                ListViewItem lvi = new ListViewItem();
+                lvi.Text = "";
+                lvi.SubItems.Add(ticketItem.Number.ToString());
+                lvi.SubItems.Add(ticketItem.Summary);
+                lvi.Tag = ticketItem;
+
+                listView1.Items.Add(lvi);
+            }
+
+            listView1.Columns[0].Width = -1;
+            listView1.Columns[1].Width = -1;
+            listView1.Columns[2].Width = -1;
+        }
+
+        private void okButton_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem lvi in listView1.Items)
+            {
+                TicketItem ticketItem = lvi.Tag as TicketItem;
+                if (ticketItem != null && lvi.Checked)
+                    _ticketsAffected.Add(ticketItem);
+            }
+        }
+
+Registering your new C# class can be done by using RegAsm from the command
+line, as follows:
+
+	RegAsm bin\Debug\MyCsPlugin.dll /codebase /regfile:MyCsPlugin.reg
+
+You'll need to edit the .REG file, by adding another "Implemented Categories"
+entry that looks like this:
+
+[HKEY_CLASSES_ROOT\CLSID\{PUT-GUID-HERE}\Implemented Categories\{3494FA92-B139-4730-9591-01135D5E7831}]
+
+Replace "PUT-GUID-HERE" with the same value you used earlier.
+
+Then, merge that .REG file into the registry, and your plugin is ready to go!

@@ -1,0 +1,50 @@
+// TortoiseSVN - a Windows shell extension for easy version control
+// 
+// Copyright (C) 2008 - TortoiseSVN
+//
+// IMPORTANT: While the rest of TortoiseSVN is licensed under the GPL,
+// this portion is public domain
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(298B927B-7220-423C-B7B4-6E241F00CD93),
+	dual,
+	nonextensible,
+	helpstring("IBugTraqProvider Interface"),
+	pointer_default(unique)
+]
+interface IBugTraqProvider : IDispatch
+{
+	/** A provider might need some parameters (e.g. a web service URL or a database connection string).
+	 * This information is passed as a simple string. It's up to the individual provider to parse and
+	 * validate it.
+	 */
+	HRESULT ValidateParameters (
+		[in] HWND hParentWnd,			// Parent window for any UI that needs to be displayed during validation.
+		[in] BSTR parameters,			// The parameter string that needs to be validated.
+		[out, retval] VARIANT_BOOL *valid		// Is the string valid?
+	);
+
+	/** In the commit dialog, the provider is accessed from a hyperlink control. It needs to know
+	 * what text to display (i.e. "bug" or "ticket" or "issue" or "task".
+	 */
+	HRESULT GetLinkText (
+		[in] HWND hParentWnd,			// Parent window for any (error) UI that needs to be displayed.
+		[in] BSTR parameters,			// The parameter string, just in case you need to talk to your web
+										// service to find out what the correct text is.
+		[out, retval] BSTR *linkText			// What text do you want to display?
+	);
+
+	/** Get the commit message. This would normally involve displaying a dialog with a list of the
+	 * issues assigned to the current user.
+	 */
+	HRESULT GetCommitMessage (
+		[in] HWND hParentWnd,			// Parent window for your provider's UI.
+		[in] BSTR parameters,			// Parameters for your provider.
+		[in] BSTR originalMessage,
+		[out, retval] BSTR *newMessage
+	);			
+};
