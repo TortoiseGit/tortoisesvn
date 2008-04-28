@@ -221,10 +221,6 @@ public:
 									SVNRev rev, const CString& message, 
 									DWORD& exitcode, CString& error);
 
-	bool				HasIssueTracker(const CTSVNPathList& pathList);
-	bool				IssueTracker(const CTSVNPathList& pathList, CString& message,
-										DWORD& exitcode, CString& error);
-
 private:
 	/**
 	 * Starts a new process, specified in \c cmd.

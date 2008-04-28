@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -33,6 +33,7 @@
 #include "SetLogCache.h"
 #include "SetSavedDataPage.h"
 #include "SetHooks.h"
+#include "SetBugTraq.h"
 #include "SettingsTBlame.h"
 #include "TreePropSheet/TreePropSheet.h"
 
@@ -75,6 +76,7 @@ private:
 	CSetLogCache *			m_pLogCachePage;
 	CSetSavedDataPage *		m_pSavedPage;
 	CSetHooks *				m_pHooksPage;
+	CSetBugTraq *			m_pBugTraqPage;
 	CSettingsTBlame *		m_pTBlamePage;
 
 	HICON					m_hIcon;

@@ -26,6 +26,7 @@
 #include "SciEdit.h"
 #include "SplitterControl.h"
 #include "PathWatcher.h"
+#include "BugTraqAssociations.h"
 
 #include <regex>
 using namespace std;
@@ -70,7 +71,7 @@ protected:
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnBnClickedShowunversioned();
 	afx_msg void OnBnClickedHistory();
-	afx_msg void OnBnClickedBugtextbutton();
+	afx_msg void OnBnClickedBugtraqbutton();
 	afx_msg void OnEnChangeLogmessage();
 	afx_msg LRESULT OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM);
 	afx_msg LRESULT OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
@@ -127,4 +128,6 @@ private:
 	CRect				m_DlgOrigRect;
 	CRect				m_LogMsgOrigRect;
 	CPathWatcher		m_pathwatcher;
+
+	CBugTraqAssociation m_bugtraq_association;
 };

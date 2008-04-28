@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -53,6 +53,7 @@ void CSettings::AddPropPages()
 	m_pColorsPage = new CSettingsColors();
 	m_pSavedPage = new CSetSavedDataPage();
 	m_pHooksPage = new CSetHooks();
+	m_pBugTraqPage = new CSetBugTraq();
 	m_pTBlamePage = new CSettingsTBlame();
 
 	SetPageIcon(m_pMainPage, m_pMainPage->GetIconID());
@@ -69,6 +70,7 @@ void CSettings::AddPropPages()
 	SetPageIcon(m_pColorsPage, m_pColorsPage->GetIconID());
 	SetPageIcon(m_pSavedPage, m_pSavedPage->GetIconID());
 	SetPageIcon(m_pHooksPage, m_pHooksPage->GetIconID());
+	SetPageIcon(m_pBugTraqPage, m_pBugTraqPage->GetIconID());
 	SetPageIcon(m_pTBlamePage, m_pTBlamePage->GetIconID());
 
 	AddPage(m_pMainPage);
@@ -85,6 +87,7 @@ void CSettings::AddPropPages()
 	AddPage(m_pSavedPage);
 	AddPage(m_pLogCachePage);
 	AddPage(m_pHooksPage);
+	AddPage(m_pBugTraqPage);
 	AddPage(m_pTBlamePage);
 }
 
@@ -104,6 +107,7 @@ void CSettings::RemovePropPages()
 	delete m_pColorsPage;
 	delete m_pSavedPage;
 	delete m_pHooksPage;
+	delete m_pBugTraqPage;
 	delete m_pTBlamePage;
 }
 
@@ -124,6 +128,7 @@ void CSettings::HandleRestart()
 	restart |= m_pColorsPage->GetRestart();
 	restart |= m_pSavedPage->GetRestart();
 	restart |= m_pHooksPage->GetRestart();
+	restart |= m_pBugTraqPage->GetRestart();
 	restart |= m_pTBlamePage->GetRestart();
 	if (restart & ISettingsPropPage::Restart_System)
 	{

@@ -1610,10 +1610,6 @@ msgstr ""
 msgid "Browse..."
 msgstr ""
 
-#. Resource IDs: (1057)
-msgid "Bug Tracker..."
-msgstr ""
-
 #. Resource IDs: (1119)
 msgid "Bug-&ID / Issue-Nr:"
 msgstr ""
@@ -3776,8 +3772,8 @@ msgstr ""
 msgid "Invalid revision range!\nValid revisions are numbers and HEAD, separated by commas.\nA range can be specified with a dash.\nExample: 2-5,7,10,44-70,300-HEAD"
 msgstr ""
 
-#. Resource IDs: (570)
-msgid "Issue Tracker Hook"
+#. Resource IDs: (283)
+msgid "Issue Tracker Integration"
 msgstr ""
 
 #. Resource IDs: (145)
@@ -4681,6 +4677,14 @@ msgstr ""
 msgid "Page :"
 msgstr ""
 
+#. Resource IDs: (63)
+msgid "Parameters"
+msgstr ""
+
+#. Resource IDs: (1477)
+msgid "Parameters:"
+msgstr ""
+
 #. Resource IDs: (69)
 msgid "Password:"
 msgstr ""
@@ -4936,6 +4940,14 @@ msgstr ""
 
 #. Resource IDs: (1293)
 msgid "Property value:"
+msgstr ""
+
+#. Resource IDs: (63)
+msgid "Provider"
+msgstr ""
+
+#. Resource IDs: (1475)
+msgid "Provider:"
 msgstr ""
 
 #. Resource IDs: (1412)
@@ -5690,6 +5702,10 @@ msgstr ""
 msgid "Select end revision"
 msgstr ""
 
+#. Resource IDs: (64)
+msgid "Select folder to associate with this issue tracker"
+msgstr ""
+
 #. Resource IDs: (79)
 msgid "Select folder to export to.\nYou might need to create a new folder before performing this export."
 msgstr ""
@@ -6373,6 +6389,14 @@ msgid "The image can not be shown."
 msgstr ""
 
 #. Resource IDs: (63)
+msgid "The issue-tracker provider could not be created. Please check that it is installed correctly."
+msgstr ""
+
+#. Resource IDs: (64)
+msgid "The issue-tracker provider was unable to validate the parameter string"
+msgstr ""
+
+#. Resource IDs: (63)
 #, c-format
 msgid "The line \"====\" was expected in line %d !"
 msgstr ""
@@ -6488,6 +6512,10 @@ msgstr ""
 
 #. Resource IDs: (169)
 msgid "There are changes or unversioned items inside one or more directories which you have included with svn:externals.\nThose files are <b>not</b> listed for commit. You need to commit those files separately."
+msgstr ""
+
+#. Resource IDs: (64)
+msgid "There are no issue-tracker providers available."
 msgstr ""
 
 #. Resource IDs: (66)
@@ -7792,5 +7820,9 @@ msgstr ""
 
 #. Resource IDs: (18, 1002, 1011, 1012)
 msgid "yes"
+msgstr ""
+
+#. Resource IDs: (1382)
+msgid "{BugTraq}"
 msgstr ""
 

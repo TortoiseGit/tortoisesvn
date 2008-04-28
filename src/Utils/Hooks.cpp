@@ -173,8 +173,6 @@ CString CHooks::GetHookTypeString(hooktype t)
 		return _T("pre_update_hook");
 	case post_update_hook:
 		return _T("post_update_hook");
-	case issue_tracker_hook:
-		return _T("issue_tracker_hook");
 	}
 	return _T("");
 }
@@ -193,8 +191,6 @@ hooktype CHooks::GetHookType(const CString& s)
 		return pre_update_hook;
 	if (s.Compare(_T("post_update_hook"))==0)
 		return post_update_hook;
-	if (s.Compare(_T("issue_tracker_hook"))==0)
-		return issue_tracker_hook;
 	return unknown_hook;
 }
 
@@ -326,31 +322,6 @@ bool CHooks::PostUpdate(const CTSVNPathList& pathList, svn_depth_t depth, SVNRev
 	AddErrorParam(sCmd, error);
 	AddCWDParam(sCmd, pathList);
 	exitcode = RunScript(sCmd, pathList.GetCommonRoot().GetDirectory().GetWinPath(), error, it->second.bWait, it->second.bShow);
-	return true;
-}
-
-bool CHooks::HasIssueTracker(const CTSVNPathList& pathList)
-{
-	hookiterator it = FindItem(issue_tracker_hook, pathList);
-	if (it == end())
-		return false;
-	return true;
-}
-
-bool CHooks::IssueTracker(const CTSVNPathList& pathList, CString& message, DWORD& exitcode, CString& error)
-{
-	hookiterator it = FindItem(issue_tracker_hook, pathList);
-	if (it == end())
-		return false;
-	CString sCmd = it->second.commandline;
-	AddPathParam(sCmd, pathList);
-	AddCWDParam(sCmd, pathList);
-	CTSVNPath temppath = AddMessageFileParam(sCmd, message);
-	exitcode = RunScript(sCmd, pathList.GetCommonRoot().GetDirectory().GetWinPath(), error, it->second.bWait, it->second.bShow);
-	if (!exitcode && !temppath.IsEmpty())
-	{
-		CStringUtils::ReadStringFromTextFile(temppath.GetWinPathString(), message);
-	}
 	return true;
 }
 
