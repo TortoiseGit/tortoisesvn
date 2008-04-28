@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-04-25 08:56+0900\n"
+"PO-Revision-Date: 2008-04-28 20:09+0900\n"
 "Last-Translator: Kim Taedong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4698,7 +4698,7 @@ msgstr "재통합 병합"
 
 #. Resource IDs: (1416)
 msgid "Merge a range of revisions"
-msgstr "리비전의 구간 병합"
+msgstr "리비전의 구간을 병합합니다"
 
 #. Resource IDs: (277)
 msgid "Merge all"
@@ -5797,7 +5797,7 @@ msgstr ""
 
 #. Resource IDs: (1469)
 msgid "Reintegrate a branch"
-msgstr "브랜치를 재통합합니다."
+msgstr "브랜치를 재통합합니다"
 
 #. Resource IDs: (230)
 #, c-format
@@ -5860,6 +5860,10 @@ msgstr "원격 상태"
 msgid "Remote text status"
 msgstr "원격 상태"
 
+#. Resource IDs: (1332)
+msgid "Remove"
+msgstr "삭제"
+
 #. Resource IDs: (126)
 #, c-format
 msgid "Remove %ld items"
@@ -5898,10 +5902,6 @@ msgstr ""
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
 msgstr "선택된 캐시(들)를 디스크로부터 제거합니다."
-
-#. Resource IDs: (1332)
-msgid "Remove..."
-msgstr "삭제..."
 
 #. Resource IDs: (65535)
 msgid "Removed"
@@ -7604,15 +7604,15 @@ msgstr ""
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. Use this to merge all changes of a branch back to trunk."
-msgstr "Subversion 책에서 언급된 특별한 브랜치를 만들었을 때 사용하는 명령입니다.브랜치의 모든 변경사항을 트렁크에 병합하기 위해 이 명령을 사용하십시오."
+msgstr "Subversion 책에서 언급된 새로운 기능을 위한 브랜치를 만들었을 때 사용하는 명령입니다. 브랜치의 모든 변경사항을 트렁크에 병합할 때 이 명령을 사용하십시오."
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
-msgstr "하나의 브랜치(혹은 트렁크)에 누적된 변경사항들을 다른 브랜치로 포팅하는 경우에 사용되는 명령입니다."
+msgstr "브랜치(혹은 트렁크)에 하나 혹은 여러개의 리비전들을 만들었고, 이 변경사항들을 다른 브랜치에 적용하고 싶을 경우에 사용되는 명령입니다."
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
-msgstr "두개의 서로 다른 브랜치의 차이점을 작업사본에 병합하기를 원하는 경우에 사용되는 명령입니다."
+msgstr "두 개의 서로 다른 브랜치의 차이점들을 작업사본에 병합하기를 원하는 경우에 사용되는 명령입니다."
 
 #. Resource IDs: (65535)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -9343,4 +9343,7 @@ msgstr "년"
 #. Resource IDs: (18, 1002, 1011, 1012)
 msgid "yes"
 msgstr "예"
+
+#~ msgid "Remove..."
+#~ msgstr "삭제..."
 
