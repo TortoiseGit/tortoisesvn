@@ -1160,8 +1160,12 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
 	CComPtr<IBugTraqProvider> pProvider;
 	HRESULT hr = pProvider.CoCreateInstance(m_bugtraq_association.GetProviderClass());
 	if (FAILED(hr))
+	{
+		CString sErr;
+		sErr.Format(IDS_ERR_FAILEDISSUETRACKERCOM, m_bugtraq_association.GetProviderName(), _com_error(hr).ErrorMessage());
+		CMessageBox::Show(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
 		return;
-
+	}
 	BSTR parameters = m_bugtraq_association.GetParameters().AllocSysString();
 	BSTR originalMessage = sMsg.AllocSysString();
 	BSTR temp = NULL;
