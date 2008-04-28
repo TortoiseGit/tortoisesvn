@@ -307,15 +307,110 @@ skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker
 		</para>
 		<para>
 			To avoid such problems, Subversion clients version 1.5 and
-			higher support relative external URLs. The format of those
-			URLs is as follows:
-<screen>
-../	relative to the parent directory of the external
-^/	relative to the repository root
-//	relative to the URL scheme
-/	relative to the server's hostname
-</screen>			
+			higher support relative external URLs. Four different methods
+			of specifying a relative URL are supported.
+			In the following examples, assume we have two repositories: one at
+			<systemitem class="url">http://example.com/svn/repos-1</systemitem>
+			and another at
+			<systemitem class="url">http://example.com/svn/repos-2</systemitem>.
+			We have a checkout of
+			<systemitem class="url">http://example.com/svn/repos-1/project/trunk</systemitem>
+			into <filename>C:\Working</filename> and the <literal>svn:externals</literal>
+			property is set on trunk.
 		</para>
+		<variablelist>
+			<varlistentry>
+				<term>Relative to parent directory</term>
+				<listitem>
+					<para>
+						These URLs always begin with the string <literal>../</literal>
+						for example:
+<screen>
+../../widgets/foo  common/foo-widget
+</screen>
+						This will extract
+						<systemitem class="url">http://example.com/svn/repos-1/widgets/foo</systemitem>
+						into
+						<filename>C:\Working\common\foo-widget</filename>.
+					</para>
+					<para>
+						Note that the URL is relative to the URL of the directory with the
+						<literal>svn:externals</literal> property, not to the directory where
+						the external is written to disk.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Relative to repository root</term>
+				<listitem>
+					<para>
+						These URLs always begin with the string <literal>^/</literal>
+						for example:
+<screen>
+^/widgets/foo  common/foo-widget
+</screen>
+						This will extract
+						<systemitem class="url">http://example.com/svn/repos-1/widgets/foo</systemitem>
+						into
+						<filename>C:\Working\common\foo-widget</filename>.
+					</para>
+					<para>
+						You can easily refer to other repositories with the same
+						<literal>SVNParentPath</literal> (a common directory holding
+						several repositories). For example:
+<screen>
+^/../repos-2/hammers/claw  common/claw-hammer
+</screen>
+						This will extract
+						<systemitem class="url">http://example.com/svn/repos-2/hammers/claw</systemitem>
+						into
+						<filename>C:\Working\common\claw-hammer</filename>.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Relative to scheme</term>
+				<listitem>
+					<para>
+						URLs beginning with the string <literal>//</literal> copy
+						only the scheme part of the URL. This is useful when the same hostname
+						must the accessed with different schemes depending upon network location;
+						e.g. clients in the intranet use <systemitem class="url">http://</systemitem>
+						while external clients use <systemitem class="url">svn+ssh://</systemitem>.
+						For example:
+<screen>
+//example.com/svn/repos-1/widgets/foo  common/foo-widget
+</screen>
+						This will extract
+						<systemitem class="url">http://example.com/svn/repos-1/widgets/foo</systemitem>
+						or
+						<systemitem class="url">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem>
+						depending on which method was used to checkout
+						<filename>C:\Working</filename>.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Relative to the server's hostname</term>
+				<listitem>
+					<para>
+						URLs beginning with the string <literal>/</literal> copy
+						the scheme and the hostname part of the URL, for example:
+<screen>
+/svn/repos-1/widgets/foo  common/foo-widget
+</screen>
+						This will extract
+						<systemitem class="url">http://example.com/svn/repos-1/widgets/foo</systemitem>
+						into
+						<filename>C:\Working\common\foo-widget</filename>.
+						But if you checkout your working copy from another server at
+						<systemitem class="url">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem>
+						then the external reference will extract
+						<systemitem class="url">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>.
+					</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
 		<para>
 			If you need more information how TortoiseSVN
 			handles Properties read <xref linkend="tsvn-dug-propertypage"/>.
