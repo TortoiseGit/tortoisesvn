@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleCsPlugin", "ExampleCsPlugin.csproj", "{CFF6CAA1-27A0-46FF-89D6-AD70F3575685}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleHost", "..\ExampleHost\ExampleHost.csproj", "{2B81C251-FCE8-41EB-84DA-E5D52852F974}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,10 +13,6 @@ Global
 		{CFF6CAA1-27A0-46FF-89D6-AD70F3575685}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFF6CAA1-27A0-46FF-89D6-AD70F3575685}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFF6CAA1-27A0-46FF-89D6-AD70F3575685}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2B81C251-FCE8-41EB-84DA-E5D52852F974}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B81C251-FCE8-41EB-84DA-E5D52852F974}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2B81C251-FCE8-41EB-84DA-E5D52852F974}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2B81C251-FCE8-41EB-84DA-E5D52852F974}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
