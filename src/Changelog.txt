@@ -5,6 +5,7 @@
 - BUG: The root path was not set correctly when creating a patch. This lead
        to the patchfile containing only the filename and not the relative path
        if only one file was chosen/available to create the patch for. (Stefan)
+- BUG: TortoiseMerge could crash when diffing empty files. (Stefan)
 
 Version 1.5.0-RC1
 - NEW: Files can be dragged to new changelists. (Stefan)

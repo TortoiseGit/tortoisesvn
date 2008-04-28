@@ -1864,6 +1864,9 @@ void CBaseView::SelectNextBlock(int nDirection, bool bConflict)
 	if (! m_pViewData)
 		return;
 
+	if (m_pViewData->GetCount() == 0)
+		return;
+
 	int nCenterPos = m_ptCaretPos.y;
 	int nLimit = 0;
 	if (nDirection > 0)
