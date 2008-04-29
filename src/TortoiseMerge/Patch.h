@@ -57,6 +57,8 @@ protected:
 	BOOL		HasExpandedKeyWords(const CString& line);
 	int			CountMatches(const CString& path);
 	int			CountDirMatches(const CString& path);
+	CString		RemoveUnicodeBOM(const CString& str);
+
 	/**
 	 * Strips the filename by removing m_nStrip prefixes.
 	 */

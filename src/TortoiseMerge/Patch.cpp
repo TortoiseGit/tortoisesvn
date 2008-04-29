@@ -371,7 +371,7 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 				else if (type == '-')
 				{
 					//a removed line
-					chunk->arLines.Add(sLine.Mid(1));
+					chunk->arLines.Add(RemoveUnicodeBOM(sLine.Mid(1)));
 					chunk->arLinesStates.Add(PATCHSTATE_REMOVED);
 					chunk->arEOLs.push_back(ending);
 					nRemoveLineCount++;
@@ -379,7 +379,7 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 				else if (type == '+')
 				{
 					//an added line
-					chunk->arLines.Add(sLine.Mid(1));
+					chunk->arLines.Add(RemoveUnicodeBOM(sLine.Mid(1)));
 					chunk->arLinesStates.Add(PATCHSTATE_ADDED);
 					chunk->arEOLs.push_back(ending);
 					nAddLineCount++;
@@ -779,4 +779,13 @@ CString	CPatch::Strip(const CString& filename)
 		}
 	}
 	return s;
+}
+
+CString CPatch::RemoveUnicodeBOM(const CString& str)
+{
+	if (str.GetLength()==0)
+		return str;
+	if (str[0] == 0xFEFF)
+		return str.Mid(1);
+	return str;
 }
