@@ -2196,32 +2196,7 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 		if (!::PathIsURL(url))
 		{
 			url = m_ProjectProperties.GetBugIDUrl(url);
-			// is the URL a relative one?
-			if (url.Left(2).Compare(_T("^/")) == 0)
-			{
-				// URL is relative to the repository root
-				url = m_sRepositoryRoot + url.Mid(1);
-				TCHAR buf[INTERNET_MAX_URL_LENGTH];
-				DWORD len = url.GetLength();
-				if (UrlCanonicalize((LPCTSTR)url, buf, &len, 0) == S_OK)
-					url = CString(buf, len);
-			}
-			else if (url[0] == '/')
-			{
-				// URL is relative to the server's hostname
-				CString sHost;
-				// find the server's hostname
-				int schemepos = m_sRepositoryRoot.Find(_T("//"));
-				if (schemepos >= 0)
-				{
-					sHost = m_sRepositoryRoot.Left(m_sRepositoryRoot.Find('/', schemepos+3));
-					url = sHost + url;
-					TCHAR buf[INTERNET_MAX_URL_LENGTH];
-					DWORD len = url.GetLength();
-					if (UrlCanonicalize((LPCTSTR)url, buf, &len, 0) == S_OK)
-						url = CString(buf, len);
-				}
-			}
+			url = GetAbsoluteUrlFromRelativeUrl(url);
 		}
 		if (!url.IsEmpty())
 			ShellExecute(this->m_hWnd, _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);
@@ -4138,6 +4113,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		case ID_VIEWREV:
 			{
 				CString url = m_ProjectProperties.sWebViewerRev;
+				url = GetAbsoluteUrlFromRelativeUrl(url);
 				url.Replace(_T("%REVISION%"), revSelected.ToString());
 				if (!url.IsEmpty())
 					ShellExecute(this->m_hWnd, _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);					
@@ -4149,6 +4125,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				CString sRoot = GetRepositoryRoot(CTSVNPath(relurl));
 				relurl = relurl.Mid(sRoot.GetLength());
 				CString url = m_ProjectProperties.sWebViewerPathRev;
+				url = GetAbsoluteUrlFromRelativeUrl(url);
 				url.Replace(_T("%REVISION%"), revSelected.ToString());
 				url.Replace(_T("%PATH%"), relurl);
 				if (!url.IsEmpty())
@@ -4755,3 +4732,35 @@ void CLogDlg::OnEditCopy()
 		CopySelectionToClipBoard();
 }
 
+CString CLogDlg::GetAbsoluteUrlFromRelativeUrl(const CString& url)
+{
+	// is the URL a relative one?
+	if (url.Left(2).Compare(_T("^/")) == 0)
+	{
+		// URL is relative to the repository root
+		CString url1 = m_sRepositoryRoot + url.Mid(1);
+		TCHAR buf[INTERNET_MAX_URL_LENGTH];
+		DWORD len = url.GetLength();
+		if (UrlCanonicalize((LPCTSTR)url1, buf, &len, 0) == S_OK)
+			return CString(buf, len);
+		return url1;
+	}
+	else if (url[0] == '/')
+	{
+		// URL is relative to the server's hostname
+		CString sHost;
+		// find the server's hostname
+		int schemepos = m_sRepositoryRoot.Find(_T("//"));
+		if (schemepos >= 0)
+		{
+			sHost = m_sRepositoryRoot.Left(m_sRepositoryRoot.Find('/', schemepos+3));
+			CString url1 = sHost + url;
+			TCHAR buf[INTERNET_MAX_URL_LENGTH];
+			DWORD len = url.GetLength();
+			if (UrlCanonicalize((LPCTSTR)url, buf, &len, 0) == S_OK)
+				return CString(buf, len);
+			return url1;
+		}
+	}
+	return url;
+}

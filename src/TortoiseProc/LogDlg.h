@@ -168,6 +168,7 @@ private:
 	void DiffSelectedFile();
 	void DiffSelectedRevWithPrevious();
 	void SetDlgTitle(bool bOffline);
+	CString GetAbsoluteUrlFromRelativeUrl(const CString& url);
 
 	/**
 	 * Extracts part of commit message suitable for displaying in revision list.

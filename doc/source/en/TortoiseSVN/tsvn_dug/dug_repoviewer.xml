@@ -74,6 +74,14 @@
 			</varlistentry>
 		</variablelist>
 	</para>
+	<para>
+		You can also use relative URLs instead of absolute ones. This is useful
+		in case your web viewer is on the same domain/server as your source
+		repository. In case the domain name ever changes, you don't have to adjust
+		the <literal>webviewer:revision</literal> and <literal>webviewer:pathrevision</literal> 
+		property. The format is the same as for the <literal>bugtraq:url</literal> property.
+		See <xref linkend="tsvn-dug-bugtracker"/>.
+	</para>
 	<important>
 		<title>Set the Properties on Folders</title>
 		<para>
