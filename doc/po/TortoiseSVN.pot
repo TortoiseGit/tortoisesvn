@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2008-04-29 15:53 +0000\n"
+"POT-Creation-Date: 2008-04-29 21:12 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -998,12 +998,12 @@ msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:1168
 #.(para)
-msgid "For the most part, Subversion's URLs use the standard syntax, allowing for server names and port numbers to be specified as part of the URL. The <literal>file:</literal> access method is normally used for local access, although it can be used with UNC paths to a networked host. The URL therefore takes the form <literal>file://hostname/path/to/repos</literal>. For the local machine, the <literal>hostname</literal> portion of the URL is required to be either absent or <literal>localhost</literal>. For this reason, local paths normally appear with three slashes, <literal>file:///path/to/repos</literal>."
+msgid "For the most part, Subversion's URLs use the standard syntax, allowing for server names and port numbers to be specified as part of the URL. The <literal>file://</literal> access method is normally used for local access, although it can be used with UNC paths to a networked host. The URL therefore takes the form <systemitem class=\"url\">file://hostname/path/to/repos</systemitem>. For the local machine, the <literal>hostname</literal> portion of the URL is required to be either absent or <literal>localhost</literal>. For this reason, local paths normally appear with three slashes, <systemitem class=\"url\">file:///path/to/repos</systemitem>."
 msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:1181
 #.(para)
-msgid "Also, users of the <literal>file:</literal> scheme on Windows platforms will need to use an unofficially <quote>standard</quote> syntax for accessing repositories that are on the same machine, but on a different drive than the client's current working drive. Either of the two following URL path syntaxes will work where <literal>X</literal> is the drive on which the repository resides:"
+msgid "Also, users of the <literal>file://</literal> scheme on Windows platforms will need to use an unofficially <quote>standard</quote> syntax for accessing repositories that are on the same machine, but on a different drive than the client's current working drive. Either of the two following URL path syntaxes will work where <literal>X</literal> is the drive on which the repository resides:"
 msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:1191
@@ -1206,7 +1206,7 @@ msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:1447
 #.(para)
-msgid "To use TortoiseSVN (or any other Subversion client), you need a place where your repositories are located. You can either store your repositories locally and access them using the <emphasis>file://</emphasis> protocol or you can place them on a server and access them with the <emphasis>http://</emphasis> or <emphasis>svn://</emphasis> protocols. The two server protocols can also be encrypted. You use <emphasis>https://</emphasis> or <emphasis>svn+ssh://</emphasis>. This chapter shows you step by step on how you can set up such a server on a Windows machine."
+msgid "To use TortoiseSVN (or any other Subversion client), you need a place where your repositories are located. You can either store your repositories locally and access them using the <literal>file://</literal> protocol or you can place them on a server and access them with the <literal>http://</literal> or <literal>svn://</literal> protocols. The two server protocols can also be encrypted. You use <literal>https://</literal> or <literal>svn+ssh://</literal>. This chapter shows you step by step on how you can set up such a server on a Windows machine."
 msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:1458
@@ -1948,7 +1948,7 @@ msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:2698
 #.(para)
-msgid "The default svnserve setup provides anonymous read-only access. This means that you can use an <filename>svn://</filename> URL to checkout and update, or use the repo-browser in TortoiseSVN to view the repository, but you won't be able to commit any changes."
+msgid "The default svnserve setup provides anonymous read-only access. This means that you can use an <literal>svn://</literal> URL to checkout and update, or use the repo-browser in TortoiseSVN to view the repository, but you won't be able to commit any changes."
 msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:2704
@@ -2013,7 +2013,7 @@ msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:2817
 #.(para)
-msgid "Starting with Subversion 1.5.0, svnserve and TortoiseSVN support Cyrus SASL (Simple Authentication and Security Layer) for the <filename>svn://</filename> protocol. You can find further information in this subversion app note: <ulink url=\"http://svn.collab.net/repos/svn/trunk/notes/sasl.txt\"><citetitle>Using Cyrus SASL Authentication with Subversion</citetitle></ulink>."
+msgid "Starting with Subversion 1.5.0, svnserve and TortoiseSVN support Cyrus SASL (Simple Authentication and Security Layer) for the <literal>svn://</literal> protocol. You can find further information in this subversion app note: <ulink url=\"http://svn.collab.net/repos/svn/trunk/notes/sasl.txt\"><citetitle>Using Cyrus SASL Authentication with Subversion</citetitle></ulink>."
 msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:2832
@@ -2115,12 +2115,12 @@ msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:2952
 #.(para)
-msgid "Future versions of TortoiseSVN will not support <literal>file:///</literal> access to BDB repositories due to these compatibility issues, although it will of course always support this repository format when accessed via a server through the <literal>svn://</literal>, <literal>http://</literal> or <literal>https://</literal> protocols. For this reason, we strongly recommend that any new repository which must be accessed using <literal>file:///</literal> protocol is created as FSFS."
+msgid "Future versions of TortoiseSVN will not support <literal>file://</literal> access to BDB repositories due to these compatibility issues, although it will of course always support this repository format when accessed via a server through the <literal>svn://</literal>, <literal>http://</literal> or <literal>https://</literal> protocols. For this reason, we strongly recommend that any new repository which must be accessed using <literal>file://</literal> protocol is created as FSFS."
 msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:2964
 #.(para)
-msgid "Of course we also recommend that you don't use <literal>file:///</literal> access at all, apart from local testing purposes. Using a server is more secure and more reliable for all but single-developer use."
+msgid "Of course we also recommend that you don't use <literal>file://</literal> access at all, apart from local testing purposes. Using a server is more secure and more reliable for all but single-developer use."
 msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:2973
@@ -2170,7 +2170,7 @@ msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:3015
 #.(para)
-msgid "Although in theory it is possible to put a FSFS repository on a network share and have multiple users access it using <literal>file:///</literal> protocol, this is most definitely <emphasis>not</emphasis> recommended. In fact we would <emphasis>strongly</emphasis> discourage it, and do not support such use."
+msgid "Although in theory it is possible to put a FSFS repository on a network share and have multiple users access it using <literal>file://</literal> protocol, this is most definitely <emphasis>not</emphasis> recommended. In fact we would <emphasis>strongly</emphasis> discourage it, and do not support such use."
 msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:3022
@@ -2190,7 +2190,7 @@ msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:3038
 #.(para)
-msgid "<literal>file:///</literal> access is intended for local, single-user access only, particularly testing and debugging. When you want to share the repository you <emphasis>really</emphasis> need to set up a proper server, and it is not nearly as difficult as you might think. Read <xref linkend=\"tsvn-serversetup\"/> for guidelines on choosing and setting up a server."
+msgid "<literal>file://</literal> access is intended for local, single-user access only, particularly testing and debugging. When you want to share the repository you <emphasis>really</emphasis> need to set up a proper server, and it is not nearly as difficult as you might think. Read <xref linkend=\"tsvn-serversetup\"/> for guidelines on choosing and setting up a server."
 msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:3048
@@ -6467,7 +6467,7 @@ msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:8531
 #.(para)
-msgid "Firstly you need to ensure that your Subversion server is upgraded to at least version 1.2. Earlier versions do not support locking at all. If you are using <filename>file:///</filename> access, then of course only your client needs to be updated."
+msgid "Firstly you need to ensure that your Subversion server is upgraded to at least version 1.2. Earlier versions do not support locking at all. If you are using <literal>file://</literal> access, then of course only your client needs to be updated."
 msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:8538
@@ -11097,7 +11097,7 @@ msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:14088
 #.(para)
-msgid "In the descriptions which follow, the URL for a repository location is shown simply as <literal>URL</literal>, and an example might be <literal>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</literal>. The working copy path is shown simply as <literal>PATH</literal>, and an example might be <literal>C:\\TortoiseSVN\\trunk</literal>."
+msgid "In the descriptions which follow, the URL for a repository location is shown simply as <literal>URL</literal>, and an example might be <systemitem class=\"url\">http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk</systemitem>. The working copy path is shown simply as <literal>PATH</literal>, and an example might be <filename>C:\\TortoiseSVN\\trunk</filename>."
 msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:14098

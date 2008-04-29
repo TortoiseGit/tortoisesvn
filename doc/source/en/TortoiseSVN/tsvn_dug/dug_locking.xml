@@ -35,7 +35,7 @@
 	<para>
 		Firstly you need to ensure that your Subversion server is upgraded to at
 		least version 1.2. Earlier versions do not support locking at all. If you
-		are using <filename>file:///</filename> access, then of course only your
+		are using <literal>file://</literal> access, then of course only your
 		client needs to be updated.
 	</para>
 	<sect2 id="tsvn-dug-locking-how">

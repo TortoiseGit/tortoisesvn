@@ -454,17 +454,17 @@
 				For the most part, Subversion's URLs use the standard
 				syntax, allowing for server names and port numbers to be
 				specified as part of the URL.
-				The <literal>file:</literal> access method is normally used
+				The <literal>file://</literal> access method is normally used
 				for local access, although it can be used with UNC paths to
 				a networked host. The URL therefore takes the form
-				<literal>file://hostname/path/to/repos</literal>. For the
+				<systemitem class="url">file://hostname/path/to/repos</systemitem>. For the
 				local machine, the <literal>hostname</literal> portion of the URL is required
 				to be either absent or <literal>localhost</literal>. For
 				this reason, local paths normally appear with three slashes,
-				<literal>file:///path/to/repos</literal>.
+				<systemitem class="url">file:///path/to/repos</systemitem>.
 			</para>
 			<para>
-				Also, users of the <literal>file:</literal> scheme on
+				Also, users of the <literal>file://</literal> scheme on
 				Windows platforms will need to use an unofficially
 				<quote>standard</quote> syntax for accessing repositories
 				that are on the same machine, but on a different drive than

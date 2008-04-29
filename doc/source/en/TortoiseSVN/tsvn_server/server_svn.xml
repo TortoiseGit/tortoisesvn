@@ -223,7 +223,7 @@ svnservice -remove
 		<title>Authentication with svnserve</title>
 		<para>
 			The default svnserve setup provides anonymous read-only access.
-			This means that you can use an <filename>svn://</filename> URL
+			This means that you can use an <literal>svn://</literal> URL
 			to checkout and update, or use the repo-browser in TortoiseSVN
 			to view the repository, but you won't be able to commit any changes.
 		</para>
@@ -343,7 +343,7 @@ authz-db = authz
 		<para>
 			Starting with Subversion 1.5.0, svnserve and TortoiseSVN support
 			Cyrus SASL (Simple Authentication and Security Layer) for the
-			<filename>svn://</filename> protocol.
+			<literal>svn://</literal> protocol.
 			You can find further information in this subversion app note:
 			<ulink url="http://svn.collab.net/repos/svn/trunk/notes/sasl.txt">
 				<citetitle>Using Cyrus SASL Authentication with Subversion</citetitle>

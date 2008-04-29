@@ -110,18 +110,18 @@ svnadmin create --fs-type fsfs MyNewRepository
 			</para>
 			<para>
 				Future versions of TortoiseSVN will not support
-				<literal>file:///</literal> access to BDB repositories due to these
+				<literal>file://</literal> access to BDB repositories due to these
 				compatibility issues, although it will of course always support
 				this repository format when accessed via a server through the
 				<literal>svn://</literal>,
 				<literal>http://</literal> or
 				<literal>https://</literal> protocols.
 				For this reason, we strongly recommend that any new repository
-				which must be accessed using <literal>file:///</literal>
+				which must be accessed using <literal>file://</literal>
 				protocol is created as FSFS.
 			</para>
 			<para>
-				Of course we also recommend that you don't use <literal>file:///</literal>
+				Of course we also recommend that you don't use <literal>file://</literal>
 				access at all, apart from local testing purposes. Using a server is
 				more secure and more reliable for all but single-developer use.
 			</para>
@@ -173,7 +173,7 @@ svnadmin create --fs-type fsfs MyNewRepository
 		</indexterm>
 		<para>
 			Although in theory it is possible to put a FSFS repository on a network
-			share and have multiple users access it using <literal>file:///</literal>
+			share and have multiple users access it using <literal>file://</literal>
 			protocol, this is most definitely <emphasis>not</emphasis>
 			recommended. In fact we would <emphasis>strongly</emphasis>
 			discourage it, and do not support such use.
@@ -195,7 +195,7 @@ svnadmin create --fs-type fsfs MyNewRepository
 			difficult.
 		</para>
 		<para>
-			<literal>file:///</literal> access is intended for local, single-user
+			<literal>file://</literal> access is intended for local, single-user
 			access only, particularly testing and debugging. When you want to share
 			the repository you <emphasis>really</emphasis> need to set up a proper server,
 			and it is not nearly as difficult as you might think.

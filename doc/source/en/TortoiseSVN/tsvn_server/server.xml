@@ -6,11 +6,11 @@
 		<para>
 			To use TortoiseSVN (or any other Subversion client), you need a place where your 
 			repositories are 	located. You can either store your repositories locally and access 
-			them using the <emphasis>file://</emphasis> protocol or you can place them on a 
-			server and access them with the <emphasis>http://</emphasis> or 
-			<emphasis>svn://</emphasis> protocols.  The two server protocols can also be 
+			them using the <literal>file://</literal> protocol or you can place them on a 
+			server and access them with the <literal>http://</literal> or 
+			<literal>svn://</literal> protocols.  The two server protocols can also be 
 			encrypted. 
-			You use <emphasis>https://</emphasis> or <emphasis>svn+ssh://</emphasis>.
+			You use <literal>https://</literal> or <literal>svn+ssh://</literal>.
 			This chapter shows you step by step on how you can set up
 			such a server on a Windows machine.
 		</para>
