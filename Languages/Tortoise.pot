@@ -1610,10 +1610,6 @@ msgstr ""
 msgid "Browse..."
 msgstr ""
 
-#. Resource IDs: (1057)
-msgid "Bug Tracker..."
-msgstr ""
-
 #. Resource IDs: (1119)
 msgid "Bug-&ID / Issue-Nr:"
 msgstr ""
@@ -1699,7 +1695,7 @@ msgstr ""
 msgid "Can't paste bitmap image from the clipboard!"
 msgstr ""
 
-#. Resource IDs: (2, 73, 99, 563)
+#. Resource IDs: (2, 73, 99, 563, 1069)
 msgid "Cancel"
 msgstr ""
 
@@ -1964,7 +1960,7 @@ msgstr ""
 msgid "Color co&de in-line changes"
 msgstr ""
 
-#. Resource IDs: (138, 65535)
+#. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
 msgstr ""
 
@@ -1976,7 +1972,7 @@ msgstr ""
 msgid "Comman&ds:"
 msgstr ""
 
-#. Resource IDs: (220)
+#. Resource IDs: (220, 1002)
 msgid "Command"
 msgstr ""
 
@@ -2073,7 +2069,7 @@ msgstr ""
 msgid "Completed"
 msgstr ""
 
-#. Resource IDs: (236)
+#. Resource IDs: (236, 284)
 msgid "Configure Hook Scripts"
 msgstr ""
 
@@ -2486,7 +2482,7 @@ msgstr ""
 msgid "Default path:"
 msgstr ""
 
-#. Resource IDs: (1382)
+#. Resource IDs: (1002, 1382)
 msgid "Delete"
 msgstr ""
 
@@ -2738,7 +2734,7 @@ msgstr ""
 msgid "Edit property \"%s\" on\r\n%s"
 msgstr ""
 
-#. Resource IDs: (1331)
+#. Resource IDs: (1331, 1382)
 msgid "Edit..."
 msgstr ""
 
@@ -3063,6 +3059,11 @@ msgstr ""
 msgid "Failed to set/remove changelist \"%s\""
 msgstr ""
 
+#. Resource IDs: (83)
+#, c-format
+msgid "Failed to start the issue tracker COM provider \"%s\".\n%s"
+msgstr ""
+
 #. Resource IDs: (220)
 msgid "Failed!"
 msgstr ""
@@ -3076,7 +3077,7 @@ msgstr ""
 msgid "Fetching revision %s of file:"
 msgstr ""
 
-#. Resource IDs: (63, 74, 77, 319)
+#. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
 msgstr ""
 
@@ -3488,11 +3489,11 @@ msgstr ""
 msgid "ID:32825:VA  +D"
 msgstr ""
 
-#. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
+#. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
 msgstr ""
 
-#. Accelerator Entry for Menu ID:57603; '&Save Ctrl-S'
+#. Accelerator Entry for Menu ID:57603; '&Save'
 msgid "ID:57603:V C +S"
 msgstr ""
 
@@ -3518,7 +3519,7 @@ msgstr ""
 msgid "ID:57637:V C +V"
 msgstr ""
 
-#. Accelerator Entry for Menu ID:57643; '&Undo\tCtrl+Z'
+#. Accelerator Entry for Menu ID:57643; '&Undo'
 msgid "ID:57643:V C +Z"
 msgstr ""
 
@@ -3752,7 +3753,7 @@ msgstr ""
 msgid "Internal application error."
 msgstr ""
 
-#. Resource IDs: (338, 339)
+#. Resource IDs: (339)
 msgid "Internal value indicating compression quality"
 msgstr ""
 
@@ -3776,8 +3777,8 @@ msgstr ""
 msgid "Invalid revision range!\nValid revisions are numbers and HEAD, separated by commas.\nA range can be specified with a dash.\nExample: 2-5,7,10,44-70,300-HEAD"
 msgstr ""
 
-#. Resource IDs: (570)
-msgid "Issue Tracker Hook"
+#. Resource IDs: (283)
+msgid "Issue Tracker Integration"
 msgstr ""
 
 #. Resource IDs: (145)
@@ -4070,7 +4071,7 @@ msgstr ""
 msgid "Menu s&hadows"
 msgstr ""
 
-#. Resource IDs: (109, 110, 111, 276, 278, 65535)
+#. Resource IDs: (109, 110, 111, 112, 276, 278, 65535)
 msgid "Merge"
 msgstr ""
 
@@ -4082,7 +4083,7 @@ msgstr ""
 msgid "Merge Reintegrate"
 msgstr ""
 
-#. Resource IDs: (1416)
+#. Resource IDs: (1468)
 msgid "Merge a range of revisions"
 msgstr ""
 
@@ -4118,7 +4119,7 @@ msgstr ""
 msgid "Merge revisions to..."
 msgstr ""
 
-#. Resource IDs: (1417)
+#. Resource IDs: (1470)
 msgid "Merge two different trees"
 msgstr ""
 
@@ -4348,7 +4349,7 @@ msgstr ""
 msgid "Never try to contact the repository again"
 msgstr ""
 
-#. Resource IDs: (30721)
+#. Resource IDs: (1002, 30721, 65535)
 msgid "New"
 msgstr ""
 
@@ -4681,6 +4682,14 @@ msgstr ""
 msgid "Page :"
 msgstr ""
 
+#. Resource IDs: (63)
+msgid "Parameters"
+msgstr ""
+
+#. Resource IDs: (1477)
+msgid "Parameters:"
+msgstr ""
+
 #. Resource IDs: (69)
 msgid "Password:"
 msgstr ""
@@ -4705,7 +4714,7 @@ msgstr ""
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr ""
 
-#. Resource IDs: (20, 77, 198, 207)
+#. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
 msgstr ""
 
@@ -4938,6 +4947,14 @@ msgstr ""
 msgid "Property value:"
 msgstr ""
 
+#. Resource IDs: (63)
+msgid "Provider"
+msgstr ""
+
+#. Resource IDs: (1475)
+msgid "Provider:"
+msgstr ""
+
 #. Resource IDs: (1412)
 msgid "Proxy &timeout in seconds:"
 msgstr ""
@@ -5109,7 +5126,7 @@ msgstr ""
 msgid "Remote text status"
 msgstr ""
 
-#. Resource IDs: (1332)
+#. Resource IDs: (1332, 1470)
 msgid "Remove"
 msgstr ""
 
@@ -5361,7 +5378,7 @@ msgstr ""
 msgid "Revision %d"
 msgstr ""
 
-#. Resource IDs: (269, 270, 272)
+#. Resource IDs: (269, 272)
 #, c-format
 msgid "Revision %ld"
 msgstr ""
@@ -5690,6 +5707,10 @@ msgstr ""
 msgid "Select end revision"
 msgstr ""
 
+#. Resource IDs: (64)
+msgid "Select folder to associate with this issue tracker"
+msgstr ""
+
 #. Resource IDs: (79)
 msgid "Select folder to export to.\nYou might need to create a new folder before performing this export."
 msgstr ""
@@ -5847,7 +5868,7 @@ msgstr ""
 msgid "Show &changes"
 msgstr ""
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467, 32784)
 msgid "Show &log"
 msgstr ""
 
@@ -6373,6 +6394,14 @@ msgid "The image can not be shown."
 msgstr ""
 
 #. Resource IDs: (63)
+msgid "The issue-tracker provider could not be created. Please check that it is installed correctly."
+msgstr ""
+
+#. Resource IDs: (64)
+msgid "The issue-tracker provider was unable to validate the parameter string"
+msgstr ""
+
+#. Resource IDs: (63)
 #, c-format
 msgid "The line \"====\" was expected in line %d !"
 msgstr ""
@@ -6488,6 +6517,10 @@ msgstr ""
 
 #. Resource IDs: (169)
 msgid "There are changes or unversioned items inside one or more directories which you have included with svn:externals.\nThose files are <b>not</b> listed for commit. You need to commit those files separately."
+msgstr ""
+
+#. Resource IDs: (64)
+msgid "There are no issue-tracker providers available."
 msgstr ""
 
 #. Resource IDs: (66)
@@ -7148,7 +7181,7 @@ msgstr ""
 msgid "Working Copy"
 msgstr ""
 
-#. Resource IDs: (1335)
+#. Resource IDs: (1335, 1472)
 msgid "Working Copy Path:"
 msgstr ""
 
@@ -7792,5 +7825,9 @@ msgstr ""
 
 #. Resource IDs: (18, 1002, 1011, 1012)
 msgid "yes"
+msgstr ""
+
+#. Resource IDs: (1382)
+msgid "{BugTraq}"
 msgstr ""
 

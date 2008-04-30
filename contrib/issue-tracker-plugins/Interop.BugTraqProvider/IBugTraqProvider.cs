@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace Interop.BugTraqProvider
 {
-    [ComVisible(true), InterfaceType(ComInterfaceType.InterfaceIsDual), Guid("298B927B-7220-423C-B7B4-6E241F00CD93")]
+    [ComVisible(true), InterfaceType(ComInterfaceType.InterfaceIsIUnknown), Guid("298B927C-7220-423C-B7B4-6E241F00CD93")]
     public interface IBugTraqProvider
     {
         [return: MarshalAs(UnmanagedType.VariantBool)]

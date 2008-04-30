@@ -5,18 +5,18 @@
 // IMPORTANT: While the rest of TortoiseSVN is licensed under the GPL,
 // this portion is public domain
 
+midl_pragma warning(disable:2111) // identifier length exceeds 31 characters
 import "oaidl.idl";
 import "ocidl.idl";
+midl_pragma warning(default:2111) // identifier length exceeds 31 characters
 
 [
 	object,
-	uuid(298B927B-7220-423C-B7B4-6E241F00CD93),
-	dual,
-	nonextensible,
+	uuid(298B927C-7220-423C-B7B4-6E241F00CD93),
 	helpstring("IBugTraqProvider Interface"),
 	pointer_default(unique)
 ]
-interface IBugTraqProvider : IDispatch
+interface IBugTraqProvider : IUnknown
 {
 	/** A provider might need some parameters (e.g. a web service URL or a database connection string).
 	 * This information is passed as a simple string. It's up to the individual provider to parse and

@@ -279,6 +279,28 @@
 			<File
 				RelativePath=".\IBugTraqProvider.idl"
 				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCMIDLTool"
+						WarningLevel="4"
+						GenerateTypeLibrary="false"
+						TypeLibraryName=""
+						DLLDataFileName=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCMIDLTool"
+						WarningLevel="4"
+						GenerateTypeLibrary="false"
+						TypeLibraryName=""
+						DLLDataFileName=""
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath=".\IBugTraqProvider_i.c"

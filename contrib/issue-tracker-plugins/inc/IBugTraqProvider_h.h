@@ -4,10 +4,10 @@
 
 
  /* File created by MIDL compiler version 7.00.0500 */
-/* at Mon Apr 28 14:05:17 2008
+/* at Wed Apr 30 10:32:49 2008
  */
 /* Compiler settings for .\IBugTraqProvider.idl:
-    Oicf, W1, Zp8, env=Win32 (32b run)
+    Oicf, W4, Zp8, env=Win32 (32b run)
     protocol : dce , ms_ext, c_ext, robust
     error checks: allocation ref bounds_check enum stub_data 
     VC __declspec() decoration level: 
@@ -60,19 +60,29 @@ extern "C"{
 #endif 
 
 
+/* interface __MIDL_itf_IBugTraqProvider_0000_0000 */
+/* [local] */ 
+
+
+
+
+
+extern RPC_IF_HANDLE __MIDL_itf_IBugTraqProvider_0000_0000_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_IBugTraqProvider_0000_0000_v0_0_s_ifspec;
+
 #ifndef __IBugTraqProvider_INTERFACE_DEFINED__
 #define __IBugTraqProvider_INTERFACE_DEFINED__
 
 /* interface IBugTraqProvider */
-/* [unique][helpstring][nonextensible][dual][uuid][object] */ 
+/* [unique][helpstring][uuid][object] */ 
 
 
 EXTERN_C const IID IID_IBugTraqProvider;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
     
-    MIDL_INTERFACE("298B927B-7220-423C-B7B4-6E241F00CD93")
-    IBugTraqProvider : public IDispatch
+    MIDL_INTERFACE("298B927C-7220-423C-B7B4-6E241F00CD93")
+    IBugTraqProvider : public IUnknown
     {
     public:
         virtual HRESULT STDMETHODCALLTYPE ValidateParameters( 
@@ -110,35 +120,6 @@ EXTERN_C const IID IID_IBugTraqProvider;
         
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBugTraqProvider * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
-            IBugTraqProvider * This,
-            /* [out] */ UINT *pctinfo);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
-            IBugTraqProvider * This,
-            /* [in] */ UINT iTInfo,
-            /* [in] */ LCID lcid,
-            /* [out] */ ITypeInfo **ppTInfo);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
-            IBugTraqProvider * This,
-            /* [in] */ REFIID riid,
-            /* [size_is][in] */ LPOLESTR *rgszNames,
-            /* [range][in] */ UINT cNames,
-            /* [in] */ LCID lcid,
-            /* [size_is][out] */ DISPID *rgDispId);
-        
-        /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
-            IBugTraqProvider * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
         
         HRESULT ( STDMETHODCALLTYPE *ValidateParameters )( 
             IBugTraqProvider * This,
@@ -180,19 +161,6 @@ EXTERN_C const IID IID_IBugTraqProvider;
 
 #define IBugTraqProvider_Release(This)	\
     ( (This)->lpVtbl -> Release(This) ) 
-
-
-#define IBugTraqProvider_GetTypeInfoCount(This,pctinfo)	\
-    ( (This)->lpVtbl -> GetTypeInfoCount(This,pctinfo) ) 
-
-#define IBugTraqProvider_GetTypeInfo(This,iTInfo,lcid,ppTInfo)	\
-    ( (This)->lpVtbl -> GetTypeInfo(This,iTInfo,lcid,ppTInfo) ) 
-
-#define IBugTraqProvider_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)	\
-    ( (This)->lpVtbl -> GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) ) 
-
-#define IBugTraqProvider_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)	\
-    ( (This)->lpVtbl -> Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) ) 
 
 
 #define IBugTraqProvider_ValidateParameters(This,hParentWnd,parameters,valid)	\

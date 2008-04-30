@@ -1166,10 +1166,17 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
 		CMessageBox::Show(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
 		return;
 	}
+
 	BSTR parameters = m_bugtraq_association.GetParameters().AllocSysString();
 	BSTR originalMessage = sMsg.AllocSysString();
 	BSTR temp = NULL;
-	if (SUCCEEDED(hr = pProvider->GetCommitMessage(GetSafeHwnd(), parameters, originalMessage, &temp)))
+	if (FAILED(hr = pProvider->GetCommitMessage(GetSafeHwnd(), parameters, originalMessage, &temp)))
+	{
+		CString sErr;
+		sErr.Format(IDS_ERR_FAILEDISSUETRACKERCOM, m_bugtraq_association.GetProviderName(), _com_error(hr).ErrorMessage());
+		CMessageBox::Show(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
+	}
+	else
 		m_cLogMessage.SetText(temp);
 
 	m_cLogMessage.SetFocus();
