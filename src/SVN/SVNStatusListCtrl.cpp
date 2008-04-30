@@ -119,8 +119,6 @@ BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
 	ON_WM_DESTROY()
 	ON_NOTIFY_REFLECT(LVN_BEGINDRAG, OnBeginDrag)
 	ON_NOTIFY_REFLECT(LVN_ITEMCHANGING, &CSVNStatusListCtrl::OnLvnItemchanging)
-	ON_NOTIFY(HDN_ITEMCHANGEDA, 0, &CSVNStatusListCtrl::OnHdnItemchanged)
-	ON_NOTIFY(HDN_ITEMCHANGEDW, 0, &CSVNStatusListCtrl::OnHdnItemchanged)
 END_MESSAGE_MAP()
 
 
@@ -4333,43 +4331,37 @@ void CSVNStatusListCtrl::OnHdnItemchanging(NMHDR *pNMHDR, LRESULT *pResult)
 	LPNMHEADER phdr = reinterpret_cast<LPNMHEADER>(pNMHDR);
 	*pResult = 0;
     if ((phdr->iItem < 0)||(phdr->iItem >= m_ColumnManager.GetColumnCount()))
+	{
+		Default();
 		return;
+	}
 
     // visible columns may be modified 
 
     if (m_ColumnManager.IsVisible (phdr->iItem))
+	{
+		Default();
 		return;
+	}
 
-    // columns already marked as "invisible" internally may be (re-)size to 0
+    // columns already marked as "invisible" internally may be (re-)sized to 0
 
     if (   (phdr->pitem != NULL) 
         && (phdr->pitem->mask == HDI_WIDTH)
         && (phdr->pitem->cxy == 0))
+	{
+		Default();
 		return;
+	}
+
+	if (   (phdr->pitem != NULL) 
+		&& (phdr->pitem->mask != HDI_WIDTH))
+	{
+		Default();
+		return;
+	}
 
     *pResult = 1;
-}
-
-void CSVNStatusListCtrl::OnHdnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
-{
-	*pResult = 0;
-	LPNMHEADER phdr = reinterpret_cast<LPNMHEADER>(pNMHDR);
-	if (m_ColumnManager.IsVisible (phdr->iItem))
-	{
-		// check whether the horizontal scrollbar should be shown
-		int maxcol = ((CHeaderCtrl*)(GetDlgItem(0)))->GetItemCount()-1;
-		int colwidth = 0;
-		for (int col = 0; col <= maxcol; col++)
-		{
-			colwidth += GetColumnWidth(col);
-		}
-		CRect rc;
-		GetClientRect(rc);
-		ShowScrollBar(SB_HORZ, colwidth >= rc.Width());
-		// force a recalculation of the scrollbar
-		Scroll(CSize(-1,0));
-		Invalidate(FALSE);
-	}
 }
 
 void CSVNStatusListCtrl::OnDestroy()
