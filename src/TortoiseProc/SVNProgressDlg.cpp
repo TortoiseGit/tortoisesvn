@@ -1842,7 +1842,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 		{
 			CString temp;
 			temp.Format(IDS_ERR_HOOKFAILED, error);
-			ReportError(error);
+			ReportError(temp);
 			return false;
 		}
 	}
@@ -1870,7 +1870,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 		{
 			CString temp;
 			temp.Format(IDS_ERR_HOOKFAILED, error);
-			ReportError(error);
+			ReportError(temp);
 			return false;
 		}
 	}
@@ -2357,7 +2357,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
 		{
 			CString temp;
 			temp.Format(IDS_ERR_HOOKFAILED, error);
-			ReportError(error);
+			ReportError(temp);
 			return false;
 		}
 	}
@@ -2431,7 +2431,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
 		{
 			CString temp;
 			temp.Format(IDS_ERR_HOOKFAILED, error);
-			ReportError(error);
+			ReportError(temp);
 			return false;
 		}
 	}
