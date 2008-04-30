@@ -1709,16 +1709,21 @@ void CSVNStatusListCtrl::OnColumnResized(NMHDR *pNMHDR, LRESULT *pResult)
 void CSVNStatusListCtrl::OnColumnMoved(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMHEADER header = reinterpret_cast<LPNMHEADER>(pNMHDR);
+	*pResult = TRUE;
     if (   (header != NULL) 
         && (header->iItem >= 0) 
-        && (header->iItem < m_ColumnManager.GetColumnCount()))
+        && (header->iItem < m_ColumnManager.GetColumnCount())
+		// only allow the reordering if the column was not moved left of the first
+		// visible item - otherwise the 'invisible' columns are not at the far left
+		// anymore and we get all kinds of redrawing problems.
+		&& (header->pitem)
+		&& (header->pitem->iOrder > m_ColumnManager.GetInvisibleCount()))
     {
         m_ColumnManager.ColumnMoved (header->iItem, header->pitem->iOrder);
+		*pResult = FALSE;
     }
 
     Invalidate(FALSE);
-
-    *pResult = FALSE;
 }
 
 void CSVNStatusListCtrl::CheckEntry(int index, int nListItems)

@@ -147,6 +147,17 @@ bool CSVNStatusListCtrl::ColumnManager::IsVisible (int column) const
     return columns[index].visible;
 }
 
+int CSVNStatusListCtrl::ColumnManager::GetInvisibleCount() const
+{
+	int invisibleCount = 0;
+	for (std::vector<ColumnInfo>::const_iterator it = columns.begin(); it != columns.end(); ++it)
+	{
+		if (!it->visible)
+			invisibleCount++;
+	}
+	return invisibleCount;
+}
+
 bool CSVNStatusListCtrl::ColumnManager::IsRelevant (int column) const
 {
     size_t index = static_cast<size_t>(column);

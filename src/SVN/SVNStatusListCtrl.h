@@ -405,6 +405,7 @@ public:
 
         int GetColumnCount() const;                     ///< total number of columns
         bool IsVisible (int column) const;
+		int GetInvisibleCount() const;
         bool IsRelevant (int column) const;
         bool IsUserProp (int column) const;
         CString GetName (int column) const;
