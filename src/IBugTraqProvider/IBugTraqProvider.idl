@@ -44,6 +44,8 @@ interface IBugTraqProvider : IUnknown
 	HRESULT GetCommitMessage (
 		[in] HWND hParentWnd,			// Parent window for your provider's UI.
 		[in] BSTR parameters,			// Parameters for your provider.
+		[in] BSTR commonRoot,
+		[in] SAFEARRAY(BSTR) pathList,
 		[in] BSTR originalMessage,
 		[out, retval] BSTR *newMessage
 	);			

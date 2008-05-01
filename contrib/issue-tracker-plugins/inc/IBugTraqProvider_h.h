@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0500 */
-/* at Wed Apr 30 10:32:49 2008
+/* at Thu May 01 15:40:50 2008
  */
 /* Compiler settings for .\IBugTraqProvider.idl:
     Oicf, W4, Zp8, env=Win32 (32b run)
@@ -98,6 +98,8 @@ EXTERN_C const IID IID_IBugTraqProvider;
         virtual HRESULT STDMETHODCALLTYPE GetCommitMessage( 
             /* [in] */ HWND hParentWnd,
             /* [in] */ BSTR parameters,
+            /* [in] */ BSTR commonRoot,
+            /* [in] */ SAFEARRAY * pathList,
             /* [in] */ BSTR originalMessage,
             /* [retval][out] */ BSTR *newMessage) = 0;
         
@@ -137,6 +139,8 @@ EXTERN_C const IID IID_IBugTraqProvider;
             IBugTraqProvider * This,
             /* [in] */ HWND hParentWnd,
             /* [in] */ BSTR parameters,
+            /* [in] */ BSTR commonRoot,
+            /* [in] */ SAFEARRAY * pathList,
             /* [in] */ BSTR originalMessage,
             /* [retval][out] */ BSTR *newMessage);
         
@@ -169,8 +173,8 @@ EXTERN_C const IID IID_IBugTraqProvider;
 #define IBugTraqProvider_GetLinkText(This,hParentWnd,parameters,linkText)	\
     ( (This)->lpVtbl -> GetLinkText(This,hParentWnd,parameters,linkText) ) 
 
-#define IBugTraqProvider_GetCommitMessage(This,hParentWnd,parameters,originalMessage,newMessage)	\
-    ( (This)->lpVtbl -> GetCommitMessage(This,hParentWnd,parameters,originalMessage,newMessage) ) 
+#define IBugTraqProvider_GetCommitMessage(This,hParentWnd,parameters,commonRoot,pathList,originalMessage,newMessage)	\
+    ( (This)->lpVtbl -> GetCommitMessage(This,hParentWnd,parameters,commonRoot,pathList,originalMessage,newMessage) ) 
 
 #endif /* COBJMACROS */
 
@@ -194,6 +198,11 @@ unsigned long             __RPC_USER  HWND_UserSize(     unsigned long *, unsign
 unsigned char * __RPC_USER  HWND_UserMarshal(  unsigned long *, unsigned char *, HWND * ); 
 unsigned char * __RPC_USER  HWND_UserUnmarshal(unsigned long *, unsigned char *, HWND * ); 
 void                      __RPC_USER  HWND_UserFree(     unsigned long *, HWND * ); 
+
+unsigned long             __RPC_USER  LPSAFEARRAY_UserSize(     unsigned long *, unsigned long            , LPSAFEARRAY * ); 
+unsigned char * __RPC_USER  LPSAFEARRAY_UserMarshal(  unsigned long *, unsigned char *, LPSAFEARRAY * ); 
+unsigned char * __RPC_USER  LPSAFEARRAY_UserUnmarshal(unsigned long *, unsigned char *, LPSAFEARRAY * ); 
+void                      __RPC_USER  LPSAFEARRAY_UserFree(     unsigned long *, LPSAFEARRAY * ); 
 
 /* end of Additional Prototypes */
 

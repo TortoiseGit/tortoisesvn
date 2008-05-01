@@ -7,13 +7,18 @@ namespace Interop.BugTraqProvider
     public interface IBugTraqProvider
     {
         [return: MarshalAs(UnmanagedType.VariantBool)]
-        bool ValidateParameters(IntPtr hParentWnd, [MarshalAs(UnmanagedType.BStr)] string parameters);
+        bool ValidateParameters(IntPtr hParentWnd,
+            [MarshalAs(UnmanagedType.BStr)] string parameters);
 
         [return: MarshalAs(UnmanagedType.BStr)]
-        string GetLinkText(IntPtr hParentWnd, [MarshalAs(UnmanagedType.BStr)] string parameters);
+        string GetLinkText(IntPtr hParentWnd,
+            [MarshalAs(UnmanagedType.BStr)] string parameters);
 
         [return: MarshalAs(UnmanagedType.BStr)]
-        string GetCommitMessage(IntPtr hParentWnd, [MarshalAs(UnmanagedType.BStr)] string parameters,
-                                [MarshalAs(UnmanagedType.BStr)] string originalMessage);
+        string GetCommitMessage(IntPtr hParentWnd,
+            [MarshalAs(UnmanagedType.BStr)] string parameters,
+            [MarshalAs(UnmanagedType.BStr)] string commonRoot,
+            [MarshalAs(UnmanagedType.SafeArray, SafeArraySubType=VarEnum.VT_BSTR)] string[] pathList,
+            [MarshalAs(UnmanagedType.BStr)] string originalMessage);
     }
 }

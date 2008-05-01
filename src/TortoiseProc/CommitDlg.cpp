@@ -1168,9 +1168,15 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
 	}
 
 	BSTR parameters = m_bugtraq_association.GetParameters().AllocSysString();
+	BSTR commonRoot = SysAllocString(m_pathList.GetCommonRoot().GetDirectory().GetWinPath());
+	SAFEARRAY *pathList = SafeArrayCreateVector(VT_BSTR, 0, m_pathList.GetCount());
+
+	for (LONG index = 0; index < m_pathList.GetCount(); ++index)
+		SafeArrayPutElement(pathList, &index, m_pathList[index].GetSVNPathString().AllocSysString());
+
 	BSTR originalMessage = sMsg.AllocSysString();
 	BSTR temp = NULL;
-	if (FAILED(hr = pProvider->GetCommitMessage(GetSafeHwnd(), parameters, originalMessage, &temp)))
+	if (FAILED(hr = pProvider->GetCommitMessage(GetSafeHwnd(), parameters, commonRoot, pathList, originalMessage, &temp)))
 	{
 		CString sErr;
 		sErr.Format(IDS_ERR_FAILEDISSUETRACKERCOM, m_bugtraq_association.GetProviderName(), _com_error(hr).ErrorMessage());
