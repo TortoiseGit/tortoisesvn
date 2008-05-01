@@ -204,7 +204,6 @@ private:
 	void			GetColumnStatus(const TCHAR * path, BOOL bIsDir);
 	HBITMAP			IconToBitmap(UINT uIcon);
 	HBITMAP			IconToBitmapPARGB32(UINT uIcon);
-	int				GetInstalledOverlays();		///< returns the maximum number of overlays TSVN shall use
 	STDMETHODIMP	QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMenu, UINT &indexMenu);
 	bool			IsIllegalFolder(std::wstring folder, int * cslidarray);
 public:

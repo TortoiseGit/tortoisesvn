@@ -370,32 +370,3 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
     //return S_FALSE;
 }
 
-int CShellExt::GetInstalledOverlays()
-{
-	// if there are more than 12 overlay handlers installed, then that means not all
-	// of the overlay handlers can't be shown. Windows chooses the ones first
-	// returned by RegEnumKeyEx() and just drops the ones that come last in
-	// that enumeration.
-	int nInstalledOverlayhandlers = 0;
-	// scan the registry for installed overlay handlers
-	HKEY hKey;
-	if (RegOpenKeyEx(HKEY_LOCAL_MACHINE, 
-		_T("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers"),
-		0, KEY_ENUMERATE_SUB_KEYS, &hKey)==ERROR_SUCCESS)
-	{
-		for (int i = 0, rc = ERROR_SUCCESS; rc == ERROR_SUCCESS; i++)
-		{ 
-			TCHAR value[1024];
-			DWORD size = sizeof value / sizeof TCHAR;
-			FILETIME last_write_time;
-			rc = RegEnumKeyEx(hKey, i, value, &size, NULL, NULL, NULL, &last_write_time);
-			if (rc == ERROR_SUCCESS) 
-			{
-				ATLTRACE("installed handler %ws\n", value);
-				nInstalledOverlayhandlers++;
-			}
-		}
-	}
-	RegCloseKey(hKey);
-	return nInstalledOverlayhandlers;
-}
