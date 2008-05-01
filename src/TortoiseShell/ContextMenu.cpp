@@ -194,7 +194,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 	folder_.erase();
 	itemStates = 0;
 	stdstring statuspath;
-	svn_wc_status_kind fetchedstatus = svn_wc_status_unversioned;
+	svn_wc_status_kind fetchedstatus = svn_wc_status_none;
 	// get selected files/folders
 	if (pDataObj)
 	{
@@ -257,7 +257,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 						if (i == 0)
 						{
 							//get the Subversion status of the item
-							svn_wc_status_kind status = svn_wc_status_unversioned;
+							svn_wc_status_kind status = svn_wc_status_none;
 							CTSVNPath askedpath;
 							askedpath.SetFromWin(str.c_str());
 							try
@@ -334,7 +334,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 						if (!statfetched)
 						{
 							//get the Subversion status of the item
-							svn_wc_status_kind status = svn_wc_status_unversioned;
+							svn_wc_status_kind status = svn_wc_status_none;
 							try
 							{
 								SVNStatus stat;
@@ -447,7 +447,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 	{
 		ItemIDList list(pIDFolder);
 		folder_ = list.toString();
-		svn_wc_status_kind status = svn_wc_status_unversioned;
+		svn_wc_status_kind status = svn_wc_status_none;
 		if (folder_.compare(statuspath)!=0)
 		{
 			CTSVNPath askedpath;
@@ -503,7 +503,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 		if (PathIsDirectory(files_.front().c_str()))
 		{
 			folder_ = files_.front();
-			svn_wc_status_kind status = svn_wc_status_unversioned;
+			svn_wc_status_kind status = svn_wc_status_none;
 			if (folder_.compare(statuspath)!=0)
 			{
 				CTSVNPath askedpath;
