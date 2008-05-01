@@ -859,7 +859,6 @@ protected:
 	apr_array_header_t * MakeCopyArray(const CTSVNPathList& pathList, const SVNRev& rev, const SVNRev& pegrev);
 	apr_array_header_t * MakeChangeListArray(const CStringArray& changelists, apr_pool_t * pool);
 
-	svn_error_t * get_url_from_target (const char **URL, const char *target);
 	svn_error_t * get_uuid_from_target (const char **UUID, const char *target);
 
 	void cancel();

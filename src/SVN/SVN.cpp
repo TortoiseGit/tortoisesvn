@@ -1802,7 +1802,7 @@ CString SVN::GetURLFromPath(const CTSVNPath& path)
 		return _T("");
 	svn_error_clear(Err);
 	SVNPool subpool(pool);
-	Err = get_url_from_target(&URL, path.GetSVNApiPath(subpool));
+	Err = svn_client_url_from_path (&URL, path.GetSVNApiPath(subpool), subpool);
 	if (Err)
 		return _T("");
 	if (URL==NULL)
@@ -1817,40 +1817,12 @@ CString SVN::GetUIURLFromPath(const CTSVNPath& path)
 		return _T("");
 	svn_error_clear(Err);
 	SVNPool subpool(pool);
-	Err = get_url_from_target(&URL, path.GetSVNApiPath(subpool));
+	Err = svn_client_url_from_path (&URL, path.GetSVNApiPath(subpool), subpool);
 	if (Err)
 		return _T("");
 	if (URL==NULL)
 		return _T("");
 	return MakeUIUrlOrPath(URL);
-}
-
-svn_error_t * SVN::get_url_from_target (const char **URL, const char *target)
-{
-	svn_wc_adm_access_t *adm_access;          
-	const svn_wc_entry_t *entry;  
-	const char * canontarget = svn_path_canonicalize(target, pool);
-	svn_boolean_t is_url = svn_path_is_url (canontarget);
-
-	*URL = NULL;
-
-	if (is_url)
-		*URL = apr_pstrdup(pool, canontarget);
-
-	else
-	{
-#pragma warning(push)
-#pragma warning(disable: 4127)	// conditional expression is constant
-		SVN_ERR (svn_wc_adm_probe_open3 (&adm_access, NULL, canontarget,
-			FALSE, 0, NULL, NULL, pool));
-		SVN_ERR (svn_wc_entry (&entry, canontarget, adm_access, FALSE, pool));
-		SVN_ERR (svn_wc_adm_close (adm_access));
-#pragma warning(pop)
-
-		*URL = entry ? entry->url : NULL;
-	}
-
-	return SVN_NO_ERROR;
 }
 
 CString SVN::GetUUIDFromPath(const CTSVNPath& path)
@@ -2050,16 +2022,15 @@ svn_revnum_t SVN::GetHEADRevision(const CTSVNPath& url)
     Err = NULL;
 
 	if (!url.IsUrl())
-		SVN::get_url_from_target(&urla, url.GetSVNApiPath(localpool));
+		Err = svn_client_url_from_path (&urla, url.GetSVNApiPath(localpool), localpool);
 	else
 	{
 		// make sure the url is canonical.
 		const char * goodurl = svn_path_canonicalize(url.GetSVNApiPath(localpool), localpool);
 		urla = goodurl;
 	}
-	if (urla == NULL)
+	if (Err)
 		return -1;
-
 	/* use subpool to create a temporary RA session */
 	Err = svn_client_open_ra_session (&ra_session, urla, m_pctx, localpool);
 	if (Err)
@@ -2082,14 +2053,14 @@ BOOL SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& re
     Err = NULL;
 
 	if (!path.IsUrl())
-		SVN::get_url_from_target(&urla, path.GetSVNApiPath(localpool));
+		Err = svn_client_url_from_path (&urla, path.GetSVNApiPath(localpool), localpool);
 	else
 	{
 		// make sure the url is canonical.
 		urla = svn_path_canonicalize(path.GetSVNApiPath(localpool), localpool);
 	}
 
-	if (urla == NULL)
+	if (Err)
 		return FALSE;
 
     // use cached information, if allowed
