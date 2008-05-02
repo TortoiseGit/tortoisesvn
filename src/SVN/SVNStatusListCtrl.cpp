@@ -3422,14 +3422,17 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							while ((index = GetNextSelectedItem(pos)) >= 0)
 							{
 								FileEntry * e = GetListEntry(index);
-								e->changelist.Empty();
-								if (e->status == svn_wc_status_normal)
+								if (e)
 								{
-									// remove the entry completely
-									RemoveListEntry(index);
+									e->changelist.Empty();
+									if (e->status == svn_wc_status_normal)
+									{
+										// remove the entry completely
+										RemoveListEntry(index);
+									}
+									else
+										SetItemGroup(index, 0);
 								}
-								else
-								SetItemGroup(index, 0);
 							}
 							// TODO: Should we go through all entries here and check if we also could
 							// remove the changelist from m_changelists ?
