@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-04-28 20:09+0900\n"
+"PO-Revision-Date: 2008-05-02 16:45+0900\n"
 "Last-Translator: Kim Taedong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1717,10 +1717,6 @@ msgstr "외부 비교 프로그램 찾아보기..."
 msgid "Browse..."
 msgstr "찾아보기..."
 
-#. Resource IDs: (1057)
-msgid "Bug Tracker..."
-msgstr "버그 트래커..."
-
 #. Resource IDs: (1119)
 msgid "Bug-&ID / Issue-Nr:"
 msgstr "Bug-&ID / Issue-Nr:"
@@ -1814,7 +1810,7 @@ msgstr "메뉴를 커스터마이즈 할 수 없습니다!"
 msgid "Can't paste bitmap image from the clipboard!"
 msgstr "클립보드로부터 비트맵 이미지를 붙여 넣을 수 없습니다!"
 
-#. Resource IDs: (2, 73, 99, 563)
+#. Resource IDs: (2, 73, 99, 563, 1069)
 msgid "Cancel"
 msgstr "취소"
 
@@ -1980,6 +1976,10 @@ msgstr "체크섬:"
 msgid "Choose item:"
 msgstr "아이템 선택:"
 
+#. Resource IDs: (145)
+msgid "Cleaning up"
+msgstr "정리"
+
 #. Resource IDs: (146)
 msgid "Cleaning up."
 msgstr "정리"
@@ -2103,7 +2103,7 @@ msgstr "색상"
 msgid "Color co&de in-line changes"
 msgstr "색상 코드 인라인 변경사항(&D)"
 
-#. Resource IDs: (138, 65535)
+#. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
 msgstr "색상"
 
@@ -2115,7 +2115,7 @@ msgstr "색상들:"
 msgid "Comman&ds:"
 msgstr "명령들(&D):"
 
-#. Resource IDs: (220)
+#. Resource IDs: (220, 1002)
 msgid "Command"
 msgstr "명령"
 
@@ -2220,7 +2220,7 @@ msgstr "비교 중 %s : %s"
 msgid "Completed"
 msgstr "완료"
 
-#. Resource IDs: (236)
+#. Resource IDs: (236, 284)
 msgid "Configure Hook Scripts"
 msgstr "훅 스크립트 구성"
 
@@ -2610,6 +2610,14 @@ msgstr "원격지에 폴더를 만들었습니다"
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
 msgstr "저장소안에 복사본을 생성하여 브랜치나 태그를 만듭니다."
 
+#. Resource IDs: (2052)
+msgid ""
+"Creates a patch file from the differences of the two files\n"
+"Create patch file"
+msgstr ""
+"두 파일의 차이점으로부터 패치 파일 생성하기\n"
+"패치 파일 생성"
+
 #. Resource IDs: (10)
 msgid "Creates a repository database at the current location"
 msgstr "현재 위치에 저장소 DB를 만듭니다."
@@ -2699,7 +2707,7 @@ msgstr "기본 어플리케이션 메뉴. 열려진 문서가 하나도 없을 �
 msgid "Default path:"
 msgstr "기본 경로:"
 
-#. Resource IDs: (1382)
+#. Resource IDs: (1002, 1382)
 msgid "Delete"
 msgstr "삭제"
 
@@ -3005,7 +3013,7 @@ msgstr ""
 "다음 위치의 속성 \"%s\"을/를 수정합니다\r\n"
 "%s"
 
-#. Resource IDs: (1331)
+#. Resource IDs: (1331, 1382)
 msgid "Edit..."
 msgstr "편집..."
 
@@ -3358,6 +3366,15 @@ msgstr "문서 저장 실패."
 msgid "Failed to set/remove changelist \"%s\""
 msgstr "변경 리스트 \"%s\"를 설정/제거에 실패함"
 
+#. Resource IDs: (83)
+#, c-format
+msgid ""
+"Failed to start the issue tracker COM provider \"%s\".\n"
+"%s"
+msgstr ""
+"이슈 트래커 COM 프로바이더 \"%s\"를 시작하는데 실패했습니다.\n"
+"%s"
+
 #. Resource IDs: (220)
 msgid "Failed!"
 msgstr "실패하였습니다"
@@ -3371,7 +3388,7 @@ msgstr "파일 가져오기..."
 msgid "Fetching revision %s of file:"
 msgstr "리비전 %s 가져오기 파일명:"
 
-#. Resource IDs: (63, 74, 77, 319)
+#. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
 msgstr "파일"
 
@@ -3710,34 +3727,34 @@ msgstr "행으로 바로 이동"
 #. Resource IDs: (2051)
 msgid ""
 "Go to the next conflict\n"
-"next conflict"
+"Next conflict"
 msgstr ""
 "다음 충돌지점으로 이동\n"
-"다음 충돌"
+"다음 충돌지점"
 
 #. Resource IDs: (2049)
 msgid ""
 "Go to the next difference\n"
-"next difference"
+"Next difference"
 msgstr ""
 "다음 차이점으로 이동\n"
-"다음 차이"
+"다음 차이점"
 
 #. Resource IDs: (2051)
 msgid ""
 "Go to the previous conflict\n"
-"previous conflict"
+"Previous conflict"
 msgstr ""
 "이전 충돌지점으로 이동\n"
-"이전 충돌"
+"이전 충돌지점"
 
 #. Resource IDs: (2049)
 msgid ""
 "Go to the previous difference\n"
-"previous difference"
+"Previous difference"
 msgstr ""
 "이전 차이점으로 이동\n"
-"이전 차이"
+"이전 차이점"
 
 #. Resource IDs: (1134)
 msgid "Graph type:"
@@ -3926,11 +3943,11 @@ msgstr "ID:32825:V C +L"
 msgid "ID:32825:VA  +D"
 msgstr "ID:32825:VA  +D"
 
-#. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
+#. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
 msgstr "ID:57601:V C +O"
 
-#. Accelerator Entry for Menu ID:57603; '&Save Ctrl-S'
+#. Accelerator Entry for Menu ID:57603; '&Save'
 msgid "ID:57603:V C +S"
 msgstr "ID:57603:V C +S"
 
@@ -3956,7 +3973,7 @@ msgstr "ID:57636:V C +F"
 msgid "ID:57637:V C +V"
 msgstr "ID:57637:V C +V"
 
-#. Accelerator Entry for Menu ID:57643; '&Undo\tCtrl+Z'
+#. Accelerator Entry for Menu ID:57643; '&Undo'
 msgid "ID:57643:V C +Z"
 msgstr "ID:57643:V C +Z"
 
@@ -4252,7 +4269,7 @@ msgstr "명령을 수행하기에 메모리가 충분하지 않습니다."
 msgid "Internal application error."
 msgstr "내부 오류."
 
-#. Resource IDs: (338, 339)
+#. Resource IDs: (339)
 msgid "Internal value indicating compression quality"
 msgstr "압축 품질을 지시하는 내부 값"
 
@@ -4344,9 +4361,9 @@ msgstr ""
 "또한 구간은 대시(-)로 표현될 수 있습니다.\n"
 "예: 2-5,7,10,44-70,300-HEAD"
 
-#. Resource IDs: (570)
-msgid "Issue Tracker Hook"
-msgstr "이슈 트래커 훅"
+#. Resource IDs: (283)
+msgid "Issue Tracker Integration"
+msgstr "이슈 트래커 통합"
 
 #. Resource IDs: (145)
 msgid ""
@@ -4684,7 +4701,7 @@ msgstr "메뉴 바"
 msgid "Menu s&hadows"
 msgstr "메뉴 그림자(&H)"
 
-#. Resource IDs: (109, 110, 111, 276, 278, 65535)
+#. Resource IDs: (109, 110, 111, 112, 276, 278, 65535)
 msgid "Merge"
 msgstr "병합"
 
@@ -4696,7 +4713,7 @@ msgstr "병합 - TortoiseSVN"
 msgid "Merge Reintegrate"
 msgstr "재통합 병합"
 
-#. Resource IDs: (1416)
+#. Resource IDs: (1468)
 msgid "Merge a range of revisions"
 msgstr "리비전의 구간을 병합합니다"
 
@@ -4722,7 +4739,7 @@ msgstr "병합 설정"
 
 #. Resource IDs: (595)
 msgid "Merge revision range"
-msgstr "병합 리비전 구간"
+msgstr "리비전 구간을 병합"
 
 #. Resource IDs: (114)
 msgid "Merge revision to..."
@@ -4730,9 +4747,9 @@ msgstr "리비전을 병합..."
 
 #. Resource IDs: (114)
 msgid "Merge revisions to..."
-msgstr "리비전을 병합..."
+msgstr "리비전들 병합..."
 
-#. Resource IDs: (1417)
+#. Resource IDs: (1470)
 msgid "Merge two different trees"
 msgstr "두 개의 다른 트리를 병합합니다"
 
@@ -4970,7 +4987,7 @@ msgstr "네트워크"
 msgid "Never try to contact the repository again"
 msgstr "다시는 저장소에 접근 시도하지 않음"
 
-#. Resource IDs: (30721)
+#. Resource IDs: (1002, 30721, 65535)
 msgid "New"
 msgstr "New"
 
@@ -5356,6 +5373,14 @@ msgstr ""
 msgid "Page :"
 msgstr "페이지 :"
 
+#. Resource IDs: (63)
+msgid "Parameters"
+msgstr "파라메터들"
+
+#. Resource IDs: (1477)
+msgid "Parameters:"
+msgstr "파라메터들:"
+
 #. Resource IDs: (69)
 msgid "Password:"
 msgstr "암호:"
@@ -5384,7 +5409,7 @@ msgstr "선택된 것에 패치"
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 
-#. Resource IDs: (20, 77, 198, 207)
+#. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
 msgstr "경로"
 
@@ -5643,6 +5668,14 @@ msgstr "속성 상태"
 msgid "Property value:"
 msgstr "속성 값:"
 
+#. Resource IDs: (63)
+msgid "Provider"
+msgstr "프로바이더"
+
+#. Resource IDs: (1475)
+msgid "Provider:"
+msgstr "프로바이더:"
+
 #. Resource IDs: (1412)
 msgid "Proxy &timeout in seconds:"
 msgstr "프록시 만료시간(단위: 초)(&T)"
@@ -5860,7 +5893,7 @@ msgstr "원격 상태"
 msgid "Remote text status"
 msgstr "원격 상태"
 
-#. Resource IDs: (1332)
+#. Resource IDs: (1332, 1470)
 msgid "Remove"
 msgstr "삭제"
 
@@ -6138,7 +6171,7 @@ msgstr "리비전"
 msgid "Revision %d"
 msgstr "리비전 %d"
 
-#. Resource IDs: (269, 270, 272)
+#. Resource IDs: (269, 272)
 #, c-format
 msgid "Revision %ld"
 msgstr "리비전 %ld"
@@ -6511,6 +6544,10 @@ msgstr "체크아웃할 디렉토리를 선택합니다"
 msgid "Select end revision"
 msgstr "종료 리비전 선택"
 
+#. Resource IDs: (64)
+msgid "Select folder to associate with this issue tracker"
+msgstr "이 이슈 트래커와 연결할 폴더를 선택하십시오."
+
 #. Resource IDs: (79)
 msgid ""
 "Select folder to export to.\n"
@@ -6680,7 +6717,7 @@ msgstr "모든 리비젼 보기(&A)"
 msgid "Show &changes"
 msgstr "변경내용 보기(&C)..."
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467, 32784)
 msgid "Show &log"
 msgstr "로그 보기(&L)"
 
@@ -6779,6 +6816,22 @@ msgstr "줄 번호 보기(&S)"
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
 msgstr "오래된 노드를 맨 위에 출력"
+
+#. Resource IDs: (2054)
+msgid ""
+"Show or hide the line diff bar\n"
+"Toggle LineDiffBar"
+msgstr ""
+"라인 비교 바 보이기/숨기기\n"
+"라인 비교 바 토글"
+
+#. Resource IDs: (2054)
+msgid ""
+"Show or hide the locator bar\n"
+"Toggle LocatorBar"
+msgstr ""
+"위치 바 보이기/숨기기\n"
+"위치 바 토글"
 
 #. Resource IDs: (3713)
 msgid ""
@@ -7303,6 +7356,14 @@ msgid "The image can not be shown."
 msgstr "이미지를 보일 수 없습니다."
 
 #. Resource IDs: (63)
+msgid "The issue-tracker provider could not be created. Please check that it is installed correctly."
+msgstr "이슈 트래커 프로바이더가 생성될 수 없습니다. 정상적으로 설치되었는지 체크하십시오."
+
+#. Resource IDs: (64)
+msgid "The issue-tracker provider was unable to validate the parameter string"
+msgstr "이슈 트레커 프로바이더가 파라메터 스트링의 유효성을 검증하기 위해서 비활성화되었습니다."
+
+#. Resource IDs: (63)
 #, c-format
 msgid "The line \"====\" was expected in line %d !"
 msgstr "==== 가 있어야 할 라인입니다. : %d"
@@ -7536,6 +7597,10 @@ msgid ""
 msgstr ""
 "svn:externals로 설정된 디렉토리속에 변경 사항이나 버전관리되지 않는 아이템들이 존재합니다.\n"
 "변경된 해당 파일들은 커밋시에 보이지 <b>않습니다</b>. 변경된 해당 파일들은 각각 커밋해야만 합니다."
+
+#. Resource IDs: (64)
+msgid "There are no issue-tracker providers available."
+msgstr "이용 가능한 이슈 트래커 프로바이더가 존재하지 않습니다."
 
 #. Resource IDs: (66)
 #, c-format
@@ -8127,7 +8192,7 @@ msgstr "\".svn\" 디렉토리 대신 \"_svn\"을 사용합니다."
 #. Resource IDs: (2054)
 msgid ""
 "Use all content from the left view\n"
-"use left file"
+"Use left file"
 msgstr ""
 "왼쪽 창의 모든 내용을 사용합니다.\n"
 "왼쪽 파일 사용"
@@ -8139,7 +8204,7 @@ msgstr "오른쪽 전에 왼쪽의 블럭을 사용합니다."
 #. Resource IDs: (2054)
 msgid ""
 "Use block from left view before block from right view\n"
-"use block from left before right"
+"Use block from left before right"
 msgstr ""
 "오른쪽 창의 블럭전에 왼쪽 창의 블럭을 사용합니다.\n"
 "오른쪽 전에 왼쪽 블럭을 사용"
@@ -8151,7 +8216,7 @@ msgstr "왼쪽 전에 오른쪽 블럭을 사용합니다."
 #. Resource IDs: (2054)
 msgid ""
 "Use block from right view before block from left view\n"
-"use block from right before left"
+"Use block from right before left"
 msgstr ""
 "왼쪽 창의 블럭전에 오른쪽 창의 블럭을 사용합니다.\n"
 "왼쪽 전에 오른쪽 블럭을 사용"
@@ -8239,7 +8304,7 @@ msgstr ""
 #. Resource IDs: (2054)
 msgid ""
 "Use text block from the left view\n"
-"use left block"
+"Use left block"
 msgstr ""
 "왼쪽창의 텍스트 블럭을 사용합니다.\n"
 "왼쪽 블럭 사용"
@@ -8399,7 +8464,7 @@ msgstr "대상 URL:"
 msgid "Working Copy"
 msgstr "작업 사본"
 
-#. Resource IDs: (1335)
+#. Resource IDs: (1335, 1472)
 msgid "Working Copy Path:"
 msgstr "작업 사본 경로:"
 
@@ -8786,10 +8851,6 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "changes total: "
 msgstr "변경 합계:"
-
-#. Resource IDs: (145)
-msgid "cleaning up"
-msgstr "정리"
 
 #. Resource IDs: (244, 245)
 msgid "commits"
@@ -9344,6 +9405,7 @@ msgstr "년"
 msgid "yes"
 msgstr "예"
 
-#~ msgid "Remove..."
-#~ msgstr "삭제..."
+#. Resource IDs: (1382)
+msgid "{BugTraq}"
+msgstr "{버그트랙}"
 
