@@ -2168,7 +2168,17 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		if (pNMLV->iSubItem != 0)
 			return;
 		if ((pNMLV->iItem == m_arShownList.GetCount())&&(m_bStrict)&&(m_bStrictStopped))
+		{
+			// remove the selected state
+			if (pNMLV->uChanged & LVIF_STATE)
+			{
+				m_LogList.SetItemState(pNMLV->iItem, 0, LVIS_SELECTED);
+				FillLogMessageCtrl();
+				UpdateData(FALSE);
+				UpdateLogInfoLabel();
+			}
 			return;
+		}
 		if (pNMLV->uChanged & LVIF_STATE)
 		{
 			FillLogMessageCtrl();
