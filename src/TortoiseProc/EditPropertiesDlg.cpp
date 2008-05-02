@@ -230,6 +230,11 @@ UINT CEditPropertiesDlg::PropsThread()
 			m_propList.SetItemText(index, 1, sTemp);
 			m_propList.SetItemData(index, FALSE);
 		}
+		if (index == 0)
+		{
+			// select the first entry
+			m_propList.SetItemState(index, LVIS_SELECTED, LVIS_SELECTED);
+		}
 		index++;
 	}
 	int maxcol = ((CHeaderCtrl*)(m_propList.GetDlgItem(0)))->GetItemCount()-1;
