@@ -74,32 +74,24 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 	// known properties
 	if (!m_bRevProps)
 	{
-		if ((!m_bFolder)||(m_bMultiple))
-			m_PropNames.AddString(_T("svn:eol-style"));
-		if ((!m_bFolder)||(m_bMultiple))
-			m_PropNames.AddString(_T("svn:executable"));
+		m_PropNames.AddString(_T("svn:eol-style"));
+		m_PropNames.AddString(_T("svn:executable"));
 		if ((m_bFolder)||(m_bMultiple))
 			m_PropNames.AddString(_T("svn:externals"));
 		if ((m_bFolder)||(m_bMultiple))
 			m_PropNames.AddString(_T("svn:ignore"));
-		if ((!m_bFolder)||(m_bMultiple))
-			m_PropNames.AddString(_T("svn:keywords"));
-		if ((!m_bFolder)||(m_bMultiple))
-			m_PropNames.AddString(_T("svn:needs-lock"));
-		if ((!m_bFolder)||(m_bMultiple))
-			m_PropNames.AddString(_T("svn:mime-type"));
+		m_PropNames.AddString(_T("svn:keywords"));
+		m_PropNames.AddString(_T("svn:needs-lock"));
+		m_PropNames.AddString(_T("svn:mime-type"));
 		if ((m_bFolder)||(m_bMultiple))
 			m_PropNames.AddString(_T("svn:mergeinfo"));
-		if ((!m_bFolder)||(m_bMultiple))
+		if (!m_ProjectProperties.sFPPath.IsEmpty())
 		{
-			if (!m_ProjectProperties.sFPPath.IsEmpty())
+			resToken = m_ProjectProperties.sFPPath.Tokenize(_T("\n"),curPos);
+			while (resToken != "")
 			{
+				m_PropNames.AddString(resToken);
 				resToken = m_ProjectProperties.sFPPath.Tokenize(_T("\n"),curPos);
-				while (resToken != "")
-				{
-					m_PropNames.AddString(resToken);
-					resToken = m_ProjectProperties.sFPPath.Tokenize(_T("\n"),curPos);
-				}
 			}
 		}
 
