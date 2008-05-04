@@ -337,41 +337,35 @@ BOOL CSetOverlayIcons::OnApply()
 	if ((!m_sIconSet.IsEmpty())&&(m_sIconSet.CompareNoCase(m_sOriginalIconSet)!=0))
 	{
 		// the selected icon set has changed.
-		CString msg;
-		msg.Format(IDS_SETTINGS_ICONSETCHANGED, m_sOriginalIconSet, m_sIconSet);
-		UINT ret = CMessageBox::Show(this->m_hWnd, msg, _T("TortoiseSVN"), MB_ICONQUESTION | MB_OKCANCEL);
-		if (ret != IDCANCEL)
-		{
-			m_regNormal = m_sIconPath + _T("\\") + m_sIconSet + _T("\\NormalIcon.ico");
-			if (m_regNormal.LastError != ERROR_SUCCESS)
-				CMessageBox::Show(m_hWnd, m_regNormal.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-			m_regModified = m_sIconPath + _T("\\") + m_sIconSet + _T("\\ModifiedIcon.ico");
-			if (m_regModified.LastError != ERROR_SUCCESS)
-				CMessageBox::Show(m_hWnd, m_regModified.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-			m_regConflicted = m_sIconPath + _T("\\") + m_sIconSet + _T("\\ConflictIcon.ico");
-			if (m_regConflicted.LastError != ERROR_SUCCESS)
-				CMessageBox::Show(m_hWnd, m_regConflicted.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-			m_regReadOnly = m_sIconPath + _T("\\") + m_sIconSet + _T("\\ReadOnlyIcon.ico");
-			if (m_regReadOnly.LastError != ERROR_SUCCESS)
-				CMessageBox::Show(m_hWnd, m_regReadOnly.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-			m_regDeleted = m_sIconPath + _T("\\") + m_sIconSet + _T("\\TDeletedIcon.ico");
-			if (m_regDeleted.LastError != ERROR_SUCCESS)
-				CMessageBox::Show(m_hWnd, m_regDeleted.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-			m_regLocked = m_sIconPath + _T("\\") + m_sIconSet + _T("\\LockedIcon.ico");
-			if (m_regLocked.LastError != ERROR_SUCCESS)
-				CMessageBox::Show(m_hWnd, m_regLocked.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-			m_regAdded = m_sIconPath + _T("\\") + m_sIconSet + _T("\\AddedIcon.ico");
-			if (m_regAdded.LastError != ERROR_SUCCESS)
-				CMessageBox::Show(m_hWnd, m_regAdded.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-			m_regIgnored = m_sIconPath + _T("\\") + m_sIconSet + _T("\\IgnoredIcon.ico");
-			if (m_regIgnored.LastError != ERROR_SUCCESS)
-				CMessageBox::Show(m_hWnd, m_regIgnored.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-			m_regUnversioned = m_sIconPath + _T("\\") + m_sIconSet + _T("\\UnversionedIcon.ico");
-			if (m_regUnversioned.LastError != ERROR_SUCCESS)
-				CMessageBox::Show(m_hWnd, m_regUnversioned.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+		m_regNormal = m_sIconPath + _T("\\") + m_sIconSet + _T("\\NormalIcon.ico");
+		if (m_regNormal.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regNormal.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+		m_regModified = m_sIconPath + _T("\\") + m_sIconSet + _T("\\ModifiedIcon.ico");
+		if (m_regModified.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regModified.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+		m_regConflicted = m_sIconPath + _T("\\") + m_sIconSet + _T("\\ConflictIcon.ico");
+		if (m_regConflicted.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regConflicted.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+		m_regReadOnly = m_sIconPath + _T("\\") + m_sIconSet + _T("\\ReadOnlyIcon.ico");
+		if (m_regReadOnly.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regReadOnly.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+		m_regDeleted = m_sIconPath + _T("\\") + m_sIconSet + _T("\\TDeletedIcon.ico");
+		if (m_regDeleted.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regDeleted.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+		m_regLocked = m_sIconPath + _T("\\") + m_sIconSet + _T("\\LockedIcon.ico");
+		if (m_regLocked.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regLocked.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+		m_regAdded = m_sIconPath + _T("\\") + m_sIconSet + _T("\\AddedIcon.ico");
+		if (m_regAdded.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regAdded.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+		m_regIgnored = m_sIconPath + _T("\\") + m_sIconSet + _T("\\IgnoredIcon.ico");
+		if (m_regIgnored.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regIgnored.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+		m_regUnversioned = m_sIconPath + _T("\\") + m_sIconSet + _T("\\UnversionedIcon.ico");
+		if (m_regUnversioned.LastError != ERROR_SUCCESS)
+			CMessageBox::Show(m_hWnd, m_regUnversioned.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 
-			m_restart = Restart_System;
-		}
+		m_restart = Restart_System;
 		m_sOriginalIconSet = m_sIconSet;
 	}
 	SetModified(FALSE);
