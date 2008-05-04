@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-04-25 16:49+0100\n"
+"PO-Revision-Date: 2008-05-04 19:38+0100\n"
 "Last-Translator: Zero3Cool\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -29,6 +29,7 @@ msgstr ""
 "X-Poedit-Language: Danish\n"
 "X-Poedit-Country: DENMARK\n"
 
+# -------------------------------
 # Nøgleord i oversættelsen:
 # -------------------------------
 # Abort = Afbryd
@@ -50,6 +51,7 @@ msgstr ""
 # Diff program = Sammenligningsprogram
 # Event = handling (men udelades gerne, f.eks. "Associate double-click event with" -> "Associer dobbeltklik med")
 # Explorer = Windows Stifinder
+# Float = Flydende
 # Get lock = Rekvivier lås
 # Hook = Tilkobling
 # Icon overlay = Ikonoverdækning
@@ -62,11 +64,14 @@ msgstr ""
 # Nested = Indlejret
 # Node = Knude
 # Operation = Handling
+# Pane = Rude
 # Password = Adgangskode
 # Patch = Rettelse (nogen gange betyning som "patch file", brug der oversættelse nedenfor)
 # Patch file = Rettelsesfil
 # Port = Overføre (f.eks.: "To port these changes to the trunk..." -> "For at overføre disse ændringer til stamen...")
+# Personalized = Tilpasset
 # Property = Egenskab
+# Quick Access Toolbar = Genvejsværktøjslinje
 # Record = Registrer
 # Relocate = Omlæg
 # Remove = Fjern
@@ -81,6 +86,7 @@ msgstr ""
 # User (revision properties) = Brugerdefinerede (revisionsegenskaber)
 # Token = Symbol (Bedre oversættelse?)
 # Unified diff = Unified diff
+# Usage data= Anvendelsesdata
 # Viewer = Visningsprogram
 # Working base = Grundrevision af arbejdskopi
 # ------------------
@@ -88,6 +94,7 @@ msgstr ""
 # ------------------
 # Handlinger magen til Windows egne (Slet, Omdøb, Egenskaber, ...) bør dele samme genvejstast
 # Linje staves med "j"
+# Af en eller anden grund indeholder flere strenge ord med store bogstaver midt i linjerne. Hvorvidt dette er rigtigt/en god idé kan diskuteres, men indtil videre holdes der en stil UDEN, dvs. oversæt efter normal dansk grammatik uanset. Ret gerne i gamle strenge når det ses gjort forkert.
 # ------------------
 # Genvejstaster:
 # ------------------
@@ -649,9 +656,8 @@ msgid "&Fixed drives"
 msgstr "&Faste drev"
 
 #. Resource IDs: (1065)
-#, fuzzy
 msgid "&Floating"
-msgstr "Omlægger..."
+msgstr "&Flydende"
 
 #. Resource IDs: (65535)
 msgid "&Font for log messages:"
@@ -933,19 +939,16 @@ msgid "&Repo-browser"
 msgstr "Versionsarkivbro&wser"
 
 #. Resource IDs: (16613, 16624)
-#, fuzzy
 msgid "&Reset"
-msgstr "Afvis"
+msgstr "&Nulstil"
 
 #. Resource IDs: (1019)
-#, fuzzy
 msgid "&Reset Toolbar"
-msgstr "&Værktøjslinje"
+msgstr "&Nulstil Værktøjslinje"
 
 #. Resource IDs: (16657)
-#, fuzzy
 msgid "&Reset my usage data"
-msgstr "&Seneste beskeder"
+msgstr "&Nulstil anvendelsesdata"
 
 #. Resource IDs: (16910)
 #, fuzzy
@@ -1276,13 +1279,17 @@ msgstr "<ny ændringsliste>"
 msgid "?"
 msgstr "?"
 
+# Bedre oversættelse af "combo box"?
 #. Resource IDs: (579)
+#, fuzzy
 msgid "A list of user defined properties for files to show in the combo box"
-msgstr ""
+msgstr "En liste med brugerdefinerede filegenskaber der skal vises i kombi-boksen"
 
+# Bedre oversættelse af "combo box"?
 #. Resource IDs: (579)
+#, fuzzy
 msgid "A list of user defined properties for folders to show in the combo box"
-msgstr ""
+msgstr "En liste med brugerdefinerede mapper der skal vises i kombi-boksen"
 
 #. Resource IDs: (201)
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
@@ -1381,6 +1388,8 @@ msgid ""
 "ActiveX objects cannot be saved while exiting Windows!\n"
 "Discard all changes to %1?"
 msgstr ""
+"ActiveX-objekter kan ikke gemmes mens Windows lukkes!\n"
+"Kassér alle ændringer af %1?"
 
 #. Resource IDs: (155, 209, 229)
 msgid "Add"
@@ -1421,7 +1430,7 @@ msgstr "Føj til \"&ignorer\"-listen"
 
 #. Resource IDs: (1068)
 msgid "Add to Quick Access Toolbar"
-msgstr ""
+msgstr "Tilføj til genvejsværktøjslinje"
 
 #. Resource IDs: (209, 1279)
 msgid "Add..."
@@ -1516,21 +1525,21 @@ msgstr "Alle filer (*.*)|*.*||"
 
 #. Resource IDs: (1008)
 msgid "All your changes will be lost! Do you really want to reset all toolbars and menus?"
-msgstr ""
+msgstr "Alle dine ændringer vil gå tabt! Er du sikker på at du vil nulstille alle værktøjslinjer og menuer?"
 
 #. Resource IDs: (1008)
 msgid "All your changes will be lost! Do you really want to reset the keyboard assignments?"
-msgstr ""
+msgstr "Alle dine ændringer vil gå tabt! Er du sikker på at du vil nulstille tastaturgenvejene?"
 
 #. Resource IDs: (1008)
 #, c-format
 msgid "All your changes will be lost! Do you really want to reset the menu '%s'?"
-msgstr ""
+msgstr "Alle dine ændringer vil gå tabt! Er du sikker på at du vil nulstille menuen '%s'?"
 
 #. Resource IDs: (1007)
 #, c-format
 msgid "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
-msgstr ""
+msgstr "Alle dine ændringer vil gå tabt! Er du sikker på at du vil nulstille værktøjslinjen '%s'?"
 
 #. Resource IDs: (345)
 msgid ""
@@ -1944,11 +1953,11 @@ msgstr "Kopier al information til udklipsholder"
 
 #. Resource IDs: (1001)
 msgid "Can't create a new image!"
-msgstr ""
+msgstr "Kunne ikke oprette et nyt billede!"
 
 #. Resource IDs: (1001)
 msgid "Can't customize menues!"
-msgstr ""
+msgstr "Kunne ikke tilpasse menuer!"
 
 #. Resource IDs: (1001)
 msgid "Can't paste bitmap image from the clipboard!"
@@ -1970,12 +1979,18 @@ msgstr "Annullerer handling..."
 msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr "Forskellene kan ikke vises på grund af inkonsistente linjeafslutninger i filen."
 
+# Kontekst? Mulige oversættelser:
+# Navneord: vandfald/kaskade/brus
+# Udsangsord: strømme/bruse/komme strømmende/komme væltende
 #. Resource IDs: (16926)
-#, fuzzy
 msgid "Cascade"
-msgstr "Annuller"
+msgstr ""
 
+# Kontekst? Mulige oversættelser:
+# Navneord: vandfald/kaskade/brus
+# Udsangsord: strømme/bruse/komme strømmende/komme væltende
 #. Resource IDs: (65535)
+#, fuzzy
 msgid "Cascaded context menu"
 msgstr "Sekundær kontekstmenu"
 
@@ -2476,6 +2491,8 @@ msgid ""
 "Copy Tool\n"
 "Copy"
 msgstr ""
+"Kopieringsværktøj\n"
+"Kopiér"
 
 #. Resource IDs: (101)
 msgid "Copy URL to clipboard"
@@ -2781,7 +2798,7 @@ msgstr "Aktuelle version er: %s"
 
 #. Resource IDs: (17079)
 msgid "Cus&tomize..."
-msgstr ""
+msgstr "Til&pas"
 
 #. Resource IDs: (16963)
 msgid "Custom"
@@ -2789,19 +2806,19 @@ msgstr "Personlig"
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
-msgstr ""
+msgstr "Tilpas"
 
 #. Resource IDs: (17076)
 msgid "Customize Keyboard"
-msgstr "Tilpas tastatur"
+msgstr "Tilpas Tastatur"
 
 #. Resource IDs: (1069)
 msgid "Customize Quick Access Toolbar"
-msgstr ""
+msgstr "Tilpas genvejsværktøjslinje"
 
 #. Resource IDs: (1068)
 msgid "Customize Quick Access Toolbar..."
-msgstr ""
+msgstr "Tilpas genvejsværktøjslinje..."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -2994,7 +3011,7 @@ msgstr ""
 #. Resource IDs: (1007)
 #, c-format
 msgid "Do you really want to delete the toolbar '%s'?"
-msgstr "Er du sikker på at du vil slette værktøjslinien '%s'?"
+msgstr "Er du sikker på at du vil slette værktøjslinjen '%s'?"
 
 #. Resource IDs: (145)
 msgid "Do you really want to move this file or folder?"
@@ -3072,7 +3089,7 @@ msgstr "Vis ikke denne meddelelse igen"
 
 #. Resource IDs: (1002)
 msgid "Drag to make this menu float"
-msgstr ""
+msgstr "Træk for at gøre denne menu flydende"
 
 #. Resource IDs: (16513)
 msgid "Draw"
@@ -3179,6 +3196,8 @@ msgid ""
 "Ellipse Tools\n"
 "Ellipse"
 msgstr ""
+"Ellipseværktøj\n"
+"Ellipse"
 
 #. Resource IDs: (65535)
 msgid "Empty"
@@ -3364,12 +3383,13 @@ msgstr "Udelad stierne:"
 
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
-msgstr ""
+msgstr "Program (*.exe)|*.exe|Kommando (*.com)|*.com|PDF-fil (*.pdf)|*.pdf|Batchfil (*.bat)|*.bat|Alle filer (*.*)|*.*||"
 
 #. Resource IDs: (1002)
 msgid "Existing"
 msgstr "Eksisterende"
 
+# Kontekst?
 #. Resource IDs: (1002)
 #, c-format
 msgid "Expand (%s)"
@@ -3468,6 +3488,7 @@ msgstr "Externals inkluderet"
 msgid "Failed revert"
 msgstr "Tilbageføring mislykkedes"
 
+# Kontekst? Bedre oversættelse af "broken"?
 #. Resource IDs: (3865)
 #, fuzzy
 msgid ""
@@ -3475,7 +3496,7 @@ msgid ""
 "Link may be broken."
 msgstr ""
 "Forbindelse mislykkedes.\n"
-"Link er måske istykker."
+"Link er måske i stykker."
 
 #. Resource IDs: (3865)
 msgid "Failed to convert ActiveX object."
@@ -3494,7 +3515,6 @@ msgid "Failed to launch help."
 msgstr "Det lykkedes ikke at vise hjælpen."
 
 #. Resource IDs: (3865)
-#, fuzzy
 msgid "Failed to launch server application."
 msgstr "Det lykkedes ikke at starte serverprogram."
 
@@ -3503,9 +3523,8 @@ msgid "Failed to open document."
 msgstr "Det lykkedes ikke at åbne dokumentet."
 
 #. Resource IDs: (3865)
-#, fuzzy
 msgid "Failed to perform server operation."
-msgstr "Der lykkedes ikke at udføre serveroperation."
+msgstr "Det lykkedes ikke at udføre serveroperation."
 
 #. Resource IDs: (3857)
 msgid "Failed to save document."
@@ -3662,6 +3681,8 @@ msgid ""
 "Fill Tool\n"
 "Fill"
 msgstr ""
+"Udfyldningsværktøj\n"
+"Udfyld"
 
 #. Resource IDs: (65535)
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
@@ -3735,6 +3756,7 @@ msgstr "Fra:"
 msgid "From: (start URL and revision of the range to merge)"
 msgstr "Fra: (start-URL og -revision af intervallet der skal flettes)"
 
+# Kontekst?
 #. Resource IDs: (1065)
 #, fuzzy
 msgid "Full Screen"
@@ -3935,7 +3957,7 @@ msgstr "Hjælpetastatur"
 
 #. Resource IDs: (16974)
 msgid "Hex"
-msgstr ""
+msgstr "Hex"
 
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
@@ -4545,6 +4567,7 @@ msgstr "Tastatur"
 msgid "Keyboard shortcuts:"
 msgstr "Tastaturgenveje:"
 
+# Kontekst?
 #. Resource IDs: (1002)
 msgid "Keys"
 msgstr ""
@@ -4602,6 +4625,8 @@ msgid ""
 "Line Tool\n"
 "Line"
 msgstr ""
+"Linjeværktøj\n"
+"Linje"
 
 #. Resource IDs: (32853)
 msgid "Line diff bar"
@@ -4632,6 +4657,7 @@ msgstr ""
 msgid "List of repositories for which log information has been cached"
 msgstr "Liste over versionsarkiver hvis loginformation er blevet cached"
 
+# Kontekst? Dummy?
 #. Resource IDs: (16631, 16992)
 msgid "List1"
 msgstr ""
@@ -4755,6 +4781,7 @@ msgstr "Laveste viste revision: %ld - Højeste viste revision: %ld"
 msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision: %ld"
 msgstr "Laveste viste revision: %ld - Højeste viste revision: %ld - HEAD-revision: %ld"
 
+# Kontekst? Dummy?
 #. Resource IDs: (16973)
 msgid "Lum"
 msgstr ""
@@ -4817,7 +4844,7 @@ msgstr "Maks. linjer i handlingsloggen"
 
 #. Resource IDs: (16655)
 msgid "Me&nus show recently used commands first"
-msgstr ""
+msgstr "Me&nuer viser sidst brugte kommandoer først"
 
 #. Resource IDs: (16134)
 msgid "Menu"
@@ -4967,9 +4994,10 @@ msgstr "Min"
 msgid "Mine"
 msgstr "Min"
 
+# Oversættelse af "Ribbon"?
 #. Resource IDs: (1068)
 msgid "Minimize the Ribbon"
-msgstr ""
+msgstr "Minimer båndet"
 
 #. Resource IDs: (1023)
 msgid "Misc"
@@ -5097,11 +5125,11 @@ msgstr "NUM"
 
 #. Resource IDs: (17004)
 msgid "Navigation Pane Options"
-msgstr ""
+msgstr "Indstillinger for navigeringsrude"
 
 #. Resource IDs: (1065)
 msgid "Navigation Pane Options..."
-msgstr ""
+msgstr "Indstillinger for navigeringsrude..."
 
 #. Resource IDs: (208)
 msgid "Needs lock"
@@ -5442,11 +5470,10 @@ msgstr "Åbner versionsarkivbrowseren for at justere versionsarkivet online"
 msgid "Operate from log cache for now only"
 msgstr "Operer indtil videre kun fra logcachen"
 
-# Kontekst?
+# Kontekst? Muligheder: Egenskaber, indstillinger, muligheder, ...
 #. Resource IDs: (16137)
-#, fuzzy
 msgid "Options"
-msgstr "Egenskaber"
+msgstr ""
 
 #. Resource IDs: (32779)
 msgid "Ori&ginal size"
@@ -5454,7 +5481,7 @@ msgstr "Ori&ginal størrelse"
 
 #. Resource IDs: (1065)
 msgid "Other Task Panes"
-msgstr ""
+msgstr "Andre opgaveruder"
 
 #. Resource IDs: (245)
 msgid "Others"
@@ -5464,6 +5491,7 @@ msgstr "Andre"
 msgid "Out of memory."
 msgstr "Der er ikke mere hukommelse."
 
+# Kontekst? Dummy?
 #. Resource IDs: (3845)
 msgid "Output.prn"
 msgstr ""
@@ -5553,7 +5581,7 @@ msgstr ""
 
 #. Resource IDs: (16538)
 msgid "Personalized Menus and Toolbars"
-msgstr ""
+msgstr "Tilpassede Menuer og Værktøjslinjer"
 
 #. Resource IDs: (3849)
 msgid ""
@@ -5713,10 +5741,10 @@ msgstr "Printer :"
 msgid "Printer Files (*.prn)|*.prn|All Files (*.*)|*.*||"
 msgstr "Printer Filer (*.prn)|*.prn|Alle Filer (*.*)|*.*||"
 
+# Kontekst?
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Printing"
-msgstr "Printer"
+msgstr ""
 
 #. Resource IDs: (132)
 #, c-format
@@ -5828,7 +5856,7 @@ msgstr "&Hukommelsesdrev"
 
 #. Resource IDs: (16623)
 msgid "R&eset"
-msgstr ""
+msgstr "N&ulstil"
 
 #. Resource IDs: (114)
 msgid "R&evert to this revision"
@@ -5853,11 +5881,11 @@ msgstr "O&mdøb..."
 
 #. Resource IDs: (16613)
 msgid "Re&set"
-msgstr ""
+msgstr "Nul&stil"
 
 #. Resource IDs: (16647)
 msgid "Re&set All"
-msgstr ""
+msgstr "Nul&stil Alle"
 
 #. Resource IDs: (8)
 msgid "Re&vert..."
@@ -5867,6 +5895,7 @@ msgstr "Til&bagefør..."
 msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Læs \"Daily Use Guide\" inden du går i stå..."
 
+# Kontekst?
 #. Resource IDs: (1002)
 msgid "Recent"
 msgstr ""
@@ -5884,6 +5913,8 @@ msgid ""
 "Rectangle Tool\n"
 "Rectangle"
 msgstr ""
+"Rektangelværktøj\n"
+"Rektangel"
 
 #. Resource IDs: (1260)
 msgid "Recurse into unversioned folders"
@@ -6033,7 +6064,7 @@ msgstr "Fjern fra \"&ignorer\"-listen"
 
 #. Resource IDs: (1068)
 msgid "Remove from Quick Access Toolbar"
-msgstr ""
+msgstr "Fjern fra genvejsværktøjslinje"
 
 #. Resource IDs: (209)
 msgid "Remove from changelist"
@@ -6182,13 +6213,14 @@ msgstr "Spørger efter brugernavn og adgangskode"
 msgid "Res&olved..."
 msgstr "L&øst..."
 
+# Kontekst? "Alle" eller "Alt"?
 #. Resource IDs: (16614)
 msgid "Reset &All"
-msgstr ""
+msgstr "Nulstil &Alle"
 
 #. Resource IDs: (214)
 msgid "Reset columns"
-msgstr ""
+msgstr "Nulstil kolonner"
 
 #. Resource IDs: (207, 229)
 msgid "Resolve"
@@ -6422,9 +6454,10 @@ msgstr "V&is Knapper på En Række"
 msgid "S&how Buttons on Two Rows"
 msgstr "V&is knapper på To Rækker"
 
+# Oversættelse af "Ribbon"?
 #. Resource IDs: (17078)
 msgid "S&how Quick Access Toolbar below the Ribbon"
-msgstr ""
+msgstr "&Vis genvejsværktøjslinje under båndet"
 
 #. Resource IDs: (1132)
 msgid "S&tatistics"
@@ -6850,17 +6883,19 @@ msgstr "Vis kun &overdækninger og kontekstmenu i Windows Stifinder"
 msgid "Show &unversioned files"
 msgstr "Vis &ikke-versionerede filer"
 
+# Oversættelse af "Ribbon"?
 #. Resource IDs: (1069)
 msgid "Show Above the Ribbon"
-msgstr ""
+msgstr "Vis over båndet"
 
+# Oversættelse af "Ribbon"?
 #. Resource IDs: (1069)
 msgid "Show Below the Ribbon"
-msgstr ""
+msgstr "Vis under båndet"
 
 #. Resource IDs: (1065)
 msgid "Show Fewer Buttons"
-msgstr ""
+msgstr "Vis færre knapper"
 
 #. Resource IDs: (32817)
 msgid "Show File List"
@@ -6885,19 +6920,21 @@ msgstr "Vis låsedialog før låsning af filer"
 
 #. Resource IDs: (1065)
 msgid "Show More Buttons"
-msgstr "Vis Flere Knapper"
+msgstr "Vis flere knapper"
 
 #. Resource IDs: (32813)
 msgid "Show Ove&rview"
 msgstr "Vis ove&rsigt"
 
+# Oversættelse af "Ribbon"?
 #. Resource IDs: (1068)
 msgid "Show Quick Access Toolbar Above the Ribbon"
-msgstr ""
+msgstr "Vis genvejsværktøjslinje over båndet"
 
+# Oversættelse af "Ribbon"?
 #. Resource IDs: (1068)
 msgid "Show Quick Access Toolbar Below the Ribbon"
-msgstr ""
+msgstr "Vis genvejsværktøjslinje under båndet"
 
 #. Resource IDs: (16651)
 msgid "Show Screen&Tips on toolbars"
@@ -7321,7 +7358,7 @@ msgstr "Arbejdskopien blev mærket til %s"
 
 #. Resource IDs: (1064)
 msgid "Tasks Pane"
-msgstr ""
+msgstr "Opgaverude"
 
 #. Resource IDs: (219)
 msgid "Test Only"
@@ -7528,7 +7565,7 @@ msgid ""
 msgstr ""
 "Rettelsesfilen er tilsyneladende forældet! Linjen\n"
 "%s\n"
-"og rettelseslinien\n"
+"og rettelseslinjen\n"
 "%s\n"
 "stemmer ikke overens!"
 
@@ -7807,12 +7844,11 @@ msgstr ""
 
 #. Resource IDs: (16924)
 msgid "Tile &Horizontally"
-msgstr ""
+msgstr "Arranger Horisontalt"
 
 #. Resource IDs: (16928)
-#, fuzzy
 msgid "Tile &Vertically"
-msgstr "Arranger &lodret"
+msgstr "Arranger &Vertikalt"
 
 #. Resource IDs: (65535)
 msgid "Timeouts"
@@ -7868,16 +7904,18 @@ msgstr "Egenskaber for Værktøjslinje"
 
 #. Resource IDs: (1001)
 msgid "Toolbar internal error. Please contact your application vendor."
-msgstr ""
+msgstr "Intern værktøjslinjefejl. Kontakt venligst din programansvarlige."
 
 #. Resource IDs: (16105)
 msgid "Toolbars"
 msgstr "Værktøjslinjer"
 
+# Kontekst? Kan både være tools -> værktøjer og tools -> funktioner alt afhængig af brug.
 #. Resource IDs: (16928)
 msgid "Tools"
 msgstr ""
 
+# Kontekst? Kan både være tools -> værktøjer og tools -> funktioner alt afhængig af brug.
 #. Resource IDs: (65535)
 msgid "Tools:"
 msgstr ""
@@ -8086,7 +8124,7 @@ msgstr "Understøttelse af mailsystem kan ikke startes."
 
 #. Resource IDs: (3865)
 msgid "Unable to process command, server busy."
-msgstr ""
+msgstr "Kunne ikke behandle kommando, serveren er optaget."
 
 #. Resource IDs: (3859)
 #, c-format
@@ -8152,6 +8190,8 @@ msgid ""
 "Unformatted Text\n"
 "text without any formatting"
 msgstr ""
+"Uformateret tekst\n"
+"tekst uden nogen formatering"
 
 #. Resource IDs: (274, 32786)
 msgid "Unified &diff of HEAD revisions"
@@ -8543,11 +8583,10 @@ msgstr ""
 "hvor der kan indtastes en beskrivende besked om låsningen"
 
 #. Resource IDs: (1065)
-#, fuzzy
 msgid "Window Position"
 msgstr "Vinduesposition"
 
-# Der menes formentlig operativsystemet.
+# Kontekst? Der menes formentlig operativsystemet...
 #. Resource IDs: (16927)
 #, fuzzy
 msgid "Windows"
@@ -8834,6 +8873,7 @@ msgstr "[Ikke tildelt]"
 msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
 msgstr "\"intervaller der skal springes over\" bruges til at markere revisionsintervaller der endnu ikke er blevet cachede"
 
+# Kontekst? Dummy?
 #. Resource IDs: (65535)
 msgid "_POPUP_"
 msgstr ""
@@ -8991,6 +9031,7 @@ msgstr "slettet"
 msgid "disk [kB]: "
 msgstr "disk [kB]:"
 
+# Kontekst? Dummy?
 #. Resource IDs: (58116)
 msgid "dummy"
 msgstr ""
@@ -9134,9 +9175,9 @@ msgid "offline"
 msgstr "offline"
 
 #. Resource IDs: (3845)
-#, fuzzy, c-format
+#, c-format
 msgid "on %1"
-msgstr "på %s"
+msgstr "på %1"
 
 #. Resource IDs: (601)
 msgid "online"
@@ -9166,6 +9207,7 @@ msgstr "pixel"
 msgid "possible or real conflict / obstructed"
 msgstr "mulig eller reel konflikt / spærret"
 
+# Kontekst? Dummy?
 #. Resource IDs: (3845)
 msgid "prn"
 msgstr ""
@@ -9347,9 +9389,9 @@ msgid "there are conflicting modifications."
 msgstr "der er ændringer med konflikter."
 
 #. Resource IDs: (3845)
-#, fuzzy, c-format
+#, c-format
 msgid "to %1"
-msgstr "til %s"
+msgstr "til %1"
 
 #. Resource IDs: (80, 103, 284)
 #, c-format
