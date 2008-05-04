@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2008-04-28 20:16+0100\n"
+"PO-Revision-Date: 2008-05-04 20:30+0100\n"
 "Last-Translator: Matjaz Cepon <matjaz.cepon@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1744,10 +1744,6 @@ msgstr "Prebrskaj in poišči zunanji program za razlikovanje"
 msgid "Browse..."
 msgstr "Prebrskaj..."
 
-#. Resource IDs: (1057)
-msgid "Bug Tracker..."
-msgstr "Sledilnik zadev..."
-
 #. Resource IDs: (1119)
 msgid "Bug-&ID / Issue-Nr:"
 msgstr "&ID hrošča / Št. zadeve:"
@@ -1841,7 +1837,7 @@ msgstr "Menijev ni možno prilagoditi!"
 msgid "Can't paste bitmap image from the clipboard!"
 msgstr "Iz odložišča ni mogoče prilepiti bitne slike!"
 
-#. Resource IDs: (2, 73, 99, 563)
+#. Resource IDs: (2, 73, 99, 563, 1069)
 msgid "Cancel"
 msgstr "Prekliči"
 
@@ -2007,6 +2003,10 @@ msgstr "Kontrolna vsota:"
 msgid "Choose item:"
 msgstr "Izberite element:"
 
+#. Resource IDs: (145)
+msgid "Cleaning up"
+msgstr "Čiščenje"
+
 #. Resource IDs: (146)
 msgid "Cleaning up."
 msgstr "Čiščenje."
@@ -2130,7 +2130,7 @@ msgstr "Barva"
 msgid "Color co&de in-line changes"
 msgstr "Obarvaj spremembe v &vrstici"
 
-#. Resource IDs: (138, 65535)
+#. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
 msgstr "Barve"
 
@@ -2142,7 +2142,7 @@ msgstr "Barve:"
 msgid "Comman&ds:"
 msgstr "Uka&zi"
 
-#. Resource IDs: (220)
+#. Resource IDs: (220, 1002)
 msgid "Command"
 msgstr "Ukaz"
 
@@ -2247,7 +2247,7 @@ msgstr "Primerjanje %s z %s"
 msgid "Completed"
 msgstr "Dokončano"
 
-#. Resource IDs: (236)
+#. Resource IDs: (236, 284)
 msgid "Configure Hook Scripts"
 msgstr "Nastavi ukazne datoteke akcij"
 
@@ -2637,6 +2637,14 @@ msgstr "Mapa ustvarjena oddaljeno"
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
 msgstr "Ustvari 'poceni' kopijo v skladišču, namenjeno vejam ali označevanju"
 
+#. Resource IDs: (2052)
+msgid ""
+"Creates a patch file from the differences of the two files\n"
+"Create patch file"
+msgstr ""
+"Ustvari datoteko popravkov iz razlike dveh datotek\n"
+"Ustvari datoteko popravkov"
+
 #. Resource IDs: (10)
 msgid "Creates a repository database at the current location"
 msgstr "Ustvari zbirko podatkov skladišča na trenutnem položaju"
@@ -2726,7 +2734,7 @@ msgstr "Privzeti meni aplikacije. Pojavi se, kadar ni odprt noben dokument."
 msgid "Default path:"
 msgstr "Privzeta pot:"
 
-#. Resource IDs: (1382)
+#. Resource IDs: (1002, 1382)
 msgid "Delete"
 msgstr "Izbriši"
 
@@ -3030,7 +3038,7 @@ msgstr ""
 "Uredi lastnost \"%s\" na\r\n"
 "%s"
 
-#. Resource IDs: (1331)
+#. Resource IDs: (1331, 1382)
 msgid "Edit..."
 msgstr "Uredi..."
 
@@ -3383,6 +3391,13 @@ msgstr "Dokumenta ni mogoče shraniti."
 msgid "Failed to set/remove changelist \"%s\""
 msgstr "Nastavutev-odstranitev seznama sprememb \"%s\" ni uspela"
 
+#. Resource IDs: (83)
+#, c-format
+msgid ""
+"Failed to start the issue tracker COM provider \"%s\".\n"
+"%s"
+msgstr ""
+
 #. Resource IDs: (220)
 msgid "Failed!"
 msgstr "Neuspešno!"
@@ -3396,7 +3411,7 @@ msgstr "Pridobivanje datoteke..."
 msgid "Fetching revision %s of file:"
 msgstr "Pridobivanje revizije %s datoteke:"
 
-#. Resource IDs: (63, 74, 77, 319)
+#. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
 msgstr "Datoteka"
 
@@ -3533,6 +3548,8 @@ msgid ""
 "Fill Tool\n"
 "Fill"
 msgstr ""
+"Orodje za zapolnitev\n"
+"Zapolnitev"
 
 #. Resource IDs: (65535)
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
@@ -3733,34 +3750,34 @@ msgstr "Pojdi na vrstico"
 #. Resource IDs: (2051)
 msgid ""
 "Go to the next conflict\n"
-"next conflict"
+"Next conflict"
 msgstr ""
 "Pojdi na naslednji spor\n"
-"naslednji spor"
+"Naslednji spor"
 
 #. Resource IDs: (2049)
 msgid ""
 "Go to the next difference\n"
-"next difference"
+"Next difference"
 msgstr ""
 "Pojdi na naslednjo razliko\n"
-"naslednja razlika"
+"Naslednja razlika"
 
 #. Resource IDs: (2051)
 msgid ""
 "Go to the previous conflict\n"
-"previous conflict"
+"Previous conflict"
 msgstr ""
 "Pojdi na prejšnji spor\n"
-"prejšnji spor"
+"Prejšnji spor"
 
 #. Resource IDs: (2049)
 msgid ""
 "Go to the previous difference\n"
-"previous difference"
+"Previous difference"
 msgstr ""
 "Pojdi na prejšnjo razliko\n"
-"prejšnja razlika"
+"Prejšnja razlika"
 
 #. Resource IDs: (1134)
 msgid "Graph type:"
@@ -3806,7 +3823,7 @@ msgstr "Odložišče"
 
 #. Resource IDs: (16974)
 msgid "Hex"
-msgstr ""
+msgstr "Hex"
 
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
@@ -3838,7 +3855,7 @@ msgstr "Nasvet: pritisnite F5 za osvežitev izbranega poddrevesa in Ctrl-F5 za n
 
 #. Resource IDs: (16519)
 msgid "Hint: select the context menu, change the page to \"Commands\" and drag the toolbar buttons into the menu window."
-msgstr ""
+msgstr "Namig: izberite kontekstni menu, spremenite stran na \"Ukazi\" in potegnite gumbe orodne vrstice v menijsko okno."
 
 #. Resource IDs: (1064)
 msgid "Home"
@@ -3937,11 +3954,11 @@ msgstr "ID:32825:V C +L"
 msgid "ID:32825:VA  +D"
 msgstr "ID:32825:VA  +D"
 
-#. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
+#. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
 msgstr "ID:57601:V C +O"
 
-#. Accelerator Entry for Menu ID:57603; '&Save Ctrl-S'
+#. Accelerator Entry for Menu ID:57603; '&Save'
 msgid "ID:57603:V C +S"
 msgstr "ID:57603:V C +S"
 
@@ -3967,7 +3984,7 @@ msgstr "ID:57636:V C +F"
 msgid "ID:57637:V C +V"
 msgstr "ID:57637:V C +V"
 
-#. Accelerator Entry for Menu ID:57643; '&Undo\tCtrl+Z'
+#. Accelerator Entry for Menu ID:57643; '&Undo'
 msgid "ID:57643:V C +Z"
 msgstr "ID:57643:V C +Z"
 
@@ -4263,7 +4280,7 @@ msgstr "Premalo pomnilnika za izvedbo operacije."
 msgid "Internal application error."
 msgstr "Notranja napaka aplikacije."
 
-#. Resource IDs: (338, 339)
+#. Resource IDs: (339)
 msgid "Internal value indicating compression quality"
 msgstr "Interna vrednost, ki pove kvaliteto stiskanja"
 
@@ -4355,9 +4372,9 @@ msgstr ""
 "Območje je lahko podano z uporabo vezaja.\n"
 "Primer: 2-5,7,10,44-70,300-HEAD"
 
-#. Resource IDs: (570)
-msgid "Issue Tracker Hook"
-msgstr "Akcijska skripta sledilnika zadev"
+#. Resource IDs: (283)
+msgid "Issue Tracker Integration"
+msgstr "Intergracija sledilnika zadevam"
 
 #. Resource IDs: (145)
 msgid ""
@@ -4693,9 +4710,9 @@ msgstr "Menijska vrstica"
 
 #. Resource IDs: (16626)
 msgid "Menu s&hadows"
-msgstr ""
+msgstr "&Sence menijev"
 
-#. Resource IDs: (109, 110, 111, 276, 278, 65535)
+#. Resource IDs: (109, 110, 111, 112, 276, 278, 65535)
 msgid "Merge"
 msgstr "Spoji"
 
@@ -4707,7 +4724,7 @@ msgstr "Spoji - TortoiseSVN"
 msgid "Merge Reintegrate"
 msgstr "Spojitev veje"
 
-#. Resource IDs: (1416)
+#. Resource IDs: (1468)
 msgid "Merge a range of revisions"
 msgstr "Spoji območje revizij"
 
@@ -4743,7 +4760,7 @@ msgstr "Shrani revizijo v..."
 msgid "Merge revisions to..."
 msgstr "Shrani revizije v..."
 
-#. Resource IDs: (1417)
+#. Resource IDs: (1470)
 msgid "Merge two different trees"
 msgstr "Spoji dve različni drevesi"
 
@@ -4831,7 +4848,7 @@ msgstr "Moje"
 
 #. Resource IDs: (1068)
 msgid "Minimize the Ribbon"
-msgstr ""
+msgstr "Skrči trak"
 
 #. Resource IDs: (1023)
 msgid "Misc"
@@ -4981,7 +4998,7 @@ msgstr "Omrežje"
 msgid "Never try to contact the repository again"
 msgstr "Nikoli več se ne poskusi povezati s skladiščem"
 
-#. Resource IDs: (30721)
+#. Resource IDs: (1002, 30721, 65535)
 msgid "New"
 msgstr "Nova"
 
@@ -5367,6 +5384,14 @@ msgstr ""
 msgid "Page :"
 msgstr "Stran :"
 
+#. Resource IDs: (63)
+msgid "Parameters"
+msgstr "Parameteri"
+
+#. Resource IDs: (1477)
+msgid "Parameters:"
+msgstr "Parameteri:"
+
 #. Resource IDs: (69)
 msgid "Password:"
 msgstr "Geslo:"
@@ -5395,7 +5420,7 @@ msgstr "Popravi izbrano"
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "Datoteke popravkov (*.diff, *.patch)|*.diff;*.patch|Vse (*.*)|*.*||"
 
-#. Resource IDs: (20, 77, 198, 207)
+#. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
 msgstr "Pot"
 
@@ -5413,13 +5438,15 @@ msgstr ""
 
 #. Resource IDs: (16538)
 msgid "Personalized Menus and Toolbars"
-msgstr ""
+msgstr "Prilagojeni meniji in orodnje vrstice"
 
 #. Resource IDs: (3849)
 msgid ""
 "Picture (Metafile)\n"
 "a picture"
 msgstr ""
+"Slika (meta datoteka)\n"
+"slika"
 
 #. Resource IDs: (65535)
 msgid "Picture:"
@@ -5651,6 +5678,14 @@ msgstr "Stanje lastnosti"
 msgid "Property value:"
 msgstr "Vrednost lastnosti:"
 
+#. Resource IDs: (63)
+msgid "Provider"
+msgstr "Ponudnik"
+
+#. Resource IDs: (1475)
+msgid "Provider:"
+msgstr "Ponudnik:"
+
 #. Resource IDs: (1412)
 msgid "Proxy &timeout in seconds:"
 msgstr "Časovni &rok prehoda v sekundah:"
@@ -5868,7 +5903,7 @@ msgstr "Oddaljeno stanje"
 msgid "Remote text status"
 msgstr "Stanje oddaljenega besedila"
 
-#. Resource IDs: (1332)
+#. Resource IDs: (1332, 1470)
 msgid "Remove"
 msgstr "Odstrani"
 
@@ -6146,7 +6181,7 @@ msgstr "Revizija"
 msgid "Revision %d"
 msgstr "Revizija %d"
 
-#. Resource IDs: (269, 270, 272)
+#. Resource IDs: (269, 272)
 #, c-format
 msgid "Revision %ld"
 msgstr "Revizija %ld"
@@ -6278,7 +6313,7 @@ msgstr "Po&kaži gumbe v dveh vrstah"
 
 #. Resource IDs: (17078)
 msgid "S&how Quick Access Toolbar below the Ribbon"
-msgstr ""
+msgstr "pri&kaži orodno vrstico za hitri dostop pod trakom"
 
 #. Resource IDs: (1132)
 msgid "S&tatistics"
@@ -6519,6 +6554,10 @@ msgstr "Izberi mapo prevzema"
 msgid "Select end revision"
 msgstr "Izberite končno revizijo"
 
+#. Resource IDs: (64)
+msgid "Select folder to associate with this issue tracker"
+msgstr "Izberite mapo za ta sledilnik zadevam"
+
 #. Resource IDs: (79)
 msgid ""
 "Select folder to export to.\n"
@@ -6688,7 +6727,7 @@ msgstr "Pokaži &vse revizije"
 msgid "Show &changes"
 msgstr "Pokaži &spremembe..."
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467, 32784)
 msgid "Show &log"
 msgstr "Pokaži &dnevnik"
 
@@ -6706,11 +6745,11 @@ msgstr "Pokaži datoteke &brez različic"
 
 #. Resource IDs: (1069)
 msgid "Show Above the Ribbon"
-msgstr ""
+msgstr "Pokaži nad trakom"
 
 #. Resource IDs: (1069)
 msgid "Show Below the Ribbon"
-msgstr ""
+msgstr "Pokaži pod trakom"
 
 #. Resource IDs: (1065)
 msgid "Show Fewer Buttons"
@@ -6744,11 +6783,11 @@ msgstr "Prikaži &pomanjšan graf"
 
 #. Resource IDs: (1068)
 msgid "Show Quick Access Toolbar Above the Ribbon"
-msgstr ""
+msgstr "Orodno vrstico za hitri dostop pokaži nad trakom"
 
 #. Resource IDs: (1068)
 msgid "Show Quick Access Toolbar Below the Ribbon"
-msgstr ""
+msgstr "Orodno vrstico za hitri dostop pokaži pod trakom"
 
 #. Resource IDs: (16651)
 msgid "Show Screen&Tips on toolbars"
@@ -6785,6 +6824,22 @@ msgstr "Pokaži &številke vrstic"
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
 msgstr "Najstarejše vozlišče prikaži na vrhu"
+
+#. Resource IDs: (2054)
+msgid ""
+"Show or hide the line diff bar\n"
+"Toggle LineDiffBar"
+msgstr ""
+"Pokaži ali skrij prikaz razlik v vrstici\n"
+"Preklopi prikaz razlik v vrstici"
+
+#. Resource IDs: (2054)
+msgid ""
+"Show or hide the locator bar\n"
+"Toggle LocatorBar"
+msgstr ""
+"Pokaži ali skrij lokacijsko vrstico\n"
+"Preklopi lokacijsko vrstico"
 
 #. Resource IDs: (3713)
 msgid ""
@@ -7312,6 +7367,14 @@ msgid "The image can not be shown."
 msgstr "Slike ni mogoče prikazati."
 
 #. Resource IDs: (63)
+msgid "The issue-tracker provider could not be created. Please check that it is installed correctly."
+msgstr "Ponudnika sledilnika zadev ni moč ustvariti. Preverite, ali je pravilno nameščen."
+
+#. Resource IDs: (64)
+msgid "The issue-tracker provider was unable to validate the parameter string"
+msgstr "Ponudnik sledilnika zadev ni mogel preveriti veljavnosti parametra"
+
+#. Resource IDs: (63)
 #, c-format
 msgid "The line \"====\" was expected in line %d !"
 msgstr "V vrstici %d bi se morala nahajati vrstica \"====\"!"
@@ -7546,6 +7609,10 @@ msgstr ""
 "V eni ali več mapah, ki ste jih vključili s svn:externals, so spremembe ali elementi brez različic.\n"
 "Te datoteke <b>niso</b> na seznamu za objavo. Objaviti jih boste morali ločeno."
 
+#. Resource IDs: (64)
+msgid "There are no issue-tracker providers available."
+msgstr "Na voljo ni nobenega ponudnika sledilnika zadev."
+
 #. Resource IDs: (66)
 #, c-format
 msgid ""
@@ -7651,7 +7718,7 @@ msgstr "Ta lastnost ne sme imeti več vrstic. Dovoljena je ena sama."
 
 #. Resource IDs: (1016)
 msgid "This will delete the record of commands you've used in this application and restore the default set of visible commands to the menus and toolbars. It will not undo any explicit customizations. Are you sure you want to do this?"
-msgstr ""
+msgstr "Ta akcija izbriše vse zapise o uporabljenih ukazih v tej aplikaciji in ponastavi privzet nabor vidnih ukazov v menijih in orodnih vrsticah. Ne izbriše posebnih prilagoditev. Ali zares želite storiti to?"
 
 #. Resource IDs: (16924)
 msgid "Tile &Horizontally"
@@ -8139,10 +8206,10 @@ msgstr "Uporabi mape \"_svn\" namesto \".svn\""
 #. Resource IDs: (2054)
 msgid ""
 "Use all content from the left view\n"
-"use left file"
+"Use left file"
 msgstr ""
 "Uporabi vsebino leve strani pogleda\n"
-"uporabi levo datoteko"
+"Uporabi levo datoteko"
 
 #. Resource IDs: (32857)
 msgid "Use block from left before right"
@@ -8151,10 +8218,10 @@ msgstr "Uporabi del besedila iz leve strani pred desnim"
 #. Resource IDs: (2054)
 msgid ""
 "Use block from left view before block from right view\n"
-"use block from left before right"
+"Use block from left before right"
 msgstr ""
 "Uporabi del besedila iz levega pogleda pred desnim\n"
-"uporabi del besedila iz leve strani pred desno"
+"Uporabi del besedila iz leve strani pred desno"
 
 #. Resource IDs: (32859)
 msgid "Use block from right before left"
@@ -8163,10 +8230,10 @@ msgstr "Uporabi del besedila iz desne strani pred levim"
 #. Resource IDs: (2054)
 msgid ""
 "Use block from right view before block from left view\n"
-"use block from right before left"
+"Use block from right before left"
 msgstr ""
-"Uporabi del besedila iz resnega pogleda pred levim\n"
-"uporabi del besedila iz desne strani pred levo"
+"Uporabi del besedila iz desnega pogleda pred levim\n"
+"Uporabi del besedila iz desne strani pred levo"
 
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one first)"
@@ -8251,10 +8318,10 @@ msgstr ""
 #. Resource IDs: (2054)
 msgid ""
 "Use text block from the left view\n"
-"use left block"
+"Use left block"
 msgstr ""
 "Uporabi del besedila iz leve strani pogleda\n"
-"uporabi del besedila na levi"
+"Uporabi del besedila na levi"
 
 #. Resource IDs: (251)
 msgid "Use th&is text block"
@@ -8409,7 +8476,7 @@ msgstr "Z URL:"
 msgid "Working Copy"
 msgstr "Delovna kopija"
 
-#. Resource IDs: (1335)
+#. Resource IDs: (1335, 1472)
 msgid "Working Copy Path:"
 msgstr "Pot delovne kopije"
 
@@ -8794,10 +8861,6 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "changes total: "
 msgstr "skupno število sprememb:"
-
-#. Resource IDs: (145)
-msgid "cleaning up"
-msgstr "čiščenje"
 
 #. Resource IDs: (244, 245)
 msgid "commits"
@@ -9349,4 +9412,8 @@ msgstr "leto"
 #. Resource IDs: (18, 1002, 1011, 1012)
 msgid "yes"
 msgstr "da"
+
+#. Resource IDs: (1382)
+msgid "{BugTraq}"
+msgstr "{BugTraq}"
 
