@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-04-29 09:40+0800\n"
+"PO-Revision-Date: 2008-05-05 09:42+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1715,10 +1715,6 @@ msgstr "尋找外部比對差異工具"
 msgid "Browse..."
 msgstr "瀏覽..."
 
-#. Resource IDs: (1057)
-msgid "Bug Tracker..."
-msgstr "Bug 追踪..."
-
 #. Resource IDs: (1119)
 msgid "Bug-&ID / Issue-Nr:"
 msgstr "Bug編號 / 問題編號(&I):"
@@ -1812,7 +1808,7 @@ msgstr ""
 msgid "Can't paste bitmap image from the clipboard!"
 msgstr ""
 
-#. Resource IDs: (2, 73, 99, 563)
+#. Resource IDs: (2, 73, 99, 563, 1069)
 msgid "Cancel"
 msgstr "取消"
 
@@ -1978,6 +1974,10 @@ msgstr "校驗和:"
 msgid "Choose item:"
 msgstr "選擇項目:"
 
+#. Resource IDs: (145)
+msgid "Cleaning up"
+msgstr "正在清除."
+
 #. Resource IDs: (146)
 msgid "Cleaning up."
 msgstr "正在清除."
@@ -2097,7 +2097,7 @@ msgstr "色彩"
 msgid "Color co&de in-line changes"
 msgstr "以顏色標記行內程式碼變更(&D)"
 
-#. Resource IDs: (138, 65535)
+#. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
 msgstr "色彩"
 
@@ -2109,7 +2109,7 @@ msgstr "色彩:"
 msgid "Comman&ds:"
 msgstr "命令(&D):"
 
-#. Resource IDs: (220)
+#. Resource IDs: (220, 1002)
 msgid "Command"
 msgstr "命令"
 
@@ -2214,7 +2214,7 @@ msgstr "正在比對 %s 與 %s"
 msgid "Completed"
 msgstr "完畢"
 
-#. Resource IDs: (236)
+#. Resource IDs: (236, 284)
 msgid "Configure Hook Scripts"
 msgstr "設定掛勾指令檔"
 
@@ -2602,6 +2602,12 @@ msgstr "遠端建立資料夾完成"
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
 msgstr "在檔案庫中快速建立複本做為分支或標記之用"
 
+#. Resource IDs: (2052)
+msgid ""
+"Creates a patch file from the differences of the two files\n"
+"Create patch file"
+msgstr ""
+
 #. Resource IDs: (10)
 msgid "Creates a repository database at the current location"
 msgstr "在目前位址建立檔案資料庫"
@@ -2691,7 +2697,7 @@ msgstr ""
 msgid "Default path:"
 msgstr "預設路徑:"
 
-#. Resource IDs: (1382)
+#. Resource IDs: (1002, 1382)
 msgid "Delete"
 msgstr "刪除"
 
@@ -2995,7 +3001,7 @@ msgstr ""
 "編輯性質 \"%s\" 於\n"
 "%s"
 
-#. Resource IDs: (1331)
+#. Resource IDs: (1331, 1382)
 msgid "Edit..."
 msgstr "編輯..."
 
@@ -3346,6 +3352,13 @@ msgstr "儲存文件失敗."
 msgid "Failed to set/remove changelist \"%s\""
 msgstr "無法設定/移除變更列表: %s"
 
+#. Resource IDs: (83)
+#, c-format
+msgid ""
+"Failed to start the issue tracker COM provider \"%s\".\n"
+"%s"
+msgstr ""
+
 #. Resource IDs: (220)
 msgid "Failed!"
 msgstr "失敗!"
@@ -3359,7 +3372,7 @@ msgstr "正在取得檔案..."
 msgid "Fetching revision %s of file:"
 msgstr "正在取得第 %s 版的:"
 
-#. Resource IDs: (63, 74, 77, 319)
+#. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
 msgstr "檔案"
 
@@ -3696,7 +3709,7 @@ msgstr "前往行數"
 #. Resource IDs: (2051)
 msgid ""
 "Go to the next conflict\n"
-"next conflict"
+"Next conflict"
 msgstr ""
 "跳至下一個衝突處\n"
 "下一衝突"
@@ -3704,7 +3717,7 @@ msgstr ""
 #. Resource IDs: (2049)
 msgid ""
 "Go to the next difference\n"
-"next difference"
+"Next difference"
 msgstr ""
 "跳至下一個差異處\n"
 "下一差異"
@@ -3712,15 +3725,15 @@ msgstr ""
 #. Resource IDs: (2051)
 msgid ""
 "Go to the previous conflict\n"
-"previous conflict"
+"Previous conflict"
 msgstr ""
-"跳至前一個差異處\n"
-"前一差異"
+"跳至前一個衝突處\n"
+"前一衝突"
 
 #. Resource IDs: (2049)
 msgid ""
 "Go to the previous difference\n"
-"previous difference"
+"Previous difference"
 msgstr ""
 "跳至前一個差異處\n"
 "前一差異"
@@ -3804,7 +3817,7 @@ msgstr ""
 
 #. Resource IDs: (1064)
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 #. Resource IDs: (103)
 msgid "Hook Scripts"
@@ -3912,11 +3925,11 @@ msgstr "ID:32825:V C +L"
 msgid "ID:32825:VA  +D"
 msgstr "ID:32825:VA  +D"
 
-#. Accelerator Entry for Menu ID:57601; '&Open Ctrl-O'
+#. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
 msgstr "ID:57601:V C +O"
 
-#. Accelerator Entry for Menu ID:57603; '&Save Ctrl-S'
+#. Accelerator Entry for Menu ID:57603; '&Save'
 msgid "ID:57603:V C +S"
 msgstr "ID:57603:V C +S"
 
@@ -3942,7 +3955,7 @@ msgstr "ID:57636:V C +F"
 msgid "ID:57637:V C +V"
 msgstr "ID:57637:V C +V"
 
-#. Accelerator Entry for Menu ID:57643; '&Undo\tCtrl+Z'
+#. Accelerator Entry for Menu ID:57643; '&Undo'
 msgid "ID:57643:V C +Z"
 msgstr "ID:57643:V C +Z"
 
@@ -4112,11 +4125,11 @@ msgstr "包含忽略的項目"
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
-msgstr ""
+msgstr "影像與文字(&A)"
 
 #. Resource IDs: (16507)
 msgid "Image &and text"
-msgstr ""
+msgstr "影像與文字(&A)"
 
 #. Resource IDs: (16508)
 msgid "Images"
@@ -4236,7 +4249,7 @@ msgstr "記憶體不足, 無法完成作業."
 msgid "Internal application error."
 msgstr "內部程式錯誤."
 
-#. Resource IDs: (338, 339)
+#. Resource IDs: (339)
 msgid "Internal value indicating compression quality"
 msgstr "表示壓縮品質的內部值"
 
@@ -4328,9 +4341,9 @@ msgstr ""
 "可以使用 - 號來表示範圍.\n"
 "例如: 2-5,7,10,44-70,300-HEAD"
 
-#. Resource IDs: (570)
-msgid "Issue Tracker Hook"
-msgstr "Bug 追踪掛勾"
+#. Resource IDs: (283)
+msgid "Issue Tracker Integration"
+msgstr "Bug 追踪整合"
 
 #. Resource IDs: (145)
 msgid ""
@@ -4379,15 +4392,15 @@ msgstr "保留變更列表"
 
 #. Resource IDs: (16136)
 msgid "Keyboard"
-msgstr ""
+msgstr "鍵盤"
 
 #. Resource IDs: (65535)
 msgid "Keyboard shortcuts:"
-msgstr ""
+msgstr "鍵盤捷徑:"
 
 #. Resource IDs: (1002)
 msgid "Keys"
-msgstr ""
+msgstr "按鍵"
 
 #. Resource IDs: (65535)
 msgid "Last commit revision:"
@@ -4442,6 +4455,8 @@ msgid ""
 "Line Tool\n"
 "Line"
 msgstr ""
+"畫線工具\n"
+"畫線"
 
 #. Resource IDs: (32853)
 msgid "Line diff bar"
@@ -4474,7 +4489,7 @@ msgstr "紀錄訊息已快取的檔案庫列表"
 
 #. Resource IDs: (16631, 16992)
 msgid "List1"
-msgstr ""
+msgstr "List1"
 
 #. Resource IDs: (130)
 msgid "Load Images"
@@ -4594,7 +4609,7 @@ msgstr "最低版本: %ld - 最高版本: %ld - 最新版本: %ld"
 
 #. Resource IDs: (16973)
 msgid "Lum"
-msgstr ""
+msgstr "Lum"
 
 #. Resource IDs: (3866)
 msgid "Mail system DLL is invalid."
@@ -4654,21 +4669,21 @@ msgstr "行為紀錄最大行數"
 
 #. Resource IDs: (16655)
 msgid "Me&nus show recently used commands first"
-msgstr ""
+msgstr "選單優先顯示最近使用的指令(&N)"
 
 #. Resource IDs: (16134)
 msgid "Menu"
-msgstr ""
+msgstr "選單"
 
 #. Resource IDs: (1001)
 msgid "Menu Bar"
-msgstr ""
+msgstr "選單列"
 
 #. Resource IDs: (16626)
 msgid "Menu s&hadows"
-msgstr ""
+msgstr "選單陰影(&H)"
 
-#. Resource IDs: (109, 110, 111, 276, 278, 65535)
+#. Resource IDs: (109, 110, 111, 112, 276, 278, 65535)
 msgid "Merge"
 msgstr "合併"
 
@@ -4680,7 +4695,7 @@ msgstr "合併 - TortoiseSVN"
 msgid "Merge Reintegrate"
 msgstr "合併-重新整合"
 
-#. Resource IDs: (1416)
+#. Resource IDs: (1468)
 msgid "Merge a range of revisions"
 msgstr "合併版本範圍"
 
@@ -4716,7 +4731,7 @@ msgstr "合併版本至..."
 msgid "Merge revisions to..."
 msgstr "合併版本至..."
 
-#. Resource IDs: (1417)
+#. Resource IDs: (1470)
 msgid "Merge two different trees"
 msgstr "合併兩個不同的樹"
 
@@ -4804,7 +4819,7 @@ msgstr "我的"
 
 #. Resource IDs: (1068)
 msgid "Minimize the Ribbon"
-msgstr ""
+msgstr "最小化功能區"
 
 #. Resource IDs: (1023)
 msgid "Misc"
@@ -4870,11 +4885,11 @@ msgstr ""
 
 #. Resource IDs: (17026)
 msgid "Move &Down"
-msgstr ""
+msgstr "往下移動(&D)"
 
 #. Resource IDs: (17025)
 msgid "Move &Up"
-msgstr ""
+msgstr "往上移動(&U)"
 
 #. Resource IDs: (1002)
 msgid "Move Item Down"
@@ -4932,11 +4947,11 @@ msgstr "NUM"
 
 #. Resource IDs: (17004)
 msgid "Navigation Pane Options"
-msgstr ""
+msgstr "導覽面板選項"
 
 #. Resource IDs: (1065)
 msgid "Navigation Pane Options..."
-msgstr ""
+msgstr "導覽面板選項..."
 
 #. Resource IDs: (208)
 msgid "Needs lock"
@@ -4954,7 +4969,7 @@ msgstr "網路"
 msgid "Never try to contact the repository again"
 msgstr "不再重試連接檔案庫"
 
-#. Resource IDs: (30721)
+#. Resource IDs: (1002, 30721, 65535)
 msgid "New"
 msgstr "新增"
 
@@ -5341,6 +5356,14 @@ msgstr ""
 msgid "Page :"
 msgstr "頁:"
 
+#. Resource IDs: (63)
+msgid "Parameters"
+msgstr "參數"
+
+#. Resource IDs: (1477)
+msgid "Parameters:"
+msgstr "參數:"
+
 #. Resource IDs: (69)
 msgid "Password:"
 msgstr "密碼:"
@@ -5369,7 +5392,7 @@ msgstr "補綴選定的項目"
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 msgstr "補綴檔(*.diff, *.patch)|*.diff;*.patch|所有檔案(*.*)|*.*||"
 
-#. Resource IDs: (20, 77, 198, 207)
+#. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
 msgstr "路徑"
 
@@ -5627,6 +5650,14 @@ msgstr "性質狀態"
 msgid "Property value:"
 msgstr "性質值:"
 
+#. Resource IDs: (63)
+msgid "Provider"
+msgstr "提供者"
+
+#. Resource IDs: (1475)
+msgid "Provider:"
+msgstr "提供者:"
+
 #. Resource IDs: (1412)
 msgid "Proxy &timeout in seconds:"
 msgstr "Proxy 逾時設定(秒)(&T):"
@@ -5844,7 +5875,7 @@ msgstr "遠端狀態"
 msgid "Remote text status"
 msgstr "遠端文字狀態"
 
-#. Resource IDs: (1332)
+#. Resource IDs: (1332, 1470)
 msgid "Remove"
 msgstr "移除"
 
@@ -6122,7 +6153,7 @@ msgstr "版本"
 msgid "Revision %d"
 msgstr "版本 %d"
 
-#. Resource IDs: (269, 270, 272)
+#. Resource IDs: (269, 272)
 #, c-format
 msgid "Revision %ld"
 msgstr "版本 %ld"
@@ -6254,7 +6285,7 @@ msgstr "以兩列方式顯示按鈕(&H)"
 
 #. Resource IDs: (17078)
 msgid "S&how Quick Access Toolbar below the Ribbon"
-msgstr "在橫線下方顯示快速存取工具列(&H)"
+msgstr "在功能區下方顯示快速存取工具列(&H)"
 
 #. Resource IDs: (1132)
 msgid "S&tatistics"
@@ -6495,6 +6526,10 @@ msgstr "選擇取出的目的目錄"
 msgid "Select end revision"
 msgstr "選擇結束版本"
 
+#. Resource IDs: (64)
+msgid "Select folder to associate with this issue tracker"
+msgstr "請選擇要和此 bug 追踪程式關聯的資料匣"
+
 #. Resource IDs: (79)
 msgid ""
 "Select folder to export to.\n"
@@ -6664,7 +6699,7 @@ msgstr "顯示所有版本(&A)"
 msgid "Show &changes"
 msgstr "顯示變更(&C)"
 
-#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 32784)
+#. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467, 32784)
 msgid "Show &log"
 msgstr "顯示記錄(&L)"
 
@@ -6682,11 +6717,11 @@ msgstr "顯示無版本控制的檔案(&U)"
 
 #. Resource IDs: (1069)
 msgid "Show Above the Ribbon"
-msgstr "顯示於橫線上"
+msgstr "顯示於功能區上方"
 
 #. Resource IDs: (1069)
 msgid "Show Below the Ribbon"
-msgstr "顯示於橫線下"
+msgstr "顯示於功能區下方"
 
 #. Resource IDs: (1065)
 msgid "Show Fewer Buttons"
@@ -6722,11 +6757,11 @@ msgstr "顯示一覽(&R)"
 
 #. Resource IDs: (1068)
 msgid "Show Quick Access Toolbar Above the Ribbon"
-msgstr "在橫線上方顯示快速存取工具列"
+msgstr "在功能區上方顯示快速存取工具列"
 
 #. Resource IDs: (1068)
 msgid "Show Quick Access Toolbar Below the Ribbon"
-msgstr "在橫線下方顯示快速存取工具列"
+msgstr "在功能區下方顯示快速存取工具列"
 
 #. Resource IDs: (16651)
 msgid "Show Screen&Tips on toolbars"
@@ -6763,6 +6798,22 @@ msgstr "顯示行號(&S)"
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
 msgstr "舊的節點顯示在最上面"
+
+#. Resource IDs: (2054)
+msgid ""
+"Show or hide the line diff bar\n"
+"Toggle LineDiffBar"
+msgstr ""
+"顯示或隱藏單行差異列\n"
+"開關單行差異"
+
+#. Resource IDs: (2054)
+msgid ""
+"Show or hide the locator bar\n"
+"Toggle LocatorBar"
+msgstr ""
+"顯示或隱藏定位工具列\n"
+"開關定位列"
 
 #. Resource IDs: (3713)
 msgid ""
@@ -7290,6 +7341,14 @@ msgid "The image can not be shown."
 msgstr "無法顯示圖片"
 
 #. Resource IDs: (63)
+msgid "The issue-tracker provider could not be created. Please check that it is installed correctly."
+msgstr "無法成功建立bug追踪提供者. 請檢查是否有正確安裝."
+
+#. Resource IDs: (64)
+msgid "The issue-tracker provider was unable to validate the parameter string"
+msgstr "bug 追踪程式提供者無法檢驗參數的正確性"
+
+#. Resource IDs: (63)
 #, c-format
 msgid "The line \"====\" was expected in line %d !"
 msgstr "\"====\" 行應該出現在第 %d 行!"
@@ -7524,6 +7583,10 @@ msgid ""
 msgstr ""
 "以 svn:externals 指定的目錄中有異動或是未納入版本控制的檔案.\n"
 "那些檔案 <b>不會</b> 列在送交列表中, 您必須自行送交那些檔案."
+
+#. Resource IDs: (64)
+msgid "There are no issue-tracker providers available."
+msgstr "目前沒有可用的bug追踪程式提供者."
 
 #. Resource IDs: (66)
 #, c-format
@@ -8118,7 +8181,7 @@ msgstr "使用 \"_svn\" 目錄存放資料"
 #. Resource IDs: (2054)
 msgid ""
 "Use all content from the left view\n"
-"use left file"
+"Use left file"
 msgstr ""
 "使用左方視窗的全部內容\n"
 "使用左方檔案"
@@ -8130,7 +8193,7 @@ msgstr "先使用左方區塊再使用右方"
 #. Resource IDs: (2054)
 msgid ""
 "Use block from left view before block from right view\n"
-"use block from left before right"
+"Use block from left before right"
 msgstr ""
 "先使用左方視窗的文字區塊再使用右方視窗的文字區塊\n"
 "先使用左方區塊再使用右方"
@@ -8142,7 +8205,7 @@ msgstr "先使用右方區塊再使用左方"
 #. Resource IDs: (2054)
 msgid ""
 "Use block from right view before block from left view\n"
-"use block from right before left"
+"Use block from right before left"
 msgstr ""
 "先使用右方視窗的文字區塊再使用左方視窗的文字區塊\n"
 "先使用右方區塊再使用左方"
@@ -8228,7 +8291,7 @@ msgstr "先套用遠端再套用本地的文字區塊(&H)"
 #. Resource IDs: (2054)
 msgid ""
 "Use text block from the left view\n"
-"use left block"
+"Use left block"
 msgstr ""
 "使用左方視窗的文字區塊\n"
 "使用左方區塊"
@@ -8388,7 +8451,7 @@ msgstr "以 URL:"
 msgid "Working Copy"
 msgstr "工作複本"
 
-#. Resource IDs: (1335)
+#. Resource IDs: (1335, 1472)
 msgid "Working Copy Path:"
 msgstr "工作複本路徑:"
 
@@ -8771,10 +8834,6 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "changes total: "
 msgstr "變更總數:"
-
-#. Resource IDs: (145)
-msgid "cleaning up"
-msgstr "正在清除"
 
 #. Resource IDs: (244, 245)
 msgid "commits"
@@ -9328,6 +9387,14 @@ msgstr "年"
 msgid "yes"
 msgstr "是"
 
+#. Resource IDs: (1382)
+msgid "{BugTraq}"
+msgstr "{BugTraq}"
+
+#~ msgid "Bug Tracker..."
+#~ msgstr "Bug 追踪..."
+#~ msgid "cleaning up"
+#~ msgstr "正在清除"
 #~ msgid "Remove..."
 #~ msgstr "移除..."
 #~ msgid "&Open Ctrl-O"
