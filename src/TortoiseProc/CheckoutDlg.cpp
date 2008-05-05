@@ -385,7 +385,7 @@ void CCheckoutDlg::OnEnChangeRevisionNum()
 
 void CCheckoutDlg::SetRevision(const SVNRev& rev)
 {
-	if (rev.IsHead())
+	if (rev.IsHead() || !rev.IsValid())
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
 	else
 	{
