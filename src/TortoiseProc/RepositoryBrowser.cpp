@@ -2191,8 +2191,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				else
 				{
 					CString sCmd;
-					sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%ld"), 
-						CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), EscapeUrl(urlList[0]), (LONG)GetRevision());
+					sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%s"), 
+						CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), EscapeUrl(urlList[0]), GetRevision().ToString());
 
 					if (!m_path.IsUrl())
 					{
@@ -2233,8 +2233,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				}
 				itemsToCheckout.TrimRight('*');
 				CString sCmd;
-				sCmd.Format(_T("\"%s\" /command:checkout /url:\"%s\" /revision:%ld"), 
-					CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), (LPCTSTR)itemsToCheckout, (LONG)GetRevision());
+				sCmd.Format(_T("\"%s\" /command:checkout /url:\"%s\" /revision:%s"), 
+					CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), (LPCTSTR)itemsToCheckout, GetRevision().ToString());
 
 				CAppUtils::LaunchApplication(sCmd, NULL, false);
 			}
