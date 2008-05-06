@@ -41,6 +41,8 @@ END_MESSAGE_MAP()
 CTortoiseMergeApp::CTortoiseMergeApp()
 {
 	EnableHtmlHelp();
+	m_bLoadUserToolbars = FALSE;
+	m_bSaveState = FALSE;
 }
 
 // The one and only CTortoiseMergeApp object
@@ -174,17 +176,6 @@ BOOL CTortoiseMergeApp::InitInstance()
 	if (pFrame == NULL)
 		return FALSE;
 	m_pMainWnd = pFrame;
-
-
-	// before loading the saved state, we have to remove some of those
-	// saved states (the MFC toolbars also save the text of buttons, including
-	// the menu buttons! We have to make sure that those are gone because
-	// otherwise changing the language wouldn't work anymore).
-	SHDeleteKey(HKEY_CURRENT_USER, _T("Software\\TortoiseMerge\\TortoiseMerge\\Workspace\\MFCToolBar-59392"));
-	SHDeleteKey(HKEY_CURRENT_USER, _T("Software\\TortoiseMerge\\TortoiseMerge\\Workspace\\MFCToolBar-593980"));
-	// also remove the saved keyboard accelerators
-	SHDeleteKey(HKEY_CURRENT_USER, _T("Software\\TortoiseMerge\\TortoiseMerge\\Workspace\\Keyboard-0"));
-
 
 	// create and load the frame with its resources
 	pFrame->LoadFrame(IDR_MAINFRAME,

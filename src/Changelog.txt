@@ -8,6 +8,7 @@
 - BUG: TortoiseMerge could crash when diffing empty files. (Stefan)
 - BUG: Applying a patchfile for an UTF8 file (with BOM marker) with changes 
        in the first line did not work due to the UTF8 BOM marker. (Stefan)
+- BUG: TortoiseMerge sometimes did not show the line diff bar. (Stefan)
 
 Version 1.5.0-RC1
 - NEW: Files can be dragged to new changelists. (Stefan)
