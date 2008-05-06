@@ -41,7 +41,7 @@ bool PrevDiffCommand::Execute()
 		if (st.status && st.status->entry && st.status->entry->cmt_rev)
 		{
 			SVNDiff diff(NULL, hWndExplorer);
-			diff.ShowCompare(cmdLinePath, st.status->entry->cmt_rev - 1, cmdLinePath, SVNRev::REV_WC);
+			diff.ShowCompare(cmdLinePath, SVNRev::REV_WC, cmdLinePath, st.status->entry->cmt_rev - 1);
 		}
 		else
 		{
