@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-04-29 21:12 +0000\n"
-"PO-Revision-Date: 2008-04-30 14:00+0100\n"
+"PO-Revision-Date: 2008-05-07 16:24+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3331,27 +3331,27 @@ msgstr "temporäre Dateien"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3607
 msgid "If you are importing into an existing repository which already contains some projects, then the repository structure will already have been decided. If are importing data into a new repository then it is worth taking the time to think about how it will be organised. Read <xref linkend=\"tsvn-repository-layout\"/> for further advice."
-msgstr ""
+msgstr "Wenn Sie in ein bereits existierendes Projektarchiv importieren, das schon einige Projekte enthält, ist dessen Struktur bereits festgelegt. Wenn Sie Daten in ein neues Projektarchiv importieren, sollten Sie sich vorher darüber Gedanken machen, wie Sie es organisieren. Lesen Sie <xref linkend=\"tsvn-repository-layout\"/> für weitere Hinweise."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3621
 msgid "There is no way to select files and folders to include, aside from using the global ignore settings."
-msgstr ""
+msgstr "Es gibt, abgesehen von den globalen Ignoriermustern, keine Möglichkeit Dateien oder Ordner einzuschließen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3627
 msgid "The folder imported does not become a working copy. You have to do a checkout to copy the files back from the server."
-msgstr ""
+msgstr "Der importierte Ordner wird nicht zu einer Arbeitskopie. Sie müssen eine Arbeitskopie aus dem Projektarchiv auschecken."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3633
 msgid "It is easy to import to the wrong folder level in the repository."
-msgstr ""
+msgstr "Es kann leicht passieren, dass Sie die Daten in einen falschen Ordner im Projektarchiv importieren."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3615
 msgid "This section describes the Subversion import command, which was designed for importing a directory hierarchy into the repository in one shot. Although it does the job, it has several shortcomings: <placeholder-1/> For these reasons we recommend that you do not use the import command at all but rather follow the two-step method described in <xref linkend=\"tsvn-dug-import-in-place\"/>. But since you are here, this is how the basic import works ..."
-msgstr ""
+msgstr "Dieser Abschnitt beschreibt den Import-Befehl von Subversion, der dazu gedacht ist, eine Verzeichnisstruktur in ein Projektarchiv zu importieren. Obwohl er für diese Aufgabe geeignet ist, besitzt er doch einige Nachteile: <placeholder-1/> Aus diesen Gründen empfehlen wir, dass Sie den Import-Befehl garnicht nutzen sondern die in <xref linkend=\"tsvn-dug-import-in-place\"/> beschriebene zweistufige Methode. Aber da sie schon diesen Abschnitt lesen, folgt nun eine kurze Einführung ..."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3647
@@ -3387,6 +3387,11 @@ msgid ""
 "C:\\Projects\\Widget\\images\n"
 "</screen> and you import <filename>C:\\Projects\\Widget</filename> into <systemitem class=\"url\">http://mydomain.com/svn/trunk</systemitem> then you may be surprised to find that your subdirectories go straight into <literal>trunk</literal> rather than being in a <literal>Widget</literal> subdirectory. You need to specify the subdirectory as part of the URL, <systemitem class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem>. Note that the import command will automatically create subdirectories within the repository if they do not exist."
 msgstr ""
+"In diesem Dialog geben Sie die URL des Projektarchivs ein, in das Sie Ihr Projekt importieren wollen. Es ist sehr wichtig zu verstehen, dass der lokale Ordner, den Sie importieren, nicht im Projektarchiv landet, sondern nur sein Inhalt. Wenn Sie z.B. die folgende Struktur haben:\n"
+"<screen>C:\\Projekte\\Grafik\\source\n"
+"C:\\Projekte\\Grafik\\doku\n"
+"C:\\Projekte\\Grafik\\bilder</screen>\n"
+"und Sie importieren <filename>C:\\Projekte\\Grafik</filename> in <systemitem class=\"url\">http://meinserver.com/svn/trunk</systemitem> könnten Sie überrascht feststellen, dass Ihre Unterverzeichnisse direkt in <literal>trunk</literal> anstelle eines <literal>Grafik</literal> Unterverzeichnisses landen. Sie müssen das Unterverzeichnis als Teil der URL angeben <systemitem class=\"url\">http://meinserver.com/svn/trunk/Grafik</systemitem>. Beachten Sie, dass der Import-Befehl automatisch Unterverzeichnisse im Projektarchiv anlegt, falls diese noch nicht existieren."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3700
@@ -3528,17 +3533,17 @@ msgstr "Wenn ein externes Projekt in einem anderen Projektarchiv ist, werden Sie
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3889
 msgid "If you use absolute URLs in <literal>svn:externals</literal> definitions and you have to relocate your working copy (i.e., if the URL of your repository changes), then your externals won't change and might not work anymore."
-msgstr ""
+msgstr "Wenn Sie absolute URLs in Ihren <literal>svn:externals</literal> Verweisen verwenden und Sie Ihre Arbeitskopie umplatzieren, (weil sich z.B. die URL des Projektarchivs ändert), ändern sich die Verweise und funktionieren unter Umständen nicht mehr."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3895
 msgid "To avoid such problems, Subversion clients version 1.5 and higher support relative external URLs. Four different methods of specifying a relative URL are supported. In the following examples, assume we have two repositories: one at <systemitem class=\"url\">http://example.com/svn/repos-1</systemitem> and another at <systemitem class=\"url\">http://example.com/svn/repos-2</systemitem>. We have a checkout of <systemitem class=\"url\">http://example.com/svn/repos-1/project/trunk</systemitem> into <filename>C:\\Working</filename> and the <literal>svn:externals</literal> property is set on trunk."
-msgstr ""
+msgstr "Um solche Probleme zu vermeiden, unterstützen Subversion Clients ab Version 1.5 relative externe URLs. Es stehen vier verschiedene Methoden zur Verfügung, um externe URLs festzulegen. In den folgenden Beispielen nehmen wir zwei Projektarchive an: Eines in <systemitem class=\"url\">http://example.com/svn/repos-1</systemitem> und ein weiteres in <systemitem class=\"url\">http://example.com/svn/repos-2</systemitem>. Wir haben <systemitem class=\"url\">http://example.com/svn/repos-1/projekt/trunk</systemitem> in <filename>C:\\Projekt</filename> ausgecheckt und die <literal>svn:externals</literal> Eigenschaft ist auf <literal>trunk</literal> gesetzt."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:3910
 msgid "Relative to parent directory"
-msgstr ""
+msgstr "Relativ zum Elternverzeichnis"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3912
@@ -3547,16 +3552,19 @@ msgid ""
 "../../widgets/foo  common/foo-widget\n"
 "</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
 msgstr ""
+"Diese URLs beginnen stets mit der Zeichenkette <literal>../</literal> zum Beispiel:\n"
+"<screen>../../grafik/foo  gemeinsam/foo-grafik</screen>\n"
+"Dadurch wird <systemitem class=\"url\">http://example.com/svn/repos-1/grafik/foo</systemitem> in <filename>C:\\Projekt\\gemeinsam\\foo-grafik</filename> extrahiert."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3923
 msgid "Note that the URL is relative to the URL of the directory with the <literal>svn:externals</literal> property, not to the directory where the external is written to disk."
-msgstr ""
+msgstr "Beachten Sie, dass die URL relativ zu der URL des Verzeichnisses mit der <literal>svn:externals</literal> Eigenschaft ist und nicht zu dem Verzeichnis in dem der externe Verweis auf die Festplatte gespeichert wird."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:3931
 msgid "Relative to repository root"
-msgstr ""
+msgstr "Relativ zur Wurzel des Projektarchivs"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3933
@@ -3565,6 +3573,9 @@ msgid ""
 "^/widgets/foo  common/foo-widget\n"
 "</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
 msgstr ""
+"Diese URLs beginnen stets mit der Zeichenkette <literal>^/</literal> zum Beispiel:\n"
+"<screen>^/grafik/foo  gemeinsam/foo-grafik</screen>\n"
+"Dadurch wird <systemitem class=\"url\">http://example.com/svn/repos-1/grafik/foo</systemitem> in <filename>C:\\Projekt\\gemeinsam\\foo-grafik</filename> extrahiert."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3944
@@ -3573,6 +3584,9 @@ msgid ""
 "^/../repos-2/hammers/claw  common/claw-hammer\n"
 "</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> into <filename>C:\\Working\\common\\claw-hammer</filename>."
 msgstr ""
+"Sie können einfach auf andere Projekte innerhalb desselben <literal>SVNParentPath</literal> (Ein gemeinsames  Elternverzeichnis, das mehrere Projektarchive enthält) verweisen. Zum Beispiel:\n"
+"<screen>^/../repos-2/werkzeug/hammer  gemeinsam/hammer-werkzeug</screen>\n"
+"Dadurch wird <systemitem class=\"url\">http://example.com/svn/repos-2/werkzeug/hammer</systemitem> in <filename>C:\\Projekt\\gemeinsam\\hammer-werkzeug</filename> extrahiert."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:3959
@@ -8268,7 +8282,7 @@ msgstr "Eine kleine Erklärung des ersten regulären Ausdrucks: Er sucht nach ei
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10003
 msgid "If only one expression is set, then the bare bug IDs must be matched in the groups of the regex string. Example: <literal>[Ii]ssue(?:s)? #?(\\d+)</literal> This method is required by a few issue trackers, e.g. trac, but it is harder to construct the regex. We recommend that you only use this method if your issue tracker documentation tells you to."
-msgstr "Wenn nur ein regulärer Ausdruck gesetzt ist, dann müssen alleine mit ihm die Eintragsnummern in den Gruppen des Ausdrucks gefunden werden. Als Beispiel: <literal>[Ii]ssue(?:s)? #?(\\d+)</literal>. Diese Methode wird von einigen Fehlerverfolgunssystemen, wie z.B. Trac verwendet, es ist jedoch schwieriger, einen passenden regulären Ausdruck zu konstruieren. Wir empfehlen, dass Sie diese Methode nur verwenden, wenn Ihr Fehlerverfolgungssystem dies erfordert."
+msgstr "Wenn nur ein regulärer Ausdruck gesetzt ist, dann müssen alleine mit ihm die Eintragsnummern in den Gruppen des Ausdrucks gefunden werden. Als Beispiel: <literal>[Ii]ssue(?:s)? #?(\\d+)</literal>. Diese Methode wird von einigen Fehlerverfolgungssystemen, wie z.B. Trac verwendet, es ist jedoch schwieriger, einen passenden regulären Ausdruck zu konstruieren. Wir empfehlen, dass Sie diese Methode nur verwenden, wenn Ihr Fehlerverfolgungssystem dies erfordert."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10012
