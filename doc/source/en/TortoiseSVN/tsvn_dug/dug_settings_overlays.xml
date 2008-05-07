@@ -166,6 +166,29 @@ if (path is allowed drive type) AND (path is not in exclude list)
 		want it to look only in particular folders, disable all drive types
 		and include only the folders you specifically want to be scanned.
 	</para>
+	<tip>
+		<title>Exclude <literal>SUBST</literal> Drives</title>
+		<indexterm>
+			<primary>SUBST drives</primary>
+		</indexterm>
+		<para>
+			It is often convenient to use a <literal>SUBST</literal> drive
+			to access your working copies, e.g. using the command
+<screen>
+subst T: C:\TortoiseSVN\trunk\doc
+</screen>
+			However this can cause the overlays not to update, as
+			<literal>TSVNCache</literal> will only receive one notification when
+			a file changes, and that is normally for the original path. This means
+			that your overlays on the <literal>subst</literal> path may never
+			be updated.
+		</para>
+		<para>
+			An easy way to work around this is to exclude the original path
+			from showing overlays, so that the overlays show up on the
+			<literal>subst</literal> path instead.
+		</para>
+	</tip>
 	<para>
 		Sometimes you will exclude areas that contain working copies,
 		which saves TSVNCache from scanning and monitoring for changes,
