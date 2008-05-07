@@ -223,6 +223,7 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
     , m_ColumnManager(this)
     , m_bAscending(false)
     , m_nSortedColumn(-1)
+	, m_sNoPropValueText(MAKEINTRESOURCE(IDS_STATUSLIST_NOPROPVALUE))
 {
 	m_critSec.Init();
 }
@@ -1547,8 +1548,14 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 
         CString name = m_ColumnManager.GetName(i);
         if (entry->present_props.HasProperty (name))
-            SetItemText(index, i, entry->present_props [name]);
-        else
+		{
+			const CString& propVal = entry->present_props [name];
+			if (propVal.IsEmpty())
+				SetItemText(index, i, m_sNoPropValueText);
+			else
+				SetItemText(index, i, propVal);
+		}
+		else
             SetItemText(index, i, _T(""));
     }
 
