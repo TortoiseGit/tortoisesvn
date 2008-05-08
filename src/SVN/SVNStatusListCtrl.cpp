@@ -3426,6 +3426,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							// and update their changelist
 							POSITION pos = GetFirstSelectedItemPosition();
 							int index;
+							std::vector<int> entriesToRemove;
 							while ((index = GetNextSelectedItem(pos)) >= 0)
 							{
 								FileEntry * e = GetListEntry(index);
@@ -3435,11 +3436,15 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									if (e->status == svn_wc_status_normal)
 									{
 										// remove the entry completely
-										RemoveListEntry(index);
+										entriesToRemove.push_back(index);
 									}
 									else
 										SetItemGroup(index, 0);
 								}
+							}
+							for (std::vector<int>::reverse_iterator it = entriesToRemove.rbegin(); it != entriesToRemove.rend(); ++it)
+							{
+								RemoveListEntry(*it);
 							}
 							// TODO: Should we go through all entries here and check if we also could
 							// remove the changelist from m_changelists ?
