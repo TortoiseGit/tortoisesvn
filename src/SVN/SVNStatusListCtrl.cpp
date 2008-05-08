@@ -2608,6 +2608,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 								// if the unmodified files are not shown
 								// and if the item is not part of a changelist
 								POSITION pos;
+								std::vector<int> entriesToRemove;
 								while ((pos = GetFirstSelectedItemPosition())!=0)
 								{
 									int index;
@@ -2653,13 +2654,17 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 											m_nTotal--;
 											if (GetCheck(index))
 												m_nSelected--;
-											RemoveListEntry(index);
+											entriesToRemove.push_back(index);
 										}
 									}
 									else
 									{
 										SetItemState(index, 0, LVIS_SELECTED);
 									}
+								}
+								for (std::vector<int>::reverse_iterator it = entriesToRemove.rbegin(); it != entriesToRemove.rend(); ++it)
+								{
+									RemoveListEntry(*it);
 								}
 								SaveColumnWidths();
 								Show(m_dwShow, 0, m_bShowFolders);
@@ -2805,6 +2810,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 							// and update their status
 							POSITION pos = GetFirstSelectedItemPosition();
 							int index;
+							std::vector<int> entriesToRemove;
 							while ((index = GetNextSelectedItem(pos)) >= 0)
 							{
 								FileEntry * e = GetListEntry(index);
@@ -2816,7 +2822,7 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									if (GetCheck(index))
 										m_nSelected--;
 									m_nTotal--;
-									RemoveListEntry(index);
+									entriesToRemove.push_back(index);
 								}
 								else
 								{
@@ -2824,6 +2830,10 @@ void CSVNStatusListCtrl::OnContextMenu(CWnd* pWnd, CPoint point)
 									e->status = svn_wc_status_deleted;
 									SetEntryCheck(e,index,true);
 								}
+							}
+							for (std::vector<int>::reverse_iterator it = entriesToRemove.rbegin(); it != entriesToRemove.rend(); ++it)
+							{
+								RemoveListEntry(*it);
 							}
 						}
 						SaveColumnWidths();
