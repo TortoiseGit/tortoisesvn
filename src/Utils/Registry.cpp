@@ -610,7 +610,7 @@ CRegStdString::~CRegStdString(void)
 		RegCloseKey(m_hKey);
 }
 
-stdstring	CRegStdString::read()
+const stdstring&	CRegStdString::read()
 {
 	if ((LastError = RegOpenKeyEx(m_base, m_path.c_str(), 0, KEY_EXECUTE, &m_hKey))==ERROR_SUCCESS)
 	{

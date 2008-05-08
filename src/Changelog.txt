@@ -18,6 +18,8 @@
 - BUG: TortoiseMerge sometimes did not show the line diff bar. (Stefan)
 - BUG: Crash when removing unmodified files from a changelist. (Stefan)
 - BUG: 0-sized columns in status grid when fetching status. (Stefan Fuhrmann)
+- BUG: Random strings in recent messages lists after a fresh install
+       when not all 25 entries are being used yet. (Stefan Fuhrmann)
 
 Version 1.5.0-RC1
 - NEW: Files can be dragged to new changelists. (Stefan)

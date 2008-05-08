@@ -533,7 +533,7 @@ public:
 	CRegStdString(const stdstring& key, const stdstring& def = _T(""), BOOL force = FALSE, HKEY base = HKEY_CURRENT_USER);
 	~CRegStdString(void);
 	
-	stdstring read();						///< reads the value from the registry
+	const stdstring& read();			///< reads the value from the registry
 	void	write();					///< writes the value to the registry
 		
 	operator stdstring();
