@@ -99,6 +99,13 @@ void CSVNStatusListCtrl::ColumnManager::ReadSettings
         ParseColumnOrder (CString());
 
     ApplyColumnOrder();
+
+    // auto-size the columns so we can see them while fetching status
+    // (seems the same values will not take affect in InsertColumn)
+
+    for (int i = 0, count = GetColumnCount(); i < count; ++i)
+        if (IsVisible(i))
+		    control->SetColumnWidth (i, GetVisibleWidth (i, true));
 }
 
 void CSVNStatusListCtrl::ColumnManager::WriteSettings() const

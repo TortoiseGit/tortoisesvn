@@ -13,6 +13,7 @@
        in the first line did not work due to the UTF8 BOM marker. (Stefan)
 - BUG: TortoiseMerge sometimes did not show the line diff bar. (Stefan)
 - BUG: Crash when removing unmodified files from a changelist. (Stefan)
+- BUG: 0-sized columns in status grid when fetching status. (Stefan Fuhrmann)
 
 Version 1.5.0-RC1
 - NEW: Files can be dragged to new changelists. (Stefan)
