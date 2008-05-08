@@ -365,6 +365,21 @@ bool CRepositoryInfo::HasMultipleURLs (const CString& uuid) const
     return urlCount > 1;
 }
 
+// get one of the many URLs that for the repository given by the UUID
+
+CString CRepositoryInfo::GetFirstURL (const CString& uuid) const
+{
+    for ( TData::const_iterator iter = data.begin(), end = data.end()
+		; iter != end
+		; ++iter)
+	{
+        if (iter->second.uuid == uuid)
+            return iter->second.root;
+	}
+
+    return CString();
+}
+
 // is the repository offline? 
 // Don't modify the state if autoSet is false.
 

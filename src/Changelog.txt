@@ -2,6 +2,8 @@
 - NEW: Option to bypass the recycle bin when reverting. (Stefan)
 - CHG: When diffing a file with the previous revision, don't create a temp
        file for the file in the working copy. (Stefan)
+- CHG: In log cache settings: show one randomly selected URL instead of the
+       UUID, if there is more than one URL to a repository. (Stefan Fuhrmann)
 - BUG: Crash when browsing through the settings dialog. (Stefan)
 - BUG: URLs were not properly escaped in the revision graph for showing the
        log or merging. (Stefan)

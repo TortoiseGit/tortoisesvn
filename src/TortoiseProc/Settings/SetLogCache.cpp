@@ -274,10 +274,15 @@ void CSetLogCache::FillRepositoryList()
             // or we know multiple URLs
 
             CString uuid = iter->second;
-            url.Format ( caches->GetRepositoryInfo().HasMultipleURLs (uuid)
-                            ? IDS_SETTINGS_MULTIPLEURLSFORUUID
-                            : IDS_SETTINGS_DELETEDCACHE
-                       , uuid);
+            if (caches->GetRepositoryInfo().HasMultipleURLs (uuid))
+            {
+                url.Format ( IDS_SETTINGS_MULTIPLEURLSFORUUID
+                           , caches->GetRepositoryInfo().GetFirstURL (uuid));
+            }
+            else
+            {
+                url.Format (IDS_SETTINGS_DELETEDCACHE, uuid);
+            }
         }
 
         m_cRepositoryList.InsertItem (count, url);

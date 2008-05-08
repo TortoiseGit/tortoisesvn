@@ -190,7 +190,11 @@ public:
 
     bool HasMultipleURLs (const CString& uuid) const;
 
-	/// is the repository offline? 
+    // get one of the possibly many URLs that for the repository given by the UUID
+
+    CString GetFirstURL (const CString& uuid) const;
+
+    /// is the repository offline? 
 	/// Don't modify the state if autoSet is false.
 
     bool IsOffline (const CString& url, bool autoSet);
