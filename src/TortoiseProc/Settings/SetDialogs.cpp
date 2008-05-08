@@ -40,6 +40,7 @@ CSetDialogs::CSetDialogs()
 	, m_sDefaultCheckoutUrl(_T(""))
 	, m_bDiffByDoubleClick(FALSE)
 	, m_bUseSystemLocaleForDates(FALSE)
+	, m_bUseRecycleBin(TRUE)
 {
 	m_regAutoClose = CRegDWORD(_T("Software\\TortoiseSVN\\AutoClose"));
 	m_regDefaultLogs = CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100);
@@ -51,6 +52,7 @@ CSetDialogs::CSetDialogs()
 	m_regDefaultCheckoutPath = CRegString(_T("Software\\TortoiseSVN\\DefaultCheckoutPath"));
 	m_regDefaultCheckoutUrl = CRegString(_T("Software\\TortoiseSVN\\DefaultCheckoutUrl"));
 	m_regDiffByDoubleClick = CRegDWORD(_T("Software\\TortoiseSVN\\DiffByDoubleClickInLog"), FALSE);
+	m_regUseRecycleBin = CRegDWORD(_T("Software\\TortoiseSVN\\RevertWithRecycleBin"), TRUE);
 }
 
 CSetDialogs::~CSetDialogs()
@@ -77,6 +79,7 @@ void CSetDialogs::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_CHECKOUTURL, m_sDefaultCheckoutUrl);
 	DDX_Check(pDX, IDC_DIFFBYDOUBLECLICK, m_bDiffByDoubleClick);
 	DDX_Check(pDX, IDC_SYSTEMLOCALEFORDATES, m_bUseSystemLocaleForDates);
+	DDX_Check(pDX, IDC_USERECYCLEBIN, m_bUseRecycleBin);
 }
 
 
@@ -92,6 +95,7 @@ BEGIN_MESSAGE_MAP(CSetDialogs, ISettingsPropPage)
 	ON_EN_CHANGE(IDC_CHECKOUTPATH, OnChange)
 	ON_EN_CHANGE(IDC_CHECKOUTURL, OnChange)
 	ON_BN_CLICKED(IDC_DIFFBYDOUBLECLICK, OnChange)
+	ON_BN_CLICKED(IDC_USERECYCLEBIN, OnChange)
 END_MESSAGE_MAP()
 
 
@@ -124,6 +128,7 @@ BOOL CSetDialogs::OnInitDialog()
 	m_sDefaultCheckoutPath = m_regDefaultCheckoutPath;
 	m_sDefaultCheckoutUrl = m_regDefaultCheckoutUrl;
 	m_bDiffByDoubleClick = m_regDiffByDoubleClick;
+	m_bUseRecycleBin = m_regUseRecycleBin;
 
 	SHAutoComplete(GetDlgItem(IDC_CHECKOUTPATH)->m_hWnd, SHACF_FILESYSTEM);
 	SHAutoComplete(GetDlgItem(IDC_CHECKOUTURL)->m_hWnd, SHACF_URLALL);
@@ -146,6 +151,7 @@ BOOL CSetDialogs::OnInitDialog()
 	m_tooltips.AddTool(IDC_CHECKOUTURL, IDS_SETTINGS_CHECKOUTURL_TT);
 	m_tooltips.AddTool(IDC_CACHELOGS, IDS_SETTINGS_CACHELOGS_TT);
 	m_tooltips.AddTool(IDC_DIFFBYDOUBLECLICK, IDS_SETTINGS_DIFFBYDOUBLECLICK_TT);
+	m_tooltips.AddTool(IDC_USERECYCLEBIN, IDS_SETTINGS_USERECYCLEBIN_TT);
 
 	int count = 0;
 	for (int i=6; i<32; i=i+2)
@@ -235,6 +241,9 @@ BOOL CSetDialogs::OnApply()
 	m_regDiffByDoubleClick = m_bDiffByDoubleClick;
 	if (m_regDiffByDoubleClick.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regDiffByDoubleClick.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	m_regUseRecycleBin = m_bUseRecycleBin;
+	if (m_regUseRecycleBin.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regUseRecycleBin.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 	SetModified(FALSE);
 	return ISettingsPropPage::OnApply();
 }

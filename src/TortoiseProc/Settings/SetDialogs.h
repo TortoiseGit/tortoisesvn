@@ -72,6 +72,8 @@ private:
 	CString			m_sDefaultCheckoutUrl;
 	CRegDWORD		m_regDiffByDoubleClick;
 	BOOL			m_bDiffByDoubleClick;
+	CRegDWORD		m_regUseRecycleBin;
+	BOOL			m_bUseRecycleBin;
 
 public:
 	virtual BOOL OnInitDialog();
