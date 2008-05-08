@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-04-29 21:12 +0000\n"
-"PO-Revision-Date: 2008-05-07 16:24+0100\n"
+"PO-Revision-Date: 2008-05-08 14:39+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3351,7 +3351,7 @@ msgstr "Es kann leicht passieren, dass Sie die Daten in einen falschen Ordner im
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3615
 msgid "This section describes the Subversion import command, which was designed for importing a directory hierarchy into the repository in one shot. Although it does the job, it has several shortcomings: <placeholder-1/> For these reasons we recommend that you do not use the import command at all but rather follow the two-step method described in <xref linkend=\"tsvn-dug-import-in-place\"/>. But since you are here, this is how the basic import works ..."
-msgstr "Dieser Abschnitt beschreibt den Import-Befehl von Subversion, der dazu gedacht ist, eine Verzeichnisstruktur in ein Projektarchiv zu importieren. Obwohl er für diese Aufgabe geeignet ist, besitzt er doch einige Nachteile: <placeholder-1/> Aus diesen Gründen empfehlen wir, dass Sie den Import-Befehl garnicht nutzen sondern die in <xref linkend=\"tsvn-dug-import-in-place\"/> beschriebene zweistufige Methode. Aber da sie schon diesen Abschnitt lesen, folgt nun eine kurze Einführung ..."
+msgstr "Dieser Abschnitt beschreibt den Import-Befehl von Subversion, der dazu gedacht ist, eine Verzeichnisstruktur in ein Projektarchiv zu importieren. Obwohl er für diese Aufgabe geeignet ist, besitzt er doch einige Nachteile: <placeholder-1/> Aus diesen Gründen empfehlen wir, dass Sie den Import-Befehl gar nicht nutzen sondern die in <xref linkend=\"tsvn-dug-import-in-place\"/> beschriebene zweistufige Methode. Aber da sie schon diesen Abschnitt lesen, folgt nun eine kurze Einführung ..."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3647
@@ -3600,11 +3600,14 @@ msgid ""
 "//example.com/svn/repos-1/widgets/foo  common/foo-widget\n"
 "</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> or <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> depending on which method was used to checkout <filename>C:\\Working</filename>."
 msgstr ""
+"URLs die mit der Zeichenkette <literal>//</literal> beginnen, kopieren nur den Schemateil der URL. Das ist dann nützlich, wenn auf derselben Rechnernamen, abhängig vom Netzwerk mit einem anderen Schema zugegriffen werden muss. So können zum Beispiel Clients im Intranet per <systemitem class=\"url\">http://</systemitem> zugreifen, während externe Clients <systemitem class=\"url\">svn+ssh://</systemitem> verwenden müssen. Zum Beispiel:\n"
+"<screen>//example.com/svn/repos-1/grafik/foo  gemeinsam/foo-grafik</screen>\n"
+"Dadurch wird in Abhängigkeit vom Schema, das verwendet wurde, um <filename>C:\\Projekt</filename> auszuchecken, <systemitem class=\"url\">http://example.com/svn/repos-1/grafik/foo</systemitem> oder <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/grafik/foo</systemitem> extrahiert."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:3981
 msgid "Relative to the server's hostname"
-msgstr ""
+msgstr "Relativ zum Rechnernamen des Servers"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3983
@@ -3613,6 +3616,9 @@ msgid ""
 "/svn/repos-1/widgets/foo  common/foo-widget\n"
 "</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>. But if you checkout your working copy from another server at <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> then the external reference will extract <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
 msgstr ""
+"URLs die mit der Zeichenkette <literal>/</literal> anfangen, kopieren das Schema und den Rechnernamen der URL, zum Beispiel:\n"
+"<screen>/svn/repos-1/grafik/foo  gemeinsam/foo-grafik</screen>\n"
+"Dadurch wird <systemitem class=\"url\">http://example.com/svn/repos-1/grafik/foo</systemitem> in <filename>C:\\Projekt\\gemeinsam\\foo-grafik</filename> extrahiert. Wenn Sie jedoch Ihre Arbeitskopie von einem anderen Server in <systemitem class=\"url\">svn+ssh://spiegel.server.net/svn/repos-1/projekt1/trunk</systemitem> auschecken, wird der externe Verweis von <systemitem class=\"url\">svn+ssh://spiegel.server.net/svn/repos-1/grafik/foo</systemitem> geholt."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4001
@@ -5199,12 +5205,12 @@ msgstr "Die Ansicht aktualisieren"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5974
 msgid "If you want to check the server again for newer log messages, you can simply refresh the view using <keycap>F5</keycap>. If you are using the log cache (enabled by default), this will check the repository for newer messages and fetch only the new ones. If the log cache was in offline mode, this will also attempt to go back online."
-msgstr ""
+msgstr "Wenn Sie den Server auf neue Logmeldungen überprüfen wollen, können Sie die Sicht einfach per <keycap>F5</keycap> aktualisieren. Falls Sie den Log-Puffer verwenden (standardmäßig aktiv), wird das Projektarchiv auf neue Meldungen abgefragt und nur diese werden geholt. Falls der Log-Puffer offline war, wird gleichzeitig versucht, ihn wieder online zu schalten."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5982
 msgid "If you are using the log cache and you think the message content or author may have changed, you can use <keycap>Shift-F5</keycap> or <keycap>Ctrl-F5</keycap> to re-fetch the displayed messages from the server and update the log cache. Note that this only affects messages currently shown and does not invalidate the entire cache for that repository."
-msgstr ""
+msgstr "Falls Sie den Log-Puffer verwenden und denken, dass sich der Inhalt oder der Autor einer Logmeldung geändert haben, können Sie <keycap>Umsch-F5</keycap> oder <keycap>Strg-F5</keycap> benutzen, um die angezeigten Meldungen erneut vom Server zu holen. Beachten Sie, dass das nur die gerade angezeigten Meldungen betrifft und dass nicht der gesamte Puffer für das Projektarchiv ungültig wird."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:5993
@@ -7985,12 +7991,12 @@ msgstr "Da Subversion nicht alle Informationen bereitstellt, ist ein gewisser Gr
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9563
 msgid "If you want to check the server again for newer information, you can simply refresh the view using <keycap>F5</keycap>. If you are using the log cache (enabled by default), this will check the repository for newer commits and fetch only the new ones. If the log cache was in offline mode, this will also attempt to go back online."
-msgstr ""
+msgstr "Wenn Sie den Server auf neue Informationen überprüfen wollen, können Sie die Sicht einfach per <keycap>F5</keycap> aktualisieren. Falls Sie den Log-Puffer verwenden (standardmäßig aktiv), wird das Projektarchiv auf neue Übertragungen abgefragt und nur diese werden geholt. Falls der Log-Puffer offline war, wird gleichzeitig versucht, ihn wieder online zu schalten."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9571
 msgid "If you are using the log cache and you think the message content or author may have changed, you should use the log dialog to refresh the messages you need. Since the revision graph works from the repository root, we would have to invalidate the entire log cache, and refilling it could take a <emphasis>very</emphasis> long time."
-msgstr ""
+msgstr "Falls Sie den Log-Puffer verwenden und denken, dass sich der Inhalt oder der Autor einer Logmeldung geändert haben, sollten Sie den Log-Dialog aufrufen, um darüber die gewünschten Meldungen zu aktualisieren. Da der Revisionsgraph von der Wurzel des Projektarchivs ausgeht, müssten wir den gesamten Log-Puffer ungültig machen underneut aufbauen, was <emphasis>sehr viel</emphasis> Zeit in Anspruch nehmen kann."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:9582
@@ -8207,17 +8213,17 @@ msgstr "Hier geben Sie die URL zu Ihrem Fehlerverfolgungssystem ein. Die URL mus
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9840
 msgid "You can also use relative URLs instead of absolute ones. This is useful in case your issue tracker is on the same domain/server as your source repository. In case the domain name ever changes, you don't have to adjust the <literal>bugtraq:url</literal> property. There are two ways to specify a relative URL:"
-msgstr ""
+msgstr "Sie können auch relative URLs anstelle von absoluten verwenden. Das ist nützlich, falls Ihr Fehlerverfolgungssystem sich in derselben Domäne oder auf demselben Server befindet, wie Ihr Projektarchiv. Falls sich der Domänenname ändern sollte, müssen Sie die <literal>bugtraq:url</literal> Eigenschaft nicht anpassen. Es gibt zwei Möglichkeiten, relative URLs zu definieren:"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9847
 msgid "If it begins with the string <literal>^/</literal> it is assumed to be relative to the repository root. For example, <literal>^/../?do=details&amp;id=%BUGID%</literal> will resolve to <systemitem class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> if your repository is located on <systemitem class=\"url\">http://tortoisesvn.net/svn/trunk/</systemitem>."
-msgstr ""
+msgstr "Falls die URL mit der Zeichenkette <literal>^/</literal> beginnt, wird sie relativ zur Wurzel des Projektarchivs angenommen. Zum Beispiel wird <literal>^/../?do=details&amp;id=%BUGID%</literal> zu <systemitem class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> aufgelöst, falls Ihr Projektarchiv sich auf <systemitem class=\"url\">http://tortoisesvn.net/svn/trunk/</systemitem> befindet."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9856
 msgid "A URL beginning with the string <literal>/</literal> is assumed to be relative to the server's hostname. For example <literal>/?do=details&amp;id=%BUGID%</literal> will resolve to <systemitem class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> if your repository is located anywhere on <systemitem class=\"url\">http://tortoisesvn.net</systemitem>."
-msgstr ""
+msgstr "Eine URL die mit der Zeichenkette <literal>/</literal> anfängt, wird relative zum Namen des Servers interpretiert. Zum Beispiel wird <literal>/?do=details&amp;id=%BUGID%</literal> zu <systemitem class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> aufgelöst, falls Ihr Projektarchiv sich irgendwo auf <systemitem class=\"url\">http://tortoisesvn.net</systemitem> befindet."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9869
@@ -8373,7 +8379,7 @@ msgstr "Setzen Sie diese Eigenschaft auf die URL mit der Sie Änderungen an eine
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10149
 msgid "You can also use relative URLs instead of absolute ones. This is useful in case your web viewer is on the same domain/server as your source repository. In case the domain name ever changes, you don't have to adjust the <literal>webviewer:revision</literal> and <literal>webviewer:pathrevision</literal> property. The format is the same as for the <literal>bugtraq:url</literal> property. See <xref linkend=\"tsvn-dug-bugtracker\"/>."
-msgstr ""
+msgstr "Sie können auch relative URLs anstelle von absoluten verwenden. Das ist nützlich, falls Ihr Web-Betrachter sich in derselben Domäne oder auf demselben Server befindet, wie Ihr Projektarchiv. Falls sich der Domänenname ändern sollte, müssen Sie die <literal>webviewer:revision</literal> und <literal>webviewer:pathrevision</literal> Eigenschaften nicht anpassen. Das Format ist dasselbe wie bei der <literal>bugtraq:url</literal> Eigenschaft und in <xref linkend=\"tsvn-dug-bugtracker\"/> erklärt."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10182
@@ -9884,7 +9890,7 @@ msgstr "Die Extraspalten, die TortoiseSVN zur Detailansicht des Explorers hinzuf
 #. (term)
 #: ../source/TortoiseSVN_en.xml:11948
 msgid "Merge log separator"
-msgstr "Separator für Datenintegration"
+msgstr "Trennzeichen für Integrationslogs"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11950
