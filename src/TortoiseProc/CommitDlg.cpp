@@ -562,7 +562,16 @@ UINT CCommitDlg::StatusThread()
 	GetDlgItem(IDC_EXTERNALWARNING)->ShowWindow(SW_HIDE);
 	DialogEnableWindow(IDC_EXTERNALWARNING, false);
 
-	// Initialise the list control with the status of the files/folders below us
+    // read the list of recent log entries before querying the WC for status
+    // -> the user may select one and modify / update it while we are crawling the WC
+	if (m_History.GetCount()==0)
+	{
+		CString reg;
+		reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)m_ListCtrl.m_sUUID);
+		m_History.Load(reg, _T("logmsgs"));
+	}
+
+    // Initialise the list control with the status of the files/folders below us
 	BOOL success = m_ListCtrl.GetStatus(m_pathList);
 	m_ListCtrl.CheckIfChangelistsArePresent(false);
 
@@ -607,12 +616,6 @@ UINT CCommitDlg::StatusThread()
 			DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS | SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWLOCKS;
 			m_ListCtrl.Show(dwShow);
 		}
-	}
-	if (m_History.GetCount()==0)
-	{
-		CString reg;
-		reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)m_ListCtrl.m_sUUID);
-		m_History.Load(reg, _T("logmsgs"));
 	}
 
 	CTSVNPath commonDir = m_ListCtrl.GetCommonDirectory(false);

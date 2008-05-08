@@ -4,6 +4,8 @@
        file for the file in the working copy. (Stefan)
 - CHG: In log cache settings: show one randomly selected URL instead of the
        UUID, if there is more than one URL to a repository. (Stefan Fuhrmann)
+- CHG: In commit dialog: Fetch log message history before running the 
+       status query (Stefan Fuhrmann)
 - BUG: Crash when browsing through the settings dialog. (Stefan)
 - BUG: URLs were not properly escaped in the revision graph for showing the
        log or merging. (Stefan)
