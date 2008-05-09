@@ -20,6 +20,9 @@
 - BUG: 0-sized columns in status grid when fetching status. (Stefan Fuhrmann)
 - BUG: Random strings in recent messages lists after a fresh install
        when not all 25 entries are being used yet. (Stefan Fuhrmann)
+- BUG: Renaming a folder in the repository browser tree list lead to
+       refreshing problems because the URL was still used from before
+       the rename. (Stefan)
 
 Version 1.5.0-RC1
 - NEW: Files can be dragged to new changelists. (Stefan)
