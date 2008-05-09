@@ -1978,7 +1978,7 @@ bool CSVNProgressDlg::CmdLock(CString& sWindowTitle, bool& /*localoperation*/)
 		if (CMessageBox::Show(m_hWnd, IDS_WARN_LOCKOUTDATED, IDS_APPNAME, MB_ICONQUESTION|MB_YESNO)==IDYES)
 		{
 			ReportString(CString(MAKEINTRESOURCE(IDS_SVNPROGRESS_UPDATEANDRETRY)), CString(MAKEINTRESOURCE(IDS_WARN_NOTE)));
-			if (!Update(m_targetPathList, SVNRev::REV_HEAD, svn_depth_empty, false, true))
+			if (!Update(m_targetPathList, SVNRev::REV_HEAD, svn_depth_files, false, true))
 			{
 				ReportSVNError();
 				return false;
