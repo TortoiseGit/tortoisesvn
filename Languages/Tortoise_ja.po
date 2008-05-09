@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-09 20:17+0900\n"
+"PO-Revision-Date: 2008-05-09 20:42+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -762,7 +762,7 @@ msgstr "貼り付け(&P)"
 
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
-msgstr "永続的にオフライン(&P)"
+msgstr "常にオフライン(&P)"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -1138,8 +1138,8 @@ msgid ""
 msgstr ""
 "<b>TortoiseSVN</b> はシェル拡張です。\n"
 "つまり、エクスプローラに統合されます。\n"
-"<b>TortoiseSVN</b> を利用するために、エクスプローラを開いて適当なフォルダ上で右クリックし、\n"
-"<b>TortoiseSVN</b> の全てのコマンドが利用できるコンテキストメニューを表示させてください。\n"
+"<b>TortoiseSVN</b> を利用するために、エクスプローラを開いて適当なフォルダ上で右クリックして\n"
+"コンテキストメニューを表示させてください。そこから <b>TortoiseSVN</b> の全てのコマンドが利用できます。\n"
 "あと、 <u>マニュアルも読んでね！！</u>"
 
 #. Resource IDs: (16603)
@@ -1226,7 +1226,7 @@ msgstr "一度だけ受理する"
 
 #. Resource IDs: (82)
 msgid "Accept permanently"
-msgstr "永続的に受理する"
+msgstr "常に受理する"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -1804,10 +1804,10 @@ msgid ""
 "to\n"
 "%s"
 msgstr ""
-"コピーできませんでした \n"
 "%s\n"
-"から\n"
-"%s"
+"を\n"
+"%s\n"
+"にコピーできませんでした。"
 
 #. Resource IDs: (1001)
 msgid "Can't copy bitmap image into the clipboard!"
@@ -1904,7 +1904,7 @@ msgstr "変更リスト:"
 
 #. Resource IDs: (1242)
 msgid "Changes made (double-click on file for diff):"
-msgstr "変更されたファイル（ダブルクリックで差分を表示）"
+msgstr "変更した項目（ダブルクリックで差分を表示）"
 
 #. Resource IDs: (8)
 msgid "Chec&kout..."
@@ -2387,7 +2387,7 @@ msgid ""
 "Copy the selection and put it on the Clipboard\n"
 "Copy"
 msgstr ""
-"選択範囲をクリップボードへコピーする\n"
+"選択範囲をクリップボードにコピーする\n"
 "コピー"
 
 #. Resource IDs: (114)
@@ -2617,7 +2617,7 @@ msgstr "Unified Diff ファイルを作成"
 
 #. Resource IDs: (126)
 msgid "Created folder remotely"
-msgstr "リモート操作によるフォルダ作成"
+msgstr "リモート操作によってフォルダを作成しました"
 
 #. Resource IDs: (10)
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
@@ -2689,7 +2689,7 @@ msgid ""
 "Cut the selection and put it on the Clipboard\n"
 "Cut"
 msgstr ""
-"選択範囲を切り取り、クリップボードへ移動する\n"
+"選択範囲を切り取り、クリップボードに移動する\n"
 "切り取り"
 
 #. Resource IDs: (19, 76, 208)
@@ -2746,7 +2746,7 @@ msgstr "バージョン管理からファイル／フォルダを削除する"
 
 #. Resource IDs: (18)
 msgid "Deletes files / folders from version control but keeps the file"
-msgstr "バージョン管理からファイル／フォルダを削除し、ファイル自体を保持する"
+msgstr "バージョン管理からファイル／フォルダを削除し、ファイル自体は保持する"
 
 #. Resource IDs: (198)
 msgid "Deletes the action log file"
@@ -2810,7 +2810,7 @@ msgstr "差分"
 
 #. Resource IDs: (1022)
 msgid "Diffing"
-msgstr "差分中"
+msgstr "差分を計算中"
 
 #. Resource IDs: (14)
 msgid "Diffs the working copy file with the one before the last commit."
@@ -3040,7 +3040,7 @@ msgstr "選択されている属性を編集する"
 
 #. Resource IDs: (79)
 msgid "Either the name or IP of the proxy server"
-msgstr "プロｷシサーバの名前もしくは IP を入力します"
+msgstr "プロキシサーバの名前もしくは IP を入力します"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -3221,7 +3221,7 @@ msgid ""
 "Error while reading/writing the registry key %s\n"
 "%s"
 msgstr ""
-"レジストリーキー %s の読み込み／書き込み中にエラーが発生しました\n"
+"レジストリのキー %s の読み込み／書き込み中にエラーが発生しました\n"
 "%s"
 
 #. Resource IDs: (1413)
@@ -3403,7 +3403,7 @@ msgstr "ファイルを取り出す ..."
 #. Resource IDs: (313)
 #, c-format
 msgid "Fetching revision %s of file:"
-msgstr "ファイルのリビジョン %s 取得中:"
+msgstr "リビジョン %s のファイルを取得中:"
 
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
@@ -3631,7 +3631,7 @@ msgstr "GDI+ を初期化できませんでした！"
 
 #. Resource IDs: (273)
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
-msgstr "GDI+ はビットマップオブジェクトを作成できませんでした。おそらく十分なメモリが無いと思われます。"
+msgstr "GDI+ はビットマップオブジェクトを作成できませんでした。おそらく十分なメモリがありません。"
 
 #. Resource IDs: (83)
 msgid ""
