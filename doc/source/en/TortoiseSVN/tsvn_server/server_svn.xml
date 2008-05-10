@@ -14,8 +14,9 @@
 			over an ordinary TCP/IP connection.
 		</para>
 		<para>
-			In most cases svnserve is easier to setup
-			and runs faster than the Apache based server.
+			In most cases svnserve is easier to setup and runs faster than
+			the Apache based server. And now that SASL support is included
+			it is easy to secure as well.
 		</para>
 	</sect2>
 	<sect2 id="tsvn-serversetup-svnserve-2">
@@ -28,6 +29,12 @@
 						<ulink url="http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91">
 							<citetitle>http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=91</citetitle>
 						</ulink>.
+						Alternatively get a pre-packaged installer from CollabNet at
+						<ulink url="http://www.collab.net/downloads/subversion">
+							<citetitle>http://www.collab.net/downloads/subversion</citetitle>
+						</ulink>.
+						This installer will setup svnserve as a Windows service, and also includes
+						some of the tools you need if you are going to use SASL for security.
 					</para>
 				</listitem>
 				<listitem>
@@ -39,7 +46,7 @@
 				<listitem>
 					<para>
 						Run the Subversion installer. If you run the installer on
-						your server you can skip step 4.
+						your server (recommended) you can skip step 4.
 					</para>
 				</listitem>
 				<listitem>
@@ -220,7 +227,7 @@ svnservice -remove
 		</sect3>
 	</sect2>
 	<sect2 id="tsvn-serversetup-svnserve-4">
-		<title>Authentication with svnserve</title>
+		<title>Basic Authentication with svnserve</title>
 		<para>
 			The default svnserve setup provides anonymous read-only access.
 			This means that you can use an <literal>svn://</literal> URL
@@ -289,12 +296,136 @@ username = password
 			</para>
 		</tip>
 	</sect2>
+	<sect2 id="tsvn-serversetup-svnserve-sasl">
+		<title>Better Security with SASL</title>
+		<indexterm>
+			<primary>SASL</primary>
+		</indexterm>
+		<sect3 id="tsvn-serversetup-svnserve-sasl-whatis">
+			<title>What is SASL?</title>
+			<para>
+				The Cyrus Simple Authentication and Security Layer is
+				open source software written by Carnegie Mellon University.
+				It adds generic authentication and encryption capabilities
+				to any network protocol, and as of Subversion 1.5 and later,
+				both the svnserve server and TortoiseSVN client know how to
+				make use of this library.
+			</para>
+			<para>
+				For a more complete discussion of the options available, you should
+				look at the Subversion book in the section
+				<ulink url="http://svnbook.red-bean.com/nightly/en/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.sasl">
+					<citetitle>Using svnserve with SASL</citetitle>
+				</ulink>.
+				If you are just looking for a simple way to set up secure
+				authentication and encryption on a Windows server, so that your
+				repository can be accessed safely over the big bad Internet,
+				read on.
+			</para>
+		</sect3>
+		<sect3 id="tsvn-serversetup-svnserve-sasl-auth">
+			<title>SASL Authentication</title>
+			<para>
+				To activate specific SASL mechanisms on the server, you'll
+				need to do three things. First, create a <literal>[sasl]</literal>
+				section in your repository's <filename>svnserve.conf</filename>
+				file, with this key-value pair:
+<screen>
+use-sasl = true
+</screen>
+			</para>
+			<para>
+				Second, create a file called <filename>svn.conf</filename> in a
+				convenient location - typically in the directory where subversion
+				is installed.
+			</para>
+			<para>
+				Thirdly, create two new registry entries to tell SASL where to
+				find things. Create a registry key named
+				<literal>[HKEY_LOCAL_MACHINE\SOFTWARE\Carnegie Mellon\Project Cyrus\SASL Library]</literal>
+				and place two new string values inside it:
+				<literal>SearchPath</literal> set to the directory path containing
+				the <filename>sasl*.dll</filename> plug-ins (normally in the
+				Subversion install directory), and <literal>ConfFile</literal> set
+				to the directory containing the <filename>svn.conf</filename> file.
+				If you used the CollabNet installer, these registry keys will already
+				have been created for you.
+			</para>
+			<para>
+				Edit the <filename>svn.conf</filename> file to contain the following:
+
+<screen>
+pwcheck_method: auxprop
+auxprop_plugin: sasldb
+mech_list: DIGEST-MD5
+sasldb_path: C:\TortoiseSVN\sasldb
+</screen>
+				The last line shows the location of the authentication database,
+				which is a file called <filename>sasldb</filename>.
+				This could go anywhere, but a convenient choice is the repository
+				parent path. Make sure that the svnserve service has read access
+				to this file.
+			</para>
+			<para>
+				If svnserve was already running, you will need to restart it to
+				ensure it reads the updated configuration.
+			</para>
+			<para>
+				Now that everything is set up, all you need to do is create some
+				users and passwords. To do this you need the
+				<literal>saslpasswd2</literal> program. If you used the CollabNet
+				installer, that program will be in the install directory.
+				Use a command something like this:
+<screen>
+saslpasswd2 -c -f C:\TortoiseSVN\sasldb -u realm username
+</screen>
+				The <literal>-f</literal> switch gives the database location,
+				<literal>realm</literal> must be the same as the value you
+				defined in your repository's <filename>svnserve.conf</filename>
+				file, and username is exactly what you expect it to be.
+				Note that the realm is not allowed to contain space characters.
+			</para>
+			<para>
+				You can list the usernames stored in the database using the
+				<literal>sasldblistusers2</literal> program.
+			</para>
+		</sect3>
+		<sect3 id="tsvn-serversetup-svnserve-sasl-encrypt">
+			<title>SASL Encryption</title>
+			<para>
+				To enable or disable different levels of encryption, you can
+				set two values in your repository's
+				<filename>svnserve.conf</filename> file:
+<screen>
+[sasl]
+use-sasl = true
+min-encryption = 128
+max-encryption = 256
+</screen>
+			</para>
+			<para>
+				The <literal>min-encryption</literal> and
+				<literal>max-encryption</literal> variables control the
+				level of encryption demanded by the server. To disable
+				encryption completely, set both values to 0. To enable
+				simple checksumming of data (i.e., prevent tampering and
+				guarantee data integrity without encryption), set both
+				values to 1. If you wish to allow (but not require) encryption,
+				set the minimum value to 0, and the maximum value to some
+				bit-length. To require encryption unconditionally, set both
+				values to numbers greater than 1. In our previous example,
+				we require clients to do at least 128-bit encryption,
+				but no more than 256-bit encryption.
+			</para>
+		</sect3>
+	</sect2>
 	<sect2 id="tsvn-serversetup-svnserve-5">
 		<title>Authentication with svn+ssh</title>
 		<para>
 			Another way to authenticate users with a svnserve
 			based server is to use a secure shell (SSH) to tunnel
-			requests through.
+			requests through. It is not as simple to set up as SASL,
+			but it may be useful is some cases.
 		</para>
 		<para>
 			With this approach, svnserve is not run as a daemon
@@ -303,12 +434,8 @@ username = password
 			enable this, you need a secure shell daemon on your server.
 		</para>
 		<para>
-			It is beyond the scope of this documentation to detail the
-			installation and setup of a secure shell, however you can
-			find further information in the
-			<ulink url="http://tortoisesvn.net/ssh_howto">
-				<citetitle>TortoiseSVN FAQ, SSH How-To</citetitle>
-			</ulink>.
+			A basic method for setting up your server is given in
+			<xref linkend="tsvn-ssh-howto"/>.
 			You can find other SSH topics within the FAQ by searching
 			for <quote>SSH</quote>.
 		</para>
@@ -336,18 +463,6 @@ authz-db = authz
 			repository, or you can use the same file for several repositories.
 			Read <xref linkend="tsvn-serversetup-mod_authz_svn"/>
 			for a description of the file format.
-		</para>
-	</sect2>
-	<sect2 id="tsvn-serversetup-svnserve-sasl">
-		<title>Cyrus SASL Support</title>
-		<para>
-			Starting with Subversion 1.5.0, svnserve and TortoiseSVN support
-			Cyrus SASL (Simple Authentication and Security Layer) for the
-			<literal>svn://</literal> protocol.
-			You can find further information in this subversion app note:
-			<ulink url="http://svn.collab.net/repos/svn/trunk/notes/sasl.txt">
-				<citetitle>Using Cyrus SASL Authentication with Subversion</citetitle>
-			</ulink>.
 		</para>
 	</sect2>
 </sect1>
