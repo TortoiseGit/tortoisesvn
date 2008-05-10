@@ -989,9 +989,12 @@ void CCacheLogQuery::InternalLog ( revision_t startRevision
 									   , limit
 									   , options
 									   , dataAvailable);
-
-				iterator->Retry();
 			}
+
+            // the current iterator position should contain data now.
+            // continue looking for the next *relevant* entry.
+
+            iterator->Retry();
 		}
 		else
 		{
