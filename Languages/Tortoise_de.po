@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-08 09:58+0100\n"
+"PO-Revision-Date: 2008-05-11 20:35+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3856,6 +3856,10 @@ msgstr "Pos1"
 msgid "Hook Scripts"
 msgstr "Aktionsskripte"
 
+#. Resource IDs: (283)
+msgid "Hook Scripts::Issue Tracker Integration"
+msgstr "Aktionsskripte::Integration des Fehlerverfolgungssystems"
+
 #. Resource IDs: (198)
 msgid "Hook Type"
 msgstr "Aktionstyp"
@@ -4387,10 +4391,6 @@ msgstr ""
 "Gültige Revisionen sind durch Kommata getrenne Zahlen und HEAD.\n"
 "Ein Bereich wird durch einen Bindestrich angegeben.\n"
 "Beispiel: 2-5,7,10,44-70,300-HEAD"
-
-#. Resource IDs: (283)
-msgid "Issue Tracker Integration"
-msgstr "Integration des Fehlerverfolgungssystems"
 
 #. Resource IDs: (145)
 msgid ""
@@ -4971,6 +4971,10 @@ msgstr "Verschieben: Neuer Name für %s"
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "Im Projektarchiv verschoben"
+
+#. Resource IDs: (197)
+msgid "Moves the modified files to the recycle bin first before reverting"
+msgstr "Verschiebt die veränderten Dateien vor dem Rückgängigmachen in den Papierkorb"
 
 #. Resource IDs: (80)
 #, c-format
@@ -8288,6 +8292,10 @@ msgstr "Verwende linke Datei"
 #. Resource IDs: (3)
 msgid "Use local"
 msgstr "Lokal verwenden"
+
+#. Resource IDs: (1432)
+msgid "Use recycle bin when reverting"
+msgstr "Verwende Papierkorb bei Rückgängig"
 
 #. Resource IDs: (116)
 msgid "Use regular expression"
