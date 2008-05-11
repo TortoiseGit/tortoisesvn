@@ -31,6 +31,7 @@
 <li><a href="#msidisabled">MSI installation is disabled on my machine. Is there a .exe installer?</a></li> 
 <li><a href="#whymsi">Why are you using MSI instead of an exe or no installer at all?</a></li>
 <li><a href="#installerror">The installer aborts with an error message</a></li>
+<li><a href="#nomenus">After installing, TortoiseSVN does not show up, no context menus are available</a></li>
 </ul>
 
 <h4>Overlay icons:</h4>
@@ -172,6 +173,12 @@ if your domain administrator disabled it.</p>
 <li><em>&quot;This installation package cannot be installed by the Windows Installer service. You must install a Windows service pack that contains a newer version of the Windows Installer service.</em> You need at least <a href="http://support.microsoft.com/kb/893803/">version 3 of the msi installer</a>.</li>
 </ul>
 </p>
+</div>
+
+<div class="h3" id="nomenus" title="nomenus">
+<h3>After installing, TortoiseSVN does not show up, no context menus are available</h3>
+<p>Make sure you have installed the x64 version of TortoiseSVN if you're using XP or Vista 64-bit. Since the explorer on those OS versions is a 64-bit application, it can not load the 32-bit version of TortoiseSVN.</p>
+<p>You can still keep the 32-bit version of TortoiseSVN installed on those OS versions though: it will show up in the 32-bit applications file-open/save dialogs of those applications.</p>
 </div>
 
 </div>
