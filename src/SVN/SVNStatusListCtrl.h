@@ -831,6 +831,10 @@ private:
 
 	int CellRectFromPoint(CPoint& point, RECT *cellrect, int *col) const;
 
+	void OnContextMenuList(CWnd * pWnd, CPoint point);
+	void OnContextMenuGroup(CWnd * pWnd, CPoint point);
+	void OnContextMenuHeader(CWnd * pWnd, CPoint point);
+
 	virtual void PreSubclassWindow();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	virtual INT_PTR OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
