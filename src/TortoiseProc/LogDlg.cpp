@@ -47,14 +47,6 @@
 #include "EditPropertiesDlg.h"
 
 
-enum LISTITEMSTATES_MINE {
-	LISS_NORMAL = 1,
-	LISS_HOT = 2,
-	LISS_SELECTED = 3,
-	LISS_DISABLED = 4,
-	LISS_SELECTEDNOTFOCUS = 5,
-	LISS_HOTSELECTED = 6,
-};
 
 
 #define ICONITEMBORDER 5
@@ -354,6 +346,9 @@ BOOL CLogDlg::OnInitDialog()
 	m_LogList.GetClientRect(m_LogListOrigRect);
 	GetDlgItem(IDC_MSGVIEW)->GetClientRect(m_MsgViewOrigRect);
 	m_ChangedFileListCtrl.GetClientRect(m_ChgOrigRect);
+
+	m_DateFrom.SetMonthCalStyle(MCS_WEEKNUMBERS|MCS_NOTODAY|MCS_NOTRAILINGDATES|MCS_NOSELCHANGEONNAV);
+	m_DateTo.SetMonthCalStyle(MCS_WEEKNUMBERS|MCS_NOTODAY|MCS_NOTRAILINGDATES|MCS_NOSELCHANGEONNAV);
 
 	// resizable stuff
 	AddAnchor(IDC_FROMLABEL, TOP_LEFT);
