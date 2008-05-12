@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-05 09:42+0800\n"
+"PO-Revision-Date: 2008-05-12 17:11+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -464,7 +464,7 @@ msgstr "與前一個版本比對(&D)"
 
 #. Resource IDs: (1066)
 msgid "&Docking"
-msgstr "&Docking"
+msgstr "&視窗停駐"
 
 #. Resource IDs: (2)
 msgid "&Don't go offline"
@@ -657,7 +657,7 @@ msgstr "載入(&L)..."
 
 #. Resource IDs: (65535)
 msgid "&Lum:"
-msgstr "&Lum:"
+msgstr "亮度(&L):"
 
 #. Resource IDs: (16543)
 msgid "&Menu animations:"
@@ -838,7 +838,7 @@ msgstr "SSH 用戶端(&S):"
 
 #. Resource IDs: (65535)
 msgid "&Sat:"
-msgstr "&Sat:"
+msgstr "濃度(&S):"
 
 #. Resource IDs: (57603)
 msgid "&Save"
@@ -910,7 +910,7 @@ msgstr "Tab 寬度(&T):"
 
 #. Resource IDs: (1069)
 msgid "&Tabbed Document"
-msgstr ""
+msgstr "分頁的文件(&T)"
 
 #. Resource IDs: (1382)
 msgid "&Test merge"
@@ -966,7 +966,7 @@ msgstr "TortoiseSVN(&T)"
 
 #. Resource IDs: (3845)
 msgid "&Two Page"
-msgstr ""
+msgstr "雙頁(&T)"
 
 #. Resource IDs: (1058, 1376, 1394)
 msgid "&URL of repository:"
@@ -1053,6 +1053,10 @@ msgstr "(沒有變更列表)"
 msgid "(no line number)"
 msgstr "(無行號)"
 
+#. Resource IDs: (214)
+msgid "(no value)"
+msgstr "(無此值)"
+
 #. Resource IDs: (314)
 msgid "(not found)"
 msgstr "(找不到)"
@@ -1077,7 +1081,7 @@ msgstr "- %d"
 
 #. Resource IDs: (1007)
 msgid "-------------------------------------------------------------------------------------------"
-msgstr ""
+msgstr "-------------------------------------------------------------------------------------------"
 
 #. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362)
 msgid "..."
@@ -1110,7 +1114,7 @@ msgstr "<...>"
 
 #. Resource IDs: (1069)
 msgid "<Separator>"
-msgstr ""
+msgstr "<分隔線>"
 
 #. Resource IDs: (1007)
 msgid "<Untitled>"
@@ -1132,7 +1136,7 @@ msgstr ""
 
 #. Resource IDs: (16603)
 msgid "<descr>"
-msgstr ""
+msgstr "<描述>"
 
 #. Resource IDs: (209)
 msgid "<new changelist>"
@@ -1144,11 +1148,11 @@ msgstr "?"
 
 #. Resource IDs: (579)
 msgid "A list of user defined properties for files to show in the combo box"
-msgstr ""
+msgstr "在 combo box 中顯示的檔案使用者自訂性質列表"
 
 #. Resource IDs: (579)
 msgid "A list of user defined properties for folders to show in the combo box"
-msgstr ""
+msgstr "在 combo box 中顯示的資料夾使用者自訂性質列表"
 
 #. Resource IDs: (201)
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
@@ -1247,6 +1251,8 @@ msgid ""
 "ActiveX objects cannot be saved while exiting Windows!\n"
 "Discard all changes to %1?"
 msgstr ""
+"ActiveX 物件無法在離開視窗時儲存!\n"
+"要放棄所有對 %1 的更動嗎?"
 
 #. Resource IDs: (155, 209, 229)
 msgid "Add"
@@ -1287,7 +1293,7 @@ msgstr "加入忽略列表(&I)"
 
 #. Resource IDs: (1068)
 msgid "Add to Quick Access Toolbar"
-msgstr ""
+msgstr "新增至快速存取工具列"
 
 #. Resource IDs: (209, 1279)
 msgid "Add..."
@@ -1382,21 +1388,21 @@ msgstr "所有檔案 (*.*)|*.*||"
 
 #. Resource IDs: (1008)
 msgid "All your changes will be lost! Do you really want to reset all toolbars and menus?"
-msgstr ""
+msgstr "全部的變更都會消失! 確定要重置所有工具列和選單嗎?"
 
 #. Resource IDs: (1008)
 msgid "All your changes will be lost! Do you really want to reset the keyboard assignments?"
-msgstr ""
+msgstr "全部的變更都會消失! 確定要重置鍵盤配置嗎?"
 
 #. Resource IDs: (1008)
 #, c-format
 msgid "All your changes will be lost! Do you really want to reset the menu '%s'?"
-msgstr ""
+msgstr "全部的變更都會消失! 確定要重置選單 '%s' 嗎?"
 
 #. Resource IDs: (1007)
 #, c-format
 msgid "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
-msgstr ""
+msgstr "全部的變更都會消失! 確定要重置工具列 '%s' 嗎?"
 
 #. Resource IDs: (345)
 msgid ""
@@ -1472,7 +1478,7 @@ msgstr "在第 %d 行發現不明型態資料!"
 
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
-msgstr ""
+msgstr "應用程式窗框選單:"
 
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
@@ -1527,7 +1533,7 @@ msgstr "指定為變更列表: %s"
 
 #. Resource IDs: (16528)
 msgid "Assigned to:"
-msgstr ""
+msgstr "指定給:"
 
 #. Resource IDs: (77)
 #, c-format
@@ -1587,7 +1593,7 @@ msgstr "自動隱藏"
 
 #. Resource IDs: (1003)
 msgid "Auto Hide All"
-msgstr ""
+msgstr "自動隱藏全部"
 
 #. Resource IDs: (99)
 msgid "Auto Rename"
@@ -1654,6 +1660,8 @@ msgid ""
 "Bitmap\n"
 "a bitmap"
 msgstr ""
+"點陣圖\n"
+"點陣圖"
 
 #. Resource IDs: (114, 162)
 msgid "Blame"
@@ -1729,7 +1737,7 @@ msgstr "Bug編號 / 問題編號:"
 
 #. Resource IDs: (16132)
 msgid "Button Appearance"
-msgstr ""
+msgstr "按鈕外觀"
 
 #. Resource IDs: (1215)
 msgid "C&heck now"
@@ -1777,7 +1785,7 @@ msgstr "可使用雙擊與前一個版本比對"
 
 #. Resource IDs: (3865)
 msgid "Can not activate a static ActiveX object."
-msgstr ""
+msgstr "無法啟動靜態的 ActiveX 物件"
 
 #. Resource IDs: (82)
 #, c-format
@@ -1798,15 +1806,15 @@ msgstr "無法複製點陣影像至剪貼簿!"
 
 #. Resource IDs: (1001)
 msgid "Can't create a new image!"
-msgstr ""
+msgstr "無法建立新影像!"
 
 #. Resource IDs: (1001)
 msgid "Can't customize menues!"
-msgstr ""
+msgstr "無法自訂選單!"
 
 #. Resource IDs: (1001)
 msgid "Can't paste bitmap image from the clipboard!"
-msgstr ""
+msgstr "無法從剪貼簿上貼上點陣圖!"
 
 #. Resource IDs: (2, 73, 99, 563, 1069)
 msgid "Cancel"
@@ -1834,7 +1842,7 @@ msgstr "階層式快顯功能表"
 
 #. Resource IDs: (65535)
 msgid "Cate&gories:"
-msgstr ""
+msgstr "類別(&G):"
 
 #. Resource IDs: (82)
 msgid "Certificate expired or not yet valid"
@@ -2013,6 +2021,8 @@ msgid ""
 "Clear Tool\n"
 "Clear"
 msgstr ""
+"清除工具\n"
+"清除"
 
 #. Resource IDs: (196)
 #, c-format
@@ -2073,13 +2083,15 @@ msgstr "關閉"
 
 #. Resource IDs: (1065)
 msgid "Close Full Screen"
-msgstr ""
+msgstr "關閉全螢幕"
 
 #. Resource IDs: (3633)
 msgid ""
 "Close Print Preview\n"
 "&Close"
 msgstr ""
+"關閉列印預覽\n"
+"關閉(&C)"
 
 #. Resource IDs: (222)
 msgid "Close manually"
@@ -2265,7 +2277,7 @@ msgstr "繼續"
 
 #. Resource IDs: (1001)
 msgid "Contract docked window"
-msgstr ""
+msgstr "縮短停駐的視窗"
 
 #. Resource IDs: (376)
 msgid "Cop&y"
@@ -2328,6 +2340,8 @@ msgid ""
 "Copy Tool\n"
 "Copy"
 msgstr ""
+"複製工具\n"
+"複製"
 
 #. Resource IDs: (101)
 msgid "Copy URL to clipboard"
@@ -2607,6 +2621,8 @@ msgid ""
 "Creates a patch file from the differences of the two files\n"
 "Create patch file"
 msgstr ""
+"根據兩個檔案的差異建立補綴檔\n"
+"建立補綴檔"
 
 #. Resource IDs: (10)
 msgid "Creates a repository database at the current location"
@@ -2626,7 +2642,7 @@ msgstr "剪下(&T)"
 
 #. Resource IDs: (65535)
 msgid "Current"
-msgstr ""
+msgstr "目前"
 
 #. Resource IDs: (1113)
 msgid "Current version is:"
@@ -2651,15 +2667,15 @@ msgstr "自訂"
 
 #. Resource IDs: (17076)
 msgid "Customize Keyboard"
-msgstr ""
+msgstr "自訂鍵盤"
 
 #. Resource IDs: (1069)
 msgid "Customize Quick Access Toolbar"
-msgstr ""
+msgstr "自訂快速存取工具列"
 
 #. Resource IDs: (1068)
 msgid "Customize Quick Access Toolbar..."
-msgstr ""
+msgstr "自訂快速存取工具列..."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -2691,7 +2707,7 @@ msgstr "預設 URL:"
 
 #. Resource IDs: (1007)
 msgid "Default application menu. Appears when no documents are open."
-msgstr ""
+msgstr "預設程式選單. 沒開啟文件時使用."
 
 #. Resource IDs: (65535)
 msgid "Default path:"
@@ -2762,6 +2778,8 @@ msgid ""
 "Device Independent Bitmap\n"
 "a device independent bitmap"
 msgstr ""
+"裝置無關點陣圖\n"
+"與裝置無關的點陣圖"
 
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
@@ -2815,7 +2833,7 @@ msgstr "分派異常: %1"
 
 #. Resource IDs: (65535)
 msgid "Display &buttons in this order"
-msgstr ""
+msgstr "依此次序顯示按鈕(&B)"
 
 #. Resource IDs: (3605)
 msgid ""
@@ -2914,7 +2932,7 @@ msgstr "是否要儲存你所做的異動?"
 
 #. Resource IDs: (65535)
 msgid "Document :"
-msgstr ""
+msgstr "文件 :"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -2930,11 +2948,11 @@ msgstr "不再顯示此訊息"
 
 #. Resource IDs: (1002)
 msgid "Drag to make this menu float"
-msgstr ""
+msgstr "拖曳可使此選單浮動化"
 
 #. Resource IDs: (16513)
 msgid "Draw"
-msgstr ""
+msgstr "繪圖"
 
 #. Resource IDs: (1079)
 msgid "Drive Types"
@@ -3018,6 +3036,8 @@ msgid ""
 "Ellipse Tools\n"
 "Ellipse"
 msgstr ""
+"橢圓工具\n"
+"橢圓"
 
 #. Resource IDs: (65535)
 msgid "Empty"
@@ -3203,7 +3223,7 @@ msgstr "除外路徑:"
 
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
-msgstr ""
+msgstr "可執行檔 (*.exe)|*.exe|可執行檔 (*.com)|*.com|文件 (*.pdf)|*.pdf|批次檔 (*.bat)|*.bat|所有檔案 (*.*)|*.*||"
 
 #. Resource IDs: (1002)
 msgid "Existing"
@@ -3216,7 +3236,7 @@ msgstr "展開 (%s)"
 
 #. Resource IDs: (1001)
 msgid "Expand docked window"
-msgstr ""
+msgstr "展開停駐的視窗"
 
 #. Resource IDs: (209)
 msgid "Explore to"
@@ -3325,7 +3345,7 @@ msgstr "無法建立空文件."
 
 #. Resource IDs: (3865)
 msgid "Failed to create object.  Make sure the application is entered in the system registry."
-msgstr ""
+msgstr "無法建立物件. 請確定系統註冊樹中有此應用程式."
 
 #. Resource IDs: (3857)
 msgid "Failed to launch help."
@@ -3358,6 +3378,8 @@ msgid ""
 "Failed to start the issue tracker COM provider \"%s\".\n"
 "%s"
 msgstr ""
+"無法啟動Bug 追踪系統的 COM 提供者 \"%s\".\n"
+"%s"
 
 #. Resource IDs: (220)
 msgid "Failed!"
@@ -3509,6 +3531,8 @@ msgid ""
 "Fill Tool\n"
 "Fill"
 msgstr ""
+"填滿工具\n"
+"填滿"
 
 #. Resource IDs: (65535)
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
@@ -3568,7 +3592,7 @@ msgstr "強制譴責"
 
 #. Resource IDs: (1064)
 msgid "Forward"
-msgstr ""
+msgstr "向前"
 
 #. Resource IDs: (65535)
 msgid "From URL:"
@@ -3744,7 +3768,7 @@ msgstr "圖型類別:"
 
 #. Resource IDs: (16972)
 msgid "Gray"
-msgstr ""
+msgstr "灰色"
 
 #. Resource IDs: (2050)
 msgid "Group by branch"
@@ -3760,7 +3784,7 @@ msgstr "隱藏無關的異動路徑(&H)"
 
 #. Resource IDs: (65535)
 msgid "H&ue:"
-msgstr ""
+msgstr "色相(&U):"
 
 #. Resource IDs: (1353, 1354)
 msgid "HEAD"
@@ -3781,7 +3805,7 @@ msgstr "鍵盤說明"
 
 #. Resource IDs: (16974)
 msgid "Hex"
-msgstr ""
+msgstr "Hex"
 
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
@@ -3789,7 +3813,7 @@ msgstr "隱藏已刪除的路徑(&D)"
 
 #. Resource IDs: (1001)
 msgid "Hide docked window"
-msgstr ""
+msgstr "隱藏停駐的視窗"
 
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
@@ -3813,7 +3837,7 @@ msgstr "小提示: 按下 F5 可以重新整理選擇的子樹, 而 Ctrl-F5 可�
 
 #. Resource IDs: (16519)
 msgid "Hint: select the context menu, change the page to \"Commands\" and drag the toolbar buttons into the menu window."
-msgstr ""
+msgstr "小提示: 選擇快顯式選單, 切換至\"命令\"頁面, 再將工具列按鈕拖至選單視窗中."
 
 #. Resource IDs: (1064)
 msgid "Home"
@@ -3822,6 +3846,10 @@ msgstr "Home"
 #. Resource IDs: (103)
 msgid "Hook Scripts"
 msgstr "掛勾指令檔"
+
+#. Resource IDs: (283)
+msgid "Hook Scripts::Issue Tracker Integration"
+msgstr "掛勾指令檔::Bug 追踪整合"
 
 #. Resource IDs: (198)
 msgid "Hook Type"
@@ -4340,10 +4368,6 @@ msgstr ""
 "正確的版本包括數字或 HEAD, 以逗號分隔.\n"
 "可以使用 - 號來表示範圍.\n"
 "例如: 2-5,7,10,44-70,300-HEAD"
-
-#. Resource IDs: (283)
-msgid "Issue Tracker Integration"
-msgstr "Bug 追踪整合"
 
 #. Resource IDs: (145)
 msgid ""
@@ -4923,6 +4947,10 @@ msgstr "移動: %s 的新名稱"
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "遠端移動完成"
+
+#. Resource IDs: (197)
+msgid "Moves the modified files to the recycle bin first before reverting"
+msgstr "將修改過的檔案移至資源回收筒再進行復原"
 
 #. Resource IDs: (80)
 #, c-format
@@ -8225,6 +8253,10 @@ msgstr "使用左方檔案"
 #. Resource IDs: (3)
 msgid "Use local"
 msgstr "使用本地版本"
+
+#. Resource IDs: (1432)
+msgid "Use recycle bin when reverting"
+msgstr "復原時使用資源回收筒"
 
 #. Resource IDs: (116)
 msgid "Use regular expression"
