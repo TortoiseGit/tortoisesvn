@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-06 12:23+0100\n"
+"PO-Revision-Date: 2008-05-13 20:37+0100\n"
 "Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1058,6 +1058,10 @@ msgstr "(pas de liste de changements)"
 #. Resource IDs: (314)
 msgid "(no line number)"
 msgstr "(pas de numéro de ligne)"
+
+#. Resource IDs: (214)
+msgid "(no value)"
+msgstr "(pas de valeur)"
 
 #. Resource IDs: (314)
 msgid "(not found)"
@@ -3848,6 +3852,10 @@ msgstr "Accueil"
 msgid "Hook Scripts"
 msgstr "Scripts hook"
 
+#. Resource IDs: (283)
+msgid "Hook Scripts::Issue Tracker Integration"
+msgstr "Scripts d'Accroche : Intégration du Système de Suivi de Problèmes"
+
 #. Resource IDs: (198)
 msgid "Hook Type"
 msgstr "Type de hook"
@@ -4370,10 +4378,6 @@ msgstr ""
 "Les révisions valides sont des nombres et HEAD, séparées par des virgules.\n"
 "Une plage peut être spécifiée avec un tiret.\n"
 "Exemple: 2-5,7,10,44-70,300-HEAD"
-
-#. Resource IDs: (283)
-msgid "Issue Tracker Integration"
-msgstr "Intégration du Système de Suivi de Problèmes"
 
 #. Resource IDs: (145)
 msgid ""
@@ -4953,6 +4957,10 @@ msgstr "Déplacer : Nouveau nom pour %s"
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "Déplacé à distance"
+
+#. Resource IDs: (197)
+msgid "Moves the modified files to the recycle bin first before reverting"
+msgstr "Déplacer les fichiers modifiés vers la corbeille avant de revenir en arrière"
 
 #. Resource IDs: (80)
 #, c-format
@@ -8256,6 +8264,10 @@ msgstr "Utiliser le fichier gauche"
 msgid "Use local"
 msgstr "Utiliser la copie locale"
 
+#. Resource IDs: (1432)
+msgid "Use recycle bin when reverting"
+msgstr "Utiliser la corbeille lors d'un retour en arrière"
+
 #. Resource IDs: (116)
 msgid "Use regular expression"
 msgstr "Utiliser les expressions régulières"
@@ -9020,8 +9032,8 @@ msgstr "mois"
 
 #. Resource IDs: (199)
 #, c-format
-msgid "multiple URLs (UUID: %s)"
-msgstr "URLs multiples (UUID: %s)"
+msgid "multiple URLs (e.g. %s)"
+msgstr "URLs multiples (ex : %s)"
 
 #. Resource IDs: (18)
 msgid "no"
