@@ -30,6 +30,8 @@
     <Media Id='1' Cabinet='langpack.cab' EmbedCab='yes' CompressionLevel="high" />
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
 
+	<Property Id="ALLUSERS">1</Property>
+
     <Property Id="INSTALLDIR">
       <RegistrySearch Id="TSVNInstallationDir" Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Type="raw" Win64="$(var.Win64YesNo)"/>
     </Property>

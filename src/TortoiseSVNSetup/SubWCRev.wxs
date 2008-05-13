@@ -30,6 +30,8 @@
 		<RegistrySearch Id="PreviousInstallLocationRegistrySearch" Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Type="raw"/>
 	</Property>
 
+	<Property Id="ALLUSERS">1</Property>
+
 	<Condition Message="TortoiseSVN is installed on this machine. [ProductName] is already part of TortoiseSVN!">TSVN=""</Condition>
 
     <Media Id='1' Cabinet='SubWCRev.cab' EmbedCab='yes' CompressionLevel="high" />
