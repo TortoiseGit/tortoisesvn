@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-07 12:42+0100\n"
+"PO-Revision-Date: 2008-05-13 12:48+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1107,6 +1107,10 @@ msgstr "(ingen endringsliste)"
 #. Resource IDs: (314)
 msgid "(no line number)"
 msgstr "(intet linjenummer)"
+
+#. Resource IDs: (214)
+msgid "(no value)"
+msgstr "(ingen verdi)"
 
 #. Resource IDs: (314)
 msgid "(not found)"
@@ -3899,6 +3903,10 @@ msgstr "Hjem"
 msgid "Hook Scripts"
 msgstr "Påhakings-skript"
 
+#. Resource IDs: (283)
+msgid "Hook Scripts::Issue Tracker Integration"
+msgstr "Påhakings-skript: Integrasjon med Saks-Sporingssystem"
+
 #. Resource IDs: (198)
 msgid "Hook Type"
 msgstr "Påhakings-type"
@@ -4407,10 +4415,6 @@ msgstr ""
 "Gyldige revisjoner er tall og HEAD, delt med komma.\n"
 "Et intervall kan angis med en bindestrek.\n"
 "Eksempel: 2-5,7,10,44-70,300-HEAD"
-
-#. Resource IDs: (283)
-msgid "Issue Tracker Integration"
-msgstr "Saks-Sporingssystem Påhaking"
 
 #. Resource IDs: (145)
 msgid ""
@@ -4990,6 +4994,10 @@ msgstr "Flytt: Nytt navn for %s"
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "Flyttet eksternt"
+
+#. Resource IDs: (197)
+msgid "Moves the modified files to the recycle bin first before reverting"
+msgstr "Flytter de endrede filene til søppelspannet før tilbakestilling"
 
 #. Resource IDs: (80)
 #, c-format
@@ -8293,6 +8301,10 @@ msgstr "Bruk venstre fil"
 msgid "Use local"
 msgstr "Bruk lokal"
 
+#. Resource IDs: (1432)
+msgid "Use recycle bin when reverting"
+msgstr "Bruk søppelspannet ved tilbakestilling"
+
 #. Resource IDs: (116)
 msgid "Use regular expression"
 msgstr "Bruk regulært uttrykk"
@@ -9057,8 +9069,8 @@ msgstr "måned"
 
 #. Resource IDs: (199)
 #, c-format
-msgid "multiple URLs (UUID: %s)"
-msgstr "flere URLer (UUID: %s)"
+msgid "multiple URLs (e.g. %s)"
+msgstr "flere URLer (f.eks. %s)"
 
 #. Resource IDs: (18)
 msgid "no"
