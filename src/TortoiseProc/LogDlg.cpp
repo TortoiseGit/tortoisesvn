@@ -47,7 +47,24 @@
 #include "EditPropertiesDlg.h"
 
 
+#if (NTDDI_VERSION < NTDDI_LONGHORN)
 
+enum LISTITEMSTATES_MINE {
+	LISS_NORMAL = 1,
+	LISS_HOT = 2,
+	LISS_SELECTED = 3,
+	LISS_DISABLED = 4,
+	LISS_SELECTEDNOTFOCUS = 5,
+	LISS_HOTSELECTED = 6,
+};
+
+#define MCS_NOTRAILINGDATES  0x0040
+#define MCS_SHORTDAYSOFWEEK  0x0080
+#define MCS_NOSELCHANGEONNAV 0x0100
+
+#define DTM_SETMCSTYLE    (DTM_FIRST + 11)
+
+#endif
 
 #define ICONITEMBORDER 5
 
@@ -347,8 +364,8 @@ BOOL CLogDlg::OnInitDialog()
 	GetDlgItem(IDC_MSGVIEW)->GetClientRect(m_MsgViewOrigRect);
 	m_ChangedFileListCtrl.GetClientRect(m_ChgOrigRect);
 
-	m_DateFrom.SetMonthCalStyle(MCS_WEEKNUMBERS|MCS_NOTODAY|MCS_NOTRAILINGDATES|MCS_NOSELCHANGEONNAV);
-	m_DateTo.SetMonthCalStyle(MCS_WEEKNUMBERS|MCS_NOTODAY|MCS_NOTRAILINGDATES|MCS_NOSELCHANGEONNAV);
+	m_DateFrom.SendMessage(DTM_SETMCSTYLE, 0, MCS_WEEKNUMBERS|MCS_NOTODAY|MCS_NOTRAILINGDATES|MCS_NOSELCHANGEONNAV);
+	m_DateTo.SendMessage(DTM_SETMCSTYLE, 0, MCS_WEEKNUMBERS|MCS_NOTODAY|MCS_NOTRAILINGDATES|MCS_NOSELCHANGEONNAV);
 
 	// resizable stuff
 	AddAnchor(IDC_FROMLABEL, TOP_LEFT);
@@ -4674,6 +4691,8 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				CString url = m_ProjectProperties.sWebViewerPathRev;
 				url.Replace(_T("%REVISION%"), rev.ToString());
 				url.Replace(_T("%PATH%"), relurl);
+				relurl = relurl.Mid(relurl.Find('/'));
+				url.Replace(_T("%PATH1%"), relurl);
 				if (!url.IsEmpty())
 					ShellExecute(this->m_hWnd, _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);					
 			}
