@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-08 09:42+0900\n"
+"PO-Revision-Date: 2008-05-13 12:59+0900\n"
 "Last-Translator: Kim Taedong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -857,7 +857,7 @@ msgstr "선택된 파일 리스트를 저장(&S)..."
 
 #. Resource IDs: (1308)
 msgid "&Save..."
-msgstr "다른 이름으로 저장(&S)..."
+msgstr "저장(&S)..."
 
 #. Resource IDs: (9)
 msgid "&Settings"
@@ -2057,7 +2057,7 @@ msgstr "%ld 개 대화상자의 크기와 위치 정보를 삭제합니다."
 
 #. Resource IDs: (1466)
 msgid "Click here to go to the website"
-msgstr "웹사이트로 이동하기 위해서 여기를 클릭하십시오."
+msgstr "웹사이트로 이동하려면 여기를 클릭하십시오."
 
 #. Resource IDs: (170)
 msgid "Click here to select a recently typed message"
@@ -3845,6 +3845,10 @@ msgstr "처음으로"
 msgid "Hook Scripts"
 msgstr "훅 스크립트"
 
+#. Resource IDs: (283)
+msgid "Hook Scripts::Issue Tracker Integration"
+msgstr "훅 스크립트::이슈 트래커 통합"
+
 #. Resource IDs: (198)
 msgid "Hook Type"
 msgstr "훅 종류"
@@ -4364,10 +4368,6 @@ msgstr ""
 "가능한 리비전은 쉼표(,)로 구분된 숫자 혹은 HEAD입니다.\n"
 "또한 구간은 대시(-)로 표현될 수 있습니다.\n"
 "예: 2-5,7,10,44-70,300-HEAD"
-
-#. Resource IDs: (283)
-msgid "Issue Tracker Integration"
-msgstr "이슈 트래커 통합"
 
 #. Resource IDs: (145)
 msgid ""
@@ -4945,6 +4945,10 @@ msgstr "이동: %s의 새 이름"
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "옮겨짐"
+
+#. Resource IDs: (197)
+msgid "Moves the modified files to the recycle bin first before reverting"
+msgstr "되돌리기 전에 먼저 수정된 파일들을 휴지통으로 이동"
 
 #. Resource IDs: (80)
 #, c-format
@@ -8241,6 +8245,10 @@ msgstr "왼쪽 파일을 사용"
 msgid "Use local"
 msgstr "작업사본을 사용합니다"
 
+#. Resource IDs: (1432)
+msgid "Use recycle bin when reverting"
+msgstr "되돌릴 때 휴지통 사용"
+
 #. Resource IDs: (116)
 msgid "Use regular expression"
 msgstr "정규표현식을 사용"
@@ -9004,8 +9012,8 @@ msgstr "월"
 
 #. Resource IDs: (199)
 #, c-format
-msgid "multiple URLs (UUID: %s)"
-msgstr "여러 개의 URL들 (UUID: %s)"
+msgid "multiple URLs (e.g. %s)"
+msgstr "여러 개의 URL들 (예를들면 %s)"
 
 #. Resource IDs: (18)
 msgid "no"
