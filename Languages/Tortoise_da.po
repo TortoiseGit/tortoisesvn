@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-07 23:42+0100\n"
+"PO-Revision-Date: 2008-05-13 16:16+0100\n"
 "Last-Translator: Zero3Cool\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -54,7 +54,7 @@ msgstr ""
 # Explorer = Windows Stifinder
 # Float = Flydende
 # Get lock = Rekvivier lås
-# Hook = Tilkobling
+# Hook (script)= Tilkobling
 # Icon overlay = Ikonoverdækning
 # (Re)integrate = (Re)integrer
 # Issue = Sag
@@ -93,6 +93,7 @@ msgstr ""
 # ------------------
 # Bemærkninger:
 # ------------------
+# "tool" er i øjeblikket oversat som både "værktøj" og "redskab". Et af disse ord bør udgå.
 # Handlinger magen til Windows egne (Slet, Omdøb, Egenskaber, ...) bør dele samme genvejstast
 # Linje staves med "j"
 # Af en eller anden grund indeholder flere strenge ord med store bogstaver midt i linjerne. Hvorvidt dette er rigtigt/en god idé kan diskuteres, men indtil videre holdes der en stil UDEN, dvs. oversæt efter normal dansk grammatik uanset. Ret gerne i gamle strenge når det ses gjort forkert.
@@ -965,6 +966,7 @@ msgstr "&Revision"
 msgid "&SSH client:"
 msgstr "&SSH-klient:"
 
+# Kontekst?
 #. Resource IDs: (65535)
 msgid "&Sat:"
 msgstr ""
@@ -1185,7 +1187,6 @@ msgstr "(ingen linjenummer)"
 
 # Kontekst?
 #. Resource IDs: (214)
-#, fuzzy
 msgid "(no value)"
 msgstr "(ingen værdi)"
 
@@ -4017,6 +4018,10 @@ msgstr "Hjem"
 msgid "Hook Scripts"
 msgstr "Tilkoblinger"
 
+#. Resource IDs: (283)
+msgid "Hook Scripts::Issue Tracker Integration"
+msgstr "Tilkoblinger::Integration af sagsbehandler"
+
 #. Resource IDs: (198)
 msgid "Hook Type"
 msgstr "Tilkoblingstype"
@@ -4527,11 +4532,6 @@ msgstr ""
 "Gyldige revisioner er numre og HEAD, separeret af kommaer.\n"
 "Et interval kan specificeres med en tankestreg.\n"
 "Eksempel: 2-5,7,10,44-70,300-HEAD"
-
-#. Resource IDs: (283)
-#, fuzzy
-msgid "Issue Tracker Integration"
-msgstr "Tilkobling til sagsbehandler"
 
 #. Resource IDs: (145)
 msgid ""
@@ -5120,6 +5120,10 @@ msgstr "Flyt: Nyt navn til %s"
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "Flyttet på serveren"
+
+#. Resource IDs: (197)
+msgid "Moves the modified files to the recycle bin first before reverting"
+msgstr "Flytter de redigerede filer til papirkurven før tilbageførsel"
 
 #. Resource IDs: (80)
 #, c-format
@@ -5856,11 +5860,11 @@ msgstr "Egenskabsværdi:"
 
 #. Resource IDs: (63)
 msgid "Provider"
-msgstr ""
+msgstr "Udbyder"
 
 #. Resource IDs: (1475)
 msgid "Provider:"
-msgstr ""
+msgstr "Udbyder:"
 
 #. Resource IDs: (1412)
 msgid "Proxy &timeout in seconds:"
@@ -7802,8 +7806,9 @@ msgstr ""
 "Disse filer er <b>ikke</b> opstillet til arkivering. Disse filer skal arkiveres separat."
 
 #. Resource IDs: (64)
+#, fuzzy
 msgid "There are no issue-tracker providers available."
-msgstr ""
+msgstr "Der er ingen tilgængelige udbydere af sagsbehandlere."
 
 #. Resource IDs: (66)
 #, c-format
@@ -7959,6 +7964,8 @@ msgid ""
 "Toggle One/Two Pages display\n"
 "Toggle One/Two Pages display"
 msgstr ""
+"Skift mellem en- og tosidet visning\n"
+"Skift mellem en- og tosidet visning"
 
 #. Resource IDs: (65535)
 msgid "Toolbar"
@@ -8446,6 +8453,10 @@ msgstr "Benyt venstre fil"
 msgid "Use local"
 msgstr "Benyt lokal"
 
+#. Resource IDs: (1432)
+msgid "Use recycle bin when reverting"
+msgstr "Brug papirkurv ved tilbageførsel"
+
 #. Resource IDs: (116)
 msgid "Use regular expression"
 msgstr "Benyt regulært udtryk"
@@ -8794,7 +8805,7 @@ msgstr ""
 #. Resource IDs: (1002)
 #, c-format
 msgid "You may define up to %d tools."
-msgstr ""
+msgstr "Du kan definere op til %d redskaber."
 
 #. Resource IDs: (196)
 msgid "You must restart your system for the changes to take effect."
@@ -8810,8 +8821,9 @@ msgstr ""
 
 # Kontekst? Betyder "should" bør eller skal i denne sammenhæng?
 #. Resource IDs: (1001)
+#, fuzzy
 msgid "You should enter a text!"
-msgstr ""
+msgstr "Du skal indtaste en tekst!"
 
 # Kontekst? Betyder "should" bør eller skal i denne sammenhæng?
 #. Resource IDs: (1001)
@@ -8947,8 +8959,9 @@ msgstr "\"intervaller der skal springes over\" bruges til at markere revisionsin
 
 # Kontekst? Dummy?
 #. Resource IDs: (65535)
+#, fuzzy
 msgid "_POPUP_"
-msgstr ""
+msgstr "_POPUP_"
 
 #. Resource IDs: (10)
 msgid "added"
@@ -9101,8 +9114,9 @@ msgstr "disk [kB]:"
 
 # Kontekst? Dummy?
 #. Resource IDs: (58116)
+#, fuzzy
 msgid "dummy"
-msgstr ""
+msgstr "dummy"
 
 #. Resource IDs: (1342)
 msgid "eol style"
@@ -9215,8 +9229,8 @@ msgstr "måned"
 
 #. Resource IDs: (199)
 #, c-format
-msgid "multiple URLs (UUID: %s)"
-msgstr "flere URL'er (UUID: %s)"
+msgid "multiple URLs (e.g. %s)"
+msgstr "flere URL'er (f.eks. %s)"
 
 #. Resource IDs: (18)
 msgid "no"
@@ -9277,8 +9291,9 @@ msgstr "mulig eller reel konflikt / spærret"
 
 # Kontekst? Dummy?
 #. Resource IDs: (3845)
+#, fuzzy
 msgid "prn"
-msgstr ""
+msgstr "prn"
 
 #. Resource IDs: (245)
 msgid "quarter of year"
