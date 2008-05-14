@@ -222,8 +222,19 @@ CString CRepositoryInfo::GetRepositoryRootAndUUID ( const CTSVNPath& url
                                                   , CString& sUUID)
 {
     TData::const_iterator iter = Lookup (url);
-    if (iter == data.end())
+
+	// get time stamps and maximum uuid info age (default: 1 min)
+	// we use the same setting as for the HEAD revision timeout, but with a
+	// one minute default instead of 0 minutes
+	__time64_t now = CTime::GetCurrentTime().GetTime();
+	CRegStdWORD ageLimit (_T("Software\\TortoiseSVN\\HeadCacheAgeLimit"), 60);
+
+    if (iter == data.end() || (now - iter->second.headLookupTime > ageLimit))
     {
+		// TODO: if we found an UUID but the cache timed out, we should
+		// compare the UUIDs and if they differ (i.e., another repository
+		// is now at the URL we cached), we should abandon/clear the cache
+		// completely.
         SPerRepositoryInfo info;
         info.root = svn.GetRepositoryRootAndUUID (url, info.uuid);
         info.headRevision = (revision_t)NO_REVISION;
