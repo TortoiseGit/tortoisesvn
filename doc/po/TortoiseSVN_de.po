@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-05-10 22:36 +0000\n"
-"PO-Revision-Date: 2008-05-13 16:55+0100\n"
+"PO-Revision-Date: 2008-05-14 17:01+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -9126,12 +9126,12 @@ msgstr "TSVNCache.exe nutzt diese Pfade, um seine Aktivitäten einzuschränken. 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:11047
 msgid "Exclude <literal>SUBST</literal> Drives"
-msgstr ""
+msgstr "<literal>SUBST</literal> Laufwerke ausschließen"
 
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:11049
 msgid "SUBST drives"
-msgstr ""
+msgstr "SUBST Laufwerke"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11051
@@ -9140,11 +9140,14 @@ msgid ""
 "subst T: C:\\TortoiseSVN\\trunk\\doc\n"
 "</screen> However this can cause the overlays not to update, as <literal>TSVNCache</literal> will only receive one notification when a file changes, and that is normally for the original path. This means that your overlays on the <literal>subst</literal> path may never be updated."
 msgstr ""
+"Häufig ist es praktisch, zum Zugriff auf Ihre Arbeitskopien ein <literal>SUBST</literal> Laufwerk zu definieren, z.B. mit dem Befehl\n"
+"<screen>subst T: C:\\TortoiseSVN\\trunk\\doc</screen>\n"
+"Das kann jedoch dazu führen, dass die überlagerten Symbole nicht aktualisiert werden, da der <literal>TSVNCache</literal> nur eine Benachrichtigung erhält, wenn sich eine Date ändert und diese ist normalerweise für den Originalpfad. Das bedeutet, dass die überlagerten Symbole auf dem <literal>subst</literal> Pfad unter Umständen nie aktualisiert werden."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11063
 msgid "An easy way to work around this is to exclude the original path from showing overlays, so that the overlays show up on the <literal>subst</literal> path instead."
-msgstr ""
+msgstr "Ein einfacher Weg, das Problem zu umgehen, ist den Originalpfad von der Anzeige der überlagerten Symbole auszuschließen, so das die Symbole statdessen auf dem <literal>subst</literal> Pfad erscheinen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11069
