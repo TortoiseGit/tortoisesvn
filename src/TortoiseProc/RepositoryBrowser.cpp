@@ -1761,6 +1761,7 @@ CString CRepositoryBrowser::EscapeUrl(const CTSVNPath& url)
 void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 {
 	HTREEITEM hSelectedTreeItem = NULL;
+	HTREEITEM hChosenTreeItem = NULL;
 	if ((point.x == -1) && (point.y == -1))
 	{
 		if (pWnd == &m_RepoTree)
@@ -1849,6 +1850,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 		}
 		if (hItem)
 		{
+			hChosenTreeItem = hItem;
 			CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData(hItem);
 			if (pTreeItem)
 			{
@@ -2355,7 +2357,14 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 						CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						return;
 					}
-					RefreshNode(m_RepoTree.GetSelectedItem(), true);
+					if (hChosenTreeItem)
+					{
+						HTREEITEM hParent = m_RepoTree.GetParentItem(hChosenTreeItem);
+						RecursiveRemove(hChosenTreeItem);
+						RefreshNode(hParent);
+					}
+					else
+						RefreshNode(m_RepoTree.GetSelectedItem(), true);
 				}
 			}
 			break;
