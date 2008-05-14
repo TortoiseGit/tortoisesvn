@@ -3,6 +3,8 @@
        path. (Stefan Fuhrmann)
 - BUG: When blaming a file with an Unicode BOM, a dot was shown in the first
        line of the blamed text. (Stefan)
+- BUG: The commit log history in the commit dialog was not loaded for the
+       selected project. (Stefan)
 
 Version 1.5.0-RC2
 - NEW: the issue tracker integration supports now relative urls. (Stefan)
