@@ -2487,7 +2487,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				else if (pWnd == &m_RepoTree)
 				{
 					m_RepoTree.SetFocus();
-					m_RepoTree.EditLabel(m_RepoTree.GetSelectedItem());
+					m_RepoTree.EditLabel(hChosenTreeItem);
 				}
 			}
 			break;

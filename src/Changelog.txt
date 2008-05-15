@@ -7,6 +7,9 @@
        selected project. (Stefan)
 - BUG: When removing a folder from the repository browser left tree view,
        the views were not refreshed properly. (Stefan)
+- BUG: Doing an 'rename' from the context menu on the tree view in the
+       repository browser edited the selected item, not the one which
+       was right-clicked on. (Stefan)
 
 Version 1.5.0-RC2
 - NEW: the issue tracker integration supports now relative urls. (Stefan)
