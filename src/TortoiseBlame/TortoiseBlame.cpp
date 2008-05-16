@@ -336,7 +336,7 @@ BOOL TortoiseBlame::OpenFile(const char *fileName)
 				utf8CheckBuf++;
 			}
 			SendEditor(SCI_ADDTEXT, _tcslen(lineptr), reinterpret_cast<LPARAM>(static_cast<char *>(lineptr)));
-			SendEditor(SCI_ADDTEXT, 1, (LPARAM)_T("\n"));
+			SendEditor(SCI_ADDTEXT, 2, (LPARAM)_T("\r\n"));
 		}
 	} while (File.gcount() > 0);
 
