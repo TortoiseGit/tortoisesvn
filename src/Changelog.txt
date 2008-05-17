@@ -1,3 +1,6 @@
+- NEW: Draw the whitespace chars in gray so they're clearly distinguishable
+       from normal chars in TortoiseMerge.
+       See issue #418 for details. (Stefan)
 - BUG: If the cached log history is incomplete, showing log in off-line mode 
        would include (some) revisions that don't belong to the respective 
        path. (Stefan Fuhrmann)

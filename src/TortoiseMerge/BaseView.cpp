@@ -34,11 +34,6 @@
 #define MARGINWIDTH 20
 #define HEADERHEIGHT 10
 
-#define TAB_CHARACTER				_T('\xBB')
-#define SPACE_CHARACTER				_T('\xB7')
-
-#define WHITESPACE_CHARS			_T(" \t\xBB\xB7")
-
 #define MAXFONTS 8
 
 #define INLINEADDED_COLOR			RGB(255, 255, 150)
@@ -1434,6 +1429,50 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 		CDiffColors::GetInstance().GetColors(DIFFSTATE_UNKNOWN, crBkgnd, crText);
 	if (frect.right > frect.left)
 		pDC->FillSolidRect(frect, crBkgnd);
+	// draw the whitespace chars
+	if (m_bViewWhitespace)
+	{
+		pszChars += m_nOffsetChar;
+		int nL = nLength-m_nOffsetChar;
+		int xpos = 0;
+		int y = rc.top + (rc.bottom-rc.top)/2;
+
+		// use the gray (inactive text) color for the whitespaces
+		CPen pen(PS_SOLID, 0, GetSysColor(COLOR_GRAYTEXT));
+		CPen pen2(PS_SOLID, 2, GetSysColor(COLOR_GRAYTEXT));
+		for (int i=0; i<nL; i++)
+		{
+			switch (pszChars[i])
+			{
+			case _T('\t'):
+				{
+					// draw an arrow
+					CPen * oldPen = pDC->SelectObject(&pen);
+					pDC->MoveTo(xpos * GetCharWidth() + savedx, y);
+					pDC->LineTo((xpos + GetTabSize()) * GetCharWidth() + savedx-2, y);
+					pDC->LineTo((xpos + GetTabSize()-1) * GetCharWidth() + savedx, rc.top+2);
+					pDC->MoveTo((xpos + GetTabSize()) * GetCharWidth() + savedx-2, y);
+					pDC->LineTo((xpos + GetTabSize()-1) * GetCharWidth() + savedx, rc.bottom-2);
+					xpos += GetTabSize();
+					pDC->SelectObject(oldPen);
+				}
+				break;
+			case _T(' '):
+				{
+					// draw a small dot
+					CPen * oldPen = pDC->SelectObject(&pen2);
+					pDC->MoveTo(xpos * GetCharWidth() + savedx + GetCharWidth()/2-1, y);
+					pDC->LineTo(xpos * GetCharWidth() + savedx + GetCharWidth()/2+1, y);
+					xpos++;
+					pDC->SelectObject(oldPen);
+				}
+				break;
+			default:
+				xpos++;
+				break;
+			}
+		}
+	}
 	DrawBlockLine(pDC, rc, nLineIndex);
 	DrawLineEnding(pDC, rc, nLineIndex, origin);
 }
@@ -1476,11 +1515,6 @@ void CBaseView::ExpandChars(LPCTSTR pszChars, int nOffset, int nCount, CString &
 			if (pszChars[i] == _T('\t'))
 			{
 				int nSpaces = nTabSize - (nActualOffset + nCurPos) % nTabSize;
-				if (m_bViewWhitespace)
-				{
-					pszBuf[nCurPos ++] = TAB_CHARACTER;
-					nSpaces --;
-				}
 				while (nSpaces > 0)
 				{
 					pszBuf[nCurPos ++] = _T(' ');
@@ -1489,10 +1523,7 @@ void CBaseView::ExpandChars(LPCTSTR pszChars, int nOffset, int nCount, CString &
 			}
 			else
 			{
-				if (pszChars[i] == _T(' ') && m_bViewWhitespace)
-					pszBuf[nCurPos] = SPACE_CHARACTER;
-				else
-					pszBuf[nCurPos] = pszChars[i];
+				pszBuf[nCurPos] = pszChars[i];
 				nCurPos ++;
 			}
 		}
