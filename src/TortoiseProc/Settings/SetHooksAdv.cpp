@@ -141,6 +141,7 @@ void CSetHooksAdv::OnOK()
 
 void CSetHooksAdv::OnBnClickedHookbrowse()
 {
+	UpdateData();
 	CBrowseFolder browser;
 	CString sPath;
 	browser.SetInfo(CString(MAKEINTRESOURCE(IDS_SETTINGS_HOOKS_SELECTFOLDERPATH)));
@@ -154,6 +155,7 @@ void CSetHooksAdv::OnBnClickedHookbrowse()
 
 void CSetHooksAdv::OnBnClickedHookcommandbrowse()
 {
+	UpdateData();
 	CString sCmdLine = m_sCommandLine;
 	if (!PathFileExists(sCmdLine))
 		sCmdLine.Empty();
