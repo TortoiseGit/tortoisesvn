@@ -1437,6 +1437,15 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 		int xpos = 0;
 		int y = rc.top + (rc.bottom-rc.top)/2;
 
+		int nActualOffset = 0;
+		for (int i=0; i<m_nOffsetChar; i++)
+		{
+			if (pszChars[i] == _T('\t'))
+				nActualOffset += (GetTabSize() - nActualOffset % GetTabSize());
+			else
+				nActualOffset ++;
+		}
+
 		// use the gray (inactive text) color for the whitespaces
 		CRegDWORD regWhitespaceColor(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
 		CPen pen(PS_SOLID, 0, (DWORD)regWhitespaceColor);
@@ -1449,12 +1458,13 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 				{
 					// draw an arrow
 					CPen * oldPen = pDC->SelectObject(&pen);
+					int nSpaces = GetTabSize() - (nActualOffset + xpos) % GetTabSize();
 					pDC->MoveTo(xpos * GetCharWidth() + savedx, y);
-					pDC->LineTo((xpos + GetTabSize()) * GetCharWidth() + savedx-2, y);
-					pDC->LineTo((xpos + GetTabSize()-1) * GetCharWidth() + savedx, rc.top+2);
-					pDC->MoveTo((xpos + GetTabSize()) * GetCharWidth() + savedx-2, y);
-					pDC->LineTo((xpos + GetTabSize()-1) * GetCharWidth() + savedx, rc.bottom-2);
-					xpos += GetTabSize();
+					pDC->LineTo((xpos + nSpaces) * GetCharWidth() + savedx-2, y);
+					pDC->LineTo((xpos + nSpaces - 1) * GetCharWidth() + savedx, rc.top+2);
+					pDC->MoveTo((xpos + nSpaces) * GetCharWidth() + savedx-2, y);
+					pDC->LineTo((xpos + nSpaces - 1) * GetCharWidth() + savedx, rc.bottom-2);
+					xpos += nSpaces;
 					pDC->SelectObject(oldPen);
 				}
 				break;
