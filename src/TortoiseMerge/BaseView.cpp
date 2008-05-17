@@ -1438,8 +1438,9 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 		int y = rc.top + (rc.bottom-rc.top)/2;
 
 		// use the gray (inactive text) color for the whitespaces
-		CPen pen(PS_SOLID, 0, GetSysColor(COLOR_GRAYTEXT));
-		CPen pen2(PS_SOLID, 2, GetSysColor(COLOR_GRAYTEXT));
+		CRegDWORD regWhitespaceColor(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
+		CPen pen(PS_SOLID, 0, (DWORD)regWhitespaceColor);
+		CPen pen2(PS_SOLID, 2, (DWORD)regWhitespaceColor);
 		for (int i=0; i<nL; i++)
 		{
 			switch (pszChars[i])
