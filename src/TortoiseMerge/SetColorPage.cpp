@@ -110,6 +110,12 @@ void CSetColorPage::SaveData()
 		if (cBk == -1)
 			cBk = m_cBkConflictResolved.GetAutomaticColor();
 		CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTRESOLVED, cBk, cFg);
+
+		cFg = m_cFgWhitespaces.GetColor();
+		if (cFg == -1)
+			cFg = m_cFgWhitespaces.GetAutomaticColor();
+		CRegDWORD regWhitespaceColor(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
+		regWhitespaceColor = cFg;
 	}
 }
 
@@ -125,6 +131,7 @@ void CSetColorPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_BKEMPTY, m_cBkEmpty);
 	DDX_Control(pDX, IDC_BKCONFLICTED, m_cBkConflict);
 	DDX_Control(pDX, IDC_BKCONFLICTRESOLVED, m_cBkConflictResolved);
+	DDX_Control(pDX, IDC_FGWHITESPACES, m_cFgWhitespaces);
 }
 
 
@@ -138,6 +145,7 @@ BEGIN_MESSAGE_MAP(CSetColorPage, CPropertyPage)
 	ON_BN_CLICKED(IDC_BKEMPTY, &CSetColorPage::OnBnClickedColor)
 	ON_BN_CLICKED(IDC_BKCONFLICTED, &CSetColorPage::OnBnClickedColor)
 	ON_BN_CLICKED(IDC_BKCONFLICTRESOLVED, &CSetColorPage::OnBnClickedColor)
+	ON_BN_CLICKED(IDC_FGWHITESPACES, &CSetColorPage::OnBnClickedColor)
 END_MESSAGE_MAP()
 
 
@@ -195,6 +203,13 @@ BOOL CSetColorPage::OnInitDialog()
 	m_cBkConflictResolved.SetColor(cBk);
 	m_cBkConflictResolved.EnableAutomaticButton(sDefaultText, DIFFSTATE_CONFLICTRESOLVED_DEFAULT_BG);
 	m_cBkConflictResolved.EnableOtherButton(sCustomText);
+
+
+	CRegDWORD regWhitespaceColor(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
+	m_cFgWhitespaces.SetColor((COLORREF)(DWORD)regWhitespaceColor);
+	m_cFgWhitespaces.EnableAutomaticButton(sDefaultText, GetSysColor(COLOR_GRAYTEXT));
+	m_cFgWhitespaces.EnableOtherButton(sCustomText);
+
 
 	m_bInit = TRUE;
 

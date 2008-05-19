@@ -67,4 +67,5 @@ protected:
 	CMFCColorButton m_cBkConflict;
 	CMFCColorButton m_cBkConflictResolved;
 	CMFCColorButton m_cBkModified;
+	CMFCColorButton m_cFgWhitespaces;
 };
