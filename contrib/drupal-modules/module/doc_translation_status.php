@@ -7,7 +7,6 @@
 include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_data_trunk.inc");
 include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_countries.inc");
 
-$vars['wc']=100;
 $vars['release']=variable_get('tsvn_version', '');
 $vars['build']=variable_get('tsvn_build', '');
 $vars['downloadurl1']=variable_get('tsvn_sf_prefix', '');
@@ -31,15 +30,7 @@ This page is informing you about the documentation translation status of the cur
 </p>
 
 <p>
-The language pack installers can be downloaded from this page as well. The installers are always built for the last official release <b>(<?php echo $vars['release'] ?>)</b>. 
-</p>
-
-<p>
 If you want to download the po file from the repository, either use <strong>guest (no password)</strong> or your tigris.org user ID. 
-</p>
-
-<p>
-The manuals can be downloaded directly for the latest <a href="doc_release">release</a> or for the <a href="doc_nightly">developer builds</a> The developer builds are updated at irregular intervals.
 </p>
 
 <?php

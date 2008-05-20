@@ -7,7 +7,6 @@
 include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_data_trunk.inc");
 include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_countries.inc");
 
-$vars['wc']=120;
 $vars['release']=variable_get('tsvn_version', '');
 $vars['build']=variable_get('tsvn_build', '');
 $vars['downloadurl1']=variable_get('tsvn_sf_prefix', '');
@@ -27,10 +26,6 @@ function print_header($vars)
 
 <p>
 This page is informing you about the GUI translation status of the current development version of TortoiseSVN, which is always ahead of the latest official release. The statistics are calculated for the HEAD revision and updated nightly. The last update was run at <b><?php echo $vars['update']; ?></b>.
-</p>
-
-<p>
-The language pack installers can be downloaded from this page as well. The installers are always built for the last official release <b>(<?php echo $vars['release'] ?>)</b>. 
 </p>
 
 <p>
