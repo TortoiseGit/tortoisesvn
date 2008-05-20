@@ -13,6 +13,8 @@
 - BUG: Doing an 'rename' from the context menu on the tree view in the
        repository browser edited the selected item, not the one which
        was right-clicked on. (Stefan)
+- BUG: SubWCRev returned the wrong URL if -e was specified and
+       externals were present. See issue #419 for details. (Stefan)
 
 Version 1.5.0-RC2
 - NEW: the issue tracker integration supports now relative urls. (Stefan)

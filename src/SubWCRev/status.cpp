@@ -236,9 +236,9 @@ svn_status (	const char *path,
 	if (entry)
 	{
 		SVN_ERR (svn_wc_get_actual_target (path, &anchor, &target, pool));
-		if (entry->url)
+		SubWCRev_t * SubStat = (SubWCRev_t *) status_baton;
+		if ((entry->url)&&(SubStat->Url[0] == 0))
 		{
-			SubWCRev_t * SubStat = (SubWCRev_t *) status_baton;
 			UnescapeCopy((char *) entry->url, SubStat->Url, URL_BUF);
 		}
 	}
