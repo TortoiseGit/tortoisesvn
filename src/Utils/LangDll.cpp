@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2006,2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -39,9 +39,6 @@ HINSTANCE CLangDll::Init(LPCTSTR appname, unsigned long langID)
 	TCHAR langdllpath[MAX_PATH];
 	TCHAR sVer[MAX_PATH];
 	_tcscpy_s(sVer, MAX_PATH, _T(STRPRODUCTVER));
-	TCHAR * pVer = _tcsrchr(sVer, ',');
-	if (pVer)
-		*pVer = 0;
 	GetModuleFileName(NULL, langpath, MAX_PATH);
 	TCHAR * pSlash = _tcsrchr(langpath, '\\');
 	if (pSlash)
@@ -136,13 +133,7 @@ bool CLangDll::DoVersionStringsMatch(LPCTSTR sVer, LPCTSTR langDll)
 				(LPVOID *)&lpVersion,
 				&nInfoSize);
 
-			TCHAR * pVer = NULL;
-			pVer = _tcsrchr((TCHAR *)lpVersion, ',');
-			if (pVer)
-			{
-				*pVer = 0;
-				bReturn = (_tcscmp(sVer, (LPCTSTR)lpVersion)==0);
-			}
+			bReturn = (_tcscmp(sVer, (LPCTSTR)lpVersion)==0);
 			free(pBuffer);
 		}
 	} 

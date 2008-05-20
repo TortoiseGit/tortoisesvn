@@ -65,9 +65,7 @@ BOOL CTortoiseMergeApp::InitInstance()
 		
 		hInst = LoadLibrary(langDll);
 		CString sVer = _T(STRPRODUCTVER);
-		sVer = sVer.Left(sVer.ReverseFind(','));
 		CString sFileVer = CPathUtils::GetVersionFromFile(langDll);
-		sFileVer = sFileVer.Left(sFileVer.ReverseFind(','));
 		if (sFileVer.Compare(sVer)!=0)
 		{
 			FreeLibrary(hInst);

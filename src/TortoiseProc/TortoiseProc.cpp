@@ -121,10 +121,8 @@ BOOL CTortoiseProcApp::InitInstance()
 		hInst = LoadLibrary(langDll);
 
 		CString sVer = _T(STRPRODUCTVER);
-		sVer = sVer.Left(sVer.ReverseFind(','));
 		CString sFileVer = CPathUtils::GetVersionFromFile(langDll);
-		int commaIndex = sFileVer.ReverseFind(',');
-		if (commaIndex==-1 || sFileVer.Left(commaIndex).Compare(sVer)!=0)
+		if (sFileVer.Compare(sVer)!=0)
 		{
 			FreeLibrary(hInst);
 			hInst = NULL;
