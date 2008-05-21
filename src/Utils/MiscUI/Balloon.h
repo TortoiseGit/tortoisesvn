@@ -504,6 +504,12 @@ public:
 	 */
 	void	Pop();
 
+	/**
+	 * Shows a tooltip immediately.
+	 */
+	void	DisplayToolTip(CPoint * pt = NULL);
+	void	DisplayToolTip(CPoint * pt, CRect * rect);
+
 	// Generated message map functions
 protected:
 	void	SetSize(int nSizeIndex, UINT nValue);
@@ -512,10 +518,7 @@ protected:
 
 	void	Redraw(BOOL bRedraw = TRUE);
 	void	KillTimers(UINT nIDTimer = NULL);
-	
-	void	DisplayToolTip(CPoint * pt = NULL);
-	void	DisplayToolTip(CPoint * pt, CRect * rect);
-	
+		
 	void	SetNewToolTip(CWnd * pWnd);
 	void	GetMonitorWorkArea(const CPoint& sourcePoint, CRect& monitorRect);
 
