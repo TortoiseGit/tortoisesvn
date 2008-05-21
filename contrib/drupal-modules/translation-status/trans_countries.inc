@@ -1,9 +1,12 @@
 <?php
 // Meaning of the columns:
-// 1: 1 = pot file, 0 = po file
+// 1: Create download link (yes = 0) or (no = any other value)
+//    0 = po file -> Create download link, shown on translation status page 
+//    1 = pot file -> No download link, but shown on translation status page as .po template
+//    x = -> No download link, but shown on translation status page as normal .po file
 // 2: Flag byte used to create links on different download pages
 //    !!! Bit0 is the rightmost bit !!!
-//    Bit0 = spellchecker available
+//    Bit0 = Spellchecker available
 //    Bit1 = TortoiseSVN manual available
 //    Bit2 = TortoiseMerge manual available
 // 3: Country code. Used to display the flag. The [flagname].png has to match this column
@@ -17,7 +20,7 @@ $countries = array(
 "da"    => array("0","001","da","Danish","Jan Normann Nielsen, Gunther Strube"),
 "de"    => array("0","111","de","German","Stefan Küng, Lübbe Onken"),
 "el"    => array("0","000","el","Greek","George Marselis"),
-"eo"    => array("0","000","eo","Esperanto","Tim Morley"),
+"eo"    => array("2","000","eo","Esperanto","Tim Morley"),
 "es"    => array("0","111","es","Spanish","Fernando P. Nájera Cano, Antonio Romero Lopez, Franco Catena"),
 "fa"    => array("0","000","fa","Farsi (Persian)","Titto Agustine"),
 "fr"    => array("0","111","fr","French","Olivier Booklage, Philippe Torche, Jean-Christophe Gigogne, Jérémy Badier, Jean-Christophe Mazenc, Christophe Sauveur"),
