@@ -1,6 +1,6 @@
 #
 # Indonesian translation for TortoiseSVN
-# Copyright (C) 2004-2007 the TortoiseSVN team
+# Copyright (C) 2004-2008 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
 # Last commit by:
@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-05-10 22:36 +0000\n"
-"PO-Revision-Date: 2008-05-20 23:36+0700\n"
+"PO-Revision-Date: 2008-05-21 18:51+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7505,17 +7505,17 @@ msgstr "Mengekspor suatu Copy Pekerjaan Subversion"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7551
 msgid "Often you will find yourself applying the same set of properties many times, for example <literal>bugtraq:logregex</literal>. To simplify the process of copying properties from one project to another, you can use the Export/Import feature."
-msgstr ""
+msgstr "Seringkali Anda akan menemukan diri Anda menerapkan sekumpulan properti yang sama berulang kali, contohnya <literal>bugtraq:logregex</literal>. Untuk memudahkan proses penyalinan properti-properti dari satu proyek ke proyek lainnya, Anda dapat menggunakan fitur Ekspor/Impor."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7557
 msgid "From the file or folder where the properties are already set, use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>properties</guimenuitem></menuchoice>, select the properties you wish to export and click on <guibutton>Export...</guibutton>. You will be prompted for a filename where the property names and values will be saved."
-msgstr ""
+msgstr "Dari berkas atau folder di mana properti-properti sudah terset, gunakan <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>properti-properti</guimenuitem></menuchoice>, pilih properti-properti yang ingin Anda ekspor dan klik <guibutton>Ekspor...</guibutton>. Anda akan diminta menyebutkan nama berkas dimana nama-nama dan nilai-nilai properti akan disimpan."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7567
 msgid "From the folder(s) where you wish to apply these properties, use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>properties</guimenuitem></menuchoice> and click on <guibutton>Import...</guibutton>. You will be prompted for a filename to import from, so navigate to the place you saved the export file previously and select it. The properties will be added to the folders non-recursively."
-msgstr ""
+msgstr "Dari folder di mana Anda ingin untuk menerapkan properti-properti ini, gunakan <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>properties</guimenuitem></menuchoice> dan klik pada <guibutton>Impor...</guibutton>. Anda akan diminta menyebutkan sebuah nama berkas yang akan diimpor, jadi pergilah ke tempat Anda menyimpan berkas yang telah Anda ekspor sebelumnya dan pilihlah berkas itu. Properti-properti tersebut akan ditambahkan ke folder-folder secara tidak rekursif."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7578
@@ -11203,7 +11203,7 @@ msgstr "Dialog Seting, Halaman Tampilan dan Rasa"
 #. (term)
 #: ../source/TortoiseSVN_en.xml:11612
 msgid "RAM"
-msgstr ""
+msgstr "RAM"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11614
@@ -11213,7 +11213,7 @@ msgstr ""
 #. (term)
 #: ../source/TortoiseSVN_en.xml:11620
 msgid "Disk"
-msgstr ""
+msgstr "Diska"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11622
@@ -11493,32 +11493,32 @@ msgstr ""
 #. (literal)
 #: ../source/TortoiseSVN_en.xml:11884
 msgid "svn_depth_unknown"
-msgstr ""
+msgstr "svn_depth_unknown"
 
 #. (literal)
 #: ../source/TortoiseSVN_en.xml:11892
 msgid "svn_depth_exclude"
-msgstr ""
+msgstr "svn_depth_exclude"
 
 #. (literal)
 #: ../source/TortoiseSVN_en.xml:11900
 msgid "svn_depth_empty"
-msgstr ""
+msgstr "svn_depth_empty"
 
 #. (literal)
 #: ../source/TortoiseSVN_en.xml:11908
 msgid "svn_depth_files"
-msgstr ""
+msgstr "svn_depth_files"
 
 #. (literal)
 #: ../source/TortoiseSVN_en.xml:11916
 msgid "svn_depth_immediates"
-msgstr ""
+msgstr "svn_depth_immediates"
 
 #. (literal)
 #: ../source/TortoiseSVN_en.xml:11924
 msgid "svn_depth_infinity"
-msgstr ""
+msgstr "svn_depth_infinity"
 
 # Indonesian#: source/TortoiseSVN_en.xml:10555(entry)
 #. (para)
