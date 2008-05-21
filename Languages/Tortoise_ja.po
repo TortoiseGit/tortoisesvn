@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-14 21:55+0900\n"
+"PO-Revision-Date: 2008-05-21 14:26+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -272,7 +272,7 @@ msgstr "高度な設定(&A) ..."
 
 #. Resource IDs: (1471)
 msgid "&Allow ambiguous URLs"
-msgstr "あいまいなURLを許す(&A)"
+msgstr "あいまいなURLを許可(&A)"
 
 #. Resource IDs: (65535)
 msgid "&Application Look"
@@ -750,7 +750,7 @@ msgstr "開く(&O)"
 
 #. Resource IDs: (32772)
 msgid "&Overlap images"
-msgstr "画像を重ね合わせる(&O)"
+msgstr "画像を重ねて表示(&O)"
 
 #. Resource IDs: (1411, 65535)
 msgid "&Password:"
@@ -810,7 +810,7 @@ msgstr "名前の変更(&R)"
 
 #. Resource IDs: (1316)
 msgid "&Reopen commit and branch/tag dialog after a commit failed"
-msgstr "コミットに失敗した場合はコミットもしくは分岐／タグダイアログを再表示する(&R)"
+msgstr "コミットに失敗した場合はコミットもしくは分岐／タグのダイアログを再表示する(&R)"
 
 #. Resource IDs: (13)
 msgid "&Repo-browser"
@@ -1790,7 +1790,7 @@ msgstr "ログの取得を高速化するためにログメッセージをキャ
 
 #. Resource IDs: (1127)
 msgid "Can double-click in log list to compare with previous revision"
-msgstr "ログリスト内でダブルクリックすると以前のリビジョンと比較できます。"
+msgstr "ログリスト内でダブルクリックすることで以前のリビジョンと比較する"
 
 #. Resource IDs: (3865)
 msgid "Can not activate a static ActiveX object."
@@ -1847,7 +1847,7 @@ msgstr "重ねる"
 
 #. Resource IDs: (65535)
 msgid "Cascaded context menu"
-msgstr "コンテキストメニューを重ねて表示"
+msgstr "コンテキストメニューに表示する項目"
 
 #. Resource IDs: (65535)
 msgid "Cate&gories:"
@@ -2239,19 +2239,19 @@ msgstr "フックスクリプトの設定"
 
 #. Resource IDs: (65535)
 msgid "Configure the program used for comparing different revisions of files"
-msgstr "異なるリビジョンのファイルを比較するために用いるプログラムを設定する。"
+msgstr "異なるリビジョンのファイルの比較に利用するプログラムの設定"
 
 #. Resource IDs: (65535)
 msgid "Configure the program used for comparing different revisions of properties"
-msgstr "異なるリビジョンの属性を比較するために用いるプログラムを設定する。"
+msgstr "異なるリビジョンの属性の比較に利用するプログラムの設定"
 
 #. Resource IDs: (65535)
 msgid "Configure the program used to resolve conflicted files."
-msgstr "ファイルの競合を解消するために利用するプログラムを設定する。"
+msgstr "ファイルの競合を解消するために利用するプログラムの設定。"
 
 #. Resource IDs: (65535)
 msgid "Configure viewer program for GNU diff files (patch files)."
-msgstr "GNUの差分ファイル（パッチファイル）の表示に用いるプログラムを設定する。"
+msgstr "GNUの差分ファイル（パッチファイル）の表示に用いるプログラムの設定。"
 
 #. Resource IDs: (65535)
 msgid "Conflict resolved"
@@ -2726,7 +2726,7 @@ msgstr "削除"
 
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
-msgstr "バージョン管理外のファイルを削除する"
+msgstr "バージョン管理外のファイルを削除"
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
@@ -8478,6 +8478,10 @@ msgid ""
 msgstr ""
 "選択している１つ以上のファイルをロックする際に、ロックについての\n"
 "メッセージを問い合わせるダイアログを表示する。"
+
+#. Resource IDs: (65535)
+msgid "Whitespaces"
+msgstr "空白"
 
 #. Resource IDs: (1065)
 msgid "Window Position"
