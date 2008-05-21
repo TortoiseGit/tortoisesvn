@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-05-10 22:36 +0000\n"
-"PO-Revision-Date: 2008-05-16 16:00+0100\n"
+"PO-Revision-Date: 2008-05-21 15:17+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -658,7 +658,7 @@ msgstr "Wenn keine Projektsprache eingestellt ist oder das entsprechende Sprachp
 #. (para)
 #: ../source/TortoiseSVN_en.xml:697
 msgid "If the exact Windows locale doesn't work, try the <quote>Base</quote> language, eg. <literal>de_CH</literal> (Swiss-German) falls back to <literal>de_DE</literal> (German)."
-msgstr "Wenn kein Paket mit der Windows Sprachenstellung übereinstimmt, versuche es mit der <quote>Basis</quote>-Sprache, z.B. <literal>de_CH</literal> (Schweizerdeutsch) fällt zurück auf <literal>de_DE</literal> (Deutsch)."
+msgstr "Wenn kein Paket mit der Windows Spracheinstellung übereinstimmt, versuche es mit der <quote>Basis</quote>-Sprache, z.B. <literal>de_CH</literal> (Schweizerdeutsch) fällt zurück auf <literal>de_DE</literal> (Deutsch)."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:705
@@ -2191,7 +2191,7 @@ msgstr "In manchen Serverkonfigurationen müssen Sie einen einzelnen Server mit 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2431
 msgid "Adding an <literal>SSLVerifyClient Optional</literal> directive to the <emphasis>per-server</emphasis> section of the Apache configuration (i.e. outside of any <literal>VirtualHost</literal> and <literal>Directory</literal> blocks) forces Apache to request a client Certificate in the initial SSL handshake. Due to a bug in <literal>mod_ssl</literal> it is essential that the certificate is requested at this point as it does not work if the SSL connection is re-negotiated."
-msgstr "Durch das Hinzufügen einer <literal>SSLVerifyClient Optional</literal> Anweisung in die <emphasis>per-server</emphasis> Sektion der Apache Konfiguration (d.h. außerhalb aller <literal>VirtualHost</literal> und <literal>Directory</literal> Blöcke) zwingen Sie Apache, ein Client-Zertifikat während des ersten SSL Handshake anzufordern. Aufgrund eines Fehlers in <literal>mod_ssl</literal> ist es wichtig, dass das Zertifikat zu diesem Zeitpunkg angefordert wird, da es nicht funktioniert, wenn die SSL Verbindung neu ausgehandelt wird."
+msgstr "Durch das Hinzufügen einer <literal>SSLVerifyClient Optional</literal> Anweisung in die <emphasis>per-server</emphasis> Sektion der Apache Konfiguration (d.h. außerhalb aller <literal>VirtualHost</literal> und <literal>Directory</literal> Blöcke) zwingen Sie Apache, ein Client-Zertifikat während des ersten SSL Handshake anzufordern. Aufgrund eines Fehlers in <literal>mod_ssl</literal> ist es wichtig, dass das Zertifikat zu diesem Zeitpunkt angefordert wird, da es nicht funktioniert, wenn die SSL Verbindung neu ausgehandelt wird."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2441
@@ -2517,12 +2517,12 @@ msgstr "Was ist SASL?"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2780
 msgid "The Cyrus Simple Authentication and Security Layer is open source software written by Carnegie Mellon University. It adds generic authentication and encryption capabilities to any network protocol, and as of Subversion 1.5 and later, both the svnserve server and TortoiseSVN client know how to make use of this library."
-msgstr ""
+msgstr "Beim Cyrus <quote>Simple Authentication and Security Layer</quote> handelt es sich um eine Open Source Bibliothek, die von der Carnegie Mellon Universität geschrieben wurde. Sie fügt allgemeine Anmelde- und Verschlüsselungsfunktionen zu jedem Netzwerkprotokoll hinzu. Ab Subversion 1.5 unterstützen sowohl der svnserve Server und der TortoiseSVN Client diese Bibliothek."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2788
 msgid "For a more complete discussion of the options available, you should look at the Subversion book in the section <ulink url=\"http://svnbook.red-bean.com/nightly/en/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.sasl\"><citetitle>Using svnserve with SASL</citetitle></ulink>. If you are just looking for a simple way to set up secure authentication and encryption on a Windows server, so that your repository can be accessed safely over the big bad Internet, read on."
-msgstr ""
+msgstr "Für eine vollständige Beschreibung der zur Verfügung stehenden Optionen sollten Sie sich im Subversion Buch das Kapitel <ulink url=\"http://svnbook.red-bean.com/nightly/en/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.sasl\"><citetitle>Using svnserve with SASL</citetitle></ulink> durchlesen. Wenn Sie nur an einem einfachen Verfahren interessiert sind, mit dessen Hilfe Sie sichere Anmeldung und Verschlüsselung auf einem Windows Server einrichten können, so dass auf Ihr Projektarchiv sicher über das große böse Internet zugegriffen werden kann, lesen Sie hier weiter."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:2801
@@ -2536,16 +2536,18 @@ msgid ""
 "use-sasl = true\n"
 "</screen>"
 msgstr ""
+"Um die SASL Mechanismen auf Ihrem Server zu aktivieren, müssen Sie drei Dinge tun. Als Erstes erstellen Sie eine <literal>[sasl]</literal> Sektion in der <filename>svnserve.conf</filename> Datei Ihres Projektarchivs, die folgenden Eintrag enthält:\n"
+"<screen>use-sasl = true</screen>"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2811
 msgid "Second, create a file called <filename>svn.conf</filename> in a convenient location - typically in the directory where subversion is installed."
-msgstr ""
+msgstr "Zweitens legen Sie eine Datei namens <filename>svn.conf</filename> an geeigneter Stelle an - typischerweise im Installationsverzeichnis von Subversion."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2816
 msgid "Thirdly, create two new registry entries to tell SASL where to find things. Create a registry key named <literal>[HKEY_LOCAL_MACHINE\\SOFTWARE\\Carnegie Mellon\\Project Cyrus\\SASL Library]</literal> and place two new string values inside it: <literal>SearchPath</literal> set to the directory path containing the <filename>sasl*.dll</filename> plug-ins (normally in the Subversion install directory), and <literal>ConfFile</literal> set to the directory containing the <filename>svn.conf</filename> file. If you used the CollabNet installer, these registry keys will already have been created for you."
-msgstr ""
+msgstr "Drittens erzeugen Sie zwei neue Registrierungseinträge, damit SASL weiß, wo seine Dateien stehen. Erstellen Sie einen Schlüssel namens <literal>[HKEY_LOCAL_MACHINE\\SOFTWARE\\Carnegie Mellon\\Project Cyrus\\SASL Library]</literal> und legen Sie dort zwei neue Zeichenketten an: <literal>SearchPath</literal> zeigt auf das Verzeichnis, das die <filename>sasl*.dll</filename> enthält (Normalerweise im Subversion Installationsverzeichnis), und <literal>ConfFile</literal> zeigt auf das Verzeichnis, das die <filename>svn.conf</filename> Datei enthält. Falls Sie den CollabNet Installer verwendet haben, wurden diese Einträge bereits erzeugt."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2828
@@ -2557,11 +2559,17 @@ msgid ""
 "sasldb_path: C:\\TortoiseSVN\\sasldb\n"
 "</screen> The last line shows the location of the authentication database, which is a file called <filename>sasldb</filename>. This could go anywhere, but a convenient choice is the repository parent path. Make sure that the svnserve service has read access to this file."
 msgstr ""
+"Editieren Sie die <filename>svn.conf</filename> Datei, so dass sie folgende Einträge enthält:\n"
+"<screen>pwcheck_method: auxprop\n"
+"auxprop_plugin: sasldb\n"
+"mech_list: DIGEST-MD5\n"
+"sasldb_path: C:\\TortoiseSVN\\sasldb</screen>\n"
+"Die letzte Zeile enthält den Ort der Anmeldedatenbank, eine Datei namens <filename>sasldb</filename>. Diese Datei kann überall liegen, ein guter Platz ist jedoch der Elternpfad des Projektarchivs. Stellen Sie sicher, dass der svnserve Dienst Lesezugriff auf diese Datei hat."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2843
 msgid "If svnserve was already running, you will need to restart it to ensure it reads the updated configuration."
-msgstr ""
+msgstr "Falls svnserve bereits läuft, müssen Sie den Dienst neu starten, damit er die geänderte Konfiguration einliest."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2847
@@ -2570,16 +2578,19 @@ msgid ""
 "saslpasswd2 -c -f C:\\TortoiseSVN\\sasldb -u realm username\n"
 "</screen> The <literal>-f</literal> switch gives the database location, <literal>realm</literal> must be the same as the value you defined in your repository's <filename>svnserve.conf</filename> file, and username is exactly what you expect it to be. Note that the realm is not allowed to contain space characters."
 msgstr ""
+"Nun, da alles eingerichtet ist, müssen Sie nur noch die Benutzer und Passwörter einrichten. Dazu benötigen Sie das <literal>saslpasswd2</literal> Programm. Falls Sie den CollabNet Installer benutzt haben, finde sich die Anwendung im Installationsverzeichnis. Der Aufruf lautet wie folgt:\n"
+"<screen>saslpasswd2 -c -f C:\\TortoiseSVN\\sasldb -u Anmeldebereich Benutzername</screen>\n"
+"Der <literal>-f</literal> Parameter gibt den Ort der Datenbank an, <literal>Anmeldebereich</literal> muss der gleiche Wert wie in der <filename>svnserve.conf</filename> Datei Ihres Projektarchivs sein und <literal>Benutzername</literal> ist, wie erwartet, der Name des Anwenders. Beachten Sie bitte, dass der Anmeldebereich keine Leerzeichen enthalten darf."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2862
 msgid "You can list the usernames stored in the database using the <literal>sasldblistusers2</literal> program."
-msgstr ""
+msgstr "Sie können die in der Datenbank gespeicherten Benutzer mit Hilfe des <literal>sasldblistusers2</literal> Programms auflisten."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:2868
 msgid "SASL Encryption"
-msgstr ""
+msgstr "SASL Verschlüsselung"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2869
@@ -2591,11 +2602,16 @@ msgid ""
 "max-encryption = 256\n"
 "</screen>"
 msgstr ""
+"Um verschiedene Stufen der Verschlüsselung ein- und auszuschalten, können Sie zwei Werte in der <filename>svnserve.conf</filename> Datei Ihres Projektarchivs setzen:\n"
+"<screen>[sasl]\n"
+"use-sasl = true\n"
+"min-encryption = 128\n"
+"max-encryption = 256</screen>"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2880
 msgid "The <literal>min-encryption</literal> and <literal>max-encryption</literal> variables control the level of encryption demanded by the server. To disable encryption completely, set both values to 0. To enable simple checksumming of data (i.e., prevent tampering and guarantee data integrity without encryption), set both values to 1. If you wish to allow (but not require) encryption, set the minimum value to 0, and the maximum value to some bit-length. To require encryption unconditionally, set both values to numbers greater than 1. In our previous example, we require clients to do at least 128-bit encryption, but no more than 256-bit encryption."
-msgstr ""
+msgstr "Die <literal>min-encryption</literal> und <literal>max-encryption</literal> Variablen legen die vom Server verlangte Verschlüsselung fest. Um die Verschlüsselung komplett abzuschalten, setzen Sie beide Werte auf Null. Für einfache Prüfsummen ohne Verschlüsselung (Verhindern von Manipulationen und Sicherstellen der Datenintegrität), setzen Sie beide Werte auf Eins. Wenn Sie Verschlüsselung zulassen aber nicht erzwingen wollen, setzen Sie den Minimalwert auf Null und den Maximalwert auf eine Bitlänge. Um Verschlüsselung zu erzwingen, setzen Sie beide Werte auf Zahlen größer als Eins. In unserem obenstehenden Beispiel verlangen wir von den Clients mindestens 128-Bit Verschlüsselung aber nicht mehr als 256-Bit Verschlüsselung."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:2897
@@ -2615,7 +2631,7 @@ msgstr "Mit diesem Ansatz läuft svnserve nicht als Dienst, sondern die Secure S
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2910
 msgid "A basic method for setting up your server is given in <xref linkend=\"tsvn-ssh-howto\"/>. You can find other SSH topics within the FAQ by searching for <quote>SSH</quote>."
-msgstr ""
+msgstr "Eine einfache Anleitung zum Einrichten Ihres Servers findet sich in <xref linkend=\"tsvn-ssh-howto\"/>. Sie können weitere Beiträge zum Thema SSH in der FAQ finden, indem Sie nach <quote>SSH</quote> suchen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2916
@@ -2635,7 +2651,7 @@ msgid ""
 "authz-db = authz\n"
 "</screen> Here, <filename>authz</filename> is a file you create to define the access permissions. You can use a separate file for each repository, or you can use the same file for several repositories. Read <xref linkend=\"tsvn-serversetup-mod_authz_svn\"/> for a description of the file format."
 msgstr ""
-"Beginnend mit Subversion 1.3, unterstützt svnserve die gleiche <literal>mod_authz_svn</literal> pfadbasierte Autorisierung wie Apache. Sie müssen die Datei <filename>conf/svnserve.conf</filename> im Projektarchivverzeichnis bearbeiten und eine Zeile, die auf die Berechtigungsdatei verweist, einfügen:\n"
+"Beginnend mit Subversion 1.3, unterstützt svnserve die gleiche pfadbasierte Autorisierung über <literal>mod_authz_svn</literal> wie Apache. Sie müssen die Datei <filename>conf/svnserve.conf</filename> im Projektarchivverzeichnis bearbeiten und eine Zeile, die auf die Berechtigungsdatei verweist, einfügen:\n"
 "<screen>[general]\n"
 "authz-db = authz</screen>\n"
 "Bei <filename>authz</filename> handelt es sich um eine Datei, die Sie anlegen, um die Zugriffsberechtigungen zu definieren. Sie können dieselbe Datei für mehrere Projektarchive verwenden. Informationen über das Dateiformat finden sich in <xref linkend=\"tsvn-serversetup-mod_authz_svn\"/>."
@@ -7090,7 +7106,7 @@ msgstr "Sie können festlegen, wie Änderungen an Zeilenumbrüchen und Leerzeich
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8397
 msgid "If you are using merge tracking and you want to mark a revision as having been merged, without actually doing the merge here, check the <guilabel>Only record the merge</guilabel> checkbox. There are two possible reasons you might want to do this. It may be that the merge is too complicated for the merge algorithms, so you code the changes by hand, then mark the change as merged so that the merge tracking algorithm is aware of it. Or you might want to prevent a particular revision from being merged. Marking it as already merged will prevent the merge occurring with merge-tracking-aware clients."
-msgstr "Falls Sie Ihre Datenintegrationsschritte verfolgen und eine Revision als zusammengeführt markieren wollen, ohne die Daten wirklich zusammmenzuführen, markieren Sie <guilabel>Zusammenführen nur aufzeichnen</guilabel>. Es gibt mehrere Gründe, dies zu tun. Zum Beispiel könnten die zusammenzuführenden Änderungen zu komplex für den Algorithmus sein, so dass Sie die Daten von Hand integrieren und die Revisionen als zusammengeführt markieren, damit die Änderungsverfolgung darüber informiert ist. Oder Sie möchten verhindern, dass eine bestimmte Revision zusammengeführt werden kann. Clients die die Verfolgung der Datenintegration bereits beherrschen, werden diese Revision dann überspringen."
+msgstr "Falls Sie Ihre Datenintegrationsschritte verfolgen und eine Revision als zusammengeführt markieren wollen, ohne die Daten wirklich zusammenzuführen, markieren Sie <guilabel>Zusammenführen nur aufzeichnen</guilabel>. Es gibt mehrere Gründe, dies zu tun. Zum Beispiel könnten die zusammenzuführenden Änderungen zu komplex für den Algorithmus sein, so dass Sie die Daten von Hand integrieren und die Revisionen als zusammengeführt markieren, damit die Änderungsverfolgung darüber informiert ist. Oder Sie möchten verhindern, dass eine bestimmte Revision zusammengeführt werden kann. Clients die die Verfolgung der Datenintegration bereits beherrschen, werden diese Revision dann überspringen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8408
@@ -11276,7 +11292,7 @@ msgid ""
 "http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi\n"
 "</screen> The first line in that file is the version string. You must make sure that it matches the exact version string of the TortoiseSVN installation package. The second line is a custom text, shown in the upgrade dialog. You can write there whatever you want. Just note that the space in the upgrade dialog is limited. Too long messages will get truncated! The third line is the URL to the new installation package. This URL is opened when the user clicks on the custom message label in the upgrade dialog. You can also just point the user to a web page instead of the MSI file directly. The URL is opened with the default web browser, so if you specify a web page, that page is opened and shown to the user. If you specify the MSI package, the browser will ask the user to save the MSI file locally."
 msgstr ""
-"Versionen 1.4.0 und neuer von TortoiseSVN ermöglichen es Ihnen die Aktualisierungsprüfung auf einen eigenen Server umzuleiten.Sie können den Registrierungsschlüssel <literal>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</literal> (Stringwert) auf eine URL setzen, die auf eine Textdatei in Ihrem Intranet zeigt.Diese Textdatei muss das folgende Format haben:\n"
+"Versionen 1.4.0 und neuer von TortoiseSVN ermöglichen es Ihnen die Aktualisierungsprüfung auf einen eigenen Server umzuleiten.Sie können den Registrierungsschlüssel <literal>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</literal> (Zeichenkette) auf eine URL setzen, die auf eine Textdatei in Ihrem Intranet zeigt.Diese Textdatei muss das folgende Format haben:\n"
 "<screen>1.4.1.6000\n"
 "Eine neue Version von TortoiseSVN steht zur Verfügung!\n"
 "http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi\n"
