@@ -92,6 +92,7 @@ BEGIN_MESSAGE_MAP(CCommitDlg, CResizableStandAloneDialog)
 	ON_REGISTERED_MESSAGE(WM_AUTOLISTREADY, OnAutoListReady) 
 	ON_WM_TIMER()
     ON_WM_SIZE()
+	ON_STN_CLICKED(IDC_EXTERNALWARNING, &CCommitDlg::OnStnClickedExternalwarning)
 END_MESSAGE_MAP()
 
 BOOL CCommitDlg::OnInitDialog()
@@ -782,6 +783,13 @@ void CCommitDlg::OnBnClickedShowunversioned()
 	}
 }
 
+void CCommitDlg::OnStnClickedExternalwarning()
+{
+	CPoint pt;
+	GetCursorPos(&pt);
+	m_tooltips.DisplayToolTip(&pt);
+}
+
 void CCommitDlg::OnEnChangeLogmessage()
 {
 	UpdateOKButton();
@@ -1283,3 +1291,4 @@ void CCommitDlg::OnSize(UINT nType, int cx, int cy)
     //set range
     SetSplitterRange();
 }
+
