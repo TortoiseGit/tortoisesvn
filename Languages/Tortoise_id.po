@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-22 18:29+0700\n"
+"PO-Revision-Date: 2008-05-22 20:52+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5709,7 +5709,7 @@ msgstr ""
 
 #. Resource IDs: (596)
 msgid "Marks the revisions as merged, without actually doing the merge"
-msgstr ""
+msgstr "Tandai revisi-revisi tersebut sebagai tergabung, tanpa melakukan penggabungan sungguhan"
 
 # Control-ID:1064,
 #. Resource IDs: (1064)
@@ -6385,6 +6385,10 @@ msgid ""
 "\n"
 "Are you sure you want to move the selected paths?"
 msgstr ""
+"Salah satu path yang sedang Anda coba pindahkan adalah path khusus\n"
+"(salah satu dari 'branches', 'tags', atau 'trunk').\n"
+"\n"
+"Apakah Anda yakin ingin memindahkan path terpilih tersebut?"
 
 # ID:219,
 #. Resource IDs: (219)
@@ -6413,7 +6417,7 @@ msgstr ""
 
 #. Resource IDs: (1424)
 msgid "Only record the merge"
-msgstr ""
+msgstr "Hanya catat penggabungan"
 
 # ID:266,
 #. Resource IDs: (19)
@@ -6477,7 +6481,7 @@ msgstr "Membuka browser repositori untuk mengakali repositori online"
 
 #. Resource IDs: (199)
 msgid "Operate from log cache for now only"
-msgstr ""
+msgstr "Beroperasi dari tembolok log saja mulai sekarang"
 
 # ID:117,
 #. Resource IDs: (16137)
@@ -6490,7 +6494,7 @@ msgstr "ukuran &original"
 
 #. Resource IDs: (1065)
 msgid "Other Task Panes"
-msgstr ""
+msgstr "Jendela-Jendela Tugas Lain"
 
 # ID:245,
 #. Resource IDs: (245)
@@ -6551,7 +6555,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Page :"
-msgstr ""
+msgstr "Halaman :"
 
 # ID:17,#:
 # Dlg-ID:177,#:
@@ -6562,7 +6566,7 @@ msgstr "Parameter-parameter"
 
 #. Resource IDs: (1477)
 msgid "Parameters:"
-msgstr ""
+msgstr "Parameter:"
 
 # ID:69,
 #. Resource IDs: (69)
@@ -6574,6 +6578,8 @@ msgid ""
 "Paste Tool\n"
 "Paste"
 msgstr ""
+"Alat Tempel\n"
+"Tempel"
 
 # ID:172,
 #. Resource IDs: (172)
@@ -6612,20 +6618,24 @@ msgid ""
 "Pencil Tool\n"
 "Pencil"
 msgstr ""
+"Alat Pensil\n"
+"Pensil"
 
 #. Resource IDs: (16538)
 msgid "Personalized Menus and Toolbars"
-msgstr ""
+msgstr "Personalisasi Menu dan Batang Alat"
 
 #. Resource IDs: (3849)
 msgid ""
 "Picture (Metafile)\n"
 "a picture"
 msgstr ""
+"Gambar (Metafile)\n"
+"sebuah gambar"
 
 #. Resource IDs: (65535)
 msgid "Picture:"
-msgstr ""
+msgstr "Gambar:"
 
 # ID:157,
 #. Resource IDs: (157)
@@ -6669,7 +6679,7 @@ msgstr ""
 
 #. Resource IDs: (1287)
 msgid "Please resolve the conflict by choosing one of the following options:"
-msgstr ""
+msgstr "Silakan selesaikan konflik dengan memilih salah satu pilihan:"
 
 # ID:83,
 #. Resource IDs: (83)
@@ -6740,19 +6750,19 @@ msgstr "Hook Pre-Pemutahiran"
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
-msgstr ""
+msgstr "Teka&n Kunci Pintasan Baru"
 
 #. Resource IDs: (65535)
 msgid "Press &new shortcut key:"
-msgstr ""
+msgstr "Teka&n kunci pintasan baru:"
 
 #. Resource IDs: (2052)
 msgid "Prevents most cases in which connection lines cross revision nodes"
-msgstr ""
+msgstr "Cegah kebanyakan kasus-kasus dimana baris-baris koneksi melintasi noda-noda revisi"
 
 #. Resource IDs: (1069)
 msgid "Preview"
-msgstr ""
+msgstr "Pratilik"
 
 # ID:376,
 #. Resource IDs: (376)
@@ -6769,24 +6779,28 @@ msgid ""
 "Previous Page\n"
 "Previous Page"
 msgstr ""
+"Halaman Sebelumnya\n"
+"Halaman Sebelumnya"
 
 #. Resource IDs: (1069, 16990)
 msgid "Print"
-msgstr ""
+msgstr "Cetak"
 
 #. Resource IDs: (3633)
 msgid ""
 "Print Document\n"
 "&Print"
 msgstr ""
+"Cetak Dokumen\n"
+"Cetak"
 
 #. Resource IDs: (3845)
 msgid "Print to File"
-msgstr ""
+msgstr "Cetak ke Berkas"
 
 #. Resource IDs: (65535)
 msgid "Printer :"
-msgstr ""
+msgstr "Pencetak :"
 
 # ID:157,
 #. Resource IDs: (3845)
@@ -6903,7 +6917,7 @@ msgstr "Penyedia"
 
 #. Resource IDs: (1475)
 msgid "Provider:"
-msgstr ""
+msgstr "Penyedia:"
 
 # Control-ID:65535,
 #. Resource IDs: (1412)
@@ -6952,7 +6966,7 @@ msgstr "Pulihkan k&e revisi ini"
 
 #. Resource IDs: (65535)
 msgid "RAM [kB]: "
-msgstr ""
+msgstr "RAM [kB]: "
 
 # ID:3697,
 #. Resource IDs: (3697)
@@ -7001,7 +7015,7 @@ msgstr "Baris-baris yang baru saja diubah"
 
 #. Resource IDs: (276)
 msgid "Record Only"
-msgstr ""
+msgstr "Catat Saja"
 
 #. Resource IDs: (1057)
 msgid ""
