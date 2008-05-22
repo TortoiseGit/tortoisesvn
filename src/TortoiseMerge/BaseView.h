@@ -229,6 +229,7 @@ protected:
 	COLORREF		m_InlineRemovedBk;
 	COLORREF		m_InlineAddedBk;
 	COLORREF		m_ModifiedBk;
+	COLORREF		m_WhiteSpaceFg;
 	UINT			m_nStatusBarID;		///< The ID of the status bar pane used by this view. Must be set by the parent class.
 
 	SVNLineDiff		m_svnlinediff;

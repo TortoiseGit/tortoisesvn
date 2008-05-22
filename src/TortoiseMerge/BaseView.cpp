@@ -83,6 +83,7 @@ CBaseView::CBaseView()
 	m_InlineAddedBk = CRegDWORD(_T("Software\\TortoiseMerge\\InlineAdded"), INLINEADDED_COLOR);
 	m_InlineRemovedBk = CRegDWORD(_T("Software\\TortoiseMerge\\InlineRemoved"), INLINEREMOVED_COLOR);
 	m_ModifiedBk = CRegDWORD(_T("Software\\TortoiseMerge\\ColorModifiedB"), MODIFIED_COLOR);
+	m_WhiteSpaceFg = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
 	m_sWordSeparators = CRegString(_T("Software\\TortoiseMerge\\WordSeparators"), _T("[]();.,{}!@#$%^&*-+=|/\\<>'`~"));;
 	m_nSelBlockStart = -1;
 	m_nSelBlockEnd = -1;
@@ -208,6 +209,7 @@ void CBaseView::DocumentUpdated()
 	m_InlineAddedBk = CRegDWORD(_T("Software\\TortoiseMerge\\InlineAdded"), INLINEADDED_COLOR);
 	m_InlineRemovedBk = CRegDWORD(_T("Software\\TortoiseMerge\\InlineRemoved"), INLINEREMOVED_COLOR);
 	m_ModifiedBk = CRegDWORD(_T("Software\\TortoiseMerge\\ColorModifiedB"), MODIFIED_COLOR);
+	m_WhiteSpaceFg = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
 	for (int i=0; i<MAXFONTS; i++)
 	{
 		if (m_apFonts[i] != NULL)
@@ -1486,10 +1488,8 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 			pszChars++;
 		}
 
-		// use the gray (inactive text) color for the whitespaces
-		CRegDWORD regWhitespaceColor(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
-		CPen pen(PS_SOLID, 0, (DWORD)regWhitespaceColor);
-		CPen pen2(PS_SOLID, 2, (DWORD)regWhitespaceColor);
+		CPen pen(PS_SOLID, 0, m_WhiteSpaceFg);
+		CPen pen2(PS_SOLID, 2, m_WhiteSpaceFg);
 		for (int i=0; i<nL; i++)
 		{
 			switch (pszChars[i])
