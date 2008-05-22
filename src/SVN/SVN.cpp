@@ -354,6 +354,7 @@ BOOL SVN::Remove(const CTSVNPathList& pathlist, BOOL force, BOOL keeplocal, CStr
 	Err = svn_client_delete3 (&commit_info, pathlist.MakePathArray(subPool), 
 							  force,
 							  keeplocal,
+							  NULL,
 							  m_pctx,
 							  subPool);
 	if(Err != NULL)
@@ -537,6 +538,7 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, CString message,
 							keep_locks,
 							keepchangelist,
 							clists,
+							NULL,
 							m_pctx,
 							localpool);
 	m_pctx->log_msg_baton3 = logMessage("");
@@ -584,6 +586,7 @@ BOOL SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 							destPath.GetSVNApiPath(subpool),
 							copy_as_child,
 							make_parents,
+							NULL,
 							m_pctx,
 							subpool);
 	if(Err != NULL)
@@ -626,6 +629,7 @@ BOOL SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 							force,
 							move_as_child,
 							make_parents,
+							NULL,
 							m_pctx,
 							subpool);
 	if(Err != NULL)
@@ -974,6 +978,7 @@ BOOL SVN::Import(const CTSVNPath& path, const CTSVNPath& url, CString message, P
 							depth,
 							no_ignore,
 							ignore_unknown,
+							NULL,
 							m_pctx,
 							subpool);
 	m_pctx->log_msg_baton3 = logMessage("");
