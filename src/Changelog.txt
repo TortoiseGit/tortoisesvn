@@ -15,6 +15,8 @@
        was right-clicked on. (Stefan)
 - BUG: SubWCRev returned the wrong URL if -e was specified and
        externals were present. See issue #419 for details. (Stefan)
+- BUG: TortoiseMerge showed the line ending symbols over the line numbers
+       in some cases. (Stefan)
 
 Version 1.5.0-RC2
 - NEW: the issue tracker integration supports now relative urls. (Stefan)

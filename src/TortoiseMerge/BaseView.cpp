@@ -1213,6 +1213,8 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
 		case EOL_LF:	hEndingIcon = m_hLineEndingLF;		break;
 		default: return;
 	}
+	if (origin.x < rc.left)
+		return;
 	// If EOL style has changed, color end-of-line markers as inline differences.
 	if(
 		m_bShowInlineDiff && m_pOtherViewData &&
