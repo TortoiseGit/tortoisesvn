@@ -1471,18 +1471,19 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 	// draw the whitespace chars
 	if (m_bViewWhitespace)
 	{
-		pszChars += m_nOffsetChar;
+		//pszChars += m_nOffsetChar;
 		int nL = nLength-m_nOffsetChar;
 		int xpos = 0;
 		int y = rc.top + (rc.bottom-rc.top)/2;
 
 		int nActualOffset = 0;
-		for (int i=0; i<m_nOffsetChar; i++)
+		while (nActualOffset < m_nOffsetChar)
 		{
-			if (pszChars[i] == _T('\t'))
+			if (*pszChars == _T('\t'))
 				nActualOffset += (GetTabSize() - nActualOffset % GetTabSize());
 			else
-				nActualOffset ++;
+				nActualOffset++;
+			pszChars++;
 		}
 
 		// use the gray (inactive text) color for the whitespaces
@@ -1498,11 +1499,11 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 					// draw an arrow
 					CPen * oldPen = pDC->SelectObject(&pen);
 					int nSpaces = GetTabSize() - (nActualOffset + xpos) % GetTabSize();
-					pDC->MoveTo(xpos * GetCharWidth() + savedx, y);
-					pDC->LineTo((xpos + nSpaces) * GetCharWidth() + savedx-2, y);
-					pDC->LineTo((xpos + nSpaces - 1) * GetCharWidth() + savedx, rc.top+2);
-					pDC->MoveTo((xpos + nSpaces) * GetCharWidth() + savedx-2, y);
-					pDC->LineTo((xpos + nSpaces - 1) * GetCharWidth() + savedx, rc.bottom-2);
+					pDC->MoveTo(xpos * GetCharWidth() + rc.left, y);
+					pDC->LineTo((xpos + nSpaces) * GetCharWidth() + rc.left-2, y);
+					pDC->LineTo((xpos + nSpaces - 1) * GetCharWidth() + rc.left, rc.top+2);
+					pDC->MoveTo((xpos + nSpaces) * GetCharWidth() + rc.left-2, y);
+					pDC->LineTo((xpos + nSpaces - 1) * GetCharWidth() + rc.left, rc.bottom-2);
 					xpos += nSpaces;
 					pDC->SelectObject(oldPen);
 				}
@@ -1511,8 +1512,8 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 				{
 					// draw a small dot
 					CPen * oldPen = pDC->SelectObject(&pen2);
-					pDC->MoveTo(xpos * GetCharWidth() + savedx + GetCharWidth()/2-1, y);
-					pDC->LineTo(xpos * GetCharWidth() + savedx + GetCharWidth()/2+1, y);
+					pDC->MoveTo(xpos * GetCharWidth() + rc.left + GetCharWidth()/2-1, y);
+					pDC->LineTo(xpos * GetCharWidth() + rc.left + GetCharWidth()/2+1, y);
 					xpos++;
 					pDC->SelectObject(oldPen);
 				}
