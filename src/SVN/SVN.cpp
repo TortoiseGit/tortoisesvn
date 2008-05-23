@@ -53,6 +53,21 @@ static char THIS_FILE[] = __FILE__;
 LCID SVN::s_locale = MAKELCID((DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)), SORT_DEFAULT);
 bool SVN::s_useSystemLocale = !!(DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\UseSystemLocaleForDates"), TRUE);
 
+/* Number of micro-seconds between the beginning of the Windows epoch
+* (Jan. 1, 1601) and the Unix epoch (Jan. 1, 1970) 
+*/
+#define APR_DELTA_EPOCH_IN_USEC   APR_TIME_C(11644473600000000);
+
+__inline void AprTimeToFileTime(LPFILETIME pft, apr_time_t t)
+{
+	LONGLONG ll;
+	t += APR_DELTA_EPOCH_IN_USEC;
+	ll = t * 10;
+	pft->dwLowDateTime = (DWORD)ll;
+	pft->dwHighDateTime = (DWORD) (ll >> 32);
+	return;
+}
+
 
 SVN::SVN(void) : m_progressWnd(0)
 	, m_pProgressDlg(NULL)
@@ -2287,41 +2302,10 @@ void SVN::formatDate(TCHAR date_native[], apr_time_t& date_svn, bool force_short
 		_tcscpy_s(date_native, SVN_DATE_BUFFER, _T("(no date)"));
 		return;
 	}
-	date_native[0] = '\0';
-	apr_time_exp_t exploded_time = {0};
-	
-	SYSTEMTIME systime;
-	TCHAR timebuf[SVN_DATE_BUFFER];
-	TCHAR datebuf[SVN_DATE_BUFFER];
 
-	LCID locale = s_useSystemLocale ? MAKELCID(MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), SORT_DEFAULT) : s_locale;
-
-	apr_time_exp_lt (&exploded_time, date_svn);
-	
-	systime.wDay = (WORD)exploded_time.tm_mday;
-	systime.wDayOfWeek = (WORD)exploded_time.tm_wday;
-	systime.wHour = (WORD)exploded_time.tm_hour;
-	systime.wMilliseconds = (WORD)(exploded_time.tm_usec/1000);
-	systime.wMinute = (WORD)exploded_time.tm_min;
-	systime.wMonth = (WORD)exploded_time.tm_mon+1;
-	systime.wSecond = (WORD)exploded_time.tm_sec;
-	systime.wYear = (WORD)exploded_time.tm_year+1900;
-	if (force_short_fmt || CRegDWORD(_T("Software\\TortoiseSVN\\LogDateFormat")) == 1)
-	{
-		GetDateFormat(locale, DATE_SHORTDATE, &systime, NULL, datebuf, SVN_DATE_BUFFER);
-		GetTimeFormat(locale, 0, &systime, NULL, timebuf, SVN_DATE_BUFFER);
-		_tcsncat_s(date_native, SVN_DATE_BUFFER, datebuf, SVN_DATE_BUFFER);
-		_tcsncat_s(date_native, SVN_DATE_BUFFER, _T(" "), SVN_DATE_BUFFER);
-		_tcsncat_s(date_native, SVN_DATE_BUFFER, timebuf, SVN_DATE_BUFFER);
-	}
-	else
-	{
-		GetDateFormat(locale, DATE_LONGDATE, &systime, NULL, datebuf, SVN_DATE_BUFFER);
-		GetTimeFormat(locale, 0, &systime, NULL, timebuf, SVN_DATE_BUFFER);
-		_tcsncat_s(date_native, SVN_DATE_BUFFER, timebuf, SVN_DATE_BUFFER);
-		_tcsncat_s(date_native, SVN_DATE_BUFFER, _T(", "), SVN_DATE_BUFFER);
-		_tcsncat_s(date_native, SVN_DATE_BUFFER, datebuf, SVN_DATE_BUFFER);
-	}
+	FILETIME ft = {0};
+	AprTimeToFileTime(&ft, date_svn);
+	formatDate(date_native, ft, force_short_fmt);
 }
 
 void SVN::formatDate(TCHAR date_native[], FILETIME& filetime, bool force_short_fmt)
@@ -2335,8 +2319,8 @@ void SVN::formatDate(TCHAR date_native[], FILETIME& filetime, bool force_short_f
 	SYSTEMTIME systime;
 	VERIFY(FileTimeToSystemTime(&localfiletime,&systime));
 
-	TCHAR timebuf[SVN_DATE_BUFFER];
-	TCHAR datebuf[SVN_DATE_BUFFER];
+	TCHAR timebuf[SVN_DATE_BUFFER] = {0};
+	TCHAR datebuf[SVN_DATE_BUFFER] = {0};
 
 	LCID locale = s_useSystemLocale ? MAKELCID(MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), SORT_DEFAULT) : s_locale;
 
@@ -2367,14 +2351,21 @@ CString SVN::formatDate(apr_time_t& date_svn)
 
 	LCID locale = s_useSystemLocale ? MAKELCID(MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), SORT_DEFAULT) : s_locale;
 
-	apr_time_exp_lt (&exploded_time, date_svn);
-	
-	systime.wDay = (WORD)exploded_time.tm_mday;
-	systime.wDayOfWeek = (WORD)exploded_time.tm_wday;
-	systime.wMonth = (WORD)exploded_time.tm_mon+1;
-	systime.wYear = (WORD)exploded_time.tm_year+1900;
+	try
+	{
+		apr_time_exp_lt (&exploded_time, date_svn);
 
-	GetDateFormat(locale, DATE_SHORTDATE, &systime, NULL, datebuf, SVN_DATE_BUFFER);
+		systime.wDay = (WORD)exploded_time.tm_mday;
+		systime.wDayOfWeek = (WORD)exploded_time.tm_wday;
+		systime.wMonth = (WORD)exploded_time.tm_mon+1;
+		systime.wYear = (WORD)exploded_time.tm_year+1900;
+
+		GetDateFormat(locale, DATE_SHORTDATE, &systime, NULL, datebuf, SVN_DATE_BUFFER);
+	}
+	catch ( ... )
+	{
+		_tcscpy_s(datebuf, SVN_DATE_BUFFER, _T("(no date)"));
+	}
 	
     return datebuf;
 }
@@ -2388,18 +2379,25 @@ CString SVN::formatTime (apr_time_t& date_svn)
 
 	LCID locale = s_useSystemLocale ? MAKELCID(MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), SORT_DEFAULT) : s_locale;
 
-	apr_time_exp_lt (&exploded_time, date_svn);
-	
-	systime.wDay = (WORD)exploded_time.tm_mday;
-	systime.wDayOfWeek = (WORD)exploded_time.tm_wday;
-	systime.wHour = (WORD)exploded_time.tm_hour;
-	systime.wMilliseconds = (WORD)(exploded_time.tm_usec/1000);
-	systime.wMinute = (WORD)exploded_time.tm_min;
-	systime.wMonth = (WORD)exploded_time.tm_mon+1;
-	systime.wSecond = (WORD)exploded_time.tm_sec;
-	systime.wYear = (WORD)exploded_time.tm_year+1900;
+	try
+	{
+		apr_time_exp_lt (&exploded_time, date_svn);
 
-    GetTimeFormat(locale, 0, &systime, NULL, timebuf, SVN_DATE_BUFFER);
+		systime.wDay = (WORD)exploded_time.tm_mday;
+		systime.wDayOfWeek = (WORD)exploded_time.tm_wday;
+		systime.wHour = (WORD)exploded_time.tm_hour;
+		systime.wMilliseconds = (WORD)(exploded_time.tm_usec/1000);
+		systime.wMinute = (WORD)exploded_time.tm_min;
+		systime.wMonth = (WORD)exploded_time.tm_mon+1;
+		systime.wSecond = (WORD)exploded_time.tm_sec;
+		systime.wYear = (WORD)exploded_time.tm_year+1900;
+
+		GetTimeFormat(locale, 0, &systime, NULL, timebuf, SVN_DATE_BUFFER);
+	}
+	catch ( ... )
+	{
+		_tcscpy_s(timebuf, SVN_DATE_BUFFER, _T("(no time)"));
+	}
 
     return timebuf;
 }
