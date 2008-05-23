@@ -327,4 +327,42 @@
 			</ulink>.
 		</para>
 	</sect2>
+	<sect2 id="tsvn-dug-bugtracker-ref">
+		<title>Getting Information from the Issue Tracker</title>
+		<para>
+			The previous section deals with adding issue information to the
+			log messages. But what if you need to get information from the issue
+			tracker? The commit dialog has a Windows COM interface which allows
+			integration an external program that can talk to your tracker.
+			Typically you might want to query the tracker to get a list of
+			open issues assigned to you, so that you can pick the issues that
+			are being addressed in this commit.
+		</para>
+		<para>
+			Any such interface is of course highly specific to your system,
+			so we cannot provide this part, and describing how to create such a
+			program is beyond the scope of this manual. The interface definition
+			and sample programs can be obtained from the <literal>contrib</literal>
+			folder in the
+			in the
+			<ulink url="http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins">
+				<citetitle>TortoiseSVN repository</citetitle>
+			</ulink>.
+		</para>
+		<para>
+			For illustration purposes, let's suppose that your system administrator
+			has provided you with an issue tracker plugin which you have installed,
+			and that you have set up some of your working copies to use the plugin
+			in TortoiseSVN's settings dialog.
+			When you open the commit dialog from a working copy to which the plugin
+			has been assigned, you will see a new button at the top of the dialog.
+			<figure id="tsvn-dug-bugtracker-dia-1">
+				<title>Example issue tracker query dialog</title>
+				<graphic fileref="../images/IssueTrackerQuery.png"/>
+			</figure>
+			In this example you can select one or more open issues. The plugin
+			can then generate specially formatted text which it adds to your log
+			message.
+		</para>
+	</sect2>
 </sect1>
