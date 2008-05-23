@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-05-10 22:36 +0000\n"
-"PO-Revision-Date: 2008-05-21 15:17+0100\n"
+"PO-Revision-Date: 2008-05-23 15:27+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -12989,27 +12989,27 @@ msgstr "Das <emphasis>Hinzugefügt</emphasis> Symbol wird nur geladen, wenn weni
 #. (title)
 #: ../source/TortoiseSVN_en.xml:14868
 msgid "Securing Svnserve using SSH"
-msgstr "Svenserve mit SSH sichern"
+msgstr "Svnserve mit SSH sichern"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:14870
 msgid "This section provides a step-by-step guide to setting up Subversion and TortoiseSVN to use the <literal>svn+ssh</literal> protocol. If you already use authenticated SSH connections to login to your server, then you are already there and you can find more detail in the Subversion book. If you are not using SSH but would like to do so to protect your Subversion installation, this guide gives a simple method which does not involve creating a separate SSH user account on the server for every subversion user."
-msgstr ""
+msgstr "Dieser Abschnitt bietet eine schrittweise Anleitung wie man Subversion und TortoiseSVN so einrichtet, dass sie das <literal>svn+ssh</literal> Protokoll verwenden. Falls Sie bereits ein SSH Anmeldeverfahren für Ihren Server nutzen, sind schon alle Voraussetzungen geschaffen und Sie finden weitere Details im Subversion Buch. Wenn Sie SSH noch nicht verwenden, dies aber möchten, um Ihre Subversion Installation abzusichern, bietet Ihnen diese Anleitung ein einfaches Verfahren, das keine separates SSH Konto für jeden Nutzer auf dem Server erfordert."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:14880
 msgid "In this implementation we create a single SSH user account for all subversion users, and use different authentication keys to differentiate between the real Subversion users."
-msgstr ""
+msgstr "In dieser Implementierung legen wir ein einzelnes SSH Konto für alle Subversion Nutzer and und verwenden unterschiedliche Anmeldeschlüssel zur Unterscheidung der einzelnen Anwender."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:14885
 msgid "In this appendix we assume that you already have the subversion tools installed, and that you have created a repository as detailed elsewhere in this manual. Note that you should <emphasis>not</emphasis> start svnserve as a service or daemon when used with SSH."
-msgstr ""
+msgstr "In diesem Anhang setzen wir voraus, dass Sie bereits Subversion installiert und, wie anderweitig im Handbuch beschrieben, ein Projektarchiv angelegt haben. Beachten Sie bitte, dass Sie bei Verwendung von SSH svnserve <emphasis>nicht</emphasis> als Dämon oder Dienst starten sollten."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:14891
 msgid "Much of the information here comes from a tutorial provided by Marc Logemann, which can be found at <ulink url=\"http://www.logemann.org/2007/03/13/subversion-tortoisesvn-ssh-howto/\"><citetitle>www.logemann.org</citetitle></ulink> Additional information on setting up a Windows server was provided by Thorsten Müller. Thanks guys!"
-msgstr ""
+msgstr "Ein Großteil der folgenden Informationen stammt aus einer Anleitung von Marc Logemann, die sich unter <ulink url=\"http://www.logemann.org/2007/03/13/subversion-tortoisesvn-ssh-howto/\"><citetitle>www.logemann.org</citetitle></ulink> findet. Weitere Hinweise zum Einrichten eines Windows Servers stammen von Thorsten Müller. Danke Jungs!"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:14902
