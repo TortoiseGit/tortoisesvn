@@ -1,9 +1,14 @@
 <?php
 // Meaning of the columns:
-// 1: Create download link (yes = 0) or (no = any other value)
-//    0 = po file -> Create download link, shown on translation status page 
-//    1 = pot file -> No download link, but shown on translation status page as .po template
-//    x = -> No download link, but shown on translation status page as normal .po file
+// 1: Tag with multiple function
+//    po/pot file (pot == 0, po <> 0)
+//    Create download link (yes == 1, no <> 1)
+//    Also affects sort order on status and download page. 
+//    Sorted unsigned, by abs()
+//    Recommended usage:
+//    0 = pot file -> No download link, shown on translation status page as .po template
+//    1 = po file  -> Create download link, shown on translation status page 
+//    -1 = po file -> No download link, but shown on translation status page
 // 2: Flag byte used to create links on different download pages
 //    !!! Bit0 is the rightmost bit !!!
 //    Bit0 = Spellchecker available
@@ -20,7 +25,7 @@ $countries = array(
 "da"    => array("0","001","da","Danish","Jan Normann Nielsen, Gunther Strube"),
 "de"    => array("0","111","de","German","Stefan Küng, Lübbe Onken"),
 "el"    => array("0","000","el","Greek","George Marselis"),
-"eo"    => array("2","000","eo","Esperanto","Tim Morley"),
+"eo"    => array("-1","000","eo","Esperanto","Tim Morley"),
 "es"    => array("0","111","es","Spanish","Fernando P. Nájera Cano, Antonio Romero Lopez, Franco Catena"),
 "fa"    => array("0","000","fa","Farsi (Persian)","Titto Agustine"),
 "fr"    => array("0","111","fr","French","Olivier Booklage, Philippe Torche, Jean-Christophe Gigogne, Jérémy Badier, Jean-Christophe Mazenc, Christophe Sauveur"),

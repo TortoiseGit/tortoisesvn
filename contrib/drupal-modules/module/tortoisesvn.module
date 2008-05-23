@@ -327,8 +327,8 @@ function print_single_stat($i, $postat, $vars)
 	echo"</pre></td>";
 */
 
-  if ($postat[0] == 1) {
-    // $postat[0] == 1 
+  if ($postat[0] == 0) {
+    // $postat[0] == 0 
     // -> It's the .pot file
     echo "<tr class=\"stat_ok\">\n";
     print_blank_stat($i, $postat, $vars);

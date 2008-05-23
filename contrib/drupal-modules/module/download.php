@@ -142,19 +142,14 @@ Note for x64 users: you can install both the 32 and 64-bit version side by side.
 <br />
 <script type="text/javascript"><!--
 google_ad_client = "pub-0430507460695576";
+/* 300x250, tsvn.net inPage */
+google_ad_slot = "5167477883";
 google_ad_width = 300;
 google_ad_height = 250;
-google_ad_format = "300x250_as";
-google_ad_type = "text_image";
-google_ad_channel = "";
-google_color_border = "ffffff";
-google_color_bg = "ffffff";
-google_color_link = "5B5FAA";
-google_color_url = "5B5FAA";
-google_color_text = "000000";
-//--></script>
+//-->
+</script>
 <script type="text/javascript"
- src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 <?php
 
@@ -195,7 +190,7 @@ array_multisort($potfile, $country, $transl, $untrans, $fuzzy, $accel, $Tortoise
 <?php
   $i=0;
   foreach ($TortoiseGUI as $key => $postat)
-    if (isset($postat[5]) && ($postat[0] == "0") ) {
+    if (isset($postat[5]) && ($postat[0] == "1") ) {
       $i++;
       print_langpack($i, $postat, $v, $w);
     }
@@ -208,7 +203,11 @@ array_multisort($potfile, $country, $transl, $untrans, $fuzzy, $accel, $Tortoise
 <p>To find out what is happening with the project and when you can expect the next release, take a look at our <a href="/status">project status</a> page.</p>
 
 <h1>Release Candidates</h1>
-<p>We maintain ongoing <a href="http://nightlybuilds.tortoisesvn.net/1.4.x/">Release Candidates</a> as well. These contain the latest official release plus latest bugfixes. They are not built nightly, but on demand from the current release branch. If you find that a certain bug has been fixed and you do not want to wait until the next release, install one of these. You would also help us tremendously by installing and testing release candidates.
+<p>We maintain ongoing <a href="http://sourceforge.net/project/showfiles.php?group_id=138498">Release Candidates</a>
+<!--
+<a href="http://nightlybuilds.tortoisesvn.net/1.4.x/">Release Candidates</a>
+-->
+as well. These contain the latest official release plus latest bugfixes. They are not built nightly, but on demand from the current release branch. If you find that a certain bug has been fixed and you do not want to wait until the next release, install one of these. You would also help us tremendously by installing and testing release candidates.
 Please read <a href="http://nightlybuilds.tortoisesvn.net/1.4.x/Readme.txt">Readme.txt</a> first.</p>
 
 <h1>Nightly Builds</h1>
@@ -228,18 +227,13 @@ If you have TortoiseSVN installed, you can check out the whole sourcecode by cli
 
 <script type="text/javascript"><!--
 google_ad_client = "pub-0430507460695576";
+/* 300x250, tsvn.net inPage */
+google_ad_slot = "5167477883";
 google_ad_width = 300;
 google_ad_height = 250;
-google_ad_format = "300x250_as";
-google_ad_type = "text_image";
-google_ad_channel = "";
-google_color_border = "ffffff";
-google_color_bg = "ffffff";
-google_color_link = "5B5FAA";
-google_color_url = "5B5FAA";
-google_color_text = "000000";
-//--></script>
+//-->
+</script>
 <script type="text/javascript"
- src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 <!--break-->

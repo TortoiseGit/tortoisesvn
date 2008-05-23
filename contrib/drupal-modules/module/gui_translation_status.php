@@ -46,7 +46,7 @@ $TortoiseGUI = array_merge_recursive($countries, $TortoiseGUI);
 
 // Convert Data into a list of columns
 foreach ($TortoiseGUI as $key => $row) {
-   $potfile[$key] = $row[0];
+   $potfile[$key] = abs($row[0]);
    $country[$key] = $row[3];
    $errors[$key] = $row[5];
    $total[$key] = $row[6];

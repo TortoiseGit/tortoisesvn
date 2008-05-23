@@ -46,7 +46,7 @@ $TortoiseSVN = array_merge_recursive($countries, $TortoiseSVN);
 
 // Convert Data into a list of columns
 foreach ($TortoiseSVN as $key => $row) {
-   $potfile[$key] = $row[0];
+   $potfile[$key] = abs($row[0]);
    $country[$key] = $row[3];
    $errors[$key] = $row[5];
    $total[$key] = $row[6];
@@ -73,7 +73,7 @@ $TortoiseMerge = array_merge_recursive($countries, $TortoiseMerge);
 
 // Convert Data into a list of columns
 foreach ($TortoiseMerge as $key => $row) {
-   $mpotfile[$key] = $row[0];
+   $mpotfile[$key] = abs($row[0]);
    $mcountry[$key] = $row[3];
    $merrors[$key] = $row[5];
    $mtotal[$key] = $row[6];
