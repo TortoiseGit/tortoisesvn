@@ -724,7 +724,7 @@ SSPIOfferBasic On
 					file authentication, add the following entries within the 
 					<literal>&lt;Location&gt;</literal> block of your Apache config file:
 <screen>
-AuthAuthoritative Off
+AuthBasicAuthoritative Off
 SSPIAuthoritative Off
 </screen>
 				</para>
@@ -751,7 +751,7 @@ SSPIAuthoritative Off
 
 # Htpasswd Logins.
   AuthType Basic
-  AuthAuthoritative Off
+  AuthBasicAuthoritative Off
   AuthUserFile passwd
 
   Require valid-user

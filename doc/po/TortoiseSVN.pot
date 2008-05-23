@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2008-05-10 22:36 +0000\n"
+"POT-Creation-Date: 2008-05-23 18:51 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1698,12 +1698,12 @@ msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:2198
 #.(para)
-msgid "To enable both Windows domain and <filename>passwd</filename> file authentication, add the following entries within the <literal>&lt;Location&gt;</literal> block of your Apache config file: <screen>\nAuthAuthoritative Off\nSSPIAuthoritative Off\n</screen>"
+msgid "To enable both Windows domain and <filename>passwd</filename> file authentication, add the following entries within the <literal>&lt;Location&gt;</literal> block of your Apache config file: <screen>\nAuthBasicAuthoritative Off\nSSPIAuthoritative Off\n</screen>"
 msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:2209
 #.(para)
-msgid "Here is an example of the full Apache configuration for combined Windows domain and <literal>passwd</literal> file authentication: <screen>\n&lt;Location /svn&gt;\n  DAV svn\n  SVNListParentPath on\n  SVNParentPath D:\\SVN\n\n  AuthName \"Subversion repositories\"\n  AuthzSVNAccessFile svnaccessfile.txt\n\n# NT Domain Logins.\n  AuthType SSPI\n  SSPIAuth On\n  SSPIAuthoritative Off\n  SSPIDomain &lt;domaincontroller&gt;\n  SSPIOfferBasic On\n\n# Htpasswd Logins.\n  AuthType Basic\n  AuthAuthoritative Off\n  AuthUserFile passwd\n\n  Require valid-user\n&lt;/Location&gt;\n</screen>"
+msgid "Here is an example of the full Apache configuration for combined Windows domain and <literal>passwd</literal> file authentication: <screen>\n&lt;Location /svn&gt;\n  DAV svn\n  SVNListParentPath on\n  SVNParentPath D:\\SVN\n\n  AuthName \"Subversion repositories\"\n  AuthzSVNAccessFile svnaccessfile.txt\n\n# NT Domain Logins.\n  AuthType SSPI\n  SSPIAuth On\n  SSPIAuthoritative Off\n  SSPIDomain &lt;domaincontroller&gt;\n  SSPIOfferBasic On\n\n# Htpasswd Logins.\n  AuthType Basic\n  AuthBasicAuthoritative Off\n  AuthUserFile passwd\n\n  Require valid-user\n&lt;/Location&gt;\n</screen>"
 msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:2239
@@ -10037,7 +10037,7 @@ msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:13069
 #.(para)
-msgid "Set the <literal>svn:externals</literal> property for a folder in your project. This property consists of one or more lines; each line has the name of a sub-folder which you want the use as the checkout folder for common code, and the repository URL that you want to be checked out there. For full details refer to <xref linkend=\"tsvn-dug-import-4\"/>."
+msgid "Set the <literal>svn:externals</literal> property for a folder in your project. This property consists of one or more lines; each line has the name of a sub-folder which you want to use as the checkout folder for common code, and the repository URL that you want to be checked out there. For full details refer to <xref linkend=\"tsvn-dug-import-4\"/>."
 msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:13077
