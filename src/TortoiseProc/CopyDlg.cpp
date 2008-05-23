@@ -240,8 +240,15 @@ void CCopyDlg::OnOK()
 		CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 		return;
 	}
+
 	m_URLCombo.SaveHistory();
 	m_URL = m_URLCombo.GetString();
+	if (!CTSVNPath(m_URL).IsValidOnWindows())
+	{
+		if (CMessageBox::Show(this->m_hWnd, IDS_WARN_NOVALIDPATH, IDS_APPNAME, MB_ICONINFORMATION|MB_YESNO) != IDYES)
+			return;
+	}
+
 	m_History.AddEntry(m_sLogMessage);
 	m_History.Save();
 
