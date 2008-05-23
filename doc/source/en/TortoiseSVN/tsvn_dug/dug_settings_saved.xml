@@ -80,5 +80,23 @@
 				</para>
 			</listitem>
 		</varlistentry>
+		<varlistentry>
+			<term>Action log</term>
+			<listitem>
+				<para>
+					TortoiseSVN keeps a log of everything written to its progress
+					dialogs. This can be useful when, for example, you want to check
+					what happened in a recent update command.
+				</para>
+				<para>
+					The log file is limited in length and when it grows too big the
+					oldest content is discarded. By default 4000 lines are kept, but
+					you can customize that number.
+				</para>
+				<para>
+					From here you can view the log file content, and also clear it.
+				</para>
+			</listitem>
+		</varlistentry>
 	</variablelist>
 </sect2>
