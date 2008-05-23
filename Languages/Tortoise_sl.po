@@ -11,13 +11,13 @@
 # Authors:
 # Goran Kavrecic <goran.kavrecic@indea.si>, 2005.
 # Martin Srebotnjak <miles@filmsi.net>, 2006.
-# Matjaz Cepon <matjaz.cepon@gmail.com>, 2007
+# Matjaz Cepon <matjaz.cepon@gmail.com>, 2007 - 2008
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2008-05-04 20:30+0100\n"
+"PO-Revision-Date: 2008-05-20 21:07+0100\n"
 "Last-Translator: Matjaz Cepon <matjaz.cepon@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1079,6 +1079,10 @@ msgstr "(ni seznama sprememb)"
 msgid "(no line number)"
 msgstr "(brez številke vrstice)"
 
+#. Resource IDs: (214)
+msgid "(no value)"
+msgstr "(brez vrednosti)"
+
 #. Resource IDs: (314)
 msgid "(not found)"
 msgstr "(ni najden)"
@@ -1273,6 +1277,8 @@ msgid ""
 "ActiveX objects cannot be saved while exiting Windows!\n"
 "Discard all changes to %1?"
 msgstr ""
+"Med zaustavljanjem sistema no mogoče shraniti objektov ActiveX!\n"
+"Zavržem spremembe v %1?"
 
 #. Resource IDs: (155, 209, 229)
 msgid "Add"
@@ -1412,7 +1418,7 @@ msgstr "Vse spremembe bodo izgubljene! Ali zares želite resetirati vse orodne v
 
 #. Resource IDs: (1008)
 msgid "All your changes will be lost! Do you really want to reset the keyboard assignments?"
-msgstr ""
+msgstr "Vse spremembe bodo izgubljene! Ali zares želite ponastaviti vse nastavitve bližnjic?"
 
 #. Resource IDs: (1008)
 #, c-format
@@ -2799,6 +2805,8 @@ msgid ""
 "Device Independent Bitmap\n"
 "a device independent bitmap"
 msgstr ""
+"od naprave neodvisna slika\n"
+"od naprave neodvisna slika"
 
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
@@ -3397,6 +3405,8 @@ msgid ""
 "Failed to start the issue tracker COM provider \"%s\".\n"
 "%s"
 msgstr ""
+"Ponudnika COM \"%s\" za sledilnik zadev ni mogoče zagnati.\n"
+"%s"
 
 #. Resource IDs: (220)
 msgid "Failed!"
@@ -3864,6 +3874,10 @@ msgstr "Domov"
 #. Resource IDs: (103)
 msgid "Hook Scripts"
 msgstr "Ukazne datoteke akcij"
+
+#. Resource IDs: (283)
+msgid "Hook Scripts::Issue Tracker Integration"
+msgstr "Ukazne datoteke akcij::Intergracija sledilnika zadev"
 
 #. Resource IDs: (198)
 msgid "Hook Type"
@@ -4371,10 +4385,6 @@ msgstr ""
 "Veljavne revizije so številke in HEAD, ločene z vejicami.\n"
 "Območje je lahko podano z uporabo vezaja.\n"
 "Primer: 2-5,7,10,44-70,300-HEAD"
-
-#. Resource IDs: (283)
-msgid "Issue Tracker Integration"
-msgstr "Intergracija sledilnika zadevam"
 
 #. Resource IDs: (145)
 msgid ""
@@ -4953,6 +4963,10 @@ msgstr "Premakni: Novo ime za %s"
 msgid "Moved remotely"
 msgstr "Premaknjeno oddaljeno"
 
+#. Resource IDs: (197)
+msgid "Moves the modified files to the recycle bin first before reverting"
+msgstr "Spremenjene datoteke pred povrnitvijo premakne v koš"
+
 #. Resource IDs: (80)
 #, c-format
 msgid "Moving %s"
@@ -5328,7 +5342,7 @@ msgstr "Izvorna &velikost"
 
 #. Resource IDs: (1065)
 msgid "Other Task Panes"
-msgstr ""
+msgstr "Okna drugih nalog"
 
 #. Resource IDs: (245)
 msgid "Others"
@@ -7960,7 +7974,7 @@ msgstr "URL"
 
 #. Resource IDs: (1272)
 msgid "URL history"
-msgstr "Zgodovina URL"
+msgstr "Zgodovina naslovov URL"
 
 #. Resource IDs: (199)
 #, c-format
@@ -8251,6 +8265,10 @@ msgstr "Uporabi levo datoteko"
 msgid "Use local"
 msgstr "Uporabi krajevno"
 
+#. Resource IDs: (1432)
+msgid "Use recycle bin when reverting"
+msgstr "Pri povrnitvi uporabi koš"
+
 #. Resource IDs: (116)
 msgid "Use regular expression"
 msgstr "Uporabi regularni izraz"
@@ -8455,6 +8473,10 @@ msgid ""
 "When locking one or more selected files, shows a dialog\n"
 "asking for a descriptive message about the locking"
 msgstr "Kadar zaklepate eno ali več izbranih datotek, prikaže pogovno okno, kjer vpišete razlog zaklepa preden se zaklep izvede."
+
+#. Resource IDs: (65535)
+msgid "Whitespaces"
+msgstr "Presledki"
 
 #. Resource IDs: (1065)
 msgid "Window Position"
@@ -9010,8 +9032,8 @@ msgstr "mesec"
 
 #. Resource IDs: (199)
 #, c-format
-msgid "multiple URLs (UUID: %s)"
-msgstr "več naslovov URL (UUID: %s)"
+msgid "multiple URLs (e.g. %s)"
+msgstr "več naslovov URL (e.g. %s)"
 
 #. Resource IDs: (18)
 msgid "no"
