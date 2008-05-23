@@ -1234,7 +1234,7 @@ void CLogDlg::CopySelectionToClipBoard()
 				else
 				{
 					CString sCopyFrom;
-					sCopyFrom.Format(_T("(%s: %s, %s, %ld\r\n"), CString(MAKEINTRESOURCE(IDS_LOG_COPYFROM)), 
+					sCopyFrom.Format(_T(" (%s: %s, %s, %ld)\r\n"), CString(MAKEINTRESOURCE(IDS_LOG_COPYFROM)), 
 						cpath->sCopyFromPath, 
 						CString(MAKEINTRESOURCE(IDS_LOG_REVISION)), 
 						cpath->lCopyFromRev);
