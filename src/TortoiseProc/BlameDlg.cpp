@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -81,6 +81,9 @@ BOOL CBlameDlg::OnInitDialog()
 
 	CheckRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES, IDC_IGNOREALLWHITESPACES);
 
+	m_tooltips.Create(this);
+	m_tooltips.AddTool(IDC_FORCE, IDS_BLAME_FORCE_TT);
+
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	return TRUE;
@@ -145,4 +148,10 @@ void CBlameDlg::OnEnChangeRevisionEnd()
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
 	else
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
+}
+
+BOOL CBlameDlg::PreTranslateMessage(MSG* pMsg)
+{
+	m_tooltips.RelayEvent(pMsg);
+	return CStandAloneDialogTmpl<CDialog>::PreTranslateMessage(pMsg);
 }
