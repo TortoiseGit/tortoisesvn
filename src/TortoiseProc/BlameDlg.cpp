@@ -29,7 +29,6 @@ CBlameDlg::CBlameDlg(CWnd* pParent /*=NULL*/)
 	, m_sStartRev(_T("1"))
 	, m_bTextView(FALSE)
 	, m_bIgnoreEOL(TRUE)
-	, m_bForce(TRUE)
 {
 	m_regTextView = CRegDWORD(_T("Software\\TortoiseSVN\\TextBlame"), FALSE);
 	m_bTextView = m_regTextView;
@@ -46,7 +45,6 @@ void CBlameDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_REVISION_END, m_sEndRev);
 	DDX_Check(pDX, IDC_USETEXTVIEWER, m_bTextView);
 	DDX_Check(pDX, IDC_IGNOREEOL2, m_bIgnoreEOL);
-	DDX_Check(pDX, IDC_FORCE, m_bForce);
 }
 
 
@@ -66,7 +64,6 @@ BOOL CBlameDlg::OnInitDialog()
 	AdjustControlSize(IDC_COMPAREWHITESPACES);
 	AdjustControlSize(IDC_IGNOREWHITESPACECHANGES);
 	AdjustControlSize(IDC_IGNOREALLWHITESPACES);
-	AdjustControlSize(IDC_FORCE);
 
 	m_bTextView = m_regTextView;
 	// set head revision as default revision
@@ -80,9 +77,6 @@ BOOL CBlameDlg::OnInitDialog()
 	}
 
 	CheckRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES, IDC_IGNOREALLWHITESPACES);
-
-	m_tooltips.Create(this);
-	m_tooltips.AddTool(IDC_FORCE, IDS_BLAME_FORCE_TT);
 
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
@@ -148,10 +142,4 @@ void CBlameDlg::OnEnChangeRevisionEnd()
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
 	else
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
-}
-
-BOOL CBlameDlg::PreTranslateMessage(MSG* pMsg)
-{
-	m_tooltips.RelayEvent(pMsg);
-	return CStandAloneDialogTmpl<CDialog>::PreTranslateMessage(pMsg);
 }

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -51,7 +51,7 @@ bool BlameCommand::Execute()
 			options = SVN::GetOptionsString(dlg.m_bIgnoreEOL, dlg.m_IgnoreSpaces);
 		tempfile = blame.BlameToTempFile(cmdLinePath, dlg.StartRev, dlg.EndRev, 
 			cmdLinePath.IsUrl() ? SVNRev() : SVNRev::REV_WC, logfile, 
-			options, TRUE, dlg.m_bForce);
+			options, TRUE, TRUE);
 		if (!tempfile.IsEmpty())
 		{
 			if (dlg.m_bTextView)

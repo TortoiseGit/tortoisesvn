@@ -20,7 +20,6 @@
 #include "SVNRev.h"
 #include "Registry.h"
 #include "StandAloneDlg.h"
-#include "Balloon.h"
 
 /**
  * \ingroup TortoiseProc
@@ -40,7 +39,6 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnEnChangeRevisionEnd();
 	virtual BOOL OnInitDialog();
@@ -52,12 +50,10 @@ protected:
 	CString m_sStartRev;
 	CString m_sEndRev;
 	CRegDWORD m_regTextView;
-	CBalloon m_tooltips;
 
 public:
 	SVNRev	StartRev;
 	SVNRev	EndRev;
-	BOOL	m_bForce;
 	BOOL	m_bTextView;
 	BOOL	m_bIgnoreEOL;
 	svn_diff_file_ignore_space_t	m_IgnoreSpaces;
