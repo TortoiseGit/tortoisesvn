@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-23 22:03+0700\n"
+"PO-Revision-Date: 2008-05-24 09:38+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -65,9 +65,9 @@ msgstr "%1 berisi obyek yang tidak diharapkan"
 # ID:3868,#:
 # ID:3868,
 #. Resource IDs: (3867)
-#, fuzzy, c-format
+#, c-format
 msgid "%1 contains an incorrect path."
-msgstr "%1 berisi skema yang tidak benar."
+msgstr "%1 berisi path yang tidak benar."
 
 # ID:3868,#:
 # ID:3868,
@@ -104,7 +104,7 @@ msgstr ""
 # ID:3859,#:
 # ID:3859,
 #. Resource IDs: (3859)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "%1\n"
 "Cannot find this file.\n"
@@ -112,7 +112,7 @@ msgid ""
 msgstr ""
 "%1\n"
 "Tidak dapat menemukan file ini.\n"
-"Silahkan verifikasi untuk memberikan path dan nama file yang benar."
+"Silahkan verifikasi bahwa path dan berkas yang diberikan betul."
 
 # ID:357,
 #. Resource IDs: (357)
@@ -135,7 +135,7 @@ msgstr "%d file dipilih, %d total file"
 #. Resource IDs: (246)
 #, c-format
 msgid "%d most active author(s) with at least %d commits each (%d %%)"
-msgstr ""
+msgstr "%d pengarang teraktif dengan paling sedikit %d komit (%d %%)"
 
 # ID:563,
 #. Resource IDs: (357)
@@ -169,13 +169,13 @@ msgstr "%s"
 #. Resource IDs: (93)
 #, c-format
 msgid "%s (offline)"
-msgstr ""
+msgstr "%s (luring)"
 
 # ID:357,
 #. Resource IDs: (115)
-#, fuzzy, c-format
+#, c-format
 msgid "%s (offline) - %s"
-msgstr "%s dalam %s"
+msgstr "%s (luring) - %s"
 
 # ID:226,
 #. Resource IDs: (226)
@@ -265,6 +265,10 @@ msgid ""
 "\n"
 "%s\n"
 msgstr ""
+"%s\n"
+"r%s | %s\n"
+"\n"
+"%s\n"
 
 # Control-ID:1035,#:
 # Control-ID:1036,#:
@@ -291,18 +295,17 @@ msgstr "&Tentang TortoiseMerge..."
 
 #. Resource IDs: (16920)
 msgid "&Activate"
-msgstr ""
+msgstr "&Aktivasi"
 
 # ID:209,#:
 # Dlg-ID:155,
 #. Resource IDs: (17075)
-#, fuzzy
 msgid "&Add >>"
-msgstr "Tambah"
+msgstr "T&ambah >>"
 
 #. Resource IDs: (1064)
 msgid "&Add or Remove Buttons"
-msgstr ""
+msgstr "T&ambah atau Hapus Tombol"
 
 # ID:8,#:
 # Control-ID:1098,#:
@@ -319,11 +322,11 @@ msgstr "&Lanjutan..."
 
 #. Resource IDs: (1471)
 msgid "&Allow ambiguous URLs"
-msgstr ""
+msgstr "Izink&an URL rancu"
 
 #. Resource IDs: (65535)
 msgid "&Application Look"
-msgstr ""
+msgstr "Penampilan &Aplikasi"
 
 # Control-ID:1013,
 #. Resource IDs: (1013)
@@ -332,26 +335,25 @@ msgstr "&Terapkan unified diff"
 
 #. Resource IDs: (32852)
 msgid "&Aqua Style"
-msgstr ""
+msgstr "Gaya &Aqua"
 
 #. Resource IDs: (65535)
 msgid "&Arguments:"
-msgstr ""
+msgstr "&Argumen:"
 
 #. Resource IDs: (16645)
 msgid "&Assign"
-msgstr ""
+msgstr "Tug&askan"
 
 #. Resource IDs: (16633)
 msgid "&Associate double-click event with:"
-msgstr ""
+msgstr "Hubungk&an peristiwa klik-ganda dengan:"
 
 # ID:3842,#:
 # ID:3842,
 #. Resource IDs: (1066)
-#, fuzzy
 msgid "&Auto Hide"
-msgstr "&Sembunyikan"
+msgstr "Sembunyi Otom&atis"
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
@@ -388,13 +390,12 @@ msgstr "&Blame..."
 
 # ID:17,
 #. Resource IDs: (32849)
-#, fuzzy
 msgid "&Blue Style"
-msgstr "gaya eol"
+msgstr "Gaya &Biru"
 
 #. Resource IDs: (65535)
 msgid "&Blue:"
-msgstr ""
+msgstr "&Biru:"
 
 # ID:138,
 #. Resource IDs: (138)
@@ -408,13 +409,12 @@ msgstr "&Browse..."
 
 #. Resource IDs: (16913)
 msgid "&Button Appearance..."
-msgstr ""
+msgstr "Penampilan Tom&bol..."
 
 # Control-ID:1170,
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "&Button text:"
-msgstr "Set &Ikon:"
+msgstr "Teks tombol:"
 
 # Control-ID:1051,
 #. Resource IDs: (1051)
@@ -429,15 +429,15 @@ msgstr "&Batal"
 
 #. Resource IDs: (65535)
 msgid "&Categories:"
-msgstr ""
+msgstr "Kategori:"
 
 #. Resource IDs: (65535)
 msgid "&Category:"
-msgstr ""
+msgstr "Kategori:"
 
 #. Resource IDs: (65535)
 msgid "&Choose commands from:"
-msgstr ""
+msgstr "Pilih perintah dari:"
 
 # ID:8,
 #. Resource IDs: (8)
@@ -446,23 +446,21 @@ msgstr "Ber&sihkan"
 
 # Dlg-ID:138,
 #. Resource IDs: (58112)
-#, fuzzy
 msgid "&Close"
-msgstr "Warna"
+msgstr "Tutup"
 
 #. Resource IDs: (16922)
 msgid "&Close Window(s)"
-msgstr ""
+msgstr "Tutup Jendela"
 
 #. Resource IDs: (32785)
 msgid "&Color age of lines"
-msgstr ""
+msgstr "Warna umur baris"
 
 # ID:198,
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "&Command:"
-msgstr "Baris Perintah"
+msgstr "Perintah:"
 
 # ID:8,
 #. Resource IDs: (8)
@@ -503,13 +501,12 @@ msgstr "&Copy"
 
 #. Resource IDs: (16911)
 msgid "&Copy Button Image"
-msgstr ""
+msgstr "Salin Gambar Tombol"
 
 # ID:101,
 #. Resource IDs: (32776)
-#, fuzzy
 msgid "&Copy log message to clipboard"
-msgstr "Copy pesan kesalahan ke clipboard"
+msgstr "Salin pesan log ke papan jepit"
 
 #. Resource IDs: (65535)
 msgid "&Copy to clipboard"
@@ -557,17 +554,16 @@ msgid "&Diff with URL"
 msgstr "&Diff dengan URL"
 
 #. Resource IDs: (14)
-#, fuzzy
 msgid "&Diff with previous version"
-msgstr "&Bandingkan dengan revisi sebelumnya"
+msgstr "&Diff dengan versi sebelumnya"
 
 #. Resource IDs: (1066)
 msgid "&Docking"
-msgstr ""
+msgstr "Pengaitan"
 
 #. Resource IDs: (2)
 msgid "&Don't go offline"
-msgstr ""
+msgstr "Jangan ja&dikan luring"
 
 # Control-ID:1031,#:
 # MenuEntry#:
@@ -593,7 +589,7 @@ msgstr "&Hodupkan Server Proxy"
 
 #. Resource IDs: (1434)
 msgid "&Enable log caching"
-msgstr ""
+msgstr "Hidupkan tembolok log"
 
 # Control-ID:1213,
 #. Resource IDs: (1213)
@@ -644,9 +640,8 @@ msgstr "&Fixed drive"
 
 # ID:80,
 #. Resource IDs: (1065)
-#, fuzzy
 msgid "&Floating"
-msgstr "Merelokasi..."
+msgstr "Mengapung"
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
@@ -680,11 +675,11 @@ msgstr "&Pergi Ke Baris..."
 
 #. Resource IDs: (65535)
 msgid "&Green:"
-msgstr ""
+msgstr "Hijau:"
 
 #. Resource IDs: (32799)
 msgid "&Group by branch"
-msgstr ""
+msgstr "Kelompokkan menurut cabang"
 
 # Control-ID:1115,#:
 # Control-ID:1032,
@@ -737,18 +732,16 @@ msgid "&Ignore whitespace changes"
 msgstr "&Abaikan perubahan spasi putih"
 
 #. Resource IDs: (16914)
-#, fuzzy
 msgid "&Image"
-msgstr "&Info Gambar"
+msgstr "Gambar"
 
 #. Resource IDs: (32790)
 msgid "&Image Info"
 msgstr "&Info Gambar"
 
 #. Resource IDs: (16505)
-#, fuzzy
 msgid "&Image only"
-msgstr "&Info Gambar"
+msgstr "Gambar saja"
 
 # ID:9,
 #. Resource IDs: (9, 1461)
@@ -757,15 +750,13 @@ msgstr "&Impor..."
 
 # ID:94,
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "&Initial directory:"
-msgstr "Ekspor direktori:"
+msgstr "D&irektori awal:"
 
 # ID:114,
 #. Resource IDs: (32825)
-#, fuzzy
 msgid "&Inline diff word-wise"
-msgstr "Perbedaan dalam-baris"
+msgstr "D&iff dalam baris per kata"
 
 # Control-ID:1016,
 #. Resource IDs: (1016)
@@ -779,9 +770,8 @@ msgid "&Language:"
 msgstr "&Bahasa:"
 
 #. Resource IDs: (16653)
-#, fuzzy
 msgid "&Large Icons"
-msgstr "&Info Gambar"
+msgstr "Ikon Besar"
 
 # Control-ID:1065,
 #. Resource IDs: (1065)
@@ -789,9 +779,8 @@ msgid "&Limit search to modified lines"
 msgstr "&Batasi pencarian ke baris yang diubah"
 
 #. Resource IDs: (32797)
-#, fuzzy
 msgid "&Link image positions"
-msgstr "&Link gambar bersama"
+msgstr "Tautkan posisi gambar"
 
 # Control-ID:1172,
 #. Resource IDs: (1172)
@@ -811,13 +800,12 @@ msgstr "&URL:"
 
 #. Resource IDs: (16543)
 msgid "&Menu animations:"
-msgstr ""
+msgstr "Animasi-animasi &Menu:"
 
 # ID:74,
 #. Resource IDs: (16921)
-#, fuzzy
 msgid "&Menu contents:"
-msgstr "Mengirimkan konten"
+msgstr "Isi &menu:"
 
 # Control-ID:1,
 #. Resource IDs: (1)
@@ -892,7 +880,7 @@ msgstr "%ld &Berikutnya"
 
 #. Resource IDs: (16632)
 msgid "&No double-click event"
-msgstr ""
+msgstr "Tidak ada peristiwa klik-ganda"
 
 # Control-ID:1,#:
 # Control-ID:1,
@@ -902,11 +890,11 @@ msgstr "&OK"
 
 #. Resource IDs: (1)
 msgid "&Offline for now"
-msgstr ""
+msgstr "Luring mulai sekarang"
 
 #. Resource IDs: (3845)
 msgid "&One Page"
-msgstr ""
+msgstr "Satu Halaman"
 
 #. Resource IDs: (101, 113, 32773)
 msgid "&Open"
@@ -929,7 +917,7 @@ msgstr "&Paste"
 
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
-msgstr ""
+msgstr "Luring secara &permanen"
 
 # Control-ID:65535,
 #. Resource IDs: (1414)
@@ -942,7 +930,7 @@ msgstr "Perbedaan &Sebelumnya"
 
 #. Resource IDs: (1069)
 msgid "&Print Preview"
-msgstr ""
+msgstr "&Pratilik Halaman"
 
 # Control-ID:1099,#:
 # Control-ID:1282,
@@ -1088,15 +1076,15 @@ msgstr "Revisi &HEAD"
 
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
-msgstr ""
+msgstr "Tampilkan Menu untuk:"
 
 #. Resource IDs: (16612)
 msgid "&Show text labels"
-msgstr ""
+msgstr "Tampilkan label tek&s"
 
 #. Resource IDs: (32851)
 msgid "&Silver Style"
-msgstr ""
+msgstr "Gaya Perak"
 
 # Control-ID:1185,
 #. Resource IDs: (1185)
@@ -1134,11 +1122,11 @@ msgstr "Besar &Tab:"
 
 #. Resource IDs: (1069)
 msgid "&Tabbed Document"
-msgstr ""
+msgstr "Dokumen Bertab"
 
 #. Resource IDs: (1382)
 msgid "&Test merge"
-msgstr ""
+msgstr "Uji penggabungan"
 
 #. Resource IDs: (16915)
 #, fuzzy
@@ -1205,7 +1193,7 @@ msgstr "&TortoiseSVN"
 
 #. Resource IDs: (3845)
 msgid "&Two Page"
-msgstr ""
+msgstr "Dua Halaman"
 
 # Control-ID:65535,#:
 # Control-ID:1058,
@@ -1282,7 +1270,7 @@ msgstr "&Seluruh kata"
 
 #. Resource IDs: (32846)
 msgid "&Windows XP"
-msgstr ""
+msgstr "&Windows XP"
 
 # Control-ID:1183,
 #. Resource IDs: (1183)
@@ -1336,7 +1324,7 @@ msgstr "(hanya perubahan properti)"
 
 #. Resource IDs: (245)
 msgid "(unknown)"
-msgstr ""
+msgstr "(tak diketahui)"
 
 # ID:188,
 #. Resource IDs: (188)
@@ -1352,7 +1340,7 @@ msgstr "- %d"
 
 #. Resource IDs: (1007)
 msgid "-------------------------------------------------------------------------------------------"
-msgstr ""
+msgstr "-------------------------------------------------------------------------------------------"
 
 # Control-ID:1035,#:
 # Control-ID:1036,#:
@@ -1403,7 +1391,7 @@ msgstr ": copy pekerjaan"
 
 #. Resource IDs: (332)
 msgid "< &Back"
-msgstr ""
+msgstr "< &Sebelumnya"
 
 # Control-ID:1035,#:
 # Control-ID:1036,#:
@@ -1423,7 +1411,7 @@ msgstr "..."
 
 #. Resource IDs: (1069)
 msgid "<Separator>"
-msgstr ""
+msgstr "<Pembatas>"
 
 # ID:3841,#:
 # ID:3841,
@@ -1449,7 +1437,7 @@ msgstr ""
 
 #. Resource IDs: (16603)
 msgid "<descr>"
-msgstr ""
+msgstr "<descr>"
 
 # ID:209,
 #. Resource IDs: (209)
@@ -1463,11 +1451,11 @@ msgstr "&?"
 
 #. Resource IDs: (579)
 msgid "A list of user defined properties for files to show in the combo box"
-msgstr ""
+msgstr "Daftar properti yang ditentukan pengguna untuk berkas yang akan ditampilkan di combo box"
 
 #. Resource IDs: (579)
 msgid "A list of user defined properties for folders to show in the combo box"
-msgstr ""
+msgstr "Daftar properti yang ditentukan pengguna untuk folder yang akan ditampilkan di combo box"
 
 # ID:201,
 #. Resource IDs: (201)
@@ -1592,6 +1580,8 @@ msgid ""
 "ActiveX objects cannot be saved while exiting Windows!\n"
 "Discard all changes to %1?"
 msgstr ""
+"Objek ActiveX tidak dapat disimpan saat keluar Windows!\n"
+"Buang semua perubahan pada %1?"
 
 # ID:209,#:
 # Dlg-ID:155,
@@ -1643,7 +1633,7 @@ msgstr "Tambah ke daftar aba&ikan"
 
 #. Resource IDs: (1068)
 msgid "Add to Quick Access Toolbar"
-msgstr ""
+msgstr "Tambahkan ke Bilah Alat Akses Cepat"
 
 # Control-ID:1279,
 #. Resource IDs: (209, 1279)
@@ -1748,7 +1738,7 @@ msgstr "Rata-rata"
 
 #. Resource IDs: (1007)
 msgid "All Commands"
-msgstr ""
+msgstr "Semua Perintah"
 
 # ID:3841,#:
 # ID:3841,
@@ -1764,35 +1754,37 @@ msgstr "Semua File (*.*)|*.*||"
 
 #. Resource IDs: (1008)
 msgid "All your changes will be lost! Do you really want to reset all toolbars and menus?"
-msgstr ""
+msgstr "Semua perubahan Anda akan hilang! Apakah Anda ingin untuk menset ulang semua bilah alat dan menu?"
 
 #. Resource IDs: (1008)
 msgid "All your changes will be lost! Do you really want to reset the keyboard assignments?"
-msgstr ""
+msgstr "Semua perubahan Anda akan hilang! Apakah Anda ingin untuk menset ulang semua penugasan papan ketik?"
 
 #. Resource IDs: (1008)
 #, c-format
 msgid "All your changes will be lost! Do you really want to reset the menu '%s'?"
-msgstr ""
+msgstr "Semua perubahan Anda akan hilang! Apakah Anda ingin untuk menset ulang menu '%s'?"
 
 #. Resource IDs: (1007)
 #, c-format
 msgid "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
-msgstr ""
+msgstr "Semua perubahan Anda akan hilang! Apakah Anda ingin untuk menset ulang bilah alat '%s'?"
 
 #. Resource IDs: (345)
 msgid ""
 "Allow different repositories to use the same URL, e.g. http://localhost/myrepos/\n"
 "Note: This will disable offline log access."
 msgstr ""
+"Izinkan repositori yang berbeda untuk menggunakan URL yang sama, contoh http://localhost/myrepos/\n"
+"Catatan: Hal ini akan mematikan akses log luring."
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
-msgstr ""
+msgstr "Selalu gunakan pengaturan lokal sistem untuk menampilkan waktu dan tanggal"
 
 #. Resource IDs: (339)
 msgid "Amount of memory required to load the cache"
-msgstr ""
+msgstr "Jumlah memori yang diperlukan untuk memuat tembolok"
 
 # ID:78,
 #. Resource IDs: (78)
@@ -1863,7 +1855,7 @@ msgstr "Tipe baris tidak dikenal ditemukan dalam baris %d !"
 
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
-msgstr ""
+msgstr "Menu Bingkai Aplikasi"
 
 # ID:14,
 #. Resource IDs: (14)
@@ -1917,7 +1909,7 @@ msgstr "Atur &Vertikal"
 
 #. Resource IDs: (199)
 msgid "Ask user"
-msgstr ""
+msgstr "Tanyakan pengguna"
 
 # ID:209,
 #. Resource IDs: (264)
@@ -1927,7 +1919,7 @@ msgstr "Dipindahkan ke daftar perubahan \"%s\""
 
 #. Resource IDs: (16528)
 msgid "Assigned to:"
-msgstr ""
+msgstr "Ditugaskan ke:"
 
 # ID:77,
 #. Resource IDs: (77)
@@ -2012,7 +2004,7 @@ msgstr "Ganti nama otomatis"
 
 #. Resource IDs: (1003)
 msgid "Auto Hide All"
-msgstr ""
+msgstr "Sembunyikan Otomatis Semua"
 
 # Dlg-ID:151,
 #. Resource IDs: (99)
@@ -2067,7 +2059,7 @@ msgstr "Rata-rata"
 
 #. Resource IDs: (32850)
 msgid "B&lack Style"
-msgstr ""
+msgstr "Gaya Hitam"
 
 # Control-ID:1001,
 #. Resource IDs: (1001)
@@ -2076,7 +2068,7 @@ msgstr "B&rowse..."
 
 #. Resource IDs: (1064)
 msgid "Back"
-msgstr ""
+msgstr "Kembali"
 
 # ID:246,
 #. Resource IDs: (246)
@@ -2093,6 +2085,8 @@ msgid ""
 "Bitmap\n"
 "a bitmap"
 msgstr ""
+"Bitmap\n"
+"sebuah bitmap"
 
 # Dlg-ID:162,
 #. Resource IDs: (114, 162)
@@ -2112,13 +2106,15 @@ msgstr "Blames setiap baris dari file pada pembuat"
 
 #. Resource IDs: (32812)
 msgid "Blend Alpha"
-msgstr ""
+msgstr "Alfa Campuran"
 
 #. Resource IDs: (83)
 msgid ""
 "Both /logmsg and /logmsgfile were specified!\n"
 "Only one of those can be specified."
 msgstr ""
+"/logmsg dan /logmsgfile sama-sama dispesifikasikan!\n"
+"Hanya salah satu yang boleh dispesifikasikan."
 
 # Control-ID:1003,
 #. Resource IDs: (1003)
@@ -2181,7 +2177,7 @@ msgstr "Bug-ID / Issue-Nr:"
 
 #. Resource IDs: (16132)
 msgid "Button Appearance"
-msgstr ""
+msgstr "Penampilan Tombol"
 
 # Control-ID:1215,
 #. Resource IDs: (1215)
@@ -2223,7 +2219,7 @@ msgstr "CAP"
 
 #. Resource IDs: (199)
 msgid "Cache size [kB]"
-msgstr ""
+msgstr "Ukuran tembolok [kB]"
 
 # Dlg-ID:178,
 #. Resource IDs: (1440)
@@ -2233,7 +2229,7 @@ msgstr "Buat Repositori"
 
 #. Resource IDs: (197)
 msgid "Caches the log messages to speed up log fetching"
-msgstr ""
+msgstr "Masukkan pesan-pesan log ke dalam tembolok untuk mempercepat pengambilan log"
 
 #. Resource IDs: (1127)
 #, fuzzy
@@ -2242,7 +2238,7 @@ msgstr "&Bandingkan dengan revisi sebelumnya"
 
 #. Resource IDs: (3865)
 msgid "Can not activate a static ActiveX object."
-msgstr ""
+msgstr "Tidak dapat mengaktifkan sebuah objek ActiveX statis"
 
 # ID:82,
 #. Resource IDs: (82)
@@ -2266,15 +2262,15 @@ msgstr "Copy semua informasi ke clipboard"
 
 #. Resource IDs: (1001)
 msgid "Can't create a new image!"
-msgstr ""
+msgstr "Tidak dapat membuat gambar baru!"
 
 #. Resource IDs: (1001)
 msgid "Can't customize menues!"
-msgstr ""
+msgstr "Tidak dapat mengkostumisasi menu!"
 
 #. Resource IDs: (1001)
 msgid "Can't paste bitmap image from the clipboard!"
-msgstr ""
+msgstr "Tidak dapat menempelkan gambar bitmap dari papan jepit!"
 
 # ID:73,#:
 # ID:563,#:
@@ -2315,7 +2311,7 @@ msgstr "Menu konteks dijajarkan"
 
 #. Resource IDs: (65535)
 msgid "Cate&gories:"
-msgstr ""
+msgstr "Kate&gori:"
 
 # ID:82,
 #. Resource IDs: (82)
@@ -2489,7 +2485,7 @@ msgstr "Periksa"
 
 #. Resource IDs: (1402)
 msgid "Choose item:"
-msgstr ""
+msgstr "Pilih item:"
 
 # ID:146,
 #. Resource IDs: (145)
@@ -8473,7 +8469,7 @@ msgstr "target yang hilang dilewati"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
-msgstr ""
+msgstr "Urutkan berdasarkan urutan komit"
 
 # ID:196,
 #. Resource IDs: (196)
@@ -8520,7 +8516,7 @@ msgstr "Grafik Stacked Garis"
 
 #. Resource IDs: (16962)
 msgid "Standard"
-msgstr ""
+msgstr "Standar"
 
 # ID:569,
 #. Resource IDs: (569)
@@ -8767,7 +8763,7 @@ msgstr ""
 
 #. Resource IDs: (219)
 msgid "Test Only"
-msgstr ""
+msgstr "Hanya Tes"
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
