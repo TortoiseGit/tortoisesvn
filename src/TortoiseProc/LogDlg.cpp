@@ -1344,7 +1344,9 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 	else if ((selCount == 1)&&(pWnd == GetDlgItem(IDC_MSGVIEW)))
 	{
 		POSITION pos = m_LogList.GetFirstSelectedItemPosition();
-		int selIndex = m_LogList.GetNextSelectedItem(pos);
+		int selIndex = -1;
+		if (pos)
+			selIndex = m_LogList.GetNextSelectedItem(pos);
 		if ((point.x == -1) && (point.y == -1))
 		{
 			CRect rect;
@@ -1362,11 +1364,12 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 			sMenuItemText.LoadString(IDS_SCIEDIT_SELECTALL);
 			popup.AppendMenu(MF_STRING | MF_ENABLED, EM_SETSEL, sMenuItemText);
 
-			popup.AppendMenu(MF_SEPARATOR);
-
-			sMenuItemText.LoadString(IDS_LOG_POPUP_EDITLOG);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITAUTHOR, sMenuItemText);
-
+			if (selIndex >= 0)
+			{
+				popup.AppendMenu(MF_SEPARATOR);
+				sMenuItemText.LoadString(IDS_LOG_POPUP_EDITLOG);
+				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITAUTHOR, sMenuItemText);
+			}
 
 			int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 			switch (cmd)
