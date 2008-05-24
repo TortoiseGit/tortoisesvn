@@ -1994,6 +1994,7 @@ void CLogDlg::EditAuthor(int index)
 	name = SVN_PROP_REVISION_AUTHOR;
 
 	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(index));
+	m_bCancelled = FALSE;
 	CString value = RevPropertyGet(name, url, pLogEntry->Rev);
 	value.Replace(_T("\n"), _T("\r\n"));
 	CInputDlg dlg(this);
@@ -2053,6 +2054,7 @@ void CLogDlg::EditLogMessage(int index)
 	name = SVN_PROP_REVISION_LOG;
 
 	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(index));
+	m_bCancelled = FALSE;
 	CString value = RevPropertyGet(name, url, pLogEntry->Rev);
 	value.Replace(_T("\n"), _T("\r\n"));
 	CInputDlg dlg(this);
