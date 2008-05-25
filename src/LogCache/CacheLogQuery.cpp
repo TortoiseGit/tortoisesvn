@@ -962,6 +962,18 @@ void CCacheLogQuery::InternalLog ( revision_t startRevision
 	{
 		if (!dataAvailable (iterator.get()))
 		{
+            // special case: 
+            // the path seems not to be from this repository.
+            // At least, no "add" has been found for it.
+
+            if (   (iterator->GetRevision() == 0)
+                && !iterator->GetPath().IsRoot())
+            {
+                // we have to stop @rev 0, then
+
+                return;
+            }
+
 			// we must not fetch revisions twice
 			// (this may cause an indefinite loop)
 
