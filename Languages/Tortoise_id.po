@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-25 12:20+0700\n"
+"PO-Revision-Date: 2008-05-25 13:09+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2916,6 +2916,8 @@ msgid ""
 "Copy Tool\n"
 "Copy"
 msgstr ""
+"Alat Salin\n"
+"Salin"
 
 # ID:101,
 #. Resource IDs: (101)
@@ -3019,7 +3021,7 @@ msgstr "Tidak bisa menambah %s ke daftar abaikan!"
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not add property \"%s\" on %s because"
-msgstr ""
+msgstr "Tidak dapat menambah properti \"%s\" pada %s karena"
 
 # ID:201,
 #. Resource IDs: (201)
@@ -3054,7 +3056,7 @@ msgstr "Tidak bisa mendapatkan status!"
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not delete property \"%s\" on %s because"
-msgstr ""
+msgstr "Tidak dapat menghapus properti \"%s\" pada %s karena"
 
 # ID:81,
 #. Resource IDs: (83)
@@ -3076,7 +3078,7 @@ msgstr "Tidak bisa mendapatkan status!"
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not merge property \"%s\" on %s because"
-msgstr ""
+msgstr "Tidak dapat menggabung properti \"%s\" pada %s karena"
 
 # ID:3867,#:
 # ID:3867,
@@ -3250,6 +3252,8 @@ msgid ""
 "Creates a patch file from the differences of the two files\n"
 "Create patch file"
 msgstr ""
+"Membuat berkas tambalan dari perbedaan pada dua berkas tersebut\n"
+"Membuat berkas tambalan"
 
 # ID:10,
 #. Resource IDs: (10)
@@ -3273,7 +3277,7 @@ msgstr "Cu&t"
 
 #. Resource IDs: (65535)
 msgid "Current"
-msgstr ""
+msgstr "Sekarang"
 
 # Control-ID:1113,
 #. Resource IDs: (1113)
@@ -3306,15 +3310,15 @@ msgstr "&Kustom"
 
 #. Resource IDs: (17076)
 msgid "Customize Keyboard"
-msgstr ""
+msgstr "Kustomisasi Papan Ketik"
 
 #. Resource IDs: (1069)
 msgid "Customize Quick Access Toolbar"
-msgstr ""
+msgstr "Kustomisasi Bilah Alat Akses Cepat"
 
 #. Resource IDs: (1068)
 msgid "Customize Quick Access Toolbar..."
-msgstr ""
+msgstr "Kustomisasi Bilah Alat Akses Cepat..."
 
 # ID:3603,
 #. Resource IDs: (3603)
@@ -3359,7 +3363,7 @@ msgstr "URL bawaan:"
 
 #. Resource IDs: (1007)
 msgid "Default application menu. Appears when no documents are open."
-msgstr ""
+msgstr "Menu aplikasi bawaan. Tampak jika tidak ada dokumen yang terbuka."
 
 # Control-ID:1269,#:
 # Control-ID:1096,
@@ -3406,7 +3410,7 @@ msgstr "Menghapus file-file / folder-folder dari kontrol versi tetapi mempertaha
 
 #. Resource IDs: (198)
 msgid "Deletes the action log file"
-msgstr ""
+msgstr "Hapus berkas log tindakan"
 
 # ID:263,
 #. Resource IDs: (263)
@@ -3422,7 +3426,7 @@ msgstr "Path bawaan:"
 
 #. Resource IDs: (1002)
 msgid "Description"
-msgstr ""
+msgstr "Deskripsi"
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
@@ -3443,13 +3447,15 @@ msgstr "Disk drive tujuan sudah penuh."
 
 #. Resource IDs: (1279)
 msgid "Details"
-msgstr ""
+msgstr "Rincian"
 
 #. Resource IDs: (3849)
 msgid ""
 "Device Independent Bitmap\n"
 "a device independent bitmap"
 msgstr ""
+"Device Independent Bitmap\n"
+"sebuah bitman mandiri divais"
 
 # Control-ID:1277,
 #. Resource IDs: (1277)
@@ -3485,7 +3491,7 @@ msgstr "Melakukan diff"
 
 #. Resource IDs: (14)
 msgid "Diffs the working copy file with the one before the last commit."
-msgstr ""
+msgstr "Diff berkas copy pekerjaan dengan yang sebelum komit terakhir"
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
@@ -3517,7 +3523,7 @@ msgstr "Kekecualian dispatch: %1"
 
 #. Resource IDs: (65535)
 msgid "Display &buttons in this order"
-msgstr ""
+msgstr "Tampilkan tom&bol dengan urutan ini"
 
 # ID:3605,
 #. Resource IDs: (3605)
@@ -3597,6 +3603,9 @@ msgid ""
 "This will remove all Subversion admin directories from\n"
 "%s!"
 msgstr ""
+"Apakah Anda ingin membuat copy pekerjaan ini tidak berversi?\n"
+"Ini akan menghapus semua direktori admin Subversion dari\n"
+"%s!"
 
 # ID:76,
 #. Resource IDs: (76)
@@ -3625,13 +3634,15 @@ msgstr "Anda ingin menyimpan perubahan anda?"
 
 #. Resource IDs: (65535)
 msgid "Document :"
-msgstr ""
+msgstr "Dokumen :"
 
 #. Resource IDs: (65535)
 msgid ""
 "Documentation : Simon Large\n"
 "Code : Tobias Schäfer, Stefan Fuhrmann"
 msgstr ""
+"Dokumentasi : Simon Large\n"
+"Kode : Tobias Schäfer, Stefan Fuhrmann"
 
 # ID:73,#:
 # ID:80,
@@ -3641,11 +3652,11 @@ msgstr "Jangan tampilkan pesan ini lagi"
 
 #. Resource IDs: (1002)
 msgid "Drag to make this menu float"
-msgstr ""
+msgstr "Geret untuk membuat menu ini mengapung"
 
 #. Resource IDs: (16513)
 msgid "Draw"
-msgstr ""
+msgstr "Gambar"
 
 # Control-ID:1079,
 #. Resource IDs: (1079)
