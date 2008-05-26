@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-25 18:12+0700\n"
+"PO-Revision-Date: 2008-05-26 21:52+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3130,13 +3130,13 @@ msgstr "Tidak bisa memulai pekerjaan mencetak."
 
 # ID:81,
 #. Resource IDs: (83)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Could not start text viewer!\n"
 "<hr=100%%>\n"
 "%s"
 msgstr ""
-"Tidak bisa memulai peninjau diff!\n"
+"Tidak dapat menjalankan penilik teks!\n"
 "<hr=100%%>\n"
 "%s"
 
@@ -3177,15 +3177,13 @@ msgstr ""
 
 # ID:8,
 #. Resource IDs: (8)
-#, fuzzy
 msgid "Create repositor&y here"
-msgstr "Buat repositor&i disini..."
+msgstr "Buat repositor&i di sini"
 
 # ID:119,
 #. Resource IDs: (32828)
-#, fuzzy
 msgid "Create unified diff file"
-msgstr "Mendapatkan unfied diff"
+msgstr "Membuat berkas unified diff"
 
 # ID:126,
 #. Resource IDs: (126)
@@ -3242,21 +3240,18 @@ msgstr "Versi sekarang: %s"
 
 # ID:8,
 #. Resource IDs: (17079)
-#, fuzzy
 msgid "Cus&tomize..."
-msgstr "&Komit..."
+msgstr "Kus&tomisasi..."
 
 # Control-ID:1097,
 #. Resource IDs: (16963)
-#, fuzzy
 msgid "Custom"
-msgstr "&Kustom"
+msgstr "Kustom"
 
 # Control-ID:1097,
 #. Resource IDs: (1007, 17074)
-#, fuzzy
 msgid "Customize"
-msgstr "&Kustom"
+msgstr "Kustomisasi"
 
 #. Resource IDs: (17076)
 msgid "Customize Keyboard"
@@ -3289,9 +3284,8 @@ msgstr "Tanggal"
 # Control-ID:1269,#:
 # Control-ID:1096,
 #. Resource IDs: (1008)
-#, fuzzy
 msgid "Default"
-msgstr "&Standar"
+msgstr "Bawaan"
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
@@ -3301,9 +3295,8 @@ msgstr "Standar &jumlah pesan log"
 # Control-ID:1269,#:
 # Control-ID:1096,
 #. Resource IDs: (1007)
-#, fuzzy
 msgid "Default Menu"
-msgstr "&Standar"
+msgstr "Menu Bawaan"
 
 # Control-ID:1269,#:
 # Control-ID:1096,
@@ -3323,9 +3316,8 @@ msgstr "Path bawaan:"
 
 # ID:11,
 #. Resource IDs: (1002, 1382)
-#, fuzzy
 msgid "Delete"
-msgstr "&Hapus"
+msgstr "Hapus"
 
 # Control-ID:65535,
 #. Resource IDs: (240)
@@ -3370,9 +3362,8 @@ msgstr "Menghapus"
 # Control-ID:1269,#:
 # Control-ID:1096,
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Depth:"
-msgstr "Path bawaan:"
+msgstr "Kedalaman:"
 
 #. Resource IDs: (1002)
 msgid "Description"
@@ -3380,9 +3371,8 @@ msgstr "Deskripsi"
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Description:"
-msgstr "Kekecualian:"
+msgstr "Deskripsi:"
 
 # ID:209,
 #. Resource IDs: (213)
@@ -3419,15 +3409,13 @@ msgstr "Diff file:"
 
 # Control-ID:1022,
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Diff options"
-msgstr "Melakukan diff"
+msgstr "Pilihan diff"
 
 # ID:17,
 #. Resource IDs: (146, 279)
-#, fuzzy
 msgid "Diff with URL"
-msgstr "&Diff dengan URL"
+msgstr "Diff dengan URL"
 
 # Control-ID:1302,
 #. Resource IDs: (1302)
@@ -3513,9 +3501,9 @@ msgstr ""
 
 # ID:145,
 #. Resource IDs: (1007)
-#, fuzzy, c-format
+#, c-format
 msgid "Do you really want to delete the toolbar '%s'?"
-msgstr "Anda benar-benar ingin memindahkan file atau folder ini?"
+msgstr "Anda benar-benar ingin menghapus bilah alat '%s'?"
 
 # ID:145,
 #. Resource IDs: (145)
@@ -3638,9 +3626,8 @@ msgstr "Edit"
 
 # ID:115,
 #. Resource IDs: (16133)
-#, fuzzy
 msgid "Edit Button Image"
-msgstr "Edit nama pembuat"
+msgstr "Edit Gambar Tombol"
 
 # ID:564,#:
 # Dlg-ID:227,
@@ -3660,9 +3647,8 @@ msgstr "Edit nama pembuat"
 
 # ID:12,
 #. Resource IDs: (1399)
-#, fuzzy
 msgid "Edit conflict"
-msgstr "&Edit konflik"
+msgstr "Edit konflik"
 
 # ID:110,
 #. Resource IDs: (110)
@@ -3683,11 +3669,13 @@ msgstr "Edit pesan log"
 # ID:564,#:
 # Dlg-ID:227,
 #. Resource IDs: (127)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Edit property \"%s\" on\r\n"
 "%s"
-msgstr "Edit Properti"
+msgstr ""
+"Edit properti \"%s\" on\r\n"
+"%s"
 
 # Control-ID:1331,
 #. Resource IDs: (1331, 1382)
@@ -3696,9 +3684,8 @@ msgstr "Edit..."
 
 # ID:17,
 #. Resource IDs: (581)
-#, fuzzy
 msgid "Edits the selected property value"
-msgstr "Menampilkan nilai properti gaya-eol"
+msgstr "Mengedit nilai properti terpilih"
 
 # ID:79,
 #. Resource IDs: (79)
@@ -3710,6 +3697,8 @@ msgid ""
 "Ellipse Tools\n"
 "Ellipse"
 msgstr ""
+"Peralatan Elips\n"
+"Elips"
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
@@ -3741,23 +3730,23 @@ msgstr ""
 # ID:3867,#:
 # ID:3867,
 #. Resource IDs: (3867)
-#, fuzzy, c-format
+#, c-format
 msgid "Encountered a hardware I/O error while accessing %1."
-msgstr "Kesalahan I/O hardware dlaporkan saat mengakses %1."
+msgstr "Menjumpai kesalahan I/O perangkat keras saat mengakses %1."
 
 # ID:3867,#:
 # ID:3867,
 #. Resource IDs: (3867)
-#, fuzzy, c-format
+#, c-format
 msgid "Encountered a locking violation while accessing %1."
-msgstr "Pelanggaran penguncian terjadi saat mengakses %1."
+msgstr "Menjumpai pelanggaran penguncian saat mengakses %1."
 
 # ID:3867,#:
 # ID:3867,
 #. Resource IDs: (3867)
-#, fuzzy, c-format
+#, c-format
 msgid "Encountered a sharing violation while accessing %1."
-msgstr "Pelanggaran sharing terjadi saat mengakses %1."
+msgstr "Menjumpai pelanggaran pembagian/sharing saat mengakses %1."
 
 #. Resource IDs: (3843)
 msgid "Encountered an improper argument."
@@ -3766,16 +3755,16 @@ msgstr "Menjumpai argumen yang tidak tepat"
 # ID:3859,#:
 # ID:3859,
 #. Resource IDs: (3859)
-#, fuzzy, c-format
+#, c-format
 msgid "Encountered an unexpected error while reading %1."
-msgstr "Kesalahan tidak diharapkan terhadi saat membaca %1."
+msgstr "Menjumpai kesalahan tak diharapkan saat membaca %1."
 
 # ID:3859,#:
 # ID:3859,
 #. Resource IDs: (3859)
-#, fuzzy, c-format
+#, c-format
 msgid "Encountered an unexpected error while writing %1."
-msgstr "Kesalahan tidak diharapkan terjadi saat menulis %1."
+msgstr "Menjumpai kesalahan tidak diharapkan terjadi saat menulisi %1."
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
@@ -3800,30 +3789,26 @@ msgstr "Masukkan URL"
 # ID:3858,#:
 # ID:3858,
 #. Resource IDs: (3858)
-#, fuzzy
 msgid "Enter a GUID."
-msgstr "Silahkan masukkan GUID."
+msgstr "Masukkan GUID."
 
 # ID:3858,#:
 # ID:3858,
 #. Resource IDs: (3858)
-#, fuzzy
 msgid "Enter a currency."
-msgstr "Silahkan masukkan kurs."
+msgstr "Masukkan mata uang."
 
 # ID:3858,#:
 # ID:3858,
 #. Resource IDs: (3858)
-#, fuzzy
 msgid "Enter a date and/or time."
-msgstr "Silahkan masukkan tanggal dan/atau jam."
+msgstr "Masukkan tanggal dan/atau jam."
 
 # ID:3858,#:
 # ID:3858,
 #. Resource IDs: (3858)
-#, fuzzy
 msgid "Enter a date."
-msgstr "Silahkan masukkan tanggal."
+msgstr "Masukkan tanggal."
 
 # ID:313,
 #. Resource IDs: (313)
@@ -3838,51 +3823,46 @@ msgstr "Masukkan nama untuk daftar perubahan:"
 # ID:3858,#:
 # ID:3858,
 #. Resource IDs: (3858)
-#, fuzzy, c-format
+#, c-format
 msgid "Enter a number between %1 and %2."
-msgstr "Silahkan masukkan angka antara %1 dan %2."
+msgstr "Masukkan angka antara %1 dan %2."
 
 # ID:3858,#:
 # ID:3858,
 #. Resource IDs: (3858)
-#, fuzzy
 msgid "Enter a number."
-msgstr "Silahkan masukkan angka."
+msgstr "Masukkan angka."
 
 # ID:3858,#:
 # ID:3858,
 #. Resource IDs: (3858)
-#, fuzzy
 msgid "Enter a positive integer."
-msgstr "Silahkan masukkan integer positif."
+msgstr "Masukkan integer positif."
 
 # ID:3858,#:
 # ID:3858,
 #. Resource IDs: (3858)
-#, fuzzy
 msgid "Enter a time."
-msgstr "Silahkan masukkan jam."
+msgstr "Masukkan jam."
 
 # ID:3858,#:
 # ID:3858,
 #. Resource IDs: (3858)
-#, fuzzy, c-format
+#, c-format
 msgid "Enter an integer between %1 and %2."
-msgstr "Silahkan masukkan integer antara %1 dan %2."
+msgstr "Masukkan integer antara %1 dan %2."
 
 # ID:3858,#:
 # ID:3858,
 #. Resource IDs: (3858)
-#, fuzzy
 msgid "Enter an integer between 0 and 255."
-msgstr "Silahkan masukkan integer antara 0 dan 255."
+msgstr "Masukkan integer antara 0 dan 255."
 
 # ID:3858,#:
 # ID:3858,
 #. Resource IDs: (3858)
-#, fuzzy
 msgid "Enter an integer."
-msgstr "Silahkan masukkan integer."
+msgstr "Masukkan integer."
 
 # Control-ID:1065,
 #. Resource IDs: (1065)
@@ -3897,9 +3877,9 @@ msgstr "Masukkan pesan log:"
 # ID:3858,#:
 # ID:3858,
 #. Resource IDs: (3858)
-#, fuzzy, c-format
+#, c-format
 msgid "Enter no more than %1 characters."
-msgstr "Silahkan masukkan tidak lebih dari %1 karakter."
+msgstr "Masukkan tidak lebih dari %1 karakter."
 
 # ID:3603,
 #. Resource IDs: (3603)
@@ -4090,18 +4070,18 @@ msgstr "Pemulihan gagal"
 # ID:3857,#:
 # ID:3857,
 #. Resource IDs: (3865)
-#, fuzzy
 msgid ""
 "Failed to connect.\n"
 "Link may be broken."
-msgstr "Gagal untuk membuat dokumen kosong"
+msgstr ""
+"Koneksi gagal.\n"
+"Tautan mungkin rusak."
 
 # ID:3857,#:
 # ID:3857,
 #. Resource IDs: (3865)
-#, fuzzy
 msgid "Failed to convert ActiveX object."
-msgstr "Gagal untuk membuat dokumen kosong"
+msgstr "Konversi objek ActiveX gagal."
 
 # ID:3857,#:
 # ID:3857,
@@ -4122,9 +4102,8 @@ msgstr "Gagal untuk menjalankan bantuan."
 # ID:3857,#:
 # ID:3857,
 #. Resource IDs: (3865)
-#, fuzzy
 msgid "Failed to launch server application."
-msgstr "Gagal untuk menjalankan bantuan."
+msgstr "Peluncuran aplikasi peladen gagal."
 
 # ID:3857,#:
 # ID:3857,
@@ -4135,9 +4114,8 @@ msgstr "Gagal untuk membuka dokumen."
 # ID:3857,#:
 # ID:3857,
 #. Resource IDs: (3865)
-#, fuzzy
 msgid "Failed to perform server operation."
-msgstr "Memori tidak cukup untuk melakukan operasi."
+msgstr "Pelaksanaan operasi peladen gagal."
 
 # ID:3857,#:
 # ID:3857,
@@ -4326,15 +4304,16 @@ msgstr ""
 
 # Dlg-ID:151,
 #. Resource IDs: (208)
-#, fuzzy
 msgid "Filename"
-msgstr "Ganti nama"
+msgstr "Nama berkas"
 
 #. Resource IDs: (1057)
 msgid ""
 "Fill Tool\n"
 "Fill"
 msgstr ""
+"Alat Pemenuh\n"
+"Penuhi"
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
@@ -4382,9 +4361,8 @@ msgstr ""
 
 # MenuEntry#:
 #. Resource IDs: (1002)
-#, fuzzy
 msgid "Folder"
-msgstr "&Saring"
+msgstr "Folder"
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
@@ -4549,9 +4527,8 @@ msgstr "Mendapatkan info log..."
 
 # ID:120,
 #. Resource IDs: (220)
-#, fuzzy
 msgid "Getting required information..."
-msgstr "Mendapatkan informasi..."
+msgstr "Mendapatkan informasi yang diperlukan..."
 
 # ID:119,
 #. Resource IDs: (119)
@@ -4565,9 +4542,8 @@ msgstr "&Pola abaikan global:"
 
 # Control-ID:1080,
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Global settings"
-msgstr "Seting Proxy"
+msgstr "Pengaturan global"
 
 # Dlg-ID:130,
 #. Resource IDs: (280)
@@ -4581,43 +4557,39 @@ msgstr "Pergi ke baris"
 
 # ID:2051,
 #. Resource IDs: (2051)
-#, fuzzy
 msgid ""
 "Go to the next conflict\n"
 "Next conflict"
 msgstr ""
 "Pergi ke konflik berikutnya\n"
-"konflik berikutnya"
+"Konflik berikutnya"
 
 # ID:2049,
 #. Resource IDs: (2049)
-#, fuzzy
 msgid ""
 "Go to the next difference\n"
 "Next difference"
 msgstr ""
 "Pergi ke perbedaan berikutnya\n"
-"perbedaan berikutnya"
+"Perbedaan berikutnya"
 
 # ID:2051,
 #. Resource IDs: (2051)
-#, fuzzy
 msgid ""
 "Go to the previous conflict\n"
 "Previous conflict"
 msgstr ""
 "Pergi ke konflik sebelumnya\n"
-"konflik sebelumnya"
+"Konflik sebelumnya"
 
 # ID:2049,
 #. Resource IDs: (2049)
-#, fuzzy
 msgid ""
 "Go to the previous difference\n"
 "Previous difference"
 msgstr ""
 "Pergi ke perbedaan sebelumnya\n"
-"perbedaan sebelumnya"
+"Perbedaan sebelumnya"
 
 # Control-ID:1134,
 #. Resource IDs: (1134)
@@ -4626,7 +4598,7 @@ msgstr "Tipe grafik:"
 
 #. Resource IDs: (16972)
 msgid "Gray"
-msgstr ""
+msgstr "Abu-Abu"
 
 #. Resource IDs: (2050)
 msgid "Group by branch"
@@ -4654,9 +4626,9 @@ msgstr "HEAD"
 
 # ID:120,
 #. Resource IDs: (106)
-#, fuzzy, c-format
+#, c-format
 msgid "Head revision is %s"
-msgstr "Revisi %s"
+msgstr "Revisi head adalah %s"
 
 # Control-ID:1004,
 #. Resource IDs: (73, 1004)
@@ -4674,9 +4646,8 @@ msgstr ""
 
 # Control-ID:1229,
 #. Resource IDs: (32820)
-#, fuzzy
 msgid "Hide &deleted paths"
-msgstr "Sembuny&ikan path yang diubah tidak terkait"
+msgstr "Sembuny&ikan path terhapus"
 
 #. Resource IDs: (1001)
 msgid "Hide docked window"
@@ -4711,7 +4682,7 @@ msgstr ""
 
 #. Resource IDs: (1064)
 msgid "Home"
-msgstr ""
+msgstr "Rumah"
 
 # Dlg-ID:103,
 #. Resource IDs: (103)
@@ -4854,9 +4825,8 @@ msgstr "ID:57665:V C +Q"
 
 # Dlg-ID:106,
 #. Resource IDs: (106)
-#, fuzzy
 msgid "Icon Overlays"
-msgstr "Tampilan: Lapisan Ikon"
+msgstr "Lapisan Ikon"
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
@@ -8718,7 +8688,7 @@ msgstr "Copy pekerjaan yang di tag ke %s"
 
 #. Resource IDs: (1064)
 msgid "Tasks Pane"
-msgstr ""
+msgstr "Jendela Tugas"
 
 #. Resource IDs: (219)
 msgid "Test Only"
@@ -10082,7 +10052,7 @@ msgstr "Kunjungi website kami"
 
 #. Resource IDs: (32848)
 msgid "Visual Studio.NET 200&5"
-msgstr ""
+msgstr "Visual Studio.NET 200&5"
 
 # ID:198,
 #. Resource IDs: (198)
@@ -10133,11 +10103,11 @@ msgstr "Posisi Jendela"
 
 #. Resource IDs: (16927)
 msgid "Windows"
-msgstr ""
+msgstr "Windows"
 
 #. Resource IDs: (32844)
 msgid "Windows &2000"
-msgstr ""
+msgstr "Windows &2000"
 
 # ID:146,
 #. Resource IDs: (146)
@@ -10656,7 +10626,7 @@ msgstr "eksternal"
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"
-msgstr ""
+msgstr "http://tortoisesvn.net"
 
 # ID:13,
 #. Resource IDs: (13)
@@ -10873,9 +10843,9 @@ msgstr "Abaikan asal"
 
 # ID:120,
 #. Resource IDs: (326)
-#, fuzzy, c-format
+#, c-format
 msgid "revision %s-%s, revision %s-%s"
-msgstr "Mendapatkan file %s, revisi %s"
+msgstr "revisi %s-%s, revisi %s-%s"
 
 # ID:75,
 #. Resource IDs: (65535)
@@ -11042,9 +11012,9 @@ msgstr "Periksa modifikasi"
 # ID:103,#:
 # ID:103,
 #. Resource IDs: (3845)
-#, fuzzy, c-format
+#, c-format
 msgid "to %1"
-msgstr "ke %s"
+msgstr "ke %1"
 
 # ID:80,#:
 # ID:103,#:
@@ -11217,11 +11187,10 @@ msgstr "tahun"
 
 # ID:73,
 #. Resource IDs: (18, 1002, 1011, 1012)
-#, fuzzy
 msgid "yes"
-msgstr "Ya"
+msgstr "ya"
 
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
-msgstr ""
+msgstr "{BugTraq}"
 
