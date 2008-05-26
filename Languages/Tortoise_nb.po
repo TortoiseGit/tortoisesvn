@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-13 12:48+0100\n"
+"PO-Revision-Date: 2008-05-26 09:31+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3641,10 +3641,6 @@ msgstr "For hjelp, trykk F1. Rull horisontalt med Ctrl-Rullehjul"
 #. Resource IDs: (119)
 msgid "For complete history deselect \"Stop on copy/rename\""
 msgstr "For fullstendig historie slå av \"Stopp ved kopi/omdøping\""
-
-#. Resource IDs: (1432)
-msgid "Force blame"
-msgstr "Tving skyld"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -8512,9 +8508,13 @@ msgstr ""
 "Når en eller flere filer sperres, vises en dialog som spør\n"
 "etter en beskrivelse for sperringen"
 
+#. Resource IDs: (65535)
+msgid "Whitespaces"
+msgstr " Blanktegn"
+
 #. Resource IDs: (1065)
 msgid "Window Position"
-msgstr "Vinsusplassering"
+msgstr "Vindusplassering"
 
 #. Resource IDs: (16927)
 msgid "Windows"
@@ -9476,6 +9476,8 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Force blame"
+#~ msgstr "Tving skyld"
 #~ msgid "Bug Tracker..."
 #~ msgstr "Feil-Sporingssystem..."
 #~ msgid "Remove..."
