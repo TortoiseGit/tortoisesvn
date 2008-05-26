@@ -47,7 +47,7 @@ void CMappedInFile::MapToMemory (const std::wstring& fileName)
     // create a file mapping object able to contain the whole file content
 
     mapping = CreateFileMapping (file, NULL, PAGE_READONLY, 0, 0, NULL);
-	if (mapping == INVALID_HANDLE_VALUE)
+	if (mapping == NULL)
 	{
 		UnMap();
 		throw std::exception ("can't create mapping for log cache file");
