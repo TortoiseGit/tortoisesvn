@@ -27,6 +27,109 @@
 namespace LogCache
 {
 
+// "in use" (hidden flag) file flag handling
+
+bool CCachedLogInfo::CCacheFileManager::IsMarked (const std::wstring& name) const
+{
+    DWORD attributes = GetFileAttributes (name.c_str());
+    return    (attributes != INVALID_FILE_ATTRIBUTES) 
+           && ((attributes & FILE_ATTRIBUTE_HIDDEN) != 0);
+}
+
+void CCachedLogInfo::CCacheFileManager::SetMark (const std::wstring& name)
+{
+    fileName = name;
+
+    DWORD attributes = GetFileAttributes (fileName.c_str());
+    attributes |= FILE_ATTRIBUTE_HIDDEN;
+    SetFileAttributes (fileName.c_str(), attributes);
+}
+
+void CCachedLogInfo::CCacheFileManager::ResetMark()
+{
+    DWORD attributes = GetFileAttributes (fileName.c_str());
+    attributes &= ~FILE_ATTRIBUTE_HIDDEN;
+    SetFileAttributes (fileName.c_str(), attributes);
+}
+
+// default construction / destruction
+
+CCachedLogInfo::CCacheFileManager::CCacheFileManager()
+    : fileHandle (INVALID_HANDLE_VALUE)
+{
+}
+
+CCachedLogInfo::CCacheFileManager::~CCacheFileManager()
+{
+    // cache file shall not be open anymore
+
+    assert (!OwnsFile());
+}
+
+/// call this *before* opening the file
+/// (will auto-drop crashed files etc.)
+
+void CCachedLogInfo::CCacheFileManager::AutoAcquire (const std::wstring& fileName)
+{
+    assert (!OwnsFile());
+
+    // remove existing files when they crashed before
+    // (DeleteFile() will fail for open files)
+
+    std::wstring lockFileName = fileName + L".lock";
+    if (IsMarked (lockFileName))
+    {
+        DeleteFile (fileName.c_str());
+        DeleteFile (lockFileName.c_str());
+    }
+
+    // auto-create file and acquire lock
+
+    fileHandle = CreateFile ( lockFileName.c_str()
+                            , GENERIC_READ
+                            , 0
+                            , 0
+                            , OPEN_ALWAYS
+                            , FILE_ATTRIBUTE_NORMAL
+                            , NULL);
+    if (OwnsFile())
+    {
+        // we are the first to open that file -> we own it.
+        // Mark it as "in use" until being closed by AutoRelease()
+
+        SetMark (lockFileName);
+    }
+}
+
+// call this *after* releasing a cache file
+// (resets the "hidden" flag and closes the handle
+// -- no-op if file is not owned)
+
+void CCachedLogInfo::CCacheFileManager::AutoRelease()
+{
+    if (OwnsFile())
+    {
+        // reset the mark 
+        // (AutoAcquire() will no longer try to delete the file)
+        
+        ResetMark();
+
+        // now, we may close the file
+        // -> DeleteFile() would succeed afterwards 
+        //    but AutoAcquire() would no longer attempt it
+
+        CloseHandle (fileHandle);
+        fileHandle = INVALID_HANDLE_VALUE;
+    }
+}
+
+// If this returns false, you should not write the file.
+
+bool CCachedLogInfo::CCacheFileManager::OwnsFile() const
+{
+    return fileHandle != INVALID_HANDLE_VALUE;
+}
+
 // construction / destruction (nothing to do)
 
 CCachedLogInfo::CCachedLogInfo()
@@ -51,6 +154,7 @@ CCachedLogInfo::CCachedLogInfo (const std::wstring& aFileName)
 
 CCachedLogInfo::~CCachedLogInfo (void)
 {
+    fileManager.AutoRelease();
 }
 
 // cache persistence
@@ -61,9 +165,13 @@ void CCachedLogInfo::Load()
 
 	try
 	{
-		CRootInStream stream (fileName);
+        // handle crashes and lock file
+
+        fileManager.AutoAcquire (fileName);
 
 		// read the data
+
+		CRootInStream stream (fileName);
 
 		IHierarchicalInStream* revisionsStream
 			= stream.GetSubStream (REVISIONS_STREAM_ID);
@@ -91,21 +199,32 @@ bool CCachedLogInfo::IsEmpty() const
 
 void CCachedLogInfo::Save (const std::wstring& newFileName)
 {
-	CRootOutStream stream (newFileName);
+    // switch crash and lock management to new file name
 
-	// write the data
+    if (fileName != newFileName)
+    {
+        fileManager.AutoRelease();
+        fileManager.AutoAcquire (newFileName);
+    }
 
-	IHierarchicalOutStream* revisionsStream
-		= stream.OpenSubStream (REVISIONS_STREAM_ID, COMPOSITE_STREAM_TYPE_ID);
-	*revisionsStream << revisions;
+	// write the data file, if we were the first to open it
 
-	IHierarchicalOutStream* logInfoStream
-		= stream.OpenSubStream (LOG_INFO_STREAM_ID, COMPOSITE_STREAM_TYPE_ID);
-	*logInfoStream << logInfo;
+    if (fileManager.OwnsFile())
+    {
+	    CRootOutStream stream (newFileName);
 
-	IHierarchicalOutStream* skipRevisionsStream
-		= stream.OpenSubStream (SKIP_REVISIONS_STREAM_ID, COMPOSITE_STREAM_TYPE_ID);
-	*skipRevisionsStream << skippedRevisions;
+	    IHierarchicalOutStream* revisionsStream
+		    = stream.OpenSubStream (REVISIONS_STREAM_ID, COMPOSITE_STREAM_TYPE_ID);
+	    *revisionsStream << revisions;
+
+	    IHierarchicalOutStream* logInfoStream
+		    = stream.OpenSubStream (LOG_INFO_STREAM_ID, COMPOSITE_STREAM_TYPE_ID);
+	    *logInfoStream << logInfo;
+
+	    IHierarchicalOutStream* skipRevisionsStream
+		    = stream.OpenSubStream (SKIP_REVISIONS_STREAM_ID, COMPOSITE_STREAM_TYPE_ID);
+	    *skipRevisionsStream << skippedRevisions;
+    }
 
 	// all fine -> connect to the new file name
 

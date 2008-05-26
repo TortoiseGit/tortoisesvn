@@ -130,6 +130,9 @@ void CLogCachePool::DropCache (const CString& uuid)
 	if (FileExists (fileName))
 		DeleteFile (fileName.c_str());
 
+	if (FileExists (fileName + L".lock"))
+        DeleteFile ((fileName + L".lock").c_str());
+
 	// remove from cache info list
 
 	repositoryInfo->DropEntry (uuid);

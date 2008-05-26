@@ -51,9 +51,82 @@ class CCachedLogInfo
 {
 private:
 
+    /**
+     * Utility class that manages a lock file for this log cache.
+     *
+     * If TSVN fails to close it properly (e.g. due to a segfault),
+     * the stale lock will be detected the next time TSVN tries to
+     * aquire the lock.
+     *
+     * Management is as follows:
+     *
+     *    * {repoCacheFile}.lock will be opened exclusively by the
+     *      "first" TSVN instance -> OwnsFile() is true
+     *    * write cache file only if OwnsFile() is true 
+     *      (conflict resolution when multiple TSVN instances use
+     *      the same cache)
+     *    * set Hidden flag when OwnsFile() is true and reset it
+     *      as soon as the CCachedLogInfo gets destroyed
+     *      (detects a failed TSVN session)
+     *
+     *    * drop cache, if Hidden flag is set and the file can be
+     *      deleted (i.e. handle is no longer hold by the responsible
+     *      TSVN instance).
+     */
+
+    class CCacheFileManager
+    {
+    private:
+
+        /// if we own the file, we will keep it open
+
+        HANDLE fileHandle;
+
+	    /// we need that info to manipulate the file attributes
+
+	    std::wstring fileName;
+
+        /// "in use" (hidden flag) file flag handling
+
+        bool IsMarked (const std::wstring& name) const;
+        void SetMark (const std::wstring& name);
+        void ResetMark();
+
+        /// copying is not supported
+
+        CCacheFileManager(const CCacheFileManager&);
+        CCacheFileManager& operator=(const CCacheFileManager&);
+
+    public:
+
+        // default construction / destruction
+
+        CCacheFileManager();
+        ~CCacheFileManager();
+
+        /// call this *before* opening the file
+        /// (will auto-drop crashed files etc.)
+
+        void AutoAcquire (const std::wstring& fileName);
+
+        /// call this *after* releasing a cache file
+        /// (resets the "hidden" flag and closes the handle
+        /// -- no-op if file is not owned)
+
+        void AutoRelease();
+
+        /// If this returns false, you should not write the file.
+
+        bool OwnsFile() const;
+    };
+
 	/// where we load / save our cached data
 
 	std::wstring fileName;
+
+    /// crash detection.
+
+    CCacheFileManager fileManager;
 
 	/// revision index and the log info itself
 
