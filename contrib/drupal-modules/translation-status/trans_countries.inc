@@ -19,7 +19,7 @@
 // 5: List of translators.
 $countries = array(
 "bg"    => array("1","001","bg","Bulgarian","Milen A. Radev"),
-"bs_BA" => array("1","000","bs_BA","Bosnian/Herzegovinan","Boris Musa"),
+// "bs_BA" => array("1","000","bs_BA","Bosnian/Herzegovinan","Boris Musa"),
 "ca_ES" => array("1","001","ca_ES","Catalan","Arnau Perelló"),
 "cs"    => array("1","001","cs","Czech","Radek Svarz, Vojtech Vondra"),
 "da"    => array("1","001","da","Danish","Jan Normann Nielsen, Gunther Strube"),
@@ -30,7 +30,7 @@ $countries = array(
 "fa"    => array("1","000","fa","Farsi (Persian)","Titto Agustine"),
 "fr"    => array("1","111","fr","French","Olivier Booklage, Philippe Torche, Jean-Christophe Gigogne, Jérémy Badier, Jean-Christophe Mazenc, Christophe Sauveur"),
 "fi"    => array("1","110","fi","Finnish","Pekka Järvinen, Kari Granö"),
-"hr"    => array("1","101","hr","Croatian","Helix d.o.o: Dinko Srkoc, Mario Saric"),
+"hr"    => array("1","101","hr","Croatian","Helix d.o.o: Dinko Srkoc, Mario Saric, Boris Musa"),
 "hu"    => array("1","001","hu","Hungarian","Szente-Varga Bálint"),
 "id"    => array("1","111","id","Indonesian","Zaenal Mutaqin, Thomas Edwin Santosa"),
 "it"    => array("1","001","it","Italian","Luca Berti, Cecilia Saltori"),
