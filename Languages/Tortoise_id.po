@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-27 17:29+0700\n"
+"PO-Revision-Date: 2008-05-27 22:39+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1004,7 +1004,7 @@ msgstr "Set ulang ke Bawaan"
 # ID:113,
 #. Resource IDs: (113)
 msgid "&Revert changes from this revision"
-msgstr "&Pulihkan perubahan dari revisi ini"
+msgstr "&Balik perubahan dari revisi ini"
 
 # Control-ID:1033,#:
 # Control-ID:1116,#:
@@ -1202,17 +1202,17 @@ msgstr "Drive &tidak dikenal"
 # ID:8,
 #. Resource IDs: (8)
 msgid "&Update"
-msgstr "&Mutahirkan"
+msgstr "&Mutakhirkan"
 
 # ID:76,
 #. Resource IDs: (76)
 msgid "&Update item to revision"
-msgstr "&Mutahirkan item ke revisi"
+msgstr "&Mutakhirkan item ke revisi"
 
 # ID:11,
 #. Resource IDs: (11)
 msgid "&Update to revision..."
-msgstr "&Mutahirkan ke revisi..."
+msgstr "&Mutakhirkan ke revisi..."
 
 # Control-ID:1184,
 #. Resource IDs: (1184)
@@ -1850,7 +1850,7 @@ msgstr "Terapkan properti secara rekursif"
 # Control-ID:65535,
 #. Resource IDs: (65535)
 msgid "Apply unified diff"
-msgstr "Terakpan unified diff"
+msgstr "Terapkan unified diff"
 
 # ID:145,
 #. Resource IDs: (145)
@@ -1867,7 +1867,7 @@ msgstr "Anda yakin ingin menghapus tembolok dari %d item-item terpilih?"
 #. Resource IDs: (79)
 #, c-format
 msgid "Are you sure you want to revert %d item(s)? You will lose <b>all</b> changes since the last update!"
-msgstr "Anda yakin ingin memulihkan %d item? Anda akan kehilangan <b>semua</b> perubahan sejak terakhir pemutahiran!"
+msgstr "Anda yakin ingin membalik %d item? Anda akan kehilangan <b>semua</b> perubahan sejak terakhir pemutakhiran!"
 
 #. Resource IDs: (32793)
 msgid "Arrange &Vertical"
@@ -2346,12 +2346,12 @@ msgstr "Periksa"
 # Dlg-ID:174,
 #. Resource IDs: (174)
 msgid "Check For Updates"
-msgstr "Periksa Pemutahiran"
+msgstr "Periksa Pemutakhiran"
 
 # Control-ID:1031,
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
-msgstr "Periksa Pemutahiran..."
+msgstr "Periksa Pemutakhiran..."
 
 # ID:13,
 #. Resource IDs: (13)
@@ -3518,9 +3518,9 @@ msgid ""
 "%s\n"
 "and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
 msgstr ""
-"Apakah Anda benar-benar ingin memulihkan semua perubahan dalam \n"
+"Apakah Anda benar-benar ingin membalik semua perubahan dalam \n"
 "%s\n"
-"dan kembali ke revisi ini? Perubahan-perubahan ini akan dipulihkan dengan menggabungkan-mundur revisi-revisi tersebut ke salinan pekerjaan Anda."
+"dan kembali ke revisi ini? Perubahan-perubahan ini akan dibalik dengan menggabungkan-mundur revisi-revisi tersebut ke salinan pekerjaan Anda."
 
 # ID:76,
 #. Resource IDs: (76)
@@ -3530,9 +3530,9 @@ msgid ""
 "%s\n"
 "which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
 msgstr ""
-"Anda benar-benar ingin memulihkan semua perubahan ke\n"
+"Anda benar-benar ingin membalik semua perubahan ke\n"
 "%s\n"
-"yang dibuat dalam revisi ini? Perubahan-perubahan ini akan dipulihkan dengan menggabungkan-mundur revisi-revisi tersebut ke salinan pekerjaan Anda."
+"yang dibuat dalam revisi ini? Perubahan-perubahan ini akan dibalik dengan menggabungkan-mundur revisi-revisi tersebut ke salinan pekerjaan Anda."
 
 #. Resource IDs: (99)
 #, c-format
@@ -4065,7 +4065,7 @@ msgstr "Eksternal"
 # ID:74,
 #. Resource IDs: (74)
 msgid "Failed revert"
-msgstr "Pemulihan gagal"
+msgstr "Pembalikan gagal"
 
 # ID:3857,#:
 # ID:3857,
@@ -4491,7 +4491,7 @@ msgstr ""
 "Mendapatkan kunci untuk file tanpa properti 'svn:needs-lock' property <b>tidak</b> akan menjaga yang lain dari pengeditannya dalam copy pekerjaan mereka.\n"
 "Untuk menghidupkan penguncian langsung silahkan tambah properti  'svn:needs-lock' ke semua file yang memerlukan penguncian, dan komit file itu.\n"
 "Steiap file akan mempunyai tanda sistem-file hanya-baca di-sett, dan mendapatkan kunci akan membuat file bisa ditulisi.\n"
-"Catatan bahwa pengguna lain akan perlu untuk memutahirkan copy pekerjaannya sebelum mereka melihat file sebagai hanya-baca."
+"Catatan bahwa pengguna lain akan perlu untuk memutakhirkan copy pekerjaannya sebelum mereka melihat file sebagai hanya-baca."
 
 # ID:119,
 #. Resource IDs: (119)
@@ -5508,7 +5508,7 @@ msgid ""
 "Do you want to update and try again?"
 msgstr ""
 "Penguncian gagal karena ada versi lebih baru!\n"
-"Anda ingin memutahirkan dan mencoba lagi?"
+"Anda ingin memutakhirkan dan mencoba lagi?"
 
 # ID:16,
 #. Resource IDs: (16)
@@ -5745,7 +5745,7 @@ msgstr "Mengambil revisi %s dari %s:\n"
 # ID:10,
 #. Resource IDs: (10)
 msgid "Merges a branch into the main trunk"
-msgstr "Menggabung cabang ke dalam trunk utama"
+msgstr "Menggabung cabang ke dalam batang utama"
 
 #. Resource IDs: (14)
 msgid "Merges all missing revisions back into the working copy using merge-tracking information"
@@ -5958,7 +5958,7 @@ msgstr "Dipindahkan secara remote"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
-msgstr "Pindahkan berkas-berkas yang berubah ke tong sampah sebelum membatalkan"
+msgstr "Pindahkan berkas-berkas yang berubah ke tampungan daur ulang sebelum membalik"
 
 # ID:80,
 #. Resource IDs: (80)
@@ -6092,7 +6092,7 @@ msgstr "Tidak ada kesalahan terjadi."
 # ID:82,
 #. Resource IDs: (82)
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
-msgstr "Tidak ada file atau folder yang diubah. Tidak ada yang perlu dipulihkan oleh TortoiseSVN!"
+msgstr "Tidak ada file atau folder yang diubah. Tidak ada yang perlu dibalik oleh TortoiseSVN!"
 
 #. Resource IDs: (239)
 msgid ""
@@ -6643,7 +6643,7 @@ msgstr "Hook Setelah-Komit"
 # ID:570,
 #. Resource IDs: (570)
 msgid "Post-Update Hook"
-msgstr "Hook Setelah-Pemutahiran"
+msgstr "Hook Setelah-Pemutakhiran"
 
 # Dlg-ID:107,
 #. Resource IDs: (58115)
@@ -6658,7 +6658,7 @@ msgstr "Hook Pre-Komit"
 # ID:570,
 #. Resource IDs: (570)
 msgid "Pre-Update Hook"
-msgstr "Hook Pre-Pemutahiran"
+msgstr "Hook Pre-Pemutakhiran"
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
@@ -7035,7 +7035,7 @@ msgid ""
 "Reloads the opened files and reverts all changes.\n"
 "Reload"
 msgstr ""
-"Mengambil kembali file yang dibuka dan memulihkan semua perubahan.\n"
+"Mengambil kembali file yang dibuka dan membalik semua perubahan.\n"
 "Ambil lagi"
 
 # Dlg-ID:157,
@@ -7375,33 +7375,33 @@ msgstr "Gabung terbalik"
 # Dlg-ID:175,
 #. Resource IDs: (175, 229)
 msgid "Revert"
-msgstr "Pulihkan"
+msgstr "Balik"
 
 # ID:80,#:
 # Control-ID:65535,
 #. Resource IDs: (77)
 msgid "Revert - TortoiseSVN"
-msgstr "Pulihkan - TortoiseSVN"
+msgstr "Balik - TortoiseSVN"
 
 # ID:114,
 #. Resource IDs: (114)
 msgid "Revert changes from these revisions"
-msgstr "Pulihkan perubahan dari revisi ini"
+msgstr "Balik perubahan dari revisi ini"
 
 # ID:73,
 #. Resource IDs: (73)
 msgid "Reverted"
-msgstr "Dipulihkan"
+msgstr "Dibalik"
 
 # ID:9,
 #. Resource IDs: (9)
 msgid "Reverts all changes you made since the last update"
-msgstr "Memulihkan semua perubahan yang anda buat sejak pemutahiran terakhir"
+msgstr "Balik semua perubahan yang anda buat sejak pemutakhiran terakhir"
 
 # ID:9,
 #. Resource IDs: (14)
 msgid "Reverts an addition to version control"
-msgstr "Batalkan sebuah penambahan ke kontrol versi"
+msgstr "Balik sebuah penambahan ke kontrol versi"
 
 # ID:76,#:
 # ID:208,#:
@@ -8327,7 +8327,7 @@ msgstr "Menampilkan gambaran grafik copy/tags/cabang"
 # ID:13,
 #. Resource IDs: (13)
 msgid "Shows all files which were changed since the last update, locally and in the repository"
-msgstr "Menampilkan semua file yang diubah sejak pemutahiran terakhir, secara lokal dan dalam repositori"
+msgstr "Menampilkan semua file yang diubah sejak pemutakhiran terakhir, secara lokal dan dalam repositori"
 
 # ID:2050,
 #. Resource IDs: (2050)
@@ -8460,7 +8460,7 @@ msgstr "Mulai Revisi"
 # ID:569,
 #. Resource IDs: (569)
 msgid "Start Update Hook"
-msgstr "Mulai Hook Pemutahiran"
+msgstr "Mulai Hook Pemutakhiran"
 
 # ID:245,#:
 # Dlg-ID:179,
@@ -8895,6 +8895,8 @@ msgid ""
 "The maximum number of action log lines to keep.\n"
 "Any lines added over this limit will remove the oldest lines from the file."
 msgstr ""
+"Jumlah maksimum baris log  tindakan yang disimpan.\n"
+"Tambahan baris diluar batas ini akan menghapus baris tertua dari berkas."
 
 # ID:63,
 #. Resource IDs: (63)
@@ -9088,7 +9090,7 @@ msgid ""
 msgstr ""
 "Copy pekerjaan sudah diubah!\n"
 "<hr=100%>\n"
-"Silahkan komit perubahan anda dulu atau pulihkan."
+"Silahkan komit atau balik perubahan anda dulu."
 
 # ID:81,
 #. Resource IDs: (81)
@@ -9096,8 +9098,8 @@ msgid ""
 "The working copy is not up to date!\n"
 "Please Update first."
 msgstr ""
-"Copy pekerjaan tidak mutahir!\n"
-"Silahkan Mutahirkan dulu."
+"Copy pekerjaan tidak mutakhir!\n"
+"Silahkan Mutakhirkan dulu."
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
@@ -9121,7 +9123,7 @@ msgstr ""
 
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
-msgstr ""
+msgstr "Tidak ada penyedia penjejak-isu."
 
 # ID:66,
 #. Resource IDs: (66)
@@ -9154,6 +9156,11 @@ msgid ""
 "Please understand that the cached data may be outdated,\n"
 "incomplete or even misleading due to incomplete history."
 msgstr ""
+"Ada masalah saat menghubugi peladen.\n"
+"Apakah Anda ingin melihat data yang di tembolok saja?\n"
+"\n"
+"Tolong dimengerti bahwa data tembolok mungkin kalah mutakhir,\n"
+"tidak lengkap atau bahkan menyesatkan karena sejarah yang tidak lengkap."
 
 # ID:82,
 #. Resource IDs: (82)
@@ -9193,7 +9200,7 @@ msgstr ""
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. Use this to merge all changes of a branch back to trunk."
-msgstr ""
+msgstr "Metode ini menangani kasus dimana Anda telah membuat sebuah cabang fitur seperti yang didiskusikan di buku Subversion. Gunakan ini untuk menggabung semua perubahan dari cabang ke batang."
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
@@ -9274,6 +9281,8 @@ msgid ""
 "To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\n"
 "This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 msgstr ""
+"Untuk mencuri kunci, klik kanan folder induk dari item ini dan pilih \"Dapatkan Kunci\" dari menu konteks.\n"
+"Ini akan memunculkan dialog penguncian dimana Anda dapat memaksakan kunci itu, yaitu 'mencurinya' dari seseorang yang sedang memegangnya."
 
 # Control-ID:1201,
 #. Resource IDs: (1201, 65535)
@@ -9290,6 +9299,8 @@ msgid ""
 "Toggle One/Two Pages display\n"
 "Toggle One/Two Pages display"
 msgstr ""
+"Tampilkan/Sembunyikan tampilan Satu/Dua Halaman\n"
+"Tampilkan/Sembunyikan tampilan Satu/Dua Halaman"
 
 #. Resource IDs: (65535)
 msgid "Toolbar"
@@ -9305,7 +9316,7 @@ msgstr "Opsi Bilah Alat"
 
 #. Resource IDs: (1001)
 msgid "Toolbar internal error. Please contact your application vendor."
-msgstr ""
+msgstr "Kesalahan internal bilah alat. Silakan hubungi pemasok aplikasi Anda."
 
 #. Resource IDs: (16105)
 msgid "Toolbars"
@@ -9345,7 +9356,7 @@ msgstr "TortoiseIDiff"
 
 #. Resource IDs: (65535)
 msgid "TortoiseIDiff - An image diff tool, part of TortoiseSVN"
-msgstr ""
+msgstr "TortoiseIDiff - Alat diff gambar, bagian dari TortoiseSVN"
 
 # ID:7,
 #. Resource IDs: (7)
@@ -9453,11 +9464,11 @@ msgstr "Total perubahan file:"
 
 #. Resource IDs: (339)
 msgid "Total number of changes over all cached revisions"
-msgstr ""
+msgstr "Jumlah perubahan dalam seluruh revisi yang ditembolok"
 
 #. Resource IDs: (339)
 msgid "Total number of merged revisions"
-msgstr ""
+msgstr "Jumlah revisi gabungan"
 
 # ID:17,
 #. Resource IDs: (339)
@@ -9514,7 +9525,7 @@ msgstr "Histori URL"
 #. Resource IDs: (199)
 #, c-format
 msgid "URL not known (UUID: %s)"
-msgstr ""
+msgstr "URL tidak diketahui (UUID: %s)"
 
 # ID:12,
 #. Resource IDs: (12)
@@ -9523,7 +9534,7 @@ msgstr "URL dari item Subversion"
 
 #. Resource IDs: (65535)
 msgid "URL to merge from"
-msgstr ""
+msgstr "URL asal untuk digabung"
 
 # ID:144,#:
 # Control-ID:65535,
@@ -9543,6 +9554,9 @@ msgid ""
 "%s\n"
 "Please use the main merge dialog."
 msgstr ""
+"Tidak dapat menentukan sumber penggabungan untuk\n"
+"%s\n"
+"Silakan gunakan dialog penggabungan utama."
 
 # ID:3866,#:
 # ID:3866,
@@ -9552,7 +9566,7 @@ msgstr "Tidak bisa mendapatkan dukungan sistem mail."
 
 #. Resource IDs: (3865)
 msgid "Unable to process command, server busy."
-msgstr ""
+msgstr "Tidak dapat memproses perintah, peladen sibuk."
 
 # ID:3859,#:
 # ID:3859,
@@ -9577,7 +9591,7 @@ msgid ""
 msgstr ""
 "Tidak bisa merekonstruksi path copy pekerjaan!\n"
 "Ini bisa terjadi jika file sudah diganti nama.\n"
-"Silahkan mulai dialog log pada file spesifik ini sendiri dan pulihkan perubahan\n"
+"Silahkan mulai dialog log pada file spesifik ini sendiri dan balik perubahan\n"
 "dari pane atas dalam dialog log."
 
 # ID:3865,#:
@@ -9636,6 +9650,8 @@ msgid ""
 "Unformatted Text\n"
 "text without any formatting"
 msgstr ""
+"Teks tanpa Susunan\n"
+"teks tanpa susunan apapun"
 
 #. Resource IDs: (274, 32786)
 msgid "Unified &diff of HEAD revisions"
@@ -9675,7 +9691,7 @@ msgstr "Kunci terbuka"
 
 #. Resource IDs: (565)
 msgid "Unrecognized or invalid property file format!"
-msgstr ""
+msgstr "Susunan berkas properti tidak dikenal atau tidak sahih!"
 
 # ID:3841,#:
 # ID:3841,
@@ -9704,7 +9720,7 @@ msgstr "Versi sekarang: %s"
 # Dlg-ID:152,
 #. Resource IDs: (152, 230, 1436)
 msgid "Update"
-msgstr "Mutahirkan"
+msgstr "Mutakhirkan"
 
 # ID:80,#:
 # Control-ID:65535,
@@ -9716,43 +9732,43 @@ msgstr "Mutakhirkan - TortoiseSVN"
 #. Resource IDs: (1377)
 #, fuzzy
 msgid "Update Depth"
-msgstr "Mutahirkan"
+msgstr "Mutakhirkan"
 
 # ID:74,
 #. Resource IDs: (74)
 msgid "Updated"
-msgstr "Dimutahirkan"
+msgstr "Dimutakhirkan"
 
 # ID:11,
 #. Resource IDs: (11)
 msgid "Updates the working copy to a specific revision"
-msgstr "Memutahirkan copy pekerjaan ke revisi tertentu"
+msgstr "Memutakhirkan copy pekerjaan ke revisi tertentu"
 
 # ID:9,
 #. Resource IDs: (9)
 msgid "Updates the working copy to the current revision"
-msgstr "Memutahirkan copy pekerjaan ke revisi sekarang"
+msgstr "Memutakhirkan copy pekerjaan ke revisi sekarang"
 
 # ID:226,
 #. Resource IDs: (226)
 #, c-format
 msgid "Updating %s"
-msgstr "Memutahirkan %s"
+msgstr "Memutakhirkan %s"
 
 #. Resource IDs: (3849)
 msgid "Updating ActiveX objects"
-msgstr ""
+msgstr "Memutakhirkan objek-objek ActiveX"
 
 # ID:283,
 #. Resource IDs: (283)
 msgid "Updating and retrying the lock..."
-msgstr "Memutahirkan dan mencoba ulang kunci..."
+msgstr "Memutakhirkan dan mencoba ulang kunci..."
 
 # ID:226,
 #. Resource IDs: (199)
 #, fuzzy
 msgid "Updating log cache"
-msgstr "Memutahirkan %s"
+msgstr "Memutakhirkan %s"
 
 # Control-ID:1269,#:
 # Control-ID:1096,
@@ -9813,6 +9829,8 @@ msgid ""
 "Use all content from the left view\n"
 "Use left file"
 msgstr ""
+"Menggunakan semua isi tilik kiri\n"
+"Menggunakan berkas kiri"
 
 #. Resource IDs: (32857)
 #, fuzzy
@@ -9824,6 +9842,8 @@ msgid ""
 "Use block from left view before block from right view\n"
 "Use block from left before right"
 msgstr ""
+"Gunakan blok dari tilik kiri sebelum blok dari tilik kanan\n"
+"Gunakan blok dari kiri sebelum kanan"
 
 #. Resource IDs: (32859)
 #, fuzzy
@@ -9835,6 +9855,8 @@ msgid ""
 "Use block from right view before block from left view\n"
 "Use block from right before left"
 msgstr ""
+"Gunakan blok dari tilik kanan sebelum blok dari tilik kiri\n"
+"Gunakan blok dari kanan sebelum kiri"
 
 # ID:251,
 #. Resource IDs: (251)
@@ -9860,11 +9882,11 @@ msgstr "Dibatalkan pengguna"
 
 #. Resource IDs: (1432)
 msgid "Use recycle bin when reverting"
-msgstr ""
+msgstr "Gunakan tampungan daur ulang saat membalik"
 
 #. Resource IDs: (116)
 msgid "Use regular expression"
-msgstr ""
+msgstr "Gunakan ekspresi reguler"
 
 # ID:138,
 #. Resource IDs: (4)
@@ -9879,7 +9901,7 @@ msgstr "Gunakan &coretan untuk baris yang dihapus"
 
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
-msgstr ""
+msgstr "Gunakan lokal sistem untuk tanggal/waktu"
 
 #. Resource IDs: (251, 32820)
 msgid "Use text block from \"&mine\""
@@ -10242,7 +10264,7 @@ msgstr ""
 # ID:251,
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."
-msgstr "Anda harus memutahirkan copy pekerjaan anda lebih dulu."
+msgstr "Anda harus memutakhirkan copy pekerjaan anda lebih dulu."
 
 # ID:169,
 #. Resource IDs: (169)
@@ -10319,7 +10341,7 @@ msgid ""
 "Do you want to commit anyway?"
 msgstr ""
 "Copy pekerjaan anda nampaknya ada pada path tag!\n"
-"Pertama anda harus menukar cabang atau trunk utama sebelum mengkomit.\n"
+"Pertama anda harus menukar cabang atau batang utama sebelum mengkomit.\n"
 "\n"
 "Anda tetap ingin mengkomit?"
 
@@ -10331,8 +10353,8 @@ msgid ""
 "won't look exactly as it was in the revision you're updating to!"
 msgstr ""
 "Copy pekerjaan anda mempunyai modifikasi lokal!\n"
-"Catatan: pemutahiran ke revisi lain tidak akan menghilangkan modifikasi itu juga copy pekerjaan\n"
-"tidak akan terlihat seperti dalam revisi yang anda mutahirkan!"
+"Catatan: pemutakhiran ke revisi lain tidak akan menghilangkan modifikasi itu juga copy pekerjaan\n"
+"tidak akan terlihat seperti dalam revisi yang anda mutakhirkan!"
 
 #. Resource IDs: (89)
 msgid ""
@@ -10677,7 +10699,7 @@ msgstr ""
 #. Resource IDs: (65535)
 #, fuzzy
 msgid "last update: "
-msgstr "Mulai Hook Pemutahiran"
+msgstr "Mulai Hook Pemutakhiran"
 
 # ID:11,#:
 # ID:195,#:
@@ -10748,7 +10770,7 @@ msgstr ""
 
 #. Resource IDs: (18)
 msgid "no"
-msgstr ""
+msgstr "tidak"
 
 # ID:10,
 #. Resource IDs: (10)
@@ -10972,7 +10994,7 @@ msgid ""
 msgstr ""
 "svn:needs-lock\n"
 "Set ini ke nilai apapun (contoh. '*') untuk memaksa penguncian file ini.\n"
-"File akan di-set hanya-baca saat dilakukan check out atau dimutahirkan,\n"
+"File akan di-set hanya-baca saat dilakukan check out atau dimutakhirkan,\n"
 "menunjukan bahwa pengguna harus mendapatkan kunci pada file\n"
 "sebelum mereka bisa mengeditnya dan mengkomit perubahan."
 
