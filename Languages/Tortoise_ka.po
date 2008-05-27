@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-27 05:16+0300\n"
+"PO-Revision-Date: 2008-05-27 05:40+0300\n"
 "Last-Translator: Giasher <giasher@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1799,9 +1799,8 @@ msgstr ""
 "%s"
 
 #. Resource IDs: (1001)
-#, fuzzy
 msgid "Can't copy bitmap image into the clipboard!"
-msgstr "სრული ინფორმაიის ბუფერში კოპირება"
+msgstr "გამოსახულების ბუფერში კოპირება ვერ ხერხდება"
 
 #. Resource IDs: (1001)
 msgid "Can't create a new image!"
@@ -2450,9 +2449,8 @@ msgid "Could not delete property \"%s\" on %s because"
 msgstr "ვერ ხერხდება \"%s\" პარამეტრის წაშლა - %s, რადგან"
 
 #. Resource IDs: (83)
-#, fuzzy
 msgid "Could not determine the last committed revision!"
-msgstr "ვერ ვიღებ სტატუსს!"
+msgstr "ბოლო ფიქსირებული ვერსიის განსაზღვრა ვერ ხერხდება!"
 
 #. Resource IDs: (81)
 msgid "Could not get the status!"
@@ -2965,9 +2963,8 @@ msgid "Edit"
 msgstr "რედაქტირება"
 
 #. Resource IDs: (16133)
-#, fuzzy
 msgid "Edit Button Image"
-msgstr "ჩანაცვლება ნახატის ღილაკით"
+msgstr "ღილაკის ნახატის რედაქტირება"
 
 #. Resource IDs: (227, 564)
 msgid "Edit Properties"
@@ -3554,9 +3551,8 @@ msgid "Floppy drives (A: B:)"
 msgstr "ფლოპის წამყვანები (A: B:)"
 
 #. Resource IDs: (32818)
-#, fuzzy
 msgid "Fold &tags"
-msgstr "კეცვის ~ნიშნულები"
+msgstr "&ჭდეების აკეცვა"
 
 #. Resource IDs: (1002)
 msgid "Folder"
@@ -3579,9 +3575,8 @@ msgid "Forward"
 msgstr "წინ"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "From URL:"
-msgstr "მონაცემთა წყაროს URL"
+msgstr "საწყისი მისამართი:"
 
 #. Resource IDs: (1200, 65535)
 msgid "From:"
@@ -3790,7 +3785,7 @@ msgstr "დამხმარე კლავიატურა"
 
 #. Resource IDs: (16974)
 msgid "Hex"
-msgstr ""
+msgstr "Hex"
 
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
@@ -4019,7 +4014,6 @@ msgid "Icons/Design/Code:                 Luebbe Onken"
 msgstr "ხატულები/დიზაინი/კოდი:     ლუებე ონკენი"
 
 #. Resource IDs: (194)
-#, fuzzy
 msgid "If activated, prevents the overlays and the context menu from showing in \"save as...\" or \"open\" dialogs"
 msgstr "თუ მონიშნულია, კრძალავს პიქტოგრამებს დიალოგებში \"შენახვა როგორც...\" ან \"გახსნა\""
 
@@ -4495,9 +4489,8 @@ msgstr ""
 "ხაზი"
 
 #. Resource IDs: (32853)
-#, fuzzy
 msgid "Line diff bar"
-msgstr "სტრიქონების შედარების &პანელის ჩვენება"
+msgstr "სტრიქონთა შედარების პანელი"
 
 #. Resource IDs: (65535)
 msgid "Line differences"
@@ -4729,9 +4722,8 @@ msgid "Merge - TortoiseSVN"
 msgstr "შერწყმა - TortoiseSVN"
 
 #. Resource IDs: (221)
-#, fuzzy
 msgid "Merge Reintegrate"
-msgstr "უჯრების შერწყმა"
+msgstr "გამაერთიანებელი შერწყმა"
 
 #. Resource IDs: (1468)
 msgid "Merge a range of revisions"
@@ -4750,9 +4742,8 @@ msgid "Merge depth:"
 msgstr "შერწყმის სიღრმე:"
 
 #. Resource IDs: (1432)
-#, fuzzy
 msgid "Merge non-interactive"
-msgstr "სქემა: შერწყმა"
+msgstr "შერწყმა დიალოგის გარეშე"
 
 #. Resource IDs: (595, 65535)
 msgid "Merge options"
@@ -4783,9 +4774,9 @@ msgid "Merged"
 msgstr "შერწყმული"
 
 #. Resource IDs: (286)
-#, fuzzy, c-format
+#, c-format
 msgid "Merged revision(s) %s from %s:\n"
-msgstr "გრაფიკის ჩამატება..."
+msgstr "შერწყმული ვერსია/ები %s - %s:\n"
 
 #. Resource IDs: (10)
 msgid "Merges a branch into the main trunk"
@@ -4800,9 +4791,9 @@ msgid "Merging"
 msgstr "შერწყმა"
 
 #. Resource IDs: (229)
-#, fuzzy, c-format
+#, c-format
 msgid "Merging %s into %s, %s"
-msgstr "ნაბიჯი წინ"
+msgstr "შერწყმა %s - %s, %s"
 
 #. Resource IDs: (229)
 #, c-format
@@ -4815,9 +4806,9 @@ msgid "Merging r%ld"
 msgstr "შერწყმა r%ld"
 
 #. Resource IDs: (264)
-#, fuzzy, c-format
+#, c-format
 msgid "Merging r%ld through r%ld"
-msgstr "გაჭრა შავზე"
+msgstr "შერწყმა r%ld - r%ld"
 
 #. Resource IDs: (83)
 msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
@@ -5271,9 +5262,8 @@ msgstr ""
 "(შესაძლოა მძიმით გამოყოფილი)!"
 
 #. Resource IDs: (1424)
-#, fuzzy
 msgid "Only record the merge"
-msgstr "~ჯგუფური წერილების ოსტატი..."
+msgstr "მხოლოდ შერწყმის ჩანაწერი"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -5774,9 +5764,8 @@ msgid "Recently modified lines"
 msgstr "ბოლოს შეცვლილი სტრიქონები"
 
 #. Resource IDs: (276)
-#, fuzzy
 msgid "Record Only"
-msgstr "მხოლოდ წერტილები"
+msgstr "მხოლოდ ჩანაწერი"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -5803,9 +5792,8 @@ msgstr ""
 "გამეორება"
 
 #. Resource IDs: (32819)
-#, fuzzy
 msgid "Reduce cross-&lines"
-msgstr "წერტილები და ხაზები"
+msgstr "&გადაკვეთების შემცირება"
 
 #. Resource IDs: (3825)
 msgid "Reduce the window to an icon"
@@ -5840,9 +5828,9 @@ msgid "Reintegrate a branch"
 msgstr "განშტოების რეინტეგრაცია"
 
 #. Resource IDs: (230)
-#, fuzzy, c-format
+#, c-format
 msgid "Reintegrate merge %s into %s"
-msgstr ") მიმდინარე უჯრაში?"
+msgstr "გამაერთიანებელი შერწყმა %s - %s"
 
 #. Resource IDs: (82)
 msgid "Reject"
@@ -6331,9 +6319,8 @@ msgid "SVN Author"
 msgstr "SVN ავტორი"
 
 #. Resource IDs: (12)
-#, fuzzy
 msgid "SVN Copy and add files to this WC"
-msgstr "SVN ფაილების დამატება ამ სამუშაო ასლში"
+msgstr "SVN კოპირება და ფაილების დამატება ამ სამუშაო ასლში"
 
 #. Resource IDs: (16)
 msgid "SVN Copy and rename versioned file here"
@@ -9144,7 +9131,6 @@ msgstr ""
 "სტრიქონების გადატანით გამოყოფილი მოდულების განმსაზღვრელები,\n"
 "რომელთაგან თითოეული დასტის ფარდობით გეზს,\n"
 "ვერსიის შესაძლო ალმებსა და URL-ს შეიცავს. მაგალითად:\n"
-"\n"
 "foo\t\thttp://example.com/repos/zig\n"
 "foo/bar -r 1234\thttp://example.com/repos/zag\n"
 "\n"
@@ -9235,11 +9221,11 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "text [token count]: "
-msgstr "ტექსტი [ნაწილთა რაოდენობა]: "
+msgstr "ტექსტი [სულ ნაწილები]: "
 
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
-msgstr "კონფლიქყური ცვლილებები არაა."
+msgstr "კონფლიქტური ცვლილებები არაა."
 
 #. Resource IDs: (3845)
 #, c-format
