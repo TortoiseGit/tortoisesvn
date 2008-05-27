@@ -169,21 +169,26 @@ void CCachedLogInfo::Load()
 
         fileManager.AutoAcquire (fileName);
 
-		// read the data
+        // does log cache file exist?
 
-		CRootInStream stream (fileName);
+        if (GetFileAttributes (fileName.c_str()) != INVALID_FILE_ATTRIBUTES)
+        {
+		    // read the data
 
-		IHierarchicalInStream* revisionsStream
-			= stream.GetSubStream (REVISIONS_STREAM_ID);
-		*revisionsStream >> revisions;
+		    CRootInStream stream (fileName);
 
-		IHierarchicalInStream* logInfoStream
-			= stream.GetSubStream (LOG_INFO_STREAM_ID);
-		*logInfoStream >> logInfo;
+		    IHierarchicalInStream* revisionsStream
+			    = stream.GetSubStream (REVISIONS_STREAM_ID);
+		    *revisionsStream >> revisions;
 
-		IHierarchicalInStream* skipRevisionsStream
-			= stream.GetSubStream (SKIP_REVISIONS_STREAM_ID);
-		*skipRevisionsStream >> skippedRevisions;
+		    IHierarchicalInStream* logInfoStream
+			    = stream.GetSubStream (LOG_INFO_STREAM_ID);
+		    *logInfoStream >> logInfo;
+
+		    IHierarchicalInStream* skipRevisionsStream
+			    = stream.GetSubStream (SKIP_REVISIONS_STREAM_ID);
+		    *skipRevisionsStream >> skippedRevisions;
+        }
 	}
 	catch (...)
 	{

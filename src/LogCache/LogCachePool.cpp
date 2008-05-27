@@ -76,8 +76,7 @@ CCachedLogInfo* CLogCachePool::GetCache (const CString& uuid)
 	std::wstring fileName = (LPCTSTR)(cacheFolderPath + uuid);
 	std::auto_ptr<CCachedLogInfo> cache (new CCachedLogInfo (fileName));
 
-	if (FileExists (fileName))
-		cache->Load();
+	cache->Load();
 
 	caches[uuid] = cache.get();
 
