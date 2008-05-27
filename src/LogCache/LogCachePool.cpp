@@ -152,7 +152,8 @@ std::map<CString, CString> CLogCachePool::GetRepositoryURLs() const
 	{
         // the repository list itself is not a repository cache
 
-        if (filePath != repositoryInfo->GetFileName())
+        if (   (filePath != repositoryInfo->GetFileName())
+            && (filePath.Right (5) != L".lock"))
         {
 		    CString uuid = CPathUtils::GetFileNameFromPath (filePath);
 		    CString rootURL;
