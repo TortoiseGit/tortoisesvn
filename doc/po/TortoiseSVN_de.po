@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-05-24 00:06 +0000\n"
-"PO-Revision-Date: 2008-05-26 16:59+0100\n"
+"PO-Revision-Date: 2008-05-27 16:08+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8312,7 +8312,7 @@ msgstr "Eintragsnummern in Logmeldungen einfügen"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9928
 msgid "You can integrate a bug tracking tool of your choice in TortoiseSVN. To do this, you have to define some properties, which start with <literal>bugtraq:</literal>. They must be set on Folders: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
-msgstr "Sie können ein Fehlerverfolgungssystem Ihrer Wahl in TortoiseSVN integrieren. Dafür müssen Sie ein paar Subversion Eigenschaften definieren, die mit <literal>bugtraq:</literal> beginnen. Diese Eigenschaften müssen auf Ordner gesetzt werden: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
+msgstr "Sie können ein Fehlerverfolgungssystem Ihrer Wahl in TortoiseSVN einbinden. Dafür müssen Sie ein paar Subversion Eigenschaften definieren, die mit <literal>bugtraq:</literal> beginnen. Diese Eigenschaften müssen auf Ordner gesetzt werden: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9943
@@ -8463,27 +8463,27 @@ msgstr "Die Integration mit Fehlerverfolgungssystemen ist nicht auf TortoiseSVN 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10206
 msgid "Getting Information from the Issue Tracker"
-msgstr ""
+msgstr "Informationen vom Fehlerverfolgungssystem beziehen"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10207
 msgid "The previous section deals with adding issue information to the log messages. But what if you need to get information from the issue tracker? The commit dialog has a Windows COM interface which allows integration an external program that can talk to your tracker. Typically you might want to query the tracker to get a list of open issues assigned to you, so that you can pick the issues that are being addressed in this commit."
-msgstr ""
+msgstr "Der vorherige Abschnitt befasste sich damit, Eintragsnummern zu den Logmeldungen hinzuzufügen. Aber wie bekommt man Informationen aus dem Fehlerverfolgungssystem? Der Übertragen-Dialog besitzt eine Windows COM Schnittstelle mit deren Hilfe ein externes Programm eingebunden werden kann, das mit dem Fehlerverfolgungssystem kommuniziert. Ein typischer Fall wäre, das Fehlerverfolgungssystem nach einer Liste der Ihnen zugeordneten Aufgaben zu fragen, die Sie beim Übertragen als erledigt markieren wollen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10216
 msgid "Any such interface is of course highly specific to your system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample programs can be obtained from the <literal>contrib</literal> folder in the in the <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>."
-msgstr ""
+msgstr "Jede solche Schnittstelle ist natürlich sehr spezifisch für Ihr System, so dass wir diesen Teil nicht zur Verfügung stellen können und die Beschreibung eines solchen Programms sprengt den Rahmen dieses Handbuchs. Die Schnittstellendefinition und Beispielanwendungen könne Sie in dem <literal>contrib</literal> Verzeichnis des <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN Projektarchivs</citetitle></ulink> finden."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10235
 msgid "Example issue tracker query dialog"
-msgstr ""
+msgstr "Beispielabfrage des Fehlerverfolgungssystems"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10227
 msgid "For illustration purposes, let's suppose that your system administrator has provided you with an issue tracker plugin which you have installed, and that you have set up some of your working copies to use the plugin in TortoiseSVN's settings dialog. When you open the commit dialog from a working copy to which the plugin has been assigned, you will see a new button at the top of the dialog. <placeholder-1/> In this example you can select one or more open issues. The plugin can then generate specially formatted text which it adds to your log message."
-msgstr ""
+msgstr "Lassen Sie uns zur Veranschaulichung annehmen, dass Ihr Systemadministrator Sie mit einem Modul für Ihr Fehlerverfolgungssystem versorgt hat, welches Sie installiert haben. Ferner haben Sie im TortoiseSVN Einstellungsdialog einige Ihrer Arbeitskopien so eingerichtet, dass diese die Integration der Fehlerverfolgung nutzen. Wenn Sie nun den Übertragen-Dialog in einer der Arbeitskopien aufrufen, denen das Modul zugewiesen ist, sehen Sie oben im Dialog eine neue Schaltfläche. <placeholder-1/> In diesem Beispiel können Sie eine oder mehrere offene Aufgaben auswählen. Das Modul kann dann automatisch Text für Ihre Logmeldung generieren."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10245
@@ -8513,7 +8513,7 @@ msgstr "Es gibt mehrere webbasierte Projektarchivbetrachter, die mit Subversion 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10267
 msgid "You can integrate a repo viewer of your choice in TortoiseSVN. To do this, you have to define some properties which define the linkage. They must be set on Folders: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
-msgstr "Sie können einen Projektarchivbetrachter Ihrer Wahl in TortoiseSVN integrieren. Dafür müssen Sie ein paar Eigenschaften angeben, die den Verweis definieren. Diese Eigenschaften müssen für Ordner gesetzt werden: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
+msgstr "Sie können einen Projektarchivbetrachter Ihrer Wahl in TortoiseSVN einbinden. Dafür müssen Sie ein paar Eigenschaften angeben, die den Verweis definieren. Diese Eigenschaften müssen für Ordner gesetzt werden: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10277
@@ -9568,17 +9568,17 @@ msgstr "Aktionslog"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11578
 msgid "TortoiseSVN keeps a log of everything written to its progress dialogs. This can be useful when, for example, you want to check what happened in a recent update command."
-msgstr ""
+msgstr "TortoiseSVN protokolliert alles mit, was in seine Fortschrittsdialoge geschrieben wird. In diesem Protokoll können Sie zum Beispiel nachschauen, was bei einer kurz zuvor durchgeführten Aktualisierung geschah."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11583
 msgid "The log file is limited in length and when it grows too big the oldest content is discarded. By default 4000 lines are kept, but you can customize that number."
-msgstr ""
+msgstr "Die Länge der Protokolldatei ist begrenzt und älterer Inhalt wird verworfen, sobald die Datei zu groß wird. Standardmäßig werden 4000 Zeilen zwischengespeichert, aber Sie können diese Vorgabe ändern"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11588
 msgid "From here you can view the log file content, and also clear it."
-msgstr ""
+msgstr "Von hier aus können Sie die Logdatei anschauen oder auch löschen."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:11597
@@ -9990,12 +9990,12 @@ msgstr "Normalerweise wollen Sie bestimmt die hässlichen Dos-Fenster verbergen 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:12054
 msgid "Issue Tracker Integration"
-msgstr ""
+msgstr "Integration mit Fehlerverfolgungssystemen"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12057
 msgid "TortoiseSVN can use a COM plugin to query issue trackers when in the commit dialog. The use of such plugins is described in <xref linkend=\"tsvn-dug-bugtracker-ref\"/>. If your system administrator has provided you with a plugin, which you have already installed and registered, this is the place to specify how it integrates with your working copy."
-msgstr ""
+msgstr "TortoiseSVN kann über eine COM Schnittstelle aus dem Übertragen-Dialog Einträge von einem Fehlerverfolgungssystem abfragen. Die Verwendung solcher Module wird in <xref linkend=\"tsvn-dug-bugtracker-ref\"/> beschrieben. Falls Ihr Systemadministrator Ihnen ein solches Modul zur Verfügung gestellt hat, das Sie installiert und registriert haben, stellen Sie auf dieser Seite ein, wie es in Ihre Arbeitskopien integriert wird."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:12067
@@ -10005,7 +10005,7 @@ msgstr "Der Einstellungsdialog, Integration eines Fehlerverfolgungssystems"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12065
 msgid "<placeholder-1/> Click on <guibutton>Add...</guibutton> to use the plugin with a particular working copy. Here you can specify the working copy path, choose which plugin to use from a drop down list of all registered issue tracker plugins, and any parameters to pass. The parameters will be specific to the plugin, but might include your user name on the issue tracker so that the plugin can query for issues which are assigned to you."
-msgstr ""
+msgstr "<placeholder-1/> Klicken Sie auf <guibutton>Hinzufügen...</guibutton>, um das Modul einer bestimmten Arbeitskopie zuzuordnen. Sie geben den Pfad zur Arbeitskopie an, wählen das gewünschte Modul aus einer List der zur Verfügung stehenden Module und geben die notwendigen Übergabeparameter an. Die Parameter sind spezifisch für das Modul, könnten aber zum Beispiel Ihren Benutzernamen im Fehlerverfolgungssystem beinhalten, so dass das Modul alle Ihnen zugeordneten Einträge ermitteln kann."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:12082
@@ -13108,11 +13108,14 @@ msgid ""
 "ps xa | grep sshd\n"
 "</screen> and look for ssh jobs."
 msgstr ""
+"Sie müssen SSH auf dem Server aktiviert haben. Wir setzen hier voraus, dass Sie OpenSSH verwenden. Bei den meisten distributionen ist dies bereits installiert. Zum Überprüfen geben Sie:\n"
+"<screen>ps xa | grep sshd</screen>\n"
+"ein und suchen Sie nach SSH Jobs."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15010
 msgid "One point to note is that if you build Subversion from source and do not provide any argument to <filename>./configure</filename>, Subversion creates a <filename>bin</filename> directory under <filename>/usr/local</filename> and places its binaries there. If you want to use tunneling mode with SSH, you have to be aware that the user logging in via SSH needs to execute the svnserve program and some other binaries. For this reason, either place <filename>/usr/local/bin</filename> into the <literal>PATH</literal> variable or create symbolic links of your binaries to the <filename>/usr/sbin</filename> directory, or to any other directory which is commonly in the <literal>PATH</literal>."
-msgstr ""
+msgstr "Bitte beachten Sie folgendes: Wenn Sie Subversion selber aus den Quellen erstellen und keine Parameter an <filename>./configure</filename> übergeben, wird Subversion ein <filename>bin</filename> Verzeichnis unter  <filename>/usr/local</filename> erstellen und seine Binärdateien dort ablegen. Falls Sie SSH Tunnel verwenden wollen, müssen Sie sich bewusst sein, dass der Benutzer, der sich per SSH anmeldet, svnserve und einige andere Binärdateien ausführen können muss. Aus diesem Grund sollten Sie entweder  <filename>/usr/local/bin</filename> in die <literal>PATH</literal> Variable aufnehmen oder symbolische Verweise Ihrer Binärdateien in <filename>/usr/sbin</filename> oder einem anderen Verzeichnis erstellen, das normalerweise in der <literal>PATH</literal> Variable steht."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15023
@@ -13121,6 +13124,9 @@ msgid ""
 "which svnserve\n"
 "</screen> This command should tell you if svnserve is reachable."
 msgstr ""
+"Um sicherzustellen, dass alles OK ist, melden Sie sich als der gewünschte Anwender per SSH an und geben Sie:\n"
+"<screen>which svnserve</screen>\n"
+"ein. Dieser Befehlt sagt Ihnen, ob svnserver erreichbar ist."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15031
@@ -13129,6 +13135,9 @@ msgid ""
 "useradd -m svnuser\n"
 "</screen> Be sure to give this user full access rights to the repository."
 msgstr ""
+"Legen Sie einen neuen Benutzer an, mit dem wir auf das SVN Projektarchiv zugreifen:\n"
+"<screen>useradd -m svnuser</screen>\n"
+"Stellen Sie sicher, dass dieser Anwender volle Zugriffsrechte auf das Projektarchiv hat."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:15040
@@ -13138,7 +13147,7 @@ msgstr "Einen Windows Server einrichten"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15041
 msgid "Install Cygwin SSH daemon as described here: <ulink url=\"http://pigtail.net/LRP/printsrv/cygwin-sshd.html\"><citetitle>http://pigtail.net/LRP/printsrv/cygwin-sshd.html</citetitle></ulink>"
-msgstr ""
+msgstr "Installieren Sie den Cygwin SSH Dienst, so wie in der folgenden Anleitung beschrieben: <ulink url=\"http://pigtail.net/LRP/printsrv/cygwin-sshd.html\"><citetitle>http://pigtail.net/LRP/printsrv/cygwin-sshd.html</citetitle></ulink>"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15047
@@ -13176,7 +13185,7 @@ msgstr ""
 #. (title)
 #: ../source/TortoiseSVN_en.xml:15085
 msgid "Create Keys using ssh-keygen"
-msgstr ""
+msgstr "Schlüssel mittels ssh-keygen erzeugen"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15086
@@ -13204,7 +13213,7 @@ msgstr ""
 #. (title)
 #: ../source/TortoiseSVN_en.xml:15127
 msgid "Create Keys using PuTTYgen"
-msgstr ""
+msgstr "Schlüssel mittels PuTTYgen erzeugen"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15128
@@ -13243,7 +13252,7 @@ msgstr ""
 #. (title)
 #: ../source/TortoiseSVN_en.xml:15172
 msgid "Testing SSH with TortoiseSVN"
-msgstr ""
+msgstr "SSH mit TortoiseSVN testen"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15173
