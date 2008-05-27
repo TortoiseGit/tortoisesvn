@@ -221,7 +221,7 @@ CString CRepositoryInfo::GetRepositoryUUID (const CTSVNPath& url)
 CString CRepositoryInfo::GetRepositoryRootAndUUID ( const CTSVNPath& url
                                                   , CString& sUUID)
 {
-    TData::const_iterator iter = Lookup (url);
+    TData::iterator iter = Lookup (url);
 
 	// get time stamps and maximum uuid info age (default: 1 min)
 	// we use the same setting as for the HEAD revision timeout, but with a
@@ -229,27 +229,68 @@ CString CRepositoryInfo::GetRepositoryRootAndUUID ( const CTSVNPath& url
 	__time64_t now = CTime::GetCurrentTime().GetTime();
 	CRegStdWORD ageLimit (_T("Software\\TortoiseSVN\\HeadCacheAgeLimit"), 60);
 
-    if (iter == data.end() || (now - iter->second.headLookupTime > ageLimit))
+    // use cached data, if
+    // * it is available, and
+    // * we don't want to update it (i.e. recent enough and we aren't off-line)
+
+    if (   (iter == data.end()) 
+        || (   (now - iter->second.headLookupTime > ageLimit)
+            && (iter->second.connectionState == online)))
     {
-		// TODO: if we found an UUID but the cache timed out, we should
-		// compare the UUIDs and if they differ (i.e., another repository
-		// is now at the URL we cached), we should abandon/clear the cache
-		// completely.
+        // try to get an update
+
         SPerRepositoryInfo info;
         info.root = svn.GetRepositoryRootAndUUID (url, info.uuid);
         info.headRevision = (revision_t)NO_REVISION;
         info.headLookupTime = -1;
         info.connectionState = online;
 
+        // if we could not reach the repository, we may want to go offline
+
+        if (   (iter != data.end())
+            && svn.Err 
+            && (svn.Err->apr_err != SVN_ERR_CANCELLED)
+            && IsOffline (iter->second))
+        {
+            // user wants to go off-line
+
+    	    svn_error_clear (svn.Err);
+            svn.Err = NULL;
+
+            // well, go with what we get from the cache
+
+            sUUID = iter->second.uuid;
+            return iter->first;
+        }
+
+        // update the cache
+
         if (!info.root.IsEmpty())
         {
+            // we got an update. Is it different from the cached info?
+
+            if (   (iter != data.end()) 
+                && (   (iter->first != info.root) 
+                    || (iter->second.uuid != info.uuid)))
+            {
+                // drop the old cache 
+                // (keep the uuid since iter will become invalid)
+
+                CString tempUUID = iter->second.uuid;
+                svn.GetLogCachePool()->DropCache (tempUUID);
+            }
+
             data [info.root] = info;
             modified = true;
         }
 
+        // return the new info
+
         sUUID = info.uuid;
         return info.root;
     }
+
+    // return the cached data
 
     sUUID = iter->second.uuid;
     return iter->first;

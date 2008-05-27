@@ -1,6 +1,10 @@
 - NEW: Draw the whitespace chars in gray so they're clearly distinguishable
        from normal chars in TortoiseMerge.
        See issue #418 for details. (Stefan)
+- NEW: Delete the respective log cache file if the TSVN instance using it
+       would crash for some reason. (Stefan Fuhrmann)
+- CHG: If different repositories are accessed through the same URL, TSVN 
+       will keep the log cache only for the lastest one (Stefan Fuhrmann)
 - BUG: If the cached log history is incomplete, showing log in off-line mode 
        would include (some) revisions that don't belong to the respective 
        path. (Stefan Fuhrmann)
@@ -19,6 +23,7 @@
        in some cases. (Stefan)
 - BUG: The format of the log message copied to the clipboard from
        the log dialog was missing a closing parenthesis. (Stefan)
+- BUG: Incomplete or wrong cached log info could crash TSVN. (Stefan Fuhrmann)
 
 Version 1.5.0-RC2
 - NEW: the issue tracker integration supports now relative urls. (Stefan)
