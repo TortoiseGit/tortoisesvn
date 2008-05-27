@@ -24,6 +24,7 @@
 - BUG: The format of the log message copied to the clipboard from
        the log dialog was missing a closing parenthesis. (Stefan)
 - BUG: Incomplete or wrong cached log info could crash TSVN. (Stefan Fuhrmann)
+- BUG: Log cache updates could crash TSVN. (Stefan Fuhrmann)
 
 Version 1.5.0-RC2
 - NEW: the issue tracker integration supports now relative urls. (Stefan)

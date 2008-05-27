@@ -117,18 +117,16 @@ void CRevisionInfoContainer::UpdateChanges
 	copyFromRevisions.swap (oldCopyFromRevisions);
 	copyFromRevisions.reserve (oldCopyFromRevisions.size());
 
-	// splice
+    // the container sizes must match
 
-	index_t lastChange = 0;
-    index_t lastCopy = 0;
+    assert (changesOffsets.size() == size()+1);
+    assert (copyFromOffsets.size() == size()+1);
+
+	// splice
 
     index_mapping_t::const_iterator mapEnd = indexMap.end();
 	for (index_t i = 0, count = size(); i < count; ++i)
 	{
-		lastChange = changesOffsets[i+1];
-
-		lastCopy = copyFromOffsets[i+1];
-
         index_mapping_t::const_iterator iter = indexMap.find (i);
 		if ((iter != mapEnd)
             && (   !keepOldDataForMissingNew 
@@ -221,16 +219,15 @@ void CRevisionInfoContainer::UpdateMergers
 	mergedRangeDeltas.swap (oldMergedRangeDeltas);
 	mergedRangeDeltas.reserve (oldMergedRangeDeltas.size());
 
-	// splice
+    // the container sizes must match
 
-	index_t lastMerge = 0;
+    assert (mergedRevisionsOffsets.size() == size()+1);
+
+	// splice
 
 	index_mapping_t::const_iterator mapEnd = indexMap.end();
 	for (index_t i = 0, count = size(); i < count; ++i)
 	{
-        index_t firstMerge = lastMerge;
-		lastMerge = mergedRevisionsOffsets[i+1];
-
 		index_mapping_t::const_iterator iter = indexMap.find (i);
 		if ((iter != mapEnd)
             && (   !keepOldDataForMissingNew 
@@ -254,6 +251,9 @@ void CRevisionInfoContainer::UpdateMergers
 		else
 		{
 			// keep existing data
+
+            index_t firstMerge = mergedRevisionsOffsets[i];
+		    index_t lastMerge = mergedRevisionsOffsets[i+1];
 
 			mergedFromPaths.insert ( mergedFromPaths.end()
 								   , oldMergedFromPaths.begin() + firstMerge
@@ -299,17 +299,17 @@ void CRevisionInfoContainer::UpdateUserRevProps
     userRevPropValues.Insert (emptyValue,  userRevPropValues.size() 
                                          + newData.userRevPropValues.size());
 
+    // the container sizes must match
+
+    assert (userRevPropOffsets.size() == size()+1);
+
 	// splice
 
-	index_t lastProp = 0;
     index_t valueIndex = 0;
 
 	index_mapping_t::const_iterator mapEnd = indexMap.end();
 	for (index_t i = 0, count = size(); i < count; ++i)
 	{
-        index_t firstProp = lastProp;
-		lastProp = userRevPropOffsets[i+1];
-
 		index_mapping_t::const_iterator iter = indexMap.find (i);
 		if ((iter != mapEnd)
             && (   !keepOldDataForMissingNew 
@@ -333,6 +333,9 @@ void CRevisionInfoContainer::UpdateUserRevProps
 		else
 		{
 			// keep existing data
+
+            index_t firstProp = userRevPropOffsets[i];
+		    index_t lastProp = userRevPropOffsets[i+1];
 
 			userRevPropNames.insert ( userRevPropNames.end()
 								    , oldUserRevPropNames.begin() + firstProp
@@ -397,7 +400,7 @@ void CRevisionInfoContainer::AppendNewEntries
 
     if (toAppend > 0)
 	{
-        // append a new revision info
+        // append a new revision info (no info available)
 
         authors.insert (authors.end(), toAppend, (index_t)NO_INDEX);
         timeStamps.insert (timeStamps.end(), toAppend, 0);
@@ -407,6 +410,13 @@ void CRevisionInfoContainer::AppendNewEntries
 
         static const std::string emptyComment;
     	comments.Insert (emptyComment, toAppend);
+
+        // all changes, revprops and merge info is empty as well
+
+        changesOffsets.insert (changesOffsets.end(), toAppend, *changesOffsets.rbegin());
+        copyFromOffsets.insert (copyFromOffsets.end(), toAppend, *copyFromOffsets.rbegin());
+        mergedRevisionsOffsets.insert (mergedRevisionsOffsets.end(), toAppend, *mergedRevisionsOffsets.rbegin());
+        userRevPropOffsets.insert (userRevPropOffsets.end(), toAppend, *userRevPropOffsets.rbegin());
 	}
 }
 
