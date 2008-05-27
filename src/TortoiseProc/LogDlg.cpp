@@ -1207,7 +1207,7 @@ UINT CLogDlg::LogThread()
 
 void CLogDlg::CopySelectionToClipBoard()
 {
-	CStringA sClipdata;
+	CString sClipdata;
 	POSITION pos = m_LogList.GetFirstSelectedItemPosition();
 	if (pos != NULL)
 	{
@@ -1248,9 +1248,9 @@ void CLogDlg::CopySelectionToClipBoard()
 				(LPCTSTR)sDate, (LPCTSTR)pLogEntry->sDate,
 				(LPCTSTR)sMessage, (LPCTSTR)pLogEntry->sMessage,
 				(LPCTSTR)sPaths);
-			sClipdata +=  CStringA(sLogCopyText);
+			sClipdata +=  sLogCopyText;
 		}
-		CStringUtils::WriteAsciiStringToClipboard(sClipdata, GetUserDefaultLangID());
+		CStringUtils::WriteAsciiStringToClipboard(sClipdata, GetSafeHwnd());
 	}
 }
 
