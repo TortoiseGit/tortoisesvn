@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-21 14:26+0900\n"
+"PO-Revision-Date: 2008-05-28 23:28+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -572,7 +572,7 @@ msgstr "緑(&G)"
 
 #. Resource IDs: (32799)
 msgid "&Group by branch"
-msgstr "分岐でグループ化(&G)"
+msgstr "分岐でグループ化する(&G)"
 
 #. Resource IDs: (1032, 1115)
 msgid "&HEAD Revision"
@@ -798,7 +798,7 @@ msgstr "やり直し(&R)"
 
 #. Resource IDs: (1382)
 msgid "&Refresh"
-msgstr " 更新(&R)"
+msgstr "更新(&R)"
 
 #. Resource IDs: (1100, 1285)
 msgid "&Remove"
@@ -830,7 +830,7 @@ msgstr "使用データのリセット(&R)"
 
 #. Resource IDs: (16910)
 msgid "&Reset to Default"
-msgstr "デフォルトにリセット(&R)"
+msgstr "デフォルトの状態に戻す(&R)"
 
 #. Resource IDs: (113)
 msgid "&Revert changes from this revision"
@@ -874,7 +874,7 @@ msgstr "設定(&S)"
 
 #. Resource IDs: (32815)
 msgid "&Show HEAD revisions"
-msgstr "最新のリビジョンを表示(&S)"
+msgstr "最新のリビジョンを表示する(&S)"
 
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
@@ -1171,8 +1171,8 @@ msgid ""
 "A newline separated list of paths for which icon overlays are shown.\n"
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
-"アイコンのオーバーレイを表示するパス（改行で分割）を入力します。\n"
-"\"*\" 文字をパスの最後に追加することで、パス内のすべてのファイルとサブディレクトリが含まれます。"
+"アイコンのオーバーレイを表示するパス（改行で分割）を入力する。\n"
+"\"*\" 文字をパスの最後に追加することで、パス内のすべてのファイルとサブディレクトリが含まれる。"
 
 #. Resource IDs: (194)
 msgid ""
@@ -1180,9 +1180,9 @@ msgid ""
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
-"アイコンのオーバーレイを非表示にするパス（改行で分割）を入力します。\n"
-"\"*\" 文字をパスの最後に追加することで、パス内のすべてのファイルとサブディレクトリが除外されます。\n"
-"何も入力しなければ、すべてのパス上でオーバーレイ表示が可能となります。"
+"アイコンのオーバーレイを非表示にするパス（改行で分割）を入力する。\n"
+"\"*\" 文字をパスの最後に追加することで、パス内のすべてのファイルとサブディレクトリが除外される。\n"
+"何も入力しなければ、すべてのパス上でオーバーレイ表示が可能となる。"
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
@@ -1194,7 +1194,7 @@ msgid ""
 "If you don't have one use NotePad."
 msgstr ""
 "GNU形式の差分ファイル(Unified-Diff形式、パッチファイル)用の\n"
-"ビューアプログラムを指定します。デフォルトではメモ帳を利用します。"
+"ビューアプログラムを指定する。デフォルトではメモ帳を利用する。"
 
 #. Resource IDs: (9)
 msgid "A&bout"
@@ -1260,7 +1260,7 @@ msgid ""
 "Discard all changes to %1?"
 msgstr ""
 "Windows の終了中は、ActiveX オブジェクトは保存されません！\n"
-"%1 への全ての変更が破棄されます。"
+"%1 への全ての変更を破棄しますか？"
 
 #. Resource IDs: (155, 209, 229)
 msgid "Add"
@@ -1439,7 +1439,7 @@ msgid ""
 "%mine\tthe modified file"
 msgstr ""
 "異なるリビジョンのファイルを比較するために\n"
-"利用する外部差分ツールを指定します。\n"
+"利用する外部差分ツールを指定する。\n"
 "<hr=100%>\n"
 "パスに次のパラメータを指定することが可能:\n"
 "%base\tBase ファイル\n"
@@ -1458,7 +1458,7 @@ msgid ""
 "%base\t\tthe original file without your changes"
 msgstr ""
 "ファイルの競合を解消するために利用する\n"
-"外部マージツールを指定します。\n"
+"外部マージツールを指定する。\n"
 "<hr=100%>\n"
 "パスに次のようなパラメータ指定が可能:\n"
 "%merged\t保存先の競合ファイル名\n"
@@ -2049,7 +2049,7 @@ msgstr "%ld 個のユーザー名／パスワードの組、%ld 個の SSL 証�
 #. Resource IDs: (197)
 #, c-format
 msgid "Clears cached logs from %ld repositories"
-msgstr "%ld 個のリポジトリにキャッシュされているログをクリアします"
+msgstr "%ld 個のリポジトリにキャッシュされているログをクリアする"
 
 #. Resource IDs: (195)
 msgid ""
@@ -2284,7 +2284,7 @@ msgstr "続行"
 
 #. Resource IDs: (1001)
 msgid "Contract docked window"
-msgstr "ドッキングしたウィンドウに接触"
+msgstr "ドッキングしているウィンドウをコントラクトする"
 
 #. Resource IDs: (376)
 msgid "Cop&y"
@@ -2893,7 +2893,7 @@ msgstr ""
 "%s で行われた全ての変更を元に戻し、\n"
 "このリビジョンに変更してもよろしいですか？\n"
 "これらの変更は、作業コピーに対してリビジョン\n"
-"の逆マージを行うことで元に戻します。"
+"の逆マージを行うことで元に戻す。"
 
 #. Resource IDs: (76)
 #, c-format
@@ -2906,7 +2906,7 @@ msgstr ""
 "%s\n"
 "に対する全ての変更を元に戻してもよろしいですか？\n"
 "これらの変更は、作業コピーに対してリビジョン\n"
-"の逆マージを行うことで元に戻します。"
+"の逆マージを行うことで元に戻す。"
 
 #. Resource IDs: (99)
 #, c-format
@@ -2958,7 +2958,7 @@ msgstr "このメッセージを再び表示しない"
 
 #. Resource IDs: (1002)
 msgid "Drag to make this menu float"
-msgstr "メニューをフローティングさせるにはドラッグしてください"
+msgstr "ドラッグするとメニューがフローティング表示になります"
 
 #. Resource IDs: (16513)
 msgid "Draw"
@@ -2970,7 +2970,7 @@ msgstr "ドライブの種類"
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
-msgstr "正確なコピー元の表示(&X)"
+msgstr "正確なコピー元を表示する(&X)"
 
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
@@ -3372,7 +3372,7 @@ msgstr "ドキュメントを開くことができませんでした。"
 
 #. Resource IDs: (3865)
 msgid "Failed to perform server operation."
-msgstr "サーバー操作の実効に失敗しました。"
+msgstr "サーバー操作の実行に失敗しました。"
 
 #. Resource IDs: (3857)
 msgid "Failed to save document."
@@ -3597,10 +3597,6 @@ msgstr "ヘルプを表示するには、F1 を押してください。水平方
 msgid "For complete history deselect \"Stop on copy/rename\""
 msgstr "すべての履歴を表示するためには \"コピー／名前の変更が発生したら停止\" のチェックをはずしてください"
 
-#. Resource IDs: (1432)
-msgid "Force blame"
-msgstr "強制的に注釈履歴を実行する"
-
 #. Resource IDs: (1064)
 msgid "Forward"
 msgstr "前へ"
@@ -3799,7 +3795,7 @@ msgstr "色相(&H):"
 
 #. Resource IDs: (1353, 1354)
 msgid "HEAD"
-msgstr "HEAD"
+msgstr "最新"
 
 #. Resource IDs: (106)
 #, c-format
@@ -3873,7 +3869,7 @@ msgstr "フックの種類:"
 #. Resource IDs: (82)
 #, c-format
 msgid "Hostname mismatch (%s)"
-msgstr "ホスト名が合いません (%s)"
+msgstr "ホスト名が合致しません (%s)"
 
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
@@ -4020,7 +4016,7 @@ msgstr "アイコン／デザイン／コード:         Luebbe Onken"
 
 #. Resource IDs: (194)
 msgid "If activated, prevents the overlays and the context menu from showing in \"save as...\" or \"open\" dialogs"
-msgstr "有効にした場合、\"名前をつけて保存\" や \"開く\" ダイアログ内でのオーバーレイやコンテキストメニューを非表示にする"
+msgstr "有効にすると、\"名前をつけて保存\" や \"開く\" ダイアログ内でのオーバーレイやコンテキストメニューを非表示にする"
 
 #. Resource IDs: (198)
 msgid ""
@@ -4028,7 +4024,7 @@ msgid ""
 "if the selected file has the svn:needs-lock property set"
 msgstr ""
 "有効にすると、選択したファイルに svn:needs-lock 属性が設定されている場合は、\n"
-"常に \"ロックを取得\" メニューをトップレベルメニューに表示します。"
+"常に \"ロックを取得\" メニューをトップレベルメニューに表示する"
 
 #. Resource IDs: (95)
 msgid ""
@@ -4076,7 +4072,7 @@ msgid ""
 "You don't have to click on \"Check Repository\" anymore."
 msgstr ""
 "有効にすると、ダイアログを表示する際にリポジトリにアクセスします。\n"
-"本チェックにより、\"リポジトリをチェック\" をクリックする必要はなくなります。"
+"これにより、\"リポジトリをチェック\" をクリックする必要はなくなります。"
 
 #. Resource IDs: (197)
 msgid ""
@@ -4252,7 +4248,7 @@ msgstr "マージされたリビジョンを含める"
 
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
-msgstr "次のリビジョン範囲のみを表示する:"
+msgstr "次のリビジョン範囲のみを含める:"
 
 #. Resource IDs: (65535)
 msgid "Include paths:"
@@ -4320,10 +4316,10 @@ msgid ""
 "{20020217T1530Z}\n"
 "{20020217T1530-0500}"
 msgstr ""
-"無効なリビジョン番号です！ 有効なものは:\n"
+"無効なリビジョン番号です！ 有効なリビジョンは:\n"
 "HEAD, BASE, PREV, COMMITTED, WC,\n"
 "正の十進数\n"
-"次の例に示すような日付の形式:\n"
+"次に示すような日付の形式:\n"
 "{2002-02-17}\n"
 "{15:30}\n"
 "{15:30:00.200000}\n"
@@ -4354,7 +4350,7 @@ msgid ""
 "{20020217T1530Z}\n"
 "{20020217T1530-0500}"
 msgstr ""
-"無効なリビジョン番号です！ 有効なリビジョン番号は:\n"
+"無効なリビジョン番号です！ 有効なリビジョンは:\n"
 "HEAD\n"
 "正の十進数\n"
 "次に示すような日付の形式:\n"
@@ -4377,7 +4373,7 @@ msgid ""
 "A range can be specified with a dash.\n"
 "Example: 2-5,7,10,44-70,300-HEAD"
 msgstr ""
-"無効なリビジョン範囲！\n"
+"無効なリビジョン範囲です！\n"
 "有効なリビジョンはコンマで区切られた数字とHEADです。\n"
 "範囲はハイフンで指定することができます。\n"
 "例: 2-5,7,10,44-70,300-HEAD"
@@ -4668,7 +4664,7 @@ msgstr "解消マークを付ける"
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
-msgstr "作業コピーの現在のリビジョンをマーク"
+msgstr "作業コピーの現在のリビジョンをマークする"
 
 #. Resource IDs: (101)
 msgid "Mark for comparison"
@@ -4768,7 +4764,7 @@ msgstr "これらのリビジョンをマージ ..."
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
-msgstr "異なる2つの木をマージ"
+msgstr "異なる2つのツリーをマージ"
 
 #. Resource IDs: (595, 65535)
 msgid "Merge type"
@@ -4936,7 +4932,7 @@ msgstr "項目を上へ移動"
 
 #. Resource IDs: (104)
 msgid "Move and rename item to here"
-msgstr "ここに移動し名前を変更"
+msgstr "ここに項目を移動し名前を変更"
 
 #. Resource IDs: (103)
 msgid "Move items to here"
@@ -5309,7 +5305,7 @@ msgstr "親フォルダを開く"
 
 #. Resource IDs: (113)
 msgid "Open with..."
-msgstr "プログラムを指定して開く"
+msgstr "プログラムを指定して開く ..."
 
 #. Resource IDs: (3605)
 msgid ""
@@ -5490,7 +5486,7 @@ msgid ""
 "Use the Switch command to do that."
 msgstr ""
 "注意書き：\n"
-"あなたの作業コピーは従来のパスのままです。もし、今作成したコピーもしくは分岐に\n"
+"作業コピーは従来のパスのままです。もし、今作成したコピーもしくは分岐に\n"
 "今後の変更をコミットする場合は、そのコピー先の新しいURLに作業コピー全体を\n"
 "切り替える必要があります。\n"
 "本操作を行うためには、切り替えコマンドを使用してください。"
@@ -5561,7 +5557,7 @@ msgstr "新しいショートカットキーを押してください(&N):"
 
 #. Resource IDs: (2052)
 msgid "Prevents most cases in which connection lines cross revision nodes"
-msgstr "接続線がリビジョンノードを横切らないようにします"
+msgstr "接続線がリビジョンノードを横切らないようにする"
 
 #. Resource IDs: (1069)
 msgid "Preview"
@@ -6080,7 +6076,7 @@ msgstr "ユーザー名とパスワードを要求"
 
 #. Resource IDs: (8)
 msgid "Res&olved..."
-msgstr "問題の解消(&O) ..."
+msgstr "競合の解消(&O) ..."
 
 #. Resource IDs: (16614)
 msgid "Reset &All"
@@ -6092,11 +6088,11 @@ msgstr "列をリセット"
 
 #. Resource IDs: (207, 229)
 msgid "Resolve"
-msgstr "問題の解消"
+msgstr "競合の解消"
 
 #. Resource IDs: (77)
 msgid "Resolve - TortoiseSVN"
-msgstr "問題の解消 - TortoiseSVN"
+msgstr "競合の解消 - TortoiseSVN"
 
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
@@ -6124,7 +6120,7 @@ msgstr "後で解消する"
 
 #. Resource IDs: (74, 209, 1400)
 msgid "Resolved"
-msgstr "問題の解消"
+msgstr "解消済にする"
 
 #. Resource IDs: (282)
 #, c-format
@@ -6132,7 +6128,7 @@ msgid ""
 "Resolved:\n"
 "%s"
 msgstr ""
-"問題の解消:\n"
+"競合の解消:\n"
 "%s"
 
 #. Resource IDs: (9)
@@ -6348,15 +6344,15 @@ msgstr "SVN 作者"
 
 #. Resource IDs: (12)
 msgid "SVN Copy and add files to this WC"
-msgstr "この作業コピーに SVN Copy をし、ファイルを追加する"
+msgstr "SVN この作業コピーにファイルをコピーし追加する"
 
 #. Resource IDs: (16)
 msgid "SVN Copy and rename versioned file here"
-msgstr "SVN バージョン管理ファイルをここにコピーし名前を変更する"
+msgstr "SVN バージョン管理下のファイルをここにコピーし名前を変更する"
 
 #. Resource IDs: (13)
 msgid "SVN Copy versioned files here"
-msgstr "SVN バージョン管理ファイルをここにコピーする"
+msgstr "SVN バージョン管理下のファイルをここにコピーする"
 
 #. Resource IDs: (14)
 msgid "SVN Export all to here"
@@ -6372,11 +6368,11 @@ msgstr "SVN ローカルのロック所持者"
 
 #. Resource IDs: (17)
 msgid "SVN Move and rename versioned files here"
-msgstr "SVN バージョン管理ファイルをここに移動し名前を変更する"
+msgstr "SVN バージョン管理下のファイルをここに移動し名前を変更する"
 
 #. Resource IDs: (12)
 msgid "SVN Move versioned files here"
-msgstr "SVN バージョン管理ファイルをここに移動する"
+msgstr "SVN バージョン管理下のファイルをここに移動する"
 
 #. Resource IDs: (11)
 msgid "SVN Revision"
@@ -6408,7 +6404,7 @@ msgstr "名前を付けて保存(&A) ..."
 
 #. Resource IDs: (101)
 msgid "Save &as..."
-msgstr "名前をつけて保存(&A) ..."
+msgstr "名前を付けて保存(&A) ..."
 
 #. Resource IDs: (3841)
 msgid "Save As"
@@ -6416,7 +6412,7 @@ msgstr "名前を付けて保存"
 
 #. Resource IDs: (313)
 msgid "Save as..."
-msgstr "名前をつけて保存 ..."
+msgstr "名前を付けて保存 ..."
 
 #. Resource IDs: (3857)
 #, c-format
@@ -6587,7 +6583,7 @@ msgstr "選択したファイルを保存するフォルダを選択してくだ
 
 #. Resource IDs: (197)
 msgid "Select hook script file"
-msgstr "フックスクリプトファイルを選択 ..."
+msgstr "フックスクリプトファイルを選択"
 
 #. Resource IDs: (1405)
 msgid "Select items automatically"
@@ -6615,7 +6611,7 @@ msgstr "テキスト編集用アプリケーションを選択"
 
 #. Resource IDs: (79)
 msgid "Select the behaviour of the progress dialog at the end of the operation."
-msgstr "処理終了時の進行状況ダイアログの動作を選択します"
+msgstr "処理終了時の進行状況ダイアログの動作を選択する"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -6639,7 +6635,7 @@ msgstr "マージの種類を選択"
 
 #. Resource IDs: (595)
 msgid "Select the urls for the tree merge"
-msgstr "木をマージするURLを選択"
+msgstr "ツリーをマージするURLを選択"
 
 #. Resource IDs: (78)
 msgid "Select viewer for diff-files"
@@ -6647,7 +6643,7 @@ msgstr "ファイルの差分を表示するビューアを選択"
 
 #. Resource IDs: (3866)
 msgid "Send Mail failed to send message."
-msgstr "メッセージの送信に Send Mail は失敗しました。"
+msgstr "Send Mail はメッセージの送信に失敗しました。"
 
 #. Resource IDs: (74)
 msgid "Sending content"
@@ -6729,11 +6725,11 @@ msgstr "範囲を表示(&R) ..."
 
 #. Resource IDs: (32826)
 msgid "Show &WC revision"
-msgstr "作業コピーのリビジョンを表示(&W)"
+msgstr "作業コピーのリビジョンを表示する(&W)"
 
 #. Resource IDs: (32796)
 msgid "Show &all revisions"
-msgstr "全てのリビジョンを表示(&A)"
+msgstr "すべてのリビジョンを表示する(&A)"
 
 #. Resource IDs: (113, 32783)
 msgid "Show &changes"
@@ -6773,7 +6769,7 @@ msgstr "ファイルリストを表示"
 
 #. Resource IDs: (2051)
 msgid "Show HEAD revision nodes"
-msgstr "最新のリビジョンのノードを表示"
+msgstr "最新のリビジョンのノードを表示する"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -6793,7 +6789,7 @@ msgstr "多くのボタンを表示"
 
 #. Resource IDs: (32813)
 msgid "Show Ove&rview"
-msgstr "オーバービューを表示(&R)"
+msgstr "オーバービューを表示する(&R)"
 
 #. Resource IDs: (1068)
 msgid "Show Quick Access Toolbar Above the Ribbon"
@@ -6809,7 +6805,7 @@ msgstr "ツールバーの上にスクリーンチップを表示(&T)"
 
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
-msgstr "グラフ全体の概観を表示"
+msgstr "グラフ全体のオーバービューを表示する"
 
 #. Resource IDs: (114)
 msgid "Show changes as &unified diff"
@@ -7151,7 +7147,7 @@ msgstr "切り替え - TortoiseSVN"
 
 #. Resource IDs: (32811)
 msgid "Switch Left<->Right"
-msgstr "左右を入れ替える"
+msgstr "左右の入れ替え"
 
 #. Resource IDs: (140)
 msgid "Switch To Branch / Tag"
@@ -7956,7 +7952,7 @@ msgstr "透明色(&C) ..."
 
 #. Resource IDs: (595)
 msgid "Tree merge"
-msgstr "木のマージ"
+msgstr "ツリーのマージ"
 
 #. Resource IDs: (251)
 msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
@@ -8230,7 +8226,7 @@ msgstr ""
 
 #. Resource IDs: (32857)
 msgid "Use block from left before right"
-msgstr "左→右の順でブロックを利用する"
+msgstr "左→右の順でブロックを利用"
 
 #. Resource IDs: (2054)
 msgid ""
@@ -8242,7 +8238,7 @@ msgstr ""
 
 #. Resource IDs: (32859)
 msgid "Use block from right before left"
-msgstr "右→左の順でブロックを利用する"
+msgstr "右→左の順でブロックを利用"
 
 #. Resource IDs: (2054)
 msgid ""
@@ -8254,11 +8250,11 @@ msgstr ""
 
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one first)"
-msgstr "両方のテキストブロックを利用する（こちらを前にする）"
+msgstr "両方のテキストブロックを利用（こちらを前にする）"
 
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one last)"
-msgstr "両方のテキストブロックを利用する（こちらを後にする）"
+msgstr "両方のテキストブロックを利用（こちらを後にする）"
 
 #. Resource IDs: (32856)
 msgid "Use left file"
@@ -8305,16 +8301,16 @@ msgid ""
 "Use text block from \"mine\" before \"theirs\"\n"
 "Use \"mine\" text block then \"theirs\""
 msgstr ""
-"\"theirs\" の前に \"mine\" のテキストブロックを利用\n"
-"\"mine\" → \"theirs\" の順にテキストブロックを利用する"
+"\"theirs\" の前に \"mine\" のテキストブロックを利用する\n"
+"\"mine\" → \"theirs\" の順にテキストブロックを利用"
 
 #. Resource IDs: (2052)
 msgid ""
 "Use text block from \"mine\"\n"
 "Use \"mine\" text block"
 msgstr ""
-"\"mine\" のテキストブロックを利用\n"
-"\"mine\" のテキストブロックを利用する"
+"\"mine\" のテキストブロックを利用する\n"
+"\"mine\" のテキストブロックを利用"
 
 #. Resource IDs: (251, 32821)
 msgid "Use text block from \"t&heirs\" before \"mine\""
@@ -8325,16 +8321,16 @@ msgid ""
 "Use text block from \"theirs\" before \"mine\"\n"
 "Use \"theirs\" text block then \"mine\""
 msgstr ""
-"\"mine\" の前に \"theirs\" のテキストブロックを利用\n"
-"\"theirs\" → \"mine\" の順にテキストブロックを利用する"
+"\"mine\" の前に \"theirs\" のテキストブロックを利用する\n"
+"\"theirs\" → \"mine\" の順にテキストブロックを利用"
 
 #. Resource IDs: (2052)
 msgid ""
 "Use text block from \"theirs\"\n"
 "Use \"theirs\" text block"
 msgstr ""
-"\"theirs\" のテキストブロックを利用\n"
-"\"theirs\" のテキストブロックを利用する"
+"\"theirs\" のテキストブロックを利用する\n"
+"\"theirs\" のテキストブロックを利用"
 
 #. Resource IDs: (2054)
 msgid ""
@@ -9159,9 +9155,9 @@ msgstr ""
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of\n"
-"a relative directory path, optional revision flags, and an URL. For example\n"
-"foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"an optional revision, an URL and a relative directory path. For example\n"
+"http://example.com/repos/zig\tfoo\n"
+"-r 1234\thttp://example.com/repos/zag\tfoo/bar\n"
 "\n"
 "The URLs can either be full URLs or relative. The format for\n"
 "the relative URLs is:\n"
@@ -9171,17 +9167,17 @@ msgid ""
 "/\trelative to the server's hostname"
 msgstr ""
 "svn:externals\n"
-"改行で区切られたモジュールのリストであり、相対的なディレクトリのパス、リビジョンフラグ、URLで構成される。\n"
-"例）\n"
-"foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"改行で区切られたモジュールのリストであり、リビジョン、URL、相対的なディレクトリのパス、\n"
+"で構成される。例えば、\n"
+"http://example.com/repos/zig\tfoo\n"
+"-r 1234\thttp://example.com/repos/zag\tfoo/bar\n"
 "\n"
 "URLは完全なURLもしくは相対的に記述することができる。\n"
 "相対的なURLの記述例は:\n"
-"../\t親ディレクトリに対応\n"
-"^/\tリポジトリルートに対応\n"
-"//\tURLスキームに対応\n"
-"/\tサーバーのホスト名に対応"
+"../\t親ディレクトリ\n"
+"^/\tリポジトリルート\n"
+"//\tURLスキーム\n"
+"/\tサーバーのホスト名"
 
 #. Resource IDs: (576)
 msgid ""
@@ -9443,6 +9439,8 @@ msgstr "はい"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Force blame"
+#~ msgstr "強制的に注釈履歴を実行する"
 #~ msgid "Bug Tracker..."
 #~ msgstr "バグ追跡 ..."
 #~ msgid "Remove..."
