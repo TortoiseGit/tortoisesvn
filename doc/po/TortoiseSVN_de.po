@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-05-24 00:06 +0000\n"
-"PO-Revision-Date: 2008-05-27 16:08+0100\n"
+"PO-Revision-Date: 2008-05-28 15:40+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -13152,7 +13152,7 @@ msgstr "Installieren Sie den Cygwin SSH Dienst, so wie in der folgenden Anleitun
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15047
 msgid "Create a new Windows user account <literal>svnuser</literal> which we will use to access the repository. Be sure to give this user full access rights to the repository."
-msgstr ""
+msgstr "Legen Sie ein neues Benutzerkonto namens <literal>svnuser</literal> unter Windows an, mit dem wir auf das Projektarchiv zugreifen wollen. Stellen Sie sicher, dass dieses Konto volle Zugriffsrechte auf das Projektarchiv hat."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15052
@@ -13161,16 +13161,19 @@ msgid ""
 "mkpasswd -l &gt; /etc/passwd\n"
 "</screen>"
 msgstr ""
+"Falls es noch keine Passwortdatei gibt, legen Sie von der Cygwin Konsole aus mittels:\n"
+"<screen>mkpasswd -l &gt; /etc/passwd</screen>\n"
+"eine an."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:15060
 msgid "SSH Client Tools for use with TortoiseSVN"
-msgstr ""
+msgstr "SSH Werkzeuge zur Verwendung mit TortoiseSVN"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15061
 msgid "Grab the tools we need for using SSH on the windows client from this site: <ulink url=\"http://www.chiark.greenend.org.uk/~sgtatham/putty/\"><citetitle>http://www.chiark.greenend.org.uk/~sgtatham/putty/</citetitle></ulink> Just go to the download section and get <filename>Putty</filename>, <filename>Plink</filename>, <filename>Pageant</filename> and <filename>Puttygen</filename>."
-msgstr ""
+msgstr "Die Programme, die wir zur Einrichtung von SSH auf der Windows Seite benötigen, finden sich auf der folgenden Webseite: <ulink url=\"http://www.chiark.greenend.org.uk/~sgtatham/putty/\"><citetitle>http://www.chiark.greenend.org.uk/~sgtatham/putty/</citetitle></ulink> Gehen Sie in den Download Bereich und laden Sie <filename>Putty</filename>, <filename>Plink</filename>, <filename>Pageant</filename> und <filename>Puttygen</filename> herunter."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:15074
@@ -13180,7 +13183,7 @@ msgstr "Erzeugen von OpenSSH Zertifikaten"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15075
 msgid "The next step is to create a key pair for authentication. There are two possible ways to create keys. The first is to create the keys with PuTTYgen on the client, upload the public key to your server and use the private key with PuTTY. The other is to create the key pair with the OpenSSH tool ssh-keygen, download the private key to your client and convert the private key to a PuTTY-style private key."
-msgstr ""
+msgstr "Der nächste Schritt ist das Anlegen eines Schlüsselpaares für die Anmeldung. Es gibt zwei Möglichkeiten, diese zu erzeugen. In der ersten Variante erstellen Sie die Schlüssel mittels PuTTYgen auf dem Client, laden den öffentlichen Schlüssel auf den Server und verwenden den privaten Schlüssel mit PuTTY. In der anderen erstellen Sie das Schlüsselpaar mit dem OpenSSH Programm ssh-keygen, laden den privaten Schlüssel auf Ihren Client herunter und konvertieren diesen in einen privaten Schlüssel im PuTTY Stil."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:15085
@@ -13196,6 +13199,10 @@ msgid ""
 "ls -l keyfile*\n"
 "</screen> you will see two files, <filename>keyfile</filename> and <filename>keyfile.pub</filename>. As you might guess, the <filename>.pub</filename> file is the public key file, the other is the private one."
 msgstr ""
+"Melden Sie sich als <literal>root</literal> oder <literal>svnuser</literal> am Server an und geben Sie:\n"
+"<screen>ssh-keygen -b 1024 -t dsa -N Passphrase -f schlüsseldatei</screen>\n"
+"ein, wobei sie eine echte Passphrase (die nur Sie selber kennen) und die Schlüsseldatei angeben.Jetzt haben Sie einen 1024 Bit SSH2 DSA Schlüssel erzeugt. Wenn Sie \n"
+"<screen>ls -l Schlüsseldatei*</screen> eingeben, sehen Sie zwei Dateien, <filename>Schlüsseldatei</filename> und <filename>Schlüsseldatei.pub</filename>. Wie Sie schon erraten haben, ist die <filename>.pub</filename> Datei der öffentiche Schlüssel und die andere der private."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15103
@@ -13204,11 +13211,13 @@ msgid ""
 "cat keyfile.pub &gt;&gt; /home/svnuser/.ssh/authorized_keys\n"
 "</screen>"
 msgstr ""
+"Hängen Sie den öffentlichen Schlüssel an die Liste in dem <filename>.ssh</filename> Ordner innerhalb des <literal>svnuser</literal> Home-Verzeichnis an:\n"
+"<screen>cat Schlüsseldatei.pub &gt;&gt; /home/svnuser/.ssh/authorized_keys</screen>"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15110
 msgid "In order to use the private key we generated, we have to convert it to a putty format. This is because the private key file format is not specified by a standards body. After you download the private key file to your client PC, start PuTTYgen and use <menuchoice><guimenu>Conversions</guimenu><guimenuitem>Import key</guimenuitem></menuchoice>. Browse to your file <filename>keyfile</filename> which you got from the server the passphrase you used when creating the key. Finally click on <guibutton>Save private key</guibutton> and save the file as <filename>keyfile.PPK</filename>."
-msgstr ""
+msgstr "Damit wir den auf diese Weise erzeugten privaten Schlüssel verwenden können, muss er in das PuTTY Format konvertiert werden. Das liegt daran, dass das Format für private Schlüssel nirgendwo standardisiert ist. Nachdem Sie die private Schlüsseldatei auf Ihren PC heruntergeladen haben, starten Sie PuTTYgen und rufen Sie <menuchoice><guimenu>Conversions</guimenu><guimenuitem>Import key</guimenuitem></menuchoice> auf. Navigieren Sie zu Ihrer vom Server heruntergeladenen <filename>Schlüsseldatei</filename> und geben Sie die Passphrase ein, die sie bein Erzeugen des Schlüssels gewählt haben. Schließlich klicken Sie auf <guibutton>Save private key</guibutton> und speichern Die Datei als <filename>Schlüsseldatei.PPK</filename>"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:15127
