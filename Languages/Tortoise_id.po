@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-27 22:39+0700\n"
+"PO-Revision-Date: 2008-05-28 22:33+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -41,7 +41,7 @@ msgstr "! %d"
 
 #. Resource IDs: (1262)
 msgid "# authors shown individually:"
-msgstr ""
+msgstr "# pengarang ditampilkan secara individu:"
 
 # ID:357,
 #. Resource IDs: (357)
@@ -8045,9 +8045,8 @@ msgstr "URL singkat dari item Subversion"
 
 # ID:101,
 #. Resource IDs: (214)
-#, fuzzy
 msgid "Shorten property list"
-msgstr "Ta&mpilkan properti"
+msgstr "Perpendek daftar properti"
 
 # Control-ID:1132,
 #. Resource IDs: (1382)
@@ -8100,9 +8099,8 @@ msgstr "Tampilkan &log..."
 
 # Control-ID:1088,
 #. Resource IDs: (1088)
-#, fuzzy
 msgid "Show &overlays and context menu only in explorer"
-msgstr "Tampilkan lapisan &hanya dalam explorer"
+msgstr "Tampilkan lapisan dan menu k&onteks hanya dalam penjelajah"
 
 # Control-ID:1073,
 #. Resource IDs: (1073)
@@ -8126,9 +8124,8 @@ msgid "Show File List"
 msgstr "Tampilkan Daftar File"
 
 #. Resource IDs: (2051)
-#, fuzzy
 msgid "Show HEAD revision nodes"
-msgstr "Tampilkan semu&a revisi"
+msgstr "Tampilkan noda-noda revisi HEAD"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -8168,7 +8165,6 @@ msgstr "Tampilkan ikhtisar graf keseluruhan"
 
 # ID:113,
 #. Resource IDs: (114)
-#, fuzzy
 msgid "Show changes as &unified diff"
 msgstr "Tampilkan perbedaan sebagai &unified diff"
 
@@ -8197,29 +8193,26 @@ msgstr "Tampilkan nomor bari&s"
 
 # ID:272,
 #. Resource IDs: (2051)
-#, fuzzy
 msgid "Show oldest node at top"
-msgstr "Menampilkan %ld node"
+msgstr "Tampilkan noda tertua di atas"
 
 # ID:3713,
 #. Resource IDs: (2054)
-#, fuzzy
 msgid ""
 "Show or hide the line diff bar\n"
 "Toggle LineDiffBar"
 msgstr ""
-"Tampilkan atau sembunyikan toolbar\n"
-"Toogle Toolbar"
+"Tampilkan atau sembunyikan bilah diff baris\n"
+"Hidup matikan LineDiffBar"
 
 # ID:3713,
 #. Resource IDs: (2054)
-#, fuzzy
 msgid ""
 "Show or hide the locator bar\n"
 "Toggle LocatorBar"
 msgstr ""
-"Tampilkan atau sembunyikan toolbar\n"
-"Toogle Toolbar"
+"Tampilkan atau sembunyikan bilah Lokator\n"
+"Hidup matikan LocatorBar"
 
 # ID:3713,
 #. Resource IDs: (3713)
@@ -8241,27 +8234,23 @@ msgstr ""
 
 # Control-ID:1264,
 #. Resource IDs: (1432)
-#, fuzzy
 msgid "Show overlay for ignored items"
-msgstr "Tampilkan file diabaikan"
+msgstr "Tampilkan lapisan untuk item diabaikan"
 
 # Control-ID:1073,
 #. Resource IDs: (1462)
-#, fuzzy
 msgid "Show overlay for unversioned items"
-msgstr "Tampilkan file tidak berversi"
+msgstr "Tampilkan lapisan untuk item-item tidak berversi"
 
 # ID:101,
 #. Resource IDs: (1265)
-#, fuzzy
 msgid "Show properties"
-msgstr "Ta&mpilkan properti"
+msgstr "Tampilkan properti-properti"
 
 # ID:101,
 #. Resource IDs: (102)
-#, fuzzy
 msgid "Show revision properties"
-msgstr "Ta&mpilkan properti"
+msgstr "Tampilkan properti-properti revisi"
 
 #. Resource IDs: (16652)
 msgid "Show shortcut &keys in ScreenTips"
@@ -8278,9 +8267,8 @@ msgstr ""
 
 # ID:12,
 #. Resource IDs: (345)
-#, fuzzy
 msgid "Show statistics for the selected log cache"
-msgstr "Menampilkan log untuk file / folder yang dipilih"
+msgstr "Tampilkan statistik untuk tembolok log terpilih"
 
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
@@ -8341,9 +8329,8 @@ msgstr "Menampilkan informasi tentang TortoiseSVN"
 
 # ID:12,
 #. Resource IDs: (198)
-#, fuzzy
 msgid "Shows the action log file in the default text editor"
-msgstr "Menampilkan log untuk file / folder yang dipilih"
+msgstr "Tampilkan berkas log aksi di penyunting teks bawaan"
 
 # ID:17,
 #. Resource IDs: (17)
@@ -8569,9 +8556,9 @@ msgstr "Tukar cop&y pekerjaan ke cabang/tag baru"
 
 # ID:120,
 #. Resource IDs: (229)
-#, fuzzy, c-format
+#, c-format
 msgid "Switch %s to %s, Revision %s"
-msgstr "Mendapatkan file %s, revisi %s"
+msgstr "Tukar %s ke %s, Revisi %s"
 
 # ID:80,#:
 # Control-ID:65535,
@@ -8646,9 +8633,8 @@ msgstr "Tukar:"
 
 # ID:325,
 #. Resource IDs: (325)
-#, fuzzy
 msgid "Switches the comparison left<<->right"
-msgstr "Tukar perbandingan kiri < - > kanan"
+msgstr "Tukar perbandingan kiri<<->kanan"
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
@@ -8717,9 +8703,8 @@ msgstr "Chunk diawali \"@@\" diharapkan dalam baris %d !"
 
 # ID:197,
 #. Resource IDs: (197)
-#, fuzzy
 msgid "The default URL to checkout from if nothing else is specified"
-msgstr "Url bawaan untuk asal checkout jika tidak ada yang dispesifikasikan"
+msgstr "URL bawaan untuk asal checkout jika tidak ada yang dispesifikasikan"
 
 # ID:196,
 #. Resource IDs: (196)
@@ -8750,16 +8735,17 @@ msgstr "File %s tidak ditemukan dalam file patch!"
 
 # ID:80,
 #. Resource IDs: (314)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "The file \n"
 "%s\n"
 "is empty.\n"
 "Do you want to remove the file?"
 msgstr ""
-"File\n"
+"Berkas \n"
 "%s\n"
-"sudah ada! Anda ingin menimpanya?"
+"kosong.\n"
+"Apakah Anda ingin menghapusnya?"
 
 # ID:3857,#:
 # ID:3857,
@@ -9204,11 +9190,11 @@ msgstr "Metode ini menangani kasus dimana Anda telah membuat sebuah cabang fitur
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
-msgstr ""
+msgstr "Metode ini menangani kasus saat Anda membuat satu atau lebih revisi ke suatu cabang (atau ke batang) dan Anda ingin memindahkan perubahan-perubahan tersebut ke cabang yang berbeda."
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
-msgstr ""
+msgstr "Metode ini menangani kasus saat Anda ingin menggabung perbedaan-perbedaan dari dua cabang yang berbeda ke salinan pekerjaan Anda."
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
@@ -9978,6 +9964,11 @@ msgid ""
 "\r\n"
 "To merge all revisions, leave the box empty."
 msgstr ""
+"Gunakan dialog log untuk memilih revisi-revisi yang Anda ingin gabungkan, atau masukkan revisi-revisi tersebut, dipisahkan dengan koma. Sebuah rentang revisi dapat ditentukan dengan tanda hubung.\r\n"
+"\r\n"
+"Contoh: 4-7,9,11,15-HEAD\r\n"
+"\r\n"
+"Untuk menggabung semua revisi, biarkan kotak ini kosong."
 
 # ID:251,
 #. Resource IDs: (251)
@@ -10278,7 +10269,7 @@ msgstr ""
 #. Resource IDs: (1002)
 #, c-format
 msgid "You may define up to %d tools."
-msgstr ""
+msgstr "Anda boleh menentukan paling banyak %d alat."
 
 # ID:196,
 #. Resource IDs: (196)
@@ -10296,11 +10287,11 @@ msgstr ""
 
 #. Resource IDs: (1001)
 msgid "You should enter a text!"
-msgstr ""
+msgstr "Anda seharusnya memasukkan sebuah teks!"
 
 #. Resource IDs: (1001)
 msgid "You should select an image!"
-msgstr ""
+msgstr "Anda seharusnya memasukkan sebuah gambar!"
 
 # ID:195,
 #. Resource IDs: (195)
@@ -10674,7 +10665,7 @@ msgstr "File %s tidak ada!"
 
 #. Resource IDs: (583)
 msgid "it is already deleted."
-msgstr ""
+msgstr "ini sudah dihapus."
 
 # ID:10,
 #. Resource IDs: (583)
@@ -10693,7 +10684,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "last read: "
-msgstr ""
+msgstr "dibaca terakhir: "
 
 # ID:569,
 #. Resource IDs: (65535)
@@ -10730,7 +10721,7 @@ msgstr "digabung"
 
 #. Resource IDs: (65535)
 msgid "merges total: "
-msgstr ""
+msgstr "total penggabungan: "
 
 # ID:10,
 #. Resource IDs: (10)
@@ -10766,7 +10757,7 @@ msgstr "bulan"
 #. Resource IDs: (199)
 #, c-format
 msgid "multiple URLs (e.g. %s)"
-msgstr ""
+msgstr "beragam URL (contoh %s)"
 
 #. Resource IDs: (18)
 msgid "no"
@@ -10794,7 +10785,7 @@ msgstr "terhambat"
 
 #. Resource IDs: (601)
 msgid "offline"
-msgstr ""
+msgstr "luring"
 
 # ID:80,#:
 # ID:103,#:
@@ -10811,7 +10802,7 @@ msgstr "daring"
 
 #. Resource IDs: (1406, 1407)
 msgid "or"
-msgstr ""
+msgstr "atau"
 
 #. Resource IDs: (65535)
 msgid "pair tokens: "
@@ -10840,7 +10831,7 @@ msgstr "kemungkinan atau konflik nyata / terhambat"
 
 #. Resource IDs: (3845)
 msgid "prn"
-msgstr ""
+msgstr "prn"
 
 # ID:245,
 #. Resource IDs: (245)
