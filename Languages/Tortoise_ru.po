@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2008
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 12997: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 13034: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-24 14:41+0300\n"
+"PO-Revision-Date: 2008-05-29 17:36+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3671,10 +3671,6 @@ msgstr "Для справки нажмите F1. Для горизонтальн
 msgid "For complete history deselect \"Stop on copy/rename\""
 msgstr "Для получения полного списка разотметьте \"Остановиться на копировании/переименовании\""
 
-#. Resource IDs: (1432)
-msgid "Force blame"
-msgstr "Принудительное получение авторства"
-
 #. Resource IDs: (1064)
 msgid "Forward"
 msgstr "Вперёд"
@@ -4139,10 +4135,6 @@ msgstr ""
 #. Resource IDs: (194)
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
 msgstr "Если включено, TortoiseSVN будет проверять наличие новой версии раз в неделю"
-
-#. Resource IDs: (132)
-msgid "If enabled, forces blaming even for files marked as binary, not just text files"
-msgstr "Если отмечено, позволяет получать авторство даже для файлов,  помеченных как двоичные, а не только для текстовых файлов"
 
 #. Resource IDs: (195)
 msgid ""
@@ -9300,9 +9292,9 @@ msgstr ""
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of\n"
-"a relative directory path, optional revision flags, and an URL. For example\n"
-"foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"an optional revision, an URL and a relative directory path. For example\n"
+"http://example.com/repos/zig\tfoo\n"
+"-r 1234\thttp://example.com/repos/zag\tfoo/bar\n"
 "\n"
 "The URLs can either be full URLs or relative. The format for\n"
 "the relative URLs is:\n"
@@ -9313,11 +9305,11 @@ msgid ""
 msgstr ""
 "svn:externals\n"
 "Список спецификаторов включаемых модулей, по одному в строке, каждый из которых\n"
-"состоит из относительного пути к папке, необязательных флагов ревизий и URL. Например:\n"
-"foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"состоит из необязательного указания ревизии, URL и относительного пути к папке. Например:\n"
+"http://example.com/repos/zig\tfoo\n"
+"-r 1234\thttp://example.com/repos/zag\tfoo/bar\n"
 "\n"
-"Адреса URL могут быть полными или относительными. Формат относительного URL:\n"
+"Адреса URL могут быть полными или относительными. Формат относительного URL следующий:\n"
 "../\tотносительно родительской папки внешнего включения\n"
 "^/\tотносительно корня хранилища\n"
 "//\tотносительно схемы URL\n"
@@ -9588,6 +9580,14 @@ msgstr "да"
 msgid "{BugTraq}"
 msgstr "{СОП}"
 
+#~ msgid "Force blame"
+#~ msgstr "Принудительное получение авторства"
+#~ msgid ""
+#~ "If enabled, forces blaming even for files marked as binary, not just text "
+#~ "files"
+#~ msgstr ""
+#~ "Если отмечено, позволяет получать авторство даже для файлов,  помеченных "
+#~ "как двоичные, а не только для текстовых файлов"
 #~ msgid "Bug Tracker..."
 #~ msgstr "Отслеживание ошибок..."
 #~ msgid "Remove..."
