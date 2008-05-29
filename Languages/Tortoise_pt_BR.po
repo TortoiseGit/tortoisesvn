@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-27 17:52-0300\n"
+"PO-Revision-Date: 2008-05-28 12:56-0300\n"
 "Last-Translator: Humberto Osório <humberto@virtual.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4941,28 +4941,24 @@ msgid "Modified"
 msgstr "Modificado"
 
 #. Resource IDs: (1070)
-#, fuzzy
 msgid "More"
-msgstr "Combinar"
+msgstr "Mais"
 
 #. Resource IDs: (1002)
-#, fuzzy
 msgid "More Buttons"
-msgstr "Opções de combinação"
+msgstr "Mais Botões"
 
 #. Resource IDs: (1069)
-#, fuzzy
 msgid "More Commands..."
-msgstr "Mais cores..."
+msgstr "Mais Comandos..."
 
 #. Resource IDs: (438)
 msgid "More colors..."
 msgstr "Mais cores..."
 
 #. Resource IDs: (438)
-#, fuzzy
 msgid "More..."
-msgstr "&Combinar..."
+msgstr "Mais..."
 
 #. Resource IDs: (1136)
 msgid "Most active author:"
@@ -4999,14 +4995,12 @@ msgid "Move &Up"
 msgstr ""
 
 #. Resource IDs: (1002)
-#, fuzzy
 msgid "Move Item Down"
-msgstr "Mover itens para cá%s"
+msgstr "Mover item para baixo"
 
 #. Resource IDs: (1002)
-#, fuzzy
 msgid "Move Item Up"
-msgstr "Mover itens para cá%s"
+msgstr "Mover item para cima"
 
 #. Resource IDs: (104)
 msgid "Move and rename item to here"
@@ -5092,9 +5086,8 @@ msgid "New &name:"
 msgstr "Novo &nome:"
 
 #. Resource IDs: (1001)
-#, fuzzy
 msgid "New Menu"
-msgstr "&Novo "
+msgstr "Novo Menu"
 
 #. Resource IDs: (97)
 #, c-format
@@ -5682,9 +5675,8 @@ msgid "Printer Files (*.prn)|*.prn|All Files (*.*)|*.*||"
 msgstr "Propriedades (*.svnprops)|*.svnprops|Todos os Arquivos (*.*)|*.*||"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Printing"
-msgstr "Aviso"
+msgstr "Imprimindo"
 
 #. Resource IDs: (132)
 #, c-format
@@ -5734,9 +5726,9 @@ msgid "Property %s : remote"
 msgstr "Property %s : remoto"
 
 #. Resource IDs: (151)
-#, fuzzy, c-format
+#, c-format
 msgid "Property %s : working base"
-msgstr ": base de trabalho"
+msgstr "Propriedade %s : base de trabalho"
 
 #. Resource IDs: (151)
 #, c-format
@@ -5804,7 +5796,7 @@ msgstr "Unidades R&AM"
 #. Resource IDs: (16623)
 #, fuzzy
 msgid "R&eset"
-msgstr "Rejeitar"
+msgstr "Reini&ciar"
 
 #. Resource IDs: (114)
 msgid "R&evert to this revision"
@@ -5829,12 +5821,11 @@ msgstr "Re&nomear..."
 #. Resource IDs: (16613)
 #, fuzzy
 msgid "Re&set"
-msgstr "Rejeitar"
+msgstr "Reini&ciar"
 
 #. Resource IDs: (16647)
-#, fuzzy
 msgid "Re&set All"
-msgstr "Selecionar &Tudo"
+msgstr "Reiniciar &Tudo"
 
 #. Resource IDs: (8)
 msgid "Re&vert..."
@@ -5845,9 +5836,8 @@ msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Leia o 'Guia de Uso Diário' antes que você fique empacado..."
 
 #. Resource IDs: (1002)
-#, fuzzy
 msgid "Recent"
-msgstr "Rejeitar"
+msgstr "Recente"
 
 #. Resource IDs: (65535)
 msgid "Recently modified lines"
@@ -5992,9 +5982,8 @@ msgid "Remote text status"
 msgstr "Status remoto do texto"
 
 #. Resource IDs: (1332, 1470)
-#, fuzzy
 msgid "Remove"
-msgstr "&Remover"
+msgstr "Remover"
 
 #. Resource IDs: (126)
 #, c-format
@@ -6023,11 +6012,13 @@ msgid "Remove from changelist"
 msgstr "Remover da lista de alterações"
 
 #. Resource IDs: (127)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Remove property \"%s\" from\r\n"
 "%s"
-msgstr "Status remoto da propriedade"
+msgstr ""
+"Remover property \"%s\" from\r\n"
+"%s"
 
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
@@ -6070,9 +6061,8 @@ msgid "Removes the selected properties"
 msgstr "Remove as propriedades selecionadas"
 
 #. Resource IDs: (16616)
-#, fuzzy
 msgid "Rena&me..."
-msgstr "Re&nomear..."
+msgstr "Reno&mear..."
 
 #. Resource IDs: (151)
 msgid "Rename"
@@ -6161,9 +6151,8 @@ msgid "Res&olved..."
 msgstr "Res&olvido..."
 
 #. Resource IDs: (16614)
-#, fuzzy
 msgid "Reset &All"
-msgstr "Selecionar &Tudo"
+msgstr "Reiniciar &Tudo"
 
 #. Resource IDs: (214)
 msgid "Reset columns"
@@ -6374,19 +6363,18 @@ msgid "Right image"
 msgstr "Imagem direita"
 
 #. Resource IDs: (1070)
-#, fuzzy, c-format
+#, c-format
 msgid "Row %d of %d"
-msgstr "%ld de %ld"
+msgstr "Linha %d de %d"
 
 #. Resource IDs: (1070)
-#, fuzzy, c-format
+#, c-format
 msgid "Row %d-%d of %d"
-msgstr "%ld de %ld"
+msgstr "Linha %d-%d de %d"
 
 #. Resource IDs: (17045)
-#, fuzzy
 msgid "S&elect..."
-msgstr "E&xcluir..."
+msgstr "S&elecionar..."
 
 #. Resource IDs: (32782)
 msgid "S&ettings"
@@ -6972,9 +6960,8 @@ msgid "Show overlay for unversioned items"
 msgstr "Mostrar arquivos sem controle de versão"
 
 #. Resource IDs: (1265)
-#, fuzzy
 msgid "Show properties"
-msgstr "E&xibir propriedades"
+msgstr "Mostrar propriedades"
 
 #. Resource IDs: (102)
 msgid "Show revision properties"
@@ -7150,9 +7137,8 @@ msgid "Start Update Hook"
 msgstr "Iniciar Atualização de Gancho"
 
 #. Resource IDs: (16514)
-#, fuzzy
 msgid "Static"
-msgstr "Estatísticas"
+msgstr "Estático"
 
 #. Resource IDs: (179, 245)
 msgid "Statistics"
@@ -7297,7 +7283,7 @@ msgstr "Alternar a cópia de trabalho para outra uma ramificação / rótulo"
 #. Resource IDs: (65535)
 #, fuzzy
 msgid "Switch:"
-msgstr "alternado:"
+msgstr "Alternado:"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<<->right"
@@ -7339,7 +7325,7 @@ msgstr ""
 #. Resource IDs: (219)
 #, fuzzy
 msgid "Test Only"
-msgstr "Gravar"
+msgstr "Apenas Testar"
 
 #. Resource IDs: (65535)
 msgid "Text Status:"
@@ -7877,38 +7863,32 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Toolbar"
-msgstr "&Barra de Ferramentas"
+msgstr "Barra de Ferramentas"
 
 #. Resource IDs: (16130)
-#, fuzzy
 msgid "Toolbar Name"
-msgstr "&Barra de Ferramentas"
+msgstr "Nome da Barra de Ferramentas"
 
 #. Resource IDs: (1064)
-#, fuzzy
 msgid "Toolbar Options"
-msgstr "&Barra de Ferramentas"
+msgstr "Opções da Barra de Ferramentas"
 
 #. Resource IDs: (1001)
 msgid "Toolbar internal error. Please contact your application vendor."
 msgstr ""
 
 #. Resource IDs: (16105)
-#, fuzzy
 msgid "Toolbars"
-msgstr "&Barra de Ferramentas"
+msgstr "Barras de Ferramentas"
 
 #. Resource IDs: (16928)
-#, fuzzy
 msgid "Tools"
-msgstr "&Barra de Ferramentas"
+msgstr "Ferramentas"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Tools:"
-msgstr "Para:"
+msgstr "Ferramentas:"
 
 #. Resource IDs: (7, 244)
 msgid "TortoiseBlame"
@@ -8148,9 +8128,9 @@ msgid "Uncheck"
 msgstr "Desmarcar"
 
 #. Resource IDs: (1069)
-#, fuzzy, c-format
+#, c-format
 msgid "Undo %d Actions"
-msgstr "Ações"
+msgstr "Desfazer Ações %d"
 
 #. Resource IDs: (1069)
 #, fuzzy
@@ -8219,9 +8199,8 @@ msgid "Untitled"
 msgstr "Sem Título"
 
 #. Resource IDs: (146)
-#, fuzzy
 msgid "Unversion"
-msgstr "Versão"
+msgstr "Sem versão"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
@@ -8432,12 +8411,11 @@ msgstr ""
 "Use \"deles\" do bloco de texto"
 
 #. Resource IDs: (2054)
-#, fuzzy
 msgid ""
 "Use text block from the left view\n"
 "Use left block"
 msgstr ""
-"Usar bloco de texto de \"deles\"\n"
+"Usar bloco de texto da esquerdae \"deles\"\n"
 "Use \"deles\" do bloco de texto"
 
 #. Resource IDs: (251)
@@ -8568,14 +8546,12 @@ msgstr ""
 "caixa de diálogo pedindo por uma mensagem a respeito do travamento"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Whitespaces"
-msgstr "&Espaços em branco"
+msgstr "Espaços em branco"
 
 #. Resource IDs: (1065)
-#, fuzzy
 msgid "Window Position"
-msgstr "Alterar posição da janela"
+msgstr "Posição da janela"
 
 #. Resource IDs: (16927)
 msgid "Windows"
@@ -8802,19 +8778,16 @@ msgid "Zoo&m out"
 msgstr "Menos zoo&m"
 
 #. Resource IDs: (1069)
-#, fuzzy
 msgid "Zoom"
-msgstr "Mais zoom"
+msgstr "Zoom"
 
 #. Resource IDs: (58117)
-#, fuzzy
 msgid "Zoom &In"
-msgstr "M&ais zoom"
+msgstr "Ma&is zoom"
 
 #. Resource IDs: (58118)
-#, fuzzy
 msgid "Zoom &Out"
-msgstr "Menos zoom"
+msgstr "Men&os zoom"
 
 #. Resource IDs: (32772)
 msgid "Zoom &in\tCtrl-+"
@@ -8836,11 +8809,12 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (3633)
-#, fuzzy
 msgid ""
 "Zoom Out\n"
 "Zoom Out"
-msgstr "Zoom para caber"
+msgstr ""
+"Menos zoom\n"
+"Menos zoom"
 
 #. Resource IDs: (32784)
 msgid "Zoom i&n"
@@ -9116,9 +9090,8 @@ msgid "missing / deleted / replaced"
 msgstr "faltando / excluído / substituído"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "missing in: "
-msgstr "ausente"
+msgstr "ausente:"
 
 #. Resource IDs: (10)
 msgid "modified"
@@ -9164,7 +9137,7 @@ msgstr "desconectado"
 #. Resource IDs: (3845)
 #, fuzzy, c-format
 msgid "on %1"
-msgstr "para %s"
+msgstr "em %s"
 
 #. Resource IDs: (601)
 msgid "online"
@@ -9183,9 +9156,8 @@ msgid "path elements: "
 msgstr ""
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "paths: "
-msgstr "Caminhos"
+msgstr "caminhos:"
 
 #. Resource IDs: (3869)
 msgid "pixels"
@@ -9223,7 +9195,7 @@ msgstr "revisão %s-%s, revisão %s-%s"
 #. Resource IDs: (65535)
 #, fuzzy
 msgid "revision count: "
-msgstr "Revisão:"
+msgstr "Número de revisões:"
 
 #. Resource IDs: (326)
 #, c-format
@@ -9369,7 +9341,7 @@ msgid "there are conflicting modifications."
 msgstr "existem alterações conflitantes."
 
 #. Resource IDs: (3845)
-#, fuzzy, c-format
+#, c-format
 msgid "to %1"
 msgstr "para %s"
 
@@ -9533,8 +9505,9 @@ msgid "yes"
 msgstr "Sim"
 
 #. Resource IDs: (1382)
+#, fuzzy
 msgid "{BugTraq}"
-msgstr ""
+msgstr "{BugTraq}"
 
 #~ msgid "&Open Ctrl-O"
 #~ msgstr "&Abrir Ctrl-O"
