@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-28 12:56-0300\n"
+"PO-Revision-Date: 2008-05-29 08:43-0300\n"
 "Last-Translator: Humberto Osório <humberto@virtual.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -145,9 +145,9 @@ msgid "%s"
 msgstr "%s"
 
 #. Resource IDs: (93)
-#, fuzzy, c-format
+#, c-format
 msgid "%s (offline)"
-msgstr "%s (desconectado) - %s"
+msgstr "%s (desconectado)"
 
 #. Resource IDs: (115)
 #, c-format
@@ -195,11 +195,13 @@ msgid "%s\\Export of %s"
 msgstr "%s\\Exportar de %s"
 
 #. Resource IDs: (3850)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "%s\n"
 "%s"
-msgstr "%s em %s"
+msgstr ""
+"%s\n"
+"%s"
 
 #. Resource IDs: (145)
 #, c-format
@@ -235,9 +237,8 @@ msgstr ""
 "%s\n"
 
 #. Resource IDs: (16923)
-#, fuzzy
 msgid "&..."
-msgstr "..."
+msgstr "&..."
 
 #. Resource IDs: (65535)
 msgid "&?"
@@ -253,9 +254,8 @@ msgid "&Activate"
 msgstr "&Ativar"
 
 #. Resource IDs: (17075)
-#, fuzzy
 msgid "&Add >>"
-msgstr "Adicionar"
+msgstr "&Adicionar >>"
 
 #. Resource IDs: (1064)
 msgid "&Add or Remove Buttons"
@@ -298,9 +298,8 @@ msgid "&Associate double-click event with:"
 msgstr ""
 
 #. Resource IDs: (1066)
-#, fuzzy
 msgid "&Auto Hide"
-msgstr "&Ocultar"
+msgstr "&Auto Ocultar"
 
 #. Resource IDs: (65535)
 msgid "&Autoclose:"
@@ -329,7 +328,7 @@ msgstr "&Responsabilidade..."
 #. Resource IDs: (32849)
 #, fuzzy
 msgid "&Blue Style"
-msgstr "Estilo eol"
+msgstr "Estilo A&zul"
 
 #. Resource IDs: (65535)
 msgid "&Blue:"
@@ -348,9 +347,8 @@ msgid "&Button Appearance..."
 msgstr "Aparência dos &Botões..."
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "&Button text:"
-msgstr "&Conjunto de Ícones:"
+msgstr "Texto do &botão:"
 
 #. Resource IDs: (1051)
 msgid "&CD-ROM"
@@ -377,9 +375,8 @@ msgid "&Clean up"
 msgstr "&Limpar"
 
 #. Resource IDs: (58112)
-#, fuzzy
 msgid "&Close"
-msgstr "Cores"
+msgstr "Fe&char"
 
 #. Resource IDs: (16922)
 msgid "&Close Window(s)"
@@ -390,9 +387,8 @@ msgid "&Color age of lines"
 msgstr "&Colorir linhas por idade"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "&Command:"
-msgstr "Comando"
+msgstr "&Comando:"
 
 #. Resource IDs: (8)
 msgid "&Commit..."
@@ -471,18 +467,16 @@ msgid "&Diff with URL"
 msgstr "&Comparar com URL"
 
 #. Resource IDs: (14)
-#, fuzzy
 msgid "&Diff with previous version"
-msgstr "Comparar com revisão anterior"
+msgstr "&Comparar com revisão anterior"
 
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr ""
 
 #. Resource IDs: (2)
-#, fuzzy
 msgid "&Don't go offline"
-msgstr "&Colorir linhas por idade"
+msgstr "&Não desconectar"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -545,9 +539,8 @@ msgid "&Fixed drives"
 msgstr "Unidades &Fixas"
 
 #. Resource IDs: (1065)
-#, fuzzy
 msgid "&Floating"
-msgstr "Reposicionando..."
+msgstr "&Flutuando"
 
 #. Resource IDs: (65535)
 msgid "&Font for log messages:"
@@ -578,9 +571,8 @@ msgid "&Green:"
 msgstr ""
 
 #. Resource IDs: (32799)
-#, fuzzy
 msgid "&Group by branch"
-msgstr "A&grupar ramos"
+msgstr "A&grupar por ramo"
 
 #. Resource IDs: (1032, 1115)
 msgid "&HEAD Revision"
@@ -620,27 +612,24 @@ msgid "&Ignore whitespace changes"
 msgstr "&Ignorar alterações de espaços em branco"
 
 #. Resource IDs: (16914)
-#, fuzzy
 msgid "&Image"
-msgstr "Informação da &Imagem"
+msgstr "&Imagem"
 
 #. Resource IDs: (32790)
 msgid "&Image Info"
 msgstr "Informação da &Imagem"
 
 #. Resource IDs: (16505)
-#, fuzzy
 msgid "&Image only"
-msgstr "Informação da &Imagem"
+msgstr " &Imagem apenas"
 
 #. Resource IDs: (9, 1461)
 msgid "&Import..."
 msgstr "&Importar..."
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "&Initial directory:"
-msgstr "Exportar diretório:"
+msgstr "Diretório &inicial:"
 
 #. Resource IDs: (32825)
 msgid "&Inline diff word-wise"
@@ -655,9 +644,8 @@ msgid "&Language:"
 msgstr "&Idioma:"
 
 #. Resource IDs: (16653)
-#, fuzzy
 msgid "&Large Icons"
-msgstr "Informação da &Imagem"
+msgstr "Ícones &Grandes"
 
 #. Resource IDs: (1065)
 msgid "&Limit search to modified lines"
@@ -817,9 +805,8 @@ msgid "&Redo"
 msgstr "&Refazer"
 
 #. Resource IDs: (1382)
-#, fuzzy
 msgid "&Refresh"
-msgstr "Atualizar"
+msgstr "Atualiza&r"
 
 #. Resource IDs: (1100, 1285)
 msgid "&Remove"
@@ -838,14 +825,12 @@ msgid "&Repo-browser"
 msgstr "&Repo-Browser"
 
 #. Resource IDs: (16613, 16624)
-#, fuzzy
 msgid "&Reset"
-msgstr "Rejeitar"
+msgstr "&Reiniciar"
 
 #. Resource IDs: (1019)
-#, fuzzy
 msgid "&Reset Toolbar"
-msgstr "&Barra de Ferramentas"
+msgstr "&Reiniciar Barra de Ferramentas"
 
 #. Resource IDs: (16657)
 #, fuzzy
