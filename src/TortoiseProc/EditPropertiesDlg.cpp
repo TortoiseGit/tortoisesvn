@@ -390,6 +390,7 @@ void CEditPropertiesDlg::OnBnClickedAddprops()
 
 void CEditPropertiesDlg::EditProps(bool bAdd /* = false*/)
 {
+	m_tooltips.Pop();	// hide the tooltips
 	int selIndex = m_propList.GetSelectionMark();
 
 	CEditPropertyValueDlg dlg;
