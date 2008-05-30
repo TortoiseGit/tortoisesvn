@@ -219,6 +219,10 @@ C:\Path-To\kdiff3.exe %base %mine %theirs -o %merged
 C:\Path-To\compare.exe /max /wait /3 /title1:%tname /title2:%bname
     /title3:%yname %theirs %base %mine %merged /a2
 </screen>
+			or with WinMerge (2.8 or later):
+<screen>
+C:\Path-To\WinMerge.exe %merged
+</screen>
 		</para>
 	</sect3>
 	<sect3 id="tsvn-dug-settings-Progs-Adv">
