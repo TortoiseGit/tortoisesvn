@@ -99,7 +99,7 @@ BOOL CAppUtils::StartExtMerge(
 		com = com + _T(" /basename:%bname /theirsname:%tname /minename:%yname /mergedname:%mname");
 	}
 	// check if the params are set. If not, just add the files to the command line
-	if ((com.Find(_T("%base"))<0)&&(com.Find(_T("%theirs"))<0)&&(com.Find(_T("%mine"))<0))
+	if ((com.Find(_T("%merged"))<0)&&(com.Find(_T("%base"))<0)&&(com.Find(_T("%theirs"))<0)&&(com.Find(_T("%mine"))<0))
 	{
 		com += _T(" \"")+basefile.GetWinPathString()+_T("\"");
 		com += _T(" \"")+theirfile.GetWinPathString()+_T("\"");
