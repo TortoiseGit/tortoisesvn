@@ -234,6 +234,7 @@ UINT CEditPropertiesDlg::PropsThread()
 		{
 			// select the first entry
 			m_propList.SetItemState(index, LVIS_SELECTED, LVIS_SELECTED);
+			m_propList.SetSelectionMark(index);
 		}
 		index++;
 	}
