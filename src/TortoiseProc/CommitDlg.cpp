@@ -696,6 +696,7 @@ void CCommitDlg::OnCancel()
 
 void CCommitDlg::OnBnClickedSelectall()
 {
+	m_tooltips.Pop();	// hide the tooltips
 	UINT state = (m_SelectAll.GetState() & 0x0003);
 	if (state == BST_INDETERMINATE)
 	{
@@ -773,6 +774,7 @@ void CCommitDlg::OnBnClickedHelp()
 
 void CCommitDlg::OnBnClickedShowunversioned()
 {
+	m_tooltips.Pop();	// hide the tooltips
 	UpdateData();
 	m_regAddBeforeCommit = m_bShowUnversioned;
 	if (!m_bBlock)
@@ -1145,6 +1147,7 @@ void CCommitDlg::OnTimer(UINT_PTR nIDEvent)
 
 void CCommitDlg::OnBnClickedHistory()
 {
+	m_tooltips.Pop();	// hide the tooltips
 	if (m_pathList.GetCount() == 0)
 		return;
 	CHistoryDlg historyDlg;
@@ -1172,6 +1175,7 @@ void CCommitDlg::OnBnClickedHistory()
 
 void CCommitDlg::OnBnClickedBugtraqbutton()
 {
+	m_tooltips.Pop();	// hide the tooltips
 	CString sMsg = m_cLogMessage.GetText();
 
 	CComPtr<IBugTraqProvider> pProvider;

@@ -135,6 +135,7 @@ void CImportDlg::OnOK()
 
 void CImportDlg::OnBnClickedBrowse()
 {
+	m_tooltips.Pop();	// hide the tooltips
 	SVNRev rev(SVNRev::REV_HEAD);
 	CAppUtils::BrowseRepository(m_URLCombo, this, rev);
 }
@@ -184,6 +185,7 @@ void CImportDlg::OnCancel()
 
 void CImportDlg::OnBnClickedHistory()
 {
+	m_tooltips.Pop();	// hide the tooltips
 	SVN svn;
 	CHistoryDlg historyDlg;
 	historyDlg.SetHistory(m_History);

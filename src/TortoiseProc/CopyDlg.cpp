@@ -270,6 +270,7 @@ void CCopyDlg::OnOK()
 
 void CCopyDlg::OnBnClickedBrowse()
 {
+	m_tooltips.Pop();	// hide the tooltips
 	SVNRev rev = SVNRev::REV_HEAD;
 
 	CAppUtils::BrowseRepository(m_URLCombo, this, rev);
@@ -319,6 +320,7 @@ BOOL CCopyDlg::PreTranslateMessage(MSG* pMsg)
 
 void CCopyDlg::OnBnClickedBrowsefrom()
 {
+	m_tooltips.Pop();	// hide the tooltips
 	UpdateData(TRUE);
 	if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
 		return;
@@ -359,24 +361,28 @@ LPARAM CCopyDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
 
 void CCopyDlg::OnBnClickedCopyhead()
 {
+	m_tooltips.Pop();	// hide the tooltips
 	m_bSettingChanged = true;
 	DialogEnableWindow(IDC_COPYREVTEXT, FALSE);
 }
 
 void CCopyDlg::OnBnClickedCopyrev()
 {
+	m_tooltips.Pop();	// hide the tooltips
 	m_bSettingChanged = true;
 	DialogEnableWindow(IDC_COPYREVTEXT, TRUE);
 }
 
 void CCopyDlg::OnBnClickedCopywc()
 {
+	m_tooltips.Pop();	// hide the tooltips
 	m_bSettingChanged = true;
 	DialogEnableWindow(IDC_COPYREVTEXT, FALSE);
 }
 
 void CCopyDlg::OnBnClickedHistory()
 {
+	m_tooltips.Pop();	// hide the tooltips
 	SVN svn;
 	CHistoryDlg historyDlg;
 	historyDlg.SetHistory(m_History);

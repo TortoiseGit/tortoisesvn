@@ -264,6 +264,7 @@ void CCheckoutDlg::OnOK()
 
 void CCheckoutDlg::OnBnClickedBrowse()
 {
+	m_tooltips.Pop();	// hide the tooltips
 	SVNRev rev;
 	UpdateData();
 	if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
@@ -307,6 +308,7 @@ void CCheckoutDlg::OnBnClickedBrowse()
 
 void CCheckoutDlg::OnBnClickedCheckoutdirectoryBrowse()
 {
+	m_tooltips.Pop();	// hide the tooltips
 	//
 	// Create a folder browser dialog. If the user selects OK, we should update
 	// the local data members with values from the controls, copy the checkout
@@ -345,6 +347,7 @@ void CCheckoutDlg::OnBnClickedHelp()
 
 void CCheckoutDlg::OnBnClickedShowlog()
 {
+	m_tooltips.Pop();	// hide the tooltips
 	UpdateData(TRUE);
 	m_URL = m_URLCombo.GetString();
 	if ((m_pLogDlg)&&(m_pLogDlg->IsWindowVisible()))

@@ -282,6 +282,7 @@ LRESULT CLockDlg::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)
 
 void CLockDlg::OnBnClickedSelectall()
 {
+	m_tooltips.Pop();	// hide the tooltips
 	UINT state = (m_SelectAll.GetState() & 0x0003);
 	if (state == BST_INDETERMINATE)
 	{
@@ -295,6 +296,7 @@ void CLockDlg::OnBnClickedSelectall()
 
 void CLockDlg::OnBnClickedHistory()
 {
+	m_tooltips.Pop();	// hide the tooltips
 	if (m_pathList.GetCount() == 0)
 		return;
 	SVN svn;
