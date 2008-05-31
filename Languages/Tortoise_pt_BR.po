@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-29 08:43-0300\n"
+"PO-Revision-Date: 2008-05-31 12:17-0300\n"
 "Last-Translator: Humberto Osório <humberto@virtual.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -30,6 +30,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Portuguese\n"
 "X-Poedit-Country: BRAZIL\n"
+"X-Poedit-Bookmarks: -1,-1,-1,-1,-1,-1,1675,-1,-1,-1\n"
 
 #. Resource IDs: (10, 126)
 msgid " "
@@ -989,6 +990,11 @@ msgstr "&TortoiseMerge"
 #. Resource IDs: (9)
 msgid "&TortoiseSVN"
 msgstr "&TortoiseSVN"
+
+#. Resource IDs: (1096)
+#, fuzzy
+msgid "&TortoiseUDiff"
+msgstr "TortoiseIDiff"
 
 #. Resource IDs: (3845)
 #, fuzzy
@@ -7803,9 +7809,8 @@ msgid "Tile &Horizontally"
 msgstr ""
 
 #. Resource IDs: (16928)
-#, fuzzy
 msgid "Tile &Vertically"
-msgstr "Ordenar &Verticalmente"
+msgstr "Lado a Lado &Verticalmente"
 
 #. Resource IDs: (65535)
 msgid "Timeouts"
@@ -8005,7 +8010,7 @@ msgstr "Número total de revisões combinadas"
 #. Resource IDs: (339)
 #, fuzzy
 msgid "Total number of user revision properties"
-msgstr "Gerenciar propriedades do Subversion"
+msgstr "Número total de revisões do usuário"
 
 #. Resource IDs: (357)
 #, c-format
@@ -8017,9 +8022,8 @@ msgid "Transparent &color..."
 msgstr "&Cor de transparência..."
 
 #. Resource IDs: (595)
-#, fuzzy
 msgid "Tree merge"
-msgstr "combinado"
+msgstr "Combinar árvore"
 
 #. Resource IDs: (251)
 msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
@@ -8120,7 +8124,7 @@ msgstr "Desfazer Ações %d"
 #. Resource IDs: (1069)
 #, fuzzy
 msgid "Undo 1 Action"
-msgstr "Ação"
+msgstr "Desfazer Ação 1"
 
 #. Resource IDs: (14)
 msgid "Undo Add.."
@@ -8194,7 +8198,7 @@ msgstr "Arquivos sem controle de versão marcam o diretório pai como modificado
 #. Resource IDs: (286)
 #, fuzzy, c-format
 msgid "Unversioning %s"
-msgstr "A versão atual é: %s"
+msgstr "Retirando do controle de versões %s"
 
 #. Resource IDs: (152, 230, 1436)
 msgid "Update"
@@ -8207,7 +8211,7 @@ msgstr "Atualizar - TortoiseSVN"
 #. Resource IDs: (1377)
 #, fuzzy
 msgid "Update Depth"
-msgstr "Atualizar"
+msgstr "Atualizar em profundidade"
 
 #. Resource IDs: (74)
 msgid "Updated"
@@ -8239,14 +8243,12 @@ msgid "Updating log cache"
 msgstr "Atualizando o cache de log"
 
 #. Resource IDs: (16530)
-#, fuzzy
 msgid "Use &Default Image: "
-msgstr "Diretório padrão:"
+msgstr "Usar Imagem pa&drão:"
 
 #. Resource IDs: (32855)
-#, fuzzy
 msgid "Use &left block"
-msgstr "Usar e&sse bloco de texto"
+msgstr "Usar b&loco da esquerda"
 
 #. Resource IDs: (1024)
 msgid "Use &one-pane view as default for 2-file diff"
@@ -8289,9 +8291,8 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (32857)
-#, fuzzy
 msgid "Use block from left before right"
-msgstr "Usar bloco de texto do \"me&u\" arquivo antes do \"deles\""
+msgstr "Usar bloco de texto da esquerda antes do da direita"
 
 #. Resource IDs: (2054)
 msgid ""
@@ -8300,9 +8301,8 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (32859)
-#, fuzzy
 msgid "Use block from right before left"
-msgstr "Usar bloco de texto do \"me&u\" arquivo antes do \"deles\""
+msgstr "Usar bloco de texto da direita antes do da esquerda"
 
 #. Resource IDs: (2054)
 msgid ""
@@ -8319,9 +8319,8 @@ msgid "Use both text blocks (this one last)"
 msgstr "Use ambos blocos de texto (este aqui último)"
 
 #. Resource IDs: (32856)
-#, fuzzy
 msgid "Use left file"
-msgstr "Use o outro &arquivo inteiro"
+msgstr "Usar arquivo da esquerda"
 
 #. Resource IDs: (3)
 msgid "Use local"
@@ -8584,7 +8583,6 @@ msgid "You already have the latest version installed."
 msgstr "Você já possui a versão mais atual instalada."
 
 #. Resource IDs: (144)
-#, fuzzy
 msgid ""
 "You are creating a repository on a network share.\n"
 "This is safe, but once the repository is created you must access it by some other means.\n"
@@ -8592,21 +8590,20 @@ msgid ""
 "Create the repository anyway?"
 msgstr ""
 "Você está criando um repositório num compartilhamento de rede.\n"
-"Ist é seguro, mas uma vez o repositório criado, você deverá acessé-lo por outros meios.\n"
-"Acessar um repositório via file:/// em um compartilhamento de rede pode corromper seus dados!\n"
-"Criar mesmo assim?"
+"Isto é seguro, mas uma vez que o repositório seja criado, você deverá acessá-lo por outros meios.\n"
+"Acessar um repositório via file:// em um compartilhamento de rede pode corromper seus dados!\n"
+"Criar o repositório mesmo assim?"
 
 #. Resource IDs: (88)
-#, fuzzy
 msgid ""
 "You are trying to access a repository via file:// on\n"
 "a shared network drive.\n"
 "This could lead to severe repository corruption!\n"
 "Do you really want to do that?"
 msgstr ""
-"Você está tentando acessar um repositório usando file:///\n"
+"Você está tentando acessar um repositório usando file://\n"
 "em um compartilhamento de rede.\n"
-"Isso pode causar sérios danos ao repositório!\n"
+"Isso pode corromper repositório seriamente!\n"
 "Você deseja realmente fazer isso?"
 
 #. Resource IDs: (105)
@@ -9056,7 +9053,7 @@ msgstr "bloqueado:"
 #. Resource IDs: (65535)
 #, fuzzy
 msgid "max revision: "
-msgstr "Na revisão: %d"
+msgstr "revisão máxima: "
 
 #. Resource IDs: (11, 65535)
 msgid "merged"
@@ -9120,9 +9117,9 @@ msgid "offline"
 msgstr "desconectado"
 
 #. Resource IDs: (3845)
-#, fuzzy, c-format
+#, c-format
 msgid "on %1"
-msgstr "em %s"
+msgstr "em %1"
 
 #. Resource IDs: (601)
 msgid "online"
@@ -9178,7 +9175,6 @@ msgid "revision %s-%s, revision %s-%s"
 msgstr "revisão %s-%s, revisão %s-%s"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "revision count: "
 msgstr "Número de revisões:"
 
@@ -9229,9 +9225,17 @@ msgid ""
 "/\trelative to the server's hostname"
 msgstr ""
 "svn:externals\n"
-"Uma lista de especificadores de módulo separados por quebra de linha, cada qual consistindo de um caminho de diretório relativo, flags de revisão opcionais e uma URL. Por exemplo\n"
-"foo\t\thttp://exemplo.com.br/repos/zig\n"
-"foo/bar -r 1234\thttp://exemplo.com.br/repos/zag"
+"Uma lista de especificadores de módulo separados por quebra de linha, cada qual consistindo de\n"
+"uma revisão opcional, uma URL e um caminho de diretório relativo.Por examplo\n"
+"http://example.com/repos/zig\tfoo\n"
+"-r 1234\thttp://example.com/repos/zag\tfoo/bar\n"
+"\n"
+"As URLs podem ser completas ou relativas. O formato para\n"
+"URLs relativas é:\n"
+"../\trelativo ao diretório pái\n"
+"^/\trelativo à raiz do repositório\n"
+"//\trelativo ao esquema da URL\n"
+"/\trelativo ao hostname do servidor"
 
 #. Resource IDs: (576)
 msgid ""
@@ -9490,7 +9494,6 @@ msgid "yes"
 msgstr "Sim"
 
 #. Resource IDs: (1382)
-#, fuzzy
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
