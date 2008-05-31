@@ -55,3 +55,9 @@ typedef CComCritSecLock<CComAutoCriticalSection> AutoLocker;
 #ifndef THREAD_MODE_BACKGROUND_END
 #define THREAD_MODE_BACKGROUND_END 0x00020000
 #endif
+
+#ifdef _WIN64
+#	define APP_X64_STRING	"x64"
+#else
+#	define APP_X64_STRING ""
+#endif

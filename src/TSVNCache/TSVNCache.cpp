@@ -36,7 +36,7 @@
 
 #pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
 
-CCrashReport crasher("crashreports@tortoisesvn.tigris.org", "Crash Report for TSVNCache : " STRPRODUCTVER, TRUE);// crash
+CCrashReport crasher("crashreports@tortoisesvn.tigris.org", "Crash Report for TSVNCache " APP_X64_STRING " : " STRPRODUCTVER, TRUE);// crash
 
 DWORD WINAPI 		InstanceThread(LPVOID); 
 DWORD WINAPI		PipeThread(LPVOID);
