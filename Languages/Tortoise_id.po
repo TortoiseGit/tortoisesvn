@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-28 22:33+0700\n"
+"PO-Revision-Date: 2008-06-01 13:51+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -793,9 +793,8 @@ msgstr "&Ambil..."
 
 # Control-ID:1076,
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "&Lum:"
-msgstr "&URL:"
+msgstr "&Lum:"
 
 #. Resource IDs: (16543)
 msgid "&Menu animations:"
@@ -945,9 +944,8 @@ msgstr "Pesan Te&rbaru"
 
 # ID:376,
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "&Red:"
-msgstr "&Redo"
+msgstr "&Merah:"
 
 # ID:376,
 #. Resource IDs: (376)
@@ -1020,7 +1018,7 @@ msgstr "Klien &SSH:"
 
 #. Resource IDs: (65535)
 msgid "&Sat:"
-msgstr ""
+msgstr "&Sat:"
 
 # Control-ID:1308,
 #. Resource IDs: (57603)
@@ -1077,9 +1075,8 @@ msgid "&Specific revision in repository"
 msgstr "Revisi &spesifik dalam repositori"
 
 #. Resource IDs: (16917)
-#, fuzzy
 msgid "&Start Group"
-msgstr "&Status Bar"
+msgstr "Grup Awal"
 
 #. Resource IDs: (59393)
 msgid "&Status Bar"
@@ -1169,6 +1166,11 @@ msgstr "&TortoiseMerge"
 #. Resource IDs: (9)
 msgid "&TortoiseSVN"
 msgstr "&TortoiseSVN"
+
+# ID:7,
+#. Resource IDs: (1096)
+msgid "&TortoiseUDiff"
+msgstr "&TortoiseUDiff"
 
 #. Resource IDs: (3845)
 msgid "&Two Page"
@@ -2794,7 +2796,7 @@ msgstr "Lanjutkan"
 
 #. Resource IDs: (1001)
 msgid "Contract docked window"
-msgstr ""
+msgstr "Susutkan jendela terkait"
 
 # ID:376,
 #. Resource IDs: (376)
@@ -3603,7 +3605,7 @@ msgstr "Tipe Drive"
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
-msgstr ""
+msgstr "Salin tepat sumber"
 
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
@@ -3941,19 +3943,18 @@ msgstr "Berkas eksekusi (*.exe)|*.exe|Perintah (*.com)|*.com|Informasi (*.pdf)|*
 
 # ID:10,
 #. Resource IDs: (1002)
-#, fuzzy
 msgid "Existing"
-msgstr "hilang"
+msgstr "Sudah ada"
 
 # ID:79,
 #. Resource IDs: (1002)
-#, fuzzy, c-format
+#, c-format
 msgid "Expand (%s)"
-msgstr "Mengekspor %s"
+msgstr "Mengembangkan (%s)"
 
 #. Resource IDs: (1001)
 msgid "Expand docked window"
-msgstr ""
+msgstr "Kembangkan jendela terkait"
 
 # ID:209,
 #. Resource IDs: (209)
@@ -4052,15 +4053,13 @@ msgstr "Program Eksternal::Peninjau Unified Diff"
 
 # ID:74,
 #. Resource IDs: (226)
-#, fuzzy
 msgid "Externals excluded"
-msgstr "Eksternal"
+msgstr "Eksternal dikecualikan"
 
 # ID:74,
 #. Resource IDs: (226)
-#, fuzzy
 msgid "Externals included"
-msgstr "Eksternal"
+msgstr "Eksternal dimasukkan"
 
 # ID:74,
 #. Resource IDs: (74)
@@ -4348,7 +4347,7 @@ msgstr "Selesai!"
 
 #. Resource IDs: (32810)
 msgid "Fit image &sizes"
-msgstr ""
+msgstr "Mengepa&s ukuran gambar"
 
 # Control-ID:1315,
 #. Resource IDs: (1315)
@@ -4357,7 +4356,7 @@ msgstr "Floppy drive (A: B:)"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
-msgstr ""
+msgstr "Lipat &tags"
 
 # MenuEntry#:
 #. Resource IDs: (1002)
@@ -4452,7 +4451,7 @@ msgstr "Umum"
 
 #. Resource IDs: (195)
 msgid "General::Context Menu"
-msgstr ""
+msgstr "Umum::Menu Konteks"
 
 # Dlg-ID:196,
 #. Resource IDs: (196)
@@ -4616,7 +4615,7 @@ msgstr "Sembuny&ikan path yang diubah tidak terkait"
 
 #. Resource IDs: (65535)
 msgid "H&ue:"
-msgstr ""
+msgstr "Corak:"
 
 # Control-ID:1353,#:
 # Control-ID:1354,
@@ -4691,7 +4690,7 @@ msgstr "Naskah Hook"
 
 #. Resource IDs: (283)
 msgid "Hook Scripts::Issue Tracker Integration"
-msgstr ""
+msgstr "Naskah Hook::Integrasi Pelacak Isu"
 
 # ID:198,
 #. Resource IDs: (198)
@@ -5574,7 +5573,7 @@ msgstr "Revisi terendah: %ld - Revisi tertinggi: %ld - Revisi HEAD: %ld"
 
 #. Resource IDs: (16973)
 msgid "Lum"
-msgstr ""
+msgstr "Lum"
 
 # ID:3866,#:
 # ID:3866,
@@ -6990,6 +6989,21 @@ msgid ""
 "\\d\t\t\tdigits 0-9\n"
 "\\s\t\t\twhitespaces"
 msgstr ""
+"Saringan ekspresi regular:\n"
+".\t\t\tkarakter tany\n"
+"c+\t\t\tpencocokan karakter c sekali atau lebih\n"
+"c*\t\t\tpencocokan karakter c nol kali atau lebih\n"
+"^\t\t\tawal baris\n"
+"$\t\t\takhir baris\n"
+"(string){n}\tpencocokan string n kali\n"
+"(abcd)\t\tsubekspresi\n"
+"[aei0-9]\t\tpencocokan a,e,i dan 0..9\n"
+"[^aei0-9]\tapapun kecuali a,e,i dan 0..9\n"
+"<hr=100%>\n"
+"\\w\t\t\tpencocokan a-z,A-Z,0-9 dan _\n"
+"\\W\t\t\tsemua karakter non-alfanumerik\n"
+"\\d\t\t\tangka 0-9\n"
+"\\s\t\t\tspasi putih"
 
 #. Resource IDs: (1469)
 msgid "Reintegrate a branch"
@@ -8405,7 +8419,7 @@ msgstr ""
 
 #. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
 msgid "Spin1"
-msgstr ""
+msgstr "Spin1"
 
 #. Resource IDs: (376)
 msgid "Split lines"
@@ -8659,7 +8673,7 @@ msgstr "TORTOISEIDIFF"
 
 #. Resource IDs: (16970)
 msgid "Tab Placeholder"
-msgstr ""
+msgstr "Dudukan Tab"
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
@@ -9232,11 +9246,11 @@ msgstr "Properti ini harus tidak mempunyai multipel baris. Hanya satu baris yang
 
 #. Resource IDs: (1016)
 msgid "This will delete the record of commands you've used in this application and restore the default set of visible commands to the menus and toolbars. It will not undo any explicit customizations. Are you sure you want to do this?"
-msgstr ""
+msgstr "Ini akan menghapus rekaman perintah yang telah Anda gunakan di aplikasi ini dan menyembalikan set bawaan perintah yang nampak ke menu dan bilah Alat. Ini tidak akan membatalkan kustomisasi eksplisit. Apakah Anda yakin ingin melakukan ini?"
 
 #. Resource IDs: (16924)
 msgid "Tile &Horizontally"
-msgstr ""
+msgstr "Ubin secara &Horisontal"
 
 #. Resource IDs: (16928)
 #, fuzzy
@@ -9245,7 +9259,7 @@ msgstr "Atur &Vertikal"
 
 #. Resource IDs: (65535)
 msgid "Timeouts"
-msgstr ""
+msgstr "Habis waktu"
 
 # ID:224,
 #. Resource IDs: (224)
@@ -10093,16 +10107,21 @@ msgid ""
 "TSVN can switch to using cached data only.\n"
 "Select the default beviour here."
 msgstr ""
+"Saat tidak dapat terhubung ke peladen repositori,\n"
+"TSVN dapat beralih ke menggunakan data tembolok saja.\n"
+"Pilih perilaku bawaan di sini."
 
 #. Resource IDs: (197)
 msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
-msgstr ""
+msgstr "Saat dihidupkan, item berversi yang terdaftar di dialog komit dipilih secara otomatis."
 
 #. Resource IDs: (197)
 msgid ""
 "When locking one or more selected files, shows a dialog\n"
 "asking for a descriptive message about the locking"
 msgstr ""
+"Saat mengunci satu atau lebih berkas terpilih, menampilkan dialog\n"
+"yang menanyakan pesan deskriptif tentang penguncian itu"
 
 #. Resource IDs: (65535)
 #, fuzzy
@@ -10210,12 +10229,12 @@ msgstr ""
 #. Resource IDs: (1001)
 #, c-format
 msgid "You can paste bitmap with the size (%d x %d) only!"
-msgstr ""
+msgstr "Anda dapat menempelkan bitmap dengan ukuran (%d x %d) saja!"
 
 #. Resource IDs: (1016)
 #, c-format
 msgid "You can't create more than %d user-defined toolbars!"
-msgstr ""
+msgstr "Anda tidak dapat membuat lebih dari %d bilah alat yang ditentukan pengguna!"
 
 # ID:16,
 #. Resource IDs: (16)
@@ -10353,6 +10372,9 @@ msgid ""
 "If you branch/tag from the HEAD revision, your local changes won't\n"
 "show up in the branch/tag!"
 msgstr ""
+"Salinan pekerjaan Anda memiliki modifikasi lokal.\n"
+"Jika Anda membuat cabang/tag dari revisi HEAD, perubahan lokal Anda tidak\n"
+"akan tampil di cabang/tag itu!"
 
 #. Resource IDs: (32783)
 msgid "Zoo&m out"
@@ -10394,6 +10416,8 @@ msgid ""
 "Zoom In\n"
 "Zoom In"
 msgstr ""
+"Besarkan\n"
+"Besarkan"
 
 # ID:2051,
 #. Resource IDs: (3633)
@@ -10424,15 +10448,15 @@ msgstr "Zoom agar cukup"
 
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
-msgstr ""
+msgstr "[Tidak ditugaskan]"
 
 #. Resource IDs: (338)
 msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
-msgstr ""
+msgstr "\"Lompati rentang\" digunakan untuk menandai rentang-rentang revisi yang belum di tembolok"
 
 #. Resource IDs: (65535)
 msgid "_POPUP_"
-msgstr ""
+msgstr "_POPUP_"
 
 # ID:10,
 #. Resource IDs: (10)
@@ -10447,12 +10471,12 @@ msgstr "file ditambahkan"
 #. Resource IDs: (272)
 #, c-format
 msgid "alias (deleted): %s"
-msgstr ""
+msgstr "alias (dihapus): %s"
 
 #. Resource IDs: (272)
 #, c-format
 msgid "alias: %s"
-msgstr ""
+msgstr "alias: %s"
 
 # ID:3841,#:
 # ID:3841,
@@ -10473,13 +10497,15 @@ msgstr "dan mendukung para pengembang"
 
 #. Resource IDs: (583)
 msgid "another item already exists in its place."
-msgstr ""
+msgstr "item lain sudah ada di tempatnya."
 
 #. Resource IDs: (340)
 msgid ""
 "ask repository first if 'online' -\n"
 "work entirely from cache if 'offline'"
 msgstr ""
+"tanyakan repositori terlebih dahulu jika 'daring' -\n"
+"bekerja seluruhnya dari tembolok jika 'luring'"
 
 # ID:245,
 #. Resource IDs: (245)
@@ -10607,11 +10633,11 @@ msgstr "dihapus"
 
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
-msgstr ""
+msgstr "diska [kB]: "
 
 #. Resource IDs: (58116)
 msgid "dummy"
-msgstr ""
+msgstr "dummy"
 
 # ID:17,
 #. Resource IDs: (1342)
@@ -10680,7 +10706,7 @@ msgstr "benda yang dipertahankan secara lokal"
 
 #. Resource IDs: (65535)
 msgid "last head update: "
-msgstr ""
+msgstr "pemutakhiran head terakhir:"
 
 #. Resource IDs: (65535)
 msgid "last read: "
@@ -10806,11 +10832,11 @@ msgstr "atau"
 
 #. Resource IDs: (65535)
 msgid "pair tokens: "
-msgstr ""
+msgstr "tanda berpasangan:"
 
 #. Resource IDs: (65535)
 msgid "path elements: "
-msgstr ""
+msgstr "elemen-elemen path"
 
 # ID:116,
 #. Resource IDs: (65535)
@@ -10880,7 +10906,7 @@ msgstr "Revisi:"
 
 #. Resource IDs: (65535)
 msgid "skip ranges: "
-msgstr ""
+msgstr "rentang dilompati:"
 
 # ID:14,
 #. Resource IDs: (576)
@@ -10908,9 +10934,9 @@ msgstr ""
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of\n"
-"a relative directory path, optional revision flags, and an URL. For example\n"
-"foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"an optional revision, an URL and a relative directory path. For example\n"
+"http://example.com/repos/zig\tfoo\n"
+"-r 1234\thttp://example.com/repos/zag\tfoo/bar\n"
 "\n"
 "The URLs can either be full URLs or relative. The format for\n"
 "the relative URLs is:\n"
@@ -10960,6 +10986,11 @@ msgid ""
 "For example\n"
 "/trunk:123-125,129"
 msgstr ""
+"svn:mergeinfo\n"
+"Daftar info pelacakan penggabungan yang dipisahkan dengan baris baru. Setiap baris mengandung path\n"
+"absolut yang diikuti dengan sebuah titik koma dan daftar nomor revisi yang dipisahkan dengan koma.\n"
+"Contoh\n"
+"/trunk:123-125,129"
 
 # ID:14,
 #. Resource IDs: (576)
@@ -11009,11 +11040,11 @@ msgstr ""
 
 #. Resource IDs: (601)
 msgid "temp. offline"
-msgstr ""
+msgstr "luring sementara"
 
 #. Resource IDs: (65535)
 msgid "text [token count]: "
-msgstr ""
+msgstr "teks [jumlah tanda]:"
 
 # Control-ID:65535,
 #. Resource IDs: (583)
@@ -11044,6 +11075,10 @@ msgid ""
 "Format: <filemask> = property=value;property=value\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 msgstr ""
+"tsvn:autoprops\n"
+"Daftar properti yang dipisahkan dengan baris baru yang diterapkan secara otomatis saat menambah/mengimpor berkas.\n"
+"Format: <filemask> = properti=nilai;properti=nilai\n"
+"Contoh: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 # ID:15,
 #. Resource IDs: (578)
@@ -11079,6 +11114,8 @@ msgid ""
 "tsvn:logsummary\n"
 "A regex string which extracts a summary from a log message in its first group."
 msgstr ""
+"tsvn:logsummary\n"
+"String regex yang mengambil ringkasan dari pesan log dalam grup pertamanya."
 
 # ID:15,
 #. Resource IDs: (578)
@@ -11147,7 +11184,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
-msgstr ""
+msgstr "jumlah revprops pengguna:"
 
 # ID:563,
 #. Resource IDs: (563)
@@ -11187,11 +11224,11 @@ msgstr "minggu"
 
 #. Resource IDs: (65535)
 msgid "word tokens: "
-msgstr ""
+msgstr "tanda-tanda kata:"
 
 #. Resource IDs: (65535)
 msgid "words [uncompressed]: "
-msgstr ""
+msgstr "kata-kata [tidak dimampatkan]:"
 
 # ID:245,
 #. Resource IDs: (245)
