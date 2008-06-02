@@ -807,14 +807,7 @@ void CPicWindow::OnMouseWheel(short fwKeys, short zDelta)
 	else if (fwKeys & MK_SHIFT)
 	{
 		// shift means scrolling sideways
-		nHScrollPos -= zDelta;
-		if (nHScrollPos > width-rect.right+rect.left)
-			nHScrollPos = width-rect.right+rect.left;
-		if (nHScrollPos < 0)
-			nHScrollPos = 0;
-		SetupScrollBars();
-		PositionChildren();
-		InvalidateRect(*this, NULL, FALSE);
+		OnHScroll(SB_THUMBPOSITION, GetHPos()-zDelta);
 		if ((bLinkedPositions)&&(pTheOtherPic))
 		{
 			pTheOtherPic->OnHScroll(SB_THUMBPOSITION, pTheOtherPic->GetHPos()-zDelta);
@@ -832,14 +825,7 @@ void CPicWindow::OnMouseWheel(short fwKeys, short zDelta)
 	}
 	else
 	{
-		nVScrollPos -= zDelta;
-		if (nVScrollPos > (height-rect.bottom+rect.top))
-			nVScrollPos = height-rect.bottom+rect.top;
-		if (nVScrollPos < 0)
-			nVScrollPos = 0;
-		SetupScrollBars();
-		PositionChildren();
-		InvalidateRect(*this, NULL, FALSE);
+		OnVScroll(SB_THUMBPOSITION, GetVPos()-zDelta);
 		if ((bLinkedPositions)&&(pTheOtherPic))
 		{
 			pTheOtherPic->OnVScroll(SB_THUMBPOSITION, pTheOtherPic->GetVPos()-zDelta);
