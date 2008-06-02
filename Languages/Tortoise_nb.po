@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-30 11:04+0100\n"
+"PO-Revision-Date: 2008-06-02 10:12+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -383,11 +383,11 @@ msgstr "&Blå:"
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
-msgstr "&Utforsk depoet"
+msgstr "&Bla gjennom depoet"
 
 #. Resource IDs: (1011)
 msgid "&Browse..."
-msgstr "&Utforsk..."
+msgstr "&Bla gjennom..."
 
 #. Resource IDs: (16913)
 msgid "&Button Appearance..."
@@ -1019,6 +1019,10 @@ msgstr "&TortoiseMerge"
 msgid "&TortoiseSVN"
 msgstr "&TortoiseSVN"
 
+#. Resource IDs: (1096)
+msgid "&TortoiseUDiff"
+msgstr "&TortoiseUDiff"
+
 #. Resource IDs: (3845)
 msgid "&Two Page"
 msgstr "&Tosidig"
@@ -1098,7 +1102,7 @@ msgstr "(slettet) %s"
 
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
-msgstr "(Flere mål er valgt)"
+msgstr "(flere mål er valgt)"
 
 #. Resource IDs: (213)
 msgid "(no changelist)"
@@ -1157,7 +1161,7 @@ msgstr ": arbeidskopiens basis"
 
 #. Resource IDs: (151)
 msgid ": working copy"
-msgstr " : Arbeidskopi"
+msgstr " : arbeidskopi"
 
 #. Resource IDs: (332)
 msgid "< &Back"
@@ -1183,11 +1187,11 @@ msgid ""
 "to bring up the context menu where you will find all <b>TortoiseSVN</b> commands.\n"
 "And <u>read the manual!</u>"
 msgstr ""
-"<b>TortoiseSVN</b> ier en skallutvidelse.\n"
-"Det betyr at den er integrert inn i Windows-utforskeren.\n"
+"<b>TortoiseSVN</b> er en skallutvidelse.\n"
+"Det betyr at den er integrert i Windows-utforskeren.\n"
 "For å bruke <b>TortoiseSVN</b> åpner du utforskeren og høyreklikker på en mappe\n"
 "for å få opp en meny hvor du får tilgang til alle <b>TortoiseSVNs</b> kommandoer.\n"
-"Og <u>les manualen!</u> :-)"
+"Og <u>les manualen!</u>"
 
 #. Resource IDs: (16603)
 msgid "<descr>"
@@ -1199,7 +1203,7 @@ msgstr "<ny endringsliste>"
 
 #. Resource IDs: (32814)
 msgid "?"
-msgstr "&?"
+msgstr "?"
 
 #. Resource IDs: (579)
 msgid "A list of user defined properties for files to show in the combo box"
@@ -1207,7 +1211,7 @@ msgstr "En liste av brukerdefinerte egenskaper for filer som vises i komboboksen
 
 #. Resource IDs: (579)
 msgid "A list of user defined properties for folders to show in the combo box"
-msgstr "En liste av brukerdefinerte egenskaper for mapperr som vises i komboboksen"
+msgstr "En liste av brukerdefinerte egenskaper for mapper som vises i komboboksen"
 
 #. Resource IDs: (201)
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
@@ -1332,7 +1336,7 @@ msgstr "Legg til - TortoiseSVN"
 
 #. Resource IDs: (563)
 msgid "Add Properties"
-msgstr "Legg til egenskaper"
+msgstr "Legg til Egenskaper"
 
 #. Resource IDs: (110)
 msgid "Add extension specific diff program"
@@ -1364,7 +1368,7 @@ msgstr "Lagt til"
 
 #. Resource IDs: (126)
 msgid "Added a file remotely"
-msgstr "Lagt til fil eksternt"
+msgstr "La til en fil eksternt"
 
 #. Resource IDs: (126)
 msgid "Added a folder remotely"
@@ -1376,7 +1380,7 @@ msgstr "La til elementer eksternt"
 
 #. Resource IDs: (65535)
 msgid "Added node"
-msgstr "Lagt til node"
+msgstr "La til node"
 
 #. Resource IDs: (145)
 #, c-format
@@ -1385,7 +1389,7 @@ msgid ""
 "%s\n"
 "to the ignore list."
 msgstr ""
-"La til filen(e)\n"
+"La til filmønsteret(ne)\n"
 "%s\n"
 "i ignorerings-listen."
 
@@ -1403,7 +1407,7 @@ msgstr "Legger filen(e) under Subversion-kontroll"
 
 #. Resource IDs: (13)
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
-msgstr "Legger til valgt(e) fil(er) eller jokertegn i ignorerings-listen"
+msgstr "Legger til valgt(e) fil(er) eller filmønstre i ignorerings-listen"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -1594,7 +1598,7 @@ msgstr "Tilordnet til:"
 #. Resource IDs: (77)
 #, c-format
 msgid "At revision: %d"
-msgstr "Revisjon: %d"
+msgstr "Ved revisjon: %d"
 
 #. Resource IDs: (3843)
 msgid "Attempted an unsupported operation."
@@ -1621,7 +1625,7 @@ msgstr "Autentisering"
 
 #. Resource IDs: (1278)
 msgid "Authentication data"
-msgstr "Autentisering"
+msgstr "Autentiseringsdata"
 
 #. Resource IDs: (19, 76, 207)
 msgid "Author"
@@ -1697,7 +1701,7 @@ msgstr "&Sort Stil"
 
 #. Resource IDs: (1001)
 msgid "B&rowse..."
-msgstr "&Utforsk..."
+msgstr "&Bla gjennom..."
 
 #. Resource IDs: (1064)
 msgid "Back"
@@ -1745,7 +1749,7 @@ msgstr ""
 
 #. Resource IDs: (1003)
 msgid "Br&owse..."
-msgstr "&Utforsk..."
+msgstr "&Bla gjennom..."
 
 #. Resource IDs: (115)
 msgid "Branch / tag created successfully!"
@@ -1765,11 +1769,11 @@ msgstr "Bry&t sperring"
 
 #. Resource IDs: (1009)
 msgid "Bro&wse..."
-msgstr "&Utforsk..."
+msgstr "&Bla gjennom..."
 
 #. Resource IDs: (1007)
 msgid "Brows&e..."
-msgstr "&Utforsk..."
+msgstr "&Bla gjennom..."
 
 #. Resource IDs: (78)
 msgid "Browse for the external diff program"
@@ -1777,7 +1781,7 @@ msgstr "Bla gjennom etter eksternt diff-program"
 
 #. Resource IDs: (1069)
 msgid "Browse..."
-msgstr "Utforsk..."
+msgstr "Bla gjennom..."
 
 #. Resource IDs: (1119)
 msgid "Bug-&ID / Issue-Nr:"
