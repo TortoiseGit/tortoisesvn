@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-28 23:28+0900\n"
+"PO-Revision-Date: 2008-06-02 10:56+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -971,6 +971,10 @@ msgstr "&TortoiseMerge"
 #. Resource IDs: (9)
 msgid "&TortoiseSVN"
 msgstr "&TortoiseSVN"
+
+#. Resource IDs: (1096)
+msgid "&TortoiseUDiff"
+msgstr "&TortoiseUDiff"
 
 #. Resource IDs: (3845)
 msgid "&Two Page"
@@ -4573,7 +4577,7 @@ msgstr "ロック所持者:"
 #. Resource IDs: (213)
 #, c-format
 msgid "Lock stolen by %s"
-msgstr "%s にロックを奪われました"
+msgstr "%s にロックを横取りされました"
 
 #. Resource IDs: (263)
 #, c-format
@@ -4957,7 +4961,7 @@ msgstr "リモート操作による移動"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
-msgstr "元に戻す前にゴミ箱へ変更したファイルを移動する"
+msgstr "元に戻す前に変更したファイルをゴミ箱へ移動する"
 
 #. Resource IDs: (80)
 #, c-format
@@ -6753,11 +6757,11 @@ msgstr "バージョン管理外のファイルを表示する(&U)"
 
 #. Resource IDs: (1069)
 msgid "Show Above the Ribbon"
-msgstr "上にリボンを表示"
+msgstr "リボンの上に表示"
 
 #. Resource IDs: (1069)
 msgid "Show Below the Ribbon"
-msgstr "下にリボンを表示"
+msgstr "リボンの下に表示"
 
 #. Resource IDs: (1065)
 msgid "Show Fewer Buttons"
@@ -6992,7 +6996,7 @@ msgstr "スキップ"
 
 #. Resource IDs: (263)
 msgid "Skipped missing target"
-msgstr "ターゲットが見つからないのでスキップします"
+msgstr "ターゲットが見つからないのでスキップ"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -7026,7 +7030,7 @@ msgid ""
 "Split the active window into panes\n"
 "Split"
 msgstr ""
-"アクティブなウィンドウを区画に分割する\n"
+"アクティブなウィンドウを分割する\n"
 "分割"
 
 #. Resource IDs: (246)
@@ -7079,7 +7083,7 @@ msgstr "状態のキャッシュ"
 
 #. Resource IDs: (196)
 msgid "Status cache kept in an external process, can show the overlay recursively"
-msgstr "状態のキャッシュが外部プロセスで保持されいる場合、再帰的なオーバーレイが遅くなるかもしれません"
+msgstr "外部プロセスで保持している状態キャッシュは再帰的にオーバーレイすることができます"
 
 #. Resource IDs: (196)
 msgid "Status cache only for one folder, no recursive overlays"
@@ -7158,8 +7162,8 @@ msgid ""
 "Switch back to the previous window pane\n"
 "Previous Pane"
 msgstr ""
-"前のウィンドウ区画に切り替える\n"
-"前の区画"
+"以前のウィンドウ区画に切り替える\n"
+"以前の区画"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -7396,7 +7400,7 @@ msgid ""
 "Either this is not a diff file or the diff is empty."
 msgstr ""
 "行 \"Index: \" は見つかりませんでした！\n"
-"差分ファイルではないか、違いが存在しないかのどちらかです。"
+"差分ファイルではないか、差分が存在しないかのどちらかです。"
 
 #. Resource IDs: (63)
 #, c-format
@@ -7426,7 +7430,7 @@ msgid ""
 "Renaming of files is not (yet) supported!"
 msgstr ""
 "古いファイルは新しいファイルとマッチしません。\n"
-"ファイルの名前を変更する機能は（まだ）未サポートです！"
+"ファイルの名前を変更する機能は（まだ）サポートしていません！"
 
 #. Resource IDs: (220)
 msgid "The operation failed."
@@ -7437,7 +7441,7 @@ msgid ""
 "The parameters '/path' and '/pathfile' are mutually exclusive.\n"
 "You must only specify one of them."
 msgstr ""
-"パラメーターの '/path' と '/pathfile' は相互排除されます。\n"
+"パラメーターの '/path' と '/pathfile' は排他的に使用します。\n"
 "これらのどれかひとつだけを指定してください。"
 
 #. Resource IDs: (64)
@@ -7449,11 +7453,11 @@ msgid ""
 "%s\n"
 "do not match!"
 msgstr ""
-"パッチは古すぎると思われます！ファイル内の行\n"
+"パッチは古いと思われます！ファイル内の行\n"
 "%s\n"
 "とパッチ内の行\n"
 "%s\n"
-"はマッチしません！"
+"は一致しません！"
 
 #. Resource IDs: (88)
 msgid ""
@@ -7488,7 +7492,7 @@ msgstr ""
 "パッチファイル内のパス\n"
 "<i>%s</i>\n"
 "は存在しません。\n"
-"TortoiseMerge はパッチを適用するパスとして\n"
+"TortoiseMerge はパッチを適用する相対パスとして\n"
 "<i>%s</i>\n"
 "がより適合している判断しました。\n"
 "\n"
@@ -7505,7 +7509,7 @@ msgstr ""
 "パッチファイル内のパス\n"
 "<i>%s</i>\n"
 "は存在しません。\n"
-"TortoiseMerge はパスの先頭部分を取り除いてパッチを適用しようとしましたが、一致するパスが見つけられませんでした。"
+"TortoiseMerge はパスの先頭部分を取り除いてパッチを適用しようとしましたが、一致するパスは見つけられませんでした。"
 
 #. Resource IDs: (314)
 #, c-format
@@ -7522,7 +7526,7 @@ msgstr ""
 "はパスファイル内のものと一致していないようです。\n"
 "しかし、TortoiseMerge は\n"
 "<i>%s</i>\n"
-"のパスがより適合している判断しました。こちらのパスを変わりに利用しますか？"
+"のパスがより適合している判断しました。こちらのパスを代わりに利用しますか？"
 
 #. Resource IDs: (80)
 msgid "The repository was successfully created."
@@ -7657,7 +7661,7 @@ msgstr ""
 "サーバーに接続する際に問題が発生しました。\n"
 "代わりにキャッシュされているデータを利用しますか？\n"
 "\n"
-"キャッシュされているデータは古くて不完全、もしくは、履歴が\n"
+"キャッシュされているデータが古い、不完全、もしくは、履歴が\n"
 "不完全なために誤解を招く可能性があることをご理解ください。"
 
 #. Resource IDs: (82)
@@ -7666,7 +7670,7 @@ msgstr "追加するものが何もありません。全てのファイルとフ
 
 #. Resource IDs: (83)
 msgid "There's nothing to unlock. No file has a lock in this working copy."
-msgstr "ロックを解除するものが何もありません。この作業コピー内にはロックされているファイルはありません。"
+msgstr "ロックを解除するものがありません。この作業コピー内にはロックされているファイルはありません。"
 
 #. Resource IDs: (188)
 msgid "Thesaurus"
@@ -7687,7 +7691,7 @@ msgid ""
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
 "これは有効なパスではありません！\n"
-"Windowsで有効なパスには、 '<<>|\"?*:' の文字や、次に示すデバイス名のどれかを含んではいけません:\n"
+"Windowsで有効なパスには、 '<<>|\"?*:' の文字や、次に示すデバイス名のどれかを含めることはできません:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #. Resource IDs: (594)
@@ -7704,16 +7708,16 @@ msgstr "この方法は、異なる2つの分岐間の差分を作業コピー�
 
 #. Resource IDs: (65535)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
-msgstr "本製品は、CollabNet (http://www.Collab.Net/) で開発されたソフトウェアを含んでいます。"
+msgstr "本製品は、CollabNet (http://www.Collab.Net/) で開発されたソフトウェアを含んでいます"
 
 #. Resource IDs: (65535)
 msgid "This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/)"
-msgstr "本製品は、OpenSSL プロジェクト(http://www.openssl.org/) で開発された OpenSSL ツールキットを含んでいます。"
+msgstr "本製品は、OpenSSL プロジェクト(http://www.openssl.org/) で開発された OpenSSL ツールキットを含んでいます"
 
 #. Resource IDs: (3857)
 #, c-format
 msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
-msgstr "このプログラムは %s （ファイル %s）へリンクされています。 この計算機は %s とは互換性のないバージョンの可能性があります。"
+msgstr "このプログラムは不明な %s （ファイル %s）へリンクされています。 この計算機は %s とは互換性のないバージョンの可能性があります。"
 
 #. Resource IDs: (3857)
 #, c-format
@@ -7755,8 +7759,8 @@ msgstr ""
 "このエラーを回避して再帰的にコミットを行うためには、\n"
 "チェックされているフォルダに含まれる全ての項目も、\n"
 "コミットダイアログでチェックしてください。\n"
-"そうでない場合は、TortoiseSVN は非再帰的にコミットを行い、\n"
-"ディレクトリの削除を行うことはできません。"
+"そうでない場合は、ディレクトリの削除を行うことができない\n"
+"非再帰的なコミットをTortoiseSVN は実行します。"
 
 #. Resource IDs: (284)
 msgid ""
@@ -7764,7 +7768,7 @@ msgid ""
 "This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 msgstr ""
 "ロックを横取りするために、この項目の親フォルダ上で右クリックし、コンテキストメニューから \"ロックを取得\" を選択してください。\n"
-"これにより、ロックを実行する所でロックダイアログが表示されます（例えば、現在ロックを保持している人からロックを '横取り' など）。"
+"これにより、ロックを実行する際にロックダイアログが表示されます（例えば、現在ロックを保持している人からロックを '横取り' など）。"
 
 #. Resource IDs: (1201, 65535)
 msgid "To:"
@@ -7923,11 +7927,11 @@ msgstr ""
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
-msgstr "解析を行った総コミット数:"
+msgstr "解析を行ったコミット数:"
 
 #. Resource IDs: (1163)
 msgid "Total file changes:"
-msgstr "総変更ファイル数:"
+msgstr "変更ファイル数:"
 
 #. Resource IDs: (339)
 msgid "Total number of changes over all cached revisions"
@@ -8012,7 +8016,7 @@ msgstr "メールシステムサポートをロードできません。"
 
 #. Resource IDs: (3865)
 msgid "Unable to process command, server busy."
-msgstr "コマンドを処理することができません。サーバーはビジー状態です。"
+msgstr "コマンドを処理することができません。サーバーがビジー状態です。"
 
 #. Resource IDs: (3859)
 #, c-format
@@ -8221,7 +8225,7 @@ msgid ""
 "Use all content from the left view\n"
 "Use left file"
 msgstr ""
-"左側のビューの全てのコンテンツを利用する\n"
+"左ビューの全てのコンテンツを利用する\n"
 "左側のファイルを利用"
 
 #. Resource IDs: (32857)
@@ -8337,7 +8341,7 @@ msgid ""
 "Use text block from the left view\n"
 "Use left block"
 msgstr ""
-"左側のビューのテキストブロックを利用する\n"
+"左ビューのテキストブロックを利用する\n"
 "左側のブロックを利用"
 
 #. Resource IDs: (251)
