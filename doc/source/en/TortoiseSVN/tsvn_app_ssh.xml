@@ -183,7 +183,7 @@ cat keyfile.pub &gt;&gt; /home/svnuser/.ssh/authorized_keys
 			save the session as <literal>SvnConnection</literal> or whatever
 			name you prefer. On the <guilabel>SSH</guilabel> tab set the
 			preferred SSH protocol version to 2 and from <guilabel>Auth</guilabel>
-			set the full path to the <literal>.PKK</literal> private key file you
+			set the full path to the <literal>.PPK</literal> private key file you
 			converted earlier.
 			Go back to the <guilabel>Sessions</guilabel> tab and hit the
 			<guilabel>Save</guilabel> button. You will now see
