@@ -138,6 +138,9 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 		}
 		::DestroyWindow(m_hwnd);
 		break;
+	case WM_SETFOCUS:
+		SetFocus(m_hWndEdit);
+		break;
 	case COMMITMONITOR_FINDMSGNEXT:
 		{
 			SendEditor(SCI_CHARRIGHT);
