@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-01 23:58+0100\n"
+"PO-Revision-Date: 2008-06-02 14:36+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -277,7 +277,7 @@ msgstr "&Rozširené..."
 
 #. Resource IDs: (1471)
 msgid "&Allow ambiguous URLs"
-msgstr "Povoliť nejednoznačné URL"
+msgstr "&Povoliť nejednoznačné URL"
 
 #. Resource IDs: (65535)
 msgid "&Application Look"
@@ -373,7 +373,7 @@ msgstr "&Kategória:"
 
 #. Resource IDs: (65535)
 msgid "&Choose commands from:"
-msgstr ""
+msgstr "&Vybrať príkaz z:"
 
 #. Resource IDs: (8)
 msgid "&Clean up"
@@ -637,7 +637,7 @@ msgstr "&Importovať"
 
 #. Resource IDs: (65535)
 msgid "&Initial directory:"
-msgstr ""
+msgstr "&Počiatočný adresár:"
 
 #. Resource IDs: (32825)
 msgid "&Inline diff word-wise"
@@ -674,7 +674,7 @@ msgstr "&Načítaj..."
 
 #. Resource IDs: (65535)
 msgid "&Lum:"
-msgstr ""
+msgstr "&Jas:"
 
 #. Resource IDs: (16543)
 msgid "&Menu animations:"
@@ -682,7 +682,7 @@ msgstr "Animácie &menu:"
 
 #. Resource IDs: (16921)
 msgid "&Menu contents:"
-msgstr ""
+msgstr "Obsah &menu:"
 
 #. Resource IDs: (1)
 msgid "&Merge"
@@ -835,7 +835,7 @@ msgstr "&Pradnastaviť lištu"
 
 #. Resource IDs: (16657)
 msgid "&Reset my usage data"
-msgstr ""
+msgstr "&Vynulovať data o používaní"
 
 #. Resource IDs: (16910)
 msgid "&Reset to Default"
@@ -855,7 +855,7 @@ msgstr "&SSH klient:"
 
 #. Resource IDs: (65535)
 msgid "&Sat:"
-msgstr ""
+msgstr "&Sat.:"
 
 #. Resource IDs: (57603)
 msgid "&Save"
@@ -887,7 +887,7 @@ msgstr "&Zobraziť hlavné revízie"
 
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
-msgstr ""
+msgstr "&Zobraziť menu pre:"
 
 #. Resource IDs: (16612)
 msgid "&Show text labels"
@@ -1169,11 +1169,11 @@ msgstr "?"
 
 #. Resource IDs: (579)
 msgid "A list of user defined properties for files to show in the combo box"
-msgstr ""
+msgstr "Zoznam užívateľských vlastností súborov v rolovacích menu"
 
 #. Resource IDs: (579)
 msgid "A list of user defined properties for folders to show in the combo box"
-msgstr ""
+msgstr "Zoznam užívateľských vlastností adresárovv v rolovacích menu"
 
 #. Resource IDs: (201)
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
@@ -1314,7 +1314,7 @@ msgstr "Pridaj do zoznamu &ignorovaných"
 
 #. Resource IDs: (1068)
 msgid "Add to Quick Access Toolbar"
-msgstr ""
+msgstr "Pridač"
 
 #. Resource IDs: (209, 1279)
 msgid "Add..."
@@ -1500,7 +1500,7 @@ msgstr "Bol nájdený neznámy typ riadku %d !"
 
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
-msgstr ""
+msgstr "Rámcové menu aplikácie"
 
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
@@ -2659,6 +2659,8 @@ msgid ""
 "Creates a patch file from the differences of the two files\n"
 "Create patch file"
 msgstr ""
+"Vyvorí yáplatu z rozdielu dvoch súborov\n"
+"Vytvoriť súbor záplaty"
 
 #. Resource IDs: (10)
 msgid "Creates a repository database at the current location"
@@ -2743,7 +2745,7 @@ msgstr "Predvolená URL:"
 
 #. Resource IDs: (1007)
 msgid "Default application menu. Appears when no documents are open."
-msgstr ""
+msgstr "Predvolené menu aplikácie. Zobrazuje sa keď nie je otvorený žiaden dokument."
 
 #. Resource IDs: (65535)
 msgid "Default path:"
@@ -3389,7 +3391,7 @@ msgstr "Vytváranie prázdneho dokumentu zlyhalo."
 
 #. Resource IDs: (3865)
 msgid "Failed to create object.  Make sure the application is entered in the system registry."
-msgstr ""
+msgstr "Objekt nebolo možné vytvoriť.  Uistite sa, že sa aplikácia nachádza v registroch systému."
 
 #. Resource IDs: (3857)
 msgid "Failed to launch help."
@@ -3422,6 +3424,8 @@ msgid ""
 "Failed to start the issue tracker COM provider \"%s\".\n"
 "%s"
 msgstr ""
+"Nepodarilo sa spustiť poskytovateľa COM pre sledovanie prípadov \"%s\".\n"
+"%s"
 
 #. Resource IDs: (220)
 msgid "Failed!"
@@ -3829,7 +3833,7 @@ msgstr "&Skry zmeny na neprislúchajúcich cestách"
 
 #. Resource IDs: (65535)
 msgid "H&ue:"
-msgstr ""
+msgstr "&Odt.:"
 
 #. Resource IDs: (1353, 1354)
 msgid "HEAD"
@@ -4570,7 +4574,7 @@ msgstr "Zoznam úložísk pre, ktoré bol denník uložení do zásobníka"
 
 #. Resource IDs: (16631, 16992)
 msgid "List1"
-msgstr ""
+msgstr "Zoznam1"
 
 #. Resource IDs: (130)
 msgid "Load Images"
@@ -4692,7 +4696,7 @@ msgstr "Najnižšia zobrazená revízia: %ld - Najvyššia zobrazená revízia: 
 
 #. Resource IDs: (16973)
 msgid "Lum"
-msgstr ""
+msgstr "Jas"
 
 #. Resource IDs: (3866)
 msgid "Mail system DLL is invalid."
@@ -5011,7 +5015,7 @@ msgstr "Presunuté vzdialene"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
-msgstr ""
+msgstr "Presunie zmenené súbory do koša pred vrátením zmien."
 
 #. Resource IDs: (80)
 #, c-format
@@ -5036,11 +5040,11 @@ msgstr "NUM"
 
 #. Resource IDs: (17004)
 msgid "Navigation Pane Options"
-msgstr ""
+msgstr "Nastavenia navigačného panela"
 
 #. Resource IDs: (1065)
 msgid "Navigation Pane Options..."
-msgstr ""
+msgstr "Nastavenia navigačného panela..."
 
 #. Resource IDs: (208)
 msgid "Needs lock"
@@ -5392,7 +5396,7 @@ msgstr "Pôvodná &veľkosť"
 
 #. Resource IDs: (1065)
 msgid "Other Task Panes"
-msgstr ""
+msgstr "Ostatné panely úloh"
 
 #. Resource IDs: (245)
 msgid "Others"
@@ -5502,7 +5506,7 @@ msgstr ""
 
 #. Resource IDs: (16538)
 msgid "Personalized Menus and Toolbars"
-msgstr ""
+msgstr "Prispôsobené menu a nástrojové lišty"
 
 #. Resource IDs: (3849)
 msgid ""
@@ -6887,7 +6891,7 @@ msgstr "Zobraziť vylúčené adresáre ako normálne"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
-msgstr ""
+msgstr "Po chvíľke zobraziť &celé menu "
 
 #. Resource IDs: (1264)
 msgid "Show ignored files"
@@ -7799,7 +7803,7 @@ msgstr "Táto vlastnoť nesmie mať viac riadkov. Iba jeden riadok je povolený.
 
 #. Resource IDs: (1016)
 msgid "This will delete the record of commands you've used in this application and restore the default set of visible commands to the menus and toolbars. It will not undo any explicit customizations. Are you sure you want to do this?"
-msgstr ""
+msgstr "Toto vzmaže záznam o použitých príkazoch v aplikácií a obnový predvolené viditeľné príkazy na lište. Nevráti to žiadne prispôsobenie. Ste si istý, že to chete?"
 
 #. Resource IDs: (16924)
 msgid "Tile &Horizontally"
@@ -7849,6 +7853,8 @@ msgid ""
 "Toggle One/Two Pages display\n"
 "Toggle One/Two Pages display"
 msgstr ""
+"Prepnúť medzi jedno/dvojpanelovým zobrzením\n"
+"Jeden/dva panely"
 
 #. Resource IDs: (65535)
 msgid "Toolbar"
@@ -7864,7 +7870,7 @@ msgstr "Nastavenia lišty"
 
 #. Resource IDs: (1001)
 msgid "Toolbar internal error. Please contact your application vendor."
-msgstr ""
+msgstr "Interní chyba lišty. Prosím kontaktuje všeho dodavateľa aplikácie."
 
 #. Resource IDs: (16105)
 msgid "Toolbars"
@@ -8776,11 +8782,11 @@ msgstr "Vz&dialiť"
 
 #. Resource IDs: (1069)
 msgid "Zoom"
-msgstr "Priblížiť"
+msgstr "Lupa"
 
 #. Resource IDs: (58117)
 msgid "Zoom &In"
-msgstr "Hľadať v prekladoch"
+msgstr "&Priblížiť"
 
 #. Resource IDs: (58118)
 msgid "Zoom &Out"
@@ -8788,11 +8794,11 @@ msgstr "&Vzdialiť"
 
 #. Resource IDs: (32772)
 msgid "Zoom &in\tCtrl-+"
-msgstr "Zväčš&iť\tCtrl-+"
+msgstr "Pri&blížiť\tCtrl-+"
 
 #. Resource IDs: (32773)
 msgid "Zoom &out\tCtrl--"
-msgstr "Zme&nšiť\tCtrl--"
+msgstr "Vz&dialiť\tCtrl--"
 
 #. Resource IDs: (2051)
 #, c-format
