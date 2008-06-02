@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-01 20:41+0200\n"
+"PO-Revision-Date: 2008-06-02 19:40+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -858,6 +858,10 @@ msgstr "&Нулиране на данни за използването"
 #. Resource IDs: (16910)
 msgid "&Reset to Default"
 msgstr "&Нулиране"
+
+#. Resource IDs: (114)
+msgid "&Revert changes from these revisions"
+msgstr "&Отменяне на промените от тези ревизии"
 
 #. Resource IDs: (113)
 msgid "&Revert changes from this revision"
@@ -1745,14 +1749,6 @@ msgstr "Разклонение / &Етикет..."
 msgid "Break loc&k"
 msgstr "Разбиване на &заключване"
 
-#. Resource IDs: (1009)
-msgid "Bro&wse..."
-msgstr "Изб&ор..."
-
-#. Resource IDs: (1007)
-msgid "Brows&e..."
-msgstr "Избо&р..."
-
 #. Resource IDs: (78)
 msgid "Browse for the external diff program"
 msgstr "Избор на външна програма за сравняване"
@@ -1780,6 +1776,10 @@ msgstr "Външен вид на бутоните"
 #. Resource IDs: (1215)
 msgid "C&heck now"
 msgstr "&Незабавна проверка"
+
+#. Resource IDs: (1132)
+msgid "C&heck repository"
+msgstr "&Проверка в хранилището"
 
 #. Resource IDs: (65535)
 msgid "C&ommands:"
@@ -1962,10 +1962,6 @@ msgstr "Проверка за промени"
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
 msgstr "Изписване на работно копие от хранилище"
-
-#. Resource IDs: (1132)
-msgid "Check repository"
-msgstr "Проверка в хранилището"
 
 #. Resource IDs: (95)
 msgid ""
@@ -3001,6 +2997,10 @@ msgstr "Тип устройства"
 msgid "E&xact copy sources"
 msgstr "&Точни източници на копиране"
 
+#. Resource IDs: (65535)
+msgid "E&xclude paths:"
+msgstr "Пътища за &изключване:"
+
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
 msgstr "&Изход"
@@ -3253,10 +3253,6 @@ msgstr ""
 #. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "Изключения:"
-
-#. Resource IDs: (65535)
-msgid "Exclude paths:"
-msgstr "Пътища за изключване:"
 
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
@@ -3685,7 +3681,7 @@ msgstr "Общи::Диалогови прозорци 1"
 
 #. Resource IDs: (213)
 msgid "General::Dialogs 2"
-msgstr "Общи::Диалогови прозорци 1"
+msgstr "Общи::Диалогови прозорци 2"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
@@ -3894,6 +3890,10 @@ msgstr "Тип на кука:"
 #, c-format
 msgid "Hostname mismatch (%s)"
 msgstr "Разминаване в името на хост (%s)"
+
+#. Resource IDs: (65535)
+msgid "I&nclude paths:"
+msgstr "Пътища за &включване:"
 
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
@@ -4275,10 +4275,6 @@ msgstr "Включване на слетите ревизии"
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
 msgstr "Включване само на следния обхват от ревизии:"
-
-#. Resource IDs: (65535)
-msgid "Include paths:"
-msgstr "Пътища за включване:"
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -6192,10 +6188,6 @@ msgstr "Отменяне"
 msgid "Revert - TortoiseSVN"
 msgstr "Отмяна - TortoiseSVN"
 
-#. Resource IDs: (114)
-msgid "Revert changes from these revisions"
-msgstr "Отменяне на промените от тези ревизии"
-
 #. Resource IDs: (73)
 msgid "Reverted"
 msgstr "Отменен"
@@ -6775,6 +6767,10 @@ msgstr "&Дневник..."
 msgid "Show &overlays and context menu only in explorer"
 msgstr "&Модификации на иконките и контекстно меню - само в Windows Explorer"
 
+#. Resource IDs: (1265)
+msgid "Show &properties"
+msgstr "&Свойства"
+
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
 msgstr "Показване на &неконтролираните файлове"
@@ -6852,8 +6848,8 @@ msgid "Show f&ull menus after a short delay"
 msgstr "&Пълно меню след кратко забавяне"
 
 #. Resource IDs: (1264)
-msgid "Show ignored files"
-msgstr "Показване на игнорираните файлове"
+msgid "Show i&gnored files"
+msgstr "Показване на &игнорираните файлове"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
@@ -6903,10 +6899,6 @@ msgstr "Модификация на иконките за игнорирани �
 msgid "Show overlay for unversioned items"
 msgstr "Модификация на иконките за неконтролирани обекти"
 
-#. Resource IDs: (1265)
-msgid "Show properties"
-msgstr "Свойства"
-
 #. Resource IDs: (102)
 msgid "Show revision properties"
 msgstr "Показване на свойствата на ревизията"
@@ -6932,12 +6924,12 @@ msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Показване на етикетите при източниците на копиране, а не като самостоятелни възли"
 
 #. Resource IDs: (1209)
-msgid "Show unmodified files"
-msgstr "Показване на непроменените файлове"
+msgid "Show un&modified files"
+msgstr "Показване на &непроменените файлове"
 
 #. Resource IDs: (1073)
-msgid "Show unversioned files"
-msgstr "Показване на неконтролираните файлове"
+msgid "Show un&versioned files"
+msgstr "Показване на &неконтролираните файлове"
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -8236,8 +8228,8 @@ msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Използване на URL на &работното копие за \"От:\" URL по подразбиране"
 
 #. Resource IDs: (1064)
-msgid "Use Unified Diff from clipboard"
-msgstr "Използване на Unified Diff от системния буфер"
+msgid "Use Unified Diff from &clipboard"
+msgstr "Използване на Unified Diff от системния &буфер"
 
 #. Resource IDs: (1296)
 msgid "Use \"_svn\" instead of \".svn\" directories"
@@ -9469,6 +9461,10 @@ msgstr "да"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Bro&wse..."
+#~ msgstr "Изб&ор..."
+#~ msgid "Brows&e..."
+#~ msgstr "Избо&р..."
 #~ msgid "Force blame"
 #~ msgstr "Принудително получаване на авторство"
 
