@@ -27,8 +27,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-29 21:25+0100\n"
-"Last-Translator: Jean-Marc van Leerdam <jeanmarc@bemy.demon.nl>\n"
+"PO-Revision-Date: 2008-06-02 22:58+0200\n"
+"Last-Translator: Bob Hulst <bob.hulst@hiq.fi>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -834,6 +834,10 @@ msgstr "&Wis mijn gebruiksdata"
 msgid "&Reset to Default"
 msgstr "&Standaard herstellen"
 
+#. Resource IDs: (114)
+msgid "&Revert changes from these revisions"
+msgstr "&Wijzigingen uit deze revisies ongedaan maken"
+
 #. Resource IDs: (113)
 msgid "&Revert changes from this revision"
 msgstr "&Revisie wijzigingen ongedaan maken"
@@ -973,6 +977,10 @@ msgstr "&TortoiseMerge"
 #. Resource IDs: (9)
 msgid "&TortoiseSVN"
 msgstr "&TortoiseSVN"
+
+#. Resource IDs: (1096)
+msgid "&TortoiseUDiff"
+msgstr "&TortoiseUDiff"
 
 #. Resource IDs: (3845)
 msgid "&Two Page"
@@ -1717,14 +1725,6 @@ msgstr "Maak Tak/&label..."
 msgid "Break loc&k"
 msgstr "&Verbreek blokkade"
 
-#. Resource IDs: (1009)
-msgid "Bro&wse..."
-msgstr "Bla&deren..."
-
-#. Resource IDs: (1007)
-msgid "Brows&e..."
-msgstr "Blad&eren..."
-
 #. Resource IDs: (78)
 msgid "Browse for the external diff program"
 msgstr "Zoeken naar de externe Diff-applicatie"
@@ -1752,6 +1752,10 @@ msgstr "Knopweergave"
 #. Resource IDs: (1215)
 msgid "C&heck now"
 msgstr "Nu &controleren"
+
+#. Resource IDs: (1132)
+msgid "C&heck repository"
+msgstr "C&ontroleer archief"
 
 #. Resource IDs: (65535)
 msgid "C&ommands:"
@@ -1933,10 +1937,6 @@ msgstr "Kijk of er updates zijn"
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
 msgstr "Haal een werkkopie op uit een archief"
-
-#. Resource IDs: (1132)
-msgid "Check repository"
-msgstr "Controleer archief"
 
 #. Resource IDs: (95)
 msgid ""
@@ -2950,7 +2950,7 @@ msgid ""
 msgstr ""
 "Documentatie: Simon Large\n"
 "Code: Tobias Schäfer, Stefan Fuhrmann\n"
-"Nederlandse vertaling: Jean-Marc van Leerdam"
+"Nederlandse vertaling: Jean-Marc van Leerdam, Bob Hulst"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -2971,6 +2971,10 @@ msgstr "Type station"
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
 msgstr "E&xacte kopie bronnen"
+
+#. Resource IDs: (65535)
+msgid "E&xclude paths:"
+msgstr "E&xclusief zoekpaden:"
 
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
@@ -3226,10 +3230,6 @@ msgstr ""
 #. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "Uitzonderingen:"
-
-#. Resource IDs: (65535)
-msgid "Exclude paths:"
-msgstr "Te negeren paden:"
 
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
@@ -3870,6 +3870,10 @@ msgstr "Soort hook:"
 msgid "Hostname mismatch (%s)"
 msgstr "Verschil in hostnamen (%s)"
 
+#. Resource IDs: (65535)
+msgid "I&nclude paths:"
+msgstr "I&nclusief zoekpaden:"
+
 #. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
@@ -4237,10 +4241,6 @@ msgstr "Samengevoegde revisies meenemen"
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
 msgstr "Alleen het volgende revisiebereik gebruiken:"
-
-#. Resource IDs: (65535)
-msgid "Include paths:"
-msgstr "Op te nemen paden:"
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -6153,10 +6153,6 @@ msgstr "Ongedaan maken"
 msgid "Revert - TortoiseSVN"
 msgstr "Maak ongedaan - TortoiseSVN"
 
-#. Resource IDs: (114)
-msgid "Revert changes from these revisions"
-msgstr "Wijzigingen uit deze revisies ongedaan maken"
-
 #. Resource IDs: (73)
 msgid "Reverted"
 msgstr "Ongedaan gemaakt"
@@ -6736,6 +6732,10 @@ msgstr "Toon &logboek..."
 msgid "Show &overlays and context menu only in explorer"
 msgstr "Toon &overlays en contextmenu alleen in verkenner"
 
+#. Resource IDs: (1265)
+msgid "Show &properties"
+msgstr "&Toon eigenschappen"
+
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
 msgstr "Toon bestanden &zonder versiebeheer"
@@ -6813,8 +6813,8 @@ msgid "Show f&ull menus after a short delay"
 msgstr "Toon &gehele menu na korte tijd"
 
 #. Resource IDs: (1264)
-msgid "Show ignored files"
-msgstr "Toon genegeerde bestanden"
+msgid "Show i&gnored files"
+msgstr "Toon &genegeerde bestanden"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
@@ -6864,10 +6864,6 @@ msgstr "Toon overlay bij genegeerde bestanden"
 msgid "Show overlay for unversioned items"
 msgstr "Toon overlay bij bestanden zonder versiebeheer"
 
-#. Resource IDs: (1265)
-msgid "Show properties"
-msgstr "Toon eigenschappen"
-
 #. Resource IDs: (102)
 msgid "Show revision properties"
 msgstr "Toon revisie-eigenschappen"
@@ -6893,12 +6889,12 @@ msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Toon labels op de bron van de kopie en niet als apart knooppunt"
 
 #. Resource IDs: (1209)
-msgid "Show unmodified files"
-msgstr "Toon ongewijzigde bestanden"
+msgid "Show un&modified files"
+msgstr "Toon on&gewijzigde bestanden"
 
 #. Resource IDs: (1073)
-msgid "Show unversioned files"
-msgstr "Toon bestanden zonder versiebeheer"
+msgid "Show un&versioned files"
+msgstr "Toon bestanden &zonder versiebeheer"
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -8202,8 +8198,8 @@ msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Gebruik URL van &werkkopie als standaard \"Van:\" URL"
 
 #. Resource IDs: (1064)
-msgid "Use Unified Diff from clipboard"
-msgstr "Gebruik unified-diff van klembord"
+msgid "Use Unified Diff from &clipboard"
+msgstr "Gebruik unified-diff van &klembord"
 
 #. Resource IDs: (1296)
 msgid "Use \"_svn\" instead of \".svn\" directories"
@@ -9439,7 +9435,4 @@ msgstr "ja"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
-
-#~ msgid "Force blame"
-#~ msgstr "Forceer verklaren"
 
