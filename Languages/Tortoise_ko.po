@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-29 13:35+0900\n"
+"PO-Revision-Date: 2008-06-03 08:38+0900\n"
 "Last-Translator: Kim Taedong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -823,6 +823,10 @@ msgstr "나의 사용 정보 리셋(&R)"
 msgid "&Reset to Default"
 msgstr "초기값으로 리셋(&R)"
 
+#. Resource IDs: (114)
+msgid "&Revert changes from these revisions"
+msgstr "이 리비전에서 바뀐 부분을 원상태로 되돌림(&R)"
+
 #. Resource IDs: (113)
 msgid "&Revert changes from this revision"
 msgstr "이 리비전의 변경 내역을 되돌림(&R)"
@@ -962,6 +966,10 @@ msgstr "&TortoiseMerge"
 #. Resource IDs: (9)
 msgid "&TortoiseSVN"
 msgstr "&TortoiseSVN"
+
+#. Resource IDs: (1096)
+msgid "&TortoiseUDiff"
+msgstr "&TortoiseUDiff"
 
 #. Resource IDs: (3845)
 msgid "&Two Page"
@@ -1705,14 +1713,6 @@ msgstr "브랜치/태그(&T)..."
 msgid "Break loc&k"
 msgstr "잠금을 깨기(&K)"
 
-#. Resource IDs: (1009)
-msgid "Bro&wse..."
-msgstr "찾아보기(&W)"
-
-#. Resource IDs: (1007)
-msgid "Brows&e..."
-msgstr "찾아보기(&E)"
-
 #. Resource IDs: (78)
 msgid "Browse for the external diff program"
 msgstr "외부 비교 프로그램 찾아보기..."
@@ -1740,6 +1740,10 @@ msgstr "버튼 모양"
 #. Resource IDs: (1215)
 msgid "C&heck now"
 msgstr "지금 확인(&H)"
+
+#. Resource IDs: (1132)
+msgid "C&heck repository"
+msgstr "저장소 확인(&H)"
 
 #. Resource IDs: (65535)
 msgid "C&ommands:"
@@ -1922,10 +1926,6 @@ msgstr "수정 사항 확인"
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
 msgstr "저장소에서 작업을 하기위해 사본을 꺼내 옵니다."
-
-#. Resource IDs: (1132)
-msgid "Check repository"
-msgstr "저장소 확인"
 
 #. Resource IDs: (95)
 msgid ""
@@ -2960,6 +2960,10 @@ msgstr "드라이브 종류"
 msgid "E&xact copy sources"
 msgstr "정확한 복사 원본(&X)"
 
+#. Resource IDs: (65535)
+msgid "E&xclude paths:"
+msgstr "제외 경로(&X):"
+
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
 msgstr "종료(&X)"
@@ -3214,10 +3218,6 @@ msgstr ""
 #. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "가져오기 예외:"
-
-#. Resource IDs: (65535)
-msgid "Exclude paths:"
-msgstr "제외 경로:"
 
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
@@ -3858,6 +3858,10 @@ msgstr "훅 종류:"
 msgid "Hostname mismatch (%s)"
 msgstr "호스트 이름이 다릅니다 (%s)"
 
+#. Resource IDs: (65535)
+msgid "I&nclude paths:"
+msgstr "포함 경로(&N):"
+
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -4236,10 +4240,6 @@ msgstr "병합된 리비전들도 포함"
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
 msgstr "다음 리비전 구간만 포함:"
-
-#. Resource IDs: (65535)
-msgid "Include paths:"
-msgstr "포함 경로:"
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -6150,10 +6150,6 @@ msgstr "되돌림"
 msgid "Revert - TortoiseSVN"
 msgstr "되돌리기 - TortoiseSVN"
 
-#. Resource IDs: (114)
-msgid "Revert changes from these revisions"
-msgstr "이 리비전에서 바뀐 부분을 원상태로 되돌림"
-
 #. Resource IDs: (73)
 msgid "Reverted"
 msgstr "되돌림"
@@ -6733,6 +6729,10 @@ msgstr "로그 보기(&L)..."
 msgid "Show &overlays and context menu only in explorer"
 msgstr "탐색기에서만 오버레이와 컨텍스트 메뉴를 보입니다.(&O)"
 
+#. Resource IDs: (1265)
+msgid "Show &properties"
+msgstr "속성들 보기(&P)"
+
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
 msgstr "버전관리 대상이 아닌 파일 보기(&U)"
@@ -6810,8 +6810,8 @@ msgid "Show f&ull menus after a short delay"
 msgstr "짧은 지연후에 전체 메뉴를 보여줍니다(&U)"
 
 #. Resource IDs: (1264)
-msgid "Show ignored files"
-msgstr "무시되는 파일 보기"
+msgid "Show i&gnored files"
+msgstr "무시되는 파일 보기(&G)"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
@@ -6861,10 +6861,6 @@ msgstr "무시되는 파일에 오버레이를 보이기"
 msgid "Show overlay for unversioned items"
 msgstr "버전관리 대상이 아닌 파일에 오버레이를 보이기"
 
-#. Resource IDs: (1265)
-msgid "Show properties"
-msgstr "속성들 보기"
-
 #. Resource IDs: (102)
 msgid "Show revision properties"
 msgstr "리비전 속성 보기"
@@ -6890,12 +6886,12 @@ msgid "Show tags on the copy source, not as separate nodes"
 msgstr "복사 원본의 태그들을 같은 노드처럼 보여줍니다."
 
 #. Resource IDs: (1209)
-msgid "Show unmodified files"
-msgstr "수정되지 않은 파일 보기"
+msgid "Show un&modified files"
+msgstr "수정되지 않은 파일 보기(&M)"
 
 #. Resource IDs: (1073)
-msgid "Show unversioned files"
-msgstr "버전관리 대상이 아닌 파일 보기"
+msgid "Show un&versioned files"
+msgstr "버전관리 대상이 아닌 파일 보기(&V)"
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -8186,8 +8182,8 @@ msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "작업 사본의 URL을 원본의 디폴트 URL로 사용합니다.(&W)"
 
 #. Resource IDs: (1064)
-msgid "Use Unified Diff from clipboard"
-msgstr "클립보드와 Unified diff를 사용"
+msgid "Use Unified Diff from &clipboard"
+msgstr "클립보드로부터 Unified diff를 사용(&C)"
 
 #. Resource IDs: (1296)
 msgid "Use \"_svn\" instead of \".svn\" directories"
@@ -9420,6 +9416,10 @@ msgstr "예"
 msgid "{BugTraq}"
 msgstr "{버그트랙}"
 
+#~ msgid "Bro&wse..."
+#~ msgstr "찾아보기(&W)"
+#~ msgid "Brows&e..."
+#~ msgstr "찾아보기(&E)"
 #~ msgid "Force blame"
 #~ msgstr "강제로 작성자를 봄"
 
