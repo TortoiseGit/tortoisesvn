@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "POT-Creation-Date: 2004-06-28 14:09+0200\n"
-"PO-Revision-Date: 2008-05-25 09:17+0100\n"
+"PO-Revision-Date: 2008-06-03 21:13+0100\n"
 "Last-Translator: Matjaz Cepon <matjaz.cepon@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -849,6 +849,11 @@ msgstr "&Ponastavi podatke o uporabi"
 msgid "&Reset to Default"
 msgstr "&Obnovi privzeto"
 
+#. Resource IDs: (114)
+#, fuzzy
+msgid "&Revert changes from these revisions"
+msgstr "Povrni spremembe iz teh revizij"
+
 #. Resource IDs: (113)
 msgid "&Revert changes from this revision"
 msgstr "&Povrni spremembe te revizije"
@@ -989,6 +994,11 @@ msgstr "&TortoiseMerge"
 #. Resource IDs: (9)
 msgid "&TortoiseSVN"
 msgstr "&TortoiseSVN"
+
+#. Resource IDs: (1096)
+#, fuzzy
+msgid "&TortoiseUDiff"
+msgstr "TortoiseIDiff"
 
 #. Resource IDs: (3845)
 msgid "&Two Page"
@@ -1734,14 +1744,6 @@ msgstr "Veja/&oznaka..."
 msgid "Break loc&k"
 msgstr "Prelomi za&klep"
 
-#. Resource IDs: (1009)
-msgid "Bro&wse..."
-msgstr "Pre&brskaj..."
-
-#. Resource IDs: (1007)
-msgid "Brows&e..."
-msgstr "Pr&ebrskaj ..."
-
 #. Resource IDs: (78)
 msgid "Browse for the external diff program"
 msgstr "Prebrskaj in poišči zunanji program za razlikovanje"
@@ -1769,6 +1771,11 @@ msgstr "Izgled gumba"
 #. Resource IDs: (1215)
 msgid "C&heck now"
 msgstr "&Preveri zdaj"
+
+#. Resource IDs: (1132)
+#, fuzzy
+msgid "C&heck repository"
+msgstr "Preveri skladišče"
 
 #. Resource IDs: (65535)
 msgid "C&ommands:"
@@ -1951,10 +1958,6 @@ msgstr "Preveri spremembe"
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
 msgstr "Prevzemi delovno kopijo iz skladišča"
-
-#. Resource IDs: (1132)
-msgid "Check repository"
-msgstr "Preveri skladišče"
 
 #. Resource IDs: (95)
 msgid ""
@@ -2989,6 +2992,11 @@ msgstr "Vrste diskov"
 msgid "E&xact copy sources"
 msgstr "&Natančni izvori kopiranja"
 
+#. Resource IDs: (65535)
+#, fuzzy
+msgid "E&xclude paths:"
+msgstr "Izločene poti:"
+
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
 msgstr "I&zhod"
@@ -3243,10 +3251,6 @@ msgstr ""
 #. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "Izjeme:"
-
-#. Resource IDs: (65535)
-msgid "Exclude paths:"
-msgstr "Izločene poti:"
 
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
@@ -3888,6 +3892,11 @@ msgstr "Vrsta akcije:"
 msgid "Hostname mismatch (%s)"
 msgstr "Napaka v imenu strežnika (%s)"
 
+#. Resource IDs: (65535)
+#, fuzzy
+msgid "I&nclude paths:"
+msgstr "Vključene poti:"
+
 #. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
@@ -4253,10 +4262,6 @@ msgstr "Vključi spojene revizije"
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
 msgstr "Vključi samo naslednje območje revizij:"
-
-#. Resource IDs: (65535)
-msgid "Include paths:"
-msgstr "Vključene poti:"
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -6166,10 +6171,6 @@ msgstr "Povrni"
 msgid "Revert - TortoiseSVN"
 msgstr "Povrni - TortoiseSVN"
 
-#. Resource IDs: (114)
-msgid "Revert changes from these revisions"
-msgstr "Povrni spremembe iz teh revizij"
-
 #. Resource IDs: (73)
 msgid "Reverted"
 msgstr "Povrnjeno"
@@ -6749,6 +6750,11 @@ msgstr "Pokaži &dnevnik..."
 msgid "Show &overlays and context menu only in explorer"
 msgstr "&Prekrivanje ikon in kontekstni meni pokaži samo v raziskovalcu"
 
+#. Resource IDs: (1265)
+#, fuzzy
+msgid "Show &properties"
+msgstr "Pokaži lastnosti"
+
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
 msgstr "Pokaži datoteke &brez različic"
@@ -6824,7 +6830,8 @@ msgid "Show f&ull menus after a short delay"
 msgstr "Po krajšem časovnem &zamiku pokaži polne menije"
 
 #. Resource IDs: (1264)
-msgid "Show ignored files"
+#, fuzzy
+msgid "Show i&gnored files"
 msgstr "Pokaži prezrte datoteke"
 
 #. Resource IDs: (1063)
@@ -6875,10 +6882,6 @@ msgstr "Pokaži prekrivne ikone za prezrte elemente"
 msgid "Show overlay for unversioned items"
 msgstr "Pokaži prekrivne ikone za elemente brez različic"
 
-#. Resource IDs: (1265)
-msgid "Show properties"
-msgstr "Pokaži lastnosti"
-
 #. Resource IDs: (102)
 msgid "Show revision properties"
 msgstr "Pokaži lastnosti revizije"
@@ -6904,11 +6907,13 @@ msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Prikaži oznake na viru kopiranja, ne kot ločena vozlišča"
 
 #. Resource IDs: (1209)
-msgid "Show unmodified files"
+#, fuzzy
+msgid "Show un&modified files"
 msgstr "Pokaži nespremenjene datoteke"
 
 #. Resource IDs: (1073)
-msgid "Show unversioned files"
+#, fuzzy
+msgid "Show un&versioned files"
 msgstr "Pokaži datoteke brez različic"
 
 #. Resource IDs: (198)
@@ -8206,7 +8211,8 @@ msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Uporabi URL &delovne kopije kot privzeti URL za polje \"Od:\"\""
 
 #. Resource IDs: (1064)
-msgid "Use Unified Diff from clipboard"
+#, fuzzy
+msgid "Use Unified Diff from &clipboard"
 msgstr "Uporabi poenoteno razliko z odlagališča"
 
 #. Resource IDs: (1296)
@@ -9149,12 +9155,13 @@ msgstr ""
 "Nerekurziven poskus ne bo uspel in rekurziven poskus bo nastavil lastnost le na podrejene datoteke mape."
 
 #. Resource IDs: (576)
+#, fuzzy
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of\n"
-"a relative directory path, optional revision flags, and an URL. For example\n"
-"foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"an optional revision, an URL and a relative directory path. For example\n"
+"http://example.com/repos/zig\tfoo\n"
+"-r 1234\thttp://example.com/repos/zag\tfoo/bar\n"
 "\n"
 "The URLs can either be full URLs or relative. The format for\n"
 "the relative URLs is:\n"
