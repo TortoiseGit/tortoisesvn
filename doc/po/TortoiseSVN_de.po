@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-05-30 19:02 +0000\n"
-"PO-Revision-Date: 2008-06-02 15:45+0100\n"
+"PO-Revision-Date: 2008-06-03 16:52+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -13246,7 +13246,7 @@ msgstr "Test mittels PuTTY"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15145
 msgid "To test the connection we will use PuTTY. Start the program and on the <guilabel>Session</guilabel> tab set the hostname to the name or IP address of your server, the protocol to SSH and save the session as <literal>SvnConnection</literal> or whatever name you prefer. On the <guilabel>SSH</guilabel> tab set the preferred SSH protocol version to 2 and from <guilabel>Auth</guilabel> set the full path to the <literal>.PPK</literal> private key file you converted earlier. Go back to the <guilabel>Sessions</guilabel> tab and hit the <guilabel>Save</guilabel> button. You will now see <literal>SvnConnection</literal> in the list of saved sessions."
-msgstr "Zum Test der Verbindung verwenden wir PuTTY. Starten Sie die Anwendung, wählen Sie die <guilabel>Session</guilabel> Seite und tragen Sie dort im Feld <guilabel>Hostname</guilabel> den Namen oder die Adresse Ihres Servers ein of your server. Wählen Sie das SSH Protokoll und speichern Sie die Einstellungen als <literal>SvnVerbindung</literal> oder was auch immer Sie bevorzugen. Auf der <guilabel>SSH</guilabel> Seite stellen Sie die bevorzugte SSH Protokollversion auf 2 und in der <guilabel>Auth</guilabel> Seite tragen Sie den vollständigen Pfad zu der privaten Schlüsseldatei <literal>.PPK</literal> ein, die sie vorher konvertiert haben. Gehen Sie zurück zur <guilabel>Sessions</guilabel>  Seite und speichern (<guilabel>Save</guilabel>) Sie die Einstellungen. Sie sehen nun<literal>SvnVerindung</literal> in der Liste de gespeicherten Konfigurationen."
+msgstr "Zum Test der Verbindung verwenden wir PuTTY. Starten Sie die Anwendung, wählen Sie die <guilabel>Session</guilabel> (Sitzung) Seite und tragen Sie dort im Feld <guilabel>Hostname</guilabel> den Namen oder die Adresse Ihres Servers ein of your server. Wählen Sie das SSH Protokoll und speichern Sie die Einstellungen als <literal>SvnVerbindung</literal> oder was auch immer Sie bevorzugen. Auf der <guilabel>SSH</guilabel> Seite stellen Sie die bevorzugte SSH Protokollversion auf 2 und in der <guilabel>Auth</guilabel> Seite tragen Sie den vollständigen Pfad zu der privaten Schlüsseldatei <literal>.PPK</literal> ein, die sie vorher konvertiert haben. Gehen Sie zurück zur <guilabel>Sessions</guilabel> Seite und speichern (<guilabel>Save</guilabel>) Sie die Einstellungen. Sie sehen nun<literal>SvnVerindung</literal> in der Liste der gespeicherten Sitzungen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15158
@@ -13277,7 +13277,7 @@ msgstr "SSH mit TortoiseSVN testen"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15177
 msgid "So far we have only tested that you can login using SSH. Now we need to make sure that the SSH connection can actually run svnserve. On the server modify <filename>/home/svnuser/.ssh/authorized_keys</filename> as follows to allow many subversion authors to use the same system account, <literal>svnuser</literal>. Note that every subversion author uses the same login but a different authentication key, thus you have to add one line for every author."
-msgstr ""
+msgstr "Bisher haben wir nur überprüft, ob Sie sich über SSH anmelden können. Nun müssen wir sicherstellen, dass die SSH Verbindung tatsächlich svnserve starten kann. Dazu müssen Sie auf dem Server die Datei <filename>/home/svnuser/.ssh/authorized_keys</filename> so anpassen, dass viele Autoren dasselbe Systemkonto, <literal>svnuser</literal> benutzen können. Beachten Sie bitte, dass jeder Autor die gleiche Anmeldung aber einen unterschiedlichen Anmeldeschlüssel verwendet, so dass Sie für jeden Autor eine eigene Zeile eintragen müssen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15186
@@ -13288,26 +13288,31 @@ msgid ""
 "            no-pty ssh-rsa &lt;PublicKey&gt; &lt;Comment&gt;\n"
 "</screen> There are several values that you need to set according to your setup."
 msgstr ""
+"Achtung: Dies steht alles auf einer sehr langen Zeile:\n"
+"<screen>command=\"svnserve -t -r &lt;ReposRootPath&gt; --tunnel-user=&lt;author&gt;\",\n"
+"            no-port-forwarding,no-agent-forwarding,no-X11-forwarding,\n"
+"            no-pty ssh-rsa &lt;PublicKey&gt; &lt;Comment&gt;</screen>\n"
+"Es gibt mehrere Werte, die Sie an Ihre Einstellungen anpassen müssen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15195
 msgid "<literal>&lt;ReposRootPath&gt;</literal> should be replaced with the path to the directory containing your repositories. This avoids the need to specify full server paths within URLs. Note that you must use forward slashes even on a Windows server, e.g. <filename>c:/svn/reposroot</filename>. In the examples below we assume that you have a repository folder within the repository root called <filename>repos</filename>."
-msgstr ""
+msgstr "<literal>&lt;ReposRootPath&gt;</literal> sollte durch den Pfad zu dem Verzeichnis, das Ihre Projektarchive enthält, ersetzt werden. Dadurch vermeiden Sie, dass vollständige Serverpfade innerhalb der URLs angegeben werden müssen. Beachten Sie, dass Sie selbst auf einem Windows Server normale Schrägstriche zum Trennen der Pfade verwenden müssen, z.B. <filename>c:/svn/reposroot</filename>. Im untenstehenden Beispiel nehmen wir an, dass sich die Projektarchive in einem Basisordner namens <filename>repos</filename> befinden."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15204
 msgid "<literal>&lt;author&gt;</literal> should be replaced with the svn author that you want to be stored on commit. This also allows svnserve to use its own access rights within <filename>svnserve.conf</filename>."
-msgstr ""
+msgstr "<literal>&lt;author&gt;</literal> sollte durch den SVN Autor ersetzt werden, der in das Log eingetragen werden soll. Dies ermöglicht es svnserve, seine eigenen Berechtigungen innerhalb von <filename>svnserve.conf</filename> zu verwenden."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15209
 msgid "<literal>&lt;PublicKey&gt;</literal> should be replaced with the public key that you generated earlier."
-msgstr ""
+msgstr "<literal>&lt;PublicKey&gt;</literal> sollte durch den bereits von Ihnen erzeugten öffentlichen Schüssel ersetzt werden."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15213
 msgid "<literal>&lt;Comment&gt;</literal> can be any comment you like, but it is useful for mapping an svn author name to the person's real name."
-msgstr ""
+msgstr "<literal>&lt;Comment&gt;</literal> kann ein beliebiger Kommentar sein, sollte aber sinnvollerweise eine Abbildung des Autoren auf den richtigen Namen der Person sein."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15217
@@ -13316,16 +13321,18 @@ msgid ""
 "svn+ssh://svnuser@SvnConnection/repos\n"
 "</screen> What does this URL mean? The Schema name is <literal>svn+ssh</literal> which tells TortoiseSVN how to handle the requests to the server. After the double slash, you specify the user to connect to the server, in our case <literal>svnuser</literal>. After the <literal>@</literal> we supply our PuTTY session name. This session name contains all details like where to find the private key and the server's IP or DNS. Lastly we have to provide the path to the repository, relative to the repository root on the server, as specified in the <filename>authorized_keys</filename> file."
 msgstr ""
+"Machen Sie einen Rechtsklick auf einen beliebigen Ordner im Windows Explorer und wählen Sie <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Projektarchiv</guimenuitem></menuchoice>. Sie werden nach einer URL gefragt, die Sie in der Form:\n"
+"<screen>svn+ssh://svnuser@SvnVerbindung/repos</screen> eingeben. Was bedeutet diese URL?  Der Name des Schemas lautet <literal>svn+ssh</literal> wodurch TortoiseSVN weiß, wie Anfragen an den Server behandelt werden. Nach dem Doppelschrägstrich geben Sie den Anwender an, der sich mit dem Server verbindet, in unserem Fall <literal>svnuser</literal>. Hinter dem <literal>@</literal> geben wir unseren PuTTY Sitzungsnamen an. Diese Sitzung enhält alle Details, z.B. wo sich der private Schlüssel befindet sowie die IP Adresse des Servers oder sein Name. Schließlich folgt noch der Pfad zum Projektarchiv relativ zum Basisverzeichnis auf dem Server, wie es in der <filename>authorized_keys</filename> Datei festgelegt wurde."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15237
 msgid "Click on <guibutton>OK</guibutton> and you should be able to browse the repository content. If so you now have a running SSH tunnel in conjunction with TortoiseSVN."
-msgstr ""
+msgstr "Klicken Sie auf <guibutton>OK</guibutton> und Sie sollten den Inhalt des Projektarchivs durchblättern können. Wenn ja, haben Sie jetzt einen funktionierenden SSH Tunnel mit TortoiseSVN."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15242
 msgid "Note that by default TortoiseSVN uses its own version of Plink to connect. This avoids a console window popping up for every authentication attempt, but it also means that there is nowhere for error messages to appear. If you receive the error <quote>Unable to write to standard output</quote>, you can try specifying Plink as the client in TortoiseSVN's network settings. This will allow you to see the real error message generated by Plink."
-msgstr ""
+msgstr "Beachten Sie bitte, dass normalerweise TortoiseSVN beim Verbindungsaufbau eine eigene Version von Plink verwendet. Diese Spezialversion zeigt bei einem Anmeldeversuch kein Konsolenfenster an. Das bedeutet aber auch, dass es keine Ausgabemöglichkeit für Fehlermeldungen gibt. Falls sie die Fehlermeldung <quote>Unable to write to standard output</quote> bekommen, sollten Sie Plink als Client in den TortoiseSVN Netzwerkeinstellungen festlegen. Dadurch können Sie die tatsächlich von Plink generierten Fehlermeldungen sehen."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:15252
