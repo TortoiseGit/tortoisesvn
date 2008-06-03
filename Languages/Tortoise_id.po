@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-02 20:31+0700\n"
+"PO-Revision-Date: 2008-06-03 15:56+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -998,6 +998,11 @@ msgstr "Set ulang data penggunaan saya"
 #. Resource IDs: (16910)
 msgid "&Reset to Default"
 msgstr "Set ulang ke Bawaan"
+
+# ID:114,
+#. Resource IDs: (114)
+msgid "&Revert changes from these revisions"
+msgstr "Balik pe&rubahan dari revisi-revisi ini"
 
 # ID:113,
 #. Resource IDs: (113)
@@ -2103,16 +2108,6 @@ msgstr "Cabang/&tag..."
 msgid "Break loc&k"
 msgstr "Bongkar &kunci"
 
-# Control-ID:1009,
-#. Resource IDs: (1009)
-msgid "Bro&wse..."
-msgstr "Bro&wse..."
-
-# Control-ID:1007,
-#. Resource IDs: (1007)
-msgid "Brows&e..."
-msgstr "Brows&e..."
-
 # ID:78,
 #. Resource IDs: (78)
 msgid "Browse for the external diff program"
@@ -2146,6 +2141,11 @@ msgstr "Penampilan Tombol"
 #. Resource IDs: (1215)
 msgid "C&heck now"
 msgstr "&Periksa sekarang"
+
+# Control-ID:1132,
+#. Resource IDs: (1132)
+msgid "C&heck repository"
+msgstr "&Periksa repositori"
 
 # ID:198,
 #. Resource IDs: (65535)
@@ -2369,11 +2369,6 @@ msgstr "Periksa modifikasi"
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
 msgstr "Check out copy pekerjaan dari repositori"
-
-# Control-ID:1132,
-#. Resource IDs: (1132)
-msgid "Check repository"
-msgstr "Periksa repositori"
 
 # ID:95,
 #. Resource IDs: (95)
@@ -3607,6 +3602,11 @@ msgstr "Tipe Drive"
 msgid "E&xact copy sources"
 msgstr "Salin tepat sumber"
 
+# Control-ID:65535,
+#. Resource IDs: (65535)
+msgid "E&xclude paths:"
+msgstr "Ke&cualikan path:"
+
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
 msgstr "&Keluar"
@@ -3931,11 +3931,6 @@ msgstr ""
 #. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "Kekecualian:"
-
-# Control-ID:65535,
-#. Resource IDs: (65535)
-msgid "Exclude paths:"
-msgstr "Kecualikan path:"
 
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
@@ -4702,6 +4697,11 @@ msgstr "Tipe Hook:"
 msgid "Hostname mismatch (%s)"
 msgstr "Nama host idak sama (%s)"
 
+# Control-ID:65535,
+#. Resource IDs: (65535)
+msgid "I&nclude paths:"
+msgstr "Sertaka&n path:"
+
 #. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
@@ -5111,11 +5111,6 @@ msgstr "Memasukkan revisi-revisi gabungan"
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
 msgstr "Ikutkan hanya rentang revisi berikut:"
-
-# Control-ID:65535,
-#. Resource IDs: (65535)
-msgid "Include paths:"
-msgstr "Sertakan path:"
 
 # ID:3857,#:
 # ID:3857,
@@ -7388,11 +7383,6 @@ msgstr "Balik"
 msgid "Revert - TortoiseSVN"
 msgstr "Balik - TortoiseSVN"
 
-# ID:114,
-#. Resource IDs: (114)
-msgid "Revert changes from these revisions"
-msgstr "Balik perubahan dari revisi ini"
-
 # ID:73,
 #. Resource IDs: (73)
 msgid "Reverted"
@@ -8108,6 +8098,11 @@ msgstr "Tampilkan &log..."
 msgid "Show &overlays and context menu only in explorer"
 msgstr "Tampilkan lapisan dan menu k&onteks hanya dalam penjelajah"
 
+# ID:101,
+#. Resource IDs: (1265)
+msgid "Show &properties"
+msgstr "Tampilkan &properti-properti"
+
 # Control-ID:1073,
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
@@ -8189,8 +8184,8 @@ msgstr "Tampilkan menu pen&uh setelah jeda pendek"
 
 # Control-ID:1264,
 #. Resource IDs: (1264)
-msgid "Show ignored files"
-msgstr "Tampilkan file diabaikan"
+msgid "Show i&gnored files"
+msgstr "Tampilkan file &diabaikan"
 
 # Control-ID:1063,
 #. Resource IDs: (1063)
@@ -8249,11 +8244,6 @@ msgid "Show overlay for unversioned items"
 msgstr "Tampilkan lapisan untuk item-item tidak berversi"
 
 # ID:101,
-#. Resource IDs: (1265)
-msgid "Show properties"
-msgstr "Tampilkan properti-properti"
-
-# ID:101,
 #. Resource IDs: (102)
 msgid "Show revision properties"
 msgstr "Tampilkan properti-properti revisi"
@@ -8282,13 +8272,13 @@ msgstr "Tampilkan tag pada sumber penyalinan, bukan sebagai noda terpisah"
 
 # Control-ID:1209,
 #. Resource IDs: (1209)
-msgid "Show unmodified files"
-msgstr "Tampilkan file yang tidak diubah"
+msgid "Show un&modified files"
+msgstr "Ta&mpilkan file yang tidak diubah"
 
 # Control-ID:1073,
 #. Resource IDs: (1073)
-msgid "Show unversioned files"
-msgstr "Tampilkan file tidak berversi"
+msgid "Show un&versioned files"
+msgstr "Tampilkan file tidak ber&versi"
 
 # ID:198,
 #. Resource IDs: (198)
@@ -9798,8 +9788,8 @@ msgstr "Gunakan URL &WC sebagai standar URL \"Dari:\""
 
 # Control-ID:1064,
 #. Resource IDs: (1064)
-msgid "Use Unified Diff from clipboard"
-msgstr "Gunakan Unified Diff dari clipboard"
+msgid "Use Unified Diff from &clipboard"
+msgstr "Gunakan Unified Diff dari papan &jepit"
 
 # Control-ID:1296,
 #. Resource IDs: (1296)
