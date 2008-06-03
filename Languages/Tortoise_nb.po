@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-02 10:12+0100\n"
+"PO-Revision-Date: 2008-06-03 14:57+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -878,6 +878,10 @@ msgstr "&Nullstill mine bruksdata"
 #. Resource IDs: (16910)
 msgid "&Reset to Default"
 msgstr "&Tilbake til Standard"
+
+#. Resource IDs: (114)
+msgid "&Revert changes from these revisions"
+msgstr "&Tilbakestill endringer fra disse revisjonene"
 
 #. Resource IDs: (113)
 msgid "&Revert changes from this revision"
@@ -1767,14 +1771,6 @@ msgstr "Forgren/&merk..."
 msgid "Break loc&k"
 msgstr "Bry&t sperring"
 
-#. Resource IDs: (1009)
-msgid "Bro&wse..."
-msgstr "&Bla gjennom..."
-
-#. Resource IDs: (1007)
-msgid "Brows&e..."
-msgstr "&Bla gjennom..."
-
 #. Resource IDs: (78)
 msgid "Browse for the external diff program"
 msgstr "Bla gjennom etter eksternt diff-program"
@@ -1802,6 +1798,10 @@ msgstr "Knapputseende"
 #. Resource IDs: (1215)
 msgid "C&heck now"
 msgstr "&Sjekk nå"
+
+#. Resource IDs: (1132)
+msgid "C&heck repository"
+msgstr "&Sjekk depot"
 
 #. Resource IDs: (65535)
 msgid "C&ommands:"
@@ -1984,10 +1984,6 @@ msgstr "Se etter endringer"
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
 msgstr "Hent en arbeidskopi ut fra et depot"
-
-#. Resource IDs: (1132)
-msgid "Check repository"
-msgstr "Sjekk depot"
 
 #. Resource IDs: (95)
 msgid ""
@@ -3022,6 +3018,10 @@ msgstr "Stasjonstyper"
 msgid "E&xact copy sources"
 msgstr "E&ksakt kilde for kopi"
 
+#. Resource IDs: (65535)
+msgid "E&xclude paths:"
+msgstr "Stier å &ekskludere:"
+
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
 msgstr "&Avslutt"
@@ -3276,10 +3276,6 @@ msgstr ""
 #. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "Unntak:"
-
-#. Resource IDs: (65535)
-msgid "Exclude paths:"
-msgstr "Stier å ekskludere:"
 
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
@@ -3920,6 +3916,10 @@ msgstr "Påhakings-type:"
 msgid "Hostname mismatch (%s)"
 msgstr "Feil tjenernavn (%s)"
 
+#. Resource IDs: (65535)
+msgid "I&nclude paths:"
+msgstr "Stier å &inkludere:"
+
 #. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
@@ -4287,10 +4287,6 @@ msgstr "Ta med flettede revisjoner"
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
 msgstr "Ta med bare revisjoner i intervallet:"
-
-#. Resource IDs: (65535)
-msgid "Include paths:"
-msgstr "Stier å inkludere:"
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -5829,7 +5825,7 @@ msgstr "Gå rekursivt inn i ikke-versjonerte mapper"
 
 #. Resource IDs: (563)
 msgid "Recursive"
-msgstr "&Alle undermapper"
+msgstr "Alle undermapper"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -6203,10 +6199,6 @@ msgstr "Tilbakestill"
 #. Resource IDs: (77)
 msgid "Revert - TortoiseSVN"
 msgstr "Tilbakestill - TortoiseSVN"
-
-#. Resource IDs: (114)
-msgid "Revert changes from these revisions"
-msgstr "Tilbakestill endringer fra disse revisjonene"
 
 #. Resource IDs: (73)
 msgid "Reverted"
@@ -6787,6 +6779,10 @@ msgstr "Vis &logg.."
 msgid "Show &overlays and context menu only in explorer"
 msgstr "Vis &ikonlag og sammenhengsmeny bare i utforskeren"
 
+#. Resource IDs: (1265)
+msgid "Show &properties"
+msgstr "Vis &egenskaper"
+
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
 msgstr "Vis &ikke-versjonerte filer"
@@ -6864,8 +6860,8 @@ msgid "Show f&ull menus after a short delay"
 msgstr "Vis f&ull meny etter en kort pause"
 
 #. Resource IDs: (1264)
-msgid "Show ignored files"
-msgstr "Vis ignorerte filer"
+msgid "Show i&gnored files"
+msgstr "Vis &ignorerte filer"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
@@ -6915,10 +6911,6 @@ msgstr "Vis ikonlag for ignorerte filer"
 msgid "Show overlay for unversioned items"
 msgstr "Vis ikonlag for ikke-versjonerte filer"
 
-#. Resource IDs: (1265)
-msgid "Show properties"
-msgstr "Vis egenskaper"
-
 #. Resource IDs: (102)
 msgid "Show revision properties"
 msgstr "Vis revisjonsegenskaper"
@@ -6944,12 +6936,12 @@ msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Vis merker på kopikilde, ikke som egne noder"
 
 #. Resource IDs: (1209)
-msgid "Show unmodified files"
-msgstr "Vis uendrede filer"
+msgid "Show un&modified files"
+msgstr "Vis &uendrede filer"
 
 #. Resource IDs: (1073)
-msgid "Show unversioned files"
-msgstr "Vis ikke-versjonerte filer"
+msgid "Show un&versioned files"
+msgstr "Vis i&kke-versjonerte filer"
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -8246,8 +8238,8 @@ msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Bruk &arbeidskopiens URL som standard \"Fra:\" URL"
 
 #. Resource IDs: (1064)
-msgid "Use Unified Diff from clipboard"
-msgstr "Bruk Enhetlig Diff fra utklippstavlen"
+msgid "Use Unified Diff from &clipboard"
+msgstr "Bruk Enhetlig &Diff fra utklippstavlen"
 
 #. Resource IDs: (1296)
 msgid "Use \"_svn\" instead of \".svn\" directories"
@@ -8338,7 +8330,7 @@ msgid ""
 "Use text block from \"mine\" before \"theirs\"\n"
 "Use \"mine\" text block then \"theirs\""
 msgstr ""
-"Bruk tekstblokk fra \"m&in\" før \"deres\"\n"
+"Bruk tekstblokk fra \"min\" før \"deres\"\n"
 "Bruk \"min\" tekstblokk, deretter \"deres\""
 
 #. Resource IDs: (2052)
@@ -8358,7 +8350,7 @@ msgid ""
 "Use text block from \"theirs\" before \"mine\"\n"
 "Use \"theirs\" text block then \"mine\""
 msgstr ""
-"Bruk tekstblokk fra \"d&eres\" før \"min\"\n"
+"Bruk tekstblokk fra \"deres\" før \"min\"\n"
 "Bruk \"deres\" tekstblokk, deretter \"min\""
 
 #. Resource IDs: (2052)
@@ -8456,7 +8448,7 @@ msgstr "Versjonert"
 
 #. Resource IDs: (65535)
 msgid "View"
-msgstr "&Vis"
+msgstr "Vis"
 
 #. Resource IDs: (114)
 msgid "View revision for path in &webviewer"
@@ -9480,6 +9472,10 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Bro&wse..."
+#~ msgstr "&Bla gjennom..."
+#~ msgid "Brows&e..."
+#~ msgstr "&Bla gjennom..."
 #~ msgid "Force blame"
 #~ msgstr "Tving skyld"
 #~ msgid "Bug Tracker..."
