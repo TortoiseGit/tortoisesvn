@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-27 20:57+0800\n"
+"PO-Revision-Date: 2008-06-03 20:12+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -824,6 +824,10 @@ msgstr "重設個人使用紀錄(&R)"
 msgid "&Reset to Default"
 msgstr "還原至預設值(&R)"
 
+#. Resource IDs: (114)
+msgid "&Revert changes from these revisions"
+msgstr "復原這些版本的變更(&R)"
+
 #. Resource IDs: (113)
 msgid "&Revert changes from this revision"
 msgstr "復原自此版本以來的變更(&R)"
@@ -963,6 +967,10 @@ msgstr "&TortoiseMerge"
 #. Resource IDs: (9)
 msgid "&TortoiseSVN"
 msgstr "TortoiseSVN(&T)"
+
+#. Resource IDs: (1096)
+msgid "&TortoiseUDiff"
+msgstr "&TortoiseIDiff"
 
 #. Resource IDs: (3845)
 msgid "&Two Page"
@@ -1707,14 +1715,6 @@ msgstr "分支/標記(&T)..."
 msgid "Break loc&k"
 msgstr "破壞鎖定(&K)"
 
-#. Resource IDs: (1009)
-msgid "Bro&wse..."
-msgstr "瀏覽(&W)..."
-
-#. Resource IDs: (1007)
-msgid "Brows&e..."
-msgstr "瀏覽(&E)..."
-
 #. Resource IDs: (78)
 msgid "Browse for the external diff program"
 msgstr "尋找外部比對差異工具"
@@ -1742,6 +1742,10 @@ msgstr "按鈕外觀"
 #. Resource IDs: (1215)
 msgid "C&heck now"
 msgstr "立即檢查(&H)"
+
+#. Resource IDs: (1132)
+msgid "C&heck repository"
+msgstr "檢查檔案庫(&H)"
 
 #. Resource IDs: (65535)
 msgid "C&ommands:"
@@ -1924,10 +1928,6 @@ msgstr "檢查異動"
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
 msgstr "從檔案庫中取出工作複本"
-
-#. Resource IDs: (1132)
-msgid "Check repository"
-msgstr "檢查檔案庫"
 
 #. Resource IDs: (95)
 msgid ""
@@ -2962,6 +2962,10 @@ msgstr "磁碟機類型"
 msgid "E&xact copy sources"
 msgstr "完整複製來源(&X)"
 
+#. Resource IDs: (65535)
+msgid "E&xclude paths:"
+msgstr "除外路徑(&X):"
+
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
 msgstr "離開(&X)"
@@ -3216,10 +3220,6 @@ msgstr ""
 #. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "例外:"
-
-#. Resource IDs: (65535)
-msgid "Exclude paths:"
-msgstr "除外路徑:"
 
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
@@ -3860,6 +3860,10 @@ msgstr "掛勾類型:"
 msgid "Hostname mismatch (%s)"
 msgstr "站臺名稱不符 (%s)"
 
+#. Resource IDs: (65535)
+msgid "I&nclude paths:"
+msgstr "包含路徑(&N):"
+
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -4236,10 +4240,6 @@ msgstr "包含合併後版本"
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
 msgstr "僅包括下列版本區間:"
-
-#. Resource IDs: (65535)
-msgid "Include paths:"
-msgstr "包含路徑:"
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -6152,10 +6152,6 @@ msgstr "復原"
 msgid "Revert - TortoiseSVN"
 msgstr "復原 - TortoiseSVN"
 
-#. Resource IDs: (114)
-msgid "Revert changes from these revisions"
-msgstr "復原這些版本的變更"
-
 #. Resource IDs: (73)
 msgid "Reverted"
 msgstr "復原"
@@ -6735,6 +6731,10 @@ msgstr "顯示記錄(&L)..."
 msgid "Show &overlays and context menu only in explorer"
 msgstr "僅在檔案總管中顯示圖示覆蓋與快顯式選單(&O)"
 
+#. Resource IDs: (1265)
+msgid "Show &properties"
+msgstr "顯示性質(&P)"
+
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
 msgstr "顯示無版本控制的檔案(&U)"
@@ -6812,8 +6812,8 @@ msgid "Show f&ull menus after a short delay"
 msgstr "在短暫延遲後顯示完整選單(&U)"
 
 #. Resource IDs: (1264)
-msgid "Show ignored files"
-msgstr "顯示忽略的檔案"
+msgid "Show i&gnored files"
+msgstr "顯示忽略的檔案(&I)"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
@@ -6863,10 +6863,6 @@ msgstr "在忽略的檔案上也顯示覆蓋圖示"
 msgid "Show overlay for unversioned items"
 msgstr "在無版本控制的檔案上也顯示覆蓋圖示"
 
-#. Resource IDs: (1265)
-msgid "Show properties"
-msgstr "顯示性質"
-
 #. Resource IDs: (102)
 msgid "Show revision properties"
 msgstr "顯示版本性質"
@@ -6892,12 +6888,12 @@ msgid "Show tags on the copy source, not as separate nodes"
 msgstr "在複製來源處顯示標籤, 而不顯示在獨立節點上"
 
 #. Resource IDs: (1209)
-msgid "Show unmodified files"
-msgstr "顯示無異動的檔案"
+msgid "Show un&modified files"
+msgstr "顯示無異動的檔案(&M)"
 
 #. Resource IDs: (1073)
-msgid "Show unversioned files"
-msgstr "顯示無版本控制的檔案"
+msgid "Show un&versioned files"
+msgstr "顯示無版本控制的檔案(&V)"
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -8195,8 +8191,8 @@ msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "使用工作複本的URL做為預設的來源URL(&W)"
 
 #. Resource IDs: (1064)
-msgid "Use Unified Diff from clipboard"
-msgstr "使用剪貼簿中的單一差異檔"
+msgid "Use Unified Diff from &clipboard"
+msgstr "使用剪貼簿中的單一差異檔(&C)"
 
 #. Resource IDs: (1296)
 msgid "Use \"_svn\" instead of \".svn\" directories"
@@ -9139,9 +9135,9 @@ msgstr ""
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of\n"
-"a relative directory path, optional revision flags, and an URL. For example\n"
-"foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"an optional revision, an URL and a relative directory path. For example\n"
+"http://example.com/repos/zig\tfoo\n"
+"-r 1234\thttp://example.com/repos/zag\tfoo/bar\n"
 "\n"
 "The URLs can either be full URLs or relative. The format for\n"
 "the relative URLs is:\n"
@@ -9153,8 +9149,8 @@ msgstr ""
 "svn:externals\n"
 "以換行字元分隔的模組名稱列表, 每項可包含相對路徑,\n"
 "可有可無的版本標記, 以及 URL. 例如:\n"
-"foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"http://example.com/repos/zig\tfoo\n"
+"-r 1234\thttp://example.com/repos/zag\tfoo/bar\n"
 "\n"
 "URL 可以是完整 URL 或是相對 URL. 相對 URL 的表示\n"
 "方式如下:\n"
