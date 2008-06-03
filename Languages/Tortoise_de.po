@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-02 12:21+0100\n"
+"PO-Revision-Date: 2008-06-03 10:17+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -825,6 +825,10 @@ msgstr "&Meine Verwendungsdaten zurücksetzen"
 #. Resource IDs: (16910)
 msgid "&Reset to Default"
 msgstr "&Auf Standardwerte setzen"
+
+#. Resource IDs: (114)
+msgid "&Revert changes from these revisions"
+msgstr "Änderungen dieser Revisionen &rückgängig machen"
 
 #. Resource IDs: (113)
 msgid "&Revert changes from this revision"
@@ -1718,14 +1722,6 @@ msgstr "&Verzweigen / Markieren..."
 msgid "Break loc&k"
 msgstr "Sperre auf&brechen"
 
-#. Resource IDs: (1009)
-msgid "Bro&wse..."
-msgstr "Suc&hen..."
-
-#. Resource IDs: (1007)
-msgid "Brows&e..."
-msgstr "Such&en..."
-
 #. Resource IDs: (78)
 msgid "Browse for the external diff program"
 msgstr "Suche nach dem externen Vergleichsprogramm"
@@ -1753,6 +1749,10 @@ msgstr "Aussehen der Schaltfläche"
 #. Resource IDs: (1215)
 msgid "C&heck now"
 msgstr "&Jetzt prüfen"
+
+#. Resource IDs: (1132)
+msgid "C&heck repository"
+msgstr "&Projektarchiv prüfen"
 
 #. Resource IDs: (65535)
 msgid "C&ommands:"
@@ -1936,10 +1936,6 @@ msgstr "Auf Änderungen überprüfen"
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
 msgstr "Lokale Arbeitskopie aus einem Projektarchiv erstellen"
-
-#. Resource IDs: (1132)
-msgid "Check repository"
-msgstr "Projektarchiv prüfen"
 
 #. Resource IDs: (95)
 msgid ""
@@ -2975,6 +2971,10 @@ msgstr "Laufwerkstypen"
 msgid "E&xact copy sources"
 msgstr "E&xakte Kopiequellen"
 
+#. Resource IDs: (65535)
+msgid "E&xclude paths:"
+msgstr "Pfade &ausschließen:"
+
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
 msgstr "&Beenden"
@@ -3229,10 +3229,6 @@ msgstr ""
 #. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "Ausnahmen:"
-
-#. Resource IDs: (65535)
-msgid "Exclude paths:"
-msgstr "Pfade &ausschließen:"
 
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
@@ -3873,6 +3869,10 @@ msgstr "Aktionstyp:"
 msgid "Hostname mismatch (%s)"
 msgstr "Servernamen stimmen nicht überein (%s)"
 
+#. Resource IDs: (65535)
+msgid "I&nclude paths:"
+msgstr "Pfade &einschließen:"
+
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -4263,10 +4263,6 @@ msgstr "Zusammengeführte Revisionen einschließen"
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
 msgstr "Nur den folgenden Revisionsbereich einschließen:"
-
-#. Resource IDs: (65535)
-msgid "Include paths:"
-msgstr "Pfade &einschließen:"
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -6185,10 +6181,6 @@ msgstr "Änderungen rückgängig"
 msgid "Revert - TortoiseSVN"
 msgstr "Rückgängig - TortoiseSVN"
 
-#. Resource IDs: (114)
-msgid "Revert changes from these revisions"
-msgstr "Änderungen dieser Revisionen &rückgängig machen"
-
 #. Resource IDs: (73)
 msgid "Reverted"
 msgstr "Rückgängig gemacht"
@@ -6768,6 +6760,10 @@ msgstr "Zeige &Log..."
 msgid "Show &overlays and context menu only in explorer"
 msgstr "&Überlagerte Symbole und Kontextmenü nur im Explorer anzeigen"
 
+#. Resource IDs: (1265)
+msgid "Show &properties"
+msgstr "Zeige &Eigenschaften"
+
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
 msgstr "Zeige &nicht versionierte Dateien"
@@ -6845,8 +6841,8 @@ msgid "Show f&ull menus after a short delay"
 msgstr "Zeige &vollständige Menüs nach einer kurzen Pause"
 
 #. Resource IDs: (1264)
-msgid "Show ignored files"
-msgstr "Ignorierte Dateien &zeigen"
+msgid "Show i&gnored files"
+msgstr "Zeige i&gnorierte Dateien"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
@@ -6896,10 +6892,6 @@ msgstr "Überlagerte Symbole für ignorierte Objekte zeigen"
 msgid "Show overlay for unversioned items"
 msgstr "Überlagerte Symbole für nicht versionierte Objekte zeigen"
 
-#. Resource IDs: (1265)
-msgid "Show properties"
-msgstr "Zeige Eigenschaften"
-
 #. Resource IDs: (102)
 msgid "Show revision properties"
 msgstr "Revisionseigenschaften zeigen"
@@ -6925,12 +6917,12 @@ msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Zeige Markierungen an der Quelle, nicht als separate Knoten"
 
 #. Resource IDs: (1209)
-msgid "Show unmodified files"
-msgstr "Zeige unmodifizierte Dateien"
+msgid "Show un&modified files"
+msgstr "Zeige un&modifizierte Dateien"
 
 #. Resource IDs: (1073)
-msgid "Show unversioned files"
-msgstr "Zeige nicht versionierte Dateien"
+msgid "Show un&versioned files"
+msgstr "Zeige un&versionierte Dateien"
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -8238,8 +8230,8 @@ msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Nutze die URL der &Arbeitskopie als 'Von:' URL"
 
 #. Resource IDs: (1064)
-msgid "Use Unified Diff from clipboard"
-msgstr "Standard Diff aus de Zwischenablage verwenden"
+msgid "Use Unified Diff from &clipboard"
+msgstr "Standard Diff aus der &Zwischenablage nehmen"
 
 #. Resource IDs: (1296)
 msgid "Use \"_svn\" instead of \".svn\" directories"
@@ -9477,6 +9469,10 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Bro&wse..."
+#~ msgstr "Suc&hen..."
+#~ msgid "Brows&e..."
+#~ msgstr "Such&en..."
 #~ msgid "Force blame"
 #~ msgstr "Annotieren erzwingen"
 #~ msgid "Bug Tracker..."
