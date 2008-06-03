@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-02 19:43+0900\n"
+"PO-Revision-Date: 2008-06-03 13:58+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -831,6 +831,10 @@ msgstr "使用データのリセット(&R)"
 #. Resource IDs: (16910)
 msgid "&Reset to Default"
 msgstr "デフォルトの状態に戻す(&R)"
+
+#. Resource IDs: (114)
+msgid "&Revert changes from these revisions"
+msgstr "これらのリビジョンにおける変更を元に戻す(&R)"
 
 #. Resource IDs: (113)
 msgid "&Revert changes from this revision"
@@ -1720,14 +1724,6 @@ msgstr "分岐／タグ(&T) ..."
 msgid "Break loc&k"
 msgstr "ロックを解除する(&K)"
 
-#. Resource IDs: (1009)
-msgid "Bro&wse..."
-msgstr "参照(&W) ..."
-
-#. Resource IDs: (1007)
-msgid "Brows&e..."
-msgstr "参照(&E) ..."
-
 #. Resource IDs: (78)
 msgid "Browse for the external diff program"
 msgstr "外部差分ツールを参照"
@@ -1755,6 +1751,10 @@ msgstr "ボタンの外観"
 #. Resource IDs: (1215)
 msgid "C&heck now"
 msgstr "今すぐチェック(&H)"
+
+#. Resource IDs: (1132)
+msgid "C&heck repository"
+msgstr "リポジトリをチェック(&H)"
 
 #. Resource IDs: (65535)
 msgid "C&ommands:"
@@ -1937,10 +1937,6 @@ msgstr "変更をチェック"
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
 msgstr "リポジトリから作業コピーをチェックアウト"
-
-#. Resource IDs: (1132)
-msgid "Check repository"
-msgstr "リポジトリをチェック"
 
 #. Resource IDs: (95)
 msgid ""
@@ -2976,6 +2972,10 @@ msgstr "ドライブの種類"
 msgid "E&xact copy sources"
 msgstr "正確なコピー元を表示する(&X)"
 
+#. Resource IDs: (65535)
+msgid "E&xclude paths:"
+msgstr "除外するパス(&X):"
+
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
 msgstr "終了(&X)"
@@ -3231,10 +3231,6 @@ msgstr ""
 #. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "例外:"
-
-#. Resource IDs: (65535)
-msgid "Exclude paths:"
-msgstr "除外するパス:"
 
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
@@ -3875,6 +3871,10 @@ msgstr "フックの種類:"
 msgid "Hostname mismatch (%s)"
 msgstr "ホスト名が合致しません (%s)"
 
+#. Resource IDs: (65535)
+msgid "I&nclude paths:"
+msgstr "含めるパス(&N):"
+
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -4253,10 +4253,6 @@ msgstr "マージされたリビジョンを含める"
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
 msgstr "次のリビジョン範囲のみを含める:"
-
-#. Resource IDs: (65535)
-msgid "Include paths:"
-msgstr "含めるパス:"
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -6167,10 +6163,6 @@ msgstr "元に戻す"
 msgid "Revert - TortoiseSVN"
 msgstr "元に戻す - TortoiseSVN"
 
-#. Resource IDs: (114)
-msgid "Revert changes from these revisions"
-msgstr "これらのリビジョンにおける変更を元に戻す"
-
 #. Resource IDs: (73)
 msgid "Reverted"
 msgstr "元に戻す"
@@ -6751,6 +6743,10 @@ msgstr "ログを表示(&L) ..."
 msgid "Show &overlays and context menu only in explorer"
 msgstr "エクスプローラ上でのみオーバーレイとコンテキストメニューを表示する(&O)"
 
+#. Resource IDs: (1265)
+msgid "Show &properties"
+msgstr "属性を表示(&P)"
+
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
 msgstr "バージョン管理外のファイルを表示する(&U)"
@@ -6828,8 +6824,8 @@ msgid "Show f&ull menus after a short delay"
 msgstr "少しの遅延の後に全てのメニューを表示(&U)"
 
 #. Resource IDs: (1264)
-msgid "Show ignored files"
-msgstr "無視ファイルを表示"
+msgid "Show i&gnored files"
+msgstr "無視ファイルを表示(&G)"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
@@ -6879,10 +6875,6 @@ msgstr "無視項目にオーバーレイ表示をする"
 msgid "Show overlay for unversioned items"
 msgstr "バージョン管理外の項目にオーバーレイ表示をする"
 
-#. Resource IDs: (1265)
-msgid "Show properties"
-msgstr "属性を表示"
-
 #. Resource IDs: (102)
 msgid "Show revision properties"
 msgstr "リビジョンの属性を表示"
@@ -6908,12 +6900,12 @@ msgid "Show tags on the copy source, not as separate nodes"
 msgstr "ノードとして分割せずにコピー元にタグを表示する"
 
 #. Resource IDs: (1209)
-msgid "Show unmodified files"
-msgstr "未変更ファイルを表示"
+msgid "Show un&modified files"
+msgstr "未変更ファイルを表示(&M)"
 
 #. Resource IDs: (1073)
-msgid "Show unversioned files"
-msgstr "バージョン管理外のファイルを表示する"
+msgid "Show un&versioned files"
+msgstr "バージョン管理外のファイルを表示する(&V)"
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -8213,8 +8205,8 @@ msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "作業コピーのURLを \"元:\" のデフォルトURLとして利用する(&W)"
 
 #. Resource IDs: (1064)
-msgid "Use Unified Diff from clipboard"
-msgstr "クリップボードの Unified Diff を利用"
+msgid "Use Unified Diff from &clipboard"
+msgstr "クリップボードの Unified Diff を利用(&C)"
 
 #. Resource IDs: (1296)
 msgid "Use \"_svn\" instead of \".svn\" directories"
@@ -9444,6 +9436,10 @@ msgstr "はい"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Bro&wse..."
+#~ msgstr "参照(&W) ..."
+#~ msgid "Brows&e..."
+#~ msgstr "参照(&E) ..."
 #~ msgid "Force blame"
 #~ msgstr "強制的に注釈履歴を実行する"
 #~ msgid "Bug Tracker..."
