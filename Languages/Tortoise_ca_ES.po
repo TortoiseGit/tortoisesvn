@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-01 03:10+0100\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2008-06-03 10:44+0100\n"
+"Last-Translator: Arnau <aperello@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -831,6 +831,10 @@ msgstr "&Reseteja les meves dades d'us"
 #. Resource IDs: (16910)
 msgid "&Reset to Default"
 msgstr "&Reseteja a Valors per Defecte"
+
+#. Resource IDs: (114)
+msgid "&Revert changes from these revisions"
+msgstr "&Reverteix canvis des d'aquestes versions"
 
 #. Resource IDs: (113)
 msgid "&Revert changes from this revision"
@@ -1719,14 +1723,6 @@ msgstr "Branca/&etiqueta..."
 msgid "Break loc&k"
 msgstr "Trenca blo&queig"
 
-#. Resource IDs: (1009)
-msgid "Bro&wse..."
-msgstr "Na&vega..."
-
-#. Resource IDs: (1007)
-msgid "Brows&e..."
-msgstr "Nav&ega..."
-
 #. Resource IDs: (78)
 msgid "Browse for the external diff program"
 msgstr "Navega per trobar programa de comparació extern"
@@ -1754,6 +1750,10 @@ msgstr "Aparença del Botó"
 #. Resource IDs: (1215)
 msgid "C&heck now"
 msgstr "C&omprova ara"
+
+#. Resource IDs: (1132)
+msgid "C&heck repository"
+msgstr "&Comprova repositori"
 
 #. Resource IDs: (65535)
 msgid "C&ommands:"
@@ -1936,10 +1936,6 @@ msgstr "Troba Modificacions"
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
 msgstr "Obté una còpia de treball des d'un repositori"
-
-#. Resource IDs: (1132)
-msgid "Check repository"
-msgstr "Comprova repositori"
 
 #. Resource IDs: (95)
 msgid ""
@@ -2974,6 +2970,10 @@ msgstr "Tipus d'Unitat"
 msgid "E&xact copy sources"
 msgstr "Còpies E&xactes de les fonts"
 
+#. Resource IDs: (65535)
+msgid "E&xclude paths:"
+msgstr "&No incloguis aquests paths:"
+
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
 msgstr "S&urt"
@@ -3228,10 +3228,6 @@ msgstr ""
 #. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "Excepcions:"
-
-#. Resource IDs: (65535)
-msgid "Exclude paths:"
-msgstr "No incloguis aquests paths:"
 
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
@@ -3872,6 +3868,10 @@ msgstr "Tipus de Hook:"
 msgid "Hostname mismatch (%s)"
 msgstr "No coincideixen els noms de host (%s)"
 
+#. Resource IDs: (65535)
+msgid "I&nclude paths:"
+msgstr "&Inclou els paths:"
+
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -4252,10 +4252,6 @@ msgstr "Inclou revisions fusionades"
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
 msgstr "Inclou només el següent rang de revisions:"
-
-#. Resource IDs: (65535)
-msgid "Include paths:"
-msgstr "Inclou els paths:"
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -6167,10 +6163,6 @@ msgstr "Reverteix"
 msgid "Revert - TortoiseSVN"
 msgstr "Reverteix - TortoiseSVN"
 
-#. Resource IDs: (114)
-msgid "Revert changes from these revisions"
-msgstr "Reverteix canvis des d'aquestes versions"
-
 #. Resource IDs: (73)
 msgid "Reverted"
 msgstr "Revertit"
@@ -6750,6 +6742,10 @@ msgstr "Mostra &log..."
 msgid "Show &overlays and context menu only in explorer"
 msgstr "Mostra &sobreposiscions i menú només a l'explorador"
 
+#. Resource IDs: (1265)
+msgid "Show &properties"
+msgstr "Mostra &propietats"
+
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
 msgstr "Mostra fitxers se&nse versionar"
@@ -6827,8 +6823,8 @@ msgid "Show f&ull menus after a short delay"
 msgstr "Mostra menús &sencers després d'un temps curt"
 
 #. Resource IDs: (1264)
-msgid "Show ignored files"
-msgstr "Mostra fitxers ignorats"
+msgid "Show i&gnored files"
+msgstr "Mostra fitxers i&gnorats"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
@@ -6878,10 +6874,6 @@ msgstr "Mostra sobreposició per a items ignorats"
 msgid "Show overlay for unversioned items"
 msgstr "Mostra sobreposició per a items sense versionar"
 
-#. Resource IDs: (1265)
-msgid "Show properties"
-msgstr "Mostra propietats"
-
 #. Resource IDs: (102)
 msgid "Show revision properties"
 msgstr "Mostra propietats de la revisió"
@@ -6907,12 +6899,12 @@ msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Mostra etiquetes a les fonts de lacòpia, no com a nodes separats"
 
 #. Resource IDs: (1209)
-msgid "Show unmodified files"
-msgstr "Mostra fitxers sense modificar"
+msgid "Show un&modified files"
+msgstr "Mostra fitxers sense &modificar"
 
 #. Resource IDs: (1073)
-msgid "Show unversioned files"
-msgstr "Mostra fitxers sense versionar"
+msgid "Show un&versioned files"
+msgstr "Mostra fitxers sense &versionar"
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -8211,8 +8203,8 @@ msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Utilitza la URL de la &Còpia de Treball com la URL \"De:\" per defecte "
 
 #. Resource IDs: (1064)
-msgid "Use Unified Diff from clipboard"
-msgstr "Utilitza Diff Unificat des del portapapers"
+msgid "Use Unified Diff from &clipboard"
+msgstr "Utilitza Diff Unificat des del p&ortapapers"
 
 #. Resource IDs: (1296)
 msgid "Use \"_svn\" instead of \".svn\" directories"
@@ -9445,7 +9437,4 @@ msgstr "sí"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
-
-#~ msgid "Force blame"
-#~ msgstr "Força establir autoria"
 
