@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2008
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 13062: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 13091: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-31 14:07+0300\n"
+"PO-Revision-Date: 2008-06-03 17:16+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -345,7 +345,7 @@ msgstr "&Автозакрытие:"
 
 #. Resource IDs: (1015)
 msgid "&Backup original file"
-msgstr "Сохранять &резервную копию файла"
+msgstr "Сохранять резервную &копию файла"
 
 #. Resource IDs: (114)
 msgid "&Blame changes"
@@ -441,7 +441,7 @@ msgstr "&Сравнить ревизии"
 
 #. Resource IDs: (1019)
 msgid "&Compare whitespaces"
-msgstr "&Сравнивать непечатаемые знаки"
+msgstr "Сравнивать н&епечатаемые знаки"
 
 #. Resource IDs: (1239)
 msgid "&Configure"
@@ -530,7 +530,7 @@ msgstr "&Исправить..."
 
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
-msgstr "&Использовать прокси-сервер"
+msgstr "Использовать прокси-&сервер"
 
 #. Resource IDs: (1434)
 msgid "&Enable log caching"
@@ -538,7 +538,7 @@ msgstr "Включить &кэширование журнала"
 
 #. Resource IDs: (1213)
 msgid "&Enter a message describing why you are locking the file(s)."
-msgstr "&Введите сообщение, поясняющее, почему вы блокируете файл(ы)"
+msgstr "Введите сооб&щение, поясняющее, почему вы блокируете файл(ы)"
 
 #. Resource IDs: (32782)
 msgid "&Exit"
@@ -797,7 +797,7 @@ msgstr "Разместить с &перекрытием "
 
 #. Resource IDs: (1411, 65535)
 msgid "&Password:"
-msgstr "&Пароль:"
+msgstr "Па&роль:"
 
 #. Resource IDs: (376, 501)
 msgid "&Paste"
@@ -829,7 +829,7 @@ msgstr "Сво&йства..."
 
 #. Resource IDs: (1246)
 msgid "&Recent messages"
-msgstr "Недавние &сообщения"
+msgstr "&Недавние сообщения"
 
 #. Resource IDs: (65535)
 msgid "&Red:"
@@ -875,6 +875,10 @@ msgstr "О&чистить мои данные об использовании"
 msgid "&Reset to Default"
 msgstr "С&бросить на исходные"
 
+#. Resource IDs: (114)
+msgid "&Revert changes from these revisions"
+msgstr "&Убрать изменения, сделанные в этих ревизиях"
+
 # "с этой" или "начиная с этой"?
 #. Resource IDs: (113)
 msgid "&Revert changes from this revision"
@@ -886,7 +890,7 @@ msgstr "&Ревизия"
 
 #. Resource IDs: (65535)
 msgid "&SSH client:"
-msgstr "&SSH клиент:"
+msgstr "SSH &клиент:"
 
 #. Resource IDs: (65535)
 msgid "&Sat:"
@@ -952,7 +956,7 @@ msgstr "Перехватить &блокировки"
 
 #. Resource IDs: (1130)
 msgid "&Stop on copy/rename"
-msgstr "О&становиться на копировании/переименовании"
+msgstr "Ос&тановиться на копировании/переименовании"
 
 #. Resource IDs: (1173)
 msgid "&Symbol View"
@@ -1698,7 +1702,7 @@ msgstr "Авто"
 
 #. Resource IDs: (1073)
 msgid "Automatically check for &newer versions every week"
-msgstr "Автоматически проверять наличие &новой версии каждую неделю"
+msgstr "Автоматически проверять наличие новой &версии каждую неделю"
 
 #. Resource IDs: (1157)
 msgid "Average"
@@ -1777,14 +1781,6 @@ msgstr "О&тветвление/метка"
 msgid "Break loc&k"
 msgstr "Прервать бло&кировку"
 
-#. Resource IDs: (1009)
-msgid "Bro&wse..."
-msgstr "Обз&ор..."
-
-#. Resource IDs: (1007)
-msgid "Brows&e..."
-msgstr "&Обзор..."
-
 #. Resource IDs: (78)
 msgid "Browse for the external diff program"
 msgstr "Выбрать внешнюю программу различий"
@@ -1811,7 +1807,11 @@ msgstr "Внешний вид кнопки"
 
 #. Resource IDs: (1215)
 msgid "C&heck now"
-msgstr "&Проверить"
+msgstr "П&роверить"
+
+#. Resource IDs: (1132)
+msgid "C&heck repository"
+msgstr "Про&верить хранилище"
 
 #. Resource IDs: (65535)
 msgid "C&ommands:"
@@ -1996,10 +1996,6 @@ msgstr "Проверка на наличие изменений"
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
 msgstr "Извлечь рабочую копию из хранилища"
-
-#. Resource IDs: (1132)
-msgid "Check repository"
-msgstr "Проверить хранилище"
 
 #. Resource IDs: (95)
 msgid ""
@@ -3045,6 +3041,10 @@ msgstr "Типы накопителей"
 msgid "E&xact copy sources"
 msgstr "&Точные источники копирования"
 
+#. Resource IDs: (65535)
+msgid "E&xclude paths:"
+msgstr "&Исключить пути:"
+
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
 msgstr "В&ыход"
@@ -3301,10 +3301,6 @@ msgstr ""
 #. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "Исключения:"
-
-#. Resource IDs: (65535)
-msgid "Exclude paths:"
-msgstr "Исключить пути:"
 
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
@@ -3867,7 +3863,7 @@ msgstr "Разбить по группам изменений"
 
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
-msgstr "&Скрыть несвязанные изменённые пути"
+msgstr "Скрыть &несвязанные изменённые пути"
 
 #. Resource IDs: (65535)
 msgid "H&ue:"
@@ -3950,6 +3946,10 @@ msgstr "Тип ловушки:"
 #, c-format
 msgid "Hostname mismatch (%s)"
 msgstr "Имя хоста не соответствует (%s)"
+
+#. Resource IDs: (65535)
+msgid "I&nclude paths:"
+msgstr "В&ключить пути:"
 
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
@@ -4336,10 +4336,6 @@ msgstr "Включая слитые ревизии"
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
 msgstr "Включить только следующий диапазон ревизий:"
-
-#. Resource IDs: (65535)
-msgid "Include paths:"
-msgstr "Включить пути:"
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -6271,11 +6267,6 @@ msgstr "Убрать изменения"
 msgid "Revert - TortoiseSVN"
 msgstr "Убрать изменения - TortoiseSVN"
 
-# "с этой" или "начиная с этой"?
-#. Resource IDs: (114)
-msgid "Revert changes from these revisions"
-msgstr "Убрать изменения, сделанные в этих ревизиях"
-
 #. Resource IDs: (73)
 msgid "Reverted"
 msgstr "Возвращено"
@@ -6858,6 +6849,10 @@ msgstr "Показать &журнал..."
 msgid "Show &overlays and context menu only in explorer"
 msgstr "Показывать &пометки и контекстное меню только в проводнике"
 
+#. Resource IDs: (1265)
+msgid "Show &properties"
+msgstr "Показать с&войства"
+
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
 msgstr "Показать &неверсированные файлы"
@@ -6936,12 +6931,12 @@ msgid "Show f&ull menus after a short delay"
 msgstr "Показывать &полные меню после небольшой задержки"
 
 #. Resource IDs: (1264)
-msgid "Show ignored files"
-msgstr "Показать игнорируемые файлы"
+msgid "Show i&gnored files"
+msgstr "Показать &игнорируемые файлы"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
-msgstr "Показывать номера ст&рок"
+msgstr "Показывать но&мера строк"
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
@@ -6987,10 +6982,6 @@ msgstr "Показывать пометки для игнорируемых эл
 msgid "Show overlay for unversioned items"
 msgstr "Показывать пометки для неверсированных элементов"
 
-#. Resource IDs: (1265)
-msgid "Show properties"
-msgstr "Показать свойства"
-
 #. Resource IDs: (102)
 msgid "Show revision properties"
 msgstr "Показать свойства ревизии"
@@ -7016,12 +7007,12 @@ msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Показать метки на источнике копирования, а не как отдельные узлы"
 
 #. Resource IDs: (1209)
-msgid "Show unmodified files"
-msgstr "Показать файлы без изменений"
+msgid "Show un&modified files"
+msgstr "Показать файлы без из&менений"
 
 #. Resource IDs: (1073)
-msgid "Show unversioned files"
-msgstr "Показать неверсированные файлы"
+msgid "Show un&versioned files"
+msgstr "Показать не&версированные файлы"
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -7247,7 +7238,7 @@ msgstr "Файл серверов Subversion (servers):"
 
 #. Resource IDs: (1232)
 msgid "Sw&itch working copy to new branch/tag"
-msgstr "Пере&ключить рабочую копию на новое ответвление/метку"
+msgstr "&Переключить рабочую копию на новое ответвление/метку"
 
 #. Resource IDs: (229)
 #, c-format
@@ -8337,8 +8328,8 @@ msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Задать изначально URL &рабочей копии в поле \"Из:\""
 
 #. Resource IDs: (1064)
-msgid "Use Unified Diff from clipboard"
-msgstr "Использовать объединённые различия из буфера обмена"
+msgid "Use Unified Diff from &clipboard"
+msgstr "Использовать объединённые &различия из буфера обмена"
 
 #. Resource IDs: (1296)
 msgid "Use \"_svn\" instead of \".svn\" directories"
@@ -9584,6 +9575,10 @@ msgstr "да"
 msgid "{BugTraq}"
 msgstr "{СОП}"
 
+#~ msgid "Bro&wse..."
+#~ msgstr "Обз&ор..."
+#~ msgid "Brows&e..."
+#~ msgstr "&Обзор..."
 #~ msgid "Force blame"
 #~ msgstr "Принудительное получение авторства"
 #~ msgid ""
