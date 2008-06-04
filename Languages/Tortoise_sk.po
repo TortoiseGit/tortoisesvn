@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-03 00:05+0100\n"
+"PO-Revision-Date: 2008-06-04 08:51+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -678,11 +678,11 @@ msgstr "&Jas:"
 
 #. Resource IDs: (16543)
 msgid "&Menu animations:"
-msgstr "Animácie &menu:"
+msgstr "Animácie &ponuky:"
 
 #. Resource IDs: (16921)
 msgid "&Menu contents:"
-msgstr "Obsah &menu:"
+msgstr "Obsah &ponuky:"
 
 #. Resource IDs: (1)
 msgid "&Merge"
@@ -891,7 +891,7 @@ msgstr "&Zobraziť hlavné revízie"
 
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
-msgstr "&Zobraziť menu pre:"
+msgstr "&Zobraziť ponuku pre:"
 
 #. Resource IDs: (16612)
 msgid "&Show text labels"
@@ -1177,11 +1177,11 @@ msgstr "?"
 
 #. Resource IDs: (579)
 msgid "A list of user defined properties for files to show in the combo box"
-msgstr "Zoznam užívateľských vlastností súborov v rolovacích menu"
+msgstr "Zoznam užívateľských vlastností súborov v rolovacích ponukách"
 
 #. Resource IDs: (579)
 msgid "A list of user defined properties for folders to show in the combo box"
-msgstr "Zoznam užívateľských vlastností adresárovv v rolovacích menu"
+msgstr "Zoznam užívateľských vlastností adresárovv v rolovacích ponukách"
 
 #. Resource IDs: (201)
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
@@ -1417,7 +1417,7 @@ msgstr "Všetky súbory (*.*)|*.*||"
 
 #. Resource IDs: (1008)
 msgid "All your changes will be lost! Do you really want to reset all toolbars and menus?"
-msgstr "Všetky vaše zmeny budú stratené! Naozaj chcete predvolené nastavenie všetkých líšt a menu?"
+msgstr "Všetky vaše zmeny budú stratené! Naozaj chcete predvolené nastavenie všetkých líšt a ponúk?"
 
 #. Resource IDs: (1008)
 msgid "All your changes will be lost! Do you really want to reset the keyboard assignments?"
@@ -1426,7 +1426,7 @@ msgstr "Všetky vaše zmeny budú stratené! Naozaj chcete predvolené nastaveni
 #. Resource IDs: (1008)
 #, c-format
 msgid "All your changes will be lost! Do you really want to reset the menu '%s'?"
-msgstr "Všetky vaše zmeny budú stratené! Naozaj chcete predvolené nastavenie pre menu '%s'?"
+msgstr "Všetky vaše zmeny budú stratené! Naozaj chcete predvolené nastavenie pre ponuku  '%s'?"
 
 #. Resource IDs: (1007)
 #, c-format
@@ -1508,7 +1508,7 @@ msgstr "Bol nájdený neznámy typ riadku %d !"
 
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
-msgstr "Rámcové menu aplikácie"
+msgstr "Rámcová ponuka aplikácie"
 
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
@@ -1871,7 +1871,7 @@ msgstr "Kaskáda"
 
 #. Resource IDs: (65535)
 msgid "Cascaded context menu"
-msgstr "Kaskádne kontextové menu"
+msgstr "Kaskádna kontextová ponuka"
 
 #. Resource IDs: (65535)
 msgid "Cate&gories:"
@@ -1973,7 +1973,7 @@ msgstr "Skontrolujte cestu a URL adresu, ktorú ste zadali."
 
 #. Resource IDs: (194)
 msgid "Check those menu entries you want to appear in the top context menu instead of the TortoiseSVN submenu"
-msgstr "Zaškrtnite tie položky, ktoré chcete aby sa zobrazovali vo vrchnom kontextovom menu namiesto v podmenu TortoiseSVN"
+msgstr "Zaškrtnite tie položky, ktoré chcete aby sa zobrazovali vo vrchnej kontextovej ponuke namiesto v podmenu TortoiseSVN"
 
 #. Resource IDs: (80)
 msgid "Check to use a less verbose date and time format in log messages"
@@ -2210,10 +2210,10 @@ msgid ""
 "\n"
 "Are you sure that you want to continue the commit?"
 msgstr ""
-"Committing an unversioned folder will not recursively add its child items!\n"
-"You might want to add these folders recursively by using the \"Add...\" context menu item.\n"
+"Odovzdanie neverziovaného adresára nepridaá jeho objekty!\n"
+"Možete požadovať rekurzívne pridanie adresára použitím \"Pridať...\" z kontextovej ponuky objektu.\n"
 "\n"
-"Are you sure that you want to continue the commit?"
+"Ste si istý, že chcete pokračovať v odovzdávaní?"
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
@@ -2305,7 +2305,7 @@ msgstr "Veľkosť kontaineru"
 
 #. Resource IDs: (16520)
 msgid "Context Menus: "
-msgstr "Kontextové Menu"
+msgstr "Kontextové ponuky:"
 
 #. Resource IDs: (73)
 msgid "Continue"
@@ -2745,7 +2745,7 @@ msgstr "Predvolená URL:"
 
 #. Resource IDs: (1007)
 msgid "Default application menu. Appears when no documents are open."
-msgstr "Predvolené menu aplikácie. Zobrazuje sa keď nie je otvorený žiaden dokument."
+msgstr "Predvolená ponuka aplikácie. Zobrazuje sa keď nie je otvorený žiaden dokument."
 
 #. Resource IDs: (65535)
 msgid "Default path:"
@@ -2878,7 +2878,7 @@ msgid ""
 "Display help for clicked on buttons, menus and windows\n"
 "Help"
 msgstr ""
-"Zobraz pomoc o tačítkach, menu a oknách\n"
+"Zobraz nápovedu o tlačítkach, ponukách a oknách\n"
 "Pomoc"
 
 #. Resource IDs: (3605)
@@ -2986,7 +2986,7 @@ msgstr "Túto správu už nezobrazuj"
 
 #. Resource IDs: (1002)
 msgid "Drag to make this menu float"
-msgstr "Presunutie spraví toto menu plávajúce"
+msgstr "Presunutie spraví túto ponuku plávajúcou"
 
 #. Resource IDs: (16513)
 msgid "Draw"
@@ -3690,7 +3690,7 @@ msgstr "Hlavné::Farby"
 
 #. Resource IDs: (195)
 msgid "General::Context Menu"
-msgstr "Hlavné::Kontextové Menu"
+msgstr "Hlavné::Kontextová ponuka"
 
 #. Resource IDs: (196)
 msgid "General::Dialogs 1"
@@ -3702,7 +3702,7 @@ msgstr "Hlavné::Dialógy II"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
-msgstr "Vztváram súbor záplaty..."
+msgstr "Vytváram súbor záplaty..."
 
 #. Resource IDs: (16)
 msgid "Get loc&k..."
@@ -3882,7 +3882,7 @@ msgstr "Tip: F5 obnovuje vybraný podstrom a Ctrl-F5 načíta aj deti"
 
 #. Resource IDs: (16519)
 msgid "Hint: select the context menu, change the page to \"Commands\" and drag the toolbar buttons into the menu window."
-msgstr "Tip: vyberte kontextové menu, zmente stranu na \"Príkaz\" a presuňte tlačídla na okno ponuky."
+msgstr "Tip: vyberte kontextovú ponuku, zmeňte stranu na \"Príkaz\" a presuňte tlačidla na okno ponuky."
 
 #. Resource IDs: (1064)
 msgid "Home"
@@ -4058,14 +4058,14 @@ msgstr "Ikony/Design/Kód:                 Luebbe ONKEN"
 
 #. Resource IDs: (194)
 msgid "If activated, prevents the overlays and the context menu from showing in \"save as...\" or \"open\" dialogs"
-msgstr "Aktivované zabrání zobrazovaniu prekryvajúcich ikoniek a kontexových menu v dialógových oknách \"uložiť ako...\" a \"otvoriť\"."
+msgstr "Aktivované zabrání zobrazovaniu prekryvajúcich ikoniek a kontexových ponúk v dialógových oknách \"uložiť ako...\" a \"otvoriť\"."
 
 #. Resource IDs: (198)
 msgid ""
 "If activated, the menu entry \"Get Lock\" is always shown in the top level menu\n"
 "if the selected file has the svn:needs-lock property set"
 msgstr ""
-"Keď je aktívne, položka \"Uzamknúť\" je vždy zobrazovaná na vrchu menu\n"
+"Keď je aktívne, položka \"Uzamknúť\" je vždy zobrazovaná na vrchu ponuky\n"
 "keď je vybraný súbor s nastavenou vlastnosťou svn:needs-lock"
 
 #. Resource IDs: (95)
@@ -4756,11 +4756,11 @@ msgstr "Me&nu zobrazujúce naposledy použité príkazy"
 
 #. Resource IDs: (16134)
 msgid "Menu"
-msgstr "Menu"
+msgstr "Ponuka"
 
 #. Resource IDs: (1001)
 msgid "Menu Bar"
-msgstr "Menu"
+msgstr "Ponuka"
 
 #. Resource IDs: (16626)
 msgid "Menu s&hadows"
@@ -5068,7 +5068,7 @@ msgstr "Nové me&no"
 
 #. Resource IDs: (1001)
 msgid "New Menu"
-msgstr "Nov0 menu"
+msgstr "Nová ponuka"
 
 #. Resource IDs: (97)
 #, c-format
@@ -5502,7 +5502,7 @@ msgstr ""
 
 #. Resource IDs: (16538)
 msgid "Personalized Menus and Toolbars"
-msgstr "Prispôsobené menu a nástrojové lišty"
+msgstr "Prispôsobená ponuka a nástrojové lišty"
 
 #. Resource IDs: (3849)
 msgid ""
@@ -5761,7 +5761,7 @@ msgstr "Nastavenia Proxy"
 
 #. Resource IDs: (1338)
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
-msgstr "Umiestniť \"Uzamknúť\" na vrch menu pri nastavenom svn:needs-lock"
+msgstr "Umiestniť \"Uzamknúť\" na vrch ponuky pri nastavenom svn:needs-lock"
 
 #. Resource IDs: (246)
 #, c-format
@@ -6564,7 +6564,7 @@ msgstr "Vybrať &užívateľský obrázok:"
 
 #. Resource IDs: (16508)
 msgid "Select &context menu:"
-msgstr "Vybrať &kontextové menu:"
+msgstr "Vybrať &kontextovú ponuku:"
 
 #. Resource IDs: (65535)
 msgid "Select &window:"
@@ -6807,7 +6807,7 @@ msgstr "Zobraziť &denník..."
 
 #. Resource IDs: (1088)
 msgid "Show &overlays and context menu only in explorer"
-msgstr "Z&obrazovať prekrytie a kontextové menu len v Explorer-y"
+msgstr "Z&obrazovať prekrytie a kontextovú ponuku len v Explorer-y"
 
 #. Resource IDs: (1265)
 msgid "Show &properties"
@@ -6887,7 +6887,7 @@ msgstr "Zobraziť vylúčené adresáre ako normálne"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
-msgstr "Po chvíľke zobraziť &celé menu "
+msgstr "Po chvíľke zobraziť &celú ponuku "
 
 #. Resource IDs: (1264)
 msgid "Show i&gnored files"
@@ -7829,7 +7829,7 @@ msgid ""
 "To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\n"
 "This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 msgstr ""
-"Na ukradnutie zámky, stlačte pravý klik na rodičovskom adresáry objektu a vyberte \"Uzamknúť\" z kontextového menu.\n"
+"Na ukradnutie zámky, stlačte pravý klik na rodičovskom adresáry objektu a vyberte \"Uzamknúť\" z kontextovej ponuky.\n"
 "Toto vám zobrazí dialóg zamykania, kde môže znútiť zámok - 'ukradnúť' ho od jeho aktuálneho vlastníka."
 
 #. Resource IDs: (1201, 65535)
@@ -7845,8 +7845,8 @@ msgid ""
 "Toggle One/Two Pages display\n"
 "Toggle One/Two Pages display"
 msgstr ""
-"Prepnúť medzi jedno/dvojpanelovým zobrzením\n"
-"Jeden/dva panely"
+"Prepnúť medzi jedno/dvoj stranovým zobrazením\n"
+"Jedna/dvoj stranové zobrazenie"
 
 #. Resource IDs: (65535)
 msgid "Toolbar"
@@ -9269,8 +9269,8 @@ msgstr ""
 "URL môžu byť plné URL, alebo relatívne. Formát pre relátivne URL je:../\trelatívne k rodičovskému adresáru externu\n"
 "../\trelatívne k rodičovskému adresáru externu\n"
 "^/\trelatívne ku kmeňu úložiska\n"
-"//\trelatívne v URL schéme\n"
-"/\trelatívne v menu servera"
+"//\trelatívne k URL schéme\n"
+"/\trelatívne k menu servera"
 
 #. Resource IDs: (576)
 msgid ""
