@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-05-30 19:02 +0000\n"
-"PO-Revision-Date: 2008-06-03 16:52+0100\n"
+"PO-Revision-Date: 2008-06-04 14:40+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -798,7 +798,7 @@ msgstr "Die Kopieren-Ändern-Zusammenführen Lösung"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:895
 msgid "Subversion, CVS, and other version control systems use a <firstterm>copy-modify-merge</firstterm> model as an alternative to locking. In this model, each user's client reads the repository and creates a personal <firstterm>working copy</firstterm> of the file or project. Users then work in parallel, modifying their private copies. Finally, the private copies are merged together into a new, final version. The version control system often assists with the merging, but ultimately a human being is responsible for making it happen correctly."
-msgstr "Subversion, CVS und andere Versionskontrollsysteme nutzen ein Kopieren-Ändern-Zusammenführen Modell als Alternative zur Sperrlösung. In diesem Modell hat jeder Benutzer eine persönliche <firstterm> Arbeitskopie</firstterm> des Projekts. Die Benutzer arbeiten dann parallel und ändern jeweils ihre persönliche Arbeitskopie. Schließlich werden diese privaten Arbeitskopien zu einer endgültigen Version zusammengeführt. Das Versionskontrollsystem hilft beim  Zusammenführen, überlässt die endgültige Kontrolle aber dem Benutzer selbst."
+msgstr "Subversion, CVS und andere Versionskontrollsysteme nutzen ein Kopieren-Ändern-Zusammenführen Modell als Alternative zur Sperrlösung. In diesem Modell hat jeder Benutzer eine persönliche <firstterm>Arbeitskopie</firstterm> des Projekts. Die Benutzer arbeiten dann parallel und ändern jeweils ihre persönliche Arbeitskopie. Schließlich werden diese privaten Arbeitskopien zu einer endgültigen Version zusammengeführt. Das Versionskontrollsystem hilft beim  Zusammenführen, überlässt die endgültige Kontrolle aber dem Benutzer selbst."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:907
@@ -6352,7 +6352,7 @@ msgstr "Eigenschaften"
 #. (title)
 #: ../source/TortoiseSVN_en.xml:7376
 msgid "Explorer property page, Subversion tab"
-msgstr "Explorer Eigenschafts-seite, Subversion Tab"
+msgstr "Explorer Eigenschaftsseite, Subversion Tab"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7374
@@ -6833,7 +6833,7 @@ msgstr "<quote>Wechseln zu</quote> wird genau so wie <quote>Aktualisieren</quote
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8031
 msgid "If you want to work on trunk and branch, but don't want the expense of a fresh checkout, you can use Windows Explorer to make a copy of your trunk checkout in another folder, then <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</guimenuitem></menuchoice> that copy to your new branch."
-msgstr "Wenn Sie auf dem Stamm und einer Verzweigung gleichzeitig arbeiten wollen, aber nicht auf ein vollständiges Auschecken warten wollen, könen Sie mit dem Explorer Ihr Arbeitskopie kopieren und mit der Kopie über <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Wechseln zu...</guimenuitem> </menuchoice> auf den Zweig wechseln."
+msgstr "Wenn Sie auf dem Stamm und einer Verzweigung gleichzeitig arbeiten wollen, aber nicht auf ein vollständiges Auschecken warten wollen, können Sie mit dem Explorer Ihr Arbeitskopie kopieren und mit der Kopie über <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Wechseln zu...</guimenuitem> </menuchoice> auf den Zweig wechseln."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:8044
@@ -8100,7 +8100,7 @@ msgstr "Wenn Sie den Server auf neue Informationen überprüfen wollen, können 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9686
 msgid "If you are using the log cache and you think the message content or author may have changed, you should use the log dialog to refresh the messages you need. Since the revision graph works from the repository root, we would have to invalidate the entire log cache, and refilling it could take a <emphasis>very</emphasis> long time."
-msgstr "Falls Sie den Log-Puffer verwenden und denken, dass sich der Inhalt oder der Autor einer Logmeldung geändert haben, sollten Sie den Log-Dialog aufrufen, um darüber die gewünschten Meldungen zu aktualisieren. Da der Revisionsgraph von der Wurzel des Projektarchivs ausgeht, müssten wir den gesamten Log-Puffer ungültig machen underneut aufbauen, was <emphasis>sehr viel</emphasis> Zeit in Anspruch nehmen kann."
+msgstr "Falls Sie den Log-Puffer verwenden und denken, dass sich der Inhalt oder der Autor einer Logmeldung geändert haben, sollten Sie den Log-Dialog aufrufen, um darüber die gewünschten Meldungen zu aktualisieren. Da der Revisionsgraph von der Wurzel des Projektarchivs ausgeht, müssten wir den gesamten Log-Puffer ungültig machen und erneut aufbauen, was <emphasis>sehr viel</emphasis> Zeit in Anspruch nehmen kann."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:9697
@@ -9263,7 +9263,7 @@ msgstr "Wenn Sie Proxy Einstellungen für jedes Projektarchiv vornehmen wollen, 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11182
 msgid "You can also specify which program TortoiseSVN should use to establish a secure connection to a svn+ssh repository. We recommend that you use TortoisePlink.exe. This is a version of the popular Plink program, and is included with TortoiseSVN, but it is compiled as a Windowless app, so you don't get a DOS box popping up every time you authenticate."
-msgstr "Sie können hier auch angeben, welches Programm TortoiseSVN benutzen soll, um eine sichere Verbindung zu einem svn+ssh Projektarchiv herzustellen. Wir empfehlen Ihnen, dass Sie dazu TortoisePlink.exe verwenden. Dabei handelt es sich um eine für TortoiseSVN angepasste Version des bekannten Plink, die mit TortoiseSVN zusammen installiert wird. Damit nicht bei jeder Anmeldung eine DOS Box erscheint, wurde TortoisePlink als fensterloses Programm übersetzt."
+msgstr "Sie können hier auch angeben, welches Programm TortoiseSVN benutzen soll, um eine sichere Verbindung zu einem svn+ssh Projektarchiv herzustellen. Wir empfehlen Ihnen, dass Sie dazu TortoisePlink.exe verwenden. Dabei handelt es sich um eine für TortoiseSVN angepasste Version des bekannten Plink, die mit TortoiseSVN zusammen installiert wird. Damit nicht bei jeder Anmeldung eine DOS-Box erscheint, wurde TortoisePlink als fensterloses Programm übersetzt."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11190
@@ -9989,7 +9989,7 @@ msgstr "Falls Sie die Subversionoperation zurückhalten wollen, bis das Aktionss
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12053
 msgid "Normally you will want to hide ugly DOS boxes when the script runs, so <guilabel>Hide the script while running</guilabel> is checked by default."
-msgstr "Normalerweise wollen Sie bestimmt die hässlichen Dos-Fenster verbergen während das Aktionsskript läuft, weshalb <guilabel>Skript beim Ablauf verbergen</guilabel> standardmäßig markiert ist."
+msgstr "Normalerweise wollen Sie bestimmt die hässlichen DOS-Fenster verbergen während das Aktionsskript läuft, weshalb <guilabel>Skript beim Ablauf verbergen</guilabel> standardmäßig markiert ist."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:12058
@@ -11128,7 +11128,7 @@ msgstr "Übertragen Sie diese Änderungen. Nun, wenn Sie Ihre Arbeitskopie aktua
 #. (para)
 #: ../source/TortoiseSVN_en.xml:13198
 msgid "Of the three methods described, this is the only one which needs no setup on the client side. Once externals are specified in the folder properties, all clients will get populated folders when they update."
-msgstr "Von den drei beschriebenene Methoden ist dies die einzige, die keine clientseitige Konfiguration erfordert. Sobald Externals in den Ordnereigenschaften festgelegt wurden, werden sämtliche Clients die Ordner beim Aktualisieren erhalten."
+msgstr "Von den drei beschriebenen Methoden ist dies die einzige, die keine clientseitige Konfiguration erfordert. Sobald Externals in den Ordnereigenschaften festgelegt wurden, werden sämtliche Clients die Ordner beim Aktualisieren erhalten."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:13206
@@ -11325,7 +11325,7 @@ msgstr "ausliefern"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:13393
 msgid "The TortoiseSVN installer comes as an MSI file, which means you should have no problems adding that MSI file to the group policies of your domain controller."
-msgstr "Das TortoiseSVN Installationsprogramm ist eine msi Datei, die Sie normalerweise problemlos in die Gruppenrichtlinien Ihres Domänencontrollers mit aufnehmen können."
+msgstr "Das TortoiseSVN Installationsprogramm ist eine MSI Datei, die Sie normalerweise problemlos in die Gruppenrichtlinien Ihres Domänencontrollers mit aufnehmen können."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:13398
@@ -11386,7 +11386,7 @@ msgstr ""
 "Eine neue Version von TortoiseSVN steht zur Verfügung!\n"
 "http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi\n"
 "</screen>\n"
-"Die erste Zeile in der Datei ist das Versionsstring. Sie müssen sicherstellen, dass es exakt mit der Version des TortoiseSVN Installationspakets übereinstimmt.Die zweite Zeile enthält einen freien Text, der im Aktualisieren-Dialog angezeigt wird. Sie können hineinschreiben was sie wollen, sollten jedoch bedenken, dass der Platz im Dialog beschränkt ist. Zu lange Zeilen werden abgeschnitten.Die dritte Zeile enthält die URL des neuen Installationspakets. Diese URL wird geöffnet, wenn der Anwender auf die Meldung im Aktualisieren Dialog klickt. Sie können den Anwender auch zu einer Webseite anstatt direkt zum msi installer leiten. Die URL wird mit dem Standard Web-Browser geöffnet. Wenn Sie eine Webseite angeben, wird diese einfach angezeigt, wenn Sie das msi Paket angeben, wird der Browser den Anwender bitten, die Datei lokal zu speichern."
+"Die erste Zeile in der Datei ist das Versionsstring. Sie müssen sicherstellen, dass es exakt mit der Version des TortoiseSVN Installationspakets übereinstimmt.Die zweite Zeile enthält einen freien Text, der im Aktualisieren-Dialog angezeigt wird. Sie können hineinschreiben was sie wollen, sollten jedoch bedenken, dass der Platz im Dialog beschränkt ist. Zu lange Zeilen werden abgeschnitten.Die dritte Zeile enthält die URL des neuen Installationspakets. Diese URL wird geöffnet, wenn der Anwender auf die Meldung im Aktualisieren Dialog klickt. Sie können den Anwender auch zu einer Webseite anstatt direkt zum MSI Installer leiten. Die URL wird mit dem Standard Web-Browser geöffnet. Wenn Sie eine Webseite angeben, wird diese einfach angezeigt, wenn Sie das msi Paket angeben, wird der Browser den Anwender bitten, die Datei lokal zu speichern."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:13467
@@ -13112,7 +13112,7 @@ msgid ""
 "ps xa | grep sshd\n"
 "</screen> and look for ssh jobs."
 msgstr ""
-"Sie müssen SSH auf dem Server aktiviert haben. Wir setzen hier voraus, dass Sie OpenSSH verwenden. Bei den meisten distributionen ist dies bereits installiert. Zum Überprüfen geben Sie:\n"
+"Sie müssen SSH auf dem Server aktiviert haben. Wir setzen hier voraus, dass Sie OpenSSH verwenden. Bei den meisten Distributionen ist OpenSSH bereits installiert. Zum Überprüfen geben Sie:\n"
 "<screen>ps xa | grep sshd</screen>\n"
 "ein und suchen Sie nach SSH Jobs."
 
@@ -13204,9 +13204,9 @@ msgid ""
 "</screen> you will see two files, <filename>keyfile</filename> and <filename>keyfile.pub</filename>. As you might guess, the <filename>.pub</filename> file is the public key file, the other is the private one."
 msgstr ""
 "Melden Sie sich als <literal>root</literal> oder <literal>svnuser</literal> am Server an und geben Sie:\n"
-"<screen>ssh-keygen -b 1024 -t dsa -N Passphrase -f schlüsseldatei</screen>\n"
+"<screen>ssh-keygen -b 1024 -t dsa -N Passphrase -f Schlüsseldatei</screen>\n"
 "ein, wobei sie eine echte Passphrase (die nur Sie selber kennen) und die Schlüsseldatei angeben.Jetzt haben Sie einen 1024 Bit SSH2 DSA Schlüssel erzeugt. Wenn Sie \n"
-"<screen>ls -l Schlüsseldatei*</screen> eingeben, sehen Sie zwei Dateien, <filename>Schlüsseldatei</filename> und <filename>Schlüsseldatei.pub</filename>. Wie Sie schon erraten haben, ist die <filename>.pub</filename> Datei der öffentiche Schlüssel und die andere der private."
+"<screen>ls -l Schlüsseldatei*</screen> eingeben, sehen Sie zwei Dateien, <filename>Schlüsseldatei</filename> und <filename>Schlüsseldatei.pub</filename>. Wie Sie schon erraten haben, ist die <filename>.pub</filename> Datei der öffentliche Schlüssel und die andere der private."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15107
@@ -13221,7 +13221,7 @@ msgstr ""
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15114
 msgid "In order to use the private key we generated, we have to convert it to a putty format. This is because the private key file format is not specified by a standards body. After you download the private key file to your client PC, start PuTTYgen and use <menuchoice><guimenu>Conversions</guimenu><guimenuitem>Import key</guimenuitem></menuchoice>. Browse to your file <filename>keyfile</filename> which you got from the server the passphrase you used when creating the key. Finally click on <guibutton>Save private key</guibutton> and save the file as <filename>keyfile.PPK</filename>."
-msgstr "Damit wir den auf diese Weise erzeugten privaten Schlüssel verwenden können, muss er in das PuTTY Format konvertiert werden. Das liegt daran, dass das Format für private Schlüssel nirgendwo standardisiert ist. Nachdem Sie die private Schlüsseldatei auf Ihren PC heruntergeladen haben, starten Sie PuTTYgen und rufen Sie <menuchoice><guimenu>Conversions</guimenu><guimenuitem>Import key</guimenuitem></menuchoice> auf. Navigieren Sie zu Ihrer vom Server heruntergeladenen <filename>Schlüsseldatei</filename> und geben Sie die Passphrase ein, die sie bein Erzeugen des Schlüssels gewählt haben. Schließlich klicken Sie auf <guibutton>Save private key</guibutton> und speichern Die Datei als <filename>Schlüsseldatei.PPK</filename>"
+msgstr "Damit wir den auf diese Weise erzeugten privaten Schlüssel verwenden können, muss er in das PuTTY Format konvertiert werden. Das liegt daran, dass das Format für private Schlüssel nirgendwo standardisiert ist. Nachdem Sie die private Schlüsseldatei auf Ihren PC heruntergeladen haben, starten Sie PuTTYgen und rufen Sie <menuchoice><guimenu>Conversions</guimenu><guimenuitem>Import key</guimenuitem></menuchoice> auf. Navigieren Sie zu Ihrer vom Server heruntergeladenen <filename>Schlüsseldatei</filename> und geben Sie die Passphrase ein, die sie beim Erzeugen des Schlüssels gewählt haben. Schließlich klicken Sie auf <guibutton>Save private key</guibutton> und speichern Die Datei als <filename>Schlüsseldatei.PPK</filename>"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:15131
@@ -13322,7 +13322,7 @@ msgid ""
 "</screen> What does this URL mean? The Schema name is <literal>svn+ssh</literal> which tells TortoiseSVN how to handle the requests to the server. After the double slash, you specify the user to connect to the server, in our case <literal>svnuser</literal>. After the <literal>@</literal> we supply our PuTTY session name. This session name contains all details like where to find the private key and the server's IP or DNS. Lastly we have to provide the path to the repository, relative to the repository root on the server, as specified in the <filename>authorized_keys</filename> file."
 msgstr ""
 "Machen Sie einen Rechtsklick auf einen beliebigen Ordner im Windows Explorer und wählen Sie <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Projektarchiv</guimenuitem></menuchoice>. Sie werden nach einer URL gefragt, die Sie in der Form:\n"
-"<screen>svn+ssh://svnuser@SvnVerbindung/repos</screen> eingeben. Was bedeutet diese URL?  Der Name des Schemas lautet <literal>svn+ssh</literal> wodurch TortoiseSVN weiß, wie Anfragen an den Server behandelt werden. Nach dem Doppelschrägstrich geben Sie den Anwender an, der sich mit dem Server verbindet, in unserem Fall <literal>svnuser</literal>. Hinter dem <literal>@</literal> geben wir unseren PuTTY Sitzungsnamen an. Diese Sitzung enhält alle Details, z.B. wo sich der private Schlüssel befindet sowie die IP Adresse des Servers oder sein Name. Schließlich folgt noch der Pfad zum Projektarchiv relativ zum Basisverzeichnis auf dem Server, wie es in der <filename>authorized_keys</filename> Datei festgelegt wurde."
+"<screen>svn+ssh://svnuser@SvnVerbindung/repos</screen> eingeben. Was bedeutet diese URL?  Der Name des Schemas lautet <literal>svn+ssh</literal> wodurch TortoiseSVN weiß, wie Anfragen an den Server behandelt werden. Nach dem Doppelschrägstrich geben Sie den Anwender an, der sich mit dem Server verbindet, in unserem Fall <literal>svnuser</literal>. Hinter dem <literal>@</literal> geben wir unseren PuTTY Sitzungsnamen an. Diese Sitzung enthält alle Details, z.B. wo sich der private Schlüssel befindet sowie die IP Adresse des Servers oder sein Name. Schließlich folgt noch der Pfad zum Projektarchiv relativ zum Basisverzeichnis auf dem Server, wie es in der <filename>authorized_keys</filename> Datei festgelegt wurde."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15237
@@ -13346,21 +13346,24 @@ msgid ""
 "svn+ssh://SvnConnection/repos\n"
 "</screen> This time we only provide the PuTTY session <literal>SvnConnection</literal> to the SSH client TortoiseSVN uses (TortoisePlink.exe). This client will check the session for all necessary details."
 msgstr ""
+"Eine Möglichkeit, die URL in TortoiseSVN zu vereinfachen, besteht darin, den Benutzer innerhalb der PuTTY Sitzung festzulegen. Dazu laden Sie Ihre bereits definierte <literal>SvnVerbindung</literal> in PuTTY und tragen auf der <guilabel>Connection</guilabel> Seite unter <guilabel>Auto login user</guilabel> den Benutzernamen ein, z.B. <literal>svnuser</literal>. Speichern Sie die PuTTY Sitzung und testen Sie folgende URL innerhalb von TortoiseSVN\n"
+"<screen>svn+ssh://SvnVerbindung/repos</screen>\n"
+"Dieses Mal übergeben wir nur die PuTTY Sitzung <literal>SvnConnection</literal> an den von TortoiseSVN verwendeten SSH Client (TortoisePlink.exe). Der Client lädt alle weiteren Details aus der Sitzung."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15268
 msgid "Many people like to use Pageant for storing all their keys. Because a PuTTY session is capable of storing a key, you don't always need Pageant. But imagine you want to store keys for several different servers; in that case you would have to edit the PuTTY session over and over again, depending on the server you are trying to connect with. In this situation Pageant makes perfect sense, because when PuTTY, Plink, TortoisePlink or any other PuTTY-based tool is trying to connect to an SSH server, it checks all private keys that Pageant holds to initiate the connection."
-msgstr ""
+msgstr "Viele Leute benutzen Pageant zum Speichern ihrer privaten Schlüssel. Da eine PuTTY Sitzung imstande ist, einen Schlüssel zu speichern, benötigen Sie Pageant nicht unbedingt. Sollten Sie aber Schlüssel für verschiedene Server benötigen, müssten Sie die PuTTY Sitzung für jeden Server ändern. In dieser Situation ist der Einsatz von Pageant sinnvoll, denn wenn PuTTY, Plink, TortoisePlink oder ein anderes PuTTY-basiertes Programm sich mit einem SSH Server verbindet, prüft es beim Verbindungsaufbau alle privaten Schlüssel, die Pageant bereitstellt."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15279
 msgid "For this task, simply run Pageant and add the private key. It should be the same private key you defined in the PuTTY session above. If you use Pageant for private key storage, you can delete the reference to the private key file in your saved PuTTY session. You can add more keys for other servers, or other users of course."
-msgstr ""
+msgstr "Zu diesem Zweck starten Sie Pageant und fügen Sie den privaten Schlüssel hinzu. Es sollte derselbe Schlüssel wie in der oben definierten PuTTY Sitzung sein. Falls Sie Pageant benutzen, können Sie die Verweise auf die private Schlüsseldatei aus der PuTTY Sitzung löschen. Sie können weitere Schlüssel für andere Server oder Benutzer hinzufügen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15286
 msgid "If you don't want to repeat this procedure after every reboot of your client, you should place Pageant in the auto-start group of your Windows installation. You can append the keys with complete paths as command line arguments to Pageant.exe"
-msgstr ""
+msgstr "Wenn Sie diese Prozedur nicht bei jedem Neustart Ihres PCs wiederholen wollen, sollten Sie Pageant zur Autostart Gruppe von Windows hinzufügen. Sie können die Schlüssel mit vollständigen Pfaden als Kommandozeilenparameter an Pageant übergeben."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15292
@@ -13370,6 +13373,10 @@ msgid ""
 "svn+ssh://svnuser@mydomain.com/repos\n"
 "</screen> As you can see, we don't use a saved PuTTY session but an IP address (or domain name) as the connection target. We also supply the user, but you might ask how the private key file will be found. Because TortoisePlink.exe is just a modified version of the standard Plink tool from the PuTTY suite, TortoiseSVN will also try all the keys stored in Pageant."
 msgstr ""
+"Die letzte Möglichkeit, sich mit einem SSH Server zu verbinden besteht einfach darin, diese URL innerhalb von TortoiseSVN anzugeben:\n"
+"<screen>svn+ssh://svnuser@100.101.102.103/repos\n"
+"svn+ssh://svnuser@mydomain.com/repos</screen>\n"
+"Wie Sie sehen verwenden wir keine gespeicherte PuTTY Sitzung sondern eine IP Adresse (oder einen Domänennamen) als Verbindungsziel. Wir geben auch den Benutzer an, aber Sie fragen sich sicherlich wie die private Schlüsseldatei gefunden wird. Da TortoisePlink nur eine abgewandelte Version des Standard Plink aus dem PuTTY Paket ist, verwendet TortoiseSVN alle in Pageant abgespeicherten Schlüssel."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:15312
