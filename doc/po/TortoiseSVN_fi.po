@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-05-30 19:02 +0000\n"
-"PO-Revision-Date: 2008-06-01 18:22+0200\n"
+"PO-Revision-Date: 2008-06-05 00:14+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -13198,8 +13198,8 @@ msgstr "Yhteyden testaus PuTTY-ohjelmalla"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15145
-msgid "To test the connection we will use PuTTY. Start the program and on the <guilabel>Session</guilabel> tab set the hostname to the name or IP address of your server, the protocol to SSH and save the session as <literal>SvnConnection</literal> or whatever name you prefer. On the <guilabel>SSH</guilabel> tab set the preferred SSH protocol version to 2 and from <guilabel>Auth</guilabel> set the full path to the <literal>.PKK</literal> private key file you converted earlier. Go back to the <guilabel>Sessions</guilabel> tab and hit the <guilabel>Save</guilabel> button. You will now see <literal>SvnConnection</literal> in the list of saved sessions."
-msgstr "Testataksesi yhteyden toimivuuden PuTTY-ohjelmalla, käynnistä ohjelma ja syötä <guilabel>Session</guilabel>-välilehteen palvelimen nimi/IP-osoite sekä SSH-salattava yhteyskäytäntö ja talleta istunto esimerkiksi nimellä <literal>SvnConnection</literal>. Aseta <guilabel>SSH</guilabel>-välilehdessä SSH-yhteyskäytännön versioksi 2 sekä <guilabel>Auth</guilabel>-kenttään polku aiemmin muuntamaasi <literal>.PKK</literal>-päätteiseen salaisen avaimen tiedostoon. Siirry takaisin <guilabel>Sessions</guilabel>-välilehteen ja talleta muutokset painamalla <guilabel>Save</guilabel>. Uusi istunto <literal>SvnConnection</literal> lisätään talletettujen istuntojen listaan."
+msgid "To test the connection we will use PuTTY. Start the program and on the <guilabel>Session</guilabel> tab set the hostname to the name or IP address of your server, the protocol to SSH and save the session as <literal>SvnConnection</literal> or whatever name you prefer. On the <guilabel>SSH</guilabel> tab set the preferred SSH protocol version to 2 and from <guilabel>Auth</guilabel> set the full path to the <literal>.PPK</literal> private key file you converted earlier. Go back to the <guilabel>Sessions</guilabel> tab and hit the <guilabel>Save</guilabel> button. You will now see <literal>SvnConnection</literal> in the list of saved sessions."
+msgstr "Testataksesi yhteyden toimivuuden PuTTY-ohjelmalla, käynnistä ohjelma ja syötä <guilabel>Session</guilabel>-välilehteen palvelimen nimi tai IP-osoite sekä SSH-salattava yhteyskäytäntö ja talleta istunto esimerkiksi nimellä <literal>SvnConnection</literal>. Aseta <guilabel>SSH</guilabel>-välilehdessä SSH-yhteyskäytännön versioksi 2 sekä <guilabel>Auth</guilabel>-kenttään polku aiemmin muuntamaasi <literal>.PPK</literal>-päätteiseen salaisen avaimen tiedostoon. Siirry takaisin <guilabel>Sessions</guilabel>-välilehteen ja talleta muutokset painamalla <guilabel>Save</guilabel>. Uusi istunto <literal>SvnConnection</literal> lisätään talletettujen istuntojen listaan."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15158
