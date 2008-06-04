@@ -25,6 +25,8 @@
        the log dialog was missing a closing parenthesis. (Stefan)
 - BUG: Incomplete or wrong cached log info could crash TSVN. (Stefan Fuhrmann)
 - BUG: Log cache updates could crash TSVN. (Stefan Fuhrmann)
+- BUG: A doubleclick on a revision in the log dialog created a null diff
+       instead of a diff with the previous revision. (Stefan)
 
 Version 1.5.0-RC2
 - NEW: the issue tracker integration supports now relative urls. (Stefan)

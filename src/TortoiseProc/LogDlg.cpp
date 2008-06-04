@@ -1829,7 +1829,7 @@ void CLogDlg::DiffSelectedRevWithPrevious()
 	}
 	else
 	{
-		CAppUtils::StartShowCompare(m_hWnd, path, rev2, path, rev2, SVNRev(), m_LogRevision, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+		CAppUtils::StartShowCompare(m_hWnd, path, rev2, path, rev1, SVNRev(), m_LogRevision, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 	}
 
 	theApp.DoWaitCursor(-1);
