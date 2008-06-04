@@ -15,6 +15,7 @@
 # Dictionary:
 # blame                            menyalahkan
 # commit                           komit
+# file                             berkas
 # revert                           membalik
 #
 msgid ""
@@ -22,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-04 21:40+0700\n"
+"PO-Revision-Date: 2008-06-04 22:19+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -116,7 +117,7 @@ msgid ""
 "Verify that the correct path and file name are given."
 msgstr ""
 "%1\n"
-"Tidak dapat menemukan file ini.\n"
+"Tidak dapat menemukan berkas ini.\n"
 "Silahkan verifikasi bahwa path dan berkas yang diberikan betul."
 
 # ID:357,
@@ -135,7 +136,7 @@ msgstr "%I64d kByte ditransfer"
 #. Resource IDs: (169)
 #, c-format
 msgid "%d files selected, %d files total"
-msgstr "%d file dipilih, %d total file"
+msgstr "%d berkas dipilih, total %d berkas"
 
 #. Resource IDs: (246)
 #, c-format
@@ -192,7 +193,7 @@ msgstr "%s - di revisi: %d"
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Remote file"
-msgstr "%s : File remote"
+msgstr "%s : Berkas jauh"
 
 # ID:151,
 #. Resource IDs: (151)
@@ -259,7 +260,7 @@ msgid ""
 "TortoiseMerge can't diff directories."
 msgstr ""
 "%s\n"
-"adalah direktori, bukan file!\n"
+"adalah direktori, bukan berkas!\n"
 "TortoiseMerge tidak bisa melakukan diff direktori."
 
 #. Resource IDs: (286)
@@ -368,7 +369,7 @@ msgstr "Otom&atis tutup:"
 # Control-ID:1015,
 #. Resource IDs: (1015)
 msgid "&Backup original file"
-msgstr "&Backup file original"
+msgstr "Cadangkan &berkas asli"
 
 # Control-ID:1067,
 #. Resource IDs: (114)
@@ -497,7 +498,7 @@ msgstr "&Hubungi repositori saat mulai"
 # Control-ID:1073,
 #. Resource IDs: (1073)
 msgid "&Convert files when diffing against BASE"
-msgstr "&Ubah file saat melakukan diff terhadap BASE"
+msgstr "&Ubah berkas saat melakukan diff terhadap BASE"
 
 #. Resource IDs: (501, 1367, 57634)
 msgid "&Copy"
@@ -598,7 +599,7 @@ msgstr "&Hidupkan tembolok log"
 # Control-ID:1213,
 #. Resource IDs: (1213)
 msgid "&Enter a message describing why you are locking the file(s)."
-msgstr "&Masukkan pesan yang menjelaskan mengapa anda ingin mengunci file."
+msgstr "&Masukkan pesan yang menjelaskan mengapa anda ingin mengunci berkas."
 
 #. Resource IDs: (32782)
 msgid "&Exit"
@@ -618,7 +619,7 @@ msgstr "&Eksternal"
 # MenuEntry#:
 #. Resource IDs: (65535)
 msgid "&File"
-msgstr "&File"
+msgstr "Ber&kas"
 
 # MenuEntry#:
 #. Resource IDs: (32809)
@@ -1048,7 +1049,7 @@ msgstr "&Simpan grafik sebagai..."
 # ID:322,
 #. Resource IDs: (322)
 msgid "&Save list of selected files to..."
-msgstr "&Simpan daftar file yang dipilih ke..."
+msgstr "&Simpan daftar berkas pilihan ke..."
 
 # Control-ID:1308,
 #. Resource IDs: (1308)
@@ -1229,7 +1230,7 @@ msgstr "&Mutakhirkan ke revisi..."
 # Control-ID:1184,
 #. Resource IDs: (1184)
 msgid "&Use auto-completion of file paths and keywords"
-msgstr "G&unakan pelengkapan otomatis untuk path file dan kata kunci"
+msgstr "G&unakan pelengkapan otomatis untuk path berkas dan kata kunci"
 
 # Control-ID:65535,#:
 # Control-ID:1005,#:
@@ -1452,7 +1453,7 @@ msgid ""
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
 "Daftar dipisahkan oleh baris baru dari path dimana lapisan ikon ditampilkan.\n"
-"Jika anda menambahkan karakter \"*\" di akhir path, maka semua file dan subdir di dalam path itu disertakan juga."
+"Jika Anda menambahkan karakter \"*\" di akhir path, maka semua berkas dan subdir di dalam path itu disertakan juga."
 
 # ID:194,
 #. Resource IDs: (194)
@@ -1462,7 +1463,7 @@ msgid ""
 "An empty list will allow overlays on all paths."
 msgstr ""
 "Daftar dipisahkan oleh baris baru dari path dimana lapisan ikon ditampilkan.\n"
-"Jika anda menambahkan karakter \"*\" di akhir path, maka semua file dan subdir di dalam path itu disertakan juga.\n"
+"Jika anda menambahkan karakter \"*\" di akhir path, maka semua berkas dan subdir di dalam path itu disertakan juga.\n"
 "Daftar kosong akan mengijinkan lapisan pada semua path."
 
 # ID:3843,#:
@@ -1477,8 +1478,8 @@ msgid ""
 "A viewer program for GNU diff files (patch files).\n"
 "If you don't have one use NotePad."
 msgstr ""
-"Program peninjau untuk file GNU diff (file patch)\n"
-"Jika and tidak mempunyainya gunakan NorePad."
+"Program peninjau untuk berkas-berkas GNU diff (berkas tambalan)\n"
+"Jika Anda tidak mempunyainya gunakan NotePad."
 
 # ID:9,
 #. Resource IDs: (9)
@@ -1572,7 +1573,7 @@ msgstr "Tambah"
 # ID:101,
 #. Resource IDs: (101)
 msgid "Add &file..."
-msgstr "Tambah &file..."
+msgstr "Tambah ber&kas..."
 
 # ID:376,
 #. Resource IDs: (376)
@@ -1636,7 +1637,7 @@ msgstr "Ditambahkan"
 # ID:126,
 #. Resource IDs: (126)
 msgid "Added a file remotely"
-msgstr "Ditambahkan file secara remote"
+msgstr "Menambah berkas secara jauh"
 
 # ID:126,
 #. Resource IDs: (126)
@@ -1661,7 +1662,7 @@ msgid ""
 "%s\n"
 "to the ignore list."
 msgstr ""
-"Ditambahkan pola file\n"
+"Menambah pola berkas\n"
 "%s\n"
 "ke daftar abaikan."
 
@@ -1678,12 +1679,12 @@ msgstr "Tambahkan properti baru"
 # ID:9,
 #. Resource IDs: (9)
 msgid "Adds file(s) to Subversion control"
-msgstr "Menambah file ke kontrol Subversion"
+msgstr "Menambah berkas ke kontrol Subversion"
 
 # ID:13,
 #. Resource IDs: (13)
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
-msgstr "Menmbah file yang dipilih atau mask file ke daftar 'abaikan'"
+msgstr "Menambah berkas pilihan atau topeng berkas ke daftar 'abaikan'"
 
 # ID:2049,
 #. Resource IDs: (2049)
@@ -1722,13 +1723,13 @@ msgstr "Semua Perintah"
 # ID:3841,
 #. Resource IDs: (3841)
 msgid "All Files (*.*)"
-msgstr "Semua File (*.*)"
+msgstr "Semua Berkas (*.*)"
 
 # ID:157,#:
 # ID:157,
 #. Resource IDs: (157)
 msgid "All Files (*.*)|*.*||"
-msgstr "Semua File (*.*)|*.*||"
+msgstr "Semua Berkas (*.*)|*.*||"
 
 #. Resource IDs: (1008)
 msgid "All your changes will be lost! Do you really want to reset all toolbars and menus?"
@@ -1776,11 +1777,11 @@ msgid ""
 "%mine\tthe modified file"
 msgstr ""
 "Program diff eksternal digunakan\n"
-"untuk membandikan revisi file yang berbeda\n"
+"untuk membandikan revisi berkas yang berbeda\n"
 "<hr=100%>\n"
 "Anda bisa menetapkan parameter berikut ke path:\n"
-"%base\tfile base\n"
-"%mine\tfile yang diubah"
+"%base\tberkas base\n"
+"%mine\tberkas yang diubah"
 
 # ID:79,
 #. Resource IDs: (79)
@@ -1796,13 +1797,13 @@ msgid ""
 "%base\t\tthe original file without your changes"
 msgstr ""
 "An external merge program used\n"
-"untuk menyelesaikan file konflik.\n"
+"untuk menyelesaikan berkas berkonflik.\n"
 "<hr=100%>\n"
 "Anda bisa menetapkan parameter berikut ke path:\n"
-"%merged\tfile yang konflik, dimana menyimpannya\n"
-"%theirs\t\tfile sperti dalam repositori\n"
-"%mine\t\tfile anda sendiri, dengan perubahan anda\n"
-"%base\t\tfile original tanpa perubahan anda"
+"%merged\tberkas yang konflik, dimana menyimpannya\n"
+"%theirs\t\tberkas seperti dalam repositori\n"
+"%mine\t\tberkas Anda sendiri, dengan perubahan Anda\n"
+"%base\t\tberkas asli tanpa perubahan Anda"
 
 # ID:3867,#:
 # ID:3867,
@@ -1838,7 +1839,7 @@ msgstr "Menu Bingkai Aplikasi"
 # ID:14,
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
-msgstr "Terapkan file unified diff ke copy pekerjaan"
+msgstr "Terapkan berkas unified diff ke copy pekerjaan"
 
 # ID:15,
 #. Resource IDs: (581)
@@ -1846,7 +1847,7 @@ msgid ""
 "Applies the properties recursively to all files/folders.\n"
 "bugtraq: and tsvn: properties are only applied to folders."
 msgstr ""
-"Terapka properti secara rekursif ke semua file/folder.\n"
+"Terapka properti secara rekursif ke semua berkas/folder.\n"
 "properti bugtraq: dan tsvn: hanya berlaku untuk folder."
 
 # ID:13,
@@ -1867,7 +1868,7 @@ msgstr "Terapkan unified diff"
 # ID:145,
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
-msgstr "Anda yakin ingin menandai file yang konflik sebagai terselsaikan?"
+msgstr "Anda yakin ingin menandai berkas berkonflik sebagai terselesaikan?"
 
 # ID:145,
 #. Resource IDs: (199)
@@ -2051,7 +2052,7 @@ msgstr "Grafik Bar"
 # Control-ID:65535,
 #. Resource IDs: (65535)
 msgid "Base file:"
-msgstr "File Base:"
+msgstr "Berkas base:"
 
 #. Resource IDs: (3850)
 msgid ""
@@ -2086,8 +2087,8 @@ msgid ""
 "Both /logmsg and /logmsgfile were specified!\n"
 "Only one of those can be specified."
 msgstr ""
-"/logmsg dan /logmsgfile sama-sama dispesifikasikan!\n"
-"Hanya salah satu yang boleh dispesifikasikan."
+"/logmsg dan /logmsgfile sama-sama ditentukan!\n"
+"Hanya salah satu yang boleh ditentukan."
 
 # Control-ID:1003,
 #. Resource IDs: (1003)
@@ -2255,7 +2256,7 @@ msgstr "Membatalkan operasi..."
 # ID:68,
 #. Resource IDs: (68)
 msgid "Cannot show diff because of inconsistent newlines in the file."
-msgstr "Tidak bisa menampilkan diff karena baris baru dalam file tidak konsisten."
+msgstr "Tidak bisa menampilkan diff karena ketidakkonsistenan baris baru dalam berkas."
 
 # ID:73,#:
 # ID:563,#:
@@ -2309,19 +2310,19 @@ msgstr "Ubah ukuran jendela"
 # Dlg-ID:199,
 #. Resource IDs: (199)
 msgid "Changed Files"
-msgstr "File yang Diubah"
+msgstr "Berkas yang Diubah"
 
 # ID:324,
 #. Resource IDs: (324)
 #, c-format
 msgid "Changed files between %s, %s and %s, %s"
-msgstr "File yang diubah antara %s, %s dan %s, %s"
+msgstr "Berkas yang diubah antara %s, %s dan %s, %s"
 
 # ID:163,
 #. Resource IDs: (163)
 #, c-format
 msgid "Changed files: %d"
-msgstr "File yang diubah: %d"
+msgstr "Berkas yang diubah: %d"
 
 # ID:163,
 #. Resource IDs: (264)
@@ -2337,7 +2338,7 @@ msgstr "Daftar perubahan:"
 # Control-ID:1242,
 #. Resource IDs: (1242)
 msgid "Changes made (double-click on file for diff):"
-msgstr "Perubahan dibuat (klik-ganda pada file untuk diff):"
+msgstr "Perubahan dibuat (klik-ganda pada berkas untuk diff):"
 
 # ID:8,
 #. Resource IDs: (8)
@@ -2381,7 +2382,7 @@ msgid ""
 "Check the files which you want to\n"
 "delete before importing."
 msgstr ""
-"Periksa file yang ingin anda \n"
+"Periksa berkas yang ingin Anda \n"
 "hapus sebelum mengimpor."
 
 # ID:251,
@@ -2471,7 +2472,7 @@ msgstr ""
 # ID:9,
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
-msgstr "Operasi pembersihan diinterupsi, file dikunci, ..."
+msgstr "Membersihkan operasi yang terinterupsi, berkas terkunci, ..."
 
 # Control-ID:1273,#:
 # Control-ID:1275,#:
@@ -2540,12 +2541,12 @@ msgstr "Klik disini untuk memilih pesan terakhir yang diketik "
 # Control-ID:65535,
 #. Resource IDs: (65535)
 msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
-msgstr "Klik pada \"Lanjutan\" untuk menetapkan program diff alternatif yang didasarkan pada ekstensi file"
+msgstr "Klik pada \"Lanjutan\" untuk menetapkan program diff alternatif yang didasarkan pada ekstensi berkas"
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
-msgstr "Klik pada \"Lanjutan\" untuk menetapkan program merge alternatif yang didasarkan pada ekstensi file"
+msgstr "Klik pada \"Lanjutan\" untuk menetapkan program merge alternatif yang didasarkan pada ekstensi berkas"
 
 # ID:257,
 #. Resource IDs: (257)
@@ -2714,12 +2715,12 @@ msgstr "Bandingkan dengan revisi sebelumnya"
 # ID:12,
 #. Resource IDs: (12)
 msgid "Compares the file with the last committed revision to show you the changes you made"
-msgstr "Membandingkan file dengan revisi terakhir dikomit untuk melihat perubahan yang sudah anda buat"
+msgstr "Membandingkan berkas dengan revisi terakhir dikomit untuk melihat perubahan yang sudah Anda buat"
 
 # ID:17,
 #. Resource IDs: (17)
 msgid "Compares the selected file with a file in the repository"
-msgstr "Membandingkan file yang dipilih dengan file dalam repositori"
+msgstr "Membandingkan berkas pilihan dengan berkas dalam repositori"
 
 # ID:120,
 #. Resource IDs: (120)
@@ -2740,7 +2741,7 @@ msgstr "Konfigurasi Naskah Hook"
 # Control-ID:65535,
 #. Resource IDs: (65535)
 msgid "Configure the program used for comparing different revisions of files"
-msgstr "Mengonfigurasi program yang dipakai untuk membandingkan revisi-revisi yang berbeda dari file-file."
+msgstr "Mengonfigurasi program yang dipakai untuk membandingkan revisi-revisi yang berbeda dari berkas-berkas."
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
@@ -2750,12 +2751,12 @@ msgstr "Mengonfigurasi program yang dipakai untuk membandingkan revisi-revisi ya
 # Control-ID:65535,
 #. Resource IDs: (65535)
 msgid "Configure the program used to resolve conflicted files."
-msgstr "Konfigurasi program yang digunakan untuk menyelesaikan file konflik."
+msgstr "Konfigurasi program yang digunakan untuk menyelesaikan berkas berkonflik."
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
 msgid "Configure viewer program for GNU diff files (patch files)."
-msgstr "Konfigurasi program peninjau untuk file GNU diff (file patch)."
+msgstr "Konfigurasi program peninjau untuk berkas-berkas GNU diff (berkas tambalan)."
 
 # ID:263,#:
 # Control-ID:65535,
@@ -2989,7 +2990,7 @@ msgid ""
 "<hr=100%%>\n"
 "%s"
 msgstr ""
-"Tidak bisa mengcopy file!\n"
+"Tidak bisa menyalin berkas!\n"
 "<hr=100%%>\n"
 "%s"
 
@@ -3037,7 +3038,7 @@ msgstr "Tidak dapat menggabung properti \"%s\" pada %s karena"
 #. Resource IDs: (3867)
 #, c-format
 msgid "Could not open %1 because there are too many open files."
-msgstr "Tidak dapat membuka %1 karena terlalu banyak file dibuka."
+msgstr "Tidak dapat membuka %1 karena terlalu banyak berkas dibuka."
 
 # ID:69,
 #. Resource IDs: (69)
@@ -3046,7 +3047,7 @@ msgid ""
 "Could not open the file\n"
 "%s"
 msgstr ""
-"Tidak bisa membuka file\n"
+"Tidak bisa membuka berkas\n"
 "%s"
 
 # ID:3867,#:
@@ -3069,7 +3070,7 @@ msgid ""
 "Could not retrieve URL of the file!\n"
 "%s"
 msgstr ""
-"Tidak bisa mengambil URL dari file!\n"
+"Tidak bisa mengambil URL dari berkas!\n"
 "%s"
 
 # ID:66,
@@ -3079,14 +3080,14 @@ msgid ""
 "Could not retrieve revision %s of the file %s.\n"
 "Patching is not possible!"
 msgstr ""
-"Tidak bisa mengambil revisi %s dari file %s.\n"
-"Melakukan Patc tidak mungkin!"
+"Tidak bisa mengambil revisi %s dari berkas %s.\n"
+"Penambalan tidak mungkin!"
 
 # ID:64,
 #. Resource IDs: (64)
 #, c-format
 msgid "Could not save the file %s!"
-msgstr "Tidak bisa menyimpan file %s!"
+msgstr "Tidak bisa menyimpan berkas %s!"
 
 # ID:81,
 #. Resource IDs: (81)
@@ -3213,7 +3214,7 @@ msgstr "Membuat database repositori di lokasi saat ini"
 # ID:14,
 #. Resource IDs: (14)
 msgid "Creates a unified diff file with all changes you made"
-msgstr "Membuat file unified diff dengan semua perubahan yang anda buat"
+msgstr "Membuat berkas unified diff dengan semua perubahan yang anda buat"
 
 # Control-ID:65535,
 #. Resource IDs: (65535)
@@ -3345,12 +3346,12 @@ msgstr "Node dihapus"
 # ID:11,
 #. Resource IDs: (11)
 msgid "Deletes files / folders from version control"
-msgstr "Menghapus file / folder dari kontrol versi"
+msgstr "Menghapus berkas / folder dari kontrol versi"
 
 # ID:11,
 #. Resource IDs: (18)
 msgid "Deletes files / folders from version control but keeps the file"
-msgstr "Menghapus file-file / folder-folder dari kontrol versi tetapi mempertahankan file tersebut"
+msgstr "Menghapus berkas-berkas / folder-folder dari kontrol versi tetapi mempertahankan berkas tersebut"
 
 #. Resource IDs: (198)
 msgid "Deletes the action log file"
@@ -3407,7 +3408,7 @@ msgstr "Ukuran dan posisi dialog"
 # Control-ID:65535,
 #. Resource IDs: (65535)
 msgid "Diff file:"
-msgstr "Diff file:"
+msgstr "Berkas diff:"
 
 # Control-ID:1022,
 #. Resource IDs: (65535)
@@ -3510,7 +3511,7 @@ msgstr "Anda benar-benar ingin menghapus bilah alat '%s'?"
 # ID:145,
 #. Resource IDs: (145)
 msgid "Do you really want to move this file or folder?"
-msgstr "Anda benar-benar ingin memindahkan file atau folder ini?"
+msgstr "Anda benar-benar ingin memindahkan berkas atau folder ini?"
 
 # ID:119,
 #. Resource IDs: (119)
@@ -3988,7 +3989,7 @@ msgstr "Ekspor tembolok terpilih sebagai sebuah set berkas Comma Separated Value
 # ID:79,
 #. Resource IDs: (79)
 msgid "Export unversioned files too"
-msgstr "Ekspor file tidak berversi juga"
+msgstr "Ekspor berkas tidak berversi juga"
 
 # ID:79,
 #. Resource IDs: (284)
@@ -4149,13 +4150,13 @@ msgstr "Gagal!"
 # ID:313,
 #. Resource IDs: (313)
 msgid "Fetching file..."
-msgstr "Mengambil file..."
+msgstr "Mengambil berkas..."
 
 # ID:313,
 #. Resource IDs: (313)
 #, c-format
 msgid "Fetching revision %s of file:"
-msgstr "Mengambil revisi %s dari file:"
+msgstr "Mengambil revisi %s dari berkas:"
 
 # ID:63,#:
 # ID:74,#:
@@ -4164,28 +4165,28 @@ msgstr "Mengambil revisi %s dari file:"
 # ID:319,
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
-msgstr "File"
+msgstr "Berkas"
 
 # Control-ID:1138,
 #. Resource IDs: (1138)
 msgid "File changes each week:"
-msgstr "Perubahan file setiap minggu:"
+msgstr "Perubahan berkas setiap minggu:"
 
 # ID:376,
 #. Resource IDs: (376)
 msgid "File diffs"
-msgstr "File diffs"
+msgstr "Diffs berkas"
 
 # ID:211,
 #. Resource IDs: (213)
 msgid "File list is empty"
-msgstr "Daftar file kosong"
+msgstr "Daftar berkas kosong"
 
 # ID:376,#:
 # Dlg-ID:135,
 #. Resource IDs: (135, 376)
 msgid "File patches"
-msgstr "File patch"
+msgstr "Tambalan berkas"
 
 # ID:7,
 #. Resource IDs: (7)
@@ -4462,7 +4463,7 @@ msgstr "Umum::Dialog 2"
 # ID:144,
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
-msgstr "Membuat patchfile..."
+msgstr "Membuat berkas tambalan..."
 
 # ID:16,
 #. Resource IDs: (16)
@@ -4481,27 +4482,27 @@ msgid ""
 "Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
 "Note that other users will need to update their working copies before they see the files as read-only."
 msgstr ""
-"Mendapatkan kunci untuk file tanpa properti 'svn:needs-lock' property <b>tidak</b> akan menjaga yang lain dari pengeditannya dalam copy pekerjaan mereka.\n"
-"Untuk menghidupkan penguncian langsung silahkan tambah properti  'svn:needs-lock' ke semua file yang memerlukan penguncian, dan komit file itu.\n"
-"Steiap file akan mempunyai tanda sistem-file hanya-baca di-sett, dan mendapatkan kunci akan membuat file bisa ditulisi.\n"
-"Catatan bahwa pengguna lain akan perlu untuk memutakhirkan copy pekerjaannya sebelum mereka melihat file sebagai hanya-baca."
+"Mendapatkan kunci untuk berkas tanpa properti 'svn:needs-lock' property <b>tidak</b> akan menjaga yang lain dari pengeditannya dalam copy pekerjaan mereka.\n"
+"Untuk menghidupkan penguncian langsung silahkan tambah properti  'svn:needs-lock' ke semua berkas yang memerlukan penguncian, dan komit berkas itu.\n"
+"Setiap berkas akan mempunyai tanda sistem-berkas hanya-baca di-set, dan mendapatkan kunci akan membuat berkas bisa ditulisi.\n"
+"Catatan bahwa pengguna lain akan perlu untuk memutakhirkan copy pekerjaannya sebelum mereka melihat berkas sebagai hanya-baca."
 
 # ID:119,
 #. Resource IDs: (119)
 #, c-format
 msgid "Getting file %s"
-msgstr "Mendapatkan file %s"
+msgstr "Mendapatkan berkas %s"
 
 # ID:120,
 #. Resource IDs: (120)
 #, c-format
 msgid "Getting file %s, revision %s"
-msgstr "Mendapatkan file %s, revisi %s"
+msgstr "Mendapatkan berkas %s, revisi %s"
 
 # ID:132,
 #. Resource IDs: (132)
 msgid "Getting file info..."
-msgstr "Mendapatkan iinfo file..."
+msgstr "Mendapatkan info berkas..."
 
 # ID:269,
 #. Resource IDs: (269)
@@ -4657,8 +4658,8 @@ msgid ""
 "Hide/Show the patch file list\n"
 "Hides or shows the patch file list"
 msgstr ""
-"Sembunyikan/Tampilkan daftar file patch\n"
-"Menyembunyikan atau menampilkan daftar file patch"
+"Sembunyikan/Tampilkan daftar berkas tambalan\n"
+"Menyembunyikan atau menampilkan daftar berkas tambalan"
 
 #. Resource IDs: (339)
 msgid "Highest revision number in the cache"
@@ -4853,7 +4854,7 @@ msgid ""
 "if the selected file has the svn:needs-lock property set"
 msgstr ""
 "Jika diaktifkan, entri menu \"Dapatkan Kunci\" selalu ditampilkan dalam menu tingkat\n"
-"atas bila file yang dipilih mempunyai properti svn:needs-lock terset"
+"atas bila berkas yang dipilih mempunyai properti svn:needs-lock terset"
 
 # ID:95,
 #. Resource IDs: (95)
@@ -4870,7 +4871,7 @@ msgid ""
 "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff\n"
 "with the keywords expanded and the line endings adjusted."
 msgstr ""
-"Jika dicentang, TortoiseSVN membuat file temporal dari BASE untuk melakukan\n"
+"Jika dicentang, TortoiseSVN membuat berkas temporal dari BASE untuk melakukan\n"
 "diff dengan kata kunci diluaskan dan akhir baris disesuaikan."
 
 #. Resource IDs: (197)
@@ -4924,7 +4925,7 @@ msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\n"
 "were last committed. If not set, TortoiseSVN uses the current time."
 msgstr ""
-"Jika di-set, TortoiseSVN akan mengeset waktu file ke waktu terakhir\n"
+"Jika di-set, TortoiseSVN akan mengeset waktu berkas ke waktu terakhir\n"
 "mereka komit. Jika tidak di-set, TortoiseSVN menggunakan waktu saat ini."
 
 # ID:196,
@@ -4933,7 +4934,7 @@ msgid ""
 "If set, files inside unversioned folders can be shown in the status control.\n"
 "The status control is used for example in the commit dialog."
 msgstr ""
-"Jika di-set, file di dalam folder tidak berversi bisa ditampilkan dalam kontrol status\n"
+"Jika di-set, berkas di dalam folder tidak berversi bisa ditampilkan dalam kontrol status\n"
 "Kontrol status digunakan misalnya dalam dialog komit."
 
 # ID:196,
@@ -4942,7 +4943,7 @@ msgid ""
 "If set, then unversioned files will mark the status of the parent directory as modified\n"
 "i.e. they get the modified overlay icon."
 msgstr ""
-"Jika di-set, maka file tidak berversi akan menandai status dari direktori leluhur sebagai diubah\n"
+"Jika di-set, maka berkas tidak berversi akan menandai status dari direktori leluhur sebagai diubah\n"
 "misalnya mereka mendapatkan lapisan ikon diubah."
 
 #. Resource IDs: (1439)
@@ -5068,7 +5069,7 @@ msgid ""
 "Import file %s\r\n"
 "to %s"
 msgstr ""
-"Mengimpor file %s\r\n"
+"Mengimpor berkas %s\r\n"
 "ke %s"
 
 # ID:120,
@@ -5078,7 +5079,7 @@ msgid ""
 "Import file to\r\n"
 "%s"
 msgstr ""
-"Mengimpor file ke\r\n"
+"Mengimpor berkas ke\r\n"
 "%s"
 
 # ID:120,
@@ -5095,7 +5096,7 @@ msgstr ""
 #. Resource IDs: (120)
 #, c-format
 msgid "Importing file %s"
-msgstr "Mengimpor file %s"
+msgstr "Mengimpor berkas %s"
 
 # ID:10,
 #. Resource IDs: (10)
@@ -5105,7 +5106,7 @@ msgstr "Mengimpor direktori ke repositori"
 # Control-ID:1266,
 #. Resource IDs: (1266)
 msgid "Include ignored files"
-msgstr "Sertakan file diabaikan"
+msgstr "Sertakan berkas diabaikan"
 
 # ID:276,
 #. Resource IDs: (1126)
@@ -5121,7 +5122,7 @@ msgstr "Ikutkan hanya rentang revisi berikut:"
 # ID:3857,
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
-msgstr "Nama file tidak benar."
+msgstr "Nama berkas tidak benar."
 
 # ID:76,
 #. Resource IDs: (76)
@@ -5263,8 +5264,8 @@ msgid ""
 "For example, you can't make MyFile.txt become MYFILE.txt.\n"
 "Please consult the documentation for a way to work around this limitation."
 msgstr ""
-"Tidak mungkin untuk mengganti nama file dengan mengubah jenis hurufnya saja.\n"
-"Misalnya, anda tidak bisa membuat MyFile.txt menjadi MYFILE.txt.\n"
+"Tidak mungkin untuk mengganti nama berkas dengan mengubah jenis hurufnya saja.\n"
+"Misalnya, anda tidak bisa membuat BerkasSaya.txt menjadi BERKASSAYA.txt.\n"
 "Silahkan lihat dokumentasi untuk bagaimana mengatasi batasan ini."
 
 # ID:88,
@@ -5452,7 +5453,7 @@ msgstr "Kunci"
 # Dlg-ID:191,
 #. Resource IDs: (191)
 msgid "Lock Files"
-msgstr "Kunci file"
+msgstr "Kunci Berkas"
 
 # ID:209,
 #. Resource IDs: (213)
@@ -5503,7 +5504,7 @@ msgstr ""
 # ID:16,
 #. Resource IDs: (16)
 msgid "Locks a file for other users and makes it editable by you."
-msgstr "Penguncian file untuk pengguna lain dan membuat ia bisa diedit oleh anda."
+msgstr "Mengunci berkas bagi pengguna lain dan membuatnya bisa diedit oleh Anda."
 
 # ID:126,
 #. Resource IDs: (126)
@@ -5606,7 +5607,7 @@ msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
 msgstr ""
-"Menandai file sudah diselesaikan dalam Subversion\n"
+"Menandai berkas sudah diselesaikan dalam Subversion\n"
 "Tandai diselesaikan"
 
 #. Resource IDs: (596)
@@ -5964,7 +5965,7 @@ msgstr "Memindahkan..."
 # Control-ID:65535,
 #. Resource IDs: (65535)
 msgid "My file:"
-msgstr "File saya:"
+msgstr "Berkas saya:"
 
 #. Resource IDs: (32804)
 msgid "N&ext Conflict"
@@ -6082,7 +6083,7 @@ msgstr "Tidak ada kesalahan terjadi."
 # ID:82,
 #. Resource IDs: (82)
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
-msgstr "Tidak ada file atau folder yang diubah. Tidak ada yang perlu dibalik oleh TortoiseSVN!"
+msgstr "Tidak ada berkas atau folder yang diubah. Tidak ada yang perlu dibalik oleh TortoiseSVN!"
 
 #. Resource IDs: (239)
 msgid ""
@@ -6101,7 +6102,7 @@ msgid ""
 "the last commit. There's nothing\n"
 "for TortoiseSVN to do here..."
 msgstr ""
-"Tidak ada file yang diubah atau ditambahkan sejak\n"
+"Tidak ada berkas yang diubah atau ditambahkan sejak\n"
 "komit terakhir. Tidak ada yang perlu\n"
 "dilakukan TortoiseSVN disini..."
 
@@ -6113,10 +6114,10 @@ msgid ""
 "for TortoiseSVN to do here...\n"
 "Do you want to see the unversioned files?"
 msgstr ""
-"Tidak ada file yang diubah atau ditambahkan sejak\n"
+"Tidak ada berkas yang diubah atau ditambahkan sejak\n"
 "komit terakhir. Tidak ada yang perlu\n"
 "dilakukan TortoiseSVN disini...\n"
-"Anda ingin melihat file tidak berversi?"
+"Anda ingin melihat berkas tidak berversi?"
 
 # ID:273,
 #. Resource IDs: (273)
@@ -6137,7 +6138,7 @@ msgstr "Tidak ada koreksi ejaan"
 # ID:196,
 #. Resource IDs: (196)
 msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
-msgstr "Tidak ada cache status. Hanya folder berversi yang memperoleh lapisan, file tidak mendapatkan lapisan"
+msgstr "Tidak ada tembolok status. Hanya folder berversi yang memperoleh lapisan, berkas tidak mendapatkan lapisan"
 
 # ID:188,
 #. Resource IDs: (188)
@@ -6159,7 +6160,7 @@ msgstr "Normal"
 # ID:3857,
 #. Resource IDs: (3857)
 msgid "Not all of the system registry entries (or INI file) were removed."
-msgstr "Tidak semua entri registri sistem ( atau file INI) yang dihapus."
+msgstr "Tidak semua entri registri sistem (atau berkas INI) dihapus."
 
 # ID:83,
 #. Resource IDs: (83)
@@ -6229,7 +6230,7 @@ msgstr "Jumlah revisi-revisi gabungan yang belum ada di tembolok"
 
 #. Resource IDs: (338)
 msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
-msgstr "Jumlah elemen path. Sebuah elemen path adalah sebuah folder atau nama file seperti 'foo.txt' atau 'cabangsaya'."
+msgstr "Jumlah elemen path. Sebuah elemen path adalah sebuah folder atau nama berkas seperti 'foo.txt' atau 'cabangsaya'."
 
 # Control-ID:1160,
 #. Resource IDs: (1160)
@@ -6295,7 +6296,7 @@ msgstr ""
 # ID:219,
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
-msgstr "Satu atau lebih file dalam keadaan konflik."
+msgstr "Satu atau lebih berkas dalam keadaan konflik."
 
 # ID:99,#:
 # Control-ID:1073,
@@ -6306,7 +6307,7 @@ msgstr "Hanya check out folder &atas"
 # ID:266,
 #. Resource IDs: (19)
 msgid "Only file children"
-msgstr "Hanya anak file"
+msgstr "Hanya anak berkas"
 
 # ID:169,
 #. Resource IDs: (169)
@@ -6340,12 +6341,12 @@ msgstr "Buka"
 # ID:76,
 #. Resource IDs: (76)
 msgid "Open client certificate file"
-msgstr "Buka file sertifikat klien"
+msgstr "Buka berkas sertifikat klien"
 
 # ID:3601,
 #. Resource IDs: (3601)
 msgid "Open file"
-msgstr "Buka file"
+msgstr "Buka berkas"
 
 # ID:114,
 #. Resource IDs: (1132)
@@ -6355,7 +6356,7 @@ msgstr "Buka dari clipboard"
 # ID:7,
 #. Resource IDs: (7)
 msgid "Open image file..."
-msgstr "Buka file gambar..."
+msgstr "Buka berkas gambar..."
 
 # ID:282,
 #. Resource IDs: (282)
@@ -6420,7 +6421,7 @@ msgid ""
 "Files which don't have this property set are not affected."
 msgstr ""
 "Timpa seting properti svn:eol-style.\n"
-"File-file yang properti ininya tidak diatur tidak terpengaruh."
+"Berkas-berkas yang properti ininya tidak diatur tidak terpengaruh."
 
 # ID:99,
 #. Resource IDs: (99)
@@ -6486,7 +6487,7 @@ msgstr ""
 # ID:172,
 #. Resource IDs: (172)
 msgid "Paste filename list"
-msgstr "Paste daftar nama file "
+msgstr "Tempel daftar nama berkas"
 
 # ID:376,
 #. Resource IDs: (376)
@@ -6502,7 +6503,7 @@ msgstr "Patch dipilih"
 # ID:157,
 #. Resource IDs: (157)
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
-msgstr "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
+msgstr "Berkas tambalan (*.diff, *.patch)|*.diff;*.patch|Semua (*.*)|*.*||"
 
 # ID:77,#:
 # ID:198,
@@ -6669,7 +6670,7 @@ msgstr "Pratilik"
 # ID:376,
 #. Resource IDs: (376)
 msgid "Preview patched file"
-msgstr "Tinjau dului file patch"
+msgstr "Tinjau dului berkas tambalan"
 
 # ID:188,
 #. Resource IDs: (65535)
@@ -6728,7 +6729,7 @@ msgstr "Program"
 # ID:157,
 #. Resource IDs: (157)
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
-msgstr "Program (*.exe)|*.exe|All Files (*.*)|*.*||"
+msgstr "Program (*.exe)|*.exe|Semua Berkas (*.*)|*.*||"
 
 # Dlg-ID:134,#:
 # Control-ID:65535,
@@ -7023,7 +7024,7 @@ msgstr "Melepaskan kunci bahkan jika anda bukan pemilik kunci (bongkar)."
 # ID:16,
 #. Resource IDs: (16)
 msgid "Releases locks on files so other users can edit them again."
-msgstr "Melepaskan kunci atas file agar pengguna lain bisa mengeditnya lagi."
+msgstr "Melepaskan kunci atas berkas agar pengguna lain bisa mengeditnya lagi."
 
 # ID:12,
 #. Resource IDs: (12)
@@ -7040,7 +7041,7 @@ msgid ""
 "Reloads the opened files and reverts all changes.\n"
 "Reload"
 msgstr ""
-"Mengambil kembali file yang dibuka dan membalik semua perubahan.\n"
+"Mengambil kembali berkas yang dibuka dan membalik semua perubahan.\n"
 "Ambil lagi"
 
 # Dlg-ID:157,
@@ -7133,7 +7134,7 @@ msgstr "Dihapus"
 # ID:126,
 #. Resource IDs: (126)
 msgid "Removed file/folder"
-msgstr "File/folder dihapus"
+msgstr "Berkas/folder dihapus"
 
 # ID:15,
 #. Resource IDs: (264)
@@ -7148,7 +7149,7 @@ msgid ""
 "%s\n"
 "from the ignore list."
 msgstr ""
-"Pola file dihapus\n"
+"Pola berkas dihapus\n"
 "%s\n"
 "dari daftar abaikan."
 
@@ -7160,7 +7161,7 @@ msgstr "Copot semua item yang tidak diversi dan diabaikan."
 # ID:15,
 #. Resource IDs: (15)
 msgid "Removes the file or filemask from the list of ignored items"
-msgstr "Menghapus file atau mask file dari item daftar abaikan"
+msgstr "Menghapus berkas atau topeng berkas dari item daftar abaikan"
 
 # ID:17,
 #. Resource IDs: (581)
@@ -7211,7 +7212,7 @@ msgstr "Diganti nama secara remote"
 # ID:11,
 #. Resource IDs: (11)
 msgid "Renames files / folders inside version control"
-msgstr "Mengganti nama file / folder di dalam kontrol versi"
+msgstr "Mengganti nama berkas / folder di dalam kontrol versi"
 
 # ID:209,
 #. Resource IDs: (209)
@@ -7351,7 +7352,7 @@ msgstr ""
 # ID:9,
 #. Resource IDs: (9)
 msgid "Resolves conflicted files"
-msgstr "Menyelesaikan file yang konflik"
+msgstr "Menyelesaikan berkas berkonflik"
 
 # Control-ID:1254,
 #. Resource IDs: (1254)
@@ -7606,12 +7607,12 @@ msgstr "SVN Salin dan tambah berkas ke CP ini"
 # ID:16,
 #. Resource IDs: (16)
 msgid "SVN Copy and rename versioned file here"
-msgstr "SVN Copy dan ganti nama file berversi disini"
+msgstr "SVN Salin dan ganti nama berkas berversi disini"
 
 # ID:13,
 #. Resource IDs: (13)
 msgid "SVN Copy versioned files here"
-msgstr "SVN Copy file berversi disini"
+msgstr "SVN Salin berkas berversi disini"
 
 # ID:14,
 #. Resource IDs: (14)
@@ -7631,12 +7632,12 @@ msgstr "SVN Pemilik kunci Lokal"
 # ID:17,
 #. Resource IDs: (17)
 msgid "SVN Move and rename versioned files here"
-msgstr "SVN Pindahkan dan ganti nama file berversi ke sini"
+msgstr "SVN Pindahkan dan ganti nama berkas berversi ke sini"
 
 # ID:12,
 #. Resource IDs: (12)
 msgid "SVN Move versioned files here"
-msgstr "SVN Pindahkan file berversi kesini"
+msgstr "SVN Pindahkan berkas berversi kesini"
 
 # ID:11,
 #. Resource IDs: (11)
@@ -7712,8 +7713,8 @@ msgid ""
 "Save the modified file\n"
 "Save file"
 msgstr ""
-"Simpan file yang diubah\n"
-"Simpan file"
+"Simpan berkas yang diubah\n"
+"Simpan berkas"
 
 # Control-ID:1132,
 #. Resource IDs: (1132)
@@ -7738,17 +7739,17 @@ msgstr "Simpan nilai properti terpilih ke sebuah berkas"
 #. Resource IDs: (103)
 #, c-format
 msgid "Saving file %s"
-msgstr "Menyimpan file %s"
+msgstr "Menyimpan berkas %s"
 
 # ID:103,
 #. Resource IDs: (103)
 msgid "Saving files"
-msgstr "Menyimpan file"
+msgstr "Menyimpan berkas"
 
 # ID:144,
 #. Resource IDs: (144)
 msgid "Saving patchfile to:"
-msgstr "Menyimpan patchfile ke:"
+msgstr "Menyimpan berkas tambalan ke:"
 
 # Control-ID:1014,#:
 # Control-ID:1017,#:
@@ -7825,7 +7826,7 @@ msgstr ""
 # ID:13,
 #. Resource IDs: (13)
 msgid "Select File..."
-msgstr "Pilih File..."
+msgstr "Pilih Berkas..."
 
 # Dlg-ID:173,
 #. Resource IDs: (173)
@@ -7861,7 +7862,7 @@ msgstr "Pilih aplikasi diff"
 # ID:313,
 #. Resource IDs: (313)
 msgid "Select diff file..."
-msgstr "Pilih file diff..."
+msgstr "Pilih berkas diff..."
 
 # ID:99,
 #. Resource IDs: (99)
@@ -7895,12 +7896,12 @@ msgstr "Pilih folder untuk menjalan naskah"
 # ID:197,
 #. Resource IDs: (119)
 msgid "Select folder to save the selected files to"
-msgstr "Pilih folder untuk tempat penyimpanan file-file yang terpilih"
+msgstr "Pilih folder untuk tempat penyimpanan berkas-berkas yang terpilih"
 
 # ID:197,
 #. Resource IDs: (197)
 msgid "Select hook script file"
-msgstr "Pilih file naskah hook"
+msgstr "Pilih berkas naskah hook"
 
 #. Resource IDs: (1405)
 msgid "Select items automatically"
@@ -7967,7 +7968,7 @@ msgstr "Pilih url-url untuk penggabungan pohon"
 # ID:78,
 #. Resource IDs: (78)
 msgid "Select viewer for diff-files"
-msgstr "Pilih peninjau untuk file-diff"
+msgstr "Pilih peninjau untuk berkas-diff"
 
 # ID:3866,#:
 # ID:3866,
@@ -8111,7 +8112,7 @@ msgstr "Tampilkan &properti-properti"
 # Control-ID:1073,
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
-msgstr "Tampilkan file tidak ber&versi"
+msgstr "Tampilkan berkas tidak ber&versi"
 
 #. Resource IDs: (1069)
 msgid "Show Above the Ribbon"
@@ -8127,7 +8128,7 @@ msgstr "Tampilkan Lebih Sedikit Tombol"
 
 #. Resource IDs: (32817)
 msgid "Show File List"
-msgstr "Tampilkan Daftar File"
+msgstr "Tampilkan Daftar Berkas"
 
 #. Resource IDs: (2051)
 msgid "Show HEAD revision nodes"
@@ -8190,7 +8191,7 @@ msgstr "Tampilkan menu pen&uh setelah jeda pendek"
 # Control-ID:1264,
 #. Resource IDs: (1264)
 msgid "Show i&gnored files"
-msgstr "Tampilkan file &diabaikan"
+msgstr "Tampilkan berkas &diabaikan"
 
 # Control-ID:1063,
 #. Resource IDs: (1063)
@@ -8278,12 +8279,12 @@ msgstr "Tampilkan tag pada sumber penyalinan, bukan sebagai noda terpisah"
 # Control-ID:1209,
 #. Resource IDs: (1209)
 msgid "Show un&modified files"
-msgstr "Ta&mpilkan file yang tidak diubah"
+msgstr "Ta&mpilkan berkas yang tidak diubah"
 
 # Control-ID:1073,
 #. Resource IDs: (1073)
 msgid "Show un&versioned files"
-msgstr "Tampilkan file tidak ber&versi"
+msgstr "Tampilkan berkas tidak ber&versi"
 
 # ID:198,
 #. Resource IDs: (198)
@@ -8316,7 +8317,7 @@ msgstr "Menampilkan gambaran grafik copy/tags/cabang"
 # ID:13,
 #. Resource IDs: (13)
 msgid "Shows all files which were changed since the last update, locally and in the repository"
-msgstr "Menampilkan semua file yang diubah sejak pemutakhiran terakhir, secara lokal dan dalam repositori"
+msgstr "Menampilkan semua berkas yang diubah sejak pemutakhiran terakhir, secara lokal dan dalam repositori"
 
 # ID:2050,
 #. Resource IDs: (2050)
@@ -8341,12 +8342,12 @@ msgstr "Menampilkan nilai properti gaya-eol"
 # ID:12,
 #. Resource IDs: (12)
 msgid "Shows the log for the selected file / folder"
-msgstr "Menampilkan log untuk file / folder yang dipilih"
+msgstr "Menampilkan log untuk berkas / folder yang dipilih"
 
 # ID:14,
 #. Resource IDs: (14)
 msgid "Shows the mime type of the versioned file"
-msgstr "Menampilkan tipe mime dari file berversi"
+msgstr "Menampilkan tipe mime dari berkas berversi"
 
 #. Resource IDs: (32775)
 msgid "Single/&double-pane view"
@@ -8400,7 +8401,7 @@ msgid ""
 "should ignore in <b>all</b> working copies.\n"
 "Separate the patterns with a space."
 msgstr ""
-"Menetapkan file atau folder yang harus\n"
+"Menetapkan berkas atau folder yang harus\n"
 "diabaikan TortoiseSVN dalam <b>semua</b> copy pekerjaan.\n"
 "Pisahkan pola dengan spasi."
 
@@ -8522,7 +8523,7 @@ msgstr "Subversion"
 # Control-ID:65535,
 #. Resource IDs: (65535)
 msgid "Subversion configuration &file:"
-msgstr "&File konfigurasi Subversion:"
+msgstr "Ber&kas konfigurasi Subversion:"
 
 # ID:79,
 #. Resource IDs: (79)
@@ -8548,7 +8549,7 @@ msgstr ""
 # Control-ID:65535,
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
-msgstr "File server Subversion:"
+msgstr "Berkas peladen Subversion:"
 
 # Control-ID:1232,
 #. Resource IDs: (1232)
@@ -8646,7 +8647,7 @@ msgstr "&Suara sistem"
 # ID:3857,
 #. Resource IDs: (3857)
 msgid "System registry entries have been removed and the INI file (if any) was deleted."
-msgstr "Entri registri sistem sudah dihapus dan file INI (jika ada) sudah dihapus."
+msgstr "Entri registri sistem sudah dihapus dan berkas INI (jika ada) sudah dihapus."
 
 # ID:7,
 #. Resource IDs: (7)
@@ -8726,13 +8727,13 @@ msgstr ""
 #. Resource IDs: (64)
 #, c-format
 msgid "The file %s does not exist!"
-msgstr "File %s tidak ada!"
+msgstr "Berkas %s tidak ada!"
 
 # ID:64,
 #. Resource IDs: (64)
 #, c-format
 msgid "The file %s was not found in the patch file!"
-msgstr "File %s tidak ditemukan dalam file patch!"
+msgstr "Berkas %s tidak ditemukan dalam berkas tambalan!"
 
 # ID:80,
 #. Resource IDs: (314)
@@ -8752,13 +8753,13 @@ msgstr ""
 # ID:3857,
 #. Resource IDs: (69)
 msgid "The file is too big"
-msgstr "File terlalu besar."
+msgstr "Berkas terlalu besar."
 
 # ID:3857,#:
 # ID:3857,
 #. Resource IDs: (3857)
 msgid "The file is too large to open."
-msgstr "File terlalu besar untuk dibuka."
+msgstr "Berkas terlalu besar untuk dibuka."
 
 # ID:80,
 #. Resource IDs: (80)
@@ -8768,7 +8769,7 @@ msgid ""
 "%s\n"
 "already exists! Do you want to overwrite it?"
 msgstr ""
-"File\n"
+"Berkas\n"
 "%s\n"
 "sudah ada! Anda ingin menimpanya?"
 
@@ -8784,7 +8785,7 @@ msgstr ""
 "Berkas\n"
 "%s\n"
 "bukan berkas teks yang sahih!\n"
-"Ingat bahwa file UTF32 juga diperlakukan sebagai biner."
+"Ingat bahwa berkas UTF32 juga diperlakukan sebagai biner."
 
 # ID:145,
 #. Resource IDs: (145)
@@ -8794,7 +8795,7 @@ msgid ""
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr ""
 "Folder %s\n"
-"berisi file tidak berversi dan/atau diubah. Anda ingin tetap menghapusnya?"
+"berisi berkas tidak berversi dan/atau diubah. Anda ingin tetap menghapusnya?"
 
 # ID:88,
 #. Resource IDs: (88)
@@ -8858,19 +8859,19 @@ msgid ""
 "Either this is not a diff file or the diff is empty."
 msgstr ""
 "Baris \"Indeks: \" tidak ditemukan!\n"
-"Baik ini bukan file diff ataupun diff kosong."
+"Baik ini bukan berkas diff ataupun diff kosong."
 
 # ID:63,
 #. Resource IDs: (63)
 #, c-format
 msgid "The line indicating the new file was expected in line %d !"
-msgstr "baris yang menunjukan file baru diharapkan dalam baris %d !"
+msgstr "Baris yang menunjukan berkas baru diharapkan dalam baris %d !"
 
 # ID:63,
 #. Resource IDs: (63)
 #, c-format
 msgid "The line indicating the old file was expected in line %d !"
-msgstr "Baris yang menunjukan file lama diharapkan dalam baris %d !"
+msgstr "Baris yang menunjukan berkas lama diharapkan dalam baris %d !"
 
 # ID:251,
 #. Resource IDs: (251)
@@ -8891,8 +8892,8 @@ msgid ""
 "The old file does not match the new file.\n"
 "Renaming of files is not (yet) supported!"
 msgstr ""
-"File lama tidak sama dengan file baru.\n"
-"Penggantian nama file belum didukung!"
+"Berkas lama tidak sama dengan berkas baru.\n"
+"Penggantian nama berkas belum didukung!"
 
 # ID:3857,#:
 # ID:3857,
@@ -8905,7 +8906,7 @@ msgstr "Perintah gagal."
 msgid ""
 "The parameters '/path' and '/pathfile' are mutually exclusive.\n"
 "You must only specify one of them."
-msgstr "Parameter-parameter '/path' dan '/pathfile' hanya dapat digunakan salah satu. Anda harus menspesifi salah satu dari mereka."
+msgstr "Parameter-parameter '/path' dan '/pathfile' hanya dapat digunakan salah satu. Anda harus menentukan salah satu dari mereka."
 
 # ID:64,
 #. Resource IDs: (64)
@@ -8917,9 +8918,9 @@ msgid ""
 "%s\n"
 "do not match!"
 msgstr ""
-"Patch nampaknya ketinggalan jaman! Baris file\n"
+"Tambalan nampaknya ketinggalan jaman! Baris berkas\n"
 "%s\n"
-"dan baris patch\n"
+"dan baris tambalan\n"
 "%s\n"
 "tidak sama!"
 
@@ -8957,10 +8958,10 @@ msgid ""
 msgstr ""
 "Path\n"
 "<i>%s</i>\n"
-"pada file patch tidak ada.\n"
+"pada berkas tambalan tidak ada.\n"
 "TortoiseMerge menemukan path relatif\n"
 "<i>%s</i>\n"
-"yang sepertinya cocok dengan direktori yang padanya Anda sedang menerapkan patch.\n"
+"yang sepertinya cocok dengan direktori yang padanya Anda sedang menerapkan tambalan.\n"
 "\n"
 "Apakah Anda ingin menggunakan path yang disarankan? Anda akan keluar dari TortoiseMerge jika menjawab 'tidak'."
 
@@ -8975,8 +8976,8 @@ msgid ""
 msgstr ""
 "Path\n"
 "<i>%s</i>\n"
-"dalam file patch tidak ada.\n"
-"TortoiseMerge mencoba untuk menerapkan patch dengan menghilangkan prefiks tetapi tidak dapat menemukan path yang cocok."
+"dalam berkas tambalan tidak ada.\n"
+"TortoiseMerge mencoba untuk menerapkan tambalan dengan menghilangkan prefiks tetapi tidak dapat menemukan path yang cocok."
 
 # ID:314,
 #. Resource IDs: (314)
@@ -8991,7 +8992,7 @@ msgid ""
 msgstr ""
 "Path\n"
 "<i>%s</i>\n"
-"nampaknya tidak menyamai path dalam file patch.\n"
+"nampaknya tidak menyamai path dalam berkas tambalan.\n"
 "Tapi TortoiseMerge menemukan path\n"
 "<i>%s</i>\n"
 "yang sama lebih baik. Sebaliknya anda ingin menggunakan path yang disarankan?"
@@ -9007,7 +9008,7 @@ msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
 "Are you sure you want to mark the file resolved?"
 msgstr ""
-"File yang dipilih nampaknya masih mempunyai satu atau lebih tanda konflik didalamnya,\n"
+"Berkas yang dipilih nampaknya masih mempunyai satu atau lebih tanda konflik didalamnya,\n"
 "Anda yakin ingin menandai sudah diselesaikan?"
 
 # ID:102,
@@ -9043,9 +9044,9 @@ msgid ""
 "A lower value will make the auto-completion list available sooner,\n"
 "but maybe not scan all files."
 msgstr ""
-"Waktu dalam detik sebelum penguraian file yang dipilih berhenti.\n"
+"Waktu dalam detik sebelum penguraian berkas yang dipilih berhenti.\n"
 "Nilai lebih rendah akan membuat daftar pelengkapan otomatis tersedia lebih awal,\n"
-"tapi mungkin tidak memindai semua file."
+"tapi mungkin tidak memindai semua berkas."
 
 # ID:82,
 #. Resource IDs: (82)
@@ -9064,7 +9065,7 @@ msgstr "Pengguna yang melakukan komit terakhir"
 # ID:16,
 #. Resource IDs: (16)
 msgid "The user who owns the lock of the file"
-msgstr "Pengguna yang memiliki kunci file"
+msgstr "Pengguna yang memiliki kunci berkas"
 
 # ID:81,
 #. Resource IDs: (81)
@@ -9090,7 +9091,7 @@ msgstr ""
 # Control-ID:65535,
 #. Resource IDs: (65535)
 msgid "Their file:"
-msgstr "File Mereka:"
+msgstr "Berkas Mereka:"
 
 # ID:263,
 #. Resource IDs: (263)
@@ -9119,10 +9120,10 @@ msgid ""
 "Do you want to save the file with the conflicts still there?\n"
 "If you click YES, then you have to manually resolve the conflicts in another editor!"
 msgstr ""
-"Masih ada baris konflik tidak terselesaikan %d!\n"
+"Masih ada konflik tidak terselesaikan pada baris%d!\n"
 "Anda harus menyelesaikan konflik itu sebelum menyimpan.\n"
-"Anda ingin menyimpan file yang masih konflik?\n"
-"Jika anda mengklik YA, maka anda harus menyelesaikan konflik dalam editor lain!"
+"Anda ingin menyimpan berkas yang masih konflik?\n"
+"Jika anda mengklik YA, maka anda harus menyelesaikan konflik dalam editor lain secara manual!"
 
 # ID:313,
 #. Resource IDs: (313)
@@ -9150,12 +9151,12 @@ msgstr ""
 # ID:82,
 #. Resource IDs: (82)
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
-msgstr "Tidak ada yang perlu ditambahkan. Semua file dan folder baik dibawah kontrol versi maupun yang diabaikan menggunakan properti svn:ignore atau seting konfligurasi abaikan global."
+msgstr "Tidak ada yang perlu ditambahkan. Semua berkas dan folder baik dibawah kontrol versi maupun yang diabaikan menggunakan properti svn:ignore atau seting konfligurasi abaikan global."
 
 # ID:83,
 #. Resource IDs: (83)
 msgid "There's nothing to unlock. No file has a lock in this working copy."
-msgstr "Tidak ada kunci yang dapat dibuka. Tidak ada file yang memiliki kunci dalam copy pekerjaan ini."
+msgstr "Tidak ada kunci yang dapat dibuka. Tidak ada berkas yang memiliki kunci dalam copy pekerjaan ini."
 
 # ID:188,
 #. Resource IDs: (188)
@@ -9216,12 +9217,12 @@ msgstr "Program ini dikaitkan ke  ekspor %s yang hilang dalam file %s. Mesin ini
 #. Resource IDs: (3857)
 #, c-format
 msgid "This program requires the file %s, which was not found on this system."
-msgstr "Program ini membutuhkan file %s, yang tidak ditemukan pada sistem ini."
+msgstr "Program ini membutuhkan berkas %s, yang tidak ditemukan pada sistem ini."
 
 # ID:15,
 #. Resource IDs: (15)
 msgid "This property is only allowed on folders, not files."
-msgstr "Properti ini hanya dibolehkan pada folder, bukan file."
+msgstr "Properti ini hanya dibolehkan pada folder, bukan berkas."
 
 # ID:15,
 #. Resource IDs: (15)
@@ -9434,7 +9435,7 @@ msgid ""
 "TortoiseSVN has detected similar filenames. Do you want the files:%s\n"
 "to be renamed too?"
 msgstr ""
-"TortoiseSVN telah mendeteksi nama file mirip. Anda ingin file:%s\n"
+"TortoiseSVN telah mendeteksi nama berkas mirip. Anda ingin berkas:%s\n"
 "diganti nama juga?"
 
 # Control-ID:1162,
@@ -9445,7 +9446,7 @@ msgstr "Total komit dianalisa:"
 # Control-ID:1163,
 #. Resource IDs: (1163)
 msgid "Total file changes:"
-msgstr "Total perubahan file:"
+msgstr "Total perubahan berkas:"
 
 #. Resource IDs: (339)
 msgid "Total number of changes over all cached revisions"
@@ -9572,8 +9573,8 @@ msgid ""
 "from the top pane in the log dialog."
 msgstr ""
 "Tidak bisa merekonstruksi path copy pekerjaan!\n"
-"Ini bisa terjadi jika file sudah diganti nama.\n"
-"Silahkan mulai dialog log pada file spesifik ini sendiri dan balik perubahan\n"
+"Ini bisa terjadi jika berkas sudah diganti nama.\n"
+"Silahkan mulai dialog log pada berkas spesifik ini sendiri dan balik perubahan\n"
 "dari pane atas dalam dialog log."
 
 # ID:3865,#:
@@ -9625,7 +9626,7 @@ msgstr ""
 # ID:3859,
 #. Resource IDs: (3859)
 msgid "Unexpected file format."
-msgstr "Format file tidak diharapkan."
+msgstr "Format berkas tidak diharapkan."
 
 #. Resource IDs: (3850)
 msgid ""
@@ -9690,7 +9691,7 @@ msgstr "Tak Berversi"
 # Control-ID:1313,
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
-msgstr "File tidak berversi menandai folder leluhur sebagai diubah"
+msgstr "Berkas tidak berversi menandai folder leluhur sebagai diubah"
 
 # ID:201,
 #. Resource IDs: (286)
@@ -9763,7 +9764,7 @@ msgstr "Gunakan b&lok kiri"
 # Control-ID:1024,
 #. Resource IDs: (1024)
 msgid "Use &one-pane view as default for 2-file diff"
-msgstr "Gunakan tampilan sat&u-pane sebagai standar untuk 2-file diff"
+msgstr "Gunakan tampilan sat&u-jendela sebagai standar untuk diff 2-berkas"
 
 # ID:251,
 #. Resource IDs: (251)
@@ -9958,7 +9959,7 @@ msgstr ""
 # ID:251,
 #. Resource IDs: (251)
 msgid "Use this &whole file"
-msgstr "Gunakan seluru&h file ini"
+msgstr "Gunakan seluru&h berkas ini"
 
 # ID:12,
 #. Resource IDs: (12)
@@ -9968,7 +9969,7 @@ msgstr "Gunakan ini jika URL dari repositori berubah"
 # ID:251,
 #. Resource IDs: (251)
 msgid "Use whole other &file"
-msgstr "Gunakan seluruh &file lain"
+msgstr "Gunakan seluruh ber&kas lain"
 
 # ID:74,
 #. Resource IDs: (74)
