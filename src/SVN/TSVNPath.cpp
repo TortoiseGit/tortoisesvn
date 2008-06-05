@@ -442,8 +442,13 @@ CTSVNPath CTSVNPath::GetContainingDirectory() const
 		if(sDirName == m_sBackslashPath)
 		{
 			// We were clearly provided with a root path to start with - we should return nothing now
-			sDirName = _T("");
+			sDirName.Empty();
 		}
+	}
+	if(sDirName.GetLength() == 1 && sDirName[0] == '\\')
+	{
+		// We have an UNC path and we already are the root
+		sDirName.Empty();
 	}
 	CTSVNPath retVal;
 	retVal.SetFromWin(sDirName);
@@ -1176,6 +1181,10 @@ private:
 		testPath.SetFromUnknown(_T("C:\\"));
 		ATLASSERT(testPath.IsDirectory());
 		ATLASSERT(testPath.GetDirectory().GetWinPathString().CompareNoCase(_T("C:\\"))==0);
+		ATLASSERT(testPath.GetContainingDirectory().IsEmpty());
+		// Try a root UNC path
+		testPath.SetFromUnknown(_T("\\MYSTATION"));
+		ATLASSERT(testPath.GetContainingDirectory().IsEmpty());
 	}
 
 	void AdminDirTest()
