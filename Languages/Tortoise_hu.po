@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-04 15:25+0100\n"
+"PO-Revision-Date: 2008-06-05 14:29+0100\n"
 "Last-Translator: Halász Gábor <k@elitonline.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -371,7 +371,7 @@ msgstr "&Kategória:"
 #. Resource IDs: (65535)
 #, fuzzy
 msgid "&Choose commands from:"
-msgstr "&Parancsok kiválasztása innen:"
+msgstr "&Műveletek kiválasztása innen:"
 
 #. Resource IDs: (8)
 msgid "&Clean up"
@@ -392,7 +392,7 @@ msgstr "&Sorok színezése életkor szerint"
 #. Resource IDs: (65535)
 #, fuzzy
 msgid "&Command:"
-msgstr "Parancs"
+msgstr "&Művelet:"
 
 #. Resource IDs: (8)
 msgid "&Commit..."
@@ -676,9 +676,8 @@ msgid "&Load..."
 msgstr "&Betöltés..."
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "&Lum:"
-msgstr "&Fényerősség:"
+msgstr "&Fény.:"
 
 #. Resource IDs: (16543)
 #, fuzzy
@@ -871,9 +870,8 @@ msgid "&SSH client:"
 msgstr "&SSH kliens:"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "&Sat:"
-msgstr "&Telítettség:"
+msgstr "&Tel.:"
 
 #. Resource IDs: (57603)
 msgid "&Save"
@@ -1433,7 +1431,7 @@ msgstr "Életkor"
 #. Resource IDs: (1007)
 #, fuzzy
 msgid "All Commands"
-msgstr "Minden parancs"
+msgstr "Minden művelet"
 
 #. Resource IDs: (3841)
 msgid "All Files (*.*)"
@@ -1538,9 +1536,8 @@ msgid "Application Frame Menus: "
 msgstr ""
 
 #. Resource IDs: (14)
-#, fuzzy
 msgid "Applies a unified diff file to the working copy"
-msgstr "Beépíti az egyesített foltot a munkapéldányba"
+msgstr "Alkalmazza az egyesített diff-et a munkapéldányra"
 
 #. Resource IDs: (581)
 #, fuzzy
@@ -1552,18 +1549,16 @@ msgstr ""
 "bugtraq: és tsvn: csak a mappákra vonatkozik."
 
 #. Resource IDs: (13)
-#, fuzzy
 msgid "Apply &patch..."
-msgstr "F&olt alkalmazása..."
+msgstr "&Patch alkalmazása..."
 
 #. Resource IDs: (1294)
 msgid "Apply property recursively"
 msgstr "Tulajdonság megadása rekurzívan"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Apply unified diff"
-msgstr "Egyesített folt alkalmazása"
+msgstr "Egyesített diff alkalmazása"
 
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
@@ -1600,9 +1595,9 @@ msgid "Assigned to:"
 msgstr "Hozzárendelve:"
 
 #. Resource IDs: (77)
-#, fuzzy, c-format
+#, c-format
 msgid "At revision: %d"
-msgstr "Verzió %d"
+msgstr "Jelenlegi verzió: %d"
 
 #. Resource IDs: (3843)
 #, fuzzy
@@ -1815,7 +1810,7 @@ msgstr "Tároló ellenőrzése"
 #. Resource IDs: (65535)
 #, fuzzy
 msgid "C&ommands:"
-msgstr "&Parancsok:"
+msgstr "&Műveletek:"
 
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
@@ -1828,7 +1823,7 @@ msgstr "&Mappa létrehozása..."
 #. Resource IDs: (65535)
 #, fuzzy
 msgid "C&urrent Keys:"
-msgstr "Jelenlegi billentyűl:"
+msgstr "Jelenlegi billentyűk:"
 
 #. Resource IDs: (501)
 msgid "C&ut"
@@ -2331,7 +2326,7 @@ msgstr "Program beállítása az ellentmondásos fájlok megoldására."
 #. Resource IDs: (65535)
 #, fuzzy
 msgid "Configure viewer program for GNU diff files (patch files)."
-msgstr "GNU diff (foltfájl) nézegető program beállítása."
+msgstr "GNU diff fájl (patch fájl) megjelenítő program beállítása."
 
 #. Resource IDs: (65535)
 msgid "Conflict resolved"
@@ -2358,7 +2353,7 @@ msgstr "Tároló méretek"
 #. Resource IDs: (16520)
 #, fuzzy
 msgid "Context Menus: "
-msgstr "Lezúduló tartalom menü"
+msgstr "Helyi menük:"
 
 #. Resource IDs: (73)
 msgid "Continue"
@@ -2517,7 +2512,7 @@ msgstr "\"%s\" nem adható hozzá, mert"
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not add property \"%s\" on %s because"
-msgstr "Nem lehet a(z) \"%s\" tulajdonságot hozzáadni, mert"
+msgstr "Nem lehet a(z) \"%s\" tulajdonságot hozzáadni %s-hez, mert"
 
 #. Resource IDs: (201)
 msgid "Could not check for a newer version!"
@@ -2547,7 +2542,7 @@ msgstr "\"%s\" nem törölhető, mert"
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not delete property \"%s\" on %s because"
-msgstr "Nem lehet a(z) \"%s\" tulajdonságot törölni, mert"
+msgstr "Nem lehet a(z) \"%s\" tulajdonságot töröln %s-ből, mert"
 
 #. Resource IDs: (83)
 #, fuzzy
@@ -2566,7 +2561,7 @@ msgstr "Nem érhető el az állapot"
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not merge property \"%s\" on %s because"
-msgstr "Nem lehet a(z) \"%s\" tulajdonságot egyesíteni, mert"
+msgstr "Nem lehet a(z) \"%s\" tulajdonságot egyesíteni %s-en, mert"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -2697,9 +2692,8 @@ msgid "Create repositor&y here"
 msgstr "&Tároló készítése itt"
 
 #. Resource IDs: (32828)
-#, fuzzy
 msgid "Create unified diff file"
-msgstr "Egyesített diff készítése"
+msgstr "Egyesített diff fájl készítése"
 
 #. Resource IDs: (126)
 msgid "Created folder remotely"
@@ -3888,9 +3882,8 @@ msgid "H&ide unrelated changed paths"
 msgstr "Más útvonalon történt változások el&rejtése"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "H&ue:"
-msgstr "&Színárnyalat:"
+msgstr "&Szín:"
 
 #. Resource IDs: (1353, 1354)
 msgid "HEAD"
