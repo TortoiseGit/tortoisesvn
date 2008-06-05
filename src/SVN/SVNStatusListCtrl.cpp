@@ -2796,6 +2796,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 
 					if ( (result==0) && (!fileop.fAnyOperationsAborted) )
 					{
+						SetRedraw(FALSE);
 						POSITION pos = NULL;
 						CTSVNPathList deletedlist;	// to store list of deleted folders
 						while ((pos = GetFirstSelectedItemPosition()) != 0)
@@ -2825,6 +2826,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 								}
 							}
 						}
+						SetRedraw(TRUE);
 					}
 				}
 				break;
