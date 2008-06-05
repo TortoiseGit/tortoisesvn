@@ -57,7 +57,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-31 17:14+0800\n"
+"PO-Revision-Date: 2008-06-05 16:14+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -865,9 +865,13 @@ msgstr "重置我的使用信息(&R)"
 msgid "&Reset to Default"
 msgstr "恢复到默认值(&R)"
 
+#. Resource IDs: (114)
+msgid "&Revert changes from these revisions"
+msgstr "复原这些版本作出的修改(&R)"
+
 #. Resource IDs: (113)
 msgid "&Revert changes from this revision"
-msgstr "复原此版本中的变更(&R)"
+msgstr "复原此版本作出的修改(&R)"
 
 #. Resource IDs: (1033, 1035, 1116)
 msgid "&Revision"
@@ -1750,14 +1754,6 @@ msgstr "分枝/标记(&T)..."
 msgid "Break loc&k"
 msgstr "破除锁定(&K)"
 
-#. Resource IDs: (1009)
-msgid "Bro&wse..."
-msgstr "浏览(&W)..."
-
-#. Resource IDs: (1007)
-msgid "Brows&e..."
-msgstr "浏览(&E)..."
-
 #. Resource IDs: (78)
 msgid "Browse for the external diff program"
 msgstr "查找外部比较差异工具"
@@ -1785,6 +1781,10 @@ msgstr "按钮外观"
 #. Resource IDs: (1215)
 msgid "C&heck now"
 msgstr "立即检查(&H)"
+
+#. Resource IDs: (1132)
+msgid "C&heck repository"
+msgstr "检查版本库(&H)"
 
 #. Resource IDs: (65535)
 msgid "C&ommands:"
@@ -1967,10 +1967,6 @@ msgstr "检查更新"
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
 msgstr "从版本库中检出工作副本"
-
-#. Resource IDs: (1132)
-msgid "Check repository"
-msgstr "检查版本库"
 
 #. Resource IDs: (95)
 msgid ""
@@ -3002,6 +2998,10 @@ msgstr "磁盘驱动器类型"
 msgid "E&xact copy sources"
 msgstr "解开复制源(&X)"
 
+#. Resource IDs: (65535)
+msgid "E&xclude paths:"
+msgstr "排除路径(&X)："
+
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
 msgstr "退出(&X)"
@@ -3256,10 +3256,6 @@ msgstr ""
 #. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "例外："
-
-#. Resource IDs: (65535)
-msgid "Exclude paths:"
-msgstr "排除路径："
 
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
@@ -3900,6 +3896,10 @@ msgstr "Hook 类型："
 msgid "Hostname mismatch (%s)"
 msgstr "站点名称不符(%s)"
 
+#. Resource IDs: (65535)
+msgid "I&nclude paths:"
+msgstr "包含路径(&I)："
+
 # msgid/msgstr fields are EXACTLY 6 characters long for Accelerator keys
 # Format is: "VACS+X" where:
 #    V = Virtual key (or blank if not used) - nearly always set!
@@ -4275,10 +4275,6 @@ msgstr "包含合并版本"
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
 msgstr "仅包括以下版本范围："
-
-#. Resource IDs: (65535)
-msgid "Include paths:"
-msgstr "包含路径："
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -6184,10 +6180,6 @@ msgstr "还原"
 msgid "Revert - TortoiseSVN"
 msgstr "恢复 - TortoiseSVN"
 
-#. Resource IDs: (114)
-msgid "Revert changes from these revisions"
-msgstr "复原自此版本以来的变更"
-
 #. Resource IDs: (73)
 msgid "Reverted"
 msgstr "还原"
@@ -6767,6 +6759,10 @@ msgstr "显示日志(&L)..."
 msgid "Show &overlays and context menu only in explorer"
 msgstr "仅在资源管理器中显示图标覆盖和上下文菜单(&O)"
 
+#. Resource IDs: (1265)
+msgid "Show &properties"
+msgstr "显示属性(&P)"
+
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
 msgstr "显示无版本控制的文件(&U)"
@@ -6844,8 +6840,8 @@ msgid "Show f&ull menus after a short delay"
 msgstr "在短暂延时后显示全部菜单(&U)"
 
 #. Resource IDs: (1264)
-msgid "Show ignored files"
-msgstr "显示忽略的文件"
+msgid "Show i&gnored files"
+msgstr "显示被忽略的文件(&G)"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
@@ -6895,10 +6891,6 @@ msgstr "对忽略的项目覆盖显示"
 msgid "Show overlay for unversioned items"
 msgstr "对未版本控制的项目覆盖显示"
 
-#. Resource IDs: (1265)
-msgid "Show properties"
-msgstr "显示属性"
-
 #. Resource IDs: (102)
 msgid "Show revision properties"
 msgstr "显示版本属性"
@@ -6924,12 +6916,12 @@ msgid "Show tags on the copy source, not as separate nodes"
 msgstr "在复制源显示标签，而不是单独节点"
 
 #. Resource IDs: (1209)
-msgid "Show unmodified files"
-msgstr "显示未修改的文件"
+msgid "Show un&modified files"
+msgstr "显示未修改的文件(&M)"
 
 #. Resource IDs: (1073)
-msgid "Show unversioned files"
-msgstr "显示无版本控制的文件"
+msgid "Show un&versioned files"
+msgstr "显示无版本控制的文件(&V)"
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -8220,8 +8212,8 @@ msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "使用工作副本的 URL 作为默认的来源 URL(&W)"
 
 #. Resource IDs: (1064)
-msgid "Use Unified Diff from clipboard"
-msgstr "使用剪贴板上的标准差异"
+msgid "Use Unified Diff from &clipboard"
+msgstr "使用剪贴板上的标准差异(&C)"
 
 #. Resource IDs: (1296)
 msgid "Use \"_svn\" instead of \".svn\" directories"
@@ -9446,3 +9438,9 @@ msgstr "是"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
+
+#~ msgid "Bro&wse..."
+#~ msgstr "浏览(&W)..."
+
+#~ msgid "Brows&e..."
+#~ msgstr "浏览(&E)..."
