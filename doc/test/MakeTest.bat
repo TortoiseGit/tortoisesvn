@@ -25,7 +25,7 @@ svn co -q file:///%docpath%/test/temp/repos2 ext
 cd ext
 :: Copy some files from the docs to create content
 copy ..\..\..\source\en\TortoiseSVN\tsvn_server\server*.xml > nul
-svn add server*.xml
+for %%f in (server*.xml) do svn add %%f
 :: Commit external repos2 r1
 svn ci -q -m "Document the server" .
 cd ..
@@ -61,6 +61,7 @@ svn ci -q -m "Document some more commands" .
 :: Add a reference to the external repository
 svn ps -q svn:externals "ext file:///%docpath%/test/temp/repos2/" .
 :: Commit repos r4
+svn up -q
 svn ci -q -m "create externals reference" .
 svn up -q
 
