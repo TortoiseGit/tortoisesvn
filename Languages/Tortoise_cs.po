@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-04 08:58+0100\n"
+"PO-Revision-Date: 2008-06-05 16:43+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -746,7 +746,7 @@ msgstr "&Jedna Stránka"
 
 #. Resource IDs: (101, 113, 32773)
 msgid "&Open"
-msgstr "Otevřít"
+msgstr "&Otevřít"
 
 #. Resource IDs: (32772)
 msgid "&Overlap images"
@@ -962,7 +962,7 @@ msgstr "Nás&trojová lišta"
 
 #. Resource IDs: (65535)
 msgid "&Toolbar Name:"
-msgstr "Méno Nás&trojové lišty:"
+msgstr "Jméno Nás&trojové Lišty:"
 
 #. Resource IDs: (65535)
 msgid "&Toolbars:"
@@ -1002,7 +1002,7 @@ msgstr "Záplata (&Unified Diff)"
 
 #. Resource IDs: (1061)
 msgid "&Unknown drives"
-msgstr "Neznámé disky"
+msgstr "Neznámé &disky"
 
 #. Resource IDs: (8)
 msgid "&Update"
@@ -1523,7 +1523,7 @@ msgstr "Jste si jistý označit konfliktní soubor(y) jako vyřešené?"
 #. Resource IDs: (199)
 #, c-format
 msgid "Are you sure you want to remove the cache of the selected %d items?"
-msgstr ""
+msgstr "Ste si jistý, že chcete vymazat keš %d vybraných položek?"
 
 #. Resource IDs: (79)
 #, c-format
@@ -1727,7 +1727,7 @@ msgstr "Procházet..."
 
 #. Resource IDs: (1119)
 msgid "Bug-&ID / Issue-Nr:"
-msgstr "ID chyby/ č. problému:"
+msgstr "&ID chyby/ č. problému:"
 
 #. Resource IDs: (116)
 msgid "Bug-ID"
@@ -1739,7 +1739,7 @@ msgstr "ID chyby/ č. problému:"
 
 #. Resource IDs: (16132)
 msgid "Button Appearance"
-msgstr ""
+msgstr "Vh+lah"
 
 #. Resource IDs: (1215)
 msgid "C&heck now"
@@ -1755,7 +1755,7 @@ msgstr "Přík&azy:"
 
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
-msgstr "Vytvořit větev/tag z revize"
+msgstr "Vy&tvořit větev/tag z revize"
 
 #. Resource IDs: (101)
 msgid "C&reate folder..."
@@ -2226,7 +2226,7 @@ msgstr "Dokončeno"
 
 #. Resource IDs: (236, 284)
 msgid "Configure Hook Scripts"
-msgstr "Konfigurovat Hook scripts"
+msgstr "Konfigurovat Hook Skripty"
 
 #. Resource IDs: (65535)
 msgid "Configure the program used for comparing different revisions of files"
@@ -2583,7 +2583,7 @@ msgstr "Vytvořit seznam změn"
 
 #. Resource IDs: (208)
 msgid "Create Patch"
-msgstr "Vytvořit záplatu (&patch)"
+msgstr "Vytvořit záplatu (patch)"
 
 #. Resource IDs: (1385)
 msgid "Create copy in the repository from:"
@@ -2651,7 +2651,7 @@ msgstr "Aktuální verze je: %s"
 
 #. Resource IDs: (17079)
 msgid "Cus&tomize..."
-msgstr "Přispůsobit..."
+msgstr "&Přispůsobit..."
 
 #. Resource IDs: (16963)
 msgid "Custom"
@@ -2691,7 +2691,7 @@ msgstr "Defaultní"
 
 #. Resource IDs: (65535)
 msgid "Default &number of log messages"
-msgstr "Standardní počet log záznamů"
+msgstr "Standardní &počet log záznamů"
 
 #. Resource IDs: (1007)
 msgid "Default Menu"
@@ -2949,7 +2949,7 @@ msgstr "Typy disků"
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
-msgstr "Přesné zdroje kopírování"
+msgstr "&Přesné zdroje kopírování"
 
 #. Resource IDs: (65535)
 msgid "E&xclude paths:"
@@ -3237,7 +3237,7 @@ msgstr "E&xportovat"
 
 #. Resource IDs: (1074)
 msgid "Export &directory:"
-msgstr "Složka pro export:"
+msgstr "&Složka pro export:"
 
 #. Resource IDs: (78)
 msgid "Export - TortoiseSVN"
@@ -3402,7 +3402,7 @@ msgid "File patches"
 msgstr "Záplaty souboru"
 
 #. Resource IDs: (7)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "File size:\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
@@ -3412,7 +3412,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"Velikost souboru:\t\t%s\n"
+"Velikost souboru:\t\t%s (%s)\n"
 "Šířka:\t\t\t%ld pixelů\n"
 "Výška:\t\t\t%ld pixelů\n"
 "Horizontální rozlišení:\t%.1f dpi\n"
@@ -3421,7 +3421,7 @@ msgstr ""
 "Lupa:\t\t\t%d%%"
 
 #. Resource IDs: (8)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "File size:\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
@@ -3439,7 +3439,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"Velikost:\t\t\t%s\n"
+"Velikost:\t\t\t%s (%s)\n"
 "Šířka:\t\t\t%ld pixelů\n"
 "Výška:\t\t\t%ld pixelů\n"
 "Horizontální rozlišení:\t%.1f dpi\n"
@@ -3447,15 +3447,16 @@ msgstr ""
 "Hloubka:\t\t\t%d bitů\n"
 "Lupa:\t\t\t%d%%\n"
 "\n"
-"Velikost:\t\t\t%s\n"
+"Velikost:\t\t\t%s (%s)\n"
 "Šířka:\t\t\t%ld pixelů\n"
 "Výška:\t\t\t%ld pixelů\n"
 "Horizontální rozlišení:\t%.1f dpi\n"
-"Vertikální rozlišení:\t\t%.1f dpi\n"
-"Hloubka:\t\t\t%d bitůLupa:\t\t\t%d%%"
+"Vertikální rozlišení:\t%.1f dpi\n"
+"Hloubka:\t\t\t%d bitů\n"
+"Lupa:\t\t\t%d%%"
 
 #. Resource IDs: (7)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "File size:\t\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
@@ -3465,7 +3466,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"Velikost souboru:\t\t\t%s\n"
+"Velikost souboru:\t\t\t%s (%s)\n"
 "Šířka:\t\t\t%ld pixelů\n"
 "Výška:\t\t\t%ld pixelů\n"
 "Horizontální rozlišení:\t%.1f dpi\n"
@@ -3474,7 +3475,7 @@ msgstr ""
 "Lupa:\t\t\t%d%%"
 
 #. Resource IDs: (7)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "File size:\t\t\t%s (%s)\n"
 "Width:\t\t\t%ld pixel\n"
@@ -3492,7 +3493,7 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
-"Velikost:\t\t\t%s\n"
+"Velikost:\t\t\t%s (%s)\n"
 "Šířka:\t\t\t%ld pixelů\n"
 "Výška:\t\t\t%ld pixelů\n"
 "Horizontální rozlišení:\t%.1f dpi\n"
@@ -3500,12 +3501,13 @@ msgstr ""
 "Hloubka:\t\t\t%d bitů\n"
 "Lupa:\t\t\t%d%%\n"
 "\n"
-"Velikost:\t\t\t%s\n"
+"Velikost:\t\t\t%s (%s)\n"
 "Šířka:\t\t\t%ld pixelů\n"
 "Výška:\t\t\t%ld pixelů\n"
 "Horizontální rozlišení:\t%.1f dpi\n"
 "Vertikální rozlišení:\t\t%.1f dpi\n"
-"Hloubka:\t\t\t%d bitLupa:\t\t\t%d%%"
+"Hloubka:\t\t\t%d bit\n"
+"Lupa:\t\t\t%d%%"
 
 #. Resource IDs: (208)
 msgid "Filename"
@@ -3697,7 +3699,7 @@ msgstr "Získávám spojený diff soubor"
 
 #. Resource IDs: (65535)
 msgid "Global ignore &pattern:"
-msgstr "Vynechat/Ignorovat vzorek:"
+msgstr "Vynechat/Ignorovat &vzorek:"
 
 #. Resource IDs: (65535)
 msgid "Global settings"
@@ -4224,7 +4226,7 @@ msgstr "Připojit sloučené revize"
 
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
-msgstr "Začlenit poutze následující rozsah revizí:"
+msgstr "Začlenit pouze následující rozsah revizí:"
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -4345,9 +4347,9 @@ msgid ""
 "A range can be specified with a dash.\n"
 "Example: 2-5,7,10,44-70,300-HEAD"
 msgstr ""
-"Chybný rozsach revizí!\n"
+"Chybný rozsah revizí!\n"
 "Přípusné jsou čísla a HEAD, oddelné čárkami.\n"
-"Rozsa může být zadán pomlčkou.\n"
+"Rozsah může být zadán pomlčkou.\n"
 "Přiklad: 2-5,7,10,44-70,300-HEAD"
 
 #. Resource IDs: (145)
@@ -5509,7 +5511,7 @@ msgstr "Post-Update Hook"
 
 #. Resource IDs: (58115)
 msgid "Pre&v Page"
-msgstr "Předchozí Strana"
+msgstr "&Předchozí Strana"
 
 #. Resource IDs: (569)
 msgid "Pre-Commit Hook"
@@ -5771,7 +5773,7 @@ msgstr ""
 
 #. Resource IDs: (32819)
 msgid "Reduce cross-&lines"
-msgstr "Omezit přeškrtávací čáry"
+msgstr "Omezit &přeškrtávací čáry"
 
 #. Resource IDs: (3825)
 msgid "Reduce the window to an icon"
@@ -5859,7 +5861,7 @@ msgstr ""
 
 #. Resource IDs: (157)
 msgid "Relocate"
-msgstr "Přemístit (Relo&cate)"
+msgstr "Přemístit (Relocate)"
 
 #. Resource IDs: (89)
 msgid "Relocate Warning"
@@ -6287,7 +6289,7 @@ msgstr ""
 
 #. Resource IDs: (1132)
 msgid "S&tatistics"
-msgstr "Statistika"
+msgstr "S&tatistika"
 
 #. Resource IDs: (9)
 msgid "S&witch..."
@@ -6363,7 +6365,7 @@ msgstr "SVN krátké URL"
 
 #. Resource IDs: (57604)
 msgid "Save &As..."
-msgstr "Uložit jako..."
+msgstr "Uložit j&ako..."
 
 #. Resource IDs: (101)
 msgid "Save &as..."
@@ -6683,7 +6685,7 @@ msgstr "Ukáz&at vše"
 
 #. Resource IDs: (115)
 msgid "Show &Range..."
-msgstr "Zobrazit rozsah..."
+msgstr "Zobrazit &Rozsah..."
 
 #. Resource IDs: (32826)
 msgid "Show &WC revision"
@@ -6691,7 +6693,7 @@ msgstr "Zobrazit Pracovnou verzi (&WC)"
 
 #. Resource IDs: (32796)
 msgid "Show &all revisions"
-msgstr "Zobrazit všechny revize"
+msgstr "Zobrazit &všechny revize"
 
 #. Resource IDs: (113, 32783)
 msgid "Show &changes"
@@ -7184,7 +7186,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Tab size:"
-msgstr "Velikost &tabulátoru:"
+msgstr "Velikost tabulátoru:"
 
 #. Resource IDs: (79)
 #, c-format
@@ -7410,7 +7412,6 @@ msgstr ""
 "nesouhlasí!"
 
 #. Resource IDs: (88)
-#, fuzzy
 msgid ""
 "The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
@@ -7424,7 +7425,9 @@ msgstr ""
 "Můžete ji přeci jen zkusit, ale můžete později narazit na chybu.\n"
 "\n"
 "Platná cesta na windows nesmí obsahovat '<<>|\"?*:' a ani jeden z následujích názvů:\n"
-"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
+"\n"
+"Chcete pokračovat?"
 
 #. Resource IDs: (314)
 #, c-format
@@ -7566,7 +7569,6 @@ msgid "Theirs"
 msgstr "Jejich"
 
 #. Resource IDs: (169)
-#, fuzzy
 msgid ""
 "There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
 "Those files are <b>not</b> listed for commit. You need to commit those files separately."
@@ -7736,11 +7738,11 @@ msgstr "Nástrojová lišta"
 
 #. Resource IDs: (16130)
 msgid "Toolbar Name"
-msgstr "Méno nás&trojové lišty"
+msgstr "Jméno Nás&trojoví lišty"
 
 #. Resource IDs: (1064)
 msgid "Toolbar Options"
-msgstr "Nstavení nás&trojové lišty"
+msgstr "Nstavení Nástrojoví lišty"
 
 #. Resource IDs: (1001)
 msgid "Toolbar internal error. Please contact your application vendor."
@@ -7763,7 +7765,6 @@ msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
 
 #. Resource IDs: (13)
-#, fuzzy
 msgid ""
 "TortoiseBlame should not be started directly! Use\n"
 "TortoiseProc.exe /command:blame /path:\"path\\to\\file\"\n"
@@ -7771,8 +7772,10 @@ msgid ""
 "\n"
 "TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 msgstr ""
-"TortoiseBlame nemůže být spuštěné přímo!\n"
-"TortoiseBlame.exe blamefile [[logfile] [viewtitle]] [/line:linenumber][/path:originalpath]"
+"TortoiseBlame nemůže být spuštěné přímo! Použijte\n"
+"TortoiseProc.exe /command:blame /path:\"cesta\\k\\souboru\"\n"
+"\n"
+"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
@@ -8077,7 +8080,7 @@ msgstr ""
 
 #. Resource IDs: (152, 230, 1436)
 msgid "Update"
-msgstr "Aktualizovat (&Update)"
+msgstr "Aktualizovat (Update)"
 
 #. Resource IDs: (77)
 msgid "Update - TortoiseSVN"
@@ -8118,7 +8121,7 @@ msgstr ""
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
-msgstr ""
+msgstr "Požít &Předvolený Obrázek: "
 
 #. Resource IDs: (32855)
 msgid "Use &left block"
@@ -8148,7 +8151,7 @@ msgstr ""
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
-msgstr "Použít URL pracovní kopie (WC) jako defaultní \"Od:\" URL"
+msgstr "Použít URL pracovní kopie (&WC) jako defaultní \"Od:\" URL"
 
 #. Resource IDs: (1064)
 msgid "Use Unified Diff from &clipboard"
@@ -8163,6 +8166,8 @@ msgid ""
 "Use all content from the left view\n"
 "Use left file"
 msgstr ""
+"Použít obsah levého zobrazení\n"
+"Použít levý soubor"
 
 #. Resource IDs: (32857)
 msgid "Use block from left before right"
@@ -8222,11 +8227,11 @@ msgstr ""
 
 #. Resource IDs: (251, 32820)
 msgid "Use text block from \"&mine\""
-msgstr "Použít z \"mého\" bloku textu"
+msgstr "Použít z \"&mého\" bloku textu"
 
 #. Resource IDs: (251, 32819)
 msgid "Use text block from \"&theirs\""
-msgstr "Použít z \"jejich\" bloku textu"
+msgstr "Použít z \"jejich\" bloku &textu"
 
 #. Resource IDs: (251, 32822)
 msgid "Use text block from \"m&ine\" before \"theirs\""
@@ -8273,6 +8278,8 @@ msgid ""
 "Use text block from the left view\n"
 "Use left block"
 msgstr ""
+"Použít textový blok z levého zobrazení\n"
+"Použít levý blok"
 
 #. Resource IDs: (251)
 msgid "Use th&is text block"
@@ -8286,6 +8293,11 @@ msgid ""
 "\r\n"
 "To merge all revisions, leave the box empty."
 msgstr ""
+"Použijte okno logu k výběru revizií, které chcete sloučit, nebo zadejte revize oddelené čárkami. Rozsah může být zadán pomlčkou.\r\n"
+"\r\n"
+"Příklad: 2-5,7,10,44-70,300-HEAD\r\n"
+"\r\n"
+"Pro sloučení všech revizí nechejte box prázdný."
 
 #. Resource IDs: (251)
 msgid "Use this &whole file"
@@ -8348,15 +8360,15 @@ msgstr "Verzované"
 
 #. Resource IDs: (65535)
 msgid "View"
-msgstr "Po&hled"
+msgstr "Pohled"
 
 #. Resource IDs: (114)
 msgid "View revision for path in &webviewer"
-msgstr "Zobrazit revizi pro cestu ve web prohlížeči"
+msgstr "Zobrazit revizi pro cestu ve &web prohlížeči"
 
 #. Resource IDs: (114)
 msgid "View revision in &webviewer"
-msgstr "Zobrazit revizi ve web prohlížeči"
+msgstr "Zobrazit revizi ve &web prohlížeči"
 
 #. Resource IDs: (1084)
 msgid "Visit our website"
@@ -8434,7 +8446,7 @@ msgstr "Cesta Pracovní kopie (WC)"
 
 #. Resource IDs: (20)
 msgid "Working copy"
-msgstr "Pracovní kopie (&WC)"
+msgstr "Pracovní kopie (WC)"
 
 #. Resource IDs: (80)
 #, c-format
