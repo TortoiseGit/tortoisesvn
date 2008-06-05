@@ -152,7 +152,7 @@ void CSetBugTraqAdv::OnBnClickedBugTraqbrowse()
 {
 	CBrowseFolder browser;
 	CString sPath;
-	browser.SetInfo(_T("TODO"));// CString(MAKEINTRESOURCE(IDS_SETTINGS_BugTraq_SELECTFOLDERPATH)));
+	browser.SetInfo(CString(MAKEINTRESOURCE(IDS_SETTINGS_BUGTRAQ_SELECTFOLDERPATH)));
 	browser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
 	if (browser.Show(m_hWnd, sPath) == CBrowseFolder::OK)
 	{
