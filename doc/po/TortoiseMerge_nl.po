@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseMerge\n"
 "POT-Creation-Date: 2006-10-11 21:52GMT Daylight Time\n"
-"PO-Revision-Date: 2008-06-05 23:04+0200\n"
+"PO-Revision-Date: 2008-06-05 23:22+0200\n"
 "Last-Translator: Bob Hulst <bob.hulst@hiq.fi>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -204,9 +204,8 @@ msgstr "Overzicht"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:185
-#, fuzzy
 msgid "TortoiseMerge is a free/open-source application. It lets you see differences in text files, merge those changes and even review and apply unified diff files, often called <firstterm>patches</firstterm>."
-msgstr "TortoiseMerge<firstterm></firstterm>."
+msgstr "TortoiseMerge is een gratis/open-source applicatie. Je kan er verschillen tussen text bestanden weergeven, deze veranderingen samenvoegen en zelfs evalueren en toepassen op andere bestanden, ook wel <firstterm>patchen</firstterm> genoemd."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:190
@@ -260,15 +259,13 @@ msgstr ""
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:261
-#, fuzzy
 msgid "So we spent a lot of time, searching the Internet for a GUI tool which could apply patch files, but all we found was that such a tool didn't exist. So to cut a long story short: We decided that if no-one else could provide such a tool we would have to write our own. That's when TortoiseMerge was born."
-msgstr "TortoiseMerge."
+msgstr "We doorbrachten veel tijd op het internet op zoek naar een GUI tool die bestanden kan patchen, maar alles wat we vonden was dat zoiets niet bestaat. Om een lang verhaal kort te maken: Als niemand anders het maakt dan schrijven we ons eigen software. En toen kwam TortoiseMerge."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:268
-#, fuzzy
 msgid "Since TortoiseSVN already uses the Subversion library, which has a nice diffing engine built in, it was just natural to use this library instead of the GNU diff."
-msgstr "TortoiseMerge."
+msgstr "Omdat TortoiseSVN al gebruik maakt van de Subversion library, met ingebouwde diffing engine, was het heel natuurlijk om deze te gebruiken in plaats van de GNU diff."
 
 #. (title)
 #: ../source/TortoiseMerge_en.xml:276
@@ -453,9 +450,8 @@ msgstr "Lijst met Patch Bestanden"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:479
-#, fuzzy
 msgid "After TortoiseMerge parses the patch file it will show you a small window with all the files which have changes according to the patch file. <placeholder-1/> If the filename is shown in black, then the patch can be applied without any problems. That means the file is not outdated according to the patch. However, if the filename is shown in red, then the patch can't get applied directly because you already changed that file."
-msgstr "TortoiseMerge<placeholder-1/>."
+msgstr "After TortoiseMerge parses the patch file it will show you a small window with all the files which have changes according to the patch file. <placeholder-1/> If the filename is shown in black, then the patch can be applied without any problems. That means the file is not outdated according to the patch. However, if the filename is shown in red, then the patch can't get applied directly because you already changed that file."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:493
@@ -491,9 +487,8 @@ msgstr "<guibutton>Open</guibutton> geeft het bestands dialoog venster weer. Wat
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:537
-#, fuzzy
 msgid "<guibutton>Save</guibutton> saves any changes you have made."
-msgstr "<guibutton></guibutton> TortoiseMerge."
+msgstr "<guibutton>Bewaar</guibutton> schrijft alle veranderingen weg naar disk."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:543
@@ -570,9 +565,8 @@ msgstr "<guibutton></guibutton> TortoiseMerge."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:654
-#, fuzzy
 msgid "<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings dialog."
-msgstr "<guibutton></guibutton> TortoiseMerge."
+msgstr "<guibutton>Instellingen</guibutton> opent de TortoiseMerge's instelling dialoogvenster."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:522
@@ -641,9 +635,8 @@ msgstr "Samenvoegings / Wijzigings Conflicten"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:722
-#, fuzzy
 msgid "TortoiseMerge not only <emphasis>shows</emphasis> you the differences between files but also lets you resolve conflicts or apply changes."
-msgstr "TortoiseMerge<emphasis></emphasis>."
+msgstr "TortoiseMerge geeft niet alleen <emphasis>weer</emphasis> de verschillen tussen de bestanden maar ook mogelijke conflicten die je kan verhelpen."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:726
@@ -857,9 +850,8 @@ msgstr "Waar de zelfde regel is veranderd in beide bestanden."
 
 #. (term)
 #: ../source/TortoiseMerge_en.xml:986
-#, fuzzy
 msgid "Conflict resolved"
-msgstr "Validatie-conflict"
+msgstr "Conflikt verholpen"
 
 #. (listitem)
 #: ../source/TortoiseMerge_en.xml:987
