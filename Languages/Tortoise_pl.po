@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-05 19:44+0100\n"
+"PO-Revision-Date: 2008-06-06 18:52+0100\n"
 "Last-Translator: Krzysztof Kotowicz <kkotowicz@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -274,7 +274,7 @@ msgstr "&Wygląd aplikacji"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
-msgstr "Z&astosuj plik różnicowy w formacie Unified Diff"
+msgstr "Z&astosuj plik różnicowy Unified Diff"
 
 #. Resource IDs: (32852)
 msgid "&Aqua Style"
@@ -378,7 +378,7 @@ msgstr "&Zamknij okno(a)"
 
 #. Resource IDs: (32785)
 msgid "&Color age of lines"
-msgstr "&Koloruj wiek linii"
+msgstr "&Koloruj linie wg wieku"
 
 #. Resource IDs: (65535)
 msgid "&Command:"
@@ -572,16 +572,16 @@ msgstr "&Grupuj wg gałęzi"
 
 #. Resource IDs: (1032, 1115)
 msgid "&HEAD Revision"
-msgstr "&Główna wersja (HEAD)"
+msgstr "&Wersja HEAD"
 
 #. Resource IDs: (1019, 1032, 1034)
 msgid "&HEAD revision"
-msgstr "&Główna wersja (HEAD)"
+msgstr "&HEAD"
 
 # Tłumaczenie dosłowne.
 #. Resource IDs: (1182)
 msgid "&HEAD revision in the repository"
-msgstr "Główna (&HEAD) wersja repozytorium"
+msgstr "Wersji &HEAD w repozytorium"
 
 #. Resource IDs: (9, 12, 332, 32781, 57670, 65535)
 msgid "&Help"
@@ -629,9 +629,8 @@ msgid "&Initial directory:"
 msgstr "Katalog &początkowy:"
 
 #. Resource IDs: (32825)
-#, fuzzy
 msgid "&Inline diff word-wise"
-msgstr "Plik różnicowy"
+msgstr "Różnice w linii wg &słów"
 
 #. Resource IDs: (1016)
 msgid "&Jump to first difference when loading"
@@ -892,12 +891,12 @@ msgstr "&Pokaż etykiety"
 
 #. Resource IDs: (32851)
 msgid "&Silver Style"
-msgstr "&Srebrny styl"
+msgstr "Styl &srebrny"
 
 # Tłumaczenie dosłowne.
 #. Resource IDs: (1185)
 msgid "&Specific revision in repository"
-msgstr "Określona wer&sja w repozytorium"
+msgstr "Określonej wer&sji w repozytorium"
 
 #. Resource IDs: (16917)
 #, fuzzy
@@ -954,7 +953,7 @@ msgstr "&Do wersji:"
 
 #. Resource IDs: (1384, 65535)
 msgid "&To URL:"
-msgstr "&Do adresu URL:"
+msgstr "&Do URL:"
 
 #. Resource IDs: (1305)
 msgid "&To URL: "
@@ -1664,7 +1663,7 @@ msgstr "Średnia"
 
 #. Resource IDs: (32850)
 msgid "B&lack Style"
-msgstr "&Czarny styl"
+msgstr "Styl &czarny"
 
 #. Resource IDs: (1001)
 msgid "B&rowse..."
@@ -1921,7 +1920,7 @@ msgstr "Lista zmian:"
 
 #. Resource IDs: (1242)
 msgid "Changes made (double-click on file for diff):"
-msgstr "Dokonane zmiany (kliknij dwukrotnie aby zobaczyć różnice):"
+msgstr "Dokonane zmiany (kliknij dwukrotnie, aby zobaczyć różnice):"
 
 #. Resource IDs: (8)
 msgid "Chec&kout..."
@@ -2412,11 +2411,11 @@ msgstr "Kopiuj do schowka"
 
 #. Resource IDs: (103)
 msgid "Copy to working copy"
-msgstr "Kopiowanie do kopii roboczej"
+msgstr "Kopiuj do kopii roboczej"
 
 #. Resource IDs: (101)
 msgid "Copy to working copy..."
-msgstr "Kopiowanie do kopii roboczej"
+msgstr "Kopiuj do kopii roboczej..."
 
 #. Resource IDs: (98)
 #, c-format
@@ -4476,7 +4475,7 @@ msgstr "Pozostaw w stanie konfliktu:"
 
 #. Resource IDs: (188)
 msgid "Left View: "
-msgstr "Widok lewy:"
+msgstr "Widok lewy: "
 
 #. Resource IDs: (65535)
 msgid "Left image"
@@ -4697,7 +4696,7 @@ msgstr "Zaznacza wersje jako scalone bez dokonywania faktycznego scalania."
 
 #. Resource IDs: (1064)
 msgid "Match &case"
-msgstr "Uwzględniaj &wielkość liter"
+msgstr "Uwzględnij &wielkość liter"
 
 #. Resource IDs: (1159)
 msgid "Max"
@@ -5118,7 +5117,7 @@ msgstr ""
 
 #. Resource IDs: (273)
 msgid "No graph available"
-msgstr "Graf nie jest dostępny"
+msgstr "Wykres nie jest dostępny."
 
 #. Resource IDs: (273)
 #, c-format
@@ -6178,7 +6177,7 @@ msgstr "Odwrócone scalanie"
 
 #. Resource IDs: (175, 229)
 msgid "Revert"
-msgstr "Wycofane zmiany"
+msgstr "Wycofaj zmiany"
 
 #. Resource IDs: (77)
 msgid "Revert - TortoiseSVN"
@@ -6229,7 +6228,7 @@ msgstr "Pokaż wykres wersji"
 
 #. Resource IDs: (239)
 msgid "Revision Graph Filter"
-msgstr "Filtr grafu wersji"
+msgstr "Filtr wykresu wersji"
 
 #. Resource IDs: (228)
 msgid "Revision Range"
@@ -6303,7 +6302,7 @@ msgstr ""
 
 #. Resource IDs: (188)
 msgid "Right View: "
-msgstr "Widok prawy:"
+msgstr "Widok prawy: "
 
 #. Resource IDs: (65535)
 msgid "Right image"
@@ -6797,6 +6796,8 @@ msgid ""
 "Show Inline-Diff word by word\n"
 "Inline diff word-wise"
 msgstr ""
+"Pokaż różnice w linii uwzględniając słowa\n"
+"Różnice w linii wg słów"
 
 #. Resource IDs: (1126)
 msgid "Show Lock dialog before locking files"
@@ -6824,7 +6825,7 @@ msgstr ""
 
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
-msgstr "Pokaż przegląd całego grafu"
+msgstr "Pokaż przegląd całego wykresu"
 
 #. Resource IDs: (114)
 msgid "Show changes as &unified diff"
@@ -6982,7 +6983,7 @@ msgstr "Pokazuje typ MIME pliku objętego kontrolą wersji"
 
 #. Resource IDs: (32775)
 msgid "Single/&double-pane view"
-msgstr ""
+msgstr "Widok jedno/&dwupanelowy"
 
 #. Resource IDs: (74)
 msgid "Size"
@@ -8179,7 +8180,7 @@ msgstr "Użyj &lewego bloku"
 
 #. Resource IDs: (1024)
 msgid "Use &one-pane view as default for 2-file diff"
-msgstr "Użyj wid&oku jednopanelowego jako domyślnego przy porównywaniu 2 plików"
+msgstr "Porównując dwa pliki domyślnie użyj &jednego panelu "
 
 #. Resource IDs: (251)
 msgid "Use &other text block"
@@ -8205,7 +8206,7 @@ msgstr "Użyj adresu URL kopii roboczej jako &wartości domyślnej dla pola \"Od
 
 #. Resource IDs: (1064)
 msgid "Use Unified Diff from &clipboard"
-msgstr "Użyj zunifikowanego Diffa ze &schowka"
+msgstr "Użyj pliku różnicowego ze &schowka"
 
 #. Resource IDs: (1296)
 msgid "Use \"_svn\" instead of \".svn\" directories"
@@ -8486,9 +8487,13 @@ msgstr "Kopia robocza"
 msgid "Working Copy Path:"
 msgstr "Ścieżka kopii roboczej:"
 
+# String wystepuje w okienku Copy (branch/tag)
+# "Tworz kopie w repozytoirum z: "
+# , dlatego jest w dopelniaczu.
+# Mozliwe, ze wystepuje rowniez gdzie indziej - treba sprawdzic.
 #. Resource IDs: (20)
 msgid "Working copy"
-msgstr "Kopia robocza"
+msgstr "Kopii roboczej"
 
 #. Resource IDs: (80)
 #, c-format
@@ -8756,7 +8761,7 @@ msgstr "_POPUP_"
 
 #. Resource IDs: (10)
 msgid "added"
-msgstr "dodany"
+msgstr "dodane"
 
 #. Resource IDs: (65535)
 msgid "added files"
@@ -8898,7 +8903,7 @@ msgstr "skopiowano:"
 
 #. Resource IDs: (10)
 msgid "deleted"
-msgstr "Usunięto"
+msgstr "usunięte"
 
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
@@ -9007,7 +9012,7 @@ msgstr "brakujący w: "
 
 #. Resource IDs: (10)
 msgid "modified"
-msgstr "zmodyfikowany"
+msgstr "zmodyfikowane"
 
 #. Resource IDs: (65535)
 msgid "modified / copied"
@@ -9036,7 +9041,7 @@ msgstr "poza kontrolą wersji"
 
 #. Resource IDs: (10)
 msgid "normal"
-msgstr "normalny"
+msgstr "normalne"
 
 # Dosłownie 'zatamowany', 'zagrodzony', ale w tu chyba nie pasuje. Może też być 'zablokowany', ale wtedy w oryginale byłoby raczej 'locked'.
 #. Resource IDs: (11)
