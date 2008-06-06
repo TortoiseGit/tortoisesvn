@@ -1105,7 +1105,9 @@ void CRepositoryBrowser::OnInlineedit()
 	else
 	{
 		m_RepoTree.SetFocus();
-		m_RepoTree.EditLabel(m_RepoTree.GetSelectedItem());
+		HTREEITEM hTreeItem = m_RepoTree.GetSelectedItem();
+		if (hTreeItem != m_RepoTree.GetRootItem())
+			m_RepoTree.EditLabel(hTreeItem);
 	}
 	m_blockEvents = false;
 }
@@ -2481,13 +2483,16 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					else
 					{
 						m_RepoTree.SetFocus();
-						m_RepoTree.EditLabel(m_RepoTree.GetSelectedItem());
+						HTREEITEM hTreeItem = m_RepoTree.GetSelectedItem();
+						if (hTreeItem != m_RepoTree.GetRootItem())
+							m_RepoTree.EditLabel(hTreeItem);
 					}
 				}
 				else if (pWnd == &m_RepoTree)
 				{
 					m_RepoTree.SetFocus();
-					m_RepoTree.EditLabel(hChosenTreeItem);
+					if (hChosenTreeItem != m_RepoTree.GetRootItem())
+						m_RepoTree.EditLabel(hChosenTreeItem);
 				}
 			}
 			break;
