@@ -177,7 +177,6 @@ void CSVNProgressDlg::AddItemToList()
 	if (totalcount <= (m_ProgList.GetTopIndex() + count + nEnsureVisibleCount + 2))
 	{
 		nEnsureVisibleCount++;
-		//m_ProgList.EnsureVisible(totalcount, false);
 		m_bLastVisible = true;
 	}
 	else
@@ -840,6 +839,9 @@ UINT CSVNProgressDlg::ProgressThread()
 	sWindowTitle = sWindowTitle + _T(" ") + temp;
 	SetWindowText(sWindowTitle);
 
+	KillTimer(TRANSFERTIMER);
+	KillTimer(VISIBLETIMER);
+
 	DialogEnableWindow(IDCANCEL, FALSE);
 	DialogEnableWindow(IDOK, TRUE);
 
@@ -848,14 +850,9 @@ UINT CSVNProgressDlg::ProgressThread()
 		info.LoadString(IDS_PROGRS_INFOFAILED);
 	SetDlgItemText(IDC_INFOTEXT, info);
 	ResizeColumns();
-	int count = m_ProgList.GetItemCount();
-	if (count > 0)
-		m_ProgList.EnsureVisible(count-1, FALSE);
 	SendMessage(DM_SETDEFID, IDOK);
 	GetDlgItem(IDOK)->SetFocus();	
 
-	KillTimer(TRANSFERTIMER);
-	KillTimer(VISIBLETIMER);
 	CString sFinalInfo;
 	if (!m_sTotalBytesTransferred.IsEmpty())
 	{
@@ -880,6 +877,10 @@ UINT CSVNProgressDlg::ProgressThread()
 		AddItemToList();
 	}
 
+	int count = m_ProgList.GetItemCount();
+	if ((count > 0)&&(m_bLastVisible))
+		m_ProgList.EnsureVisible(count-1, FALSE);
+
 	CLogFile logfile;
 	if (logfile.Open())
 	{
@@ -902,6 +903,8 @@ UINT CSVNProgressDlg::ProgressThread()
 	DWORD dwAutoClose = CRegStdWORD(_T("Software\\TortoiseSVN\\AutoClose"));
 	if (m_options & ProgOptDryRun)
 		dwAutoClose = 0;		// dry run means progress dialog doesn't auto close at all
+	if (!m_bLastVisible)
+		dwAutoClose = 0;
 	if (m_dwCloseOnEnd != (DWORD)-1)
 		dwAutoClose = m_dwCloseOnEnd;		// command line value has priority over setting value
 	if ((dwAutoClose == CLOSE_NOERRORS)&&(!m_bErrorsOccurred))
