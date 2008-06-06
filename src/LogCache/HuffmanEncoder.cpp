@@ -29,7 +29,7 @@ void CHuffmanEncoder::CountValues ( const unsigned char* source
 	// keep intermediate results
 
 	DWORD localCount[sizeof (count_block_type)][BUCKET_COUNT];
-	ZeroMemory (localCount, sizeof (localCount));
+	SecureZeroMemory (localCount, sizeof (localCount));
 
 	// main loop
 
@@ -354,10 +354,10 @@ void CHuffmanEncoder::WriteHuffmanEncoded ( const BYTE* source
 CHuffmanEncoder::CHuffmanEncoder()
 	: sortedCount (0)
 {
-	ZeroMemory (&key, sizeof (key));
-	ZeroMemory (&keyLength, sizeof (keyLength));
-	ZeroMemory (&count, sizeof (count));
-	ZeroMemory (&sorted, sizeof (sorted));
+	SecureZeroMemory (&key, sizeof (key));
+	SecureZeroMemory (&keyLength, sizeof (keyLength));
+	SecureZeroMemory (&count, sizeof (count));
+	SecureZeroMemory (&sorted, sizeof (sorted));
 }
 
 // write local stream data and close the stream

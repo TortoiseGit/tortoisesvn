@@ -27,7 +27,7 @@ BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
 	TCHAR * pPath = internalpathbuf;
 	SECURITY_ATTRIBUTES attribs;
 
-	ZeroMemory(&attribs, sizeof(SECURITY_ATTRIBUTES));
+	SecureZeroMemory(&attribs, sizeof(SECURITY_ATTRIBUTES));
 
 	attribs.nLength = sizeof(SECURITY_ATTRIBUTES);
 	attribs.bInheritHandle = FALSE;
@@ -35,7 +35,7 @@ BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
 	ConvertToBackslash(internalpathbuf, path, len+10);
 	do
 	{
-		ZeroMemory(buf, (len+10)*sizeof(TCHAR));
+		SecureZeroMemory(buf, (len+10)*sizeof(TCHAR));
 		TCHAR * slashpos = _tcschr(pPath, '\\');
 		if (slashpos)
 			_tcsncpy_s(buf, len+10, internalpathbuf, slashpos - internalpathbuf);
@@ -376,7 +376,7 @@ CStringW CPathUtils::PathUnescape(const CStringW& path)
 	WCHAR * bufw;
 	len = patha.GetLength();
 	bufw = new WCHAR[len*4 + 1];
-	ZeroMemory(bufw, (len*4 + 1)*sizeof(WCHAR));
+	SecureZeroMemory(bufw, (len*4 + 1)*sizeof(WCHAR));
 	MultiByteToWideChar(CP_UTF8, 0, patha, -1, bufw, len*4);
 	CStringW ret = CStringW(bufw);
 	delete [] bufw;

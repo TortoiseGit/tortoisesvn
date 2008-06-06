@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,7 +24,7 @@ ResString::ResString (HINSTANCE hInst, int resId)
 {
 	if (!::LoadString (hInst, resId, _buf, MAX_RESSTRING + 1))
 	{
-		ZeroMemory(_buf, sizeof(_buf));
+		SecureZeroMemory(_buf, sizeof(_buf));
 	}
 }
 

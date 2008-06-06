@@ -257,7 +257,7 @@ HRESULT __stdcall SubWCRev::get_Url(/*[out, retval]*/VARIANT* url)
 	WCHAR * buf;
 	int len = strlen(SubStat.Url);
 	buf = new WCHAR[len*4 + 1];
-	ZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
+	SecureZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
 	MultiByteToWideChar(CP_UTF8, 0, SubStat.Url, -1, buf, len*4);
 	url->bstrVal = SysAllocString(buf);
 	delete [] buf;
@@ -272,7 +272,7 @@ HRESULT __stdcall SubWCRev::get_Author(/*[out, retval]*/VARIANT* author)
 	WCHAR * buf;
 	int len = strlen(SubStat.Author);
 	buf = new WCHAR[len*4 + 1];
-	ZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
+	SecureZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
 	MultiByteToWideChar(CP_UTF8, 0, SubStat.Author, -1, buf, len*4);
 	author->bstrVal = SysAllocString(buf);
 	delete [] buf;
@@ -372,7 +372,7 @@ HRESULT __stdcall SubWCRev::get_LockOwner(/*[out, retval]*/VARIANT* owner)
 	}
 
 	buf = new WCHAR[len*4 + 1];
-	ZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
+	SecureZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
 	
 	if(TRUE == SubStat.LockData.NeedsLocks)
 	{
@@ -406,7 +406,7 @@ HRESULT __stdcall SubWCRev::get_LockComment(/*[out, retval]*/VARIANT* comment)
 	}
 
 	buf = new WCHAR[len*4 + 1];
-	ZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
+	SecureZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
 	
 	if(TRUE == SubStat.LockData.NeedsLocks)
 	{

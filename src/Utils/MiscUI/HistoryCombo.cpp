@@ -91,7 +91,7 @@ int CHistoryCombo::AddString(CString str, INT_PTR pos)
 		return -1;
 	
 	COMBOBOXEXITEM cbei;
-	ZeroMemory(&cbei, sizeof cbei);
+	SecureZeroMemory(&cbei, sizeof cbei);
 	cbei.mask = CBEIF_TEXT;
 
 	if (pos < 0)

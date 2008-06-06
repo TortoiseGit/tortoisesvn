@@ -206,7 +206,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 		// reserve for the path + trailing \0
 
 		TCHAR buf[MAX_STATUS_STRING_LENGTH+1];
-		ZeroMemory(buf, MAX_STATUS_STRING_LENGTH);
+		SecureZeroMemory(buf, MAX_STATUS_STRING_LENGTH);
 		switch (pscid->pid) 
 		{
 			case 0:	// SVN Status
@@ -334,7 +334,7 @@ void CShellExt::GetColumnStatus(const TCHAR * path, BOOL bIsDir)
 	{
 	case ShellCache::exe:
 		{
-			ZeroMemory(&itemStatus, sizeof(itemStatus));
+			SecureZeroMemory(&itemStatus, sizeof(itemStatus));
 			if(m_remoteCacheLink.GetStatusFromRemoteCache(CTSVNPath(path), &itemStatus, true))
 			{
 				filestatus = SVNStatus::GetMoreImportant(itemStatus.m_status.text_status, itemStatus.m_status.prop_status);

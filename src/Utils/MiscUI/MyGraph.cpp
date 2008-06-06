@@ -784,7 +784,7 @@ void MyGraph::DrawLegend(CDC& dc)
 
 	// Get the height of each label.
 	LOGFONT lf;
-	::ZeroMemory(&lf, sizeof(lf));
+	::SecureZeroMemory(&lf, sizeof(lf));
 	VERIFY(fontLegend.GetLogFont(&lf));
 	int nLabelHeight(abs(lf.lfHeight));
 
@@ -1373,7 +1373,7 @@ CPoint MyGraph::WedgeEndFromDegrees(int nDegrees, const CPoint& ptCenter,
 															 UINT uiMsgAllowed /* = WM_NULL */ )
 {
 	MSG msg;
-	::ZeroMemory(&msg, sizeof(msg));
+	::SecureZeroMemory(&msg, sizeof(msg));
 
 	while (::PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
 

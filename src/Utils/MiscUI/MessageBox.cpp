@@ -514,7 +514,7 @@ CSize CMessageBox::GetIconSize(HICON hIcon)
 	if (hIcon != NULL)
 	{
 		//get icon dimensions
-		::ZeroMemory(&ii, sizeof(ICONINFO));
+		::SecureZeroMemory(&ii, sizeof(ICONINFO));
 		if (::GetIconInfo(hIcon, &ii))
 		{
 			sz.cx = (DWORD)(ii.xHotspot * 2);

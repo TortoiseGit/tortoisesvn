@@ -36,7 +36,7 @@ std::set<CShellExt *> g_exts;
 CShellExt::CShellExt(FileState state)
 {
 	OSVERSIONINFOEX inf;
-	ZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
+	SecureZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
 	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
 	GetVersionEx((OSVERSIONINFO *)&inf);
 	fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);

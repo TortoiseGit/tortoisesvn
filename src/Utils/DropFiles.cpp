@@ -57,7 +57,7 @@ void CDropFiles::CreateBuffer()
 	m_nBufferSize = sizeof(DROPFILES) + (nLength+1)*sizeof(TCHAR);
 	m_pBuffer = new char[m_nBufferSize];
 	
-	ZeroMemory(m_pBuffer, m_nBufferSize);
+	SecureZeroMemory(m_pBuffer, m_nBufferSize);
 
 	DROPFILES* df = (DROPFILES*)m_pBuffer;
 	df->pFiles = sizeof(DROPFILES);

@@ -370,7 +370,7 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 						CHARRANGE range = {matchpos+matchposID, matchpos+matchposID+(*it2)[0].str().size()};
 						pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
 						CHARFORMAT2 format;
-						ZeroMemory(&format, sizeof(CHARFORMAT2));
+						SecureZeroMemory(&format, sizeof(CHARFORMAT2));
 						format.cbSize = sizeof(CHARFORMAT2);
 						format.dwMask = CFM_LINK;
 						format.dwEffects = CFE_LINK;
@@ -399,7 +399,7 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 						CHARRANGE range = {match[1].first-s.begin(), match[1].second-s.begin()};
 						pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
 						CHARFORMAT2 format;
-						ZeroMemory(&format, sizeof(CHARFORMAT2));
+						SecureZeroMemory(&format, sizeof(CHARFORMAT2));
 						format.cbSize = sizeof(CHARFORMAT2);
 						format.dwMask = CFM_LINK;
 						format.dwEffects = CFE_LINK;
@@ -466,7 +466,7 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 			CHARRANGE range = {(LONG)offset1, (LONG)offset2};
 			pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
 			CHARFORMAT2 format;
-			ZeroMemory(&format, sizeof(CHARFORMAT2));
+			SecureZeroMemory(&format, sizeof(CHARFORMAT2));
 			format.cbSize = sizeof(CHARFORMAT2);
 			format.dwMask = CFM_LINK;
 			format.dwEffects = CFE_LINK;
@@ -478,7 +478,7 @@ BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
 		CHARRANGE range = {(LONG)offset1, (LONG)offset2};
 		pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
 		CHARFORMAT2 format;
-		ZeroMemory(&format, sizeof(CHARFORMAT2));
+		SecureZeroMemory(&format, sizeof(CHARFORMAT2));
 		format.cbSize = sizeof(CHARFORMAT2);
 		format.dwMask = CFM_LINK;
 		format.dwEffects = CFE_LINK;

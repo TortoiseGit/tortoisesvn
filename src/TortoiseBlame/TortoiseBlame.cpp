@@ -405,7 +405,7 @@ void TortoiseBlame::StartSearch()
 	// Initialize FINDREPLACE
 	if (fr.Flags & FR_MATCHCASE)
 		bCase = true;
-	ZeroMemory(&fr, sizeof(fr));
+	SecureZeroMemory(&fr, sizeof(fr));
 	fr.lStructSize = sizeof(fr);
 	fr.hwndOwner = wMain;
 	fr.lpstrFindWhat = szFindWhat;
@@ -445,7 +445,7 @@ bool TortoiseBlame::DoSearch(LPSTR what, DWORD flags)
 	{
 		int bufsize = SendEditor(SCI_GETLINE, i);
 		char * linebuf = new char[bufsize+1];
-		ZeroMemory(linebuf, bufsize+1);
+		SecureZeroMemory(linebuf, bufsize+1);
 		SendEditor(SCI_GETLINE, i, (LPARAM)linebuf);
 		if (!bCaseSensitive)
 		{
@@ -473,7 +473,7 @@ bool TortoiseBlame::DoSearch(LPSTR what, DWORD flags)
 		{
 			int bufsize = SendEditor(SCI_GETLINE, i);
 			char * linebuf = new char[bufsize+1];
-			ZeroMemory(linebuf, bufsize+1);
+			SecureZeroMemory(linebuf, bufsize+1);
 			SendEditor(SCI_GETLINE, i, (LPARAM)linebuf);
 			if (!bCaseSensitive)
 			{
@@ -1177,8 +1177,8 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 		return FALSE;
 	}
 
-	ZeroMemory(szViewtitle, MAX_PATH);
-	ZeroMemory(szOrigPath, MAX_PATH);
+	SecureZeroMemory(szViewtitle, MAX_PATH);
+	SecureZeroMemory(szOrigPath, MAX_PATH);
 	char blamefile[MAX_PATH] = {0};
 	char logfile[MAX_PATH] = {0};
 
@@ -1623,8 +1623,8 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 				if (line >= (LONG)app.revs.size())
 					break;
 
-				ZeroMemory(app.m_szTip, sizeof(app.m_szTip));
-				ZeroMemory(app.m_wszTip, sizeof(app.m_wszTip));
+				SecureZeroMemory(app.m_szTip, sizeof(app.m_szTip));
+				SecureZeroMemory(app.m_wszTip, sizeof(app.m_wszTip));
 				std::map<LONG, std::string>::iterator iter;
 				if ((iter = app.logmessages.find(rev)) != app.logmessages.end())
 				{

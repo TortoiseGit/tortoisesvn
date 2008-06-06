@@ -278,7 +278,7 @@ void CDirectoryWatcher::WorkerThread()
 					}
 					
 					DEV_BROADCAST_HANDLE NotificationFilter;
-					ZeroMemory(&NotificationFilter, sizeof(NotificationFilter));
+					SecureZeroMemory(&NotificationFilter, sizeof(NotificationFilter));
 					NotificationFilter.dbch_size = sizeof(DEV_BROADCAST_HANDLE);
 					NotificationFilter.dbch_devicetype = DBT_DEVTYP_HANDLE;
 					NotificationFilter.dbch_handle = hDir;
@@ -343,7 +343,7 @@ void CDirectoryWatcher::WorkerThread()
 						nOffset = pnotify->NextEntryOffset;
 						if (pnotify->FileNameLength >= (READ_DIR_CHANGE_BUFFER_SIZE*sizeof(TCHAR)))
 							continue;
-						ZeroMemory(buf, READ_DIR_CHANGE_BUFFER_SIZE*sizeof(TCHAR));
+						SecureZeroMemory(buf, READ_DIR_CHANGE_BUFFER_SIZE*sizeof(TCHAR));
 						_tcsncpy_s(buf, READ_DIR_CHANGE_BUFFER_SIZE, pdi->m_DirPath, READ_DIR_CHANGE_BUFFER_SIZE);
 						errno_t err = _tcsncat_s(buf+pdi->m_DirPath.GetLength(), READ_DIR_CHANGE_BUFFER_SIZE-pdi->m_DirPath.GetLength(), pnotify->FileName, _TRUNCATE);
 						if (err == STRUNCATE)
@@ -400,8 +400,8 @@ void CDirectoryWatcher::WorkerThread()
 							break;
 					} while (nOffset);
 continuewatching:
-					ZeroMemory(pdi->m_Buffer, sizeof(pdi->m_Buffer));
-					ZeroMemory(&pdi->m_Overlapped, sizeof(OVERLAPPED));
+					SecureZeroMemory(pdi->m_Buffer, sizeof(pdi->m_Buffer));
+					SecureZeroMemory(&pdi->m_Overlapped, sizeof(OVERLAPPED));
 					if (!ReadDirectoryChangesW(pdi->m_hDir,
 												pdi->m_Buffer,
 												READ_DIR_CHANGE_BUFFER_SIZE,

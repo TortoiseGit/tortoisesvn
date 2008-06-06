@@ -101,11 +101,11 @@ class SVNRevRange
 public:
 	SVNRevRange()
 	{
-		ZeroMemory(&revrange, sizeof(svn_opt_revision_range_t));
+		SecureZeroMemory(&revrange, sizeof(svn_opt_revision_range_t));
 	}
 	SVNRevRange(const SVNRev& start, const SVNRev& end) 
 	{
-		ZeroMemory(&revrange, sizeof(svn_opt_revision_range_t));
+		SecureZeroMemory(&revrange, sizeof(svn_opt_revision_range_t));
 		revrange.start = *(const svn_opt_revision_t*)start;
 		revrange.end = *(const svn_opt_revision_t*)end;
 	}

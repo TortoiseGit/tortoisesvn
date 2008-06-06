@@ -166,7 +166,7 @@ void CSettings::HandleRestart()
 			{
 				DWORD cbWritten; 
 				TSVNCacheCommand cmd;
-				ZeroMemory(&cmd, sizeof(TSVNCacheCommand));
+				SecureZeroMemory(&cmd, sizeof(TSVNCacheCommand));
 				cmd.command = TSVNCACHECOMMAND_REFRESHALL;
 				BOOL fSuccess = WriteFile( 
 					hPipe,			// handle to pipe 
@@ -186,7 +186,7 @@ void CSettings::HandleRestart()
 					// now tell the cache we don't need it's command thread anymore
 					DWORD cbWritten; 
 					TSVNCacheCommand cmd;
-					ZeroMemory(&cmd, sizeof(TSVNCacheCommand));
+					SecureZeroMemory(&cmd, sizeof(TSVNCacheCommand));
 					cmd.command = TSVNCACHECOMMAND_END;
 					WriteFile( 
 						hPipe,			// handle to pipe 

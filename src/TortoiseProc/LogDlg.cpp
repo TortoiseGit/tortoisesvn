@@ -238,7 +238,7 @@ BOOL CLogDlg::OnInitDialog()
 	m_hAccel = LoadAccelerators(AfxGetResourceHandle(),MAKEINTRESOURCE(IDR_ACC_LOGDLG));
 
 	OSVERSIONINFOEX inf;
-	ZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
+	SecureZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
 	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
 	GetVersionEx((OSVERSIONINFO *)&inf);
 	WORD fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);
@@ -2343,7 +2343,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				// Get the selected state of the
 				// item being drawn.
 				LVITEM   rItem;
-				ZeroMemory(&rItem, sizeof(LVITEM));
+				SecureZeroMemory(&rItem, sizeof(LVITEM));
 				rItem.mask  = LVIF_STATE;
 				rItem.iItem = pLVCD->nmcd.dwItemSpec;
 				rItem.stateMask = LVIS_SELECTED | LVIS_FOCUSED;

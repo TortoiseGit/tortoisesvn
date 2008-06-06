@@ -794,7 +794,7 @@ void CSVNStatusListCtrl::ColumnManager::ApplyColumnOrder()
     // extract order of used columns from order of all columns
 
     int order[SVNSLC_MAXCOLUMNCOUNT+1];
-    ZeroMemory (order, sizeof (order));
+    SecureZeroMemory (order, sizeof (order));
 
     std::vector<int> gridColumnOrder = GetGridColumnOrder();
     std::copy (gridColumnOrder.begin(), gridColumnOrder.end(), &order[0]);

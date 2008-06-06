@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -75,7 +75,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
 		CString temp;
 
 		REBARINFO rbi;
-		ZeroMemory(&rbi, sizeof rbi);
+		SecureZeroMemory(&rbi, sizeof rbi);
 		rbi.cbSize = sizeof rbi;
 		rbi.fMask  = 0;
 		rbi.himl   = (HIMAGELIST)0;
@@ -84,7 +84,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
 			return false;
 
 		REBARBANDINFO rbbi;
-		ZeroMemory(&rbbi, sizeof rbbi);
+		SecureZeroMemory(&rbbi, sizeof rbbi);
 		rbbi.cbSize = sizeof rbbi;
 		rbbi.fMask  = RBBIM_TEXT | RBBIM_STYLE | RBBIM_CHILD | RBBIM_CHILDSIZE | RBBIM_SIZE;
 		rbbi.fStyle = RBBS_NOGRIPPER | RBBS_FIXEDBMP;

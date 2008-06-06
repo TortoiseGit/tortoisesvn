@@ -78,7 +78,7 @@ DWORD GetDllVersion(LPCTSTR lpszDllName)
 			DLLVERSIONINFO dvi;
 			HRESULT hr;
 
-			ZeroMemory(&dvi, sizeof(dvi));
+			SecureZeroMemory(&dvi, sizeof(dvi));
 			dvi.cbSize = sizeof(dvi);
 
 			hr = (*pDllGetVersion)(&dvi);
@@ -141,7 +141,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 	CSVNStatusCache::Create();
 	CSVNStatusCache::Instance().Init();
 
-	ZeroMemory(szCurrentCrawledPath, sizeof(szCurrentCrawledPath));
+	SecureZeroMemory(szCurrentCrawledPath, sizeof(szCurrentCrawledPath));
 	
 	DWORD dwThreadId; 
 	HANDLE hPipeThread; 
@@ -172,7 +172,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
 	}
 	if (CRegStdWORD(_T("Software\\TortoiseSVN\\CacheTrayIcon"), FALSE)==TRUE)
 	{
-		ZeroMemory(&niData,sizeof(NOTIFYICONDATA));
+		SecureZeroMemory(&niData,sizeof(NOTIFYICONDATA));
 
 		DWORD dwVersion = GetDllVersion(_T("Shell32.dll"));
 

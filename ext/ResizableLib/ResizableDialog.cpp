@@ -124,7 +124,7 @@ void CResizableDialog::OnSize(UINT nType, int cx, int cy)
 	// around this by invalidating the whole dialog so the DWM recognizes
 	// that it has to update the application window.
 	OSVERSIONINFOEX inf;
-	ZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
+	SecureZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
 	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
 	GetVersionEx((OSVERSIONINFO *)&inf);
 	WORD fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);

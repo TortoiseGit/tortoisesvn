@@ -654,7 +654,7 @@ bool CAppUtils::FormatTextInRichEditControl(CWnd * pWnd)
 			CHARRANGE range = {(LONG)start+offset, (LONG)end+offset};
 			pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
 			CHARFORMAT2 format;
-			ZeroMemory(&format, sizeof(CHARFORMAT2));
+			SecureZeroMemory(&format, sizeof(CHARFORMAT2));
 			format.cbSize = sizeof(CHARFORMAT2);
 			format.dwMask = CFM_BOLD;
 			format.dwEffects = CFE_BOLD;
@@ -669,7 +669,7 @@ bool CAppUtils::FormatTextInRichEditControl(CWnd * pWnd)
 			CHARRANGE range = {(LONG)start+offset, (LONG)end+offset};
 			pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
 			CHARFORMAT2 format;
-			ZeroMemory(&format, sizeof(CHARFORMAT2));
+			SecureZeroMemory(&format, sizeof(CHARFORMAT2));
 			format.cbSize = sizeof(CHARFORMAT2);
 			format.dwMask = CFM_ITALIC;
 			format.dwEffects = CFE_ITALIC;
@@ -684,7 +684,7 @@ bool CAppUtils::FormatTextInRichEditControl(CWnd * pWnd)
 			CHARRANGE range = {(LONG)start+offset, (LONG)end+offset};
 			pWnd->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
 			CHARFORMAT2 format;
-			ZeroMemory(&format, sizeof(CHARFORMAT2));
+			SecureZeroMemory(&format, sizeof(CHARFORMAT2));
 			format.cbSize = sizeof(CHARFORMAT2);
 			format.dwMask = CFM_UNDERLINE;
 			format.dwEffects = CFE_UNDERLINE;

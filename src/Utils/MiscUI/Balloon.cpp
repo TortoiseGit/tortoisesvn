@@ -666,7 +666,7 @@ CSize CBalloon::GetSizeIcon(HICON hIcon) const
 	if (hIcon != NULL)
 	{
 		//get icon dimensions
-		::ZeroMemory(&ii, sizeof(ICONINFO));
+		::SecureZeroMemory(&ii, sizeof(ICONINFO));
 		if (::GetIconInfo(hIcon, &ii))
 		{
 			sz.cx = (DWORD)(ii.xHotspot * 2);
@@ -1439,7 +1439,7 @@ void CBalloon::GetMonitorWorkArea(const CPoint& sourcePoint, CRect& monitorRect)
 	// not obscured by the system task bar or by application 
 	// desktop tool bars) of that monitor
 	OSVERSIONINFOEX VersionInformation;
-	ZeroMemory(&VersionInformation, sizeof(OSVERSIONINFOEX));
+	SecureZeroMemory(&VersionInformation, sizeof(OSVERSIONINFOEX));
 	VersionInformation.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
 	GetVersionEx((OSVERSIONINFO *)&VersionInformation);
 

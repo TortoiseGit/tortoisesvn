@@ -97,7 +97,7 @@ public:
 		drivetypecache[1] = DRIVE_REMOVABLE;
 		TCHAR szBuffer[5];
 		columnrevformatticker = GetTickCount();
-		ZeroMemory(&columnrevformat, sizeof(NUMBERFMT));
+		SecureZeroMemory(&columnrevformat, sizeof(NUMBERFMT));
 		GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_SDECIMAL, &szDecSep[0], sizeof(szDecSep));
 		GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_STHOUSAND, &szThousandsSep[0], sizeof(szThousandsSep));
 		columnrevformat.lpDecimalSep = szDecSep;
@@ -389,7 +389,7 @@ public:
 		{
 			TCHAR szBuffer[5];
 			columnrevformatticker = GetTickCount();
-			ZeroMemory(&columnrevformat, sizeof(NUMBERFMT));
+			SecureZeroMemory(&columnrevformat, sizeof(NUMBERFMT));
 			GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_SDECIMAL, &szDecSep[0], sizeof(szDecSep));
 			GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_STHOUSAND, &szThousandsSep[0], sizeof(szThousandsSep));
 			columnrevformat.lpDecimalSep = szDecSep;

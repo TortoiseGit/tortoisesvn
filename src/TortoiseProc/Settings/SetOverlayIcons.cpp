@@ -197,7 +197,7 @@ void CSetOverlayIcons::ShowIconSet(bool bSmallIcons)
 
 	// create an image list with different file icons
 	SHFILEINFO sfi;
-	ZeroMemory(&sfi, sizeof sfi);
+	SecureZeroMemory(&sfi, sizeof sfi);
 
 	UINT flags = SHGFI_ICON | SHGFI_USEFILEATTRIBUTES;
 	if (bSmallIcons)
@@ -269,7 +269,7 @@ void CSetOverlayIcons::AddFileTypeGroup(CString sFileType, bool bSmallIcons)
 	else
 		flags |= SHGFI_LARGEICON;
 	SHFILEINFO sfi;
-	ZeroMemory(&sfi, sizeof sfi);
+	SecureZeroMemory(&sfi, sizeof sfi);
 
 	SHGetFileInfo(
 		sFileType,

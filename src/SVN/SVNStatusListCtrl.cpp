@@ -2031,7 +2031,7 @@ void CSVNStatusListCtrl::OnContextMenuGroup(CWnd * /*pWnd*/, CPoint point)
 					LVITEM lv;
 					for (int i=0; i<GetItemCount(); ++i)
 					{
-						ZeroMemory(&lv, sizeof(LVITEM));
+						SecureZeroMemory(&lv, sizeof(LVITEM));
 						lv.mask = LVIF_GROUPID;
 						lv.iItem = i;
 						GetItem(&lv);
@@ -2068,7 +2068,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 
 	bool XPorLater = false;
 	OSVERSIONINFOEX inf;
-	ZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
+	SecureZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
 	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
 	GetVersionEx((OSVERSIONINFO *)&inf);
 	WORD fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);
@@ -3475,7 +3475,7 @@ void CSVNStatusListCtrl::OnContextMenuHeader(CWnd * pWnd, CPoint point)
 {
 	bool XPorLater = false;
 	OSVERSIONINFOEX inf;
-	ZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
+	SecureZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
 	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
 	GetVersionEx((OSVERSIONINFO *)&inf);
 	WORD fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);
@@ -3658,7 +3658,7 @@ void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
 		LVITEM lv;
 		for (int i=0; i<GetItemCount(); ++i)
 		{
-			ZeroMemory(&lv, sizeof(LVITEM));
+			SecureZeroMemory(&lv, sizeof(LVITEM));
 			lv.mask = LVIF_GROUPID;
 			lv.iItem = i;
 			GetItem(&lv);

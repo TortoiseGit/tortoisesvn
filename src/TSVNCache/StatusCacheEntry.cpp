@@ -132,7 +132,7 @@ bool CStatusCacheEntry::LoadFromDisk(FILE * pFile)
 			}
 			m_sPresentProps.ReleaseBuffer(value);
 		}
-		ZeroMemory(&m_svnStatus, sizeof(m_svnStatus));
+		SecureZeroMemory(&m_svnStatus, sizeof(m_svnStatus));
 		LOADVALUEFROMFILE(m_svnStatus.copied);
 		LOADVALUEFROMFILE(m_svnStatus.locked);
 		LOADVALUEFROMFILE(m_svnStatus.prop_status);
@@ -188,7 +188,7 @@ void CStatusCacheEntry::SetStatus(const svn_wc_status2_t* pSVNStatus)
 
 void CStatusCacheEntry::SetAsUnversioned()
 {
-	ZeroMemory(&m_svnStatus, sizeof(m_svnStatus));
+	SecureZeroMemory(&m_svnStatus, sizeof(m_svnStatus));
 	m_discardAtTime = GetTickCount()+cachetimeout;
 	svn_wc_status_kind status = svn_wc_status_none;
 	if (m_highestPriorityLocalStatus == svn_wc_status_ignored)
@@ -208,7 +208,7 @@ bool CStatusCacheEntry::HasExpired(long now) const
 
 void CStatusCacheEntry::BuildCacheResponse(TSVNCacheResponse& response, DWORD& responseLength) const
 {
-	ZeroMemory(&response, sizeof(response));
+	SecureZeroMemory(&response, sizeof(response));
 	if(m_bSVNEntryFieldSet)
 	{
 		response.m_status = m_svnStatus;

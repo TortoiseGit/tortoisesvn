@@ -359,7 +359,7 @@ DWORD CHooks::RunScript(CString cmd, LPCTSTR currentDir, CString& error, bool bW
 {
 	DWORD exitcode = 0;
 	SECURITY_ATTRIBUTES sa;
-	ZeroMemory(&sa, sizeof(sa));
+	SecureZeroMemory(&sa, sizeof(sa));
 	sa.nLength = sizeof(sa);
 	sa.bInheritHandle = TRUE;
 
@@ -408,7 +408,7 @@ DWORD CHooks::RunScript(CString cmd, LPCTSTR currentDir, CString& error, bool bW
 	// setup startup info, set std out/err handles
 	// hide window
 	STARTUPINFO si;
-	ZeroMemory(&si, sizeof(si));
+	SecureZeroMemory(&si, sizeof(si));
 	si.cb = sizeof(si);
 	if (hOut  != INVALID_HANDLE_VALUE) 
 	{
@@ -419,7 +419,7 @@ DWORD CHooks::RunScript(CString cmd, LPCTSTR currentDir, CString& error, bool bW
 	}
 
 	PROCESS_INFORMATION pi;
-	ZeroMemory(&pi, sizeof(pi));
+	SecureZeroMemory(&pi, sizeof(pi));
 
 	DWORD dwFlags = 0;
 
@@ -447,13 +447,13 @@ DWORD CHooks::RunScript(CString cmd, LPCTSTR currentDir, CString& error, bool bW
 		char buf[256];
 		do 
 		{
-			ZeroMemory(&buf,sizeof(buf));
+			SecureZeroMemory(&buf,sizeof(buf));
 			while (ReadFile(hRedir, &buf, sizeof(buf)-1, &dw, NULL)) 
 			{
 				if (dw == 0) 
 					break;
 				error += CString(CStringA(buf,dw));
-				ZeroMemory(&buf,sizeof(buf));
+				SecureZeroMemory(&buf,sizeof(buf));
 			}
 		} while (WaitForSingleObject(pi.hProcess, 0) != WAIT_OBJECT_0);
 
@@ -464,7 +464,7 @@ DWORD CHooks::RunScript(CString cmd, LPCTSTR currentDir, CString& error, bool bW
 				break;
 
 			error += CString(CStringA(buf, dw));
-			ZeroMemory(&buf,sizeof(buf));
+			SecureZeroMemory(&buf,sizeof(buf));
 		}
 		WaitForSingleObject(pi.hProcess, INFINITE);
 		GetExitCodeProcess(pi.hProcess, &exitcode);

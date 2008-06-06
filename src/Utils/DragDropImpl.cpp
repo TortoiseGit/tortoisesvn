@@ -139,8 +139,8 @@ STDMETHODIMP CIDataObject::SetData(
 	if(fetc == NULL || pStgMed == NULL)
 		return E_OUTOFMEMORY;
 
-	ZeroMemory(fetc,sizeof(FORMATETC));
-	ZeroMemory(pStgMed,sizeof(STGMEDIUM));
+	SecureZeroMemory(fetc,sizeof(FORMATETC));
+	SecureZeroMemory(pStgMed,sizeof(STGMEDIUM));
 
 	*fetc = *pformatetc;
 	m_ArrFormatEtc.Add(fetc);

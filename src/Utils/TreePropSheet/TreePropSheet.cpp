@@ -343,7 +343,7 @@ void CTreePropSheet::RefillPageTree()
 		CString	strPagePath;
 
 		TCITEM	ti;
-		ZeroMemory(&ti, sizeof(ti));
+		SecureZeroMemory(&ti, sizeof(ti));
 		ti.mask = TCIF_TEXT|TCIF_IMAGE;
 		ti.cchTextMax = MAX_PATH;
 		ti.pszText = strPagePath.GetBuffer(ti.cchTextMax);
@@ -587,7 +587,7 @@ void CTreePropSheet::UpdateCaption()
 		if (pImages)
 		{
 			TCITEM	ti;
-			ZeroMemory(&ti, sizeof(ti));
+			SecureZeroMemory(&ti, sizeof(ti));
 			ti.mask = TCIF_IMAGE;
 
 			HICON	hIcon = NULL;

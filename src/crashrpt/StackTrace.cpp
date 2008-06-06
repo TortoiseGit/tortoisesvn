@@ -188,9 +188,9 @@ void AddressToSymbol(DWORD_PTR dwAddr, TraceCallbackFunction pFunction, LPVOID d
 
 	CSymbolEngine & cSym = GetSymbolEngine();
 
-    ZeroMemory ( pIHS , MAX_PATH + sizeof ( IMAGEHLP_SYMBOL ) ) ;
-    ZeroMemory ( &stIHM , sizeof ( IMAGEHLP_MODULE ) ) ;
-    ZeroMemory ( &stIHL , sizeof ( IMAGEHLP_LINE ) ) ;
+    SecureZeroMemory ( pIHS , MAX_PATH + sizeof ( IMAGEHLP_SYMBOL ) ) ;
+    SecureZeroMemory ( &stIHM , sizeof ( IMAGEHLP_MODULE ) ) ;
+    SecureZeroMemory ( &stIHL , sizeof ( IMAGEHLP_LINE ) ) ;
 
     pIHS->SizeOfStruct = sizeof ( IMAGEHLP_SYMBOL ) ;
     pIHS->Address = dwAddr ;
@@ -253,7 +253,7 @@ void DoStackTrace ( int numSkip, int depth, TraceCallbackFunction pFunction, CON
         STACKFRAME stFrame ;
         DWORD      dwMachine ;
 
-        ZeroMemory ( &stFrame , sizeof ( STACKFRAME ) ) ;
+        SecureZeroMemory ( &stFrame , sizeof ( STACKFRAME ) ) ;
 
         stFrame.AddrPC.Mode = AddrModeFlat ;
 

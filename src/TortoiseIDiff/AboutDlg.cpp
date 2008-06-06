@@ -31,7 +31,7 @@ LRESULT CAboutDlg::DlgFunc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam
 			TCHAR maskbuf[1024] = {0};
 			if (!::LoadString (hResource, IDS_VERSION, maskbuf, 1024))
 			{
-				ZeroMemory(maskbuf, sizeof(maskbuf));
+				SecureZeroMemory(maskbuf, sizeof(maskbuf));
 			}
 			_stprintf_s(verbuf, 1024, maskbuf, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);
 			SetDlgItemText(hwndDlg, IDC_ABOUTVERSION, verbuf);

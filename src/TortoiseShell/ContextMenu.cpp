@@ -870,7 +870,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	for (int i=0; i<count; ++i)
 	{
 		MENUITEMINFO miif;
-		ZeroMemory(&miif, sizeof(MENUITEMINFO));
+		SecureZeroMemory(&miif, sizeof(MENUITEMINFO));
 		miif.cbSize = sizeof(MENUITEMINFO);
 		miif.fMask = MIIM_DATA;
 		miif.dwTypeData = menubuf;
@@ -1012,7 +1012,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	//don't use InsertMenu because this will lead to multiple menu entries in the explorer file menu.
 	//see http://support.microsoft.com/default.aspx?scid=kb;en-us;214477 for details of that.
 	MENUITEMINFO menuiteminfo;
-	ZeroMemory(&menuiteminfo, sizeof(menuiteminfo));
+	SecureZeroMemory(&menuiteminfo, sizeof(menuiteminfo));
 	menuiteminfo.cbSize = sizeof(menuiteminfo);
 	menuiteminfo.fType = MFT_STRING;
  	menuiteminfo.dwTypeData = _T("TortoiseS&VN\0\0");
@@ -2014,7 +2014,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst, HMENU hMenu, 
 	if (bShowIgnoreMenu)
 	{
 		MENUITEMINFO menuiteminfo;
-		ZeroMemory(&menuiteminfo, sizeof(menuiteminfo));
+		SecureZeroMemory(&menuiteminfo, sizeof(menuiteminfo));
 		menuiteminfo.cbSize = sizeof(menuiteminfo);
 		menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_SUBMENU | MIIM_DATA | MIIM_BITMAP | MIIM_STRING;
 		menuiteminfo.fType = MFT_STRING;
@@ -2025,7 +2025,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst, HMENU hMenu, 
 		menuiteminfo.hbmpUnchecked = bmp;
 		menuiteminfo.hSubMenu = ignoresubmenu;
 		menuiteminfo.wID = idCmd;
-		ZeroMemory(stringtablebuffer, sizeof(stringtablebuffer));
+		SecureZeroMemory(stringtablebuffer, sizeof(stringtablebuffer));
 		if (itemStates & ITEMIS_IGNORED)
 			GetMenuTextFromResource(ShellMenuUnIgnoreSub);
 		else

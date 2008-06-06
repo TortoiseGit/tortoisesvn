@@ -49,7 +49,7 @@ STDMETHODIMP CShellExt::AddPages (LPFNADDPROPSHEETPAGE lpfnAddPage,
 
 	LoadLangDll();
     PROPSHEETPAGE psp;
-	ZeroMemory(&psp, sizeof(PROPSHEETPAGE));
+	SecureZeroMemory(&psp, sizeof(PROPSHEETPAGE));
 	HPROPSHEETPAGE hPage;
 	CSVNPropertyPage *sheetpage = new CSVNPropertyPage(files_);
 

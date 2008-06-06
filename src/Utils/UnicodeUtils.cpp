@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2006, 2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,7 +37,7 @@ CStringA CUnicodeUtils::GetUTF8(const CStringW& string)
 	if (len==0)
 		return retVal;
 	buf = retVal.GetBuffer(len*4 + 1);
-//	ZeroMemory(buf, (string.GetLength()*4 + 1)*sizeof(char));
+//	SecureZeroMemory(buf, (string.GetLength()*4 + 1)*sizeof(char));
 	int lengthIncTerminator = WideCharToMultiByte(CP_UTF8, 0, string, -1, buf, len*4, NULL, NULL);
 	retVal.ReleaseBuffer(lengthIncTerminator-1);
 	return retVal;
@@ -50,7 +50,7 @@ CStringA CUnicodeUtils::GetUTF8(const CStringA& string)
 	if (len==0)
 		return CStringA();
 	buf = new WCHAR[len*4 + 1];
-	ZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
+	SecureZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
 	MultiByteToWideChar(CP_ACP, 0, string, -1, buf, len*4);
 	CStringW temp = CStringW(buf);
 	delete [] buf;
@@ -64,7 +64,7 @@ CString CUnicodeUtils::GetUnicode(const CStringA& string)
 	if (len==0)
 		return CString();
 	buf = new WCHAR[len*4 + 1];
-	ZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
+	SecureZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
 	MultiByteToWideChar(CP_UTF8, 0, string, -1, buf, len*4);
 	CString ret = CString(buf);
 	delete [] buf;

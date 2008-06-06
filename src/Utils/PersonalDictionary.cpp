@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2006, 2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -52,7 +52,7 @@ bool CPersonalDictionary::Load()
 
 	std::wifstream File;
 	char filepath[MAX_PATH+1];
-	ZeroMemory(filepath, sizeof(filepath));
+	SecureZeroMemory(filepath, sizeof(filepath));
 	WideCharToMultiByte(CP_ACP, NULL, path, -1, filepath, MAX_PATH, NULL, NULL);
 	File.open(filepath);
 	if (!File.good())
@@ -110,7 +110,7 @@ bool CPersonalDictionary::Save()
 
 	std::wofstream File;
 	char filepath[MAX_PATH+1];
-	ZeroMemory(filepath, sizeof(filepath));
+	SecureZeroMemory(filepath, sizeof(filepath));
 	WideCharToMultiByte(CP_ACP, NULL, path, -1, filepath, MAX_PATH, NULL, NULL);
 	File.open(filepath, std::ios_base::binary);
 	for (std::set<CString>::iterator it = dict.begin(); it != dict.end(); ++it)

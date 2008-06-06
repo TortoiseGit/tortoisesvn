@@ -60,7 +60,7 @@ static OSVERSIONINFOEX g_osviWindows;
 static void CheckOsVersion()
 {
 	// Try calling GetVersionEx using the OSVERSIONINFOEX structure.
-	ZeroMemory(&g_osviWindows, sizeof(OSVERSIONINFOEX));
+	SecureZeroMemory(&g_osviWindows, sizeof(OSVERSIONINFOEX));
 	g_osviWindows.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
 	if (GetVersionEx((LPOSVERSIONINFO)&g_osviWindows))
 		return;
@@ -81,7 +81,7 @@ static void CheckOsVersion()
 static void CheckCommCtrlsVersion()
 {
 	// Check Common Controls version
-	ZeroMemory(&g_dviCommCtrls, sizeof(DLLVERSIONINFO));
+	SecureZeroMemory(&g_dviCommCtrls, sizeof(DLLVERSIONINFO));
 	HMODULE hMod = ::LoadLibrary(_T("comctl32.dll"));
 	if (hMod != NULL)
 	{

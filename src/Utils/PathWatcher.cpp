@@ -291,7 +291,7 @@ void CPathWatcher::WorkerThread()
 					do 
 					{
 						nOffset = pnotify->NextEntryOffset;
-						ZeroMemory(buf, MAX_PATH*4*sizeof(TCHAR));
+						SecureZeroMemory(buf, MAX_PATH*4*sizeof(TCHAR));
 						_tcsncpy_s(buf, MAX_PATH*4, pdi->m_DirPath, MAX_PATH*4);
 						errno_t err = _tcsncat_s(buf+pdi->m_DirPath.GetLength(), (MAX_PATH*4)-pdi->m_DirPath.GetLength(), pnotify->FileName, _TRUNCATE);
 						if (err == STRUNCATE)
@@ -307,8 +307,8 @@ void CPathWatcher::WorkerThread()
 							break;
 					} while (nOffset);
 continuewatching:
-					ZeroMemory(pdi->m_Buffer, sizeof(pdi->m_Buffer));
-					ZeroMemory(&pdi->m_Overlapped, sizeof(OVERLAPPED));
+					SecureZeroMemory(pdi->m_Buffer, sizeof(pdi->m_Buffer));
+					SecureZeroMemory(&pdi->m_Overlapped, sizeof(OVERLAPPED));
 					if (!ReadDirectoryChangesW(pdi->m_hDir,
 												pdi->m_Buffer,
 												READ_DIR_CHANGE_BUFFER_SIZE,
