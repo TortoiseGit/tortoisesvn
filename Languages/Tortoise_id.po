@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-04 22:19+0700\n"
+"PO-Revision-Date: 2008-06-06 20:57+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -9210,7 +9210,7 @@ msgstr "Produk ini menyertakan software yang dikembangkan oleh OpenSSL Project u
 #. Resource IDs: (3857)
 #, c-format
 msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
-msgstr "Program ini dikaitkan ke  ekspor %s yang hilang dalam file %s. Mesin ini mungkin mempunyai versi tidak kompatibel %s."
+msgstr "Program ini dikaitkan ke  ekspor %s yang hilang dalam berkas %s. Mesin ini mungkin mempunyai versi tidak kompatibel %s."
 
 # ID:3857,#:
 # ID:3857,
@@ -9993,11 +9993,11 @@ msgid ""
 "/patchpath:<path to folder>"
 msgstr ""
 "Opsi baris perintah yang benar adalah:\n"
-"/base:<path ke file base>\n"
-"/theirs:<path ke file mereka>\n"
-"/mine:<path ke file anda>\n"
-"/merged:<path ke file hasil gabungan>\n"
-"/diff:<path ke file unified diff>\n"
+"/base:<path ke berkas base>\n"
+"/theirs:<path ke berkas mereka>\n"
+"/mine:<path ke berkas anda>\n"
+"/merged:<path ke berkas hasil gabungan>\n"
+"/diff:<path ke berkas unified diff>\n"
 "/patchpath:<path ke folder>"
 
 # ID:11,
@@ -10211,8 +10211,8 @@ msgid ""
 "If you want to set it on all files within that folder,\n"
 "you must activate the 'recursive' checkbox."
 msgstr ""
-"Anda tidak bisa mengeset properti ini pada folder, hanya pada file!\n"
-"Jika anda ingin mengesetnya pada semua file di dalam folder itu,\n"
+"Anda tidak bisa mengeset properti ini pada folder tetapi hanya pada berkas!\n"
+"Jika Anda ingin mengesetnya pada semua berkas di dalam folder itu,\n"
 "anda harus mengaktifkan kotak centang 'rekursif'."
 
 # ID:105,
@@ -10224,8 +10224,8 @@ msgid ""
 "\n"
 "Do you still want to do this?"
 msgstr ""
-"Anda menjatuhkan lebih dari satu file atau folder untuk ditambahkan ke repositori.\n"
-"Tidak mungkin untuk melakukan itu dalam satu langkah, maka TortoiseSVN akan menambahkan setiap file/folder\n"
+"Anda menjatuhkan lebih dari satu berkas atau folder untuk ditambahkan ke repositori.\n"
+"Tidak mungkin untuk melakukan itu dalam satu langkah, maka TortoiseSVN akan menambahkan setiap berkas/folder\n"
 "secara individual, membuat revisi baru untuk setiap item yang ditambahkan.\n"
 "\n"
 "Anda masih ingin melakukan ini?"
@@ -10269,8 +10269,8 @@ msgid ""
 "You selected an unversioned file.\n"
 "The file will be added to version control when you commit."
 msgstr ""
-"Anda memilih file tidak berversi.\n"
-"File akan ditambahkan ke kontrol versi saat anda komit."
+"Anda memilih berkas tidak berversi.\n"
+"Berkas akan ditambahkan ke kontrol versi saat anda komit."
 
 #. Resource IDs: (1001)
 msgid "You should enter a text!"
@@ -10432,7 +10432,7 @@ msgstr "ditambahkan"
 # Control-ID:65535,
 #. Resource IDs: (65535)
 msgid "added files"
-msgstr "file ditambahkan"
+msgstr "berkas ditambahkan"
 
 #. Resource IDs: (272)
 #, c-format
@@ -10448,7 +10448,7 @@ msgstr "alias: %s"
 # ID:3841,
 #. Resource IDs: (3841)
 msgid "an unnamed file"
-msgstr "file tidak bernama"
+msgstr "berkas tidak bernama"
 
 # Control-ID:1304,
 #. Resource IDs: (1304)
@@ -10876,8 +10876,8 @@ msgid ""
 "A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 "svn:executable\n"
-"Jika ada, membuat file executable. Properti ini tidak bisa di-set pada direktori.\n"
-"Percobaan non-rekursif, dan percobaan rekursif akan mengeset properti hanya pada anak file dari direktori."
+"Jika ada, membuat berkas dapat dijalankan. Properti ini tidak bisa di-set pada direktori.\n"
+"Percobaan non-rekursif, dan percobaan rekursif akan mengeset properti hanya pada anak berkas dari direktori."
 
 # ID:14,
 #. Resource IDs: (576)
@@ -10915,7 +10915,7 @@ msgid ""
 "A newline separated list of file patterns to ignore."
 msgstr ""
 "svn:ignore\n"
-"Baris baru memisahkan daftar dari pola file untuk diabaikan."
+"Baris baru memisahkan daftar dari pola berkas untuk diabaikan."
 
 # ID:14,
 #. Resource IDs: (576)
@@ -10931,7 +10931,7 @@ msgstr ""
 "svn:keywords\n"
 "Kata kunci untuk dilebarkan. Kata kunci yang benar adalah:\n"
 "URL, HeadURL\t\t\tURL untuk revisi head dari obyek.\n"
-"Author, LastChangedBy\t\tOrang terakhir yang mengubah file.\n"
+"Author, LastChangedBy\t\tOrang terakhir yang mengubah berkas.\n"
 "Date, LastChangedDate\t\tTanggal/jam obyek terakhir diubah.\n"
 "Rev, LastChangedRevision\tRevisi terakhir obyek diubah.\n"
 "Id\t\t\t\tRingkasan terkompresi dari 4 kata kunci sebelumnya."
@@ -10959,9 +10959,9 @@ msgid ""
 "Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\n"
-"Tipe mime file. Digunakan untuk memeriksa apakah menggabung file, dan bagaimana untuk melayaninya dari Apache.\n"
+"Tipe mime berkas. Digunakan untuk memeriksa apakah menggabung berkas, dan bagaimana untuk melayaninya dari Apache.\n"
 "Tipe mime diawali dengan 'text/' (atau tipe mime absen) diberlakukan sebagai teks.\n"
-"Yang lainnnya diperlakukan sebagai biner."
+"Yang lainnya diperlakukan sebagai biner."
 
 # ID:16,
 #. Resource IDs: (576)
@@ -10973,9 +10973,9 @@ msgid ""
 "before they can edit it and commit changes."
 msgstr ""
 "svn:needs-lock\n"
-"Set ini ke nilai apapun (contoh. '*') untuk memaksa penguncian file ini.\n"
-"File akan di-set hanya-baca saat dilakukan check out atau dimutakhirkan,\n"
-"menunjukan bahwa pengguna harus mendapatkan kunci pada file\n"
+"Set ini ke nilai apapun (contoh. '*') untuk memaksa penguncian berkas ini.\n"
+"Berkas akan di-set hanya-baca saat dilakukan check out atau dimutakhirkan,\n"
+"menunjukan bahwa pengguna harus mendapatkan kunci pada berkas\n"
 "sebelum mereka bisa mengeditnya dan mengkomit perubahan."
 
 # ID:208,
@@ -11051,7 +11051,7 @@ msgid ""
 "in the commit dialog."
 msgstr ""
 "tsvn:logfilelistenglish\n"
-"Set ke \"false\" jika anda tidak ingin daftar file yang diubah di-paste dalam bahasa Inggris\n"
+"Set ke \"false\" jika anda tidak ingin daftar berkas yang diubah di-paste dalam bahasa Inggris\n"
 "dalam dialog komit."
 
 # ID:15,
@@ -11113,7 +11113,7 @@ msgid ""
 msgstr ""
 "tsvn:userfileproperties\n"
 "Daftar properti yang didefinisikan pengguna yang dipisahkan dengan\n"
-"baris baru bagi file-file yang akan ditampilan pada dialog properti untuk dipilih."
+"baris baru bagi berkas-berkas yang akan ditampilan pada dialog properti untuk dipilih."
 
 # ID:17,
 #. Resource IDs: (581)
@@ -11155,9 +11155,9 @@ msgid ""
 "the string %PATH% is replaced with the path to the file relative to the repository root."
 msgstr ""
 "webviewer:pathrevision\n"
-"URLyang merujuk ke peninjau web repositori untuk revisi dan file tertentu.\n"
+"URL yang merujuk ke peninjau web repositori untuk revisi dan berkas tertentu.\n"
 "String %REVISION% dalam URL diganti dengan angka revisi,\n"
-"String %PATH% diganti dengan path ke file relatif ke akar repositori."
+"String %PATH% diganti dengan path ke berkas relatif ke akar repositori."
 
 # ID:17,
 #. Resource IDs: (579)
