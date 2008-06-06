@@ -25,15 +25,21 @@
 DWORD cachetimeout = (DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\Cachetimeout"), CACHETIMEOUT);
 
 CStatusCacheEntry::CStatusCacheEntry()
+	: m_bSet(false)
+	, m_bSVNEntryFieldSet(false)
+	, m_kind(svn_node_unknown)
+	, m_bReadOnly(false)
+	, m_highestPriorityLocalStatus(svn_wc_status_none)
 {
 	SetAsUnversioned();
-	m_bSet = false;
-	m_bSVNEntryFieldSet = false;
-	m_kind = svn_node_unknown;
-	m_bReadOnly = false;
 }
 
 CStatusCacheEntry::CStatusCacheEntry(const svn_wc_status2_t* pSVNStatus, __int64 lastWriteTime, bool bReadOnly, DWORD validuntil /* = 0*/)
+	: m_bSet(false)
+	, m_bSVNEntryFieldSet(false)
+	, m_kind(svn_node_unknown)
+	, m_bReadOnly(false)
+	, m_highestPriorityLocalStatus(svn_wc_status_none)
 {
 	SetStatus(pSVNStatus);
 	m_lastWriteTime = lastWriteTime;
