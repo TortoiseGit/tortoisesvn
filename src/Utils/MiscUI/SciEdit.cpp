@@ -1211,14 +1211,15 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 	return FALSE;
 }
 
-bool CSciEdit::IsValidURLChar(wchar_t ch)
+bool CSciEdit::IsValidURLChar(unsigned char ch)
 {
-	return iswalnum(ch) ||
+	return isalnum(ch) ||
 		ch == '_' || ch == '/' || ch == ';' || ch == '?' || ch == '&' || ch == '=' ||
 		ch == '%' || ch == ':' || ch == '.' || ch == '#' || ch == '-' || ch == '+';
 }
 
-void CSciEdit::StyleURLs(int startstylepos, int endstylepos) {
+void CSciEdit::StyleURLs(int startstylepos, int endstylepos) 
+{
 	const int line_number = Call(SCI_LINEFROMPOSITION, startstylepos);
 	startstylepos = Call(SCI_POSITIONFROMLINE, (WPARAM)line_number);
 
@@ -1229,7 +1230,10 @@ void CSciEdit::StyleURLs(int startstylepos, int endstylepos) {
 	textrange.chrg.cpMin = startstylepos;
 	textrange.chrg.cpMax = endstylepos;
 	Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
-    CString msg = CUnicodeUtils::GetUnicode(textbuffer);
+	// we're dealing with utf8 encoded text here, which means one glyph is
+	// not necessarily one byte/wchar_t
+	// that's why we use CStringA to still get a correct char index
+    CStringA msg = textbuffer;
 	delete textbuffer;
 
 	int starturl = -1;
@@ -1253,11 +1257,11 @@ void CSciEdit::StyleURLs(int startstylepos, int endstylepos) {
 	}
 }
 
-bool CSciEdit::IsUrl(const CString& sText)
+bool CSciEdit::IsUrl(const CStringA& sText)
 {
-	if (!PathIsURL(sText))
+	if (!PathIsURLA(sText))
 		return false;
-	if (sText.Find(_T("://"))>=0)
+	if (sText.Find("://")>=0)
 		return true;
 	return false;
 }

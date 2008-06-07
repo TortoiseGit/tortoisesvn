@@ -127,7 +127,7 @@ private:
 	CString		m_sUrl;
 	CArray<CSciEditContextMenuInterface *, CSciEditContextMenuInterface *> m_arContextHandlers;
 	CPersonalDictionary m_personalDict;
-	static bool IsValidURLChar(wchar_t ch);
+	static bool IsValidURLChar(unsigned char ch);
 protected:
 	virtual BOOL OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pLResult);
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
@@ -143,7 +143,7 @@ protected:
 	void		AdvanceUTF8(const char * str, int& pos);
 	BOOL		IsMisspelled(const CString& sWord);
 	DWORD		GetStyleAt(int pos) { return (DWORD)Call(SCI_GETSTYLEAT, pos) & 0x1f; }
-	bool		IsUrl(const CString& sText);
+	bool		IsUrl(const CStringA& sText);
 
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg void OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/);
