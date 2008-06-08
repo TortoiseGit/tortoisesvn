@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-09 01:17+0100\n"
+"PO-Revision-Date: 2008-06-09 01:44+0100\n"
 "Last-Translator: Krzysztof Kotowicz <koto@webworkers.pl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -536,7 +536,7 @@ msgstr "Dyski &lokalne"
 #. Resource IDs: (1065)
 #, fuzzy
 msgid "&Floating"
-msgstr "Przenoszenie..."
+msgstr "&Pływające"
 
 #. Resource IDs: (65535)
 msgid "&Font for log messages:"
@@ -649,9 +649,8 @@ msgid "&Limit search to modified lines"
 msgstr "Szukaj tylko w &zmienionych liniach"
 
 #. Resource IDs: (32797)
-#, fuzzy
 msgid "&Link image positions"
-msgstr "&Połącz obrazy"
+msgstr "&Połącz pozycje obrazów"
 
 #. Resource IDs: (1172)
 msgid "&List View"
@@ -897,9 +896,8 @@ msgid "&Specific revision in repository"
 msgstr "Określonej wer&sji w repozytorium"
 
 #. Resource IDs: (16917)
-#, fuzzy
 msgid "&Start Group"
-msgstr "Pasek &stanu"
+msgstr "Grupa &startowa"
 
 #. Resource IDs: (59393)
 msgid "&Status Bar"
@@ -1481,7 +1479,7 @@ msgstr ""
 "%base\t\ttoryginalny plik przed twoimi zmianami"
 
 #. Resource IDs: (3867)
-#, fuzzy, c-format
+#, c-format
 msgid "An incorrect file handle was associated with %1."
 msgstr "Z %1 został skojarzony niepoprawny uchwyt pliku."
 
@@ -1500,8 +1498,9 @@ msgid "An unknown line type was found in line %d !"
 msgstr "W linii %d wystąpił nieznany typ linii."
 
 #. Resource IDs: (65535)
+#, fuzzy
 msgid "Application Frame Menus: "
-msgstr ""
+msgstr "Menu ramek aplikacji: "
 
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
@@ -1776,9 +1775,8 @@ msgid "C&reate folder..."
 msgstr "U&twórz folder..."
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "C&urrent Keys:"
-msgstr "Aktualna wersja:"
+msgstr "&Bieżące klawisze:"
 
 #. Resource IDs: (501)
 msgid "C&ut"
@@ -2294,7 +2292,7 @@ msgstr "Kontynuuj"
 
 #. Resource IDs: (1001)
 msgid "Contract docked window"
-msgstr ""
+msgstr "Zwiń okno dokowane"
 
 #. Resource IDs: (376)
 msgid "Cop&y"
@@ -2968,7 +2966,7 @@ msgstr "Nie pokazuj więcej tego komunikatu"
 
 #. Resource IDs: (1002)
 msgid "Drag to make this menu float"
-msgstr ""
+msgstr "Przeciągnij, aby to menu było pływające"
 
 #. Resource IDs: (16513)
 msgid "Draw"
@@ -3256,7 +3254,7 @@ msgstr "Rozwiń (%s)"
 
 #. Resource IDs: (1001)
 msgid "Expand docked window"
-msgstr ""
+msgstr "Rozwiń okno dokowane"
 
 #. Resource IDs: (209)
 msgid "Explore to"
@@ -3627,9 +3625,8 @@ msgstr "Pełny ekran"
 
 # 'Rekurencyjnie" nie mieści się na oknie
 #. Resource IDs: (19)
-#, fuzzy
 msgid "Fully recursive"
-msgstr "Nie rekursywne"
+msgstr "Pełna rekursywność"
 
 #. Resource IDs: (273)
 msgid "GDI+ couldn't be initialized!"
@@ -4263,7 +4260,7 @@ msgstr "Import inicjujący"
 #. Resource IDs: (65535)
 #, fuzzy
 msgid "Inline differences"
-msgstr "Adnotuj &różnice"
+msgstr "Zmiany w linii"
 
 #. Resource IDs: (161)
 msgid "Input"
@@ -4491,14 +4488,13 @@ msgstr ""
 "Linia"
 
 #. Resource IDs: (32853)
-#, fuzzy
 msgid "Line diff bar"
-msgstr "Pokaż pasek porównania li&nii"
+msgstr "Pasek porównania linii"
 
 #. Resource IDs: (65535)
 #, fuzzy
 msgid "Line differences"
-msgstr "Adnotuj &różnice"
+msgstr "Różnice linii"
 
 #. Resource IDs: (65535)
 msgid "Line:"
@@ -6846,13 +6842,12 @@ msgid "Show oldest node at top"
 msgstr "Pokaż najstarsze węzły na górze"
 
 #. Resource IDs: (2054)
-#, fuzzy
 msgid ""
 "Show or hide the line diff bar\n"
 "Toggle LineDiffBar"
 msgstr ""
-"Pokazuje lub ukrywa pasek narzędzi\n"
-"Przełącz pasek narzędzi"
+"Pokazuje lub ukrywa pasek różnic linii\n"
+"Przełącz pasek różnic w linii"
 
 #. Resource IDs: (2054)
 #, fuzzy
@@ -6860,8 +6855,8 @@ msgid ""
 "Show or hide the locator bar\n"
 "Toggle LocatorBar"
 msgstr ""
-"Pokazuje lub ukrywa pasek narzędzi\n"
-"Przełącz pasek narzędzi"
+"Pokazuje lub ukrywa pasek lokalizacji\n"
+"Przełącz pasek lokalizacji"
 
 #. Resource IDs: (3713)
 msgid ""
@@ -6955,9 +6950,8 @@ msgid "Shows information about TortoiseSVN"
 msgstr "Pokazuje informacje o TortoiseSVN"
 
 #. Resource IDs: (198)
-#, fuzzy
 msgid "Shows the action log file in the default text editor"
-msgstr "Pokazuje log dla wybranego pliku / folderu"
+msgstr "Pokazuje log akcji w domyślnym edytorze tekstowym"
 
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
@@ -7511,6 +7505,10 @@ msgid ""
 "in the patchfile does not exist.\n"
 "TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
 msgstr ""
+"Ścieżka\n"
+"<i>%s</i>\n"
+"w pliku poprawek nie istnieje.\n"
+"TortoiseMerge próbował zastosować plik poprawek ignorując początkowe części ścieżki, ale nie mógł znaleźć pasującej ścieżki."
 
 #. Resource IDs: (314)
 #, c-format
@@ -7566,13 +7564,12 @@ msgstr ""
 "Czy na pewno chcesz pobrać/wyeksportować dane do tego folderu?"
 
 #. Resource IDs: (195)
-#, fuzzy
 msgid ""
 "The time in seconds after which the parsing of the selected files stops.\n"
 "A lower value will make the auto-completion list available sooner,\n"
 "but maybe not scan all files."
 msgstr ""
-"Czas w sekundach po którym zatrzymauje się parsowanie wybranych plików.\n"
+"Czas w sekundach, po którym zatrzymuje się parsowanie wybranych plików.\n"
 "Mniejsza wartość spowoduje, że lista podpowiedzi będzie dostępna wcześniej,\n"
 "jednak mogą nie zostać zeskanowane wszystkie pliki."
 
@@ -7743,9 +7740,8 @@ msgid "Tile &Horizontally"
 msgstr "Porządkuj &poziomo"
 
 #. Resource IDs: (16928)
-#, fuzzy
 msgid "Tile &Vertically"
-msgstr "Uporządkuj &pionowo"
+msgstr "Porządkuj &pionowo"
 
 #. Resource IDs: (65535)
 msgid "Timeouts"
@@ -7801,7 +7797,7 @@ msgstr "Opcje paska narzędzi"
 
 #. Resource IDs: (1001)
 msgid "Toolbar internal error. Please contact your application vendor."
-msgstr ""
+msgstr "Wewnętrzny błąd paska narzędzi. Skontaktuj się z dostawcą aplikacji."
 
 #. Resource IDs: (16105)
 msgid "Toolbars"
@@ -7827,6 +7823,10 @@ msgid ""
 "\n"
 "TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 msgstr ""
+"TortoiseBlame nie powinien być uruchamiany bezpośrednio! Zamiast tego użyj\n"
+"TortoiseProc.exe /command:blame /path:\"sciezka\\do\\pliku\"\n"
+"\n"
+"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
@@ -7931,7 +7931,7 @@ msgstr "Liczba zmian w plikach:"
 
 #. Resource IDs: (339)
 msgid "Total number of changes over all cached revisions"
-msgstr ""
+msgstr "Łączna liczba zmian we wszystkich buforowanych wersjach"
 
 #. Resource IDs: (339)
 msgid "Total number of merged revisions"
@@ -8233,6 +8233,8 @@ msgid ""
 "Use block from left view before block from right view\n"
 "Use block from left before right"
 msgstr ""
+"Użyj bloku z lewej strony przed blokiem z prawej\n"
+"Użyj bloku z lewej przed prawym"
 
 #. Resource IDs: (32859)
 msgid "Use block from right before left"
@@ -8243,6 +8245,8 @@ msgid ""
 "Use block from right view before block from left view\n"
 "Use block from right before left"
 msgstr ""
+"Użyj bloku z prawej strony przed blokiem z lewej\n"
+"Użyj bloku z prawej przed lewym"
 
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one first)"
@@ -8257,9 +8261,8 @@ msgid "Use left file"
 msgstr "Użyj pliku po lewej"
 
 #. Resource IDs: (3)
-#, fuzzy
 msgid "Use local"
-msgstr "Przerwane przez uzytkownika."
+msgstr "Użyj lokalnego"
 
 #. Resource IDs: (1432)
 msgid "Use recycle bin when reverting"
@@ -8349,6 +8352,11 @@ msgid ""
 "\r\n"
 "To merge all revisions, leave the box empty."
 msgstr ""
+"Użyj okienka logów, aby zaznaczyć wersje, które chcesz scalić, lub podaj numery wersji do scalenia, oddzielone przecinkami. Zakres wersji może być podany z użyciem myślnika.\r\n"
+"\r\n"
+"Przykład: 4-7,9,11,15-HEAD\r\n"
+"\r\n"
+"Aby scalić wszystkie wersje, pozostaw puste pole."
 
 #. Resource IDs: (251)
 msgid "Use this &whole file"
@@ -8452,16 +8460,21 @@ msgid ""
 "TSVN can switch to using cached data only.\n"
 "Select the default beviour here."
 msgstr ""
+"Kiedy połączenie z serwerem nie jest możliwe,\n"
+"TSVN może używać wyłącznie danych z bufora.\n"
+"Wybierz domyślne ustawienie."
 
 #. Resource IDs: (197)
 msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
-msgstr ""
+msgstr "Kiedy włączone, elementy poddane kontroli wersji pokazane w oknie zatwierdzania zmian będą automatycznie zaznaczone"
 
 #. Resource IDs: (197)
 msgid ""
 "When locking one or more selected files, shows a dialog\n"
 "asking for a descriptive message about the locking"
 msgstr ""
+"Blokując jeden lub więcej zaznaczonych plików, pokaże okienko,\n"
+"w którym należy podać opis (przyczynę założenia blokady)."
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
@@ -8689,6 +8702,9 @@ msgid ""
 "If you branch/tag from the HEAD revision, your local changes won't\n"
 "show up in the branch/tag!"
 msgstr ""
+"Twoja kopia robocza posiada lokalne modyfikacje.\n"
+"Jeżeli utworzysz rozgałęzienie/etykietę z wersji HEAD, twoje lokalne zmiany nie będą\n"
+"uwzględnione w tym rozgałęzieniu/etykiecie!"
 
 #. Resource IDs: (32783)
 msgid "Zoo&m out"
@@ -9029,7 +9045,7 @@ msgstr "miesiąc"
 #. Resource IDs: (199)
 #, c-format
 msgid "multiple URLs (e.g. %s)"
-msgstr ""
+msgstr "wiele URLi (np. %s)"
 
 #. Resource IDs: (18)
 msgid "no"
@@ -9201,6 +9217,11 @@ msgid ""
 "For example\n"
 "/trunk:123-125,129"
 msgstr ""
+"svn:mergeinfo\n"
+"Lista oddzielona znakami nowej linii zawierająca informacje o scaleniach. Każda linia zawiera ścieżkę absolutną, dwukropek \n"
+"i listę oddzielonych przecinkami numerów wersji.\n"
+"Na przykład:\n"
+"/trunk:123-125,129"
 
 # Nie wiem, czy przetłumaczony tekst dokładnie odpowiada sensowi oryginału.
 #. Resource IDs: (576)
