@@ -51,8 +51,8 @@ public:
 
 	bool operator < (const hookkey& hk) const 
 	{
-		if (htype == hk.htype)
-			return (path.IsEquivalentTo(hk.path)); 
+		if (htype == hk.htype) 
+			return (path < hk.path); 
 		else 
 			return htype < hk.htype;
 	}

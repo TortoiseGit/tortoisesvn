@@ -89,7 +89,7 @@ private:
 
 		bool operator() (const CBugTraqAssociation *assoc) const
 		{
-			return (assoc->GetPath() == m_path);
+			return (assoc->GetPath().IsEquivalentToWithoutCase(m_path));
 		}
 	};
 };

@@ -279,7 +279,7 @@ private:
  * Compares two paths and return true if left is earlier in sort order than right
  * (Uses CTSVNPath::Compare logic, but is suitable for std::sort and similar)
  */
-bool operator<(const CTSVNPath& left, const CTSVNPath& right);
+ bool operator<(const CTSVNPath& left, const CTSVNPath& right);
 
 
 //////////////////////////////////////////////////////////////////////////

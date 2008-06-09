@@ -622,21 +622,19 @@ CString CTSVNPath::GetDisplayString(const CTSVNPath* pOptionalBasePath /* = NULL
 	return m_sFwdslashPath;
 }
 
-int 
-CTSVNPath::Compare(const CTSVNPath& left, const CTSVNPath& right)
+int CTSVNPath::Compare(const CTSVNPath& left, const CTSVNPath& right)
 {
 	left.EnsureBackslashPathSet();
 	right.EnsureBackslashPathSet();
 	return left.m_sBackslashPath.CompareNoCase(right.m_sBackslashPath);
 }
 
-bool
-operator<(const CTSVNPath& left, const CTSVNPath& right)
+bool operator<(const CTSVNPath& left, const CTSVNPath& right)
 {
 	return CTSVNPath::Compare(left, right) < 0;
 }
-bool
-CTSVNPath::PredLeftEquivalentToRight(const CTSVNPath& left, const CTSVNPath& right)
+
+bool CTSVNPath::PredLeftEquivalentToRight(const CTSVNPath& left, const CTSVNPath& right)
 {
 	return left.IsEquivalentTo(right);
 }
