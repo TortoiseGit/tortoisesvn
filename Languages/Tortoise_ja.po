@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-03 13:58+0900\n"
+"PO-Revision-Date: 2008-06-09 19:12+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -572,7 +572,7 @@ msgstr "緑(&G)"
 
 #. Resource IDs: (32799)
 msgid "&Group by branch"
-msgstr "分岐でグループ化する(&G)"
+msgstr "ブランチでグループ化する(&G)"
 
 #. Resource IDs: (1032, 1115)
 msgid "&HEAD Revision"
@@ -810,7 +810,7 @@ msgstr "名前の変更(&R)"
 
 #. Resource IDs: (1316)
 msgid "&Reopen commit and branch/tag dialog after a commit failed"
-msgstr "コミットに失敗した場合はコミットもしくは分岐／タグのダイアログを再表示する(&R)"
+msgstr "コミットに失敗した場合はコミットもしくはブランチ／タグのダイアログを再表示する(&R)"
 
 #. Resource IDs: (13)
 msgid "&Repo-browser"
@@ -1710,15 +1710,15 @@ msgstr "参照(&O) ..."
 
 #. Resource IDs: (115)
 msgid "Branch / tag created successfully!"
-msgstr "分岐／タグの生成が正常に終了しました！"
+msgstr "ブランチ／タグの生成が正常に終了しました！"
 
 #. Resource IDs: (2052)
 msgid "Branch at copy-from-rev even if there was no change in that revision"
-msgstr "何も変更が行われていないリビジョンでも、リビジョンからのコピーとして枝を作る"
+msgstr "何も変更が行われていないリビジョンでも、リビジョンからのコピーとしてブランチを作る"
 
 #. Resource IDs: (9)
 msgid "Branch/&tag..."
-msgstr "分岐／タグ(&T) ..."
+msgstr "ブランチ／タグ(&T) ..."
 
 #. Resource IDs: (16)
 msgid "Break loc&k"
@@ -1762,7 +1762,7 @@ msgstr "コマンド(&O):"
 
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
-msgstr "リビジョンから分岐／タグを生成(&R)"
+msgstr "リビジョンからブランチ／タグを生成(&R)"
 
 #. Resource IDs: (101)
 msgid "C&reate folder..."
@@ -2336,7 +2336,7 @@ msgstr ""
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
-msgstr "コピー（分岐／タグ）"
+msgstr "コピー（ブランチ／タグ）"
 
 #. Resource IDs: (78)
 msgid "Copy - TortoiseSVN"
@@ -2621,7 +2621,7 @@ msgstr "リモート操作によってフォルダを作成しました"
 
 #. Resource IDs: (10)
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
-msgstr "分岐やタグ用にリポジトリ内に 'cheap' なコピーを作成する"
+msgstr "ブランチやタグ用にリポジトリ内に 'cheap' なコピーを作成する"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -3779,7 +3779,7 @@ msgstr "灰色"
 
 #. Resource IDs: (2050)
 msgid "Group by branch"
-msgstr "分岐でグループ化する"
+msgstr "ブランチでグループ化する"
 
 #. Resource IDs: (214)
 msgid "Group changelists"
@@ -4781,7 +4781,7 @@ msgstr "リビジョン %s を %s からマージ:\n"
 
 #. Resource IDs: (10)
 msgid "Merges a branch into the main trunk"
-msgstr "分岐を本体にマージする"
+msgstr "ブランチを trunk にマージする"
 
 #. Resource IDs: (14)
 msgid "Merges all missing revisions back into the working copy using merge-tracking information"
@@ -5486,7 +5486,7 @@ msgid ""
 "Use the Switch command to do that."
 msgstr ""
 "注意書き：\n"
-"作業コピーは従来のパスのままです。もし、今作成したコピーもしくは分岐に\n"
+"作業コピーは従来のパスのままです。もし、今作成したコピーもしくはブランチに\n"
 "今後の変更をコミットする場合は、そのコピー先の新しいURLに作業コピー全体を\n"
 "切り替える必要があります。\n"
 "本操作を行うためには、切り替えコマンドを使用してください。"
@@ -5846,7 +5846,7 @@ msgstr ""
 
 #. Resource IDs: (1469)
 msgid "Reintegrate a branch"
-msgstr "分岐を再統合する"
+msgstr "ブランチを再統合する"
 
 #. Resource IDs: (230)
 #, c-format
@@ -5925,7 +5925,7 @@ msgstr "%s を削除"
 
 #. Resource IDs: (2052)
 msgid "Remove deleted branches and tags"
-msgstr "削除された分岐／タグを取り除く"
+msgstr "削除されたブランチ／タグを取り除く"
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
@@ -7130,7 +7130,7 @@ msgstr "Subversion サーバファイル:"
 
 #. Resource IDs: (1232)
 msgid "Sw&itch working copy to new branch/tag"
-msgstr "作業コピーを新しい分岐／タグへ切り替える(&I)"
+msgstr "作業コピーを新しいブランチ／タグへ切り替える(&I)"
 
 #. Resource IDs: (229)
 #, c-format
@@ -7147,7 +7147,7 @@ msgstr "左右の入れ替え"
 
 #. Resource IDs: (140)
 msgid "Switch To Branch / Tag"
-msgstr "分岐／タグへ切り替え"
+msgstr "ブランチ／タグへ切り替え"
 
 #. Resource IDs: (3606)
 msgid ""
@@ -7191,7 +7191,7 @@ msgstr "前のドキュメントウィンドウに切り替える"
 
 #. Resource IDs: (9)
 msgid "Switch working copy to another branch / tag"
-msgstr "他の分岐／タグへ作業コピーを切り替え"
+msgstr "他のブランチ／タグへ作業コピーを切り替え"
 
 #. Resource IDs: (65535)
 msgid "Switch:"
@@ -7688,15 +7688,15 @@ msgstr ""
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. Use this to merge all changes of a branch back to trunk."
-msgstr "この方法は、Subversion book で述べられている機能ブランチを作成する場合に利用します。分岐での全ての変更を trunk へマージしたい場合にこの方法を利用してください。"
+msgstr "この方法は、Subversion book で述べられている機能ブランチを作成する場合に利用します。ブランチでの全ての変更を trunk へマージしたい場合にこの方法を利用してください。"
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
-msgstr "これは、1つ以上のリビジョンが分岐（もしくはtrunk）に存在し、それらの変更を別の分岐にポートしたいような場合に使用します。"
+msgstr "これは、1つ以上のリビジョンがブランチ（もしくはtrunk）に存在し、それらの変更を別のブランチにポートしたいような場合に使用します。"
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
-msgstr "この方法は、異なる2つの分岐間の差分を作業コピーにマージしたい場合に利用します。"
+msgstr "この方法は、異なる2つのブランチ間の差分を作業コピーにマージしたい場合に利用します。"
 
 #. Resource IDs: (65535)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -8667,8 +8667,8 @@ msgid ""
 "\n"
 "Do you want to commit anyway?"
 msgstr ""
-"作業コピーがタグのパスを指しています！\n"
-"コミットする前に分岐もしくは trunk へ切り替えてください。\n"
+"作業コピーはタグのパスを指しています！\n"
+"コミットする前にブランチもしくは trunk へ切り替えてください。\n"
 "\n"
 "本当にコミットしてもよろしいですか？"
 
@@ -8689,8 +8689,8 @@ msgid ""
 "show up in the branch/tag!"
 msgstr ""
 "作業コピーにはローカルでの変更が含まれています。\n"
-"最新のリビジョンから分岐／タグをする場合は、ローカルでの変更は\n"
-"分岐／タグには含まれません。"
+"最新のリビジョンからブランチ／タグをする場合は、ローカルでの変更は\n"
+"ブランチ／タグには含まれません。"
 
 #. Resource IDs: (32783)
 msgid "Zoo&m out"
