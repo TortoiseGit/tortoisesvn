@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-30 15:43+0100\n"
+"PO-Revision-Date: 2008-06-09 10:08+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -836,6 +836,10 @@ msgstr "&Nollställ användningsdata"
 msgid "&Reset to Default"
 msgstr "Åte&rställ default"
 
+#. Resource IDs: (114)
+msgid "&Revert changes from these revisions"
+msgstr "Åte&rställ ändringar från de här revisionerna"
+
 #. Resource IDs: (113)
 msgid "&Revert changes from this revision"
 msgstr "&Återställ till denna revisionen"
@@ -975,6 +979,10 @@ msgstr "&TortoiseMerge"
 #. Resource IDs: (9)
 msgid "&TortoiseSVN"
 msgstr "&TortoiseSVN"
+
+#. Resource IDs: (1096)
+msgid "&TortoiseUDiff"
+msgstr "&TortoiseUDiff"
 
 #. Resource IDs: (3845)
 msgid "&Two Page"
@@ -1644,7 +1652,7 @@ msgid ""
 "from the files that you have changed as you type a log message."
 msgstr ""
 "Automatisk ifyllning föreslår ord (vanligtvis klass- eller medlemsnamn),\n"
-"från filer som har ändrats, medans du skriver logmeddelanden."
+"från filer som har ändrats, medans du skriver loggmeddelanden."
 
 #. Resource IDs: (438)
 msgid "Automatic"
@@ -1730,14 +1738,6 @@ msgstr "&Skapa gren / märke..."
 msgid "Break loc&k"
 msgstr "B&ryt lås"
 
-#. Resource IDs: (1009)
-msgid "Bro&wse..."
-msgstr "Blä&ddra..."
-
-#. Resource IDs: (1007)
-msgid "Brows&e..."
-msgstr "Bläddr&a..."
-
 # Hur översätta "diff"
 #. Resource IDs: (78)
 msgid "Browse for the external diff program"
@@ -1766,6 +1766,10 @@ msgstr "Knapputseende"
 #. Resource IDs: (1215)
 msgid "C&heck now"
 msgstr "&Leta nu"
+
+#. Resource IDs: (1132)
+msgid "C&heck repository"
+msgstr "&Kontrollera arkiv"
 
 #. Resource IDs: (65535)
 msgid "C&ommands:"
@@ -1948,10 +1952,6 @@ msgstr "Leta efter ändringar"
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
 msgstr "Hämtar en arbetskopia från ett arkiv"
-
-#. Resource IDs: (1132)
-msgid "Check repository"
-msgstr "Kontrollera arkiv"
 
 #. Resource IDs: (95)
 msgid ""
@@ -2994,6 +2994,10 @@ msgstr "Enhetstyper"
 msgid "E&xact copy sources"
 msgstr "Kopiera källor e&xakt"
 
+#. Resource IDs: (65535)
+msgid "E&xclude paths:"
+msgstr "&Uteslut sökvägar:"
+
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
 msgstr "&Avsluta"
@@ -3250,10 +3254,6 @@ msgstr ""
 msgid "Exceptions:"
 msgstr "Undantag:"
 
-#. Resource IDs: (65535)
-msgid "Exclude paths:"
-msgstr "Uteslut sökvägar:"
-
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
 msgstr "Exekverbar (*.exe)|*.exe|Kommando (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|Alla filer (*.*)|*.*||"
@@ -3334,19 +3334,19 @@ msgstr "Extern"
 
 #. Resource IDs: (65535)
 msgid "External Program:"
-msgstr "Externt program:"
+msgstr "Externa program:"
 
 #. Resource IDs: (192)
 msgid "External Programs::Diff Viewer"
-msgstr "Externt program::Skillnadsvisare"
+msgstr "Externa program::Skillnadsvisare"
 
 #. Resource IDs: (193)
 msgid "External Programs::Merge Tool"
-msgstr "Externt program::Föreningsverktyg"
+msgstr "Externa program::Föreningsverktyg"
 
 #. Resource IDs: (194)
 msgid "External Programs::Unified Diff Viewer"
-msgstr "Externt program::\"Unified Diff\" visare"
+msgstr "Externa program::\"Unified Diff\" visare"
 
 #. Resource IDs: (226)
 msgid "Externals excluded"
@@ -3899,6 +3899,10 @@ msgstr "Kroktyp:"
 msgid "Hostname mismatch (%s)"
 msgstr "Felaktigt hostnamn (%s)"
 
+#. Resource IDs: (65535)
+msgid "I&nclude paths:"
+msgstr "&Inkludera sökvägar:"
+
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -4121,7 +4125,7 @@ msgid ""
 "If set, files inside unversioned folders can be shown in the status control.\n"
 "The status control is used for example in the commit dialog."
 msgstr ""
-"Visa filer inuti ej versionshanterade mappar i status kontrollen.\n"
+"Visa filer inuti mappar som inte är versionshanterade i status kontrollen.\n"
 "Status kontrollen används tex i arkivera dialogen. "
 
 #. Resource IDs: (196)
@@ -4275,10 +4279,6 @@ msgstr "Inkludera förenade revisioner"
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
 msgstr "Inkludera endast följande revisionsinterval:"
-
-#. Resource IDs: (65535)
-msgid "Include paths:"
-msgstr "Inkludera sökvägar:"
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -4723,7 +4723,7 @@ msgstr "Max"
 
 #. Resource IDs: (1317)
 msgid "Max. items to keep in the log message history"
-msgstr "Max antal sparade logmeddelanden"
+msgstr "Max antal sparade loggmeddelanden"
 
 #. Resource IDs: (65535)
 msgid "Max. lines in action log"
@@ -5817,7 +5817,7 @@ msgstr ""
 
 #. Resource IDs: (1260)
 msgid "Recurse into unversioned folders"
-msgstr "Visa ej versionshanterade filer"
+msgstr "Visa filer som inte är versionshanterade"
 
 #. Resource IDs: (563)
 msgid "Recursive"
@@ -6195,10 +6195,6 @@ msgstr "Återställ"
 #. Resource IDs: (77)
 msgid "Revert - TortoiseSVN"
 msgstr "Återställ - TortoiseSVN"
-
-#. Resource IDs: (114)
-msgid "Revert changes from these revisions"
-msgstr "Återställ ändringar från de här revisionerna"
 
 #. Resource IDs: (73)
 msgid "Reverted"
@@ -6626,7 +6622,7 @@ msgstr "Välj krokskriptfil"
 
 #. Resource IDs: (1405)
 msgid "Select items automatically"
-msgstr "Välj objekt automatiskt"
+msgstr "Välj versionshanterade objekt automatiskt"
 
 #. Resource IDs: (78)
 msgid "Select merge application"
@@ -6786,6 +6782,10 @@ msgstr "Visa &historik..."
 msgid "Show &overlays and context menu only in explorer"
 msgstr "Visa &statusikoner och snabbmeny endast i Utforskaren"
 
+#. Resource IDs: (1265)
+msgid "Show &properties"
+msgstr "Visa &egenskaper"
+
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
 msgstr "Visa ej &versionshanterade filer"
@@ -6865,8 +6865,8 @@ msgid "Show f&ull menus after a short delay"
 msgstr "Visa &hela menyerna efter en kort fördröjning"
 
 #. Resource IDs: (1264)
-msgid "Show ignored files"
-msgstr "Visa ignorerade filer"
+msgid "Show i&gnored files"
+msgstr "Visa i&gnorerade filer"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
@@ -6916,10 +6916,6 @@ msgstr "Visa statussymbol för ignorerade objekt"
 msgid "Show overlay for unversioned items"
 msgstr "Visa statussymbol för objekt som inte versionshanteras"
 
-#. Resource IDs: (1265)
-msgid "Show properties"
-msgstr "Visa egenskaper"
-
 #. Resource IDs: (102)
 msgid "Show revision properties"
 msgstr "Visa revisionsegenskaper"
@@ -6945,12 +6941,12 @@ msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Visa märkena på källan av kopieringar, inte som separata noder"
 
 #. Resource IDs: (1209)
-msgid "Show unmodified files"
-msgstr "Visa filer utan ändringar"
+msgid "Show un&modified files"
+msgstr "Visa filer &utan ändringar"
 
 #. Resource IDs: (1073)
-msgid "Show unversioned files"
-msgstr "Visa icke versionshanterade filer"
+msgid "Show un&versioned files"
+msgstr "Visa filer som &inte är versionshanterade"
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -7041,7 +7037,7 @@ msgstr "Sortera efter antalet arkiveringar"
 
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
-msgstr "Specificerar hur många gamla logmeddelanden som ska sparas i logmeddelanden dialogen."
+msgstr "Specificerar hur många gamla loggmeddelanden som ska sparas i loggmeddelanden dialogen."
 
 #. Resource IDs: (79)
 msgid ""
@@ -8249,8 +8245,8 @@ msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Använd a&rbetskopians URL som default \"Från:\" URL"
 
 #. Resource IDs: (1064)
-msgid "Use Unified Diff from clipboard"
-msgstr "Använd patchfil i \"Unified Diff\"-format från urklipp"
+msgid "Use Unified Diff from &clipboard"
+msgstr "Använd &patchfil i \"Unified Diff\"-format från urklipp"
 
 #. Resource IDs: (1296)
 msgid "Use \"_svn\" instead of \".svn\" directories"
@@ -8519,7 +8515,7 @@ msgstr ""
 #. Resource IDs: (65535)
 #, fuzzy
 msgid "Whitespaces"
-msgstr "&Whitespace"
+msgstr "Whitespace"
 
 #. Resource IDs: (1065)
 msgid "Window Position"
@@ -9346,7 +9342,7 @@ msgid ""
 "Minimum size in chars a lock message must have before a lock is allowed."
 msgstr ""
 "tsvn:lockmsgminsize\n"
-"Minsta antalet tecken som ett logmeddelande måste innehålla för att låsning ska tillåtas."
+"Minsta antalet tecken som ett loggmeddelande måste innehålla för att låsning ska tillåtas."
 
 #. Resource IDs: (578)
 msgid ""
@@ -9364,7 +9360,7 @@ msgid ""
 "Minimum size in chars a log message must have before a commit is allowed."
 msgstr ""
 "tsvn:logminsize\n"
-"Minsta antalet tecken som ett logmeddelande måste innehålla för att arkivering ska tillåtas."
+"Minsta antalet tecken som ett loggmeddelande måste innehålla för att arkivering ska tillåtas."
 
 #. Resource IDs: (578)
 msgid ""
@@ -9391,7 +9387,7 @@ msgid ""
 msgstr ""
 "tsvn:logwidthmarker\n"
 "Anger max antal tecken som bör användas per rad i loggmeddelanden.\n"
-"Markeras med en linje i inmatningsfältet för logmeddelanden.\n"
+"Markeras med en linje i inmatningsfältet för loggmeddelanden.\n"
 "Standard är 80 tecken."
 
 #. Resource IDs: (578)
@@ -9401,7 +9397,7 @@ msgid ""
 "TortoiseSVN will then load the appropriate spell checker module if available."
 msgstr ""
 "tsvn:projectlanguage\n"
-"Sätt detta till språknumret du vill att dina logmeddeladnen skall fyllas i med.\n"
+"Sätt detta till språknumret du vill att dina loggmeddeladnen skall fyllas i med.\n"
 "TortoiseSVN kommer sen att ladda in passande språkkontrollsmodul om den är tillgänglig."
 
 #. Resource IDs: (581)
@@ -9488,6 +9484,10 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Bro&wse..."
+#~ msgstr "Blä&ddra..."
+#~ msgid "Brows&e..."
+#~ msgstr "Bläddr&a..."
 #~ msgid "&Open Ctrl-O"
 #~ msgstr "&Öppna Ctrl-O"
 #~ msgid "&Save Ctrl-S"
