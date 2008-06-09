@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-05-30 19:02 +0000\n"
-"PO-Revision-Date: 2008-06-08 07:10+0900\n"
+"PO-Revision-Date: 2008-06-10 08:00+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8283,9 +8283,8 @@ msgstr "この属性には、バグ追跡ツールの URL を設定します。�
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9958
-#, fuzzy
 msgid "You can also use relative URLs instead of absolute ones. This is useful when your issue tracker is on the same domain/server as your source repository. In case the domain name ever changes, you don't have to adjust the <literal>bugtraq:url</literal> property. There are two ways to specify a relative URL:"
-msgstr "絶対 URL の代わりに相対 URL も使用できます。これは、あなたの課題トラッカが、あなたのソースリポジトリと同じドメイン・サーバにある場合に便利です。ドメイン名を変更したとしても、<literal>bugtraq:url</literal> 属性を調整する必要はありません。相対 URL を指定するには 2 つの方法があります。"
+msgstr "絶対 URL の代わりに相対 URL も使用できます。これは、あなたの課題トラッカが、あなたのソースリポジトリと同じドメイン・サーバにある場合に便利です。ドメイン名を変更したとしても、<literal>bugtraq:url</literal> 属性を調整する必要はありません。相対 URL を指定するには以下の 2 つの方法があります。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9965
@@ -9392,7 +9391,6 @@ msgstr "外部マージプログラムを競合したファイルの解消に使
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11430
-#, fuzzy
 msgid ""
 "For example, with Perforce Merge: <screen>\n"
 "C:\\Path-To\\P4Merge.exe %base %theirs %mine %merged\n"
@@ -9414,6 +9412,8 @@ msgstr ""
 "</screen> Araxis の場合: <screen>\n"
 "C:\\Path-To\\compare.exe /max /wait /3 /title1:%tname /title2:%bname\n"
 "    /title3:%yname %theirs %base %mine %merged /a2\n"
+"</screen> WinMerge (2.8 以降) の場合:<screen>\n"
+"C:\\Path-To\\WinMerge.exe %merged\n"
 "</screen>"
 
 #. (title)
@@ -9528,9 +9528,8 @@ msgstr "特定のサーバのみ、認証データをクリアしたければ、
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:11580
-#, fuzzy
 msgid "Action log"
-msgstr "基/論"
+msgstr "アクションログ"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11582
@@ -11089,9 +11088,8 @@ msgstr "svn:externals の利用"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:13171
-#, fuzzy
 msgid "Set the <literal>svn:externals</literal> property for a folder in your project. This property consists of one or more lines; each line has the name of a sub-folder which you want to use as the checkout folder for common code, and the repository URL that you want to be checked out there. For full details refer to <xref linkend=\"tsvn-dug-import-4\"/>."
-msgstr "プロジェクトの中のあるフォルダに <literal>svn:externals</literal> 属性をセットしてください。この属性は複数行からなります。各行には、共通コードをチェックアウトするフォルダとして使用するサブフォルダ名と、そこにチェックアウトするリポジトリの URL を記述します。もっと詳しいことは <xref linkend=\"tsvn-dug-import-4\"/> をご覧ください。"
+msgstr "プロジェクトにあるフォルダに <literal>svn:externals</literal> 属性をセットしてください。この属性は複数行からなります。各行には、共通コードをチェックアウトするフォルダとして使用するサブフォルダ名と、そこにチェックアウトするリポジトリの URL を記述します。もっと詳しいことは <xref linkend=\"tsvn-dug-import-4\"/> をご覧ください。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:13179
@@ -13199,9 +13197,8 @@ msgstr "PuTTY を用いたテスト"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15145
-#, fuzzy
 msgid "To test the connection we will use PuTTY. Start the program and on the <guilabel>Session</guilabel> tab set the hostname to the name or IP address of your server, the protocol to SSH and save the session as <literal>SvnConnection</literal> or whatever name you prefer. On the <guilabel>SSH</guilabel> tab set the preferred SSH protocol version to 2 and from <guilabel>Auth</guilabel> set the full path to the <literal>.PPK</literal> private key file you converted earlier. Go back to the <guilabel>Sessions</guilabel> tab and hit the <guilabel>Save</guilabel> button. You will now see <literal>SvnConnection</literal> in the list of saved sessions."
-msgstr "接続のテストには、PuTTY を使用します。プログラムを起動し、<guilabel>Session</guilabel> タブで、hostname にサーバの名前か IP アドレスを設定し、プロトコルを SSH、保存するセッションに <literal>SvnConnection</literal> やその他適切な名前を指定してください。<guilabel>SSH</guilabel> では、preferred SSH protocol version に 2 を設定し、<guilabel>Auth</guilabel> では先ほど変換した <literal>.PKK</literal> 秘密鍵ファイルへのフルパスを指定してください。<guilabel>Sessions</guilabel> タブに戻り、<guilabel>Save</guilabel> ボタンを押してください。これで saved sessions のリストに <literal>SvnConnection</literal> ができます。"
+msgstr "接続のテストには、PuTTY を使用します。プログラムを起動し、<guilabel>Session</guilabel> タブで、hostname にサーバの名前か IP アドレスを設定し、プロトコルを SSH、保存するセッションに <literal>SvnConnection</literal> やその他適切な名前を指定してください。<guilabel>SSH</guilabel> では、preferred SSH protocol version に 2 を設定し、<guilabel>Auth</guilabel> では先ほど変換した <literal>.PPK</literal> 秘密鍵ファイルへのフルパスを指定してください。<guilabel>Sessions</guilabel> タブに戻り、<guilabel>Save</guilabel> ボタンを押してください。これで saved sessions のリストに <literal>SvnConnection</literal> ができます。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15158
