@@ -724,6 +724,8 @@ bool CRepositoryBrowser::ChangeToUrl(const CString& url, const SVNRev& rev)
 			(url.GetAt(m_strReposRoot.GetLength()) != '/'))
 		{
 			// if the repository root has changed, initialize all data from scratch
+			// and clear the project properties we might have loaded previously
+			m_ProjectProperties = ProjectProperties();
 			m_InitialUrl = url;
 			InitRepo();
 			if ((m_InitialUrl.IsEmpty())||(m_strReposRoot.IsEmpty()))
