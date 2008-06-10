@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-05-27 09:26+0100\n"
+"PO-Revision-Date: 2008-06-10 15:13+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2431,8 +2431,9 @@ msgstr ""
 "<hr=100%%>\n"
 "%s"
 
+# Please insert formatting string %1 into the translation
 #. Resource IDs: (3867)
-#, c-format
+#, fuzzy, c-format
 msgid "Could not create %1 because the directory is full."
 msgstr "%s ელემენტის შექმნა ვერ ხერხდება, რადგან დასტა გადავსებულია."
 
