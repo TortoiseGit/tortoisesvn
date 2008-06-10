@@ -1215,7 +1215,7 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
 		case EOL_LF:	hEndingIcon = m_hLineEndingLF;		break;
 		default: return;
 	}
-	if (origin.x < rc.left)
+	if (origin.x < (rc.left-GetCharWidth()))
 		return;
 	// If EOL style has changed, color end-of-line markers as inline differences.
 	if(
@@ -1473,8 +1473,6 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 	// draw the whitespace chars
 	if (m_bViewWhitespace)
 	{
-		//pszChars += m_nOffsetChar;
-		int nL = nLength-m_nOffsetChar;
 		int xpos = 0;
 		int y = rc.top + (rc.bottom-rc.top)/2;
 
@@ -1487,18 +1485,20 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 				nActualOffset++;
 			pszChars++;
 		}
+		if (nActualOffset > m_nOffsetChar)
+			pszChars--;
 
 		CPen pen(PS_SOLID, 0, m_WhiteSpaceFg);
 		CPen pen2(PS_SOLID, 2, m_WhiteSpaceFg);
-		for (int i=0; i<nL; i++)
+		while (*pszChars)
 		{
-			switch (pszChars[i])
+			switch (*pszChars)
 			{
 			case _T('\t'):
 				{
 					// draw an arrow
 					CPen * oldPen = pDC->SelectObject(&pen);
-					int nSpaces = GetTabSize() - (nActualOffset + xpos) % GetTabSize();
+					int nSpaces = GetTabSize() - (m_nOffsetChar + xpos) % GetTabSize();
 					pDC->MoveTo(xpos * GetCharWidth() + rc.left, y);
 					pDC->LineTo((xpos + nSpaces) * GetCharWidth() + rc.left-2, y);
 					pDC->LineTo((xpos + nSpaces - 1) * GetCharWidth() + rc.left, rc.top+2);
@@ -1522,6 +1522,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 				xpos++;
 				break;
 			}
+			pszChars++;
 		}
 	}
 	DrawBlockLine(pDC, rc, nLineIndex);

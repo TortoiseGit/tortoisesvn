@@ -5,6 +5,8 @@
 - BUG: When an URL was entered in the repository browser which points to a 
        different repository than the one which is currently shown, the
        project properties were not cleared. (Stefan)
+- BUG: The whitespaces and lineending symbols in TortoiseMerge were not
+       properly (re)drawn when scrolling sideways. (Stefan)
 
 Version 1.5.0-RC3
 - NEW: Draw the whitespace chars in gray so they're clearly distinguishable
