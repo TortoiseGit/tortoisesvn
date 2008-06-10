@@ -832,6 +832,11 @@ msgstr "Limpa&r meus dados"
 msgid "&Reset to Default"
 msgstr "&Restaurar padrão"
 
+#. Resource IDs: (114)
+#, fuzzy
+msgid "&Revert changes from these revisions"
+msgstr "Reverter as alterações destas revisões"
+
 #. Resource IDs: (113)
 msgid "&Revert changes from this revision"
 msgstr "&Reverter as alterações desta revisão"
@@ -1751,6 +1756,11 @@ msgstr ""
 msgid "C&heck now"
 msgstr "&Verificar Agora"
 
+#. Resource IDs: (1132)
+#, fuzzy
+msgid "C&heck repository"
+msgstr "Verificar Repositório"
+
 #. Resource IDs: (65535)
 msgid "C&ommands:"
 msgstr "C&omandos:"
@@ -1936,10 +1946,6 @@ msgstr "Veri&ficar Alterações"
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
 msgstr "Obter uma cópia de trabalho do repositório"
-
-#. Resource IDs: (1132)
-msgid "Check repository"
-msgstr "Verificar Repositório"
 
 #. Resource IDs: (95)
 msgid ""
@@ -2959,6 +2965,11 @@ msgstr "Tipos de dispositivos"
 msgid "E&xact copy sources"
 msgstr "Cópia e&xata da fonte"
 
+#. Resource IDs: (65535)
+#, fuzzy
+msgid "E&xclude paths:"
+msgstr "Excluir caminhos:"
+
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
 msgstr "Sai&r"
@@ -3211,10 +3222,6 @@ msgstr ""
 #. Resource IDs: (1413)
 msgid "Exceptions:"
 msgstr "Exceções:"
-
-#. Resource IDs: (65535)
-msgid "Exclude paths:"
-msgstr "Excluir caminhos:"
 
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
@@ -3851,6 +3858,11 @@ msgstr "Tipo de Gancho:"
 #, c-format
 msgid "Hostname mismatch (%s)"
 msgstr "Nome do Servidor não coincide (%s)"
+
+#. Resource IDs: (65535)
+#, fuzzy
+msgid "I&nclude paths:"
+msgstr "Incluir caminhos:"
 
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
@@ -5373,7 +5385,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Page :"
-msgstr ""
+msgstr "Página :"
 
 #. Resource IDs: (63)
 msgid "Parameters"
@@ -5381,7 +5393,7 @@ msgstr "Parâmetros"
 
 #. Resource IDs: (1477)
 msgid "Parameters:"
-msgstr ""
+msgstr "Parâmetros:"
 
 #. Resource IDs: (69)
 msgid "Password:"
@@ -6726,6 +6738,11 @@ msgstr "Mensagens de &log..."
 msgid "Show &overlays and context menu only in explorer"
 msgstr "Visualizar s&obreposições apenas no explorer"
 
+#. Resource IDs: (1265)
+#, fuzzy
+msgid "Show &properties"
+msgstr "Mostrar propriedades"
+
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
 msgstr "Exibir arq&uivos sem controle de versão"
@@ -6804,8 +6821,9 @@ msgid "Show f&ull menus after a short delay"
 msgstr ""
 
 #. Resource IDs: (1264)
-msgid "Show ignored files"
-msgstr "Mostrar arquivos ignorados"
+#, fuzzy
+msgid "Show i&gnored files"
+msgstr "Mostrar arquivos i&gnorados"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
@@ -6886,12 +6904,14 @@ msgid "Show tags on the copy source, not as separate nodes"
 msgstr "Mostrar rótulos no fonte copiada, não como um nó separado"
 
 #. Resource IDs: (1209)
-msgid "Show unmodified files"
-msgstr "Mostrar arquivos não modificados"
+#, fuzzy
+msgid "Show un&modified files"
+msgstr "Mostrar arquivos não &modificados"
 
 #. Resource IDs: (1073)
-msgid "Show unversioned files"
-msgstr "Mostrar arquivos sem controle de versão"
+#, fuzzy
+msgid "Show un&versioned files"
+msgstr "Mostrar arquivos sem co&ntrole de versão"
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -8180,7 +8200,8 @@ msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Usa a URL da Cópia de &Trabalho como a URL \"De:\" padrão"
 
 #. Resource IDs: (1064)
-msgid "Use Unified Diff from clipboard"
+#, fuzzy
+msgid "Use Unified Diff from &clipboard"
 msgstr "Usar Comparação Unificada a partir da área de transferência"
 
 #. Resource IDs: (1296)
@@ -9399,6 +9420,10 @@ msgstr "Sim"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Bro&wse..."
+#~ msgstr "Nave&gar..."
+#~ msgid "Brows&e..."
+#~ msgstr "Navega&r..."
 #~ msgid "&Open Ctrl-O"
 #~ msgstr "&Abrir Ctrl-O"
 #~ msgid "&Save Ctrl-S"
