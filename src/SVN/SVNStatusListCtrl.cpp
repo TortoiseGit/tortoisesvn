@@ -547,11 +547,15 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 						break;
 					}
 				}
+				if (s == 0)
+				{
+					m_sLastError = status.GetLastErrorMsg();
+					return false;
+				}
 				// Now, set working target to be the base folder of this item
 				workingTarget = workingTarget.GetDirectory();
 			}
 		}
-
 		bool bEntryFromDifferentRepo = false;
 		// Is this a versioned item with an associated repos UUID?
 		if ((s->entry)&&(s->entry->uuid))
