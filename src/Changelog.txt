@@ -7,6 +7,8 @@
        project properties were not cleared. (Stefan)
 - BUG: The whitespaces and lineending symbols in TortoiseMerge were not
        properly (re)drawn when scrolling sideways. (Stefan)
+- BUG: The line endings were inline colored as different even if the
+       line ending hasn't really changed. (Stefan)
 
 Version 1.5.0-RC3
 - NEW: Draw the whitespace chars in gray so they're clearly distinguishable

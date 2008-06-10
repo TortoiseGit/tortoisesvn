@@ -1221,7 +1221,9 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
 	if(
 		m_bShowInlineDiff && m_pOtherViewData &&
 		(nLineIndex < m_pOtherViewData->GetCount()) &&
-		(ending != m_pOtherViewData->GetLineEnding(nLineIndex))
+		(ending != EOL_NOENDING) &&
+		(ending != m_pOtherViewData->GetLineEnding(nLineIndex) &&
+		(m_pOtherViewData->GetLineEnding(nLineIndex) != EOL_NOENDING))
 	)
 	{
 		pDC->FillSolidRect(origin.x, origin.y, rc.Height(), rc.Height(), InlineDiffColor(nLineIndex));
