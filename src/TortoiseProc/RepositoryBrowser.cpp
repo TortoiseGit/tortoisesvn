@@ -2064,7 +2064,13 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				m_RepoTree.SetItemState(hItem, 0, TVIS_DROPHILITED);
 			}
 		}
-
+		if (hSelectedTreeItem)
+		{
+			m_blockEvents = true;
+			m_RepoTree.SetItemState(hSelectedTreeItem, 0, TVIS_DROPHILITED);
+			m_RepoTree.SetItemState(hSelectedTreeItem, TVIS_SELECTED, TVIS_SELECTED);
+			m_blockEvents = false;
+		}
 		DialogEnableWindow(IDOK, FALSE);
 		bool bOpenWith = false;
 		switch (cmd)
