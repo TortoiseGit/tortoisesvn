@@ -527,6 +527,7 @@ BOOL CEditPropertiesDlg::PreTranslateMessage(MSG* pMsg)
 
 void CEditPropertiesDlg::OnBnClickedSaveprop()
 {
+	m_tooltips.Pop();	// hide the tooltips
 	int selIndex = m_propList.GetSelectionMark();
 
 	CString sName;
@@ -561,6 +562,7 @@ void CEditPropertiesDlg::OnBnClickedSaveprop()
 
 void CEditPropertiesDlg::OnBnClickedExport()
 {
+	m_tooltips.Pop();	// hide the tooltips
 	if (m_propList.GetSelectedCount() == 0)
 		return;
 
@@ -611,6 +613,7 @@ void CEditPropertiesDlg::OnBnClickedExport()
 
 void CEditPropertiesDlg::OnBnClickedImport()
 {
+	m_tooltips.Pop();	// hide the tooltips
 	CString openPath;
 	if (!CAppUtils::FileOpenSave(openPath, NULL, IDS_REPOBROWSE_OPEN, IDS_PROPSFILEFILTER, true, m_hWnd))
 	{
