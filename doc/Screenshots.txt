@@ -1,3 +1,5 @@
+Grabbing Screenshots for TortoiseSVN Docs
+=========================================
 This file is a guide to grabbing screenshots for the user manual.
 Although there are not many hard and fast rules, some screenshots need
 care to set up as they are demonstrating a range of features.
@@ -9,6 +11,13 @@ out at C:\TortoiseSVN\Doc. Adjust the path according to your location.
 
 If you do not already have a screen capture/image viewer program,
 download a free copy of IrfanView from www.irfanview.com
+
+You will also need to ensure that the screenshots are at the correct
+DPI setting and size to fit the page. Fortunately this is easy as you
+can use the AdjustImages.bat script which does the conversion for you.
+This script requires NConvert.exe which you can download from
+http://www.xnview.com
+
 
 General rules for all screenshots
 =================================
