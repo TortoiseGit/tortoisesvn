@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-10 21:05+0100\n"
+"PO-Revision-Date: 2008-06-10 21:38+0100\n"
 "Last-Translator: Halász Gábor <k@elitonline.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2555,7 +2555,7 @@ msgstr "Nem érhető el az állapot!"
 #. Resource IDs: (582)
 #, fuzzy, c-format
 msgid "Could not merge \"%s\" because"
-msgstr "Nem érhető el az állapot"
+msgstr "\"%s\" nem egyesíthető, mert"
 
 #. Resource IDs: (582)
 #, c-format
@@ -4999,7 +4999,7 @@ msgstr "Egyesítve"
 #. Resource IDs: (286)
 #, fuzzy, c-format
 msgid "Merged revision(s) %s from %s:\n"
-msgstr "%s verzió hozzáfűzése a fájlhoz:"
+msgstr "Egyesített verzió(k) %s-től %s-id:\n"
 
 #. Resource IDs: (10)
 msgid "Merges a branch into the main trunk"
@@ -5026,7 +5026,7 @@ msgstr "%s egyesítése, %s verzióból ide: %s, %s verzióból ebbe: %s, %s%s"
 #. Resource IDs: (264)
 #, fuzzy, c-format
 msgid "Merging r%ld"
-msgstr "Beépítés"
+msgstr "%ld egyesítése"
 
 #. Resource IDs: (264)
 #, fuzzy, c-format
@@ -5040,7 +5040,7 @@ msgstr "Az egyesítéshez különböző verzió vagy URL kell a 'Innen:' és 'Id
 #. Resource IDs: (229)
 #, fuzzy, c-format
 msgid "Merging revisions %s of %s into %s, %s%s"
-msgstr "%s összegyúrása %s verzióból %s verzióba, ebbe: %s, %s%s"
+msgstr "Verziók egyesítése %s, %s ebben: %s, %s%s"
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
@@ -6602,12 +6602,12 @@ msgstr "Jobb oldali kép"
 #. Resource IDs: (1070)
 #, fuzzy, c-format
 msgid "Row %d of %d"
-msgstr "%ld / %ld"
+msgstr "%d / %d sor"
 
 #. Resource IDs: (1070)
 #, fuzzy, c-format
 msgid "Row %d-%d of %d"
-msgstr "%ld / %ld"
+msgstr "%d-%d / %d sor"
 
 #. Resource IDs: (17045)
 #, fuzzy
@@ -8984,7 +8984,7 @@ msgstr ""
 #. Resource IDs: (1002)
 #, fuzzy, c-format
 msgid "You may define up to %d tools."
-msgstr "Legfeljebb %s eszközt definiálhatsz."
+msgstr "Legfeljebb %d eszközt definiálhatsz."
 
 #. Resource IDs: (196)
 msgid "You must restart your system for the changes to take effect."
