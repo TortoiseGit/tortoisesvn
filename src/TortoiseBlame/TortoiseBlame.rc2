@@ -27,13 +27,13 @@ BEGIN
     BEGIN
         BLOCK "040004e4"
         BEGIN
-            VALUE "CompanyName", "http://tortoisesvn.net"
-            VALUE "FileDescription", "TortoiseBlame"
+            VALUE "CompanyName", "http://tortoisesvn.net\0"
+            VALUE "FileDescription", "TortoiseBlame\0"
             VALUE "FileVersion", STRFILEVER
-            VALUE "InternalName", "TortoiseBlame.exe"
-            VALUE "LegalCopyright", "Copyright (C) 2003-2008 - TortoiseSVN"
-            VALUE "OriginalFilename", "TortoiseBlame.exe"
-            VALUE "ProductName", "TortoiseBlame"
+            VALUE "InternalName", "TortoiseBlame.exe\0"
+            VALUE "LegalCopyright", "Copyright (C) 2003-2008 - TortoiseSVN\0"
+            VALUE "OriginalFilename", "TortoiseBlame.exe\0"
+            VALUE "ProductName", "TortoiseBlame\0"
             VALUE "ProductVersion", STRPRODUCTVER
         END
     END

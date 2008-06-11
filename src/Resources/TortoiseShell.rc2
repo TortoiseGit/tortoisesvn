@@ -31,13 +31,13 @@ BEGIN
     BEGIN
         BLOCK "040004e4"
         BEGIN
-            VALUE "CompanyName", "http://tortoisesvn.net"
-            VALUE "FileDescription", "TortoiseSVN shell extension client"
+            VALUE "CompanyName", "http://tortoisesvn.net\0"
+            VALUE "FileDescription", "TortoiseSVN shell extension client\0"
             VALUE "FileVersion", STRFILEVER
-            VALUE "InternalName", "TortoiseSVN.dll"
-            VALUE "LegalCopyright", "Copyright (C) 2003-2008 - TortoiseSVN"
-            VALUE "OriginalFilename", "TortoiseSVN.dll"
-            VALUE "ProductName", "TortoiseSVN"
+            VALUE "InternalName", "TortoiseSVN.dll\0"
+            VALUE "LegalCopyright", "Copyright (C) 2003-2008 - TortoiseSVN\0"
+            VALUE "OriginalFilename", "TortoiseSVN.dll\0"
+            VALUE "ProductName", "TortoiseSVN\0"
             VALUE "ProductVersion", STRPRODUCTVER
         END
     END

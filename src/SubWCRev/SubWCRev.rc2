@@ -31,13 +31,13 @@ BEGIN
     BEGIN
         BLOCK "040004e4"
         BEGIN
-            VALUE "CompanyName", "http://tortoisesvn.net"
-            VALUE "FileDescription", "SubWCRev"
+            VALUE "CompanyName", "http://tortoisesvn.net\0"
+            VALUE "FileDescription", "SubWCRev\0"
             VALUE "FileVersion", STRFILEVER
-            VALUE "InternalName", "SubWCRev.exe"
-            VALUE "LegalCopyright", "Copyright (C) 2003-2008 - TortoiseSVN"
-            VALUE "OriginalFilename", "SubWCRev.exe"
-            VALUE "ProductName", "SubWCRev"
+            VALUE "InternalName", "SubWCRev.exe\0"
+            VALUE "LegalCopyright", "Copyright (C) 2003-2008 - TortoiseSVN\0"
+            VALUE "OriginalFilename", "SubWCRev.exe\0"
+            VALUE "ProductName", "SubWCRev\0"
             VALUE "ProductVersion", STRPRODUCTVER
         END
     END
