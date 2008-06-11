@@ -186,19 +186,28 @@ bool CPicture::Load(stdstring sFilePathName)
 					{
 						// we have the icon. Now gather the information we need later
 						CloseHandle(hFile);
-						nCurrentIcon = 0;
-						LPICONDIR lpIconDir = (LPICONDIR)lpIcons;
-						hIcons = new HICON[lpIconDir->idCount];
-						m_Width = lpIconDir->idEntries[0].bWidth;
-						m_Height = lpIconDir->idEntries[0].bHeight;
-						for (int i=0; i<lpIconDir->idCount; ++i)
+						if (readbytes >= sizeof(ICONDIR))
 						{
-							hIcons[i] = (HICON)LoadImage(NULL, sFilePathName.c_str(), IMAGE_ICON, 
-								lpIconDir->idEntries[i].bWidth,
-								lpIconDir->idEntries[i].bHeight,
-								LR_LOADFROMFILE);
+							nCurrentIcon = 0;
+							LPICONDIR lpIconDir = (LPICONDIR)lpIcons;
+							hIcons = new HICON[lpIconDir->idCount];
+							m_Width = lpIconDir->idEntries[0].bWidth;
+							m_Height = lpIconDir->idEntries[0].bHeight;
+							for (int i=0; i<lpIconDir->idCount; ++i)
+							{
+								hIcons[i] = (HICON)LoadImage(NULL, sFilePathName.c_str(), IMAGE_ICON, 
+									lpIconDir->idEntries[i].bWidth,
+									lpIconDir->idEntries[i].bHeight,
+									LR_LOADFROMFILE);
+							}
+							bResult = true;
 						}
-						bResult = true;
+						else
+						{
+							delete lpIcons;
+							lpIcons = NULL;
+							bResult = false;
+						}
 					}
 					else
 					{
