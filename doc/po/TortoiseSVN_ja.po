@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-05-30 19:02 +0000\n"
-"PO-Revision-Date: 2008-06-10 08:00+0900\n"
+"PO-Revision-Date: 2008-06-11 15:55+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -251,7 +251,7 @@ msgstr "The Subversion Book"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:218
 msgid "for the great introduction to Subversion and its chapter 2 which we copied here"
-msgstr "Subversion のすばらしい導入に (2章はここからのコピー)"
+msgstr "Subversion のすばらしい導入に (2 章はここからのコピー)"
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:225
@@ -8309,7 +8309,7 @@ msgstr "TortoiseSVN と課題トラッカを統合するには、2 つ方法が�
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10002
 msgid "Issue Number in Text Box"
-msgstr ""
+msgstr "テキストボックスへの課題番号"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10011
@@ -8339,7 +8339,7 @@ msgstr "シンプルアプローチでは、TortoiseSVN はユーザに、バグ
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10076
 msgid "Issue Numbers Using Regular Expressions"
-msgstr ""
+msgstr "正規表現を利用した課題番号"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10088
@@ -8389,12 +8389,12 @@ msgstr "<literal>bugtraq:message</literal> と <literal>bugtraq:logregex</litera
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10157
 msgid "Even if you don't have an issue tracker with a pre-commit hook parsing your log messages, you still can use this to turn the issues mentioned in your log messages into links!"
-msgstr "pre-commit フックスクリプトで解釈していれば、課題トラッカがない場合でも、ログメッセージ内の課題に言及している箇所がリンクになる状態のままです!"
+msgstr "pre-commit フックスクリプトで解釈していれば、課題トラッカがない場合でも、ログメッセージ内の課題に言及している箇所を、リンクにするために使用できます!"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10162
 msgid "And even if you don't need the links, the issue numbers show up as a separate column in the log dialog, making it easier to find the changes which relate to a particular issue."
-msgstr ""
+msgstr "またリンクが必要なくても、課題番号がログダイアログの独立した列に表示されるので、どの課題に対応する変更かがわかりやすくなります。"
 
 #. (title)
 #. (title)
@@ -8425,22 +8425,24 @@ msgstr "この課題追跡システムとの統合は、TortoiseSVN に限定さ
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10206
 msgid "Getting Information from the Issue Tracker"
-msgstr ""
+msgstr "課題トラッカからの情報取得"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10207
+#, fuzzy
 msgid "The previous section deals with adding issue information to the log messages. But what if you need to get information from the issue tracker? The commit dialog has a Windows COM interface which allows integration an external program that can talk to your tracker. Typically you might want to query the tracker to get a list of open issues assigned to you, so that you can pick the issues that are being addressed in this commit."
-msgstr ""
+msgstr "前項では、ログメッセージへ課題情報の追加について扱いました。しかし、課題トラッカから情報を取得する必要がある場合、どのようにしたらよいのでしょう? コミットダイアログは、課題トラッカと会話ができるような、外部プログラムを統合する Windows COM インターフェースを備えています。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10216
+#, fuzzy
 msgid "Any such interface is of course highly specific to your system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample programs can be obtained from the <literal>contrib</literal> folder in the in the <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>."
-msgstr ""
+msgstr "そのようなインターフェースは、もちろん強くあなたのシステムに特化しており、この部分を私たちは提供できません。また、そのようなプログラムの作成について説明するのは、このマニュアルの範疇を外れてしまいます。インターフェースの定義やサンプルプログラムは、<ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN リポジトリ</citetitle></ulink> の <literal>contrib</literal> フォルダから obtain できます。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10235
 msgid "Example issue tracker query dialog"
-msgstr ""
+msgstr "課題トラッカクエリダイアログの例"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10227
@@ -9534,17 +9536,17 @@ msgstr "アクションログ"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11582
 msgid "TortoiseSVN keeps a log of everything written to its progress dialogs. This can be useful when, for example, you want to check what happened in a recent update command."
-msgstr ""
+msgstr "TortoiseSVN は、進行ダイアログに書き込まれたすべてのログを保持しています。これは例えば、最近の更新コマンドで何が起きたのかをチェックしたいときに便利です。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11587
 msgid "The log file is limited in length and when it grows too big the oldest content is discarded. By default 4000 lines are kept, but you can customize that number."
-msgstr ""
+msgstr "ログファイルは長さを制限しており、大きくなりすぎたときには古い内容から破棄していきます。デフォルトでは 4000 行保持しますが、この数字はカスタマイズできます。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11592
 msgid "From here you can view the log file content, and also clear it."
-msgstr ""
+msgstr "ここからログファイルの内容の確認や消去ができます。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:11601
