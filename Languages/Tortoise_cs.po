@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-10 13:14+0100\n"
+"PO-Revision-Date: 2008-06-11 11:36+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1163,12 +1163,10 @@ msgid "?"
 msgstr "?"
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid "A list of user defined properties for files to show in the combo box"
 msgstr "Zoznam uživatelských vlastností souborů v rolovacím boxe"
 
 #. Resource IDs: (579)
-#, fuzzy
 msgid "A list of user defined properties for folders to show in the combo box"
 msgstr "Zoznam uživatelských vlastností adresářů v rolovacím boxe"
 
@@ -2092,7 +2090,6 @@ msgid "Close"
 msgstr "Zavřít"
 
 #. Resource IDs: (1065)
-#, fuzzy
 msgid "Close Full Screen"
 msgstr "Zavřít Plnou Obrazovku"
 
@@ -2817,7 +2814,6 @@ msgid "Diffing"
 msgstr "Srovnávání"
 
 #. Resource IDs: (14)
-#, fuzzy
 msgid "Diffs the working copy file with the one before the last commit."
 msgstr "Porovná soubor pracovní kopie s předposlením odevzdáním."
 
@@ -3808,9 +3804,8 @@ msgid "Help"
 msgstr "Nápověda"
 
 #. Resource IDs: (16982)
-#, fuzzy
 msgid "Help Keyboard"
-msgstr "Pomoc Klávesnice"
+msgstr "Klávesnice Pomoci"
 
 #. Resource IDs: (16974)
 msgid "Hex"
@@ -4541,7 +4536,6 @@ msgstr ""
 "uložiště daného URL má uložit."
 
 #. Resource IDs: (32854)
-#, fuzzy
 msgid "Locator Bar"
 msgstr "Lokační Sloupec"
 
@@ -5072,14 +5066,13 @@ msgid "No files or folders were modified. There is nothing for TortoiseSVN to re
 msgstr "Žádné soubory, ani složky nebyly modifikovány. TortoiseSVN nemá co navrátit!"
 
 #. Resource IDs: (239)
-#, fuzzy
 msgid ""
 "No files to show with the current setting.\n"
 "Check one or more settings below to see unversioned, ignored and/or unmodified files.\n"
 "To see remote changes, click on \"Check Repository\""
 msgstr ""
 "Podle aktuálního nastavení nejsou žádne soubory k zobrayení.\n"
-"Skontrujte nastavení dole aby byly zobrázeny neverziovany, ignorovany a/nebo nezměnené soubory.\n"
+"Skontrujte nastavení dole aby byly zobrazeny neverziovány, ignorovány a/nebo nezměnené soubory.\n"
 "Aby ste videli vzdálené změny, kliknite na \"Skontrolovat úložiste\""
 
 #. Resource IDs: (77)
@@ -5274,9 +5267,8 @@ msgstr ""
 "jsou povolené!"
 
 #. Resource IDs: (1424)
-#, fuzzy
 msgid "Only record the merge"
-msgstr "Zaznamenat je sloučení"
+msgstr "Sloučení jen zaznamenat"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -5855,7 +5847,7 @@ msgid "Reintegrate a branch"
 msgstr "Znovuintegrace kmene"
 
 #. Resource IDs: (230)
-#, fuzzy, c-format
+#, c-format
 msgid "Reintegrate merge %s into %s"
 msgstr "Znovuintegrace sloučení %s do %s"
 
@@ -6320,9 +6312,8 @@ msgid "S&how Buttons on Two Rows"
 msgstr "Z&obrazit Tlačítka ve Dvou Řádcích"
 
 #. Resource IDs: (17078)
-#, fuzzy
 msgid "S&how Quick Access Toolbar below the Ribbon"
-msgstr "&Zobrazit Lištu Rýchlého Přístupu pod Ribonem"
+msgstr "&Zobrazit Lištu Rýchlého Přístupu pod Ribbonem"
 
 #. Resource IDs: (1132)
 msgid "S&tatistics"
@@ -6757,14 +6748,12 @@ msgid "Show &unversioned files"
 msgstr "&Ukázat neverzované soubory"
 
 #. Resource IDs: (1069)
-#, fuzzy
 msgid "Show Above the Ribbon"
-msgstr "Zobrazit Nad Ribonem"
+msgstr "Zobrazit Nad Ribbonem"
 
 #. Resource IDs: (1069)
-#, fuzzy
 msgid "Show Below the Ribbon"
-msgstr "Zobrazit Pod Ribonem"
+msgstr "Zobrazit Pod Ribbonem"
 
 #. Resource IDs: (1065)
 msgid "Show Fewer Buttons"
@@ -6799,14 +6788,12 @@ msgid "Show Ove&rview"
 msgstr "Z&obrazit Přehled"
 
 #. Resource IDs: (1068)
-#, fuzzy
 msgid "Show Quick Access Toolbar Above the Ribbon"
-msgstr "Zobrazit Lištu Rýchlého Přístupu nad Ribonem"
+msgstr "Zobrazit Lištu Rýchlého Přístupu nad Ribbonem"
 
 #. Resource IDs: (1068)
-#, fuzzy
 msgid "Show Quick Access Toolbar Below the Ribbon"
-msgstr "Zobrazit Lištu Rýchlého Přístupu pod Ribonem"
+msgstr "Zobrazit Lištu Rýchlého Přístupu pod Ribbonem"
 
 #. Resource IDs: (16651)
 msgid "Show Screen&Tips on toolbars"
@@ -7416,13 +7403,12 @@ msgid "The lock has already been broken from another working copy"
 msgstr "Zámek již byl rozbit jinou pracovní kopií"
 
 #. Resource IDs: (198)
-#, fuzzy
 msgid ""
 "The maximum number of action log lines to keep.\n"
 "Any lines added over this limit will remove the oldest lines from the file."
 msgstr ""
 "Maximálny počet řádku logu akcí, kde mají být uchovány.\n"
-"Any lines added over this limit will remove the oldest lines from the file."
+"Po přidání žadku nad tenhle počet vyvolá smazání nejstaršiho řádku se souboru."
 
 #. Resource IDs: (63)
 msgid ""
@@ -7694,14 +7680,12 @@ msgstr ""
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #. Resource IDs: (594)
-#, fuzzy
 msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. Use this to merge all changes of a branch back to trunk."
-msgstr "Tahle metóda pokrívá případ kdy ste vytvořili větev jak je popsáno v knize Subversion. Todle použíjte k sloučení všech změn z větve spět do kmene."
+msgstr "Tahle metóda pokrívá případ kdy ste vytvořili větev jak je popsáno v knize Subversion. Použíjte k sloučení všech změn z větve spět do kmene."
 
 #. Resource IDs: (594)
-#, fuzzy
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
-msgstr "Tahle metóda pokrívá případ kdy ste vytvořili jednu nebo více revizí do větvy (nebo kmeně) a chcete změny ... do jiné větve."
+msgstr "Tahle metóda pokrívá případ kdy ste vytvořili jednu nebo více revizí do větvy (nebo kmeně) a chcete portovat tyhle změny do jiné větve."
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
@@ -8925,7 +8909,6 @@ msgid "disk [kB]: "
 msgstr "disk [kB]: "
 
 #. Resource IDs: (58116)
-#, fuzzy
 msgid "dummy"
 msgstr "dummy"
 
@@ -9004,7 +8987,6 @@ msgid "locked:"
 msgstr "uzamčeno:"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "max revision: "
 msgstr "max revize: "
 
@@ -9134,7 +9116,7 @@ msgstr "počet revizi:"
 #. Resource IDs: (326)
 #, c-format
 msgid "revisions %s-%s, %s"
-msgstr "revize%s-%s, %s"
+msgstr "revize %s-%s, %s"
 
 #. Resource IDs: (65535)
 msgid "revisions: "
@@ -9330,13 +9312,12 @@ msgstr ""
 "Minimumální velikost (ve znacích) záznamu logu. Kolik znaků má mít záznam před tím, než může být povoleno odevzdání."
 
 #. Resource IDs: (578)
-#, fuzzy
 msgid ""
 "tsvn:logsummary\n"
 "A regex string which extracts a summary from a log message in its first group."
 msgstr ""
 "tsvn:logsummary\n"
-"Regex řetezec pro extrahovaní ... z logu z jeho prvé skupiny."
+"Regex řetezec pro extrahovaní obsahu z logu z jeho prvé skupiny."
 
 #. Resource IDs: (578)
 msgid ""
