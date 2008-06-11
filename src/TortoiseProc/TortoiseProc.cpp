@@ -51,8 +51,8 @@
 #pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
 
 
-BEGIN_MESSAGE_MAP(CTortoiseProcApp, CWinApp)
-	ON_COMMAND(ID_HELP, CWinApp::OnHelp)
+BEGIN_MESSAGE_MAP(CTortoiseProcApp, CWinAppEx)
+	ON_COMMAND(ID_HELP, CWinAppEx::OnHelp)
 END_MESSAGE_MAP()
 
 
@@ -69,6 +69,8 @@ CTortoiseProcApp::CTortoiseProcApp()
 	SYS_IMAGE_LIST();
 	CHooks::Create();
 	g_SVNAdminDir.Init();
+	m_bLoadUserToolbars = FALSE;
+	m_bSaveState = FALSE;
 }
 
 CTortoiseProcApp::~CTortoiseProcApp()
@@ -211,7 +213,7 @@ BOOL CTortoiseProcApp::InitInstance()
 	AfxOleInit();
 	AfxEnableControlContainer();
 	AfxInitRichEdit2();
-	CWinApp::InitInstance();
+	CWinAppEx::InitInstance();
 	SetRegistryKey(_T("TortoiseSVN"));
 
 	CCmdLineParser parser(AfxGetApp()->m_lpCmdLine);
