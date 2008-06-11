@@ -45,6 +45,7 @@ void CRelocateDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CRelocateDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
+	ON_WM_SIZING()
 END_MESSAGE_MAP()
 
 BOOL CRelocateDlg::OnInitDialog()
@@ -54,6 +55,10 @@ BOOL CRelocateDlg::OnInitDialog()
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
 	m_URLCombo.SetCurSel(0);
+
+	RECT rect;
+	GetWindowRect(&rect);
+	m_height = rect.bottom - rect.top;
 
 	AddAnchor(IDC_TOURL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_BROWSE, TOP_RIGHT);
@@ -88,4 +93,23 @@ void CRelocateDlg::OnOK()
 void CRelocateDlg::OnBnClickedHelp()
 {
 	OnHelp();
+}
+
+void CRelocateDlg::OnSizing(UINT fwSide, LPRECT pRect)
+{
+	// don't allow the dialog to be changed in height
+	switch (fwSide)
+	{
+	case WMSZ_BOTTOM:
+	case WMSZ_BOTTOMLEFT:
+	case WMSZ_BOTTOMRIGHT:
+		pRect->bottom = pRect->top + m_height;
+		break;
+	case WMSZ_TOP:
+	case WMSZ_TOPLEFT:
+	case WMSZ_TOPRIGHT:
+		pRect->top = pRect->bottom - m_height;
+		break;
+	}
+	CResizableStandAloneDialog::OnSizing(fwSide, pRect);
 }
