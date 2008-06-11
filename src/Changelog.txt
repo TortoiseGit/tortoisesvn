@@ -11,6 +11,9 @@
        line ending hasn't really changed. (Stefan)
 - BUG: TortoiseIDiff could crash when an added icon was diffed against an
        empty icon. (Stefan)
+- BUG: The MFC internal dialogs were not translated in TortoiseProc. (Stefan)
+- BUG: The TortoiseBlame tab size was always initialized to 4 in the
+       settings dialog. (Stefan)
 
 Version 1.5.0-RC3
 - NEW: Draw the whitespace chars in gray so they're clearly distinguishable

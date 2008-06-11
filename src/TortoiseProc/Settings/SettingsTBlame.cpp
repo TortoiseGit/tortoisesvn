@@ -90,6 +90,7 @@ BOOL CSettingsTBlame::OnInitDialog()
 	m_cOldLinesColor.EnableAutomaticButton(sDefaultText, RGB(230, 230, 255));
 	m_cOldLinesColor.EnableOtherButton(sCustomText);
 
+	m_dwTabSize = m_regTabSize;
 	m_sFontName = m_regFontName;
 	m_dwFontSize = m_regFontSize;
 	int count = 0;
