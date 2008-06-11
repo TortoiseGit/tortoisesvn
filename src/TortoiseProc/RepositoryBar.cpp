@@ -291,6 +291,8 @@ void CRepositoryBar::OnCbnSelChange()
 void CRepositoryBar::OnBnClicked()
 {
 	CString revision;
+
+	m_tooltips.Pop();
 	m_btnRevision.GetWindowText(revision);
 
 	CRevisionDlg dlg(this);

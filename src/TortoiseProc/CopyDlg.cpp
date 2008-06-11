@@ -278,6 +278,7 @@ void CCopyDlg::OnBnClickedBrowse()
 
 void CCopyDlg::OnBnClickedHelp()
 {
+	m_tooltips.Pop();	// hide the tooltips
 	OnHelp();
 }
 
