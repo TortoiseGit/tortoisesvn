@@ -1,9 +1,9 @@
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"> 
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
-<xsl:import href="../htmlhelp.xsl"/> 
+<xsl:import href="../htmlhelp.xsl"/>
 
-<xsl:param name="chunker.output.encoding" select="'Shift_JIS'"/> 
-<xsl:param name="htmlhelp.encoding" select="'Shift_JIS'"/> 
+<xsl:param name="chunker.output.encoding" select="'Shift_JIS'"/>
+<xsl:param name="htmlhelp.encoding" select="'Shift_JIS'"/>
 
 <xsl:template name="person.name.family-given">
   <xsl:param name="node" select="."/>
@@ -41,4 +41,4 @@
   </xsl:if>
 </xsl:template>
 
-</xsl:stylesheet> 
+</xsl:stylesheet>
