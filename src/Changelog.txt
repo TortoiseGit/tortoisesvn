@@ -14,6 +14,8 @@
 - BUG: The MFC internal dialogs were not translated in TortoiseProc. (Stefan)
 - BUG: The TortoiseBlame tab size was always initialized to 4 in the
        settings dialog. (Stefan)
+- BUG: Opening the log dialog twice for the same repository caused the
+       log cache to be deleted. (Stefan Fuhrmann)
 
 Version 1.5.0-RC3
 - NEW: Draw the whitespace chars in gray so they're clearly distinguishable
