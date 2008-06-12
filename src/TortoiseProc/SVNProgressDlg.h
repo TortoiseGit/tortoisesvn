@@ -62,6 +62,8 @@ typedef enum
 	CLOSE_LOCAL
 } ProgressCloseOptions;
 
+#define WM_SHOWCONFLICTRESOLVER (WM_USER + 100)
+
 /**
  * \ingroup TortoiseProc
  * Handles different Subversion commands and shows the notify messages
@@ -203,6 +205,7 @@ protected:
 	afx_msg void	OnEnSetfocusInfotext();
 	afx_msg void	OnLvnBegindragSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void	OnSize(UINT nType, int cx, int cy);
+	LRESULT			OnShowConflictResolver(WPARAM, LPARAM);
 
 	DECLARE_MESSAGE_MAP()
 
@@ -257,6 +260,7 @@ private:
 	typedef std::vector<NotificationData *> NotificationDataVect;
 
 
+	CString					m_mergedfile;
 	NotificationDataVect	m_arData;
 
 	CWinThread*				m_pThread;

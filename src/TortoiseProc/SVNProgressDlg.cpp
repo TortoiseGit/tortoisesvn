@@ -123,6 +123,7 @@ BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableStandAloneDialog)
 	ON_WM_SIZE()
 	ON_NOTIFY(LVN_GETDISPINFO, IDC_SVNPROGRESS, &CSVNProgressDlg::OnLvnGetdispinfoSvnprogress)
 	ON_BN_CLICKED(IDC_NONINTERACTIVE, &CSVNProgressDlg::OnBnClickedNoninteractive)
+	ON_MESSAGE(WM_SHOWCONFLICTRESOLVER, OnShowConflictResolver)
 END_MESSAGE_MAP()
 
 BOOL CSVNProgressDlg::Cancel()
@@ -130,26 +131,37 @@ BOOL CSVNProgressDlg::Cancel()
 	return m_bCancelled;
 }
 
+LRESULT CSVNProgressDlg::OnShowConflictResolver(WPARAM /*wParam*/, LPARAM lParam)
+{
+	CConflictResolveDlg dlg(this);
+	const svn_wc_conflict_description_t *description = (svn_wc_conflict_description_t *)lParam;
+	dlg.SetConflictDescription(description);
+	if (dlg.DoModal() == IDOK)
+	{
+		if (dlg.GetResult() == svn_wc_conflict_choose_postpone)
+		{
+			// if the result is conflicted and the dialog returned IDOK,
+			// that means we should not ask again in case of a conflict
+			m_AlwaysConflicted = true;
+			::SendMessage(GetDlgItem(IDC_NONINTERACTIVE)->GetSafeHwnd(), BM_SETCHECK, BST_CHECKED, 0);
+		}
+	}
+	m_mergedfile = dlg.GetMergedFile();
+	m_bCancelled = dlg.IsCancelled();
+	return dlg.GetResult();
+}
+
 svn_wc_conflict_choice_t CSVNProgressDlg::ConflictResolveCallback(const svn_wc_conflict_description_t *description, CString& mergedfile)
 {
 	// we only bother the user when merging
 	if ((m_Command == SVNProgress_Merge)&&(!m_AlwaysConflicted)&&(description))
 	{
-		CConflictResolveDlg dlg(this);
-		dlg.SetConflictDescription(description);
-		if (dlg.DoModal() == IDOK)
-		{
-			if (dlg.GetResult() == svn_wc_conflict_choose_postpone)
-			{
-				// if the result is conflicted and the dialog returned IDOK,
-				// that means we should not ask again in case of a conflict
-				m_AlwaysConflicted = true;
-				::SendMessage(GetDlgItem(IDC_NONINTERACTIVE)->GetSafeHwnd(), BM_SETCHECK, BST_CHECKED, 0);
-			}
-		}
-		mergedfile = dlg.GetMergedFile();
-		m_bCancelled = dlg.IsCancelled();
-		return dlg.GetResult();
+		// we're in a worker thread here. That means we must not show a dialog from the thread
+		// but let the UI thread do it.
+		// To do that, we send a message to the UI thread and let it show the conflict resolver dialog.
+		LRESULT dlgResult = ::SendMessage(GetSafeHwnd(), WM_SHOWCONFLICTRESOLVER, 0, (LPARAM)description);
+		mergedfile = m_mergedfile;
+		return (svn_wc_conflict_choice_t)dlgResult;
 	}
 
 	return svn_wc_conflict_choose_postpone;
