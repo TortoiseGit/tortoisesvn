@@ -79,8 +79,8 @@ void CCachedLogInfo::CCacheFileManager::AutoAcquire (const std::wstring& fileNam
     std::wstring lockFileName = fileName + L".lock";
     if (IsMarked (lockFileName))
     {
-        DeleteFile (fileName.c_str());
-        DeleteFile (lockFileName.c_str());
+        if (DeleteFile (lockFileName.c_str()) == TRUE)
+            DeleteFile (fileName.c_str());
     }
 
     // auto-create file and acquire lock
