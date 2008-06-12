@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fop version="1.0">
 <!--<!DOCTYPE configuration SYSTEM "config.dtd">-->
 <!-- 
      this file contains templates which allow an user easy 
@@ -12,7 +14,8 @@
 	 build script.
 -->
 
-<configuration>
+	<source-resolution>96</source-resolution>
+	<target-resolution>96</target-resolution>
 
 
 <!--
@@ -22,67 +25,69 @@
   might not work on other systems than yours.
 ************************************************************************
 -->
+<renderers>
+	<renderer mime="application/pdf">
 
 <fonts>
  
- <font metrics-file="..\..\xsl\hr\arial.xml" kerning="yes" embed-file="%FONTSDIR%/arial.ttf">
+ <font metrics-url="xsl/fonts/arial.xml" kerning="yes" embed-url="%FONTSDIR%/arial.ttf">
     <font-triplet name="Arial" style="normal" weight="normal"/>
     <font-triplet name="ArialMT" style="normal" weight="normal"/>
     <font-triplet name="Helvetica" style="normal" weight="normal"/>
  </font>
- <font metrics-file="..\..\xsl\hr\arialbd.xml" kerning="yes" embed-file="%FONTSDIR%/arialbd.ttf">
+ <font metrics-url="xsl/fonts/arialbd.xml" kerning="yes" embed-url="%FONTSDIR%/arialbd.ttf">
     <font-triplet name="Arial" style="normal" weight="bold"/>
     <font-triplet name="ArialMT" style="normal" weight="bold"/>
     <font-triplet name="Helvetica" style="normal" weight="bold"/>
  </font>
- <font metrics-file="..\..\xsl\hr\ariali.xml" kerning="yes" embed-file="%FONTSDIR%/ariali.ttf">
+ <font metrics-url="xsl/fonts/ariali.xml" kerning="yes" embed-url="%FONTSDIR%/ariali.ttf">
     <font-triplet name="Arial" style="italic" weight="normal"/>
     <font-triplet name="ArialMT" style="italic" weight="normal"/>
     <font-triplet name="Helvetica" style="italic" weight="normal"/>
  </font>
- <font metrics-file="..\..\xsl\hr\arialbi.xml" kerning="yes" embed-file="%FONTSDIR%/arialbi.ttf">
+ <font metrics-url="xsl/fonts/arialbi.xml" kerning="yes" embed-url="%FONTSDIR%/arialbi.ttf">
     <font-triplet name="Arial" style="italic" weight="bold"/>
     <font-triplet name="ArialMT" style="italic" weight="bold"/>
     <font-triplet name="Helvetica" style="italic" weight="bold"/>
  </font>
  
- <font metrics-file="..\..\xsl\hr\times.xml" kerning="yes" embed-file="%FONTSDIR%/times.ttf">
+ <font metrics-url="xsl/fonts/times.xml" kerning="yes" embed-url="%FONTSDIR%/times.ttf">
     <font-triplet name="Times" style="normal" weight="normal"/>
     <font-triplet name="TimesMT" style="normal" weight="normal"/>
     <font-triplet name="Times New Roman" style="normal" weight="normal"/>
  </font>
- <font metrics-file="..\..\xsl\hr\timesbd.xml" kerning="yes" embed-file="%FONTSDIR%/timesbd.ttf">
+ <font metrics-url="xsl/fonts/timesbd.xml" kerning="yes" embed-url="%FONTSDIR%/timesbd.ttf">
     <font-triplet name="Times" style="normal" weight="bold"/>
     <font-triplet name="TimesMT" style="normal" weight="bold"/>
     <font-triplet name="Times New Roman" style="normal" weight="bold"/>
  </font>
- <font metrics-file="..\..\xsl\hr\timesi.xml" kerning="yes" embed-file="%FONTSDIR%/timesi.ttf">
+ <font metrics-url="xsl/fonts/timesi.xml" kerning="yes" embed-url="%FONTSDIR%/timesi.ttf">
     <font-triplet name="Times" style="italic" weight="normal"/>
     <font-triplet name="TimesMT" style="italic" weight="normal"/>
     <font-triplet name="Times New Roman" style="italic" weight="normal"/>
  </font>
- <font metrics-file="..\..\xsl\hr\timesbi.xml" kerning="yes" embed-file="%FONTSDIR%/timesbi.ttf">
+ <font metrics-url="xsl/fonts/timesbi.xml" kerning="yes" embed-url="%FONTSDIR%/timesbi.ttf">
     <font-triplet name="Times" style="italic" weight="bold"/>
     <font-triplet name="TimesMT" style="italic" weight="bold"/>
     <font-triplet name="Times New Roman" style="italic" weight="bold"/>
  </font>
 
- <font metrics-file="..\..\xsl\hr\cour.xml" kerning="yes" embed-file="%FONTSDIR%/cour.ttf">
+ <font metrics-url="xsl/fonts/cour.xml" kerning="yes" embed-url="%FONTSDIR%/cour.ttf">
     <font-triplet name="Courier" style="normal" weight="normal"/>
     <font-triplet name="CourierMT" style="normal" weight="normal"/>
     <font-triplet name="Courier New" style="normal" weight="normal"/>
  </font>
- <font metrics-file="..\..\xsl\hr\courbd.xml" kerning="yes" embed-file="%FONTSDIR%/courbd.ttf">
+ <font metrics-url="xsl/fonts/courbd.xml" kerning="yes" embed-url="%FONTSDIR%/courbd.ttf">
     <font-triplet name="Courier" style="normal" weight="bold"/>
     <font-triplet name="CourierMT" style="normal" weight="bold"/>
     <font-triplet name="Courier New" style="normal" weight="bold"/>
  </font>
- <font metrics-file="..\..\xsl\hr\couri.xml" kerning="yes" embed-file="%FONTSDIR%/couri.ttf">
+ <font metrics-url="xsl/fonts/couri.xml" kerning="yes" embed-url="%FONTSDIR%/couri.ttf">
     <font-triplet name="Courier" style="italic" weight="normal"/>
     <font-triplet name="CourierMT" style="italic" weight="normal"/>
     <font-triplet name="Courier New" style="italic" weight="normal"/>
  </font>
- <font metrics-file="..\..\xsl\hr\courbi.xml" kerning="yes" embed-file="%FONTSDIR%/courbi.ttf">
+ <font metrics-url="xsl/fonts/courbi.xml" kerning="yes" embed-url="%FONTSDIR%/courbi.ttf">
     <font-triplet name="Courier" style="italic" weight="bold"/>
     <font-triplet name="CourierMT" style="italic" weight="bold"/>
     <font-triplet name="Courier New" style="italic" weight="bold"/>
@@ -91,5 +96,9 @@
 </fonts>
 
 
-</configuration>
+	</renderer>
+</renderers>
+
+</fop>
+
 
