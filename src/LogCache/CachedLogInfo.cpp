@@ -120,6 +120,11 @@ void CCachedLogInfo::CCacheFileManager::AutoRelease()
 
         CloseHandle (fileHandle);
         fileHandle = INVALID_HANDLE_VALUE;
+
+        // remove lock file
+        // (may fail if somebody else already acquired the lock)
+
+        DeleteFile (fileName.c_str());
     }
 }
 
