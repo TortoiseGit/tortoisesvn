@@ -141,6 +141,7 @@ BOOL CMergeWizardOptions::OnSetActive()
 
 void CMergeWizardOptions::OnBnClickedDryrun()
 {
+	UpdateData();
 	CMergeWizard * pWizard = ((CMergeWizard*)GetParent());
 	CSVNProgressDlg progDlg;
 	progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
