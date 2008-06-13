@@ -1,3 +1,19 @@
+'
+' TortoiseSVN Merge script for Open Office Writer files
+'
+' Copyright (C) 2004-2008 the TortoiseSVN team
+' This file is distributed under the same license as TortoiseSVN
+'
+' Last commit by:
+' $Author$
+' $Date$
+' $Rev$
+'
+' Authors:
+' Jonathan Ashley, 2007
+' Stefan Küng, 2006
+'
+
 dim objArgs,num,sBaseDoc,sMergedDoc,sTheirDoc,sMyDoc,objScript,word,destination
 
 Set objArgs = WScript.Arguments

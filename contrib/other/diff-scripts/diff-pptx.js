@@ -1,3 +1,18 @@
+//
+// TortoiseSVN Diff script for Powerpoint files
+//
+// Copyright (C) 2004-2008 the TortoiseSVN team
+// This file is distributed under the same license as TortoiseSVN
+//
+// Last commit by:
+// $Author$
+// $Date$
+// $Rev$
+//
+// Authors:
+// Arne Moor, 2006
+//
+
 /*
 This script starts PowerPoint and compares the two given presentations.
 To better see the changes and get the highlighting feature of PowerPoint

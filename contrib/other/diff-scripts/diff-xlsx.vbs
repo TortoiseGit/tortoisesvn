@@ -1,4 +1,20 @@
-dim objExcelApp, objArgs, objScript, objBaseDoc, objNewDoc
+'
+' TortoiseSVN Diff script for Excel files
+'
+' Copyright (C) 2004-2008 the TortoiseSVN team
+' This file is distributed under the same license as TortoiseSVN
+'
+' Last commit by:
+' $Author$
+' $Date$
+' $Rev$
+'
+' Authors:
+' Michael Joras <michael@joras.net>, 2008
+' Suraj Barkale, 2006
+'
+
+dim objExcelApp, objArgs, objScript, objBaseDoc, objNewDoc, objWorkSheet, i
 
 Set objArgs = WScript.Arguments
 num = objArgs.Count
@@ -43,18 +59,30 @@ If Err.Number <> 0 Then
 End If
 
 'Mark differences in sNewDoc red
-objExcelApp.Workbooks(2).Sheets(1).Cells.FormatConditions.Delete
-objExcelApp.Workbooks(1).Sheets(1).Copy ,objExcelApp.Workbooks(2).Sheets(objExcelApp.Workbooks(2).Sheets.Count)
-objExcelApp.Workbooks(2).Sheets(objExcelApp.Workbooks(2).Sheets.Count).Name = "Dummy_for_Comparison"
-objExcelApp.Workbooks(2).Sheets(1).Activate
-'To create a local formula the cell A1 is used
-original_content = objExcelApp.Workbooks(2).Sheets(1).Cells(1,1).Formula
-String sFormula
-objExcelApp.Workbooks(2).Sheets(1).Cells(1,1).Formula = "=INDIRECT(""Dummy_for_Comparison" & "!""&ADDRESS(ROW(),COLUMN()))"
-sFormula = objExcelApp.Workbooks(2).Sheets(1).Cells(1,1).FormulaLocal
-objExcelApp.Workbooks(2).Sheets(1).Cells(1,1).Formula = original_content
-'with the local formula the conditional formatting is used to mark the cells that are different
-const xlCellValue = 1
-const xlNotEqual = 4
-objExcelApp.Workbooks(2).Sheets(1).Cells.FormatConditions.Add xlCellValue, xlNotEqual, sFormula
-objExcelApp.Workbooks(2).Sheets(1).Cells.FormatConditions(1).Interior.ColorIndex = 3
+i = 1
+
+For Each objWorkSheet In objExcelApp.Workbooks(2).Worksheets
+
+		objworksheet.Cells.FormatConditions.Delete
+
+		objExcelApp.Workbooks(1).Sheets(i).Copy ,objExcelApp.Workbooks(2).Sheets(objExcelApp.Workbooks(2).Sheets.Count)
+
+		objExcelApp.Workbooks(2).Sheets(objExcelApp.Workbooks(2).Sheets.Count).Name = "Dummy_for_Comparison" & i
+
+		objworksheet.Activate
+		'To create a local formula the cell A1 is used
+		original_content = objworksheet.Cells(1,1).Formula
+		String sFormula
+		'objworksheet.Cells(1,1).Formula = "=INDIRECT(""" & objExcelApp.Workbooks(2).Sheets(i).name & " (2)"& "!""&ADDRESS(ROW(),COLUMN()))"
+		objworksheet.Cells(1,1).Formula = "=INDIRECT(""Dummy_for_Comparison" & i & "!""&ADDRESS(ROW(),COLUMN()))" 
+		sFormula = objworksheet.Cells(1,1).FormulaLocal
+
+		objworksheet.Cells(1,1).Formula = original_content
+		'with the local formula the conditional formatting is used to mark the cells that are different
+		const xlCellValue = 1
+		const xlNotEqual = 4
+		objworksheet.Cells.FormatConditions.Add xlCellValue, xlNotEqual, sFormula
+		objworksheet.Cells.FormatConditions(1).Interior.ColorIndex = 3
+
+	i = i + 1 
+next

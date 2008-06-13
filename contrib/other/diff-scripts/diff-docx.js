@@ -1,3 +1,19 @@
+//
+// TortoiseSVN Diff script for Word Doc files
+//
+// Copyright (C) 2004-2008 the TortoiseSVN team
+// This file is distributed under the same license as TortoiseSVN
+//
+// Last commit by:
+// $Author$
+// $Date$
+// $Rev$
+//
+// Authors:
+// Jared Silva, 2008
+// Davide Orlandi and Hans-Emil Skogh, 2005
+//
+
 var objArgs,num,sBaseDoc,sNewDoc,objScript,word,destination;
 // Microsoft Office versions for Microsoft Windows OS
 var vOffice2000 = 9;
