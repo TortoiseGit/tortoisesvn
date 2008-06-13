@@ -2279,7 +2279,10 @@ bool CSVNProgressDlg::CmdSwitch(CString& sWindowTitle, bool& /*localoperation*/)
 		(LPCTSTR)m_Revision.ToString());
 	ReportCmd(sCmdInfo);
 
-	if (!Switch(m_targetPathList[0], m_url, m_Revision, m_Revision, m_depth, TRUE, m_options & ProgOptIgnoreExternals))
+	bool depthIsSticky = true;
+	if (m_depth == svn_depth_unknown)
+		depthIsSticky = false;
+	if (!Switch(m_targetPathList[0], m_url, m_Revision, m_Revision, m_depth, depthIsSticky, m_options & ProgOptIgnoreExternals))
 	{
 		ReportSVNError();
 		return false;
