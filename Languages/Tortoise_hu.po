@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-13 16:41+0100\n"
+"PO-Revision-Date: 2008-06-13 17:15+0100\n"
 "Last-Translator: Halász Gábor <k@elitonline.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1348,7 +1348,7 @@ msgstr "Kiterjeszésfüggő foltkészítő/egyesítő program hozzáadása/szerk
 
 #. Resource IDs: (73, 264, 65535)
 msgid "Added"
-msgstr "Hozzáadott"
+msgstr "Hozzáadva"
 
 #. Resource IDs: (126)
 msgid "Added a file remotely"
@@ -1584,7 +1584,7 @@ msgstr "Hozzárendelve a(z) \"%s\" változáslistához"
 #. Resource IDs: (16528)
 #, fuzzy
 msgid "Assigned to:"
-msgstr "Hozzárendelve:"
+msgstr "Megbízva:"
 
 #. Resource IDs: (77)
 #, c-format
@@ -1827,7 +1827,6 @@ msgid "Cache size [kB]"
 msgstr "Gy.tár mérete [kB]"
 
 #. Resource IDs: (1440)
-#, fuzzy
 msgid "Cached Repositories"
 msgstr "Tárolók a gyorsítótárban"
 
@@ -2725,9 +2724,8 @@ msgid "Cus&tomize..."
 msgstr "&Testreszabás..."
 
 #. Resource IDs: (16963)
-#, fuzzy
 msgid "Custom"
-msgstr "Testreszabott"
+msgstr "Egyéni"
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -5065,7 +5063,7 @@ msgstr "Módosítás dátuma"
 
 #. Resource IDs: (74, 264, 65535)
 msgid "Modified"
-msgstr "Módosított"
+msgstr "Módosítva"
 
 #. Resource IDs: (1070)
 #, fuzzy
@@ -7362,7 +7360,7 @@ msgstr "Halmozott vonaldiagram"
 
 #. Resource IDs: (16962)
 msgid "Standard"
-msgstr ""
+msgstr "Alap"
 
 #. Resource IDs: (569)
 #, fuzzy
@@ -9112,7 +9110,7 @@ msgstr "_POPUP_"
 
 #. Resource IDs: (10)
 msgid "added"
-msgstr "hozzáadott"
+msgstr "hozzáadva"
 
 #. Resource IDs: (65535)
 msgid "added files"
@@ -9160,9 +9158,10 @@ msgstr "fejlesztő"
 
 #. Resource IDs: (65535)
 msgid "authors: "
-msgstr "fejlesztők:"
+msgstr "fejlesztők: "
 
 #. Resource IDs: (577)
+#, fuzzy
 msgid ""
 "bugtraq:append\n"
 "Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\n"
@@ -9173,6 +9172,7 @@ msgstr ""
 "Állítsd false-ra, ha a bugtracking ID-t az üzenet tetejére akarod illeszteni. Az alapbeállítás true, ahol az ID hozzá van fűzve az üzenethez."
 
 #. Resource IDs: (577)
+#, fuzzy
 msgid ""
 "bugtraq:label\n"
 "Label text to show for the edit box where the user enters the issue number."
@@ -9181,6 +9181,7 @@ msgstr ""
 "Egy felirat, ami kiírja, ha a felhasználó beírja az ügy számát."
 
 #. Resource IDs: (577)
+#, fuzzy
 msgid ""
 "bugtraq:logregex\n"
 "two regular expressions separated by a newline.\n"
@@ -9193,7 +9194,7 @@ msgstr ""
 "a második az ID kiszedése a szövegből."
 
 #. Resource IDs: (577)
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "bugtraq:message\n"
 "String which is appended to a log message when an issue number is entered.\n"
@@ -9204,6 +9205,7 @@ msgstr ""
 "A szövegnek tartalmaznia kell a \"%BUGID%\"-t ami lecserélődik az ügy-számra."
 
 #. Resource IDs: (577)
+#, fuzzy
 msgid ""
 "bugtraq:number\n"
 "Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
@@ -9212,7 +9214,7 @@ msgstr ""
 "Állítsd false-ra ha a hibakövető rendszered nem számozza a hibákat."
 
 #. Resource IDs: (577)
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "bugtraq:url\n"
 "URL pointing to the issue tracker. It must contain \"%BUGID%\" which\n"
@@ -9256,7 +9258,7 @@ msgstr "másolva: "
 
 #. Resource IDs: (10)
 msgid "deleted"
-msgstr "törölt"
+msgstr "törölve"
 
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
@@ -9269,7 +9271,7 @@ msgstr "dummy"
 
 #. Resource IDs: (1342)
 msgid "eol style"
-msgstr "sorvég-forma"
+msgstr "sorvég-formátum"
 
 #. Resource IDs: (79)
 #, c-format
@@ -9293,11 +9295,12 @@ msgstr "http://tortoisesvn.net"
 
 #. Resource IDs: (13)
 msgid "ignored"
-msgstr "kihagyott"
+msgstr "kihagyva"
 
 #. Resource IDs: (220)
+#, fuzzy
 msgid "ignoring ancestry"
-msgstr "származás elutasítása"
+msgstr "származás figyelmen kívül hagyásával"
 
 #. Resource IDs: (13)
 msgid "incomplete"
@@ -9317,6 +9320,7 @@ msgid "it is unversioned."
 msgstr "nem verziókezelt."
 
 #. Resource IDs: (214)
+#, fuzzy
 msgid "item kept locally"
 msgstr "elemek helyben hagyva"
 
@@ -9337,7 +9341,7 @@ msgstr "utolsó frissítés: "
 
 #. Resource IDs: (11, 195)
 msgid "locked"
-msgstr "zárolt"
+msgstr "zárolva"
 
 #. Resource IDs: (65535)
 msgid "locked:"
@@ -9350,7 +9354,7 @@ msgstr "legújabb verzió: "
 
 #. Resource IDs: (11, 65535)
 msgid "merged"
-msgstr "összegyúrva"
+msgstr "egyesítve"
 
 #. Resource IDs: (65535)
 #, fuzzy
@@ -9359,11 +9363,11 @@ msgstr "egyesítések száma: "
 
 #. Resource IDs: (10)
 msgid "missing"
-msgstr "hiányzó"
+msgstr "hiányzik"
 
 #. Resource IDs: (65535)
 msgid "missing / deleted / replaced"
-msgstr "hiányzó / törölt / cserélt"
+msgstr "hiányzik / törölve / cserélve"
 
 #. Resource IDs: (65535)
 #, fuzzy
@@ -9372,11 +9376,11 @@ msgstr "hiányzó: "
 
 #. Resource IDs: (10)
 msgid "modified"
-msgstr "módosított"
+msgstr "módosítva"
 
 #. Resource IDs: (65535)
 msgid "modified / copied"
-msgstr "módosított / másolt"
+msgstr "módosítva / másolva"
 
 #. Resource IDs: (245)
 msgid "month"
@@ -9393,17 +9397,18 @@ msgstr "nem"
 
 #. Resource IDs: (10)
 msgid "no description for this command is available"
-msgstr "nincs ennek a parancsnak leírása"
+msgstr "ennek a parancsnak nincs leírása"
 
 #. Resource IDs: (10)
 msgid "non-versioned"
-msgstr "nem-verziókezelt"
+msgstr "nem verziókezelt"
 
 #. Resource IDs: (10)
 msgid "normal"
 msgstr "normál"
 
 #. Resource IDs: (11)
+#, fuzzy
 msgid "obstructed"
 msgstr "eltömött"
 
@@ -9434,13 +9439,14 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "paths: "
-msgstr "útvonalak:"
+msgstr "útvonalak: "
 
 #. Resource IDs: (3869)
 msgid "pixels"
 msgstr "képpontok"
 
 #. Resource IDs: (65535)
+#, fuzzy
 msgid "possible or real conflict / obstructed"
 msgstr "lehetséges vagy valós ellentmondás / elrekesztve"
 
@@ -9461,8 +9467,9 @@ msgid "replaced"
 msgstr "lecserléve"
 
 #. Resource IDs: (220)
+#, fuzzy
 msgid "respecting ancestry"
-msgstr "származás figyelembevétele"
+msgstr "származás figyelembevételével"
 
 #. Resource IDs: (326)
 #, c-format
@@ -9489,14 +9496,16 @@ msgid "skip ranges: "
 msgstr ""
 
 #. Resource IDs: (576)
+#, fuzzy
 msgid ""
 "svn:eol-style\n"
 "One of 'native', 'LF', 'CR', 'CRLF'."
 msgstr ""
 "svn:eol-style\n"
-"Egy 'natív', 'LF', 'CR', 'CRLF'."
+"Egy az alábbiak közül: 'native', 'LF', 'CR', 'CRLF'."
 
 #. Resource IDs: (576)
+#, fuzzy
 msgid ""
 "svn:executable\n"
 "If present, make the file executable. This property cannot be set on a directory.\n"
@@ -9523,6 +9532,7 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (576)
+#, fuzzy
 msgid ""
 "svn:ignore\n"
 "A newline separated list of file patterns to ignore."
@@ -9531,6 +9541,7 @@ msgstr ""
 "Egy sorokkal elválaszott lista az elutasított fájlmintákról"
 
 #. Resource IDs: (576)
+#, fuzzy
 msgid ""
 "svn:keywords\n"
 "Keywords to be expanded. Valid keywords are:\n"
@@ -9558,6 +9569,7 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (576)
+#, fuzzy
 msgid ""
 "svn:mime-type\n"
 "The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
@@ -9570,6 +9582,7 @@ msgstr ""
 "a többi binárisként."
 
 #. Resource IDs: (576)
+#, fuzzy
 msgid ""
 "svn:needs-lock\n"
 "Set this to any value (e.g. '*') to enforce locking for this file.\n"
@@ -9619,6 +9632,7 @@ msgid "to %s"
 msgstr "%s-be"
 
 #. Resource IDs: (578)
+#, fuzzy
 msgid ""
 "tsvn:autoprops\n"
 "A list of properties separated by newlines which get applied automatically when adding/importing files.\n"
@@ -9631,6 +9645,7 @@ msgstr ""
 "Példa: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 #. Resource IDs: (578)
+#, fuzzy
 msgid ""
 "tsvn:lockmsgminsize\n"
 "Minimum size in chars a lock message must have before a lock is allowed."
@@ -9639,6 +9654,7 @@ msgstr ""
 "A lehetséges legrövidebb hossz, zárolási indok megadásakor."
 
 #. Resource IDs: (578)
+#, fuzzy
 msgid ""
 "tsvn:logfilelistenglish\n"
 "Set to \"false\" if you don't want the list of changed files to be pasted in english\n"
@@ -9649,6 +9665,7 @@ msgstr ""
 "be legyen másolva angolul a beküldő ablakba."
 
 #. Resource IDs: (578)
+#, fuzzy
 msgid ""
 "tsvn:logminsize\n"
 "Minimum size in chars a log message must have before a commit is allowed."
@@ -9663,6 +9680,7 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (578)
+#, fuzzy
 msgid ""
 "tsvn:logtemplate\n"
 "String which is inserted in the log message boxes in the commit dialogs.\n"
@@ -9673,6 +9691,7 @@ msgstr ""
 "Ebbe a felhasználók írnak bele."
 
 #. Resource IDs: (578)
+#, fuzzy
 msgid ""
 "tsvn:logwidthmarker\n"
 "Set this to the number of chars the log message should not exceed its width.\n"
@@ -9683,6 +9702,7 @@ msgstr ""
 "Az alapbeállítás 80 karakter."
 
 #. Resource IDs: (578)
+#, fuzzy
 msgid ""
 "tsvn:projectlanguage\n"
 "Set this to the language number you want your log messages written in.\n"
@@ -9693,6 +9713,7 @@ msgstr ""
 "Ha a TortoiseSVN talál helyesírás ellenőrzőt ehhez a nyelvhez, elindítja."
 
 #. Resource IDs: (581)
+#, fuzzy
 msgid ""
 "tsvn:userfileproperties\n"
 "Newline separated list of user defined properties for files which will\n"
@@ -9703,6 +9724,7 @@ msgstr ""
 "mely a tulajdonságok ablakban fog megjelenni."
 
 #. Resource IDs: (581)
+#, fuzzy
 msgid ""
 "tsvn:userfolderproperties\n"
 "Newline separated list of user defined properties for folders which will\n"
@@ -9713,6 +9735,7 @@ msgstr ""
 "mely a tulajdonságok ablakban fog megjelenni."
 
 #. Resource IDs: (577)
+#, fuzzy
 msgid ""
 "tsvn:warnifnoissue\n"
 "Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
@@ -9730,7 +9753,7 @@ msgid "values are different"
 msgstr "az értékek különböznek"
 
 #. Resource IDs: (579)
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "webviewer:pathrevision\n"
 "URL pointing to the web viewer for the repository for a specific file and revision.\n"
@@ -9743,7 +9766,7 @@ msgstr ""
 "a %PATH% részt pedig a fájl elérési relatív útvonalára a tárház gyökerétől."
 
 #. Resource IDs: (579)
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "webviewer:revision\n"
 "URL pointing to the web viewer for the repository for a specific revision.\n"
