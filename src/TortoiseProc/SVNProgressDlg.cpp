@@ -2059,10 +2059,10 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
 		ReportCmd(sCmdInfo);
 
 		if (!PegMerge(m_url, m_revisionArray, 
-			m_pegRev.IsValid() ? m_pegRev : (m_url.IsUrl() ? m_RevisionEnd : SVNRev(SVNRev::REV_WC)),
+			m_pegRev.IsValid() ? m_pegRev : (m_url.IsUrl() ? SVNRev::REV_HEAD : SVNRev(SVNRev::REV_WC)),
 			m_targetPathList[0], true, m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun)))
 		{
-			// if the merge fails with the peg revision set to the end revision of the merge,
+			// if the merge fails with the peg revision set,
 			// try again with HEAD as the peg revision.
 			if (!PegMerge(m_url, m_revisionArray, SVNRev::REV_HEAD,
 				m_targetPathList[0], true, m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun), !!(m_options & ProgOptRecordOnly)))
