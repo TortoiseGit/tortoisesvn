@@ -12,6 +12,7 @@
 // Authors:
 // Jared Silva, 2008
 // Davide Orlandi and Hans-Emil Skogh, 2005
+// Stefan Küng, 2006-2008
 //
 
 var objArgs,num,sBaseDoc,sNewDoc,objScript,word,destination;
@@ -41,8 +42,8 @@ if (num < 2)
    WScript.Quit(1);
 }
 
-sBaseDoc = objArgs(0);
-sNewDoc = objArgs(1);
+sBaseDoc = objArgs(1);
+sNewDoc = objArgs(0);
 
 objScript = new ActiveXObject("Scripting.FileSystemObject");
 if ( ! objScript.FileExists(sBaseDoc))
