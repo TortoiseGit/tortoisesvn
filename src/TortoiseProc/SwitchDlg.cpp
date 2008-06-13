@@ -102,6 +102,8 @@ BOOL CSwitchDlg::OnInitDialog()
 	GetWindowRect(&rect);
 	m_height = rect.bottom - rect.top;
 
+	AddAnchor(IDC_SWITCHLABEL, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_SWITCHPATH, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_URLLABEL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_URLCOMBO, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_BROWSE, TOP_RIGHT);
