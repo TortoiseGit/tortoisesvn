@@ -5,8 +5,6 @@
 
 #pragma once
 
-#define _BIND_TO_CURRENT_CRT_VERSION 1
-
 #define WIN32_LEAN_AND_MEAN		// Exclude rarely-used stuff from Windows headers
 // Windows Header Files:
 #include <windows.h>

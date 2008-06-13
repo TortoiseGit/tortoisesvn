@@ -39,8 +39,6 @@
 #define _SECURE_SCL_DEPRECATE 0
 #define _HAS_ITERATOR_DEBUGGING 0
 
-#define _BIND_TO_CURRENT_CRT_VERSION 1
-
 #define VC_EXTRALEAN		// Exclude rarely-used stuff from Windows headers
 
 #include <afxwin.h>         // MFC core and standard components

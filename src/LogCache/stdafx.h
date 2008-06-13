@@ -36,8 +36,6 @@
 #define _WIN32_IE 0x0501
 #endif
 
-#define _BIND_TO_CURRENT_CRT_VERSION 1
-
 #define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS	// some CString constructors will be explicit
 
 // turns off MFC's hiding of some common and often safely ignored warning messages

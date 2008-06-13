@@ -92,10 +92,8 @@
 						<define name="_USE_32BIT_TIME_T" if="${platform == 'win32'}" />
 						<define name="APR_DECLARE_STATIC" if="${static == 'static'}"/>
 						<define name="APU_DECLARE_STATIC" if="${static == 'static'}"/>
-						<define name="_BIND_TO_CURRENT_CRT_VERSION" />
 						<define name="APU_HAVE_DB=1" />
 						<define name="ENABLE_NLS" if="${static != 'static'}"/>
-						<define name="SVN_NEON_0_25=1" />
 						<define name="SVN_NEON_0_26=1" />
 						<define name="SVN_NEON_0_27=1" />
 						<define name="SVN_NEON_0_28=1" />
@@ -172,13 +170,11 @@
 						<define name="_USE_32BIT_TIME_T" if="${platform == 'win32'}" />
 						<define name="APR_DECLARE_STATIC" if="${static == 'static'}"/>
 						<define name="APU_DECLARE_STATIC" if="${static == 'static'}"/>
-						<define name="_BIND_TO_CURRENT_CRT_VERSION" />
 						<define name="APU_HAVE_DB=1" />
 						<define name="SVN_LIBSVN_FS_LINKS_FS_BASE=1" />
 						<define name="ENABLE_NLS" if="${static != 'static'}"/>
 						<define name="SVN_LIBSVN_CLIENT_LINKS_RA_NEON=1" />
 						<define name="SVN_LIBSVN_CLIENT_LINKS_RA_SERF=1" />
-						<define name="SVN_NEON_0_25=1" />
 						<define name="SVN_NEON_0_26=1" />
 						<define name="SVN_NEON_0_27=1" />
 						<define name="SVN_NEON_0_28=1" />
@@ -268,10 +264,8 @@
 							<define name="APU_DECLARE_EXPORT" if="${static != 'static'}"/>
 							<define name="APR_DECLARE_STATIC" if="${static == 'static'}"/>
 							<define name="APU_DECLARE_STATIC" if="${static == 'static'}"/>
-							<define name="_BIND_TO_CURRENT_CRT_VERSION" />
 							<define name="APU_HAVE_DB=1" />
 							<define name="ENABLE_NLS" if="${static != 'static'}"/>
-							<define name="SVN_NEON_0_25=1" />
 							<define name="SVN_NEON_0_26=1" />
 							<define name="SVN_NEON_0_27=1" />
 							<define name="SVN_NEON_0_28=1" />

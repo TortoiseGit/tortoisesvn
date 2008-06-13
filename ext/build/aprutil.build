@@ -77,7 +77,6 @@
 				<define name="APR_DECLARE_EXPORT" if="${static != 'static'}"/>
 				<define name="APR_DECLARE_STATIC" if="${static == 'static'}"/>
 				<define name="APU_DECLARE_STATIC" if="${static == 'static'}"/>
-				<define name="_BIND_TO_CURRENT_CRT_VERSION" />
 				<define name="WIN32" />
 				<define name="_WINDOWS" />
 				<define name="_WIN32" />
@@ -171,7 +170,6 @@
 				<define name="APU_DECLARE_EXPORT" if="${static != 'static'}"/>
 				<define name="APR_DECLARE_STATIC" if="${static == 'static'}"/>
 				<define name="APU_DECLARE_STATIC" if="${static == 'static'}"/>
-				<define name="_BIND_TO_CURRENT_CRT_VERSION" />
 				<define name="WIN32" />
 				<define name="_WINDOWS" />
 				<define name="_WIN32" />
