@@ -22,8 +22,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-11 09:15+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2008-06-14 15:40-0300\n"
+"Last-Translator: Humberto Osório <humberto@virtual.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -883,15 +883,16 @@ msgstr "&Mostrar revisão Mais Recente"
 
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
-msgstr ""
+msgstr "Mo&strar Menus para:"
 
 #. Resource IDs: (16612)
+#, fuzzy
 msgid "&Show text labels"
-msgstr ""
+msgstr "Mo&strar textos"
 
 #. Resource IDs: (32851)
 msgid "&Silver Style"
-msgstr ""
+msgstr "E&stilo Prateado"
 
 #. Resource IDs: (1185)
 msgid "&Specific revision in repository"
@@ -1720,14 +1721,6 @@ msgstr "Ramo/Ró&tulo..."
 msgid "Break loc&k"
 msgstr "Quebrar &Trava"
 
-#. Resource IDs: (1009)
-msgid "Bro&wse..."
-msgstr "Nave&gar..."
-
-#. Resource IDs: (1007)
-msgid "Brows&e..."
-msgstr "Navega&r..."
-
 #. Resource IDs: (78)
 msgid "Browse for the external diff program"
 msgstr "Buscar pelo programa externo de comparação"
@@ -1832,7 +1825,7 @@ msgstr ""
 
 #. Resource IDs: (1001)
 msgid "Can't customize menues!"
-msgstr ""
+msgstr "Não é possível editar os menus!"
 
 #. Resource IDs: (1001)
 msgid "Can't paste bitmap image from the clipboard!"
@@ -1864,7 +1857,7 @@ msgstr "Menu de contexto em cascata"
 
 #. Resource IDs: (65535)
 msgid "Cate&gories:"
-msgstr ""
+msgstr "Cate&gorias:"
 
 #. Resource IDs: (82)
 msgid "Certificate expired or not yet valid"
@@ -2034,11 +2027,15 @@ msgstr "Limpar operações interrompidas, arquivos bloqueados, ..."
 msgid "Clear"
 msgstr "Limpar"
 
+# Será que clear limpar não é bem aplicada aqui por ter o clean, tb traduzido aqui como limpar?
 #. Resource IDs: (1057)
+#, fuzzy
 msgid ""
 "Clear Tool\n"
 "Clear"
 msgstr ""
+"Ferramenta Limpar\n"
+"Limpar"
 
 #. Resource IDs: (196)
 #, c-format
@@ -2099,13 +2096,15 @@ msgstr "Fechar"
 
 #. Resource IDs: (1065)
 msgid "Close Full Screen"
-msgstr ""
+msgstr "Fechar Tela Cheia"
 
 #. Resource IDs: (3633)
 msgid ""
 "Close Print Preview\n"
 "&Close"
 msgstr ""
+"Fechar Visualização de Impressão\n"
+"Fe&char"
 
 #. Resource IDs: (222)
 msgid "Close manually"
@@ -2351,6 +2350,8 @@ msgid ""
 "Copy Tool\n"
 "Copy"
 msgstr ""
+"Ferramenta Copiar\n"
+"Copiar"
 
 #. Resource IDs: (101)
 msgid "Copy URL to clipboard"
@@ -2649,7 +2650,7 @@ msgstr "Recor&tar"
 
 #. Resource IDs: (65535)
 msgid "Current"
-msgstr ""
+msgstr "Atual"
 
 #. Resource IDs: (1113)
 msgid "Current version is:"
@@ -2935,7 +2936,7 @@ msgstr "Você deseja salvar suas alterações?"
 
 #. Resource IDs: (65535)
 msgid "Document :"
-msgstr ""
+msgstr "Documento :"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -4245,10 +4246,6 @@ msgstr "Incluir revisão combinada"
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
 msgstr "Incluir somente o seguinte intervalo de revisões:"
-
-#. Resource IDs: (65535)
-msgid "Include paths:"
-msgstr "Incluir caminhos:"
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -6154,10 +6151,6 @@ msgstr "Reverter"
 msgid "Revert - TortoiseSVN"
 msgstr "Reverter - TortoiseSVN"
 
-#. Resource IDs: (114)
-msgid "Revert changes from these revisions"
-msgstr "Reverter as alterações destas revisões"
-
 #. Resource IDs: (73)
 msgid "Reverted"
 msgstr "Revertido"
@@ -6224,7 +6217,7 @@ msgstr "Revisão:"
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld\n"
+"Revision: %ld\r\n"
 "URL: %s\r\n"
 "Author: %s\r\n"
 "Date: %s\r\n"
@@ -6232,18 +6225,18 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"Revisão: %ld\n"
+"Revisão: %ld\r\n"
 "URL: %s\r\n"
 "Autor: %s\r\n"
 "Data: %s\r\n"
 "\r\n"
-"Messagem de log:\r\n"
+"Mensagem de log:\r\n"
 "%s"
 
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld\n"
+"Revision: %ld\r\n"
 "URL: %s\r\n"
 "Author: %s\r\n"
 "Date: %s\r\n"
@@ -6253,7 +6246,7 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"Revisão: %ld\n"
+"Revisão: %ld\r\n"
 "URL: %s\r\n"
 "Autor: %s\r\n"
 "Data: %s\r\n"
@@ -6874,10 +6867,6 @@ msgstr "Mostrar sobreposição para itens ignorados"
 #. Resource IDs: (1462)
 msgid "Show overlay for unversioned items"
 msgstr "Mostrar sobreposição para itens sem controle de versão"
-
-#. Resource IDs: (1265)
-msgid "Show properties"
-msgstr "Mostrar propriedades"
 
 #. Resource IDs: (102)
 msgid "Show revision properties"
@@ -7971,7 +7960,7 @@ msgstr "Histórico de URLs"
 #. Resource IDs: (199)
 #, c-format
 msgid "URL not known (UUID: %s)"
-msgstr ""
+msgstr "URL desconhecida (UUID: %s)"
 
 #. Resource IDs: (12)
 msgid "URL of Subversion items"
@@ -7979,7 +7968,7 @@ msgstr "URL dos itens do Subversion"
 
 #. Resource IDs: (65535)
 msgid "URL to merge from"
-msgstr ""
+msgstr "URL para combinar"
 
 #. Resource IDs: (144, 11023, 65535)
 msgid "URL:"
@@ -7990,12 +7979,15 @@ msgid "URL: "
 msgstr "URL: "
 
 #. Resource IDs: (220)
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Unable to determine merge source for\n"
 "%s\n"
 "Please use the main merge dialog."
 msgstr ""
+"Impossível determinar o que combinar com\n"
+"%s\n"
+"Por favor, use o diálogo principal de combinação."
 
 #. Resource IDs: (3866)
 msgid "Unable to load mail system support."
@@ -8003,7 +7995,7 @@ msgstr "Impossível carregar o suporte ao sistema de correio."
 
 #. Resource IDs: (3865)
 msgid "Unable to process command, server busy."
-msgstr ""
+msgstr "Incapaz de processar comando, servidor ocupado."
 
 #. Resource IDs: (3859)
 #, c-format
@@ -8070,6 +8062,8 @@ msgid ""
 "Unformatted Text\n"
 "text without any formatting"
 msgstr ""
+"Texto sem Formatação\n"
+"texto sem nenhuma formatação"
 
 #. Resource IDs: (274, 32786)
 msgid "Unified &diff of HEAD revisions"
@@ -8155,7 +8149,7 @@ msgstr "Atualizando %s"
 
 #. Resource IDs: (3849)
 msgid "Updating ActiveX objects"
-msgstr ""
+msgstr "Atualizando os objetos ActiveX"
 
 #. Resource IDs: (283)
 msgid "Updating and retrying the lock..."
@@ -8213,6 +8207,8 @@ msgid ""
 "Use all content from the left view\n"
 "Use left file"
 msgstr ""
+"Usar o conteúdo completo da esquerda\n"
+"Usar arquivo da esquerda"
 
 #. Resource IDs: (32857)
 msgid "Use block from left before right"
@@ -8252,7 +8248,7 @@ msgstr "Usar local"
 
 #. Resource IDs: (1432)
 msgid "Use recycle bin when reverting"
-msgstr ""
+msgstr "Usar lixeira para fazer reversão"
 
 #. Resource IDs: (116)
 msgid "Use regular expression"
@@ -8267,8 +8263,9 @@ msgid "Use stri&keout for removed lines"
 msgstr "Usar ha&chura nas linhas removidas"
 
 #. Resource IDs: (1426)
+#, fuzzy
 msgid "Use system locale for date/time"
-msgstr ""
+msgstr "Usar localização do sistemas para data/hora"
 
 #. Resource IDs: (251, 32820)
 msgid "Use text block from \"&mine\""
@@ -8338,6 +8335,11 @@ msgid ""
 "\r\n"
 "To merge all revisions, leave the box empty."
 msgstr ""
+"Utilize o histórico para selecionar as revisões que você quer combinar, ou digite o número das revisões, separadas por vírgulas. Um intervalo de revisões pode ser especificado por um traço.\r\n"
+"\r\n"
+"Exemplo: 4-7,9,11,15-HEAD\r\n"
+"\r\n"
+"Para combinar todas as revisões, deixe a caixa vazia."
 
 #. Resource IDs: (251)
 msgid "Use this &whole file"
@@ -8416,7 +8418,7 @@ msgstr "Visite nosso website"
 
 #. Resource IDs: (32848)
 msgid "Visual Studio.NET 200&5"
-msgstr ""
+msgstr "Visual Studio.NET 200&5"
 
 #. Resource IDs: (198)
 msgid "Wait"
@@ -8435,15 +8437,19 @@ msgid "Warning!"
 msgstr "Aviso!"
 
 #. Resource IDs: (344)
+#, fuzzy
 msgid ""
 "When connecting to the respository server is not possible,\n"
 "TSVN can switch to using cached data only.\n"
 "Select the default beviour here."
 msgstr ""
+"Quando não for possível conectar ao servidor do repositório,\n"
+"TSVN pode efetuar a troca usando apenas os dados em cache.\n"
+"Selecione o comportamento padrão aqui."
 
 #. Resource IDs: (197)
 msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
-msgstr ""
+msgstr "Quando habilitado, os itens com controle de versão listados no diálogo de submissão serão automaticamente selecionados "
 
 #. Resource IDs: (197)
 msgid ""
@@ -8462,12 +8468,14 @@ msgid "Window Position"
 msgstr "Posição da janela"
 
 #. Resource IDs: (16927)
+#, fuzzy
 msgid "Windows"
-msgstr ""
+msgstr "Windows"
 
 #. Resource IDs: (32844)
+#, fuzzy
 msgid "Windows &2000"
-msgstr ""
+msgstr "Windows &2000"
 
 #. Resource IDs: (146)
 msgid "With URL:"
@@ -8542,12 +8550,12 @@ msgstr ""
 #. Resource IDs: (1001)
 #, c-format
 msgid "You can paste bitmap with the size (%d x %d) only!"
-msgstr ""
+msgstr "Você pode colar bitmaps apenas com o tamanho (%d x %d) !"
 
 #. Resource IDs: (1016)
-#, c-format
+#, fuzzy, c-format
 msgid "You can't create more than %d user-defined toolbars!"
-msgstr ""
+msgstr "Você não pode criar mais de %d ferramentas de usuário!"
 
 #. Resource IDs: (16)
 msgid ""
@@ -8597,7 +8605,7 @@ msgstr ""
 #. Resource IDs: (1002)
 #, c-format
 msgid "You may define up to %d tools."
-msgstr ""
+msgstr "Você pode definir no máximo %d ferramentas."
 
 #. Resource IDs: (196)
 msgid "You must restart your system for the changes to take effect."
@@ -8613,11 +8621,11 @@ msgstr ""
 
 #. Resource IDs: (1001)
 msgid "You should enter a text!"
-msgstr ""
+msgstr "Você deveria ter preenchido com um texto!"
 
 #. Resource IDs: (1001)
 msgid "You should select an image!"
-msgstr ""
+msgstr "Você deveria ter selecionado uma imagem!"
 
 #. Resource IDs: (195)
 #, c-format
@@ -8713,6 +8721,8 @@ msgid ""
 "Zoom In\n"
 "Zoom In"
 msgstr ""
+"Mais Zoom\n"
+"Mais Zoom"
 
 #. Resource IDs: (3633)
 msgid ""
@@ -8739,8 +8749,9 @@ msgid "Zoom to fit"
 msgstr "Zoom para caber"
 
 #. Resource IDs: (1001)
+#, fuzzy
 msgid "[Unassigned]"
-msgstr ""
+msgstr "[Sem assinatura]"
 
 #. Resource IDs: (338)
 msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
@@ -8748,7 +8759,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "_POPUP_"
-msgstr ""
+msgstr "_POPUP_"
 
 #. Resource IDs: (10)
 msgid "added"
@@ -8761,12 +8772,12 @@ msgstr "arquivos adicionados"
 #. Resource IDs: (272)
 #, c-format
 msgid "alias (deleted): %s"
-msgstr ""
+msgstr "apelido (deletado): %s"
 
 #. Resource IDs: (272)
 #, c-format
 msgid "alias: %s"
-msgstr ""
+msgstr "apelido: %s"
 
 #. Resource IDs: (3841)
 msgid "an unnamed file"
@@ -8789,6 +8800,8 @@ msgid ""
 "ask repository first if 'online' -\n"
 "work entirely from cache if 'offline'"
 msgstr ""
+"consultar o repositório primeiro se 'online' -\n"
+"trabalhar somente com cache se 'offline'"
 
 #. Resource IDs: (245)
 msgid "author"
@@ -8895,7 +8908,7 @@ msgstr "excluído"
 
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
-msgstr ""
+msgstr "disco [kB]: "
 
 #. Resource IDs: (58116)
 msgid "dummy"
@@ -8960,7 +8973,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "last read: "
-msgstr ""
+msgstr "última leitura:"
 
 #. Resource IDs: (65535)
 msgid "last update: "
@@ -9014,7 +9027,7 @@ msgstr "mês"
 #. Resource IDs: (199)
 #, c-format
 msgid "multiple URLs (e.g. %s)"
-msgstr ""
+msgstr "múltiplas URLs (e.g. %s)"
 
 #. Resource IDs: (18)
 msgid "no"
@@ -9058,8 +9071,9 @@ msgid "pair tokens: "
 msgstr ""
 
 #. Resource IDs: (65535)
+#, fuzzy
 msgid "path elements: "
-msgstr ""
+msgstr "elementos de caminho: "
 
 #. Resource IDs: (65535)
 msgid "paths: "
@@ -9075,7 +9089,7 @@ msgstr "conflito / obstrução possível ou real"
 
 #. Resource IDs: (3845)
 msgid "prn"
-msgstr ""
+msgstr "prn"
 
 #. Resource IDs: (245)
 msgid "quarter of year"
@@ -9406,7 +9420,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "words [uncompressed]: "
-msgstr ""
+msgstr "palavras [sem compressão]:"
 
 #. Resource IDs: (245)
 msgid "year"
@@ -9420,6 +9434,16 @@ msgstr "Sim"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Bro&wse..."
+#~ msgstr "Nave&gar..."
+#~ msgid "Brows&e..."
+#~ msgstr "Navega&r..."
+#~ msgid "Include paths:"
+#~ msgstr "Incluir caminhos:"
+#~ msgid "Revert changes from these revisions"
+#~ msgstr "Reverter as alterações destas revisões"
+#~ msgid "Show properties"
+#~ msgstr "Mostrar propriedades"
 #~ msgid "&Open Ctrl-O"
 #~ msgstr "&Abrir Ctrl-O"
 #~ msgid "&Save Ctrl-S"
