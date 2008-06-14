@@ -1,3 +1,5 @@
+- CHG: Support for IPv6 disabled due to problems with merging and terrible
+       slowdown in some situations. (Stefan)
 - BUG: Styling URLs in the commit log edit control did not work properly if
        non ASCII chars were before an entered URL. (Stefan)
 - BUG: the local hook scripts did not work, and the hook settings page

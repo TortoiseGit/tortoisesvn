@@ -18,6 +18,8 @@
 	<property name="static" value="" />
 	<!-- default: we don't clean first -->
 	<property name="cleanup" value="" />
+	<!-- default: we don't build with IPv6 support -->
+	<property name="ipv6" value="" />
 
 	<include buildfile="default.build.user" />
 	
@@ -62,6 +64,13 @@
 			compiles some projects linking statically to the CRT
 		</description>
 		<property name="static" value="static" />
+	</target>
+
+	<target name="ipv6">
+		<description>
+			builds with IPv6 support
+		</description>
+		<property name="ipv6" value="enabled" />
 	</target>
 
 <!-- ====================================================================== -->
@@ -311,6 +320,7 @@
 		<echo message="          (AMD64/EM64T only -- will not work on Itanium systems.)" />
 		<echo message="cross   : cross-compile on win32 for the given target platform." />
 		<echo message="          (currently only available with x64.)" />
+		<echo message="ipv6    : builds the packages with IPv6 support" />
 		<echo />
 		<echo message="Please specify the configuration targets BEFORE the main target." />
 		<echo message="Examples:" />

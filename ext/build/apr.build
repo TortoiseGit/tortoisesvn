@@ -28,12 +28,12 @@
 		<copy file="include\apr.hw" tofile="include\apr.h" overwrite="true" />
 		<loadfile file="include\apr.hw" property="configfile">
 			<filterchain>
-				<replacestring from="#define APR_HAVE_IPV6           0" to="#define APR_HAVE_IPV6           1" />
+				<replacestring from="#define APR_HAVE_IPV6           0" to="#define APR_HAVE_IPV6           1" if="${ipv6 == 'enabled'}" />
 				<!-- With the Vista SDK, it's necessary to define _WIN32_WINNT to 0x0501 to gt IPv6 support,
 				     but that value also breaks the app on Win2k. To get a stub compiled in, we must include
 				     Wspiapi.h, this will make it work again on win2k. -->
 				<replacestring from='#if APR_HAVE_IPV6' to='#if APR_HAVE_IPV6
-#include "Wspiapi.h"' />
+#include "Wspiapi.h"' if="${ipv6 == 'enabled'}" />
 			</filterchain>
 		</loadfile>
 		<echo file="include\apr.h" message="${configfile}" />
@@ -66,7 +66,7 @@
 				<include name="network_io\win32\*.c" />
 				<include name="network_io\unix\inet_ntop.c" />
 				<include name="network_io\unix\inet_pton.c" />
-				<include name="network_io\unix\multicast.c" />
+				<include name="network_io\unix\multicast.c" if="${ipv6 == 'enabled'}" />
 				<include name="network_io\unix\sockaddr.c" />
 				<include name="atomic\win32\apr_atomic.c" />
 				<include name="dso\win32\dso.c" />
@@ -108,7 +108,7 @@
 				<define name="WIN32" />
 				<define name="_WINDOWS" />
 				<define name="_WIN32" />
-				<define name="_WIN32_WINNT" value="0x0501" />
+				<define name="_WIN32_WINNT" value="0x0501" if="${ipv6 == 'enabled'}" />
 				<define name="WIN64" if="${platform == 'x64'}" />
 				<define name="_WINDLL" if="${static != 'static'}" />
 				<define name="NDEBUG" if="${configuration == 'release'}"/>
