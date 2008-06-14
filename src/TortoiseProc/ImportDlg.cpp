@@ -170,8 +170,7 @@ void CImportDlg::OnBnClickedHelp()
 
 void CImportDlg::OnEnChangeLogmessage()
 {
-	CString sTemp;
-	GetDlgItem(IDC_MESSAGE)->GetWindowText(sTemp);
+    CString sTemp = m_cMessage.GetText();
 	DialogEnableWindow(IDOK, sTemp.GetLength() >= m_ProjectProperties.nMinLogSize);
 }
 

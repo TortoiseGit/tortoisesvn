@@ -345,8 +345,7 @@ void CCopyDlg::OnBnClickedBrowsefrom()
 
 void CCopyDlg::OnEnChangeLogmessage()
 {
-	CString sTemp;
-	GetDlgItem(IDC_LOGMESSAGE)->GetWindowText(sTemp);
+    CString sTemp = m_cLogMessage.GetText();
 	DialogEnableWindow(IDOK, sTemp.GetLength() >= m_ProjectProperties.nMinLogSize);
 }
 
