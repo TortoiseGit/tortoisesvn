@@ -336,6 +336,7 @@ BOOL SVN::Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, SVNRe
 {
 	SVNPool subpool(pool);
 	svn_error_clear(Err);
+	Err = NULL;
 	Err = svn_client_checkout3 (NULL,			// we don't need the resulting revision
 								moduleName.GetSVNApiPath(subpool),
 								destPath.GetSVNApiPath(subpool),
@@ -362,6 +363,7 @@ BOOL SVN::Remove(const CTSVNPathList& pathlist, BOOL force, BOOL keeplocal, CStr
 	// a modified file, if you don't do a cleanup, the WC stays locked
 	SVNPool subPool(pool);
 	svn_error_clear(Err);
+	Err = NULL;
 	svn_commit_info_t *commit_info = svn_create_commit_info(subPool);
 	message.Replace(_T("\r"), _T(""));
 	m_pctx->log_msg_baton3 = logMessage(CUnicodeUtils::GetUTF8(message));
@@ -412,6 +414,7 @@ BOOL SVN::Revert(const CTSVNPathList& pathlist, const CStringArray& changelists,
 	apr_array_header_t * clists = MakeChangeListArray(changelists, subpool);
 
 	svn_error_clear(Err);
+	Err = NULL;
 	Err = svn_client_revert2(pathlist.MakePathArray(subpool), 
 		recurse ? svn_depth_infinity : svn_depth_empty, 
 		clists,
@@ -477,6 +480,7 @@ BOOL SVN::AddToChangeList(const CTSVNPathList& pathList, const CString& changeli
 {
 	SVNPool subpool(pool);
 	svn_error_clear(Err);
+	Err = NULL;
 
 	apr_array_header_t *clists = MakeChangeListArray(changelists, subpool);
 
@@ -498,6 +502,7 @@ BOOL SVN::RemoveFromChangeList(const CTSVNPathList& pathList, const CStringArray
 {
 	SVNPool subpool(pool);
 	svn_error_clear(Err);
+	Err = NULL;
 	apr_array_header_t * clists = MakeChangeListArray(changelists, subpool);
 
 	Err = svn_client_remove_from_changelists(pathList.MakePathArray(subpool), 
@@ -517,6 +522,7 @@ BOOL SVN::Update(const CTSVNPathList& pathList, SVNRev revision, svn_depth_t dep
 {
 	SVNPool(localpool);
 	svn_error_clear(Err);
+	Err = NULL;
 	Err = svn_client_update3(NULL,
 							pathList.MakePathArray(pool),
 							revision,
@@ -541,6 +547,7 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, CString message,
 	SVNPool localpool(pool);
 
 	svn_error_clear(Err);
+	Err = NULL;
 	svn_commit_info_t *commit_info = svn_create_commit_info(localpool);
 
 	apr_array_header_t *clists = MakeChangeListArray(changelists, localpool);
@@ -590,6 +597,7 @@ BOOL SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 	SVNPool subpool(pool);
 
 	svn_error_clear(Err);
+	Err = NULL;
 	svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
 	logmsg.Replace(_T("\r"), _T(""));
 
@@ -635,6 +643,7 @@ BOOL SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 	SVNPool subpool(pool);
 
 	svn_error_clear(Err);
+	Err = NULL;
 	svn_commit_info_t *commit_info = svn_create_commit_info(subpool);
 	message.Replace(_T("\r"), _T(""));
 	m_pctx->log_msg_baton3 = logMessage(CUnicodeUtils::GetUTF8(message));
@@ -674,6 +683,7 @@ BOOL SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 BOOL SVN::MakeDir(const CTSVNPathList& pathlist, CString message)
 {
 	svn_error_clear(Err);
+	Err = NULL;
 	svn_commit_info_t *commit_info = svn_create_commit_info(pool);
 	message.Replace(_T("\r"), _T(""));
 	m_pctx->log_msg_baton3 = logMessage(CUnicodeUtils::GetUTF8(message));
@@ -709,6 +719,7 @@ BOOL SVN::MakeDir(const CTSVNPathList& pathlist, CString message)
 BOOL SVN::CleanUp(const CTSVNPath& path)
 {
 	svn_error_clear(Err);
+	Err = NULL;
 	SVNPool subpool(pool);
 	Err = svn_client_cleanup (path.GetSVNApiPath(subpool), m_pctx, subpool);
 
@@ -944,6 +955,7 @@ BOOL SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, const SVNRev& revi
 {
 	SVNPool subpool(pool);
 	svn_error_clear(Err);
+	Err = NULL;
 	Err = svn_client_switch2(NULL,
 							 path.GetSVNApiPath(subpool),
 							 url.GetSVNApiPath(subpool),
@@ -968,6 +980,7 @@ BOOL SVN::Import(const CTSVNPath& path, const CTSVNPath& url, CString message, P
 	// the import command should use the mime-type file
 	const char *mimetypes_file = NULL;
 	svn_error_clear(Err);
+	Err = NULL;
 	svn_config_t * opt = (svn_config_t *)apr_hash_get (m_pctx->config, SVN_CONFIG_CATEGORY_CONFIG,
 		APR_HASH_KEY_STRING);
 	svn_config_get(opt, &mimetypes_file,
@@ -1031,6 +1044,7 @@ BOOL SVN::Merge(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2
 	opts = svn_cstring_split (CUnicodeUtils::GetUTF8(options), " \t\n\r", TRUE, subpool);
 
 	svn_error_clear(Err);
+	Err = NULL;
 	Err = svn_client_merge3(path1.GetSVNApiPath(subpool),
 							revision1,
 							path2.GetSVNApiPath(subpool),
@@ -1062,6 +1076,7 @@ BOOL SVN::PegMerge(const CTSVNPath& source, SVNRevRangeArray revrangearray, SVNR
 	opts = svn_cstring_split (CUnicodeUtils::GetUTF8(options), " \t\n\r", TRUE, subpool);
 
 	svn_error_clear(Err);
+	Err = NULL;
 	Err = svn_client_merge_peg3 (source.GetSVNApiPath(subpool),
 		revrangearray.GetAprArray(subpool),
 		pegrevision,
@@ -1090,6 +1105,7 @@ BOOL SVN::MergeReintegrate(const CTSVNPath& source, SVNRev pegrevision, const CT
 	opts = svn_cstring_split (CUnicodeUtils::GetUTF8(options), " \t\n\r", TRUE, subpool);
 
 	svn_error_clear(Err);
+	Err = NULL;
 	Err = svn_client_merge_reintegrate(source.GetSVNApiPath(subpool),
 		pegrevision,
 		wcpath.GetSVNApiPath(subpool),
@@ -1111,6 +1127,7 @@ BOOL SVN::SuggestMergeSources(const CTSVNPath& targetpath, const SVNRev& revisio
 	apr_array_header_t * sourceurls;
 
 	svn_error_clear(Err);
+	Err = NULL;
 	sourceURLs.Clear();
 	Err = svn_client_suggest_merge_sources(&sourceurls, 
 											targetpath.GetSVNApiPath(subpool), 
@@ -1165,6 +1182,7 @@ BOOL SVN::Diff(const CTSVNPath& path1, SVNRev revision1, const CTSVNPath& path2,
 
 	SVNPool localpool(pool);
 	svn_error_clear(Err);
+	Err = NULL;
 
 	opts = svn_cstring_split (CUnicodeUtils::GetUTF8(options), " \t\n\r", TRUE, localpool);
 
@@ -1237,6 +1255,7 @@ BOOL SVN::PegDiff(const CTSVNPath& path, SVNRev pegrevision, SVNRev startrev, SV
 
 	SVNPool localpool(pool);
 	svn_error_clear(Err);
+	Err = NULL;
 
 	opts = svn_cstring_split (CUnicodeUtils::GetUTF8(options), " \t\n\r", TRUE, localpool);
 
@@ -1294,6 +1313,7 @@ bool SVN::DiffSummarize(const CTSVNPath& path1, SVNRev rev1, const CTSVNPath& pa
 {
 	SVNPool localpool(pool);
 	svn_error_clear(Err);
+	Err = NULL;
 	Err = svn_client_diff_summarize2(path1.GetSVNApiPath(localpool), rev1,
 									path2.GetSVNApiPath(localpool), rev2,
 									depth, ignoreancestry, NULL, 
@@ -1310,6 +1330,7 @@ bool SVN::DiffSummarizePeg(const CTSVNPath& path, SVNRev peg, SVNRev rev1, SVNRe
 {
 	SVNPool localpool(pool);
 	svn_error_clear(Err);
+	Err = NULL;
 	Err = svn_client_diff_summarize_peg2(path.GetSVNApiPath(localpool), peg, rev1, rev2,
 										depth, ignoreancestry, NULL, 
 										summarize_func, this,
@@ -1397,6 +1418,7 @@ BOOL SVN::Cat(const CTSVNPath& url, SVNRev pegrevision, SVNRev revision, const C
 	apr_status_t status;
 	SVNPool localpool(pool);
 	svn_error_clear(Err);
+	Err = NULL;
 
 	CTSVNPath fullLocalPath(localpath);
 	if (fullLocalPath.IsDirectory())
@@ -1459,6 +1481,7 @@ BOOL SVN::CreateRepository(CString path, CString fstype)
 BOOL SVN::Blame(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg, const CString& diffoptions, bool ignoremimetype, bool includemerge)
 {
 	svn_error_clear(Err);
+	Err = NULL;
 	SVNPool subpool(pool);
 	apr_array_header_t *opts;
 	svn_diff_file_options_t * options = svn_diff_file_options_create(subpool);
@@ -1488,6 +1511,7 @@ BOOL SVN::Blame(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev pe
 	if ((Err != 0)&&((Err->apr_err == SVN_ERR_UNSUPPORTED_FEATURE)||(Err->apr_err == SVN_ERR_FS_NOT_FOUND))&&(includemerge))
 	{
 		svn_error_clear(Err);
+		Err = NULL;
 		Err = svn_client_blame4 (   path.GetSVNApiPath(subpool),
 									peg,
 									startrev,  
@@ -1576,6 +1600,7 @@ svn_error_t* SVN::blameReceiver(void *baton,
 BOOL SVN::Lock(const CTSVNPathList& pathList, BOOL bStealLock, const CString& comment /* = CString( */)
 {
 	svn_error_clear(Err);
+	Err = NULL;
 	Err = svn_client_lock(pathList.MakePathArray(pool), CUnicodeUtils::GetUTF8(comment), bStealLock, m_pctx, pool);
 	return (Err == NULL);	
 }
@@ -1583,6 +1608,7 @@ BOOL SVN::Lock(const CTSVNPathList& pathList, BOOL bStealLock, const CString& co
 BOOL SVN::Unlock(const CTSVNPathList& pathList, BOOL bBreakLock)
 {
 	svn_error_clear(Err);
+	Err = NULL;
 	Err = svn_client_unlock(pathList.MakePathArray(pool), bBreakLock, m_pctx, pool);
 	return (Err == NULL);
 }
@@ -1821,6 +1847,7 @@ CString SVN::GetURLFromPath(const CTSVNPath& path)
 	if (!path.Exists())
 		return _T("");
 	svn_error_clear(Err);
+	Err = NULL;
 	SVNPool subpool(pool);
 	Err = svn_client_url_from_path (&URL, path.GetSVNApiPath(subpool), subpool);
 	if (Err)
@@ -1836,6 +1863,7 @@ CString SVN::GetUIURLFromPath(const CTSVNPath& path)
 	if (!path.Exists())
 		return _T("");
 	svn_error_clear(Err);
+	Err = NULL;
 	SVNPool subpool(pool);
 	Err = svn_client_url_from_path (&URL, path.GetSVNApiPath(subpool), subpool);
 	if (Err)
@@ -1849,6 +1877,7 @@ CString SVN::GetUUIDFromPath(const CTSVNPath& path)
 {
 	const char * UUID;
 	svn_error_clear(Err);
+	Err = NULL;
 	SVNPool subpool(pool);
 	if (PathIsURL(path.GetSVNPathString()))
 	{
@@ -1884,6 +1913,7 @@ BOOL SVN::List(const CTSVNPath& url, SVNRev revision, SVNRev pegrev, svn_depth_t
 {
 	SVNPool subpool(pool);
 	svn_error_clear(Err);
+	Err = NULL;
 	
 	Err = svn_client_list2(url.GetSVNApiPath(subpool),
 						  pegrev,
@@ -1903,6 +1933,7 @@ BOOL SVN::List(const CTSVNPath& url, SVNRev revision, SVNRev pegrev, svn_depth_t
 BOOL SVN::Relocate(const CTSVNPath& path, const CTSVNPath& from, const CTSVNPath& to, BOOL recurse)
 {
 	svn_error_clear(Err);
+	Err = NULL;
 	SVNPool subpool(pool);
 	Err = svn_client_relocate(
 				path.GetSVNApiPath(subpool), 
@@ -2008,6 +2039,7 @@ CString SVN::GetRepositoryRootAndUUID(const CTSVNPath& url, CString& sUUID)
 
 	SVNPool localpool(pool);
 	svn_error_clear(Err);
+	Err = NULL;
 
 	// empty the sUUID first
 	sUUID.Empty();
@@ -2147,6 +2179,7 @@ BOOL SVN::GetLocks(const CTSVNPath& url, std::map<CString, SVNLock> * locks)
 
 	SVNPool localpool(pool);
 	svn_error_clear(Err);
+	Err = NULL;
 
 	apr_hash_t * hash = apr_hash_make(localpool);
 
@@ -2184,6 +2217,7 @@ BOOL SVN::GetWCRevisionStatus(const CTSVNPath& wcpath, bool bCommitted, svn_revn
 {
 	SVNPool localpool(pool);
 	svn_error_clear(Err);
+	Err = NULL;
 
 	svn_wc_revision_status_t * revstatus = NULL;
 	Err = svn_wc_revision_status(&revstatus, wcpath.GetSVNApiPath(localpool), NULL, bCommitted, SVN::cancel, this, localpool);
@@ -2209,6 +2243,7 @@ svn_revnum_t SVN::RevPropertySet(CString sName, CString sValue, CString sURL, SV
 	svn_revnum_t set_rev;
 	svn_string_t*	pval;
 	svn_error_clear(Err);
+	Err = NULL;
 
 	sValue.Replace(_T("\r"), _T(""));
 	pval = svn_string_create (CUnicodeUtils::GetUTF8(sValue), pool);
@@ -2230,6 +2265,7 @@ CString SVN::RevPropertyGet(CString sName, CString sURL, SVNRev rev)
 	svn_string_t *propval;
 	svn_revnum_t set_rev;
 	svn_error_clear(Err);
+	Err = NULL;
 
 	Err = svn_client_revprop_get(MakeSVNUrlOrPath(sName), &propval, MakeSVNUrlOrPath(sURL), rev, &set_rev, m_pctx, pool);
 	if (Err)
