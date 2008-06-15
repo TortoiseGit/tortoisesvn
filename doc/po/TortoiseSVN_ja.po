@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-05-30 19:02 +0000\n"
-"PO-Revision-Date: 2008-06-11 15:55+0900\n"
+"PO-Revision-Date: 2008-06-15 14:35+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8229,22 +8229,22 @@ msgstr "バグ追跡"
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:9884
 msgid "bug tracker"
-msgstr "バグトラッカ"
+msgstr "バグ追跡システム"
 
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:9887
 msgid "issue tracker"
-msgstr "課題トラッカ"
+msgstr "課題追跡システム"
 
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:9890
 msgid "bugtracker"
-msgstr "バグトラッカ"
+msgstr "バグ追跡システム"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9892
 msgid "It is very common in Software Development for changes to be related to a specific bug or issue ID. Users of bug tracking systems (issue trackers) would like to associate the changes they make in Subversion with a specific ID in their issue tracker. Most issue trackers therefore provide a pre-commit hook script which parses the log message to find the bug ID with which the commit is associated. This is somewhat error prone since it relies on the user to write the log message properly so that the pre-commit hook script can parse it correctly."
-msgstr "変更が特定のバグ ID や課題 ID に関連するのは、ソフトウェア開発では非常に一般的です。バグトラッキングシステム (課題トラッカ) のユーザは、課題トラッカの特定の ID と Subversion で行った変更を関連付けたいと思っています。そのため、ほとんどの課題トラッカは、コミットに関連するバグ ID を探すためにログメッセージを解釈する、pre-commit フックスクリプトを提供しています。これは、pre-commit フックスクリプトが正しく解釈できるよう、適切なログメッセージを書くようユーザに頼っています。これはいくらか誤りの傾向があります。"
+msgstr "変更が特定のバグ ID や課題 ID に関連するのは、ソフトウェア開発では非常に一般的です。バグ追跡システム (課題追跡システム) のユーザは、課題追跡システムの特定の ID と Subversion で行った変更を関連付けたいと思っています。そのため、ほとんどの課題追跡システムは、コミットに関連するバグ ID を探すためにログメッセージを解釈する、pre-commit フックスクリプトを提供しています。これは、pre-commit フックスクリプトが正しく解釈できるよう、適切なログメッセージを書くようユーザに頼っています。これはいくらか誤る傾向があります。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9905
@@ -8254,7 +8254,7 @@ msgstr "ユーザがログメッセージを入力すると、コミットに関
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9911
 msgid "Or TortoiseSVN can highlight the part of the entered log message which is recognized by the issue tracker. That way the user knows that the log message can be parsed correctly."
-msgstr "また、TortoiseSVN は入力したログメッセージの中で、課題トラッカが認識した部分を強調表示できます。これにより、ログメッセージが正しく解釈されたか、ユーザが知ることができます。"
+msgstr "また、TortoiseSVN は入力したログメッセージの中で、課題追跡システムが認識した部分を強調表示できます。これにより、ログメッセージが正しく解釈されたか、ユーザが知ることができます。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9918
@@ -8284,7 +8284,7 @@ msgstr "この属性には、バグ追跡ツールの URL を設定します。�
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9958
 msgid "You can also use relative URLs instead of absolute ones. This is useful when your issue tracker is on the same domain/server as your source repository. In case the domain name ever changes, you don't have to adjust the <literal>bugtraq:url</literal> property. There are two ways to specify a relative URL:"
-msgstr "絶対 URL の代わりに相対 URL も使用できます。これは、あなたの課題トラッカが、あなたのソースリポジトリと同じドメイン・サーバにある場合に便利です。ドメイン名を変更したとしても、<literal>bugtraq:url</literal> 属性を調整する必要はありません。相対 URL を指定するには以下の 2 つの方法があります。"
+msgstr "絶対 URL の代わりに相対 URL も使用できます。これは、あなたの課題追跡システムが、あなたのソースリポジトリと同じドメイン・サーバにある場合に便利です。ドメイン名を変更したとしても、<literal>bugtraq:url</literal> 属性を調整する必要はありません。相対 URL を指定するには以下の 2 つの方法があります。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9965
@@ -8304,7 +8304,7 @@ msgstr "課題番号テキストフィールドが空の場合、TortoiseSVN が
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9934
 msgid "There are two ways to integrate TortoiseSVN with issue trackers. One is based on simple strings, the other is based on <emphasis>regular expressions</emphasis>. The properties used by both approaches are: <placeholder-1/>"
-msgstr "TortoiseSVN と課題トラッカを統合するには、2 つ方法があります。ひとつは単純な文字列によるもの、もうひとつは <emphasis>正規表現</emphasis> によるものです。属性にはどちらの方法も使用できます。 <placeholder-1/>"
+msgstr "TortoiseSVN と課題追跡システムを統合するには、2 つ方法があります。ひとつは単純な文字列によるもの、もうひとつは <emphasis>正規表現</emphasis> によるものです。属性にはどちらの方法も使用できます。 <placeholder-1/>"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10002
@@ -8369,7 +8369,7 @@ msgstr "はじめの正規表現を少しかみ砕くと、<quote>issue</quote> 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10127
 msgid "If only one expression is set, then the bare bug IDs must be matched in the groups of the regex string. Example: <literal>[Ii]ssue(?:s)? #?(\\d+)</literal> This method is required by a few issue trackers, e.g. trac, but it is harder to construct the regex. We recommend that you only use this method if your issue tracker documentation tells you to."
-msgstr "正規表現が 1 個のみの場合は、むき出しのバグ ID と正規表現文字列のグループとがマッチしなければなりません。例: <literal>[Ii]ssue(?:s)? #?(\\d+)</literal>。この方法は、trac のような少数の課題トラッカには必要ですが、その正規表現を構築するのは大変です。あなたの使用する課題トラッカのドキュメントにある場合にのみ、この方法を使用するのをお勧めします。"
+msgstr "正規表現が 1 個のみの場合は、むき出しのバグ ID と正規表現文字列のグループとがマッチしなければなりません。例: <literal>[Ii]ssue(?:s)? #?(\\d+)</literal>。この方法は、trac のような少数の課題追跡システムには必要ですが、その正規表現を構築するのは大変です。あなたの使用する課題追跡システムのドキュメントにある場合にのみ、この方法を使用するのをお勧めします。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10136
@@ -8379,7 +8379,7 @@ msgstr "正規表現になじみがなければ、<ulink url=\"http://ja.wikiped
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10077
 msgid "In the approach with <emphasis>regular expressions</emphasis>, TortoiseSVN doesn't show a separate input field but marks the part of the log message the user enters which is recognized by the issue tracker. This is done while the user writes the log message. This also means that the bug ID can be anywhere inside a log message! This method is much more flexible, and is the one used by the TortoiseSVN project itself. <placeholder-1/>"
-msgstr "<emphasis>正規表現</emphasis>でのアプローチでは、TortoiseSVN は独立した入力フィールドを表示しませんが、ユーザが入力したログメッセージの中の、課題トラッカに関係する部分をマーク付けします。ログメッセージを入力している間、有効です。これはバグ ID が、ログメッセージのどこにあってもかまわないと言うことです! この方法はとても柔軟で、TortoiseSVN プロジェクトではこれを使用しています。<placeholder-1/>"
+msgstr "<emphasis>正規表現</emphasis>でのアプローチでは、TortoiseSVN は独立した入力フィールドを表示しませんが、ユーザが入力したログメッセージの中の、課題追跡システムに関係する部分をマーク付けします。ログメッセージを入力している間、有効です。これはバグ ID が、ログメッセージのどこにあってもかまわないと言うことです! この方法はとても柔軟で、TortoiseSVN プロジェクトではこれを使用しています。<placeholder-1/>"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10152
@@ -8389,7 +8389,7 @@ msgstr "<literal>bugtraq:message</literal> と <literal>bugtraq:logregex</litera
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10157
 msgid "Even if you don't have an issue tracker with a pre-commit hook parsing your log messages, you still can use this to turn the issues mentioned in your log messages into links!"
-msgstr "pre-commit フックスクリプトで解釈していれば、課題トラッカがない場合でも、ログメッセージ内の課題に言及している箇所を、リンクにするために使用できます!"
+msgstr "pre-commit フックスクリプトで解釈していれば、課題追跡システムがない場合でも、ログメッセージ内の課題に言及している箇所を、リンクにするために使用できます!"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10162
@@ -8425,29 +8425,27 @@ msgstr "この課題追跡システムとの統合は、TortoiseSVN に限定さ
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10206
 msgid "Getting Information from the Issue Tracker"
-msgstr "課題トラッカからの情報取得"
+msgstr "課題追跡システムからの情報取得"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10207
-#, fuzzy
 msgid "The previous section deals with adding issue information to the log messages. But what if you need to get information from the issue tracker? The commit dialog has a Windows COM interface which allows integration an external program that can talk to your tracker. Typically you might want to query the tracker to get a list of open issues assigned to you, so that you can pick the issues that are being addressed in this commit."
-msgstr "前項では、ログメッセージへ課題情報の追加について扱いました。しかし、課題トラッカから情報を取得する必要がある場合、どのようにしたらよいのでしょう? コミットダイアログは、課題トラッカと会話ができるような、外部プログラムを統合する Windows COM インターフェースを備えています。"
+msgstr "前項では、ログメッセージへ課題情報の追加について扱いました。しかし、課題追跡システムから情報を取得する必要がある場合、どのようにしたらよいのでしょう? コミットダイアログは、課題追跡システムと会話ができるような、外部プログラムを統合する Windows COM インターフェースを備えています。通常、今回のコミットで取り組む課題を取り上げられるように、自分に割り当てられた未解決の課題を取り出すために、追跡システムにクエリを発行したいのだと思います。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10216
-#, fuzzy
 msgid "Any such interface is of course highly specific to your system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample programs can be obtained from the <literal>contrib</literal> folder in the in the <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>."
-msgstr "そのようなインターフェースは、もちろん強くあなたのシステムに特化しており、この部分を私たちは提供できません。また、そのようなプログラムの作成について説明するのは、このマニュアルの範疇を外れてしまいます。インターフェースの定義やサンプルプログラムは、<ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN リポジトリ</citetitle></ulink> の <literal>contrib</literal> フォルダから obtain できます。"
+msgstr "そのようなインターフェースは、もちろん強くあなたのシステムに特化しており、この部分を私たちは提供できません。また、そのようなプログラムの作成について説明するのは、このマニュアルの範疇を外れてしまいます。インターフェースの定義やサンプルプログラムは、<ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN リポジトリ</citetitle></ulink> の <literal>contrib</literal> フォルダから取得できます。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10235
 msgid "Example issue tracker query dialog"
-msgstr "課題トラッカクエリダイアログの例"
+msgstr "課題追跡システムクエリダイアログの例"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10227
 msgid "For illustration purposes, let's suppose that your system administrator has provided you with an issue tracker plugin which you have installed, and that you have set up some of your working copies to use the plugin in TortoiseSVN's settings dialog. When you open the commit dialog from a working copy to which the plugin has been assigned, you will see a new button at the top of the dialog. <placeholder-1/> In this example you can select one or more open issues. The plugin can then generate specially formatted text which it adds to your log message."
-msgstr ""
+msgstr "説明のために、あなたのシステム管理者が、あなたがインストールした課題管理システムプラグインを提供し、TortoiseSVN の設定ダイアログでそのプラグインを使用する作業コピーをセットアップしたとしましょう。プラグインに割り当てられた作業コピーからコミットダイアログを開くと、ダイアログの上部に新しいボタンが現れるはずです。<placeholder-1/>この例では、複数の未解決課題を選択できます。その後、プラグインがログメッセージに追加する、特定のフォーマットのテキストを生成できます。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10245
@@ -9958,22 +9956,22 @@ msgstr "通常、スクリプト実行時に不格好な DOS ウィンドウを�
 #. (title)
 #: ../source/TortoiseSVN_en.xml:12058
 msgid "Issue Tracker Integration"
-msgstr "課題トラッカ統合"
+msgstr "課題追跡システムとの統合"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12061
 msgid "TortoiseSVN can use a COM plugin to query issue trackers when in the commit dialog. The use of such plugins is described in <xref linkend=\"tsvn-dug-bugtracker-ref\"/>. If your system administrator has provided you with a plugin, which you have already installed and registered, this is the place to specify how it integrates with your working copy."
-msgstr ""
+msgstr "TortoiseSVN は、コミットダイアログで課題管理システムにクエリを発行するために、COM プラグインを利用できます。そのようなプラグインの利用を、<xref linkend=\"tsvn-dug-bugtracker-ref\"/> で説明しています。あなたのシステム管理者が、すでにあなたがインストールして登録したプラグインを提供している場合、どのように作業コピーと統合するかをここで指定します。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:12071
 msgid "The Settings Dialog, Issue Tracker Integration Page"
-msgstr "設定ダイアログの課題トラッカ統合ページ"
+msgstr "設定ダイアログの課題追跡システムとの統合ページ"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12069
 msgid "<placeholder-1/> Click on <guibutton>Add...</guibutton> to use the plugin with a particular working copy. Here you can specify the working copy path, choose which plugin to use from a drop down list of all registered issue tracker plugins, and any parameters to pass. The parameters will be specific to the plugin, but might include your user name on the issue tracker so that the plugin can query for issues which are assigned to you."
-msgstr ""
+msgstr "<placeholder-1/> 特定の作業コピーでプラグインを使用するには、<guibutton>追加...</guibutton> をクリックしてください。ここで作業コピーのパス、登録済み課題管理システムプラグインのドロップダウンリストでの選択、渡す任意のパラメータの指定ができます。パラメータはプラグインに固有ですが、あなたに割り当てられた課題をプラグインが抽出できるように、課題管理システムのユーザ名を含めるかも知れません。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:12086
@@ -10799,7 +10797,7 @@ msgstr "TortoiseSVN は常に開発中のため、時々完全にはドキュメ
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12776
 msgid "We also maintain a project <ulink url=\"http://issues.tortoisesvn.net\"><citetitle>Issue Tracker</citetitle></ulink> which tells you about some of the things we have on our To-Do list, and bugs which have already been fixed. If you think you have found a bug, or want to request a new feature, check here first to see if someone else got there before you."
-msgstr "また私たちは、プロジェクトの <ulink url=\"http://issues.tortoisesvn.net\"><citetitle>課題トラッカ</citetitle></ulink> を運用しており、To-Do リストや既に修正したバグの情報を公開しています。バグを見つけたり新機能のリクエストをしたいときには、まずここをチェックして、誰かが既にやっていないか確認してください。"
+msgstr "また私たちは、プロジェクトの <ulink url=\"http://issues.tortoisesvn.net\"><citetitle>課題追跡システム</citetitle></ulink> を運用しており、To-Do リストや既に修正したバグの情報を公開しています。バグを見つけたり新機能のリクエストをしたいときには、まずここをチェックして、誰かが既にやっていないか確認してください。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12786
@@ -11959,7 +11957,7 @@ msgstr "/bugid:\"the bug id here\""
 #. (entry)
 #: ../source/TortoiseSVN_en.xml:13876
 msgid "Opens the commit dialog. The <placeholder-1/> specifies the target directory or the list of files to commit. You can also specify the <placeholder-2/> switch to pass a predefined log message to the commit dialog. Or, if you don't want to pass the log message on the command line, use <placeholder-3/>, where <placeholder-4/> points to a file containing the log message. To pre-fill the bug ID box (in case you've set up integration with bug trackers properly), you can use the <placeholder-5/> to do that."
-msgstr "コミットダイアログを開きます。コミットする対象ディレクトリかファイルリストを、<placeholder-1/> に指定します。<placeholder-2/> スイッチで、コミットダイアログに渡す定義済みのログメッセージを指定することもできます。または、コマンドラインからログメッセージを渡したくなければ、<placeholder-3/> を使用してください。<placeholder-4/> にはログメッセージのファイルを指定します。(バグトラッカの属性で統合の設定をしてある場合) バグ ID ボックスをあらかじめ入力しておくには、<placeholder-5/> を使用できます。"
+msgstr "コミットダイアログを開きます。コミットする対象ディレクトリかファイルリストを、<placeholder-1/> に指定します。<placeholder-2/> スイッチで、コミットダイアログに渡す定義済みのログメッセージを指定することもできます。または、コマンドラインからログメッセージを渡したくなければ、<placeholder-3/> を使用してください。<placeholder-4/> にはログメッセージのファイルを指定します。(バグ追跡システムの属性で統合の設定をしてある場合) バグ ID ボックスをあらかじめ入力しておくには、<placeholder-5/> を使用できます。"
 
 #. (entry)
 #: ../source/TortoiseSVN_en.xml:13893
