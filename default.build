@@ -20,6 +20,8 @@
 	<property name="cleanup" value="" />
 	<!-- default: we don't build with IPv6 support -->
 	<property name="ipv6" value="" />
+	<!-- default: we build with openssl support -->
+	<property name="skipssl" value="" />
 
 	<include buildfile="default.build.user" />
 	
@@ -71,6 +73,13 @@
 			builds with IPv6 support
 		</description>
 		<property name="ipv6" value="enabled" />
+	</target>
+
+	<target name="skipssl">
+		<description>
+			skips the building of openssl
+		</description>
+		<property name="skipssl" value="yes" />
 	</target>
 
 <!-- ====================================================================== -->
@@ -161,7 +170,7 @@
 			Builds all the libraries TortoiseSVN depends on:
 			Subversion, apr, OpenSSL, ...
 		</description>
-		<nant target="OpenSSL">
+		<nant target="OpenSSL" if="${skipssl != 'yes'}" >
 			<buildfiles>
 				<include name="ext\build\OpenSSL.build" />
 			</buildfiles>
