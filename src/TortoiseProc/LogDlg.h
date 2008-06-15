@@ -205,6 +205,7 @@ private:
 	SVNRev				m_LogRevision;
 	SVNRev				m_endrev;
 	SVNRevRangeArray	m_selectedRevs;
+	SVNRevRangeArray	m_selectedRevsOneRange;
 	bool				m_bSelectionMustBeContinuous;
 	long				m_logcounter;
 	bool				m_bCancelled;
@@ -276,3 +277,4 @@ private:
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(_T("TORTOISESVN_REVSELECTED_MSG"));
 static UINT WM_REVLIST = RegisterWindowMessage(_T("TORTOISESVN_REVLIST_MSG"));
+static UINT WM_REVLISTONERANGE = RegisterWindowMessage(_T("TORTOISESVN_REVLISTONERANGE_MSG"));

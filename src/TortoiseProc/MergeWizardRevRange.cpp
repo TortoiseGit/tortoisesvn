@@ -62,6 +62,7 @@ void CMergeWizardRevRange::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CMergeWizardRevRange, CMergeWizardBasePage)
 	ON_REGISTERED_MESSAGE(WM_REVLIST, OnRevSelected)
+	ON_REGISTERED_MESSAGE(WM_REVLISTONERANGE, OnRevSelectedOneRange)
 	ON_BN_CLICKED(IDC_SELLOG, &CMergeWizardRevRange::OnBnClickedShowlog)
 	ON_BN_CLICKED(IDC_BROWSE, &CMergeWizardRevRange::OnBnClickedBrowse)
 	ON_BN_CLICKED(IDC_SHOWLOGWC, &CMergeWizardRevRange::OnBnClickedShowlogwc)
@@ -158,6 +159,23 @@ LPARAM CMergeWizardRevRange::OnRevSelected(WPARAM wParam, LPARAM lParam)
 
 	// lParam is a pointer to an SVNRevList, wParam contains the number of elements in that list.
 	if ((lParam)&&(wParam))
+	{
+		UpdateData(TRUE);
+		CMergeWizard* dlg = (CMergeWizard*)GetParent();
+		dlg->revRangeArray = *((SVNRevRangeArray*)lParam);
+		bool bReverse = !!dlg->bReverseMerge;
+		m_sRevRange = dlg->revRangeArray.ToListString(bReverse);
+		UpdateData(FALSE);
+	}
+	return 0;
+}
+
+LPARAM CMergeWizardRevRange::OnRevSelectedOneRange(WPARAM /*wParam*/, LPARAM lParam)
+{
+	((CMergeWizard*)GetParent())->revRangeArray.Clear();
+
+	// lParam is a pointer to an SVNRevList
+	if ((lParam))
 	{
 		UpdateData(TRUE);
 		CMergeWizard* dlg = (CMergeWizard*)GetParent();

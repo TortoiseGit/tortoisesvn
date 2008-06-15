@@ -44,6 +44,7 @@ protected:
 	afx_msg void		OnBnClickedShowlog();
 	afx_msg void		OnBnClickedBrowse();
 	afx_msg LRESULT		OnRevSelected(WPARAM wParam, LPARAM lParam);
+	afx_msg LRESULT		OnRevSelectedOneRange(WPARAM wParam, LPARAM lParam);
 	afx_msg void		OnBnClickedShowlogwc();
 
 	DECLARE_MESSAGE_MAP()

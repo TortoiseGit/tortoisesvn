@@ -1564,6 +1564,7 @@ void CLogDlg::OnOK()
 		__super::OnOK();	// only exit if the button text matches, and that will match only if the thread isn't running anymore
 	m_bCancelled = TRUE;
 	m_selectedRevs.Clear();
+	m_selectedRevsOneRange.Clear();
 	if (m_pNotifyWindow)
 	{
 		int selIndex = m_LogList.GetSelectionMark();
@@ -1584,6 +1585,10 @@ void CLogDlg::OnOK()
 					lowerRev = rev;
 				if (higherRev < rev)
 					higherRev = rev;
+			}
+			if (m_sFilterText.IsEmpty() && m_nSortColumn == 0 && IsSelectionContinuous())
+			{
+				m_selectedRevsOneRange.AddRevRange(lowerRev, higherRev);
 			}
 			BOOL bSentMessage = FALSE;
 			if (m_LogList.GetSelectedCount() == 1)
@@ -1624,6 +1629,8 @@ void CLogDlg::OnOK()
 				m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTSTART | MERGE_REVSELECTMINUSONE), lowerRev);
 				m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTEND | MERGE_REVSELECTMINUSONE), higherRev);
 				m_pNotifyWindow->SendMessage(WM_REVLIST, m_selectedRevs.GetCount(), (LPARAM)&m_selectedRevs);
+				if (m_selectedRevsOneRange.GetCount())
+					m_pNotifyWindow->SendMessage(WM_REVLISTONERANGE, 0, (LPARAM)&m_selectedRevsOneRange);
 			}
 		}
 	}
