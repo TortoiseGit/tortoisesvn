@@ -21,6 +21,9 @@
 - BUG: Merging with "dry run" ignored the options the user has set. (Stefan)
 - BUG: OK button in copy, import and input dialog was disabled randomly 
        when tsvn:logminsize was not 0. (Stefan Fuhrmann)
+- BUG: "show log" on a revision graph node would show the log for some
+       sub-path of the respective branch instead for the branch itself
+       (Stefan Fuhrmann)
 
 Version 1.5.0-RC3
 - NEW: Draw the whitespace chars in gray so they're clearly distinguishable
