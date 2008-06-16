@@ -1,4 +1,4 @@
-# List of Languages for Make_Check and Make_Install
+﻿# List of Languages for Make_Check and Make_Install
 # columns are separated by semicolons AND Tab characters
 # Don't convert Tabs to Spaces or you'll break the scripts!
 # The separators '; and Tab' must NOT be part of a value, even if quoted!
@@ -6,7 +6,7 @@
 #
 # 1 = ISO Country code
 # 2 = Four digit country code
-# 3 = Help file in Language exists (1=Yes, 0=Use English Help).
+# 3 = ##Obsolete## Help file in Language exists (1=Yes, 0=Use English Help).
 # 4 = UI Language for installer
 # 5 = Language string for web page (english)
 # 6 = Language string for installer (native language if known)
@@ -19,14 +19,14 @@ zh_TW;	1028;	0;	TradChinese;	Chinese, traditional;	Chinese, traditional
 hr;	1050;	1;	Croatian;	Croatian;		Croatian
 cs;	1029;	0;	Czech;		Czech;			Česky
 da;	1030;	0;	Danish;		Danish;			Dansk
-nl;	1043;	0;	Dutch;		Dutch;			Nederlands
-#eo;	1167;	0;	Esperanto;	Esperanto;		Esperanto
-fa;	1065;	0;	Farsi;		Farsi;			Farsi
+nl;	1043;	1;	Dutch;		Dutch;			Nederlands
+eo;	1167;	0;	Esperanto;	Esperanto;		Esperanto
+fa;	1065;	1;	Persian		Persian;		Farsi
 fi;	1035;	0;	Finnish;	Finnish;		Suomi
 fr;	1036;	1;	French;		French;			Français
 ka;	1079;	0;	English;	Georgian;		Georgian
 de;	1031;	1;	German;		German;			Deutsch
-#el;	1032;	0;	Greek;		Greek;			Greek
+el;	1032;	0;	Greek;		Greek;			Greek
 hu;	1038;	0;	Hungarian;	Hungarian;		Magyar
 id;	1057;	1;	Indonesian;	Indonesian;		Indonesia
 it;	1040;	0;	Italian;	Italian;		Italiano
@@ -37,10 +37,10 @@ nb;	1044;	0;	Norwegian;	Norwegian, bokmål;	Norsk, bokmål
 pl;	1045;	0;	Polish;		Polish;			polski
 pt_BR;	1046;	0;	Portuguese;	Portuguese, Brazil;	Portuguese, Brazil
 #pt_PT;	2070;	0;	Portuguese;	Portuguese, Portugal;	Portuguese, Portugal
-#ro;	1048;	0;	Romanian;	Romanian;		Românå
+ro;	1048;	0;	Romanian;	Romanian;		Românå
 ru;	1049;	1;	Russian;	Russian;		Russian
 sk;	1051;	1;	Slovak;		Slovak;			Slovensky
-sl;	1060;	0;	Slovenian;	Slovenian;		Slovenian
+sl;	1060;	1;	Slovenian;	Slovenian;		Slovenian
 es;	1034;	1;	Spanish;	Spanish;		Español
 sv;	1053;	0;	Swedish;	Swedish;		Svenska
-#tr;	1055;	0;	Turkish;	Turkish;		türkçe
+tr;	1055;	0;	Turkish;	Turkish;		türkçe
