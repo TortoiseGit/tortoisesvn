@@ -11,7 +11,7 @@
 '
 ' Authors:
 ' Jonathan Ashley, 2007
-' Stefan Küng, 2006-2008
+' Stefan Küng, 2006
 '
 
 dim objArgs,num,sBaseDoc,sMergedDoc,sTheirDoc,sMyDoc,objScript,word,destination
