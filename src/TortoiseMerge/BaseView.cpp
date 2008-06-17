@@ -1479,7 +1479,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 		int y = rc.top + (rc.bottom-rc.top)/2;
 
 		int nActualOffset = 0;
-		while (nActualOffset < m_nOffsetChar)
+		while ((nActualOffset < m_nOffsetChar) && (*pszChars))
 		{
 			if (*pszChars == _T('\t'))
 				nActualOffset += (GetTabSize() - nActualOffset % GetTabSize());
