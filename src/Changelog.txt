@@ -24,6 +24,8 @@
 - BUG: "show log" on a revision graph node would show the log for some
        sub-path of the respective branch instead for the branch itself
        (Stefan Fuhrmann)
+- BUG: After moving items in the repository browser, the view sometimes would
+       not refresh properly. (Stefan)
 
 Version 1.5.0-RC3
 - NEW: Draw the whitespace chars in gray so they're clearly distinguishable

@@ -199,7 +199,7 @@ protected:
 		apr_time_t lock_expirationdate, const CString& absolutepath);
 
 	/// recursively removes all items from \c hItem on downwards.
-	void RecursiveRemove(HTREEITEM hItem);
+	void RecursiveRemove(HTREEITEM hItem, bool bChildrenOnly = false);
 	/// searches the tree item for the specified \c fullurl.
 	HTREEITEM FindUrl(const CString& fullurl, bool create = true);
 	/// searches the tree item for the specified \c fullurl.

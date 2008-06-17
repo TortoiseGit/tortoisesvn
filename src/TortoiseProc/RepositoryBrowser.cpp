@@ -123,7 +123,7 @@ CRepositoryBrowser::~CRepositoryBrowser()
 {
 }
 
-void CRepositoryBrowser::RecursiveRemove(HTREEITEM hItem)
+void CRepositoryBrowser::RecursiveRemove(HTREEITEM hItem, bool bChildrenOnly /* = false */)
 {
 	HTREEITEM childItem;
 	if (m_RepoTree.ItemHasChildren(hItem))
@@ -137,7 +137,7 @@ void CRepositoryBrowser::RecursiveRemove(HTREEITEM hItem)
 		}
 	}
 
-	if (hItem)
+	if ((hItem)&&(!bChildrenOnly))
 	{
 		CTreeItem * pTreeItem = (CTreeItem*)m_RepoTree.GetItemData(hItem);
 		delete pTreeItem;
@@ -911,13 +911,17 @@ HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url
 		hSibling = m_RepoTree.GetNextItem(hItem, TVGN_CHILD);
 		do
 		{
-			CString sSibling = ((CTreeItem*)m_RepoTree.GetItemData(hSibling))->unescapedname;
-			if (sSibling.Compare(url.Left(sSibling.GetLength()))==0)
+			CTreeItem * pTItem = ((CTreeItem*)m_RepoTree.GetItemData(hSibling));
+			if (pTItem)
 			{
-				if (sSibling.GetLength() == url.GetLength())
-					return hSibling;
-				if (url.GetAt(sSibling.GetLength()) == '/')
-					return FindUrl(fullurl, url.Mid(sSibling.GetLength()+1), create, hSibling);
+				CString sSibling = pTItem->unescapedname;
+				if (sSibling.Compare(url.Left(sSibling.GetLength()))==0)
+				{
+					if (sSibling.GetLength() == url.GetLength())
+						return hSibling;
+					if (url.GetAt(sSibling.GetLength()) == '/')
+						return FindUrl(fullurl, url.Mid(sSibling.GetLength()+1), create, hSibling);
+				}
 			}
 		} while ((hSibling = m_RepoTree.GetNextItem(hSibling, TVGN_NEXT)) != NULL);	
 	}
@@ -1675,6 +1679,43 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 			}
 			else if (GetRevision().IsHead())
 			{
+				// mark the target as dirty
+				HTREEITEM hTarget = FindUrl(target.GetSVNPathString(), false);
+				if (hTarget)
+				{
+					CTreeItem * pItem = (CTreeItem*)m_RepoTree.GetItemData(hTarget);
+					if (pItem)
+					{
+						// mark the target as 'dirty'
+						pItem->children_fetched = false;
+						RecursiveRemove(hTarget, true);
+						TVITEM tvitem = {0};
+						tvitem.hItem = hTarget;
+						tvitem.mask = TVIF_CHILDREN;
+						tvitem.cChildren = 1;
+						m_RepoTree.SetItem(&tvitem);
+					}
+				}
+				if (dwEffect == DROPEFFECT_MOVE)
+				{
+					// if items were moved, we have to
+					// invalidate all sources too
+					for (int i=0; i<pathlist.GetCount(); ++i)
+					{
+						HTREEITEM hSource = FindUrl(pathlist[i].GetSVNPathString(), false);
+						if (hSource)
+						{
+							CTreeItem * pItem = (CTreeItem*)m_RepoTree.GetItemData(hSource);
+							if (pItem)
+							{
+								// the source has moved, so remove it!
+								RecursiveRemove(hSource);
+								m_RepoTree.DeleteItem(hSource);
+							}
+						}
+					}
+				}
+
 				// if the copy/move operation was to the currently shown url,
 				// update the current view. Otherwise mark the target URL as 'not fetched'.
 				HTREEITEM hSelected = m_RepoTree.GetSelectedItem();
