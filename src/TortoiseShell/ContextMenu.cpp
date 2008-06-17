@@ -335,44 +335,52 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 						{
 							//get the Subversion status of the item
 							svn_wc_status_kind status = svn_wc_status_none;
-							try
+							if ((g_ShellCache.IsSimpleContext())&&(strpath.IsDirectory()))
 							{
-								SVNStatus stat;
-								stat.GetStatus(CTSVNPath(strpath), false, true, true);
-								if (stat.status)
-								{
-									statuspath = str;
-									status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
-									fetchedstatus = status;
-									if ((stat.status->entry)&&(stat.status->entry->lock_token))
-										itemStates |= (stat.status->entry->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
-									if ((stat.status->entry)&&(stat.status->entry->kind == svn_node_dir))
-									{
-										itemStates |= ITEMIS_FOLDER;
-										if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
-											itemStates |= ITEMIS_FOLDERINSVN;
-									}
-									if ((stat.status->entry)&&(stat.status->entry->conflict_wrk))
-										itemStates |= ITEMIS_CONFLICTED;
-									if ((stat.status->entry)&&(stat.status->entry->present_props))
-									{
-										if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
-											itemStates |= ITEMIS_NEEDSLOCK;
-									}
-								}	
-								else
-								{
-									// sometimes, svn_client_status() returns with an error.
-									// in that case, we have to check if the working copy is versioned
-									// anyway to show the 'correct' context menu
-									if (CTSVNPath(strpath).HasAdminDir())
-										status = svn_wc_status_normal;
-								}
-								statfetched = TRUE;
+								if (strpath.HasAdminDir())
+									status = svn_wc_status_normal;
 							}
-							catch ( ... )
+							else
 							{
-								ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+								try
+								{
+									SVNStatus stat;
+									stat.GetStatus(CTSVNPath(strpath), false, true, true);
+									if (stat.status)
+									{
+										statuspath = str;
+										status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+										fetchedstatus = status;
+										if ((stat.status->entry)&&(stat.status->entry->lock_token))
+											itemStates |= (stat.status->entry->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
+										if ((stat.status->entry)&&(stat.status->entry->kind == svn_node_dir))
+										{
+											itemStates |= ITEMIS_FOLDER;
+											if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
+												itemStates |= ITEMIS_FOLDERINSVN;
+										}
+										if ((stat.status->entry)&&(stat.status->entry->conflict_wrk))
+											itemStates |= ITEMIS_CONFLICTED;
+										if ((stat.status->entry)&&(stat.status->entry->present_props))
+										{
+											if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
+												itemStates |= ITEMIS_NEEDSLOCK;
+										}
+									}	
+									else
+									{
+										// sometimes, svn_client_status() returns with an error.
+										// in that case, we have to check if the working copy is versioned
+										// anyway to show the 'correct' context menu
+										if (strpath.HasAdminDir())
+											status = svn_wc_status_normal;
+									}
+									statfetched = TRUE;
+								}
+								catch ( ... )
+								{
+									ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+								}
 							}
 							if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
 								itemStates |= ITEMIS_INSVN;

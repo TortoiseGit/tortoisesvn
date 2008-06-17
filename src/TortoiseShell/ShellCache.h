@@ -58,6 +58,7 @@ public:
 		driveunknown = CRegStdWORD(_T("Software\\TortoiseSVN\\DriveMaskUnknown"));
 		excludelist = CRegStdString(_T("Software\\TortoiseSVN\\OverlayExcludeList"));
 		includelist = CRegStdString(_T("Software\\TortoiseSVN\\OverlayIncludeList"));
+		simplecontext = CRegStdWORD(_T("Software\\TortoiseSVN\\SimpleContext"), FALSE);
 		unversionedasmodified = CRegStdWORD(_T("Software\\TortoiseSVN\\UnversionedAsModified"), FALSE);
 		showunversionedoverlay = CRegStdWORD(_T("Software\\TortoiseSVN\\ShowUnversionedOverlay"), TRUE);
 		showignoredoverlay = CRegStdWORD(_T("Software\\TortoiseSVN\\ShowIgnoredOverlay"), TRUE);
@@ -72,6 +73,7 @@ public:
 		columnrevformatticker = cachetypeticker;
 		excludelistticker = cachetypeticker;
 		includelistticker = cachetypeticker;
+		simplecontextticker = cachetypeticker;
 		unversionedasmodifiedticker = cachetypeticker;
 		showunversionedoverlayticker = cachetypeticker;
 		showignoredoverlayticker = cachetypeticker;
@@ -123,6 +125,7 @@ public:
 		driveunknown.read();
 		excludelist.read();
 		includelist.read();
+		simplecontext.read();
 		unversionedasmodified.read();
 		showunversionedoverlay.read();
 		showignoredoverlay.read();
@@ -201,6 +204,15 @@ public:
 			folderoverlay.read();
 		}
 		return (folderoverlay);
+	}
+	BOOL IsSimpleContext()
+	{
+		if ((GetTickCount() - REGISTRYTIMEOUT)>simplecontextticker)
+		{
+			simplecontextticker = GetTickCount();
+			simplecontext.read();
+		}
+		return (simplecontext!=0);
 	}
 	BOOL IsUnversionedAsModified()
 	{
@@ -522,6 +534,7 @@ private:
 	CRegStdWORD driveunknown;
 	CRegStdWORD menulayoutlow;
 	CRegStdWORD menulayouthigh;
+	CRegStdWORD simplecontext;
 	CRegStdWORD menumasklow_lm;
 	CRegStdWORD menumaskhigh_lm;
 	CRegStdWORD menumasklow_cu;
@@ -550,6 +563,7 @@ private:
 	DWORD columnrevformatticker;
 	DWORD excludelistticker;
 	DWORD includelistticker;
+	DWORD simplecontextticker;
 	DWORD unversionedasmodifiedticker;
 	DWORD showunversionedoverlayticker;
 	DWORD showignoredoverlayticker;
