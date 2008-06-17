@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-13 09:08+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2008-06-17 21:30+0900\n"
+"Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2946,10 +2946,10 @@ msgstr "ドキュメント:"
 #. Resource IDs: (65535)
 msgid ""
 "Documentation : Simon Large\n"
-"Code : Tobias Schäfer, Stefan Fuhrmann"
+"Code : Tobias Schafer, Stefan Fuhrmann"
 msgstr ""
 "ドキュメント : Simon Large\n"
-"コード : Tobias Schäfer, Stefan Fuhrmann"
+"コード : Tobias Schafer, Stefan Fuhrmann"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -3388,7 +3388,7 @@ msgid ""
 "Failed to start the issue tracker COM provider \"%s\".\n"
 "%s"
 msgstr ""
-"問題追跡COMプロバイダ \"%s\" の開始に失敗しました。\n"
+"課題追跡システムのCOMプロバイダ \"%s\" の開始に失敗しました。\n"
 "%s"
 
 #. Resource IDs: (220)
@@ -3855,7 +3855,7 @@ msgstr "フックスクリプト"
 
 #. Resource IDs: (283)
 msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "フックスクリプト::問題追跡の統合"
+msgstr "フックスクリプト::課題追跡システムの統合"
 
 #. Resource IDs: (198)
 msgid "Hook Type"
@@ -6558,7 +6558,7 @@ msgstr "終了リビジョンを選択"
 
 #. Resource IDs: (64)
 msgid "Select folder to associate with this issue tracker"
-msgstr "問題追跡に関連付けるフォルダを選択してください"
+msgstr "課題追跡システムに関連付けるフォルダを選択してください"
 
 #. Resource IDs: (79)
 msgid ""
@@ -7093,8 +7093,8 @@ msgid "Steal the lock"
 msgstr "ロックを横取りする"
 
 #. Resource IDs: (65535)
-msgid "Stefan Küng, Lübbe Onken"
-msgstr "Stefan Küng, Lübbe Onken"
+msgid "Stefan Kung, Lubbe Onken"
+msgstr "Stefan Kung, Lubbe Onken"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
@@ -7374,11 +7374,11 @@ msgstr "画像を表示することができません。"
 
 #. Resource IDs: (63)
 msgid "The issue-tracker provider could not be created. Please check that it is installed correctly."
-msgstr "問題追跡プロバイダを作成することができませんでした。正しくインストールされているかどうかを確認してください。"
+msgstr "課題追跡システムのプロバイダを作成することができませんでした。正しくインストールされているかどうかを確認してください。"
 
 #. Resource IDs: (64)
 msgid "The issue-tracker provider was unable to validate the parameter string"
-msgstr "問題追跡プロバイダは、パラメータ文字列の確認ができませんでした。"
+msgstr "課題追跡システムのプロバイダは、パラメータ文字列の確認ができませんでした。"
 
 #. Resource IDs: (63)
 #, c-format
@@ -7618,7 +7618,7 @@ msgstr ""
 
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
-msgstr "利用可能な問題追跡プロバイダが見つかりませんでした。"
+msgstr "利用可能な課題追跡システムのプロバイダが見つかりませんでした。"
 
 #. Resource IDs: (66)
 #, c-format
@@ -8087,7 +8087,7 @@ msgid ""
 "  Fingerprint: %s\n"
 "  Distinguished name: %s"
 msgstr ""
-"未知の証明書です。\n"
+"不明な証明書です。\n"
 "  Fingerprint: %s\n"
 "  Distinguished name: %s"
 
@@ -8605,8 +8605,8 @@ msgid ""
 "You haven't entered an issue number!\n"
 "Are you sure you want to commit without an issue number?"
 msgstr ""
-"issue 番号が入力されていません！\n"
-"issue 番号無しでコミットを行ってもよろしいですか？"
+"課題番号が入力されていません！\n"
+"課題番号無しでコミットを行ってもよろしいですか？"
 
 #. Resource IDs: (1002)
 #, c-format
@@ -8831,7 +8831,7 @@ msgid ""
 "Label text to show for the edit box where the user enters the issue number."
 msgstr ""
 "bugtraq:label\n"
-"issue 番号を入力するエディットボックスに表示するラベルテキスト"
+"課題番号を入力するエディットボックスに表示するラベルテキスト。"
 
 #. Resource IDs: (577)
 msgid ""
@@ -8842,7 +8842,7 @@ msgid ""
 msgstr ""
 "bugtraq:logregex\n"
 "２つの改行で分けられた正規表現。\n"
-"１つ目の正規表現は issue を参照する文字列を探すために利用し、\n"
+"１つ目の正規表現は課題を参照する文字列を探すために利用し、\n"
 "２つ目はその文字列からバグIDを抽出するために用いる。"
 
 #. Resource IDs: (577)
@@ -8853,8 +8853,8 @@ msgid ""
 "The string must contain \"%BUGID%\" which gets replaced with the issue number."
 msgstr ""
 "bugtraq:message\n"
-"issue 番号が入力されたときに、ログメッセージに追加される文字列。\n"
-"文字列は、issue 番号に置換される \"%BUGID%\" を含んでいる必要があります。"
+"課題番号が入力されたときに、ログメッセージに追加される文字列。\n"
+"文字列は、課題番号に置換される \"%BUGID%\" を含んでいる必要があります。"
 
 #. Resource IDs: (577)
 msgid ""
@@ -8862,7 +8862,7 @@ msgid ""
 "Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
 "bugtraq:number\n"
-"バグトラッキングシステムが数値で問題を参照することができないなら、\"false\" に設定してください。"
+"バグトラッキングシステムが数値で問題を参照することができない場合は、\"false\" に設定してください。"
 
 #. Resource IDs: (577)
 #, c-format
@@ -8872,8 +8872,8 @@ msgid ""
 "gets replaced with the issue number."
 msgstr ""
 "bugtraq:url\n"
-"issue tracker を示す URL。\n"
-"issue 番号で置換される \"%BUGID%\" を含んでいる必要があります。"
+"課題追跡システムを示す URL。\n"
+"課題番号で置換される \"%BUGID%\" を含んでいる必要があります。"
 
 #. Resource IDs: (65535)
 msgid "changes total: "
@@ -9377,7 +9377,7 @@ msgid ""
 "Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
 "tsvn:warnifnoissue\n"
-"コミットダイアログに issue を何も入力しないとき警告を表示するなら、 \"yes\" にする。"
+"コミットダイアログに課題を何も入力しない場合に警告を表示するなら、 \"yes\" にする。"
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
@@ -9442,7 +9442,7 @@ msgstr "{BugTraq}"
 #~ msgid "Force blame"
 #~ msgstr "強制的に注釈履歴を実行する"
 #~ msgid "Bug Tracker..."
-#~ msgstr "バグ追跡 ..."
+#~ msgstr "バグ追跡システム ..."
 #~ msgid "Remove..."
 #~ msgstr "削除 ..."
 #~ msgid "cleaning up"
