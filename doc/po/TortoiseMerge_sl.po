@@ -203,12 +203,12 @@ msgstr "Pregled"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:185
 msgid "TortoiseMerge is a free/open-source application. It lets you see differences in text files, merge those changes and even review and apply unified diff files, often called <firstterm>patches</firstterm>."
-msgstr "TortoiseMerge je brezplačen/odprtokodni program. Omogoča pregledovanje razlik v besedilnih datotekah, spajanje teh sprememb in celo pregled in uporabo datotek poenotene različice, pogosto imenovane <firstterm>datoteke popravkov</firstterm>."
+msgstr "TortoiseMerge je brezplačen/odprtokodni program. Omogoča pregledovanje razlik v besedilnih datotekah, spajanje teh sprememb in celo pregled in uporabo datotek poenotene razlike, pogosto imenovane <firstterm>datoteke popravkov</firstterm>."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:190
 msgid "While working on text files, e.g. source files in your favourite programming language, or html/xml files for your documentation or website, you will often have a situation where you need to compare different versions of those files. Sometimes you get a different version from someone else, sometimes you just want to see the changes you've made."
-msgstr "Pri delu z besedilnimi datotekami, n. pr. datotekami izvorne kode v priljubljenem programskem jeziku ali datoteke html/xml files za vašo dokumentacijo ali spletno stran se pogosto znajdete v situaciji, ko morate primerjati različne verzije teh datotek. Včasih dobite drugo različico datoteke od koga drugega, včasih pa želite videti, kakšne spremembe ste naredili sami."
+msgstr "Pri delu z besedilnimi datotekami, n. pr. datotekami izvorne kode v priljubljenem programskem jeziku ali datotekami html/xml files za vašo dokumentacijo ali spletno stran se pogosto znajdete v situaciji, ko morate primerjati različne verzije teh datotek. Včasih dobite drugo različico datoteke od sodelavca, včasih pa želite videti, kakšne spremembe ste naredili sami."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:198
@@ -295,7 +295,7 @@ msgstr "Pregledovanje in spajanje sprememb"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:304
 msgid "In this mode you are comparing two files. The file in the left pane is considered to be the original file (sometimes referred to as <emphasis>Theirs</emphasis>, and the file in the right pane is the modified file (sometimes referred to as <emphasis>Mine</emphasis>."
-msgstr "V tem načinu primerjate dve datoteki. Datoteka na levi strani se smatra za originalno (včasih ji rečeno <emphasis>njihova</emphasis>), datoteka na desni pa je spremenjena datoteka (včasih ji rečemo <emphasis>moja</emphasis>)."
+msgstr "V tem načinu primerjate dve datoteki. Datoteka na levi strani se smatra za izvirno (včasih ji rečeno <emphasis>njihova</emphasis>), datoteka na desni pa je spremenjena datoteka (včasih ji rečemo <emphasis>moja</emphasis>)."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:315
@@ -305,7 +305,7 @@ msgstr "Povrnitev spremenjenih vrstic nazaj na stanje, kot je v levi datoteki."
 #. (para)
 #: ../source/TortoiseMerge_en.xml:320
 msgid "Using a combination of both blocks, either <emphasis>Theirs</emphasis> before <emphasis>Mine</emphasis> or <emphasis>Mine</emphasis> before <emphasis>Theirs</emphasis>."
-msgstr "S kombinacijo ukazov lahko izberete tudi <emphasis>njihove</emphasis> spremembe pred<emphasis>svojimi</emphasis> ali <emphasis>svoje</emphasis> pred <emphasis>njihovimi</emphasis>."
+msgstr "S kombinacijo ukazov lahko izberete tudi <emphasis>njihove</emphasis> spremembe pred <emphasis>svojimi</emphasis> ali <emphasis>svoje</emphasis> pred <emphasis>njihovimi</emphasis>."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:310
@@ -349,12 +349,12 @@ msgstr "Namestitev popravkov"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:370
 msgid "A patch file is a Subversion unified diff file, which contains the information required to apply changes to a set of files. The patch may have been supplied by another developer so that you can see changes he has made and possibly commit them to the repository. Or it may have been generated internally by TortoiseSVN when comparing two folders. This happens when you compare a repository revision with your working copy folder, or if you compare two different repository revisions, or if you compare two different repository paths."
-msgstr "Datoteka popravkov je datoteka poenotene različice sistema Subversion, ki vsebuje informacije, potrebne za namestitev sprememb na množico datotek. Popravek je mogoče poslal drug razvijalec, da njegove spremembe pregledate in jih po možnosti objavite v skladišču. Ali pa ga je generiral program TortoiseSVN sam pri primerjanju map. To se zgodi pri primerjanju revizije iz skladišča z vašo delovno kopijo, pri primerjanju dveh revizij v skladišču ali pri primerjanju dveh poti v skladišču."
+msgstr "Datoteka popravkov je datoteka poenotene razlike sistema Subversion, ki vsebuje informacije, potrebne za namestitev sprememb na množico datotek. Popravek je mogoče poslal drug razvijalec, da njegove spremembe pregledate in jih po možnosti objavite v skladišču. Ali pa ga je ustvaril program TortoiseSVN sam pri primerjanju map. To se zgodi pri primerjanju revizije iz skladišča z vašo delovno kopijo, pri primerjanju dveh revizij v skladišču ali pri primerjanju dveh poti v skladišču."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:380
 msgid "In either case TortoiseMerge will show a small window listing the files included in the patch. By double clicking on one of these files you fetch the relevant file and apply the changes. The left pane shows the original file content and the right pane shows it after the patch is applied."
-msgstr "V vseh primerih vam TortoiseMerge pokaže majhno pogovorno okno s seznamom datotek, ki so vključene v popravek. Z dvoklikom na posamezno datoteko preberete ustrezno datoteko in namestite spremembe. Levi del prikazuje originalno datoteko, desni pa datoteko po nameščenem popravku."
+msgstr "V vseh primerih vam TortoiseMerge pokaže majhno pogovorno okno s seznamom datotek, ki so vključene v popravek. Z dvoklikom na posamezno datoteko preberete ustrezno datoteko in namestite spremembe. Levi del prikazuje izvirno datoteko, desni pa datoteko po nameščenem popravku."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:387
@@ -431,12 +431,12 @@ msgstr "Tridelni pogled"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:463
 msgid "The left pane shows you the differences between <emphasis>Their</emphasis> file and the <emphasis>Base</emphasis> file, while the right pane shows you the differences between <emphasis>Mine</emphasis> file and the <emphasis>Base</emphasis> file. The bottom pane shows you the result of merging <emphasis>Base</emphasis>, <emphasis>Mine</emphasis> and <emphasis>Theirs</emphasis> with possible conflicts."
-msgstr "Leva stran prikazuje spremembe med <emphasis>njihovo</emphasis> datoteko in <emphasis>osnovno</emphasis> datoteko, desna pa spremembe med <emphasis>vašo</emphasis> datoteko in <emphasis>osnovno</emphasis> datoteko. Spodnji del prikazuje rezultat spajanja <emphasis>osnovne</emphasis>, <emphasis>vaše</emphasis> in <emphasis>njihove</emphasis> datoteke z možniki spori."
+msgstr "Leva stran prikazuje spremembe med <emphasis>njihovo</emphasis> datoteko in <emphasis>osnovno</emphasis> datoteko, desna pa spremembe med <emphasis>vašo</emphasis> datoteko in <emphasis>osnovno</emphasis> datoteko. Spodnji del prikazuje rezultat spajanja <emphasis>osnovne</emphasis>, <emphasis>vaše</emphasis> in <emphasis>njihove</emphasis> datoteke z možnimi spori."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:472
 msgid "If you hover the mouse over the pane title, a tooltip will show the filenames used for the diff in each pane."
-msgstr "Če z miško nekoliko mirujete na naslovom dela strani, vam namig prikaže imena datotek, ki so uporabljena za razlikovanje v posameznih delih."
+msgstr "Če z miško nekoliko mirujete nad naslovom dela strani, vam namig prikaže imena datotek, ki so uporabljena za razlikovanje v posameznih delih."
 
 #. (title)
 #: ../source/TortoiseMerge_en.xml:484
@@ -511,7 +511,7 @@ msgstr "Gumb <guibutton>Prejšnji/naslednji spor</guibutton> omogoča skok na na
 #. (para)
 #: ../source/TortoiseMerge_en.xml:577
 msgid "<guibutton>Use Theirs/Use Mine</guibutton> selects whether to use a block from the left or the right pane. Refer to the next section for more information about editing changes and conflicts."
-msgstr "Z gumbom <guibutton>Uporabi njihovo/Uporabi mojo</guibutton> izberemo spremembe trenutnega bloka iz level oziroma iz desne strani. Za več informacij o urejanju sprememb in sporov preberite naslednji razdelek."
+msgstr "Z gumbom <guibutton>Uporabi njihovo/Uporabi mojo</guibutton> izberemo spremembe trenutnega bloka iz leve oziroma iz desne strani. Za več informacij o urejanju sprememb in sporov preberite naslednji razdelek."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:586
@@ -521,7 +521,7 @@ msgstr "Gumb <guibutton>Njihovo pred mojim/Moje pred njihovim</guibutton> se upo
 #. (para)
 #: ../source/TortoiseMerge_en.xml:594
 msgid "<guibutton>Mark as Resolved</guibutton> When you have resolved all the conflicts in a file and saved the changes, you can mark it as resolved from within TortoiseMerge, rather than going back to explorer and marking as resolved from there."
-msgstr "<guibutton>Označi kot rešeno</guibutton> Ko ste rešili vse spore v datoteki in spremembe shranili, lahko datoteko iznačite kot rešeno kar v programu TortoiseMerge, ne da bi vam bilo potrebno hoditi nazaj v Raziskovalca."
+msgstr "<guibutton>Označi kot rešeno</guibutton> Ko ste rešili vse spore v datoteki in spremembe shranili, lahko datoteko označite kot rešeno kar v programu TortoiseMerge, ne da bi vam bilo potrebno hoditi nazaj v Raziskovalca."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:603
@@ -536,22 +536,22 @@ msgstr "Gumb <guibutton>Spremembe v vrstici</guibutton> preklaplja med način pr
 #. (para)
 #: ../source/TortoiseMerge_en.xml:617
 msgid "Word-wise is the default and in most cases it works better. For example if you change a variable name, the whole name is highlighted in word-wise mode, whereas in char-wise mode you tend to get a mess of added and deleted characters which doesn't make much sense. However, some content does not resolve neatly into words, for example a hex file, and in that case, char-wise display works better."
-msgstr "Besedni način je privzet in v večini primerov deluje bolje. Primer: če spremenite ime spremenljivke, se v besednem načinu označi ime cele spremenljivke. V znakovnem načinu vidite veliko dodanih in izbrisanih znakov, kar pa ni preveč smiselno. V nekaterih primerih pa se vsebina ne da lepo ločiti po besedah, n. pr. dateka hex. Takrat je znakovna metoda boljša."
+msgstr "Besedni način je privzet in v večini primerov deluje bolje. Primer: če spremenite ime spremenljivke, se v besednem načinu označi ime cele spremenljivke. V znakovnem načinu vidite veliko dodanih in izbrisanih znakov, kar pa ni preveč smiselno. V nekaterih primerih pa se vsebina ne da lepo ločiti po besedah, n. pr. v šestnajstiških datotekah. Takrat je znakovna metoda boljša."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:628
 msgid "<guibutton>Switch View</guibutton> selects between one-pane and two-pane view. Disabled in 3-pane view."
-msgstr "<guibutton>Preklopi pogled</guibutton>izbere enodelni ali dvodelni pogled. Gumb je onemogočen v primeru trodelnega pogleda."
+msgstr "<guibutton>Preklopi pogled</guibutton> izbere enodelni ali dvodelni pogled. Gumb je onemogočen v primeru trodelnega pogleda."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:635
 msgid "<guibutton>Switch Left and Right View</guibutton> In 2-pane view, swaps the left and right windows. When you are comparing a file in 2 different trees, as opposed to 2 revisions of the same file, TortoiseSVN does not know which one should go in the left pane as the <quote>original/base</quote> version. If it gets this wrong, you can change it to make viewing easier."
-msgstr "<guibutton>Preklopi levi in desni pogled</guibutton> V dvodelnem pogledu zamenja levi in desno del. Ko primerjate datoteki v dveh različnih drevesih (za razliko od primerjanja dveh revizij iste datoteke), TortoiseSVN ne ve, katera datoteka je <quote>originalna/osnovna</quote> in naj se zato prikaže na levi strani. Če se zmoti, lahko sami zamenjate strani."
+msgstr "<guibutton>Preklopi levi in desni pogled</guibutton> V dvodelnem pogledu zamenja levi in desno del. Ko primerjate datoteki v dveh različnih drevesih (za razliko od primerjanja dveh revizij iste datoteke), TortoiseSVN ne ve, katera datoteka je <quote>izvirna/osnovna</quote>, ki naj se zato prikaže na levi strani. Če se zmoti, lahko sami zamenjate strani."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:646
 msgid "<guibutton>Show/Hide Patch List</guibutton> When TortoiseMerge has a patch list, this button allows you to hide it (so you can see both windows), or show it (so you can review the file list)."
-msgstr "<guibutton>Pokaži/Skrij seznam popravkov</guibutton> Ko ima seznam popravkov, vam ta gumb omogoča, da seznam prikažete (tako da lahko seznam pregledate) ali skrijete (in tako vidite oba dela strani)."
+msgstr "<guibutton>Pokaži/Skrij seznam popravkov</guibutton> Ko ima TortoiseMerge seznam popravkov, vam ta gumb omogoča, da seznam prikažete (tako da ga lahko pregledate) ali skrijete (in tako vidite oba dela strani)."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:654
@@ -571,7 +571,7 @@ msgstr "Na levi strani okna se nahaja lokacijski trak. Ta prikazuje, kje v datot
 #. (para)
 #: ../source/TortoiseMerge_en.xml:670
 msgid "Below the bottom window is the status bar. This shows the number of lines added and deleted in <literal>Theirs</literal> and <literal>Mine</literal>, and the number of unresolved conflicts remaining. You can also see which line-ending style is in use, what encoding (ASCII, UTF-8, etc) is assumed by TortoiseMerge, and whether there is a byte-order-mark (BOM) present in UTF-8 files. The left side of the status bar is used to display hints when you hover the mouse over a control."
-msgstr "Pod spodnjim okno sem nahaja statusna vrstica. Ta prikazuje število dodanih in izbrisanih vrsticv datotekah <literal>njihova</literal> in <literal>moja</literal> in število še ne rešenih sporov. Vidite lahko tudi, kateri slog zaključevanja vrstic je v uporabi, vrsto kodiranja znakov (ASCII, UTF-8, etc), ki ga TortoiseMerge predpostavlja, in če se v datotekah UTF-8 uporablja byte-order-mark (BOM). Leva stran statusne vrstice se uporablja za prikaz namigov, ko z miško za hip mirujete na kontroli."
+msgstr "Pod spodnjim oknom sem nahaja vrstica stanja. Ta prikazuje število dodanih in izbrisanih vrstic v datotekah <literal>njihova</literal> in <literal>moja</literal> in število še ne rešenih sporov. Vidite lahko tudi, kateri slog zaključevanja vrstic je v uporabi, vrsto kodiranja znakov (ASCII, UTF-8, etc), ki ga TortoiseMerge predpostavlja, in če se v datotekah UTF-8 uporablja byte-order-mark (BOM). Leva stran vrstice stanja se uporablja za prikaz namigov, ko z miško za hip mirujete na kontroli."
 
 #. (title)
 #: ../source/TortoiseMerge_en.xml:683
@@ -596,7 +596,7 @@ msgstr "<graphic fileref=\"images/TMerge_lineremoved.png\"/> Vrstica je bila ods
 #. (para)
 #: ../source/TortoiseMerge_en.xml:696
 msgid "<graphic fileref=\"images/TMerge_lineequal.png\"/> A change has been undone by reverting to the original content of the line."
-msgstr "<graphic fileref=\"images/TMerge_lineequal.png\"/> Sprememba je bila preklicana s povrnitvijo na izvorno vsebino vrstice."
+msgstr "<graphic fileref=\"images/TMerge_lineequal.png\"/> Sprememba je bila preklicana s povrnitvijo na izvirno vsebino vrstice."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:700
@@ -631,7 +631,7 @@ msgstr "TortoiseMerge vam ne le <emphasis>prikaže</emphasis> razlike med datote
 #. (para)
 #: ../source/TortoiseMerge_en.xml:726
 msgid "If you're in two pane view, then you can only edit the file in the right pane (<literal>Mine</literal>). To apply changes made in the left file (<literal>Theirs</literal>), <action>right-click</action> on the changed lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice>. Then the changes from the left file are added to the right file."
-msgstr "Če se nahajate v dvodelnem pogledu, lahko urejate le datoteko na desni strani (<literal>moje</literal>). Za namestitev sprememb, narejenih na levi strani (<literal>njihovo</literal>), <action>desno kliknite</action> na spremenjene vrstrice in izberite <menuchoice><guimenu>Kontekstni meni</guimenu><guimenuitem>Uporabi del besedila iz  <quote>njihovo</quote></guimenuitem></menuchoice>. S tem se spremembe z leve strani dodajo na desno datoteko."
+msgstr "Če se nahajate v dvodelnem pogledu, lahko urejate le datoteko na desni strani (<literal>moja</literal>). Za namestitev sprememb, narejenih na levi strani (<literal>njihova</literal>), <action>desno kliknite</action> na spremenjene vrstrice in izberite <menuchoice><guimenu>Kontekstni meni</guimenu><guimenuitem>Uporabi del besedila iz  <quote>njihovo</quote></guimenuitem></menuchoice>. S tem se spremembe z leve strani dodajo na desno datoteko."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:738
@@ -641,12 +641,12 @@ msgstr "Včasih želite uporabiti oba dela besedila, zato vam kontekstni meni po
 #. (para)
 #: ../source/TortoiseMerge_en.xml:751
 msgid "You can also edit the output file just as you would in a text editor. Such lines are marked using a pencil icon. Please note that if you want to make any of the line/block-based changes described above, it is better to do those first since once you start editing the file yourself it becomes impossible for TortoiseMerge to keep track of the relationship to the original files."
-msgstr "Izhodno datoteko lahko prav tako urejate kot v urejevalniku besedil. Spremenjene vrstice so označene s simbolom svinčnika. Če želite narediti kakšno spremembo na nivoju vrstice ali bloka besedila, je najbolje, da to storite najprej. Po ročnem urejanju namreč TortoiseMerge nima več povezave z izvornimi datotekami."
+msgstr "Izhodno datoteko lahko urejate prav tako kot v urejevalniku besedil. Spremenjene vrstice so označene s simbolom svinčnika. Če želite narediti kakšno spremembo na nivoju vrstice ali bloka besedila, je najbolje, da to storite najprej. Po ročnem urejanju namreč TortoiseMerge nima več povezave z izvornimi datotekami."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:759
 msgid "If you're in three pane view (sometimes called <emphasis>merge view</emphasis>) you can only edit the file in the bottom view (<literal>Merged</literal>). As in two pane view, you can <action>right-click</action> on conflicted lines and either select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Use text block from <quote>mine</quote></guimenuitem></menuchoice>. In addition, if you want <emphasis>both</emphasis> blocks, you can select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>mine</quote> before <quote>theirs</quote></guimenuitem></menuchoice> or <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> Use text block from <quote>theirs</quote> before <quote>mine</quote></guimenuitem></menuchoice>. According to the command you've selected, the changes are used in the resulting <literal>Merged</literal> file."
-msgstr "Če se nahajate v tridelnem pogledu (včasih mu rečemu tudi (sometimes called <emphasis>pogled za spajanje</emphasis>), lahko urejate le datoteko v spodnjem delu (<literal>spojeno</literal>). Kot v primeru dvodelnega pogleda lahko tudi tu <action>desno kliknete</action> na sporne vrstice in izberete <menuchoice><guimenu>Kontekstni meni</guimenu><guimenuitem>Uporabi del besedila iz <quote>njihovega</quote></guimenuitem></menuchoice> ali <menuchoice><guimenu>Kontekstni meni</guimenu><guimenuitem>Uporabi del besedila iz <quote>mojega</quote></guimenuitem></menuchoice>. Če želite uporabiti <emphasis>oba</emphasis> dela besedila, lahko izberete <menuchoice><guimenu>Kontekstni meni</guimenu><guimenuitem> Uporabi del besedila iz <quote>mojega</quote> pred <quote>njihovim</quote></guimenuitem></menuchoice> ali <menuchoice><guimenu>Kontekstni meni</guimenu><guimenuitem> Uporabi del besedila iz <quote>njihovega</quote> pred <quote>mojim</quote></guimenuitem></menuchoice>. Glede na izbiro ukaza se spremembe prikažejo v <literal>spojeni</literal> datoteki."
+msgstr "Če se nahajate v tridelnem pogledu (včasih mu rečemo tudi <emphasis>pogled za spajanje</emphasis>), lahko urejate le datoteko v spodnjem delu (<literal>spojeno</literal>). Kot v primeru dvodelnega pogleda lahko tudi tu <action>desno kliknete</action> na sporne vrstice in izberete <menuchoice><guimenu>Kontekstni meni</guimenu><guimenuitem>Uporabi del besedila iz <quote>njihovega</quote></guimenuitem></menuchoice> ali <menuchoice><guimenu>Kontekstni meni</guimenu><guimenuitem>Uporabi del besedila iz <quote>mojega</quote></guimenuitem></menuchoice>. Če želite uporabiti <emphasis>oba</emphasis> dela besedila, lahko izberete <menuchoice><guimenu>Kontekstni meni</guimenu><guimenuitem> Uporabi del besedila iz <quote>mojega</quote> pred <quote>njihovim</quote></guimenuitem></menuchoice> ali <menuchoice><guimenu>Kontekstni meni</guimenu><guimenuitem> Uporabi del besedila iz <quote>njihovega</quote> pred <quote>mojim</quote></guimenuitem></menuchoice>. Glede na izbiro ukaza se spremembe prikažejo v <literal>spojeni</literal> datoteki."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:796
@@ -656,7 +656,7 @@ msgstr "Včasih Subversion označi kakšno datoteko kot sporno, ko pa jo pogleda
 #. (para)
 #: ../source/TortoiseMerge_en.xml:804
 msgid "Sometimes the conflict is too difficult to resolve by simply picking <literal>Theirs</literal> and <literal>Mine</literal> and it requires hand editing. TortoiseMerge allows you to do all the easy changes visually first and then save the file, leaving only the difficult changes to be resolved by hand-editing."
-msgstr "Včasih je spor preveč zahteven, da bi ga lahko rešili le z izbiro <literal>njihov</literal> in <literal>moj</literal>, zato je potrebno ročno urejanje. TortoiseMerge vam omogoča, da enostavne spremembe opravite vizuelno, shranite datoteko, nato pa težke spremembe popravite ročno."
+msgstr "Včasih je spor preveč zahteven, da bi ga lahko rešili le z izbiro <literal>njihov</literal> in <literal>moj</literal>, zato je potrebno ročno urejanje. TortoiseMerge vam omogoča, da enostavne spremembe opravite vizuelno, shranite datoteko, nato pa zahtevnejše spremembe popravite ročno."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:812
@@ -686,12 +686,12 @@ msgstr "Najprej se morate odločiti, ali želite samo primerjati/spajati datotek
 #. (para)
 #: ../source/TortoiseMerge_en.xml:844
 msgid "If you want to compare / merge files you have to set at least two of the three possible paths for <literal>Base</literal>, <literal>Mine</literal> and <literal>Theirs</literal>. If you select only two files, then TortoiseMerge will show you the differences between those two files, either in a two pane view or in a one pane view."
-msgstr "Če želite primerjati/spajati datoteke, morate nastaviti vsaj dveh od treh možnih poti za <literal>osnovno</literal>, <literal>vašo</literal> and <literal>njihovo</literal> datoteko. Če izberete le dve datoteki, vam TortoiseMerge pokaže razlike med datotekama - v enodelnem ali dvodelnem pogledu."
+msgstr "Če želite primerjati/spajati datoteke, morate nastaviti vsaj dve od treh možnih poti za <literal>osnovno</literal>, <literal>vašo</literal> and <literal>njihovo</literal> datoteko. Če izberete le dve datoteki, vam TortoiseMerge pokaže razlike med datotekama - v enodelnem ali dvodelnem pogledu."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:852
 msgid "If you want to merge three files, TortoiseMerge will show you the differences in a three pane view. This view is generally used if you need to resolve conflicted files. The output file is not named in this case and you will have to use the <menuchoice><guimenu>File</guimenu><guimenuitem>Save As...</guimenuitem></menuchoice>. to save the results."
-msgstr "Če želite spojiti tri datoteke, vam TortoiseMerge pokaže razlike v tridelnem pogledu. Ta pogled se vglavnem uporablja v primeru reševanja sporov. Izhodna datoteka je v tem primeru brez imena, tako da boste rezultat spajanja morali sami shraniti z ukazom <menuchoice><guimenu>Datoteka</guimenu><guimenuitem>Shrani kot...</guimenuitem></menuchoice>."
+msgstr "Če želite spojiti tri datoteke, vam TortoiseMerge pokaže razlike v tridelnem pogledu. Ta pogled se v večini primerov uporablja za reševanje sporov. Izhodna datoteka je v tem primeru brez imena, tako da boste rezultat spajanja morali sami shraniti z ukazom <menuchoice><guimenu>Datoteka</guimenu><guimenuitem>Shrani kot...</guimenuitem></menuchoice>."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:867
@@ -701,7 +701,7 @@ msgstr "Če želite namestiti popravek, morate navesti pot popravka in pot mape,
 #. (para)
 #: ../source/TortoiseMerge_en.xml:873
 msgid "Currently, only patch files in <emphasis>Unified Diff Format</emphasis> are supported. And only files which were generated from a Subversion working copy. Other formats like patch files generated by CVS are currently not supported!"
-msgstr "Trenutno so podprte le datoteke popravkov oblike <emphasis>poenotene različice (Unified Diff Format)</emphasis>, ki jih je ustvarilo orodje Subversion. Druge oblike, kot naprimer datoteka popravkov, ki jo ustvari orodje CVS, niso podprte!"
+msgstr "Trenutno so podprte le datoteke popravkov oblike <emphasis>poenotene razlike (Unified Diff Format)</emphasis>, ki jih je ustvarilo orodje Subversion. Druge oblike, kot naprimer datoteka popravkov, ki jo ustvari orodje CVS, niso podprte!"
 
 #. (title)
 #: ../source/TortoiseMerge_en.xml:884
@@ -741,7 +741,7 @@ msgstr "<guilabel>Prezri spremembe velikih/malih črk</guilabel> skrije sprememb
 #. (para)
 #: ../source/TortoiseMerge_en.xml:911
 msgid "<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the line diff bar to show the detailed in-line changes within the main display panes. Lines which have been heavily modified will not be shown using this method as the results are simply confusing. In this case the line will be shown as replaced (old line deleted, new line added)."
-msgstr "<guilabel>Obarvaj spremembe v vrstici</guilabel> uporablja prikaže podrobne spremembe znotraj vrstice v glavnih oknih. Vrstice, ki so bile močno spremenjene, ne bodo prikazane s to metodo, saj bi rezultati povzročili preprosto preveč zmede. V takšnem primeru se vrstica pokaže kot zamenjana (stara izbrisana, nova dodana)."
+msgstr "<guilabel>Obarvaj spremembe v vrstici</guilabel> uporablja isti način kot trak za prikaz razlik v vrstici, tako da prikaže podrobne spremembe znotraj vrstice v glavnih oknih. Vrstice, ki so bile močno spremenjene, ne bodo prikazane s to metodo, saj bi rezultati povzročili preprosto preveč zmede. V takšnem primeru se vrstica pokaže kot zamenjana (stara izbrisana, nova dodana)."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:919
@@ -751,7 +751,7 @@ msgstr "<guilabel>Primerjaj presledke</guilabel> prikaže vse spremembe zamikanj
 #. (para)
 #: ../source/TortoiseMerge_en.xml:924
 msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, eg. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
-msgstr "<guilabel>Prezri razlike presledkov</guilabel> skrije spremembe, ki so posledica spremembe števila presledkov, n. pr. pri zamikanju vrstic ali spremembi tabulatorjev v presledke. Dodajanje presledka na mesto, kjer ga prej ni bilo ali popolno odstranjevanje presledka se še vedno prikaže kot sprememba."
+msgstr "<guilabel>Prezri razlike presledkov</guilabel> skrije spremembe, ki so posledica spremembe števila presledkov, n. pr. pri zamikanju vrstic ali spremembi tabulatorjev v presledke. Dodajanje presledka na mesto, kjer ga prej ni bilo ali popolno odstranjevanje presledkov se še vedno prikaže kot sprememba."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:932
@@ -776,7 +776,7 @@ msgstr "To pogovorno okno omogoča izbiro barv ozadja za različno spremenjene v
 #. (term)
 #: ../source/TortoiseMerge_en.xml:950
 msgid "Normal"
-msgstr "običajno"
+msgstr "Običajno"
 
 #. (listitem)
 #: ../source/TortoiseMerge_en.xml:951
@@ -996,7 +996,7 @@ msgstr "Shift-F8"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1107
 msgid "Go to previous conflict"
-msgstr "Na predhodnji spor"
+msgstr "Na prejšnji spor"
 
 #. (term)
 #: ../source/TortoiseMerge_en.xml:1113
@@ -1006,7 +1006,7 @@ msgstr "Ctrl-D"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1115
 msgid "Toggle between one-pane diff and two-pane diff"
-msgstr "Preklaplja med enodelnim in dvodelnik pregledovalnikom razlik"
+msgstr "Preklaplja med enodelnim in dvodelnim pregledovalnikom razlik"
 
 #. (term)
 #: ../source/TortoiseMerge_en.xml:1121
@@ -1016,7 +1016,7 @@ msgstr "Ctrl-R"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1123
 msgid "Reload the files and revert all changes made"
-msgstr "Ponovno naloži datoteke in povrni vse spremembe"
+msgstr "Ponovno naloži datoteke in povrne vse spremembe"
 
 #. (term)
 #: ../source/TortoiseMerge_en.xml:1129
@@ -1026,7 +1026,7 @@ msgstr "Ctrl-T"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1131
 msgid "Toggles between showing whitespaces or not"
-msgstr "Preklaplja med prikazom in neprikazom presledkov"
+msgstr "Preklaplja med prikazom in skrivanjem presledkov"
 
 #. (term)
 #: ../source/TortoiseMerge_en.xml:1137
@@ -1070,7 +1070,7 @@ msgid ""
 "/base:\"c:\\folder\\my base file.txt\"\n"
 "</screen>"
 msgstr ""
-"Večina stikal zahteva dodatno imformacijo - pot ali kak drug niz. V takšnih primerih stikalu dodajte ':' in zahtevan niz. Primer: <screen>\n"
+"Večina stikal zahteva dodatno informacijo - pot ali kak drug niz. V takšnih primerih stikalu dodajte ':' in zahtevan niz. Primer: <screen>\n"
 "/base:\"c:\\mapa\\moja osnovna datoteka.txt\"\n"
 "</screen>"
 
@@ -1112,7 +1112,7 @@ msgstr "osnova"
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1214
 msgid "Specifies the <placeholder-1/> file used in three way diffs. This is the common ancestor of the files being diffed, although it is not shown in a separate window. For two way diffs, this is the left file."
-msgstr "Datoteke <placeholder-1/> v tridelnem pogledu. To je skupni prednik obeh primerjanih datotek., čeprav se ne pokaže v posebnem oknu. Pri dvodelne pregledu je to leva datoteka."
+msgstr "Datoteka <placeholder-1/> v tridelnem pogledu. To je skupni prednik obeh primerjanih datotek, čeprav se ne pokaže v posebnem oknu. Pri dvodelnem pogledu je to leva datoteka."
 
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1224
@@ -1177,7 +1177,7 @@ msgstr "Pot, kamor se namesti popravek. Če poti ne nastavite, jo bo TortoiseMer
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1288
 msgid "The name of the original file to patch. Used for the view title."
-msgstr "Ime originalne datoteke, na katero se namešča popravek. Pokaže se kot naslov."
+msgstr "Ime izvirne datoteke, na katero se namešča popravek. Pokaže se kot naslov."
 
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1295
@@ -1212,7 +1212,7 @@ msgstr "/modifiedfile:\"pot_do_spremenjene_datoteke\""
 #. (literal)
 #: ../source/TortoiseMerge_en.xml:1328
 msgid "/outfile:\"path_to_resulting_patchfile\""
-msgstr "/outfile:\"pot_do_rezultirajočega_popravka\""
+msgstr "/outfile:\"pot_do_ustvarjenega_popravka\""
 
 #. (literal)
 #: ../source/TortoiseMerge_en.xml:1329
@@ -1227,7 +1227,7 @@ msgstr "/createunifieddiff"
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1322
 msgid "Creates a unified diff file (patch file) of two files specified with <placeholder-1/> and <placeholder-2/>. The target path is set with <placeholder-3/>. If <placeholder-4/> is not set, a file save dialog is shown so the user can choose the location to save the patch file. Note: If <placeholder-5/> is set, all other parameters are ignored."
-msgstr "Ustvari datoteko poenotene različice datotek, nastavljenih z <placeholder-1/> in <placeholder-2/>. Ciljna pot je nastavljena z <placeholder-3/>. Če <placeholder-4/> ni nastavljen, se uporabniku prikaže pogovorno okno za shranjevanje datoteke, tako da lahko izbere lokacijo datoteke popravkov. Opomba: Če je nastavljen <placeholder-5/>, se ostali parametri ne upoštevajo."
+msgstr "Ustvari datoteko poenotene razlike datotek, nastavljenih z <placeholder-1/> in <placeholder-2/>. Ciljna pot je nastavljena z <placeholder-3/>. Če <placeholder-4/> ni nastavljen, se uporabniku prikaže pogovorno okno za shranjevanje datoteke, tako da lahko izbere lokacijo datoteke popravkov. Opomba: Če je nastavljen <placeholder-5/>, se ostali parametri ne upoštevajo."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1340
@@ -1237,8 +1237,8 @@ msgid ""
 "</screen> If two files are given they will be compared with each other. If three files are given, the first is taken as the BASE file, and the other two are compared with it in a three-way diff."
 msgstr ""
 "Zaradi združljivosti z ostalimi programi lahko v ukazni vrstici enostavno podate imena datotek v naslednji obliki: <screen>\n"
-"TortoiseMerge PotOsnovneDatoteke PotMojeDatoteke [PotNjihoveDatoteke ]\n"
-"</screen> Če sta podani dve datoteki, jih program primerja med sabo. Če so podane tri datoteke, je prva datoteke OSNOVNA, ostali dve pa se primerjata z njo v trodelnem pogledu."
+"TortoiseMerge PotOsnovneDatoteke PotMojeDatoteke [ PotNjihoveDatoteke ]\n"
+"</screen> Če sta podani dve datoteki, ju program primerja med sabo. Če so podane tri datoteke, je prva datoteke OSNOVNA, ostali dve pa se primerjata z njo v trodelnem pogledu."
 
 #. (title)
 #: ../source/TortoiseMerge_en.xml:1356
@@ -1313,7 +1313,7 @@ msgstr "Počisti"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1426
 msgid "To quote from the Subversion book: <quote> Recursively clean up the working copy, removing locks and resuming unfinished operations. If you ever get a <emphasis>working copy locked</emphasis> error, run this command to remove stale locks and get your working copy into a usable state again. </quote> Note that in this context <emphasis>lock</emphasis> refers to local filesystem locking, not repository locking."
-msgstr "Citat iz knjige The Subversion Book: <quote> Rekurzivno počisti delovno kopijo, tako da odstrani zaklepe in zaključi nedokončane operacije. Če se vam kdaj prikaže sporočilo <emphasis>delovna kopija zaklenjena</emphasis>, poženite ta ukaz, da ostranite zaklepe in naredite delovno kopijo spet uporabno.</quote> Upoštevajte, da v tem kontekstu <emphasis>zaklep</emphasis> pomeni zaklepanje datotečnega sistema in zaklepanje skladišča."
+msgstr "Citat iz knjige The Subversion Book: <quote> Rekurzivno počisti delovno kopijo, tako da odstrani zaklepe in zaključi nedokončane operacije. Če se vam kdaj prikaže sporočilo <emphasis>delovna kopija zaklenjena</emphasis>, poženite ta ukaz, da ostranite zaklepe in naredite delovno kopijo spet uporabno.</quote> Upoštevajte, da v tem kontekstu <emphasis>zaklep</emphasis> pomeni zaklepanje datotečnega sistema in ne zaklepanje skladišča."
 
 #. (glossterm)
 #: ../source/TortoiseMerge_en.xml:1441
@@ -1343,7 +1343,7 @@ msgstr "Kopiraj"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1465
 msgid "In a Subversion repository you can create a copy of a single file or an entire tree. These are implemented as <quote>cheap copies</quote> which act a bit like a link to the original in that they take up almost no space. Making a copy preserves the history of the item in the copy, so you can trace changes made before the copy was made."
-msgstr "V skladišču In Subversion lahko ustvarjate kopije posameznih datotek ali celotnih dreves. Te kopije so <quote>poceni kopije</quote>, ki delujejo kot povezava na izvirno datoteko ali mapo in ne zavzemajo skoraj nobenega prostora. Usvarjanje kopije ohrani zgodovino kopiranega elementa, tako da lahko pregledujete spremembe tudi pred izdelavo kopije."
+msgstr "V skladišču In Subversion lahko ustvarjate kopije posameznih datotek ali celotnih dreves. Te kopije so <quote>poceni kopije</quote>, ki delujejo kot povezava na izvirno datoteko ali mapo in ne zavzemajo skoraj nič prostora. Usvarjanje kopije ohrani zgodovino kopiranega elementa, tako da lahko pregledujete spremembe tudi pred izdelavo kopije."
 
 #. (glossterm)
 #: ../source/TortoiseMerge_en.xml:1475
