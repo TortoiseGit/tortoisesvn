@@ -2542,6 +2542,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 							// if the unmodified files are not shown
 							// and if the item is not part of a changelist
 							POSITION pos;
+							SetRedraw(FALSE);
 							while ((pos = GetFirstSelectedItemPosition())!=0)
 							{
 								int index;
@@ -2588,6 +2589,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 										if (GetCheck(index))
 											m_nSelected--;
 										RemoveListEntry(index);
+										Invalidate();
 									}
 								}
 								else
@@ -2595,6 +2597,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 									SetItemState(index, 0, LVIS_SELECTED);
 								}
 							}
+							SetRedraw(TRUE);
 							SaveColumnWidths();
 							Show(m_dwShow, 0, m_bShowFolders);
 							NotifyCheck();
@@ -2846,6 +2849,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					}
 					std::set<CTSVNPath>::iterator it;
 					std::vector<CString> toremove;
+					SetRedraw(FALSE);
 					for (it = parentlist.begin(); it != parentlist.end(); ++it)
 					{
 						CTSVNPath parentFolder = (*it).GetDirectory();
@@ -2976,6 +2980,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 							}
 						}
 					}
+					SetRedraw(TRUE);
 				}
 				break;
 			case IDSVNLC_IGNORE:
@@ -2983,6 +2988,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					CTSVNPathList ignorelist;
 					std::vector<CString> toremove;
 					FillListOfSelectedItemPaths(ignorelist, true);
+					SetRedraw(FALSE);
 					for (int j=0; j<ignorelist.GetCount(); ++j)
 					{
 						int nListboxEntries = GetItemCount();
@@ -3122,6 +3128,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 							}
 						}
 					}
+					SetRedraw(TRUE);
 				}
 				break;
 			case IDSVNLC_EDITCONFLICT:
@@ -3361,6 +3368,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					CTSVNPathList changelistItems;
 					FillListOfSelectedItemPaths(changelistItems);
 					SVN svn;
+					SetRedraw(FALSE);
 					if (svn.RemoveFromChangeList(changelistItems, CStringArray(), svn_depth_empty))
 					{
 						// The changelists were removed, but we now need to run through the selected items again
@@ -3394,6 +3402,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					{
 						CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 					}
+					SetRedraw(TRUE);
 				}
 				break;
 			case IDSVNLC_CREATEIGNORECS:
@@ -3418,6 +3427,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					// find the changelist name
 					CString sChangelist;
 					int cmdID = IDSVNLC_MOVETOCS;
+					SetRedraw(FALSE);
 					for (std::map<CString, int>::const_iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
 					{
 						if ((it->first.Compare(SVNSLC_IGNORECHANGELIST))&&(entry->changelist.Compare(it->first)))
@@ -3456,6 +3466,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 							CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						}
 					}
+					SetRedraw(TRUE);
 				}
 				break;
 			} // switch (cmd)
