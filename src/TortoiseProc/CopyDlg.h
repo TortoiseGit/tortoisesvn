@@ -62,6 +62,7 @@ protected:
 	afx_msg void OnBnClickedCopywc();
 	afx_msg void OnBnClickedHistory();
 	afx_msg void OnEnChangeLogmessage();
+	afx_msg void OnCbnEditchangeUrlcombo();
 	DECLARE_MESSAGE_MAP()
 
 	virtual BOOL Cancel() {return m_bCancelled;}

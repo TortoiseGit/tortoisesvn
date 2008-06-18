@@ -71,6 +71,7 @@ BEGIN_MESSAGE_MAP(CCopyDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_COPYWC, OnBnClickedCopywc)
 	ON_BN_CLICKED(IDC_HISTORY, OnBnClickedHistory)
 	ON_EN_CHANGE(IDC_LOGMESSAGE, OnEnChangeLogmessage)
+	ON_CBN_EDITCHANGE(IDC_URLCOMBO, &CCopyDlg::OnCbnEditchangeUrlcombo)
 END_MESSAGE_MAP()
 
 
@@ -452,4 +453,9 @@ void CCopyDlg::SetRevision(const SVNRev& rev)
 		temp.Format(_T("%ld"), (LONG)rev);
 		SetDlgItemText(IDC_COPYREVTEXT, temp);
 	}
+}
+
+void CCopyDlg::OnCbnEditchangeUrlcombo()
+{
+	m_bSettingChanged = true;
 }
