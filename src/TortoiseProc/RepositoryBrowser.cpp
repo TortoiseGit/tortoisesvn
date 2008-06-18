@@ -2180,7 +2180,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 							savepath.AppendPathString(urlList[i].GetFileOrDirectoryName());
 						CString sInfoLine;
 						sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, saveurl, GetRevision().ToString());
-						progDlg.SetLine(1, sInfoLine);
+						progDlg.SetLine(1, sInfoLine, true);
 						if (!Cat(CTSVNPath(saveurl), GetRevision(), GetRevision(), savepath)||(progDlg.HasUserCancelled()))
 						{
 							wait_cursor.Hide();
@@ -2358,7 +2358,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				progDlg.SetAnimation(IDR_DOWNLOAD);
 				CString sInfoLine;
 				sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, urlList[0].GetFileOrDirectoryName(), GetRevision().ToString());
-				progDlg.SetLine(1, sInfoLine);
+				progDlg.SetLine(1, sInfoLine, true);
 				SetAndClearProgressInfo(&progDlg);
 				progDlg.ShowModeless(m_hWnd);
 				if (!Cat(urlList[0], GetRevision(), GetRevision(), tempfile))
@@ -2451,7 +2451,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 						progDlg.SetTitle(IDS_APPNAME);
 						CString sInfoLine;
 						sInfoLine.Format(IDS_PROGRESSIMPORT, filename);
-						progDlg.SetLine(1, sInfoLine);
+						progDlg.SetLine(1, sInfoLine, true);
 						SetAndClearProgressInfo(&progDlg);
 						progDlg.ShowModeless(m_hWnd);
 						if (!Import(svnPath, 
@@ -2495,7 +2495,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 						progDlg.SetTitle(IDS_APPNAME);
 						CString sInfoLine;
 						sInfoLine.Format(IDS_PROGRESSIMPORT, filename);
-						progDlg.SetLine(1, sInfoLine);
+						progDlg.SetLine(1, sInfoLine, true);
 						SetAndClearProgressInfo(&progDlg);
 						progDlg.ShowModeless(m_hWnd);
 						if (!Import(path, 

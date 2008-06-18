@@ -1741,8 +1741,8 @@ void CLogDlg::DiffSelectedFile()
 			progDlg.SetTitle(IDS_APPNAME);
 			progDlg.SetAnimation(IDR_DOWNLOAD);
 			CString sInfoLine;
-			sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, m_sRepositoryRoot + changedpath->sPath, SVNRev(rev).ToString());
-			progDlg.SetLine(1, sInfoLine);
+			sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, m_sRepositoryRoot + changedpath->sPath, r.ToString());
+			progDlg.SetLine(1, sInfoLine, true);
 			SetAndClearProgressInfo(&progDlg);
 			progDlg.ShowModeless(m_hWnd);
 
@@ -1950,7 +1950,7 @@ BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, svn_revnum_t rev)
 	progDlg.SetAnimation(IDR_DOWNLOAD);
 	CString sInfoLine;
 	sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, filepath, SVNRev(rev).ToString());
-	progDlg.SetLine(1, sInfoLine);
+	progDlg.SetLine(1, sInfoLine, true);
 	SetAndClearProgressInfo(&progDlg);
 	progDlg.ShowModeless(m_hWnd);
 
@@ -3957,7 +3957,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 					progDlg.SetAnimation(IDR_DOWNLOAD);
 					CString sInfoLine;
 					sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, m_path.GetWinPath(), revSelected.ToString());
-					progDlg.SetLine(1, sInfoLine);
+					progDlg.SetLine(1, sInfoLine, true);
 					SetAndClearProgressInfo(&progDlg);
 					progDlg.ShowModeless(m_hWnd);
 					if (!Cat(m_path, SVNRev(SVNRev::REV_HEAD), revSelected, tempfile))
@@ -3986,7 +3986,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				progDlg.SetAnimation(IDR_DOWNLOAD);
 				CString sInfoLine;
 				sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, m_path.GetWinPath(), revSelected.ToString());
-				progDlg.SetLine(1, sInfoLine);
+				progDlg.SetLine(1, sInfoLine, true);
 				SetAndClearProgressInfo(&progDlg);
 				progDlg.ShowModeless(m_hWnd);
 				CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false, m_path, revSelected);
@@ -4540,7 +4540,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 
 						CString sInfoLine;
 						sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, filepath, getrev.ToString());
-						progDlg.SetLine(1, sInfoLine);
+						progDlg.SetLine(1, sInfoLine, true);
 						SetAndClearProgressInfo(&progDlg);
 						progDlg.ShowModeless(m_hWnd);
 
