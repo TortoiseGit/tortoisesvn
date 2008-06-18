@@ -249,7 +249,12 @@ void CRightView::UseBlock(bool refreshViews /* = true */)
 			bottomstate.linestates[i] = m_pwndBottom->m_pViewData->GetState(i);
 			m_pwndBottom->m_pViewData->SetState(i, m_pViewData->GetState(i));
 			if (m_pwndBottom->IsLineConflicted(i))
-				m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
+			{
+				if (m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
+					m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
+				else
+					m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
+			}
 		}
 		m_pwndBottom->SetModified();
 	}

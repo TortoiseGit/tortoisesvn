@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,6 +38,7 @@ enum DiffStates
 	DIFFSTATE_CONFLICTADDED,			///< added line results in conflict
 	DIFFSTATE_CONFLICTEMPTY,			///< removed line results in conflict
 	DIFFSTATE_CONFLICTRESOLVED,			///< previously conflicted line, now resolved
+	DIFFSTATE_CONFLICTRESOLVEDEMPTY,	///< previously conflicted line, now resolved but empty line
 	DIFFSTATE_IDENTICALREMOVED,			///< identical removed lines in theirs and yours
 	DIFFSTATE_IDENTICALADDED,			///< identical added lines in theirs and yours
 	DIFFSTATE_THEIRSREMOVED,			///< removed line in theirs

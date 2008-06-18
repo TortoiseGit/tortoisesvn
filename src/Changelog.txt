@@ -26,6 +26,7 @@
        (Stefan Fuhrmann)
 - BUG: After moving items in the repository browser, the view sometimes would
        not refresh properly. (Stefan)
+- BUG: TortoiseMerge could add blank lines when resolving conflicts. (Stefan)
 
 Version 1.5.0-RC3
 - NEW: Draw the whitespace chars in gray so they're clearly distinguishable

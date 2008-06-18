@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007 - TortoiseSVN
+// Copyright (C) 2006-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -133,7 +133,12 @@ void CBottomView::UseTheirTextBlock()
 		bottomstate.linestates[i] = m_pViewData->GetState(i);
 		m_pViewData->SetState(i, m_pwndLeft->m_pViewData->GetState(i));
 		if (IsLineConflicted(i))
-			m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
+		{
+			if (m_pwndLeft->m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
+				m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
+			else
+				m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
+		}
 	}
 	CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
 	SetModified();
@@ -154,8 +159,12 @@ void CBottomView::UseMyTextBlock()
 		m_pViewData->SetLine(i, m_pwndRight->m_pViewData->GetLine(i));
 		bottomstate.linestates[i] = m_pViewData->GetState(i);
 		m_pViewData->SetState(i, m_pwndRight->m_pViewData->GetState(i));
-		if (IsLineConflicted(i))
-			m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
+		{
+			if (m_pwndRight->m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
+				m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
+			else
+				m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
+		}
 	}
 	CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
 	SetModified();
@@ -177,7 +186,12 @@ void CBottomView::UseTheirThenMyTextBlock()
 		bottomstate.linestates[i] = m_pViewData->GetState(i);
 		m_pViewData->SetState(i, m_pwndLeft->m_pViewData->GetState(i));
 		if (IsLineConflicted(i))
-			m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
+		{
+			if (m_pwndLeft->m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
+				m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
+			else
+				m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
+		}
 	}
 	
 	// your block is done, now insert their block
@@ -187,7 +201,12 @@ void CBottomView::UseTheirThenMyTextBlock()
 		bottomstate.addedlines.push_back(m_nSelBlockEnd+1);
 		m_pViewData->InsertData(index, m_pwndRight->m_pViewData->GetData(i));
 		if (IsLineConflicted(index))
-			m_pViewData->SetState(index, DIFFSTATE_CONFLICTRESOLVED);
+		{
+			if (m_pwndRight->m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
+				m_pViewData->SetState(index, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
+			else
+				m_pViewData->SetState(index, DIFFSTATE_CONFLICTRESOLVED);
+		}
 		index++;
 	}
 	// adjust line numbers
@@ -230,9 +249,14 @@ void CBottomView::UseMyThenTheirTextBlock()
 		bottomstate.linestates[i] = m_pViewData->GetState(i);
 		m_pViewData->SetState(i, m_pwndRight->m_pViewData->GetState(i));
 		rightstate.linestates[i] = m_pwndRight->m_pViewData->GetState(i);
-		m_pwndRight->m_pViewData->SetState(i, DIFFSTATE_YOURSADDED);
 		if (IsLineConflicted(i))
-			m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
+		{
+			if (m_pwndRight->m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
+				m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
+			else
+				m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
+		}
+		m_pwndRight->m_pViewData->SetState(i, DIFFSTATE_YOURSADDED);
 	}
 	
 	// your block is done, now insert their block
@@ -242,9 +266,14 @@ void CBottomView::UseMyThenTheirTextBlock()
 		bottomstate.addedlines.push_back(m_nSelBlockEnd+1);
 		m_pViewData->InsertData(index, m_pwndLeft->m_pViewData->GetData(i));
 		leftstate.linestates[i] = m_pwndLeft->m_pViewData->GetState(i);
-		m_pwndLeft->m_pViewData->SetState(i, DIFFSTATE_THEIRSADDED);
 		if (IsLineConflicted(index))
-			m_pViewData->SetState(index, DIFFSTATE_CONFLICTRESOLVED);
+		{
+			if (m_pwndLeft->m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
+				m_pViewData->SetState(index, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
+			else
+				m_pViewData->SetState(index, DIFFSTATE_CONFLICTRESOLVED);
+		}
+		m_pwndLeft->m_pViewData->SetState(i, DIFFSTATE_THEIRSADDED);
 		index++;
 	}
 	// adjust line numbers

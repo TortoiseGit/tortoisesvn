@@ -2374,7 +2374,12 @@ void CBaseView::UseTheirAndYourBlock(viewstate &rightstate, viewstate &bottomsta
 		bottomstate.linestates[i] = m_pwndBottom->m_pViewData->GetState(i);
 		m_pwndBottom->m_pViewData->SetState(i, m_pwndLeft->m_pViewData->GetState(i));
 		if (m_pwndBottom->IsLineConflicted(i))
-			m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
+		{
+			if (m_pwndLeft->m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
+				m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
+			else
+				m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
+		}
 	}
 
 	// your block is done, now insert their block
@@ -2384,7 +2389,12 @@ void CBaseView::UseTheirAndYourBlock(viewstate &rightstate, viewstate &bottomsta
 		bottomstate.addedlines.push_back(m_nSelBlockEnd+1);
 		m_pwndBottom->m_pViewData->InsertData(index, m_pwndRight->m_pViewData->GetData(i));
 		if (m_pwndBottom->IsLineConflicted(index))
-			m_pwndBottom->m_pViewData->SetState(index, DIFFSTATE_CONFLICTRESOLVED);
+		{
+			if (m_pwndRight->m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
+				m_pwndBottom->m_pViewData->SetState(index, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
+			else
+				m_pwndBottom->m_pViewData->SetState(index, DIFFSTATE_CONFLICTRESOLVED);
+		}
 		index++;
 	}
 	// adjust line numbers
@@ -2420,7 +2430,12 @@ void CBaseView::UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomsta
 		rightstate.linestates[i] = m_pwndBottom->m_pViewData->GetState(i);
 		m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
 		if (m_pwndBottom->IsLineConflicted(i))
-			m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
+		{
+			if (m_pwndRight->m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
+				m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
+			else
+				m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
+		}
 	}
 
 	// your block is done, now insert their block
@@ -2431,7 +2446,12 @@ void CBaseView::UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomsta
 		m_pwndBottom->m_pViewData->InsertData(index, m_pwndLeft->m_pViewData->GetData(i));
 		leftstate.linestates[i] = m_pwndLeft->m_pViewData->GetState(i);
 		if (m_pwndBottom->IsLineConflicted(index))
-			m_pwndBottom->m_pViewData->SetState(index, DIFFSTATE_CONFLICTRESOLVED);
+		{
+			if (m_pwndLeft->m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
+				m_pwndBottom->m_pViewData->SetState(index, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
+			else
+				m_pwndBottom->m_pViewData->SetState(index, DIFFSTATE_CONFLICTRESOLVED);
+		}
 		index++;
 	}
 	// adjust line numbers

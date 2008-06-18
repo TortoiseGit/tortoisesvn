@@ -955,6 +955,7 @@ int CMainFrame::SaveFile(const CString& sFilePath)
 			case DIFFSTATE_REMOVED:
 			case DIFFSTATE_THEIRSREMOVED:
 			case DIFFSTATE_YOURSREMOVED:
+			case DIFFSTATE_CONFLICTRESOLVEDEMPTY:
 				// do not save removed lines
 				break;
 			default:
