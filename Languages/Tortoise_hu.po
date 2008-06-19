@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-13 17:15+0100\n"
+"PO-Revision-Date: 2008-06-20 00:26+0100\n"
 "Last-Translator: Halász Gábor <k@elitonline.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Hungarian\n"
 "X-Poedit-Country: HUNGARY\n"
-"X-Poedit-Bookmarks: 856,256,-1,-1,-1,-1,-1,-1,1682,1718\n"
+"X-Poedit-Bookmarks: 1853,1851,-1,-1,-1,-1,-1,-1,1682,1718\n"
 
 #. Resource IDs: (10, 126)
 msgid " "
@@ -1415,9 +1415,8 @@ msgid "Advanced merge settings"
 msgstr "Speciális egyesítési beállítások"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Age"
-msgstr "Életkor"
+msgstr "Dátum/idő"
 
 #. Resource IDs: (1007)
 #, fuzzy
@@ -1465,7 +1464,7 @@ msgstr ""
 
 #. Resource IDs: (339)
 msgid "Amount of memory required to load the cache"
-msgstr ""
+msgstr "A gyorsítótár betöltéséhez szükséges memória"
 
 #. Resource IDs: (78)
 #, c-format
@@ -1791,7 +1790,7 @@ msgstr "Gomb kinézete"
 
 #. Resource IDs: (1215)
 msgid "C&heck now"
-msgstr "&Ellerőrzés most"
+msgstr "&Keresés most"
 
 #. Resource IDs: (1132)
 msgid "C&heck repository"
@@ -1836,7 +1835,7 @@ msgstr "Eltárolja a megjegyzéseket, hogy felgyorsítsa a napló lekérését."
 
 #. Resource IDs: (1127)
 msgid "Can double-click in log list to compare with previous revision"
-msgstr "Duplakattintás engedélyezése a naplóban az előző verzióval való összehasonlításhoz"
+msgstr "Duplakattintás a naplóban összehasonlítja az előző verzióval"
 
 #. Resource IDs: (3865)
 #, fuzzy
@@ -2118,7 +2117,7 @@ msgstr "Kattints ide a weboldalra ugráshoz"
 
 #. Resource IDs: (170)
 msgid "Click here to select a recently typed message"
-msgstr "Kattints ide hogy kiválassz egy nemrégen beírt üzenetet"
+msgstr "Kattints ide egy korábban beírt megjegyzés kiválasztásához"
 
 #. Resource IDs: (65535)
 msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
@@ -2291,11 +2290,11 @@ msgstr "Hook szkriptek beállítása"
 
 #. Resource IDs: (65535)
 msgid "Configure the program used for comparing different revisions of files"
-msgstr "Válaszd ki a programot, amellyel a különböző verziójú fájlokat hasonlítod össze"
+msgstr "Válaszd ki a programot, amellyel a fájlokat hasonlítod össze"
 
 #. Resource IDs: (65535)
 msgid "Configure the program used for comparing different revisions of properties"
-msgstr "Válaszd ki a programot, amellyel a különböző verziójú fájlok tulajdonságait hasonlítod össze"
+msgstr "Válaszd ki a programot, amellyel a fájlok tulajdonságait hasonlítod össze"
 
 #. Resource IDs: (65535)
 msgid "Configure the program used to resolve conflicted files."
@@ -2303,7 +2302,7 @@ msgstr "Válaszd ki a programot, amellyel feloldod az ellentmondásokat a fájlo
 
 #. Resource IDs: (65535)
 msgid "Configure viewer program for GNU diff files (patch files)."
-msgstr "Válaszd ki a programot, amellyel a GNU diff fájlokat (patch fájlokat) szeretnéd megjeleníteni"
+msgstr "Válaszd ki a GNU diff fájlok (patch fájlok) megjelenítőjét."
 
 #. Resource IDs: (65535)
 msgid "Conflict resolved"
@@ -2320,12 +2319,11 @@ msgstr "Ellentmondások: %d"
 
 #. Resource IDs: (345)
 msgid "Connect to the repository server and download missing log data"
-msgstr ""
+msgstr "Csatlakozás a tárolóhoz és a hiányzó napló-adatok letöltése"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Container sizes"
-msgstr "Tároló méretek"
+msgstr "Méret"
 
 #. Resource IDs: (16520)
 #, fuzzy
@@ -2424,7 +2422,7 @@ msgstr "Hibaüzenet másolása a vágólapra"
 
 #. Resource IDs: (76)
 msgid "Copy from path"
-msgstr "Másolás útvonalból"
+msgstr "Másolva innen"
 
 #. Resource IDs: (103)
 msgid "Copy items to here"
@@ -3350,7 +3348,7 @@ msgstr "Mappa exportálása:"
 
 #. Resource IDs: (345)
 msgid "Export the selected cache as a set of Comma Separated Value (CSV) files"
-msgstr ""
+msgstr "A kiválasztott gyorsítótár exportálása vesszővelt tagolt szövegfájlokként (CSV)"
 
 #. Resource IDs: (79)
 msgid "Export unversioned files too"
@@ -3659,7 +3657,7 @@ msgstr ""
 
 #. Resource IDs: (1315)
 msgid "Floppy drives (A: B:)"
-msgstr "Hajlékonylemez-meghajtók (A: B:)"
+msgstr "Floppy-meghajtók (A: B:)"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
@@ -3928,9 +3926,8 @@ msgstr ""
 "Elrejti/megjeleníti a patch fájlok listáját"
 
 #. Resource IDs: (339)
-#, fuzzy
 msgid "Highest revision number in the cache"
-msgstr "Gyorsítótárban lévő legújabb verzió"
+msgstr "A gyorsítótárban lévő legújabb verzió"
 
 #. Resource IDs: (1127)
 #, fuzzy
@@ -4609,15 +4606,15 @@ msgstr "Utolsó mentett verzió az elemből"
 
 #. Resource IDs: (338)
 msgid "Last time the cache content was changed"
-msgstr ""
+msgstr "A gyorsítótár legutóbbi módosításának időpontja"
 
 #. Resource IDs: (338)
 msgid "Last time the cache was accessed"
-msgstr ""
+msgstr "A gyorsítótár legutóbbi olvasásának időpontja"
 
 #. Resource IDs: (338)
 msgid "Last time the repository was asked for the HEAD revision number"
-msgstr ""
+msgstr "A tároló legutóbbi ellenőrzésének időpontja"
 
 #. Resource IDs: (12)
 #, fuzzy
@@ -4772,14 +4769,12 @@ msgid "Log"
 msgstr "Napló"
 
 #. Resource IDs: (282)
-#, fuzzy
 msgid "Log Cache Statistics"
-msgstr "Gyorsítótár-statiszikák naplózása"
+msgstr "A gyorsítótár statiszikái"
 
 #. Resource IDs: (281)
-#, fuzzy
 msgid "Log Caching"
-msgstr "Megjegyzések gyorsítótárazása"
+msgstr "Naplók gyorsítótárazása"
 
 #. Resource IDs: (211)
 msgid "Log History"
@@ -5366,9 +5361,8 @@ msgid "Notice"
 msgstr "Megjegyzés"
 
 #. Resource IDs: (338)
-#, fuzzy
 msgid "Number of authors in the cache"
-msgstr "Fejlesztől száma a gyorsítótárban"
+msgstr "A gyorsítótárban szereplő fejlesztők száma"
 
 #. Resource IDs: (1161)
 msgid "Number of authors:"
@@ -5376,44 +5370,47 @@ msgstr "Fejlesztők száma:"
 
 #. Resource IDs: (339)
 msgid "Number of cached merged revisions"
-msgstr ""
+msgstr "A gyorsítótárazott egyesítések száma"
 
 #. Resource IDs: (339)
-#, fuzzy
 msgid "Number of cached revisions"
-msgstr "Gyorsítótárazott verziók száma"
+msgstr "A gyorsítótárazott verziók száma"
 
 #. Resource IDs: (339)
 msgid "Number of cached revisions that have a non-empty change list"
-msgstr ""
+msgstr "Azon gyorsítótárazott verziók száma, amelyek változáslistája nem üres"
 
 #. Resource IDs: (339)
 msgid "Number of cached revisions that have user revision properties"
-msgstr ""
+msgstr "Felhasználói tulajdonságot tartalmazó verziók száma"
 
 #. Resource IDs: (339)
 msgid "Number of cached revisions whose change list is not cached yet"
 msgstr ""
+"Azon gyorsítótárazott verziók száma,\n"
+"amelyek változáslistája még nincs a gyorsítótárban."
 
 #. Resource IDs: (339)
 msgid "Number of cached revisions whose user revision properties are not cached yet"
-msgstr ""
+msgstr "Azon verziók száma, amelyek tulajdonságai még nem kerültek bele a gyorsítótárba"
 
 #. Resource IDs: (338)
 msgid "Number of different paths shown in the log dialog, including parent paths"
-msgstr ""
+msgstr "A naplóban megjelenő különböző útvonalak száma, a szülő-útvonalakat is beleértve"
 
 #. Resource IDs: (338)
 msgid "Number of different words used in log messages"
-msgstr ""
+msgstr "A megjegyzésekben használt különböző szavak száma"
 
 #. Resource IDs: (339)
 msgid "Number of merged revisions that are not cached yet"
 msgstr ""
+"Azon egyesítések száma, amelyek\n"
+"még nem kerültek bele a gyorsítótárba"
 
 #. Resource IDs: (338)
 msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
-msgstr ""
+msgstr "Útvonal elemek száma. Egy útvonal elem egy mappa vagy fájlnév, pl. 'ize.txt' vagy 'sajatmappa'."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -6211,7 +6208,7 @@ msgstr ""
 
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
-msgstr ""
+msgstr "A kiválasztott gyorsítótár(ak) törlése a lemezről"
 
 #. Resource IDs: (65535)
 msgid "Removed"
@@ -7207,9 +7204,8 @@ msgstr ""
 "Láthatatlan karakterek mutatása"
 
 #. Resource IDs: (345)
-#, fuzzy
 msgid "Show statistics for the selected log cache"
-msgstr "A kiválasztott fájl / mappa naplója"
+msgstr "Megjeleníti a kiválasztott gyorsítótár statisztikáit"
 
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
@@ -7287,21 +7283,20 @@ msgid "Size"
 msgstr "Méret"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Size and status"
 msgstr "Méret és állapot"
 
 #. Resource IDs: (339)
 msgid "Size of all cached text information"
-msgstr ""
+msgstr "Minden szöveg gyorsítótárazott mérete"
 
 #. Resource IDs: (339)
 msgid "Size of the cache file on disk"
-msgstr ""
+msgstr "A gyorsítótár mérete a lemezen"
 
 #. Resource IDs: (339)
 msgid "Size of the cache if it were not compressed"
-msgstr ""
+msgstr "A gyorsítótár mérete, ha nem lenne tömörítve"
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -8251,16 +8246,15 @@ msgstr "Összes fájlváltozás:"
 
 #. Resource IDs: (339)
 msgid "Total number of changes over all cached revisions"
-msgstr ""
+msgstr "A változások száma az összes gyorsítótárazott verzióban"
 
 #. Resource IDs: (339)
 msgid "Total number of merged revisions"
-msgstr ""
+msgstr "Az egyesített verziók száma"
 
 #. Resource IDs: (339)
-#, fuzzy
 msgid "Total number of user revision properties"
-msgstr "Subversion tulajdonságok változtatása"
+msgstr "A felhasználói tulajdonságok száma"
 
 #. Resource IDs: (357)
 #, c-format
@@ -9102,7 +9096,7 @@ msgstr ""
 
 #. Resource IDs: (338)
 msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
-msgstr ""
+msgstr "Azon intervallumok száma, amelyek még nem lettek gyorsítótárazva"
 
 #. Resource IDs: (65535)
 msgid "_POPUP_"
@@ -9114,7 +9108,7 @@ msgstr "hozzáadva"
 
 #. Resource IDs: (65535)
 msgid "added files"
-msgstr "hozzáadott fájlok"
+msgstr "hozzáadva"
 
 #. Resource IDs: (272)
 #, c-format
@@ -9144,13 +9138,12 @@ msgid "another item already exists in its place."
 msgstr "egy másik elem már létezik a helyén."
 
 #. Resource IDs: (340)
-#, fuzzy
 msgid ""
 "ask repository first if 'online' -\n"
 "work entirely from cache if 'offline'"
 msgstr ""
-"tároló megkérdezése először, ha 'online'\n"
-"gyorsítótárból való munka, ha 'offline'"
+"Tároló ellenőrzése, ha 'online'\n"
+"Kizárólag gyorsítótárból való munka, ha 'offline'"
 
 #. Resource IDs: (245)
 msgid "author"
@@ -9225,9 +9218,8 @@ msgstr ""
 "lecserélődik az ügy számára."
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "changes total: "
-msgstr "összes változás: "
+msgstr "változások száma: "
 
 #. Resource IDs: (244, 245)
 msgid "commits"
@@ -9238,7 +9230,6 @@ msgid "conflicted"
 msgstr "ellentmondásos"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "connection: "
 msgstr "csatlakozás: "
 
@@ -9262,7 +9253,7 @@ msgstr "törölve"
 
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
-msgstr "lemez [kB]:"
+msgstr "lemez [kB]: "
 
 #. Resource IDs: (58116)
 #, fuzzy
@@ -9325,19 +9316,16 @@ msgid "item kept locally"
 msgstr "elemek helyben hagyva"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "last head update: "
-msgstr "utolsó frisítése: "
+msgstr "legutóbbi frissítés: "
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "last read: "
-msgstr "utolsó olvasás: "
+msgstr "legutóbbi olvasás: "
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "last update: "
-msgstr "utolsó frissítés: "
+msgstr "legutóbbi változás: "
 
 #. Resource IDs: (11, 195)
 msgid "locked"
@@ -9348,7 +9336,6 @@ msgid "locked:"
 msgstr "zárolva:"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "max revision: "
 msgstr "legújabb verzió: "
 
@@ -9357,7 +9344,6 @@ msgid "merged"
 msgstr "egyesítve"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "merges total: "
 msgstr "egyesítések száma: "
 
@@ -9370,9 +9356,8 @@ msgid "missing / deleted / replaced"
 msgstr "hiányzik / törölve / cserélve"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "missing in: "
-msgstr "hiányzó: "
+msgstr "hiányzik: "
 
 #. Resource IDs: (10)
 msgid "modified"
@@ -9431,11 +9416,11 @@ msgstr "vagy"
 
 #. Resource IDs: (65535)
 msgid "pair tokens: "
-msgstr ""
+msgstr "különböző szópárok: "
 
 #. Resource IDs: (65535)
 msgid "path elements: "
-msgstr ""
+msgstr "útvonal elemek: "
 
 #. Resource IDs: (65535)
 msgid "paths: "
@@ -9477,9 +9462,8 @@ msgid "revision %s-%s, revision %s-%s"
 msgstr "verzió %s-%s, verzió %s-%s"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "revision count: "
-msgstr "Verzió:"
+msgstr "verzió: "
 
 #. Resource IDs: (326)
 #, c-format
@@ -9487,13 +9471,12 @@ msgid "revisions %s-%s, %s"
 msgstr "%s-%s, %s verziók"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "revisions: "
-msgstr "Verzió:"
+msgstr "verziók száma: "
 
 #. Resource IDs: (65535)
 msgid "skip ranges: "
-msgstr ""
+msgstr "kihagyottak: "
 
 #. Resource IDs: (576)
 #, fuzzy
@@ -9615,7 +9598,7 @@ msgstr "ideiglenesen offline"
 
 #. Resource IDs: (65535)
 msgid "text [token count]: "
-msgstr ""
+msgstr "szöveg [szópárok]: "
 
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
@@ -9744,9 +9727,8 @@ msgstr ""
 "Állítsd igenre, és feljön egy ablak ha a megjegyzést üresen hagyod."
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "user revprops total: "
-msgstr "user revprops total: "
+msgstr "felh. tulajdonságok: "
 
 #. Resource IDs: (563)
 msgid "values are different"
@@ -9782,11 +9764,11 @@ msgstr "hét"
 
 #. Resource IDs: (65535)
 msgid "word tokens: "
-msgstr ""
+msgstr "különböző szavak: "
 
 #. Resource IDs: (65535)
 msgid "words [uncompressed]: "
-msgstr ""
+msgstr "szavak [tömörítetlenül]: "
 
 #. Resource IDs: (245)
 msgid "year"
