@@ -97,4 +97,5 @@ private:
 	UINT			FindRevThread();
 	CWinThread *	m_pThread;
 	bool			m_bCancelled;
+	volatile LONG	m_bThreadRunning;
 };

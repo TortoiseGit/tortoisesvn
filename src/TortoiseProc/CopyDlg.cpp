@@ -40,6 +40,7 @@ CCopyDlg::CCopyDlg(CWnd* pParent /*=NULL*/)
 	, m_bCancelled(false)
 	, m_pThread(NULL)
 	, m_pLogDlg(NULL)
+	, m_bThreadRunning(0)
 {
 }
 
@@ -186,10 +187,13 @@ UINT CCopyDlg::FindRevThreadEntry(LPVOID pVoid)
 
 UINT CCopyDlg::FindRevThread()
 {
+	InterlockedExchange(&m_bThreadRunning, TRUE);
 	if (GetWCRevisionStatus(m_path, true, m_minrev, m_maxrev, m_bswitched, m_bmodified, m_bSparse))
 	{
-		SendMessage(WM_TSVN_MAXREVFOUND);
+		if (!m_bCancelled)
+			SendMessage(WM_TSVN_MAXREVFOUND);
 	}
+	InterlockedExchange(&m_bThreadRunning, FALSE);
 	return 0;
 }
 
@@ -199,7 +203,14 @@ void CCopyDlg::OnOK()
 	// check if the status thread has already finished
 	if (m_pThread)
 	{
-		WaitForSingleObject(m_pThread->m_hThread, INFINITE);
+		WaitForSingleObject(m_pThread->m_hThread, 1000);
+		if (m_bThreadRunning)
+		{
+			// we gave the thread a chance to quit. Since the thread didn't
+			// listen to us we have to kill it.
+			TerminateThread(m_pThread->m_hThread, (DWORD)-1);
+			InterlockedExchange(&m_bThreadRunning, FALSE);
+		}
 	}
 
 	CString id;
