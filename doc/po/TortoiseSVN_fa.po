@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-05-30 19:02 +0000\n"
-"PO-Revision-Date: 2008-06-17 00:09+0330\n"
+"PO-Revision-Date: 2008-06-19 16:27+0330\n"
 "Last-Translator: mohsen sajjadi <mohsensajjadi@yahoo.com>\n"
 "Language-Team: TortoiseSVN translation team <<dev@tortoisesvn.tigris.org>>\n"
 "MIME-Version: 1.0\n"
@@ -125,52 +125,52 @@ msgstr "راهنمای مطالعه"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:85
 msgid "This <xref linkend=\"tsvn-preface\"/> explains a little about the TortoiseSVN project, the community of people who work on it, and the licensing conditions for using it and distributing it."
-msgstr ""
+msgstr "در <xref linkend=\"tsvn-preface\"/> اندکی در مورد پروژه TortoiseSVN، جامعه افرادی که روی آن کار میکنند، و شرائط مجوز ها برای استفاده و توزیع آن توضیح داده میشود."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:90
 msgid "The <xref linkend=\"tsvn-introduction\"/> explains what TortoiseSVN is, what it does, where it comes from and the basics for installing it on your PC."
-msgstr ""
+msgstr "<xref linkend=\"tsvn-introduction\"/> توضیح میدهد که TortoiseSVN چیست، چکار میکند، از کجا آمده و به کجا میرود، و روش نصب آن بر روی سیستم شما چگونه است."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:95
 msgid "In <xref linkend=\"tsvn-basics\"/> we give a short introduction to the <emphasis>Subversion</emphasis> revision control system which underlies TortoiseSVN. This is borrowed from the documentation for the Subversion project and explains the different approaches to version control, and how Subversion works."
-msgstr ""
+msgstr "در <xref linkend=\"tsvn-basics\"/> مقدمه ای بر <emphasis>سابورژن</emphasis> سیستم مدیریت ویرایش در پشت TortoiseSVN را خواهیم داشت. این بخش از مستندات سابورژن قرض گرفته شده و روشهای مختلف انجام کنترل ویرایشها و نحوه کار سابورژن را توضیح میدهد."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:102
 msgid "Even most Subversion users will never have to set up a server themselves. The next chapter deals with how to set up such a server, and is useful for administrators."
-msgstr ""
+msgstr "بیشتر کاربران سابورژن هرگز نیاز به راه اندازی یک سرور برای خود نخواهند داشت. بخش بعد به نحوه راه اندازی چنین سروری میپردازد و برای مدیران سیستم مناسب میباشد."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:107
 msgid "The chapter on <xref linkend=\"tsvn-repository\"/> explains how to set up a local repository, which is useful for testing Subversion and TortoiseSVN using a single PC. It also explains a bit about repository administration which is also relevant to repositories located on a server."
-msgstr ""
+msgstr "بخش مربوط به <xref linkend=\"tsvn-repository\"/> نحوه راه اندازی یک مخزن محلی را توضیح میدهد، و برای آزمایش سابورژن و TortoiseSVN روی یک سیستم کاربرد دارد.. همچنین در مورد مدیریت یک مخزن روی یک سرویس دهنده نیز توضیحاتی ارائه خواهد شد."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:113
 msgid "The <xref linkend=\"tsvn-dug\"/> is the most important section as it explains all the main features of TortoiseSVN and how to use them. It takes the form of a tutorial, starting with checking out a working copy, modifying it, committing your changes, etc. It then progresses to more advanced topics."
-msgstr ""
+msgstr "بخش <xref linkend=\"tsvn-dug\"/> مهمترین بخش است و تمامی امکانات TortoiseSVN و نحوه استفاده از آنها را توضیح میدهد. این بخش با نحوه دریافت یک نسخه کاری، تغییر آن، اعمال تعییرات و ... شما را آشنا میکند. سپس وارد مباحث پیشرفته تر خواهیم شد."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:120
 msgid "<xref linkend=\"tsvn-subwcrev\"/> is a separate program included with TortoiseSVN which can extract the information from your working copy and write it into a file. This is useful for including build information in your projects."
-msgstr ""
+msgstr "<xref linkend=\"tsvn-subwcrev\"/> یک برنامه مجزاست که بهمراه TortoiseSVN توزیع میشود و امکان استخراج اطلاعات از نسخه کاری و نوشتن آنها در یک فایل را دارد. از این برنامه برای قرار دارن اطلاعاتی مربوط به نسخه ساخته شده پروژه خود میتوانید استفاده کنید."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:125
 msgid "The <xref linkend=\"tsvn-howto\"/> section answers some common questions about performing tasks which are not explicitly covered elsewhere."
-msgstr ""
+msgstr "بخش <xref linkend=\"tsvn-howto\"/> سئوالاتی را در مورد انجام برخی عملیات روز مره که در جای دیگر به آنها اشاره نشده است پاسخ می دهد."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:129
 msgid "The section on <xref linkend=\"tsvn-automation\"/> shows how the TortoiseSVN GUI dialogs can be called from the command line. This is useful for scripting where you still need user interaction."
-msgstr ""
+msgstr "بخش <xref linkend=\"tsvn-automation\"/> نشان میدهد چگونه میتوانید پنجره های محاوره ای TortoiseSVN را از خط دستور فراخوانی کنید. این ویژگی برای اسکریپتهائی که نیاز به محاوره با کاربر نیز دارند مناسب است."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:134
 msgid "The <xref linkend=\"tsvn-cli\"/> give a correlation between TortoiseSVN commands and their equivalents in the Subversion command line client <literal>svn.exe</literal>."
-msgstr ""
+msgstr "در <xref linkend=\"tsvn-cli\"/> درباره ارتباط بین دستورات TortoiseSVN و معادل آنها در <literal>svn.exe</literal> که سرویس گیرنده خط دستوری سابورژن است توضیحاتی ارائه میشود."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:144
@@ -185,7 +185,7 @@ msgstr "TortoiseSVN رایگان است. شما برای استفاده از آ�
 #. (para)
 #: ../source/TortoiseSVN_en.xml:149
 msgid "TortoiseSVN is an Open Source project. That means you have full access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. (Username:guest, for password hit enter) The most recent version (where we're currently working) is located under <filename>/trunk/</filename> the released versions are located under <filename>/tags/</filename>."
-msgstr ""
+msgstr "TortoiseSVN یک پروژه متن باز است.. شما به تمامی کد منبع این برنامه دسترسی دارید. میتوانید از این لینک <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"> کد آن را مرور کنید.<citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. (نام کاربر:guest, رمزینه را خالی بگذارید) جدیدتربن نسخه که روی آن کار میشود در  <filename>/trunk/</filename> قرار دارد نسخه های منتشر شده در <filename>/tags/</filename> قرار دارند."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:168
