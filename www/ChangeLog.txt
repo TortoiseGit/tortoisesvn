@@ -1,3 +1,439 @@
+Version 1.5.0
+- CHG: Support for IPv6 disabled due to problems with merging and terrible
+       slowdown in some situations. (Stefan)
+- BUG: Styling URLs in the commit log edit control did not work properly if
+       non ASCII chars were before an entered URL. (Stefan)
+- BUG: the local hook scripts did not work, and the hook settings page
+       could crash. (Stefan)
+- BUG: When an URL was entered in the repository browser which points to a 
+       different repository than the one which is currently shown, the
+       project properties were not cleared. (Stefan)
+- BUG: The whitespaces and lineending symbols in TortoiseMerge were not
+       properly (re)drawn when scrolling sideways. (Stefan)
+- BUG: The line endings were inline colored as different even if the
+       line ending hasn't really changed. (Stefan)
+- BUG: TortoiseIDiff could crash when an added icon was diffed against an
+       empty icon. (Stefan)
+- BUG: The MFC internal dialogs were not translated in TortoiseProc. (Stefan)
+- BUG: The TortoiseBlame tab size was always initialized to 4 in the
+       settings dialog. (Stefan)
+- BUG: Opening the log dialog twice for the same repository caused the
+       log cache to be deleted. (Stefan Fuhrmann)
+- BUG: Merging with "dry run" ignored the options the user has set. (Stefan)
+- BUG: OK button in copy, import and input dialog was disabled randomly 
+       when tsvn:logminsize was not 0. (Stefan Fuhrmann)
+- BUG: "show log" on a revision graph node would show the log for some
+       sub-path of the respective branch instead for the branch itself
+       (Stefan Fuhrmann)
+- BUG: After moving items in the repository browser, the view sometimes would
+       not refresh properly. (Stefan)
+- BUG: TortoiseMerge could add blank lines when resolving conflicts. (Stefan)
+
+Version 1.5.0-RC3
+- NEW: Draw the whitespace chars in gray so they're clearly distinguishable
+       from normal chars in TortoiseMerge.
+       See issue #418 for details. (Stefan)
+- NEW: Delete the respective log cache file if the TSVN instance using it
+       would crash for some reason. (Stefan Fuhrmann)
+- CHG: If different repositories are accessed through the same URL, TSVN 
+       will keep the log cache only for the lastest one (Stefan Fuhrmann)
+- BUG: If the cached log history is incomplete, showing log in off-line mode 
+       would include (some) revisions that don't belong to the respective 
+       path. (Stefan Fuhrmann)
+- BUG: When blaming a file with an Unicode BOM, a dot was shown in the first
+       line of the blamed text. (Stefan)
+- BUG: The commit log history in the commit dialog was not loaded for the
+       selected project. (Stefan)
+- BUG: When removing a folder from the repository browser left tree view,
+       the views were not refreshed properly. (Stefan)
+- BUG: Doing an 'rename' from the context menu on the tree view in the
+       repository browser edited the selected item, not the one which
+       was right-clicked on. (Stefan)
+- BUG: SubWCRev returned the wrong URL if -e was specified and
+       externals were present. See issue #419 for details. (Stefan)
+- BUG: TortoiseMerge showed the line ending symbols over the line numbers
+       in some cases. (Stefan)
+- BUG: The format of the log message copied to the clipboard from
+       the log dialog was missing a closing parenthesis. (Stefan)
+- BUG: Incomplete or wrong cached log info could crash TSVN. (Stefan Fuhrmann)
+- BUG: Log cache updates could crash TSVN. (Stefan Fuhrmann)
+- BUG: A doubleclick on a revision in the log dialog created a null diff
+       instead of a diff with the previous revision. (Stefan)
+
+Version 1.5.0-RC2
+- NEW: the issue tracker integration supports now relative urls. (Stefan)
+- NEW: Option to bypass the recycle bin when reverting. (Stefan)
+- CHG: When diffing a file with the previous revision, don't create a temp
+       file for the file in the working copy. (Stefan)
+- CHG: In log cache settings: show one randomly selected URL instead of the
+       UUID, if there is more than one URL to a repository. (Stefan Fuhrmann)
+- CHG: In commit dialog: Fetch log message history before running the 
+       status query (Stefan Fuhrmann)
+- BUG: Crash when browsing through the settings dialog. (Stefan)
+- BUG: URLs were not properly escaped in the revision graph for showing the
+       log or merging. (Stefan)
+- BUG: The root path was not set correctly when creating a patch. This lead
+       to the patchfile containing only the filename and not the relative path
+       if only one file was chosen/available to create the patch for. (Stefan)
+- BUG: TortoiseMerge could crash when diffing empty files. (Stefan)
+- BUG: Applying a patchfile for an UTF8 file (with BOM marker) with changes 
+       in the first line did not work due to the UTF8 BOM marker. (Stefan)
+- BUG: TortoiseMerge sometimes did not show the line diff bar. (Stefan)
+- BUG: Crash when removing unmodified files from a changelist. (Stefan)
+- BUG: 0-sized columns in status grid when fetching status. (Stefan Fuhrmann)
+- BUG: Random strings in recent messages lists after a fresh install
+       when not all 25 entries are being used yet. (Stefan Fuhrmann)
+- BUG: Renaming a folder in the repository browser tree list lead to
+       refreshing problems because the URL was still used from before
+       the rename. (Stefan)
+
+Version 1.5.0-RC1
+- NEW: Files can be dragged to new changelists. (Stefan)
+- NEW: The reintegrate page in the merge wizard shows the target
+       working copy path. (Stefan)
+- NEW: The copy command now can take an /url command line param to
+       pre-fill the branch/tag dialog. (Stefan)
+- NEW: Command line command "showcompare" which shows the diff
+       between two urls/revs. (Stefan)
+- NEW: The copy command now can take a /logmsg or /logmsgfile command
+       line param to pre-fill the commit log message. (Stefan)
+- NEW: Context menu in the log message box of the log dialog. (Stefan)
+- NEW: Properies (svn:* etc.) can be shown in status dialog. (Stefan Fuhrmann)
+- CHG: Fall back to cached log data if forced refresh fails in log view
+       and the user chooses to go off-line again. (Stefan Fuhrmann)
+- CHG: Finalize toolbar button icons. (Stefan Fuhrmann)
+- CHG: The changelists are now sorted so that first the user changelists are
+       shown, then the items not in a changelist and the ignore-on-commit
+       changelist last. (Stefan)
+- CHG: if changelists are present, the items in the commit dialog are not
+       checked by default anymore. (Stefan)
+- CHG: The rev-range merge dialog now sorts the revision ranges which are
+       retrieved from the log dialog. (Tobias Schäfer)
+- CHG: improved the autolist regexes to parse more files. (Stefan)
+- CHG: The URL in the log dialog title is now shown unescaped. (Stefan)
+- BUG: <SHIFT>-F5 and <CTRL>-F5 not working in log view (Stefan Fuhrmann)
+- BUG: The property page showed the changelist instead of the GUUID. (Stefan)
+- BUG: Revisions that only added new files or sub-folders
+       were not shown in revision graph (Stefan Fuhrmann)
+- BUG: The log statistics by date were shown in reverse order. (Stefan)
+- BUG: The log statistics did not match the week/month/quarters exactly. (Stefan)
+- BUG: The /closeonend command line param was overwritten by the corresponding
+       user setting if /closeonend:0 was used. (Stefan)
+- BUG: When deleting a log cache (via settings dialog), the URL->UUID map
+       wasn't updated (Stefan Fuhrmann)
+- BUG: The value of the checkbox "Reverse Merge" got lost when calling the log
+       dialog from the rev-range merge dialog. (Tobias Schäfer)
+- BUG: Refreshing the view in TortoiseMerge only adjusted the scroll position
+       of the active view, not all views. (Stefan)
+- BUG: The setting "Use system locale for date/time" was not saved correctly.
+       (Tobias Schäfer)
+- BUG: Revision graph did not handle peg revision info (issue #360)
+       (Stefan Fuhrmann)
+- BUG: Changelists were not removed on commit. (Stefan)
+- BUG: When multiple paths were selected, "show modifications" was only be
+       be called for one of them (Stefan Fuhrmann)
+- BUG: OK button in commit dialog was disabled randomly when tsvn:logminsize 
+       was not 0. (Stefan Fuhrmann)
+- BUG: When editing a log message, the input dialog had the existing message
+       selected. (Stefan)
+- BUG: Tooltips for some tsvn: properties were wrong. (Stefan)
+- BUG: The log dialog did not show the bug id column if the bugtraq:url property
+       was not set and only the one-line regex was used. (Stefan)
+- BUG: the check state of the items in the commit dialog were not preserved
+       when refreshing the view and changelists were present. (Stefan)
+
+Version 1.5.0-beta1
+- NEW: Implemented 'merge reintegrate': new page in the merge wizard. (Stefan)
+- NEW: In log window: <SHIFT> or <CTRL> when hitting 'Refresh' or F5
+       will cause the log cache to be bypassed and updated (Stefan Fuhrmann)
+- NEW: Tentatively added new 'Allow ambiguous URLs' setting in 'Log Caching'.
+       May or may not be removed until RC1 (Stefan Fuhrmann).
+- NEW: Revision graph now shows 'offline' state and supports F5 to update
+       (Stefan Fuhrmann).
+- BUG: Inserting a history log message in the commit dialog when 
+       bugtraq:append is set to 'false' inserted the bug ID and the commit
+       message reversed. (Stefan)
+- BUG: The slider positions could be restored incorrectly in the commit and
+       log dialog. (Stefan)
+- BUG: The merge ranges were not properly sorted for a rev-range merge. (Stefan)
+- BUG: Switching the left/right view in TortoiseMerge lost edits. (Stefan)
+- BUG: The repo browser showed an empty entry when showing a repository on an
+       UNC path. (Stefan)
+- BUG: The browse button in the merge wizard reintegrate page did
+       not work at all. (Stefan)
+- BUG: The file-open dialog in the hook scripts dialog did not show if the
+       path in the edit box did not exist. (Stefan)
+- BUG: Minor fixes in the 'Log Caching' settings page (Stefan Fuhrmann)
+- BUG: Revision graph could hang on empty repositories (Stefan Fuhrmann)
+- BUG: Incomplete revision parameter checking could crash the log cache query
+       (Stefan Fuhrmann) 
+- CHG: Client-side hook scripts are now called with the predefined parameters
+       in a predefined order. (Stefan)
+- CHG: Tooltips in revision graph only limited by screen resolution
+       (Stefan Fuhrmann)
+
+Version 1.5.0-alpha1
+- NEW: Various new layout options in revision graph. (Stefan Fuhrmann)
+- NEW: Log content will be cached. See issue #45 for details. (Stefan Fuhrmann)
+- NEW: Repository properties will be cached. Reduces or even eliminates 
+       latency in log dialog and revison graph. (Stefan Fuhrmann)
+- NEW: Show log and revision graph w/o repository connection. (Stefan Fuhrmann)
+- NEW: A warning is shown when a modified file is about to be deleted
+       in the various dialogs. See issue #274 for details. (Stefan)
+- NEW: External diff/merge programs can be specified by mime-type,
+       not just by extension. See issue #115 for details. (Stefan)
+- NEW: Search by "whole word" and wrap around at the bottom of
+       the files when the word isn't found. 
+       A history of previous searches is shown in the new combobox.
+       The search will now start either at where the previous search
+       stopped, or the selected line if there is one. Bringing up
+       the search dialog will force the search to start at the top.
+       See issue #271 for details. (Jeremy Whitby, Stefan)
+- NEW: Client-side hook scripts. See issue #137 and #322 for details. (Stefan)
+- NEW: Integration with repo viewers. See issue #201 for details. (Stefan)
+- NEW: Applying a patchfile from clipboard. Directly from the explorer
+       context menu as well as from the TortoiseMerge "Open" dialog.
+       See issue #270 for details. (Stefan)
+- NEW: The log dialog shows the number of revisions, start and end revision
+       and the number of selected revisions. 
+       See issue #276 for details. (Stefan)
+- NEW: Ability to 'repair' a move/rename which was done without using the
+       Subversion commands. Repairing works by selecting two files
+       where one is unversioned and the other missing, then choose "repair move"
+       from the context menu. See issue #273 for details. (Stefan)
+- NEW: TortoiseMerge shows the encoding and line ending style in its
+       status bar. See issue #279 for details. (Stefan)
+- NEW: Support more image formats in TortoiseIDiff by using the FreeImage
+       dll if it's available. See issue #304 for details. (Will Wilson)
+- NEW: "Compare with base" now works on multiple selected files. See issue
+       #277 for details. (Tobias Schäfer)
+- NEW: Files shown in the progress dialog can now also be dragged to other
+       applications such as text editors or IDEs. (Tobias Schäfer)
+- NEW: Undo function for TortoiseMerge. See issue #266 for details. (Stefan)
+- NEW: The columns in the "changed files" dialog are now sortable.
+       See issue #275 for details. (Stefan)
+- NEW: Option to show the "Get Lock" menu entry on the top level menu
+       only if the svn:needs-lock property is set. 
+       See issue #261 for details. (Stefan)
+- NEW: When exporting with a right-drag, ask the user whether to 
+       overwrite an already existing folder or if TSVN should 
+       automatically rename the target. See issue #227 for details. (Stefan)
+- NEW: In the log dialog changed-files-list, it's possible to select
+       multiple items for saving. See issue #281 for details. (Stefan)
+- NEW: Single items can be permanently removed from dropped down combo
+       boxes by pressing Shift-Delete. (Tobias Schäfer)
+- NEW: Two new commands in the log dialog to compare/blame a revision
+       with its previous one. See issue #286 for details. (Stefan)
+- NEW: Project properties to define user-defined properties which will be
+       shown in the properties combobox to choose from. (John Norris)
+- NEW: Command line options /ignoreexternals and /nonrecursive
+       for the update command. (Stefan)
+- NEW: Option when exporting to override the svn:eol-style of files.
+       See issue #294 for details. (Stefan)
+- NEW: In the revision graph, a filter can be applied to reduce the
+       size of the graph and what's shown in the graph.
+       See issue #282 for details. (Stefan)
+- NEW: New command in the extended explorer context menu (hold down
+       shift while bringing up the context menu): delete all
+       unversioned and ignored files/folders. A dialog is first
+       shown to select which items to remove. Removing is done using
+       the trash bin. See issue #287 for details. (Stefan)
+- NEW: The changed-files dialog has two new buttons to change the
+       two diffed revisions. See issue #288 for details. (Stefan)
+- NEW: Allow 'cleanup' with multiple folders selected.
+       See issue #297 for details. (Stefan)
+- NEW: In TortoiseIDiff it's possible to move the images by dragging
+       them. See issue #301 for details. (Stefan)
+- NEW: column in the CSVNStatusListCtrl to show the 'copyfrom' url.
+       See issue #309 for details. (Stefan)
+- NEW: The progress dialog indicates when the command is finished,
+       even for those who don't show usually a 'finished' line.
+       See issue #313 for details. (Stefan)
+- NEW: Default checkout path and url can be specified.
+       See issue #315 for details. (Stefan)
+- NEW: If unversioned files are dropped on to the file list in the commit
+       dialog, they're automatically added to version control.
+       See issue #319 for details. (Stefan)
+- NEW: Button to show the log and select a revision in the
+       switch dialog. (Stefan)
+- NEW: New coloring option for modified lines in TortoiseMerge. (Stefan)
+- NEW: Unlocking now shows a dialog where the files can be selected
+       to unlock. See issue #331 for details. (Stefan)
+- NEW: The checkout and export dialog automatically create the target
+       directory from the URL. (Stefan)
+- NEW: Improved tooltips in the TortoiseMerge view header. (Stefan)
+- NEW: TortoiseBlame remembers its window position. (Stefan)
+- NEW: Performance improvement when resolving a file in TortoiseMerge.
+       See issue #328 for details. (Stefan)
+- NEW: Ability to create file-based changelists. 
+       See issue #333 for details. (Stefan)
+- NEW: When applying patches with absolute paths which don't exist
+       TortoiseMerge now tries to guess the correct path by stripping
+       prefixes from the paths in the patchfile. (Tobias Schäfer)
+- NEW: The lock dialog now has a "Select / deselect all" checkbox. See
+       issue #340 for details. (Tobias Schäfer)
+- NEW: The repository browser has now two panes like the explorer.
+       See issue #334 for details. (Stefan)
+- NEW: Pressing SHIFT when un-/checking directories in the status list
+       control makes the action recursive. (Tobias Schäfer)
+- NEW: Resolving conflicts in the progress dialog now updates the status
+       count and removes the warning if all are resolved. (Tobias Schäfer)
+- NEW: Blame a file from the log dialog. See issue #341 for details. (Stefan)
+- NEW: The "keep locks" checkbox in the commit dialog defaults to the
+       'no_unlock' option in the Subversion config file. (Stefan)
+- NEW: Better file handling in TortoiseMerge: Files with inconsistent
+       line endings don't throw an error anymore, files with EOF chars
+       are handled properly, and files with no newline at the end are kept
+       that way when saving. Also see issue #336 for more details. (Stefan)
+- NEW: After upgrading, the previously selected language is kept.
+       See issue #330 for details. (Stefan)
+- NEW: TortoiseBlame's context menu now has "Blame previous revision",
+       "Show changes" and "Show log" which makes tracking changes easier.
+       See issue #343 for details. (Tobias Schäfer)
+- NEW: TortoiseMerge can apply patches created with svnlook.
+       See issue #335 for details. (Stefan)
+- NEW: A separate Diff-viewer can now be configured for properties in the
+       settings dialog. (Tobias Schäfer)
+- NEW: The revision graph can show an overview for easier navigation.
+       See issue #347 for details. (Stefan)
+- NEW: The log dialog now restores the selection after filtering or
+       fetching further revisions. (Tobias Schäfer)
+- NEW: The checkout dialog can be resized horizontally. (Stefan)
+- NEW: A description of a command is shown in the progress dialog 
+       before the actual command is executed. See issue #348
+       for details. (Stefan)
+- NEW: Automation (COM) interface for SubWCRev. 
+       See issue #362 for details. (Stefan)
+- NEW: Option to skip the lock dialog.
+       See issue #332 for details. (Stefan)
+- NEW: Project property tsvn:autoprops which supplements the [autoprops]
+       section in the Subversion config file. (Stefan)
+- NEW: If tsvn:logwidthmarker is set, the commit dialog will break the text
+       automatically at the width marker when entering the log message.
+       There's also a new context menu entry to reformat the selected text.
+       See issue #327 for details. (Stefan)
+- NEW: History of lock messages. See issue #338 for details. (Stefan)
+- NEW: Folders which are excluded from showing status overlays can
+       still show an overlay if they're versioned. 
+       See issue #349 for details. (Stefan)
+- NEW: TortoiseMerge shows the diffed file info in the window title.
+       See issue #345 for details. (Stefan)
+- NEW: The repository browser can handle URLs with revisions in the form
+       URL?revision. See issue #346 for details. (Stefan)
+- NEW: Added column "Modification date" which is available in all dialogs
+       but which is not shown by default. See issue #363 for details.
+       (Tobias Schäfer)
+- NEW: The commit dialog detects if files got changed while it is shown.
+       If it detects such a change, it reverts back to a non-recursive
+       commit to avoid committing unchecked files. 
+       See issue #339 for details. (Stefan)
+- NEW: TortoiseBlame can indicate the age of lines by coloring the
+       background of the lines. See issue #364 for details. (Stefan)
+- NEW: The divider positions in the log and commit dialog are remembered
+       between sessions. See issue #353 for details. (Stefan)
+- NEW: The view title scrolls now with the view. See issue #358
+       for details. (Stefan)
+- NEW: "Show Whitespaces" now shows the lineendings too. (Stefan)
+- NEW: TortoiseIDiff can show the two images now also XOR'ed. (Stefan)
+- NEW: "Settings" entry in the TSVN start menu. On x64, provide separated 
+       settings for 32 and 64 bit TSVN. (Stefan Fuhrmann)
+- NEW: The project properties are automatically added to new folders. (Stefan)
+- NEW: special changelist for 'ignoring' versioned files. (Stefan)
+- NEW: TortoiseBlame has a locator bar if the age coloring is active.
+       See issue #376 for details. (Stefan)
+- NEW: the file diff dialog has a filter. See issue #379 for details. (Stefan)
+- NEW: The merge and blame dialog have options to ignore eol and space
+       changes. (Stefan)
+- NEW: TortoiseMerge can create a unified diff (patch) file from the two
+       files it shows. See issue #381 for details. (Stefan)
+- NEW: Improved indication on how the filter in the log dialog works.
+       See issue #384 for details. (Stefan)
+- NEW: Merging from the log dialog and the revision graph. See issue #385
+       for details. (Stefan)
+- NEW: TortoiseMerge has now editing capabilities. 
+       See issue #382 for details. (Stefan)
+- NEW: The repository browser can run an update on items which don't exist
+       yet in the working copy. (Stefan)
+- NEW: Files can be dropped onto all dialogs which let the user choose
+       files for an operation. See issue #383 for details. (Stefan)
+- NEW: Summary regex for the log dialog summary. See issue #326
+       for details. (Stefan)
+- NEW: Holding "Shift" when invoking the diff from context menu or
+       via double-click allows to switch between TortoiseMerge
+       and external tool. See issue #396 for details. (Alexander Klenin)
+- NEW: Log history dialog allows removal of commit messages
+       with DELETE key. (Alexander Klenin)
+- NEW: Support for IPV6. See issue #352 for details. (Stefan)
+- NEW: Import/Export of properties. See issue #412 for details. (Stefan)
+- NEW: Merge dialog redesigned to wizard style. (Stefan)
+- NEW: Executed commands are logged into a file. 
+       See issue #320 for details. (Stefan)
+- NEW: Editing of revision properties from the repository browser. (Stefan)
+- NEW: Copy-Hook handler to release cache locks when renaming/moving/deleting
+       folders in explorer. (Stefan)
+--
+- CHG: Revision graph code mainly rewritten resulting in a major 
+       performance improvement. (Stefan Fuhrmann)
+- CHG: The working copy is now the default in the branch/tag dialog
+       instead of HEAD. See issue #258 for details. (Stefan)
+- CHG: CrashRpt.dll is now loaded with an absolute path. This prevents
+       TSVN from loading an arbitrary DLL. See issue #278 for details.
+       (Tobias Schäfer)
+- CHG: Pressing Enter in the issue ID text box of the commit dialog now
+       sets the focus to the commit message. See issue #292 for details.
+       (Tobias Schäfer)
+- CHG: Menu items which should appear in the top level menu now need to
+       be checked instead of unchecked. See issue #306 for details.
+       (Tobias Schäfer)
+- CHG: Spell corrections are now shown in the top level context menu instead
+       of a submenu in the commit dialog. See issue #285 for details. (Stefan)
+- CHG: When doing actions (e.g. move/copy/...) in the repository browser,
+       the dialog asking for the log message indicates clearly what action
+       is done. See issue #296 for details. (Stefan)
+- CHG: The alpha slider in TortoiseIDiff got moved down to the infobox
+       and made smaller to faster change from 0 to 255 alpha.
+       Also hotkeys are added for fast switching between 0-127-255 alpha
+       values: cursor up = 0alpha, cursor down = 255alpha, 
+       cursor left/right = 127alpha.
+       See issue #299 for details. (Stefan)
+- CHG: Moving the sliders in TortoiseIDiff moves the image right away, 
+       without waiting for the mouse-up event.
+       Zooming in/out with mousewheel tries to keep the pixel where the
+       mouse pointer is at the same position.
+       See issue #301 for details. (Stefan)
+- CHG: All URL comboboxes now have the last used URL filled in instead
+       of leaving them empty. See issue #303 for details. (Stefan)
+- CHG: The items in the revert dialog are now unchecked by default
+       to avoid accidental reverts. See issue #305 for details. (Stefan)
+- CHG: The min/max revision in the check-for-modifications dialog only
+       covers the items which are shown, not the whole working copy.
+       See issue #316 for details. (Stefan)
+- CHG: The progress dialog clearly indicates a failed operation in the
+       title and the status text. See issue #318 for details. (Stefan)
+- CHG: Unchecking directories in the status list control now doesn't uncheck
+       recursively if there is only a property change. (Tobias Schäfer)
+- CHG: The language pack are now installed with msi installer files.
+       See issue #155 for details. (Stefan)
+- CHG: When creating a repository, always use the FSFS type. While it's no
+       longer possible to create BDB repositories, it's still possible to
+       access them via file:///. (Stefan)
+- CHG: The TortoiseSVN automation interface does not need the parameter
+       /notempfile anymore. See issue #298 for details. (Tobias Schäfer)
+- CHG: The /revstart, /revend and /revpeg parameters have been renamed
+       consistently  to /startrev, /endrev and /pegrev. (Tobias Schäfer)
+- CHG: The second context menu item for links now only appears if the
+       destination is in a working copy. (Tobias Schäfer)
+- CHG: Context menu (log, merge) available also for deleted nodes in 
+       revision dialog (Stefan Fuhrmann)
+--
+- BUG: TortoiseMerge didn't always ask to save the modifications first before
+       the user did something which would lose those modifications
+       (e.g. open new files). (Stefan)
+- BUG: "Create Patch" could include two copies of the same file. See
+       issue #241 for details. (Stefan)
+- BUG: Tooltip flicker in revision dialog for very long log messages.
+       (Stefan Fuhrmann)
+
 Version 1.4.8
 - NEW: linked with neon 0.27.2 to avoid problems with e.g., locking (Stefan)
 - BUG: blaming files with authornames bigger than 30 chars lead to corrupted
@@ -21,7 +457,6 @@ Version 1.4.6
 - BUG: Pressing the tabulator deleted the contents of the log message in
        the commit dialog. (Tobias Schäfer)
 
-
 Version 1.4.5
 - BUG: The setting "unversioned files mark parent folder as modified" for the
        overlays marked folders as modified even if the unversioned files
@@ -30,8 +465,6 @@ Version 1.4.5
        (Tobias Schäfer)
 - BUG: Selecting the 'to:' date in the log dialog didn't include the
        selected date. (Stefan)
-- BUG: Saving a file which did not exist failed or wasn't possible,
-       only "Save as" worked. (Stefan)
 - BUG: Crash in the statistics dialog if for some reason the date of a 
        revision is not available. (Stefan)
 - BUG: Thread leak in the status cache/handle lead in the 
@@ -280,6 +713,7 @@ Version 1.4.0
 - BUG: Creating and accessing BDB repositories did not work. (Stefan)
 
 Version 1.4.0RC1
+- NEW: Full support of 64 bit Windows. (Stefan Fuhrmann)
 - NEW: Command line param /bugid to prefill the bug ID
        in the commit dialog. See issue #202 for details. (Stefan)
 - NEW: User defined regexes to parse the files for keywords used
