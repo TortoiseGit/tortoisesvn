@@ -225,7 +225,7 @@ BOOL CRevisionGraph::FetchRevisionData (CString path, svn_revnum_t pegRev, const
 		    const SVNInfoData * baseInfo 
 			    = info.GetFirstFileInfo (svnPath, SVNRev(), SVNRev());
             if (baseInfo != NULL)
-                m_pegRev = baseInfo->lastchangedrev;
+                m_pegRev = baseInfo->rev;
 	    }
     }
 
