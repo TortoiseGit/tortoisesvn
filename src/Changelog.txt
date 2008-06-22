@@ -1,3 +1,6 @@
+- BUG: The installer always installed the feature "associate .patch files
+       with TortoiseUDiff", even if it was deselected during install. (Stefan)
+
 Version 1.5.0
 - CHG: Support for IPv6 disabled due to problems with merging and terrible
        slowdown in some situations. (Stefan)

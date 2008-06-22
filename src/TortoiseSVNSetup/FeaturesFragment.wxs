@@ -17,7 +17,6 @@
 			<ComponentRef Id="C__TortoiseIDiff" />
 			<ComponentRef Id="C__TortoiseIDiffShortcuts" />
 			<ComponentRef Id="C__TortoiseUDiff" />
-			<ComponentRef Id="C__TortoiseUDiffAssoc" />
 			<ComponentRef Id="C__PlainSettingsShortcuts" />
 			<ComponentRef Id="C__PlatformSettingsShortcuts" />
 			<ComponentRef Id="C__shellregistry" />
@@ -42,25 +41,25 @@
 				<MergeRef Id="Ovlays" />
 			</Feature>
 
-			<Feature Id="MoreIcons" Level="1" Title="Additional icon sets" Description="Additional sets of icon overlays in different styles" TypicalDefault="install">
+			<Feature Id="MoreIcons" Level="1" Title="Additional icon sets" Description="Additional sets of icon overlays in different styles" TypicalDefault="install" Absent="allow">
 				<ComponentRef Id="C__iconscvsclassic" />
 				<ComponentRef Id="C__iconsmodern" />
 				<ComponentRef Id="C__iconsmarkphippard" />
 				<ComponentRef Id="C__iconsstraight" />
 			</Feature>
 
-			<Feature Id="UDiffAssoc" Level="1" Title="Register diff/patch files" Description="Associate .diff and .patch files with TortoiseUDiff" TypicalDefault="install">
+			<Feature Id="UDiffAssoc" Level="1" Title="Register diff/patch files" Description="Associate .diff and .patch files with TortoiseUDiff" TypicalDefault="install" Absent="allow">
 				<ComponentRef Id="C__TortoiseUDiffAssoc" />
 			</Feature>
 
 			<?if $(env.DictionaryENGB) = 1 ?>
-			<Feature Id="DictionaryENGB" Level="1" Title="English (GB) dictionary" Description="English (GB) spell checker dictionary" TypicalDefault="install">
+			<Feature Id="DictionaryENGB" Level="1" Title="English (GB) dictionary" Description="English (GB) spell checker dictionary" TypicalDefault="install" Absent="allow">
 				<ComponentRef Id="C__DictionaryENGB" />
 			</Feature>
 			<?endif ?>
 
 			<?if $(env.DictionaryENUS) = 1 ?>
-			<Feature Id="DictionaryENUS" Level="1" Title="English (US) dictionary" Description="English (US) spell checker dictionary" TypicalDefault="install">
+			<Feature Id="DictionaryENUS" Level="1" Title="English (US) dictionary" Description="English (US) spell checker dictionary" TypicalDefault="install" Absent="allow">
 				<ComponentRef Id="C__DictionaryENUS" />
 			</Feature>
 			<?endif ?>
