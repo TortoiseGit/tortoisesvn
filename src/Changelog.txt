@@ -2,8 +2,6 @@
        with TortoiseUDiff", even if it was deselected during install. (Stefan)
 - BUG: Bogus revision graph for WC paths that have not been changed
        in the respective branch. (Stefan Fuhrmann)
-- BUG: when using the WC rev as start / peg revision in the revision graph, 
-       we must use just that but not the last changed rev. (Stefan Fuhrmann)
 
 Version 1.5.0
 - CHG: Support for IPv6 disabled due to problems with merging and terrible
