@@ -377,9 +377,12 @@ UINT CSetLogCache::WorkerThread(LPVOID pVoid)
     caches->Flush();
 	svn_pool_destroy (pool);
 
-    dialog->progress->Stop();
-	delete dialog->progress;
-	dialog->progress = NULL;
+	if (dialog->progress)
+	{
+		dialog->progress->Stop();
+		delete dialog->progress;
+		dialog->progress = NULL;
+	}
 
     CoUninitialize();
 

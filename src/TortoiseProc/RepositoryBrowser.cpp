@@ -1177,6 +1177,9 @@ void CRepositoryBrowser::OnTvnItemexpandingRepotree(NMHDR *pNMHDR, LRESULT *pRes
 
 	CTreeItem * pTreeItem = (CTreeItem *)pNMTreeView->itemNew.lParam;
 
+	if (pTreeItem == NULL)
+		return;
+
 	if (pNMTreeView->action == TVE_COLLAPSE)
 	{
 		// user wants to collapse a tree node.
