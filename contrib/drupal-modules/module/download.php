@@ -1,21 +1,25 @@
 <?php
+//
+// Drupal download page for TortoiseSVN
+//
+// Copyright (C) 2004-2008 the TortoiseSVN team
+// This file is distributed under the same license as TortoiseSVN
+//
+// $Author$
+// $Date$
+// $Rev$
+//
+// Author: Lübbe Onken 2004-2008
+//         Stefan Küng 2004-2008
+//
 
 include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_data_branch.inc");
 include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_countries.inc");
+include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/tortoisevars.inc");
 
-$v['release']=variable_get('tsvn_version', '');
-$v['build']=variable_get('tsvn_build', '');
-$v['build_x64']=variable_get('tsvn_build_x64', '');
-$v['svnver']=variable_get('tsvn_svnlib', '');
-$v['sf_release_id']=variable_get('tsvn_sf_release_binary', '');
-$v['sf_project']=variable_get('tsvn_sf_project', '');
-$v['url1']=variable_get('tsvn_sf_prefix', '');
-$v['url2']=variable_get('tsvn_sf_append', '');
-$v['flagpath']="/flags/world.small/";
-
-$w['w32']=$v['release'].".".$v['build']."-win32"; 
-$w['w32wrong']=$v['release'].".".$v['build'].""; 
-$w['x64']=$v['release'].".".$v['build_x64']."-x64"; 
+$w['w32']=$tsvn_var['release'].".".$tsvn_var['build']."-win32"; 
+$w['w32wrong']=$tsvn_var['release'].".".$tsvn_var['build'].""; 
+$w['x64']=$tsvn_var['release'].".".$tsvn_var['build_x64']."-x64"; 
 
 if (!function_exists('get_changelog')) {
 function get_changelog($v)
@@ -36,15 +40,15 @@ return "<a href=\"".$v['url1'].$t_ln.$v['url2']."\">$t_ln</a>" ;
 if (!function_exists('get_checksum')) {
 function get_checksum($v, $w)
 {
-$t_ln="TortoiseSVN-".$w."-svn-".$v['svnver'].".md5";
-return "<a href=\"".$v['url1'].$t_ln.$v['url2']."\">$t_ln</a>";
+$t_ln="TortoiseSVN-".$w."-svn-".$v['svnver'].".msi.asc";
+return "<a href=\"http://tortoisesvn.net/files/".$t_ln."\">$t_ln</a>";
 }
 }
 
 if (!function_exists('get_langpack')) {
 function get_langpack($l, $n, $v, $w)
 {
-$t_ln="LanguagePack-".$w."-".$l.".exe";
+$t_ln="LanguagePack_".$w."-".$l.".msi";
 return "<a href=\"".$v['url1'].$t_ln.$v['url2']."\">$n</a>";
 }
 }
@@ -99,9 +103,9 @@ function print_langpack($i, $postat, $v, $w)
 //
 
 ?>
-<h1>The current version is <?php echo $v['release'] ?>.</h1>
+<h1>The current version is <?php echo $tsvn_var['release'] ?>.</h1>
 <p>
-For detailed info on what's new, read the <?php echo get_changelog($v); ?> and the <a href="http://tortoisesvn.tigris.org/tsvn_1.4_releasenotes.html">release notes</a>.
+For detailed info on what's new, read the <?php echo get_changelog($v); ?> and the <a href="http://tortoisesvn.tigris.org/tsvn_1.5_releasenotes.html">release notes</a>.
 </p>
 <p>
 This page points to installers for 32 bit and 64 bit operating systems. Please make sure that you choose the right installer for your PC. Otherwise the setup will fail.
@@ -118,27 +122,27 @@ Note for x64 users: you can install both the 32 and 64-bit version side by side.
 </tr>
 <tr>
 <th>32 Bit</th>
-<td><?php echo get_installer($v,$w['w32']) ?></td>
+<td><?php echo get_installer($tsvn_var,$w['w32']) ?></td>
 <td>Installer</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
-<td><?php echo get_checksum($v,$w['w32']) ?></td>
-<td>MD5 checksum</td>
+<td><?php echo get_checksum($tsvn_var,$w['w32']) ?></td>
+<td><a href="http://www.gnupg.org/">GPG</a> signature</td>
 </tr>
 <tr>
 <th>64 Bit</th>
-<td><?php echo get_installer($v,$w['x64']) ?></td>
+<td><?php echo get_installer($tsvn_var,$w['x64']) ?></td>
 <td>Installer</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
-<td><?php echo get_checksum($v,$w['x64']) ?></td>
-<td>MD5 checksum</td>
+<td><?php echo get_checksum($tsvn_var,$w['x64']) ?></td>
+<td><a href="http://www.gnupg.org/">GPG</a> signature</td>
 </tr>
 </table>
 </div>
-
+The public GPG key can be found <a href="http://tortoisesvn.net/files/tortoisesvn%20(0x459E2D3E)%20pub.asc">here</a>.
 <br />
 <script type="text/javascript"><!--
 google_ad_client = "pub-0430507460695576";
@@ -160,18 +164,10 @@ $TortoiseGUI = array_merge_recursive($countries, $TortoiseGUI);
 foreach ($TortoiseGUI as $key => $row) {
    $potfile[$key] = $row[0];
    $country[$key] = $row[3];
-   $errors[$key] = $row[5];
-   $total[$key] = $row[6];
-   $transl[$key] = $row[7];
-   $fuzzy[$key] = $row[8];
-   $untrans[$key] = $row[9];
-   $accel[$key] = $row[10];
-   $name[$key] = $row[11];
-   $fdate[$key] = $row[12];
 }
 
 // Add $TortoiseGUI as the last parameter, to sort by the common key
-array_multisort($potfile, $country, $transl, $untrans, $fuzzy, $accel, $TortoiseGUI);
+array_multisort($potfile, $country, $TortoiseGUI);
 
 ?>
 
@@ -192,12 +188,20 @@ array_multisort($potfile, $country, $transl, $untrans, $fuzzy, $accel, $Tortoise
   foreach ($TortoiseGUI as $key => $postat)
     if (isset($postat[5]) && ($postat[0] == "1") ) {
       $i++;
-      print_langpack($i, $postat, $v, $w);
+      print_langpack($i, $postat, $tsvn_var, $w);
     }
 ?>
 
 </table>
 </div>
+
+<h2>Tools</h2>
+<p>We also provide some tools you already get together with TortoiseSVN as standalone applications for those which don't use TortoiseSVN as their Subversion client.</p>
+<p>Our diff/merge tools TortoiseMerge (for text file diffs and merges), TortoiseIDiff (for diffing image files) are zipped into one package, and SubWCRev is also available.</p>
+<p>You can download these tools from the <a href="https://sourceforge.net/project/showfiles.php?group_id=138498&package_id=281312">SourceForge download page</a>
+<p>Note: <em>DO NOT</em> install these tools if you already have TortoiseSVN installed - you already <em>have</em> them.</p>
+
+
 
 <h1>Forthcoming Releases</h1>
 <p>To find out what is happening with the project and when you can expect the next release, take a look at our <a href="/status">project status</a> page.</p>
@@ -214,7 +218,7 @@ Please read <a href="http://nightlybuilds.tortoisesvn.net/1.4.x/Readme.txt">Read
 <p><a href="http://nightlybuilds.tortoisesvn.net/latest/">Nightly Builds</a> are available too. They are built from the current development head and are for testing only. Please read <a href="http://nightlybuilds.tortoisesvn.net/latest/Readme.txt">Readme.txt</a> first.</p>
 
 <h1>Older Releases</h1>
-<p>Older releases are available from the <a href="http://sourceforge.net/project/showfiles.php?group_id=<?php print $v['sf_project']; ?>">Sourceforge files</a> section.</p>
+<p>Older releases are available from the <a href="http://sourceforge.net/project/showfiles.php?group_id=<?php print $tsvn_var['sf_project']; ?>">Sourceforge files</a> section.</p>
 
 <h1>Sourcecode</h1>
 <p>TortoiseSVN is under the GPL license. That means you can get the whole sourcecode and build the program yourself.

@@ -1,32 +1,47 @@
 <!--break-->
 <?php
-// index.php
 //
-// Main page.  Lists all the translations
+// Drupal doc translation status report 
+// loaded into:
+// "http://tortoisesvn.net/translation_devel_doc" 
+//    *AND*
+// "http://tortoisesvn.net/translation_release_doc"
+//
+// Copyright (C) 2004-2008 the TortoiseSVN team
+// This file is distributed under the same license as TortoiseSVN
+//
+// $Author$
+// $Date$
+// $Rev$
+//
+// Author: Lübbe Onken 2004-2008
+//
 
 include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_data_trunk.inc");
 include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_countries.inc");
+include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/tortoisevars.inc");
 
-$vars['release']=variable_get('tsvn_version', '');
-$vars['build']=variable_get('tsvn_build', '');
-$vars['downloadurl1']=variable_get('tsvn_sf_prefix', '');
-$vars['downloadurl2']=variable_get('tsvn_sf_append', '');
-$vars['reposurl']=variable_get('tsvn_repos_trunk', '').'doc/po/';
-$vars['flagpath']="/flags/world.small/";
-$vars['showold']=TRUE;
+// different settings depending on dev or release report
+// uncomment these three lines for the trunk report
+ $tsvn_var['showold']=TRUE;
+ $tsvn_var['reposurl']=$tsvn_var['repos_trunk'].'doc/po/';
+ $tsvn_var['header_msg']='the current development version of TortoiseSVN, which is always ahead of the latest official release';
+// uncomment these three lines for the release branch report
+// $tsvn_var['showold']=FALSE;
+// $tsvn_var['reposurl']=$tsvn_var['repos_branch'].'doc/po/';
+// $tsvn_var['header_msg']='the latest official TortoiseSVN release <b>('.$tsvn_var['release'].')</b>';
 
-$basename="Tortoise";
-$template=$basename.".pot";
-
-function print_d_header($vars)
+function print_d_header($tsvn_var)
 {
 ?>
 
 <div class="content">
-<h2>Translations (in Revision <?php echo $vars['wcrev']; ?>)</h2>
+<h2>Translations (in Revision <?php echo $tsvn_var['wcrev']; ?>)</h2>
 
 <p>
-This page is informing you about the documentation translation status of the current development version of TortoiseSVN, which is always ahead of the latest official release. The statistics are calculated for the HEAD revision and updated nightly. The last update was run at <b><?php echo $vars['update']; ?></b>.
+This page is informing you about the documentation translation status of <?php echo $tsvn_var['header_msg']; ?>.
+The statistics are calculated for the HEAD revision and updated regularly.
+The last update was run at <b><?php echo $tsvn_var['update']; ?></b>.
 </p>
 
 <p>
@@ -61,11 +76,11 @@ foreach ($TortoiseSVN as $key => $row) {
 // Add $TortoiseSVN as the last parameter, to sort by the common key
 array_multisort($potfile, $country, $transl, $untrans, $fuzzy, $TortoiseSVN);
 
-print_d_header($vars);
+print_d_header($tsvn_var);
 
 // Print Alphabetical statistics
-print_table_header('TortoiseSVN', 'TortoiseSVN', $TortoiseSVN['zzz'], $vars);
-print_all_stats($TortoiseSVN, $vars);
+print_table_header('TortoiseSVN', 'TortoiseSVN', $TortoiseSVN['zzz'], $tsvn_var);
+print_all_stats($TortoiseSVN, $tsvn_var);
 print_table_footer();
 
 // Merge translation and country information into one array
@@ -88,10 +103,10 @@ foreach ($TortoiseMerge as $key => $row) {
 // Add $TortoiseMerge as the last parameter, to sort by the common key
 array_multisort($mpotfile, $mcountry, $mtransl, $muntrans, $mfuzzy, $maccel, $TortoiseMerge);
 
-print_table_header('TortoiseMerge', 'TortoiseMerge', $TortoiseMerge['zzz'], $vars);
-print_all_stats($TortoiseMerge, $vars);
+print_table_header('TortoiseMerge', 'TortoiseMerge', $TortoiseMerge['zzz'], $tsvn_var);
+print_all_stats($TortoiseMerge, $tsvn_var);
 print_table_footer();
 
-print_footer($vars);
+print_footer($tsvn_var);
 
 ?>

@@ -1,31 +1,47 @@
 <!--break-->
 <?php
-// index.php
 //
-// Main page.  Lists all the translations
+// Drupal GUI translation status report 
+// loaded into:
+// "http://tortoisesvn.net/translation_devel_gui" 
+//    *AND*
+// "http://tortoisesvn.net/translation_release_gui"
+//
+// Copyright (C) 2004-2008 the TortoiseSVN team
+// This file is distributed under the same license as TortoiseSVN
+//
+// $Author$
+// $Date$
+// $Rev$
+//
+// Author: Lübbe Onken 2004-2008
+//
 
 include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_data_trunk.inc");
 include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_countries.inc");
+include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/tortoisevars.inc");
 
-$vars['release']=variable_get('tsvn_version', '');
-$vars['build']=variable_get('tsvn_build', '');
-$vars['downloadurl1']=variable_get('tsvn_sf_prefix', '');
-$vars['downloadurl2']=variable_get('tsvn_sf_append', '');
-$vars['reposurl']=variable_get('tsvn_repos_trunk', '').'Languages/';
-$vars['flagpath']="/flags/world.small/";
-$vars['showold']=TRUE;
-$basename="Tortoise";
-$template=$basename.".pot";
+// different settings depending on dev or release report
+// uncomment these three lines for the trunk report
+ $tsvn_var['showold']=TRUE;
+ $tsvn_var['reposurl']=$tsvn_var['repos_trunk'].'Languages/';
+ $tsvn_var['header_msg']='the current development version of TortoiseSVN, which is always ahead of the latest official release';
+// uncomment these three lines for the release branch report
+// $tsvn_var['showold']=FALSE;
+// $tsvn_var['reposurl']=$tsvn_var['repos_branch'].'Languages/';
+// $tsvn_var['header_msg']='the latest official TortoiseSVN release <b>('.$tsvn_var['release'].')</b>';
 
-function print_header($vars)
+function print_header($tsvn_var)
 {
 ?>
 
 <div class="content">
-<h2>Translations (in Revision <?php echo $vars['wcrev']; ?>)</h2>
+<h2>Translations (in Revision <?php echo $tsvn_var['wcrev']; ?>)</h2>
 
 <p>
-This page is informing you about the GUI translation status of the current development version of TortoiseSVN, which is always ahead of the latest official release. The statistics are calculated for the HEAD revision and updated nightly. The last update was run at <b><?php echo $vars['update']; ?></b>.
+This page is informing you about the GUI translation status of <?php echo $tsvn_var['header_msg']; ?>.
+The statistics are calculated for the HEAD revision and updated regularly.
+The last update was run at <b><?php echo $tsvn_var['update']; ?></b>.
 </p>
 
 <p>
@@ -39,7 +55,6 @@ If you want to download the po file from the repository, either use <strong>gues
 //
 // The program starts here
 //
-
 
 // Merge translation and country information into one array
 $TortoiseGUI = array_merge_recursive($countries, $TortoiseGUI);
@@ -61,19 +76,19 @@ foreach ($TortoiseGUI as $key => $row) {
 // Add $TortoiseGUI as the last parameter, to sort by the common key
 array_multisort($potfile, $country, $transl, $untrans, $fuzzy, $accel, $TortoiseGUI);
 
-print_header($vars);
+print_header($tsvn_var);
 
 // Print Alphabetical statistics
-print_table_header('sort_alpha', 'Languages ordered by country', $TortoiseGUI['zzz'], $vars);
-print_all_stats($TortoiseGUI, $vars);
+print_table_header('sort_alpha', 'Languages ordered by country', $TortoiseGUI['zzz'], $tsvn_var);
+print_all_stats($TortoiseGUI, $tsvn_var);
 print_table_footer();
 
 array_multisort($potfile, SORT_ASC, $transl, SORT_DESC, $untrans, SORT_ASC, $fuzzy, SORT_ASC, $accel, SORT_ASC, $country, SORT_ASC, $TortoiseGUI);
 
-print_table_header('sort_status', 'Languages by translation status', $TortoiseGUI['zzz'], $vars);
-print_all_stats($TortoiseGUI, $vars);
+print_table_header('sort_status', 'Languages by translation status', $TortoiseGUI['zzz'], $tsvn_var);
+print_all_stats($TortoiseGUI, $tsvn_var);
 print_table_footer();
 
-print_footer($vars);
+print_footer($tsvn_var);
 
 ?>
