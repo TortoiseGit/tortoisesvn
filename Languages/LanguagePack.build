@@ -259,6 +259,7 @@ NAnt build script for the TortoiseSVN language pack installers
 			input="${langline}"
 		/>
 		<echo message="Building ${langweb} dlls and installer" />
+
 		<!-- create the dlls -->
 		<exec program="${ResTextFileName}" failonerror="false">
 			<arg value="apply" />
@@ -284,6 +285,7 @@ NAnt build script for the TortoiseSVN language pack installers
 			<arg value="..\bin\TortoiseIDiff${langCC}.dll" />
 			<arg value="Tortoise_${langISO}.po" />
 		</exec>
+
 		<!-- create the mo files -->
 		<property name="PoFileName" value="..\ext\Subversion\Subversion\po\${langISO}.po" />
 		<exec program="msgfmt" if="${file::exists(PoFileName)}" failonerror="false" >
@@ -332,7 +334,8 @@ NAnt build script for the TortoiseSVN language pack installers
 		</if>
 		
 		<setenv>
-			<variable name="TSVNHelpFiles" value=" " />
+			<variable name="TSVNHelpFile" value=" " />
+			<variable name="TMergeHelpFile" value=" " />
 			<variable name="TSVNMoFile" value=" " />
 		</setenv>
 
@@ -344,7 +347,12 @@ NAnt build script for the TortoiseSVN language pack installers
 
 		<property name="chmFileName" value="..\doc\output\TortoiseSVN_${langISO}.chm" />
 		<setenv if="${file::exists(chmFileName)}">
-			<variable name="TSVNHelpFiles" value="${langISO}" />
+			<variable name="TSVNHelpFile" value="${langISO}" />
+		</setenv>
+
+		<property name="chmFileName" value="..\doc\output\TortoiseMerge_${langISO}.chm" />
+		<setenv if="${file::exists(chmFileName)}">
+			<variable name="TMergeHelpFile" value="${langISO}" />
 		</setenv>
 
 		<property name="verstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}.${environment::get-variable('WCREV')}" />
