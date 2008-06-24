@@ -1459,7 +1459,8 @@ void CRepositoryBrowser::OnBeginDrag(NMHDR *pNMHDR)
 	while ((index = m_RepoList.GetNextSelectedItem(pos))>=0)
 	{
 		CItem * pItem = (CItem *)m_RepoList.GetItemData(index);
-		sourceURLs.AddPath(CTSVNPath(EscapeUrl(CTSVNPath(pItem->absolutepath))));
+		if (pItem)
+			sourceURLs.AddPath(CTSVNPath(EscapeUrl(CTSVNPath(pItem->absolutepath))));
 	}
 
 	SVNDataObject* pdobj = new SVNDataObject(sourceURLs, GetRevision(), GetRevision());
@@ -1502,6 +1503,9 @@ void CRepositoryBrowser::OnBeginDragTree(NMHDR *pNMHDR)
 		return;
 
 	CTreeItem * pTreeItem = (CTreeItem *)pNMTreeView->itemNew.lParam;
+
+	if (pTreeItem == NULL)
+		return;
 
 	CIDropSource* pdsrc = new CIDropSource;
 	if (pdsrc == NULL)
