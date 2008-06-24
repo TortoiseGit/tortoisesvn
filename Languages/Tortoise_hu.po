@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-20 19:28+0100\n"
+"PO-Revision-Date: 2008-06-24 21:33+0100\n"
 "Last-Translator: Halász Gábor <k@elitonline.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Hungarian\n"
 "X-Poedit-Country: HUNGARY\n"
-"X-Poedit-Bookmarks: 1853,1851,-1,1736,-1,-1,-1,-1,1682,1718\n"
+"X-Poedit-Bookmarks: 1853,1851,-1,1736,1610,-1,-1,-1,1682,1718\n"
 
 #. Resource IDs: (10, 126)
 msgid " "
@@ -606,7 +606,7 @@ msgstr "&Elrejtés"
 
 #. Resource IDs: (1170)
 msgid "&Icon Set:"
-msgstr "&Ikonok:"
+msgstr "&Ikon-stílus:"
 
 #. Resource IDs: (15)
 #, c-format
@@ -800,7 +800,7 @@ msgstr "&Tulajdonságok..."
 
 #. Resource IDs: (1246)
 msgid "&Recent messages"
-msgstr "&Legutóbbi megjegyzések"
+msgstr "&Korábbi megjegyzések"
 
 #. Resource IDs: (65535)
 msgid "&Red:"
@@ -1366,7 +1366,7 @@ msgid "Added node"
 msgstr "Hozzáadott csomópont"
 
 #. Resource IDs: (145)
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Added the file pattern(s)\n"
 "%s\n"
@@ -1374,7 +1374,7 @@ msgid ""
 msgstr ""
 "%s\n"
 "fájlminták hozzáadva\n"
-"az elutasító listához."
+"a kizárási listához."
 
 #. Resource IDs: (263)
 msgid "Adding"
@@ -1622,7 +1622,7 @@ msgstr "Fejlesztő"
 
 #. Resource IDs: (65535)
 msgid "Author:                                    Stefan Kueng"
-msgstr "Fejlesztő:                        Stefan Kueng"
+msgstr "Fejlesztő:\t\t\tStefan Kueng"
 
 #. Resource IDs: (116)
 msgid "Authors"
@@ -2011,7 +2011,7 @@ msgstr "Lekérés"
 
 #. Resource IDs: (1074)
 msgid "Checkout &directory:"
-msgstr "&Mappa lekérése"
+msgstr "Lekérés i&de:"
 
 #. Resource IDs: (77)
 msgid "Checkout - TortoiseSVN"
@@ -2751,9 +2751,8 @@ msgid "Date"
 msgstr "Dátum"
 
 #. Resource IDs: (1008)
-#, fuzzy
 msgid "Default"
-msgstr "&Alap"
+msgstr "Alapértelmezett"
 
 #. Resource IDs: (65535)
 #, fuzzy
@@ -3028,18 +3027,16 @@ msgid "Draw"
 msgstr "Rajzolás"
 
 #. Resource IDs: (1079)
-#, fuzzy
 msgid "Drive Types"
-msgstr "Meghajtótípusok"
+msgstr "Meghajtók"
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
 msgstr "&Megegyező változatok mutatása"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "E&xclude paths:"
-msgstr "Kihagyott útvonalak:"
+msgstr "&Kizárt útvonalak:"
 
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
@@ -3209,9 +3206,8 @@ msgid "Enter a date."
 msgstr "Írj be egy dátumot."
 
 #. Resource IDs: (313)
-#, fuzzy
 msgid "Enter a lock message (optional):"
-msgstr "Írdj be egy zárolási megjegyzést (nem kötelező):"
+msgstr "Megjegyzés a zároláshoz (nem kötelező):"
 
 #. Resource IDs: (65535)
 msgid "Enter a name for the changelist:"
@@ -3320,9 +3316,8 @@ msgid "Expand docked window"
 msgstr ""
 
 #. Resource IDs: (209)
-#, fuzzy
 msgid "Explore to"
-msgstr "Felfedez"
+msgstr "Mappa megnyitása"
 
 #. Resource IDs: (229, 238, 1437)
 msgid "Export"
@@ -3330,7 +3325,7 @@ msgstr "Exportálás"
 
 #. Resource IDs: (1074)
 msgid "Export &directory:"
-msgstr "Ma&ppa exportálása:"
+msgstr "Exportálás i&de:"
 
 #. Resource IDs: (78)
 msgid "Export - TortoiseSVN"
@@ -3650,7 +3645,7 @@ msgstr ""
 
 #. Resource IDs: (1315)
 msgid "Floppy drives (A: B:)"
-msgstr "Floppy-meghajtók (A: B:)"
+msgstr "Floppy meghajtók (A: B:)"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
@@ -4122,28 +4117,24 @@ msgid "ID:57665:V C +Q"
 msgstr "ID:57665:V C +Q"
 
 #. Resource IDs: (106)
-#, fuzzy
 msgid "Icon Overlays"
-msgstr "Ikon feliratok"
+msgstr "Ikonok"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Icon Overlays / Status Columns"
-msgstr "Ikon feliratok / Állapot oszlopok"
+msgstr "Ikonok / oszlopok az intézőben"
 
 #. Resource IDs: (184)
-#, fuzzy
 msgid "Icon Overlays::Icon Set"
-msgstr "Ikon feliratok::Ikonok"
+msgstr "Ikonok::Stílusok"
 
 #. Resource IDs: (65535)
 msgid "Icons/Design/Code:                 Luebbe Onken"
-msgstr "Ikonok/Dizájn/Kód:     Luebbe Onken"
+msgstr "Ikonok/Design/Kód:\tLuebbe Onken"
 
 #. Resource IDs: (194)
-#, fuzzy
 msgid "If activated, prevents the overlays and the context menu from showing in \"save as...\" or \"open\" dialogs"
-msgstr "Ha aktiválva van, akkor nincs felirat a \"mentés másként..\" és a \"megnyitás\" ablakokban"
+msgstr "Ha be van jelölve, nem jelennek meg az ikonok és a helyi menü a \"Mentés másként..\" és a \"Megnyitás\" ablakokban"
 
 #. Resource IDs: (198)
 msgid ""
@@ -4233,13 +4224,12 @@ msgstr ""
 "az állapotjelzőben. Állapotjelző található például a \"Beküldés\" ablakban."
 
 #. Resource IDs: (196)
-#, fuzzy
 msgid ""
 "If set, then unversioned files will mark the status of the parent directory as modified\n"
 "i.e. they get the modified overlay icon."
 msgstr ""
-"Ha be van kapcsolva, a verziókezelés alatt nem lévő fájlok a szülőkönyvtárat módosított\n"
-"tulajdonságúra állítják, a szülőkönyvtárak a módosított állapot ikont kapják."
+"Ha be van jelölve, nem verziókezelt fájlok szülőkönyvtára módosított állapotot kap,\n"
+"vagyis a módosított ikon jelenik meg rajta."
 
 #. Resource IDs: (1439)
 #, fuzzy
@@ -4379,7 +4369,7 @@ msgstr "%s importálása"
 
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
-msgstr "A mappa importálása a tárházba"
+msgstr "A mappa importálása a tárolóba"
 
 #. Resource IDs: (1266)
 #, fuzzy
@@ -4684,13 +4674,12 @@ msgid "Local status"
 msgstr "Helyi állapot"
 
 #. Resource IDs: (94)
-#, fuzzy
 msgid ""
 "Location where the contents of the\n"
 "repository URL will be saved to."
 msgstr ""
-"A hely, ahova a Tárház címe\n"
-"el lesz mentve."
+"A mappa, ahová a tároló tartalma\n"
+"lesz mentve."
 
 #. Resource IDs: (32854)
 msgid "Locator Bar"
@@ -4705,7 +4694,6 @@ msgid "Lock Files"
 msgstr "Fájlok zárolása"
 
 #. Resource IDs: (213)
-#, fuzzy
 msgid "Lock broken!"
 msgstr "A zárolás feltörve!"
 
@@ -4723,7 +4711,6 @@ msgid "Lock failed"
 msgstr "A zárolás sikertelen"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Lock owner:"
 msgstr "A zárolás tulajdonosa:"
 
@@ -4755,7 +4742,7 @@ msgstr "Napló"
 
 #. Resource IDs: (282)
 msgid "Log Cache Statistics"
-msgstr "A gyorsítótár statiszikái"
+msgstr "A gyorsítótár statisztikái"
 
 #. Resource IDs: (281)
 msgid "Log Caching"
@@ -4828,9 +4815,8 @@ msgid "Mark current revision of your working copy"
 msgstr "A jelenlegi munkapéldány megjelenítése"
 
 #. Resource IDs: (101)
-#, fuzzy
 msgid "Mark for comparison"
-msgstr "Összehasonlításra megjelöl"
+msgstr "Megjelölés összehasonlításhoz"
 
 #. Resource IDs: (2051)
 msgid ""
@@ -5169,7 +5155,6 @@ msgid "Navigation Pane Options..."
 msgstr ""
 
 #. Resource IDs: (208)
-#, fuzzy
 msgid "Needs lock"
 msgstr "Zárolás szükséges"
 
@@ -5299,9 +5284,8 @@ msgid "No spell corrections"
 msgstr "Nincs helyesírás-ellenőrzés"
 
 #. Resource IDs: (196)
-#, fuzzy
 msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
-msgstr "Nincs állapot gyorsítótárazás. Csak a verziókezelt mappák vannak lefedve, a fájlok nem"
+msgstr "Nem gyorsítótárazza az állapotokat. Csak a verziókezelt mappák kapnak ikont, a fájlok nem."
 
 #. Resource IDs: (188)
 #, fuzzy
@@ -5309,7 +5293,6 @@ msgid "No thesaurus suggestions"
 msgstr "Nincs szinonima ajánlat"
 
 #. Resource IDs: (1271)
-#, fuzzy
 msgid "None"
 msgstr "Nincs"
 
@@ -5553,8 +5536,8 @@ msgid ""
 "Override the svn:eol-style property setting.\n"
 "Files which don't have this property set are not affected."
 msgstr ""
-"Az svn:eol-style beállítás felülbírálása.\n"
-"Amelyik fájl nem rendelkezik ezzel, arra nem lesz hatással."
+"Az svn:eol-style tulajdonság felülbírálása.\n"
+"Amelyik fájl nem rendelkezik ezzel a tulajdonsággal, arra nem lesz hatással."
 
 #. Resource IDs: (99)
 msgid "Overwrite"
@@ -6260,7 +6243,6 @@ msgid "Renames files / folders inside version control"
 msgstr "Átnevez fájlokat / mappákat a verziókezelésen belül"
 
 #. Resource IDs: (209)
-#, fuzzy
 msgid "Repair move"
 msgstr "Áthelyezés javítása"
 
@@ -6390,7 +6372,7 @@ msgstr "Visszaállítva"
 #. Resource IDs: (73)
 #, fuzzy
 msgid "Retry"
-msgstr "Újra"
+msgstr "Ismét"
 
 #. Resource IDs: (1423)
 msgid "Reverse merge"
@@ -6565,7 +6547,7 @@ msgstr ""
 
 #. Resource IDs: (1132)
 msgid "S&tatistics"
-msgstr "&Statiszikák"
+msgstr "S&tatisztika"
 
 #. Resource IDs: (9)
 msgid "S&witch..."
@@ -6948,7 +6930,7 @@ msgstr "Beállítások - TortoiseSVN"
 
 #. Resource IDs: (1270)
 msgid "Shell"
-msgstr "Shell"
+msgstr "Windows shell"
 
 #. Resource IDs: (145)
 #, fuzzy
@@ -7010,9 +6992,8 @@ msgid "Show &log..."
 msgstr "&Napló mutatása..."
 
 #. Resource IDs: (1088)
-#, fuzzy
 msgid "Show &overlays and context menu only in explorer"
-msgstr "&Feliratok csak az Intézőben"
+msgstr "&Ikonok és helyi menü csak az intézőben"
 
 #. Resource IDs: (1265)
 msgid "Show &properties"
@@ -7142,14 +7123,12 @@ msgstr ""
 "Eszköztár megjelenítése/elrejtése"
 
 #. Resource IDs: (1432)
-#, fuzzy
 msgid "Show overlay for ignored items"
-msgstr "Elutasított fájlok mutatása"
+msgstr "Ikon a kizárt fájlokhoz"
 
 #. Resource IDs: (1462)
-#, fuzzy
 msgid "Show overlay for unversioned items"
-msgstr "Nem verziókezelt fájlok mutatása"
+msgstr "Ikon a nem verziókezelt fájlokhoz"
 
 #. Resource IDs: (102)
 #, fuzzy
@@ -7273,13 +7252,12 @@ msgid "Skipped missing target"
 msgstr "Hiányzó cél kihagyva"
 
 #. Resource IDs: (1126)
-#, fuzzy
 msgid "Sort by commit count"
 msgstr "Rendezés beküldések száma szerint"
 
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
-msgstr "Megadja, hogy legutóbbi megjegyzések ablakban hány megjegyzés legyen elmentve."
+msgstr "Megadja, hogy a korábbi megjegyzések ablakban hány megjegyzés legyen elmentve."
 
 #. Resource IDs: (79)
 msgid ""
@@ -7343,7 +7321,7 @@ msgstr "Statikus"
 
 #. Resource IDs: (179, 245)
 msgid "Statistics"
-msgstr "Statiszika"
+msgstr "Statisztika"
 
 #. Resource IDs: (74, 77, 207, 65535)
 msgid "Status"
@@ -7359,17 +7337,15 @@ msgstr "Állapotok és műveletek színei"
 
 #. Resource IDs: (65535)
 msgid "Status cache"
-msgstr "Állapot gyorsítótár"
+msgstr "Állapotok gyorsítótározása"
 
 #. Resource IDs: (196)
-#, fuzzy
 msgid "Status cache kept in an external process, can show the overlay recursively"
-msgstr "Az állapot gyorsítótárazás egy külső folyamatra vár, lehet hogy a fedést rekurzívan mutatja"
+msgstr "A gyorsítótár egy külső folyamatban van elhelyezve, a mappák állapotai rekurzívan is megjelenhetnek"
 
 #. Resource IDs: (196)
-#, fuzzy
 msgid "Status cache only for one folder, no recursive overlays"
-msgstr "Az állapot gyorsítótárazás csak egy mappára érvényes, nincsenek rekurzív fedések"
+msgstr "Csak az adott mappa állapotának gyorsítótárazása, az állapotok nem jelenhetnek meg rekurzívan."
 
 #. Resource IDs: (11)
 msgid "Status of item in SVN"
@@ -8132,13 +8108,16 @@ msgid ""
 "/fit\t\tto fit the images sizes\n"
 "/showinfo\t\tto show the image info boxes"
 msgstr ""
-"TortoiseIDiff: a TortoiseSVN kép-eltérés mutatója\n"
+"TortoiseIDiff: a TortoiseSVN különbség-megjelenítője képek számára\n"
 "\n"
-"A parancssori kapcsolók lehetnek:\n"
-"/left:\"a bal képhez viszonyítás\"\n"
-"/lefttitle:\"a bal képhez tartozó cím mutatása\"\n"
-"/right:\"a jobb képhez viszonyítás\"\n"
-"/righttitle:\"a jobb képhez tartozó cím mutatása\""
+"A használható paraméterek:\n"
+"/left:\"a bal kép útvonala\"\n"
+"/lefttitle:\"a bal kép címe (a címsorban)\"\n"
+"/right:\"a jobb kép útvonala\"\n"
+"/righttitle:\"a jobb kép címe (a címsorban)\"\n"
+"/overlay\t\tÁtfedés engedélyezése\n"
+"/fit\t\tto fit the images sizes\n"
+"/showinfo\t\tInformáció megjelenítése a képekről"
 
 #. Resource IDs: (7, 130, 3585)
 msgid "TortoiseMerge"
@@ -8411,7 +8390,7 @@ msgstr "Verziókövetésből kivesz"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
-msgstr "Nem verziókezelt fájlok a szülőkönyvtárt módosítottnak jelzik"
+msgstr "Ha a mappa tartalmaz nem verziókezelt fájlokat, módosítottnak látszik"
 
 #. Resource IDs: (286)
 #, fuzzy, c-format
@@ -8683,11 +8662,11 @@ msgid ""
 "/diff:<path to unified diff file>\n"
 "/patchpath:<path to folder>"
 msgstr ""
-"Az érvényes parancssori kapcsolók:\n"
-"/base:<útvonal az alapjfájlhoz>\n"
+"A használható paraméterek:\n"
+"/base:<útvonal az alap fájlhoz>\n"
 "/theirs:<útvonal a másik fájlhoz>\n"
-"/mine:<útvonal a sját fájlhoz>\n"
-"/merged:<útvonal az egyesített fájlhoz>\n"
+"/mine:<útvonal a saját fájlhoz>\n"
+"/merged:<útvonal a létrehozandó egyesített fájlhoz>\n"
 "/diff:<útvonal az \"egyesített diff\" fájlhoz>\n"
 "/patchpath:<útvonal a mappához>"
 
@@ -8941,13 +8920,13 @@ msgid "You should select an image!"
 msgstr "Válassz ki egy képet!"
 
 #. Resource IDs: (195)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "You've changed the icon set from <i>%s</i> to <i>%s</i>.\n"
 "That change won't take effect until you restart your computer or logoff and logon again!"
 msgstr ""
-"Megváltoztattad a <i>%s</i> ikonokat <i>%s</i> típusúra.\n"
-"Az érvénybe léptetéshez újra kell indítani a Windowst!"
+"Megváltoztattad az ikonokat <i>%s</i> stílusúról <i>%s</i> stílusúra.\n"
+"A változás érvénybe léptetéséhez újra kell indítani a számítógépet, vagy ki és be kell jelentkezni!"
 
 #. Resource IDs: (170)
 msgid ""
