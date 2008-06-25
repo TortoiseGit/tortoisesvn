@@ -1815,11 +1815,15 @@ void SVN::preparePath(CString &path)
 
 	if (path.Left(10).CompareNoCase(_T("file://///"))==0)
 	{
-		path.Replace(_T("file://///"), _T("file://"));
+		if (path.Find('%')<0)
+			path.Replace(_T("file://///"), _T("file://"));
+		else
+			path.Replace(_T("file://///"), _T("file:////"));
 	}
 	else if (path.Left(9).CompareNoCase(_T("file:////"))==0)
 	{
-		path.Replace(_T("file:////"), _T("file://"));
+		if (path.Find('%')<0)
+			path.Replace(_T("file:////"), _T("file://"));
 	}
 }
 

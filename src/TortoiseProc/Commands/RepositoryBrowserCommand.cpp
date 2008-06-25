@@ -22,6 +22,8 @@
 #include "RepositoryBrowser.h"
 #include "URLDlg.h"
 #include "SVN.h"
+#include "PathUtils.h"
+#include "UnicodeUtils.h"
 
 bool RepositoryBrowserCommand::Execute()
 {
@@ -54,7 +56,13 @@ bool RepositoryBrowserCommand::Execute()
 				{
 					CString p = cmdLinePath.GetWinPathString();
 					p.TrimLeft('\\');
-					url = _T("file://")+p;
+					if (CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(p)).Find('%') >= 0)
+					{
+						// the path has special chars which will get escaped!
+						url = _T("file:///\\")+p;
+					}
+					else
+						url = _T("file://")+p;
 				}
 				else
 					url = _T("file:///")+cmdLinePath.GetWinPathString();

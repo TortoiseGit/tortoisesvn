@@ -230,7 +230,8 @@ CStringA CPathUtils::PathEscape(const CStringA& path)
 		}
 	}
 
-	ret.Replace(("file:///%5C"), ("file://"));
+	if ((ret.Left(11).Compare("file:///%5C") == 0) && (ret.Find('%', 12) < 0))
+		ret.Replace(("file:///%5C"), ("file://"));
 	ret.Replace(("file:////%5C"), ("file://"));
 
 	return ret;
