@@ -27,6 +27,8 @@ CCachedDirectory::CCachedDirectory(void)
 {
 	m_entriesFileTime = 0;
 	m_propsFileTime = 0;
+	m_currentStatusFetchingPathTicks = 0;
+	m_bCurrentFullStatusValid = false;
 	m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
 }
 
@@ -41,6 +43,8 @@ CCachedDirectory::CCachedDirectory(const CTSVNPath& directoryPath)
 	m_directoryPath = directoryPath;
 	m_entriesFileTime = 0;
 	m_propsFileTime = 0;
+	m_currentStatusFetchingPathTicks = 0;
+	m_bCurrentFullStatusValid = false;
 	m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
 }
 
