@@ -15,7 +15,6 @@
 //         Stefan Küng 2004-2008
 //
 
-include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_data_branch.inc");
 include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/trans_countries.inc");
 include("/var/www/vhosts/default/htdocs/modules/tortoisesvn/tortoisevars.inc");
 
@@ -23,7 +22,7 @@ $tsvn_var['devurl']='http://www.tortoisesvn.net/docs/nightly/';
 $tsvn_var['relurl']='http://www.tortoisesvn.net/docs/release/';
 
 if (!function_exists('print_manuals')) {
-function print_manuals($i, $postat, $v, $w, $b_release)
+function print_manuals($i, $postat, $v, $b_release)
 {
   $infobits=$postat[1];
   $flagimg=$v['flagpath']."$postat[2].png";
@@ -90,17 +89,14 @@ There are several places where you can get support for TortoiseSVN.
 
 <?php
 
-// Merge translation and country information into one array
-$TortoiseGUI = array_merge_recursive($countries, $TortoiseGUI);
-
 // Convert Data into a list of columns
-foreach ($TortoiseGUI as $key => $row) {
+foreach ($countries as $key => $row) {
    $potfile[$key] = $row[0];
    $country[$key] = $row[3];
 }
 
-// Add $TortoiseGUI as the last parameter, to sort by the common key
-array_multisort($potfile, $country, $TortoiseGUI);
+// Add $countries as the last parameter, to sort by the common key
+array_multisort($potfile, $country, $countries);
 
 ?>
 
@@ -109,17 +105,17 @@ array_multisort($potfile, $country, $TortoiseGUI);
 <div class="table">
 <table>
 <tr>
-<th class="lang">Country</th>
+<th class="lang">Language</th>
 <th class="lang" colspan="2">TortoiseSVN</th>
 <th class="lang" colspan="2">TortoiseMerge</th>
 </tr>
 <?php
 $i=0;
-foreach ($TortoiseGUI as $key => $postat)
+foreach ($countries as $key => $postat)
 {
-  if (isset($postat[5]) && ($postat[0] == "1") ) {
+  if ($postat[0] >= "0" ) {
     $i++;
-    print_manuals($i, $postat, $tsvn_var, $w, TRUE);
+    print_manuals($i, $postat, $tsvn_var, TRUE);
   }
 }
 ?>
@@ -132,17 +128,17 @@ foreach ($TortoiseGUI as $key => $postat)
 <div class="table">
 <table>
 <tr>
-<th class="lang">Country</th>
+<th class="lang">Language</th>
 <th class="lang" colspan="2">TortoiseSVN</th>
 <th class="lang" colspan="2">TortoiseMerge</th>
 </tr>
 <?php
 $i=0;
-foreach ($TortoiseGUI as $key => $postat)
+foreach ($countries as $key => $postat)
 {
-  if (isset($postat[5]) && ($postat[0] == "1") ) {
+  if ($postat[0] >= "0" ) {
     $i++;
-    print_manuals($i, $postat, $tsvn_var, $w, FALSE);
+    print_manuals($i, $postat, $tsvn_var, FALSE);
   }
 }
 ?>
