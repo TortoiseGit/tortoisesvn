@@ -6,6 +6,9 @@
        the UNC path had spaces or special chars in it. (Stefan)
 - BUG: If a bugtraq:logregex property was set, entering a log message could
        take up all CPU and block the application for seconds. (Stefan)
+- BUG: After removing a versioned directory and recreating a new unversioned
+       one in the same place with the same name, the overlays could still
+       be shown on that (now) unversioned folder. (Stefan)
 
 Version 1.5.0
 - CHG: Support for IPv6 disabled due to problems with merging and terrible
