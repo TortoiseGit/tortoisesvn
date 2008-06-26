@@ -4,6 +4,8 @@
        in the respective branch. (Stefan Fuhrmann)
 - BUG: Accessing repositories on UNC paths with file:// did not work if
        the UNC path had spaces or special chars in it. (Stefan)
+- BUG: If a bugtraq:logregex property was set, entering a log message could
+       take up all CPU and block the application for seconds. (Stefan)
 
 Version 1.5.0
 - CHG: Support for IPv6 disabled due to problems with merging and terrible

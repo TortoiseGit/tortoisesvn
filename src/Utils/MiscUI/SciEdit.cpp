@@ -1156,11 +1156,10 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 			{
 				// clear the styles up to the match position
 				Call(SCI_SETSTYLING, it->position(0)-pos, STYLE_DEFAULT);
-				pos += it->position(0);
+				pos = it->position(0);
 
 				// (*it)[0] is the matched string
 				wstring matchedString = (*it)[0];
-				LONG pos = it->position(0);
 				for (tr1::wsregex_iterator it2(matchedString.begin(), matchedString.end(), regBugID); it2 != end; ++it2)
 				{
 					ATLTRACE(_T("matched id : %s\n"), (*it2)[0].str().c_str());
