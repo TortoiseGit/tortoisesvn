@@ -1,3 +1,10 @@
+- CHG: The right-drag context menu now only shows "Export" if a versioned
+       folder is dragged (for files, the windows 'copy' does the same). (Stefan)
+- CHG: The right-drag context menu checks whether source and target are
+       from the same repository and shows the "SVN move" and "SVN copy"
+       commands only if they are. (Stefan)
+
+Version 1.5.1
 - BUG: The installer always installed the feature "associate .patch files
        with TortoiseUDiff", even if it was deselected during install. (Stefan)
 - BUG: Bogus revision graph for WC paths that have not been changed

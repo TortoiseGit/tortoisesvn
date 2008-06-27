@@ -192,7 +192,10 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 	PreserveChdir preserveChdir;
 	files_.clear();
 	folder_.erase();
+	uuidSource.erase();
+	uuidTarget.erase();
 	itemStates = 0;
+	itemStatesFolder = 0;
 	stdstring statuspath;
 	svn_wc_status_kind fetchedstatus = svn_wc_status_none;
 	// get selected files/folders
@@ -271,11 +274,19 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 									fetchedstatus = status;
 									if ((stat.status->entry)&&(stat.status->entry->lock_token))
 										itemStates |= (stat.status->entry->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
+									if ((stat.status->entry)&&(stat.status->entry->kind == svn_node_dir))
+									{
+										itemStates |= ITEMIS_FOLDER;
+										if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
+											itemStates |= ITEMIS_FOLDERINSVN;
+									}
 									if ((stat.status->entry)&&(stat.status->entry->present_props))
 									{
 										if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
 											itemStates |= ITEMIS_NEEDSLOCK;
 									}
+									if ((stat.status->entry)&&(stat.status->entry->uuid))
+										uuidSource = CUnicodeUtils::StdGetUnicode(stat.status->entry->uuid);
 								}
 								else
 								{
@@ -366,6 +377,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 											if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
 												itemStates |= ITEMIS_NEEDSLOCK;
 										}
+										if ((stat.status->entry)&&(stat.status->entry->uuid))
+											uuidSource = CUnicodeUtils::StdGetUnicode(stat.status->entry->uuid);
 									}	
 									else
 									{
@@ -468,12 +481,14 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 				{
 					status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
 					if ((stat.status->entry)&&(stat.status->entry->lock_token))
-						itemStates |= (stat.status->entry->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
+						itemStatesFolder |= (stat.status->entry->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
 					if ((stat.status->entry)&&(stat.status->entry->present_props))
 					{
 						if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
-							itemStates |= ITEMIS_NEEDSLOCK;
+							itemStatesFolder |= ITEMIS_NEEDSLOCK;
 					}
+					if ((stat.status->entry)&&(stat.status->entry->uuid))
+						uuidTarget = CUnicodeUtils::StdGetUnicode(stat.status->entry->uuid);
 				}
 				else
 				{
@@ -495,61 +510,68 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 		}
 		if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
 		{
-			itemStates |= ITEMIS_FOLDERINSVN;
+			itemStatesFolder |= ITEMIS_FOLDERINSVN;
 		}
 		if (status == svn_wc_status_ignored)
-			itemStates |= ITEMIS_IGNORED;
-		itemStates |= ITEMIS_FOLDER;
+			itemStatesFolder |= ITEMIS_IGNORED;
+		itemStatesFolder |= ITEMIS_FOLDER;
 		if (files_.size() == 0)
 			itemStates |= ITEMIS_ONLYONE;
+		if (m_State != FileStateDropHandler)
+			itemStates |= itemStatesFolder;
 	}
 	if (files_.size() == 2)
 		itemStates |= ITEMIS_TWO;
-	if ((files_.size() == 1)&&(m_State != FileStateDropHandler))
+	if (files_.size() == 1)
 	{
 		itemStates |= ITEMIS_ONLYONE;
-		if (PathIsDirectory(files_.front().c_str()))
+		if (m_State != FileStateDropHandler)
 		{
-			folder_ = files_.front();
-			svn_wc_status_kind status = svn_wc_status_none;
-			if (folder_.compare(statuspath)!=0)
+			if (PathIsDirectory(files_.front().c_str()))
 			{
-				CTSVNPath askedpath;
-				askedpath.SetFromWin(folder_.c_str());
-				try
+				folder_ = files_.front();
+				svn_wc_status_kind status = svn_wc_status_none;
+				if (folder_.compare(statuspath)!=0)
 				{
-					SVNStatus stat;
-					stat.GetStatus(CTSVNPath(folder_.c_str()), false, true, true);
-					if (stat.status)
+					CTSVNPath askedpath;
+					askedpath.SetFromWin(folder_.c_str());
+					try
 					{
-						status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
-						if ((stat.status->entry)&&(stat.status->entry->lock_token))
-							itemStates |= (stat.status->entry->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
-						if ((stat.status->entry)&&(stat.status->entry->present_props))
+						SVNStatus stat;
+						stat.GetStatus(CTSVNPath(folder_.c_str()), false, true, true);
+						if (stat.status)
 						{
-							if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
-								itemStates |= ITEMIS_NEEDSLOCK;
+							status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
+							if ((stat.status->entry)&&(stat.status->entry->lock_token))
+								itemStates |= (stat.status->entry->lock_token[0] != 0) ? ITEMIS_LOCKED : 0;
+							if ((stat.status->entry)&&(stat.status->entry->present_props))
+							{
+								if (strstr(stat.status->entry->present_props, "svn:needs-lock"))
+									itemStates |= ITEMIS_NEEDSLOCK;
+							}
+							if ((stat.status->entry)&&(stat.status->entry->uuid))
+								uuidTarget = CUnicodeUtils::StdGetUnicode(stat.status->entry->uuid);
 						}
 					}
+					catch ( ... )
+					{
+						ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+					}
 				}
-				catch ( ... )
+				else
 				{
-					ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+					status = fetchedstatus;
 				}
+				if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
+					itemStates |= ITEMIS_FOLDERINSVN;
+				if (status == svn_wc_status_ignored)
+					itemStates |= ITEMIS_IGNORED;
+				itemStates |= ITEMIS_FOLDER;
+				if (status == svn_wc_status_added)
+					itemStates |= ITEMIS_ADDED;
+				if (status == svn_wc_status_deleted)
+					itemStates |= ITEMIS_DELETED;
 			}
-			else
-			{
-				status = fetchedstatus;
-			}
-			if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
-				itemStates |= ITEMIS_FOLDERINSVN;
-			if (status == svn_wc_status_ignored)
-				itemStates |= ITEMIS_IGNORED;
-			itemStates |= ITEMIS_FOLDER;
-			if (status == svn_wc_status_added)
-				itemStates |= ITEMIS_ADDED;
-			if (status == svn_wc_status_deleted)
-				itemStates |= ITEMIS_DELETED;
 		}
 	}
 		
@@ -743,14 +765,13 @@ STDMETHODIMP CShellExt::QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMe
 	if ((uFlags & CMF_DEFAULTONLY)!=0)
 		return NOERROR;					//we don't change the default action
 
-	if ((files_.size() == 0)&&(folder_.size() == 0))
+	if ((files_.size() == 0)||(folder_.size() == 0))
 		return NOERROR;
 
 	if (((uFlags & 0x000f)!=CMF_NORMAL)&&(!(uFlags & CMF_EXPLORE))&&(!(uFlags & CMF_VERBSONLY)))
 		return NOERROR;
 
-	if (folder_.size() == 0)
-		return NOERROR;					// no target? this should never happen, but we shouldn't crash anyway just because we can't handle this.
+	bool bSourceAndTargetFromSameRepository = (!uuidSource.empty() && (uuidSource.compare(uuidTarget) == 0));
 
 	//the drop handler only has eight commands, but not all are visible at the same time:
 	//if the source file(s) are under version control then those files can be moved
@@ -759,22 +780,47 @@ STDMETHODIMP CShellExt::QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMe
 	//if they are versioned, they also can be exported to an unversioned location
 	UINT idCmd = idCmdFirst;
 
-	if ((itemStates & ITEMIS_FOLDERINSVN)&&((itemStates & ITEMIS_INSVN)&&((~itemStates) & ITEMIS_ADDED)))
+	// SVN move here
+	// available if source is versioned but not added, target is versioned, source and target from same repository
+	if (bSourceAndTargetFromSameRepository&&(itemStatesFolder & ITEMIS_FOLDERINSVN)&&((itemStates & ITEMIS_INSVN)&&((~itemStates) & ITEMIS_ADDED)))
 		InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPMOVEMENU, 0, idCmdFirst, ShellMenuDropMove, uFlags);
-	if ((itemStates & ITEMIS_FOLDERINSVN)&&(itemStates & ITEMIS_INSVN)&&(itemStates & ITEMIS_ONLYONE)&&((~itemStates) & ITEMIS_ADDED))
+
+	// SVN move and rename here
+	// available if source is a single, versioned but not added item, target is versioned, source and target from same repository
+	if (bSourceAndTargetFromSameRepository&&(itemStatesFolder & ITEMIS_FOLDERINSVN)&&(itemStates & ITEMIS_INSVN)&&(itemStates & ITEMIS_ONLYONE)&&((~itemStates) & ITEMIS_ADDED))
 		InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPMOVERENAMEMENU, 0, idCmdFirst, ShellMenuDropMoveRename, uFlags);
-	if ((itemStates & ITEMIS_FOLDERINSVN)&&(itemStates & ITEMIS_INSVN)&&((~itemStates) & ITEMIS_ADDED))
+
+	// SVN copy here
+	// available if source is versioned but not added, target is versioned, source and target from same repository
+	if (bSourceAndTargetFromSameRepository&&(itemStatesFolder & ITEMIS_FOLDERINSVN)&&(itemStates & ITEMIS_INSVN)&&((~itemStates) & ITEMIS_ADDED))
 		InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPCOPYMENU, 0, idCmdFirst, ShellMenuDropCopy, uFlags);
-	if ((itemStates & ITEMIS_FOLDERINSVN)&&(itemStates & ITEMIS_INSVN)&&(itemStates & ITEMIS_ONLYONE)&&((~itemStates) & ITEMIS_ADDED))
+
+	// SVN copy and rename here, source and target from same repository
+	// available if source is a single, versioned but not added item, target is versioned
+	if (bSourceAndTargetFromSameRepository&&(itemStatesFolder & ITEMIS_FOLDERINSVN)&&(itemStates & ITEMIS_INSVN)&&(itemStates & ITEMIS_ONLYONE)&&((~itemStates) & ITEMIS_ADDED))
 		InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPCOPYRENAMEMENU, 0, idCmdFirst, ShellMenuDropCopyRename, uFlags);
-	if ((itemStates & ITEMIS_FOLDERINSVN)&&((~itemStates) & ITEMIS_INSVN))
+
+	// SVN add here
+	// available if target is versioned and source is either unversioned or from another repository
+	if ((itemStatesFolder & ITEMIS_FOLDERINSVN)&&(((~itemStates) & ITEMIS_INSVN)||!bSourceAndTargetFromSameRepository))
 		InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPCOPYADDMENU, 0, idCmdFirst, ShellMenuDropCopyAdd, uFlags);
-	if (itemStates & ITEMIS_INSVN)
+
+	// SVN export here
+	// available if source is versioned and a folder
+	if ((itemStates & ITEMIS_INSVN)&&(itemStates & ITEMIS_FOLDER))
 		InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPEXPORTMENU, 0, idCmdFirst, ShellMenuDropExport, uFlags);
-	if (itemStates & ITEMIS_INSVN)
+
+	// SVN export all here
+	// available if source is versioned and a folder
+	if ((itemStates & ITEMIS_INSVN)&&(itemStates & ITEMIS_FOLDER))
 		InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPEXPORTEXTENDEDMENU, 0, idCmdFirst, ShellMenuDropExportExtended, uFlags);
-	if ((itemStates & ITEMIS_FOLDERINSVN)&&(itemStates & ITEMIS_PATCHFILE))
+
+	// apply patch
+	// available if source is a patchfile
+	if (itemStates & ITEMIS_PATCHFILE)
 		InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_MENUAPPLYPATCH, 0, idCmdFirst, ShellMenuApplyPatch, uFlags);
+
+	// separator
 	if (idCmd != idCmdFirst)
 		InsertMenu(hMenu, indexMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); 
 
