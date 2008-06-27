@@ -16,6 +16,10 @@ Version 1.5.1
 - BUG: After removing a versioned directory and recreating a new unversioned
        one in the same place with the same name, the overlays could still
        be shown on that (now) unversioned folder. (Stefan)
+- BUG: In interactive merge conflict resolution, the extension-based merge
+       tool was not used but always the default merge tool. (Stefan)
+- BUG: The suggestion popup in the commit dialog could be shown on the
+       wrong monitor in multi-monitor setups. (Stefan)
 
 Version 1.5.0
 - CHG: Support for IPv6 disabled due to problems with merging and terrible
