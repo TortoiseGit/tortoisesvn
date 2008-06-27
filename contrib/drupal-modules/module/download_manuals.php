@@ -147,7 +147,7 @@ foreach ($countries as $key => $postat)
 </p>
 
 <h1>Older Manuals</h1>
-<p>Older releases are available from the <a href="http://sourceforge.net/project/showfiles.php?group_id=<?php print $v['sf_project']; ?>">Sourceforge files</a> section.</p>
+<p>Older releases are available from the <a href="http://sourceforge.net/project/showfiles.php?group_id=<?php print $tsvn_var['sf_project']; ?>">Sourceforge files</a> section.</p>
 
 <h1>Project Status</h1>
 <p>Have a look at our <a href="/status">project status</a> page to see what we are working on at the moment, and to check the release history.</p>
