@@ -203,14 +203,7 @@ void CConflictResolveDlg::OnBnClickedEditconflict()
 	}
 	else
 	{
-		if (m_pConflictDescription->merged_file)
-		{
-			m_mergedfile = CUnicodeUtils::GetUnicode(m_pConflictDescription->merged_file);
-		}
-		else
-		{
-			m_mergedfile = CTempFiles::Instance().GetTempFilePath(false).GetWinPath();
-		}
+		m_mergedfile = CTempFiles::Instance().GetTempFilePath(false, CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->path))).GetWinPath();
 		CAppUtils::StartExtMerge(CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->base_file)),
 								CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->their_file)),
 								CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->my_file)),
