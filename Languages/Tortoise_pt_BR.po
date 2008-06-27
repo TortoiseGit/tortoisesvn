@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-14 15:40-0300\n"
+"PO-Revision-Date: 2008-06-22 23:46-0300\n"
 "Last-Translator: Humberto Osório <humberto@virtual.ufc.br>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1309,7 +1309,7 @@ msgstr "Adicionar à lista de &ignorados"
 
 #. Resource IDs: (1068)
 msgid "Add to Quick Access Toolbar"
-msgstr ""
+msgstr "Adicionar à Barra de Ferramentas de Acesso Rápido"
 
 #. Resource IDs: (209, 1279)
 msgid "Add..."
@@ -1541,7 +1541,7 @@ msgstr "Ordenar &Verticalmente"
 
 #. Resource IDs: (199)
 msgid "Ask user"
-msgstr ""
+msgstr "Perguntar ao usuário"
 
 #. Resource IDs: (264)
 #, c-format
@@ -1550,7 +1550,7 @@ msgstr "Associado a lista de alterações \"%s\""
 
 #. Resource IDs: (16528)
 msgid "Assigned to:"
-msgstr ""
+msgstr "Associado a:"
 
 #. Resource IDs: (77)
 #, c-format
@@ -1742,8 +1742,9 @@ msgid "Bug-ID / Issue-Nr:"
 msgstr "Bug-ID / Issue-Nr:"
 
 #. Resource IDs: (16132)
+#, fuzzy
 msgid "Button Appearance"
-msgstr ""
+msgstr "Aparência do Botão"
 
 #. Resource IDs: (1215)
 msgid "C&heck now"
@@ -1799,7 +1800,7 @@ msgstr "Duplo-clique na listagem de mensagens de log para comparar com revisão 
 
 #. Resource IDs: (3865)
 msgid "Can not activate a static ActiveX object."
-msgstr ""
+msgstr "Impossível ativar um objeto ActiveX estático."
 
 #. Resource IDs: (82)
 #, c-format
@@ -1821,15 +1822,16 @@ msgstr "Não foi possível copiar a imagem para a área de transferência!"
 
 #. Resource IDs: (1001)
 msgid "Can't create a new image!"
-msgstr ""
+msgstr "Não foi possível criar uma nova imagem!"
 
 #. Resource IDs: (1001)
 msgid "Can't customize menues!"
 msgstr "Não é possível editar os menus!"
 
 #. Resource IDs: (1001)
+#, fuzzy
 msgid "Can't paste bitmap image from the clipboard!"
-msgstr ""
+msgstr "Não foi possível colar a imagem bitmap da área de transferência!"
 
 #. Resource IDs: (2, 73, 99, 563, 1069)
 msgid "Cancel"
@@ -2912,6 +2914,9 @@ msgid ""
 "This will remove all Subversion admin directories from\n"
 "%s!"
 msgstr ""
+"Você deseja retirar o controle de versão dessa cópia de trabalho?\n"
+"Isso irá remover todos os diretórios de administração do Subversion de\n"
+"%s!"
 
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
@@ -3045,6 +3050,8 @@ msgid ""
 "Ellipse Tools\n"
 "Ellipse"
 msgstr ""
+"Ferramenta Elipse\n"
+"Elipse"
 
 #. Resource IDs: (65535)
 msgid "Empty"
@@ -3225,8 +3232,9 @@ msgid "Exceptions:"
 msgstr "Exceções:"
 
 #. Resource IDs: (1002)
+#, fuzzy
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
-msgstr ""
+msgstr "Executável (*.exe)|*.exe|Comando (*.com)|*.com|Informação (*.pdf)|*.pdf|Lote (*.bat)|*.bat|Todos os arquivos (*.*)|*.*||"
 
 #. Resource IDs: (1002)
 msgid "Existing"
@@ -3762,7 +3770,7 @@ msgstr "Tipo de gráfico:"
 
 #. Resource IDs: (16972)
 msgid "Gray"
-msgstr ""
+msgstr "Cinza"
 
 #. Resource IDs: (2050)
 msgid "Group by branch"
@@ -4434,15 +4442,16 @@ msgstr "Última revisão salva do item"
 
 #. Resource IDs: (338)
 msgid "Last time the cache content was changed"
-msgstr ""
+msgstr "Última vez que o conteúdo do cache foi alterado"
 
 #. Resource IDs: (338)
 msgid "Last time the cache was accessed"
-msgstr ""
+msgstr "Última vez que o cache foi acessado"
 
 #. Resource IDs: (338)
+#, fuzzy
 msgid "Last time the repository was asked for the HEAD revision number"
-msgstr ""
+msgstr "Última vez que o número da revisão HEAD (mais recente) foi consultada no repositório"
 
 #. Resource IDs: (12)
 msgid "Launches the external diff / merge program to solve the conflicts"
@@ -4477,6 +4486,8 @@ msgid ""
 "Line Tool\n"
 "Line"
 msgstr ""
+"Ferramenta Linha\n"
+"Linha"
 
 #. Resource IDs: (32853)
 #, fuzzy
@@ -4509,8 +4520,9 @@ msgid "List of repositories for which log information has been cached"
 msgstr ""
 
 #. Resource IDs: (16631, 16992)
+#, fuzzy
 msgid "List1"
-msgstr ""
+msgstr "List1"
 
 #. Resource IDs: (130)
 msgid "Load Images"
@@ -4530,7 +4542,7 @@ msgstr ""
 
 #. Resource IDs: (32854)
 msgid "Locator Bar"
-msgstr ""
+msgstr "Barra de Localização"
 
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
@@ -4631,7 +4643,7 @@ msgstr "Revisão visível mais baixa: %ld - Revisão visível mais alta: %ld - R
 
 #. Resource IDs: (16973)
 msgid "Lum"
-msgstr ""
+msgstr "Lum"
 
 #. Resource IDs: (3866)
 msgid "Mail system DLL is invalid."
@@ -4695,15 +4707,15 @@ msgstr ""
 
 #. Resource IDs: (16134)
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 #. Resource IDs: (1001)
 msgid "Menu Bar"
-msgstr ""
+msgstr "Barra do Menu"
 
 #. Resource IDs: (16626)
 msgid "Menu s&hadows"
-msgstr ""
+msgstr "S&ombras do menu"
 
 #. Resource IDs: (109, 110, 111, 112, 276, 278, 65535)
 msgid "Merge"
@@ -4756,8 +4768,9 @@ msgid "Merge revisions to..."
 msgstr "Combinar revisão &para..."
 
 #. Resource IDs: (1470)
+#, fuzzy
 msgid "Merge two different trees"
-msgstr ""
+msgstr "Combinação de duas árvores diferentes"
 
 #. Resource IDs: (595, 65535)
 #, fuzzy
@@ -4910,11 +4923,11 @@ msgstr ""
 
 #. Resource IDs: (17026)
 msgid "Move &Down"
-msgstr ""
+msgstr "Mover para &Baixo"
 
 #. Resource IDs: (17025)
 msgid "Move &Up"
-msgstr ""
+msgstr "Mover para &Cima"
 
 #. Resource IDs: (1002)
 msgid "Move Item Down"
@@ -4977,11 +4990,11 @@ msgstr "NUM"
 
 #. Resource IDs: (17004)
 msgid "Navigation Pane Options"
-msgstr ""
+msgstr "Opções do Painel de Navegação"
 
 #. Resource IDs: (1065)
 msgid "Navigation Pane Options..."
-msgstr ""
+msgstr "Opções do Painel de Navegação..."
 
 #. Resource IDs: (208)
 msgid "Needs lock"
@@ -5026,6 +5039,8 @@ msgid ""
 "Next Page\n"
 "Next Page"
 msgstr ""
+"Próxima Página\n"
+"Próxima Página"
 
 #. Resource IDs: (73)
 msgid "No"
@@ -5205,15 +5220,15 @@ msgstr "OVR"
 
 #. Resource IDs: (32845)
 msgid "Office &XP"
-msgstr ""
+msgstr "Office &XP"
 
 #. Resource IDs: (32847)
 msgid "Office 200&3"
-msgstr ""
+msgstr "Office 200&3"
 
 #. Resource IDs: (65535)
 msgid "Office 200&7"
-msgstr ""
+msgstr "Office 200&7"
 
 #. Resource IDs: (65535)
 msgid "Older lines"
@@ -5329,7 +5344,7 @@ msgstr "Tamanho ori&ginal"
 
 #. Resource IDs: (1065)
 msgid "Other Task Panes"
-msgstr ""
+msgstr "Outro Painel de Tarefas"
 
 #. Resource IDs: (245)
 msgid "Others"
@@ -5371,7 +5386,7 @@ msgstr "PKCS12"
 #. Resource IDs: (3845)
 #, c-format
 msgid "Page %u"
-msgstr ""
+msgstr "Página %u"
 
 #. Resource IDs: (3845)
 #, c-format
@@ -5379,6 +5394,8 @@ msgid ""
 "Page %u\n"
 "Pages %u-%u\n"
 msgstr ""
+"Página %u\n"
+"Páginas %u-%u\n"
 
 #. Resource IDs: (65535)
 msgid "Page :"
@@ -5401,6 +5418,8 @@ msgid ""
 "Paste Tool\n"
 "Paste"
 msgstr ""
+"Ferramenta Colar\n"
+"Colar"
 
 #. Resource IDs: (172)
 msgid "Paste filename list"
@@ -5427,24 +5446,30 @@ msgid "Paths"
 msgstr "Caminhos"
 
 #. Resource IDs: (1057)
+#, fuzzy
 msgid ""
 "Pencil Tool\n"
 "Pencil"
 msgstr ""
+"Ferramenta Pincel\n"
+"Pincel"
 
 #. Resource IDs: (16538)
 msgid "Personalized Menus and Toolbars"
-msgstr ""
+msgstr "Menus e Barras de Ferramentas Personalizados"
 
 #. Resource IDs: (3849)
+#, fuzzy
 msgid ""
 "Picture (Metafile)\n"
 "a picture"
 msgstr ""
+"Figura (Metarquivo)\n"
+"uma figura"
 
 #. Resource IDs: (65535)
 msgid "Picture:"
-msgstr ""
+msgstr "Figura:"
 
 #. Resource IDs: (157)
 msgid "Pictures (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
@@ -5539,11 +5564,11 @@ msgstr "Pre-Atualizar Gancho"
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
-msgstr ""
+msgstr "Pressione a &Nova Tecla de Atalho:"
 
 #. Resource IDs: (65535)
 msgid "Press &new shortcut key:"
-msgstr ""
+msgstr "Pressione a &nova tecla de atalho:"
 
 #. Resource IDs: (2052)
 msgid "Prevents most cases in which connection lines cross revision nodes"
@@ -5567,6 +5592,8 @@ msgid ""
 "Previous Page\n"
 "Previous Page"
 msgstr ""
+"Página Anterior\n"
+"Página Anterior"
 
 #. Resource IDs: (1069, 16990)
 msgid "Print"
@@ -5577,6 +5604,8 @@ msgid ""
 "Print Document\n"
 "&Print"
 msgstr ""
+"Imprimir Documento\n"
+"Im&primir"
 
 #. Resource IDs: (3845)
 msgid "Print to File"
@@ -5768,6 +5797,8 @@ msgid ""
 "Rectangle Tool\n"
 "Rectangle"
 msgstr ""
+"Ferramenta Retângulo\n"
+"Retângulo"
 
 #. Resource IDs: (1260)
 msgid "Recurse into unversioned folders"
@@ -5921,7 +5952,7 @@ msgstr "Remover da lista de &ignorados"
 
 #. Resource IDs: (1068)
 msgid "Remove from Quick Access Toolbar"
-msgstr ""
+msgstr "Remover da Barra de Acesso Rápido"
 
 #. Resource IDs: (209)
 msgid "Remove from changelist"
@@ -5937,8 +5968,9 @@ msgstr ""
 "%s"
 
 #. Resource IDs: (345)
+#, fuzzy
 msgid "Remove the selected cache(s) from disk"
-msgstr ""
+msgstr "Remover os cache(s) selecionados do disco"
 
 #. Resource IDs: (65535)
 msgid "Removed"
@@ -6072,7 +6104,7 @@ msgstr "Reiniciar &Tudo"
 
 #. Resource IDs: (214)
 msgid "Reset columns"
-msgstr ""
+msgstr "Reiniciar colunas"
 
 #. Resource IDs: (207, 229)
 msgid "Resolve"
@@ -6265,6 +6297,8 @@ msgid ""
 "Rich Text (RTF)\n"
 "text with font and paragraph formatting"
 msgstr ""
+"Rich Text (RTF)\n"
+"texto com formatação de fonte e parágrafo"
 
 #. Resource IDs: (188)
 msgid "Right View: "
@@ -6294,11 +6328,11 @@ msgstr "O&pções"
 
 #. Resource IDs: (1065)
 msgid "S&how Buttons on One Row"
-msgstr ""
+msgstr "Mostrar Botões em Uma Lin&ha"
 
 #. Resource IDs: (1065)
 msgid "S&how Buttons on Two Rows"
-msgstr ""
+msgstr "Mostrar Botões em Duas Lin&has"
 
 #. Resource IDs: (17078)
 msgid "S&how Quick Access Toolbar below the Ribbon"
@@ -6750,7 +6784,7 @@ msgstr ""
 
 #. Resource IDs: (1065)
 msgid "Show Fewer Buttons"
-msgstr ""
+msgstr "Mostrar Menos Botões"
 
 #. Resource IDs: (32817)
 msgid "Show File List"
@@ -6775,7 +6809,7 @@ msgstr "Mostrar caixa de diálogo antes de travar arquivos"
 
 #. Resource IDs: (1065)
 msgid "Show More Buttons"
-msgstr ""
+msgstr "Mostrar Mais Botões"
 
 #. Resource IDs: (32813)
 msgid "Show Ove&rview"
@@ -7057,7 +7091,7 @@ msgstr "Status"
 
 #. Resource IDs: (1068)
 msgid "Status Bar Configuration"
-msgstr ""
+msgstr "Configuração da Barra de Status"
 
 #. Resource IDs: (65535)
 msgid "Status and action colors"
@@ -7226,7 +7260,7 @@ msgstr "Cópia atual rotulada para %s"
 
 #. Resource IDs: (1064)
 msgid "Tasks Pane"
-msgstr ""
+msgstr "Painel de Tarefas"
 
 #. Resource IDs: (219)
 msgid "Test Only"
@@ -7725,8 +7759,9 @@ msgid "Tile &Vertically"
 msgstr "Lado a Lado &Verticalmente"
 
 #. Resource IDs: (65535)
+#, fuzzy
 msgid "Timeouts"
-msgstr ""
+msgstr "Timeouts"
 
 #. Resource IDs: (224)
 msgid ""
