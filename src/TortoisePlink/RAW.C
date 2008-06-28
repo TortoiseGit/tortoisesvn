@@ -278,7 +278,5 @@ Backend raw_backend = {
     raw_provide_logctx,
     raw_unthrottle,
     raw_cfg_info,
-    "raw",
-    PROT_RAW,
-    0
+    1
 };

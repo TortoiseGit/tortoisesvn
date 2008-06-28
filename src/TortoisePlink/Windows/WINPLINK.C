@@ -279,10 +279,6 @@ void stdouterr_sent(struct handle *h, int new_backlog)
     }
 }
 
-int WinMain(hInstance, hPrevInstance, lpCmdLine, nCmdShow)
-{
-	main(__argc,__argv);
-}
 
 int main(int argc, char **argv)
 {
@@ -320,10 +316,13 @@ int main(int argc, char **argv)
 	char *p = getenv("PLINK_PROTOCOL");
 	int i;
 	if (p) {
-	    const Backend *b = backend_from_name(p);
-	    if (b) {
-		default_protocol = cfg.protocol = b->protocol;
-		default_port = cfg.port = b->default_port;
+	    for (i = 0; backends[i].backend != NULL; i++) {
+		if (!strcmp(backends[i].name, p)) {
+		    default_protocol = cfg.protocol = backends[i].protocol;
+		    default_port = cfg.port =
+			backends[i].backend->default_port;
+		    break;
+		}
 	    }
 	}
     }
@@ -390,14 +389,19 @@ int main(int argc, char **argv)
 		     */
 		    r = strchr(p, ',');
 		    if (r) {
-			const Backend *b;
-			*r = '\0';
-			b = backend_from_name(p);
-			if (b) {
-			    default_protocol = cfg.protocol = b->protocol;
-			    portnumber = b->default_port;
+			int i, j;
+			for (i = 0; backends[i].backend != NULL; i++) {
+			    j = strlen(backends[i].name);
+			    if (j == r - p &&
+				!memcmp(backends[i].name, p, j)) {
+				default_protocol = cfg.protocol =
+				    backends[i].protocol;
+				portnumber =
+				    backends[i].backend->default_port;
+				p = r + 1;
+				break;
+			    }
 			}
-			p = r + 1;
 		    }
 
 		    /*
@@ -540,11 +544,19 @@ int main(int argc, char **argv)
      * Select protocol. This is farmed out into a table in a
      * separate file to enable an ssh-free variant.
      */
-    back = backend_from_proto(cfg.protocol);
-    if (back == NULL) {
-	fprintf(stderr,
-		"Internal fault: Unsupported protocol found\n");
-	return 1;
+    {
+	int i;
+	back = NULL;
+	for (i = 0; backends[i].backend != NULL; i++)
+	    if (backends[i].protocol == cfg.protocol) {
+		back = backends[i].backend;
+		break;
+	    }
+	if (back == NULL) {
+	    fprintf(stderr,
+		    "Internal fault: Unsupported protocol found\n");
+	    return 1;
+	}
     }
 
     /*
@@ -730,4 +742,9 @@ int main(int argc, char **argv)
     }
     cleanup_exit(exitcode);
     return 0;			       /* placate compiler warning */
+}
+
+int WinMain(hInstance, hPrevInstance, lpCmdLine, nCmdShow)
+{
+	main(__argc,__argv);
 }

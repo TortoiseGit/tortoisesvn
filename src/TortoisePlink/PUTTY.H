@@ -252,7 +252,6 @@ enum {
     KEX_DHGROUP1,
     KEX_DHGROUP14,
     KEX_DHGEX,
-    KEX_RSA,
     KEX_MAX
 };
 
@@ -389,12 +388,14 @@ struct backend_tag {
      */
     void (*unthrottle) (void *handle, int);
     int (*cfg_info) (void *handle);
-    char *name;
-    int protocol;
     int default_port;
 };
 
-extern Backend *backends[];
+extern struct backend_list {
+    int protocol;
+    char *name;
+    Backend *backend;
+} backends[];
 
 /*
  * Suggested default protocol provided by the backend link module.
@@ -587,13 +588,7 @@ struct config_tag {
     /* SSH bug compatibility modes */
     int sshbug_ignore1, sshbug_plainpw1, sshbug_rsa1,
 	sshbug_hmac2, sshbug_derivekey2, sshbug_rsapad2,
-	sshbug_pksessid2, sshbug_rekey2, sshbug_maxpkt2;
-    /*
-     * ssh_simple means that we promise never to open any channel other
-     * than the main one, which means it can safely use a very large
-     * window in SSH-2.
-     */
-    int ssh_simple;
+	sshbug_pksessid2, sshbug_rekey2;
     /* Options for pterm. Should split out into platform-dependent part. */
     int stamp_utmp;
     int login_shell;
@@ -603,7 +598,6 @@ struct config_tag {
     FontSpec widefont;
     FontSpec wideboldfont;
     int shadowboldoffset;
-    int crhaslf;
 };
 
 /*
@@ -783,8 +777,6 @@ void random_destroy_seed(void);
 /*
  * Exports from settings.c.
  */
-Backend *backend_from_name(const char *name);
-Backend *backend_from_proto(int proto);
 char *save_settings(char *section, Config * cfg);
 void save_open_settings(void *sesskey, Config *cfg);
 void load_settings(char *section, Config * cfg);

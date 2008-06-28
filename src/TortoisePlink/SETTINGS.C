@@ -27,7 +27,6 @@ static const struct keyval kexnames[] = {
     { "dh-gex-sha1",	    KEX_DHGEX },
     { "dh-group14-sha1",    KEX_DHGROUP14 },
     { "dh-group1-sha1",	    KEX_DHGROUP1 },
-    { "rsa",		    KEX_RSA },
     { "WARN",		    KEX_WARN }
 };
 
@@ -51,29 +50,6 @@ const char *const ttymodes[] = {
     "ONLCR",	"OCRNL",    "ONOCR",	"ONLRET",   "CS7",
     "CS8",	"PARENB",   "PARODD",	NULL
 };
-
-/*
- * Convenience functions to access the backends[] array
- * (which is only present in tools that manage settings).
- */
-
-Backend *backend_from_name(const char *name)
-{
-    Backend **p;
-    for (p = backends; *p != NULL; p++)
-	if (!strcmp((*p)->name, name))
-	    return *p;
-    return NULL;
-}
-
-Backend *backend_from_proto(int proto)
-{
-    Backend **p;
-    for (p = backends; *p != NULL; p++)
-	if ((*p)->protocol == proto)
-	    return *p;
-    return NULL;
-}
 
 static void gpps(void *handle, const char *name, const char *def,
 		 char *val, int len)
@@ -282,11 +258,11 @@ void save_open_settings(void *sesskey, Config *cfg)
     write_setting_i(sesskey, "SSHLogOmitPasswords", cfg->logomitpass);
     write_setting_i(sesskey, "SSHLogOmitData", cfg->logomitdata);
     p = "raw";
-    {
-	const Backend *b = backend_from_proto(cfg->protocol);
-	if (b)
-	    p = b->name;
-    }
+    for (i = 0; backends[i].name != NULL; i++)
+	if (backends[i].protocol == cfg->protocol) {
+	    p = backends[i].name;
+	    break;
+	}
     write_setting_s(sesskey, "Protocol", p);
     write_setting_i(sesskey, "PortNumber", cfg->port);
     /* The CloseOnExit numbers are arranged in a different order from
@@ -388,7 +364,6 @@ void save_open_settings(void *sesskey, Config *cfg)
     write_setting_i(sesskey, "DECOriginMode", cfg->dec_om);
     write_setting_i(sesskey, "AutoWrapMode", cfg->wrap_mode);
     write_setting_i(sesskey, "LFImpliesCR", cfg->lfhascr);
-    write_setting_i(sesskey, "CRImpliesLF", cfg->crhaslf);
     write_setting_i(sesskey, "DisableArabicShaping", cfg->arabicshaping);
     write_setting_i(sesskey, "DisableBidi", cfg->bidi);
     write_setting_i(sesskey, "WinNameAlways", cfg->win_name_always);
@@ -454,7 +429,6 @@ void save_open_settings(void *sesskey, Config *cfg)
     write_setting_i(sesskey, "BugRSAPad2", 2-cfg->sshbug_rsapad2);
     write_setting_i(sesskey, "BugPKSessID2", 2-cfg->sshbug_pksessid2);
     write_setting_i(sesskey, "BugRekey2", 2-cfg->sshbug_rekey2);
-    write_setting_i(sesskey, "BugMaxPkt2", 2-cfg->sshbug_maxpkt2);
     write_setting_i(sesskey, "StampUtmp", cfg->stamp_utmp);
     write_setting_i(sesskey, "LoginShell", cfg->login_shell);
     write_setting_i(sesskey, "ScrollbarOnLeft", cfg->scrollbar_on_left);
@@ -501,13 +475,12 @@ void load_open_settings(void *sesskey, Config *cfg)
     gpps(sesskey, "Protocol", "default", prot, 10);
     cfg->protocol = default_protocol;
     cfg->port = default_port;
-    {
-	const Backend *b = backend_from_name(prot);
-	if (b) {
-	    cfg->protocol = b->protocol;
+    for (i = 0; backends[i].name != NULL; i++)
+	if (!strcmp(prot, backends[i].name)) {
+	    cfg->protocol = backends[i].protocol;
 	    gppi(sesskey, "PortNumber", default_port, &cfg->port);
+	    break;
 	}
-    }
 
     /* Address family selection */
     gppi(sesskey, "AddressFamily", ADDRTYPE_UNSPEC, &cfg->addressfamily);
@@ -598,9 +571,9 @@ void load_open_settings(void *sesskey, Config *cfg)
 	char *default_kexes;
 	gppi(sesskey, "BugDHGEx2", 0, &i); i = 2-i;
 	if (i == FORCE_ON)
-	    default_kexes = "dh-group14-sha1,dh-group1-sha1,rsa,WARN,dh-gex-sha1";
+	    default_kexes = "dh-group14-sha1,dh-group1-sha1,WARN,dh-gex-sha1";
 	else
-	    default_kexes = "dh-gex-sha1,dh-group14-sha1,dh-group1-sha1,rsa,WARN";
+	    default_kexes = "dh-gex-sha1,dh-group14-sha1,dh-group1-sha1,WARN";
 	gprefs(sesskey, "KEX", default_kexes,
 	       kexnames, KEX_MAX, cfg->ssh_kexlist);
     }
@@ -683,7 +656,6 @@ void load_open_settings(void *sesskey, Config *cfg)
     gppi(sesskey, "DECOriginMode", 0, &cfg->dec_om);
     gppi(sesskey, "AutoWrapMode", 1, &cfg->wrap_mode);
     gppi(sesskey, "LFImpliesCR", 0, &cfg->lfhascr);
-    gppi(sesskey, "CRImpliesLF", 0, &cfg->crhaslf);
     gppi(sesskey, "DisableArabicShaping", 0, &cfg->arabicshaping);
     gppi(sesskey, "DisableBidi", 0, &cfg->bidi);
     gppi(sesskey, "WinNameAlways", 1, &cfg->win_name_always);
@@ -789,8 +761,6 @@ void load_open_settings(void *sesskey, Config *cfg)
     gppi(sesskey, "BugRSAPad2", 0, &i); cfg->sshbug_rsapad2 = 2-i;
     gppi(sesskey, "BugPKSessID2", 0, &i); cfg->sshbug_pksessid2 = 2-i;
     gppi(sesskey, "BugRekey2", 0, &i); cfg->sshbug_rekey2 = 2-i;
-    gppi(sesskey, "BugMaxPkt2", 0, &i); cfg->sshbug_maxpkt2 = 2-i;
-    cfg->ssh_simple = FALSE;
     gppi(sesskey, "StampUtmp", 1, &cfg->stamp_utmp);
     gppi(sesskey, "LoginShell", 1, &cfg->login_shell);
     gppi(sesskey, "ScrollbarOnLeft", 0, &cfg->scrollbar_on_left);
