@@ -121,7 +121,7 @@ int verify_ssh_host_key(void *frontend, char *host, int port, char *keytype,
 	message = dupprintf(wrongmsg, appname, keytype, fingerprint, appname);
 	title = dupprintf(mbtitle, appname);
 
-	mbret = MessageBox(GetParentHwnd(), message, title, MB_ICONWARNING|MB_YESNOCANCEL);
+	mbret = MessageBox(GetParentHwnd(), message, title, MB_ICONWARNING|MB_YESNO);
 	sfree(message);
 	sfree(title);
 	if (mbret == IDYES) {
@@ -138,7 +138,7 @@ int verify_ssh_host_key(void *frontend, char *host, int port, char *keytype,
 	message = dupprintf(absentmsg, keytype, fingerprint, appname);
 	title = dupprintf(mbtitle, appname);
 	mbret = MessageBox(GetParentHwnd(), message, title,
-		MB_ICONWARNING | MB_YESNOCANCEL);
+		MB_ICONWARNING | MB_YESNO);
 	sfree(message);
 	sfree(title);
 	if (mbret == IDYES)
@@ -176,7 +176,7 @@ int askalg(void *frontend, const char *algtype, const char *algname,
 	message = dupprintf(msg, algtype, algname);
 	title = dupprintf(mbtitle, appname);
 
-	mbret = MessageBox(GetParentHwnd(), message, title, MB_ICONWARNING|MB_YESNOCANCEL);
+	mbret = MessageBox(GetParentHwnd(), message, title, MB_ICONWARNING|MB_YESNO);
 	sfree(message);
 	sfree(title);
 	if (mbret == IDYES)
