@@ -468,9 +468,9 @@ svn propget svn:ignore PATH > tempfile
 svn propset svn:ignore -F tempfile PATH
 </screen>
 			<para>
-				Because the svn:ignore property is often a multi-line value,
-				it is shown here as being changed via a text file rather than
-				directly on the command line.
+				Because the <literal>svn:ignore</literal> property is often
+				a multi-line value, it is shown here as being changed via
+				a text file rather than directly on the command line.
 			</para>
 		</sect2>
 		<sect2 id="tsvn-cli-createpatch">
