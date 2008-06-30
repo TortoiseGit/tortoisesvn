@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseMerge Documentation\n"
 "POT-Creation-Date: 2008-05-24 00:14 +0000\n"
-"PO-Revision-Date: 2008-05-26 11:57+0100\n"
+"PO-Revision-Date: 2008-06-30 11:26+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -323,7 +323,7 @@ msgstr "Sie können folgende einfache, zeilenbasierte Änderungen an der Datei i
 #. (para)
 #: ../source/TortoiseMerge_en.xml:328
 msgid "You can also edit the file in the right pane just as you would in a text editor. Such lines are marked using a pencil icon. Please note that if you want to make any of the line/block-based changes described above, it is better to do those first since once you start editing the file yourself it becomes impossible for TortoiseMerge to keep track of the relationship to the original files."
-msgstr "Sie können die Datei im rechten Bereich wie in einem Texteditor bearbeiten. Solche Zeilen werden durch einen Stift gekennzeichet. Beachten Sie bitte, dass Sie wenn Sie Zeilen- oder Blockoperationen vornehmen, diese zuerst - <emphasis>vor manuellen Änderungen</emphasis> - durchführen, da es für TortoiseMerge sonst unmöglich wird, die Beziehungen zur den Originaldateiehn aufrecht zu erhalten."
+msgstr "Sie können die Datei im rechten Bereich wie in einem Texteditor bearbeiten. Solche Zeilen werden durch einen Stift gekennzeichnet. Beachten Sie bitte, dass Sie wenn Sie Zeilen- oder Blockoperationen vornehmen, diese zuerst - <emphasis>vor manuellen Änderungen</emphasis> - durchführen, da es für TortoiseMerge sonst unmöglich wird, die Beziehungen zur den Originaldateien aufrecht zu erhalten."
 
 #. (title)
 #: ../source/TortoiseMerge_en.xml:338
@@ -649,7 +649,7 @@ msgstr "Manchmal benötigen Sie beide Textblöcke. Das Kontextmenü bietet Ihnen
 #. (para)
 #: ../source/TortoiseMerge_en.xml:751
 msgid "You can also edit the output file just as you would in a text editor. Such lines are marked using a pencil icon. Please note that if you want to make any of the line/block-based changes described above, it is better to do those first since once you start editing the file yourself it becomes impossible for TortoiseMerge to keep track of the relationship to the original files."
-msgstr "Sie können die Ausgabedatei wie in einem Texteditor bearbeiten. Solche Zeilen werden durch einen Stift gekennzeichet. Beachten Sie bitte, dass Sie wenn Sie Zeilen- oder Blockoperationen vornehmen, diese zuerst - <emphasis>vor manuellen Änderungen</emphasis> - durchführen, da es für TortoiseMerge sonst unmöglich wird, die Beziehungen zur den Originaldateiehn aufrecht zu erhalten."
+msgstr "Sie können die Ausgabedatei wie in einem Texteditor bearbeiten. Solche Zeilen werden durch einen Stift gekennzeichnet. Beachten Sie bitte, dass Sie wenn Sie Zeilen- oder Blockoperationen vornehmen, diese zuerst - <emphasis>vor manuellen Änderungen</emphasis> - durchführen, da es für TortoiseMerge sonst unmöglich wird, die Beziehungen zur den Originaldateien aufrecht zu erhalten."
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:759
@@ -1124,7 +1124,7 @@ msgstr "Definiert die <placeholder-1/>datei für einen Dreiwegevergleich. Diese 
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1224
 msgid "The name of the base file. This is shown in the view title instead of the file path. For three way diffs it is shown in a tooltip for the view title."
-msgstr "Der Anzeigename der <emphasis>Basisdatei</emphasis>. Er wird anstatt des Dateinamens in der Titelzeile oder beim Dreiwegevergleich in einem Hiweistext angezeigt."
+msgstr "Der Anzeigename der <emphasis>Basisdatei</emphasis>. Er wird anstatt des Dateinamens in der Titelzeile oder beim Dreiwegevergleich in einem Hinweistext angezeigt."
 
 #. (emphasis)
 #: ../source/TortoiseMerge_en.xml:1234
@@ -1179,7 +1179,7 @@ msgstr "sehr lange"
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1279
 msgid "The path where a patch should be applied to. If you don't set this path, then TortoiseMerge will try to find the path itself to match the paths in the patch file, but that can take <placeholder-1/>."
-msgstr "Der Pfad in dem ein Patch angewendet werden soll. Wenn Sie diesen Parameter nicht angeben, versucht TortoiseMerge selbst, einen zu den Pfaden in der Patchdatei passenden Basipfad herauszufinden, aber das kann <placeholder-1/> dauern."
+msgstr "Der Pfad in dem ein Patch angewendet werden soll. Wenn Sie diesen Parameter nicht angeben, versucht TortoiseMerge selbst, einen zu den Pfaden in der Patchdatei passenden Basispfad herauszufinden, aber das kann <placeholder-1/> dauern."
 
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1288
@@ -1245,7 +1245,7 @@ msgid ""
 msgstr ""
 "Sie können aus Kompatibilitätsgründen mit anderen Vergleichsprogrammen auch einfache Dateinamen auf der Befehlszeile übergeben. In der Vereinfachten Form sieht der Aufruf folgendermaßen aus\n"
 "<screen>TortoiseMerge BasisDateiPfad MeinDateiPfad [ DerenDateiPfad ]</screen>\n"
-"Bei zwei Dateien werden diese mitenander verglichen. Bei drei Dateien wird die erste als BASE Datei verwendet und die beiden anderen in einem Dreiwegevergleich mit ihr verglichen."
+"Bei zwei Dateien werden diese miteinander verglichen. Bei drei Dateien wird die erste als BASE Datei verwendet und die beiden anderen in einem Dreiwegevergleich mit ihr verglichen."
 
 #. (title)
 #: ../source/TortoiseMerge_en.xml:1356
@@ -1440,7 +1440,7 @@ msgstr "Protokoll"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1552
 msgid "Show the revision history of a file or folder. Also known as <quote>History</quote>."
-msgstr "Zeigt das Änderigsprotokoll einer Datei oder eines Ordners. Auch <quote>Historie</quote> genannt."
+msgstr "Zeigt das Änderungsprotokoll einer Datei oder eines Ordners. Auch <quote>Historie</quote> genannt."
 
 #. (glossterm)
 #: ../source/TortoiseMerge_en.xml:1559
@@ -1565,7 +1565,7 @@ msgstr "SVN"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1697
 msgid "A frequently-used abbreviation for Subversion."
-msgstr "Eine häfig verwendete Abkürzung für Subversion"
+msgstr "Eine häufig verwendete Abkürzung für Subversion"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1700
@@ -1580,7 +1580,7 @@ msgstr "Wechseln zu"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1709
 msgid "Just as <quote>Update-to-revision</quote> changes the time window of a working copy to look at a different point in history, so <quote>Switch</quote> changes the space window of a working copy so that it points to a different part of the repository. It is particularly useful when working on trunk and branches where only a few files differ. You can switch your working copy between the two and only the changed files will be transferred."
-msgstr "So wie <quote>Aktualisieren zu Revision</quote> den Zeitpunkt der Arbeitskopie ändert, um auf einen anderen Punkt in der Vergangenheit zu zeigen, ändert <quote>Wecheln zu</quote> die Position der Arbeitskopie, so dass sie an einen anderen Ort im Projektarchiv zeigt. Dies ist vor allem nützlich, wenn Sie mit verschiedenen Ästen arbeiten, in denen nur wenige Dateien unterschiedlich sind. Sie können ihre Arbeitskopie zwischen den Ästen hin und her wechseln wobei jeweils nur die Unterschiede übertragen werden."
+msgstr "So wie <quote>Aktualisieren zu Revision</quote> den Zeitpunkt der Arbeitskopie ändert, um auf einen anderen Punkt in der Vergangenheit zu zeigen, ändert <quote>Wechseln zu</quote> die Position der Arbeitskopie, so dass sie an einen anderen Ort im Projektarchiv zeigt. Dies ist vor allem nützlich, wenn Sie mit verschiedenen Ästen arbeiten, in denen nur wenige Dateien unterschiedlich sind. Sie können ihre Arbeitskopie zwischen den Ästen hin und her wechseln wobei jeweils nur die Unterschiede übertragen werden."
 
 #. (glossterm)
 #: ../source/TortoiseMerge_en.xml:1721
@@ -1590,7 +1590,7 @@ msgstr "Aktualisieren"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1723
 msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
-msgstr "Dieser Subversionbefehlt holt die neuesten Änderungen aus dem Projektarchiv in Ihre Arbeitskopie und führt dabei die Änderungen von anderen mit Ihren Änderungen zusammen."
+msgstr "Dieser Subversionbefehl holt die neuesten Änderungen aus dem Projektarchiv in Ihre Arbeitskopie und führt dabei die Änderungen von anderen mit Ihren Änderungen zusammen."
 
 #. (glossterm)
 #: ../source/TortoiseMerge_en.xml:1731
