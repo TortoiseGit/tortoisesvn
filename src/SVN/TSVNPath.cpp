@@ -89,7 +89,7 @@ void CTSVNPath::SetFromSVN(const char* pPath)
 		len = MultiByteToWideChar(CP_UTF8, 0, pPath, -1, m_sFwdslashPath.GetBuffer(len+1), len+1);
 		m_sFwdslashPath.ReleaseBuffer(len-1);
 	}
-	ATLASSERT(m_sFwdslashPath.Find('\\')<0);
+	SanitizeRootPath(m_sFwdslashPath, true);
 }
 
 void CTSVNPath::SetFromSVN(const char* pPath, bool bIsDirectory)
@@ -103,30 +103,21 @@ void CTSVNPath::SetFromSVN(const CString& sPath)
 {
 	Reset();
 	m_sFwdslashPath = sPath;
-	ATLASSERT(m_sFwdslashPath.Find('\\')<0);
+	SanitizeRootPath(m_sFwdslashPath, true);
 }
 
 void CTSVNPath::SetFromWin(LPCTSTR pPath)
 {
 	Reset();
 	m_sBackslashPath = pPath;
-	// Make sure that root directories look like 'C:\' rather than 'C:'
-	if(m_sBackslashPath.GetLength() == 2 && m_sBackslashPath[1] == ':')
-	{
-		m_sBackslashPath += '\\';
-	}
+	SanitizeRootPath(m_sBackslashPath, false);
 	ATLASSERT(m_sBackslashPath.Find('/')<0);
 }
 void CTSVNPath::SetFromWin(const CString& sPath)
 {
 	Reset();
 	m_sBackslashPath = sPath;
-	// Make sure that root directories look like 'C:\' rather than 'C:'
-	if(m_sBackslashPath.GetLength() == 2 && m_sBackslashPath[1] == ':')
-	{
-		m_sBackslashPath += '\\';
-	}
-	ATLASSERT(m_sBackslashPath.Find('/')<0);
+	SanitizeRootPath(m_sBackslashPath, false);
 }
 void CTSVNPath::SetFromWin(const CString& sPath, bool bIsDirectory)
 {
@@ -134,12 +125,7 @@ void CTSVNPath::SetFromWin(const CString& sPath, bool bIsDirectory)
 	m_sBackslashPath = sPath;
 	m_bIsDirectory = bIsDirectory;
 	m_bDirectoryKnown = true;
-	// Make sure that root directories look like 'C:\' rather than 'C:'
-	if(m_sBackslashPath.GetLength() == 2 && m_sBackslashPath[1] == ':')
-	{
-		m_sBackslashPath += '\\';
-	}
-	ATLASSERT(m_sBackslashPath.Find('/')<0);
+	SanitizeRootPath(m_sBackslashPath, false);
 }
 void CTSVNPath::SetFromUnknown(const CString& sPath)
 {
@@ -241,9 +227,7 @@ void CTSVNPath::SetFwdslashPath(const CString& sPath) const
 	// We don't leave a trailing /
 	m_sFwdslashPath.TrimRight('/');	
 
-	// Subversion 1.5 fixed the problem with root paths, but now it expects a slash for root paths
-	if ((m_sFwdslashPath.GetLength() == 2)&&(m_sFwdslashPath[1] == ':'))
-		m_sFwdslashPath += _T("/");
+	SanitizeRootPath(m_sFwdslashPath, true);
 
 	m_sFwdslashPath.Replace(_T("file:////"), _T("file:///\\"));
 
@@ -255,16 +239,22 @@ void CTSVNPath::SetBackslashPath(const CString& sPath) const
 	m_sBackslashPath = sPath;
 	m_sBackslashPath.Replace('/', '\\');
 	m_sBackslashPath.TrimRight('\\');
-	// Make sure that root directories look like 'C:\' rather than 'C:'
-	if(m_sBackslashPath.GetLength() == 2 && m_sBackslashPath[1] == ':')
-	{
-		m_sBackslashPath += '\\';
-	}
+	SanitizeRootPath(m_sBackslashPath, false);
 }
 
 void CTSVNPath::SetUTF8FwdslashPath(const CString& sPath) const
 {
 	m_sUTF8FwdslashPath = CUnicodeUtils::GetUTF8(sPath);
+}
+
+void CTSVNPath::SanitizeRootPath(CString& sPath, bool bIsForwardPath) const
+{
+	// Make sure to add the trailing slash to root paths such as 'C:'
+	if (sPath.GetLength() == 2 && sPath[1] == ':')
+	{
+		m_sBackslashPath += '\\';
+		sPath += (bIsForwardPath) ? _T("/") : _T("\\");
+	}
 }
 
 bool CTSVNPath::IsUrl() const

@@ -244,6 +244,11 @@ private:
 	static bool ArePathStringsEqual(const CString& sP1, const CString& sP2);
 	static bool ArePathStringsEqualWithCase(const CString& sP1, const CString& sP2);
 	
+	/**
+	 * Adds the required trailing slash to local root paths such as 'C:'
+	 */
+	void SanitizeRootPath(CString& sPath, bool bIsForwardPath) const;
+
 	void UpdateAttributes() const;
 
 private:

@@ -22,6 +22,8 @@ Version 1.5.1
        wrong monitor in multi-monitor setups. (Stefan)
 - BUG: TortoisePlink did not authenticate correctly, which lead to
        TortoiseSVN hanging when accessing svn+ssh:// repositories. (Stefan)
+- BUG: TSVNCache could end up in an endless loop and use all CPU if a working
+       copy was placed in a root path, e.g., C:\ (Jacques Lemire)
 
 Version 1.5.0
 - CHG: Support for IPv6 disabled due to problems with merging and terrible
