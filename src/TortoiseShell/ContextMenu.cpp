@@ -1565,7 +1565,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 					if (files_.size() > 0)
 					{
 						svnCmd += files_.front();
-						if (itemStates & ITEMIS_FOLDERINSVN)
+						if (itemStatesFolder & ITEMIS_FOLDERINSVN)
 						{
 							svnCmd += _T("\" /patchpath:\"");
 							svnCmd += folder_;
