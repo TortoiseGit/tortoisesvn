@@ -262,7 +262,7 @@ BEGIN
     IDS_MENUDESCIGNORE      "Adds the selected file(s) or the filemask to the 'ignore' list"
     IDS_STATUSINCOMPLETE    "incomplete"
     IDS_STATUSIGNORED       "ignored"
-    IDS_DROPCOPYMENU        "SVN Copy versioned files here"
+    IDS_DROPCOPYMENU        "SVN Copy versioned item(s) here"
     IDS_PROPWAITCANCEL      "Please wait while cancelling..."
     IDS_SETPROPTITLE        "Setting properties..."
     IDS_MENUREPOBROWSE      "&Repo-browser"
@@ -279,7 +279,7 @@ BEGIN
     IDS_MENUDIFF            "&Diff"
     IDS_MENUDESCDIFF        "Compares the file with the last committed revision to show you the changes you made"
     IDS_DROPCOPYADDMENU     "SVN Copy and add files to this WC"
-    IDS_DROPMOVEMENU        "SVN Move versioned files here"
+    IDS_DROPMOVEMENU        "SVN Move versioned item(s) here"
     IDS_MENULOG             "Show &log"
     IDS_MENUDESCLOG         "Shows the log for the selected file / folder"
     IDS_COLTITLEURL         "SVN URL"
@@ -324,7 +324,7 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_DROPMOVERENAMEMENU  "SVN Move and rename versioned files here"
+    IDS_DROPMOVERENAMEMENU  "SVN Move and rename versioned item here"
     IDS_MENUPROPERTIES      "Properties"
     IDS_MENUDESCPROPERTIES  "Manage Subversion properties"
     IDS_COLTITLEEOLSTYLE    "SVN eol-style"
@@ -349,7 +349,7 @@ BEGIN
     IDS_MENU_LOCKFORCE      "Steal loc&k"
     IDS_COLTITLEOWNER       "SVN Local lock owner"
     IDS_COLDESCOWNER        "The user who owns the lock of the file"
-    IDS_DROPCOPYRENAMEMENU  "SVN Copy and rename versioned file here"
+    IDS_DROPCOPYRENAMEMENU  "SVN Copy and rename versioned item here"
     IDS_COLTITLEAUTHOR      "SVN Author"
     IDS_COLDESCAUTHOR       "The user who did the last commit"
     IDS_FILEPROPONFOLDER    "You can't set this property on folders, only on files!\nIf you want to set it on all files within that folder,\nyou must activate the 'recursive' checkbox."
