@@ -252,7 +252,6 @@ void CTSVNPath::SanitizeRootPath(CString& sPath, bool bIsForwardPath) const
 	// Make sure to add the trailing slash to root paths such as 'C:'
 	if (sPath.GetLength() == 2 && sPath[1] == ':')
 	{
-		m_sBackslashPath += '\\';
 		sPath += (bIsForwardPath) ? _T("/") : _T("\\");
 	}
 }
