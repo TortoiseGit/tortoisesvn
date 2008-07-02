@@ -30,6 +30,8 @@ Version 1.5.1
        not work. (Stefan)
 - BUG: Merging with "record only" did sometimes execute the merge for
        real, not just recording it. (Stefan)
+- BUG: A message returned from a post-commit hook script was not shown
+       in the progress dialog. (Stefan)
 
 Version 1.5.0
 - CHG: Support for IPv6 disabled due to problems with merging and terrible

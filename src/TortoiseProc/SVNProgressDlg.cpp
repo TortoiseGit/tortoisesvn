@@ -1883,6 +1883,10 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 		}
 		return false;
 	}
+	if (!PostCommitErr.IsEmpty())
+	{
+		ReportWarning(PostCommitErr);
+	}
 	if (CHooks::Instance().PostCommit(m_selectedPaths, m_depth, m_RevisionEnd, m_sMessage, exitcode, error))
 	{
 		if (exitcode)
