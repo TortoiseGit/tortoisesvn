@@ -32,7 +32,7 @@ CMergeWizard::CMergeWizard(UINT nIDCaption, CWnd* pParentWnd, UINT iSelectPage)
 	, m_bIgnoreAncestry(FALSE)
 	, m_bIgnoreEOL(FALSE)
 	, m_depth(svn_depth_unknown)
-	, bRecordOnly(FALSE)
+	, m_bRecordOnly(FALSE)
 	, m_FirstPageActivation(true)
 {
 	SetWizardMode();

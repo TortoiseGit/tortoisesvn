@@ -44,7 +44,7 @@ void CMergeWizardOptions::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_IGNOREANCESTRY, ((CMergeWizard*)GetParent())->m_bIgnoreAncestry);
 	DDX_Control(pDX, IDC_DEPTH, m_depthCombo);
 	DDX_Check(pDX, IDC_IGNOREEOL, ((CMergeWizard*)GetParent())->m_bIgnoreEOL);
-	DDX_Check(pDX, IDC_RECORDONLY, ((CMergeWizard*)GetParent())->bRecordOnly);
+	DDX_Check(pDX, IDC_RECORDONLY, ((CMergeWizard*)GetParent())->m_bRecordOnly);
 }
 
 
@@ -147,6 +147,7 @@ void CMergeWizardOptions::OnBnClickedDryrun()
 	progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
 	int options = ProgOptDryRun;
 	options |= pWizard->m_bIgnoreAncestry ? ProgOptIgnoreAncestry : 0;
+	options |= pWizard->m_bRecordOnly ? ProgOptRecordOnly : 0;
 	progDlg.SetOptions(options);
 	progDlg.SetPathList(CTSVNPathList(pWizard->wcPath));
 	progDlg.SetUrl(pWizard->URL1);

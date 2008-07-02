@@ -28,6 +28,8 @@ Version 1.5.1
 - BUG: Crash when updating/merging which resulted in a conflict. (Stefan)
 - BUG: Changing the font for TortoiseBlame in the settings dialog did
        not work. (Stefan)
+- BUG: Merging with "record only" did sometimes execute the merge for
+       real, not just recording it. (Stefan)
 
 Version 1.5.0
 - CHG: Support for IPv6 disabled due to problems with merging and terrible

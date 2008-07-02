@@ -63,7 +63,7 @@ public:
 	SVNRevRangeArray				revRangeArray;
 	BOOL							bReverseMerge;
 
-	BOOL							bRecordOnly;
+	BOOL							m_bRecordOnly;
 
 	BOOL							m_bIgnoreAncestry;
 	svn_depth_t						m_depth;
