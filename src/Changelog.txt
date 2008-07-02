@@ -24,6 +24,7 @@ Version 1.5.1
        TortoiseSVN hanging when accessing svn+ssh:// repositories. (Stefan)
 - BUG: TSVNCache could end up in an endless loop and use all CPU if a working
        copy was placed in a root path, e.g., C:\ (Jacques Lemire)
+- BUG: Crash when closing multiple log dialogs at once. (Stefan)
 
 Version 1.5.0
 - CHG: Support for IPv6 disabled due to problems with merging and terrible

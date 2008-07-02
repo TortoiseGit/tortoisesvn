@@ -503,30 +503,39 @@ void CRepositoryInfo::Flush()
 
 	CString filename = GetFileName();
 	CPathUtils::MakeSureDirectoryPathExists(filename.Left(filename.ReverseFind('\\')));
-	CFile file (filename, CFile::modeWrite | CFile::modeCreate);
-    CArchive stream (&file, CArchive::store);
+	try
+	{
+		CFile file (filename, CFile::modeWrite | CFile::modeCreate);
+		CArchive stream (&file, CArchive::store);
 
-    stream << static_cast<int>(VERSION);
-    stream << static_cast<int>(data.size());
+		stream << static_cast<int>(VERSION);
+		stream << static_cast<int>(data.size());
 
-    for ( TData::const_iterator iter = data.begin(), end = data.end()
-        ; iter != end
-        ; ++iter)
-    {
-        // temp offline -> be online the next time
+		for ( TData::const_iterator iter = data.begin(), end = data.end()
+			; iter != end
+			; ++iter)
+		{
+			// temp offline -> be online the next time
 
-        ConnectionState connectionState 
-            = static_cast<ConnectionState>(iter->second.connectionState & offline);
+			ConnectionState connectionState 
+				= static_cast<ConnectionState>(iter->second.connectionState & offline);
 
-        stream << iter->second.root 
-               << iter->second.uuid 
-               << iter->second.headURL 
-               << iter->second.headRevision 
-               << iter->second.headLookupTime
-               << connectionState;
-    }
+			stream << iter->second.root 
+				   << iter->second.uuid 
+				   << iter->second.headURL 
+				   << iter->second.headRevision 
+				   << iter->second.headLookupTime
+				   << connectionState;
+		}
 
-    modified = false;
+		modified = false;
+	}
+	catch (CFileException* e)
+	{
+	}
+	catch (CException* e)
+	{
+	}
 }
 
 // clear cache
