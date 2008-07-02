@@ -35,7 +35,7 @@ using namespace LogCache;
 
 IMPLEMENT_DYNAMIC(CSetLogCache, ISettingsPropPage)
 
-#define WM_REFRESH_REPOSITORYLIST (WM_USER + 110)
+#define WM_REFRESH_REPOSITORYLIST (WM_APP + 110)
 
 CSetLogCache::CSetLogCache()
 	: ISettingsPropPage(CSetLogCache::IDD)

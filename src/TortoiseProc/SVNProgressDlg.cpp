@@ -135,20 +135,24 @@ LRESULT CSVNProgressDlg::OnShowConflictResolver(WPARAM /*wParam*/, LPARAM lParam
 {
 	CConflictResolveDlg dlg(this);
 	const svn_wc_conflict_description_t *description = (svn_wc_conflict_description_t *)lParam;
-	dlg.SetConflictDescription(description);
-	if (dlg.DoModal() == IDOK)
+	if (description)
 	{
-		if (dlg.GetResult() == svn_wc_conflict_choose_postpone)
+		dlg.SetConflictDescription(description);
+		if (dlg.DoModal() == IDOK)
 		{
-			// if the result is conflicted and the dialog returned IDOK,
-			// that means we should not ask again in case of a conflict
-			m_AlwaysConflicted = true;
-			::SendMessage(GetDlgItem(IDC_NONINTERACTIVE)->GetSafeHwnd(), BM_SETCHECK, BST_CHECKED, 0);
+			if (dlg.GetResult() == svn_wc_conflict_choose_postpone)
+			{
+				// if the result is conflicted and the dialog returned IDOK,
+				// that means we should not ask again in case of a conflict
+				m_AlwaysConflicted = true;
+				::SendMessage(GetDlgItem(IDC_NONINTERACTIVE)->GetSafeHwnd(), BM_SETCHECK, BST_CHECKED, 0);
+			}
 		}
+		m_mergedfile = dlg.GetMergedFile();
+		m_bCancelled = dlg.IsCancelled();
+		return dlg.GetResult();
 	}
-	m_mergedfile = dlg.GetMergedFile();
-	m_bCancelled = dlg.IsCancelled();
-	return dlg.GetResult();
+	return svn_wc_conflict_choose_postpone;
 }
 
 svn_wc_conflict_choice_t CSVNProgressDlg::ConflictResolveCallback(const svn_wc_conflict_description_t *description, CString& mergedfile)

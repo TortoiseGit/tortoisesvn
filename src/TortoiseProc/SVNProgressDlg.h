@@ -62,7 +62,7 @@ typedef enum
 	CLOSE_LOCAL
 } ProgressCloseOptions;
 
-#define WM_SHOWCONFLICTRESOLVER (WM_USER + 100)
+#define WM_SHOWCONFLICTRESOLVER (WM_APP + 100)
 
 /**
  * \ingroup TortoiseProc
