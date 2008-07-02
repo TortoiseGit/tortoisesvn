@@ -137,6 +137,10 @@ void CSettingsTBlame::OnBnClickedRestore()
 BOOL CSettingsTBlame::OnApply()
 {
 	UpdateData();
+	if (m_cFontNames.GetSelFont())
+		m_sFontName = m_cFontNames.GetSelFont()->m_strName;
+	else
+		m_sFontName = m_regFontName;
 	m_regNewLinesColor = (m_cNewLinesColor.GetColor() == -1 ? m_cNewLinesColor.GetAutomaticColor() : m_cNewLinesColor.GetColor()); 
 	if (m_regNewLinesColor.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regNewLinesColor.getErrorString().c_str(), _T("TortoiseSVN"), MB_ICONERROR);

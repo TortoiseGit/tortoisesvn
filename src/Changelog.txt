@@ -26,6 +26,8 @@ Version 1.5.1
        copy was placed in a root path, e.g., C:\ (Jacques Lemire)
 - BUG: Crash when closing multiple log dialogs at once. (Stefan)
 - BUG: Crash when updating/merging which resulted in a conflict. (Stefan)
+- BUG: Changing the font for TortoiseBlame in the settings dialog did
+       not work. (Stefan)
 
 Version 1.5.0
 - CHG: Support for IPv6 disabled due to problems with merging and terrible
