@@ -294,9 +294,9 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, svn_depth_t depth
 		if (m_error != NULL)
 			return FALSE;
 	}
-	if ((!m_bRevProps)&&((!m_path.IsDirectory() && !m_path.IsUrl())&&(((strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0)))))
+	if ((!m_bRevProps)&&((!m_path.IsDirectory() && !m_path.IsUrl())&&(((strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0)||(strncmp(pname_utf8.c_str(), "webviewer:", 10)==0)))))
 	{
-		// bugtraq: and tsvn: properties are not allowed on files.
+		// bugtraq:, tsvn: and webviewer: properties are not allowed on files.
 #ifdef _MFC_VER
 		CString temp;
 		temp.LoadString(IDS_ERR_PROPNOTONFILE);
@@ -332,7 +332,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, svn_depth_t depth
 			}
 		}
 	}
-	if ((!m_bRevProps)&&((depth != svn_depth_empty)&&((strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0))))
+	if ((!m_bRevProps)&&((depth != svn_depth_empty)&&((strncmp(pname_utf8.c_str(), "bugtraq:", 8)==0)||(strncmp(pname_utf8.c_str(), "tsvn:", 5)==0)||(strncmp(pname_utf8.c_str(), "webviewer:", 10)==0))))
 	{
 		// The bugtraq and tsvn properties must only be set on folders.
 		CTSVNPath path;
