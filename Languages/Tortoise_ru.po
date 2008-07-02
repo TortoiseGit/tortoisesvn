@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-29 14:36+0300\n"
+"PO-Revision-Date: 2008-07-02 23:47+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -79,9 +79,10 @@ msgstr " "
 msgid "! %d"
 msgstr "! %d"
 
+# Место ограничено
 #. Resource IDs: (1262)
 msgid "# authors shown individually:"
-msgstr "Число авторов, показываемых индивидуально:"
+msgstr "Число отдельных авторов:"
 
 #. Resource IDs: (357)
 #, c-format
@@ -151,7 +152,7 @@ msgstr "%I64d КБайт передано"
 #. Resource IDs: (169)
 #, c-format
 msgid "%d files selected, %d files total"
-msgstr "файлов выбрано:%d, файлов всего: %d"
+msgstr "файлов выбрано: %d, файлов всего: %d"
 
 #. Resource IDs: (246)
 #, c-format
@@ -615,7 +616,7 @@ msgstr "С&группировать по ответвлениям"
 
 #. Resource IDs: (1032, 1115)
 msgid "&HEAD Revision"
-msgstr "Ведущая &ревизия (HEAD)"
+msgstr "Ве&дущая (HEAD)"
 
 #. Resource IDs: (1019, 1032, 1034)
 msgid "&HEAD revision"
@@ -750,9 +751,10 @@ msgstr "С&етевые диски"
 msgid "&New "
 msgstr "&Новый"
 
+# Так проще, поскольку создаваемое может быть любого рода...
 #. Resource IDs: (16509, 16615)
 msgid "&New..."
-msgstr "&Новый..."
+msgstr "Со&здать..."
 
 #. Resource IDs: (115, 1208)
 #, c-format
@@ -929,7 +931,7 @@ msgstr "По&казывать меню для:"
 
 #. Resource IDs: (16612)
 msgid "&Show text labels"
-msgstr "&Показывать текстовые метки"
+msgstr "&Текстовые метки"
 
 #. Resource IDs: (32851)
 msgid "&Silver Style"
@@ -2046,10 +2048,10 @@ msgstr "Извлечение из %s, ревизия %s, %s, %s"
 msgid "Checksum:"
 msgstr "Контрольная сумма:"
 
-# ???
+# При улаживании: локальные или из хранилища
 #. Resource IDs: (1402)
 msgid "Choose item:"
-msgstr "Выберите элемент:"
+msgstr "Выбирать элементы:"
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -3019,7 +3021,8 @@ msgid ""
 "Code : Tobias Schäfer, Stefan Fuhrmann"
 msgstr ""
 "Документация: Simon Large\n"
-"Код : Tobias Schäfer, Stefan Fuhrmann"
+"Код: Tobias Schäfer, Stefan Fuhrmann\n"
+"Перевод: Станислав Петраков"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -3685,7 +3688,7 @@ msgstr "С:"
 
 #. Resource IDs: (65535)
 msgid "From: (start URL and revision of the range to merge)"
-msgstr "От: (начальные URL и ревизия в ряду для слияния)"
+msgstr "Из: (начальные URL и ревизия в ряду для слияния)"
 
 #. Resource IDs: (1065)
 msgid "Full Screen"
@@ -7881,7 +7884,7 @@ msgstr "По:"
 
 #. Resource IDs: (65535)
 msgid "To: (end URL and revision of the range to merge)"
-msgstr "До: (конечные URL и ревизия в ряду для слияния)"
+msgstr "В: (конечные URL и ревизия в ряду для слияния)"
 
 #. Resource IDs: (3633)
 msgid ""
