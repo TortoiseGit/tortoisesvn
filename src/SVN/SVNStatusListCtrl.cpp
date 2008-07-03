@@ -4076,10 +4076,12 @@ void CSVNStatusListCtrl::OnNMReturn(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 	*pResult = 0;
 	if (m_bBlock)
 		return;
-	int selIndex = GetSelectionMark();
-	if (selIndex < 0)
-		return;
-	StartDiff(selIndex);
+	POSITION pos = GetFirstSelectedItemPosition();
+	while ( pos )
+	{
+		int index = GetNextSelectedItem(pos);
+		StartDiff(index);
+	}
 }
 
 void CSVNStatusListCtrl::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)

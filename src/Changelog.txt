@@ -36,6 +36,8 @@ Version 1.5.1
 - BUG: When renaming a folder in the repository browser tree view, the
        folder which was selected was renamed instead of the one which
        was right-clicked on. (Stefan)
+- BUG: Hitting ENTER in the commit dialog only diffed the item which had
+       the selection mark, not all selected files. (Stefan)
 
 Version 1.5.0
 - CHG: Support for IPv6 disabled due to problems with merging and terrible
