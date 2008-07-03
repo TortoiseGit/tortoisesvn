@@ -327,6 +327,13 @@ void CRepositoryBrowser::InitRepo()
 	m_strReposRoot = data->reposRoot;
 	m_sUUID = data->reposUUID;
 	m_strReposRoot = CPathUtils::PathUnescape(m_strReposRoot);
+	// the initial url can be in the format file:///\, but the
+	// repository root returned would still be file://
+	// to avoid string length comparison faults, we adjust
+	// the repository root here to match the initial url
+	if ((m_InitialUrl.Left(9).CompareNoCase(_T("file:///\\")) == 0) &&
+		(m_strReposRoot.Left(9).CompareNoCase(_T("file:///\\")) != 0))
+		m_strReposRoot.Replace(_T("file://"), _T("file:///\\"));
 	SetWindowText(m_strReposRoot + _T(" - ") + m_origDlgTitle);
 	// now check the repository root for the url type, then
 	// set the corresponding background image

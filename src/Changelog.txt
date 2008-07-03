@@ -38,6 +38,8 @@ Version 1.5.1
        was right-clicked on. (Stefan)
 - BUG: Hitting ENTER in the commit dialog only diffed the item which had
        the selection mark, not all selected files. (Stefan)
+- BUG: The repository browser could show bogus folders for file:// urls
+       pointing to an UNC path. (Stefan)
 
 Version 1.5.0
 - CHG: Support for IPv6 disabled due to problems with merging and terrible
