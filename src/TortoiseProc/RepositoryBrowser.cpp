@@ -1391,7 +1391,7 @@ void CRepositoryBrowser::OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResu
 		return;
 
 	// rename the item in the repository
-	HTREEITEM hSelectedItem = m_RepoTree.GetSelectedItem();
+	HTREEITEM hSelectedItem = pTVDispInfo->item.hItem;
 	CTreeItem * pItem = (CTreeItem *)m_RepoTree.GetItemData(hSelectedItem);
 	if (pItem == NULL)
 		return;
@@ -1424,7 +1424,8 @@ void CRepositoryBrowser::OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResu
 		pItem->url = targetUrl.GetSVNPathString();
 		pItem->unescapedname = pTVDispInfo->item.pszText;
 		m_RepoTree.SetItemData(hSelectedItem, (DWORD_PTR)pItem);
-		RefreshNode(hSelectedItem, true);
+		if (hSelectedItem == m_RepoTree.GetSelectedItem())
+			RefreshNode(hSelectedItem, true);
 	}
 }
 

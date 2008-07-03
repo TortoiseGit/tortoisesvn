@@ -33,6 +33,9 @@ Version 1.5.1
 - BUG: A message returned from a post-commit hook script was not shown
        in the progress dialog. (Stefan)
 - BUG: webviewer: properties were added on files too. (Stefan)
+- BUG: When renaming a folder in the repository browser tree view, the
+       folder which was selected was renamed instead of the one which
+       was right-clicked on. (Stefan)
 
 Version 1.5.0
 - CHG: Support for IPv6 disabled due to problems with merging and terrible
