@@ -33,23 +33,33 @@ bool AddCommand::Execute()
 	}
 	else
 	{
-		CAddDlg dlg;
-		dlg.m_pathList = pathList;
-		if (dlg.DoModal() == IDOK)
+		if (pathList.AreAllPathsFiles())
 		{
-			if (dlg.m_pathList.GetCount() == 0)
-				return FALSE;
-			CSVNProgressDlg progDlg;
-			theApp.m_pMainWnd = &progDlg;
-			progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Add);
-			if (parser.HasVal(_T("closeonend")))
-				progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
-			progDlg.SetPathList(dlg.m_pathList);
+			SVN svn;
 			ProjectProperties props;
-			props.ReadPropsPathList(dlg.m_pathList);
-			progDlg.SetProjectProperties(props);
-			progDlg.SetItemCount(dlg.m_pathList.GetCount());
-			progDlg.DoModal();
+			props.ReadPropsPathList(pathList);
+			svn.Add(pathList, &props, svn_depth_empty, FALSE, FALSE, TRUE);
+		}
+		else
+		{
+			CAddDlg dlg;
+			dlg.m_pathList = pathList;
+			if (dlg.DoModal() == IDOK)
+			{
+				if (dlg.m_pathList.GetCount() == 0)
+					return FALSE;
+				CSVNProgressDlg progDlg;
+				theApp.m_pMainWnd = &progDlg;
+				progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Add);
+				if (parser.HasVal(_T("closeonend")))
+					progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
+				progDlg.SetPathList(dlg.m_pathList);
+				ProjectProperties props;
+				props.ReadPropsPathList(dlg.m_pathList);
+				progDlg.SetProjectProperties(props);
+				progDlg.SetItemCount(dlg.m_pathList.GetCount());
+				progDlg.DoModal();
+			}
 		}
 	}
 	return true;

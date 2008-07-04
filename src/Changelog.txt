@@ -3,6 +3,8 @@
 - CHG: The right-drag context menu checks whether source and target are
        from the same repository and shows the "SVN move" and "SVN copy"
        commands only if they are. (Stefan)
+- CHG: When only files are selected for "Add", the Add-dialog is not
+       shown anymore but the files are added immediately. (Stefan)
 
 Version 1.5.1
 - BUG: The installer always installed the feature "associate .patch files
