@@ -60,6 +60,7 @@ private:
 	static UINT				ChangedStatusThreadEntry(LPVOID pVoid);
 	UINT					ChangedStatusThread();
 	void					UpdateStatistics();
+	DWORD					UpdateShowFlags();
 
 public: 
 	CTSVNPathList			m_pathList;

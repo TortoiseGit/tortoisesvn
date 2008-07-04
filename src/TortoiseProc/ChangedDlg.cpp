@@ -190,14 +190,28 @@ void CChangedDlg::OnBnClickedCheckrepo()
 	}
 }
 
+DWORD CChangedDlg::UpdateShowFlags()
+{
+	DWORD dwShow = m_FileListCtrl.GetShowFlags();
+	if (m_bShowUnversioned)
+		dwShow |= SVNSLC_SHOWUNVERSIONED;
+	else
+		dwShow &= ~SVNSLC_SHOWUNVERSIONED;
+	if (m_iShowUnmodified)
+		dwShow |= SVNSLC_SHOWNORMAL;
+	else
+		dwShow &= ~SVNSLC_SHOWNORMAL;
+	if (m_bShowIgnored)
+		dwShow |= SVNSLC_SHOWIGNORED;
+	else
+		dwShow &= ~SVNSLC_SHOWIGNORED;
+	return dwShow;
+}
+
 void CChangedDlg::OnBnClickedShowunversioned()
 {
 	UpdateData();
-	DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMAL | SVNSLC_SHOWLOCKS;
-	dwShow |= m_bShowUnversioned ? SVNSLC_SHOWUNVERSIONED : 0;
-	dwShow |= m_iShowUnmodified ? SVNSLC_SHOWNORMAL : 0;
-	dwShow |= m_bShowIgnored ? SVNSLC_SHOWIGNORED : 0;
-	m_FileListCtrl.Show(dwShow);
+	m_FileListCtrl.Show(UpdateShowFlags());
 	m_regAddBeforeCommit = m_bShowUnversioned;
 	UpdateStatistics();
 }
@@ -205,11 +219,7 @@ void CChangedDlg::OnBnClickedShowunversioned()
 void CChangedDlg::OnBnClickedShowUnmodified()
 {
 	UpdateData();
-	DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMAL | SVNSLC_SHOWLOCKS;
-	dwShow |= m_bShowUnversioned ? SVNSLC_SHOWUNVERSIONED : 0;
-	dwShow |= m_iShowUnmodified ? SVNSLC_SHOWNORMAL : 0;
-	dwShow |= m_bShowIgnored ? SVNSLC_SHOWIGNORED : 0;
-	m_FileListCtrl.Show(dwShow);
+	m_FileListCtrl.Show(UpdateShowFlags());
 	m_regAddBeforeCommit = m_bShowUnversioned;
 	UpdateStatistics();
 }

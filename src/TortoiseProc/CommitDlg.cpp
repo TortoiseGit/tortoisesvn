@@ -779,8 +779,11 @@ void CCommitDlg::OnBnClickedShowunversioned()
 	m_regAddBeforeCommit = m_bShowUnversioned;
 	if (!m_bBlock)
 	{
-		DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS | SVNSLC_SHOWLOCKS;
-		dwShow |= DWORD(m_regAddBeforeCommit) ? SVNSLC_SHOWUNVERSIONED : 0;
+		DWORD dwShow = m_ListCtrl.GetShowFlags();
+		if (DWORD(m_regAddBeforeCommit))
+			dwShow |= SVNSLC_SHOWUNVERSIONED;
+		else
+			dwShow &= ~SVNSLC_SHOWUNVERSIONED;
 		m_ListCtrl.Show(dwShow);
 	}
 }

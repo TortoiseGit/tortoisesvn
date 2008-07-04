@@ -748,6 +748,10 @@ public:
 	 * items are not checked if at least one changelist is available.
 	 */
 	void CheckIfChangelistsArePresent(bool bCheck) {m_bCheckIfGroupsExist = bCheck;}
+	/**
+	 * Returns the currently used show flags passed to the Show() method.
+	 */
+	DWORD GetShowFlags() {return m_dwShow;}
 public:
 	CString GetLastErrorMessage() {return m_sLastError;}
 
