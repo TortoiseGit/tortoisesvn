@@ -33,7 +33,10 @@ bool CTreeDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD *pdwEf
 	HTREEITEM hDropTarget = m_pRepoBrowser->m_RepoTree.GetNextItem(TVI_ROOT, TVGN_DROPHILITE);
 	if (hDropTarget)
 	{
-		targetUrl = ((CTreeItem*)m_pRepoBrowser->m_RepoTree.GetItemData(hDropTarget))->url;
+		CTreeItem * pItem = (CTreeItem*)m_pRepoBrowser->m_RepoTree.GetItemData(hDropTarget);
+		if (pItem == NULL)
+			return false;
+		targetUrl = pItem->url;
 	}
 	if (pFmtEtc->cfFormat == CF_UNICODETEXT && medium.tymed == TYMED_HGLOBAL)
 	{
