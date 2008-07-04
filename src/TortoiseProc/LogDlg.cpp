@@ -735,6 +735,7 @@ void CLogDlg::GetAll(bool bForceAll /* = false */)
 
 void CLogDlg::OnBnClickedRefresh()
 {
+	m_limit = 0;
 	Refresh (true);
 }
 
@@ -747,7 +748,6 @@ void CLogDlg::Refresh (bool autoGoOnline)
 
 	if ((m_limit == 0)||(m_bStrict)||(int(m_logEntries.size()-1) > m_limit))
 	{
-		m_limit = 0;
 		if (m_logEntries.size() != 0)
 		{
 			m_endrev = m_logEntries[m_logEntries.size()-1]->Rev;
@@ -3478,6 +3478,7 @@ void CLogDlg::OnBnClickedIncludemerge()
 {
 	m_endrev = 0;
 
+	m_limit = 0;
 	Refresh();
 }
 
@@ -4746,7 +4747,10 @@ void CLogDlg::OnSize(UINT nType, int cx, int cy)
 void CLogDlg::OnRefresh()
 {
 	if (GetDlgItem(IDC_GETALL)->IsWindowEnabled())
+	{
+		m_limit = 0;
 		Refresh (true);
+	}
 }
 
 void CLogDlg::OnFind()
