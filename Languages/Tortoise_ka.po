@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-13 13:41+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2008-07-05 23:33+0300\n"
+"Last-Translator: Giasher <giasher@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -825,6 +825,10 @@ msgstr "ჩემი ქმედებების მონაცემთა 
 msgid "&Reset to Default"
 msgstr "&აღდგენა ნაგულისხმებამდე"
 
+#. Resource IDs: (114)
+msgid "&Revert changes from these revisions"
+msgstr "ცვლილებების &აღდგენა ამ ვერსიებიდან"
+
 #. Resource IDs: (113)
 msgid "&Revert changes from this revision"
 msgstr "&ამ ვერსიის ცვლილებების გაუქმება"
@@ -964,6 +968,10 @@ msgstr "&TortoiseMerge"
 #. Resource IDs: (9)
 msgid "&TortoiseSVN"
 msgstr "&TortoiseSVN"
+
+#. Resource IDs: (1096)
+msgid "&TortoiseUDiff"
+msgstr "&TortoiseUDiff"
 
 #. Resource IDs: (3845)
 msgid "&Two Page"
@@ -1149,11 +1157,11 @@ msgstr "?"
 
 #. Resource IDs: (579)
 msgid "A list of user defined properties for files to show in the combo box"
-msgstr ""
+msgstr "საკუთარი პარამეტრების სია ჩამოშლადი სიის ფაილებისთვის"
 
 #. Resource IDs: (579)
 msgid "A list of user defined properties for folders to show in the combo box"
-msgstr ""
+msgstr "საკუთარი პარამეტრების სია ჩამოშლადი სიის დასტებისთვის"
 
 #. Resource IDs: (201)
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
@@ -1252,6 +1260,8 @@ msgid ""
 "ActiveX objects cannot be saved while exiting Windows!\n"
 "Discard all changes to %1?"
 msgstr ""
+"ActiveX ობიექტები ვერ შეინახება Windows-ის დახურვისას!\n"
+"გავაუქმო ცვლილებები - %1?"
 
 #. Resource IDs: (155, 209, 229)
 msgid "Add"
@@ -1408,10 +1418,12 @@ msgid ""
 "Allow different repositories to use the same URL, e.g. http://localhost/myrepos/\n"
 "Note: This will disable offline log access."
 msgstr ""
+"სხვადასხვა საცავებისთვის იგივე მისამართიშარგებლობის უფლება, მაგ., http://localhost/myrepos/\n"
+"შენიშვნა: ამ დროს ამოირთვება დავთრის ავტონომიური წვდომა."
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
-msgstr ""
+msgstr "ყოველთვის სიტემური ლოკალით სარგებლობა თარღისა და დროისთვის"
 
 #. Resource IDs: (339)
 msgid "Amount of memory required to load the cache"
@@ -1682,6 +1694,8 @@ msgid ""
 "Both /logmsg and /logmsgfile were specified!\n"
 "Only one of those can be specified."
 msgstr ""
+"ორივე /logmsg და /logmsgfile მიეთითეა!\n"
+"დასაშვებია მხოლოდ ერთის მითითება."
 
 #. Resource IDs: (1003)
 msgid "Br&owse..."
@@ -1693,7 +1707,7 @@ msgstr "განშტოება / ჭდე წარმატებით �
 
 #. Resource IDs: (2052)
 msgid "Branch at copy-from-rev even if there was no change in that revision"
-msgstr ""
+msgstr "copy-from-rev განშტოება ვერსიის უცვლელად დატოვების შემთხვევაშიც"
 
 #. Resource IDs: (9)
 msgid "Branch/&tag..."
@@ -1702,14 +1716,6 @@ msgstr "განშტოება/&ჭდე..."
 #. Resource IDs: (16)
 msgid "Break loc&k"
 msgstr "ბლოკირების მო&ხსნა"
-
-#. Resource IDs: (1009)
-msgid "Bro&wse..."
-msgstr "&ნუსხა..."
-
-#. Resource IDs: (1007)
-msgid "Brows&e..."
-msgstr "&ნუსხა..."
 
 #. Resource IDs: (78)
 msgid "Browse for the external diff program"
@@ -1738,6 +1744,10 @@ msgstr "ღილაკის იერსახე"
 #. Resource IDs: (1215)
 msgid "C&heck now"
 msgstr "&შემოწმება ახლავე"
+
+#. Resource IDs: (1132)
+msgid "C&heck repository"
+msgstr "საცავის შემო&წმება"
 
 #. Resource IDs: (65535)
 msgid "C&ommands:"
@@ -1921,10 +1931,6 @@ msgstr "შემოწმება ცვლილებებზე"
 msgid "Check out a working copy from a repository"
 msgstr "სამუშაო ასლის შექმნა საცავიდან"
 
-#. Resource IDs: (1132)
-msgid "Check repository"
-msgstr "საცავის შემოწმება"
-
 #. Resource IDs: (95)
 msgid ""
 "Check the files which you want to\n"
@@ -1992,6 +1998,8 @@ msgid ""
 "Cleanup failed to process the following paths:\n"
 "%s"
 msgstr ""
+"გასუფთავება ვერ მოხერხდა შემდეგი გეზებისთვის:\n"
+"%s"
 
 #. Resource IDs: (79)
 #, c-format
@@ -1999,6 +2007,8 @@ msgid ""
 "Cleanup has successfully processed the following paths:\n"
 "%s"
 msgstr ""
+"გასუფთავება წარმატებით შედგა შემდეგი გეზებისთვის:\n"
+"%s"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -2249,7 +2259,7 @@ msgstr "კონფლიქტები: %d"
 
 #. Resource IDs: (345)
 msgid "Connect to the repository server and download missing log data"
-msgstr ""
+msgstr "დაკავშირება საცავის სერვერთან და დავთრის მონაცემთა ჩამოტვირთვა"
 
 #. Resource IDs: (65535)
 msgid "Container sizes"
@@ -2431,11 +2441,10 @@ msgstr ""
 "<hr=100%%>\n"
 "%s"
 
-# Please insert formatting string %1 into the translation
 #. Resource IDs: (3867)
-#, fuzzy, c-format
+#, c-format
 msgid "Could not create %1 because the directory is full."
-msgstr "%1 ელემენტის შექმნა ვერ ხერხდება, რადგან დასტა გადავსებულია."
+msgstr "%s ელემენტის შექმნა ვერ ხერხდება, რადგან დასტა გადავსებულია."
 
 #. Resource IDs: (582)
 #, c-format
@@ -2610,6 +2619,8 @@ msgid ""
 "Creates a patch file from the differences of the two files\n"
 "Create patch file"
 msgstr ""
+"ბებკის ფაილის შექმნა ორი ფაილის სხვაობისთვის\n"
+"ბებკის ფაილის შექმნა"
 
 #. Resource IDs: (10)
 msgid "Creates a repository database at the current location"
@@ -2765,6 +2776,8 @@ msgid ""
 "Device Independent Bitmap\n"
 "a device independent bitmap"
 msgstr ""
+"მოწყობილობისგან დამოუკიდებელი წერტილოვანი გამოსახულება\n"
+"მოწყობილობისგან დამოუკიდებელი გამოსახულება"
 
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
@@ -2930,7 +2943,7 @@ msgstr "აღარ მიჩვენო ეს შეტყობინებ
 
 #. Resource IDs: (1002)
 msgid "Drag to make this menu float"
-msgstr ""
+msgstr "გადაათრიეთ ამ მენიუს მოტივტივედ გარდასაქმნელად"
 
 #. Resource IDs: (16513)
 msgid "Draw"
@@ -2943,6 +2956,10 @@ msgstr "დისკების ტიპები"
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
 msgstr "ასლების &ზუსტი წყაროები"
+
+#. Resource IDs: (65535)
+msgid "E&xclude paths:"
+msgstr "ამ გეზების გარე&შე:"
 
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
@@ -3199,13 +3216,9 @@ msgstr ""
 msgid "Exceptions:"
 msgstr "გამონაკლისები:"
 
-#. Resource IDs: (65535)
-msgid "Exclude paths:"
-msgstr "გამოტოვებული გეზები:"
-
 #. Resource IDs: (1002)
 msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
-msgstr ""
+msgstr "შესრულებადი (*.exe)|*.exe|ბრძანების (*.com)|*.com|საინფორმაციო (*.pdf)|*.pdf|მჭიდი (*.bat)|*.bat|ყველა ფაილი (*.*)|*.*||"
 
 #. Resource IDs: (1002)
 msgid "Existing"
@@ -3242,7 +3255,7 @@ msgstr "საექსპორტო დასტა:"
 
 #. Resource IDs: (345)
 msgid "Export the selected cache as a set of Comma Separated Value (CSV) files"
-msgstr ""
+msgstr "ბუფერის ექსპორტი მძიმით დაყოფილი მნიშვნელობების (CSV) ფაილში"
 
 #. Resource IDs: (79)
 msgid "Export unversioned files too"
@@ -3327,7 +3340,7 @@ msgstr "ცარიელი დოკუმენტის შექმნა 
 
 #. Resource IDs: (3865)
 msgid "Failed to create object.  Make sure the application is entered in the system registry."
-msgstr ""
+msgstr "ობიექტის შექმნა ვერ ხერხდება. გადაამოწმეთ პროგრამის სისტემურ რეგისტრში არსებობა."
 
 #. Resource IDs: (3857)
 msgid "Failed to launch help."
@@ -3760,7 +3773,7 @@ msgstr "დაუკავშირებელი შეცვლილი გ�
 
 #. Resource IDs: (65535)
 msgid "H&ue:"
-msgstr ""
+msgstr "&ტონალობა:"
 
 #. Resource IDs: (1353, 1354)
 msgid "HEAD"
@@ -3813,7 +3826,7 @@ msgstr "მინიშნება: დააჭირეთ F5-ს მით�
 
 #. Resource IDs: (16519)
 msgid "Hint: select the context menu, change the page to \"Commands\" and drag the toolbar buttons into the menu window."
-msgstr ""
+msgstr "Hint: select the context menu, change the page to \"Commands\" and drag the toolbar buttons into the menu window."
 
 #. Resource IDs: (1064)
 msgid "Home"
@@ -3839,6 +3852,10 @@ msgstr "ბმულის ტიპი:"
 #, c-format
 msgid "Hostname mismatch (%s)"
 msgstr "სერვერის სახელი მცდარია (%s)"
+
+#. Resource IDs: (65535)
+msgid "I&nclude paths:"
+msgstr "გეზების &ჩათვლით:"
 
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
@@ -4103,7 +4120,7 @@ msgstr ""
 
 #. Resource IDs: (1439)
 msgid "If the repository can not be contacted"
-msgstr ""
+msgstr "თუ საცავთან დაკავშირება ვერ ხერხდება"
 
 #. Resource IDs: (196)
 msgid ""
@@ -4197,7 +4214,7 @@ msgstr "იმპორტი - TortoiseSVN"
 
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
-msgstr ""
+msgstr "ადრე შენახული პარამეტრების ნაკრების ფაილიდან იმპორტი"
 
 #. Resource IDs: (127)
 #, c-format
@@ -4247,10 +4264,6 @@ msgstr "შერწყმული ვერსიების ჩათვლ�
 msgid "Include only the following revision range:"
 msgstr "მხოლოდ შემდეგი ვერსიების რანგის გათვალისწინება:"
 
-#. Resource IDs: (65535)
-msgid "Include paths:"
-msgstr "გეზის ჩათვლით:"
-
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
 msgstr "ფაილის მცდარი სახელი."
@@ -4285,7 +4298,7 @@ msgstr "პროგრამის შიდა შეცდომა."
 
 #. Resource IDs: (339)
 msgid "Internal value indicating compression quality"
-msgstr ""
+msgstr "შეკუმშვის ხარისხის მაჩვენებალი შიდა მნიშვნელობა"
 
 #. Resource IDs: (3850)
 msgid "Invalid Currency."
@@ -4438,11 +4451,11 @@ msgstr "ელემენტის ბოლო შენახული ვე
 
 #. Resource IDs: (338)
 msgid "Last time the cache content was changed"
-msgstr ""
+msgstr "ბუფერის შიგთავსის ბოლო ცვლილების დრო"
 
 #. Resource IDs: (338)
 msgid "Last time the cache was accessed"
-msgstr ""
+msgstr "ბუფერის ბოლო წვდომის დრო"
 
 #. Resource IDs: (338)
 msgid "Last time the repository was asked for the HEAD revision number"
@@ -4659,7 +4672,7 @@ msgstr "მონიშვნა მოგვარებულად"
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
-msgstr ""
+msgstr "თქვენი სამუშაო ასლის მიმდინარე ვერსიის მონიშვნა"
 
 #. Resource IDs: (101)
 msgid "Mark for comparison"
@@ -5135,7 +5148,7 @@ msgstr "არა რეკურსიული"
 
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
-msgstr ""
+msgstr "შენიშვნა: შრიფტის პარამეტრები TortoiseUDiff ჩვენების პროგრამასაც შეეხება"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -5151,7 +5164,7 @@ msgstr "ავტორთა როდენობა:"
 
 #. Resource IDs: (339)
 msgid "Number of cached merged revisions"
-msgstr ""
+msgstr "ბუფერირებულ შერწყმულ ვერსიათა რაოდენობა"
 
 #. Resource IDs: (339)
 msgid "Number of cached revisions"
@@ -5159,19 +5172,19 @@ msgstr "ვერსიათა რაოდენობა ბუფერშ�
 
 #. Resource IDs: (339)
 msgid "Number of cached revisions that have a non-empty change list"
-msgstr ""
+msgstr "ბუფერირებულ ვერსიათა რაოდენობა რომელთა ცვლილებების სია ცარიელი არაა"
 
 #. Resource IDs: (339)
 msgid "Number of cached revisions that have user revision properties"
-msgstr ""
+msgstr "ბუფერირებულ ვერსიათა რაოდენობა მონაწილის ვერსიების პარამეტრებით"
 
 #. Resource IDs: (339)
 msgid "Number of cached revisions whose change list is not cached yet"
-msgstr ""
+msgstr "ბუფერირებულ ვერსიათა რაოდენობა რომელთა ცვლილებების სია ჯერ არ ბუფერირებულა"
 
 #. Resource IDs: (339)
 msgid "Number of cached revisions whose user revision properties are not cached yet"
-msgstr ""
+msgstr "ბუფერირებულ ვერსიათა რაოდენობა რომელთა მონაწილის პარამეტრები ჯერ არ ბუფერირებულა"
 
 #. Resource IDs: (338)
 msgid "Number of different paths shown in the log dialog, including parent paths"
@@ -6137,10 +6150,6 @@ msgstr "აღდგენა"
 msgid "Revert - TortoiseSVN"
 msgstr "აღდგენა - TortoiseSVN"
 
-#. Resource IDs: (114)
-msgid "Revert changes from these revisions"
-msgstr "ცვლილებების აღდგენა ამ ვერსიებიდან"
-
 #. Resource IDs: (73)
 msgid "Reverted"
 msgstr "აღდგენილი"
@@ -6207,7 +6216,7 @@ msgstr "ვერსია:"
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld\n"
+"Revision: %ld\r\n"
 "URL: %s\r\n"
 "Author: %s\r\n"
 "Date: %s\r\n"
@@ -6215,7 +6224,7 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"ვერსია: %ld\n"
+"ვერსია: %ld\r\n"
 "მისამართი: %s\r\n"
 "ავტორი: %s\r\n"
 "თარიღი: %s\r\n"
@@ -6226,7 +6235,7 @@ msgstr ""
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld\n"
+"Revision: %ld\r\n"
 "URL: %s\r\n"
 "Author: %s\r\n"
 "Date: %s\r\n"
@@ -6236,14 +6245,14 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"ვერსია: %ld\n"
+"ვერსია: %ld\r\n"
 "მისამართი: %s\r\n"
 "ავტორი: %s\r\n"
 "თარიღი: %s\r\n"
 "\r\n"
 "ჭდეები:%s\r\n"
 "\r\n"
-"გზავნილი:\r\n"
+"ჩანაწერი:\r\n"
 "%s"
 
 #. Resource IDs: (116, 65535)
@@ -6718,6 +6727,10 @@ msgstr "&დავთრის ჩვენება..."
 msgid "Show &overlays and context menu only in explorer"
 msgstr "&თარგებისა და კონტექსტური მენიუების მხოლოდ გზამკვლევში ჩვენება"
 
+#. Resource IDs: (1265)
+msgid "Show &properties"
+msgstr "&პარამეტრების ჩვენება"
+
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
 msgstr "&არავერსიული ფაილების ჩვენება"
@@ -6793,8 +6806,8 @@ msgid "Show f&ull menus after a short delay"
 msgstr "მენიუების &სრულად ჩვენება მცირე დაყოვნებით"
 
 #. Resource IDs: (1264)
-msgid "Show ignored files"
-msgstr "გამოტოვებული ფაილების ჩვენება"
+msgid "Show i&gnored files"
+msgstr "&გამოტოვებული ფაილების ჩვენება"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
@@ -6844,10 +6857,6 @@ msgstr "თარგის ჩვენება გამოტოვებუ�
 msgid "Show overlay for unversioned items"
 msgstr "თარგის ჩვენება არავერსიული ელემენტებისთვის"
 
-#. Resource IDs: (1265)
-msgid "Show properties"
-msgstr "პარამეტრების ჩვენება"
-
 #. Resource IDs: (102)
 msgid "Show revision properties"
 msgstr "ვერსიის პარამეტრების ჩვენება"
@@ -6873,12 +6882,12 @@ msgid "Show tags on the copy source, not as separate nodes"
 msgstr ""
 
 #. Resource IDs: (1209)
-msgid "Show unmodified files"
-msgstr "უცვლელი ფაილების ჩვენება"
+msgid "Show un&modified files"
+msgstr "&უცვლელი ფაილების ჩვენება"
 
 #. Resource IDs: (1073)
-msgid "Show unversioned files"
-msgstr "არავერსიული ფაილების ჩვენება"
+msgid "Show un&versioned files"
+msgstr "&არავერსიული ფაილების ჩვენება"
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -7795,7 +7804,7 @@ msgstr "TortoiseIDiff"
 
 #. Resource IDs: (65535)
 msgid "TortoiseIDiff - An image diff tool, part of TortoiseSVN"
-msgstr ""
+msgstr "TortoiseIDiff - გამოსახულებათა შედარების ხელსაწყო, TortoiseSVN პროგრამის ნაწილი"
 
 #. Resource IDs: (7)
 msgid ""
@@ -7892,7 +7901,7 @@ msgstr "შეცვლილი ფაილები სულ:"
 
 #. Resource IDs: (339)
 msgid "Total number of changes over all cached revisions"
-msgstr ""
+msgstr "ცვლილებათა სრული რაოდენობა ყველა ბუფერირებული ვერსიისთვის"
 
 #. Resource IDs: (339)
 msgid "Total number of merged revisions"
@@ -7963,6 +7972,9 @@ msgid ""
 "%s\n"
 "Please use the main merge dialog."
 msgstr ""
+"ვრე ხერხდება შერწყმის წყაროს განსაზღვრა\n"
+"%s\n"
+"გთხოვთ ისარგებლოთ შერწყმის მთავარი დიალოგით."
 
 #. Resource IDs: (3866)
 msgid "Unable to load mail system support."
@@ -7970,7 +7982,7 @@ msgstr "ვერ ვტვირთავ საფოსტო სისტე
 
 #. Resource IDs: (3865)
 msgid "Unable to process command, server busy."
-msgstr ""
+msgstr "ბრძანების დამუშავება ვერ ხერხდება, სერვერი დაკავებულია."
 
 #. Resource IDs: (3859)
 #, c-format
@@ -8072,7 +8084,7 @@ msgstr "დაბლოკვის მოხსნილია"
 
 #. Resource IDs: (565)
 msgid "Unrecognized or invalid property file format!"
-msgstr ""
+msgstr "პარამეტრების ფაილის უცნობი ან უმართებლო ფორმატი!"
 
 #. Resource IDs: (3841)
 msgid "Untitled"
@@ -8167,8 +8179,8 @@ msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "სამუშაო &ასლის საწყისი URL-ს მითითება ველში \"აქედან:\""
 
 #. Resource IDs: (1064)
-msgid "Use Unified Diff from clipboard"
-msgstr "ბებკის გამოყენება ბუფერიდან"
+msgid "Use Unified Diff from &clipboard"
+msgstr "უნიფიცირებული ბებკის გამოყენება &ბუფერიდან"
 
 #. Resource IDs: (1296)
 msgid "Use \"_svn\" instead of \".svn\" directories"
@@ -8179,6 +8191,8 @@ msgid ""
 "Use all content from the left view\n"
 "Use left file"
 msgstr ""
+"ყველა მონაცემის გამოყენება მარცხნიდან\n"
+"მარცხენა ფაილით სარგებლობა"
 
 #. Resource IDs: (32857)
 msgid "Use block from left before right"
@@ -8218,7 +8232,7 @@ msgstr "ლოკალით სარგებლობა"
 
 #. Resource IDs: (1432)
 msgid "Use recycle bin when reverting"
-msgstr ""
+msgstr "აღდგენისას ურნით სარგებლობა"
 
 #. Resource IDs: (116)
 msgid "Use regular expression"
@@ -9099,9 +9113,9 @@ msgstr ""
 msgid ""
 "svn:externals\n"
 "A newline separated list of module specifiers, each of which consists of\n"
-"a relative directory path, optional revision flags, and an URL. For example\n"
-"foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"an optional revision, an URL and a relative directory path. For example\n"
+"http://example.com/repos/zig\tfoo\n"
+"-r 1234\thttp://example.com/repos/zag\tfoo/bar\n"
 "\n"
 "The URLs can either be full URLs or relative. The format for\n"
 "the relative URLs is:\n"
@@ -9114,8 +9128,8 @@ msgstr ""
 "სტრიქონების გადატანით გამოყოფილი მოდულების განმსაზღვრელები,\n"
 "რომელთაგან თითოეული დასტის ფარდობით გეზს,\n"
 "ვერსიის შესაძლო ალმებსა და URL-ს შეიცავს. მაგალითად:\n"
-"foo\t\thttp://example.com/repos/zig\n"
-"foo/bar -r 1234\thttp://example.com/repos/zag\n"
+"http://example.com/repos/zig\tfoo\n"
+"-r 1234\thttp://example.com/repos/zag\tfoo/bar\n"
 "\n"
 "მისამართები შესაძლოა იყოს სრული ან ფარდობითი.\n"
 "ფარდობითი მისამართის ფორმატია:\n"
@@ -9378,6 +9392,10 @@ msgstr "დიახ"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Bro&wse..."
+#~ msgstr "&ნუსხა..."
+#~ msgid "Brows&e..."
+#~ msgstr "&ნუსხა..."
 #~ msgid "&Open Ctrl-O"
 #~ msgstr "&გახსნა Ctrl-O"
 #~ msgid "&Save Ctrl-S"
