@@ -102,7 +102,6 @@
 				<include name="include\arch\win32" />
 			</includedirs>
 			<defines>
-				<define name="_USE_32BIT_TIME_T" if="${platform == 'win32'}" />
 				<define name="APR_DECLARE_EXPORT" if="${static != 'static'}"/>
 				<define name="APR_DECLARE_STATIC" if="${static == 'static'}"/>
 				<define name="WIN32" />

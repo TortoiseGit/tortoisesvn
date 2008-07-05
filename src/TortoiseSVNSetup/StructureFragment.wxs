@@ -44,7 +44,6 @@
 						<File Id="F__tortoisesvnlicense" Name="LICENSE.TXT" LongName="TortoiseSVN License.txt" DiskId="1" src="..\gpl.txt" />
 						<File Id="F__openssllicense" Name="OSSL_LIC.TXT" LongName="OpenSSL License.txt" DiskId="1" src="include\OpenSSL_License.txt" />
 						<File Id="F__aprlicense" Name="APR_LIC.TXT" LongName="apr License.txt" DiskId="1" src="..\..\ext\apr\LICENSE" />
-						<File Id="F__bdblicense" Name="BDB_LIC.TXT" LongName="BerkeleyDB License.txt" DiskId="1" src="include\BDB_License.txt" />
 						<File Id="F__sasllicense" Name="CYRUSSAS.TXT" LongName="CyrusSASL License.txt" DiskId="1" src="include\CyrusSASL_License.txt" />
 					</Component>
 
@@ -190,10 +189,6 @@
 					</Component>
 
 					<Directory Id="D__Bin" Name="BIN" LongName="bin" >
-
-						<Component Id="C__berkeleydb" Guid="$(var.GuidBerkeleyDB)" Win64="$(var.Win64YesNo)">
-							<File Id="F__libdb44" Name="LIBDB44.DLL" LongName="libdb44.dll" DiskId="1" src="..\..\ext\berkeley-db\db4.4-$(var.PlatformPathExtension)\bin\libdb44.dll" KeyPath="yes" />
-						</Component>
 
 						<Component Id="C__apr" Guid="$(var.GuidAPR)" Win64="$(var.Win64YesNo)">
 							<File Id="F__libapr" Name="LIBAPR.DLL" LongName="libapr_tsvn.dll" DiskId="1" src="..\..\ext\apr\release_$(var.PlatformPathExtension)\libapr_tsvn.dll" KeyPath="yes" />

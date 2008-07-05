@@ -5,6 +5,7 @@
        commands only if they are. (Stefan)
 - CHG: When only files are selected for "Add", the Add-dialog is not
        shown anymore but the files are added immediately. (Stefan)
+- CHG: file:// access to BDB based repositories is no longer supported. (Stefan)
 
 Version 1.5.1
 - BUG: The installer always installed the feature "associate .patch files
