@@ -30,6 +30,7 @@
 #include "LogDlgHelper.h"
 #include "FilterEdit.h"
 #include "SVNRev.h"
+#include "Tooltip.h"
 
 #include <regex>
 using namespace std;
@@ -254,7 +255,7 @@ private:
 	CString				m_sLogInfo;
 	std::set<svn_revnum_t> m_mergedRevs;
 
-	CBalloon			m_tooltips;
+	CToolTips			m_tooltips;
 
 	CTime				m_timFrom;
 	CTime				m_timTo;

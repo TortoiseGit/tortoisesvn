@@ -19,7 +19,7 @@
 #pragma once
 
 #include "SettingsPropPage.h"
-#include "Balloon.h"
+#include "Tooltip.h"
 #include "Registry.h"
 
 /**
@@ -74,7 +74,7 @@ private:
 	CRegDWORD		m_regShowIgnoredOverlay;
 	CRegDWORD		m_regShowUnversionedOverlay;
 	CRegDWORD		m_regShowExcludedAsNormal;
-	CBalloon		m_tooltips;
+	CToolTips		m_tooltips;
 	CRegString		m_regExcludePaths;
 	CString			m_sExcludePaths;
 	CRegString		m_regIncludePaths;

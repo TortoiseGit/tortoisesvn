@@ -18,7 +18,7 @@
 //
 #pragma once
 #include "MergeWizardBasePage.h"
-#include "Balloon.h"
+#include "Tooltip.h"
 
 /**
  * Last page in the merge wizard for selecting the merge options.
@@ -47,5 +47,5 @@ protected:
 	
 	
 	CComboBox						m_depthCombo;
-	CBalloon						m_tooltips;
+	CToolTips						m_tooltips;
 };

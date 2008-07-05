@@ -510,11 +510,9 @@ void CLogDlg::CheckRegexpTooltip()
 	if (m_bFilterWithRegex)
 	{
 		m_tooltips.AddTool(pWnd, IDS_LOG_FILTER_REGEX_TT);
-		// Anchor may overlap input box, obstructing user's view, so disable it.
-		m_tooltips.ModifyStyles(0, BALLOON_ANCHOR, pWnd);
 	}
 	else
-		m_tooltips.RemoveTool(pWnd);
+		m_tooltips.DelTool(pWnd);
 }
 
 void CLogDlg::EnableOKButton()

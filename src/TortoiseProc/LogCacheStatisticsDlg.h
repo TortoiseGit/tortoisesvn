@@ -17,7 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-#include "Balloon.h"
+#include "Tooltip.h"
 
 ///////////////////////////////////////////////////////////////
 // forward declarations
@@ -77,5 +77,5 @@ private:
     CString DateToString (__time64_t time);
     CString ToString (__int64 value);
 
-	CBalloon m_tooltips;
+	CToolTips m_tooltips;
 };

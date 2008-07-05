@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -197,8 +197,8 @@ void CSetSavedDataPage::OnBnClickedUrlhistclear()
 	CRegistryKey reg(_T("Software\\TortoiseSVN\\History\\repoURLS"));
 	reg.removeKey();
 	m_btnUrlHistClear.EnableWindow(FALSE);
-	m_tooltips.RemoveTool(GetDlgItem(IDC_URLHISTCLEAR));
-	m_tooltips.RemoveTool(GetDlgItem(IDC_URLHISTORY));
+	m_tooltips.DelTool(GetDlgItem(IDC_URLHISTCLEAR));
+	m_tooltips.DelTool(GetDlgItem(IDC_URLHISTORY));
 }
 
 void CSetSavedDataPage::OnBnClickedLoghistclear()
@@ -217,8 +217,8 @@ void CSetSavedDataPage::OnBnClickedLoghistclear()
 	}
 
 	m_btnLogHistClear.EnableWindow(FALSE);
-	m_tooltips.RemoveTool(GetDlgItem(IDC_RESIZABLEHISTCLEAR));
-	m_tooltips.RemoveTool(GetDlgItem(IDC_RESIZABLEHISTORY));
+	m_tooltips.DelTool(GetDlgItem(IDC_RESIZABLEHISTCLEAR));
+	m_tooltips.DelTool(GetDlgItem(IDC_RESIZABLEHISTORY));
 }
 
 void CSetSavedDataPage::OnBnClickedResizablehistclear()
@@ -226,8 +226,8 @@ void CSetSavedDataPage::OnBnClickedResizablehistclear()
 	CRegistryKey reg(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState"));
 	reg.removeKey();
 	m_btnResizableHistClear.EnableWindow(FALSE);
-	m_tooltips.RemoveTool(GetDlgItem(IDC_RESIZABLEHISTCLEAR));
-	m_tooltips.RemoveTool(GetDlgItem(IDC_RESIZABLEHISTORY));
+	m_tooltips.DelTool(GetDlgItem(IDC_RESIZABLEHISTCLEAR));
+	m_tooltips.DelTool(GetDlgItem(IDC_RESIZABLEHISTORY));
 }
 
 void CSetSavedDataPage::OnBnClickedAuthhistclear()
@@ -249,8 +249,8 @@ void CSetSavedDataPage::OnBnClickedAuthhistclear()
 		SHFileOperation(&fileop);
 	}
 	m_btnAuthHistClear.EnableWindow(FALSE);
-	m_tooltips.RemoveTool(GetDlgItem(IDC_AUTHHISTCLEAR));
-	m_tooltips.RemoveTool(GetDlgItem(IDC_AUTHHISTORY));
+	m_tooltips.DelTool(GetDlgItem(IDC_AUTHHISTCLEAR));
+	m_tooltips.DelTool(GetDlgItem(IDC_AUTHHISTORY));
 }
 
 void CSetSavedDataPage::OnBnClickedRepologclear()
@@ -270,8 +270,8 @@ void CSetSavedDataPage::OnBnClickedRepologclear()
 	SHFileOperation(&fileop);
 
 	m_btnRepoLogClear.EnableWindow(FALSE);
-	m_tooltips.RemoveTool(GetDlgItem(IDC_REPOLOG));
-	m_tooltips.RemoveTool(GetDlgItem(IDC_REPOLOGCLEAR));
+	m_tooltips.DelTool(GetDlgItem(IDC_REPOLOG));
+	m_tooltips.DelTool(GetDlgItem(IDC_REPOLOGCLEAR));
 }
 
 void CSetSavedDataPage::OnBnClickedActionlogshow()

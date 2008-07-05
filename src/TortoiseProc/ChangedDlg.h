@@ -22,6 +22,7 @@
 #include "SVN.h"
 #include "SVNStatusListCtrl.h"
 #include "Registry.h"
+#include "Tooltip.h"
 
 
 /**
@@ -76,6 +77,6 @@ private:
 	bool					m_bCanceled;
 	BOOL					m_bShowIgnored;
 	BOOL					m_bShowUserProps;
-	CBalloon				m_tooltips;
+	CToolTips				m_tooltips;
 };
 

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2006, 2008 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,6 +22,7 @@
 #include "HistoryCombo.h"
 #include "FileDropEdit.h"
 #include "LogDlg.h"
+#include "Tooltip.h"
 #include "afxwin.h"
 
 
@@ -61,7 +62,7 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 protected:
-	CBalloon		m_tooltips;
+	CToolTips		m_tooltips;
 	CString			m_sRevision;
 	CComboBox		m_eolCombo;
 	CString			m_sExportDirOrig;

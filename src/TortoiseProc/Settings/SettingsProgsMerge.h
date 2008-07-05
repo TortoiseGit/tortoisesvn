@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,6 +20,7 @@
 #include "SettingsPropPage.h"
 #include "SetProgsAdvDlg.h"
 #include "FileDropEdit.h"
+#include "Tooltip.h"
 
 /**
  * \ingroup TortoiseProc
@@ -58,7 +59,7 @@ private:
 	CRegString		m_regMergePath;
 	int             m_iExtMerge;
 	CSetProgsAdvDlg m_dlgAdvMerge;
-	CBalloon		m_tooltips;
+	CToolTips		m_tooltips;
 
 	CFileDropEdit	m_cMergeEdit;
 };

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,7 +20,7 @@
 
 #include "SVNRev.h"
 #include "HistoryCombo.h"
-#include "Balloon.h"
+#include "Tooltip.h"
 
 class CRepositoryTree;
 
@@ -121,7 +121,7 @@ private:
 	CButton m_btnRevision;
 
 	SVNRev	m_headRev;
-	CBalloon m_tooltips;
+	CToolTips m_tooltips;
 };
 
 

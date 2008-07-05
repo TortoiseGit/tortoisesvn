@@ -23,6 +23,7 @@
 #include "FileDropEdit.h"
 #include "LogDlg.h"
 #include "afxwin.h"
+#include "Tooltip.h"
 
 /**
  * \ingroup TortoiseProc
@@ -59,7 +60,7 @@ protected:
 
 	void		SetRevision(const SVNRev& rev);
 protected:
-	CBalloon		m_tooltips;
+	CToolTips		m_tooltips;
 	CString			m_sRevision;
 	CString			m_sCheckoutDirOrig;
 	bool			m_bAutoCreateTargetName;

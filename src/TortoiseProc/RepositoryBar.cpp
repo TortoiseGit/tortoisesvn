@@ -161,7 +161,7 @@ void CRepositoryBar::ShowUrl(const CString& url, SVNRev rev)
 		m_tooltips.AddTool(&m_btnRevision, sTTText);
 	}
 	else
-		m_tooltips.RemoveTool(&m_btnRevision);
+		m_tooltips.DelTool(&m_btnRevision);
 }
 
 void CRepositoryBar::GotoUrl(const CString& url, SVNRev rev, bool bAlreadyChecked /* = false */)
@@ -226,7 +226,7 @@ void CRepositoryBar::SetRevision(SVNRev rev)
 		m_tooltips.AddTool(&m_btnRevision, sTTText);
 	}
 	else
-		m_tooltips.RemoveTool(&m_btnRevision);
+		m_tooltips.DelTool(&m_btnRevision);
 }
 
 CString CRepositoryBar::GetCurrentUrl() const
