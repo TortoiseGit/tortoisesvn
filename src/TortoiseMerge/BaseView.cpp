@@ -85,6 +85,7 @@ CBaseView::CBaseView()
 	m_ModifiedBk = CRegDWORD(_T("Software\\TortoiseMerge\\ColorModifiedB"), MODIFIED_COLOR);
 	m_WhiteSpaceFg = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
 	m_sWordSeparators = CRegString(_T("Software\\TortoiseMerge\\WordSeparators"), _T("[]();.,{}!@#$%^&*-+=|/\\<>'`~"));;
+	m_bIconLFs = CRegDWORD(_T("Software\\TortoiseMerge\\IconLFs"), 1);
 	m_nSelBlockStart = -1;
 	m_nSelBlockEnd = -1;
 	m_bModified = FALSE;
@@ -210,6 +211,7 @@ void CBaseView::DocumentUpdated()
 	m_InlineRemovedBk = CRegDWORD(_T("Software\\TortoiseMerge\\InlineRemoved"), INLINEREMOVED_COLOR);
 	m_ModifiedBk = CRegDWORD(_T("Software\\TortoiseMerge\\ColorModifiedB"), MODIFIED_COLOR);
 	m_WhiteSpaceFg = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
+	m_bIconLFs = CRegDWORD(_T("Software\\TortoiseMerge\\IconLFs"), 1);
 	for (int i=0; i<MAXFONTS; i++)
 	{
 		if (m_apFonts[i] != NULL)
@@ -1206,67 +1208,71 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
 	if (!(m_bViewWhitespace && m_pViewData && (nLineIndex >= 0) && (nLineIndex < m_pViewData->GetCount())))
 		return;
 
-	HICON hEndingIcon = NULL;
 	EOL ending = m_pViewData->GetLineEnding(nLineIndex);
-	switch (ending)
+	if (m_bIconLFs)
 	{
+		HICON hEndingIcon = NULL;
+		switch (ending)
+		{
 		case EOL_CR:	hEndingIcon = m_hLineEndingCR;		break;
 		case EOL_CRLF:	hEndingIcon = m_hLineEndingCRLF;	break;
 		case EOL_LF:	hEndingIcon = m_hLineEndingLF;		break;
 		default: return;
-	}
-	if (origin.x < (rc.left-GetCharWidth()))
-		return;
-	// If EOL style has changed, color end-of-line markers as inline differences.
-	if(
-		m_bShowInlineDiff && m_pOtherViewData &&
-		(nLineIndex < m_pOtherViewData->GetCount()) &&
-		(ending != EOL_NOENDING) &&
-		(ending != m_pOtherViewData->GetLineEnding(nLineIndex) &&
-		(m_pOtherViewData->GetLineEnding(nLineIndex) != EOL_NOENDING))
-	)
-	{
-		pDC->FillSolidRect(origin.x, origin.y, rc.Height(), rc.Height(), InlineDiffColor(nLineIndex));
-	}
+		}
+		if (origin.x < (rc.left-GetCharWidth()))
+			return;
+		// If EOL style has changed, color end-of-line markers as inline differences.
+		if(
+			m_bShowInlineDiff && m_pOtherViewData &&
+			(nLineIndex < m_pOtherViewData->GetCount()) &&
+			(ending != EOL_NOENDING) &&
+			(ending != m_pOtherViewData->GetLineEnding(nLineIndex) &&
+			(m_pOtherViewData->GetLineEnding(nLineIndex) != EOL_NOENDING))
+			)
+		{
+			pDC->FillSolidRect(origin.x, origin.y, rc.Height(), rc.Height(), InlineDiffColor(nLineIndex));
+		}
 
-	DrawIconEx(pDC->GetSafeHdc(), origin.x, origin.y, hEndingIcon, rc.Height(), rc.Height(), NULL, NULL, DI_NORMAL);
-	
-	// while the icons don't look that good either, the trial below looks even worse.
-	// but Simon mentioned that 'slim' newline chars would look better, so I'm leaving this here for now:
-	// maybe we can use it later...
-	//CRegDWORD regWhitespaceColor(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
-	//CPen pen(PS_SOLID, 0, (DWORD)regWhitespaceColor);
-	//CPen * oldpen = pDC->SelectObject(&pen);
-	//int yMiddle = origin.y + rc.Height()/2;
-	//switch (ending)
-	//{
-	//case EOL_CR:
-	//	// arrow from right to left
-	//	pDC->MoveTo(origin.x+GetCharWidth(), yMiddle);
-	//	pDC->LineTo(origin.x, yMiddle);
-	//	pDC->LineTo(origin.x+4, rc.top+2);
-	//	pDC->MoveTo(origin.x, yMiddle);
-	//	pDC->LineTo(origin.x+4, rc.bottom-2);
-	//	break;
-	//case EOL_CRLF:
-	//	// arrow from top to middle, then left
-	//	pDC->MoveTo(origin.x+GetCharWidth(), rc.top);
-	//	pDC->LineTo(origin.x+GetCharWidth(), yMiddle+2);
-	//	pDC->LineTo(origin.x, yMiddle+2);
-	//	pDC->LineTo(origin.x+4, rc.top+2);
-	//	pDC->MoveTo(origin.x, yMiddle+2);
-	//	pDC->LineTo(origin.x+4, rc.bottom-2);
-	//	break;
-	//case EOL_LF:
-	//	// arrow from top to bottom
-	//	pDC->MoveTo(origin.x+GetCharWidth()/2, rc.top);
-	//	pDC->LineTo(origin.x+GetCharWidth()/2, rc.bottom);
-	//	pDC->LineTo(origin.x+GetCharWidth(), rc.top+4);
-	//	pDC->MoveTo(origin.x+GetCharWidth()/2, rc.bottom);
-	//	pDC->LineTo(origin.x, rc.top+4);
-	//	break;
-	//}
-	//pDC->SelectObject(oldpen);
+		DrawIconEx(pDC->GetSafeHdc(), origin.x, origin.y, hEndingIcon, rc.Height(), rc.Height(), NULL, NULL, DI_NORMAL);
+	}
+	else
+	{
+		// while the icons don't look that good either, the trial below looks even worse.
+		// but Simon mentioned that 'slim' newline chars would look better, so I'm leaving this here for now:
+		// maybe we can use it later...
+		CPen pen(PS_SOLID, 0, m_WhiteSpaceFg);
+		CPen * oldpen = pDC->SelectObject(&pen);
+		int yMiddle = origin.y + rc.Height()/2;
+		switch (ending)
+		{
+		case EOL_CR:
+			// arrow from right to left
+			pDC->MoveTo(origin.x+GetCharWidth(), yMiddle);
+			pDC->LineTo(origin.x, yMiddle);
+			pDC->LineTo(origin.x+4, rc.top+2);
+			pDC->MoveTo(origin.x, yMiddle);
+			pDC->LineTo(origin.x+4, rc.bottom-2);
+			break;
+		case EOL_CRLF:
+			// arrow from top to middle, then left
+			pDC->MoveTo(origin.x+GetCharWidth(), rc.top);
+			pDC->LineTo(origin.x+GetCharWidth(), yMiddle+2);
+			pDC->LineTo(origin.x, yMiddle+2);
+			pDC->LineTo(origin.x+4, rc.top+2);
+			pDC->MoveTo(origin.x, yMiddle+2);
+			pDC->LineTo(origin.x+4, rc.bottom-2);
+			break;
+		case EOL_LF:
+			// arrow from top to bottom
+			pDC->MoveTo(origin.x+GetCharWidth()/2, rc.top);
+			pDC->LineTo(origin.x+GetCharWidth()/2, rc.bottom);
+			pDC->LineTo(origin.x+GetCharWidth(), rc.top+4);
+			pDC->MoveTo(origin.x+GetCharWidth()/2, rc.bottom);
+			pDC->LineTo(origin.x, rc.top+4);
+			break;
+		}
+		pDC->SelectObject(oldpen);
+	}	
 }
 
 void CBaseView::DrawBlockLine(CDC *pDC, const CRect &rc, int nLineIndex)
