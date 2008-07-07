@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-07-07 15:40+0100\n"
+"PO-Revision-Date: 2008-07-07 19:43+0100\n"
 "Last-Translator: Halász Gábor <k@elitonline.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -613,7 +613,7 @@ msgstr "%d elem k&ihagyása"
 
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
-msgstr "&Láthatatlan karakterek eltérésének figyelmen kívül hagyása"
+msgstr "&Láthatatlan karakterek (pl. szóköz) változásainak figyelmen kívül hagyása"
 
 #. Resource IDs: (16914)
 msgid "&Image"
@@ -638,7 +638,7 @@ msgstr "&Kezdőmappa:"
 
 #. Resource IDs: (32825)
 msgid "&Inline diff word-wise"
-msgstr "Soron belüli eltérések mutatása szavanként"
+msgstr "&Soron belüli eltérések mutatása szavanként"
 
 #. Resource IDs: (1016)
 msgid "&Jump to first difference when loading"
@@ -846,7 +846,7 @@ msgstr "&Alapbeállítás Visszaállítása"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
-msgstr "Ezen verziók változtatásainak visszavonása"
+msgstr "Ezen verziók változtatásainak &visszavonása"
 
 #. Resource IDs: (113)
 msgid "&Revert changes from this revision"
@@ -900,7 +900,7 @@ msgstr "&Menük mutatása az alábbiakhoz:"
 #. Resource IDs: (16612)
 #, fuzzy
 msgid "&Show text labels"
-msgstr "Szövegcimkék mutatása"
+msgstr "&Szövegcimkék mutatása"
 
 #. Resource IDs: (32851)
 msgid "&Silver Style"
@@ -1802,7 +1802,7 @@ msgstr "&Mappa létrehozása..."
 #. Resource IDs: (65535)
 #, fuzzy
 msgid "C&urrent Keys:"
-msgstr "Jelenlegi billentyűk:"
+msgstr "&Jelenlegi billentyűk:"
 
 #. Resource IDs: (501)
 msgid "C&ut"
@@ -2755,7 +2755,7 @@ msgstr "Megjelenített megjegyzések &száma"
 #. Resource IDs: (1007)
 #, fuzzy
 msgid "Default Menu"
-msgstr "&Alap"
+msgstr "Alap menü"
 
 #. Resource IDs: (65535)
 msgid "Default URL:"
@@ -2852,7 +2852,7 @@ msgstr "Diff beállítások"
 #. Resource IDs: (146, 279)
 #, fuzzy
 msgid "Diff with URL"
-msgstr "&Különbség URL-től"
+msgstr "Összehasonlítás URL alapján"
 
 #. Resource IDs: (1302)
 msgid "Difference between"
@@ -3658,7 +3658,7 @@ msgstr "A Súgóért nyomj F1-et. Vízszintesen a Ctrl-egérgörgővel mozoghats
 
 #. Resource IDs: (119)
 msgid "For complete history deselect \"Stop on copy/rename\""
-msgstr "A teljes előzményhez vedd ki a pipát a \"Másolásnál / átnevezésnél &megáll\" mezőből"
+msgstr "A teljes előzményhez vedd ki a pipát a \"Másolásnál / átnevezésnél megáll\" mezőből"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -4255,7 +4255,7 @@ msgstr "Kisbetű/nagybetű különbség &nem számít"
 #. Resource IDs: (1392)
 #, fuzzy
 msgid "Ignore all whitespaces"
-msgstr "Az &összes láthatatlan karakter kihagyása"
+msgstr "Az összes láthatatlan karakter kihagyása"
 
 #. Resource IDs: (1267)
 msgid "Ignore ancestry"
@@ -4620,7 +4620,7 @@ msgstr ""
 
 #. Resource IDs: (32853)
 msgid "Line diff bar"
-msgstr "&Aktuális sor"
+msgstr "Aktuális sor"
 
 #. Resource IDs: (65535)
 msgid "Line differences"
@@ -4894,12 +4894,12 @@ msgstr "Válaszd ki az egyesítés intervallumát"
 #. Resource IDs: (114)
 #, fuzzy
 msgid "Merge revision to..."
-msgstr "Verzió mentése &ide..."
+msgstr "Verzió egyesítése ezzel..."
 
 #. Resource IDs: (114)
 #, fuzzy
 msgid "Merge revisions to..."
-msgstr "Verzió mentése &ide..."
+msgstr "Verziók egyesítése ezzel..."
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
@@ -6702,17 +6702,17 @@ msgstr "Mindent &kijelöl"
 #. Resource IDs: (16529)
 #, fuzzy
 msgid "Select &User-defined Image: "
-msgstr "Válassz képet"
+msgstr "&Válassz képet"
 
 #. Resource IDs: (16508)
 #, fuzzy
 msgid "Select &context menu:"
-msgstr "Válassz helyi menüt:"
+msgstr "Válassz &helyi menüt:"
 
 #. Resource IDs: (65535)
 #, fuzzy
 msgid "Select &window:"
-msgstr "Válassz ablakot:"
+msgstr "Válassz &ablakot:"
 
 #. Resource IDs: (1067)
 msgid "Select / deselect &all"
@@ -7049,7 +7049,7 @@ msgstr ""
 
 #. Resource IDs: (1264)
 msgid "Show i&gnored files"
-msgstr "Kizárt fájlok mutatása"
+msgstr "&Kizárt fájlok mutatása"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
@@ -7102,7 +7102,7 @@ msgstr "Ikon a nem verziókezelt fájlokhoz"
 #. Resource IDs: (102)
 #, fuzzy
 msgid "Show revision properties"
-msgstr "&Tulajdonságok megtekintése"
+msgstr "Tulajdonságok megtekintése"
 
 #. Resource IDs: (16652)
 msgid "Show shortcut &keys in ScreenTips"
@@ -7127,12 +7127,12 @@ msgstr "Nem rajzol külön csomópontot a kiadásoknak, a forrás-verziónál je
 #. Resource IDs: (1209)
 #, fuzzy
 msgid "Show un&modified files"
-msgstr "Változatlan fájlok mutatása"
+msgstr "&Változatlan fájlok mutatása"
 
 #. Resource IDs: (1073)
 #, fuzzy
 msgid "Show un&versioned files"
-msgstr "Nem verziókezelt fájlok mutatása"
+msgstr "&Nem verziókezelt fájlok mutatása"
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -7427,7 +7427,7 @@ msgstr "Munkapéldány átállítása egy másik mellékágra / kiadásra"
 
 #. Resource IDs: (65535)
 msgid "Switch:"
-msgstr "Átvá&ltás:"
+msgstr "Átváltás:"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<<->right"
@@ -8417,7 +8417,7 @@ msgstr "%s frissítése"
 #. Resource IDs: (16530)
 #, fuzzy
 msgid "Use &Default Image: "
-msgstr "Alap útvonal:"
+msgstr "&Alapértelmezett kép használata: "
 
 #. Resource IDs: (32855)
 msgid "Use &left block"
@@ -8452,7 +8452,7 @@ msgstr "A &munkapéldány URL-jeként az alapértelmezett \"Innen:\" URL-t hasz�
 #. Resource IDs: (1064)
 #, fuzzy
 msgid "Use Unified Diff from &clipboard"
-msgstr "Egyesített folt használata a vágólapról"
+msgstr "&Egyesített diff használata a vágólapról"
 
 #. Resource IDs: (1296)
 msgid "Use \"_svn\" instead of \".svn\" directories"
