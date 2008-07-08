@@ -66,7 +66,7 @@ function t_print_content_stat($i, $postat, $poinfo, $tsvn_var)
 {
   $release=$tsvn_var['release'];
   $build=$tsvn_var['build'];
-  $dlfile=$tsvn_var['downloadurl1']."LanguagePack-".$release.".".$build."-win32-".$poinfo[2].".exe".$tsvn_var['downloadurl2'];
+  $dlfile=$tsvn_var['url1']."LanguagePack-".$release.".".$build."-win32-".$poinfo[2].".exe".$tsvn_var['url2'];
 
   if ($poinfo[0] != '') {
     $flagimg=$tsvn_var['flagpath']."$poinfo[2].png";
