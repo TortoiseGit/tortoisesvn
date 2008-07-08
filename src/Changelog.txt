@@ -43,6 +43,8 @@ Version 1.5.1
        the selection mark, not all selected files. (Stefan)
 - BUG: The repository browser could show bogus folders for file:// urls
        pointing to an UNC path. (Stefan)
+- BUG: The log cache would try to read bogus folders for file:// urls
+       pointing to an UNC path. (Stefan Fuhrmann)
 - BUG: TortoiseMerge disregarded the background color setting for 
        modified lines and always uses the default. (Christian Walther)
 

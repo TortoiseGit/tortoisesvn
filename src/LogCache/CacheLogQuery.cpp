@@ -1147,8 +1147,17 @@ CDictionaryBasedTempPath CCacheLogQuery::GetRelativeRepositoryPath
 	// get path object 
 	// (URLs are always escaped, so we must unescape them)
 
-	CStringA relPath = CUnicodeUtils::GetUTF8 (url.GetSVNPathString())
-                          .Mid (URL.GetLength());
+    CStringA svnURLPath = CUnicodeUtils::GetUTF8 (url.GetSVNPathString());
+
+	// the initial url can be in the format file:///\, but the
+	// repository root returned would still be file://
+	// to avoid string length comparison faults, we adjust
+	// the repository root here to match the initial url
+
+    if (svnURLPath.Left(9).CompareNoCase("file:///\\") == 0)
+        svnURLPath.Delete (7, 2);
+
+    CStringA relPath = svnURLPath.Mid (URL.GetLength());
 	relPath = CPathUtils::PathUnescape (relPath);
 
 	const CPathDictionary* paths = &cache->GetLogInfo().GetPaths();
