@@ -82,7 +82,7 @@ CBaseView::CBaseView()
 	m_bShowInlineDiff = CRegDWORD(_T("Software\\TortoiseMerge\\DisplayBinDiff"), TRUE);
 	m_InlineAddedBk = CRegDWORD(_T("Software\\TortoiseMerge\\InlineAdded"), INLINEADDED_COLOR);
 	m_InlineRemovedBk = CRegDWORD(_T("Software\\TortoiseMerge\\InlineRemoved"), INLINEREMOVED_COLOR);
-	m_ModifiedBk = CRegDWORD(_T("Software\\TortoiseMerge\\ColorModifiedB"), MODIFIED_COLOR);
+	m_ModifiedBk = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorModifiedB"), MODIFIED_COLOR);
 	m_WhiteSpaceFg = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
 	m_sWordSeparators = CRegString(_T("Software\\TortoiseMerge\\WordSeparators"), _T("[]();.,{}!@#$%^&*-+=|/\\<>'`~"));;
 	m_bIconLFs = CRegDWORD(_T("Software\\TortoiseMerge\\IconLFs"), 1);
@@ -209,7 +209,7 @@ void CBaseView::DocumentUpdated()
 	m_bShowInlineDiff = CRegDWORD(_T("Software\\TortoiseMerge\\DisplayBinDiff"), TRUE);
 	m_InlineAddedBk = CRegDWORD(_T("Software\\TortoiseMerge\\InlineAdded"), INLINEADDED_COLOR);
 	m_InlineRemovedBk = CRegDWORD(_T("Software\\TortoiseMerge\\InlineRemoved"), INLINEREMOVED_COLOR);
-	m_ModifiedBk = CRegDWORD(_T("Software\\TortoiseMerge\\ColorModifiedB"), MODIFIED_COLOR);
+	m_ModifiedBk = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorModifiedB"), MODIFIED_COLOR);
 	m_WhiteSpaceFg = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
 	m_bIconLFs = CRegDWORD(_T("Software\\TortoiseMerge\\IconLFs"), 1);
 	for (int i=0; i<MAXFONTS; i++)

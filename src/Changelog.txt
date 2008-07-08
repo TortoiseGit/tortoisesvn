@@ -43,6 +43,8 @@ Version 1.5.1
        the selection mark, not all selected files. (Stefan)
 - BUG: The repository browser could show bogus folders for file:// urls
        pointing to an UNC path. (Stefan)
+- BUG: TortoiseMerge disregarded the background color setting for 
+       modified lines and always uses the default. (Christian Walther)
 
 Version 1.5.0
 - CHG: Support for IPv6 disabled due to problems with merging and terrible
