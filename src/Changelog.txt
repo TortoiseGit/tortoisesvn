@@ -49,6 +49,7 @@ Version 1.5.1
        modified lines and always uses the default. (Christian Walther)
 - BUG: The TSVNCache thread count would increase for every folder that
        got deleted. (Stefan)
+- BUG: Crash when moving folders in the repository browser. (Stefan)
 
 
 Version 1.5.0

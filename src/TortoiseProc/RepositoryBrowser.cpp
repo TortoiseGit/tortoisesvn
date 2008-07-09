@@ -131,9 +131,13 @@ void CRepositoryBrowser::RecursiveRemove(HTREEITEM hItem, bool bChildrenOnly /* 
 		for (childItem = m_RepoTree.GetChildItem(hItem);childItem != NULL; childItem = m_RepoTree.GetNextItem(childItem, TVGN_NEXT))
 		{
 			RecursiveRemove(childItem);
-			CTreeItem * pTreeItem = (CTreeItem*)m_RepoTree.GetItemData(childItem);
-			delete pTreeItem;
-			m_RepoTree.SetItemData(childItem, 0);
+			if (bChildrenOnly)
+			{
+				CTreeItem * pTreeItem = (CTreeItem*)m_RepoTree.GetItemData(childItem);
+				delete pTreeItem;
+				m_RepoTree.SetItemData(childItem, 0);
+				m_RepoTree.DeleteItem(childItem);
+			}
 		}
 	}
 
@@ -1018,6 +1022,8 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/, b
 		}
 		m_blockEvents = false;
 	}
+	if (pTreeItem == NULL)
+		return false;
 	pTreeItem->children.clear();
 	pTreeItem->has_child_folders = false;
 	m_bCancelled = false;
