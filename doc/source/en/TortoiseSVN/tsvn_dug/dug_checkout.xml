@@ -121,6 +121,80 @@
 				<guimenuitem>Update</guimenuitem>
 			</menuchoice>.
 		</para>
+		<para>
+			This feature is very useful when you only want to checkout parts of a
+			large tree, but you want the convenience of updating a single working
+			copy. Suppose you have a large tree which has sub-folders
+			<literal>Project01</literal> to <literal>Project99</literal>,
+			and you only want to checkout
+			<literal>Project03</literal>,
+			<literal>Project25</literal> and
+			<literal>Project76/SubProj</literal>.
+			Use these steps:
+		</para>
+		<orderedlist>
+			<listitem>
+				<para>
+					Checkout the parent folder with depth
+					<quote>Only this item</quote>
+					You now have an empty top level folder.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Select the new folder and use
+					<menuchoice>
+						<guimenu>TortoiseSVN</guimenu>
+						<guimenuitem>Repo browser</guimenuitem>
+					</menuchoice>
+					to display the repository content.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Right click on <literal>Project03</literal> and
+					<menuchoice>
+						<guimenu>Context menu</guimenu>
+						<guimenuitem>Update item to revision...</guimenuitem>
+					</menuchoice>.
+					Keep the default settings and click on
+					<guibutton>OK</guibutton>. You now have
+					that folder fully populated.
+				</para>
+				<para>
+					Repeat the same process for <literal>Project25</literal>.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					Navigate to <literal>Project76/SubProj</literal> and
+					do the same. This time note that the <literal>Project76</literal>
+					folder has no content except for <literal>SubProj</literal>,
+					which itself is fully populated. Subversion has created the
+					intermediate folders for you without populating them.
+				</para>
+			</listitem>
+		</orderedlist>
+		<tip>
+			<title>Working copy depth cannot be reduced</title>
+			<para>
+				Once you have checked out a working copy to a particular
+				depth you can increase that depth later to get more content.
+				However you cannot reduce the depth again to remove content.
+				That feature may be added in a later version of Subversion.
+			</para>
+		</tip>
+		<tip>
+			<title>Using an older server</title>
+			<para>
+				Pre-1.5 servers do not understand the working copy depth
+				request, so they cannot always deal with requests efficiently.
+				The command will still work, but an older server may send all
+				the data, leaving the client to filter out what is not required,
+				which may mean a lot of network traffic. If possible you should
+				upgrade your server to 1.5.
+			</para>
+		</tip>
 	</sect2>
 	<para>
 		If the project contains references to external projects which you do
