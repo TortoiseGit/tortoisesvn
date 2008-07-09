@@ -189,7 +189,19 @@ void CRemoteCacheLink::CloseCommandPipe()
 
 	if(m_hCommandPipe != INVALID_HANDLE_VALUE)
 	{
-		CloseHandle(m_hCommandPipe);
+		// now tell the cache we don't need it's command thread anymore
+		DWORD cbWritten; 
+		TSVNCacheCommand cmd;
+		SecureZeroMemory(&cmd, sizeof(TSVNCacheCommand));
+		cmd.command = TSVNCACHECOMMAND_END;
+		WriteFile( 
+			m_hCommandPipe,			// handle to pipe 
+			&cmd,			// buffer to write from 
+			sizeof(cmd),	// number of bytes to write 
+			&cbWritten,		// number of bytes written 
+			NULL);			// not overlapped I/O 
+		DisconnectNamedPipe(m_hCommandPipe); 
+		CloseHandle(m_hCommandPipe); 
 		m_hCommandPipe = INVALID_HANDLE_VALUE;
 	}
 }
@@ -312,22 +324,8 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 
 bool CRemoteCacheLink::ReleaseLockForPath(const CTSVNPath& path)
 {
-	if (EnsureCommandPipeOpen())
-	{
-
-	}
-	HANDLE hPipe = CreateFile( 
-		GetCacheCommandPipeName(),		// pipe name 
-		GENERIC_READ |					// read and write access 
-		GENERIC_WRITE, 
-		0,								// no sharing 
-		NULL,							// default security attributes
-		OPEN_EXISTING,					// opens existing pipe 
-		FILE_FLAG_OVERLAPPED,			// default attributes 
-		NULL);							// no template file 
-
-
-	if (hPipe != INVALID_HANDLE_VALUE) 
+	EnsureCommandPipeOpen();
+	if (m_hCommandPipe != INVALID_HANDLE_VALUE) 
 	{
 		DWORD cbWritten; 
 		TSVNCacheCommand cmd;

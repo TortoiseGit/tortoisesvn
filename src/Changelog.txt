@@ -47,6 +47,9 @@ Version 1.5.1
        pointing to an UNC path. (Stefan Fuhrmann)
 - BUG: TortoiseMerge disregarded the background color setting for 
        modified lines and always uses the default. (Christian Walther)
+- BUG: The TSVNCache thread count would increase for every folder that
+       got deleted. (Stefan)
+
 
 Version 1.5.0
 - CHG: Support for IPv6 disabled due to problems with merging and terrible
