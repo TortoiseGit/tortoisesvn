@@ -50,7 +50,8 @@ Version 1.5.1
 - BUG: The TSVNCache thread count would increase for every folder that
        got deleted. (Stefan)
 - BUG: Crash when moving folders in the repository browser. (Stefan)
-
+- BUG: Moving files to the "ignore-on-commit" changelist would leave them
+       checked for commit. (Stefan)
 
 Version 1.5.0
 - CHG: Support for IPv6 disabled due to problems with merging and terrible

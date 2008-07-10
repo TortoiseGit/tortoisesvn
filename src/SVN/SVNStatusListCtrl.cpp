@@ -3631,6 +3631,7 @@ void CSVNStatusListCtrl::CreateChangeList(const CString& name)
 		{
 			FileEntry * e = GetListEntry(index);
 			e->changelist = name;
+			SetCheck(index, FALSE);
 		}
 
 		for (index = 0; index < GetItemCount(); ++index)
