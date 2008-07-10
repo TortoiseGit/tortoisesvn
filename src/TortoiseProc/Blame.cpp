@@ -64,6 +64,15 @@ BOOL CBlame::BlameCallback(LONG linenumber, svn_revnum_t revision, const CString
 		m_bHasMerges = true;
 	}
 
+	if (pathA.Find(' ') >= 60)
+	{
+		// the merge path has spaces in it:
+		// TortoiseBlame can't deal with such paths if the space is after
+		// the 60 char which is reserved for the path length in the blame file
+		// To avoid these problems, we escape the space
+		// (not the best solution, but it works)
+		pathA.Replace(" ", "%20");
+	}
 	if (authorA.GetLength() > 30 )
 		authorA = authorA.Left(30);
 	if (m_bNoLineNo)
