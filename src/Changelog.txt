@@ -52,6 +52,7 @@ Version 1.5.1
 - BUG: Crash when moving folders in the repository browser. (Stefan)
 - BUG: Moving files to the "ignore-on-commit" changelist would leave them
        checked for commit. (Stefan)
+- BUG: TortoiseBlame didn't work if the merge paths had spaces. (Stefan)
 
 Version 1.5.0
 - CHG: Support for IPv6 disabled due to problems with merging and terrible

@@ -240,7 +240,17 @@ BOOL TortoiseBlame::OpenFile(const char *fileName)
 			// unfortunately, the 'path' entry can be longer than the 60 chars
 			// we made the column. We therefore have to step through the path
 			// string until we find a space
-			trimptr = _tcschr(lineptr, ' ');
+			trimptr = lineptr;
+			do 
+			{
+				// TODO: how can we deal with the situation where the path has
+				// a space in it, but the space is after the 60 chars reserved
+				// for it?
+				// The only way to deal with that would be to use a custom
+				// binary format for the blame file.
+				trimptr++;
+				trimptr = _tcschr(trimptr, ' ');
+			} while ((trimptr)&&(trimptr+1 < lineptr+61));
 			if (trimptr)
 				*trimptr = 0;
 			else
