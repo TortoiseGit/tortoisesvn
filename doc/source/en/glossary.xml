@@ -57,7 +57,7 @@
 				follows 2 separate paths. You can create a branch off the main
 				development line so as to develop a new feature without rendering
 				the main line unstable. Or you can branch a stable release to which
-				you make only bugfixes, while new developments take place on the
+				you make only bug fixes, while new developments take place on the
 				unstable trunk. In Subversion a branch is implemented as a
 				<quote>cheap copy</quote>.
 			</para>
@@ -128,7 +128,7 @@
 		<glossdef>
 			<para>
 				When you delete a versioned item (and commit the change) the item
-				no longer exists in the repository after the commited revision.
+				no longer exists in the repository after the committed revision.
 				But of course it still exists in earlier repository revisions,
 				so you can still access it. If necessary, you can copy a deleted
 				item and <quote>resurrect</quote> it complete with history.
@@ -158,7 +158,7 @@
 		<glossterm>FSFS</glossterm>
 		<glossdef>
 			<para>
-				FS Filesystem. A proprietary Subversion filesystem backend for repositories.
+				A proprietary Subversion filesystem backend for repositories.
 				Can be used on network shares. Default for 1.2 and newer repositories.
 			</para>
 		</glossdef>
@@ -193,7 +193,7 @@
 		<glossdef>
 			<para>
 				When you take out a lock on a versioned item, you mark it in
-				the repository as uncommittable, except from the working copy
+				the repository as non-committable, except from the working copy
 				where the lock was taken out.
 			</para>
 		</glossdef>
