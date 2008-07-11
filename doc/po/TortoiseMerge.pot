@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2008-05-24 00:14 +0000\n"
+"POT-Creation-Date: 2008-07-11 23:46 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1265,7 +1265,7 @@ msgstr ""
 
 #: ../source/TortoiseMerge_en.xml:1402
 #.(para)
-msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bugfixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
+msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bug fixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
 msgstr ""
 
 #: ../source/TortoiseMerge_en.xml:1415
@@ -1325,7 +1325,7 @@ msgstr ""
 
 #: ../source/TortoiseMerge_en.xml:1477
 #.(para)
-msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the commited revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
+msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the committed revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
 msgstr ""
 
 #: ../source/TortoiseMerge_en.xml:1487
@@ -1355,7 +1355,7 @@ msgstr ""
 
 #: ../source/TortoiseMerge_en.xml:1508
 #.(para)
-msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
+msgid "A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
 msgstr ""
 
 #: ../source/TortoiseMerge_en.xml:1515
@@ -1395,7 +1395,7 @@ msgstr ""
 
 #: ../source/TortoiseMerge_en.xml:1542
 #.(para)
-msgid "When you take out a lock on a versioned item, you mark it in the repository as uncommittable, except from the working copy where the lock was taken out."
+msgid "When you take out a lock on a versioned item, you mark it in the repository as non-committable, except from the working copy where the lock was taken out."
 msgstr ""
 
 #: ../source/TortoiseMerge_en.xml:1550
