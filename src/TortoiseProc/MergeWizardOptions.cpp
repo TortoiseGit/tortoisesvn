@@ -166,7 +166,7 @@ void CMergeWizardOptions::OnBnClickedDryrun()
 			else
 			{
 				SVNRevRangeArray tempRevArray;
-				tempRevArray.AddRevRange(SVNRev(), SVNRev());
+				tempRevArray.AddRevRange(1, SVNRev::REV_HEAD);
 				progDlg.SetRevisionRanges(tempRevArray);
 			}
 		}
