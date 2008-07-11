@@ -8,6 +8,7 @@
 - CHG: file:// access to BDB based repositories is no longer supported. (Stefan)
 
 Version 1.5.1
+- CHG: The saslDIGESTMD5.dll has now encryption enabled. (Stefan)
 - BUG: The installer always installed the feature "associate .patch files
        with TortoiseUDiff", even if it was deselected during install. (Stefan)
 - BUG: Bogus revision graph for WC paths that have not been changed

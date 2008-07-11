@@ -218,6 +218,8 @@
 			<defines>
 				<define name="_CRT_NONSTDC_NO_DEPRECATE" />
 				<define name="_CRT_SECURE_NO_DEPRECATE" />
+				<define name="WITH_DES" />
+				<define name="WITH_SSL_DES" />
 				<define name="_USRDLL" />
 				<define name="WIN32" />
 				<define name="_WINDOWS" />
@@ -264,7 +266,7 @@
 
 		<link 
 			output="${configuration}_${platform}\saslDIGESTMD5.dll" 
-			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslDIGESTMD5.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslDIGESTMD5.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslDIGESTMD5.lib" ${machineoption} ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+			options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslDIGESTMD5.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslDIGESTMD5.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslDIGESTMD5.lib" ${machineoption} ..\..\..\common\openssl\out32\libeay32.lib ..\..\..\common\openssl\out32\ssleay32.lib ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
 			<sources>
 				<include name="${configuration}_${platform}\plugin_common.obj" />
 				<include name="${configuration}_${platform}\digest*.obj" />
