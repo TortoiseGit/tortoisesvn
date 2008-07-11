@@ -238,6 +238,51 @@
 				to store a thumbnail as a property so you can obtain a preview quickly.
 			</para>
 		</sect3>
+		<sect3 id="tsvn-dug-propertypage-auto-props">
+			<title>Automatic property setting</title>
+			<indexterm>
+				<primary>auto-props</primary>
+			</indexterm>
+			<para>
+				You can configure Subversion and TortoiseSVN to set properties
+				automatically on files and folders when they are added to the
+				repository. There are two ways of doing this.
+			</para>
+			<para>
+				You can edit the subversion configuration file to enable
+				this feature on your client. The <guilabel>General</guilabel>
+				page of TortoiseSVN's settings dialog has an edit button to
+				take you there directly.
+				The config file is a simple text file which controls some of
+				subversion's workings. You need to change two things:
+				firstly in the section headed
+				<literal>miscellany</literal> uncomment the line
+				<literal>enable-auto-props = yes</literal>.
+				Secondly you need to edit the section below to define which
+				properties you want added to which file types.
+				This method is a standard subversion feature and works with
+				any subversion client. However it has to be defined on each
+				client individually - there is no way to propagate these settings
+				from the repository.
+			</para>
+			<para>
+				An alternative method is to set the <literal>tsvn:autoprops</literal>
+				property on folders, as described in the next section. This method
+				only works for TortoiseSVN clients, but it does get propagated
+				to all working copies on update.
+			</para>
+			<para>
+				Whichever method you choose, you should note that auto-props
+				are only applied to files at the time they are added to the
+				repository. Auto-props will never change the properties of files
+				which are already versioned.
+			</para>
+			<para>
+				If you want to be absolutely sure that new files have the correct
+				properties applied, you should set up a repository pre-commit
+				hook to reject commits where the required properties are not set.
+			</para>
+		</sect3>
 		<important>
 			<title>Commit properties</title>
 			<para>
@@ -252,14 +297,6 @@
 				user has changed the same property, Subversion generates a 
 				<filename>.prej</filename> file. Delete this file after you 
 				have resolved the conflict.
-			</para>
-		</tip>
-		<tip>
-			<title>Automatic property setting</title>
-			<para>
-				You can configure Subversion to set properties automatically 
-				on files and folders when they are added to the repository.
-				Read <xref linkend="tsvn-dug-settings"/> for further information.
 			</para>
 		</tip>
 	</sect2>
@@ -328,6 +365,10 @@
 						<literal>tsvn:autoprops</literal> can be set on folders
 						and these will be merged with the user's local autoprops
 						when importing or adding files.
+						The format is the same as for subversion autoprops, e.g.
+						<literal>*.sh = svn:eol-style=native;svn:executable</literal>
+						sets two properties on files with the <literal>.sh</literal>
+						extension.
 					</para>
 					<para>
 						If there is a conflict between the local autoprops and
