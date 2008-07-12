@@ -85,7 +85,7 @@ CBaseView::CBaseView()
 	m_ModifiedBk = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorModifiedB"), MODIFIED_COLOR);
 	m_WhiteSpaceFg = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
 	m_sWordSeparators = CRegString(_T("Software\\TortoiseMerge\\WordSeparators"), _T("[]();.,{}!@#$%^&*-+=|/\\<>'`~"));;
-	m_bIconLFs = CRegDWORD(_T("Software\\TortoiseMerge\\IconLFs"), 1);
+	m_bIconLFs = CRegDWORD(_T("Software\\TortoiseMerge\\IconLFs"), 0);
 	m_nSelBlockStart = -1;
 	m_nSelBlockEnd = -1;
 	m_bModified = FALSE;
@@ -211,7 +211,7 @@ void CBaseView::DocumentUpdated()
 	m_InlineRemovedBk = CRegDWORD(_T("Software\\TortoiseMerge\\InlineRemoved"), INLINEREMOVED_COLOR);
 	m_ModifiedBk = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorModifiedB"), MODIFIED_COLOR);
 	m_WhiteSpaceFg = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
-	m_bIconLFs = CRegDWORD(_T("Software\\TortoiseMerge\\IconLFs"), 1);
+	m_bIconLFs = CRegDWORD(_T("Software\\TortoiseMerge\\IconLFs"), 0);
 	for (int i=0; i<MAXFONTS; i++)
 	{
 		if (m_apFonts[i] != NULL)
@@ -1237,38 +1237,36 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
 	}
 	else
 	{
-		// while the icons don't look that good either, the trial below looks even worse.
-		// but Simon mentioned that 'slim' newline chars would look better, so I'm leaving this here for now:
-		// maybe we can use it later...
 		CPen pen(PS_SOLID, 0, m_WhiteSpaceFg);
 		CPen * oldpen = pDC->SelectObject(&pen);
 		int yMiddle = origin.y + rc.Height()/2;
+		int xMiddle = origin.x+GetCharWidth()/2;
 		switch (ending)
 		{
 		case EOL_CR:
 			// arrow from right to left
 			pDC->MoveTo(origin.x+GetCharWidth(), yMiddle);
 			pDC->LineTo(origin.x, yMiddle);
-			pDC->LineTo(origin.x+4, rc.top+2);
+			pDC->LineTo(origin.x+4, yMiddle+4);
 			pDC->MoveTo(origin.x, yMiddle);
-			pDC->LineTo(origin.x+4, rc.bottom-2);
+			pDC->LineTo(origin.x+4, yMiddle-4);
 			break;
 		case EOL_CRLF:
-			// arrow from top to middle, then left
+			// arrow from top to middle+2, then left
 			pDC->MoveTo(origin.x+GetCharWidth(), rc.top);
-			pDC->LineTo(origin.x+GetCharWidth(), yMiddle+2);
-			pDC->LineTo(origin.x, yMiddle+2);
-			pDC->LineTo(origin.x+4, rc.top+2);
-			pDC->MoveTo(origin.x, yMiddle+2);
-			pDC->LineTo(origin.x+4, rc.bottom-2);
+			pDC->LineTo(origin.x+GetCharWidth(), yMiddle);
+			pDC->LineTo(origin.x, yMiddle);
+			pDC->LineTo(origin.x+4, yMiddle+4);
+			pDC->MoveTo(origin.x, yMiddle);
+			pDC->LineTo(origin.x+4, yMiddle-4);
 			break;
 		case EOL_LF:
 			// arrow from top to bottom
-			pDC->MoveTo(origin.x+GetCharWidth()/2, rc.top);
-			pDC->LineTo(origin.x+GetCharWidth()/2, rc.bottom);
-			pDC->LineTo(origin.x+GetCharWidth(), rc.top+4);
-			pDC->MoveTo(origin.x+GetCharWidth()/2, rc.bottom);
-			pDC->LineTo(origin.x, rc.top+4);
+			pDC->MoveTo(xMiddle, rc.top);
+			pDC->LineTo(xMiddle, rc.bottom-1);
+			pDC->LineTo(xMiddle+4, rc.bottom-5);
+			pDC->MoveTo(xMiddle, rc.bottom-1);
+			pDC->LineTo(xMiddle-4, rc.bottom-5);
 			break;
 		}
 		pDC->SelectObject(oldpen);
