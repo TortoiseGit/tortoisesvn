@@ -1507,9 +1507,9 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 					int nSpaces = GetTabSize() - (m_nOffsetChar + xpos) % GetTabSize();
 					pDC->MoveTo(xpos * GetCharWidth() + rc.left, y);
 					pDC->LineTo((xpos + nSpaces) * GetCharWidth() + rc.left-2, y);
-					pDC->LineTo((xpos + nSpaces - 1) * GetCharWidth() + rc.left, rc.top+2);
+					pDC->LineTo((xpos + nSpaces) * GetCharWidth() + rc.left-6, y-4);
 					pDC->MoveTo((xpos + nSpaces) * GetCharWidth() + rc.left-2, y);
-					pDC->LineTo((xpos + nSpaces - 1) * GetCharWidth() + rc.left, rc.bottom-2);
+					pDC->LineTo((xpos + nSpaces) * GetCharWidth() + rc.left-6, y+4);
 					xpos += nSpaces;
 					pDC->SelectObject(oldPen);
 				}
