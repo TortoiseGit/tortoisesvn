@@ -63,12 +63,6 @@ function print_langpack($i, $postat, $v, $w)
   
   $dlfile32=get_langpack($lang_cc, 'Setup', $v, $w['w32']);
   $dlfile64=get_langpack($lang_cc, 'Setup', $v, $w['x64']);
-  if ( ($infobits & "001") <> "0") {
-   $t_ln="SpellChecker_".$lang_cc.".exe";
-   $dlfilechecker="<a href=\"".$v['url1'].$t_ln.$v['url2']."\">Spellchecker</a>";
-  } else {
-   $dlfilechecker="";
-  }
   
   if ( ($infobits & "010") <> "0") {
    $t_ts="TortoiseSVN-".$v['release'].'-'.$lang_cc.".pdf";
@@ -89,7 +83,6 @@ function print_langpack($i, $postat, $v, $w)
   echo "<td>$flagtag&nbsp;$lang_name</td>";
   echo "<td>$dlfile32</td>";
   echo "<td>$dlfile64</td>";
-  echo "<td>$dlfilechecker</td>";
   echo "<td>$dlmanTSVN</td>";
   echo "<td>$dlmanTMerge</td>";
   echo "</tr>";
@@ -175,7 +168,6 @@ array_multisort($potfile, $country, $countries);
 <th class="lang">Country</th>
 <th class="lang">32 Bit</th>
 <th class="lang">64 Bit</th>
-<th class="lang">Spellchecker</th>
 <th class="lang" colspan="2">Separate manual (PDF)</th>
 </tr>
 
