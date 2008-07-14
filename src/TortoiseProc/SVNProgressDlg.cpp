@@ -430,10 +430,16 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		data->sActionColumnText.Format(IDS_SVNACTION_CHANGELISTMOVED, data->changelistname);
 		break;
 	case svn_wc_notify_merge_begin:
-		if (data->merge_range.start == data->merge_range.end)
-			data->sActionColumnText.Format(IDS_SVNACTION_MERGEBEGINSINGLE, data->merge_range.start);
+		if (range == NULL)
+			data->sActionColumnText.LoadString(IDS_SVNACTION_MERGEBEGINNONE);
+		else if ((data->merge_range.start == data->merge_range.end) || (data->merge_range.start == data->merge_range.end - 1))
+			data->sActionColumnText.Format(IDS_SVNACTION_MERGEBEGINSINGLE, data->merge_range.end);
+		else if (data->merge_range.start - 1 == data->merge_range.end)
+			data->sActionColumnText.Format(IDS_SVNACTION_MERGEBEGINSINGLEREVERSE, data->merge_range.start);
+		else if (data->merge_range.start < data->merge_range.end)
+			data->sActionColumnText.Format(IDS_SVNACTION_MERGEBEGINMULTIPLE, data->merge_range.start + 1, data->merge_range.end);
 		else
-			data->sActionColumnText.Format(IDS_SVNACTION_MERGEBEGINMULTIPLE, data->merge_range.start, data->merge_range.end);
+			data->sActionColumnText.Format(IDS_SVNACTION_MERGEBEGINMULTIPLEREVERSE, data->merge_range.start, data->merge_range.end + 1);
 		data->bAuxItem = true;
 		break;
 	default:
