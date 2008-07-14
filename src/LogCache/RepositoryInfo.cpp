@@ -530,10 +530,10 @@ void CRepositoryInfo::Flush()
 
 		modified = false;
 	}
-	catch (CFileException* e)
+	catch (CFileException* /*e*/)
 	{
 	}
-	catch (CException* e)
+	catch (CException* /*e*/)
 	{
 	}
 }
