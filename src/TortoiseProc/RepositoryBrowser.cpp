@@ -178,6 +178,7 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableStandAloneDialog)
 	ON_COMMAND(ID_EDIT_COPY, &CRepositoryBrowser::OnCopy)
 	ON_COMMAND(ID_INLINEEDIT, &CRepositoryBrowser::OnInlineedit)
 	ON_COMMAND(ID_REFRESHBROWSER, &CRepositoryBrowser::OnRefresh)
+	ON_COMMAND(ID_DELETEBROWSERITEM, &CRepositoryBrowser::OnDelete)
 	ON_NOTIFY(TVN_BEGINDRAG, IDC_REPOTREE, &CRepositoryBrowser::OnTvnBegindragRepotree)
 	ON_NOTIFY(TVN_BEGINRDRAG, IDC_REPOTREE, &CRepositoryBrowser::OnTvnBeginrdragRepotree)
 END_MESSAGE_MAP()
@@ -1086,6 +1087,60 @@ BOOL CRepositoryBrowser::PreTranslateMessage(MSG* pMsg)
 		}
 	}
 	return __super::PreTranslateMessage(pMsg);
+}
+
+void CRepositoryBrowser::OnDelete()
+{
+	CTSVNPathList urlList;
+	bool bTreeItem = false;
+
+	POSITION pos = m_RepoList.GetFirstSelectedItemPosition();
+	int index = -1;
+	while ((index = m_RepoList.GetNextSelectedItem(pos))>=0)
+	{
+		CItem * pItem = (CItem *)m_RepoList.GetItemData(index);
+		CString absPath = pItem->absolutepath;
+		absPath.Replace(_T("\\"), _T("%5C"));
+		urlList.AddPath(CTSVNPath(absPath));
+	}
+	if ((urlList.GetCount() == 0))
+	{
+		HTREEITEM hItem = m_RepoTree.GetSelectedItem();
+		CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData(hItem);
+		if (pTreeItem)
+		{
+			urlList.AddPath(CTSVNPath(pTreeItem->url));
+			bTreeItem = true;
+		}
+	}
+
+	if (urlList.GetCount() == 0)
+		return;
+
+
+	CWaitCursorEx wait_cursor;
+	CInputLogDlg input(this);
+	input.SetUUID(m_sUUID);
+	input.SetProjectProperties(&m_ProjectProperties);
+	CString hint;
+	if (urlList.GetCount() == 1)
+		hint.Format(IDS_INPUT_REMOVEONE, urlList[0].GetFileOrDirectoryName());
+	else
+		hint.Format(IDS_INPUT_REMOVEMORE, urlList.GetCount());
+	input.SetActionText(hint);
+	if (input.DoModal() == IDOK)
+	{
+		if (!Remove(urlList, true, false, input.GetLogMessage()))
+		{
+			wait_cursor.Hide();
+			CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+			return;
+		}
+		if (bTreeItem)
+			RefreshNode(m_RepoTree.GetParentItem(m_RepoTree.GetSelectedItem()), true);
+		else
+			RefreshNode(m_RepoTree.GetSelectedItem(), true);
+	}
 }
 
 void CRepositoryBrowser::OnUrlFocus()

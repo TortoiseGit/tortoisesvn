@@ -183,6 +183,7 @@ protected:
 	afx_msg void OnCopy();
 	afx_msg void OnInlineedit();
 	afx_msg void OnRefresh();
+	afx_msg void OnDelete();
 
 	DECLARE_MESSAGE_MAP()
 
