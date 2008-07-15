@@ -256,6 +256,10 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		m_bMergesAddsDeletesOccurred = true;
 		data->color = m_Colors.GetColor(CColors::Deleted);
 		break;
+	case svn_wc_notify_update_replace:
+		data->sActionColumnText.LoadString(IDS_SVNACTION_REPLACED);
+		data->color = m_Colors.GetColor(CColors::Added);
+		break;
 	case svn_wc_notify_commit_deleted:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_DELETING);
 		data->color = m_Colors.GetColor(CColors::Deleted);
