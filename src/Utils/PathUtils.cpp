@@ -264,7 +264,20 @@ CString CPathUtils::GetLongPathname(const CString& path)
 	TCHAR pathbufcanonicalized[MAX_PATH]; // MAX_PATH ok.
 	DWORD ret = 0;
 	CString sRet;
-	if (PathCanonicalize(pathbufcanonicalized, path))
+	if (PathIsRelative(path))
+	{
+		ret = GetFullPathName(path, 0, NULL, NULL);
+		if (ret)
+		{
+			TCHAR * pathbuf = new TCHAR[ret+1];
+			if (GetFullPathName(path, ret, pathbuf, NULL))
+			{
+				sRet = CString(pathbuf, ret);
+			}
+			delete [] pathbuf;
+		}
+	}
+	else if (PathCanonicalize(pathbufcanonicalized, path))
 	{
 		ret = ::GetLongPathName(pathbufcanonicalized, NULL, 0);
 		TCHAR * pathbuf = new TCHAR[ret+2];	

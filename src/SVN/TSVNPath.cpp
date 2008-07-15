@@ -1303,12 +1303,14 @@ private:
 #if defined(_MFC_VER)
 	void ListLoadingTest()
 	{
+		TCHAR buf[MAX_PATH];
+		GetCurrentDirectory(MAX_PATH, buf);
 		CString sPathList(_T("Path1*c:\\path2 with spaces and stuff*\\funnypath\\*"));
 		CTSVNPathList testList;
 		testList.LoadFromAsteriskSeparatedString(sPathList);
 
 		ATLASSERT(testList.GetCount() == 3);
-		ATLASSERT(testList[0].GetWinPathString() == _T("Path1"));
+		ATLASSERT(testList[0].GetWinPathString() == CString(buf) + _T("\\Path1"));
 		ATLASSERT(testList[1].GetWinPathString() == _T("c:\\path2 with spaces and stuff"));
 		ATLASSERT(testList[2].GetWinPathString() == _T("\\funnypath"));
 		
