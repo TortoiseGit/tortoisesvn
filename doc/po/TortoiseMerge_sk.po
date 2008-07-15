@@ -21,9 +21,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-24 00:14 +0000\n"
-"PO-Revision-Date: 2008-05-27 20:53+0100\n"
-"Last-Translator: Oto BREZINA <translate@e-posta.sk>\n"
+"POT-Creation-Date: 2008-07-11 23:46 +0000\n"
+"PO-Revision-Date: 2008-07-15 10:05+0100\n"
+"Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1343,7 +1343,7 @@ msgstr "Vetva"
 # Branch
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1402
-msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bugfixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
+msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bug fixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
 msgstr "Výraz sa často používa pri správe verzií na popísanie čo sa stene keď sa v niektorom bode vývoj rozdelí na dve samostatné cesty. Môžete vytvoriť vetvu hlavnej vývojovej línie, takže vývoj novej funkcie bez toho aby ste spravili hlavnú líniu nestabilnú. Alebo môžete vetviť stabilné vydania, v ktorých budete robiť len opravy chýb, kým vyvoj sa bude diať v nestabinlnom kmeni. Vo Subversion je vetvenie implementované ako  <quote>lácná kópia</quote>."
 
 #. (glossterm)
@@ -1409,8 +1409,8 @@ msgstr "Vymazať"
 # Delete
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1477
-msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the commited revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
-msgstr "Po vymazaní verziovaného súboru (a odovzdaní zmien) objekt už viacej nexistuje v úložisku v nasledových revíziách. Samozrejme však existuje v predchádzajúcich revíziach úložiska, takže k nemu môžete stále pristúpiť. Keď je nutné, môžete vytvoriť kópiu vymazeného objektu a <quote>vzkriesiť</quote> ho aj s jeho celou históriou."
+msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the committed revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
+msgstr "Po vymazaní verziovaného súboru (a odovzdaní zmien) objekt už viacej nexistuje v úložisku v nasledových revíziách. Samozrejme však existuje v predchádzajúcich revíziach úložiska, takže k nemu môžete stále pristúpiť. Keď je nutné, môžete vytvoriť kópiu vymazeného objektu a <quote>vzkriesiť</quote> ho aj s jeho históriou."
 
 #. (glossterm)
 #: ../source/TortoiseMerge_en.xml:1487
@@ -1442,8 +1442,8 @@ msgstr "FSFS"
 # fsfs
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1508
-msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
-msgstr "Súborový systém FS. Vlastný súborový systém Subversion pre úložiská. Môže byť použitý i na zdielom disku. Predvolený u verzie 1.2 a novších."
+msgid "A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
+msgstr "Vlastný súborový systém Subversion pre úložiská. Môže byť použitý i na zdielom disku. Predvolený u verzie 1.2 a novších."
 
 #. (glossterm)
 #: ../source/TortoiseMerge_en.xml:1515
@@ -1486,7 +1486,7 @@ msgstr "Zamknúť"
 # Lock
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1542
-msgid "When you take out a lock on a versioned item, you mark it in the repository as uncommittable, except from the working copy where the lock was taken out."
+msgid "When you take out a lock on a versioned item, you mark it in the repository as non-committable, except from the working copy where the lock was taken out."
 msgstr "Keď zamknete verziovaný objekt, je v úložisku označený za neodovzdateľný, okrem pracovnej kópie z ktorej bol zamknutý."
 
 #. (glossterm)
