@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-07-09 21:43+0100\n"
+"PO-Revision-Date: 2008-07-16 14:52+0100\n"
 "Last-Translator: Halász Gábor <k@elitonline.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -289,7 +289,7 @@ msgstr "&Argumentumok:"
 #. Resource IDs: (16645)
 #, fuzzy
 msgid "&Assign"
-msgstr "&Hozzárendel"
+msgstr "&Megbíz"
 
 #. Resource IDs: (16633)
 #, fuzzy
@@ -1074,7 +1074,7 @@ msgstr "(több cél van kiválasztva)"
 
 #. Resource IDs: (213)
 msgid "(no changelist)"
-msgstr "(nincs változáslista)"
+msgstr "(nincs változáslistába helyezve)"
 
 #. Resource IDs: (314)
 msgid "(no line number)"
@@ -1515,13 +1515,12 @@ msgid "Applies a unified diff file to the working copy"
 msgstr "Alkalmazza az egyesített diff-et a munkapéldányra"
 
 #. Resource IDs: (581)
-#, fuzzy
 msgid ""
 "Applies the properties recursively to all files/folders.\n"
 "bugtraq: and tsvn: properties are only applied to folders."
 msgstr ""
-"Az összes fájlra és mappára vonatkozik.\n"
-"bugtraq: és tsvn: csak a mappákra vonatkozik."
+"A tulajdonságot az összes fájlra és almappára is beállítja.\n"
+"bugtraq: és tsvn: esetén csak az almappákra."
 
 #. Resource IDs: (13)
 msgid "Apply &patch..."
@@ -1750,18 +1749,16 @@ msgid "Browse..."
 msgstr "Tallózás..."
 
 #. Resource IDs: (1119)
-#, fuzzy
 msgid "Bug-&ID / Issue-Nr:"
-msgstr "A &hiba/téma száma:"
+msgstr "&Hiba / ügy száma:"
 
 #. Resource IDs: (116)
 msgid "Bug-ID"
 msgstr "Hiba-ID"
 
 #. Resource IDs: (1119)
-#, fuzzy
 msgid "Bug-ID / Issue-Nr:"
-msgstr "Hiba-ID / Témaszám:"
+msgstr "Hiba / ügy száma:"
 
 #. Resource IDs: (16132)
 msgid "Button Appearance"
@@ -2181,7 +2178,7 @@ msgstr "Beküldés"
 
 #. Resource IDs: (77)
 msgid "Commit - TortoiseSVN"
-msgstr "Beküld - TortoiseSVN"
+msgstr "Beküldés - TortoiseSVN"
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -2619,7 +2616,7 @@ msgstr "Változáslista készítése"
 
 #. Resource IDs: (208)
 msgid "Create Patch"
-msgstr "Polt Készítése"
+msgstr "Patch Készítése"
 
 #. Resource IDs: (1385)
 msgid "Create copy in the repository from:"
@@ -2799,9 +2796,8 @@ msgid "Description:"
 msgstr "Leírás:"
 
 #. Resource IDs: (213)
-#, fuzzy
 msgid "Deselect changelist"
-msgstr "Változáslista kihagyása"
+msgstr "Változáslista kijelölésének törlése"
 
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
@@ -2977,8 +2973,8 @@ msgid ""
 "Documentation : Simon Large\n"
 "Code : Tobias Schäfer, Stefan Fuhrmann"
 msgstr ""
-"Dokumentáció : Simon Large\n"
-"Kód : Tobias Schäfer, Stefan Fuhrmann"
+"Dokumentáció: Simon Large\n"
+"Kód: Tobias Schäfer, Stefan Fuhrmann"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -3415,11 +3411,13 @@ msgid "Failed to set/remove changelist \"%s\""
 msgstr "Nem sikerült a(z) \"%s\" változáslista létrehozása/törlése."
 
 #. Resource IDs: (83)
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Failed to start the issue tracker COM provider \"%s\".\n"
 "%s"
 msgstr ""
+"Nem sikerült elindítani a hibakövető COM-szolgáltatót: \"%s\".\n"
+"%s"
 
 #. Resource IDs: (220)
 msgid "Failed!"
@@ -4457,6 +4455,10 @@ msgid ""
 "A range can be specified with a dash.\n"
 "Example: 2-5,7,10,44-70,300-HEAD"
 msgstr ""
+"Hibás verzió-intervallum!\n"
+"A lehetséges értékek számok és HEAD (FŐ verzió), vesszőkkel elválasztva.\n"
+"Intervallumokat kötőjellel adhatsz meg.\n"
+"Példa: 2-5,7,10,44-70,300-HEAD"
 
 #. Resource IDs: (145)
 #, fuzzy
@@ -6684,7 +6686,7 @@ msgstr "Válassz egy elemet, aminek a súgója kell"
 
 #. Resource IDs: (213)
 msgid "Select changelist"
-msgstr "Válassz változáslistát"
+msgstr "Változáslista kijelölése"
 
 #. Resource IDs: (78)
 msgid "Select diff application"
@@ -6705,7 +6707,7 @@ msgstr "Válaszd ki a befelyező"
 #. Resource IDs: (64)
 #, fuzzy
 msgid "Select folder to associate with this issue tracker"
-msgstr "Válassz mappát ahová a fájlokat menteni szeretnéd"
+msgstr "Válassz mappát, amelyet ehhez a hibakövetőhöz szeretnél rendelni"
 
 #. Resource IDs: (79)
 msgid ""
@@ -7527,7 +7529,7 @@ msgstr "Nem sikerült a hibakövető-szolgáltatót létrehozni. Ellenőrizd, ho
 #. Resource IDs: (64)
 #, fuzzy
 msgid "The issue-tracker provider was unable to validate the parameter string"
-msgstr "A hibakövető-szolgáltató nem tudta ellenőrizni a paramétereket!"
+msgstr "A hibakövető-szolgáltató nem tudta ellenőrizni a paramétereket"
 
 #. Resource IDs: (63)
 #, fuzzy, c-format
@@ -8561,7 +8563,6 @@ msgid "Version %d.%d.%d.%d"
 msgstr "Verzió %d.%d.%d.%d"
 
 #. Resource IDs: (1075)
-#, fuzzy
 msgid "Version Information"
 msgstr "Verzió információ"
 
@@ -8759,13 +8760,12 @@ msgid "You have to update your working copy first."
 msgstr "Előszőr frissítenied kell a munkapéldányod."
 
 #. Resource IDs: (169)
-#, fuzzy
 msgid ""
 "You haven't entered an issue number!\n"
 "Are you sure you want to commit without an issue number?"
 msgstr ""
-"Nem írtál be ügy-számot!\n"
-"Ügy-szám nélkül akarod beküldeni?"
+"Nem írtál be az ügy-számot!\n"
+"Ügy-szám nélkül akarod beküldeni a változásokat?"
 
 #. Resource IDs: (1002)
 #, c-format
@@ -8974,7 +8974,6 @@ msgid "authors: "
 msgstr "fejlesztők: "
 
 #. Resource IDs: (577)
-#, fuzzy
 msgid ""
 "bugtraq:append\n"
 "Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\n"
@@ -8982,19 +8981,18 @@ msgid ""
 "is appended to the log message."
 msgstr ""
 "bugtraq:append\n"
-"Állítsd false-ra, ha a bugtracking ID-t az üzenet tetejére akarod illeszteni. Az alapbeállítás true, ahol az ID hozzá van fűzve az üzenethez."
+"Állítsd \"false\"-ra, ha az ügy számát a beküldési megjegyzés elejére szeretnéd beilleszteni.\n"
+"Az alapértelmezés \"true\", ebben az esetben az ügy száma az üzenet végéhez lesz hozzáfűzve."
 
 #. Resource IDs: (577)
-#, fuzzy
 msgid ""
 "bugtraq:label\n"
 "Label text to show for the edit box where the user enters the issue number."
 msgstr ""
 "bugtraq:label\n"
-"Egy felirat, ami kiírja, ha a felhasználó beírja az ügy számát."
+"A felirat a szövegmező mellett, ahol a felhasználó beírhatja az ügy számát."
 
 #. Resource IDs: (577)
-#, fuzzy
 msgid ""
 "bugtraq:logregex\n"
 "two regular expressions separated by a newline.\n"
@@ -9002,39 +9000,38 @@ msgid ""
 "the second expression is used to extract the bare bug ID from that string."
 msgstr ""
 "bugtraq:logregex\n"
-"2 állandó kifejezsés külön sorba választva\n"
-"Az első kifejezés egy szöveg kereséséhez kell,\n"
-"a második az ID kiszedése a szövegből."
+"Két RegEx, külön sorban.\n"
+"Az első kiválasztja azt a szövegrészt, amely az ügy-számra vonatkozik,\n"
+"a második pedig kiszedi magát az ügy-számot az előzőleg megtalált szövegből."
 
 #. Resource IDs: (577)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "bugtraq:message\n"
 "String which is appended to a log message when an issue number is entered.\n"
 "The string must contain \"%BUGID%\" which gets replaced with the issue number."
 msgstr ""
 "bugtraq:message\n"
-"A szöveg, amit az üzenethez csatoltak, amikor egy ügy-számot beírtak.\n"
-"A szövegnek tartalmaznia kell a \"%BUGID%\"-t ami lecserélődik az ügy-számra."
+"A szöveg, amely hozzáfűződik a megjegyzéshez, ha a felhasználó megadja az ügy-számot.\n"
+"A szövegnek tartalmaznia kell a \"%BUGID%\" szöveget, amely lecserélődik az ügy-számra."
 
 #. Resource IDs: (577)
-#, fuzzy
 msgid ""
 "bugtraq:number\n"
 "Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
 "bugtraq:number\n"
-"Állítsd false-ra ha a hibakövető rendszered nem számozza a hibákat."
+"Állítsd \"false\"-ra ha a hibakövető rendszer nem csak számokat használ az ügyek azonosításához."
 
 #. Resource IDs: (577)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "bugtraq:url\n"
 "URL pointing to the issue tracker. It must contain \"%BUGID%\" which\n"
 "gets replaced with the issue number."
 msgstr ""
 "bugtraq:url\n"
-"URL ami az ügykövetőre mutat. Tartalmaznia kell a \"%BUGID%\"-t ami\n"
+"URL, amely az ügykövetőre mutat. Tartalmaznia kell a \"%BUGID%\" szöveget, amely\n"
 "lecserélődik az ügy számára."
 
 #. Resource IDs: (65535)
@@ -9546,13 +9543,12 @@ msgstr ""
 "Soronként egyet adj meg."
 
 #. Resource IDs: (577)
-#, fuzzy
 msgid ""
 "tsvn:warnifnoissue\n"
 "Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
-"tsvn:warnifnoissue\n"
-"Állítsd igenre, és feljön egy ablak ha a megjegyzést üresen hagyod."
+"bugtraq:warnifnoissue\n"
+"Ha \"yes\"-re állítod és a beküldés ablakban nem adsz meg ügy-számot, akkor egy figyelmeztés jelenik meg."
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
