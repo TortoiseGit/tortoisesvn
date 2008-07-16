@@ -1065,11 +1065,12 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	//add sub menu to main context menu
 	//don't use InsertMenu because this will lead to multiple menu entries in the explorer file menu.
 	//see http://support.microsoft.com/default.aspx?scid=kb;en-us;214477 for details of that.
+	MAKESTRING(IDS_MENUSUBMENU);
 	MENUITEMINFO menuiteminfo;
 	SecureZeroMemory(&menuiteminfo, sizeof(menuiteminfo));
 	menuiteminfo.cbSize = sizeof(menuiteminfo);
 	menuiteminfo.fType = MFT_STRING;
- 	menuiteminfo.dwTypeData = _T("TortoiseS&VN\0\0");
+ 	menuiteminfo.dwTypeData = stringtablebuffer;
 
 	UINT uIcon = bShowIcons ? IDI_APP : 0;
 	if (folder_.size())
