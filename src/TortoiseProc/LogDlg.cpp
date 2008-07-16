@@ -1553,6 +1553,8 @@ void CLogDlg::OnOK()
 	// dialogs, we have to do some work before closing this dialog
 	if (GetFocus() != GetDlgItem(IDOK))
 		return;	// if the "OK" button doesn't have the focus, do nothing: this prevents closing the dialog when pressing enter
+	if (!GetDlgItem(IDOK)->IsWindowVisible() && GetFocus() != GetDlgItem(IDCANCEL))
+		return; // the Cancel button works as the OK button. But if the cancel button has not the focus, do nothing.
 
 	CString temp;
 	CString buttontext;

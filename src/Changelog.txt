@@ -58,6 +58,8 @@ Version 1.5.1
 - BUG: Running a merge only for testing with an empty revision range
        did not set the range correctly. (Stefan)
 - BUG: The merge info text was off by one revision. (Stefan)
+- BUG: Pressing Enter in the log dialog would close the dialog, even if
+       the focus was in the filter edit box. (Stefan)
 
 Version 1.5.0
 - CHG: Support for IPv6 disabled due to problems with merging and terrible
