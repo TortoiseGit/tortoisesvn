@@ -16,6 +16,16 @@
 
 var objArgs,num,sTheirDoc,sMyDoc,sBaseDoc,sMergedDoc,objScript,word,baseDoc,WSHShell;
 
+// Microsoft Office versions for Microsoft Windows OS
+var vOffice2000 = 9;
+var vOffice2002 = 10;
+var vOffice2003 = 11;
+var vOffice2007 = 12;
+// WdCompareTarget
+var wdCompareTargetSelected = 0;
+var wdCompareTargetCurrent = 1;
+var wdCompareTargetNew = 2;
+
 objArgs = WScript.Arguments;
 num = objArgs.length;
 if (num < 4)
@@ -33,12 +43,12 @@ objScript = new ActiveXObject("Scripting.FileSystemObject")
 if ( ! objScript.FileExists(sTheirDoc))
 {
     WScript.Echo("File " + sTheirDoc +" does not exist.  Cannot compare the documents.", vbExclamation, "File not found");
-    Wscript.Quit(1);
+    WScript.Quit(1);
 }
 if ( ! objScript.FileExists(sMergedDoc))
 {
     WScript.Echo("File " + sMergedDoc +" does not exist.  Cannot compare the documents.", vbExclamation, "File not found");
-    Wscript.Quit(1);
+    WScript.Quit(1);
 }
 
 objScript = null
@@ -49,8 +59,8 @@ try
 }
 catch(e)
 {
-   Wscript.Echo("You must have Microsoft Word installed to perform this operation.");
-   Wscript.Quit(1);
+   WScript.Echo("You must have Microsoft Word installed to perform this operation.");
+   WScript.Quit(1);
 }
 
 word.visible = true
@@ -59,9 +69,13 @@ word.visible = true
 baseDoc = word.Documents.Open(sTheirDoc);
 
 // Merge into the "My" document
-if (Number(word.Version) < 12)
+if (Number(word.Version) < vOffice2000)
 {
-	baseDoc.Compare(sMergedDoc);
+        baseDoc.Compare(sMergedDoc);
+}
+else if (Number(word.Version) < vOffice2007)
+{
+        baseDoc.Compare(sMergedDoc, "Comparison", wdCompareTargetNew, true, true);
 } else {
 	baseDoc.Merge(sMergedDoc);
 }

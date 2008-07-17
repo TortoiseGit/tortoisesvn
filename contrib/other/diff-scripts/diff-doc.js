@@ -14,7 +14,7 @@
 // Davide Orlandi and Hans-Emil Skogh, 2005
 //
 
-var objArgs,num,sBaseDoc,sNewDoc,objScript,word,destination;
+var objArgs,num,sBaseDoc,sNewDoc,sTempDoc,objScript,word,destination;
 // Microsoft Office versions for Microsoft Windows OS
 var vOffice2000 = 9;
 var vOffice2002 = 10;
@@ -113,6 +113,13 @@ catch(e)
 	oPropertyValue[0].Value = sBaseDoc;
 	dispatcher.executeDispatch(Frame, ".uno:CompareDocuments", "", 0, oPropertyValue);
 	WScript.Quit(0);
+}
+
+if (Number(word.Version) >= vOffice2007)
+{
+	sTempDoc = sNewDoc;
+	sNewDoc = sBaseDoc;
+	sBaseDoc = sTempDoc;
 }
 
 objScript = null;
