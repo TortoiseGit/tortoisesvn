@@ -31,6 +31,7 @@
 #include "FilterEdit.h"
 #include "SVNRev.h"
 #include "Tooltip.h"
+#include "HintListCtrl.h"
 
 #include <regex>
 using namespace std;
@@ -194,7 +195,7 @@ private:
 	CString				m_sRepositoryRoot;
 	CString				m_sSelfRelativeURL;
 	CString				m_sURL;
-	CListCtrl			m_LogList;
+	CHintListCtrl		m_LogList;
 	CListCtrl			m_ChangedFileListCtrl;
 	CFilterEdit			m_cFilter;
 	CProgressCtrl		m_LogProgress;

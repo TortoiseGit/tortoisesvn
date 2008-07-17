@@ -6,6 +6,9 @@
 - CHG: When only files are selected for "Add", the Add-dialog is not
        shown anymore but the files are added immediately. (Stefan)
 - CHG: file:// access to BDB based repositories is no longer supported. (Stefan)
+- CHG: the log dialog now shows a possible error message when fetching the
+       log as a text in the top list control instead of showing a popup
+       message box. (Stefan)
 
 Version 1.5.1
 - CHG: The saslDIGESTMD5.dll has now encryption enabled. (Stefan)

@@ -1026,9 +1026,11 @@ UINT CLogDlg::LogThread()
 	DialogEnableWindow(IDC_STATBUTTON, FALSE);
 	DialogEnableWindow(IDC_REFRESH, FALSE);
 	
+	CString temp;
+	temp.LoadString(IDS_PROGRESSWAIT);
+	m_LogList.ShowText(temp, true);
 	// change the text of the close button to "Cancel" since now the thread
 	// is running, and simply closing the dialog doesn't work.
-	CString temp;
 	if (!GetDlgItem(IDOK)->IsWindowVisible())
 	{
 		temp.LoadString(IDS_MSGBOX_CANCEL);
@@ -1141,9 +1143,11 @@ UINT CLogDlg::LogThread()
 	        succeeded = ReceiveLog(CTSVNPathList(m_path), SVNRev(), SVNRev::REV_WC, m_endrev, m_limit, m_bStrict, m_bIncludeMerges, refresh);
         }
     }
+	m_LogList.ClearText();
     if (succeeded == FALSE)
-	    CMessageBox::Show(m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-
+	{
+		m_LogList.ShowText(GetLastErrorMessage(), true);
+	}
     if (m_bStrict && (m_lowestRev>1) && ((m_limit>0) ? ((startcount + m_limit)>m_logEntries.size()) : (m_endrev<m_lowestRev)))
 		m_bStrictStopped = true;
 	m_LogList.SetItemCountEx(ShownCountWithStopped());
