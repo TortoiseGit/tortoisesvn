@@ -304,7 +304,9 @@ void CEditPropertyValueDlg::CheckRecursive()
 
 		if (nText)
 		{
+			m_tooltips.AddTool(GetDlgItem(IDC_PROPNAMECOMBO), nText);
 			m_tooltips.AddTool(GetDlgItem(IDC_PROPNAMECOMBO)->GetWindow(GW_CHILD), nText);
+			m_tooltips.AddTool(GetDlgItem(IDC_PROPVALUE), nText);
 		}
 		else
 		{
