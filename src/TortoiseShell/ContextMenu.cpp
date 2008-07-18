@@ -949,7 +949,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 	bool bMenuEntryAdded = false;
 	// insert separator at start
 	InsertMenu(hMenu, indexMenu++, MF_SEPARATOR|MF_BYPOSITION, 0, NULL); idCmd++;
-	bool bShowIcons = !!DWORD(CRegStdWORD(_T("Software\\TortoiseSVN\\OwnerdrawnMenus"), TRUE));
+	bool bShowIcons = !!DWORD(CRegStdWORD(_T("Software\\TortoiseSVN\\ShowContextMenuIcons"), TRUE));
 	if (fullver <= 0x0500)
 		bShowIcons = false;
 	while (menuInfo[menuIndex].command != ShellMenuLastEntry)
