@@ -63,20 +63,19 @@ BOOL CAppUtils::StartExtMerge(
 	bool bInternal = false;
 
 	CString mimetype;
-	if (
-		GetMimeType(yourfile, mimetype) || GetMimeType(theirfile, mimetype) || GetMimeType(basefile, mimetype))
+	if (ext != "")
 	{
-		// is there a mime type specific merge tool?
-		CRegString mergetool(_T("Software\\TortoiseSVN\\MergeTools\\") + mimetype);
+		// is there an extension specific merge tool?
+		CRegString mergetool(_T("Software\\TortoiseSVN\\MergeTools\\") + ext.MakeLower());
 		if (CString(mergetool) != "")
 		{
 			com = mergetool;
 		}
 	}
-	else if (ext != "")
+	if (GetMimeType(yourfile, mimetype) || GetMimeType(theirfile, mimetype) || GetMimeType(basefile, mimetype))
 	{
-		// is there an extension specific merge tool?
-		CRegString mergetool(_T("Software\\TortoiseSVN\\MergeTools\\") + ext.MakeLower());
+		// is there a mime type specific merge tool?
+		CRegString mergetool(_T("Software\\TortoiseSVN\\MergeTools\\") + mimetype);
 		if (CString(mergetool) != "")
 		{
 			com = mergetool;

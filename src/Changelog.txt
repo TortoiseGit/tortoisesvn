@@ -63,6 +63,8 @@ Version 1.5.1
 - BUG: The merge info text was off by one revision. (Stefan)
 - BUG: Pressing Enter in the log dialog would close the dialog, even if
        the focus was in the filter edit box. (Stefan)
+- BUG: the merge tool for a specific file extension was not used if
+       the file to merge had an svn:mime-type set. (Stefan)
 
 Version 1.5.0
 - CHG: Support for IPv6 disabled due to problems with merging and terrible
