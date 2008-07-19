@@ -65,6 +65,8 @@ Version 1.5.1
        the focus was in the filter edit box. (Stefan)
 - BUG: the merge tool for a specific file extension was not used if
        the file to merge had an svn:mime-type set. (Stefan)
+- BUG: in the CfM dialog, both context menu entries "compare with BASE"
+       and "compare with working copy" did the same. (Stefan)
 
 Version 1.5.0
 - CHG: Support for IPv6 disabled due to problems with merging and terrible

@@ -90,9 +90,10 @@ const UINT CSVNStatusListCtrl::SVNSLNM_CHECKCHANGED
 #define IDSVNLC_CHECKGROUP		30
 #define IDSVNLC_UNCHECKGROUP	31
 #define IDSVNLC_ADD_RECURSIVE   32
+#define IDSVNLC_COMPAREWC		33
 // the IDSVNLC_MOVETOCS *must* be the last index, because it contains a dynamic submenu where 
 // the submenu items get command ID's sequent to this number
-#define IDSVNLC_MOVETOCS		33
+#define IDSVNLC_MOVETOCS		34
 
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
@@ -2148,7 +2149,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 						if (m_dwContextMenus & SVNSLC_POPCOMPARE)
 						{
 							temp.LoadString(IDS_LOG_POPUP_COMPARE);
-							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COMPARE, temp);
+							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COMPAREWC, temp);
 							popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
 							bEntryAdded = true;
 						}
@@ -2612,6 +2613,23 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					{
 						int index = GetNextSelectedItem(pos);
 						StartDiff(index);
+					}
+				}
+				break;
+			case IDSVNLC_COMPAREWC:
+				{
+					POSITION pos = GetFirstSelectedItemPosition();
+					while ( pos )
+					{
+						int index = GetNextSelectedItem(pos);
+						FileEntry * entry = GetListEntry(index);
+						ASSERT(entry != NULL);
+						if (entry == NULL)
+							continue;
+						SVNDiff diff(NULL, m_hWnd, true);
+						diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+						diff.DiffFileAgainstBase(
+							entry->path, entry->textstatus, entry->propstatus);
 					}
 				}
 				break;
