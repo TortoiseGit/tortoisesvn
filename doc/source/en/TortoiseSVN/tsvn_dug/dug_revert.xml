@@ -58,4 +58,17 @@
 			read <xref linkend="tsvn-dug-showlog"/> for further information.
 		</para>
 	</tip>
+	<tip>
+		<title>Revert is Slow</title>
+		<para>
+			When you revert changes you may find that the operation takes a lot
+			longer than you expect. This is because the modified version of the
+			file is sent to the recycle bin, so you can retrieve your changes
+			if you reverted by mistake. However, if your recycle bin is full,
+			Windows takes a long time to find a place to put the file. The
+			solution is simple: either empty the recycle bin or deactivate
+			the <guilabel>Use recycle bin when reverting</guilabel> box
+			in TortoiseSVN's settings.
+		</para>
+	</tip>
 </sect1>
