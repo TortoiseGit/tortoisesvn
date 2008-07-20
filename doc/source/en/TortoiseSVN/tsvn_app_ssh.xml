@@ -300,6 +300,13 @@ svn+ssh://SvnConnection/repos
 			This client will check the session for all necessary details.
 		</para>
 		<para>
+			At the time of writing PuTTY does not check all saved configurations,
+			so if you have multiple configurations with the same server name, it
+			will pick the first one which matches. Also, if you edit the default
+			configuration and save it, the auto login user name is
+			<emphasis>not</emphasis> saved.
+		</para>
+		<para>
 			Many people like to use Pageant for storing all their keys.
 			Because a PuTTY session is capable of storing a key, you don't
 			always need Pageant. But imagine you want to store keys for several 
