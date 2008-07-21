@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-07-16 14:52+0100\n"
+"PO-Revision-Date: 2008-07-21 14:48+0100\n"
 "Last-Translator: Halász Gábor <k@elitonline.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -289,7 +289,7 @@ msgstr "&Argumentumok:"
 #. Resource IDs: (16645)
 #, fuzzy
 msgid "&Assign"
-msgstr "&Megbíz"
+msgstr "&Hozzárendel"
 
 #. Resource IDs: (16633)
 #, fuzzy
@@ -677,7 +677,7 @@ msgstr "&Menü animációk:"
 #. Resource IDs: (16921)
 #, fuzzy
 msgid "&Menu contents:"
-msgstr "&Menü tartalom:"
+msgstr "&Menü tartalma:"
 
 #. Resource IDs: (1)
 msgid "&Merge"
@@ -837,7 +837,7 @@ msgstr "&Felhasználási adatok visszaállítása"
 #. Resource IDs: (16910)
 #, fuzzy
 msgid "&Reset to Default"
-msgstr "&Alapbeállítás Visszaállítása"
+msgstr "&Alapbeállítás visszaállítása"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -865,7 +865,7 @@ msgstr "&Mentés"
 
 #. Resource IDs: (1023)
 msgid "&Save authentication"
-msgstr "&Hitelesítés mentése"
+msgstr "&Felhasználónév és jelszó megjegyzése"
 
 #. Resource IDs: (272, 32771, 32806)
 msgid "&Save graph as..."
@@ -1174,12 +1174,14 @@ msgid "?"
 msgstr "?"
 
 #. Resource IDs: (579)
+#, fuzzy
 msgid "A list of user defined properties for files to show in the combo box"
-msgstr ""
+msgstr "A felhasználó által megadott fájl-tulajdonságok, amelyek jelenjenek meg a listában"
 
 #. Resource IDs: (579)
+#, fuzzy
 msgid "A list of user defined properties for folders to show in the combo box"
-msgstr ""
+msgstr "A felhasználó által megadott mappa-tulajdonságok, amelyek jelenjenek meg a listában"
 
 #. Resource IDs: (201)
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
@@ -1319,8 +1321,9 @@ msgid "Add to &ignore list"
 msgstr "&Hozzáadás a kizárási listához"
 
 #. Resource IDs: (1068)
+#, fuzzy
 msgid "Add to Quick Access Toolbar"
-msgstr ""
+msgstr "Hozzáadás a Gyorsindító eszköztárhoz"
 
 #. Resource IDs: (209, 1279)
 msgid "Add..."
@@ -1421,7 +1424,7 @@ msgstr "Minden módosítás el fog veszni! Biztosan alaphelyzetbe akarod állít
 #. Resource IDs: (1008)
 #, fuzzy
 msgid "All your changes will be lost! Do you really want to reset the keyboard assignments?"
-msgstr "Minden módosítás el fog veszni! Biztosan alaphelyzetbe akarod állítani a billentyűket?"
+msgstr "Minden módosítás el fog veszni! Biztosan alaphelyzetbe akarod állítani a gyorsbillentyűket?"
 
 #. Resource IDs: (1008)
 #, c-format
@@ -1507,8 +1510,9 @@ msgid "An unknown line type was found in line %d !"
 msgstr "Ismeretlen sortípus a %d. sorban!"
 
 #. Resource IDs: (65535)
+#, fuzzy
 msgid "Application Frame Menus: "
-msgstr ""
+msgstr "Application Frame Menus: "
 
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
@@ -1564,7 +1568,7 @@ msgstr "Hozzárendelve a(z) \"%s\" változáslistához"
 #. Resource IDs: (16528)
 #, fuzzy
 msgid "Assigned to:"
-msgstr "Megbízva:"
+msgstr "Hozzárendelve:"
 
 #. Resource IDs: (77)
 #, c-format
@@ -1574,7 +1578,7 @@ msgstr "Jelenlegi verzió: %d"
 #. Resource IDs: (3843)
 #, fuzzy
 msgid "Attempted an unsupported operation."
-msgstr "Egy nem támogatott művelet végrehajtásának kísérlete."
+msgstr "A program egy nem támogatott műveletet kísérelt meg."
 
 #. Resource IDs: (3867, 3868)
 #, fuzzy, c-format
@@ -1709,8 +1713,9 @@ msgid "Blames each line of a file on an author"
 msgstr "Minden sornak kiírja a legutóbbi módosítóját"
 
 #. Resource IDs: (32812)
+#, fuzzy
 msgid "Blend Alpha"
-msgstr ""
+msgstr "Blend Alpha"
 
 #. Resource IDs: (83)
 msgid ""
@@ -2207,6 +2212,10 @@ msgid ""
 "\n"
 "Are you sure that you want to continue the commit?"
 msgstr ""
+"Ha beküldés ablakban adsz hozzá egy mappát a verziókezeléshez,\n"
+"a benne lévő fájlok és almappák nem kerülnek automatikusan verziókezelés alá!\n"
+"Ehhez használd a \"Hozzáadás...\" parancsot a helyi menüben.\n"
+"Biztosan folytatod a beküldést?"
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
@@ -2297,15 +2306,16 @@ msgstr "Méret"
 #. Resource IDs: (16520)
 #, fuzzy
 msgid "Context Menus: "
-msgstr "Helyi menük:"
+msgstr "Helyi menük: "
 
 #. Resource IDs: (73)
 msgid "Continue"
 msgstr "Folytatás"
 
 #. Resource IDs: (1001)
+#, fuzzy
 msgid "Contract docked window"
-msgstr ""
+msgstr "Dokkolt ablak összecsukása"
 
 #. Resource IDs: (376)
 msgid "Cop&y"
@@ -2322,7 +2332,7 @@ msgstr "URL-ből másolva"
 #. Resource IDs: (126)
 #, fuzzy
 msgid "Copied remotely"
-msgstr "Távolról másolva"
+msgstr "Távolban másolva"
 
 #. Resource IDs: (16991)
 msgid "Copy"
@@ -2497,7 +2507,7 @@ msgid "Could not get the status!"
 msgstr "Nem érhető el az állapot!"
 
 #. Resource IDs: (582)
-#, fuzzy, c-format
+#, c-format
 msgid "Could not merge \"%s\" because"
 msgstr "\"%s\" nem egyesíthető, mert"
 
@@ -2702,12 +2712,14 @@ msgid "Customize Keyboard"
 msgstr "Gyorsbillentyűk testreszabása"
 
 #. Resource IDs: (1069)
+#, fuzzy
 msgid "Customize Quick Access Toolbar"
-msgstr ""
+msgstr "A Gyorsindító eszköztár testreszabása"
 
 #. Resource IDs: (1068)
+#, fuzzy
 msgid "Customize Quick Access Toolbar..."
-msgstr ""
+msgstr "A Gyorsindító eszköztár testreszabása..."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -2733,15 +2745,16 @@ msgstr "Megjelenített megjegyzések &száma"
 #. Resource IDs: (1007)
 #, fuzzy
 msgid "Default Menu"
-msgstr "Alap menü"
+msgstr "Alapértelmezett menü"
 
 #. Resource IDs: (65535)
 msgid "Default URL:"
 msgstr "Alapértelmezett URL:"
 
 #. Resource IDs: (1007)
+#, fuzzy
 msgid "Default application menu. Appears when no documents are open."
-msgstr ""
+msgstr "Alapértelmezett menü. Akkor jelenik meg, ha nincs megnyitott dokumentum."
 
 #. Resource IDs: (65535)
 msgid "Default path:"
@@ -2808,10 +2821,13 @@ msgid "Details"
 msgstr "Részletek"
 
 #. Resource IDs: (3849)
+#, fuzzy
 msgid ""
 "Device Independent Bitmap\n"
 "a device independent bitmap"
 msgstr ""
+"Eszközfüggetlen bitkép\n"
+"egy eszközfüggetlen bitkép"
 
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
@@ -2863,7 +2879,7 @@ msgstr "%1 elérése közben megtelt a lemez."
 #. Resource IDs: (3860)
 #, fuzzy, c-format
 msgid "Dispatch exception: %1"
-msgstr "Visszafoltozás kivétel: %1"
+msgstr "Elküldési kivétel: %1"
 
 #. Resource IDs: (65535)
 msgid "Display &buttons in this order"
@@ -2981,8 +2997,9 @@ msgid "Don't show this message again"
 msgstr "Ne mutassa többet ezt az üzenetet"
 
 #. Resource IDs: (1002)
+#, fuzzy
 msgid "Drag to make this menu float"
-msgstr ""
+msgstr "Húzd az egérrel, hogy lebegővé alakítsd a menüt"
 
 #. Resource IDs: (16513)
 #, fuzzy
@@ -3113,16 +3130,17 @@ msgstr "Egy hardware I/O hiba történt %1 elérése közben."
 #. Resource IDs: (3867)
 #, fuzzy, c-format
 msgid "Encountered a locking violation while accessing %1."
-msgstr "Lezárási tiltalom megszegés történt %1 elérése közben."
+msgstr "Zárolás megsértése %1 elérése közben."
 
 #. Resource IDs: (3867)
 #, fuzzy, c-format
 msgid "Encountered a sharing violation while accessing %1."
-msgstr "Egy megosztási szabálysértés történt %1 elérése közben"
+msgstr "Megosztási megsértése %1 elérése közben"
 
 #. Resource IDs: (3843)
+#, fuzzy
 msgid "Encountered an improper argument."
-msgstr ""
+msgstr "Hibás paraméter."
 
 #. Resource IDs: (3859)
 #, c-format
@@ -3273,8 +3291,9 @@ msgid "Expand (%s)"
 msgstr "Kibontás (%s)"
 
 #. Resource IDs: (1001)
+#, fuzzy
 msgid "Expand docked window"
-msgstr ""
+msgstr "Dokkolt ablak kibontása"
 
 #. Resource IDs: (209)
 msgid "Explore to"
@@ -3370,7 +3389,9 @@ msgstr "Nem sikerült a visszaállítás"
 msgid ""
 "Failed to connect.\n"
 "Link may be broken."
-msgstr "Nem sikerült csatlakozni.\n"
+msgstr ""
+"Nem sikerült csatlakozni.\n"
+"Lehet, hogy hibás a link."
 
 #. Resource IDs: (3865)
 msgid "Failed to convert ActiveX object."
@@ -3381,8 +3402,9 @@ msgid "Failed to create empty document."
 msgstr "Nem sikerült az üres dokumentumot létrehozásni."
 
 #. Resource IDs: (3865)
+#, fuzzy
 msgid "Failed to create object.  Make sure the application is entered in the system registry."
-msgstr ""
+msgstr "Nem sikerült az objektumot létrehozni. Ellenőrizd, hogy a program jelen van-e a rendszerleíró adatbázisban."
 
 #. Resource IDs: (3857)
 msgid "Failed to launch help."
@@ -3399,7 +3421,7 @@ msgstr "Nem sikerült a dokumentumot betölteni."
 #. Resource IDs: (3865)
 #, fuzzy
 msgid "Failed to perform server operation."
-msgstr "Nincs elég memória a művelethez."
+msgstr "Nem sikerült a szerver-művelet."
 
 #. Resource IDs: (3857)
 msgid "Failed to save document."
@@ -3701,8 +3723,9 @@ msgid "Get loc&k..."
 msgstr "&Zárolás..."
 
 #. Resource IDs: (114)
+#, fuzzy
 msgid "Get merge logs"
-msgstr ""
+msgstr "Egyesítési napló lekérése"
 
 #. Resource IDs: (89)
 msgid ""
@@ -3874,8 +3897,9 @@ msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all ch
 msgstr "Tipp: Nyomj F5-t a kijelölt mappa frissítéséhez, vagy Ctrl-F5-t az összes almappa frissítéséhez"
 
 #. Resource IDs: (16519)
+#, fuzzy
 msgid "Hint: select the context menu, change the page to \"Commands\" and drag the toolbar buttons into the menu window."
-msgstr ""
+msgstr "Tipp: válaszd ki a helyi menüt, válts át a \"Műveletek\" oldalra és húzd az eszköztár-gombokat a menüre."
 
 #. Resource IDs: (1064)
 #, fuzzy
@@ -4322,9 +4346,8 @@ msgid "Include ignored files"
 msgstr "A kizárt fájlokat is beleértve"
 
 #. Resource IDs: (1126)
-#, fuzzy
 msgid "Include merged revisions"
-msgstr "Az egyesített verziókat is belevétele"
+msgstr "Egyesített verziók belevétele"
 
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
@@ -4376,10 +4399,9 @@ msgstr "Rossz pénznem."
 #. Resource IDs: (102)
 #, fuzzy
 msgid "Invalid data object dropped!"
-msgstr "Érvénytelen adat objektum!"
+msgstr "Érvénytelen adat objektum eldobva!"
 
 #. Resource IDs: (82)
-#, fuzzy
 msgid ""
 "Invalid revision number! Valid revisions are:\n"
 "HEAD, BASE, PREV, COMMITTED, WC,\n"
@@ -4414,7 +4436,6 @@ msgstr ""
 "{20020217T1530-0500}"
 
 #. Resource IDs: (83)
-#, fuzzy
 msgid ""
 "Invalid revision number! Valid revisions are:\n"
 "HEAD\n"
@@ -4461,7 +4482,6 @@ msgstr ""
 "Példa: 2-5,7,10,44-70,300-HEAD"
 
 #. Resource IDs: (145)
-#, fuzzy
 msgid ""
 "It is not possible to rename a file by changing the case of its name alone.\n"
 "For example, you can't make MyFile.txt become MYFILE.txt.\n"
@@ -4469,7 +4489,7 @@ msgid ""
 msgstr ""
 "Nem lehet úgy átnevezni egy fájlt, hogy csupán kisbetű/nagybetű-ben tér el.\n"
 "Például VaLaMi.txt-t nem lehet átnevezni VALAMI.txt-vé.\n"
-"Nézz utánna a dokumentációban további információkért."
+"Nézz utánna a dokumentációban, hogyan lehet megkerülni ezt a korlátozást."
 
 #. Resource IDs: (88)
 #, c-format
@@ -4513,7 +4533,7 @@ msgstr "Billentyűzet"
 #. Resource IDs: (65535)
 #, fuzzy
 msgid "Keyboard shortcuts:"
-msgstr "Billentyűparancsok:"
+msgstr "Gyorsbillentyűl:"
 
 #. Resource IDs: (1002)
 #, fuzzy
@@ -4542,9 +4562,8 @@ msgid "Last time the repository was asked for the HEAD revision number"
 msgstr "A tároló legutóbbi ellenőrzésének időpontja"
 
 #. Resource IDs: (12)
-#, fuzzy
 msgid "Launches the external diff / merge program to solve the conflicts"
-msgstr "Elindítja a külső diff / egyesítő programot az ellentmondások megoldásáért"
+msgstr "Elindítja a külső diff / egyesítő programot az ellentmondások feloldásáért"
 
 #. Resource IDs: (1137)
 msgid "Least active author:"
@@ -4789,8 +4808,9 @@ msgid "Max. lines in action log"
 msgstr "Eseménynapló max. mérete (sorokban)"
 
 #. Resource IDs: (16655)
+#, fuzzy
 msgid "Me&nus show recently used commands first"
-msgstr ""
+msgstr "A &menük elején a legutóbb használt műveletek jelenlenek meg"
 
 #. Resource IDs: (16134)
 msgid "Menu"
@@ -4815,25 +4835,23 @@ msgid "Merge - TortoiseSVN"
 msgstr "Egyesítés - TortoiseSVN"
 
 #. Resource IDs: (221)
+#, fuzzy
 msgid "Merge Reintegrate"
-msgstr ""
+msgstr "Visszaintegrálás"
 
 #. Resource IDs: (1468)
 msgid "Merge a range of revisions"
 msgstr "Több verzió egyesítése"
 
 #. Resource IDs: (277)
-#, fuzzy
 msgid "Merge all"
 msgstr "Összes egyesítése"
 
 #. Resource IDs: (14)
-#, fuzzy
 msgid "Merge all..."
 msgstr "Összes egyesítése..."
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Merge depth:"
 msgstr "Egyesítés mélysége:"
 
@@ -4852,12 +4870,12 @@ msgstr "Válaszd ki az egyesítés intervallumát"
 #. Resource IDs: (114)
 #, fuzzy
 msgid "Merge revision to..."
-msgstr "Verzió egyesítése ezzel..."
+msgstr "Verzió integrálása ebbe..."
 
 #. Resource IDs: (114)
 #, fuzzy
 msgid "Merge revisions to..."
-msgstr "Verziók egyesítése ezzel..."
+msgstr "Verziók integrálása ebbe..."
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
@@ -4881,8 +4899,9 @@ msgid "Merges a branch into the main trunk"
 msgstr "Egyesít egy mellékágat a főágba"
 
 #. Resource IDs: (14)
+#, fuzzy
 msgid "Merges all missing revisions back into the working copy using merge-tracking information"
-msgstr ""
+msgstr "Visszaintegrál minden hiányzó verziót a munkapéldányba az egyesítés-követés használatával"
 
 #. Resource IDs: (65535)
 msgid "Merging"
@@ -5019,7 +5038,7 @@ msgstr ""
 #. Resource IDs: (17026)
 #, fuzzy
 msgid "Move &Down"
-msgstr "&Lfelé mozgat"
+msgstr "&Lefelé mozgat"
 
 #. Resource IDs: (17025)
 #, fuzzy
@@ -5060,7 +5079,7 @@ msgstr "Áthelyezés: %s új neve"
 #. Resource IDs: (126)
 #, fuzzy
 msgid "Moved remotely"
-msgstr "Távolról áthelyezve"
+msgstr "Távolban áthelyezve"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -5088,12 +5107,14 @@ msgid "NUM"
 msgstr "NUM"
 
 #. Resource IDs: (17004)
+#, fuzzy
 msgid "Navigation Pane Options"
-msgstr ""
+msgstr "Navigációs sáv beállításai"
 
 #. Resource IDs: (1065)
+#, fuzzy
 msgid "Navigation Pane Options..."
-msgstr ""
+msgstr "Navigációs sáv beállításai..."
 
 #. Resource IDs: (208)
 msgid "Needs lock"
@@ -5102,7 +5123,7 @@ msgstr "Zárolás szükséges"
 #. Resource IDs: (213)
 #, fuzzy
 msgid "Nested"
-msgstr "Letelepedett"
+msgstr "Beágyazott"
 
 #. Resource IDs: (102)
 msgid "Network"
@@ -5155,7 +5176,7 @@ msgid ""
 msgstr ""
 "Nincs parancs megadva!\n"
 "<hr=100%>\n"
-"A TortoiseProc.exe-t nem szabad külön elindítani!"
+"A TortoiseProc.exe-t a beépülő használja, ne indítsd el közvetlenül!"
 
 #. Resource IDs: (81)
 #, fuzzy
@@ -5322,7 +5343,7 @@ msgstr "OK"
 #. Resource IDs: (3697)
 #, fuzzy
 msgid "OVR"
-msgstr "OVE"
+msgstr "OVR"
 
 #. Resource IDs: (32845)
 msgid "Office &XP"
@@ -5452,8 +5473,9 @@ msgid "Ori&ginal size"
 msgstr "&Eredeti méret"
 
 #. Resource IDs: (1065)
+#, fuzzy
 msgid "Other Task Panes"
-msgstr ""
+msgstr "További feladatlisták"
 
 #. Resource IDs: (245)
 msgid "Others"
@@ -5633,7 +5655,7 @@ msgstr "Várj, megszakítás folyamatban..."
 #. Resource IDs: (319)
 #, fuzzy
 msgid "Please wait while differences are obtained..."
-msgstr "Várj, amíg különbségeket keresek..."
+msgstr "Várj, amíg befelyeződik a különbség-keresés..."
 
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
@@ -5982,7 +6004,7 @@ msgstr "Mellékág visszaintegrálása"
 #. Resource IDs: (230)
 #, c-format
 msgid "Reintegrate merge %s into %s"
-msgstr "%s visszaintegrálás ebbe: %s"
+msgstr "%s visszaintegrálása ebbe: %s"
 
 #. Resource IDs: (82)
 msgid "Reject"
@@ -6065,8 +6087,9 @@ msgid "Remove from &ignore list"
 msgstr "El&távolítás a kizárási listáról"
 
 #. Resource IDs: (1068)
+#, fuzzy
 msgid "Remove from Quick Access Toolbar"
-msgstr ""
+msgstr "Eltávolítás a Gyorsindító eszköztárról"
 
 #. Resource IDs: (209)
 msgid "Remove from changelist"
@@ -6147,7 +6170,6 @@ msgid "Rename/move - TortoiseSVN"
 msgstr "Átnevezés/áthelyezés - TortoiseSVN"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Renamed node"
 msgstr "Átnevezett csomópont"
 
@@ -6209,7 +6231,7 @@ msgstr "Felhasználónevet és jelszót igényel"
 
 #. Resource IDs: (8)
 msgid "Res&olved..."
-msgstr "&Megoldottnak jelölés..."
+msgstr "&Feloldottnak jelölés..."
 
 #. Resource IDs: (16614)
 #, fuzzy
@@ -6289,7 +6311,7 @@ msgstr "Ismét"
 
 #. Resource IDs: (1423)
 msgid "Reverse merge"
-msgstr "Visszaegyesítés"
+msgstr "Egyesítés visszavonása"
 
 #. Resource IDs: (175, 229)
 msgid "Revert"
@@ -6454,8 +6476,9 @@ msgid "S&how Buttons on Two Rows"
 msgstr "&Gombok megjelenítése két sorban"
 
 #. Resource IDs: (17078)
+#, fuzzy
 msgid "S&how Quick Access Toolbar below the Ribbon"
-msgstr ""
+msgstr "&Gyorsindítási eszköztár elhelyezése a szalag alatt"
 
 #. Resource IDs: (1132)
 msgid "S&tatistics"
@@ -6557,7 +6580,7 @@ msgstr "Elmented %1 változásait?"
 #. Resource IDs: (232)
 #, fuzzy
 msgid "Save client certificate path"
-msgstr "Kliens tanusítvány útvonal mentése"
+msgstr "Kliens tanusítvány mentésének útvonala"
 
 #. Resource IDs: (76)
 msgid "Save revision &to..."
@@ -6638,7 +6661,7 @@ msgstr "Mindent &kijelöl"
 #. Resource IDs: (16529)
 #, fuzzy
 msgid "Select &User-defined Image: "
-msgstr "&Válassz képet"
+msgstr "&Válassz képet: "
 
 #. Resource IDs: (16508)
 #, fuzzy
@@ -6682,7 +6705,7 @@ msgstr "Válassz egy gombot."
 #. Resource IDs: (3585)
 #, fuzzy
 msgid "Select an object on which to get Help"
-msgstr "Válassz egy elemet, aminek a súgója kell"
+msgstr "Válaszd ki az elemet, amelynek a súgója kell"
 
 #. Resource IDs: (213)
 msgid "Select changelist"
@@ -6885,11 +6908,11 @@ msgstr "&Változások mutatása"
 
 #. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467, 32784)
 msgid "Show &log"
-msgstr "&Napló mutatása"
+msgstr "&Változási napló"
 
 #. Resource IDs: (1031)
 msgid "Show &log..."
-msgstr "&Napló mutatása..."
+msgstr "&Változási napló..."
 
 #. Resource IDs: (1088)
 msgid "Show &overlays and context menu only in explorer"
@@ -6904,12 +6927,14 @@ msgid "Show &unversioned files"
 msgstr "&Nem verziókezelt fájlok mutatása"
 
 #. Resource IDs: (1069)
+#, fuzzy
 msgid "Show Above the Ribbon"
-msgstr ""
+msgstr "Megjelenítés a szalag felett"
 
 #. Resource IDs: (1069)
+#, fuzzy
 msgid "Show Below the Ribbon"
-msgstr ""
+msgstr "Megjelenítés a szalag alatt"
 
 #. Resource IDs: (1065)
 msgid "Show Fewer Buttons"
@@ -6944,16 +6969,19 @@ msgid "Show Ove&rview"
 msgstr "&Áttekintés mutatása"
 
 #. Resource IDs: (1068)
+#, fuzzy
 msgid "Show Quick Access Toolbar Above the Ribbon"
-msgstr ""
+msgstr "Gyorsindítási eszköztár elhelyezése a szalag felett"
 
 #. Resource IDs: (1068)
+#, fuzzy
 msgid "Show Quick Access Toolbar Below the Ribbon"
-msgstr ""
+msgstr "Gyorsindítási eszköztár elhelyezése a szalag alatt"
 
 #. Resource IDs: (16651)
+#, fuzzy
 msgid "Show Screen&Tips on toolbars"
-msgstr ""
+msgstr "Tippek megjelenítése az eszköztárakon"
 
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
@@ -7032,8 +7060,9 @@ msgid "Show revision properties"
 msgstr "Tulajdonságok megtekintése"
 
 #. Resource IDs: (16652)
+#, fuzzy
 msgid "Show shortcut &keys in ScreenTips"
-msgstr ""
+msgstr "Gyorsbillentyűk mutatása a tippekben"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -7215,8 +7244,9 @@ msgid "Status"
 msgstr "Állapot"
 
 #. Resource IDs: (1068)
+#, fuzzy
 msgid "Status Bar Configuration"
-msgstr ""
+msgstr "Állapotsor beállításai"
 
 #. Resource IDs: (65535)
 msgid "Status and action colors"
@@ -7371,8 +7401,9 @@ msgid "TORTOISEIDIFF"
 msgstr "TORTOISEIDIFF"
 
 #. Resource IDs: (16970)
+#, fuzzy
 msgid "Tab Placeholder"
-msgstr ""
+msgstr "Tabulátor"
 
 #. Resource IDs: (65535)
 msgid "Tab size:"
@@ -7384,8 +7415,9 @@ msgid "Tagged the working copy to %s"
 msgstr "A munkapéldány %s kiadásként lett megjelölve"
 
 #. Resource IDs: (1064)
+#, fuzzy
 msgid "Tasks Pane"
-msgstr ""
+msgstr "Feladatlista"
 
 #. Resource IDs: (219)
 msgid "Test Only"
@@ -7402,7 +7434,7 @@ msgstr "Állapot"
 #. Resource IDs: (63)
 #, fuzzy
 msgid "The chunk size did not match the number of added/removed lines!"
-msgstr "A darabméret nem egyezik meg a hozzáadott/elvett sorok számával!"
+msgstr "A darabméret nem egyezik meg a hozzáadott/törölt sorok számával!"
 
 #. Resource IDs: (63)
 #, fuzzy, c-format
@@ -7547,12 +7579,12 @@ msgstr ""
 #. Resource IDs: (63)
 #, fuzzy, c-format
 msgid "The line indicating the new file was expected in line %d !"
-msgstr "A sor az új fájlban a %d sorban volt várva!"
+msgstr "A sor, amely az új fájlt jelöli a(z) %d. sorban kellet volna, hogy legyen!"
 
 #. Resource IDs: (63)
 #, fuzzy, c-format
 msgid "The line indicating the old file was expected in line %d !"
-msgstr "A sor a régi fájlban a %d sorban volt várva!"
+msgstr "A sor, amely a régi fájlt jelöli a(z) %d. sorban kellet volna, hogy legyen!"
 
 #. Resource IDs: (251)
 msgid "The lock has already been broken from another working copy"
@@ -7601,7 +7633,6 @@ msgstr ""
 "nem egyezik meg!"
 
 #. Resource IDs: (88)
-#, fuzzy
 msgid ""
 "The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
@@ -7611,10 +7642,10 @@ msgid ""
 "\n"
 "Do you want to proceed anyway?"
 msgstr ""
-"Az útvonal/URL nem megfelelő a Windowsnak!\n"
+"Az útvonal/URL hibásnak tűnik Windows alatt!\n"
 "Megpróbálhatod, de valószínűleg hibát fogsz kapni később.\n"
 "\n"
-"Egy útvonal nem tartalmazhatja az alábbi karaktereket: '<<>|\"?*:' és az alábbi eszközneveket:\n"
+"Egy útvonal nem tartalmazhatja az alábbi karaktereket: '<<>|\"?*:' és nem lehetnek az alábbi eszköznevek:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
 "Biztosan folytatod?"
 
@@ -7837,7 +7868,7 @@ msgstr ""
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made a feature branch as discussed in the Subversion book. Use this to merge all changes of a branch back to trunk."
-msgstr "Válaszd ezt, ha egy \"feature branch\"-ed van, ahogy a Subversion könyvben le van írva. Használd ezt, hogy visszaintegráld a változásokat a főágba."
+msgstr "Válaszd ezt, ha a Subversion könyvben leírt \"feature\" mellékágad van, és vissza szeretnéd integrálni a változásokat a főágba."
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
@@ -7845,7 +7876,7 @@ msgstr "Válaszd ezt, ha egy vagy több különböző mellékágad van, és az a
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
-msgstr "Válaszd ezt, ha két különböző mellékág különbségeit szeretnéd egyesíteni a munkapéldányoddal."
+msgstr "Válaszd ezt, ha két különböző mellékág különbségeit szeretnéd beleintegrálni a munkapéldányodba."
 
 #. Resource IDs: (65535)
 msgid "This product includes software developed by CollabNet (http://www.Collab.Net/)"
@@ -7874,8 +7905,9 @@ msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Ez a tulajdonság csak egy sort tartalmazhat."
 
 #. Resource IDs: (1016)
+#, fuzzy
 msgid "This will delete the record of commands you've used in this application and restore the default set of visible commands to the menus and toolbars. It will not undo any explicit customizations. Are you sure you want to do this?"
-msgstr ""
+msgstr "Az alkalmazásban használt minden művelet nyoma elfog tűnni, és a menükben és az eszköztárakban a látható műveletek is alaphelyzetbe kerülnek. A testreszabott beállítások nem fognak elveszni. Folytatod?"
 
 #. Resource IDs: (16924)
 msgid "Tile &Horizontally"
@@ -7890,7 +7922,6 @@ msgid "Timeouts"
 msgstr "Várakozási idő"
 
 #. Resource IDs: (224)
-#, fuzzy
 msgid ""
 "To commit recursively and work around this error,\n"
 "make sure that all child items of a checked folder\n"
@@ -7898,11 +7929,11 @@ msgid ""
 "Otherwise, TortoiseSVN must do a non-recursive commit\n"
 "which does not allow directory deletion."
 msgstr ""
-"Hogy rekurzívan küldj be és dolgozhass a hibán,\n"
-"nézd meg hogy az összes elem az alkönyvtárakban\n"
-"ki van jelölve a beküldési ablakban,\n"
-"különben a TortoiseSVN nem-rekurzívan fog beküldeni,\n"
-"ami nem teszi lehetővé a mappatörlést."
+"Rekurzív beküldéshez és a hiba megkerüléséhez\n"
+"ellenőrizd, hogy a mappában található összes fájl és\n"
+"almappa ki van-e jelölve a beküldési ablakban.\n"
+"Ellenkező esetben a TortoiseSVN nem-rekurzívan fog beküldeni,\n"
+"ami pedig nem teszi lehetővé a mappatörlést."
 
 #. Resource IDs: (284)
 msgid ""
@@ -8149,7 +8180,7 @@ msgid ""
 msgstr ""
 "Nem tudtam megállapítani az egyesítés forrását ehhez:\n"
 "%s\n"
-"Használd a főablakot az egyesítéshez."
+"Kérlek használd a fő egyesítési ablakot."
 
 #. Resource IDs: (3866)
 msgid "Unable to load mail system support."
@@ -8378,7 +8409,6 @@ msgid "Use block from left before right"
 msgstr "Bal oldali szövegblokk használata a jobb oldali előtt"
 
 #. Resource IDs: (2054)
-#, fuzzy
 msgid ""
 "Use block from left view before block from right view\n"
 "Use block from left before right"
@@ -8391,7 +8421,6 @@ msgid "Use block from right before left"
 msgstr "Jobb oldali szövegblokk használata a bal oldali előtt"
 
 #. Resource IDs: (2054)
-#, fuzzy
 msgid ""
 "Use block from right view before block from left view\n"
 "Use block from right before left"
@@ -8912,8 +8941,9 @@ msgid "Zoom to fit"
 msgstr "Legjobb kitöltés"
 
 #. Resource IDs: (1001)
+#, fuzzy
 msgid "[Unassigned]"
-msgstr ""
+msgstr "[Nincs hozzárendelve]"
 
 #. Resource IDs: (338)
 msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
