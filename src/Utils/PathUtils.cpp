@@ -264,7 +264,7 @@ CString CPathUtils::GetLongPathname(const CString& path)
 	TCHAR pathbufcanonicalized[MAX_PATH]; // MAX_PATH ok.
 	DWORD ret = 0;
 	CString sRet;
-	if (PathIsRelative(path))
+	if (!PathIsURL(path) && PathIsRelative(path))
 	{
 		ret = GetFullPathName(path, 0, NULL, NULL);
 		if (ret)
