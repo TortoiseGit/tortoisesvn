@@ -96,6 +96,7 @@ CTortoiseProcApp::~CTortoiseProcApp()
 // The one and only CTortoiseProcApp object
 CTortoiseProcApp theApp;
 HWND hWndExplorer;
+CString sOrigCWD;
 
 CCrashReport crasher("crashreports@tortoisesvn.tigris.org", "Crash Report for TortoiseSVN " APP_X64_STRING " : " STRPRODUCTVER, TRUE);// crash
 
@@ -270,6 +271,16 @@ BOOL CTortoiseProcApp::InitInstance()
 	// to the users temp folder: that way, Subversion is guaranteed to
 	// have write access to the CWD
 	{
+		DWORD len = GetCurrentDirectory(0, NULL);
+		if (len)
+		{
+			TCHAR * originalCurrentDirectory = new TCHAR[len];
+			if (GetCurrentDirectory(len, originalCurrentDirectory))
+			{
+				sOrigCWD = originalCurrentDirectory;
+			}
+			delete [] originalCurrentDirectory;
+		}
 		TCHAR pathbuf[MAX_PATH];
 		GetTempPath(MAX_PATH, pathbuf);
 		SetCurrentDirectory(pathbuf);		

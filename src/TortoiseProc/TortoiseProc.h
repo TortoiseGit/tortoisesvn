@@ -69,4 +69,5 @@ private:
 
 extern CTortoiseProcApp theApp;
 extern HWND hWndExplorer;
+extern CString sOrigCWD;
 
