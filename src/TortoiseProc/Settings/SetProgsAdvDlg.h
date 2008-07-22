@@ -58,6 +58,7 @@ protected:
 	afx_msg void OnBnClickedRemovetool();
 	afx_msg void OnNMDblclkToollistctrl(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnItemchangedToollistctrl(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnBnClickedRestoredefaults();
 
 	DECLARE_MESSAGE_MAP()
 
