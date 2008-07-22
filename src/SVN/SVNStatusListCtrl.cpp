@@ -2726,7 +2726,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					itemsToRemove.SortByPathname(true);
 
 					bool bSuccess = false;
-					if (svn.Remove(itemsToRemove, FALSE, bShift))
+					if (svn.Remove(itemsToRemove, FALSE, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000)))
 					{
 						bSuccess = true;
 					}
@@ -2743,7 +2743,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 							UINT ret = CMessageBox::Show(m_hWnd, msg, _T("TortoiseSVN"), 2, IDI_ERROR, yes, no, yestoall);
 							if ((ret == 1)||(ret==3))
 							{
-								if (!svn.Remove(itemsToRemove, TRUE, bShift))
+								if (!svn.Remove(itemsToRemove, TRUE, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000)))
 								{
 									CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 								}
@@ -2814,7 +2814,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					fileop.wFunc = FO_DELETE;
 					fileop.pFrom = buf;
 					fileop.pTo = NULL;
-					fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS | (bShift ? 0 : FOF_ALLOWUNDO);
+					fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS | ((GetAsyncKeyState(VK_SHIFT) & 0x8000) ? 0 : FOF_ALLOWUNDO);
 					fileop.lpszProgressTitle = _T("deleting file");
 					int result = SHFileOperation(&fileop);
 					delete [] buf;
