@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-07-11 23:46 +0000\n"
-"PO-Revision-Date: 2008-07-16 10:37+0100\n"
+"PO-Revision-Date: 2008-07-22 16:29+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3846,12 +3846,12 @@ msgstr "Im <quote>Prüfe auf Änderungen</quote> Dialog klicken Sie zunächst au
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4247
 msgid "This feature is very useful when you only want to checkout parts of a large tree, but you want the convenience of updating a single working copy. Suppose you have a large tree which has sub-folders <literal>Project01</literal> to <literal>Project99</literal>, and you only want to checkout <literal>Project03</literal>, <literal>Project25</literal> and <literal>Project76/SubProj</literal>. Use these steps:"
-msgstr ""
+msgstr "Diese Funktion ist sehr nützlich, wenn Sie nur Teile einer großen Projektstruktur auschecken wollen und gleichzeitig die Bequemlichkeit einer einzelnen Arbeitskpie wünschen. Nehmen wir an, Sie haben eine große Verzeichnisstruktur mit den Ordnern <literal>Projekt01</literal> bis <literal>Projekt99</literal> und sie möchten nur die Ordner <literal>Projekt03</literal>, <literal>Projekt25</literal> und <literal>Projekt76/Unterprojekt</literal> auschecken. Dann gehen Sie in folgenden Schritten vor:"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4260
 msgid "Checkout the parent folder with depth <quote>Only this item</quote> You now have an empty top level folder."
-msgstr ""
+msgstr "Checken Sie den Elternordner mit der Tiefe <quote>Nur dieses Objekt</quote> aus. Damit erhalten Sie ein leeres, übergeordnetes Verzeichnis."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4267
@@ -3861,37 +3861,37 @@ msgstr "Wählen Sie den neuen Ordner und rufen Sie mittels <menuchoice><guimenu>
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4277
 msgid "Right click on <literal>Project03</literal> and <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to revision...</guimenuitem></menuchoice>. Keep the default settings and click on <guibutton>OK</guibutton>. You now have that folder fully populated."
-msgstr ""
+msgstr "Machen Sie einen Rechtsklick auf <literal>Projekt03</literal> und wählen Sie <menuchoice><guimenu>Kontextmenü</guimenu><guimenuitem>Aktualisiere Objekt zu Revision</guimenuitem></menuchoice>. Behalten Sie die Standardeinstellung bei und Klicken Sie auf <guibutton>OK</guibutton>. Damit wird dieser Ordner vollständig befüllt."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4287
 msgid "Repeat the same process for <literal>Project25</literal>."
-msgstr ""
+msgstr "Wiederholen Sie diesen Vorgang für <literal>Projekt25</literal>."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4292
 msgid "Navigate to <literal>Project76/SubProj</literal> and do the same. This time note that the <literal>Project76</literal> folder has no content except for <literal>SubProj</literal>, which itself is fully populated. Subversion has created the intermediate folders for you without populating them."
-msgstr ""
+msgstr "Navigieren Sie zu <literal>Projekt76/Unterprojekt</literal> und wiederholen Sie die Aktion. Beachten Sie, dass danacht der Ordner <literal>Projekt76</literal> bis auf den vollständig gefüllten Unterordner <literal>Unterprojekt</literal> leer ist. Subversion hat für Sie die dazwischen liegenden Ordner angelegt, ohne sie zu füllen."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:4302
 msgid "Working copy depth cannot be reduced"
-msgstr ""
+msgstr "Die Tiefe der Arbeitskopie kann nicht reduziert werden"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4303
 msgid "Once you have checked out a working copy to a particular depth you can increase that depth later to get more content. However you cannot reduce the depth again to remove content. That feature may be added in a later version of Subversion."
-msgstr ""
+msgstr "Sobald Sie eine Arbeitskopie mit einer bestimmten Tiefe ausgecheckt haben, können Sie diese erhöhen, um mehr Inhalt in der Arbeitskopie zu bekommen. Allerdings ist es nicht möglich, die Tiefe wieder zu reduzieren, um Inhalte zu entfernen. Diese Funktion wird vielleicht in einer zukünftigen Version von Subversion hinzugefügt."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:4311
 msgid "Using an older server"
-msgstr "Zugriff auf einen ältern Server"
+msgstr "Zugriff auf einen älteren Server"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4312
 msgid "Pre-1.5 servers do not understand the working copy depth request, so they cannot always deal with requests efficiently. The command will still work, but an older server may send all the data, leaving the client to filter out what is not required, which may mean a lot of network traffic. If possible you should upgrade your server to 1.5."
-msgstr ""
+msgstr "Server vor Version 1.5 kennen die Anfrage nach einer bestimmten Tiefe der Arbeitskopie nicht. Deshalb können sie mit solchen Anfragen nicht immer effizient umgehen. Der Befehl wird zwar trotzdem funktionieren, jedoch wird ein älterer Server die vollständigen Daten schicken und es dem Client überlassen, die nicht benötigten Teile auszufiltern, was einige Netzwerklast verursachen kann. Wenn möglich sollten Sie ihren Server auf Version 1.5 aktualisieren."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4322
@@ -6612,22 +6612,22 @@ msgstr "Sie können Subversion so einrichten, dass Eigenschaften für Dateien un
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7709
 msgid "You can edit the subversion configuration file to enable this feature on your client. The <guilabel>General</guilabel> page of TortoiseSVN's settings dialog has an edit button to take you there directly. The config file is a simple text file which controls some of subversion's workings. You need to change two things: firstly in the section headed <literal>miscellany</literal> uncomment the line <literal>enable-auto-props = yes</literal>. Secondly you need to edit the section below to define which properties you want added to which file types. This method is a standard subversion feature and works with any subversion client. However it has to be defined on each client individually - there is no way to propagate these settings from the repository."
-msgstr ""
+msgstr "Sie können die Subversion Konfigurationsdatei bearbeiten, um diese Funktion auf dem Client zu aktivieren. Auf der <guilabel>Allgemein</guilabel> Seite der TortoiseSVN Einstellungen findet sich eine <guilabel>Bearbeiten</guilabel> Schaltfläche, die Sie direkt dort hinbringt. Die Konfigurationsdatei mit der einige Subversion Verhaltensweisen festgelegt werden ist eine einfache Textdatei. Sie müssen darin zwei Dinge ändern. Erstens müssen Sie in der <literal>miscellany</literal> Sektion die Zeile <literal>enable-auto-props = yes</literal> auskommentieren. Zweitens müssen Sie in dem darunterstehenden Bereich festlegen, welche Eigenschaften zu welchen Dateitypen hinzugefügt werden sollen. Dabei handelt es sich um eine Subversion Standardfunktion, die in jedem Subversion Client funktioniert. Allerdings müssen die Einstellungen auf jedem Computer vorgenommen werden. Es gibt keine Möglichkeit die Einstellungen über das Projektarchiv zu verbreiten."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7726
 msgid "An alternative method is to set the <literal>tsvn:autoprops</literal> property on folders, as described in the next section. This method only works for TortoiseSVN clients, but it does get propagated to all working copies on update."
-msgstr ""
+msgstr "Eine alternative Methode ist, die <literal>tsvn:autoprops</literal> Eigenschaft, wie im nächsten Abschnitt beschrieben, auf Ordner zu setzen. Diese Methode funktioniert nur mit TortoiseSVN clients, dafür wird die Eigenschaft beim Aktualisieren in alle Arbeitskopien verteilt."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7732
 msgid "Whichever method you choose, you should note that auto-props are only applied to files at the time they are added to the repository. Auto-props will never change the properties of files which are already versioned."
-msgstr ""
+msgstr "Egal welche Methode Sie wählen, Sie sollten wissen, dass auto-props nur beim Hinzufügen von Dateien zum Projektarchiv gesetzt werden. Es werden niemals die Eigenschaften von Dateien gesetzt oder geändert, die bereits versioniert sind."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7738
 msgid "If you want to be absolutely sure that new files have the correct properties applied, you should set up a repository pre-commit hook to reject commits where the required properties are not set."
-msgstr ""
+msgstr "Wenn Sie ganz sicher sein wollen, dass neue Dateien die korrekten Eigenschaften erhalten, sollten Sie eine pre-commit Aktion im Projektarchiv einrichten, die Übertragungen verwirft, wenn die erforderlichen Eigenschaften nicht gesetzt sind."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:7745
@@ -7546,7 +7546,7 @@ msgstr "Standard-Diff"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8994
 msgid "For open source projects (like this one) everyone has read access to the repository, and anyone can make a contribution to the project. So how are those contributions controlled? If just anyone could commit changes, the project would be permanently unstable and probably permanently broken. In this situation the change is managed by submitting a <firstterm>patch</firstterm> file to the development team, who do have write access. They can review the patch first, and then either submit it to the repository or reject it back to the author."
-msgstr "In Open Source Projekten (wie diesem) hat jedermann Lesezugriff auf das Projektarchiv, und jeder kann einen Beitrag zum Projekt leisten. Wie sollen diese Beiträge nun kontrolliert werden? Wenn jeder stets seine Änderungen in das Projektarchiv übertragen würde, wäre das Projekt permanent unstabil und wahrscheinlich sogar nicht funktionsfähig. Dieses Problem wird gelöst, indem ein <firstterm>Patch</firstterm> an das Entwicklerteam geschickt wird. Die Entwickler können den Patch überprüfen und dann entweder in das Projektarchiv übertragen oder verwerfen und an den Autor zurückschicken."
+msgstr "In Open Source Projekten (wie diesem) hat jedermann Lesezugriff auf das Projektarchiv, und jeder kann einen Beitrag zum Projekt leisten. Wie sollen diese Beiträge nun kontrolliert werden? Wenn jeder stets seine Änderungen in das Projektarchiv übertragen würde, wäre das Projekt permanent instabil und wahrscheinlich sogar nicht funktionsfähig. Dieses Problem wird gelöst, indem ein <firstterm>Patch</firstterm> an das Entwicklerteam geschickt wird. Die Entwickler können den Patch überprüfen und dann entweder in das Projektarchiv übertragen oder verwerfen und an den Autor zurückschicken."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9005
@@ -9298,7 +9298,7 @@ msgstr ""
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11251
 msgid "An easy way to work around this is to exclude the original path from showing overlays, so that the overlays show up on the <literal>subst</literal> path instead."
-msgstr "Ein einfacher Weg, das Problem zu umgehen, ist den Originalpfad von der Anzeige der überlagerten Symbole auszuschließen, so das die Symbole statdessen auf dem <literal>subst</literal> Pfad erscheinen."
+msgstr "Ein einfacher Weg, das Problem zu umgehen, ist den Originalpfad von der Anzeige der überlagerten Symbole auszuschließen, so das die Symbole stattdessen auf dem <literal>subst</literal> Pfad erscheinen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11257
@@ -12268,7 +12268,7 @@ msgstr "Wenn die Option <option>/line:nnn</option> angegeben ist, wird TortoiseB
 #. (para)
 #: ../source/TortoiseSVN_en.xml:14246
 msgid "The options <option>/ignoreeol</option>, <option>/ignorespaces</option> and <option>/ignoreallspaces</option> are also supported."
-msgstr "Dio Optionen <option>/ignoreeol</option>, <option>/ignorespaces</option> und <option>/ignoreallspaces</option> werden ebenfalls unterstützt."
+msgstr "Die Optionen <option>/ignoreeol</option>, <option>/ignorespaces</option> und <option>/ignoreallspaces</option> werden ebenfalls unterstützt."
 
 #. (option)
 #: ../source/TortoiseSVN_en.xml:14258
