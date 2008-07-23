@@ -67,6 +67,7 @@ Version 1.5.1
        the file to merge had an svn:mime-type set. (Stefan)
 - BUG: in the CfM dialog, both context menu entries "compare with BASE"
        and "compare with working copy" did the same. (Stefan)
+- BUG: GDI handle leak in the Vista context menu. (Stefan)
 
 Version 1.5.0
 - CHG: Support for IPv6 disabled due to problems with merging and terrible

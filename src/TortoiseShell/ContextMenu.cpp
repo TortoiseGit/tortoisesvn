@@ -2116,7 +2116,7 @@ HBITMAP CShellExt::IconToBitmapPARGB32(UINT uIcon)
 	Bitmap bmp(16, 16, PixelFormat32bppPARGB);
 	Graphics g(&bmp);
 	g.DrawImage(&icon, 0, 0, 16, 16);
-
+	DestroyIcon(hIcon);
 	HBITMAP hBmp = NULL;
 	bmp.GetHBITMAP(Color(255, 0, 0, 0), &hBmp);
 
