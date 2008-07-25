@@ -1166,12 +1166,13 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 
 					// bold style up to the id match
 					ATLTRACE("position = %ld\n", it2->position(0));
-					if (it2->position(0)-pos)
+					if (it2->position(0))
 						Call(SCI_SETSTYLING, it2->position(0), STYLE_ISSUEBOLD);
 					// bold and recursive style for the bug ID itself
 					if ((*it2)[0].str().size())
 						Call(SCI_SETSTYLING, (*it2)[0].str().size(), STYLE_ISSUEBOLDITALIC);
 				}
+				pos = it->position(0) + matchedString.size();
 			}
 			// bold style for the rest of the string which isn't matched
 			if (s.size()-pos)
