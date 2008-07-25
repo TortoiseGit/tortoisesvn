@@ -159,6 +159,9 @@ private:
 												 , CSearchPathTree* startNode
 												 , bool bShowAll
 												 , std::vector<CSearchPathTree*>& toRemove);
+	void						AddChange ( revision_t revision
+										  , CSearchPathTree* searchNode
+                                          , const CDictionaryBasedPath& basePath);
 	void						AnalyzeChangesOnly ( revision_t revision
 												   , CRevisionInfoContainer::CChangesIterator first
 												   , CRevisionInfoContainer::CChangesIterator last

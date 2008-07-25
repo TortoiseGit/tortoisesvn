@@ -641,12 +641,9 @@ void CRevisionGraph::AnalyzeRevisions ( const CDictionaryBasedTempPath& path
 				{
 					if (options.includeSubPathChanges)
 					{
-						AnalyzeRevisions ( revision
-										 , revisionInfo.GetChangesBegin (index)
-										 , revisionInfo.GetChangesEnd (index)
-										 , searchNode
-										 , true
-										 , toRemove);
+                        // this revision is a change to all parent paths
+
+						AddChange (revision, searchNode, basePath);
 					}
 					else
 					{
@@ -825,6 +822,31 @@ void CRevisionGraph::AnalyzeRevisions ( revision_t revision
 	}
 	while (searchNode != startNode);
 
+}
+
+void CRevisionGraph::AddChange ( revision_t revision
+							   , CSearchPathTree* searchNode
+                               , const CDictionaryBasedPath& basePath)
+{
+	// in many cases, we want only to see additions, 
+	// deletions and replacements
+
+	const CDictionaryBasedTempPath& path = searchNode->GetPath();
+
+	// construct the action member
+
+	CRevisionEntry::Action action = CRevisionEntry::modified;
+
+	// create & init the new graph node
+
+	CRevisionEntry* newEntry 
+        = CRevisionEntry::Create (path, revision, action, nodePool);
+	newEntry->realPath = basePath;
+	m_entryPtrs.push_back (newEntry);
+
+	// link entries for the same search path
+
+	searchNode->ChainEntries (newEntry);
 }
 
 void CRevisionGraph::AnalyzeChangesOnly ( revision_t revision
