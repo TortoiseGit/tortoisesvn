@@ -516,4 +516,34 @@
 			The rest is done by TortoiseSVN automatically using merge tracking.
 		</para>
 	</sect2>
+	<sect2 id="tsvn-dug-merge-maintenance">
+		<title>Feature Branch Maintenance</title>
+		<para>
+			When you develop a new feature on a separate branch it is a good
+			idea to work out a policy for re-integration when the feature is
+			complete. If other work is going on in <literal>trunk</literal>
+			at the same time you may find that the differences become significant
+			over time, and merging back becomes a nightmare.
+		</para>
+		<para>
+			If the feature is relatively simple and development will not take
+			long then you can adopt a simple approach, which is to keep
+			the branch entirely separate until the feature is complete,
+			then merge the branch changes back into trunk. In the merge wizard
+			this would be a simple <guilabel>Merge a range of revisions</guilabel>,
+			with the revision range being the revision span of the branch.
+		</para>
+		<para>
+			If the feature is going to take longer and you need to account
+			for changes in <literal>trunk</literal>, then you need to keep
+			the branch synchronised. This simply means that periodically
+			you merge trunk changes into the branch, so that the branch
+			contains all the trunk changes <emphasis>plus</emphasis> the
+			new feature. The synchronisation process uses
+			<guilabel>Merge a range of revisions</guilabel>. When the feature
+			is complete then you can merge it back to <literal>trunk</literal>
+			using either <guilabel>Reintegrate a branch</guilabel> or
+			<guilabel>Merge two different trees</guilabel>.
+		</para>
+	</sect2>
 </sect1>
