@@ -16,15 +16,7 @@
 
 var objArgs,num,sTheirDoc,sMyDoc,sBaseDoc,sMergedDoc,objScript,word,baseDoc,WSHShell;
 
-// Microsoft Office versions for Microsoft Windows OS
-var vOffice2000 = 9;
-var vOffice2002 = 10;
-var vOffice2003 = 11;
-var vOffice2007 = 12;
-// WdCompareTarget
-var wdCompareTargetSelected = 0;
-var wdCompareTargetCurrent = 1;
-var wdCompareTargetNew = 2;
+var vbExclamation = "!"; //+pa
 
 objArgs = WScript.Arguments;
 num = objArgs.length;
@@ -36,7 +28,7 @@ if (num < 4)
 
 sMergedDoc=objArgs(0);
 sTheirDoc=objArgs(1);
-sMyDoc=objArgs(2);
+sMyDoc=objArgs(2);   //?? unused??
 sBaseDoc=objArgs(3);
 
 objScript = new ActiveXObject("Scripting.FileSystemObject")
@@ -66,16 +58,12 @@ catch(e)
 word.visible = true
 
 // Open the base document
-baseDoc = word.Documents.Open(sTheirDoc);
+baseDoc = word.Documents.Open(sTheirDoc); //?? base or their??
 
 // Merge into the "My" document
-if (Number(word.Version) < vOffice2000)
+if (Number(word.Version) < 12)
 {
-        baseDoc.Compare(sMergedDoc);
-}
-else if (Number(word.Version) < vOffice2007)
-{
-        baseDoc.Compare(sMergedDoc, "Comparison", wdCompareTargetNew, true, true);
+	baseDoc.Compare(sMergedDoc);
 } else {
 	baseDoc.Merge(sMergedDoc);
 }
