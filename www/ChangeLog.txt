@@ -1,3 +1,63 @@
+Version 1.5.1
+- CHG: The saslDIGESTMD5.dll has now encryption enabled. (Stefan)
+- CHG: TortoiseProc allows now relative paths too. (Stefan)
+- BUG: The installer always installed the feature "associate .patch files
+       with TortoiseUDiff", even if it was deselected during install. (Stefan)
+- BUG: Bogus revision graph for WC paths that have not been changed
+       in the respective branch. (Stefan Fuhrmann)
+- BUG: Accessing repositories on UNC paths with file:// did not work if
+       the UNC path had spaces or special chars in it. (Stefan)
+- BUG: If a bugtraq:logregex property was set, entering a log message could
+       take up all CPU and block the application for seconds. (Stefan)
+- BUG: After removing a versioned directory and recreating a new unversioned
+       one in the same place with the same name, the overlays could still
+       be shown on that (now) unversioned folder. (Stefan)
+- BUG: In interactive merge conflict resolution, the extension-based merge
+       tool was not used but always the default merge tool. (Stefan)
+- BUG: The suggestion popup in the commit dialog could be shown on the
+       wrong monitor in multi-monitor setups. (Stefan)
+- BUG: TortoisePlink did not authenticate correctly, which lead to
+       TortoiseSVN hanging when accessing svn+ssh:// repositories. (Stefan)
+- BUG: TSVNCache could end up in an endless loop and use all CPU if a working
+       copy was placed in a root path, e.g., C:\ (Jacques Lemire)
+- BUG: Crash when closing multiple log dialogs at once. (Stefan)
+- BUG: Crash when updating/merging which resulted in a conflict. (Stefan)
+- BUG: Changing the font for TortoiseBlame in the settings dialog did
+       not work. (Stefan)
+- BUG: Merging with "record only" did sometimes execute the merge for
+       real, not just recording it. (Stefan)
+- BUG: A message returned from a post-commit hook script was not shown
+       in the progress dialog. (Stefan)
+- BUG: webviewer: properties were added on files too. (Stefan)
+- BUG: When renaming a folder in the repository browser tree view, the
+       folder which was selected was renamed instead of the one which
+       was right-clicked on. (Stefan)
+- BUG: Hitting ENTER in the commit dialog only diffed the item which had
+       the selection mark, not all selected files. (Stefan)
+- BUG: The repository browser could show bogus folders for file:// urls
+       pointing to an UNC path. (Stefan)
+- BUG: The log cache would try to read bogus folders for file:// urls
+       pointing to an UNC path. (Stefan Fuhrmann)
+- BUG: TortoiseMerge disregarded the background color setting for 
+       modified lines and always uses the default. (Christian Walther)
+- BUG: The TSVNCache thread count would increase for every folder that
+       got deleted. (Stefan)
+- BUG: Crash when moving folders in the repository browser. (Stefan)
+- BUG: Moving files to the "ignore-on-commit" changelist would leave them
+       checked for commit. (Stefan)
+- BUG: TortoiseBlame didn't work if the merge paths had spaces. (Stefan)
+- BUG: Running a merge only for testing with an empty revision range
+       did not set the range correctly. (Stefan)
+- BUG: The merge info text was off by one revision. (Stefan)
+- BUG: Pressing Enter in the log dialog would close the dialog, even if
+       the focus was in the filter edit box. (Stefan)
+- BUG: the merge tool for a specific file extension was not used if
+       the file to merge had an svn:mime-type set. (Stefan)
+- BUG: in the CfM dialog, both context menu entries "compare with BASE"
+       and "compare with working copy" did the same. (Stefan)
+- BUG: GDI handle leak in the Vista context menu. (Stefan)
+- BUG: Revision graph: Handle nested branches properly. (Stefan Fuhrmann)
+
 Version 1.5.0
 - CHG: Support for IPv6 disabled due to problems with merging and terrible
        slowdown in some situations. (Stefan)
