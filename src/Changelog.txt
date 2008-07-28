@@ -10,6 +10,12 @@
        log as a text in the top list control instead of showing a popup
        message box. (Stefan)
 
+Version 1.5.2
+- BUG: the "SVN Copy and Add" right-drag menu was not shown. (Stefan)
+- BUG: Editing a conflict during a merge resulted in a crash.
+       Note: this is only a workaround for a bug in the svn library which
+       won't work in all situations. (Stefan)
+
 Version 1.5.1
 - CHG: The saslDIGESTMD5.dll has now encryption enabled. (Stefan)
 - CHG: TortoiseProc allows now relative paths too. (Stefan)

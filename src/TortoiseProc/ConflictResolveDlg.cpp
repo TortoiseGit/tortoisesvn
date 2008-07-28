@@ -203,7 +203,12 @@ void CConflictResolveDlg::OnBnClickedEditconflict()
 	}
 	else
 	{
-		m_mergedfile = CTempFiles::Instance().GetTempFilePath(false, CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->path))).GetWinPath();
+		// Subversion segfaults (1.5.1) if the path of the merged file is not a child of the
+		// folder where the conflict occurs. That's why we try to use the provided file path first...
+		if (m_pConflictDescription->merged_file)
+			m_mergedfile = CUnicodeUtils::GetUnicode(m_pConflictDescription->merged_file);
+		else
+			m_mergedfile = CTempFiles::Instance().GetTempFilePath(false, CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->path))).GetWinPath();
 		CAppUtils::StartExtMerge(CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->base_file)),
 								CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->their_file)),
 								CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->my_file)),
