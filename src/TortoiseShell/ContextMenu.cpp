@@ -2073,6 +2073,17 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst, HMENU hMenu, 
 			myVerbsIDMap[idCmd] = verb;
 			myIDMap[idCmd - idCmdFirst] = ShellMenuIgnore;
 			myIDMap[idCmd++] = ShellMenuIgnore;
+
+			MAKESTRING(IDS_MENUIGNOREMULTIPLEMASK);
+			_stprintf_s(ignorepath, MAX_PATH, stringtablebuffer, files_.size());
+			InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, ignorepath);
+			verb = stdstring(ignorepath);
+			myVerbsMap[verb] = idCmd - idCmdFirst;
+			myVerbsMap[verb] = idCmd;
+			myVerbsIDMap[idCmd - idCmdFirst] = verb;
+			myVerbsIDMap[idCmd] = verb;
+			myIDMap[idCmd - idCmdFirst] = ShellMenuIgnoreCaseSensitive;
+			myIDMap[idCmd++] = ShellMenuIgnoreCaseSensitive;
 		}
 	}
 

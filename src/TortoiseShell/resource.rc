@@ -308,12 +308,13 @@ BEGIN
     IDS_COLDESCMIMETYPE     "Shows the mime type of the versioned file"
     IDS_DROPEXPORTMENU      "SVN Export versioned items here"
     IDS_DROPEXPORTEXTENDEDMENU "SVN Export all items here"
+    IDS_MENUIGNOREMULTIPLEMASK "Ignore items by &extension"
 END
 
 STRINGTABLE 
 BEGIN
     IDS_ERR_PROPNOTONFILE   "This property is only allowed on folders, not files."
-    IDS_MENUIGNOREMULTIPLE  "&Ignore %d items"
+    IDS_MENUIGNOREMULTIPLE  "&Ignore %d items by name"
     IDS_ERR_PROPNOMULTILINE "This property must not have multiple lines. Only one line is allowed."
     IDS_MENUREVISIONGRAPH   "Revision &graph"
     IDS_MENUDESCREVISIONGRAPH 
