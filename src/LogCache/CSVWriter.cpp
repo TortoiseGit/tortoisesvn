@@ -213,7 +213,7 @@ void CCSVWriter::WriteRevProps (std::ostream& os, const CCachedLogInfo& cache)
 		typedef CRevisionInfoContainer::CUserRevPropsIterator RI;
 
 		if (  logInfo.GetPresenceFlags (index) 
-			& CRevisionInfoContainer::HAS_MERGEINFO)
+            & CRevisionInfoContainer::HAS_USERREVPROPS)
 		{
 			// we actually have a valid (possibly empty) merge list 
 			// for this revision
