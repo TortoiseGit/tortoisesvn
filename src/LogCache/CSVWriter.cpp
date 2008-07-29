@@ -52,19 +52,19 @@ void CCSVWriter::WriteStringList ( std::ostream& os
 {
 	// header
 
-	os << "ID,Name\r\n";
+	os << "ID,Name\n";
 
 	// content
 
 	for (index_t i = 0, count = strings.size(); i < count; ++i)
-		os << i << ",\"" << strings[i] << "\"\r\n";
+		os << i << ",\"" << strings[i] << "\"\n";
 }
 
 void CCSVWriter::WritePathList (std::ostream& os, const CPathDictionary& dictionary)
 {
 	// header
 
-	os << "ID,ParentID,Element,FullPath\r\n";
+	os << "ID,ParentID,Element,FullPath\n";
 
 	// content
 
@@ -74,7 +74,7 @@ void CCSVWriter::WritePathList (std::ostream& os, const CPathDictionary& diction
 		   << (int)dictionary.GetParent(i) << ",\"" 
 		   << dictionary.GetPathElement(i) << "\",\"" 
 		   << CDictionaryBasedPath (&dictionary, i).GetPath().c_str()
-		   << "\"\r\n";
+		   << "\"\n";
 	}
 }
 
@@ -82,7 +82,7 @@ void CCSVWriter::WriteChanges (std::ostream& os, const CCachedLogInfo& cache)
 {
 	// header
 
-	os << "ID,Revision,Change,PathID,CopyFromRev,CopyFromPathID\r\n";
+	os << "ID,Revision,Change,PathID,CopyFromRev,CopyFromPathID\n";
 
 	// content
 
@@ -126,13 +126,13 @@ void CCSVWriter::WriteChanges (std::ostream& os, const CCachedLogInfo& cache)
 				{
 					os << iter->GetFromRevision() << ','
 					   << iter->GetFromPathID() 
-					   << "\r\n";
+					   << "\n";
 				}
 				else
 				{
 					os << -1 << ','
 					   << -1 
-					   << "\r\n";
+					   << "\n";
 				}
 			}
 		}
@@ -143,7 +143,7 @@ void CCSVWriter::WriteMerges (std::ostream& os, const CCachedLogInfo& cache)
 {
 	// header
 
-	os << "ID,Revision,FromPathID,ToPathID,StartRevision,RangeLength\r\n";
+	os << "ID,Revision,FromPathID,ToPathID,StartRevision,RangeLength\n";
 
 	// content
 
@@ -181,7 +181,7 @@ void CCSVWriter::WriteMerges (std::ostream& os, const CCachedLogInfo& cache)
 				   << iter->GetToPathID() << ','
 				   << iter->GetRangeStart() << ','
 				   << iter->GetRangeDelta()
-				   << "\r\n";
+				   << "\n";
 			}
 		}
 	}
@@ -191,7 +191,7 @@ void CCSVWriter::WriteRevProps (std::ostream& os, const CCachedLogInfo& cache)
 {
 	// header
 
-	os << "ID,Revision,RevPropID,Value\r\n";
+	os << "ID,Revision,RevPropID,Value\n";
 
 	// content
 
@@ -230,7 +230,7 @@ void CCSVWriter::WriteRevProps (std::ostream& os, const CCachedLogInfo& cache)
 				   << revision << ','
 				   << iter->GetNameID()<< ",\""
 				   << value.c_str()
-				   << "\"\r\n";
+				   << "\"\n";
 			}
 		}
 	}
@@ -241,7 +241,7 @@ void CCSVWriter::WriteRevisions (std::ostream& os, const CCachedLogInfo& cache)
 	// header
 
 	os << "Revision,AuthorID,TimeStamp,Comment,"
-	   << "HasStdInfo,HasChangeInfo,HasMergeInfo,HasUserRevPropInfo\r\n";
+	   << "HasStdInfo,HasChangeInfo,HasMergeInfo,HasUserRevPropInfo\n";
 
 	// content
 
@@ -278,7 +278,7 @@ void CCSVWriter::WriteRevisions (std::ostream& os, const CCachedLogInfo& cache)
 		   << hasChangeInfo << ','
 		   << hasMergeInfo << ','
 		   << hasRevPropInfo
-		   << "\r\n";
+		   << "\n";
 	}
 }
 
