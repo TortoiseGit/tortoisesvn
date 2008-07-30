@@ -24,6 +24,7 @@
 CLIPFORMAT CF_FILECONTENTS = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_FILECONTENTS);
 CLIPFORMAT CF_FILEDESCRIPTOR = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_FILEDESCRIPTOR);
 CLIPFORMAT CF_PREFERREDDROPEFFECT = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_PREFERREDDROPEFFECT);
+CLIPFORMAT CF_SVNURL = (CLIPFORMAT)RegisterClipboardFormat(_T("TSVN_SVNURL"));
 
 SVNDataObject::SVNDataObject(const CTSVNPathList& svnpaths, SVNRev peg, SVNRev rev) : m_svnPaths(svnpaths)
 	, m_pegRev(peg)
@@ -273,6 +274,38 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 		pmedium->pUnkForRelease = NULL;
 		return S_OK;
 	}
+	else if ((pformatetcIn->tymed & TYMED_HGLOBAL) && (pformatetcIn->dwAspect == DVASPECT_CONTENT) && (pformatetcIn->cfFormat == CF_SVNURL))
+	{
+		// caller wants the svn url
+		// create the string from the path list
+		CString text;
+		if (m_svnPaths.GetCount())
+		{
+			// create a single string where the URLs are separated by newlines
+			for (int i=0; i<m_svnPaths.GetCount(); ++i)
+			{
+				if (m_svnPaths[i].IsUrl())
+				{
+					text += m_svnPaths[i].GetSVNPathString();
+					text += _T("?");
+					text += m_revision.ToString();
+				}
+				else
+					text += m_svnPaths[i].GetWinPathString();
+				text += _T("\r\n");
+			}
+		}
+		pmedium->tymed = TYMED_HGLOBAL;
+		pmedium->hGlobal = GlobalAlloc(GHND, (text.GetLength()+1)*sizeof(TCHAR));
+		if (pmedium->hGlobal)
+		{
+			TCHAR* pMem = (TCHAR*)GlobalLock(pmedium->hGlobal);
+			_tcscpy_s(pMem, text.GetLength()+1, (LPCTSTR)text);
+			GlobalUnlock(pmedium->hGlobal);
+		}
+		pmedium->pUnkForRelease = NULL;
+		return S_OK;
+	}
 
 	for (size_t i=0; i<m_vecFormatEtc.size(); ++i)
 	{
@@ -309,7 +342,7 @@ STDMETHODIMP SVNDataObject::QueryGetData(FORMATETC* pformatetc)
 	}
 	if ((pformatetc->tymed & TYMED_HGLOBAL) &&
 		(pformatetc->dwAspect == DVASPECT_CONTENT) &&
-		((pformatetc->cfFormat == CF_TEXT)||(pformatetc->cfFormat == CF_UNICODETEXT)||(pformatetc->cfFormat == CF_FILEDESCRIPTOR)||(pformatetc->cfFormat == CF_PREFERREDDROPEFFECT)))
+		((pformatetc->cfFormat == CF_TEXT)||(pformatetc->cfFormat == CF_UNICODETEXT)||(pformatetc->cfFormat == CF_SVNURL)||(pformatetc->cfFormat == CF_FILEDESCRIPTOR)||(pformatetc->cfFormat == CF_PREFERREDDROPEFFECT)))
 	{
 		return S_OK;
 	}
@@ -511,6 +544,12 @@ void CSVNEnumFormatEtc::Init()
 	m_formats[4].lindex = -1;
 	m_formats[4].ptd = NULL;
 	m_formats[4].tymed = TYMED_HGLOBAL;
+
+	m_formats[5].cfFormat = CF_SVNURL;
+	m_formats[5].dwAspect = DVASPECT_CONTENT;
+	m_formats[5].lindex = -1;
+	m_formats[5].ptd = NULL;
+	m_formats[5].tymed = TYMED_HGLOBAL;
 }
 
 CSVNEnumFormatEtc::CSVNEnumFormatEtc(const vector<FORMATETC>& vec) : m_cRefCount(0)
