@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - Stefan Kueng
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,6 +19,7 @@
 #include "StdAfx.h"
 #include "RepoDrags.h"
 #include "RepositoryBrowser.h"
+#include "SVNDataObject.h"
 
 CTreeDropTarget::CTreeDropTarget(CRepositoryBrowser * pRepoBrowser) : CIDropTarget(pRepoBrowser->m_RepoTree.GetSafeHwnd())
 	, m_pRepoBrowser(pRepoBrowser)
@@ -51,7 +52,37 @@ bool CTreeDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD *pdwEf
 		CTSVNPathList urlList;
 		urlList.LoadFromAsteriskSeparatedString(urls);
 
-		m_pRepoBrowser->OnDrop(CTSVNPath(targetUrl), urlList, *pdwEffect, pt);
+		m_pRepoBrowser->OnDrop(CTSVNPath(targetUrl), urlList, m_pRepoBrowser->GetRevision(), *pdwEffect, pt);
+	}
+
+	if (pFmtEtc->cfFormat == CF_SVNURL && medium.tymed == TYMED_HGLOBAL)
+	{
+		TCHAR* pStr = (TCHAR*)GlobalLock(medium.hGlobal);
+		CString urls;
+		if(pStr != NULL)
+		{
+			urls = pStr;
+		}
+		GlobalUnlock(medium.hGlobal);
+		urls.Replace(_T("\r\n"), _T("*"));
+		CTSVNPathList urlListRevs;
+		urlListRevs.LoadFromAsteriskSeparatedString(urls);
+		CTSVNPathList urlList;
+		SVNRev srcRev;
+		for (int i=0; i<urlListRevs.GetCount(); ++i)
+		{
+			int pos = urlListRevs[i].GetSVNPathString().Find('?');
+			if (pos > 0)
+			{
+				if (!srcRev.IsValid())
+					srcRev = SVNRev(urlListRevs[i].GetSVNPathString().Mid(pos+1));
+				urlList.AddPath(CTSVNPath(urlListRevs[i].GetSVNPathString().Left(pos)));
+			}
+			else
+				urlList.AddPath(urlListRevs[i]);
+		}
+
+		m_pRepoBrowser->OnDrop(CTSVNPath(targetUrl), urlList, srcRev, *pdwEffect, pt);
 	}
 
 	if(pFmtEtc->cfFormat == CF_HDROP && medium.tymed == TYMED_HGLOBAL)
@@ -68,7 +99,7 @@ bool CTreeDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD *pdwEf
 				DragQueryFile(hDrop, i, szFileName, sizeof(szFileName));
 				urlList.AddPath(CTSVNPath(szFileName));
 			}
-			m_pRepoBrowser->OnDrop(CTSVNPath(targetUrl), urlList, *pdwEffect, pt);
+			m_pRepoBrowser->OnDrop(CTSVNPath(targetUrl), urlList, m_pRepoBrowser->GetRevision(), *pdwEffect, pt);
 		}
 		GlobalUnlock(medium.hGlobal);
 	}
@@ -196,7 +227,36 @@ bool CListDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD *pdwEf
 		urls.Replace(_T("\r\n"), _T("*"));
 		CTSVNPathList urlList;
 		urlList.LoadFromAsteriskSeparatedString(urls);
-		m_pRepoBrowser->OnDrop(CTSVNPath(targetUrl), urlList, *pdwEffect, pt);
+		m_pRepoBrowser->OnDrop(CTSVNPath(targetUrl), urlList, m_pRepoBrowser->GetRevision(), *pdwEffect, pt);
+	}
+	if(pFmtEtc->cfFormat == CF_SVNURL && medium.tymed == TYMED_HGLOBAL)
+	{
+		TCHAR* pStr = (TCHAR*)GlobalLock(medium.hGlobal);
+		CString urls;
+		if(pStr != NULL)
+		{
+			urls = pStr;
+		}
+		GlobalUnlock(medium.hGlobal);
+		urls.Replace(_T("\r\n"), _T("*"));
+		CTSVNPathList urlListRevs;
+		urlListRevs.LoadFromAsteriskSeparatedString(urls);
+		CTSVNPathList urlList;
+		SVNRev srcRev;
+		for (int i=0; i<urlListRevs.GetCount(); ++i)
+		{
+			int pos = urlListRevs[i].GetSVNPathString().Find('?');
+			if (pos > 0)
+			{
+				if (!srcRev.IsValid())
+					srcRev = SVNRev(urlListRevs[i].GetSVNPathString().Mid(pos+1));
+				urlList.AddPath(CTSVNPath(urlListRevs[i].GetSVNPathString().Left(pos)));
+			}
+			else
+				urlList.AddPath(urlListRevs[i]);
+		}
+
+		m_pRepoBrowser->OnDrop(CTSVNPath(targetUrl), urlList, srcRev, *pdwEffect, pt);
 	}
 
 	if(pFmtEtc->cfFormat == CF_HDROP && medium.tymed == TYMED_HGLOBAL)
@@ -213,7 +273,7 @@ bool CListDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD *pdwEf
 				DragQueryFile(hDrop, i, szFileName, sizeof(szFileName));
 				urlList.AddPath(CTSVNPath(szFileName));
 			}
-			m_pRepoBrowser->OnDrop(CTSVNPath(targetUrl), urlList, *pdwEffect, pt);
+			m_pRepoBrowser->OnDrop(CTSVNPath(targetUrl), urlList, m_pRepoBrowser->GetRevision(), *pdwEffect, pt);
 		}
 		GlobalUnlock(medium.hGlobal);
 	}

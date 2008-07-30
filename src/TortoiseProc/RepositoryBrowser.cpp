@@ -209,7 +209,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	RegisterDragDrop(m_RepoTree.GetSafeHwnd(), m_pTreeDropTarget);
 	// create the supported formats:
 	FORMATETC ftetc={0}; 
-	ftetc.cfFormat = CF_UNICODETEXT; 
+	ftetc.cfFormat = CF_SVNURL; 
 	ftetc.dwAspect = DVASPECT_CONTENT; 
 	ftetc.lindex = -1; 
 	ftetc.tymed = TYMED_HGLOBAL; 
@@ -220,7 +220,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	m_pListDropTarget = new CListDropTarget(this);
 	RegisterDragDrop(m_RepoList.GetSafeHwnd(), m_pListDropTarget);
 	// create the supported formats:
-	ftetc.cfFormat = CF_UNICODETEXT; 
+	ftetc.cfFormat = CF_SVNURL; 
 	m_pListDropTarget->AddSuportedFormat(ftetc); 
 	ftetc.cfFormat=CF_HDROP; 
 	m_pListDropTarget->AddSuportedFormat(ftetc);
@@ -1602,9 +1602,9 @@ void CRepositoryBrowser::OnBeginDragTree(NMHDR *pNMHDR)
 }
 
 
-bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pathlist, DWORD dwEffect, POINTL /*pt*/)
+bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pathlist, const SVNRev& srcRev, DWORD dwEffect, POINTL /*pt*/)
 {
-	ATLTRACE(_T("dropped %ld items on %s, dwEffect is %ld\n"), pathlist.GetCount(), (LPCTSTR)target.GetSVNPathString(), dwEffect);
+	ATLTRACE(_T("dropped %ld items on %s, source revision is %s, dwEffect is %ld\n"), pathlist.GetCount(), (LPCTSTR)target.GetSVNPathString(), srcRev.ToString(), dwEffect);
 	if (pathlist.GetCount() == 0)
 		return false;
 
@@ -1740,9 +1740,9 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 			BOOL bRet = FALSE;
 			if (dwEffect == DROPEFFECT_COPY)
 				if (pathlist.GetCount() == 1)
-					bRet = Copy(pathlist, CTSVNPath(target.GetSVNPathString() + _T("/") + targetName), GetRevision(), GetRevision(), input.GetLogMessage(), false);
+					bRet = Copy(pathlist, CTSVNPath(target.GetSVNPathString() + _T("/") + targetName), srcRev, srcRev, input.GetLogMessage(), false);
 				else
-					bRet = Copy(pathlist, target, GetRevision(), GetRevision(), input.GetLogMessage(), true);
+					bRet = Copy(pathlist, target, srcRev, srcRev, input.GetLogMessage(), true);
 			else
 				if (pathlist.GetCount() == 1)
 					bRet = Move(pathlist, CTSVNPath(target.GetSVNPathString() + _T("/") + targetName), TRUE, input.GetLogMessage(), false);
