@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-13 13:54+0900\n"
+"PO-Revision-Date: 2008-07-31 15:04+0900\n"
 "Last-Translator: Kim Taedong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -595,8 +595,8 @@ msgstr "아이콘 모음(&I):"
 
 #. Resource IDs: (15)
 #, c-format
-msgid "&Ignore %d items"
-msgstr "%d 개 무시(&I)"
+msgid "&Ignore %d items by name"
+msgstr "이름에 따라 %d개 아이템들 무시함(&I)"
 
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
@@ -1167,20 +1167,20 @@ msgstr "새 버전이 나왔습니다. http://tortoisesvn.tigris.org/ 에서 다
 
 #. Resource IDs: (195)
 msgid ""
-"A newline separated list of paths for which icon overlays are shown.\n"
+"A newline separated list of paths for which icon overlays are shown.\r\n"
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
-"아이콘을 겹쳐 보일 경로들입니다. 한 줄에 하나씩 기술합니다.\n"
+"아이콘을 겹쳐 보일 경로들입니다. 한 줄에 하나씩 기술합니다.\r\n"
 "\"*\"을 경로뒤에 추가하면, 그 디렉토리의 모든 파일과 서브디렉토리를 포함시킵니다."
 
 #. Resource IDs: (194)
 msgid ""
-"A newline separated list of paths for which no icon overlays are shown.\n"
+"A newline separated list of paths for which no icon overlays are shown.\r\n"
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
-"아이콘을 겹쳐 쓰지 않을 경로들입니다. 한 줄에 하나씩 기술합니다.\n"
-"\"*\"을 경로뒤에 추가하면, 그 디렉토리의 모든 파일과 서브디렉토리도 제외됩니다.\n"
+"아이콘을 겹쳐 쓰지 않을 경로들입니다. 한 줄에 하나씩 기술합니다.\r\n"
+"\"*\"을 경로뒤에 추가하면, 그 디렉토리의 모든 파일과 서브디렉토리도 제외됩니다.\r\n"
 "비워둘 경우 모든 경로에 대해 아이콘을 겹치게 됩니다."
 
 #. Resource IDs: (3843)
@@ -1189,11 +1189,11 @@ msgstr "지정하신 자원은 유효하지 않습니다."
 
 #. Resource IDs: (79)
 msgid ""
-"A viewer program for GNU diff files (patch files).\n"
+"A viewer program for GNU diff files (patch files).\r\n"
 "If you don't have one use NotePad."
 msgstr ""
-"GNU diff 파일을 보기위한 프로그램.\n"
-"적절한 것이 없으면 메모장을 사용하십시오"
+"GNU diff(patch 파일) 파일을 보기 위한 뷰어 프로그램.\r\n"
+"적절한 것이 없으면 메모장을 사용하십시오."
 
 #. Resource IDs: (9)
 msgid "A&bout"
@@ -1430,38 +1430,38 @@ msgstr "캐시를 로드하기 위해 필요한 메모리의 총합"
 #. Resource IDs: (78)
 #, c-format
 msgid ""
-"An external diff program used\n"
-"for comparing different revisions of files\n"
-"<hr=100%>\n"
-"You can specify the following parameters to the path:\n"
-"%base\tthe base file\n"
-"%mine\tthe modified file"
+"An external diff program used\r\n"
+"for comparing different revisions of files\r\n"
+"\r\n"
+"You can specify the following parameters to the path:\r\n"
+"%base : the base file\r\n"
+"%mine : the modified file"
 msgstr ""
-"외부 비교 프로그램이 리비전간의 비교를 위해 사용합니다.\n"
-"<hr=100%>\n"
-"프로그램에 넘기기 위한 옵션을 지정할 수 있습니다.\n"
-"%base\t베이스 파일\n"
-"%mine\t수정된 파일"
+"파일의 리비전간의 비교를 위해 사용되는 외부 비교 프로그램.\n"
+"\r\n"
+"프로그램에 넘기기 위한 옵션을 지정할 수 있습니다.:\r\n"
+"%base : 베이스 파일\r\n"
+"%mine : 수정된 파일"
 
 #. Resource IDs: (79)
 #, c-format
 msgid ""
-"An external merge program used\n"
-"to resolve conflicted files.\n"
-"<hr=100%>\n"
-"You can specify the following parameters to the path:\n"
-"%merged\tthe conflicted file, where to save\n"
-"%theirs\t\tthe file as it is in the repository\n"
-"%mine\t\tyour own file, with your changes\n"
-"%base\t\tthe original file without your changes"
+"An external merge program used\r\n"
+"to resolve conflicted files.\r\n"
+"\r\n"
+"You can specify the following parameters to the path:\r\n"
+"%merged : the conflicted file, where to save\r\n"
+"%theirs : the file as it is in the repository\r\n"
+"%mine : your own file, with your changes\r\n"
+"%base : the original file without your changes"
 msgstr ""
-"외부 병합 프로그램이 충돌을 해결하기 위해 사용합니다.\n"
-"<hr=100%>\n"
-"프로그램에 넘기기 위한 옵션을 지정할 수 있습니다.\n"
-"%merged\t병합하다가 충돌을 일으킨 파일\n"
-"%theirs\t\t저장소에 있는 파일\n"
-"%mine\t\t사용자가 수정한 파일\n"
-"%base\t\t사용자가 수정하기 전 파일"
+"충돌을 해결하기 위해 사용되는 외부 병합 프로그램.\r\n"
+"\r\n"
+"프로그램에 넘기기 위한 옵션을 지정할 수 있습니다.\r\n"
+"%merged : 병합하다가 충돌을 일으킨 파일\r\n"
+"%theirs : 저장소에 있는 파일\r\n"
+"%mine : 사용자가 수정한 파일\r\n"
+"%base : 사용자가 수정하기 전 파일"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -1492,11 +1492,11 @@ msgstr "작업 사본에 Unified diff 파일을 적용합니다."
 
 #. Resource IDs: (581)
 msgid ""
-"Applies the properties recursively to all files/folders.\n"
-"bugtraq: and tsvn: properties are only applied to folders."
+"Applies the properties recursively to all files/folders.\r\n"
+"bugtraq:, tsvn: and webviewer: properties are only applied to folders."
 msgstr ""
-"속성을 하위 파일 및 폴더에 재귀적으로 적용합니다.\n"
-"bugtraq: and tsvn: 속성은 폴더에만 적용됩니다."
+"속성을 모든 파일 및 폴더에 재귀적으로 적용합니다.\r\n"
+"bugtraq:, tsvn: 그리고 webviewer: 속성들은 폴더에만 적용됩니다."
 
 #. Resource IDs: (13)
 msgid "Apply &patch..."
@@ -1623,10 +1623,10 @@ msgstr "병합, 추가, 삭제가 되지 않으면 자동으로 닫습니다."
 
 #. Resource IDs: (195)
 msgid ""
-"Auto-complete suggests words (usually class or member names)\n"
+"Auto-complete suggests words (usually class or member names)\r\n"
 "from the files that you have changed as you type a log message."
 msgstr ""
-"로그 메시지를 작성하는 중에 수정된 파일에서 단어를 찾아\n"
+"로그 메시지를 작성하는 중에 수정된 파일에서 단어를 찾아\r\n"
 "자동완성합니다. (클래스명이나 멤버 이름에서)"
 
 #. Resource IDs: (438)
@@ -2044,10 +2044,10 @@ msgstr "%ld 저장소에서 캐시된 로그를 지웁니다"
 
 #. Resource IDs: (195)
 msgid ""
-"Clears the stored authentication.\n"
+"Clears the stored authentication.\r\n"
 "You will have to enter your username/password again for all repositories."
 msgstr ""
-"저장된 인증정보를 제거합니다.\n"
+"저장된 인증정보를 제거합니다.\r\n"
 "다음 보관소에 접속할 때, 사용자명과 암호를 넣어야 합니다."
 
 #. Resource IDs: (196)
@@ -2150,6 +2150,10 @@ msgstr "커밋 - TortoiseSVN"
 #. Resource IDs: (1110)
 msgid "Commit to:"
 msgstr "커밋되는 곳:"
+
+#. Resource IDs: (209)
+msgid "Commit..."
+msgstr "커밋..."
 
 #. Resource IDs: (244)
 msgid "Commits by author"
@@ -2813,10 +2817,10 @@ msgstr "디렉토리:"
 
 #. Resource IDs: (195)
 msgid ""
-"Disable this option if you have really big working copies and experience\n"
+"Disable this option if you have really big working copies and experience\r\n"
 "too much disk access when browsing the working copy."
 msgstr ""
-"매우 큰 작업 사본으로 경험이 많은 사용자라면, 이 기능을 비활성화함으로써\n"
+"매우 큰 작업 사본으로 경험이 많은 사용자라면, 이 기능을 비활성화함으로써\r\n"
 "작업 사본을 브라우징할 때, 디스크 액세스를 줄이게 됩니다."
 
 #. Resource IDs: (3867)
@@ -3051,10 +3055,10 @@ msgstr "로그 보기와 리비전 그래프 다이얼로그의 스피드를 증
 
 #. Resource IDs: (196)
 msgid ""
-"Enable this only if you're working with web projects on VS.NET2003!\n"
+"Enable this only if you're working with web projects on VS.NET2003!\r\n"
 "You must restart the system for this setting to take effect."
 msgstr ""
-"VS.NET2003으로 웹프로젝트를 진행중에만 사용하십시오\n"
+"VS.NET2003으로 웹프로젝트를 진행중에만 사용하십시오!\r\n"
 "이 값을 적용하려면 시스템을 재시작해야합니다."
 
 #. Resource IDs: (195)
@@ -4039,10 +4043,10 @@ msgstr "로그 리스트에서 더블클릭하면 이전 리비전과 비교합�
 
 #. Resource IDs: (196)
 msgid ""
-"If checked, the commit dialog will be started again automatically after an error,\n"
+"If checked, the commit dialog will be started again automatically after an error,\r\n"
 "while preserving your last selection and log message."
 msgstr ""
-"커밋 오류가 발생할 경우 선택한 내용과 로그 메시지를 유지하여, \n"
+"커밋 오류가 발생할 경우 선택한 내용과 로그 메시지를 유지하여,\r\n"
 "다시 이 대화상자를 보여 줍니다."
 
 #. Resource IDs: (194)
@@ -4051,16 +4055,16 @@ msgstr "TortoiseSVN 새 버전을 매주 한 번씩 확인합니다."
 
 #. Resource IDs: (195)
 msgid ""
-"If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
+"If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\r\n"
 "instead of the last used URL."
-msgstr "병합 대화상자에서 원본의 URL을 마지막 사용했던 URL대신 선택한 작업사본의 URL로 초기화합니다."
+msgstr "병합 대화상자에서 원본의 URL을 마지막 사용했던 URL 대신 선택한 작업사본의 URL로 초기화합니다."
 
 #. Resource IDs: (195)
 msgid ""
-"If enabled, the repository is contacted when the dialog starts up.\n"
+"If enabled, the repository is contacted when the dialog starts up.\r\n"
 "You don't have to click on \"Check Repository\" anymore."
 msgstr ""
-"시작시에 저장소에 접근하게 됩니다.\n"
+"시작시에 저장소에 접근하게 됩니다.\r\n"
 "\"저장소 확인\"을 더 이상 누를 필요가 없습니다."
 
 #. Resource IDs: (197)
@@ -4073,26 +4077,26 @@ msgstr ""
 
 #. Resource IDs: (195)
 msgid ""
-"If set, TortoiseSVN will set the filetimes to the time they\n"
+"If set, TortoiseSVN will set the filetimes to the time they\r\n"
 "were last committed. If not set, TortoiseSVN uses the current time."
 msgstr ""
-"파일을 생성할 때, 현재 시각 대신 마지막으로 커밋한 시각으로\n"
+"파일을 생성할 때, 현재 시각 대신 마지막으로 커밋한 시각으로\r\n"
 "파일 날짜를 바꾸려면 선택합니다."
 
 #. Resource IDs: (196)
 msgid ""
-"If set, files inside unversioned folders can be shown in the status control.\n"
+"If set, files inside unversioned folders can be shown in the status control.\r\n"
 "The status control is used for example in the commit dialog."
 msgstr ""
-"설정하면, 버전관리대상이 아닌 폴더도 상태 컨트롤에서 보여집니다.\n"
+"설정하면, 버전관리대상이 아닌 폴더도 상태 컨트롤에서 보여집니다.\r\n"
 "상태 컨트롤은 커밋 대화상자안의 예제로 사용됩니다."
 
 #. Resource IDs: (196)
 msgid ""
-"If set, then unversioned files will mark the status of the parent directory as modified\n"
+"If set, then unversioned files will mark the status of the parent directory as modified\r\n"
 "i.e. they get the modified overlay icon."
 msgstr ""
-"체크하면, 버전 관리 대상이 아닌 파일이 있는 경우 상위 디렉토리를 수정된 것으로 표시합니다.\n"
+"체크하면, 버전 관리 대상이 아닌 파일이 있는 경우 상위 디렉토리를 수정된 것으로 표시합니다.\r\n"
 "즉, 수정됨을 뜻하는 아이콘이 겹쳐서 나타나게 됩니다."
 
 #. Resource IDs: (1439)
@@ -4134,6 +4138,10 @@ msgstr "모든 공백 무시"
 #. Resource IDs: (1267)
 msgid "Ignore ancestry"
 msgstr "변경 기록을 무시함"
+
+#. Resource IDs: (14)
+msgid "Ignore items by &extension"
+msgstr "확장자에 따라 아이템들 무시하기(&E)"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
@@ -4721,10 +4729,6 @@ msgstr "리비전의 구간을 병합합니다"
 msgid "Merge all"
 msgstr "전체 병합"
 
-#. Resource IDs: (14)
-msgid "Merge all..."
-msgstr "전체 병합..."
-
 #. Resource IDs: (65535)
 msgid "Merge depth:"
 msgstr "병합 깊이:"
@@ -4736,6 +4740,10 @@ msgstr "비-대화식으로 병합"
 #. Resource IDs: (595, 65535)
 msgid "Merge options"
 msgstr "병합 설정"
+
+#. Resource IDs: (14)
+msgid "Merge reintegrate..."
+msgstr "재통합 병합..."
 
 #. Resource IDs: (595)
 msgid "Merge revision range"
@@ -4782,6 +4790,10 @@ msgstr "병합"
 #, c-format
 msgid "Merging %s into %s, %s"
 msgstr "%s 를 %s와 병합중, %s"
+
+#. Resource IDs: (264)
+msgid "Merging differences between repository urls"
+msgstr "저장소 url들 사이의 차이점을 병합"
 
 #. Resource IDs: (229)
 #, c-format
@@ -5741,6 +5753,10 @@ msgstr "리셋(&S)"
 msgid "Re&set All"
 msgstr "모두 리셋(&S)"
 
+#. Resource IDs: (1382)
+msgid "Re&store defaults"
+msgstr "기본값으로 복원(&S)"
+
 #. Resource IDs: (8)
 msgid "Re&vert..."
 msgstr "되돌리기(&V)..."
@@ -5798,39 +5814,38 @@ msgid "Refresh"
 msgstr "새로고침"
 
 #. Resource IDs: (117)
-#, c-format
 msgid ""
 "Regular expressions filter:\n"
-".\t\t\tany character\n"
-"c+\t\t\tmatch character c one or more times\n"
-"c*\t\t\tmatch character c zero or more times\n"
-"^\t\t\tstart of line\n"
-"$\t\t\tend of line\n"
-"(string){n}\tmatch string n times\n"
-"(abcd)\t\tsubexpression\n"
-"[aei0-9]\t\tmatch a,e,i and 0..9\n"
-"[^aei0-9]\tanything but a,e,i and 0..9\n"
-"<hr=100%>\n"
-"\\w\t\t\tmatches a-z,A-Z,0-9 and _\n"
-"\\W\t\t\tany non-alphanumeric character\n"
-"\\d\t\t\tdigits 0-9\n"
-"\\s\t\t\twhitespaces"
+".   : any character\r\n"
+"c+   : match character c one or more times\r\n"
+"c*   : match character c zero or more times\r\n"
+"^   : start of line\r\n"
+"$   : end of line\r\n"
+"(string){n} : match string n times\r\n"
+"(abcd)   : subexpression\r\n"
+"[aei0-9]   : match a,e,i and 0..9\r\n"
+"[^aei0-9] : anything but a,e,i and 0..9\r\n"
+"\r\n"
+"\\w   : matches a-z,A-Z,0-9 and _\r\n"
+"\\W   : any non-alphanumeric character\r\n"
+"\\d   : digits 0-9\r\n"
+"\\s   : whitespaces"
 msgstr ""
 "정규 표현식 필터:\n"
-".\t\t\t임의의 문자\n"
-"c+\t\t\t문자(c)한개 이상\n"
-"c*\t\t\t문자(c)0 개 이상\n"
-"^\t\t\t문자열의 시작\n"
-"$\t\t\t문자열의 끝\n"
-"(string){n}\t문자열(string) n번 반복\n"
-"(abcd)\t\t문자열 부분\n"
-"[aei0-9]\t\ta,e,i 그리고 0..9 중 하나\n"
-"[^aei0-9]\ta,e,i 그리고 0..9를 제외한 것 중 하나\n"
-"<hr=100%>\n"
-"\\w\t\t\ta-z,A-Z,0-9,_ 중 하나\n"
-"\\W\t\t\ta-z,A-Z,0-9,_ 아닌 것 중 하나\n"
-"\\d\t\t\t숫자 0-9\n"
-"\\s\t\t\t공백,탭"
+".   : 임의의 문자\r\n"
+"c+   : 문자(c)한개 이상\r\n"
+"c*   : 문자(c)0 개 이상\r\n"
+"^   : 문자열의 시작\r\n"
+"$   : 문자열의 끝\r\n"
+"(string){n} : 문자열(string) n번 반복\r\n"
+"(abcd)   : 문자열 부분\r\n"
+"[aei0-9]   : a,e,i 그리고 0..9 중 하나\r\n"
+"[^aei0-9] : a,e,i 그리고 0..9를 제외한 것 중 하나\r\n"
+"\r\n"
+"\\w   : a-z,A-Z,0-9,_ 중 하나\r\n"
+"\\W   : a-z,A-Z,0-9,_ 아닌 것 중 하나\r\n"
+"\\d   : 숫자 0-9\r\n"
+"\\s   : 공백,탭"
 
 #. Resource IDs: (1469)
 msgid "Reintegrate a branch"
@@ -6142,6 +6157,16 @@ msgstr "재시도"
 msgid "Reverse merge"
 msgstr "역방향 병합"
 
+#. Resource IDs: (264)
+#, c-format
+msgid "Reverse merging %ld"
+msgstr "%ld 역방향 병합"
+
+#. Resource IDs: (264)
+#, c-format
+msgid "Reverse merging %ld through %ld"
+msgstr "%ld에서 %ld까지 역방향 병합"
+
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "되돌림"
@@ -6330,32 +6355,32 @@ msgid "SVN Copy and add files to this WC"
 msgstr "SVN 파일을 본 작업사본에 추가합니다"
 
 #. Resource IDs: (16)
-msgid "SVN Copy and rename versioned file here"
-msgstr "SVN 버전관리 대상 파일을 여기로 복사하고 이름을 바꿉니다"
+msgid "SVN Copy and rename versioned item here"
+msgstr "SVN 버전관리 대상 아이템을 여기로 복사하고 이름을 바꿉니다"
 
 #. Resource IDs: (13)
-msgid "SVN Copy versioned files here"
-msgstr "SVN 버전관리 대상 파일을 여기로 복사합니다"
+msgid "SVN Copy versioned item(s) here"
+msgstr "SVN 버전관리 대상 아이템(들)을 여기로 복사합니다"
 
 #. Resource IDs: (14)
-msgid "SVN Export all to here"
-msgstr "SVN 모든 파일을 여기에 익스포트합니다"
+msgid "SVN Export all items here"
+msgstr "SVN 모든 아이템들을 여기에 익스포트합니다"
 
 #. Resource IDs: (14)
-msgid "SVN Export to here"
-msgstr "SVN 파일을 여기에 익스포트합니다"
+msgid "SVN Export versioned items here"
+msgstr "SVN 버전관리 대상 아이템들을 여기로 복사합니다"
 
 #. Resource IDs: (16)
 msgid "SVN Local lock owner"
 msgstr "사본의 SVN 잠금 소유자"
 
 #. Resource IDs: (17)
-msgid "SVN Move and rename versioned files here"
-msgstr "SVN 버전관리 대상 파일을 여기로 이동하고 이름을 바꿉니다"
+msgid "SVN Move and rename versioned item here"
+msgstr "SVN 버전관리 대상 아이템을 여기로 이동하고 이름을 바꿉니다"
 
 #. Resource IDs: (12)
-msgid "SVN Move versioned files here"
-msgstr "SVN 버전관리 대상 파일을 여기로 이동합니다"
+msgid "SVN Move versioned item(s) here"
+msgstr "SVN 버전관리 대상 아이템(들)을 여기로 이동합니다"
 
 #. Resource IDs: (11)
 msgid "SVN Revision"
@@ -6987,10 +7012,10 @@ msgstr "사용된 로그는 저장되며, 몇 개까지 저장할 것인지를 �
 #. Resource IDs: (79)
 msgid ""
 "Specify the files or folders which TortoiseSVN\n"
-"should ignore in <b>all</b> working copies.\n"
+"should ignore in all working copies.\r\n"
 "Separate the patterns with a space."
 msgstr ""
-"<b>모든</b> 작업사본에서 TortoiseSVN이 버전컨트롤하지 않을 파일이나 폴더를 지정하십시오.\n"
+"<b>모든</b> 작업사본에서 TortoiseSVN이 버전컨트롤하지 않을 파일이나 폴더를 지정하십시오.\r\n"
 "패턴들은 공백으로 분리하면 됩니다."
 
 #. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
@@ -7539,12 +7564,12 @@ msgstr ""
 
 #. Resource IDs: (195)
 msgid ""
-"The time in seconds after which the parsing of the selected files stops.\n"
-"A lower value will make the auto-completion list available sooner,\n"
+"The time in seconds after which the parsing of the selected files stops.\r\n"
+"A lower value will make the auto-completion list available sooner,\r\n"
 "but maybe not scan all files."
 msgstr ""
-"선택한 파일들을 분석하는 시간을 설정합니다.\n"
-"작은 값일 수록 자동완성 목록이 바로 만들어지지만,\n"
+"선택한 파일들을 분석하는 시간을 설정합니다.\r\n"
+"작은 값일 수록 자동완성 목록이 바로 만들어지지만,\r\n"
 "모든 파일을 검사하지 않을 수 있습니다."
 
 #. Resource IDs: (82)
@@ -7593,9 +7618,9 @@ msgstr "저장소"
 #. Resource IDs: (169)
 msgid ""
 "There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
-"Those files are <b>not</b> listed for commit. You need to commit those files separately."
+"Those files are not listed for commit. You need to commit those files separately."
 msgstr ""
-"svn:externals로 설정된 디렉토리속에 변경 사항이나 버전관리되지 않는 아이템들이 존재합니다.\n"
+"svn:externals로 설정된 디렉토리속에 변경 사항이나 버전관리되지 않는 아이템들이 존재합니다.\r\n"
 "변경된 해당 파일들은 커밋시에 보이지 <b>않습니다</b>. 변경된 해당 파일들은 각각 커밋해야만 합니다."
 
 #. Resource IDs: (64)
@@ -7871,7 +7896,6 @@ msgid ""
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
-"berkeley db %d.%d.%d\r\n"
 "neon %s\r\n"
 "%s\r\n"
 "zlib %s"
@@ -7880,7 +7904,6 @@ msgstr ""
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
-"berkeley db %d.%d.%d\r\n"
 "neon %s\r\n"
 "%s\r\n"
 "zlib %s"
@@ -8169,12 +8192,12 @@ msgstr "수정한 사람을 보기위해 텍스트 뷰어 사용(&T)"
 
 #. Resource IDs: (195)
 msgid ""
-"Use '*' as a wildcard character when specifying an exception.\n"
-"To separate multiple exceptions, use commas (',').\n"
+"Use '*' as a wildcard character when specifying an exception.\r\n"
+"To separate multiple exceptions, use commas (',').\r\n"
 "Example: *.mylan.com, *.company.com"
 msgstr ""
-"예외를 명시할 때, '*'를 와일드카드로 사용할 수 있습니다.\n"
-"복수의 예외를 구별할때는 쉼표(',')를 사용합니다.\n"
+"예외를 명시할 때, '*'를 와일드카드로 사용할 수 있습니다.\r\n"
+"복수의 예외를 구별할때는 쉼표(',')를 사용합니다.\r\n"
 "예:  *.mylan.com, *.company.com"
 
 #. Resource IDs: (1230)
@@ -8796,64 +8819,64 @@ msgstr "작성자:"
 
 #. Resource IDs: (577)
 msgid ""
-"bugtraq:append\n"
-"Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\n"
-"log message. The default is \"true\" which means the bugtracking ID\n"
+"bugtraq:append\r\n"
+"Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\r\n"
+"log message. The default is \"true\" which means the bugtracking ID\r\n"
 "is appended to the log message."
 msgstr ""
-"bugrraq:append\n"
-"\"false\"로 설정해 놓으면, 버그 트래킹 ID를 로그 메시지 상단에 넣습니다.\n"
-"기본값은 \"true\"이며, 이것은 로그 메시지 하단에 버그트래킹 ID를 추가하는 것을\n"
+"bugrraq:append\r\n"
+"\"false\"로 설정해 놓으면, 버그 트래킹 ID를 로그 메시지 상단에 넣습니다.\r\n"
+"기본값은 \"true\"이며, 이것은 로그 메시지 하단에 버그트래킹 ID를 추가하는 것을\r\n"
 "의미합니다."
 
 #. Resource IDs: (577)
 msgid ""
-"bugtraq:label\n"
+"bugtraq:label\r\n"
 "Label text to show for the edit box where the user enters the issue number."
 msgstr ""
-"bugtraq:label\n"
+"bugtraq:label\r\n"
 "이슈 번호를 입력 받기 위해 보이는 에디트 박스에 보일 설명."
 
 #. Resource IDs: (577)
 msgid ""
-"bugtraq:logregex\n"
-"two regular expressions separated by a newline.\n"
-"The first expression is used to find a string referring to an issue,\n"
+"bugtraq:logregex\r\n"
+"two regular expressions separated by a newline.\r\n"
+"The first expression is used to find a string referring to an issue,\r\n"
 "the second expression is used to extract the bare bug ID from that string."
 msgstr ""
-"bugtraq:logregex\n"
-"두 줄로 된 정규표현식.\n"
-"첫째 줄은 참조하는 이슈를 찾는데 사용되고,\n"
+"bugtraq:logregex\r\n"
+"두 줄로 된 정규표현식.\r\n"
+"첫째 줄은 참조하는 이슈를 찾는데 사용되고,\r\n"
 "둘째 줄은 그 문자열로부터 버그 ID를 찾는데 사용됩니다."
 
 #. Resource IDs: (577)
 #, c-format
 msgid ""
-"bugtraq:message\n"
-"String which is appended to a log message when an issue number is entered.\n"
+"bugtraq:message\r\n"
+"String which is appended to a log message when an issue number is entered.\r\n"
 "The string must contain \"%BUGID%\" which gets replaced with the issue number."
 msgstr ""
-"bugtraq:message\n"
-"이슈번호가 입력된다음 덧붙일 로그 메시지.\n"
+"bugtraq:message\r\n"
+"이슈번호가 입력된다음 덧붙일 로그 메시지.\r\n"
 "이 문자열은 \"%BUGID%\"를 포함하여야 하며, 이것이 이슈번호로 치환됩니다."
 
 #. Resource IDs: (577)
 msgid ""
-"bugtraq:number\n"
+"bugtraq:number\r\n"
 "Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
-"bugtraq:number\n"
+"bugtraq:number\r\n"
 "버그트래킹 시스템이 숫자로 참조되는 구조가 아니면 \"false\"로 설정하십시오."
 
 #. Resource IDs: (577)
 #, c-format
 msgid ""
-"bugtraq:url\n"
-"URL pointing to the issue tracker. It must contain \"%BUGID%\" which\n"
+"bugtraq:url\r\n"
+"URL pointing to the issue tracker. It must contain \"%BUGID%\" which\r\n"
 "gets replaced with the issue number."
 msgstr ""
-"bugtraq:url\n"
-"이슈트래커에 대한 URL. URL에는 이슈번호로 대치될\n"
+"bugtraq:url\r\n"
+"이슈트래커에 대한 URL. URL에는 이슈번호로 대치될\r\n"
 "\"%BUGID%\"를 포함하여야 합니다."
 
 #. Resource IDs: (65535)
@@ -9112,113 +9135,114 @@ msgstr "건너 뛰는 구간:"
 
 #. Resource IDs: (576)
 msgid ""
-"svn:eol-style\n"
+"svn:eol-style\r\n"
 "One of 'native', 'LF', 'CR', 'CRLF'."
 msgstr ""
-"svn:eol-style\n"
+"svn:eol-style\r\n"
 "'native', 'LF', 'CR', 'CRLF' 중 하나."
 
 #. Resource IDs: (576)
 msgid ""
-"svn:executable\n"
-"If present, make the file executable. This property cannot be set on a directory.\n"
+"svn:executable\r\n"
+"If present, make the file executable. This property cannot be set on a directory.\r\n"
 "A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
-"svn:executable\n"
-"존재하면, 이 파일을 실행가능한 형태로 만들어 줍니다. 이 속성은 디렉토리에는 지정할 수 없습니다.\n"
+"svn:executable\r\n"
+"존재하면, 이 파일을 실행가능한 형태로 만들어 줍니다. 이 속성은 디렉토리에는 지정할 수 없습니다.\r\n"
 "파일에 대해서는 재귀적으로 설정할 수 없습니다. 디렉토리에는 재귀적으로 설정가능하며, 이 경우 파일들에만 설정됩니다."
 
 #. Resource IDs: (576)
 msgid ""
-"svn:externals\n"
-"A newline separated list of module specifiers, each of which consists of\n"
-"an optional revision, an URL and a relative directory path. For example\n"
-"http://example.com/repos/zig\tfoo\n"
-"-r 1234\thttp://example.com/repos/zag\tfoo/bar\n"
-"\n"
-"The URLs can either be full URLs or relative. The format for\n"
-"the relative URLs is:\n"
-"../\trelative to the parent directory of the external\n"
-"^/\trelative to the repository root\n"
-"//\trelative to the URL scheme\n"
-"/\trelative to the server's hostname"
+"svn:externals\r\n"
+"A newline separated list of module specifiers, each of which consists of\r\n"
+"an optional revision, an URL and a relative directory path. For example\r\n"
+"http://example.com/repos/zig foo\r\n"
+"-r 1234 http://example.com/repos/zag foo/bar\r\n"
+"\r\n"
+"The URLs can either be full URLs or relative. The format for\r\n"
+"the relative URLs is:\r\n"
+"../ relative to the parent directory of the external\r\n"
+"^/ relative to the repository root\r\n"
+"// relative to the URL scheme\r\n"
+"/ relative to the server's hostname"
 msgstr ""
-"svn:externals\n"
-"한 줄에 하나씩 지정하는 외부 모듈들의 리스트입니다.각 모듈은 리비전(선택사항), URL 그리고 상대 디렉토리 경로로 되어 있습니다.예를 들면)\n"
-"http://example.com/repos/zig\tfoo\n"
-"-r 1234\thttp://example.com/repos/zag\tfoo/bar\n"
-"\n"
-"URL은 상대 경로 혹은 전체 경로가 될 수 있습니다.\n"
-"상대 경로 URL들의 형식:\n"
-"../\t외부 경로의 상위 디렉토리에 대한 상대 경로\n"
-"^/\t저장소 루트에 대한 상대 경로\n"
-"//\tURL 스키마에 대한 상대 경로\n"
-"/\t서버 호스트 이름에 대한 상대 경로"
+"svn:externals\r\n"
+"한 줄에 하나씩 지정하는 외부 모듈들의 리스트입니다.각 모듈은 리비전(선택사항),\r\n"
+"URL 그리고 상대 디렉토리 경로로 되어 있습니다.예를 들면)\r\n"
+"http://example.com/repos/zig\tfoo\r\n"
+"-r 1234\thttp://example.com/repos/zag\tfoo/bar\r\n"
+"\r\n"
+"URL은 상대 경로 혹은 전체 경로가 될 수 있습니다.\r\n"
+"상대 경로 URL들의 형식:\r\n"
+"../ 외부 경로의 상위 디렉토리에 대한 상대 경로\r\n"
+"^/ 저장소 루트에 대한 상대 경로\r\n"
+"// URL 스키마에 대한 상대 경로\r\n"
+"/ 서버 호스트 이름에 대한 상대 경로"
 
 #. Resource IDs: (576)
 msgid ""
-"svn:ignore\n"
+"svn:ignore\r\n"
 "A newline separated list of file patterns to ignore."
 msgstr ""
-"svn:ignore\n"
+"svn:ignore\r\n"
 "관리하지 않을 무시 목록 패턴을 한 줄에 하나씩 들어 있는 파일을 지정"
 
 #. Resource IDs: (576)
 msgid ""
-"svn:keywords\n"
-"Keywords to be expanded. Valid keywords are:\n"
-"URL, HeadURL\t\t\tThe URL for the head revision of the object.\n"
-"Author, LastChangedBy\t\tThe last person to modify the file.\n"
-"Date, LastChangedDate\t\tThe date/time the object was last modified.\n"
-"Rev, LastChangedRevision\tThe last revision the object changed.\n"
-"Id\t\t\t\tA compressed summary of the previous 4 keywords."
+"svn:keywords\r\n"
+"Keywords to be expanded. Valid keywords are:\r\n"
+"URL, HeadURL : The URL for the head revision of the object.\r\n"
+"Author, LastChangedBy : The last person to modify the file.\r\n"
+"Date, LastChangedDate : The date/time the object was last modified.\r\n"
+"Rev, LastChangedRevision : The last revision the object changed.\r\n"
+"Id : A compressed summary of the previous 4 keywords."
 msgstr ""
-"svn:keywords\n"
-"확장할 키워드를 지정합니다. 가능한 것은 다음과 같습니다. :\n"
-"URL, HeadURL\t\t\t개체의 HEAD 버전 URL.\n"
-"Author, LastChangedBy\t\t마지막 수정자.\n"
-"Date, LastChangedDate\t\t마지막 수정시각.\n"
-"Rev, LastChangedRevision\t마지막 수정 리비전.\n"
+"svn:keywords\r\n"
+"확장할 키워드를 지정합니다. 가능한 것은 다음과 같습니다. :\r\n"
+"URL, HeadURL\t\t\t개체의 HEAD 버전 URL.\r\n"
+"Author, LastChangedBy\t\t마지막 수정자.\r\n"
+"Date, LastChangedDate\t\t마지막 수정시각.\r\n"
+"Rev, LastChangedRevision\t마지막 수정 리비전.\r\n"
 "Id\t\t\t\t위 네 키워드들을 모두 요약한 것."
 
 #. Resource IDs: (576)
 msgid ""
-"svn:mergeinfo\n"
-"A newline separated list of merge tracking info. Each line consists of an absolute\n"
-"path followed by a colon and a list of comma separated revision numbers.\n"
-"For example\n"
+"svn:mergeinfo\r\n"
+"A newline separated list of merge tracking info. Each line consists of an absolute\r\n"
+"path followed by a colon and a list of comma separated revision numbers.\r\n"
+"For example\r\n"
 "/trunk:123-125,129"
 msgstr ""
-"svn:mergeinfo\n"
-"개행문자로 구별되는 병합추적정보 목록입니다. 절대 경로뒤에 콜론(:)을 붙이고, 뒤에\n"
-"리비전을 쉼표로 구별하여 각 행에 나열합니다\n"
-"예제\n"
+"svn:mergeinfo\r\n"
+"개행문자로 구별되는 병합추적정보 목록입니다. 절대 경로뒤에 콜론(:)을 붙이고, 뒤에\r\n"
+"리비전을 쉼표로 구별하여 각 행에 나열합니다\r\n"
+"예제\r\n"
 "/trunk:123-125,129"
 
 #. Resource IDs: (576)
 msgid ""
-"svn:mime-type\n"
-"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
+"svn:mime-type\r\n"
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\r\n"
 "A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
 "Anything else is treated as binary."
 msgstr ""
-"svn:mime-type\n"
-"파일의 MIME 타입. 파일을 머지할 방법을 찾거나, Apache가 어떻게 서비스를 해야하는지를 결정하는데 사용됩니다.\n"
+"svn:mime-type\r\n"
+"파일의 MIME 타입. 파일을 머지할 방법을 찾거나, Apache가 어떻게 서비스를 해야하는지를 결정하는데 사용됩니다.\r\n"
 "'text/' (혹은 mime type이 지정되지 않거나)인 경우 텍스트 파일로 취급하고\n"
 "나머지는 바이너리로 취급합니다."
 
 #. Resource IDs: (576)
 msgid ""
-"svn:needs-lock\n"
-"Set this to any value (e.g. '*') to enforce locking for this file.\n"
-"The file will be set to read-only when checked out or updated,\n"
-"indicating that a user must acquire a lock on the file\n"
+"svn:needs-lock\r\n"
+"Set this to any value (e.g. '*') to enforce locking for this file.\r\n"
+"The file will be set to read-only when checked out or updated,\r\n"
+"indicating that a user must acquire a lock on the file\r\n"
 "before they can edit it and commit changes."
 msgstr ""
-"svn:needs-lock\n"
-"이 값을 모든 값(즉, '*')으로 설정하면, 이 파일에 대해 반드시 잠금을해야합니다.\n"
-"이 파일은 체크아웃이나 업데이트를 하게 되면 읽기 전용 속성으로 설정되며,\n"
-"수정이나 변경사항을 커밋해야할 경우, 파일을 먼저 잠그고 진행해야 한다는\n"
+"svn:needs-lock\r\n"
+"이 값을 모든 값(즉, '*')으로 설정하면, 이 파일에 대해 반드시 잠금을해야합니다.\r\n"
+"이 파일은 체크아웃이나 업데이트를 하게 되면 읽기 전용 속성으로 설정되며,\r\n"
+"수정이나 변경사항을 커밋해야할 경우, 파일을 먼저 잠그고 진행해야 한다는\r\n"
 "것을 의미합니다."
 
 #. Resource IDs: (208)
@@ -9258,107 +9282,111 @@ msgstr "%s"
 
 #. Resource IDs: (578)
 msgid ""
-"tsvn:autoprops\n"
-"A list of properties separated by newlines which get applied automatically when adding/importing files.\n"
-"Format: <filemask> = property=value;property=value\n"
+"tsvn:autoprops\r\n"
+"A list of properties separated by newlines which get applied automatically when adding/importing files.\r\n"
+"Format: <filemask> = property=value;property=value\r\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 msgstr ""
-"tsvn:autoprops\n"
-"파일이 추가 혹은 임포트가 될 때 자동으로 추가하기 위한 속성들을 개행문자로 나열한 목록입니다.\n"
-"형식: <파일선택식> = 속성=값;속성=값\n"
+"tsvn:autoprops\r\n"
+"파일이 추가 혹은 임포트가 될 때 자동으로 추가하기 위한 속성들을 개행문자로 나열한 목록입니다.\r\n"
+"형식: <파일선택식> = 속성=값;속성=값\r\n"
 "예: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 #. Resource IDs: (578)
 msgid ""
-"tsvn:lockmsgminsize\n"
+"tsvn:lockmsgminsize\r\n"
 "Minimum size in chars a lock message must have before a lock is allowed."
 msgstr ""
-"tsvn:lockmsgminsize\n"
+"tsvn:lockmsgminsize\r\n"
 "잠그기 위해서 가져야 할 로그메시지의 최소 길이입니다."
 
 #. Resource IDs: (578)
 msgid ""
-"tsvn:logfilelistenglish\n"
-"Set to \"false\" if you don't want the list of changed files to be pasted in english\n"
+"tsvn:logfilelistenglish\r\n"
+"Set to \"false\" if you don't want the list of changed files to be pasted in english\r\n"
 "in the commit dialog."
 msgstr ""
-"tsvn:logfilelistenglish\n"
-"바뀐 파일 목록을 커밋 대화상자에 붙이기를 원치 않으면\n"
+"tsvn:logfilelistenglish\r\n"
+"바뀐 파일 목록을 커밋 대화상자에 붙이기를 원치 않으면\r\n"
 "\"false\"로 설정해 놓으십시오."
 
 #. Resource IDs: (578)
 msgid ""
-"tsvn:logminsize\n"
+"tsvn:logminsize\r\n"
 "Minimum size in chars a log message must have before a commit is allowed."
 msgstr ""
-"tsvn:logminsize\n"
+"tsvn:logminsize\r\n"
 "적어도 로그 메시지는 로그 최소 크기만큼의 내용을 포함해야 커밋 가능합니다."
 
 #. Resource IDs: (578)
 msgid ""
-"tsvn:logsummary\n"
+"tsvn:logsummary\r\n"
 "A regex string which extracts a summary from a log message in its first group."
 msgstr ""
-"tsvn:logsummary\n"
+"tsvn:logsummary\r\n"
 "작성자 정보를 추출하기 위한 정규 표현식입니다. 첫번째 그룹에 잡히도록 만드십시오."
 
 #. Resource IDs: (578)
 msgid ""
-"tsvn:logtemplate\n"
+"tsvn:logtemplate\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\n"
+"\n"
 "Use this as a log message templates for users to fill in."
 msgstr ""
-"tsvn:logtemplate\n"
+"tsvn:logtemplate\r\n"
 "커밋 대화상자의 로그 메시지 편집창에 넣을 글.\n"
+"\n"
 "로그 메시지 템플릿으로 사용합니다."
 
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logwidthmarker\n"
-"Set this to the number of chars the log message should not exceed its width.\n"
+"\n"
+"Set this to the number of chars the log message should not exceed its width.\r\n"
 "A faded line is shown in the commit dialogs at that position. The default is 80 chars."
 msgstr ""
 "tsvn:logwidthmarker\n"
-"로그 메시지의 가로 폭이 넘지 않아야 할 값을 지정합니다.\n"
+"\n"
+"로그 메시지의 가로 폭이 넘지 않아야 할 값을 지정합니다.\r\n"
 "이 위치 이후로 음영이 보입니다. 기본값은 80 글자."
 
 #. Resource IDs: (578)
 msgid ""
-"tsvn:projectlanguage\n"
-"Set this to the language number you want your log messages written in.\n"
+"tsvn:projectlanguage\r\n"
+"Set this to the language number you want your log messages written in.\r\n"
 "TortoiseSVN will then load the appropriate spell checker module if available."
 msgstr ""
-"tsvn:projectlanguage\n"
-"로그메시지가 쓰여지는 곳에 언어번호를 이 값으로 설정하면,\n"
+"tsvn:projectlanguage\r\n"
+"로그메시지가 쓰여지는 곳에 언어번호를 이 값으로 설정하면,\r\n"
 "TortoiseSVN이 언어에 적절한 구문검사기를 실행하게 됩니다."
 
 #. Resource IDs: (581)
 msgid ""
-"tsvn:userfileproperties\n"
-"Newline separated list of user defined properties for files which will\n"
+"tsvn:userfileproperties\r\n"
+"Newline separated list of user defined properties for files which will\r\n"
 "be shown in the property dialog to choose from."
 msgstr ""
-"tsvn:userfileproperties\n"
-"등록 정보에서 선택할 수 있는 파일에 대한 사용자 정의 속성에 대한\n"
+"tsvn:userfileproperties\r\n"
+"등록 정보에서 선택할 수 있는 파일에 대한 사용자 정의 속성에 대한\r\n"
 "리스트 입니다. 한 줄에 하나씩 기술합니다."
 
 #. Resource IDs: (581)
 msgid ""
-"tsvn:userfolderproperties\n"
-"Newline separated list of user defined properties for folders which will\n"
+"tsvn:userfolderproperties\r\n"
+"Newline separated list of user defined properties for folders which will\r\n"
 "be shown in the property dialog to choose from."
 msgstr ""
-"tsvn:userfolderproperties\n"
-"등록 정보에서 선택할 수 있는 폴더에 대한 사용자 정의 속성에 대한\n"
+"tsvn:userfolderproperties\r\n"
+"등록 정보에서 선택할 수 있는 폴더에 대한 사용자 정의 속성에 대한\r\n"
 "리스트 입니다. 한 줄에 하나씩 기술합니다."
 
 #. Resource IDs: (577)
 msgid ""
-"tsvn:warnifnoissue\n"
+"tsvn:warnifnoissue\r\n"
 "Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
-"tsvn:warnifnoissue\n"
-"커밋 대화 상자에서 이슈가 없을 경우 경고를 보이고 싶으면 \"yes\"로 설정하십시오."
+"tsvn:warnifnoissue\r\n"
+"커밋 대화 상자에서 이슈가 입력되지 않았을 경우 경고를 보이고 싶으면 \"yes\"로 설정하십시오."
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
@@ -9372,24 +9400,24 @@ msgstr "값들이 다릅니다"
 #, c-format
 msgid ""
 "webviewer:pathrevision\n"
-"URL pointing to the web viewer for the repository for a specific file and revision.\n"
-"The string %REVISION% in the URL is replaced with the revision number,\n"
+"URL pointing to the web viewer for the repository for a specific file and revision.\r\n"
+"The string %REVISION% in the URL is replaced with the revision number,\r\n"
 "the string %PATH% is replaced with the path to the file relative to the repository root."
 msgstr ""
 "webviewer:pathrevision\n"
-"특정 파일과 리비전에 대한 저장소를 볼 수 있는 웹 뷰어를 지시하는 URL.\n"
-"URL 안의 %REVISION% 문자열은 해당 리비전 번호로 치환 됩니다.\n"
+"특정 파일과 리비전에 대한 저장소를 볼 수 있는 웹 뷰어를 지시하는 URL.\r\n"
+"URL 안의 %REVISION% 문자열은 해당 리비전 번호로 치환 됩니다.\r\n"
 "URL 안의 %PATH% 문자열은 저장소 루트에 대해 상대적인 경로로 치환 됩니다."
 
 #. Resource IDs: (579)
 #, c-format
 msgid ""
-"webviewer:revision\n"
-"URL pointing to the web viewer for the repository for a specific revision.\n"
+"webviewer:revision\r\n"
+"URL pointing to the web viewer for the repository for a specific revision.\r\n"
 "The string %REVISION% in that URL is replaced with the revision number."
 msgstr ""
-"webviewer:revision\n"
-"특정 리비전에 대한 저장소를 볼 수 있는 웹 뷰어를 지시하는 URL.\n"
+"webviewer:revision\r\n"
+"특정 리비전에 대한 저장소를 볼 수 있는 웹 뷰어를 지시하는 URL.\r\n"
 "URL 안의 %REVISION% 문자열은 해당 리비전 번호로 치환 됩니다."
 
 #. Resource IDs: (245)
@@ -9416,6 +9444,10 @@ msgstr "예"
 msgid "{BugTraq}"
 msgstr "{버그트랙}"
 
+#~ msgid "Merge all..."
+#~ msgstr "전체 병합..."
+#~ msgid "SVN Export to here"
+#~ msgstr "SVN 파일을 여기에 익스포트합니다"
 #~ msgid "Bro&wse..."
 #~ msgstr "찾아보기(&W)"
 #~ msgid "Brows&e..."
