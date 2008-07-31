@@ -19,6 +19,8 @@ Version 1.5.2
        won't work in all situations. (Stefan)
 - BUG: Log cache CSV export: fix record line endings. (Stefan Fuhrmann)
 - BUG: Log cache CSV export: user revprops list incomplete. (Stefan Fuhrmann)
+- BUG: The "save revision to..." context menu in the log dialog was shown
+       even if multiple revisions were selected. (Stefan)
 
 Version 1.5.1
 - CHG: The saslDIGESTMD5.dll has now encryption enabled. (Stefan)

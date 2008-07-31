@@ -4336,7 +4336,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 					popup.SetDefaultItem(ID_OPEN, FALSE);
 			}
 		}
-		else
+		else if (changedlogpaths.size())
 		{
 			// more than one entry is selected
 			temp.LoadString(IDS_LOG_POPUP_SAVE);
