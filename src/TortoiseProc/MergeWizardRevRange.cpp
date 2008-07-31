@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -129,8 +129,7 @@ void CMergeWizardRevRange::OnBnClickedShowlog()
 {
 	if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
 		return;
-	CString url;
-	m_URLCombo.GetWindowText(url);
+	CString url = m_URLCombo.GetString();
 
 	if (!url.IsEmpty())
 	{
