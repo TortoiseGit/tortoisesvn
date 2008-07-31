@@ -1,3 +1,13 @@
+Version 1.5.2
+- BUG: the "SVN Copy and Add" right-drag menu was not shown. (Stefan)
+- BUG: Editing a conflict during a merge resulted in a crash.
+       Note: this is only a workaround for a bug in the svn library which
+       won't work in all situations. (Stefan)
+- BUG: Log cache CSV export: fix record line endings. (Stefan Fuhrmann)
+- BUG: Log cache CSV export: user revprops list incomplete. (Stefan Fuhrmann)
+- BUG: The "save revision to..." context menu in the log dialog was shown
+       even if multiple revisions were selected. (Stefan)
+
 Version 1.5.1
 - CHG: The saslDIGESTMD5.dll has now encryption enabled. (Stefan)
 - CHG: TortoiseProc allows now relative paths too. (Stefan)
