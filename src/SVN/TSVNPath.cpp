@@ -1009,7 +1009,8 @@ CTSVNPath CTSVNPathList::GetCommonRoot() const
 		}
 		if (bEqual == false)
 		{
-			sRoot = m_paths[0].GetWinPathString().Left(searchStartPos+1);
+			if (searchStartPos)
+				sRoot = m_paths[0].GetWinPathString().Left(searchStartPos+1);
 		}
 		else
 		{
