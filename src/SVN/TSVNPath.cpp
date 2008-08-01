@@ -972,27 +972,53 @@ CTSVNPath CTSVNPathList::GetCommonRoot() const
 
 	if (GetCount() == 1)
 		return m_paths[0];
-	for (int i=0; i<MAX_PATH; ++i)
+
+	int backSlashPos = 0;
+	int searchStartPos = 0;
+	while (bEqual)
 	{
-		sTempRoot.Empty();
 		for (it = m_paths.begin(); it != m_paths.end(); ++it)
 		{
-			CTSVNPath directory = it->GetContainingDirectory();
-			const CString& sPath = directory.GetWinPathString();
-			if (sTempRoot.IsEmpty())
-				sTempRoot = sPath.Left(i);
-			if (sTempRoot.Compare(sPath.Left(i))!=0)
+			if (backSlashPos == 0)
+			{
+				backSlashPos = it->GetWinPathString().Find('\\', searchStartPos+1);
+				if ((backSlashPos < 0)&&(searchStartPos != it->GetWinPathString().GetLength()))
+					backSlashPos = it->GetWinPathString().GetLength();
+			}
+			else if (it->GetWinPathString().Find('\\', searchStartPos+1) != backSlashPos)
+			{
+				if (it->GetWinPathString().Find('\\', searchStartPos+1) < 0)
+				{
+					if (it->GetWinPathString().GetLength() != backSlashPos)
+					{
+						bEqual = false;
+						break;
+					}
+				}
+				else
+				{
+					bEqual = false;
+					break;
+				}
+			}
+			if (backSlashPos < 0)
 			{
 				bEqual = false;
 				break;
 			}
 		}
-		if (bEqual)
-			sRoot = sTempRoot;
+		if (bEqual == false)
+		{
+			sRoot = m_paths[0].GetWinPathString().Left(searchStartPos+1);
+		}
 		else
-			break;
+		{
+			searchStartPos = backSlashPos;
+		}
+		backSlashPos = 0;
 	}
-	return CTSVNPath(sRoot);
+
+	return CTSVNPath(sRoot.TrimRight('\\'));
 }
 
 void CTSVNPathList::SortByPathname(bool bReverse /*= false*/)
@@ -1386,6 +1412,31 @@ private:
 		ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("C:\\Development"))==0);
 		list.AddPath(pathC);
 		ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("C:\\Development"))==0);
+
+		list.Clear();
+		CString sPathList = _T("D:\\Development\\StExBar\\StExBar\\src\\setup\\Setup64.wxs*D:\\Development\\StExBar\\StExBar\\src\\setup\\Setup.wxs*D:\\Development\\StExBar\\SKTimeStamp\\src\\setup\\Setup.wxs*D:\\Development\\StExBar\\SKTimeStamp\\src\\setup\\Setup64.wxs");
+		list.LoadFromAsteriskSeparatedString(sPathList);
+		ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("D:\\Development\\StExBar"))==0);
+
+		list.Clear();
+		sPathList = _T("c:\\windows\\explorer.exe*c:\\windows");
+		list.LoadFromAsteriskSeparatedString(sPathList);
+		ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("c:\\windows"))==0);
+
+		list.Clear();
+		sPathList = _T("c:\\windows\\*c:\\windows");
+		list.LoadFromAsteriskSeparatedString(sPathList);
+		ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("c:\\windows"))==0);
+
+		list.Clear();
+		sPathList = _T("c:\\windows\\system32*c:\\windows\\system");
+		list.LoadFromAsteriskSeparatedString(sPathList);
+		ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("c:\\windows"))==0);
+
+		list.Clear();
+		sPathList = _T("c:\\windowsdummy*c:\\windows");
+		list.LoadFromAsteriskSeparatedString(sPathList);
+		ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("c:\\"))==0);
 	}
 	
 	void ValidPathAndUrlTest()
