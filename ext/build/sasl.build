@@ -20,21 +20,11 @@
 
 	<target name="build" >
 		<mkdir dir="${configuration}_${platform}" />
-		<copy file="include\prop.h" tofile="include\orig_prop.h" overwrite="true" />
-		<loadfile file="include\prop.h" property="propfile">
-			<filterchain>
-				<replacestring from="#  define LIBSASL_API  __declspec(dllexport)" to="#  define LIBSASL_API  " />
-				<replacestring from="#  define LIBSASL_VAR  __declspec(dllexport)" to="#  define LIBSASL_VAR  " />
-				<replacestring from="#  define LIBSASL_API  __declspec(dllimport)" to="#  define LIBSASL_API  " />
-				<replacestring from="#  define LIBSASL_VAR  __declspec(dllimport)" to="#  define LIBSASL_VAR  " />
-			</filterchain>
-		</loadfile>
 		<rc rcfile="win32\include\CyrusSasl.rc" output="${configuration}_${platform}\libsasl.res">
 			<includedirs>
 				<include name="include" />
 			</includedirs>
 		</rc>
-		<echo file="include\prop.h" message="${propfile}" />
 		<cl outputdir="${configuration}_${platform}">
 			<arg value="/Ox" if="${configuration == 'release'}" />
 			<arg value="/Od" if="${configuration != 'release'}" />
@@ -102,7 +92,6 @@
 				<include name="${configuration}_${platform}\*.obj" />
 			</fileset>
 		</delete>
-		<copy file="include\orig_prop.h" tofile="include\prop.h" overwrite="true" />
 
 		<cl outputdir="${configuration}_${platform}">
 			<arg value="/Ox" if="${configuration == 'release'}" />
@@ -146,6 +135,9 @@
 				<define name="_CRT_SECURE_NO_DEPRECATE" />
 				<define name="_USRDLL" />
 				<define name="LIBSASL_EXPORTS" />
+				<define name="WITH_DES" />
+				<define name="WITH_SSL_DES" />
+				<define name="WITH_RC4" />
 				<define name="WIN32" />
 				<define name="_WINDOWS" />
 				<define name="_WIN32" />
@@ -220,6 +212,7 @@
 				<define name="_CRT_SECURE_NO_DEPRECATE" />
 				<define name="WITH_DES" />
 				<define name="WITH_SSL_DES" />
+				<define name="WITH_RC4" />
 				<define name="_USRDLL" />
 				<define name="WIN32" />
 				<define name="_WINDOWS" />
