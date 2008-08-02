@@ -1413,7 +1413,7 @@ private:
 		ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("C:\\Development"))==0);
 		list.AddPath(pathC);
 		ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("C:\\Development"))==0);
-
+#ifdef _MFC_VER
 		list.Clear();
 		CString sPathList = _T("D:\\Development\\StExBar\\StExBar\\src\\setup\\Setup64.wxs*D:\\Development\\StExBar\\StExBar\\src\\setup\\Setup.wxs*D:\\Development\\StExBar\\SKTimeStamp\\src\\setup\\Setup.wxs*D:\\Development\\StExBar\\SKTimeStamp\\src\\setup\\Setup64.wxs");
 		list.LoadFromAsteriskSeparatedString(sPathList);
@@ -1438,6 +1438,7 @@ private:
 		sPathList = _T("c:\\windowsdummy*c:\\windows");
 		list.LoadFromAsteriskSeparatedString(sPathList);
 		ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(_T("c:\\"))==0);
+#endif
 	}
 	
 	void ValidPathAndUrlTest()
