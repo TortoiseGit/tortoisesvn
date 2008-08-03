@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-06-20 12:51+0900\n"
+"PO-Revision-Date: 2008-08-03 11:25+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -603,8 +603,8 @@ msgstr "アイコンセット(&I):"
 
 #. Resource IDs: (15)
 #, c-format
-msgid "&Ignore %d items"
-msgstr "%d 個の項目を無視する(&I)"
+msgid "&Ignore %d items by name"
+msgstr "名前によって %d 個の項目を無視する(&I)"
 
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
@@ -1175,19 +1175,19 @@ msgstr "新しいバージョンが利用可能です。TortoiseSVNのサイト 
 
 #. Resource IDs: (195)
 msgid ""
-"A newline separated list of paths for which icon overlays are shown.\n"
+"A newline separated list of paths for which icon overlays are shown.\r\n"
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
-"アイコンのオーバーレイを表示するパス（改行で分割）を入力する。\n"
+"アイコンのオーバーレイを表示するパス（改行で分割）を入力する。\r\n"
 "\"*\" 文字をパスの最後に追加することで、パス内のすべてのファイルとサブディレクトリが含まれる。"
 
 #. Resource IDs: (194)
 msgid ""
-"A newline separated list of paths for which no icon overlays are shown.\n"
+"A newline separated list of paths for which no icon overlays are shown.\r\n"
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
-"アイコンのオーバーレイを非表示にするパス（改行で分割）を入力する。\n"
+"アイコンのオーバーレイを非表示にするパス（改行で分割）を入力する。\r\n"
 "\"*\" 文字をパスの最後に追加することで、パス内のすべてのファイルとサブディレクトリが除外される。\n"
 "何も入力しなければ、すべてのパス上でオーバーレイ表示が可能となる。"
 
@@ -1197,10 +1197,10 @@ msgstr "要求されたリソースは利用できませんでした。"
 
 #. Resource IDs: (79)
 msgid ""
-"A viewer program for GNU diff files (patch files).\n"
+"A viewer program for GNU diff files (patch files).\r\n"
 "If you don't have one use NotePad."
 msgstr ""
-"GNU形式の差分ファイル(Unified-Diff形式、パッチファイル)用の\n"
+"GNU形式の差分ファイル(Unified-Diff形式、パッチファイル)用の\r\n"
 "ビューアプログラムを指定する。デフォルトではメモ帳を利用する。"
 
 #. Resource IDs: (9)
@@ -1438,40 +1438,40 @@ msgstr "キャッシュを読み込むために必要なメモリ量"
 #. Resource IDs: (78)
 #, c-format
 msgid ""
-"An external diff program used\n"
-"for comparing different revisions of files\n"
-"<hr=100%>\n"
-"You can specify the following parameters to the path:\n"
-"%base\tthe base file\n"
-"%mine\tthe modified file"
+"An external diff program used\r\n"
+"for comparing different revisions of files\r\n"
+"\r\n"
+"You can specify the following parameters to the path:\r\n"
+"%base : the base file\r\n"
+"%mine : the modified file"
 msgstr ""
-"異なるリビジョンのファイルを比較するために\n"
-"利用する外部差分ツールを指定する。\n"
-"<hr=100%>\n"
-"パスに次のパラメータを指定することが可能:\n"
-"%base\tBase ファイル\n"
-"%mine\t変更後のファイル"
+"異なるリビジョンのファイルを比較するために\r\n"
+"利用する外部差分ツールを指定する。\r\n"
+"\r\n"
+"パスに次のパラメータを指定することが可能:\r\n"
+"%base : Base ファイル\r\n"
+"%mine : 変更後のファイル"
 
 #. Resource IDs: (79)
 #, c-format
 msgid ""
-"An external merge program used\n"
-"to resolve conflicted files.\n"
-"<hr=100%>\n"
-"You can specify the following parameters to the path:\n"
-"%merged\tthe conflicted file, where to save\n"
-"%theirs\t\tthe file as it is in the repository\n"
-"%mine\t\tyour own file, with your changes\n"
-"%base\t\tthe original file without your changes"
+"An external merge program used\r\n"
+"to resolve conflicted files.\r\n"
+"\r\n"
+"You can specify the following parameters to the path:\r\n"
+"%merged : the conflicted file, where to save\r\n"
+"%theirs : the file as it is in the repository\r\n"
+"%mine : your own file, with your changes\r\n"
+"%base : the original file without your changes"
 msgstr ""
-"ファイルの競合を解消するために利用する\n"
-"外部マージツールを指定する。\n"
-"<hr=100%>\n"
-"パスに次のようなパラメータ指定が可能:\n"
-"%merged\t保存先の競合ファイル名\n"
-"%theirs\t\tリポジトリ内のファイル\n"
-"%mine\t\tあなたが変更したファイル\n"
-"%base\t\t変更前のオリジナルファイル"
+"ファイルの競合を解消するために利用する\r\n"
+"外部マージツールを指定する。\r\n"
+"\r\n"
+"パスに次のようなパラメータ指定が可能:\r\n"
+"%merged : 保存先の競合ファイル名\r\n"
+"%theirs : リポジトリ内のファイル\r\n"
+"%mine : あなたが変更したファイル\r\n"
+"%base : 変更前のオリジナルファイル"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -1502,11 +1502,11 @@ msgstr "Unified-Diff 形式のファイルを作業コピーに適用"
 
 #. Resource IDs: (581)
 msgid ""
-"Applies the properties recursively to all files/folders.\n"
-"bugtraq: and tsvn: properties are only applied to folders."
+"Applies the properties recursively to all files/folders.\r\n"
+"bugtraq:, tsvn: and webviewer: properties are only applied to folders."
 msgstr ""
-"全てのファイル／フォルダに対して、再帰的に属性を適用する。\n"
-"bugtraq: と tsvn: 属性はフォルダに対してのみ適用されます。"
+"全てのファイル／フォルダに対して、再帰的に属性を適用する。\r\n"
+"bugtraq: と tsvn: と webviewer: 属性はフォルダに対してのみ適用されます。"
 
 #. Resource IDs: (13)
 msgid "Apply &patch..."
@@ -1633,10 +1633,10 @@ msgstr "マージ、追加、削除が無い場合は自動的に閉じる"
 
 #. Resource IDs: (195)
 msgid ""
-"Auto-complete suggests words (usually class or member names)\n"
+"Auto-complete suggests words (usually class or member names)\r\n"
 "from the files that you have changed as you type a log message."
 msgstr ""
-"ログメッセージを入力する際に、変更したファイル内の単語\n"
+"ログメッセージを入力する際に、変更したファイル内の単語\r\n"
 "（クラスやメンバの名前）が自動動補完により提示されます。"
 
 #. Resource IDs: (438)
@@ -2052,10 +2052,10 @@ msgstr "%ld 個のリポジトリにキャッシュされているログをク�
 
 #. Resource IDs: (195)
 msgid ""
-"Clears the stored authentication.\n"
+"Clears the stored authentication.\r\n"
 "You will have to enter your username/password again for all repositories."
 msgstr ""
-"保存されている認証データをクリアする。\n"
+"保存されている認証データをクリアする。\r\n"
 "すべてのリポジトリに対して、再度ユーザー名とパスワードを入力する必要があります。"
 
 #. Resource IDs: (196)
@@ -2158,6 +2158,10 @@ msgstr "コミット - TortoiseSVN"
 #. Resource IDs: (1110)
 msgid "Commit to:"
 msgstr "コミット先:"
+
+#. Resource IDs: (209)
+msgid "Commit..."
+msgstr "コミット ..."
 
 #. Resource IDs: (244)
 msgid "Commits by author"
@@ -2821,10 +2825,10 @@ msgstr "ディレクトリ:"
 
 #. Resource IDs: (195)
 msgid ""
-"Disable this option if you have really big working copies and experience\n"
+"Disable this option if you have really big working copies and experience\r\n"
 "too much disk access when browsing the working copy."
 msgstr ""
-"大きな作業コピーを利用している場合や、作業コピーをブラウズする際に\n"
+"大きな作業コピーを利用している場合や、作業コピーをブラウズする際に\r\n"
 "とても時間がかかるなら、このオプションを無効にしてください。"
 
 #. Resource IDs: (3867)
@@ -3063,10 +3067,10 @@ msgstr "ログとリビジョングラフの各ダイアログを高速化する
 
 #. Resource IDs: (196)
 msgid ""
-"Enable this only if you're working with web projects on VS.NET2003!\n"
+"Enable this only if you're working with web projects on VS.NET2003!\r\n"
 "You must restart the system for this setting to take effect."
 msgstr ""
-"VS.NET2003 上で WEB プロジェクトの開発を行っている場合にのみこれを有効にしてください！\n"
+"VS.NET2003 上で WEB プロジェクトの開発を行っている場合にのみこれを有効にしてください！\r\n"
 "この設定を有効にするためには、システムの再起動を行ってください。"
 
 #. Resource IDs: (195)
@@ -4051,10 +4055,10 @@ msgstr "チェックすると、ログリスト内でリビジョンをダブル
 
 #. Resource IDs: (196)
 msgid ""
-"If checked, the commit dialog will be started again automatically after an error,\n"
+"If checked, the commit dialog will be started again automatically after an error,\r\n"
 "while preserving your last selection and log message."
 msgstr ""
-"チェックすると、コミットダイアログはエラーが発生した後に、最後に選択した結果と\n"
+"チェックすると、コミットダイアログはエラーが発生した後に、最後に選択した結果と\r\n"
 "ログメッセージを保存した状態で自動的に再表示されます。"
 
 #. Resource IDs: (194)
@@ -4063,18 +4067,18 @@ msgstr "チェックすると、TortoiseSVN は最新のバージョンが利用
 
 #. Resource IDs: (195)
 msgid ""
-"If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\n"
+"If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\r\n"
 "instead of the last used URL."
 msgstr ""
-"有効にすると、マージダイアログは最後に利用したURLの代わりに、\n"
+"有効にすると、マージダイアログは最後に利用したURLの代わりに、\r\n"
 "選択されている作業コピーのURLで \"元:\" URL を初期化します。"
 
 #. Resource IDs: (195)
 msgid ""
-"If enabled, the repository is contacted when the dialog starts up.\n"
+"If enabled, the repository is contacted when the dialog starts up.\r\n"
 "You don't have to click on \"Check Repository\" anymore."
 msgstr ""
-"有効にすると、ダイアログを表示する際にリポジトリにアクセスします。\n"
+"有効にすると、ダイアログを表示する際にリポジトリにアクセスします。\r\n"
 "これにより、\"リポジトリをチェック\" をクリックする必要はなくなります。"
 
 #. Resource IDs: (197)
@@ -4087,25 +4091,27 @@ msgstr ""
 
 #. Resource IDs: (195)
 msgid ""
-"If set, TortoiseSVN will set the filetimes to the time they\n"
+"If set, TortoiseSVN will set the filetimes to the time they\r\n"
 "were last committed. If not set, TortoiseSVN uses the current time."
 msgstr ""
-"チェックすると、TortoiseSVN はファイルの日付を最終コミット日に設定します。\n"
+"チェックすると、TortoiseSVN はファイルの日付を最終コミット日に設定します。\r\n"
 "チェックしなければ、TortoiseSVN は現在の日時を使用します。"
 
 #. Resource IDs: (196)
 msgid ""
-"If set, files inside unversioned folders can be shown in the status control.\n"
+"If set, files inside unversioned folders can be shown in the status control.\r\n"
 "The status control is used for example in the commit dialog."
 msgstr ""
-"設定すると、バージョン管理外フォルダに存在するファイルが状態表示コントロールに表示されます。\n"
+"設定すると、バージョン管理外フォルダに存在するファイルが状態表示コントロールに表示されます。\r\n"
 "状態表示コントロールは、コミットダイアログなどで利用されています。"
 
 #. Resource IDs: (196)
 msgid ""
-"If set, then unversioned files will mark the status of the parent directory as modified\n"
+"If set, then unversioned files will mark the status of the parent directory as modified\r\n"
 "i.e. they get the modified overlay icon."
-msgstr "設定すると、バージョン管理外のファイルを含むフォルダの状態を変更としてマークします。例えば、変更のオーバーレイアイコンが付きます。"
+msgstr ""
+"設定すると、バージョン管理外のファイルを含むフォルダの状態を変更としてマークします。\r\n"
+"例えば、変更のオーバーレイアイコンが付きます。"
 
 #. Resource IDs: (1439)
 msgid "If the repository can not be contacted"
@@ -4146,6 +4152,10 @@ msgstr "全ての空白を無視する"
 #. Resource IDs: (1267)
 msgid "Ignore ancestry"
 msgstr "系統情報を無視する"
+
+#. Resource IDs: (14)
+msgid "Ignore items by &extension"
+msgstr "拡張子によって項目を無視する(&E)"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
@@ -4733,10 +4743,6 @@ msgstr "リビジョンの範囲をマージ"
 msgid "Merge all"
 msgstr "すべてマージ"
 
-#. Resource IDs: (14)
-msgid "Merge all..."
-msgstr "すべてマージ ..."
-
 #. Resource IDs: (65535)
 msgid "Merge depth:"
 msgstr "マージする深さ:"
@@ -4748,6 +4754,10 @@ msgstr "非対話的なマージ"
 #. Resource IDs: (595, 65535)
 msgid "Merge options"
 msgstr "マージの設定"
+
+#. Resource IDs: (14)
+msgid "Merge reintegrate..."
+msgstr "マージの再統合 ..."
 
 #. Resource IDs: (595)
 msgid "Merge revision range"
@@ -4794,6 +4804,10 @@ msgstr "マージ"
 #, c-format
 msgid "Merging %s into %s, %s"
 msgstr "%s を %s にマージ中、%s"
+
+#. Resource IDs: (264)
+msgid "Merging differences between repository urls"
+msgstr "リポジトリURL間の差分をマージ"
 
 #. Resource IDs: (229)
 #, c-format
@@ -5752,6 +5766,10 @@ msgstr "リセット(&S)"
 msgid "Re&set All"
 msgstr "全てリセット(&S)"
 
+#. Resource IDs: (1382)
+msgid "Re&store defaults"
+msgstr "デフォルトに戻す(&S)"
+
 #. Resource IDs: (8)
 msgid "Re&vert..."
 msgstr "元に戻す(&V) ..."
@@ -5809,39 +5827,38 @@ msgid "Refresh"
 msgstr "最新に更新"
 
 #. Resource IDs: (117)
-#, c-format
 msgid ""
 "Regular expressions filter:\n"
-".\t\t\tany character\n"
-"c+\t\t\tmatch character c one or more times\n"
-"c*\t\t\tmatch character c zero or more times\n"
-"^\t\t\tstart of line\n"
-"$\t\t\tend of line\n"
-"(string){n}\tmatch string n times\n"
-"(abcd)\t\tsubexpression\n"
-"[aei0-9]\t\tmatch a,e,i and 0..9\n"
-"[^aei0-9]\tanything but a,e,i and 0..9\n"
-"<hr=100%>\n"
-"\\w\t\t\tmatches a-z,A-Z,0-9 and _\n"
-"\\W\t\t\tany non-alphanumeric character\n"
-"\\d\t\t\tdigits 0-9\n"
-"\\s\t\t\twhitespaces"
+".   : any character\r\n"
+"c+   : match character c one or more times\r\n"
+"c*   : match character c zero or more times\r\n"
+"^   : start of line\r\n"
+"$   : end of line\r\n"
+"(string){n} : match string n times\r\n"
+"(abcd)   : subexpression\r\n"
+"[aei0-9]   : match a,e,i and 0..9\r\n"
+"[^aei0-9] : anything but a,e,i and 0..9\r\n"
+"\r\n"
+"\\w   : matches a-z,A-Z,0-9 and _\r\n"
+"\\W   : any non-alphanumeric character\r\n"
+"\\d   : digits 0-9\r\n"
+"\\s   : whitespaces"
 msgstr ""
-"正規表現のフィルター:\n"
-".\t\t\t任意の文字\n"
-"c+\t\t\t文字 c への 1 回以上の一致\n"
-"c*\t\t\t文字 c への 0 回以上の一致\n"
-"^\t\t\t行頭\n"
-"$\t\t\t行末\n"
-"(string){n}\t文字列 string への n 回の一致\n"
-"(abcd)\t\t部分式\n"
-"[aei0-9]\t\ta、e、i、0..9 への一致\n"
-"[^aei0-9]\ta、e、i、0..9 以外への一致\n"
-"<hr=100%>\n"
-"\\w\t\t\ta-z、A-Z、0-9、_ への一致\n"
-"\\W\t\t\tアルファベットと数字以外への一致\n"
-"\\d\t\t\t10 進数字 0-9 と一致\n"
-"\\s\t\t\t空白"
+"正規表現のフィルター:\r\n"
+".   : 任意の文字\r\n"
+"c+   : 文字 c への 1 回以上の一致\r\n"
+"c*   : 文字 c への 0 回以上の一致\r\n"
+"^   : 行頭\r\n"
+"$   : 行末\r\n"
+"(string){n} : 文字列 string への n 回の一致\r\n"
+"(abcd)   : 部分式\r\n"
+"[aei0-9]   : a、e、i、0..9 への一致\r\n"
+"[^aei0-9] : a、e、i、0..9 以外への一致\r\n"
+"\r\n"
+"\\w   : a-z、A-Z、0-9、_ への一致\r\n"
+"\\W   : アルファベットと数字以外への一致\r\n"
+"\\d   : 10 進数字 0-9 と一致\r\n"
+"\\s   : 空白"
 
 #. Resource IDs: (1469)
 msgid "Reintegrate a branch"
@@ -6154,6 +6171,16 @@ msgstr "再試行"
 msgid "Reverse merge"
 msgstr "逆マージ"
 
+#. Resource IDs: (264)
+#, c-format
+msgid "Reverse merging %ld"
+msgstr "%ld を逆マージ"
+
+#. Resource IDs: (264)
+#, c-format
+msgid "Reverse merging %ld through %ld"
+msgstr "%ld ～ %ld を逆マージ"
+
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "元に戻す"
@@ -6342,32 +6369,32 @@ msgid "SVN Copy and add files to this WC"
 msgstr "SVN この作業コピーにファイルをコピーし追加する"
 
 #. Resource IDs: (16)
-msgid "SVN Copy and rename versioned file here"
-msgstr "SVN バージョン管理下のファイルをここにコピーし名前を変更する"
+msgid "SVN Copy and rename versioned item here"
+msgstr "SVN バージョン管理下の項目をここにコピーし名前を変更する"
 
 #. Resource IDs: (13)
-msgid "SVN Copy versioned files here"
-msgstr "SVN バージョン管理下のファイルをここにコピーする"
+msgid "SVN Copy versioned item(s) here"
+msgstr "SVN バージョン管理下の項目をここにコピーする"
 
 #. Resource IDs: (14)
-msgid "SVN Export all to here"
-msgstr "SVN ここに全てをエクスポートする"
+msgid "SVN Export all items here"
+msgstr "SVN ここに全ての項目をエクスポートする"
 
 #. Resource IDs: (14)
-msgid "SVN Export to here"
-msgstr "SVN ここにエクスポートする"
+msgid "SVN Export versioned items here"
+msgstr "SVN バージョン管理下の項目をここにエクスポートする"
 
 #. Resource IDs: (16)
 msgid "SVN Local lock owner"
 msgstr "SVN ローカルのロック所持者"
 
 #. Resource IDs: (17)
-msgid "SVN Move and rename versioned files here"
-msgstr "SVN バージョン管理下のファイルをここに移動し名前を変更する"
+msgid "SVN Move and rename versioned item here"
+msgstr "SVN バージョン管理下の項目をここに移動し名前を変更する"
 
 #. Resource IDs: (12)
-msgid "SVN Move versioned files here"
-msgstr "SVN バージョン管理下のファイルをここに移動する"
+msgid "SVN Move versioned item(s) here"
+msgstr "SVN バージョン管理下の項目をここに移動する"
 
 #. Resource IDs: (11)
 msgid "SVN Revision"
@@ -7000,12 +7027,11 @@ msgstr "最近のログメッセージを表示するダイアログで、表示
 #. Resource IDs: (79)
 msgid ""
 "Specify the files or folders which TortoiseSVN\n"
-"should ignore in <b>all</b> working copies.\n"
+"should ignore in all working copies.\r\n"
 "Separate the patterns with a space."
 msgstr ""
-"TortoiseSVN が <b>全て</b> の作業コピーで\n"
-"バージョン管理の対象外とするファイル\n"
-"やフォルダを指定してください。\n"
+"TortoiseSVN が全ての作業コピーで無視すべき\n"
+"ファイルやフォルダを指定してください。\r\n"
 "各パターンは空白で区切ってください。"
 
 #. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
@@ -7557,12 +7583,12 @@ msgstr ""
 
 #. Resource IDs: (195)
 msgid ""
-"The time in seconds after which the parsing of the selected files stops.\n"
-"A lower value will make the auto-completion list available sooner,\n"
+"The time in seconds after which the parsing of the selected files stops.\r\n"
+"A lower value will make the auto-completion list available sooner,\r\n"
 "but maybe not scan all files."
 msgstr ""
-"選択ファイルの構文解析が停止してからの時間（秒）を指定します。\n"
-"小さい値を指定すると、すぐに自動補完リストが利用可能になります。\n"
+"選択ファイルの構文解析が停止してからの時間（秒）を指定します。\r\n"
+"小さい値を指定すると、すぐに自動補完リストが利用可能になります。\r\n"
 "しかし、すべてのファイルのスキャンが終了しないかもしれません。"
 
 #. Resource IDs: (82)
@@ -7611,10 +7637,10 @@ msgstr "Theirs"
 #. Resource IDs: (169)
 msgid ""
 "There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
-"Those files are <b>not</b> listed for commit. You need to commit those files separately."
+"Those files are not listed for commit. You need to commit those files separately."
 msgstr ""
 "svn:externals でインクルードされた１つ以上のディレクトリ内に変更もしくはバージョン管理外の項目が存在します。\n"
-"それらのファイルはコミットのリストには<b>現れません</b>。それらのファイルは別途コミットする必要があります。"
+"それらのファイルはコミットのリストには現れません。それらのファイルは別途コミットする必要があります。"
 
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
@@ -7893,7 +7919,6 @@ msgid ""
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
-"berkeley db %d.%d.%d\r\n"
 "neon %s\r\n"
 "%s\r\n"
 "zlib %s"
@@ -7902,7 +7927,6 @@ msgstr ""
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
-"berkeley db %d.%d.%d\r\n"
 "neon %s\r\n"
 "%s\r\n"
 "zlib %s"
@@ -8191,12 +8215,12 @@ msgstr "注釈履歴を見るためにテキストビューアを用いる(&T)"
 
 #. Resource IDs: (195)
 msgid ""
-"Use '*' as a wildcard character when specifying an exception.\n"
-"To separate multiple exceptions, use commas (',').\n"
+"Use '*' as a wildcard character when specifying an exception.\r\n"
+"To separate multiple exceptions, use commas (',').\r\n"
 "Example: *.mylan.com, *.company.com"
 msgstr ""
-"除外指定にはワイルドカードとして '*' を用い、\n"
-"複数指定する場合はコンマ（','）を利用します。\n"
+"除外指定にはワイルドカードとして '*' を用い、\r\n"
+"複数指定する場合はコンマ（','）を利用します。\r\n"
 "例: *.mylan.com, *.company.com"
 
 #. Resource IDs: (1230)
@@ -8816,63 +8840,63 @@ msgstr "作者: "
 
 #. Resource IDs: (577)
 msgid ""
-"bugtraq:append\n"
-"Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\n"
-"log message. The default is \"true\" which means the bugtracking ID\n"
+"bugtraq:append\r\n"
+"Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\r\n"
+"log message. The default is \"true\" which means the bugtracking ID\r\n"
 "is appended to the log message."
 msgstr ""
-"bugtraq:append\n"
-"ログメッセージの先頭にバグトラッキングIDを挿入したいなら、\"false\" にする\n"
+"bugtraq:append\r\n"
+"ログメッセージの先頭にバグトラッキングIDを挿入したいなら、\"false\" にする\r\n"
 "デフォルトは \"true\" であり、ログメッセージにバグトラッキングIDが追加されます。"
 
 #. Resource IDs: (577)
 msgid ""
-"bugtraq:label\n"
+"bugtraq:label\r\n"
 "Label text to show for the edit box where the user enters the issue number."
 msgstr ""
-"bugtraq:label\n"
+"bugtraq:label\r\n"
 "課題番号を入力するエディットボックスに表示するラベルテキスト。"
 
 #. Resource IDs: (577)
 msgid ""
-"bugtraq:logregex\n"
-"two regular expressions separated by a newline.\n"
-"The first expression is used to find a string referring to an issue,\n"
+"bugtraq:logregex\r\n"
+"two regular expressions separated by a newline.\r\n"
+"The first expression is used to find a string referring to an issue,\r\n"
 "the second expression is used to extract the bare bug ID from that string."
 msgstr ""
-"bugtraq:logregex\n"
-"２つの改行で分けられた正規表現。\n"
-"１つ目の正規表現は課題を参照する文字列を探すために利用し、\n"
+"bugtraq:logregex\r\n"
+"２つの改行で分けられた正規表現。\r\n"
+"１つ目の正規表現は課題を参照する文字列を探すために利用し、\r\n"
 "２つ目はその文字列からバグIDを抽出するために用いる。"
 
 #. Resource IDs: (577)
 #, c-format
 msgid ""
-"bugtraq:message\n"
-"String which is appended to a log message when an issue number is entered.\n"
+"bugtraq:message\r\n"
+"String which is appended to a log message when an issue number is entered.\r\n"
 "The string must contain \"%BUGID%\" which gets replaced with the issue number."
 msgstr ""
-"bugtraq:message\n"
-"課題番号が入力されたときに、ログメッセージに追加される文字列。\n"
+"bugtraq:message\r\n"
+"課題番号が入力されたときに、ログメッセージに追加される文字列。\r\n"
 "文字列は、課題番号に置換される \"%BUGID%\" を含んでいる必要があります。"
 
 #. Resource IDs: (577)
 msgid ""
-"bugtraq:number\n"
+"bugtraq:number\r\n"
 "Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
-"bugtraq:number\n"
+"bugtraq:number\r\n"
 "バグトラッキングシステムが数値で問題を参照することができない場合は、\"false\" に設定してください。"
 
 #. Resource IDs: (577)
 #, c-format
 msgid ""
-"bugtraq:url\n"
-"URL pointing to the issue tracker. It must contain \"%BUGID%\" which\n"
+"bugtraq:url\r\n"
+"URL pointing to the issue tracker. It must contain \"%BUGID%\" which\r\n"
 "gets replaced with the issue number."
 msgstr ""
-"bugtraq:url\n"
-"課題追跡システムを示す URL。\n"
+"bugtraq:url\r\n"
+"課題追跡システムを示す URL。\r\n"
 "課題番号で置換される \"%BUGID%\" を含んでいる必要があります。"
 
 #. Resource IDs: (65535)
@@ -9131,114 +9155,114 @@ msgstr "スキップ範囲: "
 
 #. Resource IDs: (576)
 msgid ""
-"svn:eol-style\n"
+"svn:eol-style\r\n"
 "One of 'native', 'LF', 'CR', 'CRLF'."
 msgstr ""
-"svn:eol-style\n"
+"svn:eol-style\r\n"
 "次の内のどれか、'native'、'LF'、'CR'、'CRLF'."
 
 #. Resource IDs: (576)
 msgid ""
-"svn:executable\n"
-"If present, make the file executable. This property cannot be set on a directory.\n"
+"svn:executable\r\n"
+"If present, make the file executable. This property cannot be set on a directory.\r\n"
 "A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
-"svn:executable\n"
-"この属性が設定されている場合、ファイルを実行可能形式にします。この属性はディレクトリに対して設定することはできません。\n"
+"svn:executable\r\n"
+"この属性が設定されている場合、ファイルを実行可能形式にします。この属性はディレクトリに対して設定することはできません。\r\n"
 "ディレクトリに対する再帰的でない設定は失敗し、再帰的な設定の場合は子階層上のファイルに対してのみ設定されます。"
 
 #. Resource IDs: (576)
 msgid ""
-"svn:externals\n"
-"A newline separated list of module specifiers, each of which consists of\n"
-"an optional revision, an URL and a relative directory path. For example\n"
-"http://example.com/repos/zig\tfoo\n"
-"-r 1234\thttp://example.com/repos/zag\tfoo/bar\n"
-"\n"
-"The URLs can either be full URLs or relative. The format for\n"
-"the relative URLs is:\n"
-"../\trelative to the parent directory of the external\n"
-"^/\trelative to the repository root\n"
-"//\trelative to the URL scheme\n"
-"/\trelative to the server's hostname"
+"svn:externals\r\n"
+"A newline separated list of module specifiers, each of which consists of\r\n"
+"an optional revision, an URL and a relative directory path. For example\r\n"
+"http://example.com/repos/zig foo\r\n"
+"-r 1234 http://example.com/repos/zag foo/bar\r\n"
+"\r\n"
+"The URLs can either be full URLs or relative. The format for\r\n"
+"the relative URLs is:\r\n"
+"../ relative to the parent directory of the external\r\n"
+"^/ relative to the repository root\r\n"
+"// relative to the URL scheme\r\n"
+"/ relative to the server's hostname"
 msgstr ""
-"svn:externals\n"
-"改行で区切られたモジュールのリストであり、リビジョン、URL、相対的なディレクトリのパス、\n"
-"で構成されます。例えば、\n"
-"http://example.com/repos/zig\tfoo\n"
-"-r 1234\thttp://example.com/repos/zag\tfoo/bar\n"
-"\n"
-"URLは完全なURLもしくは相対的に記述することができます。\n"
-"相対的なURLの記述例は:\n"
-"../\t親ディレクトリ\n"
-"^/\tリポジトリルート\n"
-"//\tURLスキーム\n"
-"/\tサーバーのホスト名"
+"svn:externals\r\n"
+"改行で区切られたモジュールのリストであり、リビジョン、URL、相対的なディレクトリのパス、\r\n"
+"で構成されます。例えば、\r\n"
+"http://example.com/repos/zig foo\r\n"
+"-r 1234\thttp://example.com/repos/zag foo/bar\r\n"
+"\r\n"
+"URLは完全なURLもしくは相対的に記述することができます。\r\n"
+"相対的なURLの記述例は:\r\n"
+"../ 親ディレクトリ\r\n"
+"^/ リポジトリルート\r\n"
+"// URLスキーム\r\n"
+"/ サーバーのホスト名"
 
 #. Resource IDs: (576)
 msgid ""
-"svn:ignore\n"
+"svn:ignore\r\n"
 "A newline separated list of file patterns to ignore."
 msgstr ""
-"svn:ignore\n"
+"svn:ignore\r\n"
 "改行で区切られた無視するファイルパターンのリスト。"
 
 #. Resource IDs: (576)
 msgid ""
-"svn:keywords\n"
-"Keywords to be expanded. Valid keywords are:\n"
-"URL, HeadURL\t\t\tThe URL for the head revision of the object.\n"
-"Author, LastChangedBy\t\tThe last person to modify the file.\n"
-"Date, LastChangedDate\t\tThe date/time the object was last modified.\n"
-"Rev, LastChangedRevision\tThe last revision the object changed.\n"
-"Id\t\t\t\tA compressed summary of the previous 4 keywords."
+"svn:keywords\r\n"
+"Keywords to be expanded. Valid keywords are:\r\n"
+"URL, HeadURL : The URL for the head revision of the object.\r\n"
+"Author, LastChangedBy : The last person to modify the file.\r\n"
+"Date, LastChangedDate : The date/time the object was last modified.\r\n"
+"Rev, LastChangedRevision : The last revision the object changed.\r\n"
+"Id : A compressed summary of the previous 4 keywords."
 msgstr ""
-"svn:keywords\n"
-"展開されるキーワード。有効なキーワード:\n"
-"URL, HeadURL\t\t\t最新のリビジョンのURL。\n"
-"Author, LastChangedBy\t\t最後にファイルを変更したユーザ。\n"
-"Date, LastChangedDate\t\t最後に変更した日時。\n"
-"Rev, LastChangedRevision\t最後に変更したリビジョン。\n"
-"Id\t\t\t\t前述の４つのキーワードの略式。"
+"svn:keywords\r\n"
+"展開されるキーワード。有効なキーワード:\r\n"
+"URL, HeadURL : 最新のリビジョンのURL。\r\n"
+"Author, LastChangedBy : 最後にファイルを変更したユーザ。\r\n"
+"Date, LastChangedDate : 最後に変更した日時。\r\n"
+"Rev, LastChangedRevision : 最後に変更したリビジョン。\r\n"
+"Id : 前述の４つのキーワードの略式。"
 
 #. Resource IDs: (576)
 msgid ""
-"svn:mergeinfo\n"
-"A newline separated list of merge tracking info. Each line consists of an absolute\n"
-"path followed by a colon and a list of comma separated revision numbers.\n"
-"For example\n"
+"svn:mergeinfo\r\n"
+"A newline separated list of merge tracking info. Each line consists of an absolute\r\n"
+"path followed by a colon and a list of comma separated revision numbers.\r\n"
+"For example\r\n"
 "/trunk:123-125,129"
 msgstr ""
-"svn:mergeinfo\n"
-"改行で区切られたマージの追跡情報のリスト。それぞれの行は、絶対パス、\n"
-"コロン、コンマ区切りのリビジョン番号のリストで構成されます。\n"
-"例\n"
+"svn:mergeinfo\r\n"
+"改行で区切られたマージの追跡情報のリスト。それぞれの行は、絶対パス、\r\n"
+"コロン、コンマ区切りのリビジョン番号のリストで構成されます。\r\n"
+"例\r\n"
 "/trunk:123-125,129"
 
 #. Resource IDs: (576)
 msgid ""
-"svn:mime-type\n"
-"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\n"
+"svn:mime-type\r\n"
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\r\n"
 "A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
 "Anything else is treated as binary."
 msgstr ""
-"svn:mime-type\n"
-"ファイルのMIMEタイプ。ファイルをマージするかどうかを決定する際に用い、Apache からどのように送り出すかを決める。\n"
+"svn:mime-type\r\n"
+"ファイルのMIMEタイプ。ファイルをマージするかどうかを決定する際に用い、Apache からどのように送り出すかを決める。\r\n"
 "'text/' （もしくは何も設定しない場合）で始まるMIMEタイプの場合はテキストとして扱われる。\n"
 "その他は全てバイナリとして扱われる。"
 
 #. Resource IDs: (576)
 msgid ""
-"svn:needs-lock\n"
-"Set this to any value (e.g. '*') to enforce locking for this file.\n"
-"The file will be set to read-only when checked out or updated,\n"
-"indicating that a user must acquire a lock on the file\n"
+"svn:needs-lock\r\n"
+"Set this to any value (e.g. '*') to enforce locking for this file.\r\n"
+"The file will be set to read-only when checked out or updated,\r\n"
+"indicating that a user must acquire a lock on the file\r\n"
 "before they can edit it and commit changes."
 msgstr ""
-"svn:needs-lock\n"
-"このファイルをロックするために、任意の値 (例えば '*') を設定する。\n"
-"ファイルはチェックアウトや更新を行ったときに読み取り専用になり、\n"
-"ファイルを編集する場合やコミットする場合には、\n"
+"svn:needs-lock\r\n"
+"このファイルをロックするために、任意の値 (例えば '*') を設定する。\r\n"
+"ファイルはチェックアウトや更新を行ったときに読み取り専用になり、\r\n"
+"ファイルを編集する場合やコミットする場合には、\r\n"
 "ユーザはロックを取得しなくてはならなくなります。"
 
 #. Resource IDs: (208)
@@ -9278,105 +9302,109 @@ msgstr "%s へ"
 
 #. Resource IDs: (578)
 msgid ""
-"tsvn:autoprops\n"
-"A list of properties separated by newlines which get applied automatically when adding/importing files.\n"
-"Format: <filemask> = property=value;property=value\n"
+"tsvn:autoprops\r\n"
+"A list of properties separated by newlines which get applied automatically when adding/importing files.\r\n"
+"Format: <filemask> = property=value;property=value\r\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 msgstr ""
-"tsvn:autoprops\n"
-"ファイルを追加／インポートする際に自動的に適用される属性のリスト（複数ある場合は、改行で区切る）。\n"
-"形式: <filemask> = property=value;property=value\n"
+"tsvn:autoprops\r\n"
+"ファイルを追加／インポートする際に自動的に適用される属性のリスト（複数ある場合は、改行で区切る）。\r\n"
+"形式: <filemask> = property=value;property=value\r\n"
 "例: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 #. Resource IDs: (578)
 msgid ""
-"tsvn:lockmsgminsize\n"
+"tsvn:lockmsgminsize\r\n"
 "Minimum size in chars a lock message must have before a lock is allowed."
 msgstr ""
-"tsvn:lockmsgminsize\n"
+"tsvn:lockmsgminsize\r\n"
 "ロックする前に入力する必要のあるロックメッセージの最小文字数。"
 
 #. Resource IDs: (578)
 msgid ""
-"tsvn:logfilelistenglish\n"
-"Set to \"false\" if you don't want the list of changed files to be pasted in english\n"
+"tsvn:logfilelistenglish\r\n"
+"Set to \"false\" if you don't want the list of changed files to be pasted in english\r\n"
 "in the commit dialog."
 msgstr ""
-"tsvn:logfilelistenglish\n"
+"tsvn:logfilelistenglish\r\n"
 "コミットダイアログで変更ファイルのリスト（英語）を貼り付けたくないなら、\"false\" にする。"
 
 #. Resource IDs: (578)
 msgid ""
-"tsvn:logminsize\n"
+"tsvn:logminsize\r\n"
 "Minimum size in chars a log message must have before a commit is allowed."
 msgstr ""
-"tsvn:logminsize\n"
+"tsvn:logminsize\r\n"
 "コミットする前に入力する必要のあるログメッセージの最小文字数。"
 
 #. Resource IDs: (578)
 msgid ""
-"tsvn:logsummary\n"
+"tsvn:logsummary\r\n"
 "A regex string which extracts a summary from a log message in its first group."
 msgstr ""
-"tsvn:logsummary\n"
+"tsvn:logsummary\r\n"
 "最初のグループ内のログメッセージからサマリーを抽出する正規表現文字列。"
 
 #. Resource IDs: (578)
 msgid ""
-"tsvn:logtemplate\n"
+"tsvn:logtemplate\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\n"
+"\n"
 "Use this as a log message templates for users to fill in."
 msgstr ""
-"tsvn:logtemplate\n"
+"tsvn:logtemplate\r\n"
 "コミットダイアログのログメッセージに挿入される文字列。\n"
+"\n"
 "ユーザーがログメッセージを入力するためのテンプレートとして利用します。"
 
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logwidthmarker\n"
-"Set this to the number of chars the log message should not exceed its width.\n"
+"\n"
+"Set this to the number of chars the log message should not exceed its width.\r\n"
 "A faded line is shown in the commit dialogs at that position. The default is 80 chars."
 msgstr ""
 "tsvn:logwidthmarker\n"
-"ログメッセージの文字数が規定の幅を超えないようにする。\n"
+"\n"
+"ログメッセージの文字数が規定の幅を超えないようにする。\r\n"
 "コミットダイアログに超過した行を示します。デフォルトは80文字です。"
 
 #. Resource IDs: (578)
 msgid ""
-"tsvn:projectlanguage\n"
-"Set this to the language number you want your log messages written in.\n"
+"tsvn:projectlanguage\r\n"
+"Set this to the language number you want your log messages written in.\r\n"
 "TortoiseSVN will then load the appropriate spell checker module if available."
 msgstr ""
-"tsvn:projectlanguage\n"
-"ログメッセージ内に記述したい言語番号を指定する。\n"
+"tsvn:projectlanguage\r\n"
+"ログメッセージ内に記述したい言語番号を指定する。\r\n"
 "もし可能なら、TortoiseSVN は適切なスペルチェックモジュールをロードします。"
 
 #. Resource IDs: (581)
 msgid ""
-"tsvn:userfileproperties\n"
-"Newline separated list of user defined properties for files which will\n"
+"tsvn:userfileproperties\r\n"
+"Newline separated list of user defined properties for files which will\r\n"
 "be shown in the property dialog to choose from."
 msgstr ""
-"tsvn:userfileproperties\n"
-"改行で分けられたファイルに対するユーザー定義属性のリスト。\n"
+"tsvn:userfileproperties\r\n"
+"改行で分けられたファイルに対するユーザー定義属性のリスト。\r\n"
 "属性ダイアログ内で確認することができます。"
 
 #. Resource IDs: (581)
 msgid ""
-"tsvn:userfolderproperties\n"
-"Newline separated list of user defined properties for folders which will\n"
+"tsvn:userfolderproperties\r\n"
+"Newline separated list of user defined properties for folders which will\r\n"
 "be shown in the property dialog to choose from."
 msgstr ""
-"tsvn:userfolderproperties\n"
-"改行で分けられたフォルダに対するユーザー定義属性のリスト。\n"
+"tsvn:userfolderproperties\r\n"
+"改行で分けられたフォルダに対するユーザー定義属性のリスト。\r\n"
 "属性ダイアログ内で確認することができます。"
 
 #. Resource IDs: (577)
 msgid ""
-"tsvn:warnifnoissue\n"
+"tsvn:warnifnoissue\r\n"
 "Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
-"tsvn:warnifnoissue\n"
+"tsvn:warnifnoissue\r\n"
 "コミットダイアログに課題を何も入力しない場合に警告を表示するなら、 \"yes\" にする。"
 
 #. Resource IDs: (65535)
@@ -9391,24 +9419,24 @@ msgstr "値が異なっています"
 #, c-format
 msgid ""
 "webviewer:pathrevision\n"
-"URL pointing to the web viewer for the repository for a specific file and revision.\n"
-"The string %REVISION% in the URL is replaced with the revision number,\n"
+"URL pointing to the web viewer for the repository for a specific file and revision.\r\n"
+"The string %REVISION% in the URL is replaced with the revision number,\r\n"
 "the string %PATH% is replaced with the path to the file relative to the repository root."
 msgstr ""
 "webviewer:pathrevision\n"
-"リポジトリ内で、特定のファイルとリビジョンをウェブビューアに渡すURL。\n"
-"URL内の %REVISION% 文字列はリビジョン番号で置換され、\n"
+"リポジトリ内で、特定のファイルとリビジョンをウェブビューアに渡すURL。\r\n"
+"URL内の %REVISION% 文字列はリビジョン番号で置換され、\r\n"
 "%PATH% 文字列はリポジトリルートからの相対的なパスで置換されます。"
 
 #. Resource IDs: (579)
 #, c-format
 msgid ""
-"webviewer:revision\n"
-"URL pointing to the web viewer for the repository for a specific revision.\n"
+"webviewer:revision\r\n"
+"URL pointing to the web viewer for the repository for a specific revision.\r\n"
 "The string %REVISION% in that URL is replaced with the revision number."
 msgstr ""
-"webviewer:revision\n"
-"リポジトリ内で、特定のリビジョンをウェブビューアに渡すURL。\n"
+"webviewer:revision\r\n"
+"リポジトリ内で、特定のリビジョンをウェブビューアに渡すURL。\r\n"
 "URL内の %REVISION% 文字列はリビジョン番号で置換されます。"
 
 #. Resource IDs: (245)
@@ -9435,6 +9463,10 @@ msgstr "はい"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Merge all..."
+#~ msgstr "すべてマージ ..."
+#~ msgid "SVN Export to here"
+#~ msgstr "SVN ここにエクスポートする"
 #~ msgid "Bro&wse..."
 #~ msgstr "参照(&W) ..."
 #~ msgid "Brows&e..."
