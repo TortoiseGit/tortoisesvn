@@ -3666,10 +3666,13 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		else if (m_LogList.GetSelectedCount() >= 2)
 		{
 			bool bAddSeparator = false;
-			if (m_LogList.GetSelectedCount() == 2)
+			if (IsSelectionContinuous() || (m_LogList.GetSelectedCount() == 2))
 			{
 				temp.LoadString(IDS_LOG_POPUP_COMPARETWO);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARETWO, temp);
+			}
+			if (m_LogList.GetSelectedCount() == 2)
+			{
 				temp.LoadString(IDS_LOG_POPUP_BLAMEREVS);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAMETWO, temp);
 				temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
@@ -3875,16 +3878,23 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 			break;
 		case ID_COMPARETWO:
 			{
+				SVNRev r1 = revSelected;
+				SVNRev r2 = revSelected2;
+				if (m_LogList.GetSelectedCount() > 2)
+				{
+					r1 = revHighest;
+					r2 = revLowest;
+				}
 				//user clicked on the menu item "compare revisions"
 				if (m_prompt.PromptShown())
 				{
 					SVNDiff diff(this, m_hWnd, true);
 					diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 					diff.SetHEADPeg(m_LogRevision);
-					diff.ShowCompare(CTSVNPath(pathURL), revSelected2, CTSVNPath(pathURL), revSelected);
+					diff.ShowCompare(CTSVNPath(pathURL), r2, CTSVNPath(pathURL), r1);
 				}
 				else
-					CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pathURL), revSelected2, CTSVNPath(pathURL), revSelected, SVNRev(), m_LogRevision, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+					CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pathURL), r2, CTSVNPath(pathURL), r1, SVNRev(), m_LogRevision, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 			}
 			break;
 		case ID_COMPAREWITHPREVIOUS:
