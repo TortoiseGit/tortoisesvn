@@ -16,6 +16,8 @@ Version 1.5.3
 - CHG: enabled rc4 encryption for the sasl dlls. (Stefan)
 - BUG: some context menu entries were shown if multiple items were
        selected even if they only work on single items. (Stefan)
+- BUG: the move/copy right-drag menus were not shown if the target
+       folder was added but not yet committed. (Stefan)
 
 Version 1.5.2
 - BUG: the "SVN Copy and Add" right-drag menu was not shown. (Stefan)
