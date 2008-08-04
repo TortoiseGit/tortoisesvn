@@ -122,6 +122,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	, m_bShowedAll(false)
 	, m_bSelect(false)
 	, m_regLastStrict(_T("Software\\TortoiseSVN\\LastLogStrict"), FALSE)
+	, m_regMaxBugIDColWidth(_T("Software\\TortoiseSVN\\MaxBugIDColWidth"), 200)
 	, m_bSelectionMustBeContinuous(false)
 	, m_bShowBugtraqColumn(false)
 	, m_lowestRev(-1)
@@ -3387,6 +3388,17 @@ void CLogDlg::ResizeAllListCtrlCols(CListCtrl& list)
 	if ( nWidth<nMinimumWidth )
 	{
 		list.SetColumnWidth(1,nMinimumWidth);
+	}
+
+	// keep the bug id column small
+	if (m_bShowBugtraqColumn)
+	{
+		int nBugIDWidth = list.GetColumnWidth(4);
+		if (nBugIDWidth > (int)(DWORD)m_regMaxBugIDColWidth)
+		{
+			list.SetColumnWidth(4, (int)(DWORD)m_regMaxBugIDColWidth);
+		}
+
 	}
 }
 

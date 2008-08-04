@@ -248,6 +248,7 @@ private:
 	static int			m_nSortColumnPathList;
 	static bool			m_bAscendingPathList;
 	CRegDWORD			m_regLastStrict;
+	CRegDWORD			m_regMaxBugIDColWidth;
 	CButton				m_cHidePaths;
 	bool				m_bShowedAll;
 	CString				m_sTitle;

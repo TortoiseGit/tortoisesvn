@@ -1,5 +1,7 @@
 - NEW: Ignoring of multiple selected items by their extension. See
        issue #423 for details. (Stefan)
+- CHG: The bug-ID column width in the log dialog is now limited 
+       to 200 pixels. (Stefan)
 - CHG: The right-drag context menu now only shows "Export" if a versioned
        folder is dragged (for files, the windows 'copy' does the same). (Stefan)
 - CHG: The right-drag context menu checks whether source and target are
