@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-08-04 14:11+0100\n"
+"PO-Revision-Date: 2008-08-05 11:23+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -597,9 +597,9 @@ msgid "&Icon Set:"
 msgstr "&Symbole"
 
 #. Resource IDs: (15)
-#, fuzzy, c-format
+#, c-format
 msgid "&Ignore %d items by name"
-msgstr "&Ignoriere %d Objekte"
+msgstr "&Ignoriere %d Objekte nach Name"
 
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
@@ -4106,12 +4106,11 @@ msgstr ""
 "Andernfalls wird die aktuelle Zeit verwendet."
 
 #. Resource IDs: (196)
-#, fuzzy
 msgid ""
 "If set, files inside unversioned folders can be shown in the status control.\r\n"
 "The status control is used for example in the commit dialog."
 msgstr ""
-"Aktivieren Sie diese Option, damit auch nicht versionierte Verzeichnisse\n"
+"Aktivieren Sie diese Option, damit auch nicht versionierte Verzeichnisse\r\n"
 "im Statusfenster - zum Beispiel des Übertragen-Dialogs - angezeigt werden."
 
 #. Resource IDs: (196)
@@ -4164,9 +4163,8 @@ msgid "Ignore ancestry"
 msgstr "Ignoriere &Vorfahren"
 
 #. Resource IDs: (14)
-#, fuzzy
 msgid "Ignore items by &extension"
-msgstr "Ignorierte Objekte eingeschlossen"
+msgstr "Ignoriere Objekte nach &Erweiterung"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
@@ -4770,9 +4768,8 @@ msgid "Merge options"
 msgstr "Einstellungen"
 
 #. Resource IDs: (14)
-#, fuzzy
 msgid "Merge reintegrate..."
-msgstr "Der Assistent - Zweig erneut zusammenführen"
+msgstr "Erneut zusammenführen..."
 
 #. Resource IDs: (595)
 msgid "Merge revision range"
@@ -4821,8 +4818,8 @@ msgid "Merging %s into %s, %s"
 msgstr "%s in %s, %s zusammenführen"
 
 #. Resource IDs: (264)
-msgid "Merging differences between repository urls"
-msgstr ""
+msgid "Merging differences between repository URLs"
+msgstr "Führe Unterschiede zwischen Projektarchiv URLs zusammen"
 
 #. Resource IDs: (229)
 #, c-format
@@ -5788,9 +5785,8 @@ msgid "Re&set All"
 msgstr "Alle Rück&setzen"
 
 #. Resource IDs: (1382)
-#, fuzzy
 msgid "Re&store defaults"
-msgstr "Standardfarben"
+msgstr "&Standard wieder herstellen"
 
 #. Resource IDs: (8)
 msgid "Re&vert..."
@@ -5850,7 +5846,7 @@ msgstr "Aktualisieren"
 
 #. Resource IDs: (117)
 msgid ""
-"Regular expressions filter:\n"
+"Regular expressions filter:\r\n"
 ".   : any character\r\n"
 "c+   : match character c one or more times\r\n"
 "c*   : match character c zero or more times\r\n"
@@ -6193,14 +6189,14 @@ msgid "Reverse merge"
 msgstr "Rückwärts zusammenführen"
 
 #. Resource IDs: (264)
-#, fuzzy, c-format
+#, c-format
 msgid "Reverse merging %ld"
-msgstr "Zusammenführen / Konflikte bearbeiten"
+msgstr "%ld rückwärts zusammenführen "
 
 #. Resource IDs: (264)
-#, fuzzy, c-format
+#, c-format
 msgid "Reverse merging %ld through %ld"
-msgstr "Von r%ld bis r%ld zusammenführen"
+msgstr "Von r%ld bis r%ld rückwärts zusammenführen"
 
 #. Resource IDs: (175, 229)
 msgid "Revert"
@@ -6390,38 +6386,32 @@ msgid "SVN Copy and add files to this WC"
 msgstr "SVN Kopieren und zu dieser Arbeitskopie hinzufügen"
 
 #. Resource IDs: (16)
-#, fuzzy
 msgid "SVN Copy and rename versioned item here"
-msgstr "SVN Dateien hierher kopieren und umbenennen"
+msgstr "SVN Objekte hierher kopieren und umbenennen"
 
 #. Resource IDs: (13)
-#, fuzzy
 msgid "SVN Copy versioned item(s) here"
-msgstr "SVN Dateien hierher kopieren"
+msgstr "SVN Objekte hierher kopieren"
 
 #. Resource IDs: (14)
-#, fuzzy
 msgid "SVN Export all items here"
-msgstr "SVN Alles hierher exportieren"
+msgstr "SVN alle Objekte hierher exportieren"
 
 #. Resource IDs: (14)
-#, fuzzy
 msgid "SVN Export versioned items here"
-msgstr "SVN Dateien hierher kopieren"
+msgstr "SVN versionierte Objekte hierher exportieren"
 
 #. Resource IDs: (16)
 msgid "SVN Local lock owner"
 msgstr "SVN lokale Sperre"
 
 #. Resource IDs: (17)
-#, fuzzy
 msgid "SVN Move and rename versioned item here"
-msgstr "SVN Dateien hierher verschieben und umbenennen"
+msgstr "SVN Objekte hierher verschieben und umbenennen"
 
 #. Resource IDs: (12)
-#, fuzzy
 msgid "SVN Move versioned item(s) here"
-msgstr "SVN Dateien hierher verschieben"
+msgstr "SVN Objekte hierher verschieben"
 
 #. Resource IDs: (11)
 msgid "SVN Revision"
@@ -6658,6 +6648,10 @@ msgstr "Startrevision wählen"
 msgid "Select text editor application"
 msgstr "Texteditor auswählen"
 
+#. Resource IDs: (595)
+msgid "Select the URLs for the tree merge"
+msgstr "Wählen Sie die URLs zum Bäume zusammenführen"
+
 #. Resource IDs: (79)
 msgid "Select the behaviour of the progress dialog at the end of the operation."
 msgstr "Bestimmen Sie, wie sich die Fortschrittsanzeige am Ende einer Aktion verhalten soll."
@@ -6681,10 +6675,6 @@ msgstr "Wählen sie die Revisionen"
 #. Resource IDs: (595)
 msgid "Select the type of merge"
 msgstr "Was wollen Sie zusammenführen"
-
-#. Resource IDs: (595)
-msgid "Select the urls for the tree merge"
-msgstr "Wählen Sie die URLs"
 
 #. Resource IDs: (78)
 msgid "Select viewer for diff-files"
@@ -7052,7 +7042,7 @@ msgstr "Legt fest, wie viele Einträge in der Liste der letzten Logmeldungen ges
 
 #. Resource IDs: (79)
 msgid ""
-"Specify the files or folders which TortoiseSVN\n"
+"Specify the files or folders which TortoiseSVN\r\n"
 "should ignore in all working copies.\r\n"
 "Separate the patterns with a space."
 msgstr ""
@@ -8512,7 +8502,7 @@ msgstr "Warnung!"
 msgid ""
 "When connecting to the respository server is not possible,\n"
 "TSVN can switch to using cached data only.\n"
-"Select the default beviour here."
+"Select the default behaviour here."
 msgstr ""
 "Wenn die Verbindung zu einem Projektarchiv nicht möglich ist,\n"
 "kann TortoiseSVN ausschließlich auf die gepufferten Daten zurückgreifen.\n"
