@@ -29,6 +29,8 @@ Version 1.5.3
        working copies (fresh checkout would fix this too). (Stefan)
 - BUG: Starting external applications (e.g., the diff tool) could fail if
        the working copy is on the same drive as TSVN was installed to. (Stefan)
+- BUG: Upgrading could fail under certain circumstances which then required
+       an uninstall, reboot, reinstall cycle. (Stefan)
 
 Version 1.5.2
 - BUG: the "SVN Copy and Add" right-drag menu was not shown. (Stefan)
