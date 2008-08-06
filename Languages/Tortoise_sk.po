@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-08-05 11:01+0100\n"
+"PO-Revision-Date: 2008-08-06 12:04+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1203,7 +1203,7 @@ msgid ""
 "An empty list will allow overlays on all paths."
 msgstr ""
 "Novými riadkami oddelovaný zoznam ciest, pre ktoré nebudú zobrazené prekrývajúce ikonky.\r\n"
-"Keď pridáte znak \"*\" na konec cesty, všetky súbory a podadresáre tohto adresára budú tiež vylúčené.\r\n"
+"Keď pridáte znak \"*\" na koniec cesty, všetky súbory a podadresáre tohto adresára budú tiež vylúčené.\r\n"
 "Prázdny zoznam znamená povolé zobrazovanie pre všetky cesty."
 
 #. Resource IDs: (3843)
@@ -4860,8 +4860,8 @@ msgid "Merging %s into %s, %s"
 msgstr "Zlučovanie %s do %s, %s"
 
 #. Resource IDs: (264)
-msgid "Merging differences between repository urls"
-msgstr ""
+msgid "Merging differences between repository URLs"
+msgstr "Zlučovanie rozdielov medzi URL-ami úložska"
 
 #. Resource IDs: (229)
 #, c-format
@@ -5887,8 +5887,9 @@ msgid "Refresh"
 msgstr "Obnoviť"
 
 #. Resource IDs: (117)
+#, fuzzy
 msgid ""
-"Regular expressions filter:\n"
+"Regular expressions filter:\r\n"
 ".   : any character\r\n"
 "c+   : match character c one or more times\r\n"
 "c*   : match character c zero or more times\r\n"
@@ -6697,6 +6698,10 @@ msgstr "Vyberte rozsah revizií"
 msgid "Select text editor application"
 msgstr "Vyberte aplikáciu, ktorá bude použitá na úpravu textových súborov"
 
+#. Resource IDs: (595)
+msgid "Select the URLs for the tree merge"
+msgstr "Vyberte URL adresy pre zlučovanie stromov"
+
 #. Resource IDs: (79)
 msgid "Select the behaviour of the progress dialog at the end of the operation."
 msgstr "Vyberte správanie pre dialogové okno postupu na konci úkonu."
@@ -6720,10 +6725,6 @@ msgstr "Vyberte rozsah revízí na zlúčenie"
 #. Resource IDs: (595)
 msgid "Select the type of merge"
 msgstr "Vyberte typ zlúčenia"
-
-#. Resource IDs: (595)
-msgid "Select the urls for the tree merge"
-msgstr "Vyberte URL adresy, z ktorých sa majú stromy zlučovať"
 
 #. Resource IDs: (78)
 msgid "Select viewer for diff-files"
@@ -7094,12 +7095,13 @@ msgid "Specifies how many items you want to keep in the most recent log messages
 msgstr "Určuje koľko záznamov sa ma pamätať v histórií správ denníka."
 
 #. Resource IDs: (79)
+#, fuzzy
 msgid ""
-"Specify the files or folders which TortoiseSVN\n"
+"Specify the files or folders which TortoiseSVN\r\n"
 "should ignore in all working copies.\r\n"
 "Separate the patterns with a space."
 msgstr ""
-"Určuje súbory a aresáre ktoré má TortoiseSVN\r\n"
+"Určuje súbory a adresáre ktoré má TortoiseSVN\r\n"
 "ignorovať vo všetkých pracovných kópiach.\r\n"
 "Vzory oddelujte medzerov."
 
@@ -8552,13 +8554,14 @@ msgid "Warning!"
 msgstr "Varovanie!"
 
 #. Resource IDs: (344)
+#, fuzzy
 msgid ""
 "When connecting to the respository server is not possible,\n"
 "TSVN can switch to using cached data only.\n"
-"Select the default beviour here."
+"Select the default behaviour here."
 msgstr ""
-"Keď pripojenie k úložisku nie je možné,\n"
-"TSVN sa môže prepnúť do režimu používania iba dát zo zásobníka.\n"
+"Keď pripojenie k úložisku nie je možné, TSVN sa môže\n"
+"prepnúť do režimu používania iba zásobníkových dát.\n"
 "Vyberte predvolené správanie."
 
 #. Resource IDs: (197)
@@ -9347,7 +9350,7 @@ msgid ""
 "Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\r\n"
-"MIME typ súboru. Určuje či súbor zlúčiť, a ako ho obslúžiť z Apache.\r\n"
+"MIME typ súboru. Určuje, či súbor zlúčiť, a ako ho obslúžiť z Apache.\r\n"
 "MIME typ začínajúci 'text/' (alebo bez určenia) je považovaný za textový.\r\n"
 "Ostatné súbory sú považované za binárne."
 
@@ -9455,7 +9458,7 @@ msgid ""
 "Use this as a log message templates for users to fill in."
 msgstr ""
 "tsvn:logtemplate\r\n"
-"Text, ktorý je automatcky vložený do rámčekov odovzdávacieho okna.\r\n"
+"Text, ktorý je automaticky vložený do rámčekov odovzdávacieho okna.\r\n"
 "\r\n"
 "Použite to ako šablónu na vypisovanie záznamov denníka."
 
