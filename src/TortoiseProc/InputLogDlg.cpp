@@ -109,7 +109,7 @@ void CInputLogDlg::OnOK()
 	m_sLogMsg = m_cInput.GetText();
 	
 	CString reg;
-	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), m_sUUID);
+	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)m_sUUID);
 
 	CRegHistory history;
 	history.Load(reg, _T("logmsgs"));
@@ -163,7 +163,7 @@ void CInputLogDlg::UpdateOKButton()
 void CInputLogDlg::OnBnClickedHistory()
 {
 	CString reg;
-	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), m_sUUID);
+	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)m_sUUID);
 	CRegHistory history;
 	history.Load(reg, _T("logmsgs"));
 	CHistoryDlg HistoryDlg;

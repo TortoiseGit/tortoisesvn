@@ -486,11 +486,11 @@ void CLogDlg::SetDlgTitle(bool bOffline)
 	{
 		CString sTemp;
 		if (m_path.IsUrl())
-			sTemp.Format(IDS_LOG_DLGTITLEOFFLINE, m_sTitle, m_path.GetUIPathString());
+			sTemp.Format(IDS_LOG_DLGTITLEOFFLINE, (LPCTSTR)m_sTitle, (LPCTSTR)m_path.GetUIPathString());
 		else if (m_path.IsDirectory())
-			sTemp.Format(IDS_LOG_DLGTITLEOFFLINE, m_sTitle, m_path.GetWinPathString());
+			sTemp.Format(IDS_LOG_DLGTITLEOFFLINE, (LPCTSTR)m_sTitle, (LPCTSTR)m_path.GetWinPathString());
 		else
-			sTemp.Format(IDS_LOG_DLGTITLEOFFLINE, m_sTitle, m_path.GetFilename());
+			sTemp.Format(IDS_LOG_DLGTITLEOFFLINE, (LPCTSTR)m_sTitle, (LPCTSTR)m_path.GetFilename());
 		SetWindowText(sTemp);
 	}
 	else
@@ -1238,9 +1238,9 @@ void CLogDlg::CopySelectionToClipBoard()
 				{
 					CString sCopyFrom;
 					sCopyFrom.Format(_T(" (%s: %s, %s, %ld)\r\n"), CString(MAKEINTRESOURCE(IDS_LOG_COPYFROM)), 
-						cpath->sCopyFromPath, 
-						CString(MAKEINTRESOURCE(IDS_LOG_REVISION)), 
-						cpath->lCopyFromRev);
+						(LPCTSTR)cpath->sCopyFromPath, 
+						(LPCTSTR)CString(MAKEINTRESOURCE(IDS_LOG_REVISION)), 
+						(LPCTSTR)cpath->lCopyFromRev);
 					sPaths += sCopyFrom;
 				}
 			}
@@ -1746,7 +1746,7 @@ void CLogDlg::DiffSelectedFile()
 			progDlg.SetTitle(IDS_APPNAME);
 			progDlg.SetAnimation(IDR_DOWNLOAD);
 			CString sInfoLine;
-			sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, m_sRepositoryRoot + changedpath->sPath, r.ToString());
+			sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)(m_sRepositoryRoot + changedpath->sPath), (LPCTSTR)r.ToString());
 			progDlg.SetLine(1, sInfoLine, true);
 			SetAndClearProgressInfo(&progDlg);
 			progDlg.ShowModeless(m_hWnd);
@@ -1766,8 +1766,8 @@ void CLogDlg::DiffSelectedFile()
 			SetAndClearProgressInfo((HWND)NULL);
 
 			CString sName1, sName2;
-			sName1.Format(_T("%s - Revision %ld"), CPathUtils::GetFileNameFromPath(changedpath->sPath), (svn_revnum_t)rev1);
-			sName2.Format(_T("%s - Revision %ld"), CPathUtils::GetFileNameFromPath(changedpath->sPath), (svn_revnum_t)rev1-1);
+			sName1.Format(_T("%s - Revision %ld"), (LPCTSTR)CPathUtils::GetFileNameFromPath(changedpath->sPath), (svn_revnum_t)rev1);
+			sName2.Format(_T("%s - Revision %ld"), (LPCTSTR)CPathUtils::GetFileNameFromPath(changedpath->sPath), (svn_revnum_t)rev1-1);
 			CAppUtils::DiffFlags flags;
 			flags.AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 			if (changedpath->action == LOGACTIONS_DELETED)
@@ -1866,7 +1866,7 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t re
 		{
 			theApp.DoWaitCursor(-1);
 			CString temp;
-			temp.Format(IDS_ERR_NOURLOFFILE, filepath);
+			temp.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)filepath);
 			CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 			TRACE(_T("could not retrieve the URL of the file!\n"));
 			EnableOKButton();
@@ -1939,7 +1939,7 @@ BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, svn_revnum_t rev)
 		{
 			theApp.DoWaitCursor(-1);
 			CString temp;
-			temp.Format(IDS_ERR_NOURLOFFILE, filepath);
+			temp.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)filepath);
 			CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 			TRACE(_T("could not retrieve the URL of the file!\n"));
 			EnableOKButton();
@@ -1954,7 +1954,7 @@ BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, svn_revnum_t rev)
 	progDlg.SetTitle(IDS_APPNAME);
 	progDlg.SetAnimation(IDR_DOWNLOAD);
 	CString sInfoLine;
-	sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, filepath, SVNRev(rev).ToString());
+	sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)filepath, (LPCTSTR)SVNRev(rev).ToString());
 	progDlg.SetLine(1, sInfoLine, true);
 	SetAndClearProgressInfo(&progDlg);
 	progDlg.ShowModeless(m_hWnd);
@@ -3765,7 +3765,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 					break;		//exit
 				}
 				CString msg;
-				msg.Format(IDS_LOG_REVERT_CONFIRM, m_path.GetWinPathString());
+				msg.Format(IDS_LOG_REVERT_CONFIRM, m_path.GetWinPath());
 				if (CMessageBox::Show(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
 				{
 					CSVNProgressDlg dlg;
@@ -3831,7 +3831,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				}
 
 				CString msg;
-				msg.Format(IDS_LOG_REVERTTOREV_CONFIRM, m_path.GetWinPathString());
+				msg.Format(IDS_LOG_REVERTTOREV_CONFIRM, m_path.GetWinPath());
 				if (CMessageBox::Show(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
 				{
 					CSVNProgressDlg dlg;
@@ -3983,7 +3983,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 					progDlg.SetTitle(IDS_APPNAME);
 					progDlg.SetAnimation(IDR_DOWNLOAD);
 					CString sInfoLine;
-					sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, m_path.GetWinPath(), revSelected.ToString());
+					sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, m_path.GetWinPath(), (LPCTSTR)revSelected.ToString());
 					progDlg.SetLine(1, sInfoLine, true);
 					SetAndClearProgressInfo(&progDlg);
 					progDlg.ShowModeless(m_hWnd);
@@ -4012,7 +4012,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				progDlg.SetTitle(IDS_APPNAME);
 				progDlg.SetAnimation(IDR_DOWNLOAD);
 				CString sInfoLine;
-				sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, m_path.GetWinPath(), revSelected.ToString());
+				sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, m_path.GetWinPath(), (LPCTSTR)revSelected.ToString());
 				progDlg.SetLine(1, sInfoLine, true);
 				SetAndClearProgressInfo(&progDlg);
 				progDlg.ShowModeless(m_hWnd);
@@ -4123,8 +4123,8 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 			{
 				CString sCmd;
 				sCmd.Format(_T("%s /command:repobrowser /path:\"%s\" /rev:%s"),
-					CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"),
-					pathURL, revSelected.ToString());
+					(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")),
+					(LPCTSTR)pathURL, (LPCTSTR)revSelected.ToString());
 
 				CAppUtils::LaunchApplication(sCmd, NULL, false);
 			}
@@ -4159,8 +4159,8 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 			{
 				CString sCmd;
 				sCmd.Format(_T("%s /command:export /path:\"%s\" /revision:%ld"),
-					CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"),
-					pathURL, (LONG)revSelected);
+					(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")),
+					(LPCTSTR)pathURL, (LONG)revSelected);
 				CAppUtils::LaunchApplication(sCmd, NULL, false);
 			}
 			break;
@@ -4169,8 +4169,8 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				CString sCmd;
 				CString url = _T("tsvn:")+pathURL;
 				sCmd.Format(_T("%s /command:checkout /url:\"%s\" /revision:%ld"),
-					CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"),
-					url, (LONG)revSelected);
+					(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")),
+					(LPCTSTR)url, (LONG)revSelected);
 				CAppUtils::LaunchApplication(sCmd, NULL, false);
 			}
 			break;
@@ -4405,7 +4405,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 					{
 						theApp.DoWaitCursor(-1);
 						CString temp;
-						temp.Format(IDS_ERR_NOURLOFFILE, m_path);
+						temp.Format(IDS_ERR_NOURLOFFILE, m_path.GetWinPath());
 						CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 						EnableOKButton();
 						theApp.DoWaitCursor(-1);
@@ -4459,7 +4459,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 					dlg.SetRevisionRanges(revarray);
 				}
 				CString msg;
-				msg.Format(IDS_LOG_REVERT_CONFIRM, wcPath);
+				msg.Format(IDS_LOG_REVERT_CONFIRM, (LPCTSTR)wcPath);
 				if (CMessageBox::Show(this->m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
 				{
 					dlg.DoModal();
@@ -4484,7 +4484,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 					{
 						theApp.DoWaitCursor(-1);
 						CString temp;
-						temp.Format(IDS_ERR_NOURLOFFILE, filepath);
+						temp.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)filepath);
 						CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 						TRACE(_T("could not retrieve the URL of the file!\n"));
 						EnableOKButton();
@@ -4518,7 +4518,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 					{
 						theApp.DoWaitCursor(-1);
 						CString temp;
-						temp.Format(IDS_ERR_NOURLOFFILE, filepath);
+						temp.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)filepath);
 						CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 						TRACE(_T("could not retrieve the URL of the file!\n"));
 						EnableOKButton();
@@ -4550,9 +4550,9 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 					temp = CPathUtils::GetFileNameFromPath(changedpaths[0]);
 					int rfind = temp.ReverseFind('.');
 					if (rfind > 0)
-						revFilename.Format(_T("%s-%ld%s"), temp.Left(rfind), rev1, temp.Mid(rfind));
+						revFilename.Format(_T("%s-%ld%s"), (LPCTSTR)temp.Left(rfind), rev1, (LPCTSTR)temp.Mid(rfind));
 					else
-						revFilename.Format(_T("%s-%ld"), temp, rev1);
+						revFilename.Format(_T("%s-%ld"), (LPCTSTR)temp, rev1);
 					bTargetSelected = CAppUtils::FileOpenSave(revFilename, NULL, IDS_LOG_POPUP_SAVE, IDS_COMMONFILEFILTER, false, m_hWnd);
 					TargetPath.SetFromWin(revFilename);
 					}
@@ -4566,7 +4566,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 						SVNRev getrev = ((*it)->action == LOGACTIONS_DELETED) ? rev2 : rev1;
 
 						CString sInfoLine;
-						sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, filepath, getrev.ToString());
+						sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)filepath, (LPCTSTR)getrev.ToString());
 						progDlg.SetLine(1, sInfoLine, true);
 						SetAndClearProgressInfo(&progDlg);
 						progDlg.ShowModeless(m_hWnd);
@@ -4638,7 +4638,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 					{
 						theApp.DoWaitCursor(-1);
 						CString temp;
-						temp.Format(IDS_ERR_NOURLOFFILE, filepath);
+						temp.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)filepath);
 						CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 						TRACE(_T("could not retrieve the URL of the file!\n"));
 						EnableOKButton();
@@ -4698,7 +4698,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 					{
 						theApp.DoWaitCursor(-1);
 						CString temp;
-						temp.Format(IDS_ERR_NOURLOFFILE, filepath);
+						temp.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)filepath);
 						CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 						TRACE(_T("could not retrieve the URL of the file!\n"));
 						EnableOKButton();
@@ -4717,7 +4717,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 					logrev--;
 				}
 				CString sCmd;
-				sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%ld"), CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), filepath, logrev);
+				sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%ld"), (LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)filepath, logrev);
 				if (bMergeLog)
 					sCmd += _T(" /merge");
 				CAppUtils::LaunchApplication(sCmd, NULL, false);

@@ -21,6 +21,8 @@ Version 1.5.3
        selected even if they only work on single items. (Stefan)
 - BUG: the move/copy right-drag menus were not shown if the target
        folder was added but not yet committed. (Stefan)
+- BUG: fixed missing typecasts. This lead among others to "show log" not
+       working from the check-for-modifications dialog on x64. (Stefan)
 
 Version 1.5.2
 - BUG: the "SVN Copy and Add" right-drag menu was not shown. (Stefan)

@@ -1124,7 +1124,7 @@ void CRepositoryBrowser::OnDelete()
 	input.SetProjectProperties(&m_ProjectProperties);
 	CString hint;
 	if (urlList.GetCount() == 1)
-		hint.Format(IDS_INPUT_REMOVEONE, urlList[0].GetFileOrDirectoryName());
+		hint.Format(IDS_INPUT_REMOVEONE, (LPCTSTR)urlList[0].GetFileOrDirectoryName());
 	else
 		hint.Format(IDS_INPUT_REMOVEMORE, urlList.GetCount());
 	input.SetActionText(hint);
@@ -2198,7 +2198,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				wcPath.AppendPathString(urlList[0].GetWinPathString().Mid(m_InitialUrl.GetLength()));
 				CString sCmd;
 				sCmd.Format(_T("\"%s\" /command:update /path:\"%s\" /rev"),
-					CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), wcPath.GetWinPath());
+					(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), wcPath.GetWinPath());
 
 				CAppUtils::LaunchApplication(sCmd, NULL, false);
 			}
@@ -2255,7 +2255,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 						if (tempfile.IsDirectory())
 							savepath.AppendPathString(urlList[i].GetFileOrDirectoryName());
 						CString sInfoLine;
-						sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, saveurl, GetRevision().ToString());
+						sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)saveurl, (LPCTSTR)GetRevision().ToString());
 						progDlg.SetLine(1, sInfoLine, true);
 						if (!Cat(CTSVNPath(saveurl), GetRevision(), GetRevision(), savepath)||(progDlg.HasUserCancelled()))
 						{
@@ -2309,7 +2309,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					}
 					CString sCmd;
 					sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%s /endrev:%s"),
-						CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), sCopyFrom1, rev1.ToString(), rev2.ToString());
+						(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)sCopyFrom1, (LPCTSTR)rev1.ToString(), (LPCTSTR)rev2.ToString());
 
 					ATLTRACE(sCmd);
 					if (!m_path.IsUrl())
@@ -2325,7 +2325,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				{
 					CString sCmd;
 					sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%s"), 
-						CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), EscapeUrl(urlList[0]), GetRevision().ToString());
+						(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)EscapeUrl(urlList[0]), (LPCTSTR)GetRevision().ToString());
 
 					if (!m_path.IsUrl())
 					{
@@ -2367,7 +2367,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				itemsToCheckout.TrimRight('*');
 				CString sCmd;
 				sCmd.Format(_T("\"%s\" /command:checkout /url:\"%s\" /revision:%s"), 
-					CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), (LPCTSTR)itemsToCheckout, GetRevision().ToString());
+					(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)itemsToCheckout, (LPCTSTR)GetRevision().ToString());
 
 				CAppUtils::LaunchApplication(sCmd, NULL, false);
 			}
@@ -2433,7 +2433,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				progDlg.SetTitle(IDS_APPNAME);
 				progDlg.SetAnimation(IDR_DOWNLOAD);
 				CString sInfoLine;
-				sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, urlList[0].GetFileOrDirectoryName(), GetRevision().ToString());
+				sInfoLine.Format(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)urlList[0].GetFileOrDirectoryName(), (LPCTSTR)GetRevision().ToString());
 				progDlg.SetLine(1, sInfoLine, true);
 				SetAndClearProgressInfo(&progDlg);
 				progDlg.ShowModeless(m_hWnd);
@@ -2472,7 +2472,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				input.SetProjectProperties(&m_ProjectProperties);
 				CString hint;
 				if (urlList.GetCount() == 1)
-					hint.Format(IDS_INPUT_REMOVEONE, urlList[0].GetFileOrDirectoryName());
+					hint.Format(IDS_INPUT_REMOVEONE, (LPCTSTR)urlList[0].GetFileOrDirectoryName());
 				else
 					hint.Format(IDS_INPUT_REMOVEMORE, urlList.GetCount());
 				input.SetActionText(hint);
@@ -2526,7 +2526,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 						CProgressDlg progDlg;
 						progDlg.SetTitle(IDS_APPNAME);
 						CString sInfoLine;
-						sInfoLine.Format(IDS_PROGRESSIMPORT, filename);
+						sInfoLine.Format(IDS_PROGRESSIMPORT, (LPCTSTR)filename);
 						progDlg.SetLine(1, sInfoLine, true);
 						SetAndClearProgressInfo(&progDlg);
 						progDlg.ShowModeless(m_hWnd);
@@ -2570,7 +2570,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 						CProgressDlg progDlg;
 						progDlg.SetTitle(IDS_APPNAME);
 						CString sInfoLine;
-						sInfoLine.Format(IDS_PROGRESSIMPORT, filename);
+						sInfoLine.Format(IDS_PROGRESSIMPORT, (LPCTSTR)filename);
 						progDlg.SetLine(1, sInfoLine, true);
 						SetAndClearProgressInfo(&progDlg);
 						progDlg.ShowModeless(m_hWnd);

@@ -187,7 +187,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 	
 	if (PathIsDirectory(sFilePath))
 	{
-		m_sErrorString.Format(IDS_ERR_FILE_NOTAFILE, sFilePath);
+		m_sErrorString.Format(IDS_ERR_FILE_NOTAFILE, (LPCTSTR)sFilePath);
 		return FALSE;
 	}
 	
@@ -239,7 +239,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 
 	if (m_UnicodeType == CFileTextLines::BINARY)
 	{
-		m_sErrorString.Format(IDS_ERR_FILE_BINARY, sFilePath);
+		m_sErrorString.Format(IDS_ERR_FILE_BINARY, (LPCTSTR)sFilePath);
 		delete [] pFileBuf;
 		return FALSE;
 	}
@@ -430,7 +430,7 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIg
 		CStdioFile file;			// Hugely faster than CFile for big file writes - because it uses buffering
 		if (!file.Open(sFilePath, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
 		{
-			m_sErrorString.Format(IDS_ERR_FILE_OPEN, sFilePath);
+			m_sErrorString.Format(IDS_ERR_FILE_OPEN, (LPCTSTR)sFilePath);
 			return FALSE;
 		}
 		if ((!bSaveAsUTF8)&&(m_UnicodeType == CFileTextLines::UNICODE_LE))

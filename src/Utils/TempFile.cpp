@@ -55,7 +55,7 @@ CTSVNPath CTempFiles::GetTempFilePath(bool bRemoveAtEnd, const CTSVNPath& path /
 		{
 			if (revision.IsValid())
 			{
-				possibletempfile.Format(_T("%s%s-rev%s.svn%3.3x.tmp%s"), temppath, (LPCTSTR)path.GetFileOrDirectoryName(), revision.ToString(), i, (LPCTSTR)path.GetFileExtension());
+				possibletempfile.Format(_T("%s%s-rev%s.svn%3.3x.tmp%s"), temppath, (LPCTSTR)path.GetFileOrDirectoryName(), (LPCTSTR)revision.ToString(), i, (LPCTSTR)path.GetFileExtension());
 			}
 			else
 			{

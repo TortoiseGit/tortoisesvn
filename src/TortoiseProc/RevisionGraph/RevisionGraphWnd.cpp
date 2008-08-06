@@ -844,7 +844,7 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
 						}
 						else
 						{
-							sErrormessage.Format(IDS_REVGRAPH_ERR_NOENCODER, CPathUtils::GetFileExtFromPath(sSavePath));
+							sErrormessage.Format(IDS_REVGRAPH_ERR_NOENCODER, (LPCTSTR)CPathUtils::GetFileExtFromPath(sSavePath));
 						}
 					}
 					else
@@ -985,7 +985,7 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 				CString URL = GetReposRoot() + CUnicodeUtils::GetUnicode (m_SelectedEntry1->path.GetPath().c_str());
 				URL = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(URL)));
 				sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%ld"), 
-					CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), 
+					(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), 
 					(LPCTSTR)URL,
 					m_SelectedEntry1->revision);
 
@@ -1112,7 +1112,7 @@ void CRevisionGraphWnd::SetDlgTitle (bool offline)
 
 	CString newTitle;
 	if (offline)
-    	newTitle.Format (IDS_REVGRAPH_DLGTITLEOFFLINE, m_sTitle);
+    	newTitle.Format (IDS_REVGRAPH_DLGTITLEOFFLINE, (LPCTSTR)m_sTitle);
     else
         newTitle = m_sTitle;
 

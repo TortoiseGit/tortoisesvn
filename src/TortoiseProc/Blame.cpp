@@ -76,9 +76,9 @@ BOOL CBlame::BlameCallback(LONG linenumber, svn_revnum_t revision, const CString
 	if (authorA.GetLength() > 30 )
 		authorA = authorA.Left(30);
 	if (m_bNoLineNo)
-		infolineA.Format("%c %6ld %-30s %-60s %-30s ", c, revision, dateA, pathA, authorA);
+		infolineA.Format("%c %6ld %-30s %-60s %-30s ", c, revision, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
 	else
-		infolineA.Format("%c %6ld %6ld %-30s %-60s %-30s ", c, linenumber, revision, dateA, pathA, authorA);
+		infolineA.Format("%c %6ld %6ld %-30s %-60s %-30s ", c, linenumber, revision, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
 	fulllineA = line;
 	fulllineA.TrimRight("\r\n");
 	fulllineA += "\n";

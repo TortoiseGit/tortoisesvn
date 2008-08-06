@@ -323,7 +323,7 @@ void CEditPropertiesDlg::OnBnClickedRemoveProps()
 			sLogMsg = input.GetLogMessage();
 		}
 		CString sQuestion;
-		sQuestion.Format(IDS_EDITPROPS_RECURSIVEREMOVEQUESTION, sName);
+		sQuestion.Format(IDS_EDITPROPS_RECURSIVEREMOVEQUESTION, (LPCTSTR)sName);
 		CString sRecursive(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVE));
 		CString sNotRecursive(MAKEINTRESOURCE(IDS_EDITPROPS_NOTRECURSIVE));
 		CString sCancel(MAKEINTRESOURCE(IDS_EDITPROPS_CANCEL));

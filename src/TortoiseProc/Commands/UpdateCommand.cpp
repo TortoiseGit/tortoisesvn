@@ -36,7 +36,7 @@ bool UpdateCommand::Execute()
 		if (exitcode)
 		{
 			CString temp;
-			temp.Format(IDS_ERR_HOOKFAILED, error);
+			temp.Format(IDS_ERR_HOOKFAILED, (LPCTSTR)error);
 			CMessageBox::Show(hwndExplorer, temp, _T("TortoiseSVN"), MB_ICONERROR);
 			return FALSE;
 		}

@@ -158,13 +158,13 @@ bool RenameCommand::Execute()
 					{
 						CString sFilename = renlist[i].GetFilename();
 						CString sNewFilename = sNewMask + sFilename.Mid(sFilemask.GetLength());
-						sTemp.Format(_T("\n%s -> %s"), sFilename, sNewFilename);
+						sTemp.Format(_T("\n%s -> %s"), (LPCTSTR)sFilename, (LPCTSTR)sNewFilename);
 						if (!renlist[i].IsEquivalentTo(cmdLinePath))
 							sRenList += sTemp;
 						renmap[renlist[i].GetWinPathString()] = renlist[i].GetContainingDirectory().GetWinPathString()+_T("\\")+sNewFilename;
 					}
 					CString sRenameMultipleQuestion;
-					sRenameMultipleQuestion.Format(IDS_PROC_MULTIRENAME, sRenList);
+					sRenameMultipleQuestion.Format(IDS_PROC_MULTIRENAME, (LPCTSTR)sRenList);
 					UINT idret = CMessageBox::Show(hwndExplorer, sRenameMultipleQuestion, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNOCANCEL);
 					if (idret == IDYES)
 					{
@@ -176,8 +176,8 @@ bool RenameCommand::Execute()
 						DWORD count = 1;
 						for (std::map<CString, CString>::iterator it=renmap.begin(); it != renmap.end(); ++it)
 						{
-							progress.FormatPathLine(1, IDS_PROC_MOVINGPROG, it->first);
-							progress.FormatPathLine(2, IDS_PROC_CPYMVPROG2, it->second);
+							progress.FormatPathLine(1, IDS_PROC_MOVINGPROG, (LPCTSTR)it->first);
+							progress.FormatPathLine(2, IDS_PROC_CPYMVPROG2, (LPCTSTR)it->second);
 							progress.SetProgress(count, renmap.size());
 							if (!svn.Move(CTSVNPathList(CTSVNPath(it->first)), CTSVNPath(it->second), TRUE, sMsg))
 							{

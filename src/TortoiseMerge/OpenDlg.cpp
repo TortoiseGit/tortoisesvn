@@ -325,7 +325,7 @@ void COpenDlg::OnOK()
 	if (!sFile.IsEmpty())
 	{
 		CString sErr;
-		sErr.Format(IDS_ERR_PATCH_INVALIDPATCHFILE, sFile);
+		sErr.Format(IDS_ERR_PATCH_INVALIDPATCHFILE, (LPCTSTR)sFile);
 		MessageBox(sErr, NULL, MB_ICONERROR);
 		return;
 	}

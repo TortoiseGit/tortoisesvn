@@ -212,12 +212,12 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
 	BOOL prev = FALSE;
 
 	CString msg;
-	msg.Format(IDS_ERR_SSL_VALIDATE, CUnicodeUtils::GetUnicode(realm));
+	msg.Format(IDS_ERR_SSL_VALIDATE, (LPCTSTR)CUnicodeUtils::GetUnicode(realm));
 	msg += _T("\n");
 	CString temp;
 	if (failures & SVN_AUTH_SSL_UNKNOWNCA)
 	{
-		temp.Format(IDS_ERR_SSL_UNKNOWNCA, CUnicodeUtils::GetUnicode(cert_info->fingerprint), CUnicodeUtils::GetUnicode(cert_info->issuer_dname));
+		temp.Format(IDS_ERR_SSL_UNKNOWNCA, (LPCTSTR)CUnicodeUtils::GetUnicode(cert_info->fingerprint), (LPCTSTR)CUnicodeUtils::GetUnicode(cert_info->issuer_dname));
 		msg += temp;
 		prev = TRUE;
 	}
@@ -225,7 +225,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
 	{
 		if (prev)
 			msg += _T("\n");
-		temp.Format(IDS_ERR_SSL_CNMISMATCH, CUnicodeUtils::GetUnicode(cert_info->hostname));
+		temp.Format(IDS_ERR_SSL_CNMISMATCH, (LPCTSTR)CUnicodeUtils::GetUnicode(cert_info->hostname));
 		msg += temp;
 		prev = TRUE;
 	}
@@ -233,7 +233,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
 	{
 		if (prev)
 			msg += _T("\n");
-		temp.Format(IDS_ERR_SSL_NOTYETVALID, CUnicodeUtils::GetUnicode(cert_info->valid_from));
+		temp.Format(IDS_ERR_SSL_NOTYETVALID, (LPCTSTR)CUnicodeUtils::GetUnicode(cert_info->valid_from));
 		msg += temp;
 		prev = TRUE;
 	}
@@ -241,7 +241,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
 	{
 		if (prev)
 			msg += _T("\n");
-		temp.Format(IDS_ERR_SSL_EXPIRED, CUnicodeUtils::GetUnicode(cert_info->valid_until));
+		temp.Format(IDS_ERR_SSL_EXPIRED, (LPCTSTR)CUnicodeUtils::GetUnicode(cert_info->valid_until));
 		msg += temp;
 		prev = TRUE;
 	}

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -84,7 +84,7 @@ bool RemoveCommand::Execute()
 					}
 					else
 					{
-						msg.Format(IDS_PROC_REMOVEFORCE, svn.GetLastErrorMessage());
+						msg.Format(IDS_PROC_REMOVEFORCE, (LPCTSTR)svn.GetLastErrorMessage());
 					}
 					yes.LoadString(IDS_MSGBOX_YES);
 					no.LoadString(IDS_MSGBOX_NO);

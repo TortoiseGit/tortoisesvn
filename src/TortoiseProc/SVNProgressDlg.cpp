@@ -396,7 +396,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		break;
 	case svn_wc_notify_locked:
 		if ((lock)&&(lock->owner))
-			data->sActionColumnText.Format(IDS_SVNACTION_LOCKEDBY, CUnicodeUtils::GetUnicode(lock->owner));
+			data->sActionColumnText.Format(IDS_SVNACTION_LOCKEDBY, (LPCTSTR)CUnicodeUtils::GetUnicode(lock->owner));
 		break;
 	case svn_wc_notify_unlocked:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_UNLOCKED);
@@ -422,13 +422,13 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 			m_bLockWarning = true;
 		break;
 	case svn_wc_notify_changelist_set:
-		data->sActionColumnText.Format(IDS_SVNACTION_CHANGELISTSET, data->changelistname);
+		data->sActionColumnText.Format(IDS_SVNACTION_CHANGELISTSET, (LPCTSTR)data->changelistname);
 		break;
 	case svn_wc_notify_changelist_clear:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_CHANGELISTCLEAR);
 		break;
 	case svn_wc_notify_changelist_moved:
-		data->sActionColumnText.Format(IDS_SVNACTION_CHANGELISTMOVED, data->changelistname);
+		data->sActionColumnText.Format(IDS_SVNACTION_CHANGELISTMOVED, (LPCTSTR)data->changelistname);
 		break;
 	case svn_wc_notify_foreign_merge_begin:
 	case svn_wc_notify_merge_begin:
@@ -882,7 +882,7 @@ UINT CSVNProgressDlg::ProgressThread()
 	{
 		CTimeSpan time = CTime::GetCurrentTime() - startTime;
 		temp.Format(IDS_PROGRS_TIME, (LONG)time.GetTotalMinutes(), (LONG)time.GetSeconds());
-		sFinalInfo.Format(IDS_PROGRS_FINALINFO, m_sTotalBytesTransferred, temp);
+		sFinalInfo.Format(IDS_PROGRS_FINALINFO, m_sTotalBytesTransferred, (LPCTSTR)temp);
 		SetDlgItemText(IDC_PROGRESSLABEL, sFinalInfo);
 	}
 	else
@@ -912,7 +912,7 @@ UINT CSVNProgressDlg::ProgressThread()
 		for (size_t i=0; i<m_arData.size(); i++)
 		{
 			NotificationData * data = m_arData[i];
-			temp.Format(_T("%-20s : %s"), data->sActionColumnText, data->sPathColumnText);
+			temp.Format(_T("%-20s : %s"), (LPCTSTR)data->sActionColumnText, (LPCTSTR)data->sPathColumnText);
 			logfile.AddLine(temp);
 		}
 		if (!sFinalInfo.IsEmpty())
@@ -1177,7 +1177,7 @@ LRESULT CSVNProgressDlg::OnSVNProgress(WPARAM /*wParam*/, LPARAM lParam)
 		m_sTotalBytesTransferred.Format(IDS_SVN_PROGRESS_TOTALTRANSFERRED, pProgressData->overall_total / 1024);
 	else
 		m_sTotalBytesTransferred.Format(IDS_SVN_PROGRESS_TOTALMBTRANSFERRED, (double)((double)pProgressData->overall_total / 1024000.0));
-	progText.Format(IDS_SVN_PROGRESS_TOTALANDSPEED, (LPCTSTR)m_sTotalBytesTransferred, pProgressData->SpeedString);
+	progText.Format(IDS_SVN_PROGRESS_TOTALANDSPEED, (LPCTSTR)m_sTotalBytesTransferred, (LPCTSTR)pProgressData->SpeedString);
 	SetDlgItemText(IDC_PROGRESSLABEL, progText);
 	return 0;
 }
@@ -1189,7 +1189,7 @@ void CSVNProgressDlg::OnTimer(UINT_PTR nIDEvent)
 		CString progText;
 		CString progSpeed;
 		progSpeed.Format(IDS_SVN_PROGRESS_BYTES_SEC, 0);
-		progText.Format(IDS_SVN_PROGRESS_TOTALANDSPEED, m_sTotalBytesTransferred, progSpeed);
+		progText.Format(IDS_SVN_PROGRESS_TOTALANDSPEED, (LPCTSTR)m_sTotalBytesTransferred, (LPCTSTR)progSpeed);
 		SetDlgItemText(IDC_PROGRESSLABEL, progText);
 		KillTimer(TRANSFERTIMER);
 	}
@@ -1629,7 +1629,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							if (!sResolvedPaths.IsEmpty())
 							{
 								CString msg;
-								msg.Format(IDS_SVNPROGRESS_RESOLVED, sResolvedPaths);
+								msg.Format(IDS_SVNPROGRESS_RESOLVED, (LPCTSTR)sResolvedPaths);
 								CMessageBox::Show(m_hWnd, msg, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
 							}
 						}
@@ -1868,7 +1868,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 		if (exitcode)
 		{
 			CString temp;
-			temp.Format(IDS_ERR_HOOKFAILED, error);
+			temp.Format(IDS_ERR_HOOKFAILED, (LPCTSTR)error);
 			ReportError(temp);
 			return false;
 		}
@@ -1900,7 +1900,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 		if (exitcode)
 		{
 			CString temp;
-			temp.Format(IDS_ERR_HOOKFAILED, error);
+			temp.Format(IDS_ERR_HOOKFAILED, (LPCTSTR)error);
 			ReportError(temp);
 			return false;
 		}
@@ -1918,7 +1918,7 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
 	CString sCmdInfo;
 	sCmdInfo.Format(IDS_PROGRS_CMD_COPY, 
 		m_targetPathList[0].IsUrl() ? (LPCTSTR)m_targetPathList[0].GetSVNPathString() : m_targetPathList[0].GetWinPath(),
-		(LPCTSTR)m_url.GetSVNPathString(), m_Revision.ToString());
+		(LPCTSTR)m_url.GetSVNPathString(), (LPCTSTR)m_Revision.ToString());
 	ReportCmd(sCmdInfo);
 
 	if (!Copy(m_targetPathList, m_url, m_Revision, m_pegRev, m_sMessage))
@@ -2391,7 +2391,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
 		if (exitcode)
 		{
 			CString temp;
-			temp.Format(IDS_ERR_HOOKFAILED, error);
+			temp.Format(IDS_ERR_HOOKFAILED, (LPCTSTR)error);
 			ReportError(temp);
 			return false;
 		}
@@ -2465,7 +2465,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
 		if (exitcode)
 		{
 			CString temp;
-			temp.Format(IDS_ERR_HOOKFAILED, error);
+			temp.Format(IDS_ERR_HOOKFAILED, (LPCTSTR)error);
 			ReportError(temp);
 			return false;
 		}

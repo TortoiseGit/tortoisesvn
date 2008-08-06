@@ -2661,7 +2661,7 @@ void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_po
 				sTotal.Format(IDS_SVN_PROGRESS_TOTALTRANSFERRED, pSVN->m_SVNProgressMSG.overall_total / 1024);
 			else
 				sTotal.Format(IDS_SVN_PROGRESS_TOTALMBTRANSFERRED, (double)((double)pSVN->m_SVNProgressMSG.overall_total / 1024000.0));
-			temp.Format(IDS_SVN_PROGRESS_TOTALANDSPEED, sTotal, pSVN->m_SVNProgressMSG.SpeedString);
+			temp.Format(IDS_SVN_PROGRESS_TOTALANDSPEED, (LPCTSTR)sTotal, (LPCTSTR)pSVN->m_SVNProgressMSG.SpeedString);
 
 			pSVN->m_pProgressDlg->SetLine(2, temp);
 		}

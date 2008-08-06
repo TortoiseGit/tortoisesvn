@@ -977,7 +977,7 @@ bool CAppUtils::StartShowUnifiedDiff(HWND hWnd, const CTSVNPath& url1, const SVN
 {
 	CString sCmd;
 	sCmd.Format(_T("%s /command:showcompare /unified"),
-		CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"));
+		(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")));
 	sCmd += _T(" /url1:\"") + url1.GetSVNPathString() + _T("\"");
 	if (rev1.IsValid())
 		sCmd += _T(" /revision1:") + rev1.ToString();
@@ -1013,7 +1013,7 @@ bool CAppUtils::StartShowCompare(HWND hWnd, const CTSVNPath& url1, const SVNRev&
 {
 	CString sCmd;
 	sCmd.Format(_T("%s /command:showcompare"),
-		CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"));
+		(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")));
 	sCmd += _T(" /url1:\"") + url1.GetSVNPathString() + _T("\"");
 	if (rev1.IsValid())
 		sCmd += _T(" /revision1:") + rev1.ToString();

@@ -157,7 +157,7 @@ void CRepositoryBar::ShowUrl(const CString& url, SVNRev rev)
 	if (m_headRev.IsValid())
 	{
 		CString sTTText;
-		sTTText.Format(IDS_REPOBROWSE_TT_HEADREV, m_headRev.ToString());
+		sTTText.Format(IDS_REPOBROWSE_TT_HEADREV, (LPCTSTR)m_headRev.ToString());
 		m_tooltips.AddTool(&m_btnRevision, sTTText);
 	}
 	else
@@ -222,7 +222,7 @@ void CRepositoryBar::SetRevision(SVNRev rev)
 	if (m_headRev.IsValid())
 	{
 		CString sTTText;
-		sTTText.Format(IDS_REPOBROWSE_TT_HEADREV, m_headRev.ToString());
+		sTTText.Format(IDS_REPOBROWSE_TT_HEADREV, (LPCTSTR)m_headRev.ToString());
 		m_tooltips.AddTool(&m_btnRevision, sTTText);
 	}
 	else

@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007 - TortoiseSVN
+// Copyright (C) 2006-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -258,7 +258,7 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 			sMsg += _T("\n");
 			sMsg += CString(svnerr->message);
 		}
-		m_sError.Format(IDS_ERR_DIFF_DIFF, sMsg);
+		m_sError.Format(IDS_ERR_DIFF_DIFF, (LPCTSTR)sMsg);
 		svn_error_clear(svnerr);
 		return false;
 	}
@@ -491,7 +491,7 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 			sMsg += _T("\n");
 			sMsg += CString(svnerr->message);
 		}
-		m_sError.Format(IDS_ERR_DIFF_DIFF, sMsg);
+		m_sError.Format(IDS_ERR_DIFF_DIFF, (LPCTSTR)sMsg);
 		svn_error_clear(svnerr);
 		return false;
 	}

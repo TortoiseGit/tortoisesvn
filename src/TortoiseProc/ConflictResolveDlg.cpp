@@ -180,17 +180,17 @@ void CConflictResolveDlg::OnBnClickedEditconflict()
 	if (m_pConflictDescription->property_name)
 	{
 		filename = CUnicodeUtils::GetUnicode(m_pConflictDescription->property_name);
-		n1.Format(IDS_DIFF_PROP_WCNAME, filename);
-		n2.Format(IDS_DIFF_PROP_BASENAME, filename);
-		n3.Format(IDS_DIFF_PROP_REMOTENAME, filename);
+		n1.Format(IDS_DIFF_PROP_WCNAME, (LPCTSTR)filename);
+		n2.Format(IDS_DIFF_PROP_BASENAME, (LPCTSTR)filename);
+		n3.Format(IDS_DIFF_PROP_REMOTENAME, (LPCTSTR)filename);
 	}
 	else
 	{
 		filename = CUnicodeUtils::GetUnicode(m_pConflictDescription->path);
 		filename = CPathUtils::GetFileNameFromPath(filename);		
-		n1.Format(IDS_DIFF_WCNAME, filename);
-		n2.Format(IDS_DIFF_BASENAME, filename);
-		n3.Format(IDS_DIFF_REMOTENAME, filename);
+		n1.Format(IDS_DIFF_WCNAME, (LPCTSTR)filename);
+		n2.Format(IDS_DIFF_BASENAME, (LPCTSTR)filename);
+		n3.Format(IDS_DIFF_REMOTENAME, (LPCTSTR)filename);
 	}
 
 	if (m_pConflictDescription->base_file == NULL)

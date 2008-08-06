@@ -389,7 +389,7 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
 		//again...
 		CString sTemp;
 		CProgressDlg progDlg;
-		sTemp.Format(IDS_GETVERSIONOFFILE, sVersion);
+		sTemp.Format(IDS_GETVERSIONOFFILE, (LPCTSTR)sVersion);
 		progDlg.SetLine(1, sTemp, true);
 		progDlg.SetLine(2, sFilePath, true);
 		sTemp.LoadString(IDS_GETVERSIONOFFILETITLE);
@@ -403,7 +403,7 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
 		{
 			progDlg.Stop();
 			CString sErrMsg;
-			sErrMsg.Format(IDS_ERR_MAINFRAME_FILEVERSIONNOTFOUND, sVersion, sFilePath);
+			sErrMsg.Format(IDS_ERR_MAINFRAME_FILEVERSIONNOTFOUND, (LPCTSTR)sVersion, (LPCTSTR)sFilePath);
 			MessageBox(sErrMsg, NULL, MB_ICONERROR);
 			return FALSE;
 		}
@@ -415,10 +415,10 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
 			return FALSE;
 		}
 		CString temp;
-		temp.Format(_T("%s Revision %s"), CPathUtils::GetFileNameFromPath(sFilePath), sVersion);
+		temp.Format(_T("%s Revision %s"), (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)sVersion);
 		m_Data.m_baseFile.SetFileName(sBaseFile);
 		m_Data.m_baseFile.SetDescriptiveName(temp);
-		temp.Format(_T("%s %s"), CPathUtils::GetFileNameFromPath(sFilePath), m_Data.m_sPatchPatched);
+		temp.Format(_T("%s %s"), (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchPatched);
 		m_Data.m_theirFile.SetFileName(sTempFile);
 		m_Data.m_theirFile.SetDescriptiveName(temp);
 		m_Data.m_yourFile.SetFileName(sFilePath);
@@ -440,10 +440,10 @@ BOOL CMainFrame::PatchFile(CString sFilePath, CString sVersion, BOOL bAutoPatch)
 		{
 			m_Data.m_baseFile.SetFileName(sTempFile);
 			CString temp;
-			temp.Format(_T("%s %s"), CPathUtils::GetFileNameFromPath(sFilePath), m_Data.m_sPatchPatched);
+			temp.Format(_T("%s %s"), (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchPatched);
 			m_Data.m_baseFile.SetDescriptiveName(temp);
 			m_Data.m_yourFile.SetFileName(sFilePath);
-			temp.Format(_T("%s %s"), CPathUtils::GetFileNameFromPath(sFilePath), m_Data.m_sPatchOriginal);
+			temp.Format(_T("%s %s"), (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchOriginal);
 			m_Data.m_yourFile.SetDescriptiveName(temp);
 			m_Data.m_theirFile.SetOutOfUse();
 			m_Data.m_mergedFile.SetOutOfUse();
@@ -489,7 +489,7 @@ BOOL CMainFrame::DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString 
 	
 	CString sTemp;
 	CProgressDlg progDlg;
-	sTemp.Format(IDS_GETVERSIONOFFILE, sRev1);
+	sTemp.Format(IDS_GETVERSIONOFFILE, (LPCTSTR)sRev1);
 	progDlg.SetLine(1, sTemp, true);
 	progDlg.SetLine(2, sURL1, true);
 	sTemp.LoadString(IDS_GETVERSIONOFFILETITLE);
@@ -503,11 +503,11 @@ BOOL CMainFrame::DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString 
 	{
 		progDlg.Stop();
 		CString sErrMsg;
-		sErrMsg.Format(IDS_ERR_MAINFRAME_FILEVERSIONNOTFOUND, sRev1, sURL1);
+		sErrMsg.Format(IDS_ERR_MAINFRAME_FILEVERSIONNOTFOUND, (LPCTSTR)sRev1, (LPCTSTR)sURL1);
 		MessageBox(sErrMsg, NULL, MB_ICONERROR);
 		return FALSE;
 	}
-	sTemp.Format(IDS_GETVERSIONOFFILE, sRev2);
+	sTemp.Format(IDS_GETVERSIONOFFILE, (LPCTSTR)sRev2);
 	progDlg.SetLine(1, sTemp, true);
 	progDlg.SetLine(2, sURL2, true);
 	progDlg.SetProgress(50, 100);
@@ -515,17 +515,17 @@ BOOL CMainFrame::DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString 
 	{
 		progDlg.Stop();
 		CString sErrMsg;
-		sErrMsg.Format(IDS_ERR_MAINFRAME_FILEVERSIONNOTFOUND, sRev2, sURL2);
+		sErrMsg.Format(IDS_ERR_MAINFRAME_FILEVERSIONNOTFOUND, (LPCTSTR)sRev2, (LPCTSTR)sURL2);
 		MessageBox(sErrMsg, NULL, MB_ICONERROR);
 		return FALSE;
 	}
 	progDlg.SetProgress(100,100);
 	progDlg.Stop();
 	CString temp;
-	temp.Format(_T("%s Revision %s"), CPathUtils::GetFileNameFromPath(sURL1), sRev1);
+	temp.Format(_T("%s Revision %s"), (LPCTSTR)CPathUtils::GetFileNameFromPath(sURL1), (LPCTSTR)sRev1);
 	m_Data.m_baseFile.SetFileName(tempfile1);
 	m_Data.m_baseFile.SetDescriptiveName(temp);
-	temp.Format(_T("%s Revision %s"), CPathUtils::GetFileNameFromPath(sURL2), sRev2);
+	temp.Format(_T("%s Revision %s"), (LPCTSTR)CPathUtils::GetFileNameFromPath(sURL2), (LPCTSTR)sRev2);
 	m_Data.m_yourFile.SetFileName(tempfile2);
 	m_Data.m_yourFile.SetDescriptiveName(temp);
 
@@ -1022,7 +1022,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
 		// file was saved with 0 lines!
 		// ask the user if the file should be deleted
 		CString sTemp;
-		sTemp.Format(IDS_DELETEWHENEMPTY, m_Data.m_mergedFile.GetFilename());
+		sTemp.Format(IDS_DELETEWHENEMPTY, (LPCTSTR)m_Data.m_mergedFile.GetFilename());
 		if (CMessageBox::ShowCheck(m_hWnd, sTemp, _T("TortoiseMerge"), MB_YESNO, _T("DeleteFileWhenEmpty")) == IDYES)
 		{
 			DeleteFile(m_Data.m_mergedFile.GetFilename());

@@ -1420,7 +1420,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 		{
 			// stolen lock
 			CString temp;
-			temp.Format(IDS_STATUSLIST_LOCKSTOLEN, entry->lock_remoteowner);
+			temp.Format(IDS_STATUSLIST_LOCKSTOLEN, (LPCTSTR)entry->lock_remoteowner);
 			SetItemText(index, nCol++, temp);
 		}
 	}
@@ -2670,7 +2670,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 						targetList.WriteToFile(sTempFile, false);
 						CString sCmd;
 						sCmd.Format(_T("\"%s\" /command:update /rev /pathfile:\"%s\" /deletepathfile"),
-							CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), sTempFile);
+							(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)sTempFile);
 
 						CAppUtils::LaunchApplication(sCmd, NULL, false);
 					}
@@ -2680,7 +2680,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 				{
 					CString sCmd;
 					sCmd.Format(_T("\"%s\" /command:log /path:\"%s\""),
-						CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe"), filepath);
+						(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), filepath.GetWinPath());
 
 					if (!filepath.IsUrl())
 					{
@@ -2736,7 +2736,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 							(svn.Err->apr_err == SVN_ERR_CLIENT_MODIFIED))
 						{
 							CString msg, yes, no, yestoall;
-							msg.Format(IDS_PROC_REMOVEFORCE, svn.GetLastErrorMessage());
+							msg.Format(IDS_PROC_REMOVEFORCE, (LPCTSTR)svn.GetLastErrorMessage());
 							yes.LoadString(IDS_MSGBOX_YES);
 							no.LoadString(IDS_MSGBOX_NO);
 							yestoall.LoadString(IDS_PROC_YESTOALL);
@@ -2895,7 +2895,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 						if (!props.Add(_T("svn:ignore"), (LPCSTR)value))
 						{
 							CString temp;
-							temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, name);
+							temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, (LPCTSTR)name);
 							CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 						}
 						else
@@ -3044,7 +3044,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 						if (!props.Add(_T("svn:ignore"), (LPCSTR)value))
 						{
 							CString temp;
-							temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, name);
+							temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, (LPCTSTR)name);
 							CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
 							break;
 						}
@@ -4245,19 +4245,19 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
 			{
 				CString url;
 				url.Format(IDS_STATUSLIST_COPYFROM, (LPCTSTR)CPathUtils::PathUnescape(fentry->copyfrom_url), (LONG)fentry->copyfrom_rev);
-				lstrcpyn(pTTTW->szText, url, 80);
+				lstrcpyn(pTTTW->szText, (LPCTSTR)url, 80);
 				return TRUE;
 			}
 			if (fentry->switched)
 			{
 				CString url;
-				url.Format(IDS_STATUSLIST_SWITCHEDTO, CPathUtils::PathUnescape(fentry->url));
-				lstrcpyn(pTTTW->szText, url, 80);
+				url.Format(IDS_STATUSLIST_SWITCHEDTO, (LPCTSTR)CPathUtils::PathUnescape(fentry->url));
+				lstrcpyn(pTTTW->szText, (LPCTSTR)url, 80);
 				return TRUE;
 			}
 			if (fentry->keeplocal)
 			{
-				lstrcpyn(pTTTW->szText, CString(MAKEINTRESOURCE(IDS_STATUSLIST_KEEPLOCAL)), 80);
+				lstrcpyn(pTTTW->szText, (LPCTSTR)CString(MAKEINTRESOURCE(IDS_STATUSLIST_KEEPLOCAL)), 80);
 				return TRUE;
 			}
 		}
@@ -4660,7 +4660,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 				else
 				{
 					// stolen lock
-					temp.Format(IDS_STATUSLIST_LOCKSTOLEN, entry->lock_remoteowner);
+					temp.Format(IDS_STATUSLIST_LOCKSTOLEN, (LPCTSTR)entry->lock_remoteowner);
 				}
 			}
 			else

@@ -277,11 +277,11 @@ void CSetLogCache::FillRepositoryList()
             if (caches->GetRepositoryInfo().HasMultipleURLs (uuid))
             {
                 url.Format ( IDS_SETTINGS_MULTIPLEURLSFORUUID
-                           , caches->GetRepositoryInfo().GetFirstURL (uuid));
+                           , (LPCTSTR)caches->GetRepositoryInfo().GetFirstURL (uuid));
             }
             else
             {
-                url.Format (IDS_SETTINGS_DELETEDCACHE, uuid);
+                url.Format (IDS_SETTINGS_DELETEDCACHE, (LPCTSTR)uuid);
             }
         }
 
