@@ -781,7 +781,7 @@ STDMETHODIMP CShellExt::QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMe
 	if (((uFlags & 0x000f)!=CMF_NORMAL)&&(!(uFlags & CMF_EXPLORE))&&(!(uFlags & CMF_VERBSONLY)))
 		return NOERROR;
 
-	bool bSourceAndTargetFromSameRepository = (!uuidSource.empty() && (uuidSource.compare(uuidTarget) == 0));
+	bool bSourceAndTargetFromSameRepository = (uuidSource.compare(uuidTarget) == 0) || uuidSource.empty() || uuidTarget.empty();
 
 	//the drop handler only has eight commands, but not all are visible at the same time:
 	//if the source file(s) are under version control then those files can be moved

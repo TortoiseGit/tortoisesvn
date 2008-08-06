@@ -25,6 +25,8 @@ Version 1.5.3
        working from the check-for-modifications dialog on x64. (Stefan)
 - BUG: Reverting multiple selected paths only showed the files from the first
        selected path in the revert dialog. (Stefan)
+- BUG: the right-drag context menu did not show all commands for old
+       working copies (fresh checkout would fix this too). (Stefan)
 
 Version 1.5.2
 - BUG: the "SVN Copy and Add" right-drag menu was not shown. (Stefan)
