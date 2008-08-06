@@ -278,6 +278,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			if (GetCurrentDirectory(len, originalCurrentDirectory))
 			{
 				sOrigCWD = originalCurrentDirectory;
+				sOrigCWD = CPathUtils::GetLongPathname(sOrigCWD);
 			}
 			delete [] originalCurrentDirectory;
 		}

@@ -27,6 +27,8 @@ Version 1.5.3
        selected path in the revert dialog. (Stefan)
 - BUG: the right-drag context menu did not show all commands for old
        working copies (fresh checkout would fix this too). (Stefan)
+- BUG: Starting external applications (e.g., the diff tool) could fail if
+       the working copy is on the same drive as TSVN was installed to. (Stefan)
 
 Version 1.5.2
 - BUG: the "SVN Copy and Add" right-drag menu was not shown. (Stefan)
