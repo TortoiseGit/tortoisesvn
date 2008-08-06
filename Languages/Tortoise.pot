@@ -210,10 +210,6 @@ msgstr ""
 msgid "&..."
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "&?"
-msgstr ""
-
 #. Resource IDs: (57664)
 msgid "&About TortoiseMerge..."
 msgstr ""
@@ -320,10 +316,6 @@ msgstr ""
 
 #. Resource IDs: (1051)
 msgid "&CD-ROM"
-msgstr ""
-
-#. Resource IDs: (2, 332)
-msgid "&Cancel"
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -1137,7 +1129,7 @@ msgid "A newline separated list of paths for which icon overlays are shown.\r\nI
 msgstr ""
 
 #. Resource IDs: (194)
-msgid "A newline separated list of paths for which no icon overlays are shown.\r\nIf you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\nAn empty list will allow overlays on all paths."
+msgid "A newline separated list of paths for which no icon overlays are shown.\r\nIf you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\r\nAn empty list will allow overlays on all paths."
 msgstr ""
 
 #. Resource IDs: (3843)
@@ -2470,6 +2462,10 @@ msgstr ""
 msgid "Cut the selection and put it on the Clipboard\nCut"
 msgstr ""
 
+#. Resource IDs: (1279)
+msgid "D&etails"
+msgstr ""
+
 #. Resource IDs: (19, 76, 208)
 msgid "Date"
 msgstr ""
@@ -2552,10 +2548,6 @@ msgstr ""
 
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
-msgstr ""
-
-#. Resource IDs: (1279)
-msgid "Details"
 msgstr ""
 
 #. Resource IDs: (3849)
@@ -2703,6 +2695,10 @@ msgstr ""
 
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
+msgstr ""
+
+#. Resource IDs: (1437)
+msgid "E&xport"
 msgstr ""
 
 #. Resource IDs: (9, 1382)
@@ -6797,6 +6793,10 @@ msgstr ""
 msgid "Tweak TortoiseSVN"
 msgstr ""
 
+#. Resource IDs: (1436)
+msgid "U&pdate"
+msgstr ""
+
 #. Resource IDs: (164, 207)
 msgid "URL"
 msgstr ""
@@ -7195,7 +7195,7 @@ msgid "Warning!"
 msgstr ""
 
 #. Resource IDs: (344)
-msgid "When connecting to the respository server is not possible,\nTSVN can switch to using cached data only.\nSelect the default behaviour here."
+msgid "When connecting to the repository server is not possible,\nTSVN can switch to using cached data only.\nSelect the default behaviour here."
 msgstr ""
 
 #. Resource IDs: (197)
@@ -7752,7 +7752,7 @@ msgid "svn:mergeinfo\r\nA newline separated list of merge tracking info. Each li
 msgstr ""
 
 #. Resource IDs: (576)
-msgid "svn:mime-type\r\nThe mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\r\nA mime type beginning with 'text/' (or an absent mime type) is treated as text.\nAnything else is treated as binary."
+msgid "svn:mime-type\r\nThe mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\r\nA mime type beginning with 'text/' (or an absent mime type) is treated as text.\r\nAnything else is treated as binary."
 msgstr ""
 
 #. Resource IDs: (576)
@@ -7811,11 +7811,11 @@ msgid "tsvn:logsummary\r\nA regex string which extracts a summary from a log mes
 msgstr ""
 
 #. Resource IDs: (578)
-msgid "tsvn:logtemplate\r\nString which is inserted in the log message boxes in the commit dialogs.\n\nUse this as a log message templates for users to fill in."
+msgid "tsvn:logtemplate\r\nString which is inserted in the log message boxes in the commit dialogs.\r\nUse this as a log message templates for users to fill in."
 msgstr ""
 
 #. Resource IDs: (578)
-msgid "tsvn:logwidthmarker\n\nSet this to the number of chars the log message should not exceed its width.\r\nA faded line is shown in the commit dialogs at that position. The default is 80 chars."
+msgid "tsvn:logwidthmarker\r\nSet this to the number of chars the log message should not exceed its width.\r\nA faded line is shown in the commit dialogs at that position. The default is 80 chars."
 msgstr ""
 
 #. Resource IDs: (578)
@@ -7844,7 +7844,7 @@ msgstr ""
 
 #. Resource IDs: (579)
 #, c-format
-msgid "webviewer:pathrevision\nURL pointing to the web viewer for the repository for a specific file and revision.\r\nThe string %REVISION% in the URL is replaced with the revision number,\r\nthe string %PATH% is replaced with the path to the file relative to the repository root."
+msgid "webviewer:pathrevision\r\nURL pointing to the web viewer for the repository for a specific file and revision.\r\nThe string %REVISION% in the URL is replaced with the revision number,\r\nthe string %PATH% is replaced with the path to the file relative to the repository root."
 msgstr ""
 
 #. Resource IDs: (579)
