@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-08-05 16:07+0100\n"
+"PO-Revision-Date: 2008-08-07 17:27+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -236,10 +236,6 @@ msgstr ""
 msgid "&..."
 msgstr "&..."
 
-#. Resource IDs: (65535)
-msgid "&?"
-msgstr "&?"
-
 #. Resource IDs: (57664)
 msgid "&About TortoiseMerge..."
 msgstr "&Über TortoiseMerge..."
@@ -347,10 +343,6 @@ msgstr "&Schaltflächentext:"
 #. Resource IDs: (1051)
 msgid "&CD-ROM"
 msgstr "&CD-ROM"
-
-#. Resource IDs: (2, 332)
-msgid "&Cancel"
-msgstr "&Abbrechen"
 
 #. Resource IDs: (65535)
 msgid "&Categories:"
@@ -1180,7 +1172,7 @@ msgstr ""
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
-"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
 "Eine durch Zeilenumbrüche getrennte Liste von Pfaden, für die <b>keine</b> überlagerten Symbole angezeigt werden.\r\n"
@@ -2698,6 +2690,10 @@ msgstr ""
 "Auswahl in die Zwischenablage verschieben\n"
 "Ausschneiden"
 
+#. Resource IDs: (1279)
+msgid "D&etails"
+msgstr "D&etails"
+
 #. Resource IDs: (19, 76, 208)
 msgid "Date"
 msgstr "Datum"
@@ -2781,10 +2777,6 @@ msgstr "Änderungsliste abwählen"
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
 msgstr "Ziel-Partition ist voll."
-
-#. Resource IDs: (1279)
-msgid "Details"
-msgstr "&Details"
 
 #. Resource IDs: (3849)
 msgid ""
@@ -2982,6 +2974,10 @@ msgstr "Pfade &ausschließen:"
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
 msgstr "&Beenden"
+
+#. Resource IDs: (1437)
+msgid "E&xport"
+msgstr "E&xport"
 
 #. Resource IDs: (9, 1382)
 msgid "E&xport..."
@@ -4160,7 +4156,7 @@ msgstr "Ignoriere alle Leerzeichen"
 
 #. Resource IDs: (1267)
 msgid "Ignore ancestry"
-msgstr "Ignoriere &Vorfahren"
+msgstr "Ignoriere Vorfahren"
 
 #. Resource IDs: (14)
 msgid "Ignore items by &extension"
@@ -8010,6 +8006,10 @@ msgstr "Nochmals"
 msgid "Tweak TortoiseSVN"
 msgstr "Einstellungen für TortoiseSVN"
 
+#. Resource IDs: (1436)
+msgid "U&pdate"
+msgstr "A&ktualisieren"
+
 #. Resource IDs: (164, 207)
 msgid "URL"
 msgstr "URL"
@@ -8500,7 +8500,7 @@ msgstr "Warnung!"
 
 #. Resource IDs: (344)
 msgid ""
-"When connecting to the respository server is not possible,\n"
+"When connecting to the repository server is not possible,\n"
 "TSVN can switch to using cached data only.\n"
 "Select the default behaviour here."
 msgstr ""
@@ -9274,7 +9274,7 @@ msgstr ""
 msgid ""
 "svn:mime-type\r\n"
 "The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\r\n"
-"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\r\n"
 "Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\r\n"
@@ -9383,8 +9383,7 @@ msgstr ""
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logtemplate\r\n"
-"String which is inserted in the log message boxes in the commit dialogs.\n"
-"\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message templates for users to fill in."
 msgstr ""
 "tsvn:logtemplate\r\n"
@@ -9393,8 +9392,7 @@ msgstr ""
 
 #. Resource IDs: (578)
 msgid ""
-"tsvn:logwidthmarker\n"
-"\n"
+"tsvn:logwidthmarker\r\n"
 "Set this to the number of chars the log message should not exceed its width.\r\n"
 "A faded line is shown in the commit dialogs at that position. The default is 80 chars."
 msgstr ""
@@ -9452,7 +9450,7 @@ msgstr "Werte sind unterschiedlich"
 #. Resource IDs: (579)
 #, c-format
 msgid ""
-"webviewer:pathrevision\n"
+"webviewer:pathrevision\r\n"
 "URL pointing to the web viewer for the repository for a specific file and revision.\r\n"
 "The string %REVISION% in the URL is replaced with the revision number,\r\n"
 "the string %PATH% is replaced with the path to the file relative to the repository root."
@@ -9497,6 +9495,10 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "&?"
+#~ msgstr "&?"
+#~ msgid "&Cancel"
+#~ msgstr "&Abbrechen"
 #~ msgid "Merge all..."
 #~ msgstr "Alle zusammenführen..."
 #~ msgid "SVN Export to here"
