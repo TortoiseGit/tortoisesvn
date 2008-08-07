@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-08-03 11:25+0900\n"
+"PO-Revision-Date: 2008-08-07 22:28+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -241,10 +241,6 @@ msgstr ""
 msgid "&..."
 msgstr "&..."
 
-#. Resource IDs: (65535)
-msgid "&?"
-msgstr "&?"
-
 #. Resource IDs: (57664)
 msgid "&About TortoiseMerge..."
 msgstr "TortoiseMerge について(&A) ..."
@@ -352,10 +348,6 @@ msgstr "ボタンテキスト(&B):"
 #. Resource IDs: (1051)
 msgid "&CD-ROM"
 msgstr "CD-ROM ドライブ(&C)"
-
-#. Resource IDs: (2, 332)
-msgid "&Cancel"
-msgstr "キャンセル(&C)"
 
 #. Resource IDs: (65535)
 msgid "&Categories:"
@@ -1184,11 +1176,11 @@ msgstr ""
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
-"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
 "アイコンのオーバーレイを非表示にするパス（改行で分割）を入力する。\r\n"
-"\"*\" 文字をパスの最後に追加することで、パス内のすべてのファイルとサブディレクトリが除外される。\n"
+"\"*\" 文字をパスの最後に追加することで、パス内のすべてのファイルとサブディレクトリが除外される。\r\n"
 "何も入力しなければ、すべてのパス上でオーバーレイ表示が可能となる。"
 
 #. Resource IDs: (3843)
@@ -2695,6 +2687,10 @@ msgstr ""
 "選択範囲を切り取り、クリップボードに移動する\n"
 "切り取り"
 
+#. Resource IDs: (1279)
+msgid "D&etails"
+msgstr "詳細(&E)"
+
 #. Resource IDs: (19, 76, 208)
 msgid "Date"
 msgstr "日時"
@@ -2778,10 +2774,6 @@ msgstr "変更リストを選択解除する"
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
 msgstr "送り先ディスクドライブはいっぱいです。"
-
-#. Resource IDs: (1279)
-msgid "Details"
-msgstr "詳細情報"
 
 #. Resource IDs: (3849)
 msgid ""
@@ -2982,6 +2974,10 @@ msgstr "除外するパス(&X):"
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
 msgstr "終了(&X)"
+
+#. Resource IDs: (1437)
+msgid "E&xport"
+msgstr "エクスポート(&X)"
 
 #. Resource IDs: (9, 1382)
 msgid "E&xport..."
@@ -4806,7 +4802,7 @@ msgid "Merging %s into %s, %s"
 msgstr "%s を %s にマージ中、%s"
 
 #. Resource IDs: (264)
-msgid "Merging differences between repository urls"
+msgid "Merging differences between repository URLs"
 msgstr "リポジトリURL間の差分をマージ"
 
 #. Resource IDs: (229)
@@ -5828,7 +5824,7 @@ msgstr "最新に更新"
 
 #. Resource IDs: (117)
 msgid ""
-"Regular expressions filter:\n"
+"Regular expressions filter:\r\n"
 ".   : any character\r\n"
 "c+   : match character c one or more times\r\n"
 "c*   : match character c zero or more times\r\n"
@@ -6631,6 +6627,10 @@ msgstr "開始リビジョンを選択"
 msgid "Select text editor application"
 msgstr "テキスト編集用アプリケーションを選択"
 
+#. Resource IDs: (595)
+msgid "Select the URLs for the tree merge"
+msgstr "ツリーをマージするURLを選択"
+
 #. Resource IDs: (79)
 msgid "Select the behaviour of the progress dialog at the end of the operation."
 msgstr "処理終了時の進行状況ダイアログの動作を選択する"
@@ -6654,10 +6654,6 @@ msgstr "マージするリビジョンを選択"
 #. Resource IDs: (595)
 msgid "Select the type of merge"
 msgstr "マージの種類を選択"
-
-#. Resource IDs: (595)
-msgid "Select the urls for the tree merge"
-msgstr "ツリーをマージするURLを選択"
 
 #. Resource IDs: (78)
 msgid "Select viewer for diff-files"
@@ -7026,11 +7022,11 @@ msgstr "最近のログメッセージを表示するダイアログで、表示
 
 #. Resource IDs: (79)
 msgid ""
-"Specify the files or folders which TortoiseSVN\n"
+"Specify the files or folders which TortoiseSVN\r\n"
 "should ignore in all working copies.\r\n"
 "Separate the patterns with a space."
 msgstr ""
-"TortoiseSVN が全ての作業コピーで無視すべき\n"
+"TortoiseSVN が全ての作業コピーで無視すべき\r\n"
 "ファイルやフォルダを指定してください。\r\n"
 "各パターンは空白で区切ってください。"
 
@@ -7985,6 +7981,10 @@ msgstr "やり直し"
 msgid "Tweak TortoiseSVN"
 msgstr "TortoiseSVN を調整"
 
+#. Resource IDs: (1436)
+msgid "U&pdate"
+msgstr "更新(&P)"
+
 #. Resource IDs: (164, 207)
 msgid "URL"
 msgstr "URL"
@@ -8474,9 +8474,9 @@ msgstr "警告！"
 
 #. Resource IDs: (344)
 msgid ""
-"When connecting to the respository server is not possible,\n"
+"When connecting to the repository server is not possible,\n"
 "TSVN can switch to using cached data only.\n"
-"Select the default beviour here."
+"Select the default behaviour here."
 msgstr ""
 "リポジトリサーバーへの接続ができない場合、TSVNは\n"
 "キャッシュデータのみを利用するように切り替えることができます。\n"
@@ -9243,12 +9243,12 @@ msgstr ""
 msgid ""
 "svn:mime-type\r\n"
 "The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\r\n"
-"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\r\n"
 "Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\r\n"
 "ファイルのMIMEタイプ。ファイルをマージするかどうかを決定する際に用い、Apache からどのように送り出すかを決める。\r\n"
-"'text/' （もしくは何も設定しない場合）で始まるMIMEタイプの場合はテキストとして扱われる。\n"
+"'text/' （もしくは何も設定しない場合）で始まるMIMEタイプの場合はテキストとして扱われる。\r\n"
 "その他は全てバイナリとして扱われる。"
 
 #. Resource IDs: (576)
@@ -9348,24 +9348,20 @@ msgstr ""
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logtemplate\r\n"
-"String which is inserted in the log message boxes in the commit dialogs.\n"
-"\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message templates for users to fill in."
 msgstr ""
 "tsvn:logtemplate\r\n"
-"コミットダイアログのログメッセージに挿入される文字列。\n"
-"\n"
+"コミットダイアログのログメッセージに挿入される文字列。\r\n"
 "ユーザーがログメッセージを入力するためのテンプレートとして利用します。"
 
 #. Resource IDs: (578)
 msgid ""
-"tsvn:logwidthmarker\n"
-"\n"
+"tsvn:logwidthmarker\r\n"
 "Set this to the number of chars the log message should not exceed its width.\r\n"
 "A faded line is shown in the commit dialogs at that position. The default is 80 chars."
 msgstr ""
-"tsvn:logwidthmarker\n"
-"\n"
+"tsvn:logwidthmarker\r\n"
 "ログメッセージの文字数が規定の幅を超えないようにする。\r\n"
 "コミットダイアログに超過した行を示します。デフォルトは80文字です。"
 
@@ -9418,12 +9414,12 @@ msgstr "値が異なっています"
 #. Resource IDs: (579)
 #, c-format
 msgid ""
-"webviewer:pathrevision\n"
+"webviewer:pathrevision\r\n"
 "URL pointing to the web viewer for the repository for a specific file and revision.\r\n"
 "The string %REVISION% in the URL is replaced with the revision number,\r\n"
 "the string %PATH% is replaced with the path to the file relative to the repository root."
 msgstr ""
-"webviewer:pathrevision\n"
+"webviewer:pathrevision\r\n"
 "リポジトリ内で、特定のファイルとリビジョンをウェブビューアに渡すURL。\r\n"
 "URL内の %REVISION% 文字列はリビジョン番号で置換され、\r\n"
 "%PATH% 文字列はリポジトリルートからの相対的なパスで置換されます。"
@@ -9463,6 +9459,10 @@ msgstr "はい"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "&?"
+#~ msgstr "&?"
+#~ msgid "&Cancel"
+#~ msgstr "キャンセル(&C)"
 #~ msgid "Merge all..."
 #~ msgstr "すべてマージ ..."
 #~ msgid "SVN Export to here"
