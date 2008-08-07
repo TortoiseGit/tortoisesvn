@@ -31,6 +31,7 @@ Version 1.5.3
        the working copy is on the same drive as TSVN was installed to. (Stefan)
 - BUG: Upgrading could fail under certain circumstances which then required
        an uninstall, reboot, reinstall cycle. (Stefan)
+- BUG: Sometimes conficts were shown as 'add's in the progress dialog. (Stefan)
 
 Version 1.5.2
 - BUG: the "SVN Copy and Add" right-drag menu was not shown. (Stefan)

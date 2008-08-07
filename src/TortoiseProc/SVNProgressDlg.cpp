@@ -235,9 +235,19 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 	{
 	case svn_wc_notify_add:
 	case svn_wc_notify_update_add:
-		m_bMergesAddsDeletesOccurred = true;
-		data->sActionColumnText.LoadString(IDS_SVNACTION_ADD);
-		data->color = m_Colors.GetColor(CColors::Added);
+		if ((data->content_state == svn_wc_notify_state_conflicted) || (data->prop_state == svn_wc_notify_state_conflicted))
+		{
+			data->color = m_Colors.GetColor(CColors::Conflict);
+			data->bConflictedActionItem = true;
+			data->sActionColumnText.LoadString(IDS_SVNACTION_CONFLICTED);
+			m_nConflicts++;
+		}
+		else
+		{
+			m_bMergesAddsDeletesOccurred = true;
+			data->sActionColumnText.LoadString(IDS_SVNACTION_ADD);
+			data->color = m_Colors.GetColor(CColors::Added);
+		}
 		break;
 	case svn_wc_notify_commit_added:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_ADDING);
