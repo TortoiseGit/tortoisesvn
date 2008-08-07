@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-08-06 12:04+0100\n"
+"PO-Revision-Date: 2008-08-07 09:44+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -47,7 +47,7 @@ msgstr "! %d"
 
 #. Resource IDs: (1262)
 msgid "# authors shown individually:"
-msgstr "počet samostane zobrayených autorov:"
+msgstr "počet samostane zobrazených autorov:"
 
 #. Resource IDs: (357)
 #, c-format
@@ -247,10 +247,6 @@ msgstr ""
 msgid "&..."
 msgstr "&..."
 
-#. Resource IDs: (65535)
-msgid "&?"
-msgstr "&?"
-
 #. Resource IDs: (57664)
 msgid "&About TortoiseMerge..."
 msgstr "&O TortoiseMerge..."
@@ -358,10 +354,6 @@ msgstr "&Popis tlačidla:"
 #. Resource IDs: (1051)
 msgid "&CD-ROM"
 msgstr "&CD-ROM"
-
-#. Resource IDs: (2, 332)
-msgid "&Cancel"
-msgstr "&Zrušiť"
 
 #. Resource IDs: (65535)
 msgid "&Categories:"
@@ -1196,10 +1188,9 @@ msgstr ""
 "Keď pridáte znak \"*\" na konec cesty, všetky súbory a podadresáre tohto adresára budú tiež zaradené."
 
 #. Resource IDs: (194)
-#, fuzzy
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
-"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
 "Novými riadkami oddelovaný zoznam ciest, pre ktoré nebudú zobrazené prekrývajúce ikonky.\r\n"
@@ -2728,6 +2719,10 @@ msgstr ""
 "Vyrež výber a vlož do do schránky\n"
 "Vyrež"
 
+#. Resource IDs: (1279)
+msgid "D&etails"
+msgstr "D&etaily"
+
 #. Resource IDs: (19, 76, 208)
 msgid "Date"
 msgstr "Dátum"
@@ -2811,10 +2806,6 @@ msgstr "Odznačiť zoznam zmien"
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
 msgstr "Cieľový disk je plný"
-
-#. Resource IDs: (1279)
-msgid "Details"
-msgstr "Detaily"
 
 #. Resource IDs: (3849)
 msgid ""
@@ -3012,6 +3003,10 @@ msgstr "&Vylúčené cesty:"
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
 msgstr "U&končiť"
+
+#. Resource IDs: (1437)
+msgid "E&xport"
+msgstr "E&xportovať"
 
 #. Resource IDs: (9, 1382)
 msgid "E&xport..."
@@ -5887,7 +5882,6 @@ msgid "Refresh"
 msgstr "Obnoviť"
 
 #. Resource IDs: (117)
-#, fuzzy
 msgid ""
 "Regular expressions filter:\r\n"
 ".   : any character\r\n"
@@ -5906,14 +5900,14 @@ msgid ""
 "\\s   : whitespaces"
 msgstr ""
 "Filter regulárnych výrazovr:\r\n"
-".   : akýkoľvek znakr\r\n"
-"c+  : znak práve raz\r\n"
+".   : akýkoľvek znak\r\n"
+"c+  : znak raz, alebo viac krát\r\n"
 "c*  : akýkoľvek počet výskytov znaku\r\n"
-"^  : začiatok riadku\r\n"
+"^  : začiatok riadka\r\n"
 "$  : koniec radka\r\n"
-"(string){n} : vyskyt práve n-krát\r\n"
+"(string){n} : výskyt práve n-krát\r\n"
 "(abcd) : podvýraz\r\n"
-"[aei0-9] : zahŕňa a,e,i a 0..9\r\n"
+"[aei0-9] : zhoda jedným z: a,e,i a 0..9\r\n"
 "[^aei0-9] : čokoľvek okrem a,e,i a 0..9\r\n"
 "\r\n"
 "\\w : zahŕňa a-z,A-Z,0-9 a _\r\n"
@@ -7095,7 +7089,6 @@ msgid "Specifies how many items you want to keep in the most recent log messages
 msgstr "Určuje koľko záznamov sa ma pamätať v histórií správ denníka."
 
 #. Resource IDs: (79)
-#, fuzzy
 msgid ""
 "Specify the files or folders which TortoiseSVN\r\n"
 "should ignore in all working copies.\r\n"
@@ -7712,7 +7705,7 @@ msgid ""
 "There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
 "Those files are not listed for commit. You need to commit those files separately."
 msgstr ""
-"Boli vykonané zmeny alebo sú neverziované objekty v adresároch, ktoré bol zaradené cez svn:externals.\r\n"
+"Boli vykonané zmeny alebo sú neverziované objekty v adresároch, ktoré bol zaradené cez svn:externals.\n"
 "Takéto súbory nie sú v zozname na odovzdanie. Tieto súbory musíte odovzdať osobitne."
 
 #. Resource IDs: (64)
@@ -8060,6 +8053,10 @@ msgstr "Skúsiť znovu"
 #. Resource IDs: (10)
 msgid "Tweak TortoiseSVN"
 msgstr "Doladenie TortoiseSVN"
+
+#. Resource IDs: (1436)
+msgid "U&pdate"
+msgstr "A&ktualizovať"
 
 #. Resource IDs: (164, 207)
 msgid "URL"
@@ -8554,9 +8551,8 @@ msgid "Warning!"
 msgstr "Varovanie!"
 
 #. Resource IDs: (344)
-#, fuzzy
 msgid ""
-"When connecting to the respository server is not possible,\n"
+"When connecting to the repository server is not possible,\n"
 "TSVN can switch to using cached data only.\n"
 "Select the default behaviour here."
 msgstr ""
@@ -9342,11 +9338,10 @@ msgstr ""
 "/trunk:123-125,129"
 
 #. Resource IDs: (576)
-#, fuzzy
 msgid ""
 "svn:mime-type\r\n"
 "The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\r\n"
-"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\r\n"
 "Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\r\n"
@@ -9450,28 +9445,22 @@ msgstr ""
 "Reťazec regex, ktorý získa prehľad zo správy denníka v jeho prvej skupine."
 
 #. Resource IDs: (578)
-#, fuzzy
 msgid ""
 "tsvn:logtemplate\r\n"
-"String which is inserted in the log message boxes in the commit dialogs.\n"
-"\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message templates for users to fill in."
 msgstr ""
 "tsvn:logtemplate\r\n"
 "Text, ktorý je automaticky vložený do rámčekov odovzdávacieho okna.\r\n"
-"\r\n"
 "Použite to ako šablónu na vypisovanie záznamov denníka."
 
 #. Resource IDs: (578)
-#, fuzzy
 msgid ""
-"tsvn:logwidthmarker\n"
-"\n"
+"tsvn:logwidthmarker\r\n"
 "Set this to the number of chars the log message should not exceed its width.\r\n"
 "A faded line is shown in the commit dialogs at that position. The default is 80 chars."
 msgstr ""
 "tsvn:logwidthmarker\r\n"
-"\r\n"
 "Nastavte na maximálnu šírku záznamu denníka v znakoch.\r\n"
 "Šedá čiara je zobrazená v odovzdávacom okne na tejto pozícií. Predvolená hodnota je 80."
 
@@ -9524,7 +9513,7 @@ msgstr "rozdielne hodnoty"
 #. Resource IDs: (579)
 #, c-format
 msgid ""
-"webviewer:pathrevision\n"
+"webviewer:pathrevision\r\n"
 "URL pointing to the web viewer for the repository for a specific file and revision.\r\n"
 "The string %REVISION% in the URL is replaced with the revision number,\r\n"
 "the string %PATH% is replaced with the path to the file relative to the repository root."
@@ -9569,6 +9558,10 @@ msgstr "ano"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "&?"
+#~ msgstr "&?"
+#~ msgid "&Cancel"
+#~ msgstr "&Zrušiť"
 #~ msgid "Merge all..."
 #~ msgstr "Zlúčiť všetko..."
 #~ msgid "SVN Export to here"
