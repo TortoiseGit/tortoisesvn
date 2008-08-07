@@ -32,6 +32,8 @@ Version 1.5.3
 - BUG: Upgrading could fail under certain circumstances which then required
        an uninstall, reboot, reinstall cycle. (Stefan)
 - BUG: Sometimes conficts were shown as 'add's in the progress dialog. (Stefan)
+- BUG: Moving a file to the "ignore-on-commit" changelist removed the check
+       but the file would still get committed. (Stefan)
 
 Version 1.5.2
 - BUG: the "SVN Copy and Add" right-drag menu was not shown. (Stefan)
