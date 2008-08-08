@@ -2618,6 +2618,8 @@ LRESULT CLogDlg::OnClickedInfoIcon(WPARAM /*wParam*/, LPARAM lParam)
 		popup.AppendMenu(LOGMENUFLAGS(LOGFILTER_AUTHORS), LOGFILTER_AUTHORS, temp);
 		temp.LoadString(IDS_LOG_FILTER_REVS);
 		popup.AppendMenu(LOGMENUFLAGS(LOGFILTER_REVS), LOGFILTER_REVS, temp);
+		temp.LoadString(IDS_LOG_FILTER_BUGIDS);
+		popup.AppendMenu(LOGMENUFLAGS(LOGFILTER_BUGID), LOGFILTER_BUGID, temp);
 		
 		popup.AppendMenu(MF_SEPARATOR, NULL);
 
@@ -2942,6 +2944,15 @@ void CLogDlg::RecalculateShownList(CPtrArray * pShownlist)
 	{
 		if ((bRegex)&&(m_bFilterWithRegex))
 		{
+			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_BUGID))
+			{
+				ATLTRACE(_T("bugID = \"%s\"\n"), (LPCTSTR)m_logEntries[i]->sBugIDs);
+				if (regex_search(wstring((LPCTSTR)m_logEntries[i]->sBugIDs), pat, flags)&&IsEntryInDateRange(i))
+				{
+					pShownlist->Add(m_logEntries[i]);
+					continue;
+				}
+			}
 			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_MESSAGES))
 			{
 				ATLTRACE(_T("messge = \"%s\"\n"), (LPCTSTR)m_logEntries[i]->sMessage);
@@ -3003,6 +3014,17 @@ void CLogDlg::RecalculateShownList(CPtrArray * pShownlist)
 		{
 			CString find = m_sFilterText;
 			find.MakeLower();
+			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_BUGID))
+			{
+				CString sBugIDs = m_logEntries[i]->sBugIDs;
+
+				sBugIDs = sBugIDs.MakeLower();
+				if ((sBugIDs.Find(find) >= 0)&&(IsEntryInDateRange(i)))
+				{
+					pShownlist->Add(m_logEntries[i]);
+					continue;
+				}
+			}
 			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_MESSAGES))
 			{
 				CString msg = m_logEntries[i]->sMessage;

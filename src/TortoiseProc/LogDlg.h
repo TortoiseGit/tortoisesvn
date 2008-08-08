@@ -48,6 +48,7 @@ using namespace std;
 #define LOGFILTER_AUTHORS  4
 #define LOGFILTER_REVS	   5
 #define LOGFILTER_REGEX	   6
+#define LOGFILTER_BUGID    7
 
 
 #define LOGFILTER_TIMER		101
