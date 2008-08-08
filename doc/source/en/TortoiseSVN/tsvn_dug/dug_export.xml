@@ -74,6 +74,20 @@
 		to overwrite the existing content, or to create a new folder with
 		an automatically generated name, eg. <literal>Target (1)</literal>.
 	</para>
+	<tip>
+		<title>Exporting single files</title>
+		<para>
+			The export dialog does not allow exporting single files, even 
+			though Subversion can.
+		<para>
+		<para>
+			To export single files with TortoiseSVN, you have to use
+			the repository browser (<xref linkend="tsvn-dug-repobrowser"/>).
+			Simply drag the file(s) you want to export from the repository
+			browser to where you want them in the explorer, or use the
+			context menu in the repository browser to export the files.
+		</para>
+	</tip>
 	<sect2 id="tsvn-dug-export-unversion">
 		<title>Removing a working copy from version control</title>
 		<indexterm>
