@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2008
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 13625: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 13663: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-08-06 00:44+0300\n"
+"PO-Revision-Date: 2008-08-09 22:49+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -280,10 +280,6 @@ msgstr ""
 msgid "&..."
 msgstr "&..."
 
-#. Resource IDs: (65535)
-msgid "&?"
-msgstr "&?"
-
 #. Resource IDs: (57664)
 msgid "&About TortoiseMerge..."
 msgstr "&О TortoiseMerge..."
@@ -391,10 +387,6 @@ msgstr "Текст на &кнопке:"
 #. Resource IDs: (1051)
 msgid "&CD-ROM"
 msgstr "&CD-ROM"
-
-#. Resource IDs: (2, 332)
-msgid "&Cancel"
-msgstr "&Отмена"
 
 #. Resource IDs: (65535)
 msgid "&Categories:"
@@ -1232,16 +1224,16 @@ msgid ""
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
 "Список путей, по одному в строке, где будут показываться пометки на значках.\r\n"
-"Если вы добавите \"*\" в конец пути, будут включены также все файлы и подпапки по этому пути."
+"Если вы добавите \"*\" в конец пути, будут также включены все дочерне файлы и подпапки."
 
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
-"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
 "Список путей, по одному в строке, где не будут показываться пометки на значках.\r\n"
-"Если вы добавите \"*\" в конец пути, все файлы и подпапки будут также исключены.\r\n"
+"Если вы добавите \"*\" в конец пути, будут также исключены все дочерние файлы и подпапки.\r\n"
 "Пустой список разрешает пометки для всех путей."
 
 #. Resource IDs: (3843)
@@ -1801,6 +1793,10 @@ msgstr "ID ошибки"
 #. Resource IDs: (1119)
 msgid "Bug-ID / Issue-Nr:"
 msgstr "ID ошибки / N проблемы:"
+
+#. Resource IDs: (117)
+msgid "Bug-IDs"
+msgstr "ID ошибок"
 
 #. Resource IDs: (16132)
 msgid "Button Appearance"
@@ -2767,6 +2763,10 @@ msgstr ""
 "Вырезать выбранное и положить в буфер обмена\n"
 "Вырезать"
 
+#. Resource IDs: (1279)
+msgid "D&etails"
+msgstr "По&дробнее"
+
 #. Resource IDs: (19, 76, 208)
 msgid "Date"
 msgstr "Дата"
@@ -2851,10 +2851,6 @@ msgstr "Разотметить группу изменений"
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
 msgstr "Диск назначения полон."
-
-#. Resource IDs: (1279)
-msgid "Details"
-msgstr "Подробнее"
 
 #. Resource IDs: (3849)
 msgid ""
@@ -3055,6 +3051,10 @@ msgstr "&Исключить пути:"
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
 msgstr "В&ыход"
+
+#. Resource IDs: (1437)
+msgid "E&xport"
+msgstr "&Экспорт"
 
 #. Resource IDs: (9, 1382)
 msgid "E&xport..."
@@ -8101,6 +8101,10 @@ msgstr "Попробуйте еще раз"
 msgid "Tweak TortoiseSVN"
 msgstr "Подстроить TortoiseSVN"
 
+#. Resource IDs: (1436)
+msgid "U&pdate"
+msgstr "&Обновление"
+
 # Заголовок окна
 #. Resource IDs: (164, 207)
 msgid "URL"
@@ -8598,12 +8602,12 @@ msgstr "Предупреждение!"
 
 #. Resource IDs: (344)
 msgid ""
-"When connecting to the respository server is not possible,\n"
+"When connecting to the repository server is not possible,\n"
 "TSVN can switch to using cached data only.\n"
 "Select the default behaviour here."
 msgstr ""
-"Когда подключение к серверу невозможно, TortoiseSVN\r\n"
-"может переключится на использование данных только из кэша.\r\n"
+"Когда подключение к серверу невозможно, TortoiseSVN\n"
+"может переключится на использование данных только из кэша.\n"
 "Здесь можно выбрать поведение по умолчанию."
 
 #. Resource IDs: (197)
@@ -9385,7 +9389,7 @@ msgstr ""
 msgid ""
 "svn:mime-type\r\n"
 "The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\r\n"
-"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\r\n"
 "Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\r\n"
@@ -9493,8 +9497,7 @@ msgstr ""
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logtemplate\r\n"
-"String which is inserted in the log message boxes in the commit dialogs.\n"
-"\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message templates for users to fill in."
 msgstr ""
 "tsvn:logtemplate\r\n"
@@ -9503,8 +9506,7 @@ msgstr ""
 
 #. Resource IDs: (578)
 msgid ""
-"tsvn:logwidthmarker\n"
-"\n"
+"tsvn:logwidthmarker\r\n"
 "Set this to the number of chars the log message should not exceed its width.\r\n"
 "A faded line is shown in the commit dialogs at that position. The default is 80 chars."
 msgstr ""
@@ -9561,7 +9563,7 @@ msgstr "значения различны"
 #. Resource IDs: (579)
 #, c-format
 msgid ""
-"webviewer:pathrevision\n"
+"webviewer:pathrevision\r\n"
 "URL pointing to the web viewer for the repository for a specific file and revision.\r\n"
 "The string %REVISION% in the URL is replaced with the revision number,\r\n"
 "the string %PATH% is replaced with the path to the file relative to the repository root."
@@ -9610,6 +9612,10 @@ msgstr "да"
 msgid "{BugTraq}"
 msgstr "{СОП}"
 
+#~ msgid "&?"
+#~ msgstr "&?"
+#~ msgid "&Cancel"
+#~ msgstr "&Отмена"
 #~ msgid "Merge all..."
 #~ msgstr "Слить все..."
 #~ msgid "SVN Export to here"
