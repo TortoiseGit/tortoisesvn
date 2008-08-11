@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-08-11 10:35+0100\n"
+"PO-Revision-Date: 2008-08-11 10:45+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -499,15 +499,15 @@ msgstr "&Slett..."
 
 #. Resource IDs: (12)
 msgid "&Diff"
-msgstr "&Sammenlign"
+msgstr "&Forskjeller"
 
 #. Resource IDs: (17)
 msgid "&Diff with URL"
-msgstr "&Sammenlign med URL"
+msgstr "&Forskjeller fra URL"
 
 #. Resource IDs: (14)
 msgid "&Diff with previous version"
-msgstr "&Sammenlign med forrige revisjon"
+msgstr "&Forskjeller fra forrige revisjon"
 
 #. Resource IDs: (1066)
 msgid "&Docking"
@@ -825,7 +825,7 @@ msgstr "&Egenskaper"
 
 #. Resource IDs: (1246)
 msgid "&Recent messages"
-msgstr "&Nylige meldinger"
+msgstr "&Siste meldinger"
 
 #. Resource IDs: (65535)
 msgid "&Red:"
@@ -1963,7 +1963,7 @@ msgstr "Kryss"
 
 #. Resource IDs: (174)
 msgid "Check For Updates"
-msgstr "Sjekk etter oppdateringer"
+msgstr "Se etter oppdateringer"
 
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
@@ -1986,7 +1986,7 @@ msgid ""
 "Check the files which you want to\n"
 "delete before importing."
 msgstr ""
-"Sjekk filene som du vil \n"
+"Kryss av for filene som du vil \n"
 "slette før importering"
 
 #. Resource IDs: (251)
@@ -1999,7 +1999,7 @@ msgstr "Kryss av for de menyvalgene du se i hovedmenyen i stedet for i undermeny
 
 #. Resource IDs: (80)
 msgid "Check to use a less verbose date and time format in log messages"
-msgstr "Kryss for å bruke kortere dato- og tids-formater i loggmeldingsver."
+msgstr "Kryss av for å bruke kortere dato- og tids-formater i loggmeldingsver."
 
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -2417,7 +2417,7 @@ msgstr "Kopier feilmelding til uklippstavlen"
 
 #. Resource IDs: (76)
 msgid "Copy from path"
-msgstr "Kopier fra sti"
+msgstr "Kopiert fra sti"
 
 #. Resource IDs: (103)
 msgid "Copy items to here"
@@ -3644,7 +3644,7 @@ msgstr "For hjelp, trykk F1. Rull horisontalt med Ctrl-Rullehjul"
 
 #. Resource IDs: (119)
 msgid "For complete history deselect \"Stop on copy/rename\""
-msgstr "For fullstendig historie slå av \"Stopp ved kopi/omdøping\""
+msgstr "For fullstendig historie slå av \"Stopp ved kopiering/navnebytte\""
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -3718,7 +3718,7 @@ msgstr "Genererer korreksjonsfil..."
 
 #. Resource IDs: (16)
 msgid "Get loc&k..."
-msgstr "Hent s&perring.."
+msgstr "Hent s&perre..."
 
 #. Resource IDs: (114)
 msgid "Get merge logs"
@@ -3873,7 +3873,7 @@ msgstr "Skjul dokket vindu"
 
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
-msgstr "Skul skriptet mens det kjører"
+msgstr "Skjul skriptet mens det kjører"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -4579,7 +4579,7 @@ msgid ""
 "Location where the contents of the\n"
 "repository URL will be saved to."
 msgstr ""
-"Plasseringen som inneholdet i\n"
+"Plasseringen som innholdet i\n"
 "depoets adresse lagres til."
 
 #. Resource IDs: (32854)
@@ -4650,7 +4650,7 @@ msgstr "Loggmellomlagring"
 
 #. Resource IDs: (211)
 msgid "Log History"
-msgstr "Logg-historikk"
+msgstr "Logghistorikk"
 
 #. Resource IDs: (130)
 msgid "Log Messages"
@@ -4675,12 +4675,12 @@ msgstr "Loggmeldinger (Vis logg dialog)"
 #. Resource IDs: (238)
 #, c-format
 msgid "Lowest shown revision: %ld - Highest shown revision: %ld"
-msgstr "Laveste revisjon: %ld - Høyeste revisjon: %ld"
+msgstr "Laveste revisjon vist: %ld - Høyeste revisjon vist: %ld"
 
 #. Resource IDs: (238)
 #, c-format
 msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision: %ld"
-msgstr "Laveste revisjon: %ld - Høyeste revisjon: %ld - Hode-revisjon: %ld"
+msgstr "Laveste revisjon vist: %ld - Høyeste revisjon vist: %ld - Hode-revisjon: %ld"
 
 #. Resource IDs: (16973)
 msgid "Lum"
@@ -5555,7 +5555,7 @@ msgstr "Angi sertifikat-typen"
 
 #. Resource IDs: (132)
 msgid "Please wait - this can take several minutes. Seriously!"
-msgstr "Vennligst vent - dette kan ta flere minutter (det er helt sant)!"
+msgstr "Vennligst vent - dette kan ta flere minutter. Helt sant!"
 
 #. Resource IDs: (13)
 msgid "Please wait while cancelling..."
@@ -5728,7 +5728,7 @@ msgstr "Navn på egenskap:"
 
 #. Resource IDs: (207)
 msgid "Property status"
-msgstr "Egenskap-status:"
+msgstr "Egenskap-status"
 
 #. Resource IDs: (1293)
 msgid "Property value:"
@@ -6705,7 +6705,7 @@ msgstr "SendMail kunne ikke sende melding."
 
 #. Resource IDs: (74)
 msgid "Sending content"
-msgstr "Sender innehold"
+msgstr "Sender innhold"
 
 #. Resource IDs: (1409)
 msgid "Server &address:"
@@ -7057,7 +7057,7 @@ msgstr "Sorter etter innsendingstall"
 
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
-msgstr "Angir hvor mange elementer du vil beholde i nylige loggmeldinger-dialogen."
+msgstr "Angir hvor mange elementer du vil beholde i siste loggmeldinger-dialogen."
 
 #. Resource IDs: (79)
 msgid ""
@@ -7103,7 +7103,7 @@ msgstr "Start Innsending Påhaking"
 
 #. Resource IDs: (65535)
 msgid "Start Revision"
-msgstr "Start-revisjon"
+msgstr "Første revisjon"
 
 #. Resource IDs: (569)
 msgid "Start Update Hook"
@@ -8248,7 +8248,7 @@ msgstr "Bruk den &andre tekstblokken"
 
 #. Resource IDs: (1126)
 msgid "Use &text viewer to view blames"
-msgstr "Bruk en tekst&viser for å vise skyld"
+msgstr "Vis skyld i en tekst&viser"
 
 #. Resource IDs: (195)
 msgid ""
@@ -8557,7 +8557,7 @@ msgstr "Arbeidskopi"
 
 #. Resource IDs: (1335, 1472)
 msgid "Working Copy Path:"
-msgstr "Sti Til Arbeidskopi:"
+msgstr "Sti til arbeidskopi:"
 
 #. Resource IDs: (20)
 msgid "Working copy"
