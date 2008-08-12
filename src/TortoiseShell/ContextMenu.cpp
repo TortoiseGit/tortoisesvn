@@ -1614,7 +1614,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 						0,
 						NULL 
 						);
-					MessageBox( NULL, (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
+					MessageBox( NULL, (LPCTSTR)lpMsgBuf, _T("TortoiseMerge launch failed"), MB_OK | MB_ICONINFORMATION );
 					LocalFree( lpMsgBuf );
 				}
 				CloseHandle(process.hThread);
@@ -1682,7 +1682,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 					0,
 					NULL 
 					);
-				MessageBox( NULL, (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
+				MessageBox( NULL, (LPCTSTR)lpMsgBuf, _T("TortoiseProc Launch failed"), MB_OK | MB_ICONINFORMATION );
 				LocalFree( lpMsgBuf );
 			}
 			CloseHandle(process.hThread);
