@@ -608,11 +608,9 @@ UINT CCommitDlg::StatusThread()
 	DialogEnableWindow(IDOK, logmsg.GetLength() >= m_ProjectProperties.nMinLogSize);
 	if (!success)
 	{
-		m_ListCtrl.SetEmptyString(m_ListCtrl.GetLastErrorMessage());
-		InterlockedExchange(&m_bBlock, FALSE);
-		InterlockedExchange(&m_bThreadRunning, FALSE);
-		SetTimer(ENDDIALOGTIMER, 100, NULL);
-		return (DWORD)-1;
+		if (!m_ListCtrl.GetLastErrorMessage().IsEmpty())
+			m_ListCtrl.SetEmptyString(m_ListCtrl.GetLastErrorMessage());
+		m_ListCtrl.Show(dwShow);
 	}
 	if ((m_ListCtrl.GetItemCount()==0)&&(m_ListCtrl.HasUnversionedItems()))
 	{

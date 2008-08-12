@@ -270,7 +270,7 @@ CString CPathUtils::GetLongPathname(const CString& path)
 		if (ret)
 		{
 			TCHAR * pathbuf = new TCHAR[ret+1];
-			if (GetFullPathName(path, ret, pathbuf, NULL))
+			if ((ret = GetFullPathName(path, ret, pathbuf, NULL))!=0)
 			{
 				sRet = CString(pathbuf, ret);
 			}
