@@ -39,6 +39,8 @@ Version 1.5.3
 - BUG: When starting TortoiseProc with '*' separated, relative file paths, the 
        commit dialog would either just flash and exit or not show all the 
        files from all specified paths. (Stefan)
+- BUG: TSVN would not use ssh clients set in the svn config file, only those
+       set in the TSVN settings dialog. (Stefan)
 
 Version 1.5.2
 - BUG: the "SVN Copy and Add" right-drag menu was not shown. (Stefan)

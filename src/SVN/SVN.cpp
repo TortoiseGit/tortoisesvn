@@ -117,7 +117,15 @@ SVN::SVN(void) : m_progressWnd(0)
 	//set up the SVN_SSH param
 	CString tsvn_ssh = CRegString(_T("Software\\TortoiseSVN\\SSH"));
 	if (tsvn_ssh.IsEmpty())
-		tsvn_ssh = CPathUtils::GetAppDirectory() + _T("TortoisePlink.exe");
+	{
+		// check whether the ssh client is already set in the Subversion config
+		svn_config_t * cfg = (svn_config_t *)apr_hash_get (m_pctx->config, SVN_CONFIG_CATEGORY_CONFIG,
+			APR_HASH_KEY_STRING);
+		const char * sshValue = NULL;
+		svn_config_get(cfg, &sshValue, SVN_CONFIG_SECTION_TUNNELS, "ssh", "");
+		if ((sshValue == NULL)||(sshValue[0] == 0))
+			tsvn_ssh = _T("\"") + CPathUtils::GetAppDirectory() + _T("TortoisePlink.exe") + _T("\"");
+	}
 	tsvn_ssh.Replace('\\', '/');
 	if (!tsvn_ssh.IsEmpty())
 	{
