@@ -148,7 +148,7 @@ void CShellUpdater::WorkerThread()
 				// first send a notification about a sub folder change, so explorer doesn't discard
 				// the folder notification. Since we only know for sure that the subversion admin
 				// dir is present, we send a notification for that folder.
-				CString admindir = workingPath.GetWinPathString() + g_SVNAdminDir.GetAdminDirName();
+				CString admindir = workingPath.GetWinPathString() + _T("\\") + g_SVNAdminDir.GetAdminDirName();
 				SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, (LPCTSTR)admindir, NULL);
 				SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, workingPath.GetWinPath(), NULL);
 				// Sending an UPDATEDIR notification somehow overwrites/deletes the UPDATEITEM message. And without
