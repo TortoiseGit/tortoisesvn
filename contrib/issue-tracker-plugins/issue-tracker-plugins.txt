@@ -180,7 +180,7 @@ Add a class to hold our example ticket data:
 
 We can now implement the GetCommitMessage method as follows:
 
-    public string GetCommitMessage(IntPtr hParentWnd, string parameters, string originalMessage)
+    public string GetCommitMessage(IntPtr hParentWnd, string parameters, string commonRoot, string[] pathList, string originalMessage)
     {
         List<TicketItem> tickets = new List<TicketItem>();
         tickets.Add(new TicketItem(12, "Service doesn't start on Windows Vista"));
