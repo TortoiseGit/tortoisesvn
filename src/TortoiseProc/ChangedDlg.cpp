@@ -147,9 +147,12 @@ UINT CChangedDlg::ChangedStatusThread()
 	UpdateStatistics();
 
 	CTSVNPath commonDir = m_FileListCtrl.GetCommonDirectory(false);
-	SetWindowText(m_sTitle + _T(" - ") + commonDir.GetWinPathString());
-	SetDlgItemText(IDOK, CString(MAKEINTRESOURCE(IDS_MSGBOX_OK)));
 	bool bSingleFile = ((m_pathList.GetCount()==1)&&(!m_pathList[0].IsDirectory()));
+	if (bSingleFile)
+		SetWindowText(m_sTitle + _T(" - ") + m_pathList[0].GetWinPathString());
+	else
+		SetWindowText(m_sTitle + _T(" - ") + commonDir.GetWinPathString());
+	SetDlgItemText(IDOK, CString(MAKEINTRESOURCE(IDS_MSGBOX_OK)));
 	DialogEnableWindow(IDC_REFRESH, TRUE);
 	DialogEnableWindow(IDC_CHECKREPO, TRUE);
 	DialogEnableWindow(IDC_SHOWUNVERSIONED, !bSingleFile);
