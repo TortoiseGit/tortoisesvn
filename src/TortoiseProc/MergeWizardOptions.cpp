@@ -175,6 +175,13 @@ void CMergeWizardOptions::OnBnClickedDryrun()
 		{
 			progDlg.SetRevision(pWizard->startRev);
 			progDlg.SetRevisionEnd(pWizard->endRev);
+			if (pWizard->URL1.Compare(pWizard->URL2) == 0)
+			{
+				SVNRevRangeArray tempRevArray;
+				tempRevArray.AdjustForMerge(!!pWizard->bReverseMerge);
+				tempRevArray.AddRevRange(pWizard->startRev, pWizard->endRev);
+				progDlg.SetRevisionRanges(tempRevArray);
+			}
 		}
 		break;
 	case MERGEWIZARD_REINTEGRATE:

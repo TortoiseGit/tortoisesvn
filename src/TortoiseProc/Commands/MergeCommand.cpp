@@ -59,6 +59,13 @@ bool MergeCommand::Execute()
 			{
 				progDlg.SetRevision(wizard.startRev);
 				progDlg.SetRevisionEnd(wizard.endRev);
+				if (wizard.URL1.Compare(wizard.URL2) == 0)
+				{
+					SVNRevRangeArray tempRevArray;
+					tempRevArray.AdjustForMerge(!!wizard.bReverseMerge);
+					tempRevArray.AddRevRange(wizard.startRev, wizard.endRev);
+					progDlg.SetRevisionRanges(tempRevArray);
+				}
 			}
 			break;
 		case MERGEWIZARD_REINTEGRATE:
