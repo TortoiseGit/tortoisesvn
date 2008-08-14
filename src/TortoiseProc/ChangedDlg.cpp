@@ -149,11 +149,12 @@ UINT CChangedDlg::ChangedStatusThread()
 	CTSVNPath commonDir = m_FileListCtrl.GetCommonDirectory(false);
 	SetWindowText(m_sTitle + _T(" - ") + commonDir.GetWinPathString());
 	SetDlgItemText(IDOK, CString(MAKEINTRESOURCE(IDS_MSGBOX_OK)));
+	bool bSingleFile = ((m_pathList.GetCount()==1)&&(!m_pathList[0].IsDirectory()));
 	DialogEnableWindow(IDC_REFRESH, TRUE);
 	DialogEnableWindow(IDC_CHECKREPO, TRUE);
-	DialogEnableWindow(IDC_SHOWUNVERSIONED, TRUE);
-	DialogEnableWindow(IDC_SHOWUNMODIFIED, TRUE);
-	DialogEnableWindow(IDC_SHOWIGNORED, TRUE);
+	DialogEnableWindow(IDC_SHOWUNVERSIONED, !bSingleFile);
+	DialogEnableWindow(IDC_SHOWUNMODIFIED, !bSingleFile);
+	DialogEnableWindow(IDC_SHOWIGNORED, !bSingleFile);
     DialogEnableWindow(IDC_SHOWUSERPROPS, TRUE);
 	InterlockedExchange(&m_bBlock, FALSE);
 	// revert the remote flag back to the default
