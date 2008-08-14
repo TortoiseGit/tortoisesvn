@@ -42,6 +42,8 @@ Version 1.5.3
        files from all specified paths. (Stefan)
 - BUG: TSVN would not use ssh clients set in the svn config file, only those
        set in the TSVN settings dialog. (Stefan)
+- BUG: Moving files from one changelist to another by dragging them in the
+       commit and CfM dialog could hang. (Stefan)
 
 Version 1.5.2
 - BUG: the "SVN Copy and Add" right-drag menu was not shown. (Stefan)

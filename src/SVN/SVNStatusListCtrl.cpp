@@ -1964,10 +1964,12 @@ int CSVNStatusListCtrl::GetGroupFromPoint(POINT * ppt)
 	pt.x = 10;
 	UINT flags = 0;
 	int nItem = -1;
-	while ((flags & LVHT_BELOW) == 0)
+	RECT rc;
+	GetWindowRect(&rc);
+	while (((flags & LVHT_BELOW) == 0)&&(pt.y < rc.bottom))
 	{
 		nItem = HitTest(pt, &flags);
-		if (flags & LVHT_ONITEM)
+		if ((flags & LVHT_ONITEM)||(flags & LVHT_EX_GROUP_HEADER))
 		{
 			// the first item below the point
 
