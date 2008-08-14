@@ -42,11 +42,12 @@ class CSVNStatusListCtrlDropTarget;
 #define SVNSLC_COLLOCKCOMMENT		0x000000800
 #define SVNSLC_COLAUTHOR			0x000001000
 #define	SVNSLC_COLREVISION			0x000002000
-#define	SVNSLC_COLDATE				0x000004000
-#define SVNSLC_COLSVNNEEDSLOCK		0x000008000
-#define SVNSLC_COLCOPYFROM			0x000010000
-#define	SVNSLC_COLMODIFICATIONDATE	0x000020000
-#define SVNSLC_NUMCOLUMNS		18
+#define	SVNSLC_COLREMOTEREVISION	0x000004000
+#define	SVNSLC_COLDATE				0x000009000
+#define SVNSLC_COLSVNNEEDSLOCK		0x000010000
+#define SVNSLC_COLCOPYFROM			0x000020000
+#define	SVNSLC_COLMODIFICATIONDATE	0x000040000
+#define SVNSLC_NUMCOLUMNS		19
 
 #define SVNSLC_SHOWUNVERSIONED	0x000000001
 #define SVNSLC_SHOWNORMAL		0x000000002
@@ -246,6 +247,7 @@ public:
 			, copyfrom_rev(0)
 			, last_commit_date(0)
 			, last_commit_rev(0)
+			, remoterev(0)
 			, textstatus(svn_wc_status_unversioned)
 			, propstatus(svn_wc_status_unversioned)
 			, remotestatus(svn_wc_status_unversioned)
@@ -346,6 +348,7 @@ public:
 		CString					last_commit_author;		///< the author which last committed this item
 		apr_time_t				last_commit_date;		///< the date when this item was last committed
 		svn_revnum_t			last_commit_rev;		///< the revision where this item was last committed
+		svn_revnum_t			remoterev;				///< the revision in HEAD of the repository
 		bool					copied;					///< if the file/folder is added-with-history
 		bool					switched;				///< if the file/folder is switched to another url
 		bool					checked;				///< if the file is checked in the list control

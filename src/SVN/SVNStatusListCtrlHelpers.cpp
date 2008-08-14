@@ -276,6 +276,7 @@ CString CSVNStatusListCtrl::ColumnManager::GetName (int column) const
 		  , IDS_STATUSLIST_COLAUTHOR
 
 		  , IDS_STATUSLIST_COLREVISION
+		  , IDS_STATUSLIST_COLREMOTEREVISION
 		  , IDS_STATUSLIST_COLDATE
 		  , IDS_STATUSLIST_COLSVNLOCK
 
@@ -907,7 +908,7 @@ bool CSVNStatusListCtrl::CSorter::operator()
 	int result = 0;
 	switch (sortedColumn)
 	{
-	case 17:
+	case 18:
 		{
 			if (result == 0)
 			{
@@ -920,25 +921,32 @@ bool CSVNStatusListCtrl::CSorter::operator()
 				result = CompareFileTime(filetime1,filetime2);
 			}
 		}
-	case 16:
+	case 17:
 		{
 			if (result == 0)
 			{
 				result = entry1->copyfrom_url.CompareNoCase(entry2->copyfrom_url);
 			}
 		}
-	case 15:
+	case 16:
 		{
 			if (result == 0)
 			{
 				result = SGN(entry1->needslock - entry2->needslock);
 			}
 		}
-	case 14:
+	case 15:
 		{
 			if (result == 0)
 			{
 				result = SGN(entry1->last_commit_date - entry2->last_commit_date);
+			}
+		}
+	case 14:
+		{
+			if (result == 0)
+			{
+				result = entry1->remoterev - entry2->remoterev;
 			}
 		}
 	case 13:
