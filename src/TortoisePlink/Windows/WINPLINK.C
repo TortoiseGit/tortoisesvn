@@ -291,6 +291,7 @@ int main(int argc, char **argv)
     int use_subsystem = 0;
     long now, next;
 
+	_set_printf_count_output(1);
     sklist = NULL;
     skcount = sksize = 0;
     /*
