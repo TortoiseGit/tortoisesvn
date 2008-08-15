@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-07-31 15:04+0900\n"
+"PO-Revision-Date: 2008-08-15 15:44+0900\n"
 "Last-Translator: Kim Taedong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -233,10 +233,6 @@ msgstr ""
 msgid "&..."
 msgstr "&..."
 
-#. Resource IDs: (65535)
-msgid "&?"
-msgstr "&?"
-
 #. Resource IDs: (57664)
 msgid "&About TortoiseMerge..."
 msgstr "TortoiseMerge에 대하여(&A)..."
@@ -344,10 +340,6 @@ msgstr "버튼 텍스트(&B):"
 #. Resource IDs: (1051)
 msgid "&CD-ROM"
 msgstr "&CD-ROM"
-
-#. Resource IDs: (2, 332)
-msgid "&Cancel"
-msgstr "취소(&C)"
 
 #. Resource IDs: (65535)
 msgid "&Categories:"
@@ -1176,12 +1168,12 @@ msgstr ""
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
-"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
 "아이콘을 겹쳐 쓰지 않을 경로들입니다. 한 줄에 하나씩 기술합니다.\r\n"
-"\"*\"을 경로뒤에 추가하면, 그 디렉토리의 모든 파일과 서브디렉토리도 제외됩니다.\r\n"
-"비워둘 경우 모든 경로에 대해 아이콘을 겹치게 됩니다."
+"\"*\" 문자를 경로뒤에 추가하면, 그 디렉토리의 모든 파일과 서브디렉토리도 제외됩니다.\r\n"
+"리스트를 비워둘 경우 모든 경로에 대해 아이콘을 겹쳐 쓰게 됩니다."
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
@@ -1732,6 +1724,10 @@ msgstr "버그 ID"
 #. Resource IDs: (1119)
 msgid "Bug-ID / Issue-Nr:"
 msgstr "Bug-ID / Issue-Nr:"
+
+#. Resource IDs: (117)
+msgid "Bug-IDs"
+msgstr "버그 ID"
 
 #. Resource IDs: (16132)
 msgid "Button Appearance"
@@ -2687,6 +2683,10 @@ msgstr ""
 "선택한 부분을 잘라 클립보드에 붙여넣습니다.\n"
 "자르기"
 
+#. Resource IDs: (1279)
+msgid "D&etails"
+msgstr "세부사항(&E)"
+
 #. Resource IDs: (19, 76, 208)
 msgid "Date"
 msgstr "날짜"
@@ -2770,10 +2770,6 @@ msgstr "변경 리스트 선택하지 않음"
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
 msgstr "목적지 디스크가 꽉 찼습니다."
-
-#. Resource IDs: (1279)
-msgid "Details"
-msgstr "세부사항"
 
 #. Resource IDs: (3849)
 msgid ""
@@ -2971,6 +2967,10 @@ msgstr "제외 경로(&X):"
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
 msgstr "종료(&X)"
+
+#. Resource IDs: (1437)
+msgid "E&xport"
+msgstr "익스포트(&X)"
 
 #. Resource IDs: (9, 1382)
 msgid "E&xport..."
@@ -3834,8 +3834,8 @@ msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all ch
 msgstr "힌트: 선택된 디렉토리를 새로 고치려면, F5를 누르시고, 하위까지 고치려면 Ctrl+F5를 누르세요."
 
 #. Resource IDs: (16519)
-msgid "Hint: select the context menu, change the page to \"Commands\" and drag the toolbar buttons into the menu window."
-msgstr "힌트: 컨텍스트 메뉴를 선택하고, 페이지를 \"명령\"으로 변경한 후에 툴바 버튼을 메뉴 창으로 드래그하십시오."
+msgid "Hint: select the context menu, change the page to 'Commands' and drag the toolbar buttons into the menu window."
+msgstr "힌트: 컨텍스트 메뉴를 선택하고, 페이지를 '명령'으로 변경한 후에 툴바 버튼을 메뉴 창으로 드래그하십시오."
 
 #. Resource IDs: (1064)
 msgid "Home"
@@ -4792,7 +4792,7 @@ msgid "Merging %s into %s, %s"
 msgstr "%s 를 %s와 병합중, %s"
 
 #. Resource IDs: (264)
-msgid "Merging differences between repository urls"
+msgid "Merging differences between repository URLs"
 msgstr "저장소 url들 사이의 차이점을 병합"
 
 #. Resource IDs: (229)
@@ -5815,7 +5815,7 @@ msgstr "새로고침"
 
 #. Resource IDs: (117)
 msgid ""
-"Regular expressions filter:\n"
+"Regular expressions filter:\r\n"
 ".   : any character\r\n"
 "c+   : match character c one or more times\r\n"
 "c*   : match character c zero or more times\r\n"
@@ -5831,7 +5831,7 @@ msgid ""
 "\\d   : digits 0-9\r\n"
 "\\s   : whitespaces"
 msgstr ""
-"정규 표현식 필터:\n"
+"정규 표현식 필터:\r\n"
 ".   : 임의의 문자\r\n"
 "c+   : 문자(c)한개 이상\r\n"
 "c*   : 문자(c)0 개 이상\r\n"
@@ -5903,6 +5903,10 @@ msgstr "저장소 URL 변경 중..."
 #. Resource IDs: (207)
 msgid "Remote property status"
 msgstr "원격지 속성 상태"
+
+#. Resource IDs: (208)
+msgid "Remote revision"
+msgstr "원격 리비전"
 
 #. Resource IDs: (63, 207)
 msgid "Remote status"
@@ -6617,6 +6621,10 @@ msgstr "시작 리비전 선택"
 msgid "Select text editor application"
 msgstr "텍스트 에디터 프로그램 선택"
 
+#. Resource IDs: (595)
+msgid "Select the URLs for the tree merge"
+msgstr "트리를 병합하기 위한 URL 선택하세요"
+
 #. Resource IDs: (79)
 msgid "Select the behaviour of the progress dialog at the end of the operation."
 msgstr "명령을 수행한 뒤 대화상자를 어떻게 할 것인지 선택합니다."
@@ -6640,10 +6648,6 @@ msgstr "병합할 리비전 선택"
 #. Resource IDs: (595)
 msgid "Select the type of merge"
 msgstr "병합 방법 선택"
-
-#. Resource IDs: (595)
-msgid "Select the urls for the tree merge"
-msgstr "트리를 병합하기 위한 URL 선택하세요"
 
 #. Resource IDs: (78)
 msgid "Select viewer for diff-files"
@@ -7011,11 +7015,11 @@ msgstr "사용된 로그는 저장되며, 몇 개까지 저장할 것인지를 �
 
 #. Resource IDs: (79)
 msgid ""
-"Specify the files or folders which TortoiseSVN\n"
+"Specify the files or folders which TortoiseSVN\r\n"
 "should ignore in all working copies.\r\n"
 "Separate the patterns with a space."
 msgstr ""
-"<b>모든</b> 작업사본에서 TortoiseSVN이 버전컨트롤하지 않을 파일이나 폴더를 지정하십시오.\r\n"
+"모든 작업사본에서 TortoiseSVN이 버전컨트롤하지 않을 파일이나 폴더를 지정하십시오.\r\n"
 "패턴들은 공백으로 분리하면 됩니다."
 
 #. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
@@ -7962,6 +7966,10 @@ msgstr "다시 시도하십시오."
 msgid "Tweak TortoiseSVN"
 msgstr "TortoiseSVN 설정 변경"
 
+#. Resource IDs: (1436)
+msgid "U&pdate"
+msgstr "업데이트(&P)"
+
 #. Resource IDs: (164, 207)
 msgid "URL"
 msgstr "URL"
@@ -8451,9 +8459,9 @@ msgstr "경고!"
 
 #. Resource IDs: (344)
 msgid ""
-"When connecting to the respository server is not possible,\n"
+"When connecting to the repository server is not possible,\n"
 "TSVN can switch to using cached data only.\n"
-"Select the default beviour here."
+"Select the default behaviour here."
 msgstr ""
 "저장소 서버에 접속하는 것이 불가능할 때,\n"
 "TSVN은 단지 캐시된 데이타만 사용하는 것으로 전환할 수 있습니다.\n"
@@ -9223,12 +9231,12 @@ msgstr ""
 msgid ""
 "svn:mime-type\r\n"
 "The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\r\n"
-"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\r\n"
 "Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\r\n"
 "파일의 MIME 타입. 파일을 머지할 방법을 찾거나, Apache가 어떻게 서비스를 해야하는지를 결정하는데 사용됩니다.\r\n"
-"'text/' (혹은 mime type이 지정되지 않거나)인 경우 텍스트 파일로 취급하고\n"
+"'text/' (혹은 mime type이 지정되지 않거나)인 경우 텍스트 파일로 취급하고\r\n"
 "나머지는 바이너리로 취급합니다."
 
 #. Resource IDs: (576)
@@ -9329,24 +9337,20 @@ msgstr ""
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logtemplate\r\n"
-"String which is inserted in the log message boxes in the commit dialogs.\n"
-"\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message templates for users to fill in."
 msgstr ""
 "tsvn:logtemplate\r\n"
-"커밋 대화상자의 로그 메시지 편집창에 넣을 글.\n"
-"\n"
+"커밋 대화상자의 로그 메시지 편집창에 넣을 글.\r\n"
 "로그 메시지 템플릿으로 사용합니다."
 
 #. Resource IDs: (578)
 msgid ""
-"tsvn:logwidthmarker\n"
-"\n"
+"tsvn:logwidthmarker\r\n"
 "Set this to the number of chars the log message should not exceed its width.\r\n"
 "A faded line is shown in the commit dialogs at that position. The default is 80 chars."
 msgstr ""
-"tsvn:logwidthmarker\n"
-"\n"
+"tsvn:logwidthmarker\r\n"
 "로그 메시지의 가로 폭이 넘지 않아야 할 값을 지정합니다.\r\n"
 "이 위치 이후로 음영이 보입니다. 기본값은 80 글자."
 
@@ -9399,12 +9403,12 @@ msgstr "값들이 다릅니다"
 #. Resource IDs: (579)
 #, c-format
 msgid ""
-"webviewer:pathrevision\n"
+"webviewer:pathrevision\r\n"
 "URL pointing to the web viewer for the repository for a specific file and revision.\r\n"
 "The string %REVISION% in the URL is replaced with the revision number,\r\n"
 "the string %PATH% is replaced with the path to the file relative to the repository root."
 msgstr ""
-"webviewer:pathrevision\n"
+"webviewer:pathrevision\r\n"
 "특정 파일과 리비전에 대한 저장소를 볼 수 있는 웹 뷰어를 지시하는 URL.\r\n"
 "URL 안의 %REVISION% 문자열은 해당 리비전 번호로 치환 됩니다.\r\n"
 "URL 안의 %PATH% 문자열은 저장소 루트에 대해 상대적인 경로로 치환 됩니다."
@@ -9444,6 +9448,10 @@ msgstr "예"
 msgid "{BugTraq}"
 msgstr "{버그트랙}"
 
+#~ msgid "&?"
+#~ msgstr "&?"
+#~ msgid "&Cancel"
+#~ msgstr "취소(&C)"
 #~ msgid "Merge all..."
 #~ msgstr "전체 병합..."
 #~ msgid "SVN Export to here"
