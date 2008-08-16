@@ -113,7 +113,9 @@ BOOL CBlame::Cancel()
 	return m_bCancelled;
 }
 
-CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev pegrev, CString& logfile, const CString& options, BOOL showprogress /* = TRUE */, BOOL ignoremimetype /* = FALSE */)
+CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev pegrev, 
+								CString& logfile, const CString& options, BOOL includemerge, 
+								BOOL showprogress, BOOL ignoremimetype)
 {
 	// if the user specified to use another tool to show the blames, there's no
 	// need to fetch the log later: only TortoiseBlame uses those logs to give 
@@ -151,11 +153,11 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 	m_progressDlg.SetProgress(0, m_nHeadRev);
 
 	m_bHasMerges = false;
-	BOOL bBlameSuccesful = this->Blame(path, startrev, endrev, pegrev, options, !!ignoremimetype);
+	BOOL bBlameSuccesful = this->Blame(path, startrev, endrev, pegrev, options, !!ignoremimetype, !!includemerge);
 	if ( !bBlameSuccesful && !pegrev.IsValid() )
 	{
 		// retry with the end rev as peg rev
-		if ( this->Blame(path, startrev, endrev, endrev, options, !!ignoremimetype) )
+		if (this->Blame(path, startrev, endrev, endrev, options, !!ignoremimetype, !!includemerge))
 		{
 			bBlameSuccesful = TRUE;
 			pegrev = endrev;
@@ -207,7 +209,8 @@ BOOL CBlame::Notify(const CTSVNPath& /*path*/, svn_wc_notify_action_t /*action*/
 	return TRUE;
 }
 
-bool CBlame::BlameToFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg, const CTSVNPath& tofile, const CString& options, BOOL ignoremimetype)
+bool CBlame::BlameToFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg, 
+						 const CTSVNPath& tofile, const CString& options, BOOL ignoremimetype, BOOL includemerge)
 {
 	CString temp;
 	if (!m_saveFile.Open(tofile.GetWinPathString(), CFile::typeText | CFile::modeReadWrite | CFile::modeCreate))
@@ -217,11 +220,11 @@ bool CBlame::BlameToFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, 
 	if (m_nHeadRev < 0)
 		m_nHeadRev = GetHEADRevision(path);
 
-	BOOL bBlameSuccesful = this->Blame(path, startrev, endrev, peg, options, !!ignoremimetype);
+	BOOL bBlameSuccesful = this->Blame(path, startrev, endrev, peg, options, !!ignoremimetype, !!includemerge);
 	if ( !bBlameSuccesful && !peg.IsValid() )
 	{
 		// retry with the end rev as peg rev
-		if ( this->Blame(path, startrev, endrev, endrev, options, !!ignoremimetype) )
+		if (this->Blame(path, startrev, endrev, endrev, options, !!ignoremimetype, !!includemerge))
 		{
 			bBlameSuccesful = TRUE;
 			peg = endrev;

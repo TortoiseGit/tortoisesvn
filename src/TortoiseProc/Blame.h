@@ -45,9 +45,9 @@ public:
 	 * \param path the path to the file to determine the required information
 	 * \return The path to the temporary file or an empty string in case of an error.
 	 */
-	CString		BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev pegrev, CString& logfile, const CString& options, BOOL showprogress = TRUE, BOOL ignoremimetype = FALSE);
+	CString		BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev pegrev, CString& logfile, const CString& options, BOOL includemerge, BOOL showprogress, BOOL ignoremimetype);
 
-	bool		BlameToFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg, const CTSVNPath& tofile, const CString& options, BOOL ignoremimetype);
+	bool		BlameToFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg, const CTSVNPath& tofile, const CString& options, BOOL ignoremimetype, BOOL includemerge);
 private:
 	BOOL		BlameCallback(LONG linenumber, svn_revnum_t revision, const CString& author, const CString& date,
 								svn_revnum_t merged_revision, const CString& merged_author, const CString& merged_date, const CString& merged_path,
