@@ -1316,7 +1316,7 @@ BOOL CSVNProgressDlg::PreTranslateMessage(MSG* pMsg)
 				}
 			}
 		}
-		if (pMsg->wParam == 'C')
+		if ((pMsg->wParam == 'C')||(pMsg->wParam == VK_INSERT))
 		{
 			int selIndex = m_ProgList.GetSelectionMark();
 			if (selIndex >= 0)

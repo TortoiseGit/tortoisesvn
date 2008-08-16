@@ -4474,6 +4474,7 @@ BOOL CSVNStatusListCtrl::PreTranslateMessage(MSG* pMsg)
 			}
 			break;
 		case 'C':
+		case VK_INSERT:
 			{
 				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
 				{

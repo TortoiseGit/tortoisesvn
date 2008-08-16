@@ -1074,6 +1074,7 @@ BOOL CRepositoryBrowser::PreTranslateMessage(MSG* pMsg)
 				switch (pMsg->wParam)
 				{
 				case 'C':
+				case VK_INSERT:
 					{
 						if ((pMsg->hwnd == m_barRepository.GetSafeHwnd())||(::IsChild(m_barRepository.GetSafeHwnd(), pMsg->hwnd)))
 							return __super::PreTranslateMessage(pMsg);
