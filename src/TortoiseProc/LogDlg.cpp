@@ -1134,7 +1134,7 @@ UINT CLogDlg::LogThread()
     m_lowestRev = -1;
     m_bStrictStopped = false;
 
-    if (succeeded == TRUE)
+    if (succeeded)
     {
         succeeded = ReceiveLog (CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, m_bStrict, m_bIncludeMerges, refresh);
         if ((!succeeded)&&(!m_path.IsUrl()))
@@ -1145,7 +1145,7 @@ UINT CLogDlg::LogThread()
         }
     }
 	m_LogList.ClearText();
-    if (succeeded == FALSE)
+    if (!succeeded)
 	{
 		m_LogList.ShowText(GetLastErrorMessage(), true);
 	}
