@@ -212,7 +212,7 @@ int InsertDate(char * def, char * pBuf, size_t & index,
 		// Format the date/time according to the supplied strftime format string
 		char format[65];
 		char * pStart = pBuf + index + strlen(def);
-		char * pEnd = pStart + 1;
+		char * pEnd = pStart;
 
 		while (*pEnd != '$')
 		{
