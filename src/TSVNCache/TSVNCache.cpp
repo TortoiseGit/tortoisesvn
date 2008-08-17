@@ -356,6 +356,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			return 1;
 		}
 	case WM_CLOSE:
+	case WM_QUERYENDSESSION:
 	case WM_ENDSESSION:
 	case WM_DESTROY:
 	case WM_QUIT:
