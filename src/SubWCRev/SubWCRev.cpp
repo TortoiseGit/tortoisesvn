@@ -348,6 +348,14 @@ int abort_on_pool_failure (int /*retcode*/)
 }
 #pragma warning(pop)
 
+void customInvalidParameterHandler(const wchar_t* /*expression*/,
+							   const wchar_t* /*function*/, 
+							   const wchar_t* /*file*/, 
+							   unsigned int /*line*/, 
+							   uintptr_t /*pReserved*/)
+{
+	printf("Invalid parameter detected\n");
+}
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -360,6 +368,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	SubWCRev_t SubStat;
 	memset (&SubStat, 0, sizeof (SubStat));
 	SubStat.bFolders = FALSE;
+
+	_set_invalid_parameter_handler(customInvalidParameterHandler);
+
 	if (argc >= 2 && argc <= 5)
 	{
 		// WC path is always first argument.
