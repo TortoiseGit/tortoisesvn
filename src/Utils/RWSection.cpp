@@ -40,7 +40,7 @@ CRWSection::~CRWSection()
 	CloseHandle(m_hReaders);
 }
 
-void CRWSection::WaitToRead()
+bool CRWSection::WaitToRead(DWORD waitTime)
 {
 	EnterCriticalSection(&m_cs);
 
@@ -61,11 +61,18 @@ void CRWSection::WaitToRead()
 	if (fResourceWritePending)
 	{
 		// wait until writer is finished
-		WaitForSingleObject(m_hReaders, INFINITE);
+		if (WaitForSingleObject(m_hReaders, waitTime) != WAIT_OBJECT_0)
+		{
+			EnterCriticalSection(&m_cs);
+			m_nWaitingReaders--;
+			LeaveCriticalSection(&m_cs);
+			return false;
+		}
 	}
+	return true;
 }
 
-void CRWSection::WaitToWrite()
+bool CRWSection::WaitToWrite(DWORD waitTime)
 {
 	EnterCriticalSection(&m_cs);
 
@@ -84,8 +91,15 @@ void CRWSection::WaitToWrite()
 
 	if (fResourceOwned)
 	{
-		WaitForSingleObject(m_hWriters, INFINITE);
+		if (WaitForSingleObject(m_hWriters, waitTime) != WAIT_OBJECT_0)
+		{
+			EnterCriticalSection(&m_cs);
+			m_nWaitingWriters--;
+			LeaveCriticalSection(&m_cs);
+			return false;
+		}
 	}
+	return true;
 }
 
 void CRWSection::Done()
