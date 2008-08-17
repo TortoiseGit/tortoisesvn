@@ -471,9 +471,16 @@ VOID GetAnswerToRequest(const TSVNCacheRequest* pRequest, TSVNCacheResponse* pRe
 		path.SetFromWin(pRequest->path);
 	}
 
-	CSVNStatusCache::Instance().WaitToRead();
-	CSVNStatusCache::Instance().GetStatusForPath(path, pRequest->flags, false).BuildCacheResponse(*pReply, *pResponseLength);
-	CSVNStatusCache::Instance().Done();
+	if (CSVNStatusCache::Instance().WaitToRead(2000))
+	{
+		CSVNStatusCache::Instance().GetStatusForPath(path, pRequest->flags, false).BuildCacheResponse(*pReply, *pResponseLength);
+		CSVNStatusCache::Instance().Done();
+	}
+	else
+	{
+		CStatusCacheEntry entry;
+		entry.BuildCacheResponse(*pReply, *pResponseLength);
+	}
 }
 
 DWORD WINAPI PipeThread(LPVOID lpvParam)

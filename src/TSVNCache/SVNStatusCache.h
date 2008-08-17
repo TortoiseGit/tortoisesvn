@@ -87,8 +87,8 @@ public:
 	void CloseWatcherHandles(HDEVNOTIFY hdev);
 	void CSVNStatusCache::CloseWatcherHandles(const CTSVNPath& path);
 
-	void WaitToRead() {m_rwSection.WaitToRead();}
-	void WaitToWrite() {m_rwSection.WaitToWrite();}
+	bool WaitToRead(DWORD waitTime = INFINITE) {return m_rwSection.WaitToRead(waitTime);}
+	bool WaitToWrite(DWORD waitTime = INFINITE) {return m_rwSection.WaitToWrite(waitTime);}
 	void Done() {m_rwSection.Done();}
 	bool IsWriter() {return m_rwSection.IsWriter();}
 #if defined (DEBUG) || defined (_DEBUG)
