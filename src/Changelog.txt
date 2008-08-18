@@ -44,6 +44,10 @@ Version 1.5.3
        set in the TSVN settings dialog. (Stefan)
 - BUG: Moving files from one changelist to another by dragging them in the
        commit and CfM dialog could hang. (Stefan)
+- BUG: If the commit dates were not in sequence with the revision numbers
+       which can happen when a repository is converted from other version
+       control systems, the statistics dialog would show a wrong 'by date'
+       graph. (Stefan)
 
 Version 1.5.2
 - BUG: the "SVN Copy and Add" right-drag menu was not shown. (Stefan)
