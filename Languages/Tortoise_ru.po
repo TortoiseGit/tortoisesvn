@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2008
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 13663: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 13721: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-08-09 22:49+0300\n"
+"PO-Revision-Date: 2008-08-18 13:13+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -659,6 +659,10 @@ msgstr "Только &изображение"
 #. Resource IDs: (9, 1461)
 msgid "&Import..."
 msgstr "И&мпорт..."
+
+#. Resource IDs: (1480)
+msgid "&Include merge info"
+msgstr "В&ключая данные о слияниях"
 
 #. Resource IDs: (65535)
 msgid "&Initial directory:"
@@ -3926,8 +3930,8 @@ msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all ch
 msgstr "Подсказка: Нажмите F5 для обновления выбранного поддерева и Ctrl+F5 для загрузки всех его потомков"
 
 #. Resource IDs: (16519)
-msgid "Hint: select the context menu, change the page to \"Commands\" and drag the toolbar buttons into the menu window."
-msgstr "Подсказка: выберите контекстное меню, перейдите на страницу \"Команды\" и перетащите кнопки панели инструментов в окно меню."
+msgid "Hint: select the context menu, change the page to 'Commands' and drag the toolbar buttons into the menu window."
+msgstr "Подсказка: выберите контекстное меню, перейдите на страницу 'Команды' и перетащите кнопки панели инструментов в окно меню."
 
 #. Resource IDs: (1064)
 msgid "Home"
@@ -6016,6 +6020,10 @@ msgstr "Перебазирование..."
 #. Resource IDs: (207)
 msgid "Remote property status"
 msgstr "Отдалённый статус свойства"
+
+#. Resource IDs: (208)
+msgid "Remote revision"
+msgstr "Отдалённая ревизия"
 
 #. Resource IDs: (63, 207)
 msgid "Remote status"
