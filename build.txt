@@ -19,8 +19,9 @@ You only have to do this once.
 
 \subsection Requirements1 First, you need to install the compiler package.
 
--# You need VS2008 (or at least Visual C++ 2008) to allow
-   building of the full TortoiseSVN package. You will also need the
+-# You need VS2008 with SP1 (or at least Visual C++ 2008) to allow
+   building of the full TortoiseSVN package. 
+   If you don't have the SP1 installed for VS2008, you will also need the
    MFC feature pack for VS2008 which is available from here: 
    http://www.microsoft.com/downloads/details.aspx?FamilyId=D466226B-8DAB-445F-A7B4-448B326C48E7&displaylang=en
    This is the recommended option, but it is not free :-(
