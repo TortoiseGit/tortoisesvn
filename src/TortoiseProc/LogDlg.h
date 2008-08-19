@@ -192,6 +192,7 @@ public:
 	ProjectProperties	m_ProjectProperties;
 	WORD				m_wParam;
 private:
+	HFONT				m_boldFont;
 	CString				m_sRelativeRoot;
 	CString				m_sRepositoryRoot;
 	CString				m_sSelfRelativeURL;
@@ -207,6 +208,7 @@ private:
 	SVNRev				m_startrev;
 	SVNRev				m_LogRevision;
 	SVNRev				m_endrev;
+	SVNRev				m_wcRev;
 	SVNRevRangeArray	m_selectedRevs;
 	SVNRevRangeArray	m_selectedRevsOneRange;
 	bool				m_bSelectionMustBeContinuous;

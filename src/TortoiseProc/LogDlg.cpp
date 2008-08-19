@@ -142,6 +142,14 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	, m_bVista(false)
 {
 	m_bFilterWithRegex = !!CRegDWORD(_T("Software\\TortoiseSVN\\UseRegexFilter"), TRUE);
+	// use the default GUI font, create a copy of it and
+	// change the copy to BOLD (leave the rest of the font
+	// the same)
+	HFONT hFont = (HFONT)GetStockObject(DEFAULT_GUI_FONT);
+	LOGFONT lf = {0};
+	GetObject(hFont, sizeof(LOGFONT), &lf);
+	lf.lfWeight = FW_BOLD;
+	m_boldFont = CreateFontIndirect(&lf);
 }
 
 CLogDlg::~CLogDlg()
@@ -158,6 +166,8 @@ CLogDlg::~CLogDlg()
 		delete m_pStoreSelection;
 		m_pStoreSelection = NULL;
 	}
+	if (m_boldFont)
+		DeleteObject(m_boldFont);
 }
 
 void CLogDlg::DoDataExchange(CDataExchange* pDX)
@@ -1148,6 +1158,34 @@ UINT CLogDlg::LogThread()
     if (!succeeded)
 	{
 		m_LogList.ShowText(GetLastErrorMessage(), true);
+	}
+	else
+	{
+		if (!m_wcRev.IsValid())
+		{
+			// fetch the revision the wc path is on so we can mark it
+			CTSVNPath revWCPath = m_ProjectProperties.GetPropsPath();
+			if (!m_path.IsUrl())
+				revWCPath = m_path;
+			if (DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\RecursiveLogRev"), FALSE)))
+			{
+				svn_revnum_t minrev, maxrev;
+				bool switched, modified, sparse;
+				GetWCRevisionStatus(revWCPath, true, minrev, maxrev, switched, modified, sparse);
+				if (maxrev)
+					m_wcRev = maxrev;
+			}
+			else
+			{
+				SVNInfo info;
+				const SVNInfoData * data = info.GetFirstFileInfo(m_path, SVNRev::REV_WC, SVNRev::REV_WC);
+				if (data)
+				{
+					if (data->rev)
+						m_wcRev = data->rev;
+				}
+			}
+		}
 	}
     if (m_bStrict && (m_lowestRev>1) && ((m_limit>0) ? ((startcount + m_limit)>m_logEntries.size()) : (m_endrev<m_lowestRev)))
 		m_bStrictStopped = true;
@@ -2321,6 +2359,13 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 						crText = m_Colors.GetColor(CColors::Modified);
 					if ((data->childStackDepth)||(m_mergedRevs.find(data->Rev) != m_mergedRevs.end()))
 						crText = GetSysColor(COLOR_GRAYTEXT);
+					if (data->Rev == m_wcRev)
+					{
+						SelectObject(pLVCD->nmcd.hdc, m_boldFont);
+						// We changed the font, so we're returning CDRF_NEWFONT. This
+						// tells the control to recalculate the extent of the text.
+						*pResult = CDRF_NOTIFYSUBITEMDRAW | CDRF_NEWFONT;
+					}
 				}
 			}
 			if (m_arShownList.GetCount() == (INT_PTR)pLVCD->nmcd.dwItemSpec)

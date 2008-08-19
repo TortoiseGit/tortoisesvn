@@ -3,6 +3,8 @@
 - NEW: The log dialog allows filtering by bug-ID.
        See issue #422 for details. (Stefan)
 - NEW: Column to show the remote revision in the CfM dialog. (Stefan)
+- NEW: The current revision of the working copy item is shown in
+       bold in the log dialog. See issue #425 for details. (Stefan)
 - CHG: The bug-ID column width in the log dialog is now limited 
        to 200 pixels. (Stefan)
 - CHG: The right-drag context menu now only shows "Export" if a versioned
