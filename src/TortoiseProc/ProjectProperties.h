@@ -126,6 +126,10 @@ public:
 	 */
 	CString GetLogSummary(const CString& sMessage);
 
+	/**
+	 * Returns the path from which the properties were read.
+	 */
+	CTSVNPath GetPropsPath() {return propsPath;}
 public:
 	/** The label to show in the commit dialog where the issue number/bug id
 	 * is entered. Example: "Bug-ID: " or "Issue-No.:". Default is "Bug-ID :" */
@@ -201,6 +205,7 @@ public:
 	CString		sLogSummaryRe;
 private:
 	CString		sAutoProps;
+	CTSVNPath	propsPath;
 #ifdef DEBUG
 	friend class PropTest;
 #endif
