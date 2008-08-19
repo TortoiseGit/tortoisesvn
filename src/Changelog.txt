@@ -50,6 +50,9 @@ Version 1.5.3
        which can happen when a repository is converted from other version
        control systems, the statistics dialog would show a wrong 'by date'
        graph. (Stefan)
+- BUG: internal properties like bugtraq:, tsvn:, ... which had non-ascii
+       chars in their values got garbled on newly added folders where those
+       properties are automatically added. (Stefan)
 
 Version 1.5.2
 - BUG: the "SVN Copy and Add" right-drag menu was not shown. (Stefan)
