@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-08-10 12:36+0800\n"
+"PO-Revision-Date: 2008-08-20 21:09+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -610,6 +610,10 @@ msgstr "僅影像(&I)"
 #. Resource IDs: (9, 1461)
 msgid "&Import..."
 msgstr "匯入(&I)..."
+
+#. Resource IDs: (1480)
+msgid "&Include merge info"
+msgstr "包含合併資訊(&I)"
 
 #. Resource IDs: (65535)
 msgid "&Initial directory:"
@@ -3837,8 +3841,8 @@ msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all ch
 msgstr "小提示: 按下 F5 可以重新整理選擇的子樹, 而 Ctrl-F5 可以重新載入全部子樹"
 
 #. Resource IDs: (16519)
-msgid "Hint: select the context menu, change the page to \"Commands\" and drag the toolbar buttons into the menu window."
-msgstr "小提示: 選擇快顯式選單, 切換至\"命令\"頁面, 再將工具列按鈕拖至選單視窗中."
+msgid "Hint: select the context menu, change the page to 'Commands' and drag the toolbar buttons into the menu window."
+msgstr "小提示: 選擇快顯式選單, 切換至'命令'頁面, 再將工具列按鈕拖至選單視窗中."
 
 #. Resource IDs: (1064)
 msgid "Home"
@@ -5906,6 +5910,10 @@ msgstr "正在重新定位..."
 #. Resource IDs: (207)
 msgid "Remote property status"
 msgstr "遠端性質狀態"
+
+#. Resource IDs: (208)
+msgid "Remote revision"
+msgstr "遠端版本"
 
 #. Resource IDs: (63, 207)
 msgid "Remote status"
