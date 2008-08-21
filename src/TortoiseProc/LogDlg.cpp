@@ -3198,12 +3198,17 @@ void CLogDlg::OnDtnDatetimechangeDateto(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
 	CTime _time;
 	m_DateTo.GetTime(_time);
-	CTime time(_time.GetYear(), _time.GetMonth(), _time.GetDay(), 23, 59, 59);
-	
-	if (time.GetTime() != m_tTo)
+	try
 	{
-		m_tTo = (DWORD)time.GetTime();
-		SetTimer(LOGFILTER_TIMER, 10, NULL);
+		CTime time(_time.GetYear(), _time.GetMonth(), _time.GetDay(), 23, 59, 59);
+		if (time.GetTime() != m_tTo)
+		{
+			m_tTo = (DWORD)time.GetTime();
+			SetTimer(LOGFILTER_TIMER, 10, NULL);
+		}
+	}
+	catch (CAtlException)
+	{
 	}
 	
 	*pResult = 0;
@@ -3213,11 +3218,17 @@ void CLogDlg::OnDtnDatetimechangeDatefrom(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
 	CTime _time;
 	m_DateFrom.GetTime(_time);
-	CTime time(_time.GetYear(), _time.GetMonth(), _time.GetDay(), 0, 0, 0);
-	if (time.GetTime() != m_tFrom)
+	try
 	{
-		m_tFrom = (DWORD)time.GetTime();
-		SetTimer(LOGFILTER_TIMER, 10, NULL);
+		CTime time(_time.GetYear(), _time.GetMonth(), _time.GetDay(), 0, 0, 0);
+		if (time.GetTime() != m_tFrom)
+		{
+			m_tFrom = (DWORD)time.GetTime();
+			SetTimer(LOGFILTER_TIMER, 10, NULL);
+		}
+	}
+	catch (CAtlException)
+	{
 	}
 	
 	*pResult = 0;
