@@ -22,6 +22,7 @@
 Version 1.5.3
 - CHG: paths in error messages are nor truncated to 80 chars anymore. (Stefan)
 - CHG: enabled rc4 encryption for the sasl dlls. (Stefan)
+- CHG: linked against neon 0.28.3
 - BUG: some context menu entries were shown if multiple items were
        selected even if they only work on single items. (Stefan)
 - BUG: the move/copy right-drag menus were not shown if the target

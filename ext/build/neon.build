@@ -40,8 +40,6 @@
 		</loadfile>
 		<echo file="config.hw" message="${configfile}" unless="${file::exists('config.hw')}" />
 		<echo file="config.h" message="${configfile}" unless="${file::exists('config.h')}" />
-		<!-- patch neon 0.28.2 to make sure the socket options are set correctly -->
-		<copy file="..\build\ne_socket.c" tofile="src\ne_socket.c" overwrite="true" />
 		<cl outputdir="${configuration}${static}_${platform}">
 			<arg value="/Ox" if="${configuration == 'release'}" />
 			<arg value="/Od" if="${configuration != 'release'}" />
