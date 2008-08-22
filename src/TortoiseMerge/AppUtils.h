@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007 - TortoiseSVN
+// Copyright (C) 2006-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,6 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
+#include "svn_types.h"
 
 class CProgressDlg;
 
@@ -47,4 +48,6 @@ public:
 	static bool CreateUnifiedDiff(const CString& orig, const CString& modified, const CString& output);
 
 	static bool HasClipboardFormat(UINT format);
+	static CString GetErrorString(svn_error_t * Err);
+
 };

@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007 - TortoiseSVN
+// Copyright (C) 2006-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,6 +26,8 @@
 #include "svn_io.h"
 #include "svn_path.h"
 #include "svn_diff.h"
+#include "svn_string.h"
+#include "svn_utf.h"
 
 CAppUtils::CAppUtils(void)
 {
@@ -128,12 +130,83 @@ bool CAppUtils::CreateUnifiedDiff(const CString& orig, const CString& modified, 
 	}
 	if (err)
 	{
+		AfxMessageBox(CAppUtils::GetErrorString(err), MB_ICONERROR);
 		svn_error_clear(err);
 		svn_pool_destroy(pool);
 		return false;
 	}
 	svn_pool_destroy(pool);
 	return true;
+}
+
+CString CAppUtils::GetErrorString(svn_error_t * Err)
+{
+	CString msg;
+	CString temp;
+	char errbuf[256];
+
+	if (Err != NULL)
+	{
+		svn_error_t * ErrPtr = Err;
+		if (ErrPtr->message)
+			msg = CUnicodeUtils::GetUnicode(ErrPtr->message);
+		else
+		{
+			/* Is this a Subversion-specific error code? */
+			if ((ErrPtr->apr_err > APR_OS_START_USEERR)
+				&& (ErrPtr->apr_err <= APR_OS_START_CANONERR))
+				msg = svn_strerror (ErrPtr->apr_err, errbuf, sizeof (errbuf));
+			/* Otherwise, this must be an APR error code. */
+			else
+			{
+				svn_error_t *temp_err = NULL;
+				const char * err_string = NULL;
+				temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, sizeof (errbuf)-1), ErrPtr->pool);
+				if (temp_err)
+				{
+					svn_error_clear (temp_err);
+					msg = _T("Can't recode error string from APR");
+				}
+				else
+				{
+					msg = CUnicodeUtils::GetUnicode(err_string);
+				}
+			}
+		}
+		while (ErrPtr->child)
+		{
+			ErrPtr = ErrPtr->child;
+			msg += _T("\n");
+			if (ErrPtr->message)
+				temp = CUnicodeUtils::GetUnicode(ErrPtr->message);
+			else
+			{
+				/* Is this a Subversion-specific error code? */
+				if ((ErrPtr->apr_err > APR_OS_START_USEERR)
+					&& (ErrPtr->apr_err <= APR_OS_START_CANONERR))
+					temp = svn_strerror (ErrPtr->apr_err, errbuf, sizeof (errbuf));
+				/* Otherwise, this must be an APR error code. */
+				else
+				{
+					svn_error_t *temp_err = NULL;
+					const char * err_string = NULL;
+					temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, sizeof (errbuf)-1), ErrPtr->pool);
+					if (temp_err)
+					{
+						svn_error_clear (temp_err);
+						temp = _T("Can't recode error string from APR");
+					}
+					else
+					{
+						temp = CUnicodeUtils::GetUnicode(err_string);
+					}
+				}
+			}
+			msg += temp;
+		}
+		return msg;
+	}
+	return _T("");
 }
 
 bool CAppUtils::HasClipboardFormat(UINT format)
