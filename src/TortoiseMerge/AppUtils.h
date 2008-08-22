@@ -45,7 +45,7 @@ public:
 	/**
 	 * Creates a unified diff from two files
 	 */
-	static bool CreateUnifiedDiff(const CString& orig, const CString& modified, const CString& output);
+	static bool CreateUnifiedDiff(const CString& orig, const CString& modified, const CString& output, bool bShowError);
 
 	static bool HasClipboardFormat(UINT format);
 	static CString GetErrorString(svn_error_t * Err);

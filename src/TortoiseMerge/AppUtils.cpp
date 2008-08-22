@@ -99,7 +99,7 @@ BOOL CAppUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSaveP
 	return TRUE;
 }
 
-bool CAppUtils::CreateUnifiedDiff(const CString& orig, const CString& modified, const CString& output)
+bool CAppUtils::CreateUnifiedDiff(const CString& orig, const CString& modified, const CString& output, bool bShowError)
 {
 	apr_file_t * outfile = NULL;
 	apr_pool_t * pool = svn_pool_create(NULL);
@@ -130,7 +130,8 @@ bool CAppUtils::CreateUnifiedDiff(const CString& orig, const CString& modified, 
 	}
 	if (err)
 	{
-		AfxMessageBox(CAppUtils::GetErrorString(err), MB_ICONERROR);
+		if (bShowError)
+			AfxMessageBox(CAppUtils::GetErrorString(err), MB_ICONERROR);
 		svn_error_clear(err);
 		svn_pool_destroy(pool);
 		return false;

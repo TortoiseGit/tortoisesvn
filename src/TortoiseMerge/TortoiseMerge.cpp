@@ -418,7 +418,7 @@ BOOL CTortoiseMergeApp::InitInstance()
 			}
 			if (!outfile.IsEmpty())
 			{
-				CAppUtils::CreateUnifiedDiff(origFile, modifiedFile, outfile);
+				CAppUtils::CreateUnifiedDiff(origFile, modifiedFile, outfile, false);
 				return FALSE;
 			}
 		}
