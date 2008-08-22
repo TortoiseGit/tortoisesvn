@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-08-09 14:07+0900\n"
+"PO-Revision-Date: 2008-08-22 11:03+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@suenaga.m.is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -617,6 +617,10 @@ msgstr "画像のみ(&I)"
 #. Resource IDs: (9, 1461)
 msgid "&Import..."
 msgstr "インポート(&I)"
+
+#. Resource IDs: (1480)
+msgid "&Include merge info"
+msgstr "マージ情報を含める(&I)"
 
 #. Resource IDs: (65535)
 msgid "&Initial directory:"
@@ -2236,6 +2240,10 @@ msgstr "完了"
 msgid "Configure Hook Scripts"
 msgstr "フックスクリプトの設定"
 
+#. Resource IDs: (284)
+msgid "Configure Issue Tracker Integration"
+msgstr "課題追跡システムの設定"
+
 #. Resource IDs: (65535)
 msgid "Configure the program used for comparing different revisions of files"
 msgstr "異なるリビジョンのファイルの比較に利用するプログラムの設定"
@@ -3846,8 +3854,8 @@ msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all ch
 msgstr "ヒント: 選択している部分以降を更新するには F5 を押し、全ての子階層を読み込むには Ctrl-F5 を押します"
 
 #. Resource IDs: (16519)
-msgid "Hint: select the context menu, change the page to \"Commands\" and drag the toolbar buttons into the menu window."
-msgstr "ヒント: コンテキストメニューを選択し、ページを \"コマンド\" に変更してメニューウィンドウにツールバーボタンをドラッグします。"
+msgid "Hint: select the context menu, change the page to 'Commands' and drag the toolbar buttons into the menu window."
+msgstr "ヒント: コンテキストメニューを選択し、ページを 'コマンド' に変更してメニューウィンドウにツールバーボタンをドラッグします。"
 
 #. Resource IDs: (1064)
 msgid "Home"
@@ -5916,6 +5924,10 @@ msgstr "再配置中 ..."
 #. Resource IDs: (207)
 msgid "Remote property status"
 msgstr "リモートの属性の状態"
+
+#. Resource IDs: (208)
+msgid "Remote revision"
+msgstr "リモートのリビジョン"
 
 #. Resource IDs: (63, 207)
 msgid "Remote status"
