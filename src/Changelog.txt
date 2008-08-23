@@ -54,6 +54,8 @@ Version 1.5.3
 - BUG: internal properties like bugtraq:, tsvn:, ... which had non-ascii
        chars in their values got garbled on newly added folders where those
        properties are automatically added. (Stefan)
+- BUG: Dragging files from the progress dialog didn't work if the paths had
+       spaces in them. (Stefan)
 
 Version 1.5.2
 - BUG: the "SVN Copy and Add" right-drag menu was not shown. (Stefan)

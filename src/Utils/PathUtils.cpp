@@ -311,7 +311,7 @@ CString CPathUtils::ParsePathInString(const CString& Str)
 {
 	CString sToken;
 	int curPos = 0;
-	sToken = Str.Tokenize(_T(" \t\r\n"), curPos);
+	sToken = Str.Tokenize(_T("'\t\r\n"), curPos);
 	while (!sToken.IsEmpty())
 	{
 		if ((sToken.Find('/')>=0)||(sToken.Find('\\')>=0))
@@ -319,7 +319,7 @@ CString CPathUtils::ParsePathInString(const CString& Str)
 			sToken.Trim(_T("'\""));
 			return sToken;
 		}
-		sToken = Str.Tokenize(_T(" \t\r\n"), curPos);
+		sToken = Str.Tokenize(_T("'\t\r\n"), curPos);
 	}
 	sToken.Empty();
 	return sToken;
@@ -481,6 +481,7 @@ public:
 	{
 		UnescapeTest();
 		ExtTest();
+		ParseTests();
 	}
 
 private:
@@ -502,6 +503,13 @@ private:
 		ATLASSERT(CPathUtils::GetFileExtFromPath(test).IsEmpty());
 		test = _T("filename");
 		ATLASSERT(CPathUtils::GetFileExtFromPath(test).IsEmpty());
+	}
+	void ParseTests()
+	{
+		CString test(_T("test 'd:\\testpath with spaces' test"));
+		ATLASSERT(CPathUtils::ParsePathInString(test).Compare(_T("d:\\testpath with spaces")) == 0);
+		test = _T("d:\\testpath with spaces");
+		ATLASSERT(CPathUtils::ParsePathInString(test).Compare(_T("d:\\testpath with spaces")) == 0);
 	}
 
 } CPathTests;
