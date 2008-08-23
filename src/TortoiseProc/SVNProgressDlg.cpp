@@ -1432,7 +1432,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				{
 					if (data)
 					{
-						CString sPath = CPathUtils::ParsePathInString(data->sPathColumnText);
+						CString sPath = GetPathFromColumnText(data->sPathColumnText);
 						if ((!sPath.IsEmpty())&&(!SVN::PathIsURL(sPath)))
 						{
 							CTSVNPath path = CTSVNPath(sPath);
@@ -1485,12 +1485,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						break;
 					case ID_EXPLORE:
 						{
-							CString sPath = CPathUtils::ParsePathInString(data->sPathColumnText);
-							if (sPath.Find(':')<0)
-							{
-								// the path is not absolute: add the common root of all paths to it
-								sPath = m_targetPathList.GetCommonRoot().GetDirectory().GetWinPathString() + _T("\\") + CPathUtils::ParsePathInString(data->sPathColumnText);
-							}
+							CString sPath = GetPathFromColumnText(data->sPathColumnText);
 
 							CTSVNPath path = CTSVNPath(sPath);
 							ShellExecute(m_hWnd, _T("explore"), path.GetDirectory().GetWinPath(), NULL, path.GetDirectory().GetWinPath(), SW_SHOW);
@@ -1566,13 +1561,8 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						break;
 					case ID_EDITCONFLICT:
 						{
-							CString sWinPath = data->path.GetWinPathString();
-							if (sWinPath.Find(':')<0)
-							{
-								// the path is not absolute: add the common root of all paths to it
-								sWinPath = m_targetPathList.GetCommonRoot().GetDirectory().GetWinPathString() + _T("\\") + CPathUtils::ParsePathInString(data->sPathColumnText);
-							}
-							SVNDiff::StartConflictEditor(CTSVNPath(sWinPath));
+							CString sPath = GetPathFromColumnText(data->sPathColumnText);
+							SVNDiff::StartConflictEditor(CTSVNPath(sPath));
 						}
 						break;
 					case ID_CONFLICTUSETHEIRS:
@@ -1659,13 +1649,8 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							// fetch the log from HEAD, not the revision we updated to:
 							// the path might be inside an external folder which has its own
 							// revisions.
-							CString sWinPath = data->path.GetWinPathString();
-							if (sWinPath.Find(':')<0)
-							{
-								// the path is not absolute: add the common root of all paths to it
-								sWinPath = m_targetPathList.GetCommonRoot().GetDirectory().GetWinPathString() + _T("\\") + CPathUtils::ParsePathInString(data->sPathColumnText);
-							}
-							dlg.SetParams(CTSVNPath(sWinPath), SVNRev(), SVNRev::REV_HEAD, 1, limit, TRUE);
+							CString sPath = GetPathFromColumnText(data->sPathColumnText);
+							dlg.SetParams(CTSVNPath(sPath), SVNRev(), SVNRev::REV_HEAD, 1, limit, TRUE);
 							dlg.DoModal();
 						}
 						break;
@@ -1674,13 +1659,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					case ID_OPEN:
 						{
 							int ret = 0;
-							CString sWinPath = data->path.GetWinPathString();
-							if (sWinPath.Find(':')<0)
-							{
-								// the path is not absolute: add the common root of all paths to it
-								sWinPath = m_targetPathList.GetCommonRoot().GetDirectory().GetWinPathString() + _T("\\") + CPathUtils::ParsePathInString(data->sPathColumnText);
-							}
-							TRACE(_T("test: %s\n"), m_targetPathList.GetCommonRoot().GetDirectory().GetWinPathString() + _T("\\") + CPathUtils::ParsePathInString(data->sPathColumnText));
+							CString sWinPath = GetPathFromColumnText(data->sPathColumnText);
 							if (!bOpenWith)
 								ret = (int)ShellExecute(this->m_hWnd, NULL, (LPCTSTR)sWinPath, NULL, NULL, SW_SHOWNORMAL);
 							if ((ret <= HINSTANCE_ERROR)||bOpenWith)
@@ -1725,17 +1704,7 @@ void CSVNProgressDlg::OnLvnBegindragSvnprogress(NMHDR* , LRESULT *pResult)
 
 		if ( data->kind==svn_node_file || data->kind==svn_node_dir )
 		{
-			CString sPath = CPathUtils::ParsePathInString(data->sPathColumnText);
-			if (sPath.Find(':')<0)
-			{
-				// the path is not absolute: add the current directory in front of it
-				DWORD len = GetCurrentDirectory(0, NULL);
-				TCHAR * buf = new TCHAR[len+1];
-				GetCurrentDirectory(len, buf);
-				sPath = buf;
-				sPath += _T("\\") + CPathUtils::ParsePathInString(data->sPathColumnText);
-				delete [] buf;
-			}
+			CString sPath = GetPathFromColumnText(data->sPathColumnText);
 
 			dropFiles.AddFile( sPath );
 		}
@@ -2495,3 +2464,13 @@ void CSVNProgressDlg::OnBnClickedNoninteractive()
 	m_AlwaysConflicted = (res == BST_CHECKED);
 }
 
+CString CSVNProgressDlg::GetPathFromColumnText(const CString& sColumnText)
+{
+	CString sPath = CPathUtils::ParsePathInString(sColumnText);
+	if (sPath.Find(':')<0)
+	{
+		// the path is not absolute: add the common root of all paths to it
+		sPath = m_targetPathList.GetCommonRoot().GetDirectory().GetWinPathString() + _T("\\") + CPathUtils::ParsePathInString(sColumnText);
+	}
+	return sPath;
+}

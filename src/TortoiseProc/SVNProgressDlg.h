@@ -228,6 +228,7 @@ private:
 	void		ReportString(CString sMessage, const CString& sMsgKind, COLORREF color = ::GetSysColor(COLOR_WINDOWTEXT));
 	void		AddItemToList();
 	CString		BuildInfoString();
+	CString		GetPathFromColumnText(const CString& sColumnText);
 
 	/**
 	 * Resizes the columns of the progress list so that the headings are visible.
