@@ -47,6 +47,8 @@
 					<exclude name="subversion\libsvn_repos" />
 					<exclude name="subversion\libsvn_ra_serf" />
 					<exclude name="subversion\libsvn_fs_util" />
+					<exclude name="subversion\libsvn_auth_gnome_keyring" />
+					<exclude name="subversion\libsvn_auth_kwallet" />
 				</items>
 			</in>
 			<do>
@@ -123,6 +125,8 @@
 				<items>
 					<include name="subversion\libsvn*" />
 					<exclude name="subversion\libsvn_fs_base" />
+					<exclude name="subversion\libsvn_auth_gnome_keyring" />
+					<exclude name="subversion\libsvn_auth_kwallet" />
 				</items>
 			</in>
 			<do>
@@ -206,6 +210,8 @@
 						<include name="subversion\svn" />
 						<include name="subversion\svnadmin" />
 						<include name="subversion\svnserve" />
+						<exclude name="subversion\libsvn_auth_gnome_keyring" />
+						<exclude name="subversion\libsvn_auth_kwallet" />
 					</items>
 				</in>
 				<do>
@@ -214,6 +220,7 @@
 					<rc rcfile="build\win32\svn.rc" output="${configuration}${static}_${platform}\svn.res">
 						<includedirs>
 							<include name="..\apr\include" />
+							<include name="..\apr-util\include" />
 							<include name="subversion\include" />
 						</includedirs>
 					</rc>
