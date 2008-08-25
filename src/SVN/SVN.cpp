@@ -2250,17 +2250,22 @@ BOOL SVN::GetWCRevisionStatus(const CTSVNPath& wcpath, bool bCommitted, svn_revn
 	return TRUE;
 }
 
-svn_revnum_t SVN::RevPropertySet(CString sName, CString sValue, CString sURL, SVNRev rev)
+svn_revnum_t SVN::RevPropertySet(CString sName, CString sValue, CString sOldValue, CString sURL, SVNRev rev)
 {
 	svn_revnum_t set_rev;
-	svn_string_t*	pval;
+	svn_string_t*	pval = NULL;
+	svn_string_t*	pval2 = NULL;
 	svn_error_clear(Err);
 	Err = NULL;
 
 	sValue.Replace(_T("\r"), _T(""));
 	pval = svn_string_create (CUnicodeUtils::GetUTF8(sValue), pool);
-	Err = svn_client_revprop_set(MakeSVNUrlOrPath(sName), 
+	if (!sOldValue.IsEmpty())
+		pval2 = svn_string_create (CUnicodeUtils::GetUTF8(sOldValue), pool);
+
+	Err = svn_client_revprop_set2(MakeSVNUrlOrPath(sName), 
 									pval, 
+									pval2,
 									MakeSVNUrlOrPath(sURL), 
 									rev, 
 									&set_rev, 

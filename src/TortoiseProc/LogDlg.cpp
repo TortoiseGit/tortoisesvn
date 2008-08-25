@@ -2046,6 +2046,7 @@ void CLogDlg::EditAuthor(int index)
 	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(index));
 	m_bCancelled = FALSE;
 	CString value = RevPropertyGet(name, url, pLogEntry->Rev);
+	CString sOldValue = value;
 	value.Replace(_T("\n"), _T("\r\n"));
 	CInputDlg dlg(this);
 	dlg.m_sHintText.LoadString(IDS_LOG_AUTHOR);
@@ -2056,7 +2057,7 @@ void CLogDlg::EditAuthor(int index)
 	if (dlg.DoModal() == IDOK)
 	{
 		dlg.m_sInputText.Replace(_T("\r"), _T(""));
-		if (!RevPropertySet(name, dlg.m_sInputText, url, pLogEntry->Rev))
+		if (!RevPropertySet(name, dlg.m_sInputText, sOldValue, url, pLogEntry->Rev))
 		{
 			CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		}
@@ -2106,6 +2107,7 @@ void CLogDlg::EditLogMessage(int index)
 	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(index));
 	m_bCancelled = FALSE;
 	CString value = RevPropertyGet(name, url, pLogEntry->Rev);
+	CString sOldValue = value;
 	value.Replace(_T("\n"), _T("\r\n"));
 	CInputDlg dlg(this);
 	dlg.m_sHintText.LoadString(IDS_LOG_MESSAGE);
@@ -2116,7 +2118,7 @@ void CLogDlg::EditLogMessage(int index)
 	if (dlg.DoModal() == IDOK)
 	{
 		dlg.m_sInputText.Replace(_T("\r"), _T(""));
-		if (!RevPropertySet(name, dlg.m_sInputText, url, pLogEntry->Rev))
+		if (!RevPropertySet(name, dlg.m_sInputText, sOldValue, url, pLogEntry->Rev))
 		{
 			CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		}

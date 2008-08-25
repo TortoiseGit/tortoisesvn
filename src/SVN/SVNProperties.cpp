@@ -371,7 +371,7 @@ BOOL SVNProperties::Add(const TCHAR * Name, std::string Value, svn_depth_t depth
 		if (m_bRevProps)
 		{
 			svn_revnum_t rev_set;
-			m_error = svn_client_revprop_set(pname_utf8.c_str(), pval, m_path.GetSVNApiPath(subpool), m_rev, &rev_set, false, m_pctx, subpool);
+			m_error = svn_client_revprop_set2(pname_utf8.c_str(), pval, NULL, m_path.GetSVNApiPath(subpool), m_rev, &rev_set, false, m_pctx, subpool);
 		}
 		else
 		{
@@ -419,7 +419,7 @@ BOOL SVNProperties::Remove(const TCHAR * Name, svn_depth_t depth, const TCHAR * 
 	if (m_bRevProps)
 	{
 		svn_revnum_t rev_set;
-		m_error = svn_client_revprop_set(pname_utf8.c_str(), NULL, m_path.GetSVNApiPath(subpool), m_rev, &rev_set, false, m_pctx, subpool);
+		m_error = svn_client_revprop_set2(pname_utf8.c_str(), NULL, NULL, m_path.GetSVNApiPath(subpool), m_rev, &rev_set, false, m_pctx, subpool);
 	}
 	else
 	{

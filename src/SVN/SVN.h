@@ -662,10 +662,12 @@ public:
 	/**
 	 * Set the revision property \a sName to the new value \a sValue.
 	 * \param sURL the URL of the file/folder
+	 * \param sValue the value for the new property
+	 * \param sOldValue the value the property had before, or an empty string if not known
 	 * \param rev the revision number to change the revprop
 	 * \return the actual revision number the property value was set
 	 */
-	svn_revnum_t RevPropertySet(CString sName, CString sValue, CString sURL, SVNRev rev);
+	svn_revnum_t RevPropertySet(CString sName, CString sValue, CString sOldValue, CString sURL, SVNRev rev);
 
 	/**
 	 * Reads the revision property \a sName and returns its value.
