@@ -304,7 +304,6 @@ CString SVN::GetErrorString(svn_error_t * Err, int wrap /* = 80 */)
 			temp.LoadString(IDS_SVNERR_RUNCLEANUP);
 			break;
 		case SVN_ERR_WC_NOT_UP_TO_DATE:
-		case SVN_ERR_RA_OUT_OF_DATE:
 		case SVN_ERR_FS_TXN_OUT_OF_DATE:
 			// do an update first
 			temp.LoadString(IDS_SVNERR_UPDATEFIRST);
