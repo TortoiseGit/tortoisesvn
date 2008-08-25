@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-08-14 20:13+0100\n"
+"PO-Revision-Date: 2008-08-25 11:20+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -84,7 +84,7 @@ msgstr "%1 má zlý format."
 #. Resource IDs: (3867)
 #, c-format
 msgid "%1 was not found."
-msgstr "%1 nebol nenajdený."
+msgstr "%1 nebol nájdený."
 
 #. Resource IDs: (3860)
 #, c-format
@@ -626,6 +626,10 @@ msgstr "Iba &obrázky"
 #. Resource IDs: (9, 1461)
 msgid "&Import..."
 msgstr "&Importovať"
+
+#. Resource IDs: (1480)
+msgid "&Include merge info"
+msgstr "&Zahrnúť info o zlúčení"
 
 #. Resource IDs: (65535)
 msgid "&Initial directory:"
@@ -2266,6 +2270,10 @@ msgstr "Hotovo"
 msgid "Configure Hook Scripts"
 msgstr "Nastaviť pripnuté skripty"
 
+#. Resource IDs: (284)
+msgid "Configure Issue Tracker Integration"
+msgstr "Nastaviť integráciu so sledovačom prípadov"
+
 #. Resource IDs: (65535)
 msgid "Configure the program used for comparing different revisions of files"
 msgstr "Nastaviť program na porovnanie rôznych revízií súborov."
@@ -3898,7 +3906,7 @@ msgstr "Pripnuté (hook)skripty"
 
 #. Resource IDs: (283)
 msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "Pripnuté skripty::Integracia so sledovaním prípadov"
+msgstr "Pripnuté skripty::Integracia so sledovačom prípadov"
 
 #. Resource IDs: (198)
 msgid "Hook Type"
