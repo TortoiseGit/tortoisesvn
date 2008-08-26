@@ -56,6 +56,8 @@ Version 1.5.3
        properties are automatically added. (Stefan)
 - BUG: Dragging files from the progress dialog didn't work if the paths had
        spaces in them. (Stefan)
+- BUG: The file diff dialog (compare revisions) could use the wrong
+       peg revision in certain situations. (Stefan)
 
 Version 1.5.2
 - BUG: the "SVN Copy and Add" right-drag menu was not shown. (Stefan)
