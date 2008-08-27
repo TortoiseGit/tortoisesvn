@@ -58,6 +58,8 @@ Version 1.5.3
        spaces in them. (Stefan)
 - BUG: The file diff dialog (compare revisions) could use the wrong
        peg revision in certain situations. (Stefan)
+- BUG: the shift-diff to use TortoiseMerge instead of the configured diff
+       tool didn't work for the filediff dialog. (Stefan)
 
 Version 1.5.2
 - BUG: the "SVN Copy and Add" right-drag menu was not shown. (Stefan)
