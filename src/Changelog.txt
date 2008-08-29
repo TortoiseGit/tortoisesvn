@@ -60,6 +60,8 @@ Version 1.5.3
        peg revision in certain situations. (Stefan)
 - BUG: the shift-diff to use TortoiseMerge instead of the configured diff
        tool didn't work for the filediff dialog. (Stefan)
+- BUG: The "add folder" in the repository browser only added the folder
+       itself without the files in it. (Stefan)
 
 Version 1.5.2
 - BUG: the "SVN Copy and Add" right-drag menu was not shown. (Stefan)

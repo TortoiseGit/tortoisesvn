@@ -2535,7 +2535,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 							CTSVNPath(EscapeUrl(CTSVNPath(urlList[0].GetSVNPathString()+_T("/")+filename))), 
 							input.GetLogMessage(), 
 							&m_ProjectProperties, 
-							svn_depth_empty, 
+							svn_depth_infinity, 
 							FALSE, FALSE))
 						{
 							progDlg.Stop();
