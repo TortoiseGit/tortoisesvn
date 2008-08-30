@@ -62,6 +62,8 @@ Version 1.5.3
        tool didn't work for the filediff dialog. (Stefan)
 - BUG: The "add folder" in the repository browser only added the folder
        itself without the files in it. (Stefan)
+- BUG: When changing the overlay icon set, the deleted overlay did not
+       show up anymore. (Stefan)
 
 Version 1.5.2
 - BUG: the "SVN Copy and Add" right-drag menu was not shown. (Stefan)

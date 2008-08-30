@@ -349,7 +349,7 @@ BOOL CSetOverlayIcons::OnApply()
 		m_regReadOnly = m_sIconPath + _T("\\") + m_sIconSet + _T("\\ReadOnlyIcon.ico");
 		if (m_regReadOnly.LastError != ERROR_SUCCESS)
 			CMessageBox::Show(m_hWnd, m_regReadOnly.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-		m_regDeleted = m_sIconPath + _T("\\") + m_sIconSet + _T("\\TDeletedIcon.ico");
+		m_regDeleted = m_sIconPath + _T("\\") + m_sIconSet + _T("\\DeletedIcon.ico");
 		if (m_regDeleted.LastError != ERROR_SUCCESS)
 			CMessageBox::Show(m_hWnd, m_regDeleted.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
 		m_regLocked = m_sIconPath + _T("\\") + m_sIconSet + _T("\\LockedIcon.ico");
