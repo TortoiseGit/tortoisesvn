@@ -1,3 +1,49 @@
+Version 1.5.3
+- CHG: paths in error messages are nor truncated to 80 chars anymore. (Stefan)
+- CHG: enabled rc4 encryption for the sasl dlls. (Stefan)
+- CHG: linked against neon 0.28.3
+- BUG: some context menu entries were shown if multiple items were
+       selected even if they only work on single items. (Stefan)
+- BUG: the move/copy right-drag menus were not shown if the target
+       folder was added but not yet committed. (Stefan)
+- BUG: fixed missing typecasts. This lead among others to "show log" not
+       working from the check-for-modifications dialog on x64. (Stefan)
+- BUG: Reverting multiple selected paths only showed the files from the first
+       selected path in the revert dialog. (Stefan)
+- BUG: the right-drag context menu did not show all commands for old
+       working copies (fresh checkout would fix this too). (Stefan)
+- BUG: Starting external applications (e.g., the diff tool) could fail if
+       the working copy is on the same drive as TSVN was installed to. (Stefan)
+- BUG: Upgrading could fail under certain circumstances which then required
+       an uninstall, reboot, reinstall cycle. (Stefan)
+- BUG: Sometimes conficts were shown as 'add's in the progress dialog. (Stefan)
+- BUG: Moving a file to the "ignore-on-commit" changelist removed the check
+       but the file would still get committed. (Stefan)
+- BUG: When starting TortoiseProc with '*' separated, relative file paths, the 
+       commit dialog would either just flash and exit or not show all the 
+       files from all specified paths. (Stefan)
+- BUG: TSVN would not use ssh clients set in the svn config file, only those
+       set in the TSVN settings dialog. (Stefan)
+- BUG: Moving files from one changelist to another by dragging them in the
+       commit and CfM dialog could hang. (Stefan)
+- BUG: If the commit dates were not in sequence with the revision numbers
+       which can happen when a repository is converted from other version
+       control systems, the statistics dialog would show a wrong 'by date'
+       graph. (Stefan)
+- BUG: internal properties like bugtraq:, tsvn:, ... which had non-ascii
+       chars in their values got garbled on newly added folders where those
+       properties are automatically added. (Stefan)
+- BUG: Dragging files from the progress dialog didn't work if the paths had
+       spaces in them. (Stefan)
+- BUG: The file diff dialog (compare revisions) could use the wrong
+       peg revision in certain situations. (Stefan)
+- BUG: the shift-diff to use TortoiseMerge instead of the configured diff
+       tool didn't work for the filediff dialog. (Stefan)
+- BUG: The "add folder" in the repository browser only added the folder
+       itself without the files in it. (Stefan)
+- BUG: When changing the overlay icon set, the deleted overlay did not
+       show up anymore. (Stefan)
+
 Version 1.5.2
 - BUG: the "SVN Copy and Add" right-drag menu was not shown. (Stefan)
 - BUG: Editing a conflict during a merge resulted in a crash.
