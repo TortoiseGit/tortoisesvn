@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-08-03 15:44+0200\n"
+"PO-Revision-Date: 2008-08-31 16:27+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -292,10 +292,6 @@ msgstr ""
 msgid "&..."
 msgstr "&..."
 
-#. Resource IDs: (65535)
-msgid "&?"
-msgstr "&?"
-
 #. Resource IDs: (57664)
 msgid "&About TortoiseMerge..."
 msgstr "&Tietoja TortoiseMerge-ohjelmasta..."
@@ -403,10 +399,6 @@ msgstr "&Painikkeen teksti:"
 #. Resource IDs: (1051)
 msgid "&CD-ROM"
 msgstr "&CD-levy"
-
-#. Resource IDs: (2, 332)
-msgid "&Cancel"
-msgstr "&Peruuta"
 
 #. Resource IDs: (65535)
 msgid "&Categories:"
@@ -676,6 +668,10 @@ msgstr "&Vain kuva"
 #. Resource IDs: (9, 1461)
 msgid "&Import..."
 msgstr "&Tuo..."
+
+#. Resource IDs: (1480)
+msgid "&Include merge info"
+msgstr "&Sisällytä yhdistämistiedot"
 
 #. Resource IDs: (65535)
 msgid "&Initial directory:"
@@ -1236,12 +1232,12 @@ msgstr ""
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
-"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
 "Rivinvaihdoin eroteltu lista polkuja, joille kuvakepäällystä ei näytetä.\r\n"
-"Jos lisäät \"*\" -merkin polun loppuun, kaikki tiedostot ja alikansiot polun sisällä jätetään myös pois.\n"
-"Tyhjä lista sallii päällykset kaikilla poluilla."
+"Jos lisäät \"*\" -merkin polun loppuun, kaikki tiedostot ja alikansiot polun sisällä jätetään myös pois.\r\n"
+"Tyhjä lista sallii kuvakepäällykset kaikilla poluilla."
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
@@ -1793,6 +1789,10 @@ msgstr "Vikatunnus"
 msgid "Bug-ID / Issue-Nr:"
 msgstr "Vikatunnus:"
 
+#. Resource IDs: (117)
+msgid "Bug-IDs"
+msgstr "Vikatunnukset"
+
 #. Resource IDs: (16132)
 msgid "Button Appearance"
 msgstr "Painikkeen ulkoasu"
@@ -2292,6 +2292,10 @@ msgstr "Valmis"
 msgid "Configure Hook Scripts"
 msgstr "Määrittele toimintokomennot"
 
+#. Resource IDs: (284)
+msgid "Configure Issue Tracker Integration"
+msgstr "Määrittele kytkös vikaseurantaohjelmaan"
+
 #. Resource IDs: (65535)
 msgid "Configure the program used for comparing different revisions of files"
 msgstr "Määritä ohjelma, jota käytetään eri tiedostoversioiden vertailuun"
@@ -2746,6 +2750,10 @@ msgstr ""
 "Leikkaa valinta ja liitä se Leikepöydälle\n"
 "Leikkaa"
 
+#. Resource IDs: (1279)
+msgid "D&etails"
+msgstr "&Yksityiskohdat"
+
 #. Resource IDs: (19, 76, 208)
 msgid "Date"
 msgstr "Päivä"
@@ -2829,10 +2837,6 @@ msgstr "Poista muutoslistan valinta"
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
 msgstr "Kohteen levytila on täynnä."
-
-#. Resource IDs: (1279)
-msgid "Details"
-msgstr "Yksityiskohtia"
 
 #. Resource IDs: (3849)
 msgid ""
@@ -3030,6 +3034,10 @@ msgstr "&Pois jätettävät polut:"
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
 msgstr "&Lopeta"
+
+#. Resource IDs: (1437)
+msgid "E&xport"
+msgstr "&Vie"
 
 #. Resource IDs: (9, 1382)
 msgid "E&xport..."
@@ -3895,8 +3903,8 @@ msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all ch
 msgstr "Vihje: Paina F5-näppäintä päivittääksesi hakemistopuun. Ctrl+F5 päivittää myös alihakemistot."
 
 #. Resource IDs: (16519)
-msgid "Hint: select the context menu, change the page to \"Commands\" and drag the toolbar buttons into the menu window."
-msgstr "Vihje: valitse kontekstivalikko, vaihda sivuksi \"Komennot\" ja raahaa työkalurivin painikkeita valikkoikkunaan."
+msgid "Hint: select the context menu, change the page to 'Commands' and drag the toolbar buttons into the menu window."
+msgstr "Vihje: valitse kontekstivalikko, vaihda sivuksi 'Komennot' ja raahaa työkalurivin painikkeita valikkoikkunaan."
 
 #. Resource IDs: (1064)
 msgid "Home"
@@ -4854,7 +4862,7 @@ msgid "Merging %s into %s, %s"
 msgstr "Yhdistetään %s -> %s, %s"
 
 #. Resource IDs: (264)
-msgid "Merging differences between repository urls"
+msgid "Merging differences between repository URLs"
 msgstr "Yhdistämässä arkistopaikantimien välisiä eroja"
 
 #. Resource IDs: (229)
@@ -5876,7 +5884,7 @@ msgstr "Päivitä"
 
 #. Resource IDs: (117)
 msgid ""
-"Regular expressions filter:\n"
+"Regular expressions filter:\r\n"
 ".   : any character\r\n"
 "c+   : match character c one or more times\r\n"
 "c*   : match character c zero or more times\r\n"
@@ -5892,7 +5900,7 @@ msgid ""
 "\\d   : digits 0-9\r\n"
 "\\s   : whitespaces"
 msgstr ""
-"Suodatin säännöllisille lausekkeille:\n"
+"Suodatin säännöllisille lausekkeille:\r\n"
 ".   : mikä tahansa merkki\r\n"
 "c+   : täsmää lauseke c kerran tai useammin\r\n"
 "c*   : täsmää lauseke c nolla kertaa tai useammin\r\n"
@@ -5966,6 +5974,10 @@ msgstr "Sijoitetaan uudelleen..."
 #. Resource IDs: (207)
 msgid "Remote property status"
 msgstr "Etäominaisuuden tila"
+
+#. Resource IDs: (208)
+msgid "Remote revision"
+msgstr "Etäversio"
 
 #. Resource IDs: (63, 207)
 msgid "Remote status"
@@ -6680,6 +6692,10 @@ msgstr "Valitse alkuversio"
 msgid "Select text editor application"
 msgstr "Valitse tekstieditoriohjelma"
 
+#. Resource IDs: (595)
+msgid "Select the URLs for the tree merge"
+msgstr "Valitse paikantimet puuyhdistämiselle"
+
 #. Resource IDs: (79)
 msgid "Select the behaviour of the progress dialog at the end of the operation."
 msgstr "Määritä edistymisestä kertovan ikkunan toiminta operaation päättyessä."
@@ -6703,10 +6719,6 @@ msgstr "Valitse yhdistettävät versiot"
 #. Resource IDs: (595)
 msgid "Select the type of merge"
 msgstr "Valitse yhdistämislaji"
-
-#. Resource IDs: (595)
-msgid "Select the urls for the tree merge"
-msgstr "Valitse paikantimet puuyhdistämiselle"
 
 #. Resource IDs: (78)
 msgid "Select viewer for diff-files"
@@ -7072,11 +7084,12 @@ msgstr "Määrittää kuinka monta viestiä säilytetään viimeisimpien lokivie
 
 #. Resource IDs: (79)
 msgid ""
-"Specify the files or folders which TortoiseSVN\n"
+"Specify the files or folders which TortoiseSVN\r\n"
 "should ignore in all working copies.\r\n"
 "Separate the patterns with a space."
 msgstr ""
-"Määritä tiedostot tai kansiot, jotka TortoiseSVN ohittaa kaikissa työkopioissa.\r\n"
+"Määritä tiedostot tai kansiot, jotka TortoiseSVN\r\n"
+"ohittaa kaikissa työkopioissa.\r\n"
 "Erota lausekkeet välilyönnein."
 
 #. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
@@ -8028,6 +8041,10 @@ msgstr "Kokeile uudestaan"
 msgid "Tweak TortoiseSVN"
 msgstr "Viritä TortoiseSVN:ää"
 
+#. Resource IDs: (1436)
+msgid "U&pdate"
+msgstr "&Päivitä"
+
 #. Resource IDs: (164, 207)
 msgid "URL"
 msgstr "Paikannin"
@@ -8518,13 +8535,13 @@ msgstr "Varoitus!"
 
 #. Resource IDs: (344)
 msgid ""
-"When connecting to the respository server is not possible,\n"
+"When connecting to the repository server is not possible,\n"
 "TSVN can switch to using cached data only.\n"
-"Select the default beviour here."
+"Select the default behaviour here."
 msgstr ""
 "Jos kytkeytyminen arkistopalvelimelle ei onnistu,\n"
-"TSVN voi siirtyä käyttämään pelkästään välimuistissa olevia tietoja.\n"
-"Valitse oletusarvoinen toiminta tästä."
+"TSVN voi siirtyä käyttämään pelkästään välimuistia.\n"
+"Valitse tässä oletustoiminta."
 
 #. Resource IDs: (197)
 msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
@@ -9284,12 +9301,12 @@ msgstr ""
 msgid ""
 "svn:mime-type\r\n"
 "The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\r\n"
-"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\r\n"
 "Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\r\n"
 "Tiedoston MIME-tyyppi. Määrittää, yhdistetäänkö tiedosto, ja kuinka se haetaan Apachesta.\r\n"
-"MIME-tyyppiä, jonka alussa on 'text/' (tai puuttuvaa MIME-tyyppiä) kohdellaan tekstinä.\n"
+"MIME-tyyppiä, jonka alussa on 'text/' (tai puuttuvaa MIME-tyyppiä) kohdellaan tekstinä.\r\n"
 "Kaikkea muuta kohdellaan binäärisenä."
 
 #. Resource IDs: (576)
@@ -9390,26 +9407,22 @@ msgstr ""
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logtemplate\r\n"
-"String which is inserted in the log message boxes in the commit dialogs.\n"
-"\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message templates for users to fill in."
 msgstr ""
 "tsvn:logtemplate\r\n"
-"Merkkijono, joka lisätään lokiviestikenttään toimitusikkunassa.\n"
-"\n"
+"Merkkijono, joka lisätään lokiviestikenttään toimitusikkunassa.\r\n"
 "Käytä tätä lokiviestikaavaimena, jonka käyttäjät täyttävät."
 
 #. Resource IDs: (578)
 msgid ""
-"tsvn:logwidthmarker\n"
-"\n"
+"tsvn:logwidthmarker\r\n"
 "Set this to the number of chars the log message should not exceed its width.\r\n"
 "A faded line is shown in the commit dialogs at that position. The default is 80 chars."
 msgstr ""
-"tsvn:logwidthmarker\n"
-"\n"
+"tsvn:logwidthmarker\r\n"
 "Määrittää lokiviestin maksimileveyden.\r\n"
-"Toimitusikkuna näyttää viivan tässä kohtaa. Oletusarvo on 80 merkkiä."
+"Toimitusikkuna näyttää viivan tässä kohdassa. Oletusleveys on 80 merkkiä."
 
 #. Resource IDs: (578)
 msgid ""
@@ -9460,12 +9473,12 @@ msgstr "arvot eroavat toisistaan"
 #. Resource IDs: (579)
 #, c-format
 msgid ""
-"webviewer:pathrevision\n"
+"webviewer:pathrevision\r\n"
 "URL pointing to the web viewer for the repository for a specific file and revision.\r\n"
 "The string %REVISION% in the URL is replaced with the revision number,\r\n"
 "the string %PATH% is replaced with the path to the file relative to the repository root."
 msgstr ""
-"webviewer:pathrevision\n"
+"webviewer:pathrevision\r\n"
 "Paikannin, joka avaa web-selaimen näyttämään tiettyä arkiston tiedostoversiota.\r\n"
 "Merkkijono %REVISION% korvataan versionumerolla;\r\n"
 "merkkijono %PATH% korvataan arkiston juureen suhteellisella tiedostopolulla."
@@ -9505,6 +9518,10 @@ msgstr "kyllä"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "&?"
+#~ msgstr "&?"
+#~ msgid "&Cancel"
+#~ msgstr "&Peruuta"
 #~ msgid "Merge all..."
 #~ msgstr "Yhdistä kaikki..."
 #~ msgid "SVN Export to here"
