@@ -357,7 +357,7 @@ BOOL CPatch::OpenUnifiedDiffFile(const CString& filename)
 					//but maybe in the future the patch algorithm can be
 					//extended to use those in case the file to patch has
 					//already changed and no base file is around...
-					chunk->arLines.Add(sLine.Mid(1));
+					chunk->arLines.Add(RemoveUnicodeBOM(sLine.Mid(1)));
 					chunk->arLinesStates.Add(PATCHSTATE_CONTEXT);
 					chunk->arEOLs.push_back(ending);
 					nContextLineCount++;
