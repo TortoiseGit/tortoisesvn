@@ -1761,8 +1761,11 @@ bool CSVNProgressDlg::CmdCheckout(CString& sWindowTitle, bool& /*localoperation*
 		SetWindowText(sWindowTitle);
 		checkoutdir = m_targetPathList[0];
 		if (urls.GetCount() > 1)
-			checkoutdir.AppendPathString(urls[i].GetFileOrDirectoryName());
-
+		{
+			CString fileordir = urls[i].GetFileOrDirectoryName();
+			fileordir = CPathUtils::PathUnescape(fileordir);
+			checkoutdir.AppendPathString(fileordir);
+		}
 		CString sCmdInfo;
 		sCmdInfo.Format(IDS_PROGRS_CMD_CHECKOUT, 
 			(LPCTSTR)urls[i].GetSVNPathString(), (LPCTSTR)m_Revision.ToString(), 
