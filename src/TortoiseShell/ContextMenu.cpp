@@ -356,10 +356,11 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 								try
 								{
 									SVNStatus stat;
-									stat.GetStatus(CTSVNPath(strpath), false, true, true);
+									if (strpath.HasAdminDir())
+										stat.GetStatus(strpath, false, true, true);
+									statuspath = str;
 									if (stat.status)
 									{
-										statuspath = str;
 										status = SVNStatus::GetMoreImportant(stat.status->text_status, stat.status->prop_status);
 										fetchedstatus = status;
 										if ((stat.status->entry)&&(stat.status->entry->lock_token))
@@ -386,7 +387,10 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 										// in that case, we have to check if the working copy is versioned
 										// anyway to show the 'correct' context menu
 										if (strpath.HasAdminDir())
+										{
 											status = svn_wc_status_normal;
+											fetchedstatus = status;
+										}
 									}
 									statfetched = TRUE;
 								}
