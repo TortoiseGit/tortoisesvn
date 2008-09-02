@@ -34,6 +34,7 @@
 #endif
 
 SVNStatus::SVNStatus(bool * pbCanceled)
+	: status(NULL)
 {
 	m_pool = svn_pool_create (NULL);
 	
