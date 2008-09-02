@@ -28,7 +28,7 @@
 //    Bit1 = TortoiseSVN manual available
 //    Bit2 = TortoiseMerge manual available
 // 3: Country code. Used to display the flag. The [flagname].png has to match this column
-// 4: Full country name.
+// 4: Full language name.
 // 5: List of translators.
 $countries = array(
 "bg"    => array("1","001","bg","Bulgarian","Milen A. Radev"),
