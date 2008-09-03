@@ -14,8 +14,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-08-27 19:30+0100\n"
+"PO-Revision-Date: 2008-09-03 20:04+0100\n"
 "Last-Translator: Stefan Küng <stefankueng@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1401,7 +1402,7 @@ msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
-"Lista putanja razdvojenih sa njulajn za koje je prikazano preklapanje ikona.\r\n"
+"Lista putanja razdvojenih sa novred za koje je prikazano preklapanje ikona.\r\n"
 "Ako dodate \"*\" karakter na kraj putanje, onda svi imenici i podimenici unutar putanje su takođe uključeni."
 
 #
@@ -1411,7 +1412,7 @@ msgid ""
 "If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
-"Lista putanja razdvojenih sa njulajn za koje je prikazano preklapanje ikona.\r\n"
+"Lista putanja razdvojenih sa novred za koje je prikazano preklapanje ikona.\r\n"
 "Ako dodate \"*\" karakter na kraj putanje, onda svi direktorijumi i poddirektorijumi unutar putanje su takođe uključeni.\r\n"
 "Prazna lista će dozvoliti preklapanje na svim putanjama."
 
@@ -2190,7 +2191,7 @@ msgstr "Otkazivanje operacije..."
 #
 #. Resource IDs: (68)
 msgid "Cannot show diff because of inconsistent newlines in the file."
-msgstr "Ne može se prikazati razl zbog neusklađenih znakova za njulajn u fajlu."
+msgstr "Ne može se prikazati razl zbog neusklađenih znakova za novred u fajlu."
 
 #. Resource IDs: (16926)
 msgid "Cascade"
@@ -2661,6 +2662,10 @@ msgstr "Završeno"
 #. Resource IDs: (236, 284)
 msgid "Configure Hook Scripts"
 msgstr "Podesi zakačive skripte"
+
+#. Resource IDs: (284)
+msgid "Configure Issue Tracker Integration"
+msgstr "Konfiguriše integraciju tragača izdavanja"
 
 #
 #. Resource IDs: (65535)
@@ -10384,7 +10389,7 @@ msgid ""
 "the second expression is used to extract the bare bug ID from that string."
 msgstr ""
 "bugtraq:logregex\r\n"
-"dva regularna izraza odvojena sa njulajn\r\n"
+"dva regularna izraza odvojena sa novred\r\n"
 "Prvi izraz se koristi za pronalazak stringa koji se odnosi na sporno pitanje,\r\n"
 "drugi izraz se koristi kako bi izvukao osnovni ID buga iz tog stringa."
 
@@ -10762,7 +10767,7 @@ msgid ""
 "/ relative to the server's hostname"
 msgstr ""
 "svn:spoljašnji\r\n"
-"Lista podeljena sa njulajn modul specifikator, svaka od kojih se sastoji od\n"
+"Lista podeljena sa novred modul specifikator, svaka od kojih se sastoji od\n"
 "neobavezne revizije,  URL i  relativnu putanju imenika. Na primer\r\n"
 "http://example.com/repos/zig\tfoo\r\n"
 "-r 1234\thttp://example.com/repos/zag\tfoo/bar\r\n"
@@ -10781,7 +10786,7 @@ msgid ""
 "A newline separated list of file patterns to ignore."
 msgstr ""
 "svn:ignore\r\n"
-"Lista fajl oznaka izdvojena sa njulajn za zanemarivanje ."
+"Lista fajl oznaka izdvojena sa novred za zanemarivanje ."
 
 #
 #. Resource IDs: (576)
@@ -10812,7 +10817,7 @@ msgid ""
 "/trunk:123-125,129"
 msgstr ""
 "svn:mergeinfo\r\n"
-"Popis informacija o praćenju spajanja odvojenih sa njulajn. Svaki redak se sastoji od\r\n"
+"Popis informacija o praćenju spajanja odvojenih sa novred. Svaki redak se sastoji od\r\n"
 "pune putanje nakon koje sledi dvotočka i popis brojeva revizija odvojenih zarezima.\r\n"
 "Na primer\r\n"
 "/trunk:123-125,129"
@@ -10893,7 +10898,7 @@ msgid ""
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 msgstr ""
 "tsvn:autoprops\r\n"
-"Lista osobina razdvojene sa njulajn koja će se automatski primeniti kad dodajete/uvozite fajlove.\r\n"
+"Lista osobina razdvojene sa novred koja će se automatski primeniti kad dodajete/uvozite fajlove.\r\n"
 "Format: <filemask> = svojstvo=vrednost;svojstvo=vrednost\n"
 "Primer: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
@@ -10976,7 +10981,7 @@ msgid ""
 "be shown in the property dialog to choose from."
 msgstr ""
 "tsvn:userfileproperties\r\n"
-"Lista razdvojena sa njulajn korisničkih osobina za fajlove koja će\r\n"
+"Lista razdvojena sa novred korisničkih osobina za fajlove koja će\r\n"
 "biti prikazana u dijalogu za izbor svojstava."
 
 #
@@ -10987,7 +10992,7 @@ msgid ""
 "be shown in the property dialog to choose from."
 msgstr ""
 "tsvn:userfolderproperties\r\n"
-"Lista razdvojena sa njulajn korisničkih osobina za imenike koja će\n"
+"Lista razdvojena sa novred korisničkih osobina za imenike koja će\n"
 "biti prikazana u dijalogu za izbor svojstava."
 
 #
