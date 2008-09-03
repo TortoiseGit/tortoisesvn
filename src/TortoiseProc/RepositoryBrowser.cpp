@@ -355,7 +355,9 @@ void CRepositoryBrowser::InitRepo()
 			nID = IDI_REPO_SVNSSH;
 		if (m_strReposRoot.Left(7).CompareNoCase(_T("file://"))==0)
 			nID = IDI_REPO_FILE;
-		CAppUtils::SetListCtrlBackgroundImage(m_RepoList.GetSafeHwnd(), nID);
+		CXPTheme theme;
+		if (theme.IsAppThemed())
+			CAppUtils::SetListCtrlBackgroundImage(m_RepoList.GetSafeHwnd(), nID);
 	}
 }
 
