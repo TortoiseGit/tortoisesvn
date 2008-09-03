@@ -1291,7 +1291,9 @@ void CCacheLogQuery::Log ( const CTSVNPathList& targets
     // get the URL for that path
 
     CTSVNPath url = path.IsUrl()
-        ? path
+		// GetURLFromPath() always returns the URL escaped, so we have to escape the url we
+		// get from the client too.
+		? CTSVNPath (CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(path.GetSVNPathString()))))
 		: CTSVNPath (repositoryInfoCache->GetSVN().GetURLFromPath (path));
 
 	// decode revisions
