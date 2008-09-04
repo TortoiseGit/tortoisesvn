@@ -26,6 +26,8 @@ Version 1.5.4
        to unescape the target folder. (Stefan)
 - BUG: If an url had special chars which needed escaping below the 
        repository root, showing the log did not always work. (Stefan)
+- BUG: Comparing two revisions sometimes did not work if the url didn't
+       exist anymore in HEAD. (Stefan)
 
 Version 1.5.3
 - CHG: paths in error messages are nor truncated to 80 chars anymore. (Stefan)
