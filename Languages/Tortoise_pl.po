@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-08-13 11:03+0100\n"
+"PO-Revision-Date: 2008-09-04 21:58+0100\n"
 "Last-Translator: Krzysztof Kotowicz <koto@webworkers.pl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -618,6 +618,10 @@ msgstr "&Tylko obraz"
 #. Resource IDs: (9, 1461)
 msgid "&Import..."
 msgstr "&Importuj..."
+
+#. Resource IDs: (1480)
+msgid "&Include merge info"
+msgstr "Dodaj &informacje o scaleniach"
 
 #. Resource IDs: (65535)
 msgid "&Initial directory:"
@@ -2252,6 +2256,10 @@ msgstr "Zakończono"
 msgid "Configure Hook Scripts"
 msgstr "Konfiguruj hook-skrypty"
 
+#. Resource IDs: (284)
+msgid "Configure Issue Tracker Integration"
+msgstr "Konfiguruj integrację z systemami śledzenia błędów"
+
 #. Resource IDs: (65535)
 msgid "Configure the program used for comparing different revisions of files"
 msgstr "Skonfiguruj program używany w celu porównywania różnych wersji plików."
@@ -3861,8 +3869,8 @@ msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all ch
 msgstr "Podpowiedź: Naciśnij F5 aby odświeżyć wybraną gałąź drzewa, Ctrl-F5 aby dodatkowo wyświetlić wszystkie podgałęzie."
 
 #. Resource IDs: (16519)
-msgid "Hint: select the context menu, change the page to \"Commands\" and drag the toolbar buttons into the menu window."
-msgstr "Podpowiedź: wybierz menu kontekstowe, zmień zakładkę na \"Komendy\" i przeciągnij przyciski paska narzędzi do okna menu."
+msgid "Hint: select the context menu, change the page to 'Commands' and drag the toolbar buttons into the menu window."
+msgstr "Hint: select the context menu, change the page to 'Commands' and drag the toolbar buttons into the menu window."
 
 #. Resource IDs: (1064)
 msgid "Home"
@@ -5927,6 +5935,10 @@ msgstr "Przenoszenie..."
 #. Resource IDs: (207)
 msgid "Remote property status"
 msgstr "Zdalny status atrybutu"
+
+#. Resource IDs: (208)
+msgid "Remote revision"
+msgstr "&Zdalna wersja"
 
 #. Resource IDs: (63, 207)
 msgid "Remote status"
