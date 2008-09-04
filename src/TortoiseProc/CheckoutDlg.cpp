@@ -97,8 +97,10 @@ BOOL CCheckoutDlg::OnInitDialog()
 	m_editRevision.SetWindowText(_T(""));
 
 	if (!sUrlSave.IsEmpty())
+	{
+		SetDlgItemText(IDC_CHECKOUTDIRECTORY, m_sCheckoutDirOrig);
 		m_URLCombo.SetWindowText(sUrlSave);
-
+	}
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_CHECKOUTDIRECTORY, IDS_CHECKOUT_TT_DIR);
 
