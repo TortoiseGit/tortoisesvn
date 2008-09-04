@@ -28,6 +28,8 @@ Version 1.5.4
        repository root, showing the log did not always work. (Stefan)
 - BUG: Comparing two revisions sometimes did not work if the url didn't
        exist anymore in HEAD. (Stefan)
+- BUG: Diffing/Blaming from TortoiseBlame on merged revisions did not
+       work in certain situations. (Stefan)
 
 Version 1.5.3
 - CHG: paths in error messages are nor truncated to 80 chars anymore. (Stefan)

@@ -45,6 +45,7 @@ BOOL CBlame::BlameCallback(LONG linenumber, svn_revnum_t revision, const CString
 {
 	CStringA infolineA;
 	CStringA fulllineA;
+	svn_revnum_t origrev = revision;
 
 	if (((m_lowestrev < 0)||(m_lowestrev > revision))&&(revision >= 0))
 		m_lowestrev = revision;
@@ -76,9 +77,9 @@ BOOL CBlame::BlameCallback(LONG linenumber, svn_revnum_t revision, const CString
 	if (authorA.GetLength() > 30 )
 		authorA = authorA.Left(30);
 	if (m_bNoLineNo)
-		infolineA.Format("%c %6ld %-30s %-60s %-30s ", c, revision, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
+		infolineA.Format("%c %6ld %6ld %-30s %-60s %-30s ", c, revision, origrev, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
 	else
-		infolineA.Format("%c %6ld %6ld %-30s %-60s %-30s ", c, linenumber, revision, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
+		infolineA.Format("%c %6ld %6ld %6ld %-30s %-60s %-30s ", c, linenumber, revision, origrev, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
 	fulllineA = line;
 	fulllineA.TrimRight("\r\n");
 	fulllineA += "\n";
@@ -133,7 +134,7 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
 		return _T("");
 	CString headline;
 	m_bNoLineNo = false;
-	headline.Format(_T("%c %-6s %-6s %-30s %-60s %-30s %-s \n"), ' ', _T("line"), _T("rev"), _T("date"), _T("path"), _T("author"), _T("content"));
+	headline.Format(_T("%c %-6s %-6s %-6s %-30s %-60s %-30s %-s \n"), ' ', _T("line"), _T("rev"), _T("rev"), _T("date"), _T("path"), _T("author"), _T("content"));
 	m_saveFile.WriteString(headline);
 	m_saveFile.WriteString(_T("\n"));
 	m_progressDlg.SetTitle(IDS_BLAME_PROGRESSTITLE);

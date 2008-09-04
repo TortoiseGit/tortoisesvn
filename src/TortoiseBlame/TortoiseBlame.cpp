@@ -71,6 +71,7 @@ TortoiseBlame::TortoiseBlame()
 	m_mouserev = -2;
 
 	m_selectedrev = -1;
+	m_selectedorigrev = -1;
 	m_SelectedLine = -1;
 	m_directPointer = 0;
 	m_directFunction = 0;
@@ -234,6 +235,9 @@ BOOL TortoiseBlame::OpenFile(const char *fileName)
 			revs.push_back(rev);
 			m_lowestrev = min(m_lowestrev, rev);
 			m_highestrev = max(m_highestrev, rev);
+			lineptr += 7;
+			rev = _ttol(lineptr);
+			origrevs.push_back(rev);
 			lineptr += 7;
 			dates.push_back(std::string(lineptr, 30));
 			lineptr += 31;
@@ -607,7 +611,7 @@ void TortoiseBlame::CopySelectedLogToClipboard()
 
 void TortoiseBlame::BlamePreviousRevision()
 {
-	LONG nRevisionTo = m_selectedrev - 1;
+	LONG nRevisionTo = m_selectedorigrev - 1;
 	if ( nRevisionTo<1 )
 	{
 		return;
@@ -674,7 +678,7 @@ void TortoiseBlame::BlamePreviousRevision()
 
 void TortoiseBlame::DiffPreviousRevision()
 {
-	LONG nRevisionTo = m_selectedrev;
+	LONG nRevisionTo = m_selectedorigrev;
 	if ( nRevisionTo<1 )
 	{
 		return;
@@ -712,7 +716,7 @@ void TortoiseBlame::DiffPreviousRevision()
 void TortoiseBlame::ShowLog()
 {
 	char bufRev[20];
-	_stprintf_s(bufRev, 20, _T("%d"), m_selectedrev);
+	_stprintf_s(bufRev, 20, _T("%d"), m_selectedorigrev);
 
 	STARTUPINFO startup;
 	PROCESS_INFORMATION process;
@@ -1738,6 +1742,7 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 				if (app.revs[line] != app.m_selectedrev)
 				{
 					app.m_selectedrev = app.revs[line];
+					app.m_selectedorigrev = app.origrevs[line];
 					app.m_selectedauthor = app.authors[line];
 					app.m_selecteddate = app.dates[line];
 				}
@@ -1746,6 +1751,7 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 					app.m_selectedauthor.clear();
 					app.m_selecteddate.clear();
 					app.m_selectedrev = -2;
+					app.m_selectedorigrev = -2;
 				}
 				::InvalidateRect(app.wBlame, NULL, FALSE);
 			}

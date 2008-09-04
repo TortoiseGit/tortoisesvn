@@ -105,6 +105,7 @@ public:
 	LONG						m_mouserev;
 	std::string					m_mouseauthor;
 	LONG						m_selectedrev;
+	LONG						m_selectedorigrev;
 	std::string					m_selectedauthor;
 	std::string					m_selecteddate;
 	static long					m_gotoline;
@@ -114,6 +115,7 @@ public:
 
 	std::vector<bool>			mergelines;
 	std::vector<LONG>			revs;
+	std::vector<LONG>			origrevs;
 	std::vector<std::string>	dates;
 	std::vector<std::string>	authors;
 	std::vector<std::string>	paths;
