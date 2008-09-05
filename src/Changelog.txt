@@ -32,6 +32,8 @@ Version 1.5.4
        work in certain situations. (Stefan)
 - BUG: Unescape the target paths when exporting the changed files from
        the file diff dialog. (Stefan)
+- BUG: the 'unversioned' overlay for folders didn't show up for some
+       unversioned folders. (Stefan)
 
 Version 1.5.3
 - CHG: paths in error messages are nor truncated to 80 chars anymore. (Stefan)

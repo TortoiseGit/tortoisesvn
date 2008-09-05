@@ -200,7 +200,7 @@ void CStatusCacheEntry::SetAsUnversioned()
 	if (m_highestPriorityLocalStatus == svn_wc_status_ignored)
 		status = svn_wc_status_ignored;
 	if (m_highestPriorityLocalStatus == svn_wc_status_unversioned)
-		status = svn_wc_status_none;
+		status = svn_wc_status_unversioned;
 	m_highestPriorityLocalStatus = status;
 	m_svnStatus.prop_status = svn_wc_status_none;
 	m_svnStatus.text_status = status;
