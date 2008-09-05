@@ -708,12 +708,15 @@ UINT CFileDiffDlg::ExportThread()
 			// children of that added folder.
 			if ((fd.kind == svn_client_diff_summarize_kind_added)&&(!Export(url2, savepath, m_bDoPegDiff ? m_peg : m_rev2, m_rev2, true, true)))
 			{
-				CMessageBox::Show(NULL, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-				delete m_pProgDlg;
-				m_pProgDlg = NULL;
-				InterlockedExchange(&m_bThreadRunning, FALSE);
-				RefreshCursor();
-				return 1;
+				if ((!m_bDoPegDiff)||(!Export(url2, savepath, m_rev2, m_rev2, true, true)))
+				{
+					delete m_pProgDlg;
+					m_pProgDlg = NULL;
+					CMessageBox::Show(NULL, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+					InterlockedExchange(&m_bThreadRunning, FALSE);
+					RefreshCursor();
+					return 1;
+				}
 			}
 		}
 		else
@@ -722,12 +725,15 @@ UINT CFileDiffDlg::ExportThread()
 			// with folders.
 			if ((fd.kind != svn_client_diff_summarize_kind_deleted)&&(!Cat(url2, m_bDoPegDiff ? m_peg : m_rev2, m_rev2, savepath)))
 			{
-				CMessageBox::Show(NULL, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-				delete m_pProgDlg;
-				m_pProgDlg = NULL;
-				InterlockedExchange(&m_bThreadRunning, FALSE);
-				RefreshCursor();
-				return 1;
+				if ((!m_bDoPegDiff)||(!Cat(url2, m_rev2, m_rev2, savepath)))
+				{
+					delete m_pProgDlg;
+					m_pProgDlg = NULL;
+					CMessageBox::Show(NULL, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+					InterlockedExchange(&m_bThreadRunning, FALSE);
+					RefreshCursor();
+					return 1;
+				}
 			}
 		}
 		count++;
