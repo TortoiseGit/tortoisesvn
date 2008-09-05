@@ -30,6 +30,8 @@ Version 1.5.4
        exist anymore in HEAD. (Stefan)
 - BUG: Diffing/Blaming from TortoiseBlame on merged revisions did not
        work in certain situations. (Stefan)
+- BUG: Unescape the target paths when exporting the changed files from
+       the file diff dialog. (Stefan)
 
 Version 1.5.3
 - CHG: paths in error messages are nor truncated to 80 chars anymore. (Stefan)

@@ -693,14 +693,14 @@ UINT CFileDiffDlg::ExportThread()
 		if ((fd.node == svn_node_dir)&&(fd.kind != svn_client_diff_summarize_kind_added))
 		{
 			// just create the directory
-			CreateDirectoryEx(NULL, m_strExportDir+_T("\\")+fd.path.GetWinPathString(), NULL);
+			CreateDirectoryEx(NULL, m_strExportDir+_T("\\")+CPathUtils::PathUnescape(fd.path.GetWinPathString()), NULL);
 			continue;
 		}
 
 		CString sTemp;
 		m_pProgDlg->FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)url1.GetSVNPathString());
 
-		CTSVNPath savepath = CTSVNPath(m_strExportDir + _T("\\") + fd.path.GetWinPathString());
+		CTSVNPath savepath = CTSVNPath(m_strExportDir + _T("\\") + CPathUtils::PathUnescape(fd.path.GetWinPathString()));
 		CPathUtils::MakeSureDirectoryPathExists(fd.node == svn_node_file ? savepath.GetContainingDirectory().GetWinPath() : savepath.GetDirectory().GetWinPath());
 		if (fd.node == svn_node_dir)
 		{
