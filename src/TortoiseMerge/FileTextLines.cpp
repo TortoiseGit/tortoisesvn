@@ -62,13 +62,18 @@ CFileTextLines::UnicodeType CFileTextLines::CheckUnicodeType(LPVOID pBuffer, int
 		pVal2++;
 	}
 	pVal2 = (UINT8 *)pBuffer;
+	bool bUTF8 = false;
+	bool bNonANSI = false;
 	for (int i=0; i<(cb-3); ++i)
 	{
+		if (*pVal2 > 127)
+			bNonANSI = true;
 		if ((*pVal2 & 0xE0)==0xC0)
 		{
 			pVal2++;i++;
 			if ((*pVal2 & 0xC0)!=0x80)
 				return CFileTextLines::ASCII;
+			bUTF8 = true;
 		}
 		if ((*pVal2 & 0xF0)==0xE0)
 		{
@@ -78,6 +83,7 @@ CFileTextLines::UnicodeType CFileTextLines::CheckUnicodeType(LPVOID pBuffer, int
 			pVal2++;i++;
 			if ((*pVal2 & 0xC0)!=0x80)
 				return CFileTextLines::ASCII;
+			bUTF8 = true;
 		}
 		if ((*pVal2 & 0xF8)==0xF0)
 		{
@@ -90,10 +96,15 @@ CFileTextLines::UnicodeType CFileTextLines::CheckUnicodeType(LPVOID pBuffer, int
 			pVal2++;i++;
 			if ((*pVal2 & 0xC0)!=0x80)
 				return CFileTextLines::ASCII;
+			bUTF8 = true;
 		}
 		pVal2++;
 	}
-	return CFileTextLines::UTF8;
+	if (bUTF8)
+		return CFileTextLines::UTF8;
+	if (!bNonANSI)
+		return CFileTextLines::UTF8;
+	return CFileTextLines::ASCII;
 }
 
 
