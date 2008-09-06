@@ -2413,7 +2413,7 @@ void CBaseView::UseTheirAndYourBlock(viewstate &rightstate, viewstate &bottomsta
 	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
 	{
 		leftstate.addedlines.push_back(m_nSelBlockStart);
-		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockEnd, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
+		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockStart, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
 		m_pwndRight->m_pViewData->InsertData(m_nSelBlockEnd+1, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
 		rightstate.addedlines.push_back(m_nSelBlockEnd+1);
 	}
@@ -2431,8 +2431,9 @@ void CBaseView::UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomsta
 	{
 		bottomstate.difflines[i] = m_pwndBottom->m_pViewData->GetLine(i);
 		m_pwndBottom->m_pViewData->SetLine(i, m_pwndRight->m_pViewData->GetLine(i));
-		rightstate.linestates[i] = m_pwndBottom->m_pViewData->GetState(i);
-		m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
+		bottomstate.linestates[i] = m_pwndBottom->m_pViewData->GetState(i);
+		m_pwndBottom->m_pViewData->SetState(i, m_pwndRight->m_pViewData->GetState(i));
+		rightstate.linestates[i] = m_pwndRight->m_pViewData->GetState(i);
 		if (m_pwndBottom->IsLineConflicted(i))
 		{
 			if (m_pwndRight->m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
@@ -2440,6 +2441,7 @@ void CBaseView::UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomsta
 			else
 				m_pwndBottom->m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
 		}
+		m_pwndRight->m_pViewData->SetState(i, DIFFSTATE_YOURSADDED);
 	}
 
 	// your block is done, now insert their block
@@ -2456,6 +2458,7 @@ void CBaseView::UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomsta
 			else
 				m_pwndBottom->m_pViewData->SetState(index, DIFFSTATE_CONFLICTRESOLVED);
 		}
+		m_pwndLeft->m_pViewData->SetState(i, DIFFSTATE_THEIRSADDED);
 		index++;
 	}
 	// adjust line numbers
@@ -2467,11 +2470,10 @@ void CBaseView::UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomsta
 	}
 
 	// now insert an empty block in both yours and theirs
-	// now insert an empty block in both yours and theirs
 	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
 	{
 		leftstate.addedlines.push_back(m_nSelBlockStart);
-		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockEnd, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
+		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockStart, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
 		m_pwndRight->m_pViewData->InsertData(m_nSelBlockEnd+1, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
 		rightstate.addedlines.push_back(m_nSelBlockEnd+1);
 	}

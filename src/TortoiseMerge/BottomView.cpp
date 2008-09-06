@@ -89,6 +89,9 @@ bool CBottomView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 		}
 
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+		viewstate rightstate;
+		viewstate bottomstate;
+		viewstate leftstate;
 		switch (cmd)
 		{
 		case ID_USETHEIRBLOCK:
@@ -98,10 +101,12 @@ bool CBottomView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
 			UseMyTextBlock();
 			break;
 		case ID_USEYOURANDTHEIRBLOCK:
-			UseMyThenTheirTextBlock();
+			UseYourAndTheirBlock(rightstate, bottomstate, leftstate);
+			CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
 			break;
 		case ID_USETHEIRANDYOURBLOCK:
-			UseTheirThenMyTextBlock();
+			UseTheirAndYourBlock(rightstate, bottomstate, leftstate);
+			CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
 			break;
 		case ID_EDIT_COPY:
 			OnEditCopy();
@@ -176,61 +181,8 @@ void CBottomView::UseTheirThenMyTextBlock()
 	viewstate leftstate;
 	viewstate rightstate;
 	viewstate bottomstate;
-	if ((m_nSelBlockStart < 0)||(m_nSelBlockEnd < 0))
-		return;
-
-	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
-	{
-		bottomstate.difflines[i] = m_pViewData->GetLine(i);
-		m_pViewData->SetLine(i, m_pwndLeft->m_pViewData->GetLine(i));
-		bottomstate.linestates[i] = m_pViewData->GetState(i);
-		m_pViewData->SetState(i, m_pwndLeft->m_pViewData->GetState(i));
-		if (IsLineConflicted(i))
-		{
-			if (m_pwndLeft->m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
-				m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
-			else
-				m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
-		}
-	}
-	
-	// your block is done, now insert their block
-	int index = m_nSelBlockEnd+1;
-	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
-	{
-		bottomstate.addedlines.push_back(m_nSelBlockEnd+1);
-		m_pViewData->InsertData(index, m_pwndRight->m_pViewData->GetData(i));
-		if (IsLineConflicted(index))
-		{
-			if (m_pwndRight->m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
-				m_pViewData->SetState(index, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
-			else
-				m_pViewData->SetState(index, DIFFSTATE_CONFLICTRESOLVED);
-		}
-		index++;
-	}
-	// adjust line numbers
-	for (int i=m_nSelBlockEnd+1; i<GetLineCount(); ++i)
-	{
-		long oldline = (long)m_pViewData->GetLineNumber(i);
-		if (oldline >= 0)
-			m_pViewData->SetLineNumber(i, oldline+(index-m_nSelBlockEnd));
-	}
-
-	// now insert an empty block in both yours and theirs
-	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
-	{
-		leftstate.addedlines.push_back(m_nSelBlockStart);
-		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockStart, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
-		m_pwndRight->m_pViewData->InsertData(m_nSelBlockEnd+1, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
-		rightstate.addedlines.push_back(m_nSelBlockEnd+1);
-	}
+	UseTheirAndYourBlock(rightstate, bottomstate, leftstate);
 	CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
-
-	RecalcAllVertScrollBars();
-	SetModified();
-	m_pwndLeft->SetModified();
-	m_pwndRight->SetModified();
 	RefreshViews();
 }
 
@@ -239,63 +191,7 @@ void CBottomView::UseMyThenTheirTextBlock()
 	viewstate leftstate;
 	viewstate rightstate;
 	viewstate bottomstate;
-	if ((m_nSelBlockStart < 0)||(m_nSelBlockEnd < 0))
-		return;
-
-	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
-	{
-		bottomstate.difflines[i] = m_pViewData->GetLine(i);
-		m_pViewData->SetLine(i, m_pwndRight->m_pViewData->GetLine(i));
-		bottomstate.linestates[i] = m_pViewData->GetState(i);
-		m_pViewData->SetState(i, m_pwndRight->m_pViewData->GetState(i));
-		rightstate.linestates[i] = m_pwndRight->m_pViewData->GetState(i);
-		if (IsLineConflicted(i))
-		{
-			if (m_pwndRight->m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
-				m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
-			else
-				m_pViewData->SetState(i, DIFFSTATE_CONFLICTRESOLVED);
-		}
-		m_pwndRight->m_pViewData->SetState(i, DIFFSTATE_YOURSADDED);
-	}
-	
-	// your block is done, now insert their block
-	int index = m_nSelBlockEnd+1;
-	for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
-	{
-		bottomstate.addedlines.push_back(m_nSelBlockEnd+1);
-		m_pViewData->InsertData(index, m_pwndLeft->m_pViewData->GetData(i));
-		leftstate.linestates[i] = m_pwndLeft->m_pViewData->GetState(i);
-		if (IsLineConflicted(index))
-		{
-			if (m_pwndLeft->m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
-				m_pViewData->SetState(index, DIFFSTATE_CONFLICTRESOLVEDEMPTY);
-			else
-				m_pViewData->SetState(index, DIFFSTATE_CONFLICTRESOLVED);
-		}
-		m_pwndLeft->m_pViewData->SetState(i, DIFFSTATE_THEIRSADDED);
-		index++;
-	}
-	// adjust line numbers
-	for (int i=m_nSelBlockEnd+1; i<GetLineCount(); ++i)
-	{
-		long oldline = (long)m_pViewData->GetLineNumber(i);
-		if (oldline >= 0)
-			m_pViewData->SetLineNumber(i, oldline+(index-m_nSelBlockEnd));
-	}
-
-	// now insert an empty block in both yours and theirs
-	for (int emptyblocks=0; emptyblocks < m_nSelBlockEnd-m_nSelBlockStart+1; ++emptyblocks)
-	{
-		leftstate.addedlines.push_back(m_nSelBlockStart);
-		m_pwndLeft->m_pViewData->InsertData(m_nSelBlockStart, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
-		m_pwndRight->m_pViewData->InsertData(m_nSelBlockEnd+1, _T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING);
-		rightstate.addedlines.push_back(m_nSelBlockEnd+1);
-	}
+	UseYourAndTheirBlock(rightstate, bottomstate, leftstate);
 	CUndo::GetInstance().AddState(leftstate, rightstate, bottomstate, m_ptCaretPos);
-	RecalcAllVertScrollBars();
-	SetModified();
-	m_pwndLeft->SetModified();
-	m_pwndRight->SetModified();
 	RefreshViews();
 }

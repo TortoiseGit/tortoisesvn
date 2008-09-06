@@ -34,6 +34,9 @@ Version 1.5.4
        the file diff dialog. (Stefan)
 - BUG: the 'unversioned' overlay for folders didn't show up for some
        unversioned folders. (Stefan)
+- BUG: After a "mine before theirs" or "theirs before mine" resolving
+       action on the right pane in TortoiseMerge, the Undo would not
+       undo correctly. (Stefan)
 
 Version 1.5.3
 - CHG: paths in error messages are nor truncated to 80 chars anymore. (Stefan)
