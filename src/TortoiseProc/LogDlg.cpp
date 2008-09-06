@@ -2356,7 +2356,11 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				if (data)
 				{
 					if (data->bCopiedSelf)
-						pLVCD->clrTextBk = GetSysColor(COLOR_MENU);
+					{
+						// only change the background color if the item is not 'hot' (on vista with themes enabled)
+						if (!theme.IsAppThemed() || !m_bVista || ((pLVCD->nmcd.uItemState & CDIS_HOT)==0))
+							pLVCD->clrTextBk = GetSysColor(COLOR_MENU);
+					}
 					if (data->bCopies)
 						crText = m_Colors.GetColor(CColors::Modified);
 					if ((data->childStackDepth)||(m_mergedRevs.find(data->Rev) != m_mergedRevs.end()))
@@ -2426,7 +2430,21 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					else
 					{
 						if (pLogEntry->bCopiedSelf)
-							state |= LISS_HOT;
+						{
+							// unfortunately, the pLVCD->nmcd.uItemState does not contain valid
+							// information at this drawing stage. But we can check the whether the
+							// previous stage changed the background color of the item
+							if (pLVCD->clrTextBk == GetSysColor(COLOR_MENU))
+							{
+								HBRUSH brush;
+								brush = ::CreateSolidBrush(::GetSysColor(COLOR_MENU));
+								if (brush)
+								{
+									::FillRect(pLVCD->nmcd.hdc, &rect, brush);
+									::DeleteObject(brush);
+								}
+							}
+						}
 					}
 
 					if (theme.IsBackgroundPartiallyTransparent(LVP_LISTDETAIL, state))
