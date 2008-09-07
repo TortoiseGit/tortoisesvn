@@ -144,6 +144,12 @@ private:
 	const CPathDictionary* dictionary;
 	index_t index;
 
+#ifdef _DEBUG
+    /// the path expanded into a string - for easier debugging only
+
+    std::string _path;
+#endif
+
 protected:
 
 	/// index manipulation
@@ -151,6 +157,9 @@ protected:
 	void SetIndex (index_t newIndex) 
 	{
 		index = newIndex;
+    #ifdef _DEBUG
+        _path = GetPath();
+    #endif
 	}
 
 	/// construction utility: lookup and optionally auto-insert
@@ -179,6 +188,9 @@ public:
 		: dictionary (aDictionary)
 		, index (anIndex)
 	{
+    #ifdef _DEBUG
+        _path = GetPath();
+    #endif
 	}
 
 	CDictionaryBasedPath ( const CPathDictionary* aDictionary

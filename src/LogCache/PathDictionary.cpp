@@ -195,7 +195,11 @@ void CDictionaryBasedPath::ParsePath ( const std::string& path
 								     , CPathDictionary* writableDictionary
 									 , std::vector<std::string>* relPath)
 {
-	if (!path.empty())
+#ifdef _DEBUG
+    _path = path;
+#endif
+
+    if (!path.empty())
 	{
 		std::string temp (path);
 		assert (path[0] == '/');
@@ -295,6 +299,17 @@ bool CDictionaryBasedPath::IsSameOrParentOf ( index_t lhsIndex
 
 std::string CDictionaryBasedPath::GetPath() const
 {
+#ifdef _DEBUG
+    // only used to set _path to a proper value
+
+    if (index == NO_INDEX)
+    {
+        static const std::string noPath ("<INVALID_PATH>");
+        return noPath;
+    }
+
+#endif
+
 	// fetch all path elements bottom-up except the root
 
 	std::vector<const char*> pathElements;
