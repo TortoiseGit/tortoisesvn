@@ -37,6 +37,8 @@ Version 1.5.4
 - BUG: After a "mine before theirs" or "theirs before mine" resolving
        action on the right pane in TortoiseMerge, the Undo would not
        undo correctly. (Stefan)
+- BUG: Failures, even GPF in blame and log dialogs when specifying a
+       revision range and a peg revision outside that range. (Stefan Fuhrmann)
 
 Version 1.5.3
 - CHG: paths in error messages are nor truncated to 80 chars anymore. (Stefan)
