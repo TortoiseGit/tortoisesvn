@@ -32,6 +32,9 @@ CDictionaryBasedTempPath::CDictionaryBasedTempPath
 	( const CPathDictionary* aDictionary
 	, const std::string& path)
 	: inherited (aDictionary, std::string())
+#ifdef _DEBUG
+    , _path (path)
+#endif
 {
 	ParsePath (path, NULL, &relPathElements);
 }
@@ -64,6 +67,12 @@ CDictionaryBasedTempPath CDictionaryBasedTempPath::GetCommonRoot
 
 	CDictionaryBasedTempPath result (GetBasePath());
 	result.relPathElements.insert (result.relPathElements.begin(), begin, iter);
+
+    // update the debug-only _path member
+
+#ifdef _DEBUG
+    result._path = result.GetPath();
+#endif
 
 	return result;
 }
