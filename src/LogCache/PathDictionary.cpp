@@ -195,10 +195,6 @@ void CDictionaryBasedPath::ParsePath ( const std::string& path
 								     , CPathDictionary* writableDictionary
 									 , std::vector<std::string>* relPath)
 {
-#ifdef _DEBUG
-    _path = path;
-#endif
-
     if (!path.empty())
 	{
 		std::string temp (path);
@@ -253,6 +249,10 @@ void CDictionaryBasedPath::ParsePath ( const std::string& path
 			currentIndex = nextIndex;
 		}
 	}
+
+#ifdef _DEBUG
+    _path = GetPath();
+#endif
 }
 
 // construction: lookup (stop at last known parent, if necessary)
