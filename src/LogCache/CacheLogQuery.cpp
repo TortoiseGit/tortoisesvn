@@ -501,8 +501,9 @@ CCacheLogQuery::CLogFiller::FillLog ( CCachedLogInfo* cache
         // for this path even if we didn't follow renamed 
         // (we will not get here in case of an error or user cancel)
 
+        bool limitReached = (limit > 0) && (receiveCount >= limit);
         if (   (receiveCount == 0)
-            || (!options.GetStrictNodeHistory() && (receiveCount < limit)))
+            || (!options.GetStrictNodeHistory() && !limitReached))
         {
             AutoAddSkipRange (max (endRevision,1)-1);
         }
@@ -1079,7 +1080,7 @@ CDictionaryBasedTempPath CCacheLogQuery::TranslatePegRevisionPath
 
 	while ((iterator.GetRevision() > startRevision) && !iterator.EndOfPath())
 	{
-        // try to fill gaps but try to connect the server only once
+        // try to fill gaps but try to connect to the server only once
         // (i.e. if we went "offline", don't try to connect a second time)
 
 		if (!offline && iterator.DataIsMissing())
