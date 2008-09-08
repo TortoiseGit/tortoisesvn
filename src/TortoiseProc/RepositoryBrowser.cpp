@@ -718,9 +718,34 @@ BOOL CRepositoryBrowser::ReportList(const CString& path, svn_node_kind_t kind,
 	return TRUE;
 }
 
-bool CRepositoryBrowser::ChangeToUrl(const CString& url, const SVNRev& rev)
+bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChecked)
 {
 	CWaitCursorEx wait;
+	if (!bAlreadyChecked)
+	{
+		// check if the entered url is valid
+		SVNInfo info;
+		const SVNInfoData * data = NULL;
+		CString orig_url = url;
+		m_bCancelled = false;
+		do 
+		{
+			Sleep(1000);
+			data = info.GetFirstFileInfo(CTSVNPath(url), rev, rev);
+			if (data && rev.IsHead())
+			{
+				rev = data->rev;
+			}
+			if ((data == NULL)||(data->kind != svn_node_dir))
+			{
+				// in case the url is not a valid directory, try the parent dir
+				// until there's no more parent dir
+				url = url.Left(url.ReverseFind('/'));
+			}
+		} while(!m_bCancelled && !url.IsEmpty() && ((data == NULL) || (data->kind != svn_node_dir)));
+		if (url.IsEmpty())
+			url = orig_url;
+	}
 	CString partUrl = url;
 	HTREEITEM hItem = m_RepoTree.GetRootItem();
 	if ((LONG(rev) != LONG(m_initialRev))||
@@ -1300,7 +1325,7 @@ void CRepositoryBrowser::OnNMDblclkRepolist(NMHDR *pNMHDR, LRESULT *pResult)
 	if ((pItem)&&(pItem->kind == svn_node_dir))
 	{
 		// a double click on a folder results in selecting that folder
-		ChangeToUrl(pItem->absolutepath, m_initialRev);
+		ChangeToUrl(pItem->absolutepath, m_initialRev, false);
 	}
 }
 

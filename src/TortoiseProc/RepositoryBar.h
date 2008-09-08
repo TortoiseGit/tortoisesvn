@@ -31,7 +31,7 @@ class CRepositoryTree;
 class IRepo
 {
 public:
-	virtual bool ChangeToUrl(const CString& url, const SVNRev& rev) = 0;
+	virtual bool ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChecked) = 0;
 };
 
 /**

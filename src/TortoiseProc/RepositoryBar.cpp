@@ -184,36 +184,21 @@ void CRepositoryBar::GotoUrl(const CString& url, SVNRev rev, bool bAlreadyChecke
 	}
 	if (!bAlreadyChecked)
 	{
-		// check if the entered url is valid
-		SVNInfo info;
-		const SVNInfoData * data = NULL;
-		CString orig_url = new_url;
-		do 
-		{
-			data = info.GetFirstFileInfo(CTSVNPath(new_url),new_rev, new_rev);
-			if (data && new_rev.IsHead())
-			{
-				m_headRev = data->rev;
-			}
-			if ((data == NULL)||(data->kind != svn_node_dir))
-			{
-				// in case the url is not a valid directory, try the parent dir
-				// until there's no more parent dir
-				new_url = new_url.Left(new_url.ReverseFind('/'));
-			}
-		} while(!new_url.IsEmpty() && ((data == NULL) || (data->kind != svn_node_dir)));
-		if (new_url.IsEmpty())
-			new_url = orig_url;
 	}
 
-	if ((!m_headRev.IsValid())||(!bAlreadyChecked))
-	{
-		SVN svn;
-		m_headRev = svn.GetHEADRevision(CTSVNPath(new_url));
-	}
-	ShowUrl(new_url, new_rev);
 	if (m_pRepo)
-		m_pRepo->ChangeToUrl(new_url, new_rev);
+	{
+		SVNRev rev = new_rev;
+		m_headRev = SVNRev();
+		m_pRepo->ChangeToUrl(new_url, rev, bAlreadyChecked);
+		if (new_rev.IsHead() && !rev.IsHead())
+			m_headRev = rev;
+		if (!m_headRev.IsValid())
+		{
+			SVN svn;
+			m_headRev = svn.GetHEADRevision(CTSVNPath(new_url));
+		}
+	}ShowUrl(new_url, new_rev);
 }
 
 void CRepositoryBar::SetRevision(SVNRev rev)

@@ -144,7 +144,7 @@ public:
 
 	/// switches to the \c url at \c rev. If the url is valid and exists,
 	/// the repository browser will show the content of that url.
-	bool ChangeToUrl(const CString& url, const SVNRev& rev);
+	bool ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChecked);
 
 	enum { IDD = IDD_REPOSITORY_BROWSER };
 
