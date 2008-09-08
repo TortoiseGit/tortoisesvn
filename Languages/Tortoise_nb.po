@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-08-11 10:45+0100\n"
+"PO-Revision-Date: 2008-09-08 16:01+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -211,7 +211,7 @@ msgstr "%s - ved revisjon: %d"
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Remote file"
-msgstr "%s : Fil på tjener"
+msgstr "%s : Fil i depot"
 
 #. Resource IDs: (151)
 #, c-format
@@ -665,6 +665,10 @@ msgstr "Kun &Bilde"
 #. Resource IDs: (9, 1461)
 msgid "&Import..."
 msgstr "&Importér..."
+
+#. Resource IDs: (1480)
+msgid "&Include merge info"
+msgstr "&Ta med fletteinformasjon"
 
 #. Resource IDs: (65535)
 msgid "&Initial directory:"
@@ -2286,6 +2290,10 @@ msgstr "Ferdig"
 msgid "Configure Hook Scripts"
 msgstr "Konfigurere Påhakingsskript"
 
+#. Resource IDs: (284)
+msgid "Configure Issue Tracker Integration"
+msgstr "Konfigurer Saksporingsintegrasjon"
+
 #. Resource IDs: (65535)
 msgid "Configure the program used for comparing different revisions of files"
 msgstr "Still inn for programmet som sammenligner forskjellige revisjoner av filer."
@@ -3892,8 +3900,8 @@ msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all ch
 msgstr "Hint: Trykk F5 for å gjenoppfriske valgt undertre og Ctrl-F5 for å også laste alt som er under"
 
 #. Resource IDs: (16519)
-msgid "Hint: select the context menu, change the page to \"Commands\" and drag the toolbar buttons into the menu window."
-msgstr "Tips: velg sammenhengsmenyen, endre side til \"Kommandoer\" og dra verktøylinjeknappene inn i menyvinduet."
+msgid "Hint: select the context menu, change the page to 'Commands' and drag the toolbar buttons into the menu window."
+msgstr "Tips: Velg sammenhengsmenyen, endre side til 'Kommandoer' og dra verktøylinjeknappene inn i menyvinduet."
 
 #. Resource IDs: (1064)
 msgid "Home"
@@ -5953,6 +5961,10 @@ msgstr "Omplasserer..."
 #. Resource IDs: (207)
 msgid "Remote property status"
 msgstr "Egenskap-status i depot"
+
+#. Resource IDs: (208)
+msgid "Remote revision"
+msgstr "Revisjon i depot"
 
 #. Resource IDs: (63, 207)
 msgid "Remote status"
