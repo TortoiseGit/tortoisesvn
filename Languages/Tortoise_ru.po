@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-08-30 17:44+0300\n"
+"PO-Revision-Date: 2008-09-09 16:27+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -745,7 +745,7 @@ msgstr "С&етевые диски"
 
 #. Resource IDs: (65535)
 msgid "&New "
-msgstr "&Новый"
+msgstr "Со&здать"
 
 # Так проще, поскольку создаваемое может быть любого рода...
 #. Resource IDs: (16509, 16615)
@@ -1519,9 +1519,9 @@ msgstr ""
 "для улаживания конфликтующих файлов.\r\n"
 "\r\n"
 "Вы можете указать в параметрах следующие пути:\r\n"
-"%merged : конфликтующий файл, куда всё сохранять\n"
-"%theirs : файл, каков он в хранилище\n"
-"%mine : ваш файл, с вашими изменениями\n"
+"%merged : конфликтующий файл, куда всё сохранять\r\n"
+"%theirs : файл, каков он в хранилище\r\n"
+"%mine : ваш файл, с вашими изменениями\r\n"
 "%base : оригинал файла, без ваших изменений"
 
 #. Resource IDs: (3867)
@@ -4836,7 +4836,7 @@ msgstr "Воссоединительное слияние"
 
 #. Resource IDs: (1468)
 msgid "Merge a range of revisions"
-msgstr "Произвести слияние диапазона ревизий"
+msgstr "Cлияние диапазона ревизий"
 
 #. Resource IDs: (277)
 msgid "Merge all"
@@ -4872,7 +4872,7 @@ msgstr "Слить ревизии с..."
 
 #. Resource IDs: (1470)
 msgid "Merge two different trees"
-msgstr "Произвести слияние двух различных деревьев"
+msgstr "Слияние двух различных деревьев"
 
 #. Resource IDs: (595, 65535)
 msgid "Merge type"
@@ -7763,7 +7763,7 @@ msgid ""
 "There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
 "Those files are not listed for commit. You need to commit those files separately."
 msgstr ""
-"Есть изменения или неверсированные элементы в папке(папках), содержащихся в svn:externals.\r\n"
+"Есть изменения или неверсированные элементы в папке(папках), содержащихся в svn:externals.\n"
 "Эти файлы не включены в список фиксирования. Их необходимо зафиксировать отдельно."
 
 #. Resource IDs: (64)
@@ -9523,7 +9523,7 @@ msgid ""
 "A faded line is shown in the commit dialogs at that position. The default is 80 chars."
 msgstr ""
 "tsvn:logwidthmarker\r\n"
-"Задаёт то количество символов, которое не должна превышать длина строки сообщения.\n"
+"Задаёт то количество символов, которое не должна превышать длина строки сообщения.\r\n"
 "Неяркая линия будет показана в диалоге фиксации в заданной позиции. По умолчанию 80 символов."
 
 #. Resource IDs: (578)
