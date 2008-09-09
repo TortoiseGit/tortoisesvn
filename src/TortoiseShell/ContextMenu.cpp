@@ -773,8 +773,8 @@ stdstring CShellExt::WriteFileListToTempFile()
 
 STDMETHODIMP CShellExt::QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMenu, UINT &indexMenu)
 {
-	LoadLangDll();
 	PreserveChdir preserveChdir;
+	LoadLangDll();
 
 	if ((uFlags & CMF_DEFAULTONLY)!=0)
 		return NOERROR;					//we don't change the default action
@@ -1705,6 +1705,7 @@ STDMETHODIMP CShellExt::GetCommandString(UINT_PTR idCmd,
                                          LPSTR pszName,
                                          UINT cchMax)
 {
+	PreserveChdir preserveChdir;
 	//do we know the id?
 	std::map<UINT_PTR, UINT_PTR>::const_iterator id_it = myIDMap.lower_bound(idCmd);
 	if (id_it == myIDMap.end() || id_it->first != idCmd)
