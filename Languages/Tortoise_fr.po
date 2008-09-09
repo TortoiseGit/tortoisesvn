@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-08-01 10:35+0100\n"
+"PO-Revision-Date: 2008-09-09 14:13+0100\n"
 "Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -240,10 +240,6 @@ msgstr ""
 msgid "&..."
 msgstr "&..."
 
-#. Resource IDs: (65535)
-msgid "&?"
-msgstr "&?"
-
 #. Resource IDs: (57664)
 msgid "&About TortoiseMerge..."
 msgstr "&A propos de TortoiseMerge..."
@@ -351,10 +347,6 @@ msgstr "Texte du &Bouton :"
 #. Resource IDs: (1051)
 msgid "&CD-ROM"
 msgstr "&CD-ROM"
-
-#. Resource IDs: (2, 332)
-msgid "&Cancel"
-msgstr "&Annuler"
 
 #. Resource IDs: (65535)
 msgid "&Categories:"
@@ -624,6 +616,10 @@ msgstr "&Image uniquement"
 #. Resource IDs: (9, 1461)
 msgid "&Import..."
 msgstr "&Importer..."
+
+#. Resource IDs: (1480)
+msgid "&Include merge info"
+msgstr " "
 
 #. Resource IDs: (65535)
 msgid "&Initial directory:"
@@ -1183,11 +1179,11 @@ msgstr ""
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
-"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\n"
+"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
-"Une liste de chemins séparés par saut de ligne pour lesquels le recouvrement d'icônes ne sera pas  affiché.\r\n"
-"Si vous ajoutez un caractère \"*\" à la fin d'un chemin, alors tous les fichiers et les sous-répertoires sous ce chemin seront exclus aussi.\n"
+"Une liste de chemins séparés par saut de ligne pour lesquels le recouvrement d'icônes ne sera pas affiché.\r\n"
+"Si vous ajoutez un caractère \"*\" à la fin d'un chemin, alors tous les fichiers et les sous-répertoires sous ce chemin seront exclus aussi.\r\n"
 "Une liste vide autorise le recouvrement sur tous les chemins."
 
 #. Resource IDs: (3843)
@@ -1742,6 +1738,10 @@ msgstr "Bug-ID"
 msgid "Bug-ID / Issue-Nr:"
 msgstr "Bug-ID/ N° d'incident"
 
+#. Resource IDs: (117)
+msgid "Bug-IDs"
+msgstr "Bug-IDs"
+
 #. Resource IDs: (16132)
 msgid "Button Appearance"
 msgstr "Apparence du Bouton"
@@ -2241,6 +2241,10 @@ msgstr "Terminé"
 msgid "Configure Hook Scripts"
 msgstr "Configurer les scripts hook"
 
+#. Resource IDs: (284)
+msgid "Configure Issue Tracker Integration"
+msgstr "Configurer Intégration du Système de Suivi de Problèmes"
+
 #. Resource IDs: (65535)
 msgid "Configure the program used for comparing different revisions of files"
 msgstr "Configurez le programme utilisé pour comparer les différentes révisions de fichiers"
@@ -2696,6 +2700,10 @@ msgstr ""
 "Couper la sélection et la mettre dans le presse papiers\n"
 "Couper"
 
+#. Resource IDs: (1279)
+msgid "D&etails"
+msgstr "D&étails"
+
 #. Resource IDs: (19, 76, 208)
 msgid "Date"
 msgstr "Date"
@@ -2779,10 +2787,6 @@ msgstr "Déselectionner la liste de changement"
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
 msgstr "Le disque de destination est plein."
-
-#. Resource IDs: (1279)
-msgid "Details"
-msgstr "Détails"
 
 #. Resource IDs: (3849)
 msgid ""
@@ -2980,6 +2984,10 @@ msgstr "E&xclure les chemins :"
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
 msgstr "&Quitter"
+
+#. Resource IDs: (1437)
+msgid "E&xport"
+msgstr "E&xporter"
 
 #. Resource IDs: (9, 1382)
 msgid "E&xport..."
@@ -3841,7 +3849,7 @@ msgid "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all ch
 msgstr "Astuce : Pressez F5 pour rafraîchir le sous-arbre sélectionné et Ctrl-F5 pour charger tous les enfants aussi"
 
 #. Resource IDs: (16519)
-msgid "Hint: select the context menu, change the page to \"Commands\" and drag the toolbar buttons into the menu window."
+msgid "Hint: select the context menu, change the page to 'Commands' and drag the toolbar buttons into the menu window."
 msgstr "Astuce : sélectionner le menu contextuel, aller à la page \"Commandes\" et glissez les boutons de barre d'outils dans la fenêtre du menu."
 
 #. Resource IDs: (1064)
@@ -4804,7 +4812,7 @@ msgid "Merging %s into %s, %s"
 msgstr "Fusion de %s dans %s, %s"
 
 #. Resource IDs: (264)
-msgid "Merging differences between repository urls"
+msgid "Merging differences between repository URLs"
 msgstr "Fusionner les différences entre les URLs des référentiels"
 
 #. Resource IDs: (229)
@@ -5828,7 +5836,7 @@ msgstr "Rafraîchir"
 
 #. Resource IDs: (117)
 msgid ""
-"Regular expressions filter:\n"
+"Regular expressions filter:\r\n"
 ".   : any character\r\n"
 "c+   : match character c one or more times\r\n"
 "c*   : match character c zero or more times\r\n"
@@ -5844,13 +5852,14 @@ msgid ""
 "\\d   : digits 0-9\r\n"
 "\\s   : whitespaces"
 msgstr ""
-"Filter d'expressions régulières:\n"
+"Filtre d'expressions régulières:\r\n"
 ".   : n'importe quel caractère\r\n"
 "c+   : correspond au caractère c une ou plusieurs fois\r\n"
 "c*   : correspond au caractère c zéro ou plusieurs fois\r\n"
 "^   : début de la ligne\r\n"
 "$   : fin de la ligne\r\n"
 "(chaîne){n} : correspond à la chaîne n fois\\rn(abcd)   : sous-expression\r\n"
+"(abcd) : sous-expression\r\n"
 "[aei0-9]   : correspond à a,e,i et 0..9\r\n"
 "[^aei0-9] : n'importe quoi sauf a,e,i et 0..9\r\n"
 "\r\n"
@@ -5915,6 +5924,10 @@ msgstr "Relocalisation..."
 #. Resource IDs: (207)
 msgid "Remote property status"
 msgstr "Statut de la propriété distante"
+
+#. Resource IDs: (208)
+msgid "Remote revision"
+msgstr "Révision distante"
 
 #. Resource IDs: (63, 207)
 msgid "Remote status"
@@ -6629,6 +6642,10 @@ msgstr "Sélectionner la révision de départ"
 msgid "Select text editor application"
 msgstr "Sélectionner l'application d'édition de texte"
 
+#. Resource IDs: (595)
+msgid "Select the URLs for the tree merge"
+msgstr "Sélectionner les URLs pour la fusion de l'arbre"
+
 #. Resource IDs: (79)
 msgid "Select the behaviour of the progress dialog at the end of the operation."
 msgstr "Sélectionnez le comportement du dialogue de progression en fin d'opération"
@@ -6652,10 +6669,6 @@ msgstr "Sélectionner les révisions à fusionner"
 #. Resource IDs: (595)
 msgid "Select the type of merge"
 msgstr "Sélectionner le type de fusion"
-
-#. Resource IDs: (595)
-msgid "Select the urls for the tree merge"
-msgstr "Sélectionner les URLs pour la fusion de l'arbre"
 
 #. Resource IDs: (78)
 msgid "Select viewer for diff-files"
@@ -7023,11 +7036,11 @@ msgstr "Spécifie combien d'éléments vous voulez garder dans la boîte de dial
 
 #. Resource IDs: (79)
 msgid ""
-"Specify the files or folders which TortoiseSVN\n"
+"Specify the files or folders which TortoiseSVN\r\n"
 "should ignore in all working copies.\r\n"
 "Separate the patterns with a space."
 msgstr ""
-"Spécifiez les fichiers ou répertoires que TortoiseSVN\n"
+"Spécifiez les fichiers ou répertoires que TortoiseSVN\r\n"
 "doit ignorer pour toutes les copies de travail.\r\n"
 "Séparez les filtres par un espace."
 
@@ -7980,6 +7993,10 @@ msgstr "Réessayer"
 msgid "Tweak TortoiseSVN"
 msgstr "Ajuster TortoiseSVN"
 
+#. Resource IDs: (1436)
+msgid "U&pdate"
+msgstr "&Mettre à jour"
+
 #. Resource IDs: (164, 207)
 msgid "URL"
 msgstr "URL"
@@ -8469,12 +8486,12 @@ msgstr "Avertissement !"
 
 #. Resource IDs: (344)
 msgid ""
-"When connecting to the respository server is not possible,\n"
+"When connecting to the repository server is not possible,\n"
 "TSVN can switch to using cached data only.\n"
-"Select the default beviour here."
+"Select the default behaviour here."
 msgstr ""
 "Quand la connexion à un serveur de référentiel est impossible,\n"
-"TSVN peut opter pour l'utiliser des données du cache uniquement.\n"
+"TSVN peut opter pour l'utilisation des données du cache uniquement.\n"
 "Sélectionnez le comportement par défaut ici."
 
 #. Resource IDs: (197)
@@ -9242,11 +9259,11 @@ msgstr ""
 msgid ""
 "svn:mime-type\r\n"
 "The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\r\n"
-"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\r\n"
 "Anything else is treated as binary."
 msgstr ""
 "svn:mime-type\r\n"
-"Le type mime du fichier. Utilisé pour déterminer comment fusionner les fichiers, et comment le distribuer avec Apache.\r\n"
+"Le type mime du fichier. Utilisé pour déterminer s'il faut fusionner le fichier, et comment le distribuer avec Apache.\r\n"
 "Un type mime commençant avec 'text/' (ou sans type) est traité comme texte.\r\n"
 "Les autres types sont traités en tant que binaire."
 
@@ -9348,26 +9365,22 @@ msgstr ""
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logtemplate\r\n"
-"String which is inserted in the log message boxes in the commit dialogs.\n"
-"\n"
+"String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message templates for users to fill in."
 msgstr ""
 "tsvn:logtemplate\r\n"
-"Chaîne qui est insérée dans les zones de commentaire dans le dialogue de livraison.\n"
-"\n"
-"Utilisez ceci comme un modèle de commentaire pour la saisie des utilisateurs.  "
+"Chaîne qui est insérée dans les zones de commentaire dans le dialogue de livraison.\r\n"
+"Utilisez ceci comme un modèle de commentaire pour la saisie des utilisateurs."
 
 #. Resource IDs: (578)
 msgid ""
-"tsvn:logwidthmarker\n"
-"\n"
+"tsvn:logwidthmarker\r\n"
 "Set this to the number of chars the log message should not exceed its width.\r\n"
 "A faded line is shown in the commit dialogs at that position. The default is 80 chars."
 msgstr ""
-"tsvn:logwidthmarker\n"
-"\n"
-"Indiquer ici le nombre de caractères que le commentaire ne doit pas excèder en longueur.\r\n"
-"Une ligne s'effaçant est affichée dans le dialogue de livraison à cette position. La valeur par défaut est 80 caractères."
+"tsvn:logwidthmarker\r\n"
+"Indiquer ici le nombre de caractères que le commentaire ne doit pas excéder en longueur.\r\n"
+"Une ligne atténuée est affichée dans le dialogue de livraison à cette position. La valeur par défaut est 80 caractères."
 
 #. Resource IDs: (578)
 msgid ""
@@ -9418,13 +9431,13 @@ msgstr "les valeurs sont différentes"
 #. Resource IDs: (579)
 #, c-format
 msgid ""
-"webviewer:pathrevision\n"
+"webviewer:pathrevision\r\n"
 "URL pointing to the web viewer for the repository for a specific file and revision.\r\n"
 "The string %REVISION% in the URL is replaced with the revision number,\r\n"
 "the string %PATH% is replaced with the path to the file relative to the repository root."
 msgstr ""
 "webviewer:pathrevision\r\n"
-"URL pointant sur sur le visualisateur web pour le référentiel pour un fichier et une révision spécifiques.\r\n"
+"URL pointant sur sur le visualisateur web du référentiel pour un fichier et une révision spécifiques.\r\n"
 "La chaîne %REVISION% dans l'URL est remplacée par le numéro de la révision,\r\n"
 "la chaîne %PATH% est remplacée par le chemin du fichier en fonction de la racine du référentiel."
 
@@ -9463,6 +9476,10 @@ msgstr "oui"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "&?"
+#~ msgstr "&?"
+#~ msgid "&Cancel"
+#~ msgstr "&Annuler"
 #~ msgid "Merge all..."
 #~ msgstr "Tout fusionner..."
 #~ msgid "SVN Export to here"
