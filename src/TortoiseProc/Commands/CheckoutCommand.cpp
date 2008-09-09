@@ -36,13 +36,9 @@ bool CheckoutCommand::Execute()
 	{
 		if (CString(regDefCheckoutPath).IsEmpty())
 		{
-			DWORD len = ::GetCurrentDirectory(0, NULL);
-			TCHAR * tszPath = new TCHAR[len];
-			::GetCurrentDirectory(len, tszPath);
-			checkoutDirectory.SetFromWin(tszPath, true);
-			delete [] tszPath;
+			checkoutDirectory.SetFromWin(sOrigCWD, true);
 			len = ::GetTempPath(0, NULL);
-			tszPath = new TCHAR[len];
+			TCHAR * tszPath = new TCHAR[len];
 			::GetTempPath(len, tszPath);
 			if (_tcsncicmp(checkoutDirectory.GetWinPath(), tszPath, len-2 /* \\ and \0 */) == 0)
 			{
