@@ -2036,6 +2036,12 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
 
 	GetDlgItem(IDC_INFOTEXT)->ShowWindow(SW_HIDE);
 	GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_SHOW);
+	CRegDWORD nonint = CRegDWORD(_T("Software\\TortoiseSVN\\MergeNonInteractive"), FALSE);
+	if (DWORD(nonint))
+	{
+		::SendMessage(GetDlgItem(IDC_NONINTERACTIVE)->GetSafeHwnd(), BM_SETCHECK, BST_CHECKED, 0);
+		m_AlwaysConflicted = true;
+	}
 	// we only accept a revision list to merge for peg merges
 	ATLASSERT((m_revisionArray.GetCount()==0) || (m_revisionArray.GetCount() && (m_url.IsEquivalentTo(m_url2))));
 
@@ -2465,6 +2471,8 @@ void CSVNProgressDlg::OnBnClickedNoninteractive()
 {
 	LRESULT res = ::SendMessage(GetDlgItem(IDC_NONINTERACTIVE)->GetSafeHwnd(), BM_GETCHECK, 0, 0);
 	m_AlwaysConflicted = (res == BST_CHECKED);
+	CRegDWORD nonint = CRegDWORD(_T("Software\\TortoiseSVN\\MergeNonInteractive"), FALSE);
+	nonint = m_AlwaysConflicted;
 }
 
 CString CSVNProgressDlg::GetPathFromColumnText(const CString& sColumnText)
