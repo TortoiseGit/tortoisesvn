@@ -95,6 +95,11 @@ bool CheckoutCommand::Execute()
 	if (dlg.m_URL.Left(5).Compare(_T("tsvn:"))==0)
 	{
 		dlg.m_URL = dlg.m_URL.Mid(5);
+		if (dlg.m_URL.Find('?') >= 0)
+		{
+			dlg.Revision = SVNRev(dlg.m_URL.Mid(dlg.m_URL.Find('?')+1));
+			dlg.m_URL = dlg.m_URL.Left(dlg.m_URL.Find('?'));
+		}
 	}
 	if (parser.HasKey(_T("revision")))
 	{
