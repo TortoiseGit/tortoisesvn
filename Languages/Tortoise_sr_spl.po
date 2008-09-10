@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-09-03 20:04+0100\n"
-"Last-Translator: Stefan Küng <stefankueng@gmail.com>\n"
+"PO-Revision-Date: 2008-09-08 14:27+0100\n"
+"Last-Translator: Милорад Поповић <MiloradSPopovic@google.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -554,7 +554,7 @@ msgstr "&Omogući proksi server"
 #
 #. Resource IDs: (1434)
 msgid "&Enable log caching"
-msgstr "&Omogući smeštanje dnevnika u priručnu memoriju"
+msgstr "&Omogući smeštanje dnevnika u keš"
 
 #
 #. Resource IDs: (1213)
@@ -1706,7 +1706,7 @@ msgstr "Uvek koristi sistemska lokalna podešavanja za prikaz vremena i datuma"
 #
 #. Resource IDs: (339)
 msgid "Amount of memory required to load the cache"
-msgstr "Količina memorije potrebna za učitavanje priručne memorije"
+msgstr "Količina memorije potrebna za učitavanje keša"
 
 #. Resource IDs: (78)
 #, c-format
@@ -1808,7 +1808,7 @@ msgstr "Jeste li sigurni da želite označiti fajl(e) u sukobu kao rešenu(e)?"
 #. Resource IDs: (199)
 #, c-format
 msgid "Are you sure you want to remove the cache of the selected %d items?"
-msgstr "Jeste li sigurni da želite ukloniti priručnu memoriju odabranih %d stavki?"
+msgstr "Jeste li sigurni da želite ukloniti keš odabranih %d stavki?"
 
 #. Resource IDs: (79)
 #, c-format
@@ -2118,17 +2118,17 @@ msgstr "CAP"
 #
 #. Resource IDs: (199)
 msgid "Cache size [kB]"
-msgstr "Veličina priručne memorije [kB]"
+msgstr "Veličina keša [kB]"
 
 #
 #. Resource IDs: (1440)
 msgid "Cached Repositories"
-msgstr "Spremišta u priručnoj memoriji"
+msgstr "Spremišta u kešu"
 
 #
 #. Resource IDs: (197)
 msgid "Caches the log messages to speed up log fetching"
-msgstr "Smešta u priručnu memoriju poruke dnevnika  kako bi ubrzao dovođenje dnevnika"
+msgstr "Smešta u kešu poruke dnevnika  kako bi ubrzao dovođenje dnevnika"
 
 #
 #. Resource IDs: (1127)
@@ -2431,7 +2431,7 @@ msgstr "Čisti %ld parova korisničko ime/lozinka, %ld ssl certifikata i %ld kor
 #. Resource IDs: (197)
 #, c-format
 msgid "Clears cached logs from %ld repositories"
-msgstr "Počisti priručnu memoriju dnevnika iz %ld spremišta"
+msgstr "Počisti keš dnevnika iz %ld spremišta"
 
 #
 #. Resource IDs: (195)
@@ -2665,7 +2665,7 @@ msgstr "Podesi zakačive skripte"
 
 #. Resource IDs: (284)
 msgid "Configure Issue Tracker Integration"
-msgstr "Konfiguriše integraciju tragača izdavanja"
+msgstr "Konfiguriše integraciju problem tragača"
 
 #
 #. Resource IDs: (65535)
@@ -3617,7 +3617,7 @@ msgstr "Prazno"
 #
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
-msgstr "Omogući smeštanje dnevnika u priručnu memoriju kako bi se ubrzali dijalozi za dnevnik i grafa revizija"
+msgstr "Omogući smeštanje dnevnika u keš kako bi se ubrzali dijalozi za dnevnik i graf revizija"
 
 #
 #. Resource IDs: (196)
@@ -3793,7 +3793,7 @@ msgstr "Greška"
 #
 #. Resource IDs: (145)
 msgid "Error rebuilding Shell Icon Cache!"
-msgstr "Greška prilikom izrade priručna memorija ikona ljuske!"
+msgstr "Greška prilikom izrade keš ikona ljuske!"
 
 #. Resource IDs: (81)
 #, c-format
@@ -3861,7 +3861,7 @@ msgstr "Imenik za izvoz:"
 #
 #. Resource IDs: (345)
 msgid "Export the selected cache as a set of Comma Separated Value (CSV) files"
-msgstr "Izvoz označenog priručna memorija u skup nekoliko CSV fajl"
+msgstr "Izvoz označenog keš u skup nekoliko CSV fajl"
 
 #
 #. Resource IDs: (79)
@@ -4000,7 +4000,7 @@ msgid ""
 "Failed to start the issue tracker COM provider \"%s\".\n"
 "%s"
 msgstr ""
-"Nije uspelo pokretanje izdavanja pratioca COM snabdevača\"%s\".\n"
+"Nije uspelo pokretanje problem tragač COM snabdevača\"%s\".\n"
 "%s"
 
 #
@@ -4515,7 +4515,7 @@ msgstr ""
 #
 #. Resource IDs: (339)
 msgid "Highest revision number in the cache"
-msgstr "Najviša revizija u priručnoj memoriji"
+msgstr "Najviša revizija u kešu"
 
 #
 #. Resource IDs: (1127)
@@ -4538,7 +4538,7 @@ msgstr "Zakačive Skripte"
 
 #. Resource IDs: (283)
 msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "Zakačive Skripte::Izdaje integraciju praćenja"
+msgstr "Zakačive Skripte::Problem tragač integracija"
 
 #
 #. Resource IDs: (198)
@@ -5216,12 +5216,12 @@ msgstr "Poslednja sačuvana revizija stavke"
 #
 #. Resource IDs: (338)
 msgid "Last time the cache content was changed"
-msgstr "Poslednji put kada je promenjen sadržaj priručne memorije"
+msgstr "Poslednji put kada je promenjen sadržaj keša"
 
 #
 #. Resource IDs: (338)
 msgid "Last time the cache was accessed"
-msgstr "Poslednji put je pristupljeno priručnoj memoriji"
+msgstr "Poslednji put je pristupljeno keš"
 
 #
 #. Resource IDs: (338)
@@ -5304,7 +5304,7 @@ msgstr ""
 #
 #. Resource IDs: (344)
 msgid "List of repositories for which log information has been cached"
-msgstr "Lista spremišta za koju se u priručnoj memoriji smeštaju informacije dnevnika"
+msgstr "Lista spremišta za koju se u kešui smeštaju informacije dnevnika"
 
 #
 #. Resource IDs: (16631, 16992)
@@ -5402,12 +5402,12 @@ msgstr "Dnevnik"
 #
 #. Resource IDs: (282)
 msgid "Log Cache Statistics"
-msgstr "Statistika priručne memorije za dnevnik"
+msgstr "Statistika keša za dnevnik"
 
 #
 #. Resource IDs: (281)
 msgid "Log Caching"
-msgstr "Priručna memorija za dnevnik"
+msgstr "Keš za dnevnik"
 
 #
 #. Resource IDs: (211)
@@ -6020,7 +6020,7 @@ msgstr "Nema korekcija pravopisa"
 #
 #. Resource IDs: (196)
 msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
-msgstr "Nema priručne memorije statusa. Samo imenici pod sistemom upravljanja verzijama dobijaju prekrivače, ne i fajlovi"
+msgstr "Nema keš statusa. Samo imenici pod sistemom upravljanja verzijama dobijaju prekrivače, ne i fajlovi"
 
 #
 #. Resource IDs: (188)
@@ -6065,7 +6065,7 @@ msgstr "Beleška"
 #
 #. Resource IDs: (338)
 msgid "Number of authors in the cache"
-msgstr "Broj autora u priručnoj memoriji"
+msgstr "Broj autora u kešu"
 
 #
 #. Resource IDs: (1161)
@@ -6075,32 +6075,32 @@ msgstr "Broj autora:"
 #
 #. Resource IDs: (339)
 msgid "Number of cached merged revisions"
-msgstr "Broj spremljenih spojenih revizija"
+msgstr "Broj keširanih spojenih revizija"
 
 #
 #. Resource IDs: (339)
 msgid "Number of cached revisions"
-msgstr "Broj revizija u priručnoj memoriji"
+msgstr "Broj revizija u kešu"
 
 #
 #. Resource IDs: (339)
 msgid "Number of cached revisions that have a non-empty change list"
-msgstr "Broj revizija u priručnoj memoriji koje imaju listu izmena"
+msgstr "Broj revizija u kešu koje imaju listu izmena"
 
 #
 #. Resource IDs: (339)
 msgid "Number of cached revisions that have user revision properties"
-msgstr "Broj revizija u priručnoj memoriji koje imaju postavljena korisnička svojstva"
+msgstr "Broj revizija u kešu  koje imaju postavljena korisnička svojstva"
 
 #
 #. Resource IDs: (339)
 msgid "Number of cached revisions whose change list is not cached yet"
-msgstr "Broj revizija u priručnoj memoriji čije liste izmena još nisu u priručnoj memoriji"
+msgstr "Broj revizija u kešu čije liste izmena još nisu keširane"
 
 #
 #. Resource IDs: (339)
 msgid "Number of cached revisions whose user revision properties are not cached yet"
-msgstr "Broj revizija u priručnoj memoriji čija korisnička svojstava još nisu u priručnoj memoriji"
+msgstr "Broj revizija u kešu čija korisnička svojstava još nisu keširana"
 
 #
 #. Resource IDs: (338)
@@ -6115,7 +6115,7 @@ msgstr "Broj različitih reči upotrebljenih u porukama dnevnika"
 #
 #. Resource IDs: (339)
 msgid "Number of merged revisions that are not cached yet"
-msgstr "Broj stopljenih revizija koje još nisu u priručnoj memoriji"
+msgstr "Broj stopljenih revizija koje još nisu u kešu"
 
 #
 #. Resource IDs: (338)
@@ -6276,7 +6276,7 @@ msgstr "Otvara preglednik spremišta kako bi podesio spremište dok je na vezi"
 #
 #. Resource IDs: (199)
 msgid "Operate from log cache for now only"
-msgstr "Od sad radi samo sa priručna memorijom dnevnika"
+msgstr "Od sad radi samo sa kešom dnevnika"
 
 #
 #. Resource IDs: (16137)
@@ -6403,7 +6403,7 @@ msgstr "fajlovi zakrpa (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
 #
 #. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
-msgstr "putanja"
+msgstr "Putanja"
 
 #
 #. Resource IDs: (116)
@@ -7026,7 +7026,7 @@ msgstr ""
 #
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
-msgstr "Uklanja odabran/e priručna memorija/e sa diska"
+msgstr "Uklanja odabranog keša sa diska"
 
 #
 #. Resource IDs: (65535)
@@ -7757,7 +7757,7 @@ msgstr "Odaberite zadnju reviziju"
 
 #. Resource IDs: (64)
 msgid "Select folder to associate with this issue tracker"
-msgstr "Izaberite imenik da se pridruži ovom puštenom tragaču"
+msgstr "Izaberite imenik da se pridruži ovom problem tragaču"
 
 #
 #. Resource IDs: (79)
@@ -7909,7 +7909,7 @@ msgstr "Školjka"
 #
 #. Resource IDs: (145)
 msgid "Shell Icon Cache was rebuilt!"
-msgstr "Priručna memorija ikona školjke je ponovo izgrađena!"
+msgstr "Keš ikona školjke je ponovo izgrađena!"
 
 #
 #. Resource IDs: (101)
@@ -8157,7 +8157,7 @@ msgstr ""
 #
 #. Resource IDs: (345)
 msgid "Show statistics for the selected log cache"
-msgstr "Prikaži statistiku priručne memorije za označen dnevnik"
+msgstr "Prikaži statistiku keš za označen dnevnik"
 
 #
 #. Resource IDs: (2052)
@@ -8252,17 +8252,17 @@ msgstr "Veličina i status"
 #
 #. Resource IDs: (339)
 msgid "Size of all cached text information"
-msgstr "Veličina svih tekst informacija u priručnoj memoriji"
+msgstr "Veličina svih tekst informacija u kešu"
 
 #
 #. Resource IDs: (339)
 msgid "Size of the cache file on disk"
-msgstr "Veličina priručna memorija na disku"
+msgstr "Veličina keš na disku"
 
 #
 #. Resource IDs: (339)
 msgid "Size of the cache if it were not compressed"
-msgstr "Veličina priručne memorije (bez sažimanja)"
+msgstr "Veličina keša (bez sažimanja)"
 
 #
 #. Resource IDs: (74)
@@ -8371,17 +8371,17 @@ msgstr "Boje statusa i akcija"
 #
 #. Resource IDs: (65535)
 msgid "Status cache"
-msgstr "Priručna memorija statusa"
+msgstr "Status keša"
 
 #
 #. Resource IDs: (196)
 msgid "Status cache kept in an external process, can show the overlay recursively"
-msgstr "Priručna memorija statusa se drži u spoljašnjem procesu, može rekurzivno prikazati prekrivače"
+msgstr "Status keš se drži u spoljašnjem procesu, može rekurzivno prikazati prekrivače"
 
 #
 #. Resource IDs: (196)
 msgid "Status cache only for one folder, no recursive overlays"
-msgstr "Priručna memorija statusa je samo za jedan imenik, nema rekurzivnog prekrivanja"
+msgstr "Status keš je samo za jedan imenik, nema rekurzivnog prekrivanja"
 
 #
 #. Resource IDs: (11)
@@ -9008,7 +9008,7 @@ msgid ""
 "incomplete or even misleading due to incomplete history."
 msgstr ""
 "Dogodio se problem s konekcijom prema serveru.\n"
-"Da li želite pogledati podatke iz priručne memorije\n"
+"Da li želite pogledati podatke iz keša\n"
 "\n"
 "Molimo da uzmete u obzir činjenicu da takvi podaci mogu biti zastareli,\n"
 "nepotpunii, te da mogu biti pogrešni zbog nekompletne istorije."
@@ -9317,7 +9317,7 @@ msgstr "Ukupno izmenjenih fajl:"
 #
 #. Resource IDs: (339)
 msgid "Total number of changes over all cached revisions"
-msgstr "Ukupan broj izmena u svim spremanjima revizijama"
+msgstr "Ukupan broj izmena u svim keširanim revizijama"
 
 #
 #. Resource IDs: (339)
@@ -9942,7 +9942,7 @@ msgid ""
 "Select the default behaviour here."
 msgstr ""
 "Kada spajanje sa serverom nije moguće, \n"
-"TSVN može preći na modus korišćenja lokalno spremljenih podataka.\n"
+"TSVN može preći na modus korišćenja lokalno keširanih podataka.\n"
 "Odaberite ovde željeno ponašanje."
 
 #
@@ -10292,7 +10292,7 @@ msgstr "[Neoznačen]"
 #
 #. Resource IDs: (338)
 msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
-msgstr "\"preskoči raspon\" se koristi za označavanje raspona revizija koje još nisu završile u priručnoj memoriji"
+msgstr "\"preskoči raspon\" se koristi za označavanje raspona revizija koje još nisu keširane"
 
 #
 #. Resource IDs: (65535)
@@ -10346,7 +10346,7 @@ msgid ""
 "work entirely from cache if 'offline'"
 msgstr ""
 "prvo proveri spremište (ako veza postoji)  -\n"
-"radi potpuno lokalno (ako nema veze)"
+"radi potpuno iz keša (ako nema veze)"
 
 #
 #. Resource IDs: (245)
@@ -10421,8 +10421,8 @@ msgid ""
 "gets replaced with the issue number."
 msgstr ""
 "bugtraq:url\r\n"
-"URL koji pokazuje na sistem za praćenje spornih pitanja. On mora sadržati\r\n"
-"\"%BUGID%\" koji onda biva zamenjen brojem spornog pitanja."
+"URL koji pokazuje na problem tragač. On mora sadržati\r\n"
+"\"%BUGID%\" koji onda biva zamenjen brojem problema."
 
 #
 #. Resource IDs: (65535)
