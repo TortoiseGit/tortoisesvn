@@ -1012,6 +1012,10 @@ msgstr ""
 msgid "&Working copy"
 msgstr ""
 
+#. Resource IDs: (338)
+msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
+msgstr ""
+
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
 msgstr ""
@@ -1129,11 +1133,11 @@ msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org 
 msgstr ""
 
 #. Resource IDs: (195)
-msgid "A newline separated list of paths for which icon overlays are shown.\r\nIf you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
+msgid "A newline separated list of paths for which icon overlays are shown.\r\nIf you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
 
 #. Resource IDs: (194)
-msgid "A newline separated list of paths for which no icon overlays are shown.\r\nIf you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\r\nAn empty list will allow overlays on all paths."
+msgid "A newline separated list of paths for which no icon overlays are shown.\r\nIf you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\nAn empty list will allow overlays on all paths."
 msgstr ""
 
 #. Resource IDs: (3843)
@@ -1435,7 +1439,7 @@ msgstr ""
 
 #. Resource IDs: (264)
 #, c-format
-msgid "Assigned to changelist \"%s\""
+msgid "Assigned to changelist '%s'"
 msgstr ""
 
 #. Resource IDs: (16528)
@@ -2033,7 +2037,7 @@ msgid "Commits your changes to the repository"
 msgstr ""
 
 #. Resource IDs: (170)
-msgid "Committing an unversioned folder will not recursively add its child items!\nYou might want to add these folders recursively by using the \"Add...\" context menu item.\n\nAre you sure that you want to continue the commit?"
+msgid "Committing an unversioned folder will not recursively add its child items!\nYou might want to add these folders recursively by using the 'Add...' context menu item.\n\nAre you sure that you want to continue the commit?"
 msgstr ""
 
 #. Resource IDs: (274, 32784)
@@ -2263,12 +2267,12 @@ msgstr ""
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not add \"%s\" because"
+msgid "Could not add '%s' because"
 msgstr ""
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not add property \"%s\" on %s because"
+msgid "Could not add property '%s' on %s because"
 msgstr ""
 
 #. Resource IDs: (201)
@@ -2287,12 +2291,12 @@ msgstr ""
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not delete \"%s\" because"
+msgid "Could not delete '%s' because"
 msgstr ""
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not delete property \"%s\" on %s because"
+msgid "Could not delete property '%s' on %s because"
 msgstr ""
 
 #. Resource IDs: (83)
@@ -2305,12 +2309,12 @@ msgstr ""
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not merge \"%s\" because"
+msgid "Could not merge '%s' because"
 msgstr ""
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not merge property \"%s\" on %s because"
+msgid "Could not merge property '%s' on %s because"
 msgstr ""
 
 #. Resource IDs: (3867)
@@ -2759,7 +2763,7 @@ msgstr ""
 
 #. Resource IDs: (127)
 #, c-format
-msgid "Edit property \"%s\" on\r\n%s"
+msgid "Edit property '%s' on\r\n%s"
 msgstr ""
 
 #. Resource IDs: (1331, 1382)
@@ -3080,12 +3084,12 @@ msgstr ""
 
 #. Resource IDs: (264)
 #, c-format
-msgid "Failed to set/remove changelist \"%s\""
+msgid "Failed to set/remove changelist '%s'"
 msgstr ""
 
 #. Resource IDs: (83)
 #, c-format
-msgid "Failed to start the issue tracker COM provider \"%s\".\n%s"
+msgid "Failed to start the issue tracker COM provider '%s'.\n%s"
 msgstr ""
 
 #. Resource IDs: (220)
@@ -3194,7 +3198,7 @@ msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
 msgstr ""
 
 #. Resource IDs: (119)
-msgid "For complete history deselect \"Stop on copy/rename\""
+msgid "For complete history deselect 'Stop on copy/rename'"
 msgstr ""
 
 #. Resource IDs: (1064)
@@ -3572,11 +3576,11 @@ msgid "Icons/Design/Code:                 Luebbe Onken"
 msgstr ""
 
 #. Resource IDs: (194)
-msgid "If activated, prevents the overlays and the context menu from showing in \"save as...\" or \"open\" dialogs"
+msgid "If activated, prevents the overlays and the context menu from showing in 'save as...' or 'open' dialogs"
 msgstr ""
 
 #. Resource IDs: (198)
-msgid "If activated, the menu entry \"Get Lock\" is always shown in the top level menu\nif the selected file has the svn:needs-lock property set"
+msgid "If activated, the menu entry 'Get Lock' is always shown in the top level menu\nif the selected file has the svn:needs-lock property set"
 msgstr ""
 
 #. Resource IDs: (95)
@@ -3600,11 +3604,11 @@ msgid "If enabled, TortoiseSVN checks once a week if a newer version is availabl
 msgstr ""
 
 #. Resource IDs: (195)
-msgid "If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\r\ninstead of the last used URL."
+msgid "If enabled, the Merge dialog initializes the 'From:' URL with the URL of the selected working copy\r\ninstead of the last used URL."
 msgstr ""
 
 #. Resource IDs: (195)
-msgid "If enabled, the repository is contacted when the dialog starts up.\r\nYou don't have to click on \"Check Repository\" anymore."
+msgid "If enabled, the repository is contacted when the dialog starts up.\r\nYou don't have to click on 'Check Repository' anymore."
 msgstr ""
 
 #. Resource IDs: (197)
@@ -3632,7 +3636,7 @@ msgid "If you change this value, your existing working copies won't be recognize
 msgstr ""
 
 #. Resource IDs: (251)
-msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
+msgid "If you want to break the lock, use the 'Check For Modifications' dialog."
 msgstr ""
 
 #. Resource IDs: (73)
@@ -4436,7 +4440,7 @@ msgid "No files or folders were modified. There is nothing for TortoiseSVN to re
 msgstr ""
 
 #. Resource IDs: (239)
-msgid "No files to show with the current setting.\nCheck one or more settings below to see unversioned, ignored and/or unmodified files.\nTo see remote changes, click on \"Check Repository\""
+msgid "No files to show with the current setting.\nCheck one or more settings below to see unversioned, ignored and/or unmodified files.\nTo see remote changes, click on 'Check Repository'"
 msgstr ""
 
 #. Resource IDs: (77)
@@ -4787,7 +4791,7 @@ msgid "Please enter a path where to apply the hook script to."
 msgstr ""
 
 #. Resource IDs: (251)
-msgid "Please execute the \"Cleanup\" command."
+msgid "Please execute the 'Cleanup' command."
 msgstr ""
 
 #. Resource IDs: (78)
@@ -5197,7 +5201,7 @@ msgstr ""
 
 #. Resource IDs: (127)
 #, c-format
-msgid "Remove property \"%s\" from\r\n%s"
+msgid "Remove property '%s' from\r\n%s"
 msgstr ""
 
 #. Resource IDs: (345)
@@ -5336,11 +5340,11 @@ msgid "Resolve all later"
 msgstr ""
 
 #. Resource IDs: (282)
-msgid "Resolve conflict using \"mine\""
+msgid "Resolve conflict using 'mine'"
 msgstr ""
 
 #. Resource IDs: (282)
-msgid "Resolve conflict using \"theirs\""
+msgid "Resolve conflict using 'theirs'"
 msgstr ""
 
 #. Resource IDs: (1403)
@@ -5846,7 +5850,7 @@ msgstr ""
 
 #. Resource IDs: (127)
 #, c-format
-msgid "Set property \"%s\" on\r\n%s"
+msgid "Set property '%s' on\r\n%s"
 msgstr ""
 
 #. Resource IDs: (13)
@@ -6373,7 +6377,7 @@ msgstr ""
 
 #. Resource IDs: (63)
 #, c-format
-msgid "The chunk start \"@@\" was expected in line %d !"
+msgid "The chunk start '@@' was expected in line %d !"
 msgstr ""
 
 #. Resource IDs: (197)
@@ -6456,11 +6460,11 @@ msgstr ""
 
 #. Resource IDs: (63)
 #, c-format
-msgid "The line \"====\" was expected in line %d !"
+msgid "The line '====' was expected in line %d !"
 msgstr ""
 
 #. Resource IDs: (63)
-msgid "The line \"Index: \" was not found!\nEither this is not a diff file or the diff is empty."
+msgid "The line 'Index: ' was not found!\nEither this is not a diff file or the diff is empty."
 msgstr ""
 
 #. Resource IDs: (63)
@@ -6668,7 +6672,7 @@ msgid "To commit recursively and work around this error,\nmake sure that all chi
 msgstr ""
 
 #. Resource IDs: (284)
-msgid "To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\nThis will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
+msgid "To steal the lock, right-click on the parent folder of this item and select 'Get Lock' from the context menu.\nThis will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 msgstr ""
 
 #. Resource IDs: (1201, 65535)
@@ -6798,7 +6802,7 @@ msgid "Tree merge"
 msgstr ""
 
 #. Resource IDs: (251)
-msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
+msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr ""
 
 #. Resource IDs: (73)
@@ -7085,6 +7089,38 @@ msgstr ""
 msgid "Use system locale for date/time"
 msgstr ""
 
+#. Resource IDs: (251)
+msgid "Use text block from '&mine'"
+msgstr ""
+
+#. Resource IDs: (251)
+msgid "Use text block from '&theirs'"
+msgstr ""
+
+#. Resource IDs: (251)
+msgid "Use text block from 'm&ine' before 'theirs'"
+msgstr ""
+
+#. Resource IDs: (2052)
+msgid "Use text block from 'mine' before 'theirs'\nUse 'mine' text block then 'theirs'"
+msgstr ""
+
+#. Resource IDs: (2052)
+msgid "Use text block from 'mine'\nUse 'mine' text block"
+msgstr ""
+
+#. Resource IDs: (251)
+msgid "Use text block from 't&heirs' before 'mine"
+msgstr ""
+
+#. Resource IDs: (2052)
+msgid "Use text block from 'theirs' before 'mine'\nUse 'theirs' text block then 'mine'"
+msgstr ""
+
+#. Resource IDs: (2052)
+msgid "Use text block from 'theirs'\nUse 'theirs' text block"
+msgstr ""
+
 #. Resource IDs: (251, 32820)
 msgid "Use text block from \"&mine\""
 msgstr ""
@@ -7097,24 +7133,8 @@ msgstr ""
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr ""
 
-#. Resource IDs: (2052)
-msgid "Use text block from \"mine\" before \"theirs\"\nUse \"mine\" text block then \"theirs\""
-msgstr ""
-
-#. Resource IDs: (2052)
-msgid "Use text block from \"mine\"\nUse \"mine\" text block"
-msgstr ""
-
 #. Resource IDs: (251, 32821)
 msgid "Use text block from \"t&heirs\" before \"mine\""
-msgstr ""
-
-#. Resource IDs: (2052)
-msgid "Use text block from \"theirs\" before \"mine\"\nUse \"theirs\" text block then \"mine\""
-msgstr ""
-
-#. Resource IDs: (2052)
-msgid "Use text block from \"theirs\"\nUse \"theirs\" text block"
 msgstr ""
 
 #. Resource IDs: (2054)
@@ -7421,10 +7441,6 @@ msgstr ""
 msgid "[Unassigned]"
 msgstr ""
 
-#. Resource IDs: (338)
-msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
-msgstr ""
-
 #. Resource IDs: (65535)
 msgid "_POPUP_"
 msgstr ""
@@ -7476,7 +7492,7 @@ msgid "authors: "
 msgstr ""
 
 #. Resource IDs: (577)
-msgid "bugtraq:append\r\nSet to \"false\" if you want the bugtracking ID to be inserted at the top of the\r\nlog message. The default is \"true\" which means the bugtracking ID\r\nis appended to the log message."
+msgid "bugtraq:append\r\nSet to 'false' if you want the bugtracking ID to be inserted at the top of the\r\nlog message. The default is 'true' which means the bugtracking ID\r\nis appended to the log message."
 msgstr ""
 
 #. Resource IDs: (577)
@@ -7489,16 +7505,16 @@ msgstr ""
 
 #. Resource IDs: (577)
 #, c-format
-msgid "bugtraq:message\r\nString which is appended to a log message when an issue number is entered.\r\nThe string must contain \"%BUGID%\" which gets replaced with the issue number."
+msgid "bugtraq:message\r\nString which is appended to a log message when an issue number is entered.\r\nThe string must contain '%BUGID%' which gets replaced with the issue number."
 msgstr ""
 
 #. Resource IDs: (577)
-msgid "bugtraq:number\r\nSet to \"false\" if your bugtracking system has issues which are referenced not by numbers."
+msgid "bugtraq:number\r\nSet to 'false' if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
 
 #. Resource IDs: (577)
 #, c-format
-msgid "bugtraq:url\r\nURL pointing to the issue tracker. It must contain \"%BUGID%\" which\r\ngets replaced with the issue number."
+msgid "bugtraq:url\r\nURL pointing to the issue tracker. It must contain '%BUGID%' which\r\ngets replaced with the issue number."
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -7815,7 +7831,7 @@ msgid "tsvn:lockmsgminsize\r\nMinimum size in chars a lock message must have bef
 msgstr ""
 
 #. Resource IDs: (578)
-msgid "tsvn:logfilelistenglish\r\nSet to \"false\" if you don't want the list of changed files to be pasted in english\r\nin the commit dialog."
+msgid "tsvn:logfilelistenglish\r\nSet to 'false' if you don't want the list of changed files to be pasted in english\r\nin the commit dialog."
 msgstr ""
 
 #. Resource IDs: (578)
@@ -7847,7 +7863,7 @@ msgid "tsvn:userfolderproperties\r\nNewline separated list of user defined prope
 msgstr ""
 
 #. Resource IDs: (577)
-msgid "tsvn:warnifnoissue\r\nSet to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
+msgid "tsvn:warnifnoissue\r\nSet to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
 
 #. Resource IDs: (65535)
