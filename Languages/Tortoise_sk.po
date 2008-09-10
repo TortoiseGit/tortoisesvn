@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-09-10 14:24+0100\n"
+"PO-Revision-Date: 2008-09-10 22:16+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1053,6 +1053,10 @@ msgstr "&Windows XP"
 msgid "&Working copy"
 msgstr "&Pracovná kópia"
 
+#. Resource IDs: (338)
+msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
+msgstr "'skip ranges' je použitý na označenie rozsahov revízií, ktoré ešte nie sú v zásobníku"
+
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
 msgstr "(binárna hodnota)"
@@ -1186,19 +1190,19 @@ msgstr "Je prístupná nová verzia. Prosím navštívte http://tortoisesvn.tigr
 #. Resource IDs: (195)
 msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
-"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
+"If you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
 "Novými riadkami oddelovaný zoznam ciest, pre ktoré budú zobrazené prekrývajúce ikonky.\r\n"
-"Keď pridáte znak \"*\" na konec cesty, všetky súbory a podadresáre tohto adresára budú tiež zaradené."
+"Keď pridáte znak '*' na koniec cesty, všetky súbory a podadresáre tohto adresára budú tiež zaradené."
 
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
-"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
 "Novými riadkami oddelovaný zoznam ciest, pre ktoré nebudú zobrazené prekrývajúce ikonky.\r\n"
-"Keď pridáte znak \"*\" na koniec cesty, všetky súbory a podadresáre tohto adresára budú tiež vylúčené.\r\n"
+"Keď pridáte znak '*' na koniec cesty, všetky súbory a podadresáre tohto adresára budú tiež vylúčené.\r\n"
 "Prázdny zoznam znamená povolé zobrazovanie pre všetky cesty."
 
 #. Resource IDs: (3843)
@@ -1557,8 +1561,8 @@ msgstr "Opytať sa užívateľa"
 
 #. Resource IDs: (264)
 #, c-format
-msgid "Assigned to changelist \"%s\""
-msgstr "Prirarené k zoznamu zmien \"%s\""
+msgid "Assigned to changelist '%s'"
+msgstr "Priradené k zoznamu zmien '%s'"
 
 #. Resource IDs: (16528)
 msgid "Assigned to:"
@@ -2210,12 +2214,12 @@ msgstr "Odovzdať vaše zmeny do úložiska"
 #. Resource IDs: (170)
 msgid ""
 "Committing an unversioned folder will not recursively add its child items!\n"
-"You might want to add these folders recursively by using the \"Add...\" context menu item.\n"
+"You might want to add these folders recursively by using the 'Add...' context menu item.\n"
 "\n"
 "Are you sure that you want to continue the commit?"
 msgstr ""
-"Odovzdanie neverziovaného adresára nepridaá jeho objekty!\n"
-"Možete požadovať rekurzívne pridanie adresára použitím \"Pridať...\" z kontextovej ponuky objektu.\n"
+"Odovzdanie neverziovaného adresára nepridaá jeho podobjekty!\n"
+"Môžete požadovať rekurzívne pridanie adresára použitím 'Pridať...' z kontextovej ponuky objektu.\n"
 "\n"
 "Ste si istý, že chcete pokračovať v odovzdávaní?"
 
@@ -2466,13 +2470,13 @@ msgstr "Nemožno pridať %s do zoznamu vylúčení!"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not add \"%s\" because"
-msgstr "Nemožno pridať \"%s\" pretože"
+msgid "Could not add '%s' because"
+msgstr "Nemožno pridať '%s' pretože"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not add property \"%s\" on %s because"
-msgstr "Nemožno pridať vlastnosť \"%s\" na %s pretože"
+msgid "Could not add property '%s' on '%s' because"
+msgstr "Nemožno pridať vlastnosť '%s' na '%s' pretože"
 
 #. Resource IDs: (201)
 msgid "Could not check for a newer version!"
@@ -2496,13 +2500,13 @@ msgstr "%1 nemohol byť vytvorený, pretože je plný adresár."
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not delete \"%s\" because"
-msgstr "Nemožno vymazať \"%s\" pretože"
+msgid "Could not delete '%s' because"
+msgstr "Nemožno vymazať '%s' pretože"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not delete property \"%s\" on %s because"
-msgstr "Nemožno vymazať vlastnosť \"%s\" na %s pretože"
+msgid "Could not delete property '%s' on '%s' because"
+msgstr "Nemožno vymazať vlastnosť  '%s' na '%s' pretože"
 
 #. Resource IDs: (83)
 msgid "Could not determine the last committed revision!"
@@ -2514,13 +2518,13 @@ msgstr "Nemožno získať stav!"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not merge \"%s\" because"
-msgstr "Nemožno zlúčiť \"%s\" pretože"
+msgid "Could not merge '%s' because"
+msgstr "Nemožno zlúčiť '%s' pretože"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not merge property \"%s\" on %s because"
-msgstr "Nemožno zlúčiť vlastnosť \"%s\" na %s pretože"
+msgid "Could not merge property '%s' on '%s' because"
+msgstr "Nemožno zlúčiť vlastnosť '%s' na '%s' pretože"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -3067,10 +3071,10 @@ msgstr "Uprav správu denníka"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Edit property \"%s\" on\r\n"
+"Edit property '%s' on\r\n"
 "%s"
 msgstr ""
-"Upraviť vlastnosť \"%s\" na\r\n"
+"Upraviť vlastnosť '%s' na\r\n"
 "%s"
 
 #. Resource IDs: (1331, 1382)
@@ -3427,16 +3431,16 @@ msgstr "Ukladanie dokumentu zlyhalo."
 
 #. Resource IDs: (264)
 #, c-format
-msgid "Failed to set/remove changelist \"%s\""
-msgstr "Zlyhalo nastavenie/odstránenie zoznamu zmien \"%s\""
+msgid "Failed to set/remove changelist '%s'"
+msgstr "Zlyhalo nastavenie/odstránenie zoznamu zmien '%s'"
 
 #. Resource IDs: (83)
 #, c-format
 msgid ""
-"Failed to start the issue tracker COM provider \"%s\".\n"
+"Failed to start the issue tracker COM provider '%s'.\n"
 "%s"
 msgstr ""
-"Nepodarilo sa spustiť poskytovateľa COM pre sledovanie prípadov \"%s\".\n"
+"Nepodarilo sa spustiť poskytovateľa COM pre sledovanie prípadov '%s'.\n"
 "%s"
 
 #. Resource IDs: (220)
@@ -3642,8 +3646,8 @@ msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
 msgstr "Pre pomoc stlačte F1. Horizontálne rolovanie možete rolovacím koliečkom pri súčasnom držaní klávesy Ctrl."
 
 #. Resource IDs: (119)
-msgid "For complete history deselect \"Stop on copy/rename\""
-msgstr "Pre úplnú históriu vypnite \"Zastaviť na kopírovať/premenovať\""
+msgid "For complete history deselect 'Stop on copy/rename'"
+msgstr "Pre úplnú históriu vypnite 'Zastaviť na kopírovať/premenovať'"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -4069,15 +4073,15 @@ msgid "Icons/Design/Code:                 Luebbe Onken"
 msgstr "Ikony/Design/Kód:                 Luebbe ONKEN"
 
 #. Resource IDs: (194)
-msgid "If activated, prevents the overlays and the context menu from showing in \"save as...\" or \"open\" dialogs"
-msgstr "Aktivované zabrání zobrazovaniu prekryvajúcich ikoniek a kontexových ponúk v dialógových oknách \"uložiť ako...\" a \"otvoriť\"."
+msgid "If activated, prevents the overlays and the context menu from showing in 'save as...' or 'open' dialogs"
+msgstr "Aktivované zabrání zobrazovaniu prekryvajúcich ikoniek a kontexových ponúk v dialógových oknách 'uložiť ako...' a 'otvoriť'."
 
 #. Resource IDs: (198)
 msgid ""
-"If activated, the menu entry \"Get Lock\" is always shown in the top level menu\n"
+"If activated, the menu entry 'Get Lock' is always shown in the top level menu\n"
 "if the selected file has the svn:needs-lock property set"
 msgstr ""
-"Keď je aktívne, položka \"Uzamknúť\" je vždy zobrazovaná na vrchu ponuky\n"
+"Keď je aktívne, položka 'Uzamknúť' je vždy zobrazovaná na vrchu ponuky\n"
 "keď je vybraný súbor s nastavenou vlastnosťou svn:needs-lock"
 
 #. Resource IDs: (95)
@@ -4114,19 +4118,19 @@ msgstr "Keď je povolené, TortoiseSVN kontroluje každý týždeň, či je prí
 
 #. Resource IDs: (195)
 msgid ""
-"If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\r\n"
+"If enabled, the Merge dialog initializes the 'From:' URL with the URL of the selected working copy\r\n"
 "instead of the last used URL."
 msgstr ""
-"Ak je povolené, dialogové okno spájania začne s  \"Z:\" URL adresou vybranej pracovnej verzie\r\n"
+"Ak je povolené, dialogové okno spájania začne s  'Z:' URL adresou vybranej pracovnej verzie\r\n"
 "namiesto posledne použitej URL adresy."
 
 #. Resource IDs: (195)
 msgid ""
 "If enabled, the repository is contacted when the dialog starts up.\r\n"
-"You don't have to click on \"Check Repository\" anymore."
+"You don't have to click on 'Check Repository' anymore."
 msgstr ""
 "Ak je povolené, k úložisku sa pripojí vždy keď sa otvorí dialogové okno.\r\n"
-"Už nebudete musieť klikať na \"Skontroluj úložisko\"."
+"Už nebudete musieť klikať na 'Skontroluj úložisko'."
 
 #. Resource IDs: (197)
 msgid ""
@@ -4177,8 +4181,8 @@ msgstr ""
 "Ste si úplne istý, že to chcete?"
 
 #. Resource IDs: (251)
-msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
-msgstr "Keď chcete zrušiť zámok, použite \"Skontrolovať zmeny\"."
+msgid "If you want to break the lock, use the 'Check For Modifications' dialog."
+msgstr "Keď chcete zrušiť zámok, použite dialóg 'Skontrolovať zmeny'."
 
 #. Resource IDs: (73)
 msgid "Ignore"
@@ -5147,11 +5151,11 @@ msgstr "Žiadne súbory ani adresáre neboli zmené. TortoiseSVN nemá čo obnov
 msgid ""
 "No files to show with the current setting.\n"
 "Check one or more settings below to see unversioned, ignored and/or unmodified files.\n"
-"To see remote changes, click on \"Check Repository\""
+"To see remote changes, click on 'Check Repository'"
 msgstr ""
 "Pri aktuálnom nastavení nie sú žiadne súbory na zobrazenie.\n"
 "Vyberte jedno alebo viac nastavení nižšie, aby ste videli nevrziované, ignorované či nezmenené súbory.\n"
-"Na prezretie vzdialených zmien vyberte \"Skontrolovať úložisko\""
+"Na prezretie vzdialených zmien vyberte 'Skontrolovať úložisko'"
 
 #. Resource IDs: (77)
 msgid ""
@@ -5554,8 +5558,8 @@ msgid "Please enter a path where to apply the hook script to."
 msgstr "Prosím zadajte cestu, pre ktorú sa má vykonať pripnutý (hook)skript."
 
 #. Resource IDs: (251)
-msgid "Please execute the \"Cleanup\" command."
-msgstr "Prosím spustite \"Vyčistiť\"."
+msgid "Please execute the 'Cleanup' command."
+msgstr "Prosím spustite 'Vyčistiť'."
 
 #. Resource IDs: (78)
 msgid ""
@@ -6033,10 +6037,10 @@ msgstr "Odstrániť zoznam zmien"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Remove property \"%s\" from\r\n"
+"Remove property '%s' from\r\n"
 "%s"
 msgstr ""
-"Odsrániť vlastnosť \"%s\" z\r\n"
+"Odstrániť vlastnosť '%s' z\r\n"
 "%s"
 
 #. Resource IDs: (345)
@@ -6195,12 +6199,12 @@ msgid "Resolve all later"
 msgstr "Vyriešiť všetko neskôr"
 
 #. Resource IDs: (282)
-msgid "Resolve conflict using \"mine\""
-msgstr "Vyriešiť konfikt použitím \"Moje\""
+msgid "Resolve conflict using 'mine'"
+msgstr "Vyriešiť konfikt použitím 'Moje'"
 
 #. Resource IDs: (282)
-msgid "Resolve conflict using \"theirs\""
-msgstr "Vyriešiť konfikt použitím \"Ich\""
+msgid "Resolve conflict using 'theirs'"
+msgstr "Vyriešiť konfikt použitím 'Ich'"
 
 #. Resource IDs: (1403)
 msgid "Resolve conflict:"
@@ -6763,10 +6767,10 @@ msgstr "Nastaviť čas súborov na \"&čas posledného odovzdania\""
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Set property \"%s\" on\r\n"
+"Set property '%s' on\r\n"
 "%s"
 msgstr ""
-"Nastaviť vlastnosť \"%s\" na\r\n"
+"Nastaviť vlastnosť '%s' na\r\n"
 "%s"
 
 #. Resource IDs: (13)
@@ -7358,8 +7362,8 @@ msgstr "Veľkosť bloku nezodpovedá počtu pridaných/vymazaných riadkov!"
 
 #. Resource IDs: (63)
 #, c-format
-msgid "The chunk start \"@@\" was expected in line %d !"
-msgstr "Na riadku %d bol očakávaný začiatok dávky \"@@\"!"
+msgid "The chunk start '@@' was expected in line %d !"
+msgstr "Na riadku %d bol očakávaný začiatok dávky '@@'!"
 
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
@@ -7490,15 +7494,15 @@ msgstr "Sledovač prípadov nemohol overiť textový parameter"
 
 #. Resource IDs: (63)
 #, c-format
-msgid "The line \"====\" was expected in line %d !"
-msgstr "Na riadku %d bolo očakávané \"====\"!"
+msgid "The line '====' was expected in line %d !"
+msgstr "Na riadku %d bolo očakávané '===='!"
 
 #. Resource IDs: (63)
 msgid ""
-"The line \"Index: \" was not found!\n"
+"The line 'Index: ' was not found!\n"
 "Either this is not a diff file or the diff is empty."
 msgstr ""
-"Nebol najdený riadok \"Index: \"!\n"
+"Nebol najdený riadok 'Index: '!\n"
 "Súbor je prázdny, alebo to nie je súbor porovnania."
 
 #. Resource IDs: (63)
@@ -7864,10 +7868,10 @@ msgstr ""
 
 #. Resource IDs: (284)
 msgid ""
-"To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\n"
+"To steal the lock, right-click on the parent folder of this item and select 'Get Lock' from the context menu.\n"
 "This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 msgstr ""
-"Na ukradnutie zámky, stlačte pravý klik na rodičovskom adresáry objektu a vyberte \"Uzamknúť\" z kontextovej ponuky.\n"
+"Na ukradnutie zámky, stlačte pravý klik na rodičovskom adresáry objektu a vyberte 'Uzamknúť' z kontextovej ponuky.\n"
 "Toto vám zobrazí dialóg zamykania, kde môže znútiť zámok - 'ukradnúť' ho od jeho aktuálneho vlastníka."
 
 #. Resource IDs: (1201, 65535)
@@ -8058,8 +8062,8 @@ msgid "Tree merge"
 msgstr "Zluciť strom"
 
 #. Resource IDs: (251)
-msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
-msgstr "Skúste \"Vyčistiť\". Keď to nepomôže treba vykonať nové získanie."
+msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
+msgstr "Skúste 'Vyčistiť'. Keď to nepomôže treba vykonať nové získanie."
 
 # Skúsiť znova
 #. Resource IDs: (73)
@@ -8396,6 +8400,54 @@ msgstr "Použiť &preškrtávanie pre vymazané riadky"
 msgid "Use system locale for date/time"
 msgstr "Použiť systémové nastavie dátumu/času"
 
+#. Resource IDs: (251)
+msgid "Use text block from '&mine'"
+msgstr "Použiť blok '&Moje'"
+
+#. Resource IDs: (251)
+msgid "Use text block from '&theirs'"
+msgstr "Použiť blok '&Ich'"
+
+#. Resource IDs: (251)
+msgid "Use text block from 'm&ine' before 'theirs'"
+msgstr "Použiť blok 'M&oje' pred 'Ich'"
+
+#. Resource IDs: (2052)
+msgid ""
+"Use text block from 'mine' before 'theirs'\n"
+"Use 'mine' text block then 'theirs'"
+msgstr ""
+"Použiť blok 'Moje' pred 'Ich'\n"
+"'Moje', potom 'Ich'"
+
+#. Resource IDs: (2052)
+msgid ""
+"Use text block from 'mine'\n"
+"Use 'mine' text block"
+msgstr ""
+"Použiť blok z 'Moje'\n"
+"Použiť 'Moje'"
+
+#. Resource IDs: (251)
+msgid "Use text block from 't&heirs' before 'mine"
+msgstr "Použiť blok  'I&ch' pred 'Moje'"
+
+#. Resource IDs: (2052)
+msgid ""
+"Use text block from 'theirs' before 'mine'\n"
+"Use 'theirs' text block then 'mine'"
+msgstr ""
+"Použiť blok  'Ich' pred 'Moje'\n"
+"'Ich', potom 'Moje'"
+
+#. Resource IDs: (2052)
+msgid ""
+"Use text block from 'theirs'\n"
+"Use 'theirs' text block"
+msgstr ""
+"Použiť blok z 'Ich'\n"
+"Použiť 'Ich'"
+
 #. Resource IDs: (251, 32820)
 msgid "Use text block from \"&mine\""
 msgstr "Použiť blok \"&Moje\""
@@ -8408,41 +8460,9 @@ msgstr "Použiť blok \"&Ich\""
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "Použiť blok \"M&oje\" pred \"Ich\""
 
-#. Resource IDs: (2052)
-msgid ""
-"Use text block from \"mine\" before \"theirs\"\n"
-"Use \"mine\" text block then \"theirs\""
-msgstr ""
-"Použiť blok \"Moje\" pred \"Ich\"\n"
-"\"Moje\", potom \"Ich\""
-
-#. Resource IDs: (2052)
-msgid ""
-"Use text block from \"mine\"\n"
-"Use \"mine\" text block"
-msgstr ""
-"Použiť blok z \"Moje\"\n"
-"Použiť \"Moje\""
-
 #. Resource IDs: (251, 32821)
 msgid "Use text block from \"t&heirs\" before \"mine\""
 msgstr "Použiť blok  \"I&ch\" pred \"Moje\""
-
-#. Resource IDs: (2052)
-msgid ""
-"Use text block from \"theirs\" before \"mine\"\n"
-"Use \"theirs\" text block then \"mine\""
-msgstr ""
-"Použiť blok  \"Ich\" pred \"Moje\"\n"
-"\"Ich\", potom \"Moje\""
-
-#. Resource IDs: (2052)
-msgid ""
-"Use text block from \"theirs\"\n"
-"Use \"theirs\" text block"
-msgstr ""
-"Použiť blok z \"Ich\"\n"
-"Použiť \"Ich\""
 
 #. Resource IDs: (2054)
 msgid ""
@@ -8877,10 +8897,6 @@ msgstr "Zobraz všetko"
 msgid "[Unassigned]"
 msgstr "[Nepriradené]"
 
-#. Resource IDs: (338)
-msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
-msgstr "\"skip ranges\" je použitý na označenie rozsahov revízií, ktoré ešte niesú v zásobníku"
-
 #. Resource IDs: (65535)
 msgid "_POPUP_"
 msgstr "_POPUP_"
@@ -8940,13 +8956,13 @@ msgstr "autori:"
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:append\r\n"
-"Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\r\n"
-"log message. The default is \"true\" which means the bugtracking ID\r\n"
+"Set to 'false' if you want the bugtracking ID to be inserted at the top of the\r\n"
+"log message. The default is 'true' which means the bugtracking ID\r\n"
 "is appended to the log message."
 msgstr ""
 "bugtraq:append\r\n"
-"Nastavte \"false\" keď chcete aby ' bugtracking ID' bolo pridané na vrch\r\n"
-"správy denníka. Predvolená hodnota \"true\" znamená, že 'bugtracking ID'\r\n"
+"Nastavte 'false' keď chcete aby ' bugtracking ID' bolo pridané na vrch\r\n"
+"správy denníka. Predvolená hodnota 'true' znamená, že 'bugtracking ID'\r\n"
 "je k správe denníka pripojená."
 
 #. Resource IDs: (577)
@@ -8974,30 +8990,30 @@ msgstr ""
 msgid ""
 "bugtraq:message\r\n"
 "String which is appended to a log message when an issue number is entered.\r\n"
-"The string must contain \"%BUGID%\" which gets replaced with the issue number."
+"The string must contain '%BUGID%' which gets replaced with the issue number."
 msgstr ""
 "bugtraq:message\r\n"
 "Reťazec, ktorý je pridaný k správe v denníku, keď je zadané číslo prípadu.\r\n"
-"Reťazec musí obsahovať \"%BUGID%\", ktoré bude nahradené číslom prípadu."
+"Reťazec musí obsahovať '%BUGID%', ktoré bude nahradené číslom prípadu."
 
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:number\r\n"
-"Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
+"Set to 'false' if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
 "bugtraq:number\r\n"
-"Nastavte \"false\" keď váš bugtracking systém nemá odkazy na prípady podľa čísiel."
+"Nastavte 'false' keď váš bugtracking systém nemá odkazy na prípady podľa čísiel."
 
 #. Resource IDs: (577)
 #, c-format
 msgid ""
 "bugtraq:url\r\n"
-"URL pointing to the issue tracker. It must contain \"%BUGID%\" which\r\n"
+"URL pointing to the issue tracker. It must contain '%BUGID%' which\r\n"
 "gets replaced with the issue number."
 msgstr ""
 "bugtraq:url\r\n"
 "URL odkazujúca na záznam prípadov.\r\n"
-"Musí obsahovať \"%BUGID%\", ktoré bude nahradené číslom prípadu."
+"Musí obsahovať '%BUGID%', ktoré bude nahradené číslom prípadu."
 
 #. Resource IDs: (65535)
 msgid "changes total: "
@@ -9437,11 +9453,11 @@ msgstr ""
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logfilelistenglish\r\n"
-"Set to \"false\" if you don't want the list of changed files to be pasted in english\r\n"
+"Set to 'false' if you don't want the list of changed files to be pasted in english\r\n"
 "in the commit dialog."
 msgstr ""
 "tsvn:logfilelistenglish\r\n"
-"Nastavte na \"false\", keď nechcete, aby zoznam zmenených súborov v odovzdávacom okne\r\n"
+"Nastavte na 'false', keď nechcete, aby zoznam zmenených súborov v odovzdávacom okne\r\n"
 "bol vložený v angličtine."
 
 #. Resource IDs: (578)
@@ -9513,10 +9529,10 @@ msgstr ""
 #. Resource IDs: (577)
 msgid ""
 "tsvn:warnifnoissue\r\n"
-"Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
+"Set to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
 "tsvn:warnifnoissue\r\n"
-"Nastavte na \"yes\" ak má byť zobrazené varovanie, pri odovzdávaní bez zadania prípadu."
+"Nastavte na 'yes' ak má byť zobrazené varovanie, pri odovzdávaní bez zadania prípadu."
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
