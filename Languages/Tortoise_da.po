@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-08-30 15:36+0100\n"
-"Last-Translator: Zero3 <use@google.com>\n"
+"PO-Revision-Date: 2008-09-10 07:55+0100\n"
+"Last-Translator: David Trasbo <davidtrasbo@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -397,7 +397,7 @@ msgstr "&Programudseende"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
-msgstr "&Påfør unified diff"
+msgstr "&Påfør standardsammenligning"
 
 #. Resource IDs: (32852)
 msgid "&Aqua Style"
@@ -1289,15 +1289,13 @@ msgstr "?"
 
 # Bedre oversættelse af "combo box"?
 #. Resource IDs: (579)
-#, fuzzy
 msgid "A list of user defined properties for files to show in the combo box"
-msgstr "En liste med brugerdefinerede filegenskaber der skal vises i kombi-boksen"
+msgstr "En liste med brugerdefinerede filegenskaber der skal vises i kombinationsboksen"
 
 # Bedre oversættelse af "combo box"?
 #. Resource IDs: (579)
-#, fuzzy
 msgid "A list of user defined properties for folders to show in the combo box"
-msgstr "En liste med brugerdefinerede mapper der skal vises i kombi-boksen"
+msgstr "En liste med brugerdefinerede mapper der skal vises i kombinationsboksen"
 
 #. Resource IDs: (201)
 msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org and download the current version! Click _here_ to go directly to our website."
@@ -1622,10 +1620,11 @@ msgstr "En ukendt fejl opstod under adgang til %1."
 msgid "An unknown line type was found in line %d !"
 msgstr "En ukendt linjetype blev fundet i linje %d!"
 
-# Kontekst?
+# Not from TSVN
 #. Resource IDs: (65535)
+#, fuzzy
 msgid "Application Frame Menus: "
-msgstr ""
+msgstr "Programrammemenuer:"
 
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
@@ -1906,10 +1905,11 @@ msgstr "O&pret gren/mærke fra revision"
 msgid "C&reate folder..."
 msgstr "O&pret mappe..."
 
-# Kontekst?
+# No TSVN Text
 #. Resource IDs: (65535)
+#, fuzzy
 msgid "C&urrent Keys:"
-msgstr ""
+msgstr "Nuværende nøgler:"
 
 #. Resource IDs: (501)
 msgid "C&ut"
@@ -1989,14 +1989,14 @@ msgstr "Forskellene kan ikke vises på grund af inkonsistente linjeafslutninger 
 # Udsangsord: strømme/bruse/komme strømmende/komme væltende
 #. Resource IDs: (16926)
 msgid "Cascade"
-msgstr ""
+msgstr "Udvid"
 
 # Kontekst? Mulige oversættelser:
 # Navneord: vandfald/kaskade/brus
 # Udsangsord: strømme/bruse/komme strømmende/komme væltende
 #. Resource IDs: (65535)
 msgid "Cascaded context menu"
-msgstr ""
+msgstr "Udvidet højrekliksmenu"
 
 #. Resource IDs: (65535)
 msgid "Cate&gories:"
@@ -2440,10 +2440,13 @@ msgstr "Kontekstmenuer:"
 msgid "Continue"
 msgstr "Fortsæt"
 
+# No TSVN Text
 # Oversættelse af "contracted" og "docked"? Kontekst?
+# Et gæt. I.h.t. "Expand docked window"
 #. Resource IDs: (1001)
+#, fuzzy
 msgid "Contract docked window"
-msgstr ""
+msgstr "Gendan låst vindue"
 
 #. Resource IDs: (376)
 msgid "Cop&y"
@@ -2464,7 +2467,7 @@ msgstr "Kopieret på serveren"
 # "kopi" eller "kopier"? Kontekst?
 #. Resource IDs: (16991)
 msgid "Copy"
-msgstr ""
+msgstr "Kopiér"
 
 #. Resource IDs: (127)
 #, c-format
@@ -2810,7 +2813,7 @@ msgstr "Kli&p"
 # Kontekst?
 #. Resource IDs: (65535)
 msgid "Current"
-msgstr "Aktuelle"
+msgstr "Aktuel"
 
 #. Resource IDs: (1113)
 msgid "Current version is:"
@@ -2942,11 +2945,14 @@ msgid "Destination disk drive is full."
 msgstr "Destinationsdisken er fyldt op."
 
 # Oversættelse af "device"? Kontekst?
+# Ordet "bitmap" ikke oversat. Bruges på dansk.
 #. Resource IDs: (3849)
 msgid ""
 "Device Independent Bitmap\n"
 "a device independent bitmap"
 msgstr ""
+"Enhedsuafhængig bitmap\n"
+"en enhedsuafhængig bitmap"
 
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
@@ -3145,7 +3151,7 @@ msgstr "Drevtyper"
 # -- Stefan2."
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
-msgstr "&Præcise kopioprindelser"
+msgstr "&Nøjagtige kopioprindelser"
 
 #. Resource IDs: (65535)
 msgid "E&xclude paths:"
@@ -3423,12 +3429,12 @@ msgstr "Eksisterende"
 #. Resource IDs: (1002)
 #, c-format
 msgid "Expand (%s)"
-msgstr "Udfold (%s)"
+msgstr "Udvid (%s)"
 
 # Oversættelse af "docked"? Kontekst?
 #. Resource IDs: (1001)
 msgid "Expand docked window"
-msgstr ""
+msgstr "Udvid låst vindue"
 
 #. Resource IDs: (209)
 msgid "Explore to"
@@ -3521,13 +3527,12 @@ msgstr "Tilbageføring mislykkedes"
 
 # Kontekst? Bedre oversættelse af "link" og "broken"?
 #. Resource IDs: (3865)
-#, fuzzy
 msgid ""
 "Failed to connect.\n"
 "Link may be broken."
 msgstr ""
 "Forbindelse mislykkedes.\n"
-"Link er måske i stykker."
+"Link er måske utilgængeligt."
 
 #. Resource IDs: (3865)
 msgid "Failed to convert ActiveX object."
@@ -3794,7 +3799,6 @@ msgstr "Fra: (start-URL og -revision af intervallet der skal flettes)"
 
 # Kontekst?
 #. Resource IDs: (1065)
-#, fuzzy
 msgid "Full Screen"
 msgstr "Fuldskærmsvisning"
 
@@ -4003,7 +4007,7 @@ msgstr "Skjul &slettede stier"
 # Oversættelse af "docked"? Kontekst?
 #. Resource IDs: (1001)
 msgid "Hide docked window"
-msgstr ""
+msgstr "Skjul låst vindue"
 
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
@@ -4028,7 +4032,7 @@ msgstr "Tip: Tryk F5 for at genopfriske det valgte deltræ og Ctrl-F5 for at gen
 # Kontekst?
 #. Resource IDs: (16519)
 msgid "Hint: select the context menu, change the page to 'Commands' and drag the toolbar buttons into the menu window."
-msgstr ""
+msgstr "Tip: vælg højrekliksmenuen, skift til siden 'Kommandoer' og træk værktøjslinjens knapper ind i menuvinduet."
 
 #. Resource IDs: (1064)
 msgid "Home"
@@ -4702,10 +4706,9 @@ msgstr ""
 msgid "List of repositories for which log information has been cached"
 msgstr "Liste over versionsarkiver hvis loginformation er blevet cached"
 
-# Kontekst? Dummy?
 #. Resource IDs: (16631, 16992)
 msgid "List1"
-msgstr ""
+msgstr "List1"
 
 #. Resource IDs: (130)
 msgid "Load Images"
@@ -4726,7 +4729,6 @@ msgstr ""
 # Bedre oversættelse af "locator bar"?
 # Kontekst?
 #. Resource IDs: (32854)
-#, fuzzy
 msgid "Locator Bar"
 msgstr "Lokationsbar"
 
@@ -5526,7 +5528,7 @@ msgstr "Operer indtil videre kun fra logcachen"
 # Kontekst? Muligheder: Egenskaber, indstillinger, muligheder, ...
 #. Resource IDs: (16137)
 msgid "Options"
-msgstr ""
+msgstr "Valgmuligheder"
 
 #. Resource IDs: (32779)
 msgid "Ori&ginal size"
@@ -5544,10 +5546,9 @@ msgstr "Andre"
 msgid "Out of memory."
 msgstr "Der er ikke mere hukommelse."
 
-# Kontekst? Dummy?
 #. Resource IDs: (3845)
 msgid "Output.prn"
-msgstr ""
+msgstr "Output.prn"
 
 #. Resource IDs: (95)
 msgid ""
@@ -5750,12 +5751,14 @@ msgstr "\"Før arkivering\"-tilkobling"
 msgid "Pre-Update Hook"
 msgstr "\"Før opdatering\"-tilkobling"
 
+# No TSVN Text
 # Kontekst? Underlig engelsk grammatik...
 #. Resource IDs: (65535)
 #, fuzzy
 msgid "Press &New Shortcut Key:"
 msgstr "Tryk den &Nye genvejstast:"
 
+# No TSVN Text, use same text as above (ignore capitalization)
 # Kontekst? Underlig engelsk grammatik...
 #. Resource IDs: (65535)
 #, fuzzy
@@ -5813,7 +5816,7 @@ msgstr "Printer Filer (*.prn)|*.prn|Alle Filer (*.*)|*.*||"
 # "Udskriver" (udsagnsord) eller "Udskrift/udskrivning" (navneord)? Kontekst?
 #. Resource IDs: (65535)
 msgid "Printing"
-msgstr ""
+msgstr "Udskriver"
 
 #. Resource IDs: (132)
 #, c-format
@@ -5980,7 +5983,7 @@ msgstr "Læs \"Daily Use Guide\" inden du går i stå..."
 # Ental eller flertal? Eller kombi ala "Nylig(e)"?
 #. Resource IDs: (1002)
 msgid "Recent"
-msgstr ""
+msgstr "Nylig(e)"
 
 #. Resource IDs: (65535)
 msgid "Recently modified lines"
@@ -6301,7 +6304,7 @@ msgstr "L&øst..."
 # Kontekst? "Alle" eller "Alt"?
 #. Resource IDs: (16614)
 msgid "Reset &All"
-msgstr "Nulstil &Alle"
+msgstr "Nulstil &Alt"
 
 #. Resource IDs: (214)
 msgid "Reset columns"
@@ -6378,13 +6381,13 @@ msgstr "Fortryd fletning"
 
 # Kontekst?
 #. Resource IDs: (264)
-#, fuzzy, c-format
+#, c-format
 msgid "Reverse merging %ld"
-msgstr "Fortryd fletning %ld"
+msgstr "Fortryd fletning af %ld"
 
 # Kontekst?
 #. Resource IDs: (264)
-#, fuzzy, c-format
+#, c-format
 msgid "Reverse merging %ld through %ld"
 msgstr "Fortryd fletning af %ld gennem %ld"
 
@@ -6533,7 +6536,6 @@ msgstr "Række %d-%d af %d"
 
 # Kontekst?
 #. Resource IDs: (17045)
-#, fuzzy
 msgid "S&elect..."
 msgstr "&Vælg..."
 
@@ -6843,6 +6845,7 @@ msgstr "Vælg start-revision"
 msgid "Select text editor application"
 msgstr "Vælg tekstredigeringsprogram"
 
+# TortoiseSVN Text
 # Bedre oversættelse af "the tree merge"?
 #. Resource IDs: (595)
 #, fuzzy
@@ -6889,10 +6892,10 @@ msgstr "Sender indhold"
 msgid "Server &address:"
 msgstr "&Server-adresse:"
 
-# Oversættelse af "Accelerator"? Genvejstast? Kontekst?
+# En Accelerator er en genvejstast.
 #. Resource IDs: (65535)
 msgid "Set Accelerator &for:"
-msgstr ""
+msgstr "Sæt genvejstast &for:"
 
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
@@ -6947,10 +6950,10 @@ msgstr "Forkort egenskabsliste"
 msgid "Show"
 msgstr "Vis"
 
-# Oversættelse af "Accelerator"? Genvejstast? Kontekst?
+# En Accelerator er en genvejstast.
 #. Resource IDs: (16996)
 msgid "Show &Accelerator for:"
-msgstr ""
+msgstr "Vis genvejst&ast for:"
 
 #. Resource IDs: (115, 1031)
 msgid "Show &All"
@@ -7082,12 +7085,14 @@ msgstr "Vis lin&jenumre"
 msgid "Show oldest node at top"
 msgstr "Vis ældste knude øverst"
 
-# Oversættelse af "toggle" og "LineDiffBar"?
+# Oversættelse af "toggle" og "LineDiffBar"? "LineDiffBar" ikke oversat.
 #. Resource IDs: (2054)
 msgid ""
 "Show or hide the line diff bar\n"
 "Toggle LineDiffBar"
 msgstr ""
+"Vis eller skjul linjesammenligningsbaren\n"
+"Vis/skjul LineDiffBar"
 
 # Oversættelse af "toggle" og "LocatorBar"?
 #. Resource IDs: (2054)
@@ -7095,6 +7100,8 @@ msgid ""
 "Show or hide the locator bar\n"
 "Toggle LocatorBar"
 msgstr ""
+"Vis eller skjul lokationsbaren\n"
+"Vis/skjul LocatorBar"
 
 #. Resource IDs: (3713)
 msgid ""
@@ -7253,10 +7260,10 @@ msgstr ""
 "skal ignorere i alle arbejdskopier.\r\n"
 "Adskil mønstrene med et mellemrum."
 
-# Dummy?
+# Not from TSVN: Dummy. Just copy original text
 #. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
 msgid "Spin1"
-msgstr ""
+msgstr "Spin1"
 
 #. Resource IDs: (376)
 msgid "Split lines"
@@ -7805,14 +7812,13 @@ msgstr ""
 # Bemærk: Meget dårlig engelsk grammatik. Tilnærmelsesvis oversættelse.
 # Bedre oversættelse af "parsing"?
 #. Resource IDs: (195)
-#, fuzzy
 msgid ""
 "The time in seconds after which the parsing of the selected files stops.\r\n"
 "A lower value will make the auto-completion list available sooner,\r\n"
 "but maybe not scan all files."
 msgstr ""
-"Tid, i sekunder, hvorefter læsningen af de valgte filer stopper.\r\n"
-"En lavere værdi vil gøre automatisk fuldførings-listen tilgængelig hurtigere,\n"
+"Tid i sekunder hvorefter læsningen af de valgte filer stopper.\r\n"
+"En lavere værdi vil gøre Automatisk fuldføring tilgængelig hurtigere,\n"
 "men skanner dermed måske ikke alle filer."
 
 #. Resource IDs: (82)
@@ -8050,12 +8056,12 @@ msgstr "Værktøjslinjer"
 # Kontekst? Kan både være tools -> værktøjer og tools -> funktioner alt afhængig af brug.
 #. Resource IDs: (16928)
 msgid "Tools"
-msgstr ""
+msgstr "Funktioner"
 
 # Kontekst? Kan både være tools -> værktøjer og tools -> funktioner alt afhængig af brug.
 #. Resource IDs: (65535)
 msgid "Tools:"
-msgstr ""
+msgstr "Funktioner:"
 
 #. Resource IDs: (7, 244)
 msgid "TortoiseBlame"
@@ -8459,11 +8465,11 @@ msgstr ""
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Benyt URL for &arbejdskopi som standard \"Fra:\"-URL"
 
+# TortoiseSVN Text. Standard diff is also used in place of "unified diff". Maybe you find a better translation then
 # Oversættelse af "unified diff"?
 #. Resource IDs: (1064)
-#, fuzzy
 msgid "Use Unified Diff from &clipboard"
-msgstr "Benyt unified diff fra &udklipsholder"
+msgstr "Benyt standardsammenligning fra &udklipsholder"
 
 #. Resource IDs: (1296)
 msgid "Use \"_svn\" instead of \".svn\" directories"
@@ -8735,9 +8741,7 @@ msgstr "Blanktegn"
 msgid "Window Position"
 msgstr "Vinduesposition"
 
-# Kontekst? Operativsystemet eller et "vindue"?
 #. Resource IDs: (16927)
-#, fuzzy
 msgid "Windows"
 msgstr "Windows"
 
@@ -8889,14 +8893,13 @@ msgstr ""
 
 # Kontekst? Betyder "should" bør eller skal i denne sammenhæng?
 #. Resource IDs: (1001)
-#, fuzzy
 msgid "You should enter a text!"
 msgstr "Du skal indtaste en tekst!"
 
 # Kontekst? Betyder "should" bør eller skal i denne sammenhæng?
 #. Resource IDs: (1001)
 msgid "You should select an image!"
-msgstr ""
+msgstr "Du skal vælge et billede!"
 
 #. Resource IDs: (195)
 #, c-format
@@ -9025,9 +9028,7 @@ msgstr "[Ikke tildelt]"
 msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
 msgstr "\"intervaller der skal springes over\" bruges til at markere revisionsintervaller der endnu ikke er blevet cachede"
 
-# Kontekst? Dummy? Kode?
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "_POPUP_"
 msgstr "_POPUP_"
 
@@ -9095,13 +9096,12 @@ msgstr ""
 
 # Oversættelse af "mærke"? (Undersøg hvad der bruges andre steder i oversættelsen)
 #. Resource IDs: (577)
-#, fuzzy
 msgid ""
 "bugtraq:label\r\n"
 "Label text to show for the edit box where the user enters the issue number."
 msgstr ""
 "bugtraq:label\r\n"
-"Mærketekst der vises i redigeringsfeltet, hvor brugeren indtaster sagsnummeret."
+"Mærketekst der vises for redigeringsfeltet, hvor brugeren indtaster sagsnummeret."
 
 #. Resource IDs: (577)
 msgid ""
@@ -9182,9 +9182,7 @@ msgstr "slettet"
 msgid "disk [kB]: "
 msgstr "disk [kB]:"
 
-# Kontekst? Dummy?
 #. Resource IDs: (58116)
-#, fuzzy
 msgid "dummy"
 msgstr "dummy"
 
@@ -9359,9 +9357,7 @@ msgstr "pixel"
 msgid "possible or real conflict / obstructed"
 msgstr "mulig eller reel konflikt / spærret"
 
-# Kontekst? Dummy?
 #. Resource IDs: (3845)
-#, fuzzy
 msgid "prn"
 msgstr "prn"
 
