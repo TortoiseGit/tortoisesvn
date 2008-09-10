@@ -577,6 +577,7 @@ void CSciEdit::DoAutoCompletion(int nMinPrefixLength)
 		return;	//don't auto complete if we're not at the end of a word
 	CString sAutoCompleteList;
 	
+	word.MakeUpper();
 	for (std::set<CString>::const_iterator lowerit = m_autolist.lower_bound(word);
 		lowerit != m_autolist.end(); ++lowerit)
 	{
