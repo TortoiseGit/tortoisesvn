@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-09-08 16:01+0100\n"
+"PO-Revision-Date: 2008-09-11 16:12+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1091,6 +1091,10 @@ msgstr "&Windows XP"
 msgid "&Working copy"
 msgstr "Arbeids&kopi"
 
+#. Resource IDs: (338)
+msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
+msgstr "'oversette intervaller' brukes for å merke revisjonsintervaller som ikke ennå har blitt mellomlagret"
+
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
 msgstr "(binær verdi)"
@@ -1220,19 +1224,19 @@ msgstr "En ny versjon er tilgjengelig. Du kan gå til http://tortoisesvn.tigris.
 #. Resource IDs: (195)
 msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
-"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
+"If you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
 "En linjeskift-delt liste over stier hvor ikonlag vises.\r\n"
-"Hvis du legger til tegnet \"*\" på enden av stien, inkluderes alle filer og undermapper i stien også."
+"Hvis du legger til tegnet '*' på enden av stien, inkluderes alle filer og undermapper i stien også."
 
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
-"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
 "En linjeskift-delt liste over filstier som viser hvor ikonlag utelukkes.\r\n"
-"Hvis du legger til et \"*\"-tegn på enden av stien, utelukkes alle filer og undermapper i stien også.\r\n"
+"Hvis du legger til et '*'-tegn på enden av stien, utelukkes alle filer og undermapper i stien også.\r\n"
 "En tom liste gir ikonlag på alle stier."
 
 #. Resource IDs: (3843)
@@ -1588,8 +1592,8 @@ msgstr "Spørr brukeren"
 
 #. Resource IDs: (264)
 #, c-format
-msgid "Assigned to changelist \"%s\""
-msgstr "Tilordnet endringsliste \"%s\""
+msgid "Assigned to changelist '%s'"
+msgstr "Tilordnet endringsliste '%s'"
 
 #. Resource IDs: (16528)
 msgid "Assigned to:"
@@ -2232,12 +2236,12 @@ msgstr "Sender dine endringer inn til depoet"
 #. Resource IDs: (170)
 msgid ""
 "Committing an unversioned folder will not recursively add its child items!\n"
-"You might want to add these folders recursively by using the \"Add...\" context menu item.\n"
+"You might want to add these folders recursively by using the 'Add...' context menu item.\n"
 "\n"
 "Are you sure that you want to continue the commit?"
 msgstr ""
 "Innsending av en ikke-versjonert mappe legger ikke til undermapper og -filer rekursivt!\n"
-"Du vil kanskje legge til disse mappene rekursivt gjennom \"Legg til...\" i sammenhengsmenyen.\n"
+"Du vil kanskje legge til disse mappene rekursivt gjennom 'Legg til...' i sammenhengsmenyen.\n"
 "\n"
 "Er du sikker på at du vil fortsette innsendingen?"
 
@@ -2484,13 +2488,13 @@ msgstr "Fikk ikke lagt %s i ignoreringslisten!"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not add \"%s\" because"
-msgstr "Kunne ikke legge til \"%s\" fordi"
+msgid "Could not add '%s' because"
+msgstr "Kunne ikke legge til '%s' fordi"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not add property \"%s\" on %s because"
-msgstr "Kunne ikke legge til egenskapen \"%s\" på %s fordi"
+msgid "Could not add property '%s' on '%s' because"
+msgstr "Kunne ikke legge til egenskapen '%s' på %s fordi"
 
 #. Resource IDs: (201)
 msgid "Could not check for a newer version!"
@@ -2514,13 +2518,13 @@ msgstr "Kunne ikke opprette %1 fordi katalogen er full."
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not delete \"%s\" because"
-msgstr "Kunne ikke slette \"%s\" fordi"
+msgid "Could not delete '%s' because"
+msgstr "Kunne ikke slette '%s' fordi"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not delete property \"%s\" on %s because"
-msgstr "Kunne ikke slette egenskapen \"%s\" på %s fordi"
+msgid "Could not delete property '%s' on '%s' because"
+msgstr "Kunne ikke slette egenskapen '%s' på %s fordi"
 
 #. Resource IDs: (83)
 msgid "Could not determine the last committed revision!"
@@ -2532,13 +2536,13 @@ msgstr "Kunne ikke hente statusen!"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not merge \"%s\" because"
-msgstr "Kunne ikke flette \"%s\" fordi"
+msgid "Could not merge '%s' because"
+msgstr "Kunne ikke flette '%s' fordi"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not merge property \"%s\" on %s because"
-msgstr "Kunne ikke flette egenskapen \"%s\" på %s fordi"
+msgid "Could not merge property '%s' on '%s' because"
+msgstr "Kunne ikke flette egenskapen '%s' på %s fordi"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -3085,10 +3089,10 @@ msgstr "Rediger loggmelding"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Edit property \"%s\" on\r\n"
+"Edit property '%s' on\r\n"
 "%s"
 msgstr ""
-"Rediger egenskap \"%s\" på\r\n"
+"Rediger egenskap '%s' på\r\n"
 "%s"
 
 #. Resource IDs: (1331, 1382)
@@ -3437,16 +3441,16 @@ msgstr "Kunne ikke lagre dokumentet."
 
 #. Resource IDs: (264)
 #, c-format
-msgid "Failed to set/remove changelist \"%s\""
-msgstr "Kunne ikke sette/fjerne endringsliste \"%s\""
+msgid "Failed to set/remove changelist '%s'"
+msgstr "Kunne ikke sette/fjerne endringsliste '%s'"
 
 #. Resource IDs: (83)
 #, c-format
 msgid ""
-"Failed to start the issue tracker COM provider \"%s\".\n"
+"Failed to start the issue tracker COM provider '%s'.\n"
 "%s"
 msgstr ""
-"Klarte ikke å starte COM-leverandøren av saksporing \"%s\".\n"
+"Klarte ikke å starte COM-leverandøren av saksporing '%s'.\n"
 "%s"
 
 #. Resource IDs: (220)
@@ -3651,8 +3655,8 @@ msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
 msgstr "For hjelp, trykk F1. Rull horisontalt med Ctrl-Rullehjul"
 
 #. Resource IDs: (119)
-msgid "For complete history deselect \"Stop on copy/rename\""
-msgstr "For fullstendig historie slå av \"Stopp ved kopiering/navnebytte\""
+msgid "For complete history deselect 'Stop on copy/rename'"
+msgstr "For fullstendig historie slå av 'Stopp ved kopiering/navnebytte'"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -4063,15 +4067,15 @@ msgid "Icons/Design/Code:                 Luebbe Onken"
 msgstr "Ikoner/design/kode:                Luebbe Onken"
 
 #. Resource IDs: (194)
-msgid "If activated, prevents the overlays and the context menu from showing in \"save as...\" or \"open\" dialogs"
-msgstr "Aktiver for å forhindre ikonlag og sammenhengsmenyen fra å vises i \"lagre som..\" eller \"åpne\"-dialoger"
+msgid "If activated, prevents the overlays and the context menu from showing in 'save as...' or 'open' dialogs"
+msgstr "Aktiver for å forhindre ikonlag og sammenhengsmenyen fra å vises i 'lagre som..' eller 'åpne'-dialoger"
 
 #. Resource IDs: (198)
 msgid ""
-"If activated, the menu entry \"Get Lock\" is always shown in the top level menu\n"
+"If activated, the menu entry 'Get Lock' is always shown in the top level menu\n"
 "if the selected file has the svn:needs-lock property set"
 msgstr ""
-"Hvis denne er slått på, vises menyvalget \"Hent Sperre\" alltid på øverste menynivå\n"
+"Hvis denne er slått på, vises menyvalget 'Hent Sperre' alltid på øverste menynivå\n"
 "hvis den valgte filen har satt egenskapen svn:needs-lock"
 
 #. Resource IDs: (95)
@@ -4108,19 +4112,19 @@ msgstr "Hvis denne er krysset, sjekker TortoiseSVN en gang i uken etter ny versj
 
 #. Resource IDs: (195)
 msgid ""
-"If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\r\n"
+"If enabled, the Merge dialog initializes the 'From:' URL with the URL of the selected working copy\r\n"
 "instead of the last used URL."
 msgstr ""
-"Hvis denne er slått på, vil Flette-dialogen begynne med \"Fra:\" URL lik URL til valgt arbeidskopi\r\n"
+"Hvis denne er slått på, vil Flette-dialogen begynne med 'Fra:' URL lik URL til valgt arbeidskopi\r\n"
 "i stedet for sist brukte URL."
 
 #. Resource IDs: (195)
 msgid ""
 "If enabled, the repository is contacted when the dialog starts up.\r\n"
-"You don't have to click on \"Check Repository\" anymore."
+"You don't have to click on 'Check Repository' anymore."
 msgstr ""
 "Hvis denne er slått på, blir depotet kontaktet når dialogen starter.\r\n"
-"Du trenger ikke trykke på \"Sjekk depot\" lenger."
+"Du trenger ikke trykke på 'Sjekk depot' lenger."
 
 #. Resource IDs: (197)
 msgid ""
@@ -4171,8 +4175,8 @@ msgstr ""
 "Er du absolutt sikker på at du vil gjøre dette?"
 
 #. Resource IDs: (251)
-msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
-msgstr "Bruk \"Se etter oppdateringer\"-dialogen hvis du vil avbryte sperringen."
+msgid "If you want to break the lock, use the 'Check For Modifications' dialog."
+msgstr "Bruk 'Se etter oppdateringer'-dialogen hvis du vil avbryte sperringen."
 
 #. Resource IDs: (73)
 msgid "Ignore"
@@ -5128,11 +5132,11 @@ msgstr "Ingen filer eller mapper er endret. Det er ingen ting å tilbakestille f
 msgid ""
 "No files to show with the current setting.\n"
 "Check one or more settings below to see unversioned, ignored and/or unmodified files.\n"
-"To see remote changes, click on \"Check Repository\""
+"To see remote changes, click on 'Check Repository'"
 msgstr ""
 "Ingen filer å vise med gjeldende innstillinger.\n"
 "Huk av en eller flere innstillinger nedenfor for å se ikke-versjonerte, ignorerte og/eller uendrede filer.\n"
-"For å se endringer i depot, trykk på \"Sjekk Depot\""
+"For å se endringer i depot, trykk på 'Sjekk Depot'"
 
 #. Resource IDs: (77)
 msgid ""
@@ -5532,8 +5536,8 @@ msgid "Please enter a path where to apply the hook script to."
 msgstr "Vennligst angi en sti hvor påhakingsskriptet skal anvendes."
 
 #. Resource IDs: (251)
-msgid "Please execute the \"Cleanup\" command."
-msgstr "Vennligst kjør kommandoen \"Rydd opp\"."
+msgid "Please execute the 'Cleanup' command."
+msgstr "Vennligst kjør kommandoen 'Rydd opp'."
 
 #. Resource IDs: (78)
 msgid ""
@@ -5902,7 +5906,7 @@ msgstr ""
 "\r\n"
 "\\w   : passer til a-z,A-Z,0-9 og _\r\n"
 "\\W   : ethvert ikke-alfanumerisk tegn\r\n"
-"\\d   : sifrene 0-9\n"
+"\\d   : sifrene 0-9\r\n"
 "\\s   : blanktegn"
 
 #. Resource IDs: (1469)
@@ -6007,10 +6011,10 @@ msgstr "Fjern fra endringslisten"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Remove property \"%s\" from\r\n"
+"Remove property '%s' from\r\n"
 "%s"
 msgstr ""
-"Fjern egenskap \"%s\" fra\r\n"
+"Fjern egenskap '%s' fra\r\n"
 "%s"
 
 #. Resource IDs: (345)
@@ -6167,12 +6171,12 @@ msgid "Resolve all later"
 msgstr "Løs alle senere"
 
 #. Resource IDs: (282)
-msgid "Resolve conflict using \"mine\""
-msgstr "Løs konfilkt ved å bruke \"min\""
+msgid "Resolve conflict using 'mine'"
+msgstr "Løs konfilkt ved å bruke 'min'"
 
 #. Resource IDs: (282)
-msgid "Resolve conflict using \"theirs\""
-msgstr "Løs konflikt ved å bruke \"deres\""
+msgid "Resolve conflict using 'theirs'"
+msgstr "Løs konflikt ved å bruke 'deres'"
 
 #. Resource IDs: (1403)
 msgid "Resolve conflict:"
@@ -6734,10 +6738,10 @@ msgstr "Sett fildatoer til \"siste innsendings-&tidspunkt\""
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Set property \"%s\" on\r\n"
+"Set property '%s' on\r\n"
 "%s"
 msgstr ""
-"Sett egenskap \"%s\" på\r\n"
+"Sett egenskap '%s' på\r\n"
 "%s"
 
 #. Resource IDs: (13)
@@ -7324,8 +7328,8 @@ msgstr "Størrelsen på avsnittet passer ikke med antall linjer som er lagt til 
 
 #. Resource IDs: (63)
 #, c-format
-msgid "The chunk start \"@@\" was expected in line %d !"
-msgstr "Avsnittet som startet med \"@@\" var forventet i linje %d !"
+msgid "The chunk start '@@' was expected in line %d !"
+msgstr "Avsnittet som startet med '@@' var forventet i linje %d !"
 
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
@@ -7455,15 +7459,15 @@ msgstr "Leverandøren av saksporing kunne ikke validere parameterstrengen"
 
 #. Resource IDs: (63)
 #, c-format
-msgid "The line \"====\" was expected in line %d !"
-msgstr "Forventet setningen \"====\" i linje nummer %d !"
+msgid "The line '====' was expected in line %d !"
+msgstr "Forventet linjen '====' i linje %d !"
 
 #. Resource IDs: (63)
 msgid ""
-"The line \"Index: \" was not found!\n"
+"The line 'Index: ' was not found!\n"
 "Either this is not a diff file or the diff is empty."
 msgstr ""
-"Fant ikke linjen \"Index: \"!\n"
+"Fant ikke linjen 'Index: '!\n"
 "Denne filen er enten tom eller ikke en diff-fil."
 
 #. Resource IDs: (63)
@@ -7825,10 +7829,10 @@ msgstr ""
 
 #. Resource IDs: (284)
 msgid ""
-"To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\n"
+"To steal the lock, right-click on the parent folder of this item and select 'Get Lock' from the context menu.\n"
 "This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 msgstr ""
-"Du kan stjele sperren ved å høyre-klikke på mappen over dette elementet og velge \"Hent Sperre\" fra sammenhengsmenyen.\n"
+"Du kan stjele sperren ved å høyre-klikke på mappen over dette elementet og velge 'Hent Sperre' fra sammenhengsmenyen.\n"
 "Dette vil hente opp sperredialogen, hvor du kan tvinge gjennom sperren, dvs. 'stjele' den fra den som har den nå."
 
 #. Resource IDs: (1201, 65535)
@@ -8019,8 +8023,8 @@ msgid "Tree merge"
 msgstr "Trefletting"
 
 #. Resource IDs: (251)
-msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
-msgstr "Prøv \"Rydd Opp\". Du må hente ut på nytt hvis dette ikke hjelper."
+msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
+msgstr "Prøv 'Rydd Opp'. Du må hente ut på nytt hvis dette ikke hjelper."
 
 #. Resource IDs: (73)
 msgid "Try again"
@@ -8352,6 +8356,54 @@ msgstr "Bruk &overstreking for slettede linjer"
 msgid "Use system locale for date/time"
 msgstr "Bruk systemets formater for dato/tid"
 
+#. Resource IDs: (251)
+msgid "Use text block from '&mine'"
+msgstr "Bruk tekstblokk fra '&min'"
+
+#. Resource IDs: (251)
+msgid "Use text block from '&theirs'"
+msgstr "Bruk tekstblokk fra '&deres'"
+
+#. Resource IDs: (251)
+msgid "Use text block from 'm&ine' before 'theirs'"
+msgstr "Bruk tekstblokk fra 'm&in' før 'deres'"
+
+#. Resource IDs: (2052)
+msgid ""
+"Use text block from 'mine' before 'theirs'\n"
+"Use 'mine' text block then 'theirs'"
+msgstr ""
+"Bruk tekstblokk fra 'min' før 'deres'\n"
+"Bruk 'min' tekstblokk, deretter 'deres'"
+
+#. Resource IDs: (2052)
+msgid ""
+"Use text block from 'mine'\n"
+"Use 'mine' text block"
+msgstr ""
+"Bruk tekstblokk fra 'min'\n"
+"Bruk 'min' tekstblokk"
+
+#. Resource IDs: (251)
+msgid "Use text block from 't&heirs' before 'mine"
+msgstr "Bruk tekstblokk fra 'd&eres' før 'min'"
+
+#. Resource IDs: (2052)
+msgid ""
+"Use text block from 'theirs' before 'mine'\n"
+"Use 'theirs' text block then 'mine'"
+msgstr ""
+"Bruk tekstblokk fra 'deres' før 'min'\n"
+"Bruk 'deres' tekstblokk, deretter 'min'"
+
+#. Resource IDs: (2052)
+msgid ""
+"Use text block from 'theirs'\n"
+"Use 'theirs' text block"
+msgstr ""
+"Bruk tekstblokk fra 'deres'\n"
+"Bruk 'deres' tekstblokk"
+
 #. Resource IDs: (251, 32820)
 msgid "Use text block from \"&mine\""
 msgstr "Bruk tekstblokk fra \"&min\""
@@ -8364,41 +8416,9 @@ msgstr "Bruk tekstblokk fra \"&deres\""
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "Bruk tekstblokk fra \"m&in\" før \"deres\""
 
-#. Resource IDs: (2052)
-msgid ""
-"Use text block from \"mine\" before \"theirs\"\n"
-"Use \"mine\" text block then \"theirs\""
-msgstr ""
-"Bruk tekstblokk fra \"min\" før \"deres\"\n"
-"Bruk \"min\" tekstblokk, deretter \"deres\""
-
-#. Resource IDs: (2052)
-msgid ""
-"Use text block from \"mine\"\n"
-"Use \"mine\" text block"
-msgstr ""
-"Bruk tekstblokk fra \"min\"\n"
-"Bruk \"min\" tekstblokk"
-
 #. Resource IDs: (251, 32821)
 msgid "Use text block from \"t&heirs\" before \"mine\""
 msgstr "Bruk tekstblokk fra \"d&eres\" før \"min\""
-
-#. Resource IDs: (2052)
-msgid ""
-"Use text block from \"theirs\" before \"mine\"\n"
-"Use \"theirs\" text block then \"mine\""
-msgstr ""
-"Bruk tekstblokk fra \"deres\" før \"min\"\n"
-"Bruk \"deres\" tekstblokk, deretter \"min\""
-
-#. Resource IDs: (2052)
-msgid ""
-"Use text block from \"theirs\"\n"
-"Use \"theirs\" text block"
-msgstr ""
-"Bruk tekstblokk fra \"deres\"\n"
-"Bruk \"deres\" tekstblokk"
 
 #. Resource IDs: (2054)
 msgid ""
@@ -8832,10 +8852,6 @@ msgstr "Zoom til ramme"
 msgid "[Unassigned]"
 msgstr "[Ikke tilordnet]"
 
-#. Resource IDs: (338)
-msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
-msgstr "\"oversette intervaller\" brukes for å merke revisjonsintervaller som ikke ennå har blitt mellomlagret"
-
 #. Resource IDs: (65535)
 msgid "_POPUP_"
 msgstr "_POPUP_"
@@ -8893,13 +8909,13 @@ msgstr "forfattere: "
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:append\r\n"
-"Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\r\n"
-"log message. The default is \"true\" which means the bugtracking ID\r\n"
+"Set to 'false' if you want the bugtracking ID to be inserted at the top of the\r\n"
+"log message. The default is 'true' which means the bugtracking ID\r\n"
 "is appended to the log message."
 msgstr ""
 "bugtraq:append\r\n"
-"Settes som \"false\" hvis du vil at feilsporings-ID skal settes inn på toppen av\r\n"
-"loggmeldingen. Standard er \"true\", som betyr at feil-ID legges til\r\n"
+"Settes som 'false' hvis du vil at feilsporings-ID skal settes inn på toppen av\r\n"
+"loggmeldingen. Standard er 'true', som betyr at feil-ID legges til\r\n"
 "loggmeldingen."
 
 #. Resource IDs: (577)
@@ -8927,29 +8943,29 @@ msgstr ""
 msgid ""
 "bugtraq:message\r\n"
 "String which is appended to a log message when an issue number is entered.\r\n"
-"The string must contain \"%BUGID%\" which gets replaced with the issue number."
+"The string must contain '%BUGID%' which gets replaced with the issue number."
 msgstr ""
 "bugtraq:message\r\n"
 "Tekststreng som legges til loggmelding når et saksnummer angis.\r\n"
-"Tekststrengen må inneholde \"%BUGID%\" som erstattes med saksnummeret."
+"Tekststrengen må inneholde '%BUGID%' som erstattes med saksnummeret."
 
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:number\r\n"
-"Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
+"Set to 'false' if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
 "bugtraq:number\r\n"
-"Settes som \"false\" hvis ditt feilsporingssystem har saker/poster som ikke refereres med nummer."
+"Settes som 'false' hvis ditt feilsporingssystem har saker/poster som ikke refereres med nummer."
 
 #. Resource IDs: (577)
 #, c-format
 msgid ""
 "bugtraq:url\r\n"
-"URL pointing to the issue tracker. It must contain \"%BUGID%\" which\r\n"
+"URL pointing to the issue tracker. It must contain '%BUGID%' which\r\n"
 "gets replaced with the issue number."
 msgstr ""
 "bugtraq:url\r\n"
-"URL til \"Issue Tacker\". Den må inneholde \"%BUGID%\" som\r\n"
+"URL til 'Issue Tacker'. Den må inneholde '%BUGID%' som\r\n"
 "blir erstattet av saksnummer."
 
 #. Resource IDs: (65535)
@@ -9239,7 +9255,7 @@ msgid ""
 "// relative to the URL scheme\r\n"
 "/ relative to the server's hostname"
 msgstr ""
-"svn:externals\n"
+"svn:externals\r\n"
 "En linjeskift-delt liste med modul-spesifikasjoner. Hver består av en\r\n"
 "mulig revisjon, en URL og en relativ katalogsti. Eksempler:\r\n"
 "http://example.com/repos/zig\tfoo\r\n"
@@ -9376,11 +9392,11 @@ msgstr ""
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logfilelistenglish\r\n"
-"Set to \"false\" if you don't want the list of changed files to be pasted in english\r\n"
+"Set to 'false' if you don't want the list of changed files to be pasted in english\r\n"
 "in the commit dialog."
 msgstr ""
 "tsvn:logfilelistenglish\r\n"
-"Settes som \"false\" hvis du ikke vil at listen over endrede filer skal limes inn på\r\n"
+"Settes som 'false' hvis du ikke vil at listen over endrede filer skal limes inn på\r\n"
 "på engelsk i innsendingsdialogen."
 
 #. Resource IDs: (578)
@@ -9403,7 +9419,7 @@ msgstr ""
 msgid ""
 "tsvn:logtemplate\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
-"Use this as a log message templates for users to fill in."
+"Use this as a log message template for users to fill in."
 msgstr ""
 "tsvn:logtemplate\r\n"
 "Tekststreng som settes inn i loggmeldingens boks i dialogboksen for innsendinger.\r\n"
@@ -9452,10 +9468,10 @@ msgstr ""
 #. Resource IDs: (577)
 msgid ""
 "tsvn:warnifnoissue\r\n"
-"Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
+"Set to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
 "tsvn:warnifnoissue\r\n"
-"Settes til \"ja\" hvis en advarsel skal vises når ingen sak/feil er angitt i dialogboksen for innsendinger."
+"Settes til 'ja' hvis en advarsel skal vises når ingen sak/feil er angitt i dialogboksen for innsendinger."
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
