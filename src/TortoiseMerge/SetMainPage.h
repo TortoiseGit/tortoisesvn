@@ -71,6 +71,8 @@ protected:
 	CRegDWORD		m_regDisplayBinDiff;
 	BOOL			m_bCaseInsensitive;
 	CRegDWORD		m_regCaseInsensitive;
+	BOOL			m_bUTF8Default;
+	CRegDWORD		m_regUTF8Default;
 	
 	CRegDWORD		m_regFontSize;
 	DWORD			m_dwFontSize;
@@ -92,4 +94,5 @@ protected:
 	afx_msg void OnBnClickedStrikeout();
 	afx_msg void OnBnClickedUsebdiff();
 	afx_msg void OnBnClickedCaseinsensitive();
+	afx_msg void OnBnClickedUtf8default();
 };

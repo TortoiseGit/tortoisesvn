@@ -41,6 +41,7 @@ CSetMainPage::CSetMainPage()
 	, m_bReloadNeeded(FALSE)
 	, m_bDisplayBinDiff(TRUE)
 	, m_bCaseInsensitive(FALSE)
+	, m_bUTF8Default(FALSE)
 {
 	m_regBackup = CRegDWORD(_T("Software\\TortoiseMerge\\Backup"));
 	m_regFirstDiffOnLoad = CRegDWORD(_T("Software\\TortoiseMerge\\FirstDiffOnLoad"), TRUE);
@@ -54,6 +55,7 @@ CSetMainPage::CSetMainPage()
 	m_regFontSize = CRegDWORD(_T("Software\\TortoiseMerge\\LogFontSize"), 10);
 	m_regDisplayBinDiff = CRegDWORD(_T("Software\\TortoiseMerge\\DisplayBinDiff"), TRUE);
 	m_regCaseInsensitive = CRegDWORD(_T("Software\\TortoiseMerge\\CaseInsensitive"), FALSE);
+	m_regUTF8Default = CRegDWORD(_T("Software\\TortoiseMerge\\UseUTF8"), FALSE);
 
 	m_bBackup = m_regBackup;
 	m_bFirstDiffOnLoad = m_regFirstDiffOnLoad;
@@ -65,6 +67,7 @@ CSetMainPage::CSetMainPage()
 	m_bStrikeout = m_regStrikeout;
 	m_bDisplayBinDiff = m_regDisplayBinDiff;
 	m_bCaseInsensitive = m_regCaseInsensitive;
+	m_bUTF8Default = m_regUTF8Default;
 }
 
 CSetMainPage::~CSetMainPage()
@@ -93,6 +96,7 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_STRIKEOUT, m_bStrikeout);
 	DDX_Check(pDX, IDC_USEBDIFF, m_bDisplayBinDiff);
 	DDX_Check(pDX, IDC_CASEINSENSITIVE, m_bCaseInsensitive);
+	DDX_Check(pDX, IDC_UTF8DEFAULT, m_bUTF8Default);
 }
 
 void CSetMainPage::SaveData()
@@ -109,6 +113,7 @@ void CSetMainPage::SaveData()
 	m_regStrikeout = m_bStrikeout;
 	m_regDisplayBinDiff = m_bDisplayBinDiff;
 	m_regCaseInsensitive = m_bCaseInsensitive;
+	m_regUTF8Default = m_bUTF8Default;
 }
 
 BOOL CSetMainPage::OnApply()
@@ -140,7 +145,8 @@ BOOL CSetMainPage::OnInitDialog()
 	m_dwFontSize = m_regFontSize;
 	m_bViewLinenumbers = m_regViewLinenumbers;
 	m_bStrikeout = m_regStrikeout;
-	m_bCaseInsensitive = m_bCaseInsensitive;
+	m_bCaseInsensitive = m_regCaseInsensitive;
+	m_bUTF8Default = m_regUTF8Default;
 
 	UINT uRadio = IDC_WSCOMPARE;
 	switch (m_nIgnoreWS)
@@ -205,6 +211,7 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
 	ON_CBN_SELCHANGE(IDC_FONTNAMES, OnCbnSelchangeFontnames)
 	ON_BN_CLICKED(IDC_USEBDIFF, OnBnClickedUsebdiff)
 	ON_BN_CLICKED(IDC_CASEINSENSITIVE, OnBnClickedCaseinsensitive)
+	ON_BN_CLICKED(IDC_UTF8DEFAULT, &CSetMainPage::OnBnClickedUtf8default)
 END_MESSAGE_MAP()
 
 
@@ -284,6 +291,11 @@ void CSetMainPage::OnBnClickedUsebdiff()
 }
 
 void CSetMainPage::OnBnClickedCaseinsensitive()
+{
+	SetModified();
+}
+
+void CSetMainPage::OnBnClickedUtf8default()
 {
 	SetModified();
 }
