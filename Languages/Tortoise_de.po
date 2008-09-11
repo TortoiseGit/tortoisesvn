@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-09-10 09:33+0100\n"
+"PO-Revision-Date: 2008-09-11 10:25+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1038,6 +1038,10 @@ msgstr "&Windows XP"
 msgid "&Working copy"
 msgstr "&Arbeitskopie"
 
+#. Resource IDs: (338)
+msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
+msgstr "Mit 'Lücken' werden Bereiche gekennzeichnet, die noch nicht gepuffert sind"
+
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
 msgstr "(Binärwert)"
@@ -1168,7 +1172,7 @@ msgstr "Eine neue Version steht zur Verfügung. Bitte gehen Sie zu http://tortoi
 #. Resource IDs: (195)
 msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
-"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
+"If you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
 "Eine durch Zeilenumbrüche getrennte Liste von Pfaden, für die überlagerte Symbole angezeigt werden.\r\n"
 "Wenn Sie ein '*' Zeichen an einen Pfad anhängen, werden alle Dateien und Ordner innerhalb des Pfades eingeschlossen."
@@ -1176,7 +1180,7 @@ msgstr ""
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
-"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
 "Eine durch Zeilenumbrüche getrennte Liste von Pfaden, für die <b>keine</b> überlagerten Symbole angezeigt werden.\r\n"
@@ -1538,7 +1542,7 @@ msgstr "Anwender fragen"
 
 #. Resource IDs: (264)
 #, c-format
-msgid "Assigned to changelist \"%s\""
+msgid "Assigned to changelist '%s'"
 msgstr "Der Änderungsliste '%s' zugewiesen"
 
 #. Resource IDs: (16528)
@@ -2184,7 +2188,7 @@ msgstr "Überträgt Ihre Änderungen ins Projektarchiv"
 #. Resource IDs: (170)
 msgid ""
 "Committing an unversioned folder will not recursively add its child items!\n"
-"You might want to add these folders recursively by using the \"Add...\" context menu item.\n"
+"You might want to add these folders recursively by using the 'Add...' context menu item.\n"
 "\n"
 "Are you sure that you want to continue the commit?"
 msgstr ""
@@ -2436,13 +2440,13 @@ msgstr "Konnte %s nicht zur 'Ignorieren' Liste hinzufügen!"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not add \"%s\" because"
-msgstr "Konnte '%s' nicht hinzfügen, weil"
+msgid "Could not add '%s' because"
+msgstr "Datei '%s' konnte nicht erzeugt werden!"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not add property \"%s\" on %s because"
-msgstr "Konnte Eigenschaft '%s' nicht zu %s hinzufügen, weil"
+msgid "Could not add property '%s' on '%s' because"
+msgstr "Konnte Eigenschaft '%s' nicht zu '%s' hinzufügen, weil"
 
 #. Resource IDs: (201)
 msgid "Could not check for a newer version!"
@@ -2466,13 +2470,13 @@ msgstr "Konnte %1 nicht erstellen, weil der Ordner voll ist."
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not delete \"%s\" because"
+msgid "Could not delete '%s' because"
 msgstr "Konnte '%s' nicht löschen, weil"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not delete property \"%s\" on %s because"
-msgstr "Konnte Eigenschaft '%s' nicht von %s löschen, weil"
+msgid "Could not delete property '%s' on '%s' because"
+msgstr "Konnte Eigenschaft '%s' nicht von '%s' löschen, weil"
 
 #. Resource IDs: (83)
 msgid "Could not determine the last committed revision!"
@@ -2484,13 +2488,13 @@ msgstr "Konnte den Status nicht ermitteln!"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not merge \"%s\" because"
+msgid "Could not merge '%s' because"
 msgstr "Konnte '%s' nicht zusammenführen, weil"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not merge property \"%s\" on %s because"
-msgstr "Konnte Eigenschaft '%s' nicht in %s zusammenführen, weil"
+msgid "Could not merge property '%s' on '%s' because"
+msgstr "Konnte Eigenschaft '%s' nicht in '%s' zusammenführen, weil"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -3038,7 +3042,7 @@ msgstr "Logmeldung bearbeiten"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Edit property \"%s\" on\r\n"
+"Edit property '%s' on\r\n"
 "%s"
 msgstr ""
 "Ändere Eigenschaft '%s' von\r\n"
@@ -3390,13 +3394,13 @@ msgstr "Konnte Dokument nicht speichern."
 
 #. Resource IDs: (264)
 #, c-format
-msgid "Failed to set/remove changelist \"%s\""
-msgstr "Konnte Änderungsliste '%s' nicht anlegen/entfernen"
+msgid "Failed to set/remove changelist '%s'"
+msgstr "Konnte Änderungsliste '%s' nicht setzen/entfernen"
 
 #. Resource IDs: (83)
 #, c-format
 msgid ""
-"Failed to start the issue tracker COM provider \"%s\".\n"
+"Failed to start the issue tracker COM provider '%s'.\n"
 "%s"
 msgstr ""
 "Konnte den COM-Anbieter für das Fehlerverfolgungssystem nicht starten '%s'.\n"
@@ -3604,8 +3608,8 @@ msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
 msgstr "Drücken Sie F1 für Hilfe. Mit Strg+Mausrad horizontal verschieben."
 
 #. Resource IDs: (119)
-msgid "For complete history deselect \"Stop on copy/rename\""
-msgstr "Wählen Sie 'Bei Kopien/Umbenennen anhalten' ab, um eine vollständige Historie zu erhalten."
+msgid "For complete history deselect 'Stop on copy/rename'"
+msgstr "Deaktivieren Sie 'Bei Kopien/Umbenennen anhalten', um eine vollständige Historie zu erhalten."
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -4029,14 +4033,14 @@ msgid "Icons/Design/Code:                 Luebbe Onken"
 msgstr "Icons/Design/Code:     Lübbe Onken"
 
 #. Resource IDs: (194)
-msgid "If activated, prevents the overlays and the context menu from showing in \"save as...\" or \"open\" dialogs"
+msgid "If activated, prevents the overlays and the context menu from showing in 'save as...' or 'open' dialogs"
 msgstr ""
 "Aktivieren Sie diese Option, damit die überlagerten Symbole und Kontextmenüs\n"
-"in <b>Speichern unter...</b> und <b>Öffnen</b> Dialogen nicht angezeigt werden."
+"in 'Speichern unter...' und 'Öffnen' Dialogen nicht angezeigt werden."
 
 #. Resource IDs: (198)
 msgid ""
-"If activated, the menu entry \"Get Lock\" is always shown in the top level menu\n"
+"If activated, the menu entry 'Get Lock' is always shown in the top level menu\n"
 "if the selected file has the svn:needs-lock property set"
 msgstr ""
 "Aktivieren Sie diese Option, damit die Funktion 'Sperre holen' im obersten\n"
@@ -4080,7 +4084,7 @@ msgstr ""
 
 #. Resource IDs: (195)
 msgid ""
-"If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\r\n"
+"If enabled, the Merge dialog initializes the 'From:' URL with the URL of the selected working copy\r\n"
 "instead of the last used URL."
 msgstr ""
 "Aktivieren Sie diese Option, damit im Zusammenführen-Dialog anstelle\r\n"
@@ -4090,7 +4094,7 @@ msgstr ""
 #. Resource IDs: (195)
 msgid ""
 "If enabled, the repository is contacted when the dialog starts up.\r\n"
-"You don't have to click on \"Check Repository\" anymore."
+"You don't have to click on 'Check Repository' anymore."
 msgstr ""
 "Aktivieren Sie diese Option, damit das Projektarchiv beim Start des Dialogs\r\n"
 "automatisch auf Änderungen geprüft wird.\r\n"
@@ -4147,7 +4151,7 @@ msgstr ""
 "Sind Sie ganz sicher, dass Sie die Einstellung ändern wollen?"
 
 #. Resource IDs: (251)
-msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
+msgid "If you want to break the lock, use the 'Check For Modifications' dialog."
 msgstr "Sie können die Sperre im 'Auf Änderungen prüfen' Dialog aufbrechen."
 
 #. Resource IDs: (73)
@@ -5107,7 +5111,7 @@ msgstr ""
 msgid ""
 "No files to show with the current setting.\n"
 "Check one or more settings below to see unversioned, ignored and/or unmodified files.\n"
-"To see remote changes, click on \"Check Repository\""
+"To see remote changes, click on 'Check Repository'"
 msgstr ""
 "Mit der aktuellen Einstellung werden keine Dateien angezeigt.\n"
 "Wählen Sie eine oder mehrere der untenstehenden Optionen, um\n"
@@ -5513,7 +5517,7 @@ msgid "Please enter a path where to apply the hook script to."
 msgstr "Bitte geben Sie einen Pfad an auf den das Skript angewendet wird."
 
 #. Resource IDs: (251)
-msgid "Please execute the \"Cleanup\" command."
+msgid "Please execute the 'Cleanup' command."
 msgstr "Bitte führen Sie den Befehl 'Arbeitskopie aufräumen' aus."
 
 #. Resource IDs: (78)
@@ -5988,7 +5992,7 @@ msgstr "Lösche aus Änderungsliste"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Remove property \"%s\" from\r\n"
+"Remove property '%s' from\r\n"
 "%s"
 msgstr ""
 "Entferne Eigenschaft '%s' von\r\n"
@@ -6148,11 +6152,11 @@ msgid "Resolve all later"
 msgstr "Alle später auflösen"
 
 #. Resource IDs: (282)
-msgid "Resolve conflict using \"mine\""
+msgid "Resolve conflict using 'mine'"
 msgstr "Löse Konflikt mit 'Meiner' Datei"
 
 #. Resource IDs: (282)
-msgid "Resolve conflict using \"theirs\""
+msgid "Resolve conflict using 'theirs'"
 msgstr "Löse Konflikt mit 'Deren' Datei"
 
 #. Resource IDs: (1403)
@@ -6715,7 +6719,7 @@ msgstr "Dateidatum auf '&Datum der letzten Übertragung' setzen"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Set property \"%s\" on\r\n"
+"Set property '%s' on\r\n"
 "%s"
 msgstr ""
 "Setze Eigenschaft '%s' auf\r\n"
@@ -7307,7 +7311,7 @@ msgstr "Die Stück-Größe stimmt nicht mit der Anzahl hinzugefügter/gelöschte
 
 #. Resource IDs: (63)
 #, c-format
-msgid "The chunk start \"@@\" was expected in line %d !"
+msgid "The chunk start '@@' was expected in line %d !"
 msgstr "Die Start-Zeichen '@@' wurden in Zeile %d erwartet!"
 
 #. Resource IDs: (197)
@@ -7438,12 +7442,12 @@ msgstr "Der COM-Anbieter für das Fehlerverfolgungssystem konnte die Parameter n
 
 #. Resource IDs: (63)
 #, c-format
-msgid "The line \"====\" was expected in line %d !"
+msgid "The line '====' was expected in line %d !"
 msgstr "Der Text '====' wurde in Zeile %d erwartet!"
 
 #. Resource IDs: (63)
 msgid ""
-"The line \"Index: \" was not found!\n"
+"The line 'Index: ' was not found!\n"
 "Either this is not a diff file or the diff is empty."
 msgstr ""
 "Die 'Index: ' Zeile wurde nicht gefunden!\n"
@@ -7819,7 +7823,7 @@ msgstr ""
 
 #. Resource IDs: (284)
 msgid ""
-"To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\n"
+"To steal the lock, right-click on the parent folder of this item and select 'Get Lock' from the context menu.\n"
 "This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 msgstr ""
 "Um die Sperre zu stehlen, machen Sie einen Rechtsklick auf den Elternordner und wählen Sie 'Sperre Holen...' aus dem Kontextmenü.\n"
@@ -8011,7 +8015,7 @@ msgid "Tree merge"
 msgstr "Bäume zusammenführen"
 
 #. Resource IDs: (251)
-msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
+msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr "Versuchen Sie ein 'Aufräumen'. Falls dies nicht hilft, müssen Sie von neuem Auschecken."
 
 #. Resource IDs: (73)
@@ -8345,6 +8349,54 @@ msgstr "Gelöschte Zeilen &durchstreichen"
 msgid "Use system locale for date/time"
 msgstr "Systemvorgabe für Datum/Zeit verwenden"
 
+#. Resource IDs: (251)
+msgid "Use text block from '&mine'"
+msgstr "Verwende '&Meinen' Textblock"
+
+#. Resource IDs: (251)
+msgid "Use text block from '&theirs'"
+msgstr "Verwende '&Deren' Textblock"
+
+#. Resource IDs: (251)
+msgid "Use text block from 'm&ine' before 'theirs'"
+msgstr "Verwende 'M&einen' Textblock vor 'Deren'"
+
+#. Resource IDs: (2052)
+msgid ""
+"Use text block from 'mine' before 'theirs'\n"
+"Use 'mine' text block then 'theirs'"
+msgstr ""
+"Verwende Textblock aus 'Meine' vor 'Deren'\n"
+"Erst 'Mein' Textblock, danach 'Deren'"
+
+#. Resource IDs: (2052)
+msgid ""
+"Use text block from 'mine'\n"
+"Use 'mine' text block"
+msgstr ""
+"Verwende Textblock aus 'Meine'\n"
+"Verwende 'Meinen' Textblock"
+
+#. Resource IDs: (251)
+msgid "Use text block from 't&heirs' before 'mine"
+msgstr "Verwende 'De&ren' Textblock vor 'Meinem'"
+
+#. Resource IDs: (2052)
+msgid ""
+"Use text block from 'theirs' before 'mine'\n"
+"Use 'theirs' text block then 'mine'"
+msgstr ""
+"Verwende Textblock aus 'Deren' vor 'Meine'\n"
+"Erst 'Deren' Textblock, danach 'Meiner'"
+
+#. Resource IDs: (2052)
+msgid ""
+"Use text block from 'theirs'\n"
+"Use 'theirs' text block"
+msgstr ""
+"Verwende Textblock aus 'Deren'\n"
+"Verwende 'Deren' Textblock"
+
 #. Resource IDs: (251, 32820)
 msgid "Use text block from \"&mine\""
 msgstr "Verwende '&Meinen' Textblock"
@@ -8357,41 +8409,9 @@ msgstr "Verwende '&Deren' Textblock"
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "Verwende 'M&einen' Textblock vor 'Deren'"
 
-#. Resource IDs: (2052)
-msgid ""
-"Use text block from \"mine\" before \"theirs\"\n"
-"Use \"mine\" text block then \"theirs\""
-msgstr ""
-"Verwende Textblock aus 'Meine' vor 'Deren'\n"
-"Erst 'Mein' Textblock, danach 'Deren'"
-
-#. Resource IDs: (2052)
-msgid ""
-"Use text block from \"mine\"\n"
-"Use \"mine\" text block"
-msgstr ""
-"Verwende Textblock aus 'Meine'\n"
-"Verwende 'Meinen' Textblock"
-
 #. Resource IDs: (251, 32821)
 msgid "Use text block from \"t&heirs\" before \"mine\""
 msgstr "Verwende 'De&ren' Textblock vor 'Meinem'"
-
-#. Resource IDs: (2052)
-msgid ""
-"Use text block from \"theirs\" before \"mine\"\n"
-"Use \"theirs\" text block then \"mine\""
-msgstr ""
-"Verwende Textblock aus 'Deren' vor 'Meine'\n"
-"Erst 'Deren' Textblock, danach 'Meiner'"
-
-#. Resource IDs: (2052)
-msgid ""
-"Use text block from \"theirs\"\n"
-"Use \"theirs\" text block"
-msgstr ""
-"Verwende Textblock aus 'Deren'\n"
-"Verwende 'Deren' Textblock"
 
 #. Resource IDs: (2054)
 msgid ""
@@ -8825,10 +8845,6 @@ msgstr "An Fenster anpassen"
 msgid "[Unassigned]"
 msgstr "[nicht zugewiesen]"
 
-#. Resource IDs: (338)
-msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
-msgstr "Mit 'Lücken' werden Bereiche gekennzeichnet, die noch nicht gepuffert sind"
-
 #. Resource IDs: (65535)
 msgid "_POPUP_"
 msgstr "_POPUP_"
@@ -8886,8 +8902,8 @@ msgstr "Autoren:"
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:append\r\n"
-"Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\r\n"
-"log message. The default is \"true\" which means the bugtracking ID\r\n"
+"Set to 'false' if you want the bugtracking ID to be inserted at the top of the\r\n"
+"log message. The default is 'true' which means the bugtracking ID\r\n"
 "is appended to the log message."
 msgstr ""
 "bugtraq:append\r\n"
@@ -8921,7 +8937,7 @@ msgstr ""
 msgid ""
 "bugtraq:message\r\n"
 "String which is appended to a log message when an issue number is entered.\r\n"
-"The string must contain \"%BUGID%\" which gets replaced with the issue number."
+"The string must contain '%BUGID%' which gets replaced with the issue number."
 msgstr ""
 "bugtraq:message\r\n"
 "Zeichenkette, die an eine Logmeldung angefügt wird, wenn eine ID angegeben wird.\r\n"
@@ -8930,7 +8946,7 @@ msgstr ""
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:number\r\n"
-"Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
+"Set to 'false' if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
 "bugtraq:number\r\n"
 "Auf 'false' setzen, falls Ihr Fehlerverfolgungssystem die Einträge nicht über Nummern referenziert."
@@ -8939,7 +8955,7 @@ msgstr ""
 #, c-format
 msgid ""
 "bugtraq:url\r\n"
-"URL pointing to the issue tracker. It must contain \"%BUGID%\" which\r\n"
+"URL pointing to the issue tracker. It must contain '%BUGID%' which\r\n"
 "gets replaced with the issue number."
 msgstr ""
 "bugtraq:url\r\n"
@@ -9373,7 +9389,7 @@ msgstr ""
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logfilelistenglish\r\n"
-"Set to \"false\" if you don't want the list of changed files to be pasted in english\r\n"
+"Set to 'false' if you don't want the list of changed files to be pasted in english\r\n"
 "in the commit dialog."
 msgstr ""
 "tsvn:logfilelistenglish\r\n"
@@ -9450,7 +9466,7 @@ msgstr ""
 #. Resource IDs: (577)
 msgid ""
 "tsvn:warnifnoissue\r\n"
-"Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
+"Set to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
 "tsvn:warnifnoissue\r\n"
 "Auf 'yes' setzen, wenn eine Warnung ausgegeben werden soll, falls keine Bug-ID im Übertragen-Dialog eingegeben wird."
