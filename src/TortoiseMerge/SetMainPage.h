@@ -82,17 +82,7 @@ protected:
 	CMFCFontComboBox m_cFontNames;
 	CComboBox		m_cFontSizes;
 protected:
-	afx_msg void OnBnClickedBackup();
-	afx_msg void OnBnClickedIgnorelf();
-	afx_msg void OnBnClickedOnepane();
-	afx_msg void OnBnClickedFirstdiffonload();
+	afx_msg void OnModified();
+	afx_msg void OnModifiedWithReload();
 	afx_msg void OnBnClickedWhitespace();
-	afx_msg void OnEnChangeTabsize();
-	afx_msg void OnCbnSelchangeFontsizes();
-	afx_msg void OnCbnSelchangeFontnames();
-	afx_msg void OnBnClickedLinenumbers();
-	afx_msg void OnBnClickedStrikeout();
-	afx_msg void OnBnClickedUsebdiff();
-	afx_msg void OnBnClickedCaseinsensitive();
-	afx_msg void OnBnClickedUtf8default();
 };

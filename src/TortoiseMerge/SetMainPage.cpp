@@ -197,54 +197,34 @@ BOOL CSetMainPage::OnInitDialog()
 }
 
 BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
-	ON_BN_CLICKED(IDC_BACKUP, OnBnClickedBackup)
-	ON_BN_CLICKED(IDC_IGNORELF, OnBnClickedIgnorelf)
-	ON_BN_CLICKED(IDC_ONEPANE, OnBnClickedOnepane)
-	ON_BN_CLICKED(IDC_FIRSTDIFFONLOAD, OnBnClickedFirstdiffonload)
-	ON_BN_CLICKED(IDC_WSCOMPARE, OnBnClickedWhitespace)
-	ON_BN_CLICKED(IDC_WSIGNORECHANGED, OnBnClickedWhitespace)
-	ON_BN_CLICKED(IDC_WSIGNOREALL, OnBnClickedWhitespace)
-	ON_BN_CLICKED(IDC_LINENUMBERS, OnBnClickedLinenumbers)
-	ON_BN_CLICKED(IDC_STRIKEOUT, OnBnClickedStrikeout)
-	ON_EN_CHANGE(IDC_TABSIZE, OnEnChangeTabsize)
-	ON_CBN_SELCHANGE(IDC_FONTSIZES, OnCbnSelchangeFontsizes)
-	ON_CBN_SELCHANGE(IDC_FONTNAMES, OnCbnSelchangeFontnames)
-	ON_BN_CLICKED(IDC_USEBDIFF, OnBnClickedUsebdiff)
-	ON_BN_CLICKED(IDC_CASEINSENSITIVE, OnBnClickedCaseinsensitive)
-	ON_BN_CLICKED(IDC_UTF8DEFAULT, &CSetMainPage::OnBnClickedUtf8default)
+	ON_BN_CLICKED(IDC_BACKUP, &CSetMainPage::OnModified)
+	ON_BN_CLICKED(IDC_IGNORELF, &CSetMainPage::OnModifiedWithReload)
+	ON_BN_CLICKED(IDC_ONEPANE, &CSetMainPage::OnModified)
+	ON_BN_CLICKED(IDC_FIRSTDIFFONLOAD, &CSetMainPage::OnModified)
+	ON_BN_CLICKED(IDC_WSCOMPARE, &CSetMainPage::OnModified)
+	ON_BN_CLICKED(IDC_WSIGNORECHANGED, &CSetMainPage::OnModified)
+	ON_BN_CLICKED(IDC_WSIGNOREALL, &CSetMainPage::OnModified)
+	ON_BN_CLICKED(IDC_LINENUMBERS, &CSetMainPage::OnModified)
+	ON_BN_CLICKED(IDC_STRIKEOUT, &CSetMainPage::OnModified)
+	ON_EN_CHANGE(IDC_TABSIZE, &CSetMainPage::OnModified)
+	ON_CBN_SELCHANGE(IDC_FONTSIZES, &CSetMainPage::OnModified)
+	ON_CBN_SELCHANGE(IDC_FONTNAMES, &CSetMainPage::OnModified)
+	ON_BN_CLICKED(IDC_USEBDIFF, &CSetMainPage::OnModifiedWithReload)
+	ON_BN_CLICKED(IDC_CASEINSENSITIVE, &CSetMainPage::OnModified)
+	ON_BN_CLICKED(IDC_UTF8DEFAULT, &CSetMainPage::OnModified)
 END_MESSAGE_MAP()
 
 
 // CSetMainPage message handlers
 
-void CSetMainPage::OnBnClickedBackup()
+void CSetMainPage::OnModified()
 {
 	SetModified();
 }
 
-void CSetMainPage::OnBnClickedIgnorelf()
+void CSetMainPage::OnModifiedWithReload()
 {
 	m_bReloadNeeded = TRUE;
-	SetModified();
-}
-
-void CSetMainPage::OnBnClickedOnepane()
-{
-	SetModified();
-}
-
-void CSetMainPage::OnBnClickedFirstdiffonload()
-{
-	SetModified();
-}
-
-void CSetMainPage::OnBnClickedLinenumbers()
-{
-	SetModified();
-}
-
-void CSetMainPage::OnBnClickedStrikeout()
-{
 	SetModified();
 }
 
@@ -269,33 +249,3 @@ void CSetMainPage::OnBnClickedWhitespace()
 	}
 }
 
-void CSetMainPage::OnEnChangeTabsize()
-{
-	SetModified();
-}
-
-void CSetMainPage::OnCbnSelchangeFontsizes()
-{
-	SetModified();
-}
-
-void CSetMainPage::OnCbnSelchangeFontnames()
-{
-	SetModified();
-}
-
-void CSetMainPage::OnBnClickedUsebdiff()
-{
-	m_bReloadNeeded = TRUE;
-	SetModified();
-}
-
-void CSetMainPage::OnBnClickedCaseinsensitive()
-{
-	SetModified();
-}
-
-void CSetMainPage::OnBnClickedUtf8default()
-{
-	SetModified();
-}
