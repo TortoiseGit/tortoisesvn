@@ -53,7 +53,9 @@ void CRepositoryInfo::Load()
 	if (GetFileAttributes (GetFileName()) == INVALID_FILE_ATTRIBUTES)
         return;
 
-	CFile file (GetFileName(), CFile::modeRead | CFile::shareDenyWrite);
+	CFile file;
+	if (!file.Open(GetFileName(), CFile::modeRead | CFile::shareDenyWrite))
+		return;
     CArchive stream (&file, CArchive::load);
 
     // format ID
