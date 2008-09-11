@@ -102,7 +102,7 @@ CFileTextLines::UnicodeType CFileTextLines::CheckUnicodeType(LPVOID pBuffer, int
 	}
 	if (bUTF8)
 		return CFileTextLines::UTF8;
-	if (!bNonANSI)
+	if ((!bNonANSI)&&(DWORD(CRegDWORD(_T("Software\\TortoiseMerge\\UseUTF8"), FALSE))))
 		return CFileTextLines::UTF8;
 	return CFileTextLines::ASCII;
 }
