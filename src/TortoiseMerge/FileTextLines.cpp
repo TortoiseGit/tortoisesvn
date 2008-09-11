@@ -19,6 +19,7 @@
 #include "StdAfx.h"
 #include "Resource.h"
 #include "UnicodeUtils.h"
+#include "registry.h"
 #include ".\filetextlines.h"
 
 
