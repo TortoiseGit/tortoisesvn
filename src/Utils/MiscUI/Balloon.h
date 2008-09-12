@@ -258,7 +258,7 @@ public:
 	 * \overload ShowBalloon(CWnd * pWnd, CPoint pt, UINT nIdText, BOOL showCloseButton, UINT nIdIcon, UINT nDirection = BALLOON_RIGHT_TOP, UINT nEffect = BALLOON_EFFECT_SOLID, COLORREF crStart = NULL, COLORREF crMid = NULL, COLORREF crEnd = NULL);
 	 */
 	static void ShowBalloon(
-		CWnd * pWnd, CPoint pt, CString sText, BOOL showCloseButton, HICON hIcon,
+		CWnd * pWnd, CPoint pt, const CString& sText, BOOL showCloseButton, HICON hIcon,
 		UINT nDirection = BALLOON_RIGHT_TOP, UINT nEffect = BALLOON_EFFECT_SOLID,
 		COLORREF crStart = NULL, COLORREF crMid = NULL, COLORREF crEnd = NULL);
 	/**
@@ -290,12 +290,12 @@ public:
 	 */
 	void	AddTool(CWnd * pWnd, UINT nIdText, HICON hIcon = NULL); //Adds tool
 	void	AddTool(CWnd * pWnd, UINT nIdText, UINT nIdIcon); //Adds tool
-	void	AddTool(CWnd * pWnd, CString sBalloonTipText, HICON hIcon = NULL); //Adds tool
-	void	AddTool(CWnd * pWnd, CString sBalloonTipText, UINT nIdIcon); //Adds tool
+	void	AddTool(CWnd * pWnd, const CString& sBalloonTipText, HICON hIcon = NULL); //Adds tool
+	void	AddTool(CWnd * pWnd, const CString& sBalloonTipText, UINT nIdIcon); //Adds tool
 	void	AddTool(int nIdWnd, UINT nIdText, HICON hIcon = NULL); //Adds tool
 	void	AddTool(int nIdWnd, UINT nIdText, UINT nIdIcon); //Adds tool
-	void	AddTool(int nIdWnd, CString sBalloonTipText, HICON hIcon = NULL); //Adds tool
-	void	AddTool(int nIdWnd, CString sBalloonTipText, UINT nIdIcon); //Adds tool
+	void	AddTool(int nIdWnd, const CString& sBalloonTipText, HICON hIcon = NULL); //Adds tool
+	void	AddTool(int nIdWnd, const CString& sBalloonTipText, UINT nIdIcon); //Adds tool
 	void	AddTool(CWnd * pWnd, BALLOON_INFO & bi); //Adds tool
 	//@}
 
@@ -307,8 +307,8 @@ public:
 	 * \param bi pointer to the returned BALLOON_INFO structure.
 	 * \return TRUE if the tooltip exists.
 	 */
-	BOOL	GetTool(CWnd * pWnd, CString & sBalloonTipText, HICON & hIcon); //Gets the tool tip's text
-	BOOL	GetTool(CWnd * pWnd, BALLOON_INFO & bi); //Gets tool
+	BOOL	GetTool(CWnd * pWnd, CString & sBalloonTipText, HICON & hIcon) const; //Gets the tool tip's text
+	BOOL	GetTool(CWnd * pWnd, BALLOON_INFO & bi) const; //Gets tool
 
 	/**
 	 * Removes a specific tooltip from the internal list.
@@ -351,7 +351,7 @@ public:
 	 * returns the current styles for the tooltip.
 	 * \param pWnd pointer to the tooltip window or NULL if the global styles are needed.
 	 */
-	DWORD	GetStyles(CWnd * pWnd = NULL); //Gets current Styles
+	DWORD	GetStyles(CWnd * pWnd = NULL) const; //Gets current Styles
 	/**
 	 * Resets the styles to the default values.
 	 * \param pWnd pointer to the tooltip window or NULL if the styles should affect all tooltips.
@@ -378,7 +378,7 @@ public:
 	/**
 	 * Returns the color of a balloon element.
 	 */
-	COLORREF	GetColor(int nIndex); //Gets the color
+	COLORREF	GetColor(int nIndex) const; //Gets the color
 	/**
 	 * Resets all colors to default values.
 	 */
@@ -395,7 +395,7 @@ public:
 	 * Returns the colors used in the background gradients.
 	 * \param pWnd pointer to the tooltip window or NULL if the global settings are needed.
 	 */
-	void	GetGradientColors(COLORREF & crBegin, COLORREF & crMid, COLORREF & crEnd, CWnd * pWnd = NULL); //Gets the gradient's colors
+	void	GetGradientColors(COLORREF & crBegin, COLORREF & crMid, COLORREF & crEnd, CWnd * pWnd = NULL) const; //Gets the gradient's colors
 	//@}
 
 
@@ -416,7 +416,7 @@ public:
 	//@{
 	void	SetMaskTool(CWnd * pWnd, UINT nMask = 0);
 	void	ModifyMaskTool(CWnd * pWnd, UINT nAddMask, UINT nRemoveMask);
-	UINT	GetMaskTool(CWnd * pWnd);
+	UINT	GetMaskTool(CWnd * pWnd) const;
 	//@}
 
 	/** \name Effects
@@ -432,7 +432,7 @@ public:
 	 */
 	//@{
 	void	SetEffectBk(UINT nEffect, CWnd * pWnd = NULL);
-	UINT	GetEffectBk(CWnd * pWnd = NULL);
+	UINT	GetEffectBk(CWnd * pWnd = NULL) const;
 	//@}
 
 	/** \name Notification 
@@ -442,7 +442,7 @@ public:
 	//@{
 	void	SetNotify(HWND hWnd);
 	void	SetNotify(BOOL bParentNotify = TRUE);
-	BOOL	GetNotify(); //Is enabled notification
+	BOOL	GetNotify() const; //Is enabled notification
 	//@}
 
 	/** \name Delaytimes
@@ -465,7 +465,7 @@ public:
 	 */
 	//@{
 	void	SetDirection(UINT nDirection = BALLOON_RIGHT_TOP, CWnd * pWnd = NULL);
-	UINT	GetDirection(CWnd * pWnd = NULL);
+	UINT	GetDirection(CWnd * pWnd = NULL) const;
 	//@}
 
 	/** \name Behavior
@@ -477,7 +477,7 @@ public:
 	 */
 	//@{
 	void	SetBehaviour(UINT nBehaviour = 0, CWnd * pWnd = NULL);
-	UINT	GetBehaviour(CWnd * pWnd = NULL);
+	UINT	GetBehaviour(CWnd * pWnd = NULL) const;
 	//@}
 
 	/** \name Fonts 
@@ -490,8 +490,8 @@ public:
 									BOOL bUnderline = FALSE, BOOL bBold = FALSE,
 									BOOL bStrikeOut = FALSE, BOOL bItalic = FALSE); //set font
 	void	SetDefaultFont(); //set default fonts
-	void	GetFont(CFont & font);
-	void	GetFont(LPLOGFONT lf);
+	void	GetFont(CFont & font) const;
+	void	GetFont(LPLOGFONT lf) const;
 	//@}
 
 	/**
@@ -513,14 +513,14 @@ public:
 	// Generated message map functions
 protected:
 	void	SetSize(int nSizeIndex, UINT nValue);
-	UINT	GetSize(int nSizeIndex);
+	UINT	GetSize(int nSizeIndex) const;
 	void	SetDefaultSizes();
 
 	void	Redraw(BOOL bRedraw = TRUE);
 	void	KillTimers(UINT nIDTimer = NULL);
 		
 	void	SetNewToolTip(CWnd * pWnd);
-	void	GetMonitorWorkArea(const CPoint& sourcePoint, CRect& monitorRect);
+	void	GetMonitorWorkArea(const CPoint& sourcePoint, CRect& monitorRect) const;
 
 	/**
 	 * Finds the child window to which the point belongs
@@ -531,18 +531,18 @@ protected:
 	BOOL	IsCursorInToolTip() const;
     inline	BOOL IsVisible() const { return ((GetStyle() & WS_VISIBLE) == WS_VISIBLE); }
 
-	CSize	GetTooltipSize(CString str); //Gets max rectangle for display tooltip text
+	CSize	GetTooltipSize(const CString& str); //Gets max rectangle for display tooltip text
 	CSize	GetSizeIcon(HICON hIcon) const;
 	void	CalculateInfoBoxRect(CPoint * pt, CRect * rect);
 
 	LPLOGFONT	GetSystemToolTipFont() const;
 
-	int		GetNextHorizDirection(int nDirection);
-	int		GetNextVertDirection(int nDirection);
+	int		GetNextHorizDirection(int nDirection) const;
+	int		GetNextVertDirection(int nDirection) const;
 	BOOL	TestHorizDirection(int x, int cx, const CRect& monitorRect, int nDirection, LPRECT rect);
 	BOOL	TestVertDirection(int y, int cy, const CRect& monitorRect, int nDirection, LPRECT rect);
 
-	CRect	GetWindowRegion(CRgn * rgn, CSize sz, CPoint pt);
+	CRect	GetWindowRegion(CRgn * rgn, CSize sz, CPoint pt) const;
 
 	LRESULT	SendNotify(CWnd * pWnd, CPoint * pt, BALLOON_INFO & bi);
 

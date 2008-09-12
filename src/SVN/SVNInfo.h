@@ -90,7 +90,7 @@ public:
 	 * for all children of \a path.
 	 */
 	const SVNInfoData * GetFirstFileInfo(const CTSVNPath& path, SVNRev pegrev, SVNRev revision, svn_depth_t depth = svn_depth_empty);
-	size_t GetFileCount() {return m_arInfo.size();}
+	size_t GetFileCount() const {return m_arInfo.size();}
 	/**
 	 * Returns the info of the next file in the file list. If no more files are in the list then NULL is returned.
 	 * See GetFirstFileInfo() for details.
@@ -102,7 +102,7 @@ friend class SVN;	// So that SVN can get to our m_err
 	 * Returns the last error message as a CString object.
 	 */
 	CString GetLastErrorMsg();
-	svn_error_t * GetError() { return m_err; }
+	const svn_error_t * GetError() const { return m_err; }
 
 	virtual BOOL Cancel();
 	virtual void Receiver(SVNInfoData * data);

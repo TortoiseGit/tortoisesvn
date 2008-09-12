@@ -95,12 +95,12 @@ void SVNStatus::ClearPool()
 }
 
 #ifdef _MFC_VER
-CString SVNStatus::GetLastErrorMsg()
+CString SVNStatus::GetLastErrorMsg() const
 {
 	return SVN::GetErrorString(m_err);
 }
 #else
-stdstring SVNStatus::GetLastErrorMsg()
+stdstring SVNStatus::GetLastErrorMsg() const
 {
 	stdstring msg;
 	char errbuf[256];
@@ -371,7 +371,7 @@ svn_wc_status2_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVNPat
 	return (svn_wc_status2_t *) item->value;
 }
 
-unsigned int SVNStatus::GetVersionedCount()
+unsigned int SVNStatus::GetVersionedCount() const
 {
 	unsigned int count = 0;
 	const sort_item* item;
@@ -400,14 +400,14 @@ svn_wc_status2_t * SVNStatus::GetNextFileStatus(CTSVNPath& retPath)
 	return (svn_wc_status2_t *) item->value;
 }
 
-bool SVNStatus::IsExternal(const CTSVNPath& path)
+bool SVNStatus::IsExternal(const CTSVNPath& path) const
 {
 	if (apr_hash_get(m_externalhash, path.GetSVNApiPath(m_pool), APR_HASH_KEY_STRING))
 		return true;
 	return false;
 }
 
-bool SVNStatus::IsInExternal(const CTSVNPath& path)
+bool SVNStatus::IsInExternal(const CTSVNPath& path) const
 {
 	if (apr_hash_count(m_statushash) == 0)
 		return false;

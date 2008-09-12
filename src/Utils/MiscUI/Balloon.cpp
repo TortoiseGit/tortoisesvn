@@ -307,7 +307,7 @@ void CBalloon::OnDrawBackground(CDC * pDC, CRect * pRect)
 	}
 }
 
-CRect CBalloon::GetWindowRegion(CRgn * rgn, CSize sz, CPoint pt)
+CRect CBalloon::GetWindowRegion(CRgn * rgn, CSize sz, CPoint pt) const
 {
 	CRect rect;
 	rect.SetRect(0, 0, sz.cx, sz.cy);
@@ -633,7 +633,7 @@ void CBalloon::Pop()
 	m_bButtonPushed = FALSE;
 }
 
-CSize CBalloon::GetTooltipSize(CString str)
+CSize CBalloon::GetTooltipSize(const CString& str)
 {
 	CRect rect;
 	GetWindowRect(&rect);
@@ -720,7 +720,7 @@ void CBalloon::CalculateInfoBoxRect(CPoint * pt, CRect * rect)
 }
 
 
-int CBalloon::GetNextHorizDirection(int nDirection)
+int CBalloon::GetNextHorizDirection(int nDirection) const
 {
 	switch (nDirection)
 	{
@@ -740,7 +740,7 @@ int CBalloon::GetNextHorizDirection(int nDirection)
 	return nDirection;
 }
 
-int CBalloon::GetNextVertDirection(int nDirection)
+int CBalloon::GetNextVertDirection(int nDirection) const
 {
 	switch (nDirection)
 	{
@@ -867,7 +867,7 @@ void CBalloon::ModifyStyles(DWORD nAddStyles, DWORD nRemoveStyles, CWnd * pWnd /
 	}
 } 
 
-DWORD CBalloon::GetStyles(CWnd * pWnd /* = NULL */)
+DWORD CBalloon::GetStyles(CWnd * pWnd /* = NULL */) const
 {
 	if (pWnd)
 	{
@@ -894,7 +894,7 @@ void CBalloon::SetColor(int nIndex, COLORREF crColor)
 	m_crColor [nIndex] = crColor;
 }
 
-COLORREF CBalloon::GetColor(int nIndex)
+COLORREF CBalloon::GetColor(int nIndex) const
 {
 	if (nIndex >= BALLOON_MAX_COLORS)
 		nIndex = BALLOON_COLOR_FG;
@@ -934,7 +934,7 @@ void CBalloon::SetGradientColors(COLORREF crBegin, COLORREF crMid, COLORREF crEn
 	}
 }
 
-void CBalloon::GetGradientColors(COLORREF & crBegin, COLORREF & crMid, COLORREF & crEnd, CWnd * pWnd /* = NULL */)
+void CBalloon::GetGradientColors(COLORREF & crBegin, COLORREF & crMid, COLORREF & crEnd, CWnd * pWnd /* = NULL */) const
 {
 	if (pWnd)
 	{
@@ -964,7 +964,7 @@ void CBalloon::ShowBalloon(CWnd * pWnd, CPoint pt, UINT nIdText, BOOL showCloseB
 }
 
 void CBalloon::ShowBalloon(
-	CWnd * pWnd, CPoint pt, CString sText, BOOL showCloseButton, HICON hIcon, 
+	CWnd * pWnd, CPoint pt, const CString& sText, BOOL showCloseButton, HICON hIcon, 
 	UINT nDirection, UINT nEffect, COLORREF crStart, COLORREF crMid, COLORREF crEnd)
 {
 	BALLOON_INFO Info;
@@ -1005,11 +1005,11 @@ void CBalloon::AddTool(int nIdWnd, UINT nIdText, UINT nIdIcon)
 {
 	AddTool(m_pParentWnd->GetDlgItem(nIdWnd), nIdText, nIdIcon);
 }
-void CBalloon::AddTool(int nIdWnd, CString sBalloonTipText, HICON hIcon/* = NULL*/)
+void CBalloon::AddTool(int nIdWnd, const CString& sBalloonTipText, HICON hIcon/* = NULL*/)
 {
 	AddTool(m_pParentWnd->GetDlgItem(nIdWnd), sBalloonTipText, hIcon);
 }
-void CBalloon::AddTool(int nIdWnd, CString sBalloonTipText, UINT nIdIcon)
+void CBalloon::AddTool(int nIdWnd, const CString& sBalloonTipText, UINT nIdIcon)
 {
 	AddTool(m_pParentWnd->GetDlgItem(nIdWnd), sBalloonTipText, nIdIcon);
 }
@@ -1028,7 +1028,7 @@ void CBalloon::AddTool(CWnd * pWnd, UINT nIdText, UINT nIdIcon)
 	AddTool(pWnd, str, nIdIcon);
 } 
 
-void CBalloon::AddTool(CWnd * pWnd, CString sBalloonTipText, UINT nIdIcon)
+void CBalloon::AddTool(CWnd * pWnd, const CString& sBalloonTipText, UINT nIdIcon)
 {
 	HICON hIcon	= NULL;
 	HINSTANCE hInstResource	= NULL;
@@ -1043,7 +1043,7 @@ void CBalloon::AddTool(CWnd * pWnd, CString sBalloonTipText, UINT nIdIcon)
 	AddTool(pWnd, sBalloonTipText, hIcon);
 } 
 
-void CBalloon::AddTool(CWnd * pWnd, CString sBalloonTipText, HICON hIcon /* = NULL */)
+void CBalloon::AddTool(CWnd * pWnd, const CString& sBalloonTipText, HICON hIcon /* = NULL */)
 {
 	//store the tool information
 	BALLOON_INFO Info;
@@ -1062,7 +1062,7 @@ void CBalloon::AddTool(CWnd * pWnd, BALLOON_INFO & bi)
 		m_ToolMap.SetAt(NULL, bi);
 } 
 
-BOOL CBalloon::GetTool(CWnd * pWnd, CString & sBalloonTipText, HICON & hIcon)
+BOOL CBalloon::GetTool(CWnd * pWnd, CString & sBalloonTipText, HICON & hIcon) const
 {
 	BALLOON_INFO bi;
 	BOOL bFound = GetTool(pWnd, bi);
@@ -1075,7 +1075,7 @@ BOOL CBalloon::GetTool(CWnd * pWnd, CString & sBalloonTipText, HICON & hIcon)
 	return bFound;
 }
 
-BOOL CBalloon::GetTool(CWnd * pWnd, BALLOON_INFO & bi)
+BOOL CBalloon::GetTool(CWnd * pWnd, BALLOON_INFO & bi) const
 {
 	if (pWnd)
 		return m_ToolMap.Lookup(pWnd->m_hWnd, bi);
@@ -1112,7 +1112,7 @@ void CBalloon::ModifyMaskTool(CWnd * pWnd, UINT nAddMask, UINT nRemoveMask)
 	}
 }
 
-UINT CBalloon::GetMaskTool(CWnd * pWnd)
+UINT CBalloon::GetMaskTool(CWnd * pWnd) const
 {
 	ASSERT(pWnd);
 
@@ -1141,7 +1141,7 @@ void CBalloon::SetEffectBk(UINT nEffect, CWnd * pWnd /* = NULL */)
 	}
 }
 
-UINT CBalloon::GetEffectBk(CWnd * pWnd /* = NULL */)
+UINT CBalloon::GetEffectBk(CWnd * pWnd /* = NULL */) const
 {
 	if (pWnd)
 	{
@@ -1172,7 +1172,7 @@ void CBalloon::SetNotify(HWND hWnd)
 	m_hNotifyWnd = hWnd;
 }
 
-BOOL CBalloon::GetNotify()
+BOOL CBalloon::GetNotify() const
 {
 	return (m_hNotifyWnd != NULL);
 } 
@@ -1214,7 +1214,7 @@ void CBalloon::SetSize(int nSizeIndex, UINT nValue)
 	m_nSizes [nSizeIndex] = nValue;
 }
 
-UINT CBalloon::GetSize(int nSizeIndex)
+UINT CBalloon::GetSize(int nSizeIndex) const
 {
 	if (nSizeIndex >= XBLSZ_MAX_SIZES)
 		return 0;
@@ -1260,7 +1260,7 @@ void CBalloon::SetDirection(UINT nDirection /* = BALLOON_RIGHT_TOP */, CWnd * pW
 	}
 }
 
-UINT CBalloon::GetDirection(CWnd * pWnd /* = NULL */)
+UINT CBalloon::GetDirection(CWnd * pWnd /* = NULL */) const
 {
 	if (pWnd)
 	{
@@ -1292,7 +1292,7 @@ void CBalloon::SetBehaviour(UINT nBehaviour /* = 0 */, CWnd * pWnd /* = NULL */)
 	}
 }
 
-UINT CBalloon::GetBehaviour(CWnd * pWnd /* = NULL */)
+UINT CBalloon::GetBehaviour(CWnd * pWnd /* = NULL */) const
 {
 	if (pWnd)
 	{
@@ -1349,12 +1349,12 @@ void CBalloon::SetDefaultFont()
 	SetFont(lpSysFont);
 } 
 
-void CBalloon::GetFont(CFont & font)
+void CBalloon::GetFont(CFont & font) const
 {
 	font.CreateFontIndirect(&m_LogFont);
 }
 
-void CBalloon::GetFont(LPLOGFONT lf)
+void CBalloon::GetFont(LPLOGFONT lf) const
 {
 	memcpy(lf, &m_LogFont, sizeof(LOGFONT));
 }
@@ -1432,7 +1432,7 @@ void CBalloon::PostNcDestroy()
 	}
 }
 
-void CBalloon::GetMonitorWorkArea(const CPoint& sourcePoint, CRect& monitorRect)
+void CBalloon::GetMonitorWorkArea(const CPoint& sourcePoint, CRect& monitorRect) const
 {
 	// identify the monitor that contains the sourcePoint
 	// and return the work area (the portion of the screen 

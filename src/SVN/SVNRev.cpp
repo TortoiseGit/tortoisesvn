@@ -143,7 +143,7 @@ void SVNRev::Create(svn_revnum_t nRev)
 	}
 }
 
-bool SVNRev::IsEqual(const SVNRev& revision)
+bool SVNRev::IsEqual(const SVNRev& revision) const
 {
 	if (rev.kind != revision.GetKind())
 		return false;
@@ -173,11 +173,6 @@ SVNRev::operator LONG() const
 	case svn_opt_revision_unspecified: return SVNRev::REV_UNSPECIFIED;
 	}
 	return SVNRev::REV_HEAD;
-}
-
-SVNRev::operator svn_opt_revision_t * ()
-{
-	return &rev;
 }
 
 SVNRev::operator const svn_opt_revision_t * () const
@@ -393,7 +388,7 @@ bool SVNRevRangeArray::FromListString(const CString& string)
 	return true;
 }
 
-CString SVNRevRangeArray::ToListString(bool bReverse /* = false */)
+CString SVNRevRangeArray::ToListString(bool bReverse /* = false */) const
 {
 	// Make a copy so that we don't modify the original array
 	std::vector<SVNRevRange> revrange((*this).m_array);
@@ -417,14 +412,14 @@ CString SVNRevRangeArray::ToListString(bool bReverse /* = false */)
 	return sRet;
 }
 
-const apr_array_header_t * SVNRevRangeArray::GetAprArray(apr_pool_t * pool)
+const apr_array_header_t * SVNRevRangeArray::GetAprArray(apr_pool_t * pool) const
 {
 	apr_array_header_t * sources = apr_array_make(pool, GetCount(),
 		sizeof(svn_opt_revision_range_t *));
 
 	for (int nItem = 0; nItem < GetCount(); ++nItem)
 	{
-		APR_ARRAY_PUSH(sources, svn_opt_revision_range_t *) = (svn_opt_revision_range_t*)m_array[nItem];
+		APR_ARRAY_PUSH(sources, const svn_opt_revision_range_t *) = (const svn_opt_revision_range_t*)m_array[nItem];
 	}
 	return sources;
 }

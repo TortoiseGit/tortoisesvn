@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2006,2008 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -197,7 +197,7 @@ void CHyperLink::SetURL(CString strURL)
     }
 }
 
-CString CHyperLink::GetURL()
+CString CHyperLink::GetURL() const
 { 
     return m_strURL;   
 }
@@ -215,12 +215,12 @@ void CHyperLink::SetColors(COLORREF crLinkColor, COLORREF crHoverColor)
         Invalidate(); 
 }
 
-COLORREF CHyperLink::GetLinkColor()
+COLORREF CHyperLink::GetLinkColor() const
 { 
     return m_crLinkColor; 
 }
 
-COLORREF CHyperLink::GetHoverColor()
+COLORREF CHyperLink::GetHoverColor() const
 {
     return m_crHoverColor;
 }
@@ -243,7 +243,7 @@ void CHyperLink::SetUnderline(int nUnderline /*=ulHover*/)
     m_nUnderline = nUnderline;
 }
 
-int CHyperLink::GetUnderline()
+int CHyperLink::GetUnderline() const
 { 
     return m_nUnderline; 
 }

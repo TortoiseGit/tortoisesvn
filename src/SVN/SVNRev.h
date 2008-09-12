@@ -71,10 +71,9 @@ public:
 	/// Converts the revision into a string representation.
 	CString ToString() const;
 	/// checks whether two SVNRev objects are the same
-	bool IsEqual(const SVNRev& revision);
+	bool IsEqual(const SVNRev& revision) const;
 	
 	operator LONG () const;
-	operator svn_opt_revision_t * ();
 	operator const svn_opt_revision_t * () const;
 	enum
 	{
@@ -111,10 +110,10 @@ public:
 	}
 
 	void		SetRange(const SVNRev& rev1, const SVNRev& rev2) {revrange.start = *(const svn_opt_revision_t*)rev1; revrange.end = *(const svn_opt_revision_t*)rev2;}
-	SVNRev		GetStartRevision() {return SVNRev(revrange.start);}
-	SVNRev		GetEndRevision() {return SVNRev(revrange.end);}
+	SVNRev		GetStartRevision() const {return SVNRev(revrange.start);}
+	SVNRev		GetEndRevision() const {return SVNRev(revrange.end);}
 
-	operator svn_opt_revision_range_t * () {return &revrange;}
+	operator const svn_opt_revision_range_t * () const {return &revrange;}
 
 private:
 	svn_opt_revision_range_t revrange;
@@ -134,12 +133,12 @@ public:
 	void				Clear();
 	void				AdjustForMerge(bool bReverse = false);
 
-	const apr_array_header_t* GetAprArray(apr_pool_t * pool);
+	const apr_array_header_t* GetAprArray(apr_pool_t * pool) const;
 
 	const SVNRevRange&	operator[](int index) const;
 
 	bool				FromListString(const CString& string);
-	CString				ToListString(bool bReverse = false);
+	CString				ToListString(bool bReverse = false) const;
 
 	struct AscSort
 	{

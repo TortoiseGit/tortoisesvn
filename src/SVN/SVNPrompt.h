@@ -48,7 +48,7 @@ public:
 	/**
 	 * Returns true if a prompt dialog was shown
 	 */
-	bool PromptShown() {return m_bPromptShown;}
+	bool PromptShown() const {return m_bPromptShown;}
 
 private:
 	BOOL Prompt(CString& info, BOOL hide, CString promptphrase, BOOL& may_save);

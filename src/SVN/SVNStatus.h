@@ -120,8 +120,8 @@ public:
 	 * \return the status
 	 */
 	svn_wc_status2_t * GetFirstFileStatus(const CTSVNPath& path, CTSVNPath& retPath, bool update = false, svn_depth_t depth = svn_depth_infinity, bool bNoIgnore = true, bool bNoExternals = false);
-	unsigned int GetFileCount() {return apr_hash_count(m_statushash);}
-	unsigned int GetVersionedCount();
+	unsigned int GetFileCount() const {return apr_hash_count(m_statushash);}
+	unsigned int GetVersionedCount() const;
 	/**
 	 * Returns the status of the next file in the file list. If no more files are in the list then NULL is returned.
 	 * See GetFirstFileStatus() for details.
@@ -133,11 +133,11 @@ public:
 	 * and one with the 'real' status of that folder. GetFirstFileStatus() and GetNextFileStatus() only return the 'real'
 	 * status, so with this method it's possible to check if the status also is svn_wc_status_external.
 	 */
-	bool IsExternal(const CTSVNPath& path);
+	bool IsExternal(const CTSVNPath& path) const;
 	/**
 	 * Checks if a path is in an external folder.
 	 */
-	bool IsInExternal(const CTSVNPath& path);
+	bool IsInExternal(const CTSVNPath& path) const;
 
 	/**
 	 * Clears the memory pool.
@@ -157,7 +157,7 @@ friend class SVN;	// So that SVN can get to our m_err
 	/**
 	 * Returns the last error message as a CString object.
 	 */
-	CString GetLastErrorMsg();
+	CString GetLastErrorMsg() const;
 
 	/** 
 	 * Set a list of paths which will be considered when calling GetFirstFileStatus.
@@ -170,7 +170,7 @@ friend class SVN;	// So that SVN can get to our m_err
 	/**
 	 * Returns the last error message as a CString object.
 	 */
-	stdstring GetLastErrorMsg();
+	stdstring GetLastErrorMsg() const;
 #endif
 
 

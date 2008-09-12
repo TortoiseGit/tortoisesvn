@@ -96,12 +96,12 @@ public:
 					 bool ignoreancestry = false,
 					 bool blame = false);
 
-	bool DiffProps(const CTSVNPath& filePath, SVNRev rev1, SVNRev rev2);
+	bool DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVNRev& rev2);
 	
 	/**
 	 * Sets the Peg revision to use instead of HEAD.
 	 */
-	void SetHEADPeg(SVNRev headpeg) {m_headPeg = headpeg;}
+	void SetHEADPeg(const SVNRev& headpeg) {m_headPeg = headpeg;}
 private:
 	SVN *			m_pSVN;
 	bool			m_bDeleteSVN;

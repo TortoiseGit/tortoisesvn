@@ -60,19 +60,19 @@ public:
 	/**
 	 * Returns the number of properties the file/directory has.
 	 */
-	int GetCount();
+	int GetCount() const;
 	/**
 	 * Returns the name of the property.
 	 * \param index a zero based index
 	 * \return the name of the property
 	 */
-	stdstring GetItemName(int index);
+	stdstring GetItemName(int index) const;
 	/**
 	 * Returns the value of the property.
 	 * \param index a zero based index
 	 * \return the value of the property
 	 */
-	std::string GetItemValue(int index);
+	std::string GetItemValue(int index) const;
 	/**
 	 * Checks if the property is an internal Subversion property. Internal
 	 * Subversion property names usually begin with 'svn:' and are used
@@ -84,7 +84,7 @@ public:
 	 * svn:executable	if the file is executable or not
 	 * \param index		a zero based index
 	 */
-	BOOL IsSVNProperty(int index);
+	BOOL IsSVNProperty(int index) const;
 	/**
 	 * Adds a new property to the file/directory specified in the constructor.
 	 * \remark After using this method the indexes of the properties may change!
@@ -107,13 +107,13 @@ public:
 	 * Checks if the property value is binary or text.
 	 * \return true if the property has a binary value.
 	 */
-	bool IsBinary(int index);
-	static bool IsBinary(std::string value);
+	bool IsBinary(int index) const;
+	static bool IsBinary(const std::string& value);
 
 	/**
 	 * Returns the last error message as a CString object.
 	 */
-	stdstring GetLastErrorMsg();
+	stdstring GetLastErrorMsg() const;
 
 private:		//methods
 	/**
@@ -125,7 +125,7 @@ private:		//methods
 	/**
 	 * Returns either the property name (name == TRUE) or value (name == FALSE).
 	 */
-	std::string				GetItem(int index, BOOL name);
+	std::string				GetItem(int index, BOOL name) const;
 
 private:		//members
 	apr_pool_t *				m_pool;				///< memory pool baton

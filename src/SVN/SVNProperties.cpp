@@ -67,8 +67,8 @@ svn_error_t*	SVNProperties::Refresh()
 
 	m_propCount = 0;
 #ifdef _MFC_VER
-	rev.kind = ((svn_opt_revision_t *)m_rev)->kind;
-	rev.value = ((svn_opt_revision_t *)m_rev)->value;
+	rev.kind = ((const svn_opt_revision_t *)m_rev)->kind;
+	rev.value = ((const svn_opt_revision_t *)m_rev)->value;
 #else
 	rev.kind = svn_opt_revision_unspecified;
 	rev.value.number = -1;
@@ -169,18 +169,18 @@ SVNProperties::~SVNProperties(void)
 	svn_pool_destroy (m_pool);					// free the allocated memory
 }
 
-int SVNProperties::GetCount()
+int SVNProperties::GetCount() const
 {
 	return m_propCount;
 }
 
-std::string SVNProperties::GetItem(int index, BOOL name)
+std::string SVNProperties::GetItem(int index, BOOL name) const
 {
 	const void *key;
 	void *val;
 	svn_string_t *propval = NULL;
 	const char *pname_utf8 = "";
-	m_error = NULL;
+	svn_error_t * err = NULL;
 
 	if (m_props.size() == 0)
 	{
@@ -193,7 +193,7 @@ std::string SVNProperties::GetItem(int index, BOOL name)
 
 	long ind = 0;
 
-	for (std::map<std::string, apr_hash_t *>::iterator it = m_props.begin(); it != m_props.end(); ++it)
+	for (std::map<std::string, apr_hash_t *>::const_iterator it = m_props.begin(); it != m_props.end(); ++it)
 	{
 		apr_hash_index_t *hi;
 
@@ -210,8 +210,8 @@ std::string SVNProperties::GetItem(int index, BOOL name)
 			// UTF8, so convert to the native format.
 			if (m_bRevProps||(svn_prop_needs_translation (pname_utf8))||(strncmp(pname_utf8, "bugtraq:", 8)==0)||(strncmp(pname_utf8, "tsvn:", 5)==0))
 			{
-				m_error = svn_subst_detranslate_string (&propval, propval, FALSE, m_pool);
-				if (m_error != NULL)
+				err = svn_subst_detranslate_string (&propval, propval, FALSE, m_pool);
+				if (err != NULL)
 					return "";
 			}
 		}
@@ -225,7 +225,7 @@ std::string SVNProperties::GetItem(int index, BOOL name)
 		return "";
 }
 
-BOOL SVNProperties::IsSVNProperty(int index)
+BOOL SVNProperties::IsSVNProperty(int index) const
 {
 	const char *pname_utf8;
 	const char *name = SVNProperties::GetItem(index, true).c_str();
@@ -236,13 +236,13 @@ BOOL SVNProperties::IsSVNProperty(int index)
 	return is_svn_prop;
 }
 
-bool SVNProperties::IsBinary(int index)
+bool SVNProperties::IsBinary(int index) const
 {
 	std::string value = GetItem(index, false);
 	return IsBinary(value);
 }
 
-bool SVNProperties::IsBinary(std::string value)
+bool SVNProperties::IsBinary(const std::string& value)
 {
 	const char * pvalue = (const char *)value.c_str();
 	// check if there are any null bytes in the string
@@ -266,12 +266,12 @@ bool SVNProperties::IsBinary(std::string value)
 	return false;
 }
 
-stdstring SVNProperties::GetItemName(int index)
+stdstring SVNProperties::GetItemName(int index) const
 {
 	return UTF8ToString(SVNProperties::GetItem(index, true));
 }
 
-std::string SVNProperties::GetItemValue(int index)
+std::string SVNProperties::GetItemValue(int index) const
 {
 	return SVNProperties::GetItem(index, false);
 }
@@ -440,7 +440,7 @@ BOOL SVNProperties::Remove(const TCHAR * Name, svn_depth_t depth, const TCHAR * 
 	return TRUE;
 }
 
-stdstring SVNProperties::GetLastErrorMsg()
+stdstring SVNProperties::GetLastErrorMsg() const
 {
 	stdstring msg;
 	char errbuf[256];
