@@ -235,7 +235,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 	}
 	if (m_UnicodeType == CFileTextLines::AUTOTYPE)
 	{
-		m_UnicodeType = this->CheckUnicodeType(pFileBuf, min(10000, dwReadBytes));
+		m_UnicodeType = this->CheckUnicodeType(pFileBuf, dwReadBytes);
 	}
 	if (m_LineEndings == EOL_AUTOLINE)
 	{
