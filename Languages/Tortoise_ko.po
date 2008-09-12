@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-08-23 17:33+0900\n"
+"PO-Revision-Date: 2008-09-12 15:25+0900\n"
 "Last-Translator: Kim Taedong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1035,6 +1035,10 @@ msgstr "윈도우 XP(&W)"
 msgid "&Working copy"
 msgstr "작업 사본(&W)"
 
+#. Resource IDs: (338)
+msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
+msgstr "'건너 뛰는 구간'은 아직 캐시되지 않은 리비전 구간을 지정하기 위해 사용됩니다."
+
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
 msgstr "(이진 값)"
@@ -1164,19 +1168,19 @@ msgstr "새 버전이 나왔습니다. http://tortoisesvn.tigris.org/ 에서 다
 #. Resource IDs: (195)
 msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
-"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
+"If you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
 "아이콘을 겹쳐 보일 경로들입니다. 한 줄에 하나씩 기술합니다.\r\n"
-"\"*\"을 경로뒤에 추가하면, 그 디렉토리의 모든 파일과 서브디렉토리를 포함시킵니다."
+"'*'을 경로뒤에 추가하면, 그 디렉토리의 모든 파일과 서브디렉토리를 포함시킵니다."
 
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
-"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
 "아이콘을 겹쳐 쓰지 않을 경로들입니다. 한 줄에 하나씩 기술합니다.\r\n"
-"\"*\" 문자를 경로뒤에 추가하면, 그 디렉토리의 모든 파일과 서브디렉토리도 제외됩니다.\r\n"
+"'*' 문자를 경로뒤에 추가하면, 그 디렉토리의 모든 파일과 서브디렉토리도 제외됩니다.\r\n"
 "리스트를 비워둘 경우 모든 경로에 대해 아이콘을 겹쳐 쓰게 됩니다."
 
 #. Resource IDs: (3843)
@@ -1530,8 +1534,8 @@ msgstr "사용자에게 질문"
 
 #. Resource IDs: (264)
 #, c-format
-msgid "Assigned to changelist \"%s\""
-msgstr "변경 리스트 \"%s\"로 할당됨"
+msgid "Assigned to changelist '%s'"
+msgstr "변경 리스트 '%s'로 할당됨"
 
 #. Resource IDs: (16528)
 msgid "Assigned to:"
@@ -2174,12 +2178,12 @@ msgstr "바뀐 내용을 저장소에 반영합니다."
 #. Resource IDs: (170)
 msgid ""
 "Committing an unversioned folder will not recursively add its child items!\n"
-"You might want to add these folders recursively by using the \"Add...\" context menu item.\n"
+"You might want to add these folders recursively by using the 'Add...' context menu item.\n"
 "\n"
 "Are you sure that you want to continue the commit?"
 msgstr ""
 "폴더를 추가할 때 그 하위 내용은 자동으로 추가되지 않습니다.\n"
-"하위 폴더들은 각각의 컨텍스트 메뉴에서 \"추가...\"를 통해 추가해야합니다.\n"
+"하위 폴더들은 각각의 컨텍스트 메뉴에서 '추가...'를 통해 추가해야합니다.\n"
 "\n"
 "계속 커밋을 진행하시겠습니까?"
 
@@ -2426,13 +2430,13 @@ msgstr "무시 목록에 %s를 추가할 수 없습니다!"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not add \"%s\" because"
-msgstr "\"%s\" 을/를 추가할 수 없습니다. 사유:"
+msgid "Could not add '%s' because"
+msgstr "'%s' 을/를 추가할 수 없습니다. 사유:"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not add property \"%s\" on %s because"
-msgstr "속성 \"%s\" (%s 소유)을/를 추가할 수 없습니다. 사유:"
+msgid "Could not add property '%s' on '%s' because"
+msgstr "속성 '%s' ('%s' 소유)을/를 추가할 수 없습니다. 사유:"
 
 #. Resource IDs: (201)
 msgid "Could not check for a newer version!"
@@ -2456,13 +2460,13 @@ msgstr "디렉토리가 꽉차서 %1을 생성할 수 없습니다."
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not delete \"%s\" because"
-msgstr "\"%s\" 을/를 삭제할 수 없습니다. 사유:"
+msgid "Could not delete '%s' because"
+msgstr "'%s' 을/를 삭제할 수 없습니다. 사유:"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not delete property \"%s\" on %s because"
-msgstr "속성 \"%s\" (%s 소유)을/를 삭제할 수 없습니다. 사유:"
+msgid "Could not delete property '%s' on '%s' because"
+msgstr "속성 '%s' ('%s' 소유)을/를 삭제할 수 없습니다. 사유:"
 
 #. Resource IDs: (83)
 msgid "Could not determine the last committed revision!"
@@ -2474,13 +2478,13 @@ msgstr "상태를 얻을 수 없습니다!"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not merge \"%s\" because"
-msgstr "\"%s\" 을/를 병합할 수 없습니다. 사유:"
+msgid "Could not merge '%s' because"
+msgstr "'%s' 을/를 병합할 수 없습니다. 사유:"
 
 #. Resource IDs: (582)
 #, c-format
-msgid "Could not merge property \"%s\" on %s because"
-msgstr "속성 \"%s\" (%s 소유)을/를 병합할 수 없습니다. 사유:"
+msgid "Could not merge property '%s' on '%s' because"
+msgstr "속성 '%s' ('%s' 소유)을/를 병합할 수 없습니다. 사유:"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -2722,6 +2726,10 @@ msgstr "기본 어플리케이션 메뉴. 열려진 문서가 하나도 없을 �
 #. Resource IDs: (65535)
 msgid "Default path:"
 msgstr "기본 경로:"
+
+#. Resource IDs: (1064)
+msgid "Default to UTF-8 encoding"
+msgstr "기본적으로 UTF-8 인코딩"
 
 #. Resource IDs: (1002, 1382)
 msgid "Delete"
@@ -3027,10 +3035,10 @@ msgstr "로그 메시지 수정"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Edit property \"%s\" on\r\n"
+"Edit property '%s' on\r\n"
 "%s"
 msgstr ""
-"다음 위치의 속성 \"%s\"을/를 수정합니다\r\n"
+"다음 위치의 속성 '%s'을/를 수정합니다\r\n"
 "%s"
 
 #. Resource IDs: (1331, 1382)
@@ -3379,16 +3387,16 @@ msgstr "문서 저장 실패."
 
 #. Resource IDs: (264)
 #, c-format
-msgid "Failed to set/remove changelist \"%s\""
-msgstr "변경 리스트 \"%s\"를 설정/제거에 실패함"
+msgid "Failed to set/remove changelist '%s'"
+msgstr "변경 리스트 '%s'를 설정/제거에 실패함"
 
 #. Resource IDs: (83)
 #, c-format
 msgid ""
-"Failed to start the issue tracker COM provider \"%s\".\n"
+"Failed to start the issue tracker COM provider '%s'.\n"
 "%s"
 msgstr ""
-"이슈 트래커 COM 프로바이더 \"%s\"를 시작하는데 실패했습니다.\n"
+"이슈 트래커 COM 프로바이더 '%s'를 시작하는데 실패했습니다.\n"
 "%s"
 
 #. Resource IDs: (220)
@@ -3593,8 +3601,8 @@ msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
 msgstr "도움말은 F1을 누르시고, 좌우 스크롤은 Ctrl을 누른 상태에서 휠을 움직이면 됩니다."
 
 #. Resource IDs: (119)
-msgid "For complete history deselect \"Stop on copy/rename\""
-msgstr "모든 로그를 보려면 \"복사/이름변경 시점에서 중지\"을 끄면 됩니다."
+msgid "For complete history deselect 'Stop on copy/rename'"
+msgstr "모든 로그를 보려면 '복사/이름변경 시점에서 중지'을 끄면 됩니다."
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -4018,16 +4026,16 @@ msgid "Icons/Design/Code:                 Luebbe Onken"
 msgstr "아이콘/설계/코딩:                 Luebbe Onken"
 
 #. Resource IDs: (194)
-msgid "If activated, prevents the overlays and the context menu from showing in \"save as...\" or \"open\" dialogs"
-msgstr "\"다른 이름으로 저장\" 혹은 \"열기\" 대화 상자에서는 오버레이 아이콘과 컨텍스트 메뉴를 사용하지 않습니다."
+msgid "If activated, prevents the overlays and the context menu from showing in 'save as...' or 'open' dialogs"
+msgstr "'다른 이름으로 저장...' 혹은 '열기' 대화 상자에서는 오버레이 아이콘과 컨텍스트 메뉴를 사용하지 않습니다."
 
 #. Resource IDs: (198)
 msgid ""
-"If activated, the menu entry \"Get Lock\" is always shown in the top level menu\n"
+"If activated, the menu entry 'Get Lock' is always shown in the top level menu\n"
 "if the selected file has the svn:needs-lock property set"
 msgstr ""
 "선택된 파일에 svn:needs-lock 속성이 있으면\n"
-"컨텍스트 메뉴에 \"잠그기\"를 추가합니다."
+"컨텍스트 메뉴에 '잠그기'를 추가합니다."
 
 #. Resource IDs: (95)
 msgid ""
@@ -4063,17 +4071,17 @@ msgstr "TortoiseSVN 새 버전을 매주 한 번씩 확인합니다."
 
 #. Resource IDs: (195)
 msgid ""
-"If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\r\n"
+"If enabled, the Merge dialog initializes the 'From:' URL with the URL of the selected working copy\r\n"
 "instead of the last used URL."
-msgstr "병합 대화상자에서 원본의 URL을 마지막 사용했던 URL 대신 선택한 작업사본의 URL로 초기화합니다."
+msgstr "만약 활성화되면, 병합 대화상자에서 원본의 URL을 마지막 사용했던 URL 대신 선택한 작업사본의 URL로 초기화합니다."
 
 #. Resource IDs: (195)
 msgid ""
 "If enabled, the repository is contacted when the dialog starts up.\r\n"
-"You don't have to click on \"Check Repository\" anymore."
+"You don't have to click on 'Check Repository' anymore."
 msgstr ""
 "시작시에 저장소에 접근하게 됩니다.\r\n"
-"\"저장소 확인\"을 더 이상 누를 필요가 없습니다."
+"'저장소 확인'을 더 이상 누를 필요가 없습니다."
 
 #. Resource IDs: (197)
 msgid ""
@@ -4124,8 +4132,8 @@ msgstr ""
 "정말 변경하시겠습니까?"
 
 #. Resource IDs: (251)
-msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
-msgstr "잠금을 해제하기 원한다면, \"수정내역 확인 확인\" 대화상자를 이용하세요."
+msgid "If you want to break the lock, use the 'Check For Modifications' dialog."
+msgstr "잠금을 해제하기 원한다면, '수정내역 확인 확인' 대화상자를 이용하세요."
 
 #. Resource IDs: (73)
 msgid "Ignore"
@@ -5079,11 +5087,11 @@ msgstr "마지막 커밋 이후로 추가되거나 변경된 것이 없으므로
 msgid ""
 "No files to show with the current setting.\n"
 "Check one or more settings below to see unversioned, ignored and/or unmodified files.\n"
-"To see remote changes, click on \"Check Repository\""
+"To see remote changes, click on 'Check Repository'"
 msgstr ""
 "현재 설정으로는 어떤 파일도 보여지지 않습니다.\n"
 "버전관리가 아니거나, 무시목록에 있는 것 혹은 수정되지 않은 파일을 보고 싶으면,\n"
-"아래 중 하나 이상을 선택하십시오. 저장소파일의 변경 상태를 보려면 \"저장소 확인\"을 선택하세요"
+"아래 중 하나 이상을 선택하십시오. 저장소파일의 변경 상태를 보려면 '저장소 확인'을 선택하세요"
 
 #. Resource IDs: (77)
 msgid ""
@@ -5482,8 +5490,8 @@ msgid "Please enter a path where to apply the hook script to."
 msgstr "훅 스크립트가 적용될 경로를 입력하세요"
 
 #. Resource IDs: (251)
-msgid "Please execute the \"Cleanup\" command."
-msgstr "\"정리\" 명령을 수행하십시오."
+msgid "Please execute the 'Cleanup' command."
+msgstr "'정리' 명령을 수행하십시오."
 
 #. Resource IDs: (78)
 msgid ""
@@ -5957,10 +5965,10 @@ msgstr "변경 리스트에서 제거"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Remove property \"%s\" from\r\n"
+"Remove property '%s' from\r\n"
 "%s"
 msgstr ""
-"속성 \"%s\"을/를 다음에서 제거합니다\r\n"
+"속성 '%s'을/를 다음에서 제거합니다\r\n"
 "%s"
 
 #. Resource IDs: (345)
@@ -6117,12 +6125,12 @@ msgid "Resolve all later"
 msgstr "모든 충돌 상황을 나중에 해결"
 
 #. Resource IDs: (282)
-msgid "Resolve conflict using \"mine\""
-msgstr "작업 사본의 내용으로 충돌 파일을 해결하기"
+msgid "Resolve conflict using 'mine'"
+msgstr "'작업 사본'의 내용으로 충돌 파일을 해결하기"
 
 #. Resource IDs: (282)
-msgid "Resolve conflict using \"theirs\""
-msgstr "저장소의 내용으로 충돌 파일을 해결하기"
+msgid "Resolve conflict using 'theirs'"
+msgstr "'저장소'의 내용으로 충돌 파일을 해결하기"
 
 #. Resource IDs: (1403)
 msgid "Resolve conflict:"
@@ -6684,10 +6692,10 @@ msgstr "\"마지막 커밋 시간\"으로 파일의 날짜를 바꿉니다.(&T)"
 #. Resource IDs: (127)
 #, c-format
 msgid ""
-"Set property \"%s\" on\r\n"
+"Set property '%s' on\r\n"
 "%s"
 msgstr ""
-"속성 \"%s\"을/를 다음에서 제거합니다\r\n"
+"속성 '%s'을/를 다음에 설정합니다.\r\n"
 "%s"
 
 #. Resource IDs: (13)
@@ -7273,8 +7281,8 @@ msgstr "chunk 크기가 추가/제거된 라인수와 일치하지 않습니다.
 
 #. Resource IDs: (63)
 #, c-format
-msgid "The chunk start \"@@\" was expected in line %d !"
-msgstr "chunk의 시작인  @@ 가 있어야합니다. 행 번호 %d !"
+msgid "The chunk start '@@' was expected in line %d !"
+msgstr "chunk의 시작인  '@@' 가 있어야합니다. 행 번호 %d !"
 
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
@@ -7402,15 +7410,15 @@ msgstr "이슈 트레커 프로바이더가 파라메터 스트링의 유효성�
 
 #. Resource IDs: (63)
 #, c-format
-msgid "The line \"====\" was expected in line %d !"
-msgstr "==== 가 있어야 할 라인입니다. : %d"
+msgid "The line '====' was expected in line %d !"
+msgstr "'====' 가 있어야 할 라인입니다. : 행 번호 %d !"
 
 #. Resource IDs: (63)
 msgid ""
-"The line \"Index: \" was not found!\n"
+"The line 'Index: ' was not found!\n"
 "Either this is not a diff file or the diff is empty."
 msgstr ""
-"\"Index: \" 라는 행이 없습니다!\n"
+"'Index: ' 라는 행이 없습니다!\n"
 "혹은 diff 파일이 아니거나 비어 있습니다."
 
 #. Resource IDs: (63)
@@ -7774,10 +7782,10 @@ msgstr ""
 
 #. Resource IDs: (284)
 msgid ""
-"To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\n"
+"To steal the lock, right-click on the parent folder of this item and select 'Get Lock' from the context menu.\n"
 "This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 msgstr ""
-"잠금을 훔쳐오기 위해서는, 이 아이템의 상위 폴더에서 오른쪽 버튼을 누르고 \"잠그기\"를 선택하십시오.\n"
+"잠금을 훔쳐오기 위해서는, 이 아이템의 상위 폴더에서 오른쪽 버튼을 누르고 '잠그기'를 선택하십시오.\n"
 "강제로 잠그려면, 즉 현 소유자로부터 훔쳐오려면, 대화 상자가 나타날 것입니다."
 
 #. Resource IDs: (1201, 65535)
@@ -7963,8 +7971,8 @@ msgid "Tree merge"
 msgstr "트리 병합"
 
 #. Resource IDs: (251)
-msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
-msgstr "\"정리\"를 하십시오. 정리되지 않는다면 깨끗이 다시 체크아웃하셔야합니다."
+msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
+msgstr "'정리'를 하십시오. 정리되지 않는다면 깨끗이 다시 체크아웃하셔야합니다."
 
 #. Resource IDs: (73)
 msgid "Try again"
@@ -8296,6 +8304,54 @@ msgstr "지워진 행에는 줄 긋기(&K)"
 msgid "Use system locale for date/time"
 msgstr "날짜/시간을 위해 시스템 국가설정을 사용"
 
+#. Resource IDs: (251)
+msgid "Use text block from '&mine'"
+msgstr "'작업 사본'의 텍스트 블럭 사용(&M)"
+
+#. Resource IDs: (251)
+msgid "Use text block from '&theirs'"
+msgstr "'저장소'의 텍스트 블럭 사용(&T)"
+
+#. Resource IDs: (251)
+msgid "Use text block from 'm&ine' before 'theirs'"
+msgstr "'저장소' 텍스트를 사용하기 전에 '작업사본'의 텍스트 블럭 사용(&I)"
+
+#. Resource IDs: (2052)
+msgid ""
+"Use text block from 'mine' before 'theirs'\n"
+"Use 'mine' text block then 'theirs'"
+msgstr ""
+"'저장소'의 텍스트를 사용하기 전에 '작업사본'의 텍스트 블럭 사용\n"
+"'작업사본'의 텍스트 사용 후에 '저장소'의 텍스트를 사용"
+
+#. Resource IDs: (2052)
+msgid ""
+"Use text block from 'mine'\n"
+"Use 'mine' text block"
+msgstr ""
+"'작업 사본'의 텍스트 블럭 사용\n"
+"'작업 사본'의 텍스트 블럭 사용"
+
+#. Resource IDs: (251)
+msgid "Use text block from 't&heirs' before 'mine"
+msgstr "'작업사본' 텍스트를 사용하기 전에 '저장소'의 텍스트 블럭을 사용(&H)"
+
+#. Resource IDs: (2052)
+msgid ""
+"Use text block from 'theirs' before 'mine'\n"
+"Use 'theirs' text block then 'mine'"
+msgstr ""
+"'작업사본' 텍스트를 사용하기 전에 '저장소'의 텍스트 블럭 사용\n"
+"'저장소'의 텍스트 블럭을 사용후에 '작업 사본'의 텍스트를 사용"
+
+#. Resource IDs: (2052)
+msgid ""
+"Use text block from 'theirs'\n"
+"Use 'theirs' text block"
+msgstr ""
+"'저장소'의 텍스트 블럭 사용\n"
+"'저장소'의 텍스트 블럭 사용"
+
 #. Resource IDs: (251, 32820)
 msgid "Use text block from \"&mine\""
 msgstr "작업 사본의 텍스트 블럭 사용(&m)"
@@ -8308,41 +8364,9 @@ msgstr "\"저장소\"의 텍스트 블럭 사용(&T)"
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "\"저장소\" 텍스트를 사용하기 전 \"작업사본\"의 텍스트 블럭 사용(&i)"
 
-#. Resource IDs: (2052)
-msgid ""
-"Use text block from \"mine\" before \"theirs\"\n"
-"Use \"mine\" text block then \"theirs\""
-msgstr ""
-"\"저장소\"의 텍스트를 사용하기 전 \"작업사본\"의 텍스트 블럭 사용\n"
-"\"작업사본\"의 텍스트 사용후 \"저장소\"의 텍스트를 사용"
-
-#. Resource IDs: (2052)
-msgid ""
-"Use text block from \"mine\"\n"
-"Use \"mine\" text block"
-msgstr ""
-"\"작업 사본\"의 텍스트 블럭 사용\n"
-"\"작업 사본\"의 텍스트 블럭 사용"
-
 #. Resource IDs: (251, 32821)
 msgid "Use text block from \"t&heirs\" before \"mine\""
 msgstr "\"작업사본\" 텍스트를 사용하기 전 \"저장소\"의 텍스트 블럭을 사용(&h)"
-
-#. Resource IDs: (2052)
-msgid ""
-"Use text block from \"theirs\" before \"mine\"\n"
-"Use \"theirs\" text block then \"mine\""
-msgstr ""
-"\"작업사본\" 텍스트를 사용하기 전 \"저장소\"의 텍스트 블럭 사용\n"
-"\"저장소\"의 텍스트 블럭을 사용후 \"작업 사본\"의 텍스트를 사용"
-
-#. Resource IDs: (2052)
-msgid ""
-"Use text block from \"theirs\"\n"
-"Use \"theirs\" text block"
-msgstr ""
-"\"저장소\"의 텍스트 블럭 사용\n"
-"\"저장소\"의 텍스트 블럭 사용"
 
 #. Resource IDs: (2054)
 msgid ""
@@ -8775,10 +8799,6 @@ msgstr "화면에 맞춰 보기"
 msgid "[Unassigned]"
 msgstr "[할당되지않음]"
 
-#. Resource IDs: (338)
-msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
-msgstr "\"건너 뛰는 구간\"은 아직 캐시되지 않은 리비전 구간을 지정하기 위해 사용됩니다."
-
 #. Resource IDs: (65535)
 msgid "_POPUP_"
 msgstr "_POPUP_"
@@ -8836,13 +8856,13 @@ msgstr "작성자:"
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:append\r\n"
-"Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\r\n"
-"log message. The default is \"true\" which means the bugtracking ID\r\n"
+"Set to 'false' if you want the bugtracking ID to be inserted at the top of the\r\n"
+"log message. The default is 'true' which means the bugtracking ID\r\n"
 "is appended to the log message."
 msgstr ""
-"bugrraq:append\r\n"
-"\"false\"로 설정해 놓으면, 버그 트래킹 ID를 로그 메시지 상단에 넣습니다.\r\n"
-"기본값은 \"true\"이며, 이것은 로그 메시지 하단에 버그트래킹 ID를 추가하는 것을\r\n"
+"bugtraq:append\r\n"
+"'false'로 설정해 놓으면, 버그 트래킹 ID를 로그 메시지 상단에 넣습니다.\r\n"
+"기본값은 'true'이며, 이것은 로그 메시지 하단에 버그트래킹 ID를 추가하는 것을\r\n"
 "의미합니다."
 
 #. Resource IDs: (577)
@@ -8870,30 +8890,30 @@ msgstr ""
 msgid ""
 "bugtraq:message\r\n"
 "String which is appended to a log message when an issue number is entered.\r\n"
-"The string must contain \"%BUGID%\" which gets replaced with the issue number."
+"The string must contain '%BUGID%' which gets replaced with the issue number."
 msgstr ""
 "bugtraq:message\r\n"
-"이슈번호가 입력된다음 덧붙일 로그 메시지.\r\n"
-"이 문자열은 \"%BUGID%\"를 포함하여야 하며, 이것이 이슈번호로 치환됩니다."
+"이슈번호가 입력된 다음에 덧붙일 로그 메시지.\r\n"
+"이 문자열은 '%BUGID%'를 포함하여야 하며, 이것이 이슈번호로 치환됩니다."
 
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:number\r\n"
-"Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
+"Set to 'false' if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
 "bugtraq:number\r\n"
-"버그트래킹 시스템이 숫자로 참조되는 구조가 아니면 \"false\"로 설정하십시오."
+"버그트래킹 시스템이 숫자로 참조되는 구조가 아니면 'false'로 설정하십시오."
 
 #. Resource IDs: (577)
 #, c-format
 msgid ""
 "bugtraq:url\r\n"
-"URL pointing to the issue tracker. It must contain \"%BUGID%\" which\r\n"
+"URL pointing to the issue tracker. It must contain '%BUGID%' which\r\n"
 "gets replaced with the issue number."
 msgstr ""
 "bugtraq:url\r\n"
 "이슈트래커에 대한 URL. URL에는 이슈번호로 대치될\r\n"
-"\"%BUGID%\"를 포함하여야 합니다."
+"'%BUGID%'를 포함하여야 합니다."
 
 #. Resource IDs: (65535)
 msgid "changes total: "
@@ -9319,12 +9339,12 @@ msgstr ""
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logfilelistenglish\r\n"
-"Set to \"false\" if you don't want the list of changed files to be pasted in english\r\n"
+"Set to 'false' if you don't want the list of changed files to be pasted in English\r\n"
 "in the commit dialog."
 msgstr ""
 "tsvn:logfilelistenglish\r\n"
 "바뀐 파일 목록을 커밋 대화상자에 붙이기를 원치 않으면\r\n"
-"\"false\"로 설정해 놓으십시오."
+"'false'로 설정해 놓으십시오."
 
 #. Resource IDs: (578)
 msgid ""
@@ -9346,7 +9366,7 @@ msgstr ""
 msgid ""
 "tsvn:logtemplate\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
-"Use this as a log message templates for users to fill in."
+"Use this as a log message template for users to fill in."
 msgstr ""
 "tsvn:logtemplate\r\n"
 "커밋 대화상자의 로그 메시지 편집창에 넣을 글.\r\n"
@@ -9395,10 +9415,10 @@ msgstr ""
 #. Resource IDs: (577)
 msgid ""
 "tsvn:warnifnoissue\r\n"
-"Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
+"Set to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
 "tsvn:warnifnoissue\r\n"
-"커밋 대화 상자에서 이슈가 입력되지 않았을 경우 경고를 보이고 싶으면 \"yes\"로 설정하십시오."
+"커밋 대화 상자에서 이슈가 입력되지 않았을 경우 경고를 보이고 싶으면 'yes'로 설정하십시오."
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
