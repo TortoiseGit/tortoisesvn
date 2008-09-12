@@ -292,7 +292,6 @@ NAnt build script for the TortoiseSVN language pack installers
 			<arg value="..\ext\Subversion\Subversion\po\${langISO}.po" />
 			<arg value="-o" />
 			<arg value="subversion.mo" />
-			<arg value="-f" />
 		</exec>
 		
 		<!--
