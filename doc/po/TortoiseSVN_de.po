@@ -31,8 +31,8 @@ msgstr ""
 # Bitte aus Konsistenzgründen die folgenden Terme und Schreibweisen verwenden
 # ------
 # trunk          - Stamm
-# branches       - Zweige
-# tags           - Marken/Markierungen
+# branch(es)     - Zweig(e)
+# tag(s)         - Marke(n)
 # to branch      - verzweigen
 # to tag         - markieren
 # feature branch - Funktionszweig
@@ -523,7 +523,7 @@ msgstr "Effizientes Verzweigen und Markieren"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:531
 msgid "The cost of branching and tagging need not be proportional to the project size. Subversion creates branches and tags by simply copying the project, using a mechanism similar to a hard-link. Thus these operations take only a very small, constant amount of time, and very little space in the repository."
-msgstr "Die Kosten für Verzweigen und Markieren müssen nicht proportional zur Projektgröße sein. Subversion erstellt Verzweigungen und Markierungen durch einfaches Kopieren des Projektes. Dabei wird ein Mechanismus ähnlich dem eines Verweises verwendet. Diese Operationen benötigen deshalb nur wenig Zeit und Speicherplatz."
+msgstr "Die Kosten für Verzweigen und Markieren müssen nicht proportional zur Projektgröße sein. Subversion erstellt Zweige und Marken durch einfaches Kopieren des Projektes. Dabei wird ein Mechanismus ähnlich dem eines Verweises verwendet. Diese Operationen benötigen deshalb nur wenig Zeit und Speicherplatz."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:542
@@ -2939,7 +2939,7 @@ msgstr "Für völlig unabhängige Projekte sollten Sie besser pro Projekt ein ei
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3231
 msgid "Of course, you're free to ignore these common layouts. You can create any sort of variation, whatever works best for you or your team. Remember that whatever you choose, it's not a permanent commitment. You can reorganize your repository at any time. Because branches and tags are ordinary directories, TortoiseSVN can move or rename them however you wish."
-msgstr "Natürlich können Sie diese Empfehlungen auch ignorieren. Es steht Ihnen frei, ein Layout zu wählen welches am besten für Sie oder Ihr Team geeignet ist. Beachten Sie auch, dass was immer für eine Wahl Sie treffen diese nicht fix ist. Sie können das Layout später immer noch reorganisieren. Weil Zweige (branches) und Markierungen (tags) gewöhnliche Ordner in Subversion sind, können Sie diese ganz einfach mit TortoiseSVN umbenennen oder verschieben wie Sie wollen."
+msgstr "Natürlich können Sie diese Empfehlungen auch ignorieren. Es steht Ihnen frei, ein Layout zu wählen welches am besten für Sie oder Ihr Team geeignet ist. Beachten Sie auch, dass was immer für eine Wahl Sie treffen diese nicht fix ist. Sie können das Layout später immer noch reorganisieren. Weil Zweige (branches) und Marken (tags) gewöhnliche Ordner in Subversion sind, können Sie diese ganz einfach mit TortoiseSVN umbenennen oder verschieben wie Sie wollen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3239
@@ -3906,7 +3906,7 @@ msgstr "Falls <guilabel>Externals auslassen</guilabel> markiert ist oder falls S
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4345
 msgid "It is recommended that you check out only the <literal>trunk</literal> part of the directory tree, or lower. If you specify the parent path of the directory tree in the URL then you might end up with a full hard disk since you will get a copy of the entire repository tree including every branch and tag of your project!"
-msgstr "Wir empfehlen Ihnen, jeweils nur den <filename>trunk</filename>-Teil des Projektarchivs auszuchecken. Falls Sie den übergeordneten Pfad auschecken, erhalten Sie den kompletten Dateibaum des Projektarchivs! So können Sie sehr schnell Ihre Festplatte füllen, da Sie z.B. für jede Markierung in <filename>tags</filename> eine separate Kopie der Daten erhalten!"
+msgstr "Wir empfehlen Ihnen, jeweils nur den <filename>trunk</filename>-Teil des Projektarchivs auszuchecken. Falls Sie den übergeordneten Pfad auschecken, erhalten Sie den kompletten Dateibaum des Projektarchivs! So können Sie sehr schnell Ihre Festplatte füllen, da Sie z.B. für jede Marke in <filename>tags</filename> eine separate Kopie der Daten erhalten!"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:4353
@@ -4023,7 +4023,7 @@ msgstr "Die im unteren Bereich angezeigten Spalten können angepasst werden. Wen
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4490
 msgid "By default when you commit changes, any locks that you hold on files are released automatically after the commit succeeds. If you want to keep those locks, make sure the <guilabel>Keep locks</guilabel> checkbox is checked. The default state of this checkbox is taken from the <literal>no_unlock</literal> option in the Subversion configuration file. Read <xref linkend=\"tsvn-dug-settings-main\"/> for information on how to edit the Subversion configuration file."
-msgstr "Standardmäßig werden bei einer erfolgreichen Übertragung die von Ihnen gesperrten Dateien wieder freigegeben. Falls sie jedoch die Sperren behalten möchten, markieren Sie das Auswahlkästchen <guilabel>Sperren behalten</guilabel>. Als Vorgabewert des Auswahlkästchen wird aus der Einstellung <literal>no_unlock</literal> in der Subversion Konfigurationsdatei verwendet. Lesen Sie in <xref linkend=\"tsvn-dug-settings-main\"/> nach, wie sie die Subversion Konfigurationsdatei bearbeiten können."
+msgstr "Standardmäßig werden bei einer erfolgreichen Übertragung die von Ihnen gesperrten Dateien wieder freigegeben. Falls sie jedoch die Sperren behalten möchten, aktivieren Sie die Option <guilabel>Sperren behalten</guilabel>. Als Vorgabewert des Auswahlkästchen wird aus der Einstellung <literal>no_unlock</literal> in der Subversion Konfigurationsdatei verwendet. Lesen Sie in <xref linkend=\"tsvn-dug-settings-main\"/> nach, wie sie die Subversion Konfigurationsdatei bearbeiten können."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4501
@@ -4700,7 +4700,7 @@ msgstr "Auch wenn Sie sich nicht in einer Arbeitskopie befinden oder mehrere Ver
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5352
 msgid "Select the two files you want to compare in explorer (e.g. using <keycap>Ctrl</keycap> and the mouse) and choose <guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. The file clicked last (the one with the focus, i.e. the dotted rectangle) will be regarded as the later one."
-msgstr "Markieren Sie die beiden Dateien, die Sie vergleichen wollen (z.B. mit <keycap>Strg<keycap> und Maus) und wählen Sie <guimenuitem>Vergleiche</guimenuitem> unter TortoiseSVN im Kontextmenü. Die zuletzt markierte Datei (die mit dem Fokus, der gestrichelte Rahmen) wird als die neuere betrachtet. "
+msgstr "Wählen Sie die beiden Dateien, die Sie vergleichen wollen (z.B. mit <keycap>Strg<keycap> und Maus) und wählen Sie <guimenuitem>Vergleiche</guimenuitem> unter TortoiseSVN im Kontextmenü. Die zuletzt markierte Datei (die mit dem Fokus, der gestrichelte Rahmen) wird als die neuere betrachtet. "
 
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:5366
@@ -4725,7 +4725,7 @@ msgstr "Sie treffen Änderungslisten an verschiedenen Stellen an, die wichtigste
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5394
 msgid "Select one or more files and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Move to changelist</guimenuitem></menuchoice> to add an item to a changelist. Initially there will be no changelists, so the first time you do this you will create a new changelist. Give it name which describes what you are using it for, and click <guibutton>OK</guibutton>. The dialog will now change to show groups of items."
-msgstr "Markieren Sie eine oder mehrere Dateien und rufen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>In Änderungsliste übernehmen</guimenuitem> </menuchoice> auf, um ein Objekt zu einer Änderungsliste hinzuzufügen. Zu Anfang gibt es noch keine Änderungslisten. Deshalb wird beim ersten Mal eine neue Änderungsliste angelegt. Geben Sie ihr einen beschreibenden Namen und klicken Sie auf <guibutton>OK</guibutton>. Der Übertragen-Dialog wird nun Gruppen von Einträgen anzeigen."
+msgstr "Wählen Sie eine oder mehrere Dateien und rufen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>In Änderungsliste übernehmen</guimenuitem> </menuchoice> auf, um ein Objekt zu einer Änderungsliste hinzuzufügen. Zu Anfang gibt es noch keine Änderungslisten. Deshalb wird beim ersten Mal eine neue Änderungsliste angelegt. Geben Sie ihr einen beschreibenden Namen und klicken Sie auf <guibutton>OK</guibutton>. Der Übertragen-Dialog wird nun Gruppen von Einträgen anzeigen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5406
@@ -4745,7 +4745,7 @@ msgstr "<placeholder-1/> Im Übertragen-Dialog können Sie die gleichen Dateien 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5422
 msgid "On XP, there is a context menu when you right click on a group heading which gives you the choice to check or uncheck all group entries. On Vista however the context menu is not necessary. Click on the group header to select all entries, then check one of the selected entries to check all."
-msgstr "Unter Windows XP erscheint, wenn Sie einen Rechtsklick auf einen Spaltenkopf machen, ein Kontextmenü mit dessen Hilfe Sie alle Gruppeneinträge (de)aktivieren können. Unter Vista ist dies jedoch nicht nötig. Klicken Sie auf den Gruppenkopf, um alle Einträge zu wählen, Markieren Sie dann einen der gewählten Einträge um alle zu aktivieren."
+msgstr "Unter Windows XP erscheint, wenn Sie einen Rechtsklick auf einen Spaltenkopf machen, ein Kontextmenü mit dessen Hilfe Sie alle Gruppeneinträge (de)aktivieren können. Unter Vista ist dies jedoch nicht nötig. Klicken Sie auf den Gruppenkopf, um alle Einträge zu wählen. Markieren Sie dann einen der gewählten Einträge um alle zu aktivieren."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5428
@@ -4755,7 +4755,7 @@ msgstr "TortoiseSVN reserviert eine Änderungsliste namens <literal>ignore-on-co
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5434
 msgid "When you commit files belonging to a changelist then normally you would expect that the changelist membership is no longer needed. So by default, files are removed from changelists automatically on commit. If you wish to retain the file in its changelist, use the <guilabel>Keep changelists</guilabel> checkbox at the bottom of the commit dialog."
-msgstr "Wenn Sie Dateien übertragen, die zu einer Änderungsliste gehören, wird die Mitgliedschaft in der Änderungsliste normalerweise nicht mehr benötigt. Aus diesem Grund werden Dateien beim Übertragen automatisch aus der Änderungsliste entfernt. Wenn Sie das nicht wollen, markieren Sie die <guilabel>Änderungsliste beibehalten</guilabel> Option am Ende des Übertragen-Dialogs."
+msgstr "Wenn Sie Dateien übertragen, die zu einer Änderungsliste gehören, wird die Mitgliedschaft in der Änderungsliste normalerweise nicht mehr benötigt. Aus diesem Grund werden Dateien beim Übertragen automatisch aus der Änderungsliste entfernt. Wenn Sie das nicht wollen, aktivieren Sie die Option <guilabel>Änderungsliste beibehalten</guilabel> am Ende des Übertragen-Dialogs."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5442
@@ -4935,7 +4935,7 @@ msgstr "Den Projektarchivbetrachter öffnen, um das markierte Objekt in der gew�
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5638
 msgid "Create a branch/tag from a selected revision. This is useful e.g. if you forgot to create a tag and already committed some changes which weren't supposed to get into that release."
-msgstr "Einen Zweig oder eine Markierung für die gewählte Revision erstellen. Dies ist nützlich für den Fall, dass sie vergessen haben eine bestimmte Version Ihres Projektes zu markieren und Sie seitdem bereits weitere Änderungen in das Projektarchiv übertragen haben."
+msgstr "Einen Zweig oder eine Marke für die gewählte Revision erstellen. Dies ist nützlich für den Fall, dass sie vergessen haben eine bestimmte Version Ihres Projektes zu markieren und Sie seitdem bereits weitere Änderungen in das Projektarchiv übertragen haben."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5646
@@ -5132,7 +5132,7 @@ msgstr "Normalerweise werden Sie diese Option nicht aktivieren. TortoiseSVN merk
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5910
 msgid "When the Show Log dialog is invoked from within the Merge dialog, the box is always checked by default. This is because merging is most often looking at changes on branches, and going back beyond the root of the branch does not make sense in that instance."
-msgstr "Wenn der Log-Dialog aus dem Zusammenführen-Dialog heraus aufgerufen wird, ist diese Option standardmäßig aktiviert. Der Grund dafür ist, dass beim Zusammenführen meistens Änderungen auf Verzweigungen betrachtet werden. Es ist normalerweise nicht sinnvoll, über die Wurzel der Verzweigung hinaus in die Vergangenheit zu gehen."
+msgstr "Wenn der Log-Dialog aus dem Zusammenführen-Dialog heraus aufgerufen wird, ist diese Option standardmäßig aktiviert. Der Grund dafür ist, dass beim Zusammenführen meistens Änderungen an Zweigen betrachtet werden. Es ist normalerweise nicht sinnvoll, über die Wurzel des Zweiges hinaus in die Vergangenheit zu gehen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5917
@@ -5187,7 +5187,7 @@ msgstr "Der Log-Dialog mit bereits zusammengeführten Revisionen"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5963
 msgid "If you want to see the detail of which revisions were merged as part of that commit, use the <guilabel>Include merged revisions</guilabel> checkbox. This will fetch the log messages again, but will also interleave the log messages from revisions which were merged. Merged revisions are shown in grey because they represent changes made on a different part of the tree."
-msgstr "Wenn Sie im Detail sehen wollen, welche Revisionen als Teil einer Übertragung integriert wurden, markieren Sie die Option <guilabel>Versionen vom Zusammenführen einschließen</guilabel>. Damit werden die Logmeldungen erneut geholt und die Einträge aus den zusammengeführten Revisionen dazwischen sortiert. Zusammengeführte Revisionen werden in grau angezeigt, weil es sich um Änderungen an einem anderen Teil des Baumes handelt."
+msgstr "Wenn Sie im Detail sehen wollen, welche Revisionen als Teil einer Übertragung integriert wurden, aktivieren Sie die Option <guilabel>Versionen vom Zusammenführen einschließen</guilabel>. Damit werden die Logmeldungen erneut geholt und die Einträge aus den zusammengeführten Revisionen dazwischen sortiert. Zusammengeführte Revisionen werden in grau angezeigt, weil es sich um Änderungen an einem anderen Teil des Baumes handelt."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5971
@@ -5416,7 +5416,7 @@ msgstr "Wenn Sie sehen wollen, was sich im Stamm (wenn Sie auf einem Zweig arbei
 #. (para)
 #: ../source/TortoiseSVN_en.xml:6236
 msgid "You can also use the repository browser and select two trees to diff, perhaps two tags, or a branch/tag and trunk. The context menu there allows you to compare them using <guimenuitem>Compare revisions</guimenuitem>. Read more in <xref linkend=\"tsvn-dug-compare-revs\"/>."
-msgstr "Sie können auch den Projektarchivbetrachter zum Vergleich zweier Bäume verwenden, indem Sie zwei Markierungen oder auch eine Verzweigung und den Stamm auswählen. Das Kontextmenü bietet Ihnen dann die Option an, diese Bäume zu vergleichen <guimenuitem>Compare revisions</guimenuitem>. Lesen Sie weiter in <xref linkend=\"tsvn-dug-compare-revs\"/>."
+msgstr "Sie können auch den Projektarchivbetrachter zum Vergleich zweier Bäume verwenden, indem Sie zwei Marken oder auch einen Zweig und den Stamm auswählen. Das Kontextmenü bietet Ihnen dann die Option an, diese Bäume zu vergleichen <guimenuitem>Compare revisions</guimenuitem>. Lesen Sie weiter in <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:6246
@@ -5886,7 +5886,7 @@ msgstr "Sie können Dateien und Ordner aus Ihrer Arbeitskopie an einen anderen O
 #. (para)
 #: ../source/TortoiseSVN_en.xml:6797
 msgid "You can locate an older version of a file or folder in the log dialog and copy it to a new location in the repository directly from the log dialog using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Create branch/tag from revision</guimenuitem></menuchoice>. Refer to <xref linkend=\"tsvn-dug-showlog-2\"/> to find out more."
-msgstr "Sie können eine ältere Version einer Datei oder eines Ordners mit Hilfe des Log-Dialogs finden und direkt aus dem Dialog an einen neuen Ort im Projektarchiv kopieren, indem Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Erstelle Verzweigung/Markierung von Revision</guimenuitem> </menuchoice> aufrufen. Lesen Sie <xref linkend=\"tsvn-dug-showlog-2\"/> für weiterführende Informationen."
+msgstr "Sie können eine ältere Version einer Datei oder eines Ordners mit Hilfe des Log-Dialogs finden und direkt aus dem Dialog an einen neuen Ort im Projektarchiv kopieren, indem Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Erstelle Zweig/Marke von Revision</guimenuitem> </menuchoice> aufrufen. Lesen Sie <xref linkend=\"tsvn-dug-showlog-2\"/> für weiterführende Informationen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:6807
@@ -6582,7 +6582,7 @@ msgstr "Ausgehend von den Ordnern, die die Eigenschaften erhalten sollen, wähle
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7684
 msgid "If you want to add properties to a tree recursively, follow the steps above, then in the property dialog select each property in turn, click on <guibutton>Edit...</guibutton>, check the <guilabel>Apply property recursively</guilabel> box and click on <guibutton>OK</guibutton>."
-msgstr "Wenn sie Eigenschaften rekursiv hinzufügen möchten, folgen Sie den oben stehenden Schritten. Markieren Sie nacheinander die Eigenschaften im Dialog klicken Sie auf <guibutton>Bearbeiten...</guibutton> und markieren Sie die <guilabel>Eigenschaften rekursiv anwenden</guilabel> Option und bestätigen mit  <guibutton>OK</guibutton>."
+msgstr "Wenn sie Eigenschaften rekursiv hinzufügen möchten, folgen Sie den oben stehenden Schritten. Markieren Sie nacheinander die Eigenschaften im Dialog klicken Sie auf <guibutton>Bearbeiten...</guibutton> und aktivieren Sie die <guilabel>Eigenschaften rekursiv anwenden</guilabel> Option und bestätigen mit  <guibutton>OK</guibutton>."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7691
@@ -6816,12 +6816,12 @@ msgstr "Eine andere wichtige Funktion ist die Möglichkeit, bestimmte Zustände 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8008
 msgid "Subversion does not have special commands for branching or tagging, but uses so-called <quote>cheap copies</quote> instead. Cheap copies are similar to hard links in Unix, which means that instead of making a complete copy in the repository, an internal link is created, pointing to a specific tree/revision. As a result branches and tags are very quick to create, and take up almost no extra space in the repository."
-msgstr "Subversion kennt keinen speziellen Befehl für das Verzweigen oder Markieren. Subversion benutzt stattdessen so genannte <quote>billige Kopien</quote>. Diese funktionieren ähnlich wie Verweise, d.h. es wird keine richtige Kopie erstellt sondern nur eine Verweis auf eine bestimmte Revision. Daraus ergibt sich, dass Verzweigungen oder Markierungen schnell zu erstellen sind und nahezu keinen zusätzlichen Platz im Projektarchiv benötigen."
+msgstr "Subversion kennt keinen speziellen Befehl für das Verzweigen oder Markieren. Subversion benutzt stattdessen so genannte <quote>billige Kopien</quote>. Diese funktionieren ähnlich wie Verweise, d.h. es wird keine richtige Kopie erstellt sondern nur eine Verweis auf eine bestimmte Revision. Daraus ergibt sich, dass Zweige oder Marken schnell zu erstellen sind und nahezu keinen zusätzlichen Platz im Projektarchiv benötigen."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:8018
 msgid "Creating a Branch or Tag"
-msgstr "Eine Verzweigung oder Markierung erstellen"
+msgstr "Einen Zweig oder eine Marke erstellen"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:8023
@@ -6831,7 +6831,7 @@ msgstr "Der Verzweigen/Markieren-Dialog"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8019
 msgid "If you have imported your project with the recommended directory structure, creating a branch or tag version is very simple: <placeholder-1/> Select the folder in your working copy which you want to copy to a branch or tag, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Branch/Tag...</guimenuitem></menuchoice>."
-msgstr "Wenn Sie beim Importieren Ihres Projektes die empfohlene Ordnerstruktur verwendet haben, ist ein Verzweigen oder Markieren sehr einfach: <placeholder-1/> Wählen Sie den Ordner Ihrer Arbeitskopie von dem Sie eine Verzweigung oder Markierung erstellen wollen und wählen Sie den Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Verzweigen/Markieren...</guimenuitem> </menuchoice> im Kontextmenü."
+msgstr "Wenn Sie beim Importieren Ihres Projektes die empfohlene Ordnerstruktur verwendet haben, ist ein Verzweigen oder Markieren sehr einfach: <placeholder-1/> Wählen Sie den Ordner Ihrer Arbeitskopie von dem Sie einen Zweig oder eine Marke erstellen wollen und wählen Sie den Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Verzweigen/Markieren...</guimenuitem> </menuchoice> im Kontextmenü."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8033
@@ -6868,12 +6868,12 @@ msgstr "Revisionsnummer im Projektarchiv"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8067
 msgid "The new branch is copied directly in the repository but you can choose an older revision. This is useful if you forgot to make a tag when you released your project last week. If you can't remember the revision number, click the button on the right to show the revision log, and select the revision number from there. Again no data is transferred from your working copy, and the branch is created very quickly."
-msgstr "Der neue Zweig wird direkt im Projektarchiv kopiert, Sie können aber auch eine ältere Revision auswählen. Das ist dann nützlich, wenn Sie z.B. vergessen haben eine Markierung zu erstellen, als das Release in der letzten Woche erstellt wurde. Wenn Sie sich nicht mehr an die Revisionsnummer erinnern können, dann klicken Sie auf die Schaltfläche rechts und wählen die Revisionsnummer aus. Auch dabei werden keine Daten aus Ihrer Arbeitskopie an das Projektarchiv übertragen, so dass der Zweig sehr schnell erstellt werden kann."
+msgstr "Der neue Zweig wird direkt im Projektarchiv kopiert, Sie können aber auch eine ältere Revision auswählen. Das ist dann nützlich, wenn Sie z.B. vergessen haben eine Markeg zu erstellen, als das Release in der letzten Woche erstellt wurde. Wenn Sie sich nicht mehr an die Revisionsnummer erinnern können, dann klicken Sie auf die Schaltfläche rechts und wählen die Revisionsnummer aus. Auch dabei werden keine Daten aus Ihrer Arbeitskopie an das Projektarchiv übertragen, so dass der Zweig sehr schnell erstellt werden kann."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8082
 msgid "The new branch is an identical copy of your local working copy. If you have updated some files to an older revision in your WC, or if you have made local changes, that is exactly what goes into the copy. Naturally this sort of complex tag may involve transferring data from your WC back to the repository if it does not exist there already."
-msgstr "Der neue Zweig ist eine identische Kopie Ihrer lokalen Arbeitskopie. Egal ob Sie einige Dateien durch die einer älteren Revision ersetzt haben, oder sie geändert haben, diese Dateien sind genau die, die in diesen Zweig kopiert werden. Natürlich erfordert diese aufwändige Markierung, dass Daten von Ihrer Arbeitskopie zurück in das Projektarchiv übertragen werden müssen, sofern sie dort noch nicht existieren. "
+msgstr "Der neue Zweig ist eine identische Kopie Ihrer lokalen Arbeitskopie. Egal ob Sie einige Dateien durch die einer älteren Revision ersetzt haben, oder sie geändert haben, diese Dateien sind genau die, die in diesen Zweig kopiert werden. Natürlich erfordert diese aufwändige Markierung, dass Daten von Ihrer Arbeitskopie zurück in das Projektarchiv übertragen werden müssen, sofern sie dort noch nicht existieren."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8049
@@ -6883,7 +6883,7 @@ msgstr "Nun haben Sie mehrere Möglichkeiten, die Quelle der Kopie auszuwählen:
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8095
 msgid "If you want your working copy to be switched to the newly created branch automatically, use the <guilabel>Switch working copy to new branch/tag</guilabel> checkbox. But if you do that, first make sure that your working copy does not contain modifications. If it does, those changes will be merged into the branch WC when you switch."
-msgstr "Wenn Sie wollen, dass Ihre Arbeitskopie sofort zur neuen Verzweigung / Markierung wechselt, markieren Sie die <guilabel>Arbeitskopie zum neuen Zweig / Markierung wechseln</guilabel> Option. Wenn Sie das tun, stellen Sie bitte vorher sicher, dass Ihre Arbeitskopie keine Änderungen enthält. Wenn sie Änderungen enthält, werden diese beim Wechseln mit der Verzweigung zusammengeführt."
+msgstr "Wenn Sie wollen, dass Ihre Arbeitskopie sofort zum neuen Zweig/Marke wechselt, aktivieren Sie die Option <guilabel>Arbeitskopie zum neuen Zweig/Marke wechseln</guilabel>. Wenn Sie das tun, stellen Sie bitte vorher sicher, dass Ihre Arbeitskopie keine Änderungen enthält. Wenn sie Änderungen enthält, werden diese beim Wechseln mit dem Zweig zusammengeführt."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8103
@@ -6893,7 +6893,7 @@ msgstr "Klicken Sie <guibutton>OK</guibutton>, um die neue Kopie in das Projekta
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8108
 msgid "Note that unless you opted to switch your working copy to the newly created branch, creating a Branch or Tag does <emphasis>not</emphasis> affect your working copy. Even if you create the branch from your WC, those changes are committed to the new branch, not to the trunk, so your WC may still be marked as modified with respect to the trunk."
-msgstr "Beachten Sie, dass das Anlegen eines Zweiges oder einer Markierung sich <emphasis>nicht</emphasis> auf Ihre Arbeitskopie auswirkt, es sei denn Sie haben die Option zum Wechseln auf den Zweig gleich mit aktiviert. Auch wenn Sie den Zweig aus der Arbeitskopie heraus erstellen, werden die Änderungen darin in den neuen Zweig übertragen und nicht in den Stamm. Die geänderten Dateien Ihrer Arbeitskopie bleiben als gegenüber dem Stamm verändert markiert."
+msgstr "Beachten Sie, dass das Anlegen eines Zweiges oder einer Marke sich <emphasis>nicht</emphasis> auf Ihre Arbeitskopie auswirkt, es sei denn Sie haben die Option zum Wechseln auf den Zweig gleich mit aktiviert. Auch wenn Sie den Zweig aus der Arbeitskopie heraus erstellen, werden die Änderungen darin in den neuen Zweig übertragen und nicht in den Stamm. Die geänderten Dateien Ihrer Arbeitskopie bleiben als gegenüber dem Stamm verändert markiert."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:8117
@@ -6923,7 +6923,7 @@ msgstr "Wechseln Sie mit Ihrer Arbeitskopie zu Ihrer neuen Kopie im Projektarchi
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8160
 msgid "In the next dialog enter the URL of the branch you just created. Select the <guilabel>Head Revision</guilabel> radio button and click on <guibutton>OK</guibutton>. Your working copy is switched to the new branch/tag."
-msgstr "Im folgenden Dialog geben Sie die URL des Zweiges an, den Sie gerade erzeugt haben. Wählen Sie die Option <guilabel>HEAD Revision</guilabel> und bestätigen Sie mit <guibutton>OK</guibutton>. Ihre Arbeitskopie wird nun auf den neuen Zweig / die neue Markierung umgestellt."
+msgstr "Im folgenden Dialog geben Sie die URL des Zweiges an, den Sie gerade erzeugt haben. Wählen Sie die Option <guilabel>HEAD Revision</guilabel> und bestätigen Sie mit <guibutton>OK</guibutton>. Ihre Arbeitskopie wird nun auf den neuen Zweig / die neue Marke umgestellt."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8168
@@ -6933,7 +6933,7 @@ msgstr "<quote>Wechseln zu</quote> wird genau so wie <quote>Aktualisieren</quote
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8178
 msgid "If you want to work on trunk and branch, but don't want the expense of a fresh checkout, you can use Windows Explorer to make a copy of your trunk checkout in another folder, then <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</guimenuitem></menuchoice> that copy to your new branch."
-msgstr "Wenn Sie auf dem Stamm und einer Verzweigung gleichzeitig arbeiten wollen, aber nicht auf ein vollständiges Auschecken warten wollen, können Sie mit dem Explorer Ihr Arbeitskopie kopieren und mit der Kopie über <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Wechseln zu...</guimenuitem> </menuchoice> auf den Zweig wechseln."
+msgstr "Wenn Sie auf dem Stamm und einem Zweig gleichzeitig arbeiten wollen, aber nicht auf ein vollständiges Auschecken warten wollen, können Sie mit dem Explorer Ihr Arbeitskopie kopieren und mit der Kopie über <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Wechseln zu...</guimenuitem> </menuchoice> auf den Zweig wechseln."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:8191
@@ -7206,7 +7206,7 @@ msgstr "Sie können festlegen, wie Änderungen an Zeilenumbrüchen und Leerzeich
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8544
 msgid "If you are using merge tracking and you want to mark a revision as having been merged, without actually doing the merge here, check the <guilabel>Only record the merge</guilabel> checkbox. There are two possible reasons you might want to do this. It may be that the merge is too complicated for the merge algorithms, so you code the changes by hand, then mark the change as merged so that the merge tracking algorithm is aware of it. Or you might want to prevent a particular revision from being merged. Marking it as already merged will prevent the merge occurring with merge-tracking-aware clients."
-msgstr "Falls Sie Ihre Datenintegrationsschritte verfolgen und eine Revision als zusammengeführt markieren wollen, ohne die Daten wirklich zusammenzuführen, markieren Sie <guilabel>Zusammenführen nur aufzeichnen</guilabel>. Es gibt mehrere Gründe, dies zu tun. Zum Beispiel könnten die zusammenzuführenden Änderungen zu komplex für den Algorithmus sein, so dass Sie die Daten von Hand integrieren und die Revisionen als zusammengeführt markieren, damit die Änderungsverfolgung darüber informiert ist. Oder Sie möchten verhindern, dass eine bestimmte Revision zusammengeführt werden kann. Clients die die Verfolgung der Datenintegration bereits beherrschen, werden diese Revision dann überspringen."
+msgstr "Falls Sie Ihre Datenintegrationsschritte verfolgen und eine Revision als zusammengeführt markieren wollen, ohne die Daten wirklich zusammenzuführen, aktivieren Sie die Option <guilabel>Zusammenführen nur aufzeichnen</guilabel>. Es gibt mehrere Gründe, dies zu tun. Zum Beispiel könnten die zusammenzuführenden Änderungen zu komplex für den Algorithmus sein, so dass Sie die Daten von Hand integrieren und die Revisionen als zusammengeführt markieren, damit die Änderungsverfolgung darüber informiert ist. Oder Sie möchten verhindern, dass eine bestimmte Revision zusammengeführt werden kann. Clients die die Verfolgung der Datenintegration bereits beherrschen, werden diese Revision dann überspringen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8555
@@ -7241,7 +7241,7 @@ msgstr "Wenn Ihr Server und alle Clients unter Subversion 1.5 oder neuer laufen,
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8603
 msgid "Branch management is important. If you want to keep this branch up to date with the trunk, you should be sure to merge often so that the branch and trunk do not drift too far apart. Of course, you should still avoid repeated merging of changes, as explained above."
-msgstr "Das Verfolgen von Verzweigungen ist wichtig. Falls Sie Ihren Zweig stets mit dem Stamm synchron halten wollen, stellen Sie sicher, dass Sie Änderungen häufig zusammenführen, damit Stamm und Zweig nicht zu weit auseinanderdriften. Wie bereits erklärt sollten Sie wiederholtes Zusammenführen der gleichen Änderungen vermeiden."
+msgstr "Das Verwalten von Zweigen ist wichtig. Falls Sie Ihren Zweig stets mit dem Stamm synchron halten wollen, stellen Sie sicher, dass Sie Änderungen häufig zusammenführen, damit Stamm und Zweig nicht zu weit auseinanderdriften. Wie bereits erklärt sollten Sie wiederholtes Zusammenführen der gleichen Änderungen vermeiden."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8610
@@ -7461,7 +7461,7 @@ msgstr "Der Sperren-Dialog"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8880
 msgid "Select the file(s) in your working copy for which you want to acquire a lock, then select the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Get Lock...</guimenuitem></menuchoice>. <placeholder-1/> A dialog appears, allowing you to enter a comment, so others can see why you have locked the file. The comment is optional and currently only used with Svnserve based repositories. If (and <emphasis>only</emphasis> if) you need to steal the lock from someone else, check the <guilabel>Steal lock</guilabel> box, then click on <guibutton>OK</guibutton>."
-msgstr "Markieren Sie die Datei(en) in Ihrer Arbeitskopie, für die Sie eine Sperre erhalten möchten und wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Sperre holen...</guimenuitem> </menuchoice>. <placeholder-1/> Ein Dialog erscheint, in dem Sie einen Sperrkommentar eingeben können, damit andere wissen, warum Sie die Datei für sich reservieren. Der Kommentar ist optional und wird derzeit nur bei svnserve basierten Projektarchiven genutzt. Wenn (und <emphasis>nur</emphasis> wenn) sie eine Sperre von jemand anderem stehlen wollen, markieren Sie die <guilabel>Sperren stehlen</guilabel> Option bevor Sie auf <guibutton>OK</guibutton> klicken."
+msgstr "Markieren Sie die Datei(en) in Ihrer Arbeitskopie, für die Sie eine Sperre erhalten möchten und wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Sperre holen...</guimenuitem> </menuchoice>. <placeholder-1/> Ein Dialog erscheint, in dem Sie einen Sperrkommentar eingeben können, damit andere wissen, warum Sie die Datei für sich reservieren. Der Kommentar ist optional und wird derzeit nur bei svnserve basierten Projektarchiven genutzt. Wenn (und <emphasis>nur</emphasis> wenn) sie eine Sperre von jemand anderem stehlen wollen, aktivieren Sie die Option <guilabel>Sperren stehlen</guilabel> bevor Sie auf <guibutton>OK</guibutton> klicken."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8900
@@ -7806,7 +7806,7 @@ msgstr "Vergleiche und Annotiere mit Arbeitskopie BASE"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9366
 msgid "Show the log for a single file, and in the top pane, select a single revision, then select <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Compare and Blame with Working BASE</guimenuitem></menuchoice>. This will fetch the blame data for the selected revision, and for the file in the working BASE, then use the diff viewer to compare the two blame files."
-msgstr "Zeigen Sie das Log für eine einzelne Datei an und markieren Sie in der oberen Liste eine einzelne Revision. Wählen Sie<menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Vergleiche und Annotiere mit Arbeitskopie BASE</guimenuitem> </menuchoice>. Dies wird die Annotierungen für die gewählte Revision sowie für die BASE Revision der Arbeitskopie erstellen und im Vergleichsprogramm anzeigen."
+msgstr "Zeigen Sie das Log für eine einzelne Datei an und markieren Sie in der oberen Liste eine einzelne Revision. Wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Vergleiche und Annotiere mit Arbeitskopie BASE</guimenuitem> </menuchoice>. Dies wird die Annotierungen für die gewählte Revision sowie für die BASE Revision der Arbeitskopie erstellen und im Vergleichsprogramm anzeigen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9330
@@ -7933,7 +7933,7 @@ msgstr "Markiert den Ordner für den Vergleich. Ein markierte Ordner wird durch 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9522
 msgid "Compare the folder with a previously marked folder, either as a unified diff, or as a list of changed files which can then be visually diffed using the default diff tool. This can be particularly useful for comparing two tags, or trunk and branch to see what changed."
-msgstr "Den Ordner mit einem bereits markierten Ordner vergleichen. Entweder können Sie den Vergleich als Standard-Diff oder als Liste von Dateien anzeigen lassen, die Sie dann einzeln miteinander vergleichen. Diese Funktion ist sehr nützlich, wenn Sie z.B. herausfinden wollen, was sich zwischen zwei Markierungen geändert hat."
+msgstr "Den Ordner mit einem bereits gewählten Ordner vergleichen. Entweder können Sie den Vergleich als Standard-Diff oder als Liste von Dateien anzeigen lassen, die Sie dann einzeln miteinander vergleichen. Diese Funktion ist sehr nützlich, wenn Sie z.B. herausfinden wollen, was sich zwischen zwei Marken geändert hat."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9471
@@ -7943,17 +7943,17 @@ msgstr "Das Kontextmenü eines Ordners erlaubt Ihnen: <placeholder-1/>"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9531
 msgid "If you select two folders in the right pane, you can view the differences either as a unified-diff, or as a list of files which can be visually diffed using the default diff tool."
-msgstr "Wenn Sie im rechten Bereich zwei Ordner markieren, können Sie sich die Unterschiede entweder als Standard-Diff oder als Liste von Dateien anzeigen lassen, die Sie dann einzeln miteinander vergleichen."
+msgstr "Wenn Sie im rechten Bereich zwei Ordner wählen, können Sie sich die Unterschiede entweder als Standard-Diff oder als Liste von Dateien anzeigen lassen, die Sie dann einzeln miteinander vergleichen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9536
 msgid "If you select multiple folders in the right pane, you can checkout all of them at once into a common parent folder."
-msgstr "Wenn Sie mehrere Ordner im rechten Bereich markieren, können Sie diese Ordner alle gleichzeitig in einen gemeinsamen Elternordner auschecken."
+msgstr "Wenn Sie mehrere Ordner im rechten Bereich wählen, können Sie diese Ordner alle gleichzeitig in einen gemeinsamen Elternordner auschecken."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9540
 msgid "If you select 2 tags which are copied from the same root (typically <literal>/trunk/</literal>), you can use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show Log...</guimenuitem></menuchoice> to view the list of revisions between the two tag points."
-msgstr "Wenn Sie zwei Markierungen wählen, die von derselben Basis erstellt wurden (typischerweise <literal>/trunk/</literal>), können Sie <menuchoice> <guimenu>Kontext Menü</guimenu> <guimenuitem>Zeige Log...</guimenuitem> </menuchoice> verwenden, um sich die Unterschiede zwischen den beiden Marken anzeigen zu lassen."
+msgstr "Wenn Sie zwei Marken wählen, die von derselben Basis erstellt wurden (typischerweise <literal>/trunk/</literal>), können Sie <menuchoice> <guimenu>Kontext Menü</guimenu> <guimenuitem>Zeige Log...</guimenuitem> </menuchoice> verwenden, um sich die Unterschiede zwischen den beiden Marken anzeigen zu lassen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9549
@@ -8010,12 +8010,12 @@ msgstr "Ein Revisionsgraph"
 msgid "<placeholder-1/> Sometimes you need to know where branches and tags were taken from the trunk, and the ideal way to view this sort of information is as a graph or tree structure. That's when you need to use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revision Graph...</guimenuitem></menuchoice>"
 msgstr ""
 "<placeholder-1/>\n"
-"Manchmal möchten Sie wissen, wann Zweige oder Markierungen von trunk abgespalten wurden. Der ideale Weg, um dies zu untersuchen, ist ein Graph oder eine Baumstruktur. Dafür gibt es den <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Revisionsgraph</guimenuitem>. </menuchoice>"
+"Manchmal möchten Sie wissen, wann Zweige oder Marken vom Stamm abgespalten wurden. Der ideale Weg, um dies zu untersuchen, ist ein Graph oder eine Baumstruktur. Dafür gibt es den <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Revisionsgraph</guimenuitem>. </menuchoice>"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9618
 msgid "This command analyses the revision history and attempts to create a tree showing the points at which copies were taken, and when branches/tags were deleted."
-msgstr "Dieser Befehl analysiert die Revisionsgeschichte und versucht eine Baumstruktur mit den Zeitpunkten darzustellen, in denen Kopien oder Zweige/Markierungen erstellt bzw. gelöscht wurden. "
+msgstr "Dieser Befehl analysiert die Revisionsgeschichte und versucht eine Baumstruktur mit den Zeitpunkten darzustellen, in denen Kopien oder Zweige/Marken erstellt bzw. gelöscht wurden. "
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9624
@@ -8060,7 +8060,7 @@ msgstr "Spitze eines Zweiges"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9664
 msgid "Where a branch (or trunk or tag) has been modified since the last branch node, this is shown using an ellipse. Shown when the <guilabel>Show HEAD revisions</guilabel> option is selected."
-msgstr "Falls ein Zweig (oder eine Markierung) nach seiner Erstellung modifiziert wurde, wird dies durch eine Ellipse angezeigt. Dies geschieht, wenn die Option <guilabel>HEAD Revisionen zeigen</guilabel> aktiv ist."
+msgstr "Falls ein Zweig (oder eine Marke) nach seiner Erstellung modifiziert wurde, wird dies durch eine Ellipse angezeigt. Dies geschieht, wenn die Option <guilabel>HEAD Revisionen zeigen</guilabel> aktiv ist."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:9673
@@ -8130,17 +8130,17 @@ msgstr "Exakte Quellen der Kopien"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9740
 msgid "When a branch/tag is made, the default behaviour is to show the branch as taken from the last node where a change was made. Strictly speaking this is inaccurate since the branches are often made from the current HEAD rather than a specific revision. So it is possible to show the more correct (but less useful) revision that was used to create the copy."
-msgstr "Wenn eine Verzweigung/Markierung angelegt wird, ist das Standardverhalten, den Zweig so anzuzeigen, als sei er vom letzten geänderten Knoten abgeleitet. Genau genommen ist das inkorrekt, da Zweige häufig von der HEAD Revision und nicht einer bestimmten Revision erstellt werden. Hiermit ist es möglich, die korrektere (aber weniger nützliche) Revision anzuzeigen, aus der die Verzweigung wirklich angelegt wurde."
+msgstr "Wenn eine Verzweigung/Markierung angelegt wird, ist das Standardverhalten, den Zweig so anzuzeigen, als sei er vom letzten geänderten Knoten abgeleitet. Genau genommen ist das inkorrekt, da Zweige häufig von der HEAD Revision und nicht einer bestimmten Revision erstellt werden. Hiermit ist es möglich, die korrektere (aber weniger nützliche) Revision anzuzeigen, aus der der Zweig wirklich angelegt wurde."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:9752
 msgid "Fold tags"
-msgstr "Verzweigungen ausblenden"
+msgstr "Zweige ausblenden"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:9754
 msgid "If you want to see a graph of software development, tagged releases may be of little interest to you. This option hides the nodes for tags and shows them instead in the tooltip for the node that they were copied from. A tag icon on the right side of the source node indicates that tags were made."
-msgstr "Wenn Sie den Graphen eines Entwicklungsprojektes betrachten sind Markierungen unter Umständen uninteressant für Sie. Diese Option verbirgt die Verzweigungen und zeigt sie stattdessen im Hinweistext des Knotens an von dem Sie erstellt wurden. Ein Symbol am rechten Rand kennzeichnet die entsprechenden Quellknoten."
+msgstr "Wenn Sie den Graphen eines Entwicklungsprojektes betrachten sind Marken unter Umständen uninteressant für Sie. Diese Option verbirgt die Zweige und zeigt sie stattdessen im Hinweistext des Knotens an, von dem Sie erstellt wurden. Ein Symbol am rechten Rand kennzeichnet die entsprechenden Quellknoten."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:9765
@@ -8918,7 +8918,7 @@ msgstr "Nutze die URL der Arbeitskopie als <quote>Von:</quote> URL"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10851
 msgid "In the merge dialog, the default behaviour is for the <guilabel>From:</guilabel> URL to be remembered between merges. However, some people like to perform merges from many different points in their hierarchy, and find it easier to start out with the URL of the current working copy. This can then be edited to refer to a parallel path on another branch."
-msgstr "Im Zusammenführen-Dialog wird normalerweise die <guilabel>Von:</guilabel> URL zwischen zwei Aufrufen gespeichert und als Vorgabe eingestellt. Manchmal möchten Anwender jedoch von vielen verschiedenen Punkten in der Projekthierarchie aus Daten zusammenführen und finden es einfacher, mit der URL der aktuellen Arbeitskopie als Vorgabe zu beginnen. Diese kann dann verändert werden, um auf einen parallelen Pfad oder eine Verzweigung zu verweisen."
+msgstr "Im Zusammenführen-Dialog wird normalerweise die <guilabel>Von:</guilabel> URL zwischen zwei Aufrufen gespeichert und als Vorgabe eingestellt. Manchmal möchten Anwender jedoch von vielen verschiedenen Punkten in der Projekthierarchie aus Daten zusammenführen und finden es einfacher, mit der URL der aktuellen Arbeitskopie als Vorgabe zu beginnen. Diese kann dann verändert werden, um auf einen parallelen Pfad oder einen Zweig zu verweisen."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10863
@@ -9183,7 +9183,7 @@ msgstr "Standardmäßig werden die überlagerten Symbole in allen Öffnen/Speich
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11137
 msgid "Ignored items and Unversioned items are not usually given an overlay. If you want to show an overlay in these cases, just check the boxes."
-msgstr "Ignorierte und nicht versionierte Objekte erhalten normalerweise kein überlagertes Symbol. Falls Sie diese Objekte in Arbeitskopien kennzeichnen wollen, markieren Sie die entsprechenden Optionen."
+msgstr "Ignorierte und nicht versionierte Objekte erhalten normalerweise kein überlagertes Symbol. Falls Sie diese Objekte in Arbeitskopien kennzeichnen wollen, aktivieren Sie die entsprechenden Optionen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11141
@@ -10117,12 +10117,12 @@ msgstr "Die Bedeutung der Variablen wird in der folgenden Liste erklärt: <place
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12236
 msgid "If you want the Subversion operation to hold off until the hook has completed, check <guilabel>Wait for the script to finish</guilabel>."
-msgstr "Falls Sie die Subversionoperation zurückhalten wollen, bis das Aktionsskript fertig ist, markieren Sie die Option <guilabel>Warte auf Beendigung des Skripts</guilabel>."
+msgstr "Falls Sie die Subversionoperation zurückhalten wollen, bis das Aktionsskript fertig ist, wählen Sie die Option <guilabel>Warte auf Beendigung des Skripts</guilabel>."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12240
 msgid "Normally you will want to hide ugly DOS boxes when the script runs, so <guilabel>Hide the script while running</guilabel> is checked by default."
-msgstr "Normalerweise wollen Sie bestimmt die hässlichen DOS-Fenster verbergen während das Aktionsskript läuft, weshalb <guilabel>Skript beim Ablauf verbergen</guilabel> standardmäßig markiert ist."
+msgstr "Normalerweise wollen Sie bestimmt die hässlichen DOS-Fenster verbergen während das Aktionsskript läuft, weshalb <guilabel>Skript beim Ablauf verbergen</guilabel> standardmäßig gewählt ist."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:12245
@@ -11084,7 +11084,7 @@ msgstr "Normalerweise bringen Sie Ihre Arbeitskopie mit <menuchoice> <guimenu>To
 #. (para)
 #: ../source/TortoiseSVN_en.xml:13114
 msgid "Use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications</guimenuitem></menuchoice>. and click on <guibutton>Check repository</guibutton> to see what has changed in the repository. Select the files you want to update locally, then use the context menu to update just those files."
-msgstr "Wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Prüfe auf Änderungen</guimenuitem> </menuchoice> und Klicken Sie auf <guibutton>Projektarchiv prüfen</guibutton>, um zu sehen, was sich dort geändert hat. Markieren Sie die Dateien, die Sie aktualisieren wollen und Aktualisieren Sie diese aus dem Kontextmenü des Dialogs."
+msgstr "Wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Prüfe auf Änderungen</guimenuitem> </menuchoice> und Klicken Sie auf <guibutton>Projektarchiv prüfen</guibutton>, um zu sehen, was sich dort geändert hat. Wählen Sie die Dateien, die Sie aktualisieren wollen und Aktualisieren Sie diese aus dem Kontextmenü des Dialogs."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:13126
@@ -11119,7 +11119,7 @@ msgstr "Die einfachste Methode, Änderungen einer einzelnen Revision rückgängi
 #. (para)
 #: ../source/TortoiseSVN_en.xml:13150
 msgid "Select the file or folder in which you need to revert the changes. If you want to revert all changes, this should be the top level folder."
-msgstr "Markiere Sie den Ordner, in dem Sie die Änderungen rückgängig machen wollen. Wenn Sie alle Änderungen rückgängig machen wollen, ist das der oberste Ordner."
+msgstr "Wählen Sie den Ordner, in dem Sie die Änderungen rückgängig machen wollen. Wenn Sie alle Änderungen rückgängig machen wollen, ist das der oberste Ordner."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:13157
@@ -11129,7 +11129,7 @@ msgstr "Wählen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Zei
 #. (para)
 #: ../source/TortoiseSVN_en.xml:13170
 msgid "Select the revision you wish to revert. If you want to undo a range of revisions, select the first one and hold the <keycap>Shift</keycap> key while selecting the last one. Note that for multiple revisions, the range must be unbroken with no gaps. <action>Right click</action> on the selected revision(s), then select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert changes from this revision</guimenuitem></menuchoice>."
-msgstr "Markieren Sie die Revision, die Sie rückgängig machen wollen. Wenn Sie einen ganzen Bereich verwerfen wollen, halten Sie die <keycap>Umsch</keycap> Taste gedrückt, während Sie die letzte Revision markieren. Beachten Sie, dass der Revisionsbereich nicht unterbrochen sein darf. Machen Sie einen <action>Rechtsklick</action> auf die gewählten Revision(en) und wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Änderungen dieser Revision rückgängig machen</guimenuitem> </menuchoice>."
+msgstr "Wählen Sie die Revision, die Sie rückgängig machen wollen. Wenn Sie einen ganzen Bereich verwerfen wollen, halten Sie die <keycap>Umsch</keycap> Taste gedrückt, während Sie die letzte Revision markieren. Beachten Sie, dass der Revisionsbereich nicht unterbrochen sein darf. Machen Sie einen <action>Rechtsklick</action> auf die gewählten Revision(en) und wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Änderungen dieser Revision rückgängig machen</guimenuitem> </menuchoice>."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:13185
@@ -11216,7 +11216,7 @@ msgstr "Änderungen"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:13291
 msgid "If you want to compare two revisions in a file's history, for example revisions 100 and 200 of the same file, just use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show Log</guimenuitem></menuchoice> to list the revision history for that file. Pick the two revisions you want to compare then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice>."
-msgstr "Wenn Sie zwei Revisionen derselben Datei, zum Beispiel Revisionen 100 und 200 vergleichen wollen, rufen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Zeige Log</guimenuitem> </menuchoice> Log auf, um sich die Historie der Datei anzeigen zu lassen. Markieren Sie die zwei Revisionen, die Sie vergleichen wollen und wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Revisionen vergleichen</guimenuitem> </menuchoice>."
+msgstr "Wenn Sie zwei Revisionen derselben Datei, zum Beispiel Revisionen 100 und 200 vergleichen wollen, rufen Sie <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Zeige Log</guimenuitem> </menuchoice> Log auf, um sich die Historie der Datei anzeigen zu lassen. Wählen Sie die zwei Revisionen, die Sie vergleichen wollen und wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Revisionen vergleichen</guimenuitem> </menuchoice>."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:13305
@@ -11678,7 +11678,7 @@ msgstr "Projektarchiv hier erstellen"
 #: ../source/TortoiseSVN_en.xml:13773
 #: ../source/TortoiseSVN_en.xml:14824
 msgid "Branch/Tag"
-msgstr "Verzweigen / Markieren"
+msgstr "Verzweigen/Markieren"
 
 #. (entry)
 #. (title)
