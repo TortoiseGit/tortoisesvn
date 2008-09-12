@@ -2028,10 +2028,12 @@ BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, svn_revnum_t rev)
 	return TRUE;
 }
 
-void CLogDlg::EditAuthor(int index)
+void CLogDlg::EditAuthor(const CLogDataVector& logs)
 {
 	CString url;
 	CString name;
+	if (logs.size() == 0)
+		return;
 	DialogEnableWindow(IDOK, FALSE);
 	SetPromptApp(&theApp);
 	theApp.DoWaitCursor(1);
@@ -2043,9 +2045,7 @@ void CLogDlg::EditAuthor(int index)
 	}
 	name = SVN_PROP_REVISION_AUTHOR;
 
-	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(index));
-	m_bCancelled = FALSE;
-	CString value = RevPropertyGet(name, url, pLogEntry->Rev);
+	CString value = RevPropertyGet(name, url, logs[0]->Rev);
 	CString sOldValue = value;
 	value.Replace(_T("\n"), _T("\r\n"));
 	CInputDlg dlg(this);
@@ -2057,33 +2057,49 @@ void CLogDlg::EditAuthor(int index)
 	if (dlg.DoModal() == IDOK)
 	{
 		dlg.m_sInputText.Replace(_T("\r"), _T(""));
-		if (!RevPropertySet(name, dlg.m_sInputText, sOldValue, url, pLogEntry->Rev))
+
+		LogCache::CCachedLogInfo* toUpdate 
+			= GetLogCache (CTSVNPath (m_sRepositoryRoot));
+
+		CProgressDlg progDlg;
+		progDlg.SetTitle(IDS_APPNAME);
+		progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROGRESSWAIT)));
+		progDlg.SetTime(true);
+		progDlg.SetShowProgressBar(true);
+		progDlg.ShowModeless(m_hWnd);
+		for (DWORD i=0; i<logs.size(); ++i)
 		{
-			CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+			if (!RevPropertySet(name, dlg.m_sInputText, sOldValue, url, logs[i]->Rev))
+			{
+				progDlg.Stop();
+				CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+				break;
+			}
+			else
+			{
+
+				logs[i]->sAuthor = dlg.m_sInputText;
+				m_LogList.Invalidate();
+
+				// update the log cache 
+
+				if (toUpdate != NULL)
+				{
+					// log caching is active
+
+					LogCache::CCachedLogInfo newInfo;
+					newInfo.Insert ( logs[i]->Rev
+						, (const char*) CUnicodeUtils::GetUTF8 (logs[i]->sAuthor)
+						, ""
+						, 0
+						, LogCache::CRevisionInfoContainer::HAS_AUTHOR);
+
+					toUpdate->Update (newInfo);
+				}
+			}
+			progDlg.SetProgress64(i, logs.size());
 		}
-		else
-		{
-			pLogEntry->sAuthor = dlg.m_sInputText;
-			m_LogList.Invalidate();
-
-            // update the log cache 
-
-            LogCache::CCachedLogInfo* toUpdate 
-                = GetLogCache (CTSVNPath (m_sRepositoryRoot));
-            if (toUpdate != NULL)
-            {
-                // log caching is active
-
-                LogCache::CCachedLogInfo newInfo;
-                newInfo.Insert ( pLogEntry->Rev
-                               , (const char*) CUnicodeUtils::GetUTF8 (pLogEntry->sAuthor)
-                               , ""
-                               , 0
-                               , LogCache::CRevisionInfoContainer::HAS_AUTHOR);
-
-                toUpdate->Update (newInfo);
-            }
-		}
+		progDlg.Stop();
 	}
 	theApp.DoWaitCursor(-1);
 	EnableOKButton();
@@ -3662,18 +3678,26 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 		revSelected2 = pLogEntry->Rev;
 	}
+	bool bAllFromTheSameAuthor = true;
+	CString firstAuthor;
+	CLogDataVector selEntries;
 	SVNRev revLowest, revHighest;
 	SVNRevRangeArray revisionRanges;
 	{
 		POSITION pos = m_LogList.GetFirstSelectedItemPosition();
 		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 		revisionRanges.AddRevision(pLogEntry->Rev);
+		selEntries.push_back(pLogEntry);
+		firstAuthor = pLogEntry->sAuthor;
 		revLowest = pLogEntry->Rev;
 		revHighest = pLogEntry->Rev;
 		while (pos)
 		{
 			pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 			revisionRanges.AddRevision(pLogEntry->Rev);
+			selEntries.push_back(pLogEntry);
+			if (firstAuthor.Compare(pLogEntry->sAuthor))
+				bAllFromTheSameAuthor = false;
 			revLowest = (svn_revnum_t(pLogEntry->Rev) > svn_revnum_t(revLowest) ? revLowest : pLogEntry->Rev);
 			revHighest = (svn_revnum_t(pLogEntry->Rev) < svn_revnum_t(revHighest) ? revHighest : pLogEntry->Rev);
 		}
@@ -3802,10 +3826,13 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				popup.AppendMenu(MF_SEPARATOR, NULL);
 		}
 
-		if (m_LogList.GetSelectedCount() == 1)
+		if ((selEntries.size() > 0)&&(bAllFromTheSameAuthor))
 		{
 			temp.LoadString(IDS_LOG_POPUP_EDITAUTHOR);
 			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITAUTHOR, temp);
+		}
+		if (m_LogList.GetSelectedCount() == 1)
+		{
 			temp.LoadString(IDS_LOG_POPUP_EDITLOG);
 			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITLOG, temp);
 			temp.LoadString(IDS_REPOBROWSE_SHOWREVPROP);					// "Show Revision Properties"
@@ -4234,7 +4261,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 			break;
 		case ID_EDITAUTHOR:
 			{
-				EditAuthor(selIndex);
+				EditAuthor(selEntries);
 			}
 			break;
 		case ID_REVPROPS:

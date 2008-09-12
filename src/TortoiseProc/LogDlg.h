@@ -145,7 +145,7 @@ private:
 	void Refresh (bool autoGoOnline = false);
 	BOOL IsDiffPossible(LogChangedPath * changedpath, svn_revnum_t rev);
 	BOOL Open(bool bOpenWith, CString changedpath, svn_revnum_t rev);
-	void EditAuthor(int index);
+	void EditAuthor(const CLogDataVector& logs);
 	void EditLogMessage(int index);
 	void DoSizeV1(int delta);
 	void DoSizeV2(int delta);
