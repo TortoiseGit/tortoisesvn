@@ -24,12 +24,13 @@
 #include "RelocateDlg.h"
 #include "SVN.h"
 #include "MessageBox.h"
+#include "PathUtils.h"
 
 bool RelocateCommand::Execute()
 {
 	SVN svn;
 	CRelocateDlg dlg;
-	dlg.m_sFromUrl = svn.GetUIURLFromPath(cmdLinePath);
+	dlg.m_sFromUrl = CPathUtils::PathUnescape(svn.GetURLFromPath(cmdLinePath));
 	dlg.m_sToUrl = dlg.m_sFromUrl;
 
 	if (dlg.DoModal() == IDOK)

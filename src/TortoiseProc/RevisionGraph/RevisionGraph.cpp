@@ -191,7 +191,6 @@ BOOL CRevisionGraph::FetchRevisionData (CString path, svn_revnum_t pegRev, const
 	ProgressCallback(temp, _T(""), 0, 1);
 
 	// prepare the path for Subversion
-	SVN::preparePath(path);
 	CStringA url = CUnicodeUtils::GetUTF8(svn.GetURLFromPath(CTSVNPath(path)));
 	url = CPathUtils::PathEscape(url);
 
@@ -301,7 +300,6 @@ void CRevisionGraph::AnalyzeRevisionData (CString path, const SOptions& options)
 	m_maxRow = 0;
 	m_maxColumn = 0;
 
-	SVN::preparePath(path);
 	CStringA url = CUnicodeUtils::GetUTF8(svn.GetURLFromPath(CTSVNPath(path)));
 
 	url = CPathUtils::PathUnescape(url);

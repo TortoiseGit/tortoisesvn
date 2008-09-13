@@ -94,7 +94,7 @@ BOOL CCopyDlg::OnInitDialog()
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_HISTORY, IDS_COMMITDLG_HISTORY_TT);
 	
-	if (SVN::PathIsURL(path.GetSVNPathString()))
+	if (SVN::PathIsURL(path))
 	{
 		DialogEnableWindow(IDC_COPYWC, FALSE);
 		DialogEnableWindow(IDC_DOSWITCH, FALSE);

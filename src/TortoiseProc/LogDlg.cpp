@@ -1893,7 +1893,7 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t re
 	theApp.DoWaitCursor(1);
 	//get the filename
 	CString filepath;
-	if (SVN::PathIsURL(m_path.GetSVNPathString()))
+	if (SVN::PathIsURL(m_path))
 	{
 		filepath = m_path.GetSVNPathString();
 	}
@@ -1966,7 +1966,7 @@ BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, svn_revnum_t rev)
 	SetPromptApp(&theApp);
 	theApp.DoWaitCursor(1);
 	CString filepath;
-	if (SVN::PathIsURL(m_path.GetSVNPathString()))
+	if (SVN::PathIsURL(m_path))
 	{
 		filepath = m_path.GetSVNPathString();
 	}
@@ -2037,7 +2037,7 @@ void CLogDlg::EditAuthor(const CLogDataVector& logs)
 	DialogEnableWindow(IDOK, FALSE);
 	SetPromptApp(&theApp);
 	theApp.DoWaitCursor(1);
-	if (SVN::PathIsURL(m_path.GetSVNPathString()))
+	if (SVN::PathIsURL(m_path))
 		url = m_path.GetSVNPathString();
 	else
 	{
@@ -2045,7 +2045,7 @@ void CLogDlg::EditAuthor(const CLogDataVector& logs)
 	}
 	name = SVN_PROP_REVISION_AUTHOR;
 
-	CString value = RevPropertyGet(name, url, logs[0]->Rev);
+	CString value = RevPropertyGet(name, CTSVNPath(url), logs[0]->Rev);
 	CString sOldValue = value;
 	value.Replace(_T("\n"), _T("\r\n"));
 	CInputDlg dlg(this);
@@ -2069,7 +2069,7 @@ void CLogDlg::EditAuthor(const CLogDataVector& logs)
 		progDlg.ShowModeless(m_hWnd);
 		for (DWORD i=0; i<logs.size(); ++i)
 		{
-			if (!RevPropertySet(name, dlg.m_sInputText, sOldValue, url, logs[i]->Rev))
+			if (!RevPropertySet(name, dlg.m_sInputText, sOldValue, CTSVNPath(url), logs[i]->Rev))
 			{
 				progDlg.Stop();
 				CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -2112,7 +2112,7 @@ void CLogDlg::EditLogMessage(int index)
 	DialogEnableWindow(IDOK, FALSE);
 	SetPromptApp(&theApp);
 	theApp.DoWaitCursor(1);
-	if (SVN::PathIsURL(m_path.GetSVNPathString()))
+	if (SVN::PathIsURL(m_path))
 		url = m_path.GetSVNPathString();
 	else
 	{
@@ -2122,7 +2122,7 @@ void CLogDlg::EditLogMessage(int index)
 
 	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(index));
 	m_bCancelled = FALSE;
-	CString value = RevPropertyGet(name, url, pLogEntry->Rev);
+	CString value = RevPropertyGet(name, CTSVNPath(url), pLogEntry->Rev);
 	CString sOldValue = value;
 	value.Replace(_T("\n"), _T("\r\n"));
 	CInputDlg dlg(this);
@@ -2134,7 +2134,7 @@ void CLogDlg::EditLogMessage(int index)
 	if (dlg.DoModal() == IDOK)
 	{
 		dlg.m_sInputText.Replace(_T("\r"), _T(""));
-		if (!RevPropertySet(name, dlg.m_sInputText, sOldValue, url, pLogEntry->Rev))
+		if (!RevPropertySet(name, dlg.m_sInputText, sOldValue, CTSVNPath(url), pLogEntry->Rev))
 		{
 			CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		}
@@ -4519,7 +4519,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				SetPromptApp(&theApp);
 				theApp.DoWaitCursor(1);
 				CString sUrl;
-				if (SVN::PathIsURL(m_path.GetSVNPathString()))
+				if (SVN::PathIsURL(m_path))
 				{
 					sUrl = m_path.GetSVNPathString();
 				}
@@ -4598,7 +4598,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				SetPromptApp(&theApp);
 				theApp.DoWaitCursor(1);
 				CString filepath;
-				if (SVN::PathIsURL(m_path.GetSVNPathString()))
+				if (SVN::PathIsURL(m_path))
 				{
 					filepath = m_path.GetSVNPathString();
 				}
@@ -4632,7 +4632,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				SetPromptApp(&theApp);
 				theApp.DoWaitCursor(1);
 				CString filepath;
-				if (SVN::PathIsURL(m_path.GetSVNPathString()))
+				if (SVN::PathIsURL(m_path))
 				{
 					filepath = m_path.GetSVNPathString();
 				}
@@ -4752,7 +4752,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 		case ID_BLAME:
 			{
 				CString filepath;
-				if (SVN::PathIsURL(m_path.GetSVNPathString()))
+				if (SVN::PathIsURL(m_path))
 				{
 					filepath = m_path.GetSVNPathString();
 				}
@@ -4812,7 +4812,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				SetPromptApp(&theApp);
 				theApp.DoWaitCursor(1);
 				CString filepath;
-				if (SVN::PathIsURL(m_path.GetSVNPathString()))
+				if (SVN::PathIsURL(m_path))
 				{
 					filepath = m_path.GetSVNPathString();
 				}

@@ -376,7 +376,7 @@ void CRevisionGraphWnd::CompareRevs(bool bHead)
 	ASSERT(m_SelectedEntry2 != NULL);
 
 	CString sRepoRoot;
-	if (SVN::PathIsURL(m_sPath))
+	if (SVN::PathIsURL(CTSVNPath(m_sPath)))
 		sRepoRoot = svn.GetRepositoryRoot(CTSVNPath(m_sPath));
 	else
 		sRepoRoot = svn.GetRepositoryRoot(CTSVNPath(svn.GetURLFromPath(CTSVNPath(m_sPath))));
@@ -408,7 +408,7 @@ void CRevisionGraphWnd::UnifiedDiffRevs(bool bHead)
 	ASSERT(m_SelectedEntry2 != NULL);
 
 	CString sRepoRoot;
-	if (SVN::PathIsURL(m_sPath))
+	if (SVN::PathIsURL(CTSVNPath(m_sPath)))
 		sRepoRoot = svn.GetRepositoryRoot(CTSVNPath(m_sPath));
 	else
 		sRepoRoot = svn.GetRepositoryRoot(CTSVNPath(svn.GetURLFromPath(CTSVNPath(m_sPath))));
@@ -438,7 +438,7 @@ CTSVNPath CRevisionGraphWnd::DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIs
 	ASSERT(m_SelectedEntry2 != NULL);
 	
 	// find out if m_sPath points to a file or a folder
-	if (SVN::PathIsURL(m_sPath))
+	if (SVN::PathIsURL(CTSVNPath(m_sPath)))
 	{
 		SVNInfo info;
 		const SVNInfoData * infodata = info.GetFirstFileInfo(CTSVNPath(m_sPath), SVNRev::REV_HEAD, SVNRev::REV_HEAD);
@@ -453,7 +453,7 @@ CTSVNPath CRevisionGraphWnd::DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIs
 	}
 	
 	CString sRepoRoot;
-	if (SVN::PathIsURL(m_sPath))
+	if (SVN::PathIsURL(CTSVNPath(m_sPath)))
 		sRepoRoot = svn.GetRepositoryRoot(CTSVNPath(m_sPath));
 	else
 		sRepoRoot = svn.GetRepositoryRoot(CTSVNPath(svn.GetURLFromPath(CTSVNPath(m_sPath))));

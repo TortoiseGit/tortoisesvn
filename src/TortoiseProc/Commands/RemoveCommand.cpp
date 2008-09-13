@@ -33,7 +33,7 @@ bool RemoveCommand::Execute()
 	// ask the user for a log message.
 	BOOL bForce = FALSE;
 	SVN svn;
-	if ((pathList.GetCount())&&(SVN::PathIsURL(pathList[0].GetSVNPathString())))
+	if ((pathList.GetCount())&&(SVN::PathIsURL(pathList[0])))
 	{
 		// Delete using URL's, not wc paths
 		svn.SetPromptApp(&theApp);

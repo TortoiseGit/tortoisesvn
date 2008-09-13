@@ -280,9 +280,9 @@ void CCacheLogQuery::CLogFiller::WriteToCache
 		    CRevisionInfoContainer::TChangeAction action 
 			    = (CRevisionInfoContainer::TChangeAction)(change->action * 4);
 		    std::string path 
-			    = (const char*)SVN::MakeSVNUrlOrPath (change->sPath);
+				= (const char*)CUnicodeUtils::GetUTF8 (change->sPath);
 		    std::string copyFromPath 
-			    = (const char*)SVN::MakeSVNUrlOrPath (change->sCopyFromPath);
+			    = (const char*)CUnicodeUtils::GetUTF8 (change->sCopyFromPath);
 		    revision_t copyFromRevision 
 			    = change->lCopyFromRev == 0 
 			    ? NO_REVISION 

@@ -1649,7 +1649,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 			popup.AppendMenu(MF_STRING | MF_ENABLED, 1, temp);
 			temp.LoadString(IDS_REPOBROWSE_MOVEDROP);
 			popup.AppendMenu(MF_STRING | MF_ENABLED, 2, temp);
-			if ((pathlist.GetCount() == 1)&&(PathIsURL(pathlist[0].GetSVNPathString())))
+			if ((pathlist.GetCount() == 1)&&(PathIsURL(pathlist[0])))
 			{
 				// these entries are only shown if *one* item was dragged, and if the
 				// item is not one dropped from e.g. the explorer but from the repository
@@ -1712,7 +1712,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 	// check the first item in the path list:
 	// if it's an url, we do a copy or move operation
 	// if it's a local path, we do an import
-	if (PathIsURL(pathlist[0].GetSVNPathString()))
+	if (PathIsURL(pathlist[0]))
 	{
 		// If any of the paths are 'special' (branches, tags, or trunk) and we are
 		// about to perform a move, we should warn the user and get them to confirm

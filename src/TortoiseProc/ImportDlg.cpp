@@ -111,20 +111,6 @@ void CImportDlg::OnOK()
 		UpdateData();
 	}
 
-	if (m_url.Left(7).CompareNoCase(_T("file://"))==0)
-	{
-		//check if the url is on a network share
-		CString temp = m_url.Mid(7);
-		temp = temp.TrimLeft('/');
-		temp.Replace('/', '\\');
-		temp = temp.Left(3);
-		if (GetDriveType(temp)==DRIVE_REMOTE)
-		{
-			if (SVN::IsBDBRepository(m_url))
-				if (CMessageBox::Show(this->m_hWnd, IDS_WARN_SHAREFILEACCESS, IDS_APPNAME, MB_ICONWARNING | MB_YESNO)==IDNO)
-					return;
-		}
-	}
 	UpdateData();
 	m_sMessage = m_cMessage.GetText();
 	m_History.AddEntry(m_sMessage);

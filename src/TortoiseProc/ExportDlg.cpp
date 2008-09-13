@@ -191,7 +191,7 @@ void CExportDlg::OnOK()
 	m_URL = m_URLCombo.GetString();
 
 	// we need an url to export from - local paths won't work
-	if (!SVN::PathIsURL(m_URL))
+	if (!SVN::PathIsURL(CTSVNPath(m_URL)))
 	{
 		ShowBalloon(IDC_URLCOMBO, IDS_ERR_MUSTBEURL, IDI_ERROR);
 		m_bAutoCreateTargetName = bAutoCreateTargetName;

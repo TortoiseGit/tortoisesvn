@@ -1444,7 +1444,7 @@ BOOL SVN::Cat(const CTSVNPath& url, const SVNRev& pegrevision, const SVNRev& rev
 	return TRUE;
 }
 
-BOOL SVN::CreateRepository(const CString& path, const CString& fstype)
+BOOL SVN::CreateRepository(const CTSVNPath& path, const CString& fstype)
 {
 	svn_repos_t * repo;
 	svn_error_t * err;
@@ -1470,7 +1470,7 @@ BOOL SVN::CreateRepository(const CString& path, const CString& fstype)
 	apr_hash_set (fs_config, SVN_FS_CONFIG_FS_TYPE,
 		APR_HASH_KEY_STRING,
 		fs_type);
-	err = svn_repos_create(&repo, MakeSVNUrlOrPath(path), NULL, NULL, config, fs_config, localpool);
+	err = svn_repos_create(&repo, path.GetSVNApiPath(localpool), NULL, NULL, config, fs_config, localpool);
 	if (err != NULL)
 	{
 		svn_error_clear(err);
@@ -1865,29 +1865,13 @@ CString SVN::GetURLFromPath(const CTSVNPath& path)
 	return CString(URL);
 }
 
-CString SVN::GetUIURLFromPath(const CTSVNPath& path)
-{
-	const char * URL;
-	if (!path.Exists())
-		return _T("");
-	svn_error_clear(Err);
-	Err = NULL;
-	SVNPool subpool(pool);
-	Err = svn_client_url_from_path (&URL, path.GetSVNApiPath(subpool), subpool);
-	if (Err)
-		return _T("");
-	if (URL==NULL)
-		return _T("");
-	return MakeUIUrlOrPath(URL);
-}
-
 CString SVN::GetUUIDFromPath(const CTSVNPath& path)
 {
 	const char * UUID;
 	svn_error_clear(Err);
 	Err = NULL;
 	SVNPool subpool(pool);
-	if (PathIsURL(path.GetSVNPathString()))
+	if (PathIsURL(path))
 	{
 		Err = svn_client_uuid_from_url(&UUID, path.GetSVNApiPath(subpool), m_pctx, subpool);
 	}
@@ -1953,14 +1937,13 @@ BOOL SVN::Relocate(const CTSVNPath& path, const CTSVNPath& from, const CTSVNPath
 	return TRUE;
 }
 
-BOOL SVN::IsRepository(const CString& strUrl)
+BOOL SVN::IsRepository(const CTSVNPath& path)
 {
 	svn_error_clear(Err);
 	Err = NULL;
 	// The URL we get here is per definition properly encoded and escaped.
 	svn_repos_t* pRepos;
-	CString url = strUrl;
-	preparePath(url);
+	CString url = path.GetSVNPathString();
 	url += _T("/");
 	int pos = url.GetLength();
 	while ((pos = url.ReverseFind('/'))>=0)
@@ -1968,7 +1951,7 @@ BOOL SVN::IsRepository(const CString& strUrl)
 		url = url.Left(pos);
 		if (PathFileExists(url))
 		{
-			Err = svn_repos_open (&pRepos, MakeSVNUrlOrPath(url), pool);
+			Err = svn_repos_open (&pRepos, CUnicodeUtils::GetUTF8(url), pool);
 			if ((Err)&&(Err->apr_err == SVN_ERR_FS_BERKELEY_DB))
 				return TRUE;
 			if (Err == NULL)
@@ -1976,28 +1959,6 @@ BOOL SVN::IsRepository(const CString& strUrl)
 		}
 	}
 
-	return FALSE;
-}
-
-BOOL SVN::IsBDBRepository(const CString& url)
-{
-	CString tempurl = url;
-	preparePath(tempurl);
-	tempurl = url.Mid(7);
-	tempurl.TrimLeft('/');
-	while (!tempurl.IsEmpty())
-	{
-		if (PathIsDirectory(tempurl + _T("/db")))
-		{
-			if (PathFileExists(tempurl + _T("/db/fs-type")))
-				return FALSE;
-			return TRUE;
-		}
-		if (tempurl.ReverseFind('/')>=0)
-			tempurl = tempurl.Left(tempurl.ReverseFind('/'));
-		else
-			tempurl.Empty();
-	}
 	return FALSE;
 }
 
@@ -2247,7 +2208,7 @@ BOOL SVN::GetWCRevisionStatus(const CTSVNPath& wcpath, bool bCommitted, svn_revn
 	return TRUE;
 }
 
-svn_revnum_t SVN::RevPropertySet(const CString& sName, const CString& sValue, const CString& sOldValue, const CString& sURL, const SVNRev& rev)
+svn_revnum_t SVN::RevPropertySet(const CString& sName, const CString& sValue, const CString& sOldValue, const CTSVNPath& URL, const SVNRev& rev)
 {
 	svn_revnum_t set_rev;
 	svn_string_t*	pval = NULL;
@@ -2261,10 +2222,10 @@ svn_revnum_t SVN::RevPropertySet(const CString& sName, const CString& sValue, co
 	if (!sOldValue.IsEmpty())
 		pval2 = svn_string_create (CUnicodeUtils::GetUTF8(sOldValue), pool);
 
-	Err = svn_client_revprop_set2(MakeSVNUrlOrPath(sName), 
+	Err = svn_client_revprop_set2(CUnicodeUtils::GetUTF8(sName), 
 									pval, 
 									pval2,
-									MakeSVNUrlOrPath(sURL), 
+									URL.GetSVNApiPath(pool), 
 									rev, 
 									&set_rev, 
 									FALSE, 
@@ -2275,14 +2236,14 @@ svn_revnum_t SVN::RevPropertySet(const CString& sName, const CString& sValue, co
 	return set_rev;
 }
 
-CString SVN::RevPropertyGet(const CString& sName, const CString& sURL, const SVNRev& rev)
+CString SVN::RevPropertyGet(const CString& sName, const CTSVNPath& URL, const SVNRev& rev)
 {
 	svn_string_t *propval;
 	svn_revnum_t set_rev;
 	svn_error_clear(Err);
 	Err = NULL;
 
-	Err = svn_client_revprop_get(MakeSVNUrlOrPath(sName), &propval, MakeSVNUrlOrPath(sURL), rev, &set_rev, m_pctx, pool);
+	Err = svn_client_revprop_get(CUnicodeUtils::GetUTF8(sName), &propval, URL.GetSVNApiPath(pool), rev, &set_rev, m_pctx, pool);
 	if (Err)
 		return _T("");
 	if (propval==NULL)
@@ -2337,13 +2298,13 @@ BOOL SVN::GetTranslatedFile(CTSVNPath& sTranslatedFile, const CTSVNPath sFile, B
 		return FALSE;
 	}
 
-	sTranslatedFile.SetFromUnknown(MakeUIUrlOrPath(translatedPath));
+	sTranslatedFile.SetFromUnknown(CUnicodeUtils::GetUnicode(translatedPath));
 	return (translatedPath != originPath);
 }
 
-BOOL SVN::PathIsURL(const CString& path)
+BOOL SVN::PathIsURL(const CTSVNPath& path)
 {
-	return svn_path_is_url(MakeSVNUrlOrPath(path));
+	return svn_path_is_url(CUnicodeUtils::GetUTF8(path.GetSVNPathString()));
 } 
 
 void SVN::formatDate(TCHAR date_native[], apr_time_t& date_svn, bool force_short_fmt)
@@ -2453,15 +2414,6 @@ CString SVN::formatTime (apr_time_t& date_svn)
     return timebuf;
 }
 
-CStringA SVN::MakeSVNUrlOrPath(const CString& UrlOrPath)
-{
-	CStringA url = CUnicodeUtils::GetUTF8(UrlOrPath);
-	if (svn_path_is_url(url))
-	{
-		url = CPathUtils::PathEscape(url);
-	}
-	return url;
-}
 
 CString SVN::MakeUIUrlOrPath(const CStringA& UrlOrPath)
 {

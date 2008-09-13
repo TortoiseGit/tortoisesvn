@@ -1433,7 +1433,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					if (data)
 					{
 						CString sPath = GetPathFromColumnText(data->sPathColumnText);
-						if ((!sPath.IsEmpty())&&(!SVN::PathIsURL(sPath)))
+						if ((!sPath.IsEmpty())&&(!SVN::PathIsURL(CTSVNPath(sPath))))
 						{
 							CTSVNPath path = CTSVNPath(sPath);
 							if (path.GetDirectory().Exists())
@@ -1921,7 +1921,7 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
 	}
 	else
 	{
-		if (SVN::PathIsURL(m_url.GetSVNPathString()))
+		if (SVN::PathIsURL(m_url))
 		{
 			CString sMsg(MAKEINTRESOURCE(IDS_PROGRS_COPY_WARNING));
 			ReportNotification(sMsg);

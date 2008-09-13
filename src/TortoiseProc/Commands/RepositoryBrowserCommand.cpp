@@ -41,13 +41,13 @@ bool RepositoryBrowserCommand::Execute()
 				cmdLinePath.SetFromSVN(cmdLinePath.GetSVNPathString().Mid(4));
 		}
 
-		url = svn.GetUIURLFromPath(cmdLinePath);
+		url = svn.GetURLFromPath(cmdLinePath);
 
 		if (url.IsEmpty())
 		{
-			if (SVN::PathIsURL(cmdLinePath.GetSVNPathString()))
+			if (SVN::PathIsURL(cmdLinePath))
 				url = cmdLinePath.GetSVNPathString();
-			else if (svn.IsRepository(cmdLinePath.GetWinPathString()))
+			else if (svn.IsRepository(cmdLinePath))
 			{
 				// The path points to a local repository.
 				// Add 'file:///' so the repository browser recognizes

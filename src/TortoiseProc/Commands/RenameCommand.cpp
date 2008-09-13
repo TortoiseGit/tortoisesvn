@@ -63,7 +63,7 @@ bool RenameCommand::Execute()
 	else
 	{
 		CString sMsg;
-		if (SVN::PathIsURL(cmdLinePath.GetSVNPathString()))
+		if (SVN::PathIsURL(cmdLinePath))
 		{
 			// rename an URL.
 			// Ask for a commit message, then rename directly in

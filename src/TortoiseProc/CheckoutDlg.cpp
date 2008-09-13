@@ -188,31 +188,11 @@ void CCheckoutDlg::OnOK()
 	m_URLCombo.SaveHistory();
 	m_URL = m_URLCombo.GetString();
 
-	if (!SVN::PathIsURL(m_URL))
+	if (!SVN::PathIsURL(CTSVNPath(m_URL)))
 	{
 		ShowBalloon(IDC_URLCOMBO, IDS_ERR_MUSTBEURL, IDI_ERROR);
 		m_bAutoCreateTargetName = bAutoCreateTargetName;
 		return;
-	}
-
-	if (m_URL.Left(7).CompareNoCase(_T("file://"))==0)
-	{
-		//check if the url is on a network share
-		CString temp = m_URL.Mid(7);
-		temp = temp.TrimLeft('/');
-		temp.Replace('/', '\\');
-		temp = temp.Left(3);
-		if (GetDriveType(temp)==DRIVE_REMOTE)
-		{
-			if (SVN::IsBDBRepository(m_URL))
-				// It's a network share, and the user tries to create a Berkeley db on it.
-				// Show a warning telling the user about the risks of doing so.
-				if (CMessageBox::Show(this->m_hWnd, IDS_WARN_SHAREFILEACCESS, IDS_APPNAME, MB_ICONWARNING | MB_YESNO)==IDNO)
-				{
-					m_bAutoCreateTargetName = bAutoCreateTargetName;
-					return;
-				}
-		}
 	}
 
 	if (m_strCheckoutDirectory.IsEmpty())

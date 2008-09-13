@@ -650,7 +650,7 @@ public:
 	/**
 	 * Checks if a windows path is a local repository
 	 */
-	BOOL IsRepository(const CString& strPath);
+	BOOL IsRepository(const CTSVNPath& path);
 
 	/**
 	 * Finds the repository root of a given url. 
@@ -664,11 +664,6 @@ public:
 	 * \return the root url or an empty string
 	 */
 	CString GetRepositoryRootAndUUID(const CTSVNPath& url, CString& sUUID);
-
-	/**
-	 * Checks if a file:// url points to a BDB repository.
-	 */
-	static BOOL IsBDBRepository(const CString& url);
 
 	/**
 	 * Returns the HEAD revision of the URL or WC-Path.
@@ -689,7 +684,7 @@ public:
 	 * \param rev the revision number to change the revprop
 	 * \return the actual revision number the property value was set
 	 */
-	svn_revnum_t RevPropertySet(const CString& sName, const CString& sValue, const CString& sOldValue, const CString& sURL, const SVNRev& rev);
+	svn_revnum_t RevPropertySet(const CString& sName, const CString& sValue, const CString& sOldValue, const CTSVNPath& URL, const SVNRev& rev);
 
 	/**
 	 * Reads the revision property \a sName and returns its value.
@@ -697,7 +692,7 @@ public:
 	 * \param rev the revision number
 	 * \return the value of the property
 	 */
-	CString	RevPropertyGet(const CString& sName, const CString& sURL, const SVNRev& rev);
+	CString	RevPropertyGet(const CString& sName, const CTSVNPath& URL, const SVNRev& rev);
 
 	/**
 	 * Fetches all locks for \a url and the paths below.
@@ -724,10 +719,6 @@ public:
 	 */
 	CString GetURLFromPath(const CTSVNPath& path);
 	/**
-	 * Returns the URL associated with the \c path, unescaped.
-	 */
-	CString GetUIURLFromPath(const CTSVNPath& path);
-	/**
 	 * Returns the repository UUID for the \c path.
 	 */
 	CString GetUUIDFromPath(const CTSVNPath& path);
@@ -743,7 +734,7 @@ public:
 	 * \param path where the repository should be created
 	 * \return TRUE if operation was successful
 	 */
-	static BOOL CreateRepository(const CString& path, const CString& fstype = _T("fsfs"));
+	static BOOL CreateRepository(const CTSVNPath& path, const CString& fstype = _T("fsfs"));
 
 	/**
 	 * Convert Windows Path to Local Repository URL
@@ -779,7 +770,7 @@ public:
 	/**
 	 * Checks if a given path is a valid URL.
 	 */	 	 	 	
-	static BOOL PathIsURL(const CString& path);
+	static BOOL PathIsURL(const CTSVNPath& path);
 
 	/**
 	 * Creates the Subversion config file if it doesn't already exist.
@@ -819,11 +810,6 @@ public:
 	 * (if possible) at \c wrap chars.
 	 */
 	static CString GetErrorString(svn_error_t * Err, int wrap = 80);
-	/**
-	 * Converts an url or path in the Subversion format for urls/paths
-	 * (utf8 encoded, escaped, forward slashes)
-	 */
-	static CStringA MakeSVNUrlOrPath(const CString& UrlOrPath);
 	/**
 	 * Converts a Subversion url/path to an UI format (utf16 encoded, unescaped,
 	 * backslash for paths, forward slashes for urls).

@@ -36,7 +36,7 @@ bool ExportCommand::Execute()
 	// this is where the export should go to and have to ask from where
 	// the export should be done from.
 	TCHAR saveto[MAX_PATH];
-	bool bURL = !!SVN::PathIsURL(cmdLinePath.GetSVNPathString());
+	bool bURL = !!SVN::PathIsURL(cmdLinePath);
 	svn_wc_status_kind s = SVNStatus::GetAllStatus(cmdLinePath);
 	if ((bURL)||(s == svn_wc_status_unversioned)||(s == svn_wc_status_none))
 	{

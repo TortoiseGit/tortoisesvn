@@ -757,7 +757,7 @@ bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& r
 		SVN::UrlToPath(strFile);
 
 		SVN svn;
-		if (svn.IsRepository(strFile))
+		if (svn.IsRepository(CTSVNPath(strFile)))
 		{
 			// browse repository - show repository browser
 			SVN::preparePath(strUrl);

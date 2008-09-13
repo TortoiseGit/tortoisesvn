@@ -989,7 +989,7 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 					(LPCTSTR)URL,
 					m_SelectedEntry1->revision);
 
-				if (!SVN::PathIsURL(m_sPath))
+				if (!SVN::PathIsURL(CTSVNPath(m_sPath)))
 				{
 					sCmd += _T(" /propspath:\"");
 					sCmd += m_sPath;
