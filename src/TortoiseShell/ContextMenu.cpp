@@ -158,6 +158,10 @@ CShellExt::MenuInfo CShellExt::menuInfo[] =
 	ITEMIS_INSVN, 0, ITEMIS_FOLDERINSVN, 0, 0, 0, 0, 0 },
 
 	{ ShellSeparator, 0, 0, 0, 0, 0, 0, 0, 0},
+	{ ShellMenuClipPaste,					MENUCLIPPASTE,		IDI_CLIPPASTE,			IDS_MENUCLIPPASTE,			IDS_MENUDESCCLIPPASTE,
+	ITEMIS_INSVN|ITEMIS_FOLDER|ITEMIS_PATHINCLIPBOARD, 0, 0, 0, 0, 0, 0, 0 },
+
+	{ ShellSeparator, 0, 0, 0, 0, 0, 0, 0, 0},
 
 	{ ShellMenuSettings,					MENUSETTINGS,		IDI_SETTINGS,			IDS_MENUSETTINGS,			IDS_MENUDESCSETTINGS,
 	ITEMIS_FOLDER, 0, 0, ITEMIS_FOLDER, 0, 0, 0, 0 },
@@ -438,24 +442,14 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 
 				// if the item is a versioned folder, check if there's a patch file
 				// in the clipboard to be used in "Apply Patch"
-				UINT cFormat = RegisterClipboardFormat(_T("TSVN_UNIFIEDDIFF"));
-				if (cFormat)
+				UINT cFormatDiff = RegisterClipboardFormat(_T("TSVN_UNIFIEDDIFF"));
+				if (cFormatDiff)
 				{
-					if (OpenClipboard(NULL))
-					{
-						UINT enumFormat = 0;
-						do 
-						{
-							if (enumFormat == cFormat)
-							{
-								// yes, there's a patch file in the clipboard
-								itemStates |= ITEMIS_PATCHINCLIPBOARD;
-								break;
-							}
-						} while((enumFormat = EnumClipboardFormats(enumFormat))!=0);
-						CloseClipboard();
-					}
+					if (IsClipboardFormatAvailable(cFormatDiff)) 
+						itemStates |= ITEMIS_PATCHINCLIPBOARD;
 				}
+				if (IsClipboardFormatAvailable(CF_HDROP)) 
+					itemStates |= ITEMIS_PATHINCLIPBOARD;
 			}
 
 			ReleaseStgMedium ( &medium );
@@ -473,6 +467,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 		ItemIDList list(pIDFolder);
 		folder_ = list.toString();
 		svn_wc_status_kind status = svn_wc_status_none;
+		if (IsClipboardFormatAvailable(CF_HDROP)) 
+			itemStatesFolder |= ITEMIS_PATHINCLIPBOARD;
 		if (folder_.compare(statuspath)!=0)
 		{
 			CTSVNPath askedpath;
@@ -729,6 +725,63 @@ HBITMAP CShellExt::IconToBitmap(UINT uIcon)
 	if (bmp)
 		bitmaps.insert(bitmap_it, std::make_pair(uIcon, bmp));
 	return bmp;
+}
+
+bool CShellExt::WriteClipboardPathsToTempFile(stdstring& tempfile)
+{
+	bool bRet = true;
+	tempfile = stdstring();
+	//write all selected files and paths to a temporary file
+	//for TortoiseProc.exe to read out again.
+	DWORD written = 0;
+	DWORD pathlength = GetTempPath(0, NULL);
+	TCHAR * path = new TCHAR[pathlength+1];
+	TCHAR * tempFile = new TCHAR[pathlength + 100];
+	GetTempPath (pathlength+1, path);
+	GetTempFileName (path, _T("svn"), 0, tempFile);
+	tempfile = stdstring(tempFile);
+
+	HANDLE file = ::CreateFile (tempFile,
+		GENERIC_WRITE, 
+		FILE_SHARE_READ, 
+		0, 
+		CREATE_ALWAYS, 
+		FILE_ATTRIBUTE_TEMPORARY,
+		0);
+
+	delete path;
+	delete tempFile;
+	if (file == INVALID_HANDLE_VALUE)
+		return false;
+
+	if (!IsClipboardFormatAvailable(CF_HDROP))
+		return false;
+	if (!OpenClipboard(NULL))
+		return false;
+
+	stdstring sClipboardText;
+	HGLOBAL hglb = GetClipboardData(CF_HDROP);
+	HDROP hDrop = (HDROP)GlobalLock(hglb);
+	if(hDrop != NULL)
+	{
+		TCHAR szFileName[MAX_PATH];
+		UINT cFiles = DragQueryFile(hDrop, 0xFFFFFFFF, NULL, 0); 
+		for(UINT i = 0; i < cFiles; ++i)
+		{
+			DragQueryFile(hDrop, i, szFileName, sizeof(szFileName));
+			stdstring filename = szFileName;
+			::WriteFile (file, filename.c_str(), filename.size()*sizeof(TCHAR), &written, 0);
+			::WriteFile (file, _T("\n"), 2, &written, 0);
+		}
+		GlobalUnlock(hDrop);
+	}
+	else bRet = false;
+	GlobalUnlock(hglb);
+
+	CloseClipboard();
+	::CloseHandle(file);
+
+	return bRet;
 }
 
 stdstring CShellExt::WriteFileListToTempFile()
@@ -1661,6 +1714,40 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 				svnCmd += tempfile;
 				svnCmd += _T("\"");
 				svnCmd += _T(" /deletepathfile");
+				break;
+			case ShellMenuClipPaste:
+				if (WriteClipboardPathsToTempFile(tempfile))
+				{
+					bool bCopy = true;
+					UINT cPrefDropFormat = RegisterClipboardFormat(_T("Preferred DropEffect"));
+					if (cPrefDropFormat)
+					{
+						if (OpenClipboard(lpcmi->hwnd))
+						{
+							HGLOBAL hglb = GetClipboardData(cPrefDropFormat);
+							if (hglb)
+							{
+								DWORD* effect = (DWORD*) GlobalLock(hglb);
+								if (*effect == DROPEFFECT_MOVE)
+									bCopy = false;
+								GlobalUnlock(hglb);
+							}
+							CloseClipboard();
+						}
+					}
+
+					if (bCopy)
+						svnCmd += _T("pastecopy /pathfile:\"");
+					else
+						svnCmd += _T("pastemove /pathfile:\"");
+					svnCmd += tempfile;
+					svnCmd += _T("\"");
+					svnCmd += _T(" /deletepathfile");
+					svnCmd += _T(" /droptarget:\"");
+					svnCmd += folder_;
+					svnCmd += _T("\"");
+				}
+				else return NOERROR;
 				break;
 			default:
 				break;

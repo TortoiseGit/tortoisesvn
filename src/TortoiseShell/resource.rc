@@ -67,6 +67,7 @@ IDI_MENUMULTIPLE        ICON                    "..\\Resources\\tsvnmenumultiple
 IDI_PROPERTIES          ICON                    "..\\Resources\\menuproperties.ico"
 IDI_DELUNVERSIONED      ICON                    "..\\Resources\\menudelunversioned.ico"
 IDI_APPSMALL            ICON                    "..\\Resources\\TortoiseSmall.ico"
+IDI_CLIPPASTE           ICON                    "..\\Resources\\clippaste.ico"
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -313,6 +314,8 @@ END
 
 STRINGTABLE 
 BEGIN
+    IDS_MENUCLIPPASTE       "&Paste"
+    IDS_MENUDESCCLIPPASTE   "Pastes the svn path from the clipboard, resulting in a move (cut) or copy operation"
     IDS_ERR_PROPNOTONFILE   "This property is only allowed on folders, not files."
     IDS_MENUIGNOREMULTIPLE  "&Ignore %d items by name"
     IDS_ERR_PROPNOMULTILINE "This property must not have multiple lines. Only one line is allowed."

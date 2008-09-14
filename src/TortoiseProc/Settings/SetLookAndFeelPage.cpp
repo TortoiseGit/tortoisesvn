@@ -89,10 +89,11 @@ BOOL CSetLookAndFeelPage::OnInitDialog()
 	InsertItem(IDS_MENUCOMMIT, IDI_COMMIT, MENUCOMMIT);
 	InsertItem(IDS_MENUDIFF, IDI_DIFF, MENUDIFF);
 	InsertItem(IDS_MENUPREVDIFF, IDI_DIFF, MENUPREVDIFF);
+	InsertItem(IDS_MENUURLDIFF, IDI_DIFF, MENUURLDIFF);
 	InsertItem(IDS_MENULOG, IDI_LOG, MENULOG);
+	InsertItem(IDS_MENUREPOBROWSE, IDI_REPOBROWSE, MENUREPOBROWSE);
 	InsertItem(IDS_MENUSHOWCHANGED, IDI_SHOWCHANGED, MENUSHOWCHANGED);
 	InsertItem(IDS_MENUREVISIONGRAPH, IDI_REVISIONGRAPH, MENUREVISIONGRAPH);
-	InsertItem(IDS_MENUREPOBROWSE, IDI_REPOBROWSE, MENUREPOBROWSE);
 	InsertItem(IDS_MENUCONFLICT, IDI_CONFLICT, MENUCONFLICTEDITOR);
 	InsertItem(IDS_MENURESOLVE, IDI_RESOLVE, MENURESOLVE);
 	InsertItem(IDS_MENUUPDATEEXT, IDI_UPDATE, MENUUPDATEEXT);
@@ -116,7 +117,7 @@ BOOL CSetLookAndFeelPage::OnInitDialog()
 	InsertItem(IDS_MENUCREATEPATCH, IDI_CREATEPATCH, MENUCREATEPATCH);
 	InsertItem(IDS_MENUAPPLYPATCH, IDI_PATCH, MENUAPPLYPATCH);
 	InsertItem(IDS_MENUPROPERTIES, IDI_PROPERTIES, MENUPROPERTIES);
-	InsertItem(IDS_MENUURLDIFF, IDI_DIFF, MENUURLDIFF);
+	InsertItem(IDS_MENUCLIPPASTE, IDI_CLIPPASTE, MENUCLIPPASTE);
 	m_bBlock = false;
 
 	m_cMenuList.SetImageList(&m_imgList, LVSIL_SMALL);
@@ -184,10 +185,11 @@ void CSetLookAndFeelPage::OnLvnItemchangedMenulist(NMHDR * /*pNMHDR*/, LRESULT *
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCOMMIT : 0;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUDIFF : 0;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUPREVDIFF : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUURLDIFF : 0;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENULOG : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUREPOBROWSE : 0;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUSHOWCHANGED : 0;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUREVISIONGRAPH : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUREPOBROWSE : 0;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCONFLICTEDITOR : 0;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENURESOLVE : 0;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUUPDATEEXT : 0;
@@ -211,7 +213,7 @@ void CSetLookAndFeelPage::OnLvnItemchangedMenulist(NMHDR * /*pNMHDR*/, LRESULT *
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCREATEPATCH : 0;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUAPPLYPATCH : 0;
 		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUPROPERTIES : 0;
-		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUURLDIFF : 0;
+		m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCLIPPASTE : 0;
 	}
 	*pResult = 0;
 }

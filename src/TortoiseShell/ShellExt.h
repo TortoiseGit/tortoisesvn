@@ -142,6 +142,7 @@ protected:
 		ShellMenuUnlockForce,
 		ShellMenuProperties,
 		ShellMenuDelUnversioned,
+		ShellMenuClipPaste,
 		ShellMenuLastEntry			// used to mark the menu array end
 	};
 
@@ -203,6 +204,7 @@ private:
 	void			InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UINT stringid, UINT icon, UINT idCmdFirst, SVNCommands com, UINT uFlags);
 	void			InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst, HMENU hMenu, HMENU subMenu, UINT &indexMenu, int &indexSubMenu, unsigned __int64 topmenu, bool bShowIcons);
 	stdstring		WriteFileListToTempFile();
+	bool			WriteClipboardPathsToTempFile(stdstring& tempfile);
 	LPCTSTR			GetMenuTextFromResource(int id);
 	void			GetColumnStatus(const TCHAR * path, BOOL bIsDir);
 	HBITMAP			IconToBitmap(UINT uIcon);
