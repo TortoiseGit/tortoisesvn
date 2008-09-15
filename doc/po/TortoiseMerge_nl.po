@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseMerge\n"
 "POT-Creation-Date: 2006-10-11 21:52GMT Daylight Time\n"
-"PO-Revision-Date: 2008-09-10 10:51+0200\n"
+"PO-Revision-Date: 2008-09-15 21:57+0200\n"
 "Last-Translator: Bob Hulst <bob.hulst@hiq.fi>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -379,7 +379,7 @@ msgstr "Bekijk Mode"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:403
 msgid "TortoiseMerge has three main viewing modes: one-pane, two-pane and three-pane view. One/two-pane view is used to view changes and three-pane view is used to resolve conflicts."
-msgstr ""
+msgstr "TortoiseMerge heeft drie mogelijkeden om de veranderingen te bekijken: één-venster, twee-vensters en drie-vensters. De eerste twee worden gebruikt om de veranderingen te bekijken en met drie vensters kunnen ook de konflikten zichtbaar worden gemaakt."
 
 #. (title)
 #. (title)
@@ -682,9 +682,8 @@ msgstr "Open Bestanden"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:824
-#, fuzzy
 msgid "When you start TortoiseMerge without any command line switches then you have to open the files manually, using <menuchoice><guimenu>File</guimenu><guimenuitem>Open</guimenuitem></menuchoice>."
-msgstr "TortoiseMerge<menuchoice><guimenu></guimenu><guimenuitem></guimenuitem></menuchoice>."
+msgstr "Wanneer TortoiseMerge start zonder commando regel argumenten dan moet het bestand handmatig worden geopend, volgens <menuchoice><guimenu>Bestand</guimenu><guimenuitem>Open</guimenuitem></menuchoice>."
 
 #. (title)
 #: ../source/TortoiseMerge_en.xml:833
@@ -931,7 +930,6 @@ msgstr "ctrl-C"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1043
-#, fuzzy
 msgid "Copy the selected text to the clipboard"
 msgstr "Kopieer de geselecteerde regel(s) naar het clipboard"
 
@@ -1207,9 +1205,8 @@ msgstr ""
 
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1308
-#, fuzzy
 msgid "Forces TortoiseMerge to start with the one-way view instead of the view the user specified in the settings."
-msgstr "TortoiseMerge."
+msgstr "Forceert TortoiseMerge te starten met slechts één venster ongeacht de instellingen van de gebruiker."
 
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1315
@@ -1224,7 +1221,7 @@ msgstr "/origfile:\"path_naar_originele_bestand\""
 #. (literal)
 #: ../source/TortoiseMerge_en.xml:1326
 msgid "/modifiedfile:\"path_to_modified_file\""
-msgstr ""
+msgstr "/modifiedfile:\"path_to_modified_file\""
 
 #. (literal)
 #: ../source/TortoiseMerge_en.xml:1328
