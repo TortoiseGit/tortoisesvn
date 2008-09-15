@@ -77,7 +77,7 @@ bool MergeCommand::Execute()
 		progDlg.SetDepth(wizard.m_depth);
 		progDlg.SetDiffOptions(SVN::GetOptionsString(wizard.m_bIgnoreEOL, wizard.m_IgnoreSpaces));
 		progDlg.DoModal();
-		return true;
+		return !progDlg.DidErrorsOccur();
 	}
 	return false;
 }

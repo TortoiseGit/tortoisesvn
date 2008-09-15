@@ -71,6 +71,7 @@ CTortoiseProcApp::CTortoiseProcApp()
 	g_SVNAdminDir.Init();
 	m_bLoadUserToolbars = FALSE;
 	m_bSaveState = FALSE;
+	retSuccess = false;
 }
 
 CTortoiseProcApp::~CTortoiseProcApp()
@@ -362,7 +363,7 @@ BOOL CTortoiseProcApp::InitInstance()
 		cmd->SetExplorerHwnd(hWndExplorer);
 		cmd->SetParser(parser);
 		cmd->SetPaths(pathList, cmdLinePath);
-		cmd->Execute();
+		retSuccess = cmd->Execute();
 		delete cmd;
 	}
 
@@ -552,4 +553,12 @@ void CTortoiseProcApp::EnableCrashHandler()
 	{
 		crasher.Enable(FALSE);
 	}
+}
+
+int CTortoiseProcApp::ExitInstance()
+{
+	CWinAppEx::ExitInstance();
+	if (retSuccess)
+		return 0;
+	return -1;
 }

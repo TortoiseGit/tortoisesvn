@@ -24,6 +24,7 @@
 
 bool ImportCommand::Execute()
 {
+	bool bRet = false;
 	CImportDlg dlg;
 	dlg.m_path = cmdLinePath;
 	if (dlg.DoModal() == IDOK)
@@ -42,6 +43,7 @@ bool ImportCommand::Execute()
 		props.ReadPropsPathList(pathList);
 		progDlg.SetProjectProperties(props);
 		progDlg.DoModal();
+		bRet = !progDlg.DidErrorsOccur();
 	}
-	return true;
+	return bRet;
 }

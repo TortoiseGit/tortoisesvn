@@ -86,6 +86,7 @@ bool IgnoreCommand::Execute()
 		CString temp;
 		temp.Format(IDS_PROC_IGNORESUCCESS, (LPCTSTR)filelist);
 		CMessageBox::Show(hwndExplorer, temp, _T("TortoiseSVN"), MB_ICONINFORMATION);
+		return true;
 	}
-	return true;
+	return false;
 }

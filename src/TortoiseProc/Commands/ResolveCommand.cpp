@@ -41,7 +41,8 @@ bool ResolveCommand::Execute()
 			progDlg.SetOptions(parser.HasKey(_T("skipcheck")) ? ProgOptSkipConflictCheck : ProgOptNone);
 			progDlg.SetPathList(dlg.m_pathList);
 			progDlg.DoModal();
+			return !progDlg.DidErrorsOccur();
 		}
 	}
-	return true;
+	return false;
 }

@@ -23,6 +23,7 @@
 
 bool DelUnversionedCommand::Execute()
 {
+	bool bRet = false;
 	CDeleteUnversionedDlg dlg;
 	dlg.m_pathList = pathList;
 	if (dlg.DoModal() == IDOK)
@@ -51,7 +52,7 @@ bool DelUnversionedCommand::Execute()
 		fileop.pTo = NULL;
 		fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS | FOF_ALLOWUNDO;
 		fileop.lpszProgressTitle = _T("deleting file");
-		SHFileOperation(&fileop);
+		bRet = (SHFileOperation(&fileop) == 0);
 		delete [] buf;
 	}
 	return true;

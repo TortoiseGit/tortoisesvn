@@ -29,6 +29,7 @@
 
 bool RenameCommand::Execute()
 {
+	bool bRet = false;
 	CString filename = cmdLinePath.GetFileOrDirectoryName();
 	CString basePath = cmdLinePath.GetContainingDirectory().GetWinPathString();
 	::SetCurrentDirectory(basePath);
@@ -99,6 +100,7 @@ bool RenameCommand::Execute()
 			progDlg.SetCommitMessage(sMsg);
 			progDlg.SetRevision(SVNRev::REV_WC);
 			progDlg.DoModal();
+			bRet = !progDlg.DidErrorsOccur();
 		}
 		else
 		{
@@ -126,6 +128,8 @@ bool RenameCommand::Execute()
 					TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
 					CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				}
+				else
+					bRet = true;
 			}
 			else
 			{
@@ -148,6 +152,8 @@ bool RenameCommand::Execute()
 						TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
 						CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 					}
+					else
+						bRet = true;
 				}
 				else
 				{
@@ -183,14 +189,17 @@ bool RenameCommand::Execute()
 							{
 								if (svn.Err->apr_err == SVN_ERR_ENTRY_NOT_FOUND)
 								{
-									MoveFile(it->first, it->second);
+									bRet = !!MoveFile(it->first, it->second);
 								}
 								else
 								{
 									TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
 									CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+									bRet = false;
 								}
 							}
+							else
+								bRet = true;
 						}
 						progress.Stop();
 					}
@@ -202,6 +211,8 @@ bool RenameCommand::Execute()
 							TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
 							CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						}
+						else
+							bRet = true;
 					}
 					else if (idret == IDCANCEL)
 					{
@@ -209,7 +220,7 @@ bool RenameCommand::Execute()
 					}
 				}
 			}
-		} // else from if ((cmdLinePath.IsDirectory())||(pathList.GetCount() > 1))
-	} // else from if (cmdLinePath.GetWinPathString().CompareNoCase(destinationPath.GetWinPathString())==0)
-	return true;
+		}
+	}
+	return bRet;
 }

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,6 +24,7 @@
 
 bool UnLockCommand::Execute()
 {
+	bool bRet = false;
 	CUnlockDlg unlockDlg;
 	unlockDlg.m_pathList = pathList;
 	if (unlockDlg.DoModal()==IDOK)
@@ -35,7 +36,8 @@ bool UnLockCommand::Execute()
 			progDlg.SetOptions(parser.HasKey(_T("force")) ? ProgOptLockForce : ProgOptNone);
 			progDlg.SetPathList(unlockDlg.m_pathList);
 			progDlg.DoModal();
+			bRet = !progDlg.DidErrorsOccur();
 		}
 	}
-	return true;
+	return bRet;
 }

@@ -53,6 +53,7 @@ public:
 // Overrides
 public:
 	virtual BOOL InitInstance();
+	virtual int ExitInstance();
 
 	void CheckUpgrade();
 	void EnableCrashHandler();
@@ -65,6 +66,7 @@ private:
 	DECLARE_MESSAGE_MAP()
 private:
 	HANDLE	m_mutex;
+	bool	retSuccess;
 };
 
 extern CTortoiseProcApp theApp;

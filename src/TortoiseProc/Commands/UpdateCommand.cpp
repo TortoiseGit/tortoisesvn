@@ -75,5 +75,5 @@ bool UpdateCommand::Execute()
 	progDlg.SetRevision(rev);
 	progDlg.SetDepth(depth);
 	progDlg.DoModal();
-	return true;
+	return !progDlg.DidErrorsOccur();
 }

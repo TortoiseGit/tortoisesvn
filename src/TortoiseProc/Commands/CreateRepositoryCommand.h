@@ -36,6 +36,7 @@ public:
 		if (!SVN::CreateRepository(cmdLinePath))
 		{
 			CMessageBox::Show(hwndExplorer, IDS_PROC_REPOCREATEERR, IDS_APPNAME, MB_ICONERROR);
+			return false;
 		}
 		else
 		{

@@ -26,6 +26,7 @@
 
 bool DiffCommand::Execute()
 {
+	bool bRet = false;
 	CString path2 = CPathUtils::GetLongPathname(parser.GetVal(_T("path2")));
 	bool bAlternativeTool = !!parser.HasKey(_T("alternative"));
 	bool bBlame = !!parser.HasKey(_T("blame"));
@@ -36,6 +37,7 @@ bool DiffCommand::Execute()
 			CChangedDlg dlg;
 			dlg.m_pathList = CTSVNPathList(cmdLinePath);
 			dlg.DoModal();
+			bRet = true;
 		}
 		else
 		{
@@ -45,17 +47,17 @@ bool DiffCommand::Execute()
 			{
 				SVNRev StartRevision = SVNRev(parser.GetLongVal(_T("startrev")));
 				SVNRev EndRevision = SVNRev(parser.GetLongVal(_T("endrev")));
-				diff.ShowCompare(cmdLinePath, StartRevision, cmdLinePath, EndRevision, SVNRev(), false, bBlame);
+				bRet = diff.ShowCompare(cmdLinePath, StartRevision, cmdLinePath, EndRevision, SVNRev(), false, bBlame);
 			}
 			else
 			{
-				diff.DiffFileAgainstBase(cmdLinePath);
+				bRet = diff.DiffFileAgainstBase(cmdLinePath);
 			}
 		}
 	} 
 	else
-		CAppUtils::StartExtDiff(
+		bRet = CAppUtils::StartExtDiff(
 			CTSVNPath(path2), cmdLinePath, CString(), CString(),
 			CAppUtils::DiffFlags().AlternativeTool(bAlternativeTool));
-	return true;
+	return bRet;
 }

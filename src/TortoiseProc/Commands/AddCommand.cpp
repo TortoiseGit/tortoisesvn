@@ -24,12 +24,13 @@
 
 bool AddCommand::Execute()
 {
+	bool bRet = false;
 	if (parser.HasKey(_T("noui")))
 	{
 		SVN svn;
 		ProjectProperties props;
 		props.ReadPropsPathList(pathList);
-		svn.Add(pathList, &props, svn_depth_empty, FALSE, FALSE, TRUE);
+		bRet = !!svn.Add(pathList, &props, svn_depth_empty, FALSE, FALSE, TRUE);
 	}
 	else
 	{
@@ -38,7 +39,7 @@ bool AddCommand::Execute()
 			SVN svn;
 			ProjectProperties props;
 			props.ReadPropsPathList(pathList);
-			svn.Add(pathList, &props, svn_depth_empty, FALSE, FALSE, TRUE);
+			bRet = !!svn.Add(pathList, &props, svn_depth_empty, FALSE, FALSE, TRUE);
 		}
 		else
 		{
@@ -59,8 +60,9 @@ bool AddCommand::Execute()
 				progDlg.SetProjectProperties(props);
 				progDlg.SetItemCount(dlg.m_pathList.GetCount());
 				progDlg.DoModal();
+				bRet = !progDlg.DidErrorsOccur();
 			}
 		}
 	}
-	return true;
+	return bRet;
 }

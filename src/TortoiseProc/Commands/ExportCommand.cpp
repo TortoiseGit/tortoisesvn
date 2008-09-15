@@ -30,6 +30,7 @@
 
 bool ExportCommand::Execute()
 {
+	bool bRet = false;
 	// When the user clicked on a working copy, we know that the export should
 	// be done from that. We then have to ask where the export should go to.
 	// If however the user clicked on an unversioned folder, we assume that
@@ -73,6 +74,7 @@ bool ExportCommand::Execute()
 			progDlg.SetRevision(dlg.Revision);
 			progDlg.SetDepth(dlg.m_depth);
 			progDlg.DoModal();
+			bRet = !progDlg.DidErrorsOccur();
 		}
 	}
 	else
@@ -130,6 +132,7 @@ bool ExportCommand::Execute()
 						it->Delete(false);
 					}
 					progress.Stop();
+					bRet = true;
 				}
 				else
 					return false;
@@ -144,10 +147,13 @@ bool ExportCommand::Execute()
 					hwndExplorer, folderBrowser.m_bCheck))
 				{
 					CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_OK | MB_ICONERROR);
+					bRet = false;
 				}
+				else
+					bRet = true;
 				regExtended = CBrowseFolder::m_bCheck;
 			}
 		}
 	}
-	return true;
+	return bRet;
 }

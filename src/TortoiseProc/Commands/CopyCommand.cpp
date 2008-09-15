@@ -25,6 +25,7 @@
 
 bool CopyCommand::Execute()
 {
+	bool bRet = false;
 	CString msg;
 	if (parser.HasKey(_T("logmsg")))
 	{
@@ -72,11 +73,12 @@ bool CopyCommand::Execute()
 			progDlg.DoModal();
 			CRegDWORD err = CRegDWORD(_T("Software\\TortoiseSVN\\ErrorOccurred"), FALSE);
 			err = (DWORD)progDlg.DidErrorsOccur();
+			bRet = !progDlg.DidErrorsOccur();
 			repeat = progDlg.DidErrorsOccur();
 			CRegDWORD bFailRepeat = CRegDWORD(_T("Software\\TortoiseSVN\\CommitReopen"), FALSE);
 			if (DWORD(bFailRepeat) == FALSE)
 				repeat = false;		// do not repeat if the user chose not to in the settings.
 		}
 	} while(repeat);
-	return true;
+	return bRet;
 }

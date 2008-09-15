@@ -23,6 +23,7 @@
 
 bool ShowCompareCommand::Execute()
 {
+	bool		bRet = false;
 	SVNDiff		diff(NULL, hwndExplorer);
 
 	SVNRev		rev1;
@@ -47,9 +48,9 @@ bool ShowCompareCommand::Execute()
 	diff.SetAlternativeTool(!!parser.HasKey(_T("alternatediff")));
 
 	if (unified)
-		diff.ShowUnifiedDiff(url1, rev1, url2, rev2, pegrev, ignoreancestry);
+		bRet = diff.ShowUnifiedDiff(url1, rev1, url2, rev2, pegrev, ignoreancestry);
 	else
-		diff.ShowCompare(url1, rev1, url2, rev2, pegrev, ignoreancestry, blame);
+		bRet = diff.ShowCompare(url1, rev1, url2, rev2, pegrev, ignoreancestry, blame);
 
-	return true;
+	return bRet;
 }

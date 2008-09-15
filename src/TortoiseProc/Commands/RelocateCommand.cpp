@@ -28,6 +28,7 @@
 
 bool RelocateCommand::Execute()
 {
+	bool bRet = false;
 	SVN svn;
 	CRelocateDlg dlg;
 	dlg.m_sFromUrl = CPathUtils::PathUnescape(svn.GetURLFromPath(cmdLinePath));
@@ -129,8 +130,9 @@ bool RelocateCommand::Execute()
 				CString strMessage;
 				strMessage.Format(IDS_PROC_RELOCATEFINISHED, (LPCTSTR)dlg.m_sToUrl);
 				CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_ICONINFORMATION);
+				bRet = true;
 			}
 		}
 	}
-	return true;
+	return bRet;
 }

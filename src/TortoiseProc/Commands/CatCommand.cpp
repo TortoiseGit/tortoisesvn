@@ -38,6 +38,7 @@ bool CatCommand::Execute()
 	{
 		::MessageBox(NULL, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 		::DeleteFile(savepath);
+		return false;
 	} 
 	return true;
 }

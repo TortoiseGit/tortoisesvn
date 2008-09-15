@@ -40,13 +40,10 @@ bool PasteCopyCommand::Execute()
 	CString sNewName;
 	pathList.RemoveAdminPaths();
 	CProgressDlg progress;
-	if (progress.IsValid())
-	{
-		progress.SetTitle(IDS_PROC_COPYING);
-		progress.SetAnimation(IDR_MOVEANI);
-		progress.SetTime(true);
-		progress.ShowModeless(CWnd::FromHandle(hwndExplorer));
-	}
+	progress.SetTitle(IDS_PROC_COPYING);
+	progress.SetAnimation(IDR_MOVEANI);
+	progress.SetTime(true);
+	progress.ShowModeless(CWnd::FromHandle(hwndExplorer));
 	for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
 	{
 		const CTSVNPath& sourcePath = pathList[nPath];

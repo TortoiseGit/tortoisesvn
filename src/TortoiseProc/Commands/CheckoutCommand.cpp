@@ -26,6 +26,7 @@
 
 bool CheckoutCommand::Execute()
 {
+	bool bRet = false;
 	// Get the directory supplied in the command line. If there isn't
 	// one then we should use first the default checkout path
 	// specified in the settings dialog, and fall back to the current 
@@ -125,6 +126,7 @@ bool CheckoutCommand::Execute()
 			progDlg.SetRevision(dlg.Revision);
 			progDlg.SetDepth(foldbrowse.m_bCheck ? svn_depth_empty : svn_depth_infinity);
 			progDlg.DoModal();
+			bRet = !progDlg.DidErrorsOccur();
 		}
 	}
 	else if (dlg.DoModal() == IDOK)
@@ -142,6 +144,7 @@ bool CheckoutCommand::Execute()
 		progDlg.SetRevision(dlg.Revision);
 		progDlg.SetDepth(dlg.m_depth);
 		progDlg.DoModal();
+		bRet = !progDlg.DidErrorsOccur();
 	}
-	return true;
+	return bRet;
 }
