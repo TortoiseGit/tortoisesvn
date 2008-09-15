@@ -163,7 +163,10 @@ void CExportDlg::OnOK()
 	// check it the export path is a valid windows path
 	CTSVNPath ExportDirectory;
 	if (::PathIsRelative(m_strExportDirectory))
-		ExportDirectory = CTSVNPath(sOrigCWD + _T("\\") + m_strExportDirectory);
+	{
+		ExportDirectory = CTSVNPath(sOrigCWD);
+		ExportDirectory.AppendPathString(_T("\\") + m_strExportDirectory);
+	}
 	else
 		ExportDirectory = CTSVNPath(m_strExportDirectory);
 	if (!ExportDirectory.IsValidOnWindows())

@@ -700,7 +700,8 @@ UINT CFileDiffDlg::ExportThread()
 		CString sTemp;
 		m_pProgDlg->FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)url1.GetSVNPathString());
 
-		CTSVNPath savepath = CTSVNPath(m_strExportDir + _T("\\") + CPathUtils::PathUnescape(fd.path.GetWinPathString()));
+		CTSVNPath savepath = CTSVNPath(m_strExportDir);
+		savepath.AppendPathString(_T("\\") + CPathUtils::PathUnescape(fd.path.GetWinPathString()));
 		CPathUtils::MakeSureDirectoryPathExists(fd.node == svn_node_file ? savepath.GetContainingDirectory().GetWinPath() : savepath.GetDirectory().GetWinPath());
 		if (fd.node == svn_node_dir)
 		{

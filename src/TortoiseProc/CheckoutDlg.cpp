@@ -162,7 +162,10 @@ void CCheckoutDlg::OnOK()
 
 	CTSVNPath m_CheckoutDirectory;
 	if (::PathIsRelative(m_strCheckoutDirectory))
-		m_CheckoutDirectory = CTSVNPath(sOrigCWD + _T("\\") + m_strCheckoutDirectory);
+	{
+		m_CheckoutDirectory = CTSVNPath(sOrigCWD);
+		m_CheckoutDirectory.AppendPathString(_T("\\") + m_strCheckoutDirectory);
+	}
 	else
 		m_CheckoutDirectory = CTSVNPath(m_strCheckoutDirectory);
 	if (!m_CheckoutDirectory.IsValidOnWindows())
