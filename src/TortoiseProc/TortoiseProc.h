@@ -65,7 +65,6 @@ private:
 
 	DECLARE_MESSAGE_MAP()
 private:
-	HANDLE	m_mutex;
 	bool	retSuccess;
 };
 
