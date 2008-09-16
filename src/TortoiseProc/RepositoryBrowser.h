@@ -146,6 +146,8 @@ public:
 	/// the repository browser will show the content of that url.
 	bool ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChecked);
 
+	CString GetRepoRoot() { return m_strReposRoot; }
+
 	enum { IDD = IDD_REPOSITORY_BROWSER };
 
 	/// the project properties if the repository browser was started from a working copy
@@ -184,6 +186,7 @@ protected:
 	afx_msg void OnInlineedit();
 	afx_msg void OnRefresh();
 	afx_msg void OnDelete();
+	afx_msg void OnGoUp();
 
 	DECLARE_MESSAGE_MAP()
 

@@ -26,6 +26,7 @@
 
 #define IDC_URL_COMBO     10000
 #define IDC_REVISION_BTN  10001
+#define IDC_UP_BTN        10002
 
 IMPLEMENT_DYNAMIC(CRepositoryBar, CReBarCtrl)
 
@@ -35,17 +36,21 @@ IMPLEMENT_DYNAMIC(CRepositoryBar, CReBarCtrl)
 CRepositoryBar::CRepositoryBar() : m_cbxUrl(this)
 	, m_pRepo(NULL)
 {
+	m_UpIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_UP), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
 }
 
 #pragma warning(pop)
 
 CRepositoryBar::~CRepositoryBar()
 {
+	if (m_UpIcon)
+		DestroyIcon(m_UpIcon);
 }
 
 BEGIN_MESSAGE_MAP(CRepositoryBar, CReBarCtrl)
 	ON_CBN_SELCHANGE(IDC_URL_COMBO, OnCbnSelChange)
 	ON_BN_CLICKED(IDC_REVISION_BTN, OnBnClicked)
+	ON_BN_CLICKED(IDC_UP_BTN, OnGoUp)
 	ON_WM_DESTROY()
 END_MESSAGE_MAP()
 
@@ -115,6 +120,21 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
 		m_cbxUrl.GetWindowRect(rect);
 		m_cbxUrl.MoveWindow(rect.left, rect.top, rect.Width(), 300);
 
+		// Create the "Up" button control to be added
+		rect = CRect(0, 0, 24, m_cbxUrl.GetItemHeight(-1) + 8);
+		m_btnUp.Create(_T("UP"), WS_CHILD | WS_TABSTOP | BS_PUSHBUTTON | BS_ICON, rect, this, IDC_UP_BTN);
+		m_btnUp.SetIcon(m_UpIcon);
+		m_btnUp.SetWindowText(_T(""));
+		rbbi.lpText     = _T("");
+		rbbi.hwndChild  = m_btnUp.m_hWnd;
+		rbbi.clrFore	= ::GetSysColor(COLOR_WINDOWTEXT);
+		rbbi.clrBack	= ::GetSysColor(COLOR_BTNFACE);
+		rbbi.cx         = rect.right - rect.left;
+		rbbi.cxMinChild = rect.right - rect.left;
+		rbbi.cyMinChild = rect.bottom - rect.top;
+		if (!InsertBand(1, &rbbi))
+			return false;
+
 		// Create the "Revision" button control to be added
 		rect = CRect(0, 0, 60, m_cbxUrl.GetItemHeight(-1) + 8);
 		m_btnRevision.Create(_T("HEAD"), WS_CHILD | WS_TABSTOP | BS_PUSHBUTTON, rect, this, IDC_REVISION_BTN);
@@ -127,7 +147,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
 		rbbi.cx         = rect.right - rect.left;
 		rbbi.cxMinChild = rect.right - rect.left;
 		rbbi.cyMinChild = rect.bottom - rect.top;
-		if (!InsertBand(1, &rbbi))
+		if (!InsertBand(2, &rbbi))
 			return false;
 
 		MaximizeBand(0);
@@ -288,6 +308,14 @@ void CRepositoryBar::OnBnClicked()
 		m_btnRevision.SetWindowText(SVNRev(revision).ToString());
 		GotoUrl();
 	}
+}
+
+void CRepositoryBar::OnGoUp()
+{
+	CString sCurrentUrl = GetCurrentUrl();
+	CString sNewUrl = sCurrentUrl.Left(sCurrentUrl.ReverseFind('/'));
+	if (sNewUrl.GetLength() >= m_pRepo->GetRepoRoot().GetLength())
+		GotoUrl(sNewUrl, GetCurrentRev(), true);
 }
 
 void CRepositoryBar::SetFocusToURL()

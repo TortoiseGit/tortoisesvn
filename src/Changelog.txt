@@ -16,6 +16,7 @@
 - NEW: TortoiseProc returns now 0 after the command finished successfully
        and -1 if the command failed with an error. See issue #426
        for details. (Stefan)
+- NEW: "up" button in the repo browser. (Stefan)
 - CHG: The bug-ID column width in the log dialog is now limited 
        to 200 pixels. (Stefan)
 - CHG: The right-drag context menu now only shows "Export" if a versioned

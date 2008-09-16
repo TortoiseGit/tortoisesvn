@@ -179,6 +179,7 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableStandAloneDialog)
 	ON_COMMAND(ID_INLINEEDIT, &CRepositoryBrowser::OnInlineedit)
 	ON_COMMAND(ID_REFRESHBROWSER, &CRepositoryBrowser::OnRefresh)
 	ON_COMMAND(ID_DELETEBROWSERITEM, &CRepositoryBrowser::OnDelete)
+	ON_COMMAND(ID_URL_UP, &CRepositoryBrowser::OnGoUp)
 	ON_NOTIFY(TVN_BEGINDRAG, IDC_REPOTREE, &CRepositoryBrowser::OnTvnBegindragRepotree)
 	ON_NOTIFY(TVN_BEGINRDRAG, IDC_REPOTREE, &CRepositoryBrowser::OnTvnBeginrdragRepotree)
 END_MESSAGE_MAP()
@@ -730,7 +731,6 @@ bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChe
 		m_bCancelled = false;
 		do 
 		{
-			Sleep(1000);
 			data = info.GetFirstFileInfo(CTSVNPath(url), rev, rev);
 			if (data && rev.IsHead())
 			{
@@ -1171,6 +1171,11 @@ void CRepositoryBrowser::OnDelete()
 	}
 }
 
+void CRepositoryBrowser::OnGoUp()
+{
+	m_barRepository.OnGoUp();
+}
+
 void CRepositoryBrowser::OnUrlFocus()
 {
 	m_barRepository.SetFocusToURL();
@@ -1325,7 +1330,7 @@ void CRepositoryBrowser::OnNMDblclkRepolist(NMHDR *pNMHDR, LRESULT *pResult)
 	if ((pItem)&&(pItem->kind == svn_node_dir))
 	{
 		// a double click on a folder results in selecting that folder
-		ChangeToUrl(pItem->absolutepath, m_initialRev, false);
+		ChangeToUrl(pItem->absolutepath, m_initialRev, true);
 	}
 }
 
