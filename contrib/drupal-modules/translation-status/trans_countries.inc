@@ -66,6 +66,6 @@ $countries = array(
 "tr"    => array("1","000","tr","Turkish","Aydogan Yolacan"),
 "zh_CN" => array("1","110","zh_CN","Chinese, simplified","Dongsheng Song, Cecil Sheng, Ken Chew, Cobra Net, Xingyu Wang, Lixinfeng"),
 "zh_TW" => array("1","000","zh_TW","Chinese, traditional","Cecil Sheng"),
-"zzz"   => array("0","111","gb","Empty Catalog (English)","Stefan Küng, Simon Large, Lübbe Onken")
+"zzz"   => array("0","111","gb","Template (English)","Stefan Küng, Simon Large, Lübbe Onken")
 );
 ?>

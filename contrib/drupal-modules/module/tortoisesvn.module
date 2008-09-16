@@ -235,7 +235,7 @@ function print_content_stat($i, $postat, $vars)
 {
   $release=$vars['release'];
   $build=$vars['build'];
-  $wc=200;         // Fixed width for graph
+  $wc=120;         // Fixed width for graph
 
   $lang_cc=$postat[2];
   $lang_name=$postat[3];
@@ -303,7 +303,7 @@ function print_content_stat($i, $postat, $vars)
   $tra=$tra+$fuz;
 
   echo "<td>$i</td>";
-  echo "<td class=\"lang\">$flagtag</td>";
+  echo "<td class=\"lang\"><nobr>$flagtag</nobr></td>";
   echo "<td class=\"lang\">$lang_cc</td>";
   echo "<td class=\"trans\">$tra</td>";
   echo "<td class=\"trans\">$pt</td>";
