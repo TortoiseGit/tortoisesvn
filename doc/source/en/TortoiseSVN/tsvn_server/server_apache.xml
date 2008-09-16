@@ -799,7 +799,7 @@ SSLMutex default
 					<filename>C:\program files\apache group\apache2</filename>)
 					and type the following command:
 <screen>
-bin\openssl req -config bin\openssl.cnf -new -out my-server.csr
+bin\openssl req -config conf\openssl.cnf -new -out my-server.csr
 </screen>
 					You will be asked for a passphrase. Please don't use simple
 					words but whole sentences, e.g. a part of a poem. The
