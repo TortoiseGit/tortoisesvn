@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-09-15 17:10+0100\n"
-"Last-Translator: Cecilia Saltori\n"
+"PO-Revision-Date: 2008-09-17 09:32+0100\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -611,7 +611,7 @@ msgstr "I&mporta..."
 
 #. Resource IDs: (1480)
 msgid "&Include merge info"
-msgstr "Includi informazioni di unione"
+msgstr "&Includi informazioni di unione"
 
 #. Resource IDs: (65535)
 msgid "&Initial directory:"
@@ -1170,7 +1170,7 @@ msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
-"Una lista, separata da caratteri di a capo, di percorsi per i quali vengono visualizzate icone di stato.\n"
+"Una lista, separata da caratteri di a capo, di percorsi per i quali vengono visualizzate icone di stato.\r\n"
 "Se si aggiunge '*' alla fine di un percorso, allora anchetutti i file e le sottodirectory di quel percorso vengono incluse."
 
 #. Resource IDs: (194)
@@ -1437,7 +1437,7 @@ msgid ""
 "%base : the base file\r\n"
 "%mine : the modified file"
 msgstr ""
-"Viene utilizzato un programma di confronto esterno\n"
+"Viene utilizzato un programma di confronto esterno\r\n"
 "per confronatare revisioni differenti dei file\r\n"
 "\r\n"
 "È possibile specificare i seguenti parametri nel percorso:\r\n"
@@ -2336,7 +2336,7 @@ msgid ""
 "Copy %s\r\n"
 "to %s"
 msgstr ""
-"Copia %s\n"
+"Copia %s\r\n"
 "in %s"
 
 #. Resource IDs: (142)
@@ -2697,7 +2697,7 @@ msgstr ""
 
 #. Resource IDs: (1279)
 msgid "D&etails"
-msgstr "D%ettagli"
+msgstr "D&ettagli"
 
 #. Resource IDs: (19, 76, 208)
 msgid "Date"
@@ -6047,7 +6047,9 @@ msgstr "Rinomina %s"
 msgid ""
 "Rename item from %s\r\n"
 "to %s"
-msgstr "Rinomina elementi da %s\r\a %s"
+msgstr ""
+"Rinomina elementi da %s\r\n"
+"a %s"
 
 #. Resource IDs: (221)
 msgid "Rename/move - TortoiseSVN"
@@ -8925,7 +8927,7 @@ msgid ""
 "bugtraq:number\r\n"
 "Set to 'false' if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
-"bugtraq:numbe\rr\n"
+"bugtraq:number\r\n"
 "Da impostare su 'false' quando il sistema di rilevamento dei bug che si utilizza non usa numeri per identificare i bug."
 
 #. Resource IDs: (577)
