@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-09-11 11:41+0100\n"
+"PO-Revision-Date: 2008-09-17 14:20+0100\n"
 "Last-Translator: Johan Appelgren <johan.appelgren@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1196,8 +1196,8 @@ msgid ""
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
-"En lista med sökvägar (en per rad), för vilka inga statusikoner ska visas.\n"
-"Om du avslutar en sökväg med en asterisk (\"*\"), exkluderas även alla filer och undermappar.\n"
+"En lista med sökvägar (en per rad), för vilka inga statusikoner ska visas.\r\n"
+"Om du avslutar en sökväg med en asterisk (\"*\"), exkluderas även alla filer och undermappar.\r\n"
 "En tom lista tillåter visning av statussymboler för alla sökvägar."
 
 #. Resource IDs: (3843)
@@ -1464,7 +1464,7 @@ msgstr ""
 "för att jämföra olika revisioner av filer\r\n"
 "\r\n"
 "Du kan specifiera följande parametrar i sökvägen:\r\n"
-"%base : den ursprungliga filen\n"
+"%base : den ursprungliga filen\r\n"
 "%mine : den ändrade filen"
 
 #. Resource IDs: (79)
@@ -4542,7 +4542,7 @@ msgstr ""
 # Hur översätta "diff"
 #. Resource IDs: (32853)
 msgid "Line diff bar"
-msgstr "Visa a&vvikelsefält"
+msgstr "Visa avvikelsefält"
 
 # Hur översätta "difference"
 #. Resource IDs: (65535)
@@ -8381,7 +8381,7 @@ msgid ""
 "Use text block from 'mine' before 'theirs'\n"
 "Use 'mine' text block then 'theirs'"
 msgstr ""
-"Använd textblock från \"mitt\" före \"deras\"\r\n"
+"Använd textblock från \"mitt\" före \"deras\"\n"
 "Använd \"mitt\" textblock följt av \"deras\""
 
 #. Resource IDs: (2052)
@@ -8389,7 +8389,7 @@ msgid ""
 "Use text block from 'mine'\n"
 "Use 'mine' text block"
 msgstr ""
-"Använd textblocket från \"mitt\"\r\n"
+"Använd textblocket från \"mitt\"\n"
 "Använd \"mitt\" textblock"
 
 #. Resource IDs: (251)
@@ -8401,7 +8401,7 @@ msgid ""
 "Use text block from 'theirs' before 'mine'\n"
 "Use 'theirs' text block then 'mine'"
 msgstr ""
-"Använd textblocket från \"deras\" före \"mitt\"\r\n"
+"Använd textblocket från \"deras\" före \"mitt\"\n"
 "Använd \"deras\" textblock följt av \"mitt\""
 
 #. Resource IDs: (2052)
@@ -8555,8 +8555,8 @@ msgid ""
 "TSVN can switch to using cached data only.\n"
 "Select the default behaviour here."
 msgstr ""
-"När uppkoppling till arkivet inte är möjligt,\r\n"
-"så kan TSVN växla till att endast använda cachad information.\r\n"
+"När uppkoppling till arkivet inte är möjligt,\n"
+"så kan TSVN växla till att endast använda cachad information.\n"
 "Välj standardbeteende här."
 
 #. Resource IDs: (197)
