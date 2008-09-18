@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-09-11 16:12+0100\n"
+"PO-Revision-Date: 2008-09-18 13:45+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2785,6 +2785,10 @@ msgstr "Standard applikasjonsmeny. Vises når ingen dokumenter er åpne."
 msgid "Default path:"
 msgstr "Standard sti:"
 
+#. Resource IDs: (1064)
+msgid "Default to UTF-8 encoding"
+msgstr "Bruk UTF-8-kode som standard"
+
 #. Resource IDs: (1002, 1382)
 msgid "Delete"
 msgstr "Slett"
@@ -5474,6 +5478,10 @@ msgstr ""
 #. Resource IDs: (172)
 msgid "Paste filename list"
 msgstr "Lim inn filnavnlisten"
+
+#. Resource IDs: (15)
+msgid "Pastes the svn path from the clipboard, resulting in a move (cut) or copy operation"
+msgstr "Limer inn svn-stien fra utklippstavlen, som gir en flytt (klipp ut) eller kopi-operasjon"
 
 #. Resource IDs: (376)
 msgid "Patch all"
@@ -9392,11 +9400,11 @@ msgstr ""
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logfilelistenglish\r\n"
-"Set to 'false' if you don't want the list of changed files to be pasted in english\r\n"
+"Set to 'false' if you don't want the list of changed files to be pasted in English\r\n"
 "in the commit dialog."
 msgstr ""
 "tsvn:logfilelistenglish\r\n"
-"Settes som 'false' hvis du ikke vil at listen over endrede filer skal limes inn på\r\n"
+"Settes som 'false' hvis du ikke vil at listen over endrede filer skal limes inn\r\n"
 "på engelsk i innsendingsdialogen."
 
 #. Resource IDs: (578)
