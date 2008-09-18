@@ -89,6 +89,7 @@
 						<include name="..\neon\src" />
 						<include name="..\serf" />
 						<include name="..\..\..\common\zlib" />
+						<include name="..\sqlite" />
 					</includedirs>
 					<defines>
 						<define name="APR_DECLARE_STATIC" if="${static == 'static'}"/>
@@ -115,6 +116,7 @@
 					<sources>
 						<include name="${configuration}${static}_${platform}\${fname}-nonet\**.obj" />
 						<include name="..\..\..\common\zlib\${configuration}${static}_${platform}\zlibstat.lib" if="${fname == 'libsvn_subr'}"/>
+						<include name="..\sqlite\${configuration}${static}_${platform}\sqlite.lib" if="${fname == 'libsvn_wc'}"/>
 					</sources>
 				</lib>
 			</do>
@@ -167,6 +169,7 @@
 						<include name="..\neon\src" />
 						<include name="..\serf" />
 						<include name="..\..\..\common\zlib" />
+						<include name="..\sqlite" />
 						<include name="..\cyrus-sasl\include" />
 					</includedirs>
 					<defines>
@@ -198,6 +201,7 @@
 					<sources>
 						<include name="${configuration}${static}_${platform}\${fname}\**.obj" />
 						<include name="..\..\..\common\zlib\${configuration}${static}_${platform}\zlibstat.lib" if="${fname == 'libsvn_subr'}"/>
+						<include name="..\sqlite\${configuration}${static}_${platform}\sqlite.lib" if="${fname == 'libsvn_wc'}"/>
 					</sources>
 				</lib>
 			</do>
@@ -257,6 +261,7 @@
 							<include name="..\libintl\libintl3-win32\inc" />
 							<include name="..\neon\src" />
 							<include name="..\serf" />
+							<include name="..\sqlite" />
 							<include name="..\cyrus-sasl\include" />
 						</includedirs>
 						<defines>
@@ -292,7 +297,7 @@
 					</if>
 					<link
 						output="${configuration}${static}_${platform}\${toolname}.exe"
-						options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\${toolname}.exe.intermediate.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/${toolname}.pdb" /SUBSYSTEM:CONSOLE /OPT:REF ${configuration}${static}_${platform}\libsvn_client.lib ${configuration}${static}_${platform}\libsvn_delta.lib ${configuration}${static}_${platform}\libsvn_diff.lib ${configuration}${static}_${platform}\libsvn_fs.lib ${configuration}${static}_${platform}\libsvn_fs_fs.lib ${configuration}${static}_${platform}\libsvn_fs_util.lib ${configuration}${static}_${platform}\libsvn_ra.lib ${configuration}${static}_${platform}\libsvn_ra_neon.lib ${configuration}${static}_${platform}\libsvn_ra_serf.lib ${configuration}${static}_${platform}\libsvn_ra_local.lib ${configuration}${static}_${platform}\libsvn_ra_svn.lib ${configuration}${static}_${platform}\libsvn_repos.lib ${configuration}${static}_${platform}\libsvn_subr.lib ${configuration}${static}_${platform}\libsvn_wc.lib ..\apr\${configuration}${static}_${platform}\libapr_tsvn.lib ..\apr-util\${configuration}${static}_${platform}\libaprutil_tsvn.lib ..\neon\${configuration}${static}_${platform}\libneon.lib ..\serf\${configuration}${static}_${platform}\libserf.lib ..\..\..\common\zlib\${configuration}${static}_${platform}\zlibstat.lib ..\..\..\common\openssl\out32\libeay32.lib ..\..\..\common\openssl\out32\ssleay32.lib ..\libintl\libintl3-${platform}\lib\intl3_tsvn.lib ..\apr-util\xml\expat\lib\${configuration}${static}_${platform}\xml.lib ..\cyrus-SASL\${configuration}${static}_${platform}\libsasl.lib ${machineoption} ${configuration}${static}_${platform}\svn.res ${machineoption} ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib gdi32.lib user32.lib shell32.lib ole32.lib'>
+						options='/INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTFILE:".\${configuration}${static}_${platform}\${toolname}.exe.intermediate.manifest" /DEBUG /PDB:".\${configuration}${static}_${platform}/${toolname}.pdb" /SUBSYSTEM:CONSOLE /OPT:REF ${configuration}${static}_${platform}\libsvn_client.lib ${configuration}${static}_${platform}\libsvn_delta.lib ${configuration}${static}_${platform}\libsvn_diff.lib ${configuration}${static}_${platform}\libsvn_fs.lib ${configuration}${static}_${platform}\libsvn_fs_fs.lib ${configuration}${static}_${platform}\libsvn_fs_util.lib ${configuration}${static}_${platform}\libsvn_ra.lib ${configuration}${static}_${platform}\libsvn_ra_neon.lib ${configuration}${static}_${platform}\libsvn_ra_serf.lib ${configuration}${static}_${platform}\libsvn_ra_local.lib ${configuration}${static}_${platform}\libsvn_ra_svn.lib ${configuration}${static}_${platform}\libsvn_repos.lib ${configuration}${static}_${platform}\libsvn_subr.lib ${configuration}${static}_${platform}\libsvn_wc.lib ..\apr\${configuration}${static}_${platform}\libapr_tsvn.lib ..\apr-util\${configuration}${static}_${platform}\libaprutil_tsvn.lib ..\neon\${configuration}${static}_${platform}\libneon.lib ..\serf\${configuration}${static}_${platform}\libserf.lib ..\..\..\common\zlib\${configuration}${static}_${platform}\zlibstat.lib ..\..\..\common\openssl\out32\libeay32.lib ..\..\..\common\openssl\out32\ssleay32.lib ..\libintl\libintl3-${platform}\lib\intl3_tsvn.lib ..\apr-util\xml\expat\lib\${configuration}${static}_${platform}\xml.lib ..\cyrus-SASL\${configuration}${static}_${platform}\libsasl.lib ${machineoption} ${configuration}${static}_${platform}\svn.res ${machineoption} ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib gdi32.lib user32.lib shell32.lib ole32.lib Secur32.lib'>
 						<sources>
 							<include name="${configuration}${static}_${platform}\${toolname}\*.obj" />
 						</sources>

@@ -20,10 +20,7 @@
 		</if>
 	</target>
 
-	<target name="build" depends="clean">
-		<!-- patch apr\file_io\win32\open.c to fix directory creation with long paths -->
-		<copy file="..\build\apr_open.c" tofile="file_io\win32\open.c" overwrite="true" />
-		
+	<target name="build" depends="clean">		
 		<mkdir dir="${configuration}${static}_${platform}" />
 		<loadfile file="include\apr.hw" property="configfile">
 			<filterchain>
