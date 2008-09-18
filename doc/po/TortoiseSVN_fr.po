@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-09-28 12:08+0100\n"
-"Last-Translator: Jérémy Badier <jeremy.badier@gmail.com>\n"
+"PO-Revision-Date: 2008-09-18 14:55+0100\n"
+"Last-Translator: Grokwik <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -1250,7 +1250,7 @@ msgstr "indique à Subversion de chercher des référentiel sous <placeholder-1/
 
 #: source/TortoiseSVN_en.xml:1813(entry)
 msgid "Used to make the browsing with a web browser prettier."
-msgstr ""
+msgstr "Utilisé pour parcourir Internet avec un plus joli navigateur."
 
 #: source/TortoiseSVN_en.xml:1820(entry)
 msgid "is to activate basic authentication, i.e. Username/password"
@@ -1306,10 +1306,13 @@ msgid ""
 "#SVNIndexXSLT \"/svnindex.xsl\"\n"
 "</screen> and put the files <filename>svnindex.xsl</filename>, <filename>svnindex.css</filename> and <filename>menucheckout.ico</filename> in your document root directory (usually <filename>C:/Program Files/Apache Group/Apache2/htdocs</filename>). The directory is set with the <literal>DocumentRoot</literal> directive in your Apache config file."
 msgstr ""
+"Pour parcourir le référentiel avec un navigateur Internet plus agréable, décommentez la ligne<screen>\n"
+"#SVNIndexXSLT \"/svnindex.xsl\"\n"
+"</screen> et mettez les fichiers <filename>svnindex.xsl</filename>, <filename>svnindex.css</filename> et <filename>menucheckout.ico</filename> dans le dossier racine (la plupart du temps <filename>C:/Program Files/Apache Group/Apache2/htdocs</filename>). Le nom de ce répertoire est fixé par la directive <literal>DocumentRoot</literal> dans votre fichier de configuration Apache."
 
 #: source/TortoiseSVN_en.xml:1914(para)
 msgid "You can get those three files directly from our source repository at <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex</citetitle></ulink>. If you're asked for authentication for this link, enter <literal>guest</literal> as username and leave the password empty."
-msgstr ""
+msgstr "Vous pouvez récupérer ces trois fichiers depuis notre référentiel : <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/other/svnindex</citetitle></ulink>. Si une authentification est requise, utilisez <literal>guest</literal> comme utilisateur et laissez le mot de passe vide."
 
 #: source/TortoiseSVN_en.xml:1923(para)
 msgid "The XSL file from the TortoiseSVN repository has a nice gimmick: if you browse the repository with your web browser, then every folder in your repository has an icon on the right shown. If you click on that icon, the TortoiseSVN checkout dialog is started for this URL."
@@ -1721,7 +1724,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:2361(para)
 msgid "This will set an internal flag which Apache modules can read the next time you start the Apache service."
-msgstr ""
+msgstr "Cette opération mettra un marqueur interne, qui pourra être lu par les modules apache au prochain démarrage du service Apache."
 
 #: source/TortoiseSVN_en.xml:2367(para)
 msgid ""
@@ -1905,7 +1908,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:2599(para)
 msgid "Svnserve will service any number of repositories. Just locate them somewhere below the root folder you just defined, and access them using a URL relative to that root."
-msgstr ""
+msgstr "Svnserve s'occupera de plusieurs référentiels. Indiquez juste leur emplacement dans le répertoire racine, et accédez y en utilisant des chemins relatifs à la racine."
 
 #: source/TortoiseSVN_en.xml:2616(title)
 msgid "Run svnserve as a Service"
@@ -2047,7 +2050,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:2814(title)
 msgid "Cyrus SASL Support"
-msgstr ""
+msgstr "Support de Cyrus SASL"
 
 #: source/TortoiseSVN_en.xml:2815(para)
 msgid "Starting with Subversion 1.5.0, svnserve and TortoiseSVN support Cyrus SASL (Simple Authentication and Security Layer) for the <filename>svn://</filename> protocol. You can find further information in this subversion app note: <ulink url=\"http://svn.collab.net/repos/svn/trunk/notes/sasl.txt\"><citetitle>Using Cyrus SASL Authentication with Subversion</citetitle></ulink>."
@@ -2224,7 +2227,7 @@ msgstr "Un script hook est un programme déclenché par un certain événement d
 
 #: source/TortoiseSVN_en.xml:3079(para)
 msgid "These hook scripts are executed by the server that hosts the repository. TortoiseSVN also allows you to configure client side hook scripts that are executed locally upon certain events. See <xref linkend=\"tsvn-dug-settings-hooks\"/> for more information."
-msgstr ""
+msgstr "Ces scripts de hook sont exécutés par le serveur qui héberge le référentiel. TortoiseSVN permet également de configurer des scripts de hook à exécuter côté client en réponse à certains événements. Voir <xref linkend=\"tsvn-dug-settings-hooks\"/> pour plus d'information."
 
 #: source/TortoiseSVN_en.xml:3085(para)
 msgid ""
@@ -2822,14 +2825,12 @@ msgid "When you checkout an existing source tree from the repository, you should
 msgstr "Vous devriez seulement extraire dans un répertoire vide. Si vous voulez extraire votre arborescence source dans le même répertoire que vous avez importé, Subversion affichera un message d'erreur parce qu'il ne remplacera pas les fichiers non versionnés existants par les fichiers versionnés. Vous devrez extraire dans un répertoire différent ou supprimer l'arborescence source existante d'abord."
 
 #: source/TortoiseSVN_en.xml:3853(title)
-#, fuzzy
 msgid "Checkout Depth"
-msgstr "Extraire"
+msgstr "Profondeur d'extraction"
 
 #: source/TortoiseSVN_en.xml:3861(term)
-#, fuzzy
 msgid "Fully recursive"
-msgstr "/nonrecursive"
+msgstr "Totalement récursive"
 
 #: source/TortoiseSVN_en.xml:3863(para)
 msgid "Checkout the entire tree, including all child folders and sub-folders."
@@ -2837,7 +2838,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3870(term)
 msgid "Immediate children, including folders"
-msgstr ""
+msgstr "Descendants directs, y compris les répertoires"
 
 #: source/TortoiseSVN_en.xml:3872(para)
 msgid "Checkout the specified directory, including all files and child folders, but do not populate the child folders."
@@ -2845,7 +2846,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:3879(term)
 msgid "Only file children"
-msgstr ""
+msgstr "Juste les fichiers"
 
 #: source/TortoiseSVN_en.xml:3881(para)
 msgid "Checkout the specified directory, including all files but do not checkout any child folders."
@@ -2857,7 +2858,7 @@ msgstr "Uniquement cet élément."
 
 #: source/TortoiseSVN_en.xml:3890(para)
 msgid "Checkout the directory only. Do not populate it with files or child folders."
-msgstr ""
+msgstr "Extraire juste le répertoire. Ne pas le remplir avec les répertoires et fichiers enfants."
 
 #: source/TortoiseSVN_en.xml:3897(term)
 #: source/TortoiseSVN_en.xml:7260(term)
@@ -2867,7 +2868,7 @@ msgstr "Copie de travail"
 
 #: source/TortoiseSVN_en.xml:3899(para)
 msgid "Retain the depth specified in the working copy. This option is not used in the checkout dialog, but it is the default in all other dialogs which have a depth setting."
-msgstr ""
+msgstr "Se souvenir de la profondeur dans la version de travail. Cette option n'est pas utilisée dans la fenêtre d'extraction, mais c'est la valeur qui sera utilisée par éfaut pour toutes les autres fenêtres ayant cette option."
 
 #: source/TortoiseSVN_en.xml:3854(para)
 msgid "You can choose the <firstterm>depth</firstterm> you want to checkout, which allows you to specify the depth of recursion into child folders. If you want just a few sections of a large tree, You can checkout the top level folder only, then update selected folders recursively. <placeholder-1/>"
@@ -2963,7 +2964,7 @@ msgstr "<action>Double-cliquer</action> sur un fichier modifié dans la boîte d
 
 #: source/TortoiseSVN_en.xml:4057(para)
 msgid "You can select or deselect items by clicking on the checkbox to the left of the item. For directories you can use <action>SHIFT-Select</action> to make the action recursive."
-msgstr ""
+msgstr "Vous pouvez sélectionner ou désélectionner des éléments en cliquant sur la case à coser à leur gauche. Pour les répertoires, vous pouvez utiliser <action>SHIFT-Select</action> pour le faire récursivement."
 
 #: source/TortoiseSVN_en.xml:4062(para)
 #, fuzzy
@@ -3010,7 +3011,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:4147(title)
 msgid "Commit dialog with Changelists"
-msgstr ""
+msgstr "Fenêtre de livraison avec les listes des modifications"
 
 #: source/TortoiseSVN_en.xml:4135(para)
 msgid "Use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Move to changelist</guimenuitem></menuchoice> to add an item to a changelist. Initially there will be no changelists, so the first time you do this you will create a new changelist. Give it name which describes what you are using it for, and click <guibutton>OK</guibutton>. The commit dialog will now change to show groups of items. <placeholder-1/>"
@@ -3067,7 +3068,7 @@ msgstr "Si vous avez activé le système de bugtracking, vous pourriez définir 
 
 #: source/TortoiseSVN_en.xml:4230(title)
 msgid "Commit Progress"
-msgstr ""
+msgstr "Progression de l'extraction"
 
 #: source/TortoiseSVN_en.xml:4235(title)
 msgid "The Progress dialog showing a commit in progress"
@@ -3492,9 +3493,8 @@ msgid "keywords"
 msgstr "mot-clés"
 
 #: source/TortoiseSVN_en.xml:4927(para)
-#, fuzzy
 msgid "Date of last known commit. This is based on information obtained when you update your working copy. It does <emphasis>not</emphasis> check the repository to find more recent changes."
-msgstr "Date de la dernière livraison connue."
+msgstr "Dernière date de livraison connue. Cette information est obtenue quand vous mettez à jour votre copie de travail. Elle <emphasis>ne vérifie pas</emphasis> le référentiel pour trouver d'éventuels changements récents."
 
 #: source/TortoiseSVN_en.xml:4938(para)
 msgid "Revision of last known commit."
@@ -3505,13 +3505,12 @@ msgid "Author who made the last known commit."
 msgstr "Auteur qui a fait la dernière livraison connue."
 
 #: source/TortoiseSVN_en.xml:4954(para)
-#, fuzzy
 msgid "The full URL of this file in the repository."
-msgstr "Le titre de la fenêtre pour le fichier dans le référentiel"
+msgstr "Le chemin complet de ce fichier dans le référentiel."
 
 #: source/TortoiseSVN_en.xml:4962(para)
 msgid "A compressed combination of the previous four keywords."
-msgstr ""
+msgstr "Une combinaison raccourcie des quatres mot clés précédents."
 
 #: source/TortoiseSVN_en.xml:4919(para)
 msgid "Subversion supports CVS-like keyword expansion which can be used to embed filename and revision information within the file itself. Keywords currently supported are: <placeholder-1/>"
@@ -3583,9 +3582,8 @@ msgid "<placeholder-1/> There are several places from where you can show the Log
 msgstr "<placeholder-1/> Il existe plusieurs endroits à partir desquels vous pouvez afficher la boîte de dialogue de Journal : <placeholder-2/>"
 
 #: source/TortoiseSVN_en.xml:5059(title)
-#, fuzzy
 msgid "Revision Log Actions"
-msgstr "La boîte de dialogue de Journal de révision"
+msgstr "La boîte de dialogue du Journal de révision"
 
 #: source/TortoiseSVN_en.xml:5060(para)
 msgid "The top pane has an <guilabel>Actions</guilabel> column containing icons that summarize what has been done in that revision. There are four different icons, each shown in its own column."
@@ -3848,7 +3846,6 @@ msgid "Merge Tracking Features"
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:5458(primary)
-#, fuzzy
 msgid "merge tracking log"
 msgstr "bug tracking"
 
@@ -4109,7 +4106,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:5853(para)
 msgid "Naturally, any line with changed content is always included in the diff."
-msgstr ""
+msgstr "Naturellement, chaque ligne modifiée est toujours incluse dans le diff."
 
 #: source/TortoiseSVN_en.xml:5859(title)
 msgid "Comparing Folders"
@@ -4602,7 +4599,7 @@ msgstr "Vous ne devriez <emphasis>pas</emphasis> utiliser les commandes  <guilab
 
 #: source/TortoiseSVN_en.xml:6621(title)
 msgid "Changing case in a filename"
-msgstr ""
+msgstr "Modifier la casse dans le nom d'un fichier."
 
 #: source/TortoiseSVN_en.xml:6623(para)
 msgid "Making case-only changes to a filename is tricky with Subversion on Windows, because for a short time during a rename, both filenames have to exist. As Windows has a case-insensitive file system, this does not work using the usual Rename command."
@@ -4648,7 +4645,7 @@ msgstr "Solution B) <placeholder-1/>"
 
 #: source/TortoiseSVN_en.xml:6684(title)
 msgid "Dealing with filename case conflicts"
-msgstr ""
+msgstr "Gestion des conflits de nom de fichier."
 
 #: source/TortoiseSVN_en.xml:6685(para)
 #, fuzzy
@@ -4859,9 +4856,8 @@ msgid "You can configure Subversion to set properties automatically on files and
 msgstr "Vous pouvez configurer Subversion pour définir automatiquement des propriétés sur les fichiers et sur les dossiers lorsqu'ils sont ajoutés au référentiel. Lisez <xref linkend=\"tsvn-dug-settings\"/> pour plus d'informations."
 
 #: source/TortoiseSVN_en.xml:6988(title)
-#, fuzzy
 msgid "TortoiseSVN Project Properties"
-msgstr "Propriétés TortoiseSVN"
+msgstr "Propriétés du projet TortoiseSVN"
 
 #: source/TortoiseSVN_en.xml:6994(para)
 msgid "<literal>tsvn:logminsize</literal> sets the minimum length of a log message for a commit. If you enter a shorter message than specified here, the commit is disabled. This feature is very useful for reminding you to supply a proper descriptive message for every commit. If this property is not set, or the value is zero, empty log messages are allowed."
@@ -4926,9 +4922,8 @@ msgid "It can also integrate with some web-based repository browsers, using proj
 msgstr "Il peut aussi s'intégrer à certains navigateurs de référentiel en ligne.  Lisez <xref linkend=\"tsvn-dug-repoviewer\"/> pour plus d'informations."
 
 #: source/TortoiseSVN_en.xml:7120(title)
-#, fuzzy
 msgid "Set the project properties on folders"
-msgstr "Mettre les propriétés tsvn: sur les dossiers"
+msgstr "Fixer les propriétés du projet dans les dossiers"
 
 #: source/TortoiseSVN_en.xml:7121(para)
 #, fuzzy
@@ -5284,9 +5279,8 @@ msgid "Most of the time you want merge to take account of the file's history, so
 msgstr "La plupart du temps vous voulez fusionner pour tenir compte de l'historique du fichier, pour que les changements relatifs à un ancêtre commun soient fusionnés. Parfois vous pouvez devoir fusionner des fichiers qui sont peut-être liés, mais pas dans votre référentiel. Par exemple vous pouvez avoir importé les versions 1 et 2 d'une bibliothèque tiers dans deux répertoires séparés. Bien qu'ils soient logiquement liés, Subversion n'en a aucune connaissance parce qu'il ne voit que le package que vous avez importé. Si vous essayez de fusionner les différences entre ces deux arbres vous verriez une suppression totale suivie par un ajout total. Pour faire que Subversion n'utilise que les différences basées sur le chemin plutôt que les différences basées sur l'historique, cochez la case <guilabel>Ignorer l'ascendance</guilabel>. Lisez en plus à ce sujet dans le manuel de Subversion, <ulink url=\"http://svnbook.red-bean.com/en/1.1/ch04s03.html#svn-ch-4-sect-3.3.4\"><citetitle>Noticing or Ignoring Ancestry</citetitle></ulink>"
 
 #: source/TortoiseSVN_en.xml:7747(title)
-#, fuzzy
 msgid "Other Merge Options"
-msgstr "La boîte de dialogue Fusionner"
+msgstr "Autres options de fusion"
 
 #: source/TortoiseSVN_en.xml:7748(para)
 msgid "You can specify the way that line ending and whitespace changes are handled. These options are described in <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/>. The default behaviour is to treat all whitespace and line-end differences as real changes to be merged."
@@ -5297,14 +5291,12 @@ msgid "You can also specify the depth to use for the merge. The depth terms used
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:7761(title)
-#, fuzzy
 msgid "Merge Tracking"
-msgstr "bug tracking"
+msgstr "Suivi des fusions"
 
 #: source/TortoiseSVN_en.xml:7763(primary)
-#, fuzzy
 msgid "merge tracking"
-msgstr "bug tracking"
+msgstr "Suivi des fusions"
 
 #: source/TortoiseSVN_en.xml:7771(para)
 msgid "You can avoid the danger of merging the same revision twice (repeated merge problem). Once a revision is marked as having been merged, future merges which include that revision in the range will skip over it."
@@ -5690,9 +5682,8 @@ msgid "Just like Windows explorer, you can click on the column headings in the r
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:8420(para)
-#, fuzzy
 msgid "Save an unversioned copy of the file to your hard drive."
-msgstr "créez un nouveau répertoire vide sur votre disque dur"
+msgstr "Récupérer une copie non versionnée du fichier sur votre disque dur."
 
 #: source/TortoiseSVN_en.xml:8425(para)
 msgid "Show the revision log for that file, or show a graph of all revisions so you can see where the file came from."
@@ -5736,9 +5727,8 @@ msgid "Create a new folder in the repository."
 msgstr "Créez un nouveau répertoire dans le référentiel"
 
 #: source/TortoiseSVN_en.xml:8479(para)
-#, fuzzy
 msgid "Add files or folders directly to the repository."
-msgstr "Éléments ajoutés au référentiel."
+msgstr "Ajouter directement des fichiers ou des répertoires dans le référentiel."
 
 #: source/TortoiseSVN_en.xml:8484(para)
 msgid "Delete or rename the folder."
@@ -5755,7 +5745,7 @@ msgstr "Utiliser le navigateur de référentiel pour créer un nouveau projet di
 
 #: source/TortoiseSVN_en.xml:8501(para)
 msgid "Mark the folder for comparison. A marked folder is shown in bold."
-msgstr ""
+msgstr "Marque le répertoire pour la comparaison. Un nom d'un répertoire marqué est en gras."
 
 #: source/TortoiseSVN_en.xml:8506(para)
 #, fuzzy
@@ -5871,9 +5861,8 @@ msgid "The revision graph shows several types of node: <placeholder-1/> Note tha
 msgstr "Le graphique de révision montre plusieurs types de noeud : <placeholder-1/> Notez que par défaut le graphique ne montre que les points auxquels les éléments ont été ajoutés ou supprimés. Afficher chaque révision d'un projet pourrait produire un graphique très grand pour des cas peu communs. Si vous voulez vraiment voir <emphasis>toutes</emphasis> les révisions, il  existe une option pour ce faire dans le menu <guilabel>Affichage</guilabel> et sur la barre d'outils."
 
 #: source/TortoiseSVN_en.xml:8674(term)
-#, fuzzy
 msgid "Group branches"
-msgstr "branche"
+msgstr "Groupe les branches"
 
 #: source/TortoiseSVN_en.xml:8676(para)
 msgid "The default behavior (grouping off) will use one row per revision and all rows are sorted strictly by revision. As a result, long-living branches occupy a whole column for only a few changes and the graph becomes very broad."
@@ -5885,16 +5874,15 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8694(term)
 msgid "Oldest on top"
-msgstr ""
+msgstr "Les plus agés en haut."
 
 #: source/TortoiseSVN_en.xml:8696(para)
 msgid "Normally the graph shows the oldest revision at the bottom, and the tree grows upwards. Use this option to grow down from the top instead."
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:8704(term)
-#, fuzzy
 msgid "Show HEAD revisions"
-msgstr "Révision HEAD"
+msgstr "Montrer la version de tête"
 
 #: source/TortoiseSVN_en.xml:8706(para)
 msgid "This ensures that the latest revision on every branch is always shown on the graph."
@@ -5902,7 +5890,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8713(term)
 msgid "Exact copy sources"
-msgstr ""
+msgstr "Copie exacte des sources"
 
 #: source/TortoiseSVN_en.xml:8715(para)
 msgid "When a branch/tag is made, the default behaviour is to show the branch as taken from the last node where a change was made. Strictly speaking this is inaccurate since the branches are often made from the current HEAD rather than a specific revision. So it is possible to show the more correct (but less useful) revision that was used to create the copy."
@@ -5910,7 +5898,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:8727(term)
 msgid "Split long branches"
-msgstr ""
+msgstr "Sépare les longues branches"
 
 #: source/TortoiseSVN_en.xml:8729(para)
 msgid "In some sources you will find a few active branches with constant activity, and a few inactive branches with infrequent activity. The inactive branches will tend to produce very long lines across the graph, joining their sparse nodes and distracting attention from the active branches. This option allows long connections to be broken and shown in separate chunks. A link icon on the node shows when this has occurred."
@@ -5933,7 +5921,6 @@ msgid "If the layout of the graph has produced a lot of crossing lines, use this
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:8768(term)
-#, fuzzy
 msgid "Filter"
 msgstr "filtrer"
 
@@ -5984,7 +5971,7 @@ msgstr "Parfois vous pouvez vouloir une copie de votre arborescence de travail s
 
 #: source/TortoiseSVN_en.xml:8845(title)
 msgid "The Export-from-URL Dialog"
-msgstr ""
+msgstr "La fenêtre extraction-depuis-une-URL"
 
 #: source/TortoiseSVN_en.xml:8843(para)
 msgid "<placeholder-1/> If you execute this command on an unversioned folder, TortoiseSVN will assume that the selected folder is the target, and open a dialog for you to enter the URL and revision to export from. This dialog has options to export only the top level folder, to omit external references, and to override the line end style for files which have the <literal>svn:eol-style</literal> property set."
@@ -6058,9 +6045,8 @@ msgid "If you use relocate in either of the cases above, it <emphasis>will corru
 msgstr "Si vous utilisez relocaliser dans n'importe lequel des cas ci-dessus, cela <emphasis>corrompra votre copie de travail</emphasis> et vous obtiendrez beaucoup de messages d'erreur inexplicables en mettant à jour, en livrant, etc. Une fois que cela s'est produit, la seule correction est une extraction fraiche."
 
 #: source/TortoiseSVN_en.xml:8973(title)
-#, fuzzy
 msgid "Integration with Bug Tracking Systems / Issue Trackers"
-msgstr "Intégration avec les systèmes de traque de bugs / traqueurs d'incidents"
+msgstr "Intégration avec des systèmes de bug tracking / traqueurs d'incidents"
 
 #: source/TortoiseSVN_en.xml:8975(primary)
 msgid "bug tracking"
@@ -6199,7 +6185,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:9234(primary)
 msgid "web view"
-msgstr ""
+msgstr "Vue web"
 
 #: source/TortoiseSVN_en.xml:9237(primary)
 msgid "repo viewer"
@@ -6593,9 +6579,8 @@ msgid "If this box is checked (default state), then whenever the status of an un
 msgstr "Si cette case est cochée (l'état par défaut), alors à chaque fois que le statut d'un dossier non versionné est affiché dans les boîtes de dialogue <guilabel>Ajouter</guilabel>, <guilabel>Livrer</guilabel> ou <guilabel>Vérifier les modifications</guilabel>, tous les fichiers et tous les dossiers enfants sont aussi affichés. Si vous décochez cette case, seul le parent non versionné est affiché. Décocher réduit le désordre dans ces boîtes de dialogue. Dans ce cas, si vous sélectionnez un dossier non versionné à Ajouter, il est ajouté récursivement."
 
 #: source/TortoiseSVN_en.xml:9888(term)
-#, fuzzy
 msgid "Use auto-completion of file paths and keywords"
-msgstr "Utiliser l'autocomplétion des chemins de fichiers et des mots-clé"
+msgstr "Utiliser la complétion automatique des chemins de fichiers et des mots-clé"
 
 #: source/TortoiseSVN_en.xml:9890(para)
 #, fuzzy
@@ -6603,9 +6588,8 @@ msgid "The commit dialog includes a facility to parse the list of filenames bein
 msgstr "La boîte de dialogue livrer inclut une fonction pour analyser syntaxiquement la liste de noms de fichier à livrer. Quand vous tapez les 3 premières lettres d'un élément dans la liste, la boîte d'autocomplétion surgit et vous pouvez appuyer sur Entrée pour terminer le nom du fichier. Cochez la case pour activer cette fonctionnalité."
 
 #: source/TortoiseSVN_en.xml:9900(term)
-#, fuzzy
 msgid "Timeout in seconds to stop the auto-completion parsing"
-msgstr "Délai en secondes pour arrêter le filtrage d'autocomplétion"
+msgstr "Délai en secondes après lequel arrêter le parcours des données de complétion automatique"
 
 #: source/TortoiseSVN_en.xml:9902(para)
 #, fuzzy
@@ -6968,9 +6952,8 @@ msgid "If you want to remove a single item from one of the combo boxes you can d
 msgstr ""
 
 #: source/TortoiseSVN_en.xml:10411(term)
-#, fuzzy
 msgid "Log messages (Input dialog)"
-msgstr "Commentaires"
+msgstr "Messages de log (fenêtre d'édition)"
 
 #: source/TortoiseSVN_en.xml:10413(para)
 msgid "TortoiseSVN stores recent commit log messages that you enter. These are stored per repository, so if you access many repositories this list can grow quite large."
@@ -6978,7 +6961,7 @@ msgstr "TortoiseSVN stocke les commentaires récents de livraison que vous saisi
 
 #: source/TortoiseSVN_en.xml:10421(term)
 msgid "Log messages (Show log dialog)"
-msgstr ""
+msgstr "Messages de log (Montrer la fenêtre de log)"
 
 #: source/TortoiseSVN_en.xml:10423(para)
 msgid "TortoiseSVN caches log messages fetched by the Show Log dialog to save time when you next show the log. If someone else edits a log message and you already have that message cached, you will not see the change until you clear the cache. Log message caching is enabled on the <guilabel>Dialogs 1</guilabel> tab."
@@ -7055,9 +7038,8 @@ msgid "For more information, and other ways to avoid this problem in the first p
 msgstr "Pour plus d'informations et d'autres façons d'éviter ce problème en premier lieu, regarder l'article à ce sujet dans notre <ulink url=\"http://tortoisesvn.net/node/aspdotnethack\"><citetitle>FAQ</citetitle></ulink>."
 
 #: source/TortoiseSVN_en.xml:10531(title)
-#, fuzzy
 msgid "Client Side Hook Scripts"
-msgstr "Scripts hook"
+msgstr "Scripts hook côté client"
 
 #: source/TortoiseSVN_en.xml:10533(primary)
 msgid "client hooks"
@@ -7086,7 +7068,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10561(title)
 msgid "The Settings Dialog, Configure Hook Scripts"
-msgstr ""
+msgstr "La fenêtre de paramétrage, configuration des scripts de hook"
 
 #: source/TortoiseSVN_en.xml:10559(para)
 msgid "<placeholder-1/> To add a new hook script, simply click <guibutton>Add</guibutton> and fill in the details."
@@ -7095,7 +7077,7 @@ msgstr "<placeholder-1/> Pour ajouter un nouveau script hook, cliquez simplement
 #: source/TortoiseSVN_en.xml:10571(term)
 #: source/TortoiseSVN_en.xml:10639(term)
 msgid "Start-commit"
-msgstr ""
+msgstr "Démarre la livraison"
 
 #: source/TortoiseSVN_en.xml:10573(para)
 msgid "Called before the commit dialog is shown. You might want to use this if the hook modifies a versioned file and affects the list of files that need to be committed."
@@ -7104,7 +7086,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:10581(term)
 #: source/TortoiseSVN_en.xml:10643(term)
 msgid "Pre-commit"
-msgstr ""
+msgstr "Avant-livraison"
 
 #: source/TortoiseSVN_en.xml:10583(para)
 msgid "Called after the user clicks <guibutton>OK</guibutton> in the commit dialog, and before the actual commit begins."
@@ -7113,7 +7095,7 @@ msgstr ""
 #: source/TortoiseSVN_en.xml:10590(term)
 #: source/TortoiseSVN_en.xml:10647(term)
 msgid "Post-commit"
-msgstr ""
+msgstr "Avant-livraison"
 
 #: source/TortoiseSVN_en.xml:10592(para)
 msgid "Called after the commit finishes (whether successful or not)."
@@ -7122,29 +7104,29 @@ msgstr "Appellé après la fin de la livraison (qu'elle soit réussie ou non)."
 #: source/TortoiseSVN_en.xml:10598(term)
 #: source/TortoiseSVN_en.xml:10651(term)
 msgid "Start-update"
-msgstr ""
+msgstr "Commence la mise à jour"
 
 #: source/TortoiseSVN_en.xml:10600(para)
 msgid "Called before the update-to-revision dialog is shown."
-msgstr ""
+msgstr "Appelé avant que la fenêtre mise à jour-à-la -révision ne soit affichée."
 
 #: source/TortoiseSVN_en.xml:10606(term)
 #: source/TortoiseSVN_en.xml:10655(term)
 msgid "Pre-update"
-msgstr ""
+msgstr "Après-mise à jour"
 
 #: source/TortoiseSVN_en.xml:10608(para)
 msgid "Called before the actual Subversion update begins."
-msgstr ""
+msgstr "Appelé avant que la mise à jour Subversion ne commence."
 
 #: source/TortoiseSVN_en.xml:10614(term)
 #: source/TortoiseSVN_en.xml:10659(term)
 msgid "Post-update"
-msgstr ""
+msgstr "Après-mise à jour"
 
 #: source/TortoiseSVN_en.xml:10616(para)
 msgid "Called after the update finishes (whether successful or not)."
-msgstr ""
+msgstr "Appelé après la mise à jour (quelle soit réussie ou non)"
 
 #: source/TortoiseSVN_en.xml:10567(para)
 msgid "There are currently six types of hook script available <placeholder-1/>"
@@ -7176,7 +7158,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:10697(para)
 msgid "The depth with which the commit/update is done."
-msgstr ""
+msgstr "Profondeur dans laquelle la livraison/mise à jour est faite."
 
 #: source/TortoiseSVN_en.xml:10707(literal)
 msgid "svn_depth_unknown"
@@ -7235,9 +7217,8 @@ msgid "TortoiseBlame Settings"
 msgstr "Configuration de TortoiseBlame"
 
 #: source/TortoiseSVN_en.xml:10800(title)
-#, fuzzy
 msgid "The Settings Dialog, TortoiseBlame Page"
-msgstr "La boîte de dialogue Configuration, page Couleurs"
+msgstr "La boîte de dialogue ce configuration, page de bannissement."
 
 #: source/TortoiseSVN_en.xml:10798(para)
 msgid "<placeholder-1/> The settings used by TortoiseBlame are controlled from the main context menu, not directly with TortoiseBlame itself."
@@ -7408,12 +7389,11 @@ msgstr "strftime()"
 
 #: source/TortoiseSVN_en.xml:11024(literal)
 msgid "$WCDATE=%a %b %d %I:%M:%S %p$"
-msgstr ""
+msgstr "$WCDATE=%a %b %d %I:%M:%S %p$"
 
 #: source/TortoiseSVN_en.xml:11027(citetitle)
-#, fuzzy
 msgid "online reference"
-msgstr "Différences de fichier"
+msgstr "Aide en ligne"
 
 #: source/TortoiseSVN_en.xml:11016(entry)
 msgid "Replaced with the commit date/time of the highest commit revision. By default, international format is used: <placeholder-1/>. Alternatively, you can specify a custom format which will be used with <placeholder-2/>, for example: <placeholder-3/>. For a list of available formatting characters, look at the <ulink url=\"http://www.cppreference.com/stddate/strftime.html\"><placeholder-4/></ulink>."
@@ -7552,12 +7532,11 @@ msgstr "Interface COM"
 
 #: source/TortoiseSVN_en.xml:11135(title)
 msgid "COM/automation methods supported"
-msgstr ""
+msgstr "Les méthodes COM/automation sont supportées"
 
 #: source/TortoiseSVN_en.xml:11141(entry)
-#, fuzzy
 msgid "Method"
-msgstr "Méthode d'accès"
+msgstr "Méthode"
 
 #: source/TortoiseSVN_en.xml:11154(literal)
 msgid "-f"
@@ -7610,9 +7589,8 @@ msgid "The maximum update revision, as shown in <placeholder-1/>"
 msgstr "Montre le graphique de révision pour le chemin donné dans <placeholder-1/>."
 
 #: source/TortoiseSVN_en.xml:11192(entry)
-#, fuzzy
 msgid "True if there are local modifications"
-msgstr "Remplacé par VTexte s'il y a des modifications locales, ou FTexte sinon."
+msgstr "Vrais s'il y a des modifications locales."
 
 #: source/TortoiseSVN_en.xml:11198(literal)
 msgid "GetWCInfo"
@@ -8153,7 +8131,7 @@ msgstr ""
 
 #: source/TortoiseSVN_en.xml:11932(title)
 msgid "Menu entries and their values"
-msgstr ""
+msgstr "Entrées du menu et leurs valeurs"
 
 #: source/TortoiseSVN_en.xml:11938(entry)
 #, fuzzy
@@ -8162,7 +8140,7 @@ msgstr "Bleu"
 
 #: source/TortoiseSVN_en.xml:11939(entry)
 msgid "Menu entry"
-msgstr ""
+msgstr "Entrée du menu"
 
 #: source/TortoiseSVN_en.xml:11945(entry)
 #: source/TortoiseSVN_en.xml:12714(title)
