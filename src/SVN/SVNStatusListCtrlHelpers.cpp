@@ -497,6 +497,7 @@ void CSVNStatusListCtrl::ColumnManager::UpdateUserPropList
 
         int result = control->InsertColumn (pos, *iter, LVCFMT_LEFT, GetVisibleWidth(pos, false));
         assert (result != -1);
+		UNREFERENCED_PARAMETER(result);
     }
 
     // update column order
