@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-07-11 23:46 +0000\n"
-"PO-Revision-Date: 2008-09-15 17:53+0100\n"
-"Last-Translator: Kwik <toto@dtc.com>\n"
+"PO-Revision-Date: 2008-09-18 12:12+0100\n"
+"Last-Translator: Grokwik <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -258,9 +258,8 @@ msgstr "Nous avons donc passé beaucoup de temps à chercher sur internet un out
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:268
-#, fuzzy
 msgid "Since TortoiseSVN already uses the Subversion library, which has a nice diffing engine built in, it was just natural to use this library instead of the GNU diff."
-msgstr "Puisque TortoiseSVN utilise déjà la librairie de Subversion, qui intègre un bon moteur de différenciation, il était tout naturel d'utiliser cette librairie au lieu du diff GNU. Cela réduit ainsi la taille de l'exécutable puisque TortoiseSVN et TortoiseMerge peuvent utiliser les mêmes dll."
+msgstr "TortoiseSVN utilise la librairie Subversion, qui intègre un bon moteur de différenciation, il est donc naturel d'utiliser cette librairie au lieu du diff GNU. "
 
 #. (title)
 #: ../source/TortoiseMerge_en.xml:276
@@ -835,15 +834,13 @@ msgstr "Quand la même ligne a été modifiée dans les deux fichiers."
 
 #. (term)
 #: ../source/TortoiseMerge_en.xml:986
-#, fuzzy
 msgid "Conflict resolved"
-msgstr "En conflit"
+msgstr "Conflit résolu"
 
 #. (listitem)
 #: ../source/TortoiseMerge_en.xml:987
-#, fuzzy
 msgid "Where the same line has been changed in both files, and you have now selected which version should be used."
-msgstr "Quand la même ligne a été modifiée dans les deux fichiers."
+msgstr "Quand la même ligne a été modifiée dans les deux fichiers, et que vous avez sélectionné laquelle utiliser."
 
 #. (term)
 #: ../source/TortoiseMerge_en.xml:993
@@ -917,7 +914,6 @@ msgstr "Ctrl-C"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1043
-#, fuzzy
 msgid "Copy the selected text to the clipboard"
 msgstr "Copie les lignes sélectionnées dans le presse-papiers"
 
@@ -973,9 +969,8 @@ msgstr "Aller à la prochaine différence"
 
 #. (term)
 #: ../source/TortoiseMerge_en.xml:1089
-#, fuzzy
 msgid "Shift-F7"
-msgstr "Ctrl-Maj-S"
+msgstr "Shift-F7"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1091
@@ -994,9 +989,8 @@ msgstr "Aller au prochain conflit"
 
 #. (term)
 #: ../source/TortoiseMerge_en.xml:1105
-#, fuzzy
 msgid "Shift-F8"
-msgstr "Ctrl-Maj-S"
+msgstr "Shift-F8"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1107
@@ -1297,9 +1291,8 @@ msgstr "Branche"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1402
-#, fuzzy
 msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bug fixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
-msgstr "Un terme fréquemment utilisé dans les système de contrôle de révisions pour décrire ce qu'il se passe quand le développement se scinde à un point particulier et suit 2 chemins séparés. Vous pouvez créer une branche hors de la ligne de développement principale pour développer une nouvelle fonctionnalité sans rendre la ligne principale instable. Ou vous pouvez faire une branche d'une sortie stable sur laquelle vous ne ferez que des corrections de bugs, pendant que les nouveaux développements sont faits sur la branche instable. Dans Subversion, une branche est implémentée comme une <quote>copie bon marché</quote>."
+msgstr "Un terme fréquemment utilisé dans les système de contrôle de révisions pour décrire ce qu'il se passe quand le développement se scinde à un point particulier et suit 2 chemins séparés. Vous pouvez créer une branche en dehors de la ligne de développement principale pour développer une nouvelle fonctionnalité sans rendre la ligne principale instable. Ou vous pouvez créer une branche avec la version stable sur laquelle vous ne ferez que des corrections de bugs, pendant que les nouveaux développements sont faits sur la branche instable. Dans Subversion, une branche est considérée comme étant une copie <quote>bon marché</quote>."
 
 #. (glossterm)
 #: ../source/TortoiseMerge_en.xml:1415
@@ -1358,9 +1351,8 @@ msgstr "Supprimer"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1477
-#, fuzzy
 msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the committed revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
-msgstr "Quand vous supprimez un élément versionné (et que vous livrez le changement), l'élément n'existe plus dans le référentiel après la révision livrée. Mais il existe bien sûr toujours dans les révisions précédentes du référentiel, donc vous pouvez toujours y avoir accès. Si besoin, vous pouvez copier un élément supprimé et le <quote>réssusciter</quote> complètement avec son historique."
+msgstr "Quand vous supprimez un élément versionné (et que vous livrez le changement), l'élément n'existe plus dans le référentiel après la révision livrée. Mais il existe bien sûr toujours dans les révisions précédentes du référentiel, donc vous pouvez toujours y avoir accès. Si besoin est, vous pouvez copier un élément qui a été supprimé et le <quote>réssusciter</quote> complètement avec son historique."
 
 #. (glossterm)
 #: ../source/TortoiseMerge_en.xml:1487
@@ -1389,9 +1381,8 @@ msgstr "FSFS"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1508
-#, fuzzy
 msgid "A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
-msgstr "FS Filesystem. Un système de fichiers propriétaire de Subversion pour les référentiels. Peut être utilisé sur les partages réseaux. Par défaut pour les référentiels 1.2 et plus récents."
+msgstr "Un système de gestion de fichiers propriétaire de Subversion pour les référentiels. Peut être utilisé pour les partages réseaux. Par défaut pour les référentiels 1.2 et plus récents."
 
 #. (glossterm)
 #: ../source/TortoiseMerge_en.xml:1515
@@ -1430,9 +1421,8 @@ msgstr "Verrouiller"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1542
-#, fuzzy
 msgid "When you take out a lock on a versioned item, you mark it in the repository as non-committable, except from the working copy where the lock was taken out."
-msgstr "Quand vous prenez un verrou sur un élément versionné, vous le marquez comme non livrable dans le référentiel, à l'exception de la copie de travail où le verrou a été pris."
+msgstr "Quand vous déverrouillez un élément versionné, vous le marquez comme non livrable dans le référentiel, excepté dans la copie de travail où le verrou a été placé."
 
 #. (glossterm)
 #: ../source/TortoiseMerge_en.xml:1550
