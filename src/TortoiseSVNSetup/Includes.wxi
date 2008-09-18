@@ -8,7 +8,7 @@
 	<?define VersionNumberUserVisible="$(var.MajorVersion).$(var.MinorVersion).$(var.MicroVersion).$(var.BuildVersion)" ?>
 	<?define ProductName="TortoiseSVN" ?>
 
-	<?define PackageKeywords="Sourcecontrol;Subversion;Shell" ?>
+	<?define PackageKeywords="Sourcecontrol;Subversion;TortoiseSVN;Shell" ?>
 	<?define PackageDescription="Subversion Client" ?>
 	<?define PackageComments="Windows Shell Integration For SubVersion Source Control, v$(var.VersionNumberUserVisible)" ?>
 	<?define PackageManufacturer="Stefan Kueng" ?>
