@@ -1,111 +1,107 @@
 @echo off
-rem Script to build the language dlls
+rem Script to calculate the GUI translation status report for TortoiseSVN
 
 SETLOCAL ENABLEDELAYEDEXPANSION
-set WorkDir=..\..\..\Languages
+
+rem Trunk and branch location. 
+rem Without slash, because they're not only used for directories
+set Trunk=trunk
+set Brnch=branches\1.5.x
+
+rem Paths & working directories
 set ScriptPath=%~dp0
-set LanguageList=Languages.txt
+set RootDir=..\..\..\..\
+set WDirTrunk=%RootDir%%Trunk%\Languages
+set WDirBrnch=%RootDir%%Brnch%\Languages
+
+rem Input and output files
+set LanguageList=%WDirTrunk%\Languages.txt
 set LogFile=%ScriptPath%\gui_translation.txt
-set TmpFileDone=%ScriptPath%\gui_translation.tm1
-set TmpFileReview=%ScriptPath%\gui_translation.tm2
-set LotsOfBlanks="                              "
-set SomeBlanks="     "
 
-pushd %WorkDir%
+rem Some blanks for formatting
+set Blanks30="                              "
 
-FOR /F "usebackq" %%p IN (`svnversion`) DO SET version=%%p
+rem Get current revision of working copy
+for /F "usebackq" %%p in (`svnversion`) do set WCRev=%%p
 
-rem CountSVN all messages in PO Template file
-FOR /F "usebackq" %%p IN (`%ScriptPath%\Check_Attrib.bat Tortoise.pot`) DO SET totSVN=%%p
+rem call :Prepare %WDirTrunk%
+rem set TotalTrunk=%Errorlevel%
+rem call :Prepare %WDirBrnch%
+rem set TotalBrnch=%Errorlevel%
 
-copy Tortoise_*.po _Tortois_*.po /Y 2>NUL
-echo.
-echo Merging translations with latest .pot file
-echo ------------------------------------------
-FOR %%i in (_Tortois_*.po) DO (
-  msgmerge --no-wrap --quiet --no-fuzzy-matching -s %%i Tortoise.pot -o %%i 2> NUL
-)
+set TotalTrunk=1909
+set TotalBrnch=1897
 
-echo. > %LogFile%
-echo TortoiseSVN GUI translation status for trunk/branch^(r!version:~0,5!^) >> %LogFile%
-echo ===================================================== >> %LogFile%
-echo Total=!totSVN! strings >> %LogFile%
-echo. >> %LogFile%
-echo Status: fu=fuzzy - un=untranslated - ma=missing accelerator keys >> %LogFile%
-echo. >> %LogFile%
-echo Language                       : Status  (fu/un/ma) >> %Logfile%
-echo --------------------------------------------------- >> %Logfile%
+rem Write log file header 
+echo.> %LogFile%
+echo TortoiseSVN GUI translation status for revision !WCRev:~0,5!^ >> %LogFile%
+echo =========================================================================== >> %LogFile%
+echo                                : Developer Version   : Current Release >> %LogFile%
+echo                  Location      : %Trunk%               : %Brnch% >> %LogFile%
+echo                  Total strings : %TotalTrunk%                : %TotalBrnch% >> %LogFile%
+echo Language                       : Status (fu/un/ma)   : Status (fu/un/ma) >> %LogFile% 
+echo =========================================================================== >> %LogFile%
 
-echo.
-echo TortoiseSVN GUI translation status for trunk/branch^(r!version:~0,5!^)
-echo =====================================================
-echo Total=!totSVN! strings
-echo.
-echo Language                       : Status  (fu/ut/ma)
-echo ---------------------------------------------------
+rem Let's loop through all trunk translations.
+rem Don't care if there's a language more on the release branch (dead language anyway)  
 
 rem !!! ATTENTION 
 rem !!! There is a real TAB key inside "delims=	;"
 rem !!! Please leave it there
 
-FOR /F "eol=# delims=	; tokens=1,5" %%i IN (%LanguageList%) DO (
+for /F "eol=# delims=	; tokens=1,5" %%i in (%LanguageList%) do (
+  set PoFile=_Tortois_%%i.po
+  set LangName=%%j ^(%%i^)%Blanks30:~1,30%
+  set LangName=!LangName:~0,30!
 
-  SET POSVN=_Tortois_%%i.po
-  SET LANGNAME=%%j ^(%%i^)%LotsOfBlanks:~1,30%
-  SET LANGNAME=!LANGNAME:~0,30! :
+  echo Computing Status for !LANGNAME!
+  for /F "usebackq delims=#" %%p in (`Check_Status.bat !WDirTrunk! !PoFile! !TotalTrunk!`) do set StatusTrunk=%%p
+  for /F "usebackq delims=#" %%p in (`Check_Status.bat !WDirBrnch! !PoFile! !TotalBrnch!`) do set StatusBrnch=%%p
 
-  if exist !POSVN! (
-    set errSVN=0
-    set accSVN=0
-    set traSVN=0
-    set untSVN=0
-    set fuzSVN=0
-
-    FOR /F "usebackq" %%p IN (`%ScriptPath%\Check_Errors.bat --check !POSVN!`) DO SET errSVN=%%p
-    FOR /F "usebackq" %%p IN (`%ScriptPath%\Check_Errors.bat --check-accelerators !POSVN!`) DO SET accSVN=%%p
-    FOR /F "usebackq" %%p IN (`%ScriptPath%\Check_Attrib.bat --translated --no-obsolete !POSVN!`) DO SET traSVN=%%p
-    FOR /F "usebackq" %%p IN (`%ScriptPath%\Check_Attrib.bat --only-fuzzy --no-obsolete !POSVN!`) DO SET fuzSVN=%%p
-    FOR /F "usebackq" %%p IN (`%ScriptPath%\Check_Attrib.bat --untranslated --no-obsolete !POSVN!`) DO SET untSVN=%%p
-
-    SET /A errsumSVN=!fuzSVN!+!untSVN!+!errSVN!+!accSVN!
-
-    if !errSVN! NEQ 0 (
-      set outSVN=BROKEN
-      set outStat=
-    ) else if !errsumSVN! EQU 0 (
-      set outSVN=OK
-      set outStat=
-    ) else (
-      if !totSVN! EQU !traSVN! (
-        set outSVN=99%%
-        set outStat=- ^(!fuzSVN!/!untSVN!/!accSVN!^)
-      ) else (
-        set /a outTMP=100*!traSVN!/totSVN
-        set outSVN=!outTMP!%%
-        set outStat=- ^(!fuzSVN!/!untSVN!/!accSVN!^)
-      )
-    )
-
-  ) else (
-    set outSVN=NONE
-  )
-
-
-  rem Format output (left adjust only, right adjust is complicated)
-  set outSVN=!outSVN!%SomeBlanks:~1,6%
-  set outSVN=!outSVN:~0,5!
-
-  if not "!outSVN!"=="NONE" (
-    echo !LANGNAME! !outSVN! !outStat!
-    echo !LANGNAME! !outSVN! !outStat! >> %Logfile% 
-  )
-
+  echo !LANGNAME! : !StatusTrunk! : !StatusBrnch! >> %Logfile%
 )
 
+rem call :Cleanup %WDirTrunk%
+rem call :Cleanup %WDirBrnch%
+
+rem Write log file footer 
+echo =========================================================================== >> %LogFile%
+echo Status: fu=fuzzy - un=untranslated - ma=missing accelerator keys >> %LogFile%
+echo =========================================================================== >> %LogFile%
+
+goto :End
+
+rem ======================================================================
+rem Subroutine to prepare the working directory for the check 
+rem ======================================================================
+:Prepare
+echo.
+echo Preparing working directory %1
+echo ----------------------------------------------------------------------
+pushd %1
+rem CountSVN all messages in PO Template file
+FOR /F "usebackq" %%p IN (`%ScriptPath%\Check_Attrib.bat Tortoise.pot`) DO SET StringsTotal=%%p
+
+copy Tortoise_*.po _Tortois_*.po /Y 1>NUL
+FOR %%i in (_Tortois_*.po) DO (
+  echo %%i
+  msgmerge --no-wrap --quiet --no-fuzzy-matching -s %%i Tortoise.pot -o %%i 2> NUL
+)
+popd
+rem Return number of strings in errorlevel
+exit /b %StringsTotal%
+
+rem ======================================================================
+rem Subroutine to prepare the working directory for the check 
+rem ======================================================================
+:Cleanup
+echo Cleaning up working directory %1
+pushd %1
 del _Tortois_*.po /Q
 del *.mo
-
-:end
 popd
+exit /b 0
+
+:End
 ENDLOCAL
-goto :eof
+Exit /b 0
