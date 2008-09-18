@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-09-11 11:24+0100\n"
+"PO-Revision-Date: 2008-09-18 10:06+0100\n"
 "Last-Translator: Ondřej Lipovský <lipovsky@brainforce.cz>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -621,7 +621,7 @@ msgstr "&Importovat..."
 
 #. Resource IDs: (1480)
 msgid "&Include merge info"
-msgstr "%Zahrnout informace o sloučení"
+msgstr "Zahrnout &informace o sloučení"
 
 #. Resource IDs: (65535)
 msgid "&Initial directory:"
@@ -2168,7 +2168,7 @@ msgstr "Odevzdat do:"
 
 #. Resource IDs: (209)
 msgid "Commit..."
-msgstr "Odevzdat (&Commit)..."
+msgstr "Odevzdat (Commit)..."
 
 #. Resource IDs: (244)
 msgid "Commits by author"
@@ -2737,6 +2737,10 @@ msgstr "Výchozí menu aplikace. Je zobrazeno pokud není otevřen žádny dokum
 #. Resource IDs: (65535)
 msgid "Default path:"
 msgstr "Výchozí cesta:"
+
+#. Resource IDs: (1064)
+msgid "Default to UTF-8 encoding"
+msgstr "Implicitně kódování UTF-8 "
 
 #. Resource IDs: (1002, 1382)
 msgid "Delete"
@@ -5440,6 +5444,10 @@ msgstr ""
 #. Resource IDs: (172)
 msgid "Paste filename list"
 msgstr "Vložit seznam souborů"
+
+#. Resource IDs: (15)
+msgid "Pastes the svn path from the clipboard, resulting in a move (cut) or copy operation"
+msgstr "Vloží svn cestu ze schránky, má za následek operaci přesun nebo kopírování"
 
 #. Resource IDs: (376)
 msgid "Patch all"
@@ -9356,7 +9364,7 @@ msgstr ""
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logfilelistenglish\r\n"
-"Set to 'false' if you don't want the list of changed files to be pasted in english\r\n"
+"Set to 'false' if you don't want the list of changed files to be pasted in English\r\n"
 "in the commit dialog."
 msgstr ""
 "tsvn:logfilelistenglish\r\n"
