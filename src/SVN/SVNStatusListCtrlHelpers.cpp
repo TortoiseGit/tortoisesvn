@@ -21,7 +21,7 @@
 #include "resource.h"
 #include "..\\TortoiseShell\\resource.h"
 #include "SVNStatusListCtrl.h"
-
+#include <iterator>
 // assign property list
 
 CSVNStatusListCtrl::PropertyList& 
@@ -799,7 +799,7 @@ void CSVNStatusListCtrl::ColumnManager::ApplyColumnOrder()
     SecureZeroMemory (order, sizeof (order));
 
     std::vector<int> gridColumnOrder = GetGridColumnOrder();
-    std::copy (gridColumnOrder.begin(), gridColumnOrder.end(), &order[0]);
+	std::copy (gridColumnOrder.begin(), gridColumnOrder.end(), stdext::checked_array_iterator<int*>(&order[0], sizeof(order)));
 
     // we must have placed all columns or something is really fishy ..
 

@@ -1635,7 +1635,6 @@ svn_error_t* SVN::listReceiver(void* baton, const char* path,
 							   apr_pool_t * /*pool*/)
 {
 	SVN * svn = (SVN *)baton;
-	SVN_ERR (svn->cancel(baton));
 	svn->ReportList(CUnicodeUtils::GetUnicode(path), 
 		dirent->kind,
 		dirent->size,
@@ -1650,7 +1649,14 @@ svn_error_t* SVN::listReceiver(void* baton, const char* path,
 		lock ? lock->creation_date : 0,
 		lock ? lock->expiration_date : 0,
 		CUnicodeUtils::GetUnicode(abs_path));
-	return NULL;
+	svn_error_t * err = NULL;
+	if (!svn->Cancel())
+	{
+		CString temp;
+		temp.LoadString(IDS_SVN_USERCANCELLED);
+		err = svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(temp));
+	}
+	return err;
 }
 
 // implement ILogReceiver

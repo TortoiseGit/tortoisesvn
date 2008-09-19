@@ -53,7 +53,10 @@ static inline bool CompareCI (char lhs, char rhs)
 bool CPathClassificator::CWildCardPattern::WildCardMatch 
     (const char* s, const char* pattern) const
 {
-    while (1)
+#pragma warning(push)
+#pragma warning(disable: 4127)	// conditional expression is constant
+	while (1)
+#pragma warning(pop)
     {
         // consume one pattern char per loop
 

@@ -113,3 +113,5 @@
 #endif
 
 #pragma warning(disable: 4512)	// assignment operator could not be generated
+#pragma warning(disable: 4355)	// used in base member initializer list
+
