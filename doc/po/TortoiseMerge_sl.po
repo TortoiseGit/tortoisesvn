@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseMerge Documentation\n"
-"POT-Creation-Date: 2007-05-05 22:50 +0000\n"
-"PO-Revision-Date: 2008-05-26 21:22+0100\n"
+"POT-Creation-Date: 2008-07-11 23:46 +0000\n"
+"PO-Revision-Date: 2008-09-19 22:16+0100\n"
 "Last-Translator: Matjaz Cepon <matjaz.cepon@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1292,7 +1292,7 @@ msgstr "Veja"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1402
-msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bugfixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
+msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bug fixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
 msgstr "Izraz, ki se pogosto uporablja v sistemih za nadzor različic, in opisuje dve različni poti razvoja, ki se razcepita v določeni točki. Vejo lahko ustvarite na glavni veji, da razvijate novo lastnost ločeno, ne da bi glavno vejo naredili nestabilno. Lahko pa naredite vejo stabilne izdaje, na kateri le popravljate napake, nadaljni razvoj aplikacije pa se izvaja na nestabilni glavni veji. V sistemu Subversion je veja narejena kot <quote>poceni kopija</quote>."
 
 #. (glossterm)
@@ -1352,8 +1352,8 @@ msgstr "Izbriši"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1477
-msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the commited revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
-msgstr "Ko element pod nadzorom izbrišete in spremembo objavite, se ta element od objavljene revizije naprej ne nahaja več v skladišču.. When you delete a versioned item (and commit the change) the item no longer exists in the repository after the commited revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
+msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the committed revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
+msgstr "Ko izbrišete datoteko pod nadzorom (in objavite spremembo), tega elementa ni več v skladišču od objavljene revizije naprej. Seveda pa še vedno obstaja v prejšnjih revizijah skladišča in tako lahko še vedno dostopate do njega. Če je potrebno, lahko skopirate izbrisan element in ga pripeljete nazaj med žive s celotno zgodovino."
 
 #. (glossterm)
 #: ../source/TortoiseMerge_en.xml:1487
@@ -1382,8 +1382,8 @@ msgstr "FSFS"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1508
-msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
-msgstr "Datotečni sistem FS.Subversionov lastni datotečni sistem za skladišča. Uporablja se lahko tudi v mapah skupne rabe. Privzet sistem v različah 1.2 in novejših."
+msgid "A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
+msgstr "Ekskluziven datotečni sistem za skladišča sistema Subversion. Uporablja se lahko tudi v omrežnih datotekah v skupni rabi. Privzet sistem pri različicah 1.2 in novejših."
 
 #. (glossterm)
 #: ../source/TortoiseMerge_en.xml:1515
@@ -1422,8 +1422,8 @@ msgstr "Zakleni"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1542
-msgid "When you take out a lock on a versioned item, you mark it in the repository as uncommittable, except from the working copy where the lock was taken out."
-msgstr "Ko element pod nadzorom zaklenete, se v skladišču označi in ga ni mogoče objaviti, razen iz delovne kopije, iz katere je bil zahtevan zaklep."
+msgid "When you take out a lock on a versioned item, you mark it in the repository as non-committable, except from the working copy where the lock was taken out."
+msgstr "Ko element pod nadzorom zaklenete, ga s tem označite v skladišču in preprečite objave, razen iz delovne kopije, ki je zaklep zahtevala."
 
 #. (glossterm)
 #: ../source/TortoiseMerge_en.xml:1550
