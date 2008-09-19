@@ -52,6 +52,9 @@
 #endif
 
 #include "apr_general.h"
+// the apr headers somewhere disable a lot of warnings, but then miss to
+// enable them again. We do that here manually:
+#pragma warning(pop)
 #include "svn_pools.h"
 #include "svn_client.h"
 #include "svn_path.h"
@@ -108,3 +111,5 @@
 #else
 #	define APP_X64_STRING ""
 #endif
+
+#pragma warning(disable: 4512)	// assignment operator could not be generated
