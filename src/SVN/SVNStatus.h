@@ -208,13 +208,13 @@ private:
 	/**
 	 * Callback function which collects the raw status from a svn_client_status() function call
 	 */
-	static void getallstatus (void *baton, const char *path, svn_wc_status2_t *status);
+	static svn_error_t * getallstatus (void *baton, const char *path, svn_wc_status2_t *status, apr_pool_t *pool);
 
 	/**
 	 * Callback function which stores the raw status from a svn_client_status() function call
 	 * in a hash table.
 	 */
-	static void getstatushash (void *baton, const char *path, svn_wc_status2_t *status);
+	static svn_error_t * getstatushash (void *baton, const char *path, svn_wc_status2_t *status, apr_pool_t *pool);
 
 	/**
 	 * helper function to sort a hash to an array
