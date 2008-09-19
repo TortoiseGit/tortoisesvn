@@ -52,6 +52,8 @@ Version 1.5.4
 - BUG: Failures, even GPF in blame and log dialogs when specifying a
        revision range and a peg revision outside that range. (Stefan Fuhrmann)
 - BUG: TortoiseMerge sometimes wrongly detected the encoding of files. (Stefan)
+- BUG: If a merge conflicted due to added items the progress dialog did not
+       count these correctly and the context menu missed items. (Tobias Schäfer)
 
 Version 1.5.3
 - CHG: paths in error messages are nor truncated to 80 chars anymore. (Stefan)

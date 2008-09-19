@@ -511,7 +511,10 @@ CString CSVNProgressDlg::BuildInfoString()
 		case svn_wc_notify_add:
 		case svn_wc_notify_update_add:
 		case svn_wc_notify_commit_added:
-			added++;
+			if (dat->bConflictedActionItem)
+				conflicted++;
+			else
+				added++;
 			break;
 		case svn_wc_notify_copy:
 			copied++;
@@ -1384,6 +1387,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
 							bAdded = true;
 						}
+					}
 						if (data->bConflictedActionItem)
 						{
 							if (m_ProgList.GetSelectedCount() == 1)
@@ -1401,7 +1405,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						}
 						else if ((data->content_state == svn_wc_notify_state_merged)||(SVNProgress_Merge == m_Command)||(data->action == svn_wc_notify_resolved))
 							popup.SetDefaultItem(ID_COMPARE, FALSE);
-					}
+					
 					if (m_ProgList.GetSelectedCount() == 1)
 					{
 						if ((data->action == svn_wc_notify_add)||
