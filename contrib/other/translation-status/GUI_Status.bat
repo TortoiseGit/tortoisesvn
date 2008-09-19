@@ -24,13 +24,10 @@ set Blanks30="                              "
 rem Get current revision of working copy
 for /F "usebackq" %%p in (`svnversion`) do set WCRev=%%p
 
-rem call :Prepare %WDirTrunk%
-rem set TotalTrunk=%Errorlevel%
-rem call :Prepare %WDirBrnch%
-rem set TotalBrnch=%Errorlevel%
-
-set TotalTrunk=1909
-set TotalBrnch=1897
+call :Prepare %WDirTrunk%
+set TotalTrunk=%Errorlevel%
+call :Prepare %WDirBrnch%
+set TotalBrnch=%Errorlevel%
 
 rem Write log file header 
 echo.> %LogFile%
@@ -61,8 +58,8 @@ for /F "eol=# delims=	; tokens=1,5" %%i in (%LanguageList%) do (
   echo !LANGNAME! : !StatusTrunk! : !StatusBrnch! >> %Logfile%
 )
 
-rem call :Cleanup %WDirTrunk%
-rem call :Cleanup %WDirBrnch%
+call :Cleanup %WDirTrunk%
+call :Cleanup %WDirBrnch%
 
 rem Write log file footer 
 echo =========================================================================== >> %LogFile%
