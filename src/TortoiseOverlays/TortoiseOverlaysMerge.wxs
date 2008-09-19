@@ -19,6 +19,7 @@
 				<Directory Id='TortoioseOverlays' Name='TortOvl' LongName='TortoiseOverlays'>
 					<Component Id="C__overlaydll" Guid="$(var.OverlayDll)" Win64="$(var.Win64YesNo)">
 						<File Id="F__overlaydll" Name="TORTOVL.DLL" LongName="TortoiseOverlays.dll" src="..\..\bin\$(var.ReleasePath)\bin\TortoiseOverlays.dll" KeyPath="yes" />
+						<File Id="F__license" Name="License.txt" LongName="License.txt" src="License.txt" />
 					</Component>
 
 					<?if $(env.Platform) = "win32" ?>
