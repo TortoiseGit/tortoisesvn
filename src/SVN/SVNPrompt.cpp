@@ -52,7 +52,7 @@ void SVNPrompt::Init(apr_pool_t *pool, svn_client_ctx_t* ctx)
 	'username/password' creds and 'username' creds.  */
 	svn_auth_get_windows_simple_provider (&provider, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_auth_get_simple_provider (&provider, pool);
+	svn_auth_get_simple_provider2 (&provider, svn_auth_plaintext_prompt, this, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 	svn_auth_get_username_provider (&provider, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
@@ -64,7 +64,7 @@ void SVNPrompt::Init(apr_pool_t *pool, svn_client_ctx_t* ctx)
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 	svn_auth_get_ssl_client_cert_file_provider (&provider, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
-	svn_auth_get_ssl_client_cert_pw_file_provider (&provider, pool);
+	svn_auth_get_ssl_client_cert_pw_file_provider2 (&provider, svn_auth_plaintext_passphrase_prompt, this, pool);
 	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 
 	/* Two prompting providers, one for username/password, one for
@@ -421,6 +421,28 @@ svn_error_t* SVNPrompt::sslpwprompt(svn_auth_cred_ssl_client_cert_pw_t **cred, v
 		*cred = NULL;
 	if (svn->m_app)
 		svn->m_app->DoWaitCursor(0);
+	return SVN_NO_ERROR;
+}
+
+svn_error_t* SVNPrompt::svn_auth_plaintext_prompt(svn_boolean_t *may_save_plaintext, const char * /*realmstring*/, void * /*baton*/, apr_pool_t * /*pool*/)
+{
+	// we allow saving plaintext passwords without asking the user. The reason is simple:
+	// TSVN requires at least Win2k, which means the password is always stored encrypted because
+	// the corresponding APIs are available.
+	// If for some unknown reason it wouldn't be possible to save the passwords encrypted,
+	// most users wouldn't know what to do anyway so asking them would just confuse them.
+	*may_save_plaintext = true;
+	return SVN_NO_ERROR;
+}
+
+svn_error_t* SVNPrompt::svn_auth_plaintext_passphrase_prompt(svn_boolean_t *may_save_plaintext, const char * /*realmstring*/, void * /*baton*/, apr_pool_t * /*pool*/)
+{
+	// we allow saving plaintext passwords without asking the user. The reason is simple:
+	// TSVN requires at least Win2k, which means the password is always stored encrypted because
+	// the corresponding APIs are available.
+	// If for some unknown reason it wouldn't be possible to save the passwords encrypted,
+	// most users wouldn't know what to do anyway so asking them would just confuse them.
+	*may_save_plaintext = true;
 	return SVN_NO_ERROR;
 }
 

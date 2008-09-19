@@ -295,10 +295,11 @@ public:
 	 * addition.
 	 * 
 	 * \param path 
-	 * \param message 
+	 * \param message
+	 * \param makeParents create any non-existent parent directories also
 	 * \return TRUE if successful
 	 */
-	BOOL MakeDir(const CTSVNPathList& pathlist, const CString& message);
+	BOOL MakeDir(const CTSVNPathList& pathlist, const CString& message, bool makeParents);
 	/**
 	 * Recursively cleanup a working copy directory DIR, finishing any
 	 * incomplete operations, removing lock files, etc.

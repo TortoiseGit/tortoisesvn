@@ -683,14 +683,16 @@ BOOL SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 	return TRUE;
 }
 
-BOOL SVN::MakeDir(const CTSVNPathList& pathlist, const CString& message)
+BOOL SVN::MakeDir(const CTSVNPathList& pathlist, const CString& message, bool makeParents)
 {
 	svn_error_clear(Err);
 	Err = NULL;
 	svn_commit_info_t *commit_info = svn_create_commit_info(pool);
 	m_pctx->log_msg_baton3 = logMessage(CUnicodeUtils::GetUTF8(message));
-	Err = svn_client_mkdir2 (&commit_info,
+	Err = svn_client_mkdir3 (&commit_info,
 							 pathlist.MakePathArray(pool),
+							 makeParents,
+							 NULL,
 							 m_pctx,
 							 pool);
 	if(Err != NULL)
@@ -1434,7 +1436,7 @@ BOOL SVN::Cat(const CTSVNPath& url, const SVNRev& pegrevision, const SVNRev& rev
 		Err = svn_error_wrap_apr(status, NULL);
 		return FALSE;
 	}
-	stream = svn_stream_from_aprfile(file, localpool);
+	stream = svn_stream_from_aprfile2(file, true, localpool);
 
 	Err = svn_client_cat2(stream, url.GetSVNApiPath(localpool), pegrevision, revision, m_pctx, localpool);
 
@@ -2022,11 +2024,11 @@ CString SVN::GetRepositoryRootAndUUID(const CTSVNPath& url, CString& sUUID)
 	if (Err)
 		return _T("");
 
-	Err = svn_ra_get_repos_root(ra_session, &returl, localpool);
+	Err = svn_ra_get_repos_root2(ra_session, &returl, localpool);
 	if (Err)
 		return _T("");
 
-	Err = svn_ra_get_uuid(ra_session, &uuid, localpool);
+	Err = svn_ra_get_uuid2(ra_session, &uuid, localpool);
 	if (Err == NULL)
 		sUUID = CString(uuid);
 
@@ -2133,7 +2135,7 @@ BOOL SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& re
 	    if (Err)
 		    return FALSE;
 
-	    Err = svn_ra_get_repos_root(ra_session, &returl, localpool);
+	    Err = svn_ra_get_repos_root2(ra_session, &returl, localpool);
 	    if (Err)
 		    return FALSE;
     		
@@ -2290,7 +2292,7 @@ BOOL SVN::GetTranslatedFile(CTSVNPath& sTranslatedFile, const CTSVNPath sFile, B
 		svn_error_clear(err);
 		return FALSE;
 	}
-	err = svn_wc_translated_file((const char **)&translatedPath, originPath, adm_access, bForceRepair, localpool);
+	err = svn_wc_translated_file2((const char **)&translatedPath, originPath, originPath, adm_access, SVN_WC_TRANSLATE_TO_NF | (bForceRepair ? SVN_WC_TRANSLATE_FORCE_EOL_REPAIR : 0), localpool);
 	svn_wc_adm_close(adm_access);
 	if (err)
 	{

@@ -65,7 +65,7 @@ CTortoiseProcApp::CTortoiseProcApp()
 	int argc = 0;
 	const char* const * argv = NULL;
 	apr_app_initialize(&argc, &argv, NULL);
-	svn_dso_initialize();
+	svn_dso_initialize2();
 	SYS_IMAGE_LIST();
 	CHooks::Create();
 	g_SVNAdminDir.Init();
