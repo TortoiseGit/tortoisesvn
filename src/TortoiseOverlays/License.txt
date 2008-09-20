@@ -28,10 +28,3 @@ icons in it are permitted provided that the following conditions are met:
    promote products using this overlay handler without prior written
    permission. For written permission, please contact
    dev@tortoisesvn.tigris.org.
-
-3. Clients using this handler must use the provided installer or merge
-   module to avoid problems. Clients must not create their own installer
-   for the TortoiseOverlays handler! This is to avoid problems with
-   uninstalling clients: only msi provides the means for reference
-   counting and ensures that one client does not remove the handler
-   which other clients might still need.
