@@ -17,7 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #pragma once
 
-#include "apr_general.h"
 #include "svn_pools.h"
 #include "svn_wc.h"
 

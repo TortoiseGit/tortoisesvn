@@ -48,6 +48,7 @@
 #include <algorithm> 
 #pragma warning(pop)
 
+#pragma warning(push)
 #include "apr_general.h"
 #include "svn_pools.h"
 #include "svn_client.h"
@@ -56,5 +57,6 @@
 #include "svn_utf.h"
 #include "svn_config.h"
 #include "svn_subst.h"
+#pragma warning(pop)
 
 #define CSTRING_AVAILABLE

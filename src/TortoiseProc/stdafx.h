@@ -51,10 +51,8 @@
 #define LVS_EX_DOUBLEBUFFER     0x00010000
 #endif
 
+#pragma warning(push)
 #include "apr_general.h"
-// the apr headers somewhere disable a lot of warnings, but then miss to
-// enable them again. We do that here manually:
-#pragma warning(pop)
 #include "svn_pools.h"
 #include "svn_client.h"
 #include "svn_path.h"
@@ -65,6 +63,7 @@
 #include "svn_subst.h"
 #include "svn_repos.h"
 #include "svn_time.h"
+#pragma warning(pop)
 
 #pragma warning(push)
 #pragma warning(disable: 4702)	// Unreachable code warnings in xtree

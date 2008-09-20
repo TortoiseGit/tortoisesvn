@@ -167,7 +167,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
 			try
 			{
 				folderpath = filepath;
-				err = svn_client_status3 (&youngest,
+				err = svn_client_status4 (&youngest,
 					filepath.GetDirectory().GetSVNApiPath(pool),
 					&rev,
 					findfolderstatus,
@@ -219,7 +219,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
 	rev.kind = svn_opt_revision_unspecified;
 	try
 	{
-		err = svn_client_status3 (&youngest,
+		err = svn_client_status4 (&youngest,
 			filepath.GetDirectory().GetSVNApiPath(pool),
 			&rev,
 			fillstatusmap,
@@ -370,7 +370,7 @@ const FileStatusCacheEntry * SVNFolderStatus::GetCachedItem(const CTSVNPath& fil
 	return NULL;
 }
 
-void SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_status2_t * status)
+svn_error_t* SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_status2_t * status, apr_pool_t * /*pool*/)
 {
 	SVNFolderStatus * Stat = (SVNFolderStatus *)baton;
 	FileStatusMap * cache = &Stat->m_cache;
@@ -409,15 +409,19 @@ void SVNFolderStatus::fillstatusmap(void * baton, const char * path, svn_wc_stat
 	else
 		str = _T(" ");
 	(*cache)[str] = s;
+
+	return SVN_NO_ERROR;
 }
 
-void SVNFolderStatus::findfolderstatus(void * baton, const char * path, svn_wc_status2_t * status)
+svn_error_t* SVNFolderStatus::findfolderstatus(void * baton, const char * path, svn_wc_status2_t * status, apr_pool_t * /*pool*/)
 {
 	SVNFolderStatus * Stat = (SVNFolderStatus *)baton;
 	if ((Stat)&&(Stat->folderpath.IsEquivalentTo(CTSVNPath(CString(path)))))
 	{
 		Stat->dirstatus = status;
 	}
+
+	return SVN_NO_ERROR;
 }
 
 void SVNFolderStatus::ClearCache()

@@ -154,7 +154,7 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
     if (state != FileStateInvalid)
     {
 		apr_initialize();
-		svn_dso_initialize();
+		svn_dso_initialize2();
 		g_SVNAdminDir.Init();
 		g_cAprInit++;
 		
