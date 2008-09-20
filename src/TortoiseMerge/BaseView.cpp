@@ -2293,6 +2293,10 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
 {
 	int nMouseLine = (((point.y - HEADERHEIGHT) / GetLineHeight()) + m_nTopLine);
 	nMouseLine--;		//we need the index
+	if (nMouseLine < -1)
+	{
+		nMouseLine = -1;
+	}
 	ShowDiffLines(nMouseLine);
 
 	if (nFlags & MK_LBUTTON)
