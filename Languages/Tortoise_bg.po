@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-09-11 22:56+0200\n"
+"PO-Revision-Date: 2008-09-21 03:43+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1206,7 +1206,7 @@ msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
-"Списък, с разделител нов ред, от пътища, за които да се показват модификациите на иконките.\n"
+"Списък, с разделител нов ред, от пътища, за които да се показват модификациите на иконките.\r\n"
 "Ако добавите знака '*' в края на път, всички файлове и поддиректории в този път също ще са включени."
 
 #. Resource IDs: (194)
@@ -1215,8 +1215,8 @@ msgid ""
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
-"Списък, с разделител нов ред, от пътища, за които не се показват модификациите на иконките.\n"
-"Ако добавите знака '*' в края на път, всички файлове и поддиректории в този път също ще са изключени.\n"
+"Списък, с разделител нов ред, от пътища, за които не се показват модификациите на иконките.\r\n"
+"Ако добавите знака '*' в края на път, всички файлове и поддиректории в този път също ще са изключени.\r\n"
 "За да се показват навсякъде модификациите, оставете списъка празен."
 
 #. Resource IDs: (3843)
@@ -4107,7 +4107,7 @@ msgid ""
 "If enabled, the Merge dialog initializes the 'From:' URL with the URL of the selected working copy\r\n"
 "instead of the last used URL."
 msgstr ""
-"Ако е включено, диалоговият прозорец за сливане инициализира 'От:' URL с URL на избраното работно копие\n"
+"Ако е включено, диалоговият прозорец за сливане инициализира 'От:' URL с URL на избраното работно копие\r\n"
 "вместо с последно използвания URL."
 
 #. Resource IDs: (195)
@@ -4115,7 +4115,7 @@ msgid ""
 "If enabled, the repository is contacted when the dialog starts up.\r\n"
 "You don't have to click on 'Check Repository' anymore."
 msgstr ""
-"Ако е включено, при стартиране на диалоговият прозорец се прави проверка в хранилището.\n"
+"Ако е включено, при стартиране на диалоговият прозорец се прави проверка в хранилището.\r\n"
 "В този случай вече няма нужда да се ползва бутона 'Проверка в хранилището'"
 
 #. Resource IDs: (197)
@@ -5466,6 +5466,10 @@ msgstr ""
 #. Resource IDs: (172)
 msgid "Paste filename list"
 msgstr "Поставяне на списъка с файлове"
+
+#. Resource IDs: (15)
+msgid "Pastes the svn path from the clipboard, resulting in a move (cut) or copy operation"
+msgstr "Поставя път от тип SVN от системния буфер и в резултат има преместване или копиране"
 
 #. Resource IDs: (376)
 msgid "Patch all"
@@ -8905,9 +8909,9 @@ msgid ""
 "log message. The default is 'true' which means the bugtracking ID\r\n"
 "is appended to the log message."
 msgstr ""
-"bugtraq:append\n"
-"Установете на 'false', ако желаете номера на проблем да бъде вмъкнат в началото на\n"
-" съобщението за дневника. По подразбиране е 'true', което означава, че номера на проблема\n"
+"bugtraq:append\r\n"
+"Установете на 'false', ако желаете номера на проблем да бъде вмъкнат в началото на\r\n"
+" съобщението за дневника. По подразбиране е 'true', което означава, че номера на проблема\r\n"
 "се добавя в края на  съобщението за дневника."
 
 #. Resource IDs: (577)
@@ -8937,8 +8941,8 @@ msgid ""
 "String which is appended to a log message when an issue number is entered.\r\n"
 "The string must contain '%BUGID%' which gets replaced with the issue number."
 msgstr ""
-"bugtraq:message\n"
-"Низ, който се добавя към съобщенията за дневника, когато е въведен номер на проблем.\n"
+"bugtraq:message\r\n"
+"Низ, който се добавя към съобщенията за дневника, когато е въведен номер на проблем.\r\n"
 "Низът трябва да съдържа '%BUGID%', който се замества с номера на проблема."
 
 #. Resource IDs: (577)
@@ -8946,7 +8950,7 @@ msgid ""
 "bugtraq:number\r\n"
 "Set to 'false' if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
-"bugtraq:number\n"
+"bugtraq:number\r\n"
 "Установете на 'false', ако Вашата програма за проследяване на проблеми работи и с идентификатори, които не са числа."
 
 #. Resource IDs: (577)
@@ -8956,8 +8960,8 @@ msgid ""
 "URL pointing to the issue tracker. It must contain '%BUGID%' which\r\n"
 "gets replaced with the issue number."
 msgstr ""
-"bugtraq:url\n"
-"URL, сочещ към програмата за проследяване на проблеми. Трябва да съдържа '%BUGID%', kойто\n"
+"bugtraq:url\r\n"
+"URL, сочещ към програмата за проследяване на проблеми. Трябва да съдържа '%BUGID%', kойто\r\n"
 "се замества с номера на проблема."
 
 #. Resource IDs: (65535)
@@ -9386,8 +9390,8 @@ msgid ""
 "Set to 'false' if you don't want the list of changed files to be pasted in English\r\n"
 "in the commit dialog."
 msgstr ""
-"tsvn:logfilelistenglish\n"
-"Установете на 'false', ако не желаете списъкът с променени файлове, който ще се добави\n"
+"tsvn:logfilelistenglish\r\n"
+"Установете на 'false', ако не желаете списъкът с променени файлове, който ще се добави\r\n"
 "в съобщението за дневника, да е на английски."
 
 #. Resource IDs: (578)
@@ -9461,7 +9465,7 @@ msgid ""
 "tsvn:warnifnoissue\r\n"
 "Set to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
-"tsvn:warnifnoissue\n"
+"tsvn:warnifnoissue\r\n"
 "Установете на 'yes', ако желаете да се показва предупреждение, когато в диалоговия прозорец за поверяване не е бил въведен номер на проблем."
 
 #. Resource IDs: (65535)
