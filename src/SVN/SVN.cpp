@@ -1650,7 +1650,7 @@ svn_error_t* SVN::listReceiver(void* baton, const char* path,
 		lock ? lock->expiration_date : 0,
 		CUnicodeUtils::GetUnicode(abs_path));
 	svn_error_t * err = NULL;
-	if (!svn->Cancel())
+	if (svn->Cancel())
 	{
 		CString temp;
 		temp.LoadString(IDS_SVN_USERCANCELLED);
