@@ -27,6 +27,8 @@
 #include "MessageBox.h"
 #include "AppUtils.h"
 #include "StringUtils.h"
+#include "TSVNAuth.h"
+
 
 SVNPrompt::SVNPrompt()
 {
@@ -46,8 +48,10 @@ void SVNPrompt::Init(apr_pool_t *pool, svn_client_ctx_t* ctx)
 	svn_auth_provider_object_t *provider;
 
 	/* The whole list of registered providers */
-	apr_array_header_t *providers = apr_array_make (pool, 12, sizeof (svn_auth_provider_object_t *));
+	apr_array_header_t *providers = apr_array_make (pool, 13, sizeof (svn_auth_provider_object_t *));
 
+	svn_auth_get_tsvn_simple_provider (&provider, pool);
+	APR_ARRAY_PUSH (providers, svn_auth_provider_object_t *) = provider;
 	/* The main disk-caching auth providers, for both
 	'username/password' creds and 'username' creds.  */
 	svn_auth_get_windows_simple_provider (&provider, pool);
@@ -164,7 +168,7 @@ BOOL SVNPrompt::SimplePrompt(CString& username, CString& password, const CString
 	return FALSE;
 }
 
-svn_error_t* SVNPrompt::userprompt(svn_auth_cred_username_t **cred, void *baton, const char * /*realm*/, svn_boolean_t may_save, apr_pool_t *pool)
+svn_error_t* SVNPrompt::userprompt(svn_auth_cred_username_t **cred, void *baton, const char * realm, svn_boolean_t may_save, apr_pool_t *pool)
 {
 	SVNPrompt * svn = (SVNPrompt *)baton;
 	svn_auth_cred_username_t *ret = (svn_auth_cred_username_t *)apr_pcalloc (pool, sizeof (*ret));
@@ -176,6 +180,9 @@ svn_error_t* SVNPrompt::userprompt(svn_auth_cred_username_t **cred, void *baton,
 		ret->username = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(username));
 		ret->may_save = may_save;
 		*cred = ret;
+		Creds c;
+		c.username = username;
+		tsvn_creds[realm] = c;
 	}
 	else
 		*cred = NULL;
@@ -197,6 +204,10 @@ svn_error_t* SVNPrompt::simpleprompt(svn_auth_cred_simple_t **cred, void *baton,
 		ret->password = apr_pstrdup(pool, CUnicodeUtils::GetUTF8(PassWord));
 		ret->may_save = may_save;
 		*cred = ret;
+		Creds c;
+		c.username = ret->username;
+		c.password = ret->password;
+		tsvn_creds[realm] = c;
 	}
 	else
 		*cred = NULL;

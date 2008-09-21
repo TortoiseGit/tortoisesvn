@@ -1444,6 +1444,14 @@
 				RelativePath="..\SVN\SVNStatusListCtrlHelpers.cpp"
 				>
 			</File>
+			<File
+				RelativePath="..\SVN\TSVNAuth.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\SVN\TSVNAuth.h"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
@@ -1910,11 +1918,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\Resources\up.ico"
+				RelativePath=".\up.ico"
 				>
 			</File>
 			<File
-				RelativePath=".\up.ico"
+				RelativePath="..\Resources\up.ico"
 				>
 			</File>
 			<File
