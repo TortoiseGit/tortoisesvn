@@ -69,7 +69,6 @@
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				OptimizeForWindows98="1"
 				ResourceOnlyDLL="true"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
@@ -150,7 +149,6 @@
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				OptimizeForWindows98="1"
 				ResourceOnlyDLL="true"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
@@ -230,7 +228,6 @@
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				OptimizeForWindows98="1"
 				ResourceOnlyDLL="true"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
@@ -311,7 +308,6 @@
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				OptimizeForWindows98="1"
 				ResourceOnlyDLL="true"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
@@ -644,19 +640,19 @@
 			</File>
 		</Filter>
 		<File
-			RelativePath="..\Languages\res\bin167.avi"
-			>
-		</File>
-		<File
 			RelativePath="..\Resources\bin167.avi"
 			>
 		</File>
 		<File
-			RelativePath="..\Languages\res\bin168.avi"
+			RelativePath="..\Languages\res\bin167.avi"
 			>
 		</File>
 		<File
 			RelativePath="..\Resources\bin168.avi"
+			>
+		</File>
+		<File
+			RelativePath="..\Languages\res\bin168.avi"
 			>
 		</File>
 		<File
@@ -672,7 +668,7 @@
 			>
 		</File>
 		<File
-			RelativePath="..\Resources\TortoiseProc.manifest"
+			RelativePath="..\Languages\res\TortoiseProc.manifest"
 			>
 			<FileConfiguration
 				Name="Release|Win32"
@@ -708,7 +704,7 @@
 			</FileConfiguration>
 		</File>
 		<File
-			RelativePath="..\Languages\res\TortoiseProc.manifest"
+			RelativePath="..\Resources\TortoiseProc.manifest"
 			>
 			<FileConfiguration
 				Name="Release|Win32"
