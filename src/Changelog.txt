@@ -56,6 +56,8 @@ Version 1.5.4
        count these correctly and the context menu missed items. (Tobias Schäfer)
 - BUG: TortoiseMerge could crash if the font size was set smaller than
        8 pixels. (Stefan)
+- BUG: When a cleanup failed, the error message didn't include the svn
+       error string. (Stefan)
 
 Version 1.5.3
 - CHG: paths in error messages are nor truncated to 80 chars anymore. (Stefan)

@@ -45,6 +45,7 @@ bool CleanupCommand::Execute()
 		if (!svn.CleanUp(pathList[i]))
 		{
 			strFailedPaths += _T("- ") + pathList[i].GetWinPathString() + _T("\n");
+			strFailedPaths += svn.GetLastErrorMessage() + _T("\n\n");
 		}
 		else
 		{
