@@ -51,7 +51,7 @@ bool MergeCommand::Execute()
 	}
 	if (parser.HasVal(_T("fromurl2")))
 	{
-		wizard.URL2 = parser.GetVal(_T("fromurl2"));
+		wizard.URL2 = parser.GetVal(_T("tourl"));
 		wizard.startRev = SVNRev(parser.GetVal(_T("fromrev")));
 		wizard.endRev = SVNRev(parser.GetVal(_T("torev")));
 	}
