@@ -106,13 +106,20 @@ BOOL CMergeWizardRevRange::OnInitDialog()
 {
 	CMergeWizardBasePage::OnInitDialog();
 
-	CString sUUID = ((CMergeWizard*)GetParent())->sUUID;
+	CMergeWizard * pWizard = (CMergeWizard*)GetParent();
+
+	CString sUUID = pWizard->sUUID;
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
 	if (!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\MergeWCURL"), FALSE))
 		m_URLCombo.SetCurSel(0);
-	if (m_URLCombo.GetString().IsEmpty())
-		m_URLCombo.SetWindowText(CPathUtils::PathUnescape(((CMergeWizard*)GetParent())->url));
+	if (!pWizard->url.IsEmpty())
+		m_URLCombo.SetWindowText(CPathUtils::PathUnescape(pWizard->url));
+	if (pWizard->revRangeArray.GetCount())
+	{
+		m_sRevRange = pWizard->revRangeArray.ToListString();
+		SetDlgItemText(IDC_REVISION_RANGE, m_sRevRange);
+	}
 
 	CString sLabel;
 	sLabel.LoadString(IDS_MERGEWIZARD_REVRANGESTRING);

@@ -92,9 +92,6 @@ BOOL CMergeWizardStart::OnSetActive()
 {
 	CMergeWizard* wiz = (CMergeWizard*)GetParent();
 
-	if (wiz->AutoSetMode())
-		return FALSE;
-
 	wiz->SetWizardButtons(PSWIZB_NEXT);
 	SetButtonTexts();
 

@@ -26,8 +26,35 @@
 
 bool MergeCommand::Execute()
 {
-	CMergeWizard wizard(IDS_PROGRS_CMDINFO, NULL, 0);
+	DWORD nMergeWizardMode =
+		(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\MergeWizardMode"), 0);
+
+	if (parser.HasVal(_T("fromurl")))
+	{
+		// fromurl means merging a revision range
+		nMergeWizardMode = 2;
+	}
+	if (parser.HasVal(_T("fromurl2")))
+	{
+		// fromurl2 means merging a tree
+		nMergeWizardMode = 1;
+	}
+
+	CMergeWizard wizard(IDS_PROGRS_CMDINFO, NULL, nMergeWizardMode);
 	wizard.wcPath = cmdLinePath;
+
+	if (parser.HasVal(_T("fromurl")))
+	{
+		wizard.URL1 = parser.GetVal(_T("fromurl"));
+		wizard.url = parser.GetVal(_T("fromurl"));
+		wizard.revRangeArray.FromListString(parser.GetVal(_T("revrange")));
+	}
+	if (parser.HasVal(_T("fromurl2")))
+	{
+		wizard.URL2 = parser.GetVal(_T("fromurl2"));
+		wizard.startRev = SVNRev(parser.GetVal(_T("fromrev")));
+		wizard.endRev = SVNRev(parser.GetVal(_T("torev")));
+	}
 	if (wizard.DoModal() == ID_WIZFINISH)
 	{
 		CSVNProgressDlg progDlg;

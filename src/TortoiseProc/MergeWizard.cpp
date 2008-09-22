@@ -77,28 +77,27 @@ BOOL CMergeWizard::OnInitDialog()
 	return bResult;
 }
 
-// Mode numbers coincide with wizard page indexes.
-
-bool CMergeWizard::AutoSetMode()
-{
-	if (!m_FirstPageActivation)
-		return false;
-	m_FirstPageActivation = false;
-	DWORD nMergeWizardMode =
-		(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\MergeWizardMode"), 0);
-	if ((nMergeWizardMode != IDD_MERGEWIZARD_TREE) && (nMergeWizardMode != IDD_MERGEWIZARD_REVRANGE) && (nMergeWizardMode != IDD_MERGEWIZARD_REINTEGRATE))
-		return false;
-	nRevRangeMerge = nMergeWizardMode;
-	SendMessage(PSM_SETCURSEL, nMergeWizardMode);
-	return true;
-}
 
 void CMergeWizard::SaveMode()
 {
 	CRegDWORD regMergeWizardMode(_T("Software\\TortoiseSVN\\MergeWizardMode"), 0);
 	if (DWORD(regMergeWizardMode))
 	{
-		regMergeWizardMode = nRevRangeMerge;
+		switch (nRevRangeMerge)
+		{
+		case IDD_MERGEWIZARD_REVRANGE:
+			regMergeWizardMode = 2;
+			break;
+		case IDD_MERGEWIZARD_REINTEGRATE:
+			regMergeWizardMode = 3;
+			break;
+		case IDD_MERGEWIZARD_TREE:
+			regMergeWizardMode = 1;
+			break;
+		default:
+			regMergeWizardMode = 0;
+			break;
+		}
 	}
 }
 

@@ -245,10 +245,14 @@ Don't touch these lines:
 							<entry>
 								Opens the merge dialog. The <option>/path</option> specifies the
 								target directory.
-								Three additional options can be set:
-								<option>/mergefrom:xxx</option>, 
-								<option>/mergeto:xxx</option> and
-								<option>/fromurl:URL</option>.
+								For merging a revision range, the following options are available:
+								<option>/fromurl:URL</option>,
+								<option>/revrange:string</option>.
+								For merging two repository trees, the following options are available:
+								<option>/fromurl:URL</option>,
+								<option>/tourl:URL</option>,
+								<option>/fromrev:xxx</option>, 
+								<option>/torev:xxx</option> and
 								These pre-fill the relevant fields in the merge dialog.
 							</entry>
 						</row>
