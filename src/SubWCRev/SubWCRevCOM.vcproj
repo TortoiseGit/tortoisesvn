@@ -148,7 +148,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="Ws2_32.lib shlwapi.lib Version.lib ../../ext/Subversion\debug_x64\libsvn_wc-nonet.lib ../../ext/Subversion\debug_x64\libsvn_delta-nonet.lib ../../ext/Subversion\debug_x64\libsvn_diff-nonet.lib ../../ext/Subversion\debug_x64\libsvn_subr-nonet.lib ../../ext/Subversion\debug_x64\libsvn_client-nonet.lib ../../ext/apr\debug_x64\libapr_tsvn.lib ../../ext/apr-util\debug_x64\libaprutil_tsvn.lib ../../ext/apr-util\xml\expat\lib\debug_x64\xml.lib ../../ext/libintl/libintl3-x64/lib/intl3_tsvn.lib"
+				AdditionalDependencies="Ws2_32.lib Crypt32.lib shlwapi.lib Version.lib ../../ext/Subversion\debug_x64\libsvn_wc-nonet.lib ../../ext/Subversion\debug_x64\libsvn_delta-nonet.lib ../../ext/Subversion\debug_x64\libsvn_diff-nonet.lib ../../ext/Subversion\debug_x64\libsvn_subr-nonet.lib ../../ext/Subversion\debug_x64\libsvn_client-nonet.lib ../../ext/apr\debug_x64\libapr_tsvn.lib ../../ext/apr-util\debug_x64\libaprutil_tsvn.lib ../../ext/apr-util\xml\expat\lib\debug_x64\xml.lib ../../ext/libintl/libintl3-x64/lib/intl3_tsvn.lib"
 				OutputFile="$(OutDir)/SubWCRevCOM.exe"
 				LinkIncremental="2"
 				IgnoreDefaultLibraryNames="LIBC.lib"
@@ -313,7 +313,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="Ws2_32.lib shlwapi.lib Version.lib ../../ext/Subversion\release_x64\libsvn_wc-nonet.lib ../../ext/Subversion\release_x64\libsvn_delta-nonet.lib ../../ext/Subversion\release_x64\libsvn_diff-nonet.lib ../../ext/Subversion\release_x64\libsvn_subr-nonet.lib ../../ext/Subversion\release_x64\libsvn_client-nonet.lib ../../ext/apr\release_x64\libapr_tsvn.lib ../../ext/apr-util\release_x64\libaprutil_tsvn.lib ../../ext/apr-util\xml\expat\lib\release_x64\xml.lib ../../ext/libintl/libintl3-x64/lib/intl3_tsvn.lib"
+				AdditionalDependencies="Ws2_32.lib Crypt32.lib shlwapi.lib Version.lib ../../ext/Subversion\release_x64\libsvn_wc-nonet.lib ../../ext/Subversion\release_x64\libsvn_delta-nonet.lib ../../ext/Subversion\release_x64\libsvn_diff-nonet.lib ../../ext/Subversion\release_x64\libsvn_subr-nonet.lib ../../ext/Subversion\release_x64\libsvn_client-nonet.lib ../../ext/apr\release_x64\libapr_tsvn.lib ../../ext/apr-util\release_x64\libaprutil_tsvn.lib ../../ext/apr-util\xml\expat\lib\release_x64\xml.lib ../../ext/libintl/libintl3-x64/lib/intl3_tsvn.lib"
 				OutputFile="$(OutDir)/SubWCRevCOM.exe"
 				LinkIncremental="1"
 				IgnoreDefaultLibraryNames="LIBCMT.lib"
@@ -479,7 +479,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="Ws2_32.lib shlwapi.lib Version.lib ../../ext/Subversion\release_x64\libsvn_wc-nonet.lib ../../ext/Subversion\release_x64\libsvn_delta-nonet.lib ../../ext/Subversion\release_x64\libsvn_diff-nonet.lib ../../ext/Subversion\release_x64\libsvn_subr-nonet.lib ../../ext/Subversion\release_x64\libsvn_client-nonet.lib ../../ext/apr\release_x64\libapr_tsvn.lib ../../ext/apr-util\release_x64\libaprutil_tsvn.lib ../../ext/apr-util\xml\expat\lib\release_x64\xml.lib ../../ext/libintl/libintl3-x64/lib/intl3_tsvn.lib"
+				AdditionalDependencies="Ws2_32.lib Crypt32.lib shlwapi.lib Version.lib ../../ext/Subversion\release_x64\libsvn_wc-nonet.lib ../../ext/Subversion\release_x64\libsvn_delta-nonet.lib ../../ext/Subversion\release_x64\libsvn_diff-nonet.lib ../../ext/Subversion\release_x64\libsvn_subr-nonet.lib ../../ext/Subversion\release_x64\libsvn_client-nonet.lib ../../ext/apr\release_x64\libapr_tsvn.lib ../../ext/apr-util\release_x64\libaprutil_tsvn.lib ../../ext/apr-util\xml\expat\lib\release_x64\xml.lib ../../ext/libintl/libintl3-x64/lib/intl3_tsvn.lib"
 				OutputFile="$(OutDir)/SubWCRevCOM.exe"
 				LinkIncremental="1"
 				IgnoreDefaultLibraryNames="LIBCMT.lib"
@@ -644,7 +644,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="Ws2_32.lib shlwapi.lib Version.lib ../../ext/Subversion\release_x64\libsvn_wc-nonet.lib ../../ext/Subversion\release_x64\libsvn_delta-nonet.lib ../../ext/Subversion\release_x64\libsvn_diff-nonet.lib ../../ext/Subversion\release_x64\libsvn_subr-nonet.lib ../../ext/Subversion\release_x64\libsvn_client-nonet.lib ../../ext/apr\release_x64\libapr_tsvn.lib ../../ext/apr-util\release_x64\libaprutil_tsvn.lib ../../ext/apr-util\xml\expat\lib\release_x64\xml.lib ../../ext/libintl/libintl3-x64/lib/intl3_tsvn.lib"
+				AdditionalDependencies="Ws2_32.lib Crypt32.lib shlwapi.lib Version.lib ../../ext/Subversion\release_x64\libsvn_wc-nonet.lib ../../ext/Subversion\release_x64\libsvn_delta-nonet.lib ../../ext/Subversion\release_x64\libsvn_diff-nonet.lib ../../ext/Subversion\release_x64\libsvn_subr-nonet.lib ../../ext/Subversion\release_x64\libsvn_client-nonet.lib ../../ext/apr\release_x64\libapr_tsvn.lib ../../ext/apr-util\release_x64\libaprutil_tsvn.lib ../../ext/apr-util\xml\expat\lib\release_x64\xml.lib ../../ext/libintl/libintl3-x64/lib/intl3_tsvn.lib"
 				OutputFile="$(OutDir)/SubWCRevCOM.exe"
 				LinkIncremental="1"
 				IgnoreDefaultLibraryNames="LIBCMT.lib"
