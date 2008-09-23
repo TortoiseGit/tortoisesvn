@@ -40,6 +40,7 @@ bool DropCopyCommand::Execute()
 		do 
 		{
 			CRenameDlg renDlg;
+			renDlg.m_windowtitle.LoadString(IDS_PROC_COPYRENAME);
 			renDlg.m_name = pathList[0].GetFileOrDirectoryName();
 			if (renDlg.DoModal() != IDOK)
 			{
