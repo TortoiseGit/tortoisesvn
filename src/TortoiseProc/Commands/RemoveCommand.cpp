@@ -23,6 +23,7 @@
 #include "ProgressDlg.h"
 #include "SVN.h"
 #include "InputLogDlg.h"
+#include "ShellUpdater.h"
 
 bool RemoveCommand::Execute()
 {
@@ -111,5 +112,7 @@ bool RemoveCommand::Execute()
 			}
 		}
 	}
+	if (bRet)
+		CShellUpdater::Instance().AddPathsForUpdate(pathList);
 	return bRet;
 }

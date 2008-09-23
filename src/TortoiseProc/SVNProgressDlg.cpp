@@ -37,6 +37,7 @@
 #include "RegHistory.h"
 #include "ConflictResolveDlg.h"
 #include "LogFile.h"
+#include "ShellUpdater.h"
 
 BOOL	CSVNProgressDlg::m_bAscending = FALSE;
 int		CSVNProgressDlg::m_nSortedColumn = -1;
@@ -1748,6 +1749,7 @@ bool CSVNProgressDlg::CmdAdd(CString& sWindowTitle, bool& localoperation)
 		ReportSVNError();
 		return false;
 	}
+	CShellUpdater::Instance().AddPathsForUpdate(m_targetPathList);
 	return true;
 }
 
@@ -1988,6 +1990,7 @@ bool CSVNProgressDlg::CmdLock(CString& sWindowTitle, bool& /*localoperation*/)
 		ReportSVNError();
 		return false;
 	}
+	CShellUpdater::Instance().AddPathsForUpdate(m_targetPathList);
 	if (m_bLockWarning)
 	{
 		// the lock failed, because the file was outdated.
@@ -2242,6 +2245,7 @@ bool CSVNProgressDlg::CmdResolve(CString& sWindowTitle, bool& localoperation)
 		for (INT_PTR fileindex=0; fileindex<m_targetPathList.GetCount(); ++fileindex)
 			Resolve(m_targetPathList[fileindex], svn_wc_conflict_choose_merged, true);
 	}
+	CShellUpdater::Instance().AddPathsForUpdate(m_targetPathList);
 	return true;
 }
 
@@ -2262,6 +2266,7 @@ bool CSVNProgressDlg::CmdRevert(CString& sWindowTitle, bool& localoperation)
 		ReportSVNError();
 		return false;
 	}
+	CShellUpdater::Instance().AddPathsForUpdate(m_targetPathList);
 	return true;
 }
 
@@ -2315,6 +2320,7 @@ bool CSVNProgressDlg::CmdUnlock(CString& sWindowTitle, bool& /*localoperation*/)
 		ReportSVNError();
 		return false;
 	}
+	CShellUpdater::Instance().AddPathsForUpdate(m_targetPathList);
 	return true;
 }
 

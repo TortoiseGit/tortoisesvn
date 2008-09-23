@@ -21,6 +21,7 @@
 
 #include "AddDlg.h"
 #include "SVNProgressDlg.h"
+#include "ShellUpdater.h"
 
 bool AddCommand::Execute()
 {
@@ -31,6 +32,7 @@ bool AddCommand::Execute()
 		ProjectProperties props;
 		props.ReadPropsPathList(pathList);
 		bRet = !!svn.Add(pathList, &props, svn_depth_empty, FALSE, FALSE, TRUE);
+		CShellUpdater::Instance().AddPathsForUpdate(pathList);
 	}
 	else
 	{
@@ -40,6 +42,7 @@ bool AddCommand::Execute()
 			ProjectProperties props;
 			props.ReadPropsPathList(pathList);
 			bRet = !!svn.Add(pathList, &props, svn_depth_empty, FALSE, FALSE, TRUE);
+			CShellUpdater::Instance().AddPathsForUpdate(pathList);
 		}
 		else
 		{

@@ -23,6 +23,7 @@
 #include "MessageBox.h"
 #include "SVN.h"
 #include "RenameDlg.h"
+#include "ShellUpdater.h"
 
 bool DropMoveCommand::Execute()
 {
@@ -95,6 +96,7 @@ bool DropMoveCommand::Execute()
 						CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						return FALSE;		//get out of here
 					}
+					CShellUpdater::Instance().AddPathForUpdate(destPath);
 				}
 			}
 			else
@@ -104,6 +106,8 @@ bool DropMoveCommand::Execute()
 				return FALSE;		//get out of here
 			}
 		} 
+		else
+			CShellUpdater::Instance().AddPathForUpdate(destPath);
 		count++;
 		if (progress.IsValid())
 		{

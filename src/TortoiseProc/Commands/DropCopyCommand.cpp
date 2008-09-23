@@ -24,6 +24,7 @@
 #include "MessageBox.h"
 #include "RenameDlg.h"
 #include "SVN.h"
+#include "ShellUpdater.h"
 
 bool DropCopyCommand::Execute()
 {
@@ -92,6 +93,8 @@ bool DropCopyCommand::Execute()
 			CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			return FALSE;		//get out of here
 		}
+		else
+			CShellUpdater::Instance().AddPathForUpdate(fullDropPath);
 		count++;
 		if (progress.IsValid())
 		{

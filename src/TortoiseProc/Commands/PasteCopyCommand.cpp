@@ -25,6 +25,7 @@
 #include "RenameDlg.h"
 #include "SVN.h"
 #include "SVNStatus.h"
+#include "ShellUpdater.h"
 
 bool PasteCopyCommand::Execute()
 {
@@ -88,6 +89,8 @@ bool PasteCopyCommand::Execute()
 				CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				return FALSE;		//get out of here
 			}
+			else
+				CShellUpdater::Instance().AddPathForUpdate(fullDropPath);
 		}
 		else
 		{
@@ -97,6 +100,8 @@ bool PasteCopyCommand::Execute()
 				CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 				return FALSE;		//get out of here
 			}
+			else
+				CShellUpdater::Instance().AddPathForUpdate(fullDropPath);
 		}
 		count++;
 		if (progress.IsValid())

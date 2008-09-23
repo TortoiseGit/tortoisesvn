@@ -26,6 +26,7 @@
 #include "InputLogDlg.h"
 #include "SVN.h"
 #include "DirFileEnum.h"
+#include "ShellUpdater.h"
 
 bool RenameCommand::Execute()
 {
@@ -153,7 +154,10 @@ bool RenameCommand::Execute()
 						CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 					}
 					else
+					{
 						bRet = true;
+						CShellUpdater::Instance().AddPathForUpdate(destinationPath);
+					}
 				}
 				else
 				{
@@ -199,7 +203,10 @@ bool RenameCommand::Execute()
 								}
 							}
 							else
+							{
 								bRet = true;
+								CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(it->second));
+							}
 						}
 						progress.Stop();
 					}
@@ -212,7 +219,10 @@ bool RenameCommand::Execute()
 							CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						}
 						else
+						{
 							bRet = true;
+							CShellUpdater::Instance().AddPathForUpdate(destinationPath);
+						}
 					}
 					else if (idret == IDCANCEL)
 					{
