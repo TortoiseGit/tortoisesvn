@@ -61,11 +61,13 @@ void CBugTraqAssociations::Load()
 			CLSID provider_clsid;
 			CLSIDFromString(szClsid, &provider_clsid);
 
-			TCHAR szParameters[MAX_PATH];
-			DWORD cbParameters = sizeof(szParameters);
+			DWORD cbParameters = 0;
+			RegQueryValueEx(hk2, _T("Parameters"), NULL, NULL, (LPBYTE)NULL, &cbParameters);
+			TCHAR * szParameters = new TCHAR[cbParameters+1];
 			RegQueryValueEx(hk2, _T("Parameters"), NULL, NULL, (LPBYTE)szParameters, &cbParameters);
-
+			szParameters[cbParameters] = 0;
 			m_inner.push_back(new CBugTraqAssociation(szWorkingCopy, provider_clsid, LookupProviderName(provider_clsid), szParameters));
+			delete [] szParameters;
 
 			RegCloseKey(hk2);
 		}
