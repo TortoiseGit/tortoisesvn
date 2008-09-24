@@ -72,7 +72,7 @@ BOOL CAboutDlg::OnInitDialog()
 
 	m_waterEffect.Create(468,64);
 	SetTimer(ID_EFFECTTIMER, 40, NULL);
-	SetTimer(ID_DROPTIMER, 300, NULL);
+	SetTimer(ID_DROPTIMER, 1500, NULL);
 
 	m_cWebLink.SetURL(_T("http://tortoisesvn.net"));
 	m_cSupportLink.SetURL(_T("http://tortoisesvn.tigris.org/donate.html"));
