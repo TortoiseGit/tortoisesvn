@@ -1384,6 +1384,10 @@ private:
 	void SubversionPathTest()
 	{
 		CTSVNPath testPath;
+		testPath.SetFromWin(_T("c:\\"));
+		ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "c:") == 0);
+		testPath.SetFromWin(_T("c:\\folder"));
+		ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "c:/folder") == 0);
 		testPath.SetFromWin(_T("c:\\a\\b\\c\\d\\e"));
 		ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "c:/a/b/c/d/e") == 0);
 		testPath.SetFromUnknown(_T("http://testing/"));
@@ -1396,7 +1400,7 @@ private:
 		testPath.SetFromUnknown(_T("http://testing%20again"));
 		ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://testing%20again") == 0);
 		testPath.SetFromUnknown(_T("http://testing special chars \344\366\374"));
-		ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://testing%20special%20chars%20%C3%A4%C3%B6%C3%BC") == 0);		
+		ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://testing%20special%20chars%20%c3%a4%c3%b6%c3%bc") == 0);		
 #endif
 	}
 
