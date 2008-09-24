@@ -45,6 +45,15 @@
 		The first page of the merge wizard asks you to select the method
 		you need.
 	</para>
+	<important>
+		<para>
+			Unlike the command line client, the merge dialog merges all
+			revisions of a range. For example, if you want to merge
+			revisions 5-7, you have to specify "5-7" or "5,6,7".
+			With the command line client, you would have to specify "4-7"
+			to include revision 5 in the merge.
+		</para>
+	</important>
 	<variablelist>
 		<varlistentry>
 			<term>Merge a range of revisions</term>
