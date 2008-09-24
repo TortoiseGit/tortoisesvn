@@ -91,9 +91,10 @@ const UINT CSVNStatusListCtrl::SVNSLNM_CHECKCHANGED
 #define IDSVNLC_UNCHECKGROUP	31
 #define IDSVNLC_ADD_RECURSIVE   32
 #define IDSVNLC_COMPAREWC		33
+#define IDSVNLC_BLAME			34
 // the IDSVNLC_MOVETOCS *must* be the last index, because it contains a dynamic submenu where 
 // the submenu items get command ID's sequent to this number
-#define IDSVNLC_MOVETOCS		34
+#define IDSVNLC_MOVETOCS		35
 
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
@@ -2238,6 +2239,11 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
 					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_LOG, temp);
 				}
+				if (m_dwContextMenus & SVNSLC_POPBLAME)
+				{
+					temp.LoadString(IDS_MENUBLAME);
+					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_BLAME, temp);
+				}
 			}
 			if ((wcStatus != svn_wc_status_deleted)&&(wcStatus != svn_wc_status_missing) && (GetSelectedCount() == 1))
 			{
@@ -2688,6 +2694,22 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 				{
 					CString sCmd;
 					sCmd.Format(_T("\"%s\" /command:log /path:\"%s\""),
+						(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), filepath.GetWinPath());
+
+					if (!filepath.IsUrl())
+					{
+						sCmd += _T(" /propspath:\"");
+						sCmd += filepath.GetWinPathString();
+						sCmd += _T("\"");
+					}	
+
+					CAppUtils::LaunchApplication(sCmd, NULL, false);
+				}
+				break;
+			case IDSVNLC_BLAME:
+				{
+					CString sCmd;
+					sCmd.Format(_T("\"%s\" /command:blame /path:\"%s\""),
 						(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), filepath.GetWinPath());
 
 					if (!filepath.IsUrl())
