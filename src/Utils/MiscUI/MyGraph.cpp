@@ -1097,8 +1097,9 @@ void MyGraph::DrawSeriesBar(CDC& dc) const
 					rcBar.left = nRunningLeft; 
 					rcBar.top = (m_ptOrigin.y - (m_nYAxisHeight *
 						pSeries->GetData(nGroup)) / GetMaxDataValue()) - stackAccumulator;
-					rcBar.right = rcBar.left + nBarWidth;
-					rcBar.bottom = m_ptOrigin.y - stackAccumulator;
+					// Make adjacent bar borders overlap, so there's only one pixel border line between them.
+					rcBar.right = rcBar.left + nBarWidth + 1;
+					rcBar.bottom = m_ptOrigin.y - stackAccumulator + 1;
 
 					if(m_bStackedGraph){
 						stackAccumulator = (m_ptOrigin.y - rcBar.top);
