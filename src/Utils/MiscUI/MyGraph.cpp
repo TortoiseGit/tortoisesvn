@@ -641,9 +641,24 @@ void MyGraph::DrawGraph(CDC& dc)
 		// Populate the colors as a group of evenly spaced colors of maximum
 		// saturation.
 		int nColorsDelta(240 / GetMaxSeriesSize());
+
+		int baseColorL = 120;
+		int diffColorL = 60;
+		DWORD backgroundColor = ::GetSysColor(COLOR_WINDOW);
+		// If graph is a line graph, use darker colors if system window color is light.
+		if (m_eGraphType == MyGraph::Line) {
+			int backgroundLuma = (GetRValue(backgroundColor) + GetGValue(backgroundColor) + GetBValue(backgroundColor)) / 3;
+			if (backgroundLuma > 128) {
+				baseColorL = 70;
+				diffColorL = 50;
+			}
+		}
 		
 		for (WORD nGroup = 0; nGroup < GetMaxSeriesSize(); ++nGroup) {
-			COLORREF cr(MyGraph::HLStoRGB((WORD)(nColorsDelta * nGroup), (WORD)(120+(60*(nGroup%2))), (WORD)(180)+(30*((1-nGroup%2)*(nGroup%3)))));	// Populate colors cleverly
+			WORD colorH = (WORD)(nColorsDelta * nGroup);
+			WORD colorL = (WORD)(baseColorL+(diffColorL*(nGroup%2)));
+			WORD colorS = (WORD)(180)+(30*((1-nGroup%2)*(nGroup%3)));
+			COLORREF cr(MyGraph::HLStoRGB(colorH, colorL, colorS));	// Populate colors cleverly
 			m_dwaColors.SetAtGrow(nGroup, cr);
 		}
 
@@ -660,7 +675,7 @@ void MyGraph::DrawGraph(CDC& dc)
 		m_rcGraph.bottom = rcWnd.Height() - GAP_PIXELS;
 
 		CBrush br;
-		VERIFY(br.CreateSolidBrush(::GetSysColor(COLOR_WINDOW)));
+		VERIFY(br.CreateSolidBrush(backgroundColor));
 		dc.FillRect(rcWnd, &br);
 		br.DeleteObject();
 
