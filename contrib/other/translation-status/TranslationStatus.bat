@@ -15,6 +15,7 @@ set LanguageList=%RootDir%%Trunk%\Languages\Languages.txt
 
 rem Some blanks for formatting
 set Blanks30="                              "
+set Sep75============================================================================
 
 rem Get current revision of working copy
 for /F "usebackq" %%p in (`svnversion`) do set WCRev=%%p
@@ -30,7 +31,7 @@ echo.> %LogFile%
 echo TortoiseSVN GUI translation status for revision !WCRev:~0,5!^ >> %LogFile%
 
 echo.>> %LogFile%
-call :CheckTranslation Tortoise
+call :CheckTranslation Tortoise TortoiseGUI
 
 
 rem ----------------------------------------
@@ -44,12 +45,11 @@ echo.> %LogFile%
 echo TortoiseSVN DOC translation status for revision !WCRev:~0,5!^ >> %LogFile%
 
 echo.>> %LogFile%
-echo TortoiseSVN >> %LogFile%
-call :CheckTranslation TortoiseSVN
+call :CheckTranslation TortoiseSVN TortoiseSVN
 
 echo.>> %LogFile%
-echo TortoiseMerge >> %LogFile%
-call :CheckTranslation TortoiseMerge
+echo.>> %LogFile%
+call :CheckTranslation TortoiseMerge TortoiseMerge
 
 ENDLOCAL
 Exit /b 0
@@ -61,6 +61,7 @@ rem ########################################
 rem ----------------------------------------------------------------------
 rem Subroutine to check the translation status 
 rem %1 = Name of po/pot files
+rem %2 = Caption for log file
 rem ----------------------------------------------------------------------
 
 call :Prepare %WDirTrunk% %1 trunk
@@ -68,8 +69,11 @@ set TotalTrunk=%Errorlevel%
 call :Prepare %WDirBrnch% %1 branch
 set TotalBrnch=%Errorlevel%
 
+set Cap=%2 %Sep75%
+set Cap=!Cap:~0,75!
+echo !Cap! >> %LogFile%
+
 rem Write log file header 
-echo =========================================================================== >> %LogFile%
 echo                                : Developer Version   : Current Release >> %LogFile%
 echo                  Location      : %Trunk%               : %Brnch% >> %LogFile%
 echo                  Total strings : %TotalTrunk%                : %TotalBrnch% >> %LogFile%
