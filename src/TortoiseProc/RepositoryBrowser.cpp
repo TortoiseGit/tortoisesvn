@@ -2029,9 +2029,9 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			{
 				// Let "Open" be the very first entry, like in Explorer
 				temp.LoadString(IDS_REPOBROWSE_OPEN);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPEN, temp);		// "open"
+				popup.AppendMenuIcon(ID_OPEN, temp);		// "open"
 				temp.LoadString(IDS_LOG_POPUP_OPENWITH);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPENWITH, temp);	// "open with..."
+				popup.AppendMenuIcon(ID_OPENWITH, temp);	// "open with..."
 				popup.AppendMenu(MF_SEPARATOR, NULL);
 			}
 			temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
@@ -2051,12 +2051,12 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			if (!m_ProjectProperties.sWebViewerRev.IsEmpty())
 			{
 				temp.LoadString(IDS_LOG_POPUP_VIEWREV);							// "View revision in webviewer"
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_VIEWREV, temp);
+				popup.AppendMenuIcon(ID_VIEWREV, temp);
 			}
 			if (!m_ProjectProperties.sWebViewerPathRev.IsEmpty())
 			{
 				temp.LoadString(IDS_LOG_POPUP_VIEWPATHREV);						// "View revision for path in webviewer"
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_VIEWPATHREV, temp);
+				popup.AppendMenuIcon(ID_VIEWPATHREV, temp);
 			}
 			if ((!m_ProjectProperties.sWebViewerPathRev.IsEmpty())||
 				(!m_ProjectProperties.sWebViewerRev.IsEmpty()))
@@ -2080,7 +2080,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			if (nFolders)
 			{
 				temp.LoadString(IDS_REPOBROWSE_REFRESH);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REFRESH, temp);		// "Refresh"
+				popup.AppendMenuIcon(ID_REFRESH, temp);		// "Refresh"
 			}
 			popup.AppendMenu(MF_SEPARATOR, NULL);				
 
@@ -2089,7 +2089,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				if (nFolders)
 				{
 					temp.LoadString(IDS_REPOBROWSE_MKDIR);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_MKDIR, temp);	// "create directory"
+					popup.AppendMenuIcon(ID_MKDIR, temp);	// "create directory"
 
 					temp.LoadString(IDS_REPOBROWSE_IMPORT);
 					popup.AppendMenuIcon(ID_IMPORT, temp, IDI_IMPORT);	// "Add/Import File"
@@ -2119,12 +2119,12 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			if (nFolders == 0)
 			{
 				temp.LoadString(IDS_REPOBROWSE_SAVEAS);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);		// "Save as..."
+				popup.AppendMenuIcon(ID_SAVEAS, temp);		// "Save as..."
 			}
 			if ((urlList.GetCount() == nFolders)||(nFolders == 0))
 			{
 				temp.LoadString(IDS_REPOBROWSE_COPYTOWC);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COPYTOWC, temp);	// "Copy To Working Copy..."
+				popup.AppendMenuIcon(ID_COPYTOWC, temp);	// "Copy To Working Copy..."
 			}
 		}
 		if (urlList.GetCount() == 1)
@@ -2133,7 +2133,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			popup.AppendMenuIcon(ID_COPYTO, temp, IDI_COPY);			// "Copy To..."
 
 			temp.LoadString(IDS_REPOBROWSE_URLTOCLIPBOARD);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_URLTOCLIPBOARD, temp);	// "Copy URL to clipboard"
+			popup.AppendMenuIcon(ID_URLTOCLIPBOARD, temp);	// "Copy URL to clipboard"
 
 			popup.AppendMenu(MF_SEPARATOR, NULL);
 
@@ -2150,7 +2150,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			{
 				popup.AppendMenu(MF_SEPARATOR, NULL);
 				temp.LoadString(IDS_REPOBROWSE_PREPAREDIFF);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_PREPAREDIFF, temp);	// "Mark for comparison"
+				popup.AppendMenuIcon(ID_PREPAREDIFF, temp);	// "Mark for comparison"
 
 				if ((m_diffKind == svn_node_dir)&&(!m_diffURL.IsEquivalentTo(urlList[0])))
 				{

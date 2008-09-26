@@ -3728,11 +3728,11 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				popup.AppendMenuIcon(ID_COMPAREWITHPREVIOUS, temp, IDI_DIFF);
 				popup.AppendMenu(MF_SEPARATOR, NULL);
 				temp.LoadString(IDS_LOG_POPUP_SAVE);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
+				popup.AppendMenuIcon(ID_SAVEAS, temp);
 				temp.LoadString(IDS_LOG_POPUP_OPEN);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPEN, temp);
+				popup.AppendMenuIcon(ID_OPEN, temp);
 				temp.LoadString(IDS_LOG_POPUP_OPENWITH);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPENWITH, temp);
+				popup.AppendMenuIcon(ID_OPENWITH, temp);
 				temp.LoadString(IDS_LOG_POPUP_BLAME);
 				popup.AppendMenuIcon(ID_BLAME, temp, IDI_BLAME);
 				popup.AppendMenu(MF_SEPARATOR, NULL);
@@ -3763,12 +3763,12 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 			if (!m_ProjectProperties.sWebViewerRev.IsEmpty())
 			{
 				temp.LoadString(IDS_LOG_POPUP_VIEWREV);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_VIEWREV, temp);
+				popup.AppendMenuIcon(ID_VIEWREV, temp);
 			}
 			if (!m_ProjectProperties.sWebViewerPathRev.IsEmpty())
 			{
 				temp.LoadString(IDS_LOG_POPUP_VIEWPATHREV);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_VIEWPATHREV, temp);
+				popup.AppendMenuIcon(ID_VIEWPATHREV, temp);
 			}
 			if ((!m_ProjectProperties.sWebViewerPathRev.IsEmpty())||
 				(!m_ProjectProperties.sWebViewerRev.IsEmpty()))
@@ -3779,7 +3779,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 			temp.LoadString(IDS_LOG_BROWSEREPO);
 			popup.AppendMenuIcon(ID_REPOBROWSE, temp, IDI_REPOBROWSE);
 			temp.LoadString(IDS_LOG_POPUP_COPY);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COPY, temp);
+			popup.AppendMenuIcon(ID_COPY, temp);
 			temp.LoadString(IDS_LOG_POPUP_UPDATE);
 			if (m_hasWC)
 				popup.AppendMenuIcon(ID_UPDATE, temp, IDI_UPDATE);
@@ -3830,12 +3830,12 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		if ((selEntries.size() > 0)&&(bAllFromTheSameAuthor))
 		{
 			temp.LoadString(IDS_LOG_POPUP_EDITAUTHOR);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITAUTHOR, temp);
+			popup.AppendMenuIcon(ID_EDITAUTHOR, temp);
 		}
 		if (m_LogList.GetSelectedCount() == 1)
 		{
 			temp.LoadString(IDS_LOG_POPUP_EDITLOG);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITLOG, temp);
+			popup.AppendMenuIcon(ID_EDITLOG, temp);
 			temp.LoadString(IDS_REPOBROWSE_SHOWREVPROP);					// "Show Revision Properties"
 			popup.AppendMenuIcon(ID_REVPROPS, temp, IDI_PROPERTIES);
 			popup.AppendMenu(MF_SEPARATOR, NULL);
@@ -3843,10 +3843,10 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		if (m_LogList.GetSelectedCount() != 0)
 		{
 			temp.LoadString(IDS_LOG_POPUP_COPYTOCLIPBOARD);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COPYCLIPBOARD, temp);
+			popup.AppendMenuIcon(ID_COPYCLIPBOARD, temp);
 		}
 		temp.LoadString(IDS_LOG_POPUP_FIND);
-		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_FINDENTRY, temp);
+		popup.AppendMenuIcon(ID_FINDENTRY, temp);
 
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 		DialogEnableWindow(IDOK, FALSE);
@@ -4456,9 +4456,9 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				if (bEntryAdded)
 					popup.AppendMenu(MF_SEPARATOR, NULL);
 				temp.LoadString(IDS_LOG_POPUP_OPEN);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPEN, temp);
+				popup.AppendMenuIcon(ID_OPEN, temp);
 				temp.LoadString(IDS_LOG_POPUP_OPENWITH);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPENWITH, temp);
+				popup.AppendMenuIcon(ID_OPENWITH, temp);
 				temp.LoadString(IDS_LOG_POPUP_BLAME);
 				popup.AppendMenuIcon(ID_BLAME, temp, IDI_BLAME);
 				popup.AppendMenu(MF_SEPARATOR, NULL);
@@ -4470,15 +4470,15 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				temp.LoadString(IDS_MENULOG);
 				popup.AppendMenuIcon(ID_LOG, temp, IDI_LOG);						// "Show Log"				
 				temp.LoadString(IDS_LOG_POPUP_GETMERGELOGS);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GETMERGELOGS, temp);		// "Show merge log"
+				popup.AppendMenuIcon(ID_GETMERGELOGS, temp);		// "Show merge log"
 				temp.LoadString(IDS_LOG_POPUP_SAVE);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
+				popup.AppendMenuIcon(ID_SAVEAS, temp);
 				bEntryAdded = true;
 				if (!m_ProjectProperties.sWebViewerPathRev.IsEmpty())
 				{
 					popup.AppendMenu(MF_SEPARATOR, NULL);
 					temp.LoadString(IDS_LOG_POPUP_VIEWPATHREV);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_VIEWPATHREV, temp);
+					popup.AppendMenuIcon(ID_VIEWPATHREV, temp);
 				}
 				if (popup.GetDefaultItem(0,FALSE)==-1)
 					popup.SetDefaultItem(ID_OPEN, FALSE);
@@ -4488,7 +4488,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 		{
 			// more than one entry is selected
 			temp.LoadString(IDS_LOG_POPUP_SAVE);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
+			popup.AppendMenuIcon(ID_SAVEAS, temp);
 			bEntryAdded = true;
 		}
 

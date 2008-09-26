@@ -49,15 +49,23 @@ CIconMenu::~CIconMenu(void)
 
 BOOL CIconMenu::AppendMenuIcon(UINT_PTR nIDNewItem, LPCTSTR lpszNewItem, UINT uIcon /* = 0 */)
 {
+	TCHAR menutextbuffer[255] = {0};
+	if(winVersion < 0x600)
+	{
+		// The operating system is Windows Server 2003 R2, Windows Server 2003, Windows XP, or Windows 2000.
+		_tcscpy_s(menutextbuffer, 255, _T(" "));
+	}
+	_tcscat_s(menutextbuffer, 255, lpszNewItem);
+
 	if (uIcon == 0)
-		return CMenu::AppendMenu(MF_STRING | MF_ENABLED, nIDNewItem, lpszNewItem);
+		return CMenu::AppendMenu(MF_STRING | MF_ENABLED, nIDNewItem, menutextbuffer);
 
 	MENUITEMINFO info = {0};
 	info.cbSize = sizeof(info);
 	info.fMask = MIIM_BITMAP | MIIM_STRING | MIIM_FTYPE | MIIM_ID;
 	info.fType = MFT_STRING;
 	info.wID = nIDNewItem;
-	info.dwTypeData = const_cast<LPTSTR>(lpszNewItem);
+	info.dwTypeData = menutextbuffer;
 	info.hbmpItem = winVersion >= 0x0600 ? IconToBitmapPARGB32(uIcon) : IconToBitmap(uIcon);
 	return InsertMenuItem(nIDNewItem, &info);
 }
