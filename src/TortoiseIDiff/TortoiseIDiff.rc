@@ -95,7 +95,7 @@ BEGIN
         MENUITEM "Zoo&m out",                   ID_VIEW_ZOOMOUT
         MENUITEM "Zoom i&n",                    ID_VIEW_ZOOMIN
         MENUITEM SEPARATOR
-        MENUITEM "&Image Info",                 ID_VIEW_IMAGEINFO, CHECKED
+        MENUITEM "&Image Info",                 ID_VIEW_IMAGEINFO
         MENUITEM "Arrange &Vertical",           ID_VIEW_ARRANGEVERTICAL
     END
     MENUITEM "?",                           ID_ABOUT
