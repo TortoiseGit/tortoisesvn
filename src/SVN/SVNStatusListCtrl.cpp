@@ -45,6 +45,7 @@
 #include "SVNAdminDir.h"
 #include ".\svnstatuslistctrl.h"
 #include "DropFiles.h"
+#include "IconMenu.h"
 #include "AddDlg.h"
 #include "EditPropertiesDlg.h"
 #include "CreateChangelistDlg.h"
@@ -2114,7 +2115,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 		svn_wc_status_kind wcStatus = entry->status;
 		// entry is selected, now show the popup menu
 		Locker lock(m_critSec);
-		CMenu popup;
+		CIconMenu popup;
 		CMenu changelistSubMenu;
 		if (popup.CreatePopupMenu())
 		{
@@ -2124,7 +2125,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 				if (m_dwContextMenus & SVNSLC_POPCOMPAREWITHBASE)
 				{
 					temp.LoadString(IDS_LOG_COMPAREWITHBASE);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COMPARE, temp);
+					popup.AppendMenuIcon(IDSVNLC_COMPARE, temp, IDI_DIFF);
 					popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
 				}
 
@@ -2138,7 +2139,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 							if ((m_dwContextMenus & SVNSLC_POPGNUDIFF)&&(wcStatus != svn_wc_status_deleted)&&(wcStatus != svn_wc_status_missing))
 							{
 								temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
-								popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_GNUDIFF1, temp);
+								popup.AppendMenuIcon(IDSVNLC_GNUDIFF1, temp, IDI_DIFF);
 								bEntryAdded = true;
 							}
 						}
@@ -2147,7 +2148,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 							if (m_dwContextMenus & SVNSLC_POPCOMMIT)
 							{
 								temp.LoadString(IDS_STATUSLIST_CONTEXT_COMMIT);
-								popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COMMIT, temp);
+								popup.AppendMenuIcon(IDSVNLC_COMMIT, temp, IDI_COMMIT);
 								popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
 								bEntryAdded = true;
 							}
@@ -2158,14 +2159,14 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 						if (m_dwContextMenus & SVNSLC_POPCOMPARE)
 						{
 							temp.LoadString(IDS_LOG_POPUP_COMPARE);
-							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COMPAREWC, temp);
+							popup.AppendMenuIcon(IDSVNLC_COMPAREWC, temp, IDI_DIFF);
 							popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
 							bEntryAdded = true;
 						}
 						if (m_dwContextMenus & SVNSLC_POPGNUDIFF)
 						{
 							temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
-							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_GNUDIFF1, temp);
+							popup.AppendMenuIcon(IDSVNLC_GNUDIFF1, temp, IDI_DIFF);
 							bEntryAdded = true;
 						}
 					}
@@ -2177,7 +2178,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					if (m_dwContextMenus & SVNSLC_POPCOMMIT)
 					{
 						temp.LoadString(IDS_STATUSLIST_CONTEXT_COMMIT);
-						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_COMMIT, temp);
+						popup.AppendMenuIcon(IDSVNLC_COMMIT, temp, IDI_COMMIT);
 						popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
 					}
 				}
@@ -2218,7 +2219,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 						if (!entry->IsFolder() || (wcStatus != svn_wc_status_missing))
 						{
 							temp.LoadString(IDS_MENUREVERT);
-							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_REVERT, temp);
+							popup.AppendMenuIcon(IDSVNLC_REVERT, temp, IDI_REVERT);
 						}
 					}
 				}
@@ -2227,7 +2228,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					if (m_dwContextMenus & SVNSLC_POPUPDATE)
 					{
 						temp.LoadString(IDS_MENUUPDATE);
-						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UPDATE, temp);
+						popup.AppendMenuIcon(IDSVNLC_UPDATE, temp, IDI_UPDATE);
 					}
 				}
 			}
@@ -2237,12 +2238,12 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 				if (m_dwContextMenus & SVNSLC_POPSHOWLOG)
 				{
 					temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_LOG, temp);
+					popup.AppendMenuIcon(IDSVNLC_LOG, temp, IDI_LOG);
 				}
 				if (m_dwContextMenus & SVNSLC_POPBLAME)
 				{
 					temp.LoadString(IDS_MENUBLAME);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_BLAME, temp);
+					popup.AppendMenuIcon(IDSVNLC_BLAME, temp, IDI_BLAME);
 				}
 			}
 			if ((wcStatus != svn_wc_status_deleted)&&(wcStatus != svn_wc_status_missing) && (GetSelectedCount() == 1))
@@ -2265,7 +2266,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 				if (((wcStatus == svn_wc_status_unversioned)||(wcStatus == svn_wc_status_ignored))&&(m_dwContextMenus & SVNSLC_POPDELETE))
 				{
 					temp.LoadString(IDS_MENUREMOVE);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_DELETE, temp);
+					popup.AppendMenuIcon(IDSVNLC_DELETE, temp, IDI_DELETE);
 				}
 				if ((wcStatus != svn_wc_status_unversioned)&&(wcStatus != svn_wc_status_ignored)&&(wcStatus != svn_wc_status_deleted)&&(wcStatus != svn_wc_status_added)&&(m_dwContextMenus & SVNSLC_POPDELETE))
 				{
@@ -2273,7 +2274,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 						temp.LoadString(IDS_MENUREMOVEKEEP);
 					else
 						temp.LoadString(IDS_MENUREMOVE);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_REMOVE, temp);
+					popup.AppendMenuIcon(IDSVNLC_REMOVE, temp, IDI_DELETE);
 				}
 				if ((wcStatus == svn_wc_status_unversioned)||(wcStatus == svn_wc_status_deleted))
 				{
@@ -2282,12 +2283,12 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 						if ( entry->IsFolder() )
 						{
 							temp.LoadString(IDS_STATUSLIST_CONTEXT_ADD_RECURSIVE);
-							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_ADD_RECURSIVE, temp);
+							popup.AppendMenuIcon(IDSVNLC_ADD_RECURSIVE, temp, IDI_ADD);
 						}
 						else
 						{
 							temp.LoadString(IDS_STATUSLIST_CONTEXT_ADD);
-							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_ADD, temp);
+							popup.AppendMenuIcon(IDSVNLC_ADD, temp, IDI_ADD);
 						}
 					}
 				}
@@ -2334,7 +2335,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 							{
 								temp.Format(IDS_MENUIGNOREMULTIPLE, ignorelist.GetCount());
 							}
-							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNORE, temp);
+							popup.AppendMenuIcon(IDSVNLC_IGNORE, temp, IDI_IGNORE);
 						}
 					}
 				}
@@ -2347,12 +2348,12 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 				if ((m_dwContextMenus & SVNSLC_POPCONFLICT)&&(entry->textstatus == svn_wc_status_conflicted))
 				{
 					temp.LoadString(IDS_MENUCONFLICT);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_EDITCONFLICT, temp);
+					popup.AppendMenuIcon(IDSVNLC_EDITCONFLICT, temp, IDI_CONFLICT);
 				}
 				if (m_dwContextMenus & SVNSLC_POPRESOLVE)
 				{
 					temp.LoadString(IDS_STATUSLIST_CONTEXT_RESOLVED);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_RESOLVECONFLICT, temp);
+					popup.AppendMenuIcon(IDSVNLC_RESOLVECONFLICT, temp, IDI_RESOLVE);
 				}
 				if ((m_dwContextMenus & SVNSLC_POPRESOLVE)&&(entry->textstatus == svn_wc_status_conflicted))
 				{
@@ -2374,7 +2375,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 						if (m_dwContextMenus & SVNSLC_POPLOCK)
 						{
 							temp.LoadString(IDS_MENU_LOCK);
-							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_LOCK, temp);
+							popup.AppendMenuIcon(IDSVNLC_LOCK, temp, IDI_LOCK);
 						}
 					}
 					if ((!entry->lock_token.IsEmpty())&&(!entry->IsFolder()))
@@ -2382,7 +2383,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 						if (m_dwContextMenus & SVNSLC_POPUNLOCK)
 						{
 							temp.LoadString(IDS_MENU_UNLOCK);
-							popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UNLOCK, temp);
+							popup.AppendMenuIcon(IDSVNLC_UNLOCK, temp, IDI_UNLOCK);
 						}
 					}
 				}
@@ -2391,7 +2392,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					if (m_dwContextMenus & SVNSLC_POPUNLOCKFORCE)
 					{
 						temp.LoadString(IDS_MENU_UNLOCKFORCE);
-						popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_UNLOCKFORCE, temp);
+						popup.AppendMenuIcon(IDSVNLC_UNLOCKFORCE, temp, IDI_UNLOCK);
 					}
 				}
 
@@ -2399,7 +2400,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 				{
 					popup.AppendMenu(MF_SEPARATOR);
 					temp.LoadString(IDS_STATUSLIST_CONTEXT_PROPERTIES);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_PROPERTIES, temp);
+					popup.AppendMenuIcon(IDSVNLC_PROPERTIES, temp, IDI_PROPERTIES);
 				}
 				popup.AppendMenu(MF_SEPARATOR);
 				temp.LoadString(IDS_STATUSLIST_CONTEXT_COPY);

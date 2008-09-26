@@ -36,6 +36,7 @@
 #include "TempFile.h"
 #include "SVNInfo.h"
 #include "SVNDiff.h"
+#include "IconMenu.h"
 #include "RevisionRangeDlg.h"
 #include "BrowseFolder.h"
 #include "BlameDlg.h"
@@ -3706,7 +3707,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 
 
 	//entry is selected, now show the popup menu
-	CMenu popup;
+	CIconMenu popup;
 	if (popup.CreatePopupMenu())
 	{
 		CString temp;
@@ -3717,14 +3718,14 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				if (m_hasWC)
 				{
 					temp.LoadString(IDS_LOG_POPUP_COMPARE);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
+					popup.AppendMenuIcon(ID_COMPARE, temp, IDI_DIFF);
 					temp.LoadString(IDS_LOG_POPUP_BLAMECOMPARE);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAMECOMPARE, temp);
+					popup.AppendMenuIcon(ID_BLAMECOMPARE, temp, IDI_BLAME);
 				}
 				temp.LoadString(IDS_LOG_POPUP_GNUDIFF_CH);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
+				popup.AppendMenuIcon(ID_GNUDIFF1, temp, IDI_DIFF);
 				temp.LoadString(IDS_LOG_POPUP_COMPAREWITHPREVIOUS);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREWITHPREVIOUS, temp);
+				popup.AppendMenuIcon(ID_COMPAREWITHPREVIOUS, temp, IDI_DIFF);
 				popup.AppendMenu(MF_SEPARATOR, NULL);
 				temp.LoadString(IDS_LOG_POPUP_SAVE);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SAVEAS, temp);
@@ -3733,7 +3734,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				temp.LoadString(IDS_LOG_POPUP_OPENWITH);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPENWITH, temp);
 				temp.LoadString(IDS_LOG_POPUP_BLAME);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAME, temp);
+				popup.AppendMenuIcon(ID_BLAME, temp, IDI_BLAME);
 				popup.AppendMenu(MF_SEPARATOR, NULL);
 			}
 			else
@@ -3741,7 +3742,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				if (m_hasWC)
 				{
 					temp.LoadString(IDS_LOG_POPUP_COMPARE);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
+					popup.AppendMenuIcon(ID_COMPARE, temp, IDI_DIFF);
 					// TODO:
 					// TortoiseMerge could be improved to take a /blame switch
 					// and then not 'cat' the files from a unified diff but
@@ -3752,11 +3753,11 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 					//popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAMECOMPARE, temp);
 				}
 				temp.LoadString(IDS_LOG_POPUP_GNUDIFF_CH);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
+				popup.AppendMenuIcon(ID_GNUDIFF1, temp, IDI_DIFF);
 				temp.LoadString(IDS_LOG_POPUP_COMPAREWITHPREVIOUS);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREWITHPREVIOUS, temp);
+				popup.AppendMenuIcon(ID_COMPAREWITHPREVIOUS, temp, IDI_DIFF);
 				temp.LoadString(IDS_LOG_POPUP_BLAMEWITHPREVIOUS);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAMEWITHPREVIOUS, temp);
+				popup.AppendMenuIcon(ID_BLAMEWITHPREVIOUS, temp, IDI_BLAME);
 				popup.AppendMenu(MF_SEPARATOR, NULL);
 			}
 			if (!m_ProjectProperties.sWebViewerRev.IsEmpty())
@@ -3776,25 +3777,25 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 			}
 
 			temp.LoadString(IDS_LOG_BROWSEREPO);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REPOBROWSE, temp);
+			popup.AppendMenuIcon(ID_REPOBROWSE, temp, IDI_REPOBROWSE);
 			temp.LoadString(IDS_LOG_POPUP_COPY);
 			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COPY, temp);
 			temp.LoadString(IDS_LOG_POPUP_UPDATE);
 			if (m_hasWC)
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UPDATE, temp);
+				popup.AppendMenuIcon(ID_UPDATE, temp, IDI_UPDATE);
 			temp.LoadString(IDS_LOG_POPUP_REVERTTOREV);
 			if (m_hasWC)
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERTTOREV, temp);					
+				popup.AppendMenuIcon(ID_REVERTTOREV, temp, IDI_REVERT);
 			temp.LoadString(IDS_LOG_POPUP_REVERTREV);
 			if (m_hasWC)
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERTREV, temp);					
+				popup.AppendMenuIcon(ID_REVERTREV, temp, IDI_REVERT);
 			temp.LoadString(IDS_LOG_POPUP_MERGEREV);
 			if (m_hasWC)
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_MERGEREV, temp);					
+				popup.AppendMenuIcon(ID_MERGEREV, temp, IDI_MERGE);
 			temp.LoadString(IDS_MENUCHECKOUT);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_CHECKOUT, temp);
+			popup.AppendMenuIcon(ID_CHECKOUT, temp, IDI_CHECKOUT);
 			temp.LoadString(IDS_MENUEXPORT);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EXPORT, temp);
+			popup.AppendMenuIcon(ID_EXPORT, temp, IDI_EXPORT);
 			popup.AppendMenu(MF_SEPARATOR, NULL);
 		}
 		else if (m_LogList.GetSelectedCount() >= 2)
@@ -3803,23 +3804,23 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 			if (IsSelectionContinuous() || (m_LogList.GetSelectedCount() == 2))
 			{
 				temp.LoadString(IDS_LOG_POPUP_COMPARETWO);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARETWO, temp);
+				popup.AppendMenuIcon(ID_COMPARETWO, temp, IDI_DIFF);
 			}
 			if (m_LogList.GetSelectedCount() == 2)
 			{
 				temp.LoadString(IDS_LOG_POPUP_BLAMEREVS);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAMETWO, temp);
+				popup.AppendMenuIcon(ID_BLAMETWO, temp, IDI_BLAME);
 				temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF2, temp);
+				popup.AppendMenuIcon(ID_GNUDIFF2, temp, IDI_DIFF);
 				bAddSeparator = true;
 			}
 			temp.LoadString(IDS_LOG_POPUP_REVERTREVS);
 			if (m_hasWC)
 			{
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERTREV, temp);
+				popup.AppendMenuIcon(ID_REVERTREV, temp, IDI_REVERT);
 				temp.LoadString(IDS_LOG_POPUP_MERGEREVS);
 				if (m_hasWC)
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_MERGEREV, temp);					
+					popup.AppendMenuIcon(ID_MERGEREV, temp, IDI_MERGE);
 				bAddSeparator = true;
 			}
 			if (bAddSeparator)
@@ -3836,7 +3837,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 			temp.LoadString(IDS_LOG_POPUP_EDITLOG);
 			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITLOG, temp);
 			temp.LoadString(IDS_REPOBROWSE_SHOWREVPROP);					// "Show Revision Properties"
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVPROPS, temp);
+			popup.AppendMenuIcon(ID_REVPROPS, temp, IDI_PROPERTIES);
 			popup.AppendMenu(MF_SEPARATOR, NULL);
 		}
 		if (m_LogList.GetSelectedCount() != 0)
@@ -4432,7 +4433,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 	}
 
 	//entry is selected, now show the popup menu
-	CMenu popup;
+	CIconMenu popup;
 	if (popup.CreatePopupMenu())
 	{
 		CString temp;
@@ -4442,12 +4443,12 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 			if ((!bOneRev)||(IsDiffPossible(changedlogpaths[0], rev1)))
 			{
 				temp.LoadString(IDS_LOG_POPUP_DIFF);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_DIFF, temp);
+				popup.AppendMenuIcon(ID_DIFF, temp, IDI_DIFF);
 				temp.LoadString(IDS_LOG_POPUP_BLAMEDIFF);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAMEDIFF, temp);
+				popup.AppendMenuIcon(ID_BLAMEDIFF, temp, IDI_BLAME);
 				popup.SetDefaultItem(ID_DIFF, FALSE);
 				temp.LoadString(IDS_LOG_POPUP_GNUDIFF_CH);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GNUDIFF1, temp);
+				popup.AppendMenuIcon(ID_GNUDIFF1, temp, IDI_DIFF);
 				bEntryAdded = true;
 			}
 			if (rev2 == rev1-1)
@@ -4459,15 +4460,15 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				temp.LoadString(IDS_LOG_POPUP_OPENWITH);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPENWITH, temp);
 				temp.LoadString(IDS_LOG_POPUP_BLAME);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAME, temp);
+				popup.AppendMenuIcon(ID_BLAME, temp, IDI_BLAME);
 				popup.AppendMenu(MF_SEPARATOR, NULL);
 				temp.LoadString(IDS_LOG_POPUP_REVERTREV);
 				if (m_hasWC)
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_REVERTREV, temp);
+					popup.AppendMenuIcon(ID_REVERTREV, temp, IDI_REVERT);
 				temp.LoadString(IDS_REPOBROWSE_SHOWPROP);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_POPPROPS, temp);			// "Show Properties"
+				popup.AppendMenuIcon(ID_POPPROPS, temp, IDI_PROPERTIES);			// "Show Properties"
 				temp.LoadString(IDS_MENULOG);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_LOG, temp);					// "Show Log"				
+				popup.AppendMenuIcon(ID_LOG, temp, IDI_LOG);						// "Show Log"				
 				temp.LoadString(IDS_LOG_POPUP_GETMERGELOGS);
 				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GETMERGELOGS, temp);		// "Show merge log"
 				temp.LoadString(IDS_LOG_POPUP_SAVE);

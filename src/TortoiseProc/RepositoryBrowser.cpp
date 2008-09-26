@@ -2174,7 +2174,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				popup.AppendMenu(MF_SEPARATOR, NULL);
 			}
 			temp.LoadString(IDS_MENULOG);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SHOWLOG, temp);
+			popup.AppendMenuIcon(ID_SHOWLOG, temp, IDI_LOG);		// "Show Log..."
 		}
 		if ((urlList.GetCount() == 1) &&
 			m_path.Exists() && 
