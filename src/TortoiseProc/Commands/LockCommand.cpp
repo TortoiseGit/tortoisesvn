@@ -36,6 +36,8 @@ bool LockCommand::Execute()
 		CSVNProgressDlg progDlg;
 		progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Lock);
 		progDlg.SetPathList(pathList);
+		if (parser.HasVal(_T("closeonend")))
+			progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
 		progDlg.DoModal();
 		bRet = !progDlg.DidErrorsOccur();
 	}
@@ -48,6 +50,8 @@ bool LockCommand::Execute()
 			progDlg.SetOptions(lockDlg.m_bStealLocks ? ProgOptLockForce : ProgOptNone);
 			progDlg.SetPathList(lockDlg.m_pathList);
 			progDlg.SetCommitMessage(lockDlg.m_sLockMessage);
+			if (parser.HasVal(_T("closeonend")))
+				progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
 			progDlg.DoModal();
 			bRet = !progDlg.DidErrorsOccur();
 		}

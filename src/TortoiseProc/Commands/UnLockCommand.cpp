@@ -35,6 +35,8 @@ bool UnLockCommand::Execute()
 			progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Unlock);
 			progDlg.SetOptions(parser.HasKey(_T("force")) ? ProgOptLockForce : ProgOptNone);
 			progDlg.SetPathList(unlockDlg.m_pathList);
+			if (parser.HasVal(_T("closeonend")))
+				progDlg.SetAutoClose(parser.GetLongVal(_T("closeonend")));
 			progDlg.DoModal();
 			bRet = !progDlg.DidErrorsOccur();
 		}

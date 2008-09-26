@@ -59,6 +59,7 @@ Version 1.5.4
        8 pixels. (Stefan)
 - BUG: When a cleanup failed, the error message didn't include the svn
        error string. (Stefan)
+- BUG: /closeonend was ignored for the (un)lock command. (Stefan)
 
 Version 1.5.3
 - CHG: paths in error messages are nor truncated to 80 chars anymore. (Stefan)
