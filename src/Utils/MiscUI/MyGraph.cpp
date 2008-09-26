@@ -1278,6 +1278,13 @@ void MyGraph::DrawSeriesPie(CDC& dc) const
 		}
 	}
 
+	// Create font for labels.
+	CFont fontLabels;
+	int pointFontHeight = max(m_rcGraph.Height() / Y_AXIS_LABEL_DIVISOR, MIN_FONT_SIZE);
+	VERIFY(fontLabels.CreatePointFont(pointFontHeight, _T("Arial"), &dc));
+	CFont* pFontOld = dc.SelectObject(&fontLabels);
+	ASSERT_VALID(pFontOld);
+
 	// Draw each pie.
 	int nPie(0);
 	int nRadius((int) (nSeriesSpace * INTERSERIES_PERCENT_USED / 2.0));
@@ -1363,6 +1370,15 @@ void MyGraph::DrawSeriesPie(CDC& dc) const
 			++nPie;
 		}
 	}
+
+	// Draw X axis title after we know how many pies we actually have
+	CSize sizXLabel(dc.GetTextExtent(m_sXAxisLabel));
+	int nTotalSpaceOfPies = nSeriesSpace * nPie - (nSeriesSpace - nRadius*2);
+	VERIFY(dc.TextOut(m_ptOrigin.x + GAP_PIXELS + (nTotalSpaceOfPies - sizXLabel.cx)/2,
+		m_nYAxisHeight/2 + nRadius + GAP_PIXELS*2 + sizXLabel.cy, m_sXAxisLabel));
+
+	VERIFY(dc.SelectObject(pFontOld));
+	fontLabels.DeleteObject();
 }
 
 // Convert degrees to x and y coords.
