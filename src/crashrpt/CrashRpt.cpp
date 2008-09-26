@@ -32,7 +32,9 @@ CRASHRPTAPI LPVOID GetInstance()
 
 CRASHRPTAPI LPVOID InstallEx(LPGETLOGFILE pfn, LPCTSTR lpcszTo, LPCTSTR lpcszSubject, BOOL bUseUI)
 {
+#ifdef _DEBUG
 	OutputDebugString("InstallEx\n");
+#endif
    CCrashHandler *pImpl = CCrashHandler::GetInstance();
    CRASH_ASSERT(pImpl);
    pImpl->Install(pfn, lpcszTo, lpcszSubject, bUseUI);

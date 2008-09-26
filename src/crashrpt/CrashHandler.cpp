@@ -88,7 +88,9 @@ void CCrashHandler::Install(LPGETLOGFILE lpfn, LPCTSTR lpcszTo, LPCTSTR lpcszSub
 {
 	if (m_pid == 0)
 		return;
+#ifdef _DEBUG
 	OutputDebugString("::Install\n");
+#endif
 	if (m_installed) {
 		Uninstall();
 	}
@@ -111,7 +113,9 @@ void CCrashHandler::Install(LPGETLOGFILE lpfn, LPCTSTR lpcszTo, LPCTSTR lpcszSub
 
 void CCrashHandler::Uninstall()
 {
+#ifdef _DEBUG
 	OutputDebugString("Uninstall\n");
+#endif
    // reset exception callback (to previous filter, which can be NULL)
    SetUnhandledExceptionFilter(m_oldFilter);
    m_installed = false;
