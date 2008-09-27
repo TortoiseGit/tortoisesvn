@@ -393,7 +393,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		data->sActionColumnText.LoadString(IDS_SVNACTION_STATUS);
 		break;
 	case svn_wc_notify_skip:
-		if (content_state == svn_wc_notify_state_missing)
+		if ((content_state == svn_wc_notify_state_missing)||(content_state == svn_wc_notify_state_obstructed)||(content_state == svn_wc_notify_state_conflicted))
 		{
 			data->sActionColumnText.LoadString(IDS_SVNACTION_SKIPMISSING);
 
