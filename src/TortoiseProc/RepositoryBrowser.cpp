@@ -2099,14 +2099,14 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 
 					popup.AppendMenu(MF_SEPARATOR, NULL);
 				}
-				if (nLocked)
-				{
-					temp.LoadString(IDS_MENU_UNLOCKFORCE);
-					popup.AppendMenuIcon(ID_BREAKLOCK, temp, IDI_UNLOCK);	// "Break Lock"
-				}
 
 				temp.LoadString(IDS_REPOBROWSE_RENAME);
 				popup.AppendMenuIcon(ID_RENAME, temp, IDI_RENAME);		// "Rename"
+			}
+			if (nLocked)
+			{
+				temp.LoadString(IDS_MENU_UNLOCKFORCE);
+				popup.AppendMenuIcon(ID_BREAKLOCK, temp, IDI_UNLOCK);	// "Break Lock"
 			}
 		}
 		if (urlList.GetCount() > 0)
