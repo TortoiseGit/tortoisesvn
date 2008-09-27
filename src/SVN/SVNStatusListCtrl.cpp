@@ -2358,9 +2358,9 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 				if ((m_dwContextMenus & SVNSLC_POPRESOLVE)&&(entry->textstatus == svn_wc_status_conflicted))
 				{
 					temp.LoadString(IDS_SVNPROGRESS_MENUUSETHEIRS);
-					popup.AppendMenuIcon(IDSVNLC_RESOLVETHEIRS, temp);
+					popup.AppendMenuIcon(IDSVNLC_RESOLVETHEIRS, temp, IDI_RESOLVE);
 					temp.LoadString(IDS_SVNPROGRESS_MENUUSEMINE);
-					popup.AppendMenuIcon(IDSVNLC_RESOLVEMINE, temp);
+					popup.AppendMenuIcon(IDSVNLC_RESOLVEMINE, temp, IDI_RESOLVE);
 				}
 			}
 			if (GetSelectedCount() > 0)
@@ -2404,9 +2404,9 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 				}
 				popup.AppendMenu(MF_SEPARATOR);
 				temp.LoadString(IDS_STATUSLIST_CONTEXT_COPY);
-				popup.AppendMenuIcon(IDSVNLC_COPY, temp);
+				popup.AppendMenuIcon(IDSVNLC_COPY, temp, IDI_COPYCLIP);
 				temp.LoadString(IDS_STATUSLIST_CONTEXT_COPYEXT);
-				popup.AppendMenuIcon(IDSVNLC_COPYEXT, temp);
+				popup.AppendMenuIcon(IDSVNLC_COPYEXT, temp, IDI_COPYCLIP);
 				if ((m_dwContextMenus & SVNSLC_POPCHANGELISTS)&&(XPorLater)
 					&&(wcStatus != svn_wc_status_unversioned)&&(wcStatus != svn_wc_status_none))
 				{

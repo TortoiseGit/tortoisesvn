@@ -2080,7 +2080,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			if (nFolders)
 			{
 				temp.LoadString(IDS_REPOBROWSE_REFRESH);
-				popup.AppendMenuIcon(ID_REFRESH, temp);		// "Refresh"
+				popup.AppendMenuIcon(ID_REFRESH, temp, IDI_REFRESH);		// "Refresh"
 			}
 			popup.AppendMenu(MF_SEPARATOR, NULL);				
 
@@ -2089,7 +2089,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				if (nFolders)
 				{
 					temp.LoadString(IDS_REPOBROWSE_MKDIR);
-					popup.AppendMenuIcon(ID_MKDIR, temp);	// "create directory"
+					popup.AppendMenuIcon(ID_MKDIR, temp, IDI_MKDIR);	// "create directory"
 
 					temp.LoadString(IDS_REPOBROWSE_IMPORT);
 					popup.AppendMenuIcon(ID_IMPORT, temp, IDI_IMPORT);	// "Add/Import File"
@@ -2119,7 +2119,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			if (nFolders == 0)
 			{
 				temp.LoadString(IDS_REPOBROWSE_SAVEAS);
-				popup.AppendMenuIcon(ID_SAVEAS, temp);		// "Save as..."
+				popup.AppendMenuIcon(ID_SAVEAS, temp, IDI_SAVEAS);		// "Save as..."
 			}
 			if ((urlList.GetCount() == nFolders)||(nFolders == 0))
 			{
@@ -2133,7 +2133,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			popup.AppendMenuIcon(ID_COPYTO, temp, IDI_COPY);			// "Copy To..."
 
 			temp.LoadString(IDS_REPOBROWSE_URLTOCLIPBOARD);
-			popup.AppendMenuIcon(ID_URLTOCLIPBOARD, temp);	// "Copy URL to clipboard"
+			popup.AppendMenuIcon(ID_URLTOCLIPBOARD, temp, IDI_COPYCLIP);	// "Copy URL to clipboard"
 
 			popup.AppendMenu(MF_SEPARATOR, NULL);
 
