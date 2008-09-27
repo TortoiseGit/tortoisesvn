@@ -7,6 +7,7 @@
 ' $Rev$
 '
 ' Authors:
+' Szabolcs Horvát, 2008
 ' Chris Rodgers http://rodgers.org.uk/, 2008
 ' (Based on diff-xlsx.vbs)
 '
@@ -24,13 +25,19 @@ sBaseDoc = objArgs(0)
 sNewDoc = objArgs(1)
 
 Set objScript = CreateObject("Scripting.FileSystemObject")
+
 If objScript.FileExists(sBaseDoc) = False Then
     MsgBox "File " + sBaseDoc +" does not exist.  Cannot compare the notebooks.", vbExclamation, "File not found"
     Wscript.Quit 1
+Else
+    sBaseDoc = objScript.GetAbsolutePathName(sBaseDoc)
 End If
+
 If objScript.FileExists(sNewDoc) = False Then
     MsgBox "File " + sNewDoc +" does not exist.  Cannot compare the notebooks.", vbExclamation, "File not found"
     Wscript.Quit 1
+Else
+    sNewDoc = objScript.GetAbsolutePathName(sNewDoc)
 End If
 
 On Error Resume Next
@@ -43,28 +50,16 @@ tname = objScript.GetTempName + ".nb"
 Set objDiffNotebook = tfolder.CreateTextFile(tname)
 
 'Output a Mathematica notebook that will do the diff for us
-'We need a convoluted way of evaluating the NotebookDiff function to allow a single button press to load and run the package
-objDiffNotebook.WriteLine "(* Content-type: application/mathematica *)" + vbCrLf + _
-"(*** Wolfram Notebook File ***)" + vbCrLf + _
-"(* http://www.wolfram.com/nb *)" + vbCrLf + _
-"(* CreatedBy='Mathematica 6.0' *)" + vbCrLf + _
-"(* Beginning of Notebook Content *)" + vbCrLf + _
-"Notebook[{" + vbCrLf + _
-"Cell[CellGroupData[{" + vbCrLf + _
-"Cell[BoxData[" + vbCrLf + _
-"ButtonBox[""\<\""Compare notebooks\""\>""," + vbCrLf + _
-"Appearance->Automatic," + vbCrLf + _
-"ButtonFrame->""DialogBox""," + vbCrLf + _
-"ButtonFunction:>(Module[{x=ReplaceAll[Get[""AuthorTools`""]; " + vbCrLf + _
-"nd[" + vbCrLf + _
+objDiffNotebook.WriteLine "Notebook[{" + vbCrLf + _
+"Cell[BoxData[ButtonBox[""\<\""Compare Notebooks\""\>""," + vbCrLf + _
+"ButtonFrame->""DialogBox"", Active->True, ButtonEvaluator->Automatic," + vbCrLf + _
+"ButtonFunction:>(Needs[""AuthorTools`""];" + vbCrLf + _
+"NotebookPut[Symbol[""NotebookDiff""][" + vbCrLf + _
 """" + Replace(sBaseDoc,"\","\\") + """," + vbCrLf + _
-"""" + Replace(sNewDoc,"\","\\") + """], nd :> Symbol[""NotebookDiff""]]},CreateDocument[x]])," + vbCrLf + _
-"Evaluator->Automatic," + vbCrLf + _
-"Method->""Preemptive""]], ""Output""," + vbCrLf + _
-"CellChangeTimes->{3.4277012139130297`*^9}]" + vbCrLf + _
-"}, Open  ]]" + vbCrLf + _
-"}]" + vbCrLf + _
-"(* End of Notebook Content *)"
+"""" + Replace(sNewDoc,"\","\\") + """" + vbCrLf + _
+"]])]], NotebookDefault]" + vbCrLf + _
+"}, Saveable->False, Editable->False, WindowToolbars->{}, WindowFrame->ModelessDialog, WindowElements->{}, WindowFrameElements->CloseBox, WindowTitle->""Diff"", ShowCellBracket->False, WindowSize->{Fit,Fit}]"
+
 
 objDiffNotebook.Close
 
