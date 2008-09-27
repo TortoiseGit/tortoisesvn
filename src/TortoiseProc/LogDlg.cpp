@@ -3728,7 +3728,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				popup.AppendMenuIcon(ID_COMPAREWITHPREVIOUS, temp, IDI_DIFF);
 				popup.AppendMenu(MF_SEPARATOR, NULL);
 				temp.LoadString(IDS_LOG_POPUP_SAVE);
-				popup.AppendMenuIcon(ID_SAVEAS, temp);
+				popup.AppendMenuIcon(ID_SAVEAS, temp, IDI_SAVEAS);
 				temp.LoadString(IDS_LOG_POPUP_OPEN);
 				popup.AppendMenuIcon(ID_OPEN, temp);
 				temp.LoadString(IDS_LOG_POPUP_OPENWITH);
@@ -4470,9 +4470,9 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				temp.LoadString(IDS_MENULOG);
 				popup.AppendMenuIcon(ID_LOG, temp, IDI_LOG);						// "Show Log"				
 				temp.LoadString(IDS_LOG_POPUP_GETMERGELOGS);
-				popup.AppendMenuIcon(ID_GETMERGELOGS, temp);		// "Show merge log"
+				popup.AppendMenuIcon(ID_GETMERGELOGS, temp, IDI_LOG);		// "Show merge log"
 				temp.LoadString(IDS_LOG_POPUP_SAVE);
-				popup.AppendMenuIcon(ID_SAVEAS, temp);
+				popup.AppendMenuIcon(ID_SAVEAS, temp, IDI_SAVEAS);
 				bEntryAdded = true;
 				if (!m_ProjectProperties.sWebViewerPathRev.IsEmpty())
 				{
