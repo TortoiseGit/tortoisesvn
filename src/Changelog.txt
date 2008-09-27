@@ -60,6 +60,7 @@ Version 1.5.4
 - BUG: When a cleanup failed, the error message didn't include the svn
        error string. (Stefan)
 - BUG: /closeonend was ignored for the (un)lock command. (Stefan)
+- BUG: The 'rename' context menu was not available for added files. (Stefan)
 
 Version 1.5.3
 - CHG: paths in error messages are nor truncated to 80 chars anymore. (Stefan)
