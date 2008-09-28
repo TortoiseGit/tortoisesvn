@@ -520,7 +520,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	char *wc_utf8;
 	wc_utf8 = Utf16ToUtf8(wc, pool);
-	internalpath = svn_path_internal_style (wc_utf8, pool);
+	internalpath = svn_path_canonicalize (wc_utf8, pool);
 
 	svnerr = svn_status(	internalpath,	//path
 							&SubStat,		//status_baton
