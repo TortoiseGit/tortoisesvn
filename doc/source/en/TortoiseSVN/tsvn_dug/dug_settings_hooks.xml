@@ -109,7 +109,7 @@
 	</para>
 	<para>
 		The command line includes several parameters which get filled in
-		by TortoiseSVN. The parameters available depend upon which hook is called.
+		by TortoiseSVN. The parameters passed depend upon which hook is called.
 		Each hook has its own parameters which are passed in the following order:
 		<variablelist>
 			<varlistentry>
@@ -294,6 +294,12 @@
 				</listitem>
 			</varlistentry>
 		</variablelist>
+	</para>
+	<para>
+		Note that although we have given these parameters names for convenience,
+		you do not have to refer to those names in the hook settings.
+		All parameters listed for a particular hook are always passed,
+		whether you want them or not ;-)
 	</para>
 	<para>
 		If you want the Subversion operation to hold off until the hook has completed,
