@@ -51,6 +51,7 @@ protected:
 	afx_msg void			OnBnClickedShowunversioned();
 	afx_msg void			OnBnClickedShowUnmodified();
 	afx_msg void			OnBnClickedShowignored();
+	afx_msg void			OnBnClickedShowexternals();
     afx_msg void			OnBnClickedShowUserProps();
 	afx_msg LRESULT			OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
 	afx_msg LRESULT			OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM);
@@ -76,6 +77,7 @@ private:
 	CString					m_sTitle;
 	bool					m_bCanceled;
 	BOOL					m_bShowIgnored;
+	BOOL					m_bShowExternals;
 	BOOL					m_bShowUserProps;
 	CToolTips				m_tooltips;
 };
