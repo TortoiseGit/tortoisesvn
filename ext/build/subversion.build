@@ -98,6 +98,7 @@
 						<define name="SVN_NEON_0_26=1" />
 						<define name="SVN_NEON_0_27=1" />
 						<define name="SVN_NEON_0_28=1" />
+						<define name="SVN_DEBUG" if="${configuration != 'release'}" />
 						<define name="alloca=_alloca" />
 						<define name="snprintf=_snprintf" />
 						<define name="WIN32" />
@@ -182,6 +183,7 @@
 						<define name="SVN_NEON_0_27=1" />
 						<define name="SVN_NEON_0_28=1" />
 						<define name="SVN_LIBSVN_CLIENT_LINKS_RA_DAV=1" />
+						<define name="SVN_DEBUG" if="${configuration != 'release'}" />
 						<define name="SVN_HAVE_SASL=1" />
 						<define name="alloca=_alloca" />
 						<define name="snprintf=_snprintf" />
@@ -276,6 +278,7 @@
 							<define name="SVN_LIBSVN_CLIENT_LINKS_RA_DAV=1" />
 							<define name="SVN_LIBSVN_CLIENT_LINKS_RA_NEON=1" />
 							<define name="SVN_LIBSVN_CLIENT_LINKS_RA_SERF=1" />
+							<define name="SVN_DEBUG" if="${configuration != 'release'}" />
 							<define name="SVN_HAVE_SASL" />
 							<define name="alloca=_alloca" />
 							<define name="SVN_HAVE_SASL" />
