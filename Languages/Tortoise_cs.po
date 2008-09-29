@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-09-18 10:06+0100\n"
-"Last-Translator: Ondřej Lipovský <lipovsky@brainforce.cz>\n"
+"PO-Revision-Date: 2008-09-29 14:46+0100\n"
+"Last-Translator: Ondřej Lipovský <lipovsky@centrum.cz>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2372,6 +2372,10 @@ msgstr "Kopírovat URL do schránky"
 msgid "Copy all information to clipboard"
 msgstr "Kopírovat všechny informace do schránky"
 
+#. Resource IDs: (146)
+msgid "Copy and rename"
+msgstr "Kopírovat a přejmenovat"
+
 #. Resource IDs: (104)
 msgid "Copy and rename item to here"
 msgstr "Kopírovat a přejmenovat položku sem"
@@ -3862,7 +3866,7 @@ msgstr "Tip: Zmačkněte F5 pro znovunačtení vybraného podstromu a Ctrl-F5 pr
 
 #. Resource IDs: (16519)
 msgid "Hint: select the context menu, change the page to 'Commands' and drag the toolbar buttons into the menu window."
-msgstr "Tip: vyberte kontextový menu, změnte stranu na 'Příkazy' a přesuňte tlačítka nástrové lišty do menu okna."
+msgstr "Tip: vyberte kontextový menu, změnte stranu na 'Příkazy' a přesuňte tlačítka nástrojové lišty do menu okna."
 
 #. Resource IDs: (1064)
 msgid "Home"
@@ -4734,7 +4738,7 @@ msgstr "Menu"
 
 #. Resource IDs: (1001)
 msgid "Menu Bar"
-msgstr "Menu"
+msgstr "Lišta menu"
 
 #. Resource IDs: (16626)
 msgid "Menu s&hadows"
@@ -4794,7 +4798,7 @@ msgstr "Sloučit dva rozdílne stromy"
 
 #. Resource IDs: (595, 65535)
 msgid "Merge type"
-msgstr "Typ sločení"
+msgstr "Typ sloučení"
 
 #. Resource IDs: (263)
 msgid "Merged"
@@ -4811,7 +4815,7 @@ msgstr "Sloučí větev do hlavní kmene"
 
 #. Resource IDs: (14)
 msgid "Merges all missing revisions back into the working copy using merge-tracking information"
-msgstr "Sloučí všechni chybějíci revize spět do pracovní kopie použitím informace o sledování sloučení"
+msgstr "Sloučí všechny chybějící revize zpět do pracovní kopie použitím informace o sledování sloučení"
 
 #. Resource IDs: (65535)
 msgid "Merging"
@@ -4824,7 +4828,7 @@ msgstr "Sloučení %s do %s, %s"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
-msgstr "Sloučit rozdílí mezi URL uložišť"
+msgstr "Sloučit rozdíly mezi URL uložišť"
 
 #. Resource IDs: (229)
 #, c-format
@@ -4959,6 +4963,10 @@ msgstr "Přesunout Položku Dolů"
 #. Resource IDs: (1002)
 msgid "Move Item Up"
 msgstr "Přesunout Položku Nahoru"
+
+#. Resource IDs: (147)
+msgid "Move and rename"
+msgstr "Přesunout a přejmenovat"
 
 #. Resource IDs: (104)
 msgid "Move and rename item to here"
@@ -5479,7 +5487,7 @@ msgstr ""
 
 #. Resource IDs: (16538)
 msgid "Personalized Menus and Toolbars"
-msgstr "Přispůsobené Menu a Nástrojové lišty"
+msgstr "Přizpůsobené Menu a Nástrojové lišty"
 
 #. Resource IDs: (3849)
 msgid ""
@@ -5817,7 +5825,7 @@ msgid ""
 "Rectangle Tool\n"
 "Rectangle"
 msgstr ""
-"Násrtroj Obdelník\n"
+"Nástroj Obdelník\n"
 "Obdelník"
 
 #. Resource IDs: (1260)
@@ -6053,7 +6061,7 @@ msgstr ""
 
 #. Resource IDs: (221)
 msgid "Rename/move - TortoiseSVN"
-msgstr "Přesunout/přejmenovat -  TortoiseSVN"
+msgstr "Přejmenovat/přesunout -  TortoiseSVN"
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
@@ -6565,7 +6573,7 @@ msgid ""
 "Select Color Tool\n"
 "Select Color"
 msgstr ""
-"Nástroj výběru barvy\n"
+"Vybrat nástroj barev\n"
 "Vybrat barvu"
 
 #. Resource IDs: (13)
@@ -6650,7 +6658,7 @@ msgstr "Zvolte rozsah revizí"
 
 #. Resource IDs: (276)
 msgid "Select start revision"
-msgstr "Vybrat první revizi"
+msgstr "Zvolte první revizi"
 
 #. Resource IDs: (79)
 msgid "Select text editor application"
@@ -6658,11 +6666,11 @@ msgstr "Zvolte aplikaci pro úpravy textu"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
-msgstr "Vybrat URL pro sloučení stromů"
+msgstr "Zvolte URL pro sloučení stromů"
 
 #. Resource IDs: (79)
 msgid "Select the behaviour of the progress dialog at the end of the operation."
-msgstr "Vyberte chování dialogu průběhu při konci operace."
+msgstr "Zvolte chování dialogu průběhu při konci operace."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -6678,7 +6686,7 @@ msgstr "Zvolte nastevení pro sloučení"
 
 #. Resource IDs: (595)
 msgid "Select the revisions to merge"
-msgstr "Zvolit revize ke sloučení"
+msgstr "Zvolte revize ke sloučení"
 
 #. Resource IDs: (595)
 msgid "Select the type of merge"
@@ -6831,7 +6839,7 @@ msgstr ""
 
 #. Resource IDs: (1126)
 msgid "Show Lock dialog before locking files"
-msgstr "Zobrazit uzamykací dialog před zamknutním souborů"
+msgstr "Zobrazit Uzamykací dialog před zamknutním souborů"
 
 #. Resource IDs: (1065)
 msgid "Show More Buttons"
@@ -6843,11 +6851,11 @@ msgstr "Z&obrazit Přehled"
 
 #. Resource IDs: (1068)
 msgid "Show Quick Access Toolbar Above the Ribbon"
-msgstr "Zobrazit Lištu Rýchlého Přístupu nad Ribbonem"
+msgstr "Zobrazit Lištu Rychlého Přístupu nad Ribbonem"
 
 #. Resource IDs: (1068)
 msgid "Show Quick Access Toolbar Below the Ribbon"
-msgstr "Zobrazit Lištu Rýchlého Přístupu pod Ribbonem"
+msgstr "Zobrazit Lištu Rychlého Přístupu pod Ribbonem"
 
 #. Resource IDs: (16651)
 msgid "Show Screen&Tips on toolbars"
@@ -6876,6 +6884,10 @@ msgstr "Po krátkém čekání zobrazit &celé menu"
 #. Resource IDs: (1264)
 msgid "Show i&gnored files"
 msgstr "Zobrazit i&gnorované soubory"
+
+#. Resource IDs: (1480)
+msgid "Show items in externals"
+msgstr "Zobrazit položky externě"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
@@ -7710,7 +7722,7 @@ msgstr "Nelze nic přidat. Všechny soubory a složky jsou buďto ve správě ve
 
 #. Resource IDs: (83)
 msgid "There's nothing to unlock. No file has a lock in this working copy."
-msgstr "Není nic k odemčení. Žádná složka není zamčená v této pracovní kopii(WC)."
+msgstr "Není nic k odemčení. Žádná složka není zamčená v této pracovní kopii (WC)."
 
 #. Resource IDs: (188)
 msgid "Thesaurus"
@@ -7721,7 +7733,7 @@ msgid ""
 "This is not a valid URL.\n"
 "Please enter an URL here."
 msgstr ""
-"Toto není platné URL.\n"
+"Toto není platná URL.\n"
 "Prosím, zadejte zde URL."
 
 #. Resource IDs: (82)
@@ -7774,7 +7786,7 @@ msgstr "Tato vlastnost nesmí mít více řádek. Pouze jedna řádka je povolen
 
 #. Resource IDs: (1016)
 msgid "This will delete the record of commands you've used in this application and restore the default set of visible commands to the menus and toolbars. It will not undo any explicit customizations. Are you sure you want to do this?"
-msgstr "Vymaže záznam příkazů, které jste použili v aplikaci a obnoví předvolené nastavení tlačítek příkazů pro menu a nástrojoví lišty. Nezmění to žádné explicitné přispůsobení. Jste si skutečně jisti, že to chcete?"
+msgstr "Vymaže záznam příkazů, které jste použili v aplikaci a obnoví předvolené nastavení tlačítek příkazů pro menu a nástrojové lišty. Nezmění to žádné explicitní přispůsobení. Jste si skutečně jisti, že to chcete?"
 
 #. Resource IDs: (16924)
 msgid "Tile &Horizontally"
@@ -7782,7 +7794,7 @@ msgstr "Uspořádat &Vodorovně"
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
-msgstr "Uspořádat &Svisle"
+msgstr "Uspořádat S&visle"
 
 #. Resource IDs: (65535)
 msgid "Timeouts"
@@ -7797,7 +7809,7 @@ msgid ""
 "which does not allow directory deletion."
 msgstr ""
 "Pro rekurzivní odevzdání (commit) a obejití této chyby,\n"
-"ujistěte se, že všechny podřazené položky zaškrtnuté složky\n"
+"se ujistěte, že všechny podřazené položky zaškrtnuté složky\n"
 "jsou také zaškrtnuté v dialogu odevzdání.\n"
 "Jinak TortoiseSVN musí provést nerekurzivní odevzdání,\n"
 "které neumožňuje smazání složky."
@@ -7892,14 +7904,14 @@ msgid ""
 "/fit\t\tto fit the images sizes\n"
 "/showinfo\t\tto show the image info boxes"
 msgstr ""
-"TortoiseIDiff: prohlížeč rozdílů obrázklů pro TortoiseSVN\n"
+"TortoiseIDiff: prohlížeč rozdílů obrázků pro TortoiseSVN\n"
 "\n"
 "Dostupné parametry příkazové řádky jsou:\n"
 "/left:\"cesta k levému souboru\"\n"
 "/lefttitle:\"nadpis pro levý obrázek\"\n"
 "/right:\"cesta k pravému souboru\"\n"
 "/righttitle:\"nadpis pro pravý obrázek\"/overlay\t\tpovolí překrývácí mód\n"
-"/fit\t\tshodná velikost obráků\n"
+"/fit\t\tshodná velikost obrázků\n"
 "/showinfo\t\tzapne informačni okno"
 
 #. Resource IDs: (7, 130, 3585)
@@ -8095,7 +8107,7 @@ msgstr "Odznačit"
 #. Resource IDs: (1069)
 #, c-format
 msgid "Undo %d Actions"
-msgstr "Vrátit zpět %d Akcií"
+msgstr "Vrátit zpět %d Akcí"
 
 #. Resource IDs: (1069)
 msgid "Undo 1 Action"
@@ -8289,8 +8301,8 @@ msgid ""
 "Use block from right view before block from left view\n"
 "Use block from right before left"
 msgstr ""
-"Použít blok z pravího pohledu před levím blokem\n"
-"Použít blok sprava před levím"
+"Použít blok z pravého pohledu před levím blokem\n"
+"Použít blok z prava před levím"
 
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one first)"
@@ -8679,7 +8691,7 @@ msgstr ""
 #. Resource IDs: (1002)
 #, c-format
 msgid "You may define up to %d tools."
-msgstr "Můžete definovat najvíce %d nástrojů."
+msgstr "Můžete definovat nejvíce %d nástrojů."
 
 #. Resource IDs: (196)
 msgid "You must restart your system for the changes to take effect."
