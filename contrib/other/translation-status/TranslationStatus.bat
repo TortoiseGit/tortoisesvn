@@ -1,5 +1,14 @@
-@echo off
+rem Copyright (C) 2004-2008 the TortoiseSVN team
+rem This file is distributed under the same license as TortoiseSVN
+
+rem Last commit by:
+rem $Author$
+rem $Date$
+rem $Rev$
+
 rem Script to calculate the GUI and DOC translation status report for TortoiseSVN
+
+@echo off
 
 SETLOCAL ENABLEDELAYEDEXPANSION
 
@@ -93,8 +102,8 @@ for /F "eol=# delims=	; tokens=1,5" %%i in (%LanguageList%) do (
 
   if exist trunk\!PoFile! (
     echo Computing Status for !LANGNAME!
-    for /F "usebackq delims=#" %%p in (`Check_Status.bat !WDirTrunk! !PoFile! !TotalTrunk!`) do set StatusTrunk=%%p
-    for /F "usebackq delims=#" %%p in (`Check_Status.bat !WDirBrnch! !PoFile! !TotalBrnch!`) do set StatusBrnch=%%p
+    for /F "usebackq delims=#" %%p in (`Check_Status.bat trunk !PoFile! !TotalTrunk!`) do set StatusTrunk=%%p
+    for /F "usebackq delims=#" %%p in (`Check_Status.bat branch !PoFile! !TotalBrnch!`) do set StatusBrnch=%%p
     echo !LANGNAME! : !StatusTrunk! : !StatusBrnch! >> %Logfile%
   )
 )

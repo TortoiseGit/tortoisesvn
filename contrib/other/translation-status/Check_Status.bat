@@ -1,9 +1,18 @@
-@echo off
+rem Copyright (C) 2004-2008 the TortoiseSVN team
+rem This file is distributed under the same license as TortoiseSVN
+
+rem Last commit by:
+rem $Author$
+rem $Date$
+rem $Rev$
+
 rem Script to calculate the translation status of a single .po file
 rem Parameters:
 rem %1=Working directory
 rem %2=Name of .po file
 rem %3=Number of strings in total
+
+@echo off
 SETLOCAL ENABLEDELAYEDEXPANSION
 
 set ScriptPath=%~dp0

@@ -1,3 +1,11 @@
+rem Copyright (C) 2004-2008 the TortoiseSVN team
+rem This file is distributed under the same license as TortoiseSVN
+
+rem Last commit by:
+rem $Author$
+rem $Date$
+rem $Rev$
+
 @echo off
 rem Count messages in given PO File that match the given attributes 
 SETLOCAL
