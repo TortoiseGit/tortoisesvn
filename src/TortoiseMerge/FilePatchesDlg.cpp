@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006, 2008 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,7 +22,7 @@
 #include "Patch.h"
 #include "AppUtils.h"
 #include "PathUtils.h"
-#include ".\filepatchesdlg.h"
+#include "ProgressDlg.h"
 
 
 IMPLEMENT_DYNAMIC(CFilePatchesDlg, CDialog)
@@ -324,11 +324,22 @@ void CFilePatchesDlg::OnNMRclickFilelist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 			{
 				if (m_pCallBack)
 				{
-					for (int i=0; i<m_arFileStates.GetCount(); i++)
+					CProgressDlg progDlg;
+					progDlg.SetTitle(IDR_MAINFRAME);
+					progDlg.SetShowProgressBar(true);
+					progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PATCH_ALL)));
+					progDlg.ShowModeless(m_hWnd);
+
+					for (int i=0; i<m_arFileStates.GetCount() && !progDlg.HasUserCancelled(); i++)
 					{
 						if (m_arFileStates.GetAt(i)!= FPDLG_FILESTATE_PATCHED)
+						{
+							progDlg.SetLine(2, GetFullPath(i), true);
 							m_pCallBack->PatchFile(GetFullPath(i), m_pPatch->GetRevision(i), TRUE);
+						}
+						progDlg.SetProgress64(i, m_arFileStates.GetCount());
 					}
+					progDlg.Stop();
 				}
 			} 
 			break;
@@ -336,16 +347,29 @@ void CFilePatchesDlg::OnNMRclickFilelist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 			{
 				if (m_pCallBack)
 				{
+					CProgressDlg progDlg;
+					progDlg.SetTitle(IDR_MAINFRAME);
+					progDlg.SetShowProgressBar(true);
+					progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PATCH_SELECTED)));
+					progDlg.ShowModeless(m_hWnd);
+
 					// The list cannot be sorted by user, so the order of the
 					// items in the list is identical to the order in the array
 					// m_arFileStates.
+					int selCount = m_cFileList.GetSelectedCount();
+					int count = 1;
 					POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
 					int index;
-					while ((index = m_cFileList.GetNextSelectedItem(pos)) >= 0)
+					while (((index = m_cFileList.GetNextSelectedItem(pos)) >= 0) && (!progDlg.HasUserCancelled()))
 					{
 						if (m_arFileStates.GetAt(index)!= FPDLG_FILESTATE_PATCHED)
+						{
+							progDlg.SetLine(2, GetFullPath(index), true);
 							m_pCallBack->PatchFile(GetFullPath(index), m_pPatch->GetRevision(index), TRUE);
+						}
+						progDlg.SetProgress64(count++, selCount);
 					}
+					progDlg.Stop();
 				}
 			} 
 			break;
