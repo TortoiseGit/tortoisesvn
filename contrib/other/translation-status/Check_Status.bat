@@ -1,3 +1,4 @@
+@echo off
 rem Copyright (C) 2004-2008 the TortoiseSVN team
 rem This file is distributed under the same license as TortoiseSVN
 
@@ -12,7 +13,6 @@ rem %1=Working directory
 rem %2=Name of .po file
 rem %3=Number of strings in total
 
-@echo off
 SETLOCAL ENABLEDELAYEDEXPANSION
 
 set ScriptPath=%~dp0
@@ -48,6 +48,8 @@ if exist %2 (
       set outStat=- ^(!fuzSVN!/!untSVN!/!accSVN!^)
     ) else (
       set /a outTMP=100*!traSVN!/totSVN
+      echo !outTMP!
+      if !outTMP! LSS 10 set outTMP= !outTMP!
       set outSVN=!outTMP!%%
       set outStat=- ^(!fuzSVN!/!untSVN!/!accSVN!^)
     )

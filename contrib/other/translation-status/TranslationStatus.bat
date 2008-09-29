@@ -1,3 +1,4 @@
+@echo off
 rem Copyright (C) 2004-2008 the TortoiseSVN team
 rem This file is distributed under the same license as TortoiseSVN
 
@@ -7,8 +8,6 @@ rem $Date$
 rem $Rev$
 
 rem Script to calculate the GUI and DOC translation status report for TortoiseSVN
-
-@echo off
 
 SETLOCAL ENABLEDELAYEDEXPANSION
 
