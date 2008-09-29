@@ -38,6 +38,7 @@
 #include "ConflictResolveDlg.h"
 #include "LogFile.h"
 #include "ShellUpdater.h"
+#include "IconMenu.h"
 
 BOOL	CSVNProgressDlg::m_bAscending = FALSE;
 int		CSVNProgressDlg::m_nSortedColumn = -1;
@@ -1372,7 +1373,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 		if ((selIndex >= 0)&&(!m_bThreadRunning))
 		{
 			// entry is selected, thread has finished with updating so show the popup menu
-			CMenu popup;
+			CIconMenu popup;
 			if (popup.CreatePopupMenu())
 			{
 				CString temp;
@@ -1385,7 +1386,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						if (m_ProgList.GetSelectedCount() == 1)
 						{
 							temp.LoadString(IDS_LOG_POPUP_COMPARE);
-							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPARE, temp);
+							popup.AppendMenuIcon(ID_COMPARE, temp, IDI_DIFF);
 							bAdded = true;
 						}
 					}
@@ -1394,15 +1395,15 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							if (m_ProgList.GetSelectedCount() == 1)
 							{
 								temp.LoadString(IDS_MENUCONFLICT);
-								popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EDITCONFLICT, temp);
+								popup.AppendMenuIcon(ID_EDITCONFLICT, temp,IDI_CONFLICT);
 								popup.SetDefaultItem(ID_EDITCONFLICT, FALSE);
 								temp.LoadString(IDS_SVNPROGRESS_MENUMARKASRESOLVED);
-								popup.AppendMenu(MF_STRING | MF_ENABLED, ID_CONFLICTRESOLVE, temp);
+								popup.AppendMenuIcon(ID_CONFLICTRESOLVE, temp,IDI_RESOLVE);
 							}
 							temp.LoadString(IDS_SVNPROGRESS_MENUUSETHEIRS);
-							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_CONFLICTUSETHEIRS, temp);
+							popup.AppendMenuIcon(ID_CONFLICTUSETHEIRS, temp,IDI_RESOLVE);
 							temp.LoadString(IDS_SVNPROGRESS_MENUUSEMINE);
-							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_CONFLICTUSEMINE, temp);
+							popup.AppendMenuIcon(ID_CONFLICTUSEMINE, temp,IDI_RESOLVE);
 						}
 						else if ((data->content_state == svn_wc_notify_state_merged)||(SVNProgress_Merge == m_Command)||(data->action == svn_wc_notify_resolved))
 							popup.SetDefaultItem(ID_COMPARE, FALSE);
@@ -1422,13 +1423,13 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							(data->action == svn_wc_notify_update_update))
 						{
 							temp.LoadString(IDS_MENULOG);
-							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_LOG, temp);
+							popup.AppendMenuIcon(ID_LOG, temp,IDI_LOG);
 							if (data->action == svn_wc_notify_update_update)
 								popup.AppendMenu(MF_SEPARATOR, NULL);
 							temp.LoadString(IDS_LOG_POPUP_OPEN);
-							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPEN, temp);
+							popup.AppendMenuIcon(ID_OPEN, temp);
 							temp.LoadString(IDS_LOG_POPUP_OPENWITH);
-							popup.AppendMenu(MF_STRING | MF_ENABLED, ID_OPENWITH, temp);
+							popup.AppendMenuIcon(ID_OPENWITH, temp);
 							bAdded = true;
 						}
 					}
@@ -1444,7 +1445,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							if (path.GetDirectory().Exists())
 							{
 								temp.LoadString(IDS_SVNPROGRESS_MENUOPENPARENT);
-								popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EXPLORE, temp);
+								popup.AppendMenuIcon(ID_EXPLORE, temp);
 								bAdded = true;
 							}
 						}
@@ -1455,7 +1456,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					if (bAdded)
 						popup.AppendMenu(MF_SEPARATOR, NULL);
 					temp.LoadString(IDS_LOG_POPUP_COPYTOCLIPBOARD);
-					popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COPY, temp);
+					popup.AppendMenuIcon(ID_COPY, temp,IDI_COPYCLIP);
 					bAdded = true;
 				}
 				if (bAdded)
