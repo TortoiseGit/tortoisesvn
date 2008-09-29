@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-09-24 17:15 +0000\n"
-"PO-Revision-Date: 2008-09-25 18:02+0100\n"
+"PO-Revision-Date: 2008-09-29 17:50+0100\n"
 "Last-Translator: Grokwik <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3924,7 +3924,7 @@ msgstr "Utilisant un serveur ancien"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4312
 msgid "Pre-1.5 servers do not understand the working copy depth request, so they cannot always deal with requests efficiently. The command will still work, but an older server may send all the data, leaving the client to filter out what is not required, which may mean a lot of network traffic. If possible you should upgrade your server to 1.5."
-msgstr ""
+msgstr "Les serveurs de version inférieure à 1.5 ne supportent pas la notion de profondeur de la copie de travail, ils n'interprêtent donc pas efficacement les requêtes l'utilisant. Les commande fonctionneront, mais un vieux serveur retournera toutes les données, laissant le client filtrer ce qui n'est pas requis, ce qui augmentera le traffic sur le réseau. Si possible, vous devriez mettre à jour votre serveur."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4322
@@ -4071,7 +4071,7 @@ msgstr "Vous pouvez glisser des fichiers dans la boîte de dialogue Livrer d'ail
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4510
 msgid "You can drag unversioned files which reside within a working copy into the commit dialog, and they will be SVN added automatically."
-msgstr ""
+msgstr "Vous pouvez faire glisser les fichiers non versionnés de votre copie de travail dans la fenêtre de livraison, ils seront alors automatiquement ajoutés au référentiel."
 
 #. (title)
 #. (title)
@@ -4097,7 +4097,7 @@ msgstr "Listes de changements"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4533
 msgid "The commit dialog supports Subversion's changelist feature to help with grouping related files together. Find out about this feature in <xref linkend=\"tsvn-dug-changelists\"/>."
-msgstr ""
+msgstr "La fenêtre de livraison supporte la fonctionnalité liste des modifications de Subversion et s'en sert pour grouper les fichiers. Pour en savoir plus sur cette fonctionnalité vois <xref linkend=\"tsvn-dug-changelists\"/>."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:4540
@@ -4112,7 +4112,7 @@ msgstr ""
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4551
 msgid "To help out in awkward cases like this, we have reserved a changelist called <literal>ignore-on-commit</literal>. Any file added to this changelist will automatically be unchecked in the commit dialog. You can still commit changes, but you have to select it manually in the commit dialog."
-msgstr ""
+msgstr "Pour améliorer le traitemen de cas bizarres, nous avons créé une liste de modification appelée <literal>ignorer à la livraison</literal>. Tout fichier ajouté dans cette liste sera automatiquement décoché dans la fenêtre de livraison. Vous pouvez cependant toujours livrer les modifications en cochant manuellement les fichiers à livrer dans la fenêtre de livraison."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:4560
@@ -4148,7 +4148,7 @@ msgstr "La fenêtre de commentaire inclut aussi une fonctionnalité d'auto-achè
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4610
 msgid "You can re-use previously entered log messages. Just click on <guibutton>Recent messages</guibutton> to view a list of the last few messages you entered for this working copy. The number of stored messages can be customized in the TortoiseSVN settings dialog."
-msgstr ""
+msgstr "Vous pouvez réutiliser les messages de livraison des livraisons précédentes. Cliquez juste sur <guibutton>Messages récents</guibutton> pour en voir la liste. Le nombre de messages à garder en mémoire peut être modifié dans la fenêtre de propriété de TortoiseSVN."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4616
@@ -7458,9 +7458,8 @@ msgstr "Fusionner une branche complétée"
 
 #. (primary)
 #: ../source/TortoiseSVN_en.xml:8742
-#, fuzzy
 msgid "merge reintegrate"
-msgstr "Suivi des fusions"
+msgstr "intégration des fusions"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:8754
@@ -7514,7 +7513,6 @@ msgstr "Vous utilisez des fichiers <quote>non fusionnables</quote>, par exemple,
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8817
-#, fuzzy
 msgid "Your company has always used a locking revision control system in the past and there has been a management decision that <quote>locking is best</quote>."
 msgstr "Votre société a toujours utilisé un VCS verrouillant par le passé et il y a eu une décision de la part des gestionnaires que <quote>le verrouillage est la meilleure solution</quote>."
 
@@ -7525,9 +7523,8 @@ msgstr "Subversion fonctionne généralement mieux sans verrouillage, en utilisa
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8825
-#, fuzzy
 msgid "Firstly you need to ensure that your Subversion server is upgraded to at least version 1.2. Earlier versions do not support locking at all. If you are using <literal>file://</literal> access, then of course only your client needs to be updated."
-msgstr "Premièrement, vous devez vous assurer que votre serveur Subversion est mis à jour au moins à la version 1.2. Les versions précédentes ne supportent pas du tout le verrouillage. Si vous utilisez l'accès <filename>file:///</filename>, alors bien sûr seul votre client doit être mis à jour."
+msgstr "Premièrement, vous devez vous assurer que votre serveur Subversion est mis à jour au moins à la version 1.2. Les versions précédentes ne supportent pas le verrouillage. Si vous utilisez un accès de type <filename>file://</filename>, alors il est sûr que votre client doit être mis à jour."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:8832
@@ -7581,9 +7578,8 @@ msgstr "Sélectionnez les fichiers dans votre copie de travail pour lesquels vou
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8908
-#, fuzzy
 msgid "If you select a folder and then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Get Lock...</guimenuitem></menuchoice> the lock dialog will open with <emphasis>every</emphasis> file in <emphasis>every</emphasis> sub-folder selected for locking. If you really want to lock an entire hierarchy, that is the way to do it, but you could become very unpopular with your co-workers if you lock them out of the whole project. Use with care ..."
-msgstr "Si vous sélectionnez un dossier et utilisez ensuite <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Obtenir un verrou...</guimenuitem></menuchoice> la boîte de dialogue Verrouiller s'ouvrira avec <emphasis>tous</emphasis> les fichiers de <emphasis>tous</emphasis> les sous-dossiers choisis pour les verrouiller. Si vous voulez vraiment verrouiller une arborescence complète, voici la manière de le faire, mais vous pourriez devenir très impopulaire avec vos collaborateurs si vous les enfermez entièrement hors du projet. À utiliser avec parcimonie..."
+msgstr "Si vous sélectionnez un dossier et utilisez ensuite <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Obtenir un verrou...</guimenuitem></menuchoice> la boîte de dialogue Verrouiller s'ouvrira avec <emphasis>tous</emphasis> les fichiers de <emphasis>tous</emphasis> les sous-dossiers choisis pour les verrouiller. C'est la bonne manière de faire si vous voulez vraiment verrouiller une arborescence complète, cependant vous pourriez devenir très impopulaire avec vos collaborateurs si vous les empêchez d'accéder au projet. À utiliser avec parcimonie..."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:8922
@@ -7642,9 +7638,8 @@ msgstr "Comme mentionné ci-dessus, la façon la plus efficace d'utiliser le ver
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8992
-#, fuzzy
 msgid "If you operate a policy where every file has to be locked then you may find it easier to use Subversion's auto-props feature to set the property automatically every time you add new files. Read <xref linkend=\"tsvn-dug-propertypage-auto-props\"/> for further information."
-msgstr "Si vous pratiquez une politique où chaque fichier doit être verrouillé, vous pouvez trouver alors plus facile d'utiliser la fonction des propriétés automatiques Subversion pour définir la propriété automatiquement chaque fois vous ajoutez de nouveaux fichiers. Lisez <xref linkend=\"tsvn-dug-settings\"/> pour plus d'informations."
+msgstr "Si vous pratiquez une politique où chaque fichier doit être verrouillé, vous pouvez trouver alors plus facile d'utiliser la fonctionnalité auto-props de Subversion pour définir la propriété automatiquement à chaque fois vous ajoutez de nouveaux fichiers. Lisez <xref linkend=\"tsvn-dug-settings\"/> pour plus d'informations."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:9001
@@ -8744,7 +8739,7 @@ msgstr "Cette intégration de tracker d'incidents n'est pas limité à TortoiseS
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10400
 msgid "Getting Information from the Issue Tracker"
-msgstr ""
+msgstr "Récupérer des Informations depuis un Traqueur de Bug"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10401
@@ -8759,7 +8754,7 @@ msgstr ""
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10429
 msgid "Example issue tracker query dialog"
-msgstr ""
+msgstr "Exemple de fenêtre de bug tracker"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10421
@@ -9874,7 +9869,7 @@ msgstr ""
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11787
 msgid "From here you can view the log file content, and also clear it."
-msgstr ""
+msgstr "Depuis cet endroit vous pouvez vois le contenu du fichier de commentaires, ainsi que le vider."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:11796
@@ -10100,7 +10095,7 @@ msgstr ""
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12016
 msgid "For various security and implementation reasons, hook scripts are defined locally on a machine, rather than as project properties. You define what happens, no matter what someone else commits to the repository. Of course you can always choose to call a script which is itself under version control."
-msgstr ""
+msgstr "Pour des raisons de sécurité et d'implémentation, les scripts de hook sont définis localement sur une machine plutôt que dans les propriétés du projet. Vous définissez ce qui se passe, en ne tenant pas compte de ce que quelqu'un d'autre pourrait livrer dans le référentiel. Bien sûr vous pouvez toujours choisir d'appeler un script qui est lui même sous contrôle de version."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:12024
@@ -10122,7 +10117,7 @@ msgstr "Start-commit"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12036
 msgid "Called before the commit dialog is shown. You might want to use this if the hook modifies a versioned file and affects the list of files that need to be committed and/or commit message."
-msgstr ""
+msgstr "Appelé avant que la fenêtre de livraison ne s'affiche. Vous pouvez avoir besoin d'appeler ce hook pour ajouter à un fichier de version la liste des fichiers ayant été livrés et/ou le message de livraison."
 
 #. (term)
 #. (term)
@@ -10134,7 +10129,7 @@ msgstr "Pre-commit"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12047
 msgid "Called after the user clicks <guibutton>OK</guibutton> in the commit dialog, and before the actual commit begins."
-msgstr ""
+msgstr "Appelé lorsque l'utilisateur clique sur le bouton <guibutton>OK</guibutton> dans la fenêtre de livraison, et avant que la livraison ne commence."
 
 #. (term)
 #. (term)
@@ -10191,23 +10186,24 @@ msgstr "Il existe actuellement six types de script hook disponibles <placeholder
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12087
+#, fuzzy
 msgid "A hook is defined for a particular working copy path. You only need to specify the top level path; if you perform an operation in a sub-folder, TortoiseSVN will automatically search upwards for a matching path."
-msgstr ""
+msgstr "Un hook est défini pour un répertoire précis d'une copie de travail. Vous n'avez besoin que de spécifier le répertoire de plus haut niveau ; Si vous faites une opération sur un sous répertoire, TortoiseSVN recherchera automatiquement haut dessus (dans l'arborescence) un répertoire correspondant."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12092
 msgid "Next you must specify the command line to execute, starting with the path to the hook script or executable. This could be a batch file, an executable file or any other file which has a valid windows file association, eg. a perl script."
-msgstr ""
+msgstr "Ensuite vous devez spécifier la ligne de commande à exécuter, en commençant par le chemin du script de hook ou de l'exécutable. Ce peut être un script de batch, un exécutable ou quelqu'autre fichier que le système sache exécuter, par exemple un script perl."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12098
 msgid "The command line includes several parameters which get filled in by TortoiseSVN. The parameters available depend upon which hook is called. Each hook has its own parameters which are passed in the following order: <placeholder-1/>"
-msgstr ""
+msgstr "La ligne de commande comporte plusieurs paramètres qui sont renseignés par TortoiseSVN. Les paramètres disponibles dépendent quels script de hook est appelé. Chaque script de hook a ses propres paramètres, passés dans l'ordre suivant: <placeholder-1/>"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12135
 msgid "A path to a temporary file which contains all the paths for which the operation was started. Each path is on a separate line in the temp file."
-msgstr ""
+msgstr "Un chemin d'un fichier temporaire contenant tous les chemins d'où les opérations ont commencé. Il y a un chemin par ligne dans le fichier temporaire."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12145
@@ -10252,7 +10248,7 @@ msgstr "Les valeurs possibles sont : <placeholder-1/>"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12206
 msgid "Path to a file containing the log message for the commit. The file contains the text in UTF-8 encoding. After successful execution of the start-commit hook, the log message is read back, giving the hook a chance to modify it."
-msgstr ""
+msgstr "Le chemin d'un fichier contenant les commentaires de livraison. Le fichier est encodé en UTF-8. Après l'exécution réussie d'un script de hook de start-commit, le commentaire est relu, permettant au script de hook de le modifier."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12218
@@ -10403,7 +10399,7 @@ msgstr ""
 #. (term)
 #: ../source/TortoiseSVN_en.xml:12383
 msgid "Merge log separator"
-msgstr ""
+msgstr "Séparateur de commentaire de fusion"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12385
@@ -12356,9 +12352,8 @@ msgstr "Crée un référentiel dans <placeholder-1/>"
 
 #. (entry)
 #: ../source/TortoiseSVN_en.xml:14127
-#, fuzzy
 msgid "Opens the switch dialog. The <placeholder-1/> specifies the target directory."
-msgstr "Ouvre la boîte de dialogue Aller sur. Le chemin spécifie le répertoire cible."
+msgstr "Ouvre la fenêtre Aller sur. Le <placeholder-1/> spécifie le répertoire cible."
 
 #. (entry)
 #: ../source/TortoiseSVN_en.xml:14134
@@ -12395,21 +12390,18 @@ msgstr "/torev:xxx"
 
 #. (entry)
 #: ../source/TortoiseSVN_en.xml:14143
-#, fuzzy
 msgid "Opens the merge dialog. The <placeholder-1/> specifies the target directory. For merging a revision range, the following options are available: <placeholder-2/>, <placeholder-3/>. For merging two repository trees, the following options are available: <placeholder-4/>, <placeholder-5/>, <placeholder-6/> and <placeholder-7/>. These pre-fill the relevant fields in the merge dialog."
-msgstr "Ouvre la boîte de dialogue de fusion. Le chemin spécifie le dossier cible. Trois options supplémentaires peuvent être définies : <placeholder-1/>, <placeholder-2/> et <placeholder-3/>. Elles pré-remplissent les champs correspondants dans la boîte de dialogue de fusion."
+msgstr "Ouvre la fenêtre de fusion. Le <placeholder-1/> spécifie le répertoire cible. Pour fusionner une plage de révisions, les options disponibles sont les suivantes :<placeholder-2/>, <placeholder-3/>. Pour fusionner deux arborescences du référentieln les options sont les suivantes : <placeholder-4/>, <placeholder-5/>, <placeholder-6/> et <placeholder-7/>. Elles pré-remplissent les champs correspondants dans la fenêtre de fusion."
 
 #. (entry)
 #: ../source/TortoiseSVN_en.xml:14159
-#, fuzzy
 msgid "Opens the merge all dialog. The <placeholder-1/> specifies the target directory."
-msgstr "Ouvre la boîte de dialogue Aller sur. Le chemin spécifie le répertoire cible."
+msgstr "Ouvre la fenêtre fusionner tout. Le <placeholder-1/> spécifie le répertoire cible."
 
 #. (entry)
 #: ../source/TortoiseSVN_en.xml:14166
-#, fuzzy
 msgid "Brings up the branch/tag dialog. The <placeholder-1/> is the working copy to branch/tag from. And the <placeholder-2/> is the target URL. You can also specify the <placeholder-3/> switch to pass a predefined log message to the branch/tag dialog. Or, if you don't want to pass the log message on the command line, use <placeholder-4/>, where <placeholder-5/> points to a file containing the log message."
-msgstr "Ouvre la boîte de dialogue livrer. Le chemin spécifie le répertoire cible ou la liste des fichiers à livrer. Vous pouvez aussi spécifier le commutateur /logmsg pour passer un commentaire prédéterminé à la boîte de dialogue livrer. Ou, si vous ne voulez pas passer le commentaire sur la ligne de commande, utilisez /logmsgfile:chemin, où <placeholder-1/> pointe sur un fichier contenant le commentaire. Pour préremplir le champ d'ID de bug (pour le cas où vous avez défini correctement la propriété pour l'intégration aux traqueurs de bug), vous pouvez utiliser le <placeholder-2/> pour ce faire."
+msgstr "Ouvre la fenêtre des branches/tags. Le <placeholder-1/> est la copie de travail de laquelle faire une branche ou un tag. Et le <placeholder-2/> est l'URL de destination. Vous pouvez également spécifier le <placeholder-3/> pour passer un message prédéfini à la fenêtre des branches/tags. Ou si vous voulez passer le message en ligne de commande, utilisez <placeholder-4/>, où <placeholder-5/> pointe sur un fichier contenant le message. "
 
 #. (entry)
 #: ../source/TortoiseSVN_en.xml:14182
@@ -12442,9 +12434,8 @@ msgstr "/blame"
 
 #. (entry)
 #: ../source/TortoiseSVN_en.xml:14204
-#, fuzzy
 msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is omitted, then the diff is done between the file in <placeholder-4/> and its BASE. To explicitly set the revision numbers use <placeholder-5/> and <placeholder-6/>. If <placeholder-7/> is set and <placeholder-8/> is not set, then the diff is done by first blaming the files with the given revisions."
-msgstr "Démarre le programme externe de comparaison indiqué dans la configuration de TortoiseSVN. Le <placeholder-1/> spécifie le premier fichier. Si l'option <placeholder-2/> est définie, alors le programme de comparaison est démarré avec ces deux fichiers. Si <placeholder-3/> est omit, alors la comparaison est faite entre le fichier dans <placeholder-4/> et sa BASE."
+msgstr "Démarre le programme externe de comparaison indiqué dans la configuration de TortoiseSVN. Le <placeholder-1/> spécifie le premier fichier. Si l'option <placeholder-2/> est activée, alors le programme de comparaison est lancé avec ces deux fichiers. Si <placeholder-3/> est omit, alors la comparaison est faite entre le fichier dans <placeholder-4/> et sa BASE.Pour renseigner explicitement les révisions à comparer, utiliser <placeholder-5/> et <placeholder-6/>. Si <placeholder-7/> est activé et <placeholder-8/> non, alors la comparaison est faite en bannissant d'abord les révisions données."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:14224
@@ -12454,11 +12445,10 @@ msgstr ""
 #. (para)
 #: ../source/TortoiseSVN_en.xml:14231
 msgid "The options <option>url1</option>, <option>url2</option>, <option>revision1</option> and <option>revision2</option> must be specified. The options <option>pegrevision</option>, <option>ignoreancestry</option>, <option>blame</option> and <option>unified</option> are optional."
-msgstr ""
+msgstr "Les options <option>url1</option>, <option>url2</option>, <option>revision1</option> et <option>revision2</option> doivent être précisées. Les options <option>pegrevision</option>, <option>ignoreancestry</option>, <option>blame</option> et <option>unified</option> sont facultatives."
 
 #. (entry)
 #: ../source/TortoiseSVN_en.xml:14242
-#, fuzzy
 msgid "Starts the conflict editor specified in the TortoiseSVN settings with the correct files for the conflicted file in <placeholder-1/>."
 msgstr "Démarre l'éditeur de conflit indiqué dans la configuration de TortoiseSVN avec les fichiers corrects pour le fichier en conflit dans <placeholder-1/>."
 
@@ -12491,9 +12481,8 @@ msgstr "/projectpropertiespath:path/to/wc"
 
 #. (entry)
 #: ../source/TortoiseSVN_en.xml:14270
-#, fuzzy
 msgid "Starts the repository browser dialog, pointing to the URL of the working copy given in <placeholder-1/> or <placeholder-2/> points directly to an URL. An additional option <placeholder-3/> can be used to specify the revision which the repository browser should show. If the <placeholder-4/> is omitted, it defaults to HEAD. If <placeholder-5/> points to an URL, the <placeholder-6/> specifies the path from where to read and use the project properties."
-msgstr "Démarre la boîte de dialogue de l'explorateur de référentiel, pointant sur l'URL de la copie de travail donnée dans <placeholder-1/> ou <placeholder-2/> pointe directement sur une URL. Une option supplémentaire <placeholder-3/> peut être utilisée pour spécifier la révision devrait afficher l'explorateur de référentiel. Si le <placeholder-4/> est omis, cela revient à HEAD."
+msgstr "Ouvre la fenêtre de l'explorateur de référentiel, pointant sur l'URL de la copie de travail donnée dans <placeholder-1/> ou <placeholder-2/> pointe directement sur une URL. Une option supplémentaire <placeholder-3/> peut être utilisée pour spécifier la révision devant être affichée. Si le <placeholder-4/> n'est pas renseigné, la version de tête est utilisée par défaut. Si <placeholder-5/> pointe sur une URL, le <placeholder-6/> spécifie le chemin à partir duquel il faut lire et utiliser les propriétés du projet."
 
 #. (literal)
 #: ../source/TortoiseSVN_en.xml:14288
@@ -12508,12 +12497,12 @@ msgstr "Ajoute toutes les cibles dans <placeholder-1/> à la liste des élément
 #. (para)
 #: ../source/TortoiseSVN_en.xml:14295
 msgid "Opens the blame dialog for the file specified in <option>/path</option>."
-msgstr ""
+msgstr "Ouvre la fenêtre de bannissement pour le fichier spécifier dans <option>/path</option>."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:14299
 msgid "If the options <option>/startrev</option> and <option>/endrev</option> are set, then the dialog asking for the blame range is not shown but the revision values of those options are used instead."
-msgstr ""
+msgstr "Si les options <option>/startrev</option> et <option>/endrev</option> sont précisées, la fenêtre permettant de spécifier la plage de révisions à bannir n'est pas affichée, ces valeurs des révisions sont utilisées à la place."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:14306
@@ -12552,9 +12541,8 @@ msgstr "Montre le graphique de révision pour le chemin donné dans <placeholder
 
 #. (entry)
 #: ../source/TortoiseSVN_en.xml:14344
-#, fuzzy
 msgid "Locks a file or all files in a directory given in <placeholder-1/>. The 'lock' dialog is shown so the user can enter a comment for the lock."
-msgstr "Verrouille un fichier ou tous les fichiers d'un répertoire. La boîte de dialogue 'Verrouiller' s'affiche pour que l'utilisateur puisse entrer un commentaire pour le verrou. <placeholder-1/>"
+msgstr "Verrouille un ou tous les fichiers dans un répertoire donné dans <placeholder-1/>. La boîte de dialogue 'Verrouiller' s'affiche afin de permettre à l'utilisateur d'entrer un commentaire pour le verrou."
 
 #. (entry)
 #: ../source/TortoiseSVN_en.xml:14353
@@ -12563,9 +12551,8 @@ msgstr "Déverrouille un fichier ou tous les fichiers d'un répertoire <placehol
 
 #. (entry)
 #: ../source/TortoiseSVN_en.xml:14360
-#, fuzzy
 msgid "Rebuilds the windows icon cache. Only use this in case the windows icons are corrupted. A side effect of this (which can't be avoided) is that the icons on the desktop get rearranged. To suppress the message box, pass <placeholder-1/>."
-msgstr "Reconstruit le cache d'icône Windows. Utilisez-le seulement dans le cas où les icônes Windows sont corrompues. Un effet secondaire à cela (qui ne peut pas être évité) est que les icônes sur le bureau sont réarrangées. <placeholder-1/>"
+msgstr "Reconstruit le cache d'icône Windows. Utilisez-le seulement dans le cas où les icônes Windows sont corrompues. Un effet secondaire à cela (qui ne peut être évité) est que les icônes sur le bureau sont réarrangées. Pour supprimer la fenêtre d'information, passez <placeholder-1/>."
 
 #. (entry)
 #: ../source/TortoiseSVN_en.xml:14370
@@ -13317,17 +13304,17 @@ msgstr ""
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15017
 msgid "<graphic fileref=\"images/ConflictIcon.png\"/> The <emphasis>Conflicted</emphasis> overlay is used to represent the <literal>conflicted</literal> state, where an update or switch results in conflicts between local changes and changes downloaded from the repository. It is also used to indicate the <literal>obstructed</literal> state, which can occur when an operation is unable to complete."
-msgstr ""
+msgstr "<graphic fileref=\"images/ConflictIcon.png\"/> L'icone de recouvrement <emphasis>En Conflit</emphasis> est utilisée pour représenter un état <literal>en conflit</literal>, là ou une mise à jour génère des conflits entre la version locale et la version du référentiel. Elle est aussi utilisée pour un état <literal>bloqué</literal>, qui peut se produire quand une opération ne se termine pas correctement."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15026
 msgid "<graphic fileref=\"images/ModifiedIcon.png\"/> The <emphasis>Modified</emphasis> overlay represents the <literal>modified</literal> state, where you have made local modifications, the <literal>merged</literal> state, where changes from the repository have been merged with local changes, and the <literal>replaced</literal> state, where a file has been deleted and replaced by another different file with the same name."
-msgstr ""
+msgstr "<graphic fileref=\"images/ModifiedIcon.png\"/> L'icone de recouvrement <emphasis>Modifié</emphasis> représente un état <literal>modifié</literal>, i.e. lorsque vous avez fait des modifications, l'état <literal>fusionné</literal> se produit lorsque les versions du référentiel ont changé et qu'elles ont été intégrées à la version locale, et l'état <literal>remplacé</literal> se produit lorsqu'un fichier a été supprimé et remplacé par un autre ayant le même nom mais dont le contenu est différent."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15036
 msgid "<graphic fileref=\"images/DeletedIcon.png\"/> The <emphasis>Deleted</emphasis> overlay represents the <literal>deleted</literal> state, where an item is scheduled for deletion, or the <literal>missing</literal> state, where an item is not present. Naturally an item which is missing cannot have an overlay itself, but the parent folder can be marked if one of its child items is missing."
-msgstr ""
+msgstr "<graphic fileref=\"images/DeletedIcon.png\"/> L'icone de recouvrement <emphasis>Supprimé</emphasis> représente un état <literal>supprimé</literal>, i.e. lorsqu'un élément a été marqué comme étant à supprimer, ou un état <literal>manquant</literal>, i.e. lorsqu'un élément n'est pas présent en local. Naturellement un élément qui manque ne peut avoir lui même d'icone de recouvrement, mais le répertoire le contenant le peut."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15045
@@ -13337,17 +13324,17 @@ msgstr "<graphic fileref=\"../images/AddedIcon.png\"/> L'overlay indique juste q
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15051
 msgid "<graphic fileref=\"images/InSubVersionIcon.png\"/> The <emphasis>In Subversion</emphasis> overlay is used to represent an item which is in the <literal>normal</literal> state, or a versioned item whose state is not yet known. Because TortoiseSVN uses a background caching process to gather status, it may take a few seconds before the overlay updates."
-msgstr ""
+msgstr "<graphic fileref=\"images/InSubVersionIcon.png\"/> L'icone de recouvrement <emphasis>Dans Subversion</emphasis> est utilisé pour représenter un élément qui est dans un état <literal>normal</literal>, ou un élément sous contrôle de version dont l'état n'est pas encore connu. TortoiseSVN fonctionne avec un système de mise en cache en arrière plan pour récupérer les états, les mises à jours des icones de recouvrement peuvent donc prendre quelques secondes."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15060
 msgid "<graphic fileref=\"images/ReadOnlyIcon.png\"/> The <emphasis>Needs Lock</emphasis> overlay is used to indicate when a file has the <literal>svn:needs-lock</literal> property set. For working copies which were created using Subversion 1.4.0 and later, the <literal>svn:needs-lock</literal> status is cached locally by Subversion and this is used to determine when to show this overlay. For working copies which are in pre-1.4.x format, TortoiseSVN shows this overlay when the file has read-only status. Note that Subversion automatically upgrades working copies when you update them, although the caching of the <literal>svn:needs-lock</literal> property may not happen until the file itself is updated."
-msgstr ""
+msgstr "<graphic fileref=\"images/ReadOnlyIcon.png\"/> L'icone de recouvrement <emphasis>A Besoin d'être Verrouilé</emphasis> est utilisé pour indiquer que la propriété <literal>svn:needs-lock</literal> est activée pour un fichier. Pour les copies de travail créées avec les versions 1.4.0 et ultérieures de Subversion, l'état de la propriété <literal>svn:needs-lock</literal> est mis en cache localement par Subversion et cette valeur est utilisée pour activer ou non l'icone de recouvrement. Pour les copies de travail créées avec des versions antérieures, TortoiseSVN utilise cette icone lorsque le fichier est en lecture seule. Notez que Subversion met à jour automatiquement le format des copies de travail lorsque vous faites une mise à jour, de ce fait la mise en cache de l'état de la propriété <literal>svn:needs-lock</literal> ne devrait pas se produite à moins que le fichier lui même ne soit pas à jour."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15074
 msgid "<graphic fileref=\"images/LockedIcon.png\"/> The <emphasis>Locked</emphasis> overlay is used when the local working copy holds a lock for that file."
-msgstr ""
+msgstr "<graphic fileref=\"images/LockedIcon.png\"/> L'icone de recouvrement <emphasis>Verrouillé</emphasis> est utilisée lorsque le fichier est verrouillé dans la copie de travail."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15079
