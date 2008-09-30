@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-09-24 17:15 +0000\n"
-"PO-Revision-Date: 2008-09-29 17:50+0100\n"
+"PO-Revision-Date: 2008-09-30 11:38+0100\n"
 "Last-Translator: Grokwik <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3483,7 +3483,7 @@ msgstr "Le répertoire importé ne devient pas une copie de travail. Vous devez 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3748
 msgid "It is easy to import to the wrong folder level in the repository."
-msgstr "Il est aisé de se tromper de profondeur dans l'arborescence à importer dans le référentiel."
+msgstr "Il est aisé de se tromper de répertoire à importer dans le référentiel."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3730
@@ -3645,7 +3645,7 @@ msgid ""
 "skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker\n"
 "</screen> Now click <guibutton>Set</guibutton> and commit your changes. When you (or any other user) update your working copy, Subversion will create a sub-folder <filename>D:\\dev\\project1\\sounds</filename> and checkout the sounds project, another sub-folder <filename>D:\\dev\\project1\\quick graphs</filename> containing the graphics project, and finally a nested sub-folder <filename>D:\\dev\\project1\\skins\\toolkit</filename> containing revision 21 of the skin-maker project."
 msgstr ""
-"Disons vous extrayez une copie de travail du <filename>/projet1</filename> vers <filename>D:\\dev\\projet1</filename>. Sélectionnez le dossier <filename>D:\\dev\\projet1</filename>, faites un <action>click droit</action> et choisissez <menuchoice><guimenu>Menu Windows</guimenu><guimenuitem>Propriétés</guimenuitem></menuchoice> dans le menu contextuel. La boîte de dialogue Propriétés apparaît. Allez alors à l'onglet Subversion. Là, vous pouvez modifier des propriétés. Choisissez la propriété <literal>svn:externals</literal> dans la liste déroulante et écrivez dans la boîte de saisie l'URL du référentiel dans le format <literal>nom url</literal> ou si vous voulez spécifier une révision particulière, <literal>nom -rREV url</literal> Vous pouvez ajouter plusieurs projets externes, 1 par ligne. Notez que les URL doivent être correctement saisies ou elles ne fonctionneront pas correctement. Par exemple vous devez remplacer chaque espace par <literal>%20</literal>. Notez qu'il n'est pas possible d'utiliser des noms de dossier avec des espaces dedans. Supposons que vous avez mis ces propriétés sur <filename>D:\\dev\\projet1</filename> : <screen>\n"
+"Si vous souhaitez extraire une copie de travail du <filename>/projet1</filename> dans <filename>D:\\dev\\projet1</filename>. Sélectionnez le dossier <filename>D:\\dev\\projet1</filename>, faites un <action>click droit</action> et choisissez <menuchoice><guimenu>Menu Windows</guimenu><guimenuitem>Propriétés</guimenuitem></menuchoice> dans le menu contextuel. La boîte de dialogue Propriétés apparaît. Allez alors dans l'onglet Subversion. Là, vous pouvez modifier des propriétés. Choisissez la propriété <literal>svn:externals</literal> dans la liste déroulante et écrivez dans la boîte de saisie l'URL du référentiel dans le format <literal>nom url</literal> ou si vous voulez spécifier une révision particulière, <literal>nom -rREV url</literal> Vous pouvez ajouter plusieurs projets externes, 1 par ligne. Notez que les URL doivent être correctement saisies ou elles ne fonctionneront pas correctement. Par exemple vous devez remplacer chaque espace par <literal>%20</literal>. Notez qu'il n'est pas possible d'utiliser des noms de dossier avec des espaces dedans. Supposons que vous avez mis ces propriétés sur <filename>D:\\dev\\projet1</filename> : <screen>\n"
 "sounds   http://sounds.red-bean.com/repos\n"
 "quick_graphs  http://graphics.red-bean.com/repos/fast%20graphics\n"
 "skins/toolkit -r21 http://svn.red-bean.com/repos/skin-maker\n"
@@ -3857,7 +3857,7 @@ msgstr "Se souvenir de la profondeur dans la version de travail. Cette option n'
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4157
 msgid "You can choose the <firstterm>depth</firstterm> you want to checkout, which allows you to specify the depth of recursion into child folders. If you want just a few sections of a large tree, You can checkout the top level folder only, then update selected folders recursively. <placeholder-1/>"
-msgstr ""
+msgstr "Vous pouvez choisir la <firstterm>profondeur</firstterm> que vous voulez extraire, ce qui vous permet de spécifier la profondeur de récursion dans les sous répertoires. Si vous voulez juste une partie d'une grosse arborescence , Vous pouvez n'extraire que le répertoire de plus haut niveau, et mettre à jour les sous répertoires petit à petit. <placeholder-1/>"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4212
@@ -4112,7 +4112,7 @@ msgstr ""
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4551
 msgid "To help out in awkward cases like this, we have reserved a changelist called <literal>ignore-on-commit</literal>. Any file added to this changelist will automatically be unchecked in the commit dialog. You can still commit changes, but you have to select it manually in the commit dialog."
-msgstr "Pour améliorer le traitemen de cas bizarres, nous avons créé une liste de modification appelée <literal>ignorer à la livraison</literal>. Tout fichier ajouté dans cette liste sera automatiquement décoché dans la fenêtre de livraison. Vous pouvez cependant toujours livrer les modifications en cochant manuellement les fichiers à livrer dans la fenêtre de livraison."
+msgstr "Pour améliorer le traitement de cas bizarres, nous avons créé une liste de modification appelée <literal>ignorer à la livraison</literal>. Tout fichier ajouté dans cette liste sera automatiquement décoché dans la fenêtre de livraison. Vous pouvez cependant toujours livrer les modifications en cochant manuellement les fichiers à livrer dans la fenêtre de livraison."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:4560
@@ -4153,7 +4153,7 @@ msgstr "Vous pouvez réutiliser les messages de livraison des livraisons précé
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4616
 msgid "You can clear all stored commit messages from the <guilabel>Saved data</guilabel> page of TortoiseSVN's settings, or you can clear individual messages from within the <guilabel>Recent messages</guilabel> dialog using the <keycap>Delete</keycap> key."
-msgstr ""
+msgstr "Vous pouvez supprimer tous les messages de livraison depuis la page <guilabel>Données Sauvegardées</guilabel> de la fenêtre de Configuration de TortoiseSVN, vous pouvez également supprimer les messages précisément depuis la boite de dialogue <guilabel>Messages Récents</guilabel> en utillisant la toucje <keycap>Suppr</keycap>."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:4623
@@ -4559,7 +4559,7 @@ msgstr "<graphic fileref=\"../images/AddedIcon.png\"/> Le signe plus vous indiqu
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5084
 msgid "<graphic fileref=\"../images/UnversionedIcon.png\"/> This icon shows files and folders which are not under version control, but have not been ignored. This overlay is optional."
-msgstr ""
+msgstr "<graphic fileref=\"../images/UnversionedIcon.png\"/> Cette icone est associée aux éléments qui ne sont pas sous contrôle de version, et qui ne sont pas à ignorer. Cette icone de recouvrement est facultative."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5090
@@ -10399,7 +10399,7 @@ msgstr ""
 #. (term)
 #: ../source/TortoiseSVN_en.xml:12383
 msgid "Merge log separator"
-msgstr "Séparateur de commentaire de fusion"
+msgstr "Séparateur des commentaires de fusion"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12385
@@ -11261,7 +11261,6 @@ msgstr "Utilisez <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vérifie
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:13134
-#, fuzzy
 msgid "Roll back (Undo) revisions in the repository"
 msgstr "Annuler des révisions dans le référentiel"
 
@@ -11400,7 +11399,7 @@ msgstr "Si vous voulez comparer deux révisions dans l'historique d'un fichier, 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:13313
 msgid "If you want to compare the same file in two different trees, for example the trunk and a branch, you can use the repository browser to open up both trees, select the file in both places, then use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice>."
-msgstr "Si vous voulez comparer le même fichier dans deux arborescences différentes, par exemple le tronc et une branche, vous pouvez utiliser l'explorateur de référentiel pour ouvrir les deux arborescences, sélectionnez le fichier dans les deux emplacements, puis utilisez <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Comparer les révisions</guimenuitem></menuchoice>."
+msgstr "Si vous voulez comparer le même fichier dans deux arborescences différentes, par exemple dans la version trunk et une branche, vous pouvez utiliser l'explorateur de référentiel pour ouvrir les deux arborescences, sélectionnez le fichier dans les deux emplacements, puis utilisez <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Comparer les révisions</guimenuitem></menuchoice>."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:13323
@@ -12547,7 +12546,7 @@ msgstr "Verrouille un ou tous les fichiers dans un répertoire donné dans <plac
 #. (entry)
 #: ../source/TortoiseSVN_en.xml:14353
 msgid "Unlocks a file or all files in a directory given in <placeholder-1/>."
-msgstr "Déverrouille un fichier ou tous les fichiers d'un répertoire <placeholder-1/>."
+msgstr "Déverrouille un fichier ou tous les fichiers d'un répertoire donné dans <placeholder-1/>."
 
 #. (entry)
 #: ../source/TortoiseSVN_en.xml:14360
