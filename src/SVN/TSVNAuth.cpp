@@ -30,12 +30,18 @@ svn_error_t * tsvn_simple_first_creds(void **credentials,
 									  apr_pool_t *pool)
 {
 	*iter_baton = NULL;
-	Creds cr = tsvn_creds[realmstring];
-	svn_auth_cred_simple_t *creds = (svn_auth_cred_simple_t *)apr_pcalloc(pool, sizeof(*creds));
-	creds->username = cr.username;
-	creds->password = cr.password;
-	creds->may_save = false;
-	*credentials = creds;
+	if (tsvn_creds.find(realmstring) != tsvn_creds.end())
+	{
+		Creds cr = tsvn_creds[realmstring];
+		svn_auth_cred_simple_t *creds = (svn_auth_cred_simple_t *)apr_pcalloc(pool, sizeof(*creds));
+		creds->username = cr.username;
+		creds->password = cr.password;
+		creds->may_save = false;
+		*credentials = creds;
+	}
+	else
+		*credentials = NULL;
+
 	return SVN_NO_ERROR;
 }
 
