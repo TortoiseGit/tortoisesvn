@@ -75,6 +75,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <li><a href="#commitremoved">When I remove a file it vanishes, how do I commit it?</a></li>
 <li><a href="#garbleddate">I get garbage text shown instead of dates, or a checkout/update even crashes!</a></li>
 <li><a href="#powerdesk">The explorer crashes on every right-click on a folder with PowerDesk installed.</a></li>
+<li><a href="#samba">Permission problems with working copies on a SAMBA share.</a></li>
 </ul>
 
 <h4>How can I...</h4>
@@ -579,6 +580,19 @@ show you every modification as well as added or deleted files.</p>
 this issue. Go to 
 <a href="http://kb.avanquestusa.com/">http://kb.avanquestusa.com</a> and then search for
 the article named "PowerDesk crashes when right-clicking on some files and folders".
+</p>
+</div>
+
+<div class="h3" id="samba" title="samba">
+<h3>Permission problems with working copies on a SAMBA share.</h3>
+<p>After upgrading to TortoiseSVN 1.5.x, you get a lot of "Access denied" errors for most
+of the Subversion commands if your working copy is stored on a SAMBA share.</p>
+<p>Some users reported that the problem went away after they upgraded SAMBA to the latest version.
+If that does not help or you can't upgrade, allow readonly files to be deleted in the SAMBA config file:
+<pre>
+[global]
+delete readonly = yes
+</pre>
 </p>
 </div>
 
