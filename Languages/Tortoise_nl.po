@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-09-10 22:48+0100\n"
+"PO-Revision-Date: 2008-10-01 21:32+0100\n"
 "Last-Translator: Jean-Marc van Leerdam <jeanmarc@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2372,6 +2372,10 @@ msgstr "URL naar klembord kopiëren"
 msgid "Copy all information to clipboard"
 msgstr "Kopiëer alle informatie naar klembord"
 
+#. Resource IDs: (146)
+msgid "Copy and rename"
+msgstr "Kopiëer en hernoem"
+
 #. Resource IDs: (104)
 msgid "Copy and rename item to here"
 msgstr "Kopiëer en hernoem onderdeel hierheen"
@@ -2737,6 +2741,10 @@ msgstr "Standaardmenu. Verschijnt indien geen documenten geopend zijn."
 #. Resource IDs: (65535)
 msgid "Default path:"
 msgstr "Standaard pad:"
+
+#. Resource IDs: (1064)
+msgid "Default to UTF-8 encoding"
+msgstr "Gebruik standaard UTF-8 codering"
 
 #. Resource IDs: (1002, 1382)
 msgid "Delete"
@@ -4944,6 +4952,10 @@ msgstr "Verplaats onderdeel omlaag"
 msgid "Move Item Up"
 msgstr "Verplaats onderdeel omhoog"
 
+#. Resource IDs: (147)
+msgid "Move and rename"
+msgstr "Verplaats en hernoem"
+
 #. Resource IDs: (104)
 msgid "Move and rename item to here"
 msgstr "Verplaats en hernoem onderdeel hierheen"
@@ -5428,6 +5440,10 @@ msgstr ""
 #. Resource IDs: (172)
 msgid "Paste filename list"
 msgstr "Plak lijst bestandsnamen"
+
+#. Resource IDs: (15)
+msgid "Pastes the svn path from the clipboard, resulting in a move (cut) or copy operation"
+msgstr "Plakt het SVN-pad van klembord, zodat een kopiëer of verplaats-actie plaatsvindt"
 
 #. Resource IDs: (376)
 msgid "Patch all"
@@ -6856,6 +6872,10 @@ msgstr "Toon &gehele menu na korte tijd"
 #. Resource IDs: (1264)
 msgid "Show i&gnored files"
 msgstr "Toon &genegeerde bestanden"
+
+#. Resource IDs: (1480)
+msgid "Show items in externals"
+msgstr "Toon onderdelen in 'externals'"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
@@ -9353,7 +9373,7 @@ msgstr ""
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logfilelistenglish\r\n"
-"Set to 'false' if you don't want the list of changed files to be pasted in english\r\n"
+"Set to 'false' if you don't want the list of changed files to be pasted in English\r\n"
 "in the commit dialog."
 msgstr ""
 "tsvn:logfilelistenglish\r\n"
