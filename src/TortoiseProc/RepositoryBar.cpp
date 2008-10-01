@@ -215,7 +215,8 @@ void CRepositoryBar::GotoUrl(const CString& url, SVNRev rev, bool bAlreadyChecke
 			SVN svn;
 			m_headRev = svn.GetHEADRevision(CTSVNPath(new_url));
 		}
-	}ShowUrl(new_url, new_rev);
+	}
+	ShowUrl(new_url, new_rev);
 }
 
 void CRepositoryBar::SetRevision(SVNRev rev)
