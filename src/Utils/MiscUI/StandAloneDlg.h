@@ -238,7 +238,8 @@ private:
 	DECLARE_DYNAMIC(CResizableStandAloneDialog)
 
 protected:
-	afx_msg void	OnSize(UINT nType, int cx, int cy);
+	afx_msg void	OnSizing(UINT fwSide, LPRECT pRect);
+	afx_msg void	OnMoving(UINT fwSide, LPRECT pRect);
 	afx_msg void	OnNcMButtonUp(UINT nHitTest, CPoint point);
 	afx_msg void	OnNcRButtonUp(UINT nHitTest, CPoint point);
 
