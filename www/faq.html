@@ -591,8 +591,14 @@ of the Subversion commands if your working copy is stored on a SAMBA share.</p>
 If that does not help or you can't upgrade, allow readonly files to be deleted in the SAMBA config file:
 <pre>
 [global]
-delete readonly = yes
+<a href="http://us1.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#DELETEREADONLY">delete readonly</a> = yes
 </pre>
+For older versions, try:
+<pre>
+[global]
+<a href="http://us1.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#FORCECREATEMODE">force create mode</a> = 0200
+</pre>
+
 </p>
 </div>
 
