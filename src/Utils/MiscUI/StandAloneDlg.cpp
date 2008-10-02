@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - Stefan Kueng
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -95,6 +95,10 @@ void CResizableStandAloneDialog::OnNcRButtonUp(UINT nHitTest, CPoint point)
 		MoveWindow(&rcWindowRect);
 		m_bVertical = bVertical;
 		m_bHorizontal = bHorizontal;
+		// WORKAROUND
+		// for some reasons, when the window is resized horizontally, its menu size is not get adjusted.
+		// so, we force it to happen.
+		SetMenu(GetMenu());
 	}
 	CStandAloneDialogTmpl<CResizableDialog>::OnNcRButtonUp(nHitTest, point);
 }
