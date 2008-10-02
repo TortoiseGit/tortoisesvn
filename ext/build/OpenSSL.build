@@ -18,15 +18,14 @@
 		     the library) we patch the openssl configure script to omit that library if we're using VS2008 -->
 		<copy file="VC-32.pl" tofile="..\..\..\common\openssl\util\pl\VC-32.pl" overwrite="true" />
 		<!-- small fix needed for OpenSSL 0.9.8i -->
-		<copy file="ossl_typ.h" tofile="..\..\..\common\openssl\inc32\openssl\ossl_typ.h" overwrite="true" />
+		<copy file="ossl_typ.h" tofile="..\..\..\common\openssl\crypto\ossl_typ.h" overwrite="true" />
 		<if test="${platform == 'win32'}">
 			<exec program="perl" workingdir="..\..\..\common\openssl">
 				<arg value="Configure" />
 				<arg value="VC-WIN32" />
-				<arg value="-D_CRT_NONSTDC_NO_DEPRECATE" />
-				<arg value="-D_CRT_SECURE_NO_DEPRECATE" />
 				<arg value="enable-capieng" />
 				<arg value="-DOPENSSL_SSL_CLIENT_ENGINE_AUTO=capi" />
+				<arg value="-DOPENSSL_CAPIENG_DIALOG" />
 			</exec>
 			<exec program="cmd" workingdir="..\..\..\common\openssl">
 				<arg value="/c" />
@@ -41,8 +40,6 @@
 			<exec program="perl" workingdir="..\..\..\common\openssl">
 				<arg value="Configure" />
 				<arg value="VC-WIN64A" />
-				<arg value="-D_CRT_NONSTDC_NO_DEPRECATE" />
-				<arg value="-D_CRT_SECURE_NO_DEPRECATE" />
 			</exec>
 			<exec program="cmd" workingdir="..\..\..\common\openssl">
 				<arg value="/c" />
