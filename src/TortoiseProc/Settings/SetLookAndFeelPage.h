@@ -46,6 +46,7 @@ protected:
 	afx_msg void OnBnClickedOnlyexplorer();
 	afx_msg void OnLvnItemchangedMenulist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnChange();
+	afx_msg void OnEnChangeNocontextpaths();
 
 	DECLARE_MESSAGE_MAP()
 public:
@@ -66,4 +67,7 @@ private:
 	
 	CRegDWORD			m_regGetLockTop;
 	BOOL				m_bGetLockTop;
+
+	CString				m_sNoContextPaths;
+	CRegString			m_regNoContextPaths;
 };

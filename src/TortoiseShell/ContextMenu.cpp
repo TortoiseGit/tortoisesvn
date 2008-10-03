@@ -251,7 +251,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 					}
 					stdstring str = stdstring(szFileName);
 					delete szFileName;
-					if (str.empty() == false)
+					if ((str.empty() == false)&&(g_ShellCache.IsContextPathAllowed(szFileName)))
 					{
 						if (itemStates & ITEMIS_ONLYONE)
 						{
@@ -335,7 +335,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 				{
 					ItemIDList child (GetPIDLItem (cida, i), &parent);
 					stdstring str = child.toString();
-					if (str.empty() == false)
+					if ((str.empty() == false)&&(g_ShellCache.IsContextPathAllowed(str.c_str())))
 					{
 						//check if our menu is requested for a subversion admin directory
 						if (g_SVNAdminDir.IsAdminDirPath(str.c_str()))
@@ -469,7 +469,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 		svn_wc_status_kind status = svn_wc_status_none;
 		if (IsClipboardFormatAvailable(CF_HDROP)) 
 			itemStatesFolder |= ITEMIS_PATHINCLIPBOARD;
-		if (folder_.compare(statuspath)!=0)
+		if ((folder_.compare(statuspath)!=0)&&(g_ShellCache.IsContextPathAllowed(folder_.c_str())))
 		{
 			CTSVNPath askedpath;
 			askedpath.SetFromWin(folder_.c_str());
@@ -532,7 +532,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 	}
 	if (files_.size() == 2)
 		itemStates |= ITEMIS_TWO;
-	if (files_.size() == 1)
+	if ((files_.size() == 1)&&(g_ShellCache.IsContextPathAllowed(files_.front().c_str())))
 	{
 		itemStates |= ITEMIS_ONLYONE;
 		if (m_State != FileStateDropHandler)

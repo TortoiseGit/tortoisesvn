@@ -1136,6 +1136,10 @@ msgstr ""
 msgid "A newline separated list of paths for which icon overlays are shown.\r\nIf you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
 
+#. Resource IDs: (197)
+msgid "A newline separated list of paths for which no context menu is shown.\r\nIf you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\nAn empty list will allow the context menu on all paths."
+msgstr ""
+
 #. Resource IDs: (194)
 msgid "A newline separated list of paths for which no icon overlays are shown.\r\nIf you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\nAn empty list will allow overlays on all paths."
 msgstr ""
@@ -2642,6 +2646,10 @@ msgstr ""
 
 #. Resource IDs: (3605)
 msgid "Display program information, version number and copyright\nAbout"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Do not show the context menu for the following paths:"
 msgstr ""
 
 #. Resource IDs: (1007)

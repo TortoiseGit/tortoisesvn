@@ -40,6 +40,10 @@ CSetLookAndFeelPage::CSetLookAndFeelPage()
 
 	m_regGetLockTop = CRegDWORD(_T("Software\\TortoiseSVN\\GetLockTop"), TRUE);
 	m_bGetLockTop = m_regGetLockTop;
+
+	m_regNoContextPaths = CRegString(_T("Software\\TortoiseSVN\\NoContextPaths"), _T(""));
+	m_sNoContextPaths = m_regNoContextPaths;
+	m_sNoContextPaths.Replace(_T("\n"), _T("\r\n"));
 }
 
 CSetLookAndFeelPage::~CSetLookAndFeelPage()
@@ -51,12 +55,14 @@ void CSetLookAndFeelPage::DoDataExchange(CDataExchange* pDX)
 	ISettingsPropPage::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_MENULIST, m_cMenuList);
 	DDX_Check(pDX, IDC_GETLOCKTOP, m_bGetLockTop);
+	DDX_Text(pDX, IDC_NOCONTEXTPATHS, m_sNoContextPaths);
 }
 
 
 BEGIN_MESSAGE_MAP(CSetLookAndFeelPage, ISettingsPropPage)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_MENULIST, OnLvnItemchangedMenulist)
 	ON_BN_CLICKED(IDC_GETLOCKTOP, OnChange)
+	ON_EN_CHANGE(IDC_NOCONTEXTPATHS, &CSetLookAndFeelPage::OnEnChangeNocontextpaths)
 END_MESSAGE_MAP()
 
 
@@ -67,6 +73,7 @@ BOOL CSetLookAndFeelPage::OnInitDialog()
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_MENULIST, IDS_SETTINGS_MENULAYOUT_TT);
 	m_tooltips.AddTool(IDC_GETLOCKTOP, IDS_SETTINGS_GETLOCKTOP_TT);
+	m_tooltips.AddTool(IDC_NOCONTEXTPATHS, IDS_SETTINGS_EXCLUDECONTEXTLIST_TT);
 
 	m_cMenuList.SetExtendedStyle(LVS_EX_CHECKBOXES | LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
 
@@ -153,6 +160,14 @@ BOOL CSetLookAndFeelPage::OnApply()
 	m_regGetLockTop = m_bGetLockTop;
 	if (m_regGetLockTop.LastError != ERROR_SUCCESS)
 		CMessageBox::Show(m_hWnd, m_regGetLockTop.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+
+	m_sNoContextPaths.Replace(_T("\r"), _T(""));
+	if (m_sNoContextPaths.Right(1).Compare(_T("\n"))!=0)
+		m_sNoContextPaths += _T("\n");
+	m_regNoContextPaths = m_sNoContextPaths;
+	if (m_regNoContextPaths.LastError != ERROR_SUCCESS)
+		CMessageBox::Show(m_hWnd, m_regNoContextPaths.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+
 	SetModified(FALSE);
 	return ISettingsPropPage::OnApply();
 }
@@ -223,4 +238,8 @@ void CSetLookAndFeelPage::OnChange()
 	SetModified();
 }
 
+void CSetLookAndFeelPage::OnEnChangeNocontextpaths()
+{
+	SetModified();
+}
 

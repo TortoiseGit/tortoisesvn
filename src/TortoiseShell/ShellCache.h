@@ -81,6 +81,7 @@ public:
 		columnseverywhereticker = cachetypeticker;
 		getlocktopticker = cachetypeticker;
 		excludedasnormalticker = cachetypeticker;
+		excontextticker = cachetypeticker;
 		menulayoutlow = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntries"), MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
 		menulayouthigh = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntrieshigh"), 0);
 		menumasklow_lm = CRegStdWORD(_T("Software\\TortoiseSVN\\ContextMenuEntriesMaskLow"), 0, FALSE, HKEY_LOCAL_MACHINE);
@@ -109,6 +110,7 @@ public:
 		GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_INEGNUMBER, &szBuffer[0], sizeof(szBuffer));
 		columnrevformat.NegativeOrder = _ttoi(szBuffer);
 		sAdminDirCacheKey.reserve(MAX_PATH);		// MAX_PATH as buffer reservation ok.
+		nocontextpaths = CRegStdString(_T("Software\\TortoiseSVN\\NoContextPaths"), _T(""));
 		m_critSec.Init();
 	}
 	void ForceRefresh()
@@ -140,6 +142,7 @@ public:
 		menumaskhigh_lm.read();
 		menumasklow_cu.read();
 		menumaskhigh_cu.read();
+		nocontextpaths.read();
 	}
 	CacheType GetCacheType()
 	{
@@ -288,6 +291,25 @@ public:
 	{
 		DriveValid();
 		return (driveunknown);
+	}
+	BOOL IsContextPathAllowed(LPCTSTR path)
+	{
+		Locker lock(m_critSec);
+		ExcludeContextValid();
+		for (std::vector<stdstring>::iterator I = excontextvector.begin(); I != excontextvector.end(); ++I)
+		{
+			if (I->empty())
+				continue;
+			if (I->size() && I->at(I->size()-1)=='*')
+			{
+				stdstring str = I->substr(0, I->size()-1);
+				if (_tcsnicmp(str.c_str(), path, str.size())==0)
+					return FALSE;
+			}
+			else if (_tcsicmp(I->c_str(), path)==0)
+				return FALSE;
+		}
+		return TRUE;
 	}
 	BOOL IsPathAllowed(LPCTSTR path)
 	{
@@ -465,6 +487,33 @@ private:
 			drivefloppy.read();
 		}
 	}
+	void ExcludeContextValid()
+	{
+		if ((GetTickCount() - EXCLUDELISTTIMEOUT)>excontextticker)
+		{
+			Locker lock(m_critSec);
+			excontextticker = GetTickCount();
+			nocontextpaths.read();
+			if (excludecontextstr.compare((stdstring)nocontextpaths)==0)
+				return;
+			excludecontextstr = (stdstring)nocontextpaths;
+			excontextvector.clear();
+			size_t pos = 0, pos_ant = 0;
+			pos = excludecontextstr.find(_T("\n"), pos_ant);
+			while (pos != stdstring::npos)
+			{
+				stdstring token = excludecontextstr.substr(pos_ant, pos-pos_ant);
+				excontextvector.push_back(token);
+				pos_ant = pos+1;
+				pos = excludecontextstr.find(_T("\n"), pos_ant);
+			}
+			if (!excludecontextstr.empty())
+			{
+				excontextvector.push_back(excludecontextstr.substr(pos_ant, excludecontextstr.size()-1));
+			}
+			excludecontextstr = (stdstring)nocontextpaths;
+		}
+	}
 	void ExcludeListValid()
 	{
 		if ((GetTickCount() - EXCLUDELISTTIMEOUT)>excludelistticker)
@@ -576,6 +625,10 @@ private:
 	TCHAR szThousandsSep[5];
 	std::map<stdstring, BOOL> admindircache;
 	stdstring sAdminDirCacheKey;
+	CRegStdString nocontextpaths;
+	stdstring excludecontextstr;
+	std::vector<stdstring> excontextvector;
+	DWORD excontextticker;
 	DWORD admindirticker;
 	CComCriticalSection m_critSec;
 };
