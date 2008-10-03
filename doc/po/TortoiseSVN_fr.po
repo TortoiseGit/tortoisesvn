@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-09-24 17:15 +0000\n"
-"PO-Revision-Date: 2008-09-30 11:38+0100\n"
+"PO-Revision-Date: 2008-10-03 16:08+0100\n"
 "Last-Translator: Grokwik <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -144,39 +144,33 @@ msgstr "Même la plupart des utilisateurs de Subversion n'auront jamais à confi
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:107
-#, fuzzy
 msgid "The chapter on <xref linkend=\"tsvn-repository\"/> explains how to set up a local repository, which is useful for testing Subversion and TortoiseSVN using a single PC. It also explains a bit about repository administration which is also relevant to repositories located on a server."
-msgstr "Le chapitre sur le <emphasis>Référentiel</emphasis> explique comment mettre en place un référentiel local, ce qui est utile pour tester Subversion et TortoiseSVN en utilisant un seul PC. Il explique aussi un peu l'administration d'un référentiel ce qui est aussi approprié aux référentiels placés sur un serveur."
+msgstr "Le chapitre <xref linkend=\"tsvn-repository\"/> explique comment mettre en place un référentiel local, ce qui est utile pour tester Subversion et TortoiseSVN en utilisant un seul ordinateur. Il explique aussi un peu l'administration d'un référentiel qui est similaire pour les référentiels hébergés sur un serveur."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:113
-#, fuzzy
 msgid "The <xref linkend=\"tsvn-dug\"/> is the most important section as it explains all the main features of TortoiseSVN and how to use them. It takes the form of a tutorial, starting with checking out a working copy, modifying it, committing your changes, etc. It then progresses to more advanced topics."
-msgstr "Le <emphasis>Guide pour une utilisation quotidienne</emphasis> est la section la plus importante puisqu'il explique toutes les fonctionnalités principales de TortoiseSVN et comment les utiliser. Il prend la forme d'un tutoriel, commençant avec l'extraction d'une copie de travail, en la modifiant,  en livrant vos changements, etc. Il progresse alors vers des sujets plus avancés."
+msgstr "La section <xref linkend=\"tsvn-dug\"/> est la plus importante puisqu'elle explique toutes les fonctionnalités principales de TortoiseSVN et comment les utiliser. Elle est sous forme de tutoriel qui indique comment extraire une copie de travail, la modifier, livrer les changements effectués, etc. Il traite de sujets de plus en plus avancés."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:120
-#, fuzzy
 msgid "<xref linkend=\"tsvn-subwcrev\"/> is a separate program included with TortoiseSVN which can extract the information from your working copy and write it into a file. This is useful for including build information in your projects."
-msgstr "<emphasis>SubWCRev</emphasis> est un programme séparé inclus avec TortoiseSVN qui peut extraire l'information de votre copie de travail et l'écrire dans un fichier. Ce qui est utile pour inclure l'information de génération dans vos projets."
+msgstr "<xref linkend=\"tsvn-subwcrev\"/> est un programme installé avec TortoiseSVN permettant d'extraire des informations de votre copie de travail et de les écrire dans un fichier. Ce qui est utile pour ajouter des informations de compilation à vos projets."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:125
-#, fuzzy
 msgid "The <xref linkend=\"tsvn-howto\"/> section answers some common questions about performing tasks which are not explicitly covered elsewhere."
-msgstr "La section <emphasis>Comment faire pour...</emphasis> répond à quelques questions communes pour effectuer des tâches qui ne sont pas explicitement couvertes ailleurs."
+msgstr "La section <xref linkend=\"tsvn-howto\"/> répond à quelques questions courantes concernant les tâches qui ne sont pas expliquées ailleurs."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:129
-#, fuzzy
 msgid "The section on <xref linkend=\"tsvn-automation\"/> shows how the TortoiseSVN GUI dialogs can be called from the command line. This is useful for scripting where you still need user interaction."
-msgstr "La section pour <emphasis>Automatiser TortoiseSVN</emphasis> montre comment les boîtes de dialogue de TortoiseSVN peuvent être appelées en ligne de commande. C'est utile pour faire des scripts quand vous avez encore besoin de l'interaction de l'utilisateur."
+msgstr "La section <xref linkend=\"tsvn-automation\"/> montre comment les boîtes de dialogue de TortoiseSVN peuvent être appelées en ligne de commande. C'est utile pour faire des scripts interactifs."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:134
-#, fuzzy
 msgid "The <xref linkend=\"tsvn-cli\"/> give a correlation between TortoiseSVN commands and their equivalents in the Subversion command line client <literal>svn.exe</literal>."
-msgstr "La <emphasis> correspondance des lignes de commande</emphasis> fait le lien entre les commandes de TortoiseSVN et leurs équivalents dans le client en ligne de commande de Subversion <literal>svn.exe</literal>."
+msgstr "La <xref linkend=\"tsvn-cli\"/> fait le lien entre les commandes de TortoiseSVN et leurs équivalents en ligne de commande du client Subversion <literal>svn.exe</literal>."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:144
@@ -235,9 +229,8 @@ msgstr "Lübbe Onken"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:201
-#, fuzzy
 msgid "for the beautiful icons, logo, bug hunting, translating and managing the translations"
-msgstr "pour les belles icônes, le logo, la chasse aux bugs et le soin apporté à la documentation"
+msgstr "pour les belles icônes, le logo, la chasse aux bugs, la traduction et le soin apporté à la documentation"
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:208
@@ -316,9 +309,8 @@ msgstr "Les boutons de l'interface utilisateur sont indiqués comme ceci : Appuy
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:282
-#, fuzzy
 msgid "User Actions are indicated using a bold font. <keycap>Alt+A</keycap>: press the <keycap>Alt</keycap>-Key on your keyboard and while holding it down press the <keycap>A</keycap>-Key as well. <action>Right-drag</action>: press the right mouse button and while holding it down <emphasis>drag</emphasis> the items to the new location."
-msgstr "Les actions utilisateur sont indiquées en utilisant une police en gras. <action>ALT+A</action> : appuyez  la touche <keycap>ALT</keycap> sur votre clavier et en la maintenant enfoncée, appuyez aussi sur la touche <keycap>A</keycap>. <action>Glisser droit</action> : appuyez le bouton droit de la souris juste et en le maintenant enfoncé <emphasis> traînez </emphasis> les éléments vers le nouvel emplacement."
+msgstr "Les actions utilisateur sont indiquées en utilisant une police en gras. <keycap>Alt+A</keycap> : appuyez sur la touche <keycap>A</keycap> en maintenant la touche <keycap>Alt</keycap> de votre clavier enfoncée. <action>Glisser click droit</action> : appuyez sur le bouton droit de la souris et en le maintenant enfoncé <emphasis>faites glisser</emphasis> les éléments vers le nouvel emplacement."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:290
@@ -722,9 +714,8 @@ msgstr "Alors pourquoi est-ce si intéressant ? Jusqu'ici, cela ressemble à la 
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:780
-#, fuzzy
 msgid "When a client reads data from the repository, it normally sees only the latest version of the filesystem tree. But the client also has the ability to view <emphasis>previous</emphasis> states of the filesystem. For example, a client can ask historical questions like, <quote>what did this directory contain last Wednesday?</quote>, or <quote>who was the last person to change this file, and what changes did they make?</quote> These are the sorts of questions that are at the heart of any <firstterm>version control system</firstterm>: systems that are designed to record and track changes to data over time."
-msgstr "Quand un client lit des données du référentiel, il voit normalement seulement la dernière version de l'arborescence de système de fichiers. Mais le client a aussi la capacité de voir les états <emphasis>précédents</emphasis> du système de fichiers. Par exemple, un client peut poser des questions historiques comme, \"que contenait ce répertoire mercredi dernier ?\", ou \"qui sont les dernières personnes à avoir changé ce fichier et quels changements ont-elles fait ?\" C'est ce genre de questions qui sont au coeur de n'importe quel <firstterm>système de contrôle de version</firstterm> : des systèmes qui sont conçus pour enregistrer et suivre à la trace les changements de données au cours du temps."
+msgstr "Quand un client lit des données du référentiel, il voit normalement seulement la dernière version de l'arborescence. Mais le client peut aussi voir les états <emphasis>précédents</emphasis>. Par exemple, un client peut poser des questions historiques comme, <quote>que contenait ce répertoire mercredi dernier ?</quote>, ou <quote>qui sont les dernières personnes à avoir changé ce fichier et quels changements ont-elles fait ?</quote> C'est ce genre de questions qui sont au coeur de n'importe quel <firstterm>système de contrôle de version</firstterm> : des systèmes qui sont conçus pour enregistrer et suivre les changements des données au cours du temps."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:795
@@ -760,9 +751,8 @@ msgstr "La solution Verrouiller-Modifier-Déverrouiller"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:828
-#, fuzzy
 msgid "Many version control systems use a <firstterm>lock-modify-unlock</firstterm> model to address this problem, which is a very simple solution. In such a system, the repository allows only one person to change a file at a time. First Harry must <emphasis>lock</emphasis> the file before he can begin making changes to it. Locking a file is a lot like borrowing a book from the library; if Harry has locked a file, then Sally cannot make any changes to it. If she tries to lock the file, the repository will deny the request. All she can do is read the file, and wait for Harry to finish his changes and release his lock. After Harry unlocks the file, his turn is over, and now Sally can take her turn by locking and editing."
-msgstr "Beaucoup de systèmes de contrôle de version utilisent le modèle <firstterm>verrouiller-modifier-déverrouiller</firstterm> pour aborder ce problème, qui est une solution très simple. Dans un tel système, le référentiel permet à une seule personne de changer un fichier à la fois. D'abord Harry doit \"verrouiller\" le fichier avant qu'il ne puisse commencer à y faire des changements. Le verrouillage d'un fichier ressemble beaucoup à l'emprunt d'un livre dans une bibliothèque ; si Harry a verrouillé un fichier, alors Sally ne peut pas y faire de changements. Si elle essaye de verrouiller le fichier, le référentiel refusera la requête. Tout qu'elle peut faire est lire le fichier et attendre qu'Harry finisse ses changements et relâche le verrou. Après qu'Harry ait déverrouillé le fichier, son tour est fini, et maintenant Sally peut prendre son tour en verrouillant et en éditant."
+msgstr "Beaucoup de systèmes de contrôle de version utilisent le modèle <firstterm>verrouiller-modifier-déverrouiller</firstterm> pour aborder ce problème, qui est une solution très simple. Dans un tel système, le référentiel ne permet qu'à une seule personne de changer un fichier à la fois. D'abord Harry doit <emphasis>verrouiller</emphasis> le fichier avant qu'il ne puisse commencer à y faire des changements. Le verrouillage d'un fichier s'apparente alors à l'emprunt d'un livre dans une bibliothèque ; si Harry a verrouillé un fichier, alors Sally ne peut pas le modifier. Si elle essaye de verrouiller le fichier, le référentiel refusera la requête. Tout qu'elle peut faire est lire le fichier et attendre qu'Harry finisse ses changements et relâche le verrou. Dès qu'Harry déverrouille le fichier, son tour est fini, et Sally peut alors prendre son tour en le verrouillant et en y apportant ses modifications."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:846
@@ -798,9 +788,8 @@ msgstr "Subversion, CVS et les autres systèmes de contrôle de version utilisen
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:907
-#, fuzzy
 msgid "Here's an example. Say that Harry and Sally each create working copies of the same project, copied from the repository. They work concurrently, and make changes to the same file <filename>A</filename> within their copies. Sally saves her changes to the repository first. When Harry attempts to save his changes later, the repository informs him that his file A is <firstterm>out-of-date</firstterm>. In other words, that file A in the repository has somehow changed since he last copied it. So Harry asks his client to <firstterm>merge</firstterm> any new changes from the repository into his working copy of file A. Chances are that Sally's changes don't overlap with his own; so once he has both sets of changes integrated, he saves his working copy back to the repository."
-msgstr "Voici un exemple. Disons qu'Harry et Sally créent chacun des copies de travail du même projet, copié du référentiel. Ils travaillent en même temps et font des changements au même fichier \"A\" dans leurs copies. Sally sauvegarde ses changements au référentiel d'abord. Quand Harry essaye de sauvegarder ses changements plus tard, le référentiel l'informe que son fichier A est <firstterm>périmé</firstterm>. Autrement dit, ce fichier A dans le référentiel a changé d'une façon ou d'une autre depuis la dernière fois qu'il a été copié. Donc Harry demande à son client de <firstterm> fusionner</firstterm> les nouveaux changements du fichier A du référentiel dans sa copie de travail. Il y a des chances que les changements de Sally ne se chevauchent pas avec les siens ; ainsi une fois qu'il a les deux jeux de changements intégrés, il sauvegarde sa copie de travail sur le référentiel."
+msgstr "Voici un exemple. Disons qu'Harry et Sally ont chacun une copie de travail du même projet, extrait du référentiel. Ils travaillent en même temps et modifient localement le même fichier <filename>A</filename>. Sally sauvegarde ses changements dans le référentiel d'abord. Quand Harry essaie de sauvegarder ses changements, le référentiel l'informe que son fichier A est <firstterm>périmé</firstterm>. Autrement dit, dans le référentiel, ce fichier A a été modifié depuis qu'il a été extrait. Donc Harry demande à son client de <firstterm>fusionner</firstterm> les nouveaux changements du fichier A du référentiel avec sa copie de travail. Il y a des chances que les changements de Sally ne se chevauchent pas avec les siens ; ainsi une fois qu'il a les deux changements intégrés, il sauvegarde sa copie de travail sur le référentiel."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:926
@@ -871,9 +860,8 @@ msgstr "Une copie de travail de Subversion est une arborescence de répertoire o
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:1010
-#, fuzzy
 msgid "After you've made some changes to the files in your working copy and verified that they work properly, Subversion provides you with commands to <emphasis>publish</emphasis> your changes to the other people working with you on your project (by writing to the repository). If other people publish their own changes, Subversion provides you with commands to merge those changes into your working directory (by reading from the repository)."
-msgstr "Après que vous avez fait quelques changements aux fichiers dans votre copie de travail et avez vérifié qu'ils fonctionnent correctement, Subversion vous fournit des commandes pour \"publier\" vos changements aux autres personnes travaillant avec vous sur votre projet (en écrivant sur le référentiel). Si d'autres personnes publient leurs propres changements, Subversion vous fournit des commandes pour fusionner ces changements dans votre répertoire de travail (en lisant à partir du référentiel)."
+msgstr "Après avoir fait des changements dans votre copie de travail et avoir vérifié qu'ils fonctionnent correctement, Subversion vous fournit des commandes pour <emphasis>publier</emphasis> vos changements et ainsi les rendre disponibles aux les autres personnes travaillant avec vous sur le projet. Si d'autres personnes publient leurs changements dans le référentiel, Subversion vous fournit des commandes pour fusionner ces changements dans votre répertoire de travail."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:1020
@@ -902,9 +890,8 @@ msgstr "En d'autres termes, la racine du référentiel a deux sous-répertoires 
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:1051
-#, fuzzy
 msgid "To get a working copy, you must <firstterm>check out</firstterm> some subtree of the repository. (The term <emphasis>check out</emphasis> may sound like it has something to do with locking or reserving resources, but it doesn't; it simply creates a private copy of the project for you)."
-msgstr "Pour obtenir une copie de travail, vous devez <firstterm>extraire</firstterm> un sous-arbre du référentiel. (Le terme \"extraire\" peut faire croire qu'il ait un rapport avec le verrouillage ou la réservation de ressources, mais il n'en a pas ; il crée simplement une copie privée du projet pour vous)."
+msgstr "Pour obtenir une copie de travail, vous devez <firstterm>extraire</firstterm> une sous-arborescence du référentiel. (Le terme <emphasis>extraire</emphasis> peut faire penser à un quelconque verrouillage ou à une réservation des ressources, mais il n'en est rien ; il crée simplement une copie privée du projet pour vous)."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:1058
@@ -1282,9 +1269,8 @@ msgstr "Plus d'informations sur les options du serveur Subversion et la manière
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:1466
-#, fuzzy
 msgid "If you don't have a server and you work alone then local repositories are probably your best choice. You can skip this chapter and go directly to <xref linkend=\"tsvn-repository\"/>."
-msgstr "Si vous n'avez pas de serveur et/ou si vous travaillez seul alors les référentiels locaux sont probablement votre meilleur choix. Vous pouvez sauter ce chapitre et aller directement au <xref linkend=\"tsvn-repository\"/>."
+msgstr "Si vous n'avez pas de serveur et/ou si vous travaillez seul alors les référentiels locaux sont probablement la meilleure solution. Vous pouvez sauter ce chapitre et aller directement au <xref linkend=\"tsvn-repository\"/>."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:1471
@@ -1399,9 +1385,8 @@ msgstr "Même si Apache fonctionne en tant que système local, vous avez toujour
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:1619
-#, fuzzy
 msgid "If Apache does not have this permission set up, your users will get <quote>Access denied</quote> error messages, which show up in the Apache error log as error 500."
-msgstr "Si Apache n'a pas cette permission configurée, vos utilisateurs auront des messages d'erreur \"Accès refusé\", qui s'afficheront dans le journal des erreurs Apache comme erreur 500."
+msgstr "Si cette permission n'est pas activé dans la configuration de vote serveur Apache, vos utilisateurs auront des messages d'erreur <quote>Accès refusé</quote>, qui s'afficheront dans le journal des erreurs Apache comme erreur 500."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:1543
