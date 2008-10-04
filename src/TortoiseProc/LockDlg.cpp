@@ -205,7 +205,7 @@ UINT CLockDlg::StatusThread()
 
 	RefreshCursor();
 	CString logmsg;
-	GetDlgItem(IDC_LOCKMESSAGE)->GetWindowText(logmsg);
+	GetDlgItemText(IDC_LOCKMESSAGE, logmsg);
 	DialogEnableWindow(IDOK, m_ProjectProperties ? m_ProjectProperties->nMinLockMsgSize <= logmsg.GetLength() : TRUE);
 	m_bBlock = FALSE;
 	return 0;
@@ -262,7 +262,7 @@ void CLockDlg::OnBnClickedHelp()
 void CLockDlg::OnEnChangeLockmessage()
 {
 	CString sTemp;
-	GetDlgItem(IDC_LOCKMESSAGE)->GetWindowText(sTemp);
+	GetDlgItemText(IDC_LOCKMESSAGE, sTemp);
 	if ((m_ProjectProperties == NULL)||((m_ProjectProperties)&&(sTemp.GetLength() >= m_ProjectProperties->nMinLockMsgSize)))
 	{
 		if (!m_bBlock)

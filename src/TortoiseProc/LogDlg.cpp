@@ -458,7 +458,7 @@ BOOL CLogDlg::OnInitDialog()
 	else
 	{
 		// the dialog is used to just view log messages
-		GetDlgItem(IDOK)->GetWindowText(temp);
+		GetDlgItemText(IDOK, temp);
 		SetDlgItemText(IDCANCEL, temp);
 		GetDlgItem(IDOK)->ShowWindow(SW_HIDE);
 	}
@@ -875,7 +875,7 @@ void CLogDlg::OnCancel()
 	// But canceling can also mean just to close the dialog, depending on the
 	// text shown on the cancel button (it could simply read "OK").
 	CString temp, temp2;
-	GetDlgItem(IDOK)->GetWindowText(temp);
+	GetDlgItemText(IDOK, temp);
 	temp2.LoadString(IDS_MSGBOX_CANCEL);
 	if ((temp.Compare(temp2)==0)||(m_bThreadRunning))
 	{
@@ -1602,7 +1602,7 @@ void CLogDlg::OnOK()
 
 	CString temp;
 	CString buttontext;
-	GetDlgItem(IDOK)->GetWindowText(buttontext);
+	GetDlgItemText(IDOK, buttontext);
 	temp.LoadString(IDS_MSGBOX_CANCEL);
 	if (temp.Compare(buttontext) != 0)
 		__super::OnOK();	// only exit if the button text matches, and that will match only if the thread isn't running anymore
@@ -2289,7 +2289,7 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 	if (pEnLink->msg == WM_LBUTTONUP)
 	{
 		CString url, msg;
-		GetDlgItem(IDC_MSGVIEW)->GetWindowText(msg);
+		GetDlgItemText(IDC_MSGVIEW, msg);
 		msg.Replace(_T("\r\n"), _T("\n"));
 		url = msg.Mid(pEnLink->chrg.cpMin, pEnLink->chrg.cpMax-pEnLink->chrg.cpMin);
 		if (!::PathIsURL(url))

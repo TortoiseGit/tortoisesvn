@@ -214,9 +214,9 @@ void CCopyDlg::OnOK()
 	}
 
 	CString id;
-	GetDlgItem(IDC_BUGID)->GetWindowText(id);
+	GetDlgItemText(IDC_BUGID, id);
 	CString sRevText;
-	GetDlgItem(IDC_COPYREVTEXT)->GetWindowText(sRevText);
+	GetDlgItemText(IDC_COPYREVTEXT, sRevText);
 	if (!m_ProjectProperties.CheckBugID(id))
 	{
 		ShowBalloon(IDC_BUGID, IDS_COMMITDLG_ONLYNUMBERS);

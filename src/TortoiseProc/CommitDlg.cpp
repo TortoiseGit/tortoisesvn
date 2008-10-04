@@ -293,7 +293,7 @@ void CCommitDlg::OnOK()
 		}
 	}
 	CString id;
-	GetDlgItem(IDC_BUGID)->GetWindowText(id);
+	GetDlgItemText(IDC_BUGID, id);
 	if (!m_ProjectProperties.CheckBugID(id))
 	{
 		ShowBalloon(IDC_BUGID, IDS_COMMITDLG_ONLYNUMBERS, IDI_EXCLAMATION);
@@ -604,7 +604,7 @@ UINT CCommitDlg::StatusThread()
 		m_tooltips.AddTool(GetDlgItem(IDC_STATISTICS), m_ListCtrl.GetStatisticsString());
 	}
 	CString logmsg;
-	GetDlgItem(IDC_LOGMESSAGE)->GetWindowText(logmsg);
+	GetDlgItemText(IDC_LOGMESSAGE, logmsg);
 	DialogEnableWindow(IDOK, logmsg.GetLength() >= m_ProjectProperties.nMinLogSize);
 	if (!success)
 	{

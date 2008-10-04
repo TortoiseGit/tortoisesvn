@@ -1687,7 +1687,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 void CSVNProgressDlg::OnEnSetfocusInfotext()
 {
 	CString sTemp;
-	GetDlgItem(IDC_INFOTEXT)->GetWindowText(sTemp);
+	GetDlgItemText(IDC_INFOTEXT, sTemp);
 	if (sTemp.IsEmpty())
 		GetDlgItem(IDC_INFOTEXT)->HideCaret();
 }

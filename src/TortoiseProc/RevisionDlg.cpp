@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -97,7 +97,7 @@ void CRevisionDlg::OnOK()
 void CRevisionDlg::OnEnChangeRevnum()
 {
 	CString sText;
-	GetDlgItem(IDC_REVNUM)->GetWindowText(sText);
+	GetDlgItemText(IDC_REVNUM, sText);
 	if (sText.IsEmpty())
 	{
 		CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
