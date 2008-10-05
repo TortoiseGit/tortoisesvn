@@ -2030,9 +2030,9 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			{
 				// Let "Open" be the very first entry, like in Explorer
 				temp.LoadString(IDS_REPOBROWSE_OPEN);
-				popup.AppendMenuIcon(ID_OPEN, temp);		// "open"
+				popup.AppendMenuIcon(ID_OPEN, temp, IDI_OPEN);		// "open"
 				temp.LoadString(IDS_LOG_POPUP_OPENWITH);
-				popup.AppendMenuIcon(ID_OPENWITH, temp);	// "open with..."
+				popup.AppendMenuIcon(ID_OPENWITH, temp, IDI_OPEN);	// "open with..."
 				popup.AppendMenu(MF_SEPARATOR, NULL);
 			}
 			temp.LoadString(IDS_REPOBROWSE_SHOWLOG);

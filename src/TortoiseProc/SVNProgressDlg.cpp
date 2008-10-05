@@ -1427,9 +1427,9 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							if (data->action == svn_wc_notify_update_update)
 								popup.AppendMenu(MF_SEPARATOR, NULL);
 							temp.LoadString(IDS_LOG_POPUP_OPEN);
-							popup.AppendMenuIcon(ID_OPEN, temp);
+							popup.AppendMenuIcon(ID_OPEN, temp, IDI_OPEN);
 							temp.LoadString(IDS_LOG_POPUP_OPENWITH);
-							popup.AppendMenuIcon(ID_OPENWITH, temp);
+							popup.AppendMenuIcon(ID_OPENWITH, temp, IDI_OPEN);
 							bAdded = true;
 						}
 					}

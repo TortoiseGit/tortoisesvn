@@ -3730,9 +3730,9 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				temp.LoadString(IDS_LOG_POPUP_SAVE);
 				popup.AppendMenuIcon(ID_SAVEAS, temp, IDI_SAVEAS);
 				temp.LoadString(IDS_LOG_POPUP_OPEN);
-				popup.AppendMenuIcon(ID_OPEN, temp);
+				popup.AppendMenuIcon(ID_OPEN, temp, IDI_OPEN);
 				temp.LoadString(IDS_LOG_POPUP_OPENWITH);
-				popup.AppendMenuIcon(ID_OPENWITH, temp);
+				popup.AppendMenuIcon(ID_OPENWITH, temp, IDI_OPEN);
 				temp.LoadString(IDS_LOG_POPUP_BLAME);
 				popup.AppendMenuIcon(ID_BLAME, temp, IDI_BLAME);
 				popup.AppendMenu(MF_SEPARATOR, NULL);
@@ -4456,9 +4456,9 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				if (bEntryAdded)
 					popup.AppendMenu(MF_SEPARATOR, NULL);
 				temp.LoadString(IDS_LOG_POPUP_OPEN);
-				popup.AppendMenuIcon(ID_OPEN, temp);
+				popup.AppendMenuIcon(ID_OPEN, temp, IDI_OPEN);
 				temp.LoadString(IDS_LOG_POPUP_OPENWITH);
-				popup.AppendMenuIcon(ID_OPENWITH, temp);
+				popup.AppendMenuIcon(ID_OPENWITH, temp, IDI_OPEN);
 				temp.LoadString(IDS_LOG_POPUP_BLAME);
 				popup.AppendMenuIcon(ID_BLAME, temp, IDI_BLAME);
 				popup.AppendMenu(MF_SEPARATOR, NULL);
