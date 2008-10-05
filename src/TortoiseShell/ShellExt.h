@@ -24,10 +24,7 @@
 #include "ShellCache.h"
 #include "RemoteCacheLink.h"
 #include "SVNFolderStatus.h"
-
-// GdiPlus includes
-#include <GdiPlus.h>
-using namespace Gdiplus;
+#include "uxtheme.h"
 
 extern	UINT				g_cRefThisDll;			// Reference count of this DLL.
 extern	HINSTANCE			g_hmodThisDll;			// Instance handle for this DLL
@@ -54,6 +51,12 @@ extern LPCTSTR				g_MenuIDString;
 extern	void				LoadLangDll();
 extern  CComCriticalSection	g_csGlobalCOMGuard;
 typedef CComCritSecLock<CComCriticalSection> AutoLocker;
+
+typedef DWORD ARGB;
+
+typedef HRESULT (WINAPI *FN_GetBufferedPaintBits) (HPAINTBUFFER hBufferedPaint, RGBQUAD **ppbBuffer, int *pcxRow);
+typedef HPAINTBUFFER (WINAPI *FN_BeginBufferedPaint) (HDC hdcTarget, const RECT *prcTarget, BP_BUFFERFORMAT dwFormat, BP_PAINTPARAMS *pPaintParams, HDC *phdc);
+typedef HRESULT (WINAPI *FN_EndBufferedPaint) (HPAINTBUFFER hBufferedPaint, BOOL fUpdateTarget);
 
 
 // The actual OLE Shell context menu handler
@@ -170,7 +173,6 @@ protected:
 
 	static MenuInfo menuInfo[];
 	WORD fullver;
-	ULONG_PTR m_gdipToken;
 	FileState m_State;
 	ULONG	m_cRef;
 	//std::map<int,std::string> verbMap;
@@ -199,6 +201,10 @@ protected:
 	SVNFolderStatus		m_CachedStatus;		// status cache
 	CRemoteCacheLink	m_remoteCacheLink;
 
+	FN_GetBufferedPaintBits pfnGetBufferedPaintBits;
+	FN_BeginBufferedPaint pfnBeginBufferedPaint;
+	FN_EndBufferedPaint pfnEndBufferedPaint;
+
 #define MAKESTRING(ID) LoadStringEx(g_hResInst, ID, stringtablebuffer, sizeof(stringtablebuffer)/sizeof(TCHAR), (WORD)CRegStdWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)))
 private:
 	void			InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UINT stringid, UINT icon, UINT idCmdFirst, SVNCommands com, UINT uFlags);
@@ -208,9 +214,15 @@ private:
 	LPCTSTR			GetMenuTextFromResource(int id);
 	void			GetColumnStatus(const TCHAR * path, BOOL bIsDir);
 	HBITMAP			IconToBitmap(UINT uIcon);
-	HBITMAP			IconToBitmapPARGB32(UINT uIcon);
 	STDMETHODIMP	QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMenu, UINT &indexMenu);
 	bool			IsIllegalFolder(std::wstring folder, int * cslidarray);
+	HBITMAP			IconToBitmapPARGB32(UINT uIcon);
+	HRESULT			Create32BitHBITMAP(HDC hdc, const SIZE *psize, __deref_opt_out void **ppvBits, __out HBITMAP* phBmp);
+	HRESULT			ConvertBufferToPARGB32(HPAINTBUFFER hPaintBuffer, HDC hdc, HICON hicon, SIZE& sizIcon);
+	bool			HasAlpha(__in ARGB *pargb, SIZE& sizImage, int cxRow);
+	HRESULT			ConvertToPARGB32(HDC hdc, __inout ARGB *pargb, HBITMAP hbmp, SIZE& sizImage, int cxRow);
+
+
 public:
 	CShellExt(FileState state);
 	virtual ~CShellExt();
