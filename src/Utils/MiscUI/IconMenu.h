@@ -37,7 +37,6 @@ public:
 	void MeasureItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct);
 
 private:
-	HBITMAP IconToBitmap(UINT uIcon);
 	HBITMAP IconToBitmapPARGB32(UINT uIcon);
 
 private:
