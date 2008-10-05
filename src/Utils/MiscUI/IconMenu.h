@@ -40,6 +40,7 @@ public:
 	~CIconMenu(void);
 
 	BOOL AppendMenuIcon(UINT_PTR nIDNewItem, LPCTSTR lpszNewItem, UINT uIcon = 0);
+	BOOL AppendMenuIcon(UINT_PTR nIDNewItem, UINT_PTR nNewItem, UINT uIcon = 0);
 	void DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct);
 	void MeasureItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct);
 

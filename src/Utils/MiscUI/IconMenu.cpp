@@ -78,6 +78,14 @@ BOOL CIconMenu::AppendMenuIcon(UINT_PTR nIDNewItem, LPCTSTR lpszNewItem, UINT uI
 	return InsertMenuItem(nIDNewItem, &info);
 }
 
+BOOL CIconMenu::AppendMenuIcon(UINT_PTR nIDNewItem, UINT_PTR nNewItem, UINT uIcon /* = 0 */)
+{
+	CString temp;
+	temp.LoadString(nNewItem);
+
+	return AppendMenuIcon(nIDNewItem, temp, uIcon);
+}
+
 void CIconMenu::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
 {
 	if ((lpDrawItemStruct==NULL)||(lpDrawItemStruct->CtlType != ODT_MENU))

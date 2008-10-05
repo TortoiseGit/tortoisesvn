@@ -3710,65 +3710,49 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 	CIconMenu popup;
 	if (popup.CreatePopupMenu())
 	{
-		CString temp;
 		if (m_LogList.GetSelectedCount() == 1)
 		{
 			if (!m_path.IsDirectory())
 			{
 				if (m_hasWC)
 				{
-					temp.LoadString(IDS_LOG_POPUP_COMPARE);
-					popup.AppendMenuIcon(ID_COMPARE, temp, IDI_DIFF);
-					temp.LoadString(IDS_LOG_POPUP_BLAMECOMPARE);
-					popup.AppendMenuIcon(ID_BLAMECOMPARE, temp, IDI_BLAME);
+					popup.AppendMenuIcon(ID_COMPARE, IDS_LOG_POPUP_COMPARE, IDI_DIFF);
+					popup.AppendMenuIcon(ID_BLAMECOMPARE, IDS_LOG_POPUP_BLAMECOMPARE, IDI_BLAME);
 				}
-				temp.LoadString(IDS_LOG_POPUP_GNUDIFF_CH);
-				popup.AppendMenuIcon(ID_GNUDIFF1, temp, IDI_DIFF);
-				temp.LoadString(IDS_LOG_POPUP_COMPAREWITHPREVIOUS);
-				popup.AppendMenuIcon(ID_COMPAREWITHPREVIOUS, temp, IDI_DIFF);
+				popup.AppendMenuIcon(ID_GNUDIFF1, IDS_LOG_POPUP_GNUDIFF_CH, IDI_DIFF);
+				popup.AppendMenuIcon(ID_COMPAREWITHPREVIOUS, IDS_LOG_POPUP_COMPAREWITHPREVIOUS, IDI_DIFF);
 				popup.AppendMenu(MF_SEPARATOR, NULL);
-				temp.LoadString(IDS_LOG_POPUP_SAVE);
-				popup.AppendMenuIcon(ID_SAVEAS, temp, IDI_SAVEAS);
-				temp.LoadString(IDS_LOG_POPUP_OPEN);
-				popup.AppendMenuIcon(ID_OPEN, temp, IDI_OPEN);
-				temp.LoadString(IDS_LOG_POPUP_OPENWITH);
-				popup.AppendMenuIcon(ID_OPENWITH, temp, IDI_OPEN);
-				temp.LoadString(IDS_LOG_POPUP_BLAME);
-				popup.AppendMenuIcon(ID_BLAME, temp, IDI_BLAME);
+				popup.AppendMenuIcon(ID_SAVEAS, IDS_LOG_POPUP_SAVE, IDI_SAVEAS);
+				popup.AppendMenuIcon(ID_OPEN, IDS_LOG_POPUP_OPEN, IDI_OPEN);
+				popup.AppendMenuIcon(ID_OPENWITH, IDS_LOG_POPUP_OPENWITH, IDI_OPEN);
+				popup.AppendMenuIcon(ID_BLAME, IDS_LOG_POPUP_BLAME, IDI_BLAME);
 				popup.AppendMenu(MF_SEPARATOR, NULL);
 			}
 			else
 			{
 				if (m_hasWC)
 				{
-					temp.LoadString(IDS_LOG_POPUP_COMPARE);
-					popup.AppendMenuIcon(ID_COMPARE, temp, IDI_DIFF);
+					popup.AppendMenuIcon(ID_COMPARE, IDS_LOG_POPUP_COMPARE, IDI_DIFF);
 					// TODO:
 					// TortoiseMerge could be improved to take a /blame switch
 					// and then not 'cat' the files from a unified diff but
 					// blame then.
 					// But until that's implemented, the context menu entry for
 					// this feature is commented out.
-					//temp.LoadString(IDS_LOG_POPUP_BLAMECOMPARE);
-					//popup.AppendMenu(MF_STRING | MF_ENABLED, ID_BLAMECOMPARE, temp);
+					//popup.AppendMenu(ID_BLAMECOMPARE, IDS_LOG_POPUP_BLAMECOMPARE, IDI_BLAME);
 				}
-				temp.LoadString(IDS_LOG_POPUP_GNUDIFF_CH);
-				popup.AppendMenuIcon(ID_GNUDIFF1, temp, IDI_DIFF);
-				temp.LoadString(IDS_LOG_POPUP_COMPAREWITHPREVIOUS);
-				popup.AppendMenuIcon(ID_COMPAREWITHPREVIOUS, temp, IDI_DIFF);
-				temp.LoadString(IDS_LOG_POPUP_BLAMEWITHPREVIOUS);
-				popup.AppendMenuIcon(ID_BLAMEWITHPREVIOUS, temp, IDI_BLAME);
+				popup.AppendMenuIcon(ID_GNUDIFF1, IDS_LOG_POPUP_GNUDIFF_CH, IDI_DIFF);
+				popup.AppendMenuIcon(ID_COMPAREWITHPREVIOUS, IDS_LOG_POPUP_COMPAREWITHPREVIOUS, IDI_DIFF);
+				popup.AppendMenuIcon(ID_BLAMEWITHPREVIOUS, IDS_LOG_POPUP_BLAMEWITHPREVIOUS, IDI_BLAME);
 				popup.AppendMenu(MF_SEPARATOR, NULL);
 			}
 			if (!m_ProjectProperties.sWebViewerRev.IsEmpty())
 			{
-				temp.LoadString(IDS_LOG_POPUP_VIEWREV);
-				popup.AppendMenuIcon(ID_VIEWREV, temp);
+				popup.AppendMenuIcon(ID_VIEWREV, IDS_LOG_POPUP_VIEWREV);
 			}
 			if (!m_ProjectProperties.sWebViewerPathRev.IsEmpty())
 			{
-				temp.LoadString(IDS_LOG_POPUP_VIEWPATHREV);
-				popup.AppendMenuIcon(ID_VIEWPATHREV, temp);
+				popup.AppendMenuIcon(ID_VIEWPATHREV, IDS_LOG_POPUP_VIEWPATHREV);
 			}
 			if ((!m_ProjectProperties.sWebViewerPathRev.IsEmpty())||
 				(!m_ProjectProperties.sWebViewerRev.IsEmpty()))
@@ -3776,26 +3760,18 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				popup.AppendMenu(MF_SEPARATOR, NULL);
 			}
 
-			temp.LoadString(IDS_LOG_BROWSEREPO);
-			popup.AppendMenuIcon(ID_REPOBROWSE, temp, IDI_REPOBROWSE);
-			temp.LoadString(IDS_LOG_POPUP_COPY);
-			popup.AppendMenuIcon(ID_COPY, temp);
-			temp.LoadString(IDS_LOG_POPUP_UPDATE);
+			popup.AppendMenuIcon(ID_REPOBROWSE, IDS_LOG_BROWSEREPO, IDI_REPOBROWSE);
+			popup.AppendMenuIcon(ID_COPY, IDS_LOG_POPUP_COPY);
 			if (m_hasWC)
-				popup.AppendMenuIcon(ID_UPDATE, temp, IDI_UPDATE);
-			temp.LoadString(IDS_LOG_POPUP_REVERTTOREV);
+				popup.AppendMenuIcon(ID_UPDATE, IDS_LOG_POPUP_UPDATE, IDI_UPDATE);
 			if (m_hasWC)
-				popup.AppendMenuIcon(ID_REVERTTOREV, temp, IDI_REVERT);
-			temp.LoadString(IDS_LOG_POPUP_REVERTREV);
+				popup.AppendMenuIcon(ID_REVERTTOREV, IDS_LOG_POPUP_REVERTTOREV, IDI_REVERT);
 			if (m_hasWC)
-				popup.AppendMenuIcon(ID_REVERTREV, temp, IDI_REVERT);
-			temp.LoadString(IDS_LOG_POPUP_MERGEREV);
+				popup.AppendMenuIcon(ID_REVERTREV, IDS_LOG_POPUP_REVERTREV, IDI_REVERT);
 			if (m_hasWC)
-				popup.AppendMenuIcon(ID_MERGEREV, temp, IDI_MERGE);
-			temp.LoadString(IDS_MENUCHECKOUT);
-			popup.AppendMenuIcon(ID_CHECKOUT, temp, IDI_CHECKOUT);
-			temp.LoadString(IDS_MENUEXPORT);
-			popup.AppendMenuIcon(ID_EXPORT, temp, IDI_EXPORT);
+				popup.AppendMenuIcon(ID_MERGEREV, IDS_LOG_POPUP_MERGEREV, IDI_MERGE);
+			popup.AppendMenuIcon(ID_CHECKOUT, IDS_MENUCHECKOUT, IDI_CHECKOUT);
+			popup.AppendMenuIcon(ID_EXPORT, IDS_MENUEXPORT, IDI_EXPORT);
 			popup.AppendMenu(MF_SEPARATOR, NULL);
 		}
 		else if (m_LogList.GetSelectedCount() >= 2)
@@ -3803,24 +3779,19 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 			bool bAddSeparator = false;
 			if (IsSelectionContinuous() || (m_LogList.GetSelectedCount() == 2))
 			{
-				temp.LoadString(IDS_LOG_POPUP_COMPARETWO);
-				popup.AppendMenuIcon(ID_COMPARETWO, temp, IDI_DIFF);
+				popup.AppendMenuIcon(ID_COMPARETWO, IDS_LOG_POPUP_COMPARETWO, IDI_DIFF);
 			}
 			if (m_LogList.GetSelectedCount() == 2)
 			{
-				temp.LoadString(IDS_LOG_POPUP_BLAMEREVS);
-				popup.AppendMenuIcon(ID_BLAMETWO, temp, IDI_BLAME);
-				temp.LoadString(IDS_LOG_POPUP_GNUDIFF);
-				popup.AppendMenuIcon(ID_GNUDIFF2, temp, IDI_DIFF);
+				popup.AppendMenuIcon(ID_BLAMETWO, IDS_LOG_POPUP_BLAMEREVS, IDI_BLAME);
+				popup.AppendMenuIcon(ID_GNUDIFF2, IDS_LOG_POPUP_GNUDIFF, IDI_DIFF);
 				bAddSeparator = true;
 			}
-			temp.LoadString(IDS_LOG_POPUP_REVERTREVS);
 			if (m_hasWC)
 			{
-				popup.AppendMenuIcon(ID_REVERTREV, temp, IDI_REVERT);
-				temp.LoadString(IDS_LOG_POPUP_MERGEREVS);
+				popup.AppendMenuIcon(ID_REVERTREV, IDS_LOG_POPUP_REVERTREVS, IDI_REVERT);
 				if (m_hasWC)
-					popup.AppendMenuIcon(ID_MERGEREV, temp, IDI_MERGE);
+					popup.AppendMenuIcon(ID_MERGEREV, IDS_LOG_POPUP_MERGEREVS, IDI_MERGE);
 				bAddSeparator = true;
 			}
 			if (bAddSeparator)
@@ -3829,24 +3800,19 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 
 		if ((selEntries.size() > 0)&&(bAllFromTheSameAuthor))
 		{
-			temp.LoadString(IDS_LOG_POPUP_EDITAUTHOR);
-			popup.AppendMenuIcon(ID_EDITAUTHOR, temp);
+			popup.AppendMenuIcon(ID_EDITAUTHOR, IDS_LOG_POPUP_EDITAUTHOR);
 		}
 		if (m_LogList.GetSelectedCount() == 1)
 		{
-			temp.LoadString(IDS_LOG_POPUP_EDITLOG);
-			popup.AppendMenuIcon(ID_EDITLOG, temp);
-			temp.LoadString(IDS_REPOBROWSE_SHOWREVPROP);					// "Show Revision Properties"
-			popup.AppendMenuIcon(ID_REVPROPS, temp, IDI_PROPERTIES);
+			popup.AppendMenuIcon(ID_EDITLOG, IDS_LOG_POPUP_EDITLOG);
+			popup.AppendMenuIcon(ID_REVPROPS, IDS_REPOBROWSE_SHOWREVPROP, IDI_PROPERTIES); // "Show Revision Properties"
 			popup.AppendMenu(MF_SEPARATOR, NULL);
 		}
 		if (m_LogList.GetSelectedCount() != 0)
 		{
-			temp.LoadString(IDS_LOG_POPUP_COPYTOCLIPBOARD);
-			popup.AppendMenuIcon(ID_COPYCLIPBOARD, temp);
+			popup.AppendMenuIcon(ID_COPYCLIPBOARD, IDS_LOG_POPUP_COPYTOCLIPBOARD);
 		}
-		temp.LoadString(IDS_LOG_POPUP_FIND);
-		popup.AppendMenuIcon(ID_FINDENTRY, temp);
+		popup.AppendMenuIcon(ID_FINDENTRY, IDS_LOG_POPUP_FIND);
 
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 		DialogEnableWindow(IDOK, FALSE);
@@ -4436,49 +4402,36 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 	CIconMenu popup;
 	if (popup.CreatePopupMenu())
 	{
-		CString temp;
 		bool bEntryAdded = false;
 		if (m_ChangedFileListCtrl.GetSelectedCount() == 1)
 		{
 			if ((!bOneRev)||(IsDiffPossible(changedlogpaths[0], rev1)))
 			{
-				temp.LoadString(IDS_LOG_POPUP_DIFF);
-				popup.AppendMenuIcon(ID_DIFF, temp, IDI_DIFF);
-				temp.LoadString(IDS_LOG_POPUP_BLAMEDIFF);
-				popup.AppendMenuIcon(ID_BLAMEDIFF, temp, IDI_BLAME);
+				popup.AppendMenuIcon(ID_DIFF, IDS_LOG_POPUP_DIFF, IDI_DIFF);
+				popup.AppendMenuIcon(ID_BLAMEDIFF, IDS_LOG_POPUP_BLAMEDIFF, IDI_BLAME);
 				popup.SetDefaultItem(ID_DIFF, FALSE);
-				temp.LoadString(IDS_LOG_POPUP_GNUDIFF_CH);
-				popup.AppendMenuIcon(ID_GNUDIFF1, temp, IDI_DIFF);
+				popup.AppendMenuIcon(ID_GNUDIFF1, IDS_LOG_POPUP_GNUDIFF_CH, IDI_DIFF);
 				bEntryAdded = true;
 			}
 			if (rev2 == rev1-1)
 			{
 				if (bEntryAdded)
 					popup.AppendMenu(MF_SEPARATOR, NULL);
-				temp.LoadString(IDS_LOG_POPUP_OPEN);
-				popup.AppendMenuIcon(ID_OPEN, temp, IDI_OPEN);
-				temp.LoadString(IDS_LOG_POPUP_OPENWITH);
-				popup.AppendMenuIcon(ID_OPENWITH, temp, IDI_OPEN);
-				temp.LoadString(IDS_LOG_POPUP_BLAME);
-				popup.AppendMenuIcon(ID_BLAME, temp, IDI_BLAME);
+				popup.AppendMenuIcon(ID_OPEN, IDS_LOG_POPUP_OPEN, IDI_OPEN);
+				popup.AppendMenuIcon(ID_OPENWITH, IDS_LOG_POPUP_OPENWITH, IDI_OPEN);
+				popup.AppendMenuIcon(ID_BLAME, IDS_LOG_POPUP_BLAME, IDI_BLAME);
 				popup.AppendMenu(MF_SEPARATOR, NULL);
-				temp.LoadString(IDS_LOG_POPUP_REVERTREV);
 				if (m_hasWC)
-					popup.AppendMenuIcon(ID_REVERTREV, temp, IDI_REVERT);
-				temp.LoadString(IDS_REPOBROWSE_SHOWPROP);
-				popup.AppendMenuIcon(ID_POPPROPS, temp, IDI_PROPERTIES);			// "Show Properties"
-				temp.LoadString(IDS_MENULOG);
-				popup.AppendMenuIcon(ID_LOG, temp, IDI_LOG);						// "Show Log"				
-				temp.LoadString(IDS_LOG_POPUP_GETMERGELOGS);
-				popup.AppendMenuIcon(ID_GETMERGELOGS, temp, IDI_LOG);		// "Show merge log"
-				temp.LoadString(IDS_LOG_POPUP_SAVE);
-				popup.AppendMenuIcon(ID_SAVEAS, temp, IDI_SAVEAS);
+					popup.AppendMenuIcon(ID_REVERTREV, IDS_LOG_POPUP_REVERTREV, IDI_REVERT);
+				popup.AppendMenuIcon(ID_POPPROPS, IDS_REPOBROWSE_SHOWPROP, IDI_PROPERTIES);			// "Show Properties"
+				popup.AppendMenuIcon(ID_LOG, IDS_MENULOG, IDI_LOG);						// "Show Log"				
+				popup.AppendMenuIcon(ID_GETMERGELOGS, IDS_LOG_POPUP_GETMERGELOGS, IDI_LOG);		// "Show merge log"
+				popup.AppendMenuIcon(ID_SAVEAS, IDS_LOG_POPUP_SAVE, IDI_SAVEAS);
 				bEntryAdded = true;
 				if (!m_ProjectProperties.sWebViewerPathRev.IsEmpty())
 				{
 					popup.AppendMenu(MF_SEPARATOR, NULL);
-					temp.LoadString(IDS_LOG_POPUP_VIEWPATHREV);
-					popup.AppendMenuIcon(ID_VIEWPATHREV, temp);
+					popup.AppendMenuIcon(ID_VIEWPATHREV, IDS_LOG_POPUP_VIEWPATHREV);
 				}
 				if (popup.GetDefaultItem(0,FALSE)==-1)
 					popup.SetDefaultItem(ID_OPEN, FALSE);
@@ -4487,8 +4440,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 		else if (changedlogpaths.size())
 		{
 			// more than one entry is selected
-			temp.LoadString(IDS_LOG_POPUP_SAVE);
-			popup.AppendMenuIcon(ID_SAVEAS, temp);
+			popup.AppendMenuIcon(ID_SAVEAS, IDS_LOG_POPUP_SAVE);
 			bEntryAdded = true;
 		}
 
@@ -4673,6 +4625,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 				{
 					// Display the Open dialog box. 
 					CString revFilename;
+					CString temp;
 					temp = CPathUtils::GetFileNameFromPath(changedpaths[0]);
 					int rfind = temp.ReverseFind('.');
 					if (rfind > 0)
@@ -4681,7 +4634,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 						revFilename.Format(_T("%s-%ld"), (LPCTSTR)temp, rev1);
 					bTargetSelected = CAppUtils::FileOpenSave(revFilename, NULL, IDS_LOG_POPUP_SAVE, IDS_COMMONFILEFILTER, false, m_hWnd);
 					TargetPath.SetFromWin(revFilename);
-					}
+				}
 				if (bTargetSelected)
 				{
 					CProgressDlg progDlg;

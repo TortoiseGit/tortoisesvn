@@ -1376,7 +1376,6 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 			CIconMenu popup;
 			if (popup.CreatePopupMenu())
 			{
-				CString temp;
 				bool bAdded = false;
 				NotificationData * data = m_arData[selIndex];
 				if ((data)&&(!data->path.IsDirectory()))
@@ -1385,8 +1384,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					{
 						if (m_ProgList.GetSelectedCount() == 1)
 						{
-							temp.LoadString(IDS_LOG_POPUP_COMPARE);
-							popup.AppendMenuIcon(ID_COMPARE, temp, IDI_DIFF);
+							popup.AppendMenuIcon(ID_COMPARE, IDS_LOG_POPUP_COMPARE, IDI_DIFF);
 							bAdded = true;
 						}
 					}
@@ -1394,16 +1392,12 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 						{
 							if (m_ProgList.GetSelectedCount() == 1)
 							{
-								temp.LoadString(IDS_MENUCONFLICT);
-								popup.AppendMenuIcon(ID_EDITCONFLICT, temp,IDI_CONFLICT);
+								popup.AppendMenuIcon(ID_EDITCONFLICT, IDS_MENUCONFLICT,IDI_CONFLICT);
 								popup.SetDefaultItem(ID_EDITCONFLICT, FALSE);
-								temp.LoadString(IDS_SVNPROGRESS_MENUMARKASRESOLVED);
-								popup.AppendMenuIcon(ID_CONFLICTRESOLVE, temp,IDI_RESOLVE);
+								popup.AppendMenuIcon(ID_CONFLICTRESOLVE, IDS_SVNPROGRESS_MENUMARKASRESOLVED,IDI_RESOLVE);
 							}
-							temp.LoadString(IDS_SVNPROGRESS_MENUUSETHEIRS);
-							popup.AppendMenuIcon(ID_CONFLICTUSETHEIRS, temp,IDI_RESOLVE);
-							temp.LoadString(IDS_SVNPROGRESS_MENUUSEMINE);
-							popup.AppendMenuIcon(ID_CONFLICTUSEMINE, temp,IDI_RESOLVE);
+							popup.AppendMenuIcon(ID_CONFLICTUSETHEIRS, IDS_SVNPROGRESS_MENUUSETHEIRS,IDI_RESOLVE);
+							popup.AppendMenuIcon(ID_CONFLICTUSEMINE, IDS_SVNPROGRESS_MENUUSEMINE,IDI_RESOLVE);
 						}
 						else if ((data->content_state == svn_wc_notify_state_merged)||(SVNProgress_Merge == m_Command)||(data->action == svn_wc_notify_resolved))
 							popup.SetDefaultItem(ID_COMPARE, FALSE);
@@ -1422,14 +1416,11 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							(data->action == svn_wc_notify_commit_postfix_txdelta)||
 							(data->action == svn_wc_notify_update_update))
 						{
-							temp.LoadString(IDS_MENULOG);
-							popup.AppendMenuIcon(ID_LOG, temp,IDI_LOG);
+							popup.AppendMenuIcon(ID_LOG, IDS_MENULOG,IDI_LOG);
 							if (data->action == svn_wc_notify_update_update)
 								popup.AppendMenu(MF_SEPARATOR, NULL);
-							temp.LoadString(IDS_LOG_POPUP_OPEN);
-							popup.AppendMenuIcon(ID_OPEN, temp, IDI_OPEN);
-							temp.LoadString(IDS_LOG_POPUP_OPENWITH);
-							popup.AppendMenuIcon(ID_OPENWITH, temp, IDI_OPEN);
+							popup.AppendMenuIcon(ID_OPEN, IDS_LOG_POPUP_OPEN, IDI_OPEN);
+							popup.AppendMenuIcon(ID_OPENWITH, IDS_LOG_POPUP_OPENWITH, IDI_OPEN);
 							bAdded = true;
 						}
 					}
@@ -1444,8 +1435,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							CTSVNPath path = CTSVNPath(sPath);
 							if (path.GetDirectory().Exists())
 							{
-								temp.LoadString(IDS_SVNPROGRESS_MENUOPENPARENT);
-								popup.AppendMenuIcon(ID_EXPLORE, temp, IDI_EXPLORER);
+								popup.AppendMenuIcon(ID_EXPLORE, IDS_SVNPROGRESS_MENUOPENPARENT, IDI_EXPLORER);
 								bAdded = true;
 							}
 						}
@@ -1455,8 +1445,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 				{
 					if (bAdded)
 						popup.AppendMenu(MF_SEPARATOR, NULL);
-					temp.LoadString(IDS_LOG_POPUP_COPYTOCLIPBOARD);
-					popup.AppendMenuIcon(ID_COPY, temp,IDI_COPYCLIP);
+					popup.AppendMenuIcon(ID_COPY, IDS_LOG_POPUP_COPYTOCLIPBOARD,IDI_COPYCLIP);
 					bAdded = true;
 				}
 				if (bAdded)
