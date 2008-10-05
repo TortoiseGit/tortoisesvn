@@ -2117,6 +2117,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 		Locker lock(m_critSec);
 		CIconMenu popup;
 		CMenu changelistSubMenu;
+		CMenu ignoreSubMenu;
 		if (popup.CreatePopupMenu())
 		{
 			CString temp;
@@ -2310,19 +2311,18 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 						}
 						if (bSameExt)
 						{
-							CMenu submenu;
-							if (submenu.CreateMenu())
+							if (ignoreSubMenu.CreateMenu())
 							{
 								CString ignorepath;
 								if (ignorelist.GetCount()==1)
 									ignorepath = ignorelist[0].GetFileOrDirectoryName();
 								else
 									ignorepath.Format(IDS_MENUIGNOREMULTIPLE, ignorelist.GetCount());
-								submenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNORE, ignorepath);
+								ignoreSubMenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNORE, ignorepath);
 								ignorepath = _T("*")+sExt;
-								submenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNOREMASK, ignorepath);
+								ignoreSubMenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNOREMASK, ignorepath);
 								temp.LoadString(IDS_MENUIGNORE);
-								popup.InsertMenu((UINT)-1, MF_BYPOSITION | MF_POPUP, (UINT_PTR)submenu.m_hMenu, temp);
+								popup.InsertMenu((UINT)-1, MF_BYPOSITION | MF_POPUP, (UINT_PTR)ignoreSubMenu.m_hMenu, temp);
 							}
 						}
 						else
