@@ -2259,7 +2259,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 				if (m_dwContextMenus & SVNSLC_POPEXPLORE)
 				{
 					temp.LoadString(IDS_STATUSLIST_CONTEXT_EXPLORE);
-					popup.AppendMenuIcon(IDSVNLC_EXPLORE, temp);
+					popup.AppendMenuIcon(IDSVNLC_EXPLORE, temp, IDI_EXPLORER);
 				}
 			}
 			if (GetSelectedCount() > 0)

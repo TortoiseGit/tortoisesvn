@@ -1445,7 +1445,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							if (path.GetDirectory().Exists())
 							{
 								temp.LoadString(IDS_SVNPROGRESS_MENUOPENPARENT);
-								popup.AppendMenuIcon(ID_EXPLORE, temp);
+								popup.AppendMenuIcon(ID_EXPLORE, temp, IDI_EXPLORER);
 								bAdded = true;
 							}
 						}
