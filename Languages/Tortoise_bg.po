@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-09-21 03:43+0200\n"
+"PO-Revision-Date: 2008-10-05 21:49+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1209,6 +1209,16 @@ msgstr ""
 "Списък, с разделител нов ред, от пътища, за които да се показват модификациите на иконките.\r\n"
 "Ако добавите знака '*' в края на път, всички файлове и поддиректории в този път също ще са включени."
 
+#. Resource IDs: (197)
+msgid ""
+"A newline separated list of paths for which no context menu is shown.\r\n"
+"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"An empty list will allow the context menu on all paths."
+msgstr ""
+"Списък, с разделител нов ред, от пътища, за които не се показва контекстното меню.\r\n"
+"Ако добавите знака '*' в края на път, всички файлове и поддиректории в този път също ще са изключени.\r\n"
+"За да се показва навсякъде контекстното меню, оставете списъка празен."
+
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
@@ -2397,6 +2407,10 @@ msgstr "Копиране на URL в системния буфер"
 msgid "Copy all information to clipboard"
 msgstr "Копиране на цялата информация в системния буфер"
 
+#. Resource IDs: (146)
+msgid "Copy and rename"
+msgstr "Копиране и преименуване"
+
 #. Resource IDs: (104)
 msgid "Copy and rename item to here"
 msgstr "Копиране и преименуване на обект до тук"
@@ -2916,6 +2930,10 @@ msgid ""
 msgstr ""
 "Информация за програмата, версията й и авторското право\n"
 "Относно"
+
+#. Resource IDs: (65535)
+msgid "Do not show the context menu for the following paths:"
+msgstr "Без контекстно меню за следните пътища:"
 
 #. Resource IDs: (1007)
 #, c-format
@@ -4982,6 +5000,10 @@ msgstr "Преместване на обекта надолу"
 msgid "Move Item Up"
 msgstr "Преместване на обекта нагоре"
 
+#. Resource IDs: (147)
+msgid "Move and rename"
+msgstr "Преместване и преименуване"
+
 #. Resource IDs: (104)
 msgid "Move and rename item to here"
 msgstr "Преместване и преименуване на обект до тук"
@@ -6899,6 +6921,10 @@ msgstr "&Пълно меню след кратко забавяне"
 #. Resource IDs: (1264)
 msgid "Show i&gnored files"
 msgstr "Показване на &игнорираните файлове"
+
+#. Resource IDs: (1480)
+msgid "Show items in externals"
+msgstr "Показване на обектите във външните"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
