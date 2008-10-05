@@ -33,13 +33,16 @@ public:
 	~CIconMenu(void);
 
 	BOOL AppendMenuIcon(UINT_PTR nIDNewItem, LPCTSTR lpszNewItem, UINT uIcon = 0);
+	void DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct);
+	void MeasureItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct);
 
 private:
 	HBITMAP IconToBitmap(UINT uIcon);
 	HBITMAP IconToBitmapPARGB32(UINT uIcon);
 
 private:
-	std::map<UINT, HBITMAP> bitmaps;
+	std::map<UINT, HBITMAP>		bitmaps;
+	std::map<UINT_PTR, UINT>	icons;
 	WORD winVersion;
 	ULONG_PTR m_gdipToken;
 };

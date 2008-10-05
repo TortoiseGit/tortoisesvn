@@ -68,11 +68,35 @@ BOOL CIconMenu::AppendMenuIcon(UINT_PTR nIDNewItem, LPCTSTR lpszNewItem, UINT uI
 	}
 	else
 	{
-		info.fMask |= MIIM_CHECKMARKS;
-		info.hbmpChecked = IconToBitmap(uIcon);
-		info.hbmpUnchecked = IconToBitmap(uIcon);
+		info.fMask |= MIIM_BITMAP;
+		info.hbmpItem = HBMMENU_CALLBACK;
 	}
+	icons[nIDNewItem] = uIcon;
 	return InsertMenuItem(nIDNewItem, &info);
+}
+
+void CIconMenu::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
+{
+	if ((lpDrawItemStruct==NULL)||(lpDrawItemStruct->CtlType != ODT_MENU))
+		return;		//not for a menu
+	HICON hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(icons[lpDrawItemStruct->itemID]), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	if (hIcon == NULL)
+		return;
+	DrawIconEx(lpDrawItemStruct->hDC,
+		lpDrawItemStruct->rcItem.left - 16,
+		lpDrawItemStruct->rcItem.top + (lpDrawItemStruct->rcItem.bottom - lpDrawItemStruct->rcItem.top - 16) / 2,
+		hIcon, 16, 16,
+		0, NULL, DI_NORMAL);
+	DestroyIcon(hIcon);
+}
+
+void CIconMenu::MeasureItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct)
+{
+	if (lpMeasureItemStruct==NULL)
+		return;
+	lpMeasureItemStruct->itemWidth += 2;
+	if (lpMeasureItemStruct->itemHeight < 16)
+		lpMeasureItemStruct->itemHeight = 16;
 }
 
 HBITMAP CIconMenu::IconToBitmapPARGB32(UINT uIcon)
