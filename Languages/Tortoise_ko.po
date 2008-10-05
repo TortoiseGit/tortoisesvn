@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-01 10:24+0900\n"
+"PO-Revision-Date: 2008-10-05 15:45+0900\n"
 "Last-Translator: Kim TaeDong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1173,6 +1173,16 @@ msgstr ""
 "아이콘을 겹쳐 보일 경로들입니다. 한 줄에 하나씩 기술합니다.\r\n"
 "'*'을 경로뒤에 추가하면, 그 디렉토리의 모든 파일과 서브디렉토리를 포함시킵니다."
 
+#. Resource IDs: (197)
+msgid ""
+"A newline separated list of paths for which no context menu is shown.\r\n"
+"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"An empty list will allow the context menu on all paths."
+msgstr ""
+"컨텍스트 메뉴를 보여주지 않을 경로들의 리스트입니다. 한 줄에 하나씩 기술합니다.\r\n"
+"'*' 문자를 경로뒤에 추가하면, 그 디렉토리의 모든 파일들과 서브디렉토리들도 제외됩니다.\r\n"
+"리스트를 비워둘 경우 모든 경로에 대해 컨텍스트 메뉴를 보여줍니다.."
+
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
@@ -1180,7 +1190,7 @@ msgid ""
 "An empty list will allow overlays on all paths."
 msgstr ""
 "아이콘을 겹쳐 쓰지 않을 경로들입니다. 한 줄에 하나씩 기술합니다.\r\n"
-"'*' 문자를 경로뒤에 추가하면, 그 디렉토리의 모든 파일과 서브디렉토리도 제외됩니다.\r\n"
+"'*' 문자를 경로뒤에 추가하면, 그 디렉토리의 모든 파일들과 서브디렉토리들도 제외됩니다.\r\n"
 "리스트를 비워둘 경우 모든 경로에 대해 아이콘을 겹쳐 쓰게 됩니다."
 
 #. Resource IDs: (3843)
@@ -2884,6 +2894,10 @@ msgid ""
 msgstr ""
 "프로그램 정보 표시, 버전 번호, 저작권\n"
 "프로그램 정보"
+
+#. Resource IDs: (65535)
+msgid "Do not show the context menu for the following paths:"
+msgstr "다음 경로들에 대해서 컨텍스트 메뉴를 보여주지 않습니다.:"
 
 #. Resource IDs: (1007)
 #, c-format
