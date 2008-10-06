@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-09-30 20:36+0800\n"
+"PO-Revision-Date: 2008-10-06 20:03+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1173,6 +1173,16 @@ msgid ""
 msgstr ""
 "以換行分隔的列表, 包含要顯示圖示覆蓋的目錄.\r\n"
 "如果你在路徑後面加上 '*', 那麼此路徑下的所有檔案及子目錄也都會顯示."
+
+#. Resource IDs: (197)
+msgid ""
+"A newline separated list of paths for which no context menu is shown.\r\n"
+"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"An empty list will allow the context menu on all paths."
+msgstr ""
+"以換行分隔的列表, 列出的目錄不顯示圖示覆蓋.\r\n"
+"如果你在路徑後面加上 '*', 那麼此路徑下的所有檔案及子目錄也都不會顯示.\r\n"
+"列表為空時表示所有路徑都顯示圖示覆蓋."
 
 #. Resource IDs: (194)
 msgid ""
@@ -2887,6 +2897,10 @@ msgid ""
 msgstr ""
 "顯示檔案資訊, 版本號碼, 以及版權宣告\n"
 "關於"
+
+#. Resource IDs: (65535)
+msgid "Do not show the context menu for the following paths:"
+msgstr "在以下路徑中不顯示快顯式選單:"
 
 #. Resource IDs: (1007)
 #, c-format
