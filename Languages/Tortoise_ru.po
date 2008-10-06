@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2008
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 14128: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 14175: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-01 00:04+0300\n"
+"PO-Revision-Date: 2008-10-06 19:54+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1233,6 +1233,16 @@ msgid ""
 msgstr ""
 "Список путей, по одному в строке, где будут показываться пометки на значках.\r\n"
 "Если вы добавите '*' в конец пути, будут также включены все дочерние файлы и подпапки."
+
+#. Resource IDs: (197)
+msgid ""
+"A newline separated list of paths for which no context menu is shown.\r\n"
+"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"An empty list will allow the context menu on all paths."
+msgstr ""
+"Список путей, по одному в строке, где не будут показываться контекстные меню.\r\n"
+"Если вы добавите '*' в конец пути, будут также исключены все дочерние файлы и подпапки.\r\n"
+"Пустой список разрешает контекстные меню для всех путей."
 
 #. Resource IDs: (194)
 msgid ""
@@ -2965,6 +2975,10 @@ msgid ""
 msgstr ""
 "Показать информацию о программе, номер версии и авторские права\n"
 "О программе"
+
+#. Resource IDs: (65535)
+msgid "Do not show the context menu for the following paths:"
+msgstr "Не показывать контекстное меню для следующих путей:"
 
 #. Resource IDs: (1007)
 #, c-format
