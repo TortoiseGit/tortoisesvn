@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-09-30 11:10+0100\n"
+"PO-Revision-Date: 2008-10-06 15:16+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1229,15 +1229,25 @@ msgstr ""
 "En linjeskift-delt liste over stier hvor ikonlag vises.\r\n"
 "Hvis du legger til tegnet '*' på enden av stien, inkluderes alle filer og undermapper i stien også."
 
+#. Resource IDs: (197)
+msgid ""
+"A newline separated list of paths for which no context menu is shown.\r\n"
+"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"An empty list will allow the context menu on all paths."
+msgstr ""
+"En linjeskift-delt liste over filstier hvor sammenhengsmenyen ikke vises.\r\n"
+"Hvis du legger til et '*'-tegn på enden av stien, utelukkes alle filer og undermapper under stien også.\r\n"
+"En tom liste tillater sammenhengsmeny for alle stier."
+
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
-"En linjeskift-delt liste over filstier som viser hvor ikonlag utelukkes.\r\n"
-"Hvis du legger til et '*'-tegn på enden av stien, utelukkes alle filer og undermapper i stien også.\r\n"
-"En tom liste gir ikonlag på alle stier."
+"En linjeskift-delt liste over filstier hvor ikonlag ikke vises.\r\n"
+"Hvis du legger til et '*'-tegn på enden av stien, utelukkes alle filer og undermapper under stien også.\r\n"
+"En tom liste tillater ikonlag for alle stier."
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
@@ -2942,6 +2952,10 @@ msgid ""
 msgstr ""
 "Vis programinformasjon, versjonsnummer og opphavsrettigheter\n"
 "Om"
+
+#. Resource IDs: (65535)
+msgid "Do not show the context menu for the following paths:"
+msgstr "Ikke vis sammenhengsmenyen for følgende stier:"
 
 #. Resource IDs: (1007)
 #, c-format
