@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-09-30 14:40+0100\n"
+"PO-Revision-Date: 2008-10-06 09:42+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1176,6 +1176,15 @@ msgid ""
 msgstr ""
 "Eine durch Zeilenumbrüche getrennte Liste von Pfaden, für die überlagerte Symbole angezeigt werden.\r\n"
 "Wenn Sie ein '*' Zeichen an einen Pfad anhängen, werden alle Dateien und Ordner innerhalb des Pfades eingeschlossen."
+
+#. Resource IDs: (197)
+msgid ""
+"A newline separated list of paths for which no context menu is shown.\r\n"
+"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"An empty list will allow the context menu on all paths."
+msgstr ""
+"Eine durch Zeilenumbrüche getrennte Liste von Pfaden, für die <b>kein</b> Kontextmenü angezeigt wird.\r\n"
+"Wenn Sie ein '*' Zeichen an einen Pfad anhängen, werden alle Dateien und Ordner innerhalb des Pfades ausgeschlossen."
 
 #. Resource IDs: (194)
 msgid ""
@@ -2895,6 +2904,10 @@ msgid ""
 msgstr ""
 "Zeigt Informationen übers Programm, Versionsnummer und Copyright an\n"
 "Über"
+
+#. Resource IDs: (65535)
+msgid "Do not show the context menu for the following paths:"
+msgstr "Für die folgenden Pfade kein Kontextmenü anzeigen:"
 
 #. Resource IDs: (1007)
 #, c-format
