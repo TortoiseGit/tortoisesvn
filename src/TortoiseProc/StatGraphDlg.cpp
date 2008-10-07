@@ -976,10 +976,7 @@ void CStatGraphDlg::OnCbnSelchangeGraphcombo()
 		// by date
 		m_btnGraphLine.EnableWindow(TRUE);
 		m_btnGraphLineStacked.EnableWindow(TRUE);
-		if (m_nWeeks > 10)
-		{
-			m_btnGraphPie.EnableWindow(FALSE);
-		}
+		m_btnGraphPie.EnableWindow(TRUE);
 		m_GraphType = MyGraph::Line;
 		m_bStacked = false;
 		break;
