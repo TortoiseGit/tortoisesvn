@@ -88,6 +88,7 @@ private:
 	void	DrawLegend(CDC& dc);
 	void	DrawSeriesBar(CDC& dc) const;
 	void	DrawSeriesLine(CDC& dc) const;
+	void	DrawSeriesLineStacked(CDC& dc) const;
 	void	DrawSeriesPie(CDC& dc) const;
 
 	int		GetMaxLegendLabelLength(CDC& dc) const;

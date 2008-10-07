@@ -645,8 +645,8 @@ void MyGraph::DrawGraph(CDC& dc)
 		int baseColorL = 120;
 		int diffColorL = 60;
 		DWORD backgroundColor = ::GetSysColor(COLOR_WINDOW);
-		// If graph is a line graph, use darker colors if system window color is light.
-		if (m_eGraphType == MyGraph::Line) {
+		// If graph is a non-stacked line graph, use darker colors if system window color is light.
+		if (m_eGraphType == MyGraph::Line && !m_bStackedGraph) {
 			int backgroundLuma = (GetRValue(backgroundColor) + GetGValue(backgroundColor) + GetBValue(backgroundColor)) / 3;
 			if (backgroundLuma > 128) {
 				baseColorL = 70;
@@ -701,7 +701,7 @@ void MyGraph::DrawGraph(CDC& dc)
 		// Draw series data and labels.
 		switch (m_eGraphType) {
 			case MyGraph::Bar:  DrawSeriesBar(dc);  break;
-			case MyGraph::Line: DrawSeriesLine(dc); break;
+			case MyGraph::Line: if (m_bStackedGraph) DrawSeriesLineStacked(dc); else DrawSeriesLine(dc); break;
 			case MyGraph::PieChart:  DrawSeriesPie(dc);  break;
 			default: _ASSERTE(! "Bad default case"); break;
 		}
@@ -1147,13 +1147,11 @@ void MyGraph::DrawSeriesLine(CDC& dc) const
 {
 	VALIDATE;
 	ASSERT_VALID(&dc);
+	_ASSERTE(!m_bStackedGraph);
 
 	// Iterate the groups.
 	CPoint ptLastLoc(0,0);
 	int dataLastLoc(0);
-
-	CArray<int, int> stackAccumulator;
-	stackAccumulator.SetSize(m_olMyGraphSeries.GetCount());
 
 	for (int nGroup = 0; nGroup < GetMaxSeriesSize(); nGroup++) {
 
@@ -1202,13 +1200,9 @@ void MyGraph::DrawSeriesLine(CDC& dc) const
 			ptLoc.x = m_ptOrigin.x + (((nSeries + 1) * nSeriesSpace) - 
 				(nSeriesSpace / 2));
 			
-			double dLineHeight((pSeries->GetData(nGroup) + stackAccumulator[nSeries]) * m_nYAxisHeight /
+			double dLineHeight(pSeries->GetData(nGroup) * m_nYAxisHeight /
 				GetMaxDataValue());
 
-			if(m_bStackedGraph){
-				stackAccumulator[nSeries] += pSeries->GetData(nGroup);
-			}
-			
 			ptLoc.y = (int) ((double) m_ptOrigin.y - dLineHeight);
 			
 
@@ -1233,6 +1227,92 @@ void MyGraph::DrawSeriesLine(CDC& dc) const
 			ptLastLoc = ptLoc;
 			dataLastLoc = pSeries->GetData(nGroup);
 		}
+		VERIFY(dc.SelectObject(pPenOld));
+		penLine.DeleteObject();
+		VERIFY(dc.SelectObject(pBrushOld));
+		br.DeleteObject();
+	}
+}
+
+//
+void MyGraph::DrawSeriesLineStacked(CDC& dc) const
+{
+	VALIDATE;
+	ASSERT_VALID(&dc);
+	_ASSERTE(m_bStackedGraph);
+
+	CArray<int> stackAccumulator;
+	stackAccumulator.SetSize(m_olMyGraphSeries.GetCount());
+
+	CArray<CPoint> polygon;
+	polygon.SetSize(m_olMyGraphSeries.GetCount() * 2);
+
+	// How much space does each series get (includes inter series space)?
+	int nSeriesSpace(0);
+	if (m_saLegendLabels.GetSize()) {
+		nSeriesSpace = (m_nXAxisWidth - m_rcLegend.Width() - (GAP_PIXELS * 2)) /
+			m_olMyGraphSeries.GetCount();
+	}
+	else {
+		nSeriesSpace = m_nXAxisWidth / m_olMyGraphSeries.GetCount();
+	}
+
+	// Determine width of bars.
+	int nBarWidth(nSeriesSpace / GetMaxSeriesSize());
+	if (1 < m_olMyGraphSeries.GetCount()) {
+		nBarWidth = (int) ((double) nBarWidth * INTERSERIES_PERCENT_USED);
+	}
+
+	double dYScaling = double(m_nYAxisHeight) / GetMaxDataValue();
+	int nSeriesCount = m_olMyGraphSeries.GetCount();
+
+	// Iterate the groups.
+	for (int nGroup = 0; nGroup < GetMaxSeriesSize(); nGroup++) {
+	
+		// Build objects.
+		COLORREF crGroup(m_dwaColors.GetAt(nGroup));
+		CBrush br(crGroup);
+		CBrush* pBrushOld = dc.SelectObject(&br);
+		ASSERT_VALID(pBrushOld);
+		// For polygon outline, use average of this and previous color, and darken it.
+		COLORREF crPrevGroup(nGroup > 0 ? m_dwaColors.GetAt(nGroup-1) : crGroup);
+		COLORREF crOutline = RGB(
+			(GetRValue(crGroup)+GetRValue(crPrevGroup))/3,
+			(GetGValue(crGroup)+GetGValue(crPrevGroup))/3,
+			(GetBValue(crGroup)+GetBValue(crPrevGroup))/3);
+		CPen penLine(PS_SOLID, 1, crOutline);
+		CPen* pPenOld = dc.SelectObject(&penLine);
+		ASSERT_VALID(pPenOld);
+
+		// Construct bottom part of polygon from current stack accumulator
+		for (int nPolyBottom = 0; nPolyBottom < nSeriesCount; ++nPolyBottom) {
+			CPoint ptLoc;
+			ptLoc.x = m_ptOrigin.x + (((nPolyBottom + 1) * nSeriesSpace) - (nSeriesSpace / 2));
+			double dLineHeight((stackAccumulator[nPolyBottom]) * dYScaling);
+			ptLoc.y = (int) ((double) m_ptOrigin.y - dLineHeight);
+			polygon[nSeriesCount-nPolyBottom-1] = ptLoc;
+		}
+
+		// Iterate the series, construct upper part of polygon and upadte stack accumulator
+		POSITION pos(m_olMyGraphSeries.GetHeadPosition());
+		for (int nSeries = 0; nSeries < nSeriesCount; ++nSeries) {
+
+			MyGraphSeries* pSeries = m_olMyGraphSeries.GetNext(pos);
+			ASSERT_VALID(pSeries);
+			
+			CPoint ptLoc;			
+			ptLoc.x = m_ptOrigin.x + (((nSeries + 1) * nSeriesSpace) - 
+				(nSeriesSpace / 2));
+			double dLineHeight((pSeries->GetData(nGroup) + stackAccumulator[nSeries]) * dYScaling);			
+			ptLoc.y = (int) ((double) m_ptOrigin.y - dLineHeight);
+			polygon[nSeriesCount+nSeries] = ptLoc;
+
+			stackAccumulator[nSeries] += pSeries->GetData(nGroup);
+		}
+
+		// Draw polygon
+		VERIFY(dc.Polygon(polygon.GetData(), polygon.GetSize()));
+
 		VERIFY(dc.SelectObject(pPenOld));
 		penLine.DeleteObject();
 		VERIFY(dc.SelectObject(pBrushOld));
