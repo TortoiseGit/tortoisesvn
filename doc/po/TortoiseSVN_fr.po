@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-09-24 17:15 +0000\n"
-"PO-Revision-Date: 2008-10-03 16:08+0100\n"
+"PO-Revision-Date: 2008-10-07 18:03+0100\n"
 "Last-Translator: Grokwik <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1013,9 +1013,8 @@ msgstr "Accès TCP/IP authentifié, crypté via un protocole personnalisé à un
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:1168
-#, fuzzy
 msgid "For the most part, Subversion's URLs use the standard syntax, allowing for server names and port numbers to be specified as part of the URL. The <literal>file://</literal> access method is normally used for local access, although it can be used with UNC paths to a networked host. The URL therefore takes the form <systemitem class=\"url\">file://hostname/path/to/repos</systemitem>. For the local machine, the <literal>hostname</literal> portion of the URL is required to be either absent or <literal>localhost</literal>. For this reason, local paths normally appear with three slashes, <systemitem class=\"url\">file:///path/to/repos</systemitem>."
-msgstr "Pour la plupart, les URL de Subversion utilisent la syntaxe standard, autorisant la définition des noms serveur et des numéros de port dans l'URL. La méthode d'accès <literal>file:</literal> est normalement utilisée pour l'accès local, bien qu'elle puisse être utilisée avec des chemins UNC à un hôte en réseau. L'URL prend donc la forme <literal>file://nomhote/chemin/vers/référentiel</literal>. Pour la machine locale, la partie <literal>nomhote</literal> de l'URL doit être soit absente, soit <literal>localhost</literal>. Pour cette raison, les chemins locaux apparaissent normalement avec trois slashs, <literal>file:///chemin/vers/référentiel</literal>."
+msgstr "Pour la plupart, les URL de Subversion utilisent la syntaxe standard, autorisant la définition des noms serveur et des numéros de port dans l'URL. La méthode d'accès <literal>file://</literal> est normalement utilisée pour les accès locaux, bien qu'elle puisse être utilisée avec des chemins UNC pour un hôte non local. L'URL prend donc la forme <systemitem class=\"url\">file://nomhote/chemin/vers/referentiel</systemitem>. Pour la machine locale, la partie <literal>nomhote</literal> de l'URL doit être soit absente, soit <literal>localhost</literal>. Pour cette raison, les chemins locaux apparaissent normalement avec trois slashs, <systemitem class=\"url\">file:///chemin/vers/referentiel</systemitem>."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:1181
@@ -1222,9 +1221,8 @@ msgstr "Changé localement et périmé"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:1395
-#, fuzzy
 msgid "The file has been changed both in the working directory, and in the repository. A <command>commit</command> of the file will fail with an <emphasis>out-of-date</emphasis> error. The file should be updated first; an <command>update</command> command will attempt to merge the public changes with the local changes. If Subversion can't complete the merge in a plausible way automatically, it leaves it to the user to resolve the conflict."
-msgstr "Le fichier a été changé dans le répertoire de travail, et dans le référentiel. Une <command>livraison</command> du fichier échouera avec une erreur \"out of date\". Le fichier devrait être mis à jour d'abord ; une commande de <command>mise à jour</command> essayera de fusionner les changements publics avec les changements locaux. Si Subversion ne peut pas achever automatiquement la fusion d'une façon plausible, il laisse l'utilisateur résoudre le conflit."
+msgstr "Le fichier a été modifié dans le répertoire de travail, et dans le référentiel. Une <command>livraison</command> du fichier échouera avec une erreur <emphasis>périmé</emphasis>. Le fichier devrait d'abord être mis à jour ; la commande <command>mise à jour</command> essayera de fusionner les deux versions. Si Subversion réussit pas à faire correctement la fusion, il laisse l'utilisateur résoudre le conflit."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:1412
@@ -1390,9 +1388,8 @@ msgstr "Si cette permission n'est pas activé dans la configuration de vote serv
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:1543
-#, fuzzy
 msgid "The first thing you need before installing Apache is a computer with Windows 2000, Windows XP+SP1, Windows 2003, Vista or Server 2008. <warning><placeholder-1/></warning><placeholder-2/><caution><placeholder-3/><placeholder-4/><placeholder-5/><placeholder-6/></caution>"
-msgstr "La première chose dont vous avez besoin avant d'installer Apache est d'un ordinateur avec Windows2000, WinXP+SP1 ou Windows 2003. <warning><placeholder-1/></warning><placeholder-2/><caution><placeholder-3/><placeholder-4/><placeholder-5/><placeholder-6/></caution>"
+msgstr "La première chose dont vous avez besoin avant d'installer Apache est d'un ordinateur avec Windows2000, WinXP+SP1, Windows 2003, Vista ou Windows Server 2008. <warning><placeholder-1/></warning><placeholder-2/><caution><placeholder-3/><placeholder-4/><placeholder-5/><placeholder-6/></caution>"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:1628
@@ -2048,14 +2045,13 @@ msgstr ""
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2286
-#, fuzzy
 msgid ""
 "Normally the <filename>privkey.pem</filename> file is created automatically, but if it isn't you need to type this command to generate it: <screen>\n"
 "bin\\openssl genrsa -out conf\\privkey.pem 2048\n"
 "</screen>"
 msgstr ""
-"Normalement le fichier <filename>privkey.pem</filename> est créé automatiquement, mais si ce n'est pas le cas, vous devez taper cette commande pour le générer: <screen>\n"
-"bin\\openssl genrsa -out privkey.pem 2048\n"
+"Normalement le fichier <filename>privkey.pem</filename> est créé automatiquement, mais si ce n'est pas le cas vous devez exécuter cette commande pour le générer: <screen>\n"
+"bin\\openssl genrsa -out conf\\privkey.pem 2048\n"
 "</screen>"
 
 #. (para)
@@ -2270,9 +2266,8 @@ msgstr "Il peut y avoir des situations où il n'est pas possible d'utiliser Apac
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2492
-#, fuzzy
 msgid "In most cases svnserve is easier to setup and runs faster than the Apache based server. And now that SASL support is included it is easy to secure as well."
-msgstr "Dans la plupart des cas svnserve est plus facile à installer et fonctionne plus rapidement que le serveur basé sur Apache."
+msgstr "Dans la plupart des cas svnserve est plus facile à installer et fonctionne plus rapidement que le serveur basé sur Apache. D'autant plus maintenant qu'est inclu le support SASL."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:2499
@@ -2291,9 +2286,8 @@ msgstr "Si vous déjà une version de Subversion d'installée, et que svnserve e
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2523
-#, fuzzy
 msgid "Run the Subversion installer. If you run the installer on your server (recommended) you can skip step 4."
-msgstr "Exécutez l'installeur de Subversion. Si vous exécutez l'installeur sur votre serveur vous pouvez sauter l'étape 4."
+msgstr "Exécutez le programme d'installation de Subversion. Si vous l'exécutez sur votre serveur (ce qui est recommendé) vous pouvez passer l'étape 4."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2529
@@ -2373,7 +2367,6 @@ msgstr "Exécuter svnserve par un utilisateur n'est généralement pas la meille
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2632
-#, fuzzy
 msgid ""
 "To install svnserve as a native windows service, execute the following command all on one line to create a service which is automatically started when windows starts. <screen>\n"
 "sc create svnserve binpath= \"c:\\svnserve\\svnserve.exe --service \n"
@@ -2388,14 +2381,17 @@ msgid ""
 "sc description svnserve \"Subversion server (svnserve)\"\n"
 "</screen>"
 msgstr ""
-"Pour installer svnserve comme service Windows, exécutez la commande suivante. Le service sera alors créé et lancé à chaque démarrage de Windows.<screen>\n"
+"Pour installer svnserve comme service Windows, exécutez la commande suivante. Le service sera alors créé et lancé à chaque démarrage de Windows. <screen>\n"
 "sc create svnserve binpath= \"c:\\svnserve\\svnserve.exe --service \n"
-"    --root c:\\repos\" displayname= \"Subversion\" depend= tcpip start= auto\n"
-"</screen> Si un des chemin d'accès contient des espaces, vous devrez encapsuler ceux ci dans des double cotes (protégées), comme suit : <screen>\n"
-"sc create svnserve binpath= \"\\\"C:\\Program Files\\Subversion\\bin\\svnserve.exe\\\"\n"
-"    --service --root c:\\repos\" displayname= \"Subversion\" depend= tcpip start= auto\n"
+"    --root c:\\referentiel\" displayname= \"Subversion\" depend= tcpip \n"
+"    start= auto\n"
+"</screen> Si un des chemin d'accès contient des espaces, vous devrez encapsuler ceux ci avec des double cotes, comme suit : <screen>\n"
+"sc create svnserve binpath= \"\n"
+"    \\\"C:\\Program Files\\Subversion\\bin\\svnserve.exe\\\"\n"
+"    --service --root c:\\referentiel\" displayname= \"Subversion\" \n"
+"    depend= tcpip start= auto\n"
 "</screen> Vous pouvez également ajouter une description après avoir créé le service. Elle sera visible depuis la fenêtre de gestion des services de Windows. <screen>\n"
-"sc description svnserve \"Subversion server (svnserve)\"\n"
+"sc description svnserve \"Serveur Subversion (svnserve)\"\n"
 "</screen>"
 
 #. (para)
@@ -2442,9 +2438,8 @@ msgstr "Authentification de base avec svnserve"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2705
-#, fuzzy
 msgid "The default svnserve setup provides anonymous read-only access. This means that you can use an <literal>svn://</literal> URL to checkout and update, or use the repo-browser in TortoiseSVN to view the repository, but you won't be able to commit any changes."
-msgstr "L'installation par défaut de svnserve fournit un accès anonyme en lecture seule. Cela signifie que vous pouvez utiliser une URL <filename>svn://</filename> pour extraire ou mettre à jour, ou utiliser l'explorateur de référentiel dans TortoiseSVN pour voir le référentiel, mais vous ne serez pas capables de livrer des changements."
+msgstr "L'installation par défaut de svnserve fournit un accès anonyme en lecture seule. Cela signifie que vous pouvez utiliser une URL du type <literal>svn://</literal> pour extraire, mettre à jour, ou utiliser l'explorateur de référentiel dans TortoiseSVN pour voir le référentiel, mais vous ne pourrez faire aucune livraison."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2711
@@ -2617,9 +2612,8 @@ msgstr "Authentification avec svn+ssh"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2898
-#, fuzzy
 msgid "Another way to authenticate users with a svnserve based server is to use a secure shell (SSH) to tunnel requests through. It is not as simple to set up as SASL, but it may be useful is some cases."
-msgstr "Une autre façon d'authentifier les utilisateurs avec un serveur basé sur svnserve est d'utiliser un shell sécurisé (SSH) pour tunneler les requêtes."
+msgstr "Une autre façon d'authentifier les utilisateurs avec un serveur basé sur svnserve est d'utiliser un shell sécurisé (SSH) pour tunneler les requêtes. Cette méthode n'est pas aussi facile à configurer que SASL, mais peut être utile dans certains cas."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2904
@@ -3107,9 +3101,8 @@ msgstr "Site internet"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3412
-#, fuzzy
 msgid "If you want to make your Subversion repository available to others you may want to include a link to it from your website. One way to make this more accessible is to include a <firstterm>checkout link</firstterm> for other TortoiseSVN users."
-msgstr "Si vous voulez rendre votre référentiel Subversion disponible aux autres vous pouvez vouloir inclure un lien vers celui-ci sur votre site Web. Une façon de rendre ceci plus accessible est d'inclure un <firstterm>lien d'extraction</firstterm> pour les autres utilisateurs de TSVN."
+msgstr "Si vous voulez donner l'accès à votre référentiel Subversion à d'autres utilisateurs, vous pouvez vouloir mettre un lien vers celui-ci sur votre site Web. Une façon de rendre ceci plus accessible est d'inclure un <firstterm>lien d'extraction</firstterm> pour les autres utilisateurs de TortoiseSVN."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3418
@@ -3548,15 +3541,13 @@ msgstr "Utiliser l'explorateur de référentiel pour créer un nouveau projet di
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3852
-#, fuzzy
 msgid "Checkout the new folder over the top of the folder you want to import. You will get a warning that the local folder is not empty. Now you have a versioned top level folder with unversioned content."
-msgstr "Extrait le nouveau répertoire au dessus du répertoire que vous voulez extraire. Un message sera affiché, indiquant que le répertoire n'est pas vide. Vous disposez maintenant d'un répertoire versionné de haut niveau, avec un contenu non versionné."
+msgstr "Extrait le nouveau répertoire au dessus du répertoire que vous voulez importer. Un message sera affiché, indiquant que le répertoire n'est pas vide. Vous disposez maintenant d'un répertoire parent versionné, dont le contenu n'est pas sous contrôle de version."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3859
-#, fuzzy
 msgid "Use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add...</guimenuitem></menuchoice> on this versioned folder to add some or all of the content. You can add and remove files, set <literal>svn:ignore</literal> properties on folders and make any other changes you need to."
-msgstr "Sélectionnez <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Extraire</guimenuitem></menuchoice> pour le nouveau dossier et extrayez une copie du code commun. Vous avez maintenant une copie de travail séparée emboîtée dans votre copie de travail principale."
+msgstr "Sélectionnez <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Ajouter...</guimenuitem></menuchoice> sur le répertoire sous contrôle de version pour ajouter un ou des éléments. Vous pouvez ajouter ou supprimer des fichiers, activez les propriétés <literal>svn:ignore</literal> sur les répertoires et faites toutes les modifications dont vous avez besoin."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3871
@@ -3872,9 +3863,8 @@ msgstr "Extrait le répertoire parent avec la profondeur <quote>Juste cet élém
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4267
-#, fuzzy
 msgid "Select the new folder and use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo browser</guimenuitem></menuchoice> to display the repository content."
-msgstr "Pour tester que svnserve fonctionne, utilisez <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Explorateur de référentiel</guimenuitem></menuchoice> pour voir un référentiel."
+msgstr "Sélectionnez le nouveau répertoire et utilisez la commande <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Explorateur de référentiel</guimenuitem></menuchoice> pour voir le contenu du référentiel."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4277
@@ -4033,9 +4023,8 @@ msgstr "<action>Double-cliquer</action> sur un fichier modifié dans la boîte d
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4475
-#, fuzzy
 msgid "You can select or deselect items by clicking on the checkbox to the left of the item. For directories you can use <keycap>Shift</keycap>-<action>select</action> to make the action recursive."
-msgstr "Vous pouvez sélectionner ou désélectionner des éléments en cliquant sur la case à coser à leur gauche. Pour les répertoires, vous pouvez utiliser <action>SHIFT-Select</action> pour le faire récursivement."
+msgstr "Vous pouvez sélectionner ou désélectionner des éléments en cliquant sur la case à coser située à leur gauche. Pour les répertoires, vous pouvez utiliser <keycap>Shift</keycap>-<action>sélectionner</action> pour le faire récursivement."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4480
@@ -4324,9 +4313,8 @@ msgstr "Si vous obtenez des <literal>conflits</literal> pendant une mise à jour
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4790
-#, fuzzy
 msgid "When the update is complete, the progress dialog shows a summary of the number of items updated, added, removed, conflicted, etc. below the file list. This summary information can be copied to the clipboard using <keycap>Ctrl+C</keycap>."
-msgstr "Quand la mise à jour est terminée, la boîte de dialogue de progression affiche un résumé sur le nombre d'éléments mis à jour, ajoutés, supprimés, en conflit, etc. sous la liste des fichiers. Ce résumé d'information peut être copié dans le presse-papiers en utilisant <action>CTRL+C</action>."
+msgstr "Quand la mise à jour est terminée, la boîte de dialogue de progression affiche sous la liste des fichiers un résumé du nombre d'éléments mis à jour, ajoutés, supprimés, en conflit, etc. Ce résumé d'information peut être copié dans le presse-papiers en utilisant <keycap>Ctrl+C</keycap>."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:4797
@@ -4930,15 +4918,13 @@ msgstr "Condamner la révision sélectionnée et le fichier dans votre BASE de t
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5607
-#, fuzzy
 msgid "Blame the selected revision, and the previous revision, and compare the results using a visual diff tool. (folders only)."
-msgstr "Condamner la révision sélectionnée et la révision précédente et comparer les résultats en utilisant un outil de différenciation visuel."
+msgstr "Condamner la révision sélectionnée et la révision précédente et comparer les résultats en utilisant un outil de comparaison. (juste valable pour les répertoires)."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5614
-#, fuzzy
 msgid "Save the selected revision to a file so you have an older version of that file. (files only)."
-msgstr "Sauvegarder la révision sélectionnée dans un fichier pour que vous ayez une version précédente de ce fichier."
+msgstr "Sauvegarder la révision sélectionnée dans un fichier pour que vous ayez une version précédente de ce fichier. (juste valable pour les fichiers)."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5620
@@ -4953,9 +4939,8 @@ msgstr "Condamner le fichier jusqu'à la révision sélectionnée (uniquement po
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5631
-#, fuzzy
 msgid "Open the repository browser to examine the selected file or folder in the repository as it was at the selected revision."
-msgstr "Ouvrir l'explorateur de référentiel pour examiner le dossier sélectionné. Cette option n'est disponible que lorsque vous avez accès au journal pour un répertoire."
+msgstr "Ouvrir l'explorateur de référentiel pour examiner le fichier ou dossier sélectionné dans le référentiel tel qu'il était à la révision sélectionnée."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5637
