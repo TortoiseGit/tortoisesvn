@@ -18,7 +18,7 @@
 //
 #pragma once
 #include "StandAloneDlg.h"
-#include "RevisionGraph.h"
+#include "RevisionGraph/AllGraphOptions.h"
 #include "ProgressDlg.h"
 #include "Colors.h"
 #include "RevisionGraphWnd.h"
@@ -54,11 +54,10 @@ public:
 
 	void			SetPath(const CString& sPath) {m_Graph.m_sPath = sPath;}
     void			SetPegRevision(SVNRev revision) {m_Graph.m_pegRev = revision;}
-	void			UpdateZoomBox();
-	float			m_fZoomFactor;
+    void            DoZoom (float factor);
 protected:
 	bool			m_bFetchLogs;
-    CRevisionGraph::SOptions m_options;
+    CAllRevisionGraphOptions m_options;
 	char			m_szTip[MAX_TT_LENGTH+1];
 	wchar_t			m_wszTip[MAX_TT_LENGTH+1];
 
@@ -83,34 +82,28 @@ protected:
 	afx_msg void	OnViewComparerevisions();
 	afx_msg void	OnViewUnifieddiff();
 	afx_msg void	OnViewUnifieddiffofheadrevisions();
-	afx_msg void	OnViewShowallrevisions();
-	afx_msg void	OnViewArrangedbypath();
-	afx_msg void	OnViewTopDown();
-	afx_msg void    OnViewShowHEAD();
-	afx_msg void    OnViewExactCopySource();
-	afx_msg void    OnViewFoldTags();
-	afx_msg void    OnViewReduceCrosslines();
-    afx_msg void    OnViewRemoveDeletedOnes();
-    afx_msg void    OnViewShowWCRev();
 	afx_msg void	OnViewShowoverview();
 	afx_msg void	OnFileSavegraphas();
 	afx_msg void	OnMenuexit();
 	afx_msg void	OnMenuhelp();
 	afx_msg void	OnChangeZoom();
-	afx_msg BOOL	OnToolTipNotify(UINT id, NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg BOOL    OnToggleOption (UINT controlID);
+	afx_msg BOOL	OnToolTipNotify (UINT id, NMHDR *pNMHDR, LRESULT *pResult);
 
 	DECLARE_MESSAGE_MAP()
 
-	void			SetOption(int controlID, bool option);
-    void            OnToggleOption(int controlID, bool& option);
+	void			SetOption (UINT controlID);
 
-    void			GetGraphRect(LPRECT rect);
+    CRect			GetGraphRect();
 	void			UpdateStatusBar();
 
 private:
+	void			UpdateZoomBox();
+
     void            StartWorkerThread();
 	static UINT		WorkerThread(LPVOID pVoid);
 
+	float			m_fZoomFactor;
 	CRevisionGraphWnd	m_Graph;
 	CStatusBarCtrl		m_StatusBar;
 	CRevGraphToolBar	m_ToolBar;

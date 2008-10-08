@@ -130,6 +130,12 @@ public:
 		return inherited::IsRoot() && relPathElements.empty();
 	}
 
+    index_t GetDepth() const
+    {
+        return inherited::GetDepth() 
+             + static_cast<index_t>(relPathElements.size());
+    }
+
 	CDictionaryBasedTempPath GetCommonRoot 
 		(const CDictionaryBasedTempPath& rhs) const;
 

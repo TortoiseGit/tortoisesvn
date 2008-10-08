@@ -274,6 +274,20 @@ CDictionaryBasedPath::CDictionaryBasedPath ( CPathDictionary* aDictionary
 	ParsePath (path, nextParent ? NULL : aDictionary);
 }
 
+index_t CDictionaryBasedPath::GetDepth() const
+{
+    if (IsValid())
+    {
+        index_t result = 0;
+        for (index_t i = index; i != 0; i = dictionary->GetParent (i))
+            ++result;
+
+        return result;
+    }
+    else
+        return static_cast<index_t>(NO_INDEX);
+}
+
 bool CDictionaryBasedPath::IsSameOrParentOf ( index_t lhsIndex
 											, index_t rhsIndex) const
 {

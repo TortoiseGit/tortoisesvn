@@ -280,7 +280,7 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
 	return true;
 }
 
-bool SVNDiff::ShowUnifiedDiff(const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, const SVNRev& peg /* = SVNRev() */, bool bIgnoreAncestry /* = false */)
+bool SVNDiff::ShowUnifiedDiff(const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, SVNRev peg /* = SVNRev() */, bool bIgnoreAncestry /* = false */, bool /*blame*/)
 {
 	CTSVNPath tempfile;
 	if (UnifiedDiff(tempfile, url1, rev1, url2, rev2, peg, bIgnoreAncestry))

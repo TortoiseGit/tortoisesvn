@@ -130,7 +130,7 @@ private:
 	/// map URL -> PerRepoInfo
 
     typedef std::map<CString, SPerRepositoryInfo> TData;
-    TData data;
+    static TData data;
 
     /// has the data been modified
 

@@ -68,7 +68,7 @@ public:
 	 *
 	 * \remark the peg revision is only used if \a url1 is the same as \a url2
 	 */
-	bool ShowUnifiedDiff(const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, const SVNRev& peg = SVNRev(), bool bIgnoreAncestry = false);
+	bool ShowUnifiedDiff(const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, SVNRev peg = SVNRev(), bool bIgnoreAncestry = false, bool /*blame*/ = false);
 
 	/**
 	 * See ShowUnifiedDiff().

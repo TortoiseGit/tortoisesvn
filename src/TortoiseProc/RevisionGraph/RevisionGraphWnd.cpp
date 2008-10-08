@@ -18,7 +18,6 @@
 //
 #include "stdafx.h"
 #include "TortoiseProc.h"
-#include <gdiplus.h>
 #include "Revisiongraphwnd.h"
 #include "MessageBox.h"
 #include "SVN.h"
@@ -35,6 +34,7 @@
 #include "RepositoryInfo.h"
 #include "BrowseFolder.h"
 #include "SVNProgressDlg.h"
+#include "RevisionGraph/StandardLayout.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -61,24 +61,12 @@ CRevisionGraphWnd::CRevisionGraphWnd()
 	, m_SelectedEntry2(NULL)
 	, m_bThreadRunning(FALSE)
 	, m_pDlgTip(NULL)
-	, m_bNoGraph(false)
 	, m_nFontSize(12)
-	, m_node_rect_width(NODE_RECT_WIDTH)
-	, m_node_space_left(NODE_SPACE_LEFT)
-	, m_node_space_right(NODE_SPACE_RIGHT)
-	, m_node_space_line(NODE_SPACE_LINE)
-	, m_node_rect_height(NODE_RECT_HEIGHT)
-	, m_node_space_top(NODE_SPACE_TOP)
-	, m_node_space_bottom(NODE_SPACE_BOTTOM)
-	, m_nIconSize(32)
-	, m_RoundRectPt(ROUND_RECT, ROUND_RECT)
 	, m_fZoomFactor(1.0)
 	, m_ptRubberEnd(0,0)
 	, m_ptRubberStart(0,0)
 	, m_bShowOverview(false)
 {
-	m_GraphRect.SetRectEmpty();
-	m_ViewRect.SetRectEmpty();
 	memset(&m_lfBaseFont, 0, sizeof(LOGFONT));	
 	for (int i=0; i<MAXFONTS; i++)
 	{
@@ -108,8 +96,6 @@ CRevisionGraphWnd::CRevisionGraphWnd()
 
 CRevisionGraphWnd::~CRevisionGraphWnd()
 {
-	m_arConnections.clear();
-
 	for (int i=0; i<MAXFONTS; i++)
 	{
 		if (m_apFonts[i] != NULL)
@@ -206,44 +192,25 @@ BOOL CRevisionGraphWnd::ProgressCallback(CString text, CString text2, DWORD done
 	return TRUE;
 }
 
-CRevisionEntry * CRevisionGraphWnd::GetHitNode (CPoint point) const
+index_t CRevisionGraphWnd::GetHitNode (CPoint point) const
 {
-    // translate point into row, column coordinates
+    // any nodes at all?
 
-    float columnSpacing = m_node_rect_width + m_node_space_left + m_node_space_right;
-    float rowSpacing = m_node_rect_height + m_node_space_top + m_node_space_bottom;
+    if (m_layout.get() == NULL)
+        return index_t(NO_INDEX);
+
+    // translate point into logical coordinates
 
     int nVScrollPos = GetScrollPos(SB_VERT);
     int nHScrollPos = GetScrollPos(SB_HORZ);
 
-    int row = (int)((point.y - m_node_space_top + nVScrollPos) / rowSpacing + 1);
-    int column = (int)((point.x - m_node_space_left + nHScrollPos) / columnSpacing + 1);
-
-    // the node rectangle at that position (maybe unused)
-
-    CRect noderect;
-    noderect.left = (long)((column - 1) * columnSpacing + m_node_space_left - nHScrollPos);
-    noderect.top = (long)((row - 1) * rowSpacing + m_node_space_top - nVScrollPos);
-    noderect.right = (long)(noderect.left + m_node_rect_width);
-    noderect.bottom = (long)(noderect.top + m_node_rect_height);
-
-    // hit the (potential) node position and not the space in between nodes?
-
-    if (!noderect.PtInRect(point))
-        return NULL;
+    CSize logCoordinates ( (int)((point.x + nHScrollPos) / m_fZoomFactor)
+                         , (int)((point.y + nVScrollPos) / m_fZoomFactor));
 
     // search the nodes for one at that grid position
 
-    for (size_t i = 0, count = m_entryPtrs.size(); i < count; ++i)
-    {
-	    CRevisionEntry * reventry = m_entryPtrs[i];
-	    if ((reventry->row == row) && (reventry->column == column))
-            return reventry;
-    }
-
-    // there is no node at that grid position
-		    
-    return NULL;
+    std::auto_ptr<const ILayoutNodeList> nodeList (m_layout->GetNodes());
+    return nodeList->GetAt (logCoordinates, 0);
 }
 
 void CRevisionGraphWnd::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
@@ -361,9 +328,11 @@ void CRevisionGraphWnd::OnLButtonDown(UINT nFlags, CPoint point)
 	bool bControl = !!(GetKeyState(VK_CONTROL)&0x8000);
 	if (!m_OverviewRect.PtInRect(point))
 	{
-        CRevisionEntry * reventry = GetHitNode (point);
-	    if (reventry != NULL)
+        index_t nodeIndex = GetHitNode (point);
+	    if (nodeIndex != NO_INDEX)
 	    {
+            std::auto_ptr<const ILayoutNodeList> nodeList (m_layout->GetNodes());
+            const CVisibleGraphNode* reventry = nodeList->GetNode (nodeIndex).node;
 		    if (bControl)
 		    {
 			    if (m_SelectedEntry1 == reventry)
@@ -425,7 +394,7 @@ void CRevisionGraphWnd::OnLButtonDown(UINT nFlags, CPoint point)
 void CRevisionGraphWnd::OnLButtonUp(UINT nFlags, CPoint point)
 {
 	if (!m_bIsRubberBand)
-		return;		// we don't have a rubber band, so no zooming necessary
+		return;		// we don't have a rubberband, so no zooming necessary
 
 	m_bIsRubberBand = false;
 	ReleaseCapture();
@@ -458,7 +427,7 @@ void CRevisionGraphWnd::OnLButtonUp(UINT nFlags, CPoint point)
 	float fZoomfactor = m_fZoomFactor*fact;
 	if (fZoomfactor > 20.0)
 	{
-		// with such a big zoom factor, the user
+		// with such a big zoomfactor, the user
 		// most likely zoomed by accident
 		Invalidate();
 		__super::OnLButtonUp(nFlags, point);
@@ -474,10 +443,8 @@ void CRevisionGraphWnd::OnLButtonUp(UINT nFlags, CPoint point)
 	if (pDlg)
 	{
 		m_fZoomFactor = fZoomfactor;
-		pDlg->m_fZoomFactor = m_fZoomFactor;
-		DoZoom(m_fZoomFactor);
+		pDlg->DoZoom (m_fZoomFactor);
 		SetScrollbars(int(float(y)*fact), int(float(x)*fact));
-		pDlg->UpdateZoomBox();
 	}
 	__super::OnLButtonUp(nFlags, point);
 }
@@ -487,8 +454,7 @@ INT_PTR CRevisionGraphWnd::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 	if (m_bThreadRunning)
 		return -1;
 
-	CRevisionEntry * reventry = GetHitNode (point);
-    if (reventry == NULL)
+    if (GetHitNode (point) == NO_INDEX)
         return -1;
 
 	pTI->hwnd = this->m_hWnd;
@@ -502,23 +468,18 @@ INT_PTR CRevisionGraphWnd::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 
 BOOL CRevisionGraphWnd::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pResult)
 {
-	// need to handle both ANSI and UNICODE versions of the message
+    if (pNMHDR->idFrom != (UINT)m_hWnd)
+		return FALSE;
+
+    // need to handle both ANSI and UNICODE versions of the message
 	TOOLTIPTEXTA* pTTTA = (TOOLTIPTEXTA*)pNMHDR;
 	TOOLTIPTEXTW* pTTTW = (TOOLTIPTEXTW*)pNMHDR;
-	CString strTipText;
 
-	CRevisionEntry * rentry = NULL;
 	POINT point;
 	GetCursorPos(&point);
 	ScreenToClient(&point);
-	if (pNMHDR->idFrom == (UINT)m_hWnd)
-	{
-        rentry = GetHitNode (point);
-        if (rentry)
-            strTipText = TooltipText (rentry);
-	}
-	else
-		return FALSE;
+
+    CString strTipText = TooltipText (GetHitNode (point));
 
 	*pResult = 0;
 	if (strTipText.IsEmpty())
@@ -642,7 +603,7 @@ CString CRevisionGraphWnd::DisplayableText ( const CString& wholeText
         pos += line.GetLength();
     }
         
-    // release temp. resources
+    // relase temp. resources
 
     dc->SelectObject (pOldFont);
     ReleaseDC(dc);
@@ -652,72 +613,15 @@ CString CRevisionGraphWnd::DisplayableText ( const CString& wholeText
     return result;
 }
 
-CString CRevisionGraphWnd::TooltipText (CRevisionEntry* rentry)
+CString CRevisionGraphWnd::TooltipText (index_t index)
 {
-    CString strTipText;
-
-    const CCachedLogInfo* cache = query->GetCache();
-    const CRevisionIndex& revisions = cache->GetRevisions();
-    const CRevisionInfoContainer& revisionInfo = cache->GetLogInfo();
-
-    // find the revision in our cache. 
-    // May not be present if this is the WC / HEAD revision.
-
-    index_t index = revisions[rentry->revision];
-    if (index == NO_INDEX)
-        return strTipText;
-
-    // construct the tooltip
-
-	TCHAR date[SVN_DATE_BUFFER];
-	apr_time_t timeStamp = revisionInfo.GetTimeStamp(index);
-	SVN::formatDate(date, timeStamp);
-
-    if (rentry->tags.empty())
+    if (index != NO_INDEX)
     {
-	    strTipText.Format(IDS_REVGRAPH_BOXTOOLTIP,
-					    rentry->revision,
-					    CUnicodeUtils::StdGetUnicode(rentry->realPath.GetPath()).c_str(),
-						CUnicodeUtils::StdGetUnicode(revisionInfo.GetAuthor(index)).c_str(), 
-					    date,
-						CUnicodeUtils::StdGetUnicode(revisionInfo.GetComment(index)).c_str());
-    }
-    else
-    {
-        CString tags;
-        for (size_t i = 0; i < rentry->tags.size(); ++i)
-        {
-            const CRevisionEntry::SFoldedTag& tag = rentry->tags[i];
-
-            UINT format = tag.isAlias
-                        ? tag.isDeleted
-                            ? IDS_REVGRAPH_TAGALIASDELETED
-                            : IDS_REVGRAPH_TAGALIAS
-                        : tag.isDeleted
-                            ? IDS_REVGRAPH_TAGDELETED
-                            : IDS_REVGRAPH_TAG;
-
-            CString tagInfo;
-            tagInfo.Format ( format
-                           , CUnicodeUtils::StdGetUnicode (tag.tag.GetPath()).c_str());
-
-            tags +=   _T("\r\n")
-                    + CString (' ', tag.depth * 6) 
-                    + tagInfo;
-        }
-
-	    strTipText.Format(IDS_REVGRAPH_BOXTOOLTIP_TAGGED,
-					    rentry->revision,
-					    CUnicodeUtils::StdGetUnicode(rentry->realPath.GetPath()).c_str(),
-					    CUnicodeUtils::StdGetUnicode(revisionInfo.GetAuthor(index)).c_str(), 
-					    date,
-                        (LPCTSTR)tags,
-					    CUnicodeUtils::StdGetUnicode(revisionInfo.GetComment(index)).c_str());
+        std::auto_ptr<const ILayoutNodeList> nodeList (m_layout->GetNodes());
+        return nodeList->GetToolTip (index);
     }
 
-    // ready
-
-    return strTipText;
+    return CString();
 }
 
 void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
@@ -725,14 +629,14 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
 	CString extension = CPathUtils::GetFileExtFromPath(sSavePath);
 	if (extension.CompareNoCase(_T(".wmf"))==0)
 	{
-		// save the graph as an enhanced meta file
+		// save the graph as an enhanced metafile
 		CMetaFileDC wmfDC;
 		wmfDC.CreateEnhanced(NULL, sSavePath, NULL, _T("TortoiseSVN\0Revision Graph\0\0"));
 		float fZoom = m_fZoomFactor;
 		m_fZoomFactor = 1.0;
 		DoZoom(m_fZoomFactor);
 		CRect rect;
-		rect = GetViewSize();
+		rect = GetViewRect();
 		DrawGraph(&wmfDC, rect, 0, 0, true);
 		HENHMETAFILE hemf = wmfDC.CloseEnhanced();
 		DeleteEnhMetaFile(hemf);
@@ -784,7 +688,7 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
 				return;
 			}
 			CRect rect;
-			rect = GetViewSize();
+			rect = GetViewRect();
 			HBITMAP hbm = ::CreateCompatibleBitmap(ddc.m_hDC, rect.Width(), rect.Height());
 			if (hbm==0)
 			{
@@ -895,7 +799,14 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 	this->ScreenToClient(&clientpoint);
 	ATLTRACE("right clicked on x=%d y=%d\n", clientpoint.x, clientpoint.y);
 
-	CRevisionEntry * clickedentry = GetHitNode (clientpoint);
+    index_t nodeIndex = GetHitNode (clientpoint);
+	const CVisibleGraphNode * clickedentry = NULL;
+    if (nodeIndex != NO_INDEX)
+    {
+        std::auto_ptr<const ILayoutNodeList> nodeList (m_layout->GetNodes());
+        clickedentry = nodeList->GetNode (nodeIndex).node;
+    }
+
 	if ((m_SelectedEntry1 == NULL)&&(clickedentry == NULL))
 		return;
 
@@ -920,11 +831,11 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 	if (popup.CreatePopupMenu())
 	{
         bool bothPresent =  (m_SelectedEntry1 != NULL)
-                         && (m_SelectedEntry1->action != CRevisionEntry::deleted)
+                         && !m_SelectedEntry1->GetClassification().Is (CNodeClassification::IS_DELETED)
                          && (m_SelectedEntry2 != NULL)
-                         && (m_SelectedEntry2->action != CRevisionEntry::deleted);
+                         && !m_SelectedEntry2->GetClassification().Is (CNodeClassification::IS_DELETED);
 
-		bool bSameURL = (m_SelectedEntry2 && (m_SelectedEntry1->path == m_SelectedEntry2->path));
+        bool bSameURL = (m_SelectedEntry2 && (m_SelectedEntry1->GetPath() == m_SelectedEntry2->GetPath()));
 		CString temp;
 		if (m_SelectedEntry1 && (m_SelectedEntry2 == NULL))
 		{
@@ -982,12 +893,13 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		case ID_SHOWLOG:
 			{
 				CString sCmd;
-				CString URL = GetReposRoot() + CUnicodeUtils::GetUnicode (m_SelectedEntry1->path.GetPath().c_str());
+				CString URL = m_fullHistory->GetRepositoryRoot() 
+                            + CUnicodeUtils::GetUnicode (m_SelectedEntry1->GetPath().GetPath().c_str());
 				URL = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(URL)));
 				sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%ld"), 
 					(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), 
 					(LPCTSTR)URL,
-					m_SelectedEntry1->revision);
+                    m_SelectedEntry1->GetRevision());
 
 				if (!SVN::PathIsURL(CTSVNPath(m_sPath)))
 				{
@@ -1001,7 +913,8 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 			break;
 		case ID_MERGETO:
 			{
-				CString URL = GetReposRoot() + CUnicodeUtils::GetUnicode (m_SelectedEntry1->path.GetPath().c_str());
+				CString URL = m_fullHistory->GetRepositoryRoot() 
+                            + CUnicodeUtils::GetUnicode (m_SelectedEntry1->GetPath().GetPath().c_str());
 				URL = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(URL)));
 
 				CString path = m_sPath;
@@ -1015,7 +928,7 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 					dlg.SetUrl(URL);
 					dlg.SetSecondUrl(URL);
 					SVNRevRangeArray revarray;
-					revarray.AddRevRange(m_SelectedEntry1->revision, svn_revnum_t(m_SelectedEntry1->revision)-1);
+					revarray.AddRevRange(m_SelectedEntry1->GetRevision(), svn_revnum_t(m_SelectedEntry1->GetRevision())-1);
 					dlg.SetRevisionRanges(revarray);
 					dlg.DoModal();
 				}
@@ -1036,8 +949,9 @@ void CRevisionGraphWnd::OnMouseMove(UINT nFlags, CPoint point)
 		if ((!m_OverviewRect.IsRectEmpty())&&(m_OverviewRect.PtInRect(point))&&(nFlags & MK_LBUTTON))
 		{
 			// scrolling
-			int x = (point.x-m_OverviewRect.left - (m_OverviewPosRect.Width()/2)) * m_ViewRect.Width() / m_previewWidth;
-			int y = (point.y - (m_OverviewPosRect.Height()/2)) * m_ViewRect.Height() / m_previewHeight;
+            CRect viewRect = GetViewRect();
+			int x = (int)((point.x-m_OverviewRect.left - (m_OverviewPosRect.Width()/2)) / m_previewZoom  * m_fZoomFactor);
+			int y = (int)((point.y - (m_OverviewPosRect.Height()/2)) / m_previewZoom  * m_fZoomFactor);
 			SetScrollbars(y, x);
 			Invalidate(FALSE);
 			return __super::OnMouseMove(nFlags, point);
@@ -1069,7 +983,9 @@ void CRevisionGraphWnd::OnMouseMove(UINT nFlags, CPoint point)
 
 BOOL CRevisionGraphWnd::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {
-	if ((nHitTest == HTCLIENT)&&(pWnd == this)&&(m_ViewRect.Width())&&(m_ViewRect.Height())&&(message))
+    CRect viewRect = GetViewRect();
+
+	if ((nHitTest == HTCLIENT)&&(pWnd == this)&&(viewRect.Width())&&(viewRect.Height())&&(message))
 	{
 		POINT pt;
 		if (GetCursorPos(&pt))
@@ -1098,9 +1014,10 @@ LRESULT CRevisionGraphWnd::OnWorkerThreadDone(WPARAM, LPARAM)
 	BuildPreview();
     Invalidate(FALSE);
 
+    SVN svn;
 	LogCache::CRepositoryInfo& cachedProperties 
         = svn.GetLogCachePool()->GetRepositoryInfo();
-	SetDlgTitle (cachedProperties.IsOffline (GetReposRoot(), false));
+	SetDlgTitle (cachedProperties.IsOffline (m_fullHistory->GetRepositoryRoot(), false));
 
     return 0;
 }

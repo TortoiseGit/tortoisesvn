@@ -35,6 +35,11 @@
 namespace LogCache
 {
 
+// share the repository info pool thoughout this application
+// (it is unique per computer anyway)
+
+CRepositoryInfo::TData CRepositoryInfo::data;
+
 // construct the dump file name
 
 CString CRepositoryInfo::GetFileName() const
@@ -196,7 +201,7 @@ CRepositoryInfo::CRepositoryInfo (SVN& svn, const CString& cacheFolderPath)
 {
     // load the list only if the URL->UUID,head etc. mapping cache shall be used
 
-    if (IsPermanent())
+    if (data.empty() && IsPermanent())
         Load();
 }
 

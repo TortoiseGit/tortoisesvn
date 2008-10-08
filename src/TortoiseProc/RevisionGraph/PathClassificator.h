@@ -21,6 +21,7 @@
 // required includes
 
 #include "DictionaryBasedTempPath.h"
+#include "NodeClassification.h"
 
 /**
  * Efficiently classifies a path as "trunk", "branches" or "tags".
@@ -32,33 +33,6 @@
 
 class CPathClassificator
 {
-public:
-
-    /// classification for a revision graph tree node.
-    /// Only the first section will be used by the CPathClassificator.
-    /// All others are added by the revision graph.
-
-    enum 
-    {
-        IS_TRUNK           = 0x01,
-        IS_BRANCH          = 0x02,
-        IS_TAG             = 0x04,
-        IS_OTHER           = 0x08,
-        IS_MASK            = 0x0f,
-
-        COPIES_TO_TRUNK    = 0x10,
-        COPIES_TO_BRANCH   = 0x20,
-        COPIES_TO_TAG      = 0x40,
-        COPIES_TO_OTHER    = 0x80,
-        COPIES_TO_MASK     = 0xf0,
-
-        IS_DELETED         = 0x100,     // only propagated along a single line
-        ALL_COPIES_DELETED = 0x200,
-        SUBTREE_DELETED    = IS_DELETED | ALL_COPIES_DELETED,
-
-        IS_MODIFIED        = 0x1000
-    };
-
 private:
 
     class CWildCardPattern

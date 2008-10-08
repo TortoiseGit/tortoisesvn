@@ -17,9 +17,15 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-#include "RevisionGraph.h"
+#include "RevisionGraph/FullHistory.h"
+#include "RevisionGraph/FullGraph.h"
+#include "RevisionGraph/VisibleGraph.h"
+#include "RevisionGraph/IRevisionGraphLayout.h"
 #include "ProgressDlg.h"
 #include "Colors.h"
+#include "SVNDiff.h"
+
+using namespace Gdiplus;
 
 #define REVGRAPH_PREVIEW_WIDTH 100
 #define REVGRAPH_PREVIEW_HEIGHT 200
@@ -44,30 +50,16 @@ enum NodeShape
 	TSVNOctangle,
 	TSVNEllipse
 };
-#define STARTPOINT_PT		(CPoint(5, 5))
-#define SHADOW_OFFSET_PT	(CPoint(4, 4))
-#define ROUND_RECT			(12)
-
-#define RGB_DEF_SEL				RGB(160, 160, 160)
-#define RGB_DEF_SHADOW			RGB(128, 128, 128)
-#define RGB_DEF_HEADER			RGB(255, 0, 0)
-#define RGB_DEF_TAG				RGB(0, 0, 0)
-#define RGB_DEF_BRANCH			RGB(0, 0, 255)
-#define RGB_DEF_NODE			RGB(0, 0, 255)
-
-#define NODE_RECT_WIDTH			200.0f
-#define NODE_SPACE_LEFT			12.0f
-#define NODE_SPACE_RIGHT		100.0f
-#define NODE_SPACE_LINE			20.0f
-#define NODE_RECT_HEIGHT		60.0f
-#define NODE_SPACE_TOP			20.0f
-#define NODE_SPACE_BOTTOM		20.0f
 
 #define MAXFONTS				4
 #define	MAX_TT_LENGTH			60000
 #define	MAX_TT_LENGTH_DEFAULT	1000
 
+// forward declarations
 
+class CVisibleGraphNode;
+class IRevisionGraphLayout;
+class CAllRevisionGraphOptions;
 
 /**
  * \ingroup TortoiseProc
@@ -76,7 +68,7 @@ enum NodeShape
  * The analyzation of the log data is done in the child class CRevisionGraph.
  * Here, we handle the window notifications.
  */
-class CRevisionGraphWnd : public CWnd, public CRevisionGraph
+class CRevisionGraphWnd : public CWnd //, public CRevisionGraph
 {
 public:
 	CRevisionGraphWnd();   // standard constructor
@@ -96,24 +88,42 @@ public:
 	void			InitView();
 	void			Init(CWnd * pParent, LPRECT rect);
 	void			SaveGraphAs(CString sSavePath);
+
+    bool            FetchRevisionData ( const CString& path
+                                      , SVNRev pegRevision
+                                      , const CAllRevisionGraphOptions& options);
+    bool            AnalyzeRevisionData (const CAllRevisionGraphOptions& options);
+    CString         GetLastErrorMessage() const;
+
+    bool            GetShowOverview() const;
+    void            SetShowOverview (bool value);
+
+	void			CompareRevs(bool bHead);
+	void			UnifiedDiffRevs(bool bHead);
+
+	CRect           GetViewRect();
+    int             GetNodeCount();
+	void			DoZoom(float nZoomFactor);
+
+    void            SetDlgTitle (bool offline);
+
+    svn_revnum_t    GetHeadRevision() const;             
+    CString         GetRepositoryRoot() const;             
+
 protected:
-	BOOL			m_bNoGraph;
 	DWORD			m_dwTicks;
-	CRect			m_ViewRect;
-	CRect			m_GraphRect;
 	CRect			m_OverviewPosRect;
 	CRect			m_OverviewRect;
 
-	struct TConnectionPoints
-	{
-		CPoint points[4];
-	};
-
-	std::vector<TConnectionPoints> m_arConnections;
 	BOOL			m_bShowOverview;
-	
-	CRevisionEntry * m_SelectedEntry1;
-	CRevisionEntry * m_SelectedEntry2;
+
+    std::auto_ptr<CFullHistory>         m_fullHistory;
+    std::auto_ptr<CFullGraph>           m_fullGraph;
+    std::auto_ptr<CVisibleGraph>        m_visibleGraph;
+    std::auto_ptr<IRevisionGraphLayout> m_layout;
+
+	const CVisibleGraphNode * m_SelectedEntry1;
+	const CVisibleGraphNode * m_SelectedEntry2;
 	LOGFONT			m_lfBaseFont;
 	CFont *			m_apFonts[MAXFONTS];
 	int				m_nFontSize;
@@ -122,15 +132,6 @@ protected:
 	wchar_t			m_wszTip[MAX_TT_LENGTH+1];
     CString			m_sTitle;
 
-	float			m_node_rect_width;
-	float			m_node_space_left;
-	float			m_node_space_right;
-	float			m_node_space_line;
-	float			m_node_rect_height;
-	float			m_node_space_top;
-	float			m_node_space_bottom;
-	int				m_nIconSize;
-	CPoint			m_RoundRectPt;
 	float			m_fZoomFactor;
 	CColors			m_Colors;
 	bool			m_bIsRubberBand;
@@ -140,6 +141,7 @@ protected:
 	CBitmap			m_Preview;
 	int				m_previewWidth;
 	int				m_previewHeight;
+    float           m_previewZoom;
 	
 	virtual BOOL	ProgressCallback(CString text, CString text2, DWORD done, DWORD total);
 	virtual void	DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
@@ -160,35 +162,45 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 private:
-	void			CompareRevs(bool bHead);
-	void			UnifiedDiffRevs(bool bHead);
-	CTSVNPath		DoUnifiedDiff(bool bHead, CString& sRoot, bool& bIsFolder);
+
+    typedef bool (SVNDiff::*TDiffFunc)(const CTSVNPath& url1, const SVNRev& rev1, 
+	            					   const CTSVNPath& url2, const SVNRev& rev2, 
+						               SVNRev peg,
+						               bool ignoreancestry,
+						               bool blame);
+
+    void Compare (TDiffFunc func, bool bHead);
+
 	void			SetScrollbars(int nVert = 0, int nHorz = 0, int oldwidth = 0, int oldheight = 0);
-	CRect *			GetViewSize();
-	CRect *			GetGraphSize();
+	CRect       	GetGraphRect();
 	CFont*			GetFont(BOOL bItalic = FALSE, BOOL bBold = FALSE);
 
     CSize           UsableTooltipRect();
     CString         DisplayableText (const CString& wholeText, const CSize& tooltipSize);
-    CString         TooltipText (CRevisionEntry* rentry);
+    CString         TooltipText (index_t index);
 
-    CRevisionEntry* GetHitNode (CPoint point) const;
+    index_t         GetHitNode (CPoint point) const;
 
-	void			DrawOctangle(CDC * pDC, const CRect& rect);
-	void			DrawNode(CDC * pDC, const CRect& rect,
-							COLORREF contour, CRevisionEntry *rentry,
-							NodeShape shape, BOOL isSel, HICON hIcon, int penStyle = PS_SOLID);
-	void			DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos, bool bDirectDraw);
+    typedef PointF TCutRectangle[8];
+    void            CutawayPoints (const RectF& rect, float cutLen, TCutRectangle& result);
+    void            DrawRoundedRect (Graphics& graphics, const Pen* pen, const Brush* brush, const RectF& rect);
+	void			DrawOctangle (Graphics& graphics, const Pen* pen, const Brush* brush, const RectF& rect);
+    void            DrawShape (Graphics& graphics, const Pen* pen, const Brush* brush, const RectF& rect, NodeShape shape);
+	void			DrawShadow(Graphics& graphics, const RectF& rect,
+							   Color shadowColor, NodeShape shape);
+	void			DrawNode(Graphics& graphics, const RectF& rect,
+							 COLORREF contourRef, Color overlayColor,
+                             const CVisibleGraphNode *node, NodeShape shape);
+    RectF           GetNodeRect (const ILayoutNodeList::SNode& node, const CSize& offset) const;
 
-	void			BuildConnections();
-	void			DrawConnections(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos);
+    void            DrawShadows (Graphics& graphics, const CRect& logRect, const CSize& offset);
+    void            DrawNodes (Graphics& graphics, const CRect& logRect, const CSize& offset);
+    void            DrawConnections (CDC* pDC, const CRect& logRect, const CSize& offset);
+    void            DrawTexts (CDC* pDC, const CRect& logRect, const CSize& offset);
+    void			DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos, bool bDirectDraw);
+
 	int				GetEncoderClsid(const WCHAR* format, CLSID* pClsid);
-	void			DoZoom(float nZoomFactor);
 	void			DrawRubberBand();
 
 	void			BuildPreview();
-
-    void            SetDlgTitle (bool offline);
-
-    friend class CRevisionGraphDlg;
 };

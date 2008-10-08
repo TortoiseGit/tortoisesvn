@@ -30,7 +30,7 @@
 #include "Repositorybrowser.h"
 #include "BrowseFolder.h"
 #include "RenameDlg.h"
-#include "RevisionGraphDlg.h"
+#include "RevisionGraph\RevisionGraphDlg.h"
 #include "CheckoutDlg.h"
 #include "ExportDlg.h"
 #include "SVNProgressDlg.h"

@@ -206,7 +206,7 @@ HRESULT CIconMenu::ConvertBufferToPARGB32(HPAINTBUFFER hPaintBuffer, HDC hdc, HI
 	HRESULT hr = pfnGetBufferedPaintBits(hPaintBuffer, &prgbQuad, &cxRow);
 	if (SUCCEEDED(hr))
 	{
-		ARGB *pargb = reinterpret_cast<ARGB *>(prgbQuad);
+		Gdiplus::ARGB *pargb = reinterpret_cast<Gdiplus::ARGB *>(prgbQuad);
 		if (!HasAlpha(pargb, sizIcon, cxRow))
 		{
 			ICONINFO info;
@@ -226,7 +226,7 @@ HRESULT CIconMenu::ConvertBufferToPARGB32(HPAINTBUFFER hPaintBuffer, HDC hdc, HI
 	return hr;
 }
 
-bool CIconMenu::HasAlpha(__in ARGB *pargb, SIZE& sizImage, int cxRow)
+bool CIconMenu::HasAlpha(__in Gdiplus::ARGB *pargb, SIZE& sizImage, int cxRow)
 {
 	ULONG cxDelta = cxRow - sizImage.cx;
 	for (ULONG y = sizImage.cy; y; --y)
@@ -245,7 +245,7 @@ bool CIconMenu::HasAlpha(__in ARGB *pargb, SIZE& sizImage, int cxRow)
 	return false;
 }
 
-HRESULT CIconMenu::ConvertToPARGB32(HDC hdc, __inout ARGB *pargb, HBITMAP hbmp, SIZE& sizImage, int cxRow)
+HRESULT CIconMenu::ConvertToPARGB32(HDC hdc, __inout Gdiplus::ARGB *pargb, HBITMAP hbmp, SIZE& sizImage, int cxRow)
 {
 	BITMAPINFO bmi;
 	ZeroMemory(&bmi, sizeof(bmi));
@@ -266,7 +266,7 @@ HRESULT CIconMenu::ConvertToPARGB32(HDC hdc, __inout ARGB *pargb, HBITMAP hbmp, 
 		if (GetDIBits(hdc, hbmp, 0, bmi.bmiHeader.biHeight, pvBits, &bmi, DIB_RGB_COLORS) == bmi.bmiHeader.biHeight)
 		{
 			ULONG cxDelta = cxRow - bmi.bmiHeader.biWidth;
-			ARGB *pargbMask = static_cast<ARGB *>(pvBits);
+            Gdiplus::ARGB *pargbMask = static_cast<Gdiplus::ARGB *>(pvBits);
 
 			for (ULONG y = bmi.bmiHeader.biHeight; y; --y)
 			{

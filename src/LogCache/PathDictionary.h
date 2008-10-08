@@ -223,6 +223,8 @@ public:
 		return index == 0;
 	}
 
+    index_t GetDepth() const;
+
 	bool IsValid() const
 	{
 		return index != NO_INDEX;

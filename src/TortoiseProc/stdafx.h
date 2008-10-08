@@ -85,6 +85,8 @@
 #include <dlgs.h>
 #include <wininet.h>
 #include <assert.h>
+#include <math.h>
+#include <gdiplus.h>
 #pragma warning(pop)
 
 #pragma warning(push)

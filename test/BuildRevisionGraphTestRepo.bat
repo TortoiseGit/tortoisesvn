@@ -2,7 +2,15 @@
 
 set REPOROOT=file:///d:/test/repo
 
+d:
+cd \
+mkdir test
+cd test
+mkdir repo
+mkdir wc1
+rd /s /q repo
 svnadmin create repo --fs-type fsfs
+
 svn co %REPOROOT% wc1
 cd wc1
 svn mkdir trunk

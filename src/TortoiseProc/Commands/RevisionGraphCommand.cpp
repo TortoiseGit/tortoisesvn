@@ -19,13 +19,21 @@
 #include "StdAfx.h"
 #include "RevisionGraphCommand.h"
 
-#include "RevisionGraphDlg.h"
+#include "RevisionGraph\RevisionGraphDlg.h"
 
+using namespace Gdiplus;
 
 bool RevisionGraphCommand::Execute()
 {
+    ULONG_PTR token;
+    GdiplusStartupInput input;
+    GdiplusStartup (&token, &input, NULL);
+
 	CRevisionGraphDlg dlg;
 	dlg.SetPath(cmdLinePath.GetWinPathString());
 	dlg.DoModal();
+
+    GdiplusShutdown (token);
+
 	return true;
 }
