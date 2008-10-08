@@ -183,7 +183,6 @@ bool CFullHistory::FetchRevisionData ( CString path
     progress->SetProgress(0, 1);
 
 	// prepare the path for Subversion
-	SVN::preparePath(path);
 	CStringA url = CPathUtils::PathEscape 
                         (CUnicodeUtils::GetUTF8 
                             (svn.GetURLFromPath (CTSVNPath (path))));
@@ -297,6 +296,11 @@ void CFullHistory::AnalyzeRevisionData (SVNRev revision)
     Err = NULL;
 
 	ClearCopyInfo();
+
+    // special case: empty log
+
+    if (revision == NO_REVISION)
+        return;
 
 	// in case our path was renamed and had a different name in the past,
 	// we have to find out that name now, because we will analyze the data
