@@ -27,6 +27,7 @@
 #include "SVN.h"
 #include "TSVNPath.h"
 #include "SVNError.h"
+#include "SVNInfo.h"
 #include "CachedLogInfo.h"
 #include "RepositoryInfo.h"
 #include "RevisionIndex.h"
@@ -42,6 +43,8 @@ static char THIS_FILE[] = __FILE__;
 CFullHistory::CFullHistory(void) 
     : cancelled (false)
     , progress (NULL)
+    , headRevision ((revision_t)NO_REVISION)
+    , pegRevision ((revision_t)NO_REVISION)
     , wcRevision ((revision_t)NO_REVISION)
     , copyInfoPool (sizeof (SCopyInfo), 1024)
     , copyToRelation (NULL)
@@ -168,7 +171,7 @@ void CFullHistory::ReceiveLog ( LogChangedPathArray* changes
 }
 
 bool CFullHistory::FetchRevisionData ( CString path
-                                     , SVNRev revision
+                                     , SVNRev pegRev
                                      , bool showWCRev
                                      , CProgressDlg* progress)
 {
@@ -199,14 +202,31 @@ bool CFullHistory::FetchRevisionData ( CString path
 		return false;
 	}
 
-    if (revision.IsHead())
-        revision = head;
+    if (pegRev.IsHead())
+        pegRev = head;
 
     headRevision = head;
     repoRoot = rootPath.GetSVNPathString();
     relPath = CPathUtils::PathUnescape (url.Mid (repoRoot.GetLength()));
     repoRoot = CPathUtils::PathUnescape (repoRoot);
 
+	// fix issue #360: use WC revision as peg revision
+
+    pegRevision = pegRev;
+    if (pegRevision == NO_REVISION)
+    {
+	    CTSVNPath svnPath (path);
+	    if (!svnPath.IsUrl())
+	    {
+		    SVNInfo info;
+		    const SVNInfoData * baseInfo 
+			    = info.GetFirstFileInfo (svnPath, SVNRev(), SVNRev());
+            if (baseInfo != NULL)
+                pegRevision = baseInfo->lastchangedrev;
+	    }
+    }
+
+	// fetch missing data from the repository
 	try
 	{
         // select / construct query object and optimize revision range to fetch
@@ -250,7 +270,7 @@ bool CFullHistory::FetchRevisionData ( CString path
 	    const CCachedLogInfo* cache = query->GetCache();
 	    const CPathDictionary* paths = &cache->GetLogInfo().GetPaths();
         wcPath.reset (new CDictionaryBasedTempPath (paths, (const char*)relPath));
-        wcRevision = revision;
+        wcRevision = pegRev;
 
 	    // Find the revision the working copy is on, we mark that revision
 	    // later in the graph (handle option changes properly!).
@@ -258,7 +278,7 @@ bool CFullHistory::FetchRevisionData ( CString path
 
         if (showWCRev)
         {
-            svn_revnum_t maxrev = revision;
+            svn_revnum_t maxrev = wcRevision;
             svn_revnum_t minrev;
 	        bool switched, modified, sparse;
 	        if (svn.GetWCRevisionStatus ( CTSVNPath (path)
@@ -275,7 +295,7 @@ bool CFullHistory::FetchRevisionData ( CString path
 
         // analyse the data
 
-        AnalyzeRevisionData (revision);
+        AnalyzeRevisionData();
 
         // pre-process log data (invert copy-relationship)
 
@@ -290,7 +310,7 @@ bool CFullHistory::FetchRevisionData ( CString path
 	return true;
 }
 
-void CFullHistory::AnalyzeRevisionData (SVNRev revision)
+void CFullHistory::AnalyzeRevisionData()
 {
 	svn_error_clear(Err);
     Err = NULL;
@@ -299,18 +319,23 @@ void CFullHistory::AnalyzeRevisionData (SVNRev revision)
 
     // special case: empty log
 
-    if (revision == NO_REVISION)
+    if (headRevision == NO_REVISION)
         return;
 
-	// in case our path was renamed and had a different name in the past,
+    // we don't have a peg revision yet, set it to HEAD
+
+    if (pegRevision == NO_REVISION)
+        pegRevision = headRevision;
+
+    // in case our path was renamed and had a different name in the past,
 	// we have to find out that name now, because we will analyze the data
 	// from lower to higher revisions
 
     startPath.reset (new CDictionaryBasedTempPath (*wcPath));
 
-    CCopyFollowingLogIterator iterator (query->GetCache(), revision, *startPath);
+    CCopyFollowingLogIterator iterator (query->GetCache(), pegRevision, *startPath);
 	iterator.Retry();
-	startRevision = revision;
+	startRevision = pegRevision;
 
 	while (   (iterator.GetRevision() > 0) 
 		   && !iterator.EndOfPath()

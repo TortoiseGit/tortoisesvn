@@ -91,13 +91,14 @@ public:
 
     /// query data
 
-	bool						FetchRevisionData (CString path, SVNRev revision, bool showWCRev, CProgressDlg* progress);
+	bool						FetchRevisionData (CString path, SVNRev pegRev, bool showWCRev, CProgressDlg* progress);
 
     /// data access
 
 	CString						GetLastErrorMessage() const;
 
 	svn_revnum_t				GetHeadRevision() const {return headRevision;}
+	svn_revnum_t				GetPegRevision() const {return pegRevision;}
 	CString						GetRepositoryRoot() const {return CString (repoRoot);}
 	CString						GetRelativePath() const {return CString (relPath);}
 
@@ -123,6 +124,7 @@ private:
     CStringA					repoRoot;
 	CStringA					relPath;
 	revision_t					headRevision;
+	revision_t					pegRevision;
 
 	svn_client_ctx_t 			ctx;
 	SVNPrompt					prompt;
@@ -157,7 +159,7 @@ private:
     /// utility methods
 
     void                        ClearCopyInfo();
-	void						AnalyzeRevisionData (SVNRev revision);
+	void						AnalyzeRevisionData();
 	void						BuildForwardCopies();
 	
 	/// implement ILogReceiver
