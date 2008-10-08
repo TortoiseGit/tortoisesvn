@@ -107,4 +107,5 @@ private:
 	CRevisionGraphWnd	m_Graph;
 	CStatusBarCtrl		m_StatusBar;
 	CRevGraphToolBar	m_ToolBar;
+    ULONG_PTR       m_gdiPlusToken;
 };

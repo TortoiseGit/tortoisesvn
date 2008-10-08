@@ -49,6 +49,11 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 	, m_bFetchLogs(true)
 	, m_fZoomFactor(0.5)
 {
+    // GDI+ initialization
+
+    GdiplusStartupInput input;
+    GdiplusStartup (&m_gdiPlusToken, &input, NULL);
+
     // restore option state
 
 	DWORD dwOpts = CRegStdWORD(_T("Software\\TortoiseSVN\\RevisionGraphOptions"), 0x211);
@@ -61,6 +66,10 @@ CRevisionGraphDlg::~CRevisionGraphDlg()
 
 	CRegStdWORD regOpts = CRegStdWORD(_T("Software\\TortoiseSVN\\RevisionGraphOptions"), 1);
     regOpts = m_options.GetRegistryFlags();
+
+    // GDI+ cleanup
+
+    GdiplusShutdown (m_gdiPlusToken);
 }
 
 void CRevisionGraphDlg::DoDataExchange(CDataExchange* pDX)
