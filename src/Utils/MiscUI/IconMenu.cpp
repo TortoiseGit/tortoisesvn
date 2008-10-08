@@ -178,7 +178,7 @@ HRESULT CIconMenu::Create32BitHBITMAP(HDC hdc, const SIZE *psize, __deref_opt_ou
 	*phBmp = NULL;
 
 	BITMAPINFO bmi;
-	ZeroMemory(&bmi, sizeof(bmi));
+	SecureZeroMemory(&bmi, sizeof(bmi));
 	bmi.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
 	bmi.bmiHeader.biPlanes = 1;
 	bmi.bmiHeader.biCompression = BI_RGB;
@@ -248,7 +248,7 @@ bool CIconMenu::HasAlpha(__in Gdiplus::ARGB *pargb, SIZE& sizImage, int cxRow)
 HRESULT CIconMenu::ConvertToPARGB32(HDC hdc, __inout Gdiplus::ARGB *pargb, HBITMAP hbmp, SIZE& sizImage, int cxRow)
 {
 	BITMAPINFO bmi;
-	ZeroMemory(&bmi, sizeof(bmi));
+	SecureZeroMemory(&bmi, sizeof(bmi));
 	bmi.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
 	bmi.bmiHeader.biPlanes = 1;
 	bmi.bmiHeader.biCompression = BI_RGB;
