@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-09-24 17:15 +0000\n"
-"PO-Revision-Date: 2008-10-07 18:03+0100\n"
+"PO-Revision-Date: 2008-10-09 17:43+0100\n"
 "Last-Translator: Grokwik <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1018,9 +1018,8 @@ msgstr "Pour la plupart, les URL de Subversion utilisent la syntaxe standard, au
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:1181
-#, fuzzy
 msgid "Also, users of the <literal>file://</literal> scheme on Windows platforms will need to use an unofficially <quote>standard</quote> syntax for accessing repositories that are on the same machine, but on a different drive than the client's current working drive. Either of the two following URL path syntaxes will work where <literal>X</literal> is the drive on which the repository resides:"
-msgstr "Aussi, les utilisateurs du système fichier <literal>file:</literal> sur les plate-formes Windows devront utiliser une syntaxe <quote>standard</quote> non-officielle pour avoir accès aux référentiels qui sont sur la même machine, mais sur un disque différent du disque de travail courant du client. N'importe laquelle des deux syntaxes de chemin d'URL suivantes marchera où <literal>X</literal> est le disque sur lequel réside le référentiel :"
+msgstr "Also, users of the <literal>file://</literal> scheme on Windows platforms will need to use an unofficially <quote>standard</quote> syntax for accessing repositories that are on the same machine, but on a different drive than the client's current working drive. Either of the two following URL path syntaxes will work where <literal>X</literal> is the drive on which the repository resides:Ainsi, les utilisateurs du système de fichier <literal>file:</literal> sur les plate-formes Windows devront utiliser une syntaxe <quote>standard</quote> non-officielle pour avoir accès aux référentiels qui sont sur la même machine, mais sur un disque différent du disque de travail. Les deux syntaxes de chemin d'URL suivantes marcheront ; <literal>X</literal> est le disque sur lequel est hébergé le référentiel :"
 
 #. (screen)
 #: ../source/TortoiseSVN_en.xml:1191
@@ -1299,9 +1298,8 @@ msgstr "WebDAV"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:1498
-#, fuzzy
 msgid "The Apache based Subversion server uses the WebDAV protocol which is supported by many other programs as well. You could e.g. mount such a repository as a <quote>Web folder</quote> in the Windows explorer and then access it like any other folder in the file system."
-msgstr "Le serveur Subversion basé sur Apache utilise le protocole WebDAV qui est aussi supporté par beaucoup d'autres programmes. Vous pourriez par exemple monter un tel référentiel comme un \"répertoire Web\" dans l'explorateur Windows et y avoir ensuite accès comme n'importe quel autre dossier dans le système de fichiers"
+msgstr "You could e.g. mount such a repository as a <quote>Web folder</quote> in the Windows explorer and then access it like any other folder in the file system.Le serveur Subversion basé sur Apache utilise le protocole WebDAV qui est aussi supporté par beaucoup d'autres programmes. Vous pourriez par exemple monter un tel référentiel comme un <quote>Répertoire Web</quote> dans l'explorateur Windows et y accéder ensuite comme n'importe quel autre dossier."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:1509
@@ -1347,9 +1345,8 @@ msgstr "Veuiller noter que Windows XP sans le service pack 1 entrainera des donn
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:1555
-#, fuzzy
 msgid "Download the latest version of the Apache web server from <ulink url=\"http://httpd.apache.org/download.cgi\"><citetitle>http://httpd.apache.org/download.cgi</citetitle></ulink>. Make sure that you download the version 2.2.x - the version 1.3.xx won't work!"
-msgstr "Téléchargez la dernière version du serveur web Apache à partir de <ulink url=\"http://httpd.apache.org/download.cgi\"><citetitle>http://httpd.apache.org/download.cgi</citetitle></ulink>. Assurez-vous que vous téléchargez la version &gt; 2.0.54 - la version 1.3.xx ne marchera pas ! Et, les versions inférieures à 2.0.54 ne marcheront pas avec Subversion 1.2 à cause d'un bug dans la façon dont Apache &lt; 2.0.54 a été compilé pour Windows."
+msgstr "Téléchargez la dernière version du serveur web Apache à partir de <ulink url=\"http://httpd.apache.org/download.cgi\"><citetitle>http://httpd.apache.org/download.cgi</citetitle></ulink>. Assurez-vous que vous téléchargez la version 2.2.x - la version 1.3.xx ne marchera pas !"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:1564
@@ -2056,7 +2053,6 @@ msgstr ""
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2294
-#, fuzzy
 msgid ""
 "Next type the commands <screen>\n"
 "bin\\openssl rsa -in conf\\privkey.pem -out conf\\server.key\n"
@@ -2071,14 +2067,18 @@ msgid ""
 "                 -outform DER\n"
 "</screen> These commands created some files in the Apache <filename>conf</filename> folder (<filename>server.der.crt</filename>, <filename>server.csr</filename>, <filename>server.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>server.cert</filename>)."
 msgstr ""
-"Ensuite tapez les commandes <screen>\n"
-"bin\\openssl rsa -in privkey.pem -out mon-serveur.key\n"
-"</screen> et (sur une ligne) <screen>\n"
-"bin\\openssl x509 -in mon-serveur.csr -out mon-serveur.cert\n"
-"                 -req -signkey mon-serveur.key -days 4000\n"
-"</screen> Cela créera un certificat qui expirera dans 4000 jours. Et enfin entrez: <screen>\n"
-"bin\\openssl x509 -in my-server.cert -out mon-serveur.der.crt -outform DER\n"
-"</screen> Ces commandes ont créé des fichiers dans le répertoire Apache (<filename>mon-serveur.der.crt</filename>, <filename>mon-serveur.csr</filename>, <filename>mon-serveur.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>mon-serveur.cert</filename>). Copiez les fichiers vers le répertoire <filename>conf/ssl</filename> (par exemple <filename>C:\\program files\\apache group\\apache2\\conf\\ssl</filename>) - si ce répertoire n'existe pas vous devrez d'abord le créer."
+"Ensuite, tapez les commandes <screen>\n"
+"bin\\openssl rsa -in conf\\privkey.pem -out conf\\server.key\n"
+"</screen> et (sur une seule ligne) <screen>\n"
+"bin\\openssl req -new -key conf\\server.key -out conf\\server.csr \\\n"
+"-config conf\\openssl.cnf\n"
+"</screen> puis (sur une seule ligne) <screen>\n"
+"bin\\openssl x509 -in conf\\server.csr -out conf\\server.crt\n"
+"                 -req -signkey conf\\server.key -days 4000\n"
+"</screen>Elles créeront un certificat qui expirera dans 4000 jours. Et enfin écrivez (sur une seule ligne) : <screen>\n"
+"bin\\openssl x509 -in conf\\server.cert -out conf\\server.der.crt\n"
+"                 -outform DER\n"
+"</screen> Ces commandes ont créé quelques fichiers dans le répertoire <filename>conf</filename> de Apache (<filename>server.der.crt</filename>, <filename>server.csr</filename>, <filename>server.key</filename>, <filename>.rnd</filename>, <filename>privkey.pem</filename>, <filename>server.cert</filename>)."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:2326
@@ -2852,9 +2852,8 @@ msgstr "Avant que vous n'importiez vos données dans le référentiel vous devri
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3170
-#, fuzzy
 msgid "There are some standard, recommended ways to organize a repository. Most people create a <filename>trunk</filename> directory to hold the <quote>main line</quote> of development, a <filename>branches</filename> directory to contain branch copies, and a <filename>tags</filename> directory to contain tag copies. If a repository holds only one project, then often people create these top-level directories:"
-msgstr "Il y a quelques façons standards, recommandées pour organiser un référentiel. La plupart des personnes créent un répertoire <filename>trunk</filename> pour tenir la \"ligne principale\" de développement, un répertoire <filename>branches</filename> pour contenir des copies de branches et un répertoire <filename>tags</filename> pour contenir des copies d'étiquettes. Si un référentiel ne contient qu'un seul projet, les gens créent alors ces répertoires de niveau supérieur :"
+msgstr "Il y a quelques standards, des manières recommandées d'organiser un référentiel. La plupart des personnes créent un répertoire <filename>trunk</filename> contenant la <quote>version principale</quote> de développement, un répertoire <filename>branches</filename> qui contient les copies de travail paralèlles et un répertoire <filename>tags</filename> qui contient les versions stables. Si un référentiel ne contient qu'un seul projet, ces répertoires sont créés à la base du référentiel :"
 
 #. (screen)
 #: ../source/TortoiseSVN_en.xml:3179
