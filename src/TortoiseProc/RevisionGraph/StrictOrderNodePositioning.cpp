@@ -95,9 +95,9 @@ void CStrictOrderNodePositioning::AssignColumns
 
     if (reduceCrossLines->IsActive() && (start->parentBranch != NULL))
     {
-        int connectionFirstRevision = start->parentBranch->node->GetRevision();
-        int connectionLastRevision = firstRevision-1;
-        for (int i = start->parentBranch->treeShift.cx+1; i <= column; ++i)
+        revision_t connectionFirstRevision = start->parentBranch->node->GetRevision();
+        revision_t connectionLastRevision = firstRevision-1;
+        for (revision_t i = start->parentBranch->treeShift.cx+1; i <= column; ++i)
         {
             startRevisions[i] = min (connectionFirstRevision, startRevisions[i]);
             endRevisions[i] = max (connectionLastRevision, endRevisions[i]);

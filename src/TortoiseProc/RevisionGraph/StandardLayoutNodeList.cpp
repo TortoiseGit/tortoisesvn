@@ -46,7 +46,7 @@ index_t CStandardLayoutNodeList::GetStyle
 }
 
 DWORD CStandardLayoutNodeList::GetStyleFlags 
-	(const CVisibleGraphNode* node) const
+	(const CVisibleGraphNode* /*node*/) const
 {
 	return 0;
 }

@@ -415,9 +415,11 @@ void CFullHistory::BuildForwardCopies()
 
     copyFromRelation = new SCopyInfo*[copiesContainer.size()];
     copyFromRelationEnd = copyFromRelation + copiesContainer.size();
-
-    std::copy (copiesContainer.begin(), copiesContainer.end(), copyToRelation);
+#pragma warning( push )
+#pragma warning( disable : 4996 )
+	std::copy (copiesContainer.begin(), copiesContainer.end(), copyToRelation);
     std::copy (copiesContainer.begin(), copiesContainer.end(), copyFromRelation);
+#pragma warning( pop ) 
 
 	std::sort (copyToRelation, copyToRelationEnd, &AscendingToRevision);
 	std::sort (copyFromRelation, copyFromRelationEnd, &AscendingFromRevision);
