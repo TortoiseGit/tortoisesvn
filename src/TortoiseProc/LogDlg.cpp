@@ -4176,23 +4176,12 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 			break;
 		case ID_UPDATE:
 			{
-				//now first get the revision which is selected
-				CProgressDlg progDlg;
-				progDlg.SetTitle(IDS_APPNAME);
-				progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROGRESSWAIT)));
-				progDlg.SetTime(false);
-				SetAndClearProgressInfo(&progDlg);
-				progDlg.ShowModeless(m_hWnd);
-				if (!Update(CTSVNPathList(m_path), revSelected, svn_depth_unknown, FALSE, FALSE))
-				{
-					progDlg.Stop();
-					SetAndClearProgressInfo((HWND)NULL);
-					CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-					EnableOKButton();
-					break;
-				}
-				progDlg.Stop();
-				SetAndClearProgressInfo((HWND)NULL);
+				CString sCmd;
+				CString url = _T("tsvn:")+pathURL;
+				sCmd.Format(_T("%s /command:update /path:\"%s\" /rev:%ld"),
+					(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")),
+					(LPCTSTR)m_path.GetWinPath(), (LONG)revSelected);
+				CAppUtils::LaunchApplication(sCmd, NULL, false);
 			}
 			break;
 		case ID_FINDENTRY:
