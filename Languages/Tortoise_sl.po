@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-09-19 21:54+0100\n"
+"PO-Revision-Date: 2008-10-09 12:24+0100\n"
 "Last-Translator: Matjaz Cepon <matjaz.cepon@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1198,6 +1198,16 @@ msgid ""
 msgstr ""
 "Vrstični seznam poti, pri katerih se prikažejo prekrivne ikone.\r\n"
 "Če dodate na konec poti znak '*', se zajamejo tudi vse datoteke in podmape znotraj te poti."
+
+#. Resource IDs: (197)
+msgid ""
+"A newline separated list of paths for which no context menu is shown.\r\n"
+"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"An empty list will allow the context menu on all paths."
+msgstr ""
+"Vrstični seznam poti, za katere se prekrivne ikone ne prikažejo.\r\n"
+"Če dodate na konec poti znak '*', se izključijo tudi vse datoteke in podmape znotraj te poti.\r\n"
+"Prazen seznam omogoča prikaz kontekstnega menija na vseh poteh."
 
 #. Resource IDs: (194)
 msgid ""
@@ -2389,6 +2399,10 @@ msgstr "Kopiraj URL na odložišče"
 msgid "Copy all information to clipboard"
 msgstr "Kopiraj vse podatke na odložišče"
 
+#. Resource IDs: (146)
+msgid "Copy and rename"
+msgstr "Kopiraj in preimenuj"
+
 #. Resource IDs: (104)
 msgid "Copy and rename item to here"
 msgstr "Kopiraj element sem in ga preimenuj"
@@ -2908,6 +2922,10 @@ msgid ""
 msgstr ""
 "Pokaži podatke o programu, številko različice in avtorske pravice\n"
 "O programu"
+
+#. Resource IDs: (65535)
+msgid "Do not show the context menu for the following paths:"
+msgstr "Za naslednje poti ne prikaži kontekstnega menija:"
 
 #. Resource IDs: (1007)
 #, c-format
@@ -4960,6 +4978,10 @@ msgstr "Premakni element navzgor"
 msgid "Move Item Up"
 msgstr "Premakni element navzdol"
 
+#. Resource IDs: (147)
+msgid "Move and rename"
+msgstr "Premakni in preimenuj"
+
 #. Resource IDs: (104)
 msgid "Move and rename item to here"
 msgstr "Premakni elemente sem in jih preimenuj"
@@ -6873,6 +6895,10 @@ msgstr "Po krajšem časovnem &zamiku pokaži polne menije"
 #. Resource IDs: (1264)
 msgid "Show i&gnored files"
 msgstr "Pokaži &prezrte datoteke"
+
+#. Resource IDs: (1480)
+msgid "Show items in externals"
+msgstr "Prikaži elemente med zunanjimi"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
