@@ -778,13 +778,17 @@ public:
 	 */
 	static BOOL EnsureConfigFile();
 
+    /**
+     * Returns the status of the encapsulated \ref SVNPrompt instance.
+     */
+    bool PromptShown() const;
 	/** 
-	* Set the parent window of an authentication prompt dialog
-	*/
+ 	 * Set the parent window of an authentication prompt dialog
+	 */
 	void SetPromptParentWindow(HWND hWnd);
 	/** 
-	* Set the MFC Application object for a prompt dialog
-	*/
+	 * Set the MFC Application object for a prompt dialog
+	 */
 	void SetPromptApp(CWinApp* pWinApp);
 
 	/**

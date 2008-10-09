@@ -2725,7 +2725,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				SVNDiff diff(this, this->m_hWnd, true);
 				if (urlList.GetCount() == 1)
 				{
-					if (m_prompt.PromptShown())
+					if (PromptShown())
 						diff.ShowUnifiedDiff(CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
 											CTSVNPath(EscapeUrl(m_diffURL)), GetRevision());
 					else
@@ -2734,7 +2734,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				}
 				else
 				{
-					if (m_prompt.PromptShown())
+					if (PromptShown())
 						diff.ShowUnifiedDiff(CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
 											CTSVNPath(EscapeUrl(urlList[1])), GetRevision());
 					else
@@ -2750,7 +2750,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 				if (urlList.GetCount() == 1)
 				{
-					if (m_prompt.PromptShown())
+					if (PromptShown())
 						diff.ShowCompare(CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
 										CTSVNPath(EscapeUrl(m_diffURL)), GetRevision(), SVNRev(), true);
 					else
@@ -2760,7 +2760,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				}
 				else
 				{
-					if (m_prompt.PromptShown())
+					if (PromptShown())
 						diff.ShowCompare(CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
 										CTSVNPath(EscapeUrl(urlList[1])), GetRevision(), SVNRev(), true);
 					else

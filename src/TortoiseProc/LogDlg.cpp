@@ -1871,7 +1871,7 @@ void CLogDlg::DiffSelectedRevWithPrevious()
 	SetPromptApp(&theApp);
 	theApp.DoWaitCursor(1);
 
-	if (m_prompt.PromptShown())
+	if (PromptShown())
 	{
 		SVNDiff diff(this, m_hWnd, true);
 		diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
@@ -1944,7 +1944,7 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t re
 	diff.SetHEADPeg(m_LogRevision);
 	if (unified)
 	{
-		if (m_prompt.PromptShown())
+		if (PromptShown())
 			diff.ShowUnifiedDiff(CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1);
 		else
 			CAppUtils::StartShowUnifiedDiff(m_hWnd, CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1, SVNRev(), m_LogRevision);
@@ -3823,7 +3823,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		{
 		case ID_GNUDIFF1:
 			{
-				if (m_prompt.PromptShown())
+				if (PromptShown())
 				{
 					SVNDiff diff(this, this->m_hWnd, true);
 					diff.SetHEADPeg(m_LogRevision);
@@ -3835,7 +3835,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 			break;
 		case ID_GNUDIFF2:
 			{
-				if (m_prompt.PromptShown())
+				if (PromptShown())
 				{
 					SVNDiff diff(this, this->m_hWnd, true);
 					diff.SetHEADPeg(m_LogRevision);
@@ -3969,7 +3969,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		case ID_COMPARE:
 			{
 				//user clicked on the menu item "compare with working copy"
-				if (m_prompt.PromptShown())
+				if (PromptShown())
 				{
 					SVNDiff diff(this, m_hWnd, true);
 					diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
@@ -3990,7 +3990,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 					r2 = revLowest;
 				}
 				//user clicked on the menu item "compare revisions"
-				if (m_prompt.PromptShown())
+				if (PromptShown())
 				{
 					SVNDiff diff(this, m_hWnd, true);
 					diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
@@ -4003,7 +4003,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 			break;
 		case ID_COMPAREWITHPREVIOUS:
 			{
-				if (m_prompt.PromptShown())
+				if (PromptShown())
 				{
 					SVNDiff diff(this, m_hWnd, true);
 					diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
@@ -4018,7 +4018,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 			{
 				//user clicked on the menu item "compare with working copy"
 				//now first get the revision which is selected
-				if (m_prompt.PromptShown())
+				if (PromptShown())
 				{
 					SVNDiff diff(this, this->m_hWnd, true);
 					diff.SetHEADPeg(m_LogRevision);
@@ -4031,7 +4031,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		case ID_BLAMETWO:
 			{
 				//user clicked on the menu item "compare and blame revisions"
-				if (m_prompt.PromptShown())
+				if (PromptShown())
 				{
 					SVNDiff diff(this, this->m_hWnd, true);
 					diff.SetHEADPeg(m_LogRevision);
@@ -4044,7 +4044,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		case ID_BLAMEWITHPREVIOUS:
 			{
 				//user clicked on the menu item "Compare and Blame with previous revision"
-				if (m_prompt.PromptShown())
+				if (PromptShown())
 				{
 					SVNDiff diff(this, this->m_hWnd, true);
 					diff.SetHEADPeg(m_LogRevision);

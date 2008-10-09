@@ -2479,6 +2479,14 @@ CString SVN::GetOptionsString(BOOL bIgnoreEOL, svn_diff_file_ignore_space_t spac
 	return opts;
 }
 
+/**
+ * Returns the status of the encapsulated \ref SVNPrompt instance.
+ */
+bool SVN::PromptShown() const
+{
+    return m_prompt.PromptShown();
+}
+
 /** 
  * Set the parent window of an authentication prompt dialog
  */
