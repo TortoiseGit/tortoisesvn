@@ -203,7 +203,7 @@ int CRevisionGraphWnd::GetEncoderClsid(const WCHAR* format, CLSID* pClsid)
 	return -1;  // Failure
 }
 
-void CRevisionGraphWnd::Compare (TDiffFunc func, bool bHead)
+void CRevisionGraphWnd::Compare (TDiffFunc diffFunc, TStartDiffFunc startDiffFunc, bool bHead)
 {
 	ASSERT(m_SelectedEntry1 != NULL);
 	ASSERT(m_SelectedEntry2 != NULL);
@@ -217,14 +217,31 @@ void CRevisionGraphWnd::Compare (TDiffFunc func, bool bHead)
 	url1.SetFromSVN (sRepoRoot + CUnicodeUtils::GetUnicode (m_SelectedEntry1->GetPath().GetPath().c_str()));
 	url2.SetFromSVN (sRepoRoot + CUnicodeUtils::GetUnicode (m_SelectedEntry2->GetPath().GetPath().c_str()));
 
-	SVNRev peg = (SVNRev)(bHead ? m_SelectedEntry1->GetRevision() : SVNRev());
+    SVNRev rev1 (bHead ? SVNRev::REV_HEAD : m_SelectedEntry1->GetRevision());
+    SVNRev rev2 (bHead ? SVNRev::REV_HEAD : m_SelectedEntry2->GetRevision());
+	SVNRev peg (bHead ? m_SelectedEntry1->GetRevision() : SVNRev());
 
-    SVN svn;
-	SVNDiff diff (&svn, this->m_hWnd);
-	diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
-	(diff.*func)(url1, (bHead ? SVNRev::REV_HEAD : m_SelectedEntry1->GetRevision()),
-		         url2, (bHead ? SVNRev::REV_HEAD : m_SelectedEntry2->GetRevision()),
-		         peg, false, false);
+    if (PromptShown())
+    {
+        SVNDiff diff (&m_fullHistory->GetSVN(), this->m_hWnd);
+	    diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+	    (diff.*diffFunc)(url1, rev1,
+    		             url2, rev2,
+	    	             peg, false, false);
+    }
+    else
+    {
+		(*startDiffFunc)(m_hWnd, url1, rev1,
+						 url2, rev2, peg, 
+						 SVNRev(), !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), false, false);
+    }
+}
+
+bool CRevisionGraphWnd::PromptShown() const
+{
+    return m_fullHistory.get() != NULL
+        ? m_fullHistory->GetSVN().PromptShown()
+        : false;
 }
 
 bool CRevisionGraphWnd::FetchRevisionData 
@@ -306,12 +323,12 @@ void CRevisionGraphWnd::SetShowOverview (bool value)
 
 void CRevisionGraphWnd::CompareRevs(bool bHead)
 {
-    Compare (&SVNDiff::ShowCompare, bHead);
+    Compare (&SVNDiff::ShowCompare, &CAppUtils::StartShowCompare, bHead);
 }
 
 void CRevisionGraphWnd::UnifiedDiffRevs(bool bHead)
 {
-    Compare (&SVNDiff::ShowUnifiedDiff, bHead);
+    Compare (&SVNDiff::ShowUnifiedDiff, &CAppUtils::StartShowUnifiedDiff, bHead);
 }
 
 void CRevisionGraphWnd::DoZoom(float fZoomFactor)

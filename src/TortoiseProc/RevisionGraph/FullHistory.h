@@ -113,6 +113,7 @@ public:
     void                        GetCopyFromRange (SCopyInfo**& first, SCopyInfo**& last, revision_t revision) const;
     void                        GetCopyToRange (SCopyInfo**& first, SCopyInfo**& last, revision_t revision) const;
 
+    SVN&                        GetSVN() {return svn;}
     const CCachedLogInfo*       GetCache() const {return query->GetCache();}
 
 private:

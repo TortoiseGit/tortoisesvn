@@ -24,6 +24,7 @@
 #include "ProgressDlg.h"
 #include "Colors.h"
 #include "SVNDiff.h"
+#include "AppUtils.h"
 
 using namespace Gdiplus;
 
@@ -168,8 +169,15 @@ private:
 						               SVNRev peg,
 						               bool ignoreancestry,
 						               bool blame);
+    typedef bool (*TStartDiffFunc)(HWND hWnd, const CTSVNPath& url1, const SVNRev& rev1, 
+						           const CTSVNPath& url2, const SVNRev& rev2, 
+						           const SVNRev& peg, const SVNRev& headpeg,
+						           bool bAlternateDiff,
+						           bool bIgnoreAncestry,
+                                   bool blame);
 
-    void Compare (TDiffFunc func, bool bHead);
+    void            Compare (TDiffFunc diffFunc, TStartDiffFunc startDiffFunc, bool bHead);
+    bool            PromptShown() const;
 
 	void			SetScrollbars(int nVert = 0, int nHorz = 0, int oldwidth = 0, int oldheight = 0);
 	CRect       	GetGraphRect();

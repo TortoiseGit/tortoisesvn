@@ -222,7 +222,7 @@ bool CFullHistory::FetchRevisionData ( CString path
 		    const SVNInfoData * baseInfo 
 			    = info.GetFirstFileInfo (svnPath, SVNRev(), SVNRev());
             if (baseInfo != NULL)
-                pegRevision = baseInfo->lastchangedrev;
+                pegRevision = baseInfo->rev;
 	    }
     }
 
