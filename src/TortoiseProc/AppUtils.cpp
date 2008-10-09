@@ -973,7 +973,7 @@ CString CAppUtils::GetProjectNameFromURL(CString url)
 bool CAppUtils::StartShowUnifiedDiff(HWND hWnd, const CTSVNPath& url1, const SVNRev& rev1, 
 									 const CTSVNPath& url2, const SVNRev& rev2, 
 									 const SVNRev& peg /* = SVNRev */, const SVNRev& headpeg /* = SVNRev */,  
-									 bool bAlternateDiff /* = false */, bool bIgnoreAncestry /* = false */)
+									 bool bAlternateDiff /* = false */, bool bIgnoreAncestry /* = false */, bool /* blame = false */)
 {
 	CString sCmd;
 	sCmd.Format(_T("%s /command:showcompare /unified"),

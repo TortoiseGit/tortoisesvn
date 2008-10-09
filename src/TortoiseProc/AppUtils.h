@@ -147,7 +147,8 @@ public:
 									const CTSVNPath& url2, const SVNRev& rev2, 
 									const SVNRev& peg = SVNRev(), const SVNRev& headpeg = SVNRev(),
 									bool bAlternateDiff = false,
-									bool bIgnoreAncestry = false);
+									bool bIgnoreAncestry = false,
+                                    bool /* blame */ = false);
 
 	/**
 	 * Replacement for SVNDiff::ShowCompare(), but started as a separate process.
