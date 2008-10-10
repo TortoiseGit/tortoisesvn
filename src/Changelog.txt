@@ -68,6 +68,8 @@ Version 1.5.4
        error string. (Stefan)
 - BUG: /closeonend was ignored for the (un)lock command. (Stefan)
 - BUG: The 'rename' context menu was not available for added files. (Stefan)
+- BUG: Entering an URL before non-ascii text in the commit dialog corrupted
+       the first chars of the non-ascii text. (Stefan)
 
 Version 1.5.3
 - CHG: paths in error messages are nor truncated to 80 chars anymore. (Stefan)

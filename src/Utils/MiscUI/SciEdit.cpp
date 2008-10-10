@@ -1238,7 +1238,7 @@ void CSciEdit::StyleURLs(int startstylepos, int endstylepos)
 	delete textbuffer;
 
 	int starturl = -1;
-	for(int i = 0; i <= msg.GetLength(); ++i)
+	for(int i = 0; i <= msg.GetLength(); )
 	{
 		if ((i < len) && IsValidURLChar(msg[i]))
 		{
@@ -1255,6 +1255,7 @@ void CSciEdit::StyleURLs(int startstylepos, int endstylepos)
 			}
 			starturl = -1;
 		}
+		AdvanceUTF8(msg, i);
 	}
 }
 
