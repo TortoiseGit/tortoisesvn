@@ -161,6 +161,9 @@ void CFullHistory::ReceiveLog ( LogChangedPathArray* changes
 		    progress->SetLine(1, text);
 		    progress->SetLine(2, text2);
 		    progress->SetProgress (headRevision - rev, headRevision);
+            if (!progress->IsVisible())
+    	        progress->ShowModeless ((CWnd*)NULL);
+
 		    if (progress->HasUserCancelled())
 		    {
 			    cancelled = true;
@@ -177,7 +180,7 @@ bool CFullHistory::FetchRevisionData ( CString path
 {
 	// set some text on the progress dialog, before we wait
 	// for the log operation to start
-    progress = progress;
+    this->progress = progress;
 
 	CString temp;
 	temp.LoadString(IDS_REVGRAPH_PROGGETREVS);
