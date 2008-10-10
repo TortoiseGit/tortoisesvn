@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-09-26 23:00+0100\n"
+"PO-Revision-Date: 2008-10-10 11:52+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1194,6 +1194,16 @@ msgid ""
 msgstr ""
 "Novými riadkami oddelovaný zoznam ciest, pre ktoré budú zobrazené prekrývajúce ikonky.\r\n"
 "Keď pridáte znak '*' na koniec cesty, všetky súbory a podadresáre tohto adresára budú tiež zaradené."
+
+#. Resource IDs: (197)
+msgid ""
+"A newline separated list of paths for which no context menu is shown.\r\n"
+"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"An empty list will allow the context menu on all paths."
+msgstr ""
+"Novými riadkami oddelovaný zoznam ciest, pre ktoré nebude zobrazené kontextové menu.\r\n"
+"Keď pridáte znak '*' na koniec cesty, všetky súbory a podadresáre tohto adresára budú tiež vylúčené.\r\n"
+"Prázdny zoznam znamená povolé zobrazovanie pre všetky cesty."
 
 #. Resource IDs: (194)
 msgid ""
@@ -2924,6 +2934,10 @@ msgid ""
 msgstr ""
 "Zobraz informacie o programe, číslo verzie a copyright\n"
 "O programe"
+
+#. Resource IDs: (65535)
+msgid "Do not show the context menu for the following paths:"
+msgstr "Nezobrazovať kontextové menu pre nasledovné cesty:"
 
 #. Resource IDs: (1007)
 #, c-format
@@ -6950,6 +6964,10 @@ msgstr "Po chvíľke zobraziť &celú ponuku "
 #. Resource IDs: (1264)
 msgid "Show i&gnored files"
 msgstr "Zobraziť i&gnorované súbory"
+
+#. Resource IDs: (1480)
+msgid "Show items in externals"
+msgstr "Zobraziť externé objekty"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
