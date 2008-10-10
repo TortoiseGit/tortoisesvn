@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-09-22 14:24+0100\n"
+"PO-Revision-Date: 2008-10-10 11:39+0100\n"
 "Last-Translator: Srdjan Stokic <srdjan.stokic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1195,6 +1195,16 @@ msgid ""
 msgstr ""
 "Прикажана е листа на патеки одвоена со нов ред за која се покажува преклопување на икони.\r\n"
 "Ако додадете '*' на крај на патеката, тогаш сите датотеки и поддиректориуми ќе бидат вклучени во таа патека."
+
+#. Resource IDs: (197)
+msgid ""
+"A newline separated list of paths for which no context menu is shown.\r\n"
+"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"An empty list will allow the context menu on all paths."
+msgstr ""
+"Прикажана е листа на патеки одвоена со нов ред за која не се покажува контекстно мени.\r\n"
+"Ако додадете '*'  на крај на патеката, тогаш сите датотеки и поддиректориуми ќе бидат исклучени.\r\n"
+"Празна листа ќе дозволи контекстно мени на сите патеки."
 
 #. Resource IDs: (194)
 msgid ""
@@ -2388,6 +2398,10 @@ msgstr "Копирај URL на clipboard"
 msgid "Copy all information to clipboard"
 msgstr "копирај ги сите информации на clipboard"
 
+#. Resource IDs: (146)
+msgid "Copy and rename"
+msgstr "Копирај и преименувај"
+
 #. Resource IDs: (104)
 msgid "Copy and rename item to here"
 msgstr "Копирај и преименувај ја ставката тука"
@@ -2708,7 +2722,7 @@ msgstr "Прилагоди ја тастатурата"
 
 #. Resource IDs: (1069)
 msgid "Customize Quick Access Toolbar"
-msgstr "Прилагоди го алатникот за брз пристап"
+msgstr "Прилагоди го алатникот за брз пристап\v"
 
 #. Resource IDs: (1068)
 msgid "Customize Quick Access Toolbar..."
@@ -2907,6 +2921,10 @@ msgid ""
 msgstr ""
 "Прикажи информација за програмата, верзија и copyright\n"
 "За програмата"
+
+#. Resource IDs: (65535)
+msgid "Do not show the context menu for the following paths:"
+msgstr "Не го прикажувај контекстното мени за следните патеки:"
 
 #. Resource IDs: (1007)
 #, c-format
@@ -4977,6 +4995,10 @@ msgstr "Помести го членот надолу"
 msgid "Move Item Up"
 msgstr "Помести го членот нагоре"
 
+#. Resource IDs: (147)
+msgid "Move and rename"
+msgstr "Премести и преименувај"
+
 #. Resource IDs: (104)
 msgid "Move and rename item to here"
 msgstr "Премести и преименувај ставка тука"
@@ -6897,6 +6919,10 @@ msgstr "Прикажи ги с&ите менија после куса пауз�
 #. Resource IDs: (1264)
 msgid "Show i&gnored files"
 msgstr "Прикажи ги и&гнорирани датотеки"
+
+#. Resource IDs: (1480)
+msgid "Show items in externals"
+msgstr "Покажи ги ставките во надворешните"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
