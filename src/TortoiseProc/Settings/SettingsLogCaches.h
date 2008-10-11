@@ -28,38 +28,64 @@ class CProgressDlg;
  * \ingroup TortoiseProc
  * Settings page to configure miscellaneous stuff. 
  */
-class CSetLogCache 
+class CSettingsLogCaches 
     : public ISettingsPropPage
+    , private ILogReceiver
 {
-	DECLARE_DYNAMIC(CSetLogCache)
+	DECLARE_DYNAMIC(CSettingsLogCaches)
 
 public:
-	CSetLogCache();
-	virtual ~CSetLogCache();
+	CSettingsLogCaches();
+	virtual ~CSettingsLogCaches();
 	
-	UINT GetIconID() {return IDI_CACHE;}
+	UINT GetIconID() {return IDI_CACHELIST;}
+
+    // update cache list
+
+	virtual BOOL OnSetActive();
 
 // Dialog Data
-	enum { IDD = IDD_SETTINGSLOGCACHE };
+	enum { IDD = IDD_SETTINGSLOGCACHELIST };
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	afx_msg void OnChanged();
 	virtual BOOL OnInitDialog();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
-	virtual BOOL OnApply();
+
+	afx_msg void OnBnClickedDetails();
+	afx_msg void OnBnClickedUpdate();
+	afx_msg void OnBnClickedExport();
+	afx_msg void OnBnClickedDelete();
+
+	afx_msg LRESULT OnRefeshRepositoryList (WPARAM wParam, LPARAM lParam);
+	afx_msg void OnNMDblclkRepositorylist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnLvnItemchangedRepositorylist(NMHDR *pNMHDR, LRESULT *pResult);
 
     DECLARE_MESSAGE_MAP()
 private:
 	CToolTips		m_tooltips;
 
-	CRegDWORD		m_regEnableLogCaching;
-	BOOL			m_bEnableLogCaching;
-	CRegDWORD		m_regSupportAmbiguousURL;
-	BOOL			m_bSupportAmbiguousURL;
-    CRegDWORD		m_regDefaultConnectionState;
-    CRegDWORD		m_regMaxHeadAge;
-	DWORD			m_dwMaxHeadAge;
+	CListCtrl       m_cRepositoryList;
 
-	CComboBox       m_cDefaultConnectionState;
+    /// current repository list
+
+    typedef std::map<CString, CString> TURLs;
+    typedef TURLs::const_iterator IT;
+    TURLs           urls;
+
+    CString GetSelectedUUID();
+    void FillRepositoryList();
+
+    static UINT WorkerThread(LPVOID pVoid);
+
+    /// used by cache update
+
+    CProgressDlg*   progress;
+    svn_revnum_t    headRevision;
+
+    void ReceiveLog ( LogChangedPathArray* changes
+	                , svn_revnum_t rev
+                    , const StandardRevProps* stdRevProps
+                    , UserRevPropArray* userRevProps
+                    , bool mergesFollow);
 };
