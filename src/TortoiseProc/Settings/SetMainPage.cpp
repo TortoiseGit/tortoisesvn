@@ -162,22 +162,14 @@ void CSetMainPage::OnASPHACK()
 BOOL CSetMainPage::OnApply()
 {
 	UpdateData();
-	m_regLanguage = m_dwLanguage;
-	if (m_regLanguage.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regLanguage.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	Store (m_dwLanguage, m_regLanguage);
 	if (m_sTempExtensions.Compare(CString(m_regExtensions)))
 	{
-		m_regExtensions = m_sTempExtensions;
-		if (m_regExtensions.LastError != ERROR_SUCCESS)
-			CMessageBox::Show(m_hWnd, m_regExtensions.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+		Store (m_sTempExtensions, m_regExtensions);
 		m_restart = Restart_Cache;
 	}
-	m_regCheckNewer = m_bCheckNewer;
-	if (m_regCheckNewer.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regCheckNewer.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-	m_regLastCommitTime = (m_bLastCommitTime ? _T("yes") : _T("no"));
-	if (m_regLastCommitTime.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regLastCommitTime.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	Store (m_bCheckNewer, m_regCheckNewer);
+	Store ((m_bLastCommitTime ? _T("yes") : _T("no")), m_regLastCommitTime);
 
 	CRegString asphack_local(_T("System\\CurrentControlSet\\Control\\Session Manager\\Environment\\SVN_ASP_DOT_NET_HACK"), _T(""), FALSE, HKEY_LOCAL_MACHINE);
 	CRegString asphack_user(_T("Environment\\SVN_ASP_DOT_NET_HACK"));

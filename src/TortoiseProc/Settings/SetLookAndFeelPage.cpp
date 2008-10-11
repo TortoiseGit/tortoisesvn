@@ -151,22 +151,15 @@ BOOL CSetLookAndFeelPage::PreTranslateMessage(MSG* pMsg)
 BOOL CSetLookAndFeelPage::OnApply()
 {
 	UpdateData();
-	m_regTopmenu = (DWORD)(m_topmenu & 0xFFFFFFFF);
-	m_regTopmenuhigh = (DWORD)(m_topmenu >> 32);
-	if (m_regTopmenu.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regTopmenu.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-	if (m_regTopmenuhigh.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regTopmenuhigh.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-	m_regGetLockTop = m_bGetLockTop;
-	if (m_regGetLockTop.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regGetLockTop.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+    Store ((DWORD)(m_topmenu & 0xFFFFFFFF),	m_regTopmenu);
+    Store ((DWORD)(m_topmenu >> 32), m_regTopmenuhigh);
+    Store (m_bGetLockTop, m_regGetLockTop);
 
 	m_sNoContextPaths.Replace(_T("\r"), _T(""));
 	if (m_sNoContextPaths.Right(1).Compare(_T("\n"))!=0)
 		m_sNoContextPaths += _T("\n");
-	m_regNoContextPaths = m_sNoContextPaths;
-	if (m_regNoContextPaths.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regNoContextPaths.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+
+	Store (m_sNoContextPaths, m_regNoContextPaths);
 
 	SetModified(FALSE);
 	return ISettingsPropPage::OnApply();

@@ -54,6 +54,22 @@ public:
 	 * Returns the restart code
 	 */
 	virtual SettingsRestart GetRestart() {return m_restart;}
+
 protected:
+
 	SettingsRestart m_restart;
+
+    /**
+     * Utility method:
+     * Store the current value of a BOOL, DWORD or CString into the
+     * respective CRegDWORD etc. and check for success.
+     */
+
+    template<class T, class Reg>
+    void Store (const T& value, Reg& registryKey)
+    {
+    	registryKey = value;
+	    if (registryKey.LastError != ERROR_SUCCESS)
+		    CMessageBox::Show (m_hWnd, registryKey.getErrorString().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
+    }
 };

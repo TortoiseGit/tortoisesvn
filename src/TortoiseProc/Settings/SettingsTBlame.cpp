@@ -141,22 +141,14 @@ BOOL CSettingsTBlame::OnApply()
 		m_sFontName = m_cFontNames.GetSelFont()->m_strName;
 	else
 		m_sFontName = m_regFontName;
-	m_regNewLinesColor = (m_cNewLinesColor.GetColor() == -1 ? m_cNewLinesColor.GetAutomaticColor() : m_cNewLinesColor.GetColor()); 
-	if (m_regNewLinesColor.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regNewLinesColor.getErrorString().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
-	m_regOldLinesColor = (m_cOldLinesColor.GetColor() == -1 ? m_cOldLinesColor.GetAutomaticColor() : m_cOldLinesColor.GetColor());
-	if (m_regOldLinesColor.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regOldLinesColor.getErrorString().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
-	m_regFontName = (LPCTSTR)m_sFontName;
-	if (m_regFontName.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regFontName.getErrorString().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
-	m_regFontSize = m_dwFontSize;
-	if (m_regFontSize.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regFontSize.getErrorString().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
-	m_regTabSize = m_dwTabSize;
-	if (m_regTabSize.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regTabSize.getErrorString().c_str(), _T("TortoiseSVN"), MB_ICONERROR);
-	SetModified(FALSE);
+
+    Store ((m_cNewLinesColor.GetColor() == -1 ? m_cNewLinesColor.GetAutomaticColor() : m_cNewLinesColor.GetColor()), m_regNewLinesColor); 
+    Store ((m_cOldLinesColor.GetColor() == -1 ? m_cOldLinesColor.GetAutomaticColor() : m_cOldLinesColor.GetColor()), m_regOldLinesColor);
+    Store ((LPCTSTR)m_sFontName, m_regFontName);
+    Store (m_dwFontSize, m_regFontSize);
+    Store (m_dwTabSize, m_regTabSize);
+
+    SetModified(FALSE);
 	return ISettingsPropPage::OnApply();
 }
 

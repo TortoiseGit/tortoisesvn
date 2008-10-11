@@ -189,31 +189,19 @@ BOOL CSetProxyPage::OnApply()
 	if (m_isEnabled)
 	{
 		CString temp;
-		m_regServeraddress = m_serveraddress;
-		if (m_regServeraddress.LastError != ERROR_SUCCESS)
-			CMessageBox::Show(m_hWnd, m_regServeraddress.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+		Store (m_serveraddress, m_regServeraddress);
 		m_regServeraddress_copy = m_serveraddress;
 		temp.Format(_T("%d"), m_serverport);
-		m_regServerport = temp;
-		if (m_regServerport.LastError != ERROR_SUCCESS)
-			CMessageBox::Show(m_hWnd, m_regServerport.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+		Store (temp, m_regServerport);
 		m_regServerport_copy = temp;
-		m_regUsername = m_username;
-		if (m_regUsername.LastError != ERROR_SUCCESS)
-			CMessageBox::Show(m_hWnd, m_regUsername.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+		Store (m_username, m_regUsername);
 		m_regUsername_copy = m_username;
-		m_regPassword = m_password;
-		if (m_regPassword.LastError != ERROR_SUCCESS)
-			CMessageBox::Show(m_hWnd, m_regPassword.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+		Store (m_password, m_regPassword);
 		m_regPassword_copy = m_password;
 		temp.Format(_T("%d"), m_timeout);
-		m_regTimeout = temp;
-		if (m_regTimeout.LastError != ERROR_SUCCESS)
-			CMessageBox::Show(m_hWnd, m_regTimeout.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+		Store (temp, m_regTimeout);
 		m_regTimeout_copy = temp;
-		m_regExceptions = m_Exceptions;
-		if (m_regExceptions.LastError != ERROR_SUCCESS)
-			CMessageBox::Show(m_hWnd, m_regExceptions.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+		Store (m_Exceptions, m_regExceptions);
 		m_regExceptions_copy = m_Exceptions;
 	}
 	else

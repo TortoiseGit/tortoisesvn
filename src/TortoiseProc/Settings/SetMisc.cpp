@@ -96,34 +96,18 @@ void CSetMisc::OnChanged()
 BOOL CSetMisc::OnApply()
 {
 	UpdateData();
-	m_regUnversionedRecurse = m_bUnversionedRecurse;
-	if (m_regUnversionedRecurse.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regUnversionedRecurse.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-	m_regAutocompletion = m_bAutocompletion;
-	if (m_regAutocompletion.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regAutocompletion.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-	m_regAutocompletionTimeout = m_dwAutocompletionTimeout;
-	if (m_regAutocompletionTimeout.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regAutocompletionTimeout.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-	m_regSpell = m_bSpell;
-	if (m_regSpell.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regSpell.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-	m_regCheckRepo = m_bCheckRepo;
-	if (m_regCheckRepo.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regCheckRepo.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-	m_regMaxHistory = m_dwMaxHistory;
-	if (m_regMaxHistory.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regMaxHistory.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-	m_regCommitReopen = m_bCommitReopen;
-	if (m_regCommitReopen.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regCommitReopen.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-	m_regShowLockDlg = m_bShowLockDlg;
-	if (m_regShowLockDlg.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regShowLockDlg.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-	m_regAutoSelect = m_bAutoSelect;
-	if (m_regAutoSelect.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regAutoSelect.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-	SetModified(FALSE);
+
+    Store (m_bUnversionedRecurse, m_regUnversionedRecurse);
+	Store (m_bAutocompletion, m_regAutocompletion);
+	Store (m_dwAutocompletionTimeout, m_regAutocompletionTimeout);
+	Store (m_bSpell, m_regSpell);
+	Store (m_bCheckRepo, m_regCheckRepo);
+	Store (m_dwMaxHistory, m_regMaxHistory);
+	Store (m_bCommitReopen, m_regCommitReopen);
+	Store (m_bShowLockDlg, m_regShowLockDlg);
+	Store (m_bAutoSelect, m_regAutoSelect);
+
+    SetModified(FALSE);
 	return ISettingsPropPage::OnApply();
 }
 

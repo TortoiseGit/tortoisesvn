@@ -189,90 +189,60 @@ void CSetOverlayPage::OnChange()
 BOOL CSetOverlayPage::OnApply()
 {
 	UpdateData();
-	m_regOnlyExplorer = m_bOnlyExplorer;
-	if (m_regOnlyExplorer.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regOnlyExplorer.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	Store (m_bOnlyExplorer, m_regOnlyExplorer);
 	if (DWORD(m_regDriveMaskRemovable) != DWORD(m_bRemovable))
 		m_restart = Restart_Cache;
-	m_regDriveMaskRemovable = m_bRemovable;
-	if (m_regDriveMaskRemovable.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regDriveMaskRemovable.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	Store (m_bRemovable, m_regDriveMaskRemovable);
 
 	if (DWORD(m_regDriveMaskFloppy) != DWORD(m_bFloppy))
 		m_restart = Restart_Cache;
-	m_regDriveMaskFloppy = m_bFloppy;
-	if (m_regDriveMaskFloppy.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regDriveMaskFloppy.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	Store (m_bFloppy, m_regDriveMaskFloppy);
 
 	if (DWORD(m_regDriveMaskRemote) != DWORD(m_bNetwork))
 		m_restart = Restart_Cache;
-	m_regDriveMaskRemote = m_bNetwork;
-	if (m_regDriveMaskRemote.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regDriveMaskRemote.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	Store (m_bNetwork, m_regDriveMaskRemote);
 
 	if (DWORD(m_regDriveMaskFixed) != DWORD(m_bFixed))
 		m_restart = Restart_Cache;
-	m_regDriveMaskFixed = m_bFixed;
-	if (m_regDriveMaskFixed.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regDriveMaskFixed.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	Store (m_bFixed, m_regDriveMaskFixed);
 
 	if (DWORD(m_regDriveMaskCDROM) != DWORD(m_bCDROM))
 		m_restart = Restart_Cache;
-	m_regDriveMaskCDROM = m_bCDROM;
-	if (m_regDriveMaskCDROM.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regDriveMaskCDROM.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	Store (m_bCDROM, m_regDriveMaskCDROM);
 
 	if (DWORD(m_regDriveMaskRAM) != DWORD(m_bRAM))
 		m_restart = Restart_Cache;
-	m_regDriveMaskRAM = m_bRAM;
-	if (m_regDriveMaskRAM.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regDriveMaskRAM.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	Store (m_bRAM, m_regDriveMaskRAM);
 
 	if (DWORD(m_regDriveMaskUnknown) != DWORD(m_bUnknown))
 		m_restart = Restart_Cache;
-	m_regDriveMaskUnknown = m_bUnknown;
-	if (m_regDriveMaskUnknown.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regDriveMaskUnknown.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	Store (m_bUnknown, m_regDriveMaskUnknown);
 
 	if (m_sExcludePaths.Compare(CString(m_regExcludePaths)))
 		m_restart = Restart_Cache;
 	m_sExcludePaths.Replace(_T("\r"), _T(""));
 	if (m_sExcludePaths.Right(1).Compare(_T("\n"))!=0)
 		m_sExcludePaths += _T("\n");
-	m_regExcludePaths = m_sExcludePaths;
-	if (m_regExcludePaths.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regExcludePaths.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	Store (m_sExcludePaths, m_regExcludePaths);
 	m_sExcludePaths.Replace(_T("\n"), _T("\r\n"));
 	m_sIncludePaths.Replace(_T("\r"), _T(""));
 	if (m_sIncludePaths.Right(1).Compare(_T("\n"))!=0)
 		m_sIncludePaths += _T("\n");
 	if (m_sIncludePaths.Compare(CString(m_regIncludePaths)))
 		m_restart = Restart_Cache;
-	m_regIncludePaths = m_sIncludePaths;
-	if (m_regIncludePaths.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regIncludePaths.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	Store (m_sIncludePaths, m_regIncludePaths);
 	m_sIncludePaths.Replace(_T("\n"), _T("\r\n"));
 
 	if (DWORD(m_regUnversionedAsModified) != DWORD(m_bUnversionedAsModified))
 		m_restart = Restart_Cache;
-	m_regUnversionedAsModified = m_bUnversionedAsModified;
-	if (m_regUnversionedAsModified.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regUnversionedAsModified.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-	m_regShowIgnoredOverlay = m_bShowIgnoredOverlay;
-	if (m_regShowIgnoredOverlay.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regShowIgnoredOverlay.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-	m_regShowUnversionedOverlay = m_bShowUnversionedOverlay;
-	if (m_regShowUnversionedOverlay.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regShowUnversionedOverlay.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	Store (m_bUnversionedAsModified, m_regUnversionedAsModified);
+	Store (m_bShowIgnoredOverlay, m_regShowIgnoredOverlay);
+	Store (m_bShowUnversionedOverlay, m_regShowUnversionedOverlay);
 	if (DWORD(m_regShowExcludedAsNormal) != DWORD(m_bShowExcludedAsNormal))
 		m_restart = Restart_Cache;
-	m_regShowExcludedAsNormal = m_bShowExcludedAsNormal;
-	if (m_regShowExcludedAsNormal.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regShowExcludedAsNormal.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	Store (m_bShowExcludedAsNormal, m_regShowExcludedAsNormal);
 
-	m_regCacheType = m_dwCacheType;
-	if (m_regCacheType.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regCacheType.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	Store (m_dwCacheType, m_regCacheType);
 	if (m_dwCacheType != 1)
 	{
 		// close the possible running cache process

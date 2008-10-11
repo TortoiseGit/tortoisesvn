@@ -295,9 +295,7 @@ void CSetSavedDataPage::OnModified()
 
 BOOL CSetSavedDataPage::OnApply()
 {
-	m_regMaxLines = m_maxLines;
-	if (m_regMaxLines.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regMaxLines.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-	return ISettingsPropPage::OnApply();
+    Store (m_maxLines, 	m_regMaxLines);
+    return ISettingsPropPage::OnApply();
 }
 
