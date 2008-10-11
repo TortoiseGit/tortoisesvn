@@ -1,3 +1,37 @@
+Version 1.5.4
+- CHG: OpenSSL 0.9.8i with capieng enabled
+- BUG: Applying a patch where a context line had UTF-BOMs 
+       in it failed. (Stefan)
+- BUG: Checking out multiple folders from the repository browser failed
+       to unescape the target folder. (Stefan)
+- BUG: If an url had special chars which needed escaping below the 
+       repository root, showing the log did not always work. (Stefan)
+- BUG: Comparing two revisions sometimes did not work if the url didn't
+       exist anymore in HEAD. (Stefan)
+- BUG: Diffing/Blaming from TortoiseBlame on merged revisions did not
+       work in certain situations. (Stefan)
+- BUG: Unescape the target paths when exporting the changed files from
+       the file diff dialog. (Stefan)
+- BUG: the 'unversioned' overlay for folders didn't show up for some
+       unversioned folders. (Stefan)
+- BUG: After a "mine before theirs" or "theirs before mine" resolving
+       action on the right pane in TortoiseMerge, the Undo would not
+       undo correctly. (Stefan)
+- BUG: Failures, even GPF in blame and log dialogs when specifying a
+       revision range and a peg revision outside that range. (Stefan Fuhrmann)
+- BUG: TortoiseMerge sometimes wrongly detected the encoding of files. (Stefan)
+- BUG: If a merge conflicted due to added items the progress dialog did not
+       count these correctly and the context menu missed items. (Tobias Schäfer)
+- BUG: TortoiseMerge could crash if the font size was set smaller than
+       8 pixels. (Stefan)
+- BUG: When a cleanup failed, the error message didn't include the svn
+       error string. (Stefan)
+- BUG: /closeonend was ignored for the (un)lock command. (Stefan)
+- BUG: The 'rename' context menu was not available for added files. (Stefan)
+- BUG: Entering an URL before non-ascii text in the commit dialog corrupted
+       the first chars of the non-ascii text. (Stefan)
+- BUG: Blame from the repository browser ignored the diff options. (Stefan)
+
 Version 1.5.3
 - CHG: paths in error messages are nor truncated to 80 chars anymore. (Stefan)
 - CHG: enabled rc4 encryption for the sasl dlls. (Stefan)
