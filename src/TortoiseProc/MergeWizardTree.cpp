@@ -110,7 +110,7 @@ BOOL CMergeWizardTree::OnInitDialog()
 	SetDlgItemText(IDC_WCEDIT, ((CMergeWizard*)GetParent())->wcPath.GetWinPath());
 
 	// set head revision as default revision
-	if (pWizard->startRev.IsHead())
+	if (pWizard->startRev.IsHead() || !pWizard->startRev.IsValid())
 		CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_HEAD1);
 	else
 	{
@@ -118,7 +118,7 @@ BOOL CMergeWizardTree::OnInitDialog()
 		m_sStartRev = pWizard->startRev.ToString();
 		SetDlgItemText(IDC_REVISION_START, m_sStartRev);
 	}
-	if (pWizard->endRev.IsHead())
+	if (pWizard->endRev.IsHead() || !pWizard->endRev.IsValid())
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
 	else
 	{
