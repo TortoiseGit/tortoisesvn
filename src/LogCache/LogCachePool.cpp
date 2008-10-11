@@ -233,7 +233,7 @@ void CLogCachePool::Clear()
 
 bool CLogCachePool::IsEnabled() const
 {
-	CRegStdWORD useLogCache (_T("Software\\TortoiseSVN\\UseLogCache"), TRUE);
+	CRegStdWORD useLogCache (_T("Software\\TortoiseSVN\\LogCache\\UseLogCache"), TRUE);
 	return useLogCache != FALSE;
 }
 

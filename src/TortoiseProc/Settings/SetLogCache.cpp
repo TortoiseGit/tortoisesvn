@@ -35,21 +35,34 @@ using namespace LogCache;
 
 IMPLEMENT_DYNAMIC(CSetLogCache, ISettingsPropPage)
 
-#define WM_REFRESH_REPOSITORYLIST (WM_APP + 110)
-
 CSetLogCache::CSetLogCache()
-	: ISettingsPropPage(CSetLogCache::IDD)
-	, m_bEnableLogCaching(FALSE)
-	, m_bSupportAmbiguousURL(FALSE)
-	, m_dwMaxHeadAge(0)
+	: ISettingsPropPage (CSetLogCache::IDD)
+	, m_bEnableLogCaching (FALSE)
+	, m_bSupportAmbiguousURL (FALSE)
+    , m_bSupportAmbiguousUUID (FALSE)
+	, m_dwMaxHeadAge (0)
+	, m_dwCacheDropAge (0)
+	, m_dwCacheDropMaxSize (0)
+    , m_dwMaxFailuresUntilDrop (0)
 {
-	m_regEnableLogCaching = CRegDWORD(_T("Software\\TortoiseSVN\\UseLogCache"), TRUE);
+	m_regEnableLogCaching = CRegDWORD(_T("Software\\TortoiseSVN\\LogCache\\UseLogCache"), TRUE);
 	m_bEnableLogCaching = (DWORD)m_regEnableLogCaching;
-	m_regSupportAmbiguousURL = CRegDWORD(_T("Software\\TortoiseSVN\\SupportAmbiguousURL"), FALSE);
+	m_regSupportAmbiguousURL = CRegDWORD(_T("Software\\TortoiseSVN\\LogCache\\SupportAmbiguousURL"), FALSE);
 	m_bSupportAmbiguousURL = (DWORD)m_regSupportAmbiguousURL;
-	m_regDefaultConnectionState = CRegDWORD(_T("Software\\TortoiseSVN\\DefaultConnectionState"), 0);
-	m_regMaxHeadAge = CRegDWORD(_T("Software\\TortoiseSVN\\HeadCacheAgeLimit"), 0);
+	m_regSupportAmbiguousUUID = CRegDWORD(_T("Software\\TortoiseSVN\\LogCache\\SupportAmbiguousUUID"), FALSE);
+	m_bSupportAmbiguousUUID = (DWORD)m_regSupportAmbiguousUUID;
+
+	m_regDefaultConnectionState = CRegDWORD(_T("Software\\TortoiseSVN\\LogCache\\DefaultConnectionState"), 0);
+
+    m_regMaxHeadAge = CRegDWORD(_T("Software\\TortoiseSVN\\LogCache\\HeadCacheAgeLimit"), 0);
 	m_dwMaxHeadAge = (DWORD)m_regMaxHeadAge;
+    m_regCacheDropAge = CRegDWORD(_T("Software\\TortoiseSVN\\LogCache\\CacheDropAge"), 10);
+	m_dwCacheDropAge = (DWORD)m_regCacheDropAge;
+    m_regCacheDropMaxSize = CRegDWORD(_T("Software\\TortoiseSVN\\LogCache\\CacheDropMaxSize"), 200);
+	m_dwCacheDropMaxSize = (DWORD)m_regCacheDropMaxSize;
+
+    m_regMaxFailuresUntilDrop = CRegDWORD(_T("Software\\TortoiseSVN\\LogCache\\MaxCacheFailures"), 0);
+	m_dwMaxFailuresUntilDrop = (DWORD)m_regMaxFailuresUntilDrop;
 }
 
 CSetLogCache::~CSetLogCache()
@@ -61,17 +74,27 @@ void CSetLogCache::DoDataExchange(CDataExchange* pDX)
 	ISettingsPropPage::DoDataExchange(pDX);
 	DDX_Check(pDX, IDC_ENABLELOGCACHING, m_bEnableLogCaching);
 	DDX_Check(pDX, IDC_SUPPORTAMBIGUOUSURL, m_bSupportAmbiguousURL);
-	DDX_Text(pDX, IDC_MAXIMINHEADAGE, m_dwMaxHeadAge);
+	DDX_Check(pDX, IDC_SUPPORTAMBIGUOUSUUID, m_bSupportAmbiguousUUID);
 
     DDX_Control(pDX, IDC_GOOFFLINESETTING, m_cDefaultConnectionState);
+
+	DDX_Text(pDX, IDC_MAXIMINHEADAGE, m_dwMaxHeadAge);
+	DDX_Text(pDX, IDC_CACHEDROPAGE, m_dwCacheDropAge);
+	DDX_Text(pDX, IDC_CACHEDROPMAXSIZE, m_dwCacheDropMaxSize);
+
+    DDX_Text(pDX, IDC_MAXFAILUESUNTILDROP, m_dwMaxFailuresUntilDrop);
 }
 
 
 BEGIN_MESSAGE_MAP(CSetLogCache, ISettingsPropPage)
 	ON_BN_CLICKED(IDC_ENABLELOGCACHING, OnChanged)
 	ON_BN_CLICKED(IDC_SUPPORTAMBIGUOUSURL, OnChanged)
+	ON_BN_CLICKED(IDC_SUPPORTAMBIGUOUSUUID, OnChanged)
 	ON_CBN_SELCHANGE(IDC_GOOFFLINESETTING, OnChanged)
 	ON_EN_CHANGE(IDC_MAXIMINHEADAGE, OnChanged)
+	ON_EN_CHANGE(IDC_CACHEDROPAGE, OnChanged)
+	ON_EN_CHANGE(IDC_CACHEDROPMAXSIZE, OnChanged)
+	ON_EN_CHANGE(IDC_MAXFAILUESUNTILDROP, OnChanged)
 END_MESSAGE_MAP()
 
 void CSetLogCache::OnChanged()
@@ -83,19 +106,17 @@ BOOL CSetLogCache::OnApply()
 {
 	UpdateData();
 
-	m_regEnableLogCaching = m_bEnableLogCaching;
-	if (m_regEnableLogCaching.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regEnableLogCaching.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-	m_regSupportAmbiguousURL = m_bSupportAmbiguousURL;
-	if (m_regSupportAmbiguousURL.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regSupportAmbiguousURL.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
-    m_regDefaultConnectionState = m_cDefaultConnectionState.GetCurSel();
-	if (m_regDefaultConnectionState.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regDefaultConnectionState.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	Store (m_bEnableLogCaching, m_regEnableLogCaching);
+	Store (m_bSupportAmbiguousURL, m_regSupportAmbiguousURL);
+	Store (m_bSupportAmbiguousUUID, m_regSupportAmbiguousUUID);
 
-	m_regMaxHeadAge = m_dwMaxHeadAge;
-	if (m_regMaxHeadAge.LastError != ERROR_SUCCESS)
-		CMessageBox::Show(m_hWnd, m_regMaxHeadAge.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
+	Store (m_cDefaultConnectionState.GetCurSel(), m_regDefaultConnectionState);
+
+	Store (m_dwMaxHeadAge, m_regMaxHeadAge);
+    Store (m_dwCacheDropAge, m_regCacheDropAge);
+    Store (m_dwCacheDropMaxSize, m_regCacheDropMaxSize);
+
+    Store (m_dwMaxFailuresUntilDrop, m_regMaxFailuresUntilDrop);
 
     SetModified(FALSE);
 	return ISettingsPropPage::OnApply();
@@ -126,9 +147,15 @@ BOOL CSetLogCache::OnInitDialog()
 
 	m_tooltips.AddTool(IDC_ENABLELOGCACHING, IDS_SETTINGS_LOGCACHE_ENABLE);
 	m_tooltips.AddTool(IDC_SUPPORTAMBIGUOUSURL, IDS_SETTINGS_LOGCACHE_AMBIGUOUSURL);
-	m_tooltips.AddTool(IDC_GOOFFLINESETTING, IDS_SETTINGS_LOGCACHE_GOOFFLINE);
+	m_tooltips.AddTool(IDC_SUPPORTAMBIGUOUSUUID, IDS_SETTINGS_LOGCACHE_AMBIGUOUSUUID);
+
+    m_tooltips.AddTool(IDC_GOOFFLINESETTING, IDS_SETTINGS_LOGCACHE_GOOFFLINE);
 
     m_tooltips.AddTool(IDC_MAXIMINHEADAGE, IDS_SETTINGS_LOGCACHE_HEADAGE);
+    m_tooltips.AddTool(IDC_CACHEDROPAGE, IDS_SETTINGS_LOGCACHE_DROPAGE);
+    m_tooltips.AddTool(IDC_CACHEDROPMAXSIZE, IDS_SETTINGS_LOGCACHE_DROPMAXSIZE);
+
+    m_tooltips.AddTool(IDC_MAXFAILUESUNTILDROP, IDS_SETTINGS_LOGCACHE_FAILURELIMIT);
 
 	return TRUE;
 }

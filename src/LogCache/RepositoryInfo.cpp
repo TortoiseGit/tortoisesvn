@@ -146,7 +146,7 @@ bool CRepositoryInfo::IsOffline (SPerRepositoryInfo& info)
 {
     // default connectivity setting
 
-    CRegStdWORD defaultConnectionState (_T("Software\\TortoiseSVN\\DefaultConnectionState"), 0);
+    CRegStdWORD defaultConnectionState (_T("Software\\TortoiseSVN\\LogCache\\DefaultConnectionState"), 0);
 
     // is this repository already off-line?
 
@@ -570,7 +570,7 @@ svn_error_t* CRepositoryInfo::GetLastError() const
 
 bool CRepositoryInfo::IsPermanent() const
 {
-	CRegStdWORD ambiguousURL (_T("Software\\TortoiseSVN\\SupportAmbiguousURL"), FALSE);
+	CRegStdWORD ambiguousURL (_T("Software\\TortoiseSVN\\LogCache\\SupportAmbiguousURL"), FALSE);
 	return ambiguousURL == FALSE;
 }
 
