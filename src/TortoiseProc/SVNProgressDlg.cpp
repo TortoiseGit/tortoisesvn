@@ -1906,6 +1906,10 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
 	}
 	if (m_options & ProgOptSwitchAfterCopy)
 	{
+		sCmdInfo.Format(IDS_PROGRS_CMD_SWITCH, 
+			m_targetPathList[0].GetWinPath(),
+			(LPCTSTR)m_url.GetSVNPathString(), (LPCTSTR)m_Revision.ToString());
+		ReportCmd(sCmdInfo);
 		if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, SVNRev::REV_HEAD, m_depth, TRUE, m_options & ProgOptIgnoreExternals))
 		{
 			if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, m_Revision, m_depth, TRUE, m_options & ProgOptIgnoreExternals))
