@@ -144,7 +144,6 @@ protected:
 	int				m_previewHeight;
     float           m_previewZoom;
 	
-	virtual BOOL	ProgressCallback(CString text, CString text2, DWORD done, DWORD total);
 	virtual void	DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	afx_msg void	OnPaint();
 	afx_msg BOOL	OnEraseBkgnd(CDC* pDC);

@@ -175,23 +175,6 @@ void CRevisionGraphWnd::Init(CWnd * pParent, LPRECT rect)
 	m_dwTicks = GetTickCount();
 }
 
-BOOL CRevisionGraphWnd::ProgressCallback(CString text, CString text2, DWORD done, DWORD total)
-{
-	if ((m_pProgress)&&((m_dwTicks+300) < GetTickCount()))
-	{
-		m_dwTicks = GetTickCount();
-		m_pProgress->SetLine(1, text);
-		m_pProgress->SetLine(2, text2);
-        if (!m_pProgress->IsVisible() && (total > 1))
-    	    m_pProgress->ShowModeless (GetParent());
-
-		m_pProgress->SetProgress(done, total);
-		if (m_pProgress->HasUserCancelled())
-			return FALSE;
-	}
-	return TRUE;
-}
-
 index_t CRevisionGraphWnd::GetHitNode (CPoint point) const
 {
     // any nodes at all?
