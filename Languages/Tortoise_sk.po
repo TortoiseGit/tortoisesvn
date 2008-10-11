@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-10 11:52+0100\n"
+"PO-Revision-Date: 2008-10-11 13:36+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1473,8 +1473,8 @@ msgstr ""
 "na porovnanie rozdielnych revízií súborov\r\n"
 "\r\n"
 "Do cesty môžete zadať nasledovné parametre:\r\n"
-"%base\tzákladný súbor\r\n"
-"%mine\tupravený súbor"
+"%base : základný súbor\r\n"
+"%mine : upravený súbor"
 
 #. Resource IDs: (79)
 #, c-format
@@ -1488,14 +1488,14 @@ msgid ""
 "%mine : your own file, with your changes\r\n"
 "%base : the original file without your changes"
 msgstr ""
-"Externý zlučovací program bol používaný\r\n"
+"Externý zlučovací program používaný\r\n"
 "na vyriešenie konfliktných súborov.\r\n"
 "\r\n"
 "Do cesty môžete zadať nasledovné parametre:\r\n"
-"%merged\tvýsledný súbor - kam sa má uložiť\r\n"
-"%theirs\t\tsúbor ako je v úložisku\r\n"
-"%mine\t\tváš súbor so zmenami\r\n"
-"%base\t\tpôvodný súbor bez vašich zmien"
+"%merged : výsledný súbor - kam sa má uložiť\r\n"
+"%theirs : súbor ako je v úložisku\r\n"
+"%mine : váš súbor so zmenami\r\n"
+"%base : pôvodný súbor bez vašich zmien"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -2235,7 +2235,7 @@ msgstr ""
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
-msgstr "Porovnať \"&HEAD\" revízií"
+msgstr "Porovnať &HEAD revízie"
 
 #. Resource IDs: (114)
 msgid "Compare and &blame with working BASE"
