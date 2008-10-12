@@ -344,5 +344,11 @@ svn+ssh://svnuser@mydomain.com/repos
 			Plink tool from the PuTTY suite, TortoiseSVN will also try all the keys
 			stored in Pageant.
 		</para>
+		<para>
+			If you use this last method, be sure you do not have a default username
+			set in PuTTY. We have had reports of a bug in PuTTY causing connections
+			to close in this case. To remove the default user, simply clear
+			<filename>HKEY_CURRENT_USER\Software\SimonTatham\Putty\Sessions\Default%20Settings\HostName</filename>
+		</para>
 	</sect1>
 </appendix>
