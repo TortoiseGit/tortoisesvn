@@ -402,6 +402,10 @@ msgstr ""
 msgid "&Custom"
 msgstr ""
 
+#. Resource IDs: (1485)
+msgid "&Days of inactivity until small caches get removed"
+msgstr ""
+
 #. Resource IDs: (1096, 1269)
 msgid "&Default"
 msgstr ""
@@ -629,6 +633,10 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "&Lum:"
+msgstr ""
+
+#. Resource IDs: (1486)
+msgid "&Maximum size [kByte] of a removed inactive cache"
 msgstr ""
 
 #. Resource IDs: (16543)
@@ -1016,13 +1024,13 @@ msgstr ""
 msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
 msgstr ""
 
-#. Resource IDs: (17, 564)
-msgid "(binary value)"
-msgstr ""
-
 #. Resource IDs: (272)
 #, c-format
-msgid "(deleted) %s"
+msgid "(%s) %s"
+msgstr ""
+
+#. Resource IDs: (17, 564)
+msgid "(binary value)"
 msgstr ""
 
 #. Resource IDs: (208)
@@ -1354,8 +1362,16 @@ msgstr ""
 msgid "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
 msgstr ""
 
+#. Resource IDs: (1484)
+msgid "Allow ambiguous &UUIDs"
+msgstr ""
+
 #. Resource IDs: (345)
-msgid "Allow different repositories to use the same URL, e.g. http://localhost/myrepos/\nNote: This will disable offline log access."
+msgid "Allow different repositories to use the same URL, e.g. http://localhost/myrepos/"
+msgstr ""
+
+#. Resource IDs: (345)
+msgid "Allow different repositories to use the same UUID, e.g. mirrored repositories"
 msgstr ""
 
 #. Resource IDs: (197)
@@ -2973,6 +2989,10 @@ msgstr ""
 msgid "Expand docked window"
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "Expert settings"
+msgstr ""
+
 #. Resource IDs: (209)
 msgid "Explore to"
 msgstr ""
@@ -4009,6 +4029,10 @@ msgstr ""
 msgid "Log Caching"
 msgstr ""
 
+#. Resource IDs: (295)
+msgid "Log Caching::Cached Repositories"
+msgstr ""
+
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr ""
@@ -4097,6 +4121,10 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Max. lines in action log"
+msgstr ""
+
+#. Resource IDs: (1487)
+msgid "Maximum number of tool &failures until cache removal"
 msgstr ""
 
 #. Resource IDs: (16655)
@@ -4566,6 +4594,10 @@ msgstr ""
 
 #. Resource IDs: (338)
 msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
+msgstr ""
+
+#. Resource IDs: (345)
+msgid "Number of times a log cache can fail to close properly\ndue to crashes etc. until it gets deleted automatically."
 msgstr ""
 
 #. Resource IDs: (1160)
@@ -5500,7 +5532,7 @@ msgstr ""
 
 #. Resource IDs: (272)
 #, c-format
-msgid "Revision: %ld\r\nURL: %s\r\nAuthor: %s\r\nDate: %s\r\n\r\nTags:%s\r\n\r\nLogmessage:\r\n%s"
+msgid "Revision: %ld\r\nURL: %s\r\nAuthor: %s\r\nDate: %s\r\n\r\nTags (%d):%s\r\n\r\nLogmessage:\r\n%s"
 msgstr ""
 
 #. Resource IDs: (116, 65535)
@@ -6971,6 +7003,10 @@ msgstr ""
 msgid "Untitled"
 msgstr ""
 
+#. Resource IDs: (345)
+msgid "Unused log caches will only be removed if the respecitve\nfile is smaller than the given size in kBytes."
+msgstr ""
+
 #. Resource IDs: (146)
 msgid "Unversion"
 msgstr ""
@@ -7258,6 +7294,10 @@ msgstr ""
 msgid "Warning!"
 msgstr ""
 
+#. Resource IDs: (345)
+msgid "When a small log cache has not been used for the given\nnumber of days, it will be removed automatically."
+msgstr ""
+
 #. Resource IDs: (344)
 msgid "When connecting to the repository server is not possible,\nTSVN can switch to using cached data only.\nSelect the default behaviour here."
 msgstr ""
@@ -7483,7 +7523,7 @@ msgstr ""
 
 #. Resource IDs: (272)
 #, c-format
-msgid "alias (deleted): %s"
+msgid "alias (%s): %s"
 msgstr ""
 
 #. Resource IDs: (272)
