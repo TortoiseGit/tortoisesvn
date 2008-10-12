@@ -95,6 +95,60 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WiX", "WiX", "{3E25834A-06B
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IBugTraqProvider", "IBugTraqProvider\IBugTraqProvider.vcproj", "{2C879469-DB8F-4BF0-B016-AE864D2A7BBC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildScripts", "BuildScripts", "{319F6995-13BA-4F74-9EC9-BE0482F83A47}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{5653005F-A9BC-4AE9-9E0A-5D48BD4C90F2}"
+	ProjectSection(SolutionItems) = preProject
+		..\default.build = ..\default.build
+		..\default.build.user.tmpl = ..\default.build.user.tmpl
+		..\version.build.in = ..\version.build.in
+		..\versioninfo.build = ..\versioninfo.build
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "binaries", "binaries", "{87D830D9-98C9-4C40-B177-A3B8AB11A7DA}"
+	ProjectSection(SolutionItems) = preProject
+		..\ext\build\apr.build = ..\ext\build\apr.build
+		..\ext\build\aprutil.build = ..\ext\build\aprutil.build
+		..\ext\build\default.build = ..\ext\build\default.build
+		SubWCRev\ExampleNAntTask.build = SubWCRev\ExampleNAntTask.build
+		..\ext\build\neon.build = ..\ext\build\neon.build
+		..\ext\build\OpenSSL.build = ..\ext\build\OpenSSL.build
+		..\ext\build\sasl.build = ..\ext\build\sasl.build
+		..\ext\build\serf.build = ..\ext\build\serf.build
+		..\ext\build\sqlite.build = ..\ext\build\sqlite.build
+		..\ext\build\subversion.build = ..\ext\build\subversion.build
+		TortoiseOverlays\TortoiseOverlays.build = TortoiseOverlays\TortoiseOverlays.build
+		TortoiseSVN.build = TortoiseSVN.build
+		..\ext\build\zlib.build = ..\ext\build\zlib.build
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{5FA2BD8E-B119-4929-9AAB-705F96C42073}"
+	ProjectSection(SolutionItems) = preProject
+		..\doc\doc.build = ..\doc\doc.build
+		..\Languages\LanguagePack.build = ..\Languages\LanguagePack.build
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ja", "ja", "{DC70FF3C-AB31-4242-9962-9171D9988977}"
+	ProjectSection(SolutionItems) = preProject
+		..\doc\xsl\ja\lang.build = ..\doc\xsl\ja\lang.build
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ru", "ru", "{90721A98-6CC9-4128-B5AB-86719700F42F}"
+	ProjectSection(SolutionItems) = preProject
+		..\doc\xsl\ru\lang.build = ..\doc\xsl\ru\lang.build
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh_CN", "zh_CN", "{92A008DF-7495-4488-865C-51496F5502C3}"
+	ProjectSection(SolutionItems) = preProject
+		..\doc\xsl\zh_CN\lang.build = ..\doc\xsl\zh_CN\lang.build
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "setup", "setup", "{A5CB7831-91C7-4C60-AC79-0CEB64B4742E}"
+	ProjectSection(SolutionItems) = preProject
+		TortoiseSVNSetup\setup.build = TortoiseSVNSetup\setup.build
+		TortoiseSVNSetup\staticsetup.build = TortoiseSVNSetup\staticsetup.build
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		debug_static|Win32 = debug_static|Win32
@@ -457,5 +511,12 @@ Global
 		{ED498504-302E-4CE1-974A-A00CAD156C78} = {5A449437-9BE5-4364-844F-C40BB1AF487A}
 		{56016512-D578-46FD-85E0-9EDCD37433AC} = {5A449437-9BE5-4364-844F-C40BB1AF487A}
 		{8D11C73A-7D0D-4B44-AA3A-CEACD52F786E} = {5A449437-9BE5-4364-844F-C40BB1AF487A}
+		{5653005F-A9BC-4AE9-9E0A-5D48BD4C90F2} = {319F6995-13BA-4F74-9EC9-BE0482F83A47}
+		{87D830D9-98C9-4C40-B177-A3B8AB11A7DA} = {319F6995-13BA-4F74-9EC9-BE0482F83A47}
+		{5FA2BD8E-B119-4929-9AAB-705F96C42073} = {319F6995-13BA-4F74-9EC9-BE0482F83A47}
+		{A5CB7831-91C7-4C60-AC79-0CEB64B4742E} = {319F6995-13BA-4F74-9EC9-BE0482F83A47}
+		{DC70FF3C-AB31-4242-9962-9171D9988977} = {5FA2BD8E-B119-4929-9AAB-705F96C42073}
+		{90721A98-6CC9-4128-B5AB-86719700F42F} = {5FA2BD8E-B119-4929-9AAB-705F96C42073}
+		{92A008DF-7495-4488-865C-51496F5502C3} = {5FA2BD8E-B119-4929-9AAB-705F96C42073}
 	EndGlobalSection
 EndGlobal
