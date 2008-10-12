@@ -104,6 +104,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <li><a href="#four00">400 Bad Request</a></li>
 <li><a href="#four03">403 Forbidden</a></li>
 <li><a href="#four05">405 HTTP Method Not Allowed</a></li>
+<li><a href="#sshclosed">SSH connection closed unexpectedly.</a></li>
 </ul>
 <hr/>
 
@@ -930,6 +931,15 @@ Another possibility for this error is a virus scanner/firewall you have running 
 You tried to lock a file in your working copy which no longer exists in the repository. Update your working copy before trying to lock files.</li>
 </ul>
 <p>For more information about what actually caused the error, seek out the Apache error log.</p>
+</div>
+
+<div class="h3" id="sshclosed" title="sshclosed">
+<h3>SVN+SSH: Connection closed unexpectedly</h3>
+<p>It has been reported that svn+ssh connections of the form svn+ssh://username@server.com
+which were previously working, stop working with TortoiseSVN 1.5. This seems to be related
+to plink, and occurs if you have a default hostname set in PuTTY.</p>
+<p>If this is the case you can fix it by using regedit or regedt32 to clear
+HKEY_CURRENT_USER/Software/SimonTatham/Putty/Sessions/Default%20Settings/HostName.</p>
 </div>
 
 </div>
