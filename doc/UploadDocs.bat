@@ -14,19 +14,13 @@ rem set PsCP="C:\Programme\PuttY\pscp.exe"
 rem set PLINK="C:\Programme\Putty\plink.exe"
 rem set ZIP="C:\Programme\7-zip\7z.exe"
 
-SETLOCAL ENABLEDELAYEDEXPANSION
 
 call docserverlogin.bat
 
 cd output
 del docs.zip
-if "%1"=="" (
-  FOR /F %%L IN ('DIR /AD /B') DO (
-    move /Y %%L\images\backgrounddraft.png %%L\images\background.png
-  )
-)
 
-%ZIP% a -r -tzip docs.zip *
+%ZIP% a -r -x!*.pdf -x!*.chm -tzip docs.zip *
 
 %PSCP% -r -l %USERNAME% -pw %PASSWORD% docs.zip www.tortoisesvn.net:/var/www/vhosts/default/htdocs/docs
 
