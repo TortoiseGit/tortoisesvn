@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using Microsoft.Win32;
 
 namespace ExampleCsPlugin
 {
     [ComVisible(true),
         Guid("5870B3F1-8393-4c83-ACED-1D5E803A4F2B"),
         ClassInterface(ClassInterfaceType.None)]
-    public class MyPlugin : Interop.BugTraqProvider.IBugTraqProvider
+    public class MyPlugin : Interop.BugTraqProvider.IBugTraqProvider2
     {
+		private List<TicketItem> selectedTickets = new List<TicketItem>();
+
         public bool ValidateParameters(IntPtr hParentWnd, string parameters)
         {
             return true;
@@ -48,6 +51,7 @@ namespace ExampleCsPlugin
                 {
                     result.AppendFormat("Fixed #{0}: {1}", ticket.Number, ticket.Summary);
                     result.AppendLine();
+					selectedTickets.Add( ticket );
                 }
 
                 return result.ToString();
@@ -58,5 +62,16 @@ namespace ExampleCsPlugin
                 throw;
             }
         }
-    }
+
+		public string OnCommitFinished( IntPtr hParentWnd, string commonRoot, string[] pathList, string logMessage, int revision )
+		{
+			// we now could use the selectedTickets member to find out which tickets
+			// were assigned to this commit.
+			//CommitFinishedForm form = new CommitFinishedForm( selectedTickets );
+			//if ( form.ShowDialog( ) != DialogResult.OK )
+			//    return "";
+			// just for testing, we return an error string
+			return "an error happened while closing the issue";
+		}
+	}
 }

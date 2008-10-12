@@ -28,6 +28,7 @@
 #include "PathWatcher.h"
 #include "BugTraqAssociations.h"
 #include "Tooltip.h"
+#include "..\IBugTraqProvider\IBugTraqProvider_h.h"
 
 #include <regex>
 using namespace std;
@@ -107,6 +108,7 @@ public:
 	BOOL				m_bKeepChangeList;
 	INT_PTR				m_itemsCount;
 	bool				m_bSelectFilesForCommit;
+	CComPtr<IBugTraqProvider> m_BugTraqProvider;
 
 private:
 	CWinThread*			m_pThread;
@@ -132,4 +134,5 @@ private:
 	CPathWatcher		m_pathwatcher;
 
 	CBugTraqAssociation m_bugtraq_association;
+
 };

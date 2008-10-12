@@ -39,6 +39,8 @@
 #include "LogFile.h"
 #include "ShellUpdater.h"
 #include "IconMenu.h"
+#include "BugTraqAssociations.h"
+
 
 BOOL	CSVNProgressDlg::m_bAscending = FALSE;
 int		CSVNProgressDlg::m_nSortedColumn = -1;
@@ -82,6 +84,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 	, m_itemCount(-1)
 	, m_itemCountTotal(-1)
 	, m_AlwaysConflicted(false)
+	, m_BugTraqProvider(NULL)
 	, sIgnoredIncluded(MAKEINTRESOURCE(IDS_PROGRS_IGNOREDINCLUDED))
 	, sExtExcluded(MAKEINTRESOURCE(IDS_PROGRS_EXTERNALSEXCLUDED))
 	, sExtIncluded(MAKEINTRESOURCE(IDS_PROGRS_EXTERNALSINCLUDED))
@@ -1856,6 +1859,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 	CStringArray changelists;
     if (!m_changelist.IsEmpty())
 	    changelists.Add(m_changelist);
+	bool commitSuccessful = true;
 	if (!Commit(m_targetPathList, m_sMessage, changelists, m_keepchangelist, 
 		m_depth, m_options & ProgOptKeeplocks))
 	{
@@ -1867,11 +1871,45 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 		{
 			ReportError(CString(MAKEINTRESOURCE(IDS_PROGRS_NONRECURSIVEHINT)));
 		}
+		commitSuccessful = false;
 		return false;
 	}
 	if (!PostCommitErr.IsEmpty())
 	{
 		ReportWarning(PostCommitErr);
+	}
+	if (commitSuccessful)
+	{
+		if (m_BugTraqProvider)
+		{
+			CComPtr<IBugTraqProvider2> pProvider = NULL;
+			HRESULT hr = m_BugTraqProvider.QueryInterface(&pProvider);
+			if (SUCCEEDED(hr))
+			{
+				BSTR commonRoot = SysAllocString(m_targetPathList.GetCommonRoot().GetDirectory().GetWinPath());
+				SAFEARRAY *pathList = SafeArrayCreateVector(VT_BSTR, 0, m_targetPathList.GetCount());
+
+				for (LONG index = 0; index < m_targetPathList.GetCount(); ++index)
+					SafeArrayPutElement(pathList, &index, m_targetPathList[index].GetSVNPathString().AllocSysString());
+
+				BSTR logMessage = m_sMessage.AllocSysString();
+
+				BSTR temp = NULL;
+				if (FAILED(hr = pProvider->OnCommitFinished(GetSafeHwnd(), 
+					commonRoot,
+					pathList,
+					logMessage,
+					(LONG)m_RevisionEnd,
+					&temp)))
+				{
+					CString sErr = temp;
+					if (!sErr.IsEmpty())
+						ReportError(temp);
+				}
+
+				SysFreeString(temp);
+			}
+		}
 	}
 	if (CHooks::Instance().PostCommit(m_selectedPaths, m_depth, m_RevisionEnd, m_sMessage, exitcode, error))
 	{

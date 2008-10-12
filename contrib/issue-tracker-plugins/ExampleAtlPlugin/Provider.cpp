@@ -144,3 +144,16 @@ HRESULT STDMETHODCALLTYPE CProvider::GetCommitMessage(
 	*newMessage = message.AllocSysString();
 	return S_OK;
 }
+
+HRESULT STDMETHODCALLTYPE CProvider::OnCommitFinished (
+	/* [in] */ HWND hParentWnd,
+	/* [in] */ BSTR commonRoot,
+	/* [in] */ SAFEARRAY * pathList,
+	/* [in] */ BSTR logMessage,
+	/* [in] */ ULONG revision,
+	/* [out, retval] */ BSTR * error)
+{
+	CString err = _T("Test error string");
+	*error = err.AllocSysString();
+	return S_OK;
+}

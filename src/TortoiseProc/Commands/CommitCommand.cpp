@@ -103,6 +103,7 @@ bool CommitCommand::Execute()
 			progDlg.SetDepth(dlg.m_bRecursive ? svn_depth_infinity : svn_depth_empty);
 			progDlg.SetSelectedList(dlg.m_selectedPathList);
 			progDlg.SetItemCount(dlg.m_itemsCount);
+			progDlg.SetBugTraqProvider(dlg.m_BugTraqProvider);
 			progDlg.DoModal();
 			CRegDWORD err = CRegDWORD(_T("Software\\TortoiseSVN\\ErrorOccurred"), FALSE);
 			err = (DWORD)progDlg.DidErrorsOccur();

@@ -21,4 +21,15 @@ namespace Interop.BugTraqProvider
             [MarshalAs(UnmanagedType.SafeArray, SafeArraySubType=VarEnum.VT_BSTR)] string[] pathList,
             [MarshalAs(UnmanagedType.BStr)] string originalMessage);
     }
+
+	[ComVisible( true ), InterfaceType( ComInterfaceType.InterfaceIsIUnknown ), Guid( "C5C85E31-2F9B-4916-A7BA-8E27D481EE83" )]
+	public interface IBugTraqProvider2 : IBugTraqProvider
+	{
+		[return: MarshalAs( UnmanagedType.BStr )]
+		string OnCommitFinished( IntPtr hParentWnd,
+			[MarshalAs( UnmanagedType.BStr )] string commonRoot,
+			[MarshalAs( UnmanagedType.SafeArray, SafeArraySubType = VarEnum.VT_BSTR )] string[] pathList,
+			[MarshalAs( UnmanagedType.BStr )] string logMessage,
+			[MarshalAs( UnmanagedType.U4 )] int revision);
+	}
 }

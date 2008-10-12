@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{CFF6CAA1-27A0-46FF-89D6-AD70F3575685}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -31,9 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Interop.BugTraqProvider, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Interop.BugTraqProvider, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\inc\Interop.BugTraqProvider.dll</HintPath>
+      <HintPath>..\Interop.BugTraqProvider\bin\Debug\Interop.BugTraqProvider.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommitFinishedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommitFinishedForm.Designer.cs">
+      <DependentUpon>CommitFinishedForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyIssuesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,12 +68,18 @@
     <Compile Include="TicketItem.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CommitFinishedForm.resx">
+      <DependentUpon>CommitFinishedForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyIssuesForm.resx">
       <DependentUpon>MyIssuesForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="ExampleCsPlugin.reg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

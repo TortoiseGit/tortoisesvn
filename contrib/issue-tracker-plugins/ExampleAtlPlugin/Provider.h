@@ -6,7 +6,7 @@
 class ATL_NO_VTABLE CProvider :
 	public CComObjectRootEx<CComSingleThreadModel>,
 	public CComCoClass<CProvider, &CLSID_Provider>,
-	public IBugTraqProvider
+	public IBugTraqProvider2
 {
 public:
 	CProvider();
@@ -17,6 +17,7 @@ DECLARE_NOT_AGGREGATABLE(CProvider)
 
 BEGIN_COM_MAP(CProvider)
 	COM_INTERFACE_ENTRY(IBugTraqProvider)
+	COM_INTERFACE_ENTRY(IBugTraqProvider2)
 END_COM_MAP()
 
 	DECLARE_PROTECT_FINAL_CONSTRUCT()
@@ -43,6 +44,14 @@ public:
         /* [in] */ SAFEARRAY * pathList,
         /* [in] */ BSTR originalMessage,
         /* [retval][out] */ BSTR *newMessage);
+
+	virtual HRESULT STDMETHODCALLTYPE OnCommitFinished (
+		/* [in] */ HWND hParentWnd,
+		/* [in] */ BSTR commonRoot,
+		/* [in] */ SAFEARRAY * pathList,
+		/* [in] */ BSTR logMessage,
+		/* [in] */ ULONG revision,
+		/* [out, retval] */ BSTR * error);
 
 private:
 	typedef std::map< CString, CString > parameters_t;

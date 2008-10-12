@@ -23,6 +23,7 @@
 #include "ProjectProperties.h"
 #include "SVN.h"
 #include "Colors.h"
+#include "..\IBugTraqProvider\IBugTraqProvider_h.h"
 #include "afxwin.h"
 
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
@@ -120,6 +121,7 @@ public:
 	void SetChangeList(const CString& changelist, bool keepchangelist) {m_changelist = changelist; m_keepchangelist = keepchangelist;}
 	void SetSelectedList(const CTSVNPathList& selPaths);
 	void SetRevisionRanges(const SVNRevRangeArray& revArray) {m_revisionArray = revArray;}
+	void SetBugTraqProvider(const CComPtr<IBugTraqProvider> pBugtraqProvider) { m_BugTraqProvider = pBugtraqProvider;}
 	/**
 	 * If the number of items for which the operation is done on is known
 	 * beforehand, that number can be set here. It is then used to show a more
@@ -315,6 +317,8 @@ private:
 	int						m_itemCountTotal;
 
 	bool					m_AlwaysConflicted;
+
+	CComPtr<IBugTraqProvider> m_BugTraqProvider;
 
 	// some strings different methods can use
 	CString					sIgnoredIncluded;

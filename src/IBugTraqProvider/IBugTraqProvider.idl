@@ -58,3 +58,21 @@ interface IBugTraqProvider : IUnknown
 		[out, retval] BSTR *newMessage			// The new text for the commit message. This replaces the original message.
 	);			
 };
+
+[
+	object,
+	uuid(C5C85E31-2F9B-4916-A7BA-8E27D481EE83),
+	helpstring("IBugTraqProvider Interface"),
+	pointer_default(unique)
+]
+interface IBugTraqProvider2 : IBugTraqProvider
+{
+	HRESULT	OnCommitFinished (
+		[in] HWND hParentWnd,					// Parent window for any (error) UI that needs to be displayed.
+		[in] BSTR commonRoot,					// The common root of all paths that got committed.
+		[in] SAFEARRAY(BSTR) pathList,			// All the paths that got committed.
+		[in] BSTR logMessage,					// The text already present in the commit message.
+		[in] ULONG revision,					// The revision of the commit.
+		[out, retval] BSTR * error				// An error to show to the user if this function returns something else than S_OK
+		);
+};

@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0500 */
-/* at Thu May 01 15:40:50 2008
+/* at Sat Oct 11 21:25:03 2008
  */
 /* Compiler settings for .\IBugTraqProvider.idl:
     Oicf, W4, Zp8, env=Win32 (32b run)
@@ -49,6 +49,12 @@
 #define __IBugTraqProvider_FWD_DEFINED__
 typedef interface IBugTraqProvider IBugTraqProvider;
 #endif 	/* __IBugTraqProvider_FWD_DEFINED__ */
+
+
+#ifndef __IBugTraqProvider2_FWD_DEFINED__
+#define __IBugTraqProvider2_FWD_DEFINED__
+typedef interface IBugTraqProvider2 IBugTraqProvider2;
+#endif 	/* __IBugTraqProvider2_FWD_DEFINED__ */
 
 
 /* header files for imported files */
@@ -185,6 +191,126 @@ EXTERN_C const IID IID_IBugTraqProvider;
 
 
 #endif 	/* __IBugTraqProvider_INTERFACE_DEFINED__ */
+
+
+#ifndef __IBugTraqProvider2_INTERFACE_DEFINED__
+#define __IBugTraqProvider2_INTERFACE_DEFINED__
+
+/* interface IBugTraqProvider2 */
+/* [unique][helpstring][uuid][object] */ 
+
+
+EXTERN_C const IID IID_IBugTraqProvider2;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("C5C85E31-2F9B-4916-A7BA-8E27D481EE83")
+    IBugTraqProvider2 : public IBugTraqProvider
+    {
+    public:
+        virtual HRESULT STDMETHODCALLTYPE OnCommitFinished( 
+            /* [in] */ HWND hParentWnd,
+            /* [in] */ BSTR commonRoot,
+            /* [in] */ SAFEARRAY * pathList,
+            /* [in] */ BSTR logMessage,
+            /* [in] */ ULONG revision,
+            /* [retval][out] */ BSTR *error) = 0;
+        
+    };
+    
+#else 	/* C style interface */
+
+    typedef struct IBugTraqProvider2Vtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            IBugTraqProvider2 * This,
+            /* [in] */ REFIID riid,
+            /* [iid_is][out] */ 
+            __RPC__deref_out  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            IBugTraqProvider2 * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            IBugTraqProvider2 * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *ValidateParameters )( 
+            IBugTraqProvider2 * This,
+            /* [in] */ HWND hParentWnd,
+            /* [in] */ BSTR parameters,
+            /* [retval][out] */ VARIANT_BOOL *valid);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetLinkText )( 
+            IBugTraqProvider2 * This,
+            /* [in] */ HWND hParentWnd,
+            /* [in] */ BSTR parameters,
+            /* [retval][out] */ BSTR *linkText);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetCommitMessage )( 
+            IBugTraqProvider2 * This,
+            /* [in] */ HWND hParentWnd,
+            /* [in] */ BSTR parameters,
+            /* [in] */ BSTR commonRoot,
+            /* [in] */ SAFEARRAY * pathList,
+            /* [in] */ BSTR originalMessage,
+            /* [retval][out] */ BSTR *newMessage);
+        
+        HRESULT ( STDMETHODCALLTYPE *OnCommitFinished )( 
+            IBugTraqProvider2 * This,
+            /* [in] */ HWND hParentWnd,
+            /* [in] */ BSTR commonRoot,
+            /* [in] */ SAFEARRAY * pathList,
+            /* [in] */ BSTR logMessage,
+            /* [in] */ ULONG revision,
+            /* [retval][out] */ BSTR *error);
+        
+        END_INTERFACE
+    } IBugTraqProvider2Vtbl;
+
+    interface IBugTraqProvider2
+    {
+        CONST_VTBL struct IBugTraqProvider2Vtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define IBugTraqProvider2_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define IBugTraqProvider2_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define IBugTraqProvider2_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define IBugTraqProvider2_ValidateParameters(This,hParentWnd,parameters,valid)	\
+    ( (This)->lpVtbl -> ValidateParameters(This,hParentWnd,parameters,valid) ) 
+
+#define IBugTraqProvider2_GetLinkText(This,hParentWnd,parameters,linkText)	\
+    ( (This)->lpVtbl -> GetLinkText(This,hParentWnd,parameters,linkText) ) 
+
+#define IBugTraqProvider2_GetCommitMessage(This,hParentWnd,parameters,commonRoot,pathList,originalMessage,newMessage)	\
+    ( (This)->lpVtbl -> GetCommitMessage(This,hParentWnd,parameters,commonRoot,pathList,originalMessage,newMessage) ) 
+
+
+#define IBugTraqProvider2_OnCommitFinished(This,hParentWnd,commonRoot,pathList,logMessage,revision,error)	\
+    ( (This)->lpVtbl -> OnCommitFinished(This,hParentWnd,commonRoot,pathList,logMessage,revision,error) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __IBugTraqProvider2_INTERFACE_DEFINED__ */
 
 
 /* Additional Prototypes for ALL interfaces */

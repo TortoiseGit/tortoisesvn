@@ -30,7 +30,6 @@
 #include "SVNStatus.h"
 #include "HistoryDlg.h"
 #include "Hooks.h"
-#include "..\IBugTraqProvider\IBugTraqProvider_h.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -39,7 +38,6 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 UINT CCommitDlg::WM_AUTOLISTREADY = RegisterWindowMessage(_T("TORTOISESVN_AUTOLISTREADY_MSG"));
-
 
 IMPLEMENT_DYNAMIC(CCommitDlg, CResizableStandAloneDialog)
 CCommitDlg::CCommitDlg(CWnd* pParent /*=NULL*/)
@@ -145,6 +143,7 @@ BOOL CCommitDlg::OnInitDialog()
 		HRESULT hr = pProvider.CoCreateInstance(m_bugtraq_association.GetProviderClass());
 		if (SUCCEEDED(hr))
 		{
+			m_BugTraqProvider = pProvider;
 			BSTR temp = NULL;
 			if (SUCCEEDED(hr = pProvider->GetLinkText(GetSafeHwnd(), m_bugtraq_association.GetParameters().AllocSysString(), &temp)))
 			{
@@ -1177,8 +1176,11 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
 	m_tooltips.Pop();	// hide the tooltips
 	CString sMsg = m_cLogMessage.GetText();
 
-	CComPtr<IBugTraqProvider> pProvider;
-	HRESULT hr = pProvider.CoCreateInstance(m_bugtraq_association.GetProviderClass());
+	if (m_BugTraqProvider == NULL)
+		return;
+
+	CComPtr<IBugTraqProvider> pProvider = NULL;
+	HRESULT hr = m_BugTraqProvider.QueryInterface(&pProvider);
 	if (FAILED(hr))
 	{
 		CString sErr;

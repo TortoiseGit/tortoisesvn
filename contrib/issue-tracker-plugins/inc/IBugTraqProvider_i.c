@@ -6,7 +6,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0500 */
-/* at Thu May 01 15:40:50 2008
+/* at Sat Oct 11 21:25:03 2008
  */
 /* Compiler settings for .\IBugTraqProvider.idl:
     Oicf, W4, Zp8, env=Win32 (32b run)
@@ -68,6 +68,9 @@ typedef IID CLSID;
 #endif !_MIDL_USE_GUIDDEF_
 
 MIDL_DEFINE_GUID(IID, IID_IBugTraqProvider,0x298B927C,0x7220,0x423C,0xB7,0xB4,0x6E,0x24,0x1F,0x00,0xCD,0x93);
+
+
+MIDL_DEFINE_GUID(IID, IID_IBugTraqProvider2,0xC5C85E31,0x2F9B,0x4916,0xA7,0xBA,0x8E,0x27,0xD4,0x81,0xEE,0x83);
 
 #undef MIDL_DEFINE_GUID
 
