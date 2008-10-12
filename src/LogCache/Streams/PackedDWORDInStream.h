@@ -70,7 +70,7 @@ public:
 
 inline DWORD CPackedDWORDInStreamBase::GetValue() throw()
 {
-	while (true)
+	for (;;)
 	{
 		if (count != 0)
 		{

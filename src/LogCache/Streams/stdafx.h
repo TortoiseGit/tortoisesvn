@@ -30,16 +30,9 @@
 #	define _WIN32_WINDOWS 0x0501
 #endif
 
-
-
 #ifndef _WIN32_IE
 #define _WIN32_IE 0x0501
 #endif
-
-#define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS	// some CString constructors will be explicit
-
-// turns off MFC's hiding of some common and often safely ignored warning messages
-#define _AFX_ALL_WARNINGS
 
 // Exclude rarely-used stuff from Windows headers
 
@@ -63,27 +56,9 @@
 
 // include commonly used headers
 
-#include <afxwin.h>         // MFC core and standard components
-#include <afxtempl.h>       // CArray and friend
-
+#include <windows.h>
 #include <assert.h>
-#include <time.h>
 
-#include <algorithm>
-/*
-#include <functional>
-*/
 #include <string>
-#include <map>
 #include <vector>
-#include <fstream>
-
-#include "./Streams/DiffIntegerInStream.h"
-#include "./Streams/DiffIntegerOutStream.h"
-#include "./Streams/PackedTime64InStream.h"
-#include "./Streams/PackedTime64OutStream.h"
-#include "./Streams/CompositeInStream.h"
-#include "./Streams/CompositeOutStream.h"
-
-
-
+#include <map>

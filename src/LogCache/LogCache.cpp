@@ -20,14 +20,14 @@
 //
 
 #include "stdafx.h"
-#include "RootInStream.h"
-#include "RootOutStream.h"
+#include "./Streams/RootInStream.h"
+#include "./Streams/RootOutStream.h"
 #include "StringDictonary.h"
 #include "CachedLogInfo.h"
 #include "XMLLogReader.h"
 #include "XMLLogWriter.h"
-#include "CompositeInStream.h"
-#include "CompositeOutStream.h"
+#include "./Streams/CompositeInStream.h"
+#include "./Streams/CompositeOutStream.h"
 #include "HighResClock.h"
 #include "CopyFollowingLogIterator.h"
 

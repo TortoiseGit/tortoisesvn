@@ -19,8 +19,8 @@
 #include "StdAfx.h"
 #include ".\cachedloginfo.h"
 
-#include "RootInStream.h"
-#include "RootOutStream.h"
+#include "./Streams/RootInStream.h"
+#include "./Streams/RootOutStream.h"
 
 // begin namespace LogCache
 

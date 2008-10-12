@@ -2,10 +2,13 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LogCache", "LogCache.vcproj", "{6DD7C7B4-392B-4E93-9565-464EC27CA9BF}"
 	ProjectSection(ProjectDependencies) = postProject
+		{F0D5506C-BB6B-43A7-A4EF-D4826F398185} = {F0D5506C-BB6B-43A7-A4EF-D4826F398185}
 		{BD0854A3-E300-4E57-8C17-E4771AE1CA01} = {BD0854A3-E300-4E57-8C17-E4771AE1CA01}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LogCacheLib", "LogCacheLib.vcproj", "{BD0854A3-E300-4E57-8C17-E4771AE1CA01}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LogCacheStreamsLib", "Streams\LogCacheStreamsLib.vcproj", "{F0D5506C-BB6B-43A7-A4EF-D4826F398185}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +34,14 @@ Global
 		{BD0854A3-E300-4E57-8C17-E4771AE1CA01}.Release|Win32.Build.0 = Release|Win32
 		{BD0854A3-E300-4E57-8C17-E4771AE1CA01}.Release|x64.ActiveCfg = Release|x64
 		{BD0854A3-E300-4E57-8C17-E4771AE1CA01}.Release|x64.Build.0 = Release|x64
+		{F0D5506C-BB6B-43A7-A4EF-D4826F398185}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F0D5506C-BB6B-43A7-A4EF-D4826F398185}.Debug|Win32.Build.0 = Debug|Win32
+		{F0D5506C-BB6B-43A7-A4EF-D4826F398185}.Debug|x64.ActiveCfg = Debug|x64
+		{F0D5506C-BB6B-43A7-A4EF-D4826F398185}.Debug|x64.Build.0 = Debug|x64
+		{F0D5506C-BB6B-43A7-A4EF-D4826F398185}.Release|Win32.ActiveCfg = Release|Win32
+		{F0D5506C-BB6B-43A7-A4EF-D4826F398185}.Release|Win32.Build.0 = Release|Win32
+		{F0D5506C-BB6B-43A7-A4EF-D4826F398185}.Release|x64.ActiveCfg = Release|x64
+		{F0D5506C-BB6B-43A7-A4EF-D4826F398185}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

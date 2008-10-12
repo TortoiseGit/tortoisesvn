@@ -98,7 +98,7 @@ public:
 
 inline void CPackedDWORDOutStreamBase::InternalAdd (DWORD value) throw()
 {
-	while (true)
+	for (;;)
 	{
 		if (value < 0x80)
 		{

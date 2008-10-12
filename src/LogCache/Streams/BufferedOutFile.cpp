@@ -18,6 +18,11 @@
 //
 #include "StdAfx.h"
 #include "BufferedOutFile.h"
+
+struct CString {};
+struct CStringA {};
+struct CStringW {};
+
 #include "PathUtils.h"
 
 // write buffer content to disk

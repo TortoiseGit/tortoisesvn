@@ -23,11 +23,6 @@
 #include ".\PathDictionary.h"
 #include ".\RevisionInfoContainer.h"
 
-#include ".\PackedDWORDInStream.h"
-#include ".\PackedDWORDOutStream.h"
-#include ".\DiffIntegerInStream.h"
-#include ".\DiffIntegerOutStream.h"
-
 ///////////////////////////////////////////////////////////////
 // begin namespace LogCache
 ///////////////////////////////////////////////////////////////

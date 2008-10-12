@@ -46,7 +46,7 @@ DWORD CPackedDWORDInStreamBase::InternalGetValue() throw()
 	result -= 0x80;
 
 	char shift = 7;
-	while (true)
+	for (;;)
 	{
 		DWORD c = GetByte();
 		if (c < 0x80)

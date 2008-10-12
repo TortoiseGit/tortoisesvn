@@ -51,7 +51,7 @@
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
-				UsePrecompiledHeader="0"
+				UsePrecompiledHeader="1"
 				AssemblerOutput="0"
 				WarningLevel="4"
 				Detect64BitPortabilityProblems="false"
@@ -118,7 +118,7 @@
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
-				UsePrecompiledHeader="0"
+				UsePrecompiledHeader="1"
 				WarningLevel="4"
 				DebugInformationFormat="3"
 			/>
@@ -181,7 +181,7 @@
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
 				RuntimeLibrary="2"
 				RuntimeTypeInfo="true"
-				UsePrecompiledHeader="2"
+				UsePrecompiledHeader="1"
 				WarningLevel="4"
 				Detect64BitPortabilityProblems="false"
 				DebugInformationFormat="3"
@@ -247,7 +247,7 @@
 				PreprocessorDefinitions="WIN64;NDEBUG;_CONSOLE"
 				RuntimeLibrary="2"
 				RuntimeTypeInfo="true"
-				UsePrecompiledHeader="2"
+				UsePrecompiledHeader="1"
 				AssemblerOutput="0"
 				AssemblerListingLocation=""
 				WarningLevel="4"
@@ -376,222 +376,6 @@
 				RelativePath=".\RepositoryInfo.h"
 				>
 			</File>
-			<Filter
-				Name="Streams"
-				>
-				<File
-					RelativePath=".\BinaryInStream.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\BinaryInStream.h"
-					>
-				</File>
-				<File
-					RelativePath=".\BinaryOutStream.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\BinaryOutStream.h"
-					>
-				</File>
-				<File
-					RelativePath=".\BLOBInStream.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\BLOBInStream.h"
-					>
-				</File>
-				<File
-					RelativePath=".\BLOBOutStream.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\BLOBOutStream.h"
-					>
-				</File>
-				<File
-					RelativePath=".\CompositeInStream.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\CompositeInStream.h"
-					>
-				</File>
-				<File
-					RelativePath=".\CompositeOutStream.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\CompositeOutStream.h"
-					>
-				</File>
-				<File
-					RelativePath=".\DiffIntegerInStream.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\DiffIntegerInStream.h"
-					>
-				</File>
-				<File
-					RelativePath=".\DiffIntegerOutStream.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\DiffIntegerOutStream.h"
-					>
-				</File>
-				<File
-					RelativePath=".\HierachicalInStreamBase.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\HierachicalInStreamBase.h"
-					>
-				</File>
-				<File
-					RelativePath=".\HierachicalOutStreamBase.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\HierachicalOutStreamBase.h"
-					>
-				</File>
-				<File
-					RelativePath=".\HuffmanBase.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\HuffmanBase.h"
-					>
-				</File>
-				<File
-					RelativePath=".\HuffmanDecoder.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\HuffmanDecoder.h"
-					>
-				</File>
-				<File
-					RelativePath=".\HuffmanEncoder.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\HuffmanEncoder.h"
-					>
-				</File>
-				<File
-					RelativePath=".\PackedDWORDInStream.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\PackedDWORDInStream.h"
-					>
-				</File>
-				<File
-					RelativePath=".\PackedDWORDOutStream.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\PackedDWORDOutStream.h"
-					>
-				</File>
-				<File
-					RelativePath=".\PackedIntegerInStream.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\PackedIntegerInStream.h"
-					>
-				</File>
-				<File
-					RelativePath=".\PackedIntegerOutStream.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\PackedIntegerOutStream.h"
-					>
-				</File>
-				<File
-					RelativePath=".\PackedTime64InStream.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\PackedTime64InStream.h"
-					>
-				</File>
-				<File
-					RelativePath=".\PackedTime64OutStream.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\PackedTime64OutStream.h"
-					>
-				</File>
-				<File
-					RelativePath=".\RootInStream.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\RootInStream.h"
-					>
-				</File>
-				<File
-					RelativePath=".\RootOutStream.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\RootOutStream.h"
-					>
-				</File>
-				<File
-					RelativePath=".\StreamFactory.h"
-					>
-				</File>
-				<File
-					RelativePath=".\StreamTypeIDs.h"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="File IO"
-				>
-				<File
-					RelativePath=".\BufferedOutFile.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\BufferedOutFile.h"
-					>
-				</File>
-				<File
-					RelativePath=".\CacheFileInBuffer.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\CacheFileInBuffer.h"
-					>
-				</File>
-				<File
-					RelativePath=".\CacheFileOutBuffer.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\CacheFileOutBuffer.h"
-					>
-				</File>
-				<File
-					RelativePath=".\MappedInFile.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\MappedInFile.h"
-					>
-				</File>
-			</Filter>
 			<Filter
 				Name="Formatted IO"
 				>

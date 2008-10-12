@@ -19,13 +19,6 @@
 #include "StdAfx.h"
 #include ".\revisioninfocontainer.h"
 
-#include "PackedDWORDInStream.h"
-#include "PackedDWORDOutStream.h"
-#include "DiffIntegerInStream.h"
-#include "DiffIntegerOutStream.h"
-#include "PackedTime64InStream.h"
-#include "PackedTime64OutStream.h"
-
 // begin namespace LogCache
 
 namespace LogCache

@@ -21,13 +21,6 @@
 #include "CachedLogInfo.h"
 #include "RepositoryInfo.h"
 
-#include "CompositeInStream.h"
-#include "CompositeOutStream.h"
-#include "DiffIntegerInStream.h"
-#include "DiffIntegerOutStream.h"
-#include "PackedIntegerInStream.h"
-#include "PackedIntegerOutStream.h"
-
 #include "DirFileEnum.h"
 #include "PathUtils.h"
 #include "Registry.h"
