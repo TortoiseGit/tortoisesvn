@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-07 13:42+0100\n"
+"PO-Revision-Date: 2008-10-13 09:57+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -428,6 +428,10 @@ msgstr "&Kopieren nach..."
 msgid "&Custom"
 msgstr "&Individuell"
 
+#. Resource IDs: (1485)
+msgid "&Days of inactivity until small caches get removed"
+msgstr "Inaktive &Tage, bis kleine Puffer gelöscht werden"
+
 #. Resource IDs: (1096, 1269)
 msgid "&Default"
 msgstr "&Standard"
@@ -656,6 +660,10 @@ msgstr "&Laden..."
 #. Resource IDs: (65535)
 msgid "&Lum:"
 msgstr "&Lum:"
+
+#. Resource IDs: (1486)
+msgid "&Maximum size [kByte] of a removed inactive cache"
+msgstr "&Maximale Größe [kByte] eines gelöschten inaktiven Puffers"
 
 #. Resource IDs: (16543)
 msgid "&Menu animations:"
@@ -1042,14 +1050,14 @@ msgstr "&Arbeitskopie"
 msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
 msgstr "Mit 'Lücken' werden Bereiche gekennzeichnet, die noch nicht gepuffert sind"
 
+#. Resource IDs: (272)
+#, c-format
+msgid "(%s) %s"
+msgstr "(%s) %s"
+
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
 msgstr "(Binärwert)"
-
-#. Resource IDs: (272)
-#, c-format
-msgid "(deleted) %s"
-msgstr "(gelöscht) %s"
 
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
@@ -1424,13 +1432,17 @@ msgstr "Alle Ihre Änderungen werden verworfen! Wollen Sie wirklich das Menü %s
 msgid "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
 msgstr "Alle Ihre Änderungen werden verworfen! Wollen Sie wirklich die Werkzeugleiste %s zurücksetzen?"
 
+#. Resource IDs: (1484)
+msgid "Allow ambiguous &UUIDs"
+msgstr "Mehrdeutige &UUIDs &zulassen"
+
 #. Resource IDs: (345)
-msgid ""
-"Allow different repositories to use the same URL, e.g. http://localhost/myrepos/\n"
-"Note: This will disable offline log access."
-msgstr ""
-"Erlaubt es, unterschiedlichen Projektarchive dieselbe URL zu verwenden, z.B. http://localhost/myrepos/\n"
-"Achtung: Dadurch wird der offline Zugriff auf Logdaten deaktiviert."
+msgid "Allow different repositories to use the same URL, e.g. http://localhost/myrepos/"
+msgstr "Erlaubt es, unterschiedlichen Projektarchive dieselbe URL zu verwenden, z.B. http://localhost/myrepos/"
+
+#. Resource IDs: (345)
+msgid "Allow different repositories to use the same UUID, e.g. mirrored repositories"
+msgstr "Erlaubt es, unterschiedlichen Projektarchiven dieselbe UUID zu verwenden, z.B. gespiegelten Projektarchiven"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -3284,6 +3296,10 @@ msgstr "Expandiere (%s)"
 msgid "Expand docked window"
 msgstr "Angedocktes Fenster expandieren"
 
+#. Resource IDs: (65535)
+msgid "Expert settings"
+msgstr "Experten Einstellungen"
+
 #. Resource IDs: (209)
 msgid "Explore to"
 msgstr "Explorer öffnen"
@@ -4658,6 +4674,10 @@ msgstr "Log-Puffer Statistiken"
 msgid "Log Caching"
 msgstr "Log-Puffer"
 
+#. Resource IDs: (295)
+msgid "Log Caching::Cached Repositories"
+msgstr "Log-Puffer::Projektarchive"
+
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "Letzte Logmeldungen"
@@ -4751,6 +4771,10 @@ msgstr "Maximale Anzahl der zu merkenden Log-Einträge"
 #. Resource IDs: (65535)
 msgid "Max. lines in action log"
 msgstr "Max. Zeilen im Aktionslog"
+
+#. Resource IDs: (1487)
+msgid "Maximum number of tool &failures until cache removal"
+msgstr "Maximale Anzahl von &Fehlschlägen bis ein Puffer gelöscht wird"
 
 #. Resource IDs: (16655)
 msgid "Me&nus show recently used commands first"
@@ -5262,6 +5286,14 @@ msgstr "Anzahl der zusammengeführten Revisionen, die noch nicht gepuffert sind"
 #. Resource IDs: (338)
 msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
 msgstr "Anzahl von Pfadelementen. Ein Pfadelement ist ein Datei- oder Ordnername wie 'foo.txt' oder 'meinzweig'."
+
+#. Resource IDs: (345)
+msgid ""
+"Number of times a log cache can fail to close properly\n"
+"due to crashes etc. until it gets deleted automatically."
+msgstr ""
+"Wenn ein Log-Puffer nicht korrekt geschlossen wurde (Abstürze z.B.),\n"
+"wird er nach der angegebenen Anzahl von Fehlschlägen automatisch gelöscht."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -6341,7 +6373,7 @@ msgid ""
 "Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
-"Tags:%s\r\n"
+"Tags (%d):%s\r\n"
 "\r\n"
 "Logmessage:\r\n"
 "%s"
@@ -6351,7 +6383,7 @@ msgstr ""
 "Autor: %s\r\n"
 "Datum: %s\r\n"
 "\r\n"
-"Marken: %s\r\n"
+"Marken (%d): %s\r\n"
 "\r\n"
 "Logmeldung:\r\n"
 "%s"
@@ -8218,6 +8250,14 @@ msgstr "Unbekanntes oder ungültiges Format der Eigenschaftsdatei!"
 msgid "Untitled"
 msgstr "Unbenannt"
 
+#. Resource IDs: (345)
+msgid ""
+"Unused log caches will only be removed if the respecitve\n"
+"file is smaller than the given size in kBytes."
+msgstr ""
+"Nicht genutzte Log-Puffer werden nur gelöscht, wenn die\n"
+"Pufferdatei kleiner als die angegebene Größe in kBytes ist."
+
 #. Resource IDs: (146)
 msgid "Unversion"
 msgstr "Versionierung aufheben"
@@ -8567,6 +8607,14 @@ msgstr "Warnung"
 msgid "Warning!"
 msgstr "Warnung!"
 
+#. Resource IDs: (345)
+msgid ""
+"When a small log cache has not been used for the given\n"
+"number of days, it will be removed automatically."
+msgstr ""
+"Wenn ein kleiner Log-Puffer nicht benutzt wurde, wird er nach\n"
+"einer bestimmten Anzahl von Tagen automatisch gelöscht."
+
 #. Resource IDs: (344)
 msgid ""
 "When connecting to the repository server is not possible,\n"
@@ -8892,8 +8940,8 @@ msgstr "Hinzugefügte Dateien"
 
 #. Resource IDs: (272)
 #, c-format
-msgid "alias (deleted): %s"
-msgstr "Alias (gelöscht): %s"
+msgid "alias (%s): %s"
+msgstr "Alias (%s): %s"
 
 #. Resource IDs: (272)
 #, c-format
@@ -9560,6 +9608,10 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "(deleted) %s"
+#~ msgstr "(gelöscht) %s"
+#~ msgid "alias (deleted): %s"
+#~ msgstr "Alias (gelöscht): %s"
 #~ msgid "&?"
 #~ msgstr "&?"
 #~ msgid "&Cancel"
