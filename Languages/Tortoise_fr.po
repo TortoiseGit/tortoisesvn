@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-06 11:31+0100\n"
+"PO-Revision-Date: 2008-10-13 13:18+0100\n"
 "Last-Translator: Grokwik <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -433,6 +433,12 @@ msgstr "&Copier vers..."
 msgid "&Custom"
 msgstr "&Personnalisé"
 
+# missing shortcut
+#. Resource IDs: (1485)
+#, fuzzy
+msgid "&Days of inactivity until small caches get removed"
+msgstr "Jours d'inactivité avant qu'un cache de petite taille soit supprimé"
+
 #. Resource IDs: (1096, 1269)
 msgid "&Default"
 msgstr "&Défaut"
@@ -661,6 +667,12 @@ msgstr "&Charger..."
 #. Resource IDs: (65535)
 msgid "&Lum:"
 msgstr "&Lum :"
+
+# missing shortcut
+#. Resource IDs: (1486)
+#, fuzzy
+msgid "&Maximum size [kByte] of a removed inactive cache"
+msgstr "Taille maximum [en kByte] d'un cache non utilisé pouvant être supprimé"
 
 #. Resource IDs: (16543)
 msgid "&Menu animations:"
@@ -1047,14 +1059,14 @@ msgstr "Copie de travai&l"
 msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
 msgstr "Le texte 'plages évitées' est utilisé pour marquer les plages de révision qui ne sont pas encore dans le cache"
 
+#. Resource IDs: (272)
+#, c-format
+msgid "(%s) %s"
+msgstr "(%s) %s"
+
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
 msgstr "(valeur binaire)"
-
-#. Resource IDs: (272)
-#, c-format
-msgid "(deleted) %s"
-msgstr "(supprimé) %s"
 
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
@@ -1429,13 +1441,19 @@ msgstr "Toutes vos modifications seront perdues ! Voulez-vous réellement réini
 msgid "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
 msgstr "Toutes vos modifications seront perdues ! Voulez-vous réellement réinitialiser la barre d'outils '%s' ?"
 
+# missing shortcut
+#. Resource IDs: (1484)
+#, fuzzy
+msgid "Allow ambiguous &UUIDs"
+msgstr "Autoriser les UUIDs ambiguës"
+
 #. Resource IDs: (345)
-msgid ""
-"Allow different repositories to use the same URL, e.g. http://localhost/myrepos/\n"
-"Note: This will disable offline log access."
-msgstr ""
-"Autoriser différents référentiels à utiliser la même URL, ex. http://localhost/myrepos/\n"
-"Note : Cela désactivera l'accès au journal hors ligne."
+msgid "Allow different repositories to use the same URL, e.g. http://localhost/myrepos/"
+msgstr "Autoriser différents référentiels à utiliser la même URL, ex. http://localhost/monreferentiel/"
+
+#. Resource IDs: (345)
+msgid "Allow different repositories to use the same UUID, e.g. mirrored repositories"
+msgstr "Autoriser différents référentiels à utiliser le même UUID, ex. redirection de référentiels"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -3284,6 +3302,10 @@ msgstr "Etendre (%s)"
 msgid "Expand docked window"
 msgstr "Etendre la fenêtre rangée"
 
+#. Resource IDs: (65535)
+msgid "Expert settings"
+msgstr "Paramètres avancés"
+
 #. Resource IDs: (209)
 msgid "Explore to"
 msgstr "Explorer vers"
@@ -4646,6 +4668,10 @@ msgstr "Statistiques du Cache du Journal"
 msgid "Log Caching"
 msgstr "Mise en Cache du Journal"
 
+#. Resource IDs: (295)
+msgid "Log Caching::Cached Repositories"
+msgstr "Mise en cache:: Référentiels Mis en Cache"
+
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "Historique de journal"
@@ -4739,6 +4765,12 @@ msgstr "Maximum d'éléments à garder dans les commentaires récents"
 #. Resource IDs: (65535)
 msgid "Max. lines in action log"
 msgstr "Nombre de lignes maximum dans le journal des actions"
+
+# missing shortcut
+#. Resource IDs: (1487)
+#, fuzzy
+msgid "Maximum number of tool &failures until cache removal"
+msgstr "Nombre maximum d'échec d'un outil avant la suppression du cache."
 
 #. Resource IDs: (16655)
 msgid "Me&nus show recently used commands first"
@@ -5246,6 +5278,12 @@ msgstr "Nombre de révisions fusionnées qui ne sont pas encore dans le cache"
 #. Resource IDs: (338)
 msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
 msgstr "Nombre d'éléments de chemin. Un élément de chemin est un nom de dossier ou de fichier comme 'foo.txt' ou 'mabranche'."
+
+#. Resource IDs: (345)
+msgid ""
+"Number of times a log cache can fail to close properly\n"
+"due to crashes etc. until it gets deleted automatically."
+msgstr "Nombre de tentatives de mise en cache d'un commentaire\échouées acceptées avant la suppression automatique de celui ci."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -6326,7 +6364,7 @@ msgid ""
 "Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
-"Tags:%s\r\n"
+"Tags (%d):%s\r\n"
 "\r\n"
 "Logmessage:\r\n"
 "%s"
@@ -6336,7 +6374,7 @@ msgstr ""
 "Auteur : %s\r\n"
 "Date : %s\r\n"
 "\r\n"
-"Étiquettes : %s\r\n"
+"Étiquettes (%d):%s\r\n"
 "\r\n"
 "Commentaire :\r\n"
 "%s"
@@ -8191,6 +8229,14 @@ msgstr "Format de fichier de propriété invalide ou non reconnu !"
 msgid "Untitled"
 msgstr "Sans nom"
 
+#. Resource IDs: (345)
+msgid ""
+"Unused log caches will only be removed if the respecitve\n"
+"file is smaller than the given size in kBytes."
+msgstr ""
+"Les commentaires mis en cache qui ne sont pas utilisés\n"
+"seront supprimés s'ils sont plus petit qu'une taille donnée en kBytes."
+
 #. Resource IDs: (146)
 msgid "Unversion"
 msgstr "Rendre non-versionné"
@@ -8540,6 +8586,14 @@ msgstr "Avertissement"
 msgid "Warning!"
 msgstr "Avertissement !"
 
+#. Resource IDs: (345)
+msgid ""
+"When a small log cache has not been used for the given\n"
+"number of days, it will be removed automatically."
+msgstr ""
+"Quand un commentaire mis en cache n'est pas utilisé depuis\n"
+"un nombre de jours donné, il est automatiquement supprimé."
+
 #. Resource IDs: (344)
 msgid ""
 "When connecting to the repository server is not possible,\n"
@@ -8866,8 +8920,8 @@ msgstr "fichiers ajoutés"
 
 #. Resource IDs: (272)
 #, c-format
-msgid "alias (deleted): %s"
-msgstr "alias (supprimé): %s"
+msgid "alias (%s): %s"
+msgstr "alias (%s): %s"
 
 #. Resource IDs: (272)
 #, c-format
@@ -9528,6 +9582,10 @@ msgstr "oui"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "(deleted) %s"
+#~ msgstr "(supprimé) %s"
+#~ msgid "alias (deleted): %s"
+#~ msgstr "alias (supprimé): %s"
 #~ msgid "&?"
 #~ msgstr "&?"
 #~ msgid "&Cancel"
