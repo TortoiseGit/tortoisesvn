@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-09-29 14:46+0100\n"
+"PO-Revision-Date: 2008-10-13 12:41+0100\n"
 "Last-Translator: Ondřej Lipovský <lipovsky@centrum.cz>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -434,6 +434,10 @@ msgstr "&Kopírovat do..."
 msgid "&Custom"
 msgstr "&Vlastní"
 
+#. Resource IDs: (1485)
+msgid "&Days of inactivity until small caches get removed"
+msgstr "Počet &dnů do vymazání malých cachí u neaktivních"
+
 #. Resource IDs: (1096, 1269)
 msgid "&Default"
 msgstr "&Defaultní"
@@ -662,6 +666,10 @@ msgstr "&Načíst..."
 #. Resource IDs: (65535)
 msgid "&Lum:"
 msgstr "&Lum:"
+
+#. Resource IDs: (1486)
+msgid "&Maximum size [kByte] of a removed inactive cache"
+msgstr "&Maximální velikost [kByte] mazané neaktivní cache"
 
 #. Resource IDs: (16543)
 msgid "&Menu animations:"
@@ -1048,14 +1056,14 @@ msgstr "Pracovní kopie (&WC)"
 msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
 msgstr "\"vynechat rozsahy\" je použito k označení rozsahu revizí, které ješte nebyli v cache"
 
+#. Resource IDs: (272)
+#, c-format
+msgid "(%s) %s"
+msgstr "(%s) %s"
+
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
 msgstr "(binární hodnota)"
-
-#. Resource IDs: (272)
-#, c-format
-msgid "(deleted) %s"
-msgstr "(smazáno) %s"
 
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
@@ -1181,6 +1189,16 @@ msgid ""
 msgstr ""
 "Seznam cest, uvedených zvlášť na samostatné řádce, kde se má zobrazit překryv ikon.\r\n"
 "Pokud přidáte znak '*' na konec cesty, pak se nastavení bude také aplikovat na všechny soubory a podsložky uvnitř této cesty."
+
+#. Resource IDs: (197)
+msgid ""
+"A newline separated list of paths for which no context menu is shown.\r\n"
+"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"An empty list will allow the context menu on all paths."
+msgstr ""
+"Seznam cest, uvedených zvlášť na samostatné řádce, kde se nemá zobrazit kontextové menu.\r\n"
+"Pokud přidáte znak '*' na konec cesty, pak se nastavení bude také aplikovat na všechny soubory a podsložky uvnitř této cesty.\r\n"
+"Prázdný seznam povolí kontextové menu na všech cestách."
 
 #. Resource IDs: (194)
 msgid ""
@@ -1420,13 +1438,17 @@ msgstr "Všechny vaše změny budou straceny! Skutečně chcete obnovit menu '%s
 msgid "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
 msgstr "Všechny vaše změny budou straceny! Skutečně chcete obnovit nástrojou lištu '%s'?"
 
+#. Resource IDs: (1484)
+msgid "Allow ambiguous &UUIDs"
+msgstr "Povolit nejednoznačné &UUIDs"
+
 #. Resource IDs: (345)
-msgid ""
-"Allow different repositories to use the same URL, e.g. http://localhost/myrepos/\n"
-"Note: This will disable offline log access."
-msgstr ""
-"Povolit rozdílné úložistě se stejnou URL, např. http://localhost/myrepos/\n"
-"Poznámka: Toto vypne přístup v režimu offline."
+msgid "Allow different repositories to use the same URL, e.g. http://localhost/myrepos/"
+msgstr "Povolit rozdílné uložiště se stejnou URL, např. http://localhost/myrepos/"
+
+#. Resource IDs: (345)
+msgid "Allow different repositories to use the same UUID, e.g. mirrored repositories"
+msgstr "Povolit rozdílné uložiště se stejnou UUID, např. pro zrcadlené repozitáře"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -2896,6 +2918,10 @@ msgstr ""
 "Ukáže informace o programu, číslo verze a copyright\n"
 "O aplikaci"
 
+#. Resource IDs: (65535)
+msgid "Do not show the context menu for the following paths:"
+msgstr "Nezobrazovat kontextové menu pro tyto cesty:"
+
 #. Resource IDs: (1007)
 #, c-format
 msgid "Do you really want to delete the toolbar '%s'?"
@@ -3270,6 +3296,10 @@ msgstr "Rozšířit (%s)"
 #. Resource IDs: (1001)
 msgid "Expand docked window"
 msgstr "Rožšířit kotvíci okno"
+
+#. Resource IDs: (65535)
+msgid "Expert settings"
+msgstr "Export nastavení"
 
 #. Resource IDs: (209)
 msgid "Explore to"
@@ -4634,6 +4664,10 @@ msgstr "Statistiky cache logu"
 msgid "Log Caching"
 msgstr "Kešování Logu"
 
+#. Resource IDs: (295)
+msgid "Log Caching::Cached Repositories"
+msgstr "Cachování logu::Cache uložišť"
+
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "Log historie"
@@ -4727,6 +4761,10 @@ msgstr "Max. počet záznamů, který se má držet v historii log záznamů"
 #. Resource IDs: (65535)
 msgid "Max. lines in action log"
 msgstr " Max. řádku v logu akcí"
+
+#. Resource IDs: (1487)
+msgid "Maximum number of tool &failures until cache removal"
+msgstr "Maximální počet chyb toolu před odebrání z cache"
 
 #. Resource IDs: (16655)
 msgid "Me&nus show recently used commands first"
@@ -5234,6 +5272,12 @@ msgstr "Počet sloučených revizí, které ješte nejsou cache"
 #. Resource IDs: (338)
 msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
 msgstr "Počet elementů cest. Element cesty je jméno složky nebo souboru, jako je 'foo.txt' nebo 'mybranch'."
+
+#. Resource IDs: (345)
+msgid ""
+"Number of times a log cache can fail to close properly\n"
+"due to crashes etc. until it gets deleted automatically."
+msgstr ""
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -6312,7 +6356,7 @@ msgid ""
 "Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
-"Tags:%s\r\n"
+"Tags (%d):%s\r\n"
 "\r\n"
 "Logmessage:\r\n"
 "%s"
@@ -6322,7 +6366,7 @@ msgstr ""
 "Autor: %s\r\n"
 "Datum: %s\r\n"
 "\r\n"
-"Značky/tagy:%s\r\n"
+"Značky/tagy (%d):%s\r\n"
 "\r\n"
 "Log záznam:\r\n"
 "%s"
@@ -8176,6 +8220,14 @@ msgstr "Nerozeznán, nebo nesprávny formát souboru!"
 msgid "Untitled"
 msgstr "Bez názvu"
 
+#. Resource IDs: (345)
+msgid ""
+"Unused log caches will only be removed if the respecitve\n"
+"file is smaller than the given size in kBytes."
+msgstr ""
+"Nepoužívalý log cache jsou odstraněny pouze\n"
+"pokud jsou menší než určitá velikost v kBytech."
+
 #. Resource IDs: (146)
 msgid "Unversion"
 msgstr "Nevezované"
@@ -8525,6 +8577,14 @@ msgstr "Varování"
 msgid "Warning!"
 msgstr "Varování!"
 
+#. Resource IDs: (345)
+msgid ""
+"When a small log cache has not been used for the given\n"
+"number of days, it will be removed automatically."
+msgstr ""
+"Pokud není určen počet dní neaktivnosti,\n"
+"malý log cache je odstraněn automaticky."
+
 #. Resource IDs: (344)
 msgid ""
 "When connecting to the repository server is not possible,\n"
@@ -8850,8 +8910,8 @@ msgstr "přidané soubory"
 
 #. Resource IDs: (272)
 #, c-format
-msgid "alias (deleted): %s"
-msgstr "alias (smazáno): %s"
+msgid "alias (%s): %s"
+msgstr "alias (%s): %s"
 
 #. Resource IDs: (272)
 #, c-format
@@ -9513,6 +9573,10 @@ msgstr "ano"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "(deleted) %s"
+#~ msgstr "(smazáno) %s"
+#~ msgid "alias (deleted): %s"
+#~ msgstr "alias (smazáno): %s"
 #~ msgid "&?"
 #~ msgstr "&?"
 #~ msgid "&Cancel"
