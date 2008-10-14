@@ -17,7 +17,8 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "StdAfx.h"
-#include ".\cachedloginfo.h"
+#include "./cachedloginfo.h"
+#include "./LogCacheSettings.h"
 
 #include "./Streams/RootInStream.h"
 #include "./Streams/RootOutStream.h"
@@ -52,10 +53,92 @@ void CCachedLogInfo::CCacheFileManager::ResetMark()
     SetFileAttributes (fileName.c_str(), attributes);
 }
 
+// allow for multiple failures 
+
+bool CCachedLogInfo::CCacheFileManager::ShouldDrop (const std::wstring& name)
+{
+    // no mark -> no crash -> no drop here
+
+    if (!IsMarked (name))
+    {
+        failureCount = NO_FAILURE;
+        return false;
+    }
+
+    // can we open it?
+    // If not, somebody else owns the lock -> don't touch it.
+
+    HANDLE tempHandle = CreateFile ( name.c_str()
+                                   , GENERIC_READ
+                                   , 0
+                                   , 0
+                                   , OPEN_ALWAYS
+                                   , FILE_ATTRIBUTE_NORMAL
+                                   , NULL);
+    if (tempHandle == INVALID_HANDLE_VALUE)
+        return false;
+
+	try
+	{
+        // any failure count so far?
+
+        CFile file (tempHandle);
+        if (file.GetLength() != 0)
+        {
+            CArchive stream (&file, CArchive::load);
+            stream >> failureCount;
+        }
+        else
+        {
+            failureCount = 0;
+        }
+
+        // to many of them?
+
+        CloseHandle (tempHandle);
+        return failureCount >= CSettings::GetMaxFailuresUntilDrop();
+	}
+	catch (CException* /*e*/)
+	{
+	}
+
+    // could not access the file or similar problem 
+    // -> remove it if it's no longer in use
+
+    CloseHandle (tempHandle);
+    return true;
+}
+
+void CCachedLogInfo::CCacheFileManager::UpdateMark (const std::wstring& name)
+{
+    assert (OwnsFile());
+
+    // mark as "in use"
+
+    SetMark (name);
+
+    // failed before?
+    // If so, keep track of the number of failures.
+
+    if (++failureCount > 0)
+    {
+	    try
+	    {
+            CFile file (fileHandle);
+            CArchive stream (&file, CArchive::store);
+            stream << failureCount;
+	    }
+	    catch (CException* /*e*/)
+	    {
+	    }
+    }
+}
+
 // default construction / destruction
 
 CCachedLogInfo::CCacheFileManager::CCacheFileManager()
     : fileHandle (INVALID_HANDLE_VALUE)
+    , failureCount (NO_FAILURE)
 {
 }
 
@@ -77,16 +160,19 @@ void CCachedLogInfo::CCacheFileManager::AutoAcquire (const std::wstring& fileNam
     // (DeleteFile() will fail for open files)
 
     std::wstring lockFileName = fileName + L".lock";
-    if (IsMarked (lockFileName))
+    if (ShouldDrop (lockFileName))
     {
         if (DeleteFile (lockFileName.c_str()) == TRUE)
+        {
             DeleteFile (fileName.c_str());
+            failureCount = NO_FAILURE;
+        }
     }
 
     // auto-create file and acquire lock
 
     fileHandle = CreateFile ( lockFileName.c_str()
-                            , GENERIC_READ
+                            , GENERIC_READ | GENERIC_WRITE
                             , 0
                             , 0
                             , OPEN_ALWAYS
@@ -95,9 +181,10 @@ void CCachedLogInfo::CCacheFileManager::AutoAcquire (const std::wstring& fileNam
     if (OwnsFile())
     {
         // we are the first to open that file -> we own it.
-        // Mark it as "in use" until being closed by AutoRelease()
+        // Mark it as "in use" until being closed by AutoRelease().
+        // Also, increment failure counter.
 
-        SetMark (lockFileName);
+        UpdateMark (lockFileName);
     }
 }
 
