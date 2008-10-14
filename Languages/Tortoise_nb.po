@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-06 15:16+0100\n"
+"PO-Revision-Date: 2008-10-14 10:26+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -481,6 +481,10 @@ msgstr "&Kopier til..."
 msgid "&Custom"
 msgstr "&Egendefinert"
 
+#. Resource IDs: (1485)
+msgid "&Days of inactivity until small caches get removed"
+msgstr "Inaktive &dager før små mellomlagre fjernes"
+
 #. Resource IDs: (1096, 1269)
 msgid "&Default"
 msgstr "&Standard"
@@ -709,6 +713,10 @@ msgstr "&Last..."
 #. Resource IDs: (65535)
 msgid "&Lum:"
 msgstr "&Lys:"
+
+#. Resource IDs: (1486)
+msgid "&Maximum size [kByte] of a removed inactive cache"
+msgstr "&Maksimum størrelse [kB] til et fjernet inaktivt mellomlager"
 
 #. Resource IDs: (16543)
 msgid "&Menu animations:"
@@ -1095,14 +1103,14 @@ msgstr "Arbeids&kopi"
 msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
 msgstr "'oversette intervaller' brukes for å merke revisjonsintervaller som ikke ennå har blitt mellomlagret"
 
+#. Resource IDs: (272)
+#, c-format
+msgid "(%s) %s"
+msgstr "(%s) %s"
+
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
 msgstr "(binær verdi)"
-
-#. Resource IDs: (272)
-#, c-format
-msgid "(deleted) %s"
-msgstr "(slettet) %s"
 
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
@@ -1477,13 +1485,17 @@ msgstr "Alle dine endringer vil gå tapt! Vil du virkelig nullstille menyen '%s'
 msgid "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
 msgstr "Alle dine endringer vil gå tapt! Vil du virkelig nullstille vertøylinjen '%s'?"
 
+#. Resource IDs: (1484)
+msgid "Allow ambiguous &UUIDs"
+msgstr "Tillat flertydige &UUIDer"
+
 #. Resource IDs: (345)
-msgid ""
-"Allow different repositories to use the same URL, e.g. http://localhost/myrepos/\n"
-"Note: This will disable offline log access."
-msgstr ""
-"Tillat at forskjellige depoter bruker samme URL, f.eks. http://localhost/myrepos/\n"
-"Merk: Dette vil slå av frakoblet loggtilgang."
+msgid "Allow different repositories to use the same URL, e.g. http://localhost/myrepos/"
+msgstr "Tillat at forskjellige depoter bruker samme URL, f.eks. http://localhost/myrepos/"
+
+#. Resource IDs: (345)
+msgid "Allow different repositories to use the same UUID, e.g. mirrored repositories"
+msgstr "Tillat at forskjellige depoter bruker samme UUID, f.eks. speilede depoter"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -3332,6 +3344,10 @@ msgstr "Utvid (%s)"
 msgid "Expand docked window"
 msgstr "Utvid dokket vindu"
 
+#. Resource IDs: (65535)
+msgid "Expert settings"
+msgstr "Ekspert-innstillinger"
+
 #. Resource IDs: (209)
 msgid "Explore to"
 msgstr "Utforsk til"
@@ -4682,6 +4698,10 @@ msgstr "Statistikk Loggmellomlager"
 msgid "Log Caching"
 msgstr "Loggmellomlagring"
 
+#. Resource IDs: (295)
+msgid "Log Caching::Cached Repositories"
+msgstr "Loggmellomlagring: Mellomlagrede Depoter"
+
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "Logghistorikk"
@@ -4775,6 +4795,10 @@ msgstr "Maks. elementer som skal beholdes i loggmeldingshistorien"
 #. Resource IDs: (65535)
 msgid "Max. lines in action log"
 msgstr "Maks. linjer i handlingslogg"
+
+#. Resource IDs: (1487)
+msgid "Maximum number of tool &failures until cache removal"
+msgstr "Maksimalt antall verktøy&feil før mellomlager fjernes"
 
 #. Resource IDs: (16655)
 msgid "Me&nus show recently used commands first"
@@ -5282,6 +5306,14 @@ msgstr "Antall flettede revisjoner som ikke ennå er mellomlagret"
 #. Resource IDs: (338)
 msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
 msgstr "Antall stielementer. Et stielement er et mappe- eller filnavn som 'foo.txt' eller 'mingren'."
+
+#. Resource IDs: (345)
+msgid ""
+"Number of times a log cache can fail to close properly\n"
+"due to crashes etc. until it gets deleted automatically."
+msgstr ""
+"Antall ganger lukking av et loggmellomlager kan mislykkes\n"
+"pga. kræsj osv. før det slettes automatisk."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -6361,7 +6393,7 @@ msgid ""
 "Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
-"Tags:%s\r\n"
+"Tags (%d):%s\r\n"
 "\r\n"
 "Logmessage:\r\n"
 "%s"
@@ -6371,7 +6403,7 @@ msgstr ""
 "Forfatter: %s\r\n"
 "Dato: %s\r\n"
 "\r\n"
-"Tagger: %s\r\n"
+"Tagger (%d):%s\r\n"
 "\r\n"
 "Loggmelding:\r\n"
 "%s"
@@ -7240,7 +7272,7 @@ msgstr "Subversion tjenerfil:"
 
 #. Resource IDs: (1232)
 msgid "Sw&itch working copy to new branch/tag"
-msgstr "&Bytt arbeidskopi til en annen gren/merke"
+msgstr "&Bytt arbeidskopi til ny gren/merke"
 
 #. Resource IDs: (229)
 #, c-format
@@ -8226,6 +8258,14 @@ msgstr "Ukjent eller ugyldig format på egenskapsfil!"
 msgid "Untitled"
 msgstr "Uten tittel"
 
+#. Resource IDs: (345)
+msgid ""
+"Unused log caches will only be removed if the respective\n"
+"file is smaller than the given size in kBytes."
+msgstr ""
+"Ubrukte loggmellomlagre vil bare fjernes hvis den tilsvarende filen\n"
+"er mindre enn den gitte størrelsen i kBytes."
+
 #. Resource IDs: (146)
 msgid "Unversion"
 msgstr "Av-versjoner"
@@ -8575,6 +8615,14 @@ msgstr "Advarsel"
 msgid "Warning!"
 msgstr "Advarsel!"
 
+#. Resource IDs: (345)
+msgid ""
+"When a small log cache has not been used for the given\n"
+"number of days, it will be removed automatically."
+msgstr ""
+"Når et lite loggmellomlager ikke har vært brukt i løpet av\n"
+"det oppgitte antall dager, vil det fjernes automatisk."
+
 #. Resource IDs: (344)
 msgid ""
 "When connecting to the repository server is not possible,\n"
@@ -8900,8 +8948,8 @@ msgstr "lagt til"
 
 #. Resource IDs: (272)
 #, c-format
-msgid "alias (deleted): %s"
-msgstr "alias (slettet): %s"
+msgid "alias (%s): %s"
+msgstr "alias (%s): %s"
 
 #. Resource IDs: (272)
 #, c-format
@@ -9563,6 +9611,10 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "(deleted) %s"
+#~ msgstr "(slettet) %s"
+#~ msgid "alias (deleted): %s"
+#~ msgstr "alias (slettet): %s"
 #~ msgid "&?"
 #~ msgstr "&?"
 #~ msgid "&Cancel"
