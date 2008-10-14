@@ -73,6 +73,10 @@ private:
 
 	void Clear();
 
+    /// remove small, unused caches
+
+    void AutoRemoveUnused();
+
 public:
 
 	/// construction / destruction

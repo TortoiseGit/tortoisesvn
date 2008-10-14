@@ -43,6 +43,113 @@ bool CLogCachePool::FileExists (const std::wstring& filePath)
 	return GetFileAttributes (filePath.c_str()) != INVALID_FILE_ATTRIBUTES;
 }
 
+// minimize memory usage
+
+void CLogCachePool::Clear()
+{
+	while (!caches.empty())
+	{
+		CCachedLogInfo* toDelete = caches.begin()->second;
+		caches.erase (caches.begin());
+		delete toDelete;
+	}
+
+    if (repositoryInfo != NULL)
+        repositoryInfo->Clear();
+}
+
+// remove small, unused caches
+
+void CLogCachePool::AutoRemoveUnused()
+{
+    std::set<CString> lockedCaches;
+    std::set<CString> smallUnusedCaches;
+    std::set<CString> oldLocks;
+
+    // calculate the threshold for the last read access
+    // (since the read time stamps have only day resolution
+    // on FAT, be gratious when setting the limit)
+
+    SYSTEMTIME nowSystemTime;
+    GetSystemTime (&nowSystemTime);
+    FILETIME nowFileTime = {0, 0};
+    SystemTimeToFileTime (&nowSystemTime, &nowFileTime);
+
+    __int64 now = *reinterpret_cast<__int64*>(&nowFileTime);
+    __int64 ageLimit = now - 864000000000i64 * (CSettings::GetCacheDropAge() + 1);
+    DWORD maxSize = CSettings::GetCacheDropMaxSize() * 1024;
+
+	// find all files in the cache and fill the above sets
+
+    static const CString lockExtension = _T(".lock");
+    CString datFile 
+        = repositoryInfo->GetFileName().Mid (cacheFolderPath.GetLength());
+
+    WIN32_FIND_DATA dirEntry;
+    HANDLE handle = FindFirstFile (cacheFolderPath + _T("*.*"), &dirEntry);
+    if (handle != INVALID_HANDLE_VALUE)
+    {
+        do
+        {
+            CString fileName = dirEntry.cFileName;
+
+            // process only caches that are not locked.
+            // The repository list itself is not a repository cache
+
+            if ((fileName.GetLength() > 2) && (fileName != datFile))
+            {
+                __int64 readTime 
+                    = *reinterpret_cast<__int64*>(&dirEntry.ftLastAccessTime);
+
+                if (fileName.Right (5) == lockExtension)
+                {
+                    // remove obsolete locks 
+                    // (in case they had been left behind)
+
+                    if (readTime < ageLimit)
+                        oldLocks.insert (fileName);
+
+                    // the cache is locked
+                    // (so, it may take 2 runs to remove lock *and* cache)
+
+                    lockedCaches.insert (fileName.Left (fileName.GetLength() - 5));
+                }
+                else
+                {
+                    // is this a cache we should try to remove?
+
+                    if ((readTime < ageLimit) && (dirEntry.nFileSizeLow < maxSize))
+                        smallUnusedCaches.insert (fileName);
+                }
+            }
+        }
+        while (FindNextFile (handle, &dirEntry));
+
+        FindClose (handle);
+    }
+
+    // try to remove old locks
+    // (will fail silently for active / open locks)
+
+    typedef std::set<CString>::const_iterator CIT;
+    for (CIT iter = oldLocks.begin(), end = oldLocks.end(); iter != end; ++iter)
+        DeleteFile (cacheFolderPath + *iter);
+
+    // remove small, unused caches that are not locked
+    // (will fail silently for caches that are being read / written right now)
+
+    for ( CIT iter = smallUnusedCaches.begin(), end = smallUnusedCaches.end()
+        ; iter != end
+        ; ++iter)
+    {
+        if (lockedCaches.find (*iter) == lockedCaches.end())
+        {
+            DeleteFile (cacheFolderPath + *iter);
+        	repositoryInfo->DropEntry (*iter);
+        }
+    }
+}
+
 // construction / destruction
 // (Flush() on destruction)
 
@@ -50,7 +157,8 @@ CLogCachePool::CLogCachePool (SVN& svn, const CString& cacheFolderPath)
 	: cacheFolderPath (cacheFolderPath)
     , repositoryInfo (new CRepositoryInfo (svn, cacheFolderPath))
 {
-    ++instanceCount;
+    if (++instanceCount == 1)
+        AutoRemoveUnused();
 }
 
 CLogCachePool::~CLogCachePool()
@@ -205,21 +313,6 @@ void CLogCachePool::Flush()
 	}
 
     repositoryInfo->Flush();
-}
-
-// minimize memory usage
-
-void CLogCachePool::Clear()
-{
-	while (!caches.empty())
-	{
-		CCachedLogInfo* toDelete = caches.begin()->second;
-		caches.erase (caches.begin());
-		delete toDelete;
-	}
-
-    if (repositoryInfo != NULL)
-        repositoryInfo->Clear();
 }
 
 // has log caching been enabled?
