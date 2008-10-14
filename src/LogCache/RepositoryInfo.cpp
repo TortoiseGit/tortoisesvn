@@ -20,6 +20,7 @@
 #include "StdAfx.h"
 #include "RepositoryInfo.h"
 #include "CachedLogInfo.h"
+#include "LogCacheSettings.h"
 
 #include "svn_client.h"
 
@@ -27,7 +28,6 @@
 #include "TSVNPath.h"
 #include "PathUtils.h"
 #include "resource.h"
-#include "Registry.h"
 #include "GoOffline.h"
 
 // begin namespace LogCache
@@ -144,10 +144,6 @@ CRepositoryInfo::Lookup (const CTSVNPath& url)
 
 bool CRepositoryInfo::IsOffline (SPerRepositoryInfo& info)
 {
-    // default connectivity setting
-
-    CRegStdWORD defaultConnectionState (_T("Software\\TortoiseSVN\\LogCache\\DefaultConnectionState"), 0);
-
     // is this repository already off-line?
 
     if (info.connectionState != online)
@@ -155,14 +151,14 @@ bool CRepositoryInfo::IsOffline (SPerRepositoryInfo& info)
 
     // something went wrong. 
 
-    if (defaultConnectionState == online)
+    if (CSettings::GetDefaultConnectionState() == online)
     {
         // Default behavior is "Ask the user what to do"
 
         CGoOffline dialog;
         dialog.DoModal();
         if (dialog.asDefault)
-            defaultConnectionState = dialog.selection;
+            CSettings::SetDefaultConnectionState (dialog.selection);
 
         info.connectionState = dialog.selection;
         return info.connectionState != online;
@@ -171,8 +167,7 @@ bool CRepositoryInfo::IsOffline (SPerRepositoryInfo& info)
     {
         // set default
 
-        info.connectionState = static_cast<ConnectionState>
-                                (static_cast<int>(defaultConnectionState));
+        info.connectionState = CSettings::GetDefaultConnectionState();
         return true;
     }
 }
@@ -230,18 +225,16 @@ CString CRepositoryInfo::GetRepositoryRootAndUUID ( const CTSVNPath& url
 {
     TData::iterator iter = Lookup (url);
 
-	// get time stamps and maximum uuid info age (default: 1 min)
-	// we use the same setting as for the HEAD revision timeout, but with a
-	// one minute default instead of 0 minutes
-	__time64_t now = CTime::GetCurrentTime().GetTime();
-	CRegStdWORD ageLimit (_T("Software\\TortoiseSVN\\HeadCacheAgeLimit"), 60);
+	// get time stamps 
+
+    __time64_t now = CTime::GetCurrentTime().GetTime();
 
     // use cached data, if
     // * it is available, and
     // * we don't want to update it (i.e. recent enough and we aren't off-line)
 
     if (   (iter == data.end()) 
-        || (   (now - iter->second.headLookupTime > ageLimit)
+        || (   (now - iter->second.headLookupTime > CSettings::GetMaxHeadAge())
             && (iter->second.connectionState == online)))
     {
         // try to get an update
@@ -324,11 +317,10 @@ revision_t CRepositoryInfo::GetHeadRevision (const CTSVNPath& url)
     // get time stamps and maximum head info age (default: 0 mins)
 
     __time64_t now = CTime::GetCurrentTime().GetTime();
-    CRegStdWORD ageLimit (_T("Software\\TortoiseSVN\\HeadCacheAgeLimit"), 0);
 
     // is there a valid cached entry?
 
-    if (   (now - iter->second.headLookupTime > ageLimit)
+    if (   (now - iter->second.headLookupTime > CSettings::GetMaxHeadAge())
         || (   url.GetSVNPathString().Left (iter->second.headURL.GetLength())
             != iter->second.headURL)
         || (iter->second.headRevision == NO_REVISION))
@@ -570,8 +562,7 @@ svn_error_t* CRepositoryInfo::GetLastError() const
 
 bool CRepositoryInfo::IsPermanent() const
 {
-	CRegStdWORD ambiguousURL (_T("Software\\TortoiseSVN\\LogCache\\SupportAmbiguousURL"), FALSE);
-	return ambiguousURL == FALSE;
+    return CSettings::GetAllowAmbiguousURL();
 }
 
 // end namespace LogCache

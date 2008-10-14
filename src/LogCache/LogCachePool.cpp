@@ -18,12 +18,12 @@
 //
 #include "StdAfx.h"
 #include "LogCachePool.h"
+#include "LogCacheSettings.h"
 #include "CachedLogInfo.h"
 #include "RepositoryInfo.h"
 
 #include "DirFileEnum.h"
 #include "PathUtils.h"
-#include "Registry.h"
 
 // begin namespace LogCache
 
@@ -226,8 +226,7 @@ void CLogCachePool::Clear()
 
 bool CLogCachePool::IsEnabled() const
 {
-	CRegStdWORD useLogCache (_T("Software\\TortoiseSVN\\LogCache\\UseLogCache"), TRUE);
-	return useLogCache != FALSE;
+    return CSettings::GetEnabled();
 }
 
 // end namespace LogCache

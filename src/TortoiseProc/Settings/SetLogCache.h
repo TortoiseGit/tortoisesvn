@@ -53,23 +53,15 @@ protected:
 private:
 	CToolTips		m_tooltips;
 
-	CRegDWORD		m_regEnableLogCaching;
 	BOOL			m_bEnableLogCaching;
-	CRegDWORD		m_regSupportAmbiguousURL;
 	BOOL			m_bSupportAmbiguousURL;
-	CRegDWORD		m_regSupportAmbiguousUUID;
 	BOOL			m_bSupportAmbiguousUUID;
-    CRegDWORD		m_regDefaultConnectionState;
 
 	CComboBox       m_cDefaultConnectionState;
 
-    CRegDWORD		m_regMaxHeadAge;
 	DWORD			m_dwMaxHeadAge;
-    CRegDWORD		m_regCacheDropAge;
 	DWORD			m_dwCacheDropAge;
-    CRegDWORD		m_regCacheDropMaxSize;
 	DWORD			m_dwCacheDropMaxSize;
 
-    CRegDWORD		m_regMaxFailuresUntilDrop;
 	DWORD			m_dwMaxFailuresUntilDrop;
 };

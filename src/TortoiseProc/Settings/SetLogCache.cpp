@@ -22,6 +22,7 @@
 #include "MessageBox.h"
 #include "SVN.h"
 #include "SVNError.h"
+#include "LogCacheSettings.h"
 #include "LogCachePool.h"
 #include "LogCacheStatistics.h"
 #include "LogCacheStatisticsDlg.h"
@@ -37,32 +38,14 @@ IMPLEMENT_DYNAMIC(CSetLogCache, ISettingsPropPage)
 
 CSetLogCache::CSetLogCache()
 	: ISettingsPropPage (CSetLogCache::IDD)
-	, m_bEnableLogCaching (FALSE)
-	, m_bSupportAmbiguousURL (FALSE)
-    , m_bSupportAmbiguousUUID (FALSE)
-	, m_dwMaxHeadAge (0)
-	, m_dwCacheDropAge (0)
-	, m_dwCacheDropMaxSize (0)
-    , m_dwMaxFailuresUntilDrop (0)
+    , m_bEnableLogCaching (CSettings::GetEnabled())
+    , m_bSupportAmbiguousURL (CSettings::GetAllowAmbiguousURL())
+    , m_bSupportAmbiguousUUID (CSettings::GetAllowAmbiguousUUID())
+    , m_dwMaxHeadAge (CSettings::GetMaxHeadAge())
+    , m_dwCacheDropAge (CSettings::GetCacheDropAge())
+    , m_dwCacheDropMaxSize (CSettings::GetCacheDropMaxSize())
+    , m_dwMaxFailuresUntilDrop (CSettings::GetMaxFailuresUntilDrop())
 {
-	m_regEnableLogCaching = CRegDWORD(_T("Software\\TortoiseSVN\\LogCache\\UseLogCache"), TRUE);
-	m_bEnableLogCaching = (DWORD)m_regEnableLogCaching;
-	m_regSupportAmbiguousURL = CRegDWORD(_T("Software\\TortoiseSVN\\LogCache\\SupportAmbiguousURL"), FALSE);
-	m_bSupportAmbiguousURL = (DWORD)m_regSupportAmbiguousURL;
-	m_regSupportAmbiguousUUID = CRegDWORD(_T("Software\\TortoiseSVN\\LogCache\\SupportAmbiguousUUID"), FALSE);
-	m_bSupportAmbiguousUUID = (DWORD)m_regSupportAmbiguousUUID;
-
-	m_regDefaultConnectionState = CRegDWORD(_T("Software\\TortoiseSVN\\LogCache\\DefaultConnectionState"), 0);
-
-    m_regMaxHeadAge = CRegDWORD(_T("Software\\TortoiseSVN\\LogCache\\HeadCacheAgeLimit"), 0);
-	m_dwMaxHeadAge = (DWORD)m_regMaxHeadAge;
-    m_regCacheDropAge = CRegDWORD(_T("Software\\TortoiseSVN\\LogCache\\CacheDropAge"), 10);
-	m_dwCacheDropAge = (DWORD)m_regCacheDropAge;
-    m_regCacheDropMaxSize = CRegDWORD(_T("Software\\TortoiseSVN\\LogCache\\CacheDropMaxSize"), 200);
-	m_dwCacheDropMaxSize = (DWORD)m_regCacheDropMaxSize;
-
-    m_regMaxFailuresUntilDrop = CRegDWORD(_T("Software\\TortoiseSVN\\LogCache\\MaxCacheFailures"), 0);
-	m_dwMaxFailuresUntilDrop = (DWORD)m_regMaxFailuresUntilDrop;
 }
 
 CSetLogCache::~CSetLogCache()
@@ -106,17 +89,20 @@ BOOL CSetLogCache::OnApply()
 {
 	UpdateData();
 
-	Store (m_bEnableLogCaching, m_regEnableLogCaching);
-	Store (m_bSupportAmbiguousURL, m_regSupportAmbiguousURL);
-	Store (m_bSupportAmbiguousUUID, m_regSupportAmbiguousUUID);
+	CSettings::SetEnabled (m_bEnableLogCaching != FALSE);
+    CSettings::SetAllowAmbiguousURL (m_bSupportAmbiguousURL != FALSE);
+    CSettings::SetAllowAmbiguousUUID (m_bSupportAmbiguousUUID != FALSE);
 
-	Store (m_cDefaultConnectionState.GetCurSel(), m_regDefaultConnectionState);
+    CRepositoryInfo::ConnectionState state 
+        = static_cast<CRepositoryInfo::ConnectionState>
+            (m_cDefaultConnectionState.GetCurSel());
+	CSettings::SetDefaultConnectionState (state);
 
-	Store (m_dwMaxHeadAge, m_regMaxHeadAge);
-    Store (m_dwCacheDropAge, m_regCacheDropAge);
-    Store (m_dwCacheDropMaxSize, m_regCacheDropMaxSize);
+    CSettings::SetMaxHeadAge (m_dwMaxHeadAge);
+    CSettings::SetCacheDropAge (m_dwCacheDropAge);
+    CSettings::SetCacheDropMaxSize (m_dwCacheDropMaxSize);
 
-    Store (m_dwMaxFailuresUntilDrop, m_regMaxFailuresUntilDrop);
+    CSettings::SetMaxFailuresUntilDrop (m_dwMaxFailuresUntilDrop);
 
     SetModified(FALSE);
 	return ISettingsPropPage::OnApply();
@@ -139,7 +125,7 @@ BOOL CSetLogCache::OnInitDialog()
 	temp.LoadString(IDS_SETTINGS_CONNECTIVITY_OFFLINEFOREVER);
     m_cDefaultConnectionState.AddString (temp);
 
-    m_cDefaultConnectionState.SetCurSel ((int)m_regDefaultConnectionState);
+    m_cDefaultConnectionState.SetCurSel (CSettings::GetDefaultConnectionState());
 
     // tooltips
 
