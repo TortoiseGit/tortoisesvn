@@ -70,13 +70,14 @@
 #include <time.h>
 
 #include <algorithm>
-/*
-#include <functional>
-*/
+
 #include <string>
 #include <map>
 #include <vector>
 #include <fstream>
+
+// Commonly used log cache streams
+// (others may be included locally)
 
 #include "./Streams/DiffIntegerInStream.h"
 #include "./Streams/DiffIntegerOutStream.h"
