@@ -120,12 +120,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "binaries", "binaries", "{87
 		..\ext\build\subversion.build = ..\ext\build\subversion.build
 		TortoiseOverlays\TortoiseOverlays.build = TortoiseOverlays\TortoiseOverlays.build
 		TortoiseSVN.build = TortoiseSVN.build
+		TortoiseOverlays\version.build.in = TortoiseOverlays\version.build.in
 		..\ext\build\zlib.build = ..\ext\build\zlib.build
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{5FA2BD8E-B119-4929-9AAB-705F96C42073}"
 	ProjectSection(SolutionItems) = preProject
 		..\doc\doc.build = ..\doc\doc.build
+		..\doc\doc.build.include = ..\doc\doc.build.include
+		..\doc\doc.build.user.tmpl = ..\doc\doc.build.user.tmpl
 		..\Languages\LanguagePack.build = ..\Languages\LanguagePack.build
 	EndProjectSection
 EndProject
