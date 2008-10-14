@@ -122,8 +122,8 @@ private:
 	UINT		m_spellcodepage;
 	std::set<CString> m_autolist;
 	TCHAR		m_separator;
-	CString		m_sCommand;
-	CString		m_sBugID;
+	CStringA	m_sCommand;
+	CStringA	m_sBugID;
 	CString		m_sUrl;
 	CArray<CSciEditContextMenuInterface *, CSciEditContextMenuInterface *> m_arContextHandlers;
 	CPersonalDictionary m_personalDict;
