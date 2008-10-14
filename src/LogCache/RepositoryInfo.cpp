@@ -559,7 +559,7 @@ svn_error_t* CRepositoryInfo::GetLastError() const
 
 bool CRepositoryInfo::IsPermanent() const
 {
-    return CSettings::GetAllowAmbiguousURL();
+    return !CSettings::GetAllowAmbiguousURL();
 }
 
 // end namespace LogCache
