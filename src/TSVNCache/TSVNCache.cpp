@@ -122,11 +122,7 @@ void DebugOutputLastError()
 
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*lpCmdLine*/, int /*cmdShow*/)
 {
-#ifdef WIN64
-	HANDLE hReloadProtection = ::CreateMutex(NULL, FALSE, _T("TSVNCacheReloadProtection64"));
-#else
-	HANDLE hReloadProtection = ::CreateMutex(NULL, FALSE, _T("TSVNCacheReloadProtection"));
-#endif
+	HANDLE hReloadProtection = ::CreateMutex(NULL, FALSE, GetCacheMutexName());
 
 	if (hReloadProtection == 0 || GetLastError() == ERROR_ALREADY_EXISTS)
 	{

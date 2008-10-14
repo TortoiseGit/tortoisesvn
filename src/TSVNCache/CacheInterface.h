@@ -25,14 +25,19 @@
 #define TSVN_CACHE_PIPE_NAME _T("\\\\.\\pipe\\TSVNCache64")
 #define TSVN_CACHE_COMMANDPIPE_NAME _T("\\\\.\\pipe\\TSVNCacheCommand64")
 #define TSVN_CACHE_WINDOW_NAME _T("TSVNCacheWindow64")
+#define TSVN_CACHE_MUTEX_NAME _T("TSVNCacheMutex64")
 #else
 #define TSVN_CACHE_PIPE_NAME _T("\\\\.\\pipe\\TSVNCache")
 #define TSVN_CACHE_COMMANDPIPE_NAME _T("\\\\.\\pipe\\TSVNCacheCommand")
 #define TSVN_CACHE_WINDOW_NAME _T("TSVNCacheWindow")
+#define TSVN_CACHE_MUTEX_NAME _T("TSVNCacheMutex")
 #endif
 
 CString GetCachePipeName();
 CString GetCacheCommandPipeName();
+CString GetCacheMutexName();
+
+CString GetCacheID();
 
 /**
  * \ingroup TSVNCache
