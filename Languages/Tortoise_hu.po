@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-09-17 22:04+0100\n"
+"PO-Revision-Date: 2008-10-14 17:13+0100\n"
 "Last-Translator: Halász Gábor <k@elitonline.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -434,6 +434,10 @@ msgstr "&Másolás adott helyre..."
 msgid "&Custom"
 msgstr "&Saját"
 
+#. Resource IDs: (1485)
+msgid "&Days of inactivity until small caches get removed"
+msgstr "&Ennyi nap múlva törlődnek a kis méretű gyorsítótárak"
+
 #. Resource IDs: (1096, 1269)
 msgid "&Default"
 msgstr "&Alap"
@@ -666,6 +670,10 @@ msgstr "&Betöltés..."
 #. Resource IDs: (65535)
 msgid "&Lum:"
 msgstr "&Fény"
+
+#. Resource IDs: (1486)
+msgid "&Maximum size [kByte] of a removed inactive cache"
+msgstr "A &kis méretű gyorsítótár maximális mérete kilobájtban"
 
 #. Resource IDs: (16543)
 msgid "&Menu animations:"
@@ -1060,14 +1068,14 @@ msgstr "&Munkapéldány"
 msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
 msgstr "Azon intervallumok száma, amelyek még nem lettek gyorsítótárazva"
 
+#. Resource IDs: (272)
+#, c-format
+msgid "(%s) %s"
+msgstr "(%s) %s"
+
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
 msgstr "(bináris adat)"
-
-#. Resource IDs: (272)
-#, c-format
-msgid "(deleted) %s"
-msgstr "(törölve) %s"
 
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
@@ -1196,6 +1204,17 @@ msgstr ""
 "Lista azokról az útvonalakról, amelyeken jelenjenek meg az ikonok. Soronként egy útvonalat adj meg.\r\n"
 "Ha egy \"*\" karaktert adsz meg az útvonal végén, akkor a hozzá tartozó összes fájl és almappa is bele lesz véve."
 
+#. Resource IDs: (197)
+#, fuzzy
+msgid ""
+"A newline separated list of paths for which no context menu is shown.\r\n"
+"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"An empty list will allow the context menu on all paths."
+msgstr ""
+"Lista azokról az útvonalakról, amelyeken ne jelenjenek meg ikonok. Soronként egy útvonalat adj meg.\r\n"
+"Ha egy \"*\" karaktert adsz meg az útvonal végén, akkor a hozzá tartozó összes fájl és almappa is ki lesz zárva.\r\n"
+"Ha üres a lista, akkor minden útvonalon engedélyezve lesznek az ikonok."
+
 #. Resource IDs: (194)
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
@@ -1295,7 +1314,7 @@ msgstr "&Fájl hozzáadása..."
 #. Resource IDs: (376)
 #, c-format
 msgid "Add '%s' to dictionary"
-msgstr "'%s' hozzáadása a szótárhoz"
+msgstr "\"%s\" hozzáadása a szótárhoz"
 
 #. Resource IDs: (16)
 msgid "Add (as replacement)..."
@@ -1430,20 +1449,25 @@ msgstr "Minden módosítás el fog veszni! Biztosan alaphelyzetbe akarod állít
 #. Resource IDs: (1008)
 #, c-format
 msgid "All your changes will be lost! Do you really want to reset the menu '%s'?"
-msgstr "Minden módosítás el fog veszni! Biztosan alaphelyzetbe akarod állítani a(z) '%s' menüt?"
+msgstr "Minden módosítás el fog veszni! Biztosan alaphelyzetbe akarod állítani a(z) \"%s\" menüt?"
 
 #. Resource IDs: (1007)
 #, c-format
 msgid "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
-msgstr "Minden módosítás el fog veszni! Biztosan alaphelyzetbe akarod állítani a(t) '%s' eszköztárat?"
+msgstr "Minden módosítás el fog veszni! Biztosan alaphelyzetbe akarod állítani a(t) \"%s\" eszköztárat?"
+
+#. Resource IDs: (1484)
+#, fuzzy
+msgid "Allow ambiguous &UUIDs"
+msgstr "&Nem egyértelmű URL-ek"
 
 #. Resource IDs: (345)
-msgid ""
-"Allow different repositories to use the same URL, e.g. http://localhost/myrepos/\n"
-"Note: This will disable offline log access."
-msgstr ""
-"Ha be van jelölve, több tároló is használhatjaa ugyanazt az URL-t, pl. http://localhost/sajattarolo/\n"
-"Megjegyzés: Ez letiltja a naplók offline elérését."
+msgid "Allow different repositories to use the same URL, e.g. http://localhost/myrepos/"
+msgstr "Ha be van jelölve, több tároló is használhatja ugyanazt az URL-t, pl. http://localhost/sajattarolo/"
+
+#. Resource IDs: (345)
+msgid "Allow different repositories to use the same UUID, e.g. mirrored repositories"
+msgstr "Ha be van jelölve, több tároló is használhatja ugyanazt az UUID-t, pl. tükrözött tárolók esetében"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -2398,6 +2422,10 @@ msgstr "URL másolása a vágólapra"
 msgid "Copy all information to clipboard"
 msgstr "Minden információ másolása a vágólapra"
 
+#. Resource IDs: (146)
+msgid "Copy and rename"
+msgstr "Másolás és átnevezés"
+
 #. Resource IDs: (104)
 msgid "Copy and rename item to here"
 msgstr "Elem átnevezése és másolása ide"
@@ -2662,7 +2690,7 @@ msgstr "Mappa távolról létrehozva"
 
 #. Resource IDs: (10)
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
-msgstr "Egy 'gyors' másolatot készít a tárolón belül mellékágakhoz és kiadásokhoz."
+msgstr "Egy \"gyors\" másolatot készít a tárolón belül mellékágakhoz és kiadásokhoz."
 
 #. Resource IDs: (2052)
 msgid ""
@@ -2926,10 +2954,14 @@ msgstr ""
 "Megjelenít információt a programról, a verziószámot és szerzői jogi megjegyzést\n"
 "Névjegy"
 
+#. Resource IDs: (65535)
+msgid "Do not show the context menu for the following paths:"
+msgstr "Ne mutassa jobbklikk-menüt az alábbi útvonalakon:"
+
 #. Resource IDs: (1007)
 #, c-format
 msgid "Do you really want to delete the toolbar '%s'?"
-msgstr "Biztosan törölni szeretnéd a(z) '%s' eszköztárat?"
+msgstr "Biztosan törölni szeretnéd a(z) \"%s\" eszköztárat?"
 
 #. Resource IDs: (145)
 msgid "Do you really want to move this file or folder?"
@@ -3308,6 +3340,11 @@ msgstr "Kibontás (%s)"
 msgid "Expand docked window"
 msgstr "Dokkolt ablak kibontása"
 
+#. Resource IDs: (65535)
+#, fuzzy
+msgid "Expert settings"
+msgstr "Haladó beállítások"
+
 #. Resource IDs: (209)
 msgid "Explore to"
 msgstr "Mappa megnyitása"
@@ -3607,7 +3644,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
-msgstr "Az alábbi útvonalak kiszűrése (ha több útvonalat adsz meg, a '*' karakterrel válaszd el őket):"
+msgstr "Az alábbi útvonalak kiszűrése (ha több útvonalat adsz meg, a \"*\" karakterrel válaszd el őket):"
 
 #. Resource IDs: (321)
 #, fuzzy
@@ -3744,9 +3781,9 @@ msgid ""
 "Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
 "Note that other users will need to update their working copies before they see the files as read-only."
 msgstr ""
-"Fájlok zárolása az  'svn:needs-lock' tulajdnoság nélkül <b>nem</b> fogja meggátolni, hogy a többiek szerkeszthessék a fájlt a munkapéldányukban.\n"
-"A teljes zároláshoz az 'svn:needs-lock' tulajdonság  megadása és beküldése is szükséges.\n"
-"Minden fájl 'csak olvasható' attribútumot fog kapni a többiek gépén, és csak zárolás után válik írhatóvá.\n"
+"Fájlok zárolása az  \"svn:needs-lock\" tulajdnoság nélkül <b>nem</b> fogja meggátolni, hogy a többiek szerkeszthessék a fájlt a munkapéldányukban.\n"
+"A teljes zároláshoz az \"svn:needs-lock\" tulajdonság  megadása és beküldése is szükséges.\n"
+"Minden fájl \"csak olvasható\" attribútumot fog kapni a többiek gépén, és csak zárolás után válik írhatóvá.\n"
 "Vedd azt is figyelembe, hogy a többieknek frissíteniük kell a munkapéldányaikat, és csak utána lesz írásvédett a fájl."
 
 #. Resource IDs: (119)
@@ -4186,7 +4223,7 @@ msgid ""
 "If enabled, working copy folders which are excluded from\n"
 "showing overlays still show the overlay for status 'normal'"
 msgstr ""
-"A be van jelölve, a munkapéldányok kizárt mappáin, a 'normál' ikon jelenik meg.\n"
+"A be van jelölve, a munkapéldányok kizárt mappáin, a \"normál\" ikon jelenik meg.\n"
 "A nincs, akkor nem jelenik meg ikon."
 
 #. Resource IDs: (195)
@@ -4720,7 +4757,11 @@ msgstr "Gyorsítótár statisztikái"
 
 #. Resource IDs: (281)
 msgid "Log Caching"
-msgstr "Naplók gyorsítótárazása"
+msgstr "Gyorsítótár"
+
+#. Resource IDs: (295)
+msgid "Log Caching::Cached Repositories"
+msgstr "Gyorsítótár::Tárolók"
 
 #. Resource IDs: (211)
 msgid "Log History"
@@ -4740,11 +4781,11 @@ msgstr "Változási napló"
 
 #. Resource IDs: (1274)
 msgid "Log messages (Input dialog)"
-msgstr "Megjegyzések (beviteli ablakokban, pl. 'Beküldés')"
+msgstr "Megjegyzések (beviteli ablakokban, pl. \"Beküldés\")"
 
 #. Resource IDs: (1280)
 msgid "Log messages (Show log dialog)"
-msgstr "Megjegyzések ('Változási napló' ablakban)"
+msgstr "Megjegyzések (\"Változási napló\" ablakban)"
 
 #. Resource IDs: (238)
 #, c-format
@@ -4816,6 +4857,10 @@ msgstr "Megőrizni kivánt megjegyzések száma"
 #. Resource IDs: (65535)
 msgid "Max. lines in action log"
 msgstr "Eseménynapló max. mérete (sorokban)"
+
+#. Resource IDs: (1487)
+msgid "Maximum number of tool &failures until cache removal"
+msgstr "&Hibák maximális száma a gyorsítótár törléséig"
 
 #. Resource IDs: (16655)
 msgid "Me&nus show recently used commands first"
@@ -4939,7 +4984,7 @@ msgstr "Verziók egyesítése %ld-től %ld-ig"
 
 #. Resource IDs: (83)
 msgid "Merging requires different revisions or different URLs in 'From:' and 'To:'"
-msgstr "Az egyesítéshez különböző verzió vagy URL kell a 'Ettől:' és 'Eddig:' mezőkbe"
+msgstr "Az egyesítéshez különböző verzió vagy URL kell a \"Ettől:\" és \"Eddig:\" mezőkbe"
 
 #. Resource IDs: (229)
 #, c-format
@@ -5064,6 +5109,10 @@ msgstr "Elem lefelé mozgatása"
 #, fuzzy
 msgid "Move Item Up"
 msgstr "Elem felfelé mozgatása"
+
+#. Resource IDs: (147)
+msgid "Move and rename"
+msgstr "Áthelyezés és átnevezés"
 
 #. Resource IDs: (104)
 msgid "Move and rename item to here"
@@ -5335,7 +5384,15 @@ msgstr "Azon egyesítések száma, amelyek még nem kerültek bele a gyorsítót
 
 #. Resource IDs: (338)
 msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
-msgstr "Útvonalelemek száma. Egy útvonalelem egy mappa vagy fájlnév, pl. 'ize.txt' vagy 'sajatmappa'."
+msgstr "Útvonalelemek száma. Egy útvonalelem egy mappa vagy fájlnév, pl. \"ize.txt\" vagy \"sajatmappa\"."
+
+#. Resource IDs: (345)
+msgid ""
+"Number of times a log cache can fail to close properly\n"
+"due to crashes etc. until it gets deleted automatically."
+msgstr ""
+"Egy gyorsítótár legfeljebb ennyiszer záródhat be hibásan\n"
+"(pl. rendszerhiba miatt), mielőtt automatikusan törlődne."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -5386,7 +5443,7 @@ msgid ""
 "Are you sure you want to move the selected paths?"
 msgstr ""
 "Az egyik mappa, amelyet át szeretnél helyezni, egy speciális mappának tűnik\n"
-"(a 'branches', 'tags' és a 'trunk' egyikének).\n"
+"(a \"branches\", \"tags\" és a \"trunk\" egyikének).\n"
 "\n"
 "Biztosan át szeretnéd helyezni a kiválasztott mappákat?"
 
@@ -5922,7 +5979,7 @@ msgstr "&Visszaállítás..."
 
 #. Resource IDs: (12)
 msgid "Read the 'Daily Use Guide' before you are stuck..."
-msgstr "Olvasd el a 'Hétköznapi használat' fejezetet a súgóban, mielőtt elakadnál..."
+msgstr "Olvasd el a \"Hétköznapi használat\" fejezetet a súgóban, mielőtt elakadnál..."
 
 #. Resource IDs: (1002)
 msgid "Recent"
@@ -6435,7 +6492,7 @@ msgid ""
 "Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
-"Tags:%s\r\n"
+"Tags (%d):%s\r\n"
 "\r\n"
 "Logmessage:\r\n"
 "%s"
@@ -6445,7 +6502,7 @@ msgstr ""
 "Fejlesztő: %s\r\n"
 "Dátum: %s\r\n"
 "\r\n"
-"Kiadások:%s\r\n"
+"Kiadások (%d):%s\r\n"
 "\r\n"
 "Megjegyzés:\r\n"
 "%s"
@@ -7015,7 +7072,7 @@ msgstr "Eltérések mutatása &egyesített diffként"
 
 #. Resource IDs: (1126)
 msgid "Show excluded folders as normal"
-msgstr "Kizárt mappák megjelenítése 'normál'-ként"
+msgstr "Kizárt mappák megjelenítése \"normál\"-ként"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -7024,6 +7081,10 @@ msgstr "&Teljes menü megjelenítése egy rövid késleltetés után"
 #. Resource IDs: (1264)
 msgid "Show i&gnored files"
 msgstr "&Kizárt fájlok mutatása"
+
+#. Resource IDs: (1480)
+msgid "Show items in externals"
+msgstr ""
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
@@ -7633,7 +7694,7 @@ msgid ""
 "The parameters '/path' and '/pathfile' are mutually exclusive.\n"
 "You must only specify one of them."
 msgstr ""
-"A '/path' és '/pathfile' paraméterek együtt nem használhatóak.\n"
+"A \"/path\" és \"/pathfile\" paraméterek együtt nem használhatóak.\n"
 "Csak az egyiket add meg."
 
 #. Resource IDs: (64)
@@ -7663,7 +7724,7 @@ msgstr ""
 "Az útvonal/URL hibásnak tűnik Windows alatt!\n"
 "Megpróbálhatod, de valószínűleg hibát fogsz kapni később.\n"
 "\n"
-"Egy útvonal nem tartalmazhatja az alábbi karaktereket: '<<>|\"?*:' és nem lehetnek az alábbi eszköznevek:\n"
+"Egy útvonal nem tartalmazhatja az alábbi karaktereket: <<>|\"?*: és nem lehetnek az alábbi eszköznevek:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
 "Biztosan folytatod?"
 
@@ -7686,7 +7747,7 @@ msgstr ""
 "<i>%s</i>\n"
 "amely valószínűleg a patch-ben lévőnek felel meg.\n"
 "\n"
-"Szeretnéd ezt az útvonalat használni? A 'Nem'-re kattintva a TortoiseMerge kilép."
+"Szeretnéd ezt az útvonalat használni? A \"Nem\"-re kattintva a TortoiseMerge kilép."
 
 #. Resource IDs: (314)
 #, c-format
@@ -7881,7 +7942,7 @@ msgid ""
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
 "Az útvonal érvénytelen!\n"
-"Egy útvonal nem tartalmazhatja az alábbi karaktereket: '<<>|\"?*:' és az alábbi eszközneveket:\n"
+"Egy útvonal nem tartalmazhatja az alábbi karaktereket: <<>|\"?*: és az alábbi eszközneveket:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #. Resource IDs: (594)
@@ -7958,7 +8019,7 @@ msgid ""
 "This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 msgstr ""
 "A zárolás ellopásához kattints jobb gombbal a szülőmappára és válaszd a \"Zárolás\" menüpontot.\n"
-"Ez felhozza a zárolás ablakot, ahonnan kényszerítheted a zárolást, vagyis 'ellophatod' az eredeti tulajdonosától."
+"Ez felhozza a zárolás ablakot, ahonnan kényszerítheted a zárolást, vagyis \"ellophatod\" az eredeti tulajdonosától."
 
 #. Resource IDs: (1201, 65535)
 msgid "To:"
@@ -8316,6 +8377,14 @@ msgstr "A tulajdonság-fájl formátuma ismeretlen vagy hibás!"
 msgid "Untitled"
 msgstr "Névtelen"
 
+#. Resource IDs: (345)
+msgid ""
+"Unused log caches will only be removed if the respective\n"
+"file is smaller than the given size in kBytes."
+msgstr ""
+"A nem használt gyorsítótárak csak akkor törlődnek, ha\n"
+"a méretük ennyi kB-nál kevesebb."
+
 #. Resource IDs: (146)
 msgid "Unversion"
 msgstr "Verziókezelésből kivesz"
@@ -8397,8 +8466,8 @@ msgid ""
 "To separate multiple exceptions, use commas (',').\r\n"
 "Example: *.mylan.com, *.company.com"
 msgstr ""
-"A kivételeknél használhatod a '*' jokerkaraktert.\r\n"
-"Több kivétel elválasztásához használj vesszőt (',').\r\n"
+"A kivételeknél használhatod a \"*\" jokerkaraktert.\r\n"
+"Több kivétel elválasztásához használj vesszőt (\",\").\r\n"
 "Példa: *.pelda.hu, *.sajatcegem.com"
 
 #. Resource IDs: (1230)
@@ -8668,6 +8737,14 @@ msgstr "Figyelem"
 msgid "Warning!"
 msgstr "Figyelem!"
 
+#. Resource IDs: (345)
+msgid ""
+"When a small log cache has not been used for the given\n"
+"number of days, it will be removed automatically."
+msgstr ""
+"Ha egy kis méretű gyorsítótárat nem használsz\n"
+"ennyi napon keresztül, automatikusan törlődik."
+
 #. Resource IDs: (344)
 msgid ""
 "When connecting to the repository server is not possible,\n"
@@ -8793,7 +8870,7 @@ msgid ""
 msgstr ""
 "Ezt a tulajdonságot csak fájlokra lehet alkalmazni, mappákra nem!\n"
 "Ha mappában található fájlokra szeretnéd alkalmazni,\n"
-"akkor jelöld be a 'rekurzívan' jelölőnégyzetet."
+"akkor jelöld be a \"rekurzívan\" jelölőnégyzetet."
 
 #. Resource IDs: (105)
 msgid ""
@@ -8992,8 +9069,8 @@ msgstr "hozzáadva"
 
 #. Resource IDs: (272)
 #, c-format
-msgid "alias (deleted): %s"
-msgstr "álnév (törölve): %s"
+msgid "alias (%s): %s"
+msgstr "álnév (%s): %s"
 
 #. Resource IDs: (272)
 #, c-format
@@ -9021,8 +9098,8 @@ msgid ""
 "ask repository first if 'online' -\n"
 "work entirely from cache if 'offline'"
 msgstr ""
-"Tároló ellenőrzése, ha 'online'\n"
-"Kizárólag gyorsítótárból való munka, ha 'offline'"
+"Tároló ellenőrzése, ha \"online\"\n"
+"Kizárólag gyorsítótárból való munka, ha \"offline\""
 
 #. Resource IDs: (245)
 msgid "author"
@@ -9354,7 +9431,7 @@ msgid ""
 msgstr ""
 "svn:eol-style\r\n"
 "A szöveges fájlok sorvég-karakterét adja meg.\r\n"
-"Egy az alábbiak közül: 'native', 'LF', 'CR', 'CRLF'."
+"Egy az alábbiak közül: \"native\", \"LF\", \"CR\", \"CRLF\"."
 
 #. Resource IDs: (576)
 msgid ""
@@ -9444,7 +9521,7 @@ msgid ""
 msgstr ""
 "svn:mime-type\r\n"
 "A fájlt mime-típusa. Fájlok egyesítésekor és az Apache webszerver számára fontos tulajdonság.\r\n"
-"A 'text/'-el kezdő mime-típusok és a mime-típus nélküli fájlok szövegként lesznek kezelve,\r\n"
+"A \"text/\"-el kezdő mime-típusok és a mime-típus nélküli fájlok szövegként lesznek kezelve,\r\n"
 "minden más binárisként."
 
 #. Resource IDs: (576)
@@ -9456,7 +9533,7 @@ msgid ""
 "before they can edit it and commit changes."
 msgstr ""
 "svn:needs-lock\r\n"
-"Kötelezővé teszi a fájl zárolását. Az értéke bármi lehet (pl. '*').\r\n"
+"Kötelezővé teszi a fájl zárolását. Az értéke bármi lehet (pl. \"*\").\r\n"
 "A fájl írásvédetté válik frissítéskor és beküldéskor, ezzel jelezve azt,\r\n"
 "hogy fájl módosításához először zárolni kell azt.\r\n"
 "Ezzel garantálni lehet, hogy egyszerre csak egy fejlesztő szerkeszti a fájlt."
@@ -9660,6 +9737,10 @@ msgstr "igen"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "(deleted) %s"
+#~ msgstr "(törölve) %s"
+#~ msgid "alias (deleted): %s"
+#~ msgstr "álnév (törölve): %s"
 #~ msgid "&?"
 #~ msgstr "&?"
 #~ msgid "&Cancel"
