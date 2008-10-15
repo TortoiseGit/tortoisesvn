@@ -51,6 +51,8 @@ TCHAR				szCurrentCrawledPath[MAX_CRAWLEDPATHS][MAX_CRAWLEDPATHSLEN];
 int					nCurrentCrawledpathIndex = 0;
 CComAutoCriticalSection critSec;
 
+volatile LONG		nThreadCount = 0;
+
 #define PACKVERSION(major,minor) MAKELONG(minor,major)
 DWORD GetDllVersion(LPCTSTR lpszDllName)
 {
@@ -650,7 +652,7 @@ DWORD WINAPI InstanceThread(LPVOID lpvParam)
 	// The thread's parameter is a handle to a pipe instance. 
 
 	hPipe = (HANDLE) lpvParam; 
-
+	InterlockedIncrement(&nThreadCount);
 	while (bRun) 
 	{ 
 		// Read client requests from the pipe. 
@@ -667,6 +669,9 @@ DWORD WINAPI InstanceThread(LPVOID lpvParam)
 			DisconnectNamedPipe(hPipe); 
 			CloseHandle(hPipe); 
 			ATLTRACE("Instance thread exited\n");
+			InterlockedDecrement(&nThreadCount);
+			if (nThreadCount == 0)
+				PostMessage(hWnd, WM_CLOSE, 0, 0);
 			return 1;
 		}
 
@@ -686,6 +691,9 @@ DWORD WINAPI InstanceThread(LPVOID lpvParam)
 			DisconnectNamedPipe(hPipe); 
 			CloseHandle(hPipe); 
 			ATLTRACE("Instance thread exited\n");
+			InterlockedDecrement(&nThreadCount);
+			if (nThreadCount == 0)
+				PostMessage(hWnd, WM_CLOSE, 0, 0);
 			return 1;
 		}
 	} 
@@ -698,6 +706,9 @@ DWORD WINAPI InstanceThread(LPVOID lpvParam)
 	DisconnectNamedPipe(hPipe); 
 	CloseHandle(hPipe); 
 	ATLTRACE("Instance thread exited\n");
+	InterlockedDecrement(&nThreadCount);
+	if (nThreadCount == 0)
+		PostMessage(hWnd, WM_CLOSE, 0, 0);
 	return 0;
 }
 
