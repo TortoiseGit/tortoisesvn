@@ -51,7 +51,8 @@ bool DiffCommand::Execute()
 			}
 			else
 			{
-				bRet = diff.DiffFileAgainstBase(cmdLinePath);
+				svn_revnum_t baseRev = 0;
+				bRet = diff.DiffFileAgainstBase(cmdLinePath, baseRev);
 			}
 		}
 	} 

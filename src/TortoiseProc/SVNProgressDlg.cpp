@@ -1124,7 +1124,8 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 		CTSVNPath temporaryFile;
 		SVNDiff diff(this, this->m_hWnd, true);
 		diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
-		diff.DiffFileAgainstBase(data->path);
+		svn_revnum_t baseRev = 0;
+		diff.DiffFileAgainstBase(data->path, baseRev);
 	}
 	else if ((!data->bAuxItem)&&(data->path.Exists())&&(!data->path.IsDirectory()))
 	{

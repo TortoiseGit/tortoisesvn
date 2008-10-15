@@ -2616,8 +2616,9 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 							continue;
 						SVNDiff diff(NULL, m_hWnd, true);
 						diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+						svn_revnum_t baseRev = entry->Revision;
 						diff.DiffFileAgainstBase(
-							entry->path, entry->textstatus, entry->propstatus);
+							entry->path, baseRev, entry->textstatus, entry->propstatus);
 					}
 				}
 				break;

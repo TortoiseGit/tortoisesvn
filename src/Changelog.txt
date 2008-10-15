@@ -25,6 +25,8 @@
 - NEW: Extended the IBugTraqProvider. See issue #428 for details. (Stefan)
 - NEW: The status cache handles "runas" now better. (Stefan)
 - NEW: Automated removal of unused log caches. (Stefan Fuhrmann)
+- NEW: When diffing against BASE, the diff tool now shows the BASE revision
+       in the view title. (Stefan)
 - CHG: The bug-ID column width in the log dialog is now limited 
        to 200 pixels. (Stefan)
 - CHG: The right-drag context menu now only shows "Export" if a versioned

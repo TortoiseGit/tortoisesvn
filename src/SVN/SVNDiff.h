@@ -46,6 +46,7 @@ public:
 	 */
 	bool DiffFileAgainstBase(
 		const CTSVNPath& filePath,
+		svn_revnum_t & baseRev,
 		svn_wc_status_kind text_status = svn_wc_status_none, 
 		svn_wc_status_kind prop_status = svn_wc_status_none);
 
@@ -96,7 +97,7 @@ public:
 					 bool ignoreancestry = false,
 					 bool blame = false);
 
-	bool DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVNRev& rev2);
+	bool DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVNRev& rev2, svn_revnum_t &baseRev);
 	
 	/**
 	 * Sets the Peg revision to use instead of HEAD.
