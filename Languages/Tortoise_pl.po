@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-09-20 02:52+0100\n"
+"PO-Revision-Date: 2008-10-17 01:05+0100\n"
 "Last-Translator: Krzysztof Kotowicz <koto@webworkers.pl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -432,6 +432,10 @@ msgstr "&Kopiuj do..."
 msgid "&Custom"
 msgstr "&Domyślny"
 
+#. Resource IDs: (1485)
+msgid "&Days of inactivity until small caches get removed"
+msgstr "&Dni nieaktywności zanim małe bufory są usuwane"
+
 #. Resource IDs: (1096, 1269)
 msgid "&Default"
 msgstr "&Domyślne"
@@ -662,6 +666,10 @@ msgstr "&Załaduj..."
 #. Resource IDs: (65535)
 msgid "&Lum:"
 msgstr "&Jas:"
+
+#. Resource IDs: (1486)
+msgid "&Maximum size [kByte] of a removed inactive cache"
+msgstr "&Maksymalny rozmiar [kB] usuwanego nieaktywnego bufora"
 
 #. Resource IDs: (16543)
 msgid "&Menu animations:"
@@ -1054,14 +1062,14 @@ msgstr "&Kopia robocza"
 msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
 msgstr "'pomiń zakresy' używane jest, aby oznaczyć zakresy wersji, które jeszcze nie były buforowane"
 
+#. Resource IDs: (272)
+#, c-format
+msgid "(%s) %s"
+msgstr "(%s) %s"
+
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
 msgstr "(wartość binarna)"
-
-#. Resource IDs: (272)
-#, c-format
-msgid "(deleted) %s"
-msgstr "(usunięty) %s"
 
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
@@ -1189,6 +1197,18 @@ msgstr ""
 "Separatorem jest znak nowej linii.\r\n"
 "Użycie znaku '*' na końcu ścieżki spowoduje objęcie wyświetlaniem\r\n"
 "także wszystkich plików i katalogów poniżej tej ścieżki. "
+
+#. Resource IDs: (197)
+msgid ""
+"A newline separated list of paths for which no context menu is shown.\r\n"
+"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"An empty list will allow the context menu on all paths."
+msgstr ""
+"Lista ścieżek, dla których menu kontekstowe nie jest wyświetlane.\r\n"
+"Separatorem jest znak nowej linii.\r\n"
+"Użycie znaku '*' na końcu ścieżki spowoduje wyłączenie wyświetlania\r\n"
+"także we wszystkich plikach i podkatalogach w ramach tej ścieżki.\r\n"
+"Pusta lista oznacza wyświetlanie menu kontekstowego dla wszystkich ścieżek."
 
 #. Resource IDs: (194)
 msgid ""
@@ -1430,13 +1450,17 @@ msgstr "Wszystkie twoje zmiany zostaną utracone! Na pewno chcesz przywrócić m
 msgid "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
 msgstr "Wszystkie twoje zmiany zostaną utracone! Na pewno chcesz przywrócić pasek narzędzi '%s'?"
 
+#. Resource IDs: (1484)
+msgid "Allow ambiguous &UUIDs"
+msgstr "Zezwól na niejednoznaczne &UUIDy"
+
 #. Resource IDs: (345)
-msgid ""
-"Allow different repositories to use the same URL, e.g. http://localhost/myrepos/\n"
-"Note: This will disable offline log access."
-msgstr ""
-"Zezwól na używanie tego samego adresu URL dla różnych repozytoriów, np. http://localhost/myrepos/\n"
-"Uwaga: Wyłączy to dostęp offline do logów."
+msgid "Allow different repositories to use the same URL, e.g. http://localhost/myrepos/"
+msgstr "Zezwól na używanie tego samego adresu URL dla różnych repozytoriów, np. http://localhost/myrepos/"
+
+#. Resource IDs: (345)
+msgid "Allow different repositories to use the same UUID, e.g. mirrored repositories"
+msgstr "Zezwól na używanie tego samego UUID dla różnych repozytoriów, (np. lustrzane repozytoria)"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -2386,6 +2410,10 @@ msgstr "Kopiuj adres URL do schowka"
 msgid "Copy all information to clipboard"
 msgstr "Kopiuj wszystkie informacje do schowka"
 
+#. Resource IDs: (146)
+msgid "Copy and rename"
+msgstr "Kopiuj i zmień nazwę"
+
 #. Resource IDs: (104)
 msgid "Copy and rename item to here"
 msgstr "Kopiuj i zmień nazwę elementu tutaj"
@@ -2908,6 +2936,10 @@ msgstr ""
 "Wyświetla informacje o programie, numerze wersji i prawach autorskich\n"
 "O programie"
 
+#. Resource IDs: (65535)
+msgid "Do not show the context menu for the following paths:"
+msgstr "Nie pokazuj menu kontekstowego dla nast. ścieżek:"
+
 #. Resource IDs: (1007)
 #, c-format
 msgid "Do you really want to delete the toolbar '%s'?"
@@ -3282,6 +3314,10 @@ msgstr "Rozwiń (%s)"
 #. Resource IDs: (1001)
 msgid "Expand docked window"
 msgstr "Rozwiń okno dokowane"
+
+#. Resource IDs: (65535)
+msgid "Expert settings"
+msgstr "Zaawansowane ustawienia"
 
 #. Resource IDs: (209)
 msgid "Explore to"
@@ -4633,6 +4669,10 @@ msgstr "Statystyki bufora logów"
 msgid "Log Caching"
 msgstr "Buforowanie logu"
 
+#. Resource IDs: (295)
+msgid "Log Caching::Cached Repositories"
+msgstr "Buforowanie logu::Buforowane repozytoria"
+
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "Historia logów"
@@ -4727,6 +4767,10 @@ msgstr "Max ilość elementów przechowywanych w historii opisów zmian"
 #. Resource IDs: (65535)
 msgid "Max. lines in action log"
 msgstr "Maks. liczba linii w logu akcji"
+
+#. Resource IDs: (1487)
+msgid "Maximum number of tool &failures until cache removal"
+msgstr "Maksymalna liczba &błędów przed usunięciem bufora"
 
 #. Resource IDs: (16655)
 msgid "Me&nus show recently used commands first"
@@ -4965,6 +5009,10 @@ msgstr "Przesuń element w dół"
 #. Resource IDs: (1002)
 msgid "Move Item Up"
 msgstr "Przesuń element do góry"
+
+#. Resource IDs: (147)
+msgid "Move and rename"
+msgstr "Przenieś i zmień nazwę"
 
 #. Resource IDs: (104)
 msgid "Move and rename item to here"
@@ -5234,6 +5282,14 @@ msgstr "Liczba scalonych wersji, które nie są jeszcze zbuforowane"
 #. Resource IDs: (338)
 msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
 msgstr "Liczba elementów ścieżki. Element ścieżki to folder lub nazwa pliku np. 'foo.txt' lub 'trunk'."
+
+#. Resource IDs: (345)
+msgid ""
+"Number of times a log cache can fail to close properly\n"
+"due to crashes etc. until it gets deleted automatically."
+msgstr ""
+"Liczba zakończonych niepowodzeniem zamknięć bufora\n"
+"(np. z powodu błędów) zanim bufor zostanie automatycznie usunięty."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -6314,7 +6370,7 @@ msgid ""
 "Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
-"Tags:%s\r\n"
+"Tags (%d):%s\r\n"
 "\r\n"
 "Logmessage:\r\n"
 "%s"
@@ -6324,7 +6380,7 @@ msgstr ""
 "Autor: %s\r\n"
 "Data: %s\r\n"
 "\r\n"
-"Tagi:%s\r\n"
+"Tagi (%d):%s\r\n"
 "\r\n"
 "Opis zmian:\r\n"
 "%s"
@@ -6888,6 +6944,10 @@ msgstr "Pokaż &pełne menu po chwili"
 #. Resource IDs: (1264)
 msgid "Show i&gnored files"
 msgstr "Pokaż &ignorowane pliki"
+
+#. Resource IDs: (1480)
+msgid "Show items in externals"
+msgstr "Pokaż elementy w zewnętrznych"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
@@ -8179,6 +8239,14 @@ msgstr "Nierozpoznany lub niepoprawny format pliku!"
 msgid "Untitled"
 msgstr "Bez nazwy"
 
+#. Resource IDs: (345)
+msgid ""
+"Unused log caches will only be removed if the respective\n"
+"file is smaller than the given size in kBytes."
+msgstr ""
+"Nieużywane bufory zostaną usunięte tylko wtedy, jeśli\n"
+"plik bufora jest mniejszy niż rozmiar podany w kilobajtach."
+
 #. Resource IDs: (146)
 msgid "Unversion"
 msgstr "Odwersjonuj"
@@ -8529,6 +8597,14 @@ msgstr "Ostrzeżenie"
 msgid "Warning!"
 msgstr "Uwaga!"
 
+#. Resource IDs: (345)
+msgid ""
+"When a small log cache has not been used for the given\n"
+"number of days, it will be removed automatically."
+msgstr ""
+"Kiedy mały bufor logów nie był używany przez podaną\n"
+"liczbę dni, będzie usunięty automatycznie."
+
 #. Resource IDs: (344)
 msgid ""
 "When connecting to the repository server is not possible,\n"
@@ -8856,8 +8932,8 @@ msgstr "dodane pliki"
 
 #. Resource IDs: (272)
 #, c-format
-msgid "alias (deleted): %s"
-msgstr "alias (usunięty): %s"
+msgid "alias (%s): %s"
+msgstr "alias (%s): %s"
 
 #. Resource IDs: (272)
 #, c-format
@@ -9526,6 +9602,10 @@ msgstr "tak"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "(deleted) %s"
+#~ msgstr "(usunięty) %s"
+#~ msgid "alias (deleted): %s"
+#~ msgstr "alias (usunięty): %s"
 #~ msgid "&?"
 #~ msgstr "&?"
 #~ msgid "&Cancel"
