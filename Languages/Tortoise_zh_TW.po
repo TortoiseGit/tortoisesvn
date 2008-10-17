@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-06 20:03+0800\n"
+"PO-Revision-Date: 2008-10-17 19:45+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -426,6 +426,10 @@ msgstr "複製至(&C)..."
 msgid "&Custom"
 msgstr "自訂(&C)"
 
+#. Resource IDs: (1485)
+msgid "&Days of inactivity until small caches get removed"
+msgstr "移除小快取前的最多未使用天數(&D)"
+
 #. Resource IDs: (1096, 1269)
 msgid "&Default"
 msgstr "預設(&D)"
@@ -654,6 +658,10 @@ msgstr "載入(&L)..."
 #. Resource IDs: (65535)
 msgid "&Lum:"
 msgstr "亮度(&L):"
+
+#. Resource IDs: (1486)
+msgid "&Maximum size [kByte] of a removed inactive cache"
+msgstr "移除未使用快取的最大檔案大小(&M) [kByte]"
 
 #. Resource IDs: (16543)
 msgid "&Menu animations:"
@@ -1040,14 +1048,14 @@ msgstr "工作複本(&W)"
 msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
 msgstr "'略過範圍' 用來表示還沒有被快取的版本範圍"
 
+#. Resource IDs: (272)
+#, c-format
+msgid "(%s) %s"
+msgstr "(%s) %s"
+
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
 msgstr "(二進位值)"
-
-#. Resource IDs: (272)
-#, c-format
-msgid "(deleted) %s"
-msgstr "(已刪除) %s"
 
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
@@ -1422,13 +1430,17 @@ msgstr "全部的變更都會消失! 確定要重置選單 '%s' 嗎?"
 msgid "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
 msgstr "全部的變更都會消失! 確定要重置工具列 '%s' 嗎?"
 
+#. Resource IDs: (1484)
+msgid "Allow ambiguous &UUIDs"
+msgstr "允許模糊的UUID(&U)"
+
 #. Resource IDs: (345)
-msgid ""
-"Allow different repositories to use the same URL, e.g. http://localhost/myrepos/\n"
-"Note: This will disable offline log access."
-msgstr ""
-"允許不同檔案庫使用相同 URL, 例如 http://localhost/myrepos/\n"
-"注意: 將會無法使用離線記錄."
+msgid "Allow different repositories to use the same URL, e.g. http://localhost/myrepos/"
+msgstr "允許不同檔案庫使用相同 URL, 例如 http://localhost/myrepos/"
+
+#. Resource IDs: (345)
+msgid "Allow different repositories to use the same UUID, e.g. mirrored repositories"
+msgstr "允許不同檔案庫使用相同 UUID, 例如檔案庫鏡像"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -3277,6 +3289,10 @@ msgstr "展開 (%s)"
 msgid "Expand docked window"
 msgstr "展開停駐的視窗"
 
+#. Resource IDs: (65535)
+msgid "Expert settings"
+msgstr "進階設定"
+
 #. Resource IDs: (209)
 msgid "Explore to"
 msgstr "瀏覽至"
@@ -4636,6 +4652,10 @@ msgstr "紀錄訊息快取統計"
 msgid "Log Caching"
 msgstr "紀錄訊息快取"
 
+#. Resource IDs: (295)
+msgid "Log Caching::Cached Repositories"
+msgstr "訊息快取::快取的檔案庫"
+
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "訊息紀錄"
@@ -4729,6 +4749,10 @@ msgstr "訊息紀錄最大保留筆數"
 #. Resource IDs: (65535)
 msgid "Max. lines in action log"
 msgstr "行為紀錄最大行數"
+
+#. Resource IDs: (1487)
+msgid "Maximum number of tool &failures until cache removal"
+msgstr "移除快取前的最大允許錯誤次數(&F)"
 
 #. Resource IDs: (16655)
 msgid "Me&nus show recently used commands first"
@@ -5236,6 +5260,14 @@ msgstr "尚未快取的合併版本總數"
 #. Resource IDs: (338)
 msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
 msgstr "路徑元素數目."
+
+#. Resource IDs: (345)
+msgid ""
+"Number of times a log cache can fail to close properly\n"
+"due to crashes etc. until it gets deleted automatically."
+msgstr ""
+"當訊息快取無法正常關閉指定次數之後,\n"
+"將會被自動刪除."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -6314,7 +6346,7 @@ msgid ""
 "Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
-"Tags:%s\r\n"
+"Tags (%d):%s\r\n"
 "\r\n"
 "Logmessage:\r\n"
 "%s"
@@ -6324,7 +6356,7 @@ msgstr ""
 "作者: %s\r\n"
 "日期: %s\r\n"
 "\r\n"
-"標籤:%s\r\n"
+"標籤 (%d):%s\r\n"
 "\r\n"
 "記錄訊息:\r\n"
 "%s"
@@ -8180,6 +8212,14 @@ msgstr "性質檔案格式無法辨識或錯誤！"
 msgid "Untitled"
 msgstr "未命名"
 
+#. Resource IDs: (345)
+msgid ""
+"Unused log caches will only be removed if the respective\n"
+"file is smaller than the given size in kBytes."
+msgstr ""
+"未使用的訊息快取只會在相關的檔案小於指定\n"
+"的大小時被移除, 單位是 kBytes."
+
 #. Resource IDs: (146)
 msgid "Unversion"
 msgstr "清除版本控制"
@@ -8529,6 +8569,14 @@ msgstr "警告"
 msgid "Warning!"
 msgstr "警告!"
 
+#. Resource IDs: (345)
+msgid ""
+"When a small log cache has not been used for the given\n"
+"number of days, it will be removed automatically."
+msgstr ""
+"當訊息快取在指定的天數內沒用到時,\n"
+"自動移除它."
+
 #. Resource IDs: (344)
 msgid ""
 "When connecting to the repository server is not possible,\n"
@@ -8850,8 +8898,8 @@ msgstr "增加的檔案"
 
 #. Resource IDs: (272)
 #, c-format
-msgid "alias (deleted): %s"
-msgstr "別名(已刪除): %s"
+msgid "alias (%s): %s"
+msgstr "別名 (%s): %s"
 
 #. Resource IDs: (272)
 #, c-format
