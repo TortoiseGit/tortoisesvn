@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-05 15:45+0900\n"
+"PO-Revision-Date: 2008-10-17 13:08+0900\n"
 "Last-Translator: Kim TaeDong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -425,6 +425,10 @@ msgstr "복사(&C)..."
 msgid "&Custom"
 msgstr "사용자 지정(&C)"
 
+#. Resource IDs: (1485)
+msgid "&Days of inactivity until small caches get removed"
+msgstr "작은 캐시를 삭제할 때까지의 비활성화 날들(&D)"
+
 #. Resource IDs: (1096, 1269)
 msgid "&Default"
 msgstr "기본설정(&D)"
@@ -653,6 +657,10 @@ msgstr "읽기(&L)..."
 #. Resource IDs: (65535)
 msgid "&Lum:"
 msgstr "휘도(&L):"
+
+#. Resource IDs: (1486)
+msgid "&Maximum size [kByte] of a removed inactive cache"
+msgstr "제거된 비활성화 캐시의 최대 사이즈[kByte](&M)"
 
 #. Resource IDs: (16543)
 msgid "&Menu animations:"
@@ -1039,14 +1047,14 @@ msgstr "작업 사본(&W)"
 msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
 msgstr "'건너 뛰는 구간'은 아직 캐시되지 않은 리비전 구간을 지정하기 위해 사용됩니다."
 
+#. Resource IDs: (272)
+#, c-format
+msgid "(%s) %s"
+msgstr "(%s) %s"
+
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
 msgstr "(이진 값)"
-
-#. Resource IDs: (272)
-#, c-format
-msgid "(deleted) %s"
-msgstr "(삭제됨) %s"
 
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
@@ -1421,13 +1429,17 @@ msgstr "모든 변경사항을 잃을 것입니다! 정말로 메뉴 '%s'를 리
 msgid "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
 msgstr "모든 변경사항을 잃을 것입니다! 정말로 툴바 '%s'를 리셋하시겠습니까?"
 
+#. Resource IDs: (1484)
+msgid "Allow ambiguous &UUIDs"
+msgstr "모호한 UUID들을 허용합니다.(&U)"
+
 #. Resource IDs: (345)
-msgid ""
-"Allow different repositories to use the same URL, e.g. http://localhost/myrepos/\n"
-"Note: This will disable offline log access."
-msgstr ""
-"같은 URL을 사용하기 위해 다른 저장소들을 허용합니다. 예를 들면 http://localhost/myrepos/\n"
-"주의: 이것은 오프라인 로그에 접근하는 것을 비활성화할 것입니다."
+msgid "Allow different repositories to use the same URL, e.g. http://localhost/myrepos/"
+msgstr "다른 저장소들에 대해서 같은 URL을 사용하는 것을 허용합니다. 예를 들면 http://localhost/myrepos/"
+
+#. Resource IDs: (345)
+msgid "Allow different repositories to use the same UUID, e.g. mirrored repositories"
+msgstr "다른 저장소들에 대해서 같은 UUID를 사용하는 것을 허용합니다. 예를 들면 똑같이 복사된 저장소들."
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -3274,6 +3286,10 @@ msgstr "확장하기 (%s)"
 msgid "Expand docked window"
 msgstr "붙어있는 윈도우를 확장하기"
 
+#. Resource IDs: (65535)
+msgid "Expert settings"
+msgstr "전문가 설정"
+
 #. Resource IDs: (209)
 msgid "Explore to"
 msgstr "탐색"
@@ -4633,6 +4649,10 @@ msgstr "로그 캐시 통계정보"
 msgid "Log Caching"
 msgstr "로그 캐싱"
 
+#. Resource IDs: (295)
+msgid "Log Caching::Cached Repositories"
+msgstr "로그 캐시::캐시된 저장소"
+
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "사용되었던 로그"
@@ -4726,6 +4746,10 @@ msgstr "사용되었던 로그 저장 개수"
 #. Resource IDs: (65535)
 msgid "Max. lines in action log"
 msgstr "명령 로그의 최대 개수"
+
+#. Resource IDs: (1487)
+msgid "Maximum number of tool &failures until cache removal"
+msgstr "캐시 제거까지 툴이 실패하는 최대 횟수(&F)"
 
 #. Resource IDs: (16655)
 msgid "Me&nus show recently used commands first"
@@ -5232,6 +5256,14 @@ msgstr "아직 캐시되지 않은 병합된 리비전의 수"
 #. Resource IDs: (338)
 msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
 msgstr "경로 요소의 수. 경로 요소는 'foo.txt'나 'mybranch' 같은 폴더 혹은 파일의 이름입니다."
+
+#. Resource IDs: (345)
+msgid ""
+"Number of times a log cache can fail to close properly\n"
+"due to crashes etc. until it gets deleted automatically."
+msgstr ""
+"크래시등의 이유로 로그 캐시 정상적으로 닫히는데 실패하는 최대 횟수.\n"
+"로그 캐시가 자동으로 삭제될 때 까지."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -6311,7 +6343,7 @@ msgid ""
 "Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
-"Tags:%s\r\n"
+"Tags (%d):%s\r\n"
 "\r\n"
 "Logmessage:\r\n"
 "%s"
@@ -6321,7 +6353,7 @@ msgstr ""
 "작성자: %s\r\n"
 "날짜: %s\r\n"
 "\r\n"
-"태그:%s\r\n"
+"태그 (%d):%s\r\n"
 "\r\n"
 "커밋 로그:\r\n"
 "%s"
@@ -8170,6 +8202,14 @@ msgstr "인식할 수 없거나 잘못된 속성 파일 형식입니다"
 msgid "Untitled"
 msgstr "제목 없음"
 
+#. Resource IDs: (345)
+msgid ""
+"Unused log caches will only be removed if the respective\n"
+"file is smaller than the given size in kBytes."
+msgstr ""
+"각 파일이 주어진 사이즈(kBytes)보다 작으면,\n"
+"사용되지 않는 로그 캐시들은 제거될 것 입니다."
+
 #. Resource IDs: (146)
 msgid "Unversion"
 msgstr "관리대상아님"
@@ -8519,6 +8559,14 @@ msgstr "경고"
 msgid "Warning!"
 msgstr "경고!"
 
+#. Resource IDs: (345)
+msgid ""
+"When a small log cache has not been used for the given\n"
+"number of days, it will be removed automatically."
+msgstr ""
+"작은 로그 캐시가 주어진 날동안 사용되지 않는다면,\n"
+"자동으로 제거될 것입니다."
+
 #. Resource IDs: (344)
 msgid ""
 "When connecting to the repository server is not possible,\n"
@@ -8843,8 +8891,8 @@ msgstr "추가된 파일"
 
 #. Resource IDs: (272)
 #, c-format
-msgid "alias (deleted): %s"
-msgstr "별칭 (삭제됨): %s"
+msgid "alias (%s): %s"
+msgstr "별칭 (%s): %s"
 
 #. Resource IDs: (272)
 #, c-format
@@ -9506,6 +9554,10 @@ msgstr "예"
 msgid "{BugTraq}"
 msgstr "{버그트랙}"
 
+#~ msgid "(deleted) %s"
+#~ msgstr "(삭제됨) %s"
+#~ msgid "alias (deleted): %s"
+#~ msgstr "별칭 (삭제됨): %s"
 #~ msgid "&?"
 #~ msgstr "&?"
 #~ msgid "&Cancel"
