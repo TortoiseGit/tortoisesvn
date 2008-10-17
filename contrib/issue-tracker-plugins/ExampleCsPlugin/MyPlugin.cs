@@ -10,7 +10,7 @@ namespace ExampleCsPlugin
     [ComVisible(true),
         Guid("5870B3F1-8393-4c83-ACED-1D5E803A4F2B"),
         ClassInterface(ClassInterfaceType.None)]
-    public class MyPlugin : Interop.BugTraqProvider.IBugTraqProvider2
+    public class MyPlugin : Interop.BugTraqProvider.IBugTraqProvider2, Interop.BugTraqProvider.IBugTraqProvider
     {
 		private List<TicketItem> selectedTickets = new List<TicketItem>();
 
@@ -67,9 +67,9 @@ namespace ExampleCsPlugin
 		{
 			// we now could use the selectedTickets member to find out which tickets
 			// were assigned to this commit.
-			//CommitFinishedForm form = new CommitFinishedForm( selectedTickets );
-			//if ( form.ShowDialog( ) != DialogResult.OK )
-			//    return "";
+			CommitFinishedForm form = new CommitFinishedForm( selectedTickets );
+			if ( form.ShowDialog( ) != DialogResult.OK )
+				return "";
 			// just for testing, we return an error string
 			return "an error happened while closing the issue";
 		}
