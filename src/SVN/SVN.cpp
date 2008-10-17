@@ -1903,7 +1903,7 @@ svn_error_t * SVN::get_uuid_from_target (const char **UUID, const char *target)
 	SVN_ERR (svn_wc_adm_probe_open3 (&adm_access, NULL, target,
 		FALSE, 0, NULL, NULL, pool));
 	SVN_ERR (svn_client_uuid_from_path(UUID, target, adm_access, m_pctx, pool));
-	SVN_ERR (svn_wc_adm_close (adm_access));
+	SVN_ERR (svn_wc_adm_close2 (adm_access, pool));
 #pragma warning(pop)
 
 	return SVN_NO_ERROR;
@@ -2269,7 +2269,17 @@ CTSVNPath SVN::GetPristinePath(const CTSVNPath& wcPath)
 	const char* pristinePath = NULL;
 	CTSVNPath returnPath;
 
+#pragma warning(push)
+#pragma warning(disable: 4996)	// deprecated warning
+	// note: the 'new' function would be svn_wc_get_pristine_contents(), but that
+	// function returns a stream instead of a path. Since we don't need a stream
+	// but really a path here, that function is of no use and would require us
+	// to create a temp file and copy the original contents to that temp file.
+	// 
+	// We can't pass a stream to e.g. TortoiseMerge for diffing, that's why we
+	// need a *path* and not a stream.
 	err = svn_wc_get_pristine_copy_path(svn_path_internal_style(wcPath.GetSVNApiPath(localpool), localpool), &pristinePath, localpool);
+#pragma warning(pop)
 
 	if (err != NULL)
 	{
@@ -2299,7 +2309,7 @@ BOOL SVN::GetTranslatedFile(CTSVNPath& sTranslatedFile, const CTSVNPath sFile, B
 		return FALSE;
 	}
 	err = svn_wc_translated_file2((const char **)&translatedPath, originPath, originPath, adm_access, SVN_WC_TRANSLATE_TO_NF | (bForceRepair ? SVN_WC_TRANSLATE_FORCE_EOL_REPAIR : 0), localpool);
-	svn_wc_adm_close(adm_access);
+	svn_wc_adm_close2(adm_access, localpool);
 	if (err)
 	{
 		svn_error_clear(err);
