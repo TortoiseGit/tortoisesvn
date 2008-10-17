@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-09-18 22:07+0100\n"
-"Last-Translator: Милорад Поповић <MiloradSPopovic@google.com>\n"
+"PO-Revision-Date: 2008-10-17 10:33+0100\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1323,27 +1323,22 @@ msgstr ": radna osnova"
 msgid ": working copy"
 msgstr ": radna kopija"
 
-#
 #. Resource IDs: (332)
 msgid "< &Back"
 msgstr "< &Nazad"
 
-#
 #. Resource IDs: (16506)
 msgid "<.....>"
 msgstr "<.....>"
 
-#
 #. Resource IDs: (1069)
 msgid "<Separator>"
 msgstr "<Separator>"
 
-#
 #. Resource IDs: (1007)
 msgid "<Untitled>"
 msgstr "<Bez naslova>"
 
-#
 #. Resource IDs: (145)
 msgid ""
 "<b>TortoiseSVN</b> is a shell extension.\n"
@@ -1358,12 +1353,10 @@ msgstr ""
 "da biste dobili konekstni meni gde ćete naći sve <b>TortozSVN</b> komande.\n"
 "I <u>pročitajte uputstvo!</u>"
 
-#
 #. Resource IDs: (16603)
 msgid "<descr>"
 msgstr "<descr>"
 
-#
 #. Resource IDs: (209)
 msgid "<new changelist>"
 msgstr "<nema liste izmena>"
@@ -1701,7 +1694,7 @@ msgid "Amount of memory required to load the cache"
 msgstr "Količina memorije potrebna za učitavanje keša"
 
 #. Resource IDs: (78)
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "An external diff program used\r\n"
 "for comparing different revisions of files\r\n"
@@ -1710,15 +1703,15 @@ msgid ""
 "%base : the base file\r\n"
 "%mine : the modified file"
 msgstr ""
-"Spoljašnji program za nalaženje razlika koji se korist\ri\n"
+"Spoljašnji program za nalaženje razlika koji se korist\r\n"
 "za poređenje različitih revizija fajoval.\r\n"
-"<hr=100%>\r\n"
+"\r\n"
 "Možete odrediti sljedeće parametre putanje:\r\n"
-"%osnova\tosnovni fajl\r\n"
-"%moj\tizmenjeni fajl"
+"%osnova : osnovni fajl\r\n"
+"%moj : izmenjeni fajl"
 
 #. Resource IDs: (79)
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "An external merge program used\r\n"
 "to resolve conflicted files.\r\n"
@@ -1731,12 +1724,12 @@ msgid ""
 msgstr ""
 "Spoljašnji program za spajanje fajlova koji se koristi\r\n"
 "za rešavanje sukobljenih fajlova.\r\n"
-"<hr=100%>\r\n"
+"\r\n"
 "Možete odrediti sledeće parametre u putanji:\r\n"
-"%spojeno\tsukobljen fajl, gde će biti snimljen\r\n"
-"%njihov\t\tfajl kakav je u spremištu\r\n"
-"%moj\t\tvlastiti fajl, s Vašim izmenama\r\n"
-"%osnova\t\toriginalni fajl bez Vaših izmena"
+"%spojeno : sukobljen fajl, gde će biti snimljen\r\n"
+"%njihov : fajl kakav je u spremištu\r\n"
+"%moj : vlastiti fajl, s Vašim izmenama\r\n"
+"%osnova : toriginalni fajl bez Vaših izmena"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -1956,7 +1949,6 @@ msgstr "C&rni stil"
 msgid "B&rowse..."
 msgstr "P&retraži..."
 
-#
 #. Resource IDs: (1064)
 msgid "Back"
 msgstr "< &Nazad"
@@ -2995,7 +2987,7 @@ msgid ""
 "<hr=100%%>\n"
 "%s"
 msgstr ""
-"Nije bilo moguće pokrenuti  razl pregledač!\n"
+"Nije bilo moguće pokrenuti razl pregledač!\n"
 "<hr=100%%>\n"
 "%s"
 
@@ -4265,7 +4257,6 @@ msgstr "GDI+ nije mogao biti iniciran!"
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "GDI+ nije mogao napraviti objekat bitmapu. Verovatno nema dosta memorije."
 
-#
 #. Resource IDs: (83)
 msgid ""
 "GDI+ is required to save the revision graph as a picture.\n"
@@ -4321,7 +4312,6 @@ msgstr "&Zaključaj..."
 msgid "Get merge logs"
 msgstr "Dohvati dnevnik stapanja"
 
-#
 #. Resource IDs: (89)
 msgid ""
 "Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\n"
@@ -6876,6 +6866,7 @@ msgid "Refresh"
 msgstr "Osveži"
 
 #. Resource IDs: (117)
+#, fuzzy
 msgid ""
 "Regular expressions filter:\r\n"
 ".   : any character\r\n"
@@ -6894,20 +6885,20 @@ msgid ""
 "\\s   : whitespaces"
 msgstr ""
 "Filter regularnih izraza:\r\n"
-".\t\t\tbilo koji znak\r\n"
-"c+\t\t\tpronađi slovo s jedno ili više ponavljanja\r\n"
-"c*\t\t\tpronađi slovo s nula ili više ponavljanja\r\n"
-"^\t\t\tpočetak reda\r\n"
-"$\t\t\tzavršetak reda\r\n"
-"(string){n}\tstring n puta\r\n"
-"(abcd)\t\tpodizraz\r\n"
-"[aei0-9]\t\ta,e,i i 0..9\r\n"
-"[^aei0-9]\tsve osim a,e,i i 0..9\r\n"
-"<hr=100%>\r\n"
-"\\w\t\t\tpronalazi a-z,A-Z,0-9 i _\r\n"
-"\\W\t\t\tpronalazi bilo koji znak koji nije slovo ili broj (a-z,A-Z,0-9 i _)\r\n"
-"\\d\t\t\tbrojevi 0-9\r\n"
-"\\s\t\t\trazmak ili tab"
+". bilo koji znak\r\n"
+"c+ pronađi slovo s jedno ili više ponavljanja\r\n"
+"c* pronađi slovo s nula ili više ponavljanja\r\n"
+"^ početak reda\r\n"
+"$ završetak reda\r\n"
+"(string){n} string n puta\r\n"
+"(abcd) podizraz\r\n"
+"[aei0-9] a,e,i i 0..9\r\n"
+"[^aei0-9] sve osim a,e,i i 0..9\r\n"
+"\r\n"
+"\\w pronalazi a-z,A-Z,0-9 i _\r\n"
+"\\W pronalazi bilo koji znak koji nije slovo ili broj (a-z,A-Z,0-9 i _)\r\n"
+"\\d brojevi 0-9\r\n"
+"\\s razmak ili tab"
 
 #
 #. Resource IDs: (1469)
@@ -6963,8 +6954,8 @@ msgstr ""
 msgid "Relocate"
 msgstr "Premesti"
 
-#
 #. Resource IDs: (89)
+#, fuzzy
 msgid "Relocate Warning"
 msgstr "Upozorenje za <b>Premesti</b>"
 
@@ -8297,15 +8288,15 @@ msgstr "Poređaj po broju urezivanja"
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
 msgstr "Određuje koliko poruka želite držati u priručnoj memoriji nedavno upisanih poruka dnevnika."
 
-#
 #. Resource IDs: (79)
+#, fuzzy
 msgid ""
 "Specify the files or folders which TortoiseSVN\r\n"
 "should ignore in all working copies.\r\n"
 "Separate the patterns with a space."
 msgstr ""
-"Odredite fajlove ili imenike koje bi TortozSVN\r\\n"
-"trebalo da izostavi iz <b>svih</b> radnih kopija.\r\\n"
+"Odredite fajlove ili imenike koje bi TortozSVN\r\n"
+"trebalo da izostavi iz svih radnih kopija.\r\n"
 "Uzorke rastavite razmakom."
 
 #. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
@@ -8466,7 +8457,6 @@ msgstr "Zameni %s sa %s, Revizija %s"
 msgid "Switch - TortoiseSVN"
 msgstr "Zameni - TortozSVN"
 
-#
 #. Resource IDs: (32811)
 msgid "Switch Left<->Right"
 msgstr "Zameni levo <-> desno"
@@ -8532,10 +8522,10 @@ msgstr "Mijenja radnu kopiju drugom granom / oznakom"
 msgid "Switch:"
 msgstr "Zamena:"
 
-#
 #. Resource IDs: (325)
+#, fuzzy
 msgid "Switches the comparison left<<->right"
-msgstr "Zameni levo <-> desno"
+msgstr "Zameni levo <<-> desno"
 
 #
 #. Resource IDs: (65535)
@@ -8809,8 +8799,8 @@ msgstr ""
 "%s\n"
 "se ne poklapaju!"
 
-#
 #. Resource IDs: (88)
+#, fuzzy
 msgid ""
 "The path/URL you've entered seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later.\n"
@@ -8823,7 +8813,7 @@ msgstr ""
 "Putanja/URL koju ste uneli nije ispravna za Windows platformu!\n"
 "Vi možete i tako pokušati ali bi se kasnije mogla pojaviti greška.\n"
 "\n"
-"Ispravna putanja na Windows OSu ne sme sadržati '<>|\"?*:' kao i nijedan od sledećih naziva uređaja:\n"
+"Ispravna putanja na Windows OSu ne sme sadržati '<<>|\"?*:' kao i nijedan od sledećih naziva uređaja:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
 "\n"
 "Da li svejedno želite nastaviti?"
@@ -8916,18 +8906,17 @@ msgstr ""
 "nije prazan!\n"
 "Jeste li sigurni da želite proveru/izvoz baš u taj imenik?"
 
-#
 #. Resource IDs: (195)
+#, fuzzy
 msgid ""
 "The time in seconds after which the parsing of the selected files stops.\r\n"
 "A lower value will make the auto-completion list available sooner,\r\n"
 "but maybe not scan all files."
 msgstr ""
-"Vreme u sekundama nakon kojeg se zaustavlja parsiranje odabranih fajlova.\r\\n"
-"Manja vrednost uzrokovaće bržu pojavu popisa automatskih dopuna,\r\\n"
+"Vreme u sekundama nakon kojeg se zaustavlja parsiranje odabranih fajlova.\r\n"
+"Manja vrednost uzrokovaće bržu pojavu popisa automatskih dopuna,\r\n"
 "ali tada svi fajlovi možda neće biti pretraženi."
 
-#
 #. Resource IDs: (82)
 msgid ""
 "The two selected URL's are not created from the same root.\n"
@@ -8976,7 +8965,6 @@ msgstr "Njihova fajl:"
 msgid "Theirs"
 msgstr "Njihovo"
 
-#
 #. Resource IDs: (169)
 msgid ""
 "There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
@@ -9050,7 +9038,6 @@ msgstr ""
 "Ovo nije ispravan URL.\n"
 "Molim unesite URL."
 
-#
 #. Resource IDs: (82)
 msgid ""
 "This is not a valid path!\n"
@@ -9058,7 +9045,7 @@ msgid ""
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 msgstr ""
 "Ovo nije ispravna putanja!\n"
-"Ispravna putanja ne sme sadržati '<>|\"?*:' kao i nijedan od sledećih naziva uređaja:\n"
+"Ispravna putanja ne sme sadržati '<<>|\"?*:' kao i nijedan od sledećih naziva uređaja:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #
@@ -9231,7 +9218,6 @@ msgstr "TortoiseIDiff"
 msgid "TortoiseIDiff - An image diff tool, part of TortoiseSVN"
 msgstr "TortoiseIDiff - Alat za pronalazak razlika u slikama, dio TortoiseSVNa"
 
-#
 #. Resource IDs: (7)
 msgid ""
 "TortoiseIDiff: the image diff viewer for TortoiseSVN\n"
@@ -9475,8 +9461,8 @@ msgstr "Sklonii oznaku"
 msgid "Undo %d Actions"
 msgstr "Vrati %d Akcije"
 
-#
 #. Resource IDs: (1069)
+#, fuzzy
 msgid "Undo 1 Action"
 msgstr ""
 "Poništi zadnju akciju\n"
@@ -9645,15 +9631,15 @@ msgstr "Koristi &njihov blok teksta"
 msgid "Use &text viewer to view blames"
 msgstr "Koristi pregledač  &teksta za pregled okrivljenih"
 
-#
 #. Resource IDs: (195)
+#, fuzzy
 msgid ""
 "Use '*' as a wildcard character when specifying an exception.\r\n"
 "To separate multiple exceptions, use commas (',').\r\n"
 "Example: *.mylan.com, *.company.com"
 msgstr ""
-"Koristite '*' kao zamenski znak prilikom određivanja izuzetaka.\r\\n"
-"Kako biste odvojili višestruke izuzetk, koristite zareze(',').\r\\n"
+"Koristite '*' kao zamenski znak prilikom određivanja izuzetaka.\r\n"
+"Kako biste odvojili višestruke izuzetk, koristite zareze(',').\r\n"
 "Primer: *.moje.sr, *.kompanija.sr"
 
 #
@@ -9878,7 +9864,6 @@ msgstr "Korisnik je odustao"
 msgid "Username:"
 msgstr "Ime korisnika:"
 
-#
 #. Resource IDs: (313)
 msgid ""
 "Valid command line options are:\n"
@@ -10264,12 +10249,10 @@ msgstr "Zumiraj &ln"
 msgid "Zoom &Out"
 msgstr "&Odzumiraj"
 
-#
 #. Resource IDs: (32772)
 msgid "Zoom &in\tCtrl-+"
 msgstr "&Približi\tCtrl-+"
 
-#
 #. Resource IDs: (32773)
 msgid "Zoom &out\tCtrl--"
 msgstr "&Udalji\tCtrl--"
@@ -10780,6 +10763,7 @@ msgstr ""
 " Ne-rekurzivni pokušaj bit će neuspješan, rekurzivni pokušaj će postaviti svojstvo samo na fajlovi unutar imenika."
 
 #. Resource IDs: (576)
+#, fuzzy
 msgid ""
 "svn:externals\r\n"
 "A newline separated list of module specifiers, each of which consists of\r\n"
@@ -10795,11 +10779,11 @@ msgid ""
 "/ relative to the server's hostname"
 msgstr ""
 "svn:spoljašnji\r\n"
-"Lista podeljena sa novred modul specifikator, svaka od kojih se sastoji od\n"
+"Lista podeljena sa novred modul specifikator, svaka od kojih se sastoji od\r\n"
 "neobavezne revizije,  URL i  relativnu putanju imenika. Na primer\r\n"
-"http://example.com/repos/zig\tfoo\r\n"
-"-r 1234\thttp://example.com/repos/zag\tfoo/bar\r\n"
-"\n"
+"http://example.com/repos/zig foo\r\n"
+"-r 1234 http://example.com/repos/zag\tfoo/bar\r\n"
+"\r\n"
 "URLovi mogu biti ili punil URLovi ili relativni. Format za\r\n"
 "relativne URLove je:\r\n"
 "../\trelativan ka roditeljskom imeniku spoljašnosti\r\n"
@@ -10816,8 +10800,8 @@ msgstr ""
 "svn:ignore\r\n"
 "Lista fajl oznaka izdvojena sa novred za zanemarivanje ."
 
-#
 #. Resource IDs: (576)
+#, fuzzy
 msgid ""
 "svn:keywords\r\n"
 "Keywords to be expanded. Valid keywords are:\r\n"
@@ -10829,11 +10813,11 @@ msgid ""
 msgstr ""
 "svn:keywords\r\n"
 "Ključne reči koje će biti proširene. Ispravne ključne reči su:\r\n"
-"URL, HeadURL\t\t\tURL glavne verzije objekta.\r\n"
-"Author, LastChangedBy\t\tZadnja osoba koja je menjala fajl.\r\n"
-"Date, LastChangedDate\t\tDatum/vreme zadnje izmene objekta.\r\n"
-"Rev, LastChangedRevision\tZadnja revizija kada se objekt promenio.\r\n"
-"Id\t\t\t\tKratki rezime prethodne 4 ključne reči."
+"URL, HeadURL : URL glavne verzije objekta.\r\n"
+"Author, LastChangedBy : Zadnja osoba koja je menjala fajl.\r\n"
+"Date, LastChangedDate : Datum/vreme zadnje izmene objekta.\r\n"
+"Rev, LastChangedRevision : Zadnja revizija kada se objekt promenio.\r\n"
+"Id : Kratki rezime prethodne 4 ključne reči."
 
 #
 #. Resource IDs: (576)
@@ -10917,8 +10901,8 @@ msgstr "ka %1"
 msgid "to %s"
 msgstr "ka  %s"
 
-#
 #. Resource IDs: (578)
+#, fuzzy
 msgid ""
 "tsvn:autoprops\r\n"
 "A list of properties separated by newlines which get applied automatically when adding/importing files.\r\n"
@@ -10927,7 +10911,7 @@ msgid ""
 msgstr ""
 "tsvn:autoprops\r\n"
 "Lista osobina razdvojene sa novred koja će se automatski primeniti kad dodajete/uvozite fajlove.\r\n"
-"Format: <filemask> = svojstvo=vrednost;svojstvo=vrednost\n"
+"Format: <filemask> = svojstvo=vrednost;svojstvo=vrednost\r\n"
 "Primer: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 #
@@ -10979,7 +10963,6 @@ msgstr ""
 "Niz znakova koji se umeće u kućice za upis poruka dnevnika u prozoru za izvršavanje urezivanja.\r\n"
 "Ovo koristite kao predložak poruka dnevnika koji će ispunjavati korisnici."
 
-#
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logwidthmarker\r\n"
@@ -11012,15 +10995,15 @@ msgstr ""
 "Lista razdvojena sa novred korisničkih osobina za fajlove koja će\r\n"
 "biti prikazana u dijalogu za izbor svojstava."
 
-#
 #. Resource IDs: (581)
+#, fuzzy
 msgid ""
 "tsvn:userfolderproperties\r\n"
 "Newline separated list of user defined properties for folders which will\r\n"
 "be shown in the property dialog to choose from."
 msgstr ""
 "tsvn:userfolderproperties\r\n"
-"Lista razdvojena sa novred korisničkih osobina za imenike koja će\n"
+"Lista razdvojena sa novred korisničkih osobina za imenike koja će\r\n"
 "biti prikazana u dijalogu za izbor svojstava."
 
 #
