@@ -27,41 +27,47 @@ namespace ExampleCsPlugin
         public string GetCommitMessage(IntPtr hParentWnd, string parameters, string commonRoot, string[] pathList,
                                        string originalMessage)
         {
-            try
-            {
-                List<TicketItem> tickets = new List<TicketItem>();
-                tickets.Add(new TicketItem(12, "Service doesn't start on Windows Vista"));
-                tickets.Add(new TicketItem(19, "About box doesn't render correctly in large fonts mode"));
-
-/*
-                tickets.Add(new TicketItem(88, commonRoot));
-                foreach (string path in pathList)
-                    tickets.Add(new TicketItem(99, path));
- */
-
-                MyIssuesForm form = new MyIssuesForm(tickets);
-                if (form.ShowDialog() != DialogResult.OK)
-                    return originalMessage;
-
-                StringBuilder result = new StringBuilder(originalMessage);
-                if (originalMessage.Length != 0 && !originalMessage.EndsWith("\n"))
-                    result.AppendLine();
-
-                foreach (TicketItem ticket in form.TicketsFixed)
-                {
-                    result.AppendFormat("Fixed #{0}: {1}", ticket.Number, ticket.Summary);
-                    result.AppendLine();
-					selectedTickets.Add( ticket );
-                }
-
-                return result.ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());                
-                throw;
-            }
+			return GetCommitMessage2( hParentWnd, parameters, "", commonRoot, pathList, originalMessage );
         }
+
+		public string GetCommitMessage2( IntPtr hParentWnd, string parameters, string commonURL, string commonRoot, string[] pathList,
+							   string originalMessage )
+		{
+			try
+			{
+				List<TicketItem> tickets = new List<TicketItem>( );
+				tickets.Add( new TicketItem( 12, "Service doesn't start on Windows Vista" ) );
+				tickets.Add( new TicketItem( 19, "About box doesn't render correctly in large fonts mode" ) );
+
+				/*
+								tickets.Add(new TicketItem(88, commonRoot));
+								foreach (string path in pathList)
+									tickets.Add(new TicketItem(99, path));
+				 */
+
+				MyIssuesForm form = new MyIssuesForm( tickets );
+				if ( form.ShowDialog( ) != DialogResult.OK )
+					return originalMessage;
+
+				StringBuilder result = new StringBuilder( originalMessage );
+				if ( originalMessage.Length != 0 && !originalMessage.EndsWith( "\n" ) )
+					result.AppendLine( );
+
+				foreach ( TicketItem ticket in form.TicketsFixed )
+				{
+					result.AppendFormat( "Fixed #{0}: {1}", ticket.Number, ticket.Summary );
+					result.AppendLine( );
+					selectedTickets.Add( ticket );
+				}
+
+				return result.ToString( );
+			}
+			catch ( Exception ex )
+			{
+				MessageBox.Show( ex.ToString( ) );
+				throw;
+			}
+		}
 
 		public string OnCommitFinished( IntPtr hParentWnd, string commonRoot, string[] pathList, string logMessage, int revision )
 		{
@@ -73,5 +79,22 @@ namespace ExampleCsPlugin
 			// just for testing, we return an error string
 			return "an error happened while closing the issue";
 		}
+
+		public bool HasOptions()
+		{
+			return true;
+		}
+
+		public string ShowOptionsDialog( IntPtr hParentWnd, string parameters )
+		{
+			OptionsForm form = new OptionsForm( );
+			if ( form.ShowDialog( ) != DialogResult.OK )
+				return "";
+
+			string options = form.checkBox1.Checked ? "option1" : "";
+			options += form.checkBox2.Checked ? "option2" : "";
+			return options;
+		}
+
 	}
 }

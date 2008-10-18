@@ -67,6 +67,20 @@ interface IBugTraqProvider : IUnknown
 ]
 interface IBugTraqProvider2 : IBugTraqProvider
 {
+	/** Get the commit message. This would normally involve displaying a dialog with a list of the
+	 * issues assigned to the current user.
+	 */
+	HRESULT GetCommitMessage2 (
+		[in] HWND hParentWnd,					// Parent window for your provider's UI.
+		[in] BSTR parameters,					// Parameters for your provider.
+		[in] BSTR commonURL,					// the common url of the commit
+		[in] BSTR commonRoot,
+		[in] SAFEARRAY(BSTR) pathList,
+		[in] BSTR originalMessage,				// The text already present in the commit message.
+												// Your provider should include this text in the new message, where appropriate.
+		[out, retval] BSTR *newMessage			// The new text for the commit message. This replaces the original message.
+	);			
+
 	HRESULT	OnCommitFinished (
 		[in] HWND hParentWnd,					// Parent window for any (error) UI that needs to be displayed.
 		[in] BSTR commonRoot,					// The common root of all paths that got committed.
@@ -74,5 +88,18 @@ interface IBugTraqProvider2 : IBugTraqProvider
 		[in] BSTR logMessage,					// The text already present in the commit message.
 		[in] ULONG revision,					// The revision of the commit.
 		[out, retval] BSTR * error				// An error to show to the user if this function returns something else than S_OK
+		);
+
+	HRESULT HasOptions(
+		[out, retval] VARIANT_BOOL *ret			// Whether the provider provides options
+		);
+
+	// this method is called if HasOptions() returned true before.
+	// Use this to show a custom dialog so the user doesn't have to
+	// create the parameters string manually
+	HRESULT ShowOptionsDialog(
+		[in] HWND hParentWnd,					// Parent window for the options dialog
+		[in] BSTR parameters,					// Parameters for your provider.
+		[out, retval] BSTR * newparameters		// the parameters string
 		);
 };

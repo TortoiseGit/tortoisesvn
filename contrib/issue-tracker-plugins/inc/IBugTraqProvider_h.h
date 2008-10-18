@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0500 */
-/* at Sat Oct 11 21:25:03 2008
+/* at Sat Oct 18 18:21:47 2008
  */
 /* Compiler settings for .\IBugTraqProvider.idl:
     Oicf, W4, Zp8, env=Win32 (32b run)
@@ -208,6 +208,15 @@ EXTERN_C const IID IID_IBugTraqProvider2;
     IBugTraqProvider2 : public IBugTraqProvider
     {
     public:
+        virtual HRESULT STDMETHODCALLTYPE GetCommitMessage2( 
+            /* [in] */ HWND hParentWnd,
+            /* [in] */ BSTR parameters,
+            /* [in] */ BSTR commonURL,
+            /* [in] */ BSTR commonRoot,
+            /* [in] */ SAFEARRAY * pathList,
+            /* [in] */ BSTR originalMessage,
+            /* [retval][out] */ BSTR *newMessage) = 0;
+        
         virtual HRESULT STDMETHODCALLTYPE OnCommitFinished( 
             /* [in] */ HWND hParentWnd,
             /* [in] */ BSTR commonRoot,
@@ -215,6 +224,14 @@ EXTERN_C const IID IID_IBugTraqProvider2;
             /* [in] */ BSTR logMessage,
             /* [in] */ ULONG revision,
             /* [retval][out] */ BSTR *error) = 0;
+        
+        virtual HRESULT STDMETHODCALLTYPE HasOptions( 
+            /* [retval][out] */ VARIANT_BOOL *ret) = 0;
+        
+        virtual HRESULT STDMETHODCALLTYPE ShowOptionsDialog( 
+            /* [in] */ HWND hParentWnd,
+            /* [in] */ BSTR parameters,
+            /* [retval][out] */ BSTR *newparameters) = 0;
         
     };
     
@@ -257,6 +274,16 @@ EXTERN_C const IID IID_IBugTraqProvider2;
             /* [in] */ BSTR originalMessage,
             /* [retval][out] */ BSTR *newMessage);
         
+        HRESULT ( STDMETHODCALLTYPE *GetCommitMessage2 )( 
+            IBugTraqProvider2 * This,
+            /* [in] */ HWND hParentWnd,
+            /* [in] */ BSTR parameters,
+            /* [in] */ BSTR commonURL,
+            /* [in] */ BSTR commonRoot,
+            /* [in] */ SAFEARRAY * pathList,
+            /* [in] */ BSTR originalMessage,
+            /* [retval][out] */ BSTR *newMessage);
+        
         HRESULT ( STDMETHODCALLTYPE *OnCommitFinished )( 
             IBugTraqProvider2 * This,
             /* [in] */ HWND hParentWnd,
@@ -265,6 +292,16 @@ EXTERN_C const IID IID_IBugTraqProvider2;
             /* [in] */ BSTR logMessage,
             /* [in] */ ULONG revision,
             /* [retval][out] */ BSTR *error);
+        
+        HRESULT ( STDMETHODCALLTYPE *HasOptions )( 
+            IBugTraqProvider2 * This,
+            /* [retval][out] */ VARIANT_BOOL *ret);
+        
+        HRESULT ( STDMETHODCALLTYPE *ShowOptionsDialog )( 
+            IBugTraqProvider2 * This,
+            /* [in] */ HWND hParentWnd,
+            /* [in] */ BSTR parameters,
+            /* [retval][out] */ BSTR *newparameters);
         
         END_INTERFACE
     } IBugTraqProvider2Vtbl;
@@ -299,8 +336,17 @@ EXTERN_C const IID IID_IBugTraqProvider2;
     ( (This)->lpVtbl -> GetCommitMessage(This,hParentWnd,parameters,commonRoot,pathList,originalMessage,newMessage) ) 
 
 
+#define IBugTraqProvider2_GetCommitMessage2(This,hParentWnd,parameters,commonURL,commonRoot,pathList,originalMessage,newMessage)	\
+    ( (This)->lpVtbl -> GetCommitMessage2(This,hParentWnd,parameters,commonURL,commonRoot,pathList,originalMessage,newMessage) ) 
+
 #define IBugTraqProvider2_OnCommitFinished(This,hParentWnd,commonRoot,pathList,logMessage,revision,error)	\
     ( (This)->lpVtbl -> OnCommitFinished(This,hParentWnd,commonRoot,pathList,logMessage,revision,error) ) 
+
+#define IBugTraqProvider2_HasOptions(This,ret)	\
+    ( (This)->lpVtbl -> HasOptions(This,ret) ) 
+
+#define IBugTraqProvider2_ShowOptionsDialog(This,hParentWnd,parameters,newparameters)	\
+    ( (This)->lpVtbl -> ShowOptionsDialog(This,hParentWnd,parameters,newparameters) ) 
 
 #endif /* COBJMACROS */
 

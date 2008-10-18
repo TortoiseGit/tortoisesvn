@@ -54,6 +54,8 @@ BEGIN_MESSAGE_MAP(CSetBugTraqAdv, CResizableStandAloneDialog)
 	ON_WM_DESTROY()
 	ON_BN_CLICKED(IDC_BUGTRAQBROWSE, &CSetBugTraqAdv::OnBnClickedBugTraqbrowse)
 	ON_BN_CLICKED(IDHELP, &CSetBugTraqAdv::OnBnClickedHelp)
+	ON_CBN_SELCHANGE(IDC_BUGTRAQPROVIDERCOMBO, &CSetBugTraqAdv::OnCbnSelchangeBugtraqprovidercombo)
+	ON_BN_CLICKED(IDC_OPTIONS, &CSetBugTraqAdv::OnBnClickedOptions)
 END_MESSAGE_MAP()
 
 BOOL CSetBugTraqAdv::OnInitDialog()
@@ -90,6 +92,7 @@ BOOL CSetBugTraqAdv::OnInitDialog()
 	}
 
 	UpdateData(FALSE);
+	CheckHasOptions();
 
 	AddAnchor(IDC_BUGTRAQWCPATHLABEL, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_BUGTRAQPATH, TOP_LEFT, TOP_RIGHT);
@@ -169,4 +172,67 @@ void CSetBugTraqAdv::OnBnClickedHelp()
 CBugTraqAssociation CSetBugTraqAdv::GetAssociation() const
 {
 	return CBugTraqAssociation(m_sPath, m_provider_clsid, CBugTraqAssociations::LookupProviderName(m_provider_clsid), m_sParameters);
+}
+
+void CSetBugTraqAdv::CheckHasOptions()
+{
+	m_provider_clsid = GUID_NULL;
+
+	int index = m_cProviderCombo.GetCurSel();
+	if (index != CB_ERR)
+	{
+		CBugTraqProvider *provider = (CBugTraqProvider *)m_cProviderCombo.GetItemDataPtr(index);
+		m_provider_clsid = provider->clsid;
+	}
+
+	CComPtr<IBugTraqProvider2> pProvider;
+	HRESULT hr = pProvider.CoCreateInstance(m_provider_clsid);
+
+	if (SUCCEEDED(hr))
+	{
+		VARIANT_BOOL hasOptions = VARIANT_FALSE;
+		if (SUCCEEDED(hr = pProvider->HasOptions(&hasOptions)))
+		{
+			if (hasOptions == VARIANT_TRUE)
+			{
+				GetDlgItem(IDC_OPTIONS)->EnableWindow(TRUE);
+				return;
+			}
+		}
+	}
+
+	GetDlgItem(IDC_OPTIONS)->EnableWindow(FALSE);
+}
+
+void CSetBugTraqAdv::OnCbnSelchangeBugtraqprovidercombo()
+{
+	CheckHasOptions();
+}
+
+void CSetBugTraqAdv::OnBnClickedOptions()
+{
+	m_provider_clsid = GUID_NULL;
+
+	int index = m_cProviderCombo.GetCurSel();
+	if (index != CB_ERR)
+	{
+		CBugTraqProvider *provider = (CBugTraqProvider *)m_cProviderCombo.GetItemDataPtr(index);
+		m_provider_clsid = provider->clsid;
+	}
+
+	CComPtr<IBugTraqProvider2> pProvider;
+	HRESULT hr = pProvider.CoCreateInstance(m_provider_clsid);
+
+	if (SUCCEEDED(hr))
+	{
+		BSTR temp = NULL;
+		CString p;
+		GetDlgItemText(IDC_BUGTRAQPARAMETERS, p);
+		BSTR params = p.AllocSysString();
+		if (SUCCEEDED(hr = pProvider->ShowOptionsDialog(GetSafeHwnd(), params, &temp)))
+		{
+			SetDlgItemText(IDC_BUGTRAQPARAMETERS, temp);
+		}
+		SysFreeString(temp);
+	}
 }

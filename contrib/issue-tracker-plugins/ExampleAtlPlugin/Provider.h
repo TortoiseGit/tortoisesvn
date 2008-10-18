@@ -45,6 +45,15 @@ public:
         /* [in] */ BSTR originalMessage,
         /* [retval][out] */ BSTR *newMessage);
 
+	virtual HRESULT STDMETHODCALLTYPE GetCommitMessage2( 
+		/* [in] */ HWND hParentWnd,
+		/* [in] */ BSTR parameters,
+		/* [in] */ BSTR commonURL,
+		/* [in] */ BSTR commonRoot,
+		/* [in] */ SAFEARRAY * pathList,
+		/* [in] */ BSTR originalMessage,
+		/* [retval][out] */ BSTR *newMessage);
+
 	virtual HRESULT STDMETHODCALLTYPE OnCommitFinished (
 		/* [in] */ HWND hParentWnd,
 		/* [in] */ BSTR commonRoot,
@@ -52,6 +61,19 @@ public:
 		/* [in] */ BSTR logMessage,
 		/* [in] */ ULONG revision,
 		/* [out, retval] */ BSTR * error);
+
+	virtual HRESULT STDMETHODCALLTYPE HasOptions(
+		/* [out, retval] */ VARIANT_BOOL *ret			// Whether the provider provides options
+		);
+
+	// this method is called if HasOptions() returned true before.
+	// Use this to show a custom dialog so the user doesn't have to
+	// create the parameters string manually
+	virtual HRESULT STDMETHODCALLTYPE ShowOptionsDialog(
+		/* [in] */ HWND hParentWnd,					// Parent window for the options dialog
+		/* [in] */ BSTR parameters,
+		/* [out, retval] */ BSTR * newparameters	// the parameters string
+		);
 
 private:
 	typedef std::map< CString, CString > parameters_t;

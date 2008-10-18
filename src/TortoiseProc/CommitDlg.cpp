@@ -1179,16 +1179,6 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
 	if (m_BugTraqProvider == NULL)
 		return;
 
-	CComPtr<IBugTraqProvider> pProvider = NULL;
-	HRESULT hr = m_BugTraqProvider.QueryInterface(&pProvider);
-	if (FAILED(hr))
-	{
-		CString sErr;
-		sErr.Format(IDS_ERR_FAILEDISSUETRACKERCOM, (LPCTSTR)m_bugtraq_association.GetProviderName(), _com_error(hr).ErrorMessage());
-		CMessageBox::Show(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
-		return;
-	}
-
 	BSTR parameters = m_bugtraq_association.GetParameters().AllocSysString();
 	BSTR commonRoot = SysAllocString(m_pathList.GetCommonRoot().GetDirectory().GetWinPath());
 	SAFEARRAY *pathList = SafeArrayCreateVector(VT_BSTR, 0, m_pathList.GetCount());
@@ -1198,14 +1188,45 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
 
 	BSTR originalMessage = sMsg.AllocSysString();
 	BSTR temp = NULL;
-	if (FAILED(hr = pProvider->GetCommitMessage(GetSafeHwnd(), parameters, commonRoot, pathList, originalMessage, &temp)))
+
+	// first try the IBugTraqProvider2 interface
+	CComPtr<IBugTraqProvider2> pProvider2 = NULL;
+	HRESULT hr = m_BugTraqProvider.QueryInterface(&pProvider2);
+	if (SUCCEEDED(hr))
 	{
-		CString sErr;
-		sErr.Format(IDS_ERR_FAILEDISSUETRACKERCOM, m_bugtraq_association.GetProviderName(), _com_error(hr).ErrorMessage());
-		CMessageBox::Show(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
+		CString common = m_ListCtrl.GetCommonURL(false).GetSVNPathString();
+		BSTR repositoryRoot = common.AllocSysString();
+		if (FAILED(hr = pProvider2->GetCommitMessage2(GetSafeHwnd(), parameters, repositoryRoot, commonRoot, pathList, originalMessage, &temp)))
+		{
+			CString sErr;
+			sErr.Format(IDS_ERR_FAILEDISSUETRACKERCOM, m_bugtraq_association.GetProviderName(), _com_error(hr).ErrorMessage());
+			CMessageBox::Show(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
+		}
+		else
+			m_cLogMessage.SetText(temp);
 	}
 	else
-		m_cLogMessage.SetText(temp);
+	{
+		// if IBugTraqProvider2 failed, try IBugTraqProvider
+		CComPtr<IBugTraqProvider> pProvider = NULL;
+		HRESULT hr = m_BugTraqProvider.QueryInterface(&pProvider);
+		if (FAILED(hr))
+		{
+			CString sErr;
+			sErr.Format(IDS_ERR_FAILEDISSUETRACKERCOM, (LPCTSTR)m_bugtraq_association.GetProviderName(), _com_error(hr).ErrorMessage());
+			CMessageBox::Show(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
+			return;
+		}
+
+		if (FAILED(hr = pProvider->GetCommitMessage(GetSafeHwnd(), parameters, commonRoot, pathList, originalMessage, &temp)))
+		{
+			CString sErr;
+			sErr.Format(IDS_ERR_FAILEDISSUETRACKERCOM, m_bugtraq_association.GetProviderName(), _com_error(hr).ErrorMessage());
+			CMessageBox::Show(m_hWnd, sErr, _T("TortoiseSVN"), MB_ICONERROR);
+		}
+		else
+			m_cLogMessage.SetText(temp);
+	}
 
 	m_cLogMessage.SetFocus();
 
