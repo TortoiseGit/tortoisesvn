@@ -327,6 +327,10 @@ public:
 		{
 			return changelist;
 		}
+		CString GetURL() const
+		{
+			return url;
+		}
 	public:
 		svn_wc_status_kind		status;					///< local status
 		svn_wc_status_kind		textstatus;				///< local text status
@@ -691,6 +695,13 @@ public:
 	CTSVNPath GetCommonDirectory(bool bStrict);
 
 	/**
+	 * Returns the parent url of all entries in the control.
+	 * if \a bStrict is set to false, then the paths passed to the control
+	 * to fetch the status (in GetStatus()) are used if possible.
+	 */
+	CTSVNPath GetCommonURL(bool bStrict);
+
+	/**
 	 * Sets a pointer to a boolean variable which is checked periodically
 	 * during the status fetching. As soon as the variable changes to true,
 	 * the operations stops.
@@ -887,6 +898,7 @@ private:
 	bool						m_bHasIgnoreGroup;
 	CTSVNPathList				m_ConflictFileList;
 	CTSVNPathList				m_StatusFileList;
+	CTSVNPathList				m_StatusUrlList;
 	CString						m_sLastError;
 
 	LONG						m_nUnversioned;

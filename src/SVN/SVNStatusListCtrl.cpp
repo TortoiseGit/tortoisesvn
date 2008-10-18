@@ -283,6 +283,7 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
 	SetCursorPos(pt.x, pt.y);
 
 	m_mapFilenameToChecked.clear();
+	m_StatusUrlList.Clear();
 	bool bHasChangelists = (m_changelists.size()>1 || (m_changelists.size()>0 && !m_bHasIgnoreGroup));
 	m_changelists.clear();
 	for (size_t i=0; i < m_arStatusArray.size(); i++)
@@ -740,6 +741,7 @@ CSVNStatusListCtrl::AddNewFileEntry(
 				m_sURL = entry->url;
 			else
 				m_sURL.LoadString(IDS_STATUSLIST_MULTIPLETARGETS);
+			m_StatusUrlList.AddPath(CTSVNPath(entry->url));
 		}
 		if (pSVNStatus->entry->lock_owner)
 			entry->lock_owner = CUnicodeUtils::GetUnicode(pSVNStatus->entry->lock_owner);
@@ -3851,6 +3853,38 @@ CTSVNPath CSVNStatusListCtrl::GetCommonDirectory(bool bStrict)
 		}
 	}
 	return commonBaseDirectory;
+}
+
+CTSVNPath CSVNStatusListCtrl::GetCommonURL(bool bStrict)
+{
+	CTSVNPath commonBaseURL;
+	if (!bStrict)
+	{
+		// not strict means that the selected folder has priority
+		if (!m_StatusUrlList.GetCommonDirectory().IsEmpty())
+			return m_StatusUrlList.GetCommonDirectory();
+	}
+
+	int nListItems = GetItemCount();
+	for (int i=0; i<nListItems; ++i)
+	{
+		const CTSVNPath& baseURL = CTSVNPath(GetListEntry(i)->GetURL());
+		if (baseURL.IsEmpty())
+			continue;			// item has no url
+		if(commonBaseURL.IsEmpty())
+		{
+			commonBaseURL = baseURL;
+		}
+		else
+		{
+			if (commonBaseURL.GetSVNPathString().GetLength() > baseURL.GetSVNPathString().GetLength())
+			{
+				if (baseURL.IsAncestorOf(commonBaseURL))
+					commonBaseURL = baseURL;
+			}
+		}
+	}
+	return commonBaseURL;
 }
 
 void CSVNStatusListCtrl::SelectAll(bool bSelect, bool bIncludeNoCommits)
