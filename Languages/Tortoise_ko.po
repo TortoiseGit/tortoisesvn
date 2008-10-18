@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-17 13:08+0900\n"
+"PO-Revision-Date: 2008-10-18 20:10+0900\n"
 "Last-Translator: Kim TaeDong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -161,6 +161,11 @@ msgstr "%s : 원격지 파일"
 #, c-format
 msgid "%s : Working Base"
 msgstr "%s : 작업 베이스"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "%s : Working Base, Revision %ld"
+msgstr "%s : 작업사본 베이스, 리비전 %ld"
 
 #. Resource IDs: (151)
 #, c-format
@@ -5722,6 +5727,11 @@ msgstr "속성"
 #, c-format
 msgid "Property %s : Revision %s"
 msgstr "속성 %s : 리비전 %s"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : Working Base, Revision %ld"
+msgstr "속성 %s : 작업사본 베이스, 리비전 %ld"
 
 #. Resource IDs: (151)
 #, c-format
