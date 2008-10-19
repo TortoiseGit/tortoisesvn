@@ -374,8 +374,11 @@ STDMETHODIMP SVNDataObject::SetData(FORMATETC* pformatetc, STGMEDIUM* pmedium, B
 	STGMEDIUM* pStgMed = new STGMEDIUM;
 
 	if ((fetc == NULL) || (pStgMed == NULL))
+	{
+		delete fetc;
+		delete pStgMed;
 		return E_OUTOFMEMORY;
-
+	}
 	SecureZeroMemory(fetc,sizeof(FORMATETC));
 	SecureZeroMemory(pStgMed,sizeof(STGMEDIUM));
 

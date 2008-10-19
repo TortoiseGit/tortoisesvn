@@ -344,7 +344,7 @@ void CCheckoutDlg::OnBnClickedShowlog()
 	//now show the log dialog for working copy
 	if (!m_URL.IsEmpty())
 	{
-		delete [] m_pLogDlg;
+		delete m_pLogDlg;
 		m_pLogDlg = new CLogDlg();
 		m_pLogDlg->SetParams(CTSVNPath(m_URL), SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100));
 		m_pLogDlg->m_wParam = 1;

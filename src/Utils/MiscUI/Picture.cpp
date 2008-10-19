@@ -76,11 +76,11 @@ void CPicture::FreePictureData()
 				DestroyIcon(hIcons[i]);
 			}
 		}
-		delete hIcons;
+		delete [] hIcons;
 		hIcons = NULL;
 	}
 	if (lpIcons)
-		delete lpIcons;
+		delete [] lpIcons;
 }
 
 // Util function to ease loading of FreeImage library
