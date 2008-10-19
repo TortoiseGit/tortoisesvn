@@ -314,15 +314,15 @@ GdkAtom ScintillaGTK::atomUriList = 0;
 GdkAtom ScintillaGTK::atomDROPFILES_DND = 0;
 
 static const GtkTargetEntry clipboardCopyTargets[] = {
-	{ "UTF8_STRING", 0, TARGET_UTF8_STRING },
-	{ "STRING", 0, TARGET_STRING },
+	{ (gchar *) "UTF8_STRING", 0, TARGET_UTF8_STRING },
+	{ (gchar *) "STRING", 0, TARGET_STRING },
 };
 static const gint nClipboardCopyTargets = sizeof(clipboardCopyTargets) / sizeof(clipboardCopyTargets[0]);
 
 static const GtkTargetEntry clipboardPasteTargets[] = {
-	{ "text/uri-list", 0, TARGET_URI },
-	{ "UTF8_STRING", 0, TARGET_UTF8_STRING },
-	{ "STRING", 0, TARGET_STRING },
+	{ (gchar *) "text/uri-list", 0, TARGET_URI },
+	{ (gchar *) "UTF8_STRING", 0, TARGET_UTF8_STRING },
+	{ (gchar *) "STRING", 0, TARGET_STRING },
 };
 static const gint nClipboardPasteTargets = sizeof(clipboardPasteTargets) / sizeof(clipboardPasteTargets[0]);
 
@@ -1406,10 +1406,10 @@ void ScintillaGTK::ClaimSelection() {
 void ScintillaGTK::GetGtkSelectionText(GtkSelectionData *selectionData, SelectionText &selText) {
 	char *data = reinterpret_cast<char *>(selectionData->data);
 	int len = selectionData->length;
-	GdkAtom selectionType = selectionData->type;
+	GdkAtom selectionTypeData = selectionData->type;
 
 	// Return empty string if selection is not a string
-	if ((selectionType != GDK_TARGET_STRING) && (selectionType != atomUTF8)) {
+	if ((selectionTypeData != GDK_TARGET_STRING) && (selectionTypeData != atomUTF8)) {
 		char *empty = new char[1];
 		empty[0] = '\0';
 		selText.Set(empty, 0, SC_CP_UTF8, 0, false, false);
@@ -1425,7 +1425,7 @@ void ScintillaGTK::GetGtkSelectionText(GtkSelectionData *selectionData, Selectio
 #endif
 
 	char *dest;
-	if (selectionType == GDK_TARGET_STRING) {
+	if (selectionTypeData == GDK_TARGET_STRING) {
 		dest = Document::TransformLineEnds(&len, data, len, pdoc->eolMode);
 		if (IsUnicodeMode()) {
 			// Unknown encoding so assume in Latin1
