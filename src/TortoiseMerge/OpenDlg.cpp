@@ -297,8 +297,8 @@ void COpenDlg::OnOK()
 			GetTempPath (len+1, path);
 			GetTempFileName (path, TEXT("tsm"), 0, tempF);
 			CString sTempFile = CString(tempF);
-			delete path;
-			delete tempF;
+			delete [] path;
+			delete [] tempF;
 
 			FILE * outFile;
 			size_t patchlen = strlen(lpstr);

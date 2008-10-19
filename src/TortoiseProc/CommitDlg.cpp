@@ -1032,7 +1032,7 @@ void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex)
 		IsTextUnicode(buffer, readbytes, &opts);
 		if (opts & IS_TEXT_UNICODE_NULL_BYTES)
 		{
-			delete buffer;
+			delete [] buffer;
 			return;
 		}
 		if (opts & IS_TEXT_UNICODE_UNICODE_MASK)

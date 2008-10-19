@@ -424,12 +424,12 @@ BOOL CAppUtils::StartTextViewer(CString file)
 	TCHAR * buf = new TCHAR[len+1];
 	ExpandEnvironmentStrings(viewer, buf, len);
 	viewer = buf;
-	delete buf;
+	delete [] buf;
 	len = ExpandEnvironmentStrings(file, NULL, 0);
 	buf = new TCHAR[len+1];
 	ExpandEnvironmentStrings(file, buf, len);
 	file = buf;
-	delete buf;
+	delete [] buf;
 	file = _T("\"")+file+_T("\"");
 	if (viewer.IsEmpty())
 	{

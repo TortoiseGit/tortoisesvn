@@ -454,7 +454,7 @@ public:
 			sAdminDirCacheKey.assign(buf);
 			if ((iter = admindircache.find(sAdminDirCacheKey)) != admindircache.end())
 			{
-				delete buf;
+				delete [] buf;
 				return iter->second;
 			}
 		}
@@ -462,7 +462,7 @@ public:
 		admindirticker = GetTickCount();
 		Locker lock(m_critSec);
 		admindircache[buf] = hasAdminDir;
-		delete buf;
+		delete [] buf;
 		return hasAdminDir;
 	}
 	bool IsColumnsEveryWhere()

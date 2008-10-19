@@ -658,7 +658,7 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
 					url = m_sUrl;
 					url.Replace(_T("%BUGID%"), StringFromControl(textbuffer));
 				}
-				delete textbuffer;
+				delete [] textbuffer;
 				if (!url.IsEmpty())
 					ShellExecute(GetParent()->GetSafeHwnd(), _T("open"), url, NULL, NULL, SW_SHOWDEFAULT);
 			}
@@ -1021,7 +1021,7 @@ bool CSciEdit::StyleEnteredText(int startstylepos, int endstylepos)
 			bStyled = true;
 			start = end;
 		}
-		delete linebuffer;
+		delete [] linebuffer;
 	}
 	return bStyled;
 }
@@ -1208,7 +1208,7 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
 		}
 		catch (exception) {}
 	}
-	delete textbuffer;
+	delete [] textbuffer;
 
 	return FALSE;
 }
@@ -1236,7 +1236,7 @@ void CSciEdit::StyleURLs(int startstylepos, int endstylepos)
 	// not necessarily one byte/wchar_t
 	// that's why we use CStringA to still get a correct char index
     CStringA msg = textbuffer;
-	delete textbuffer;
+	delete [] textbuffer;
 
 	int starturl = -1;
 	for(int i = 0; i <= msg.GetLength(); )

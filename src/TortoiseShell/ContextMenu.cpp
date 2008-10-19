@@ -246,11 +246,11 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 					TCHAR * szFileName = new TCHAR[len+1];
 					if (0 == DragQueryFile(drop, i, szFileName, len+1))
 					{
-						delete szFileName;
+						delete [] szFileName;
 						continue;
 					}
 					stdstring str = stdstring(szFileName);
-					delete szFileName;
+					delete [] szFileName;
 					if ((str.empty() == false)&&(g_ShellCache.IsContextPathAllowed(szFileName)))
 					{
 						if (itemStates & ITEMIS_ONLYONE)
@@ -749,8 +749,8 @@ bool CShellExt::WriteClipboardPathsToTempFile(stdstring& tempfile)
 		FILE_ATTRIBUTE_TEMPORARY,
 		0);
 
-	delete path;
-	delete tempFile;
+	delete [] path;
+	delete [] tempFile;
 	if (file == INVALID_HANDLE_VALUE)
 		return false;
 
@@ -803,8 +803,8 @@ stdstring CShellExt::WriteFileListToTempFile()
 								FILE_ATTRIBUTE_TEMPORARY,
 								0);
 
-	delete path;
-	delete tempFile;
+	delete [] path;
+	delete [] tempFile;
 	if (file == INVALID_HANDLE_VALUE)
 		return stdstring();
 		
@@ -1606,8 +1606,8 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 						GetTempPath (len+1, path);
 						GetTempFileName (path, TEXT("svn"), 0, tempF);
 						std::wstring sTempFile = std::wstring(tempF);
-						delete path;
-						delete tempF;
+						delete [] path;
+						delete [] tempF;
 
 						FILE * outFile;
 						size_t patchlen = strlen(lpstr);

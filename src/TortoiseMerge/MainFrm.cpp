@@ -1044,7 +1044,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
 		memset(&process, 0, sizeof(process));
 		if (CreateProcess(NULL, buf, NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
 		{
-			delete buf;
+			delete [] buf;
 			LPVOID lpMsgBuf;
 			FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
 				FORMAT_MESSAGE_FROM_SYSTEM | 
@@ -1060,7 +1060,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
 			LocalFree( lpMsgBuf );
 			return FALSE;
 		}
-		delete buf;
+		delete [] buf;
 		CloseHandle(process.hThread);
 		CloseHandle(process.hProcess);
 	}

@@ -242,7 +242,7 @@ Cleanup:
 	}
 	if (buf != NULL)
 	{
-		delete buf;
+		delete [] buf;
 	}
 
 	return bResult;

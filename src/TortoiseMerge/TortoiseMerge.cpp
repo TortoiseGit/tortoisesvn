@@ -464,8 +464,8 @@ CTortoiseMergeApp::CreatePatchFileOpenHook(HWND hDlg, UINT uiMsg, WPARAM wParam,
 			GetTempPath (len+1, path);
 			GetTempFileName (path, TEXT("svn"), 0, tempF);
 			std::wstring sTempFile = std::wstring(tempF);
-			delete path;
-			delete tempF;
+			delete [] path;
+			delete [] tempF;
 
 			FILE * outFile;
 			size_t patchlen = strlen(lpstr);

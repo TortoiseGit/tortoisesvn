@@ -69,8 +69,8 @@ CTSVNPath CTempFiles::GetTempFilePath(bool bRemoveAtEnd, const CTSVNPath& path /
 	//different filenames.
 	HANDLE hFile = CreateFile(tempfile.GetWinPath(), GENERIC_READ, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_TEMPORARY, NULL);
 	CloseHandle(hFile);
-	delete temppath;
-	delete tempF;
+	delete [] temppath;
+	delete [] tempF;
 	if (bRemoveAtEnd)
 		m_TempFileList.AddPath(tempfile);
 	return tempfile;

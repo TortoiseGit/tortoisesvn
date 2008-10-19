@@ -202,8 +202,8 @@ BOOL CSVNPropertyPage::PageProc (HWND /*hwnd*/, UINT uMessage, WPARAM wParam, LP
 							FILE_ATTRIBUTE_TEMPORARY,
 							0);
 
-						delete path;
-						delete tempFile;
+						delete [] path;
+						delete [] tempFile;
 						if (file != INVALID_HANDLE_VALUE)
 						{
 							DWORD written = 0;

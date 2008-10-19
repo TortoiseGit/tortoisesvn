@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006,2008 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -39,8 +39,8 @@ CString CTempFiles::GetTempFilePath()
 	GetTempPath (len+1, path);
 	GetTempFileName (path, TEXT("tsm"), 0, tempF);
 	CString tempfile = CString(tempF);
-	delete path;
-	delete tempF;
+	delete [] path;
+	delete [] tempF;
 	m_arTempFileList.Add(tempfile);
 	return tempfile;
 }

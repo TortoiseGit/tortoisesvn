@@ -204,14 +204,14 @@ bool CPicture::Load(stdstring sFilePathName)
 						}
 						else
 						{
-							delete lpIcons;
+							delete [] lpIcons;
 							lpIcons = NULL;
 							bResult = false;
 						}
 					}
 					else
 					{
-						delete lpIcons;
+						delete [] lpIcons;
 						lpIcons = NULL;
 						CloseHandle(hFile);
 					}
@@ -365,7 +365,7 @@ bool CPicture::Load(stdstring sFilePathName)
 						bResult = true;
 					}
 				}
-				delete buffer;
+				delete [] buffer;
 			}
 			CloseHandle(hFile);
 		}
