@@ -27,7 +27,7 @@ CDropFiles::CDropFiles()
 
 CDropFiles::~CDropFiles()
 {
-	delete m_pBuffer;
+	delete [] m_pBuffer;
 }
 
 void CDropFiles::AddFile(const CString &sFile)

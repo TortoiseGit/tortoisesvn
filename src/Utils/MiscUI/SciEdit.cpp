@@ -348,7 +348,7 @@ CString CSciEdit::GetWordUnderCursor(bool bSelectWord)
 		Call(SCI_SETSEL, textrange.chrg.cpMin, textrange.chrg.cpMax);
 	}
 	CString sRet = StringFromControl(textbuffer);
-	delete textbuffer;
+	delete [] textbuffer;
 	return sRet;
 }
 
