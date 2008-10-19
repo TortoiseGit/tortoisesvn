@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2008
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 14293: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 14333: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-17 16:32+0300\n"
+"PO-Revision-Date: 2008-10-19 10:14+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -208,6 +208,11 @@ msgstr "%s : Отдалённый файл"
 #, c-format
 msgid "%s : Working Base"
 msgstr "%s : Рабочая база"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "%s : Working Base, Revision %ld"
+msgstr "%s : Рабочая база, Ревизия %ld"
 
 #. Resource IDs: (151)
 #, c-format
@@ -796,6 +801,10 @@ msgstr "&Одна страница"
 #. Resource IDs: (101, 113, 32773)
 msgid "&Open"
 msgstr "&Открыть"
+
+#. Resource IDs: (1382)
+msgid "&Options"
+msgstr "&Параметры"
 
 #. Resource IDs: (32772)
 msgid "&Overlap images"
@@ -5832,6 +5841,11 @@ msgstr "Свойство"
 #, c-format
 msgid "Property %s : Revision %s"
 msgstr "Свойство %s : Ревизия %s"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : Working Base, Revision %ld"
+msgstr "Свойство %s : Рабочая база, Ревизия %ld"
 
 #. Resource IDs: (151)
 #, c-format
