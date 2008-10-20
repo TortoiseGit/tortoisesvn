@@ -2293,7 +2293,7 @@ CTSVNPath SVN::GetPristinePath(const CTSVNPath& wcPath)
 	return returnPath;
 }
 
-BOOL SVN::GetTranslatedFile(CTSVNPath& sTranslatedFile, const CTSVNPath sFile, BOOL bForceRepair /*= TRUE*/)
+BOOL SVN::GetTranslatedFile(CTSVNPath& sTranslatedFile, const CTSVNPath& sFile, BOOL bForceRepair /*= TRUE*/)
 {
 	svn_wc_adm_access_t *adm_access;          
 	svn_error_t * err;

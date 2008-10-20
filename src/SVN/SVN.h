@@ -761,7 +761,7 @@ public:
 	 * \param bForceRepair Repair any inconsistent line endings.
 	 * \return TRUE if a translation was needed and the file in sTranslatedFile needs deleting after use
 	 */
-	static BOOL GetTranslatedFile(CTSVNPath& sTranslatedFile, const CTSVNPath sFile, BOOL bForceRepair = TRUE);
+	static BOOL GetTranslatedFile(CTSVNPath& sTranslatedFile, const CTSVNPath& sFile, BOOL bForceRepair = TRUE);
 
 	/**
 	 * convert path to a subversion path (replace '\' with '/')
