@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-14 10:26+0100\n"
+"PO-Revision-Date: 2008-10-20 10:00+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -217,6 +217,11 @@ msgstr "%s : Fil i depot"
 #, c-format
 msgid "%s : Working Base"
 msgstr "%s : Arbeidskopiens Basis"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "%s : Working Base, Revision %ld"
+msgstr "%s : Arbeidskopiens Basis, Revisjon %ld"
 
 #. Resource IDs: (151)
 #, c-format
@@ -798,6 +803,10 @@ msgstr "&En Side"
 #. Resource IDs: (101, 113, 32773)
 msgid "&Open"
 msgstr "Å&pne"
+
+#. Resource IDs: (1382)
+msgid "&Options"
+msgstr "&Opsjoner"
 
 #. Resource IDs: (32772)
 msgid "&Overlap images"
@@ -5772,6 +5781,11 @@ msgstr "Egenskap"
 #, c-format
 msgid "Property %s : Revision %s"
 msgstr "Egenskap %s: Revisjon %s"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : Working Base, Revision %ld"
+msgstr "Egenskap %s : Arbeidskopiens Basis, Revisjon %ld"
 
 #. Resource IDs: (151)
 #, c-format
