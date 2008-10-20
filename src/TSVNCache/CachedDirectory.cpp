@@ -30,6 +30,7 @@ CCachedDirectory::CCachedDirectory(void)
 	m_currentStatusFetchingPathTicks = 0;
 	m_bCurrentFullStatusValid = false;
 	m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
+	m_bRecursive = true;
 }
 
 CCachedDirectory::~CCachedDirectory(void)
@@ -46,6 +47,7 @@ CCachedDirectory::CCachedDirectory(const CTSVNPath& directoryPath)
 	m_currentStatusFetchingPathTicks = 0;
 	m_bCurrentFullStatusValid = false;
 	m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
+	m_bRecursive = true;
 }
 
 BOOL CCachedDirectory::SaveToDisk(FILE * pFile)

@@ -288,6 +288,7 @@ public:
 	{
 		m_bNoRecursion = FALSE;
 		m_hOldClipRgn = ::CreateRectRgn(0,0,0,0);
+		m_nOldClipRgn = 0;
 	}
 
 	virtual ~CResizableLayout()

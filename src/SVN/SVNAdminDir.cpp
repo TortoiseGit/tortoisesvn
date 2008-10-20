@@ -21,8 +21,10 @@
 
 SVNAdminDir g_SVNAdminDir;
 
-SVNAdminDir::SVNAdminDir() :
-	m_nInit(0)
+SVNAdminDir::SVNAdminDir()
+	: m_nInit(0)
+	, m_bVSNETHack(false)
+	, m_pool(NULL)
 {
 }
 

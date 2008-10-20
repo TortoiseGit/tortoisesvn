@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007 - TortoiseSVN
+// Copyright (C) 2006-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -178,7 +178,16 @@ void SVNLineDiff::discard_all_token(void * /*baton*/)
 {
 }
 
-SVNLineDiff::SVNLineDiff(): m_pool(NULL), m_subpool(NULL)
+SVNLineDiff::SVNLineDiff()
+	: m_pool(NULL)
+	, m_subpool(NULL)
+	, m_line1(NULL)
+	, m_line1length(0)
+	, m_line2(NULL)
+	, m_line2length(0)
+	, m_line1pos(0)
+	, m_line2pos(0)
+	, m_bWordDiff(false)
 {
 	m_pool = svn_pool_create(NULL);
 }

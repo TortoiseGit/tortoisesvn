@@ -92,6 +92,7 @@ SVNFolderStatus::SVNFolderStatus(void)
 	invalidstatus.owner = emptyString;
 	invalidstatus.needslock = false;
 	m_nCounter = 0;
+	dirstatus = NULL;
 	sCacheKey.reserve(MAX_PATH);
 
 	rootpool = svn_pool_create (NULL);

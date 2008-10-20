@@ -22,10 +22,20 @@
 #define MYERROR	{CUtils::Error(); return FALSE;}
 
 CResModule::CResModule(void)
+	: m_bTranslatedStrings(0)
+	, m_bDefaultStrings(0)
+	, m_bTranslatedDialogStrings(0)
+	, m_bDefaultDialogStrings(0)
+	, m_bTranslatedMenuStrings(0)
+	, m_bDefaultMenuStrings(0)
+	, m_bTranslatedAcceleratorStrings(0)
+	, m_bDefaultAcceleratorStrings(0)
+	, m_wTargetLang(0)
+	, m_hResDll(NULL)
+	, m_hUpdateRes(NULL)
+	, m_bQuiet(false)
+	, m_bRTL(false)
 {
-	m_hResDll = NULL;
-	m_bQuiet = FALSE;
-	m_wTargetLang = 0;
 }
 
 CResModule::~CResModule(void)

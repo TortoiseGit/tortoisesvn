@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -43,8 +43,9 @@ SVNPool::operator apr_pool_t*()
 // The time is not yet right for this base class, but I'm thinking about it...
 
 SVNHelper::SVNHelper(void)
+	: m_ctx(NULL)
+	, m_bCancelled(false)
 {
-	m_bCancelled = false;
 	m_pool = svn_pool_create (NULL);				// create the memory pool
 	
 	svn_error_clear(svn_client_create_context(&m_ctx, m_pool));

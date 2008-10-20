@@ -35,6 +35,7 @@ SVNPrompt::SVNPrompt()
 	m_app = NULL;
 	m_hParentWnd = NULL;
 	m_bPromptShown = false;
+	auth_baton = NULL;
 }
 
 SVNPrompt::~SVNPrompt()

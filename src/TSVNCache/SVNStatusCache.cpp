@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005 - 2006 - Will Dean, Stefan Kueng
+// External Cache Copyright (C) 2005-2006,2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -235,6 +235,7 @@ CSVNStatusCache::CSVNStatusCache(void)
 	SHGetFolderPath(NULL, CSIDL_WINDOWS, NULL, 0, path);
 	m_NoWatchPaths.insert(CTSVNPath(CString(path)));
 	m_bClearMemory = false;
+	m_mostRecentExpiresAt = 0;
 }
 
 CSVNStatusCache::~CSVNStatusCache(void)

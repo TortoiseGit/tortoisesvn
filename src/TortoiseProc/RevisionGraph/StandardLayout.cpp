@@ -47,6 +47,7 @@ CStandardLayoutNodeInfo::CStandardLayoutNodeInfo()
     , subTreeShift (0, 0)
     , treeShift (0, 0)
     , rect (0, 0, 0, 0)
+	, parentBranch(NULL)
 {
 }
 

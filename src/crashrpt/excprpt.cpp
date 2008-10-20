@@ -33,6 +33,7 @@ CExceptionReport::CExceptionReport(PEXCEPTION_POINTERS ExceptionInfo, BSTR messa
    GetModuleFileName(NULL, szModName, _MAX_FNAME);
    m_sModule = szModName;
    m_sCommandLine = GetCommandLine();
+   m_frameNumber = 0;
 }
 
 
