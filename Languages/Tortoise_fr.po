@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-14 10:29+0100\n"
+"PO-Revision-Date: 2008-10-20 12:22+0100\n"
 "Last-Translator: Grokwik <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -169,6 +169,11 @@ msgstr "%s : Fichier distant"
 #, c-format
 msgid "%s : Working Base"
 msgstr "%s : Copie de base"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "%s : Working Base, Revision %ld"
+msgstr "%s : Base de travail, Révision %ld"
 
 #. Resource IDs: (151)
 #, c-format
@@ -750,6 +755,10 @@ msgstr "&Une Page"
 #. Resource IDs: (101, 113, 32773)
 msgid "&Open"
 msgstr "&Ouvrir"
+
+#. Resource IDs: (1382)
+msgid "&Options"
+msgstr "&Options"
 
 #. Resource IDs: (32772)
 msgid "&Overlap images"
@@ -5736,6 +5745,11 @@ msgstr "Propriété"
 #, c-format
 msgid "Property %s : Revision %s"
 msgstr "Propriété %s : Révision %s"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : Working Base, Revision %ld"
+msgstr "Propriété %s : Base de Travail, Révision %ld"
 
 #. Resource IDs: (151)
 #, c-format
