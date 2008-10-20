@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-09-18 20:31+0200\n"
+"PO-Revision-Date: 2008-10-20 22:21+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -220,6 +220,11 @@ msgstr "%s : Etätiedosto"
 #, c-format
 msgid "%s : Working Base"
 msgstr "%s : kantaversio"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "%s : Working Base, Revision %ld"
+msgstr "%s : kantaversio %ld"
 
 #. Resource IDs: (151)
 #, c-format
@@ -484,6 +489,10 @@ msgstr "&Kopioi..."
 msgid "&Custom"
 msgstr "&Mukautettu"
 
+#. Resource IDs: (1485)
+msgid "&Days of inactivity until small caches get removed"
+msgstr "&Päivien lukumäärä, joiden kuluttua pienet käyttämättömät välimuistit poistetaan"
+
 #. Resource IDs: (1096, 1269)
 msgid "&Default"
 msgstr "&Oletus"
@@ -713,6 +722,10 @@ msgstr "&Lataa..."
 msgid "&Lum:"
 msgstr "&Luminanssi:"
 
+#. Resource IDs: (1486)
+msgid "&Maximum size [kByte] of a removed inactive cache"
+msgstr "Poistettavan, käyttämättömän välimuistin &maksimikoko [kilotavua]"
+
 #. Resource IDs: (16543)
 msgid "&Menu animations:"
 msgstr "&Valikon animaatiot:"
@@ -793,6 +806,10 @@ msgstr "&Yksi sivu"
 #. Resource IDs: (101, 113, 32773)
 msgid "&Open"
 msgstr "&Avaa"
+
+#. Resource IDs: (1382)
+msgid "&Options"
+msgstr "&Asetukset"
 
 #. Resource IDs: (32772)
 msgid "&Overlap images"
@@ -1099,14 +1116,14 @@ msgstr "&Työkopiosta"
 msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
 msgstr "'ohitetut välit' kuvaavat versiovälejä, joita ei ole vielä välimuistissa"
 
+#. Resource IDs: (272)
+#, c-format
+msgid "(%s) %s"
+msgstr "(%s) %s"
+
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
 msgstr "(binääriarvo)"
-
-#. Resource IDs: (272)
-#, c-format
-msgid "(deleted) %s"
-msgstr "(poistettu) %s"
 
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
@@ -1232,6 +1249,16 @@ msgid ""
 msgstr ""
 "Rivinvaihdoin eroteltu lista polkuja, joille kuvakepäällys näytetään.\r\n"
 "Jos lisäät '*' -merkin polun loppuun, kaikki tiedostot ja alikansiot polun sisällä otetaan myös mukaan."
+
+#. Resource IDs: (197)
+msgid ""
+"A newline separated list of paths for which no context menu is shown.\r\n"
+"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"An empty list will allow the context menu on all paths."
+msgstr ""
+"Rivinvaihdoin eroteltu lista polkuja, joille kontekstivalikkoa ei näytetä.\r\n"
+"Jos lisäät '*'-merkin polun loppuun, kaikki tiedostot ja alikansiot polun sisällä jätetään myös pois.\r\n"
+"Tyhjä lista sallii kontekstivalikon kaikilla poluilla."
 
 #. Resource IDs: (194)
 msgid ""
@@ -1471,13 +1498,17 @@ msgstr "Kaikki muutoksesi katoavat! Haluatko todella palauttaa valikon '%s' alku
 msgid "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
 msgstr "Kaikki muutoksesi katoavat! Haluatko todella palauttaa valintapalkin '%s' alkutilaan?"
 
+#. Resource IDs: (1484)
+msgid "Allow ambiguous &UUIDs"
+msgstr "Salli moniselitteiset &UUID-arvot"
+
 #. Resource IDs: (345)
-msgid ""
-"Allow different repositories to use the same URL, e.g. http://localhost/myrepos/\n"
-"Note: This will disable offline log access."
-msgstr ""
-"Salli eri arkistojen käyttää samaa paikanninta, esim. http://localhost/myrepos/\n"
-"Huomaa: Tämä estää yhteydettömän lokihistorian käytön."
+msgid "Allow different repositories to use the same URL, e.g. http://localhost/myrepos/"
+msgstr "Salli eri arkistojen käyttää samaa paikanninta, esim. http://localhost/myrepos/"
+
+#. Resource IDs: (345)
+msgid "Allow different repositories to use the same UUID, e.g. mirrored repositories"
+msgstr "Salli eri arkistojen käyttää samaa UUID:ta, esim. kahdennetut arkistot."
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -2421,6 +2452,10 @@ msgstr "Kopioi paikannin leikepöydälle"
 msgid "Copy all information to clipboard"
 msgstr "Kopioi kaikki tiedot leikepöydälle"
 
+#. Resource IDs: (146)
+msgid "Copy and rename"
+msgstr "Kopioi ja uudelleennimeä"
+
 #. Resource IDs: (104)
 msgid "Copy and rename item to here"
 msgstr "Kopioi ja uudelleennimeä tiedosto tänne"
@@ -2940,6 +2975,10 @@ msgstr ""
 "Näytä ohjelman tiedot, versionumero ja tekijänoikeudet\n"
 "Tietoa"
 
+#. Resource IDs: (65535)
+msgid "Do not show the context menu for the following paths:"
+msgstr "Älä näytä kontekstivalikkoa seuraaville poluille:"
+
 #. Resource IDs: (1007)
 #, c-format
 msgid "Do you really want to delete the toolbar '%s'?"
@@ -3314,6 +3353,10 @@ msgstr "Laajenna (%s)"
 #. Resource IDs: (1001)
 msgid "Expand docked window"
 msgstr "Laajenna ankkuroitu ikkuna"
+
+#. Resource IDs: (65535)
+msgid "Expert settings"
+msgstr "Lisäasetukset"
 
 #. Resource IDs: (209)
 msgid "Explore to"
@@ -4677,6 +4720,10 @@ msgstr "Lokiviestien välimuistin tilastoja"
 msgid "Log Caching"
 msgstr "Lokiviestien talletus"
 
+#. Resource IDs: (295)
+msgid "Log Caching::Cached Repositories"
+msgstr "Lokiviestien talletus::Välimuistissa olevat arkistot"
+
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "Viimeisimmät viestit"
@@ -4770,6 +4817,10 @@ msgstr "Lokiviestihistorian suurin koko (viestiä)"
 #. Resource IDs: (65535)
 msgid "Max. lines in action log"
 msgstr "Toimenpidelokin rivien maksimimäärä"
+
+#. Resource IDs: (1487)
+msgid "Maximum number of tool &failures until cache removal"
+msgstr "Työkalu&virheiden maksimimäärä ennen välimuistin poistoa"
 
 #. Resource IDs: (16655)
 msgid "Me&nus show recently used commands first"
@@ -5006,6 +5057,10 @@ msgstr "Siirrä alkiota alas"
 #. Resource IDs: (1002)
 msgid "Move Item Up"
 msgstr "Siirrä alkiota ylös"
+
+#. Resource IDs: (147)
+msgid "Move and rename"
+msgstr "Siirrä ja uudelleennimeä"
 
 #. Resource IDs: (104)
 msgid "Move and rename item to here"
@@ -5271,6 +5326,14 @@ msgstr "Niiden yhdistettyjen versioiden lukumäärä, joita ei ole vielä välim
 #. Resource IDs: (338)
 msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
 msgstr "Polkuelementtien lukumäärä. Polkuelementti on kansion tai tiedoston nimi (esim. 'foo.txt' tai 'mybranch')."
+
+#. Resource IDs: (345)
+msgid ""
+"Number of times a log cache can fail to close properly\n"
+"due to crashes etc. until it gets deleted automatically."
+msgstr ""
+"Epäonnistuneiden sulkeutumisten (esim. kaatuminen)\n"
+"lukumäärä, jonka täytyttyä välimuisti poistetaan automaattisesti."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -5729,6 +5792,11 @@ msgstr "Ominaisuus"
 #, c-format
 msgid "Property %s : Revision %s"
 msgstr "Ominaisuus %s : Versio %s"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : Working Base, Revision %ld"
+msgstr "Ominaisuus %s : kantaversio %ld"
 
 #. Resource IDs: (151)
 #, c-format
@@ -6352,7 +6420,7 @@ msgid ""
 "Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
-"Tags:%s\r\n"
+"Tags (%d):%s\r\n"
 "\r\n"
 "Logmessage:\r\n"
 "%s"
@@ -6362,7 +6430,7 @@ msgstr ""
 "Tekijä: %s\r\n"
 "Päiväys: %s\r\n"
 "\r\n"
-"Merkit: %s\r\n"
+"Merkit (%d):%s\r\n"
 "\r\n"
 "Lokiviesti:\r\n"
 "%s"
@@ -6924,6 +6992,10 @@ msgstr "Näytä &koko valikko viiveen jälkeen"
 #. Resource IDs: (1264)
 msgid "Show i&gnored files"
 msgstr "Näytä &ohitetut tiedostot"
+
+#. Resource IDs: (1480)
+msgid "Show items in externals"
+msgstr "Näytä ulkoisten viittausten sisältö"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
@@ -8212,6 +8284,14 @@ msgstr "Tuntematon tai virheellinen ominaisuustiedoston muoto!"
 msgid "Untitled"
 msgstr "Nimetön"
 
+#. Resource IDs: (345)
+msgid ""
+"Unused log caches will only be removed if the respective\n"
+"file is smaller than the given size in kBytes."
+msgstr ""
+"Käyttämättömät välimuistit poistetaan vain, jos vastaava\n"
+"tiedosto on annettua kokoa (kilotavua) pienempi."
+
 #. Resource IDs: (146)
 msgid "Unversion"
 msgstr "Poista versiointi"
@@ -8561,6 +8641,12 @@ msgstr "Varoitus"
 msgid "Warning!"
 msgstr "Varoitus!"
 
+#. Resource IDs: (345)
+msgid ""
+"When a small log cache has not been used for the given\n"
+"number of days, it will be removed automatically."
+msgstr "Kun pieni välimuisti on käyttämättömänä annettujen päivien ajan, se poistetaan automaattisesti."
+
 #. Resource IDs: (344)
 msgid ""
 "When connecting to the repository server is not possible,\n"
@@ -8882,8 +8968,8 @@ msgstr "Lisätty"
 
 #. Resource IDs: (272)
 #, c-format
-msgid "alias (deleted): %s"
-msgstr "toinen nimi (poistettu): %s"
+msgid "alias (%s): %s"
+msgstr "toinen nimi (%s): %s"
 
 #. Resource IDs: (272)
 #, c-format
@@ -9542,6 +9628,10 @@ msgstr "kyllä"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "(deleted) %s"
+#~ msgstr "(poistettu) %s"
+#~ msgid "alias (deleted): %s"
+#~ msgstr "toinen nimi (poistettu): %s"
 #~ msgid "&?"
 #~ msgstr "&?"
 #~ msgid "&Cancel"
