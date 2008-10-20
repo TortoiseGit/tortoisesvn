@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-17 19:45+0800\n"
+"PO-Revision-Date: 2008-10-20 23:44+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -162,6 +162,11 @@ msgstr "%s : 遠端檔案"
 #, c-format
 msgid "%s : Working Base"
 msgstr "%s : 工作基礎版本"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "%s : Working Base, Revision %ld"
+msgstr "%s : 工作基礎版本 %ld"
 
 #. Resource IDs: (151)
 #, c-format
@@ -743,6 +748,10 @@ msgstr "單頁(&O)"
 #. Resource IDs: (101, 113, 32773)
 msgid "&Open"
 msgstr "開啟(&O)"
+
+#. Resource IDs: (1382)
+msgid "&Options"
+msgstr "選項(&O)"
 
 #. Resource IDs: (32772)
 msgid "&Overlap images"
@@ -5725,6 +5734,11 @@ msgstr "性質"
 #, c-format
 msgid "Property %s : Revision %s"
 msgstr "性質 %s : 版本 %s"
+
+#. Resource IDs: (151)
+#, c-format
+msgid "Property %s : Working Base, Revision %ld"
+msgstr "性質 %s : 工作基礎版本 %ld"
 
 #. Resource IDs: (151)
 #, c-format
