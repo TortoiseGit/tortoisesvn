@@ -75,6 +75,7 @@ BOOL CRevertDlg::OnInitDialog()
 
 	AddAnchor(IDC_REVERTLIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT);
+	AddAnchor(IDC_UNVERSIONEDITEMS, BOTTOM_RIGHT);
 	AddAnchor(IDOK, BOTTOM_RIGHT);
 	AddAnchor(IDCANCEL, BOTTOM_RIGHT);
 	AddAnchor(IDHELP, BOTTOM_RIGHT);
@@ -116,6 +117,18 @@ UINT CRevertDlg::RevertThread()
 
 	CTSVNPath commonDir = m_RevertList.GetCommonDirectory(false);
 	SetWindowText(m_sWindowTitle + _T(" - ") + commonDir.GetWinPathString());
+
+	if (m_RevertList.HasUnversionedItems())
+	{
+		if (DWORD(CRegStdWORD(_T("Software\\TortoiseSVN\\UnversionedAsModified"), FALSE)))
+		{
+			GetDlgItem(IDC_UNVERSIONEDITEMS)->ShowWindow(SW_SHOW);
+		}
+		else
+			GetDlgItem(IDC_UNVERSIONEDITEMS)->ShowWindow(SW_HIDE);
+	}
+	else
+		GetDlgItem(IDC_UNVERSIONEDITEMS)->ShowWindow(SW_HIDE);
 
 	InterlockedExchange(&m_bThreadRunning, FALSE);
 	RefreshCursor();

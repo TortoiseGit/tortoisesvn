@@ -27,6 +27,8 @@
 - NEW: Automated removal of unused log caches. (Stefan Fuhrmann)
 - NEW: When diffing against BASE, the diff tool now shows the BASE revision
        in the view title. (Stefan)
+- NEW: if "unversioned files mark parent folder as modified" is active,
+       the revert dialog shows a hint if unversioned files are found. (Stefan)
 - CHG: The bug-ID column width in the log dialog is now limited 
        to 200 pixels. (Stefan)
 - CHG: The right-drag context menu now only shows "Export" if a versioned
