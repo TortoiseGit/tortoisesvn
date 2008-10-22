@@ -163,7 +163,8 @@ void CImportDlg::OnEnChangeLogmessage()
 void CImportDlg::OnCancel()
 {
 	UpdateData();
-	m_History.AddEntry(m_cMessage.GetText());
+	if (m_ProjectProperties.sLogTemplate.Compare(m_cMessage.GetText()) != 0)
+		m_History.AddEntry(m_cMessage.GetText());
 	m_History.Save();
 	CResizableStandAloneDialog::OnCancel();
 }

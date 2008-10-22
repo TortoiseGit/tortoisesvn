@@ -685,7 +685,8 @@ void CCommitDlg::OnCancel()
 		else
 			m_sLogMessage = sBugID + _T("\n") + m_sLogMessage;
 	}
-	m_History.AddEntry(m_sLogMessage);
+	if (m_ProjectProperties.sLogTemplate.Compare(m_sLogMessage) != 0)
+		m_History.AddEntry(m_sLogMessage);
 	m_History.Save();
 	SaveSplitterPos();
 	CResizableStandAloneDialog::OnCancel();

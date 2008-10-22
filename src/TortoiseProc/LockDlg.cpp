@@ -148,7 +148,8 @@ void CLockDlg::OnCancel()
 	if (m_bBlock)
 		return;
 	UpdateData();
-	m_sLockMessage = m_cEdit.GetText();
+	if ((m_ProjectProperties == 0)||(m_ProjectProperties->sLogTemplate.Compare(m_cEdit.GetText()) != 0))
+		m_sLockMessage = m_cEdit.GetText();
 	m_History.AddEntry(m_sLockMessage);
 	m_History.Save();
 	CResizableStandAloneDialog::OnCancel();

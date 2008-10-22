@@ -302,7 +302,8 @@ void CCopyDlg::OnCancel()
 	{
 		WaitForSingleObject(m_pThread->m_hThread, INFINITE);
 	}
-	m_History.AddEntry(m_cLogMessage.GetText());
+	if (m_ProjectProperties.sLogTemplate.Compare(m_cLogMessage.GetText()) != 0)
+		m_History.AddEntry(m_cLogMessage.GetText());
 	m_History.Save();
 	CResizableStandAloneDialog::OnCancel();
 }

@@ -44,6 +44,8 @@
        message box. (Stefan)
 - CHG: New revision graph look. (Stefan Fuhrmann)
 - CHG: Faster and more reliable revision graph filtering. (Stefan Fuhrmann)
+- CHG: If tsvn:logtemplate was set and not changed in the commit dialog, it
+       isn't added to the log history anymore. (Stefan)
 
 Version 1.5.4
 - CHG: OpenSSL 0.9.8i with capieng enabled
