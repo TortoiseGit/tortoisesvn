@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-09-10 09:51+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2008-10-23 08:14+0100\n"
+"Last-Translator: David Trasbo <davidtrasbo@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -292,6 +292,11 @@ msgid "%s : Working Base"
 msgstr "%s : Grundrevision af arbejdskopi"
 
 #. Resource IDs: (151)
+#, fuzzy, c-format
+msgid "%s : Working Base, Revision %ld"
+msgstr "%s : Grundrevision af arbejdskopi"
+
+#. Resource IDs: (151)
 #, c-format
 msgid "%s : Working Copy"
 msgstr "%s : Arbejdskopi"
@@ -555,6 +560,12 @@ msgstr "&Kopier til..."
 msgid "&Custom"
 msgstr "&Personlig"
 
+# Bedre oversættelse af caches?
+#. Resource IDs: (1485)
+#, fuzzy
+msgid "&Days of inactivity until small caches get removed"
+msgstr "&Dage med inaktivitet indtil små caches bliver fjernet"
+
 #. Resource IDs: (1096, 1269)
 msgid "&Default"
 msgstr "&Standard"
@@ -787,6 +798,12 @@ msgstr "&Åbn..."
 msgid "&Lum:"
 msgstr "&Luminans:"
 
+# Bedre oversættelse af cache?
+#. Resource IDs: (1486)
+#, fuzzy
+msgid "&Maximum size [kByte] of a removed inactive cache"
+msgstr "&Maksimum størrelse [kByte] på en fjernet inaktiv cache"
+
 #. Resource IDs: (16543)
 msgid "&Menu animations:"
 msgstr "&Menuanimationer"
@@ -867,6 +884,12 @@ msgstr "&En Side"
 #. Resource IDs: (101, 113, 32773)
 msgid "&Open"
 msgstr "&Åbn"
+
+# Kontekst? Muligheder: Egenskaber, indstillinger, muligheder, ...
+#. Resource IDs: (1382)
+#, fuzzy
+msgid "&Options"
+msgstr "Valgmuligheder"
 
 #. Resource IDs: (32772)
 msgid "&Overlap images"
@@ -1170,14 +1193,20 @@ msgstr "&Windows XP"
 msgid "&Working copy"
 msgstr "&Arbejdskopi"
 
+#. Resource IDs: (338)
+#, fuzzy
+msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
+msgstr "\"intervaller der skal springes over\" bruges til at markere revisionsintervaller der endnu ikke er blevet cachede"
+
+# Example: "123 kBytes transferred in 2 minute(s) and 34 second(s)"
+#. Resource IDs: (272)
+#, fuzzy, c-format
+msgid "(%s) %s"
+msgstr "%s på %s"
+
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
 msgstr "(binær værdi)"
-
-#. Resource IDs: (272)
-#, c-format
-msgid "(deleted) %s"
-msgstr "(slettet) %s"
 
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
@@ -1302,17 +1331,30 @@ msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org 
 msgstr "Der er en nyere version til rådighed. Gå til http://tortoisesvn.tigris.org og hent den nyeste version. Klik _her_ for at gå direkte til vores hjemmeside."
 
 #. Resource IDs: (195)
+#, fuzzy
 msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
-"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are included too."
+"If you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
 "En linjesepareret liste af stier hvor ikonoverdækninger skal vises.\r\n"
 "Hvis du tilføjer et \"*\"-tegn i slutningen af stien, vil alle filer og undermapper i stien også blive inkluderet."
 
+#. Resource IDs: (197)
+#, fuzzy
+msgid ""
+"A newline separated list of paths for which no context menu is shown.\r\n"
+"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"An empty list will allow the context menu on all paths."
+msgstr ""
+"En linjesepareret liste af stier hvor ikonoverdækninger ikke skal vises.\r\n"
+"Hvis du tilføjer et \"*\"-tegn i slutningen af stien, vil alle filer og undermapper i stien også blive udelukket.\r\n"
+"En tom liste vil tillade ikonoverdækninger på alle stier."
+
 #. Resource IDs: (194)
+#, fuzzy
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
-"If you add an \"*\" char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
+"If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
 "En linjesepareret liste af stier hvor ikonoverdækninger ikke skal vises.\r\n"
@@ -1547,10 +1589,21 @@ msgstr "Alle dine ændringer vil gå tabt! Er du sikker på at du vil nulstille 
 msgid "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
 msgstr "Alle dine ændringer vil gå tabt! Er du sikker på at du vil nulstille værktøjslinjen '%s'?"
 
+#. Resource IDs: (1484)
+#, fuzzy
+msgid "Allow ambiguous &UUIDs"
+msgstr "&Tillad tvetydige URL'er"
+
 #. Resource IDs: (345)
-msgid ""
-"Allow different repositories to use the same URL, e.g. http://localhost/myrepos/\n"
-"Note: This will disable offline log access."
+#, fuzzy
+msgid "Allow different repositories to use the same URL, e.g. http://localhost/myrepos/"
+msgstr ""
+"Tillad flere forskellige versionsarkiver at benytte samme URL, f.eks. http://localhost/mitversionsarkiv/\n"
+"Bemærk: Dette slår offline-logadgang fra."
+
+#. Resource IDs: (345)
+#, fuzzy
+msgid "Allow different repositories to use the same UUID, e.g. mirrored repositories"
 msgstr ""
 "Tillad flere forskellige versionsarkiver at benytte samme URL, f.eks. http://localhost/mitversionsarkiv/\n"
 "Bemærk: Dette slår offline-logadgang fra."
@@ -1673,8 +1726,8 @@ msgid "Ask user"
 msgstr "Spørg bruger"
 
 #. Resource IDs: (264)
-#, c-format
-msgid "Assigned to changelist \"%s\""
+#, fuzzy, c-format
+msgid "Assigned to changelist '%s'"
 msgstr "Tildelt ændringslisten \"%s\""
 
 #. Resource IDs: (16528)
@@ -2330,9 +2383,10 @@ msgid "Commits your changes to the repository"
 msgstr "Arkiverer dine ændringer til versionsarkivet"
 
 #. Resource IDs: (170)
+#, fuzzy
 msgid ""
 "Committing an unversioned folder will not recursively add its child items!\n"
-"You might want to add these folders recursively by using the \"Add...\" context menu item.\n"
+"You might want to add these folders recursively by using the 'Add...' context menu item.\n"
 "\n"
 "Are you sure that you want to continue the commit?"
 msgstr ""
@@ -2521,6 +2575,11 @@ msgstr "Kopier URL til udklipsholder"
 msgid "Copy all information to clipboard"
 msgstr "Kopier al information til udklipsholder"
 
+#. Resource IDs: (146)
+#, fuzzy
+msgid "Copy and rename"
+msgstr "Kopier og omdøb emne hertil"
+
 #. Resource IDs: (104)
 msgid "Copy and rename item to here"
 msgstr "Kopier og omdøb emne hertil"
@@ -2589,13 +2648,13 @@ msgid "Could not add %s to the ignore list!"
 msgstr "%s kunne ikke tilføjes \"ignorer\"-listen!"
 
 #. Resource IDs: (582)
-#, c-format
-msgid "Could not add \"%s\" because"
+#, fuzzy, c-format
+msgid "Could not add '%s' because"
 msgstr "\"%s\" kunne ikke tilføjes fordi"
 
 #. Resource IDs: (582)
-#, c-format
-msgid "Could not add property \"%s\" on %s because"
+#, fuzzy, c-format
+msgid "Could not add property '%s' on '%s' because"
 msgstr "Kunne ikke tilføje egenskab \"%s\" på %s fordi"
 
 #. Resource IDs: (201)
@@ -2619,13 +2678,13 @@ msgid "Could not create %1 because the directory is full."
 msgstr "Kunne ikke oprette %1, fordi mappen er fyldt op."
 
 #. Resource IDs: (582)
-#, c-format
-msgid "Could not delete \"%s\" because"
+#, fuzzy, c-format
+msgid "Could not delete '%s' because"
 msgstr "\"%s\" kunne ikke slettes fordi"
 
 #. Resource IDs: (582)
-#, c-format
-msgid "Could not delete property \"%s\" on %s because"
+#, fuzzy, c-format
+msgid "Could not delete property '%s' on '%s' because"
 msgstr "Kunne ikke slette egenskab \"%s\" på %s fordi"
 
 #. Resource IDs: (83)
@@ -2637,13 +2696,13 @@ msgid "Could not get the status!"
 msgstr "Status kunne ikke hentes!"
 
 #. Resource IDs: (582)
-#, c-format
-msgid "Could not merge \"%s\" because"
+#, fuzzy, c-format
+msgid "Could not merge '%s' because"
 msgstr "Kunne ikke flette \"%s\" fordi"
 
 #. Resource IDs: (582)
-#, c-format
-msgid "Could not merge property \"%s\" on %s because"
+#, fuzzy, c-format
+msgid "Could not merge property '%s' on '%s' because"
 msgstr "Kunne ikke flette egenskaben \"%s\" på %s fordi"
 
 #. Resource IDs: (3867)
@@ -2888,6 +2947,12 @@ msgstr "Standardprogrammenu. Vises når ingen dokumenter er åbne."
 msgid "Default path:"
 msgstr "Standard-sti:"
 
+# Oversættelse af default?
+#. Resource IDs: (1064)
+#, fuzzy
+msgid "Default to UTF-8 encoding"
+msgstr "Sæt UFT-8-tegnsæt som standard"
+
 #. Resource IDs: (1002, 1382)
 msgid "Delete"
 msgstr "Slet"
@@ -3039,6 +3104,10 @@ msgid ""
 msgstr ""
 "Vis programinformation, versionsnummer og copyright\n"
 "Om"
+
+#. Resource IDs: (65535)
+msgid "Do not show the context menu for the following paths:"
+msgstr "Vis ikke højrekliksmenuer for følgende stier:"
 
 #. Resource IDs: (1007)
 #, c-format
@@ -3211,9 +3280,9 @@ msgid "Edit log message"
 msgstr "Rediger logbesked"
 
 #. Resource IDs: (127)
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"Edit property \"%s\" on\r\n"
+"Edit property '%s' on\r\n"
 "%s"
 msgstr ""
 "Rediger egenskaber \"%s\" på\r\n"
@@ -3436,6 +3505,11 @@ msgstr "Udvid (%s)"
 msgid "Expand docked window"
 msgstr "Udvid låst vindue"
 
+#. Resource IDs: (65535)
+#, fuzzy
+msgid "Expert settings"
+msgstr "Eksporterer %s"
+
 #. Resource IDs: (209)
 msgid "Explore to"
 msgstr "Åbn i Stifinder"
@@ -3567,14 +3641,14 @@ msgid "Failed to save document."
 msgstr "Det lykkedes ikke at gemme dokumentet."
 
 #. Resource IDs: (264)
-#, c-format
-msgid "Failed to set/remove changelist \"%s\""
+#, fuzzy, c-format
+msgid "Failed to set/remove changelist '%s'"
 msgstr "Det lykkedes ikke at sætte/fjerne ændringslisten \"%s\""
 
 #. Resource IDs: (83)
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"Failed to start the issue tracker COM provider \"%s\".\n"
+"Failed to start the issue tracker COM provider '%s'.\n"
 "%s"
 msgstr ""
 "Det var ikke muligt at starte sagsbehandler-COM-udbyderen \"%s\".\n"
@@ -3778,7 +3852,8 @@ msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
 msgstr "Tryk F1 for hjælp. Rul horisontalt med Ctrl+rullehjulet"
 
 #. Resource IDs: (119)
-msgid "For complete history deselect \"Stop on copy/rename\""
+#, fuzzy
+msgid "For complete history deselect 'Stop on copy/rename'"
 msgstr "For at vise komplet historik, skal du fravælge \"Stop ved kopiering/omdøbning\""
 
 #. Resource IDs: (1064)
@@ -4194,12 +4269,14 @@ msgid "Icons/Design/Code:                 Luebbe Onken"
 msgstr "Ikoner/Design/Kode:                 Luebbe Onken"
 
 #. Resource IDs: (194)
-msgid "If activated, prevents the overlays and the context menu from showing in \"save as...\" or \"open\" dialogs"
+#, fuzzy
+msgid "If activated, prevents the overlays and the context menu from showing in 'save as...' or 'open' dialogs"
 msgstr "Hvis valgt, så vises overdækningerne og kontekstmenuen ikke i dialogerne \"gem som...\" eller \"åbn\""
 
 #. Resource IDs: (198)
+#, fuzzy
 msgid ""
-"If activated, the menu entry \"Get Lock\" is always shown in the top level menu\n"
+"If activated, the menu entry 'Get Lock' is always shown in the top level menu\n"
 "if the selected file has the svn:needs-lock property set"
 msgstr ""
 "Hvis aktiveret, så vises menupunktet \"Rekvivier lås\" altid i den øverste menu,\n"
@@ -4238,17 +4315,19 @@ msgid "If enabled, TortoiseSVN checks once a week if a newer version is availabl
 msgstr "Hvis valgt, så undersøger TortoiseSVN én gang om ugen om der en nyere version til rådighed"
 
 #. Resource IDs: (195)
+#, fuzzy
 msgid ""
-"If enabled, the Merge dialog initializes the \"From:\" URL with the URL of the selected working copy\r\n"
+"If enabled, the Merge dialog initializes the 'From:' URL with the URL of the selected working copy\r\n"
 "instead of the last used URL."
 msgstr ""
 "Hvis slået til, vil fletningsdialogen automatisk udfylde \"Fra:\"-URL'en med URL'en til den valgte arbejdskopi\r\n"
 "i stedet for den sidst brugte URL."
 
 #. Resource IDs: (195)
+#, fuzzy
 msgid ""
 "If enabled, the repository is contacted when the dialog starts up.\r\n"
-"You don't have to click on \"Check Repository\" anymore."
+"You don't have to click on 'Check Repository' anymore."
 msgstr ""
 "Hvis valgt kontaktes versionsarkivet når dialogen åbnes.\r\n"
 "Du behøver ikke længere at klikke på \"Check versionsarkiv\"."
@@ -4303,7 +4382,8 @@ msgstr ""
 "Er du helt sikker på, at du vil fortsætte?"
 
 #. Resource IDs: (251)
-msgid "If you want to break the lock, use the \"Check For Modifications\" dialog."
+#, fuzzy
+msgid "If you want to break the lock, use the 'Check For Modifications' dialog."
 msgstr "Hvis du ønsker at bryde låsen, skal du benytte dialogen \"Check for ændringer\"."
 
 #. Resource IDs: (73)
@@ -4794,6 +4874,11 @@ msgstr "Statistik over logcache"
 msgid "Log Caching"
 msgstr "Logcaching"
 
+#. Resource IDs: (295)
+#, fuzzy
+msgid "Log Caching::Cached Repositories"
+msgstr "Cachede versionsarkiver"
+
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "Log-historik"
@@ -4888,6 +4973,12 @@ msgstr "Maksimalt antal logbeskeder gemt i historikken"
 #. Resource IDs: (65535)
 msgid "Max. lines in action log"
 msgstr "Maks. linjer i handlingsloggen"
+
+# Bedre oversættelse af tool failures og cache?
+#. Resource IDs: (1487)
+#, fuzzy
+msgid "Maximum number of tool &failures until cache removal"
+msgstr "Maksimum antal værktøjs&fejl inden cache fjernes"
 
 #. Resource IDs: (16655)
 msgid "Me&nus show recently used commands first"
@@ -5128,6 +5219,11 @@ msgstr "Flyt Emne Ned"
 msgid "Move Item Up"
 msgstr "Flyt Emne Op"
 
+#. Resource IDs: (147)
+#, fuzzy
+msgid "Move and rename"
+msgstr "Flyt og omdøb emne hertil"
+
 #. Resource IDs: (104)
 msgid "Move and rename item to here"
 msgstr "Flyt og omdøb emne hertil"
@@ -5267,10 +5363,11 @@ msgid "No files or folders were modified. There is nothing for TortoiseSVN to re
 msgstr "Der er ikke ændret nogen filer eller mapper. Der er derfor ikke noget for TortoiseSVN at tilbageføre."
 
 #. Resource IDs: (239)
+#, fuzzy
 msgid ""
 "No files to show with the current setting.\n"
 "Check one or more settings below to see unversioned, ignored and/or unmodified files.\n"
-"To see remote changes, click on \"Check Repository\""
+"To see remote changes, click on 'Check Repository'"
 msgstr ""
 "Der er ingen filer at vise med den nuværende indstilling.\n"
 "Vælg én eller flere indstillinger nedenfor for at se uarkiverede, ignorerede og/eller uændrede filer.\n"
@@ -5339,6 +5436,12 @@ msgstr "Der er ikke nok hukommelse til at færdiggøre handlingen."
 msgid "Not recursive"
 msgstr "Ikke-rekursivt"
 
+# Rigtig oversættelse?
+#. Resource IDs: (1481)
+#, fuzzy
+msgid "Note: the folder contains unversioned items"
+msgstr "Vis overdækning for ikke-versionerede emner"
+
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
 msgstr "Bemærk: Skrifttypeindstillingerne påvirker også visningsprogrammet TortoiseUDiff"
@@ -5394,6 +5497,15 @@ msgstr "Antal af flettede revisioner der ikke er cachet endnu"
 #. Resource IDs: (338)
 msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
 msgstr "Antal af stielementer. Et stielement er en mappe eller et filnavn, f.eks. 'fil.txt' eller 'mingren'."
+
+#. Resource IDs: (345)
+#, fuzzy
+msgid ""
+"Number of times a log cache can fail to close properly\n"
+"due to crashes etc. until it gets deleted automatically."
+msgstr ""
+"Antal gange en logcache kan fejle for at lukke rigtigt\n"
+"mht. nedbrud osv., indtil det bliver slettet automatisk."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -5617,6 +5729,11 @@ msgstr ""
 msgid "Paste filename list"
 msgstr "Indsæt filnavne"
 
+#. Resource IDs: (15)
+#, fuzzy
+msgid "Pastes the svn path from the clipboard, resulting in a move (cut) or copy operation"
+msgstr "Indsætter svn-stien fra udklipsholderen resulterende i en flytte- (klippe-) eller kopioperation"
+
 #. Resource IDs: (376)
 msgid "Patch all"
 msgstr "Ret alle"
@@ -5678,7 +5795,8 @@ msgid "Please enter a path where to apply the hook script to."
 msgstr "Indtast venligst en sti, som tilkoblingen skal anvendes på."
 
 #. Resource IDs: (251)
-msgid "Please execute the \"Cleanup\" command."
+#, fuzzy
+msgid "Please execute the 'Cleanup' command."
 msgstr "Udfør venligst kommandoen \"Ryd op\"."
 
 #. Resource IDs: (78)
@@ -5858,6 +5976,11 @@ msgstr "Egenskab"
 #. Resource IDs: (151)
 #, c-format
 msgid "Property %s : Revision %s"
+msgstr "Egenskab %s : Revision %s"
+
+#. Resource IDs: (151)
+#, fuzzy, c-format
+msgid "Property %s : Working Base, Revision %ld"
 msgstr "Egenskab %s : Revision %s"
 
 #. Resource IDs: (151)
@@ -6163,9 +6286,9 @@ msgid "Remove from changelist"
 msgstr "Fjern fra ændringsliste"
 
 #. Resource IDs: (127)
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"Remove property \"%s\" from\r\n"
+"Remove property '%s' from\r\n"
 "%s"
 msgstr ""
 "Fjern egenskab  \"%s\" fra\r\n"
@@ -6327,11 +6450,13 @@ msgid "Resolve all later"
 msgstr "Løs alle senere"
 
 #. Resource IDs: (282)
-msgid "Resolve conflict using \"mine\""
+#, fuzzy
+msgid "Resolve conflict using 'mine'"
 msgstr "Løs konflikt ved at bruge \"min\""
 
 #. Resource IDs: (282)
-msgid "Resolve conflict using \"theirs\""
+#, fuzzy
+msgid "Resolve conflict using 'theirs'"
 msgstr "Løs konflikt ved at bruge \"deres\""
 
 #. Resource IDs: (1403)
@@ -6482,14 +6607,14 @@ msgstr ""
 "%s"
 
 #. Resource IDs: (272)
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Revision: %ld\r\n"
 "URL: %s\r\n"
 "Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
-"Tags:%s\r\n"
+"Tags (%d):%s\r\n"
 "\r\n"
 "Logmessage:\r\n"
 "%s"
@@ -6902,9 +7027,9 @@ msgid "Set file dates to the \"last commit &time\""
 msgstr "Sæt filers datostempel til \"seneste arkiverings&tidspunkt\""
 
 #. Resource IDs: (127)
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"Set property \"%s\" on\r\n"
+"Set property '%s' on\r\n"
 "%s"
 msgstr ""
 "Sæt egenskab \"%s\" på\r\n"
@@ -7076,6 +7201,11 @@ msgstr "Vis f&ulde menuer efter en kort forsinkelse"
 #. Resource IDs: (1264)
 msgid "Show i&gnored files"
 msgstr "Vis i&gnorerede filer"
+
+#. Resource IDs: (1480)
+#, fuzzy
+msgid "Show items in externals"
+msgstr "Udelad externals"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
@@ -7504,8 +7634,8 @@ msgid "The chunk size did not match the number of added/removed lines!"
 msgstr "\"Chunk size\" svarer ikke til antallet af tilføjede/fjernede linjer!"
 
 #. Resource IDs: (63)
-#, c-format
-msgid "The chunk start \"@@\" was expected in line %d !"
+#, fuzzy, c-format
+msgid "The chunk start '@@' was expected in line %d !"
 msgstr "\"Chunk start\" \"@@\" var forventet i linje %d!"
 
 #. Resource IDs: (197)
@@ -7635,13 +7765,14 @@ msgid "The issue-tracker provider was unable to validate the parameter string"
 msgstr "Sagsbehandlerudbyderen kunne ikke validere parameterstrengen"
 
 #. Resource IDs: (63)
-#, c-format
-msgid "The line \"====\" was expected in line %d !"
+#, fuzzy, c-format
+msgid "The line '====' was expected in line %d !"
 msgstr "Linjen \"====\" var forventet i linje %d!"
 
 #. Resource IDs: (63)
+#, fuzzy
 msgid ""
-"The line \"Index: \" was not found!\n"
+"The line 'Index: ' was not found!\n"
 "Either this is not a diff file or the diff is empty."
 msgstr ""
 "Linjen \"Index: \" blev ikke fundet!\n"
@@ -8010,8 +8141,9 @@ msgstr ""
 "som ikke tillader sletning af mapper."
 
 #. Resource IDs: (284)
+#, fuzzy
 msgid ""
-"To steal the lock, right-click on the parent folder of this item and select \"Get Lock\" from the context menu.\n"
+"To steal the lock, right-click on the parent folder of this item and select 'Get Lock' from the context menu.\n"
 "This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 msgstr ""
 "For at stjæle låsen skal du højreklikke på mappen over emnet og vælge \"Rekvivier lås\" fra kontekstmenuen.\n"
@@ -8208,7 +8340,8 @@ msgid "Tree merge"
 msgstr "Træfletning"
 
 #. Resource IDs: (251)
-msgid "Try a \"Cleanup\". If that doesn't work you need to do a fresh checkout."
+#, fuzzy
+msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr "Prøv at udføre kommandoen \"Ryd op\". Hvis det ikke hjælper, så er det nødvendigt at hente en ny arbejdskopi."
 
 #. Resource IDs: (73)
@@ -8377,6 +8510,14 @@ msgstr "Ugenkendeligt eller ugyldigt egenskabsfil-format!"
 msgid "Untitled"
 msgstr "Ikke-navngivet"
 
+#. Resource IDs: (345)
+msgid ""
+"Unused log caches will only be removed if the respective\n"
+"file is smaller than the given size in kBytes."
+msgstr ""
+"Ubrugte logcaches vil kun blive fjernet hvis den respektive\n"
+"fil er mindre end den givne størrelse i kBytes."
+
 #. Resource IDs: (146)
 msgid "Unversion"
 msgstr "Afversionér"
@@ -8543,6 +8684,62 @@ msgstr "Benyt overst&regning til fjernede linjer"
 msgid "Use system locale for date/time"
 msgstr "Benyt systemformatering til dato/tid"
 
+#. Resource IDs: (251)
+#, fuzzy
+msgid "Use text block from '&mine'"
+msgstr "Benyt tekstblok fra \"&min\""
+
+#. Resource IDs: (251)
+#, fuzzy
+msgid "Use text block from '&theirs'"
+msgstr "Benyt tekstblok fra \"&deres\""
+
+#. Resource IDs: (251)
+#, fuzzy
+msgid "Use text block from 'm&ine' before 'theirs'"
+msgstr "Benyt tekstblok fra \"m&in\" før \"deres\""
+
+#. Resource IDs: (2052)
+#, fuzzy
+msgid ""
+"Use text block from 'mine' before 'theirs'\n"
+"Use 'mine' text block then 'theirs'"
+msgstr ""
+"Benyt tekstblok fra \"min\" før \"deres\"\n"
+"Benyt \"min\" tekstblok, derefter \"deres\""
+
+#. Resource IDs: (2052)
+#, fuzzy
+msgid ""
+"Use text block from 'mine'\n"
+"Use 'mine' text block"
+msgstr ""
+"Benyt tekstblok fra \"min\"\n"
+"Benyt \"min\" tekstblok"
+
+#. Resource IDs: (251)
+#, fuzzy
+msgid "Use text block from 't&heirs' before 'mine"
+msgstr "Benyt tekstblok fra \"d&eres\" før \"min\""
+
+#. Resource IDs: (2052)
+#, fuzzy
+msgid ""
+"Use text block from 'theirs' before 'mine'\n"
+"Use 'theirs' text block then 'mine'"
+msgstr ""
+"Benyt tekstblok fra \"deres\" før \"min\"\n"
+"Benyt \"deres\" tekstblok, derefter \"min\""
+
+#. Resource IDs: (2052)
+#, fuzzy
+msgid ""
+"Use text block from 'theirs'\n"
+"Use 'theirs' text block"
+msgstr ""
+"Benyt tekstblok fra \"deres\"\n"
+"Benyt \"deres\" tekstblok"
+
 #. Resource IDs: (251, 32820)
 msgid "Use text block from \"&mine\""
 msgstr "Benyt tekstblok fra \"&min\""
@@ -8555,41 +8752,9 @@ msgstr "Benyt tekstblok fra \"&deres\""
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "Benyt tekstblok fra \"m&in\" før \"deres\""
 
-#. Resource IDs: (2052)
-msgid ""
-"Use text block from \"mine\" before \"theirs\"\n"
-"Use \"mine\" text block then \"theirs\""
-msgstr ""
-"Benyt tekstblok fra \"min\" før \"deres\"\n"
-"Benyt \"min\" tekstblok, derefter \"deres\""
-
-#. Resource IDs: (2052)
-msgid ""
-"Use text block from \"mine\"\n"
-"Use \"mine\" text block"
-msgstr ""
-"Benyt tekstblok fra \"min\"\n"
-"Benyt \"min\" tekstblok"
-
 #. Resource IDs: (251, 32821)
 msgid "Use text block from \"t&heirs\" before \"mine\""
 msgstr "Benyt tekstblok fra \"d&eres\" før \"min\""
-
-#. Resource IDs: (2052)
-msgid ""
-"Use text block from \"theirs\" before \"mine\"\n"
-"Use \"theirs\" text block then \"mine\""
-msgstr ""
-"Benyt tekstblok fra \"deres\" før \"min\"\n"
-"Benyt \"deres\" tekstblok, derefter \"min\""
-
-#. Resource IDs: (2052)
-msgid ""
-"Use text block from \"theirs\"\n"
-"Use \"theirs\" text block"
-msgstr ""
-"Benyt tekstblok fra \"deres\"\n"
-"Benyt \"deres\" tekstblok"
 
 #. Resource IDs: (2054)
 msgid ""
@@ -8710,6 +8875,14 @@ msgstr "Advarsel"
 #. Resource IDs: (219)
 msgid "Warning!"
 msgstr "Advarsel!"
+
+#. Resource IDs: (345)
+msgid ""
+"When a small log cache has not been used for the given\n"
+"number of days, it will be removed automatically."
+msgstr ""
+"Når en lille logcache ikke er blevet brugt i det givne\n"
+"antal dage, vil den blive fjernet automatisk."
 
 #. Resource IDs: (344)
 msgid ""
@@ -9024,10 +9197,6 @@ msgstr "Tilpas zoom"
 msgid "[Unassigned]"
 msgstr "[Ikke tildelt]"
 
-#. Resource IDs: (338)
-msgid "\"skip ranges\" are used to mark revision ranges that have not been cached yet"
-msgstr "\"intervaller der skal springes over\" bruges til at markere revisionsintervaller der endnu ikke er blevet cachede"
-
 #. Resource IDs: (65535)
 msgid "_POPUP_"
 msgstr "_POPUP_"
@@ -9041,9 +9210,9 @@ msgid "added files"
 msgstr "tilføjede filer"
 
 #. Resource IDs: (272)
-#, c-format
-msgid "alias (deleted): %s"
-msgstr "alias (slettet): %s"
+#, fuzzy, c-format
+msgid "alias (%s): %s"
+msgstr "alias: %s"
 
 #. Resource IDs: (272)
 #, c-format
@@ -9083,10 +9252,11 @@ msgid "authors: "
 msgstr "forfattere:"
 
 #. Resource IDs: (577)
+#, fuzzy
 msgid ""
 "bugtraq:append\r\n"
-"Set to \"false\" if you want the bugtracking ID to be inserted at the top of the\r\n"
-"log message. The default is \"true\" which means the bugtracking ID\r\n"
+"Set to 'false' if you want the bugtracking ID to be inserted at the top of the\r\n"
+"log message. The default is 'true' which means the bugtracking ID\r\n"
 "is appended to the log message."
 msgstr ""
 "bugtraq:append\r\n"
@@ -9116,29 +9286,30 @@ msgstr ""
 "det andet udtryk benyttes til at udtrække fejl-ID'et fra sagsstrengen."
 
 #. Resource IDs: (577)
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "bugtraq:message\r\n"
 "String which is appended to a log message when an issue number is entered.\r\n"
-"The string must contain \"%BUGID%\" which gets replaced with the issue number."
+"The string must contain '%BUGID%' which gets replaced with the issue number."
 msgstr ""
 "bugtraq:message\r\n"
 "Den streng, som tilføjes en logbesked, når et sagsnummer udfyldes.\r\n"
 "Strengen skal indeholde \"%BUGID%\", som vil blive erstattet af fejl-ID'et."
 
 #. Resource IDs: (577)
+#, fuzzy
 msgid ""
 "bugtraq:number\r\n"
-"Set to \"false\" if your bugtracking system has issues which are referenced not by numbers."
+"Set to 'false' if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
 "bugtraq:number\r\n"
 "Sæt til \"false\", hvis dit bugtracking-system ikke registrerer sager via tal."
 
 #. Resource IDs: (577)
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "bugtraq:url\r\n"
-"URL pointing to the issue tracker. It must contain \"%BUGID%\" which\r\n"
+"URL pointing to the issue tracker. It must contain '%BUGID%' which\r\n"
 "gets replaced with the issue number."
 msgstr ""
 "bugtraq:url\r\n"
@@ -9568,9 +9739,10 @@ msgstr ""
 "Angiver det mindste antal tegn, en låsebesked skal indeholde, før låsning kan foretages."
 
 #. Resource IDs: (578)
+#, fuzzy
 msgid ""
 "tsvn:logfilelistenglish\r\n"
-"Set to \"false\" if you don't want the list of changed files to be pasted in english\r\n"
+"Set to 'false' if you don't want the list of changed files to be pasted in English\r\n"
 "in the commit dialog."
 msgstr ""
 "tsvn:logfilelistenglish\r\n"
@@ -9595,10 +9767,11 @@ msgstr ""
 "En regex-streng som udtrækker et sammendrag fra en logbesked."
 
 #. Resource IDs: (578)
+#, fuzzy
 msgid ""
 "tsvn:logtemplate\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
-"Use this as a log message templates for users to fill in."
+"Use this as a log message template for users to fill in."
 msgstr ""
 "tsvn:logtemplate:\r\n"
 "Angiver en streng, som indsættes i logbesked-tekstfeltet i arkiveringsdialogen.\r\n"
@@ -9645,9 +9818,10 @@ msgstr ""
 "blive vist i egenskabsdialogen, til at vælge fra."
 
 #. Resource IDs: (577)
+#, fuzzy
 msgid ""
 "tsvn:warnifnoissue\r\n"
-"Set to \"yes\" if a warning shall be shown when no issue is entered in the commit dialog."
+"Set to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
 "tsvn:warnifnoissue\r\n"
 "Sæt denne værdi til \"yes\", hvis der skal vises en advarsel, hvis der ikke indtastes et sagsnummer i arkiveringsdialogen."
@@ -9709,6 +9883,10 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "(deleted) %s"
+#~ msgstr "(slettet) %s"
+#~ msgid "alias (deleted): %s"
+#~ msgstr "alias (slettet): %s"
 #~ msgid "&?"
 #~ msgstr "&?"
 #~ msgid "&Cancel"
