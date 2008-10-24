@@ -78,7 +78,10 @@ BOOL CEditPropertiesDlg::OnInitDialog()
 	// fill in the path edit control
 	if (m_pathlist.GetCount() == 1)
 	{
-		SetDlgItemText(IDC_PROPPATH, m_pathlist[0].GetWinPathString());
+		if (m_pathlist[0].IsUrl())
+			SetDlgItemText(IDC_PROPPATH, m_pathlist[0].GetSVNPathString());
+		else
+			SetDlgItemText(IDC_PROPPATH, m_pathlist[0].GetWinPathString());
 	}
 	else
 	{
