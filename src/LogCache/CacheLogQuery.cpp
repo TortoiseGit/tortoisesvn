@@ -648,6 +648,11 @@ revision_t CCacheLogQuery::FindOldestGap ( const CDictionaryBasedTempPath& path
     size_t knownSequenceLength = 0;
     size_t knownSequenceChanges = 0;
 
+    // scan cached history data
+
+    CCopyFollowingLogIterator iterator (cache, startRevision, path);
+	iterator.Retry();
+
 	while (   (startRevision >= endRevision) 
            && (startRevision != NO_REVISION)
            && (knownSequenceLength < RECEIVE_TO_ROUNTRIP_TRADEOFF_REVS)
@@ -655,8 +660,6 @@ revision_t CCacheLogQuery::FindOldestGap ( const CDictionaryBasedTempPath& path
 	{
 		// skip known revisions that are irrelevant for path
 
-		CStrictLogIterator iterator (cache, startRevision, path);
-		iterator.Retry();
 		startRevision = iterator.GetRevision();
 		if( startRevision == NO_REVISION )
 			break;
@@ -669,8 +672,11 @@ revision_t CCacheLogQuery::FindOldestGap ( const CDictionaryBasedTempPath& path
             // restart the sequence counting (until we found the first existing)
 
 			lastMissing = startRevision;
-            knownSequenceLength = 0;
-            knownSequenceChanges = 0;
+
+            // try next revision
+
+            iterator.SetRevision (startRevision-1);
+            iterator.Retry();
 		}
 		else
 		{
@@ -681,11 +687,11 @@ revision_t CCacheLogQuery::FindOldestGap ( const CDictionaryBasedTempPath& path
             index_t revIndex = revisions[startRevision];
             knownSequenceChanges += logInfo.GetChangesEnd (revIndex) 
                                   - logInfo.GetChangesBegin (revIndex);
+
+            // follow history
+
+            iterator.Advance();
 		}
-
-        // try the next revision
-
-        --startRevision;
 	}
 
 	// fetch everything down to and including the lowest missing revision 
