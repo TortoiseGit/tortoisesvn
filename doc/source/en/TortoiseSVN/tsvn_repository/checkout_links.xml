@@ -46,4 +46,11 @@
 &lt;img src=TortoiseCheckout.png&gt;&lt;/a&gt;
 </programlisting>
 	</para>
+	<para>
+		You can also make the link point to a specific revision, for example
+<programlisting>
+&lt;a href="tsvn:https://tortoisesvn.tigris.org/svn/tortoisesvn/trunk?100"&gt;
+&lt;/a&gt;
+</programlisting>
+	</para>
 </sect1>
