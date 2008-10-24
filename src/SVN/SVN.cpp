@@ -30,6 +30,7 @@
 #include "Registry.h"
 #include "SVNHelpers.h"
 #include "SVNStatus.h"
+#include "SVNInfo.h"
 #include "AppUtils.h"
 #include "PathUtils.h"
 #include "StringUtils.h"
@@ -2009,7 +2010,7 @@ CString SVN::GetRepositoryRoot(const CTSVNPath& url)
 	}
 }
 
-CString SVN::GetRepositoryRootAndUUID(const CTSVNPath& url, CString& sUUID)
+CString SVN::GetRepositoryRootAndUUID(const CTSVNPath& path, CString& sUUID)
 {
 	const char * returl;
 	const char * uuid;
@@ -2023,7 +2024,29 @@ CString SVN::GetRepositoryRootAndUUID(const CTSVNPath& url, CString& sUUID)
 	sUUID.Empty();
 
 	// make sure the url is canonical.
-	const char * goodurl = svn_path_canonicalize(url.GetSVNApiPath(localpool), localpool);
+
+    const char * goodurl = NULL;
+	if (!path.IsUrl())
+    {
+        // try to use local WC info to get root and UUID
+
+	    SVNInfo info;
+	    const SVNInfoData * baseInfo 
+		    = info.GetFirstFileInfo (path, SVNRev(), SVNRev());
+        if (!baseInfo->reposRoot.IsEmpty() && !baseInfo->reposUUID.IsEmpty())
+        {
+            sUUID = baseInfo->reposUUID;
+            return baseInfo->reposRoot;
+        }
+
+        // fall back to RA layer
+
+		Err = svn_client_url_from_path (&goodurl, path.GetSVNApiPath(localpool), localpool);
+    }
+	else
+    {
+		goodurl = svn_path_canonicalize(path.GetSVNApiPath(localpool), localpool);
+    }
 
 	/* use subpool to create a temporary RA session */
 	Err = svn_client_open_ra_session (&ra_session, goodurl, m_pctx, localpool);
@@ -2041,7 +2064,7 @@ CString SVN::GetRepositoryRootAndUUID(const CTSVNPath& url, CString& sUUID)
 	return CString(returl);
 }
 
-svn_revnum_t SVN::GetHEADRevision(const CTSVNPath& url)
+svn_revnum_t SVN::GetHEADRevision(const CTSVNPath& path)
 {
 	svn_ra_session_t *ra_session;
 	const char * urla;
@@ -2051,12 +2074,12 @@ svn_revnum_t SVN::GetHEADRevision(const CTSVNPath& url)
 	svn_error_clear(Err);
     Err = NULL;
 
-	if (!url.IsUrl())
-		Err = svn_client_url_from_path (&urla, url.GetSVNApiPath(localpool), localpool);
+	if (!path.IsUrl())
+		Err = svn_client_url_from_path (&urla, path.GetSVNApiPath(localpool), localpool);
 	else
 	{
 		// make sure the url is canonical.
-		const char * goodurl = svn_path_canonicalize(url.GetSVNApiPath(localpool), localpool);
+		const char * goodurl = svn_path_canonicalize(path.GetSVNApiPath(localpool), localpool);
 		urla = goodurl;
 	}
 	if (Err)

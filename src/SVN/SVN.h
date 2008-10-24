@@ -660,17 +660,17 @@ public:
 	CString GetRepositoryRoot(const CTSVNPath& url);
 	/**
 	 * Finds the repository root of a given url, and the UUID of the repository.
-	 * \param url [in] the url to get the root and UUID from
+	 * \param path [in] the WC path / URL to get the root and UUID from
 	 * \param sUUID [out] the UUID of the repository
 	 * \return the root url or an empty string
 	 */
-	CString GetRepositoryRootAndUUID(const CTSVNPath& url, CString& sUUID);
+	CString GetRepositoryRootAndUUID(const CTSVNPath& path, CString& sUUID);
 
 	/**
 	 * Returns the HEAD revision of the URL or WC-Path.
 	 * Or -1 if the function failed.
 	 */
-	svn_revnum_t GetHEADRevision(const CTSVNPath& url);
+	svn_revnum_t GetHEADRevision(const CTSVNPath& path);
 
 	/**
 	 * Returns the repository root and the HEAD revision of the repository.
