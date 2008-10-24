@@ -503,6 +503,19 @@
 				</listitem>
 			</orderedlist>
 		</para>
+		<para>
+			If you do not want to use this interactive callback, there is a
+			checkbox in the merge progress dialog <guilabel>Merge non-interactive</guilabel>.
+			If this is set for a merge and the merge would result in a conflict,
+			the file is marked as in conflict and the merge goes on. You will have
+			to resolve the conflicts after the whole merge is finished.
+			If it is not set, then before a file is marked as conflicted you get the
+			chance to resolve the conflict <emphasis>during</emphasis> the merge.
+			This has the advantage that if a file gets multiple merges (multiple
+			revisions apply a change to that file), subsequent merges might succeed
+			depending on which lines are affected. But of course you can't walk away
+			to get a coffee while the merge is running ;)
+		</para>
 	</sect2>
 	<sect2 id="tsvn-dug-merge-all">
 		<title>Merge a Completed Branch</title>
