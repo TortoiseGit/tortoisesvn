@@ -171,6 +171,7 @@ private:
         CCachedLogInfo* updateData;
 	    CRepositoryInfo* repositoryInfoCache;
 		CStringA URL;
+        CString uuid;
 
 		/// connection to the SVN repository
 		ILogQuery* svnQuery;
@@ -223,6 +224,7 @@ private:
 		/// return the last revision sent to the receiver
 		revision_t FillLog ( CCachedLogInfo* cache
 						   , const CStringA& URL
+                           , CString uuid
 						   , ILogQuery* svnQuery
 						   , revision_t startRevision
 						   , revision_t endRevision
@@ -270,6 +272,8 @@ private:
 	/// cache to use & update
 	CCachedLogInfo* cache;
 	CStringA URL;
+    CString root;
+    CString uuid;
 
 	/// used, if caches is NULL
 	CCachedLogInfo* tempCache;

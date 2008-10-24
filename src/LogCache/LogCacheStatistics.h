@@ -126,7 +126,7 @@ private:
 
 	/// data collection
 
-	void CollectData (CLogCachePool& pool, const CString& uuid);
+	void CollectData (CLogCachePool& pool, const CString& uuid, const CString& root);
 	void CollectData (const CCachedLogInfo& source);
 
 public:
@@ -135,7 +135,7 @@ public:
 	/// collect data during construction
 
 	CLogCacheStatistics();
-	CLogCacheStatistics (CLogCachePool& pool, const CString& uuid);
+	CLogCacheStatistics (CLogCachePool& pool, const CString& uuid, const CString& root);
 	~CLogCacheStatistics();
 
 	/// all back to zero

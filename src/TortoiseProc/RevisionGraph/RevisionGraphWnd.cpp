@@ -1000,7 +1000,10 @@ LRESULT CRevisionGraphWnd::OnWorkerThreadDone(WPARAM, LPARAM)
     SVN svn;
 	LogCache::CRepositoryInfo& cachedProperties 
         = svn.GetLogCachePool()->GetRepositoryInfo();
-	SetDlgTitle (cachedProperties.IsOffline (m_fullHistory->GetRepositoryRoot(), false));
+	SetDlgTitle (cachedProperties.IsOffline 
+        ( m_fullHistory->GetRepositoryUUID()
+        , m_fullHistory->GetRepositoryRoot()
+        , false));
 
     return 0;
 }

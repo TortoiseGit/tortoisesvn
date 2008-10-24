@@ -100,6 +100,7 @@ public:
 	svn_revnum_t				GetHeadRevision() const {return headRevision;}
 	svn_revnum_t				GetPegRevision() const {return pegRevision;}
 	CString						GetRepositoryRoot() const {return CString (repoRoot);}
+	CString						GetRepositoryUUID() const {return uuid;}
 	CString						GetRelativePath() const {return CString (relPath);}
 
     const CDictionaryBasedTempPath* GetStartPath() const {return startPath.get();}
@@ -124,6 +125,7 @@ private:
 
     CStringA					repoRoot;
 	CStringA					relPath;
+    CString                     uuid;
 	revision_t					headRevision;
 	revision_t					pegRevision;
 

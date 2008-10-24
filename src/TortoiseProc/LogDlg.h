@@ -197,6 +197,7 @@ private:
 	CString				m_sRepositoryRoot;
 	CString				m_sSelfRelativeURL;
 	CString				m_sURL;
+	CString				m_sUUID;    ///< empty if the log cache is not used
 	CHintListCtrl		m_LogList;
 	CListCtrl			m_ChangedFileListCtrl;
 	CFilterEdit			m_cFilter;

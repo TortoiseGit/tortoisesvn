@@ -1352,8 +1352,8 @@ LogCache::CCachedLogInfo* SVN::GetLogCache (const CTSVNPath& path)
         return NULL;
 
     CString uuid;
-    logCachePool.GetRepositoryInfo().GetRepositoryRootAndUUID (path, uuid);
-    return logCachePool.GetCache (uuid);
+    CString root = logCachePool.GetRepositoryInfo().GetRepositoryRootAndUUID (path, uuid);
+    return logCachePool.GetCache (uuid, root);
 }
 
 BOOL SVN::ReceiveLog(const CTSVNPathList& pathlist, const SVNRev& revisionPeg, const SVNRev& revisionStart, const SVNRev& revisionEnd, int limit, BOOL strict, BOOL withMerges, bool refresh)
@@ -2127,15 +2127,15 @@ BOOL SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& re
         canonicalURL.SetFromSVN (urla);
 
         CRepositoryInfo& cachedProperties = logCachePool.GetRepositoryInfo();
-
-	    url.SetFromSVN (cachedProperties.GetRepositoryRoot (canonicalURL));
+        CString uuid;
+        url.SetFromSVN (cachedProperties.GetRepositoryRootAndUUID (path, uuid));
         if (url.IsEmpty())
         {
             assert (Err != NULL);
         }
         else
         {
-            rev = cachedProperties.GetHeadRevision (canonicalURL);
+            rev = cachedProperties.GetHeadRevision (uuid, canonicalURL);
             if ((rev == NO_REVISION) && (Err == NULL))
             {
                 Err = svn_client_open_ra_session (&ra_session, urla, m_pctx, localpool);

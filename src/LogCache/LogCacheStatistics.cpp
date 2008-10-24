@@ -158,7 +158,8 @@ __time64_t CLogCacheStatistics::GetTime (FILETIME& fileTime)
 ///////////////////////////////////////////////////////////////
 
 void CLogCacheStatistics::CollectData ( CLogCachePool& pool
-									  , const CString& uuid)
+									  , const CString& uuid
+                                      , const CString& root)
 {
 	fileSize = 0;
 
@@ -168,7 +169,12 @@ void CLogCacheStatistics::CollectData ( CLogCachePool& pool
 
 	// file properties
 
-	CString fileName = pool.GetCacheFolderPath() + uuid;
+    const CRepositoryInfo::SPerRepositoryInfo* info 
+        = pool.GetRepositoryInfo().data.Lookup (uuid, root);
+    if (info == NULL)
+        return;
+
+    CString fileName = pool.GetCacheFolderPath() + info->fileName;
 
 	WIN32_FILE_ATTRIBUTE_DATA fileInfo;
 	if (GetFileAttributesEx ( fileName
@@ -180,21 +186,9 @@ void CLogCacheStatistics::CollectData ( CLogCachePool& pool
 		lastWriteAccess = GetTime (fileInfo.ftLastWriteTime);
 	}
 
-	// try to find the pool entry
+	// info from pool entry (and convert to apr_time_t)
 
-	const CRepositoryInfo::TData& data = pool.GetRepositoryInfo().data;
-	for ( CRepositoryInfo::TData::const_iterator iter = data.begin()
-		, end = data.end()
-		; iter != end
-		; ++iter)
-	{
-		if (iter->second.uuid == uuid)
-		{
-			// found it (convert to apr_time_t)
-
-			headTimeStamp = iter->second.headLookupTime * 1000000L;
-		}
-	}
+  	headTimeStamp = info->headLookupTime * 1000000L;
 }
 
 void CLogCacheStatistics::CollectData (const CCachedLogInfo& source)
@@ -314,15 +308,17 @@ CLogCacheStatistics::CLogCacheStatistics()
 }
 
 CLogCacheStatistics::CLogCacheStatistics ( CLogCachePool& pool
-										 , const CString& uuid)
+										 , const CString& uuid
+                                         , const CString& url)
 {
 	Reset();
 
-	CollectData (pool, uuid);
+	CollectData (pool, uuid, url);
 	if (CacheExists())
-		CollectData (*pool.GetCache (uuid));
+		CollectData (*pool.GetCache (uuid, url));
 
-    connectionState = pool.GetRepositoryInfo().GetConnectionState (uuid);
+    connectionState 
+        = pool.GetRepositoryInfo().GetConnectionState (uuid, url);
 }
 
 CLogCacheStatistics::~CLogCacheStatistics()

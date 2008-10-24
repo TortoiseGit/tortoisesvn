@@ -241,8 +241,8 @@ bool CFullHistory::FetchRevisionData ( CString path
             CLogCachePool* pool = svn.GetLogCachePool();
 		    query.reset (new CCacheLogQuery (pool, svnQuery.get()));
 
-            CString uuid = pool->GetRepositoryInfo().GetRepositoryUUID (rootPath);
-            firstRevision = pool->GetCache (uuid)->GetRevisions().GetFirstMissingRevision(1);
+            uuid = pool->GetRepositoryInfo().GetRepositoryUUID (rootPath);
+            firstRevision = pool->GetCache (uuid, GetRepositoryRoot())->GetRevisions().GetFirstMissingRevision(1);
 
 			// if the cache is already complete, the firstRevision here is
 			// HEAD+1 - that revision does not exist and would throw an error later

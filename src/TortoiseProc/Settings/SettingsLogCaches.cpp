@@ -121,11 +121,11 @@ BOOL CSettingsLogCaches::PreTranslateMessage(MSG* pMsg)
 
 void CSettingsLogCaches::OnBnClickedDetails()
 {
-    CString uuid = GetSelectedUUID();
-    if (!uuid.IsEmpty())
+    TRepo repo = GetSelectedRepo();
+    if (!repo.first.IsEmpty())
     {
         CLogCacheStatistics staticstics 
-            (*SVN().GetLogCachePool(), uuid);
+            (*SVN().GetLogCachePool(), repo.second, repo.first);
 
         CLogCacheStatisticsDlg dialog (staticstics.GetData(), this);
         dialog.DoModal();
@@ -139,15 +139,18 @@ void CSettingsLogCaches::OnBnClickedUpdate()
 
 void CSettingsLogCaches::OnBnClickedExport()
 {
-    CString uuid = GetSelectedUUID();
-
-    CFileDialog dialog (FALSE);
-    if (dialog.DoModal() == IDOK)
+    TRepo repo = GetSelectedRepo();
+    if (!repo.first.IsEmpty())
     {
-        SVN svn;
-        CCachedLogInfo* cache = svn.GetLogCachePool()->GetCache (uuid);
-        CCSVWriter writer;
-        writer.Write (*cache, (LPCTSTR)dialog.GetFileName());
+        CFileDialog dialog (FALSE);
+        if (dialog.DoModal() == IDOK)
+        {
+            SVN svn;
+            CCachedLogInfo* cache 
+                = svn.GetLogCachePool()->GetCache (repo.second, repo.first);
+            CCSVWriter writer;
+            writer.Write (*cache, (LPCTSTR)dialog.GetFileName());
+        }
     }
 }
 
@@ -162,9 +165,9 @@ void CSettingsLogCaches::OnBnClickedDelete()
 		while (pos)
 		{
 			int index = m_cRepositoryList.GetNextSelectedItem(pos);
-			IT iter = urls.begin();
+			IT iter = repos.begin();
 			std::advance (iter, index);
-			SVN().GetLogCachePool()->DropCache (iter->second);
+            SVN().GetLogCachePool()->DropCache (iter->second, iter->first);
 		}
 		FillRepositoryList();
 	}
@@ -176,16 +179,16 @@ LRESULT CSettingsLogCaches::OnRefeshRepositoryList (WPARAM, LPARAM)
 	return 0L;
 }
 
-CString CSettingsLogCaches::GetSelectedUUID()
+CSettingsLogCaches::TRepo CSettingsLogCaches::GetSelectedRepo()
 {
     int index = m_cRepositoryList.GetSelectionMark();
     if (index == -1)
-        return CString();
+        return CSettingsLogCaches::TRepo();
 
-    IT iter = urls.begin();
+    IT iter = repos.begin();
     std::advance (iter, index);
 
-    return iter->second;
+    return *iter;
 }
 
 void CSettingsLogCaches::FillRepositoryList()
@@ -196,30 +199,14 @@ void CSettingsLogCaches::FillRepositoryList()
 
     SVN svn;
     CLogCachePool* caches = svn.GetLogCachePool();
-    urls = caches->GetRepositoryURLs();
+    repos = caches->GetRepositoryURLs();
 
-    for (IT iter = urls.begin(), end = urls.end(); iter != end; ++iter, ++count)
+    for (IT iter = repos.begin(), end = repos.end(); iter != end; ++iter, ++count)
     {
         CString url = iter->first;
-        if (url == iter->second)
-        {
-            // we either don't know a repository URL for this one
-            // or we know multiple URLs
-
-            CString uuid = iter->second;
-            if (caches->GetRepositoryInfo().HasMultipleURLs (uuid))
-            {
-                url.Format ( IDS_SETTINGS_MULTIPLEURLSFORUUID
-                           , (LPCTSTR)caches->GetRepositoryInfo().GetFirstURL (uuid));
-            }
-            else
-            {
-                url.Format (IDS_SETTINGS_DELETEDCACHE, (LPCTSTR)uuid);
-            }
-        }
 
         m_cRepositoryList.InsertItem (count, url);
-        size_t fileSize = caches->FileSize (iter->second) / 1024;
+        size_t fileSize = caches->FileSize (iter->second, url) / 1024;
 
         CString sizeText;
         sizeText.Format(TEXT("%d"), fileSize);
@@ -230,10 +217,10 @@ void CSettingsLogCaches::FillRepositoryList()
 // implement ILogReceiver
 
 void CSettingsLogCaches::ReceiveLog ( LogChangedPathArray* 
-					          , svn_revnum_t rev
-                              , const StandardRevProps* 
-                              , UserRevPropArray* 
-                              , bool )
+					                , svn_revnum_t rev
+                                    , const StandardRevProps* 
+                                    , UserRevPropArray* 
+                                    , bool )
 {
 	// update internal data
 
@@ -277,10 +264,11 @@ UINT CSettingsLogCaches::WorkerThread(LPVOID pVoid)
 	CLogCachePool* caches = svn.GetLogCachePool();
     CRepositoryInfo& info = caches->GetRepositoryInfo();
 
+    TRepo repo = dialog->GetSelectedRepo();
 	CTSVNPath urlpath;
-    urlpath.SetFromSVN (info.GetRootFromUUID (dialog->GetSelectedUUID()));
+    urlpath.SetFromSVN (repo.first);
 
-    dialog->headRevision = info.GetHeadRevision (urlpath);
+    dialog->headRevision = info.GetHeadRevision (repo.second, urlpath);
 	dialog->progress->SetProgress (0, dialog->headRevision);
 
 	apr_pool_t *pool = svn_pool_create(NULL);

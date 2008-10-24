@@ -69,11 +69,12 @@ private:
 
     /// current repository list
 
-    typedef std::map<CString, CString> TURLs;
-    typedef TURLs::const_iterator IT;
-    TURLs           urls;
+    typedef std::multimap<CString, CString> TRepos;
+    typedef TRepos::value_type TRepo;
+    typedef TRepos::const_iterator IT;
+    TRepos          repos;
 
-    CString GetSelectedUUID();
+    TRepo GetSelectedRepo();
     void FillRepositoryList();
 
     static UINT WorkerThread(LPVOID pVoid);

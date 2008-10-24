@@ -110,6 +110,7 @@ public:
 
     svn_revnum_t    GetHeadRevision() const;             
     CString         GetRepositoryRoot() const;             
+    CString         GetRepositoryUUID() const;
 
 protected:
 	DWORD			m_dwTicks;

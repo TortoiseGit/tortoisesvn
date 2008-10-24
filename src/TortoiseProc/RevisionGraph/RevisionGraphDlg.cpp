@@ -381,7 +381,10 @@ BOOL CRevisionGraphDlg::PreTranslateMessage(MSG* pMsg)
             SVN svn;
         	LogCache::CRepositoryInfo& cachedProperties 
                 = svn.GetLogCachePool()->GetRepositoryInfo();
-            cachedProperties.ResetHeadRevision (CTSVNPath (m_Graph.GetRepositoryRoot()));
+            CString root = m_Graph.GetRepositoryRoot();
+            CString uuid = m_Graph.GetRepositoryUUID();
+
+            cachedProperties.ResetHeadRevision (uuid, root);
 
             m_bFetchLogs = true;
             StartWorkerThread();

@@ -35,31 +35,196 @@
 namespace LogCache
 {
 
-// share the repository info pool thoughout this application
-// (it is unique per computer anyway)
+// checking prefixes is not that simple ..
 
-CRepositoryInfo::TData CRepositoryInfo::data;
-
-// construct the dump file name
-
-CString CRepositoryInfo::GetFileName() const
+bool IsParentDirectory (const CString& parent, const CString& dir)
 {
-    return cacheFolder + _T("Repositories.dat");
+    return (parent == dir) 
+        || (   (dir.GetLength() > parent.GetLength())
+            && (dir.GetAt (parent.GetLength()) == '/'));
 }
 
-// read the dump file
-
-void CRepositoryInfo::Load()
+CString UniqueFileName (const CString& fileName)
 {
-    modified = false;
+    CString base = fileName;
+    for (int i = 0, count = base.GetLength(); i < count; ++i)
+    {
+        TCHAR c = base[i];
+        if ((c == _T('?')) || (c == _T('/')) || (c == _T('\\')) || (c == _T(':')))
+            base.SetAt (i, _T('_'));
+    }
 
-    // any cached info at all?
+    int num = 0;
+    CString result = base;
+	while (GetFileAttributes (result) != INVALID_FILE_ATTRIBUTES)
+        result.Format (_T("%s(%d)"), (LPCTSTR)result, ++num); 
 
-	if (GetFileAttributes (GetFileName()) == INVALID_FILE_ATTRIBUTES)
-        return;
+    return result;
+}
 
+// a lookup utility that scans an index range
+
+CString CRepositoryInfo::CData::FindRoot 
+    ( TPartialIndex::const_iterator begin
+    , TPartialIndex::const_iterator end
+    , const CString& url) const
+{
+    for (TPartialIndex::const_iterator iter = begin; iter != end; ++iter)
+    {
+        const CString& root = iter->second->root;
+        if (   (root == url.Left (root.GetLength())
+            && IsParentDirectory (root, url)))
+        {
+            return root;
+        }
+    }
+
+    return CString();
+}
+
+// construction / destruction
+
+CRepositoryInfo::CData::CData()
+{
+}
+
+CRepositoryInfo::CData::~CData()
+{
+    Clear();
+}
+
+// lookup (using current rules setting);
+// pass empty strings for unknown values.
+
+CString CRepositoryInfo::CData::FindRoot (const CString& uuid, const CString& url) const
+{
+    // lookup by UUID, if allowed
+    // or if url is already a root
+
+    CRepositoryInfo::SPerRepositoryInfo* info = Lookup (uuid, url);
+    if (info != NULL)
+        return info->root;
+
+    // UUID missing?
+
+    if (uuid.IsEmpty())
+    {
+        // URLs must be unique
+
+        return CSettings::GetAllowAmbiguousURL()
+            ? CString()
+            : FindRoot ( urlIndex.begin()
+                       , urlIndex.lower_bound (url)
+                       , url);
+    }
+    else
+    {
+        // if URL is empty here, then lookup by UUID alone was not successful
+        // -> it will fail here as well
+
+        return FindRoot ( uuidIndex.lower_bound (uuid)
+                        , uuidIndex.upper_bound (uuid)
+                        , url);
+    }
+}
+
+CRepositoryInfo::SPerRepositoryInfo* 
+CRepositoryInfo::CData::Lookup (const CString& uuid, const CString& root) const
+{
+    // the full index will only match if uuid and url are both given.
+    // That repo info will be valid even if ambiguities are not allowed.
+
+    TFullIndex::const_iterator iter 
+        = fullIndex.find (std::make_pair (uuid, root));
+    if (iter != fullIndex.end())
+        return iter->second;
+
+    // try an URL-agnostic lookup, if that is allowed
+    // (will automatically fail if the the UUID should not be given)
+
+    if (!CSettings::GetAllowAmbiguousUUID())
+    {
+        TPartialIndex::const_iterator iter = uuidIndex.find (uuid);
+        if (iter != uuidIndex.end())
+            return iter->second;
+    }
+
+    // try an UUID-agnostic lookup, if that is allowed
+    // (will automatically fail if the the URL should not be given)
+
+    if (!CSettings::GetAllowAmbiguousURL())
+    {
+        TPartialIndex::const_iterator iter = urlIndex.find (root);
+        if (iter != urlIndex.end())
+            return iter->second;
+    }
+
+    // not found
+
+    return NULL;
+}
+
+// modification
+
+void CRepositoryInfo::CData::Add (const SPerRepositoryInfo& info)
+{
+    SPerRepositoryInfo* newInfo = new SPerRepositoryInfo (info);
+    data.push_back (newInfo);
+
+    urlIndex.insert (std::make_pair (newInfo->root, newInfo));
+    uuidIndex.insert (std::make_pair (newInfo->uuid, newInfo));
+    fullIndex.insert (std::make_pair (std::make_pair (newInfo->uuid, newInfo->root), newInfo));
+}
+
+void CRepositoryInfo::CData::Remove (SPerRepositoryInfo* info)
+{
+    // remove info from the list
+
+    TData::iterator iter = std::find (data.begin(), data.end(), info);
+    assert (iter != data.end());
+
+    *iter = *data.rbegin();
+    data.pop_back();
+
+    // remove it from the indices
+
+    for ( TPartialIndex::iterator iter = urlIndex.lower_bound (info->root)
+        , end = urlIndex.upper_bound (info->root)
+        ; iter != end
+        ; ++iter)
+    {
+        if (iter->second == info)
+        {
+            urlIndex.erase (iter);
+            break;
+        }
+    }
+
+    for ( TPartialIndex::iterator iter = uuidIndex.lower_bound (info->uuid)
+        , end = uuidIndex.upper_bound (info->uuid)
+        ; iter != end
+        ; ++iter)
+    {
+        if (iter->second == info)
+        {
+            uuidIndex.erase (iter);
+            break;
+        }
+    }
+
+    fullIndex.erase (std::make_pair (info->uuid, info->root));
+
+    // finally, free the memory
+
+    delete info;
+}
+
+// read / write file
+
+void CRepositoryInfo::CData::Load (const CString& fileName)
+{
 	CFile file;
-	if (!file.Open(GetFileName(), CFile::modeRead | CFile::shareDenyWrite))
+	if (!file.Open (fileName, CFile::modeRead | CFile::shareDenyWrite))
 		return;
     CArchive stream (&file, CArchive::load);
 
@@ -95,58 +260,115 @@ void CRepositoryInfo::Load()
 
         info.connectionState = static_cast<ConnectionState>(connectionState);
 
-        data[info.root] = info;
+        if (version >= MIN_FILENAME_VERSION)
+            stream >> info.fileName;
+        else
+            info.fileName = info.uuid;
+
+        // caches from 1.5.x may have a number of alias entries
+        // -> use at most one
+
+        if (   (version >= MIN_FILENAME_VERSION)
+            || (uuidIndex.find (info.uuid) == uuidIndex.end()))
+        {
+            Add (info);
+        }
     }
 }
 
-// find cache entry (or data::end())
-
-CRepositoryInfo::TData::iterator 
-CRepositoryInfo::Lookup (const CString& url)
+void CRepositoryInfo::CData::Save (const CString& fileName) const
 {
-    // the repository root URL should be a prefix of url
+	CFile file (fileName, CFile::modeWrite | CFile::modeCreate);
+	CArchive stream (&file, CArchive::store);
 
-    TData::iterator iter = data.lower_bound (url);
+	stream << static_cast<int>(VERSION);
+	stream << static_cast<int>(data.size());
 
-    // no suitable prefix?
+	for ( size_t i = 0, count = data.size(); i < count; ++i)
+	{
+        SPerRepositoryInfo* info = data[i];
 
-    if (data.empty())
-        return iter;
+		// temp offline -> be online the next time
 
-    // does prefix match?
+		ConnectionState connectionState 
+			= static_cast<ConnectionState>(info->connectionState & offline);
 
-    if ((iter != data.end()) && (iter->first == url))
-        return iter;
-
-    if (iter != data.begin())
-    {
-        --iter;
-        if (iter->first == url.Left (iter->first.GetLength()))
-		{
-			// make sure we have the right entry
-			if ((iter->first == url)||(url.GetAt(iter->first.GetLength())=='/'))
-				return iter;
-		}
-    }
-
-    // not found
-
-    return data.end();
+		stream << info->root 
+			   << info->uuid 
+			   << info->headURL 
+			   << info->headRevision 
+			   << info->headLookupTime
+			   << connectionState
+               << info->fileName;
+	}
 }
 
-CRepositoryInfo::TData::iterator 
-CRepositoryInfo::Lookup (const CTSVNPath& url)
+void CRepositoryInfo::CData::Clear()
 {
-    return Lookup (url.GetSVNPathString());
+    uuidIndex.clear();
+    urlIndex.clear();
+    fullIndex.clear();
+
+    for (size_t i = 0, count = data.size(); i < count; ++i)
+        delete data[i];
+
+    data.clear();
+}
+
+// status info
+
+bool CRepositoryInfo::CData::empty() const
+{
+    return data.empty();
+}
+
+// data access
+
+const CRepositoryInfo::SPerRepositoryInfo* const * 
+CRepositoryInfo::CData::begin() const
+{
+    return &*data.begin();
+}
+
+const CRepositoryInfo::SPerRepositoryInfo* const * 
+CRepositoryInfo::CData::end() const
+{
+    return begin() + data.size();
+}
+
+// share the repository info pool thoughout this application
+// (it is unique per computer anyway)
+
+CRepositoryInfo::CData CRepositoryInfo::data;
+
+// construct the dump file name
+
+CString CRepositoryInfo::GetFileName() const
+{
+    return cacheFolder + _T("Repositories.dat");
+}
+
+// read the dump file
+
+void CRepositoryInfo::Load()
+{
+    modified = false;
+
+    // any cached info at all?
+
+	if (GetFileAttributes (GetFileName()) == INVALID_FILE_ATTRIBUTES)
+        return;
+
+    data.Load (GetFileName());
 }
 
 // does the user want to be this repository off-line?
 
-bool CRepositoryInfo::IsOffline (SPerRepositoryInfo& info)
+bool CRepositoryInfo::IsOffline (SPerRepositoryInfo* info)
 {
     // is this repository already off-line?
 
-    if (info.connectionState != online)
+    if (info->connectionState != online)
         return true;
 
     // something went wrong. 
@@ -160,31 +382,31 @@ bool CRepositoryInfo::IsOffline (SPerRepositoryInfo& info)
         if (dialog.asDefault)
             CSettings::SetDefaultConnectionState (dialog.selection);
 
-        info.connectionState = dialog.selection;
-        return info.connectionState != online;
+        info->connectionState = dialog.selection;
+        return info->connectionState != online;
     }
     else
     {
         // set default
 
-        info.connectionState = CSettings::GetDefaultConnectionState();
+        info->connectionState = CSettings::GetDefaultConnectionState();
         return true;
     }
 }
 
 // try to get the HEAD revision from the log cache
 
-void CRepositoryInfo::SetHeadFromCache (SPerRepositoryInfo& info)
+void CRepositoryInfo::SetHeadFromCache (SPerRepositoryInfo* info)
 {
 	SVN svn;
-    CCachedLogInfo* cache = svn.GetLogCachePool()->GetCache (info.uuid);
-    info.headRevision = cache != NULL
+    CCachedLogInfo* cache = svn.GetLogCachePool()->GetCache (info->uuid, info->root);
+    info->headRevision = cache != NULL
         ? cache->GetRevisions().GetLastCachedRevision()-1
         : NO_REVISION;
 
     // HEAD info is outdated
 
-    info.headLookupTime = 0;
+    info->headLookupTime = 0;
 }
 
 // construction / destruction: auto-load and save
@@ -196,7 +418,7 @@ CRepositoryInfo::CRepositoryInfo (SVN& svn, const CString& cacheFolderPath)
 {
     // load the list only if the URL->UUID,head etc. mapping cache shall be used
 
-    if (data.empty() && IsPermanent())
+    if (data.empty())
         Load();
 }
 
@@ -221,93 +443,55 @@ CString CRepositoryInfo::GetRepositoryUUID (const CTSVNPath& url)
 }
 
 CString CRepositoryInfo::GetRepositoryRootAndUUID ( const CTSVNPath& url
-                                                  , CString& sUUID)
+                                                  , CString& uuid)
 {
-    TData::iterator iter = Lookup (url);
+    CString sURL = url.GetSVNPathString();
+    CString root = data.FindRoot (uuid, sURL);
+    SPerRepositoryInfo* info = root.IsEmpty()
+                             ? NULL
+                             : data.Lookup (uuid, root);
 
-	// get time stamps 
+    // complete data, if lookup failed with the provided data
 
-    __time64_t now = CTime::GetCurrentTime().GetTime();
-
-    // use cached data, if
-    // * it is available, and
-    // * we don't want to update it (i.e. recent enough and we aren't off-line)
-
-    if (   (iter == data.end()) 
-        || (   (now - iter->second.headLookupTime > CSettings::GetMaxHeadAge())
-            && (iter->second.connectionState == online)))
+    if (info == NULL)
     {
-        // try to get an update
+        root = svn.GetRepositoryRootAndUUID (url, uuid);
+        info = data.Lookup (uuid, root);
+    }
+    else
+    {
+        uuid = info->uuid;
+    }
 
+    // add new cache entry if none is available, yet
+
+    if ((svn.Err == NULL) && (info == NULL))
+    {
         SPerRepositoryInfo info;
-        info.root = svn.GetRepositoryRootAndUUID (url, info.uuid);
         info.headRevision = (revision_t)NO_REVISION;
         info.headLookupTime = -1;
         info.connectionState = online;
+        info.root = root;
+        info.uuid = uuid;
+        info.fileName = UniqueFileName (info.root.Left (60) + info.uuid);
 
-        // if we could not reach the repository, we may want to go offline
-
-        if (   (iter != data.end())
-            && svn.Err 
-            && (svn.Err->apr_err != SVN_ERR_CANCELLED)
-            && IsOffline (iter->second))
-        {
-            // user wants to go off-line
-
-    	    svn_error_clear (svn.Err);
-            svn.Err = NULL;
-
-            // well, go with what we get from the cache
-
-            sUUID = iter->second.uuid;
-            return iter->first;
-        }
-
-        // update the cache
-
-        if (!info.root.IsEmpty())
-        {
-            // we got an update. Is it different from the cached info?
-
-            if (   (iter != data.end()) 
-                && (   (iter->first != info.root) 
-                    || (iter->second.uuid != info.uuid)))
-            {
-                // drop the old cache 
-                // (keep the uuid since iter will become invalid)
-
-                CString tempUUID = iter->second.uuid;
-                svn.GetLogCachePool()->DropCache (tempUUID);
-            }
-
-            data [info.root] = info;
-            modified = true;
-        }
-
-        // return the new info
-
-        sUUID = info.uuid;
-        return info.root;
+        data.Add (info);
     }
 
-    // return the cached data
+    // done
 
-    sUUID = iter->second.uuid;
-    return iter->first;
+    return root;
 }
 
-revision_t CRepositoryInfo::GetHeadRevision (const CTSVNPath& url)
+revision_t CRepositoryInfo::GetHeadRevision (CString uuid, const CTSVNPath& url)
 {
     // get the entry for that repository
 
-    TData::iterator iter = Lookup (url);
-    if (iter == data.end())
-    {
-        GetRepositoryRoot (url);
-        iter = Lookup (url);
-    }
+    CString sURL = url.GetSVNPathString();
+    CString root = GetRepositoryRootAndUUID (url, uuid);
+    SPerRepositoryInfo* info = data.Lookup (uuid, root);
 
-    if (iter == data.end())
+    if (info == NULL)
     {
         // there was some problem connecting to the repository
 
@@ -320,30 +504,26 @@ revision_t CRepositoryInfo::GetHeadRevision (const CTSVNPath& url)
 
     // is there a valid cached entry?
 
-    if (   (now - iter->second.headLookupTime > CSettings::GetMaxHeadAge())
-        || (   url.GetSVNPathString().Left (iter->second.headURL.GetLength())
-            != iter->second.headURL)
-        || (iter->second.headRevision == NO_REVISION))
+    if (   (now - info->headLookupTime > CSettings::GetMaxHeadAge())
+        || !IsParentDirectory (info->headURL, sURL)
+        || (info->headRevision == NO_REVISION))
     {
         // entry outdated or for not valid for this path
 
-        if (iter->second.connectionState == online)
-        {
-            // we ain't off-line -> contact the server
-
-            iter->second.headLookupTime = now;
-            iter->second.headURL = url.GetSVNPathString();
-            iter->second.headRevision = svn.GetHEADRevision (url);
-        }
+        info->headLookupTime = now;
+        info->headURL = sURL;
+        info->headRevision = svn.GetHEADRevision (url);
 
         // if we couldn't connect to the server, ask the user
 
-        if (  (svn.Err && (svn.Err->apr_err != SVN_ERR_CANCELLED)) && (iter->second.headRevision == NO_REVISION)
-            && IsOffline (iter->second))
+        bool cancelled = svn.Err && (svn.Err->apr_err == SVN_ERR_CANCELLED);
+        if (   !cancelled 
+            && (info->headRevision == NO_REVISION)
+            && IsOffline (info))
         {
             // user wants to go off-line
 
-            SetHeadFromCache (iter->second);
+            SetHeadFromCache (info);
 
             // we just ignore our latest error
 
@@ -356,93 +536,40 @@ revision_t CRepositoryInfo::GetHeadRevision (const CTSVNPath& url)
 
     // ready
 
-    return iter->second.headRevision;
+    return info->headRevision;
 }
 
 // make sure, we will ask the repository for the HEAD
 
-void CRepositoryInfo::ResetHeadRevision (const CTSVNPath& url)
+void CRepositoryInfo::ResetHeadRevision (const CString& uuid, const CString& root)
 {
     // get the entry for that repository
 
-    TData::iterator iter = Lookup (url);
-    if (iter != data.end())
+    SPerRepositoryInfo* info = data.Lookup (uuid, root);
+    if (info != NULL)
     {
         // there is actually a cache for this URL.
         // Invalidate the HEAD info and make sure we will
         // connect the server for an update the next time
         // we want to get connect.
 
-        iter->second.headLookupTime = 0;
-        iter->second.connectionState = online;
+        info->headLookupTime = 0;
+        info->connectionState = online;
     }
-}
-
-
-// find the root folder to a given UUID (e.g. URL for given cache file).
-// Returns an empty string, if no suitable entry has been found.
-
-CString CRepositoryInfo::GetRootFromUUID (const CString& sUUID) const
-{
-    // scan all data
-
-    for ( TData::const_iterator iter = data.begin(), end = data.end()
-        ; iter != end
-        ; ++iter)
-    {
-        if (iter->second.uuid == sUUID)
-            return iter->first;
-    }
-
-    // not found
-
-    return CString();
-}
-
-// do multiple URLs use this UUID?
-
-bool CRepositoryInfo::HasMultipleURLs (const CString& uuid) const
-{
-    size_t urlCount = 0;
-
-    for ( TData::const_iterator iter = data.begin(), end = data.end()
-		; iter != end
-		; ++iter)
-	{
-        if (iter->second.uuid == uuid)
-            ++urlCount;
-	}
-
-    return urlCount > 1;
-}
-
-// get one of the many URLs that for the repository given by the UUID
-
-CString CRepositoryInfo::GetFirstURL (const CString& uuid) const
-{
-    for ( TData::const_iterator iter = data.begin(), end = data.end()
-		; iter != end
-		; ++iter)
-	{
-        if (iter->second.uuid == uuid)
-            return iter->second.root;
-	}
-
-    return CString();
 }
 
 // is the repository offline? 
 // Don't modify the state if autoSet is false.
 
-bool CRepositoryInfo::IsOffline (const CString& url, bool autoSet)
+bool CRepositoryInfo::IsOffline (const CString& uuid, const CString& root, bool autoSet)
 {
 	// find the info
 
-    TData::iterator iter = Lookup (url);
+    SPerRepositoryInfo* info = data.Lookup (uuid, root);
 
 	// no info -> assume online (i.e. just try to reach the server)
 
-	if (iter == data.end())
+	if (info == NULL)
 		return false;
 
 	// update the online/offline state by contacting the user?
@@ -450,43 +577,39 @@ bool CRepositoryInfo::IsOffline (const CString& url, bool autoSet)
 	// offline-defaults have been set)
 
 	if (autoSet)
-		IsOffline (iter->second);
+		IsOffline (info);
 
     // return state
 
-	return iter->second.connectionState != online;
+	return info->connectionState != online;
 }
 
 // get the connection state (uninterpreted)
 
 CRepositoryInfo::ConnectionState 
-CRepositoryInfo::GetConnectionState (const CString& uuid)
+CRepositoryInfo::GetConnectionState (const CString& uuid, const CString& url)
 {
 	// find the info
 
-    TData::iterator iter = Lookup (GetRootFromUUID (uuid));
+    SPerRepositoryInfo* info = data.Lookup (uuid, url);
 
 	// no info -> assume online (i.e. just try to reach the server)
 
-	return iter == data.end()
+	return info == NULL
         ? online
-        : iter->second.connectionState;
+        : info->connectionState;
 }
 
 // remove a specific entry
 
-void CRepositoryInfo::DropEntry (const CString& sUUID)
+void CRepositoryInfo::DropEntry (const CString& uuid, const CString& url)
 {
-    TData::iterator iter = data.begin();
-    while (iter != data.end())
+    for ( SPerRepositoryInfo* info = data.Lookup (uuid, url)
+        ; info != NULL
+        ; info = data.Lookup (uuid, url))
     {
-        if (iter->second.uuid == sUUID)
-        {
-			iter = data.erase (iter);
-            modified = true;
-        }
-        else
-            ++iter;
+        data.Remove (info);
+        modified = true;
     }
 }
 
@@ -494,39 +617,17 @@ void CRepositoryInfo::DropEntry (const CString& sUUID)
 
 void CRepositoryInfo::Flush()
 {
-    if (!modified || !IsPermanent())
+    if (!modified)
     {
         modified = false;
         return;
     }
 
-	CString filename = GetFileName();
-	CPathUtils::MakeSureDirectoryPathExists(filename.Left(filename.ReverseFind('\\')));
+	CString fileName = GetFileName();
+	CPathUtils::MakeSureDirectoryPathExists (fileName.Left (fileName.ReverseFind ('\\')));
 	try
 	{
-		CFile file (filename, CFile::modeWrite | CFile::modeCreate);
-		CArchive stream (&file, CArchive::store);
-
-		stream << static_cast<int>(VERSION);
-		stream << static_cast<int>(data.size());
-
-		for ( TData::const_iterator iter = data.begin(), end = data.end()
-			; iter != end
-			; ++iter)
-		{
-			// temp offline -> be online the next time
-
-			ConnectionState connectionState 
-				= static_cast<ConnectionState>(iter->second.connectionState & offline);
-
-			stream << iter->second.root 
-				   << iter->second.uuid 
-				   << iter->second.headURL 
-				   << iter->second.headRevision 
-				   << iter->second.headLookupTime
-				   << connectionState;
-		}
-
+        data.Save (fileName);
 		modified = false;
 	}
 	catch (CException* /*e*/)
@@ -538,7 +639,7 @@ void CRepositoryInfo::Flush()
 
 void CRepositoryInfo::Clear()
 {
-    data.clear();
+    data.Clear();
 }
 
 // get the owning SVN instance
@@ -553,13 +654,6 @@ SVN& CRepositoryInfo::GetSVN() const
 svn_error_t* CRepositoryInfo::GetLastError() const
 {
     return svn.Err;
-}
-
-// is this only temporary data?
-
-bool CRepositoryInfo::IsPermanent() const
-{
-    return !CSettings::GetAllowAmbiguousURL();
 }
 
 // end namespace LogCache

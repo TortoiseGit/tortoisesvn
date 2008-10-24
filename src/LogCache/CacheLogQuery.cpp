@@ -218,6 +218,7 @@ void CCacheLogQuery::CLogFiller::MakeRangeIterable ( const CDictionaryBasedPath&
 
 	CLogFiller (repositoryInfoCache).FillLog ( cache
 											 , URL
+                                             , uuid
 											 , svnQuery
 											 , iterator.GetRevision()
 											 , startRevision
@@ -426,6 +427,7 @@ CCacheLogQuery::CLogFiller::~CLogFiller()
 revision_t 
 CCacheLogQuery::CLogFiller::FillLog ( CCachedLogInfo* cache
 								    , const CStringA& URL
+                                    , CString uuid
 								    , ILogQuery* svnQuery
 								    , revision_t startRevision
 									, revision_t endRevision
@@ -434,7 +436,8 @@ CCacheLogQuery::CLogFiller::FillLog ( CCachedLogInfo* cache
 									, const CLogOptions& options)
 {
     this->cache = cache;
-	this->URL = URL;
+    this->URL = URL;
+    this->uuid = uuid;
     this->svnQuery = svnQuery;
     this->options = options;
     this->receiveCount = 0;
@@ -451,7 +454,7 @@ CCacheLogQuery::CLogFiller::FillLog ( CCachedLogInfo* cache
     else
 	    path.SetFromSVN (URL + startPath.GetPath().c_str());
 
-	CString url = CUnicodeUtils::GetUnicode (URL);
+    CString root = CUnicodeUtils::GetUnicode (URL);
 
 	try
 	{
@@ -473,7 +476,9 @@ CCacheLogQuery::CLogFiller::FillLog ( CCachedLogInfo* cache
 		// if the problem was caused by SVN and the user wants
 		// to go off-line, swallow the error
 
-		if (receiverError || e.GetCode() == SVN_ERR_CANCELLED || !repositoryInfoCache->IsOffline (url, true))
+		if (   receiverError 
+            || e.GetCode() == SVN_ERR_CANCELLED 
+            || !repositoryInfoCache->IsOffline (uuid, root, true))
 		{
 			// we want to cache whatever data we could receive so far ..
 
@@ -491,7 +496,7 @@ CCacheLogQuery::CLogFiller::FillLog ( CCachedLogInfo* cache
 
 	// update skip ranges etc. if we are still connected
 
-    if (!repositoryInfoCache->IsOffline (url, false))
+    if (!repositoryInfoCache->IsOffline (uuid, root, false))
     {
         // do we miss some data at the end of the log?
         // (no-op, if end-of-log was reached;
@@ -737,6 +742,7 @@ revision_t CCacheLogQuery::FillLog ( revision_t startRevision
 	return CLogFiller(repositoryInfoCache)
 		       .FillLog ( cache
 						, URL
+                        , uuid
 						, svnQuery
 						, startRevision
 						, max (min (startRevision, endRevision), 0)
@@ -959,10 +965,6 @@ void CCacheLogQuery::InternalLog ( revision_t startRevision
 	if (endRevision < 0)
 		endRevision = 0;
 
-	// we may need this more than once
-
-	CString url = CUnicodeUtils::GetUnicode (URL);
-
 	// crawl & update the cache, report entries found
 
 	while ((iterator->GetRevision() >= endRevision) && !iterator->EndOfPath())
@@ -988,7 +990,7 @@ void CCacheLogQuery::InternalLog ( revision_t startRevision
 
 			// don't try to fetch data when in "disconnected" mode
 			
-			if (repositoryInfoCache->IsOffline (url, false))
+			if (repositoryInfoCache->IsOffline (uuid, root, false))
 			{
 				// just skip unknown revisions
 				// (we already warned the use that this might
@@ -1081,14 +1083,13 @@ CDictionaryBasedTempPath CCacheLogQuery::TranslatePegRevisionPath
 	CCopyFollowingLogIterator iterator (cache, pegRevision, startPath);
 	iterator.Retry();
 
-	CString url = CUnicodeUtils::GetUnicode (URL);
 	while ((iterator.GetRevision() > startRevision) && !iterator.EndOfPath())
 	{
         if (iterator.DataIsMissing())
 		{
 			// don't try to fetch data when in "disconnected" mode
 			
-			if (repositoryInfoCache->IsOffline (url, false))
+			if (repositoryInfoCache->IsOffline (uuid, root, false))
 			{
 				// just skip unknown revisions
 				// (we already warned the use that this might
@@ -1131,13 +1132,6 @@ CDictionaryBasedTempPath CCacheLogQuery::TranslatePegRevisionPath
 CDictionaryBasedTempPath CCacheLogQuery::GetRelativeRepositoryPath 
     (const CTSVNPath& url)
 {
-    CString uuid;
-
-	// resolve URL
-
-	URL = CUnicodeUtils::GetUTF8 
-    		(repositoryInfoCache->GetRepositoryRootAndUUID (url, uuid));
-
     // URL and / or uuid may be unknown if there is no repository list entry
     // (e.g. this is a temp. cache object) and there is no server connection
 
@@ -1153,7 +1147,7 @@ CDictionaryBasedTempPath CCacheLogQuery::GetRelativeRepositoryPath
 
 	if (caches != NULL)
 	{
-		cache = caches->GetCache (uuid);
+		cache = caches->GetCache (uuid, root);
 	}
 	else
 	{
@@ -1215,7 +1209,7 @@ revision_t CCacheLogQuery::DecodeRevision ( const CTSVNPath& path
 
 	case svn_opt_revision_head:
         {
-            result = repositoryInfoCache->GetHeadRevision (url);
+            result = repositoryInfoCache->GetHeadRevision (uuid, url);
 
 			if (result == NO_REVISION)
 				throw SVNError (repositoryInfoCache->GetLastError());
@@ -1251,7 +1245,11 @@ CTSVNPath CCacheLogQuery::GetPath (const CTSVNPathList& targets) const
 		throw SVNError ( SVN_ERR_INCORRECT_PARAMS
 					   , "Must specify exactly one path to get the log from.");
 
-	return targets [0];
+	// GetURLFromPath() always returns the URL escaped, so we have to escape the url we
+	// get from the client too.
+	return targets [0].IsUrl()
+		? CTSVNPath (CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(targets [0].GetSVNPathString()))))
+        : targets [0];
 }
 
 // construction / destruction
@@ -1307,12 +1305,15 @@ void CCacheLogQuery::Log ( const CTSVNPathList& targets
 
 	CTSVNPath path = GetPath (targets);
 
+	// resolve respository URL and UUID
+
+    root = repositoryInfoCache->GetRepositoryRootAndUUID (path, uuid);
+	URL = CUnicodeUtils::GetUTF8 (root);
+
     // get the URL for that path
 
     CTSVNPath url = path.IsUrl()
-		// GetURLFromPath() always returns the URL escaped, so we have to escape the url we
-		// get from the client too.
-		? CTSVNPath (CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(path.GetSVNPathString()))))
+		? path
 		: CTSVNPath (repositoryInfoCache->GetSVN().GetURLFromPath (path));
 
 	// decode revisions
@@ -1444,7 +1445,8 @@ void CCacheLogQuery::UpdateCache (CLogCachePool* caches)
 
 	assert(!uuid.IsEmpty());
 
-    CCachedLogInfo* cache = caches->GetCache (uuid);
+    CCachedLogInfo* cache 
+        = caches->GetCache (uuid, CUnicodeUtils::GetUnicode (URL));
     if ((cache != this->cache) && (this->cache != NULL))
         cache->Update (*this->cache);
 }

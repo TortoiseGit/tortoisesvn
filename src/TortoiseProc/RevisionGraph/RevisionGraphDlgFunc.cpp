@@ -170,6 +170,13 @@ CString CRevisionGraphWnd::GetRepositoryRoot() const
         : CString();
 }
 
+CString CRevisionGraphWnd::GetRepositoryUUID() const
+{
+    return m_fullHistory.get() != NULL
+        ? m_fullHistory->GetRepositoryUUID()
+        : CString();
+}
+
 int CRevisionGraphWnd::GetEncoderClsid(const WCHAR* format, CLSID* pClsid)
 {
 	UINT  num = 0;          // number of image encoders

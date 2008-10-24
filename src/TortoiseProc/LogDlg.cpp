@@ -790,7 +790,7 @@ void CLogDlg::Refresh (bool autoGoOnline)
     if (autoGoOnline)
     {
 	    SetDlgTitle (false);
-        logCachePool.GetRepositoryInfo().ResetHeadRevision (CTSVNPath (m_sRepositoryRoot));
+        logCachePool.GetRepositoryInfo().ResetHeadRevision (m_sUUID, m_sRepositoryRoot);
     }
 
 	InterlockedExchange(&m_bThreadRunning, TRUE);
@@ -1061,6 +1061,11 @@ UINT CLogDlg::LogThread()
 
     m_sRepositoryRoot = rootpath.GetSVNPathString();
     m_sURL = m_path.GetSVNPathString();
+
+    // we need the UUID to unambigously identify the log cache
+    if (logCachePool.IsEnabled())
+        m_sUUID = logCachePool.GetRepositoryInfo().GetRepositoryUUID (rootpath);
+
     // if the log dialog is started from a working copy, we need to turn that
     // local path into an url here
     if (succeeded)
@@ -1209,7 +1214,7 @@ UINT CLogDlg::LogThread()
 	DialogEnableWindow(IDC_REFRESH, TRUE);
 
 	LogCache::CRepositoryInfo& cachedProperties = logCachePool.GetRepositoryInfo();
-	SetDlgTitle(cachedProperties.IsOffline(m_sURL, false));
+	SetDlgTitle(cachedProperties.IsOffline (m_sUUID, m_sRepositoryRoot, false));
 
 	GetDlgItem(IDC_PROGRESS)->ShowWindow(FALSE);
 	m_bCancelled = true;
