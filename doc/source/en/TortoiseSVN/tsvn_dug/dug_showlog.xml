@@ -497,6 +497,27 @@
 			<emphasis>all</emphasis> log messages from HEAD right back to revision 1.
 		</para>
 	</sect2>
+	<sect2 id="tsvn-dug-showlog-current-rev">
+		<title>Current Working Copy Revision</title>
+		<para>
+			Because the log dialog shows you the log from HEAD, not from the
+			current working copy revision, it often happens that there are
+			log messages shown for content which has not yet been updated
+			in your working copy. To help make this clearer, the commit
+			message which corresponds to the revision you have in your
+			working copy is shown in bold.
+		</para>
+		<para>
+			By default this only works for files. This is because the
+			update revision for a folder may not correspond to the update
+			revision of its content, and the only way to find the effective
+			update revision for the folder is to crawl the working copy.
+			This can be a slow operation for large working copies so if
+			you want to enable this feature you must create a
+			<literal>DWORD</literal> registry key with value 1 at
+			<literal>HKCU\Software\TortoiseSVN\RecursiveLogRev</literal>.
+		</para>
+	</sect2>
 	<sect2 id="tsvn-dug-showlog-mergetrack">
 		<title>Merge Tracking Features</title>
 		<indexterm>

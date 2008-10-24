@@ -86,5 +86,19 @@
 				</para>
 			</listitem>
 		</varlistentry>
+		<varlistentry>
+			<term>Current revision highlighting for folders in log dialog</term>
+			<listitem>
+				<para>
+					The log dialog highlights the current working copy revision
+					when the log is shown for a file. To do the same thing for a
+					folder requires a working copy crawl, which can be a slow
+					operation for large working copies.
+					If you want to enable this feature you must create a
+					<literal>DWORD</literal> registry key with value 1 at
+					<literal>HKCU\Software\TortoiseSVN\RecursiveLogRev</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
 	</variablelist>
 </sect2>
