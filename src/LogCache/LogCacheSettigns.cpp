@@ -41,6 +41,10 @@ CSettings::CSettings()
     , cacheDropMaxSize (REGKEY ("CacheDropMaxSize"), 200)
     , maxFailuresUntilDrop (REGKEY ("MaxCacheFailures"), 0)
 {
+    // auto-migration
+
+	if (CRegDWORD (REGKEY ("Version"), 150) < 160)
+        Migrate();
 }
 
 // singleton acccess
@@ -55,37 +59,45 @@ CSettings& CSettings::GetInstance()
 
 void CSettings::Migrate()
 {
-	CRegDWORD oldEnableLogCaching (REGKEY15 ("UseLogCache"));
-    if (oldEnableLogCaching.LastError == ERROR_SUCCESS)
+	CRegDWORD oldEnableLogCaching (REGKEY15 ("UseLogCache"), TRUE);
+    if (oldEnableLogCaching.m_exists)
     {
         SetEnabled ((DWORD)oldEnableLogCaching != FALSE);
-        oldEnableLogCaching.removeKey();
+        oldEnableLogCaching.removeValue();
     }
 
-    CRegDWORD oldSupportAmbiguousURL (REGKEY15 ("SupportAmbiguousURL"));
-    if (oldSupportAmbiguousURL.LastError == ERROR_SUCCESS)
+    CRegDWORD oldSupportAmbiguousURL (REGKEY15 ("SupportAmbiguousURL"), FALSE);
+    if (oldSupportAmbiguousURL.m_exists)
     {
-        SetAllowAmbiguousURL ((DWORD)oldSupportAmbiguousURL != FALSE);
-        oldSupportAmbiguousURL.removeKey();
+//      Since the old default differs from the new one, 
+//      we will not migrate this setting.
+//
+//      SetAllowAmbiguousURL ((DWORD)oldSupportAmbiguousURL != FALSE);
+
+        oldSupportAmbiguousURL.removeValue();
     }
 
-    CRegDWORD oldDefaultConnectionState (REGKEY15 ("DefaultConnectionState"));
-    if (oldDefaultConnectionState.LastError == ERROR_SUCCESS)
+    CRegDWORD oldDefaultConnectionState (REGKEY15 ("DefaultConnectionState"), 0);
+    if (oldDefaultConnectionState.m_exists)
     {
         CRepositoryInfo::ConnectionState state 
             = static_cast<CRepositoryInfo::ConnectionState>
                 ((DWORD)oldDefaultConnectionState);
 
         SetDefaultConnectionState (state);
-        oldDefaultConnectionState.removeKey();
+        oldDefaultConnectionState.removeValue();
     }
 
-    CRegDWORD oldMaxHeadAge (REGKEY15 ("HeadCacheAgeLimit"));
-    if (oldMaxHeadAge.LastError == ERROR_SUCCESS)
+    CRegDWORD oldMaxHeadAge (REGKEY15 ("HeadCacheAgeLimit"), 0);
+    if (oldMaxHeadAge.m_exists)
     {
         SetMaxHeadAge ((DWORD)oldMaxHeadAge);
-        oldMaxHeadAge.removeKey();
+        oldMaxHeadAge.removeValue();
     }
+
+    // current registry format
+
+	CRegDWORD (REGKEY ("Version")) = 160;
 }
 
 /// has log caching been enabled?
