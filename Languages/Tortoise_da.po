@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-23 08:14+0100\n"
-"Last-Translator: David Trasbo <davidtrasbo@gmail.com>\n"
+"PO-Revision-Date: 2008-10-25 11:36+0100\n"
+"Last-Translator: Mikkel Elmholdt <mikkel@elmholdt.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,6 +51,7 @@ msgstr ""
 # Delete = Slet
 # Diff = Sammenlign
 # Diff program = Sammenligningsprogram
+# Docked = Fastgjort (ikke 'låst' som tidligere anvendt)
 # Event = handling (men udelades gerne, f.eks. "Associate double-click event with" -> "Associer dobbeltklik med")
 # Explorer = Windows Stifinder
 # Float = Flydende
@@ -66,6 +67,7 @@ msgstr ""
 # Nested = Indlejret
 # Node = Knude
 # Operation = Handling
+# Options = Indstillinger
 # Pane = Rude
 # Password = Adgangskode
 # Patch = Rettelse (nogen gange betyning som "patch file", brug der oversættelse nedenfor)
@@ -292,9 +294,9 @@ msgid "%s : Working Base"
 msgstr "%s : Grundrevision af arbejdskopi"
 
 #. Resource IDs: (151)
-#, fuzzy, c-format
+#, c-format
 msgid "%s : Working Base, Revision %ld"
-msgstr "%s : Grundrevision af arbejdskopi"
+msgstr "%s : Grundrevision af arbejdskopi, revision %ld"
 
 #. Resource IDs: (151)
 #, c-format
@@ -402,7 +404,7 @@ msgstr "&Programudseende"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
-msgstr "&Påfør standardsammenligning"
+msgstr "&Aktiver unified diff"
 
 #. Resource IDs: (32852)
 msgid "&Aqua Style"
@@ -885,11 +887,9 @@ msgstr "&En Side"
 msgid "&Open"
 msgstr "&Åbn"
 
-# Kontekst? Muligheder: Egenskaber, indstillinger, muligheder, ...
 #. Resource IDs: (1382)
-#, fuzzy
 msgid "&Options"
-msgstr "Valgmuligheder"
+msgstr "&Indstillinger"
 
 #. Resource IDs: (32772)
 msgid "&Overlap images"
@@ -1590,9 +1590,8 @@ msgid "All your changes will be lost! Do you really want to reset the toolbar '%
 msgstr "Alle dine ændringer vil gå tabt! Er du sikker på at du vil nulstille værktøjslinjen '%s'?"
 
 #. Resource IDs: (1484)
-#, fuzzy
 msgid "Allow ambiguous &UUIDs"
-msgstr "&Tillad tvetydige URL'er"
+msgstr "&Tillad tvetydige UUID'er"
 
 #. Resource IDs: (345)
 #, fuzzy
@@ -1673,15 +1672,13 @@ msgstr "En ukendt fejl opstod under adgang til %1."
 msgid "An unknown line type was found in line %d !"
 msgstr "En ukendt linjetype blev fundet i linje %d!"
 
-# Not from TSVN
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Application Frame Menus: "
-msgstr "Programrammemenuer:"
+msgstr "Program hoved-menuer: "
 
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
-msgstr "Påfører en unified diff-fil i arbejdskopien"
+msgstr "Aktiverer en unified diff-fil på arbejdskopien"
 
 #. Resource IDs: (581)
 msgid ""
@@ -1701,7 +1698,7 @@ msgstr "Anvend egenskaben rekursivt"
 
 #. Resource IDs: (65535)
 msgid "Apply unified diff"
-msgstr "Påfør unified diff"
+msgstr "Aktiver unified diff"
 
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
@@ -1726,7 +1723,7 @@ msgid "Ask user"
 msgstr "Spørg bruger"
 
 #. Resource IDs: (264)
-#, fuzzy, c-format
+#, c-format
 msgid "Assigned to changelist '%s'"
 msgstr "Tildelt ændringslisten \"%s\""
 
@@ -1960,9 +1957,8 @@ msgstr "O&pret mappe..."
 
 # No TSVN Text
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "C&urrent Keys:"
-msgstr "Nuværende nøgler:"
+msgstr "N&uværende nøgler:"
 
 #. Resource IDs: (501)
 msgid "C&ut"
@@ -2494,13 +2490,9 @@ msgstr "Kontekstmenuer:"
 msgid "Continue"
 msgstr "Fortsæt"
 
-# No TSVN Text
-# Oversættelse af "contracted" og "docked"? Kontekst?
-# Et gæt. I.h.t. "Expand docked window"
 #. Resource IDs: (1001)
-#, fuzzy
 msgid "Contract docked window"
-msgstr "Gendan låst vindue"
+msgstr "Sammentræk fastgjort vindue"
 
 #. Resource IDs: (376)
 msgid "Cop&y"
@@ -2576,9 +2568,8 @@ msgid "Copy all information to clipboard"
 msgstr "Kopier al information til udklipsholder"
 
 #. Resource IDs: (146)
-#, fuzzy
 msgid "Copy and rename"
-msgstr "Kopier og omdøb emne hertil"
+msgstr "Kopier og omdøb"
 
 #. Resource IDs: (104)
 msgid "Copy and rename item to here"
@@ -2648,14 +2639,14 @@ msgid "Could not add %s to the ignore list!"
 msgstr "%s kunne ikke tilføjes \"ignorer\"-listen!"
 
 #. Resource IDs: (582)
-#, fuzzy, c-format
+#, c-format
 msgid "Could not add '%s' because"
 msgstr "\"%s\" kunne ikke tilføjes fordi"
 
 #. Resource IDs: (582)
-#, fuzzy, c-format
+#, c-format
 msgid "Could not add property '%s' on '%s' because"
-msgstr "Kunne ikke tilføje egenskab \"%s\" på %s fordi"
+msgstr "Kunne ikke tilføje egenskab \"%s\" på \"%s\" fordi"
 
 #. Resource IDs: (201)
 msgid "Could not check for a newer version!"
@@ -2678,14 +2669,14 @@ msgid "Could not create %1 because the directory is full."
 msgstr "Kunne ikke oprette %1, fordi mappen er fyldt op."
 
 #. Resource IDs: (582)
-#, fuzzy, c-format
+#, c-format
 msgid "Could not delete '%s' because"
 msgstr "\"%s\" kunne ikke slettes fordi"
 
 #. Resource IDs: (582)
-#, fuzzy, c-format
+#, c-format
 msgid "Could not delete property '%s' on '%s' because"
-msgstr "Kunne ikke slette egenskab \"%s\" på %s fordi"
+msgstr "Kunne ikke slette egenskab \"%s\" på \"%s\" fordi"
 
 #. Resource IDs: (83)
 msgid "Could not determine the last committed revision!"
@@ -2696,14 +2687,14 @@ msgid "Could not get the status!"
 msgstr "Status kunne ikke hentes!"
 
 #. Resource IDs: (582)
-#, fuzzy, c-format
+#, c-format
 msgid "Could not merge '%s' because"
 msgstr "Kunne ikke flette \"%s\" fordi"
 
 #. Resource IDs: (582)
-#, fuzzy, c-format
+#, c-format
 msgid "Could not merge property '%s' on '%s' because"
-msgstr "Kunne ikke flette egenskaben \"%s\" på %s fordi"
+msgstr "Kunne ikke flette egenskaben \"%s\" på \"%s\" fordi"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -2949,9 +2940,8 @@ msgstr "Standard-sti:"
 
 # Oversættelse af default?
 #. Resource IDs: (1064)
-#, fuzzy
 msgid "Default to UTF-8 encoding"
-msgstr "Sæt UFT-8-tegnsæt som standard"
+msgstr "Sæt UFT-8 tegnsæt som standard"
 
 #. Resource IDs: (1002, 1382)
 msgid "Delete"
@@ -3029,7 +3019,7 @@ msgstr "Sammenligningsfil:"
 
 #. Resource IDs: (65535)
 msgid "Diff options"
-msgstr "Egenskaber for sammenligning"
+msgstr "Indstillinger for sammenligning"
 
 #. Resource IDs: (146, 279)
 msgid "Diff with URL"
@@ -3280,12 +3270,12 @@ msgid "Edit log message"
 msgstr "Rediger logbesked"
 
 #. Resource IDs: (127)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Edit property '%s' on\r\n"
 "%s"
 msgstr ""
-"Rediger egenskaber \"%s\" på\r\n"
+"Rediger egenskab \"%s\" på\r\n"
 "%s"
 
 #. Resource IDs: (1331, 1382)
@@ -3503,12 +3493,12 @@ msgstr "Udvid (%s)"
 # Oversættelse af "docked"? Kontekst?
 #. Resource IDs: (1001)
 msgid "Expand docked window"
-msgstr "Udvid låst vindue"
+msgstr "Udvid fastgjort vindue"
 
 #. Resource IDs: (65535)
 #, fuzzy
 msgid "Expert settings"
-msgstr "Eksporterer %s"
+msgstr "Ekspert opsætning"
 
 #. Resource IDs: (209)
 msgid "Explore to"
@@ -3641,7 +3631,7 @@ msgid "Failed to save document."
 msgstr "Det lykkedes ikke at gemme dokumentet."
 
 #. Resource IDs: (264)
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to set/remove changelist '%s'"
 msgstr "Det lykkedes ikke at sætte/fjerne ændringslisten \"%s\""
 
@@ -3852,7 +3842,6 @@ msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
 msgstr "Tryk F1 for hjælp. Rul horisontalt med Ctrl+rullehjulet"
 
 #. Resource IDs: (119)
-#, fuzzy
 msgid "For complete history deselect 'Stop on copy/rename'"
 msgstr "For at vise komplet historik, skal du fravælge \"Stop ved kopiering/omdøbning\""
 
@@ -4082,7 +4071,7 @@ msgstr "Skjul &slettede stier"
 # Oversættelse af "docked"? Kontekst?
 #. Resource IDs: (1001)
 msgid "Hide docked window"
-msgstr "Skjul låst vindue"
+msgstr "Skjul fastgjort vindue"
 
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
@@ -5026,7 +5015,7 @@ msgstr "Flet ikke-interaktive"
 
 #. Resource IDs: (595, 65535)
 msgid "Merge options"
-msgstr "Egenskaber for fletning"
+msgstr "Indstillinger for fletning"
 
 #. Resource IDs: (14)
 msgid "Merge reintegrate..."
@@ -5640,7 +5629,7 @@ msgstr "Operer indtil videre kun fra logcachen"
 # Kontekst? Muligheder: Egenskaber, indstillinger, muligheder, ...
 #. Resource IDs: (16137)
 msgid "Options"
-msgstr "Valgmuligheder"
+msgstr "Indstillinger"
 
 #. Resource IDs: (32779)
 msgid "Ori&ginal size"
@@ -5874,7 +5863,7 @@ msgstr "\"Før opdatering\"-tilkobling"
 #. Resource IDs: (65535)
 #, fuzzy
 msgid "Press &New Shortcut Key:"
-msgstr "Tryk den &Nye genvejstast:"
+msgstr "Tryk den &nye genvejstast:"
 
 # No TSVN Text, use same text as above (ignore capitalization)
 # Kontekst? Underlig engelsk grammatik...
@@ -6970,10 +6959,7 @@ msgstr "Vælg start-revision"
 msgid "Select text editor application"
 msgstr "Vælg tekstredigeringsprogram"
 
-# TortoiseSVN Text
-# Bedre oversættelse af "the tree merge"?
 #. Resource IDs: (595)
-#, fuzzy
 msgid "Select the URLs for the tree merge"
 msgstr "Vælg URL'erne til træfletningen"
 
@@ -7283,7 +7269,7 @@ msgstr "Vis mærker på kilden til kopieringen, ikke som separate knuder"
 
 #. Resource IDs: (1209)
 msgid "Show un&modified files"
-msgstr "Vis &uændrede filer"
+msgstr "Vis ikke-&ændrede filer"
 
 #. Resource IDs: (1073)
 msgid "Show un&versioned files"
@@ -8175,7 +8161,7 @@ msgstr "Navn på Værktøjslinje"
 
 #. Resource IDs: (1064)
 msgid "Toolbar Options"
-msgstr "Egenskaber for Værktøjslinje"
+msgstr "Indstillinger for Værktøjslinje"
 
 #. Resource IDs: (1001)
 msgid "Toolbar internal error. Please contact your application vendor."
@@ -8606,11 +8592,9 @@ msgstr ""
 msgid "Use URL of &WC as the default \"From:\" URL"
 msgstr "Benyt URL for &arbejdskopi som standard \"Fra:\"-URL"
 
-# TortoiseSVN Text. Standard diff is also used in place of "unified diff". Maybe you find a better translation then
-# Oversættelse af "unified diff"?
 #. Resource IDs: (1064)
 msgid "Use Unified Diff from &clipboard"
-msgstr "Benyt standardsammenligning fra &udklipsholder"
+msgstr "Benyt unified diff fra &udklipsholder"
 
 #. Resource IDs: (1296)
 msgid "Use \"_svn\" instead of \".svn\" directories"
@@ -9605,7 +9589,7 @@ msgid ""
 "/ relative to the server's hostname"
 msgstr ""
 "svn:externals\r\n"
-"En linjesepareret liste af modulspecifikatorer, hver indeholdende\r\n"
+"En linjesepareret liste af modulspecifikationer, hver indeholdende\r\n"
 "en relativ mappesti, eventuelle revisionargumenter, og en URL. Eksempel:\r\n"
 "foo\t\thttp://eksempel.dk/arkiv/zig\r\n"
 "foo/bar -r 1234\thttp://eksempel.dk/arkiv/zag\r\n"
