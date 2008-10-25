@@ -42,6 +42,7 @@
 #include "BlameDlg.h"
 #include "Blame.h"
 #include "SVNHelpers.h"
+#include "SVNStatus.h"
 #include "LogDlgHelper.h"
 #include "CachedLogInfo.h"
 #include "RepositoryInfo.h"
@@ -1183,13 +1184,11 @@ UINT CLogDlg::LogThread()
 			}
 			else
 			{
-				SVNInfo info;
-				const SVNInfoData * data = info.GetFirstFileInfo(m_path, SVNRev::REV_WC, SVNRev::REV_WC);
-				if (data)
-				{
-					if (data->rev)
-						m_wcRev = data->rev;
-				}
+				CTSVNPath dummypath;
+				SVNStatus status;
+				svn_wc_status2_t * stat = status.GetFirstFileStatus(revWCPath, dummypath, false, svn_depth_empty);
+				if (stat && stat->entry && stat->entry->cmt_rev)
+					m_wcRev = stat->entry->cmt_rev;
 			}
 		}
 	}
