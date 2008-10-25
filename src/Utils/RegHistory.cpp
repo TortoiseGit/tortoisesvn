@@ -76,7 +76,7 @@ size_t CRegHistory::Load(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix)
 		//keys are of form <lpszKeyPrefix><entrynumber>
 		TCHAR sKey[4096] = {0};
 		_stprintf_s(sKey, 4096, _T("%s\\%s%d"), lpszSection, lpszKeyPrefix, n++);
-		sText = (LPCTSTR)CRegStdString(sKey);
+		sText = CRegStdString(sKey);
 		if (!sText.empty())
 		{
 			m_arEntries.push_back(sText);
@@ -106,7 +106,7 @@ bool CRegHistory::Save() const
 		TCHAR sKey[4096] = {0};
 		_stprintf_s(sKey, 4096, _T("%s\\%s%d"), m_sSection.c_str(), m_sKeyPrefix.c_str(), n);
 		CRegStdString regkey = CRegStdString(sKey);
-		if (_tcslen((LPCTSTR)regkey)==0)
+        if (((stdstring)regkey).empty())
 			break;
 		regkey.removeValue(); // remove entry
 	}

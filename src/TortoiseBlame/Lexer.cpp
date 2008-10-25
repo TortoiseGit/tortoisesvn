@@ -16,6 +16,10 @@
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #include "stdafx.h"
+
+// disable "dead code eleminated" warning
+#pragma warning(disable:4505)
+
 #include "TortoiseBlame.h"
 
 void TortoiseBlame::SetupLexer(LPCSTR filename)

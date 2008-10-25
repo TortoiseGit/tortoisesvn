@@ -669,7 +669,7 @@ void TortoiseBlame::BlamePreviousRevision()
 		svnCmd += _T(" /ignorespaces");
 	if (bIgnoreAllSpaces)
 		svnCmd += _T(" /ignoreallspaces");
-	if (CreateProcess(tortoiseProcPath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process))
+    if (CreateProcess(((stdstring)tortoiseProcPath).c_str(), const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process))
 	{
 		CloseHandle(process.hThread);
 		CloseHandle(process.hProcess);
@@ -706,7 +706,7 @@ void TortoiseBlame::DiffPreviousRevision()
 	svnCmd += bufStartRev;
 	svnCmd += _T(" /endrev:");
 	svnCmd += bufEndRev;
-	if (CreateProcess(tortoiseProcPath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process))
+	if (CreateProcess(((stdstring)tortoiseProcPath).c_str(), const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process))
 	{
 		CloseHandle(process.hThread);
 		CloseHandle(process.hProcess);
@@ -732,7 +732,7 @@ void TortoiseBlame::ShowLog()
 	svnCmd += bufRev;
 	svnCmd += _T(" /pegrev:");
 	svnCmd += bufRev;
-	if (CreateProcess(tortoiseProcPath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process))
+	if (CreateProcess(((stdstring)tortoiseProcPath).c_str(), const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process))
 	{
 		CloseHandle(process.hThread);
 		CloseHandle(process.hProcess);

@@ -179,7 +179,7 @@ BOOL CSVNPropertyPage::PageProc (HWND /*hwnd*/, UINT uMessage, WPARAM wParam, LP
 						svnCmd += _T("log /path:\"");
 						svnCmd += filenames.front().c_str();
 						svnCmd += _T("\"");
-						if (CreateProcess(tortoiseProcPath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process))
+						if (CreateProcess(((stdstring)tortoiseProcPath).c_str(), const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process))
 						{
 							CloseHandle(process.hThread);
 							CloseHandle(process.hProcess);
@@ -225,7 +225,7 @@ BOOL CSVNPropertyPage::PageProc (HWND /*hwnd*/, UINT uMessage, WPARAM wParam, LP
 							svnCmd += retFilePath.c_str();
 							svnCmd += _T("\"");
 							svnCmd += _T(" /deletepathfile");
-							if (CreateProcess(tortoiseProcPath, const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process))
+							if (CreateProcess(((stdstring)tortoiseProcPath).c_str(), const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process))
 							{
 								CloseHandle(process.hThread);
 								CloseHandle(process.hProcess);
