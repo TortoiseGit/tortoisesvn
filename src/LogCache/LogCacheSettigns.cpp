@@ -33,8 +33,8 @@ namespace LogCache
 
 CSettings::CSettings()
     : enableLogCaching (REGKEY ("UseLogCache"), TRUE)
-	, supportAmbiguousURL (REGKEY ("SupportAmbiguousURL"), FALSE)
-	, supportAmbiguousUUID (REGKEY ("SupportAmbiguousUUID"), FALSE)
+	, supportAmbiguousURL (REGKEY ("SupportAmbiguousURL"), TRUE)
+	, supportAmbiguousUUID (REGKEY ("SupportAmbiguousUUID"), TRUE)
     , defaultConnectionState (REGKEY ("DefaultConnectionState"), 0)
     , maxHeadAge (REGKEY ("HeadCacheAgeLimit"), 0)
     , cacheDropAge (REGKEY ("CacheDropAge"), 10)
