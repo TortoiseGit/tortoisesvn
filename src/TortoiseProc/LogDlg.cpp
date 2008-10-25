@@ -1189,6 +1189,8 @@ UINT CLogDlg::LogThread()
 				svn_wc_status2_t * stat = status.GetFirstFileStatus(revWCPath, dummypath, false, svn_depth_empty);
 				if (stat && stat->entry && stat->entry->cmt_rev)
 					m_wcRev = stat->entry->cmt_rev;
+				if (stat && stat->entry && (stat->entry->kind == svn_node_dir))
+					m_wcRev = stat->entry->revision;
 			}
 		}
 	}
