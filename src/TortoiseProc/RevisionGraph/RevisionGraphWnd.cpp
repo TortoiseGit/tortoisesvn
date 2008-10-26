@@ -62,6 +62,8 @@ CRevisionGraphWnd::CRevisionGraphWnd()
 	, m_bThreadRunning(FALSE)
 	, m_pDlgTip(NULL)
 	, m_nFontSize(12)
+    , m_bTweakTrunkColors(true)
+    , m_bTweakTagsColors(true)
 	, m_fZoomFactor(1.0)
 	, m_ptRubberEnd(0,0)
 	, m_ptRubberStart(0,0)
@@ -91,7 +93,10 @@ CRevisionGraphWnd::CRevisionGraphWnd()
 
 		RegisterClass(&wndcls);
 	}
-	m_bShowOverview = (BOOL)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\ShowRevGraphOverview"), FALSE);
+
+	m_bShowOverview = CRegDWORD(_T("Software\\TortoiseSVN\\RevisionGraph\\ShowRevGraphOverview"), TRUE);
+	m_bTweakTrunkColors = CRegDWORD(_T("Software\\TortoiseSVN\\RevisionGraph\\TweakTrunkColors"), TRUE) != FALSE;
+	m_bTweakTagsColors = CRegDWORD(_T("Software\\TortoiseSVN\\RevisionGraph\\TweakTagsColors"), TRUE) != FALSE;
 }
 
 CRevisionGraphWnd::~CRevisionGraphWnd()

@@ -344,27 +344,32 @@ void CRevisionGraphWnd::DrawNodes (Graphics& graphics, const CRect& logRect, con
 		case ILayoutNodeList::SNode::STYLE_DELETED:
 			DrawNode(graphics, noderect, m_Colors.GetColor(CColors::DeletedNode), transparent, node.node, TSVNOctangle);
 			break;
-		case ILayoutNodeList::SNode::STYLE_ADDED:
-            if (node.node->GetClassification().Is (CNodeClassification::IS_TAG))
+
+        case ILayoutNodeList::SNode::STYLE_ADDED:
+            if (m_bTweakTagsColors && node.node->GetClassification().Is (CNodeClassification::IS_TAG))
                 overlayColor = Color (128, 250, 250, 92);
-            else if (node.node->GetClassification().Is (CNodeClassification::IS_TRUNK))
+            else if (m_bTweakTrunkColors && node.node->GetClassification().Is (CNodeClassification::IS_TRUNK))
                 overlayColor = Color (64, 64, 255, 64);
             DrawNode(graphics, noderect, m_Colors.GetColor(CColors::AddedNode), overlayColor, node.node, TSVNRoundRect);
             break;
-		case ILayoutNodeList::SNode::STYLE_RENAMED:
-            if (node.node->GetClassification().Is (CNodeClassification::IS_TAG))
+
+        case ILayoutNodeList::SNode::STYLE_RENAMED:
+            if (m_bTweakTagsColors && node.node->GetClassification().Is (CNodeClassification::IS_TAG))
                 overlayColor = Color (128, 92, 160, 160);
-            else if (node.node->GetClassification().Is (CNodeClassification::IS_TRUNK))
+            else if (m_bTweakTrunkColors && node.node->GetClassification().Is (CNodeClassification::IS_TRUNK))
                 overlayColor = Color (64, 0, 255, 160);
-			DrawNode(graphics, noderect, m_Colors.GetColor(CColors::RenamedNode), overlayColor, node.node, TSVNOctangle);
+            DrawNode(graphics, noderect, m_Colors.GetColor(CColors::RenamedNode), overlayColor, node.node, TSVNOctangle);
 			break;
-		case ILayoutNodeList::SNode::STYLE_LAST:
+
+        case ILayoutNodeList::SNode::STYLE_LAST:
 			DrawNode(graphics, noderect, m_Colors.GetColor(CColors::LastCommitNode), transparent, node.node, TSVNEllipse);
 			break;
-		case ILayoutNodeList::SNode::STYLE_MODIFIED:
+
+        case ILayoutNodeList::SNode::STYLE_MODIFIED:
 			DrawNode(graphics, noderect, GetSysColor(COLOR_WINDOWTEXT), transparent, node.node, TSVNRectangle);
 			break;
-		default:
+
+        default:
             DrawNode(graphics, noderect, GetSysColor(COLOR_WINDOW), transparent, node.node, TSVNRectangle);
 			break;
 		}

@@ -136,6 +136,8 @@ protected:
 
 	float			m_fZoomFactor;
 	CColors			m_Colors;
+    bool            m_bTweakTrunkColors;
+    bool            m_bTweakTagsColors;
 	bool			m_bIsRubberBand;
 	CPoint			m_ptRubberStart;
 	CPoint			m_ptRubberEnd;
