@@ -114,8 +114,8 @@ void CSetLogCache::OnPowerDefaults()
     m_cDefaultConnectionState.SetCurSel(1);
 
     m_dwMaxHeadAge = 300;
-    m_dwCacheDropAge = 0;
-    m_dwCacheDropMaxSize = 200;
+    m_dwCacheDropAge = 10;
+    m_dwCacheDropMaxSize = 0;
 
     m_dwMaxFailuresUntilDrop = 20;
 
