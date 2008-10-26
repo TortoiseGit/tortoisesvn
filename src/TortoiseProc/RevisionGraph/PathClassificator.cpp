@@ -63,7 +63,7 @@ bool CPathClassificator::CWildCardPattern::WildCardMatch
         char c = *s;
         char p = *pattern;
 
-        ++p;
+        ++pattern;
         switch (p)
         {
         case '*':
@@ -93,8 +93,6 @@ bool CPathClassificator::CWildCardPattern::WildCardMatch
 
                 if (c == 0)
                     return false;
-                else
-                    ++s;
 
                 break;
             }
