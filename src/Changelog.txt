@@ -29,6 +29,10 @@
        in the view title. (Stefan)
 - NEW: if "unversioned files mark parent folder as modified" is active,
        the revert dialog shows a hint if unversioned files are found. (Stefan)
+- NEW: Auto-maintenance for log caches plus several settings to control
+       its behavior. (Stefan Fuhrmann)
+- NEW: Log cache supports multiple repositories with the same UUID.
+       (Stefan Fuhrmann)
 - CHG: The bug-ID column width in the log dialog is now limited 
        to 200 pixels. (Stefan)
 - CHG: The right-drag context menu now only shows "Export" if a versioned
@@ -46,6 +50,8 @@
 - CHG: Faster and more reliable revision graph filtering. (Stefan Fuhrmann)
 - CHG: If tsvn:logtemplate was set and not changed in the commit dialog, it
        isn't added to the log history anymore. (Stefan)
+- CHG: "Ambiguous URL" option no longer limits log cache functionality.
+       (Stefan Fuhrmann)
        
 Version 1.5.5
 - BUG: The properties dialog would show the url with backward slashes when
