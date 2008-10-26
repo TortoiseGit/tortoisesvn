@@ -1649,7 +1649,9 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 	{
 		// right dragging means we have to show a context menu
 		POINT pt;
-		GetCursorPos(&pt);
+		DWORD ptW = GetMessagePos();
+		pt.x = GET_X_LPARAM(ptW);
+		pt.y = GET_Y_LPARAM(ptW);
 		CMenu popup;
 		if (popup.CreatePopupMenu())
 		{

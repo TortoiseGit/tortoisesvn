@@ -279,7 +279,9 @@ void CFilePatchesDlg::OnNMRclickFilelist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 	CString temp;
 	CMenu popup;
 	POINT point;
-	GetCursorPos(&point);
+	DWORD ptW = GetMessagePos();
+	point.x = GET_X_LPARAM(ptW);
+	point.y = GET_Y_LPARAM(ptW);
 	if (popup.CreatePopupMenu())
 	{
 		UINT nFlags;

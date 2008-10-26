@@ -3688,7 +3688,9 @@ void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
 		if (!IsGroupViewEnabled())
 			return;
 		POINT pt;
-		GetCursorPos(&pt);
+		DWORD ptW = GetMessagePos();
+		pt.x = GET_X_LPARAM(ptW);
+		pt.y = GET_Y_LPARAM(ptW);
 		ScreenToClient(&pt);
 		int group = GetGroupFromPoint(&pt);
 		if (group < 0)

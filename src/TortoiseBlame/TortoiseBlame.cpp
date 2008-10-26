@@ -1624,7 +1624,9 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 				NMTTDISPINFOA* pTTTA = (NMTTDISPINFOA*)pNMHDR;
 				NMTTDISPINFOW* pTTTW = (NMTTDISPINFOW*)pNMHDR;
 				POINT point;
-				::GetCursorPos(&point);
+				DWORD ptW = GetMessagePos();
+				point.x = GET_X_LPARAM(ptW);
+				point.y = GET_Y_LPARAM(ptW);
 				::ScreenToClient(app.wBlame, &point);
 				LONG_PTR line = app.SendEditor(SCI_GETFIRSTVISIBLELINE);
 				LONG_PTR height = app.SendEditor(SCI_TEXTHEIGHT);

@@ -466,7 +466,9 @@ void CHistoryCombo::OnMouseMove(UINT nFlags, CPoint point)
 void CHistoryCombo::OnTimer(UINT_PTR nIDEvent)
 {
 	CPoint point;
-	::GetCursorPos(&point);
+	DWORD ptW = GetMessagePos();
+	point.x = GET_X_LPARAM(ptW);
+	point.y = GET_Y_LPARAM(ptW);
 	ScreenToClient(&point);
 
 	CRect rectClient;

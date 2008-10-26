@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006 - 2007 - TortoiseSVN
+// Copyright (C) 2006 - 2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -214,7 +214,9 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 			// find out if the mouse cursor is over one of the views, and if
 			// it is, pass the mouse wheel message to that view
 			POINT pt;
-			GetCursorPos(&pt);
+			DWORD ptW = GetMessagePos();
+			pt.x = GET_X_LPARAM(ptW);
+			pt.y = GET_Y_LPARAM(ptW);
 			RECT rect;
 			GetWindowRect(picWindow1, &rect);
 			if (PtInRect(&rect, pt))

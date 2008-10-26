@@ -459,7 +459,9 @@ BOOL CRevisionGraphWnd::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
 	TOOLTIPTEXTW* pTTTW = (TOOLTIPTEXTW*)pNMHDR;
 
 	POINT point;
-	GetCursorPos(&point);
+	DWORD ptW = GetMessagePos();
+	point.x = GET_X_LPARAM(ptW);
+	point.y = GET_Y_LPARAM(ptW);
 	ScreenToClient(&point);
 
     CString strTipText = TooltipText (GetHitNode (point));
