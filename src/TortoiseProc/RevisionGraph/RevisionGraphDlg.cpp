@@ -676,10 +676,18 @@ BOOL CRevisionGraphDlg::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
 
 void CRevisionGraphDlg::OnViewFilter()
 {
+    CRevisionInRange* revisionRange = m_options.GetOption<CRevisionInRange>();
+    svn_revnum_t head = m_Graph.GetHeadRevision();
+    svn_revnum_t lowerLimit = revisionRange->GetLowerLimit();
+    svn_revnum_t upperLimit = revisionRange->GetUpperLimit();
+
 	CRevGraphFilterDlg dlg;
-	dlg.SetMaxRevision(m_Graph.GetHeadRevision());
-	dlg.SetFilterString(m_sFilter);
-	if (dlg.DoModal()==IDOK)
+	dlg.SetMaxRevision (head);
+	dlg.SetFilterString (m_sFilter);
+    dlg.SetRevisionRange ( min (head, lowerLimit == -1 ? 1 : lowerLimit)
+                         , min (head, upperLimit == -1 ? head : upperLimit));
+
+    if (dlg.DoModal()==IDOK)
 	{
 		// user pressed OK to dismiss the dialog, which means
 		// we have to accept the new filter settings and apply them
@@ -687,7 +695,6 @@ void CRevisionGraphDlg::OnViewFilter()
 		dlg.GetRevisionRange(minrev, maxrev);
 		m_sFilter = dlg.GetFilterString();
 
-        CRevisionInRange* revisionRange = m_options.GetOption<CRevisionInRange>();
         revisionRange->SetLowerLimit (minrev);
         revisionRange->SetUpperLimit (maxrev);
 

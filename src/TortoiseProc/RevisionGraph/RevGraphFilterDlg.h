@@ -31,8 +31,9 @@ public:
 	CRevGraphFilterDlg(CWnd* pParent = NULL);   // standard constructor
 	virtual ~CRevGraphFilterDlg();
 
-	void	SetMaxRevision(svn_revnum_t rev) {m_HeadRev = rev;}
-	void	GetRevisionRange(svn_revnum_t& minrev, svn_revnum_t& maxrev);
+	void	SetMaxRevision (svn_revnum_t rev) {m_HeadRev = rev;}
+	void	GetRevisionRange (svn_revnum_t& minrev, svn_revnum_t& maxrev);
+	void	SetRevisionRange (svn_revnum_t minrev, svn_revnum_t maxrev);
 	CString	GetFilterString() {return m_sFilterPaths;}
 	void	SetFilterString(const CString& str) {m_sFilterPaths = str;}
 

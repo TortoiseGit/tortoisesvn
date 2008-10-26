@@ -28,6 +28,8 @@ CRevGraphFilterDlg::CRevGraphFilterDlg(CWnd* pParent /*=NULL*/)
 	, m_sFilterPaths(_T(""))
 	, m_sFromRev(_T(""))
 	, m_sToRev(_T(""))
+    , m_minrev (1)
+    , m_maxrev (1)
 {
 
 }
@@ -58,11 +60,11 @@ BOOL CRevGraphFilterDlg::OnInitDialog()
 
 	m_cFromSpin.SetBuddy(GetDlgItem(IDC_FROMREV));
 	m_cFromSpin.SetRange32(1, m_HeadRev);
-	m_cFromSpin.SetPos32(1);
+	m_cFromSpin.SetPos32(m_minrev);
 
 	m_cToSpin.SetBuddy(GetDlgItem(IDC_TOREV));
 	m_cToSpin.SetRange32(1, m_HeadRev);
-	m_cToSpin.SetPos32(m_HeadRev);
+	m_cToSpin.SetPos32(m_maxrev);
 
 	return TRUE;
 }
@@ -101,6 +103,12 @@ void CRevGraphFilterDlg::GetRevisionRange(svn_revnum_t& minrev, svn_revnum_t& ma
 {
 	minrev = m_minrev;
 	maxrev = m_maxrev;
+}
+
+void CRevGraphFilterDlg::SetRevisionRange (svn_revnum_t minrev, svn_revnum_t maxrev)
+{
+	m_minrev = minrev;
+	m_maxrev = maxrev;
 }
 
 void CRevGraphFilterDlg::OnOK()
