@@ -57,7 +57,7 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
     // restore option state
 
 	DWORD dwOpts = CRegStdWORD(_T("Software\\TortoiseSVN\\RevisionGraphOptions"), 0x211);
-    m_options.SetRegistryFlags (dwOpts, 0x2ff);
+    m_options.SetRegistryFlags (dwOpts, 0x3ff);
 }
 
 CRevisionGraphDlg::~CRevisionGraphDlg()
