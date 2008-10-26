@@ -329,7 +329,7 @@ BOOL CLogDlg::OnInitDialog()
 	temp.LoadString(IDS_LOG_MESSAGE);
 	m_LogList.InsertColumn(m_bShowBugtraqColumn ? 5 : 4, temp);
 	m_LogList.SetRedraw(false);
-	ResizeAllListCtrlCols(m_LogList);
+	ResizeAllListCtrlCols();
 	m_LogList.SetRedraw(true);
 
 	m_ChangedFileListCtrl.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
@@ -1222,7 +1222,7 @@ UINT CLogDlg::LogThread()
 	InterlockedExchange(&m_bThreadRunning, FALSE);
 	m_LogList.RedrawItems(0, m_arShownList.GetCount());
 	m_LogList.SetRedraw(false);
-	ResizeAllListCtrlCols(m_LogList);
+	ResizeAllListCtrlCols();
 	m_LogList.SetRedraw(true);
 	if ( m_pStoreSelection )
 	{
@@ -2769,7 +2769,7 @@ LRESULT CLogDlg::OnClickedCancelFilter(WPARAM /*wParam*/, LPARAM /*lParam*/)
 	m_LogList.SetItemCountEx(ShownCountWithStopped());
 	m_LogList.RedrawItems(0, ShownCountWithStopped());
 	m_LogList.SetRedraw(false);
-	ResizeAllListCtrlCols(m_LogList);
+	ResizeAllListCtrlCols();
 	m_LogList.SetRedraw(true);
 	theApp.DoWaitCursor(-1);
 	GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);
@@ -2984,7 +2984,7 @@ void CLogDlg::OnEnChangeSearchedit()
 		m_LogList.SetItemCountEx(ShownCountWithStopped());
 		m_LogList.RedrawItems(0, ShownCountWithStopped());
 		m_LogList.SetRedraw(false);
-		ResizeAllListCtrlCols(m_LogList);
+		ResizeAllListCtrlCols();
 		m_LogList.SetRedraw(true);
 		theApp.DoWaitCursor(-1);
 		GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_HIDE);
@@ -3221,7 +3221,7 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 		m_LogList.SetItemCountEx(ShownCountWithStopped());
 		m_LogList.RedrawItems(0, ShownCountWithStopped());
 		m_LogList.SetRedraw(false);
-		ResizeAllListCtrlCols(m_LogList);
+		ResizeAllListCtrlCols();
 		m_LogList.SetRedraw(true);
 		m_LogList.Invalidate();
 		if ( m_LogList.GetItemCount()==1 )
@@ -3501,28 +3501,71 @@ int CLogDlg::SortCompare(const void * pElem1, const void * pElem2)
 	return 0;
 }
 
-void CLogDlg::ResizeAllListCtrlCols(CListCtrl& list)
+void CLogDlg::ResizeAllListCtrlCols()
 {
-	CAppUtils::ResizeAllListCtrlCols(&list);
-
-	// Adjust columns "Actions" containing icons
-	int nWidth = list.GetColumnWidth(1);
-
 	const int nMinimumWidth = ICONITEMBORDER+16*4;
-	if ( nWidth<nMinimumWidth )
+	int maxcol = ((CHeaderCtrl*)(m_LogList.GetDlgItem(0)))->GetItemCount()-1;
+	int nItemCount = m_LogList.GetItemCount();
+	TCHAR textbuf[MAX_PATH];
+	CHeaderCtrl * pHdrCtrl = (CHeaderCtrl*)(m_LogList.GetDlgItem(0));
+	if (pHdrCtrl)
 	{
-		list.SetColumnWidth(1,nMinimumWidth);
-	}
-
-	// keep the bug id column small
-	if (m_bShowBugtraqColumn)
-	{
-		int nBugIDWidth = list.GetColumnWidth(4);
-		if (nBugIDWidth > (int)(DWORD)m_regMaxBugIDColWidth)
+		for (int col = 0; col <= maxcol; col++)
 		{
-			list.SetColumnWidth(4, (int)(DWORD)m_regMaxBugIDColWidth);
-		}
+			HDITEM hdi = {0};
+			hdi.mask = HDI_TEXT;
+			hdi.pszText = textbuf;
+			hdi.cchTextMax = sizeof(textbuf);
+			pHdrCtrl->GetItem(col, &hdi);
+			int cx = m_LogList.GetStringWidth(hdi.pszText)+20; // 20 pixels for col separator and margin
+			for (int index = 0; index<nItemCount; ++index)
+			{
+				// get the width of the string and add 14 pixels for the column separator and margins
+				int linewidth = m_LogList.GetStringWidth(m_LogList.GetItemText(index, col)) + 14;
+				PLOGENTRYDATA pCurLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(index));
+				if (pCurLogEntry->Rev == m_wcRev)
+				{
+					// set the bold font and ask for the string width again
+					m_LogList.SendMessage(WM_SETFONT, (WPARAM)m_boldFont, NULL);
+					linewidth = m_LogList.GetStringWidth(m_LogList.GetItemText(index, col)) + 14;
+					// restore the system font
+					m_LogList.SendMessage(WM_SETFONT, NULL, NULL);
+				}
+				if (index == 0)
+				{
+					// add the image size
+					CImageList * pImgList = m_LogList.GetImageList(LVSIL_SMALL);
+					if ((pImgList)&&(pImgList->GetImageCount()))
+					{
+						IMAGEINFO imginfo;
+						pImgList->GetImageInfo(0, &imginfo);
+						linewidth += (imginfo.rcImage.right - imginfo.rcImage.left);
+						linewidth += 3;	// 3 pixels between icon and text
+					}
+				}
+				if (cx < linewidth)
+					cx = linewidth;
+			}
+			// Adjust columns "Actions" containing icons
+			if (col == 1)
+			{
+				if (cx < nMinimumWidth)
+				{
+					cx = nMinimumWidth;
+				}
+			}
+			
+			// keep the bug id column small
+			if ((col == 4)&&(m_bShowBugtraqColumn))
+			{
+				if (cx > (int)(DWORD)m_regMaxBugIDColWidth)
+				{
+					cx = (int)(DWORD)m_regMaxBugIDColWidth;
+				}
+			}
 
+			m_LogList.SetColumnWidth(col, cx);
+		}
 	}
 }
 
