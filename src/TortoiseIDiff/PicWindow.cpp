@@ -885,8 +885,8 @@ void CPicWindow::SetZoom(double dZoom, bool centermouse)
 	// is at the same position after the zoom
 	POINT cpos;
 	DWORD ptW = GetMessagePos();
-	pt.x = GET_X_LPARAM(ptW);
-	pt.y = GET_Y_LPARAM(ptW);
+	cpos.x = GET_X_LPARAM(ptW);
+	cpos.y = GET_Y_LPARAM(ptW);
 	ScreenToClient(*this, &cpos);
 	RECT clientrect;
 	GetClientRect(&clientrect);
