@@ -62,6 +62,7 @@ void CLogCachePool::Clear()
 
 void CLogCachePool::AutoRemoveUnused()
 {
+    std::set<CString> allFiles;
     std::set<CString> lockedCaches;
     std::set<CString> smallUnusedCaches;
     std::set<CString> oldLocks;
@@ -92,6 +93,9 @@ void CLogCachePool::AutoRemoveUnused()
         do
         {
             CString fileName = dirEntry.cFileName;
+            fileName.MakeLower();
+
+            allFiles.insert (fileName);
 
             // process only caches that are not locked.
             // The repository list itself is not a repository cache
@@ -150,7 +154,8 @@ void CLogCachePool::AutoRemoveUnused()
         }
     }
 
-    // update cache info list
+    // update cache info list and also remove entries 
+    // that don't have a cache file anymore
 
     for ( const CRepositoryInfo::SPerRepositoryInfo* const * iter 
              = repositoryInfo->data.end()
@@ -159,8 +164,11 @@ void CLogCachePool::AutoRemoveUnused()
         ; --iter)
     {
         const CRepositoryInfo::SPerRepositoryInfo* info = *(iter-1);
-        if (deletedCaches.find (info->fileName) != deletedCaches.end())
+        if (   (deletedCaches.find (info->fileName) != deletedCaches.end())
+            || (allFiles.find (info->fileName) == allFiles.end()))
+        {
             repositoryInfo->DropEntry (info->uuid, info->root);
+        }
     }
 }
 

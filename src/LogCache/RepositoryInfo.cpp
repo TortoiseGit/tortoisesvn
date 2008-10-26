@@ -59,7 +59,7 @@ CString UniqueFileName (const CString& fileName)
 	while (GetFileAttributes (result) != INVALID_FILE_ATTRIBUTES)
         result.Format (_T("%s(%d)"), (LPCTSTR)result, ++num); 
 
-    return result;
+    return result.MakeLower();
 }
 
 // a lookup utility that scans an index range
@@ -602,7 +602,7 @@ CRepositoryInfo::GetConnectionState (const CString& uuid, const CString& url)
 
 // remove a specific entry
 
-void CRepositoryInfo::DropEntry (const CString& uuid, const CString& url)
+void CRepositoryInfo::DropEntry (CString uuid, CString url)
 {
     for ( SPerRepositoryInfo* info = data.Lookup (uuid, url)
         ; info != NULL
