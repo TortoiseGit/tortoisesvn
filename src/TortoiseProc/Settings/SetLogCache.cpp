@@ -78,11 +78,49 @@ BEGIN_MESSAGE_MAP(CSetLogCache, ISettingsPropPage)
 	ON_EN_CHANGE(IDC_CACHEDROPAGE, OnChanged)
 	ON_EN_CHANGE(IDC_CACHEDROPMAXSIZE, OnChanged)
 	ON_EN_CHANGE(IDC_MAXFAILUESUNTILDROP, OnChanged)
+    ON_BN_CLICKED(IDC_CACHESTDDEFAULTS, OnStandardDefaults)
+	ON_BN_CLICKED(IDC_CACHEPOWERDEFAULTS, OnPowerDefaults)
 END_MESSAGE_MAP()
 
 void CSetLogCache::OnChanged()
 {
 	SetModified();
+}
+
+void CSetLogCache::OnStandardDefaults()
+{
+	m_bEnableLogCaching = TRUE;
+    m_bSupportAmbiguousURL = TRUE;
+    m_bSupportAmbiguousUUID = TRUE;
+
+    m_cDefaultConnectionState.SetCurSel(0);
+
+    m_dwMaxHeadAge = 0;
+    m_dwCacheDropAge = 10;
+    m_dwCacheDropMaxSize = 200;
+
+    m_dwMaxFailuresUntilDrop = 0;
+
+    SetModified();
+    UpdateData (FALSE);
+}
+
+void CSetLogCache::OnPowerDefaults()
+{
+	m_bEnableLogCaching = TRUE;
+    m_bSupportAmbiguousURL = FALSE;
+    m_bSupportAmbiguousUUID = FALSE;
+
+    m_cDefaultConnectionState.SetCurSel(1);
+
+    m_dwMaxHeadAge = 300;
+    m_dwCacheDropAge = 0;
+    m_dwCacheDropMaxSize = 200;
+
+    m_dwMaxFailuresUntilDrop = 20;
+
+    SetModified();
+    UpdateData (FALSE);
 }
 
 BOOL CSetLogCache::OnApply()
@@ -143,7 +181,10 @@ BOOL CSetLogCache::OnInitDialog()
 
     m_tooltips.AddTool(IDC_MAXFAILUESUNTILDROP, IDS_SETTINGS_LOGCACHE_FAILURELIMIT);
 
-	return TRUE;
+    m_tooltips.AddTool(IDC_CACHESTDDEFAULTS, IDS_SETTINGS_LOGCACHE_STDDEFAULT);
+    m_tooltips.AddTool(IDC_CACHEPOWERDEFAULTS, IDS_SETTINGS_LOGCACHE_POWERDEFAULT);
+
+    return TRUE;
 }
 
 BOOL CSetLogCache::PreTranslateMessage(MSG* pMsg)
