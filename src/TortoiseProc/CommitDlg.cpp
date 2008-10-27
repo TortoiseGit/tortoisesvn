@@ -559,6 +559,7 @@ UINT CCommitDlg::StatusThread()
 
 	DialogEnableWindow(IDOK, false);
 	DialogEnableWindow(IDC_SHOWUNVERSIONED, false);
+	DialogEnableWindow(IDC_SELECTALL, false);
 	GetDlgItem(IDC_EXTERNALWARNING)->ShowWindow(SW_HIDE);
 	DialogEnableWindow(IDC_EXTERNALWARNING, false);
 
@@ -639,6 +640,7 @@ UINT CCommitDlg::StatusThread()
 	if (m_bRunThread)
 	{
 		DialogEnableWindow(IDC_SHOWUNVERSIONED, true);
+		DialogEnableWindow(IDC_SELECTALL, true);
 		if (m_ListCtrl.HasChangeLists())
 			DialogEnableWindow(IDC_KEEPLISTS, true);
 		if (m_ListCtrl.HasLocks())
