@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-22 08:48+0900\n"
+"PO-Revision-Date: 2008-10-27 12:59+0900\n"
 "Last-Translator: Kim TaeDong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -772,6 +772,10 @@ msgstr "영구 오프라인(&P)"
 msgid "&Port:"
 msgstr "포트(&P):"
 
+#. Resource IDs: (1489)
+msgid "&Power user defaults"
+msgstr "고급 사용자 기본값(&P)"
+
 #. Resource IDs: (32780)
 msgid "&Previous Difference"
 msgstr "이전 차이점(&P)"
@@ -835,6 +839,10 @@ msgstr "나의 사용 정보 리셋(&R)"
 #. Resource IDs: (16910)
 msgid "&Reset to Default"
 msgstr "초기값으로 리셋(&R)"
+
+#. Resource IDs: (1488)
+msgid "&Restore defaults"
+msgstr "기본값으로 복원(&R)"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -1447,8 +1455,8 @@ msgid "Allow different repositories to use the same URL, e.g. http://localhost/m
 msgstr "다른 저장소들에 대해서 같은 URL을 사용하는 것을 허용합니다. 예를 들면 http://localhost/myrepos/"
 
 #. Resource IDs: (345)
-msgid "Allow different repositories to use the same UUID, e.g. mirrored repositories"
-msgstr "다른 저장소들에 대해서 같은 UUID를 사용하는 것을 허용합니다. 예를 들면 똑같이 복사된 저장소들."
+msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
+msgstr "다른 저장소들에 대해서 같은 UUID를 사용하는 것을 허용합니다. 예를 들면 복사된 저장소들."
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -1532,6 +1540,14 @@ msgstr ""
 #. Resource IDs: (13)
 msgid "Apply &patch..."
 msgstr "패치 적용(&P)..."
+
+#. Resource IDs: (345)
+msgid ""
+"Apply 'Power User' defaults. Those will provide a smother experience.\n"
+" You should know the meaning of all the settings above."
+msgstr ""
+"'고급 사용자'용 기본값을 적용합니다. 이것은 많은 경험을 제공할 것입니다.\n"
+"사용자는 위의 모든 설정의 의미를 알고 있어야만 합니다."
 
 #. Resource IDs: (1294)
 msgid "Apply property recursively"
@@ -6270,6 +6286,10 @@ msgstr "되돌림"
 #. Resource IDs: (77)
 msgid "Revert - TortoiseSVN"
 msgstr "되돌리기 - TortoiseSVN"
+
+#. Resource IDs: (345)
+msgid "Revert to default settings. Recommended for unexperienced users."
+msgstr "기본 설정으로 되돌립니다. 경험이 없는 사용자에게 추천됩니다."
 
 #. Resource IDs: (73)
 msgid "Reverted"
