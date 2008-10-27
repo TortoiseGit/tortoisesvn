@@ -24,7 +24,7 @@ $tsvn_var['flagpath']="/flags/world.small/";
 $tsvn_var['release']="1.5.5";
 $tsvn_var['build']="14361";
 $tsvn_var['build_x64']="14361";
-$tsvn_var['svnver']="1.5.3";
+$tsvn_var['svnver']="1.5.4";
 $tsvn_var['sf_release_id']="635612";
 
 $tsvn_var['repos_trunk']=$tsvn_var['repos_base'].'trunk/';
