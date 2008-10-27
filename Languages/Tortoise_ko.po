@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-27 12:59+0900\n"
+"PO-Revision-Date: 2008-10-28 08:21+0900\n"
 "Last-Translator: Kim TaeDong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -325,6 +325,10 @@ msgstr "블루 스타일(&B)"
 #. Resource IDs: (65535)
 msgid "&Blue:"
 msgstr "파랑색(&B):"
+
+#. Resource IDs: (65535)
+msgid "&Branches"
+msgstr "브랜치(&B)"
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
@@ -695,6 +699,14 @@ msgstr "병합(&M)"
 msgid "&Minimize"
 msgstr "최소화(&M)"
 
+#. Resource IDs: (1493)
+msgid "&Modify color for tag copies"
+msgstr "태그 복사본에 대한 색깔 변경(&M)"
+
+#. Resource IDs: (1492)
+msgid "&Modify color for trunk copies"
+msgstr "트렁크 복사본에 대한 색깔 변경(&M)"
+
 #. Resource IDs: (65535)
 msgid "&Navigate"
 msgstr "둘러보기(&N)"
@@ -936,6 +948,10 @@ msgstr "탭 크기(&T):"
 msgid "&Tabbed Document"
 msgstr "탭으로 나열된 문서(&T)"
 
+#. Resource IDs: (65535)
+msgid "&Tags"
+msgstr "태그(&T)"
+
 #. Resource IDs: (1382)
 msgid "&Test merge"
 msgstr "시험 병합(&T)"
@@ -991,6 +1007,10 @@ msgstr "&TortoiseSVN"
 #. Resource IDs: (1096)
 msgid "&TortoiseUDiff"
 msgstr "&TortoiseUDiff"
+
+#. Resource IDs: (65535)
+msgid "&Trunk"
+msgstr "트렁크(&T)"
 
 #. Resource IDs: (3845)
 msgid "&Two Page"
@@ -1543,10 +1563,10 @@ msgstr "패치 적용(&P)..."
 
 #. Resource IDs: (345)
 msgid ""
-"Apply 'Power User' defaults. Those will provide a smother experience.\n"
-" You should know the meaning of all the settings above."
+"Apply 'Power User' defaults. Those will provide a smoother experience.\n"
+"You should know the meaning of all the settings above."
 msgstr ""
-"'고급 사용자'용 기본값을 적용합니다. 이것은 많은 경험을 제공할 것입니다.\n"
+"'고급 사용자'용 기본값을 적용합니다. 이것은 상세한 설정을 제공할 것입니다.\n"
 "사용자는 위의 모든 설정의 의미를 알고 있어야만 합니다."
 
 #. Resource IDs: (1294)
@@ -2030,6 +2050,10 @@ msgstr "체크섬:"
 #. Resource IDs: (1402)
 msgid "Choose item:"
 msgstr "아이템 선택:"
+
+#. Resource IDs: (65535)
+msgid "Classification Patterns"
+msgstr "분류 패턴"
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -3729,6 +3753,10 @@ msgstr "일반::대화상자 1"
 msgid "General::Dialogs 2"
 msgstr "일반::대화상자 2"
 
+#. Resource IDs: (296)
+msgid "General::Revision Graph"
+msgstr "일반::리비전 그래프"
+
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "패치 파일 생성 중..."
@@ -4095,6 +4123,54 @@ msgid ""
 msgstr ""
 "선택된 파일에 svn:needs-lock 속성이 있으면\n"
 "컨텍스트 메뉴에 '잠그기'를 추가합니다."
+
+#. Resource IDs: (346)
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'branch'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
+"주어진 경로의 요소(두개의 '/' 문자 사이에 있는)가 다음의 패턴중 하나와 일치한다면,\n"
+"이 경로는 '브랜치'로 간주됩니다.\n"
+"\n"
+"패턴들은 소문자입니다.\n"
+"'?'와 '*'같은 와일드 문자를 지원합니다.\n"
+"';' 문자로 각 패턴은 분리됩니다."
+
+#. Resource IDs: (346)
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'tag'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
+"주어진 경로의 요소(두개의 '/' 문자 사이에 있는)가 다음의 패턴중 하나와 일치한다면,\n"
+"이 경로는 '태그'로 간주됩니다.\n"
+"\n"
+"패턴들은 소문자입니다.\n"
+"'?'와 '*'같은 와일드 문자를 지원합니다.\n"
+"';' 문자로 각 패턴은 분리됩니다."
+
+#. Resource IDs: (346)
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'trunk'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
+"주어진 경로의 요소(두개의 '/' 문자 사이에 있는)가 다음의 패턴중 하나와 일치한다면,\n"
+"이 경로는 '트렁크'로 간주됩니다.\n"
+"\n"
+"패턴들은 소문자입니다.\n"
+"'?'와 '*'같은 와일드 문자를 지원합니다.\n"
+"';' 문자로 각 패턴은 분리됩니다."
 
 #. Resource IDs: (95)
 msgid ""
@@ -7384,6 +7460,14 @@ msgstr "chunk 크기가 추가/제거된 라인수와 일치하지 않습니다.
 msgid "The chunk start '@@' was expected in line %d !"
 msgstr "chunk의 시작인  '@@' 가 있어야합니다. 행 번호 %d !"
 
+#. Resource IDs: (346)
+msgid "The color of creation, copy and rename nodes of tags will be shifted towards yellow."
+msgstr "태그 노드의 생성, 복사, 이름변경에 대한 색깔은 노란색으로 쉬프트 될 것입니다."
+
+#. Resource IDs: (346)
+msgid "The color of creation, copy and rename nodes of the trunk will be shifted towards green."
+msgstr "트렁크 노드의 생성, 복사, 이름변경에 대한 색깔은 녹색으로 쉬프트 될 것입니다."
+
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
 msgstr "아무것도 지정하지 않을 경우 체크아웃해 올 기본 URL"
@@ -8260,6 +8344,10 @@ msgstr "버전 관리 대상이 아닌 파일들이 있으면 상위 폴더를 �
 #, c-format
 msgid "Unversioning %s"
 msgstr "버전관리에서 제외 %s"
+
+#. Resource IDs: (106)
+msgid "Up one folder"
+msgstr "상위 폴더로 이동"
 
 #. Resource IDs: (152, 230, 1436)
 msgid "Update"
@@ -9598,8 +9686,6 @@ msgstr "{버그트랙}"
 #~ msgstr "별칭 (삭제됨): %s"
 #~ msgid "&?"
 #~ msgstr "&?"
-#~ msgid "&Cancel"
-#~ msgstr "취소(&C)"
 #~ msgid "Merge all..."
 #~ msgstr "전체 병합..."
 #~ msgid "SVN Export to here"
