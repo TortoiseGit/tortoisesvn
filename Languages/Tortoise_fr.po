@@ -1488,8 +1488,8 @@ msgstr ""
 "pour comparer différentes versions de fichiers\r\n"
 "\r\n"
 "Vous pouvez utiliser les paramètres suivant pour le chemin :\r\n"
-"%base\tnom du fichier de base\r\n"
-"%mine\tle fichier modifié"
+"%base : nom du fichier de base\r\n"
+"%mine : le fichier modifié"
 
 #. Resource IDs: (79)
 #, c-format
@@ -1507,10 +1507,10 @@ msgstr ""
 "pour résoudre les fichiers en conflit\r\n"
 "\r\n"
 "Vous pouvez utiliser les paramètres suivant pour le chemin :\r\n"
-"%merged\toù enregistrer le fichier en conflit\r\n"
-"%theirs\t\tle fichier dans le référentiel\r\n"
-"%mine\t\tvotre fichier avec vos modifications\r\n"
-"%base\t\tle fichier original sans changement"
+"%merged : où enregistrer le fichier en conflit\r\n"
+"%theirs : le fichier dans le référentiel\r\n"
+"%mine : votre fichier avec vos modifications\r\n"
+"%base : le fichier original sans changement"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -3918,7 +3918,7 @@ msgstr "Astuce : Pressez F5 pour rafraîchir le sous-arbre sélectionné et Ctrl
 
 #. Resource IDs: (16519)
 msgid "Hint: select the context menu, change the page to 'Commands' and drag the toolbar buttons into the menu window."
-msgstr "Astuce : sélectionner le menu contextuel, aller à la page \"Commandes\" et glissez les boutons de barre d'outils dans la fenêtre du menu."
+msgstr "Astuce : sélectionner le menu contextuel, aller à la page 'Commandes' et glissez les boutons de barre d'outils dans la fenêtre du menu."
 
 #. Resource IDs: (1064)
 msgid "Home"
@@ -5885,7 +5885,7 @@ msgstr "Re&venir en arrière..."
 
 #. Resource IDs: (12)
 msgid "Read the 'Daily Use Guide' before you are stuck..."
-msgstr "Lisez le \"Guide journalier\" avant d'être bloqué..."
+msgstr "Lisez le 'Guide journalier' avant d'être bloqué..."
 
 #. Resource IDs: (1002)
 msgid "Recent"
@@ -9344,7 +9344,7 @@ msgstr ""
 "Une liste séparée par deux sauts de ligne d'identifiants de modules, chacun constitué\r\n"
 "d'une révision facultative, d'une URL et d'un chemin relatif. Par exemple\r\n"
 "http://example.com/repos/zig foo\r\n"
-"-r 1234\thttp://example.com/repos/zag foo/bar\r\n"
+"-r 1234 http://example.com/repos/zag foo/bar\r\n"
 "\r\n"
 "Les URLs peuvent être soit absolues soit relatives. Le format pour\r\n"
 "les URLs relatives est :\r\n"
