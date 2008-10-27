@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-22 11:14+0100\n"
+"PO-Revision-Date: 2008-10-27 09:19+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -775,6 +775,10 @@ msgstr "&Ständig offline"
 msgid "&Port:"
 msgstr "&Port:"
 
+#. Resource IDs: (1489)
+msgid "&Power user defaults"
+msgstr "&Poweruser Einstellungen"
+
 #. Resource IDs: (32780)
 msgid "&Previous Difference"
 msgstr "&Vorheriger Unterschied"
@@ -838,6 +842,10 @@ msgstr "&Meine Verwendungsdaten zurücksetzen"
 #. Resource IDs: (16910)
 msgid "&Reset to Default"
 msgstr "&Auf Standardwerte setzen"
+
+#. Resource IDs: (1488)
+msgid "&Restore defaults"
+msgstr "Auf &Standardwerte setzen"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -1450,8 +1458,8 @@ msgid "Allow different repositories to use the same URL, e.g. http://localhost/m
 msgstr "Erlaubt es, unterschiedlichen Projektarchive dieselbe URL zu verwenden, z.B. http://localhost/myrepos/"
 
 #. Resource IDs: (345)
-msgid "Allow different repositories to use the same UUID, e.g. mirrored repositories"
-msgstr "Erlaubt es, unterschiedlichen Projektarchiven dieselbe UUID zu verwenden, z.B. gespiegelten Projektarchiven"
+msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
+msgstr "Erlaubt es, verschiedenen Projektarchiven dieselbe UUID zu verwenden, z.B. kopierten Projektarchiven"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -1537,6 +1545,14 @@ msgstr ""
 #. Resource IDs: (13)
 msgid "Apply &patch..."
 msgstr "&Patch anwenden..."
+
+#. Resource IDs: (345)
+msgid ""
+"Apply 'Power User' defaults. Those will provide a smother experience.\n"
+" You should know the meaning of all the settings above."
+msgstr ""
+"Vorgabewerte für erfahrene Anwender. Diese führen zu einer flüssigeren Funktion.\n"
+"Sie sollten die Bedeutung aller obenstehenden Einstellungen kennen."
 
 #. Resource IDs: (1294)
 msgid "Apply property recursively"
@@ -5877,7 +5893,7 @@ msgstr "Alle Rück&setzen"
 
 #. Resource IDs: (1382)
 msgid "Re&store defaults"
-msgstr "&Standard wieder herstellen"
+msgstr "Auf &Standardwerte setzen"
 
 #. Resource IDs: (8)
 msgid "Re&vert..."
@@ -6300,6 +6316,10 @@ msgstr "Änderungen rückgängig"
 #. Resource IDs: (77)
 msgid "Revert - TortoiseSVN"
 msgstr "Rückgängig - TortoiseSVN"
+
+#. Resource IDs: (345)
+msgid "Revert to default settings. Recommended for unexperienced users."
+msgstr "Standardeinstellungen wieder herstellen. Für weniger erfahrene Anwender empfohlen."
 
 #. Resource IDs: (73)
 msgid "Reverted"
