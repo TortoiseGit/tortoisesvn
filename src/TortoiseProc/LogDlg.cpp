@@ -3522,14 +3522,17 @@ void CLogDlg::ResizeAllListCtrlCols()
 			{
 				// get the width of the string and add 14 pixels for the column separator and margins
 				int linewidth = m_LogList.GetStringWidth(m_LogList.GetItemText(index, col)) + 14;
-				PLOGENTRYDATA pCurLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(index));
-				if (pCurLogEntry->Rev == m_wcRev)
+				if (index < m_arShownList.GetCount())
 				{
-					// set the bold font and ask for the string width again
-					m_LogList.SendMessage(WM_SETFONT, (WPARAM)m_boldFont, NULL);
-					linewidth = m_LogList.GetStringWidth(m_LogList.GetItemText(index, col)) + 14;
-					// restore the system font
-					m_LogList.SendMessage(WM_SETFONT, NULL, NULL);
+					PLOGENTRYDATA pCurLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(index));
+					if ((pCurLogEntry)&&(pCurLogEntry->Rev == m_wcRev))
+					{
+						// set the bold font and ask for the string width again
+						m_LogList.SendMessage(WM_SETFONT, (WPARAM)m_boldFont, NULL);
+						linewidth = m_LogList.GetStringWidth(m_LogList.GetItemText(index, col)) + 14;
+						// restore the system font
+						m_LogList.SendMessage(WM_SETFONT, NULL, NULL);
+					}
 				}
 				if (index == 0)
 				{
