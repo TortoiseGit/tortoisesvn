@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-22 17:09+0100\n"
+"PO-Revision-Date: 2008-10-27 13:02+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -828,6 +828,10 @@ msgstr "&Permanent frakoblet"
 msgid "&Port:"
 msgstr "&Port:"
 
+#. Resource IDs: (1489)
+msgid "&Power user defaults"
+msgstr "&Avansert standard"
+
 #. Resource IDs: (32780)
 msgid "&Previous Difference"
 msgstr "&Forrige forskjell"
@@ -891,6 +895,10 @@ msgstr "&Nullstill mine bruksdata"
 #. Resource IDs: (16910)
 msgid "&Reset to Default"
 msgstr "&Tilbake til Standard"
+
+#. Resource IDs: (1488)
+msgid "&Restore defaults"
+msgstr "&Gjenopprett standard"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -1503,8 +1511,8 @@ msgid "Allow different repositories to use the same URL, e.g. http://localhost/m
 msgstr "Tillat at forskjellige depoter bruker samme URL, f.eks. http://localhost/myrepos/"
 
 #. Resource IDs: (345)
-msgid "Allow different repositories to use the same UUID, e.g. mirrored repositories"
-msgstr "Tillat at forskjellige depoter bruker samme UUID, f.eks. speilede depoter"
+msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
+msgstr "Tillat at forskjellige depoter bruker samme UUID, f.eks. kopierte depoter"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -1590,6 +1598,14 @@ msgstr ""
 #. Resource IDs: (13)
 msgid "Apply &patch..."
 msgstr "Anvend &korreksjon..."
+
+#. Resource IDs: (345)
+msgid ""
+"Apply 'Power User' defaults. Those will provide a smother experience.\n"
+" You should know the meaning of all the settings above."
+msgstr ""
+"Bruk standard for avanserte brukere. Dette gir en bedre opplevelse.\n"
+" Du bør kjenne innholdet i alle instillingene over."
 
 #. Resource IDs: (1294)
 msgid "Apply property recursively"
@@ -6320,6 +6336,10 @@ msgstr "Tilbakestill"
 #. Resource IDs: (77)
 msgid "Revert - TortoiseSVN"
 msgstr "Tilbakestill - TortoiseSVN"
+
+#. Resource IDs: (345)
+msgid "Revert to default settings. Recommended for unexperienced users."
+msgstr "Tilbakestill til standard instillinger. Anbefales for uerfarne brukere."
 
 #. Resource IDs: (73)
 msgid "Reverted"
