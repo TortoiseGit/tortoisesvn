@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-20 23:44+0800\n"
+"PO-Revision-Date: 2008-10-27 22:51+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -773,6 +773,10 @@ msgstr "永久離線(&P)"
 msgid "&Port:"
 msgstr "埠(&P):"
 
+#. Resource IDs: (1489)
+msgid "&Power user defaults"
+msgstr "進階使用者預設值(&P)"
+
 #. Resource IDs: (32780)
 msgid "&Previous Difference"
 msgstr "前一筆差異(&P)"
@@ -836,6 +840,10 @@ msgstr "重設個人使用紀錄(&R)"
 #. Resource IDs: (16910)
 msgid "&Reset to Default"
 msgstr "還原至預設值(&R)"
+
+#. Resource IDs: (1488)
+msgid "&Restore defaults"
+msgstr "還原預設值(&R)"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -1448,8 +1456,8 @@ msgid "Allow different repositories to use the same URL, e.g. http://localhost/m
 msgstr "允許不同檔案庫使用相同 URL, 例如 http://localhost/myrepos/"
 
 #. Resource IDs: (345)
-msgid "Allow different repositories to use the same UUID, e.g. mirrored repositories"
-msgstr "允許不同檔案庫使用相同 UUID, 例如檔案庫鏡像"
+msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
+msgstr "允許不同檔案庫使用相同 UUID, 例如複製的檔案庫"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -1535,6 +1543,14 @@ msgstr ""
 #. Resource IDs: (13)
 msgid "Apply &patch..."
 msgstr "套用補綴(&P)..."
+
+#. Resource IDs: (345)
+msgid ""
+"Apply 'Power User' defaults. Those will provide a smother experience.\n"
+" You should know the meaning of all the settings above."
+msgstr ""
+"套用進階使用者設定. 可提供較順暢的使用經驗.\n"
+"建議您了解各項設定作用後使用."
 
 #. Resource IDs: (1294)
 msgid "Apply property recursively"
@@ -5214,6 +5230,10 @@ msgstr "記憶體不足, 無法完成作業."
 msgid "Not recursive"
 msgstr "非遞迴"
 
+#. Resource IDs: (1481)
+msgid "Note: the folder contains unversioned items"
+msgstr "注意: 資料夾含有無版本控制的檔案"
+
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
 msgstr "注意: 字型設定也會影響 TortoiseDiff"
@@ -6269,6 +6289,10 @@ msgstr "復原"
 #. Resource IDs: (77)
 msgid "Revert - TortoiseSVN"
 msgstr "復原 - TortoiseSVN"
+
+#. Resource IDs: (345)
+msgid "Revert to default settings. Recommended for unexperienced users."
+msgstr "回復至預設設定. 建議新手使用者選用."
 
 #. Resource IDs: (73)
 msgid "Reverted"
