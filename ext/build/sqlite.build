@@ -40,10 +40,7 @@
 			<arg value="/Zi" />
 			<arg value="/errorReport:prompt" />
 			<sources>
-				<include name="*.c" />
-				<exclude name="mutex_os2.c" />
-				<exclude name="mutex_unix.c" />
-				<exclude name="tclsqlite.c" />
+				<include name="sqlite3.c" />
 			</sources>
 			<includedirs>
 				<include name="." />
