@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-25 11:36+0100\n"
+"PO-Revision-Date: 2008-10-27 08:47+0100\n"
 "Last-Translator: Mikkel Elmholdt <mikkel@elmholdt.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -911,6 +911,10 @@ msgstr "&Permanent offline"
 msgid "&Port:"
 msgstr "&Port:"
 
+#. Resource IDs: (1489)
+msgid "&Power user defaults"
+msgstr "&Standarder for erfarne brugere"
+
 #. Resource IDs: (32780)
 msgid "&Previous Difference"
 msgstr "&Forrige forskel"
@@ -974,6 +978,11 @@ msgstr "&Nulstil anvendelsesdata"
 #. Resource IDs: (16910)
 msgid "&Reset to Default"
 msgstr "&Gendan til standard"
+
+#. Resource IDs: (1488)
+#, fuzzy
+msgid "&Restore defaults"
+msgstr "Gendan &standarder"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -1602,7 +1611,7 @@ msgstr ""
 
 #. Resource IDs: (345)
 #, fuzzy
-msgid "Allow different repositories to use the same UUID, e.g. mirrored repositories"
+msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr ""
 "Tillad flere forskellige versionsarkiver at benytte samme URL, f.eks. http://localhost/mitversionsarkiv/\n"
 "Bemærk: Dette slår offline-logadgang fra."
@@ -1691,6 +1700,14 @@ msgstr ""
 #. Resource IDs: (13)
 msgid "Apply &patch..."
 msgstr "Påfør rettelsesf&il"
+
+#. Resource IDs: (345)
+msgid ""
+"Apply 'Power User' defaults. Those will provide a smother experience.\n"
+" You should know the meaning of all the settings above."
+msgstr ""
+"Anvend indstillinger for erfarne brugere. Dette vil give en mere strømlinet oplevelse.\n"
+"Du bør kende betydningen af alle indstillingerne nævnt ovenfor."
 
 #. Resource IDs: (1294)
 msgid "Apply property recursively"
@@ -5968,9 +5985,9 @@ msgid "Property %s : Revision %s"
 msgstr "Egenskab %s : Revision %s"
 
 #. Resource IDs: (151)
-#, fuzzy, c-format
+#, c-format
 msgid "Property %s : Working Base, Revision %ld"
-msgstr "Egenskab %s : Revision %s"
+msgstr "Egenskab %s : Arbejdskopi, Revision %ld"
 
 #. Resource IDs: (151)
 #, c-format
@@ -6439,12 +6456,10 @@ msgid "Resolve all later"
 msgstr "Løs alle senere"
 
 #. Resource IDs: (282)
-#, fuzzy
 msgid "Resolve conflict using 'mine'"
 msgstr "Løs konflikt ved at bruge \"min\""
 
 #. Resource IDs: (282)
-#, fuzzy
 msgid "Resolve conflict using 'theirs'"
 msgstr "Løs konflikt ved at bruge \"deres\""
 
@@ -6512,6 +6527,10 @@ msgstr "Tilbagefør"
 #. Resource IDs: (77)
 msgid "Revert - TortoiseSVN"
 msgstr "Tilbagefør - TortoiseSVN"
+
+#. Resource IDs: (345)
+msgid "Revert to default settings. Recommended for unexperienced users."
+msgstr "Gå tilbage til standard indstilinger. Anbefalet for ikke-erfarne brugere."
 
 #. Resource IDs: (73)
 msgid "Reverted"
@@ -6596,7 +6615,7 @@ msgstr ""
 "%s"
 
 #. Resource IDs: (272)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Revision: %ld\r\n"
 "URL: %s\r\n"
@@ -6613,7 +6632,7 @@ msgstr ""
 "Forfatter: %s\r\n"
 "Dato: %s\r\n"
 "\r\n"
-"Mærker:%s\r\n"
+"Mærker:(%d)\r\n"
 "\r\n"
 "Logbesked:\r\n"
 "%s"
@@ -8326,7 +8345,6 @@ msgid "Tree merge"
 msgstr "Træfletning"
 
 #. Resource IDs: (251)
-#, fuzzy
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr "Prøv at udføre kommandoen \"Ryd op\". Hvis det ikke hjælper, så er det nødvendigt at hente en ny arbejdskopi."
 
@@ -8669,22 +8687,18 @@ msgid "Use system locale for date/time"
 msgstr "Benyt systemformatering til dato/tid"
 
 #. Resource IDs: (251)
-#, fuzzy
 msgid "Use text block from '&mine'"
 msgstr "Benyt tekstblok fra \"&min\""
 
 #. Resource IDs: (251)
-#, fuzzy
 msgid "Use text block from '&theirs'"
 msgstr "Benyt tekstblok fra \"&deres\""
 
 #. Resource IDs: (251)
-#, fuzzy
 msgid "Use text block from 'm&ine' before 'theirs'"
 msgstr "Benyt tekstblok fra \"m&in\" før \"deres\""
 
 #. Resource IDs: (2052)
-#, fuzzy
 msgid ""
 "Use text block from 'mine' before 'theirs'\n"
 "Use 'mine' text block then 'theirs'"
@@ -8693,7 +8707,6 @@ msgstr ""
 "Benyt \"min\" tekstblok, derefter \"deres\""
 
 #. Resource IDs: (2052)
-#, fuzzy
 msgid ""
 "Use text block from 'mine'\n"
 "Use 'mine' text block"
@@ -8702,12 +8715,10 @@ msgstr ""
 "Benyt \"min\" tekstblok"
 
 #. Resource IDs: (251)
-#, fuzzy
 msgid "Use text block from 't&heirs' before 'mine"
 msgstr "Benyt tekstblok fra \"d&eres\" før \"min\""
 
 #. Resource IDs: (2052)
-#, fuzzy
 msgid ""
 "Use text block from 'theirs' before 'mine'\n"
 "Use 'theirs' text block then 'mine'"
@@ -8716,7 +8727,6 @@ msgstr ""
 "Benyt \"deres\" tekstblok, derefter \"min\""
 
 #. Resource IDs: (2052)
-#, fuzzy
 msgid ""
 "Use text block from 'theirs'\n"
 "Use 'theirs' text block"
@@ -9194,9 +9204,9 @@ msgid "added files"
 msgstr "tilføjede filer"
 
 #. Resource IDs: (272)
-#, fuzzy, c-format
+#, c-format
 msgid "alias (%s): %s"
-msgstr "alias: %s"
+msgstr "alias (%s): %s"
 
 #. Resource IDs: (272)
 #, c-format
