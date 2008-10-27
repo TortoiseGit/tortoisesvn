@@ -303,6 +303,10 @@ msgstr ""
 msgid "&Blue:"
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "&Branches"
+msgstr ""
+
 #. Resource IDs: (138)
 msgid "&Browse repository"
 msgstr ""
@@ -672,6 +676,14 @@ msgstr ""
 msgid "&Minimize"
 msgstr ""
 
+#. Resource IDs: (1493)
+msgid "&Modify color for tag copies"
+msgstr ""
+
+#. Resource IDs: (1492)
+msgid "&Modify color for trunk copies"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "&Navigate"
 msgstr ""
@@ -913,6 +925,10 @@ msgstr ""
 msgid "&Tabbed Document"
 msgstr ""
 
+#. Resource IDs: (65535)
+msgid "&Tags"
+msgstr ""
+
 #. Resource IDs: (1382)
 msgid "&Test merge"
 msgstr ""
@@ -967,6 +983,10 @@ msgstr ""
 
 #. Resource IDs: (1096)
 msgid "&TortoiseUDiff"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "&Trunk"
 msgstr ""
 
 #. Resource IDs: (3845)
@@ -1445,7 +1465,7 @@ msgid "Apply &patch..."
 msgstr ""
 
 #. Resource IDs: (345)
-msgid "Apply 'Power User' defaults. Those will provide a smother experience.\n You should know the meaning of all the settings above."
+msgid "Apply 'Power User' defaults. Those will provide a smoother experience.\nYou should know the meaning of all the settings above."
 msgstr ""
 
 #. Resource IDs: (1294)
@@ -1904,6 +1924,10 @@ msgstr ""
 
 #. Resource IDs: (1402)
 msgid "Choose item:"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Classification Patterns"
 msgstr ""
 
 #. Resource IDs: (145)
@@ -3318,6 +3342,10 @@ msgstr ""
 msgid "General::Dialogs 2"
 msgstr ""
 
+#. Resource IDs: (296)
+msgid "General::Revision Graph"
+msgstr ""
+
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr ""
@@ -3638,6 +3666,18 @@ msgstr ""
 
 #. Resource IDs: (198)
 msgid "If activated, the menu entry 'Get Lock' is always shown in the top level menu\nif the selected file has the svn:needs-lock property set"
+msgstr ""
+
+#. Resource IDs: (346)
+msgid "If an element (part between two '/') of a given path matches one\nof these patterns, it is considered a 'branch'.\n\nPatterns are lower-case.\nAllowed wildcards are '?' and '*'.\nSeparate patterns by ';'."
+msgstr ""
+
+#. Resource IDs: (346)
+msgid "If an element (part between two '/') of a given path matches one\nof these patterns, it is considered a 'tag'.\n\nPatterns are lower-case.\nAllowed wildcards are '?' and '*'.\nSeparate patterns by ';'."
+msgstr ""
+
+#. Resource IDs: (346)
+msgid "If an element (part between two '/') of a given path matches one\nof these patterns, it is considered a 'trunk'.\n\nPatterns are lower-case.\nAllowed wildcards are '?' and '*'.\nSeparate patterns by ';'."
 msgstr ""
 
 #. Resource IDs: (95)
@@ -6474,6 +6514,14 @@ msgstr ""
 msgid "The chunk start '@@' was expected in line %d !"
 msgstr ""
 
+#. Resource IDs: (346)
+msgid "The color of creation, copy and rename nodes of tags will be shifted towards yellow."
+msgstr ""
+
+#. Resource IDs: (346)
+msgid "The color of creation, copy and rename nodes of the trunk will be shifted towards green."
+msgstr ""
+
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
 msgstr ""
@@ -7052,6 +7100,10 @@ msgstr ""
 #. Resource IDs: (286)
 #, c-format
 msgid "Unversioning %s"
+msgstr ""
+
+#. Resource IDs: (106)
+msgid "Up one folder"
 msgstr ""
 
 #. Resource IDs: (152, 230, 1436)

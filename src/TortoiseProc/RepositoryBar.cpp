@@ -153,6 +153,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
 		MaximizeBand(0);
 
 		m_tooltips.Create(this);
+		m_tooltips.AddTool(&m_btnUp, IDS_REPOBROWSE_TT_UPFOLDER);
 
 		return true;
 	}
