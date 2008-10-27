@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-20 12:22+0100\n"
+"PO-Revision-Date: 2008-10-27 16:29+0100\n"
 "Last-Translator: Grokwik <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -780,6 +780,10 @@ msgstr "Etre hors-ligne en &permanence"
 msgid "&Port:"
 msgstr "&Port :"
 
+#. Resource IDs: (1489)
+msgid "&Power user defaults"
+msgstr "Re&staurer les valeurs par défaut du superutilisateur"
+
 #. Resource IDs: (32780)
 msgid "&Previous Difference"
 msgstr "&Précédente différence"
@@ -843,6 +847,10 @@ msgstr "&Réinitialiser mes données d'utilisation"
 #. Resource IDs: (16910)
 msgid "&Reset to Default"
 msgstr "&Réinitialiser aux Valeurs par Défaut"
+
+#. Resource IDs: (1488)
+msgid "&Restore defaults"
+msgstr "Re&staurer les valeurs par défaut"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -1455,8 +1463,8 @@ msgid "Allow different repositories to use the same URL, e.g. http://localhost/m
 msgstr "Autoriser différents référentiels à utiliser la même URL, ex. http://localhost/monreferentiel/"
 
 #. Resource IDs: (345)
-msgid "Allow different repositories to use the same UUID, e.g. mirrored repositories"
-msgstr "Autoriser différents référentiels à utiliser le même UUID, ex. redirection de référentiels"
+msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
+msgstr "Autoriser plusieurs référentiels à utiliser le same UUID, par exemple les copies de référentiels"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -1542,6 +1550,14 @@ msgstr ""
 #. Resource IDs: (13)
 msgid "Apply &patch..."
 msgstr "Appliquer un &patch..."
+
+#. Resource IDs: (345)
+msgid ""
+"Apply 'Power User' defaults. Those will provide a smother experience.\n"
+" You should know the meaning of all the settings above."
+msgstr ""
+"Appliquer les valeurs par défaut du superutilisateur.\n"
+"Vous devriez savoir la signification des paramètres ci dessus."
 
 #. Resource IDs: (1294)
 msgid "Apply property recursively"
@@ -5224,6 +5240,10 @@ msgstr "Mémoire insuffisante pour terminer l'opération."
 msgid "Not recursive"
 msgstr "Non récursif"
 
+#. Resource IDs: (1481)
+msgid "Note: the folder contains unversioned items"
+msgstr "Note: ce répertoire contient des fichiers n'étant pas sous contrôle de version"
+
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
 msgstr "Note : les réglages de police de caractères affectement également TortoiseUDiff"
@@ -6281,6 +6301,10 @@ msgstr "Revenir à l'ancienne version"
 #. Resource IDs: (77)
 msgid "Revert - TortoiseSVN"
 msgstr "Revenir en arrière - TortoiseSVN"
+
+#. Resource IDs: (345)
+msgid "Revert to default settings. Recommended for unexperienced users."
+msgstr "Rétablir les paramètres par défaut. Recommandé pour les utilisateurs non expérimentés."
 
 #. Resource IDs: (73)
 msgid "Reverted"
