@@ -282,7 +282,7 @@ bool CRevisionGraphWnd::AnalyzeRevisionData
     (const CAllRevisionGraphOptions& options)
 {
     m_layout.reset();
-    if (m_fullGraph->GetNodeCount() > 0)
+    if ((m_fullGraph.get() != NULL) && (m_fullGraph->GetNodeCount() > 0))
     {
         // filter graph
 
