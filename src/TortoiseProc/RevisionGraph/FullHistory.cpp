@@ -351,12 +351,17 @@ void CFullHistory::AnalyzeRevisionData()
 	iterator.Retry();
 	startRevision = pegRevision;
 
-	while (   (iterator.GetRevision() > 0) 
-		   && !iterator.EndOfPath()
-		   && !iterator.DataIsMissing())
+	while ((iterator.GetRevision() > 0) && !iterator.EndOfPath())
 	{
-		startRevision = iterator.GetRevision();
-		iterator.Advance();
+        if (iterator.DataIsMissing())
+        {
+            iterator.ToNextAvailableData();
+        }
+        else
+        {
+		    startRevision = iterator.GetRevision();
+    		iterator.Advance();
+        }
 	}
 
 	*startPath = iterator.GetPath();
