@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-27 09:19+0100\n"
+"PO-Revision-Date: 2008-10-28 10:43+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -328,6 +328,10 @@ msgstr "&Blauer Stil"
 #. Resource IDs: (65535)
 msgid "&Blue:"
 msgstr "&Blau:"
+
+#. Resource IDs: (65535)
+msgid "&Branches"
+msgstr "&Zweige"
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
@@ -664,7 +668,7 @@ msgstr "&Laden..."
 
 #. Resource IDs: (65535)
 msgid "&Lum:"
-msgstr "&Lum:"
+msgstr "&Hell:"
 
 #. Resource IDs: (1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
@@ -697,6 +701,14 @@ msgstr "&Zusammenführen"
 #. Resource IDs: (16925)
 msgid "&Minimize"
 msgstr "&Minimieren"
+
+#. Resource IDs: (1493)
+msgid "&Modify color for tag copies"
+msgstr ""
+
+#. Resource IDs: (1492)
+msgid "&Modify color for trunk copies"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -869,7 +881,7 @@ msgstr "&Sätt:"
 
 #. Resource IDs: (57603)
 msgid "&Save"
-msgstr "&Save"
+msgstr "&Speichern"
 
 #. Resource IDs: (1023)
 msgid "&Save authentication"
@@ -939,6 +951,10 @@ msgstr "&Tab Größe:"
 msgid "&Tabbed Document"
 msgstr "&Dokument mit Karteireitern"
 
+#. Resource IDs: (65535)
+msgid "&Tags"
+msgstr "&Marken"
+
 #. Resource IDs: (1382)
 msgid "&Test merge"
 msgstr "&Trockenlauf"
@@ -994,6 +1010,10 @@ msgstr "&TortoiseSVN"
 #. Resource IDs: (1096)
 msgid "&TortoiseUDiff"
 msgstr "&TortoiseUDiff"
+
+#. Resource IDs: (65535)
+msgid "&Trunk"
+msgstr "&Stamm"
 
 #. Resource IDs: (3845)
 msgid "&Two Page"
@@ -1548,8 +1568,8 @@ msgstr "&Patch anwenden..."
 
 #. Resource IDs: (345)
 msgid ""
-"Apply 'Power User' defaults. Those will provide a smother experience.\n"
-" You should know the meaning of all the settings above."
+"Apply 'Power User' defaults. Those will provide a smoother experience.\n"
+"You should know the meaning of all the settings above."
 msgstr ""
 "Vorgabewerte für erfahrene Anwender. Diese führen zu einer flüssigeren Funktion.\n"
 "Sie sollten die Bedeutung aller obenstehenden Einstellungen kennen."
@@ -2039,6 +2059,10 @@ msgstr "Prüfsumme:"
 #. Resource IDs: (1402)
 msgid "Choose item:"
 msgstr "Objekt auswählen:"
+
+#. Resource IDs: (65535)
+msgid "Classification Patterns"
+msgstr ""
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -3739,6 +3763,10 @@ msgstr "Allgemein::Dialoge 1"
 msgid "General::Dialogs 2"
 msgstr "Allgemein::Dialoge 2"
 
+#. Resource IDs: (296)
+msgid "General::Revision Graph"
+msgstr "Allgemein::Revisionsgraph"
+
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "Erzeuge Patchdatei..."
@@ -3867,7 +3895,7 @@ msgstr "&Geänderte Pfade ohne Bezug ausblenden"
 
 #. Resource IDs: (65535)
 msgid "H&ue:"
-msgstr "&Farbe:"
+msgstr "&Ton:"
 
 #. Resource IDs: (1353, 1354)
 msgid "HEAD"
@@ -4107,6 +4135,36 @@ msgid ""
 msgstr ""
 "Aktivieren Sie diese Option, damit die Funktion 'Sperre holen' im obersten\n"
 "Menü angezeigt wird, falls die 'svn:needs-lock' Eigenschaft der Datei gesetzt ist."
+
+#. Resource IDs: (346)
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'branch'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
+
+#. Resource IDs: (346)
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'tag'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
+
+#. Resource IDs: (346)
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'trunk'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
 
 #. Resource IDs: (95)
 msgid ""
@@ -7417,6 +7475,14 @@ msgstr "Die Stück-Größe stimmt nicht mit der Anzahl hinzugefügter/gelöschte
 msgid "The chunk start '@@' was expected in line %d !"
 msgstr "Die Start-Zeichen '@@' wurden in Zeile %d erwartet!"
 
+#. Resource IDs: (346)
+msgid "The color of creation, copy and rename nodes of tags will be shifted towards yellow."
+msgstr ""
+
+#. Resource IDs: (346)
+msgid "The color of creation, copy and rename nodes of the trunk will be shifted towards green."
+msgstr ""
+
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
 msgstr "Die Standard-URL von der ausgecheckt wird, wenn nichts anderes angegeben wird"
@@ -8308,6 +8374,10 @@ msgstr "Nicht versionierte Dateien markieren Elternordner als modifiziert"
 #, c-format
 msgid "Unversioning %s"
 msgstr "Hebe Versionierung von %s auf"
+
+#. Resource IDs: (106)
+msgid "Up one folder"
+msgstr "Eine Ebene nach oben"
 
 #. Resource IDs: (152, 230, 1436)
 msgid "Update"
@@ -9652,8 +9722,6 @@ msgstr "{BugTraq}"
 #~ msgstr "Alias (gelöscht): %s"
 #~ msgid "&?"
 #~ msgstr "&?"
-#~ msgid "&Cancel"
-#~ msgstr "&Abbrechen"
 #~ msgid "Merge all..."
 #~ msgstr "Alle zusammenführen..."
 #~ msgid "SVN Export to here"
