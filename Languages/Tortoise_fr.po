@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-27 16:32+0100\n"
+"PO-Revision-Date: 2008-10-28 09:58+0100\n"
 "Last-Translator: Grokwik <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -333,6 +333,10 @@ msgstr "Style &Bleu"
 #. Resource IDs: (65535)
 msgid "&Blue:"
 msgstr "&Bleu :"
+
+#. Resource IDs: (65535)
+msgid "&Branches"
+msgstr "&Branches"
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
@@ -703,6 +707,14 @@ msgstr "&Fusion"
 msgid "&Minimize"
 msgstr "&Réduire"
 
+#. Resource IDs: (1493)
+msgid "&Modify color for tag copies"
+msgstr "&Modifie la couleur des copies de tag"
+
+#. Resource IDs: (1492)
+msgid "&Modify color for trunk copies"
+msgstr "&Modifie la couleur des copies de la branche principale"
+
 #. Resource IDs: (65535)
 msgid "&Navigate"
 msgstr "&Naviguer"
@@ -944,6 +956,10 @@ msgstr "&Taille tabulation :"
 msgid "&Tabbed Document"
 msgstr "Document &Tabulé"
 
+#. Resource IDs: (65535)
+msgid "&Tags"
+msgstr "&Tags"
+
 #. Resource IDs: (1382)
 msgid "&Test merge"
 msgstr "&Tester la fusion"
@@ -999,6 +1015,10 @@ msgstr "&TortoiseSVN"
 #. Resource IDs: (1096)
 msgid "&TortoiseUDiff"
 msgstr "&TortoiseUDiff"
+
+#. Resource IDs: (65535)
+msgid "&Trunk"
+msgstr "&Branche principale"
 
 #. Resource IDs: (3845)
 msgid "&Two Page"
@@ -1553,10 +1573,10 @@ msgstr "Appliquer un &patch..."
 
 #. Resource IDs: (345)
 msgid ""
-"Apply 'Power User' defaults. Those will provide a smother experience.\n"
-" You should know the meaning of all the settings above."
+"Apply 'Power User' defaults. Those will provide a smoother experience.\n"
+"You should know the meaning of all the settings above."
 msgstr ""
-"Appliquer les valeurs par défaut du superutilisateur.\n"
+"Appliquer les valeurs par défaut du 'superutilisateur'.\n"
 "Vous devriez savoir la signification des paramètres ci dessus."
 
 #. Resource IDs: (1294)
@@ -2040,6 +2060,10 @@ msgstr "Checksum : "
 #. Resource IDs: (1402)
 msgid "Choose item:"
 msgstr "Choisissez l'élément :"
+
+#. Resource IDs: (65535)
+msgid "Classification Patterns"
+msgstr "Tests de Classification."
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -3739,6 +3763,10 @@ msgstr "Général:Boîte de Dialogue 1"
 msgid "General::Dialogs 2"
 msgstr "Général:Boîte de Dialogue 2"
 
+#. Resource IDs: (296)
+msgid "General::Revision Graph"
+msgstr "Général::Graphe des Révisions"
+
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "Generation fichier patch..."
@@ -4103,6 +4131,54 @@ msgid ""
 msgstr ""
 "Si activé, l'entrée du menu 'Obtenir un verrou' est toujours affichée dans le niveau supérieur du menu\n"
 "si le fichier sélectionné a la propriété svn:needs-lock définie."
+
+#. Resource IDs: (346)
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'branch'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
+"Si une partie (entre deux '/') d'un chemin donné satisfait à un de\n"
+"ces tests, il sera considéré comme une 'branche'.\n"
+"\n"
+"Les conditions sont en minuscule.\n"
+"Les caractères spéciaux accepté sont '?' et '*'.\n"
+"Les tests sont séparés par des ';'."
+
+#. Resource IDs: (346)
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'tag'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
+"Si une partie (entre deux '/') d'un chemin donné satisfait à un de\n"
+"ces tests, il sera considéré comme un 'tag'.\n"
+"\n"
+"Les conditions sont en minuscule.\n"
+"Les caractères spéciaux accepté sont '?' et '*'.\n"
+"Les tests sont séparés par des ';'."
+
+#. Resource IDs: (346)
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'trunk'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
+"Si une partie (entre deux '/') d'un chemin donné satisfait à un de\n"
+"ces tests, il sera considéré comme la 'branche principale'.\n"
+"\n"
+"Les conditions sont en minuscule.\n"
+"Les caractères spéciaux accepté sont '?' et '*'.\n"
+"Les tests sont séparés par des ';'."
 
 #. Resource IDs: (95)
 msgid ""
@@ -6939,7 +7015,7 @@ msgstr "Afficher la barre d'outils d'accès rapide au-dessus le bandeau"
 
 #. Resource IDs: (1068)
 msgid "Show Quick Access Toolbar Below the Ribbon"
-msgstr "Affic&her la barre d'outils d'accès rapide sous le bandeau"
+msgstr "Afficher la barre d'outils d'accès rapide sous le bandeau"
 
 #. Resource IDs: (16651)
 msgid "Show Screen&Tips on toolbars"
@@ -7399,6 +7475,14 @@ msgstr "La taille du marquage ne correspond pas aux lignes ajoutées/supprimées
 #, c-format
 msgid "The chunk start '@@' was expected in line %d !"
 msgstr "La chaine '@@' était attendue à la ligne %d !"
+
+#. Resource IDs: (346)
+msgid "The color of creation, copy and rename nodes of tags will be shifted towards yellow."
+msgstr "La couleur de création, copie ou renommage de noeuds des tags sera changée en jaune."
+
+#. Resource IDs: (346)
+msgid "The color of creation, copy and rename nodes of the trunk will be shifted towards green."
+msgstr "La couleur de création, copie, ou renommage des noeuds de la branche principale sera changée en vert."
 
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
@@ -8281,6 +8365,10 @@ msgstr "Les fichiers non versionnés marquent le dossier parent comme modifié"
 #, c-format
 msgid "Unversioning %s"
 msgstr "Render %s non-versionné"
+
+#. Resource IDs: (106)
+msgid "Up one folder"
+msgstr "Aller vers le répertoire parent"
 
 #. Resource IDs: (152, 230, 1436)
 msgid "Update"
@@ -9620,8 +9708,6 @@ msgstr "{BugTraq}"
 #~ msgstr "alias (supprimé): %s"
 #~ msgid "&?"
 #~ msgstr "&?"
-#~ msgid "&Cancel"
-#~ msgstr "&Annuler"
 #~ msgid "Merge all..."
 #~ msgstr "Tout fusionner..."
 #~ msgid "SVN Export to here"
