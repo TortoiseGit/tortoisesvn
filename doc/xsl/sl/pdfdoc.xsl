@@ -14,6 +14,5 @@
 <xsl:param name="sans.font.family" select="'Arial'"/> 
 <xsl:param name="monospace.font.family" select="'Courier New'"/> 
 
-<xsl:param name="hyphenate">false</xsl:param>
 
 </xsl:stylesheet> 
