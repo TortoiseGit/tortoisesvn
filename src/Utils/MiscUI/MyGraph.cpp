@@ -2,6 +2,7 @@
 
 #include "stdafx.h"
 #include "MyGraph.h"
+#include "BufferDC.h"
 
 #include <cmath>
 #include <memory>
@@ -408,7 +409,7 @@ void MyGraph::OnPaint()
 {
 	VALIDATE;
 
-	CPaintDC dc(this);
+	CBufferDC dc(this);
 	DrawGraph(dc);
 }
 
