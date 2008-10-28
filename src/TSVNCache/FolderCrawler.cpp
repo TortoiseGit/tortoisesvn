@@ -48,7 +48,7 @@ void CFolderCrawler::Stop()
 	if (m_hTerminationEvent != INVALID_HANDLE_VALUE)
 	{
 		SetEvent(m_hTerminationEvent);
-		if(WaitForSingleObject(m_hThread, 5000) != WAIT_OBJECT_0)
+		if(WaitForSingleObject(m_hThread, 4000) != WAIT_OBJECT_0)
 		{
 			ATLTRACE("Error terminating crawler thread\n");
 		}

@@ -57,6 +57,7 @@
        
 Version 1.5.6
 - CHG: Disabled the capieng dialogs. (Stefan)
+- BUG: possible segfault in TSVNCache when shutting down windows. (Stefan)
        
 Version 1.5.5
 - BUG: The properties dialog would show the url with backward slashes when
