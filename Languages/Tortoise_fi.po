@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-20 22:21+0200\n"
+"PO-Revision-Date: 2008-10-28 22:51+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -384,6 +384,10 @@ msgstr "&Sininen tyyli"
 #. Resource IDs: (65535)
 msgid "&Blue:"
 msgstr "&Sininen:"
+
+#. Resource IDs: (65535)
+msgid "&Branches"
+msgstr "&Haarat"
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
@@ -754,6 +758,14 @@ msgstr "&Yhdistäminen"
 msgid "&Minimize"
 msgstr "&Pienennä"
 
+#. Resource IDs: (1493)
+msgid "&Modify color for tag copies"
+msgstr "&Muuta merkkikopioiden väriä"
+
+#. Resource IDs: (1492)
+msgid "&Modify color for trunk copies"
+msgstr "&Muuta päähaaran kopioiden väriä"
+
 #. Resource IDs: (65535)
 msgid "&Navigate"
 msgstr "&Siirry"
@@ -831,6 +843,10 @@ msgstr "&Pysyvästi"
 msgid "&Port:"
 msgstr "&Portti:"
 
+#. Resource IDs: (1489)
+msgid "&Power user defaults"
+msgstr "&Tehokäyttäjän asetukset"
+
 #. Resource IDs: (32780)
 msgid "&Previous Difference"
 msgstr "&Edellinen ero"
@@ -894,6 +910,10 @@ msgstr "&Palauta käyttötietoni"
 #. Resource IDs: (16910)
 msgid "&Reset to Default"
 msgstr "&Palauta oletusarvoihin"
+
+#. Resource IDs: (1488)
+msgid "&Restore defaults"
+msgstr "&Palauta oletusarvot"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -988,6 +1008,10 @@ msgstr "&Sarkaimen koko:"
 msgid "&Tabbed Document"
 msgstr "&Välilehtidokumentti"
 
+#. Resource IDs: (65535)
+msgid "&Tags"
+msgstr "&Merkit"
+
 #. Resource IDs: (1382)
 msgid "&Test merge"
 msgstr "&Kokeile"
@@ -1043,6 +1067,10 @@ msgstr "&TortoiseSVN"
 #. Resource IDs: (1096)
 msgid "&TortoiseUDiff"
 msgstr "&TortoiseUDiff"
+
+#. Resource IDs: (65535)
+msgid "&Trunk"
+msgstr "&Päähaara"
 
 #. Resource IDs: (3845)
 msgid "&Two Page"
@@ -1507,8 +1535,8 @@ msgid "Allow different repositories to use the same URL, e.g. http://localhost/m
 msgstr "Salli eri arkistojen käyttää samaa paikanninta, esim. http://localhost/myrepos/"
 
 #. Resource IDs: (345)
-msgid "Allow different repositories to use the same UUID, e.g. mirrored repositories"
-msgstr "Salli eri arkistojen käyttää samaa UUID:ta, esim. kahdennetut arkistot."
+msgid "Allow different repositories to use the same UUID, e.g. copied repositories"
+msgstr "Salli eri arkistojen käyttää samaa UUID:ta, esim. kopioidut arkistot."
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -1594,6 +1622,14 @@ msgstr ""
 #. Resource IDs: (13)
 msgid "Apply &patch..."
 msgstr "Käytä &paikkatiedosto..."
+
+#. Resource IDs: (345)
+msgid ""
+"Apply 'Power User' defaults. Those will provide a smoother experience.\n"
+"You should know the meaning of all the settings above."
+msgstr ""
+"Ota käyttöön 'tehokäyttäjän asetukset', joiden avulla käyttö on sujuvampaa.\n"
+"Sinun tulee tuntea kaikkien yllä olevien asetusten merkitys."
 
 #. Resource IDs: (1294)
 msgid "Apply property recursively"
@@ -2074,6 +2110,10 @@ msgstr "Tarkistussumma:"
 #. Resource IDs: (1402)
 msgid "Choose item:"
 msgstr "Valitse versio:"
+
+#. Resource IDs: (65535)
+msgid "Classification Patterns"
+msgstr "Luokitteluhahmot"
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -3773,6 +3813,10 @@ msgstr "Yleinen::Ikkunat 1"
 msgid "General::Dialogs 2"
 msgstr "Yleinen::Ikkunat 2"
 
+#. Resource IDs: (296)
+msgid "General::Revision Graph"
+msgstr "Yleinen::Versiograafi"
+
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "Luodaan paikkatiedostoa..."
@@ -4138,6 +4182,54 @@ msgid ""
 "If activated, the menu entry 'Get Lock' is always shown in the top level menu\n"
 "if the selected file has the svn:needs-lock property set"
 msgstr "Toiminto 'Lukitse' näytetään aina päävalikossa, mikäli valitulla tiedostolla on svn:needs-lock -ominaisuus asetettuna"
+
+#. Resource IDs: (346)
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'branch'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
+"Jos jokin annetun polun elementti (kahden '/'-merkin välinen osa)\n"
+"täsmää näiden hahmojen kanssa, sitä pidetään 'haarana' (engl. branch).\n"
+"\n"
+"Hahmot määritellään pienillä kirjaimilla.\n"
+"Sallitut villikortit ovat '?' ja '*'.\n"
+"Erota hahmot merkillä ';'."
+
+#. Resource IDs: (346)
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'tag'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
+"Jos jokin annetun polun elementti (kahden '/'-merkin välinen osa)\n"
+"täsmää näiden hahmojen kanssa, sitä pidetään 'merkkinä' (engl. tag).\n"
+"\n"
+"Hahmot määritellään pienillä kirjaimilla.\n"
+"Sallitut villikortit ovat '?' ja '*'.\n"
+"Erota hahmot merkillä ';'."
+
+#. Resource IDs: (346)
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'trunk'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
+"Jos jokin annetun polun elementti (kahden '/'-merkin välinen osa)\n"
+"täsmää näiden hahmojen kanssa, sitä pidetään 'päähaarana' (engl. trunk).\n"
+"\n"
+"Hahmot määritellään pienillä kirjaimilla.\n"
+"Sallitut villikortit ovat '?' ja '*'.\n"
+"Erota hahmot merkillä ';'."
 
 #. Resource IDs: (95)
 msgid ""
@@ -5271,6 +5363,10 @@ msgstr "Liian vähän muistia operaation suorittamiseen."
 msgid "Not recursive"
 msgstr "Ei palautuva"
 
+#. Resource IDs: (1481)
+msgid "Note: the folder contains unversioned items"
+msgstr "Huomaa: kansio sisältää versioimattomia tiedostoja"
+
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
 msgstr "Huomaa: kirjasinasetukset vaikuttavat myös TortoiseUDiff-ohjelmaan"
@@ -6329,6 +6425,10 @@ msgstr "Palauta"
 #. Resource IDs: (77)
 msgid "Revert - TortoiseSVN"
 msgstr "Palauta - TortoiseSVN"
+
+#. Resource IDs: (345)
+msgid "Revert to default settings. Recommended for unexperienced users."
+msgstr "Palauta oletusasetukset. Suositellaan kokemattomille käyttäjille."
 
 #. Resource IDs: (73)
 msgid "Reverted"
@@ -7424,6 +7524,14 @@ msgstr "Lohkon koko ei täsmännyt lisättyjen/poistettujen rivien lukumäärän
 msgid "The chunk start '@@' was expected in line %d !"
 msgstr "Lohkon alkua '@@' odotettiin rivillä %d !"
 
+#. Resource IDs: (346)
+msgid "The color of creation, copy and rename nodes of tags will be shifted towards yellow."
+msgstr "Merkkihaarojen luonti-, kopio- ja uudelleennimentäsolmujen väri liukuu kohti keltaista."
+
+#. Resource IDs: (346)
+msgid "The color of creation, copy and rename nodes of the trunk will be shifted towards green."
+msgstr "Päähaaran luonti-, kopio- ja uudelleennimentäsolmujen väri liukuu kohti vihreää."
+
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
 msgstr "Oletuspaikannin työkopiota varten (käytetään mikäli muuta ei annettu)"
@@ -8304,6 +8412,10 @@ msgstr "Versioimattomat tiedostot merkitsevät yläkansion muutetuksi"
 #, c-format
 msgid "Unversioning %s"
 msgstr "Poistetaan versiointia hakemistosta %s"
+
+#. Resource IDs: (106)
+msgid "Up one folder"
+msgstr "Avaa yläkansio"
 
 #. Resource IDs: (152, 230, 1436)
 msgid "Update"
@@ -9634,8 +9746,6 @@ msgstr "{BugTraq}"
 #~ msgstr "toinen nimi (poistettu): %s"
 #~ msgid "&?"
 #~ msgstr "&?"
-#~ msgid "&Cancel"
-#~ msgstr "&Peruuta"
 #~ msgid "Merge all..."
 #~ msgstr "Yhdistä kaikki..."
 #~ msgid "SVN Export to here"
