@@ -51,6 +51,7 @@ CFullHistory::CFullHistory(void)
     , copyToRelationEnd (NULL)
     , copyFromRelation (NULL)
     , copyFromRelationEnd (NULL)
+    , cache (NULL)
 {
 	memset (&ctx, 0, sizeof (ctx));
 	parentpool = svn_pool_create(NULL);
@@ -189,17 +190,16 @@ bool CFullHistory::FetchRevisionData ( CString path
     progress->SetProgress(0, 1);
 
 	// prepare the path for Subversion
+    CTSVNPath svnPath (path);
 	CStringA url = CPathUtils::PathEscape 
                         (CUnicodeUtils::GetUTF8 
-                            (svn.GetURLFromPath (CTSVNPath (path))));
-    CTSVNPath urlPath;
-    urlPath.SetFromSVN (url);
+                            (svn.GetURLFromPath (svnPath)));
 
     // we have to get the log from the repository root
 
 	CTSVNPath rootPath;
     svn_revnum_t head;
-    if (FALSE == svn.GetRootAndHead (urlPath, rootPath, head))
+    if (FALSE == svn.GetRootAndHead (svnPath, rootPath, head))
 	{
 		Err = svn_error_dup(svn.Err);
 		return false;
@@ -236,13 +236,19 @@ bool CFullHistory::FetchRevisionData ( CString path
 
 		svnQuery.reset (new CSVNLogQuery (&ctx, pool));
         revision_t firstRevision = 0;
+
         if (svn.GetLogCachePool()->IsEnabled())
         {
             CLogCachePool* pool = svn.GetLogCachePool();
 		    query.reset (new CCacheLogQuery (pool, svnQuery.get()));
 
-            uuid = pool->GetRepositoryInfo().GetRepositoryUUID (rootPath);
-            firstRevision = pool->GetCache (uuid, GetRepositoryRoot())->GetRevisions().GetFirstMissingRevision(1);
+            // get the cache and the lowest missing revision
+            // (in off-line mode, the query may not find the cache as 
+            // it cannot contact the server to get the UUID)
+
+            uuid = pool->GetRepositoryInfo().GetRepositoryUUID (svnPath);
+            cache = pool->GetCache (uuid, GetRepositoryRoot());
+            firstRevision = cache->GetRevisions().GetFirstMissingRevision(1);
 
 			// if the cache is already complete, the firstRevision here is
 			// HEAD+1 - that revision does not exist and would throw an error later
@@ -251,7 +257,10 @@ bool CFullHistory::FetchRevisionData ( CString path
 				firstRevision = headRevision;
         }
         else
+        {
 		    query.reset (new CCacheLogQuery (svn, svnQuery.get()));
+            cache = NULL;
+        }
 
         // actually fetch the data
 
@@ -270,7 +279,9 @@ bool CFullHistory::FetchRevisionData ( CString path
 
         // store WC path
 
-	    const CCachedLogInfo* cache = query->GetCache();
+        if (cache == NULL)
+	        cache = query->GetCache();
+
 	    const CPathDictionary* paths = &cache->GetLogInfo().GetPaths();
         wcPath.reset (new CDictionaryBasedTempPath (paths, (const char*)relPath));
         wcRevision = pegRev;
@@ -336,7 +347,7 @@ void CFullHistory::AnalyzeRevisionData()
 
     startPath.reset (new CDictionaryBasedTempPath (*wcPath));
 
-    CCopyFollowingLogIterator iterator (query->GetCache(), pegRevision, *startPath);
+    CCopyFollowingLogIterator iterator (cache, pegRevision, *startPath);
 	iterator.Retry();
 	startRevision = pegRevision;
 
@@ -366,7 +377,6 @@ void CFullHistory::BuildForwardCopies()
 	// iterate through all revisions and fill copyToRelation:
 	// for every copy-from info found, add an entry
 
-	const CCachedLogInfo* cache = query->GetCache();
 	const CRevisionIndex& revisions = cache->GetRevisions();
 	const CRevisionInfoContainer& revisionInfo = cache->GetLogInfo();
 

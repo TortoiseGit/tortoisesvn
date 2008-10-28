@@ -115,7 +115,7 @@ public:
     void                        GetCopyToRange (SCopyInfo**& first, SCopyInfo**& last, revision_t revision) const;
 
     SVN&                        GetSVN() {return svn;}
-    const CCachedLogInfo*       GetCache() const {return query->GetCache();}
+    const CCachedLogInfo*       GetCache() const {return cache;}
 
 private:
 
@@ -139,6 +139,7 @@ private:
 
 	bool						cancelled;
 
+    const CCachedLogInfo*       cache;
 	std::auto_ptr<CSVNLogQuery> svnQuery;
 	std::auto_ptr<CCacheLogQuery> query;
 
