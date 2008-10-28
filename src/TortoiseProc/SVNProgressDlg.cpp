@@ -163,7 +163,7 @@ LRESULT CSVNProgressDlg::OnShowConflictResolver(WPARAM /*wParam*/, LPARAM lParam
 svn_wc_conflict_choice_t CSVNProgressDlg::ConflictResolveCallback(const svn_wc_conflict_description_t *description, CString& mergedfile)
 {
 	// we only bother the user when merging
-	if ((m_Command == SVNProgress_Merge)&&(!m_AlwaysConflicted)&&(description))
+	if (((m_Command == SVNProgress_Merge)||(m_Command == SVNProgress_MergeAll)||(m_Command == SVNProgress_MergeReintegrate))&&(!m_AlwaysConflicted)&&(description))
 	{
 		// we're in a worker thread here. That means we must not show a dialog from the thread
 		// but let the UI thread do it.
@@ -2171,15 +2171,25 @@ bool CSVNProgressDlg::CmdMergeAll(CString& sWindowTitle, bool& /*localoperation*
 		m_options & ProgOptIgnoreAncestry ? (LPCTSTR)sIgnoreAncestry : (LPCTSTR)sRespectAncestry);
 	ReportCmd(sCmdInfo);
 
+	GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_SHOW);
+	CRegDWORD nonint = CRegDWORD(_T("Software\\TortoiseSVN\\MergeNonInteractive"), FALSE);
+	if (DWORD(nonint))
+	{
+		::SendMessage(GetDlgItem(IDC_NONINTERACTIVE)->GetSafeHwnd(), BM_SETCHECK, BST_CHECKED, 0);
+		m_AlwaysConflicted = true;
+	}
+
 	SVNRevRangeArray revarray;
 	if (!PegMerge(suggestedSources[0], revarray, 
 		SVNRev::REV_HEAD,
 		m_targetPathList[0], true, m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), FALSE))
 	{
+		GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_HIDE);
 		ReportSVNError();
 		return false;
 	}
 
+	GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_HIDE);
 	return true;
 }
 
@@ -2196,12 +2206,22 @@ bool CSVNProgressDlg::CmdMergeReintegrate(CString& sWindowTitle, bool& /*localop
 		m_targetPathList[0].GetWinPath());
 	ReportCmd(sCmdInfo);
 
+	GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_SHOW);
+	CRegDWORD nonint = CRegDWORD(_T("Software\\TortoiseSVN\\MergeNonInteractive"), FALSE);
+	if (DWORD(nonint))
+	{
+		::SendMessage(GetDlgItem(IDC_NONINTERACTIVE)->GetSafeHwnd(), BM_SETCHECK, BST_CHECKED, 0);
+		m_AlwaysConflicted = true;
+	}
+
 	if (!MergeReintegrate(m_url, SVNRev::REV_HEAD, m_targetPathList[0], !!(m_options & ProgOptDryRun), m_diffoptions))
 	{
 		ReportSVNError();
+		GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_HIDE);
 		return false;
 	}
 
+	GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_HIDE);
 	return true;
 }
 
