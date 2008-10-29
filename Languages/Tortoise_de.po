@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-28 10:43+0100\n"
+"PO-Revision-Date: 2008-10-29 13:45+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -704,11 +704,11 @@ msgstr "&Minimieren"
 
 #. Resource IDs: (1493)
 msgid "&Modify color for tag copies"
-msgstr ""
+msgstr "&Farben der Kopien von Marken ändern"
 
 #. Resource IDs: (1492)
 msgid "&Modify color for trunk copies"
-msgstr ""
+msgstr "&Farben der Kopien des Stammes ändern"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -2062,7 +2062,7 @@ msgstr "Objekt auswählen:"
 
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
-msgstr ""
+msgstr "Klassifizierungsmuster"
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -4145,6 +4145,12 @@ msgid ""
 "Allowed wildcards are '?' and '*'.\n"
 "Separate patterns by ';'."
 msgstr ""
+"Wenn ein Element eines Pfades (Teil zwischen zwei '/') mit einem\n"
+"der angegebenen Muster übereinstimmt wird er als 'Zweig' betrachtet.\n"
+"\n"
+"Muster sind in Kleinbuchstaben.\n"
+"Erlaubte Platzhalter sind '?' und '*'.\n"
+"Muster werden durch ';' getrennt."
 
 #. Resource IDs: (346)
 msgid ""
@@ -4155,6 +4161,12 @@ msgid ""
 "Allowed wildcards are '?' and '*'.\n"
 "Separate patterns by ';'."
 msgstr ""
+"Wenn ein Element eines Pfades (Teil zwischen zwei '/') mit einem\n"
+"der angegebenen Muster übereinstimmt wird er als 'Marke' betrachtet.\n"
+"\n"
+"Muster sind in Kleinbuchstaben.\n"
+"Erlaubte Platzhalter sind '?' und '*'.\n"
+"Muster werden durch ';' getrennt."
 
 #. Resource IDs: (346)
 msgid ""
@@ -4165,6 +4177,12 @@ msgid ""
 "Allowed wildcards are '?' and '*'.\n"
 "Separate patterns by ';'."
 msgstr ""
+"Wenn ein Element eines Pfades (Teil zwischen zwei '/') mit einem\n"
+"der angegebenen Muster übereinstimmt wird er als 'Stamm' betrachtet.\n"
+"\n"
+"Muster sind in Kleinbuchstaben.\n"
+"Erlaubte Platzhalter sind '?' und '*'.\n"
+"Muster werden durch ';' getrennt."
 
 #. Resource IDs: (95)
 msgid ""
@@ -7477,11 +7495,11 @@ msgstr "Die Start-Zeichen '@@' wurden in Zeile %d erwartet!"
 
 #. Resource IDs: (346)
 msgid "The color of creation, copy and rename nodes of tags will be shifted towards yellow."
-msgstr ""
+msgstr "Die Farbe der Knoten vom Anlegen, Kopieren und Umbenennen von Marken werden in Richtung gelb verschoben."
 
 #. Resource IDs: (346)
 msgid "The color of creation, copy and rename nodes of the trunk will be shifted towards green."
-msgstr ""
+msgstr "Die Farbe der Knoten vom Anlegen, Kopieren und Umbenennen des Stammes werden in Richtung grün verschoben."
 
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
