@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-27 08:47+0100\n"
+"PO-Revision-Date: 2008-10-29 20:45+0100\n"
 "Last-Translator: Mikkel Elmholdt <mikkel@elmholdt.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +37,7 @@ msgstr ""
 # Apply (patch) = Påfør korrekturark (?)
 # Apply (property) = Anvend egenskab
 # Blame = Ansvar
-# Branch = Gren (Bydeform: Forgren)
+# Branch = Gren, Sidegren (Bydeform: Forgren)
 # Browser = Browser
 # Cache = Cache
 # Cancel = Annuller
@@ -88,6 +88,7 @@ msgstr ""
 # Shortcut = Genvej
 # Tab = faneblad (undtagen når der snakkes om tasten "Tab")
 # Tag = Mærke
+# Trunk = Hovedgren
 # User (revision properties) = Brugerdefinerede (revisionsegenskaber)
 # Token = Symbol (Bedre oversættelse?)
 # Unified diff = Unified diff
@@ -457,6 +458,10 @@ msgstr "&Blå stil"
 #. Resource IDs: (65535)
 msgid "&Blue:"
 msgstr "&Blå:"
+
+#. Resource IDs: (65535)
+msgid "&Branches"
+msgstr "&Sidegrene"
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
@@ -834,6 +839,14 @@ msgstr "&Fletning"
 msgid "&Minimize"
 msgstr "M&inimer"
 
+#. Resource IDs: (1493)
+msgid "&Modify color for tag copies"
+msgstr "Ændr farve for &mærke-kopier"
+
+#. Resource IDs: (1492)
+msgid "&Modify color for trunk copies"
+msgstr "Ændr farve for kopier af hovedgren"
+
 #. Resource IDs: (65535)
 msgid "&Navigate"
 msgstr "&Naviger"
@@ -980,9 +993,8 @@ msgid "&Reset to Default"
 msgstr "&Gendan til standard"
 
 #. Resource IDs: (1488)
-#, fuzzy
 msgid "&Restore defaults"
-msgstr "Gendan &standarder"
+msgstr "Gendan &standardindstillinger"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -1078,6 +1090,10 @@ msgstr "&Tab-størrelse:"
 msgid "&Tabbed Document"
 msgstr "&Fanebladsopdelt dokument"
 
+#. Resource IDs: (65535)
+msgid "&Tags"
+msgstr "&Mærker"
+
 #. Resource IDs: (1382)
 msgid "&Test merge"
 msgstr "&Test fletning"
@@ -1133,6 +1149,10 @@ msgstr "&TortoiseSVN"
 #. Resource IDs: (1096)
 msgid "&TortoiseUDiff"
 msgstr "&TortoiseUDiff"
+
+#. Resource IDs: (65535)
+msgid "&Trunk"
+msgstr "&Hovedgren"
 
 #. Resource IDs: (3845)
 msgid "&Two Page"
@@ -1209,9 +1229,9 @@ msgstr "\"intervaller der skal springes over\" bruges til at markere revisionsin
 
 # Example: "123 kBytes transferred in 2 minute(s) and 34 second(s)"
 #. Resource IDs: (272)
-#, fuzzy, c-format
+#, c-format
 msgid "(%s) %s"
-msgstr "%s på %s"
+msgstr "(%s) %s"
 
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
@@ -1703,8 +1723,8 @@ msgstr "Påfør rettelsesf&il"
 
 #. Resource IDs: (345)
 msgid ""
-"Apply 'Power User' defaults. Those will provide a smother experience.\n"
-" You should know the meaning of all the settings above."
+"Apply 'Power User' defaults. Those will provide a smoother experience.\n"
+"You should know the meaning of all the settings above."
 msgstr ""
 "Anvend indstillinger for erfarne brugere. Dette vil give en mere strømlinet oplevelse.\n"
 "Du bør kende betydningen af alle indstillingerne nævnt ovenfor."
@@ -2202,6 +2222,10 @@ msgstr "Checksum:"
 #. Resource IDs: (1402)
 msgid "Choose item:"
 msgstr "Vælg emne:"
+
+#. Resource IDs: (65535)
+msgid "Classification Patterns"
+msgstr "Klassificeringsmønstre"
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -3513,7 +3537,6 @@ msgid "Expand docked window"
 msgstr "Udvid fastgjort vindue"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Expert settings"
 msgstr "Ekspert opsætning"
 
@@ -3929,6 +3952,10 @@ msgstr "Tema::Dialoger 1"
 msgid "General::Dialogs 2"
 msgstr "Tema::Dialoger 2"
 
+#. Resource IDs: (296)
+msgid "General::Revision Graph"
+msgstr "Generelt::Revisionsgraf"
+
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "Genererer rettelsesfil..."
@@ -4287,6 +4314,57 @@ msgid ""
 msgstr ""
 "Hvis aktiveret, så vises menupunktet \"Rekvivier lås\" altid i den øverste menu,\n"
 "hvis den valgte fil har egenskaben svn:needs-lock sat"
+
+#. Resource IDs: (346)
+#, fuzzy
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'branch'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
+"Hvis et element ((teksten mellem to '/') i en given sti matcher en\n"
+"af følgende mønstre, bliver det opfattet som en \'sidegren\'.\n"
+"\n"
+"En mønsterbeskrivelse skrives med små bogstaver.\n"
+"Tilladte wildcards er '?' og '*'.\n"
+"Mønstre separeres med ';'."
+
+#. Resource IDs: (346)
+#, fuzzy
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'tag'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
+"Hvis et element (teksten mellem to '/' ) i en given sti matcher en\n"
+"af følgende mønstre, bliver det opfattet som en \'mærke\'.\n"
+"\n"
+"En mønsterbeskrivelse skrives med små bogstaver.\n"
+"Tilladte wildcards er '?' og '*'.\n"
+"Mønstre separeres med ';'."
+
+#. Resource IDs: (346)
+#, fuzzy
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'trunk'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
+"Hvis et element (teksten mellem to '/' ) i en given sti matcher en\n"
+"af følgende mønstre, bliver det opfattet som en \'hovedgren\'.\n"
+"\n"
+"En mønsterbeskrivelse skrives med små bogstaver.\n"
+"Tilladte wildcards er '?' og '*'.\n"
+"Mønstre separeres med ';'."
 
 #. Resource IDs: (95)
 msgid ""
@@ -5226,9 +5304,8 @@ msgid "Move Item Up"
 msgstr "Flyt Emne Op"
 
 #. Resource IDs: (147)
-#, fuzzy
 msgid "Move and rename"
-msgstr "Flyt og omdøb emne hertil"
+msgstr "Flyt og omdøb"
 
 #. Resource IDs: (104)
 msgid "Move and rename item to here"
@@ -5875,17 +5952,11 @@ msgstr "\"Før arkivering\"-tilkobling"
 msgid "Pre-Update Hook"
 msgstr "\"Før opdatering\"-tilkobling"
 
-# No TSVN Text
-# Kontekst? Underlig engelsk grammatik...
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Press &New Shortcut Key:"
 msgstr "Tryk den &nye genvejstast:"
 
-# No TSVN Text, use same text as above (ignore capitalization)
-# Kontekst? Underlig engelsk grammatik...
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Press &new shortcut key:"
 msgstr "Tryk den &nye genvejstast:"
 
@@ -6292,7 +6363,7 @@ msgid "Remove from changelist"
 msgstr "Fjern fra ændringsliste"
 
 #. Resource IDs: (127)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Remove property '%s' from\r\n"
 "%s"
@@ -7032,7 +7103,7 @@ msgid "Set file dates to the \"last commit &time\""
 msgstr "Sæt filers datostempel til \"seneste arkiverings&tidspunkt\""
 
 #. Resource IDs: (127)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Set property '%s' on\r\n"
 "%s"
@@ -7210,7 +7281,7 @@ msgstr "Vis i&gnorerede filer"
 #. Resource IDs: (1480)
 #, fuzzy
 msgid "Show items in externals"
-msgstr "Udelad externals"
+msgstr "Vis elementer i externals"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
@@ -7643,6 +7714,16 @@ msgstr "\"Chunk size\" svarer ikke til antallet af tilføjede/fjernede linjer!"
 msgid "The chunk start '@@' was expected in line %d !"
 msgstr "\"Chunk start\" \"@@\" var forventet i linje %d!"
 
+#. Resource IDs: (346)
+#, fuzzy
+msgid "The color of creation, copy and rename nodes of tags will be shifted towards yellow."
+msgstr "Farven for oprettede, kopierede og omdøbte elementer i en mærket sidegren vil blive gradueret i retning af gul"
+
+#. Resource IDs: (346)
+#, fuzzy
+msgid "The color of creation, copy and rename nodes of the trunk will be shifted towards green."
+msgstr "Farven for oprettede, kopierede og omdøbte hovedgrens-elementer vil blive gradueret i retning af grøn"
+
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
 msgstr "Standard-URL'en, der skal hentes arbejdskopi fra, hvis intet andet er angivet."
@@ -7770,9 +7851,9 @@ msgid "The issue-tracker provider was unable to validate the parameter string"
 msgstr "Sagsbehandlerudbyderen kunne ikke validere parameterstrengen"
 
 #. Resource IDs: (63)
-#, fuzzy, c-format
+#, c-format
 msgid "The line '====' was expected in line %d !"
-msgstr "Linjen \"====\" var forventet i linje %d!"
+msgstr "Linjen \"====\" var forventet i linje %d !"
 
 #. Resource IDs: (63)
 #, fuzzy
@@ -8534,6 +8615,10 @@ msgstr "Ikke-versionerede filer viser overordnet mappe som ændret"
 #, c-format
 msgid "Unversioning %s"
 msgstr "Afversionerer %s"
+
+#. Resource IDs: (106)
+msgid "Up one folder"
+msgstr "Åbn overordnet mappe"
 
 #. Resource IDs: (152, 230, 1436)
 msgid "Update"
@@ -9883,8 +9968,6 @@ msgstr "{BugTraq}"
 #~ msgstr "alias (slettet): %s"
 #~ msgid "&?"
 #~ msgstr "&?"
-#~ msgid "&Cancel"
-#~ msgstr "&Annuller"
 #~ msgid "Bro&wse..."
 #~ msgstr "Genne&mse..."
 #~ msgid "Brows&e..."
