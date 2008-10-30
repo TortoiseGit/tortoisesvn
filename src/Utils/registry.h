@@ -598,7 +598,6 @@ public:
     CRegStringCommon(const typename Base::StringT& key, const typename Base::StringT& def = _T(""), bool force = false, HKEY base = HKEY_CURRENT_USER);
 	
     CRegStringCommon& operator=(const typename Base::StringT& rhs) {CRegTypedBase<StringT, Base>::operator =(rhs); return *this;}
-    CRegStringCommon& operator=(CRegStringCommon& rhs) {return operator =((StringT)rhs);}
 	CRegStringCommon& operator+=(const typename Base::StringT& s) { return *this = (typename Base::StringT)*this + s; }
 };
 
