@@ -346,7 +346,7 @@ LRESULT CMainWindow::DoCommand(int id)
 				picWindow2.StopTimer();
 				picWindow1.SetSecondPic(picWindow2.GetPic(), rightpictitle, rightpicpath, 
 					picWindow2.GetHPos(), picWindow2.GetVPos());
-				picWindow1.SetSecondPicAlpha(m_BlendType, 127);
+				picWindow1.SetBlendAlpha(m_BlendType, 0.5f);
 			}
 			else
 			{
@@ -383,7 +383,7 @@ LRESULT CMainWindow::DoCommand(int id)
 			tbi.dwMask = TBIF_STATE;
 			tbi.fsState = (m_BlendType == CPicWindow::BLEND_ALPHA) ? TBSTATE_CHECKED | TBSTATE_ENABLED : TBSTATE_ENABLED;
 			SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_BLENDALPHA, (LPARAM)&tbi);
-			picWindow1.SetSecondPicAlpha(m_BlendType, picWindow1.GetSecondPicAlpha());
+			picWindow1.SetBlendAlpha(m_BlendType, picWindow1.GetBlendAlpha());
 			PositionChildren();
 		}
 		break;
@@ -446,13 +446,13 @@ LRESULT CMainWindow::DoCommand(int id)
 		}
 		break;
 	case ID_VIEW_ALPHA0:
-		picWindow1.SetSecondPicAlpha(m_BlendType, 0);
+		picWindow1.SetBlendAlpha(m_BlendType, 0.0f);
 		break;
 	case ID_VIEW_ALPHA255:
-		picWindow1.SetSecondPicAlpha(m_BlendType, 255);
+		picWindow1.SetBlendAlpha(m_BlendType, 1.0f);
 		break;
 	case ID_VIEW_ALPHA127:
-		picWindow1.SetSecondPicAlpha(m_BlendType, 127);
+		picWindow1.SetBlendAlpha(m_BlendType, 0.5f);
 		break;
 	case ID_VIEW_ALPHATOGGLE:
 		picWindow1.ToggleAlpha();
