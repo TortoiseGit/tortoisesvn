@@ -108,22 +108,22 @@ public:
 	 * Returns the picture height in pixels.
 	 * \remark this only works if gdi+ is installed.
 	 */
-	UINT GetHeight();
+	UINT GetHeight() const;
 	/**
 	 * Returns the picture width in pixels.
 	 * \remark this only works if gdi+ is installed.
 	 */
-	UINT GetWidth();
+	UINT GetWidth() const;
 	/**
 	 * Returns the pixel format of the loaded picture.
 	 * \remark this only works if gdi+ is installed.
 	 */
-	PixelFormat GetPixelFormat();
+	PixelFormat GetPixelFormat() const;
 	/**
 	 * Returns the color depth in bits.
 	 * \remark this only works if gdi+ is installed.
 	 */
-	UINT GetColorDepth();
+	UINT GetColorDepth() const;
 
 	/**
 	 * Sets the interpolation used for drawing the image.

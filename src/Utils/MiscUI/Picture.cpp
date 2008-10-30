@@ -516,7 +516,7 @@ bool CPicture::UpdateSizeOnDC(HDC hDC)
 	return(true);
 }
 
-UINT CPicture::GetColorDepth()
+UINT CPicture::GetColorDepth() const
 {
 	if (bIsIcon && lpIcons)
 	{
@@ -628,7 +628,7 @@ long CPicture::SetActiveFrame(UINT frame)
 	return delay;
 }
 
-UINT CPicture::GetHeight()
+UINT CPicture::GetHeight() const
 {
 	if ((bIsIcon)&&(lpIcons))
 	{
@@ -638,7 +638,7 @@ UINT CPicture::GetHeight()
 	return pBitmap ? pBitmap->GetHeight() : 0;
 }
 
-UINT CPicture::GetWidth()
+UINT CPicture::GetWidth() const
 {
 	if ((bIsIcon)&&(lpIcons))
 	{
@@ -648,7 +648,7 @@ UINT CPicture::GetWidth()
 	return pBitmap ? pBitmap->GetWidth() : 0;
 }
 
-PixelFormat CPicture::GetPixelFormat()
+PixelFormat CPicture::GetPixelFormat() const
 {
 	if ((bIsIcon)&&(lpIcons))
 	{
