@@ -23,6 +23,7 @@
 #	include "SVNPrompt.h"
 #endif
 #include "TSVNPath.h"
+#include <set>
 
 #pragma warning (push,1)
 typedef std::basic_string<wchar_t> wide_string;
