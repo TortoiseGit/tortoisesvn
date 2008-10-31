@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseMerge Documentation\n"
 "POT-Creation-Date: 2008-10-24 23:17 +0000\n"
-"PO-Revision-Date: 2008-10-27 16:31+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2008-10-30 22:37+0100\n"
+"Last-Translator: Milorad Popović\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -120,7 +120,7 @@ msgstr "ТортоисеМерге је бесплатан. Ви не треба
 #. (para)
 #: ../source/TortoiseMerge_en.xml:71
 msgid "TortoiseMerge is an Open Source project. That means you have full access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. (Username:guest, for password hit enter) The most recent version (where we're currently working) is located under <filename>/trunk/</filename> the released versions are located under <filename>/tags/</filename>."
-msgstr "ТортоисеМерге је Отворен Код пројекат. То значи да имате пун приступ изворном коду овог пројекта. Можете га претраживати на вези <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>хттп://тортоисесвн.тигрис.орг/свн/тортоисесвн/</citetitle></ulink>. (Корисник: гуест, за лозинку притисните ентер) Најскорија верзија (где ми тренутно радимо) лоцирана је под <filename>/трунк/</filename> реализована верзија је под <filename>/тагш</filename>."
+msgstr "ТортоисеМерге је Отворен Код пројекат. То значи да имате пун приступ изворном коду овог пројекта. Можете га претраживати на вези <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. (Корисник: гуест, за лозинку притисните ентер) Најскорија верзија (где ми тренутно радимо) лоцирана је под <filename>/trunk/</filename> реализована верзија је под <filename>/tags/</filename>."
 
 #. (title)
 #: ../source/TortoiseMerge_en.xml:90
@@ -135,7 +135,7 @@ msgstr "Без обзира што су ТортоисеСВН и Тортоис
 #. (para)
 #: ../source/TortoiseMerge_en.xml:97
 msgid "While working on TortoiseSVN we love to listen to music. And since we spend many hours on the project we need a <emphasis>lot</emphasis> of music. Therefore we have set up some wish-lists with our favourite music CDs and DVDs: <ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink> Please also have a look at the list of people who contributed to the project by sending in patches or translations."
-msgstr "Док радимо на ТортоисеСВН волимо да слушамо музику. И пошто трошимо много сати на овом пројкту треба нам <emphasis>много</emphasis> музике. Зато смо саставили листу жеља са нашим музичким фаворитима ЦДима и ДВДима: <ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>хттп://тортоисесвн.тигрис.орг/донате.хтмл</citetitle></ulink>  Молим вас да такође погледате листу људи који учествују у пројекту слањем закрпа или превода."
+msgstr "Док радимо на ТортоисеСВН волимо да слушамо музику. И пошто трошимо много сати на овом пројкту треба нам <emphasis>много</emphasis> музике. Зато смо саставили листу жеља са нашим музичким фаворитима ЦДима и ДВДима: <ulink url=\"http://tortoisesvn.tigris.org/donate.html\"><citetitle>http://tortoisesvn.tigris.org/donate.html</citetitle></ulink>  Молим вас да такође погледате листу људи који учествују у пројекту слањем закрпа или превода."
 
 #. (title)
 #: ../source/TortoiseMerge_en.xml:113
@@ -1067,14 +1067,13 @@ msgstr "командна линија"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1168
-#, fuzzy
 msgid ""
 "Most switches require additional information like a path or some other string. In those cases, append an ':' to the switch and put the string/path after it. Example: <screen>\n"
 "/base:\"c:\\folder\\my base file.txt\"\n"
 "</screen>"
 msgstr ""
 "Већина прекидача захтева додатне информације као путања или неки други стрибгови. У овим случајевима додавање ':'прекидачу и стављајући стринг/путања после тога. Пример: <screen>\n"
-"/основа:\"c:\\именик\\мој основни фајл.тхт\"\n"
+"/base:\"c:\\folder\\my base file.txt\"\n"
 "</screen>"
 
 #. (title)
@@ -1204,33 +1203,28 @@ msgstr "Пребаци леви и десни поглед специфицир�
 
 #. (literal)
 #: ../source/TortoiseMerge_en.xml:1325
-#, fuzzy
 msgid "/origfile:\"path_to_original_file\""
-msgstr "/оригфиле:\"патх_то_оригинал_филе\""
+msgstr "/origfile:\"путања_до_оригиналног_фајла\""
 
 #. (literal)
 #: ../source/TortoiseMerge_en.xml:1326
-#, fuzzy
 msgid "/modifiedfile:\"path_to_modified_file\""
-msgstr "/модифиедфиле:\"патх_то_модифиед_филе\""
+msgstr "/modifiedfile:\"путања_до_модификованог_фајла\""
 
 #. (literal)
 #: ../source/TortoiseMerge_en.xml:1328
-#, fuzzy
 msgid "/outfile:\"path_to_resulting_patchfile\""
-msgstr "/оутфиле:\"патх_то_ресултинг_патцхфиле\""
+msgstr "/outfile:\"путања_до_резултантног_фајлазакрпе\""
 
 #. (literal)
 #: ../source/TortoiseMerge_en.xml:1329
-#, fuzzy
 msgid "/outfile"
-msgstr "/оутфиле"
+msgstr "/outfile"
 
 #. (literal)
 #: ../source/TortoiseMerge_en.xml:1332
-#, fuzzy
 msgid "/createunifieddiff"
-msgstr "/цреатеунифиеддифф"
+msgstr "/createunifieddiff"
 
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1322

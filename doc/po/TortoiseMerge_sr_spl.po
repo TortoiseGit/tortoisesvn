@@ -1,4 +1,3 @@
-#
 # Serbian latin translation for TortoiseMerge
 # Copyright (C) 2004-2008 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
@@ -16,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseMerge Documentation\n"
 "POT-Creation-Date: 2008-10-24 23:17 +0000\n"
-"PO-Revision-Date: 2008-10-25 13:52+0100\n"
+"PO-Revision-Date: 2008-10-30 22:45+0100\n"
 "Last-Translator: Milorad Popović\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -120,7 +119,7 @@ msgstr "TortoiseMerge je besplatan. Vi ne treba da platite za njega, možete ga 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:71
 msgid "TortoiseMerge is an Open Source project. That means you have full access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. (Username:guest, for password hit enter) The most recent version (where we're currently working) is located under <filename>/trunk/</filename> the released versions are located under <filename>/tags/</filename>."
-msgstr "TortoiseMerge je Otvoren Kod projekat. To znači da imate pun pristup izvornom kodu ovog projekta. Možete ga pretraživati na vezi <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. (Korisnik: guest, za lozinku pritisnite enter) Najskorija verzija (gde mi trenutno radimo) locirana je pod <filename>/trunk/</filename> realizovana verzija je pod <filename>/tagš</filename>."
+msgstr "TortoiseMerge je Otvoren Kod projekat. To znači da imate pun pristup izvornom kodu ovog projekta. Možete ga pretraživati na vezi <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. (Korisnik: guest, za lozinku pritisnite enter) Najskorija verzija (gde mi trenutno radimo) locirana je pod <filename>/trunk/</filename> realizovana verzija je pod <filename>/tags/</filename>."
 
 #. (title)
 #: ../source/TortoiseMerge_en.xml:90
@@ -1073,7 +1072,7 @@ msgid ""
 "</screen>"
 msgstr ""
 "Većina prekidača zahteva dodatne informacije kao putanja ili neki drugi stribgovi. U ovim slučajevima dodavanje ':'prekidaču i stavljajući string/putanja posle toga. Primer: <screen>\n"
-"/osnova:\"c:\\imenik\\moj osnovni fajl.tht\"\n"
+"/base:\"c:\\folder\\my base file.txt\"\n"
 "</screen>"
 
 #. (title)
@@ -1204,17 +1203,17 @@ msgstr "Prebaci levi i desni pogled specificirana dva fajla za razl."
 #. (literal)
 #: ../source/TortoiseMerge_en.xml:1325
 msgid "/origfile:\"path_to_original_file\""
-msgstr "/origfile:\"path_to_original_file\""
+msgstr "/origfile:\"putanja_do_originalnog_fajla\""
 
 #. (literal)
 #: ../source/TortoiseMerge_en.xml:1326
 msgid "/modifiedfile:\"path_to_modified_file\""
-msgstr "/modifiedfile:\"path_to_modified_file\""
+msgstr "/modifiedfile:\"putanja_do_modifikovanog_fajla\""
 
 #. (literal)
 #: ../source/TortoiseMerge_en.xml:1328
 msgid "/outfile:\"path_to_resulting_patchfile\""
-msgstr "/outfile:\"path_to_resulting_patchfile\""
+msgstr "/outfile:\"putanja_do_rezultantnog_fajlazakrpe\""
 
 #. (literal)
 #: ../source/TortoiseMerge_en.xml:1329
