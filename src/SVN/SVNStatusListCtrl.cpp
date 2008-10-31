@@ -663,10 +663,12 @@ CSVNStatusListCtrl::AddNewFileEntry(
 	entry->remotetextstatus = pSVNStatus->repos_text_status;
 	entry->remotepropstatus = pSVNStatus->repos_prop_status;
 	entry->inexternal = bInExternal;
+	entry->file_external = !!pSVNStatus->file_external;
 	entry->differentrepo = bEntryfromDifferentRepo;
 	entry->direct = bDirectItem;
 	entry->copied = !!pSVNStatus->copied;
 	entry->switched = !!pSVNStatus->switched;
+	entry->tree_conflicted = !!pSVNStatus->tree_conflicted;
 
 	entry->last_commit_date = pSVNStatus->ood_last_cmt_date;
 	if ((entry->last_commit_date == NULL)&&(pSVNStatus->entry))
@@ -722,6 +724,7 @@ CSVNStatusListCtrl::AddNewFileEntry(
 		entry->keeplocal = !!pSVNStatus->entry->keep_local;
 		entry->working_size = pSVNStatus->entry->working_size;
 		entry->depth = pSVNStatus->entry->depth;
+
 
 		if (pSVNStatus->entry->url)
 		{
@@ -1275,6 +1278,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, bo
 void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 {
 	static CString ponly(MAKEINTRESOURCE(IDS_STATUSLIST_PROPONLY));
+	static CString treeconflict(MAKEINTRESOURCE(IDS_STATUSLIST_TREECONFLICT));
 	static HINSTANCE hResourceHandle(AfxGetResourceHandle());
 
 	CString path = entry->GetPath().GetSVNPathString();
@@ -1321,6 +1325,11 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 			(entry->status != svn_wc_status_unversioned)&&
 			(!SVNStatus::IsImportant(entry->textstatus)))
 			_tcscat_s(buf, 100, ponly);
+		if (entry->tree_conflicted)
+		{
+			_tcscat_s(buf, 100, _T(", "));
+			_tcscat_s(buf, 100, treeconflict);
+		}
 		SetItemText(index, nCol++, buf);
 	}
 	// SVNSLC_COLREMOTESTATUS
@@ -1357,6 +1366,11 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 			_tcscat_s(buf, 100, _T(" (+)"));
 		if ((entry->switched)&&(_tcslen(buf)>1))
 			_tcscat_s(buf, 100, _T(" (s)"));
+		if (entry->tree_conflicted)
+		{
+			_tcscat_s(buf, 100, _T(", "));
+			_tcscat_s(buf, 100, treeconflict);
+		}
 		SetItemText(index, nCol++, buf);
 	}
 	// SVNSLC_COLPROPSTATUS
@@ -4018,7 +4032,7 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 					break;
 				}
 
-				if (entry->isConflicted)
+				if ((entry->isConflicted) || (entry->tree_conflicted))
 					crText = m_Colors.GetColor(CColors::Conflict);
 
 				// Store the color back in the NMLVCUSTOMDRAW struct.

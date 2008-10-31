@@ -259,6 +259,7 @@ public:
 			, checked(false)
 			, inunversionedfolder(false)
 			, inexternal(false)
+			, file_external(false)
 			, differentrepo(false)
 			, direct(false)
 			, isfolder(false)
@@ -270,6 +271,7 @@ public:
 			, working_size(SVN_WC_ENTRY_WORKING_SIZE_UNKNOWN)
 			, keeplocal(false)
 			, depth(svn_depth_unknown)
+			, tree_conflicted(false)
 		{
 		}
 		const CTSVNPath& GetPath() const
@@ -370,6 +372,8 @@ public:
 		apr_off_t				working_size;			///< Size of the file after being translated into local representation or SVN_WC_ENTRY_WORKING_SIZE_UNKNOWN
 		bool					keeplocal;				///< Whether a local copy of this entry should be kept in the working copy after a deletion has been committed
 		svn_depth_t				depth;					///< the depth of this entry
+		bool					file_external;			///< if the item is a file that was added to the working copy with an svn:externals; if file_external is TRUE, then switched is always FALSE.
+		bool					tree_conflicted;		///< True if the entry is the victim of a tree conflict.
 		friend class CSVNStatusListCtrl;
 		friend class CSVNStatusListCtrlDropTarget;
         friend class CSorter;
