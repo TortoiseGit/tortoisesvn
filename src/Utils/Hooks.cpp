@@ -280,7 +280,12 @@ bool CHooks::PostCommit(const CTSVNPathList& pathList, svn_depth_t depth, SVNRev
 	AddParam(sCmd, rev.ToString());
 	AddErrorParam(sCmd, error);
 	AddCWDParam(sCmd, pathList);
-	exitcode = RunScript(sCmd, pathList.GetCommonRoot().GetDirectory().GetWinPath(), error, it->second.bWait, it->second.bShow);
+	CTSVNPath curDir = pathList.GetCommonRoot().GetDirectory();
+	if (!curDir.Exists())
+		curDir = curDir.GetContainingDirectory();
+	if (!curDir.Exists())
+		curDir.Reset();
+	exitcode = RunScript(sCmd, curDir.GetWinPath(), error, it->second.bWait, it->second.bShow);
 	return true;
 }
 
