@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-27 09:34+0100\n"
+"PO-Revision-Date: 2008-10-31 08:47+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -251,7 +251,7 @@ msgid ""
 "%s\n"
 msgstr ""
 "%s\n"
-"р%s | %s\n"
+"r%s | %s\n"
 "\n"
 "%s\n"
 
@@ -269,7 +269,7 @@ msgstr "&Активирај"
 
 #. Resource IDs: (17075)
 msgid "&Add >>"
-msgstr "&Додај>>"
+msgstr "&Додај >>"
 
 #. Resource IDs: (1064)
 msgid "&Add or Remove Buttons"
@@ -346,6 +346,10 @@ msgstr "&Плави стил"
 #. Resource IDs: (65535)
 msgid "&Blue:"
 msgstr "&Плави"
+
+#. Resource IDs: (65535)
+msgid "&Branches"
+msgstr "&Гране"
 
 #
 #. Resource IDs: (138)
@@ -805,6 +809,14 @@ msgstr "&Сједињавање"
 msgid "&Minimize"
 msgstr "&Умањи"
 
+#. Resource IDs: (1493)
+msgid "&Modify color for tag copies"
+msgstr "&Измени боју за копије значки"
+
+#. Resource IDs: (1492)
+msgid "&Modify color for trunk copies"
+msgstr "&Измени боју за копију дебла"
+
 #
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -1102,6 +1114,10 @@ msgstr "&Величина таба"
 msgid "&Tabbed Document"
 msgstr "&Документ са табовима"
 
+#. Resource IDs: (65535)
+msgid "&Tags"
+msgstr "&Значке"
+
 #
 #. Resource IDs: (1382)
 msgid "&Test merge"
@@ -1171,6 +1187,10 @@ msgstr "&ТортоисеСВН"
 #. Resource IDs: (1096)
 msgid "&TortoiseUDiff"
 msgstr "&ТортозУДиф"
+
+#. Resource IDs: (65535)
+msgid "&Trunk"
+msgstr "&Дебла"
 
 #
 #. Resource IDs: (3845)
@@ -1755,8 +1775,8 @@ msgstr "Примена &закрпа..."
 
 #. Resource IDs: (345)
 msgid ""
-"Apply 'Power User' defaults. Those will provide a smother experience.\n"
-" You should know the meaning of all the settings above."
+"Apply 'Power User' defaults. Those will provide a smoother experience.\n"
+"You should know the meaning of all the settings above."
 msgstr ""
 "Примените 'Главни Корисник' уобичајено. То ће омогућити гушење искуства.\n"
 "Треба да знате значење горњег подешавања."
@@ -2242,6 +2262,10 @@ msgstr "Сума провере:"
 #. Resource IDs: (1402)
 msgid "Choose item:"
 msgstr "Изабери ставку:"
+
+#. Resource IDs: (65535)
+msgid "Classification Patterns"
+msgstr "Класификација Модела"
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -3941,6 +3965,10 @@ msgstr "Уопштено::Дијалози 1"
 msgid "General::Dialogs 2"
 msgstr "Уопштено::Дијалози 2"
 
+#. Resource IDs: (296)
+msgid "General::Revision Graph"
+msgstr "Генерално::Ревизиони граф"
+
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "Израђујем фајл закрпа..."
@@ -4307,6 +4335,54 @@ msgid ""
 msgstr ""
 "Кад је укључено, ставка мењиа 'Закључај' је постављена у главни контекстни мени\n"
 "када одабрани фајл има постављено својство svn:needs-lock"
+
+#. Resource IDs: (346)
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'branch'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
+"Ако један елемент (део између два  '/') дате путање хвата један\n"
+"од ових модела, то се схвата као 'грана''.\n"
+"\n"
+"Модел је са малим словима.\n"
+"Дозвољени џокери су  '?' и '*'.\n"
+"Одвајају моделе са ';'."
+
+#. Resource IDs: (346)
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'tag'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
+"Ако један елемент (део између два  '/') дате путање хвата један\n"
+"од ових модела, то се схвата као 'знак''.\n"
+"\n"
+"Модел је са малим словима.\n"
+"Дозвољени џокери су  '?' и '*'.\n"
+"Одвајају моделе са ';'."
+
+#. Resource IDs: (346)
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'trunk'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
+"Ако један елемент (део између два  '/') дате путање хвата један\n"
+"од ових модела, то се схвата као 'дебло''.\n"
+"\n"
+"Модел је са малим словима.\n"
+"Дозвољени џокери су  '?' и '*'.\n"
+"Одвајају моделе са ';'."
 
 #. Resource IDs: (95)
 msgid ""
@@ -6162,15 +6238,15 @@ msgstr ""
 "c*  : пронађи слово с нула или више понављања\r\n"
 "^  : почетак реда\r\n"
 "$  : завршетак реда\r\n"
-"(стринг){н} : стринг н пута\r\n"
-"(абцд) : подизраз\r\n"
-"[аеи0-9] : тражи а,е,и и 0..9\r\n"
-"[^аеи0-9] : све осим а,е,и и 0..9\r\n"
+"(стринг){n} : стринг н пута\r\n"
+"(abcd) : подизраз\r\n"
+"[aei0-9] : тражи а,е,и и 0..9\r\n"
+"[^aei0-9] : све осим а,е,и и 0..9\r\n"
 "\r\n"
-" \\w  : проналази а-з,А-З,0-9 и _\r\n"
+"\\w  : проналази а-з,А-З,0-9 и _\r\n"
 "\\W : проналази било који знак који није слово или број (а-з,А-З,0-9 и _)\r\n"
 "\\d : цифре 0-9\r\n"
-"\\с : белапоља"
+"\\s : белапоља"
 
 #. Resource IDs: (1469)
 msgid "Reintegrate a branch"
@@ -7546,7 +7622,7 @@ msgstr "Замена:"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<<->right"
-msgstr "Замени лево<<-> десно"
+msgstr "Замени лево<<->десно"
 
 #. Resource IDs: (65535)
 msgid "System &sounds"
@@ -7601,6 +7677,14 @@ msgstr "Величина блока се није поклапала с број
 #, c-format
 msgid "The chunk start '@@' was expected in line %d !"
 msgstr "Почетак блока '@@'био је очекиван у линији бр. %d !"
+
+#. Resource IDs: (346)
+msgid "The color of creation, copy and rename nodes of tags will be shifted towards yellow."
+msgstr "Боја креираних, копираних и преименованих чворова знакова биће померен према жутом. "
+
+#. Resource IDs: (346)
+msgid "The color of creation, copy and rename nodes of the trunk will be shifted towards green."
+msgstr "Боја креирних, копираних и преименованих чворова дебла биће померени према зеленом."
 
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
@@ -8157,6 +8241,7 @@ msgid "TortoiseBlame"
 msgstr "ТортоисеБламе"
 
 #. Resource IDs: (13)
+#, fuzzy
 msgid ""
 "TortoiseBlame should not be started directly! Use\n"
 "TortoiseProc.exe /command:blame /path:\"path\\to\\file\"\n"
@@ -8165,10 +8250,10 @@ msgid ""
 "TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 msgstr ""
 "ТортоисеБламе се не може директно покренути! Користи\n"
-"ТортоисеПроц.еxе /цомманд:бламе /патх:\"путања\\до\\фајлови\"\n"
+"TortoiseProc.exe /command:blame /path:\"path\\to\\file\"\n"
 "умјесто ТортоисеБламе.\n"
 "\n"
-"ТортоисеБламе.еxе бламефиле [логфиле [виеwтитле]] [/лине:бројретка] [/патх:почетнапутања] [/игнорееол] [/игнореспацес] [/игнореаллспацес]"
+"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
@@ -8179,7 +8264,6 @@ msgid "TortoiseIDiff - An image diff tool, part of TortoiseSVN"
 msgstr "ТортоисеИДифф - Алат за проналазак разлика у сликама, дио ТортоисеСВНа"
 
 #. Resource IDs: (7)
-#, fuzzy
 msgid ""
 "TortoiseIDiff: the image diff viewer for TortoiseSVN\n"
 "\n"
@@ -8195,13 +8279,13 @@ msgstr ""
 "ТортоисеИДифф: прегледник разлика на сликама за ТортоисеСВН\n"
 "\n"
 "Доступни параметри командне линије су:\n"
-"/лефт:\"путања до леве слике\"\n"
-"/лефттитле:\"наслов за леву слику\"\n"
-"/ригхт:\"путања до десне слике\"\n"
-"/ригхттитле:\"наслов за десну слику\"\n"
-"/оверлаy\t\tза омогућавање прекривног начина\n"
-"/фит\t\tза уклапање величина слика\n"
-"/схоwинфо\t\tза приказ информација о сликама"
+"/left:\"путања до леве слике\"\n"
+"/lefttitle:\"наслов за леву слику\"\n"
+"/right:\"путања до десне слике\"\n"
+"/righttitle:\"наслов за десну слику\"\n"
+"/overlay\t\tза омогућавање прекривног начина\n"
+"/fit\t\tза уклапање величина слика\n"
+"/showinfo\t\tза приказ информација о сликама"
 
 #. Resource IDs: (7, 130, 3585)
 msgid "TortoiseMerge"
@@ -8485,6 +8569,10 @@ msgstr "Фајлови изван система верзија означава
 #, c-format
 msgid "Unversioning %s"
 msgstr "Скидање верзија %s"
+
+#. Resource IDs: (106)
+msgid "Up one folder"
+msgstr "Један именик горе"
 
 #. Resource IDs: (152, 230, 1436)
 msgid "Update"
@@ -9750,7 +9838,7 @@ msgid ""
 "Newline separated list of user defined properties for folders which will\r\n"
 "be shown in the property dialog to choose from."
 msgstr ""
-"tsvn:userfolderproperties\\r\n"
+"tsvn:userfolderproperties\r\n"
 "Листа раздвојена са новред корисничких особина за именике која ће\r\n"
 "бити приказана у дијалогу за избор својстава."
 

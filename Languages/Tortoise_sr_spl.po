@@ -1,4 +1,3 @@
-# Serbian latin of TortoiseSVN
 # Copyright (C) 2008 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
@@ -15,8 +14,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-26 20:14+0100\n"
-"Last-Translator: Milorad Popović\n"
+"PO-Revision-Date: 2008-10-31 08:43+0100\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,8 +26,8 @@ msgstr ""
 
 # Checkout              Provera
 # Working Copy, WC      Radna Kopija, RK
-# Commit		Urezati
-# Hook skript	Zakačiv skript
+# Commit                Urezati
+# Hook skript           Zakačiv skript
 # Base                  Osnova
 # Update(s)             Ažuriranje(a)
 # Checkout              Preuzimanje
@@ -269,7 +268,7 @@ msgstr "&Aktiviraj"
 
 #. Resource IDs: (17075)
 msgid "&Add >>"
-msgstr "&Dodaj>>"
+msgstr "&Dodaj >>"
 
 #. Resource IDs: (1064)
 msgid "&Add or Remove Buttons"
@@ -346,6 +345,10 @@ msgstr "&Plavi stil"
 #. Resource IDs: (65535)
 msgid "&Blue:"
 msgstr "&Plavi"
+
+#. Resource IDs: (65535)
+msgid "&Branches"
+msgstr "&Grane"
 
 #
 #. Resource IDs: (138)
@@ -805,6 +808,14 @@ msgstr "&Sjedinjavanje"
 msgid "&Minimize"
 msgstr "&Umanji"
 
+#. Resource IDs: (1493)
+msgid "&Modify color for tag copies"
+msgstr "&Izmeni boju za kopije znački"
+
+#. Resource IDs: (1492)
+msgid "&Modify color for trunk copies"
+msgstr "&Izmeni boju za kopiju debla"
+
 #
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -1102,6 +1113,10 @@ msgstr "&Veličina taba"
 msgid "&Tabbed Document"
 msgstr "&Dokument sa tabovima"
 
+#. Resource IDs: (65535)
+msgid "&Tags"
+msgstr "&Značke"
+
 #
 #. Resource IDs: (1382)
 msgid "&Test merge"
@@ -1171,6 +1186,10 @@ msgstr "&TortoiseSVN"
 #. Resource IDs: (1096)
 msgid "&TortoiseUDiff"
 msgstr "&TortozUDif"
+
+#. Resource IDs: (65535)
+msgid "&Trunk"
+msgstr "&Debla"
 
 #
 #. Resource IDs: (3845)
@@ -1755,8 +1774,8 @@ msgstr "Primena &zakrpa..."
 
 #. Resource IDs: (345)
 msgid ""
-"Apply 'Power User' defaults. Those will provide a smother experience.\n"
-" You should know the meaning of all the settings above."
+"Apply 'Power User' defaults. Those will provide a smoother experience.\n"
+"You should know the meaning of all the settings above."
 msgstr ""
 "Primenite 'Glavni Korisnik' uobičajeno. To će omogućiti gušenje iskustva.\n"
 "Treba da znate značenje gornjeg podešavanja."
@@ -2242,6 +2261,10 @@ msgstr "Suma provere:"
 #. Resource IDs: (1402)
 msgid "Choose item:"
 msgstr "Izaberi stavku:"
+
+#. Resource IDs: (65535)
+msgid "Classification Patterns"
+msgstr "Klasifikacija Modela"
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -3941,6 +3964,10 @@ msgstr "Uopšteno::Dijalozi 1"
 msgid "General::Dialogs 2"
 msgstr "Uopšteno::Dijalozi 2"
 
+#. Resource IDs: (296)
+msgid "General::Revision Graph"
+msgstr "Generalno::Revizioni graf"
+
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "Izrađujem fajl zakrpa..."
@@ -4307,6 +4334,54 @@ msgid ""
 msgstr ""
 "Kad je uključeno, stavka menjia 'Zaključaj' je postavljena u glavni kontekstni meni\n"
 "kada odabrani fajl ima postavljeno svojstvo svn:needs-lock"
+
+#. Resource IDs: (346)
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'branch'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
+"Ako jedan element (deo između dva  '/') date putanje hvata jedan\n"
+"od ovih modela, to se shvata kao 'grana''.\n"
+"\n"
+"Model je sa malim slovima.\n"
+"Dozvoljeni džokeri su  '?' i '*'.\n"
+"Odvajaju modele sa ';'."
+
+#. Resource IDs: (346)
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'tag'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
+"Ako jedan element (deo između dva  '/') date putanje hvata jedan\n"
+"od ovih modela, to se shvata kao 'znak''.\n"
+"\n"
+"Model je sa malim slovima.\n"
+"Dozvoljeni džokeri su  '?' i '*'.\n"
+"Odvajaju modele sa ';'."
+
+#. Resource IDs: (346)
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'trunk'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
+"Ako jedan element (deo između dva  '/') date putanje hvata jedan\n"
+"od ovih modela, to se shvata kao 'deblo''.\n"
+"\n"
+"Model je sa malim slovima.\n"
+"Dozvoljeni džokeri su  '?' i '*'.\n"
+"Odvajaju modele sa ';'."
 
 #. Resource IDs: (95)
 msgid ""
@@ -7546,7 +7621,7 @@ msgstr "Zamena:"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<<->right"
-msgstr "Zameni levo<<-> desno"
+msgstr "Zameni levo<<->desno"
 
 #. Resource IDs: (65535)
 msgid "System &sounds"
@@ -7601,6 +7676,14 @@ msgstr "Veličina bloka se nije poklapala s brojem dodatih/uklonjenih linija!"
 #, c-format
 msgid "The chunk start '@@' was expected in line %d !"
 msgstr "Početak bloka '@@'bio je očekivan u liniji br. %d !"
+
+#. Resource IDs: (346)
+msgid "The color of creation, copy and rename nodes of tags will be shifted towards yellow."
+msgstr "Boja kreiranih, kopiranih i preimenovanih čvorova znakova biće pomeren prema žutom. "
+
+#. Resource IDs: (346)
+msgid "The color of creation, copy and rename nodes of the trunk will be shifted towards green."
+msgstr "Boja kreirnih, kopiranih i preimenovanih čvorova debla biće pomereni prema zelenom."
 
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
@@ -8157,6 +8240,7 @@ msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
 
 #. Resource IDs: (13)
+#, fuzzy
 msgid ""
 "TortoiseBlame should not be started directly! Use\n"
 "TortoiseProc.exe /command:blame /path:\"path\\to\\file\"\n"
@@ -8165,10 +8249,10 @@ msgid ""
 "TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 msgstr ""
 "TortoiseBlame se ne može direktno pokrenuti! Koristi\n"
-"TortoiseProc.exe /command:blame /path:\"putanja\\do\\fajlovi\"\n"
+"TortoiseProc.exe /command:blame /path:\"path\\to\\file\"\n"
 "umjesto TortoiseBlame.\n"
 "\n"
-"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:brojretka] [/path:početnaputanja] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
+"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
@@ -8484,6 +8568,10 @@ msgstr "Fajlovi izvan sistema verzija označavaju imenik kao izmenjenu"
 #, c-format
 msgid "Unversioning %s"
 msgstr "Skidanje verzija %s"
+
+#. Resource IDs: (106)
+msgid "Up one folder"
+msgstr "Jedan imenik gore"
 
 #. Resource IDs: (152, 230, 1436)
 msgid "Update"
@@ -9551,10 +9639,10 @@ msgstr ""
 "\r\n"
 "URLovi mogu biti ili puni URLovi ili relativni. Format za\r\n"
 "relativne URLove je:\r\n"
-"../relativan ka roditeljskom imeniku spoljašnosti\r\n"
-"^/relativan korenu spremišta\r\n"
-"//relativan URLšemi\r\n"
-"/relativan  imenu domaćina servera"
+"../ relativan ka roditeljskom imeniku spoljašnosti\r\n"
+"^/ relativan korenu spremišta\r\n"
+"// relativan URLšemi\r\n"
+"/ relativan  imenu domaćina servera"
 
 #. Resource IDs: (576)
 msgid ""
@@ -9749,7 +9837,7 @@ msgid ""
 "Newline separated list of user defined properties for folders which will\r\n"
 "be shown in the property dialog to choose from."
 msgstr ""
-"tsvn:userfolderproperties\\r\n"
+"tsvn:userfolderproperties\r\n"
 "Lista razdvojena sa novred korisničkih osobina za imenike koja će\r\n"
 "biti prikazana u dijalogu za izbor svojstava."
 
