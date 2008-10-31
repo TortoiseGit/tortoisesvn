@@ -140,6 +140,12 @@ public:
 	bool IsInExternal(const CTSVNPath& path) const;
 
 	/**
+	 * Fills the \c externals set with all external root paths.
+	 * \remark the set is not cleared first!
+	 */
+	void GetExternals(std::set<CTSVNPath>& externals) const;
+
+	/**
 	 * Clears the memory pool.
 	 */
 	void ClearPool();

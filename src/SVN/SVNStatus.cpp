@@ -427,6 +427,23 @@ bool SVNStatus::IsInExternal(const CTSVNPath& path) const
 	return false;
 }
 
+void SVNStatus::GetExternals(std::set<CTSVNPath>& externals) const
+{
+	if (apr_hash_count(m_statushash) == 0)
+		return;
+
+	SVNPool localpool(m_pool);
+	apr_hash_index_t *hi;
+	const char* key;
+	for (hi = apr_hash_first(localpool, m_externalhash); hi; hi = apr_hash_next(hi)) 
+	{
+		apr_hash_this(hi, (const void**)&key, NULL, NULL);
+		if (key)
+		{
+			externals.insert(CTSVNPath(CUnicodeUtils::GetUnicode(key)));
+		}
+	}
+}
 
 void SVNStatus::GetStatusString(svn_wc_status_kind status, size_t buflen, TCHAR * string)
 {
