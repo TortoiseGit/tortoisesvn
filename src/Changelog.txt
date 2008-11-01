@@ -37,6 +37,8 @@
        features are now available to the user. (Stefan Fuhrmann)
 - NEW: The status list control shows the entries grouped by externals if
        no changelists are present. (Stefan)
+- NEW: two project properties (bugtraq:provideruuid and bugtraq:providerparams)
+       to specifiy the IBugTraqProvider for the project. (Stefan)
 - CHG: The bug-ID column width in the log dialog is now limited 
        to 200 pixels. (Stefan)
 - CHG: The right-drag context menu now only shows "Export" if a versioned

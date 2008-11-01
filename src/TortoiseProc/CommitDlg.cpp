@@ -132,7 +132,7 @@ BOOL CCommitDlg::OnInitDialog()
 	m_SelectAll.SetCheck(BST_INDETERMINATE);
 	
 	CBugTraqAssociations bugtraq_associations;
-	bugtraq_associations.Load();
+	bugtraq_associations.Load(m_ProjectProperties.sProviderUuid, m_ProjectProperties.sProviderParams);
 
 	if (bugtraq_associations.FindProvider(m_pathList, &m_bugtraq_association))
 	{

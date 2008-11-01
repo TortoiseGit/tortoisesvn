@@ -27,13 +27,19 @@ DEFINE_GUID(CATID_BugTraqProvider,
 
 #define BUGTRAQ_ASSOCIATIONS_REGPATH _T("Software\\TortoiseSVN\\BugTraq Associations")
 
+CBugTraqAssociations::CBugTraqAssociations()
+	: pProjectProvider(NULL)
+{
+
+}
+
 CBugTraqAssociations::~CBugTraqAssociations()
 {
 	for (inner_t::iterator it = m_inner.begin(); it != m_inner.end(); ++it)
 		delete *it;
 }
 
-void CBugTraqAssociations::Load()
+void CBugTraqAssociations::Load(LPCTSTR uuid /* = NULL */, LPCTSTR params /* = NULL */)
 {
 	HKEY hk;
 	if (RegOpenKeyEx(HKEY_CURRENT_USER, BUGTRAQ_ASSOCIATIONS_REGPATH, 0, KEY_READ, &hk) != ERROR_SUCCESS)
@@ -74,6 +80,10 @@ void CBugTraqAssociations::Load()
 	}
 
 	RegCloseKey(hk);
+	if (uuid)
+		providerUUID = uuid;
+	if (params)
+		providerParams = params;
 }
 
 void CBugTraqAssociations::Add(const CBugTraqAssociation &assoc)
@@ -81,9 +91,28 @@ void CBugTraqAssociations::Add(const CBugTraqAssociation &assoc)
 	m_inner.push_back(new CBugTraqAssociation(assoc));
 }
 
-bool CBugTraqAssociations::FindProvider(const CTSVNPathList &pathList, CBugTraqAssociation *assoc) const
+bool CBugTraqAssociations::FindProvider(const CTSVNPathList &pathList, CBugTraqAssociation *assoc)
 {
-	return FindProviderForPathList(pathList, assoc);
+	if (FindProviderForPathList(pathList, assoc))
+		return true;
+
+	if (pProjectProvider)
+	{
+		*assoc = *pProjectProvider;
+		return true;
+	}
+	if (!providerUUID.IsEmpty())
+	{
+		CLSID provider_clsid;
+		CLSIDFromString((LPOLESTR)(LPCWSTR)providerUUID, &provider_clsid);
+		pProjectProvider = new CBugTraqAssociation(_T(""), provider_clsid, _T("bugtraq:provider"), (LPCWSTR)providerParams);
+		if (pProjectProvider)
+		{
+			*assoc = *pProjectProvider;
+			return true;
+		}
+	}
+	return false;
 }
 
 bool CBugTraqAssociations::FindProviderForPathList(const CTSVNPathList &pathList, CBugTraqAssociation *assoc) const

@@ -29,6 +29,8 @@ using namespace std;
 #define BUGTRAQPROPNAME_URL               _T("bugtraq:url")
 #define BUGTRAQPROPNAME_WARNIFNOISSUE     _T("bugtraq:warnifnoissue")
 #define BUGTRAQPROPNAME_APPEND		      _T("bugtraq:append")
+#define BUGTRAQPROPNAME_PROVIDERUUID      _T("bugtraq:provideruuid")
+#define BUGTRAQPROPNAME_PROVIDERPARAMS    _T("bugtraq:providerparams")
 
 #define PROJECTPROPNAME_LOGTEMPLATE		  _T("tsvn:logtemplate")
 #define PROJECTPROPNAME_LOGWIDTHLINE	  _T("tsvn:logwidthmarker")
@@ -162,6 +164,14 @@ public:
 	/** If set to FALSE, then the bug tracking entry is inserted at the top of the
 	   log message instead of at the bottom. Default is TRUE */
 	BOOL		bAppend;
+
+	/** the COM uuid of the bugtraq provider which implements the IBugTraqProvider
+	   interface. */
+	CString		sProviderUuid;
+
+	/** the parameters passed to the COM bugtraq provider which implements the
+	    IBugTraqProvider interface */
+	CString		sProviderParams;
 
 	/** The number of chars the width marker should be shown at. If the property
 	 * is not set, then this value is 80 by default. */

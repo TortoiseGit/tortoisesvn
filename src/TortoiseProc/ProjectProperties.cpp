@@ -77,6 +77,8 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 	BOOL bFoundWebViewPathRev = FALSE;
 	BOOL bFoundAutoProps = FALSE;
 	BOOL bFoundLogSummary = FALSE;
+	BOOL bFoundBugtraqProviderUuid = FALSE;
+	BOOL bFoundBugtraqProviderParams = FALSE;
 
 	if (!path.IsDirectory())
 		path = path.GetContainingDirectory();
@@ -149,6 +151,16 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 				else
 					bAppend = FALSE;
 				bFoundBugtraqAppend = TRUE;
+			}
+			if ((!bFoundBugtraqProviderUuid)&&(sPropName.Compare(BUGTRAQPROPNAME_PROVIDERUUID)==0))
+			{
+				sProviderUuid = sPropVal;
+				bFoundBugtraqProviderUuid = TRUE;
+			}
+			if ((!bFoundBugtraqProviderParams)&&(sPropName.Compare(BUGTRAQPROPNAME_PROVIDERPARAMS)==0))
+			{
+				sProviderParams = sPropVal;
+				bFoundBugtraqProviderParams = TRUE;
 			}
 			if ((!bFoundLogWidth)&&(sPropName.Compare(PROJECTPROPNAME_LOGWIDTHLINE)==0))
 			{
@@ -253,7 +265,8 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 				| bFoundBugtraqURL | bFoundBugtraqWarnIssue | bFoundLogWidth
 				| bFoundLogTemplate | bFoundBugtraqLogRe | bFoundMinLockMsgSize
 				| bFoundUserFileProps | bFoundUserDirProps | bFoundAutoProps
-				| bFoundWebViewRev | bFoundWebViewPathRev | bFoundLogSummary)
+				| bFoundWebViewRev | bFoundWebViewPathRev | bFoundLogSummary
+				| bFoundBugtraqProviderUuid | bFoundBugtraqProviderParams)
 			{
 				return TRUE;
 			}
