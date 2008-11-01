@@ -31,19 +31,22 @@ CFoldTags::CFoldTags (CRevisionGraphOptionList& list)
 
 void CFoldTags::Apply (CVisibleGraph* graph, CVisibleGraphNode* node)
 {
-    // we won't fold this node, if there are modifications on this
-    // or any of its sub-branches.
-    // Also, we will not remove tags that get copied to non-tags.
+    // We will not remove tags that get copied to non-tags
+    // that have not yet been removed from the graph.
 
     DWORD forbidden = CNodeClassification::COPIES_TO_TRUNK 
                     | CNodeClassification::COPIES_TO_BRANCH 
                     | CNodeClassification::COPIES_TO_OTHER;
 
+    CNodeClassification classification = node->GetClassification();
+    bool isTag = classification.Matches (CNodeClassification::IS_TAG, 0);
+    bool isFinalTag = classification.Matches (CNodeClassification::IS_TAG, forbidden);
+
     // fold tags at the point of their creation
 
-    if (node->GetClassification().Matches (CNodeClassification::IS_TAG, forbidden))
+    if (isTag && (isFinalTag || (node->GetFirstCopyTarget() == NULL)))
         if (   (node->GetCopySource() != NULL)
-            || node->GetClassification().Is (CNodeClassification::IS_RENAMED))
+            || classification.Is (CNodeClassification::IS_RENAMED))
         {
             node->FoldTag (graph);
         }
