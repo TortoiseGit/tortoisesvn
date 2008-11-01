@@ -36,13 +36,12 @@ bool PrevDiffCommand::Execute()
 	}
 	else
 	{
-		SVNDiff diff;
+		SVNDiff diff(NULL, hWndExplorer);
 		diff.SetAlternativeTool(bAlternativeTool);
 		SVNStatus st;
 		st.GetStatus(cmdLinePath);
 		if (st.status && st.status->entry && st.status->entry->cmt_rev)
 		{
-			SVNDiff diff(NULL, hWndExplorer);
 			bRet = diff.ShowCompare(cmdLinePath, SVNRev::REV_WC, cmdLinePath, st.status->entry->cmt_rev - 1, st.status->entry->cmt_rev);
 		}
 		else

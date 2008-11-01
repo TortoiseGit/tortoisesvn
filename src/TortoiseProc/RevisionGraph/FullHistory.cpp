@@ -218,7 +218,6 @@ bool CFullHistory::FetchRevisionData ( CString path
     pegRevision = pegRev;
     if (pegRevision == NO_REVISION)
     {
-	    CTSVNPath svnPath (path);
 	    if (!svnPath.IsUrl())
 	    {
 		    SVNInfo info;

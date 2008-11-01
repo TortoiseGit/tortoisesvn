@@ -388,9 +388,9 @@ int CStatGraphDlg::GetCalendarWeek(const CTime& time)
 	int iFirstDayOfWeek = 0;
 	int iFirstWeekOfYear = 0;
 	TCHAR loc[2];
-	GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IFIRSTDAYOFWEEK, loc, sizeof(loc));
+	GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IFIRSTDAYOFWEEK, loc, sizeof(loc)/sizeof(TCHAR));
 	iFirstDayOfWeek = int(loc[0]-'0');
-	GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IFIRSTWEEKOFYEAR, loc, sizeof(loc));
+	GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IFIRSTWEEKOFYEAR, loc, sizeof(loc)/sizeof(TCHAR));
 	iFirstWeekOfYear = int(loc[0]-'0');
 	CTime dDateFirstJanuary(iYear,1,1,0,0,0);
 	int iDayOfWeek = (dDateFirstJanuary.GetDayOfWeek()+5+iFirstDayOfWeek)%7;
@@ -690,7 +690,6 @@ void CStatGraphDlg::ShowCommitsByAuthor()
 			nCommits += m_commitsPerAuthor[*it];
 		}
 		CString sOthers(MAKEINTRESOURCE(IDS_STATGRAPH_OTHERGROUP));
-		CString temp;
 		temp.Format(_T(" (%ld)"), nOthers);
 		sOthers += temp;
 		int group = m_graph.AppendGroup(sOthers);

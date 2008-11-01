@@ -90,9 +90,9 @@ CStandardLayoutTextList::GetText (index_t index) const
 
         CString path = CUnicodeUtils::StdGetUnicode 
                          (nodeInfo.node->GetPath().GetPath()).c_str();
-        int index = 0;
+        int index2 = 0;
         for (int i = textInfo.subPathIndex; i > 0; --i)
-            text = path.Tokenize (_T("/"), index);
+            text = path.Tokenize (_T("/"), index2);
 
         text.Insert (0, _T('/'));
     }

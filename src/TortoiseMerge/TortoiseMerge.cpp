@@ -97,7 +97,7 @@ BOOL CTortoiseMergeApp::InitInstance()
 	sHelppath = CPathUtils::GetAppParentDirectory() + _T("Languages\\TortoiseMerge_en.chm");
 	do
 	{
-		GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO639LANGNAME, buf, sizeof(buf));
+		GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO639LANGNAME, buf, sizeof(buf)/sizeof(TCHAR));
 		CString sLang = _T("_");
 		sLang += buf;
 		sHelppath.Replace(_T("_en"), sLang);
@@ -108,7 +108,7 @@ BOOL CTortoiseMergeApp::InitInstance()
 			break;
 		}
 		sHelppath.Replace(sLang, _T("_en"));
-		GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO3166CTRYNAME, buf, sizeof(buf));
+		GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO3166CTRYNAME, buf, sizeof(buf)/sizeof(TCHAR));
 		sLang += _T("_");
 		sLang += buf;
 		sHelppath.Replace(_T("_en"), sLang);

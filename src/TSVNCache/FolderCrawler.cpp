@@ -72,7 +72,7 @@ void CFolderCrawler::Initialise()
 	// will behave properly (with normal priority at worst).
 
 	m_bRun = true;
-	unsigned int threadId;
+	unsigned int threadId = 0;
 	m_hThread = (HANDLE)_beginthreadex(NULL,0,ThreadEntry,this,0,&threadId);
 	SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_IDLE);
 }

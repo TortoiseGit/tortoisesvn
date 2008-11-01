@@ -1113,9 +1113,9 @@ UINT CLogDlg::LogThread()
 							    svn_merge_range_t * pRange = APR_ARRAY_IDX(arr, i, svn_merge_range_t*);
 							    if (pRange)
 							    {
-								    for (svn_revnum_t r=pRange->start+1; r<=pRange->end; ++r)
+								    for (svn_revnum_t re = pRange->start+1; re <= pRange->end; ++re)
 								    {
-									    m_mergedRevs.insert(r);
+									    m_mergedRevs.insert(re);
 								    }
 							    }
 						    }
@@ -1282,10 +1282,10 @@ void CLogDlg::CopySelectionToClipBoard()
 				else
 				{
 					CString sCopyFrom;
-					sCopyFrom.Format(_T(" (%s: %s, %s, %ld)\r\n"), CString(MAKEINTRESOURCE(IDS_LOG_COPYFROM)), 
+					sCopyFrom.Format(_T(" (%s: %s, %s, %ld)\r\n"), (LPCTSTR)CString(MAKEINTRESOURCE(IDS_LOG_COPYFROM)), 
 						(LPCTSTR)cpath->sCopyFromPath, 
 						(LPCTSTR)CString(MAKEINTRESOURCE(IDS_LOG_REVISION)), 
-						(LPCTSTR)cpath->lCopyFromRev);
+						cpath->lCopyFromRev);
 					sPaths += sCopyFrom;
 				}
 			}
@@ -1313,10 +1313,10 @@ void CLogDlg::CopyChangedSelectionToClipBoard()
 	PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
 	if (pos)
 	{
-		POSITION pos = m_ChangedFileListCtrl.GetFirstSelectedItemPosition();
-		while (pos)
+		POSITION pos2 = m_ChangedFileListCtrl.GetFirstSelectedItemPosition();
+		while (pos2)
 		{
-			int nItem = m_ChangedFileListCtrl.GetNextSelectedItem(pos);
+			int nItem = m_ChangedFileListCtrl.GetNextSelectedItem(pos2);
 			sPaths += m_currentChangedPathList[nItem].GetSVNPathString();
 			sPaths += _T("\r\n");
 		}
@@ -1325,10 +1325,10 @@ void CLogDlg::CopyChangedSelectionToClipBoard()
 	{
 		// only one revision is selected in the log dialog top pane
 		// but multiple items could be selected  in the changed items list
-		POSITION pos = m_ChangedFileListCtrl.GetFirstSelectedItemPosition();
-		while (pos)
+		POSITION pos2 = m_ChangedFileListCtrl.GetFirstSelectedItemPosition();
+		while (pos2)
 		{
-			int nItem = m_ChangedFileListCtrl.GetNextSelectedItem(pos);
+			int nItem = m_ChangedFileListCtrl.GetNextSelectedItem(pos2);
 			LogChangedPath * changedlogpath = pLogEntry->pArChangedPaths->GetAt(nItem);
 
 			if ((m_cHidePaths.GetState() & 0x0003)==BST_CHECKED)
@@ -3740,16 +3740,16 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 	SVNRev revLowest, revHighest;
 	SVNRevRangeArray revisionRanges;
 	{
-		POSITION pos = m_LogList.GetFirstSelectedItemPosition();
-		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+		POSITION pos2 = m_LogList.GetFirstSelectedItemPosition();
+		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos2)));
 		revisionRanges.AddRevision(pLogEntry->Rev);
 		selEntries.push_back(pLogEntry);
 		firstAuthor = pLogEntry->sAuthor;
 		revLowest = pLogEntry->Rev;
 		revHighest = pLogEntry->Rev;
-		while (pos)
+		while (pos2)
 		{
-			pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos)));
+			pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetNextSelectedItem(pos2)));
 			revisionRanges.AddRevision(pLogEntry->Rev);
 			selEntries.push_back(pLogEntry);
 			if (firstAuthor.Compare(pLogEntry->sAuthor))
@@ -4118,9 +4118,9 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 					CString strWinPath = m_path.GetWinPathString();
 					int rfind = strWinPath.ReverseFind('.');
 					if (rfind > 0)
-						revFilename.Format(_T("%s-%ld%s"), (LPCTSTR)strWinPath.Left(rfind), (LONG)revSelected, (LPCTSTR)strWinPath.Mid(rfind));
+						revFilename.Format(_T("%s-%s%s"), (LPCTSTR)strWinPath.Left(rfind), (LPCTSTR)revSelected.ToString(), (LPCTSTR)strWinPath.Mid(rfind));
 					else
-						revFilename.Format(_T("%s-%ld"), (LPCTSTR)strWinPath, revSelected);
+						revFilename.Format(_T("%s-%s"), (LPCTSTR)strWinPath, (LPCTSTR)revSelected.ToString());
 				}
 				if (CAppUtils::FileOpenSave(revFilename, NULL, IDS_LOG_POPUP_SAVE, IDS_COMMONFILEFILTER, false, m_hWnd))
 				{
@@ -4189,9 +4189,9 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 						ret = (int)ShellExecute(this->m_hWnd, NULL, tempfile.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
 					if ((ret <= HINSTANCE_ERROR)||bOpenWith)
 					{
-						CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
-						cmd += tempfile.GetWinPathString() + _T(" ");
-						CAppUtils::LaunchApplication(cmd, NULL, false);
+						CString c = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
+						c += tempfile.GetWinPathString() + _T(" ");
+						CAppUtils::LaunchApplication(c, NULL, false);
 					}
 				}
 			}
@@ -4379,10 +4379,10 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 		}
 		if (!bOneRev)
 			rev2--;
-		POSITION pos = m_ChangedFileListCtrl.GetFirstSelectedItemPosition();
-		while (pos)
+		POSITION pos2 = m_ChangedFileListCtrl.GetFirstSelectedItemPosition();
+		while (pos2)
 		{
-			int nItem = m_ChangedFileListCtrl.GetNextSelectedItem(pos);
+			int nItem = m_ChangedFileListCtrl.GetNextSelectedItem(pos2);
 			changedpaths.push_back(m_currentChangedPathList[nItem].GetSVNPathString());
 		}
 	}
@@ -4392,10 +4392,10 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 		// but multiple items could be selected  in the changed items list
 		rev2 = rev1-1;
 
-		POSITION pos = m_ChangedFileListCtrl.GetFirstSelectedItemPosition();
-		while (pos)
+		POSITION pos2 = m_ChangedFileListCtrl.GetFirstSelectedItemPosition();
+		while (pos2)
 		{
-			int nItem = m_ChangedFileListCtrl.GetNextSelectedItem(pos);
+			int nItem = m_ChangedFileListCtrl.GetNextSelectedItem(pos2);
 			LogChangedPath * changedlogpath = pLogEntry->pArChangedPaths->GetAt(nItem);
 
 			if (m_ChangedFileListCtrl.GetSelectedCount() == 1)
@@ -4850,8 +4850,8 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 			break;
 		case ID_VIEWPATHREV:
 			{
-				PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetSelectionMark()));
-				SVNRev rev = pLogEntry->Rev;
+				PLOGENTRYDATA pLogEntry2 = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(m_LogList.GetSelectionMark()));
+				SVNRev rev = pLogEntry2->Rev;
 				CString relurl = changedpaths[0];
 				CString url = m_ProjectProperties.sWebViewerPathRev;
 				url.Replace(_T("%REVISION%"), rev.ToString());

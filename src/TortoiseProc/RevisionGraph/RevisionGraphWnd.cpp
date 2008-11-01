@@ -570,8 +570,8 @@ CString CRevisionGraphWnd::DisplayableText ( const CString& wholeText
         while (size.cx > tooltipSize.cx)
         {
             line.Delete (line.GetLength()-1);
-            int nextPos = line.ReverseFind (' ');
-            if (nextPos < 0)
+            int nextPos2 = line.ReverseFind (' ');
+            if (nextPos2 < 0)
                 break;
 
             line.Delete (pos+1, line.GetLength() - pos-1);

@@ -192,10 +192,10 @@ BOOL CRevisionGraphDlg::InitializeToolbar()
 			continue;
 		}
 
-		int index = 0;
+		int index2 = 0;
 		while (m_ToolBar.GetItemID(index) != *itemID)
-			index++;
-		m_ToolBar.SetButtonStyle(index, m_ToolBar.GetButtonStyle(index)|*style);
+			index2++;
+		m_ToolBar.SetButtonStyle(index, m_ToolBar.GetButtonStyle(index2)|*style);
 	}
 
 	// fill the combo box

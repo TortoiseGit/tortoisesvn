@@ -162,7 +162,7 @@ BOOL CTortoiseProcApp::InitInstance()
 	do
 	{
 		CString sLang = _T("_");
-		if (GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO639LANGNAME, buf, sizeof(buf)))
+		if (GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO639LANGNAME, buf, sizeof(buf)/sizeof(TCHAR)))
 		{
 			sLang += buf;
 			sHelppath.Replace(_T("_en"), sLang);
@@ -174,7 +174,7 @@ BOOL CTortoiseProcApp::InitInstance()
 			}
 		}
 		sHelppath.Replace(sLang, _T("_en"));
-		if (GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO3166CTRYNAME, buf, sizeof(buf)))
+		if (GetLocaleInfo(MAKELCID(langId, SORT_DEFAULT), LOCALE_SISO3166CTRYNAME, buf, sizeof(buf)/sizeof(TCHAR)))
 		{
 			sLang += _T("_");
 			sLang += buf;
@@ -345,9 +345,9 @@ BOOL CTortoiseProcApp::InitInstance()
 			if (CString(parser.GetVal(_T("command"))).Compare(_T("settings"))==0)
 			{
 				// just open the config file
-				TCHAR buf[MAX_PATH];
-				SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, buf);
-				CString path = buf;
+				TCHAR buf2[MAX_PATH];
+				SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, buf2);
+				CString path = buf2;
 				path += _T("\\Subversion\\config");
 				CAppUtils::StartTextViewer(path);
 				return FALSE;

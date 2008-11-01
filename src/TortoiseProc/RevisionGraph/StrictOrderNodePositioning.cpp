@@ -221,9 +221,9 @@ void CStrictOrderNodePositioning::AssignRows
                 }
 
                 int halfHeight = node->rect.Height() / 2;
-                for (int i = column+1; i <= maxTargetColumn; ++i)
+                for (int j = column+1; j <= maxTargetColumn; ++j)
                 {
-                    rowStart = max (rowStart, columnTops[i] - halfHeight + 6);
+                    rowStart = max (rowStart, columnTops[j] - halfHeight + 6);
                 }
             }
         }

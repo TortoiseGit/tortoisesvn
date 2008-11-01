@@ -1468,10 +1468,10 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							while (pos)
 							{
 								int nItem = m_ProgList.GetNextSelectedItem(pos);
-								NotificationData * data = m_arData[nItem];
-								if (data)
+								NotificationData * data2 = m_arData[nItem];
+								if (data2)
 								{
-									sLines += data->sPathColumnText;
+									sLines += data2->sPathColumnText;
 									sLines += _T("\r\n");
 								}
 							}
@@ -1587,12 +1587,12 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							while (pos)
 							{
 								int nItem = m_ProgList.GetNextSelectedItem(pos);
-								NotificationData * data = m_arData[nItem];
-								if (data)
+								NotificationData * data2 = m_arData[nItem];
+								if (data2)
 								{
-									if (data->bConflictedActionItem)
+									if (data2->bConflictedActionItem)
 									{
-										if (!svn.Resolve(data->path, result, FALSE))
+										if (!svn.Resolve(data2->path, result, FALSE))
 										{
 											CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 											DialogEnableWindow(IDOK, TRUE);
@@ -1600,10 +1600,10 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 										}
 										else
 										{
-											data->color = ::GetSysColor(COLOR_WINDOWTEXT);
-											data->action = svn_wc_notify_resolved;
-											data->sActionColumnText.LoadString(IDS_SVNACTION_RESOLVE);
-											data->bConflictedActionItem = false;
+											data2->color = ::GetSysColor(COLOR_WINDOWTEXT);
+											data2->action = svn_wc_notify_resolved;
+											data2->sActionColumnText.LoadString(IDS_SVNACTION_RESOLVE);
+											data2->bConflictedActionItem = false;
 											m_nConflicts--;
 
 											if (m_nConflicts==0)
@@ -1616,7 +1616,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 												delete m_arData[nIndex];
 												m_arData.pop_back();
 											}
-											sResolvedPaths += data->path.GetWinPathString() + _T("\n");
+											sResolvedPaths += data2->path.GetWinPathString() + _T("\n");
 										}
 									}
 								}
@@ -1663,9 +1663,9 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								ret = (int)ShellExecute(this->m_hWnd, NULL, (LPCTSTR)sWinPath, NULL, NULL, SW_SHOWNORMAL);
 							if ((ret <= HINSTANCE_ERROR)||bOpenWith)
 							{
-								CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
-								cmd += sWinPath + _T(" ");
-								CAppUtils::LaunchApplication(cmd, NULL, false);
+								CString c = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
+								c += sWinPath + _T(" ");
+								CAppUtils::LaunchApplication(c, NULL, false);
 							}
 						}
 					}

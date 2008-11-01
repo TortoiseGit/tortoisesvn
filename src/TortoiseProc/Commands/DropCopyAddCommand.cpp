@@ -58,7 +58,6 @@ bool DropCopyAddCommand::Execute()
 							0,
 							NULL 
 							);
-						CString strMessage;
 						strMessage.Format(IDS_ERR_COPYFILES, (LPTSTR)lpMsgBuf);
 						CMessageBox::Show(hwndExplorer, strMessage, _T("TortoiseSVN"), MB_OK | MB_ICONINFORMATION);
 						LocalFree( lpMsgBuf );

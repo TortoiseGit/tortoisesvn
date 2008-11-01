@@ -207,11 +207,11 @@ void CRepositoryBar::GotoUrl(const CString& url, SVNRev rev, bool bAlreadyChecke
 
 	if (m_pRepo)
 	{
-		SVNRev rev = new_rev;
+		SVNRev r = new_rev;
 		m_headRev = SVNRev();
-		m_pRepo->ChangeToUrl(new_url, rev, bAlreadyChecked);
-		if (new_rev.IsHead() && !rev.IsHead())
-			m_headRev = rev;
+		m_pRepo->ChangeToUrl(new_url, r, bAlreadyChecked);
+		if (new_rev.IsHead() && !r.IsHead())
+			m_headRev = r;
 		if (!m_headRev.IsValid())
 		{
 			SVN svn;

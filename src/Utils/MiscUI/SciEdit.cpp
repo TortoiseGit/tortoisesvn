@@ -180,10 +180,10 @@ BOOL CSciEdit::LoadDictionaries(LONG lLanguageID)
 	CString sFolderUp = CPathUtils::GetAppParentDirectory();
 	CString sFile;
 
-	GetLocaleInfo(MAKELCID(lLanguageID, SORT_DEFAULT), LOCALE_SISO639LANGNAME, buf, sizeof(buf));
+	GetLocaleInfo(MAKELCID(lLanguageID, SORT_DEFAULT), LOCALE_SISO639LANGNAME, buf, sizeof(buf)/sizeof(TCHAR));
 	sFile = buf;
 	sFile += _T("_");
-	GetLocaleInfo(MAKELCID(lLanguageID, SORT_DEFAULT), LOCALE_SISO3166CTRYNAME, buf, sizeof(buf));
+	GetLocaleInfo(MAKELCID(lLanguageID, SORT_DEFAULT), LOCALE_SISO3166CTRYNAME, buf, sizeof(buf)/sizeof(TCHAR));
 	sFile += buf;
 	if (pChecker==NULL)
 	{

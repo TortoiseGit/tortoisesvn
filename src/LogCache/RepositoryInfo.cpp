@@ -144,9 +144,9 @@ CRepositoryInfo::CData::Lookup (const CString& uuid, const CString& root) const
 
     if (!CSettings::GetAllowAmbiguousUUID())
     {
-        TPartialIndex::const_iterator iter = uuidIndex.find (uuid);
-        if (iter != uuidIndex.end())
-            return iter->second;
+        TPartialIndex::const_iterator iter2 = uuidIndex.find (uuid);
+        if (iter2 != uuidIndex.end())
+            return iter2->second;
     }
 
     // try an UUID-agnostic lookup, if that is allowed
@@ -154,9 +154,9 @@ CRepositoryInfo::CData::Lookup (const CString& uuid, const CString& root) const
 
     if (!CSettings::GetAllowAmbiguousURL())
     {
-        TPartialIndex::const_iterator iter = urlIndex.find (root);
-        if (iter != urlIndex.end())
-            return iter->second;
+        TPartialIndex::const_iterator iter2 = urlIndex.find (root);
+        if (iter2 != urlIndex.end())
+            return iter2->second;
     }
 
     // not found
@@ -188,26 +188,26 @@ void CRepositoryInfo::CData::Remove (SPerRepositoryInfo* info)
 
     // remove it from the indices
 
-    for ( TPartialIndex::iterator iter = urlIndex.lower_bound (info->root)
+    for ( TPartialIndex::iterator iter2 = urlIndex.lower_bound (info->root)
         , end = urlIndex.upper_bound (info->root)
-        ; iter != end
-        ; ++iter)
+        ; iter2 != end
+        ; ++iter2)
     {
-        if (iter->second == info)
+        if (iter2->second == info)
         {
-            urlIndex.erase (iter);
+            urlIndex.erase (iter2);
             break;
         }
     }
 
-    for ( TPartialIndex::iterator iter = uuidIndex.lower_bound (info->uuid)
+    for ( TPartialIndex::iterator iter2 = uuidIndex.lower_bound (info->uuid)
         , end = uuidIndex.upper_bound (info->uuid)
-        ; iter != end
-        ; ++iter)
+        ; iter2 != end
+        ; ++iter2)
     {
-        if (iter->second == info)
+        if (iter2->second == info)
         {
-            uuidIndex.erase (iter);
+            uuidIndex.erase (iter2);
             break;
         }
     }
@@ -467,15 +467,15 @@ CString CRepositoryInfo::GetRepositoryRootAndUUID ( const CTSVNPath& url
 
     if ((svn.Err == NULL) && (info == NULL))
     {
-        SPerRepositoryInfo info;
-        info.headRevision = (revision_t)NO_REVISION;
-        info.headLookupTime = -1;
-        info.connectionState = online;
-        info.root = root;
-        info.uuid = uuid;
-        info.fileName = UniqueFileName (info.root.Left (60) + info.uuid);
+        SPerRepositoryInfo info2;
+        info2.headRevision = (revision_t)NO_REVISION;
+        info2.headLookupTime = -1;
+        info2.connectionState = online;
+        info2.root = root;
+        info2.uuid = uuid;
+        info2.fileName = UniqueFileName (info2.root.Left (60) + info2.uuid);
 
-        data.Add (info);
+        data.Add (info2);
     }
 
     // done

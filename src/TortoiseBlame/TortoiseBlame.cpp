@@ -190,10 +190,10 @@ BOOL TortoiseBlame::OpenLogFile(const char *fileName)
 			fseek(File, reallength-MAX_LOG_LENGTH, SEEK_CUR);
 			msg = msg + _T("\n...");
 		}
-		int len = ::MultiByteToWideChar(CP_UTF8, NULL, msg.c_str(), min(msg.size(), MAX_LOG_LENGTH+5), wbuf, MAX_LOG_LENGTH+5);
-		wbuf[len] = 0;
-		len = ::WideCharToMultiByte(CP_ACP, NULL, wbuf, len, logmsgbuf, MAX_LOG_LENGTH+5, NULL, NULL);
-		logmsgbuf[len] = 0;
+		int len2 = ::MultiByteToWideChar(CP_UTF8, NULL, msg.c_str(), min(msg.size(), MAX_LOG_LENGTH+5), wbuf, MAX_LOG_LENGTH+5);
+		wbuf[len2] = 0;
+		len2 = ::WideCharToMultiByte(CP_ACP, NULL, wbuf, len2, logmsgbuf, MAX_LOG_LENGTH+5, NULL, NULL);
+		logmsgbuf[len2] = 0;
 		msg = std::string(logmsgbuf);
 		logmessages[rev] = msg;
 	}
@@ -1019,8 +1019,8 @@ void TortoiseBlame::DrawBlame(HDC hDC)
 		else
 		{
 			::SetBkColor(hDC, m_windowcolor);
-			for (int i=0; i< MAX_PATH; ++i)
-				buf[i]=' ';
+			for (int j=0; j< MAX_PATH; ++j)
+				buf[j]=' ';
 			::ExtTextOut(hDC, 0, Y, ETO_CLIPPED, &rc, buf, MAX_PATH-1, 0);
 			Y += height;
 		}

@@ -632,7 +632,7 @@ void CShellExt::InsertSVNMenu(BOOL istop, HMENU menu, UINT pos, UINT_PTR id, UIN
 		//the menu text to indicate where the entry comes from
 		_tcscpy_s(menutextbuffer, 255, _T("SVN "));
 	}
-	LoadString(g_hResInst, stringid, verbsbuffer, sizeof(verbsbuffer));
+	LoadString(g_hResInst, stringid, verbsbuffer, sizeof(verbsbuffer)/sizeof(TCHAR));
 	_tcscat_s(menutextbuffer, 255, verbsbuffer);
 	stdstring verb = stdstring(menutextbuffer);
 	if (verb.find('&') != -1)
@@ -768,7 +768,7 @@ bool CShellExt::WriteClipboardPathsToTempFile(stdstring& tempfile)
 		UINT cFiles = DragQueryFile(hDrop, 0xFFFFFFFF, NULL, 0); 
 		for(UINT i = 0; i < cFiles; ++i)
 		{
-			DragQueryFile(hDrop, i, szFileName, sizeof(szFileName));
+			DragQueryFile(hDrop, i, szFileName, sizeof(szFileName)/sizeof(TCHAR));
 			stdstring filename = szFileName;
 			::WriteFile (file, filename.c_str(), filename.size()*sizeof(TCHAR), &written, 0);
 			::WriteFile (file, _T("\n"), 2, &written, 0);

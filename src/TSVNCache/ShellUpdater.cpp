@@ -65,7 +65,7 @@ void CShellUpdater::Initialise()
 	// will behave properly (with normal priority at worst).
 
 	InterlockedExchange(&m_bRunning, TRUE);
-	unsigned int threadId;
+	unsigned int threadId = 0;
 	m_hThread = (HANDLE)_beginthreadex(NULL,0,ThreadEntry,this,0,&threadId);
 	SetThreadPriority(m_hThread, THREAD_PRIORITY_LOWEST);
 }

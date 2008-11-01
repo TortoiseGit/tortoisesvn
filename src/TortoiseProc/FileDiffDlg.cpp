@@ -417,12 +417,12 @@ void CFileDiffDlg::DiffProps(int selIndex)
 			{
 				fputs(CUnicodeUtils::StdGetUTF8(url1value).c_str(), pFile);
 				fclose(pFile);
-				FILE * pFile;
-				_tfopen_s(&pFile, url2propfile.GetWinPath(), _T("wb"));
+				FILE * pFile2;
+				_tfopen_s(&pFile2, url2propfile.GetWinPath(), _T("wb"));
 				if (pFile)
 				{
-					fputs(CUnicodeUtils::StdGetUTF8(url2value).c_str(), pFile);
-					fclose(pFile);
+					fputs(CUnicodeUtils::StdGetUTF8(url2value).c_str(), pFile2);
+					fclose(pFile2);
 				}
 				else
 					return;
@@ -604,7 +604,6 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 			{
 				if (m_cFileList.GetSelectedCount() > 0)
 				{
-					CString temp;
 					CTSVNPath savePath;
 					CString pathSave;
 					if (!CAppUtils::FileOpenSave(pathSave, NULL, IDS_REPOBROWSE_SAVEAS, IDS_COMMONFILEFILTER, false, m_hWnd))

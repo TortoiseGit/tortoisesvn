@@ -309,7 +309,7 @@ void CCommitDlg::OnOK()
 	if (!(DWORD)regUnversionedRecurse)
 	{
 		// Find unversioned directories which are marked for commit. The user might expect them
-		// to be added recursively since he cannot the the files. Let's ask the user if he knows
+		// to be added recursively since he cannot see the files. Let's ask the user if he knows
 		// what he is doing.
 		int nListItems = m_ListCtrl.GetItemCount();
 		for (int j=0; j<nListItems; j++)
@@ -618,8 +618,8 @@ UINT CCommitDlg::StatusThread()
 		{
 			m_bShowUnversioned = TRUE;
 			GetDlgItem(IDC_SHOWUNVERSIONED)->SendMessage(BM_SETCHECK, BST_CHECKED);
-			DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS | SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWLOCKS;
-			m_ListCtrl.Show(dwShow);
+			DWORD dwS = SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS | SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWLOCKS;
+			m_ListCtrl.Show(dwS);
 		}
 	}
 
@@ -1212,7 +1212,7 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
 	{
 		// if IBugTraqProvider2 failed, try IBugTraqProvider
 		CComPtr<IBugTraqProvider> pProvider = NULL;
-		HRESULT hr = m_BugTraqProvider.QueryInterface(&pProvider);
+		hr = m_BugTraqProvider.QueryInterface(&pProvider);
 		if (FAILED(hr))
 		{
 			CString sErr;

@@ -712,12 +712,12 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
 			if (pFile)
 			{
 				fclose(pFile);
-				FILE * pFile;
-				_tfopen_s(&pFile, basepropfile.GetWinPath(), _T("wb"));
-				if (pFile)
+				FILE * pFile2;
+				_tfopen_s(&pFile2, basepropfile.GetWinPath(), _T("wb"));
+				if (pFile2)
 				{
-					fputs(CUnicodeUtils::StdGetUTF8(basevalue).c_str(), pFile);
-					fclose(pFile);
+					fputs(CUnicodeUtils::StdGetUTF8(basevalue).c_str(), pFile2);
+					fclose(pFile2);
 				}
 				else
 					return false;
@@ -807,12 +807,12 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
 			{
 				fputs(CUnicodeUtils::StdGetUTF8(wcvalue).c_str(), pFile);
 				fclose(pFile);
-				FILE * pFile;
-				_tfopen_s(&pFile, basepropfile.GetWinPath(), _T("wb"));
+				FILE * pFile2;
+				_tfopen_s(&pFile2, basepropfile.GetWinPath(), _T("wb"));
 				if (pFile)
 				{
-					fputs(CUnicodeUtils::StdGetUTF8(basevalue).c_str(), pFile);
-					fclose(pFile);
+					fputs(CUnicodeUtils::StdGetUTF8(basevalue).c_str(), pFile2);
+					fclose(pFile2);
 				}
 				else
 					return false;

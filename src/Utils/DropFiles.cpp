@@ -93,8 +93,13 @@ void CDropFiles::CreateStructure()
 	
 	COleDataSource dropData;
 	HGLOBAL hMem = ::GlobalAlloc(GMEM_ZEROINIT|GMEM_MOVEABLE|GMEM_DDESHARE, GetBufferSize()); 
-	memcpy( ::GlobalLock(hMem), GetBuffer(), GetBufferSize() );
-	::GlobalUnlock(hMem);
-	dropData.CacheGlobalData( CF_HDROP, hMem );
-	dropData.DoDragDrop(DROPEFFECT_COPY|DROPEFFECT_MOVE|DROPEFFECT_LINK,NULL);
+	if (hMem)
+	{
+		LPVOID pMem = ::GlobalLock(hMem);
+		if (pMem)
+			memcpy( pMem, GetBuffer(), GetBufferSize() );
+		::GlobalUnlock(hMem);
+		dropData.CacheGlobalData( CF_HDROP, hMem );
+		dropData.DoDragDrop(DROPEFFECT_COPY|DROPEFFECT_MOVE|DROPEFFECT_LINK,NULL);
+	}
 }

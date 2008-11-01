@@ -194,8 +194,6 @@ void CSettings::HandleRestart()
 				if (hPipe != INVALID_HANDLE_VALUE)
 				{
 					// now tell the cache we don't need it's command thread anymore
-					DWORD cbWritten; 
-					TSVNCacheCommand cmd;
 					SecureZeroMemory(&cmd, sizeof(TSVNCacheCommand));
 					cmd.command = TSVNCACHECOMMAND_END;
 					WriteFile( 

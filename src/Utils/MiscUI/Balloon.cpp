@@ -410,10 +410,10 @@ void CBalloon::RelayEvent(MSG* pMsg)
 					if ((behaviour & BALLOON_TRACK_MOUSE)&&(!(behaviour & BALLOON_DIALOG)))
 					{
 						//mouse moved, so move the tooltip too
-						CRect rect;
-						GetWindowRect(rect);
-						CalculateInfoBoxRect(&m_ptOriginal, &rect);
-						SetWindowPos(NULL, rect.left, rect.top, 0, 0, SWP_SHOWWINDOW|SWP_NOSIZE|SWP_NOZORDER|SWP_NOACTIVATE);
+						CRect rect2;
+						GetWindowRect(rect2);
+						CalculateInfoBoxRect(&m_ptOriginal, &rect2);
+						SetWindowPos(NULL, rect2.left, rect2.top, 0, 0, SWP_SHOWWINDOW|SWP_NOSIZE|SWP_NOZORDER|SWP_NOACTIVATE);
 					}
 					else
 						return;
@@ -1464,7 +1464,6 @@ void CBalloon::GetMonitorWorkArea(const CPoint& sourcePoint, CRect& monitorRect)
 				::GetProcAddress (hUser32, "GetMonitorInfoW");
 			if (pfnMonitorFromPoint != NULL && pfnGetMonitorInfo != NULL)
 			{
-				MONITORINFO mi;
 				HMONITOR hMonitor = pfnMonitorFromPoint (sourcePoint, 
 					MONITOR_DEFAULTTONEAREST);
 				mi.cbSize = sizeof (mi);

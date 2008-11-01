@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005 - 2007 - TortoiseSVN
+// External Cache Copyright (C) 2005 - 2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -52,7 +52,7 @@ CDirectoryWatcher::CDirectoryWatcher(void) : m_hCompPort(NULL)
 		}	
 	}
 
-	unsigned int threadId;
+	unsigned int threadId = 0;
 	m_hThread = (HANDLE)_beginthreadex(NULL,0,ThreadEntry,this,0,&threadId);
 }
 

@@ -482,8 +482,8 @@ void CSVNStatusListCtrl::ColumnManager::UpdateUserPropList
         // find insertion position
 
         std::vector<ColumnInfo>::iterator columnIter = columns.begin();
-        std::vector<ColumnInfo>::iterator end = columns.end();
-        for (; (columnIter != end) && columnIter->index < index; ++columnIter);
+        std::vector<ColumnInfo>::iterator end2 = columns.end();
+        for (; (columnIter != end2) && columnIter->index < index; ++columnIter);
         int pos = static_cast<int>(columnIter - columns.begin());
 
         ColumnInfo column;
@@ -702,7 +702,7 @@ void CSVNStatusListCtrl::ColumnManager::ParseWidths (const CString& widths)
             assert (index < userProps.size());
             userProps[index].width = width;
 
-            for (size_t k = 0, count = columns.size(); k < count; ++k)
+            for (size_t k = 0, count2 = columns.size(); k < count2; ++k)
                 if (columns[k].index == i)
                     columns[k].width = width;
         }

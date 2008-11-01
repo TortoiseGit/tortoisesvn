@@ -597,7 +597,7 @@ void CEditPropertiesDlg::OnBnClickedExport()
 			sName = m_propList.GetItemText(index, 0);
 			PropValue& prop = m_properties[stdstring(sName)];
 			sValue = prop.value.c_str();
-			int len = sName.GetLength()*sizeof(TCHAR);
+			len = sName.GetLength()*sizeof(TCHAR);
 			fwrite(&len, sizeof(int), 1, stream);									// length of property name in bytes
 			fwrite(sName, sizeof(TCHAR), sName.GetLength(), stream);				// property name
 			len = static_cast<int>(prop.value.size());

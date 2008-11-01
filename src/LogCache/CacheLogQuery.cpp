@@ -789,11 +789,11 @@ void CCacheLogQuery::GetChanges
 		if (   first.HasFromPath()
 			&& (first.GetFromRevision() != NO_REVISION))
 		{
-			std::string path = first.GetFromPath().GetPath();
+			std::string path2 = first.GetFromPath().GetPath();
 
 			changedPath->lCopyFromRev = first.GetFromRevision();
 			changedPath->sCopyFromPath 
-				= SVN::MakeUIUrlOrPath (path.c_str());
+				= SVN::MakeUIUrlOrPath (path2.c_str());
 		}
 		else
 		{

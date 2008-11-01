@@ -174,8 +174,8 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 							}
 							else
 							{
-								const FileStatusCacheEntry * s = m_CachedStatus.GetFullStatus(CTSVNPath(pPath), TRUE);
-								status = s->status;
+								const FileStatusCacheEntry * se = m_CachedStatus.GetFullStatus(CTSVNPath(pPath), TRUE);
+								status = se->status;
 								status = SVNStatus::GetMoreImportant(svn_wc_status_normal, status);
 							}
 						}
@@ -186,8 +186,8 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 					}
 					else
 					{
-						const FileStatusCacheEntry * s = m_CachedStatus.GetFullStatus(CTSVNPath(pPath), FALSE);
-						status = s->status;
+						const FileStatusCacheEntry * se = m_CachedStatus.GetFullStatus(CTSVNPath(pPath), FALSE);
+						status = se->status;
 					}
 				}
 				if ((s)&&(status == svn_wc_status_normal)&&(s->needslock)&&(s->owner[0]==0))

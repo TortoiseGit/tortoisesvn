@@ -659,8 +659,8 @@ IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 
 	for (CIT dataIter = begin, dataEnd = end; dataIter < dataEnd; ++dataIter)
 		for ( CSkipRevisionInfo::IT iter = (*dataIter)->ranges.begin()
-			, end = (*dataIter)->ranges.end()
-			; iter != end
+			, endlocal = (*dataIter)->ranges.end()
+			; iter != endlocal
 			; ++iter)
 		{
 			revisionsStream->Add (iter->first);
@@ -675,8 +675,8 @@ IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 
 	for (CIT dataIter = begin, dataEnd = end; dataIter < dataEnd; ++dataIter)
 		for ( CSkipRevisionInfo::IT iter = (*dataIter)->ranges.begin()
-			, end = (*dataIter)->ranges.end()
-			; iter != end
+			, endlocal = (*dataIter)->ranges.end()
+			; iter != endlocal
 			; ++iter)
 		{
 			sizesStream->Add (iter->second);

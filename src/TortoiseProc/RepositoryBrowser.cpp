@@ -2459,9 +2459,9 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				}
 				else
 				{
-					CString cmd = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
-					cmd += tempfile.GetWinPathString() + _T(" ");
-					CAppUtils::LaunchApplication(cmd, NULL, false);
+					CString c = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
+					c += tempfile.GetWinPathString() + _T(" ");
+					CAppUtils::LaunchApplication(c, NULL, false);
 				}
 			}
 			break;

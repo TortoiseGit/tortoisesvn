@@ -249,8 +249,8 @@ void CRevisionGraphWnd::DrawNode(Graphics& graphics, const RectF& rect,
 
     if (overlayColor.GetValue() != 0)
     {
-        SolidBrush brush (overlayColor);
-        DrawShape (graphics, &pen, &brush, rect, shape);
+        SolidBrush brush2 (overlayColor);
+        DrawShape (graphics, &pen, &brush2, rect, shape);
     }
 }
 
@@ -523,10 +523,10 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 		// make sure the position rect is not bigger than the preview window itself
 		::IntersectRect(&m_OverviewPosRect, &m_OverviewRect, &tempRect);
 
-        RectF rect ( (float)m_OverviewPosRect.left, (float)m_OverviewPosRect.top
+        RectF rect2 ( (float)m_OverviewPosRect.left, (float)m_OverviewPosRect.top
                    , (float)m_OverviewPosRect.Width(), (float)m_OverviewPosRect.Height());
         SolidBrush brush (Color (64, 0, 0, 0));
-        graphics.FillRectangle (&brush, rect);
+        graphics.FillRectangle (&brush, rect2);
 		memDC->DrawEdge(&m_OverviewPosRect, EDGE_BUMP, BF_RECT);
 	}
 

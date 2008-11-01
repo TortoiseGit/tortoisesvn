@@ -96,7 +96,7 @@ bool CTreeDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD *pdwEf
 			UINT cFiles = DragQueryFile(hDrop, 0xFFFFFFFF, NULL, 0); 
 			for(UINT i = 0; i < cFiles; ++i)
 			{
-				DragQueryFile(hDrop, i, szFileName, sizeof(szFileName));
+				DragQueryFile(hDrop, i, szFileName, sizeof(szFileName)/sizeof(TCHAR));
 				urlList.AddPath(CTSVNPath(szFileName));
 			}
 			m_pRepoBrowser->OnDrop(CTSVNPath(targetUrl), urlList, m_pRepoBrowser->GetRevision(), *pdwEffect, pt);
@@ -270,7 +270,7 @@ bool CListDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD *pdwEf
 			UINT cFiles = DragQueryFile(hDrop, 0xFFFFFFFF, NULL, 0); 
 			for(UINT i = 0; i < cFiles; ++i)
 			{
-				DragQueryFile(hDrop, i, szFileName, sizeof(szFileName));
+				DragQueryFile(hDrop, i, szFileName, sizeof(szFileName)/sizeof(TCHAR));
 				urlList.AddPath(CTSVNPath(szFileName));
 			}
 			m_pRepoBrowser->OnDrop(CTSVNPath(targetUrl), urlList, m_pRepoBrowser->GetRevision(), *pdwEffect, pt);

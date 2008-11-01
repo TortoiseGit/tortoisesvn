@@ -188,7 +188,7 @@ CString SVNRev::ToString() const
 	case svn_opt_revision_head:			return _T("HEAD");
 	case svn_opt_revision_base:			return _T("BASE");
 	case svn_opt_revision_working:		return _T("WC");
-	case svn_opt_revision_number:		sRev.Format(_T("%ld"), rev.value);return sRev;
+	case svn_opt_revision_number:		sRev.Format(_T("%ld"), rev.value.number);return sRev;
 	case svn_opt_revision_committed:	return _T("COMMITTED");
 	case svn_opt_revision_previous:		return _T("PREV");
 	case svn_opt_revision_unspecified:	return _T("UNSPECIFIED");
