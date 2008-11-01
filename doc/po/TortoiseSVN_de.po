@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-10-24 23:17 +0000\n"
-"PO-Revision-Date: 2008-10-29 16:27+0100\n"
+"PO-Revision-Date: 2008-11-01 16:49+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7378,7 +7378,7 @@ msgstr "Wenn beim Zusammenführen ein Konflikt auftritt, haben Sie drei Möglich
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8769
 msgid "If you do not want to use this interactive callback, there is a checkbox in the merge progress dialog <guilabel>Merge non-interactive</guilabel>. If this is set for a merge and the merge would result in a conflict, the file is marked as in conflict and the merge goes on. You will have to resolve the conflicts after the whole merge is finished. If it is not set, then before a file is marked as conflicted you get the chance to resolve the conflict <emphasis>during</emphasis> the merge. This has the advantage that if a file gets multiple merges (multiple revisions apply a change to that file), subsequent merges might succeed depending on which lines are affected. But of course you can't walk away to get a coffee while the merge is running ;)"
-msgstr ""
+msgstr "Wenn Sie den interaktiven Rückfrage-Dialog nicht benutzen wollen, können sie die Funktion über die Option <guilabel>Nicht interaktiv zusammenführen</guilabel> im Fortschrittsdialog abschalten. Sobald der Dialog deaktiviert ist, werden Dateien mit Konfliken beim Zusammenführen markiert und Sie müssen die Konflikte auflösen <emphasis>nachdem</emphasis> das gesamte Zusammenführen beendet ist. Wenn das interaktive Zusammenführen aktiv ist, erhalten Sie die Gelegenheit, einen Konflikt <emphasis>während</emphasis> des Zusammenführens aufzulösen, bevor die Datei als konfliktbehaftet markiert wird. Dadurch können, wenn mehrere zusammenzuführende Revisionen nacheinander auf eine Datei angewendet werden, spätere Aktionen erfolgreich sein. Aber leider können Sie in diesem Fall nicht weggehen, um sich einen Kaffee zu holen während das Zusammenführen läuft."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:8784
@@ -13593,7 +13593,7 @@ msgstr ""
 #. (para)
 #: ../source/TortoiseSVN_en.xml:15580
 msgid "If you use this last method, be sure you do not have a default username set in PuTTY. We have had reports of a bug in PuTTY causing connections to close in this case. To remove the default user, simply clear <filename>HKEY_CURRENT_USER\\Software\\SimonTatham\\Putty\\Sessions\\Default%20Settings\\HostName</filename>"
-msgstr ""
+msgstr "Falls Sie die letztgenannte Methode verwenden, stehhen Sie sicher, dass Sie keinen Standardbenutzernamen in PuTTY eingetragen haben. Es gibt Berichte über einen Fehler in PuTTY, der dazu führt, dass die Verbindung in diesem Fall geschlossen wird. Um den Standardbenutzer zu entfernen, löschen Sie einfach <filename>HKEY_CURRENT_USER\\Software\\SimonTatham\\Putty\\Sessions\\Default%20Settings\\HostName</filename>"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:15592
