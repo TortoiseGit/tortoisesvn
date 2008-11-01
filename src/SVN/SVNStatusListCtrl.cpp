@@ -284,6 +284,7 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
 
 	m_mapFilenameToChecked.clear();
 	m_StatusUrlList.Clear();
+	m_externalSet.clear();
 	bool bHasChangelists = (m_changelists.size()>1 || (m_changelists.size()>0 && !m_bHasIgnoreGroup));
 	m_changelists.clear();
 	for (size_t i=0; i < m_arStatusArray.size(); i++)
@@ -529,6 +530,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 	svn_wc_status2_t * s;
 	CTSVNPath svnPath;
 	s = status.GetFirstFileStatus(workingTarget, svnPath, bFetchStatusFromRepository, depth, bShowIgnores);
+	status.GetExternals(m_externalSet);
 
 	m_HeadRev = SVNRev(status.headrev);
 	if (s!=0)
@@ -851,6 +853,7 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
 				entry->inunversionedfolder = true;
 				entry->isfolder = true;
 				entry->isNested = true;
+				m_externalSet.insert(svnPath);
 				m_arStatusArray.push_back(entry);
 				continue;
 			}
@@ -1520,13 +1523,33 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	if (m_changelists.find(entry->changelist) != m_changelists.end())
 		SetItemGroup(index, m_changelists[entry->changelist]);
 	else
-		SetItemGroup(index, 0);
+	{
+		// maybe we have externals groups
+		if (entry->IsInExternal() && !m_externalSet.empty())
+		{
+			int groupIndex = 0;
+			int foundIndex = 0;
+			// in case an external has its own externals, we have
+			// to loop through all externals: the set is sorted, so the last
+			// path that matches will be the 'lowest' path in the hierarchy
+			// and that's the path we want.
+			for (std::set<CTSVNPath>::iterator it = m_externalSet.begin(); it != m_externalSet.end(); ++it)
+			{
+				groupIndex++;
+				if (it->IsAncestorOf(entry->path))
+					foundIndex = groupIndex;
+			}
+			SetItemGroup(index, foundIndex);
+		}
+		else
+			SetItemGroup(index, 0);
+	}
 	m_bBlock = FALSE;
 }
 
 bool CSVNStatusListCtrl::SetItemGroup(int item, int groupindex)
 {
-	if ((m_dwContextMenus & SVNSLC_POPCHANGELISTS) == NULL)
+	if (((m_dwContextMenus & SVNSLC_POPCHANGELISTS) == NULL)&&(m_externalSet.empty()))
 		return false;
 	if (groupindex < 0)
 		return false;
@@ -2115,7 +2138,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 		ClientToScreen(&rect);
 		point = rect.CenterPoint();
 	}
-	if ((GetSelectedCount() == 0)&&(XPorLater)&&(m_bHasCheckboxes))
+	if ((GetSelectedCount() == 0)&&(XPorLater)&&(IsGroupViewEnabled()))
 	{
 		// nothing selected could mean the context menu is requested for
 		// a group header
@@ -4797,10 +4820,11 @@ size_t CSVNStatusListCtrl::GetNumberOfChangelistsInSelection()
 
 bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
 {
-	if ((m_dwContextMenus & SVNSLC_POPCHANGELISTS) == NULL)
+	if (((m_dwContextMenus & SVNSLC_POPCHANGELISTS) == NULL) && m_externalSet.empty())
 		return false;	// don't show groups
 
-	bool bHasGroups = (m_changelists.size() > 0)||(bForce);
+	bool bHasChangelistGroups = (m_changelists.size() > 0)||(bForce);
+	bool bHasGroups = bHasChangelistGroups|| ((m_externalSet.size()>0) && (m_dwShow & SVNSLC_SHOWINEXTERNALS));
 	RemoveAllGroups();
 	EnableGroupView(bHasGroups);
 
@@ -4815,28 +4839,53 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
 	LVGROUP grp = {0};
 	grp.cbSize = sizeof(LVGROUP);
 	grp.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
-	CString sUnassignedName(MAKEINTRESOURCE(IDS_STATUSLIST_UNASSIGNED_CHANGESET));
-	_tcsncpy_s(groupname, 1024, (LPCTSTR)sUnassignedName, 1023);
+	if (bHasChangelistGroups)
+	{
+		CString sUnassignedName(MAKEINTRESOURCE(IDS_STATUSLIST_UNASSIGNED_CHANGESET));
+		_tcsncpy_s(groupname, 1024, (LPCTSTR)sUnassignedName, 1023);
+	}
+	else
+	{
+		CString sNoExternalGroup(MAKEINTRESOURCE(IDS_STATUSLIST_NOEXTERNAL_GROUP));
+		_tcsncpy_s(groupname, 1024, (LPCTSTR)sNoExternalGroup, 1023);
+	}
 	grp.pszHeader = groupname;
 	grp.iGroupId = groupindex;
 	grp.uAlign = LVGA_HEADER_LEFT;
 	InsertGroup(groupindex++, &grp);
 
-	for (std::map<CString,int>::iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
+	if (bHasChangelistGroups)
 	{
-		if (it->first.Compare(SVNSLC_IGNORECHANGELIST)!=0)
+		for (std::map<CString,int>::iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
+		{
+			if (it->first.Compare(SVNSLC_IGNORECHANGELIST)!=0)
+			{
+				LVGROUP grp = {0};
+				grp.cbSize = sizeof(LVGROUP);
+				grp.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
+				_tcsncpy_s(groupname, 1024, (LPCTSTR)it->first, 1023);
+				grp.pszHeader = groupname;
+				grp.iGroupId = groupindex;
+				grp.uAlign = LVGA_HEADER_LEFT;
+				it->second = InsertGroup(groupindex++, &grp);
+			}
+			else
+				m_bHasIgnoreGroup = true;
+		}
+	}
+	else
+	{
+		for (std::set<CTSVNPath>::iterator it = m_externalSet.begin(); it != m_externalSet.end(); ++it)
 		{
 			LVGROUP grp = {0};
 			grp.cbSize = sizeof(LVGROUP);
 			grp.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
-			_tcsncpy_s(groupname, 1024, it->first, 1023);
+			_tcsncpy_s(groupname, 1024, (LPCTSTR)it->GetFileOrDirectoryName(), 1023);
 			grp.pszHeader = groupname;
 			grp.iGroupId = groupindex;
 			grp.uAlign = LVGA_HEADER_LEFT;
-			it->second = InsertGroup(groupindex++, &grp);
+			InsertGroup(groupindex++, &grp);
 		}
-		else
-			m_bHasIgnoreGroup = true;
 	}
 
 	if (m_bHasIgnoreGroup)
