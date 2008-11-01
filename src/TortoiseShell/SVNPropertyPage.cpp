@@ -377,9 +377,21 @@ void CSVNPropertyPage::InitWorkfileView()
 				else
 					MAKESTRING(IDS_NO);
 				SetDlgItemText(m_hwnd, IDC_SWITCHED, stringtablebuffer);
-			} // if (svn.status->entry != NULL)
-		} // if (svn.GetStatus(CTSVNPath(filenames.front().c_str()))>(-2))
-	} // if (filenames.size() == 1) 
+
+				if (svn.status->file_external)
+					MAKESTRING(IDS_YES);
+				else
+					MAKESTRING(IDS_NO);
+				SetDlgItemText(m_hwnd, IDC_FILEEXTERNAL, stringtablebuffer);
+
+				if (svn.status->tree_conflicted)
+					MAKESTRING(IDS_YES);
+				else
+					MAKESTRING(IDS_NO);
+				SetDlgItemText(m_hwnd, IDC_TREECONFLICT, stringtablebuffer);
+			}
+		}
+	}
 	else if (filenames.size() != 0)
 	{
 		//deactivate the show log button
@@ -407,6 +419,8 @@ void CSVNPropertyPage::InitWorkfileView()
 				SetDlgItemText(m_hwnd, IDC_LOCKED, _T(""));
 				SetDlgItemText(m_hwnd, IDC_COPIED, _T(""));
 				SetDlgItemText(m_hwnd, IDC_SWITCHED, _T(""));
+				SetDlgItemText(m_hwnd, IDC_FILEEXTERNAL, _T(""));
+				SetDlgItemText(m_hwnd, IDC_TREECONFLICT, _T(""));
 
 				SetDlgItemText(m_hwnd, IDC_DEPTHEDIT, _T(""));
 				SetDlgItemText(m_hwnd, IDC_CHECKSUM, _T(""));

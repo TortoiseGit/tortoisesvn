@@ -189,7 +189,10 @@
 #define IDC_ADDBUTTON                   1012
 #define IDC_COPIED                      1012
 #define IDC_REMOVEBUTTON                1013
+#define IDC_FILEEXTERNAL                1013
 #define IDC_EDITNAME                    1014
+#define IDC_COPIED3                     1014
+#define IDC_TREECONFLICT                1014
 #define IDC_EDITVALUE                   1015
 #define IDC_SHOWLOG                     1016
 #define IDC_RECURSIVE                   1018

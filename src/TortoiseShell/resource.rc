@@ -125,8 +125,12 @@ BEGIN
     LTEXT           "yes",IDC_SWITCHED,80,162,163,8
     LTEXT           "copied:",IDC_STATIC,4,175,76,8
     LTEXT           "yes",IDC_COPIED,80,174,163,8
-    PUSHBUTTON      "&Properties...",IDC_EDITPROPERTIES,4,191,107,14
-    PUSHBUTTON      "Show &log",IDC_SHOWLOG,120,191,123,14
+    LTEXT           "file external:",IDC_STATIC,4,186,76,8
+    LTEXT           "yes",IDC_FILEEXTERNAL,80,185,163,8
+    LTEXT           "tree conflict:",IDC_STATIC,4,197,76,8
+    LTEXT           "yes",IDC_TREECONFLICT,80,196,163,8
+    PUSHBUTTON      "&Properties...",IDC_EDITPROPERTIES,4,218,107,14
+    PUSHBUTTON      "Show &log",IDC_SHOWLOG,120,218,123,14
 END
 
 
