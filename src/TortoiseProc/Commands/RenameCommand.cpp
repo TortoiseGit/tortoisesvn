@@ -114,7 +114,7 @@ bool RenameCommand::Execute()
 			else
 				sFilemask.Empty();
 			CString sNewMask = sNewName;
-			if (sNewMask.ReverseFind('.'>=0))
+			if (sNewMask.ReverseFind('.')>=0)
 			{
 				sNewMask = sNewMask.Left(sNewMask.ReverseFind('.'));
 			}
