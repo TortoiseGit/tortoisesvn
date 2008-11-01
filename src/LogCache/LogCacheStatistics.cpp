@@ -127,7 +127,7 @@ size_t CLogCacheStatistics::GetSizeOf (const CCachedLogInfo& container)
 		 + GetSizeOf (container.skippedRevisions)
 
 		 + sizeof (container.fileName)
-		 + sizeof (container.fileName.capacity() * sizeof (wchar_t))
+		 + container.fileName.capacity() * sizeof (wchar_t)
 
 		 + sizeof (container);
 }
