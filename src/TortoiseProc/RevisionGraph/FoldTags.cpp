@@ -46,7 +46,8 @@ void CFoldTags::Apply (CVisibleGraph* graph, CVisibleGraphNode* node)
 
     if (isTag && (isFinalTag || (node->GetFirstCopyTarget() == NULL)))
         if (   (node->GetCopySource() != NULL)
-            || classification.Is (CNodeClassification::IS_RENAMED))
+            || (   (node->GetPrevious() != NULL)
+                && classification.Is (CNodeClassification::IS_RENAMED)))
         {
             node->FoldTag (graph);
         }
