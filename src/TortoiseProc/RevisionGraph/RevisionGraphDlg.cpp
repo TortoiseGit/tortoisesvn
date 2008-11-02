@@ -681,9 +681,12 @@ void CRevisionGraphDlg::OnViewFilter()
     svn_revnum_t lowerLimit = revisionRange->GetLowerLimit();
     svn_revnum_t upperLimit = revisionRange->GetUpperLimit();
 
+    CRemovePathsBySubString* pathFilter = m_options.GetOption<CRemovePathsBySubString>();
+
 	CRevGraphFilterDlg dlg;
 	dlg.SetMaxRevision (head);
 	dlg.SetFilterString (m_sFilter);
+    dlg.SetRemoveSubTrees (pathFilter->GetRemoveSubTrees());
     dlg.SetRevisionRange ( min (head, lowerLimit == -1 ? 1 : lowerLimit)
                          , min (head, upperLimit == -1 ? head : upperLimit));
 
@@ -698,9 +701,8 @@ void CRevisionGraphDlg::OnViewFilter()
         revisionRange->SetLowerLimit (minrev);
         revisionRange->SetUpperLimit (maxrev);
 
-        std::set<std::string>& filterPaths 
-            = m_options.GetOption<CRemovePathsBySubString>()->GetFilterPaths();
-
+        pathFilter->SetRemoveSubTrees (dlg.GetRemoveSubTrees());
+        std::set<std::string>& filterPaths = pathFilter->GetFilterPaths();
         int index = 0;
         filterPaths.clear();
 

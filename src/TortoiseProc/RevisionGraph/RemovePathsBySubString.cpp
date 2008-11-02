@@ -24,12 +24,11 @@
 
 CRemovePathsBySubString::CRemovePathsBySubString (CRevisionGraphOptionList& list)
     : inherited (list)
+    , removeSubTrees (false)
 {
 }
 
-// get / set limits
-
-/// access to the sub-string container
+// access to the sub-string container
 
 const std::set<std::string>& CRemovePathsBySubString::GetFilterPaths() const
 {
@@ -39,6 +38,18 @@ const std::set<std::string>& CRemovePathsBySubString::GetFilterPaths() const
 std::set<std::string>& CRemovePathsBySubString::GetFilterPaths()
 {
     return filterPaths;
+}
+
+// access to removal behavior
+
+bool CRemovePathsBySubString::GetRemoveSubTrees() const
+{
+    return removeSubTrees;
+}
+
+void CRemovePathsBySubString::SetRemoveSubTrees (bool value)
+{
+    removeSubTrees = value;
 }
 
 // implement ICopyFilterOption
@@ -90,7 +101,8 @@ CRemovePathsBySubString::ShallRemove (const CFullGraphNode* node) const
     // return the result
 
     return classification == REMOVE
-        ? ICopyFilterOption::REMOVE_NODE
+        ? removeSubTrees ? ICopyFilterOption::REMOVE_SUBTREE 
+                         : ICopyFilterOption::REMOVE_NODE
         : ICopyFilterOption::KEEP_NODE;
 }
 

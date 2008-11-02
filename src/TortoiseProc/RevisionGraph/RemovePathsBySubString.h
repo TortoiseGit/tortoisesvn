@@ -42,6 +42,10 @@ private:
 
     std::set<std::string> filterPaths;
 
+    /// if true, don't remove matching nodes but the whole sub-tree
+
+    bool removeSubTrees;
+
     /// cache results for fully cached paths
 
     enum PathClassification
@@ -63,6 +67,11 @@ public:
 
     const std::set<std::string>& GetFilterPaths() const;
     std::set<std::string>& GetFilterPaths();
+
+    /// access to removal behavior
+
+    bool GetRemoveSubTrees() const;
+    void SetRemoveSubTrees (bool value);
 
     /// implement ICopyFilterOption
 
