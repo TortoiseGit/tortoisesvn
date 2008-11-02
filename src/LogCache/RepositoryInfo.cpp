@@ -233,6 +233,11 @@ void CRepositoryInfo::CData::Load (const CString& fileName)
     int version = 0;
     stream >> version;
 
+    // ignore newer formats
+
+    if (version > VERSION)
+        return;
+
     // number of entries to read
     // (old file don't have a version info -> "version" is the count)
 
