@@ -193,6 +193,12 @@ public:
 	std::string GetPath() const;
 };
 
+/// standard operator used by STL containers
+/// Note: This is not lexicographical order!
+
+bool operator< ( const CDictionaryBasedTempPath& lhs
+               , const CDictionaryBasedTempPath& rhs);
+
 ///////////////////////////////////////////////////////////////
 // end namespace LogCache
 ///////////////////////////////////////////////////////////////
