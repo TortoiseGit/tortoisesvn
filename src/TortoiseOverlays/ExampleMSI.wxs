@@ -3,18 +3,18 @@
 	<Product
 		  UpgradeCode="YOURGUID-86C7-4D14-AEC0-86416A69ABDE"
 		  Name="YourProductName"
-		  Id="????????-????-????-????-????????????"
+		  Id="*"
 		  Version="YOURVERSIONNUMBER"
 		  Manufacturer="ManufacturerName"
 		  Language="1033">
 		<Package
-				Id="????????-????-????-????-????????????"
+				Id="*"
 				Keywords="Tortoise,Overlays"
 				Description="desc"
 				Comments="Provided by TortoiseSVN"
 				Manufacturer="ManufacturerName"
 				InstallerVersion="200"
-				Platforms="Intel"
+				Platform="x86"
 				Languages="1033"
 				Compressed="yes"
 				SummaryCodepage="1252"/>
@@ -26,7 +26,7 @@
 		</Upgrade>
 		
 		<Directory Id='TARGETDIR' Name='SourceDir'>
-			<Directory Id='TortoiseOverlays' Name='TortOvl' LongName='TortoiseOverlays'>
+			<Directory Id='TortoiseOverlays' Name='TortoiseOverlays'>
 				<Merge Id='TortoiseOverlaysMerge' Language='0' src='..\..\ext\TortoiseOverlays\TortoiseOverlays-1.0.4.11886-win32.msm' DiskId='1' />
 			</Directory>
 		</Directory>
