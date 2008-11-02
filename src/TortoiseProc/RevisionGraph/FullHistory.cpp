@@ -45,6 +45,7 @@ CFullHistory::CFullHistory(void)
     , progress (NULL)
     , headRevision ((revision_t)NO_REVISION)
     , pegRevision ((revision_t)NO_REVISION)
+    , firstRevision ((revision_t)NO_REVISION)
     , wcRevision ((revision_t)NO_REVISION)
     , copyInfoPool (sizeof (SCopyInfo), 1024)
     , copyToRelation (NULL)
@@ -159,9 +160,10 @@ void CFullHistory::ReceiveLog ( LogChangedPathArray* changes
 		    text.LoadString(IDS_REVGRAPH_PROGGETREVS);
 		    text2.Format(IDS_REVGRAPH_PROGCURRENTREV, rev);
 
+            DWORD revisionCount = headRevision - firstRevision+1;
 		    progress->SetLine(1, text);
 		    progress->SetLine(2, text2);
-		    progress->SetProgress (headRevision - rev, headRevision);
+		    progress->SetProgress (headRevision - rev, revisionCount);
             if (!progress->IsVisible())
     	        progress->ShowModeless ((CWnd*)NULL);
 
@@ -234,7 +236,6 @@ bool CFullHistory::FetchRevisionData ( CString path
         // select / construct query object and optimize revision range to fetch
 
 		svnQuery.reset (new CSVNLogQuery (&ctx, pool));
-        revision_t firstRevision = 0;
 
         if (svn.GetLogCachePool()->IsEnabled())
         {
@@ -259,6 +260,7 @@ bool CFullHistory::FetchRevisionData ( CString path
         {
 		    query.reset (new CCacheLogQuery (svn, svnQuery.get()));
             cache = NULL;
+            firstRevision = 0;
         }
 
         // actually fetch the data

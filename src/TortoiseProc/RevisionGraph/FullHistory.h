@@ -128,6 +128,7 @@ private:
     CString                     uuid;
 	revision_t					headRevision;
 	revision_t					pegRevision;
+    revision_t                  firstRevision;
 
 	svn_client_ctx_t 			ctx;
 	SVNPrompt					prompt;
