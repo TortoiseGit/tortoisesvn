@@ -84,6 +84,13 @@ void CVisibleGraphNode::CFactory::Destroy (CVisibleGraphNode* node)
     --nodeCount;
 }
 
+void CVisibleGraphNode::CFactory::Destroy (CCopyTarget*& copyTarget)
+{
+    CVisibleGraphNode* node = copyTargetFactory.remove (copyTarget);
+    if (node != NULL)
+        Destroy (node);
+}
+
 CVisibleGraphNode::CFoldedTag* CVisibleGraphNode::CFactory::Create 
     ( const CFullGraphNode* tagNode
     , size_t depth
@@ -193,17 +200,17 @@ index_t CVisibleGraphNode::InitIndex (index_t startIndex)
 
 // remove node and move links to pre-decessor
 
-void CVisibleGraphNode::DropNode (CVisibleGraph* graph)
+void CVisibleGraphNode::DropNode (CVisibleGraph* graph, bool preserveTags)
 {
     // previous node to receive all our links
 
-    CVisibleGraphNode* target = copySource == NULL
+    CVisibleGraphNode* source = copySource == NULL
                               ? prev
                               : copySource;
 
     // special case: remove one of the roots
 
-    if (target == NULL)
+    if (source == NULL)
     {
         // handle this branch
 
@@ -237,7 +244,7 @@ void CVisibleGraphNode::DropNode (CVisibleGraph* graph)
         {
             // find insertion point
 
-            CCopyTarget** targetFirstCopyTarget = &target->firstCopyTarget;
+            CCopyTarget** targetFirstCopyTarget = &source->firstCopyTarget;
             while (*targetFirstCopyTarget != NULL)
                 targetFirstCopyTarget = &(*targetFirstCopyTarget)->next();
 
@@ -248,16 +255,16 @@ void CVisibleGraphNode::DropNode (CVisibleGraph* graph)
             // adjust copy sources and reset firstCopyTarget
 
             for (; firstCopyTarget != NULL; firstCopyTarget = firstCopyTarget->next())
-                firstCopyTarget->value()->copySource = target;
+                firstCopyTarget->value()->copySource = source;
         }
 
         // move all tags
 
-        if (firstTag != NULL)
+        if (preserveTags && (firstTag != NULL))
         {
             // find insertion point
 
-            CFoldedTag** targetFirstTag = &target->firstTag;
+            CFoldedTag** targetFirstTag = &source->firstTag;
             while (*targetFirstTag != NULL)
                 targetFirstTag = &(*targetFirstTag)->next;
 
@@ -279,7 +286,7 @@ void CVisibleGraphNode::DropNode (CVisibleGraph* graph)
         {
             // find the copy struct that links to *this
 
-            CCopyTarget** copy = &target->firstCopyTarget;
+            CCopyTarget** copy = &source->firstCopyTarget;
             for (
                 ; (*copy != NULL) && ((*copy)->value() != this)
                 ; copy = &(*copy)->next())
@@ -294,7 +301,7 @@ void CVisibleGraphNode::DropNode (CVisibleGraph* graph)
             {
                 (*copy)->value() = next;
                 next->prev = NULL;
-                next->copySource = target;
+                next->copySource = source;
             }
             else
             {
@@ -337,7 +344,7 @@ void CVisibleGraphNode::FoldTag (CVisibleGraph* graph)
         if (node->classification.Is (CNodeClassification::IS_RENAMED))
             node->FoldTag (graph);
         else
-            node->DropNode (graph);
+            node->DropNode (graph, true);
 
         node = previous;
     }
@@ -372,5 +379,73 @@ void CVisibleGraphNode::FoldTag (CVisibleGraph* graph)
 
     // remove this node
 
-    DropNode (graph);
+    DropNode (graph, true);
+}
+
+/// remove links to this node and make it a new root
+
+void CVisibleGraphNode::MakeRoot (CVisibleGraph* graph, bool deleteSource)
+{
+    // previous node to receive all our links
+
+    CVisibleGraphNode* source = copySource == NULL
+                              ? prev
+                              : copySource;
+
+    // at the beginning of some branch
+
+    if (copySource != NULL)
+    {
+        // find the copy struct that links to *this
+
+        for ( CCopyTarget** copy = &copySource->firstCopyTarget
+            ; (*copy != NULL) && ((*copy)->value() != this)
+            ; copy = &(*copy)->next())
+        {
+            // remove it from the list
+
+            (*copy)->value() = NULL;
+            graph->GetFactory().Destroy (*copy);
+
+            // update this node
+
+            copySource = NULL;
+            break;
+        }
+
+        assert (copySource == NULL);
+    }
+    else
+    {
+        // within a branch line?
+
+        if (prev != NULL)
+        {
+            prev->next = NULL;
+            prev = NULL;
+        }
+        else
+        {
+            // already a root
+
+            return;
+        }
+    }
+
+    // now, add this as a new root
+
+    graph->AddRoot (this);
+
+    // remove the source tree, if requested
+
+    if (deleteSource)
+        while (source != NULL)
+        {
+            CVisibleGraphNode* node = source;
+            source = node->copySource == NULL
+                   ? node->prev
+                   : node->copySource;
+
+            graph->GetFactory().Destroy (node);
+        }
 }

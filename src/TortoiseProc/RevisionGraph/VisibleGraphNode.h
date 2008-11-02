@@ -98,6 +98,8 @@ public:
                                   , bool preserveNode);
         void Destroy (CVisibleGraphNode* node);
 
+        void Destroy (CCopyTarget*& copyTarget);
+
         CFoldedTag* Create ( const CFullGraphNode* tagNode
                            , size_t depth
                            , CFoldedTag* next);
@@ -173,11 +175,15 @@ public:
 
     /// remove node and move links to pre-decessor
 
-    void DropNode (CVisibleGraph* graph);
+    void DropNode (CVisibleGraph* graph, bool preserveTags);
 
     /// remove node and add it as folded tag to the parent
 
     void FoldTag (CVisibleGraph* graph);
+
+    /// remove links to this node and make it a new root
+
+    void MakeRoot (CVisibleGraph* graph, bool deleteSource);
 };
 
 /// CVisibleGraphNode::CFoldedTag construction
