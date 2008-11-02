@@ -2,7 +2,7 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <?include Includes.wxi?>
   <Fragment Id="UIFragment">
-    <UI>
+    <UI Id="UIFrag">
       <!-- Add/Remove Programs (ARP) related properties ................................ -->
       <Property Id="ARPCOMMENTS">$(var.PackageComments)</Property>
       <Property Id="ARPCONTACT">$(var.PackageManufacturer)</Property>
@@ -60,23 +60,22 @@
       <Property Id="ErrorDialog">ErrorPopup</Property>
       <Property Id="INSTALLLEVEL">3</Property>
       <!-- http://msdn2.microsoft.com/en-us/library/aa369536.aspx -->
-      <Property Id="ProductID">none</Property>
-      <!-- http://msdn2.microsoft.com/en-us/library/aa370855.aspx -->
-      <Property Id="PROMPTROLLBACKCOST">P</Property>
+
+		<Property Id="PROMPTROLLBACKCOST">P</Property>
       <!-- http://msdn2.microsoft.com/en-us/library/aa370887.aspx -->
 
       <!-- UI Binaries ................................................................. -->
-      <Binary Id="Up" src="include\Up.ico" />
-      <Binary Id="New" src="include\New.ico" />
-      <Binary Id="custicon" src="include\Custom.ico" />
-      <Binary Id="repairic" src="include\Repair.ico" />
-      <Binary Id="exclamic" src="include\Exclam.ico" />
-      <Binary Id="removico" src="include\Remove.ico" />
-      <Binary Id="completi" src="include\Complete.ico" />
-      <Binary Id="insticon" src="include\Typical.ico" />
-      <Binary Id="info" src="include\Info.ico" />
-      <Binary Id="bannrbmp" src="include\Banner.jpg" />
-      <Binary Id="dlgbmp" src="include\Dialog.jpg" />
+      <Binary Id="Up" SourceFile="include\Up.ico" />
+      <Binary Id="New" SourceFile="include\New.ico" />
+      <Binary Id="custicon" SourceFile="include\Custom.ico" />
+      <Binary Id="repairic" SourceFile="include\Repair.ico" />
+      <Binary Id="exclamic" SourceFile="include\Exclam.ico" />
+      <Binary Id="removico" SourceFile="include\Remove.ico" />
+      <Binary Id="completi" SourceFile="include\Complete.ico" />
+      <Binary Id="insticon" SourceFile="include\Typical.ico" />
+      <Binary Id="info" SourceFile="include\Info.ico" />
+      <Binary Id="bannrbmp" SourceFile="include\Banner.jpg" />
+      <Binary Id="dlgbmp" SourceFile="include\Dialog.jpg" />
 
       <!-- Text Styles .............................................................................................. -->
       <TextStyle Id="DlgFont8" FaceName="Tahoma" Size="8" />
@@ -437,7 +436,7 @@
         </Control>
 
         <Control Id="AgreementText" Type="ScrollableText" X="5" Y="60" Width="360" Height="120" Sunken="yes" TabSkip="no">
-          <Text src="include\TSVN_eula.rtf" />
+          <Text SourceFile="include\TSVN_eula.rtf" />
         </Control>
         <Control Id="Buttons" Type="RadioButtonGroup" X="10" Y="187" Width="330" Height="40" Property="IAgree" />
 
@@ -649,7 +648,7 @@
 
       <Dialog Id="ResumeDlg" Width="370" Height="270" Title="[ProductName] [Setup]" NoMinimize="yes">
         <Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Disabled="yes" Text="[ButtonText_Back]" />
-        <Control Id="Install" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="[ButtonText_Install]">
+        <Control Id="Install" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="[ButtonText_Install]" ElevationShield="yes">
           <Publish Event="SpawnWaitDialog" Value="WaitForCostingPopup">CostingComplete = 1</Publish>
           <Publish Event="EndDialog" Value="Return"><![CDATA[OutOfDiskSpace <> 1]]></Publish>
           <Publish Event="SpawnDialog" Value="OutOfRbDiskDlg"><![CDATA[OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND (PROMPTROLLBACKCOST="P" OR NOT PROMPTROLLBACKCOST)]]></Publish>
@@ -698,7 +697,7 @@
           <Publish Event="NewDialog" Value="CustomizeDlg"><![CDATA[InstallMode = "Custom" OR InstallMode = "Change"]]></Publish>
           <Publish Event="NewDialog" Value="MaintenanceTypeDlg"><![CDATA[InstallMode = "Repair"]]></Publish>
         </Control>
-        <Control Id="Install" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="[ButtonText_Install]">
+        <Control Id="Install" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="[ButtonText_Install]" ElevationShield="yes">
           <Publish Event="EndDialog" Value="Return"><![CDATA[OutOfDiskSpace <> 1]]></Publish>
           <Publish Event="SpawnDialog" Value="OutOfRbDiskDlg"><![CDATA[OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND (PROMPTROLLBACKCOST="P" OR NOT PROMPTROLLBACKCOST)]]></Publish>
           <Publish Event="EndDialog" Value="Return"><![CDATA[OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST="D"]]></Publish>

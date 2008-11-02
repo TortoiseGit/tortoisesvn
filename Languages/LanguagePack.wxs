@@ -1,27 +1,27 @@
 <?xml version='1.0' encoding='utf-8'?>
-<Wix xmlns='http://schemas.microsoft.com/wix/2003/01/wi'>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
 	<?if $(env.Platform) = "x64" ?>
 	<?define Win64YesNo="yes" ?>
 	<?define PackagePlatforms="x64" ?>
 	<?else?>
 	<?define Win64YesNo="no" ?>
-	<?define PackagePlatforms="Intel" ?>
+	<?define PackagePlatforms="x86" ?>
 	<?endif?>
 
   <Product
   UpgradeCode="9ECED698-D4D9-42fd-946D-51CC049D1F6F"
   Name='$LANGNATIVE$ Languagepack for TortoiseSVN'
-  Id='????????-????-????-????-????????????'
+  Id='*'
   Language='1033'
   Codepage='1252'
   Version='$MajorVersion$.$MinorVersion$.$WCREV$'
   Manufacturer='TortoiseSVN'>
 
-    <Package Id='????????-????-????-????-????????????' Keywords='Installer'
+    <Package Id='*' Keywords='Installer'
       Description="$LANGUI$ language pack for TortoiseSVN"
       Comments='http://tortoisesvn.net' 
       Manufacturer="Stefan Kueng" 
-      Platforms="$(var.PackagePlatforms)"  
+      Platform="$(var.PackagePlatforms)"  
       InstallerVersion='200' 
       Languages='1033' 
       Compressed='yes' 
@@ -39,29 +39,29 @@
 
     <Directory Id='TARGETDIR' Name='SourceDir'>
       <Directory Id='ProgramFilesFolder' Name='PFiles'>
-        <Directory Id='INSTALLDIR' Name='TSVN' LongName='TortoiseSVN'>
-          <Directory Id='LanguagesFolder' Name='Language' LongName='Languages'>
+        <Directory Id='INSTALLDIR' Name='TortoiseSVN'>
+          <Directory Id='LanguagesFolder' Name='Languages'>
             <Component Id='Main' Guid='9D004446-94B4-4b9d-8C95-0BD46008A2A5'>
               <?if $(env.TSVNHelpFile) = "$COUNTRYCODE$" ?>
-              <File Id='HELPPROC' Name='TSV$COUNTRYCODE$.chm' LongName='TortoiseSVN_$COUNTRYCODE$.chm' DiskId='1' Source='..\doc\output\TortoiseSVN_$COUNTRYCODE$.chm' Vital='no'></File>
+              <File Id='HELPPROC' Name='TortoiseSVN_$COUNTRYCODE$.chm' DiskId='1' Source='..\doc\output\TortoiseSVN_$COUNTRYCODE$.chm' Vital='no'></File>
               <?endif?>
               <?if $(env.TMergeHelpFile) = "$COUNTRYCODE$" ?>
-              <File Id='HELPMERG' Name='TME$COUNTRYCODE$.chm' LongName='TortoiseMerge_$COUNTRYCODE$.chm' DiskId='1' Source='..\doc\output\TortoiseMerge_$COUNTRYCODE$.chm' Vital='no'></File>
+              <File Id='HELPMERG' Name='TortoiseMerge_$COUNTRYCODE$.chm' DiskId='1' Source='..\doc\output\TortoiseMerge_$COUNTRYCODE$.chm' Vital='no'></File>
               <?endif?>
 
               $SPELLCHECKFILES$
 
-              <File Id='PROCDLL' Name='TSVNPROC.DLL' LongName='TortoiseProc$COUNTRYID$.dll' DiskId='1' Source='..\bin\TortoiseProc$COUNTRYID$.dll' Vital='yes'></File>
-              <File Id='MERGDLL' Name='TSVNMERG.DLL' LongName='TortoiseMerge$COUNTRYID$.dll' DiskId='1' Source='..\bin\TortoiseMerge$COUNTRYID$.dll' Vital='yes'></File>
-              <File Id='BLAMDLL' Name='TSVNBLAM.DLL' LongName='TortoiseBlame$COUNTRYID$.dll' DiskId='1' Source='..\bin\TortoiseBlame$COUNTRYID$.dll' Vital='yes'></File>
-              <File Id='IDIFDLL' Name='TSVNIDIF.DLL' LongName='TortoiseIDiff$COUNTRYID$.dll' DiskId='1' Source='..\bin\TortoiseIDiff$COUNTRYID$.dll' Vital='yes'></File>
+              <File Id='PROCDLL' Name='TortoiseProc$COUNTRYID$.dll' DiskId='1' Source='..\bin\TortoiseProc$COUNTRYID$.dll' Vital='yes'></File>
+              <File Id='MERGDLL' Name='TortoiseMerge$COUNTRYID$.dll' DiskId='1' Source='..\bin\TortoiseMerge$COUNTRYID$.dll' Vital='yes'></File>
+              <File Id='BLAMDLL' Name='TortoiseBlame$COUNTRYID$.dll' DiskId='1' Source='..\bin\TortoiseBlame$COUNTRYID$.dll' Vital='yes'></File>
+              <File Id='IDIFDLL' Name='TortoiseIDiff$COUNTRYID$.dll' DiskId='1' Source='..\bin\TortoiseIDiff$COUNTRYID$.dll' Vital='yes'></File>
 
             </Component>
             <?if $(env.TSVNMoFile) = "$COUNTRYCODE$" ?>
-            <Directory Id='SVNLANG' Name='$COUNTRYCODE$' LongName='$COUNTRYCODE$'>
-              <Directory Id='LCMESG' Name='MESSAGES' LongName='LC_MESSAGES'>
+            <Directory Id='SVNLANG' Name='$COUNTRYCODE$' >
+              <Directory Id='LCMESG' Name='LC_MESSAGES'>
                 <Component Id='SVNMO' Guid='3CD420FC-32B4-4413-84EE-BAEB77E04B06'>
-                  <File Id='MO' Name='SVN.MO' LongName='Subversion.mo' DiskId='1' Source='Subversion.mo' Vital='no'></File>
+                  <File Id='MO' Name='Subversion.mo' DiskId='1' Source='Subversion.mo' Vital='no'></File>
                 </Component>
               </Directory>
             </Directory>
@@ -82,8 +82,13 @@
       </Feature>
     </Feature>
 
-    <UIRef Id="WixUI_LanguagePacks" />
+    <UIRef Id="WixUI_LanguagePack" />
     <UIRef Id="WixUI_ErrorProgressText" />
+
+    <WixVariable Id="WixUIBannerBmp" Value="Banner.jpg" />
+    <WixVariable Id="WixUIDialogBmp" Value="Dialog.jpg" />
+
+
 
     <InstallExecuteSequence>
       <!-- These 'Suppress' statements prevent the installer from getting
@@ -92,6 +97,8 @@
            trace left. -->
       <PublishProduct Suppress='yes' />
       <RegisterProduct Suppress='yes' />
+      <RegisterUser Suppress='yes' />
+      <PublishFeatures Suppress='yes' />
     </InstallExecuteSequence>
 
   </Product>

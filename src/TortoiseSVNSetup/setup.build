@@ -85,6 +85,10 @@
 		  </exec>
 		  <exec program="light">
 			  <arg value="-nologo" />
+			  <arg value="-sw1055" />
+			  <arg value="-sice:ICE03" />
+			  <arg value="-sice:ICE82" />
+			  <arg value="-sice:ICE83" />
 			  <arg value="-out" />
 			  <arg value="..\..\bin\${msifilename}.msi" />
 			  <arg value="..\..\bin\TortoiseSVN.wixobj" />
@@ -95,6 +99,7 @@
 		  <delete>
 			  <fileset>
 				  <include name="..\..\bin\*.wixobj" />
+				  <include name="..\..\bin\*.wixpdb" />
 			  </fileset>
 		  </delete>
   		

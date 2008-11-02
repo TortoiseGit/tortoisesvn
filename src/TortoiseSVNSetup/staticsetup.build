@@ -34,17 +34,15 @@
 			  <arg value="-out" />
 			  <arg value="..\..\bin\" />
 			  <arg value="SubWCRev.wxs" />
-			  <arg value="WixUI_Simplest.wxs" />
 		  </exec>
 		  <exec program="light">
 			  <arg value="-nologo" />
 			  <arg value="-out" />
 			  <arg value="..\..\bin\SubWCRev-${verstring}.msi" />
 			  <arg value="..\..\bin\SubWCRev.wixobj" />
-			  <arg value="..\..\bin\WixUI_Simplest.wixobj" />
-				<arg value="${environment::get-variable('WIXUI')}\WixUI.wixlib" />
-				<arg value="-loc" />
-				<arg value="${environment::get-variable('WIXUI')}\WixUI_en-us.wxl" />
+			<arg value="-ext" />
+			<arg value="WixUIExtension" />
+			<arg value="-cultures:en-us" />
 		  </exec>
 		  <delete>
 			  <fileset>
