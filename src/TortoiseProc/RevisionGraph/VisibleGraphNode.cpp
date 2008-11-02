@@ -111,9 +111,9 @@ CVisibleGraphNode::CVisibleGraphNode
 	, firstCopyTarget (NULL), firstTag (NULL)
 	, prev (NULL), next (NULL), copySource (NULL)
     , classification (  preserveNode 
-                      ? base->GetClassification().GetFlags()
-                      : (   base->GetClassification().GetFlags() 
-                          | CNodeClassification::MUST_BE_PRESERVED))
+                      ? (   base->GetClassification().GetFlags() 
+                          | CNodeClassification::MUST_BE_PRESERVED)
+                      : base->GetClassification().GetFlags())
 	, index ((index_t)NO_INDEX) 
 {
     if (prev != NULL)
@@ -319,7 +319,9 @@ void CVisibleGraphNode::DropNode (CVisibleGraph* graph)
 
 void CVisibleGraphNode::FoldTag (CVisibleGraph* graph)
 {
-    assert ((copySource || classification.Is (CNodeClassification::IS_RENAMED))
+    assert ((   copySource 
+             || (   classification.Is (CNodeClassification::IS_RENAMED))
+                 && prev)
             && "This operation is only valid for copy nodes!");
 
     // fold the whole branch into this node.
