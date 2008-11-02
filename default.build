@@ -241,6 +241,35 @@
 		</if>
 	</target>
 
+	<target name="staticmsi" depends="VSNET,env,static">
+		<description>
+			Builds the libraries for static linking, and all the tools
+			we ship separately from TSVN (therefore statically linked
+			to all dependend libs).
+		</description>
+		<nant target="setup">
+			<buildfiles>
+				<include name="src\TortoiseSVNSetup\staticsetup.build" />
+			</buildfiles>
+		</nant>
+		<zip zipfile="bin\TortoiseDiff.zip" ziplevel="9">
+			<fileset basedir="bin\releasestatic\bin">
+				<include name="TortoiseIDiff.exe" />
+				<include name="TortoiseMerge.exe" />
+			</fileset>
+		</zip>
+		<if test="${devrelease == ''}">
+			  <exec program="gpg.exe">
+				  <arg value="-sba" />
+				  <arg value="--yes" />
+				  <arg value="--batch" />
+				  <arg value="--passphrase" />
+				  <arg value="${gpgpassphrase}" />
+				  <arg value="bin\TortoiseDiff.zip" />
+			</exec>
+		</if>
+	</target>
+
 	<target name="setup" depends="env,binaries,docs,LanguagePacks">
 		<description>
 			Uses WiX to create an msi installer file.
@@ -318,6 +347,7 @@
 		<echo message="               Subversion libraries before, or this will fail" />
 		<echo message="LanguagePacks: creates the Languagepack installers" />
 		<echo message="msi          : creates the msi, but doesn't build the libs first" />
+		<echo message="Overlays     : builds the TortoiseOverlays module />
 		<echo />
 		<echo message="The following targets can be used to tweak the builds:" />
 		<echo message="clean   : clean those targets which are built next" />
