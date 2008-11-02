@@ -144,14 +144,14 @@ BOOL CRevisionGraphDlg::InitializeToolbar()
 #define SNAP_WIDTH 60 //the width of the combo box
 	// set up the ComboBox control as a snap mode select box
 	// First get the index of the placeholders position in the toolbar
-	int index = 0;
-	while (m_ToolBar.GetItemID(index) != ID_REVGRAPH_ZOOMCOMBO) index++;
+	int zoomComboIndex = 0;
+	while (m_ToolBar.GetItemID(zoomComboIndex) != ID_REVGRAPH_ZOOMCOMBO) zoomComboIndex++;
 
 	// next convert that button to a separator and get its position
-	m_ToolBar.SetButtonInfo(index, ID_REVGRAPH_ZOOMCOMBO, TBBS_SEPARATOR,
+	m_ToolBar.SetButtonInfo(zoomComboIndex, ID_REVGRAPH_ZOOMCOMBO, TBBS_SEPARATOR,
 		SNAP_WIDTH);
 	RECT rect;
-	m_ToolBar.GetItemRect(index, &rect);
+	m_ToolBar.GetItemRect(zoomComboIndex, &rect);
 
 	// expand the rectangle to allow the combo box room to drop down
 	rect.top+=3;
@@ -192,10 +192,10 @@ BOOL CRevisionGraphDlg::InitializeToolbar()
 			continue;
 		}
 
-		int index2 = 0;
-		while (m_ToolBar.GetItemID(index) != *itemID)
-			index2++;
-		m_ToolBar.SetButtonStyle(index, m_ToolBar.GetButtonStyle(index2)|*style);
+		int index = 0;
+		while (m_ToolBar.GetItemID (index) != *itemID)
+			index++;
+		m_ToolBar.SetButtonStyle (index, m_ToolBar.GetButtonStyle(index)|*style);
 	}
 
 	// fill the combo box
