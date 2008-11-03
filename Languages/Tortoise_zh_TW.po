@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-27 22:51+0800\n"
+"PO-Revision-Date: 2008-11-03 20:40+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -326,6 +326,10 @@ msgstr "藍色樣式(&B)"
 #. Resource IDs: (65535)
 msgid "&Blue:"
 msgstr "藍(&B):"
+
+#. Resource IDs: (65535)
+msgid "&Branches"
+msgstr "分支(&B)"
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
@@ -696,6 +700,14 @@ msgstr "合併(&M)"
 msgid "&Minimize"
 msgstr "最小化(&M)"
 
+#. Resource IDs: (1493)
+msgid "&Modify color for tag copies"
+msgstr "調整 tag 工作副本的顏色(&M)"
+
+#. Resource IDs: (1492)
+msgid "&Modify color for trunk copies"
+msgstr "調整 trunk 工作副本的顏色(&M)"
+
 #. Resource IDs: (65535)
 msgid "&Navigate"
 msgstr "導覽(&N)"
@@ -937,6 +949,10 @@ msgstr "Tab 寬度(&T):"
 msgid "&Tabbed Document"
 msgstr "分頁的文件(&T)"
 
+#. Resource IDs: (65535)
+msgid "&Tags"
+msgstr "&Tags"
+
 #. Resource IDs: (1382)
 msgid "&Test merge"
 msgstr "測試合併(&T)"
@@ -992,6 +1008,10 @@ msgstr "TortoiseSVN(&T)"
 #. Resource IDs: (1096)
 msgid "&TortoiseUDiff"
 msgstr "&TortoiseIDiff"
+
+#. Resource IDs: (65535)
+msgid "&Trunk"
+msgstr "&Trunk"
 
 #. Resource IDs: (3845)
 msgid "&Two Page"
@@ -1546,8 +1566,8 @@ msgstr "套用補綴(&P)..."
 
 #. Resource IDs: (345)
 msgid ""
-"Apply 'Power User' defaults. Those will provide a smother experience.\n"
-" You should know the meaning of all the settings above."
+"Apply 'Power User' defaults. Those will provide a smoother experience.\n"
+"You should know the meaning of all the settings above."
 msgstr ""
 "套用進階使用者設定. 可提供較順暢的使用經驗.\n"
 "建議您了解各項設定作用後使用."
@@ -2033,6 +2053,10 @@ msgstr "校驗和:"
 #. Resource IDs: (1402)
 msgid "Choose item:"
 msgstr "選擇項目:"
+
+#. Resource IDs: (65535)
+msgid "Classification Patterns"
+msgstr "分類樣式"
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -3615,8 +3639,12 @@ msgstr ""
 "填滿"
 
 #. Resource IDs: (65535)
-msgid "Filter out the following paths (separate multiple paths with the '*' char):"
-msgstr "濾出下列路徑 (以 '*' 分隔多個路徑)"
+msgid ""
+"Filter out paths that contain one of the following strings\n"
+"(separate multiple paths with the '*' char):"
+msgstr ""
+"過濾含有下列任一字串的路徑\n"
+" (以 '*' 分隔多個路徑)"
 
 #. Resource IDs: (321)
 msgid "Filter paths"
@@ -3731,6 +3759,10 @@ msgstr "一般::視窗 1"
 #. Resource IDs: (213)
 msgid "General::Dialogs 2"
 msgstr "一般::視窗 2"
+
+#. Resource IDs: (296)
+msgid "General::Revision Graph"
+msgstr "一般::版本圖"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
@@ -4096,6 +4128,54 @@ msgid ""
 "If activated, the menu entry 'Get Lock' is always shown in the top level menu\n"
 "if the selected file has the svn:needs-lock property set"
 msgstr "勾選此選項時, 如果選擇的檔案有設定 svn:needs-lock 性質,  '取得鎖定' 選項會出現在最上層選單中."
+
+#. Resource IDs: (346)
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'branch'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
+"如果指定的路徑中有路徑元素 ( 在兩個 '/' 中間的部分 ) \n"
+"符合以下任何一組樣式, 就會被視為 'branch'.\n"
+"\n"
+"樣式請使用小寫字母.\n"
+"可以使用的萬用字元有: '?' 及 '*'.\n"
+"樣式間請使用 ';' 分隔."
+
+#. Resource IDs: (346)
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'tag'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
+"如果指定的路徑中有路徑元素 ( 在兩個 '/' 中間的部分 ) \n"
+"符合以下任何一組樣式, 就會被視為 'tag'.\n"
+"\n"
+"樣式請使用小寫字母.\n"
+"可以使用的萬用字元有: '?' 及 '*'.\n"
+"樣式間請使用 ';' 分隔."
+
+#. Resource IDs: (346)
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'trunk'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
+"如果指定的路徑中有路徑元素 ( 在兩個 '/' 中間的部分 ) \n"
+"符合以下任何一組樣式, 就會被視為 'trunk'.\n"
+"\n"
+"樣式請使用小寫字母.\n"
+"可以使用的萬用字元有: '?' 及 '*'.\n"
+"樣式間請使用 ';' 分隔."
 
 #. Resource IDs: (95)
 msgid ""
@@ -6070,6 +6150,10 @@ msgstr ""
 msgid "Remove the selected cache(s) from disk"
 msgstr "移除選擇的快取"
 
+#. Resource IDs: (1352)
+msgid "Remove the whole subtree(s)"
+msgstr "移除選擇的完整子樹(們)"
+
 #. Resource IDs: (65535)
 msgid "Removed"
 msgstr "移除"
@@ -7388,6 +7472,14 @@ msgstr "區塊大小與加入/移除的行數不符!"
 msgid "The chunk start '@@' was expected in line %d !"
 msgstr "區塊起始標記 '@@' 應該位於第 %d 行!"
 
+#. Resource IDs: (346)
+msgid "The color of creation, copy and rename nodes of tags will be shifted towards yellow."
+msgstr "用於建立, 複製, 以及重新命名 tag 節點的顏色會向黃色調整."
+
+#. Resource IDs: (346)
+msgid "The color of creation, copy and rename nodes of the trunk will be shifted towards green."
+msgstr "用於建立, 複製, 以及重新命名 trunk 節點的顏色會向綠色調整."
+
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
 msgstr "未指定 URL 時預設的取出 URL"
@@ -8271,6 +8363,10 @@ msgstr "含有無版本控制的檔案時, 上層資料夾顯示為異動"
 msgid "Unversioning %s"
 msgstr "正在清除 %s 的版本控制資訊"
 
+#. Resource IDs: (106)
+msgid "Up one folder"
+msgstr "往上一層目錄"
+
 #. Resource IDs: (152, 230, 1436)
 msgid "Update"
 msgstr "更新"
@@ -9027,6 +9123,22 @@ msgstr ""
 "如果你的錯誤追蹤系統不是以數字編號來管理問題, 請設為 'false'"
 
 #. Resource IDs: (577)
+msgid ""
+"bugtraq:providerparams\r\n"
+"the parameters passed to the IBugTraqProvider"
+msgstr ""
+"bugtraq:providerparams\r\n"
+"傳入 IBugTraqProvider 介面的參數"
+
+#. Resource IDs: (577)
+msgid ""
+"bugtraq:provideruuid\r\n"
+"the COM uuid of the IBugTraqProvider"
+msgstr ""
+"bugtraq:provideuuid\r\n"
+"提供 IBugTragProvider 的 COM uuid"
+
+#. Resource IDs: (577)
 #, c-format
 msgid ""
 "bugtraq:url\r\n"
@@ -9098,6 +9210,10 @@ msgstr ""
 #. Resource IDs: (13)
 msgid "external"
 msgstr "外部"
+
+#. Resource IDs: (65535)
+msgid "file external:"
+msgstr "檔案外部設定:"
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"
@@ -9287,6 +9403,10 @@ msgstr "版本 %s-%s, %s"
 msgid "revisions: "
 msgstr "版本: "
 
+#. Resource IDs: (214)
+msgid "root project"
+msgstr "原始專案"
+
 #. Resource IDs: (65535)
 msgid "skip ranges: "
 msgstr "略過範圍:"
@@ -9437,6 +9557,14 @@ msgstr "至 %1"
 #, c-format
 msgid "to %s"
 msgstr "至 %s"
+
+#. Resource IDs: (208)
+msgid "tree conflict"
+msgstr "目錄樹衝突"
+
+#. Resource IDs: (65535)
+msgid "tree conflict:"
+msgstr "目錄樹衝突:"
 
 #. Resource IDs: (578)
 msgid ""
