@@ -2273,14 +2273,9 @@ bool CSVNProgressDlg::CmdResolve(CString& sWindowTitle, bool& localoperation)
 				}
 			}
 		} 
-		catch (CFileException* pE)
+		catch (CFileException * /* pE */)
 		{
 			TRACE(_T("CFileException in Resolve!\n"));
-			TCHAR error[10000] = {0};
-			pE->GetErrorMessage(error, 10000);
-			ReportError(error);
-			pE->Delete();
-			return false;
 		}
 	}
 	if (bMarkers)
