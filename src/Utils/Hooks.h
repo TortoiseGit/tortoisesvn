@@ -230,7 +230,7 @@ private:
 	 * \param bShow set to true if the process should be started visible.
 	 * \return the exit code of the process if \c bWait is true, zero otherwise.
 	 */
-	DWORD				RunScript(CString cmd, LPCTSTR currentDir, CString& error, bool bWait, bool bShow);
+	DWORD				RunScript(CString cmd, const CTSVNPathList& paths, CString& error, bool bWait, bool bShow);
 	/**
 	 * Find the hook script information for the hook type \c t which matches a
 	 * path in \c pathList.
