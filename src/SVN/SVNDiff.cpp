@@ -400,6 +400,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 					CString sWC;
 					sWC.LoadString(IDS_DIFF_WORKINGCOPY);
 					m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+					progDlg.Stop();
 					return !!CAppUtils::StartExtPatch(tempfile, url1.GetDirectory(), sWC, url2.GetSVNPathString(), TRUE);
 				}
 			}
@@ -578,6 +579,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 				sWC.LoadString(IDS_DIFF_WORKINGCOPY);
 				sRev.Format(IDS_DIFF_REVISIONPATCHED, (LONG)rev2);
 				m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+				progDlg.Stop();
 				return !!CAppUtils::StartExtPatch(tempfile, url1.GetDirectory(), sWC, sRev, TRUE);
 			}
 		}
