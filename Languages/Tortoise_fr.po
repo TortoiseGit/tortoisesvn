@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-28 09:58+0100\n"
+"PO-Revision-Date: 2008-11-03 11:41+0100\n"
 "Last-Translator: Grokwik <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3646,7 +3646,9 @@ msgstr ""
 "Remplir"
 
 #. Resource IDs: (65535)
-msgid "Filter out the following paths (separate multiple paths with the '*' char):"
+msgid ""
+"Filter out paths that contain one of the following strings\n"
+"(separate multiple paths with the '*' char):"
 msgstr "Filtrer les chemins suivants (séparer les chemins avec le caractère '*') :"
 
 #. Resource IDs: (321)
@@ -6157,6 +6159,10 @@ msgstr ""
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
 msgstr "Supprimer le(s) cache(s) sélectionné(s) du disque"
+
+#. Resource IDs: (1352)
+msgid "Remove the whole subtree(s)"
+msgstr "Supprimer le(s) sous-répertoire(s)"
 
 #. Resource IDs: (65535)
 msgid "Removed"
@@ -9131,6 +9137,22 @@ msgstr ""
 "Mettez à 'faux' si votre système de traque de bug a des incidents qui ne sont pas référencés par des nombres."
 
 #. Resource IDs: (577)
+msgid ""
+"bugtraq:providerparams\r\n"
+"the parameters passed to the IBugTraqProvider"
+msgstr ""
+"bugtraq:providerparams\r\n"
+"les paramètres envoyés à IBugTraqProvider"
+
+#. Resource IDs: (577)
+msgid ""
+"bugtraq:provideruuid\r\n"
+"the COM uuid of the IBugTraqProvider"
+msgstr ""
+"bugtraq:provideruuid\r\n"
+"l'identifiant unique de IBugTraqProvider"
+
+#. Resource IDs: (577)
 #, c-format
 msgid ""
 "bugtraq:url\r\n"
@@ -9202,6 +9224,10 @@ msgstr ""
 #. Resource IDs: (13)
 msgid "external"
 msgstr "externe"
+
+#. Resource IDs: (65535)
+msgid "file external:"
+msgstr "Fichier externe :"
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"
@@ -9391,6 +9417,10 @@ msgstr "révisions %s-%s, %s"
 msgid "revisions: "
 msgstr "révisions : "
 
+#. Resource IDs: (214)
+msgid "root project"
+msgstr "projet principal"
+
 #. Resource IDs: (65535)
 msgid "skip ranges: "
 msgstr "Passer les plages:"
@@ -9541,6 +9571,14 @@ msgstr "vers %1"
 #, c-format
 msgid "to %s"
 msgstr "vers %s"
+
+#. Resource IDs: (208)
+msgid "tree conflict"
+msgstr "Conflit dans l'arborescence"
+
+#. Resource IDs: (65535)
+msgid "tree conflict:"
+msgstr "Conflit dans l'arborescence :"
 
 #. Resource IDs: (578)
 msgid ""
