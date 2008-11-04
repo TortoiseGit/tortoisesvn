@@ -331,8 +331,8 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 			m_bMergesAddsDeletesOccurred = true;
 			data->sActionColumnText.LoadString(IDS_SVNACTION_MERGED);
 		}
-		else if (((data->content_state != svn_wc_notify_state_unchanged)&&(data->content_state != svn_wc_notify_state_unknown)) || 
-			((data->prop_state != svn_wc_notify_state_unchanged)&&(data->prop_state != svn_wc_notify_state_unknown)))
+		else if ((data->content_state == svn_wc_notify_state_changed) || 
+			(data->prop_state == svn_wc_notify_state_changed))
 		{
 			data->sActionColumnText.LoadString(IDS_SVNACTION_UPDATE);
 		}
