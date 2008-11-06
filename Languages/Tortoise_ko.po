@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-05 08:26+0900\n"
+"PO-Revision-Date: 2008-11-06 09:36+0900\n"
 "Last-Translator: Kim TaeDong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4833,8 +4833,12 @@ msgstr ""
 "충돌해결 상태로 표시합니다."
 
 #. Resource IDs: (596)
-msgid "Marks the revisions as merged, without actually doing the merge"
-msgstr "리비전을 병합된 것으로 표시합니다. 실제로 병합하지는 않습니다."
+msgid ""
+"Marks the revisions as merged, without actually doing the merge.\r\n"
+"This blocks the revisions from getting merged in the future."
+msgstr ""
+"리비전을 병합된 것으로 표시합니다. 실제로 병합하지는 않습니다.\r\n"
+"미래에 병합할 때, 이 리비전들은 사용되지 않습니다."
 
 #. Resource IDs: (1064)
 msgid "Match &case"
@@ -5447,8 +5451,8 @@ msgstr ""
 "(숫자는 쉼표로 분리되어 나열될 수 있습니다)"
 
 #. Resource IDs: (1424)
-msgid "Only record the merge"
-msgstr "병합 정보만 기록함"
+msgid "Only record the merge (block revisions from getting merged)"
+msgstr "병합 정보만 저장(병합할 때 사용하지 않을 리비전들)"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -9720,6 +9724,8 @@ msgstr "예"
 msgid "{BugTraq}"
 msgstr "{버그트랙}"
 
+#~ msgid "Only record the merge"
+#~ msgstr "병합 정보만 기록함"
 #~ msgid "(deleted) %s"
 #~ msgstr "(삭제됨) %s"
 #~ msgid "alias (deleted): %s"
