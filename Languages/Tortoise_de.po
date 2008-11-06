@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-05 10:29+0100\n"
+"PO-Revision-Date: 2008-11-06 10:41+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -257,7 +257,7 @@ msgstr "&Hinzufügen >>"
 msgid "&Add or Remove Buttons"
 msgstr "&Schaltflächen hinzufügen oder entfernen"
 
-#. Resource IDs: (8, 1098, 1310)
+#. Resource IDs: (8, 1098)
 msgid "&Add..."
 msgstr "&Hinzufügen..."
 
@@ -337,7 +337,7 @@ msgstr "&Zweige"
 msgid "&Browse repository"
 msgstr "Projektarchiv &betrachten"
 
-#. Resource IDs: (1011)
+#. Resource IDs: (1001, 1009)
 msgid "&Browse..."
 msgstr "&Suchen..."
 
@@ -413,7 +413,7 @@ msgstr "&Projektarchiv automatisch prüfen"
 msgid "&Convert files when diffing against BASE"
 msgstr "Dateien beim Vergleich mit BASE &konvertieren"
 
-#. Resource IDs: (501, 1367, 57634)
+#. Resource IDs: (501, 1367, 1471, 57634)
 msgid "&Copy"
 msgstr "&Kopieren"
 
@@ -441,11 +441,11 @@ msgstr "&Individuell"
 msgid "&Days of inactivity until small caches get removed"
 msgstr "Inaktive &Tage, bis kleine Puffer gelöscht werden"
 
-#. Resource IDs: (1096, 1269)
+#. Resource IDs: (1269)
 msgid "&Default"
 msgstr "&Standard"
 
-#. Resource IDs: (11)
+#. Resource IDs: (11, 1382, 16617, 16912)
 msgid "&Delete"
 msgstr "&Löschen"
 
@@ -485,7 +485,7 @@ msgstr "&Bearbeiten"
 msgid "&Edit conflicts"
 msgstr "Konflikt b&earbeiten"
 
-#. Resource IDs: (1099, 1282)
+#. Resource IDs: (1099, 1282, 16510)
 msgid "&Edit..."
 msgstr "&Bearbeiten..."
 
@@ -585,7 +585,7 @@ msgstr "&HEAD Revision"
 msgid "&HEAD revision in the repository"
 msgstr "&HEAD Revision im Projektarchiv"
 
-#. Resource IDs: (9, 12, 332, 32781, 57670, 65535)
+#. Resource IDs: (12, 32781, 57670, 65535)
 msgid "&Help"
 msgstr "&Hilfe"
 
@@ -593,7 +593,7 @@ msgstr "&Hilfe"
 msgid "&Help Topics"
 msgstr "&Hilfe"
 
-#. Resource IDs: (3842)
+#. Resource IDs: (1066, 3842)
 msgid "&Hide"
 msgstr "&Verbergen"
 
@@ -722,7 +722,7 @@ msgstr "&Netzlaufwerke"
 msgid "&New "
 msgstr "&Neu"
 
-#. Resource IDs: (16509, 16615)
+#. Resource IDs: (1310, 16509, 16615)
 msgid "&New..."
 msgstr "&Neu..."
 
@@ -759,7 +759,7 @@ msgstr "&Jetzt offline gehen"
 msgid "&One Page"
 msgstr "&Eine Seite"
 
-#. Resource IDs: (101, 113, 32773)
+#. Resource IDs: (101, 113, 32773, 57601)
 msgid "&Open"
 msgstr "Ö&ffnen"
 
@@ -775,7 +775,7 @@ msgstr "Bilder &überlagern"
 msgid "&Password:"
 msgstr "&Passwort:"
 
-#. Resource IDs: (376, 501)
+#. Resource IDs: (15, 376, 501)
 msgid "&Paste"
 msgstr "E&infügen"
 
@@ -823,7 +823,7 @@ msgstr "&Wiederholen"
 msgid "&Refresh"
 msgstr "&Aktualisieren"
 
-#. Resource IDs: (1100, 1285)
+#. Resource IDs: (1100, 1285, 16646)
 msgid "&Remove"
 msgstr "Ent&fernen"
 
@@ -879,7 +879,7 @@ msgstr "&SSH Client:"
 msgid "&Sat:"
 msgstr "&Sätt:"
 
-#. Resource IDs: (57603)
+#. Resource IDs: (16921, 57603)
 msgid "&Save"
 msgstr "&Speichern"
 
@@ -1027,7 +1027,7 @@ msgstr "&URL des Projektarchivs:"
 msgid "&URL:"
 msgstr "&URL:"
 
-#. Resource IDs: (376)
+#. Resource IDs: (376, 57643)
 msgid "&Undo"
 msgstr "&Rückgängig"
 
@@ -1138,7 +1138,7 @@ msgstr "- %d"
 msgid "-------------------------------------------------------------------------------------------"
 msgstr "-------------------------------------------------------------------------------------------"
 
-#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362)
+#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362, 1474)
 msgid "..."
 msgstr "..."
 
@@ -1720,7 +1720,7 @@ msgstr "Mittelwert"
 msgid "B&lack Style"
 msgstr "Sch&warzer Stil"
 
-#. Resource IDs: (1001)
+#. Resource IDs: (1003, 1011)
 msgid "B&rowse..."
 msgstr "S&uchen..."
 
@@ -1768,7 +1768,7 @@ msgstr ""
 "Die beiden Parameter /logmsg und /logmsgfile\n"
 "dürfen nicht gleichzeitig angegeben werden!"
 
-#. Resource IDs: (1003)
+#. Resource IDs: (1007)
 msgid "Br&owse..."
 msgstr "Su&chen..."
 
@@ -1898,7 +1898,7 @@ msgstr "Kann die Menüs nicht anpassen"
 msgid "Can't paste bitmap image from the clipboard!"
 msgstr "Kann das Bild aus der Zwischenablage nicht einfügen!"
 
-#. Resource IDs: (2, 73, 99, 563, 1069)
+#. Resource IDs: (2, 73, 99, 332, 563, 1069)
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -2223,7 +2223,7 @@ msgstr "Befehl konnte nicht ausgeführt werden."
 msgid "Commands"
 msgstr "Befehle"
 
-#. Resource IDs: (135, 209, 229, 1083)
+#. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "Übertragen"
 
@@ -2312,7 +2312,7 @@ msgstr "Vergleiche %s mit %s"
 msgid "Completed"
 msgstr "Fertig"
 
-#. Resource IDs: (236, 284)
+#. Resource IDs: (236)
 msgid "Configure Hook Scripts"
 msgstr "Aktionsskripte konfigurieren"
 
@@ -2816,7 +2816,7 @@ msgstr "Standardpfad:"
 msgid "Default to UTF-8 encoding"
 msgstr "UTF-8 Codierung als Vorgabe"
 
-#. Resource IDs: (1002, 1382)
+#. Resource IDs: (1002)
 msgid "Delete"
 msgstr "&Löschen"
 
@@ -3353,7 +3353,7 @@ msgstr "Experten Einstellungen"
 msgid "Explore to"
 msgstr "Explorer öffnen"
 
-#. Resource IDs: (229, 238, 1437)
+#. Resource IDs: (229, 238)
 msgid "Export"
 msgstr "Export"
 
@@ -3910,7 +3910,7 @@ msgstr "HEAD"
 msgid "Head revision is %s"
 msgstr "Die HEAD Revision ist: '%s'"
 
-#. Resource IDs: (73, 1004)
+#. Resource IDs: (9, 73, 332, 1004)
 msgid "Help"
 msgstr "Hilfe"
 
@@ -4858,8 +4858,12 @@ msgstr ""
 "Als aufgelöst markieren"
 
 #. Resource IDs: (596)
-msgid "Marks the revisions as merged, without actually doing the merge"
-msgstr "Markiert die Revisionen als zusammengeführt, ohne die Daten tatsächlich zu integrieren"
+msgid ""
+"Marks the revisions as merged, without actually doing the merge.\r\n"
+"This blocks the revisions from getting merged in the future."
+msgstr ""
+"Markiert die Revisionen als zusammengeführt, ohne die Daten tatsächlich zu integrieren\r\n"
+"Dies verhindert, dass die Revisionen in der Zukunft zusammengeführt werden können."
 
 #. Resource IDs: (1064)
 msgid "Match &case"
@@ -5039,7 +5043,7 @@ msgstr "Meine"
 msgid "Minimize the Ribbon"
 msgstr "Band minimieren"
 
-#. Resource IDs: (1023)
+#. Resource IDs: (1023, 65535)
 msgid "Misc"
 msgstr "Allgemein"
 
@@ -5477,8 +5481,8 @@ msgstr ""
 "sind zugelassen!"
 
 #. Resource IDs: (1424)
-msgid "Only record the merge"
-msgstr "Zusammenführen nur aufzeichnen"
+msgid "Only record the merge (block revisions from getting merged)"
+msgstr "Zusammenführen nur aufzeichnen (Revisionen vom Zusammenführen ausschließen)"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -5833,7 +5837,7 @@ msgstr "Programm"
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "Programme (*.exe)|*.*|Alle Dateien (*.*)|*.*||"
 
-#. Resource IDs: (134, 65535)
+#. Resource IDs: (134)
 msgid "Progress"
 msgstr "Fortschritt"
 
@@ -6426,7 +6430,7 @@ msgstr "Revision"
 msgid "Revision %d"
 msgstr "Revision %d"
 
-#. Resource IDs: (269, 272)
+#. Resource IDs: (269)
 #, c-format
 msgid "Revision %ld"
 msgstr "Revision %ld"
@@ -7438,7 +7442,7 @@ msgstr "Wechsle zum vorherigen Dokument"
 msgid "Switch working copy to another branch / tag"
 msgstr "Die Arbeitskopie zu anderem Zweig / anderer Marke wechseln"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1479)
 msgid "Switch:"
 msgstr "Wechseln:"
 
@@ -8405,7 +8409,7 @@ msgstr "Hebe Versionierung von %s auf"
 msgid "Up one folder"
 msgstr "Eine Ebene nach oben"
 
-#. Resource IDs: (152, 230, 1436)
+#. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "Aktualisieren"
 
@@ -8604,19 +8608,19 @@ msgstr ""
 "Verwende Textblock aus 'Deren'\n"
 "Verwende 'Deren' Textblock"
 
-#. Resource IDs: (251, 32820)
+#. Resource IDs: (32820)
 msgid "Use text block from \"&mine\""
 msgstr "Verwende '&Meinen' Textblock"
 
-#. Resource IDs: (251, 32819)
+#. Resource IDs: (32819)
 msgid "Use text block from \"&theirs\""
 msgstr "Verwende '&Deren' Textblock"
 
-#. Resource IDs: (251, 32822)
+#. Resource IDs: (32822)
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "Verwende 'M&einen' Textblock vor 'Deren'"
 
-#. Resource IDs: (251, 32821)
+#. Resource IDs: (32821)
 msgid "Use text block from \"t&heirs\" before \"mine\""
 msgstr "Verwende 'De&ren' Textblock vor 'Meinem'"
 
@@ -9222,7 +9226,7 @@ msgstr ""
 msgid "copied:"
 msgstr "kopiert:"
 
-#. Resource IDs: (10)
+#. Resource IDs: (10, 272)
 msgid "deleted"
 msgstr "Gelöscht"
 
@@ -9334,7 +9338,7 @@ msgstr "Gelöscht / fehlend / ersetzt"
 msgid "missing in: "
 msgstr "Fehlt in: "
 
-#. Resource IDs: (10)
+#. Resource IDs: (10, 272)
 msgid "modified"
 msgstr "Verändert"
 
@@ -9604,7 +9608,7 @@ msgstr "nach %1"
 msgid "to %s"
 msgstr "nach %s"
 
-#. Resource IDs: (208)
+#. Resource IDs: (208, 264)
 msgid "tree conflict"
 msgstr "Baumkonflikt"
 
@@ -9766,11 +9770,14 @@ msgstr "Wörter [unkomprimiert]: "
 msgid "year"
 msgstr "Jahr"
 
-#. Resource IDs: (18, 1002, 1011, 1012)
+#. Resource IDs: (18, 1002, 1011, 1012, 1013, 1014)
 msgid "yes"
 msgstr "ja"
 
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
+
+#~ msgid "Only record the merge"
+#~ msgstr "Zusammenführen nur aufzeichnen"
 
