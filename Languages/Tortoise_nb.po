@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-10-30 11:39+0100\n"
+"PO-Revision-Date: 2008-11-06 14:31+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -310,7 +310,7 @@ msgstr "&Legg til >>"
 msgid "&Add or Remove Buttons"
 msgstr "&Legg til eller Fjern Knapper"
 
-#. Resource IDs: (8, 1098, 1310)
+#. Resource IDs: (8, 1098)
 msgid "&Add..."
 msgstr "&Legg til..."
 
@@ -382,11 +382,15 @@ msgstr "&Blå Stil"
 msgid "&Blue:"
 msgstr "&Blå:"
 
+#. Resource IDs: (65535)
+msgid "&Branches"
+msgstr "&Grener"
+
 #. Resource IDs: (138)
 msgid "&Browse repository"
 msgstr "&Bla gjennom depoet"
 
-#. Resource IDs: (1011)
+#. Resource IDs: (1001, 1009)
 msgid "&Browse..."
 msgstr "&Bla gjennom..."
 
@@ -462,7 +466,7 @@ msgstr "Ta &kontakt med depotet ved oppstart"
 msgid "&Convert files when diffing against BASE"
 msgstr "&Konverter filer når sammenligningen er mot BASE"
 
-#. Resource IDs: (501, 1367, 57634)
+#. Resource IDs: (501, 1367, 1471, 57634)
 msgid "&Copy"
 msgstr "&Kopiér"
 
@@ -490,11 +494,11 @@ msgstr "&Egendefinert"
 msgid "&Days of inactivity until small caches get removed"
 msgstr "Inaktive &dager før små mellomlagre fjernes"
 
-#. Resource IDs: (1096, 1269)
+#. Resource IDs: (1269)
 msgid "&Default"
 msgstr "&Standard"
 
-#. Resource IDs: (11)
+#. Resource IDs: (11, 1382, 16617, 16912)
 msgid "&Delete"
 msgstr "&Slett"
 
@@ -534,7 +538,7 @@ msgstr "&Rediger"
 msgid "&Edit conflicts"
 msgstr "&Rediger konflikter"
 
-#. Resource IDs: (1099, 1282)
+#. Resource IDs: (1099, 1282, 16510)
 msgid "&Edit..."
 msgstr "&Rediger..."
 
@@ -634,7 +638,7 @@ msgstr "&Hode-revisjon"
 msgid "&HEAD revision in the repository"
 msgstr "&Hoderevisjon i depotet"
 
-#. Resource IDs: (9, 12, 332, 32781, 57670, 65535)
+#. Resource IDs: (12, 32781, 57670, 65535)
 msgid "&Help"
 msgstr "H&jelp"
 
@@ -642,7 +646,7 @@ msgstr "H&jelp"
 msgid "&Help Topics"
 msgstr "&Emner i hjelp"
 
-#. Resource IDs: (3842)
+#. Resource IDs: (1066, 3842)
 msgid "&Hide"
 msgstr "&Skjul"
 
@@ -751,6 +755,14 @@ msgstr "&Fletting"
 msgid "&Minimize"
 msgstr "&Minimer"
 
+#. Resource IDs: (1493)
+msgid "&Modify color for tag copies"
+msgstr "&Endre farge for merkekopier"
+
+#. Resource IDs: (1492)
+msgid "&Modify color for trunk copies"
+msgstr "&Endre farge for stammekopier"
+
 #. Resource IDs: (65535)
 msgid "&Navigate"
 msgstr "&Naviger"
@@ -763,7 +775,7 @@ msgstr "&Nettverks-stasjoner"
 msgid "&New "
 msgstr "&Ny"
 
-#. Resource IDs: (16509, 16615)
+#. Resource IDs: (1310, 16509, 16615)
 msgid "&New..."
 msgstr "&Ny..."
 
@@ -800,7 +812,7 @@ msgstr "&Frakoblet foreløpig"
 msgid "&One Page"
 msgstr "&En Side"
 
-#. Resource IDs: (101, 113, 32773)
+#. Resource IDs: (101, 113, 32773, 57601)
 msgid "&Open"
 msgstr "Å&pne"
 
@@ -816,7 +828,7 @@ msgstr "Legg bildene &over hverandre"
 msgid "&Password:"
 msgstr "Passor&d:"
 
-#. Resource IDs: (376, 501)
+#. Resource IDs: (15, 376, 501)
 msgid "&Paste"
 msgstr "&Lim inn"
 
@@ -864,7 +876,7 @@ msgstr "&Gjenta"
 msgid "&Refresh"
 msgstr "&Gjenoppfrisk"
 
-#. Resource IDs: (1100, 1285)
+#. Resource IDs: (1100, 1285, 16646)
 msgid "&Remove"
 msgstr "&Slett"
 
@@ -920,7 +932,7 @@ msgstr "&SSH-klient:"
 msgid "&Sat:"
 msgstr "&Metn:"
 
-#. Resource IDs: (57603)
+#. Resource IDs: (16921, 57603)
 msgid "&Save"
 msgstr "&Lagre"
 
@@ -992,6 +1004,10 @@ msgstr "&Tabulatorstørrelse:"
 msgid "&Tabbed Document"
 msgstr "&Fanedokument"
 
+#. Resource IDs: (65535)
+msgid "&Tags"
+msgstr "&Merker"
+
 #. Resource IDs: (1382)
 msgid "&Test merge"
 msgstr "&Test fletting"
@@ -1048,6 +1064,10 @@ msgstr "&TortoiseSVN"
 msgid "&TortoiseUDiff"
 msgstr "&TortoiseUDiff"
 
+#. Resource IDs: (65535)
+msgid "&Trunk"
+msgstr "&Stamme"
+
 #. Resource IDs: (3845)
 msgid "&Two Page"
 msgstr "&Tosidig"
@@ -1060,7 +1080,7 @@ msgstr "&Depoets URL:"
 msgid "&URL:"
 msgstr "&URL:"
 
-#. Resource IDs: (376)
+#. Resource IDs: (376, 57643)
 msgid "&Undo"
 msgstr "&Angre"
 
@@ -1171,7 +1191,7 @@ msgstr "- %d"
 msgid "-------------------------------------------------------------------------------------------"
 msgstr "-------------------------------------------------------------------------------------------"
 
-#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362)
+#. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324, 1333, 1362, 1474)
 msgid "..."
 msgstr "..."
 
@@ -1601,11 +1621,11 @@ msgstr "Anvend &korreksjon..."
 
 #. Resource IDs: (345)
 msgid ""
-"Apply 'Power User' defaults. Those will provide a smother experience.\n"
-" You should know the meaning of all the settings above."
+"Apply 'Power User' defaults. Those will provide a smoother experience.\n"
+"You should know the meaning of all the settings above."
 msgstr ""
 "Bruk standard for avanserte brukere. Dette gir en bedre opplevelse.\n"
-" Du bør kjenne innholdet i alle instillingene over."
+"Du bør kjenne innholdet i alle instillingene over."
 
 #. Resource IDs: (1294)
 msgid "Apply property recursively"
@@ -1750,7 +1770,7 @@ msgstr "Gjenomsnitt"
 msgid "B&lack Style"
 msgstr "&Sort Stil"
 
-#. Resource IDs: (1001)
+#. Resource IDs: (1003, 1011)
 msgid "B&rowse..."
 msgstr "&Bla gjennom..."
 
@@ -1798,7 +1818,7 @@ msgstr ""
 "Både /logmsg og /logmsgfile ble spesifisert!\n"
 "Bare en av disse kan spesifiseres av gangen."
 
-#. Resource IDs: (1003)
+#. Resource IDs: (1007)
 msgid "Br&owse..."
 msgstr "&Bla gjennom..."
 
@@ -1927,7 +1947,7 @@ msgstr "Kan ikke tilpasse menyer!"
 msgid "Can't paste bitmap image from the clipboard!"
 msgstr "Kan ikke lime inn bitmap-bilde fra utklippstavlen!"
 
-#. Resource IDs: (2, 73, 99, 563, 1069)
+#. Resource IDs: (2, 73, 99, 332, 563, 1069)
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -2089,6 +2109,10 @@ msgstr "Sjekksum:"
 msgid "Choose item:"
 msgstr "Velg element:"
 
+#. Resource IDs: (65535)
+msgid "Classification Patterns"
+msgstr "Klassifiseringsmønstre"
+
 #. Resource IDs: (145)
 msgid "Cleaning up"
 msgstr "Rydder opp"
@@ -2248,7 +2272,7 @@ msgstr "Komandoen feilet."
 msgid "Commands"
 msgstr "Komandoer"
 
-#. Resource IDs: (135, 209, 229, 1083)
+#. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "Send inn"
 
@@ -2337,7 +2361,7 @@ msgstr "Sammenligner %s og %s"
 msgid "Completed"
 msgstr "Ferdig"
 
-#. Resource IDs: (236, 284)
+#. Resource IDs: (236)
 msgid "Configure Hook Scripts"
 msgstr "Konfigurere Påhakingsskript"
 
@@ -2840,7 +2864,7 @@ msgstr "Standard sti:"
 msgid "Default to UTF-8 encoding"
 msgstr "Bruk UTF-8-kode som standard"
 
-#. Resource IDs: (1002, 1382)
+#. Resource IDs: (1002)
 msgid "Delete"
 msgstr "Slett"
 
@@ -3377,7 +3401,7 @@ msgstr "Ekspert-innstillinger"
 msgid "Explore to"
 msgstr "Utforsk til"
 
-#. Resource IDs: (229, 238, 1437)
+#. Resource IDs: (229, 238)
 msgid "Export"
 msgstr "Eksportér"
 
@@ -3670,8 +3694,12 @@ msgstr ""
 "Fyll"
 
 #. Resource IDs: (65535)
-msgid "Filter out the following paths (separate multiple paths with the '*' char):"
-msgstr "Fltrer vekk følgende stier (skill stiene med tegnet '*'):"
+msgid ""
+"Filter out paths that contain one of the following strings\n"
+"(separate multiple paths with the '*' char):"
+msgstr ""
+"Filtrer vekk stier som inneholder en av følgende strenger\n"
+"(skill stiene med tegnet '*'):"
 
 #. Resource IDs: (321)
 msgid "Filter paths"
@@ -3786,6 +3814,10 @@ msgstr "Generelt::Dialoger 1"
 #. Resource IDs: (213)
 msgid "General::Dialogs 2"
 msgstr "Generelt::Dialoger 2"
+
+#. Resource IDs: (296)
+msgid "General::Revision Graph"
+msgstr "Generelt::Revisjonsgraf"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
@@ -3926,7 +3958,7 @@ msgstr "HEAD"
 msgid "Head revision is %s"
 msgstr "Hoderevisjon er %s"
 
-#. Resource IDs: (73, 1004)
+#. Resource IDs: (9, 73, 332, 1004)
 msgid "Help"
 msgstr "Hjelp"
 
@@ -4140,6 +4172,54 @@ msgid ""
 msgstr ""
 "Hvis denne er slått på, vises menyvalget 'Hent Sperre' alltid på øverste menynivå\n"
 "hvis den valgte filen har satt egenskapen svn:needs-lock"
+
+#. Resource IDs: (346)
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'branch'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
+"Hvis et element (del mellom to '/') i en gitt sti svarer til et\n"
+"av disse mønstrene, betraktes det som en 'gren'.\n"
+"\n"
+"Mønstre gis med små bokstaver.\n"
+"Tillatte jokertegn er '?' og '*'.\n"
+"Skill mønstre med ';'."
+
+#. Resource IDs: (346)
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'tag'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
+"Hvis et element (del mellom to '/') i en gitt sti svarer til et\n"
+"av disse mønstrene, betraktes det som et 'merke'.\n"
+"\n"
+"Mønstre gis med små bokstaver.\n"
+"Tillatte jokertegn er '?' og '*'.\n"
+"Skill mønstre med ';'."
+
+#. Resource IDs: (346)
+msgid ""
+"If an element (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'trunk'.\n"
+"\n"
+"Patterns are lower-case.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns by ';'."
+msgstr ""
+"Hvis et element (del mellom to '/') i en gitt sti svarer til et\n"
+"av disse mønstrene, betraktes det som en 'stamme'.\n"
+"\n"
+"Mønstre gis med små bokstaver.\n"
+"Tillatte jokertegn er '?' og '*'.\n"
+"Skill mønstre med ';'."
 
 #. Resource IDs: (95)
 msgid ""
@@ -4802,8 +4882,12 @@ msgstr ""
 "Merk som løst"
 
 #. Resource IDs: (596)
-msgid "Marks the revisions as merged, without actually doing the merge"
-msgstr "Markerer revisjonene som flettet, uten å gjøre selve flettingen"
+msgid ""
+"Marks the revisions as merged, without actually doing the merge.\r\n"
+"This blocks the revisions from getting merged in the future."
+msgstr ""
+"Markerer revisjonene som flettet, uten å gjøre selve flettingen.\r\n"
+"Dette blokkerer at revisjonene blir flettet i fremtiden."
 
 #. Resource IDs: (1064)
 msgid "Match &case"
@@ -4983,7 +5067,7 @@ msgstr "Min"
 msgid "Minimize the Ribbon"
 msgstr "Minimer Båndet"
 
-#. Resource IDs: (1023)
+#. Resource IDs: (1023, 65535)
 msgid "Misc"
 msgstr "Forskjellig"
 
@@ -5417,8 +5501,8 @@ msgstr ""
 "er tillatt!"
 
 #. Resource IDs: (1424)
-msgid "Only record the merge"
-msgstr "Bare ta opp flettingen"
+msgid "Only record the merge (block revisions from getting merged)"
+msgstr "Bare registrer flettingen (blokker at revisjoner blir flettet)"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -5773,7 +5857,7 @@ msgstr "Programmer"
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
 msgstr "Programmer (*.exe)|*.exe|Alle Filer (*.*)|*.*||"
 
-#. Resource IDs: (134, 65535)
+#. Resource IDs: (134)
 msgid "Progress"
 msgstr "Fremdrift"
 
@@ -6117,6 +6201,10 @@ msgstr ""
 msgid "Remove the selected cache(s) from disk"
 msgstr "Fjern de valgte mellomlagrene fra disk"
 
+#. Resource IDs: (1352)
+msgid "Remove the whole subtree(s)"
+msgstr "Fjern hele undertre(ær)"
+
 #. Resource IDs: (65535)
 msgid "Removed"
 msgstr "Slettet"
@@ -6362,7 +6450,7 @@ msgstr "Revisjon"
 msgid "Revision %d"
 msgstr "Revisjon %d"
 
-#. Resource IDs: (269, 272)
+#. Resource IDs: (269)
 #, c-format
 msgid "Revision %ld"
 msgstr "Revision %ld"
@@ -7373,7 +7461,7 @@ msgstr "Bytt til forrige dokumentvindu"
 msgid "Switch working copy to another branch / tag"
 msgstr "Bytt arbeidskopi til en annen gren / merke"
 
-#. Resource IDs: (65535)
+#. Resource IDs: (1479)
 msgid "Switch:"
 msgstr "Bytt:"
 
@@ -7434,6 +7522,14 @@ msgstr "Størrelsen på avsnittet passer ikke med antall linjer som er lagt til 
 #, c-format
 msgid "The chunk start '@@' was expected in line %d !"
 msgstr "Avsnittet som startet med '@@' var forventet i linje %d !"
+
+#. Resource IDs: (346)
+msgid "The color of creation, copy and rename nodes of tags will be shifted towards yellow."
+msgstr "Fargen til noder for oppretting, kopiering og omdøping av merker vil skyves mot gult."
+
+#. Resource IDs: (346)
+msgid "The color of creation, copy and rename nodes of the trunk will be shifted towards green."
+msgstr "Fargen til noder for oppretting, kopiering og omdøping av stammen vil skyves mot gult."
 
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
@@ -8317,7 +8413,11 @@ msgstr "Ikke-versjonerte filer markerer mappen over som endret"
 msgid "Unversioning %s"
 msgstr "Av-versjonerer %s"
 
-#. Resource IDs: (152, 230, 1436)
+#. Resource IDs: (106)
+msgid "Up one folder"
+msgstr "Opp en mappe"
+
+#. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "Oppdater"
 
@@ -8516,19 +8616,19 @@ msgstr ""
 "Bruk tekstblokk fra 'deres'\n"
 "Bruk 'deres' tekstblokk"
 
-#. Resource IDs: (251, 32820)
+#. Resource IDs: (32820)
 msgid "Use text block from \"&mine\""
 msgstr "Bruk tekstblokk fra \"&min\""
 
-#. Resource IDs: (251, 32819)
+#. Resource IDs: (32819)
 msgid "Use text block from \"&theirs\""
 msgstr "Bruk tekstblokk fra \"&deres\""
 
-#. Resource IDs: (251, 32822)
+#. Resource IDs: (32822)
 msgid "Use text block from \"m&ine\" before \"theirs\""
 msgstr "Bruk tekstblokk fra \"m&in\" før \"deres\""
 
-#. Resource IDs: (251, 32821)
+#. Resource IDs: (32821)
 msgid "Use text block from \"t&heirs\" before \"mine\""
 msgstr "Bruk tekstblokk fra \"d&eres\" før \"min\""
 
@@ -9078,6 +9178,22 @@ msgstr ""
 "Settes som 'false' hvis ditt feilsporingssystem har saker/poster som ikke refereres med nummer."
 
 #. Resource IDs: (577)
+msgid ""
+"bugtraq:providerparams\r\n"
+"the parameters passed to the IBugTraqProvider"
+msgstr ""
+"bugtraq:providerparams\r\n"
+"parametrene som oversendes IBugTraqProvider"
+
+#. Resource IDs: (577)
+msgid ""
+"bugtraq:provideruuid\r\n"
+"the COM uuid of the IBugTraqProvider"
+msgstr ""
+"bugtraq:provideruuid\r\n"
+"COM uuid til IBugTraqProvider"
+
+#. Resource IDs: (577)
 #, c-format
 msgid ""
 "bugtraq:url\r\n"
@@ -9117,7 +9233,7 @@ msgstr ""
 msgid "copied:"
 msgstr "kopiert:"
 
-#. Resource IDs: (10)
+#. Resource IDs: (10, 272)
 msgid "deleted"
 msgstr "slettet"
 
@@ -9149,6 +9265,10 @@ msgstr ""
 #. Resource IDs: (13)
 msgid "external"
 msgstr "ekstern"
+
+#. Resource IDs: (65535)
+msgid "file external:"
+msgstr "ekstern fil:"
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"
@@ -9226,7 +9346,7 @@ msgstr "mangler / slettet / erstattet"
 msgid "missing in: "
 msgstr "mangler i: "
 
-#. Resource IDs: (10)
+#. Resource IDs: (10, 272)
 msgid "modified"
 msgstr "endret"
 
@@ -9337,6 +9457,10 @@ msgstr "revisjoner %s-%s, %s"
 #. Resource IDs: (65535)
 msgid "revisions: "
 msgstr "revisjoner: "
+
+#. Resource IDs: (214)
+msgid "root project"
+msgstr "rotprosjekt"
 
 #. Resource IDs: (65535)
 msgid "skip ranges: "
@@ -9488,6 +9612,14 @@ msgstr "til %1"
 #, c-format
 msgid "to %s"
 msgstr "til %s"
+
+#. Resource IDs: (208, 264)
+msgid "tree conflict"
+msgstr "trekonflikt"
+
+#. Resource IDs: (65535)
+msgid "tree conflict:"
+msgstr "trekonflikt:"
 
 #. Resource IDs: (578)
 msgid ""
@@ -9641,7 +9773,7 @@ msgstr "ord [ukomprimert]: "
 msgid "year"
 msgstr "år"
 
-#. Resource IDs: (18, 1002, 1011, 1012)
+#. Resource IDs: (18, 1002, 1011, 1012, 1013, 1014)
 msgid "yes"
 msgstr "ja"
 
@@ -9649,14 +9781,14 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Only record the merge"
+#~ msgstr "Bare ta opp flettingen"
 #~ msgid "(deleted) %s"
 #~ msgstr "(slettet) %s"
 #~ msgid "alias (deleted): %s"
 #~ msgstr "alias (slettet): %s"
 #~ msgid "&?"
 #~ msgstr "&?"
-#~ msgid "&Cancel"
-#~ msgstr "&Avbryt"
 #~ msgid "Merge all..."
 #~ msgstr "Flett alt..."
 #~ msgid "SVN Export to here"
