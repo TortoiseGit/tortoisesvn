@@ -332,7 +332,7 @@ bool CRepositoryInfo::CData::empty() const
 const CRepositoryInfo::SPerRepositoryInfo* const * 
 CRepositoryInfo::CData::begin() const
 {
-    return &*data.begin();
+    return data.empty() ? NULL : &data.at(0);
 }
 
 const CRepositoryInfo::SPerRepositoryInfo* const * 
