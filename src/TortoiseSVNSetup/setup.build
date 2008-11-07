@@ -89,6 +89,7 @@
 			  <arg value="-sice:ICE03" />
 			  <arg value="-sice:ICE82" />
 			  <arg value="-sice:ICE83" />
+			  <arg value="-sval" if="${platform == 'x64'}" />
 			  <arg value="-out" />
 			  <arg value="..\..\bin\${msifilename}.msi" />
 			  <arg value="..\..\bin\TortoiseSVN.wixobj" />

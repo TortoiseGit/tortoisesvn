@@ -367,6 +367,7 @@ NAnt build script for the TortoiseSVN language pack installers
 			<arg value="-nologo" />
 			<arg value="-sw1008" />
 			<arg value="-sice:ICE82" />
+			<arg value="-sval" if="${platform == 'x64'}" />
 			<arg value="-out" />
 			<arg value="..\bin\LanguagePack_${verstring}${devrelease}-${platform}-${langISO}.msi" />
 			<arg value="..\bin\LanguagePack_${langISO}.wixobj" />
