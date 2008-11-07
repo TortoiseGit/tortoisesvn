@@ -47,6 +47,7 @@
 #include "CachedLogInfo.h"
 #include "RepositoryInfo.h"
 #include "EditPropertiesDlg.h"
+#include "LogCacheSettings.h"
 
 
 #if (NTDDI_VERSION < NTDDI_LONGHORN)
@@ -791,7 +792,7 @@ void CLogDlg::Refresh (bool autoGoOnline)
     if (autoGoOnline)
     {
 	    SetDlgTitle (false);
-        logCachePool.GetRepositoryInfo().ResetHeadRevision (m_sUUID, m_sRepositoryRoot);
+        GetLogCachePool()->GetRepositoryInfo().ResetHeadRevision (m_sUUID, m_sRepositoryRoot);
     }
 
 	InterlockedExchange(&m_bThreadRunning, TRUE);
@@ -1064,8 +1065,8 @@ UINT CLogDlg::LogThread()
     m_sURL = m_path.GetSVNPathString();
 
     // we need the UUID to unambigously identify the log cache
-    if (logCachePool.IsEnabled())
-        m_sUUID = logCachePool.GetRepositoryInfo().GetRepositoryUUID (rootpath);
+    if (LogCache::CSettings::GetEnabled())
+        m_sUUID = GetLogCachePool()->GetRepositoryInfo().GetRepositoryUUID (rootpath);
 
     // if the log dialog is started from a working copy, we need to turn that
     // local path into an url here
@@ -1214,7 +1215,7 @@ UINT CLogDlg::LogThread()
 	DialogEnableWindow(IDC_STATBUTTON, TRUE);
 	DialogEnableWindow(IDC_REFRESH, TRUE);
 
-	LogCache::CRepositoryInfo& cachedProperties = logCachePool.GetRepositoryInfo();
+	LogCache::CRepositoryInfo& cachedProperties = GetLogCachePool()->GetRepositoryInfo();
 	SetDlgTitle(cachedProperties.IsOffline (m_sUUID, m_sRepositoryRoot, false));
 
 	GetDlgItem(IDC_PROGRESS)->ShowWindow(FALSE);

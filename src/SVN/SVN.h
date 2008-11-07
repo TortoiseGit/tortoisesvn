@@ -851,7 +851,7 @@ public:
 	 * Returns the log cache pool singleton. You will need that to 
 	 * create \c CCacheLogQuery instances.
 	 */
-	LogCache::CLogCachePool* GetLogCachePool() {return &logCachePool;}
+	LogCache::CLogCachePool* GetLogCachePool();
 
 	svn_error_t *				Err;			///< Global error object struct
 	svn_client_ctx_t * 			m_pctx;			///< pointer to client context
@@ -927,9 +927,11 @@ protected:
 	DWORD		progress_lastTicks;
 	std::vector<apr_off_t> progress_vector;
 
+private:
+
 	// the logCachePool must not be static: it uses apr/svn pools, and static objects
 	// will get cleaned up *after* we shut down apr.
-	LogCache::CLogCachePool logCachePool;
+    std::auto_ptr<LogCache::CLogCachePool> logCachePool;
 };
 
 static UINT WM_SVNPROGRESS = RegisterWindowMessage(_T("TORTOISESVN_SVNPROGRESS_MSG"));

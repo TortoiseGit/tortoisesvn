@@ -41,6 +41,7 @@
 #include "CacheLogQuery.h"
 #include "RepositoryInfo.h"
 #include "MessageBox.h"
+#include "LogCacheSettings.h"
 #include "..\version.h"
 
 
@@ -76,7 +77,7 @@ SVN::SVN(void) : m_progressWnd(0)
 	, progress_total(0)
 	, progress_lastprogress(0)
 	, progress_lasttotal(0)
-	, logCachePool (*this, CPathUtils::GetAppDataDirectory()+_T("logcache\\"))
+	, logCachePool()
 {
 	parentpool = svn_pool_create(NULL);
 	svn_error_clear(svn_client_create_context(&m_pctx, parentpool));
@@ -140,7 +141,9 @@ SVN::~SVN(void)
 {
 	svn_error_clear(Err);
 	svn_pool_destroy (parentpool);
-	logCachePool.Flush();
+
+    if (logCachePool.get() != NULL)
+	    logCachePool->Flush();
 }
 
 CString SVN::CheckConfigFile()
@@ -1349,12 +1352,12 @@ bool SVN::DiffSummarizePeg(const CTSVNPath& path, const SVNRev& peg, const SVNRe
 
 LogCache::CCachedLogInfo* SVN::GetLogCache (const CTSVNPath& path)
 {
-	if (!logCachePool.IsEnabled())
+    if (LogCache::CSettings::GetEnabled())
         return NULL;
 
     CString uuid;
-    CString root = logCachePool.GetRepositoryInfo().GetRepositoryRootAndUUID (path, uuid);
-    return logCachePool.GetCache (uuid, root);
+    CString root = GetLogCachePool()->GetRepositoryInfo().GetRepositoryRootAndUUID (path, uuid);
+    return GetLogCachePool()->GetCache (uuid, root);
 }
 
 BOOL SVN::ReceiveLog(const CTSVNPathList& pathlist, const SVNRev& revisionPeg, const SVNRev& revisionStart, const SVNRev& revisionEnd, int limit, BOOL strict, BOOL withMerges, bool refresh)
@@ -1366,10 +1369,10 @@ BOOL SVN::ReceiveLog(const CTSVNPathList& pathlist, const SVNRev& revisionPeg, c
 		SVNPool localpool(pool);
 
         CSVNLogQuery svnQuery (m_pctx, localpool);
-		CCacheLogQuery cacheQuery (&logCachePool, &svnQuery);
+		CCacheLogQuery cacheQuery (GetLogCachePool(), &svnQuery);
 		CCacheLogQuery refreshQuery (*this, &svnQuery);
 
-		ILogQuery* query = logCachePool.IsEnabled()
+		ILogQuery* query = logCachePool->IsEnabled()
 						 ? refresh ? static_cast<ILogQuery*>(&refreshQuery)
                                    : static_cast<ILogQuery*>(&cacheQuery)
 						 : static_cast<ILogQuery*>(&svnQuery);
@@ -1387,13 +1390,13 @@ BOOL SVN::ReceiveLog(const CTSVNPathList& pathlist, const SVNRev& revisionPeg, c
                    , false
                    , TRevPropNames());
 
-        if (refresh && logCachePool.IsEnabled())
+        if (refresh && logCachePool->IsEnabled())
         {
             // handle cache refresh results
 
             if (refreshQuery.GotAnyData())
             {
-                refreshQuery.UpdateCache (&logCachePool);
+                refreshQuery.UpdateCache (GetLogCachePool());
             }
             else
             {
@@ -1986,7 +1989,7 @@ CString SVN::GetRepositoryRoot(const CTSVNPath& url)
 	
     // use cached information, if allowed
 
-	if (logCachePool.IsEnabled())
+	if (LogCache::CSettings::GetEnabled())
     {
         // look up in cached repository properties
         // (missing entries will be added automatically)
@@ -1994,7 +1997,7 @@ CString SVN::GetRepositoryRoot(const CTSVNPath& url)
         CTSVNPath canonicalURL;
         canonicalURL.SetFromSVN (goodurl);
 
-        CRepositoryInfo& cachedProperties = logCachePool.GetRepositoryInfo();
+        CRepositoryInfo& cachedProperties = GetLogCachePool()->GetRepositoryInfo();
 
         CString result = cachedProperties.GetRepositoryRoot (canonicalURL);
         if (result.IsEmpty())
@@ -2120,7 +2123,7 @@ BOOL SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& re
 
     // use cached information, if allowed
 
-	if (logCachePool.IsEnabled())
+	if (LogCache::CSettings::GetEnabled())
     {
         // look up in cached repository properties
         // (missing entries will be added automatically)
@@ -2128,7 +2131,7 @@ BOOL SVN::GetRootAndHead(const CTSVNPath& path, CTSVNPath& url, svn_revnum_t& re
         CTSVNPath canonicalURL;
         canonicalURL.SetFromSVN (urla);
 
-        CRepositoryInfo& cachedProperties = logCachePool.GetRepositoryInfo();
+        CRepositoryInfo& cachedProperties = GetLogCachePool()->GetRepositoryInfo();
         CString uuid;
         url.SetFromSVN (cachedProperties.GetRepositoryRootAndUUID (path, uuid));
         if (url.IsEmpty())
@@ -2512,6 +2515,21 @@ CString SVN::GetOptionsString(BOOL bIgnoreEOL, svn_diff_file_ignore_space_t spac
 	}
 	opts.Trim();
 	return opts;
+}
+
+/**
+ * Returns the log cache pool singleton. You will need that to 
+ * create \c CCacheLogQuery instances.
+ */
+LogCache::CLogCachePool* SVN::GetLogCachePool() 
+{
+    if (logCachePool.get() == NULL)
+    {
+        CString cacheFolder = CPathUtils::GetAppDataDirectory()+_T("logcache\\");
+        logCachePool.reset (new LogCache::CLogCachePool (*this, cacheFolder));
+    }
+
+    return logCachePool.get();
 }
 
 /**
