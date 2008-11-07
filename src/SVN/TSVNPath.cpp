@@ -21,6 +21,7 @@
 #include "UnicodeUtils.h"
 #include "SVNAdminDir.h"
 #include "PathUtils.h"
+#include "svn_dirent_uri.h"
 #include <regex>
 
 #if defined(_MFC_VER)
@@ -190,10 +191,11 @@ const char* CTSVNPath::GetSVNApiPath(apr_pool_t *pool) const
 	{
 		m_sUTF8FwdslashPathEscaped = CPathUtils::PathEscape(m_sUTF8FwdslashPath);
 		m_sUTF8FwdslashPathEscaped.Replace("file:////", "file:///\\");
-		m_sUTF8FwdslashPathEscaped = svn_path_canonicalize(m_sUTF8FwdslashPathEscaped, pool);
+		m_sUTF8FwdslashPathEscaped = svn_uri_canonicalize(m_sUTF8FwdslashPathEscaped, pool);
 		return m_sUTF8FwdslashPathEscaped;
 	}
-	m_sUTF8FwdslashPath = svn_path_canonicalize(m_sUTF8FwdslashPath, pool);
+	else
+		m_sUTF8FwdslashPath = svn_dirent_canonicalize(m_sUTF8FwdslashPath, pool);
 
 	return m_sUTF8FwdslashPath;
 }
@@ -1385,7 +1387,7 @@ private:
 	{
 		CTSVNPath testPath;
 		testPath.SetFromWin(_T("c:\\"));
-		ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "c:") == 0);
+		ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "c:/") == 0);
 		testPath.SetFromWin(_T("c:\\folder"));
 		ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "c:/folder") == 0);
 		testPath.SetFromWin(_T("c:\\a\\b\\c\\d\\e"));
@@ -1394,6 +1396,8 @@ private:
 		ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://testing") == 0);
 		testPath.SetFromSVN(NULL);
 		ATLASSERT(strlen(testPath.GetSVNApiPath(pool))==0);
+		testPath.SetFromWin(_T("\\\\a\\b\\c\\d\\e"));
+		ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "//a/b/c/d/e") == 0);
 #if defined(_MFC_VER)
 		testPath.SetFromUnknown(_T("http://testing again"));
 		ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://testing%20again") == 0);
