@@ -147,7 +147,6 @@ private:
 			  rev(0),
 			  color(::GetSysColor(COLOR_WINDOWTEXT)),
 			  bConflictedActionItem(false),
-			  bTreeConflict(false),
 			  bAuxItem(false),
 			  lock_state(svn_wc_notify_lock_state_unchanged)
 		  {
@@ -172,7 +171,6 @@ private:
 		COLORREF				color;
 		CString					owner;						///< lock owner
 		bool					bConflictedActionItem;		///< Is this item a conflict?
-		bool					bTreeConflict;				///< Whether path is a victim of a tree-conflict
 		bool					bAuxItem;					///< Set if this item is not a true 'SVN action' 
 		CString					sPathColumnText;	
 
@@ -186,7 +184,6 @@ protected:
 		const svn_lock_t * lock, svn_wc_notify_lock_state_t lock_state,
 		const CString& changelistname,
 		svn_merge_range_t * range,
-		bool tree_conflicted,
 		svn_error_t * err, apr_pool_t * pool);
 	virtual svn_wc_conflict_choice_t	ConflictResolveCallback(const svn_wc_conflict_description_t *description, CString& mergedfile);
 	virtual BOOL						OnInitDialog();

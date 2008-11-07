@@ -215,7 +215,6 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 							 const svn_lock_t * lock, svn_wc_notify_lock_state_t lock_state,
 							 const CString& changelistname,
 							 svn_merge_range_t * range,
-							 bool tree_conflicted,
 							 svn_error_t * err, apr_pool_t * pool)
 {
 	bool bNoNotify = false;
@@ -237,7 +236,6 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		data->basepath = m_basePath;
 	if (range)
 		data->merge_range = *range;
-	data->bTreeConflict = tree_conflicted;
 	switch (data->action)
 	{
 	case svn_wc_notify_add:
@@ -248,11 +246,6 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 			data->bConflictedActionItem = true;
 			data->sActionColumnText.LoadString(IDS_SVNACTION_CONFLICTED);
 			m_nConflicts++;
-			if (data->bTreeConflict)
-			{
-				CString sTreeConflict(MAKEINTRESOURCE(IDS_SVNACTION_TREECONFLICTED));
-				data->sActionColumnText += _T(", ") + sTreeConflict;
-			}
 		}
 		else
 		{
@@ -277,12 +270,6 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		data->sActionColumnText.LoadString(IDS_SVNACTION_DELETE);
 		m_bMergesAddsDeletesOccurred = true;
 		data->color = m_Colors.GetColor(CColors::Deleted);
-		if (data->bTreeConflict)
-		{
-			CString sTreeConflict(MAKEINTRESOURCE(IDS_SVNACTION_TREECONFLICTED));
-			data->sActionColumnText += _T(", ") + sTreeConflict;
-			data->color = m_Colors.GetColor(CColors::Conflict);
-		}
 		break;
 	case svn_wc_notify_commit_deleted:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_DELETING);
@@ -300,12 +287,6 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 	case svn_wc_notify_update_replace:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_REPLACED);
 		data->color = m_Colors.GetColor(CColors::Deleted);
-		if (data->bTreeConflict)
-		{
-			CString sTreeConflict(MAKEINTRESOURCE(IDS_SVNACTION_TREECONFLICTED));
-			data->sActionColumnText += _T(", ") + sTreeConflict;
-			data->color = m_Colors.GetColor(CColors::Conflict);
-		}
 		break;
 	case svn_wc_notify_commit_replaced:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_REPLACED);
@@ -327,12 +308,6 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		}
 		else
 			data->sActionColumnText.LoadString(IDS_SVNACTION_EXISTS);
-		if (data->bTreeConflict)
-		{
-			CString sTreeConflict(MAKEINTRESOURCE(IDS_SVNACTION_TREECONFLICTED));
-			data->sActionColumnText += _T(", ") + sTreeConflict;
-			data->color = m_Colors.GetColor(CColors::Conflict);
-		}
 		break;
 	case svn_wc_notify_update_update:
 		// if this is an inoperative dir change, don't show the notification.
@@ -373,12 +348,6 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		{
 			CString temp(MAKEINTRESOURCE(IDS_SVNACTION_UNLOCKED));
 			data->sActionColumnText += _T(", ") + temp;
-		}
-		if (data->bTreeConflict)
-		{
-			CString sTreeConflict(MAKEINTRESOURCE(IDS_SVNACTION_TREECONFLICTED));
-			data->sActionColumnText += _T(", ") + sTreeConflict;
-			data->color = m_Colors.GetColor(CColors::Conflict);
 		}
 		break;
 
