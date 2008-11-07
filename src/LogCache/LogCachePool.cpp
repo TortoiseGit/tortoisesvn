@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -157,19 +157,22 @@ void CLogCachePool::AutoRemoveUnused()
     // update cache info list and also remove entries 
     // that don't have a cache file anymore
 
-    for ( const CRepositoryInfo::SPerRepositoryInfo* const * iter 
-             = repositoryInfo->data.end()
-        , * const *end = repositoryInfo->data.begin()
-        ; iter != end
-        ; --iter)
-    {
-        const CRepositoryInfo::SPerRepositoryInfo* info = *(iter-1);
-        if (   (deletedCaches.find (info->fileName) != deletedCaches.end())
-            || (allFiles.find (info->fileName) == allFiles.end()))
-        {
-            repositoryInfo->DropEntry (info->uuid, info->root);
-        }
-    }
+	if ( !repositoryInfo->data.empty() )
+	{
+		for ( const CRepositoryInfo::SPerRepositoryInfo* const * iter 
+				 = repositoryInfo->data.end()
+			, * const *end = repositoryInfo->data.begin()
+			; iter != end
+			; --iter)
+		{
+			const CRepositoryInfo::SPerRepositoryInfo* info = *(iter-1);
+			if (   (deletedCaches.find (info->fileName) != deletedCaches.end())
+				|| (allFiles.find (info->fileName) == allFiles.end()))
+			{
+				repositoryInfo->DropEntry (info->uuid, info->root);
+			}
+		}
+	}
 }
 
 // construction / destruction
