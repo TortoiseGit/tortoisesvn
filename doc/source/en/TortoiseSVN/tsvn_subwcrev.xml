@@ -427,6 +427,45 @@ trunk/src/SubWCRev";
 								Equivalent to <literal>$WCURL$</literal>
 							</entry>
 						</row>
+						<row>
+							<entry condition="pot">.IsSvnItem</entry>
+							<entry>
+								True if the item is versioned.
+							</entry>
+						</row>
+						<row>
+							<entry condition="pot">.NeedsLocking</entry>
+							<entry>
+								True if the item has the <literal>svn:needs-lock</literal>
+								property set.
+							</entry>
+						</row>
+						<row>
+							<entry condition="pot">.IsLocked</entry>
+							<entry>
+								True if the item is locked.
+							</entry>
+						</row>
+						<row>
+							<entry condition="pot">.LockCreationDate</entry>
+							<entry>
+								String representing the date when the lock was
+								created, or an empty string if the item is not locked.
+							</entry>
+						</row>
+						<row>
+							<entry condition="pot">.LockOwner</entry>
+							<entry>
+								String representing the lock owner, or an empty
+								string if the item is not locked.
+							</entry>
+						</row>
+						<row>
+							<entry condition="pot">.LockComment</entry>
+							<entry>
+								The message entered when the lock was created.
+							</entry>
+						</row>
 					</tbody>
 				</tgroup>
 			</table>
@@ -439,40 +478,74 @@ trunk/src/SubWCRev";
 
 filesystem = new ActiveXObject("Scripting.FileSystemObject");
 
-SubWCRev1 = new ActiveXObject("SubWCRev.object");
-SubWCRev2 = new ActiveXObject("SubWCRev.object");
-SubWCRev3 = new ActiveXObject("SubWCRev.object");
+subwcrevObject1 = new ActiveXObject("SubWCRev.object");
+subwcrevObject2 = new ActiveXObject("SubWCRev.object");
+subwcrevObject3 = new ActiveXObject("SubWCRev.object");
+subwcrevObject4 = new ActiveXObject("SubWCRev.object");
 
-SubWCRev1.GetWCInfo(filesystem.GetAbsolutePathName("."), 0, 0);
-SubWCRev2.GetWCInfo(filesystem.GetAbsolutePathName(".."), 1, 1);
-SubWCRev3.GetWCInfo(filesystem.GetAbsolutePathName("SubWCRev.cpp"), 
-                    0, 0);
+subwcrevObject1.GetWCInfo(filesystem.GetAbsolutePathName("."), 1, 1);
+subwcrevObject2.GetWCInfo(filesystem.GetAbsolutePathName(".."), 1, 1);
+subwcrevObject3.GetWCInfo(filesystem.GetAbsolutePathName("SubWCRev.cpp"), 1, 1);
+subwcrevObject4.GetWCInfo(filesystem.GetAbsolutePathName("..\\.."), 1, 1);
 
-sInfo1 = "Revision = " + SubWCRev1.Revision + 
-         "\nMin Revision = " + SubWCRev1.MinRev +
-         "\nMax Revision = " + SubWCRev1.MaxRev +
-         "\nDate = " + SubWCRev1.Date +
-         "\nURL = " + SubWCRev1.Url +
-         "\nAuthor = " + SubWCRev1.Author +
-         "\nHasMods = " + SubWCRev1.HasModifications;
-sInfo2 = "Revision = " + SubWCRev2.Revision +
-         "\nMin Revision = " + SubWCRev2.MinRev +
-         "\nMax Revision = " + SubWCRev2.MaxRev +
-         "\nDate = " + SubWCRev2.Date +
-         "\nURL = " + SubWCRev2.Url +
-         "\nAuthor = " + SubWCRev2.Author +
-         "\nHasMods = " + SubWCRev2.HasModifications;
-sInfo3 = "Revision = " + SubWCRev3.Revision +
-         "\nMin Revision = " + SubWCRev3.MinRev +
-         "\nMax Revision = " + SubWCRev3.MaxRev +
-         "\nDate = " + SubWCRev3.Date +
-         "\nURL = " + SubWCRev3.Url +
-         "\nAuthor = " + SubWCRev3.Author +
-         "\nHasMods = " + SubWCRev3.HasModifications;
+wcInfoString1 = "Revision = " + subwcrevObject1.Revision + 
+				"\nMin Revision = " + subwcrevObject1.MinRev + 
+				"\nMax Revision = " + subwcrevObject1.MaxRev + 
+				"\nDate = " + subwcrevObject1.Date + 
+				"\nURL = " + subwcrevObject1.Url + "\nAuthor = " + 
+				subwcrevObject1.Author + "\nHasMods = " + 
+				subwcrevObject1.HasModifications + "\nIsSvnItem = " + 
+				subwcrevObject1.IsSvnItem + "\nNeedsLocking = " + 
+				subwcrevObject1.NeedsLocking + "\nIsLocked = " + 
+				subwcrevObject1.IsLocked + "\nLockCreationDate = " + 
+				subwcrevObject1.LockCreationDate + "\nLockOwner = " + 
+				subwcrevObject1.LockOwner + "\nLockComment = " + 
+				subwcrevObject1.LockComment;
+wcInfoString2 = "Revision = " + subwcrevObject2.Revision + 
+				"\nMin Revision = " + subwcrevObject2.MinRev + 
+				"\nMax Revision = " + subwcrevObject2.MaxRev + 
+				"\nDate = " + subwcrevObject2.Date + 
+				"\nURL = " + subwcrevObject2.Url + "\nAuthor = " + 
+				subwcrevObject2.Author + "\nHasMods = " + 
+				subwcrevObject2.HasModifications + "\nIsSvnItem = " + 
+				subwcrevObject2.IsSvnItem + "\nNeedsLocking = " + 
+				subwcrevObject2.NeedsLocking + "\nIsLocked = " + 
+				subwcrevObject2.IsLocked + "\nLockCreationDate = " + 
+				subwcrevObject2.LockCreationDate + "\nLockOwner = " + 
+				subwcrevObject2.LockOwner + "\nLockComment = " + 
+				subwcrevObject2.LockComment;
+wcInfoString3 = "Revision = " + subwcrevObject3.Revision + 
+				"\nMin Revision = " + subwcrevObject3.MinRev + 
+				"\nMax Revision = " + subwcrevObject3.MaxRev + 
+				"\nDate = " + subwcrevObject3.Date + 
+				"\nURL = " + subwcrevObject3.Url + "\nAuthor = " + 
+				subwcrevObject3.Author + "\nHasMods = " + 
+				subwcrevObject3.HasModifications + "\nIsSvnItem = " + 
+				subwcrevObject3.IsSvnItem + "\nNeedsLocking = " + 
+				subwcrevObject3.NeedsLocking + "\nIsLocked = " + 
+				subwcrevObject3.IsLocked + "\nLockCreationDate = " + 
+				subwcrevObject3.LockCreationDate + "\nLockOwner = " + 
+				subwcrevObject3.LockOwner + "\nLockComment = " + 
+				subwcrevObject3.LockComment;
+wcInfoString4 = "Revision = " + subwcrevObject4.Revision + 
+				"\nMin Revision = " + subwcrevObject4.MinRev + 
+				"\nMax Revision = " + subwcrevObject4.MaxRev + 
+				"\nDate = " + subwcrevObject4.Date + 
+				"\nURL = " + subwcrevObject4.Url + "\nAuthor = " + 
+				subwcrevObject4.Author + "\nHasMods = " + 
+				subwcrevObject4.HasModifications + "\nIsSvnItem = " + 
+				subwcrevObject4.IsSvnItem + "\nNeedsLocking = " + 
+				subwcrevObject4.NeedsLocking + "\nIsLocked = " + 
+				subwcrevObject4.IsLocked + "\nLockCreationDate = " + 
+				subwcrevObject4.LockCreationDate + "\nLockOwner = " + 
+				subwcrevObject4.LockOwner + "\nLockComment = " + 
+				subwcrevObject4.LockComment;
 
-WScript.Echo(sInfo1);
-WScript.Echo(sInfo2);
-WScript.Echo(sInfo3);
+WScript.Echo(wcInfoString1);
+WScript.Echo(wcInfoString2);
+WScript.Echo(wcInfoString3);
+WScript.Echo(wcInfoString4);
+
 </programlisting>
 		</para>
 	</sect1>
