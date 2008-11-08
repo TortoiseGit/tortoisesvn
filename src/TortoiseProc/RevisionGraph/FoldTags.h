@@ -29,11 +29,11 @@
 */
 
 class CFoldTags 
-    : public COrderedTraversalOptionImpl< IModificationOption
-                                       , 100
-                                       , ID_VIEW_FOLDTAGS
-                                       , true           // fold branches first
-                                       , false>         // from leaves to root
+    : public CModificationOptionImpl< IModificationOption
+                                    , 100
+                                    , ID_VIEW_FOLDTAGS
+                                    , true           // fold branches first
+                                    , false>         // from leaves to root
 {
 private:
 

@@ -30,7 +30,7 @@
 */
 
 class CRemoveDeletedBranches 
-    : public COrderedTraversalOptionImpl
+    : public CModificationOptionImpl
                 < CCombineInterface 
                     < ICopyFilterOption
                     , IModificationOption>

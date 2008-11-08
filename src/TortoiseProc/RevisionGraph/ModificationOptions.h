@@ -21,6 +21,7 @@
 // include base classes
 
 #include "RevisionGraphOptions.h"
+#include "RevisionGraphOptionsImpl.h"
 
 /**
 * Extends the base interface with a method that has full
@@ -32,6 +33,44 @@ class IModificationOption : public IOrderedTraversalOption
 public:
 
     virtual void Apply (CVisibleGraph* graph, CVisibleGraphNode* node) = 0;
+
+    /// will be called after each tree traversal.
+    /// Use this to modify the tree is a way that interfers
+    /// with the standard traveral, for instance.
+
+    virtual void PostFilter (CVisibleGraph* graph) = 0;
+};
+
+/**
+ * Standard implementation of IModificationOption.
+ */
+
+template<class Base, int Prio, UINT ID, bool CopyiesFirst, bool RootFirst>
+class CModificationOptionImpl 
+    : public COrderedTraversalOptionImpl<Base, Prio, ID, CopyiesFirst, RootFirst>
+{
+protected:
+
+    /// for simplied construction by the _derived_ class
+
+    typedef typename CModificationOptionImpl< Base
+                                            , Prio
+                                            , ID
+                                            , CopyiesFirst
+                                            , RootFirst> inherited;
+
+public:
+
+    /// construction / destruction
+
+    CModificationOptionImpl (CRevisionGraphOptionList& list)
+        : COrderedTraversalOptionImpl<Base, Prio, ID, CopyiesFirst, RootFirst>(list)
+    {
+    }
+
+    /// implement IModificationOption
+
+    virtual void PostFilter (CVisibleGraph*) {};
 };
 
 /**

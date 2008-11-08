@@ -176,7 +176,8 @@ void CModificationOptions::Apply (CVisibleGraph* graph)
                     else
                         TraverseToRootCopiesLast (*iter, graph, root);
             }
+
+            (*iter)->PostFilter (graph);
         }
     }
 }
-

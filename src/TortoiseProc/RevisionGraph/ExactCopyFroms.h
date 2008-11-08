@@ -28,7 +28,7 @@
 */
 
 class CExactCopyFroms 
-    : public COrderedTraversalOptionImpl
+    : public CModificationOptionImpl
                 < IModificationOption
                 , 50
                 , ID_VIEW_EXACTCOPYSOURCE

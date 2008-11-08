@@ -29,7 +29,7 @@
 */
 
 class CRemoveSimpleChanges 
-    : public COrderedTraversalOptionImpl
+    : public CModificationOptionImpl
                 < CCombineInterface 
                     < ICopyFilterOption
                     , IModificationOption>
