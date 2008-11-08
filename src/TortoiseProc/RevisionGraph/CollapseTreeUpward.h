@@ -43,7 +43,7 @@ private:
 
     /// node states that decide where to cut
 
-    CGraphNodeStates* nodeStates;
+    const CGraphNodeStates* nodeStates;
 
     /// collapsing makes these nodes new roots
     /// (used temporarily between Apply() and PostFilter())
@@ -54,7 +54,8 @@ public:
 
     /// construction
 
-    CCollapseTreeUpward (CRevisionGraphOptionList& list, CGraphNodeStates* nodeStates);
+    CCollapseTreeUpward ( CRevisionGraphOptionList& list
+                        , const CGraphNodeStates* nodeStates);
 
     /// implement IModificationOption
 

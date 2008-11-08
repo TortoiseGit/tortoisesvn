@@ -21,6 +21,7 @@
 #include "RevisionGraph/FullGraph.h"
 #include "RevisionGraph/VisibleGraph.h"
 #include "RevisionGraph/IRevisionGraphLayout.h"
+#include "RevisionGraph/GraphNodeState.h"
 #include "ProgressDlg.h"
 #include "Colors.h"
 #include "SVNDiff.h"
@@ -96,6 +97,8 @@ public:
     bool            AnalyzeRevisionData (const CAllRevisionGraphOptions& options);
     CString         GetLastErrorMessage() const;
 
+    const CGraphNodeStates* GetNodeStates() const;
+
     bool            GetShowOverview() const;
     void            SetShowOverview (bool value);
 
@@ -123,6 +126,8 @@ protected:
     std::auto_ptr<CFullGraph>           m_fullGraph;
     std::auto_ptr<CVisibleGraph>        m_visibleGraph;
     std::auto_ptr<IRevisionGraphLayout> m_layout;
+
+    CGraphNodeStates m_nodeStates;
 
 	const CVisibleGraphNode * m_SelectedEntry1;
 	const CVisibleGraphNode * m_SelectedEntry2;

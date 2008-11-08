@@ -43,13 +43,14 @@ private:
 
     /// node states that decide where to cut
 
-    CGraphNodeStates* nodeStates;
+    const CGraphNodeStates* nodeStates;
 
 public:
 
     /// construction
 
-    CCutTrees (CRevisionGraphOptionList& list, CGraphNodeStates* nodeStates);
+    CCutTrees ( CRevisionGraphOptionList& list
+              , const CGraphNodeStates* nodeStates);
 
     /// implement IModificationOption
 

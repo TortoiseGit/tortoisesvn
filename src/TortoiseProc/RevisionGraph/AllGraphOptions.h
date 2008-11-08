@@ -39,7 +39,7 @@ public:
 
     /// construction (create all option objects) / destruction
 
-    CAllRevisionGraphOptions (CGraphNodeStates* nodeStates);
+    CAllRevisionGraphOptions (const CGraphNodeStates* nodeStates);
     virtual ~CAllRevisionGraphOptions() {};
 
     /// access specific sub-sets

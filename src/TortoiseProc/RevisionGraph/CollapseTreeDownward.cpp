@@ -25,7 +25,7 @@
 
 CCollapseTreeDownward::CCollapseTreeDownward 
     ( CRevisionGraphOptionList& list
-    , CGraphNodeStates* nodeStates)
+    , const CGraphNodeStates* nodeStates)
     : inherited (list)
     , nodeStates (nodeStates)
 {

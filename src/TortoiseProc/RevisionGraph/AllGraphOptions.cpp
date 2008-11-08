@@ -41,7 +41,7 @@
 
 // construction (create all option objects) / destruction
 
-CAllRevisionGraphOptions::CAllRevisionGraphOptions (CGraphNodeStates* nodeStates)
+CAllRevisionGraphOptions::CAllRevisionGraphOptions (const CGraphNodeStates* nodeStates)
 {
     // create filter options.
 

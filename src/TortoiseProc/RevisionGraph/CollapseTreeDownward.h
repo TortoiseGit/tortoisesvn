@@ -42,13 +42,14 @@ private:
 
     /// node states that decide where to cut
 
-    CGraphNodeStates* nodeStates;
+    const CGraphNodeStates* nodeStates;
 
 public:
 
     /// construction
 
-    CCollapseTreeDownward (CRevisionGraphOptionList& list, CGraphNodeStates* nodeStates);
+    CCollapseTreeDownward ( CRevisionGraphOptionList& list
+                          , const CGraphNodeStates* nodeStates);
 
     /// implement IModificationOption
 
