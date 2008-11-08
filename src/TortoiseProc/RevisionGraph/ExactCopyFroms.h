@@ -32,7 +32,8 @@ class CExactCopyFroms
                 , 50
                 , ID_VIEW_EXACTCOPYSOURCE
                 , true          // fold branches first
-                , true>         // root first      
+                , true          // root first      
+                , true>         // this is a cyclic option
 {
 public:
 

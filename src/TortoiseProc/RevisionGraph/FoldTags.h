@@ -32,7 +32,8 @@ class CFoldTags
                                     , 100
                                     , ID_VIEW_FOLDTAGS
                                     , true           // fold branches first
-                                    , false>         // from leaves to root
+                                    , false          // from leaves to root
+                                    , true>          // this is a cyclic option
 {
 private:
 

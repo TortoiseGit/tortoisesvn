@@ -35,8 +35,9 @@ class CRemoveSimpleChanges
                     , IModificationOption>
                 , 200
                 , ID_VIEW_SHOWALLREVISIONS
-                , true          // crawl branches first
-                , true>         // root first      
+                , true           // crawl branches first
+                , true           // root first      
+                , true>          // this is a cyclic option
 {
 public:
 

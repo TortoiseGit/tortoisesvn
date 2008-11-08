@@ -36,8 +36,9 @@ class CCutTrees
     : public CModificationOptionImpl< IModificationOption
                                     , 2000
                                     , 0
-                                    , false         // branches last
-                                    , true>         // from roots to leaves
+                                    , false     // branches last
+                                    , true      // from roots to leaves
+                                    , false>    // this is not a cyclic option
 {
 private:
 

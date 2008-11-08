@@ -36,8 +36,9 @@ class CRemoveDeletedBranches
                     , IModificationOption>
                 , 250
                 , ID_VIEW_REMOVEDELETEDONES
-                , true          // crawl branches first
-                , false>        // root last
+                , true           // crawl branches first
+                , false          // root last
+                , true>          // this is a cyclic option
 {
 public:
 
