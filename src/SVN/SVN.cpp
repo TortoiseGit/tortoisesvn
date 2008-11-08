@@ -753,7 +753,7 @@ BOOL SVN::Resolve(const CTSVNPath& path, svn_wc_conflict_choice_t result, BOOL r
 	CTSVNPath retPath;
 	if ((s = status.GetFirstFileStatus(path, retPath, false, svn_depth_empty, true, true))!=0)
 	{
-		if (s && s->entry)
+		if (s && !s->tree_conflicted && s->entry)
 		{
 			CTSVNPathList conflictedEntries;
 			if ((s->entry->conflict_new)&&(result != svn_wc_conflict_choose_theirs_full))
