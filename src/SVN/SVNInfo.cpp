@@ -190,6 +190,29 @@ svn_error_t * SVNInfo::infoReceiver(void* baton, const char * path, const svn_in
 			data.changelist = CUnicodeUtils::GetUnicode(info->changelist);
 		data.working_size = info->working_size;
 	}
+	if (info->tree_conflict)
+	{
+		if (info->tree_conflict->path)
+			data.treeconflict_path = CUnicodeUtils::GetUnicode(info->tree_conflict->path);
+		data.treeconflict_nodekind = info->tree_conflict->node_kind;
+		data.treeconflict_kind = info->tree_conflict->kind;
+		if (info->tree_conflict->property_name)
+			data.treeconflict_propertyname = CUnicodeUtils::GetUnicode(info->tree_conflict->property_name);
+		data.treeconflict_binary = !!info->tree_conflict->is_binary;
+		if (info->tree_conflict->mime_type)
+			data.treeconflict_mimetype = CUnicodeUtils::GetUnicode(info->tree_conflict->mime_type);
+		data.treeconflict_action = info->tree_conflict->action;
+		data.treeconflict_reason = info->tree_conflict->reason;
+		data.treeconflict_operation = info->tree_conflict->operation;
+		if (info->tree_conflict->base_file)
+			data.treeconflict_basefile = CUnicodeUtils::GetUnicode(info->tree_conflict->base_file);
+		if (info->tree_conflict->their_file)
+			data.treeconflict_theirfile = CUnicodeUtils::GetUnicode(info->tree_conflict->their_file);
+		if (info->tree_conflict->my_file)
+			data.treeconflict_myfile = CUnicodeUtils::GetUnicode(info->tree_conflict->my_file);
+		if (info->tree_conflict->merged_file)
+			data.treeconflict_mergedfile = CUnicodeUtils::GetUnicode(info->tree_conflict->merged_file);
+	}
 	pThis->m_arInfo.push_back(data);
 	pThis->Receiver(&data);
 	return NULL;

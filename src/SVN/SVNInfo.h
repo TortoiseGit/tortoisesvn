@@ -65,6 +65,22 @@ public:
 	svn_depth_t			depth;
 	apr_size_t			working_size;
 
+	// tree conflict data
+	CString				treeconflict_path;
+	svn_node_kind_t		treeconflict_nodekind;
+	svn_wc_conflict_kind_t treeconflict_kind;
+	CString				treeconflict_propertyname;
+	bool				treeconflict_binary;
+	CString				treeconflict_mimetype;
+	svn_wc_conflict_action_t treeconflict_action;
+	svn_wc_conflict_reason_t treeconflict_reason;
+	CString				treeconflict_basefile;
+	CString				treeconflict_theirfile;
+	CString				treeconflict_myfile;
+	CString				treeconflict_mergedfile;
+	svn_wc_operation_t	treeconflict_operation;
+
+
 	// convenience methods:
 
 	bool IsValid() {return rev.IsValid() != FALSE;}
