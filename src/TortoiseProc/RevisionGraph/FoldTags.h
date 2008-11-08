@@ -21,7 +21,6 @@
 // include base classes
 
 #include "ModificationOptions.h"
-#include "revisiongraphoptionsimpl.h"
 #include "Resource.h"
 
 /** Remove all branches / tags that have been deleted and have
@@ -37,7 +36,7 @@ class CFoldTags
 {
 private:
 
-    // that the line from node downward have any visible copy targets?
+    /// that the line from node downward have any visible copy targets?
 
     bool CopyTargetsVisibile (const CVisibleGraphNode* node) const;
 

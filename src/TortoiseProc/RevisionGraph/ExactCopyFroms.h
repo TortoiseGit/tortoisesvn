@@ -21,7 +21,6 @@
 // include base classes
 
 #include "ModificationOptions.h"
-#include "revisiongraphoptionsimpl.h"
 #include "Resource.h"
 
 /** Remove all "copy-from" nodes.
