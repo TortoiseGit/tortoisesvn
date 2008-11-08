@@ -55,6 +55,9 @@ public:
 	void			SetPath(const CString& sPath) {m_Graph.m_sPath = sPath;}
     void			SetPegRevision(SVNRev revision) {m_Graph.m_pegRev = revision;}
     void            DoZoom (float factor);
+
+    void            StartWorkerThread();
+
 protected:
 	bool			m_bFetchLogs;
     CAllRevisionGraphOptions m_options;
@@ -100,7 +103,6 @@ protected:
 private:
 	void			UpdateZoomBox();
 
-    void            StartWorkerThread();
 	static UINT		WorkerThread(LPVOID pVoid);
 
 	float			m_fZoomFactor;

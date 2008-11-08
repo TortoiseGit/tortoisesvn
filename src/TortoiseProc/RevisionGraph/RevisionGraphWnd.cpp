@@ -52,7 +52,15 @@ enum RevisionGraphContextMenuCommands
 	ID_COMPAREHEADS,
 	ID_UNIDIFFREVS,
 	ID_UNIDIFFHEADS,
-	ID_MERGETO
+	ID_MERGETO,
+    ID_EXPAND_ALL,
+    ID_GLUE_ALL,
+    ID_GRAPH_EXPANDCOLLAPSE_ABOVE,
+    ID_GRAPH_EXPANDCOLLAPSE_RIGHT,
+    ID_GRAPH_EXPANDCOLLAPSE_BELOW,
+    ID_GRAPH_CUTGLUE_ABOVE,
+    ID_GRAPH_CUTGLUE_RIGHT,
+    ID_GRAPH_CUTGLUE_BELOW
 };
 
 CRevisionGraphWnd::CRevisionGraphWnd()
@@ -68,6 +76,7 @@ CRevisionGraphWnd::CRevisionGraphWnd()
 	, m_ptRubberEnd(0,0)
 	, m_ptRubberStart(0,0)
 	, m_bShowOverview(false)
+    , m_parent (NULL)
 {
 	memset(&m_lfBaseFont, 0, sizeof(LOGFONT));	
 	for (int i=0; i<MAXFONTS; i++)
@@ -178,6 +187,8 @@ void CRevisionGraphWnd::Init(CWnd * pParent, LPRECT rect)
 	m_lfBaseFont.lfPitchAndFamily = DEFAULT_PITCH;
 
 	m_dwTicks = GetTickCount();
+
+    m_parent = dynamic_cast<CRevisionGraphDlg*>(pParent);
 }
 
 index_t CRevisionGraphWnd::GetHitNode (CPoint point) const
@@ -780,6 +791,212 @@ BOOL CRevisionGraphWnd::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 	return __super::OnMouseWheel(nFlags, zDelta, pt);
 }
 
+bool CRevisionGraphWnd::UpdateSelectedEntry (const CVisibleGraphNode * clickedentry)
+{
+	if ((m_SelectedEntry1 == NULL)&&(clickedentry == NULL))
+		return false;
+
+	if (m_SelectedEntry1 == NULL)
+	{
+		m_SelectedEntry1 = clickedentry;
+		Invalidate();
+	}
+	if ((m_SelectedEntry2 == NULL)&&(clickedentry != m_SelectedEntry1))
+	{
+		m_SelectedEntry1 = clickedentry;
+		Invalidate();
+	}
+	if (m_SelectedEntry1 && m_SelectedEntry2)
+	{
+		if ((m_SelectedEntry2 != clickedentry)&&(m_SelectedEntry1 != clickedentry))
+			return false;
+	}
+	if (m_SelectedEntry1 == NULL)
+		return false;
+
+    return true;
+}
+
+void CRevisionGraphWnd::AddSVNOps (CMenu& popup)
+{
+    bool bothPresent =  (m_SelectedEntry1 != NULL)
+                     && !m_SelectedEntry1->GetClassification().Is (CNodeClassification::IS_DELETED)
+                     && (m_SelectedEntry2 != NULL)
+                     && !m_SelectedEntry2->GetClassification().Is (CNodeClassification::IS_DELETED);
+
+    bool bSameURL = (m_SelectedEntry2 && (m_SelectedEntry1->GetPath() == m_SelectedEntry2->GetPath()));
+	CString temp;
+	if (m_SelectedEntry1 && (m_SelectedEntry2 == NULL))
+	{
+		temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
+		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SHOWLOG, temp);
+		popup.AppendMenu(MF_SEPARATOR, NULL);
+		temp.LoadString(IDS_LOG_POPUP_MERGEREV);
+		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_MERGETO, temp);
+	}
+	if (bothPresent)
+	{
+		temp.LoadString(IDS_REVGRAPH_POPUP_COMPAREREVS);
+		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREREVS, temp);
+	    if (!bSameURL)
+	    {
+		    temp.LoadString(IDS_REVGRAPH_POPUP_COMPAREHEADS);
+		    popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREHEADS, temp);
+	    }
+
+		temp.LoadString(IDS_REVGRAPH_POPUP_UNIDIFFREVS);
+		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UNIDIFFREVS, temp);
+		if (!bSameURL)
+		{
+			temp.LoadString(IDS_REVGRAPH_POPUP_UNIDIFFHEADS);
+			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UNIDIFFHEADS, temp);
+		}
+	}
+}
+
+void CRevisionGraphWnd::AddGraphOps (CMenu& popup, const CVisibleGraphNode * node)
+{
+    CString temp;
+    if (node == NULL)
+    {
+        DWORD state = m_nodeStates.GetCombinedFlags();
+        if (state != 0)
+        {
+            popup.AppendMenu(MF_SEPARATOR, NULL);
+
+            if (state & CGraphNodeStates::COLLAPSED_ALL)
+            {
+                temp.LoadString (IDS_REVGRAPH_POPUP_EXPAND_ALL);
+                popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EXPAND_ALL, temp);
+            }
+
+            if (state & CGraphNodeStates::CUT_ALL)
+            {
+    	        temp.LoadString (IDS_REVGRAPH_POPUP_GLUE_ALL);
+	            popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GLUE_ALL, temp);
+            }
+        }
+    }
+    else
+    {
+        popup.AppendMenu(MF_SEPARATOR, NULL);
+
+        const CFullGraphNode* base = node->GetBase();
+        DWORD state = m_nodeStates.GetFlags (base);
+
+        if (base->GetPrevious() || base->GetCopySource())
+        {
+            temp.LoadString ((state & CGraphNodeStates::COLLAPSED_ABOVE) 
+                             ? IDS_REVGRAPH_POPUP_EXPAND_ABOVE 
+                             : IDS_REVGRAPH_POPUP_COLLAPSE_ABOVE);
+            popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_EXPANDCOLLAPSE_ABOVE, temp);
+        }
+
+        if (base->GetFirstCopyTarget())
+        {
+            temp.LoadString ((state & CGraphNodeStates::COLLAPSED_RIGHT) 
+                             ? IDS_REVGRAPH_POPUP_EXPAND_RIGHT 
+                             : IDS_REVGRAPH_POPUP_COLLAPSE_RIGHT);
+            popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_EXPANDCOLLAPSE_RIGHT, temp);
+        }
+
+        if (base->GetNext())
+        {
+            temp.LoadString ((state & CGraphNodeStates::COLLAPSED_BELOW) 
+                             ? IDS_REVGRAPH_POPUP_EXPAND_BELOW 
+                             : IDS_REVGRAPH_POPUP_COLLAPSE_BELOW);
+            popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_EXPANDCOLLAPSE_BELOW, temp);
+        }
+
+        popup.AppendMenu(MF_SEPARATOR, NULL);
+
+        if (base->GetPrevious() || base->GetCopySource())
+        {
+            temp.LoadString ((state & CGraphNodeStates::CUT_ABOVE) 
+                             ? IDS_REVGRAPH_POPUP_GLUE_ABOVE 
+                             : IDS_REVGRAPH_POPUP_CUT_ABOVE);
+            popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_CUTGLUE_ABOVE, temp);
+        }
+
+        if (base->GetFirstCopyTarget())
+        {
+            temp.LoadString ((state & CGraphNodeStates::CUT_RIGHT) 
+                             ? IDS_REVGRAPH_POPUP_GLUE_RIGHT 
+                             : IDS_REVGRAPH_POPUP_CUT_RIGHT);
+            popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_CUTGLUE_RIGHT, temp);
+        }
+
+        if (base->GetNext())
+        {
+            temp.LoadString ((state & CGraphNodeStates::CUT_BELOW) 
+                             ? IDS_REVGRAPH_POPUP_GLUE_BELOW 
+                             : IDS_REVGRAPH_POPUP_CUT_BELOW);
+            popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_CUTGLUE_BELOW, temp);
+        }
+    }
+}
+
+void CRevisionGraphWnd::DoShowLog()
+{
+	CString sCmd;
+	CString URL = m_fullHistory->GetRepositoryRoot() 
+                + CUnicodeUtils::GetUnicode (m_SelectedEntry1->GetPath().GetPath().c_str());
+	URL = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(URL)));
+	sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%ld"), 
+		(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), 
+		(LPCTSTR)URL,
+        m_SelectedEntry1->GetRevision());
+
+	if (!SVN::PathIsURL(CTSVNPath(m_sPath)))
+	{
+		sCmd += _T(" /propspath:\"");
+		sCmd += m_sPath;
+		sCmd += _T("\"");
+	}	
+
+	CAppUtils::LaunchApplication(sCmd, NULL, false);
+}
+
+void CRevisionGraphWnd::DoMergeTo()
+{
+	CString URL = m_fullHistory->GetRepositoryRoot() 
+                + CUnicodeUtils::GetUnicode (m_SelectedEntry1->GetPath().GetPath().c_str());
+	URL = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(URL)));
+
+	CString path = m_sPath;
+	CBrowseFolder folderBrowser;
+	folderBrowser.SetInfo(CString(MAKEINTRESOURCE(IDS_LOG_MERGETO)));
+	if (folderBrowser.Show(GetSafeHwnd(), path, path) == CBrowseFolder::OK)
+	{
+		CSVNProgressDlg dlg;
+		dlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
+		dlg.SetPathList(CTSVNPathList(CTSVNPath(path)));
+		dlg.SetUrl(URL);
+		dlg.SetSecondUrl(URL);
+		SVNRevRangeArray revarray;
+		revarray.AddRevRange(m_SelectedEntry1->GetRevision(), svn_revnum_t(m_SelectedEntry1->GetRevision())-1);
+		dlg.SetRevisionRanges(revarray);
+		dlg.DoModal();
+	}
+}
+
+void CRevisionGraphWnd::ResetNodeFlags (DWORD flags)
+{
+    m_nodeStates.ResetFlags (flags);
+    m_parent->StartWorkerThread();
+}
+
+void CRevisionGraphWnd::ToggleNodeFlag (const CVisibleGraphNode *node, DWORD flag)
+{
+    const CFullGraphNode* base = node->GetBase();
+    if (m_nodeStates.GetFlags (base) & flag)
+        m_nodeStates.ResetFlags (base, flag);
+    else
+        m_nodeStates.SetFlags (base, flag);
+
+    m_parent->StartWorkerThread();
+}
+
 void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 {
 	if (m_bThreadRunning)
@@ -797,62 +1014,14 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
         clickedentry = nodeList->GetNode (nodeIndex).node;
     }
 
-	if ((m_SelectedEntry1 == NULL)&&(clickedentry == NULL))
+    if (!UpdateSelectedEntry (clickedentry))
 		return;
 
-	if (m_SelectedEntry1 == NULL)
-	{
-		m_SelectedEntry1 = clickedentry;
-		Invalidate();
-	}
-	if ((m_SelectedEntry2 == NULL)&&(clickedentry != m_SelectedEntry1))
-	{
-		m_SelectedEntry1 = clickedentry;
-		Invalidate();
-	}
-	if (m_SelectedEntry1 && m_SelectedEntry2)
-	{
-		if ((m_SelectedEntry2 != clickedentry)&&(m_SelectedEntry1 != clickedentry))
-			return;
-	}
-	if (m_SelectedEntry1 == NULL)
-		return;
-	CMenu popup;
+    CMenu popup;
 	if (popup.CreatePopupMenu())
 	{
-        bool bothPresent =  (m_SelectedEntry1 != NULL)
-                         && !m_SelectedEntry1->GetClassification().Is (CNodeClassification::IS_DELETED)
-                         && (m_SelectedEntry2 != NULL)
-                         && !m_SelectedEntry2->GetClassification().Is (CNodeClassification::IS_DELETED);
-
-        bool bSameURL = (m_SelectedEntry2 && (m_SelectedEntry1->GetPath() == m_SelectedEntry2->GetPath()));
-		CString temp;
-		if (m_SelectedEntry1 && (m_SelectedEntry2 == NULL))
-		{
-			temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SHOWLOG, temp);
-			popup.AppendMenu(MF_SEPARATOR, NULL);
-			temp.LoadString(IDS_LOG_POPUP_MERGEREV);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_MERGETO, temp);
-		}
-		if (bothPresent)
-		{
-			temp.LoadString(IDS_REVGRAPH_POPUP_COMPAREREVS);
-    		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREREVS, temp);
-		    if (!bSameURL)
-		    {
-			    temp.LoadString(IDS_REVGRAPH_POPUP_COMPAREHEADS);
-			    popup.AppendMenu(MF_STRING | MF_ENABLED, ID_COMPAREHEADS, temp);
-		    }
-
-			temp.LoadString(IDS_REVGRAPH_POPUP_UNIDIFFREVS);
-			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UNIDIFFREVS, temp);
-			if (!bSameURL)
-			{
-				temp.LoadString(IDS_REVGRAPH_POPUP_UNIDIFFHEADS);
-				popup.AppendMenu(MF_STRING | MF_ENABLED, ID_UNIDIFFHEADS, temp);
-			}
-		}
+        AddSVNOps (popup);
+        AddGraphOps (popup, clickedentry);
 
 		// if the context menu is invoked through the keyboard, we have to use
 		// a calculated position on where to anchor the menu on
@@ -881,49 +1050,35 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 			UnifiedDiffRevs(true);
 			break;
 		case ID_SHOWLOG:
-			{
-				CString sCmd;
-				CString URL = m_fullHistory->GetRepositoryRoot() 
-                            + CUnicodeUtils::GetUnicode (m_SelectedEntry1->GetPath().GetPath().c_str());
-				URL = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(URL)));
-				sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%ld"), 
-					(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), 
-					(LPCTSTR)URL,
-                    m_SelectedEntry1->GetRevision());
-
-				if (!SVN::PathIsURL(CTSVNPath(m_sPath)))
-				{
-					sCmd += _T(" /propspath:\"");
-					sCmd += m_sPath;
-					sCmd += _T("\"");
-				}	
-
-				CAppUtils::LaunchApplication(sCmd, NULL, false);
-			}
+			DoShowLog();
 			break;
 		case ID_MERGETO:
-			{
-				CString URL = m_fullHistory->GetRepositoryRoot() 
-                            + CUnicodeUtils::GetUnicode (m_SelectedEntry1->GetPath().GetPath().c_str());
-				URL = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(URL)));
-
-				CString path = m_sPath;
-				CBrowseFolder folderBrowser;
-				folderBrowser.SetInfo(CString(MAKEINTRESOURCE(IDS_LOG_MERGETO)));
-				if (folderBrowser.Show(GetSafeHwnd(), path, path) == CBrowseFolder::OK)
-				{
-					CSVNProgressDlg dlg;
-					dlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
-					dlg.SetPathList(CTSVNPathList(CTSVNPath(path)));
-					dlg.SetUrl(URL);
-					dlg.SetSecondUrl(URL);
-					SVNRevRangeArray revarray;
-					revarray.AddRevRange(m_SelectedEntry1->GetRevision(), svn_revnum_t(m_SelectedEntry1->GetRevision())-1);
-					dlg.SetRevisionRanges(revarray);
-					dlg.DoModal();
-				}
-			}
+            DoMergeTo();
 			break;
+        case ID_EXPAND_ALL:
+            ResetNodeFlags (CGraphNodeStates::COLLAPSED_ALL);
+            break;
+        case ID_GLUE_ALL:
+            ResetNodeFlags (CGraphNodeStates::CUT_ALL);
+            break;
+        case ID_GRAPH_EXPANDCOLLAPSE_ABOVE:
+            ToggleNodeFlag (clickedentry, CGraphNodeStates::COLLAPSED_ABOVE);
+            break;
+        case ID_GRAPH_EXPANDCOLLAPSE_RIGHT:
+            ToggleNodeFlag (clickedentry, CGraphNodeStates::COLLAPSED_RIGHT);
+            break;
+        case ID_GRAPH_EXPANDCOLLAPSE_BELOW:
+            ToggleNodeFlag (clickedentry, CGraphNodeStates::COLLAPSED_BELOW);
+            break;
+        case ID_GRAPH_CUTGLUE_ABOVE:
+            ToggleNodeFlag (clickedentry, CGraphNodeStates::CUT_ABOVE);
+            break;
+        case ID_GRAPH_CUTGLUE_RIGHT:
+            ToggleNodeFlag (clickedentry, CGraphNodeStates::CUT_RIGHT);
+            break;
+        case ID_GRAPH_CUTGLUE_BELOW:
+            ToggleNodeFlag (clickedentry, CGraphNodeStates::CUT_BELOW);
+            break;
 		}
 	}
 }

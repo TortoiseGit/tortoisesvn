@@ -62,6 +62,7 @@ enum NodeShape
 class CVisibleGraphNode;
 class IRevisionGraphLayout;
 class CAllRevisionGraphOptions;
+class CRevisionGraphDlg;
 
 /**
  * \ingroup TortoiseProc
@@ -127,6 +128,7 @@ protected:
     std::auto_ptr<CVisibleGraph>        m_visibleGraph;
     std::auto_ptr<IRevisionGraphLayout> m_layout;
 
+    CRevisionGraphDlg *m_parent;
     CGraphNodeStates m_nodeStates;
 
 	const CVisibleGraphNode * m_SelectedEntry1;
@@ -185,6 +187,14 @@ private:
 
     void            Compare (TDiffFunc diffFunc, TStartDiffFunc startDiffFunc, bool bHead);
     bool            PromptShown() const;
+
+    bool            UpdateSelectedEntry (const CVisibleGraphNode * clickedentry);
+    void            AddSVNOps (CMenu& popup);
+    void            AddGraphOps (CMenu& popup, const CVisibleGraphNode * node);
+    void            DoShowLog();
+    void            DoMergeTo();
+    void            ResetNodeFlags (DWORD flags);
+    void            ToggleNodeFlag (const CVisibleGraphNode *node, DWORD flag);
 
 	void			SetScrollbars(int nVert = 0, int nHorz = 0, int oldwidth = 0, int oldheight = 0);
 	CRect       	GetGraphRect();

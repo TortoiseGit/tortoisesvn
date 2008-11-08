@@ -53,10 +53,20 @@ public:
         COLLAPSED_LEFT  = 0x04,  ///< not used, yet
         COLLAPSED_RIGHT = 0x08,  ///< hide sub-trees that expand to the right side
 
+        COLLAPSED_ALL   =  CGraphNodeStates::COLLAPSED_ABOVE
+                         | CGraphNodeStates::COLLAPSED_RIGHT
+                         | CGraphNodeStates::COLLAPSED_LEFT
+                         | CGraphNodeStates::COLLAPSED_BELOW,
+
         CUT_ABOVE       = 0x10,  ///< make this a new graph root node
         CUT_BELOW       = 0x20,  ///< make the next node a new graph root node
         CUT_LEFT        = 0x40,  ///< not used, yet
         CUT_RIGHT       = 0x80,  ///< show all sub-trees as separate graphs
+
+        CUT_ALL         =  CGraphNodeStates::CUT_ABOVE
+                         | CGraphNodeStates::CUT_RIGHT
+                         | CGraphNodeStates::CUT_LEFT
+                         | CGraphNodeStates::CUT_BELOW,
     };
 
     /// used tempoarily to hold the status while the query is re-run
