@@ -436,18 +436,21 @@ void CVisibleGraphNode::MakeRoot (CVisibleGraph* graph, bool deleteSource)
         // find the copy struct that links to *this
 
         for ( CCopyTarget** copy = &copySource->firstCopyTarget
-            ; (*copy != NULL) && ((*copy)->value() != this)
+            ; *copy != NULL
             ; copy = &(*copy)->next())
         {
-            // remove it from the list
+            if ((*copy)->value() == this)
+            {
+                // remove it from the list
 
-            (*copy)->value() = NULL;
-            graph->GetFactory().Destroy (*copy);
+                (*copy)->value() = NULL;
+                graph->GetFactory().Destroy (*copy);
 
-            // update this node
+                // update this node
 
-            copySource = NULL;
-            break;
+                copySource = NULL;
+                break;
+            }
         }
 
         assert (copySource == NULL);
