@@ -400,17 +400,17 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 		data->sActionColumnText.LoadString(IDS_SVNACTION_STATUS);
 		break;
 	case svn_wc_notify_skip:
-		if ((content_state == svn_wc_notify_state_missing)||(content_state == svn_wc_notify_state_obstructed)||(content_state == svn_wc_notify_state_conflicted))
+		if (content_state == svn_wc_notify_state_missing)
 		{
 			data->sActionColumnText.LoadString(IDS_SVNACTION_SKIPMISSING);
-
-			// The color settings dialog describes the red color with
-			// "possible or real conflict / obstructed" which also applies to
-			// skipped targets during a merge. So we just use the same color.
 			data->color = m_Colors.GetColor(CColors::Conflict);
 		}
 		else
+		{
 			data->sActionColumnText.LoadString(IDS_SVNACTION_SKIP);
+			if ((content_state == svn_wc_notify_state_obstructed)||(content_state == svn_wc_notify_state_conflicted))
+				data->color = m_Colors.GetColor(CColors::Conflict);
+		}
 		break;
 	case svn_wc_notify_locked:
 		if ((lock)&&(lock->owner))
@@ -465,6 +465,10 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 	case svn_wc_notify_property_updated:
 		break;
 	case svn_wc_notify_merge_completed:
+		break;
+	case svn_wc_notify_tree_conflict:
+		data->sActionColumnText.LoadString(IDS_SVNACTION_TREECONFLICTED);
+		data->color = m_Colors.GetColor(CColors::Conflict);
 		break;
 	default:
 		break;
