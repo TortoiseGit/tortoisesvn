@@ -30,6 +30,10 @@
 #include "RevisionInRange.h"
 #include "RemovePathsBySubString.h"
 
+#include "CutTrees.h"
+#include "CollapseTreeDownward.h"
+#include "CollapseTreeUpward.h"
+
 #include "StandardNodeSizeAssignment.h"
 #include "StandardNodePositioning.h"
 #include "StrictOrderNodePositioning.h"
@@ -37,7 +41,7 @@
 
 // construction (create all option objects) / destruction
 
-CAllRevisionGraphOptions::CAllRevisionGraphOptions()
+CAllRevisionGraphOptions::CAllRevisionGraphOptions (CGraphNodeStates* nodeStates)
 {
     // create filter options.
 
@@ -59,6 +63,12 @@ CAllRevisionGraphOptions::CAllRevisionGraphOptions()
 
     (new CRevisionInRange (*this))->ToggleSelection();
     (new CRemovePathsBySubString (*this))->ToggleSelection();
+
+    // tree node collapsing & cutting
+
+    new CCutTrees (*this, nodeStates);
+    new CCollapseTreeDownward (*this, nodeStates);
+    new CCollapseTreeUpward (*this, nodeStates);
 
     // create layout options
 

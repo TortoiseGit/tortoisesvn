@@ -152,6 +152,8 @@ public:
 
     /// data access
 
+    const CFullGraphNode* GetBase() const;
+
 	const CDictionaryBasedTempPath& GetPath() const;
 	CDictionaryBasedPath GetRealPath() const;
 	const CFoldedTag* GetFirstTag() const;
@@ -176,6 +178,10 @@ public:
     /// remove node and move links to pre-decessor
 
     void DropNode (CVisibleGraph* graph, bool preserveTags);
+
+    /// remove node and sub-tree 
+
+    void DropSubTree (CVisibleGraph* graph);
 
     /// remove node and add it as folded tag to the parent
 
@@ -234,6 +240,11 @@ inline size_t CVisibleGraphNode::CFactory::GetNodeCount() const
 }
 
 /// CVisibleGraphNode data access
+
+inline const CFullGraphNode* CVisibleGraphNode::GetBase() const
+{
+    return base;
+}
 
 inline const CDictionaryBasedTempPath& CVisibleGraphNode::GetPath() const
 {

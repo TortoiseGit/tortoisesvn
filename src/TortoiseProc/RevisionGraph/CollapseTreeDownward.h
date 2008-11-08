@@ -18,33 +18,39 @@
 //
 #pragma once
 
-// required includes
+// include base classes
 
-#include "CopyFilterOptions.h"
 #include "ModificationOptions.h"
-#include "LayoutOptions.h"
+#include "Resource.h"
 
-// forward declaration
+// forward declarations
 
 class CGraphNodeStates;
 
 /**
-* Common container for all revision graph options.
-* Provides access to per-stage sub-sets.
+* Delete collapsed sub-trees.
 */
 
-class CAllRevisionGraphOptions : public CRevisionGraphOptionList
+class CCollapseTreeDownward 
+    : public CModificationOptionImpl< IModificationOption
+                                    , 2100
+                                    , 0
+                                    , false         // branches last
+                                    , true>         // from roots to leaves
 {
+private:
+
+    /// node states that decide where to cut
+
+    CGraphNodeStates* nodeStates;
+
 public:
 
-    /// construction (create all option objects) / destruction
+    /// construction
 
-    CAllRevisionGraphOptions (CGraphNodeStates* nodeStates);
-    virtual ~CAllRevisionGraphOptions() {};
+    CCollapseTreeDownward (CRevisionGraphOptionList& list, CGraphNodeStates* nodeStates);
 
-    /// access specific sub-sets
+    /// implement IModificationOption
 
-    CCopyFilterOptions GetCopyFilterOptions() const;
-    CModificationOptions GetModificationOptions() const;
-    CLayoutOptions GetLayoutOptions() const;
+    virtual void Apply (CVisibleGraph* graph, CVisibleGraphNode* node);
 };

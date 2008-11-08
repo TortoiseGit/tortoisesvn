@@ -19,6 +19,7 @@
 #pragma once
 #include "StandAloneDlg.h"
 #include "RevisionGraph/AllGraphOptions.h"
+#include "RevisionGraph/GraphNodeState.h"
 #include "ProgressDlg.h"
 #include "Colors.h"
 #include "RevisionGraphWnd.h"
@@ -57,6 +58,7 @@ public:
     void            DoZoom (float factor);
 protected:
 	bool			m_bFetchLogs;
+    CGraphNodeStates m_nodeStates;
     CAllRevisionGraphOptions m_options;
 	char			m_szTip[MAX_TT_LENGTH+1];
 	wchar_t			m_wszTip[MAX_TT_LENGTH+1];

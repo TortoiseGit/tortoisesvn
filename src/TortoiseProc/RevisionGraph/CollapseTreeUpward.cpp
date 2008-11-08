@@ -16,35 +16,37 @@
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
-#pragma once
+#include "StdAfx.h"
+#include "CollapseTreeUpward.h"
+#include "VisibleGraphNode.h"
+#include "GraphNodeState.h"
 
-// required includes
+// construction
 
-#include "CopyFilterOptions.h"
-#include "ModificationOptions.h"
-#include "LayoutOptions.h"
-
-// forward declaration
-
-class CGraphNodeStates;
-
-/**
-* Common container for all revision graph options.
-* Provides access to per-stage sub-sets.
-*/
-
-class CAllRevisionGraphOptions : public CRevisionGraphOptionList
+CCollapseTreeUpward::CCollapseTreeUpward 
+    ( CRevisionGraphOptionList& list
+    , CGraphNodeStates* nodeStates)
+    : inherited (list)
+    , nodeStates (nodeStates)
 {
-public:
+}
 
-    /// construction (create all option objects) / destruction
+// implement IModificationOption
 
-    CAllRevisionGraphOptions (CGraphNodeStates* nodeStates);
-    virtual ~CAllRevisionGraphOptions() {};
+void CCollapseTreeUpward::Apply (CVisibleGraph* graph, CVisibleGraphNode* node)
+{
+    DWORD state = nodeStates->GetFlags (node->GetBase());
 
-    /// access specific sub-sets
+    // cut at this tree node, if requested by the node state
 
-    CCopyFilterOptions GetCopyFilterOptions() const;
-    CModificationOptions GetModificationOptions() const;
-    CLayoutOptions GetLayoutOptions() const;
-};
+    if (state & CGraphNodeStates::COLLAPSED_ABOVE)
+        newRoots.push_back (node);
+}
+
+void CCollapseTreeUpward::PostFilter (CVisibleGraph* graph)
+{
+    for (size_t i = 0, count = newRoots.size(); i < count; ++i)
+        newRoots[i]->MakeRoot (graph, true);
+
+    newRoots.clear();
+}

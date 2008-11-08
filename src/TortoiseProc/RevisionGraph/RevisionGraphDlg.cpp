@@ -48,6 +48,7 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 	, m_hAccel(NULL)
 	, m_bFetchLogs(true)
 	, m_fZoomFactor(0.5)
+    , m_options (&m_nodeStates)
 {
     // GDI+ initialization
 

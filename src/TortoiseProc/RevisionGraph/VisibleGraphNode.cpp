@@ -322,6 +322,43 @@ void CVisibleGraphNode::DropNode (CVisibleGraph* graph, bool preserveTags)
     graph->GetFactory().Destroy (this);
 }
 
+// remove node and sub-tree 
+
+void CVisibleGraphNode::DropSubTree (CVisibleGraph* graph)
+{
+    // de-link this node
+
+    if (prev != NULL)
+    {
+        prev->next = NULL;
+    }
+    else if (copySource != NULL)
+    {
+        // find the copy struct that links to *this
+
+        CCopyTarget** copy = &copySource->firstCopyTarget;
+        for (
+            ; (*copy != NULL) && ((*copy)->value() != this)
+            ; copy = &(*copy)->next())
+        {
+        }
+
+        assert (*copy != NULL);
+
+        // remove from original list and attach it to *this for destruction
+
+        firstCopyTarget = *copy;
+        *copy = (*copy)->next();
+
+        firstCopyTarget->next() = NULL;
+        firstCopyTarget->value() = NULL;
+    }
+
+    // destruct this
+
+    graph->GetFactory().Destroy (this);
+}
+
 // remove node and add it as folded tag to the parent
 
 void CVisibleGraphNode::FoldTag (CVisibleGraph* graph)
@@ -432,20 +469,32 @@ void CVisibleGraphNode::MakeRoot (CVisibleGraph* graph, bool deleteSource)
         }
     }
 
-    // now, add this as a new root
-
-    graph->AddRoot (this);
-
     // remove the source tree, if requested
 
     if (deleteSource)
+    {
+        CVisibleGraphNode* oldRoot = this;
         while (source != NULL)
         {
-            CVisibleGraphNode* node = source;
-            source = node->copySource == NULL
-                   ? node->prev
-                   : node->copySource;
-
-            graph->GetFactory().Destroy (node);
+            oldRoot = source;
+            source = oldRoot->copySource == NULL
+                   ? oldRoot->prev
+                   : oldRoot->copySource;
         }
+
+        // now, add this as a new root
+
+        assert (oldRoot != this);
+        graph->ReplaceRoot (oldRoot, this);
+
+        // remove old parent tree
+
+        graph->GetFactory().Destroy (oldRoot);
+    }
+    else
+    {
+        // now, add this as a new root
+
+        graph->AddRoot (this);
+    }
 }
