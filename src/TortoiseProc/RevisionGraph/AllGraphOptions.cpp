@@ -66,9 +66,9 @@ CAllRevisionGraphOptions::CAllRevisionGraphOptions (const CGraphNodeStates* node
 
     // tree node collapsing & cutting
 
-    new CCutTrees (*this, nodeStates);
-    new CCollapseTreeDownward (*this, nodeStates);
-    new CCollapseTreeUpward (*this, nodeStates);
+    (new CCutTrees (*this, nodeStates))->ToggleSelection();
+    (new CCollapseTreeDownward (*this, nodeStates))->ToggleSelection();
+    (new CCollapseTreeUpward (*this, nodeStates))->ToggleSelection();
 
     // create layout options
 
