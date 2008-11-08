@@ -81,6 +81,7 @@ typedef struct FileStatusCacheEntry
 	svn_revnum_t			rev;
 	int						askedcounter;
 	svn_lock_t *			lock;
+	bool					tree_conflict;
 } FileStatusCacheEntry;
 
 #define SVNFOLDERSTATUS_CACHETIMES				10
