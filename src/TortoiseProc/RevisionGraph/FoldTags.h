@@ -35,6 +35,12 @@ class CFoldTags
                                        , true           // fold branches first
                                        , false>         // from leaves to root
 {
+private:
+
+    // that the line from node downward have any visible copy targets?
+
+    bool CopyTargetsVisibile (const CVisibleGraphNode* node) const;
+
 public:
 
     /// construction

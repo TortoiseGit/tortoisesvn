@@ -20,6 +20,17 @@
 #include "FoldTags.h"
 #include "VisibleGraphNode.h"
 
+// that the line from node downward have any visible copy targets?
+
+bool CFoldTags::CopyTargetsVisibile (const CVisibleGraphNode* node) const
+{
+    for (; node != NULL; node = node->GetNext())
+        if (node->GetFirstCopyTarget() != NULL)
+            return true;
+
+    return false;
+}
+
 // construction
 
 CFoldTags::CFoldTags (CRevisionGraphOptionList& list)
@@ -44,11 +55,28 @@ void CFoldTags::Apply (CVisibleGraph* graph, CVisibleGraphNode* node)
 
     // fold tags at the point of their creation
 
-    if (isTag && (isFinalTag || (node->GetFirstCopyTarget() == NULL)))
+    if (isTag)
+    {
+        // this is a node on some tag but maybe not the creation point
+        // (e.g. if we don't want to fold a tag and that tag gets
+        // modified in several revisions)
+
         if (   (node->GetCopySource() != NULL)
             || (   (node->GetPrevious() != NULL)
                 && classification.Is (CNodeClassification::IS_RENAMED)))
         {
-            node->FoldTag (graph);
+            // this is the point where the tag got created / renamed
+            // (CopyTargetsVisibile can be expensive -> don't do it
+            // in the first "if" condition 4 lines above)
+
+            if (isFinalTag || !CopyTargetsVisibile (node))
+            {
+                // it does not copy to branch etc.
+                // (if it copies to a tag, that one will be folded first
+                // and we will fold this one only in the next iteration)
+
+                node->FoldTag (graph);
+            }
         }
+    }
 }
