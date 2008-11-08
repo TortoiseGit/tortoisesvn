@@ -20,6 +20,7 @@
 #include "Command.h"
 
 #include "MessageBox.h"
+#include "SVN.h"
 
 /**
  * \ingroup TortoiseProc

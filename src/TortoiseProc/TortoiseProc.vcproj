@@ -393,6 +393,14 @@
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;h;hpp;hxx;hm;inl;inc"
 			>
 			<File
+				RelativePath=".\EditPropConflictDlg.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\EditPropConflictDlg.h"
+				>
+			</File>
+			<File
 				RelativePath="..\Utils\ProfilingInfo.cpp"
 				>
 			</File>
@@ -2089,10 +2097,6 @@
 					>
 				</File>
 				<File
-					RelativePath=".\Commands\ConflictEditorCommand.h"
-					>
-				</File>
-				<File
 					RelativePath=".\Commands\CrashCommand.h"
 					>
 				</File>
@@ -3406,6 +3410,18 @@
 				</File>
 				<File
 					RelativePath=".\Commands\PasteMoveCommand.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="ConflictEditor"
+				>
+				<File
+					RelativePath=".\Commands\ConflictEditorCommand.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Commands\ConflictEditorCommand.h"
 					>
 				</File>
 			</Filter>
