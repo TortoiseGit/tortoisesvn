@@ -33,7 +33,7 @@ CCollapseTreeUpward::CCollapseTreeUpward
 
 // implement IModificationOption
 
-void CCollapseTreeUpward::Apply (CVisibleGraph* graph, CVisibleGraphNode* node)
+void CCollapseTreeUpward::Apply (CVisibleGraph* /* graph */, CVisibleGraphNode* node)
 {
     DWORD state = nodeStates->GetFlags (node->GetBase());
 
