@@ -863,8 +863,6 @@ void CRevisionGraphWnd::AddGraphOps (CMenu& popup, const CVisibleGraphNode * nod
         DWORD state = m_nodeStates.GetCombinedFlags();
         if (state != 0)
         {
-            popup.AppendMenu(MF_SEPARATOR, NULL);
-
             if (state & CGraphNodeStates::COLLAPSED_ALL)
             {
                 temp.LoadString (IDS_REVGRAPH_POPUP_EXPAND_ALL);
@@ -1013,7 +1011,8 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
         clickedentry = nodeList->GetNode (nodeIndex).node;
     }
 
-    if (!UpdateSelectedEntry (clickedentry))
+    if (   !UpdateSelectedEntry (clickedentry) 
+        && !m_nodeStates.GetCombinedFlags())
 		return;
 
     CMenu popup;
@@ -1032,21 +1031,23 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		}
 
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
-		if (m_SelectedEntry1 == NULL)
-			return;
 		switch (cmd)
 		{
 		case ID_COMPAREREVS:
-			CompareRevs(false);
+    		if (m_SelectedEntry1 != NULL)
+	    		CompareRevs(false);
 			break;
 		case ID_COMPAREHEADS:
-			CompareRevs(true);
+    		if (m_SelectedEntry1 != NULL)
+    			CompareRevs(true);
 			break;
 		case ID_UNIDIFFREVS:
-			UnifiedDiffRevs(false);
+    		if (m_SelectedEntry1 != NULL)
+    			UnifiedDiffRevs(false);
 			break;
 		case ID_UNIDIFFHEADS:
-			UnifiedDiffRevs(true);
+    		if (m_SelectedEntry1 != NULL)
+    			UnifiedDiffRevs(true);
 			break;
 		case ID_SHOWLOG:
 			DoShowLog();
