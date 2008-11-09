@@ -320,6 +320,175 @@ void CRevisionGraphWnd::DrawShadows (Graphics& graphics, const CRect& logRect, c
     }
 }
 
+void CRevisionGraphWnd::DrawSquare 
+    ( Graphics& graphics
+    , const PointF& leftTop
+    , const Color& lightColor
+    , const Color& darkColor
+    , const Color& penColor)
+{
+    float squareSize = 16 * m_fZoomFactor;
+
+    PointF leftBottom (leftTop.X, leftTop.Y + squareSize);
+    RectF square (leftTop, SizeF (squareSize, squareSize));
+
+    Pen pen (penColor, max (1, 1.5f * m_fZoomFactor));
+    LinearGradientBrush lgBrush (leftTop, leftBottom, lightColor, darkColor);
+    graphics.FillRectangle (&lgBrush, square);
+    graphics.DrawRectangle (&pen, square);
+}
+
+void CRevisionGraphWnd::DrawGlyph 
+    ( Graphics& graphics
+    , const PointF& leftTop
+    , const Color& lightColor
+    , const Color& darkColor
+    , GlyphType glyph)
+{
+    DrawSquare (graphics, leftTop, lightColor, darkColor, 0xFFE0E0E0);
+
+    Pen pen (Color::Black, max (1, 2.5f * m_fZoomFactor));
+    float squareSize = 16 * m_fZoomFactor;
+    switch (glyph)
+    {
+    case ExpandGlyph: // "+"
+        graphics.DrawLine ( &pen
+                          , leftTop.X + 0.2f * squareSize
+                          , leftTop.Y + 0.5f * squareSize
+                          , leftTop.X + 0.8f * squareSize
+                          , leftTop.Y + 0.5f * squareSize);
+        graphics.DrawLine ( &pen
+                          , leftTop.X + 0.5f * squareSize
+                          , leftTop.Y + 0.2f * squareSize
+                          , leftTop.X + 0.5f * squareSize
+                          , leftTop.Y + 0.8f * squareSize);
+        break;
+
+    case CollapseGlyph: // "-"
+        graphics.DrawLine ( &pen
+                          , leftTop.X + 0.2f * squareSize
+                          , leftTop.Y + 0.5f * squareSize
+                          , leftTop.X + 0.8f * squareSize
+                          , leftTop.Y + 0.5f * squareSize);
+        break;
+
+    case CutGlyph: // "x"
+        graphics.DrawLine ( &pen
+                          , leftTop.X + 0.2f * squareSize
+                          , leftTop.Y + 0.2f * squareSize
+                          , leftTop.X + 0.8f * squareSize
+                          , leftTop.Y + 0.8f * squareSize);
+        graphics.DrawLine ( &pen
+                          , leftTop.X + 0.2f * squareSize
+                          , leftTop.Y + 0.8f * squareSize
+                          , leftTop.X + 0.8f * squareSize
+                          , leftTop.Y + 0.2f * squareSize);
+        break;
+
+    case GlueGlyph: // "o"
+        graphics.DrawEllipse ( &pen
+                             , leftTop.X + 0.2f * squareSize
+                             , leftTop.Y + 0.2f * squareSize
+                             , 0.6f * squareSize
+                             , 0.6f * squareSize);
+        break;
+
+    default:
+
+        // NoGlyph
+
+        assert (0);
+    }
+}
+
+void CRevisionGraphWnd::DrawGlyphs
+    ( Graphics& graphics
+    , const PointF& center
+    , GlyphType glyph1
+    , GlyphType glyph2
+    , bool showAll)
+{
+    // don't show collapse and cut glyths by default
+
+    if (!showAll && ((glyph1 == CollapseGlyph) || (glyph1 == CutGlyph)))
+        glyph1 = NoGlyph;
+    if (!showAll && ((glyph2 == CollapseGlyph) || (glyph2 == CutGlyph)))
+        glyph2 = NoGlyph;
+
+    // glyth2 shall be set only if 2 glyphs are in use
+
+    if (glyph1 == NoGlyph)
+        std::swap (glyph1, glyph2);
+
+    // anything to do?
+
+    if (glyph1 == NoGlyph)
+        return;
+
+    // 1 or 2 glyphs?
+
+    Color lightColor (255, 255, 255);
+    Color darkColor (200, 200, 255);
+
+    float squareSize = 16 * m_fZoomFactor;
+    if (glyph2 == NoGlyph)
+    {
+        PointF leftTop (center.X - 0.5f * squareSize, center.Y - 0.5f * squareSize);
+        DrawGlyph (graphics, leftTop, lightColor, darkColor, glyph1);
+    }
+    else
+    {
+        PointF leftTop1 (center.X - squareSize, center.Y - 0.5f * squareSize);
+        DrawGlyph (graphics, leftTop1, lightColor, darkColor, glyph1);
+        PointF leftTop2 (center.X, center.Y - 0.5f * squareSize);
+        DrawGlyph (graphics, leftTop2, lightColor, darkColor, glyph2);
+    }
+}
+
+void CRevisionGraphWnd::DrawGlyphs
+    ( Graphics& graphics
+    , const RectF& nodeRect
+    , DWORD state
+    , bool showAll)
+{
+    // shortcut
+
+    if ((state == 0) && !showAll)
+        return;
+
+    // draw all glyphs
+
+    PointF topCenter (0.5f * nodeRect.GetLeft() + 0.5f * nodeRect.GetRight(), nodeRect.GetTop());
+    DrawGlyphs ( graphics
+               , topCenter
+               , (state & CGraphNodeStates::COLLAPSED_ABOVE) ? ExpandGlyph : CollapseGlyph
+               , (state & CGraphNodeStates::CUT_ABOVE) ? GlueGlyph : CutGlyph
+               , showAll);
+
+    PointF rightCenter (nodeRect.GetRight(), 0.5f * nodeRect.GetTop() + 0.5f * nodeRect.GetBottom());
+    DrawGlyphs ( graphics
+               , rightCenter
+               , (state & CGraphNodeStates::COLLAPSED_RIGHT) ? ExpandGlyph : CollapseGlyph
+               , (state & CGraphNodeStates::CUT_RIGHT) ? GlueGlyph : CutGlyph
+               , showAll);
+
+    PointF bottomCenter (0.5f * nodeRect.GetLeft() + 0.5f * nodeRect.GetRight(), nodeRect.GetBottom());
+    DrawGlyphs ( graphics
+               , bottomCenter
+               , (state & CGraphNodeStates::COLLAPSED_BELOW) ? ExpandGlyph : CollapseGlyph
+               , (state & CGraphNodeStates::CUT_BELOW) ? GlueGlyph : CutGlyph
+               , showAll);
+}
+
+void CRevisionGraphWnd::DrawMarker 
+    ( Graphics& graphics
+    , const PointF& leftTop
+    , const Color& lightColor
+    , const Color& darkColor)
+{
+    DrawSquare (graphics, leftTop, lightColor, darkColor, Color (128, 0, 0, 0));
+}
+
 void CRevisionGraphWnd::DrawNodes (Graphics& graphics, const CRect& logRect, const CSize& offset)
 {
     // iterate over all visible nodes
@@ -384,14 +553,12 @@ void CRevisionGraphWnd::DrawNodes (Graphics& graphics, const CRect& logRect, con
                                    , squareSize / 2);
 
             PointF leftTop (noderect.GetRight() - squareSize * 3 / 2, noderect.Y + squareDist);
-            PointF leftBottom (leftTop.X, leftTop.Y + squareSize);
-            RectF square (leftTop, SizeF (squareSize, squareSize));
-
-            Pen pen (Color(128, 0, 0, 0));
-            LinearGradientBrush lgBrush (leftTop, leftBottom, Color (250, 250, 92), Color (230, 230, 64));
-            graphics.FillRectangle (&lgBrush, square);
-            graphics.DrawRectangle (&pen, square);
+            DrawMarker (graphics, leftTop, Color (250, 250, 92), Color (230, 230, 64));
 		}
+
+        // expansion glypths etc.
+
+        DrawGlyphs (graphics, noderect, m_nodeStates.GetFlags (node.node->GetBase()), false);
     }
 }
 

@@ -173,6 +173,15 @@ protected:
 	DECLARE_MESSAGE_MAP()
 private:
 
+    enum GlyphType
+    {
+        NoGlyph,
+        ExpandGlyph,    // "+"
+        CollapseGlyph,  // "-"
+        CutGlyph,       // "x"
+        GlueGlyph,      // "o"
+    };
+
     typedef bool (SVNDiff::*TDiffFunc)(const CTSVNPath& url1, const SVNRev& rev1, 
 	            					   const CTSVNPath& url2, const SVNRev& rev2, 
 						               SVNRev peg,
@@ -217,6 +226,16 @@ private:
 							 COLORREF contourRef, Color overlayColor,
                              const CVisibleGraphNode *node, NodeShape shape);
     RectF           GetNodeRect (const ILayoutNodeList::SNode& node, const CSize& offset) const;
+
+    void            DrawSquare (Graphics& graphics, const PointF& leftTop, 
+                                const Color& lightColor, const Color& darkColor, const Color& penColor);
+    void            DrawGlyph (Graphics& graphics, const PointF& leftTop,
+                               const Color& lightColor, const Color& darkColor, GlyphType glyph);
+    void            DrawGlyphs (Graphics& graphics, const PointF& center, 
+                                GlyphType glyph1, GlyphType glyph2, bool showAll);
+    void            DrawGlyphs (Graphics& graphics, const RectF& nodeRect, DWORD state, bool showAll);
+    void            DrawMarker (Graphics& graphics, const PointF& leftTop, 
+                                const Color& lightColor, const Color& darkColor);
 
     void            DrawShadows (Graphics& graphics, const CRect& logRect, const CSize& offset);
     void            DrawNodes (Graphics& graphics, const CRect& logRect, const CSize& offset);
