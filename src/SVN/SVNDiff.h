@@ -35,10 +35,7 @@ public:
 	~SVNDiff(void);
 
 	void SetAlternativeTool(bool bAlternativeTool) { m_bAlternativeTool = bAlternativeTool; }
-	/**
-	 * Do the conflict-resolving 3-way merge on the specified file
-	 */
-	static bool StartConflictEditor(const CTSVNPath& conflictedFilePath);
+
 	/**
 	 * Diff a single file against its text-base
 	 * \param filePath The file to diff

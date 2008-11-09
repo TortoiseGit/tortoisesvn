@@ -144,46 +144,6 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
 	}
 }
 
-bool SVNDiff::StartConflictEditor(const CTSVNPath& conflictedFilePath)
-{
-	CTSVNPath merge = conflictedFilePath;
-	CTSVNPath directory = merge.GetDirectory();
-	CTSVNPath theirs(directory);
-	CTSVNPath mine(directory);
-	CTSVNPath base(directory);
-	bool bConflictData = false;
-
-	// we have the conflicted file (%merged)
-	// now look for the other required files
-	SVNStatus stat;
-	stat.GetStatus(merge);
-	if ((stat.status == NULL)||(stat.status->entry == NULL))
-		return false;
-
-	if (stat.status->entry->conflict_new)
-	{
-		theirs.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_new));
-		bConflictData = true;
-	}
-	if (stat.status->entry->conflict_old)
-	{
-		base.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_old));
-		bConflictData = true;
-	}
-	if (stat.status->entry->conflict_wrk)
-	{
-		mine.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_wrk));
-		bConflictData = true;
-	}
-	else
-	{
-		mine = merge;
-	}
-	if (bConflictData)
-		return !!CAppUtils::StartExtMerge(base,theirs,mine,merge);
-	return false;
-}
-
 bool SVNDiff::DiffFileAgainstBase(
 	const CTSVNPath& filePath,
 	svn_revnum_t &baseRev,

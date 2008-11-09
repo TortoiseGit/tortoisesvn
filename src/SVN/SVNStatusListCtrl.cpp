@@ -2360,12 +2360,12 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					}
 				}
 			}
-			if (((wcStatus == svn_wc_status_conflicted)||(entry->isConflicted)))
+			if (((wcStatus == svn_wc_status_conflicted)||(entry->isConflicted)||(entry->tree_conflicted)))
 			{
 				if ((m_dwContextMenus & SVNSLC_POPCONFLICT)||(m_dwContextMenus & SVNSLC_POPRESOLVE))
 					popup.AppendMenu(MF_SEPARATOR);
 
-				if ((m_dwContextMenus & SVNSLC_POPCONFLICT)&&(entry->textstatus == svn_wc_status_conflicted))
+				if ((m_dwContextMenus & SVNSLC_POPCONFLICT)&&((entry->textstatus == svn_wc_status_conflicted)||(entry->tree_conflicted)))
 				{
 					popup.AppendMenuIcon(IDSVNLC_EDITCONFLICT, IDS_MENUCONFLICT, IDI_CONFLICT);
 				}
@@ -2373,7 +2373,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 				{
 					popup.AppendMenuIcon(IDSVNLC_RESOLVECONFLICT, IDS_STATUSLIST_CONTEXT_RESOLVED, IDI_RESOLVE);
 				}
-				if ((m_dwContextMenus & SVNSLC_POPRESOLVE)&&(entry->textstatus == svn_wc_status_conflicted))
+				if ((m_dwContextMenus & SVNSLC_POPRESOLVE)&&((entry->textstatus == svn_wc_status_conflicted)||(entry->tree_conflicted)))
 				{
 					popup.AppendMenuIcon(IDSVNLC_RESOLVETHEIRS, IDS_SVNPROGRESS_MENUUSETHEIRS, IDI_RESOLVE);
 					popup.AppendMenuIcon(IDSVNLC_RESOLVEMINE, IDS_SVNPROGRESS_MENUUSEMINE, IDI_RESOLVE);
@@ -3191,7 +3191,18 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 				}
 				break;
 			case IDSVNLC_EDITCONFLICT:
-				SVNDiff::StartConflictEditor(filepath);
+				{
+					CString sCmd;
+					sCmd.Format(_T("\"%s\" /command:conflicteditor /path:\"%s\""),
+						(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), filepath.GetWinPath());
+					if (!filepath.IsUrl())
+					{
+						sCmd += _T(" /propspath:\"");
+						sCmd += filepath.GetWinPathString();
+						sCmd += _T("\"");
+					}	
+					CAppUtils::LaunchApplication(sCmd, NULL, false);
+				}
 				break;
 			case IDSVNLC_RESOLVECONFLICT:
 			case IDSVNLC_RESOLVEMINE:
@@ -3771,7 +3782,16 @@ void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
 	{
 		if (entry->isConflicted)
 		{
-			SVNDiff::StartConflictEditor(entry->GetPath());
+			CString sCmd;
+			sCmd.Format(_T("\"%s\" /command:conflicteditor /path:\"%s\""),
+				(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), entry->GetPath().GetWinPath());
+			if (!entry->GetPath().IsUrl())
+			{
+				sCmd += _T(" /propspath:\"");
+				sCmd += entry->GetPath().GetWinPathString();
+				sCmd += _T("\"");
+			}	
+			CAppUtils::LaunchApplication(sCmd, NULL, false);
 		}
 		else
 		{

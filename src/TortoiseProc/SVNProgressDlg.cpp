@@ -1127,7 +1127,16 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 	if (data->bConflictedActionItem)
 	{
 		// We've double-clicked on a conflicted item - do a three-way merge on it
-		SVNDiff::StartConflictEditor(data->path);
+		CString sCmd;
+		sCmd.Format(_T("\"%s\" /command:conflicteditor /path:\"%s\""),
+			(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), data->path.GetWinPath());
+		if (!data->path.IsUrl())
+		{
+			sCmd += _T(" /propspath:\"");
+			sCmd += data->path.GetWinPathString();
+			sCmd += _T("\"");
+		}	
+		CAppUtils::LaunchApplication(sCmd, NULL, false);
 	}
 	else if ((data->action == svn_wc_notify_update_update) && ((data->content_state == svn_wc_notify_state_merged)||(SVNProgress_Merge == m_Command)) || (data->action == svn_wc_notify_resolved))
 	{
@@ -1572,7 +1581,10 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 					case ID_EDITCONFLICT:
 						{
 							CString sPath = GetPathFromColumnText(data->sPathColumnText);
-							SVNDiff::StartConflictEditor(CTSVNPath(sPath));
+							CString sCmd;
+							sCmd.Format(_T("\"%s\" /command:conflicteditor /path:\"%s\""),
+								(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), sPath);
+							CAppUtils::LaunchApplication(sCmd, NULL, false);
 						}
 						break;
 					case ID_CONFLICTUSETHEIRS:
