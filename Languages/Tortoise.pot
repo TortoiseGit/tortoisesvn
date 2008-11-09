@@ -2866,6 +2866,10 @@ msgstr ""
 msgid "Edit Property Conflict"
 msgstr ""
 
+#. Resource IDs: (298)
+msgid "Edit Tree Conflicts"
+msgstr ""
+
 #. Resource IDs: (113)
 msgid "Edit author"
 msgstr ""
@@ -3595,6 +3599,10 @@ msgid "Hostname mismatch (%s)"
 msgstr ""
 
 #. Resource IDs: (65535)
+msgid "How do you want to resolve this conflict?"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "I&nclude paths:"
 msgstr ""
 
@@ -3989,6 +3997,16 @@ msgstr ""
 
 #. Resource IDs: (1126)
 msgid "Keep changelists"
+msgstr ""
+
+#. Resource IDs: (609)
+#, c-format
+msgid "Keep the %s from the repository"
+msgstr ""
+
+#. Resource IDs: (609)
+#, c-format
+msgid "Keep the local %s"
 msgstr ""
 
 #. Resource IDs: (16136)
@@ -5398,6 +5416,11 @@ msgstr ""
 msgid "Remove property '%s' from\r\n%s"
 msgstr ""
 
+#. Resource IDs: (609)
+#, c-format
+msgid "Remove the %s"
+msgstr ""
+
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
 msgstr ""
@@ -6677,6 +6700,36 @@ msgstr ""
 msgid "The item '%s' has property conflicts:"
 msgstr ""
 
+#. Resource IDs: (609)
+#, c-format
+msgid "The last %s operation tried to %s the %s '%s', but it already exists unversioned locally."
+msgstr ""
+
+#. Resource IDs: (609)
+#, c-format
+msgid "The last %s operation tried to %s the %s '%s', but it is missing locally."
+msgstr ""
+
+#. Resource IDs: (609)
+#, c-format
+msgid "The last %s operation tried to %s the %s '%s', but it was already added locally."
+msgstr ""
+
+#. Resource IDs: (609)
+#, c-format
+msgid "The last %s operation tried to %s the %s '%s', but it was deleted locally."
+msgstr ""
+
+#. Resource IDs: (609)
+#, c-format
+msgid "The last %s operation tried to %s the %s '%s', but it was obstructed in the working copy."
+msgstr ""
+
+#. Resource IDs: (609)
+#, c-format
+msgid "The last %s operation tried to %s the %s '%s', but the local file was already edited."
+msgstr ""
+
 #. Resource IDs: (63)
 #, c-format
 msgid "The line '====' was expected in line %d !"
@@ -7680,6 +7733,10 @@ msgstr ""
 msgid "_POPUP_"
 msgstr ""
 
+#. Resource IDs: (608)
+msgid "add"
+msgstr ""
+
 #. Resource IDs: (10)
 msgid "added"
 msgstr ""
@@ -7785,8 +7842,16 @@ msgstr ""
 msgid "copied:"
 msgstr ""
 
+#. Resource IDs: (608)
+msgid "delete"
+msgstr ""
+
 #. Resource IDs: (10, 272)
 msgid "deleted"
+msgstr ""
+
+#. Resource IDs: (607)
+msgid "directory"
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -7808,6 +7873,10 @@ msgstr ""
 
 #. Resource IDs: (13)
 msgid "external"
+msgstr ""
+
+#. Resource IDs: (607)
+msgid "file"
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -7870,6 +7939,10 @@ msgstr ""
 msgid "max revision: "
 msgstr ""
 
+#. Resource IDs: (608)
+msgid "merge"
+msgstr ""
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr ""
@@ -7896,6 +7969,10 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "modified / copied"
+msgstr ""
+
+#. Resource IDs: (608)
+msgid "modify"
 msgstr ""
 
 #. Resource IDs: (245)
@@ -8042,6 +8119,10 @@ msgstr ""
 msgid "svn:needs-lock\r\nSet this to any value (e.g. '*') to enforce locking for this file.\r\nThe file will be set to read-only when checked out or updated,\r\nindicating that a user must acquire a lock on the file\r\nbefore they can edit it and commit changes."
 msgstr ""
 
+#. Resource IDs: (607)
+msgid "switch"
+msgstr ""
+
 #. Resource IDs: (208)
 #, c-format
 msgid "switched to\r\n%s"
@@ -8123,6 +8204,10 @@ msgstr ""
 
 #. Resource IDs: (577)
 msgid "tsvn:warnifnoissue\r\nSet to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
+msgstr ""
+
+#. Resource IDs: (607)
+msgid "update"
 msgstr ""
 
 #. Resource IDs: (65535)
