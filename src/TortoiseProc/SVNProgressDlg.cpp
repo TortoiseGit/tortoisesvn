@@ -469,6 +469,8 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 	case svn_wc_notify_tree_conflict:
 		data->sActionColumnText.LoadString(IDS_SVNACTION_TREECONFLICTED);
 		data->color = m_Colors.GetColor(CColors::Conflict);
+		data->bConflictedActionItem = true;
+		m_nConflicts++;
 		break;
 	default:
 		break;
