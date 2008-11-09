@@ -52,11 +52,11 @@ void CStandardNodeSizeAssignment::ApplyTo (IRevisionGraphLayout* layout)
                             || (   node->previousInBranch->node->GetPath() 
                                 != node->node->GetPath());
 
-        int hight = 28;
+        int height = 28;
         if (node->requiresPath)
-            hight += 3 + node->node->GetPath().GetDepth() * 21;
+            height += 3 + node->node->GetPath().GetDepth() * 21;
 
-        node->requiredSize = CSize (200, hight);
-        node->rect = CRect (0, 0, 200, hight);
+        node->requiredSize = CSize (200, height);
+        node->rect = CRect (0, 0, 200, height);
     }
 }
