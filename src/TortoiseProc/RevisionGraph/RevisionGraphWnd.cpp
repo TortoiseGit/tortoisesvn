@@ -77,6 +77,7 @@ CRevisionGraphWnd::CRevisionGraphWnd()
 	, m_ptRubberStart(0,0)
 	, m_bShowOverview(false)
     , m_parent (NULL)
+    , m_hoverIndex ((index_t)NO_INDEX)
 {
 	memset(&m_lfBaseFont, 0, sizeof(LOGFONT));	
 	for (int i=0; i<MAXFONTS; i++)
@@ -884,7 +885,7 @@ void CRevisionGraphWnd::AddGraphOps (CMenu& popup, const CVisibleGraphNode * nod
         const CFullGraphNode* base = node->GetBase();
         DWORD state = m_nodeStates.GetFlags (base);
 
-        if (node->GetPrevious() || node->GetCopySource())
+        if (node->GetPrevious() || node->GetCopySource() || (state & CGraphNodeStates::COLLAPSED_ABOVE))
         {
             temp.LoadString ((state & CGraphNodeStates::COLLAPSED_ABOVE) 
                              ? IDS_REVGRAPH_POPUP_EXPAND_ABOVE 
@@ -892,7 +893,7 @@ void CRevisionGraphWnd::AddGraphOps (CMenu& popup, const CVisibleGraphNode * nod
             popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_EXPANDCOLLAPSE_ABOVE, temp);
         }
 
-        if (node->GetFirstCopyTarget())
+        if (node->GetFirstCopyTarget() || (state & CGraphNodeStates::COLLAPSED_RIGHT))
         {
             temp.LoadString ((state & CGraphNodeStates::COLLAPSED_RIGHT) 
                              ? IDS_REVGRAPH_POPUP_EXPAND_RIGHT 
@@ -900,7 +901,7 @@ void CRevisionGraphWnd::AddGraphOps (CMenu& popup, const CVisibleGraphNode * nod
             popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_EXPANDCOLLAPSE_RIGHT, temp);
         }
 
-        if (node->GetNext())
+        if (node->GetNext() || (state & CGraphNodeStates::COLLAPSED_BELOW))
         {
             temp.LoadString ((state & CGraphNodeStates::COLLAPSED_BELOW) 
                              ? IDS_REVGRAPH_POPUP_EXPAND_BELOW 
@@ -908,7 +909,7 @@ void CRevisionGraphWnd::AddGraphOps (CMenu& popup, const CVisibleGraphNode * nod
             popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_EXPANDCOLLAPSE_BELOW, temp);
         }
 
-        if (node->GetPrevious() || base->GetCopySource())
+        if (node->GetPrevious() || base->GetCopySource() || (state & CGraphNodeStates::CUT_ABOVE))
         {
             temp.LoadString ((state & CGraphNodeStates::CUT_ABOVE) 
                              ? IDS_REVGRAPH_POPUP_GLUE_ABOVE 
@@ -916,7 +917,7 @@ void CRevisionGraphWnd::AddGraphOps (CMenu& popup, const CVisibleGraphNode * nod
             popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_CUTGLUE_ABOVE, temp);
         }
 
-        if (node->GetFirstCopyTarget())
+        if (node->GetFirstCopyTarget() || (state & CGraphNodeStates::CUT_RIGHT))
         {
             temp.LoadString ((state & CGraphNodeStates::CUT_RIGHT) 
                              ? IDS_REVGRAPH_POPUP_GLUE_RIGHT 
@@ -924,7 +925,7 @@ void CRevisionGraphWnd::AddGraphOps (CMenu& popup, const CVisibleGraphNode * nod
             popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_CUTGLUE_RIGHT, temp);
         }
 
-        if (node->GetNext())
+        if (node->GetNext() || (state & CGraphNodeStates::CUT_BELOW))
         {
             temp.LoadString ((state & CGraphNodeStates::CUT_BELOW) 
                              ? IDS_REVGRAPH_POPUP_GLUE_BELOW 
@@ -1100,7 +1101,19 @@ void CRevisionGraphWnd::OnMouseMove(UINT nFlags, CPoint point)
 			return __super::OnMouseMove(nFlags, point);
 		}
 		else
+        {
+            // update screen if we hover over a different
+            // node than during the last redraw
+
+            CPoint clientPoint = point;
+            GetCursorPos (&clientPoint);
+            ScreenToClient (&clientPoint);
+
+            if (m_hoverIndex != GetHitNode (clientPoint))
+    			Invalidate(FALSE);
+
 			return __super::OnMouseMove(nFlags, point);
+        }
 	}
 
 	if ((abs(m_ptRubberStart.x - point.x) < 2)&&(abs(m_ptRubberStart.y - point.y) < 2))

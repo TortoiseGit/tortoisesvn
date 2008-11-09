@@ -153,6 +153,8 @@ protected:
 	int				m_previewWidth;
 	int				m_previewHeight;
     float           m_previewZoom;
+
+    index_t         m_hoverIndex;   // node the cursor currently hovers over
 	
 	virtual void	DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	afx_msg void	OnPaint();
@@ -233,7 +235,7 @@ private:
                                const Color& lightColor, const Color& darkColor, GlyphType glyph);
     void            DrawGlyphs (Graphics& graphics, const PointF& center, 
                                 GlyphType glyph1, GlyphType glyph2, bool showAll);
-    void            DrawGlyphs (Graphics& graphics, const RectF& nodeRect, DWORD state, bool showAll);
+    void            DrawGlyphs (Graphics& graphics, const RectF& nodeRect, DWORD state, DWORD allowed);
     void            DrawMarker (Graphics& graphics, const PointF& leftTop, 
                                 const Color& lightColor, const Color& darkColor);
 
@@ -241,6 +243,7 @@ private:
     void            DrawNodes (Graphics& graphics, const CRect& logRect, const CSize& offset);
     void            DrawConnections (CDC* pDC, const CRect& logRect, const CSize& offset);
     void            DrawTexts (CDC* pDC, const CRect& logRect, const CSize& offset);
+    void            DrawCurrentNodeGlyphs (Graphics& graphics, const CSize& offset);
     void			DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos, bool bDirectDraw);
 
 	int				GetEncoderClsid(const WCHAR* format, CLSID* pClsid);

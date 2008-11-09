@@ -449,11 +449,11 @@ void CRevisionGraphWnd::DrawGlyphs
     ( Graphics& graphics
     , const RectF& nodeRect
     , DWORD state
-    , bool showAll)
+    , DWORD allowed)
 {
     // shortcut
 
-    if ((state == 0) && !showAll)
+    if ((state == 0) && (allowed == 0))
         return;
 
     // draw all glyphs
@@ -463,21 +463,21 @@ void CRevisionGraphWnd::DrawGlyphs
                , topCenter
                , (state & CGraphNodeStates::COLLAPSED_ABOVE) ? ExpandGlyph : CollapseGlyph
                , (state & CGraphNodeStates::CUT_ABOVE) ? GlueGlyph : CutGlyph
-               , showAll);
+               , (allowed & CGraphNodeStates::COLLAPSED_ABOVE) != 0);
 
     PointF rightCenter (nodeRect.GetRight(), 0.5f * nodeRect.GetTop() + 0.5f * nodeRect.GetBottom());
     DrawGlyphs ( graphics
                , rightCenter
                , (state & CGraphNodeStates::COLLAPSED_RIGHT) ? ExpandGlyph : CollapseGlyph
                , (state & CGraphNodeStates::CUT_RIGHT) ? GlueGlyph : CutGlyph
-               , showAll);
+               , (allowed & CGraphNodeStates::COLLAPSED_RIGHT) != 0);
 
     PointF bottomCenter (0.5f * nodeRect.GetLeft() + 0.5f * nodeRect.GetRight(), nodeRect.GetBottom());
     DrawGlyphs ( graphics
                , bottomCenter
                , (state & CGraphNodeStates::COLLAPSED_BELOW) ? ExpandGlyph : CollapseGlyph
                , (state & CGraphNodeStates::CUT_BELOW) ? GlueGlyph : CutGlyph
-               , showAll);
+               , (allowed & CGraphNodeStates::COLLAPSED_BELOW) != 0);
 }
 
 void CRevisionGraphWnd::DrawMarker 
@@ -558,7 +558,7 @@ void CRevisionGraphWnd::DrawNodes (Graphics& graphics, const CRect& logRect, con
 
         // expansion glypths etc.
 
-        DrawGlyphs (graphics, noderect, m_nodeStates.GetFlags (node.node->GetBase()), false);
+        DrawGlyphs (graphics, noderect, m_nodeStates.GetFlags (node.node->GetBase()), 0);
     }
 }
 
@@ -629,6 +629,34 @@ void CRevisionGraphWnd::DrawTexts (CDC* pDC, const CRect& logRect, const CSize& 
     }
 }
 
+void CRevisionGraphWnd::DrawCurrentNodeGlyphs (Graphics& graphics, const CSize& offset)
+{
+    // expansion glypths etc.
+
+    CPoint point;
+    GetCursorPos (&point);
+    ScreenToClient (&point);
+
+    m_hoverIndex = GetHitNode (point);
+    if (m_hoverIndex != NO_INDEX)
+    {
+        std::auto_ptr<const ILayoutNodeList> nodeList (m_layout->GetNodes());
+        ILayoutNodeList::SNode node = nodeList->GetNode (m_hoverIndex);
+        RectF noderect (GetNodeRect (node, offset));
+
+        DWORD flags = m_nodeStates.GetFlags (node.node->GetBase());
+        DWORD allowed = 0;
+        if (node.node->GetPrevious() || node.node->GetCopySource())
+            allowed |= CGraphNodeStates::COLLAPSED_ABOVE;
+        if (node.node->GetFirstCopyTarget())
+            allowed |= CGraphNodeStates::COLLAPSED_RIGHT;
+        if (node.node->GetNext())
+            allowed |= CGraphNodeStates::COLLAPSED_BELOW;
+
+        DrawGlyphs (graphics, noderect, flags, allowed);
+    }
+}
+
 void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos, bool bDirectDraw)
 {
 	CDC * memDC = bDirectDraw
@@ -657,8 +685,9 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
     DrawNodes (graphics, logRect, offset);
     DrawConnections (memDC, logRect, offset);
     DrawTexts (memDC, logRect, offset);
+    DrawCurrentNodeGlyphs (graphics, offset);
 
-	// find out which nodes are in the visible area of the client rect
+    // find out which nodes are in the visible area of the client rect
 
 	if ((!bDirectDraw)&&(m_Preview.GetSafeHandle())&&(m_bShowOverview))
 	{
