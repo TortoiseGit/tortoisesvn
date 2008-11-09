@@ -884,7 +884,7 @@ void CRevisionGraphWnd::AddGraphOps (CMenu& popup, const CVisibleGraphNode * nod
         const CFullGraphNode* base = node->GetBase();
         DWORD state = m_nodeStates.GetFlags (base);
 
-        if (base->GetPrevious() || base->GetCopySource())
+        if (node->GetPrevious() || node->GetCopySource())
         {
             temp.LoadString ((state & CGraphNodeStates::COLLAPSED_ABOVE) 
                              ? IDS_REVGRAPH_POPUP_EXPAND_ABOVE 
@@ -892,7 +892,7 @@ void CRevisionGraphWnd::AddGraphOps (CMenu& popup, const CVisibleGraphNode * nod
             popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_EXPANDCOLLAPSE_ABOVE, temp);
         }
 
-        if (base->GetFirstCopyTarget())
+        if (node->GetFirstCopyTarget())
         {
             temp.LoadString ((state & CGraphNodeStates::COLLAPSED_RIGHT) 
                              ? IDS_REVGRAPH_POPUP_EXPAND_RIGHT 
@@ -900,7 +900,7 @@ void CRevisionGraphWnd::AddGraphOps (CMenu& popup, const CVisibleGraphNode * nod
             popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_EXPANDCOLLAPSE_RIGHT, temp);
         }
 
-        if (base->GetNext())
+        if (node->GetNext())
         {
             temp.LoadString ((state & CGraphNodeStates::COLLAPSED_BELOW) 
                              ? IDS_REVGRAPH_POPUP_EXPAND_BELOW 
@@ -908,9 +908,7 @@ void CRevisionGraphWnd::AddGraphOps (CMenu& popup, const CVisibleGraphNode * nod
             popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_EXPANDCOLLAPSE_BELOW, temp);
         }
 
-        popup.AppendMenu(MF_SEPARATOR, NULL);
-
-        if (base->GetPrevious() || base->GetCopySource())
+        if (node->GetPrevious() || base->GetCopySource())
         {
             temp.LoadString ((state & CGraphNodeStates::CUT_ABOVE) 
                              ? IDS_REVGRAPH_POPUP_GLUE_ABOVE 
@@ -918,7 +916,7 @@ void CRevisionGraphWnd::AddGraphOps (CMenu& popup, const CVisibleGraphNode * nod
             popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_CUTGLUE_ABOVE, temp);
         }
 
-        if (base->GetFirstCopyTarget())
+        if (node->GetFirstCopyTarget())
         {
             temp.LoadString ((state & CGraphNodeStates::CUT_RIGHT) 
                              ? IDS_REVGRAPH_POPUP_GLUE_RIGHT 
@@ -926,7 +924,7 @@ void CRevisionGraphWnd::AddGraphOps (CMenu& popup, const CVisibleGraphNode * nod
             popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_CUTGLUE_RIGHT, temp);
         }
 
-        if (base->GetNext())
+        if (node->GetNext())
         {
             temp.LoadString ((state & CGraphNodeStates::CUT_BELOW) 
                              ? IDS_REVGRAPH_POPUP_GLUE_BELOW 
