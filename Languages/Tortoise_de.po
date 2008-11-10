@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-06 10:41+0100\n"
+"PO-Revision-Date: 2008-11-10 10:09+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -561,6 +561,16 @@ msgstr "&Von AK in URL:"
 msgid "&From revision"
 msgstr "&Von Revision:"
 
+#. Resource IDs: (275)
+#, fuzzy
+msgid "&Glue all"
+msgstr "&Alle verkleinern"
+
+#. Resource IDs: (275)
+#, fuzzy
+msgid "&Glue sub-trees"
+msgstr "Zusammenführen zweier Bäume"
+
 #. Resource IDs: (32779)
 msgid "&Go To Line..."
 msgstr "&Gehe zu Zeile..."
@@ -669,6 +679,11 @@ msgstr "&Laden..."
 #. Resource IDs: (65535)
 msgid "&Lum:"
 msgstr "&Hell:"
+
+#. Resource IDs: (1282)
+#, fuzzy
+msgid "&Manually edit property"
+msgstr "Revisionseigenschaft (revprop)"
 
 #. Resource IDs: (1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
@@ -854,6 +869,10 @@ msgstr "&Meine Verwendungsdaten zurücksetzen"
 #. Resource IDs: (16910)
 msgid "&Reset to Default"
 msgstr "&Auf Standardwerte setzen"
+
+#. Resource IDs: (1382)
+msgid "&Resolve using local property"
+msgstr "&Mit der lokalen Eigenschaft auflösen"
 
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
@@ -1824,6 +1843,11 @@ msgstr "&Jetzt prüfen"
 msgid "C&heck repository"
 msgstr "&Projektarchiv prüfen"
 
+#. Resource IDs: (275)
+#, fuzzy
+msgid "C&ollapse sub-trees"
+msgstr "Zusammenführen zweier Bäume"
+
 #. Resource IDs: (65535)
 msgid "C&ommands:"
 msgstr "B&efehle:"
@@ -2182,6 +2206,15 @@ msgstr "Manuell"
 #. Resource IDs: (3825)
 msgid "Close the active window and prompts to save the documents"
 msgstr "Schließt das aktive Fenster und fragt nach, ob die Daten gespeichert werden sollen"
+
+#. Resource IDs: (275)
+msgid "Coll&apse source tree"
+msgstr ""
+
+#. Resource IDs: (275)
+#, fuzzy
+msgid "Collapse &following tree"
+msgstr "Der Assistent - Zusammenführen von Bäumen"
 
 #. Resource IDs: (16662)
 msgid "Color"
@@ -2735,6 +2768,11 @@ msgstr "Danksagung:"
 msgid "Cu&t"
 msgstr "A&usschneiden"
 
+#. Resource IDs: (275)
+#, fuzzy
+msgid "Cu&t sub-trees"
+msgstr "Zusammenführen zweier Bäume"
+
 #. Resource IDs: (65535)
 msgid "Current"
 msgstr "Aktuell"
@@ -2771,6 +2809,15 @@ msgstr "Schnellzugriffsleiste anpassen"
 #. Resource IDs: (1068)
 msgid "Customize Quick Access Toolbar..."
 msgstr "Schnellzugriffsleiste anpassen..."
+
+#. Resource IDs: (275)
+#, fuzzy
+msgid "Cut following &tree"
+msgstr "Der Assistent - Zusammenführen von Bäumen"
+
+#. Resource IDs: (275)
+msgid "Cut from &source tree"
+msgstr ""
 
 #. Resource IDs: (3603)
 msgid ""
@@ -3073,6 +3120,14 @@ msgstr "Pfade &ausschließen:"
 msgid "E&xit"
 msgstr "&Beenden"
 
+#. Resource IDs: (275)
+msgid "E&xpand all"
+msgstr "Alle e&xpandieren"
+
+#. Resource IDs: (275)
+msgid "E&xpand sub-trees"
+msgstr "&Teilbäume expandieren"
+
 #. Resource IDs: (1437)
 msgid "E&xport"
 msgstr "E&xport"
@@ -3096,6 +3151,14 @@ msgstr "Schaltfächenbild ändern"
 #. Resource IDs: (227, 564)
 msgid "Edit Properties"
 msgstr "Eigenschaften bearbeiten"
+
+#. Resource IDs: (297)
+msgid "Edit Property Conflict"
+msgstr "Eigenschaftskonflikte bearbeiten"
+
+#. Resource IDs: (298)
+msgid "Edit Tree Conflicts"
+msgstr "Baumkonflikte bearbeiten"
 
 #. Resource IDs: (113)
 msgid "Edit author"
@@ -3335,6 +3398,14 @@ msgstr "Ausführbar (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pd
 #. Resource IDs: (1002)
 msgid "Existing"
 msgstr "Vorhanden"
+
+#. Resource IDs: (275)
+msgid "Exp&and source tree"
+msgstr ""
+
+#. Resource IDs: (275)
+msgid "Expand &following tree"
+msgstr "Den &folgenden Baum expandieren"
 
 #. Resource IDs: (1002)
 #, c-format
@@ -3725,6 +3796,10 @@ msgstr "Vollbild"
 msgid "Fully recursive"
 msgstr "Vollständig rekursiv"
 
+#. Resource IDs: (275)
+msgid "G&lue to source tree"
+msgstr ""
+
 #. Resource IDs: (273)
 msgid "GDI+ couldn't be initialized!"
 msgstr "GDI+ konnte nicht initialisiert werden!"
@@ -3836,6 +3911,11 @@ msgstr "Globale &Ignoriermuster:"
 #. Resource IDs: (65535)
 msgid "Global settings"
 msgstr "Allgemein"
+
+#. Resource IDs: (275)
+#, fuzzy
+msgid "Glue following &tree"
+msgstr "Der Assistent - Zusammenführen von Bäumen"
 
 #. Resource IDs: (280)
 msgid "Go offline?"
@@ -3978,6 +4058,10 @@ msgstr "Aktionstyp:"
 #, c-format
 msgid "Hostname mismatch (%s)"
 msgstr "Servernamen stimmen nicht überein (%s)"
+
+#. Resource IDs: (65535)
+msgid "How do you want to resolve this conflict?"
+msgstr "Wie wollen Sie den Konflikt auflösen?"
 
 #. Resource IDs: (65535)
 msgid "I&nclude paths:"
@@ -4595,6 +4679,16 @@ msgstr "Sperren &behalten"
 #. Resource IDs: (1126)
 msgid "Keep changelists"
 msgstr "Änderungsliste beibehalten"
+
+#. Resource IDs: (609)
+#, fuzzy, c-format
+msgid "Keep the %s from the repository"
+msgstr "Vom Projektarchiv abkoppeln"
+
+#. Resource IDs: (609)
+#, fuzzy, c-format
+msgid "Keep the local %s"
+msgstr "Lokale Änderungen"
 
 #. Resource IDs: (16136)
 msgid "Keyboard"
@@ -6177,6 +6271,11 @@ msgstr ""
 "Entferne Eigenschaft '%s' von\r\n"
 "%s"
 
+#. Resource IDs: (609)
+#, fuzzy, c-format
+msgid "Remove the %s"
+msgstr "Ent&fernen"
+
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
 msgstr "Löscht die markierten Puffer von der Festplatte"
@@ -7639,6 +7738,41 @@ msgstr "Der COM-Anbieter für das Fehlerverfolgungssystem konnte nicht angelegt 
 msgid "The issue-tracker provider was unable to validate the parameter string"
 msgstr "Der COM-Anbieter für das Fehlerverfolgungssystem konnte die Parameter nicht validierenn"
 
+#. Resource IDs: (597)
+#, c-format
+msgid "The item '%s' has property conflicts:"
+msgstr ""
+
+#. Resource IDs: (609)
+#, c-format
+msgid "The last %s operation tried to %s the %s '%s', but it already exists unversioned locally."
+msgstr ""
+
+#. Resource IDs: (609)
+#, c-format
+msgid "The last %s operation tried to %s the %s '%s', but it is missing locally."
+msgstr ""
+
+#. Resource IDs: (609)
+#, c-format
+msgid "The last %s operation tried to %s the %s '%s', but it was already added locally."
+msgstr ""
+
+#. Resource IDs: (609)
+#, c-format
+msgid "The last %s operation tried to %s the %s '%s', but it was deleted locally."
+msgstr ""
+
+#. Resource IDs: (609)
+#, c-format
+msgid "The last %s operation tried to %s the %s '%s', but it was obstructed in the working copy."
+msgstr ""
+
+#. Resource IDs: (609)
+#, c-format
+msgid "The last %s operation tried to %s the %s '%s', but the local file was already edited."
+msgstr ""
+
 #. Resource IDs: (63)
 #, c-format
 msgid "The line '====' was expected in line %d !"
@@ -8208,6 +8342,10 @@ msgstr "Übertragung bei %s"
 #. Resource IDs: (32816)
 msgid "Transparent &color..."
 msgstr "&Transparente Farbe..."
+
+#. Resource IDs: (264)
+msgid "Tree conflict"
+msgstr "Baumkonflikt"
 
 #. Resource IDs: (595)
 msgid "Tree merge"
@@ -9068,6 +9206,11 @@ msgstr "[nicht zugewiesen]"
 msgid "_POPUP_"
 msgstr "_POPUP_"
 
+#. Resource IDs: (608)
+#, fuzzy
+msgid "add"
+msgstr "hinzufügen"
+
 #. Resource IDs: (10)
 msgid "added"
 msgstr "Hinzugefügt"
@@ -9226,9 +9369,19 @@ msgstr ""
 msgid "copied:"
 msgstr "kopiert:"
 
+#. Resource IDs: (608)
+#, fuzzy
+msgid "delete"
+msgstr "Löschen"
+
 #. Resource IDs: (10, 272)
 msgid "deleted"
 msgstr "Gelöscht"
+
+#. Resource IDs: (607)
+#, fuzzy
+msgid "directory"
+msgstr "Zielverzeichnis:"
 
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
@@ -9257,6 +9410,11 @@ msgstr ""
 #. Resource IDs: (13)
 msgid "external"
 msgstr "Extern"
+
+#. Resource IDs: (607)
+#, fuzzy
+msgid "file"
+msgstr "&Datei"
 
 #. Resource IDs: (65535)
 msgid "file external:"
@@ -9318,6 +9476,11 @@ msgstr "gesperrt:"
 msgid "max revision: "
 msgstr "Max Revision: "
 
+#. Resource IDs: (608)
+#, fuzzy
+msgid "merge"
+msgstr "Merge"
+
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "Zusammengeführt"
@@ -9345,6 +9508,11 @@ msgstr "Verändert"
 #. Resource IDs: (65535)
 msgid "modified / copied"
 msgstr "Verändert / kopiert"
+
+#. Resource IDs: (608)
+#, fuzzy
+msgid "modify"
+msgstr "Verändert"
 
 #. Resource IDs: (245)
 msgid "month"
@@ -9573,6 +9741,11 @@ msgstr ""
 "Dies zeigt anderen Anwendern, dass sie die Datei sperren müssen, bevor sie\r\n"
 "bearbeitet oder übertragen werden kann."
 
+#. Resource IDs: (607)
+#, fuzzy
+msgid "switch"
+msgstr "switch"
+
 #. Resource IDs: (208)
 #, c-format
 msgid ""
@@ -9721,6 +9894,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\r\n"
 "Auf 'yes' setzen, wenn eine Warnung ausgegeben werden soll, falls keine Bug-ID im Übertragen-Dialog eingegeben wird."
+
+#. Resource IDs: (607)
+#, fuzzy
+msgid "update"
+msgstr "aktualisieren"
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
