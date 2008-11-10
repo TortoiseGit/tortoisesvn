@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2008-05-24 00:14 +0000\n"
-"PO-Revision-Date: 2008-06-10 07:31+0900\n"
+"POT-Creation-Date: 2008-07-20 22:21 +0000\n"
+"PO-Revision-Date: 2008-11-09 01:17+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1293,7 +1293,7 @@ msgstr "ブランチ"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1402
-msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bugfixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
+msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bug fixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
 msgstr "ある点で開発が2つの独立したパスに分岐したことをと表す、リビジョン管理システムの用語です。メインラインを不安定にせずに新機能の開発を行うように、メインの開発ラインからブランチを作成できます。また、今後バグフィックスしか行わない安定版リリースのブランチを作成し、新機能の開発は不安定なトランクで行えます。Subversion のブランチは、<quote>チープコピー</quote> として実装されています。"
 
 #. (glossterm)
@@ -1353,7 +1353,7 @@ msgstr "削除"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1477
-msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the commited revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
+msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the committed revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
 msgstr "バージョン管理下のファイルを削除 (してコミット) すると、リポジトリ内のそのコミットを行ったバージョン以降に、その項目はもう存在しなくなります。しかしもちろん、それ以前のリポジトリのリビジョンには、まだ存在していますから、まだそれにアクセスできます。必要なら削除した項目をコピーし、履歴を含め完全に<quote>復活</quote> できます。"
 
 #. (glossterm)
@@ -1383,8 +1383,8 @@ msgstr "FSFS"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1508
-msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
-msgstr "FS ファイルシステム。リポジトリ用の Subversion が持つファイルシステムバックエンド。ネットワーク共有が可能。1.2 以降のリポジトリのデフォルト。"
+msgid "A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
+msgstr "リポジトリ用の Subversion が持つファイルシステムバックエンド。ネットワーク共有が可能。1.2 以降のリポジトリのデフォルト。"
 
 #. (glossterm)
 #: ../source/TortoiseMerge_en.xml:1515
@@ -1423,8 +1423,8 @@ msgstr "ロック"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1542
-msgid "When you take out a lock on a versioned item, you mark it in the repository as uncommittable, except from the working copy where the lock was taken out."
-msgstr "バージョン管理下の項目のロックを取得すると、その作業コピーを除き、ロックが外れるまでリポジトリにコミット禁止の印を付けます。"
+msgid "When you take out a lock on a versioned item, you mark it in the repository as non-committable, except from the working copy where the lock was taken out."
+msgstr "バージョン管理下の項目のロックを取得すると、その作業コピーを除き、ロックが外れるまでリポジトリにコミット不可の印を付けます。"
 
 #. (glossterm)
 #: ../source/TortoiseMerge_en.xml:1550
