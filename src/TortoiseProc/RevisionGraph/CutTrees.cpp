@@ -43,19 +43,19 @@ void CCutTrees::Apply (CVisibleGraph* graph, CVisibleGraphNode* node)
 
     // cut at this tree node, if requested by the node state
 
-    if (state & CGraphNodeStates::CUT_ABOVE)
+    if (state & CGraphNodeStates::SPLIT_ABOVE)
     {
         node->MakeRoot (graph, false);
     }
 
-    if (state & CGraphNodeStates::CUT_BELOW)
+    if (state & CGraphNodeStates::SPLIT_BELOW)
     {
         CVisibleGraphNode* next = node->GetNext();
         if (next)
             next->MakeRoot (graph, false);
     }
 
-    if (state & CGraphNodeStates::CUT_RIGHT)
+    if (state & CGraphNodeStates::SPLIT_RIGHT)
     {
         while (node->GetFirstCopyTarget() != NULL)
             node->GetFirstCopyTarget()->value()->MakeRoot (graph, false);

@@ -372,7 +372,7 @@ void CRevisionGraphWnd::DrawGlyph
                           , leftTop.Y + 0.5f * squareSize);
         break;
 
-    case CutGlyph: // "x"
+    case SplitGlyph: // "x"
         graphics.DrawLine ( &pen
                           , leftTop.X + 0.2f * squareSize
                           , leftTop.Y + 0.2f * squareSize
@@ -385,7 +385,7 @@ void CRevisionGraphWnd::DrawGlyph
                           , leftTop.Y + 0.2f * squareSize);
         break;
 
-    case GlueGlyph: // "o"
+    case JoinGlyph: // "o"
         graphics.DrawEllipse ( &pen
                              , leftTop.X + 0.2f * squareSize
                              , leftTop.Y + 0.2f * squareSize
@@ -410,9 +410,9 @@ void CRevisionGraphWnd::DrawGlyphs
 {
     // don't show collapse and cut glyths by default
 
-    if (!showAll && ((glyph1 == CollapseGlyph) || (glyph1 == CutGlyph)))
+    if (!showAll && ((glyph1 == CollapseGlyph) || (glyph1 == SplitGlyph)))
         glyph1 = NoGlyph;
-    if (!showAll && ((glyph2 == CollapseGlyph) || (glyph2 == CutGlyph)))
+    if (!showAll && ((glyph2 == CollapseGlyph) || (glyph2 == SplitGlyph)))
         glyph2 = NoGlyph;
 
     // glyth2 shall be set only if 2 glyphs are in use
@@ -462,21 +462,21 @@ void CRevisionGraphWnd::DrawGlyphs
     DrawGlyphs ( graphics
                , topCenter
                , (state & CGraphNodeStates::COLLAPSED_ABOVE) ? ExpandGlyph : CollapseGlyph
-               , (state & CGraphNodeStates::CUT_ABOVE) ? GlueGlyph : CutGlyph
+               , (state & CGraphNodeStates::SPLIT_ABOVE) ? JoinGlyph : SplitGlyph
                , (allowed & CGraphNodeStates::COLLAPSED_ABOVE) != 0);
 
     PointF rightCenter (nodeRect.GetRight(), 0.5f * nodeRect.GetTop() + 0.5f * nodeRect.GetBottom());
     DrawGlyphs ( graphics
                , rightCenter
                , (state & CGraphNodeStates::COLLAPSED_RIGHT) ? ExpandGlyph : CollapseGlyph
-               , (state & CGraphNodeStates::CUT_RIGHT) ? GlueGlyph : CutGlyph
+               , (state & CGraphNodeStates::SPLIT_RIGHT) ? JoinGlyph : SplitGlyph
                , (allowed & CGraphNodeStates::COLLAPSED_RIGHT) != 0);
 
     PointF bottomCenter (0.5f * nodeRect.GetLeft() + 0.5f * nodeRect.GetRight(), nodeRect.GetBottom());
     DrawGlyphs ( graphics
                , bottomCenter
                , (state & CGraphNodeStates::COLLAPSED_BELOW) ? ExpandGlyph : CollapseGlyph
-               , (state & CGraphNodeStates::CUT_BELOW) ? GlueGlyph : CutGlyph
+               , (state & CGraphNodeStates::SPLIT_BELOW) ? JoinGlyph : SplitGlyph
                , (allowed & CGraphNodeStates::COLLAPSED_BELOW) != 0);
 }
 

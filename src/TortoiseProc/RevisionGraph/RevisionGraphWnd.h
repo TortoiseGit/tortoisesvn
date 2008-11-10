@@ -180,8 +180,8 @@ private:
         NoGlyph,
         ExpandGlyph,    // "+"
         CollapseGlyph,  // "-"
-        CutGlyph,       // "x"
-        GlueGlyph,      // "o"
+        SplitGlyph,     // "x"
+        JoinGlyph,      // "o"
     };
 
     typedef bool (SVNDiff::*TDiffFunc)(const CTSVNPath& url1, const SVNRev& rev1, 

@@ -54,13 +54,13 @@ enum RevisionGraphContextMenuCommands
 	ID_UNIDIFFHEADS,
 	ID_MERGETO,
     ID_EXPAND_ALL,
-    ID_GLUE_ALL,
+    ID_JOIN_ALL,
     ID_GRAPH_EXPANDCOLLAPSE_ABOVE,
     ID_GRAPH_EXPANDCOLLAPSE_RIGHT,
     ID_GRAPH_EXPANDCOLLAPSE_BELOW,
-    ID_GRAPH_CUTGLUE_ABOVE,
-    ID_GRAPH_CUTGLUE_RIGHT,
-    ID_GRAPH_CUTGLUE_BELOW
+    ID_GRAPH_SPLITJOIN_ABOVE,
+    ID_GRAPH_SPLITJOIN_RIGHT,
+    ID_GRAPH_SPLITJOIN_BELOW
 };
 
 CRevisionGraphWnd::CRevisionGraphWnd()
@@ -869,10 +869,10 @@ void CRevisionGraphWnd::AddGraphOps (CMenu& popup, const CVisibleGraphNode * nod
                 popup.AppendMenu(MF_STRING | MF_ENABLED, ID_EXPAND_ALL, temp);
             }
 
-            if (state & CGraphNodeStates::CUT_ALL)
+            if (state & CGraphNodeStates::SPLIT_ALL)
             {
-    	        temp.LoadString (IDS_REVGRAPH_POPUP_GLUE_ALL);
-	            popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GLUE_ALL, temp);
+    	        temp.LoadString (IDS_REVGRAPH_POPUP_JOIN_ALL);
+	            popup.AppendMenu(MF_STRING | MF_ENABLED, ID_JOIN_ALL, temp);
             }
         }
     }
@@ -907,28 +907,28 @@ void CRevisionGraphWnd::AddGraphOps (CMenu& popup, const CVisibleGraphNode * nod
             popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_EXPANDCOLLAPSE_BELOW, temp);
         }
 
-        if (node->GetPrevious() || base->GetCopySource() || (state & CGraphNodeStates::CUT_ABOVE))
+        if (node->GetPrevious() || base->GetCopySource() || (state & CGraphNodeStates::SPLIT_ABOVE))
         {
-            temp.LoadString ((state & CGraphNodeStates::CUT_ABOVE) 
-                             ? IDS_REVGRAPH_POPUP_GLUE_ABOVE 
-                             : IDS_REVGRAPH_POPUP_CUT_ABOVE);
-            popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_CUTGLUE_ABOVE, temp);
+            temp.LoadString ((state & CGraphNodeStates::SPLIT_ABOVE) 
+                             ? IDS_REVGRAPH_POPUP_JOIN_ABOVE 
+                             : IDS_REVGRAPH_POPUP_SPLIT_ABOVE);
+            popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_SPLITJOIN_ABOVE, temp);
         }
 
-        if (node->GetFirstCopyTarget() || (state & CGraphNodeStates::CUT_RIGHT))
+        if (node->GetFirstCopyTarget() || (state & CGraphNodeStates::SPLIT_RIGHT))
         {
-            temp.LoadString ((state & CGraphNodeStates::CUT_RIGHT) 
-                             ? IDS_REVGRAPH_POPUP_GLUE_RIGHT 
-                             : IDS_REVGRAPH_POPUP_CUT_RIGHT);
-            popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_CUTGLUE_RIGHT, temp);
+            temp.LoadString ((state & CGraphNodeStates::SPLIT_RIGHT) 
+                             ? IDS_REVGRAPH_POPUP_JOIN_RIGHT 
+                             : IDS_REVGRAPH_POPUP_SPLIT_RIGHT);
+            popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_SPLITJOIN_RIGHT, temp);
         }
 
-        if (node->GetNext() || (state & CGraphNodeStates::CUT_BELOW))
+        if (node->GetNext() || (state & CGraphNodeStates::SPLIT_BELOW))
         {
-            temp.LoadString ((state & CGraphNodeStates::CUT_BELOW) 
-                             ? IDS_REVGRAPH_POPUP_GLUE_BELOW 
-                             : IDS_REVGRAPH_POPUP_CUT_BELOW);
-            popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_CUTGLUE_BELOW, temp);
+            temp.LoadString ((state & CGraphNodeStates::SPLIT_BELOW) 
+                             ? IDS_REVGRAPH_POPUP_JOIN_BELOW 
+                             : IDS_REVGRAPH_POPUP_SPLIT_BELOW);
+            popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_SPLITJOIN_BELOW, temp);
         }
     }
 }
@@ -1058,8 +1058,8 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
         case ID_EXPAND_ALL:
             ResetNodeFlags (CGraphNodeStates::COLLAPSED_ALL);
             break;
-        case ID_GLUE_ALL:
-            ResetNodeFlags (CGraphNodeStates::CUT_ALL);
+        case ID_JOIN_ALL:
+            ResetNodeFlags (CGraphNodeStates::SPLIT_ALL);
             break;
         case ID_GRAPH_EXPANDCOLLAPSE_ABOVE:
             ToggleNodeFlag (clickedentry, CGraphNodeStates::COLLAPSED_ABOVE);
@@ -1070,14 +1070,14 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
         case ID_GRAPH_EXPANDCOLLAPSE_BELOW:
             ToggleNodeFlag (clickedentry, CGraphNodeStates::COLLAPSED_BELOW);
             break;
-        case ID_GRAPH_CUTGLUE_ABOVE:
-            ToggleNodeFlag (clickedentry, CGraphNodeStates::CUT_ABOVE);
+        case ID_GRAPH_SPLITJOIN_ABOVE:
+            ToggleNodeFlag (clickedentry, CGraphNodeStates::SPLIT_ABOVE);
             break;
-        case ID_GRAPH_CUTGLUE_RIGHT:
-            ToggleNodeFlag (clickedentry, CGraphNodeStates::CUT_RIGHT);
+        case ID_GRAPH_SPLITJOIN_RIGHT:
+            ToggleNodeFlag (clickedentry, CGraphNodeStates::SPLIT_RIGHT);
             break;
-        case ID_GRAPH_CUTGLUE_BELOW:
-            ToggleNodeFlag (clickedentry, CGraphNodeStates::CUT_BELOW);
+        case ID_GRAPH_SPLITJOIN_BELOW:
+            ToggleNodeFlag (clickedentry, CGraphNodeStates::SPLIT_BELOW);
             break;
 		}
 	}
