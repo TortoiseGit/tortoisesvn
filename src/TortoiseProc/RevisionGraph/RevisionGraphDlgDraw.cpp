@@ -347,7 +347,7 @@ void CRevisionGraphWnd::DrawGlyph
 {
     DrawSquare (graphics, leftTop, lightColor, darkColor, 0xFFE0E0E0);
 
-    Pen pen (Color::Black, max (1, 2.5f * m_fZoomFactor));
+    Pen pen ((ARGB)Color::Black, max (1.0f, 2.5f * m_fZoomFactor));
     float squareSize = 16 * m_fZoomFactor;
     switch (glyph)
     {
