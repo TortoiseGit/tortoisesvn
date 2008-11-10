@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-06 18:28+0200\n"
+"PO-Revision-Date: 2008-11-07 18:16+0200\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -897,7 +897,7 @@ msgstr "&Оволодіти блокуваннями"
 
 #. Resource IDs: (1130)
 msgid "&Stop on copy/rename"
-msgstr ""
+msgstr "&Зупинитися при копіюванні/перейменуванні"
 
 #. Resource IDs: (1173)
 msgid "&Symbol View"
@@ -1448,6 +1448,14 @@ msgid ""
 "%mine : your own file, with your changes\r\n"
 "%base : the original file without your changes"
 msgstr ""
+"Зовнішня програма злиття, що застосовується\r\n"
+"для владнання конфліктів файлів.\r\n"
+"\r\n"
+"У шляху можна вказати такі параметри:\r\n"
+"%merged : конфліктний файл, куди зберігати\r\n"
+"%theirs : файл, як він є в репозиторії\r\n"
+"%mine : ваш файл, з внесеними змінами\r\n"
+"%base : базовий файл, без ваших змін"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -1637,11 +1645,11 @@ msgstr "Назад"
 
 #. Resource IDs: (246)
 msgid "Bar Graph"
-msgstr ""
+msgstr "Гістограма"
 
 #. Resource IDs: (65535)
 msgid "Base file:"
-msgstr ""
+msgstr "Базовий файл:"
 
 #. Resource IDs: (3850)
 msgid ""
@@ -2039,7 +2047,7 @@ msgstr ""
 #. Resource IDs: (196)
 #, c-format
 msgid "Clears the stored sizes and positions of %ld dialogs"
-msgstr ""
+msgstr "Очищає збережені розміри та розташування %ld діалогів"
 
 #. Resource IDs: (1466)
 msgid "Click here to go to the website"
@@ -2189,7 +2197,7 @@ msgstr "Порівняти з &робочою копією"
 
 #. Resource IDs: (138)
 msgid "Compare with b&ase"
-msgstr ""
+msgstr "Порівняти з &базовим"
 
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
@@ -2688,7 +2696,7 @@ msgstr "Типовий URL:"
 
 #. Resource IDs: (1007)
 msgid "Default application menu. Appears when no documents are open."
-msgstr ""
+msgstr "Типове меню програми. З'являється, коли немає відкритих документів."
 
 #. Resource IDs: (65535)
 msgid "Default path:"
@@ -3047,17 +3055,17 @@ msgstr ""
 #. Resource IDs: (3867)
 #, c-format
 msgid "Encountered a hardware I/O error while accessing %1."
-msgstr ""
+msgstr "Під час доступу до %1 виявлено апаратну помилку вводу/виводу."
 
 #. Resource IDs: (3867)
 #, c-format
 msgid "Encountered a locking violation while accessing %1."
-msgstr ""
+msgstr "Під час доступу до %1 трапилось порушення блокування."
 
 #. Resource IDs: (3867)
 #, c-format
 msgid "Encountered a sharing violation while accessing %1."
-msgstr ""
+msgstr "Під час доступу до %1 трапилось порушення спільного доступу."
 
 #. Resource IDs: (3843)
 msgid "Encountered an improper argument."
@@ -3634,7 +3642,7 @@ msgstr ""
 
 #. Resource IDs: (16)
 msgid "Get loc&k..."
-msgstr ""
+msgstr "Отримати б&локування..."
 
 #. Resource IDs: (114)
 msgid "Get merge logs"
@@ -3656,7 +3664,7 @@ msgstr "Отримується файл %s"
 #. Resource IDs: (120)
 #, c-format
 msgid "Getting file %s, revision %s"
-msgstr ""
+msgstr "Отримується файл %s, модифікація %s"
 
 #. Resource IDs: (132)
 msgid "Getting file info..."
@@ -3664,7 +3672,7 @@ msgstr "Отримується інформація про файл..."
 
 #. Resource IDs: (269)
 msgid "Getting information from repository..."
-msgstr ""
+msgstr "Отримується інформація з репозитрію..."
 
 #. Resource IDs: (120)
 msgid "Getting information..."
@@ -3684,7 +3692,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Global ignore &pattern:"
-msgstr ""
+msgstr "Глобальний &шаблон ігнорування:"
 
 #. Resource IDs: (65535)
 msgid "Global settings"
@@ -3692,7 +3700,7 @@ msgstr "Глобальні налаштування"
 
 #. Resource IDs: (280)
 msgid "Go offline?"
-msgstr ""
+msgstr "Вийти з мережі?"
 
 #. Resource IDs: (130)
 msgid "Go to line"
@@ -4554,7 +4562,7 @@ msgstr "DLL поштової системи непридатна."
 
 #. Resource IDs: (1431)
 msgid "Make this the default"
-msgstr ""
+msgstr "Зробити це типовим"
 
 #. Resource IDs: (17)
 msgid "Manage Subversion properties"
@@ -4588,7 +4596,7 @@ msgstr "Позначає модифікації злитими, насправд
 
 #. Resource IDs: (1064)
 msgid "Match &case"
-msgstr ""
+msgstr "Враховувати &реєстр"
 
 #. Resource IDs: (1159)
 msgid "Max"
@@ -5034,7 +5042,7 @@ msgstr "Нормально"
 
 #. Resource IDs: (3857)
 msgid "Not all of the system registry entries (or INI file) were removed."
-msgstr ""
+msgstr "Не всі входження до системного реєстру (чи INI файлу) було видалено."
 
 #. Resource IDs: (83)
 msgid "Not enough memory to complete operation."
@@ -5098,7 +5106,7 @@ msgstr "Кількість злитих модифікацій, які ще не
 
 #. Resource IDs: (338)
 msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
-msgstr ""
+msgstr "Кільтість елементів шляху. Елемент шляху - це назва каталога чи файла на зразок 'foo.txt' або 'mybranch'."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -5368,7 +5376,7 @@ msgstr "Малюнки (*.wmf, *.jpg, *.png, *.bmp, *.gif)|*.wmf;*.jpg;*.jpeg;*.
 
 #. Resource IDs: (246)
 msgid "Pie Graph"
-msgstr ""
+msgstr "Віяльцева діаграма"
 
 #. Resource IDs: (83)
 msgid "Please enter a hook script to execute."
@@ -5656,7 +5664,7 @@ msgstr "Пе&реініціалізувати все "
 
 #. Resource IDs: (1382)
 msgid "Re&store defaults"
-msgstr ""
+msgstr "&Відновити типові"
 
 #. Resource IDs: (8)
 msgid "Re&vert..."
@@ -5817,7 +5825,7 @@ msgstr "Видалити %s"
 
 #. Resource IDs: (2052)
 msgid "Remove deleted branches and tags"
-msgstr ""
+msgstr "Видалити знищені гілки ті зрізи"
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
@@ -6028,7 +6036,7 @@ msgstr "Владнує конфліктні файли"
 
 #. Resource IDs: (1254)
 msgid "Restore Default"
-msgstr ""
+msgstr "Відновити типове"
 
 #. Resource IDs: (3826)
 msgid "Restore the window to normal size"
@@ -6109,7 +6117,7 @@ msgstr "Граф модифікацій"
 
 #. Resource IDs: (239)
 msgid "Revision Graph Filter"
-msgstr ""
+msgstr "Фільтр графу модифікацій"
 
 #. Resource IDs: (228)
 msgid "Revision Range"
@@ -6162,6 +6170,8 @@ msgid ""
 "Rich Text (RTF)\n"
 "text with font and paragraph formatting"
 msgstr ""
+"Розкішний текст (RTF)\n"
+"текст з форматуванням шрифтів і абзаців"
 
 #. Resource IDs: (188)
 msgid "Right View: "
@@ -7036,7 +7046,7 @@ msgstr ""
 
 #. Resource IDs: (3825)
 msgid "Switch to the next document window"
-msgstr ""
+msgstr "Перейти до вікна наступного документа"
 
 #. Resource IDs: (3606)
 msgid ""
@@ -7046,15 +7056,15 @@ msgstr ""
 
 #. Resource IDs: (3825)
 msgid "Switch to the previous document window"
-msgstr ""
+msgstr "Перейти до вікна попереднього документа"
 
 #. Resource IDs: (9)
 msgid "Switch working copy to another branch / tag"
-msgstr ""
+msgstr "Переключити робочу копію на іншу гілку / зріз"
 
 #. Resource IDs: (65535)
 msgid "Switch:"
-msgstr ""
+msgstr "Переключити:"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<<->right"
@@ -7180,6 +7190,10 @@ msgid ""
 "is not a valid text file!\n"
 "Note that UTF32 files are treated as binary too."
 msgstr ""
+"Файл\n"
+"%s\n"
+"- не дійсно текстовий файл!\n"
+"Майте на увазі, що файли UTF32 розглядяються як двійкові."
 
 #. Resource IDs: (145)
 #, c-format
@@ -7256,7 +7270,7 @@ msgstr "У рядку %d мав би бути рядок, який вказує 
 
 #. Resource IDs: (251)
 msgid "The lock has already been broken from another working copy"
-msgstr ""
+msgstr "Блокування вже скасовано з іншої робочої копії"
 
 #. Resource IDs: (198)
 msgid ""
@@ -7899,7 +7913,7 @@ msgstr "Нерозпізнаний або недопустимий формат 
 
 #. Resource IDs: (3841)
 msgid "Untitled"
-msgstr ""
+msgstr "Безіменний"
 
 #. Resource IDs: (146)
 msgid "Unversion"
@@ -8022,11 +8036,11 @@ msgstr ""
 
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one first)"
-msgstr ""
+msgstr "Використати обидва текстові блоки (цей першим)"
 
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one last)"
-msgstr ""
+msgstr "Використати обидва текстові блоки (цей останнім)"
 
 #. Resource IDs: (32856)
 msgid "Use left file"
@@ -8034,7 +8048,7 @@ msgstr "Використати лівий файл"
 
 #. Resource IDs: (3)
 msgid "Use local"
-msgstr ""
+msgstr "Використати локальне"
 
 #. Resource IDs: (1432)
 msgid "Use recycle bin when reverting"
@@ -8050,7 +8064,7 @@ msgstr "Використати репозиторій"
 
 #. Resource IDs: (1066)
 msgid "Use stri&keout for removed lines"
-msgstr ""
+msgstr "Використовувати ви&креслення для видалених ліній"
 
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
@@ -8617,7 +8631,7 @@ msgstr "конфліктуючих"
 
 #. Resource IDs: (65535)
 msgid "connection: "
-msgstr ""
+msgstr "з'єднання:"
 
 #. Resource IDs: (208)
 #, c-format
