@@ -94,6 +94,7 @@ public:
 
 	index_t GetParent (index_t index) const;
 	const char* GetPathElement (index_t index) const;
+    index_t GetPathElementSize (index_t index) const;
 	index_t GetPathElementID (index_t index) const;
 
 	index_t Find (index_t parent, const char* pathElement) const;

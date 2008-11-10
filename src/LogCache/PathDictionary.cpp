@@ -72,6 +72,11 @@ const char* CPathDictionary::GetPathElement (index_t index) const
 	return pathElements [paths [index].second];
 }
 
+index_t CPathDictionary::GetPathElementSize (index_t index) const
+{
+    return pathElements.GetLength (paths [index].second);
+}
+
 index_t CPathDictionary::GetPathElementID (index_t index) const
 {
 	return paths [index].second;
@@ -322,38 +327,39 @@ std::string CDictionaryBasedPath::GetPath() const
 #endif
 
 	// fetch all path elements bottom-up except the root
+	// and calculate the total string length
 
-	std::vector<const char*> pathElements;
-	pathElements.reserve (15);
+	const char* pathElements [MAX_PATH];
+	index_t sizes[MAX_PATH];
+    size_t depth = 0;
 
+	size_t size = 0;
 	for ( index_t currentIndex = index
-		; currentIndex != 0
+		; (currentIndex != 0) && (depth < MAX_PATH)
 		; currentIndex = dictionary->GetParent (currentIndex))
 	{
-		pathElements.push_back (dictionary->GetPathElement (currentIndex));
+		pathElements[depth] = dictionary->GetPathElement (currentIndex);
+        sizes[depth] = dictionary->GetPathElementSize (currentIndex);
+        size += sizes[depth] + 1;
+        ++depth;
 	}
-
-	// calculate the total string length
-
-	size_t size = pathElements.size();
-	for (size_t i = 0, count = pathElements.size(); i < count; ++i)
-		size += strlen (pathElements[i]);
 
 	// build result
 
 	std::string result;
-	result.reserve (size);
+	result.resize (max (1, size));
+    char* target = &result.at(0);
 
-	for (size_t i = pathElements.size(); i > 0; --i)
+	for (size_t i = depth; i > 0; --i)
 	{
-		result.push_back ('/');
-		result.append (pathElements[i-1]);
+		*target = '/';
+        memcpy (++target, pathElements[i-1], sizes[i-1]);
+        target += sizes[i-1];
 	}
 
 	// special case: the root
 
-	if (result.empty())
-		result.push_back ('/');
+	target[0] = ('/');
 
 	// ready
 
