@@ -23,6 +23,7 @@
 #include "SVNDiff.h"
 #include "SVNInfo.h"
 #include "UnicodeUtils.h"
+#include "PathUtils.h"
 #include "AppUtils.h"
 #include "EditPropConflictDlg.h"
 #include "TreeConflictEditorDlg.h"
@@ -131,49 +132,125 @@ bool ConflictEditorCommand::Execute()
 			}
 			else if (pInfoData->treeconflict_kind == svn_wc_conflict_kind_tree)
 			{
-				CString sOperation;
-				CString sFileOrFolder;
 				CString sConflictAction;
 				CString sConflictReason;
 				CString sResolveTheirs;
 				CString sResolveMine;
+				CString sItemName = CPathUtils::GetFileNameFromPath(pInfoData->treeconflict_path);
 				
 				if (pInfoData->treeconflict_nodekind == svn_node_file)
-					sFileOrFolder.LoadString(IDS_TREECONFLICT_NODEFILE);
-				else if (pInfoData->treeconflict_nodekind == svn_node_dir)
-					sFileOrFolder.LoadString(IDS_TREECONFLICT_NODEDIR);
-				else
-					// we should *never* get here, but if we do, provide some info
-					// for users so they might report this
-					sFileOrFolder = _T("(don't know if it's a file or directory)");
-
-				switch (pInfoData->treeconflict_operation)
 				{
-				case svn_wc_operation_update:
-					sOperation.LoadString(IDS_TREECONFLICT_OPERATION_UPDATE);
-					break;
-				case svn_wc_operation_switch:
-					sOperation.LoadString(IDS_TREECONFLICT_OPERATION_SWITCH);
-					break;
-				case svn_wc_operation_merge:
-					sOperation.LoadString(IDS_TREECONFLICT_OPERATION_MERGE);
-					break;
+					switch (pInfoData->treeconflict_operation)
+					{
+					case svn_wc_operation_update:
+						switch (pInfoData->treeconflict_action)
+						{
+						case svn_wc_conflict_action_edit:
+							sConflictAction.Format(IDS_TREECONFLICT_FILEUPDATEEDIT, (LPCTSTR)sItemName);
+							sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_KEEPREPOSITORYFILE);
+							break;
+						case svn_wc_conflict_action_add:
+							sConflictAction.Format(IDS_TREECONFLICT_FILEUPDATEADD, (LPCTSTR)sItemName);
+							sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_KEEPREPOSITORYFILE);
+							break;
+						case svn_wc_conflict_action_delete:
+							sConflictAction.Format(IDS_TREECONFLICT_FILEUPDATEDELETE, (LPCTSTR)sItemName);
+							sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_REMOVEFILE);
+							break;
+						}
+						break;
+					case svn_wc_operation_switch:
+						switch (pInfoData->treeconflict_action)
+						{
+						case svn_wc_conflict_action_edit:
+							sConflictAction.Format(IDS_TREECONFLICT_FILESWITCHEDIT, (LPCTSTR)sItemName);
+							sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_KEEPREPOSITORYFILE);
+							break;
+						case svn_wc_conflict_action_add:
+							sConflictAction.Format(IDS_TREECONFLICT_FILESWITCHADD, (LPCTSTR)sItemName);
+							sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_KEEPREPOSITORYFILE);
+							break;
+						case svn_wc_conflict_action_delete:
+							sConflictAction.Format(IDS_TREECONFLICT_FILESWITCHDELETE, (LPCTSTR)sItemName);
+							sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_REMOVEFILE);
+							break;
+						}
+						break;
+					case svn_wc_operation_merge:
+						switch (pInfoData->treeconflict_action)
+						{
+						case svn_wc_conflict_action_edit:
+							sConflictAction.Format(IDS_TREECONFLICT_FILEMERGEEDIT, (LPCTSTR)sItemName);
+							sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_KEEPREPOSITORYFILE);
+							break;
+						case svn_wc_conflict_action_add:
+							sResolveTheirs.Format(IDS_TREECONFLICT_FILEMERGEADD, (LPCTSTR)sItemName);
+							sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_KEEPREPOSITORYFILE);
+							break;
+						case svn_wc_conflict_action_delete:
+							sConflictAction.Format(IDS_TREECONFLICT_FILEMERGEDELETE, (LPCTSTR)sItemName);
+							sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_REMOVEFILE);
+							break;
+						}
+						break;
+					}
 				}
-
-				switch (pInfoData->treeconflict_action)
+				else if (pInfoData->treeconflict_nodekind == svn_node_dir)
 				{
-				case svn_wc_conflict_action_edit:
-					sConflictAction.LoadString(IDS_TREECONFLICT_ACTION_EDIT);
-					sResolveTheirs.Format(IDS_TREECONFLICT_RESOLVE_KEEPREPOSITORY, (LPCTSTR)sFileOrFolder);
-					break;
-				case svn_wc_conflict_action_add:
-					sConflictAction.LoadString(IDS_TREECONFLICT_ACTION_ADD);
-					sResolveTheirs.Format(IDS_TREECONFLICT_RESOLVE_KEEPREPOSITORY, (LPCTSTR)sFileOrFolder);
-					break;
-				case svn_wc_conflict_action_delete:
-					sConflictAction.LoadString(IDS_TREECONFLICT_ACTION_DELETE);
-					sResolveTheirs.Format(IDS_TREECONFLICT_RESOLVE_REMOVE, (LPCTSTR)sFileOrFolder);
-					break;
+					switch (pInfoData->treeconflict_operation)
+					{
+					case svn_wc_operation_update:
+						switch (pInfoData->treeconflict_action)
+						{
+						case svn_wc_conflict_action_edit:
+							sConflictAction.Format(IDS_TREECONFLICT_DIRUPDATEEDIT, (LPCTSTR)sItemName);
+							sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_KEEPREPOSITORYDIR);
+							break;
+						case svn_wc_conflict_action_add:
+							sConflictAction.Format(IDS_TREECONFLICT_DIRUPDATEADD, (LPCTSTR)sItemName);
+							sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_KEEPREPOSITORYDIR);
+							break;
+						case svn_wc_conflict_action_delete:
+							sConflictAction.Format(IDS_TREECONFLICT_DIRUPDATEDELETE, (LPCTSTR)sItemName);
+							sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_REMOVEDIR);
+							break;
+						}
+						break;
+					case svn_wc_operation_switch:
+						switch (pInfoData->treeconflict_action)
+						{
+						case svn_wc_conflict_action_edit:
+							sConflictAction.Format(IDS_TREECONFLICT_DIRSWITCHEDIT, (LPCTSTR)sItemName);
+							sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_KEEPREPOSITORYDIR);
+							break;
+						case svn_wc_conflict_action_add:
+							sConflictAction.Format(IDS_TREECONFLICT_DIRSWITCHADD, (LPCTSTR)sItemName);
+							sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_KEEPREPOSITORYDIR);
+							break;
+						case svn_wc_conflict_action_delete:
+							sConflictAction.Format(IDS_TREECONFLICT_DIRSWITCHDELETE, (LPCTSTR)sItemName);
+							sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_REMOVEDIR);
+							break;
+						}
+						break;
+					case svn_wc_operation_merge:
+						switch (pInfoData->treeconflict_action)
+						{
+						case svn_wc_conflict_action_edit:
+							sConflictAction.Format(IDS_TREECONFLICT_DIRMERGEEDIT, (LPCTSTR)sItemName);
+							sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_KEEPREPOSITORYDIR);
+							break;
+						case svn_wc_conflict_action_add:
+							sConflictAction.Format(IDS_TREECONFLICT_DIRMERGEADD, (LPCTSTR)sItemName);
+							sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_KEEPREPOSITORYDIR);
+							break;
+						case svn_wc_conflict_action_delete:
+							sConflictAction.Format(IDS_TREECONFLICT_DIRMERGEDELETE, (LPCTSTR)sItemName);
+							sResolveTheirs.LoadString(IDS_TREECONFLICT_RESOLVE_REMOVEDIR);
+							break;
+						}
+						break;
+					}
 				}
 
 				UINT uReasonID = 0;
@@ -181,31 +258,30 @@ bool ConflictEditorCommand::Execute()
 				{ 
 				case svn_wc_conflict_reason_edited:
 					uReasonID = IDS_TREECONFLICT_REASON_EDITED;
-					sResolveMine.Format(IDS_TREECONFLICT_RESOLVE_KEEPLOCAL, (LPCTSTR)sFileOrFolder); // keep local file/directory
+					sResolveMine.LoadString(pInfoData->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_RESOLVE_KEEPLOCALDIR : IDS_TREECONFLICT_RESOLVE_KEEPLOCALFILE);
 					break;
 				case svn_wc_conflict_reason_obstructed:
 					uReasonID = IDS_TREECONFLICT_REASON_OBSTRUCTED;
-					sResolveMine.Format(IDS_TREECONFLICT_RESOLVE_KEEPLOCAL, (LPCTSTR)sFileOrFolder);
+					sResolveMine.LoadString(pInfoData->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_RESOLVE_KEEPLOCALDIR : IDS_TREECONFLICT_RESOLVE_KEEPLOCALFILE);
 					break;
 				case svn_wc_conflict_reason_deleted:
 					uReasonID = IDS_TREECONFLICT_REASON_DELETED;
-					sResolveMine.Format(IDS_TREECONFLICT_RESOLVE_REMOVE), (LPCTSTR)sFileOrFolder;
+					sResolveMine.LoadString(pInfoData->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_RESOLVE_REMOVEDIR : IDS_TREECONFLICT_RESOLVE_REMOVEFILE);
 					break;
 				case svn_wc_conflict_reason_added:
 					uReasonID = IDS_TREECONFLICT_REASON_ADDED;
-					sResolveMine.Format(IDS_TREECONFLICT_RESOLVE_KEEPLOCAL, (LPCTSTR)sFileOrFolder);
+					sResolveMine.LoadString(pInfoData->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_RESOLVE_KEEPLOCALDIR : IDS_TREECONFLICT_RESOLVE_KEEPLOCALFILE);
 					break;
 				case svn_wc_conflict_reason_missing:
 					uReasonID = IDS_TREECONFLICT_REASON_MISSING;
-					sResolveMine.Format(IDS_TREECONFLICT_RESOLVE_REMOVE), (LPCTSTR)sFileOrFolder;
+					sResolveMine.LoadString(pInfoData->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_RESOLVE_REMOVEDIR : IDS_TREECONFLICT_RESOLVE_REMOVEFILE);
 					break;
 				case svn_wc_conflict_reason_unversioned:
 					uReasonID = IDS_TREECONFLICT_REASON_UNVERSIONED;
-					sResolveMine.Format(IDS_TREECONFLICT_RESOLVE_KEEPLOCAL, (LPCTSTR)sFileOrFolder);
+					sResolveMine.LoadString(pInfoData->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_RESOLVE_KEEPLOCALDIR : IDS_TREECONFLICT_RESOLVE_KEEPLOCALFILE);
 					break;
 				}
-				// The last %s operation tried to %s the %s '%s', but ....
-				sConflictReason.Format(uReasonID, (LPCTSTR)sOperation, (LPCTSTR)sConflictAction, (LPCTSTR)sFileOrFolder, (LPCTSTR)pInfoData->treeconflict_path);
+				sConflictReason.Format(uReasonID, (LPCTSTR)sConflictAction);
 
 				CTreeConflictEditorDlg dlg;
 				dlg.SetConflictInfoText(sConflictReason);

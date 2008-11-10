@@ -181,6 +181,36 @@ msgstr ""
 msgid "%s, at %s"
 msgstr ""
 
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it already exists unversioned locally."
+msgstr ""
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it is missing locally."
+msgstr ""
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was already added locally."
+msgstr ""
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was deleted locally."
+msgstr ""
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was obstructed in the working copy."
+msgstr ""
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the local file was already edited."
+msgstr ""
+
 #. Resource IDs: (145)
 #, c-format
 msgid "%s\\Export (%d) of %s"
@@ -3987,14 +4017,20 @@ msgstr ""
 msgid "Keep changelists"
 msgstr ""
 
-#. Resource IDs: (609)
-#, c-format
-msgid "Keep the %s from the repository"
+#. Resource IDs: (610)
+msgid "Keep the directory from the repository"
 msgstr ""
 
-#. Resource IDs: (609)
-#, c-format
-msgid "Keep the local %s"
+#. Resource IDs: (610)
+msgid "Keep the file from the repository"
+msgstr ""
+
+#. Resource IDs: (610)
+msgid "Keep the local directory"
+msgstr ""
+
+#. Resource IDs: (610)
+msgid "Keep the local file"
 msgstr ""
 
 #. Resource IDs: (16136)
@@ -5404,9 +5440,12 @@ msgstr ""
 msgid "Remove property '%s' from\r\n%s"
 msgstr ""
 
-#. Resource IDs: (609)
-#, c-format
-msgid "Remove the %s"
+#. Resource IDs: (610)
+msgid "Remove the directory"
+msgstr ""
+
+#. Resource IDs: (610)
+msgid "Remove the file"
 msgstr ""
 
 #. Resource IDs: (345)
@@ -6700,34 +6739,94 @@ msgstr ""
 msgid "The item '%s' has property conflicts:"
 msgstr ""
 
-#. Resource IDs: (609)
+#. Resource IDs: (608)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but it already exists unversioned locally."
+msgid "The last merge operation tried to add the directory '%s'"
 msgstr ""
 
-#. Resource IDs: (609)
+#. Resource IDs: (607)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but it is missing locally."
+msgid "The last merge operation tried to add the file '%s'"
 msgstr ""
 
-#. Resource IDs: (609)
+#. Resource IDs: (608)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but it was already added locally."
+msgid "The last merge operation tried to delete the directory '%s'"
 msgstr ""
 
-#. Resource IDs: (609)
+#. Resource IDs: (607)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but it was deleted locally."
+msgid "The last merge operation tried to delete the file '%s'"
 msgstr ""
 
-#. Resource IDs: (609)
+#. Resource IDs: (608)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but it was obstructed in the working copy."
+msgid "The last merge operation tried to modify the directory '%s'"
 msgstr ""
 
-#. Resource IDs: (609)
+#. Resource IDs: (607)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but the local file was already edited."
+msgid "The last merge operation tried to modify the file '%s'"
+msgstr ""
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to add the directory '%s'"
+msgstr ""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last switch operation tried to add the file '%s'"
+msgstr ""
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to delete the directory '%s'"
+msgstr ""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last switch operation tried to delete the file '%s'"
+msgstr ""
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to modify the directory '%s'"
+msgstr ""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last switch operation tried to modify the file '%s'"
+msgstr ""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to add the directory '%s'"
+msgstr ""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to add the file '%s'"
+msgstr ""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to delete the directory '%s'"
+msgstr ""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to delete the file '%s'"
+msgstr ""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to modify the directory '%s'"
+msgstr ""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to mofify the file '%s'"
 msgstr ""
 
 #. Resource IDs: (63)
@@ -7733,10 +7832,6 @@ msgstr ""
 msgid "_POPUP_"
 msgstr ""
 
-#. Resource IDs: (608)
-msgid "add"
-msgstr ""
-
 #. Resource IDs: (10)
 msgid "added"
 msgstr ""
@@ -7842,16 +7937,8 @@ msgstr ""
 msgid "copied:"
 msgstr ""
 
-#. Resource IDs: (608)
-msgid "delete"
-msgstr ""
-
 #. Resource IDs: (10, 272)
 msgid "deleted"
-msgstr ""
-
-#. Resource IDs: (607)
-msgid "directory"
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -7873,10 +7960,6 @@ msgstr ""
 
 #. Resource IDs: (13)
 msgid "external"
-msgstr ""
-
-#. Resource IDs: (607)
-msgid "file"
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -7939,10 +8022,6 @@ msgstr ""
 msgid "max revision: "
 msgstr ""
 
-#. Resource IDs: (608)
-msgid "merge"
-msgstr ""
-
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr ""
@@ -7969,10 +8048,6 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "modified / copied"
-msgstr ""
-
-#. Resource IDs: (608)
-msgid "modify"
 msgstr ""
 
 #. Resource IDs: (245)
@@ -8119,10 +8194,6 @@ msgstr ""
 msgid "svn:needs-lock\r\nSet this to any value (e.g. '*') to enforce locking for this file.\r\nThe file will be set to read-only when checked out or updated,\r\nindicating that a user must acquire a lock on the file\r\nbefore they can edit it and commit changes."
 msgstr ""
 
-#. Resource IDs: (607)
-msgid "switch"
-msgstr ""
-
 #. Resource IDs: (208)
 #, c-format
 msgid "switched to\r\n%s"
@@ -8204,10 +8275,6 @@ msgstr ""
 
 #. Resource IDs: (577)
 msgid "tsvn:warnifnoissue\r\nSet to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
-msgstr ""
-
-#. Resource IDs: (607)
-msgid "update"
 msgstr ""
 
 #. Resource IDs: (65535)
