@@ -62,7 +62,7 @@ interface IBugTraqProvider : IUnknown
 [
 	object,
 	uuid(C5C85E31-2F9B-4916-A7BA-8E27D481EE83),
-	helpstring("IBugTraqProvider Interface"),
+	helpstring("IBugTraqProvider2 Interface"),
 	pointer_default(unique)
 ]
 interface IBugTraqProvider2 : IBugTraqProvider
