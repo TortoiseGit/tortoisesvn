@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-10 10:09+0100\n"
+"PO-Revision-Date: 2008-11-11 09:53+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -184,6 +184,36 @@ msgstr "%s, in %s"
 #, c-format
 msgid "%s, at %s"
 msgstr "%s, mit %s"
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it already exists unversioned locally."
+msgstr ""
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it is missing locally."
+msgstr ""
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was already added locally."
+msgstr ""
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was deleted locally."
+msgstr ""
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was obstructed in the working copy."
+msgstr ""
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the local file was already edited."
+msgstr ""
 
 #. Resource IDs: (145)
 #, c-format
@@ -561,16 +591,6 @@ msgstr "&Von AK in URL:"
 msgid "&From revision"
 msgstr "&Von Revision:"
 
-#. Resource IDs: (275)
-#, fuzzy
-msgid "&Glue all"
-msgstr "&Alle verkleinern"
-
-#. Resource IDs: (275)
-#, fuzzy
-msgid "&Glue sub-trees"
-msgstr "Zusammenführen zweier Bäume"
-
 #. Resource IDs: (32779)
 msgid "&Go To Line..."
 msgstr "&Gehe zu Zeile..."
@@ -648,6 +668,14 @@ msgstr "&Ausgangsverzeichnis:"
 msgid "&Inline diff word-wise"
 msgstr "&In Zeilen wortweise"
 
+#. Resource IDs: (275)
+msgid "&Join all"
+msgstr "&Alle verbinden"
+
+#. Resource IDs: (275)
+msgid "&Join with sub-trees"
+msgstr "&Teilbäume verbinden"
+
 #. Resource IDs: (1016)
 msgid "&Jump to first difference when loading"
 msgstr "&Springe beim Laden zum ersten Unterschied"
@@ -681,9 +709,8 @@ msgid "&Lum:"
 msgstr "&Hell:"
 
 #. Resource IDs: (1282)
-#, fuzzy
 msgid "&Manually edit property"
-msgstr "Revisionseigenschaft (revprop)"
+msgstr "Revisionseigenschaft &bearbeiten"
 
 #. Resource IDs: (1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
@@ -1844,9 +1871,8 @@ msgid "C&heck repository"
 msgstr "&Projektarchiv prüfen"
 
 #. Resource IDs: (275)
-#, fuzzy
 msgid "C&ollapse sub-trees"
-msgstr "Zusammenführen zweier Bäume"
+msgstr "Teilbäume z&uklappen"
 
 #. Resource IDs: (65535)
 msgid "C&ommands:"
@@ -2209,12 +2235,11 @@ msgstr "Schließt das aktive Fenster und fragt nach, ob die Daten gespeichert we
 
 #. Resource IDs: (275)
 msgid "Coll&apse source tree"
-msgstr ""
+msgstr "Quellbaum &zuklappen"
 
 #. Resource IDs: (275)
-#, fuzzy
 msgid "Collapse &following tree"
-msgstr "Der Assistent - Zusammenführen von Bäumen"
+msgstr "Folgenden Baum zu&klappen"
 
 #. Resource IDs: (16662)
 msgid "Color"
@@ -2768,11 +2793,6 @@ msgstr "Danksagung:"
 msgid "Cu&t"
 msgstr "A&usschneiden"
 
-#. Resource IDs: (275)
-#, fuzzy
-msgid "Cu&t sub-trees"
-msgstr "Zusammenführen zweier Bäume"
-
 #. Resource IDs: (65535)
 msgid "Current"
 msgstr "Aktuell"
@@ -2809,15 +2829,6 @@ msgstr "Schnellzugriffsleiste anpassen"
 #. Resource IDs: (1068)
 msgid "Customize Quick Access Toolbar..."
 msgstr "Schnellzugriffsleiste anpassen..."
-
-#. Resource IDs: (275)
-#, fuzzy
-msgid "Cut following &tree"
-msgstr "Der Assistent - Zusammenführen von Bäumen"
-
-#. Resource IDs: (275)
-msgid "Cut from &source tree"
-msgstr ""
 
 #. Resource IDs: (3603)
 msgid ""
@@ -3401,7 +3412,7 @@ msgstr "Vorhanden"
 
 #. Resource IDs: (275)
 msgid "Exp&and source tree"
-msgstr ""
+msgstr "Quellbaum &aufklappen"
 
 #. Resource IDs: (275)
 msgid "Expand &following tree"
@@ -3796,10 +3807,6 @@ msgstr "Vollbild"
 msgid "Fully recursive"
 msgstr "Vollständig rekursiv"
 
-#. Resource IDs: (275)
-msgid "G&lue to source tree"
-msgstr ""
-
 #. Resource IDs: (273)
 msgid "GDI+ couldn't be initialized!"
 msgstr "GDI+ konnte nicht initialisiert werden!"
@@ -3911,11 +3918,6 @@ msgstr "Globale &Ignoriermuster:"
 #. Resource IDs: (65535)
 msgid "Global settings"
 msgstr "Allgemein"
-
-#. Resource IDs: (275)
-#, fuzzy
-msgid "Glue following &tree"
-msgstr "Der Assistent - Zusammenführen von Bäumen"
 
 #. Resource IDs: (280)
 msgid "Go offline?"
@@ -4672,6 +4674,14 @@ msgstr ""
 "\n"
 "Wollen Sie wirklich umplatzieren?"
 
+#. Resource IDs: (275)
+msgid "Join with following &tree"
+msgstr "Mit &folgendem Baum verbinden"
+
+#. Resource IDs: (275)
+msgid "Join with source tree"
+msgstr "Mit dem &Quellbaum verbinden"
+
 #. Resource IDs: (1203)
 msgid "Keep &locks"
 msgstr "Sperren &behalten"
@@ -4680,15 +4690,21 @@ msgstr "Sperren &behalten"
 msgid "Keep changelists"
 msgstr "Änderungsliste beibehalten"
 
-#. Resource IDs: (609)
-#, fuzzy, c-format
-msgid "Keep the %s from the repository"
-msgstr "Vom Projektarchiv abkoppeln"
+#. Resource IDs: (610)
+msgid "Keep the directory from the repository"
+msgstr "Das Verzeichnis aus dem Projektarchiv beibehalten"
 
-#. Resource IDs: (609)
-#, fuzzy, c-format
-msgid "Keep the local %s"
-msgstr "Lokale Änderungen"
+#. Resource IDs: (610)
+msgid "Keep the file from the repository"
+msgstr "Die Datei aus dem Projektarchiv beibehalten"
+
+#. Resource IDs: (610)
+msgid "Keep the local directory"
+msgstr "Das lokale Verzeichnis beibehalten"
+
+#. Resource IDs: (610)
+msgid "Keep the local file"
+msgstr "Die lokale Datei beibehalten"
 
 #. Resource IDs: (16136)
 msgid "Keyboard"
@@ -6271,10 +6287,13 @@ msgstr ""
 "Entferne Eigenschaft '%s' von\r\n"
 "%s"
 
-#. Resource IDs: (609)
-#, fuzzy, c-format
-msgid "Remove the %s"
-msgstr "Ent&fernen"
+#. Resource IDs: (610)
+msgid "Remove the directory"
+msgstr "Das Verzeichnis löschen"
+
+#. Resource IDs: (610)
+msgid "Remove the file"
+msgstr "Die Datei löschen"
 
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
@@ -7361,9 +7380,21 @@ msgstr ""
 msgid "Spin1"
 msgstr "Spin1"
 
+#. Resource IDs: (275)
+msgid "Split &source tree"
+msgstr "Q&uellbaum auftrennen"
+
+#. Resource IDs: (275)
+msgid "Split following &tree"
+msgstr "F&olgenden Baum auftrennen"
+
 #. Resource IDs: (376)
 msgid "Split lines"
 msgstr "Zeilen splitten"
+
+#. Resource IDs: (275)
+msgid "Split sub-trees"
+msgstr "T&eilbäume auftrennen"
 
 #. Resource IDs: (3604)
 msgid ""
@@ -7743,34 +7774,94 @@ msgstr "Der COM-Anbieter für das Fehlerverfolgungssystem konnte die Parameter n
 msgid "The item '%s' has property conflicts:"
 msgstr ""
 
-#. Resource IDs: (609)
+#. Resource IDs: (608)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but it already exists unversioned locally."
+msgid "The last merge operation tried to add the directory '%s'"
 msgstr ""
 
-#. Resource IDs: (609)
+#. Resource IDs: (607)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but it is missing locally."
+msgid "The last merge operation tried to add the file '%s'"
 msgstr ""
 
-#. Resource IDs: (609)
+#. Resource IDs: (608)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but it was already added locally."
+msgid "The last merge operation tried to delete the directory '%s'"
 msgstr ""
 
-#. Resource IDs: (609)
+#. Resource IDs: (607)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but it was deleted locally."
+msgid "The last merge operation tried to delete the file '%s'"
 msgstr ""
 
-#. Resource IDs: (609)
+#. Resource IDs: (608)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but it was obstructed in the working copy."
+msgid "The last merge operation tried to modify the directory '%s'"
 msgstr ""
 
-#. Resource IDs: (609)
+#. Resource IDs: (607)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but the local file was already edited."
+msgid "The last merge operation tried to modify the file '%s'"
+msgstr ""
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to add the directory '%s'"
+msgstr ""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last switch operation tried to add the file '%s'"
+msgstr ""
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to delete the directory '%s'"
+msgstr ""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last switch operation tried to delete the file '%s'"
+msgstr ""
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to modify the directory '%s'"
+msgstr ""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last switch operation tried to modify the file '%s'"
+msgstr ""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to add the directory '%s'"
+msgstr ""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to add the file '%s'"
+msgstr ""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to delete the directory '%s'"
+msgstr ""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to delete the file '%s'"
+msgstr ""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to modify the directory '%s'"
+msgstr ""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to mofify the file '%s'"
 msgstr ""
 
 #. Resource IDs: (63)
@@ -9206,11 +9297,6 @@ msgstr "[nicht zugewiesen]"
 msgid "_POPUP_"
 msgstr "_POPUP_"
 
-#. Resource IDs: (608)
-#, fuzzy
-msgid "add"
-msgstr "hinzufügen"
-
 #. Resource IDs: (10)
 msgid "added"
 msgstr "Hinzugefügt"
@@ -9369,19 +9455,9 @@ msgstr ""
 msgid "copied:"
 msgstr "kopiert:"
 
-#. Resource IDs: (608)
-#, fuzzy
-msgid "delete"
-msgstr "Löschen"
-
 #. Resource IDs: (10, 272)
 msgid "deleted"
 msgstr "Gelöscht"
-
-#. Resource IDs: (607)
-#, fuzzy
-msgid "directory"
-msgstr "Zielverzeichnis:"
 
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
@@ -9410,11 +9486,6 @@ msgstr ""
 #. Resource IDs: (13)
 msgid "external"
 msgstr "Extern"
-
-#. Resource IDs: (607)
-#, fuzzy
-msgid "file"
-msgstr "&Datei"
 
 #. Resource IDs: (65535)
 msgid "file external:"
@@ -9476,11 +9547,6 @@ msgstr "gesperrt:"
 msgid "max revision: "
 msgstr "Max Revision: "
 
-#. Resource IDs: (608)
-#, fuzzy
-msgid "merge"
-msgstr "Merge"
-
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "Zusammengeführt"
@@ -9508,11 +9574,6 @@ msgstr "Verändert"
 #. Resource IDs: (65535)
 msgid "modified / copied"
 msgstr "Verändert / kopiert"
-
-#. Resource IDs: (608)
-#, fuzzy
-msgid "modify"
-msgstr "Verändert"
 
 #. Resource IDs: (245)
 msgid "month"
@@ -9741,11 +9802,6 @@ msgstr ""
 "Dies zeigt anderen Anwendern, dass sie die Datei sperren müssen, bevor sie\r\n"
 "bearbeitet oder übertragen werden kann."
 
-#. Resource IDs: (607)
-#, fuzzy
-msgid "switch"
-msgstr "switch"
-
 #. Resource IDs: (208)
 #, c-format
 msgid ""
@@ -9895,11 +9951,6 @@ msgstr ""
 "tsvn:warnifnoissue\r\n"
 "Auf 'yes' setzen, wenn eine Warnung ausgegeben werden soll, falls keine Bug-ID im Übertragen-Dialog eingegeben wird."
 
-#. Resource IDs: (607)
-#, fuzzy
-msgid "update"
-msgstr "aktualisieren"
-
 #. Resource IDs: (65535)
 msgid "user revprops total: "
 msgstr "Gesamt Rev-Eigensch:"
@@ -9956,6 +10007,49 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#, fuzzy
+#~ msgid "&Glue all"
+#~ msgstr "&Alle verkleinern"
+
+#, fuzzy
+#~ msgid "&Glue sub-trees"
+#~ msgstr "Zusammenführen zweier Bäume"
+
+#, fuzzy
+#~ msgid "Glue following &tree"
+#~ msgstr "Der Assistent - Zusammenführen von Bäumen"
+
+#, fuzzy
+#~ msgid "add"
+#~ msgstr "hinzufügen"
+
+#, fuzzy
+#~ msgid "delete"
+#~ msgstr "Löschen"
+
+#, fuzzy
+#~ msgid "directory"
+#~ msgstr "Zielverzeichnis:"
+
+#, fuzzy
+#~ msgid "file"
+#~ msgstr "&Datei"
+
+#, fuzzy
+#~ msgid "merge"
+#~ msgstr "Merge"
+
+#, fuzzy
+#~ msgid "modify"
+#~ msgstr "Verändert"
+
+#, fuzzy
+#~ msgid "switch"
+#~ msgstr "switch"
+
+#, fuzzy
+#~ msgid "update"
+#~ msgstr "aktualisieren"
 #~ msgid "Only record the merge"
 #~ msgstr "Zusammenführen nur aufzeichnen"
 
