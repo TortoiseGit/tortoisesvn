@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-06 09:36+0900\n"
+"PO-Revision-Date: 2008-11-11 11:39+0900\n"
 "Last-Translator: Kim TaeDong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -181,6 +181,36 @@ msgstr "%s in %s"
 #, c-format
 msgid "%s, at %s"
 msgstr "%s : 속도 %s"
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it already exists unversioned locally."
+msgstr "%s, 그러나 지역에서 버전관리되지 않는 아이템으로 벌써 존재합니다."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it is missing locally."
+msgstr "%s, 그러나 지역에서 사라졌습니다."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was already added locally."
+msgstr "%s, 그러나 지역에서 벌서 추가되었습니다."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was deleted locally."
+msgstr "%s, 그러나 지역에서 삭제되었습니다."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was obstructed in the working copy."
+msgstr "%s, 그러나 작업사본에서 차단되었습니다."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the local file was already edited."
+msgstr "%s, 그러나 지역 파일이 벌써 편집되었습니다."
 
 #. Resource IDs: (145)
 #, c-format
@@ -635,6 +665,14 @@ msgstr "초기 디렉토리(&I):"
 msgid "&Inline diff word-wise"
 msgstr "라인내의 단어단위 비교(&I)"
 
+#. Resource IDs: (275)
+msgid "&Join all"
+msgstr "모두 합치기(&J)"
+
+#. Resource IDs: (275)
+msgid "&Join with sub-trees"
+msgstr "서브-트리와 합치기(&J)"
+
 #. Resource IDs: (1016)
 msgid "&Jump to first difference when loading"
 msgstr "모두 읽었으면 처음 차이점으로 이동(&J)"
@@ -666,6 +704,10 @@ msgstr "읽기(&L)..."
 #. Resource IDs: (65535)
 msgid "&Lum:"
 msgstr "휘도(&L):"
+
+#. Resource IDs: (1282)
+msgid "&Manually edit property"
+msgstr "속성을 수동으로 편집하기(&M)"
 
 #. Resource IDs: (1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
@@ -851,6 +893,10 @@ msgstr "나의 사용 정보 리셋(&R)"
 #. Resource IDs: (16910)
 msgid "&Reset to Default"
 msgstr "초기값으로 리셋(&R)"
+
+#. Resource IDs: (1382)
+msgid "&Resolve using local property"
+msgstr "지역 속성을 사용해서 충돌해결하기(&R)"
 
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
@@ -1816,6 +1862,10 @@ msgstr "지금 확인(&H)"
 msgid "C&heck repository"
 msgstr "저장소 확인(&H)"
 
+#. Resource IDs: (275)
+msgid "C&ollapse sub-trees"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "C&ommands:"
 msgstr "명령들(&O):"
@@ -2173,6 +2223,14 @@ msgstr "수동으로 닫습니다."
 #. Resource IDs: (3825)
 msgid "Close the active window and prompts to save the documents"
 msgstr "활성화된 윈도우를 닫고, 문서를 저장할지 물어 봅니다."
+
+#. Resource IDs: (275)
+msgid "Coll&apse source tree"
+msgstr ""
+
+#. Resource IDs: (275)
+msgid "Collapse &following tree"
+msgstr ""
 
 #. Resource IDs: (16662)
 msgid "Color"
@@ -3063,6 +3121,14 @@ msgstr "제외 경로(&X):"
 msgid "E&xit"
 msgstr "종료(&X)"
 
+#. Resource IDs: (275)
+msgid "E&xpand all"
+msgstr "모두 확장하기(&X)"
+
+#. Resource IDs: (275)
+msgid "E&xpand sub-trees"
+msgstr "서브-트리 확장하기(&X)"
+
 #. Resource IDs: (1437)
 msgid "E&xport"
 msgstr "익스포트(&X)"
@@ -3086,6 +3152,14 @@ msgstr "버튼 이미지 편집하기"
 #. Resource IDs: (227, 564)
 msgid "Edit Properties"
 msgstr "속성 수정"
+
+#. Resource IDs: (297)
+msgid "Edit Property Conflict"
+msgstr "속성 충돌 편집하기"
+
+#. Resource IDs: (298)
+msgid "Edit Tree Conflicts"
+msgstr "트리 충돌 편집하기"
 
 #. Resource IDs: (113)
 msgid "Edit author"
@@ -3325,6 +3399,14 @@ msgstr "실행파일 (*.exe)|*.exe|명령 (*.com)|*.com|정보 (*.pdf)|*.pdf|배
 #. Resource IDs: (1002)
 msgid "Existing"
 msgstr "존재하는"
+
+#. Resource IDs: (275)
+msgid "Exp&and source tree"
+msgstr "소스 트리 확장하기(&A)"
+
+#. Resource IDs: (275)
+msgid "Expand &following tree"
+msgstr "다음 트리 확장하기(&F)"
 
 #. Resource IDs: (1002)
 #, c-format
@@ -3970,6 +4052,10 @@ msgid "Hostname mismatch (%s)"
 msgstr "호스트 이름이 다릅니다 (%s)"
 
 #. Resource IDs: (65535)
+msgid "How do you want to resolve this conflict?"
+msgstr "이 충돌을 어떻게 해결하기를 원하십니까?"
+
+#. Resource IDs: (65535)
 msgid "I&nclude paths:"
 msgstr "포함 경로(&N):"
 
@@ -4565,6 +4651,14 @@ msgstr ""
 "수행하고자 하는 명령에 대해 확실하지 않으면, <i>relocate</i>에 대한 문서를 참조하세요.\n"
 "정말 URL을 변경하시겠습니까?"
 
+#. Resource IDs: (275)
+msgid "Join with following &tree"
+msgstr "다음 트리와 합치기(&T)"
+
+#. Resource IDs: (275)
+msgid "Join with source tree"
+msgstr "소스 트리와 합치기"
+
 #. Resource IDs: (1203)
 msgid "Keep &locks"
 msgstr "잠금 유지(&L)"
@@ -4572,6 +4666,22 @@ msgstr "잠금 유지(&L)"
 #. Resource IDs: (1126)
 msgid "Keep changelists"
 msgstr "변경 리스트 유지"
+
+#. Resource IDs: (610)
+msgid "Keep the directory from the repository"
+msgstr "저장소의 디렉토리로 유지하기"
+
+#. Resource IDs: (610)
+msgid "Keep the file from the repository"
+msgstr "저장소의 파일로 유지하기"
+
+#. Resource IDs: (610)
+msgid "Keep the local directory"
+msgstr "지역 디렉토리로 유지하기"
+
+#. Resource IDs: (610)
+msgid "Keep the local file"
+msgstr "지역 파일로 유지하기"
 
 #. Resource IDs: (16136)
 msgid "Keyboard"
@@ -6147,6 +6257,14 @@ msgstr ""
 "속성 '%s'을/를 다음에서 제거합니다\r\n"
 "%s"
 
+#. Resource IDs: (610)
+msgid "Remove the directory"
+msgstr "디렉토리를 삭제하기"
+
+#. Resource IDs: (610)
+msgid "Remove the file"
+msgstr "파일을 삭제하기"
+
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
 msgstr "선택된 캐시(들)를 디스크로부터 제거합니다."
@@ -7230,9 +7348,21 @@ msgstr ""
 msgid "Spin1"
 msgstr "스핀1"
 
+#. Resource IDs: (275)
+msgid "Split &source tree"
+msgstr "소스 트리 분리하기(&S)"
+
+#. Resource IDs: (275)
+msgid "Split following &tree"
+msgstr "다음 트리를 분리하기(&T)"
+
 #. Resource IDs: (376)
 msgid "Split lines"
 msgstr "행을 분리함"
+
+#. Resource IDs: (275)
+msgid "Split sub-trees"
+msgstr "서브-트리를 분리하기"
 
 #. Resource IDs: (3604)
 msgid ""
@@ -7603,6 +7733,101 @@ msgstr "이슈 트래커 프로바이더가 생성될 수 없습니다. 정상�
 #. Resource IDs: (64)
 msgid "The issue-tracker provider was unable to validate the parameter string"
 msgstr "이슈 트레커 프로바이더가 파라메터 스트링의 유효성을 검증하기 위해서 비활성화되었습니다."
+
+#. Resource IDs: (597)
+#, c-format
+msgid "The item '%s' has property conflicts:"
+msgstr "'%s' 아이템의 속성이 충돌되었습니다:"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last merge operation tried to add the directory '%s'"
+msgstr "'%s' 디렉토리를 추가하려고 시도한 마지막 병합 동작"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last merge operation tried to add the file '%s'"
+msgstr "'%s' 파일을 추가하려고 시도한 마지막 병합 동작"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last merge operation tried to delete the directory '%s'"
+msgstr "'%s' 디렉토리를 삭제하려고 시도한 마지막 병합 동작"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last merge operation tried to delete the file '%s'"
+msgstr "'%s' 파일을 삭제하려고 시도한 마지막 병합 동작"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last merge operation tried to modify the directory '%s'"
+msgstr "'%s' 디렉토리를 수정하려고 시도한 마지막 병합 동작"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last merge operation tried to modify the file '%s'"
+msgstr "'%s' 파일을 수정하려고 시도한 마지막 병합 동작"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to add the directory '%s'"
+msgstr "'%s' 디렉토리를 추가하려고 시도한 마지막 전환 동작"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last switch operation tried to add the file '%s'"
+msgstr "'%s' 파일을 추가하려고 시도한 마지막 전환 동작"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to delete the directory '%s'"
+msgstr "'%s' 디렉토리를 삭제하려고 시도한 마지막 전환 동작"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last switch operation tried to delete the file '%s'"
+msgstr "'%s' 파일을 삭제하려고 시도한 마지막 전환 동작"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to modify the directory '%s'"
+msgstr "'%s' 디렉토리를 수정하려고 시도한 마지막 전환 동작"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last switch operation tried to modify the file '%s'"
+msgstr "'%s' 파일을 수정하려고 시도한 마지막 전환 동작"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to add the directory '%s'"
+msgstr "'%s' 디렉토리를 추가하려고 시도한 마지막 업데이트 동작"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to add the file '%s'"
+msgstr "'%s' 파일을 추가하려고 시도한 마지막 업데이트 동작"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to delete the directory '%s'"
+msgstr "'%s' 디렉토리를 삭제하려고 시도한 마지막 업데이트 동작"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to delete the file '%s'"
+msgstr "'%s' 파일을 삭제하려고 시도한 마지막 업데이트 동작"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to modify the directory '%s'"
+msgstr "'%s' 디렉토리를 수정하려고 시도한 마지막 업데이트 동작"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to mofify the file '%s'"
+msgstr "'%s' 파일을 수정하려고 시도한 마지막 업데이트 동작"
 
 #. Resource IDs: (63)
 #, c-format
@@ -8161,6 +8386,10 @@ msgstr "전송중 %s"
 #. Resource IDs: (32816)
 msgid "Transparent &color..."
 msgstr "투명색(&C)..."
+
+#. Resource IDs: (264)
+msgid "Tree conflict"
+msgstr "트리 충돌"
 
 #. Resource IDs: (595)
 msgid "Tree merge"
@@ -9723,23 +9952,4 @@ msgstr "예"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{버그트랙}"
-
-#~ msgid "Only record the merge"
-#~ msgstr "병합 정보만 기록함"
-#~ msgid "(deleted) %s"
-#~ msgstr "(삭제됨) %s"
-#~ msgid "alias (deleted): %s"
-#~ msgstr "별칭 (삭제됨): %s"
-#~ msgid "&?"
-#~ msgstr "&?"
-#~ msgid "Merge all..."
-#~ msgstr "전체 병합..."
-#~ msgid "SVN Export to here"
-#~ msgstr "SVN 파일을 여기에 익스포트합니다"
-#~ msgid "Bro&wse..."
-#~ msgstr "찾아보기(&W)"
-#~ msgid "Brows&e..."
-#~ msgstr "찾아보기(&E)"
-#~ msgid "Force blame"
-#~ msgstr "강제로 작성자를 봄"
 
