@@ -1670,7 +1670,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 				myIDMap.clear();
 				myVerbsIDMap.clear();
 				myVerbsMap.clear();
-				if (CreateProcess(((stdstring)tortoiseMergePath).c_str(), const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+				if (CreateProcess(((stdstring)tortoiseMergePath).c_str(), const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, folder_.c_str(), &startup, &process)==0)
 				{
 					LPVOID lpMsgBuf;
 					FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
@@ -1772,7 +1772,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 			myIDMap.clear();
 			myVerbsIDMap.clear();
 			myVerbsMap.clear();
-			if (CreateProcess(((stdstring)tortoiseProcPath).c_str(), const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, 0, &startup, &process)==0)
+			if (CreateProcess(((stdstring)tortoiseProcPath).c_str(), const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, folder_.c_str(), &startup, &process)==0)
 			{
 				LPVOID lpMsgBuf;
 				FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
