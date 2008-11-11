@@ -339,7 +339,7 @@ std::string CDictionaryBasedPath::GetPath() const
 	// build result
 
 	result.resize (max (1, size));
-    char* target = &result.at(0);
+    char* target = &result[0];
 
 	for (size_t i = depth; i > 0; --i)
 	{
