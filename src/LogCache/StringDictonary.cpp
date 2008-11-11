@@ -229,7 +229,6 @@ index_t CStringDictionary::AutoInsert (const char* string)
 void CStringDictionary::Clear()
 {
 	packedStrings.clear();
-    packedStringsStart = &packedStrings.at(0);
 	offsets.clear();
 	hashIndex.clear();
 
