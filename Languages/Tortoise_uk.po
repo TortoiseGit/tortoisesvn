@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-07 18:16+0200\n"
+"PO-Revision-Date: 2008-11-10 18:34+0200\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -537,7 +537,7 @@ msgstr "&З URL:"
 
 #. Resource IDs: (1259)
 msgid "&From WC at URL:"
-msgstr ""
+msgstr "&З КВ на URL:"
 
 #. Resource IDs: (65535)
 msgid "&From revision"
@@ -820,11 +820,11 @@ msgstr ""
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
-msgstr ""
+msgstr "Пове&рнути зміни з цих модифікацій"
 
 #. Resource IDs: (113)
 msgid "&Revert changes from this revision"
-msgstr ""
+msgstr "Пове&рнути зміни з цієї модифікації"
 
 #. Resource IDs: (1033, 1035, 1116)
 msgid "&Revision"
@@ -3370,12 +3370,12 @@ msgstr "Невдача!"
 
 #. Resource IDs: (313)
 msgid "Fetching file..."
-msgstr ""
+msgstr "Видобувається файл..."
 
 #. Resource IDs: (313)
 #, c-format
 msgid "Fetching revision %s of file:"
-msgstr ""
+msgstr "Видобувається %s модифікація файла:"
 
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
@@ -3759,8 +3759,9 @@ msgid "H&ide unrelated changed paths"
 msgstr ""
 
 #. Resource IDs: (65535)
+#, fuzzy
 msgid "H&ue:"
-msgstr ""
+msgstr "Від&тінок:"
 
 #. Resource IDs: (1353, 1354)
 msgid "HEAD"
@@ -3781,7 +3782,7 @@ msgstr ""
 
 #. Resource IDs: (16974)
 msgid "Hex"
-msgstr ""
+msgstr "Шістнадцятковий"
 
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
@@ -4341,7 +4342,7 @@ msgstr "Клавіатура"
 
 #. Resource IDs: (65535)
 msgid "Keyboard shortcuts:"
-msgstr ""
+msgstr "Гарячі клавіші:"
 
 #. Resource IDs: (1002)
 msgid "Keys"
@@ -4985,7 +4986,7 @@ msgstr "Помилки не трапилось."
 
 #. Resource IDs: (82)
 msgid "No files or folders were modified. There is nothing for TortoiseSVN to revert!"
-msgstr ""
+msgstr "У файлах та каталогах не було змін. TortoiseSVN не має чого повертати!"
 
 #. Resource IDs: (239)
 msgid ""
@@ -5180,7 +5181,7 @@ msgstr ""
 
 #. Resource IDs: (1424)
 msgid "Only record the merge"
-msgstr ""
+msgstr "Записати лише злиття"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -5228,7 +5229,7 @@ msgstr ""
 
 #. Resource IDs: (13)
 msgid "Opens the repository browser to tweak the repository online"
-msgstr ""
+msgstr "Відкриває оглядач репозиторію щоб підлаштувати репозиторій на льоту"
 
 #. Resource IDs: (199)
 msgid "Operate from log cache for now only"
@@ -5356,7 +5357,7 @@ msgstr ""
 
 #. Resource IDs: (16538)
 msgid "Personalized Menus and Toolbars"
-msgstr ""
+msgstr "Персоналізовані меню та рядки знарядь"
 
 #. Resource IDs: (3849)
 msgid ""
@@ -5425,7 +5426,7 @@ msgstr ""
 
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
-msgstr ""
+msgstr "Зачекайте, поки оглядач репозиторію ініціалізується..."
 
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
@@ -5636,7 +5637,7 @@ msgstr "Пе&реініціалізувати"
 
 #. Resource IDs: (114)
 msgid "R&evert to this revision"
-msgstr ""
+msgstr "Пов&ернути до цієї модифікації"
 
 #. Resource IDs: (65535)
 msgid "RAM [kB]: "
@@ -5668,7 +5669,7 @@ msgstr "&Відновити типові"
 
 #. Resource IDs: (8)
 msgid "Re&vert..."
-msgstr ""
+msgstr "По&вернути..."
 
 #. Resource IDs: (12)
 msgid "Read the 'Daily Use Guide' before you are stuck..."
@@ -6044,45 +6045,46 @@ msgstr "Відновити вікно до нормального розміру
 
 #. Resource IDs: (73)
 msgid "Restored"
-msgstr ""
+msgstr "Відновлено"
 
 #. Resource IDs: (73)
 msgid "Retry"
 msgstr "Спробуй ще раз"
 
 #. Resource IDs: (1423)
+#, fuzzy
 msgid "Reverse merge"
-msgstr ""
+msgstr "Зворотнє злиття"
 
 #. Resource IDs: (264)
-#, c-format
+#, fuzzy, c-format
 msgid "Reverse merging %ld"
-msgstr ""
+msgstr "Зворотньо зливаються  %ld"
 
 #. Resource IDs: (264)
-#, c-format
+#, fuzzy, c-format
 msgid "Reverse merging %ld through %ld"
-msgstr ""
+msgstr "Зворотньо зливаються від  %ld до %ld"
 
 #. Resource IDs: (175, 229)
 msgid "Revert"
-msgstr ""
+msgstr "Повернути"
 
 #. Resource IDs: (77)
 msgid "Revert - TortoiseSVN"
-msgstr ""
+msgstr "Повернути  - TortoiseSVN"
 
 #. Resource IDs: (73)
 msgid "Reverted"
-msgstr ""
+msgstr "Повернено"
 
 #. Resource IDs: (9)
 msgid "Reverts all changes you made since the last update"
-msgstr ""
+msgstr "Повертає всі зміни, внесені пілся останнього оновлення"
 
 #. Resource IDs: (14)
 msgid "Reverts an addition to version control"
-msgstr ""
+msgstr "Повертає додаток до керування версіями"
 
 #. Resource IDs: (19, 76, 208, 1306, 1375, 1393, 65535)
 msgid "Revision"
@@ -6233,7 +6235,7 @@ msgstr "SVN Автор"
 
 #. Resource IDs: (12)
 msgid "SVN Copy and add files to this WC"
-msgstr ""
+msgstr "SVN Копіювати і додати файли до цього КВ"
 
 #. Resource IDs: (16)
 msgid "SVN Copy and rename versioned item here"
@@ -6613,7 +6615,7 @@ msgstr "Показати &діапазон..."
 
 #. Resource IDs: (32826)
 msgid "Show &WC revision"
-msgstr ""
+msgstr "Показати модифікацію &КВ"
 
 #. Resource IDs: (32796)
 msgid "Show &all revisions"
@@ -6981,17 +6983,19 @@ msgstr "Stefan Küng, Lübbe Onken"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
-msgstr ""
+msgstr "Subversion"
 
 #. Resource IDs: (65535)
 msgid "Subversion configuration &file:"
-msgstr ""
+msgstr "&Файл налаштувань Subversion:"
 
 #. Resource IDs: (79)
 msgid ""
 "Subversion reported an error while creating a repository!\n"
 "Make sure the folder is empty and not write protected."
 msgstr ""
+"Subversion доповіло про помилку під час створення репозиторію!\n"
+"Переконайтеся, що каталог порожній і не захищений від запису."
 
 #. Resource IDs: (81)
 #, c-format
@@ -7007,12 +7011,12 @@ msgstr ""
 
 #. Resource IDs: (1232)
 msgid "Sw&itch working copy to new branch/tag"
-msgstr ""
+msgstr "Переклю&чити робочу копію на нову гілку/зріз"
 
 #. Resource IDs: (229)
-#, c-format
+#, fuzzy, c-format
 msgid "Switch %s to %s, Revision %s"
-msgstr ""
+msgstr "Переключити %s на %s, модифікація %s"
 
 #. Resource IDs: (78)
 msgid "Switch - TortoiseSVN"
@@ -7024,7 +7028,7 @@ msgstr ""
 
 #. Resource IDs: (140)
 msgid "Switch To Branch / Tag"
-msgstr ""
+msgstr "Переключитися на гілку / зріз"
 
 #. Resource IDs: (3606)
 msgid ""
@@ -7673,7 +7677,7 @@ msgstr "TortoiseMerge"
 #. Resource IDs: (107)
 #, c-format
 msgid "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
-msgstr ""
+msgstr "TortoiseMerge %d.%d.%d, побудова %d - %s, %s"
 
 #. Resource IDs: (107)
 #, c-format
@@ -7683,6 +7687,10 @@ msgid ""
 "apr %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
+"TortoiseMerge %d.%d.%d, побудова %d - %s, %s\r\n"
+"libsvn_diff %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-utils %d.%d.%d"
 
 #. Resource IDs: (80, 65535)
 msgid "TortoiseSVN"
@@ -7691,7 +7699,7 @@ msgstr "TortoiseSVN"
 #. Resource IDs: (107)
 #, c-format
 msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, Побудова %d - %s, %s"
 
 #. Resource IDs: (107)
 #, c-format
@@ -7704,6 +7712,13 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
+"TortoiseSVN %d.%d.%d, Побудова %d - %s, %s\r\n"
+"Subversion %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-utils %d.%d.%d\r\n"
+"neon %s\r\n"
+"%s\r\n"
+"zlib %s"
 
 #. Resource IDs: (98)
 #, c-format
@@ -7779,7 +7794,7 @@ msgstr "URL невідомий (UUID: %s)"
 
 #. Resource IDs: (12)
 msgid "URL of Subversion items"
-msgstr ""
+msgstr "URL елементів Subversion"
 
 #. Resource IDs: (65535)
 msgid "URL to merge from"
@@ -7840,7 +7855,7 @@ msgstr "Нездатен писати у %1, він лише-для-читанн
 
 #. Resource IDs: (3887)
 msgid "Uncheck"
-msgstr ""
+msgstr "Зняти позначку"
 
 #. Resource IDs: (1069)
 #, c-format
@@ -7998,7 +8013,7 @@ msgstr ""
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
-msgstr ""
+msgstr "Використовувати URL &КВ як типовий URL  \"Від:\""
 
 #. Resource IDs: (1064)
 msgid "Use Unified Diff from &clipboard"
@@ -8440,6 +8455,10 @@ msgid ""
 "\n"
 "Do you want to commit anyway?"
 msgstr ""
+"Робоча копія знаходиться на шляху до зрізів!\n"
+"Перед фіксуванням слід переключитися на гілку або головний стовбур.\n"
+"\n"
+"Чи все-одно зафіксувати?"
 
 #. Resource IDs: (88)
 msgid ""
@@ -8447,6 +8466,9 @@ msgid ""
 "Note: updating to another revision won't lose those modifications so the working copy\n"
 "won't look exactly as it was in the revision you're updating to!"
 msgstr ""
+"Ваша робоча копія локально змінена!\n"
+"Зауваження: оновлення до іншої модифікації не знищить ці зміни, тому робоча копія\n"
+"не буде ідентичною до модифікації, до якої ви оновлюєте!"
 
 #. Resource IDs: (89)
 msgid ""
