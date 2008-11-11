@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-11 09:53+0100\n"
+"PO-Revision-Date: 2008-11-11 15:08+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -188,32 +188,32 @@ msgstr "%s, mit %s"
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it already exists unversioned locally."
-msgstr ""
+msgstr "%s, aber es existiert lokal bereits unversioniert."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it is missing locally."
-msgstr ""
+msgstr "%s, aber es fehlt lokal."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it was already added locally."
-msgstr ""
+msgstr "%s, aber es wurde lokal bereits hinzugefügt."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it was deleted locally."
-msgstr ""
+msgstr "%s, aber es wurde lokal bereits gelöscht."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it was obstructed in the working copy."
-msgstr ""
+msgstr "%s, aber es war in der Arbeitskopie behindert."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the local file was already edited."
-msgstr ""
+msgstr "%s, aber die lokale Datei wurde bereits bearbeitet."
 
 #. Resource IDs: (145)
 #, c-format
@@ -7772,97 +7772,97 @@ msgstr "Der COM-Anbieter für das Fehlerverfolgungssystem konnte die Parameter n
 #. Resource IDs: (597)
 #, c-format
 msgid "The item '%s' has property conflicts:"
-msgstr ""
+msgstr "Das Objekt '%s' hat Eigenschaftskonflikte:"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to add the directory '%s'"
-msgstr ""
+msgstr "Das letzte Zusammenführen versuchte das Verzeichnis '%s' hinzuzufügen"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last merge operation tried to add the file '%s'"
-msgstr ""
+msgstr "Das letzte Zusammenführen versuchte die Datei '%s' hinzuzufügen"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to delete the directory '%s'"
-msgstr ""
+msgstr "Das letzte Zusammenführen versuchte das Verzeichnis '%s' zu löschen"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last merge operation tried to delete the file '%s'"
-msgstr ""
+msgstr "Das letzte Zusammenführen versuchte die Datei '%s' zu löschen"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to modify the directory '%s'"
-msgstr ""
+msgstr "Das letzte Zusammenführen versuchte das Verzeichnis '%s' zu verändern"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last merge operation tried to modify the file '%s'"
-msgstr ""
+msgstr "Das letzte Zusammenführen versuchte die Datei '%s' zu verändern"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last switch operation tried to add the directory '%s'"
-msgstr ""
+msgstr "Das letzte 'Wechseln zu' versuchte das Verzeichnis '%s' hinzuzufügen"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last switch operation tried to add the file '%s'"
-msgstr ""
+msgstr "Das letzte 'Wechseln zu' versuchte die Datei '%s' hinzuzufügen"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last switch operation tried to delete the directory '%s'"
-msgstr ""
+msgstr "Das letzte 'Wechseln zu' versuchte das Verzeichnis '%s' zu löschen"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last switch operation tried to delete the file '%s'"
-msgstr ""
+msgstr "Das letzte 'Wechseln zu' versuchte die Datei '%s' zu löschen"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last switch operation tried to modify the directory '%s'"
-msgstr ""
+msgstr "Das letzte 'Wechseln zu' versuchte das Verzeichnis '%s' zu verändern"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last switch operation tried to modify the file '%s'"
-msgstr ""
+msgstr "Das letzte 'Wechseln zu' versuchte die Datei '%s' zu verändern"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to add the directory '%s'"
-msgstr ""
+msgstr "Die letzte Aktualisierung versuchte das Verzeichnis '%s' hinzuzufügen"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to add the file '%s'"
-msgstr ""
+msgstr "Die letzte Aktualisierung versuchte die Datei '%s' hinzuzufügen"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to delete the directory '%s'"
-msgstr ""
+msgstr "Die letzte Aktualisierung versuchte das Verzeichnis '%s' zu löschen"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to delete the file '%s'"
-msgstr ""
+msgstr "Die letzte Aktualisierung versuchte die Datei '%s' zu löschen"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to modify the directory '%s'"
-msgstr ""
+msgstr "Die letzte Aktualisierung versuchte das Verzeichnis '%s' zu verändern"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to mofify the file '%s'"
-msgstr ""
+msgstr "Die letzte Aktualisierung versuchte die Datei '%s' zu verändern"
 
 #. Resource IDs: (63)
 #, c-format
@@ -9602,7 +9602,7 @@ msgstr "Normal"
 
 #. Resource IDs: (11)
 msgid "obstructed"
-msgstr "Versperrt"
+msgstr "Behindert"
 
 #. Resource IDs: (601)
 msgid "offline"
@@ -9639,7 +9639,7 @@ msgstr "Pixel"
 
 #. Resource IDs: (65535)
 msgid "possible or real conflict / obstructed"
-msgstr "Möglicher oder echter Konflikt / versperrt"
+msgstr "Möglicher oder echter Konflikt / Behindert"
 
 #. Resource IDs: (3845)
 msgid "prn"
