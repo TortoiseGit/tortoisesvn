@@ -1166,6 +1166,7 @@ UINT CLogDlg::LogThread()
     if (!succeeded)
 	{
 		m_LogList.ShowText(GetLastErrorMessage(), true);
+		FillLogMessageCtrl(false);
 	}
 	else
 	{
@@ -1703,7 +1704,7 @@ void CLogDlg::OnNMDblclkChangedFileList(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 
 void CLogDlg::DiffSelectedFile()
 {
-	if (m_bThreadRunning)
+	if ((m_bThreadRunning)||(m_LogList.HasText()))
 		return;
 	UpdateLogInfoLabel();
 	INT_PTR selIndex = m_ChangedFileListCtrl.GetSelectionMark();
@@ -1836,7 +1837,7 @@ void CLogDlg::OnNMDblclkLoglist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 
 void CLogDlg::DiffSelectedRevWithPrevious()
 {
-	if (m_bThreadRunning)
+	if ((m_bThreadRunning)||(m_LogList.HasText()))
 		return;
 	UpdateLogInfoLabel();
 	int selIndex = m_LogList.GetSelectionMark();
@@ -2259,7 +2260,7 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	*pResult = 0;
-	if (m_bThreadRunning)
+	if ((m_bThreadRunning)||(m_LogList.HasText()))
 		return;
 	if (pNMLV->iItem >= 0)
 	{
@@ -2315,7 +2316,7 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CLogDlg::OnBnClickedStatbutton()
 {
-	if (m_bThreadRunning)
+	if ((m_bThreadRunning)||(m_LogList.HasText()))
 		return;
 	if (m_arShownList.IsEmpty())
 		return;		// nothing is shown, so no statistics.
@@ -3392,7 +3393,7 @@ void CLogDlg::SortByColumn(int nSortColumn, bool bAscending)
 
 void CLogDlg::OnLvnColumnclick(NMHDR *pNMHDR, LRESULT *pResult)
 {
-	if (m_bThreadRunning)
+	if ((m_bThreadRunning)||(m_LogList.HasText()))
 		return;		//no sorting while the arrays are filled
 	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	const int nColumn = pNMLV->iSubItem;
@@ -3452,7 +3453,7 @@ void CLogDlg::SetSortArrow(CListCtrl * control, int nColumn, bool bAscending)
 }
 void CLogDlg::OnLvnColumnclickChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 {
-	if (m_bThreadRunning)
+	if ((m_bThreadRunning)||(m_LogList.HasText()))
 		return;		//no sorting while the arrays are filled
 	if (m_currentChangedArray == NULL)
 		return;
