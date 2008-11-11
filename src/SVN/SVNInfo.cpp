@@ -40,6 +40,7 @@ SVNInfoData::SVNInfoData()
     , proptime(0)
     , depth(svn_depth_unknown)
     , working_size(0)
+	, treeconflict_binary(false)
 {
 }
 
