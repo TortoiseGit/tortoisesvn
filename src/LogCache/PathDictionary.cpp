@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -315,17 +315,9 @@ bool CDictionaryBasedPath::IsSameOrParentOf ( index_t lhsIndex
 
 std::string CDictionaryBasedPath::GetPath() const
 {
-#ifdef _DEBUG
-    // only used to set _path to a proper value
-
-    if (index == NO_INDEX)
-    {
-        static const std::string noPath ("<INVALID_PATH>");
-        return noPath;
-    }
-
-#endif
-
+	std::string result;
+	if (index == NO_INDEX)
+		return result;
 	// fetch all path elements bottom-up except the root
 	// and calculate the total string length
 
@@ -346,7 +338,6 @@ std::string CDictionaryBasedPath::GetPath() const
 
 	// build result
 
-	std::string result;
 	result.resize (max (1, size));
     char* target = &result.at(0);
 
