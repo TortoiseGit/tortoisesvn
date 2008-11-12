@@ -315,9 +315,22 @@ bool CDictionaryBasedPath::IsSameOrParentOf ( index_t lhsIndex
 
 std::string CDictionaryBasedPath::GetPath() const
 {
-	std::string result;
-	if (index == NO_INDEX)
-		return result;
+    if (index == NO_INDEX)
+    {
+#ifdef _DEBUG
+        // only used to set _path to a proper value
+
+        assert (_path.empty());
+
+        static const std::string noPath ("<INVALID_PATH>");
+        return noPath;
+#else
+        // an assertion is of little use here ...
+
+        throw std::exception ("Access to invalid path object");
+#endif
+    }
+
 	// fetch all path elements bottom-up except the root
 	// and calculate the total string length
 
@@ -338,19 +351,14 @@ std::string CDictionaryBasedPath::GetPath() const
 
 	// build result
 
-	result.resize (max (1, size));
+	std::string result (max (1, size), '/');
     char* target = &result[0];
 
 	for (size_t i = depth; i > 0; --i)
 	{
-		*target = '/';
         memcpy (++target, pathElements[i-1], sizes[i-1]);
         target += sizes[i-1];
 	}
-
-	// special case: the root
-
-	target[0] = ('/');
 
 	// ready
 
