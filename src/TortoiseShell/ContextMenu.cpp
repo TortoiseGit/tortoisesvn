@@ -1245,6 +1245,22 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 			memset(&process, 0, sizeof(process));
 			CRegStdString tortoiseProcPath(_T("Software\\TortoiseSVN\\ProcPath"), _T("TortoiseProc.exe"), false, HKEY_LOCAL_MACHINE);
 			CRegStdString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T("TortoiseMerge.exe"), false, HKEY_LOCAL_MACHINE);
+			stdstring cwdFolder;
+			if (folder_.empty() && files_.empty())
+			{
+				// use the users desktop path as the CWD
+				TCHAR desktopDir[MAX_PATH] = {0};
+				SHGetSpecialFolderPath(lpcmi->hwnd, desktopDir, CSIDL_DESKTOPDIRECTORY, TRUE);
+				cwdFolder = desktopDir;
+			}
+			else
+			{
+				cwdFolder = folder_.empty() ? files_[0] : folder_;
+				if (!PathIsDirectory(cwdFolder.c_str()))
+				{
+					cwdFolder = cwdFolder.substr(0, cwdFolder.rfind('\\'));
+				}
+			}
 
 			//TortoiseProc expects a command line of the form:
 			//"/command:<commandname> /pathfile:<path> /startrev:<startrevision> /endrev:<endrevision> /deletepathfile
@@ -1670,7 +1686,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 				myIDMap.clear();
 				myVerbsIDMap.clear();
 				myVerbsMap.clear();
-				if (CreateProcess(((stdstring)tortoiseMergePath).c_str(), const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, folder_.c_str(), &startup, &process)==0)
+				if (CreateProcess(((stdstring)tortoiseMergePath).c_str(), const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, cwdFolder.c_str(), &startup, &process)==0)
 				{
 					LPVOID lpMsgBuf;
 					FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
@@ -1772,7 +1788,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 			myIDMap.clear();
 			myVerbsIDMap.clear();
 			myVerbsMap.clear();
-			if (CreateProcess(((stdstring)tortoiseProcPath).c_str(), const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, folder_.c_str(), &startup, &process)==0)
+			if (CreateProcess(((stdstring)tortoiseProcPath).c_str(), const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, cwdFolder.c_str(), &startup, &process)==0)
 			{
 				LPVOID lpMsgBuf;
 				FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
