@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-09 14:08+0100\n"
+"PO-Revision-Date: 2008-11-13 22:29+0100\n"
 "Last-Translator: Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -192,6 +192,36 @@ msgstr "%s in %s"
 #, c-format
 msgid "%s, at %s"
 msgstr "%s, met %s"
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it already exists unversioned locally."
+msgstr "%s, maar het bestaat al lokaal en zonder versiebeheer."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it is missing locally."
+msgstr "%s, maar het ontbreekt lokaal."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was already added locally."
+msgstr "%s, maar het was al lokaal toegevoegd."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was deleted locally."
+msgstr "%s, maar het was lokaal verwijderd."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was obstructed in the working copy."
+msgstr "%s, maar het was versperd in de werkkopie."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the local file was already edited."
+msgstr "%s, maar lokale bestand was al gewijzigd."
 
 #. Resource IDs: (145)
 #, c-format
@@ -569,14 +599,6 @@ msgstr "&Van werkkopie in URL:"
 msgid "&From revision"
 msgstr "&Van revisie"
 
-#. Resource IDs: (275)
-msgid "&Glue all"
-msgstr "&Alles vastplakken"
-
-#. Resource IDs: (275)
-msgid "&Glue sub-trees"
-msgstr "Takken &vastplakken"
-
 #. Resource IDs: (32779)
 msgid "&Go To Line..."
 msgstr "&Ga naar regel..."
@@ -653,6 +675,14 @@ msgstr "&Start-map:"
 #. Resource IDs: (32825)
 msgid "&Inline diff word-wise"
 msgstr "&Woordelijke verschillen binnen een regel"
+
+#. Resource IDs: (275)
+msgid "&Join all"
+msgstr "&Alles samennemen"
+
+#. Resource IDs: (275)
+msgid "&Join with sub-trees"
+msgstr "&Samennemen met sub-bomen"
 
 #. Resource IDs: (1016)
 msgid "&Jump to first difference when loading"
@@ -2764,10 +2794,6 @@ msgstr "Credits:"
 msgid "Cu&t"
 msgstr "Kn&ippen"
 
-#. Resource IDs: (275)
-msgid "Cu&t sub-trees"
-msgstr "Takken &Knippen"
-
 #. Resource IDs: (65535)
 msgid "Current"
 msgstr "Huidig"
@@ -2804,14 +2830,6 @@ msgstr "'Quick Access' werkbalk aanpassen"
 #. Resource IDs: (1068)
 msgid "Customize Quick Access Toolbar..."
 msgstr "'Quick Access' werkbalk aanpassen..."
-
-#. Resource IDs: (275)
-msgid "Cut following &tree"
-msgstr "&Vervolgtak knippen"
-
-#. Resource IDs: (275)
-msgid "Cut from &source tree"
-msgstr "Knippen van &Bron"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -3791,10 +3809,6 @@ msgstr "Volledig scherm"
 msgid "Fully recursive"
 msgstr "Volledig recursief"
 
-#. Resource IDs: (275)
-msgid "G&lue to source tree"
-msgstr "Aan bron &plakken"
-
 #. Resource IDs: (273)
 msgid "GDI+ couldn't be initialized!"
 msgstr "GDI+ kon niet gestart worden!"
@@ -3906,10 +3920,6 @@ msgstr "Globaal &negeer-patroon:"
 #. Resource IDs: (65535)
 msgid "Global settings"
 msgstr "Instellingen"
-
-#. Resource IDs: (275)
-msgid "Glue following &tree"
-msgstr "&Vervolgtak plakken"
 
 #. Resource IDs: (280)
 msgid "Go offline?"
@@ -4642,6 +4652,14 @@ msgstr ""
 "Als u niet zeker weet wat u moet doen, raadpleeg dan de documentatie over <i>verhuizen</i>.\n"
 "Wilt u echt verhuizen?"
 
+#. Resource IDs: (275)
+msgid "Join with following &tree"
+msgstr "Samennemen met volgende &boom"
+
+#. Resource IDs: (275)
+msgid "Join with source tree"
+msgstr "Samennemen met bron-boom"
+
 #. Resource IDs: (1203)
 msgid "Keep &locks"
 msgstr "&Blokkades handhaven"
@@ -4650,15 +4668,21 @@ msgstr "&Blokkades handhaven"
 msgid "Keep changelists"
 msgstr "Werksets bewaren"
 
-#. Resource IDs: (609)
-#, c-format
-msgid "Keep the %s from the repository"
-msgstr "Bewaar de %s uit het archief"
+#. Resource IDs: (610)
+msgid "Keep the directory from the repository"
+msgstr "Bewaar de map uit het archief"
 
-#. Resource IDs: (609)
-#, c-format
-msgid "Keep the local %s"
-msgstr "Bewaar de lokale %s"
+#. Resource IDs: (610)
+msgid "Keep the file from the repository"
+msgstr "Bewaar het bestand uit het archief"
+
+#. Resource IDs: (610)
+msgid "Keep the local directory"
+msgstr "Bewaar de lokale map"
+
+#. Resource IDs: (610)
+msgid "Keep the local file"
+msgstr "Bewaar het lokale bestand"
 
 #. Resource IDs: (16136)
 msgid "Keyboard"
@@ -6236,10 +6260,13 @@ msgstr ""
 "Verwijder eigenschap '%s' van\r\n"
 "%s"
 
-#. Resource IDs: (609)
-#, c-format
-msgid "Remove the %s"
-msgstr "Verwijder de %s"
+#. Resource IDs: (610)
+msgid "Remove the directory"
+msgstr "Verwijder de map"
+
+#. Resource IDs: (610)
+msgid "Remove the file"
+msgstr "Verwijder het bestand"
 
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
@@ -7325,9 +7352,21 @@ msgstr ""
 msgid "Spin1"
 msgstr "Spin1"
 
+#. Resource IDs: (275)
+msgid "Split &source tree"
+msgstr "Splits &bron-boom"
+
+#. Resource IDs: (275)
+msgid "Split following &tree"
+msgstr "Splits volgende &boom"
+
 #. Resource IDs: (376)
 msgid "Split lines"
 msgstr "Splits regels"
+
+#. Resource IDs: (275)
+msgid "Split sub-trees"
+msgstr "Splits sub-bomen"
 
 #. Resource IDs: (3604)
 msgid ""
@@ -7707,35 +7746,95 @@ msgstr "De issue-tracker provider kon de opdracht-tekenreeks niet valideren"
 msgid "The item '%s' has property conflicts:"
 msgstr "Onderdeel '%s' heeft eigenschap-conflicten:"
 
-#. Resource IDs: (609)
+#. Resource IDs: (608)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but it already exists unversioned locally."
-msgstr "De laatste %s operatie probeerde %s de %s '%s', maar het bestaat al lokaal en zonder versiebeheer."
+msgid "The last merge operation tried to add the directory '%s'"
+msgstr "De laatste samenvoeg operatie probeerde de map '%s' toe te voegen"
 
-#. Resource IDs: (609)
+#. Resource IDs: (607)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but it is missing locally."
-msgstr "De laatste %s operatie probeerde %s de %s '%s', maar het bestaat niet lokaal."
+msgid "The last merge operation tried to add the file '%s'"
+msgstr "De laatste samenvoeg operatie probeerde het bestand '%s' toe te voegen"
 
-#. Resource IDs: (609)
+#. Resource IDs: (608)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but it was already added locally."
-msgstr "De laatste %s operatie probeerde %s de %s '%s', maar het was al lokaal toegevoegd."
+msgid "The last merge operation tried to delete the directory '%s'"
+msgstr "De laatste samenvoeging probeerde de map '%s' te verwijderen"
 
-#. Resource IDs: (609)
+#. Resource IDs: (607)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but it was deleted locally."
-msgstr "De laatste %s operatie probeerde %s de %s '%s', maar was al lokaal verwijderd."
+msgid "The last merge operation tried to delete the file '%s'"
+msgstr "De laatste samenvoeg operatie probeerde het bestand '%s' te verwijderen"
 
-#. Resource IDs: (609)
+#. Resource IDs: (608)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but it was obstructed in the working copy."
-msgstr "De laatste %s operatie probeerde %s de %s '%s', maar het was versperd in de werkkopie."
+msgid "The last merge operation tried to modify the directory '%s'"
+msgstr "De laatste samenvoeging probeerde de map '%s' te wijzigen"
 
-#. Resource IDs: (609)
+#. Resource IDs: (607)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but the local file was already edited."
-msgstr "De laatste %s operatie probeerde %s de %s '%s', maar lokale bestand was al gewijzigd."
+msgid "The last merge operation tried to modify the file '%s'"
+msgstr "De laatste samenvoeg operatie probeerde het bestand '%s' te wijzigen"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to add the directory '%s'"
+msgstr "De laatste wissel operatie probeerde de map '%s' toe te voegen"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last switch operation tried to add the file '%s'"
+msgstr "De laatste wissel operatie probeerde het bestand '%s' toe te voegen"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to delete the directory '%s'"
+msgstr "De laatste wissel operatie probeerde de map '%s' te verwijderen"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last switch operation tried to delete the file '%s'"
+msgstr "De laatste wissel operatie probeerde het bestand '%s' te verwijderen"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to modify the directory '%s'"
+msgstr "De laatste wissel operatie probeerde de map '%s' te wijzigen"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last switch operation tried to modify the file '%s'"
+msgstr "De laatste wissel operatie probeerde het bestand '%s' te wijzigen"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to add the directory '%s'"
+msgstr "De laatste bijwerk operatie probeerde de map '%s' toe te voegen"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to add the file '%s'"
+msgstr "De laatste bijwerk operatie probeerde het bestand '%s' toe te voegen"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to delete the directory '%s'"
+msgstr "De laatste bijwerk-actie probeerde de map '%s' te verwijderen"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to delete the file '%s'"
+msgstr "De laatste bijwerk operatie probeerde het bestand '%s' te verwijderen"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to modify the directory '%s'"
+msgstr "De laatste bijwerk-actie probeerde de map '%s' te wijzigen"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to modify the file '%s'"
+msgstr "De laatste bijwerk operatie probeerde het bestand '%s' te wijzigen"
 
 #. Resource IDs: (63)
 #, c-format
@@ -9166,10 +9265,6 @@ msgstr "[niet toegewezen]"
 msgid "_POPUP_"
 msgstr "_POPUP_"
 
-#. Resource IDs: (608)
-msgid "add"
-msgstr "voeg toe"
-
 #. Resource IDs: (10)
 msgid "added"
 msgstr "toegevoegd"
@@ -9327,17 +9422,9 @@ msgstr ""
 msgid "copied:"
 msgstr "gekopieerd:"
 
-#. Resource IDs: (608)
-msgid "delete"
-msgstr "verwijder"
-
 #. Resource IDs: (10, 272)
 msgid "deleted"
 msgstr "verwijderd"
-
-#. Resource IDs: (607)
-msgid "directory"
-msgstr "map"
 
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
@@ -9366,10 +9453,6 @@ msgstr ""
 #. Resource IDs: (13)
 msgid "external"
 msgstr "extern"
-
-#. Resource IDs: (607)
-msgid "file"
-msgstr "bestand"
 
 #. Resource IDs: (65535)
 msgid "file external:"
@@ -9431,10 +9514,6 @@ msgstr "geblokkeerd:"
 msgid "max revision: "
 msgstr "hoogste revisie: "
 
-#. Resource IDs: (608)
-msgid "merge"
-msgstr "voeg samen"
-
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "samengevoegd"
@@ -9462,10 +9541,6 @@ msgstr "gewijzigd"
 #. Resource IDs: (65535)
 msgid "modified / copied"
 msgstr "gewijzigd / gekopiëerd"
-
-#. Resource IDs: (608)
-msgid "modify"
-msgstr "wijzig"
 
 #. Resource IDs: (245)
 msgid "month"
@@ -9692,10 +9767,6 @@ msgstr ""
 "gebruiker eerst een blokkade moet zetten op het bestand voordat het\r\n"
 "gewijzigd kan worden en de wijzigingen kunnen worden vastgelegd."
 
-#. Resource IDs: (607)
-msgid "switch"
-msgstr "wissel"
-
 #. Resource IDs: (208)
 #, c-format
 msgid ""
@@ -9847,10 +9918,6 @@ msgstr ""
 "Gebruik 'yes' als u gewaarschuwd wilt worden als er geen bugtracking ID\r\n"
 "wordt opgegeven bij het vastleggen."
 
-#. Resource IDs: (607)
-msgid "update"
-msgstr "ververs"
-
 #. Resource IDs: (65535)
 msgid "user revprops total: "
 msgstr "totaal gebruikers revprops: "
@@ -9907,6 +9974,35 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "&Glue all"
+#~ msgstr "&Alles vastplakken"
+#~ msgid "&Glue sub-trees"
+#~ msgstr "Takken &vastplakken"
+#~ msgid "Cut from &source tree"
+#~ msgstr "Knippen van &Bron"
+#~ msgid "Glue following &tree"
+#~ msgstr "&Vervolgtak plakken"
+#~ msgid ""
+#~ "The last %s operation tried to %s the %s '%s', but it was deleted locally."
+#~ msgstr ""
+#~ "De laatste %s operatie probeerde %s de %s '%s', maar was al lokaal "
+#~ "verwijderd."
+#~ msgid "add"
+#~ msgstr "voeg toe"
+#~ msgid "delete"
+#~ msgstr "verwijder"
+#~ msgid "directory"
+#~ msgstr "map"
+#~ msgid "file"
+#~ msgstr "bestand"
+#~ msgid "merge"
+#~ msgstr "voeg samen"
+#~ msgid "modify"
+#~ msgstr "wijzig"
+#~ msgid "switch"
+#~ msgstr "wissel"
+#~ msgid "update"
+#~ msgstr "ververs"
 #~ msgid "(deleted) %s"
 #~ msgstr "(verwijderd) %s"
 #~ msgid "Only record the merge"
