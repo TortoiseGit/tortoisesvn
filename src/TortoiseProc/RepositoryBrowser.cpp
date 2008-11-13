@@ -2144,8 +2144,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			}
 			popup.AppendMenuIcon(ID_SHOWLOG, IDS_MENULOG, IDI_LOG);		// "Show Log..."
 		}
-		if ((urlList.GetCount() == 1) &&
-			m_path.Exists() && 
+		if (m_path.Exists() && 
 			CTSVNPath(m_InitialUrl).IsAncestorOf(urlList[0]))
 		{
 			CTSVNPath wcPath = m_path;
@@ -2195,13 +2194,23 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 		{
 		case ID_UPDATE:
 			{
-				CTSVNPath wcPath = m_path;
-				wcPath.AppendPathString(urlList[0].GetWinPathString().Mid(m_InitialUrl.GetLength()));
-				CString sCmd;
-				sCmd.Format(_T("\"%s\" /command:update /path:\"%s\" /rev"),
-					(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), wcPath.GetWinPath());
+				CTSVNPathList updateList;
+				for (int i=0; i<urlList.GetCount(); ++i)
+				{
+					CTSVNPath wcPath = m_path;
+					wcPath.AppendPathString(urlList[i].GetWinPathString().Mid(m_InitialUrl.GetLength()));
+					updateList.AddPath(wcPath);
+				}
+				if (updateList.GetCount())
+				{
+					CTSVNPath tempFile = CTempFiles::Instance().GetTempFilePath(false);
+					VERIFY(updateList.WriteToFile(tempFile.GetWinPathString()));
+					CString sCmd;
+					sCmd.Format(_T("\"%s\" /command:update /pathfile:\"%s\" /rev /deletepathfile"),
+						(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), tempFile.GetWinPath());
 
-				CAppUtils::LaunchApplication(sCmd, NULL, false);
+					CAppUtils::LaunchApplication(sCmd, NULL, false);
+				}
 			}
 			break;
 		case ID_PREPAREDIFF:
