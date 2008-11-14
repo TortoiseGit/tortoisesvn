@@ -1914,7 +1914,9 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CTSVNPathList& pa
 
 CString CRepositoryBrowser::EscapeUrl(const CTSVNPath& url)
 {
-	return CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(url.GetSVNPathString())));
+	CStringA prepUrl = CUnicodeUtils::GetUTF8(url.GetSVNPathString());
+	prepUrl.Replace("%", "%25");
+	return CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(prepUrl));
 }
 
 void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)

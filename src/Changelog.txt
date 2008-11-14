@@ -68,6 +68,10 @@ Version 1.5.6
 - BUG: possible segfault in TSVNCache when shutting down windows. (Stefan)
 - BUG: The client-side hook scripts weren't started if only deletions were
        committed or updated. (Stefan)
+- BUG: The "show log" was shown for added files in the status 
+       list control. (Stefan)
+- BUG: Files/Folders with '%' in the name could not be renamed in the
+       repository browser. (Stefan)
        
 Version 1.5.5
 - BUG: The properties dialog would show the url with backward slashes when
