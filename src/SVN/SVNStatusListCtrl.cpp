@@ -2261,7 +2261,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 				}
 			}
 			if ((GetSelectedCount() == 1)&&(wcStatus >= svn_wc_status_normal)
-				&&(wcStatus != svn_wc_status_ignored))
+				&&(wcStatus != svn_wc_status_ignored)
+				&&(wcStatus != svn_wc_status_added))
 			{
 				if (m_dwContextMenus & SVNSLC_POPSHOWLOG)
 				{
