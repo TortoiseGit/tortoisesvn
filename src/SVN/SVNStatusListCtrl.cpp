@@ -4480,20 +4480,22 @@ void CSVNStatusListCtrl::OnBeginDrag(NMHDR* /*pNMHDR*/, LRESULT* pResult)
 {
 	Locker lock(m_critSec);
 	CDropFiles dropFiles; // class for creating DROPFILES struct
+	CTSVNPathList pathList;
+	DWORD effects = DROPEFFECT_COPY|DROPEFFECT_MOVE|DROPEFFECT_LINK;
 
-	int index;
-	POSITION pos = GetFirstSelectedItemPosition();
-	while ( (index = GetNextSelectedItem(pos)) >= 0 )
-	{
-		FileEntry * fentry = m_arStatusArray[m_arListArray[index]];
-		CTSVNPath path = fentry->GetPath();
-		dropFiles.AddFile( path.GetWinPathString() );
-	}
+	FillListOfSelectedItemPaths(pathList);
+	for (int i=0; i<pathList.GetCount(); ++i)
+		dropFiles.AddFile(pathList[i].GetWinPathString());
+
+	int fullCount = pathList.GetCount();
+	pathList.RemoveChildren();
+	if (fullCount != pathList.GetCount())
+		effects = DROPEFFECT_COPY|DROPEFFECT_LINK;
 
 	if ( dropFiles.GetCount()>0 )
 	{
 		m_bOwnDrag = true;
-		dropFiles.CreateStructure();
+		dropFiles.CreateStructure(effects);
 		m_bOwnDrag = false;
 	}
 

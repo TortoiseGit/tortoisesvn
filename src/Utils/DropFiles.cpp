@@ -87,7 +87,7 @@ int	CDropFiles::GetBufferSize() const
 	return m_nBufferSize;
 }
 
-void CDropFiles::CreateStructure()
+void CDropFiles::CreateStructure(DWORD effects /* = DROPEFFECT_COPY|DROPEFFECT_MOVE|DROPEFFECT_LINK */)
 {
 	CreateBuffer();
 	
@@ -97,9 +97,9 @@ void CDropFiles::CreateStructure()
 	{
 		LPVOID pMem = ::GlobalLock(hMem);
 		if (pMem)
-			memcpy( pMem, GetBuffer(), GetBufferSize() );
+			memcpy(pMem, GetBuffer(), GetBufferSize());
 		::GlobalUnlock(hMem);
-		dropData.CacheGlobalData( CF_HDROP, hMem );
-		dropData.DoDragDrop(DROPEFFECT_COPY|DROPEFFECT_MOVE|DROPEFFECT_LINK,NULL);
+		dropData.CacheGlobalData(CF_HDROP, hMem);
+		dropData.DoDragDrop(effects, NULL);
 	}
 }

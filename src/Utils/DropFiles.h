@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2006-2007 - TortoiseSVN
+// Copyright (C) 2006-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -52,7 +52,7 @@ public:
 	 * the DROPFILES structure with the files previously
 	 * added with AddFile(...)
 	 */
-	void CreateStructure();
+	void CreateStructure(DWORD effects = DROPEFFECT_COPY|DROPEFFECT_MOVE|DROPEFFECT_LINK);
 
 protected:
 	/**
