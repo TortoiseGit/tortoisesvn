@@ -213,6 +213,27 @@ index_t CRevisionGraphWnd::GetHitNode (CPoint point) const
     return nodeList->GetAt (logCoordinates, 0);
 }
 
+const CRevisionGraphWnd::SVisibleGlyph* CRevisionGraphWnd::GetHitGlyph (CPoint point) const
+{
+    float glyphSize = 16 * m_fZoomFactor;
+
+    for (size_t i = 0, count = visibleGlyphs.size(); i < count; ++i)
+    {
+        const SVisibleGlyph* entry = &visibleGlyphs[i];
+
+        float xRel = point.x - entry->leftTop.X;
+        float yRel = point.y - entry->leftTop.Y;
+
+        if (   (xRel >= 0) && (xRel < glyphSize)
+            && (yRel >= 0) && (yRel < glyphSize))
+        {
+            return entry;
+        }
+    }
+
+    return NULL;
+}
+
 void CRevisionGraphWnd::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 {
 	SCROLLINFO sinfo = {0};
@@ -328,41 +349,50 @@ void CRevisionGraphWnd::OnLButtonDown(UINT nFlags, CPoint point)
 	bool bControl = !!(GetKeyState(VK_CONTROL)&0x8000);
 	if (!m_OverviewRect.PtInRect(point))
 	{
-        index_t nodeIndex = GetHitNode (point);
-	    if (nodeIndex != NO_INDEX)
-	    {
-            std::auto_ptr<const ILayoutNodeList> nodeList (m_layout->GetNodes());
-            const CVisibleGraphNode* reventry = nodeList->GetNode (nodeIndex).node;
-		    if (bControl)
-		    {
-			    if (m_SelectedEntry1 == reventry)
-			    {
-				    if (m_SelectedEntry2)
-				    {
-					    m_SelectedEntry1 = m_SelectedEntry2;
-					    m_SelectedEntry2 = NULL;
-				    }
-				    else
-					    m_SelectedEntry1 = NULL;
-			    }
-			    else if (m_SelectedEntry2 == reventry)
-				    m_SelectedEntry2 = NULL;
-			    else if (m_SelectedEntry1)
-				    m_SelectedEntry2 = reventry;
-			    else
-				    m_SelectedEntry1 = reventry;
-		    }
-		    else
-		    {
-			    if (m_SelectedEntry1 == reventry)
-				    m_SelectedEntry1 = NULL;
-			    else
-				    m_SelectedEntry1 = reventry;
-			    m_SelectedEntry2 = NULL;
-		    }
-		    bHit = true;
-		    Invalidate();
-	    }
+        const SVisibleGlyph* hitGlyph = GetHitGlyph (point);
+        if (hitGlyph != NULL)
+        {
+            ToggleNodeFlag (hitGlyph->node, hitGlyph->state);
+        	return __super::OnLButtonDown(nFlags, point);
+        }
+        else
+        {
+            index_t nodeIndex = GetHitNode (point);
+	        if (nodeIndex != NO_INDEX)
+	        {
+                std::auto_ptr<const ILayoutNodeList> nodeList (m_layout->GetNodes());
+                const CVisibleGraphNode* reventry = nodeList->GetNode (nodeIndex).node;
+		        if (bControl)
+		        {
+			        if (m_SelectedEntry1 == reventry)
+			        {
+				        if (m_SelectedEntry2)
+				        {
+					        m_SelectedEntry1 = m_SelectedEntry2;
+					        m_SelectedEntry2 = NULL;
+				        }
+				        else
+					        m_SelectedEntry1 = NULL;
+			        }
+			        else if (m_SelectedEntry2 == reventry)
+				        m_SelectedEntry2 = NULL;
+			        else if (m_SelectedEntry1)
+				        m_SelectedEntry2 = reventry;
+			        else
+				        m_SelectedEntry1 = reventry;
+		        }
+		        else
+		        {
+			        if (m_SelectedEntry1 == reventry)
+				        m_SelectedEntry1 = NULL;
+			        else
+				        m_SelectedEntry1 = reventry;
+			        m_SelectedEntry2 = NULL;
+		        }
+		        bHit = true;
+		        Invalidate();
+	        }
+        }
     }
 
     if ((!bHit)&&(!bControl))
@@ -983,15 +1013,19 @@ void CRevisionGraphWnd::ResetNodeFlags (DWORD flags)
     m_parent->StartWorkerThread();
 }
 
-void CRevisionGraphWnd::ToggleNodeFlag (const CVisibleGraphNode *node, DWORD flag)
+void CRevisionGraphWnd::ToggleNodeFlag (const CFullGraphNode *node, DWORD flag)
 {
-    const CFullGraphNode* base = node->GetBase();
-    if (m_nodeStates.GetFlags (base) & flag)
-        m_nodeStates.ResetFlags (base, flag);
+    if (m_nodeStates.GetFlags (node) & flag)
+        m_nodeStates.ResetFlags (node, flag);
     else
-        m_nodeStates.SetFlags (base, flag);
+        m_nodeStates.SetFlags (node, flag);
 
     m_parent->StartWorkerThread();
+}
+
+void CRevisionGraphWnd::ToggleNodeFlag (const CVisibleGraphNode *node, DWORD flag)
+{
+    ToggleNodeFlag (node->GetBase(), flag);
 }
 
 void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
@@ -1110,8 +1144,21 @@ void CRevisionGraphWnd::OnMouseMove(UINT nFlags, CPoint point)
             GetCursorPos (&clientPoint);
             ScreenToClient (&clientPoint);
 
-            if (m_hoverIndex != GetHitNode (clientPoint))
+            const SVisibleGlyph* hitGlyph = GetHitGlyph (clientPoint);
+            const CFullGraphNode* glyphNode = hitGlyph ? hitGlyph->node : NULL;
+
+            const CFullGraphNode* hoverNode = NULL;
+            if (m_hoverIndex != NO_INDEX)
+            {
+                std::auto_ptr<const ILayoutNodeList> nodeList (m_layout->GetNodes());
+                hoverNode = nodeList->GetNode (m_hoverIndex).node->GetBase();
+            }
+
+            bool onHoverNodeGlyph = (hoverNode != NULL) && (glyphNode == hoverNode);
+            if (!onHoverNodeGlyph && (m_hoverIndex != GetHitNode (clientPoint)))
+            {
     			Invalidate(FALSE);
+            }
 
 			return __super::OnMouseMove(nFlags, point);
         }

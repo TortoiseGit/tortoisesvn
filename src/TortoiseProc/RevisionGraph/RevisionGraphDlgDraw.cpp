@@ -98,6 +98,26 @@ void CRevisionGraphWnd::OnPaint()
     DrawGraph(&dc, rect, GetScrollPos(SB_VERT), GetScrollPos(SB_HORZ), false);
 }
 
+void CRevisionGraphWnd::ClearVisibleGlyphs (const CRect& rect)
+{
+    float glyphSize = 16 * m_fZoomFactor;
+
+    for (size_t i = visibleGlyphs.size(), count = i; i > 0; --i)
+    {
+        const PointF& leftTop = visibleGlyphs[i-1].leftTop;
+        CRect glyphRect ( static_cast<int>(leftTop.X)
+                        , static_cast<int>(leftTop.Y)
+                        , static_cast<int>(leftTop.X + glyphSize)
+                        , static_cast<int>(leftTop.Y + glyphSize));
+
+        if (CRect().IntersectRect (glyphRect, rect))
+        {
+            visibleGlyphs[i-1] = visibleGlyphs[--count];
+            visibleGlyphs.pop_back();
+        }
+    }
+}
+
 void CRevisionGraphWnd::CutawayPoints (const RectF& rect, float cutLen, TCutRectangle& result)
 {
     result[0] = PointF (rect.X, rect.Y + cutLen);
@@ -403,9 +423,12 @@ void CRevisionGraphWnd::DrawGlyph
 
 void CRevisionGraphWnd::DrawGlyphs
     ( Graphics& graphics
+    , const CFullGraphNode* node
     , const PointF& center
     , GlyphType glyph1
     , GlyphType glyph2
+    , DWORD state1
+    , DWORD state2
     , bool showAll)
 {
     // don't show collapse and cut glyths by default
@@ -418,7 +441,10 @@ void CRevisionGraphWnd::DrawGlyphs
     // glyth2 shall be set only if 2 glyphs are in use
 
     if (glyph1 == NoGlyph)
+    {
         std::swap (glyph1, glyph2);
+        std::swap (state1, state2);
+    }
 
     // anything to do?
 
@@ -435,18 +461,23 @@ void CRevisionGraphWnd::DrawGlyphs
     {
         PointF leftTop (center.X - 0.5f * squareSize, center.Y - 0.5f * squareSize);
         DrawGlyph (graphics, leftTop, lightColor, darkColor, glyph1);
+        visibleGlyphs.push_back (SVisibleGlyph (state1, leftTop, node));
     }
     else
     {
         PointF leftTop1 (center.X - squareSize, center.Y - 0.5f * squareSize);
         DrawGlyph (graphics, leftTop1, lightColor, darkColor, glyph1);
+        visibleGlyphs.push_back (SVisibleGlyph (state1, leftTop1, node));
+
         PointF leftTop2 (center.X, center.Y - 0.5f * squareSize);
         DrawGlyph (graphics, leftTop2, lightColor, darkColor, glyph2);
+        visibleGlyphs.push_back (SVisibleGlyph (state2, leftTop2, node));
     }
 }
 
 void CRevisionGraphWnd::DrawGlyphs
     ( Graphics& graphics
+    , const CFullGraphNode* node
     , const RectF& nodeRect
     , DWORD state
     , DWORD allowed)
@@ -460,23 +491,32 @@ void CRevisionGraphWnd::DrawGlyphs
 
     PointF topCenter (0.5f * nodeRect.GetLeft() + 0.5f * nodeRect.GetRight(), nodeRect.GetTop());
     DrawGlyphs ( graphics
+               , node
                , topCenter
                , (state & CGraphNodeStates::COLLAPSED_ABOVE) ? ExpandGlyph : CollapseGlyph
                , (state & CGraphNodeStates::SPLIT_ABOVE) ? JoinGlyph : SplitGlyph
+               , CGraphNodeStates::COLLAPSED_ABOVE
+               , CGraphNodeStates::SPLIT_ABOVE
                , (allowed & CGraphNodeStates::COLLAPSED_ABOVE) != 0);
 
     PointF rightCenter (nodeRect.GetRight(), 0.5f * nodeRect.GetTop() + 0.5f * nodeRect.GetBottom());
     DrawGlyphs ( graphics
+               , node
                , rightCenter
                , (state & CGraphNodeStates::COLLAPSED_RIGHT) ? ExpandGlyph : CollapseGlyph
                , (state & CGraphNodeStates::SPLIT_RIGHT) ? JoinGlyph : SplitGlyph
+               , CGraphNodeStates::COLLAPSED_RIGHT
+               , CGraphNodeStates::SPLIT_RIGHT
                , (allowed & CGraphNodeStates::COLLAPSED_RIGHT) != 0);
 
     PointF bottomCenter (0.5f * nodeRect.GetLeft() + 0.5f * nodeRect.GetRight(), nodeRect.GetBottom());
     DrawGlyphs ( graphics
+               , node
                , bottomCenter
                , (state & CGraphNodeStates::COLLAPSED_BELOW) ? ExpandGlyph : CollapseGlyph
                , (state & CGraphNodeStates::SPLIT_BELOW) ? JoinGlyph : SplitGlyph
+               , CGraphNodeStates::COLLAPSED_BELOW
+               , CGraphNodeStates::SPLIT_BELOW
                , (allowed & CGraphNodeStates::COLLAPSED_BELOW) != 0);
 }
 
@@ -558,7 +598,8 @@ void CRevisionGraphWnd::DrawNodes (Graphics& graphics, const CRect& logRect, con
 
         // expansion glypths etc.
 
-        DrawGlyphs (graphics, noderect, m_nodeStates.GetFlags (node.node->GetBase()), 0);
+        const CFullGraphNode* base = node.node->GetBase();
+        DrawGlyphs (graphics, base, noderect, m_nodeStates.GetFlags (base), 0);
     }
 }
 
@@ -644,7 +685,9 @@ void CRevisionGraphWnd::DrawCurrentNodeGlyphs (Graphics& graphics, const CSize& 
         ILayoutNodeList::SNode node = nodeList->GetNode (m_hoverIndex);
         RectF noderect (GetNodeRect (node, offset));
 
-        DWORD flags = m_nodeStates.GetFlags (node.node->GetBase());
+        const CFullGraphNode* base = node.node->GetBase();
+
+        DWORD flags = m_nodeStates.GetFlags (base);
         DWORD allowed = 0;
         if (node.node->GetPrevious() || node.node->GetCopySource())
             allowed |= CGraphNodeStates::COLLAPSED_ABOVE;
@@ -653,7 +696,7 @@ void CRevisionGraphWnd::DrawCurrentNodeGlyphs (Graphics& graphics, const CSize& 
         if (node.node->GetNext())
             allowed |= CGraphNodeStates::COLLAPSED_BELOW;
 
-        DrawGlyphs (graphics, noderect, flags, allowed);
+        DrawGlyphs (graphics, base, noderect, flags, allowed);
     }
 }
 
@@ -665,6 +708,8 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 	
 	memDC->FillSolidRect(rect, GetSysColor(COLOR_WINDOW));
 	memDC->SetBkMode(TRANSPARENT);
+
+    ClearVisibleGlyphs (rect);
 
     // transform visible
 

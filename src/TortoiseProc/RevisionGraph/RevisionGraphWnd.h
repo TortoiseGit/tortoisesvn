@@ -175,6 +175,22 @@ protected:
 	DECLARE_MESSAGE_MAP()
 private:
 
+    /// when glyphs are shown, this will contain the list of all
+
+    struct SVisibleGlyph
+    {
+        DWORD state;
+        PointF leftTop;
+        const CFullGraphNode* node;
+
+        SVisibleGlyph (DWORD state, const PointF& leftTop, const CFullGraphNode* node)
+            : state (state), leftTop (leftTop), node (node)
+        {
+        }
+    };
+
+    std::vector<SVisibleGlyph> visibleGlyphs;
+
     enum GlyphType
     {
         NoGlyph,
@@ -205,6 +221,7 @@ private:
     void            DoShowLog();
     void            DoMergeTo();
     void            ResetNodeFlags (DWORD flags);
+    void            ToggleNodeFlag (const CFullGraphNode *node, DWORD flag);
     void            ToggleNodeFlag (const CVisibleGraphNode *node, DWORD flag);
 
 	void			SetScrollbars(int nVert = 0, int nHorz = 0, int oldwidth = 0, int oldheight = 0);
@@ -216,6 +233,9 @@ private:
     CString         TooltipText (index_t index);
 
     index_t         GetHitNode (CPoint point) const;
+    const SVisibleGlyph*  GetHitGlyph (CPoint point) const;
+
+    void            ClearVisibleGlyphs (const CRect& rect);
 
     typedef PointF TCutRectangle[8];
     void            CutawayPoints (const RectF& rect, float cutLen, TCutRectangle& result);
@@ -233,9 +253,10 @@ private:
                                 const Color& lightColor, const Color& darkColor, const Color& penColor);
     void            DrawGlyph (Graphics& graphics, const PointF& leftTop,
                                const Color& lightColor, const Color& darkColor, GlyphType glyph);
-    void            DrawGlyphs (Graphics& graphics, const PointF& center, 
-                                GlyphType glyph1, GlyphType glyph2, bool showAll);
-    void            DrawGlyphs (Graphics& graphics, const RectF& nodeRect, DWORD state, DWORD allowed);
+    void            DrawGlyphs (Graphics& graphics, const CFullGraphNode* node, const PointF& center, 
+                                GlyphType glyph1, GlyphType glyph2, DWORD state1, DWORD state2, bool showAll);
+    void            DrawGlyphs (Graphics& graphics, const CFullGraphNode* node, const RectF& nodeRect,
+                                DWORD state, DWORD allowed);
     void            DrawMarker (Graphics& graphics, const PointF& leftTop, 
                                 const Color& lightColor, const Color& darkColor);
 
