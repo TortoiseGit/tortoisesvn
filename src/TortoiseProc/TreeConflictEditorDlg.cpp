@@ -66,20 +66,62 @@ BOOL CTreeConflictEditorDlg::OnInitDialog()
 
 void CTreeConflictEditorDlg::OnBnClickedResolveusingtheirs()
 {
+	INT_PTR retVal = IDC_RESOLVEUSINGTHEIRS;
 	SVN svn;
 	if (!svn.Resolve(m_path, svn_wc_conflict_choose_theirs_full, false))
 	{
 		CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+		retVal = IDCANCEL;
 	}
-	EndDialog(IDC_RESOLVEUSINGTHEIRS);
+	else
+	{
+		// Subversion conflict resolving does *not* remove files/dirs automatically but
+		// (currently?) simply marks the conflict as resolved.
+		// We try to do the deletion here ourselves since that's what the dialog button
+		// suggested
+		if ((m_sUseTheirs.Compare(CString(MAKEINTRESOURCE(IDS_TREECONFLICT_RESOLVE_REMOVEFILE))) == 0)||
+			(m_sUseTheirs.Compare(CString(MAKEINTRESOURCE(IDS_TREECONFLICT_RESOLVE_REMOVEDIR))) == 0))
+		{
+			if (m_path.Exists())
+			{
+				if (!svn.Remove(CTSVNPathList(m_path), TRUE, FALSE))
+				{
+					CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+					retVal = IDCANCEL;
+				}
+			}
+		}
+	}
+	EndDialog(retVal);
 }
 
 void CTreeConflictEditorDlg::OnBnClickedResolveusingmine()
 {
+	INT_PTR retVal = IDC_RESOLVEUSINGMINE;
 	SVN svn;
 	if (!svn.Resolve(m_path, svn_wc_conflict_choose_mine_full, false))
 	{
 		CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+		retVal = IDCANCEL;
 	}
-	EndDialog(IDC_RESOLVEUSINGMINE);
+	else
+	{
+		// Subversion conflict resolving does *not* remove files/dirs automatically but
+		// (currently?) simply marks the conflict as resolved.
+		// We try to do the deletion here ourselves since that's what the dialog button
+		// suggested
+		if ((m_sUseMine.Compare(CString(MAKEINTRESOURCE(IDS_TREECONFLICT_RESOLVE_REMOVEFILE))) == 0)||
+			(m_sUseMine.Compare(CString(MAKEINTRESOURCE(IDS_TREECONFLICT_RESOLVE_REMOVEDIR))) == 0))
+		{
+			if (m_path.Exists())
+			{
+				if (!svn.Remove(CTSVNPathList(m_path), TRUE, FALSE))
+				{
+					CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+					retVal = IDCANCEL;
+				}
+			}
+		}
+	}
+	EndDialog(retVal);
 }
