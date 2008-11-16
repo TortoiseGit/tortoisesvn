@@ -182,9 +182,9 @@ private:
     {
         DWORD state;
         PointF leftTop;
-        const CFullGraphNode* node;
+        const CVisibleGraphNode* node;
 
-        SVisibleGlyph (DWORD state, const PointF& leftTop, const CFullGraphNode* node)
+        SVisibleGlyph (DWORD state, const PointF& leftTop, const CVisibleGraphNode* node)
             : state (state), leftTop (leftTop), node (node)
         {
         }
@@ -222,7 +222,6 @@ private:
     void            DoShowLog();
     void            DoMergeTo();
     void            ResetNodeFlags (DWORD flags);
-    void            ToggleNodeFlag (const CFullGraphNode *node, DWORD flag);
     void            ToggleNodeFlag (const CVisibleGraphNode *node, DWORD flag);
 
 	void			SetScrollbars(int nVert = 0, int nHorz = 0, int oldwidth = 0, int oldheight = 0);
@@ -254,9 +253,9 @@ private:
                                 const Color& lightColor, const Color& darkColor, const Color& penColor);
     void            DrawGlyph (Graphics& graphics, const PointF& leftTop,
                                const Color& lightColor, const Color& darkColor, GlyphType glyph);
-    void            DrawGlyphs (Graphics& graphics, const CFullGraphNode* node, const PointF& center, 
+    void            DrawGlyphs (Graphics& graphics, const CVisibleGraphNode* node, const PointF& center, 
                                 GlyphType glyph1, GlyphType glyph2, DWORD state1, DWORD state2, bool showAll);
-    void            DrawGlyphs (Graphics& graphics, const CFullGraphNode* node, const RectF& nodeRect,
+    void            DrawGlyphs (Graphics& graphics, const CVisibleGraphNode* node, const RectF& nodeRect,
                                 DWORD state, DWORD allowed, bool upsideDown);
     void            DrawMarker (Graphics& graphics, const PointF& leftTop, 
                                 const Color& lightColor, const Color& darkColor);

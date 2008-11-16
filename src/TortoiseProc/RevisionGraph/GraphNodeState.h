@@ -72,7 +72,13 @@ public:
     /// used tempoarily to hold the status while the query is re-run
     /// (i.e. when the node pointers will become invalid)
 
-    typedef std::map<std::pair<revision_t, CDictionaryBasedTempPath>, DWORD> TSavedStates;
+    typedef std::pair<revision_t, CDictionaryBasedTempPath> TNodeDescriptor;
+    typedef std::pair<TNodeDescriptor, DWORD> TStateDescriptor;
+
+    typedef std::map<TNodeDescriptor, DWORD> TSavedStates;
+    typedef std::multimap<TStateDescriptor, TStateDescriptor> TSavedLinks;
+    
+    typedef std::pair<TSavedStates, TSavedLinks> TSavedData;
 
 private:
 
@@ -81,9 +87,22 @@ private:
     typedef std::map<const CFullGraphNode*, DWORD> TStates;
     TStates states;
 
-    /// utiltiy method: restore state from saved data
+    typedef std::pair<const CFullGraphNode*, DWORD> TNodeState;
+    typedef std::multimap<TNodeState, TNodeState> TLinks;
+    TLinks links;
 
-    void RestoreStates (const TSavedStates& saved, const CFullGraphNode* node);
+    /// utiltiy methods: restore state from saved data
+
+    typedef std::map<TNodeDescriptor, const CFullGraphNode*> TDescriptorMap;
+    void RestoreStates ( const TSavedStates& saved
+                       , const CFullGraphNode* node
+                       , TDescriptorMap& mapping);
+    void RestoreLinks ( const TSavedLinks& saved
+                      , const TDescriptorMap& mapping);
+
+    /// \ref ResetFlags() may call this multiple times if links are defined
+
+    void InternalResetFlags (const CFullGraphNode* node, DWORD flags);
 
 public:
 
@@ -98,6 +117,11 @@ public:
     void ResetFlags (const CFullGraphNode* node, DWORD flags);
     DWORD GetFlags (const CFullGraphNode* node) const;
 
+    /// if we reset a flag in source, reset the corresponding flag in target.
+    /// Also, set it initially, when adding this link.
+
+    void AddLink (const CFullGraphNode* source, const CFullGraphNode* target, DWORD flags);
+
     /// quick update all
 
     void ResetFlags (DWORD flags);
@@ -108,6 +132,6 @@ public:
 
     /// re-qeuery support
 
-    TSavedStates SaveStates() const;
-    void LoadStates (const TSavedStates& saved, const CFullGraph* graph);
+    TSavedData SaveData() const;
+    void LoadData (const TSavedData& saved, const CFullGraph* graph);
 };

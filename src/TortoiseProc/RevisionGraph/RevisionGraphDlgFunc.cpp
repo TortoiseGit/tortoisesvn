@@ -265,7 +265,7 @@ bool CRevisionGraphWnd::FetchRevisionData
 	bool result = newFullHistory->FetchRevisionData (path, pegRevision, showWCRev, m_pProgress);
     if (result)
     {
-        CGraphNodeStates::TSavedStates oldStates = m_nodeStates.SaveStates();
+        CGraphNodeStates::TSavedData oldStates = m_nodeStates.SaveData();
         m_nodeStates.ResetFlags (UINT_MAX);
 
         m_fullHistory.reset (newFullHistory.release());
@@ -280,7 +280,7 @@ bool CRevisionGraphWnd::FetchRevisionData
         CFullGraphFinalizer finalizer (*m_fullHistory, *m_fullGraph);
         finalizer.Run();
 
-        m_nodeStates.LoadStates (oldStates, m_fullGraph.get());
+        m_nodeStates.LoadData (oldStates, m_fullGraph.get());
     }
 
     return result;

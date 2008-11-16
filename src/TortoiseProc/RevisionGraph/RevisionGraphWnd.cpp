@@ -1014,19 +1014,35 @@ void CRevisionGraphWnd::ResetNodeFlags (DWORD flags)
     m_parent->StartWorkerThread();
 }
 
-void CRevisionGraphWnd::ToggleNodeFlag (const CFullGraphNode *node, DWORD flag)
-{
-    if (m_nodeStates.GetFlags (node) & flag)
-        m_nodeStates.ResetFlags (node, flag);
-    else
-        m_nodeStates.SetFlags (node, flag);
-
-    m_parent->StartWorkerThread();
-}
-
 void CRevisionGraphWnd::ToggleNodeFlag (const CVisibleGraphNode *node, DWORD flag)
 {
-    ToggleNodeFlag (node->GetBase(), flag);
+    const CFullGraphNode* base = node->GetBase();
+
+    if (m_nodeStates.GetFlags (base) & flag)
+    {
+        m_nodeStates.ResetFlags (base, flag);
+    }
+    else
+    {
+        m_nodeStates.SetFlags (base, flag);
+
+        if (flag == CGraphNodeStates::SPLIT_BELOW)
+            m_nodeStates.AddLink (base, node->GetNext()->GetBase(), flag);
+
+        if ((flag == CGraphNodeStates::SPLIT_ABOVE) && node->GetPrevious())
+            m_nodeStates.AddLink (base, node->GetPrevious()->GetBase(), flag);
+
+        if (flag == CGraphNodeStates::SPLIT_RIGHT)
+            for ( const CVisibleGraphNode::CCopyTarget* target 
+                    = node->GetFirstCopyTarget()
+                ; target != NULL
+                ; target = target->next())
+            {
+                m_nodeStates.AddLink (base, target->value()->GetBase(), flag);
+            }
+    }
+
+    m_parent->StartWorkerThread();
 }
 
 void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
@@ -1146,7 +1162,9 @@ void CRevisionGraphWnd::OnMouseMove(UINT nFlags, CPoint point)
             ScreenToClient (&clientPoint);
 
             const SVisibleGlyph* hitGlyph = GetHitGlyph (clientPoint);
-            const CFullGraphNode* glyphNode = hitGlyph ? hitGlyph->node : NULL;
+            const CFullGraphNode* glyphNode = hitGlyph 
+                                            ? hitGlyph->node->GetBase() 
+                                            : NULL;
 
             const CFullGraphNode* hoverNode = NULL;
             if (m_hoverIndex != NO_INDEX)

@@ -424,7 +424,7 @@ void CRevisionGraphWnd::DrawGlyph
 
 void CRevisionGraphWnd::DrawGlyphs
     ( Graphics& graphics
-    , const CFullGraphNode* node
+    , const CVisibleGraphNode* node
     , const PointF& center
     , GlyphType glyph1
     , GlyphType glyph2
@@ -478,7 +478,7 @@ void CRevisionGraphWnd::DrawGlyphs
 
 void CRevisionGraphWnd::DrawGlyphs
     ( Graphics& graphics
-    , const CFullGraphNode* node
+    , const CVisibleGraphNode* node
     , const RectF& nodeRect
     , DWORD state
     , DWORD allowed
@@ -604,7 +604,7 @@ void CRevisionGraphWnd::DrawNodes (Graphics& graphics, const CRect& logRect, con
         // expansion glypths etc.
 
         const CFullGraphNode* base = node.node->GetBase();
-        DrawGlyphs (graphics, base, noderect, m_nodeStates.GetFlags (base), 0, upsideDown);
+        DrawGlyphs (graphics, node.node, noderect, m_nodeStates.GetFlags (base), 0, upsideDown);
     }
 }
 
@@ -706,7 +706,7 @@ void CRevisionGraphWnd::DrawCurrentNodeGlyphs (Graphics& graphics, const CSize& 
         if (node.node->GetNext())
             allowed |= CGraphNodeStates::COLLAPSED_BELOW;
 
-        DrawGlyphs (graphics, base, noderect, flags, allowed, upsideDown);
+        DrawGlyphs (graphics, node.node, noderect, flags, allowed, upsideDown);
     }
 }
 
