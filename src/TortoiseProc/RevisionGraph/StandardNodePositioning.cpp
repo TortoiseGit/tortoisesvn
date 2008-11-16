@@ -38,7 +38,7 @@ void CStandardNodePositioning::StackSubTree
     // shift sub-branches down by at least this value to make room for
     // the connection line to it
 
-    long connectionShift = node->rect.Height() / 2 + 10;
+    long connectionShift = node->rect.top + node->rect.Height() / 2 + 10;
 
     // shift subtree downwards until there is no overlap with upper sub-trees
 

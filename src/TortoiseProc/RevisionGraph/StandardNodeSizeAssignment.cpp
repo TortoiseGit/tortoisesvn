@@ -77,7 +77,7 @@ void CStandardNodeSizeAssignment::ApplyTo (IRevisionGraphLayout* layout)
 
         // set result
 
-        node->requiredSize = CSize (200, height + extension);
+        node->requiredSize = CSize (200, height + extension + shift);
         node->rect = CRect (0, shift, 200, height + shift);
     }
 }

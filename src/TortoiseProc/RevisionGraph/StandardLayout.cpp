@@ -322,8 +322,15 @@ void CStandardLayout::CalculateBoundingRect()
     // (connections and texts will lie within these bounds)
 
     boundingRect = nodes[0].rect;
-    for (size_t i = 1, count = nodes.size(); i < count; ++i)
-        boundingRect |= nodes[i].rect;
+    for (size_t i = 0, count = nodes.size(); i < count; ++i)
+    {
+        const CSize& size = nodes[i].requiredSize;
+
+        CRect rect = nodes[i].rect;
+        rect.right = max (rect.left + size.cx, rect.right);
+        rect.bottom = max (rect.top + size.cy, rect.bottom);
+        boundingRect |= rect;
+    }
 }
 
 /// construction / destruction
