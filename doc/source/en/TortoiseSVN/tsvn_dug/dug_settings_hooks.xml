@@ -309,6 +309,13 @@
 		Normally you will want to hide ugly DOS boxes when the script runs,
 		so <guilabel>Hide the script while running</guilabel> is checked by default.
 	</para>
+	<para>
+		Sample client hook scripts can be found in the <literal>contrib</literal> folder in the
+		<ulink url="http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/hook-scripts">
+			<citetitle>TortoiseSVN repository</citetitle>
+		</ulink>.
+		(<xref linkend="tsvn-preface-source"/> explains how to access the repository).
+	</para>
 	<sect3 id="tsvn-dug-settings-hooks-issuetracker">
 		<title>Issue Tracker Integration</title>
 		<?dbhh topicname="HIDD_SETTINGSBUGTRAQ"?>
