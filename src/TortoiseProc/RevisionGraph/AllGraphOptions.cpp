@@ -72,7 +72,7 @@ CAllRevisionGraphOptions::CAllRevisionGraphOptions (const CGraphNodeStates* node
 
     // create layout options
 
-    (new CStandardNodeSizeAssignment (*this))->ToggleSelection();
+    (new CStandardNodeSizeAssignment (*this, nodeStates))->ToggleSelection();
     new CStrictOrderNodePositioning (*this, standardNodePositioning, reduceCrossLines);
 
     // link options as necessary
