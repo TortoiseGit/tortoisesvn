@@ -59,6 +59,13 @@ CVisibleGraphNode::CFactory::CFactory()
 {
 }
 
+// just checkin ...
+
+CVisibleGraphNode::CFactory::~CFactory()
+{
+    assert (nodeCount == 0);
+}
+
 // factory interface
 
 CVisibleGraphNode* CVisibleGraphNode::CFactory::Create 
@@ -347,11 +354,12 @@ void CVisibleGraphNode::DropSubTree (CVisibleGraph* graph)
 
         // remove from original list and attach it to *this for destruction
 
-        firstCopyTarget = *copy;
-        *copy = (*copy)->next();
+        CCopyTarget* next = (*copy)->next();
+        (*copy)->next() = firstCopyTarget;
+        (*copy)->value() = NULL;
 
-        firstCopyTarget->next() = NULL;
-        firstCopyTarget->value() = NULL;
+        firstCopyTarget = *copy;
+        *copy = next;
     }
 
     // destruct this

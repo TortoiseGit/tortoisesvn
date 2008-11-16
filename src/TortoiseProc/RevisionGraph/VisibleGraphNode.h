@@ -91,6 +91,10 @@ public:
 
         CFactory();
 
+        /// just checkin ...
+
+        ~CFactory();
+
         /// factory interface
 
         CVisibleGraphNode* Create ( const CFullGraphNode* base
