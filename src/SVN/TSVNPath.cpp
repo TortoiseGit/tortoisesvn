@@ -307,7 +307,7 @@ bool CTSVNPath::Delete(bool bTrash) const
 			SHFILEOPSTRUCT shop = {0};
 			shop.wFunc = FO_DELETE;
 			shop.pFrom = buf;
-			shop.fFlags = FOF_NOCONFIRMATION|FOF_NOERRORUI|FOF_SILENT;
+			shop.fFlags = FOF_NOCONFIRMATION|FOF_NOERRORUI|FOF_SILENT|FOF_NO_CONNECTED_ELEMENTS;
 			if (bTrash)
 				shop.fFlags |= FOF_ALLOWUNDO;
 			bRet = (SHFileOperation(&shop) == 0);
@@ -1052,7 +1052,7 @@ void CTSVNPathList::DeleteAllFiles(bool bTrash)
 		SHFILEOPSTRUCT shop = {0};
 		shop.wFunc = FO_DELETE;
 		shop.pFrom = (LPCTSTR)sPaths;
-		shop.fFlags = FOF_ALLOWUNDO|FOF_NOCONFIRMATION|FOF_NOERRORUI|FOF_SILENT;
+		shop.fFlags = FOF_ALLOWUNDO|FOF_NOCONFIRMATION|FOF_NOERRORUI|FOF_SILENT|FOF_NO_CONNECTED_ELEMENTS;
 		SHFileOperation(&shop);
 	}
 	else
