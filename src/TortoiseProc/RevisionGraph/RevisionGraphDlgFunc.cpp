@@ -259,14 +259,16 @@ bool CRevisionGraphWnd::FetchRevisionData
     // (re-)fetch the data
 
     m_options = &options;
-    m_fullHistory.reset (new CFullHistory());
+    std::auto_ptr<CFullHistory> newFullHistory (new CFullHistory());
 
     bool showWCRev = options.GetOption<CShowWC>()->IsActive();
-	bool result = m_fullHistory->FetchRevisionData (path, pegRevision, showWCRev, m_pProgress);
+	bool result = newFullHistory->FetchRevisionData (path, pegRevision, showWCRev, m_pProgress);
     if (result)
     {
         CGraphNodeStates::TSavedStates oldStates = m_nodeStates.SaveStates();
         m_nodeStates.ResetFlags (UINT_MAX);
+
+        m_fullHistory.reset (newFullHistory.release());
 
         m_fullGraph.reset (new CFullGraph());
         m_visibleGraph.reset();
