@@ -38,7 +38,7 @@ bool ConflictEditorCommand::Execute()
 	// now look for the other required files
 	SVNStatus stat;
 	stat.GetStatus(merge);
-	if ((stat.status == NULL)||(stat.status->entry == NULL))
+	if (stat.status == NULL)
 		return false;
 
 	if (stat.status->text_status == svn_wc_status_conflicted)
@@ -50,17 +50,17 @@ bool ConflictEditorCommand::Execute()
 		CTSVNPath base(directory);
 		bool bConflictData = false;
 
-		if (stat.status->entry->conflict_new)
+		if ((stat.status->entry)&&(stat.status->entry->conflict_new))
 		{
 			theirs.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_new));
 			bConflictData = true;
 		}
-		if (stat.status->entry->conflict_old)
+		if ((stat.status->entry)&&(stat.status->entry->conflict_old))
 		{
 			base.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_old));
 			bConflictData = true;
 		}
-		if (stat.status->entry->conflict_wrk)
+		if ((stat.status->entry)&&(stat.status->entry->conflict_wrk))
 		{
 			mine.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->conflict_wrk));
 			bConflictData = true;
@@ -77,7 +77,7 @@ bool ConflictEditorCommand::Execute()
 	{
 		// we have a property conflict
 		CTSVNPath prej(directory);
-		if (stat.status->entry->prejfile)
+		if ((stat.status->entry)&&(stat.status->entry->prejfile))
 		{
 			prej.AppendPathString(CUnicodeUtils::GetUnicode(stat.status->entry->prejfile));
 			// there's a problem: the prej file contains a _description_ of the conflict, and
@@ -136,7 +136,8 @@ bool ConflictEditorCommand::Execute()
 				CString sConflictReason;
 				CString sResolveTheirs;
 				CString sResolveMine;
-				CString sItemName = CPathUtils::GetFileNameFromPath(pInfoData->treeconflict_path);
+				CTSVNPath treeConflictPath = CTSVNPath(pInfoData->treeconflict_path);
+				CString sItemName = treeConflictPath.GetUIFileOrDirectoryName();
 				
 				if (pInfoData->treeconflict_nodekind == svn_node_file)
 				{
@@ -286,8 +287,9 @@ bool ConflictEditorCommand::Execute()
 				CTreeConflictEditorDlg dlg;
 				dlg.SetConflictInfoText(sConflictReason);
 				dlg.SetResolveTexts(sResolveTheirs, sResolveMine);
-				dlg.SetPath(CTSVNPath(pInfoData->treeconflict_path));
-				bRet = (dlg.DoModal() != IDCANCEL);
+				dlg.SetPath(treeConflictPath);
+				INT_PTR dlgRet = dlg.DoModal();
+				bRet = (dlgRet != IDCANCEL);
 			}
 		}
 	}
