@@ -418,16 +418,28 @@
 						been merged, future merges which include that revision in the
 						range will skip over it.
 					</para>
+				</listitem>
+				<listitem>
 					<para>
 						When you merge a branch back into trunk, the log dialog
 						can show you the branch commits as part of the trunk
 						log, giving better traceability of changes.
 					</para>
+				</listitem>
+				<listitem>
+					<para>
+						When you show the log dialog from within the merge dialog,
+						revisions already merged are shown in grey.
+					</para>
+				</listitem>
+				<listitem>
 					<para>
 						When showing blame information for a file, you can choose
 						to show the original author of merged revisions, rather than
 						the person who did the merge.
 					</para>
+				</listitem>
+				<listitem>
 					<para>
 						You can mark revisions as <emphasis>do not merge</emphasis>
 						by including them in the list of merged revisions without
