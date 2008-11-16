@@ -1151,7 +1151,8 @@ void CRevisionGraphWnd::OnMouseMove(UINT nFlags, CPoint point)
             if (m_hoverIndex != NO_INDEX)
             {
                 std::auto_ptr<const ILayoutNodeList> nodeList (m_layout->GetNodes());
-                hoverNode = nodeList->GetNode (m_hoverIndex).node->GetBase();
+                if (m_hoverIndex < nodeList->GetCount())
+                    hoverNode = nodeList->GetNode (m_hoverIndex).node->GetBase();
             }
 
             bool onHoverNodeGlyph = (hoverNode != NULL) && (glyphNode == hoverNode);
