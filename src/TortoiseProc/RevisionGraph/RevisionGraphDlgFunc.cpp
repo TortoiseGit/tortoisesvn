@@ -258,6 +258,7 @@ bool CRevisionGraphWnd::FetchRevisionData
 {
     // (re-)fetch the data
 
+    m_options = &options;
     m_fullHistory.reset (new CFullHistory());
 
     bool showWCRev = options.GetOption<CShowWC>()->IsActive();
@@ -283,9 +284,10 @@ bool CRevisionGraphWnd::FetchRevisionData
     return result;
 }
 
-bool CRevisionGraphWnd::AnalyzeRevisionData 
-    (const CAllRevisionGraphOptions& options)
+bool CRevisionGraphWnd::AnalyzeRevisionData()
 {
+    assert (m_options || "Run FetchRevisionData() first.");
+
     m_layout.reset();
     if ((m_fullGraph.get() != NULL) && (m_fullGraph->GetNodeCount() > 0))
     {
@@ -294,9 +296,9 @@ bool CRevisionGraphWnd::AnalyzeRevisionData
         m_visibleGraph.reset (new CVisibleGraph());
         CVisibleGraphBuilder builder ( *m_fullGraph
                                      , *m_visibleGraph
-                                     , options.GetCopyFilterOptions());
+                                     , m_options->GetCopyFilterOptions());
         builder.Run();
-        options.GetModificationOptions().Apply (m_visibleGraph.get());
+        m_options->GetModificationOptions().Apply (m_visibleGraph.get());
 
         index_t index = 0;
         for (size_t i = 0, count = m_visibleGraph->GetRootCount(); i < count; ++i)
@@ -307,7 +309,7 @@ bool CRevisionGraphWnd::AnalyzeRevisionData
         std::auto_ptr<CStandardLayout> newLayout 
             ( new CStandardLayout ( m_fullHistory->GetCache()
                                   , m_visibleGraph.get()));
-        options.GetLayoutOptions().Apply (newLayout.get());
+        m_options->GetLayoutOptions().Apply (newLayout.get());
         newLayout->Finalize();
 
         m_layout = newLayout;

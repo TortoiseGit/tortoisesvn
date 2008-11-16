@@ -28,7 +28,8 @@
 #include "SVNInfo.h"
 #include "SVNDiff.h"
 #include ".\revisiongraphwnd.h"
-#include "RevisionGraph/IRevisionGraphLayout.h"
+#include "IRevisionGraphLayout.h"
+#include "UpsideDownLayout.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -480,7 +481,8 @@ void CRevisionGraphWnd::DrawGlyphs
     , const CFullGraphNode* node
     , const RectF& nodeRect
     , DWORD state
-    , DWORD allowed)
+    , DWORD allowed
+    , bool upsideDown)
 {
     // shortcut
 
@@ -490,16 +492,18 @@ void CRevisionGraphWnd::DrawGlyphs
     // draw all glyphs
 
     PointF topCenter (0.5f * nodeRect.GetLeft() + 0.5f * nodeRect.GetRight(), nodeRect.GetTop());
+    PointF rightCenter (nodeRect.GetRight(), 0.5f * nodeRect.GetTop() + 0.5f * nodeRect.GetBottom());
+    PointF bottomCenter (0.5f * nodeRect.GetLeft() + 0.5f * nodeRect.GetRight(), nodeRect.GetBottom());
+
     DrawGlyphs ( graphics
                , node
-               , topCenter
+               , upsideDown ? bottomCenter : topCenter
                , (state & CGraphNodeStates::COLLAPSED_ABOVE) ? ExpandGlyph : CollapseGlyph
                , (state & CGraphNodeStates::SPLIT_ABOVE) ? JoinGlyph : SplitGlyph
                , CGraphNodeStates::COLLAPSED_ABOVE
                , CGraphNodeStates::SPLIT_ABOVE
                , (allowed & CGraphNodeStates::COLLAPSED_ABOVE) != 0);
 
-    PointF rightCenter (nodeRect.GetRight(), 0.5f * nodeRect.GetTop() + 0.5f * nodeRect.GetBottom());
     DrawGlyphs ( graphics
                , node
                , rightCenter
@@ -509,10 +513,9 @@ void CRevisionGraphWnd::DrawGlyphs
                , CGraphNodeStates::SPLIT_RIGHT
                , (allowed & CGraphNodeStates::COLLAPSED_RIGHT) != 0);
 
-    PointF bottomCenter (0.5f * nodeRect.GetLeft() + 0.5f * nodeRect.GetRight(), nodeRect.GetBottom());
     DrawGlyphs ( graphics
                , node
-               , bottomCenter
+               , upsideDown ? topCenter : bottomCenter
                , (state & CGraphNodeStates::COLLAPSED_BELOW) ? ExpandGlyph : CollapseGlyph
                , (state & CGraphNodeStates::SPLIT_BELOW) ? JoinGlyph : SplitGlyph
                , CGraphNodeStates::COLLAPSED_BELOW
@@ -531,6 +534,8 @@ void CRevisionGraphWnd::DrawMarker
 
 void CRevisionGraphWnd::DrawNodes (Graphics& graphics, const CRect& logRect, const CSize& offset)
 {
+    bool upsideDown = m_options->GetOption<CUpsideDownLayout>()->IsActive();
+
     // iterate over all visible nodes
 
     std::auto_ptr<const ILayoutNodeList> nodes (m_layout->GetNodes());
@@ -599,7 +604,7 @@ void CRevisionGraphWnd::DrawNodes (Graphics& graphics, const CRect& logRect, con
         // expansion glypths etc.
 
         const CFullGraphNode* base = node.node->GetBase();
-        DrawGlyphs (graphics, base, noderect, m_nodeStates.GetFlags (base), 0);
+        DrawGlyphs (graphics, base, noderect, m_nodeStates.GetFlags (base), 0, upsideDown);
     }
 }
 
@@ -672,6 +677,8 @@ void CRevisionGraphWnd::DrawTexts (CDC* pDC, const CRect& logRect, const CSize& 
 
 void CRevisionGraphWnd::DrawCurrentNodeGlyphs (Graphics& graphics, const CSize& offset)
 {
+    bool upsideDown = m_options->GetOption<CUpsideDownLayout>()->IsActive();
+
     // expansion glypths etc.
 
     CPoint point;
@@ -699,7 +706,7 @@ void CRevisionGraphWnd::DrawCurrentNodeGlyphs (Graphics& graphics, const CSize& 
         if (node.node->GetNext())
             allowed |= CGraphNodeStates::COLLAPSED_BELOW;
 
-        DrawGlyphs (graphics, base, noderect, flags, allowed);
+        DrawGlyphs (graphics, base, noderect, flags, allowed, upsideDown);
     }
 }
 

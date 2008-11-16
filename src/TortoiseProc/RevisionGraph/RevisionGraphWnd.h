@@ -95,7 +95,7 @@ public:
     bool            FetchRevisionData ( const CString& path
                                       , SVNRev pegRevision
                                       , const CAllRevisionGraphOptions& options);
-    bool            AnalyzeRevisionData (const CAllRevisionGraphOptions& options);
+    bool            AnalyzeRevisionData();
     CString         GetLastErrorMessage() const;
 
     const CGraphNodeStates* GetNodeStates() const;
@@ -130,6 +130,7 @@ protected:
 
     CRevisionGraphDlg *m_parent;
     CGraphNodeStates m_nodeStates;
+    const CAllRevisionGraphOptions* m_options;
 
 	const CVisibleGraphNode * m_SelectedEntry1;
 	const CVisibleGraphNode * m_SelectedEntry2;
@@ -256,7 +257,7 @@ private:
     void            DrawGlyphs (Graphics& graphics, const CFullGraphNode* node, const PointF& center, 
                                 GlyphType glyph1, GlyphType glyph2, DWORD state1, DWORD state2, bool showAll);
     void            DrawGlyphs (Graphics& graphics, const CFullGraphNode* node, const RectF& nodeRect,
-                                DWORD state, DWORD allowed);
+                                DWORD state, DWORD allowed, bool upsideDown);
     void            DrawMarker (Graphics& graphics, const PointF& leftTop, 
                                 const Color& lightColor, const Color& darkColor);
 

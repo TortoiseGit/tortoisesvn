@@ -306,7 +306,7 @@ UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
     // standard plus user settings
 
     pDlg->m_options.Prepare();
-    if (pDlg->m_Graph.AnalyzeRevisionData (pDlg->m_options))
+    if (pDlg->m_Graph.AnalyzeRevisionData())
         pDlg->UpdateStatusBar();
 
 	CoUninitialize();

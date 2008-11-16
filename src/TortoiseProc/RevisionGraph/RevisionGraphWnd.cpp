@@ -77,6 +77,7 @@ CRevisionGraphWnd::CRevisionGraphWnd()
 	, m_ptRubberStart(0,0)
 	, m_bShowOverview(false)
     , m_parent (NULL)
+    , m_options (NULL)
     , m_hoverIndex ((index_t)NO_INDEX)
 {
 	memset(&m_lfBaseFont, 0, sizeof(LOGFONT));	
