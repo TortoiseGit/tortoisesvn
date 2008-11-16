@@ -152,21 +152,40 @@ void CModificationOptions::InternalApply (CVisibleGraph* graph, bool cyclicFilte
             ; (iter != end)
             ; ++iter)
         {
+            // process every root only once
+
+            std::set<CVisibleGraphNode*> processedRoots;
+
+            // separate runs for cyclic and non-cyclic filters
+
             if ((*iter)->IsCyclic() == cyclicFilters)
-                for (size_t i = graph->GetRootCount(); i > 0; --i)
+            {
+                // graph will adjust the insertion index automatically
+
+                for ( size_t i = graph->GetRootCount()
+                    ; i > 0
+                    ; i = graph->GetInsertionIndex()-1)
                 {
                     CVisibleGraphNode* root = graph->GetRoot (i-1);
-                    if ((*iter)->WantsCopiesFirst())
-                        if ((*iter)->WantsRootFirst())
-                            TraverseFromRootCopiesFirst (*iter, graph, root);
+                    graph->SetInsertionIndex (i);
+
+                    if (processedRoots.insert (root).second)
+                    {
+                        // we have not yet processed this root
+
+                        if ((*iter)->WantsCopiesFirst())
+                            if ((*iter)->WantsRootFirst())
+                                TraverseFromRootCopiesFirst (*iter, graph, root);
+                            else
+                                TraverseToRootCopiesFirst (*iter, graph, root);
                         else
-                            TraverseToRootCopiesFirst (*iter, graph, root);
-                    else
-                        if ((*iter)->WantsRootFirst())
-                            TraverseFromRootCopiesLast (*iter, graph, root);
-                        else
-                            TraverseToRootCopiesLast (*iter, graph, root);
+                            if ((*iter)->WantsRootFirst())
+                                TraverseFromRootCopiesLast (*iter, graph, root);
+                            else
+                                TraverseToRootCopiesLast (*iter, graph, root);
+                    }
                 }
+            }
 
             (*iter)->PostFilter (graph);
         }
