@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-13 17:46+0200\n"
+"PO-Revision-Date: 2008-11-14 20:08+0200\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -363,7 +363,7 @@ msgstr "&Закрити вікно(а)"
 
 #. Resource IDs: (32785)
 msgid "&Color age of lines"
-msgstr ""
+msgstr "За&барвити вік рядків"
 
 #. Resource IDs: (65535)
 msgid "&Command:"
@@ -419,7 +419,7 @@ msgstr "&Копіювати до..."
 
 #. Resource IDs: (1097)
 msgid "&Custom"
-msgstr ""
+msgstr "&Адаптоване"
 
 #. Resource IDs: (1096, 1269)
 #, fuzzy
@@ -812,11 +812,11 @@ msgstr "Пе&реініціалізувати рядок знарядь"
 
 #. Resource IDs: (16657)
 msgid "&Reset my usage data"
-msgstr ""
+msgstr "Пе&реініціалізувати мої дані про користування"
 
 #. Resource IDs: (16910)
 msgid "&Reset to Default"
-msgstr ""
+msgstr "Пе&реініціалізувати типовим"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -901,7 +901,7 @@ msgstr "&Зупинитися при копіюванні/перейменува
 
 #. Resource IDs: (1173)
 msgid "&Symbol View"
-msgstr ""
+msgstr "&Символьний перегляд"
 
 #. Resource IDs: (65535)
 msgid "&Tab size:"
@@ -1041,7 +1041,7 @@ msgstr "&Робоча копія"
 
 #. Resource IDs: (338)
 msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
-msgstr ""
+msgstr "'пропустити діапазони' застосовуєтсья для позначення діапазонів модифікацій, які ще не закешовано"
 
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
@@ -1316,15 +1316,15 @@ msgstr "Додано"
 
 #. Resource IDs: (126)
 msgid "Added a file remotely"
-msgstr ""
+msgstr "Файл додано на віддалі"
 
 #. Resource IDs: (126)
 msgid "Added a folder remotely"
-msgstr ""
+msgstr "Каталог додано на віддалі"
 
 #. Resource IDs: (126)
 msgid "Added items remotely"
-msgstr ""
+msgstr "Елементи додано на віддалі"
 
 #. Resource IDs: (65535)
 msgid "Added node"
@@ -1743,7 +1743,7 @@ msgstr "&Команди:"
 
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
-msgstr ""
+msgstr "С&творити гілку/зріз із модифікації"
 
 #. Resource IDs: (101)
 msgid "C&reate folder..."
@@ -1804,7 +1804,7 @@ msgstr "Не вдається створити нове зображення!"
 
 #. Resource IDs: (1001)
 msgid "Can't customize menues!"
-msgstr ""
+msgstr "Не можу адаптувати меню!"
 
 #. Resource IDs: (1001)
 msgid "Can't paste bitmap image from the clipboard!"
@@ -1890,7 +1890,7 @@ msgstr "Список змін:"
 
 #. Resource IDs: (1242)
 msgid "Changes made (double-click on file for diff):"
-msgstr ""
+msgstr "Внесені зміни (для відмінностей двічі клацніть файл):"
 
 #. Resource IDs: (8)
 msgid "Chec&kout..."
@@ -2247,7 +2247,7 @@ msgstr "Кофігурувати програму, призначену для �
 
 #. Resource IDs: (65535)
 msgid "Configure viewer program for GNU diff files (patch files)."
-msgstr ""
+msgstr "Конфігурувати програму перегляду файлів відмінностей GNU (файлів латок)."
 
 #. Resource IDs: (65535)
 msgid "Conflict resolved"
@@ -2297,7 +2297,7 @@ msgstr "Скопійовано з URL"
 
 #. Resource IDs: (126)
 msgid "Copied remotely"
-msgstr ""
+msgstr "Скопійовано на віддалі"
 
 #. Resource IDs: (16991)
 msgid "Copy"
@@ -2530,6 +2530,9 @@ msgid ""
 "<hr=100%%>\n"
 "%s"
 msgstr ""
+"Не вдалося запустити переглядач відмінностей!\n"
+"<hr=100%%>\n"
+"%s"
 
 #. Resource IDs: (81)
 #, c-format
@@ -2538,6 +2541,9 @@ msgid ""
 "<hr=100%%>\n"
 "%s"
 msgstr ""
+"Не вдалося запустити зовнішню програму для відмінностей!\n"
+"<hr=100%%>\n"
+"%s"
 
 #. Resource IDs: (81)
 #, c-format
@@ -2561,6 +2567,9 @@ msgid ""
 "<hr=100%%>\n"
 "%s"
 msgstr ""
+"Не вдалося запустити переглядач тексту!\n"
+"<hr=100%%>\n"
+"%s"
 
 #. Resource IDs: (81)
 msgid "Could not start thread!"
@@ -2601,7 +2610,7 @@ msgstr ""
 
 #. Resource IDs: (126)
 msgid "Created folder remotely"
-msgstr ""
+msgstr "Каталог створено на віддалі"
 
 #. Resource IDs: (10)
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
@@ -2644,27 +2653,27 @@ msgstr "Поточна версія: %s"
 
 #. Resource IDs: (17079)
 msgid "Cus&tomize..."
-msgstr ""
+msgstr "Адап&тувати..."
 
 #. Resource IDs: (16963)
 msgid "Custom"
-msgstr ""
+msgstr "Адаптоване"
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
-msgstr ""
+msgstr "Адаптувати"
 
 #. Resource IDs: (17076)
 msgid "Customize Keyboard"
-msgstr ""
+msgstr "Адаптувати клавіатуру"
 
 #. Resource IDs: (1069)
 msgid "Customize Quick Access Toolbar"
-msgstr ""
+msgstr "Адаптувати Панель швидкого доступу"
 
 #. Resource IDs: (1068)
 msgid "Customize Quick Access Toolbar..."
-msgstr ""
+msgstr "Адаптувати Панель швидкого доступу..."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -2799,7 +2808,7 @@ msgstr "Різниця між"
 
 #. Resource IDs: (1022)
 msgid "Diffing"
-msgstr ""
+msgstr "Пошук відмінностей"
 
 #. Resource IDs: (14)
 msgid "Diffs the working copy file with the one before the last commit."
@@ -3303,7 +3312,7 @@ msgstr "Зовнішня програма:"
 
 #. Resource IDs: (192)
 msgid "External Programs::Diff Viewer"
-msgstr ""
+msgstr "Зовнішні програми::Переглядач відмінностей"
 
 #. Resource IDs: (193)
 msgid "External Programs::Merge Tool"
@@ -3399,7 +3408,7 @@ msgstr "Зміни файлів кожного тижня:"
 
 #. Resource IDs: (376)
 msgid "File diffs"
-msgstr ""
+msgstr "Відмінності файлів"
 
 #. Resource IDs: (213)
 msgid "File list is empty"
@@ -3407,7 +3416,7 @@ msgstr "Список файлів порожній"
 
 #. Resource IDs: (135, 376)
 msgid "File patches"
-msgstr ""
+msgstr "Латки файлів"
 
 #. Resource IDs: (7)
 #, c-format
@@ -4235,7 +4244,7 @@ msgstr "Початковий імпорт"
 
 #. Resource IDs: (65535)
 msgid "Inline differences"
-msgstr ""
+msgstr "Відмінності в рядках"
 
 #. Resource IDs: (161)
 #, fuzzy
@@ -4398,7 +4407,7 @@ msgstr "Залишити конфліктуючим:"
 
 #. Resource IDs: (188)
 msgid "Left View: "
-msgstr ""
+msgstr "Ліве подання:"
 
 #. Resource IDs: (65535)
 msgid "Left image"
@@ -4422,7 +4431,7 @@ msgstr ""
 
 #. Resource IDs: (32853)
 msgid "Line diff bar"
-msgstr ""
+msgstr "Смуга відмінностей рядків"
 
 #. Resource IDs: (65535)
 msgid "Line differences"
@@ -4471,7 +4480,7 @@ msgstr ""
 
 #. Resource IDs: (32854)
 msgid "Locator Bar"
-msgstr ""
+msgstr "Пошукова смуга"
 
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
@@ -4606,6 +4615,8 @@ msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
 msgstr ""
+"Позначає файл владнаним у Subversion\n"
+"Позначити владнаним"
 
 #. Resource IDs: (596)
 msgid "Marks the revisions as merged, without actually doing the merge"
@@ -4888,7 +4899,7 @@ msgstr "Перемістити: Нове ім'я для %s"
 
 #. Resource IDs: (126)
 msgid "Moved remotely"
-msgstr ""
+msgstr "Переміщено на віддалі"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -4913,7 +4924,7 @@ msgstr "&Наступний конфлікт"
 
 #. Resource IDs: (3697)
 msgid "NUM"
-msgstr ""
+msgstr "NUM"
 
 #. Resource IDs: (17004)
 msgid "Navigation Pane Options"
@@ -5074,7 +5085,7 @@ msgstr "Не рекурсивно"
 
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
-msgstr ""
+msgstr "Зауваження: налаштування шрифта впливають також на переглядач TortoiseUDiff"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -5177,6 +5188,10 @@ msgid ""
 "\n"
 "Are you sure you want to move the selected paths?"
 msgstr ""
+"Один із шляхів, які ви намагаєтеся перемістити, ніби-то є спеціальним шляхом\n"
+"(одним з 'branches', 'tags' або 'trunk').\n"
+"\n"
+"Дійсно перемістити вибрані шляхи?"
 
 #. Resource IDs: (219)
 msgid "One or more files are in a conflicted state."
@@ -5348,15 +5363,15 @@ msgstr "Вклеює шлях svn з буфера обміну, внаслідо
 
 #. Resource IDs: (376)
 msgid "Patch all"
-msgstr ""
+msgstr "Латати все"
 
 #. Resource IDs: (376)
 msgid "Patch selected"
-msgstr ""
+msgstr "Латати вибране"
 
 #. Resource IDs: (157)
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
-msgstr ""
+msgstr "Файли латок (*.diff, *.patch)|*.diff;*.patch|Усі (*.*)|*.*||"
 
 #. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
@@ -5494,7 +5509,7 @@ msgstr "Попередній перегляд"
 
 #. Resource IDs: (376)
 msgid "Preview patched file"
-msgstr ""
+msgstr "Попередній перегляд залатаного фалйа"
 
 #. Resource IDs: (65535)
 msgid "Preview: "
@@ -5581,7 +5596,7 @@ msgstr "Властивість %s: Модифікація %s"
 #. Resource IDs: (151)
 #, c-format
 msgid "Property %s : remote"
-msgstr ""
+msgstr "Властивість %s : віддалена"
 
 #. Resource IDs: (151)
 #, c-format
@@ -5817,11 +5832,11 @@ msgstr ""
 
 #. Resource IDs: (207)
 msgid "Remote property status"
-msgstr "Статус віддалениої властивоссті"
+msgstr "Статус віддаленої властивоссті"
 
 #. Resource IDs: (208)
 msgid "Remote revision"
-msgstr "Видалити модифікацію"
+msgstr "Віддалена модифікація"
 
 #. Resource IDs: (63, 207)
 msgid "Remote status"
@@ -5941,7 +5956,7 @@ msgstr "Перейменований вузол"
 
 #. Resource IDs: (126)
 msgid "Renamed remotely"
-msgstr ""
+msgstr "Перейменовано на віддалі"
 
 #. Resource IDs: (11)
 msgid "Renames files / folders inside version control"
@@ -6198,7 +6213,7 @@ msgstr ""
 
 #. Resource IDs: (188)
 msgid "Right View: "
-msgstr ""
+msgstr "Праве подання:"
 
 #. Resource IDs: (65535)
 msgid "Right image"
@@ -6374,7 +6389,7 @@ msgstr "Зберігаються файли"
 
 #. Resource IDs: (144)
 msgid "Saving patchfile to:"
-msgstr ""
+msgstr "Файл латки зберігається до:"
 
 #. Resource IDs: (1014, 1017, 1064, 1212)
 msgid "Scintilla"
@@ -6551,7 +6566,7 @@ msgstr "Вибрати тип злиття"
 
 #. Resource IDs: (78)
 msgid "Select viewer for diff-files"
-msgstr ""
+msgstr "Виберіть переглядач для файлів відмінностей"
 
 #. Resource IDs: (3866)
 msgid "Send Mail failed to send message."
@@ -6571,7 +6586,7 @@ msgstr ""
 
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
-msgstr ""
+msgstr "Встановити дати файлів на \"&Час останньої фіксації\""
 
 #. Resource IDs: (127)
 #, c-format
@@ -6865,7 +6880,7 @@ msgstr ""
 
 #. Resource IDs: (32775)
 msgid "Single/&double-pane view"
-msgstr ""
+msgstr "Одно/&двопанельне подання"
 
 #. Resource IDs: (74)
 msgid "Size"
@@ -7066,12 +7081,16 @@ msgid ""
 "Switch between single and double pane view\n"
 "Switch between single and double pane view"
 msgstr ""
+"Переключитися між одно та двопанельним поданням\n"
+"Переключитися між одно та двопанельним поданням"
 
 #. Resource IDs: (2051)
 msgid ""
 "Switch the contents of the left and right view\n"
 "Switch left and right view"
 msgstr ""
+"Поміняти місцями вміст лівого і правого подання\n"
+"Поміняти місцями ліве і праве подання"
 
 #. Resource IDs: (3825)
 msgid "Switch to the next document window"
@@ -7177,7 +7196,7 @@ msgstr "Файл %s не існує!"
 #. Resource IDs: (64)
 #, c-format
 msgid "The file %s was not found in the patch file!"
-msgstr ""
+msgstr "Файл %s не знайдено у файлі латки!"
 
 #. Resource IDs: (314)
 #, c-format
@@ -8025,7 +8044,7 @@ msgstr "Використати &лівий блок"
 
 #. Resource IDs: (1024)
 msgid "Use &one-pane view as default for 2-file diff"
-msgstr ""
+msgstr "Використовувати &однопанельне подання як типове для відмінностей двох файлів"
 
 #. Resource IDs: (251)
 msgid "Use &other text block"
@@ -8059,26 +8078,32 @@ msgid ""
 "Use all content from the left view\n"
 "Use left file"
 msgstr ""
+"Використати увесь вміст лівого подання\n"
+"Використати лівий файл"
 
 #. Resource IDs: (32857)
 msgid "Use block from left before right"
-msgstr ""
+msgstr "Використати лівий блок перед правим"
 
 #. Resource IDs: (2054)
 msgid ""
 "Use block from left view before block from right view\n"
 "Use block from left before right"
 msgstr ""
+"Використати блок з лівого подання перед блоком з правого\n"
+"Використати лівий блок перед правим"
 
 #. Resource IDs: (32859)
 msgid "Use block from right before left"
-msgstr ""
+msgstr "Використати правий блок перед лівим"
 
 #. Resource IDs: (2054)
 msgid ""
 "Use block from right view before block from left view\n"
 "Use block from right before left"
 msgstr ""
+"Використати блок з правого подання перед блоком з лівого\n"
+"Використати правий блок перед лівим"
 
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one first)"
@@ -8185,6 +8210,8 @@ msgid ""
 "Use text block from the left view\n"
 "Use left block"
 msgstr ""
+"Використати блок тексту з лівого подання\n"
+"Використати лівий блок"
 
 #. Resource IDs: (251)
 msgid "Use th&is text block"
@@ -8584,8 +8611,9 @@ msgid "[Unassigned]"
 msgstr "[Не призначено]"
 
 #. Resource IDs: (65535)
+#, fuzzy
 msgid "_POPUP_"
-msgstr ""
+msgstr "_POPUP_"
 
 #. Resource IDs: (10)
 msgid "added"
@@ -8852,7 +8880,7 @@ msgstr "нормально"
 
 #. Resource IDs: (11)
 msgid "obstructed"
-msgstr ""
+msgstr "заважає"
 
 #. Resource IDs: (601)
 msgid "offline"
@@ -8890,7 +8918,7 @@ msgstr "пікселі"
 
 #. Resource IDs: (65535)
 msgid "possible or real conflict / obstructed"
-msgstr ""
+msgstr "можливий або дійсний конфлікт / заважає"
 
 #. Resource IDs: (3845)
 msgid "prn"
