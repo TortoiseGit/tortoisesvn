@@ -38,6 +38,18 @@
 		renaming it at the same time.
 	</para>
 	<para>
+		You can also copy or move versioned files within a working copy, or between two
+		working copies, using the familiar cut-and-paste method. Use the standard Windows
+		<action>Copy</action> or <action>Cut</action> to copy one or more versioned items
+		to the clipboard. If the clipboard contains such versioned items, you can then use
+		<menuchoice>
+			<guimenu>TortoiseSVN</guimenu>
+			<guimenuitem>Paste</guimenuitem>
+		</menuchoice>
+		(note: not the standard Windows <action>Paste</action>)
+		to copy or move those items to the new working copy location.
+	</para>
+	<para>
 		You can copy files and folders from your working copy to another
 		location in the repository using
 		<menuchoice>
