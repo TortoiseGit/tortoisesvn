@@ -94,7 +94,7 @@ bool BlameCommand::Execute()
 						sVal += _T("/ignoreallspaces ");
 				}
 
-				bRet = CAppUtils::LaunchTortoiseBlame(tempfile, logfile, cmdLinePath.GetFileOrDirectoryName(), sVal);
+				bRet = CAppUtils::LaunchTortoiseBlame(tempfile, logfile, cmdLinePath.GetFileOrDirectoryName(), sVal, dlg.StartRev, dlg.EndRev);
 			}
 		}
 		else

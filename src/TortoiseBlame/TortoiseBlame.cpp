@@ -1210,8 +1210,12 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	if (__argc > 3)
 	{
 		_tcscpy_s(szViewtitle, MAX_PATH, __argv[3]);
+		if (parser.HasVal(_T("revrange")))
+		{
+			_tcscat_s(szViewtitle, MAX_PATH, _T(" : "));
+			_tcscat_s(szViewtitle, MAX_PATH, parser.GetVal(_T("revrange")));
+		}
 	}
-
 	if ((_tcslen(blamefile)==0) || parser.HasKey(_T("?")) || parser.HasKey(_T("help")))
 	{
 		TCHAR szInfo[MAX_LOADSTRING];

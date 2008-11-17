@@ -112,7 +112,8 @@ public:
 	* Launch the external blame viewer
 	*/
 	static bool LaunchTortoiseBlame(
-		const CString& sBlameFile, const CString& sLogFile, const CString& sOriginalFile, const CString& sParams = CString());
+		const CString& sBlameFile, const CString& sLogFile, const CString& sOriginalFile, const CString& sParams = CString(), 
+		const SVNRev& startrev = SVNRev(), const SVNRev& endrev = SVNRev());
 	
 	/**
 	 * Resizes all columns in a list control. Considers also icons in columns

@@ -579,7 +579,7 @@ bool CAppUtils::LaunchApplication(const CString& sCommandLine, UINT idErrMessage
 /**
 * Launch the external blame viewer
 */
-bool CAppUtils::LaunchTortoiseBlame(const CString& sBlameFile, const CString& sLogFile, const CString& sOriginalFile, const CString& sParams)
+bool CAppUtils::LaunchTortoiseBlame(const CString& sBlameFile, const CString& sLogFile, const CString& sOriginalFile, const CString& sParams, const SVNRev& startrev, const SVNRev& endrev)
 {
 	CString viewer = CPathUtils::GetAppDirectory();
 	viewer += _T("TortoiseBlame.exe");
@@ -587,6 +587,8 @@ bool CAppUtils::LaunchTortoiseBlame(const CString& sBlameFile, const CString& sL
 	viewer += _T(" \"") + sLogFile + _T("\"");
 	viewer += _T(" \"") + sOriginalFile + _T("\"");
 	viewer += _T(" ")+sParams;
+	if (startrev.IsValid() && endrev.IsValid())
+		viewer += _T(" /revrange:\"") + startrev.ToString() + _T("-") + endrev.ToString() + _T("\"");
 	
 	return LaunchApplication(viewer, IDS_ERR_EXTDIFFSTART, false);
 }
