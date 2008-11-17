@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2008-07-20 22:21 +0000\n"
-"PO-Revision-Date: 2008-11-09 01:17+0900\n"
+"POT-Creation-Date: 2008-11-17 00:14 +0000\n"
+"PO-Revision-Date: 2008-11-17 23:55+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -118,8 +118,8 @@ msgstr "TortoiseMerge はフリーです。お金を払う必要はありませ�
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:71
-msgid "TortoiseMerge is an Open Source project. That means you have full access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. (Username:guest, for password hit enter) The most recent version (where we're currently working) is located under <filename>/trunk/</filename> the released versions are located under <filename>/tags/</filename>."
-msgstr "TortoiseMerge はオープンソースプロジェクトです。これは、あなたがこのプログラムのソースコードに完全にアクセスできることを意味しています。このリンク <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink> (Username:guest, パスワードには enter のみ押す) から、ソースを閲覧できます。(私たちが現在作業している) 最新のバージョンは <filename>/trunk/</filename> に、既にリリースされたバージョンは <filename>/tags/</filename> に配置しています。"
+msgid "TortoiseMerge is an Open Source project. That means you have full read access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. You will be prompted to enter username and password. The username is <literal>guest</literal>, and the password must be left blank. The most recent version (where we're currently working) is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
+msgstr "TortoiseMerge はオープンソースプロジェクトです。これは、あなたがこのプログラムのソースコードに完全に読み取りアクセスできることを意味しています。このリンク  <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink> から、ソースを閲覧できます。ユーザ名とパスワードを要求されますので、ユーザ名を <literal>guest</literal>、パスワードを空のままにしてください。(私たちが現在作業している) 最新のバージョンは <filename>/trunk/</filename> に、既にリリースされたバージョンは <filename>/tags/</filename> に配置しています。"
 
 #. (title)
 #: ../source/TortoiseMerge_en.xml:90
@@ -1157,7 +1157,7 @@ msgstr "merged"
 
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1262
-msgid "Specifies the resulting <placeholder-1/> file used in three way diffs. This is the filepath where the result of the merge/conflict resolving is saved. If this is not set, then TortoiseMerge will ask the user where to save the result."
+msgid "Specifies the resulting <placeholder-1/> file used in three way diffs. This is the file path where the result of the merge/conflict resolving is saved. If this is not set, then TortoiseMerge will ask the user where to save the result."
 msgstr "3 方向 diff で結果として得られる <placeholder-1/> ファイルを指定します。マージや競合解消した結果を保存するファイルパスです。設定しない場合、TortoiseMerge はどこに保存するか訊いてきます。"
 
 #. (entry)
