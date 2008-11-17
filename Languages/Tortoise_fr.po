@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-06 10:28+0100\n"
+"PO-Revision-Date: 2008-11-17 13:22+0100\n"
 "Last-Translator: Grokwik <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -189,6 +189,36 @@ msgstr "%s en %s"
 #, c-format
 msgid "%s, at %s"
 msgstr "%s, à %s"
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it already exists unversioned locally."
+msgstr "%s, mais il existe déjà (non versionné) dans la copie locale."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it is missing locally."
+msgstr "%s, mais il manque dans la copie locale."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was already added locally."
+msgstr "%s, mais il a déjà été ajouté localement."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was deleted locally."
+msgstr "%s, mais il a été supprimé localement."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was obstructed in the working copy."
+msgstr "%s, mais il a été bloqué dans la version de travail."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the local file was already edited."
+msgstr "%s, mais le fichier local a déjà été modifié."
 
 #. Resource IDs: (145)
 #, c-format
@@ -643,6 +673,14 @@ msgstr "Répertoire &initial :"
 msgid "&Inline diff word-wise"
 msgstr "Comparaison en l&igne par mot"
 
+#. Resource IDs: (275)
+msgid "&Join all"
+msgstr "&Joindre tout"
+
+#. Resource IDs: (275)
+msgid "&Join with sub-trees"
+msgstr "&Joindre avec les sous répertoires"
+
 #. Resource IDs: (1016)
 msgid "&Jump to first difference when loading"
 msgstr "&Aller directement à la première différence au chargement"
@@ -674,6 +712,10 @@ msgstr "&Charger..."
 #. Resource IDs: (65535)
 msgid "&Lum:"
 msgstr "&Lum :"
+
+#. Resource IDs: (1282)
+msgid "&Manually edit property"
+msgstr "Modifier &manuellement les propriétés"
 
 #. Resource IDs: (1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
@@ -859,6 +901,10 @@ msgstr "&Réinitialiser mes données d'utilisation"
 #. Resource IDs: (16910)
 msgid "&Reset to Default"
 msgstr "&Réinitialiser aux Valeurs par Défaut"
+
+#. Resource IDs: (1382)
+msgid "&Resolve using local property"
+msgstr "&Résoudre en utilisant les propriétés locales"
 
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
@@ -1826,6 +1872,10 @@ msgstr "&Vérifier maintenant"
 msgid "C&heck repository"
 msgstr "&Vérifier le référentiel"
 
+#. Resource IDs: (275)
+msgid "C&ollapse sub-trees"
+msgstr "&Réduire les arborescences"
+
 #. Resource IDs: (65535)
 msgid "C&ommands:"
 msgstr "C&ommandes:"
@@ -2183,6 +2233,14 @@ msgstr "Fermeture manuelle"
 #. Resource IDs: (3825)
 msgid "Close the active window and prompts to save the documents"
 msgstr "Fermer la fenêtre avec demande de confirmation d'enregistrement"
+
+#. Resource IDs: (275)
+msgid "Coll&apse source tree"
+msgstr "Ré&duire l'arborescence source"
+
+#. Resource IDs: (275)
+msgid "Collapse &following tree"
+msgstr "Réduire l'arborescence &suivante"
 
 #. Resource IDs: (16662)
 msgid "Color"
@@ -3073,6 +3131,14 @@ msgstr "E&xclure les chemins :"
 msgid "E&xit"
 msgstr "&Quitter"
 
+#. Resource IDs: (275)
+msgid "E&xpand all"
+msgstr "&Développer tout"
+
+#. Resource IDs: (275)
+msgid "E&xpand sub-trees"
+msgstr "&Développer l'arborescence"
+
 #. Resource IDs: (1437)
 msgid "E&xport"
 msgstr "E&xporter"
@@ -3096,6 +3162,14 @@ msgstr "Editer l'Image de Bouton"
 #. Resource IDs: (227, 564)
 msgid "Edit Properties"
 msgstr "Editer les propriétés"
+
+#. Resource IDs: (297)
+msgid "Edit Property Conflict"
+msgstr "Editer les conflits de propriétés"
+
+#. Resource IDs: (298)
+msgid "Edit Tree Conflicts"
+msgstr "&Editer les Conflits d'Arborescence"
 
 #. Resource IDs: (113)
 msgid "Edit author"
@@ -3335,6 +3409,14 @@ msgstr "Exécutable (*.exe)|*.exe|Commande (*.com)|*.com|Information (*.pdf)|*.p
 #. Resource IDs: (1002)
 msgid "Existing"
 msgstr "Existant"
+
+#. Resource IDs: (275)
+msgid "Exp&and source tree"
+msgstr "Dé&velopper l'arborescence source"
+
+#. Resource IDs: (275)
+msgid "Expand &following tree"
+msgstr "&Développer l'arborescence suivante"
 
 #. Resource IDs: (1002)
 #, c-format
@@ -3976,6 +4058,10 @@ msgid "Hostname mismatch (%s)"
 msgstr "Nom de la machine en désaccords (%s)"
 
 #. Resource IDs: (65535)
+msgid "How do you want to resolve this conflict?"
+msgstr "Comment voulez vous résoudre ce conflit ?"
+
+#. Resource IDs: (65535)
 msgid "I&nclude paths:"
 msgstr "I&nclure les chemins :"
 
@@ -4574,6 +4660,14 @@ msgstr ""
 "Si vous n'êtes pas sûr de savoir que faire, veuillez vous référer à notre documentation sur la <i>relocalisation</i>.\n"
 "Voulez-vous vraiment relocaliser ?"
 
+#. Resource IDs: (275)
+msgid "Join with following &tree"
+msgstr "Joindre avec l'&arborescence suivante"
+
+#. Resource IDs: (275)
+msgid "Join with source tree"
+msgstr "Joindre avec l'arborescence source"
+
 #. Resource IDs: (1203)
 msgid "Keep &locks"
 msgstr "Garder &les verrous"
@@ -4581,6 +4675,22 @@ msgstr "Garder &les verrous"
 #. Resource IDs: (1126)
 msgid "Keep changelists"
 msgstr "Conserver les listes de changements"
+
+#. Resource IDs: (610)
+msgid "Keep the directory from the repository"
+msgstr "Garder le répertoire du référentiel"
+
+#. Resource IDs: (610)
+msgid "Keep the file from the repository"
+msgstr "Conserver les fichiers du référentiel"
+
+#. Resource IDs: (610)
+msgid "Keep the local directory"
+msgstr "Garder le répertoire local"
+
+#. Resource IDs: (610)
+msgid "Keep the local file"
+msgstr "Garder le fichier local"
 
 #. Resource IDs: (16136)
 msgid "Keyboard"
@@ -6160,6 +6270,14 @@ msgstr ""
 "Supprimer la propriété '%s' de\r\n"
 "%s"
 
+#. Resource IDs: (610)
+msgid "Remove the directory"
+msgstr "Supprimer le répertoire"
+
+#. Resource IDs: (610)
+msgid "Remove the file"
+msgstr "Supprimer le fichier"
+
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
 msgstr "Supprimer le(s) cache(s) sélectionné(s) du disque"
@@ -7244,9 +7362,21 @@ msgstr ""
 msgid "Spin1"
 msgstr "Spin1"
 
+#. Resource IDs: (275)
+msgid "Split &source tree"
+msgstr "D&iviser l'arborescence source"
+
+#. Resource IDs: (275)
+msgid "Split following &tree"
+msgstr "Séparer les &arborescences suivantes"
+
 #. Resource IDs: (376)
 msgid "Split lines"
 msgstr "Séparer lignes"
+
+#. Resource IDs: (275)
+msgid "Split sub-trees"
+msgstr "Séparer les sous répertoires"
 
 #. Resource IDs: (3604)
 msgid ""
@@ -7617,6 +7747,101 @@ msgstr "Le fournisseur du système de suivi des problèmes n'a pas pu être cré
 #. Resource IDs: (64)
 msgid "The issue-tracker provider was unable to validate the parameter string"
 msgstr "Le fournisseur du système de suivi des problèmes n'a pas été capable de valider la chaîne des paramètres"
+
+#. Resource IDs: (597)
+#, c-format
+msgid "The item '%s' has property conflicts:"
+msgstr "L'élément '%s' a des propriétés conflictuelles: "
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last merge operation tried to add the directory '%s'"
+msgstr "La dernière opération de fusion a tenté d'ajouter le répertoire '%s'"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last merge operation tried to add the file '%s'"
+msgstr "La dernière opération de fusion a tenté d'ajouter le fichier '%s'"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last merge operation tried to delete the directory '%s'"
+msgstr "La dernière opération de fusion a tenté de supprimer le répertoire '%s'"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last merge operation tried to delete the file '%s'"
+msgstr "La dernière opération de fusion a tenté d'ajouter le fichier '%s'"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last merge operation tried to modify the directory '%s'"
+msgstr "La dernière opération de fusion a tenté de modifier le répertoire '%s'"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last merge operation tried to modify the file '%s'"
+msgstr "La dernière opération de fusion a tenté de modifier le fichier '%s'"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to add the directory '%s'"
+msgstr "La dernière opération \"aller sur\" a tenté d'ajouter le répertoire '%s'"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last switch operation tried to add the file '%s'"
+msgstr "La dernière opération \"aller sur\" a tenté d'ajouter le fichier '%s'"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to delete the directory '%s'"
+msgstr "La dernière opération \"aller sur\" a tenté de supprimer le répertoire '%s'"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last switch operation tried to delete the file '%s'"
+msgstr "La dernière opération \"aller sur\" a tenté de supprimer le fichier '%s'"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to modify the directory '%s'"
+msgstr "La dernière opération \"aller sur\" a tenté de modifier le répertoire '%s'"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last switch operation tried to modify the file '%s'"
+msgstr "La dernière opération \"aller sur\" a tenté de modifier le fichier '%s'"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to add the directory '%s'"
+msgstr "La dernière mise à jour a tenté d'ajouter le répertoire '%s'"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to add the file '%s'"
+msgstr "La dernière mise à jour a tenté d'ajouter le fichier '%s'"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to delete the directory '%s'"
+msgstr "La dernière mise à jour a tenté de supprimer le répertoire '%s'"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to delete the file '%s'"
+msgstr "La dernière mise à jour a tenté de supprimer le fichier '%s'"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to modify the directory '%s'"
+msgstr "La dernière mise à jour a tenté de modifier le répertoire '%s'"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to modify the file '%s'"
+msgstr "La dernière mise à jour a tenté de modifier le fichier '%s'"
 
 #. Resource IDs: (63)
 #, c-format
@@ -8180,6 +8405,10 @@ msgstr "Transfert à %s"
 #. Resource IDs: (32816)
 msgid "Transparent &color..."
 msgstr "&Couleur transparente..."
+
+#. Resource IDs: (264)
+msgid "Tree conflict"
+msgstr "Conflit dans l'arborescence"
 
 #. Resource IDs: (595)
 msgid "Tree merge"
@@ -9842,14 +10071,10 @@ msgstr "{BugTraq}"
 #~ msgstr "Sélectionnez le type de référentiel que vous voulez créer :"
 #~ msgid "Specify the revision range which you want to merge:"
 #~ msgstr "Spécifiez la plage de révisions que vous voulez fusionner :"
-#~ msgid "Split long &branches"
-#~ msgstr "Séparer les &branches longues"
 #~ msgid "Split long, inactive branches into segments"
 #~ msgstr "Séparer les branches longues et inactives en segments"
 #~ msgid "Target"
 #~ msgstr "Ciblle"
-#~ msgid "The result of the merge is stored in the working copy at:"
-#~ msgstr "Le résultat de la fusion est stocké dans la copie de travail à :"
 #~ msgid "Two-way &Diff"
 #~ msgstr "&Différenciation bidirectionnel"
 #~ msgid ""
