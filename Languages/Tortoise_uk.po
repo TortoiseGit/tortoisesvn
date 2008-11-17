@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-14 20:08+0200\n"
+"PO-Revision-Date: 2008-11-17 18:19+0200\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -203,7 +203,7 @@ msgstr ""
 "Ви все-таки хочете його видалити?"
 
 #. Resource IDs: (69)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "%s\n"
 "is a directory, not a file!\n"
@@ -211,7 +211,7 @@ msgid ""
 msgstr ""
 "%s\n"
 "- це каталог, а не файл!\n"
-"TortoiseMerge не вміє шукати різницю каталогів."
+"TortoiseMerge не вміє шукати відмінності каталогів."
 
 #. Resource IDs: (286)
 #, c-format
@@ -252,7 +252,7 @@ msgstr "&Додати..."
 
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
-msgstr "По&глиблено..."
+msgstr "&Хитріше..."
 
 #. Resource IDs: (1471)
 msgid "&Allow ambiguous URLs"
@@ -264,7 +264,7 @@ msgstr "Вигляд &Програми"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
-msgstr "&Застосувати об'єднану різницю"
+msgstr "&Застосувати об'єднану відмінність"
 
 #. Resource IDs: (32852)
 msgid "&Aqua Style"
@@ -441,15 +441,15 @@ msgstr "Зни&щити..."
 
 #. Resource IDs: (12)
 msgid "&Diff"
-msgstr "&Різниця"
+msgstr "Ві&дмінності"
 
 #. Resource IDs: (17)
 msgid "&Diff with URL"
-msgstr "&Різниця з URL"
+msgstr "Ві&дмінності з URL"
 
 #. Resource IDs: (14)
 msgid "&Diff with previous version"
-msgstr "&Різниця з попередньою версією"
+msgstr "Ві&дмінності з попередньою версією"
 
 #. Resource IDs: (1066)
 msgid "&Docking"
@@ -801,7 +801,7 @@ msgstr "Пе&ревідкрити діалог фіксації та гілки/
 
 #. Resource IDs: (13)
 msgid "&Repo-browser"
-msgstr "Проглядач &репозиторію"
+msgstr "Оглядач &репозиторію"
 
 #. Resource IDs: (16613, 16624)
 msgid "&Reset"
@@ -990,7 +990,7 @@ msgstr "С&касувати"
 
 #. Resource IDs: (274, 32785)
 msgid "&Unified diff"
-msgstr "&Об'єднана різниця"
+msgstr "&Об'єднана відмінність"
 
 #. Resource IDs: (1061)
 msgid "&Unknown drives"
@@ -1193,7 +1193,7 @@ msgid ""
 "A viewer program for GNU diff files (patch files).\r\n"
 "If you don't have one use NotePad."
 msgstr ""
-"Програма перегляду файлів різниці GNU (файли латок).\r\n"
+"Програма перегляду файлів відмінностей GNU (файлів-латок).\r\n"
 "Якщо у вас такої немає, скористайтеся NotePad."
 
 #. Resource IDs: (9)
@@ -1289,11 +1289,11 @@ msgstr "Додати властивості"
 
 #. Resource IDs: (110)
 msgid "Add extension specific diff program"
-msgstr ""
+msgstr "Додати характерну для розширення програму відмінностей"
 
 #. Resource IDs: (110)
 msgid "Add extension specific merge program"
-msgstr ""
+msgstr "Додати характерну для розширення програму злиття"
 
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
@@ -1309,7 +1309,7 @@ msgstr "Додати..."
 
 #. Resource IDs: (171)
 msgid "Add/Edit Extension Specific Diff/Merge Program"
-msgstr ""
+msgstr "Додати/Редагувати характерну для розширення програму Відмінностей/Злиття"
 
 #. Resource IDs: (73, 264, 65535)
 msgid "Added"
@@ -1368,15 +1368,15 @@ msgstr ""
 
 #. Resource IDs: (170)
 msgid "Advanced Diff/Merge Settings"
-msgstr "Поглиблені налаштування Злиття/Різниці"
+msgstr "Хитріші налаштування Злиття/Відмінностей"
 
 #. Resource IDs: (110)
 msgid "Advanced diff settings"
-msgstr "Поглиблені налаштування різниці"
+msgstr "Хитріші налаштування відмінностей"
 
 #. Resource IDs: (110)
 msgid "Advanced merge settings"
-msgstr "Поглиблені налаштування злиття"
+msgstr "Хитріші налаштування злиття"
 
 #. Resource IDs: (65535)
 msgid "Age"
@@ -1436,6 +1436,12 @@ msgid ""
 "%base : the base file\r\n"
 "%mine : the modified file"
 msgstr ""
+"Зовнішня програма відмінностей, що застосовується\r\n"
+"для порівняння різних модифікацій файлів\r\n"
+"\r\n"
+"У шляху можна вказати такі параметри:\r\n"
+"%base : базовий файл\r\n"
+"%mine : модифікований файл"
 
 #. Resource IDs: (79)
 #, c-format
@@ -1490,6 +1496,8 @@ msgid ""
 "Applies the properties recursively to all files/folders.\r\n"
 "bugtraq:, tsvn: and webviewer: properties are only applied to folders."
 msgstr ""
+"Застосовує усі властивості рекурсивно до усіх файлів/каталогів.\r\n"
+"bugtraq:, tsvn: i webviewer: ці властивості застосовуються лише для каталогів."
 
 #. Resource IDs: (13)
 msgid "Apply &patch..."
@@ -1674,13 +1682,15 @@ msgstr ""
 
 #. Resource IDs: (32812)
 msgid "Blend Alpha"
-msgstr ""
+msgstr "Поєднання Альфа"
 
 #. Resource IDs: (83)
 msgid ""
 "Both /logmsg and /logmsgfile were specified!\n"
 "Only one of those can be specified."
 msgstr ""
+"Було вказано обидва /logmsg і /logmsgfile !\n"
+"Можна вказувати тільки одного з них."
 
 #. Resource IDs: (1003)
 msgid "Br&owse..."
@@ -1704,7 +1714,7 @@ msgstr "Скасувати бло&кування"
 
 #. Resource IDs: (78)
 msgid "Browse for the external diff program"
-msgstr ""
+msgstr "Вибрати зовнішню програму для злиття"
 
 #. Resource IDs: (1069)
 msgid "Browse..."
@@ -1825,7 +1835,7 @@ msgstr "Скасовується операція..."
 
 #. Resource IDs: (68)
 msgid "Cannot show diff because of inconsistent newlines in the file."
-msgstr ""
+msgstr "Не вдається показати відмінності через неузгоджені нові рядки у файлі."
 
 #. Resource IDs: (16926)
 #, fuzzy
@@ -2065,11 +2075,11 @@ msgstr "Клацніть тут що вибрати нещодавно надр�
 
 #. Resource IDs: (65535)
 msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
-msgstr ""
+msgstr "Клацніть \"Хитріше\", щоб вказати альтернативні програми відмінностей, залежно від розширення файла"
 
 #. Resource IDs: (65535)
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
-msgstr ""
+msgstr "Клацніть \"Хитріше\", щоб вказати альтернативні програми злиття, залежно від розширення файла"
 
 #. Resource IDs: (257)
 msgid "Clipboard"
@@ -2622,6 +2632,8 @@ msgid ""
 "Creates a patch file from the differences of the two files\n"
 "Create patch file"
 msgstr ""
+"Створює файл-латку з відмінностей між двома файлами\n"
+"Створити файл-латку"
 
 #. Resource IDs: (10)
 msgid "Creates a repository database at the current location"
@@ -2792,16 +2804,15 @@ msgstr "Розміри та розташування діалогів"
 
 #. Resource IDs: (65535)
 msgid "Diff file:"
-msgstr "Файл різниці:"
+msgstr "Файл відмінностей:"
 
 #. Resource IDs: (65535)
 msgid "Diff options"
-msgstr "Параметри різниці"
+msgstr "Параметри відмінностей"
 
 #. Resource IDs: (146, 279)
-#, fuzzy
 msgid "Diff with URL"
-msgstr "Різниця з URL"
+msgstr "Відмінності з URL"
 
 #. Resource IDs: (1302)
 msgid "Difference between"
@@ -3010,11 +3021,11 @@ msgstr "Редагувати конфлікт"
 
 #. Resource IDs: (110)
 msgid "Edit extension specific diff program"
-msgstr ""
+msgstr "Редагувати характерну для розширення програму відмінностей"
 
 #. Resource IDs: (110)
 msgid "Edit extension specific merge program"
-msgstr ""
+msgstr "Редагувати характерну для розширення програму злиття"
 
 #. Resource IDs: (113, 115)
 msgid "Edit log message"
@@ -3292,15 +3303,15 @@ msgstr "Експортує набір властивостей у файл"
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
-msgstr ""
+msgstr "Розширення"
 
 #. Resource IDs: (65535)
 msgid "Extension or mime-type:"
-msgstr ""
+msgstr "Розширення або тип mime:"
 
 #. Resource IDs: (65535)
 msgid "Extension/mime-type specific programs"
-msgstr ""
+msgstr "Програми, специфічні для розширення/типу mime"
 
 #. Resource IDs: (74)
 #, fuzzy
@@ -3536,6 +3547,8 @@ msgid ""
 "Fill Tool\n"
 "Fill"
 msgstr ""
+"Знаряддя заповнення\n"
+"Заповнення"
 
 #. Resource IDs: (65535)
 msgid "Filter out the following paths (separate multiple paths with the '*' char):"
@@ -3571,8 +3584,9 @@ msgid "Floppy drives (A: B:)"
 msgstr "Гнучкі диски (A: B:)"
 
 #. Resource IDs: (32818)
+#, fuzzy
 msgid "Fold &tags"
-msgstr ""
+msgstr "Згорнути &зрізи"
 
 #. Resource IDs: (1002)
 msgid "Folder"
@@ -3659,7 +3673,7 @@ msgstr "Загальне::Діалоги 2"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
-msgstr ""
+msgstr "Генерується файл-латка..."
 
 #. Resource IDs: (16)
 msgid "Get loc&k..."
@@ -4396,7 +4410,7 @@ msgstr ""
 
 #. Resource IDs: (12)
 msgid "Launches the external diff / merge program to solve the conflicts"
-msgstr "Затускає зовнішню програму різниці / злиття для владнання конфліктів"
+msgstr "Затускає зовнішню програму відмінностей / злиття для владнання конфліктів"
 
 #. Resource IDs: (1137)
 msgid "Least active author:"
@@ -5224,7 +5238,7 @@ msgstr "Лише цей елемент"
 
 #. Resource IDs: (1224)
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
-msgstr ""
+msgstr "Використовувати перевірку &правопису лише коли встановлено tsvn:projectlanguage"
 
 #. Resource IDs: (3841)
 msgid "Open"
@@ -5372,7 +5386,7 @@ msgstr "Латати вибране"
 
 #. Resource IDs: (157)
 msgid "Patchfiles (*.diff, *.patch)|*.diff;*.patch|All (*.*)|*.*||"
-msgstr "Файли латок (*.diff, *.patch)|*.diff;*.patch|Усі (*.*)|*.*||"
+msgstr "Файли-латки (*.diff, *.patch)|*.diff;*.patch|Усі (*.*)|*.*||"
 
 #. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
@@ -5997,7 +6011,7 @@ msgstr "Репозиторій"
 
 #. Resource IDs: (153)
 msgid "Repository Browser"
-msgstr ""
+msgstr "Оглядач репозиторію"
 
 #. Resource IDs: (199)
 msgid "Repository URL"
@@ -6475,11 +6489,11 @@ msgstr "Вибрати список змін"
 
 #. Resource IDs: (78)
 msgid "Select diff application"
-msgstr ""
+msgstr "Виберіть програму для відмінностей"
 
 #. Resource IDs: (313)
 msgid "Select diff file..."
-msgstr "Вибрати файл різниці..."
+msgstr "Вибрати файл відмінностей..."
 
 #. Resource IDs: (99)
 msgid "Select directory to check out to"
@@ -7060,12 +7074,13 @@ msgid "Switch %s to %s, Revision %s"
 msgstr "Переключити %s на %s, модифікація %s"
 
 #. Resource IDs: (78)
+#, fuzzy
 msgid "Switch - TortoiseSVN"
-msgstr ""
+msgstr "Переключити - TortoiseSVN"
 
 #. Resource IDs: (32811)
 msgid "Switch Left<->Right"
-msgstr ""
+msgstr "Поміняти місцями Ліве<->Праве"
 
 #. Resource IDs: (140)
 msgid "Switch To Branch / Tag"
@@ -7305,7 +7320,7 @@ msgid ""
 "Either this is not a diff file or the diff is empty."
 msgstr ""
 "Не знайдено рядок 'Index: ' !\n"
-"Або це не файл різниці, або ж він порожній."
+"Або це не файл відмінностей, або ж він порожній."
 
 #. Resource IDs: (63)
 #, c-format
@@ -7530,6 +7545,11 @@ msgid ""
 "Please understand that the cached data may be outdated,\n"
 "incomplete or even misleading due to incomplete history."
 msgstr ""
+"Були проблеми з під'єднанням до сервера.\n"
+"Переглянути натомість кешовані дані?\n"
+"\n"
+"Майте на увазі, що кешовані дані можуть бути застарілими,\n"
+"неповними, а подекуди й оманливими через неповну історію."
 
 #. Resource IDs: (82)
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
@@ -7695,7 +7715,7 @@ msgstr "TortoiseIDiff"
 
 #. Resource IDs: (65535)
 msgid "TortoiseIDiff - An image diff tool, part of TortoiseSVN"
-msgstr "TortoiseIDiff - Знаряддя різниці зображень, частина TortoiseSVN"
+msgstr "TortoiseIDiff - Знаряддя відмінностей зображень, частина TortoiseSVN"
 
 #. Resource IDs: (7)
 msgid ""
@@ -7710,7 +7730,7 @@ msgid ""
 "/fit\t\tto fit the images sizes\n"
 "/showinfo\t\tto show the image info boxes"
 msgstr ""
-"TortoiseIDiff: переглядач різниці малюнків для TortoiseSVN\n"
+"TortoiseIDiff: переглядач відмінностей малюнків для TortoiseSVN\n"
 "\n"
 "Наявні параметри командного рядка:\n"
 "/left:\"шлях до лівого малюнка\"\n"
