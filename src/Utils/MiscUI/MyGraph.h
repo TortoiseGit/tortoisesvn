@@ -101,8 +101,8 @@ private:
 
 	INT_PTR	OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
 
-	CPoint	WedgeEndFromDegrees(int nDegrees, const CPoint& ptCenter,
-					int nRadius) const;
+	CPoint	WedgeEndFromDegrees(double degrees, const CPoint& ptCenter,
+					double radius) const;
 
 	static UINT			SpinTheMessageLoop(bool bNoDrawing = false,
 								bool bOnlyDrawing = false,

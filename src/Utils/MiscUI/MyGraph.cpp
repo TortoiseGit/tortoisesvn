@@ -1411,20 +1411,25 @@ void MyGraph::DrawSeriesPie(CDC& dc) const
 					// Get the degrees of this wedge.
 					dRunningWedgeTotal += pSeries->GetData(nGroup);
 					double dPercent(dRunningWedgeTotal * 100.0 / dPieTotal);
-					int nDegrees((int) (360.0 * dPercent / 100.0));
+					double degrees(360.0 * dPercent / 100.0);
 
 					// Find the location of the wedge's endpoint.
-					CPoint ptEnd(WedgeEndFromDegrees(nDegrees, ptCenter, nRadius));
+					CPoint ptEnd(WedgeEndFromDegrees(degrees, ptCenter, nRadius));
 
 					// Special case: a wedge that takes up the whole pie would
 					// otherwise be confused with an empty wedge.
 					if (1 == pSeries->GetNonZeroElementCount()) {
-						_ASSERTE(360 == nDegrees  &&  ptStart == ptEnd  &&  "This is the problem we're correcting");
+						_ASSERTE(360 == (int)degrees  &&  ptStart == ptEnd  &&  "This is the problem we're correcting");
 						--ptEnd.y;
 					}
 
-					// If the wedge is of zero size, don't paint it!
-					if (ptStart != ptEnd) {
+					// If the wedge is zero size or very narrow, don't paint it.
+					// If pie is small, and wedge data is small, we might get a wedges
+					// where center and both endpoints lie on the same coordinate,
+					// and endpoints differ only in one pixel. GDI draws such pie as whole pie,
+					// so we just skip them instead.
+					int distance = abs(ptStart.x-ptEnd.x) + abs(ptStart.y-ptEnd.y);
+					if (distance > 1) {
 
 						// Draw wedge.
 						COLORREF crWedge(m_dwaColors.GetAt(nGroup));
@@ -1464,17 +1469,19 @@ void MyGraph::DrawSeriesPie(CDC& dc) const
 }
 
 // Convert degrees to x and y coords.
-CPoint MyGraph::WedgeEndFromDegrees(int nDegrees, const CPoint& ptCenter,
-												int nRadius) const
+CPoint MyGraph::WedgeEndFromDegrees(double degrees, const CPoint& ptCenter,
+												double radius) const
 {
 	VALIDATE;
 
 	CPoint pt;
 
-	pt.x = (int) ((double) nRadius * cos((double) nDegrees / 360.0 * PI * 2.0));
+	double radians = degrees / 360.0 * PI * 2.0;
+
+	pt.x = (int) (radius * cos(radians));
 	pt.x = ptCenter.x - pt.x;
 
-	pt.y = (int) ((double) nRadius * sin((double) nDegrees / 360.0 * PI * 2.0));
+	pt.y = (int) (radius * sin(radians));
 	pt.y = ptCenter.y + pt.y;
 
 	return pt;
