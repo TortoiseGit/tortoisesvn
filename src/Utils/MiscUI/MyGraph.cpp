@@ -1331,15 +1331,16 @@ void MyGraph::DrawSeriesPie(CDC& dc) const
 	// Determine width of pie display area (pie and space).
 	int nSeriesSpace(0);
 
+	int seriesCount = GetNonZeroSeriesCount();
+
 	if (m_saLegendLabels.GetSize()) {
 		
 		int nPieAndSpaceWidth((m_nXAxisWidth - m_rcLegend.Width() - 
-			(GAP_PIXELS * 2)) / GetNonZeroSeriesCount());
+			(GAP_PIXELS * 2)) / seriesCount);
 
 		// Height is limiting factor.
 		if (nPieAndSpaceWidth > m_nYAxisHeight - (GAP_PIXELS * 2)) {
-			nSeriesSpace = (m_nYAxisHeight - (GAP_PIXELS * 2)) /
-				GetNonZeroSeriesCount();
+			nSeriesSpace = (m_nYAxisHeight - (GAP_PIXELS * 2));
 		}
 		else {
 			// Width is limiting factor.
@@ -1350,12 +1351,12 @@ void MyGraph::DrawSeriesPie(CDC& dc) const
 		// No legend box.
 
 		// Height is limiting factor.
-		if (m_nXAxisWidth > m_nYAxisHeight) {
-			nSeriesSpace = m_nYAxisHeight / GetNonZeroSeriesCount();
+		if (m_nXAxisWidth > m_nYAxisHeight * seriesCount) {
+			nSeriesSpace = m_nYAxisHeight;
 		}
 		else {
 			// Width is limiting factor.
-			nSeriesSpace = m_nXAxisWidth / GetNonZeroSeriesCount();
+			nSeriesSpace = m_nXAxisWidth / seriesCount;
 		}
 	}
 
@@ -1383,8 +1384,8 @@ void MyGraph::DrawSeriesPie(CDC& dc) const
 			CRect rcPie;
 			rcPie.left = m_ptOrigin.x + GAP_PIXELS + (nSeriesSpace * nPie);
 			rcPie.right = rcPie.left + (2 * nRadius);
-			rcPie.top = (m_nYAxisHeight / 2) - nRadius;
-			rcPie.bottom = (m_nYAxisHeight / 2) + nRadius;
+			rcPie.top = m_ptOrigin.y - (m_nYAxisHeight / 2) - nRadius;
+			rcPie.bottom = m_ptOrigin.y - (m_nYAxisHeight / 2) + nRadius;
 
 			CPoint ptCenter((rcPie.left + rcPie.right) / 2,
 				(rcPie.top + rcPie.bottom) / 2);
@@ -1456,7 +1457,7 @@ void MyGraph::DrawSeriesPie(CDC& dc) const
 	CSize sizXLabel(dc.GetTextExtent(m_sXAxisLabel));
 	int nTotalSpaceOfPies = nSeriesSpace * nPie - (nSeriesSpace - nRadius*2);
 	VERIFY(dc.TextOut(m_ptOrigin.x + GAP_PIXELS + (nTotalSpaceOfPies - sizXLabel.cx)/2,
-		m_nYAxisHeight/2 + nRadius + GAP_PIXELS*2 + sizXLabel.cy, m_sXAxisLabel));
+		m_ptOrigin.y - m_nYAxisHeight/2 + nRadius + GAP_PIXELS*2 + sizXLabel.cy, m_sXAxisLabel));
 
 	VERIFY(dc.SelectObject(pFontOld));
 	fontLabels.DeleteObject();
