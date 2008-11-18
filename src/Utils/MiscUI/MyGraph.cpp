@@ -1418,9 +1418,11 @@ void MyGraph::DrawSeriesPie(CDC& dc) const
 
 					// Special case: a wedge that takes up the whole pie would
 					// otherwise be confused with an empty wedge.
+					bool drawEmptyWedges = false;
 					if (1 == pSeries->GetNonZeroElementCount()) {
 						_ASSERTE(360 == (int)degrees  &&  ptStart == ptEnd  &&  "This is the problem we're correcting");
 						--ptEnd.y;
+						drawEmptyWedges = true;
 					}
 
 					// If the wedge is zero size or very narrow, don't paint it.
@@ -1429,7 +1431,7 @@ void MyGraph::DrawSeriesPie(CDC& dc) const
 					// and endpoints differ only in one pixel. GDI draws such pie as whole pie,
 					// so we just skip them instead.
 					int distance = abs(ptStart.x-ptEnd.x) + abs(ptStart.y-ptEnd.y);
-					if (distance > 1) {
+					if (drawEmptyWedges || distance > 1) {
 
 						// Draw wedge.
 						COLORREF crWedge(m_dwaColors.GetAt(nGroup));
