@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-17 18:19+0200\n"
+"PO-Revision-Date: 2008-11-18 17:47+0200\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -408,7 +408,7 @@ msgstr "&Копіювати зображення кнопки"
 
 #. Resource IDs: (32776)
 msgid "&Copy log message to clipboard"
-msgstr ""
+msgstr "&Копіювати повідомлення логу до буфера обміну"
 
 #. Resource IDs: (65535)
 msgid "&Copy to clipboard"
@@ -477,7 +477,7 @@ msgstr "У&можливити проксі-сервер"
 
 #. Resource IDs: (1434)
 msgid "&Enable log caching"
-msgstr ""
+msgstr "У&можливити кешування логу"
 
 #. Resource IDs: (1213)
 msgid "&Enter a message describing why you are locking the file(s)."
@@ -526,7 +526,7 @@ msgstr "П&лаваюче"
 
 #. Resource IDs: (65535)
 msgid "&Font for log messages:"
-msgstr ""
+msgstr "&Шрифт повідомлень логу:"
 
 #. Resource IDs: (65535)
 msgid "&Font:"
@@ -1417,6 +1417,8 @@ msgid ""
 "Allow different repositories to use the same URL, e.g. http://localhost/myrepos/\n"
 "Note: This will disable offline log access."
 msgstr ""
+"Дозволити різним репозиторіям використовувати однаковий URL, наприклад http://localhost/myrepos/\n"
+"Зауваження: Це унеможливить позамережевий доступ до логу."
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -1627,6 +1629,8 @@ msgid ""
 "Auto-complete suggests words (usually class or member names)\r\n"
 "from the files that you have changed as you type a log message."
 msgstr ""
+"Автодоповнення під час набору повідомлення логу пропонує слова\r\n"
+"(звично імена класів або членів) зі змінених вами файлів."
 
 #. Resource IDs: (438)
 msgid "Automatic"
@@ -1678,7 +1682,7 @@ msgstr "Звинуватити - TortoiseSVN"
 
 #. Resource IDs: (13)
 msgid "Blames each line of a file on an author"
-msgstr ""
+msgstr "Звинувачує кожен рядок файла автора"
 
 #. Resource IDs: (32812)
 msgid "Blend Alpha"
@@ -1782,11 +1786,11 @@ msgstr "Кешовані репозиторії"
 
 #. Resource IDs: (197)
 msgid "Caches the log messages to speed up log fetching"
-msgstr ""
+msgstr "Кешувати повідомлення логу, щоб прискорити його вибірку"
 
 #. Resource IDs: (1127)
 msgid "Can double-click in log list to compare with previous revision"
-msgstr ""
+msgstr "Можна двічі клацнути у списку логу, щоб порівняти з попередньою модифікацією"
 
 #. Resource IDs: (3865)
 msgid "Can not activate a static ActiveX object."
@@ -1954,7 +1958,7 @@ msgstr "Позначте пункти меню, що мають з'являти�
 
 #. Resource IDs: (80)
 msgid "Check to use a less verbose date and time format in log messages"
-msgstr ""
+msgstr "Позначте щоб використовувати менш докладний формат дати й часу в повідомленнях логу"
 
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -2040,7 +2044,7 @@ msgstr "Очищує %ld URL-ів для %ld робочих копій"
 #. Resource IDs: (196)
 #, c-format
 msgid "Clears %ld log messages stored for %ld working copies"
-msgstr ""
+msgstr "Очищує %ld логових повідомлень збережених для %ld робочих копій"
 
 #. Resource IDs: (196)
 #, c-format
@@ -2050,7 +2054,7 @@ msgstr "Очищує %ld пар ім'я/пароль, %ld сертифікаті
 #. Resource IDs: (197)
 #, c-format
 msgid "Clears cached logs from %ld repositories"
-msgstr ""
+msgstr "Очищує кешовані логи з %ld репозиторіїв"
 
 #. Resource IDs: (195)
 msgid ""
@@ -2201,7 +2205,7 @@ msgstr ""
 
 #. Resource IDs: (114)
 msgid "Compare and blame with previous revision"
-msgstr ""
+msgstr "Порівняти з попередньою модифікацією та звинуватити"
 
 #. Resource IDs: (1390)
 msgid "Compare whitespaces"
@@ -2276,7 +2280,7 @@ msgstr "Конфлікти: %d"
 
 #. Resource IDs: (345)
 msgid "Connect to the repository server and download missing log data"
-msgstr ""
+msgstr "З'єднатися з сервером репозиторію та завантажити відсутні дані логу"
 
 #. Resource IDs: (65535)
 msgid "Container sizes"
@@ -2711,7 +2715,7 @@ msgstr "Типове"
 
 #. Resource IDs: (65535)
 msgid "Default &number of log messages"
-msgstr ""
+msgstr "Типова &кількість повідомлень логу"
 
 #. Resource IDs: (1007)
 msgid "Default Menu"
@@ -2763,7 +2767,7 @@ msgstr "Видаляє файли / каталоги з-під керуванн�
 
 #. Resource IDs: (198)
 msgid "Deletes the action log file"
-msgstr ""
+msgstr "Знищує файл з логом дій"
 
 #. Resource IDs: (263)
 msgid "Deleting"
@@ -3066,7 +3070,7 @@ msgstr "Порожньо"
 
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
-msgstr ""
+msgstr "Уможливити кешування логу, щоб прискорити лог та діалоги з графами модифікацій"
 
 #. Resource IDs: (196)
 msgid ""
@@ -3185,11 +3189,11 @@ msgstr "Введіть ціле число."
 
 #. Resource IDs: (1065)
 msgid "Enter log &message:"
-msgstr ""
+msgstr "Введіть логове повідо&млення:"
 
 #. Resource IDs: (126)
 msgid "Enter log message:"
-msgstr ""
+msgstr "Введіть логове повідомлення:"
 
 #. Resource IDs: (3858)
 #, fuzzy, c-format
@@ -3681,7 +3685,7 @@ msgstr "Отримати б&локування..."
 
 #. Resource IDs: (114)
 msgid "Get merge logs"
-msgstr ""
+msgstr "Отримати логи злиття"
 
 #. Resource IDs: (89)
 msgid ""
@@ -3715,7 +3719,7 @@ msgstr "Отримується інформація..."
 
 #. Resource IDs: (132)
 msgid "Getting log info..."
-msgstr ""
+msgstr "Отримується логова інформація..."
 
 #. Resource IDs: (220)
 msgid "Getting required information..."
@@ -4050,13 +4054,15 @@ msgstr ""
 
 #. Resource IDs: (197)
 msgid "If checked, double-clicking on a revision in the log list compares it with the previous revision"
-msgstr ""
+msgstr "Якщо позначено, то подвійне клацання на модифікації у логовому списку порівнює її з попередньою модифікацією"
 
 #. Resource IDs: (196)
 msgid ""
 "If checked, the commit dialog will be started again automatically after an error,\r\n"
 "while preserving your last selection and log message."
 msgstr ""
+"Якщо позначено, діалог фіксації знову автоматично запуститься після помилки,\r\n"
+"зберігши останнє виділення та логове повідомлення."
 
 #. Resource IDs: (194)
 msgid "If enabled, TortoiseSVN checks once a week if a newer version is available"
@@ -4471,7 +4477,7 @@ msgstr ""
 
 #. Resource IDs: (344)
 msgid "List of repositories for which log information has been cached"
-msgstr ""
+msgstr "Список репозиторіїв, для яких закешовано логову інформацію"
 
 #. Resource IDs: (16631, 16992)
 msgid "List1"
@@ -4549,39 +4555,39 @@ msgstr "Блокує файл для інших користувачів і до
 
 #. Resource IDs: (126)
 msgid "Log"
-msgstr ""
+msgstr "Лог"
 
 #. Resource IDs: (282)
 msgid "Log Cache Statistics"
-msgstr ""
+msgstr "Статистика логового кешу"
 
 #. Resource IDs: (281)
 msgid "Log Caching"
-msgstr ""
+msgstr "Логове кешування"
 
 #. Resource IDs: (211)
 msgid "Log History"
-msgstr ""
+msgstr "Логова історія"
 
 #. Resource IDs: (130)
 msgid "Log Messages"
-msgstr ""
+msgstr "Логові повідомлення"
 
 #. Resource IDs: (1386)
 msgid "Log message"
-msgstr ""
+msgstr "Логове повідомлення"
 
 #. Resource IDs: (65535)
 msgid "Log messages"
-msgstr ""
+msgstr "Логові повідомлення"
 
 #. Resource IDs: (1274)
 msgid "Log messages (Input dialog)"
-msgstr ""
+msgstr "Логові повідомлення (діалог вводу)"
 
 #. Resource IDs: (1280)
 msgid "Log messages (Show log dialog)"
-msgstr ""
+msgstr "Логові повідомлення (діалог показу логу)"
 
 #. Resource IDs: (238)
 #, c-format
@@ -4647,11 +4653,11 @@ msgstr "Макс"
 
 #. Resource IDs: (1317)
 msgid "Max. items to keep in the log message history"
-msgstr ""
+msgstr "Макс. к-сть елементів у історії логових повідомлень"
 
 #. Resource IDs: (65535)
 msgid "Max. lines in action log"
-msgstr ""
+msgstr "Макс. к-сть рядків у лозі дій"
 
 #. Resource IDs: (16655)
 msgid "Me&nus show recently used commands first"
@@ -5140,11 +5146,11 @@ msgstr ""
 
 #. Resource IDs: (338)
 msgid "Number of different paths shown in the log dialog, including parent paths"
-msgstr ""
+msgstr "Кількість різних шляхів, що відображаються в логовому діалозі, включно з батьківськими"
 
 #. Resource IDs: (338)
 msgid "Number of different words used in log messages"
-msgstr ""
+msgstr "Кількість різних слів, що використовуються у логових повідомленнях"
 
 #. Resource IDs: (339)
 msgid "Number of merged revisions that are not cached yet"
@@ -5282,7 +5288,7 @@ msgstr "Відкриває оглядач репозиторію щоб підл
 
 #. Resource IDs: (199)
 msgid "Operate from log cache for now only"
-msgstr ""
+msgstr "Діяти на основі логового кешу тільки тепер"
 
 #. Resource IDs: (16137)
 msgid "Options"
@@ -6199,9 +6205,16 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
+"Модифікація: %ld\r\n"
+"URL: %s\r\n"
+"Автор: %s\r\n"
+"Дата: %s\r\n"
+"\r\n"
+"Логове повідомлення:\r\n"
+"%s"
 
 #. Resource IDs: (272)
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Revision: %ld\r\n"
 "URL: %s\r\n"
@@ -6213,6 +6226,15 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
+"Модифікація: %ld\r\n"
+"URL: %s\r\n"
+"Автор: %s\r\n"
+"Дата: %s\r\n"
+"\r\n"
+"Зрізи:%s\r\n"
+"\r\n"
+"Логове повідомлення:\r\n"
+"%s"
 
 #. Resource IDs: (116, 65535)
 msgid "Revisions"
@@ -6420,7 +6442,7 @@ msgstr "Прокрутити праворуч"
 
 #. Resource IDs: (113)
 msgid "Search &log messages..."
-msgstr ""
+msgstr "Пошук &логових повідомлень..."
 
 #. Resource IDs: (65535)
 msgid "Search for:"
@@ -6557,7 +6579,7 @@ msgstr ""
 
 #. Resource IDs: (79)
 msgid "Select the behaviour of the progress dialog at the end of the operation."
-msgstr ""
+msgstr "Виберіть поведінку діалога поступу наприкінці операції."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -6828,7 +6850,7 @@ msgstr ""
 
 #. Resource IDs: (345)
 msgid "Show statistics for the selected log cache"
-msgstr ""
+msgstr "Показати статистику для вибраного логового кешу"
 
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
@@ -6879,7 +6901,7 @@ msgstr "Показує інформацію про TortoiseSVN"
 
 #. Resource IDs: (198)
 msgid "Shows the action log file in the default text editor"
-msgstr ""
+msgstr "Показує файл з логом дій у типовому текстовому редакторі"
 
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
@@ -6931,7 +6953,7 @@ msgstr "Сортувати за кількістю фіксацій"
 
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
-msgstr ""
+msgstr "Вказує, скільки елементів залишати у діалозі з нещодавними логовими повідомленнями."
 
 #. Resource IDs: (79)
 msgid ""
@@ -7341,6 +7363,8 @@ msgid ""
 "The maximum number of action log lines to keep.\n"
 "Any lines added over this limit will remove the oldest lines from the file."
 msgstr ""
+"Максимальна кількість збережених рядків логу дій.\n"
+"Рядки додані поверх цього ліміту витіснятимуть з файлу найдавніші рядки."
 
 #. Resource IDs: (63)
 msgid ""
@@ -7470,6 +7494,8 @@ msgid ""
 "The two selected URL's are not created from the same root.\n"
 "It's not possible to show the log messages between them!"
 msgstr ""
+"Обидва вибрані URL не створені зі спільного кореня.\n"
+"Показувати логові повідомлення між ними неможливо!"
 
 #. Resource IDs: (16)
 msgid "The user who did the last commit"
@@ -7643,6 +7669,11 @@ msgid ""
 "Otherwise, TortoiseSVN must do a non-recursive commit\n"
 "which does not allow directory deletion."
 msgstr ""
+"Щоб фіксувати рекурсивно і обійти цю помилку,\n"
+"переконайтеся, що всі елементи-нащадки позначеного каталога\n"
+"також позначені у діалозі фіксації.\n"
+"Інакше TortoiseSVN повинно здійснити нерекурсивну фіксацію,\n"
+"яка не дозволяє знищення каталога."
 
 #. Resource IDs: (284)
 msgid ""
@@ -7914,6 +7945,10 @@ msgid ""
 "Please start the log dialog on this specific file alone and then revert the changes\n"
 "from the top pane in the log dialog."
 msgstr ""
+"Не вдається відтворити шлях до робочої копії!\n"
+"Це може трапитися, якщо файл боло перейменовано.\n"
+"Запустіть діалог логу на одному певному файлі, відтак відверніть зміни\n"
+"з верхньої панелі цього діалогу логу."
 
 #. Resource IDs: (3865)
 msgid "Unable to write read-only property."
@@ -8053,7 +8088,7 @@ msgstr "Оновлення та переспроба блокування..."
 
 #. Resource IDs: (199)
 msgid "Updating log cache"
-msgstr ""
+msgstr "Оновлюється логовий кеш"
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
@@ -8073,7 +8108,7 @@ msgstr "Використати &інший текстовий блок"
 
 #. Resource IDs: (1126)
 msgid "Use &text viewer to view blames"
-msgstr ""
+msgstr "Використовувати переглядач &тексту для перегляду звинувачень"
 
 #. Resource IDs: (195)
 msgid ""
@@ -8527,6 +8562,8 @@ msgid ""
 "Your previously entered log messages have been saved.\n"
 "Click here to read and insert them again."
 msgstr ""
+"Ваші попередньо введені логові повідомлення було збережено.\n"
+"Клацніть отут, щоб знову їх читати та вставляти."
 
 #. Resource IDs: (1112)
 msgid "Your version is:"
@@ -8820,7 +8857,7 @@ msgstr ""
 
 #. Resource IDs: (214)
 msgid "item kept locally"
-msgstr ""
+msgstr "елемент залишений локально"
 
 #. Resource IDs: (65535)
 msgid "last head update: "
@@ -9132,12 +9169,17 @@ msgid ""
 "Set to 'false' if you don't want the list of changed files to be pasted in English\r\n"
 "in the commit dialog."
 msgstr ""
+"tsvn:logfilelistenglish\r\n"
+"Встановіть у 'false', якщо не потрібно до діалогу фіксації вклеювати список\r\n"
+"змінених файлів на англійській мові."
 
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logminsize\r\n"
 "Minimum size in chars a log message must have before a commit is allowed."
 msgstr ""
+"tsvn:logminsize\r\n"
+"Мінімальна кількість символів у логовому повідомленні, за якої дозволяєтсья фіксація."
 
 #. Resource IDs: (578)
 msgid ""
