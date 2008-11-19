@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-18 17:47+0200\n"
+"PO-Revision-Date: 2008-11-19 18:02+0200\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -264,7 +264,7 @@ msgstr "Вигляд &Програми"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
-msgstr "&Застосувати об'єднану відмінність"
+msgstr "&Застосувати об'єднані відмінності"
 
 #. Resource IDs: (32852)
 msgid "&Aqua Style"
@@ -639,7 +639,7 @@ msgstr "Шукати &лише у модифікованих рядках"
 
 #. Resource IDs: (32797)
 msgid "&Link image positions"
-msgstr ""
+msgstr "Прив'&язати розташування зображень"
 
 #. Resource IDs: (1172)
 #, fuzzy
@@ -651,8 +651,9 @@ msgid "&Load..."
 msgstr "За&вантажити..."
 
 #. Resource IDs: (65535)
+#, fuzzy
 msgid "&Lum:"
-msgstr ""
+msgstr "&Яскравість:"
 
 #. Resource IDs: (16543)
 msgid "&Menu animations:"
@@ -836,8 +837,9 @@ msgid "&SSH client:"
 msgstr "Клієнт &SSH"
 
 #. Resource IDs: (65535)
+#, fuzzy
 msgid "&Sat:"
-msgstr ""
+msgstr "На&сиченість:"
 
 #. Resource IDs: (57603)
 msgid "&Save"
@@ -910,7 +912,7 @@ msgstr "Розмір &табуляції"
 
 #. Resource IDs: (1069)
 msgid "&Tabbed Document"
-msgstr ""
+msgstr "Документ з вкла&дками"
 
 #. Resource IDs: (1382)
 #, fuzzy
@@ -990,7 +992,7 @@ msgstr "С&касувати"
 
 #. Resource IDs: (274, 32785)
 msgid "&Unified diff"
-msgstr "&Об'єднана відмінність"
+msgstr "&Об'єднані відмінності"
 
 #. Resource IDs: (1061)
 msgid "&Unknown drives"
@@ -1491,7 +1493,7 @@ msgstr ""
 
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
-msgstr ""
+msgstr "Застосовує файл об'єднаних відмінностей до робочої копії"
 
 #. Resource IDs: (581)
 msgid ""
@@ -1511,7 +1513,7 @@ msgstr "Застосувати властивість рекурсивно"
 
 #. Resource IDs: (65535)
 msgid "Apply unified diff"
-msgstr ""
+msgstr "Застосувати об'єднані відмінності"
 
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
@@ -2532,6 +2534,8 @@ msgid ""
 "Could not retrieve revision %s of the file %s.\n"
 "Patching is not possible!"
 msgstr ""
+"Не вдалося віднайти модифікацію %s файла %s.\n"
+"Латання неможливе!"
 
 #. Resource IDs: (64)
 #, c-format
@@ -2621,7 +2625,7 @@ msgstr "Створити репозиторі&й тут"
 
 #. Resource IDs: (32828)
 msgid "Create unified diff file"
-msgstr ""
+msgstr "Створює файл об'єднаних відмінностей"
 
 #. Resource IDs: (126)
 msgid "Created folder remotely"
@@ -2645,7 +2649,7 @@ msgstr "Створює базу даних репозиторія у поточ�
 
 #. Resource IDs: (14)
 msgid "Creates a unified diff file with all changes you made"
-msgstr ""
+msgstr "Створює файл об'єднаних відмінностей з усіма внесеними вами змінами"
 
 #. Resource IDs: (65535)
 msgid "Credits:"
@@ -2839,6 +2843,8 @@ msgid ""
 "Disable this option if you have really big working copies and experience\r\n"
 "too much disk access when browsing the working copy."
 msgstr ""
+"Унеможливіть цей параметр, якщо у вас дійсно великі робочі копії, і під час\r\n"
+"проглядання робочої копії буває надто багато звернень до диску."
 
 #. Resource IDs: (3867)
 #, c-format
@@ -2975,8 +2981,9 @@ msgid "Drive Types"
 msgstr "Типи дисків"
 
 #. Resource IDs: (32816)
+#, fuzzy
 msgid "E&xact copy sources"
-msgstr ""
+msgstr "Вима&гати копію сирців"
 
 #. Resource IDs: (65535)
 msgid "E&xclude paths:"
@@ -3336,7 +3343,7 @@ msgstr "Зовнішні програми::Інструмент для злит�
 
 #. Resource IDs: (194)
 msgid "External Programs::Unified Diff Viewer"
-msgstr ""
+msgstr "Зовнішні програми::Переглядач об'єднаних відмінностей"
 
 #. Resource IDs: (226)
 msgid "Externals excluded"
@@ -3602,7 +3609,7 @@ msgstr "Шрифт"
 
 #. Resource IDs: (3585)
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
-msgstr ""
+msgstr "Щоб отримати Довідку, натисніть F1. Горизонтальна прокрутка за допомогою Ctrl + коліщатко прокрутки"
 
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
@@ -3727,7 +3734,7 @@ msgstr "Отримується необхідна інформація..."
 
 #. Resource IDs: (119)
 msgid "Getting unified diff"
-msgstr ""
+msgstr "Отримуються об'єднані відмінності"
 
 #. Resource IDs: (65535)
 msgid "Global ignore &pattern:"
@@ -4371,6 +4378,17 @@ msgid ""
 "If you are not sure what to do, please refer to our docs on <i>relocate</i>.\n"
 "Do you really want to relocate?"
 msgstr ""
+"Здається ви намагеєтеся <b>перенести</b> свою робочу копію на інший шлях у тому ж репозиторії.\n"
+"\n"
+"З:\t%s\n"
+"До:\t\t%s\n"
+"\n"
+"Перенесення потрібно тільки якщо шлях <b>до</b> репозитроію змінився.\n"
+"Зміна шляху  <b>всередині</b> репозиторія здійснюється операцією переключення.\n"
+"\n"
+"Неправильне використання перенесення <b>пошкодить вашу робочу копію!</b>\n"
+"Якщо ви не певні, що слід зробити, зверніться до документації про <i>перенесення</i>.\n"
+"Чи все-таки перенести?"
 
 #. Resource IDs: (1203)
 #, fuzzy
@@ -4600,8 +4618,9 @@ msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision:
 msgstr ""
 
 #. Resource IDs: (16973)
+#, fuzzy
 msgid "Lum"
-msgstr ""
+msgstr "Яскравість"
 
 #. Resource IDs: (3866)
 msgid "Mail system DLL is invalid."
@@ -5800,12 +5819,12 @@ msgstr ""
 
 #. Resource IDs: (1469)
 msgid "Reintegrate a branch"
-msgstr ""
+msgstr "Переінтегрувати гілку"
 
 #. Resource IDs: (230)
 #, c-format
 msgid "Reintegrate merge %s into %s"
-msgstr ""
+msgstr "Переінтегрувати злиття %s у %s"
 
 #. Resource IDs: (82)
 msgid "Reject"
@@ -5841,15 +5860,16 @@ msgstr ""
 
 #. Resource IDs: (157)
 msgid "Relocate"
-msgstr ""
+msgstr "Перенести"
 
 #. Resource IDs: (89)
+#, fuzzy
 msgid "Relocate Warning"
-msgstr ""
+msgstr "Перенести попередження"
 
 #. Resource IDs: (80)
 msgid "Relocating..."
-msgstr ""
+msgstr "Переноситься..."
 
 #. Resource IDs: (207)
 msgid "Remote property status"
@@ -5981,7 +6001,7 @@ msgstr "Перейменовано на віддалі"
 
 #. Resource IDs: (11)
 msgid "Renames files / folders inside version control"
-msgstr ""
+msgstr "Перейменовує файли / каталоги під керуванням версіями"
 
 #. Resource IDs: (209)
 msgid "Repair move"
@@ -6774,11 +6794,11 @@ msgstr "Показати огляд цілого графа"
 
 #. Resource IDs: (114)
 msgid "Show changes as &unified diff"
-msgstr ""
+msgstr "Показати зміни як &об'єднані відмінності"
 
 #. Resource IDs: (113)
 msgid "Show differences as &unified diff"
-msgstr ""
+msgstr "Показати різницю як &об'єднані відмінності"
 
 #. Resource IDs: (1126)
 msgid "Show excluded folders as normal"
@@ -8123,7 +8143,7 @@ msgstr "Використовувати URL &КВ як типовий URL  \"Ві
 
 #. Resource IDs: (1064)
 msgid "Use Unified Diff from &clipboard"
-msgstr ""
+msgstr "Використати Об'єднані відмінності з &буфера обмігу"
 
 #. Resource IDs: (1296)
 msgid "Use \"_svn\" instead of \".svn\" directories"
@@ -8317,7 +8337,7 @@ msgstr ""
 "/theirs:<шлях до їхнього файла>\n"
 "/mine:<шлях до вашого файла>\n"
 "/merged:<шлях до результуючого злитого файла>\n"
-"/diff:<шлях до об'єднаного файла різниці>\n"
+"/diff:<шлях до файла об'єднаних відмінностей>\n"
 "/patchpath:<шлях до каталога>"
 
 #. Resource IDs: (11)
