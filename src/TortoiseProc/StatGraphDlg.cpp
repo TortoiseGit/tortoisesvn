@@ -55,6 +55,7 @@ CStatGraphDlg::CStatGraphDlg(CWnd* pParent /*=NULL*/)
 	, m_bAuthorsCaseSensitive(TRUE)
 	, m_bSortByCommitCount(TRUE)
 	, m_nWeeks(-1)
+	, m_nDays(-1)
 {
 	m_parDates = NULL;
 	m_parFileChanges = NULL;
@@ -364,6 +365,8 @@ void CStatGraphDlg::UpdateWeekCount()
 	double secs = _difftime64(max_date, m_minDate);
 	// ... a week has 604800 seconds
 	m_nWeeks = (int)ceil(secs / 604800.0);
+	// ... a day has 86400.0 seconds
+	m_nDays = (int)ceil(secs / 86400.0);
 }
 
 int CStatGraphDlg::GetCalendarWeek(const CTime& time)
@@ -994,6 +997,8 @@ void CStatGraphDlg::OnCbnSelchangeGraphcombo()
 
 int CStatGraphDlg::GetUnitCount()
 {
+	if (m_nDays < 8)
+		return m_nDays;
 	if (m_nWeeks < 15)
 		return m_nWeeks;
 	if (m_nWeeks < 80)
@@ -1005,6 +1010,8 @@ int CStatGraphDlg::GetUnitCount()
 
 int CStatGraphDlg::GetUnit(const CTime& time)
 {
+	if (m_nDays < 8)
+		return time.GetMonth()*100 + time.GetDay(); // month*100+day as the unit
 	if (m_nWeeks < 15)
 		return GetCalendarWeek(time);
 	if (m_nWeeks < 80)
@@ -1016,6 +1023,8 @@ int CStatGraphDlg::GetUnit(const CTime& time)
 
 CStatGraphDlg::UnitType CStatGraphDlg::GetUnitType()
 {
+	if (m_nDays < 8)
+		return Days;
 	if (m_nWeeks < 15)
 		return Weeks;
 	if (m_nWeeks < 80)
@@ -1027,6 +1036,8 @@ CStatGraphDlg::UnitType CStatGraphDlg::GetUnitType()
 
 CString CStatGraphDlg::GetUnitString()
 {
+	if (m_nDays < 8)
+		return CString(MAKEINTRESOURCE(IDS_STATGRAPH_COMMITSBYDATEXDAY));
 	if (m_nWeeks < 15)
 		return CString(MAKEINTRESOURCE(IDS_STATGRAPH_COMMITSBYDATEXWEEK));
 	if (m_nWeeks < 80)
@@ -1041,6 +1052,26 @@ CString CStatGraphDlg::GetUnitLabel(int unit, CTime &lasttime)
 	CString temp;
 	switch (GetUnitType())
 	{
+	case Days:
+		{
+			// month*100+day as the unit
+			int day = unit % 100;
+			int month = unit / 100;
+			switch (m_langOrder)
+			{
+			case 0: // month day year
+				temp.Format(_T("%d/%d/%.2d"), month, day, lasttime.GetYear()%100);
+				break;
+			case 1: // day month year
+			default:
+				temp.Format(_T("%d/%d/%.2d"), day, month, lasttime.GetYear()%100);
+				break;
+			case 2: // year month day
+				temp.Format(_T("%.2d/%d/%d"), lasttime.GetYear()%100, month, day);
+				break;
+			}
+		}
+		break;
 	case Weeks:
 		{
 			int year = lasttime.GetYear();

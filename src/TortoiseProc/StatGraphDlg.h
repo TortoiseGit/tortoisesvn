@@ -78,6 +78,7 @@ protected:
 	/// The types of units used in the various graphs.
 	enum UnitType
 	{
+		Days,
 		Weeks,
 		Months,
 		Quarters,
@@ -111,8 +112,7 @@ protected:
 
 	// ** Member functions **
 
-	/// Updates the variables m_weekCount and m_minDate and returns the number 
-	/// of weeks in the revision interval.
+	/// Updates the variables m_nWeeks, m_nDays and m_minDate
 	void UpdateWeekCount();
 	/// Returns the week-of-the-year for the given time.
 	int	GetCalendarWeek(const CTime& time);
@@ -181,6 +181,8 @@ protected:
 
 	// ** Member variables holding the statistical data **
 
+	/// Number of days in the revision interval.
+	int						m_nDays;
 	/// Number of weeks in the revision interval.
 	int						m_nWeeks;		
 	/// The starting date/time for the revision interval.
