@@ -409,6 +409,7 @@ void CTSVNPath::Reset()
 	m_sBackslashPath.Empty();
 	m_sFwdslashPath.Empty();
 	m_sUTF8FwdslashPath.Empty();
+	m_sUIPath.Empty();
 	ATLASSERT(IsEmpty());
 }
 
@@ -472,7 +473,7 @@ CString CTSVNPath::GetFileOrDirectoryName() const
 CString CTSVNPath::GetUIFileOrDirectoryName() const
 {
 	GetUIPathString();
-	return m_sUIPath.Mid(m_sUIPath.ReverseFind('\\')+1);
+	return m_sUIPath.Mid(m_sUIPath.ReverseFind('/')+1);
 }
 
 CString CTSVNPath::GetFileExtension() const
@@ -1201,6 +1202,12 @@ private:
 		// Try a root UNC path
 		testPath.SetFromUnknown(_T("\\MYSTATION"));
 		ATLASSERT(testPath.GetContainingDirectory().IsEmpty());
+
+		// test the UI path methods
+		testPath.SetFromUnknown(_T("c:\\testing%20test"));
+		ATLASSERT(testPath.GetUIFileOrDirectoryName().CompareNoCase(_T("c:\\testing%20test")) == 0);
+		testPath.SetFromUnknown(_T("http://server.com/testing%20special%20chars%20%c3%a4%c3%b6%c3%bc"));
+		ATLASSERT(testPath.GetUIFileOrDirectoryName().CompareNoCase(_T("testing special chars \344\366\374")) == 0);
 	}
 
 	void AdminDirTest()
