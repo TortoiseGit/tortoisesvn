@@ -52,7 +52,7 @@ CTSVNPath CTempFiles::GetTempFilePath(bool bRemoveAtEnd, const CTSVNPath& path /
 	{
 		int i=0;
 		// use the UI path, which does unescaping for urls
-		CString filename = path.GetUIFileOrDirectoryName();
+		CString filename = path.GetFileOrDirectoryName();
 		do
 		{
 			// the inner loop assures that the resulting path is < MAX_PATH
