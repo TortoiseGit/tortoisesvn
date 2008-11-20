@@ -1332,11 +1332,13 @@ void MyGraph::DrawSeriesPie(CDC& dc) const
 	int nSeriesSpace(0);
 
 	int seriesCount = GetNonZeroSeriesCount();
+	int horizontalSpace(0);
 
 	if (m_saLegendLabels.GetSize()) {
-		
-		int nPieAndSpaceWidth((m_nXAxisWidth - m_rcLegend.Width() - 
-			(GAP_PIXELS * 2)) / seriesCount);
+		// With legend box.
+
+		horizontalSpace = m_nXAxisWidth - m_rcLegend.Width() - (GAP_PIXELS * 2);
+		int nPieAndSpaceWidth(horizontalSpace / seriesCount);
 
 		// Height is limiting factor.
 		if (nPieAndSpaceWidth > m_nYAxisHeight - (GAP_PIXELS * 2)) {
@@ -1350,6 +1352,8 @@ void MyGraph::DrawSeriesPie(CDC& dc) const
 	else {
 		// No legend box.
 
+		horizontalSpace = m_nXAxisWidth;
+
 		// Height is limiting factor.
 		if (m_nXAxisWidth > m_nYAxisHeight * seriesCount) {
 			nSeriesSpace = m_nYAxisHeight;
@@ -1359,6 +1363,9 @@ void MyGraph::DrawSeriesPie(CDC& dc) const
 			nSeriesSpace = m_nXAxisWidth / seriesCount;
 		}
 	}
+
+	// Make pies be centered horizontally
+	int xOrigin = m_ptOrigin.x + GAP_PIXELS + (horizontalSpace - nSeriesSpace * seriesCount) / 2;
 
 	// Create font for labels.
 	CFont fontLabels;
@@ -1381,19 +1388,20 @@ void MyGraph::DrawSeriesPie(CDC& dc) const
 		if (0 < pSeries->GetNonZeroElementCount()) {
 
 			// Locate this pie.
-			CRect rcPie;
-			rcPie.left = m_ptOrigin.x + GAP_PIXELS + (nSeriesSpace * nPie);
-			rcPie.right = rcPie.left + (2 * nRadius);
-			rcPie.top = m_ptOrigin.y - (m_nYAxisHeight / 2) - nRadius;
-			rcPie.bottom = m_ptOrigin.y - (m_nYAxisHeight / 2) + nRadius;
+			CPoint ptCenter;
+			ptCenter.x = xOrigin + (nSeriesSpace * nPie) + nSeriesSpace / 2;
+			ptCenter.y = m_ptOrigin.y - m_nYAxisHeight / 2;
 
-			CPoint ptCenter((rcPie.left + rcPie.right) / 2,
-				(rcPie.top + rcPie.bottom) / 2);
+			CRect rcPie;
+			rcPie.left = ptCenter.x - nRadius;
+			rcPie.right = ptCenter.x + nRadius;
+			rcPie.top = ptCenter.y - nRadius;
+			rcPie.bottom = ptCenter.y + nRadius;
 
 			// Draw series label.
 			CSize sizPieLabel(dc.GetTextExtent(pSeries->GetLabel()));
 			
-			VERIFY(dc.TextOut((rcPie.left + nRadius) - (sizPieLabel.cx / 2),
+			VERIFY(dc.TextOut(ptCenter.x - (sizPieLabel.cx / 2),
 			  ptCenter.y + nRadius + GAP_PIXELS, pSeries->GetLabel()));
 			
 			// How much do the wedges total to?
@@ -1460,10 +1468,9 @@ void MyGraph::DrawSeriesPie(CDC& dc) const
 		}
 	}
 
-	// Draw X axis title after we know how many pies we actually have
+	// Draw X axis title
 	CSize sizXLabel(dc.GetTextExtent(m_sXAxisLabel));
-	int nTotalSpaceOfPies = nSeriesSpace * nPie - (nSeriesSpace - nRadius*2);
-	VERIFY(dc.TextOut(m_ptOrigin.x + GAP_PIXELS + (nTotalSpaceOfPies - sizXLabel.cx)/2,
+	VERIFY(dc.TextOut(xOrigin + (nSeriesSpace * nPie - sizXLabel.cx)/2,
 		m_ptOrigin.y - m_nYAxisHeight/2 + nRadius + GAP_PIXELS*2 + sizXLabel.cy, m_sXAxisLabel));
 
 	VERIFY(dc.SelectObject(pFontOld));
