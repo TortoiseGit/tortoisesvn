@@ -423,8 +423,6 @@ svn switch --relocate From_URL To_URL
 			<title>Create Repository Here</title>
 <screen>
 svnadmin create --fs-type fsfs PATH
-  or
-svnadmin create --fs-type bdb PATH
 </screen>
 		</sect2>
 		<sect2 id="tsvn-cli-add">
