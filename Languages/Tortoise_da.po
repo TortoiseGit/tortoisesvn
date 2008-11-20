@@ -21,8 +21,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-10 09:01+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2008-11-20 16:28+0100\n"
+"Last-Translator: Mikkel Elmholdt <mikkel@elmholdt.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -315,6 +315,36 @@ msgstr "%s på %s"
 #, c-format
 msgid "%s, at %s"
 msgstr "%s ved %s"
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it already exists unversioned locally."
+msgstr "%s, men eksisterer allerede uversioneret lokalt."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it is missing locally."
+msgstr "%s, men findes ikke lokalt."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was already added locally."
+msgstr "%s , men er allerede tilføjet lokalt."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was deleted locally."
+msgstr "%s, men er blevet slettet lokalt."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was obstructed in the working copy."
+msgstr "%s, men blev blokeret i den nuværende arbejdskopi."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the local file was already edited."
+msgstr "%s, men den lokale fil er allerede blevet ændret."
 
 #. Resource IDs: (145)
 #, c-format
@@ -693,14 +723,6 @@ msgstr "&Fra arbejdskopi med URL:"
 msgid "&From revision"
 msgstr "&Fra revision"
 
-#. Resource IDs: (275)
-msgid "&Glue all"
-msgstr "&Klæb alle"
-
-#. Resource IDs: (275)
-msgid "&Glue sub-trees"
-msgstr "&Klæb under-træer"
-
 #. Resource IDs: (32779)
 msgid "&Go To Line..."
 msgstr "&Gå til linje..."
@@ -779,6 +801,15 @@ msgstr "&Standardmappe:"
 #. Resource IDs: (32825)
 msgid "&Inline diff word-wise"
 msgstr "&Sammenlign ordvis ved linjesammenligning"
+
+# Kontekst?
+#. Resource IDs: (275)
+msgid "&Join all"
+msgstr "&Foren alt"
+
+#. Resource IDs: (275)
+msgid "&Join with sub-trees"
+msgstr "&Foren med under-træer"
 
 #. Resource IDs: (1016)
 msgid "&Jump to first difference when loading"
@@ -1238,7 +1269,6 @@ msgid "&Working copy"
 msgstr "&Arbejdskopi"
 
 #. Resource IDs: (338)
-#, fuzzy
 msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
 msgstr "\"intervaller der skal springes over\" bruges til at markere revisionsintervaller der endnu ikke er blevet cachede"
 
@@ -1375,7 +1405,6 @@ msgid "A newer version is available. Please go to http://tortoisesvn.tigris.org 
 msgstr "Der er en nyere version til rådighed. Gå til http://tortoisesvn.tigris.org og hent den nyeste version. Klik _her_ for at gå direkte til vores hjemmeside."
 
 #. Resource IDs: (195)
-#, fuzzy
 msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
@@ -1384,18 +1413,16 @@ msgstr ""
 "Hvis du tilføjer et \"*\"-tegn i slutningen af stien, vil alle filer og undermapper i stien også blive inkluderet."
 
 #. Resource IDs: (197)
-#, fuzzy
 msgid ""
 "A newline separated list of paths for which no context menu is shown.\r\n"
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow the context menu on all paths."
 msgstr ""
-"En linjesepareret liste af stier hvor ikonoverdækninger ikke skal vises.\r\n"
+"En linjesepareret liste af stier hvor specifikke menuer ikke skal vises.\r\n"
 "Hvis du tilføjer et \"*\"-tegn i slutningen af stien, vil alle filer og undermapper i stien også blive udelukket.\r\n"
-"En tom liste vil tillade ikonoverdækninger på alle stier."
+"En tom liste vil tillade specifikke menuer for alle stier."
 
 #. Resource IDs: (194)
-#, fuzzy
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
@@ -2441,7 +2468,6 @@ msgid "Commits your changes to the repository"
 msgstr "Arkiverer dine ændringer til versionsarkivet"
 
 #. Resource IDs: (170)
-#, fuzzy
 msgid ""
 "Committing an unversioned folder will not recursively add its child items!\n"
 "You might want to add these folders recursively by using the 'Add...' context menu item.\n"
@@ -2922,10 +2948,6 @@ msgstr "Tak til:"
 msgid "Cu&t"
 msgstr "Kli&p"
 
-#. Resource IDs: (275)
-msgid "Cu&t sub-trees"
-msgstr "Kli&p under-træer"
-
 # Kontekst?
 #. Resource IDs: (65535)
 msgid "Current"
@@ -2963,14 +2985,6 @@ msgstr "Tilpas genvejsværktøjslinje"
 #. Resource IDs: (1068)
 msgid "Customize Quick Access Toolbar..."
 msgstr "Tilpas genvejsværktøjslinje..."
-
-#. Resource IDs: (275)
-msgid "Cut following &tree"
-msgstr "Klip følgende &træ"
-
-#. Resource IDs: (275)
-msgid "Cut from &source tree"
-msgstr "Klip fra &kilde-træet"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -3972,10 +3986,6 @@ msgstr "Fuldskærmsvisning"
 msgid "Fully recursive"
 msgstr "Fuldt rekursivt"
 
-#. Resource IDs: (275)
-msgid "G&lue to source tree"
-msgstr "K&læb til kilde-træet"
-
 #. Resource IDs: (273)
 msgid "GDI+ couldn't be initialized!"
 msgstr "GDI+ kunne ikke initialiseres!"
@@ -4087,10 +4097,6 @@ msgstr "Globalt ignorer-&mønster:"
 #. Resource IDs: (65535)
 msgid "Global settings"
 msgstr "Globale indstillinger"
-
-#. Resource IDs: (275)
-msgid "Glue following &tree"
-msgstr "Klæb følgende &træ"
 
 #. Resource IDs: (280)
 msgid "Go offline?"
@@ -4376,21 +4382,18 @@ msgid "Icons/Design/Code:                 Luebbe Onken"
 msgstr "Ikoner/Design/Kode:                 Luebbe Onken"
 
 #. Resource IDs: (194)
-#, fuzzy
 msgid "If activated, prevents the overlays and the context menu from showing in 'save as...' or 'open' dialogs"
 msgstr "Hvis valgt, så vises overdækningerne og kontekstmenuen ikke i dialogerne \"gem som...\" eller \"åbn\""
 
 #. Resource IDs: (198)
-#, fuzzy
 msgid ""
 "If activated, the menu entry 'Get Lock' is always shown in the top level menu\n"
 "if the selected file has the svn:needs-lock property set"
 msgstr ""
-"Hvis aktiveret, så vises menupunktet \"Rekvivier lås\" altid i den øverste menu,\n"
+"Hvis aktiveret, så vises menupunktet \"Rekvirer lås\" altid i den øverste menu,\n"
 "hvis den valgte fil har egenskaben svn:needs-lock sat"
 
 #. Resource IDs: (346)
-#, fuzzy
 msgid ""
 "If an element (part between two '/') of a given path matches one\n"
 "of these patterns, it is considered a 'branch'.\n"
@@ -4837,6 +4840,14 @@ msgstr ""
 "Hvis du ikke er sikker på hvad du skal gøre, læs da dokumentationen for <i>omlæg</i>.\n"
 "Ønsker du virkelig at omlægge?"
 
+#. Resource IDs: (275)
+msgid "Join with following &tree"
+msgstr "Foren med følgende &træ"
+
+#. Resource IDs: (275)
+msgid "Join with source tree"
+msgstr "Foren med kilde-træet"
+
 #. Resource IDs: (1203)
 msgid "Keep &locks"
 msgstr "Bevar &låse"
@@ -4845,15 +4856,21 @@ msgstr "Bevar &låse"
 msgid "Keep changelists"
 msgstr "Behold ændringslister"
 
-#. Resource IDs: (609)
-#, fuzzy, c-format
-msgid "Keep the %s from the repository"
-msgstr "Hold %d tilbage fra versionsarkivet"
+#. Resource IDs: (610)
+msgid "Keep the directory from the repository"
+msgstr "Hold folderen tilbage fra versionsarkivet"
 
-#. Resource IDs: (609)
-#, c-format
-msgid "Keep the local %s"
-msgstr "Bevar lokal %s"
+#. Resource IDs: (610)
+msgid "Keep the file from the repository"
+msgstr "Hold filen tilbage fra versionsarkivet"
+
+#. Resource IDs: (610)
+msgid "Keep the local directory"
+msgstr "Bevar lokal folder"
+
+#. Resource IDs: (610)
+msgid "Keep the local file"
+msgstr "Bevar lokal fil"
 
 #. Resource IDs: (16136)
 msgid "Keyboard"
@@ -5666,13 +5683,12 @@ msgid "Number of path elements. A path element is a folder or file name like 'fo
 msgstr "Antal af stielementer. Et stielement er en mappe eller et filnavn, f.eks. 'fil.txt' eller 'mingren'."
 
 #. Resource IDs: (345)
-#, fuzzy
 msgid ""
 "Number of times a log cache can fail to close properly\n"
 "due to crashes etc. until it gets deleted automatically."
 msgstr ""
-"Antal gange en logcache kan fejle for at lukke rigtigt\n"
-"mht. nedbrud osv., indtil det bliver slettet automatisk."
+"Antal gange lukning af en logcache kan fejle\n"
+"p.gr.a. nedbrud osv., indtil den bliver slettet automatisk."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -5897,9 +5913,8 @@ msgid "Paste filename list"
 msgstr "Indsæt filnavne"
 
 #. Resource IDs: (15)
-#, fuzzy
 msgid "Pastes the svn path from the clipboard, resulting in a move (cut) or copy operation"
-msgstr "Indsætter svn-stien fra udklipsholderen resulterende i en flytte- (klippe-) eller kopioperation"
+msgstr "Indsætter svn-stien fra udklipsholderen og initierer en flytte- (klippe-) eller kopioperation"
 
 #. Resource IDs: (376)
 msgid "Patch all"
@@ -6454,10 +6469,13 @@ msgstr ""
 "Fjern egenskab  \"%s\" fra\r\n"
 "%s"
 
-#. Resource IDs: (609)
-#, c-format
-msgid "Remove the %s"
-msgstr "Fjern %s"
+#. Resource IDs: (610)
+msgid "Remove the directory"
+msgstr "Fjern folderen"
+
+#. Resource IDs: (610)
+msgid "Remove the file"
+msgstr "Fjern filen"
 
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
@@ -7562,9 +7580,21 @@ msgstr ""
 msgid "Spin1"
 msgstr "Spin1"
 
+#. Resource IDs: (275)
+msgid "Split &source tree"
+msgstr "Split &kilde-træet"
+
+#. Resource IDs: (275)
+msgid "Split following &tree"
+msgstr "Split følgende &træ"
+
 #. Resource IDs: (376)
 msgid "Split lines"
 msgstr "Bryd linjer"
+
+#. Resource IDs: (275)
+msgid "Split sub-trees"
+msgstr "Split under-træer"
 
 #. Resource IDs: (3604)
 msgid ""
@@ -7946,35 +7976,95 @@ msgstr "Sagsbehandlerudbyderen kunne ikke validere parameterstrengen"
 msgid "The item '%s' has property conflicts:"
 msgstr "Emnet \"%s\" har konfliktende egenskaber"
 
-#. Resource IDs: (609)
+#. Resource IDs: (608)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but it already exists unversioned locally."
-msgstr "Den sidste %s operation forsøgte at %s på %s \"%s\", men eksisterer allerede uversioneret lokalt."
+msgid "The last merge operation tried to add the directory '%s'"
+msgstr "Den sidste flette-operation forsøgte at tilføje folderen \"%s\""
 
-#. Resource IDs: (609)
+#. Resource IDs: (607)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but it is missing locally."
-msgstr "Den sidste %s operation forsøgte at %s på %s \"%s\", men mangler lokalt."
+msgid "The last merge operation tried to add the file '%s'"
+msgstr "Den sidste flette-operation forsøgte at tilføje filen \"%s\""
 
-#. Resource IDs: (609)
+#. Resource IDs: (608)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but it was already added locally."
-msgstr "Den sidste %s operation forsøgte at %s på %s \"%s\", men er allerede tilføjet lokalt."
+msgid "The last merge operation tried to delete the directory '%s'"
+msgstr "Den sidste flette-operation forsøgte at slette folderen \"%s\""
 
-#. Resource IDs: (609)
+#. Resource IDs: (607)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but it was deleted locally."
-msgstr "Den sidste %s operation forsøgte at %s på %s \"%s\", men er blevet slettet lokalt."
+msgid "The last merge operation tried to delete the file '%s'"
+msgstr "Den sidste flette-operation forsøgte at slette filen \"%s\""
 
-#. Resource IDs: (609)
+#. Resource IDs: (608)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but it was obstructed in the working copy."
-msgstr "Den sidste %s operation forsøgte at %s på %s \"%s\", men blev blokeret i den nuværende arbejdskopi."
+msgid "The last merge operation tried to modify the directory '%s'"
+msgstr "Den sidste flette-operation forsøgte at ændre folderen \"%s\""
 
-#. Resource IDs: (609)
+#. Resource IDs: (607)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but the local file was already edited."
-msgstr "Den sidste %s operation forsøgte at %s på %s \"%s\", men den lokale fil er blevet ændret."
+msgid "The last merge operation tried to modify the file '%s'"
+msgstr "Den sidste flette-operation forsøgte at ændre filen \"%s\""
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to add the directory '%s'"
+msgstr "Den sidste skifte-operation forsøgte at tilføje folderen \"%s\""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last switch operation tried to add the file '%s'"
+msgstr "Den sidste skifte-operation forsøgte at tilføje filen \"%s\""
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to delete the directory '%s'"
+msgstr "Den sidste skifte-operation forsøgte at slette folderen \"%s\""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last switch operation tried to delete the file '%s'"
+msgstr "Den sidste skifte-operation forsøgte at slette filen \"%s\""
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to modify the directory '%s'"
+msgstr "Den sidste skifte-operation forsøgte at ændre folderen \"%s\""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last switch operation tried to modify the file '%s'"
+msgstr "Den sidste skifte-operation forsøgte at ændre filen \"%s\""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to add the directory '%s'"
+msgstr "Den sidste opdaterings-operation forsøgte at tilføje folderen \"%s\""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to add the file '%s'"
+msgstr "Den sidste opdaterings-operation forsøgte at tilføje filen \"%s\""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to delete the directory '%s'"
+msgstr "Den sidste flette-operation forsøgte at slette folderen \"%s\""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to delete the file '%s'"
+msgstr "Den sidste opdaterings-operation forsøgte at slette filen \"%s\""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to modify the directory '%s'"
+msgstr "Den sidste flette-operation forsøgte at ændre folderen \"%s\""
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to modify the file '%s'"
+msgstr "Den sidste opdaterings-operation forsøgte at ændre filen \"%s\""
 
 #. Resource IDs: (63)
 #, c-format
@@ -9409,10 +9499,6 @@ msgstr "[Ikke tildelt]"
 msgid "_POPUP_"
 msgstr "_POPUP_"
 
-#. Resource IDs: (608)
-msgid "add"
-msgstr "tilføj"
-
 #. Resource IDs: (10)
 msgid "added"
 msgstr "tilføjet"
@@ -9573,17 +9659,13 @@ msgstr ""
 msgid "copied:"
 msgstr "kopieret:"
 
-#. Resource IDs: (608)
-msgid "delete"
-msgstr "slette"
+#. Resource IDs: (245)
+msgid "day"
+msgstr "dag"
 
 #. Resource IDs: (10, 272)
 msgid "deleted"
 msgstr "slettet"
-
-#. Resource IDs: (607)
-msgid "directory"
-msgstr "mappe"
 
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
@@ -9613,10 +9695,6 @@ msgstr ""
 #. Resource IDs: (13)
 msgid "external"
 msgstr "ekstern"
-
-#. Resource IDs: (607)
-msgid "file"
-msgstr "fil"
 
 #. Resource IDs: (65535)
 msgid "file external:"
@@ -9678,10 +9756,6 @@ msgstr "låst:"
 msgid "max revision: "
 msgstr "højeste revision:"
 
-#. Resource IDs: (608)
-msgid "merge"
-msgstr "flette"
-
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "flettet"
@@ -9709,10 +9783,6 @@ msgstr "ændret"
 #. Resource IDs: (65535)
 msgid "modified / copied"
 msgstr "ændret / kopieret"
-
-#. Resource IDs: (608)
-msgid "modify"
-msgstr "ændre"
 
 #. Resource IDs: (245)
 msgid "month"
@@ -9939,10 +10009,6 @@ msgstr ""
 "og indikerer derved, at en bruger skal eje en lås på filen\r\n"
 "før redigering og arkivering af ændringer er mulig."
 
-#. Resource IDs: (607)
-msgid "switch"
-msgstr "skifte"
-
 #. Resource IDs: (208)
 #, c-format
 msgid ""
@@ -10007,7 +10073,6 @@ msgstr ""
 "Angiver det mindste antal tegn, en låsebesked skal indeholde, før låsning kan foretages."
 
 #. Resource IDs: (578)
-#, fuzzy
 msgid ""
 "tsvn:logfilelistenglish\r\n"
 "Set to 'false' if you don't want the list of changed files to be pasted in English\r\n"
@@ -10035,7 +10100,6 @@ msgstr ""
 "En regex-streng som udtrækker et sammendrag fra en logbesked."
 
 #. Resource IDs: (578)
-#, fuzzy
 msgid ""
 "tsvn:logtemplate\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
@@ -10086,18 +10150,12 @@ msgstr ""
 "blive vist i egenskabsdialogen, til at vælge fra."
 
 #. Resource IDs: (577)
-#, fuzzy
 msgid ""
 "tsvn:warnifnoissue\r\n"
 "Set to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
 "tsvn:warnifnoissue\r\n"
-"Sæt denne værdi til \"yes\", hvis der skal vises en advarsel, hvis der ikke indtastes et sagsnummer i arkiveringsdialogen."
-
-#. Resource IDs: (607)
-#, fuzzy
-msgid "update"
-msgstr "Opdater"
+"Sæt denne værdi til \"ja\", hvis der skal vises en advarsel, hvis der ikke indtastes et sagsnummer i arkiveringsdialogen."
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
@@ -10156,6 +10214,37 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "&Glue all"
+#~ msgstr "&Klæb alle"
+#~ msgid "&Glue sub-trees"
+#~ msgstr "&Klæb under-træer"
+#~ msgid "Cut from &source tree"
+#~ msgstr "Klip fra &kilde-træet"
+#~ msgid "Glue following &tree"
+#~ msgstr "Klæb følgende &træ"
+#~ msgid ""
+#~ "The last %s operation tried to %s the %s '%s', but it was deleted locally."
+#~ msgstr ""
+#~ "Den sidste %s operation forsøgte at %s på %s \"%s\", men er blevet "
+#~ "slettet lokalt."
+#~ msgid "add"
+#~ msgstr "tilføj"
+#~ msgid "delete"
+#~ msgstr "slette"
+#~ msgid "directory"
+#~ msgstr "mappe"
+#~ msgid "file"
+#~ msgstr "fil"
+#~ msgid "merge"
+#~ msgstr "flette"
+#~ msgid "modify"
+#~ msgstr "ændre"
+#~ msgid "switch"
+#~ msgstr "skifte"
+
+#, fuzzy
+#~ msgid "update"
+#~ msgstr "Opdater"
 #~ msgid "Only record the merge"
 #~ msgstr "Registrer kun fletningen"
 #~ msgid "(deleted) %s"
