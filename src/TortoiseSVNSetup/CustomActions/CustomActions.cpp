@@ -48,15 +48,6 @@ UINT __stdcall TerminateCache(MSIHANDLE hModule)
 	HWND hWnd = FindWindow(TSVN_CACHE_WINDOW_NAME, TSVN_CACHE_WINDOW_NAME);
 	if (hWnd)
 	{
-		// First, delete the registry key telling the shell where to find
-		// the cache. This is to make sure that the cache won't be started
-		// again right after we close it.
-		HKEY hKey = 0;
-		if (RegOpenKeyEx(HKEY_LOCAL_MACHINE, _T("Software\\TortoiseSVN"), 0, KEY_WRITE, &hKey)==ERROR_SUCCESS)
-		{
-			RegDeleteValue(hKey, _T("CachePath"));
-			RegCloseKey(hKey);
-		}
 		PostMessage(hWnd, WM_CLOSE, NULL, NULL);
 		for (int i=0; i<10; ++i)
 		{
