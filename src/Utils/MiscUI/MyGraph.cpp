@@ -1242,30 +1242,27 @@ void MyGraph::DrawSeriesLineStacked(CDC& dc) const
 	ASSERT_VALID(&dc);
 	_ASSERTE(m_bStackedGraph);
 
+	int nSeriesCount = m_olMyGraphSeries.GetCount();
+
 	CArray<int> stackAccumulator;
-	stackAccumulator.SetSize(m_olMyGraphSeries.GetCount());
+	stackAccumulator.SetSize(nSeriesCount);
 
 	CArray<CPoint> polygon;
-	polygon.SetSize(m_olMyGraphSeries.GetCount() * 2);
+	// Special case: if we only have single series, make polygon
+	// a bar instead of one pixel line.
+	polygon.SetSize(nSeriesCount==1 ? 4 : nSeriesCount * 2);
 
-	// How much space does each series get (includes inter series space)?
+	// How much space does each series get?
 	int nSeriesSpace(0);
 	if (m_saLegendLabels.GetSize()) {
 		nSeriesSpace = (m_nXAxisWidth - m_rcLegend.Width() - (GAP_PIXELS * 2)) /
-			m_olMyGraphSeries.GetCount();
+			nSeriesCount;
 	}
 	else {
-		nSeriesSpace = m_nXAxisWidth / m_olMyGraphSeries.GetCount();
-	}
-
-	// Determine width of bars.
-	int nBarWidth(nSeriesSpace / GetMaxSeriesSize());
-	if (1 < m_olMyGraphSeries.GetCount()) {
-		nBarWidth = (int) ((double) nBarWidth * INTERSERIES_PERCENT_USED);
+		nSeriesSpace = m_nXAxisWidth / nSeriesCount;
 	}
 
 	double dYScaling = double(m_nYAxisHeight) / GetMaxDataValue();
-	int nSeriesCount = m_olMyGraphSeries.GetCount();
 
 	// Iterate the groups.
 	for (int nGroup = 0; nGroup < GetMaxSeriesSize(); nGroup++) {
@@ -1291,7 +1288,14 @@ void MyGraph::DrawSeriesLineStacked(CDC& dc) const
 			ptLoc.x = m_ptOrigin.x + (((nPolyBottom + 1) * nSeriesSpace) - (nSeriesSpace / 2));
 			double dLineHeight((stackAccumulator[nPolyBottom]) * dYScaling);
 			ptLoc.y = (int) ((double) m_ptOrigin.y - dLineHeight);
-			polygon[nSeriesCount-nPolyBottom-1] = ptLoc;
+
+			if (nSeriesCount > 1) {
+				polygon[nSeriesCount-nPolyBottom-1] = ptLoc;
+			} else {
+				// special case: when there's one series, make polygon a bar
+				polygon[0] = CPoint(ptLoc.x-GAP_PIXELS/2, ptLoc.y);
+				polygon[1] = CPoint(ptLoc.x+GAP_PIXELS/2, ptLoc.y);
+			}
 		}
 
 		// Iterate the series, construct upper part of polygon and upadte stack accumulator
@@ -1306,7 +1310,13 @@ void MyGraph::DrawSeriesLineStacked(CDC& dc) const
 				(nSeriesSpace / 2));
 			double dLineHeight((pSeries->GetData(nGroup) + stackAccumulator[nSeries]) * dYScaling);			
 			ptLoc.y = (int) ((double) m_ptOrigin.y - dLineHeight);
-			polygon[nSeriesCount+nSeries] = ptLoc;
+			if (nSeriesCount > 1) {
+				polygon[nSeriesCount+nSeries] = ptLoc;
+			} else {
+				// special case: when there's one series, make polygon a bar
+				polygon[2] = CPoint(ptLoc.x+GAP_PIXELS/2, ptLoc.y);
+				polygon[3] = CPoint(ptLoc.x-GAP_PIXELS/2, ptLoc.y);
+			}
 
 			stackAccumulator[nSeries] += pSeries->GetData(nGroup);
 		}
