@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-19 18:02+0200\n"
+"PO-Revision-Date: 2008-11-21 16:55+0200\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1748,11 +1748,11 @@ msgstr "Вигляд кнопки"
 
 #. Resource IDs: (1215)
 msgid "C&heck now"
-msgstr ""
+msgstr "Пе&ревірити вже"
 
 #. Resource IDs: (1132)
 msgid "C&heck repository"
-msgstr ""
+msgstr "Пе&ревірити репозиторій"
 
 #. Resource IDs: (65535)
 msgid "C&ommands:"
@@ -1775,8 +1775,9 @@ msgid "C&ut"
 msgstr "В&ирізати"
 
 #. Resource IDs: (3697)
+#, fuzzy
 msgid "CAP"
-msgstr ""
+msgstr "CAP"
 
 #. Resource IDs: (199)
 msgid "Cache size [kB]"
@@ -1911,7 +1912,7 @@ msgstr "Внесені зміни (для відмінностей двічі к
 
 #. Resource IDs: (8)
 msgid "Chec&kout..."
-msgstr ""
+msgstr "В&ивірити..."
 
 #. Resource IDs: (3887)
 #, fuzzy
@@ -1919,14 +1920,12 @@ msgid "Check"
 msgstr "Перевірити"
 
 #. Resource IDs: (174)
-#, fuzzy
 msgid "Check For Updates"
-msgstr "Перевірити на оновлення"
+msgstr "Перевірити наявність оновлень"
 
 #. Resource IDs: (1031)
-#, fuzzy
 msgid "Check For Updates..."
-msgstr "Перевірити на оновлення..."
+msgstr "Перевірити наявність оновлень..."
 
 #. Resource IDs: (13)
 #, fuzzy
@@ -1940,7 +1939,7 @@ msgstr "Перевірити на модифікування"
 
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
-msgstr ""
+msgstr "Вивірити робочу копію з репозиторію"
 
 #. Resource IDs: (95)
 msgid ""
@@ -1968,24 +1967,24 @@ msgstr "Перевіряється наявність новішої версі�
 
 #. Resource IDs: (133, 65535)
 msgid "Checkout"
-msgstr ""
+msgstr "Вивірити"
 
 #. Resource IDs: (1074)
 msgid "Checkout &directory:"
-msgstr ""
+msgstr "&Каталог вивірки:"
 
 #. Resource IDs: (77)
 msgid "Checkout - TortoiseSVN"
-msgstr ""
+msgstr "Вивірити - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Checkout Depth"
-msgstr ""
+msgstr "Глибина вивірки"
 
 #. Resource IDs: (229)
 #, c-format
 msgid "Checkout from %s, revision %s, %s, %s"
-msgstr ""
+msgstr "Вивірка з %s, модифікація %s, %s, %s"
 
 #. Resource IDs: (65535)
 msgid "Checksum:"
@@ -4126,6 +4125,10 @@ msgid ""
 "If you're not sure about this, then please read the docs.\n"
 "Are you absolutely sure you want to do this?"
 msgstr ""
+"Якщо це значення змінити, ваші існуючі робочі копії більше не розпізнаватимуться!\n"
+"Доведеться знову вивірити ваші робочі копії.\n"
+"Якщо ви не впевнені стосовно цього, краще почитайте документацію.\n"
+"Ви цілковито впевнені, що хочете це зробити?"
 
 #. Resource IDs: (251)
 msgid "If you want to break the lock, use the 'Check For Modifications' dialog."
@@ -5239,7 +5242,7 @@ msgstr "Деяка кількість файлів у конфліктному �
 
 #. Resource IDs: (99)
 msgid "Only check out the &top folder"
-msgstr ""
+msgstr "Вивірити лише &верхній каталог"
 
 #. Resource IDs: (19)
 msgid "Only file children"
@@ -6539,7 +6542,7 @@ msgstr "Вибрати файл відмінностей..."
 
 #. Resource IDs: (99)
 msgid "Select directory to check out to"
-msgstr ""
+msgstr "Виберіть каталог, до якого вивіряти"
 
 #. Resource IDs: (276)
 msgid "Select end revision"
@@ -7233,11 +7236,11 @@ msgstr ""
 
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
-msgstr ""
+msgstr "Типовий URL з якого вивіряти, якщо нічого іншого не вказано"
 
 #. Resource IDs: (196)
 msgid "The default path to checkout to if nothing else is specified"
-msgstr ""
+msgstr "Типовий шлях куди вивіряти, якщо нічого іншого не вказано"
 
 #. Resource IDs: (68)
 #, c-format
@@ -7498,6 +7501,10 @@ msgid ""
 "is not empty!\n"
 "Are you sure you want to checkout/export into that folder?"
 msgstr ""
+"Цільовий каталог \n"
+"%s\n"
+"не порожній!\n"
+"Дійсно вивірити/експортувати до цього каталога?"
 
 #. Resource IDs: (195)
 msgid ""
@@ -7887,7 +7894,7 @@ msgstr "Злиття дерева"
 
 #. Resource IDs: (251)
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
-msgstr ""
+msgstr "Спробуйте 'Очистити'. Якщо це не спрацює, доведеться зробити свіжу вивірку."
 
 #. Resource IDs: (73)
 msgid "Try again"
@@ -9227,6 +9234,9 @@ msgid ""
 "Set this to the language number you want your log messages written in.\r\n"
 "TortoiseSVN will then load the appropriate spell checker module if available."
 msgstr ""
+"tsvn:projectlanguage\r\n"
+"Задайте тут номер мови, на якій слід писати логові повідомлення.\r\n"
+"TortoiseSVN завантажить відповідний модуль перевірки правопису, за наявності останнього."
 
 #. Resource IDs: (581)
 msgid ""
