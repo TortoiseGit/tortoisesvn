@@ -1206,8 +1206,10 @@ private:
 		// test the UI path methods
 		testPath.SetFromUnknown(_T("c:\\testing%20test"));
 		ATLASSERT(testPath.GetUIFileOrDirectoryName().CompareNoCase(_T("c:\\testing%20test")) == 0);
+#ifdef _MFC_VER
 		testPath.SetFromUnknown(_T("http://server.com/testing%20special%20chars%20%c3%a4%c3%b6%c3%bc"));
 		ATLASSERT(testPath.GetUIFileOrDirectoryName().CompareNoCase(_T("testing special chars \344\366\374")) == 0);
+#endif
 	}
 
 	void AdminDirTest()

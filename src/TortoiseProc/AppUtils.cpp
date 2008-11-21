@@ -87,8 +87,7 @@ BOOL CAppUtils::StartExtMerge(
 	{
 		// use TortoiseMerge
 		bInternal = true;
-		CRegString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T(""), false, HKEY_LOCAL_MACHINE);
-		com = tortoiseMergePath;
+		com = CPathUtils::GetAppDirectory() + _T("TortoiseMerge.exe");
 		if (com.IsEmpty())
 		{
 			com = CPathUtils::GetAppDirectory();

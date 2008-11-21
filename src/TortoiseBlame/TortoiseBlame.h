@@ -130,6 +130,7 @@ protected:
 	void SetupLexer(LPCSTR filename);
 	void SetupCppLexer();
 	COLORREF InterColor(COLORREF c1, COLORREF c2, int Slider);
+	std::string GetAppDirectory();
 	std::vector<COLORREF>		colors;
 	HFONT						m_font;
 	HFONT						m_italicfont;

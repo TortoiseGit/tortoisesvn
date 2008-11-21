@@ -18,6 +18,11 @@
 //
 #pragma once
 
+#if defined(_MFC_VER)
+// CSTRING is always available in an MFC build
+#define CSTRING_AVAILABLE
+#endif
+
 /**
  * \ingroup Utils
  * helper class to handle path strings.
@@ -37,6 +42,19 @@ public:
 	 */
 	static CStringA PathEscape(const CStringA& path);
 
+#ifdef CSTRING_AVAILABLE
+	/**
+	 * Returns the path to the installation folder, in our case the TortoiseSVN/bin folder.
+	 * \remark the path returned has a trailing backslash
+	 */
+	static CString GetAppDirectory(HMODULE hMod = NULL);
+
+	/**
+	 * Returns the path to the installation parent folder, in our case the TortoiseSVN folder.
+	 * \remark the path returned has a trailing backslash
+	 */
+	static CString GetAppParentDirectory(HMODULE hMod = NULL);
+#endif
 
 #ifdef _MFC_VER
 	/**
@@ -70,18 +88,6 @@ public:
 	 * the first one is returned.
 	 */
 	static CString ParsePathInString(const CString& Str);
-
-	/**
-	 * Returns the path to the installation folder, in our case the TortoiseSVN/bin folder.
-	 * \remark the path returned has a trailing backslash
-	 */
-	static CString GetAppDirectory();
-
-	/**
-	 * Returns the path to the installation parent folder, in our case the TortoiseSVN folder.
-	 * \remark the path returned has a trailing backslash
-	 */
-	static CString GetAppParentDirectory();
 
 	/**
 	 * Returns the path to the application data folder, in our case the %APPDATA%TortoiseSVN folder.

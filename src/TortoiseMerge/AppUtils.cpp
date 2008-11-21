@@ -19,6 +19,7 @@
 #include "StdAfx.h"
 #include "Registry.h"
 #include "AppUtils.h"
+#include "PathUtils.h"
 #include "UnicodeUtils.h"
 #include "ProgressDlg.h"
 
@@ -43,15 +44,7 @@ BOOL CAppUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSaveP
 	if (sSCMPath.IsEmpty())
 	{
 		// no path set, so use TortoiseSVN as default
-		sSCMPath = CRegString(_T("Software\\TortoiseSVN\\ProcPath"), _T(""), false, HKEY_LOCAL_MACHINE);
-		if (sSCMPath.IsEmpty())
-		{
-			TCHAR pszSCMPath[MAX_PATH];
-			GetModuleFileName(NULL, pszSCMPath, MAX_PATH);
-			sSCMPath = pszSCMPath;
-			sSCMPath = sSCMPath.Left(sSCMPath.ReverseFind('\\'));
-			sSCMPath += _T("\\TortoiseProc.exe");
-		}
+		sSCMPath = CPathUtils::GetAppDirectory() + _T("TortoiseProc.exe");
 		sSCMPath += _T(" /command:cat /path:\"%1\" /revision:%2 /savepath:\"%3\" /hwnd:%4");
 	}
 	CString sTemp;

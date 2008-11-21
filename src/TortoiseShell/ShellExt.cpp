@@ -207,6 +207,24 @@ void LoadLangDll()
 	} // if (g_langid != g_ShellCache.GetLangID()) 
 }
 
+stdstring GetAppDirectory()
+{
+	stdstring path;
+	DWORD len = 0;
+	DWORD bufferlen = MAX_PATH;		// MAX_PATH is not the limit here!
+	do 
+	{
+		bufferlen += MAX_PATH;		// MAX_PATH is not the limit here!
+		TCHAR * pBuf = new TCHAR[bufferlen];
+		len = GetModuleFileName(g_hmodThisDll, pBuf, bufferlen);	
+		path = stdstring(pBuf, len);
+		delete [] pBuf;
+	} while(len == bufferlen);
+	path = path.substr(0, path.rfind('\\') + 1);
+
+	return path;
+}
+
 STDMETHODIMP CShellExt::QueryInterface(REFIID riid, LPVOID FAR *ppv)
 {
     *ppv = NULL; 

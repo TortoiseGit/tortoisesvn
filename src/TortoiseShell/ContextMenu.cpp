@@ -1243,8 +1243,8 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 			memset(&startup, 0, sizeof(startup));
 			startup.cb = sizeof(startup);
 			memset(&process, 0, sizeof(process));
-			CRegStdString tortoiseProcPath(_T("Software\\TortoiseSVN\\ProcPath"), _T("TortoiseProc.exe"), false, HKEY_LOCAL_MACHINE);
-			CRegStdString tortoiseMergePath(_T("Software\\TortoiseSVN\\TMergePath"), _T("TortoiseMerge.exe"), false, HKEY_LOCAL_MACHINE);
+			stdstring tortoiseProcPath = GetAppDirectory() + _T("TortoiseProc.exe");
+			stdstring tortoiseMergePath = GetAppDirectory() + _T("TortoiseMerge.exe");
 			stdstring cwdFolder;
 			if (folder_.empty() && files_.empty())
 			{
@@ -1686,7 +1686,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 				myIDMap.clear();
 				myVerbsIDMap.clear();
 				myVerbsMap.clear();
-				if (CreateProcess(((stdstring)tortoiseMergePath).c_str(), const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, cwdFolder.c_str(), &startup, &process)==0)
+				if (CreateProcess(tortoiseMergePath.c_str(), const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, cwdFolder.c_str(), &startup, &process)==0)
 				{
 					LPVOID lpMsgBuf;
 					FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
@@ -1788,7 +1788,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 			myIDMap.clear();
 			myVerbsIDMap.clear();
 			myVerbsMap.clear();
-			if (CreateProcess(((stdstring)tortoiseProcPath).c_str(), const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, cwdFolder.c_str(), &startup, &process)==0)
+			if (CreateProcess(tortoiseProcPath.c_str(), const_cast<TCHAR*>(svnCmd.c_str()), NULL, NULL, FALSE, 0, 0, cwdFolder.c_str(), &startup, &process)==0)
 			{
 				LPVOID lpMsgBuf;
 				FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | 
