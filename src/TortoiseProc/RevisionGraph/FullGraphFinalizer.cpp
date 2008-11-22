@@ -193,6 +193,28 @@ void CFullGraphFinalizer::MarkHead (CFullGraphNode* node)
     node->AddClassification (CNodeClassification::IS_LAST);
 }
 
+void CFullGraphFinalizer::AddWCModification (CFullGraphNode* node)
+{
+    // is this the BASE node for our WC?
+
+    if (node->GetClassification().Matches 
+            ( CNodeClassification::IS_WORKINGCOPY
+            , CNodeClassification::IS_MODIFIED_WC))
+    {
+        if (history.GetWCModified())
+        {
+            // add the modification node
+
+            CNodeClassification classification = node->GetClassification();
+            classification.Add (  CNodeClassification::IS_MODIFIED_WC
+                                | (node->GetNext() == NULL
+                                    ? 0
+                                    : CNodeClassification::IS_COPY_TARGET));
+            graph.Add (node->GetPath(), node->GetRevision(), classification, node);
+        }
+    }
+}
+
 // classify nodes on by one
 
 void CFullGraphFinalizer::ForwardClassification (CFullGraphNode* node)
@@ -205,6 +227,7 @@ void CFullGraphFinalizer::ForwardClassification (CFullGraphNode* node)
         MarkCopySource (node);
         MarkWCRevision (node);
         MarkHead (node);
+        AddWCModification (node);
 
         // add path-based classification
 

@@ -47,6 +47,7 @@ CFullHistory::CFullHistory(void)
     , pegRevision ((revision_t)NO_REVISION)
     , firstRevision ((revision_t)NO_REVISION)
     , wcRevision ((revision_t)NO_REVISION)
+    , wcModified (false)
     , copyInfoPool (sizeof (SCopyInfo), 1024)
     , copyToRelation (NULL)
     , copyToRelationEnd (NULL)
@@ -179,6 +180,7 @@ void CFullHistory::ReceiveLog ( LogChangedPathArray* changes
 bool CFullHistory::FetchRevisionData ( CString path
                                      , SVNRev pegRev
                                      , bool showWCRev
+                                     , bool showWCModification
                                      , CProgressDlg* progress)
 {
 	// set some text on the progress dialog, before we wait
@@ -291,7 +293,7 @@ bool CFullHistory::FetchRevisionData ( CString path
 	    // later in the graph (handle option changes properly!).
         // For performance reasons, we only don't do it if we want to display it.
 
-        if (showWCRev)
+        if (showWCRev || showWCModification)
         {
             svn_revnum_t maxrev = wcRevision;
             svn_revnum_t minrev;
@@ -305,6 +307,7 @@ bool CFullHistory::FetchRevisionData ( CString path
 								        , sparse))
 	        {
 		        wcRevision = maxrev;
+                wcModified = modified;
 	        }
         }
 

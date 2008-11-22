@@ -58,7 +58,7 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
     // restore option state
 
 	DWORD dwOpts = CRegStdWORD(_T("Software\\TortoiseSVN\\RevisionGraphOptions"), 0x211);
-    m_options.SetRegistryFlags (dwOpts, 0x7ff);
+    m_options.SetRegistryFlags (dwOpts, 0xfff);
 }
 
 CRevisionGraphDlg::~CRevisionGraphDlg()
@@ -103,6 +103,7 @@ BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CResizableStandAloneDialog)
 	ON_COMMAND_EX(ID_VIEW_REMOVEDELETEDONES, &CRevisionGraphDlg::OnToggleOption)
 	ON_COMMAND_EX(ID_VIEW_SHOWWCREV, &CRevisionGraphDlg::OnToggleOption)
 	ON_COMMAND_EX(ID_VIEW_REMOVEUNCHANGEDBRANCHES, &CRevisionGraphDlg::OnToggleOption)
+    ON_COMMAND_EX(ID_VIEW_SHOWWCMODIFICATION, &CRevisionGraphDlg::OnToggleOption)
 	ON_CBN_SELCHANGE(ID_REVGRAPH_ZOOMCOMBO, OnChangeZoom)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTW, 0, 0xFFFF, OnToolTipNotify)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, OnToolTipNotify)
@@ -185,6 +186,7 @@ BOOL CRevisionGraphDlg::InitializeToolbar()
                      , ID_VIEW_REMOVEDELETEDONES
                      , ID_VIEW_REMOVEUNCHANGEDBRANCHES
                      , ID_VIEW_SHOWWCREV
+                     , ID_VIEW_SHOWWCMODIFICATION
 					 , 0};
 
 	for (UINT* itemID = itemIDs, *style = styles; *style != 0; ++itemID)

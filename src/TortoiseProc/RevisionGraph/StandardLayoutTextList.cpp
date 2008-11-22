@@ -20,6 +20,7 @@
 #include "StandardLayoutTextList.h"
 #include "UnicodeUtils.h"
 #include "VisibleGraphNode.h"
+#include "resource.h"
 
 // construction
 
@@ -82,6 +83,9 @@ CStandardLayoutTextList::GetText (index_t index) const
     const CStandardLayout::STextInfo& textInfo = texts[index];
     const CStandardLayoutNodeInfo& nodeInfo = nodes[textInfo.nodeIndex];
 
+    bool isModifiedWC = nodeInfo.node->GetClassification().Is 
+                            (CNodeClassification::IS_MODIFIED_WC);
+
     CString text;
     CRect rect = nodeInfo.rect;
     if (textInfo.subPathIndex > 0)
@@ -98,18 +102,27 @@ CStandardLayoutTextList::GetText (index_t index) const
     }
     else
     {
-        rect.top += 3;
-
-        TCHAR buffer[20];
-        _itot_s (nodeInfo.node->GetRevision(), buffer, 10);
-        text = buffer;
+        rect.top += 4;
+        if (isModifiedWC)
+        {
+            text.LoadString (IDS_SVN_SUMMARIZEMODIFIED);
+        }
+        else
+        {
+            TCHAR buffer[20];
+            _itot_s (nodeInfo.node->GetRevision(), buffer, 10);
+            text = buffer;
+        }
     }
 
     // construct result
 
     SText result;
 
-    result.style = textInfo.subPathIndex == 0;
+    result.style = textInfo.subPathIndex == 0
+                 ? isModifiedWC ? SText::STYLE_WARNING
+                                : SText::STYLE_HEADING
+                 : SText::STYLE_DEFAULT;
     result.rotation = 0;
     result.rect = rect;
     result.text = text;

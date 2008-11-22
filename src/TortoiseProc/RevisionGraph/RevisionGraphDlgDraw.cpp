@@ -247,7 +247,9 @@ void CRevisionGraphWnd::DrawNode(Graphics& graphics, const RectF& rect,
     Color background;
     background.SetFromCOLORREF (GetSysColor(COLOR_WINDOW));
     Color textColor;
-    textColor.SetFromCOLORREF (GetSysColor(COLOR_WINDOWTEXT));
+    textColor.SetFromCOLORREF (node->GetClassification().Is (CNodeClassification::IS_MODIFIED_WC)
+                                ? RGB (220, 0, 0)
+                                : GetSysColor(COLOR_WINDOWTEXT));
 
 	Color selColor = LimitedScaleColor (background, contour, 0.5f);
 	Color brightColor = LimitedScaleColor (background, contour, 0.9f);
@@ -256,8 +258,8 @@ void CRevisionGraphWnd::DrawNode(Graphics& graphics, const RectF& rect,
 
     bool isWorkingCopy = node->GetClassification().Is (CNodeClassification::IS_WORKINGCOPY);
     Color penColor = (contour.GetValue() == Color::White) || isWorkingCopy
-                     ? textColor
-                     : contour;
+                   ? textColor
+                   : contour;
     Color brushColor = nodeSelected ? selColor : brightColor;
 
     Pen pen (penColor, isWorkingCopy ? 3.0f : 1.0f);
@@ -583,6 +585,10 @@ void CRevisionGraphWnd::DrawNodes (Graphics& graphics, const CRect& logRect, con
 			DrawNode(graphics, noderect, GetSysColor(COLOR_WINDOWTEXT), transparent, node.node, TSVNRectangle);
 			break;
 
+        case ILayoutNodeList::SNode::STYLE_MODIFIED_WC:
+			DrawNode(graphics, noderect, m_Colors.GetColor(CColors::LastCommitNode), transparent, node.node, TSVNEllipse);
+			break;
+
         default:
             DrawNode(graphics, noderect, GetSysColor(COLOR_WINDOW), transparent, node.node, TSVNRectangle);
 			break;
@@ -647,7 +653,8 @@ void CRevisionGraphWnd::DrawConnections (CDC* pDC, const CRect& logRect, const C
 
 void CRevisionGraphWnd::DrawTexts (CDC* pDC, const CRect& logRect, const CSize& offset)
 {
-	COLORREF textcolor = GetSysColor(COLOR_WINDOWTEXT);
+	COLORREF standardTextColor = GetSysColor(COLOR_WINDOWTEXT);
+	COLORREF warningTextColor = RGB (192, 0, 0);
     if (m_nFontSize <= 0)
         return;
 
@@ -669,8 +676,10 @@ void CRevisionGraphWnd::DrawTexts (CDC* pDC, const CRect& logRect, const CSize& 
 
 		// draw the revision text
 
-		pDC->SetTextColor (textcolor);
-        pDC->SelectObject (GetFont (FALSE, text.style));
+		pDC->SetTextColor (text.style == ILayoutTextList::SText::STYLE_WARNING
+                            ? warningTextColor
+                            : standardTextColor );
+        pDC->SelectObject (GetFont (FALSE, text.style != ILayoutTextList::SText::STYLE_DEFAULT));
         pDC->ExtTextOut ((textRect.left + textRect.right)/2, textRect.top, 0, &textRect, text.text, NULL);
     }
 }

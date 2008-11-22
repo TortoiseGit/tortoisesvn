@@ -66,6 +66,7 @@ public:
         IS_LAST            = 0x08000000,
 
         IS_WORKINGCOPY     = 0x10000000,
+        IS_MODIFIED_WC     = 0x20000000,
 
         // if set, the node should not be removed
         // (only valid in visible graph)

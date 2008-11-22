@@ -94,13 +94,14 @@ public:
 
 		enum 
 		{
-			STYLE_DEFAULT  = 0,
+			STYLE_DEFAULT     = 0,
 
-			STYLE_ADDED    = 1,
-			STYLE_DELETED  = 2,
-			STYLE_RENAMED  = 3,
-			STYLE_LAST	   = 4,
-            STYLE_MODIFIED = 5
+			STYLE_ADDED       = 1,
+			STYLE_DELETED     = 2,
+			STYLE_RENAMED     = 3,
+			STYLE_LAST	      = 4,
+            STYLE_MODIFIED    = 5,
+            STYLE_MODIFIED_WC = 6
 		};
 
         /// Area occupied by this node.
@@ -142,7 +143,8 @@ public:
 		enum
 		{
             STYLE_DEFAULT   = 0,
-			STYLE_HEADING   = 1
+			STYLE_HEADING   = 1,
+            STYLE_WARNING   = 2
 		};
 
         /// style (shape, font, size) index. 

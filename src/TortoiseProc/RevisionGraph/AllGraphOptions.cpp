@@ -27,6 +27,7 @@
 #include "RemoveUnchangedBranches.h"
 #include "ShowHeads.h"
 #include "ShowWC.h"
+#include "ShowWCModification.h"
 #include "ExactCopyFroms.h"
 #include "RevisionInRange.h"
 #include "RemovePathsBySubString.h"
@@ -62,6 +63,7 @@ CAllRevisionGraphOptions::CAllRevisionGraphOptions (const CGraphNodeStates* node
     new CRemoveDeletedBranches (*this);
     new CShowWC (*this);
     new CRemoveUnchangedBranches (*this);
+    new CShowWCModification (*this);
 
     (new CRevisionInRange (*this))->ToggleSelection();
     (new CRemovePathsBySubString (*this))->ToggleSelection();

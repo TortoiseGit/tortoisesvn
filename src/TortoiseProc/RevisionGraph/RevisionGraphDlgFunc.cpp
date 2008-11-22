@@ -34,6 +34,7 @@
 #include "RevisionGraph/VisibleGraphBuilder.h"
 #include "RevisionGraph/StandardLayout.h"
 #include "RevisionGraph/ShowWC.h"
+#include "RevisionGraph/ShowWCModification.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -262,7 +263,13 @@ bool CRevisionGraphWnd::FetchRevisionData
     std::auto_ptr<CFullHistory> newFullHistory (new CFullHistory());
 
     bool showWCRev = options.GetOption<CShowWC>()->IsActive();
-	bool result = newFullHistory->FetchRevisionData (path, pegRevision, showWCRev, m_pProgress);
+    bool showWCModification = options.GetOption<CShowWCModification>()->IsActive();
+	bool result = newFullHistory->FetchRevisionData ( path
+                                                    , pegRevision
+                                                    , showWCRev
+                                                    , showWCModification
+                                                    , m_pProgress);
+
     if (result)
     {
         CGraphNodeStates::TSavedData oldStates = m_nodeStates.SaveData();
