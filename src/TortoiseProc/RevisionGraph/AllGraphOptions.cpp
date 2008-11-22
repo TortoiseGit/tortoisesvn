@@ -24,6 +24,7 @@
 #include "RemoveSimpleChanges.h"
 #include "RemoveDeletedBranches.h"
 #include "FoldTags.h"
+#include "RemoveUnchangedBranches.h"
 #include "ShowHeads.h"
 #include "ShowWC.h"
 #include "ExactCopyFroms.h"
@@ -60,6 +61,7 @@ CAllRevisionGraphOptions::CAllRevisionGraphOptions (const CGraphNodeStates* node
     new CFoldTags (*this);
     new CRemoveDeletedBranches (*this);
     new CShowWC (*this);
+    new CRemoveUnchangedBranches (*this);
 
     (new CRevisionInRange (*this))->ToggleSelection();
     (new CRemovePathsBySubString (*this))->ToggleSelection();
