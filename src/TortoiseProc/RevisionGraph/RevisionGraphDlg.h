@@ -80,6 +80,8 @@ protected:
 	afx_msg void	OnViewZoomin();
 	afx_msg void	OnViewZoomout();
 	afx_msg void	OnViewZoom100();
+    afx_msg void	OnViewZoomHeight();
+    afx_msg void	OnViewZoomWidth();
 	afx_msg void	OnViewZoomAll();
 	afx_msg void	OnViewCompareheadrevisions();
 	afx_msg void	OnViewComparerevisions();

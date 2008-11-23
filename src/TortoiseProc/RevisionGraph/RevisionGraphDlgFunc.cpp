@@ -66,8 +66,7 @@ void CRevisionGraphWnd::BuildPreview()
 
 	float origZoom = m_fZoomFactor;
 
-    CRect clientRect;
-    GetClientRect (&clientRect);
+    CRect clientRect = GetClientRect();
     CSize preViewSize (max (REVGRAPH_PREVIEW_WIDTH, clientRect.Width() / 4)
                       ,max (REVGRAPH_PREVIEW_HEIGHT, clientRect.Height() / 4));
 
@@ -104,8 +103,7 @@ void CRevisionGraphWnd::BuildPreview()
 
 void CRevisionGraphWnd::SetScrollbars(int nVert, int nHorz, int oldwidth, int oldheight)
 {
-	CRect clientrect;
-	GetClientRect(&clientrect);
+	CRect clientrect = GetClientRect();
 	const CRect& pRect = GetGraphRect();
 
     SCROLLINFO ScrollInfo = {sizeof(SCROLLINFO), SIF_ALL};
@@ -140,13 +138,24 @@ CRect CRevisionGraphWnd::GetGraphRect()
         : CRect (0,0,0,0);
 }
 
-CRect CRevisionGraphWnd::GetViewRect()
+CRect CRevisionGraphWnd::GetClientRect()
 {
 	CRect clientRect;
-	GetClientRect (&clientRect);
+    CWnd::GetClientRect (&clientRect);
+    return clientRect;
+}
 
+CRect CRevisionGraphWnd::GetWindowRect()
+{
+	CRect windowRect;
+    CWnd::GetWindowRect (&windowRect);
+    return windowRect;
+}
+
+CRect CRevisionGraphWnd::GetViewRect()
+{
     CRect result;
-    result.UnionRect (clientRect, GetGraphRect()); 
+    result.UnionRect (GetClientRect(), GetGraphRect()); 
     return result;
 }
 

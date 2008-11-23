@@ -107,6 +107,9 @@ public:
 	void			CompareRevs(bool bHead);
 	void			UnifiedDiffRevs(bool bHead);
 
+	CRect       	GetGraphRect();
+	CRect           GetClientRect();
+	CRect           GetWindowRect();
 	CRect           GetViewRect();
     int             GetNodeCount();
 	void			DoZoom(float nZoomFactor);
@@ -226,7 +229,6 @@ private:
     void            ToggleNodeFlag (const CVisibleGraphNode *node, DWORD flag);
 
 	void			SetScrollbars(int nVert = 0, int nHorz = 0, int oldwidth = 0, int oldheight = 0);
-	CRect       	GetGraphRect();
 	CFont*			GetFont(BOOL bItalic = FALSE, BOOL bBold = FALSE);
 
     CSize           UsableTooltipRect();

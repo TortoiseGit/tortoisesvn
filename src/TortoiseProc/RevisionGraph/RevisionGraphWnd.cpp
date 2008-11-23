@@ -435,8 +435,7 @@ void CRevisionGraphWnd::OnLButtonUp(UINT nFlags, CPoint point)
 		return __super::OnLButtonUp(nFlags, point);
 	// zooming is finished
 	m_ptRubberEnd = CPoint(0,0);
-	CRect rect;
-	GetClientRect(&rect);
+	CRect rect = GetClientRect();
 	int x = abs(m_ptRubberStart.x - point.x);
 	int y = abs(m_ptRubberStart.y - point.y);
 
@@ -491,7 +490,7 @@ INT_PTR CRevisionGraphWnd::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
         return -1;
 
 	pTI->hwnd = this->m_hWnd;
-	this->GetClientRect(&pTI->rect);
+    CWnd::GetClientRect(&pTI->rect);
 	pTI->uFlags  |= TTF_ALWAYSTIP | TTF_IDISHWND;
 	pTI->uId = (UINT)m_hWnd;
 	pTI->lpszText = LPSTR_TEXTCALLBACK;
@@ -1078,8 +1077,7 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 		// a calculated position on where to anchor the menu on
 		if ((point.x == -1) && (point.y == -1))
 		{
-			CRect rect;
-			GetWindowRect(&rect);
+			CRect rect = GetWindowRect();
 			point = rect.CenterPoint();
 		}
 
@@ -1196,8 +1194,7 @@ void CRevisionGraphWnd::OnMouseMove(UINT nFlags, CPoint point)
 	if ((m_ptRubberEnd.x != 0)||(m_ptRubberEnd.y != 0))
 		DrawRubberBand();
 	m_ptRubberEnd = point;
-	CRect rect;
-	GetClientRect(&rect);
+	CRect rect = GetClientRect();
 	m_ptRubberEnd.x = max(m_ptRubberEnd.x, rect.left);
 	m_ptRubberEnd.x = min(m_ptRubberEnd.x, rect.right);
 	m_ptRubberEnd.y = max(m_ptRubberEnd.y, rect.top);

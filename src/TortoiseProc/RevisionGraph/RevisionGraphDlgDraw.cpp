@@ -79,8 +79,7 @@ BOOL CRevisionGraphWnd::OnEraseBkgnd(CDC* /*pDC*/)
 void CRevisionGraphWnd::OnPaint() 
 {
 	CPaintDC dc(this); // device context for painting
-	CRect rect;
-	GetClientRect(&rect);
+	CRect rect = GetClientRect();
 	if (m_bThreadRunning)
 	{
 		dc.FillSolidRect(rect, ::GetSysColor(COLOR_APPWORKSPACE));

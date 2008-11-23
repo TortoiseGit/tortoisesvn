@@ -85,6 +85,8 @@ BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CResizableStandAloneDialog)
 	ON_COMMAND(ID_VIEW_ZOOMIN, OnViewZoomin)
 	ON_COMMAND(ID_VIEW_ZOOMOUT, OnViewZoomout)
 	ON_COMMAND(ID_VIEW_ZOOM100, OnViewZoom100)
+	ON_COMMAND(ID_VIEW_ZOOMHEIGHT, OnViewZoomHeight)
+	ON_COMMAND(ID_VIEW_ZOOMWIDTH, OnViewZoomWidth)
 	ON_COMMAND(ID_VIEW_ZOOMALL, OnViewZoomAll)
 	ON_COMMAND(ID_MENUEXIT, OnMenuexit)
 	ON_COMMAND(ID_MENUHELP, OnMenuhelp)
@@ -426,16 +428,43 @@ void CRevisionGraphDlg::OnViewZoom100()
 	DoZoom (1.0);
 }
 
+void CRevisionGraphDlg::OnViewZoomHeight()
+{
+	CRect graphRect = m_Graph.GetGraphRect();
+    CRect windowRect = m_Graph.GetWindowRect();
+
+	float horzfact = (windowRect.Width() - 4.0f)/(4.0f + graphRect.Width());
+	float vertfact = (windowRect.Height() - 4.0f)/(4.0f + graphRect.Height());
+    if ((horzfact < vertfact) && (horzfact < 2.0f))
+    	vertfact = (windowRect.Height() - 20.0f)/(4.0f + graphRect.Height());
+
+    DoZoom (min (2.0f, vertfact));
+}
+
+void CRevisionGraphDlg::OnViewZoomWidth()
+{
+	// zoom the graph so that it is completely visible in the window
+	CRect graphRect = m_Graph.GetGraphRect();
+    CRect windowRect = m_Graph.GetWindowRect();
+
+	float horzfact = (windowRect.Width() - 4.0f)/(4.0f + graphRect.Width());
+	float vertfact = (windowRect.Height() - 4.0f)/(4.0f + graphRect.Height());
+    if ((vertfact < horzfact) && (vertfact < 2.0f))
+    	horzfact = (windowRect.Width() - 20.0f)/(4.0f + graphRect.Width());
+
+    DoZoom (min (2.0f, horzfact));
+}
+
 void CRevisionGraphDlg::OnViewZoomAll()
 {
 	// zoom the graph so that it is completely visible in the window
-	CRect windowrect = GetGraphRect();
-    CRect viewrect = m_Graph.GetViewRect();
+	CRect graphRect = m_Graph.GetGraphRect();
+    CRect windowRect = m_Graph.GetWindowRect();
 
-	float horzfact = float(viewrect.Width())/float(windowrect.Width()-6);
-	float vertfact = float(viewrect.Height())/float(windowrect.Height()-6);
+	float horzfact = (windowRect.Width() - 4.0f)/(4.0f + graphRect.Width());
+	float vertfact = (windowRect.Height() - 4.0f)/(4.0f + graphRect.Height());
 
-    DoZoom (1.0f/(max (1.0f, max(horzfact, vertfact))));
+    DoZoom (min (2.0f, min(horzfact, vertfact)));
 }
 
 void CRevisionGraphDlg::OnMenuexit()
