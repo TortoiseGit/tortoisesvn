@@ -2036,7 +2036,7 @@ CString SVN::GetRepositoryRootAndUUID(const CTSVNPath& path, CString& sUUID)
 	    SVNInfo info;
 	    const SVNInfoData * baseInfo 
 		    = info.GetFirstFileInfo (path, SVNRev(), SVNRev());
-        if (!baseInfo->reposRoot.IsEmpty() && !baseInfo->reposUUID.IsEmpty())
+        if (baseInfo && !baseInfo->reposRoot.IsEmpty() && !baseInfo->reposUUID.IsEmpty())
         {
             sUUID = baseInfo->reposUUID;
             return baseInfo->reposRoot;
@@ -2051,6 +2051,10 @@ CString SVN::GetRepositoryRootAndUUID(const CTSVNPath& path, CString& sUUID)
 		goodurl = svn_path_canonicalize(path.GetSVNApiPath(localpool), localpool);
     }
 
+	if (goodurl == NULL)
+	{
+		return _T("");
+	}
 	/* use subpool to create a temporary RA session */
 	Err = svn_client_open_ra_session (&ra_session, goodurl, m_pctx, localpool);
 	if (Err)
