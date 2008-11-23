@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-21 10:21+0900\n"
+"PO-Revision-Date: 2008-11-23 13:15+0900\n"
 "Last-Translator: Kim TaeDong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2068,6 +2068,10 @@ msgstr "TortoiseSVN 하위 메뉴에 나타내지 않고 컨텍스트 메뉴에 
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "짧은 형태의 날짜, 시간 형식을 로그 메시지에 표시합니다."
 
+#. Resource IDs: (2052)
+msgid "Check working copy for modifications"
+msgstr "수정사항에 대해 작업사본 체크하기"
+
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "TortoiseSVN 새 버전이 있는지 확인합니다."
@@ -4005,6 +4009,10 @@ msgstr "붙어있는 윈도우를 숨기기"
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
 msgstr "스크립트 수행중 숨김"
+
+#. Resource IDs: (32830)
+msgid "Hide unused &branches"
+msgstr "사용되지 않는 브랜치들 숨기기(&B)"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -6233,6 +6241,10 @@ msgid "Remove %s"
 msgstr "%s 삭제"
 
 #. Resource IDs: (2052)
+msgid "Remove all branches that did not modify the item"
+msgstr "아이템을 수정하지 않은 모든 브랜치 제거하기"
+
+#. Resource IDs: (2052)
 msgid "Remove deleted branches and tags"
 msgstr "삭제된 브랜치나 태그를 제거합니다"
 
@@ -7135,6 +7147,10 @@ msgstr "리본 아래에 빠른 접근 툴바 보여주기"
 #. Resource IDs: (16651)
 msgid "Show Screen&Tips on toolbars"
 msgstr "툴바에 스크린 팁 보여주기(&T)"
+
+#. Resource IDs: (32831)
+msgid "Show WC &modifications"
+msgstr "작업사본의 수정사항 보여주기(&M)"
 
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
