@@ -262,8 +262,9 @@ bool CRevisionGraphWnd::FetchRevisionData
     m_options = &options;
     std::auto_ptr<CFullHistory> newFullHistory (new CFullHistory());
 
-    bool showWCRev = options.GetOption<CShowWC>()->IsActive();
-    bool showWCModification = options.GetOption<CShowWCModification>()->IsActive();
+    m_bFetchedWCState = false;
+    bool showWCRev = options.GetOption<CShowWC>()->IsSelected();
+    bool showWCModification = options.GetOption<CShowWCModification>()->IsSelected();
 	bool result = newFullHistory->FetchRevisionData ( path
                                                     , pegRevision
                                                     , showWCRev
@@ -272,6 +273,8 @@ bool CRevisionGraphWnd::FetchRevisionData
 
     if (result)
     {
+        m_bFetchedWCState = showWCRev || showWCModification;
+
         CGraphNodeStates::TSavedData oldStates = m_nodeStates.SaveData();
         m_nodeStates.ResetFlags (UINT_MAX);
 

@@ -87,6 +87,7 @@ public:
     SVNRev          m_pegRev;
 	volatile LONG	m_bThreadRunning;
 	CProgressDlg* 	m_pProgress;
+    bool            m_bFetchedWCState;
 
 	void			InitView();
 	void			Init(CWnd * pParent, LPRECT rect);

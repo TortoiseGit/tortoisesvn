@@ -102,8 +102,8 @@ BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CResizableStandAloneDialog)
 	ON_COMMAND_EX(ID_VIEW_REDUCECROSSLINES, &CRevisionGraphDlg::OnToggleOption)
 	ON_COMMAND_EX(ID_VIEW_REMOVEDELETEDONES, &CRevisionGraphDlg::OnToggleOption)
 	ON_COMMAND_EX(ID_VIEW_SHOWWCREV, &CRevisionGraphDlg::OnToggleOption)
-	ON_COMMAND_EX(ID_VIEW_REMOVEUNCHANGEDBRANCHES, &CRevisionGraphDlg::OnToggleOption)
-    ON_COMMAND_EX(ID_VIEW_SHOWWCMODIFICATION, &CRevisionGraphDlg::OnToggleOption)
+	ON_COMMAND_EX(ID_VIEW_REMOVEUNCHANGEDBRANCHES, &CRevisionGraphDlg::OnToggleReloadOption)
+    ON_COMMAND_EX(ID_VIEW_SHOWWCMODIFICATION, &CRevisionGraphDlg::OnToggleReloadOption)
 	ON_CBN_SELCHANGE(ID_REVGRAPH_ZOOMCOMBO, OnChangeZoom)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTW, 0, 0xFFFF, OnToolTipNotify)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, OnToolTipNotify)
@@ -533,6 +533,14 @@ BOOL CRevisionGraphDlg::OnToggleOption (UINT controlID)
     StartWorkerThread();
 
     return TRUE;
+}
+
+BOOL CRevisionGraphDlg::OnToggleReloadOption (UINT controlID)
+{
+    if (!m_Graph.m_bFetchedWCState)
+        m_bFetchLogs = true;
+
+    return OnToggleOption (controlID);
 }
 
 void CRevisionGraphDlg::StartWorkerThread()
