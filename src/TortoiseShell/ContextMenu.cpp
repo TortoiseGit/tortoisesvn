@@ -293,7 +293,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 										uuidSource = CUnicodeUtils::StdGetUnicode(stat.status->entry->uuid);
 									if (stat.status->file_external)
 										itemStates |= ITEMIS_FILEEXTERNAL;
-									if (stat.status->tree_conflicted)
+									if (stat.status->tree_conflict)
 										itemStates |= ITEMIS_CONFLICTED;
 								}
 								else
@@ -390,7 +390,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 											uuidSource = CUnicodeUtils::StdGetUnicode(stat.status->entry->uuid);
 										if (stat.status->file_external)
 											itemStates |= ITEMIS_FILEEXTERNAL;
-										if (stat.status->tree_conflicted)
+										if (stat.status->tree_conflict)
 											itemStates |= ITEMIS_CONFLICTED;
 									}	
 									else
@@ -497,7 +497,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 					}
 					if ((stat.status->entry)&&(stat.status->entry->uuid))
 						uuidTarget = CUnicodeUtils::StdGetUnicode(stat.status->entry->uuid);
-					if (stat.status->tree_conflicted)
+					if (stat.status->tree_conflict)
 						itemStates |= ITEMIS_CONFLICTED;
 					if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
 						itemStatesFolder |= ITEMIS_INSVN;

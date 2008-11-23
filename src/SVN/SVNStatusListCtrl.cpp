@@ -670,7 +670,7 @@ CSVNStatusListCtrl::AddNewFileEntry(
 	entry->direct = bDirectItem;
 	entry->copied = !!pSVNStatus->copied;
 	entry->switched = !!pSVNStatus->switched;
-	entry->tree_conflicted = !!pSVNStatus->tree_conflicted;
+	entry->tree_conflicted = (pSVNStatus->tree_conflict != NULL);
 
 	entry->last_commit_date = pSVNStatus->ood_last_cmt_date;
 	if ((entry->last_commit_date == NULL)&&(pSVNStatus->entry))

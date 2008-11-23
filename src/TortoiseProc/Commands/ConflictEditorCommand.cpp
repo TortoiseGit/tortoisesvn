@@ -94,7 +94,7 @@ bool ConflictEditorCommand::Execute()
 		}
 	}
 
-	if (stat.status->tree_conflicted)
+	if (stat.status->tree_conflict)
 	{
 		// we have a tree conflict
 		SVNInfo info;
