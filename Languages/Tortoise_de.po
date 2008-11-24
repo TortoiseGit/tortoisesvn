@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-20 08:16+0100\n"
+"PO-Revision-Date: 2008-11-24 11:23+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2077,6 +2077,10 @@ msgstr "Wählen Sie die Einträge, die im Windows Kontextmenü anstelle des Tort
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Mit dieser Option wird ein kürzeres Datum-/Zeitformat in den Logmeldungen angezeigt."
 
+#. Resource IDs: (2052)
+msgid "Check working copy for modifications"
+msgstr "Arbeitskopie auf Änderungen überprüfen"
+
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Überprüfe, ob eine neue Version von TortoiseSVN zur Verfügung steht..."
@@ -3624,7 +3628,7 @@ msgstr ""
 "Horizontale Auflösung:\t%.1f dpi\n"
 "Vertikale Auflösung:\t%.1f dpi\n"
 "Farbtiefe:\t\t%d bit\n"
-"Zoom:\t\t\t%d%%"
+"Skalierung:\t\t%d%%"
 
 #. Resource IDs: (8)
 #, c-format
@@ -3651,7 +3655,7 @@ msgstr ""
 "Horizontale Auflösung:\t%.1f dpi\n"
 "Vertikale Auflösung:\t%.1f dpi\n"
 "Farbtiefe:\t\t%d bit\n"
-"Zoom:\t\t\t%d%%\n"
+"Skalierung:\t\t%d%%\n"
 "\n"
 "Dateigröße:\t\t%s (%s)\n"
 "Breite:\t\t\t%ld pixel\n"
@@ -3659,7 +3663,7 @@ msgstr ""
 "Horizontale Auflösung:\t%.1f dpi\n"
 "Vertikale Auflösung:\t%.1f dpi\n"
 "Farbtiefe:\t\t%d bit\n"
-"Zoom:\t\t\t%d%%"
+"Skalierung:\t\t%d%%"
 
 #. Resource IDs: (7)
 #, c-format
@@ -3678,7 +3682,7 @@ msgstr ""
 "Horizontale Auflösung:\t%.1f dpi\n"
 "Vertikale Auflösung:\t%.1f dpi\n"
 "Farbtiefe:\t\t%d bit\n"
-"Zoom:\t\t\t%d%%"
+"Skalierung:\t\t%d%%"
 
 #. Resource IDs: (7)
 #, c-format
@@ -3705,7 +3709,7 @@ msgstr ""
 "Horizontale Auflösung:\t%.1f dpi\n"
 "Vertikale Auflösung:\t%.1f dpi\n"
 "Farbtiefe:\t\t%d bit\n"
-"Zoom:\t\t\t%d%%\n"
+"Skalierung:\t\t%d%%\n"
 "\n"
 "Dateigröße:\t\t%s (%s)\n"
 "Breite:\t\t\t%ld pixel\n"
@@ -3713,7 +3717,7 @@ msgstr ""
 "Horizontale Auflösung:\t%.1f dpi\n"
 "Vertikale Auflösung:\t%.1f dpi\n"
 "Farbtiefe:\t\t%d bit\n"
-"Zoom:\t\t\t%d%%"
+"Skalierung:\t\t%d%%"
 
 #. Resource IDs: (208)
 msgid "Filename"
@@ -4015,6 +4019,10 @@ msgstr "Angedocktes Fenster verbergen"
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
 msgstr "Skript beim Ablauf verbergen"
+
+#. Resource IDs: (32830)
+msgid "Hide unused &branches"
+msgstr "Ungenutzte Zweige &verbergen"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -6263,6 +6271,10 @@ msgid "Remove %s"
 msgstr "Löschen %s"
 
 #. Resource IDs: (2052)
+msgid "Remove all branches that did not modify the item"
+msgstr "Alle Zweige ausblenden, die das Objekt nicht verändert haben"
+
+#. Resource IDs: (2052)
 msgid "Remove deleted branches and tags"
 msgstr "Gelöschte Zweige und Marken entfernen"
 
@@ -7165,6 +7177,10 @@ msgstr "Zeige Schnellzugriffsleiste unterhalb des Bandes"
 #. Resource IDs: (16651)
 msgid "Show Screen&Tips on toolbars"
 msgstr "Zeige &Hinweise auf Werkzeugleisten"
+
+#. Resource IDs: (32831)
+msgid "Show WC &modifications"
+msgstr "Ä&nderungen in Arbeitskopie anzeigen"
 
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
@@ -9234,15 +9250,15 @@ msgstr "Ver&kleinern"
 
 #. Resource IDs: (1069)
 msgid "Zoom"
-msgstr "Zoomen"
+msgstr "Skalieren"
 
 #. Resource IDs: (58117)
 msgid "Zoom &In"
-msgstr "Her&ein zoomen"
+msgstr "Ver&größern"
 
 #. Resource IDs: (58118)
 msgid "Zoom &Out"
-msgstr "Her&aus zoomen"
+msgstr "Ver&kleinern"
 
 #. Resource IDs: (32772)
 msgid "Zoom &in\tCtrl-+"
@@ -9255,23 +9271,23 @@ msgstr "Ver&kleinern\tStrg--"
 #. Resource IDs: (2051)
 #, c-format
 msgid "Zoom 100%"
-msgstr "Ansicht 100%"
+msgstr "Skalierung 100%"
 
 #. Resource IDs: (3633)
 msgid ""
 "Zoom In\n"
 "Zoom In"
 msgstr ""
-"Herein zoomen\n"
-"Herein zoomen"
+"Vergrößern\n"
+"Vergrößern"
 
 #. Resource IDs: (3633)
 msgid ""
 "Zoom Out\n"
 "Zoom Out"
 msgstr ""
-"Heraus zoomen\n"
-"Heraus zoomen"
+"Verkleinern\n"
+"Verkleinern"
 
 #. Resource IDs: (32784)
 msgid "Zoom i&n"
@@ -9287,7 +9303,15 @@ msgstr "Verkleinern"
 
 #. Resource IDs: (2051)
 msgid "Zoom to fit"
-msgstr "An Fenster anpassen"
+msgstr "Auf Fenstergröße skalieren"
+
+#. Resource IDs: (2051)
+msgid "Zoom to fit in height"
+msgstr "Auf Fensterhöhe skalieren"
+
+#. Resource IDs: (2051)
+msgid "Zoom to fit in width"
+msgstr "Auf Fensterbreite skalieren"
 
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
