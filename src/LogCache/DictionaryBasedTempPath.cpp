@@ -39,6 +39,14 @@ CDictionaryBasedTempPath::CDictionaryBasedTempPath
 	ParsePath (path, NULL, &relPathElements);
 }
 
+std::string CDictionaryBasedTempPath::operator[](size_t index) const
+{
+    size_t parentDepth = inherited::GetDepth();
+    return index < parentDepth 
+        ? ReverseAt (parentDepth - index - 1)
+        : relPathElements [index - parentDepth];
+}
+
 CDictionaryBasedTempPath CDictionaryBasedTempPath::GetCommonRoot 
 	(const CDictionaryBasedTempPath& rhs) const
 {

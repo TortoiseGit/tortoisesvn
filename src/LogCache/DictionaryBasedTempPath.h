@@ -136,6 +136,8 @@ public:
              + static_cast<index_t>(relPathElements.size());
     }
 
+    std::string operator[](size_t index) const;
+
 	CDictionaryBasedTempPath GetCommonRoot 
 		(const CDictionaryBasedTempPath& rhs) const;
 

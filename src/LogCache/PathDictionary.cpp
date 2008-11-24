@@ -257,6 +257,18 @@ void CDictionaryBasedPath::ParsePath ( const std::string& path
 #endif
 }
 
+// element access
+
+std::string CDictionaryBasedPath::ReverseAt (size_t reverseIndex) const
+{
+    index_t elementIndex = index;
+    for (; reverseIndex > 0; --reverseIndex)
+        elementIndex = dictionary->GetParent (elementIndex);
+
+    return std::string ( dictionary->GetPathElement (elementIndex)
+                       , dictionary->GetPathElementSize (elementIndex));
+}
+
 // construction: lookup (stop at last known parent, if necessary)
 
 CDictionaryBasedPath::CDictionaryBasedPath ( const CPathDictionary* aDictionary

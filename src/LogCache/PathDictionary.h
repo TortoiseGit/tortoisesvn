@@ -180,6 +180,9 @@ protected:
 			: IsSameOrParentOf (rhsIndex, lhsIndex);
 	}
 
+    /// element access
+
+    std::string ReverseAt (size_t reverseIndex) const;
 
 public:
 
@@ -225,6 +228,11 @@ public:
 	}
 
     index_t GetDepth() const;
+
+    std::string operator[](size_t index) const
+    {
+        return ReverseAt (GetDepth() - index - 1);
+    }
 
 	bool IsValid() const
 	{
