@@ -22,6 +22,8 @@
 #include "AddDlg.h"
 #include "SVNProgressDlg.h"
 #include "ShellUpdater.h"
+#include "SVNStatus.h"
+#include "MessageBox.h"
 
 bool AddCommand::Execute()
 {
@@ -38,6 +40,45 @@ bool AddCommand::Execute()
 	{
 		if (pathList.AreAllPathsFiles())
 		{
+			SVNStatus status;
+			CTSVNPath retPath;
+			svn_wc_status2_t * s = NULL;
+
+			if ((s = status.GetFirstFileStatus(pathList.GetCommonDirectory(), retPath))!=0)
+			{
+				do
+				{
+					if (s->text_status == svn_wc_status_missing)
+					{
+						for (int i = 0; i < pathList.GetCount(); ++i)
+						{
+							if (pathList[i].IsEquivalentToWithoutCase(retPath))
+							{
+								CString sMessage;
+								sMessage.Format(IDS_WARN_ADDCASERENAMED, pathList[i].GetWinPath(), retPath.GetWinPath());
+								CString sTitle(MAKEINTRESOURCE(IDS_WARN_WARNING));
+								CString sFixRenaming(MAKEINTRESOURCE(IDS_WARN_ADDCASERENAMED_RENAME));
+								CString sAddAnyway(MAKEINTRESOURCE(IDS_WARN_ADDCASERENAMED_ADD));
+								CString sCancel(MAKEINTRESOURCE(IDS_MSGBOX_CANCEL));
+
+								UINT ret = CMessageBox::Show(hWndExplorer, sMessage, sTitle, 1, IDI_WARNING, sFixRenaming, sAddAnyway, sCancel);
+								if (ret == 1)
+								{
+									// fix case of filename
+									MoveFileEx(pathList[i].GetWinPath(), retPath.GetWinPath(), MOVEFILE_REPLACE_EXISTING);
+									// remove it from the list
+									pathList.RemovePath(pathList[i]);
+								}
+								else if (ret != 2)
+									return FALSE;
+								break;
+							}
+						}
+					}
+				} while ((s = status.GetNextFileStatus(retPath))!=0);
+
+			}
+
 			SVN svn;
 			ProjectProperties props;
 			props.ReadPropsPathList(pathList);

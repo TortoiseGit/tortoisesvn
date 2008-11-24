@@ -48,6 +48,8 @@
 - NEW: Revision graph: Option to hide unmodified branches (Stefan Fuhrmann)
 - NEW: Revision graph: Option to show workspace modifications as extra node
        (Stefan Fuhrmann)
+- NEW: A warning is shown if the user tries to add a file that was versioned
+       but renamed in case. (Stefan)
 - CHG: The bug-ID column width in the log dialog is now limited 
        to 200 pixels. (Stefan)
 - CHG: The right-drag context menu now only shows "Export" if a versioned
