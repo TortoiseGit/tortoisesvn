@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2008
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 14653: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 14678: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-20 11:25+0300\n"
+"PO-Revision-Date: 2008-11-24 13:41+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2142,6 +2142,10 @@ msgstr "Отметьте те пункты, которые вы желаете �
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Отметьте для использования более короткого формата даты и времени в сообщениях журнала."
 
+#. Resource IDs: (2052)
+msgid "Check working copy for modifications"
+msgstr "Проверка рабочей копии на наличие изменений"
+
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Проверка на наличие новых версий TortoiseSVN..."
@@ -4098,6 +4102,10 @@ msgstr "Скрыть присоединённое окно"
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
 msgstr "Скрыть скрипт во время работы"
+
+#. Resource IDs: (32830)
+msgid "Hide unused &branches"
+msgstr "Скрыть неиспользуемые от&ветвления"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -6345,6 +6353,10 @@ msgid "Remove %s"
 msgstr "Удаление %s"
 
 #. Resource IDs: (2052)
+msgid "Remove all branches that did not modify the item"
+msgstr "Убрать все ответвления, не изменяющие элемент"
+
+#. Resource IDs: (2052)
 msgid "Remove deleted branches and tags"
 msgstr "Убрать удалённые ответвления и метки"
 
@@ -7254,6 +7266,10 @@ msgstr "Показывать панель быстрого доступа под
 #. Resource IDs: (16651)
 msgid "Show Screen&Tips on toolbars"
 msgstr "Показывать по&дсказки в панелях инструментов"
+
+#. Resource IDs: (32831)
+msgid "Show WC &modifications"
+msgstr "Показать и&зменения рабочей копии"
 
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
@@ -9389,6 +9405,14 @@ msgstr "Уменьшить"
 msgid "Zoom to fit"
 msgstr "Весь граф"
 
+#. Resource IDs: (2051)
+msgid "Zoom to fit in height"
+msgstr "Вписать по высоте"
+
+#. Resource IDs: (2051)
+msgid "Zoom to fit in width"
+msgstr "Вписать по ширине"
+
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
 msgstr "[Не назначено]"
@@ -10247,8 +10271,6 @@ msgstr "{СОП}"
 #~ msgstr "Общее число записей информации о слиянии"
 #~ msgid "Probably deleted repository (%s)"
 #~ msgstr "Хранилище с неизвестным URL (%s)"
-#~ msgid "Split long &branches"
-#~ msgstr "Разделять большие от&ветвления"
 #~ msgid "Split long, inactive branches into segments"
 #~ msgstr "Разделять большие и неактивные ответвления на части"
 
