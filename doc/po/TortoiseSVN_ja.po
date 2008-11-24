@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-11-17 00:37 +0000\n"
-"PO-Revision-Date: 2008-11-18 00:53+0900\n"
+"PO-Revision-Date: 2008-11-25 00:05+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@caldron.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2745,7 +2745,7 @@ msgstr "リポジトリは新しいフォルダの内部に作成されます。
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3059
 msgid "TortoiseSVN no longer offers the option to create BDB repositories, although you can still use the command line client to create them. FSFS repositories are generally easier for you to maintain, and also makes it easier for us to maintain TortoiseSVN due to compatibility issues between the different BDB versions."
-msgstr "TortoiseSVN は今後、コマンドラインクライアントでは作成できる BDB リポジトリを、作成するオプションを提供しません。一般的に FSFS リポジトリの方が保守が容易ですし、BDB のバージョン間の差異からくる互換性問題に対して、私たちが TortoiseSVN を保守するのが容易になるのです。"
+msgstr "TortoiseSVN は、もう BDB リポジトリを作成するオプションを提供しません。しかし、依然としてコマンドラインクライアントを使用すれば BDB リポジトリを作成できます。一般的に FSFS リポジトリの方が保守が容易ですし、BDB のバージョン間の差異からくる互換性問題に対して、私たちが TortoiseSVN を保守するのが容易になるのです。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3066
@@ -2992,7 +2992,7 @@ msgstr "使用するリポジトリがどのタイプでも、通常のバック
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3312
 msgid "The simplest (but not recommended) way is just to copy the repository folder onto the backup medium. However, you have to be absolutely sure that no process is accessing the data. In this context, access means <emphasis>any</emphasis> access at all. A BDB repository is written to even when the operation only appears to require reading, such as getting status. If your repository is accessed at all during the copy, (web browser left open, WebSVN, etc.) the backup will be worthless."
-msgstr "簡単な (しかしお勧めできない) 方法は、リポジトリのフォルダをバックアップメディアに単にコピーすることです。しかしそのデータにアクセスするプロセスが、全くないことを保証しなければなりません。ここでいうアクセスとは、<emphasis>すべての</emphasis>アクセスです。BDB リポジトリは、ステータスを取得するといった必要な読込しか発生しなければ均等に書きこまれています。コピー中のリポジトリに何かアクセスがあると、(ウェブブラウザを開いたままにする、WebSVN、等々) バックアップの意味がなくなります。"
+msgstr "簡単な (しかしお勧めできない) 方法は、リポジトリのフォルダをバックアップメディアに単にコピーすることです。しかしそのデータにアクセスするプロセスが、全くないことを保証しなければなりません。ここでいうアクセスとは、<emphasis>すべての</emphasis>アクセスです。BDB リポジトリは、ステータスを取得するといった、読み込みしか必要でない操作の時でさえ書き込みを行います。コピー中のリポジトリに何かアクセスがあると (ウェブブラウザを開いたままにする、WebSVN、等々)、バックアップの意味がなくなります。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:3322
@@ -5153,12 +5153,12 @@ msgstr "現在の作業コピーのリビジョン"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5953
 msgid "Because the log dialog shows you the log from HEAD, not from the current working copy revision, it often happens that there are log messages shown for content which has not yet been updated in your working copy. To help make this clearer, the commit message which corresponds to the revision you have in your working copy is shown in bold."
-msgstr ""
+msgstr "ログダイアログには、現在の作業コピーのリビジョンではなく、HEAD からログを表示するため、作業コピーがまだ取得していない内容のログメッセージを表示することが、しばしばあります。これを明確にするために、作業コピーが持つリビジョンに一致するコミットメッセージを太字で表示します。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:5961
 msgid "By default this only works for files. This is because the update revision for a folder may not correspond to the update revision of its content, and the only way to find the effective update revision for the folder is to crawl the working copy. This can be a slow operation for large working copies so if you want to enable this feature you must create a <literal>DWORD</literal> registry key with value 1 at <literal>HKCU\\Software\\TortoiseSVN\\RecursiveLogRev</literal>."
-msgstr ""
+msgstr "デフォルトでは、これはファイルにのみ動作します。これはフォルダの更新リビジョンと、その内容の更新リビジョンが一致しない可能性があり、意味のあるフォルダの更新リビジョンを探すには、作業コピーをクロールするしかないからです。大きな作業コピーでは遅い処理になりますが、それでもこの機能を有効にするには、<literal>HKCU\\Software\\TortoiseSVN\\RecursiveLogRev</literal> に <literal>DWORD</literal> のレジストリキーを作成し、値を 1 にしてください。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:5973
@@ -8601,9 +8601,8 @@ msgstr "<literal>tsvn:</literal> 属性 <emphasis>だけ</emphasis> ですが、
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10461
-#, fuzzy
 msgid "This issue tracker integration is not restricted to TortoiseSVN; it can be used with any Subversion client. For more information, read the full <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr "この課題追跡システムとの統合は、TortoiseSVN に限定されていません。ですから、いずれの Subversion クライアントでも使用できます。詳細は、<ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> 全体をお読みください。"
+msgstr "この課題追跡システムとの統合は、TortoiseSVN に限定されていません。ですから、いずれの Subversion クライアントでも使用できます。詳細は、TortoiseSVN のソースリポジトリにある、<ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> の全体をお読みください (リポジトリのアクセスのしかたは <xref linkend=\"tsvn-preface-source\"/> で説明します)。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10472
@@ -8617,9 +8616,8 @@ msgstr "前項では、ログメッセージへ課題情報の追加について
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10482
-#, fuzzy
 msgid "Any such interface is of course highly specific to your system, so we cannot provide this part, and describing how to create such a program is beyond the scope of this manual. The interface definition and sample programs can be obtained from the <literal>contrib</literal> folder in the <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref linkend=\"tsvn-preface-source\"/> explains how to access the repository)."
-msgstr "そのようなインターフェースは、もちろん強くあなたのシステムに特化しており、この部分を私たちは提供できません。また、そのようなプログラムの作成について説明するのは、このマニュアルの範疇を外れてしまいます。インターフェースの定義やサンプルプログラムは、<ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN リポジトリ</citetitle></ulink> の <literal>contrib</literal> フォルダから取得できます。"
+msgstr "そのようなインターフェースは、もちろん強くあなたのシステムに特化しており、この部分を私たちは提供できません。また、そのようなプログラムの作成について説明するのは、このマニュアルの範疇を外れてしまいます。インターフェースの定義やサンプルプログラムは、<ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN リポジトリ</citetitle></ulink> の <literal>contrib</literal> フォルダから取得できます (リポジトリのアクセスのしかたは <xref linkend=\"tsvn-preface-source\"/> で説明します)。"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:10501
@@ -8808,9 +8806,8 @@ msgstr "Subversion 設定ファイル"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:10760
-#, fuzzy
 msgid "Use <guibutton>Edit</guibutton> to edit the Subversion configuration file directly. Some settings cannot be modified directly by TortoiseSVN, and need to be set here instead. For more information about the Subversion <filename>config</filename> file see the <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.confarea.html\"><citetitle>Runtime Configuration Area</citetitle></ulink>. The section on <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.props.html#svn.advanced.props.auto\"><citetitle>Automatic Property Setting</citetitle></ulink> is of particular interest, and that is configured here. Note that Subversion can read configuration information from several places, and you need to know which one takes priority. Refer to <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.confarea.html#svn.advanced.confarea.windows-registry\"><citetitle>Configuration and the Windows Registry</citetitle></ulink> to find out more."
-msgstr "Subversion 設定ファイルを直接編集するには <guibutton>編集</guibutton> を使用してください。いくつかの設定は TortoiseSVN では直接変更することができません。そのときにこれが必要となります。Subversion の <filename>config</filename> ファイルについての詳細情報は、<ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.advanced.confarea.html\"><citetitle>Runtime Configuration Area</citetitle></ulink> をご覧ください。(訳注 日本語訳は <ulink url=\"http://subversion.bluegate.org/doc/ch07.html#svn.advanced.confarea.opts.config\"><citetitle>Subversion によるバージョン管理</citetitle></ulink> をご覧ください) <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.advanced.props.html#svn.advanced.props.auto\"><citetitle>Automatic Property Setting</citetitle></ulink> 節には興味深い項目があり、これはここで設定します。(訳注 日本語訳は <ulink url=\"http://subversion.bluegate.org/doc/ch07s02.html#svn.advanced.props.auto\"><citetitle>属性の自動設定</citetitle></ulink> です) Subversion は複数の設定情報を読み込めますが、その優先順位を知っておかなくてはならないことに注意してください。詳細は <ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.advanced.confarea.html#svn.advanced.confarea.windows-registry\"><citetitle>Configuration and the Windows Registry</citetitle></ulink> を参照してください。(訳注 日本語訳は <ulink url=\"http://subversion.bluegate.org/doc/ch07.html#svn.advanced.confarea.windows-registry\"><citetitle>設定と Windows のレジストリ</citetitle></ulink> です)"
+msgstr "Subversion 設定ファイルを直接編集するには <guibutton>編集</guibutton> を使用してください。いくつかの設定は TortoiseSVN では直接変更することができないため、その場合にこれが必要です。Subversion の <filename>config</filename> ファイルについての詳細情報は、<ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.confarea.html\"><citetitle>Runtime Configuration Area</citetitle></ulink> をご覧ください。<ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.props.html#svn.advanced.props.auto\"><citetitle>Automatic Property Setting</citetitle></ulink> の節には興味深い項目があり、これはここで設定します。Subversion は複数の設定情報を読み込めますが、その優先順位を知っておかなくてはならないことに注意してください。詳細は <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.confarea.html#svn.advanced.confarea.windows-registry\"><citetitle>Configuration and the Windows Registry</citetitle></ulink> を参照してください。"
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:10785
@@ -9402,9 +9399,8 @@ msgstr "<placeholder-1/> "
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11438
-#, fuzzy
 msgid "If you need to set up per-repository proxy settings, you will need to use the Subversion <filename>servers</filename> file to configure this. Use <guibutton>Edit</guibutton> to get there directly. Consult the <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.confarea.html\"><citetitle>Runtime Configuration Area</citetitle></ulink> for details on how to use this file."
-msgstr "リポジトリごとにプロキシの設定をする必要がある場合、設定に Subversion <filename>servers</filename> ファイルを使用する必要があります。直接行う場合 <guibutton>編集</guibutton> を使用してください。このファイルの使用法の詳細は、<ulink url=\"http://svnbook.red-bean.com/en/1.4/svn.advanced.confarea.html\"><citetitle>Runtime Configuration Area</citetitle></ulink> で説明しています。(訳注 日本語訳は <ulink url=\"http://subversion.bluegate.org/doc/ch07.html#svn.advanced.confarea.opts.servers \"><citetitle>Subversion によるバージョン管理</citetitle></ulink> です)"
+msgstr "リポジトリごとにプロキシの設定をする必要がある場合、設定に Subversion <filename>servers</filename> ファイルを使用する必要があります。直接行う場合 <guibutton>編集</guibutton> を使用してください。このファイルの使用法の詳細は、<ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.confarea.html\"><citetitle>Runtime Configuration Area</citetitle></ulink> で説明しています。"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:11448
@@ -10058,9 +10054,8 @@ msgstr "次に、実行するコマンドライン (フックスクリプトや�
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12170
-#, fuzzy
 msgid "The command line includes several parameters which get filled in by TortoiseSVN. The parameters passed depend upon which hook is called. Each hook has its own parameters which are passed in the following order: <placeholder-1/>"
-msgstr "コマンドラインには、TortoiseSVN が設定するパラメータを含めます。呼ばれるフックによってパラメータは異なります。各フックは、以下の順番で渡すパラメータを持っています。<placeholder-1/>"
+msgstr "コマンドラインには、TortoiseSVN が設定するパラメータを含めます。呼ばれるフックによってパラメータは異なります。各フックには以下の順番で渡すパラメータがあります。<placeholder-1/>"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:12207
