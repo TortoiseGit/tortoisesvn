@@ -545,7 +545,7 @@ bool CTSVNPath::IsEmpty() const
 }
 
 // Test if both paths refer to the same item
-// Ignores case and slash direction
+// Ignores slash direction
 bool CTSVNPath::IsEquivalentTo(const CTSVNPath& rhs) const
 {
 	// Try and find a slash direction which avoids having to convert
@@ -564,6 +564,8 @@ bool CTSVNPath::IsEquivalentTo(const CTSVNPath& rhs) const
 	}
 }
 
+// Test if both paths refer to the same item
+// Ignores case and slash direction
 bool CTSVNPath::IsEquivalentToWithoutCase(const CTSVNPath& rhs) const
 {
 	// Try and find a slash direction which avoids having to convert
