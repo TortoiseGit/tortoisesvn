@@ -92,13 +92,35 @@ CStandardLayoutTextList::GetText (index_t index) const
     {
         rect.top = rect.top + 25 + 21 * (textInfo.subPathIndex-1);
 
-        CString path = CUnicodeUtils::StdGetUnicode 
-                         (nodeInfo.node->GetPath().GetPath()).c_str();
-        int index2 = 0;
-        for (int i = textInfo.subPathIndex; i > 0; --i)
-            text = path.Tokenize (_T("/"), index2);
-
+        size_t index = textInfo.subPathIndex-1 + nodeInfo.skipStartPathElements;
+        const CDictionaryBasedTempPath& path = nodeInfo.node->GetPath();
+        size_t visibleElementCount = path.GetDepth() 
+                                   - nodeInfo.skipStartPathElements
+                                   - nodeInfo.skipTailPathElements;
+        text = CUnicodeUtils::StdGetUnicode (path[index]).c_str();
         text.Insert (0, _T('/'));
+
+        // add "$n$" pre- and post-fixes, if elements have been skipped
+
+        if ((textInfo.subPathIndex > 1) || (nodeInfo.skipStartPathElements == 0))
+        {
+            if (   (visibleElementCount == textInfo.subPathIndex) 
+                && (nodeInfo.skipTailPathElements != 0))
+            {
+                TCHAR buffer[32];
+                _itot_s (nodeInfo.skipTailPathElements, buffer, 10);
+                text.AppendChar (_T('/'));
+                text.AppendChar (_T('$'));
+                text.Append (buffer);
+            }
+        }
+        else
+        {
+            TCHAR buffer[32];
+            _itot_s (nodeInfo.skipStartPathElements, buffer, 10);
+            text.Insert (0, buffer);
+            text.Insert (0, _T('$'));
+        }
     }
     else
     {

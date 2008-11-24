@@ -59,7 +59,12 @@ void CStandardNodeSizeAssignment::ApplyTo (IRevisionGraphLayout* layout)
 
         int height = 28;
         if (node->requiresPath)
-            height += 3 + node->node->GetPath().GetDepth() * 21;
+        {
+            size_t visibleElementCount = node->node->GetPath().GetDepth() 
+                                       - node->skipStartPathElements
+                                       - node->skipTailPathElements;
+            height += 3 + visibleElementCount * 21;
+        }
 
         // shift (root) nodes down, if their source has been folded
         // (otherwise, glyphs would be partly hidden)

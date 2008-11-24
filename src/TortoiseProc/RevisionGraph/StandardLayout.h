@@ -60,6 +60,12 @@ public:
     bool requiresPath;
     bool requiresGap;
 
+    /// number of path elements that shall not be shown
+    /// (used by "show diff path" option)
+
+    index_t skipStartPathElements;
+    index_t skipTailPathElements;
+
     /// required size(s) to display all content
 
     CSize requiredSize;

@@ -43,6 +43,8 @@ CStandardLayoutNodeInfo::CStandardLayoutNodeInfo()
     , requiresRevision (true)
     , requiresPath (true)
     , requiresGap (true)
+    , skipStartPathElements (0)
+    , skipTailPathElements (0)
     , requiredSize (0, 0)
     , subTreeShift (0, 0)
     , treeShift (0, 0)
@@ -301,8 +303,13 @@ void CStandardLayout::CreateTexts()
             texts.push_back (STextInfo (i, 0));
 
         if (info.requiresPath)
-            for (index_t k = info.node->GetPath().GetDepth(); k > 0; --k)
+        {
+            size_t visibleElementCount = info.node->GetPath().GetDepth() 
+                                       - info.skipStartPathElements
+                                       - info.skipTailPathElements;
+            for (index_t k = visibleElementCount; k > 0; --k)
                 texts.push_back (STextInfo (i, k));
+        }
     }
 }
 
