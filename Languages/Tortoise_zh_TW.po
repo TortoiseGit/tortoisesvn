@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-10 22:40+0800\n"
+"PO-Revision-Date: 2008-11-24 20:16+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -182,6 +182,36 @@ msgstr "%s 於 %s"
 #, c-format
 msgid "%s, at %s"
 msgstr "%s, 於 %s"
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it already exists unversioned locally."
+msgstr "%s, 但是本地端已經存在無版本控制的檔案了."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it is missing locally."
+msgstr "%s, 但是本地端不存在."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was already added locally."
+msgstr "%s, 但是本地端已經新增過了."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was deleted locally."
+msgstr "%s, 但是本地端已經刪除了."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but it was obstructed in the working copy."
+msgstr "%s, 但是在工作複本中被阻擋."
+
+#. Resource IDs: (609)
+#, c-format
+msgid "%s, but the local file was already edited."
+msgstr "%s, 但是本地端檔案已經修改過了."
 
 #. Resource IDs: (145)
 #, c-format
@@ -559,14 +589,6 @@ msgstr "從工作複本 URL(&F):"
 msgid "&From revision"
 msgstr "從版本(&F)"
 
-#. Resource IDs: (275)
-msgid "&Glue all"
-msgstr "黏合全部(&G)"
-
-#. Resource IDs: (275)
-msgid "&Glue sub-trees"
-msgstr "黏合子目錄樹(&G)"
-
 #. Resource IDs: (32779)
 msgid "&Go To Line..."
 msgstr "前往行數(&G)..."
@@ -643,6 +665,14 @@ msgstr "啟始目錄(&I):"
 #. Resource IDs: (32825)
 msgid "&Inline diff word-wise"
 msgstr "行內逐字比較差異(&I)"
+
+#. Resource IDs: (275)
+msgid "&Join all"
+msgstr "合併全部(&J)"
+
+#. Resource IDs: (275)
+msgid "&Join with sub-trees"
+msgstr "與子目錄樹合併(&J)"
 
 #. Resource IDs: (1016)
 msgid "&Jump to first difference when loading"
@@ -2041,6 +2071,10 @@ msgstr "勾選你希望出現在第一層選單, 而不是子選單中的選單�
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "勾選可在記錄訊息中使用較簡短的日期及時間"
 
+#. Resource IDs: (2052)
+msgid "Check working copy for modifications"
+msgstr "檢查工作複本中的修改"
+
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "正在檢查是否有更新版本的 TortoiseSVN..."
@@ -2756,10 +2790,6 @@ msgstr "作者:"
 msgid "Cu&t"
 msgstr "剪下(&T)"
 
-#. Resource IDs: (275)
-msgid "Cu&t sub-trees"
-msgstr "剪下子目錄樹(&T)"
-
 #. Resource IDs: (65535)
 msgid "Current"
 msgstr "目前"
@@ -2796,14 +2826,6 @@ msgstr "自訂快速存取工具列"
 #. Resource IDs: (1068)
 msgid "Customize Quick Access Toolbar..."
 msgstr "自訂快速存取工具列..."
-
-#. Resource IDs: (275)
-msgid "Cut following &tree"
-msgstr "剪下下列目錄樹(&T)"
-
-#. Resource IDs: (275)
-msgid "Cut from &source tree"
-msgstr "自原始目錄樹剪下(&S)"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -3782,10 +3804,6 @@ msgstr "全螢幕"
 msgid "Fully recursive"
 msgstr "全部遞迴"
 
-#. Resource IDs: (275)
-msgid "G&lue to source tree"
-msgstr "黏合至原始目錄樹(&L)"
-
 #. Resource IDs: (273)
 msgid "GDI+ couldn't be initialized!"
 msgstr "無法初始化 GDI+ !"
@@ -3898,10 +3916,6 @@ msgstr "除外/忽略樣式(&P):"
 msgid "Global settings"
 msgstr "全域設定"
 
-#. Resource IDs: (275)
-msgid "Glue following &tree"
-msgstr "黏合下例目錄樹(&T)"
-
 #. Resource IDs: (280)
 msgid "Go offline?"
 msgstr "要離線嗎?"
@@ -3998,6 +4012,10 @@ msgstr "隱藏停駐的視窗"
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
 msgstr "隱藏執行中的指令檔"
+
+#. Resource IDs: (32830)
+msgid "Hide unused &branches"
+msgstr "隱藏未使用的分支(&B)"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -4642,6 +4660,14 @@ msgstr ""
 "如果您不確定該做什麼, 請參考線上文件中關於<i>重新定位</i>的部分.\n"
 "確定要進行重新定位嗎?"
 
+#. Resource IDs: (275)
+msgid "Join with following &tree"
+msgstr "合併下列目錄樹(&T)"
+
+#. Resource IDs: (275)
+msgid "Join with source tree"
+msgstr "黏合至原始目錄樹"
+
 #. Resource IDs: (1203)
 msgid "Keep &locks"
 msgstr "保持鎖定(&L)"
@@ -4650,15 +4676,21 @@ msgstr "保持鎖定(&L)"
 msgid "Keep changelists"
 msgstr "保留變更列表"
 
-#. Resource IDs: (609)
-#, c-format
-msgid "Keep the %s from the repository"
-msgstr "保持檔案庫中的 %s"
+#. Resource IDs: (610)
+msgid "Keep the directory from the repository"
+msgstr "保持檔案庫中的目錄"
 
-#. Resource IDs: (609)
-#, c-format
-msgid "Keep the local %s"
-msgstr "保持本地端的 %s"
+#. Resource IDs: (610)
+msgid "Keep the file from the repository"
+msgstr "保持檔案庫中的檔案"
+
+#. Resource IDs: (610)
+msgid "Keep the local directory"
+msgstr "保持本地端目錄"
+
+#. Resource IDs: (610)
+msgid "Keep the local file"
+msgstr "保持本地端檔案"
 
 #. Resource IDs: (16136)
 msgid "Keyboard"
@@ -6212,6 +6244,10 @@ msgid "Remove %s"
 msgstr "移除 %s"
 
 #. Resource IDs: (2052)
+msgid "Remove all branches that did not modify the item"
+msgstr "移除所有未修改此項目的分支"
+
+#. Resource IDs: (2052)
 msgid "Remove deleted branches and tags"
 msgstr "移除已刪除的分支和標記"
 
@@ -6236,10 +6272,13 @@ msgstr ""
 "刪除性質 '%s' 於\n"
 "%s"
 
-#. Resource IDs: (609)
-#, c-format
-msgid "Remove the %s"
-msgstr "移除 %s"
+#. Resource IDs: (610)
+msgid "Remove the directory"
+msgstr "移除目錄"
+
+#. Resource IDs: (610)
+msgid "Remove the file"
+msgstr "移除檔案"
 
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
@@ -7112,6 +7151,10 @@ msgstr "在功能區下方顯示快速存取工具列"
 msgid "Show Screen&Tips on toolbars"
 msgstr "在工具列上顯示畫面提示(&T)"
 
+#. Resource IDs: (32831)
+msgid "Show WC &modifications"
+msgstr "顯示工作複本修改(&M)"
+
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
 msgstr "顯示整個圖表的概觀"
@@ -7325,9 +7368,21 @@ msgstr ""
 msgid "Spin1"
 msgstr "Spin1"
 
+#. Resource IDs: (275)
+msgid "Split &source tree"
+msgstr "分割原始目錄樹(&S)"
+
+#. Resource IDs: (275)
+msgid "Split following &tree"
+msgstr "分割下列目錄樹(&T)"
+
 #. Resource IDs: (376)
 msgid "Split lines"
 msgstr "斷行"
+
+#. Resource IDs: (275)
+msgid "Split sub-trees"
+msgstr "分割子目錄樹"
 
 #. Resource IDs: (3604)
 msgid ""
@@ -7706,35 +7761,95 @@ msgstr "bug 追踪程式提供者無法檢驗參數的正確性"
 msgid "The item '%s' has property conflicts:"
 msgstr "項目 '%s' 有以下的性質衝突:"
 
-#. Resource IDs: (609)
+#. Resource IDs: (608)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but it already exists unversioned locally."
-msgstr "前一個 %s 操作試圖%s%s '%s', 但是本地端已經存在無檔案管理的檔案了."
+msgid "The last merge operation tried to add the directory '%s'"
+msgstr "前一個合併動作試圖新增目錄 '%s'"
 
-#. Resource IDs: (609)
+#. Resource IDs: (607)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but it is missing locally."
-msgstr "前一個 %s 操作試圖%s%s '%s', 但是本地端不存在."
+msgid "The last merge operation tried to add the file '%s'"
+msgstr "前一個合併動作試圖新增檔案 '%s'"
 
-#. Resource IDs: (609)
+#. Resource IDs: (608)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but it was already added locally."
-msgstr "前一個 %s 操作試圖%s%s '%s', 但是本地端已經新增過了."
+msgid "The last merge operation tried to delete the directory '%s'"
+msgstr "前一個合併動作試圖刪除目錄 '%s'"
 
-#. Resource IDs: (609)
+#. Resource IDs: (607)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but it was deleted locally."
-msgstr "前一個 %s 操作試圖%s%s '%s', 但是本地端已經被刪除了."
+msgid "The last merge operation tried to delete the file '%s'"
+msgstr "前一個合併動作試圖刪除檔案 '%s'"
 
-#. Resource IDs: (609)
+#. Resource IDs: (608)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but it was obstructed in the working copy."
-msgstr "前一個 %s 操作試圖%s%s '%s', 但是在工作副本中被阻止了."
+msgid "The last merge operation tried to modify the directory '%s'"
+msgstr "前一個合併動作試圖修改目錄 '%s'"
 
-#. Resource IDs: (609)
+#. Resource IDs: (607)
 #, c-format
-msgid "The last %s operation tried to %s the %s '%s', but the local file was already edited."
-msgstr "前一個 %s 操作試圖%s%s '%s', 但是本地端檔案已經被編輯過了."
+msgid "The last merge operation tried to modify the file '%s'"
+msgstr "前一個合併動作試圖修改檔案 '%s'"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to add the directory '%s'"
+msgstr "前一個切換動作試圖新增目錄 '%s'"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last switch operation tried to add the file '%s'"
+msgstr "前一個切換動作試圖新增檔案 '%s'"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to delete the directory '%s'"
+msgstr "前一個切換動作試圖刪除目錄 '%s'"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last switch operation tried to delete the file '%s'"
+msgstr "前一個切換動作試圖刪除檔案 '%s'"
+
+#. Resource IDs: (608)
+#, c-format
+msgid "The last switch operation tried to modify the directory '%s'"
+msgstr "前一個切換動作試圖修改目錄 '%s'"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last switch operation tried to modify the file '%s'"
+msgstr "前一個切換動作試圖修改檔案 '%s'"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to add the directory '%s'"
+msgstr "前一個更新動作試圖新增目錄 '%s'"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to add the file '%s'"
+msgstr "前一個更新動作試圖新增檔案 '%s'"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to delete the directory '%s'"
+msgstr "前一個更新動作試圖刪除目錄 '%s'"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to delete the file '%s'"
+msgstr "前一個更新動作試圖刪除檔案 '%s'"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to modify the directory '%s'"
+msgstr "前一個更新動作試圖修改目錄 '%s'"
+
+#. Resource IDs: (607)
+#, c-format
+msgid "The last update operation tried to modify the file '%s'"
+msgstr "前一個更新動作試圖修改檔案 '%s'"
 
 #. Resource IDs: (63)
 #, c-format
@@ -9148,6 +9263,14 @@ msgstr "縮小"
 msgid "Zoom to fit"
 msgstr "符合螢幕"
 
+#. Resource IDs: (2051)
+msgid "Zoom to fit in height"
+msgstr "符合螢幕高度"
+
+#. Resource IDs: (2051)
+msgid "Zoom to fit in width"
+msgstr "符合螢幕寬度"
+
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
 msgstr "[未指定]"
@@ -9155,10 +9278,6 @@ msgstr "[未指定]"
 #. Resource IDs: (65535)
 msgid "_POPUP_"
 msgstr "_POPUP_"
-
-#. Resource IDs: (608)
-msgid "add"
-msgstr "增加"
 
 #. Resource IDs: (10)
 msgid "added"
@@ -9316,17 +9435,13 @@ msgstr ""
 msgid "copied:"
 msgstr "複製:"
 
-#. Resource IDs: (608)
-msgid "delete"
-msgstr "刪除"
+#. Resource IDs: (245)
+msgid "day"
+msgstr "日"
 
 #. Resource IDs: (10, 272)
 msgid "deleted"
 msgstr "刪除"
-
-#. Resource IDs: (607)
-msgid "directory"
-msgstr "目錄"
 
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
@@ -9356,10 +9471,6 @@ msgstr ""
 #. Resource IDs: (13)
 msgid "external"
 msgstr "外部"
-
-#. Resource IDs: (607)
-msgid "file"
-msgstr "檔案"
 
 #. Resource IDs: (65535)
 msgid "file external:"
@@ -9421,10 +9532,6 @@ msgstr "鎖定:"
 msgid "max revision: "
 msgstr "最大版本:"
 
-#. Resource IDs: (608)
-msgid "merge"
-msgstr "合併"
-
 #. Resource IDs: (11, 65535)
 msgid "merged"
 msgstr "合併"
@@ -9452,10 +9559,6 @@ msgstr "異動"
 #. Resource IDs: (65535)
 msgid "modified / copied"
 msgstr "已異動/複製"
-
-#. Resource IDs: (608)
-msgid "modify"
-msgstr "異動"
 
 #. Resource IDs: (245)
 msgid "month"
@@ -9681,10 +9784,6 @@ msgstr ""
 "告訴使用者在進行編輯與送交之前必須先\r\n"
 "取得鎖定."
 
-#. Resource IDs: (607)
-msgid "switch"
-msgstr "切換"
-
 #. Resource IDs: (208)
 #, c-format
 msgid ""
@@ -9831,10 +9930,6 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\r\n"
 "如果設為 'yes'', 在送交對話窗沒有輸入bug相關資訊時, 會顯示警告訊息."
-
-#. Resource IDs: (607)
-msgid "update"
-msgstr "更新"
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
