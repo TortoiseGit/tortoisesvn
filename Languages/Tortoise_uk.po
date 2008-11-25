@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-24 18:13+0200\n"
+"PO-Revision-Date: 2008-11-25 17:48+0200\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -202,7 +202,7 @@ msgstr "%s, але його було локально знищено."
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it was obstructed in the working copy."
-msgstr ""
+msgstr "%s, але це заважало у робочій копії."
 
 #. Resource IDs: (609)
 #, c-format
@@ -495,8 +495,9 @@ msgid "&Diff with previous version"
 msgstr "Ві&дмінності з попередньою версією"
 
 #. Resource IDs: (1066)
+#, fuzzy
 msgid "&Docking"
-msgstr "&Фіксація"
+msgstr "С&тикування"
 
 #. Resource IDs: (2)
 msgid "&Don't go offline"
@@ -1065,7 +1066,6 @@ msgid "&Trunk"
 msgstr "С&товбур"
 
 #. Resource IDs: (3845)
-#, fuzzy
 msgid "&Two Page"
 msgstr "&Дві сторінки"
 
@@ -1269,6 +1269,8 @@ msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
+"Список розділених новими рядками шляхів, для яких відображається перекривання піктограм.\r\n"
+"Якщо в кінець шляху додати символ '*', то всі файли та підкаталоги цього шляху теж буде включено."
 
 #. Resource IDs: (197)
 msgid ""
@@ -1276,6 +1278,9 @@ msgid ""
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow the context menu on all paths."
 msgstr ""
+"Список розділених новими рядками шляхів, для яких не відображається контекстне меню.\r\n"
+"Якщо в кінець шляху додати символ '*', то всі файли та підкаталоги цього шляху теж буде виключено.\r\n"
+"Порожній список дозволить контекстне меню на всіх шляхах."
 
 #. Resource IDs: (194)
 msgid ""
@@ -1283,6 +1288,9 @@ msgid ""
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
+"Список розділених новими рядками шляхів, для яких не відображається перекривання піктограм.\r\n"
+"Якщо в кінець шляху додати символ '*', то всі файли та підкаталоги цього шляху теж буде виключено.\r\n"
+"Порожній список дозволить перекриття на всіх шляхах."
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
@@ -1394,6 +1402,10 @@ msgstr "Додати характерну для розширення прогр
 #. Resource IDs: (110)
 msgid "Add extension specific merge program"
 msgstr "Додати характерну для розширення програму злиття"
+
+#. Resource IDs: (89)
+msgid "Add the item anyway"
+msgstr "Так чи інакше, додати елемент"
 
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
@@ -1815,8 +1827,9 @@ msgid "Branch / tag created successfully!"
 msgstr "Гілку / зріз створено успішно!"
 
 #. Resource IDs: (2052)
+#, fuzzy
 msgid "Branch at copy-from-rev even if there was no change in that revision"
-msgstr ""
+msgstr "Робити гілку на копії з модифікації, навіть якщо у тій модифікації не було змін"
 
 #. Resource IDs: (9)
 msgid "Branch/&tag..."
@@ -2040,12 +2053,10 @@ msgid "Check For Updates..."
 msgstr "Перевірити наявність оновлень..."
 
 #. Resource IDs: (13)
-#, fuzzy
 msgid "Check for modi&fications"
 msgstr "Перевірити на моди&фікування"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Check for modifications"
 msgstr "Перевірити на модифікування"
 
@@ -2074,9 +2085,8 @@ msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Позначте щоб використовувати менш докладний формат дати й часу в повідомленнях логу"
 
 #. Resource IDs: (2052)
-#, fuzzy
 msgid "Check working copy for modifications"
-msgstr "Перевірити на модифікування"
+msgstr "Перевірити робочу копію на модифікування"
 
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -2425,6 +2435,7 @@ msgid "Continue"
 msgstr "Продовжити"
 
 #. Resource IDs: (1001)
+#, fuzzy
 msgid "Contract docked window"
 msgstr ""
 
@@ -2957,13 +2968,17 @@ msgstr "Відмінності з URL"
 msgid "Difference between"
 msgstr "Різниця між"
 
+#. Resource IDs: (32817)
+msgid "Differential path &names"
+msgstr "Неоднакові &назви шляхів"
+
 #. Resource IDs: (1022)
 msgid "Diffing"
 msgstr "Пошук відмінностей"
 
 #. Resource IDs: (14)
 msgid "Diffs the working copy file with the one before the last commit."
-msgstr ""
+msgstr "Знаходить відмінності файла робочої копії і його ж перед останньою фіксацією."
 
 #. Resource IDs: (65535)
 msgid "Directory:"
@@ -3105,7 +3120,7 @@ msgstr "Більше не показувати це повідомлення"
 
 #. Resource IDs: (1002)
 msgid "Drag to make this menu float"
-msgstr ""
+msgstr "Потягніть, щоб це меню попливло"
 
 #. Resource IDs: (16513)
 msgid "Draw"
@@ -3130,11 +3145,11 @@ msgstr "Ви&хід"
 
 #. Resource IDs: (275)
 msgid "E&xpand all"
-msgstr ""
+msgstr "&Розгорнути все"
 
 #. Resource IDs: (275)
 msgid "E&xpand sub-trees"
-msgstr ""
+msgstr "&Розгорнути піддерева"
 
 #. Resource IDs: (1437)
 msgid "E&xport"
@@ -3412,20 +3427,20 @@ msgstr "Існуючий"
 
 #. Resource IDs: (275)
 msgid "Exp&and source tree"
-msgstr ""
+msgstr "Розг&орнути дерево сирців"
 
 #. Resource IDs: (275)
 msgid "Expand &following tree"
-msgstr ""
+msgstr "Розгорнути &вказане дерево"
 
 #. Resource IDs: (1002)
 #, c-format
 msgid "Expand (%s)"
-msgstr ""
+msgstr "Розгорнути (%s)"
 
 #. Resource IDs: (1001)
 msgid "Expand docked window"
-msgstr ""
+msgstr "Розгорнути пристиковане вікно"
 
 #. Resource IDs: (65535)
 msgid "Expert settings"
@@ -3526,6 +3541,8 @@ msgid ""
 "Failed to connect.\n"
 "Link may be broken."
 msgstr ""
+"Не вдалося з'єднатися.\n"
+"Можливо, посилання зіпсоване."
 
 #. Resource IDs: (3865)
 msgid "Failed to convert ActiveX object."
@@ -3758,6 +3775,10 @@ msgstr "Скінчили!"
 msgid "Fit image &sizes"
 msgstr "Підігнати &розміри зображень"
 
+#. Resource IDs: (89)
+msgid "Fix case of item and do not add it"
+msgstr ""
+
 #. Resource IDs: (1315)
 msgid "Floppy drives (A: B:)"
 msgstr "Гнучкі диски (A: B:)"
@@ -3974,7 +3995,7 @@ msgstr "Групувати списки змін"
 
 #. Resource IDs: (1229)
 msgid "H&ide unrelated changed paths"
-msgstr ""
+msgstr "При&ховати непов'язані змінені шляхи"
 
 #. Resource IDs: (65535)
 #, fuzzy
@@ -4009,7 +4030,7 @@ msgstr "Ховати зни&щені шляхи"
 
 #. Resource IDs: (1001)
 msgid "Hide docked window"
-msgstr ""
+msgstr "Заховати пристиковане вікно"
 
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
@@ -4062,7 +4083,7 @@ msgstr ""
 #. Resource IDs: (82)
 #, c-format
 msgid "Hostname mismatch (%s)"
-msgstr ""
+msgstr "Невідповідність імені хоста (%s)"
 
 #. Resource IDs: (65535)
 msgid "How do you want to resolve this conflict?"
@@ -4201,15 +4222,15 @@ msgstr "ID:57665:V C +Q"
 
 #. Resource IDs: (106)
 msgid "Icon Overlays"
-msgstr ""
+msgstr "Перекривання піктограм"
 
 #. Resource IDs: (65535)
 msgid "Icon Overlays / Status Columns"
-msgstr ""
+msgstr "Перекривання піктограм / Стовпці стану"
 
 #. Resource IDs: (184)
 msgid "Icon Overlays::Icon Set"
-msgstr ""
+msgstr "Перекривання піктограм::Набір піктограм"
 
 #. Resource IDs: (65535)
 msgid "Icons/Design/Code:                 Luebbe Onken"
@@ -4217,7 +4238,7 @@ msgstr "Піктограми/Дизайн/Код:      Луеббе Онкен (
 
 #. Resource IDs: (194)
 msgid "If activated, prevents the overlays and the context menu from showing in 'save as...' or 'open' dialogs"
-msgstr ""
+msgstr "Якщо активовано, запобігає показу перекривань і контекстного меню в діалогах 'зберегти як...' і 'відкрити'"
 
 #. Resource IDs: (198)
 msgid ""
@@ -4306,6 +4327,8 @@ msgid ""
 "If enabled, working copy folders which are excluded from\n"
 "showing overlays still show the overlay for status 'normal'"
 msgstr ""
+"Якщо уможливлено, каталоги робочої копії, які виключені з\n"
+"показу перекривань, все-таки показують перекривання для стану 'нормальний'"
 
 #. Resource IDs: (195)
 msgid ""
@@ -4364,7 +4387,6 @@ msgid "Ignore all whitespaces"
 msgstr "Ігнорувати всі пробіли"
 
 #. Resource IDs: (1267)
-#, fuzzy
 msgid "Ignore ancestry"
 msgstr "Ігнорувати походження"
 
@@ -4491,7 +4513,6 @@ msgid "Inline differences"
 msgstr "Відмінності в рядках"
 
 #. Resource IDs: (161)
-#, fuzzy
 msgid "Input"
 msgstr "Ввід"
 
@@ -4957,7 +4978,7 @@ msgstr "Злити - TortoiseSVN"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
-msgstr ""
+msgstr "Злити переінтегрування"
 
 #. Resource IDs: (1468)
 msgid "Merge a range of revisions"
@@ -4981,7 +5002,7 @@ msgstr "Параметри злиття"
 
 #. Resource IDs: (14)
 msgid "Merge reintegrate..."
-msgstr ""
+msgstr "Злити переінтегрування..."
 
 #. Resource IDs: (595)
 #, fuzzy
@@ -5445,6 +5466,8 @@ msgid ""
 "Number of times a log cache can fail to close properly\n"
 "due to crashes etc. until it gets deleted automatically."
 msgstr ""
+"Стільки разів логовий кеш може не змогти коректно закритися\n"
+"через збої ітп, допоки його не буде знищено автоматично."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -5485,6 +5508,10 @@ msgstr "Оминути &зовнішні"
 #. Resource IDs: (145)
 msgid "Omit externals"
 msgstr "Оминути зовнішні"
+
+#. Resource IDs: (2052)
+msgid "On copy and rename nodes, show only the changed parts of the path name"
+msgstr "При копіюванні та перейменуванні вузлів показувати лише змінені частини назви шляху"
 
 #. Resource IDs: (63)
 msgid ""
@@ -5740,6 +5767,11 @@ msgid ""
 "then you need to switch your working copy over to the new URL.\n"
 "Use the Switch command to do that."
 msgstr ""
+"Майте на увазі:\n"
+"Ваша робоча копія залишається на попередньому шляху. Якщо наступні зміни\n"
+"мають бути зафіксовані у щойно створеній копії чи гілці,\n"
+"потрібно переключити робочу копію на новий URL.\n"
+"Для цього використовується команда Переключити."
 
 #. Resource IDs: (1287)
 msgid "Please resolve the conflict by choosing one of the following options:"
@@ -5800,11 +5832,11 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
-msgstr ""
+msgstr "Натисніть &нову Гарячу клавішу:"
 
 #. Resource IDs: (65535)
 msgid "Press &new shortcut key:"
-msgstr ""
+msgstr "Натисніть &нову гарячу клавішу:"
 
 #. Resource IDs: (2052)
 msgid "Prevents most cases in which connection lines cross revision nodes"
@@ -5958,7 +5990,7 @@ msgstr "Налаштування проксі"
 
 #. Resource IDs: (1338)
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
-msgstr ""
+msgstr "Поставити \"Отримати блокування\" у верхнє меню, коли задано svn:needs-lock"
 
 #. Resource IDs: (246)
 #, c-format
@@ -6019,12 +6051,12 @@ msgstr "По&вернути..."
 
 #. Resource IDs: (12)
 msgid "Read the 'Daily Use Guide' before you are stuck..."
-msgstr ""
+msgstr "Почитайте 'Посібник зі щоденного користування' перш ніж влипнете..."
 
 #. Resource IDs: (1002)
 #, fuzzy
 msgid "Recent"
-msgstr "Нещодавно"
+msgstr "Нещодавні"
 
 #. Resource IDs: (65535)
 msgid "Recently modified lines"
@@ -6292,8 +6324,9 @@ msgid "Renames files / folders inside version control"
 msgstr "Перейменовує файли / каталоги під керуванням версіями"
 
 #. Resource IDs: (209)
+#, fuzzy
 msgid "Repair move"
-msgstr ""
+msgstr "Полагодити переміщення"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -7132,22 +7165,28 @@ msgid ""
 "Show or hide the locator bar\n"
 "Toggle LocatorBar"
 msgstr ""
+"Показати або сховати пошукову смугу\n"
+"Перемкнути пошукову смугу"
 
 #. Resource IDs: (3713)
 msgid ""
 "Show or hide the status bar\n"
 "Toggle StatusBar"
 msgstr ""
+"Показати або сховати рядок стану\n"
+"Перемкнути рядок стану"
 
 #. Resource IDs: (3713)
 msgid ""
 "Show or hide the toolbar\n"
 "Toggle ToolBar"
 msgstr ""
+"Показати або сховати рядок знарядь\n"
+"Перемкнути рядок знарядь"
 
 #. Resource IDs: (1432)
 msgid "Show overlay for ignored items"
-msgstr ""
+msgstr "Показувати перекривання для ігнорованих елементів"
 
 #. Resource IDs: (1462)
 msgid "Show overlay for unversioned items"
@@ -7159,7 +7198,7 @@ msgstr "Показати властивості модифікації"
 
 #. Resource IDs: (16652)
 msgid "Show shortcut &keys in ScreenTips"
-msgstr ""
+msgstr "Показувати гарячі &клавіші в Екранних підказках"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -7312,7 +7351,7 @@ msgid ""
 "Split the active window into panes\n"
 "Split"
 msgstr ""
-"Розділити активне вікно на секції\n"
+"Розділити активне вікно на панелі\n"
 "Розділити"
 
 #. Resource IDs: (246)
@@ -7365,11 +7404,11 @@ msgstr "Кеш стану"
 
 #. Resource IDs: (196)
 msgid "Status cache kept in an external process, can show the overlay recursively"
-msgstr ""
+msgstr "Кеш стану зберігається у зовнішньому процесі, можна показувати перекривання рекурсивно"
 
 #. Resource IDs: (196)
 msgid "Status cache only for one folder, no recursive overlays"
-msgstr ""
+msgstr "Кеш стану лише для одного каталогу, без рекурсивних перекривань"
 
 #. Resource IDs: (11)
 msgid "Status of item in SVN"
@@ -7445,6 +7484,8 @@ msgid ""
 "Switch back to the previous window pane\n"
 "Previous Pane"
 msgstr ""
+"Повернутися на панель попереднього вікна\n"
+"Попередня панель"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -7471,6 +7512,8 @@ msgid ""
 "Switch to the next window pane\n"
 "Next Pane"
 msgstr ""
+"Переключитися на панель наступного вікна\n"
+"Наступна панель"
 
 #. Resource IDs: (3825)
 msgid "Switch to the previous document window"
@@ -7565,6 +7608,8 @@ msgid ""
 "The diffing engine aborted because of an error:\n"
 "%s"
 msgstr ""
+"Механізм пошуку відмінностей аварійно зупинився через помилку:\n"
+"%s"
 
 #. Resource IDs: (64)
 #, c-format
@@ -7830,6 +7875,11 @@ msgid ""
 "%s\n"
 "do not match!"
 msgstr ""
+"Латка виглядає застарілою! Рядок файлу\n"
+"%s\n"
+"і рядок латки\n"
+"%s\n"
+"не співпадають!"
 
 #. Resource IDs: (88)
 msgid ""
@@ -8133,6 +8183,8 @@ msgid ""
 "Toggle One/Two Pages display\n"
 "Toggle One/Two Pages display"
 msgstr ""
+"Перемкнути відображення Одної/Двох сторінок\n"
+"Перемкнути відображення Одної/Двох сторінок"
 
 #. Resource IDs: (65535)
 msgid "Toolbar"
@@ -8288,7 +8340,7 @@ msgstr "Загальна кількість злитих модифікацій"
 
 #. Resource IDs: (339)
 msgid "Total number of user revision properties"
-msgstr ""
+msgstr "Загальна кількість властивостей модифікацій користувача"
 
 #. Resource IDs: (357)
 #, c-format
@@ -8389,9 +8441,9 @@ msgid ""
 "from the top pane in the log dialog."
 msgstr ""
 "Не вдається відтворити шлях до робочої копії!\n"
-"Це може трапитися, якщо файл боло перейменовано.\n"
-"Запустіть діалог логу на одному певному файлі, відтак відверніть зміни\n"
-"з верхньої панелі цього діалогу логу."
+"Це може трапитися, якщо файл було перейменовано.\n"
+"Запустіть логовий діалог на одному певному файлі, відтак відверніть зміни\n"
+"з верхньої панелі цього діалогу."
 
 #. Resource IDs: (3865)
 msgid "Unable to write read-only property."
@@ -8649,7 +8701,7 @@ msgstr "Використовувати ви&креслення для видал
 
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
-msgstr ""
+msgstr "Викорстовувати системну локаль для дати/часу"
 
 #. Resource IDs: (251)
 msgid "Use text block from '&mine'"
@@ -8836,6 +8888,8 @@ msgid ""
 "When a small log cache has not been used for the given\n"
 "number of days, it will be removed automatically."
 msgstr ""
+"Якщо малий логовий кеш не використовуватиметься на протязі\n"
+"заданої кількості днів, його буде автоматично видалено."
 
 #. Resource IDs: (344)
 msgid ""
@@ -8946,7 +9000,7 @@ msgstr "Можна вклеїти растр тільки розміру (%d x %
 #. Resource IDs: (1016)
 #, c-format
 msgid "You can't create more than %d user-defined toolbars!"
-msgstr ""
+msgstr "Не можна створити більш ніж %d визначених користувачем рядків знарядь!"
 
 #. Resource IDs: (16)
 msgid ""
@@ -9007,6 +9061,19 @@ msgstr "Слід ввести текст!"
 #. Resource IDs: (1001)
 msgid "You should select an image!"
 msgstr "Слід вибрати зображення!"
+
+#. Resource IDs: (89)
+#, c-format
+msgid ""
+"You're trying to add the item\n"
+"'%s',\n"
+"but the item\n"
+"'%s'\n"
+"already exists.\n"
+"\n"
+"It seems the item got renamed outside Subversion but only with case changes.\n"
+"Do you really want to add it?"
+msgstr ""
 
 #. Resource IDs: (195)
 #, c-format
@@ -9180,6 +9247,8 @@ msgid ""
 "ask repository first if 'online' -\n"
 "work entirely from cache if 'offline'"
 msgstr ""
+"спочатку перевірити, чи репозиторій 'у мережі' -\n"
+"якщо 'поза мережею', працювати лише з кешем"
 
 #. Resource IDs: (245)
 msgid "author"
@@ -9325,7 +9394,7 @@ msgstr "ігноровано"
 
 #. Resource IDs: (220)
 msgid "ignoring ancestry"
-msgstr ""
+msgstr "ігноруючи походження"
 
 #. Resource IDs: (13)
 msgid "incomplete"
@@ -9433,7 +9502,7 @@ msgid "offline"
 msgstr "не в мережі"
 
 #. Resource IDs: (3845)
-#, fuzzy, c-format
+#, c-format
 msgid "on %1"
 msgstr "на %1"
 
@@ -9484,7 +9553,7 @@ msgstr "замінено"
 
 #. Resource IDs: (220)
 msgid "respecting ancestry"
-msgstr ""
+msgstr "поважаючи походження"
 
 #. Resource IDs: (326)
 #, c-format
@@ -9693,6 +9762,9 @@ msgid ""
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for users to fill in."
 msgstr ""
+"tsvn:logtemplate\r\n"
+"Рядок, що вставляється в поле логових повідомлень у діалогах фіксації.\r\n"
+"Використовується як шаблон логового повідомлення, що заповнюється користувачами."
 
 #. Resource IDs: (578)
 msgid ""
