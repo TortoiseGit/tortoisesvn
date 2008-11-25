@@ -381,6 +381,7 @@ BOOL TortoiseBlame::OpenFile(const char *fileName)
 	SendEditor(EM_EMPTYUNDOBUFFER);
 	SendEditor(SCI_SETSAVEPOINT);
 	SendEditor(SCI_GOTOPOS, 0);
+	SendEditor(SCI_SETSCROLLWIDTHTRACKING, TRUE);
 	SendEditor(SCI_SETREADONLY, TRUE);
 
 	//check which lexer to use, depending on the filetype
