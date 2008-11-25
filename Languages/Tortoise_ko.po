@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-24 20:22+0900\n"
+"PO-Revision-Date: 2008-11-25 21:20+0900\n"
 "Last-Translator: Kim TaeDong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1394,6 +1394,10 @@ msgstr "확장자에 따른 비교 프로그램 등록"
 #. Resource IDs: (110)
 msgid "Add extension specific merge program"
 msgstr "확장자에 따른 병합 프로그램 등록"
+
+#. Resource IDs: (89)
+msgid "Add the item anyway"
+msgstr "어떻게든 아이템을 추가하기"
 
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
@@ -2952,6 +2956,10 @@ msgstr "특정 URL과 차이를 구합니다"
 msgid "Difference between"
 msgstr "차이점 보기"
 
+#. Resource IDs: (32817)
+msgid "Differential path &names"
+msgstr "다른 경로 이름들(&N)"
+
 #. Resource IDs: (1022)
 msgid "Diffing"
 msgstr "비교중"
@@ -3752,6 +3760,10 @@ msgstr "종료함"
 #. Resource IDs: (32810)
 msgid "Fit image &sizes"
 msgstr "이미지 사이즈를 서로 맞추기(&S)"
+
+#. Resource IDs: (89)
+msgid "Fix case of item and do not add it"
+msgstr "아이템의 대소문자를 수정하고 추가하지 않기"
 
 #. Resource IDs: (1315)
 msgid "Floppy drives (A: B:)"
@@ -5535,6 +5547,10 @@ msgstr "외부 경로는 누락시킴(&X)"
 #. Resource IDs: (145)
 msgid "Omit externals"
 msgstr "외부 경로는 누락시킴"
+
+#. Resource IDs: (2052)
+msgid "On copy and rename nodes, show only the changed parts of the path name"
+msgstr "복사 및 이름이 변경된 노드들에서, 경로이름에서 변경된 부분만 보여주기"
 
 #. Resource IDs: (63)
 msgid ""
@@ -9136,6 +9152,26 @@ msgstr "텍스트를 입력해야만 합니다!"
 #. Resource IDs: (1001)
 msgid "You should select an image!"
 msgstr "이미지를 선택해야만 합니다!"
+
+#. Resource IDs: (89)
+#, c-format
+msgid ""
+"You're trying to add the item\n"
+"'%s',\n"
+"but the item\n"
+"'%s'\n"
+"already exists.\n"
+"\n"
+"It seems the item got renamed outside Subversion but only with case changes.\n"
+"Do you really want to add it?"
+msgstr ""
+"다음 아이템을 추가하려고 시도하고 있습니다.:\n"
+"'%s',\n"
+"그러나 다음 아이템이 이미 존재합니다.:\n"
+"'%s'\n"
+"\n"
+"아마 Subversion 외부에서 아이템의 대소문자만 바뀌어서 이름이 변경된 것 같습니다.\n"
+"정말로 추가하시겠습니까?"
 
 #. Resource IDs: (195)
 #, c-format
