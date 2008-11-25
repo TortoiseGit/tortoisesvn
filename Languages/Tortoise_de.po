@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-24 11:23+0100\n"
+"PO-Revision-Date: 2008-11-25 08:55+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1397,6 +1397,10 @@ msgstr "Vergleichsprogramm für bestimmte Dateitypen hinzufügen"
 #. Resource IDs: (110)
 msgid "Add extension specific merge program"
 msgstr "Konflikteditor für bestimmte Dateitypen hinzufügen"
+
+#. Resource IDs: (89)
+msgid "Add the item anyway"
+msgstr "Das Objekt trotzdem hinzufügen"
 
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
@@ -2962,6 +2966,10 @@ msgstr "Vergleiche mit URL"
 msgid "Difference between"
 msgstr "Unterschiede zwischen"
 
+#. Resource IDs: (32817)
+msgid "Differential path &names"
+msgstr "Differenzielle Pfad&namen"
+
 #. Resource IDs: (1022)
 msgid "Diffing"
 msgstr "Vergleiche"
@@ -3762,6 +3770,10 @@ msgstr "Fertig!"
 #. Resource IDs: (32810)
 msgid "Fit image &sizes"
 msgstr "Bildgrößen &angleichen"
+
+#. Resource IDs: (89)
+msgid "Fix case of item and do not add it"
+msgstr "Groß-/Kleinschreibung korrigieren und Objekt nicht hinzufügen"
 
 #. Resource IDs: (1315)
 msgid "Floppy drives (A: B:)"
@@ -5565,6 +5577,10 @@ msgstr "E&xternals auslassen"
 #. Resource IDs: (145)
 msgid "Omit externals"
 msgstr "Externals auslassen"
+
+#. Resource IDs: (2052)
+msgid "On copy and rename nodes, show only the changed parts of the path name"
+msgstr "Beim kopierten oder umbenannten Knoten nur den geänderten Teil des Pfadnamens anzeigen"
 
 #. Resource IDs: (63)
 msgid ""
@@ -9184,6 +9200,27 @@ msgstr "Sie sollten einen Text eingeben!"
 #. Resource IDs: (1001)
 msgid "You should select an image!"
 msgstr "Sie sollten ein Bild wählen!"
+
+#. Resource IDs: (89)
+#, c-format
+msgid ""
+"You're trying to add the item\n"
+"'%s',\n"
+"but the item\n"
+"'%s'\n"
+"already exists.\n"
+"\n"
+"It seems the item got renamed outside Subversion but only with case changes.\n"
+"Do you really want to add it?"
+msgstr ""
+"Sie versuchen folgendes Objekt hinzuzufügen:\n"
+"'%s',\n"
+"Es existiert aber bereits ein Objekt namens:\n"
+"'%s'\n"
+"\n"
+"Es scheint, dass dieses Objekt außerhalb von Subversion umbenannt wurde\n"
+"und sich nur die Groß-/Kleinschreibung geändert hat.\n"
+"Wollen Sie es wirklich hinzufügen?"
 
 #. Resource IDs: (195)
 #, c-format
