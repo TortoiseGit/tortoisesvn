@@ -40,6 +40,8 @@
 #define INLINEREMOVED_COLOR			RGB(200, 100, 100)
 #define MODIFIED_COLOR				RGB(220, 220, 255)
 
+#define IDT_SCROLLTIMER 101
+
 CBaseView * CBaseView::m_pwndLeft = NULL;
 CBaseView * CBaseView::m_pwndRight = NULL;
 CBaseView * CBaseView::m_pwndBottom = NULL;
@@ -182,6 +184,7 @@ BEGIN_MESSAGE_MAP(CBaseView, CView)
 	ON_COMMAND(ID_EDIT_CUT, &CBaseView::OnEditCut)
 	ON_COMMAND(ID_EDIT_PASTE, &CBaseView::OnEditPaste)
 	ON_WM_MOUSELEAVE()
+	ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 
@@ -2299,18 +2302,40 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
 	}
 	ShowDiffLines(nMouseLine);
 
+	KillTimer(IDT_SCROLLTIMER);
 	if (nFlags & MK_LBUTTON)
 	{
+		int charIndex = CalculateCharIndex(nMouseLine >= 0 ? nMouseLine : 0, m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth());
 		if (((m_nSelBlockStart >= 0)&&(m_nSelBlockEnd >= 0))&&
 			((nMouseLine >= m_nTopLine)&&(nMouseLine < GetLineCount())))
 		{
 			m_ptCaretPos.y = nMouseLine;
-			m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth());
+			m_ptCaretPos.x = charIndex;
 			UpdateGoalPos();
 			AdjustSelection();
 			UpdateCaret();
 			Invalidate();
 			UpdateWindow();
+		}
+		if (nMouseLine < m_nTopLine)
+		{
+			ScrollToLine(m_nTopLine-1, TRUE);
+			SetTimer(IDT_SCROLLTIMER, 50, NULL);
+		}
+		if (nMouseLine >= m_nTopLine + GetScreenLines())
+		{
+			ScrollToLine(m_nTopLine+1, TRUE);
+			SetTimer(IDT_SCROLLTIMER, 50, NULL);
+		}
+		if (charIndex <= m_nOffsetChar)
+		{
+			ScrollSide(-1);
+			SetTimer(IDT_SCROLLTIMER, 50, NULL);
+		}
+		if (charIndex >= GetScreenChars())
+		{
+			ScrollSide(1);
+			SetTimer(IDT_SCROLLTIMER, 50, NULL);
 		}
 	}
 
@@ -2331,8 +2356,50 @@ void CBaseView::OnMouseLeave()
 {
 	ShowDiffLines(-1);
 	m_bMouseWithin = FALSE;
-
 	CView::OnMouseLeave();
+}
+
+void CBaseView::OnTimer(UINT_PTR nIDEvent)
+{
+	if (nIDEvent == IDT_SCROLLTIMER)
+	{
+		POINT point;
+		GetCursorPos(&point);
+		ScreenToClient(&point);
+		int nMouseLine = (((point.y - HEADERHEIGHT) / GetLineHeight()) + m_nTopLine);
+		nMouseLine--;		//we need the index
+		if (nMouseLine < -1)
+		{
+			nMouseLine = -1;
+		}
+		if (GetKeyState(VK_LBUTTON)&0x8000)
+		{
+			int charIndex = CalculateCharIndex(nMouseLine >= 0 ? nMouseLine : 0, m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth());
+			if (nMouseLine < m_nTopLine)
+			{
+				ScrollToLine(m_nTopLine-1, TRUE);
+				SetTimer(IDT_SCROLLTIMER, 50, NULL);
+			}
+			if (nMouseLine >= m_nTopLine + GetScreenLines())
+			{
+				ScrollToLine(m_nTopLine+1, TRUE);
+				SetTimer(IDT_SCROLLTIMER, 50, NULL);
+			}
+			if (charIndex <= m_nOffsetChar)
+			{
+				ScrollSide(-1);
+				SetTimer(IDT_SCROLLTIMER, 50, NULL);
+			}
+			if (charIndex >= GetScreenChars())
+			{
+				ScrollSide(1);
+				SetTimer(IDT_SCROLLTIMER, 50, NULL);
+			}
+		}
+
+	}
+
+	CView::OnTimer(nIDEvent);
 }
 
 void CBaseView::SelectLines(int nLine1, int nLine2)
@@ -3045,4 +3112,5 @@ void CBaseView::OnEditPaste()
 		PasteText();
 	}
 }
+
 
