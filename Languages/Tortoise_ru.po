@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2008
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 14678: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 14696: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-24 13:41+0300\n"
+"PO-Revision-Date: 2008-11-25 16:21+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1459,6 +1459,10 @@ msgstr "Добавить программу просмотра различий 
 #. Resource IDs: (110)
 msgid "Add extension specific merge program"
 msgstr "Добавить программу слияния для определённых расширений"
+
+#. Resource IDs: (89)
+msgid "Add the item anyway"
+msgstr "Всё равно добавить элемент"
 
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
@@ -3036,6 +3040,10 @@ msgstr "Различия с файлом по URL"
 msgid "Difference between"
 msgstr "Различие между"
 
+#. Resource IDs: (32817)
+msgid "Differential path &names"
+msgstr "Различающиеся части &путей"
+
 #. Resource IDs: (1022)
 msgid "Diffing"
 msgstr "Сравнение"
@@ -3843,6 +3851,10 @@ msgstr "Закончено!"
 #. Resource IDs: (32810)
 msgid "Fit image &sizes"
 msgstr "&Подогнать размеры изображений"
+
+#. Resource IDs: (89)
+msgid "Fix case of item and do not add it"
+msgstr "Исправить регистр элемента и не добавлять его"
 
 #. Resource IDs: (1315)
 msgid "Floppy drives (A: B:)"
@@ -5645,6 +5657,10 @@ msgstr "Пропустить в&нешние"
 #. Resource IDs: (145)
 msgid "Omit externals"
 msgstr "Пропустить внешние"
+
+#. Resource IDs: (2052)
+msgid "On copy and rename nodes, show only the changed parts of the path name"
+msgstr "При копировании и переименовании узлов показывать только изменившуюся часть пути"
 
 #. Resource IDs: (63)
 msgid ""
@@ -9284,6 +9300,27 @@ msgstr "Вы должны ввести текст!"
 #. Resource IDs: (1001)
 msgid "You should select an image!"
 msgstr "Вы должны выбрать изображение!"
+
+#. Resource IDs: (89)
+#, c-format
+msgid ""
+"You're trying to add the item\n"
+"'%s',\n"
+"but the item\n"
+"'%s'\n"
+"already exists.\n"
+"\n"
+"It seems the item got renamed outside Subversion but only with case changes.\n"
+"Do you really want to add it?"
+msgstr ""
+"Вы пытаетесь добавить элемент\n"
+"'%s',\n"
+"но этот элемент\n"
+"'%s'\n"
+"уже существует.\n"
+"\n"
+"Похоже, этот элемент был переименован вне Subversion, причём с изменениями только в регистре.\n"
+"Вы действительно желаете его добавить?"
 
 #. Resource IDs: (195)
 #, c-format
