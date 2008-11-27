@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-25 17:48+0200\n"
+"PO-Revision-Date: 2008-11-27 11:30+0200\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -182,7 +182,7 @@ msgstr "%s, на %s"
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it already exists unversioned locally."
-msgstr ""
+msgstr "%s, але воно вже локально існує неверсійно."
 
 #. Resource IDs: (609)
 #, c-format
@@ -359,7 +359,7 @@ msgstr "&Гілки"
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
-msgstr "Про&глянути репозиторій"
+msgstr "Про&глянути сховище"
 
 #. Resource IDs: (1001, 1009)
 msgid "&Browse..."
@@ -431,7 +431,7 @@ msgstr "Кон&фігурувати"
 
 #. Resource IDs: (1227)
 msgid "&Contact the repository on startup"
-msgstr "&Зв'язатися з репозиторієм під час запуску"
+msgstr "&Зв'язатися зі сховищем під час запуску"
 
 #. Resource IDs: (1073)
 msgid "&Convert files when diffing against BASE"
@@ -968,7 +968,7 @@ msgstr "&Срібний стиль"
 
 #. Resource IDs: (1185)
 msgid "&Specific revision in repository"
-msgstr "&Певна модифікація в репозиторії"
+msgstr "&Певна модифікація у сховищі"
 
 #. Resource IDs: (16917)
 #, fuzzy
@@ -1071,7 +1071,7 @@ msgstr "&Дві сторінки"
 
 #. Resource IDs: (1058, 1376, 1394)
 msgid "&URL of repository:"
-msgstr "&URL репозиторія:"
+msgstr "&URL сховища:"
 
 #. Resource IDs: (1076)
 msgid "&URL:"
@@ -1578,7 +1578,7 @@ msgstr ""
 "\r\n"
 "У шляху можна вказати такі параметри:\r\n"
 "%merged : конфліктний файл, куди зберігати\r\n"
-"%theirs : файл, як він є в репозиторії\r\n"
+"%theirs : файл, як він є у сховищі\r\n"
 "%mine : ваш файл, з внесеними змінами\r\n"
 "%base : базовий файл, без ваших змін"
 
@@ -1873,7 +1873,7 @@ msgstr "Пе&ревірити вже"
 
 #. Resource IDs: (1132)
 msgid "C&heck repository"
-msgstr "Пе&ревірити репозиторій"
+msgstr "Пе&ревірити сховище"
 
 #. Resource IDs: (275)
 msgid "C&ollapse sub-trees"
@@ -2062,7 +2062,7 @@ msgstr "Перевірити на модифікування"
 
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
-msgstr "Вивірити робочу копію з репозиторію"
+msgstr "Вивірити робочу копію зі сховища"
 
 #. Resource IDs: (95)
 msgid ""
@@ -2325,7 +2325,7 @@ msgstr "Фіксувань щотижня:"
 
 #. Resource IDs: (9)
 msgid "Commits your changes to the repository"
-msgstr "Фіксує зміни в репозиторій"
+msgstr "Фіксує зміни до сховища"
 
 #. Resource IDs: (170)
 msgid ""
@@ -2334,6 +2334,10 @@ msgid ""
 "\n"
 "Are you sure that you want to continue the commit?"
 msgstr ""
+"Фіксування неверсійного каталогу не додасть усіх його піделементів рекурсивно!\n"
+"Мабуть слід рекурсивно додати ці каталоги за допомогою пункта контекстного меню 'Додати...'\n"
+"\n"
+"Дійсно продовжити фіксування?"
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
@@ -2369,7 +2373,7 @@ msgstr "Порівнює файл з останньою зафіксованою
 
 #. Resource IDs: (17)
 msgid "Compares the selected file with a file in the repository"
-msgstr "Порівнює вибраний файл із файлом у репозиторії"
+msgstr "Порівнює вибраний файл із файлом у сховищі"
 
 #. Resource IDs: (120)
 #, c-format
@@ -2420,7 +2424,7 @@ msgstr "Конфлікти: %d"
 
 #. Resource IDs: (345)
 msgid "Connect to the repository server and download missing log data"
-msgstr "З'єднатися з сервером репозиторію та завантажити відсутні дані логу"
+msgstr "З'єднатися з сервером сховища та завантажити відсутні дані логу"
 
 #. Resource IDs: (65535)
 msgid "Container sizes"
@@ -2751,7 +2755,7 @@ msgstr "Створити патч"
 
 #. Resource IDs: (1385)
 msgid "Create copy in the repository from:"
-msgstr "Створити копію в репозиторії з:"
+msgstr "Створити у сховищі копію з:"
 
 #. Resource IDs: (126)
 #, c-format
@@ -2776,7 +2780,7 @@ msgstr "Каталог створено на віддалі"
 
 #. Resource IDs: (10)
 msgid "Creates a 'cheap' copy inside the repository used for branches or tagging"
-msgstr "Створює 'дешеву' копію всередині репозиторію, що використовується для гілок або зрізування"
+msgstr "Створює 'дешеву' копію всередині сховища, що використовується для гілок або зрізування"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -2788,7 +2792,7 @@ msgstr ""
 
 #. Resource IDs: (10)
 msgid "Creates a repository database at the current location"
-msgstr "Створює базу даних репозиторія у поточному місцеперебуванні"
+msgstr "Створює базу даних сховища у поточному місцеперебуванні"
 
 #. Resource IDs: (14)
 msgid "Creates a unified diff file with all changes you made"
@@ -2890,11 +2894,11 @@ msgstr "Знищити"
 
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
-msgstr ""
+msgstr "Знищити неверсійні  елементи"
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
-msgstr ""
+msgstr "Знищити неверсійні  елементи..."
 
 #. Resource IDs: (73, 264)
 msgid "Deleted"
@@ -3080,6 +3084,9 @@ msgid ""
 "This will remove all Subversion admin directories from\n"
 "%s!"
 msgstr ""
+"Зробити цю робочу копію неверсійною?\n"
+"Це видалить усі адміністративні каталоги Subversion із\n"
+"%s!"
 
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
@@ -3472,7 +3479,7 @@ msgstr "Експортувати виділений кеш як набір фа�
 
 #. Resource IDs: (79)
 msgid "Export unversioned files too"
-msgstr ""
+msgstr "Експортувати також неверсійні файли"
 
 #. Resource IDs: (284)
 #, c-format
@@ -3485,7 +3492,7 @@ msgstr "Експортування..."
 
 #. Resource IDs: (10)
 msgid "Exports a repository to a clean working copy without the svn administrative folders"
-msgstr "Експортує репозиторій до чистої робочої копії без адміністративних каталогів svn"
+msgstr "Експортує сховище до чистої робочої копії без адміністративних каталогів svn"
 
 #. Resource IDs: (581)
 msgid "Exports a set of properties to a file"
@@ -3911,7 +3918,7 @@ msgstr "Отримується інформація про файл..."
 
 #. Resource IDs: (269)
 msgid "Getting information from repository..."
-msgstr "Отримується інформація з репозитрію..."
+msgstr "Отримується інформація зі сховища..."
 
 #. Resource IDs: (120)
 msgid "Getting information..."
@@ -4283,7 +4290,7 @@ msgid ""
 "If checked then a new folder is created in the repository.\n"
 "If not checked then the import goes directly to the specified URL."
 msgstr ""
-"Якщо відмічено, то у репозиторії створюється новий каталог.\n"
+"Якщо відмічено, то у сховищі створюється новий каталог.\n"
 "Якщо ні, то імпорт відбувається безпосередньо на вказаний URL."
 
 #. Resource IDs: (79)
@@ -4349,10 +4356,12 @@ msgid ""
 "If set, then unversioned files will mark the status of the parent directory as modified\r\n"
 "i.e. they get the modified overlay icon."
 msgstr ""
+"Якщо встановлено, неверсійні файли позначатимуть стан батьківського каталогу як змінений,\r\n"
+"наприклад, там буде піктограма перекриття 'модифіковано'."
 
 #. Resource IDs: (1439)
 msgid "If the repository can not be contacted"
-msgstr "Якщо не вдається зв'язатися з репизиторієм"
+msgstr "Якщо не вдається зв'язатися зі сховищем"
 
 #. Resource IDs: (196)
 msgid ""
@@ -4486,7 +4495,7 @@ msgstr "Імпортуєься файл %s"
 
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
-msgstr "Імпортує каталог у репозиторій"
+msgstr "Імпортує каталог у сховище"
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -4615,13 +4624,13 @@ msgid ""
 "If you are not sure what to do, please refer to our docs on <i>relocate</i>.\n"
 "Do you really want to relocate?"
 msgstr ""
-"Здається ви намагеєтеся <b>перенести</b> свою робочу копію на інший шлях у тому ж репозиторії.\n"
+"Здається ви намагеєтеся <b>перенести</b> свою робочу копію на інший шлях у тому ж сховищі.\n"
 "\n"
 "З:\t%s\n"
 "До:\t\t%s\n"
 "\n"
-"Перенесення потрібно тільки якщо шлях <b>до</b> репозитроію змінився.\n"
-"Зміна шляху  <b>всередині</b> репозиторія здійснюється операцією переключення.\n"
+"Перенесення потрібно тільки якщо шлях <b>до</b> сховища змінився.\n"
+"Зміна шляху  <b>всередині</b> сховища здійснюється операцією переключення.\n"
 "\n"
 "Неправильне використання перенесення <b>пошкодить вашу робочу копію!</b>\n"
 "Якщо ви не певні, що слід зробити, зверніться до документації про <i>перенесення</i>.\n"
@@ -4648,11 +4657,11 @@ msgstr "Зберігати списки змін"
 
 #. Resource IDs: (610)
 msgid "Keep the directory from the repository"
-msgstr "Залишити каталог з репозиторію"
+msgstr "Залишити каталог зі сховища"
 
 #. Resource IDs: (610)
 msgid "Keep the file from the repository"
-msgstr "Залишити файл з репозиторію"
+msgstr "Залишити файл зі сховища"
 
 #. Resource IDs: (610)
 msgid "Keep the local directory"
@@ -4777,7 +4786,7 @@ msgid ""
 "repository URL will be saved to."
 msgstr ""
 "Місцеперебування, у якому буде \n"
-"збережено вміст URL репозиторія."
+"збережено вміст URL сховища."
 
 #. Resource IDs: (32854)
 msgid "Locator Bar"
@@ -5053,7 +5062,7 @@ msgstr "Зливається %s у %s, %s"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
-msgstr "Зливаються відмінності між URLами репозиторіїв"
+msgstr "Зливаються відмінності між URLами сховищ"
 
 #. Resource IDs: (229)
 #, c-format
@@ -5266,7 +5275,7 @@ msgstr "Мережа"
 
 #. Resource IDs: (199)
 msgid "Never try to contact the repository again"
-msgstr "Не намагайтеся знову контактувати з репозиторієм. Ніколи."
+msgstr "Не намагайтеся знову контактувати зі сховищем. Ніколи."
 
 #. Resource IDs: (1002, 30721, 65535)
 #, fuzzy
@@ -5339,6 +5348,9 @@ msgid ""
 "Check one or more settings below to see unversioned, ignored and/or unmodified files.\n"
 "To see remote changes, click on 'Check Repository'"
 msgstr ""
+"За поточних налаштувань нема яких файлів показувати.\n"
+"Перевірте нижченаведені налаштування, щоб побачити неверсійні, ігноровані та/або немодифіковані файли.\n"
+"Щоб побачити віддалені зміни, натисніть 'Перевірити сховище'"
 
 #. Resource IDs: (77)
 msgid ""
@@ -5357,6 +5369,10 @@ msgid ""
 "for TortoiseSVN to do here...\n"
 "Do you want to see the unversioned files?"
 msgstr ""
+"З часу останньої фіксації\n"
+"жодних файлів не додавалося.\n"
+"TortoiseSVN тут робити нічого...\n"
+"Хочете побачити неверсійні файли?"
 
 #. Resource IDs: (273)
 msgid "No graph available"
@@ -5373,7 +5389,7 @@ msgstr "Немає виправлень правопису"
 
 #. Resource IDs: (196)
 msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
-msgstr ""
+msgstr "Немає неша стану. Тільки версійні каталоги отримують перекриття, а файли не отримують."
 
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
@@ -5403,7 +5419,7 @@ msgstr "Не рекурсивно"
 
 #. Resource IDs: (1481)
 msgid "Note: the folder contains unversioned items"
-msgstr ""
+msgstr "Зауваження: каталог містить неверсійні елементи"
 
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
@@ -5595,7 +5611,7 @@ msgstr ""
 
 #. Resource IDs: (13)
 msgid "Opens the repository browser to tweak the repository online"
-msgstr "Відкриває оглядач репозиторію щоб підлаштувати репозиторій на льоту"
+msgstr "Відкриває оглядач сховища щоб підлаштувати сховище на льоту"
 
 #. Resource IDs: (199)
 msgid "Operate from log cache for now only"
@@ -5799,7 +5815,7 @@ msgstr "Зачекайте, поки отримуються відмінност
 
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
-msgstr "Зачекайте, поки оглядач репозиторію ініціалізується..."
+msgstr "Зачекайте, поки оглядач сховища ініціалізується..."
 
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
@@ -6076,7 +6092,7 @@ msgstr ""
 
 #. Resource IDs: (1260)
 msgid "Recurse into unversioned folders"
-msgstr ""
+msgstr "Рекурсія всередину неверсійних каталогів"
 
 #. Resource IDs: (563)
 msgid "Recursive"
@@ -6275,7 +6291,7 @@ msgstr ""
 
 #. Resource IDs: (17)
 msgid "Removes all unversioned and ignored items"
-msgstr ""
+msgstr "Видаляє всі неверсійні та ігноровані елементи"
 
 #. Resource IDs: (15)
 msgid "Removes the file or filemask from the list of ignored items"
@@ -6354,19 +6370,19 @@ msgstr "Замінюється"
 
 #. Resource IDs: (1055, 1374, 1383)
 msgid "Repository"
-msgstr "Репозиторій"
+msgstr "Сховище"
 
 #. Resource IDs: (153)
 msgid "Repository Browser"
-msgstr "Оглядач репозиторію"
+msgstr "Оглядач сховища"
 
 #. Resource IDs: (199)
 msgid "Repository URL"
-msgstr "URL репозиторія"
+msgstr "URL сховища"
 
 #. Resource IDs: (65535)
 msgid "Repository UUID:"
-msgstr "UUID репозиторія:"
+msgstr "UUID сховища:"
 
 #. Resource IDs: (65535)
 msgid "Requests a username and a password"
@@ -6657,11 +6673,11 @@ msgstr "SVN Копіювати і додати файли до цього КВ"
 
 #. Resource IDs: (16)
 msgid "SVN Copy and rename versioned item here"
-msgstr ""
+msgstr "SVN Копіювати та перейменувати версійний елемент сюди"
 
 #. Resource IDs: (13)
 msgid "SVN Copy versioned item(s) here"
-msgstr ""
+msgstr "SVN Копіювати версійн(і) елемент(и) сюди"
 
 #. Resource IDs: (14)
 msgid "SVN Export all items here"
@@ -6669,7 +6685,7 @@ msgstr "SVN Експортувати всі елементи сюди"
 
 #. Resource IDs: (14)
 msgid "SVN Export versioned items here"
-msgstr ""
+msgstr "SVN Експортувати версійні елементи сюди"
 
 #. Resource IDs: (16)
 msgid "SVN Local lock owner"
@@ -6677,11 +6693,11 @@ msgstr "SVN Локальний власник блокування"
 
 #. Resource IDs: (17)
 msgid "SVN Move and rename versioned item here"
-msgstr ""
+msgstr "SVN Перемістити та перейменувати версійний елемент сюди"
 
 #. Resource IDs: (12)
 msgid "SVN Move versioned item(s) here"
-msgstr ""
+msgstr "SVN Перемістити версійн(і) елемент(и) сюди"
 
 #. Resource IDs: (11)
 msgid "SVN Revision"
@@ -7061,7 +7077,7 @@ msgstr "Показати в&ластивості"
 
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
-msgstr ""
+msgstr "Показувати &неверсійні файли"
 
 #. Resource IDs: (1069)
 msgid "Show Above the Ribbon"
@@ -7190,7 +7206,7 @@ msgstr "Показувати перекривання для ігнорован�
 
 #. Resource IDs: (1462)
 msgid "Show overlay for unversioned items"
-msgstr ""
+msgstr "Показувати перекриття для неверсійних елементів"
 
 #. Resource IDs: (102)
 msgid "Show revision properties"
@@ -7214,7 +7230,7 @@ msgstr "Показати статистику для вибраного лого
 
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
-msgstr ""
+msgstr "Показувати зрізи на сирцях копії, а не як окремі вузли"
 
 #. Resource IDs: (1209)
 msgid "Show un&modified files"
@@ -7222,7 +7238,7 @@ msgstr "Показати не&модифіковані файли"
 
 #. Resource IDs: (1073)
 msgid "Show un&versioned files"
-msgstr ""
+msgstr "Показувати не&версійні файли"
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -7249,7 +7265,7 @@ msgstr "Показує графічне представлення копій/з
 
 #. Resource IDs: (13)
 msgid "Shows all files which were changed since the last update, locally and in the repository"
-msgstr "Показує всі файли, які було змінено з часу останнього оновлення, локально та в репозиторії"
+msgstr "Показує всі файли, які було змінено з часу останнього оновлення, локально та у сховищі"
 
 #. Resource IDs: (2050)
 msgid "Shows all revisions where changes were made to this item"
@@ -7273,7 +7289,7 @@ msgstr "Показує лог для видраного файла / катал�
 
 #. Resource IDs: (14)
 msgid "Shows the mime type of the versioned file"
-msgstr ""
+msgstr "Показує тип mime версійного файла"
 
 #. Resource IDs: (32775)
 msgid "Single/&double-pane view"
@@ -7439,7 +7455,7 @@ msgid ""
 "Subversion reported an error while creating a repository!\n"
 "Make sure the folder is empty and not write protected."
 msgstr ""
-"Subversion доповіло про помилку під час створення репозиторію!\n"
+"Subversion доповіло про помилку під час створення сховища!\n"
 "Переконайтеся, що каталог порожній і не захищений від запису."
 
 #. Resource IDs: (81)
@@ -7672,6 +7688,8 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr ""
+"Каталог %s\n"
+"містить неверсійні та/або модифіковані файли. Видалити його не зважаючи на це?"
 
 #. Resource IDs: (88)
 #, c-format
@@ -7934,7 +7952,7 @@ msgstr ""
 
 #. Resource IDs: (80)
 msgid "The repository was successfully created."
-msgstr "Репозиторій успішно створений."
+msgstr "Сховище успішно створене."
 
 #. Resource IDs: (78)
 msgid ""
@@ -8026,6 +8044,8 @@ msgid ""
 "There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
 "Those files are not listed for commit. You need to commit those files separately."
 msgstr ""
+"Усередині одного чи кількох каталогів, включених у svn:externals, є зміни або неверсійні елементи.\n"
+"Ті файли відсутні у списку для фіксації. Їх потрібно зафіксувати окремо."
 
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
@@ -8068,7 +8088,7 @@ msgstr ""
 
 #. Resource IDs: (82)
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
-msgstr ""
+msgstr "Нічого додавати. Усі файли або під керуванням версіями, або ігноровані властивостю svn:ignore чи глобальним налаштуванням ігнорування."
 
 #. Resource IDs: (83)
 msgid "There's nothing to unlock. No file has a lock in this working copy."
@@ -8540,16 +8560,16 @@ msgstr ""
 
 #. Resource IDs: (146)
 msgid "Unversion"
-msgstr ""
+msgstr "Розверсіювати"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
-msgstr ""
+msgstr "Неверсійні файли позначають батьківських каталог як модифікований"
 
 #. Resource IDs: (286)
 #, c-format
 msgid "Unversioning %s"
-msgstr ""
+msgstr "Розверсійовується %s"
 
 #. Resource IDs: (106)
 msgid "Up one folder"
@@ -8693,7 +8713,7 @@ msgstr "Використати регулярний вираз"
 
 #. Resource IDs: (4)
 msgid "Use repository"
-msgstr "Використати репозиторій"
+msgstr "Використати сховище"
 
 #. Resource IDs: (1066)
 msgid "Use stri&keout for removed lines"
@@ -8794,7 +8814,7 @@ msgstr "Використати  цей файл &цілком"
 
 #. Resource IDs: (12)
 msgid "Use this if the URL of the repository has changed"
-msgstr "Використовувати це, якщо URL репозиторія змінівся"
+msgstr "Використовувати це, якщо URL сховища змінівся"
 
 #. Resource IDs: (251)
 msgid "Use whole other &file"
@@ -8845,7 +8865,7 @@ msgstr "Інформація про версію"
 
 #. Resource IDs: (264)
 msgid "Versioned"
-msgstr ""
+msgstr "Версійний"
 
 #. Resource IDs: (65535)
 msgid "View"
@@ -8897,13 +8917,13 @@ msgid ""
 "TSVN can switch to using cached data only.\n"
 "Select the default behaviour here."
 msgstr ""
-"Коли з'єднання з сервером репозиторію неможливе,\n"
-"TSVN може перейти на використання лише закешованих даних.\n"
-"Виберіть тут типову поведінку."
+"Коли з'єднання з сервером сховища неможливе,\n"
+"TSVN може перейти на використання тільки закешованих даних.\n"
+"Вкажіть тут типову поведінку."
 
 #. Resource IDs: (197)
 msgid "When enabled, the versioned items listed in the commit dialog are automatically selected"
-msgstr ""
+msgstr "Якщо уможливлено, версійні елементи зі списку діалогу фіксації вибираються автоматично"
 
 #. Resource IDs: (197)
 msgid ""
@@ -9053,6 +9073,8 @@ msgid ""
 "You selected an unversioned file.\n"
 "The file will be added to version control when you commit."
 msgstr ""
+"Ви вибрали неверсійний файл.\n"
+"Його буде додано до керування версіями після фіксації."
 
 #. Resource IDs: (1001)
 msgid "You should enter a text!"
@@ -9247,7 +9269,7 @@ msgid ""
 "ask repository first if 'online' -\n"
 "work entirely from cache if 'offline'"
 msgstr ""
-"спочатку перевірити, чи репозиторій 'у мережі' -\n"
+"спочатку перевірити, чи сховище 'у мережі' -\n"
 "якщо 'поза мережею', працювати лише з кешем"
 
 #. Resource IDs: (245)
@@ -9409,8 +9431,9 @@ msgid "it is already deleted."
 msgstr "вже знищено."
 
 #. Resource IDs: (583)
+#, fuzzy
 msgid "it is unversioned."
-msgstr ""
+msgstr "воно неверсійне."
 
 #. Resource IDs: (214)
 msgid "item kept locally"
@@ -9486,8 +9509,9 @@ msgid "no description for this command is available"
 msgstr "для цієї команди нема опису"
 
 #. Resource IDs: (10)
+#, fuzzy
 msgid "non-versioned"
-msgstr ""
+msgstr "неверсійні"
 
 #. Resource IDs: (10)
 msgid "normal"
