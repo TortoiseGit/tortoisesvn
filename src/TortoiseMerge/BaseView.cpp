@@ -2279,7 +2279,9 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
 	KillTimer(IDT_SCROLLTIMER);
 	if (nFlags & MK_LBUTTON)
 	{
-		int charIndex = CalculateCharIndex(nMouseLine >= 0 ? nMouseLine : 0, m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth());
+		int saveMouseLine = nMouseLine >= 0 ? nMouseLine : 0;
+		saveMouseLine = saveMouseLine < GetLineCount() ? saveMouseLine : GetLineCount() - 1;
+		int charIndex = CalculateCharIndex(saveMouseLine, m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth());
 		if (((m_nSelBlockStart >= 0)&&(m_nSelBlockEnd >= 0))&&
 			((nMouseLine >= m_nTopLine)&&(nMouseLine < GetLineCount())))
 		{
@@ -2294,22 +2296,22 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
 		if (nMouseLine < m_nTopLine)
 		{
 			ScrollToLine(m_nTopLine-1, TRUE);
-			SetTimer(IDT_SCROLLTIMER, 50, NULL);
+			SetTimer(IDT_SCROLLTIMER, 20, NULL);
 		}
 		if (nMouseLine >= m_nTopLine + GetScreenLines())
 		{
 			ScrollToLine(m_nTopLine+1, TRUE);
-			SetTimer(IDT_SCROLLTIMER, 50, NULL);
+			SetTimer(IDT_SCROLLTIMER, 20, NULL);
 		}
 		if (charIndex <= m_nOffsetChar)
 		{
 			ScrollSide(-1);
-			SetTimer(IDT_SCROLLTIMER, 50, NULL);
+			SetTimer(IDT_SCROLLTIMER, 20, NULL);
 		}
 		if (charIndex >= GetScreenChars())
 		{
 			ScrollSide(1);
-			SetTimer(IDT_SCROLLTIMER, 50, NULL);
+			SetTimer(IDT_SCROLLTIMER, 20, NULL);
 		}
 	}
 
@@ -2330,6 +2332,7 @@ void CBaseView::OnMouseLeave()
 {
 	ShowDiffLines(-1);
 	m_bMouseWithin = FALSE;
+	KillTimer(IDT_SCROLLTIMER);
 	CView::OnMouseLeave();
 }
 
@@ -2348,26 +2351,28 @@ void CBaseView::OnTimer(UINT_PTR nIDEvent)
 		}
 		if (GetKeyState(VK_LBUTTON)&0x8000)
 		{
-			int charIndex = CalculateCharIndex(nMouseLine >= 0 ? nMouseLine : 0, m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth());
+			int saveMouseLine = nMouseLine >= 0 ? nMouseLine : 0;
+			saveMouseLine = saveMouseLine < GetLineCount() ? saveMouseLine : GetLineCount() - 1;
+			int charIndex = CalculateCharIndex(saveMouseLine, m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth());
 			if (nMouseLine < m_nTopLine)
 			{
 				ScrollToLine(m_nTopLine-1, TRUE);
-				SetTimer(IDT_SCROLLTIMER, 50, NULL);
+				SetTimer(IDT_SCROLLTIMER, 20, NULL);
 			}
 			if (nMouseLine >= m_nTopLine + GetScreenLines())
 			{
 				ScrollToLine(m_nTopLine+1, TRUE);
-				SetTimer(IDT_SCROLLTIMER, 50, NULL);
+				SetTimer(IDT_SCROLLTIMER, 20, NULL);
 			}
 			if (charIndex <= m_nOffsetChar)
 			{
 				ScrollSide(-1);
-				SetTimer(IDT_SCROLLTIMER, 50, NULL);
+				SetTimer(IDT_SCROLLTIMER, 20, NULL);
 			}
 			if (charIndex >= GetScreenChars())
 			{
 				ScrollSide(1);
-				SetTimer(IDT_SCROLLTIMER, 50, NULL);
+				SetTimer(IDT_SCROLLTIMER, 20, NULL);
 			}
 		}
 
