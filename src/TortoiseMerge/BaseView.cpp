@@ -1857,43 +1857,8 @@ void CBaseView::RefreshViews()
 
 void CBaseView::GoToFirstDifference()
 {
-	int nCenterPos = 0;
-	if ((m_pViewData)&&(0 < m_pViewData->GetCount()))
-	{
-		while (nCenterPos < m_pViewData->GetCount())
-		{
-			DiffStates linestate = m_pViewData->GetState(nCenterPos);
-			if ((linestate != DIFFSTATE_NORMAL) &&
-				(linestate != DIFFSTATE_UNKNOWN))
-				break;
-			nCenterPos++;
-		}
-		if (nCenterPos >= m_pViewData->GetCount())
-			nCenterPos = m_pViewData->GetCount()-1;
-		int nTopPos = nCenterPos - (GetScreenLines()/2);
-		if (nTopPos < 0)
-			nTopPos = 0;
-		if (m_pwndLeft)
-		{
-			m_pwndLeft->m_ptCaretPos.x = 0;
-			m_pwndLeft->m_ptCaretPos.y = nCenterPos;
-			m_pwndLeft->m_nCaretGoalPos = 0;
-		}
-		if (m_pwndRight)
-		{
-			m_pwndRight->m_ptCaretPos.x = 0;
-			m_pwndRight->m_ptCaretPos.y = nCenterPos;
-			m_pwndRight->m_nCaretGoalPos = 0;
-		}
-		if (m_pwndBottom)
-		{
-			m_pwndBottom->m_ptCaretPos.x = 0;
-			m_pwndBottom->m_ptCaretPos.y = nCenterPos;
-			m_pwndBottom->m_nCaretGoalPos = 0;
-		}
-		ScrollAllToLine(nTopPos);
-		RecalcAllVertScrollBars(TRUE);
-	}
+	m_ptCaretPos.y = 0;
+	SelectNextBlock(1, false, false);
 }
 
 void CBaseView::HiglightLines(int start, int end /* = -1 */)
@@ -1951,7 +1916,7 @@ void CBaseView::OnMergePreviousdifference()
 	SelectNextBlock(-1, false);
 }
 
-void CBaseView::SelectNextBlock(int nDirection, bool bConflict)
+void CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfCurrentBlock /* = true */)
 {
 	if (! m_pViewData)
 		return;
@@ -1967,11 +1932,14 @@ void CBaseView::SelectNextBlock(int nDirection, bool bConflict)
 	if (nCenterPos >= m_pViewData->GetCount())
 		nCenterPos = m_pViewData->GetCount()-1;
 
-	// Find end of current block
-	DiffStates state = m_pViewData->GetState(nCenterPos);
-	while ((nCenterPos != nLimit) && 
-		   (m_pViewData->GetState(nCenterPos)==state))
-		nCenterPos += nDirection;
+	if (bSkipEndOfCurrentBlock) 
+	{
+		// Find end of current block
+		DiffStates state = m_pViewData->GetState(nCenterPos);
+		while ((nCenterPos != nLimit) && 
+		       (m_pViewData->GetState(nCenterPos)==state))
+			nCenterPos += nDirection;
+	}
 
 	// Find next diff/conflict block
 	while (nCenterPos != nLimit)
@@ -1992,10 +1960,10 @@ void CBaseView::SelectNextBlock(int nDirection, bool bConflict)
 	}
 
 	// Find end of new block
-	state = m_pViewData->GetState(nCenterPos);
+	DiffStates state = m_pViewData->GetState(nCenterPos);
 	int nBlockEnd = nCenterPos;
 	while ((nBlockEnd != nLimit) &&  
-		   (state == m_pViewData->GetState(nBlockEnd + nDirection)))
+			 (state == m_pViewData->GetState(nBlockEnd + nDirection)))
 		nBlockEnd += nDirection;
 
 	int nTopPos = nCenterPos - (GetScreenLines()/2);
@@ -2294,6 +2262,12 @@ void CBaseView::OnEditCopy()
 
 void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
 {
+	if (m_pMainFrame->m_nMoveMovesToIgnore > 0) {
+		--m_pMainFrame->m_nMoveMovesToIgnore;
+		CView::OnMouseMove(nFlags, point);
+		return;
+	}
+
 	int nMouseLine = (((point.y - HEADERHEIGHT) / GetLineHeight()) + m_nTopLine);
 	nMouseLine--;		//we need the index
 	if (nMouseLine < -1)

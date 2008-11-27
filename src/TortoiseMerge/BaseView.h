@@ -212,7 +212,7 @@ protected:
 	void			DrawText(CDC * pDC, const CRect &rc, LPCTSTR text, int textlength, int nLineIndex, POINT coords, bool bModified, bool bInlineDiff);
 	void			ClearCurrentSelection();
 	void			AdjustSelection();
-	void            SelectNextBlock(int nDirection, bool bConflict);
+	void			SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfCurrentBlock = true);
 
 	void			RemoveLine(int nLineIndex);
 	void			RemoveSelectedText();
