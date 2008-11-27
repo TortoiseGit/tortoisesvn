@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-27 11:30+0200\n"
+"PO-Revision-Date: 2008-11-27 13:00+0200\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1603,7 +1603,7 @@ msgstr "У рядку %d виявлено невідомий тип рядка!"
 
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
-msgstr ""
+msgstr "Меню кістяка програми:"
 
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
@@ -3809,7 +3809,7 @@ msgstr "Щоб отримати Довідку, натисніть F1. Гори�
 
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
-msgstr ""
+msgstr "Для повної історії зніміть виділення зі 'Спинитися при копіюванні/перейменуванні'"
 
 #. Resource IDs: (1064)
 #, fuzzy
@@ -4328,6 +4328,8 @@ msgid ""
 "If enabled, the repository is contacted when the dialog starts up.\r\n"
 "You don't have to click on 'Check Repository' anymore."
 msgstr ""
+"Якщо уможливлено, під час запуску діалога відбувається контакт зі сховищем.\r\n"
+"Більше не потрібно натискати 'Перевірити сховище'."
 
 #. Resource IDs: (197)
 msgid ""
@@ -5855,8 +5857,9 @@ msgid "Press &new shortcut key:"
 msgstr "Натисніть &нову гарячу клавішу:"
 
 #. Resource IDs: (2052)
+#, fuzzy
 msgid "Prevents most cases in which connection lines cross revision nodes"
-msgstr ""
+msgstr "Запобігає більшості випадків, у яких рядки з'єднань перетинають вузли модифікацій"
 
 #. Resource IDs: (1069)
 msgid "Preview"
@@ -6136,6 +6139,21 @@ msgid ""
 "\\d   : digits 0-9\r\n"
 "\\s   : whitespaces"
 msgstr ""
+"Фільтр регулярних виразів:\r\n"
+".   : будь-який символ\r\n"
+"c+   : співпадає з символом c один або більше разів\r\n"
+"c*   : співпадає з символом c нуль або більше разів\r\n"
+"^   : початок рядка\r\n"
+"$   : кінець рядка\r\n"
+"(string){n} : співпадає з рядком n разів\r\n"
+"(abcd)   : підвираз\r\n"
+"[aei0-9]   : співпадає з  a,e,i та 0..9\r\n"
+"[^aei0-9] : будь-що, крім a,e,i та 0..9\r\n"
+"\r\n"
+"\\w   : співпадає з  a-z,A-Z,0-9 та _\r\n"
+"\\W   : будь-який не буквоцифровий символ\r\n"
+"\\d   : цифри 0-9\r\n"
+"\\s   : пробіли"
 
 #. Resource IDs: (1469)
 msgid "Reintegrate a branch"
@@ -7604,11 +7622,11 @@ msgstr "Початок кавалка '@@' очікувався в рядку %d
 
 #. Resource IDs: (346)
 msgid "The color of creation, copy and rename nodes of tags will be shifted towards yellow."
-msgstr ""
+msgstr "Колір вузлів створення, копіювання та перейменування зрізів буде зміщено до жовтого."
 
 #. Resource IDs: (346)
 msgid "The color of creation, copy and rename nodes of the trunk will be shifted towards green."
-msgstr ""
+msgstr "Колір вузлів створення, копіювання та перейменування стовбура буде зміщено до зеленого."
 
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
