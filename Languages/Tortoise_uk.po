@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-27 13:00+0200\n"
+"PO-Revision-Date: 2008-11-27 17:47+0200\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -175,9 +175,9 @@ msgid "%s in %s"
 msgstr "%s у %s"
 
 #. Resource IDs: (357)
-#, fuzzy, c-format
+#, c-format
 msgid "%s, at %s"
-msgstr "%s, на %s"
+msgstr "%s, зі швидкістю %s"
 
 #. Resource IDs: (609)
 #, c-format
@@ -495,7 +495,6 @@ msgid "&Diff with previous version"
 msgstr "Ві&дмінності з попередньою версією"
 
 #. Resource IDs: (1066)
-#, fuzzy
 msgid "&Docking"
 msgstr "С&тикування"
 
@@ -703,9 +702,8 @@ msgid "&Load..."
 msgstr "За&вантажити..."
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "&Lum:"
-msgstr "&Яскравість:"
+msgstr "&Яскр:"
 
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
@@ -922,9 +920,8 @@ msgid "&SSH client:"
 msgstr "Клієнт &SSH"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "&Sat:"
-msgstr "На&сиченість:"
+msgstr "На&сич:"
 
 #. Resource IDs: (16921, 57603)
 msgid "&Save"
@@ -971,7 +968,6 @@ msgid "&Specific revision in repository"
 msgstr "&Певна модифікація у сховищі"
 
 #. Resource IDs: (16917)
-#, fuzzy
 msgid "&Start Group"
 msgstr "По&чаткова група"
 
@@ -1167,9 +1163,8 @@ msgid "(not found)"
 msgstr "(не знайдено)"
 
 #. Resource IDs: (208)
-#, fuzzy
 msgid "(property change only)"
-msgstr "(лише зміна властивості)"
+msgstr "(зміни лише властивостей)"
 
 #. Resource IDs: (245)
 msgid "(unknown)"
@@ -1970,7 +1965,6 @@ msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr "Не вдається показати відмінності через неузгоджені нові рядки у файлі."
 
 #. Resource IDs: (16926)
-#, fuzzy
 msgid "Cascade"
 msgstr "Каскадом"
 
@@ -2040,9 +2034,8 @@ msgid "Chec&kout..."
 msgstr "В&ивірити..."
 
 #. Resource IDs: (3887)
-#, fuzzy
 msgid "Check"
-msgstr "Перевірити"
+msgstr "Позначити"
 
 #. Resource IDs: (174)
 msgid "Check For Updates"
@@ -2139,7 +2132,7 @@ msgid ""
 "Cleanup failed to process the following paths:\n"
 "%s"
 msgstr ""
-"Очищенню не вдалося обробити наступні шляхи:\n"
+"Прибиранню не вдалося обробити наступні шляхи:\n"
 "%s"
 
 #. Resource IDs: (79)
@@ -2148,13 +2141,12 @@ msgid ""
 "Cleanup has successfully processed the following paths:\n"
 "%s"
 msgstr ""
-"Очищення успішно обробило наступні шляхи:\n"
+"Прибирання успішно обробило наступні шляхи:\n"
 "%s"
 
 #. Resource IDs: (9)
-#, fuzzy
 msgid "Cleanup interrupted operations, locked files, ..."
-msgstr "Операції, перервані очищенням, заблоковані файли, ..."
+msgstr "Прибирання перерваних операцій, заблокованих файлів, ..."
 
 #. Resource IDs: (1273, 1275, 1276, 1279, 1281, 1427)
 msgid "Clear"
@@ -3188,9 +3180,8 @@ msgid "Edit Property Conflict"
 msgstr "Редагувати конфлікт властвості"
 
 #. Resource IDs: (298)
-#, fuzzy
 msgid "Edit Tree Conflicts"
-msgstr "Редагувати конфлікти дерева"
+msgstr "Редагувати конфлікти дерев"
 
 #. Resource IDs: (113)
 msgid "Edit author"
@@ -3377,9 +3368,9 @@ msgid "Enter log message:"
 msgstr "Введіть логове повідомлення:"
 
 #. Resource IDs: (3858)
-#, fuzzy, c-format
+#, c-format
 msgid "Enter no more than %1 characters."
-msgstr "Вводити не більше ніж %1 символів."
+msgstr "Введіть не більше ніж %1 символів."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -3613,9 +3604,8 @@ msgid "File"
 msgstr "Файл"
 
 #. Resource IDs: (1138)
-#, fuzzy
 msgid "File changes each week:"
-msgstr "Зміни файлів кожного тижня:"
+msgstr "Змін файлів кожного тижня:"
 
 #. Resource IDs: (376)
 msgid "File diffs"
@@ -4041,7 +4031,7 @@ msgstr "Заховати пристиковане вікно"
 
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
-msgstr ""
+msgstr "Ховати скрипт поки він виконується"
 
 #. Resource IDs: (32830)
 msgid "Hide unused &branches"
@@ -4895,9 +4885,8 @@ msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision:
 msgstr ""
 
 #. Resource IDs: (16973)
-#, fuzzy
 msgid "Lum"
-msgstr "Яскравість"
+msgstr "Яскр"
 
 #. Resource IDs: (3866)
 msgid "Mail system DLL is invalid."
@@ -5016,7 +5005,6 @@ msgid "Merge reintegrate..."
 msgstr "Злити переінтегрування..."
 
 #. Resource IDs: (595)
-#, fuzzy
 msgid "Merge revision range"
 msgstr "Злити діапазон модифікацій"
 
@@ -5398,9 +5386,8 @@ msgid "No thesaurus suggestions"
 msgstr "Тезаурус припущень не має"
 
 #. Resource IDs: (1271)
-#, fuzzy
 msgid "None"
-msgstr "Жодних"
+msgstr "Жодного"
 
 #. Resource IDs: (264, 65535)
 #, fuzzy
@@ -5453,7 +5440,7 @@ msgstr "Кількість закешованих модифікацій, що �
 
 #. Resource IDs: (339)
 msgid "Number of cached revisions that have user revision properties"
-msgstr ""
+msgstr "Кількість кешованих модифікацій, що мають властивості модифікацій користувача"
 
 #. Resource IDs: (339)
 msgid "Number of cached revisions whose change list is not cached yet"
@@ -5461,7 +5448,7 @@ msgstr "Кількість закешованих модифікацій, у я�
 
 #. Resource IDs: (339)
 msgid "Number of cached revisions whose user revision properties are not cached yet"
-msgstr ""
+msgstr "Кількість кешованих модифікацій, у яких властивості модифікацій користувача ще не закешовані"
 
 #. Resource IDs: (338)
 msgid "Number of different paths shown in the log dialog, including parent paths"
@@ -5775,7 +5762,7 @@ msgstr ""
 
 #. Resource IDs: (251)
 msgid "Please execute the 'Cleanup' command."
-msgstr "Виконайте команду 'Очистити'."
+msgstr "Виконайте команду 'Прибрати'."
 
 #. Resource IDs: (78)
 msgid ""
@@ -6111,7 +6098,7 @@ msgstr ""
 
 #. Resource IDs: (32819)
 msgid "Reduce cross-&lines"
-msgstr ""
+msgstr "Зменшити перехрещення &рядків"
 
 #. Resource IDs: (3825)
 msgid "Reduce the window to an icon"
@@ -6358,7 +6345,6 @@ msgid "Renames files / folders inside version control"
 msgstr "Перейменовує файли / каталоги під керуванням версіями"
 
 #. Resource IDs: (209)
-#, fuzzy
 msgid "Repair move"
 msgstr "Полагодити переміщення"
 
@@ -6484,19 +6470,18 @@ msgid "Retry"
 msgstr "Спробуй ще раз"
 
 #. Resource IDs: (1423)
-#, fuzzy
 msgid "Reverse merge"
 msgstr "Зворотнє злиття"
 
 #. Resource IDs: (264)
-#, fuzzy, c-format
+#, c-format
 msgid "Reverse merging %ld"
-msgstr "Зворотньо зливаються  %ld"
+msgstr "Зворотньо зливається  %ld"
 
 #. Resource IDs: (264)
-#, fuzzy, c-format
+#, c-format
 msgid "Reverse merging %ld through %ld"
-msgstr "Зворотньо зливаються від  %ld до %ld"
+msgstr "Зворотньо зливаються від %ld до %ld"
 
 #. Resource IDs: (175, 229)
 msgid "Revert"
@@ -6788,7 +6773,7 @@ msgstr "Збережені дані"
 
 #. Resource IDs: (344)
 msgid "Saves expensive server roundtrips when set to longer than 0 seconds"
-msgstr ""
+msgstr "Зберігає витратні звернення до сервера, якщо встановлено у більше ніж 0 секунд"
 
 #. Resource IDs: (581)
 msgid "Saves the selected property value to a file"
@@ -6998,7 +6983,7 @@ msgstr "&Адреса сервера:"
 
 #. Resource IDs: (65535)
 msgid "Set Accelerator &for:"
-msgstr ""
+msgstr "Задати Прискорювач &для:"
 
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
@@ -7055,7 +7040,7 @@ msgstr "Показати"
 
 #. Resource IDs: (16996)
 msgid "Show &Accelerator for:"
-msgstr ""
+msgstr "Показати &Прискорювач для:"
 
 #. Resource IDs: (115, 1031)
 msgid "Show &All"
@@ -7145,7 +7130,7 @@ msgstr "Показувати Панель швидкого доступу під
 
 #. Resource IDs: (16651)
 msgid "Show Screen&Tips on toolbars"
-msgstr ""
+msgstr "Показувати Екранні &підказки на рядках знарядь"
 
 #. Resource IDs: (32831)
 msgid "Show WC &modifications"
@@ -7483,7 +7468,7 @@ msgid ""
 "<hr=100%%>\n"
 "%s"
 msgstr ""
-"Subversion доповідає про помилку під час виконання очищення!\n"
+"Subversion доповідає про помилку під час виконання прибирання!\n"
 "<hr=100%%>\n"
 "%s"
 
@@ -7947,6 +7932,14 @@ msgid ""
 "\n"
 "Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
 msgstr ""
+"Шлях\n"
+"<i>%s</i>\n"
+"з файлу-латки не існує.\n"
+"TortoiseMerge знайшло відносний шлях\n"
+"<i>%s</i>\n"
+"який ніби співпадає з каталогом, що латається.\n"
+"\n"
+"Використати запропонований шлях? Відповідь 'ні' призведедо виходу з TortoiseMerge."
 
 #. Resource IDs: (314)
 #, c-format
@@ -7956,6 +7949,10 @@ msgid ""
 "in the patchfile does not exist.\n"
 "TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
 msgstr ""
+"Шлях\n"
+"<i>%s</i>\n"
+"з файлу-латки не існує.\n"
+"TortoiseMerge намагався латати обрізаючи префікси, але не знайшов підходящого шляху."
 
 #. Resource IDs: (314)
 #, c-format
@@ -7967,6 +7964,12 @@ msgid ""
 "<i>%s</i>\n"
 "matches it better. Do you want to use the suggested path instead?"
 msgstr ""
+"Шлях\n"
+"<i>%s</i>\n"
+"ніби не співпадає зі шляхами з файлу-латки.\n"
+"Але TortoiseMerge снайшло шлях\n"
+"<i>%s</i>\n"
+"який співпадає краще. Хочете натомість використати запропонований шлях?"
 
 #. Resource IDs: (80)
 msgid "The repository was successfully created."
@@ -8394,13 +8397,12 @@ msgid "Tree conflict"
 msgstr "Конфлікт дерева"
 
 #. Resource IDs: (595)
-#, fuzzy
 msgid "Tree merge"
-msgstr "Злиття дерева"
+msgstr "Злиття дерев"
 
 #. Resource IDs: (251)
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
-msgstr "Спробуйте 'Очистити'. Якщо це не спрацює, доведеться зробити свіжу вивірку."
+msgstr "Спробуйте 'Прибрати'. Якщо це не спрацює, доведеться зробити свіжу вивірку."
 
 #. Resource IDs: (73)
 msgid "Try again"
@@ -8660,6 +8662,9 @@ msgid ""
 "To separate multiple exceptions, use commas (',').\r\n"
 "Example: *.mylan.com, *.company.com"
 msgstr ""
+"Використовуйте '*' як символ узагальнення, вказуючи виключення.\r\n"
+"Щоб розділити декілька виключень, користуйтеся комами (',').\r\n"
+"Приклад: *.mylan.com, *.company.com"
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
@@ -8891,11 +8896,11 @@ msgstr "Перегляд"
 
 #. Resource IDs: (114)
 msgid "View revision for path in &webviewer"
-msgstr ""
+msgstr "Переглянути модифікацію для шляху у &веб-переглядачі"
 
 #. Resource IDs: (114)
 msgid "View revision in &webviewer"
-msgstr ""
+msgstr "Переглянути модифікацію у &веб-переглядачі"
 
 #. Resource IDs: (1084)
 msgid "Visit our website"
@@ -9114,6 +9119,14 @@ msgid ""
 "It seems the item got renamed outside Subversion but only with case changes.\n"
 "Do you really want to add it?"
 msgstr ""
+"Ви намагаєтеся додати елемент\n"
+"'%s',\n"
+"але елемент\n"
+"'%s'\n"
+"уже існує.\n"
+"\n"
+"Схоже що елемент було перейменовано поза Subversion, але змінився лише регістр.\n"
+"Дійсно його додати?"
 
 #. Resource IDs: (195)
 #, c-format
@@ -9557,7 +9570,6 @@ msgid "or"
 msgstr "або"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "pair tokens: "
 msgstr "парних лексем:"
 
@@ -9710,6 +9722,11 @@ msgid ""
 "indicating that a user must acquire a lock on the file\r\n"
 "before they can edit it and commit changes."
 msgstr ""
+"svn:needs-lock\r\n"
+"Задайте цьому будь-яке значення (напр. '*'), для вимушення блокування цього файла.\r\n"
+"Під час вивірки або оновлення цей файл буде переведено в режим лише для читання,\r\n"
+"щоб показати, що користувач повинен отримати блокування на цей файл\r\n"
+"перш ніж зможе редагувати його та фіксувати зміни."
 
 #. Resource IDs: (208)
 #, c-format
@@ -9797,6 +9814,8 @@ msgid ""
 "tsvn:logsummary\r\n"
 "A regex string which extracts a summary from a log message in its first group."
 msgstr ""
+"tsvn:logsummary\r\n"
+"Регулярний вираз, що видобуває резюме з логового повідомлення у його першій групі."
 
 #. Resource IDs: (578)
 msgid ""
@@ -9853,7 +9872,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
-msgstr ""
+msgstr "властивостей модифікацій користувача, всього:"
 
 #. Resource IDs: (563)
 msgid "values are different"
@@ -9867,6 +9886,10 @@ msgid ""
 "The string %REVISION% in the URL is replaced with the revision number,\r\n"
 "the string %PATH% is replaced with the path to the file relative to the repository root."
 msgstr ""
+"webviewer:pathrevision\r\n"
+"URL, що вказує на веб-переглядач для сховища для певного файла та модифікації.\r\n"
+"Рядок %REVISION% у цьому URL замінюється номером модифікації,\r\n"
+"рядок %PATH% замінюється шляхом до файла відносно кореня сховища."
 
 #. Resource IDs: (579)
 #, c-format
@@ -9875,6 +9898,9 @@ msgid ""
 "URL pointing to the web viewer for the repository for a specific revision.\r\n"
 "The string %REVISION% in that URL is replaced with the revision number."
 msgstr ""
+"webviewer:revision\r\n"
+"URL, що вказує на веб-переглядач для сховища для певної модифікації.\r\n"
+"Рядок %REVISION% у цьому URL замінюється номером модифікації."
 
 #. Resource IDs: (245)
 msgid "week"
