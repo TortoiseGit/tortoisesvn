@@ -96,7 +96,10 @@ void CSVNStatusCache::Create()
 						if (cacheddir == NULL)
 							goto error;
 						if (!cacheddir->LoadFromDisk(pFile))
+						{
+							delete cacheddir;
 							goto error;
+						}
 						CTSVNPath KeyPath = CTSVNPath(sKey);
 						if (m_pInstance->IsPathAllowed(KeyPath))
 						{
@@ -110,6 +113,8 @@ void CSVNStatusCache::Create()
 							// until the whole first time crawling is over
 							// m_pInstance->AddFolderForCrawling(KeyPath);
 						}
+						else
+							delete cacheddir;
 					}
 				}
 			}
@@ -370,7 +375,10 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
 		// the data, we have to recreate the iterator here again.
 		itMap = m_directoryCache.find(path);
 		if (itMap!=m_directoryCache.end())
+		{
+			delete itMap->second;
 			m_directoryCache.erase(itMap);
+		}
 		// We don't know anything about this directory yet - lets add it to our cache
 		// but only if it exists!
 		if (path.Exists() && m_shellCache.IsPathAllowed(path.GetWinPath()) && !g_SVNAdminDir.IsAdminDirPath(path.GetWinPath()))
