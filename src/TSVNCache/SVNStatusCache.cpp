@@ -319,6 +319,24 @@ bool CSVNStatusCache::RemoveCacheForDirectory(CCachedDirectory * cdir)
 	}
 	cdir->m_childDirectories.clear();
 	m_directoryCache.erase(cdir->m_directoryPath);
+
+	// we could have entries versioned and/or stored in our cache which are
+	// children of the specified directory, but not in the m_childDirectories
+	// member: this can happen for nested layouts or if we fetched the status
+	// while e.g., an update/checkout was in progress
+	CCachedDirectory::ItDir itMap = m_directoryCache.lower_bound(cdir->m_directoryPath);
+	do 
+	{
+		if (itMap != m_directoryCache.end())
+		{
+			if (cdir->m_directoryPath.IsAncestorOf(itMap->first))
+			{
+				RemoveCacheForDirectory(itMap->second);
+			}
+		}
+		itMap = m_directoryCache.lower_bound(cdir->m_directoryPath);
+	} while (itMap != m_directoryCache.end() && cdir->m_directoryPath.IsAncestorOf(itMap->first));
+
 	ATLTRACE(_T("removed path %s from cache\n"), cdir->m_directoryPath);
 	delete cdir;
 	cdir = NULL;
