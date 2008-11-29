@@ -55,7 +55,7 @@ bool CStatusCacheEntry::SaveToDisk(FILE * pFile)
 #define WRITEVALUETOFILE(x) if (fwrite(&x, sizeof(x), 1, pFile)!=1) return false;
 #define WRITESTRINGTOFILE(x) if (x.IsEmpty()) {value=0;WRITEVALUETOFILE(value);}else{value=x.GetLength();WRITEVALUETOFILE(value);if (fwrite((LPCSTR)x, sizeof(char), value, pFile)!=value) return false;}
 
-	unsigned int value = 4;
+	unsigned int value = 5;
 	WRITEVALUETOFILE(value); // 'version' of this save-format
 	WRITEVALUETOFILE(m_highestPriorityLocalStatus);
 	WRITEVALUETOFILE(m_lastWriteTime);
@@ -77,6 +77,7 @@ bool CStatusCacheEntry::SaveToDisk(FILE * pFile)
 	WRITEVALUETOFILE(m_svnStatus.repos_text_status);
 	WRITEVALUETOFILE(m_svnStatus.switched);
 	WRITEVALUETOFILE(m_svnStatus.text_status);
+	WRITEVALUETOFILE(m_treeconflict);
 	return true;
 }
 
@@ -87,7 +88,7 @@ bool CStatusCacheEntry::LoadFromDisk(FILE * pFile)
 	{
 		unsigned int value = 0;
 		LOADVALUEFROMFILE(value);
-		if (value != 4)
+		if (value != 5)
 			return false;		// not the correct version
 		LOADVALUEFROMFILE(m_highestPriorityLocalStatus);
 		LOADVALUEFROMFILE(m_lastWriteTime);
@@ -146,6 +147,7 @@ bool CStatusCacheEntry::LoadFromDisk(FILE * pFile)
 		LOADVALUEFROMFILE(m_svnStatus.repos_text_status);
 		LOADVALUEFROMFILE(m_svnStatus.switched);
 		LOADVALUEFROMFILE(m_svnStatus.text_status);
+		LOADVALUEFROMFILE(m_treeconflict);
 		m_svnStatus.entry = NULL;
 		m_discardAtTime = GetTickCount()+cachetimeout;
 	}
@@ -186,6 +188,7 @@ void CStatusCacheEntry::SetStatus(const svn_wc_status2_t* pSVNStatus)
 			m_bSVNEntryFieldSet = false;
 		}
 		m_svnStatus.entry = NULL;
+		m_treeconflict = pSVNStatus->tree_conflict != 0;
 	}
 	m_discardAtTime = GetTickCount()+cachetimeout;
 	m_bSet = true;
@@ -205,6 +208,7 @@ void CStatusCacheEntry::SetAsUnversioned()
 	m_svnStatus.prop_status = svn_wc_status_none;
 	m_svnStatus.text_status = status;
 	m_lastWriteTime = 0;
+	m_treeconflict = false;
 }
 
 bool CStatusCacheEntry::HasExpired(long now) const

@@ -56,6 +56,7 @@ private:
 	bool				m_bSet;
 	svn_node_kind_t		m_kind;
 	bool				m_bReadOnly;
+	bool				m_treeconflict;
 
 	// Values copied from the 'entries' structure
 	bool				m_bSVNEntryFieldSet;
