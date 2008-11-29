@@ -98,6 +98,16 @@
 					merged back into the main development line. The branch is now
 					redundant and can be deleted.
 				</para>
+				<para>
+					Once you have performed a reintegrate merge you should not
+					continue to use it for development. The reason for this is that
+					if you try to resync your existing branch from trunk later on,
+					merge tracking will see your reintegration as a trunk change
+					that has not yet been merged into the branch, and will try to
+					merge the branch-to-trunk merge back into the branch!
+					The solution to this is simply to create a new branch from trunk
+					to continue the next phase of your development.
+				</para>
 			</listitem>
 		</varlistentry>
 		<varlistentry>
