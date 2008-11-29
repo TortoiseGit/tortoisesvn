@@ -851,6 +851,7 @@ void CCacheLogQuery::SendToReceiver ( revision_t revision
 						                  , NULL
 						                  , NULL
 						                  , mergesFollow);
+        return;
     }
 
     // access to the cached log info for this revision
