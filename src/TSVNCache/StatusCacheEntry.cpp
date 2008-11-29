@@ -244,13 +244,13 @@ void CStatusCacheEntry::BuildCacheResponse(TSVNCacheResponse& response, DWORD& r
 		strncat_s(response.m_url, INTERNET_MAX_URL_LENGTH, m_sUrl, _TRUNCATE);
 		strncat_s(response.m_owner, 255, m_sOwner, _TRUNCATE);
 		strncat_s(response.m_author, 255, m_sAuthor, _TRUNCATE);
-		response.m_tree_conflict = (m_svnStatus.tree_conflict != NULL);
+		response.m_tree_conflict = m_treeconflict;
 		responseLength = sizeof(response);
 	}
 	else
 	{
 		response.m_status = m_svnStatus;
-		response.m_tree_conflict = (m_svnStatus.tree_conflict != NULL);
+		response.m_tree_conflict = m_treeconflict;
 		responseLength = sizeof(response);
 	}
 }
