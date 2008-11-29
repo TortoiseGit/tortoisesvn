@@ -26,6 +26,7 @@
 #include "AppUtils.h"
 #include "PathUtils.h"
 #include "BrowseFolder.h"
+#include "DirFileEnum.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -462,7 +463,7 @@ CTortoiseMergeApp::CreatePatchFileOpenHook(HWND hDlg, UINT uiMsg, WPARAM wParam,
 			TCHAR * path = new TCHAR[len+1];
 			TCHAR * tempF = new TCHAR[len+100];
 			GetTempPath (len+1, path);
-			GetTempFileName (path, TEXT("svn"), 0, tempF);
+			GetTempFileName (path, TEXT("tsm"), 0, tempF);
 			std::wstring sTempFile = std::wstring(tempF);
 			delete [] path;
 			delete [] tempF;
@@ -485,4 +486,44 @@ CTortoiseMergeApp::CreatePatchFileOpenHook(HWND hDlg, UINT uiMsg, WPARAM wParam,
 		} 
 	}
 	return 0;
+}
+
+int CTortoiseMergeApp::ExitInstance()
+{
+	// Look for temporary files left around by TortoiseMerge and
+	// remove them. But only delete 'old' files 
+	DWORD len = ::GetTempPath(0, NULL);
+	TCHAR * path = new TCHAR[len + 100];
+	len = ::GetTempPath (len+100, path);
+	if (len != 0)
+	{
+		CSimpleFileFind finder = CSimpleFileFind(path, _T("*tsm*.*"));
+		FILETIME systime_;
+		::GetSystemTimeAsFileTime(&systime_);
+		__int64 systime = (((_int64)systime_.dwHighDateTime)<<32) | ((__int64)systime_.dwLowDateTime);
+		while (finder.FindNextFileNoDirectories())
+		{
+			CString filepath = finder.GetFilePath();
+			HANDLE hFile = ::CreateFile(filepath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
+			if (hFile != INVALID_HANDLE_VALUE)
+			{
+				FILETIME createtime_;
+				if (::GetFileTime(hFile, &createtime_, NULL, NULL))
+				{
+					::CloseHandle(hFile);
+					__int64 createtime = (((_int64)createtime_.dwHighDateTime)<<32) | ((__int64)createtime_.dwLowDateTime);
+					if ((createtime + 864000000000) < systime)		//only delete files older than a day
+					{
+						::SetFileAttributes(filepath, FILE_ATTRIBUTE_NORMAL);
+						::DeleteFile(filepath);
+					}
+				}
+				else
+					::CloseHandle(hFile);
+			}
+		}
+	}	
+	delete[] path;		
+
+	return CWinAppEx::ExitInstance();
 }

@@ -39,6 +39,7 @@ public:
 // Overrides
 public:
 	virtual BOOL InitInstance();
+	virtual int ExitInstance();
 
 // Implementation
 	UINT  m_nAppLook;
