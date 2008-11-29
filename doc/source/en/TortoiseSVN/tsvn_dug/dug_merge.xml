@@ -45,15 +45,6 @@
 		The first page of the merge wizard asks you to select the method
 		you need.
 	</para>
-	<important>
-		<para>
-			Unlike the command line client, the merge dialog merges all
-			revisions of a range. For example, if you want to merge
-			revisions 5-7, you have to specify "5-7" or "5,6,7".
-			With the command line client, you would have to specify "4-7"
-			to include revision 5 in the merge.
-		</para>
-	</important>
 	<variablelist>
 		<varlistentry>
 			<term>Merge a range of revisions</term>
@@ -101,7 +92,7 @@
 				<para>
 					Once you have performed a reintegrate merge you should not
 					continue to use it for development. The reason for this is that
-					if you try to resync your existing branch from trunk later on,
+					if you try to resynchronize your existing branch from trunk later on,
 					merge tracking will see your reintegration as a trunk change
 					that has not yet been merged into the branch, and will try to
 					merge the branch-to-trunk merge back into the branch!
@@ -164,6 +155,41 @@
 			separated by commas, or a range of revisions separated by a
 			dash, or any combination of these.
 		</para>
+		<important>
+			<para>
+				There is an important difference in the way a revision
+				range is specified with TortoiseSVN compared to the
+				command line client. The easiest way to visualise it is
+				to think of a fence with posts and fence panels.
+			</para>
+			<para>
+				With the command line client you specify the changes
+				to merge using two <quote>fence post</quote> revisions
+				which specify the <emphasis>before</emphasis> and
+				<emphasis>after</emphasis> points.
+			</para>
+			<para>
+				With TortoiseSVN you specify the changeset to merge
+				using <quote>fence panels</quote>. The reason for this
+				becomes clear when you use the log dialog to specify
+				revisions to merge, where each revision appears as
+				a changeset.
+			</para>
+			<para>
+				If you are merging revisions in chunks, the method
+				shown in the subversion book will have you merge
+				100-200 this time and 200-300 next time. With
+				TortoiseSVN you would merge 100-200 this time and
+				201-300 next time.
+			</para>
+			<para>
+				This difference has generated a lot of heat on the
+				mailing lists. We acknowledge that there is a difference
+				from the command line client, but we believe that for the
+				majority of GUI users it is easier to understand the
+				method we have implemented.
+			</para>
+		</important>
 		<para>
 			The easiest way to select the range of revisions you need
 			is to click on <guibutton>Show Log</guibutton>, as this
@@ -186,11 +212,13 @@
 			hopefully you will have made a note of the last revision
 			merged in the log message when you committed the change.
 			In that case, you can use <guibutton>Show Log</guibutton>
-			for the Working Copy to trace that log message. Use the
+			for the Working Copy to trace that log message.
+			Remembering that we are thinking of revisions as
+			changesets, you should Use the revision after the
 			end point of the last merge as the start point for this
 			merge. For example, if you have merged revisions 37 to 39
 			last time, then the start point for this merge should be
-			revision 39.
+			revision 40.
 		</para>
 		<para>
 			If you are using the merge tracking features of Subversion,
