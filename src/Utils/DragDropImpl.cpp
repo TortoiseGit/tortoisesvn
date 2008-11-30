@@ -143,7 +143,7 @@ STDMETHODIMP CIDataObject::SetData(
 	SecureZeroMemory(pStgMed,sizeof(STGMEDIUM));
 
 	// do we already store this format?
-	for (size_t i=0; i<m_ArrFormatEtc.GetSize(); ++i)
+	for (size_t i=0; i<(size_t)m_ArrFormatEtc.GetSize(); ++i)
 	{
 		if ((pformatetc->tymed == m_ArrFormatEtc[i]->tymed) &&
 			(pformatetc->dwAspect == m_ArrFormatEtc[i]->dwAspect) &&
@@ -372,7 +372,8 @@ STDMETHODIMP CIDropSource::GiveFeedback(
 			{
 				HWND hWndDragWindow = *((HWND*) GlobalLock(medium.hGlobal));
 				GlobalUnlock(medium.hGlobal);
-				SendMessage(hWndDragWindow, 0x403, NULL, NULL);
+#define WM_INVALIDATEDRAGIMAGE (WM_USER + 3)
+				SendMessage(hWndDragWindow, WM_INVALIDATEDRAGIMAGE, NULL, NULL);
 				ReleaseStgMedium(&medium);
 			}
 		}
