@@ -20,6 +20,7 @@
 #include "TSVNPath.h"
 #include "SVN.h"
 #include "SVNInfo.h"
+#include "DragDropImpl.h"
 #include <vector>
 
 using namespace std;
@@ -74,6 +75,8 @@ public:
 	virtual HRESULT STDMETHODCALLTYPE InOperation(BOOL* pfInAsyncOp);	
 	virtual HRESULT STDMETHODCALLTYPE EndOperation(HRESULT hResult, IBindCtx* pbcReserved, DWORD dwEffects);
 
+	HRESULT SetDropDescription(DROPIMAGETYPE image, LPCTSTR format, LPCTSTR insert);
+
 private:
 	void CopyMedium(STGMEDIUM* pMedDest, STGMEDIUM* pMedSrc, FORMATETC* pFmtSrc);
 
@@ -105,8 +108,8 @@ private:
 class CSVNEnumFormatEtc : public IEnumFORMATETC
 {
 public:
-	CSVNEnumFormatEtc(const vector<FORMATETC*>& vec);
-	CSVNEnumFormatEtc(const vector<FORMATETC>& vec);
+	CSVNEnumFormatEtc(const vector<FORMATETC*>& vec, bool localonly);
+	CSVNEnumFormatEtc(const vector<FORMATETC>& vec, bool localonly);
 	//IUnknown members
 	STDMETHOD(QueryInterface)(REFIID, void**);
 	STDMETHOD_(ULONG, AddRef)(void);
@@ -118,11 +121,12 @@ public:
 	STDMETHOD(Reset)(void);
 	STDMETHOD(Clone)(IEnumFORMATETC**);
 private:
-	void						Init();
+	void						Init(bool localonly);
 private:
 	vector<FORMATETC>			m_vecFormatEtc;
 	FORMATETC					m_formats[SVNDATAOBJECT_NUMFORMATS];
 	ULONG						m_cRefCount;
 	size_t						m_iCur;
+	bool						m_localonly;
 };
 

@@ -105,17 +105,27 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 		// to *read* from a remote stream but so that the library *writes* to a stream we pass.
 		// Since we can't get such a read stream, we have to fetch the file in whole first to
 		// a temp location and then pass the shell an IStream for that temp file.
-		CTSVNPath filepath = CTempFiles::Instance().GetTempFilePath(true);
-		if ((pformatetcIn->lindex >= 0)&&(pformatetcIn->lindex < (LONG)m_allPaths.size()))
+		CTSVNPath filepath;
+		IStream * pIStream = NULL;
+		if (m_revision.IsWorking())
 		{
-			if (!m_svn.Cat(CTSVNPath(m_allPaths[pformatetcIn->lindex].infodata.url), m_pegRev, m_revision, filepath))
+			if ((pformatetcIn->lindex >= 0)&&(pformatetcIn->lindex < (LONG)m_allPaths.size()))
 			{
-				DeleteFile(filepath.GetWinPath());
-				return STG_E_ACCESSDENIED;
+				filepath = m_allPaths[pformatetcIn->lindex].rootpath;
 			}
 		}
-
-		IStream * pIStream = NULL;
+		else
+		{
+			filepath = CTempFiles::Instance().GetTempFilePath(true);
+			if ((pformatetcIn->lindex >= 0)&&(pformatetcIn->lindex < (LONG)m_allPaths.size()))
+			{
+				if (!m_svn.Cat(CTSVNPath(m_allPaths[pformatetcIn->lindex].infodata.url), m_pegRev, m_revision, filepath))
+				{
+					DeleteFile(filepath.GetWinPath());
+					return STG_E_ACCESSDENIED;
+				}
+			}
+		}
 		HRESULT res = SHCreateStreamOnFile(filepath.GetWinPath(), STGM_READ, &pIStream);
 		if (res == S_OK)
 		{
@@ -168,12 +178,20 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 		{
 			for (int i = 0; i < m_svnPaths.GetCount(); ++i)
 			{
-				const SVNInfoData * infodata = svnInfo.GetFirstFileInfo(m_svnPaths[i], m_pegRev, m_revision, svn_depth_infinity);
-				while (infodata)
+				if (m_svnPaths[i].IsUrl())
 				{
-					SVNDataObject::SVNObjectInfoData id = {m_svnPaths[i], *infodata};
+					const SVNInfoData * infodata = svnInfo.GetFirstFileInfo(m_svnPaths[i], m_pegRev, m_revision, svn_depth_infinity);
+					while (infodata)
+					{
+						SVNDataObject::SVNObjectInfoData id = {m_svnPaths[i], *infodata};
+						m_allPaths.push_back(id);
+						infodata = svnInfo.GetNextFileInfo();
+					}
+				}
+				else
+				{
+					SVNDataObject::SVNObjectInfoData id = {m_svnPaths[i], SVNInfoData()};
 					m_allPaths.push_back(id);
-					infodata = svnInfo.GetNextFileInfo();
 				}
 			}
 		}
@@ -185,15 +203,32 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 		int i = 0;
 		for (vector<SVNDataObject::SVNObjectInfoData>::const_iterator it = m_allPaths.begin(); it != m_allPaths.end(); ++it)
 		{
-			CString temp = it->infodata.url.Mid(it->rootpath.GetContainingDirectory().GetSVNPathString().GetLength()+1);
-			// we have to unescape the urls since the local file system doesn't need them
-			// escaped and it would only look really ugly (and be wrong).
-			temp = CPathUtils::PathUnescape(temp);
+			CString temp;
+			if (it->rootpath.IsUrl())
+			{
+				temp = it->infodata.url.Mid(it->rootpath.GetContainingDirectory().GetSVNPathString().GetLength()+1);
+				// we have to unescape the urls since the local file system doesn't need them
+				// escaped and it would only look really ugly (and be wrong).
+				temp = CPathUtils::PathUnescape(temp);
+			}
+			else
+			{
+				temp = it->rootpath.GetUIFileOrDirectoryName();
+			}
 			_tcscpy_s(files->fgd[i].cFileName, MAX_PATH, (LPCTSTR)temp);
 			files->fgd[i].dwFlags = FD_ATTRIBUTES | FD_PROGRESSUI | FD_FILESIZE | FD_LINKUI;
-			files->fgd[i].dwFileAttributes = (it->infodata.kind == svn_node_dir) ? FILE_ATTRIBUTE_DIRECTORY : FILE_ATTRIBUTE_NORMAL;
-			files->fgd[i].nFileSizeLow = static_cast<DWORD>(it->infodata.size);
-			files->fgd[i].nFileSizeHigh = static_cast<DWORD>(static_cast<ULONGLONG>(it->infodata.size) >> 32);
+			if (it->rootpath.IsUrl())
+			{
+				files->fgd[i].dwFileAttributes = (it->infodata.kind == svn_node_dir) ? FILE_ATTRIBUTE_DIRECTORY : FILE_ATTRIBUTE_NORMAL;
+				files->fgd[i].nFileSizeLow = static_cast<DWORD>(it->infodata.size);
+				files->fgd[i].nFileSizeHigh = static_cast<DWORD>(static_cast<ULONGLONG>(it->infodata.size) >> 32);
+			}
+			else
+			{
+				files->fgd[i].dwFileAttributes = it->rootpath.IsDirectory() ? FILE_ATTRIBUTE_DIRECTORY : FILE_ATTRIBUTE_NORMAL;
+				files->fgd[i].nFileSizeLow = 0;
+				files->fgd[i].nFileSizeHigh = 0;
+			}
 			++i;
 		}
 
@@ -306,6 +341,50 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 		pmedium->pUnkForRelease = NULL;
 		return S_OK;
 	}
+	else if ((pformatetcIn->tymed & TYMED_HGLOBAL) && (pformatetcIn->dwAspect == DVASPECT_CONTENT) && (pformatetcIn->cfFormat == CF_HDROP))
+	{
+		int nLength = 0;
+
+		for (int i=0;i<m_svnPaths.GetCount();i++)
+		{
+			nLength += m_svnPaths[i].GetWinPathString().GetLength();
+			nLength += 1; // '\0' separator
+		}
+
+		int nBufferSize = sizeof(DROPFILES) + (nLength+1)*sizeof(TCHAR);
+		char * pBuffer = new char[nBufferSize];
+
+		SecureZeroMemory(pBuffer, nBufferSize);
+
+		DROPFILES* df = (DROPFILES*)pBuffer;
+		df->pFiles = sizeof(DROPFILES);
+		df->fWide = 1;
+
+		TCHAR* pFilenames = (TCHAR*)(pBuffer + sizeof(DROPFILES));
+		TCHAR* pCurrentFilename = pFilenames;
+
+		for (int i=0;i<m_svnPaths.GetCount();i++)
+		{
+			CString str = m_svnPaths[i].GetWinPathString();
+			wcscpy_s(pCurrentFilename, str.GetLength()+1, str.GetBuffer());
+			pCurrentFilename += str.GetLength();
+			*pCurrentFilename = '\0'; // separator between file names
+			pCurrentFilename++;
+		}
+		*pCurrentFilename = '\0'; // terminate array
+
+		pmedium->tymed = TYMED_HGLOBAL;
+		pmedium->hGlobal = GlobalAlloc(GMEM_ZEROINIT|GMEM_MOVEABLE|GMEM_DDESHARE, nBufferSize);
+		if (pmedium->hGlobal)
+		{
+			LPVOID pMem = ::GlobalLock(pmedium->hGlobal);
+			if (pMem)
+				memcpy(pMem, pBuffer, nBufferSize);
+			GlobalUnlock(pmedium->hGlobal);
+		}
+		pmedium->pUnkForRelease = NULL;
+		return S_OK;
+	}
 
 	for (size_t i=0; i<m_vecFormatEtc.size(); ++i)
 	{
@@ -342,7 +421,21 @@ STDMETHODIMP SVNDataObject::QueryGetData(FORMATETC* pformatetc)
 	}
 	if ((pformatetc->tymed & TYMED_HGLOBAL) &&
 		(pformatetc->dwAspect == DVASPECT_CONTENT) &&
-		((pformatetc->cfFormat == CF_TEXT)||(pformatetc->cfFormat == CF_UNICODETEXT)||(pformatetc->cfFormat == CF_SVNURL)||(pformatetc->cfFormat == CF_FILEDESCRIPTOR)||(pformatetc->cfFormat == CF_PREFERREDDROPEFFECT)))
+		((pformatetc->cfFormat == CF_TEXT)||(pformatetc->cfFormat == CF_UNICODETEXT)||(pformatetc->cfFormat == CF_PREFERREDDROPEFFECT)))
+	{
+		return S_OK;
+	}
+	if ((pformatetc->tymed & TYMED_HGLOBAL) &&
+		(pformatetc->dwAspect == DVASPECT_CONTENT) &&
+		((pformatetc->cfFormat == CF_SVNURL)||(pformatetc->cfFormat == CF_FILEDESCRIPTOR)) &&
+		!m_revision.IsWorking())
+	{
+		return S_OK;
+	}
+	if ((pformatetc->tymed & TYMED_HGLOBAL) &&
+		(pformatetc->dwAspect == DVASPECT_CONTENT) &&
+		(pformatetc->cfFormat == CF_HDROP) &&
+		m_revision.IsWorking())
 	{
 		return S_OK;
 	}
@@ -382,6 +475,25 @@ STDMETHODIMP SVNDataObject::SetData(FORMATETC* pformatetc, STGMEDIUM* pmedium, B
 	SecureZeroMemory(fetc,sizeof(FORMATETC));
 	SecureZeroMemory(pStgMed,sizeof(STGMEDIUM));
 
+	// do we already store this format?
+	for (size_t i=0; i<m_vecFormatEtc.size(); ++i)
+	{
+		if ((pformatetc->tymed == m_vecFormatEtc[i]->tymed) &&
+			(pformatetc->dwAspect == m_vecFormatEtc[i]->dwAspect) &&
+			(pformatetc->cfFormat == m_vecFormatEtc[i]->cfFormat))
+		{
+			// yes, this format is already in our object:
+			// we have to replace the existing format. To do that, we
+			// remove the format we already have
+			delete m_vecFormatEtc[i];
+			m_vecFormatEtc.erase(m_vecFormatEtc.begin() + i);
+			ReleaseStgMedium(m_vecStgMedium[i]);
+			delete m_vecStgMedium[i];
+			m_vecStgMedium.erase(m_vecStgMedium.begin() + i);
+			break;
+		}
+	}
+
 	*fetc = *pformatetc;
 	m_vecFormatEtc.push_back(fetc);
 
@@ -405,7 +517,7 @@ STDMETHODIMP SVNDataObject::EnumFormatEtc(DWORD dwDirection, IEnumFORMATETC** pp
 	switch (dwDirection)
 	{
 	case DATADIR_GET:
-		*ppenumFormatEtc= new CSVNEnumFormatEtc(m_vecFormatEtc);
+		*ppenumFormatEtc= new CSVNEnumFormatEtc(m_vecFormatEtc, !!m_revision.IsWorking());
 		if (*ppenumFormatEtc == NULL)
 			return E_OUTOFMEMORY;
 		(*ppenumFormatEtc)->AddRef(); 
@@ -514,61 +626,121 @@ HRESULT STDMETHODCALLTYPE SVNDataObject::EndOperation(HRESULT /*hResult*/, IBind
 	return S_OK;
 }
 
-
-
-void CSVNEnumFormatEtc::Init()
+HRESULT SVNDataObject::SetDropDescription(DROPIMAGETYPE image, LPCTSTR format, LPCTSTR insert)
 {
-	m_formats[0].cfFormat = CF_UNICODETEXT;
-	m_formats[0].dwAspect = DVASPECT_CONTENT;
-	m_formats[0].lindex = -1;
-	m_formats[0].ptd = NULL;
-	m_formats[0].tymed = TYMED_HGLOBAL;
+	if(format == NULL || insert == NULL)
+		return E_INVALIDARG;
 
-	m_formats[1].cfFormat = CF_TEXT;
-	m_formats[1].dwAspect = DVASPECT_CONTENT;
-	m_formats[1].lindex = -1;
-	m_formats[1].ptd = NULL;
-	m_formats[1].tymed = TYMED_HGLOBAL;
+	FORMATETC fetc = {0};
+	fetc.cfFormat = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_DROPDESCRIPTION);
+	fetc.dwAspect = DVASPECT_CONTENT;
+	fetc.lindex = -1;
+	fetc.tymed = TYMED_HGLOBAL;
+	fetc.tymed = TYMED_HGLOBAL;
 
-	m_formats[2].cfFormat = CF_FILECONTENTS;
-	m_formats[2].dwAspect = DVASPECT_CONTENT;
-	m_formats[2].lindex = -1;
-	m_formats[2].ptd = NULL;
-	m_formats[2].tymed = TYMED_ISTREAM;
+	STGMEDIUM medium = {0};
+	medium.hGlobal = GlobalAlloc(GHND, sizeof(DROPDESCRIPTION));
+	if(medium.hGlobal) 
+	{
+		DROPDESCRIPTION* pDropDescription = (DROPDESCRIPTION*)GlobalLock(medium.hGlobal);
 
-	m_formats[3].cfFormat = CF_FILEDESCRIPTOR;
-	m_formats[3].dwAspect = DVASPECT_CONTENT;
-	m_formats[3].lindex = -1;
-	m_formats[3].ptd = NULL;
-	m_formats[3].tymed = TYMED_HGLOBAL;
+		lstrcpyW(pDropDescription->szInsert, insert);
+		lstrcpyW(pDropDescription->szMessage, format);
+		pDropDescription->type = image;
+		GlobalUnlock(medium.hGlobal);
 
-	m_formats[4].cfFormat = CF_PREFERREDDROPEFFECT;
-	m_formats[4].dwAspect = DVASPECT_CONTENT;
-	m_formats[4].lindex = -1;
-	m_formats[4].ptd = NULL;
-	m_formats[4].tymed = TYMED_HGLOBAL;
+		return SetData(&fetc, &medium, TRUE);
+	}
 
-	m_formats[5].cfFormat = CF_SVNURL;
-	m_formats[5].dwAspect = DVASPECT_CONTENT;
-	m_formats[5].lindex = -1;
-	m_formats[5].ptd = NULL;
-	m_formats[5].tymed = TYMED_HGLOBAL;
+	return E_OUTOFMEMORY;
 }
 
-CSVNEnumFormatEtc::CSVNEnumFormatEtc(const vector<FORMATETC>& vec) : m_cRefCount(0)
+
+
+void CSVNEnumFormatEtc::Init(bool localonly)
+{
+	int index = 0;
+	m_formats[index].cfFormat = CF_UNICODETEXT;
+	m_formats[index].dwAspect = DVASPECT_CONTENT;
+	m_formats[index].lindex = -1;
+	m_formats[index].ptd = NULL;
+	m_formats[index].tymed = TYMED_HGLOBAL;
+	index++;
+
+	m_formats[index].cfFormat = CF_TEXT;
+	m_formats[index].dwAspect = DVASPECT_CONTENT;
+	m_formats[index].lindex = -1;
+	m_formats[index].ptd = NULL;
+	m_formats[index].tymed = TYMED_HGLOBAL;
+	index++;
+
+	m_formats[index].cfFormat = CF_PREFERREDDROPEFFECT;
+	m_formats[index].dwAspect = DVASPECT_CONTENT;
+	m_formats[index].lindex = -1;
+	m_formats[index].ptd = NULL;
+	m_formats[index].tymed = TYMED_HGLOBAL;
+	index++;
+
+	if (localonly)
+	{
+		m_formats[index].cfFormat = CF_HDROP;
+		m_formats[index].dwAspect = DVASPECT_CONTENT;
+		m_formats[index].lindex = -1;
+		m_formats[index].ptd = NULL;
+		m_formats[index].tymed = TYMED_HGLOBAL;
+		index++;
+	}
+	else
+	{
+		m_formats[index].cfFormat = CF_FILECONTENTS;
+		m_formats[index].dwAspect = DVASPECT_CONTENT;
+		m_formats[index].lindex = -1;
+		m_formats[index].ptd = NULL;
+		m_formats[index].tymed = TYMED_ISTREAM;
+		index++;
+
+		m_formats[index].cfFormat = CF_FILEDESCRIPTOR;
+		m_formats[index].dwAspect = DVASPECT_CONTENT;
+		m_formats[index].lindex = -1;
+		m_formats[index].ptd = NULL;
+		m_formats[index].tymed = TYMED_HGLOBAL;
+		index++;
+
+		m_formats[index].cfFormat = CF_SVNURL;
+		m_formats[index].dwAspect = DVASPECT_CONTENT;
+		m_formats[index].lindex = -1;
+		m_formats[index].ptd = NULL;
+		m_formats[index].tymed = TYMED_HGLOBAL;
+		index++;
+	}
+	// clear possible leftovers
+	while (index < SVNDATAOBJECT_NUMFORMATS)
+	{
+		m_formats[index].cfFormat = 0;
+		m_formats[index].dwAspect = 0;
+		m_formats[index].lindex = -1;
+		m_formats[index].ptd = NULL;
+		m_formats[index].tymed = 0;
+		index++;
+	}
+}
+
+CSVNEnumFormatEtc::CSVNEnumFormatEtc(const vector<FORMATETC>& vec, bool localonly) : m_cRefCount(0)
 	, m_iCur(0)
 {
+	m_localonly = localonly;
 	for (size_t i = 0; i < vec.size(); ++i)
 		m_vecFormatEtc.push_back(vec[i]);
-	Init();
+	Init(localonly);
 }
 
-CSVNEnumFormatEtc::CSVNEnumFormatEtc(const vector<FORMATETC*>& vec) : m_cRefCount(0)
+CSVNEnumFormatEtc::CSVNEnumFormatEtc(const vector<FORMATETC*>& vec, bool localonly) : m_cRefCount(0)
 	, m_iCur(0)
 {
+	m_localonly = localonly;
 	for (size_t i = 0; i < vec.size(); ++i)
 		m_vecFormatEtc.push_back(*vec[i]);
-	Init();
+	Init(localonly);
 }
 
 STDMETHODIMP  CSVNEnumFormatEtc::QueryInterface(REFIID refiid, void** ppv)
@@ -648,7 +820,7 @@ STDMETHODIMP CSVNEnumFormatEtc::Clone(IEnumFORMATETC** ppCloneEnumFormatEtc)
 	if (ppCloneEnumFormatEtc == NULL)
 		return E_POINTER;
 
-	CSVNEnumFormatEtc *newEnum = new CSVNEnumFormatEtc(m_vecFormatEtc);
+	CSVNEnumFormatEtc *newEnum = new CSVNEnumFormatEtc(m_vecFormatEtc, m_localonly);
 	if (newEnum == NULL)
 		return E_OUTOFMEMORY;
 

@@ -216,7 +216,9 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	ftetc.lindex = -1; 
 	ftetc.tymed = TYMED_HGLOBAL; 
 	m_pTreeDropTarget->AddSuportedFormat(ftetc); 
-	ftetc.cfFormat=CF_HDROP; 
+	ftetc.cfFormat = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_DROPDESCRIPTION);
+	m_pTreeDropTarget->AddSuportedFormat(ftetc);
+	ftetc.cfFormat = CF_HDROP; 
 	m_pTreeDropTarget->AddSuportedFormat(ftetc);
 
 	m_pListDropTarget = new CListDropTarget(this);
@@ -224,7 +226,9 @@ BOOL CRepositoryBrowser::OnInitDialog()
 	// create the supported formats:
 	ftetc.cfFormat = CF_SVNURL; 
 	m_pListDropTarget->AddSuportedFormat(ftetc); 
-	ftetc.cfFormat=CF_HDROP; 
+	ftetc.cfFormat = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_DROPDESCRIPTION);
+	m_pListDropTarget->AddSuportedFormat(ftetc);
+	ftetc.cfFormat = CF_HDROP; 
 	m_pListDropTarget->AddSuportedFormat(ftetc);
 
 	if (m_bStandAlone)
@@ -1576,9 +1580,11 @@ void CRepositoryBrowser::OnBeginDrag(NMHDR *pNMHDR)
 	}
 	pdobj->AddRef();
 	pdobj->SetAsyncMode(TRUE);
-
 	CDragSourceHelper dragsrchelper;
 	dragsrchelper.InitializeFromWindow(m_RepoList.GetSafeHwnd(), pNMLV->ptAction, pdobj);
+	pdsrc->m_pIDataObj = pdobj;
+	pdsrc->m_pIDataObj->AddRef();
+
 	// Initiate the Drag & Drop
 	DWORD dwEffect;
 	::DoDragDrop(pdobj, pdsrc, DROPEFFECT_MOVE|DROPEFFECT_COPY, &dwEffect);
@@ -1630,6 +1636,8 @@ void CRepositoryBrowser::OnBeginDragTree(NMHDR *pNMHDR)
 
 	CDragSourceHelper dragsrchelper;
 	dragsrchelper.InitializeFromWindow(m_RepoTree.GetSafeHwnd(), pNMTreeView->ptDrag, pdobj);
+	pdsrc->m_pIDataObj = pdobj;
+	pdsrc->m_pIDataObj->AddRef();
 	// Initiate the Drag & Drop
 	DWORD dwEffect;
 	::DoDragDrop(pdobj, pdsrc, DROPEFFECT_MOVE|DROPEFFECT_COPY, &dwEffect);

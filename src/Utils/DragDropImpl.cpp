@@ -142,6 +142,25 @@ STDMETHODIMP CIDataObject::SetData(
 	SecureZeroMemory(fetc,sizeof(FORMATETC));
 	SecureZeroMemory(pStgMed,sizeof(STGMEDIUM));
 
+	// do we already store this format?
+	for (size_t i=0; i<m_ArrFormatEtc.GetSize(); ++i)
+	{
+		if ((pformatetc->tymed == m_ArrFormatEtc[i]->tymed) &&
+			(pformatetc->dwAspect == m_ArrFormatEtc[i]->dwAspect) &&
+			(pformatetc->cfFormat == m_ArrFormatEtc[i]->cfFormat))
+		{
+			// yes, this format is already in our object:
+			// we have to replace the existing format. To do that, we
+			// remove the format we already have
+			delete m_ArrFormatEtc[i];
+			m_ArrFormatEtc.RemoveAt(i);
+			ReleaseStgMedium(m_StgMedium[i]);
+			delete m_StgMedium[i];
+			m_StgMedium.RemoveAt(i);
+			break;
+		}
+	}
+
 	*fetc = *pformatetc;
 	m_ArrFormatEtc.Add(fetc);
 
@@ -241,6 +260,36 @@ HRESULT STDMETHODCALLTYPE CIDataObject::EnumDAdvise(
 	return OLE_E_ADVISENOTSUPPORTED;
 }
 
+
+HRESULT CIDataObject::SetDropDescription(DROPIMAGETYPE image, LPCTSTR format, LPCTSTR insert)
+{
+	if(format == NULL || insert == NULL)
+		return E_INVALIDARG;
+
+	FORMATETC fetc = {0};
+	fetc.cfFormat = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_DROPDESCRIPTION);
+	fetc.dwAspect = DVASPECT_CONTENT;
+	fetc.lindex = -1;
+	fetc.tymed = TYMED_HGLOBAL;
+	fetc.tymed = TYMED_HGLOBAL;
+
+	STGMEDIUM medium = {0};
+	medium.hGlobal = GlobalAlloc(GHND, sizeof(DROPDESCRIPTION));
+	if(medium.hGlobal) 
+	{
+		DROPDESCRIPTION* pDropDescription = (DROPDESCRIPTION*)GlobalLock(medium.hGlobal);
+
+		lstrcpyW(pDropDescription->szInsert, insert);
+		lstrcpyW(pDropDescription->szMessage, format);
+		pDropDescription->type = image;
+		GlobalUnlock(medium.hGlobal);
+
+		return SetData(&fetc, &medium, TRUE);
+	}
+
+	return E_OUTOFMEMORY;
+}
+
 //////////////////////////////////////////////////////////////////////
 // CIDropSource Class
 //////////////////////////////////////////////////////////////////////
@@ -248,16 +297,31 @@ HRESULT STDMETHODCALLTYPE CIDataObject::EnumDAdvise(
 STDMETHODIMP CIDropSource::QueryInterface(/* [in] */ REFIID riid,
 										 /* [iid_is][out] */ void __RPC_FAR *__RPC_FAR *ppvObject)
 {
-   *ppvObject = NULL;
-   if (IID_IUnknown==riid || IID_IDropSource==riid)
-       *ppvObject=this;
+	if (!ppvObject) 
+	{
+		return E_POINTER;
+	}
 
-    if (*ppvObject != NULL)
-    {
-       ((LPUNKNOWN)*ppvObject)->AddRef();
-        return S_OK;
-    }
-    return E_NOINTERFACE;
+	if (riid == IID_IUnknown) 
+	{
+		*ppvObject = (IUnknown*) dynamic_cast<IDropSource*>(this);
+	} 
+	else if (riid == IID_IDropSource) 
+	{
+		*ppvObject = dynamic_cast<IDropSource*>(this);
+	} 
+	else if ((riid == IID_IDropSourceNotify) && (pDragSourceNotify != NULL)) 
+	{
+		return pDragSourceNotify->QueryInterface(riid, ppvObject);
+	} 
+	else 
+	{
+		*ppvObject = NULL;
+		return E_NOINTERFACE;
+	}
+
+	AddRef();
+	return S_OK;
 }
 
 STDMETHODIMP_(ULONG) CIDropSource::AddRef( void)
@@ -294,6 +358,25 @@ STDMETHODIMP CIDropSource::QueryContinueDrag(
 STDMETHODIMP CIDropSource::GiveFeedback(
     /* [in] */ DWORD /*dwEffect*/)
 {
+	if (m_pIDataObj)
+	{
+		FORMATETC fetc = {0};
+		fetc.cfFormat = (CLIPFORMAT)RegisterClipboardFormat(_T("DragWindow"));
+		fetc.dwAspect = DVASPECT_CONTENT;
+		fetc.lindex = -1;
+		fetc.tymed = TYMED_HGLOBAL;
+		if (m_pIDataObj->QueryGetData(&fetc) == S_OK)
+		{
+			STGMEDIUM medium;
+			if (m_pIDataObj->GetData(&fetc, &medium) == S_OK)
+			{
+				HWND hWndDragWindow = *((HWND*) GlobalLock(medium.hGlobal));
+				GlobalUnlock(medium.hGlobal);
+				SendMessage(hWndDragWindow, 0x403, NULL, NULL);
+				ReleaseStgMedium(&medium);
+			}
+		}
+	}
 	return DRAGDROP_S_USEDEFAULTCURSORS;
 }
 
@@ -403,7 +486,8 @@ STDMETHODIMP CEnumFormatEtc::Clone(IEnumFORMATETC FAR * FAR*ppCloneEnumFormatEtc
 CIDropTarget::CIDropTarget(HWND hTargetWnd): 
 	m_hTargetWnd(hTargetWnd),
 	m_cRefCount(0), m_bAllowDrop(false),
-	m_pDropTargetHelper(NULL), m_pSupportedFrmt(NULL)
+	m_pDropTargetHelper(NULL), m_pSupportedFrmt(NULL),
+	m_pIDataObject(NULL)
 {
 	if(FAILED(CoCreateInstance(CLSID_DragDropHelper,NULL,CLSCTX_INPROC_SERVER,
                      IID_IDropTargetHelper,(LPVOID*)&m_pDropTargetHelper)))
@@ -494,14 +578,12 @@ HRESULT STDMETHODCALLTYPE CIDropTarget::DragEnter(
 	if(pDataObj == NULL)
 		return E_INVALIDARG;
 
+	pDataObj->AddRef();
+	m_pIDataObject = pDataObj;
+
 	if(m_pDropTargetHelper)
 		m_pDropTargetHelper->DragEnter(m_hTargetWnd, pDataObj, (LPPOINT)&pt, *pdwEffect);
-	//IEnumFORMATETC* pEnum;
-	//pDataObj->EnumFormatEtc(DATADIR_GET,&pEnum);
-	//FORMATETC ftm;
-	//for()
-	//pEnum->Next(1,&ftm,0);
-	//pEnum->Release();
+
 	m_pSupportedFrmt = NULL;
 	for(int i =0; i<m_formatetc.GetSize(); ++i)
 	{
@@ -535,6 +617,8 @@ HRESULT STDMETHODCALLTYPE CIDropTarget::DragLeave( void)
 	
 	m_bAllowDrop = false;
 	m_pSupportedFrmt = NULL;
+	m_pIDataObject->Release();
+	m_pIDataObject = NULL;
 	return S_OK;
 }
 
@@ -564,8 +648,49 @@ HRESULT STDMETHODCALLTYPE CIDropTarget::Drop(
 	m_bAllowDrop=false;
 	*pdwEffect = DROPEFFECT_NONE;
 	m_pSupportedFrmt = NULL;
+	m_pIDataObject->Release();
+	m_pIDataObject = NULL;
 	return S_OK;
 }
+
+HRESULT CIDropTarget::SetDropDescription(DROPIMAGETYPE image, LPCTSTR format, LPCTSTR insert)
+{
+	HRESULT hr = E_OUTOFMEMORY;
+
+	FORMATETC fetc = {0};
+	fetc.cfFormat = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_DROPDESCRIPTION);
+	fetc.dwAspect = DVASPECT_CONTENT;
+	fetc.lindex = -1;
+	fetc.tymed = TYMED_HGLOBAL;
+
+	STGMEDIUM medium = {0};
+	medium.tymed = TYMED_HGLOBAL;
+	medium.hGlobal = GlobalAlloc(GHND, sizeof(DROPDESCRIPTION));
+	if(medium.hGlobal) 
+	{
+		DROPDESCRIPTION* pDropDescription = (DROPDESCRIPTION*)GlobalLock(medium.hGlobal);
+
+		if (insert)
+			lstrcpyW(pDropDescription->szInsert, insert);
+		else
+			pDropDescription->szInsert[0] = 0;
+		if (format)
+			lstrcpyW(pDropDescription->szMessage, format);
+		else
+			pDropDescription->szInsert[0] = 0;
+		pDropDescription->type = image;
+		GlobalUnlock(medium.hGlobal);
+
+		hr = m_pIDataObject->SetData(&fetc, &medium, TRUE);
+		if (FAILED(hr))
+		{
+			GlobalFree(medium.hGlobal);
+		}
+	}
+
+	return hr;
+}
+
 
 //////////////////////////////////////////////////////////////////////
 // CIDragSourceHelper Class

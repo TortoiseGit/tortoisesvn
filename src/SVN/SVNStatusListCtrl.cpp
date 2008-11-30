@@ -36,6 +36,7 @@
 #include "SVNProgressDlg.h"
 #include "SysImageList.h"
 #include "Svnstatuslistctrl.h"
+#include "SVNDataObject.h"
 #include "TSVNPath.h"
 #include "Registry.h"
 #include "SVNStatus.h"
@@ -255,6 +256,8 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 		ftetc.lindex = -1;
 		ftetc.tymed = TYMED_HGLOBAL;
 		ftetc.cfFormat=CF_HDROP;
+		m_pDropTarget->AddSuportedFormat(ftetc);
+		ftetc.cfFormat = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_DROPDESCRIPTION);
 		m_pDropTarget->AddSuportedFormat(ftetc);
 	}
 
@@ -4479,25 +4482,56 @@ void CSVNStatusListCtrl::OnDestroy()
 void CSVNStatusListCtrl::OnBeginDrag(NMHDR* /*pNMHDR*/, LRESULT* pResult)
 {
 	Locker lock(m_critSec);
-	CDropFiles dropFiles; // class for creating DROPFILES struct
+
+
 	CTSVNPathList pathList;
-	DWORD effects = DROPEFFECT_COPY|DROPEFFECT_MOVE|DROPEFFECT_LINK;
-
 	FillListOfSelectedItemPaths(pathList);
-	for (int i=0; i<pathList.GetCount(); ++i)
-		dropFiles.AddFile(pathList[i].GetWinPathString());
+	if (pathList.GetCount() == 0)
+		return;
 
-	int fullCount = pathList.GetCount();
-	pathList.RemoveChildren();
-	if (fullCount != pathList.GetCount())
-		effects = DROPEFFECT_COPY|DROPEFFECT_LINK;
+	CIDropSource* pdsrc = new CIDropSource;
+	if (pdsrc == NULL)
+		return;
+	pdsrc->AddRef();
 
-	if ( dropFiles.GetCount()>0 )
+
+	SVNDataObject* pdobj = new SVNDataObject(pathList, SVNRev::REV_WC, SVNRev::REV_WC);
+	if (pdobj == NULL)
 	{
-		m_bOwnDrag = true;
-		dropFiles.CreateStructure(effects);
-		m_bOwnDrag = false;
+		delete pdsrc;
+		return;
 	}
+	pdobj->AddRef();
+
+	CDragSourceHelper dragsrchelper;
+	POINT pt = {0,0};
+
+	// Something strange is going on here:
+	// InitializeFromWindow() crashes bad if group view is enabled.
+	// Since I haven't been able to find out *why* it crashes, I'm disabling
+	// the group view right before the call to InitializeFromWindow() and
+	// re-enable it again after the call is finished.
+
+	SetRedraw(false);
+	BOOL bGroupView = IsGroupViewEnabled();
+	if (bGroupView)
+		EnableGroupView(false);
+	dragsrchelper.InitializeFromWindow(m_hWnd, pt, pdobj);
+	if (bGroupView)
+		EnableGroupView(true);
+	SetRedraw(true);
+	//dragsrchelper.InitializeFromBitmap()
+	pdsrc->m_pIDataObj = pdobj;
+	pdsrc->m_pIDataObj->AddRef();
+
+
+	// Initiate the Drag & Drop
+	DWORD dwEffect;
+	m_bOwnDrag = true;
+	::DoDragDrop(pdobj, pdsrc, DROPEFFECT_MOVE|DROPEFFECT_COPY, &dwEffect);
+	m_bOwnDrag = false;
+	pdsrc->Release();
+	pdobj->Release();
 
 	*pResult = 0;
 }
@@ -4854,7 +4888,8 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
 	int groupindex = 0;
 
 	// now add the items which don't belong to a group
-	LVGROUP grp = {0};
+	LVGROUP grp;
+	SecureZeroMemory(&grp, sizeof(grp));
 	grp.cbSize = sizeof(LVGROUP);
 	grp.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
 	if (bHasChangelistGroups)
@@ -5051,22 +5086,67 @@ bool CSVNStatusListCtrlDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium,
 HRESULT STDMETHODCALLTYPE CSVNStatusListCtrlDropTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect)
 {
 	CIDropTarget::DragOver(grfKeyState, pt, pdwEffect);
-	*pdwEffect = DROPEFFECT_COPY;
+	*pdwEffect = DROPEFFECT_MOVE;
+	CString sDropDesc;
 	if (m_pSVNStatusListCtrl)
 	{
 		POINT clientpoint;
 		clientpoint.x = pt.x;
 		clientpoint.y = pt.y;
 		ScreenToClient(m_hTargetWnd, &clientpoint);
-		if ((m_pSVNStatusListCtrl->IsGroupViewEnabled())&&(m_pSVNStatusListCtrl->GetGroupFromPoint(&clientpoint) >= 0))
+		if (m_pSVNStatusListCtrl->IsGroupViewEnabled())
 		{
-			*pdwEffect = DROPEFFECT_MOVE;
+			if (m_pSVNStatusListCtrl->m_bOwnDrag)
+			{
+				LONG_PTR iGroup = m_pSVNStatusListCtrl->GetGroupFromPoint(&clientpoint);
+				if (iGroup >= 0)
+				{
+					// find the changelist name
+					CString sChangelist;
+					for (std::map<CString, int>::iterator it = m_pSVNStatusListCtrl->m_changelists.begin(); it != m_pSVNStatusListCtrl->m_changelists.end(); ++it)
+						if (it->second == iGroup)
+							sChangelist = it->first;
+
+					if (sChangelist.IsEmpty())
+					{
+						*pdwEffect = DROPEFFECT_MOVE;
+						SetDropDescription(DROPIMAGE_NONE, NULL, NULL);
+					}
+					else
+					{
+						*pdwEffect = DROPEFFECT_MOVE;
+						sDropDesc.LoadString(IDS_DROPDESC_MOVE);
+						SetDropDescription(DROPIMAGE_MOVE, sDropDesc, sChangelist);
+					}
+				}
+				else
+				{
+					*pdwEffect = DROPEFFECT_MOVE;
+					SetDropDescription(DROPIMAGE_NONE, NULL, NULL);
+				}
+			}
+			else
+			{
+				sDropDesc.LoadString(IDS_DROPDESC_ADD);
+				CString sDialog(MAKEINTRESOURCE(IDS_APPNAME));
+				SetDropDescription(DROPIMAGE_COPY, sDropDesc, sDialog);
+			}
 		}
 		else if ((!m_pSVNStatusListCtrl->m_bFileDropsEnabled)||(m_pSVNStatusListCtrl->m_bOwnDrag))
 		{
-			*pdwEffect = DROPEFFECT_NONE;
+			*pdwEffect = DROPEFFECT_MOVE;
+			SetDropDescription(DROPIMAGE_NONE, NULL, NULL);
+		}
+		else
+		{
+			sDropDesc.LoadString(IDS_DROPDESC_ADD);
+			CString sDialog(MAKEINTRESOURCE(IDS_APPNAME));
+			SetDropDescription(DROPIMAGE_COPY, sDropDesc, sDialog);
 		}
 	}
+	else
+		SetDropDescription(DROPIMAGE_NONE, NULL, NULL);
+
 	return S_OK;
 }
 
