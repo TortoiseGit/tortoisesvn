@@ -377,6 +377,8 @@ void CCacheLogQuery::CLogFiller::ReceiveLog
 		// hand on to the original log receiver
 
 		if (options.GetReceiver() != NULL)
+        {
+            oldestReported = min (oldestReported, revision);
 			if (options.GetRevsOnly())
 			{
     			options.GetReceiver()->ReceiveLog ( NULL
@@ -393,6 +395,7 @@ void CCacheLogQuery::CLogFiller::ReceiveLog
 												  , userRevProps
 												  , mergesFollow);
 			}
+        }
 	}
 	catch (...)
 	{
@@ -411,6 +414,7 @@ CCacheLogQuery::CLogFiller::CLogFiller (CRepositoryInfo* repositoryInfoCache)
 	, repositoryInfoCache (repositoryInfoCache)
     , svnQuery (NULL)
     , firstNARevision ((revision_t)NO_REVISION)
+    , oldestReported ((revision_t)NO_REVISION)
 	, receiverError (false)
     , receiveCount (0)
 {
@@ -443,6 +447,7 @@ CCacheLogQuery::CLogFiller::FillLog ( CCachedLogInfo* cache
     this->receiveCount = 0;
 
     firstNARevision = startRevision;
+    oldestReported = (revision_t)NO_REVISION;
 	currentPath.reset (new CDictionaryBasedTempPath (startPath));
 
     // full path to be passed to SVN.
@@ -514,7 +519,7 @@ CCacheLogQuery::CLogFiller::FillLog ( CCachedLogInfo* cache
         }
     }
 
-	return firstNARevision+1;
+	return min (oldestReported, firstNARevision+1);
 }
 
 ///////////////////////////////////////////////////////////////
