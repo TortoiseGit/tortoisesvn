@@ -1902,7 +1902,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 	}
 	if (!PostCommitErr.IsEmpty())
 	{
-		ReportWarning(PostCommitErr);
+		ReportError(PostCommitErr);
 	}
 	if (commitSuccessful)
 	{
@@ -2309,14 +2309,24 @@ bool CSVNProgressDlg::CmdResolve(CString& sWindowTitle, bool& localoperation)
 		{
 			ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_RESOLVE)));
 			for (INT_PTR fileindex=0; fileindex<m_targetPathList.GetCount(); ++fileindex)
-				Resolve(m_targetPathList[fileindex], svn_wc_conflict_choose_merged, true);
+			{
+				if (!Resolve(m_targetPathList[fileindex], svn_wc_conflict_choose_merged, true))
+				{
+					ReportSVNError();
+				}
+			}
 		}
 	}
 	else
 	{
 		ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_RESOLVE)));
 		for (INT_PTR fileindex=0; fileindex<m_targetPathList.GetCount(); ++fileindex)
-			Resolve(m_targetPathList[fileindex], svn_wc_conflict_choose_merged, true);
+		{
+			if (!Resolve(m_targetPathList[fileindex], svn_wc_conflict_choose_merged, true))
+			{
+				ReportSVNError();
+			}
+		}
 	}
 	CShellUpdater::Instance().AddPathsForUpdate(m_targetPathList);
 	return true;
