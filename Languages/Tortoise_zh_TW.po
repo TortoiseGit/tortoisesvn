@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-24 20:16+0800\n"
+"PO-Revision-Date: 2008-12-02 00:23+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1396,6 +1396,15 @@ msgstr "根據副檔名加入差異比對程式"
 msgid "Add extension specific merge program"
 msgstr "根據副檔名加入合併程式"
 
+#. Resource IDs: (89)
+msgid "Add the item anyway"
+msgstr "新增項目"
+
+#. Resource IDs: (613)
+#, c-format
+msgid "Add to %1"
+msgstr "新增至 %1"
+
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
 msgstr "加入忽略列表(&I)"
@@ -2533,6 +2542,11 @@ msgstr ""
 "將選擇的區塊複製至剪貼簿\n"
 "複製"
 
+#. Resource IDs: (613)
+#, c-format
+msgid "Copy to %1"
+msgstr "複製至 %1"
+
 #. Resource IDs: (114)
 msgid "Copy to clipboard"
 msgstr "複製至剪貼簿"
@@ -2955,6 +2969,10 @@ msgstr "以URL比對"
 msgid "Difference between"
 msgstr "差異:"
 
+#. Resource IDs: (32817)
+msgid "Differential path &names"
+msgstr "比較路徑差異(&N)"
+
 #. Resource IDs: (1022)
 msgid "Diffing"
 msgstr "比對差異"
@@ -3115,6 +3133,11 @@ msgstr "繪圖"
 #. Resource IDs: (1079)
 msgid "Drive Types"
 msgstr "磁碟機類型"
+
+#. Resource IDs: (613)
+#, c-format
+msgid "Drop not possible on %1"
+msgstr "%1 上不能進行拖放操作"
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -3755,6 +3778,10 @@ msgstr "完成!"
 #. Resource IDs: (32810)
 msgid "Fit image &sizes"
 msgstr "符合影像大小(&S)"
+
+#. Resource IDs: (89)
+msgid "Fix case of item and do not add it"
+msgstr "修正大小寫, 不進行新增"
 
 #. Resource IDs: (1315)
 msgid "Floppy drives (A: B:)"
@@ -4477,6 +4504,11 @@ msgid ""
 msgstr ""
 "匯入資料夾 %s \r\n"
 " 至 %s"
+
+#. Resource IDs: (613)
+#, c-format
+msgid "Import to %1"
+msgstr "匯入至 %1"
 
 #. Resource IDs: (120)
 #, c-format
@@ -5228,6 +5260,11 @@ msgstr "移動並重新命名項目至此"
 #. Resource IDs: (103)
 msgid "Move items to here"
 msgstr "移動項目至此"
+
+#. Resource IDs: (613)
+#, c-format
+msgid "Move to %1"
+msgstr "移動至 %1"
 
 #. Resource IDs: (209)
 msgid "Move to changelist"
@@ -7191,6 +7228,10 @@ msgstr "顯示行號(&S)"
 msgid "Show oldest node at top"
 msgstr "舊的節點顯示在最上面"
 
+#. Resource IDs: (2052)
+msgid "Show only the changed parts of the path name. Replace unchanged elements with dots."
+msgstr "僅顯示路徑中有變更的部分. 未變更的部分以點取代."
+
 #. Resource IDs: (2054)
 msgid ""
 "Show or hide the line diff bar\n"
@@ -9143,6 +9184,27 @@ msgstr "請輸入文字!"
 #. Resource IDs: (1001)
 msgid "You should select an image!"
 msgstr "請選擇一個影像!"
+
+#. Resource IDs: (89)
+#, c-format
+msgid ""
+"You're trying to add the item\n"
+"'%s',\n"
+"but the item\n"
+"'%s'\n"
+"already exists.\n"
+"\n"
+"It seems the item got renamed outside Subversion but only with case changes.\n"
+"Do you really want to add it?"
+msgstr ""
+"你正嘗試要新增項目\n"
+"'%s',\n"
+"但是項目\n"
+"'%s'\n"
+"已經存在了.\n"
+"\n"
+"它似乎被 Subversion 以外的方式變更了名稱, 但是只有大小寫不一樣.\n"
+"確定要新增嗎?"
 
 #. Resource IDs: (195)
 #, c-format
