@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-30 16:11+0900\n"
+"PO-Revision-Date: 2008-12-01 19:30+0900\n"
 "Last-Translator: Kim TaeDong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1399,6 +1399,11 @@ msgstr "확장자에 따른 병합 프로그램 등록"
 msgid "Add the item anyway"
 msgstr "어떻게든 아이템을 추가하기"
 
+#. Resource IDs: (613)
+#, c-format
+msgid "Add to %1"
+msgstr "%1에 추가"
+
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
 msgstr "무시 목록에 추가(&I)"
@@ -2534,6 +2539,11 @@ msgstr ""
 "선택한 부분을 복사하고 클립보드에 넣음\n"
 "복사"
 
+#. Resource IDs: (613)
+#, c-format
+msgid "Copy to %1"
+msgstr "%1에 복사"
+
 #. Resource IDs: (114)
 msgid "Copy to clipboard"
 msgstr "클립보드에 복사"
@@ -3120,6 +3130,11 @@ msgstr "그리기"
 #. Resource IDs: (1079)
 msgid "Drive Types"
 msgstr "드라이브 종류"
+
+#. Resource IDs: (613)
+#, c-format
+msgid "Drop not possible on %1"
+msgstr "%1에 드랍이 불가능함"
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -4489,6 +4504,11 @@ msgstr ""
 "%s 폴더를\r\n"
 "%s (으)로 임포트함"
 
+#. Resource IDs: (613)
+#, c-format
+msgid "Import to %1"
+msgstr "%1에 임포트"
+
 #. Resource IDs: (120)
 #, c-format
 msgid "Importing file %s"
@@ -5237,6 +5257,11 @@ msgstr "아이템을 여기에 옮기고 이름을 바꿉니다"
 #. Resource IDs: (103)
 msgid "Move items to here"
 msgstr "아이템을 여기에 옮깁니다"
+
+#. Resource IDs: (613)
+#, c-format
+msgid "Move to %1"
+msgstr "%1으로 이동"
 
 #. Resource IDs: (209)
 msgid "Move to changelist"
