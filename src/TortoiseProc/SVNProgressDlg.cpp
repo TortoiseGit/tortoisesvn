@@ -2282,7 +2282,7 @@ bool CSVNProgressDlg::CmdResolve(CString& sWindowTitle, bool& localoperation)
 		{
 			for (INT_PTR fileindex=0; (fileindex<m_targetPathList.GetCount()) && (bMarkers==FALSE); ++fileindex)
 			{
-				if (!m_targetPathList[fileindex].IsDirectory())
+				if (m_targetPathList[fileindex].Exists() && !m_targetPathList[fileindex].IsDirectory())
 				{
 					CStdioFile file(m_targetPathList[fileindex].GetWinPath(), CFile::typeBinary | CFile::modeRead);
 					CString strLine = _T("");
