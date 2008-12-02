@@ -1230,6 +1230,15 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
 		else
 			m_cLogMessage.SetText(temp);
 	}
+	m_sLogMessage = m_cLogMessage.GetText();
+	if (!m_ProjectProperties.sMessage.IsEmpty())
+	{
+		CString sBugID = m_ProjectProperties.GetBugIDFromLog(m_sLogMessage);
+		if (!sBugID.IsEmpty())
+		{
+			SetDlgItemText(IDC_BUGID, sBugID);
+		}
+	}
 
 	m_cLogMessage.SetFocus();
 
