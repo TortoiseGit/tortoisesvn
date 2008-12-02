@@ -149,6 +149,8 @@ BOOL CExportDlg::OnInitDialog()
 		CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
 	}
 
+	DialogEnableWindow(IDOK, !m_strExportDirectory.IsEmpty());
+
 	if ((m_pParentWnd==NULL)&&(hWndExplorer))
 		CenterWindow(CWnd::FromHandle(hWndExplorer));
 	EnableSaveRestore(_T("ExportDlg"));

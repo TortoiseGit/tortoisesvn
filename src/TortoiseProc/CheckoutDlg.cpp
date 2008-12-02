@@ -121,6 +121,7 @@ BOOL CCheckoutDlg::OnInitDialog()
 			m_strCheckoutDirectory += _T("\\");
 	}
 	UpdateData(FALSE);
+	DialogEnableWindow(IDOK, !m_strCheckoutDirectory.IsEmpty());
 
 	AddAnchor(IDC_GROUPTOP, TOP_LEFT, TOP_RIGHT);
 	AddAnchor(IDC_URLOFREPO, TOP_LEFT, TOP_RIGHT);
