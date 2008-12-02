@@ -105,7 +105,7 @@ CStandardLayoutTextList::GetText (index_t index) const
         if ((textInfo.subPathIndex == 1) && (nodeInfo.skipStartPathElements > 0))
             text.Insert (0, CString ('.', nodeInfo.skipStartPathElements));
 
-        if (   (visibleElementCount == textInfo.subPathIndex) 
+        if (   (visibleElementCount == (size_t)textInfo.subPathIndex) 
             && (nodeInfo.skipTailPathElements != 0))
         {
             text.AppendChar (_T('/'));
