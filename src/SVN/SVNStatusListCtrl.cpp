@@ -45,7 +45,6 @@
 #include "ShellUpdater.h"
 #include "SVNAdminDir.h"
 #include ".\svnstatuslistctrl.h"
-#include "DropFiles.h"
 #include "IconMenu.h"
 #include "AddDlg.h"
 #include "EditPropertiesDlg.h"

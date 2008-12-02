@@ -32,7 +32,6 @@
 #include "SoundUtils.h"
 #include "SVNDiff.h"
 #include "Hooks.h"
-#include "DropFiles.h"
 #include "SVNLogHelper.h"
 #include "RegHistory.h"
 #include "ConflictResolveDlg.h"
@@ -40,7 +39,8 @@
 #include "ShellUpdater.h"
 #include "IconMenu.h"
 #include "BugTraqAssociations.h"
-
+#include "DragDropImpl.h"
+#include "SVNDataObject.h"
 
 BOOL	CSVNProgressDlg::m_bAscending = FALSE;
 int		CSVNProgressDlg::m_nSortedColumn = -1;
@@ -1713,13 +1713,13 @@ void CSVNProgressDlg::OnEnSetfocusInfotext()
 void CSVNProgressDlg::OnLvnBegindragSvnprogress(NMHDR* , LRESULT *pResult)
 {
 	//LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+	*pResult = 0;
 
 	int selIndex = m_ProgList.GetSelectionMark();
 	if (selIndex < 0)
 		return;
 
-	CDropFiles dropFiles; // class for creating DROPFILES struct
-
+	CTSVNPathList pathList;
 	int index;
 	POSITION pos = m_ProgList.GetFirstSelectedItemPosition();
 	while ( (index = m_ProgList.GetNextSelectedItem(pos)) >= 0 )
@@ -1729,17 +1729,42 @@ void CSVNProgressDlg::OnLvnBegindragSvnprogress(NMHDR* , LRESULT *pResult)
 		if ( data->kind==svn_node_file || data->kind==svn_node_dir )
 		{
 			CString sPath = GetPathFromColumnText(data->sPathColumnText);
-
-			dropFiles.AddFile( sPath );
+			pathList.AddPath(CTSVNPath(sPath));
 		}
 	}
 
-	if ( dropFiles.GetCount()>0 )
+	if (pathList.GetCount() == 0)
 	{
-		dropFiles.CreateStructure();
+		return;
 	}
 
-	*pResult = 0;
+	CIDropSource* pdsrc = new CIDropSource;
+	if (pdsrc == NULL)
+		return;
+	pdsrc->AddRef();
+
+
+	SVNDataObject* pdobj = new SVNDataObject(pathList, SVNRev::REV_WC, SVNRev::REV_WC);
+	if (pdobj == NULL)
+	{
+		delete pdsrc;
+		return;
+	}
+	pdobj->AddRef();
+
+	CDragSourceHelper dragsrchelper;
+	POINT pt = {0,0};
+
+	dragsrchelper.InitializeFromWindow(m_ProgList.GetSafeHwnd(), pt, pdobj);
+
+	pdsrc->m_pIDataObj = pdobj;
+	pdsrc->m_pIDataObj->AddRef();
+
+	// Initiate the Drag & Drop
+	DWORD dwEffect;
+	::DoDragDrop(pdobj, pdsrc, DROPEFFECT_MOVE|DROPEFFECT_COPY, &dwEffect);
+	pdsrc->Release();
+	pdobj->Release();
 }
 
 void CSVNProgressDlg::OnSize(UINT nType, int cx, int cy)
