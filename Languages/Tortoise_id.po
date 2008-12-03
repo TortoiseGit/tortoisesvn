@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-02 22:14+0700\n"
+"PO-Revision-Date: 2008-12-03 19:57+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3052,9 +3052,8 @@ msgstr "Copy semua informasi ke clipboard"
 
 # ID:127,
 #. Resource IDs: (146)
-#, fuzzy
 msgid "Copy and rename"
-msgstr "Salin dan ganti nama item ke sini"
+msgstr "Salin dan ganti nama"
 
 # ID:127,
 #. Resource IDs: (104)
@@ -3097,11 +3096,9 @@ msgstr ""
 
 # ID:82,
 #. Resource IDs: (613)
-#, fuzzy, c-format
+#, c-format
 msgid "Copy to %1"
-msgstr ""
-"Menyalin %s\r\n"
-"ke %s"
+msgstr "Menyalin ke %1"
 
 # ID:114,
 #. Resource IDs: (114)
@@ -5399,9 +5396,9 @@ msgstr ""
 
 # ID:120,
 #. Resource IDs: (613)
-#, fuzzy, c-format
+#, c-format
 msgid "Import to %1"
-msgstr "Mengimpor %s ke %s%s"
+msgstr "Mengimpor ke %1"
 
 # ID:120,
 #. Resource IDs: (120)
@@ -6277,9 +6274,8 @@ msgstr "Pindahkan Item Ke Atas"
 
 # ID:127,
 #. Resource IDs: (147)
-#, fuzzy
 msgid "Move and rename"
-msgstr "Pindahkan dan ganti nama item ke sini"
+msgstr "Pindahkan dan ganti nama"
 
 # ID:127,
 #. Resource IDs: (104)
@@ -6293,11 +6289,9 @@ msgstr "Pindahkan item ke sini"
 
 # ID:127,
 #. Resource IDs: (613)
-#, fuzzy, c-format
+#, c-format
 msgid "Move to %1"
-msgstr ""
-"Pindahkan %s\r\n"
-"ke %s"
+msgstr "Pindahkan ke %1"
 
 # ID:209,
 #. Resource IDs: (209)
@@ -6952,9 +6946,8 @@ msgstr "Silahkam masukkan path ke mana untuk menerapkan naskah hook."
 
 # ID:251,
 #. Resource IDs: (251)
-#, fuzzy
 msgid "Please execute the 'Cleanup' command."
-msgstr "Silahkan jalankan perintah \"Bersihkan\"."
+msgstr "Silahkan jalankan perintah 'Bersihkan'."
 
 # ID:78,
 #. Resource IDs: (78)
@@ -7524,25 +7517,23 @@ msgstr "Hapus dari daftar perubahan"
 
 # ID:207,
 #. Resource IDs: (127)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Remove property '%s' from\r\n"
 "%s"
 msgstr ""
-"Hapus properti \"%s\" dari\r\n"
+"Hapus properti '%s' dari\r\n"
 "%s"
 
 # Control-ID:1074,
 #. Resource IDs: (610)
-#, fuzzy
 msgid "Remove the directory"
-msgstr "Checkout &direktori:"
+msgstr "Hapus direktori"
 
 # ID:151,
 #. Resource IDs: (610)
-#, fuzzy
 msgid "Remove the file"
-msgstr "%s : Berkas jauh"
+msgstr "Hapus berkas"
 
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
@@ -7744,15 +7735,13 @@ msgstr "Menyelesaikan semua nanti"
 
 # ID:282,
 #. Resource IDs: (282)
-#, fuzzy
 msgid "Resolve conflict using 'mine'"
-msgstr "Selesaikan konflik menggunakan \"saya\""
+msgstr "Selesaikan konflik menggunakan 'saya'"
 
 # ID:282,
 #. Resource IDs: (282)
-#, fuzzy
 msgid "Resolve conflict using 'theirs'"
-msgstr "Selesaikan konflik menggunakan \"mereka\""
+msgstr "Selesaikan konflik menggunakan 'mereka'"
 
 # ID:9,
 #. Resource IDs: (1403)
@@ -7941,7 +7930,7 @@ msgstr ""
 
 # ID:272,
 #. Resource IDs: (272)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Revision: %ld\r\n"
 "URL: %s\r\n"
@@ -7958,7 +7947,7 @@ msgstr ""
 "Pembuat: %s\r\n"
 "Tanggal: %s\r\n"
 "\r\n"
-"Tag:%s\r\n"
+"Tags (%d):%s\r\n"
 "\r\n"
 "Pesan log:\r\n"
 "%s"
@@ -8442,12 +8431,12 @@ msgstr "Set tanggal berkas ke \"waktu komit &terakhir\""
 
 # ID:207,
 #. Resource IDs: (127)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Set property '%s' on\r\n"
 "%s"
 msgstr ""
-"Set properti \"%s\" pada\r\n"
+"Set properti '%s' pada\r\n"
 "%s"
 
 # ID:13,
