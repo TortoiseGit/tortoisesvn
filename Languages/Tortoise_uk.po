@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-27 17:47+0200\n"
+"PO-Revision-Date: 2008-12-03 15:27+0200\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1017,7 +1017,7 @@ msgstr ""
 
 #. Resource IDs: (1222)
 msgid "&Timeout in seconds to stop the auto-completion parsing"
-msgstr "Час в секундах до припинення синтаксичного аналізу автозавершення"
+msgstr "&Час у секундах до припинення синтаксичного аналізу автозавершення"
 
 #. Resource IDs: (65535)
 msgid "&To Revision"
@@ -1401,6 +1401,11 @@ msgstr "Додати характерну для розширення прогр
 #. Resource IDs: (89)
 msgid "Add the item anyway"
 msgstr "Так чи інакше, додати елемент"
+
+#. Resource IDs: (613)
+#, fuzzy, c-format
+msgid "Add to %1"
+msgstr "до %1"
 
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
@@ -2431,7 +2436,6 @@ msgid "Continue"
 msgstr "Продовжити"
 
 #. Resource IDs: (1001)
-#, fuzzy
 msgid "Contract docked window"
 msgstr ""
 
@@ -2533,13 +2537,20 @@ msgstr "Копіювати шляхи до буфера обміну"
 
 #. Resource IDs: (323)
 msgid "Copy selection to cli&pboard"
-msgstr "Копіювати виділене до буфера обміну"
+msgstr "Копіювати виділене до &буфера обміну"
 
 #. Resource IDs: (3603)
 msgid ""
 "Copy the selection and put it on the Clipboard\n"
 "Copy"
 msgstr "Копіює виділене та кладе його до буфера обміну/nКопіювати"
+
+#. Resource IDs: (613)
+#, fuzzy, c-format
+msgid "Copy to %1"
+msgstr ""
+"Копіювати %s\r\n"
+"до %s"
 
 #. Resource IDs: (114)
 msgid "Copy to clipboard"
@@ -3128,6 +3139,11 @@ msgstr ""
 #. Resource IDs: (1079)
 msgid "Drive Types"
 msgstr "Типи дисків"
+
+#. Resource IDs: (613)
+#, c-format
+msgid "Drop not possible on %1"
+msgstr ""
 
 #. Resource IDs: (32816)
 #, fuzzy
@@ -4055,7 +4071,7 @@ msgstr "Порада: Натисніть F5 щоб поновити вибран
 
 #. Resource IDs: (16519)
 msgid "Hint: select the context menu, change the page to 'Commands' and drag the toolbar buttons into the menu window."
-msgstr "Порада: виберіть контекстне меню, перейдіть на сторінку \"Команди\" та перетягніть кнопки з рядка знарядь у вікно меню."
+msgstr "Порада: виберіть контекстне меню, перейдіть на сторінку 'Команди' та перетягніть кнопки з рядка знарядь у вікно меню."
 
 #. Resource IDs: (1064)
 msgid "Home"
@@ -4310,7 +4326,7 @@ msgid ""
 "If enabled, the Merge dialog initializes the 'From:' URL with the URL of the selected working copy\r\n"
 "instead of the last used URL."
 msgstr ""
-"Якщо дозволено, діалог Злиття ініціалізує URL \"Від:\" URL-ем вибраної робочої копії\r\n"
+"Якщо дозволено, діалог Злиття ініціалізує URL 'Від:' URL-ем вибраної робочої копії\r\n"
 "замість останнього використаного URL."
 
 #. Resource IDs: (195)
@@ -4479,6 +4495,11 @@ msgid ""
 msgstr ""
 "Імпортувати каталог %s\r\n"
 "до %s"
+
+#. Resource IDs: (613)
+#, fuzzy, c-format
+msgid "Import to %1"
+msgstr "Імпортувати %s до %s%s"
 
 #. Resource IDs: (120)
 #, c-format
@@ -5201,6 +5222,13 @@ msgstr "Перемістити та перейменувати елемент о
 msgid "Move items to here"
 msgstr "Перемістити елементи сюди"
 
+#. Resource IDs: (613)
+#, fuzzy, c-format
+msgid "Move to %1"
+msgstr ""
+"Перемістити %s\r\n"
+"до %s"
+
 #. Resource IDs: (209)
 msgid "Move to changelist"
 msgstr "Перенести до списку змін"
@@ -5513,10 +5541,6 @@ msgstr "Оминути &зовнішні"
 #. Resource IDs: (145)
 msgid "Omit externals"
 msgstr "Оминути зовнішні"
-
-#. Resource IDs: (2052)
-msgid "On copy and rename nodes, show only the changed parts of the path name"
-msgstr "При копіюванні та перейменуванні вузлів показувати лише змінені частини назви шляху"
 
 #. Resource IDs: (63)
 msgid ""
@@ -6648,7 +6672,7 @@ msgstr "По&казати кнопки у двох рядках"
 
 #. Resource IDs: (17078)
 msgid "S&how Quick Access Toolbar below the Ribbon"
-msgstr "Показувати Панель швидкого доступу під Смужкою"
+msgstr "По&казувати Панель швидкого доступу під Смужкою"
 
 #. Resource IDs: (1132)
 msgid "S&tatistics"
@@ -7173,6 +7197,10 @@ msgstr "Показати &номери рядків"
 msgid "Show oldest node at top"
 msgstr "Показувати найстарший вузол угорі"
 
+#. Resource IDs: (2052)
+msgid "Show only the changed parts of the path name. Replace unchanged elements with dots."
+msgstr "Показувати лише змінені частини шляху. Заіняти незмінені елементи кратками."
+
 #. Resource IDs: (2054)
 msgid ""
 "Show or hide the line diff bar\n"
@@ -7548,7 +7576,7 @@ msgstr "Переключити:"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<<->right"
-msgstr ""
+msgstr "Переключає порівняння ліве<<->праве"
 
 #. Resource IDs: (65535)
 msgid "System &sounds"
@@ -9024,6 +9052,10 @@ msgid ""
 "This could lead to severe repository corruption!\n"
 "Do you really want to do that?"
 msgstr ""
+"Ви намагаєтеся дістатися до сховища через протокол file:// на\n"
+"спільному мережевому диску.\n"
+"Це може призвести до значних пошкоджень сховища!\n"
+"Невже ви цього хочете?"
 
 #. Resource IDs: (105)
 msgid ""
@@ -9926,6 +9958,11 @@ msgstr "так"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid ""
+#~ "On copy and rename nodes, show only the changed parts of the path name"
+#~ msgstr ""
+#~ "При копіюванні та перейменуванні вузлів показувати лише змінені частини "
+#~ "назви шляху"
 #~ msgid "(deleted) %s"
 #~ msgstr "(знищено) %s"
 #~ msgid "Only record the merge"
