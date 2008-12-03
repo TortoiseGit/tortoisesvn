@@ -322,6 +322,10 @@ CString ProjectProperties::GetBugIDFromLog(CString& msg)
 			else
 				sBugLine = msg;
 		}
+		if (sBugLine.IsEmpty() && (msg.ReverseFind('\n') < 0))
+		{
+			sBugLine = msg.Mid(msg.ReverseFind('\n')+1);
+		}
 		if (sBugLine.Left(sFirstPart.GetLength()).Compare(sFirstPart)!=0)
 			sBugLine.Empty();
 		if (sBugLine.Right(sLastPart.GetLength()).Compare(sLastPart)!=0)
