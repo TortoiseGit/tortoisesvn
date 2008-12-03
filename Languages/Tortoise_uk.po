@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-03 15:27+0200\n"
+"PO-Revision-Date: 2008-12-03 18:33+0200\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -662,7 +662,7 @@ msgstr "По&чатковий каталог"
 
 #. Resource IDs: (32825)
 msgid "&Inline diff word-wise"
-msgstr ""
+msgstr "Досл&івні відмінності в рядках"
 
 #. Resource IDs: (275)
 msgid "&Join all"
@@ -977,7 +977,7 @@ msgstr "&Рядок стану"
 
 #. Resource IDs: (1211)
 msgid "&Steal the locks"
-msgstr "&Оволодіти блокуваннями"
+msgstr "Пере&хопити блокування"
 
 #. Resource IDs: (1130)
 msgid "&Stop on copy/rename"
@@ -1403,9 +1403,9 @@ msgid "Add the item anyway"
 msgstr "Так чи інакше, додати елемент"
 
 #. Resource IDs: (613)
-#, fuzzy, c-format
+#, c-format
 msgid "Add to %1"
-msgstr "до %1"
+msgstr "Додати до %1"
 
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
@@ -2546,11 +2546,9 @@ msgid ""
 msgstr "Копіює виділене та кладе його до буфера обміну/nКопіювати"
 
 #. Resource IDs: (613)
-#, fuzzy, c-format
+#, c-format
 msgid "Copy to %1"
-msgstr ""
-"Копіювати %s\r\n"
-"до %s"
+msgstr "Копіювати до %1"
 
 #. Resource IDs: (114)
 msgid "Copy to clipboard"
@@ -3790,7 +3788,7 @@ msgstr "Підігнати &розміри зображень"
 
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
-msgstr ""
+msgstr "Виправити регістр елемента і не додавати його"
 
 #. Resource IDs: (1315)
 msgid "Floppy drives (A: B:)"
@@ -4664,7 +4662,6 @@ msgid "Keep &locks"
 msgstr "Зберігати б&локування"
 
 #. Resource IDs: (1126)
-#, fuzzy
 msgid "Keep changelists"
 msgstr "Зберігати списки змін"
 
@@ -5223,11 +5220,9 @@ msgid "Move items to here"
 msgstr "Перемістити елементи сюди"
 
 #. Resource IDs: (613)
-#, fuzzy, c-format
+#, c-format
 msgid "Move to %1"
-msgstr ""
-"Перемістити %s\r\n"
-"до %s"
+msgstr "Перемістити до %1"
 
 #. Resource IDs: (209)
 msgid "Move to changelist"
@@ -6851,7 +6846,7 @@ msgstr "Вибрати &все"
 
 #. Resource IDs: (16529)
 msgid "Select &User-defined Image: "
-msgstr ""
+msgstr "Виберіть визначене &користувачем зображення:"
 
 #. Resource IDs: (16508)
 msgid "Select &context menu:"
@@ -7463,11 +7458,11 @@ msgstr "Стан елемента в SVN"
 
 #. Resource IDs: (16)
 msgid "Steal loc&k"
-msgstr "Оволодіти бло&куванням"
+msgstr "Перехопити бло&кування"
 
 #. Resource IDs: (313)
 msgid "Steal the lock"
-msgstr "Оволодіти блокуванням"
+msgstr "Перехопити блокування"
 
 #. Resource IDs: (65535)
 msgid "Stefan Küng, Lübbe Onken"
@@ -8238,6 +8233,8 @@ msgid ""
 "To steal the lock, right-click on the parent folder of this item and select 'Get Lock' from the context menu.\n"
 "This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 msgstr ""
+"Щоб перехопити блокування, клацніть правою кнопкою по батьківському каталозі цього елемента і виберіть із контекстного меню пункт 'Отримати блокування'.\n"
+"Це викличе діалог блокування, у якому можна примусово здійснити блокування, наприклад, 'перехопити' його у поточного власника."
 
 #. Resource IDs: (1201, 65535)
 msgid "To:"
@@ -9044,6 +9041,10 @@ msgid ""
 "Accessing a repository via file:// on a network share may corrupt your data!\n"
 "Create the repository anyway?"
 msgstr ""
+"Ви створюєте сховище на спільному мережевому ресурсі.\n"
+"Це безпечно, але щойно сховище буде створено, доступ до нього необхідно буде здійснювати якимось іншими способами.\n"
+"Доступ до сховища через протокол file:// на спільному мережевому ресурсі може пошкодити дані!\n"
+"Всеодно створити сховище?"
 
 #. Resource IDs: (88)
 msgid ""
@@ -9384,12 +9385,16 @@ msgid ""
 "bugtraq:providerparams\r\n"
 "the parameters passed to the IBugTraqProvider"
 msgstr ""
+"bugtraq:providerparams\r\n"
+"параметри, що передаються IBugTraqProvider"
 
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:provideruuid\r\n"
 "the COM uuid of the IBugTraqProvider"
 msgstr ""
+"bugtraq:provideruuid\r\n"
+"це COM uuid що належить IBugTraqProvider"
 
 #. Resource IDs: (577)
 #, c-format
@@ -9865,6 +9870,9 @@ msgid ""
 "Set this to the number of chars the log message should not exceed its width.\r\n"
 "A faded line is shown in the commit dialogs at that position. The default is 80 chars."
 msgstr ""
+"tsvn:logwidthmarker\r\n"
+"Встановіть це рівним кількості символів, яку логовому повідомленню не слід перевищувати вшир.\r\n"
+"У діалозі фіксації після такої довжини рядок зникатиме. Типово це 80 символів."
 
 #. Resource IDs: (578)
 msgid ""
