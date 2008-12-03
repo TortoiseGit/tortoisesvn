@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2008-03-23 08:34 +0000\n"
-"PO-Revision-Date: 2008-05-20 22:59+0700\n"
+"POT-Creation-Date: 2008-11-17 00:14 +0000\n"
+"PO-Revision-Date: 2008-12-03 20:08+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -121,8 +121,8 @@ msgstr "TortoiseMerge adalah bebas. Anda tidak perlu membayarnya, Anda bisa meng
 # Indonesian#: source/TortoiseMerge_en.xml:68
 #. (para)
 #: ../source/TortoiseMerge_en.xml:71
-msgid "TortoiseMerge is an Open Source project. That means you have full access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. (Username:guest, for password hit enter) The most recent version (where we're currently working) is located under <filename>/trunk/</filename> the released versions are located under <filename>/tags/</filename>."
-msgstr "TortoiseMerge adalah proyek Sumber Terbuka. Ini berarti bahwa Anda mempunyai akses penuh ke kode sumber dari program ini. Anda bisa melihatnya pada link ini <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. (Nama penguna:guest, untuk kata sandi tekan enter) Versi paling baru (di mana saat ini kami sedang bekerja) ditempatkan di bawah <filename>/trunk/</filename> versi rilis ditempatkan di bawah <filename>/tags/</filename>."
+msgid "TortoiseMerge is an Open Source project. That means you have full read access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. You will be prompted to enter username and password. The username is <literal>guest</literal>, and the password must be left blank. The most recent version (where we're currently working) is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
+msgstr "TortoiseMerge adalah proyek Sumber Terbuka. Ini berarti bahwa Anda mempunyai akses penuh ke kode sumber dari program ini. Anda bisa melihatnya pada pranala ini <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. Anda akan diminta untuk memasukkan nama pengguna dan sandi lewat. Nama pengguna adalah <literal>guest</literal>, dan sandi lewat harus dibiarkan kosong. Versi paling baru (di mana saat ini kami sedang bekerja) ditempatkan di bawah <filename>/trunk/</filename>, dan versi rilis ditempatkan di bawah <filename>/tags/</filename>."
 
 #. (title)
 #: ../source/TortoiseMerge_en.xml:90
@@ -258,9 +258,8 @@ msgstr "Suatu konflik bisa juga terjadi jika Anda mencoba menerapkan sebuah berk
 # Indonesian#: source/TortoiseMerge_en.xml:219
 #. (para)
 #: ../source/TortoiseMerge_en.xml:220
-#, fuzzy
 msgid "But now with TortoiseMerge this isn't necessary anymore - at least not if you're working with a version control system like Subversion. TortoiseMerge parses the patch file for the revision/version the patch was created for and automatically tries to fetch that specific version from your source-control. Then it applies the patch and lets you review both your changes to the file, and theirs. Then you can decide which changes you want to keep."
-msgstr "Tetapi sekarang dengan TortoiseMerge ini tidak perlu lagi - setidaknya tidak jika Anda bekerja dengan sistem kontrol versi seperti Subversion. TortoiseMerge mengurai patchfile untuk revisi/versi dari patch yang dibuat untuk dan secara otomatis mencoba mengambil versi tertentu dari kontrol-sumber Anda. Kemudian menerapkan patch dan membiarkan Anda meninjau kedua perubahan Anda pada file, dan milik mereka. Lalu Anda bisa memutuskan perubahan mana yang ingin Anda pelihara."
+msgstr "Tetapi sekarang dengan TortoiseMerge ini tidak perlu lagi - setidaknya tidak jika Anda bekerja dengan sistem kontrol versi seperti Subversion. TortoiseMerge mengurai berkas tambalan untuk revisi/versi dari tambalan yang dibuat untuk dan secara otomatis mencoba mengambil versi tertentu dari kontrol-sumber Anda. Kemudian menerapkan tambalan dan memungkinkan Anda meninjau kedua perubahan Anda pada berkas, dan milik mereka. Lalu Anda bisa memutuskan perubahan mana yang ingin Anda simpan."
 
 # Indonesian#: source/TortoiseMerge_en.xml:233
 #. (title)
@@ -289,9 +288,8 @@ msgstr "Maka kami meluangkan banyak waktu, mencari internet untuk piranti GUI ya
 # Indonesian#: source/TortoiseMerge_en.xml:268
 #. (para)
 #: ../source/TortoiseMerge_en.xml:268
-#, fuzzy
 msgid "Since TortoiseSVN already uses the Subversion library, which has a nice diffing engine built in, it was just natural to use this library instead of the GNU diff."
-msgstr "Karena TortoiseSVN sudah menggunakan librari Subversion, yang mempunyai mesin pembeda secara built in, ini menjadi alami untuk menggunakan librari ini daripada GNU diff. Juga itu mengurangi ukuran eksekutabel karena TortoiseSVN dan TortoiseMerge keduanya bisa menggunakan dll yang sama."
+msgstr "Karena TortoiseSVN sudah menggunakan pustaka Subversion, yang mempunyai mesin pembeda secara pabrikan, ini menjadi alami untuk menggunakan librari ini daripada GNU diff."
 
 #. (title)
 #: ../source/TortoiseMerge_en.xml:276
@@ -315,16 +313,14 @@ msgstr "Menerapkan berkas tambalan. Ini adalah salah satu alasan TortoiseMerge d
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:278
-#, fuzzy
 msgid "TortoiseMerge has several different uses: <placeholder-1/>"
-msgstr "TortoiseMerge membantu Anda dengan kedua tugas tersebut: <placeholder-1/>"
+msgstr "TortoiseMerge memiliki beberapa penggunaan: <placeholder-1/>"
 
 # Indonesian#: source/TortoiseMerge_en.xml:308
 #. (title)
 #: ../source/TortoiseMerge_en.xml:303
-#, fuzzy
 msgid "Viewing and Merging Differences"
-msgstr "Melihat / Menggabung"
+msgstr "Melihat dan Menggabung Perbedaan"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:304
@@ -356,9 +352,8 @@ msgstr "Anda juga dapat menyunting berkas di jendela kiri sebagaimana Anda akan 
 # Indonesian#: source/TortoiseMerge_en.xml:588
 #. (title)
 #: ../source/TortoiseMerge_en.xml:338
-#, fuzzy
 msgid "Editing Conflicts"
-msgstr "Menggabung / Mengedit Konflik"
+msgstr "Mengedit Konflik"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:339
@@ -943,255 +938,278 @@ msgstr "Konflik"
 msgid "Where the same line has been changed in both files."
 msgstr "Di mana baris yang sama sudah diubah dalam kedua file."
 
-# Indonesian#: source/TortoiseMerge_en.xml:755
+# Indonesian#: source/TortoiseMerge_en.xml:762
 #. (term)
 #: ../source/TortoiseMerge_en.xml:986
+msgid "Conflict resolved"
+msgstr "Konflik diselesaikan"
+
+# Indonesian#: source/TortoiseMerge_en.xml:763
+#. (listitem)
+#: ../source/TortoiseMerge_en.xml:987
+#, fuzzy
+msgid "Where the same line has been changed in both files, and you have now selected which version should be used."
+msgstr "Di mana baris yang sama sudah diubah dalam kedua file."
+
+# Indonesian#: source/TortoiseMerge_en.xml:755
+#. (term)
+#: ../source/TortoiseMerge_en.xml:993
 msgid "Empty"
 msgstr "Kosong"
 
 # Indonesian#: source/TortoiseMerge_en.xml:756
 #. (listitem)
-#: ../source/TortoiseMerge_en.xml:987
+#: ../source/TortoiseMerge_en.xml:994
 msgid "Where lines have been added in the opposite pane, and no such line existed in this pane."
 msgstr "Di mana baris sudah ditambahkan ke pane berlawanan, dan tidak ada baris tersebut muncul dalam pane ini."
 
 #. (term)
-#: ../source/TortoiseMerge_en.xml:993
+#: ../source/TortoiseMerge_en.xml:1000
 msgid "Inline added text"
 msgstr "Teks ditambahkan sebaris"
 
 #. (listitem)
-#: ../source/TortoiseMerge_en.xml:994
+#: ../source/TortoiseMerge_en.xml:1001
 msgid "When inline diffs are shown, added text is shown in this colour."
 msgstr "Saat diff sebaris ditampilkan, teks yang ditambahkan ditampilkan dalam warna ini."
 
 #. (term)
-#: ../source/TortoiseMerge_en.xml:999
+#: ../source/TortoiseMerge_en.xml:1006
 msgid "Inline removed text"
 msgstr "Teks dihilangkan sebaris"
 
 #. (listitem)
-#: ../source/TortoiseMerge_en.xml:1000
+#: ../source/TortoiseMerge_en.xml:1007
 msgid "When inline diffs are shown, deleted text is shown in this colour."
 msgstr "Saat diff-diff sebaris ditampilkan, teks yang dihapus ditampilkan dalam warna ini."
 
+#. (term)
+#: ../source/TortoiseMerge_en.xml:1012
+msgid "Misc whitespaces"
+msgstr ""
+
+#. (listitem)
+#: ../source/TortoiseMerge_en.xml:1013
+msgid "Characters used to indicate Whitespace are shown in a different colour from normal text."
+msgstr ""
+
 # Indonesian#: source/TortoiseMerge_en.xml:787
 #. (title)
-#: ../source/TortoiseMerge_en.xml:1009
+#: ../source/TortoiseMerge_en.xml:1023
 msgid "keyboard shortcuts"
 msgstr "jalan pintas keyboard"
 
 # Indonesian#: source/TortoiseMerge_en.xml:789
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1011
+#: ../source/TortoiseMerge_en.xml:1025
 msgid "List of keyboard shortcuts and commands."
 msgstr "Daftar jalan pintas keyboard dan perintah."
 
 # Indonesian#: source/TortoiseMerge_en.xml:794
 #. (title)
-#: ../source/TortoiseMerge_en.xml:1016
+#: ../source/TortoiseMerge_en.xml:1030
 msgid "Keyboard shortcuts"
 msgstr "Jalan pintas keyboard"
 
 # Indonesian#: source/TortoiseMerge_en.xml:797
 #. (term)
-#: ../source/TortoiseMerge_en.xml:1019
+#: ../source/TortoiseMerge_en.xml:1033
 msgid "Ctrl-Q"
 msgstr "Ctrl-Q"
 
 # Indonesian#: source/TortoiseMerge_en.xml:799
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1021
+#: ../source/TortoiseMerge_en.xml:1035
 msgid "Quit the program"
 msgstr "Keluar dari program"
 
 # Indonesian#: source/TortoiseMerge_en.xml:805
 #. (term)
-#: ../source/TortoiseMerge_en.xml:1027
+#: ../source/TortoiseMerge_en.xml:1041
 msgid "Ctrl-C"
 msgstr "Ctrl-C"
 
 # Indonesian#: source/TortoiseMerge_en.xml:807
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1029
+#: ../source/TortoiseMerge_en.xml:1043
 msgid "Copy the selected text to the clipboard"
 msgstr "Salin baris terpilih ke clipboard"
 
 # Indonesian#: source/TortoiseMerge_en.xml:813
 #. (term)
-#: ../source/TortoiseMerge_en.xml:1035
+#: ../source/TortoiseMerge_en.xml:1049
 msgid "Ctrl-F"
 msgstr "Ctrl-F"
 
 # Indonesian#: source/TortoiseMerge_en.xml:815
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1037
+#: ../source/TortoiseMerge_en.xml:1051
 msgid "Open the Find dialog for text searches"
 msgstr "Buka dialog Cari untuk pencarian teks"
 
 # Indonesian#: source/TortoiseMerge_en.xml:821
 #. (term)
-#: ../source/TortoiseMerge_en.xml:1043
+#: ../source/TortoiseMerge_en.xml:1057
 msgid "Ctrl-O"
 msgstr "Ctrl-O"
 
 # Indonesian#: source/TortoiseMerge_en.xml:823
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1045
+#: ../source/TortoiseMerge_en.xml:1059
 msgid "Open files to diff/merge"
 msgstr "Buka file untuk diff/merge"
 
 # Indonesian#: source/TortoiseMerge_en.xml:829
 #. (term)
-#: ../source/TortoiseMerge_en.xml:1051
+#: ../source/TortoiseMerge_en.xml:1065
 msgid "Ctrl-S"
 msgstr "Ctrl-S"
 
 # Indonesian#: source/TortoiseMerge_en.xml:831
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1053
+#: ../source/TortoiseMerge_en.xml:1067
 msgid "Save the changes"
 msgstr "Simpan perubahan"
 
 # Indonesian#: source/TortoiseMerge_en.xml:837
 #. (term)
-#: ../source/TortoiseMerge_en.xml:1059
+#: ../source/TortoiseMerge_en.xml:1073
 msgid "Ctrl-Shift-S"
 msgstr "Ctrl-Shift-S"
 
 # Indonesian#: source/TortoiseMerge_en.xml:839
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1061
+#: ../source/TortoiseMerge_en.xml:1075
 msgid "Save as..."
 msgstr "Simpan sebagai..."
 
 #. (term)
-#: ../source/TortoiseMerge_en.xml:1067
+#: ../source/TortoiseMerge_en.xml:1081
 msgid "F7"
 msgstr "F7"
 
 # Indonesian#: source/TortoiseMerge_en.xml:847
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1069
+#: ../source/TortoiseMerge_en.xml:1083
 msgid "Go to next difference"
 msgstr "Pergi ke perbedaan berikutnya"
 
 # Indonesian#: source/TortoiseMerge_en.xml:837
 #. (term)
-#: ../source/TortoiseMerge_en.xml:1075
+#: ../source/TortoiseMerge_en.xml:1089
 msgid "Shift-F7"
 msgstr "Shift-F7"
 
 # Indonesian#: source/TortoiseMerge_en.xml:855
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1077
+#: ../source/TortoiseMerge_en.xml:1091
 msgid "Go to previous difference"
 msgstr "Pergi ke perbedaan sebelumnya"
 
 #. (term)
-#: ../source/TortoiseMerge_en.xml:1083
+#: ../source/TortoiseMerge_en.xml:1097
 msgid "F8"
 msgstr "F8"
 
 # Indonesian#: source/TortoiseMerge_en.xml:863
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1085
+#: ../source/TortoiseMerge_en.xml:1099
 msgid "Go to next conflict"
 msgstr "Pergi ke konflik berikutnya"
 
 # Indonesian#: source/TortoiseMerge_en.xml:837
 #. (term)
-#: ../source/TortoiseMerge_en.xml:1091
+#: ../source/TortoiseMerge_en.xml:1105
 msgid "Shift-F8"
 msgstr "Shift-F8"
 
 # Indonesian#: source/TortoiseMerge_en.xml:871
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1093
+#: ../source/TortoiseMerge_en.xml:1107
 msgid "Go to previous conflict"
 msgstr "Pergi ke konflik sebelumnya"
 
 # Indonesian#: source/TortoiseMerge_en.xml:877
 #. (term)
-#: ../source/TortoiseMerge_en.xml:1099
+#: ../source/TortoiseMerge_en.xml:1113
 msgid "Ctrl-D"
 msgstr "Ctrl-D"
 
 # Indonesian#: source/TortoiseMerge_en.xml:879
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1101
+#: ../source/TortoiseMerge_en.xml:1115
 msgid "Toggle between one-pane diff and two-pane diff"
 msgstr "Hidup/matikan antara satu-pane diff dan dua-pane diff"
 
 # Indonesian#: source/TortoiseMerge_en.xml:885
 #. (term)
-#: ../source/TortoiseMerge_en.xml:1107
+#: ../source/TortoiseMerge_en.xml:1121
 msgid "Ctrl-R"
 msgstr "Ctrl-R"
 
 # Indonesian#: source/TortoiseMerge_en.xml:887
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1109
+#: ../source/TortoiseMerge_en.xml:1123
 msgid "Reload the files and revert all changes made"
 msgstr "Ambil kembali file dan balikan semua perubahan yang sudah dibuat"
 
 # Indonesian#: source/TortoiseMerge_en.xml:894
 #. (term)
-#: ../source/TortoiseMerge_en.xml:1115
+#: ../source/TortoiseMerge_en.xml:1129
 msgid "Ctrl-T"
 msgstr "Ctrl-T"
 
 # Indonesian#: source/TortoiseMerge_en.xml:896
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1117
+#: ../source/TortoiseMerge_en.xml:1131
 msgid "Toggles between showing whitespaces or not"
 msgstr "Hidup/matikan menampilkan spasi putih atau tidak"
 
 # Indonesian#: source/TortoiseMerge_en.xml:902
 #. (term)
-#: ../source/TortoiseMerge_en.xml:1123
+#: ../source/TortoiseMerge_en.xml:1137
 msgid "Ctrl-mousewheel"
 msgstr "Ctrl-roda tetikus"
 
 # Indonesian#: source/TortoiseMerge_en.xml:904
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1125
+#: ../source/TortoiseMerge_en.xml:1139
 msgid "Scroll the display left/right"
 msgstr "Gulung layar ke kiri/kanan"
 
 # Indonesian#: source/TortoiseMerge_en.xml:913
 #. (title)
-#: ../source/TortoiseMerge_en.xml:1134
+#: ../source/TortoiseMerge_en.xml:1148
 msgid "Automating TortoiseMerge"
 msgstr "Mengotomasi TortoiseMerge"
 
 # Indonesian#: source/TortoiseMerge_en.xml:915
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1136
+#: ../source/TortoiseMerge_en.xml:1150
 msgid "TortoiseMerge can be started with command line parameters to avoid having to go through the <guilabel>Open</guilabel> dialog to select the files yourself. This is useful also if you want to use TortoiseMerge from another application."
 msgstr "TortoiseMerge bisa dimulai dengan parameter baris perintah untuk menghindari keharusan pergi melalui dialog <guilabel>Buka</guilabel> untuk memilih file Anda sendiri. Ini berguna juga jika Anda ingin menggunakan TortoiseMerge dari aplikasi lain."
 
 # Indonesian#: source/TortoiseMerge_en.xml:926
 #. (title)
-#: ../source/TortoiseMerge_en.xml:1147
+#: ../source/TortoiseMerge_en.xml:1161
 msgid "TortoiseMerge Command Line Switches"
 msgstr "Saklar Baris Perintah TortoiseMerge"
 
 # Indonesian#: source/TortoiseMerge_en.xml:928
 #. (primary)
-#: ../source/TortoiseMerge_en.xml:1149
+#: ../source/TortoiseMerge_en.xml:1163
 msgid "automation"
 msgstr "otomasi"
 
 # Indonesian#: source/TortoiseMerge_en.xml:931
 #. (primary)
-#: ../source/TortoiseMerge_en.xml:1152
+#: ../source/TortoiseMerge_en.xml:1166
 msgid "command line"
 msgstr "baris perintah"
 
 # Indonesian#: source/TortoiseMerge_en.xml:933
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1154
+#: ../source/TortoiseMerge_en.xml:1168
 msgid ""
 "Most switches require additional information like a path or some other string. In those cases, append an ':' to the switch and put the string/path after it. Example: <screen>\n"
 "/base:\"c:\\folder\\my base file.txt\"\n"
@@ -1203,187 +1221,188 @@ msgstr ""
 
 # Indonesian#: source/TortoiseMerge_en.xml:953
 #. (title)
-#: ../source/TortoiseMerge_en.xml:1174
+#: ../source/TortoiseMerge_en.xml:1188
 msgid "List of available command line options"
 msgstr "Daftar opsi baris perintah yang tersedia"
 
 # Indonesian#: source/TortoiseMerge_en.xml:959
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1180
+#: ../source/TortoiseMerge_en.xml:1194
 msgid "Command"
 msgstr "Perintah"
 
 # Indonesian#: source/TortoiseMerge_en.xml:960
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1181
+#: ../source/TortoiseMerge_en.xml:1195
 msgid "Description"
 msgstr "Penjelasan"
 
 # Indonesian#: source/TortoiseMerge_en.xml:966
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1187
+#: ../source/TortoiseMerge_en.xml:1201
 msgid "Shows a dialog box with the most important command line switches."
 msgstr "Menampilkan kotak dialog dengan saklar baris perintah yang penting."
 
 # Indonesian#: source/TortoiseMerge_en.xml:973
 #. (option)
-#: ../source/TortoiseMerge_en.xml:1195
+#: ../source/TortoiseMerge_en.xml:1209
 msgid "?"
 msgstr "?"
 
 # Indonesian#: source/TortoiseMerge_en.xml:972
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1194
+#: ../source/TortoiseMerge_en.xml:1208
 msgid "The same as <placeholder-1/>."
 msgstr "Sama seperti <placeholder-1/>."
 
 # Indonesian#: source/TortoiseMerge_en.xml:979
 #. (emphasis)
-#: ../source/TortoiseMerge_en.xml:1201
+#: ../source/TortoiseMerge_en.xml:1215
 msgid "base"
 msgstr "basis"
 
 # Indonesian#: source/TortoiseMerge_en.xml:978
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1200
+#: ../source/TortoiseMerge_en.xml:1214
 msgid "Specifies the <placeholder-1/> file used in three way diffs. This is the common ancestor of the files being diffed, although it is not shown in a separate window. For two way diffs, this is the left file."
 msgstr "Menetapkan file <placeholder-1/> yang digunakan dalam tiga cara diffs. Ini adalah leluhur umum dari file yang sedang di-diff, meskipun tidak ditampilkan dalam jendela terpisah. Untuk dua cara diffs, ini adalah file kiri."
 
 # Indonesian#: source/TortoiseMerge_en.xml:987
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1210
+#: ../source/TortoiseMerge_en.xml:1224
 msgid "The name of the base file. This is shown in the view title instead of the file path. For three way diffs it is shown in a tooltip for the view title."
 msgstr "Nama dari file base. Ini ditampilkan dalam tampilan judul daripada path file. Untuk tiga cara diffs ditampilkan dalam tooltip untuk judul tampilan."
 
 # Indonesian#: source/TortoiseMerge_en.xml:997
 #. (emphasis)
-#: ../source/TortoiseMerge_en.xml:1220
+#: ../source/TortoiseMerge_en.xml:1234
 msgid "theirs"
 msgstr "mereka"
 
 # Indonesian#: source/TortoiseMerge_en.xml:996
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1219
+#: ../source/TortoiseMerge_en.xml:1233
 msgid "Specifies the <placeholder-1/> file used in three way diffs, displayed in the left pane."
 msgstr "Menetapkan file <placeholder-1/> yang digunakan dalam tiga cara diffs, ditampilkan dalam pane kiri."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1003
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1226
+#: ../source/TortoiseMerge_en.xml:1240
 msgid "The name of the theirs file. This is shown in the view title instead of the file path."
 msgstr "Nama dari file mereka. Ini ditampilkan dalam judul tampilan daripada path file."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1011
 #. (emphasis)
-#: ../source/TortoiseMerge_en.xml:1234
+#: ../source/TortoiseMerge_en.xml:1248
 msgid "mine"
 msgstr "saya"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1010
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1233
+#: ../source/TortoiseMerge_en.xml:1247
 msgid "Specifies the <placeholder-1/> file used in three way diffs, displayed in the right pane. For two way diffs, this is the right file."
 msgstr "Menetapkan file <placeholder-1/> yang digunakan dalam tiga cara diffs, ditampilkan dalam pane kanan. Untuk dua cara diffs, ini adalah file kanan."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1018
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1241
+#: ../source/TortoiseMerge_en.xml:1255
 msgid "The name of the mine file. This is shown in the view title instead of the file path."
 msgstr "Nama dari file mine. Ini ditampilkan dalam judul tampilan daripada path file."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1026
 #. (emphasis)
-#: ../source/TortoiseMerge_en.xml:1249
+#: ../source/TortoiseMerge_en.xml:1263
 msgid "merged"
 msgstr "gabungan"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1025
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1248
-msgid "Specifies the resulting <placeholder-1/> file used in three way diffs. This is the filepath where the result of the merge/conflict resolving is saved. If this is not set, then TortoiseMerge will ask the user where to save the result."
+#: ../source/TortoiseMerge_en.xml:1262
+#, fuzzy
+msgid "Specifies the resulting <placeholder-1/> file used in three way diffs. This is the file path where the result of the merge/conflict resolving is saved. If this is not set, then TortoiseMerge will ask the user where to save the result."
 msgstr "Menetapkan hasil file <placeholder-1/> yang digunakan dalam tiga cara diffs. Ini adalah filepath di mana hasil dari merge/penyelesaian konfil disimpan. Jika ini tidak diset, maka TortoiseMerge akan menanyakan di mana untuk menyimpan hasilnya."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1035
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1258
+#: ../source/TortoiseMerge_en.xml:1272
 msgid "The name of the merged file. This is shown in the view title instead of the file path."
 msgstr "Nama dari file gabungan. Ini ditampilkan dalam judul tampilan daripada path file."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1046
 #. (emphasis)
-#: ../source/TortoiseMerge_en.xml:1269
+#: ../source/TortoiseMerge_en.xml:1283
 msgid "very long"
 msgstr "sangat lama"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1042
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1265
+#: ../source/TortoiseMerge_en.xml:1279
 #, fuzzy
 msgid "The path where a patch should be applied to. If you don't set this path, then TortoiseMerge will try to find the path itself to match the paths in the patch file, but that can take <placeholder-1/>."
 msgstr "Path di mana patch harus diterapkan. Jika Anda tidak men-set path ini, maka TortoiseMerge akan mencoba mencari path sendiri yang sama dengan path dalam patchfile, tapi itu memerlukan waktu <placeholder-1/>."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1051
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1274
+#: ../source/TortoiseMerge_en.xml:1288
 msgid "The name of the original file to patch. Used for the view title."
 msgstr "Nama dari file original untuk di-patch. Digunakan untuk judul tampilan."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1058
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1281
+#: ../source/TortoiseMerge_en.xml:1295
 msgid "The name of the resulting patched file. Used for the view title."
 msgstr "Nama dari file hasil patch. Digunakan untuk judul tampilan."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1064
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1288
+#: ../source/TortoiseMerge_en.xml:1302
 msgid "The path to the patch/diff file to apply to a directory."
 msgstr "Path ke file patch/diff untuk diterapkan ke direktori."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1070
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1294
+#: ../source/TortoiseMerge_en.xml:1308
 msgid "Forces TortoiseMerge to start with the one-way view instead of the view the user specified in the settings."
 msgstr "Memaksa TortoiseMerge untuk dimulai dengan satu-cara tampilan daripada tampilan yang ditetapkan pengguna dalam seting."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1078
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1301
+#: ../source/TortoiseMerge_en.xml:1315
 msgid "Switches the left and right view of the specified two files to diff."
 msgstr "Menukar tampilan kiri dan kanan dari dua file yang di-diff."
 
 #. (literal)
-#: ../source/TortoiseMerge_en.xml:1311
+#: ../source/TortoiseMerge_en.xml:1325
 msgid "/origfile:\"path_to_original_file\""
 msgstr ""
 
 #. (literal)
-#: ../source/TortoiseMerge_en.xml:1312
+#: ../source/TortoiseMerge_en.xml:1326
 msgid "/modifiedfile:\"path_to_modified_file\""
 msgstr ""
 
 #. (literal)
-#: ../source/TortoiseMerge_en.xml:1314
+#: ../source/TortoiseMerge_en.xml:1328
 msgid "/outfile:\"path_to_resulting_patchfile\""
 msgstr ""
 
 #. (literal)
-#: ../source/TortoiseMerge_en.xml:1315
+#: ../source/TortoiseMerge_en.xml:1329
 msgid "/outfile"
 msgstr "/outfile"
 
 #. (literal)
-#: ../source/TortoiseMerge_en.xml:1318
+#: ../source/TortoiseMerge_en.xml:1332
 msgid "/createunifieddiff"
 msgstr "/createunifieddiff"
 
 #. (entry)
-#: ../source/TortoiseMerge_en.xml:1308
+#: ../source/TortoiseMerge_en.xml:1322
 msgid "Creates a unified diff file (patch file) of two files specified with <placeholder-1/> and <placeholder-2/>. The target path is set with <placeholder-3/>. If <placeholder-4/> is not set, a file save dialog is shown so the user can choose the location to save the patch file. Note: If <placeholder-5/> is set, all other parameters are ignored."
 msgstr ""
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1326
+#: ../source/TortoiseMerge_en.xml:1340
 msgid ""
 "You can also supply simple filenames on the command line for compatibility with other diff programs. In this simplified form the command line is <screen>\n"
 "TortoiseMerge BaseFilePath MyFilePath [ TheirFilePath ]\n"
@@ -1395,428 +1414,432 @@ msgstr ""
 
 # Indonesian#: source/TortoiseMerge_en.xml:1092
 #. (title)
-#: ../source/TortoiseMerge_en.xml:1342
+#: ../source/TortoiseMerge_en.xml:1356
 msgid "Glossary"
 msgstr "Daftar Kata"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1094
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1344
+#: ../source/TortoiseMerge_en.xml:1358
 msgid "Add"
 msgstr "Add (Tambah)"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1096
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1346
+#: ../source/TortoiseMerge_en.xml:1360
 msgid "A Subversion command that is used to add a file or directory to your working copy. The new items are added to the repository when you commit."
 msgstr "Perintah Subversion yang digunakan untuk menambah file atau direktori ke copy pekerjaan Anda. Item baru ditambahkan ke repositori saat Anda komit."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1104
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1354
+#: ../source/TortoiseMerge_en.xml:1368
 msgid "BASE revision"
 msgstr "BASE revision (BASE revisi)"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1106
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1356
+#: ../source/TortoiseMerge_en.xml:1370
 msgid "The current base revision of a file or folder in your <emphasis>working copy</emphasis>. This is the revision the file or folder was in, when the last checkout, update or commit was run. The BASE revision is normally not equal to the HEAD revision."
 msgstr "Revisi base saat ini dari file atau folder dalam <emphasis>copy pekerjaan</emphasis>. Anda. Ini adalah revisi file atau folder terakhir, ketika checkout terakhir, memutahirkan atau komit yang sudah dijalankan. Revisi BASE biasanya tidak sama dengan revisi HEAD."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1115
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1365
+#: ../source/TortoiseMerge_en.xml:1379
 msgid "Blame"
 msgstr "Blame"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1117
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1367
+#: ../source/TortoiseMerge_en.xml:1381
 msgid "This command is for text files only, and it annotates every line to show the repository revision in which it was last changed, and the author who made that change. Our GUI implementation is called TortoiseBlame and it also shows the commit date/time and the log message when you hover the mouse of the revision number."
 msgstr "Perintah ini hanya untuk file teks, dan menambahkan catatan setiap baris untuk menampilkan revisi repositori di mana perubahan terakhir dilakukan, dan pembuat yang membuat perubahan itu. Implementasi GUI kami disebut TortoiseBlame dan ia juga menampilkan tanggal/jam komit dan log pesan ketika Anda membawa mouse ke angka revisi."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1127
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1377
+#: ../source/TortoiseMerge_en.xml:1391
 msgid "BDB"
 msgstr "BDB"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1129
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1379
+#: ../source/TortoiseMerge_en.xml:1393
 msgid "Berkeley DB. A well tested database backend for repositories, that cannot be used on network shares. Default for pre 1.2 repositories."
 msgstr "Berkeley DB. Database yang sudah teruji baik untuk jalan belakang pada repositori, yang tidak bisa digunakan pada jaringan berbagi. Standar untuk pre 1.2 repositori."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1137
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1386
+#: ../source/TortoiseMerge_en.xml:1400
 msgid "Branch"
 msgstr "Branch (Cabang)"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1139
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1388
-msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bugfixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
+#: ../source/TortoiseMerge_en.xml:1402
+#, fuzzy
+msgid "A term frequently used in revision control systems to describe what happens when development forks at a particular point and follows 2 separate paths. You can create a branch off the main development line so as to develop a new feature without rendering the main line unstable. Or you can branch a stable release to which you make only bug fixes, while new developments take place on the unstable trunk. In Subversion a branch is implemented as a <quote>cheap copy</quote>."
 msgstr "Batasan yang sering digunakan dalam sistem kontrol revisi untuk menjelaskan apa yang terjadi ketika garpu pengembangan pada titik tertentu dan mengikuti 2 path terpisah. Anda bisa membuat cabang di luar barisan pengembangan utama untuk mengembangkan fitur baru tanpa membuat barisan utama menjadi tidak stabil. Atau Anda bisa mencabangkan rilis stabil ke mana Anda hanya membuat pembetulan bug, sementara pengembangan baru menempati batang tidak stabil. Dalam Subversion cabang diimplementasikan sebagai <quote>copy murah</quote>."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1152
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1401
+#: ../source/TortoiseMerge_en.xml:1415
 msgid "Checkout"
 msgstr "Checkout"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1154
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1403
+#: ../source/TortoiseMerge_en.xml:1417
 msgid "A Subversion command which creates a local working copy in an empty directory by downloading versioned files from the repository."
 msgstr "Perintah Subversion yang membuat copy pekerjaan lokal dalam direktori kosong dengan mengunduh file berversi dari repositori."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1161
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1410
+#: ../source/TortoiseMerge_en.xml:1424
 msgid "Cleanup"
 msgstr "Cleanup (Bersihkan)"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1163
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1412
+#: ../source/TortoiseMerge_en.xml:1426
 #, fuzzy
 msgid "To quote from the Subversion book: <quote> Recursively clean up the working copy, removing locks and resuming unfinished operations. If you ever get a <emphasis>working copy locked</emphasis> error, run this command to remove stale locks and get your working copy into a usable state again. </quote> Note that in this context <emphasis>lock</emphasis> refers to local filesystem locking, not repository locking."
 msgstr "Mengutip dari buku Subversion: <quote> Secara rekursif membersihkan copy pekerjaan, menghapus kuncian dan melanjutkan operasi yang belum selesai. Jika Anda pernah mendapatkan kesalahan <literal>copy pekerjaan dikunci</literal>, jalankan perintah ini untuk menghapus kuncian basi dan mendapatkan copy pekerjaan Anda kedalam kondisi yang berguna lagi. </quote> Catatan bahwa konteks <quote>kunci</quote> merujuk ke penguncian sistem file lokal, bukan penguncian repositori."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1178
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1427
+#: ../source/TortoiseMerge_en.xml:1441
 msgid "Commit"
 msgstr "Commit (Komit)"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1180
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1429
+#: ../source/TortoiseMerge_en.xml:1443
 msgid "This Subversion command is used to pass the changes in your local working copy back into the repository, creating a new repository revision."
 msgstr "Perintah Subversion ini digunakan untuk mengoper perubahan dalam copy pekerjaan Anda kembali ke dalam repositori, membuat revisi repositori baru."
 
 # Indonesian#: source/TortoiseMerge_en.xml:762
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1437
+#: ../source/TortoiseMerge_en.xml:1451
 msgid "Conflict"
 msgstr "Conflict (Konflik)"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1190
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1439
+#: ../source/TortoiseMerge_en.xml:1453
 msgid "When changes from the repository are merged with local changes, sometimes those changes occur on the same lines. In this case Subversion cannot automatically decide which version to use and the file is said to be in conflict. You have to edit the file manually and resolve the conflict before you can commit any further changes."
 msgstr "Ketika perubahan dari repositori digabung dengan perubahan lokal, ada kalanya perubahan itu terjadi pada baris yang sama. Dalam hal ini Subversion tidak bisa secara otomatis menentukan versi yang mana untuk digunakan dan file yang dinyatakan sebagai konflik. Anda harus mengedit file secara manual dan menyelesaikan konflik sebelum Anda bisa mengkomit perubahan selanjutnya."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1201
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1449
+#: ../source/TortoiseMerge_en.xml:1463
 msgid "Copy"
 msgstr "Copy"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1203
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1451
+#: ../source/TortoiseMerge_en.xml:1465
 msgid "In a Subversion repository you can create a copy of a single file or an entire tree. These are implemented as <quote>cheap copies</quote> which act a bit like a link to the original in that they take up almost no space. Making a copy preserves the history of the item in the copy, so you can trace changes made before the copy was made."
 msgstr "Dalam repositori Subversion Anda bisa membuat copy dari file tunggal atau susunan keseluruhan. Ini diimplementasikan sebagai <quote>copy murah</quote> yang bertindak sedikit mirip link ke original di dalamnya hampir tidak ada ruang. Membuat copy menjaga sejarah dari item dalam copy, dengan demikian Anda bisa melacak perubahan yang dibuat sebelum copy dibuat."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1213
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1461
+#: ../source/TortoiseMerge_en.xml:1475
 msgid "Delete"
 msgstr "Delete (Hapus)"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1215
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1463
-msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the commited revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
+#: ../source/TortoiseMerge_en.xml:1477
+#, fuzzy
+msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the committed revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
 msgstr "Ketika Anda menghapus item berversi (dan mengkomit perubahan tersebut) item tidak lagi ada dalam repositori setelah revisi yang dikomit. Tapi tentunya masih ada dalam revisi repositori sebelumnya, dan Anda masih bisa mengaksesnya. Jika perlu, Anda bisa mengcopy item yang dihapus dan <quote>menghidupkannya</quote> sepenuhnya dengan histori."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1225
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1473
+#: ../source/TortoiseMerge_en.xml:1487
 msgid "Diff"
 msgstr "Diff"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1227
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1475
+#: ../source/TortoiseMerge_en.xml:1489
 msgid "Shorthand for <quote>Show Differences</quote>. Very useful when you want to see exactly what changes have been made."
 msgstr "Kependekan dari <quote>Tampilkan Perbedaan</quote>. Sangat berguna ketika Anda ingin melihat perubahan apa yang telah dibuat secara pasti."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1234
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1482
+#: ../source/TortoiseMerge_en.xml:1496
 msgid "Export"
 msgstr "Export (Ekspor)"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1236
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1484
+#: ../source/TortoiseMerge_en.xml:1498
 msgid "This command produces a copy of a versioned folder, just like a working copy, but without the local <literal>.svn</literal> folders."
 msgstr "Perintah ini menghasilkan salinan dari folder berversi, seperti copy pekerjaan, tapi tanpa folder <literal>.svn</literal> lokal."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1243
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1492
+#: ../source/TortoiseMerge_en.xml:1506
 msgid "FSFS"
 msgstr "FSFS"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1245
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1494
-msgid "FS Filesystem. A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
+#: ../source/TortoiseMerge_en.xml:1508
+#, fuzzy
+msgid "A proprietary Subversion filesystem backend for repositories. Can be used on network shares. Default for 1.2 and newer repositories."
 msgstr "FS Filesystem. Backend sistem file untuk repositori hak milik Subversion. Bisa digunakan pada jaringan berbagi. Standar untuk repositori 1.2 dan lebih baru."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1253
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1501
+#: ../source/TortoiseMerge_en.xml:1515
 msgid "GPO"
 msgstr "GPO"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1255
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1503
+#: ../source/TortoiseMerge_en.xml:1517
 msgid "Group policy object"
 msgstr "Group policy object"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1261
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1509
+#: ../source/TortoiseMerge_en.xml:1523
 msgid "HEAD revision"
 msgstr "HEAD revision (HEAD revisi)"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1263
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1511
+#: ../source/TortoiseMerge_en.xml:1525
 msgid "The latest revision of a file or folder in the <emphasis>repository</emphasis>."
 msgstr "Revisi terbaru dari file atau folder dalam <emphasis>repositori</emphasis>."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1269
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1517
+#: ../source/TortoiseMerge_en.xml:1531
 msgid "Import"
 msgstr "Import (Impor)"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1271
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1519
+#: ../source/TortoiseMerge_en.xml:1533
 msgid "Subversion command to import an entire folder hierarchy into the repository in a single revision."
 msgstr "Perintah Subversion untuk mengimpor keseluruhan hirarki folder ke dalam revisi tunggal."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1278
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1526
+#: ../source/TortoiseMerge_en.xml:1540
 msgid "Lock"
 msgstr "Lock (Kunci)"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1280
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1528
-msgid "When you take out a lock on a versioned item, you mark it in the repository as uncommittable, except from the working copy where the lock was taken out."
+#: ../source/TortoiseMerge_en.xml:1542
+#, fuzzy
+msgid "When you take out a lock on a versioned item, you mark it in the repository as non-committable, except from the working copy where the lock was taken out."
 msgstr "Ketika Anda membawa kuncian pada item berversi, Anda menandainya dalam repositori sebagai tidak bisa dikomit, kecuali dari copy pekerjaan di mana kuncian tersebut dibawa."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1288
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1536
+#: ../source/TortoiseMerge_en.xml:1550
 msgid "Log"
 msgstr "Log"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1290
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1538
+#: ../source/TortoiseMerge_en.xml:1552
 msgid "Show the revision history of a file or folder. Also known as <quote>History</quote>."
 msgstr "Menampilkan histori revisi dari file atau folder. Juga dikenal sebagai <quote>Histori</quote>."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1297
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1545
+#: ../source/TortoiseMerge_en.xml:1559
 msgid "History"
 msgstr "History (Histori)"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1299
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1547
+#: ../source/TortoiseMerge_en.xml:1561
 msgid "Show the revision history of a file or folder. Also known as <quote>Log</quote>."
 msgstr "Menampilkan histori revisi dari file atau folder. Juga dikenal sebagai <quote>Log</quote>."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1306
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1554
+#: ../source/TortoiseMerge_en.xml:1568
 msgid "Merge"
 msgstr "Merge (Gabung)"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1308
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1556
+#: ../source/TortoiseMerge_en.xml:1570
 msgid "The process by which changes from the repository are added to your working copy without disrupting any changes you have already made locally. Sometimes these changes cannot be reconciled automatically and the working copy is said to be in conflict."
 msgstr "Proses di mana perubahan dari repositori ditambahkan ke copy pekerjaan Anda tanpa mengganggu setiap perubahan yang sudah Anda buat secara lokal. Kadang kala perubahan ini tidak bisa disesuaikan secara otomatis dan copy pekerjaan dinyatakan dalam keadaan konflik."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1314
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1562
+#: ../source/TortoiseMerge_en.xml:1576
 msgid "Merging happens automatically when you update your working copy. You can also merge specific changes from another branch using TortoiseSVN's Merge command."
 msgstr "Penggabungan terjadi secara otomatis ketika Anda memutahirkan copy pekerjaan Anda. Anda juga bisa menggabung perubahan spesifik dari cabang lain menggunakan perintah Merge TortoiseSVN."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1322
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1570
+#: ../source/TortoiseMerge_en.xml:1584
 msgid "Patch"
 msgstr "Patch"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1324
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1572
+#: ../source/TortoiseMerge_en.xml:1586
 msgid "If a working copy has changes to text files only, it is possible to use Subversion's Diff command to generate a single file summary of those changes in Unified Diff format. A file of this type is often referred to as a <quote>Patch</quote>, and it can be emailed to someone else (or to a mailing list) and applied to another working copy. Someone without commit access can make changes and submit a patch file for an authorized committer to apply. Or if you are unsure about a change you can submit a patch for others to review."
 msgstr "Jika copy pekerjaan sudah berubah ke hanya file teks, ini memungkinkan untuk menggunakan perintah Diff Subversion untuk menghasilkan ringkasan file tunggal dari perubahan itu dalam format Unified Diff. File dari tipe ini sering dirujuk sebagai <quote>Patch</quote>, dan bisa diemail ke orang lain (atau daftar mailing) dan diterapkan ke copy pekerjaan lain. Seseorang tanpa akses komit bisa membuat perubahan dan mengirimkan file patch untuk pengkomit yang diotorisasi untuk menerapkan. Atau jika Anda tidak yakin mengenai perubahan Anda bisa mengirimkan patch untuk ditinjau orang lain."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1338
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1585
+#: ../source/TortoiseMerge_en.xml:1599
 msgid "Property"
 msgstr "Property (Properti)"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1340
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1587
+#: ../source/TortoiseMerge_en.xml:1601
 msgid "In addition to versioning your directories and files, Subversion allows you to add versioned metadata - referred to as <quote>properties</quote> to each of your versioned directories and files. Each property has a name and a value, rather like a registry key. Subversion has some special properties which it uses internally, such as <literal>svn:eol-style</literal>. TortoiseSVN has some too, such as <literal>tsvn:logminsize</literal>. You can add your own properties with any name and value you choose."
 msgstr "Sebagai tambahan ke direktori dan file versi Anda, Subversion membolehkan Anda untuk menambahkan metadata yang diversi - dirujuk sebagai <quote>properties</quote> ke setiap direktori dan file yang diversi Anda. Setiap properti mempunyai nama dan nilai, mirip kunci registri. Subversion mempunyai beberapa properti khusus yang digunakan secara internal, seperti <literal>svn:eol-style</literal>. TortoiseSVN juga mempunyai beberapa, seperti <literal>tsvn:logminsize</literal>. Anda bisa menambah properti Anda sendiri dengan setiap nama dan nilai yang Anda pilih."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1353
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1600
+#: ../source/TortoiseMerge_en.xml:1614
 msgid "Relocate"
 msgstr "Relocate (Relokasi)"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1355
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1602
+#: ../source/TortoiseMerge_en.xml:1616
 msgid "If your repository moves, perhaps because you have moved it to a different directory on your server, or the server domain name has changed, you need to <quote>relocate</quote> your working copy so that its repository URLs point to the new location."
 msgstr "Jika repositori Anda pindah, barangkali karena Anda telah memindahkannya ke direktori berbeda pada server Anda, atau nama domain server berubah, Anda perlu untuk <quote>merelokasi</quote> copy pekerjaan Anda agar URL repositorinya merujuk ke lokasi baru."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1361
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1608
+#: ../source/TortoiseMerge_en.xml:1622
 msgid "Note: you should only use this command if your working copy is referring to the same location in the same repository, but the repository itself has moved. In any other circumstance you probably need the <quote>Switch</quote> command instead."
 msgstr "Catatan: Anda hanya menggunakan perintah ini jika copy pekerjaan Anda merujuk ke lokasi yang sama dalam repositori yang sama, tapi repositori itu sendiri sudah dipindah. Dalam persoalan lain sebaliknya Anda mungkin memerlukan perintah <quote>Tukar</quote>."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1370
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1617
+#: ../source/TortoiseMerge_en.xml:1631
 msgid "Repository"
 msgstr "Repository (Repositori)"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1372
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1619
+#: ../source/TortoiseMerge_en.xml:1633
 msgid "A repository is a central place where data is stored and maintained. A repository can be a place where multiple databases or files are located for distribution over a network, or a repository can be a location that is directly accessible to the user without having to travel across a network."
 msgstr "Repositori adalah pusat tempat di mana data disimpan dan dipelihara. Repositori bisa berupa tempat di mana database multipel atau file ditempatkan untuk distribusi melalui jaringan, atau repositori bisa berupa lokasi yang diakses secara langsung ke pengguna tanpa harus berjalan melalui jaringan."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1381
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1628
+#: ../source/TortoiseMerge_en.xml:1642
 msgid "Resolve"
 msgstr "Resolve (Selesaikan)"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1383
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1630
+#: ../source/TortoiseMerge_en.xml:1644
 msgid "When files in a working copy are left in a conflicted state following a merge, those conflicts must be sorted out by a human using an editor (or perhaps TortoiseMerge). This process is referred to as <quote>Resolving Conflicts</quote>. When this is complete you can mark the conflicted files as being resolved, which allows them to be committed."
 msgstr "Ketika file dalam copy pekerjaan dibiarkan dalam kondisi konflik mengikuti gabungan, konflik itu harus diurut oleh manusia menggunakan editor (atau mungkin TortoiseMerge). Proses ini dirujuk sebagai <quote>Menyelesaikan Konflik</quote>. Ketika ini lengkap Anda bisa menandai file yang konflik sebagai sudah diselesaikan, yang membolehkannya dikomit."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1393
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1640
+#: ../source/TortoiseMerge_en.xml:1654
 msgid "Revert"
 msgstr "Revert (Pulihkan)"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1395
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1642
+#: ../source/TortoiseMerge_en.xml:1656
 msgid "Subversion keeps a local <quote>pristine</quote> copy of each file as it was when you last updated your working copy. If you have made changes and decide you want to undo them, you can use the <quote>revert</quote> command to go back to the pristine copy."
 msgstr "Subversion memelihara copy <quote>murni</quote> lokal dari setiap file seperti setelah saat terakhir Anda memutahirkan copy pekerjaan Anda. Jika Anda telah membuat perubahan dan menentukan Anda ingin membatalkannya, Anda bisa menggunakan perintah <quote>pulihkan</quote> untuk kembali ke copy murni."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1404
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1651
+#: ../source/TortoiseMerge_en.xml:1665
 msgid "Revision"
 msgstr "Revision (Revisi)"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1406
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1653
+#: ../source/TortoiseMerge_en.xml:1667
 msgid "Every time you commit a set of changes, you create one new <quote>revision</quote> in the repository. Each revision represents the state of the repository tree at a certain point in its history. If you want to go back in time you can examine the repository as it was at revision N."
 msgstr "Setiap kali Anda mengkomit set perubahan, Anda membuat satu <quote>revisi</quote> baru dalam repositori. Setiap revisi menggambarkan keadaan dari susunan repositori pada titik tertentu dalam historinya. Jika Anda ingin kembali ke waktu Anda bisa memeriksa repositori seperti pada revisi N."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1413
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1660
+#: ../source/TortoiseMerge_en.xml:1674
 msgid "In another sense, a revision can refer to the set of changes that were made when that revision was created."
 msgstr "Dengan kata lain, revisi bisa merujuk ke set dari perubahan yang dibuat ketika revisi itu dibuat."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1420
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1667
+#: ../source/TortoiseMerge_en.xml:1681
 msgid "Revision Property (revprop)"
 msgstr "Revision Property (Revisi Properti (revprop))"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1422
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1669
+#: ../source/TortoiseMerge_en.xml:1683
 msgid "Just as files can have properties, so can each revision in the repository. Some special revprops are added automatically when the revision is created, namely: <literal>svn:date svn:author svn:log</literal> which represent the commit date/time, the committer and the log message respectively. These properties can be edited, but they are not versioned, so any change is permanent and cannot be undone."
 msgstr "Seperti halnya file bisa mempunyai properti, juga setiap revisi dalam repositori. Beberapa revprops khusus ditambahkan secara otomatis ke revisi yang dibuat, yaitu <literal>svn:date svn:author svn:log</literal> yang menggambarkan tanggal/jam komit, pengkomit dan log pesan masing-masing. Properti ini bisa diedit, tapi tidak diversi, maka setiap perubahan adalah permanen dan tidak bisa dibatalkan."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1434
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1681
+#: ../source/TortoiseMerge_en.xml:1695
 msgid "SVN"
 msgstr "SVN"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1436
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1683
+#: ../source/TortoiseMerge_en.xml:1697
 msgid "A frequently-used abbreviation for Subversion."
 msgstr "Singkatan dari Subversion yang sering digunakan."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1439
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1686
+#: ../source/TortoiseMerge_en.xml:1700
 msgid "The name of the Subversion custom protocol used by the <quote>svnserve</quote> repository server."
 msgstr "Nama dari protokol bebas Subversion yang digunakan oleh server repositori <quote>svnserve</quote>."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1446
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1693
+#: ../source/TortoiseMerge_en.xml:1707
 msgid "Switch"
 msgstr "Switch (Tukar)"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1448
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1695
+#: ../source/TortoiseMerge_en.xml:1709
 msgid "Just as <quote>Update-to-revision</quote> changes the time window of a working copy to look at a different point in history, so <quote>Switch</quote> changes the space window of a working copy so that it points to a different part of the repository. It is particularly useful when working on trunk and branches where only a few files differ. You can switch your working copy between the two and only the changed files will be transferred."
 msgstr "Seperti <quote>Mutahirkan-ke-revisi</quote> mengubah jendela waktu dari copy pekerjaan untuk melihat titik perbedaan dalam histori, maka <quote>Tukar</quote> mengubah jendela ruang dari copy pekerjaan agar merujuk ke bagian yang berbeda dari repositori. Ini kadang berguna ketika pekerjaan pada batang dan cabang di mana hanya sedikit file yang berbeda. Anda bisa menukar copy pekerjaan Anda antara dua dan hanya file yang berubah yang akan ditransfer."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1460
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1707
+#: ../source/TortoiseMerge_en.xml:1721
 msgid "Update"
 msgstr "Update (Mutahirkan)"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1462
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1709
+#: ../source/TortoiseMerge_en.xml:1723
 msgid "This Subversion command pulls down the latest changes from the repository into your working copy, merging any changes made by others with local changes in the working copy."
 msgstr "Perintah Subversion ini menarik perubahan terbaru dari repositori ke dalam copy pekerjaan Anda, menggabung setiap perubahan oleh orang lain dengan perubahan lokal dalam copy pekerjaan."
 
 # Indonesian#: source/TortoiseMerge_en.xml:1470
 #. (glossterm)
-#: ../source/TortoiseMerge_en.xml:1717
+#: ../source/TortoiseMerge_en.xml:1731
 msgid "Working Copy"
 msgstr "Working Copy (Copy Pekerjaan)"
 
 # Indonesian#: source/TortoiseMerge_en.xml:1472
 #. (para)
-#: ../source/TortoiseMerge_en.xml:1719
+#: ../source/TortoiseMerge_en.xml:1733
 msgid "This is your local <quote>sandbox</quote>, the area where you work on the versioned files, and it normally resides on your local hard disk. You create a working copy by doing a <quote>Checkout</quote> from a repository, and you feed your changes back into the repository using <quote>Commit</quote>."
 msgstr "Ini adalah <quote>bak pasir</quote> lokal Anda, area di mana Anda bekerja pada file berversi, dan biasanya berada pada hard disk lokal Anda. Anda membuat copy pekerjaan dengan melakukan <quote>Checkout</quote> dari repositori, dan mengisi perubahan Anda kembali ke dalam repositori menggunakan <quote>Komit</quote>."
 
