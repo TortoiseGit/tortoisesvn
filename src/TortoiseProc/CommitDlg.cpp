@@ -131,14 +131,14 @@ BOOL CCommitDlg::OnInitDialog()
 	
 	m_SelectAll.SetCheck(BST_INDETERMINATE);
 	
+	GetDlgItem(IDC_BUGTRAQBUTTON)->ShowWindow(SW_HIDE);
+	GetDlgItem(IDC_BUGTRAQBUTTON)->EnableWindow(FALSE);
+
 	CBugTraqAssociations bugtraq_associations;
 	bugtraq_associations.Load(m_ProjectProperties.sProviderUuid, m_ProjectProperties.sProviderParams);
 
 	if (bugtraq_associations.FindProvider(m_pathList, &m_bugtraq_association))
 	{
-		GetDlgItem(IDC_BUGID)->ShowWindow(SW_HIDE);
-		GetDlgItem(IDC_BUGIDLABEL)->ShowWindow(SW_HIDE);
-
 		CComPtr<IBugTraqProvider> pProvider;
 		HRESULT hr = pProvider.CoCreateInstance(m_bugtraq_association.GetProviderClass());
 		if (SUCCEEDED(hr))
@@ -157,14 +157,12 @@ BOOL CCommitDlg::OnInitDialog()
 
 		GetDlgItem(IDC_LOGMESSAGE)->SetFocus();
 	}
-	else if (!m_ProjectProperties.sMessage.IsEmpty())
+	if (!m_ProjectProperties.sMessage.IsEmpty())
 	{
 		GetDlgItem(IDC_BUGID)->ShowWindow(SW_SHOW);
 		GetDlgItem(IDC_BUGIDLABEL)->ShowWindow(SW_SHOW);
 		if (!m_ProjectProperties.sLabel.IsEmpty())
 			SetDlgItemText(IDC_BUGIDLABEL, m_ProjectProperties.sLabel);
-		GetDlgItem(IDC_BUGTRAQBUTTON)->ShowWindow(SW_HIDE);
-		GetDlgItem(IDC_BUGTRAQBUTTON)->EnableWindow(FALSE);
 		GetDlgItem(IDC_BUGID)->SetFocus();
 		CString sBugID = m_ProjectProperties.GetBugIDFromLog(m_sLogMessage);
 		if (!sBugID.IsEmpty())
@@ -176,8 +174,6 @@ BOOL CCommitDlg::OnInitDialog()
 	{
 		GetDlgItem(IDC_BUGID)->ShowWindow(SW_HIDE);
 		GetDlgItem(IDC_BUGIDLABEL)->ShowWindow(SW_HIDE);
-		GetDlgItem(IDC_BUGTRAQBUTTON)->ShowWindow(SW_HIDE);
-		GetDlgItem(IDC_BUGTRAQBUTTON)->EnableWindow(FALSE);
 		GetDlgItem(IDC_LOGMESSAGE)->SetFocus();
 	}
 
@@ -511,7 +507,9 @@ void CCommitDlg::OnOK()
 		m_bKeepChangeList = FALSE;
 	InterlockedExchange(&m_bBlock, FALSE);
 	m_sBugID.Trim();
-	if (!m_sBugID.IsEmpty())
+	CString sExistingBugID = m_ProjectProperties.FindBugID(m_sLogMessage);
+	sExistingBugID.Trim();
+	if (!m_sBugID.IsEmpty() && m_sBugID.Compare(sExistingBugID))
 	{
 		m_sBugID.Replace(_T(", "), _T(","));
 		m_sBugID.Replace(_T(" ,"), _T(","));
@@ -1233,7 +1231,7 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
 	m_sLogMessage = m_cLogMessage.GetText();
 	if (!m_ProjectProperties.sMessage.IsEmpty())
 	{
-		CString sBugID = m_ProjectProperties.GetBugIDFromLog(m_sLogMessage);
+		CString sBugID = m_ProjectProperties.FindBugID(m_sLogMessage);
 		if (!sBugID.IsEmpty())
 		{
 			SetDlgItemText(IDC_BUGID, sBugID);
