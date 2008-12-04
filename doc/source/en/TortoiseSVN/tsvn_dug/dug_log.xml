@@ -618,6 +618,15 @@
 			<ulink url="http://www.regular-expressions.info/">
 				<citetitle>http://www.regular-expressions.info/</citetitle>
 			</ulink>.
+			The filter works by checking whether your filter string matches
+			the log entries, and then only those entries which <emphasis>match</emphasis>
+			the filter string are shown.
+		</para>
+			To make the filter show all log entries that do <emphasis>not</emphasis>
+			match the filster string, start the string with an exclamation mark ('!').
+			For example, a filter string <literal>!username</literal> will only
+			show those entries which were not committed by <literal>username</literal>.
+		<para>
 		</para>
 		<para>
 			Note that these filters act on the messages already retrieved.

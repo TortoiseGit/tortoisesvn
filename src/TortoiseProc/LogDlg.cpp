@@ -3028,13 +3028,24 @@ void CLogDlg::RecalculateShownList(CPtrArray * pShownlist)
 	pShownlist->RemoveAll();
 	tr1::wregex pat;//(_T("Remove"), tr1::regex_constants::icase);
 	bool bRegex = false;
+	bool bNegate = false;
+
+	CString sFilterText = m_sFilterText;
+
+	// if the first char is '!', negate the filter
+	if (m_sFilterText.GetLength() && m_sFilterText[0] == '!')
+	{
+		bNegate = true;
+		sFilterText = sFilterText.Mid(1);
+	}
 	if (m_bFilterWithRegex)
-		bRegex = ValidateRegexp(m_sFilterText, pat, false);
+		bRegex = ValidateRegexp(sFilterText, pat, false);
 
 	tr1::regex_constants::match_flag_type flags = tr1::regex_constants::match_any;
 	CString sRev;
 	for (DWORD i=0; i<m_logEntries.size(); ++i)
 	{
+		bool bMatched = false;
 		if ((bRegex)&&(m_bFilterWithRegex))
 		{
 			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_BUGID))
@@ -3042,20 +3053,18 @@ void CLogDlg::RecalculateShownList(CPtrArray * pShownlist)
 				ATLTRACE(_T("bugID = \"%s\"\n"), (LPCTSTR)m_logEntries[i]->sBugIDs);
 				if (regex_search(wstring((LPCTSTR)m_logEntries[i]->sBugIDs), pat, flags)&&IsEntryInDateRange(i))
 				{
-					pShownlist->Add(m_logEntries[i]);
-					continue;
+					bMatched = true;
 				}
 			}
-			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_MESSAGES))
+			if ((!bMatched)&&((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_MESSAGES)))
 			{
 				ATLTRACE(_T("messge = \"%s\"\n"), (LPCTSTR)m_logEntries[i]->sMessage);
 				if (regex_search(wstring((LPCTSTR)m_logEntries[i]->sMessage), pat, flags)&&IsEntryInDateRange(i))
 				{
-					pShownlist->Add(m_logEntries[i]);
-					continue;
+					bMatched = true;
 				}
 			}
-			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_PATHS))
+			if ((!bMatched)&&((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_PATHS)))
 			{
 				LogChangedPathArray * cpatharray = m_logEntries[i]->pArChangedPaths;
 
@@ -3065,47 +3074,43 @@ void CLogDlg::RecalculateShownList(CPtrArray * pShownlist)
 					LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
 					if (regex_search(wstring((LPCTSTR)cpath->sCopyFromPath), pat, flags)&&IsEntryInDateRange(i))
 					{
-						pShownlist->Add(m_logEntries[i]);
+						bMatched = true;
 						bGoing = false;
 						continue;
 					}
 					if (regex_search(wstring((LPCTSTR)cpath->sPath), pat, flags)&&IsEntryInDateRange(i))
 					{
-						pShownlist->Add(m_logEntries[i]);
+						bMatched = true;
 						bGoing = false;
 						continue;
 					}
 					if (regex_search(wstring((LPCTSTR)cpath->GetAction()), pat, flags)&&IsEntryInDateRange(i))
 					{
-						pShownlist->Add(m_logEntries[i]);
+						bMatched = true;
 						bGoing = false;
 						continue;
 					}
 				}
-				if (!bGoing)
-					continue;
 			}
-			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_AUTHORS))
+			if ((!bMatched)&&((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_AUTHORS)))
 			{
 				if (regex_search(wstring((LPCTSTR)m_logEntries[i]->sAuthor), pat, flags)&&IsEntryInDateRange(i))
 				{
-					pShownlist->Add(m_logEntries[i]);
-					continue;
+					bMatched = true;
 				}
 			}
-			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_REVS))
+			if ((!bMatched)&&((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_REVS)))
 			{
 				sRev.Format(_T("%ld"), m_logEntries[i]->Rev);
 				if (regex_search(wstring((LPCTSTR)sRev), pat, flags)&&IsEntryInDateRange(i))
 				{
-					pShownlist->Add(m_logEntries[i]);
-					continue;
+					bMatched = true;
 				}
 			}
 		} // if (bRegex)
 		else
 		{
-			CString find = m_sFilterText;
+			CString find = sFilterText;
 			find.MakeLower();
 			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_BUGID))
 			{
@@ -3114,22 +3119,20 @@ void CLogDlg::RecalculateShownList(CPtrArray * pShownlist)
 				sBugIDs = sBugIDs.MakeLower();
 				if ((sBugIDs.Find(find) >= 0)&&(IsEntryInDateRange(i)))
 				{
-					pShownlist->Add(m_logEntries[i]);
-					continue;
+					bMatched = true;
 				}
 			}
-			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_MESSAGES))
+			if ((!bMatched)&&((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_MESSAGES)))
 			{
 				CString msg = m_logEntries[i]->sMessage;
 
 				msg = msg.MakeLower();
 				if ((msg.Find(find) >= 0)&&(IsEntryInDateRange(i)))
 				{
-					pShownlist->Add(m_logEntries[i]);
-					continue;
+					bMatched = true;
 				}
 			}
-			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_PATHS))
+			if ((!bMatched)&&((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_PATHS)))
 			{
 				LogChangedPathArray * cpatharray = m_logEntries[i]->pArChangedPaths;
 
@@ -3141,48 +3144,47 @@ void CLogDlg::RecalculateShownList(CPtrArray * pShownlist)
 					path.MakeLower();
 					if ((path.Find(find)>=0)&&(IsEntryInDateRange(i)))
 					{
-						pShownlist->Add(m_logEntries[i]);
+						bMatched = true;
 						bGoing = false;
-						continue;
 					}
 					path = cpath->sPath;
 					path.MakeLower();
 					if ((path.Find(find)>=0)&&(IsEntryInDateRange(i)))
 					{
-						pShownlist->Add(m_logEntries[i]);
+						bMatched = true;
 						bGoing = false;
-						continue;
 					}
 					path = cpath->GetAction();
 					path.MakeLower();
 					if ((path.Find(find)>=0)&&(IsEntryInDateRange(i)))
 					{
-						pShownlist->Add(m_logEntries[i]);
+						bMatched = true;
 						bGoing = false;
-						continue;
 					}
 				}
 			}
-			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_AUTHORS))
+			if ((!bMatched)&&((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_AUTHORS)))
 			{
 				CString msg = m_logEntries[i]->sAuthor;
 				msg = msg.MakeLower();
 				if ((msg.Find(find) >= 0)&&(IsEntryInDateRange(i)))
 				{
-					pShownlist->Add(m_logEntries[i]);
-					continue;
+					bMatched = true;
 				}
 			}
-			if ((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_REVS))
+			if ((!bMatched)&&((m_nSelectedFilter == LOGFILTER_ALL)||(m_nSelectedFilter == LOGFILTER_REVS)))
 			{
 				sRev.Format(_T("%ld"), m_logEntries[i]->Rev);
 				if ((sRev.Find(find) >= 0)&&(IsEntryInDateRange(i)))
 				{
-					pShownlist->Add(m_logEntries[i]);
-					continue;
+					bMatched = true;
 				}
 			}
 		} // else (from if (bRegex))	
+		if (bMatched && !bNegate)
+			pShownlist->Add(m_logEntries[i]);
+		else if (!bMatched && bNegate)
+			pShownlist->Add(m_logEntries[i]);
 	} // for (DWORD i=0; i<m_logEntries.size(); ++i) 
 
 }

@@ -52,6 +52,8 @@
        but renamed in case. (Stefan)
 - NEW: TortoiseMerge scrolls the views automatically when selecting with
        the left mouse button down. (Stefan)
+- NEW: In the log dialog filter, a ! char at the beginning will negate
+       the filter string. (Stefan)
 - CHG: The bug-ID column width in the log dialog is now limited 
        to 200 pixels. (Stefan)
 - CHG: The right-drag context menu now only shows "Export" if a versioned
