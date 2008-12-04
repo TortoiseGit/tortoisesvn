@@ -312,8 +312,8 @@ int console_get_userpass_input(prompts_t *p, unsigned char *in, int inlen)
     for (curr_prompt = 0; curr_prompt < p->n_prompts; curr_prompt++) {
 		
 	prompt_t *pr = p->prompts[curr_prompt];
-	DoLoginDialog(pr->result, pr->result_len-1, pr->prompt);
-
+	if (!DoLoginDialog(pr->result, pr->result_len-1, pr->prompt))
+	return 0;
     }
 
     return 1; /* success */
