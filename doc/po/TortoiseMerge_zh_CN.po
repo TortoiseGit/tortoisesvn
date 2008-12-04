@@ -20,7 +20,7 @@
 #    msgfmt --statistics -c TortoiseMerge_zh_CN.po
 #
 # Please format your translation before commit:
-#    msgmerge --width=80 -o TortoiseMerge_zh_CN_new.po TortoiseMerge_zh_CN.po TortoiseMerge.pot
+#    msgmerge --width=80 --sort-by-file -o TortoiseMerge_zh_CN_new.po TortoiseMerge_zh_CN.po TortoiseMerge.pot
 #    mv -f TortoiseMerge_zh_CN_new.po TortoiseMerge_zh_CN.po
 #
 # Dictionary:
@@ -52,6 +52,21 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#. Put one translator per line, in the form of NAME <EMAIL>.
+#. (None)
+#: ../source/TortoiseMerge_en.xml:0
+msgid "translator-credits"
+msgstr ""
+"Dongsheng Song <dongsheng.song@gmail.com>, 2006-2008\n"
+"xingyu.wang <xingyu.wang@gmail.com>, 2006\n"
+"Stan J <thinkernel@yeah.net>, 2006"
+
+#. Place the translation of 'translation' here.
+#. (None)
+#: ../source/TortoiseMerge_en.xml:0
+msgid "translator-translation"
+msgstr "译者"
 
 #. (title)
 #: ../source/TortoiseMerge_en.xml:4
@@ -123,6 +138,11 @@ msgstr ""
 "你需要来审查并决定是否使用它们。"
 
 #. (para)
+#: ../source/TortoiseMerge_en.xml:41
+msgid "TortoiseMerge helps you with both those tasks: <placeholder-1/>"
+msgstr "TortoiseMerge 可以帮助你完成以下两件事情：<placeholder-1/>"
+
+#. (para)
 #: ../source/TortoiseMerge_en.xml:45
 msgid "Reviewing patches"
 msgstr "查看补丁"
@@ -131,11 +151,6 @@ msgstr "查看补丁"
 #: ../source/TortoiseMerge_en.xml:50
 msgid "Applying the patches"
 msgstr "应用补丁"
-
-#. (para)
-#: ../source/TortoiseMerge_en.xml:41
-msgid "TortoiseMerge helps you with both those tasks: <placeholder-1/>"
-msgstr "TortoiseMerge 可以帮助你完成以下两件事情：<placeholder-1/>"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:56
@@ -422,6 +437,11 @@ msgid "Basic Concepts"
 msgstr "基本概念"
 
 #. (para)
+#: ../source/TortoiseMerge_en.xml:278
+msgid "TortoiseMerge has several different uses: <placeholder-1/>"
+msgstr "TortoiseMerge 有几个不同的用途：<placeholder-1/>"
+
+#. (para)
 #: ../source/TortoiseMerge_en.xml:282
 msgid ""
 "Viewing the difference between two files and merging changes into one of "
@@ -440,11 +460,6 @@ msgstr "更新后，编辑本地修改和版本库修改之间的冲突。"
 msgid "Applying patch files. This is the reason TortoiseMerge was created :)"
 msgstr "应用补丁。这是创建 TortoiseMerge 的原因 :)"
 
-#. (para)
-#: ../source/TortoiseMerge_en.xml:278
-msgid "TortoiseMerge has several different uses: <placeholder-1/>"
-msgstr "TortoiseMerge 有几个不同的用途：<placeholder-1/>"
-
 #. (title)
 #: ../source/TortoiseMerge_en.xml:303
 msgid "Viewing and Merging Differences"
@@ -462,6 +477,13 @@ msgstr ""
 "</emphasis)，右窗格中的文件是已修改的文件(有时称为 <emphasis>我的</emphasis)。"
 
 #. (para)
+#: ../source/TortoiseMerge_en.xml:310
+msgid ""
+"You can make simple line-based changes to the file in the right pane which "
+"include: <placeholder-1/>"
+msgstr "你可以在右窗格的文件中做简单的基于行的修改，包含：<placeholder-1/>"
+
+#. (para)
 #: ../source/TortoiseMerge_en.xml:315
 msgid "Reverting changed lines back to the text shown in the left pane."
 msgstr "撤销这些修改行，恢复到左窗格的状态。"
@@ -475,13 +497,6 @@ msgid ""
 msgstr ""
 "使用所有组合，不是<emphasis>他人的</emphasis>在<emphasis>我的</emphasis>之前，"
 "就是<emphasis>我的</emphasis>在<emphasis>他人的</emphasis>之前。"
-
-#. (para)
-#: ../source/TortoiseMerge_en.xml:310
-msgid ""
-"You can make simple line-based changes to the file in the right pane which "
-"include: <placeholder-1/>"
-msgstr "你可以在右窗格的文件中做简单的基于行的修改，包含：<placeholder-1/>"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:328
@@ -624,6 +639,13 @@ msgid "Two Pane View"
 msgstr "两窗口方式"
 
 #. (para)
+#: ../source/TortoiseMerge_en.xml:418
+msgid ""
+"The two pane view has some features which are not available in the one pane "
+"view: <placeholder-1/>"
+msgstr "两窗口方式有单窗口方式不具备的一些特性：<placeholder-1/>"
+
+#. (para)
 #: ../source/TortoiseMerge_en.xml:423
 msgid ""
 "Changes inside the modified lines are shown in different colors. Added string "
@@ -663,13 +685,6 @@ msgid ""
 msgstr "在两窗格视图中，可以在右边的窗格编辑文件。这些修改用铅笔符号标记。"
 
 #. (para)
-#: ../source/TortoiseMerge_en.xml:418
-msgid ""
-"The two pane view has some features which are not available in the one pane "
-"view: <placeholder-1/>"
-msgstr "两窗口方式有单窗口方式不具备的一些特性：<placeholder-1/>"
-
-#. (para)
 #: ../source/TortoiseMerge_en.xml:454
 msgid ""
 "If you want to compare/merge three files, TortoiseMerge will show you the "
@@ -707,11 +722,6 @@ msgid ""
 msgstr ""
 "如果你的鼠标在窗格的标题栏逗留，会有工具提示显示此窗格用于比较的文件名称。"
 
-#. (title)
-#: ../source/TortoiseMerge_en.xml:484
-msgid "Patch File List"
-msgstr "补丁文件列表"
-
 #. (para)
 #: ../source/TortoiseMerge_en.xml:479
 msgid ""
@@ -726,6 +736,11 @@ msgstr ""
 "表。<placeholder-1/> 如果文件名称用黑色显示，那么这个补丁可以没有任何问题的应"
 "用。它表示此补丁针对的文件没有过时。如果文件名称用红色显示，那么这个补丁不能直"
 "接应用，因为你的以往修改造成了这个文件出现冲突。"
+
+#. (title)
+#: ../source/TortoiseMerge_en.xml:484
+msgid "Patch File List"
+msgstr "补丁文件列表"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:493
@@ -771,6 +786,15 @@ msgstr ""
 #: ../source/TortoiseMerge_en.xml:521
 msgid "Buttons and Other Controls"
 msgstr "按钮及其他控制"
+
+#. (para)
+#: ../source/TortoiseMerge_en.xml:522
+msgid ""
+"<placeholder-1/> Below the menu bar lies the tool bar. This provides easy "
+"access to the most commonly used tools, which are <placeholder-2/>"
+msgstr ""
+"<placeholder-1/>下列菜单显示在工具条里。可以方便地使用多数常见功能，它们分别"
+"是：<placeholder-2/>"
 
 #. (title)
 #: ../source/TortoiseMerge_en.xml:524
@@ -938,15 +962,6 @@ msgstr ""
 msgid ""
 "<guibutton>Settings</guibutton> takes you to TortoiseMerge's settings dialog."
 msgstr "<guibutton>设置</guibutton> 弹出 TortoiseMerge 的设置对话框。"
-
-#. (para)
-#: ../source/TortoiseMerge_en.xml:522
-msgid ""
-"<placeholder-1/> Below the menu bar lies the tool bar. This provides easy "
-"access to the most commonly used tools, which are <placeholder-2/>"
-msgstr ""
-"<placeholder-1/>下列菜单显示在工具条里。可以方便地使用多数常见功能，它们分别"
-"是：<placeholder-2/>"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:661
@@ -1393,16 +1408,6 @@ msgstr "这些行被删除了。"
 msgid "Modified"
 msgstr "已修改"
 
-#. (emphasis)
-#: ../source/TortoiseMerge_en.xml:971
-msgid "unchanged"
-msgstr "未改变"
-
-#. (guilabel)
-#: ../source/TortoiseMerge_en.xml:974
-msgid "Colour code in-line changes"
-msgstr "着色改变的代码"
-
 #. (listitem)
 #: ../source/TortoiseMerge_en.xml:969
 msgid ""
@@ -1415,6 +1420,16 @@ msgstr ""
 "相对小的行改变，用嵌入差异显示。 <placeholder-1/> 部分着色。改变的部分用嵌入的"
 "增加和删除形式展现，其颜色下述。如果未启用 <placeholder-2/> ，不会使用此颜色，"
 "改变的行用替换形式显示。"
+
+#. (emphasis)
+#: ../source/TortoiseMerge_en.xml:971
+msgid "unchanged"
+msgstr "未改变"
+
+#. (guilabel)
+#: ../source/TortoiseMerge_en.xml:974
+msgid "Colour code in-line changes"
+msgstr "着色改变的代码"
 
 #. (term)
 #: ../source/TortoiseMerge_en.xml:980
@@ -1701,20 +1716,15 @@ msgstr "描述"
 msgid "Shows a dialog box with the most important command line switches."
 msgstr "弹出一个显示常用命令行参数的对话框。"
 
-#. (option)
-#: ../source/TortoiseMerge_en.xml:1209
-msgid "?"
-msgstr "?"
-
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1208
 msgid "The same as <placeholder-1/>."
 msgstr "同 <placeholder-1/> 一样。"
 
-#. (emphasis)
-#: ../source/TortoiseMerge_en.xml:1215
-msgid "base"
-msgstr "基础版本文件"
+#. (option)
+#: ../source/TortoiseMerge_en.xml:1209
+msgid "?"
+msgstr "?"
 
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1214
@@ -1726,6 +1736,11 @@ msgstr ""
 "指定三路比较的文件 <placeholder-1/>。这是所有参与比较文件的祖先，尽管它不在单"
 "独的窗口显示。对于两路比较，它是左边的文件。"
 
+#. (emphasis)
+#: ../source/TortoiseMerge_en.xml:1215
+msgid "base"
+msgstr "基础版本文件"
+
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1224
 msgid ""
@@ -1735,11 +1750,6 @@ msgstr ""
 "基础版本文件名称。它代替文件路径在窗口标题栏显示。在三窗口方式时，它出现在窗口"
 "标题的提示中。"
 
-#. (emphasis)
-#: ../source/TortoiseMerge_en.xml:1234
-msgid "theirs"
-msgstr "他人的文件"
-
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1233
 msgid ""
@@ -1747,17 +1757,17 @@ msgid ""
 "left pane."
 msgstr "指定用于三窗口方式的 <placeholder-1/>，显示在左窗口。"
 
+#. (emphasis)
+#: ../source/TortoiseMerge_en.xml:1234
+msgid "theirs"
+msgstr "他人的文件"
+
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1240
 msgid ""
 "The name of the theirs file. This is shown in the view title instead of the "
 "file path."
 msgstr "他人的文件名称。代替文件路径在窗口标题栏显示。"
-
-#. (emphasis)
-#: ../source/TortoiseMerge_en.xml:1248
-msgid "mine"
-msgstr "我的文件"
 
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1247
@@ -1768,17 +1778,17 @@ msgstr ""
 "指定用于三窗口方式的 <placeholder-1/>，它显示在右窗口。对于双面板方式，是指右"
 "边的文件。"
 
+#. (emphasis)
+#: ../source/TortoiseMerge_en.xml:1248
+msgid "mine"
+msgstr "我的文件"
+
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1255
 msgid ""
 "The name of the mine file. This is shown in the view title instead of the "
 "file path."
 msgstr "我的文件名称。代替文件路径在窗口标题栏显示。"
-
-#. (emphasis)
-#: ../source/TortoiseMerge_en.xml:1263
-msgid "merged"
-msgstr "合并后的文件"
 
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1262
@@ -1791,17 +1801,17 @@ msgstr ""
 "指定用于三路合并的结果文件 <placeholder-1/>。它是保存合并/解决冲突的结果的文件"
 "路径。如果没有指定，TortoiseMerge 将询问用户保存结果的路径。"
 
+#. (emphasis)
+#: ../source/TortoiseMerge_en.xml:1263
+msgid "merged"
+msgstr "合并后的文件"
+
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1272
 msgid ""
 "The name of the merged file. This is shown in the view title instead of the "
 "file path."
 msgstr "合并结果的文件名称。显示在窗口标题显示路径的地方。"
-
-#. (emphasis)
-#: ../source/TortoiseMerge_en.xml:1283
-msgid "very long"
-msgstr "很长"
 
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1279
@@ -1812,6 +1822,11 @@ msgid ""
 msgstr ""
 "使用补丁文件的路径。如果你不设置此路径，TortoiseMerge 将自己查找匹配补丁文件的"
 "路径，但会花费<placeholder-1/>时间。"
+
+#. (emphasis)
+#: ../source/TortoiseMerge_en.xml:1283
+msgid "very long"
+msgstr "很长"
 
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1288
@@ -1840,6 +1855,20 @@ msgstr "强制 TortoiseMerge 以单窗口视图启动，忽略用户的配置。
 msgid "Switches the left and right view of the specified two files to diff."
 msgstr "左右交换两个需要比较差异的文件。"
 
+#. (entry)
+#: ../source/TortoiseMerge_en.xml:1322
+msgid ""
+"Creates a unified diff file (patch file) of two files specified with "
+"<placeholder-1/> and <placeholder-2/>. The target path is set with "
+"<placeholder-3/>. If <placeholder-4/> is not set, a file save dialog is shown "
+"so the user can choose the location to save the patch file. Note: If "
+"<placeholder-5/> is set, all other parameters are ignored."
+msgstr ""
+"为指定的两个文件 <placeholder-1/> 和 <placeholder-2/> 创建统一差异文件(补丁文"
+"件)。目标路径设置为 <placeholder-3/>。如果没有设置 <placeholder-4/>，会显示文"
+"件保存对话框，从而用户可以选择保存补丁文件的位置。注意：如果设置了 "
+"<placeholder-5/>，所有其它参数都会被忽略。"
+
 #. (literal)
 #: ../source/TortoiseMerge_en.xml:1325
 msgid "/origfile:\"path_to_original_file\""
@@ -1864,20 +1893,6 @@ msgstr "/outfile"
 #: ../source/TortoiseMerge_en.xml:1332
 msgid "/createunifieddiff"
 msgstr "/createunifieddiff"
-
-#. (entry)
-#: ../source/TortoiseMerge_en.xml:1322
-msgid ""
-"Creates a unified diff file (patch file) of two files specified with "
-"<placeholder-1/> and <placeholder-2/>. The target path is set with "
-"<placeholder-3/>. If <placeholder-4/> is not set, a file save dialog is shown "
-"so the user can choose the location to save the patch file. Note: If "
-"<placeholder-5/> is set, all other parameters are ignored."
-msgstr ""
-"为指定的两个文件 <placeholder-1/> 和 <placeholder-2/> 创建统一差异文件(补丁文"
-"件)。目标路径设置为 <placeholder-3/>。如果没有设置 <placeholder-4/>，会显示文"
-"件保存对话框，从而用户可以选择保存补丁文件的位置。注意：如果设置了 "
-"<placeholder-5/>，所有其它参数都会被忽略。"
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1340
@@ -2450,18 +2465,3 @@ msgstr ""
 "这是一个本地 <quote>沙箱</quote>，你在受版本控制的文件上工作的区域，它通常位于"
 "你的本地硬盘上。你可以用<quote>检出</quote>从版本库创建工作副本，使用<quote>提"
 "交</quote>将你的改变传回版本库。"
-
-#. Put one translator per line, in the form of NAME <EMAIL>.
-#. (None)
-#: ../source/TortoiseMerge_en.xml:0
-msgid "translator-credits"
-msgstr ""
-"Dongsheng Song <dongsheng.song@gmail.com>, 2006-2008\n"
-"xingyu.wang <xingyu.wang@gmail.com>, 2006\n"
-"Stan J <thinkernel@yeah.net>, 2006"
-
-#. Place the translation of 'translation' here.
-#. (None)
-#: ../source/TortoiseMerge_en.xml:0
-msgid "translator-translation"
-msgstr "译者"
