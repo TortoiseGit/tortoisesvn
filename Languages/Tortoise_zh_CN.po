@@ -57,7 +57,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-03 22:48+0800\n"
+"PO-Revision-Date: 2008-12-04 09:45+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1308,25 +1308,23 @@ msgstr ""
 "如果你在路径后面加上“*”，那么此路径下的所有文件及子目录也都会显示。"
 
 #. Resource IDs: (197)
-#, fuzzy
 msgid ""
 "A newline separated list of paths for which no context menu is shown.\r\n"
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow the context menu on all paths."
 msgstr ""
-"以换行分隔的列表，列出的目录不显示图标覆盖。\n"
-"如果你在路径后面加上“*”， 那么此路径下的所有文件及子目录也都不会显示。\r\n"
-"列表为空时表示所有路径都显示图标覆盖。"
+"以换行分隔的列表，列出的目录不显示上下文菜单。\r\n"
+"如果你在路径后面加上字符“*”， 那么此路径下的所有文件及子目录也都不会显示。\r\n"
+"列表为空时表示所有路径都显示上下文菜单。"
 
 #. Resource IDs: (194)
-#, fuzzy
 msgid ""
 "A newline separated list of paths for which no icon overlays are shown.\r\n"
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
 "以换行分隔的列表，列出的目录不显示图标覆盖。\r\n"
-"如果你在路径后面加上“*”， 那么此路径下的所有文件及子目录也都不会显示。\r\n"
+"如果你在路径后面加上字符“*”， 那么此路径下的所有文件及子目录也都不会显示。\r\n"
 "列表为空时表示所有路径都显示图标覆盖。"
 
 #. Resource IDs: (3843)
@@ -1651,13 +1649,12 @@ msgid "Applies a unified diff file to the working copy"
 msgstr "应用标准差异文件至工作副本"
 
 #. Resource IDs: (581)
-#, fuzzy
 msgid ""
 "Applies the properties recursively to all files/folders.\r\n"
 "bugtraq:, tsvn: and webviewer: properties are only applied to folders."
 msgstr ""
-"递归式将属性加到所有文件/目录上。\n"
-"bugtraq: 和 tsvn: 属性只用于目录."
+"递归式将属性加到所有文件/目录上。\r\n"
+"bugtraq:、tsvn: 和 webviewer: 属性只用于目录。"
 
 #. Resource IDs: (13)
 msgid "Apply &patch..."
@@ -2588,11 +2585,9 @@ msgstr ""
 "复制"
 
 #. Resource IDs: (613)
-#, fuzzy, c-format
+#, c-format
 msgid "Copy to %1"
-msgstr ""
-"复制 %s\r\n"
-"到 %s"
+msgstr "复制到 %1"
 
 #. Resource IDs: (114)
 msgid "Copy to clipboard"
@@ -3197,13 +3192,12 @@ msgid "E&xit"
 msgstr "退出(&X)"
 
 #. Resource IDs: (275)
-#, fuzzy
 msgid "E&xpand all"
-msgstr "展开 (%s)"
+msgstr "全部展开(&X)"
 
 #. Resource IDs: (275)
 msgid "E&xpand sub-trees"
-msgstr ""
+msgstr "展开子树(&X)"
 
 #. Resource IDs: (1437)
 msgid "E&xport"
@@ -3230,14 +3224,12 @@ msgid "Edit Properties"
 msgstr "修改属性"
 
 #. Resource IDs: (297)
-#, fuzzy
 msgid "Edit Property Conflict"
-msgstr "修改属性"
+msgstr "编辑属性冲突"
 
 #. Resource IDs: (298)
-#, fuzzy
 msgid "Edit Tree Conflicts"
-msgstr "编辑冲突(&E)"
+msgstr "编辑树冲突"
 
 #. Resource IDs: (113)
 msgid "Edit author"
@@ -4139,11 +4131,8 @@ msgid "Hostname mismatch (%s)"
 msgstr "站点名称不符(%s)"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "How do you want to resolve this conflict?"
-msgstr ""
-"%s\n"
-"确定要删除吗？"
+msgstr "你准备如何解决此冲突？"
 
 #. Resource IDs: (65535)
 msgid "I&nclude paths:"
@@ -4540,9 +4529,9 @@ msgstr ""
 "到 %s"
 
 #. Resource IDs: (613)
-#, fuzzy, c-format
+#, c-format
 msgid "Import to %1"
-msgstr "导入%s 到 %s%s"
+msgstr "导入到 %1"
 
 #. Resource IDs: (120)
 #, c-format
@@ -4743,24 +4732,20 @@ msgid "Keep changelists"
 msgstr "保持修改列表"
 
 #. Resource IDs: (610)
-#, fuzzy
 msgid "Keep the directory from the repository"
-msgstr "导入目录至版本库"
+msgstr "保留版本库中的目录"
 
 #. Resource IDs: (610)
-#, fuzzy
 msgid "Keep the file from the repository"
-msgstr "导入目录至版本库"
+msgstr "保留版本库中的文件"
 
 #. Resource IDs: (610)
-#, fuzzy
 msgid "Keep the local directory"
-msgstr "初始目录(&I):"
+msgstr "保留本地的目录"
 
 #. Resource IDs: (610)
-#, fuzzy
 msgid "Keep the local file"
-msgstr "使用整个文件(&W)"
+msgstr "保留本地的文件"
 
 #. Resource IDs: (16136)
 msgid "Keyboard"
@@ -5297,11 +5282,9 @@ msgid "Move items to here"
 msgstr "移动项到此"
 
 #. Resource IDs: (613)
-#, fuzzy, c-format
+#, c-format
 msgid "Move to %1"
-msgstr ""
-"移动 %s\r\n"
-"到 %s"
+msgstr "移动到 %1"
 
 #. Resource IDs: (209)
 msgid "Move to changelist"
@@ -6219,7 +6202,7 @@ msgstr ""
 "^   : 行首\r\n"
 "$   : 行尾\r\n"
 "(string){n} : 匹配字符串 n 次\r\n"
-"(abcd)    : 子表达式\n"
+"(abcd)    : 子表达式\r\n"
 "[aei0-9]  : 匹配 a，e，i 和 0..9\r\n"
 "[^aei0-9] : 除了 a，e，i 和 0..9\r\n"
 "\r\n"
@@ -6341,14 +6324,12 @@ msgstr ""
 "%s"
 
 #. Resource IDs: (610)
-#, fuzzy
 msgid "Remove the directory"
-msgstr "检出至目录(&D)："
+msgstr "删除此目录"
 
 #. Resource IDs: (610)
-#, fuzzy
 msgid "Remove the file"
-msgstr "%s ：远程文件"
+msgstr "删除此文件"
 
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
@@ -7223,9 +7204,8 @@ msgid "Show Screen&Tips on toolbars"
 msgstr "在工具栏中显示屏幕提示(&T)"
 
 #. Resource IDs: (32831)
-#, fuzzy
 msgid "Show WC &modifications"
-msgstr "检查更新"
+msgstr "显示本地的更新(&M)"
 
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
@@ -7443,21 +7423,19 @@ msgstr "旋转一"
 
 #. Resource IDs: (275)
 msgid "Split &source tree"
-msgstr ""
+msgstr "分割源树(&S)"
 
 #. Resource IDs: (275)
-#, fuzzy
 msgid "Split following &tree"
-msgstr "分割行"
+msgstr "分割下面的树(&T)"
 
 #. Resource IDs: (376)
 msgid "Split lines"
 msgstr "分割行"
 
 #. Resource IDs: (275)
-#, fuzzy
 msgid "Split sub-trees"
-msgstr "分割行"
+msgstr "分割子树"
 
 #. Resource IDs: (3604)
 msgid ""
@@ -7833,105 +7811,104 @@ msgstr "问题跟踪器提供者不能验证参数字符串"
 #. Resource IDs: (597)
 #, c-format
 msgid "The item '%s' has property conflicts:"
-msgstr ""
+msgstr "条目“%s”有属性冲突："
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to add the directory '%s'"
-msgstr ""
+msgstr "尝试增加目录“%s”的最后一次合并操作"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last merge operation tried to add the file '%s'"
-msgstr ""
+msgstr "尝试增加文件“%s”的最后一次合并操作"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to delete the directory '%s'"
-msgstr ""
+msgstr "尝试删除目录“%s”的最后一次合并操作"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last merge operation tried to delete the file '%s'"
-msgstr ""
+msgstr "尝试删除文件“%s”的最后一次合并操作"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to modify the directory '%s'"
-msgstr ""
+msgstr "尝试修改目录“%s”的最后一次合并操作"
 
 #. Resource IDs: (607)
-#, fuzzy, c-format
+#, c-format
 msgid "The last merge operation tried to modify the file '%s'"
-msgstr "拥有此文件锁定的用户"
+msgstr "尝试修改文件“%s”的最后一次合并操作"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last switch operation tried to add the directory '%s'"
-msgstr ""
+msgstr "尝试增加目录“%s”的最后一次切换操作"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last switch operation tried to add the file '%s'"
-msgstr ""
+msgstr "尝试增加文件“%s”的最后一次切换操作"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last switch operation tried to delete the directory '%s'"
-msgstr ""
+msgstr "尝试删除目录“%s”的最后一次切换操作"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last switch operation tried to delete the file '%s'"
-msgstr ""
+msgstr "尝试删除文件“%s”的最后一次切换操作"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last switch operation tried to modify the directory '%s'"
-msgstr ""
+msgstr "尝试修改目录“%s”的最后一次切换操作"
 
 #. Resource IDs: (607)
-#, fuzzy, c-format
+#, c-format
 msgid "The last switch operation tried to modify the file '%s'"
-msgstr "拥有此文件锁定的用户"
+msgstr "尝试修改文件“%s”的最后一次切换操作"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to add the directory '%s'"
-msgstr ""
+msgstr "尝试增加目录“%s”的最后一次更新操作"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to add the file '%s'"
-msgstr ""
+msgstr "尝试增加文件“%s”的最后一次更新操作"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to delete the directory '%s'"
-msgstr ""
+msgstr "尝试删除目录“%s”的最后一次更新操作"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to delete the file '%s'"
-msgstr ""
+msgstr "尝试删除文件“%s”的最后一次更新操作"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to modify the directory '%s'"
-msgstr ""
+msgstr "尝试修改目录“%s”的最后一次更新操作"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to modify the file '%s'"
-msgstr ""
+msgstr "尝试修改文件“%s”的最后一次更新操作"
 
 #. Resource IDs: (63)
-#, fuzzy, c-format
+#, c-format
 msgid "The line '====' was expected in line %d !"
 msgstr "“====”行应该出现在第 %d 行！"
 
 #. Resource IDs: (63)
-#, fuzzy
 msgid ""
 "The line 'Index: ' was not found!\n"
 "Either this is not a diff file or the diff is empty."
@@ -8854,7 +8831,7 @@ msgid ""
 "Use text block from 'mine' before 'theirs'\n"
 "Use 'mine' text block then 'theirs'"
 msgstr ""
-"先使用“我的”文本块(&I)\n"
+"先使用“我的”文本块\n"
 "先使用“我的”文本块，然后才是“他们的”"
 
 #. Resource IDs: (2052)
