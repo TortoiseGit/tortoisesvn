@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-03 18:33+0200\n"
+"PO-Revision-Date: 2008-12-04 16:53+0200\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -828,7 +828,7 @@ msgstr "&Порт:"
 
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
-msgstr ""
+msgstr "Типовості &моцного користувача"
 
 #. Resource IDs: (32780)
 msgid "&Previous Difference"
@@ -1626,6 +1626,8 @@ msgid ""
 "Apply 'Power User' defaults. Those will provide a smoother experience.\n"
 "You should know the meaning of all the settings above."
 msgstr ""
+"Застосувати типовості 'Моцного користувача'. Це дозволить зручніше налаштувати систему.\n"
+"Бажано розуміти зміст усіх вищевказаних параметрів."
 
 #. Resource IDs: (1294)
 msgid "Apply property recursively"
@@ -2383,7 +2385,7 @@ msgstr "Готово"
 
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
-msgstr ""
+msgstr "Конфігурувати скрипти зачіпки"
 
 #. Resource IDs: (284)
 msgid "Configure Issue Tracker Integration"
@@ -4077,7 +4079,7 @@ msgstr ""
 
 #. Resource IDs: (103)
 msgid "Hook Scripts"
-msgstr ""
+msgstr "Скрипти зачіпки"
 
 #. Resource IDs: (283)
 msgid "Hook Scripts::Issue Tracker Integration"
@@ -4085,11 +4087,11 @@ msgstr ""
 
 #. Resource IDs: (198)
 msgid "Hook Type"
-msgstr ""
+msgstr "Тип зачіпки"
 
 #. Resource IDs: (1334)
 msgid "Hook Type:"
-msgstr ""
+msgstr "Тип зачіпки:"
 
 #. Resource IDs: (82)
 #, c-format
@@ -5773,11 +5775,11 @@ msgstr "Віяльцева діаграма"
 
 #. Resource IDs: (83)
 msgid "Please enter a hook script to execute."
-msgstr ""
+msgstr "Введіть скрипт зачіпки, який потрібно виконати"
 
 #. Resource IDs: (83)
 msgid "Please enter a path where to apply the hook script to."
-msgstr ""
+msgstr "Введіть шлях, до якого слід застосувати скрипт зачіпки."
 
 #. Resource IDs: (251)
 msgid "Please execute the 'Cleanup' command."
@@ -5803,7 +5805,7 @@ msgstr "Оберіть один з вказаних варіантів, щоб �
 
 #. Resource IDs: (83)
 msgid "Please select a hook type"
-msgstr ""
+msgstr "Виберіть тип скрипта зачіпки"
 
 #. Resource IDs: (76)
 msgid "Please specify the certificate type"
@@ -5835,11 +5837,11 @@ msgstr "Порт:"
 
 #. Resource IDs: (569)
 msgid "Post-Commit Hook"
-msgstr ""
+msgstr "Зачіпка після фіксації"
 
 #. Resource IDs: (570)
 msgid "Post-Update Hook"
-msgstr ""
+msgstr "Зачіпка після оновлення"
 
 #. Resource IDs: (58115)
 #, fuzzy
@@ -5848,11 +5850,11 @@ msgstr "&Попередня сторінка"
 
 #. Resource IDs: (569)
 msgid "Pre-Commit Hook"
-msgstr ""
+msgstr "Зачіпка перед фіксацією"
 
 #. Resource IDs: (570)
 msgid "Pre-Update Hook"
-msgstr ""
+msgstr "Зачіпка перед оновленням"
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
@@ -6930,7 +6932,7 @@ msgstr "Вибрати каталог для збереження виділен
 
 #. Resource IDs: (197)
 msgid "Select hook script file"
-msgstr ""
+msgstr "Виберіть файл скрипта зачіпки"
 
 #. Resource IDs: (1405)
 msgid "Select items automatically"
@@ -7409,8 +7411,9 @@ msgid "Standard"
 msgstr "Стандартно"
 
 #. Resource IDs: (569)
+#, fuzzy
 msgid "Start Commit Hook"
-msgstr ""
+msgstr "Зачіпка початку фіксації"
 
 #. Resource IDs: (65535)
 msgid "Start Revision"
@@ -7418,7 +7421,7 @@ msgstr "Початкова модифікація"
 
 #. Resource IDs: (569)
 msgid "Start Update Hook"
-msgstr ""
+msgstr "Зачіпка початку оновлення"
 
 #. Resource IDs: (16514)
 msgid "Static"
@@ -7747,6 +7750,8 @@ msgid ""
 "The hook script returned an error:\n"
 "%s"
 msgstr ""
+"Скрипт зачіпки повернув помилку:\n"
+"%s"
 
 #. Resource IDs: (7)
 msgid "The image can not be shown."
@@ -9114,6 +9119,8 @@ msgid ""
 "You haven't entered an issue number!\n"
 "Are you sure you want to commit without an issue number?"
 msgstr ""
+"Номер проблеми не введено!\n"
+"Дійсно зафіксувати без номера проблеми?"
 
 #. Resource IDs: (1002)
 #, c-format
@@ -9357,6 +9364,8 @@ msgid ""
 "bugtraq:label\r\n"
 "Label text to show for the edit box where the user enters the issue number."
 msgstr ""
+"bugtraq:label\r\n"
+"Текстова мітка, що відображається для поля редагування, в якому користувач вводить номер проблеми."
 
 #. Resource IDs: (577)
 msgid ""
@@ -9373,6 +9382,9 @@ msgid ""
 "String which is appended to a log message when an issue number is entered.\r\n"
 "The string must contain '%BUGID%' which gets replaced with the issue number."
 msgstr ""
+"bugtraq:message\r\n"
+"Рядок, що дописується до логового повідомлення, коли введено номер проблеми.\r\n"
+"Рядок мусить містити '%BUGID%' , що заміниться номером проблеми."
 
 #. Resource IDs: (577)
 msgid ""
@@ -9909,6 +9921,8 @@ msgid ""
 "tsvn:warnifnoissue\r\n"
 "Set to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
+"tsvn:warnifnoissue\r\n"
+"Встановіть у 'yes', якщо потрібно показувати попередження, коли у діалозі фіксації не введено проблеми."
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
