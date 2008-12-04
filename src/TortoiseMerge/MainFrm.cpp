@@ -1024,8 +1024,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
 	}
 	if (((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\Backup"))) != 0)
 	{
-		DeleteFile(m_Data.m_mergedFile.GetFilename() + _T(".bak"));
-		MoveFile(m_Data.m_mergedFile.GetFilename(), m_Data.m_mergedFile.GetFilename() + _T(".bak"));
+		MoveFileEx(m_Data.m_mergedFile.GetFilename(), m_Data.m_mergedFile.GetFilename() + _T(".bak"), MOVEFILE_COPY_ALLOWED | MOVEFILE_REPLACE_EXISTING | MOVEFILE_WRITE_THROUGH);
 	}
 	if (SaveFile(m_Data.m_mergedFile.GetFilename())==0)
 	{
