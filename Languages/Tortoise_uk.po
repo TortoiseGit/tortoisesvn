@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-04 16:53+0200\n"
+"PO-Revision-Date: 2008-12-05 17:50+0200\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2389,7 +2389,7 @@ msgstr "Конфігурувати скрипти зачіпки"
 
 #. Resource IDs: (284)
 msgid "Configure Issue Tracker Integration"
-msgstr ""
+msgstr "Конфігурувати інтеграцію проблемобліку"
 
 #. Resource IDs: (65535)
 msgid "Configure the program used for comparing different revisions of files"
@@ -3797,7 +3797,6 @@ msgid "Floppy drives (A: B:)"
 msgstr "Гнучкі диски (A: B:)"
 
 #. Resource IDs: (32818)
-#, fuzzy
 msgid "Fold &tags"
 msgstr "Згорнути &зрізи"
 
@@ -3907,6 +3906,10 @@ msgid ""
 "Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
 "Note that other users will need to update their working copies before they see the files as read-only."
 msgstr ""
+"Блокування файлів без властивості 'svn:needs-lock' <b>не</b> запобігатиме їх редагуванню іншими користувачами у їхніх робочих копіях.\n"
+"Щоб уможливити строге блокування слід додати властивість 'svn:needs-lock' до всіх файлів, які потребують блокування, і зафіксувати ці файли.\n"
+"Кожен файл матиме встановлену ознаку файлової системи тільки-для-читання, і отримання блокування дозволятиме запис у файл.\n"
+"Зауважте, що інші користувачі побачать ці файли як тільки-для-читання лише після оновлення їхніх робочих копій."
 
 #. Resource IDs: (119)
 #, c-format
@@ -4083,7 +4086,7 @@ msgstr "Скрипти зачіпки"
 
 #. Resource IDs: (283)
 msgid "Hook Scripts::Issue Tracker Integration"
-msgstr ""
+msgstr "Скрипти зачіпок::Інтеграція проблемобліку"
 
 #. Resource IDs: (198)
 msgid "Hook Type"
@@ -4270,6 +4273,12 @@ msgid ""
 "Allowed wildcards are '?' and '*'.\n"
 "Separate patterns by ';'."
 msgstr ""
+"Якщо елемент (частина між двома '/') вказаного шляху співпадає з\n"
+"одним із цих шаблонів, він вважається 'гілкою'.\n"
+"\n"
+"Шаблони - маленькими літерами.\n"
+"Допустимі узагальнення: '?' і '*'.\n"
+"Розділяйте шаблони символом ';'."
 
 #. Resource IDs: (346)
 msgid ""
@@ -4280,6 +4289,12 @@ msgid ""
 "Allowed wildcards are '?' and '*'.\n"
 "Separate patterns by ';'."
 msgstr ""
+"Якщо елемент (частина між двома '/') вказаного шляху співпадає з\n"
+"одним із цих шаблонів, він вважається 'зрізом'.\n"
+"\n"
+"Шаблони - маленькими літерами.\n"
+"Допустимі узагальнення: '?' і '*'.\n"
+"Розділяйте шаблони символом ';'."
 
 #. Resource IDs: (346)
 msgid ""
@@ -4290,6 +4305,12 @@ msgid ""
 "Allowed wildcards are '?' and '*'.\n"
 "Separate patterns by ';'."
 msgstr ""
+"Якщо елемент (частина між двома '/') вказаного шляху співпадає з\n"
+"одним із цих шаблонів, він вважається 'стовбуром'.\n"
+"\n"
+"Шаблони - маленькими літерами.\n"
+"Допустимі узагальнення: '?' і '*'.\n"
+"Розділяйте шаблони символом ';'."
 
 #. Resource IDs: (95)
 msgid ""
@@ -4358,6 +4379,8 @@ msgid ""
 "If set, files inside unversioned folders can be shown in the status control.\r\n"
 "The status control is used for example in the commit dialog."
 msgstr ""
+"Якщо встановлено, то файли в неверсійних каталогах можуть бути показаними у контролі стану.\r\n"
+"Контроль стану використовується, наприклад, у діалозі фіксації."
 
 #. Resource IDs: (196)
 msgid ""
@@ -4497,9 +4520,9 @@ msgstr ""
 "до %s"
 
 #. Resource IDs: (613)
-#, fuzzy, c-format
+#, c-format
 msgid "Import to %1"
-msgstr "Імпортувати %s до %s%s"
+msgstr "Імпортувати до %1"
 
 #. Resource IDs: (120)
 #, c-format
@@ -4659,7 +4682,6 @@ msgid "Join with source tree"
 msgstr "Сполучити з сирцевим деревом"
 
 #. Resource IDs: (1203)
-#, fuzzy
 msgid "Keep &locks"
 msgstr "Зберігати б&локування"
 
@@ -5404,7 +5426,7 @@ msgstr "Немає виправлень правопису"
 
 #. Resource IDs: (196)
 msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
-msgstr "Немає неша стану. Тільки версійні каталоги отримують перекриття, а файли не отримують."
+msgstr "Немає кеша стану. Тільки версійні каталоги отримують перекриття, а файли не отримують."
 
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
@@ -5573,7 +5595,7 @@ msgstr ""
 
 #. Resource IDs: (1424)
 msgid "Only record the merge (block revisions from getting merged)"
-msgstr ""
+msgstr "Тільки занотувати злиття (блокує зливання модифікацій)"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -5865,9 +5887,8 @@ msgid "Press &new shortcut key:"
 msgstr "Натисніть &нову гарячу клавішу:"
 
 #. Resource IDs: (2052)
-#, fuzzy
 msgid "Prevents most cases in which connection lines cross revision nodes"
-msgstr "Запобігає більшості випадків, у яких рядки з'єднань перетинають вузли модифікацій"
+msgstr "Запобігає більшості випадків, у яких з'єднувальні лінії перетинають вузли модифікацій"
 
 #. Resource IDs: (1069)
 msgid "Preview"
@@ -6091,7 +6112,7 @@ msgstr "Нещодавно модифіковані рядки"
 
 #. Resource IDs: (276)
 msgid "Record Only"
-msgstr ""
+msgstr "Тільки занотувати"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -6119,7 +6140,7 @@ msgstr ""
 
 #. Resource IDs: (32819)
 msgid "Reduce cross-&lines"
-msgstr "Зменшити перехрещення &рядків"
+msgstr "Зменшити перехрещення &ліній"
 
 #. Resource IDs: (3825)
 msgid "Reduce the window to an icon"
@@ -6814,8 +6835,9 @@ msgid "Saving patchfile to:"
 msgstr "Файл латки зберігається до:"
 
 #. Resource IDs: (1014, 1017, 1064, 1212)
+#, fuzzy
 msgid "Scintilla"
-msgstr ""
+msgstr "Дрібка"
 
 #. Resource IDs: (1003)
 msgid "Scroll Left"
@@ -6912,7 +6934,7 @@ msgstr "Вибрати кінцеву модифікацію"
 
 #. Resource IDs: (64)
 msgid "Select folder to associate with this issue tracker"
-msgstr ""
+msgstr "Виберіть каталог, який пов'язати з цим проблемобліком"
 
 #. Resource IDs: (79)
 msgid ""
@@ -7093,7 +7115,7 @@ msgstr "Показати &лог..."
 
 #. Resource IDs: (1088)
 msgid "Show &overlays and context menu only in explorer"
-msgstr ""
+msgstr "Показувати пе&рекриття та контекстні меню тільки у провіднику"
 
 #. Resource IDs: (1265)
 msgid "Show &properties"
@@ -7128,6 +7150,8 @@ msgid ""
 "Show Inline-Diff word by word\n"
 "Inline diff word-wise"
 msgstr ""
+"Показувати відмінності в рядках слово за словом\n"
+"Дослівні відмінності в рядках"
 
 #. Resource IDs: (1126)
 msgid "Show Lock dialog before locking files"
@@ -7203,6 +7227,8 @@ msgid ""
 "Show or hide the line diff bar\n"
 "Toggle LineDiffBar"
 msgstr ""
+"Показати або заховати смугу відмінності рядків\n"
+"Перемкнути смугу відмінності рядків"
 
 #. Resource IDs: (2054)
 msgid ""
@@ -8205,7 +8231,7 @@ msgstr "Ці властивість не повинна мати багато р
 
 #. Resource IDs: (1016)
 msgid "This will delete the record of commands you've used in this application and restore the default set of visible commands to the menus and toolbars. It will not undo any explicit customizations. Are you sure you want to do this?"
-msgstr ""
+msgstr "Це знищить занотовані команди, що використовувались у цій програмі, та відновить типовий набір видимих команд у меню та смугах знарядь. Це не скасує явні адаптування. Дійсно зробити це?"
 
 #. Resource IDs: (16924)
 msgid "Tile &Horizontally"
@@ -9415,6 +9441,9 @@ msgid ""
 "URL pointing to the issue tracker. It must contain '%BUGID%' which\r\n"
 "gets replaced with the issue number."
 msgstr ""
+"bugtraq:url\r\n"
+"URL, що вказує на проблемоблік. Він повінен містити '%BUGID%', що\r\n"
+"замінятиметься номером проблеми."
 
 #. Resource IDs: (65535)
 msgid "changes total: "
@@ -9717,6 +9746,18 @@ msgid ""
 "// relative to the URL scheme\r\n"
 "/ relative to the server's hostname"
 msgstr ""
+"svn:externals\r\n"
+"Розділений новими рядками список модульних специфікаторів, кожен з яких складається з\r\n"
+"необов'язкової модифікації, URL і відносного шляху до каталога. Наприклад\r\n"
+"http://example.com/repos/zig foo\r\n"
+"-r 1234 http://example.com/repos/zag foo/bar\r\n"
+"\r\n"
+"URL можуть бути або повними URL, або відносними. Формат для\r\n"
+"відносних URL :\r\n"
+"../ відносно батьківського каталогу зовнішніх\r\n"
+"^/ відносно кореня сховища\r\n"
+"// відносно схеми URL\r\n"
+"/ відносно імені хоста сервера"
 
 #. Resource IDs: (576)
 msgid ""
@@ -9736,6 +9777,13 @@ msgid ""
 "Rev, LastChangedRevision : The last revision the object changed.\r\n"
 "Id : A compressed summary of the previous 4 keywords."
 msgstr ""
+"svn:keywords\r\n"
+"Keywords to be expanded. Valid keywords are:\r\n"
+"URL, HeadURL : The URL for the head revision of the object.\r\n"
+"Author, LastChangedBy : The last person to modify the file.\r\n"
+"Date, LastChangedDate : The date/time the object was last modified.\r\n"
+"Rev, LastChangedRevision : The last revision the object changed.\r\n"
+"Id : A compressed summary of the previous 4 keywords."
 
 #. Resource IDs: (576)
 msgid ""
