@@ -1486,7 +1486,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	SetItemText(index, nCol++, temp);
 	// SVNSLC_COLMODIFICATIONDATE
 	__int64 filetime = entry->GetPath().GetLastWriteTime();
-	if ( (filetime) && (entry->status!=svn_wc_status_deleted) )
+	if ( (filetime) && (entry->textstatus!=svn_wc_status_deleted) )
 	{
 		FILETIME* f = (FILETIME*)(__int64*)&filetime;
 		SVN::formatDate(datebuf,*f,true);
@@ -1743,7 +1743,7 @@ void CSVNStatusListCtrl::CheckEntry(int index, int nListItems)
 		}
 	}
 	bool bShift = !!(GetAsyncKeyState(VK_SHIFT) & 0x8000);
-	if ( (entry->status == svn_wc_status_deleted) || (m_bCheckChildrenWithParent) || (bShift) )
+	if ( (entry->textstatus == svn_wc_status_deleted) || (m_bCheckChildrenWithParent) || (bShift) )
 	{
 		// if a deleted folder gets checked, we have to check all
 		// children of that folder too.
@@ -1764,7 +1764,7 @@ void CSVNStatusListCtrl::CheckEntry(int index, int nListItems)
 			{
 				if (testEntry->path.IsAncestorOf(entry->path) && (!testEntry->path.IsEquivalentTo(entry->path)))
 				{
-					if ((testEntry->status == svn_wc_status_deleted)||(m_bCheckChildrenWithParent))
+					if ((testEntry->textstatus == svn_wc_status_deleted)||(m_bCheckChildrenWithParent))
 					{
 						SetEntryCheck(testEntry,i,true);
 						m_nSelected++;
@@ -1802,7 +1802,7 @@ void CSVNStatusListCtrl::UncheckEntry(int index, int nListItems)
 			SetCheckOnAllDescendentsOf(entry, false);
 		}
 	}
-	else if (entry->status == svn_wc_status_deleted)
+	else if (entry->textstatus == svn_wc_status_deleted)
 	{
 		// a "deleted" file was unchecked, so uncheck all parent folders
 		// and all children of those parents
@@ -1816,7 +1816,7 @@ void CSVNStatusListCtrl::UncheckEntry(int index, int nListItems)
 			{
 				if (testEntry->path.IsAncestorOf(entry->path))
 				{
-					if (testEntry->status == svn_wc_status_deleted)
+					if (testEntry->textstatus == svn_wc_status_deleted)
 					{
 						SetEntryCheck(testEntry,i,false);
 						m_nSelected--;
@@ -4052,6 +4052,8 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 					else if (entry->remotestatus == svn_wc_status_deleted)
 						// locally modified, but already deleted in the repository
 						crText = m_Colors.GetColor(CColors::Conflict);
+					else if (entry->textstatus == svn_wc_status_missing)
+						crText = m_Colors.GetColor(CColors::Deleted);
 					else
 						crText = m_Colors.GetColor(CColors::Modified);
 					break;

@@ -347,7 +347,7 @@ void CCommitDlg::OnOK()
 			{
 				bHasConflicted = true;
 			}
-			if (entry->status == svn_wc_status_missing)
+			if (entry->textstatus == svn_wc_status_missing)
 			{
 				itemsToRemove.AddPath(entry->GetPath());
 			}
