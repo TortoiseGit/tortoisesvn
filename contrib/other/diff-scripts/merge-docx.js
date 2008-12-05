@@ -61,7 +61,7 @@ word.visible = true
 baseDoc = word.Documents.Open(sTheirDoc); //?? base or their??
 
 // Merge into the "My" document
-if (Number(word.Version) < 12)
+if (parseInt(word.Version) < 12)
 {
 	baseDoc.Compare(sMergedDoc);
 } else {
@@ -69,13 +69,13 @@ if (Number(word.Version) < 12)
 }
 
 // Show the merge result
-if (Number(word.Version) < 12)
+if (parseInt(word.Version) < 12)
 {
 	word.ActiveDocument.Windows(1).Visible = 1;
 }
 
 // Close the first document
-if (Number(word.Version) >= 10)
+if (parseInt(word.Version) >= 10)
 {
    baseDoc.Close();
 }

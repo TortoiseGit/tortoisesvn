@@ -115,7 +115,7 @@ catch(e)
 	WScript.Quit(0);
 }
 
-if (Number(word.Version) >= vOffice2007)
+if (parseInt(word.Version) >= vOffice2007)
 {
 	sTempDoc = sNewDoc;
 	sNewDoc = sBaseDoc;
@@ -146,7 +146,7 @@ if (((destination.ActiveWindow.View.Type == wdOutlineView) || (destination.Activ
 }
 
 // Compare to the base document
-if (Number(word.Version) <= vOffice2000)
+if (parseInt(word.Version) <= vOffice2000)
 {
     // Compare for Office 2000 and earlier
     try
@@ -177,7 +177,7 @@ else
 }
     
 // Show the comparison result
-if (Number(word.Version) < vOffice2007)
+if (parseInt(word.Version) < vOffice2007)
 {
 	word.ActiveDocument.Windows(1).Visible = 1;
 }
@@ -187,7 +187,7 @@ if (Number(word.Version) < vOffice2007)
 word.ActiveDocument.Saved = 1;
     
 // Close the first document
-if (Number(word.Version) >= vOffice2002)
+if (parseInt(word.Version) >= vOffice2002)
 {
     destination.Close(wdDoNotSaveChanges);
 }
