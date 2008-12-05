@@ -12,3 +12,4 @@
 .cbl, .cpy = ^.{6} ([A-Z][A-Z0-9-]*)(?: SECTION)?\.
 .au3, .auh = Func\s+([\w_]+)|\$([\w_]+)
 .asm = ^([\w]+) *
+.sd = ^\s*(?:procedure|function)\s+(\w+)
