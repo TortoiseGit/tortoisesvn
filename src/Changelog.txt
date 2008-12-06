@@ -86,6 +86,8 @@ Version 1.5.6
        repository browser. (Stefan)
 - BUG: Reverting files could have removed associated folders. (Stefan)
 - BUG: The OK button in the checkout dialog was sometimes disabled. (Stefan)
+- BUG: Creating a tag/branch from the repository browser didn't work if
+       the target folder did not exist. (Stefan)
        
 Version 1.5.5
 - BUG: The properties dialog would show the url with backward slashes when

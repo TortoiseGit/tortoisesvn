@@ -2663,7 +2663,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					}
 					if (input.DoModal() == IDOK)
 					{
-						if (!Copy(urlList, CTSVNPath(dlg.m_name), GetRevision(), GetRevision(), input.GetLogMessage()))
+						if (!Copy(urlList, CTSVNPath(dlg.m_name), GetRevision(), GetRevision(), input.GetLogMessage(), false, true))
 						{
 							wait_cursor.Hide();
 							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -2672,6 +2672,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 						if (GetRevision().IsHead())
 						{
 							RefreshNode(m_RepoTree.GetSelectedItem(), true);
+							RefreshNode(CTSVNPath(dlg.m_name).GetContainingDirectory().GetSVNPathString(), true);
 						}
 					}
 				}
