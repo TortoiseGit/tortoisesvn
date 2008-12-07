@@ -293,6 +293,7 @@ void CCheckoutDlg::OnBnClickedBrowse()
 				m_strCheckoutDirectory += _T("\\");
 		}
 		UpdateData(FALSE);
+		DialogEnableWindow(IDOK, !m_strCheckoutDirectory.IsEmpty());
 	}
 }
 
@@ -315,6 +316,7 @@ void CCheckoutDlg::OnBnClickedCheckoutdirectoryBrowse()
 		m_sCheckoutDirOrig = m_strCheckoutDirectory;
 		m_bAutoCreateTargetName = !PathIsDirectoryEmpty(m_sCheckoutDirOrig);
 		UpdateData(FALSE);
+		DialogEnableWindow(IDOK, !m_strCheckoutDirectory.IsEmpty());
 	}
 }
 
@@ -412,5 +414,6 @@ void CCheckoutDlg::OnCbnEditchangeUrlcombo()
 			m_strCheckoutDirectory += _T("\\");
 	}
 	UpdateData(FALSE);
+	DialogEnableWindow(IDOK, !m_strCheckoutDirectory.IsEmpty());
 }
 

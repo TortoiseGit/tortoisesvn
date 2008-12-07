@@ -281,6 +281,7 @@ void CExportDlg::OnBnClickedBrowse()
 		rev = SVNRev::REV_HEAD;
 	CAppUtils::BrowseRepository(m_URLCombo, this, rev);
 	SetRevision(rev);
+	DialogEnableWindow(IDOK, !m_strExportDirectory.IsEmpty());
 }
 
 void CExportDlg::OnBnClickedCheckoutdirectoryBrowse()
@@ -302,6 +303,7 @@ void CExportDlg::OnBnClickedCheckoutdirectoryBrowse()
 		m_sExportDirOrig = m_strExportDirectory;
 		m_bAutoCreateTargetName = !PathIsDirectoryEmpty(m_sExportDirOrig);
 		UpdateData(FALSE);
+		DialogEnableWindow(IDOK, !m_strExportDirectory.IsEmpty());
 	}
 }
 
