@@ -23,10 +23,10 @@
 
 // CMergeWizard
 
-IMPLEMENT_DYNAMIC(CMergeWizard, CPropertySheet)
+IMPLEMENT_DYNAMIC(CMergeWizard, CResizableSheetEx)
 
 CMergeWizard::CMergeWizard(UINT nIDCaption, CWnd* pParentWnd, UINT iSelectPage)
-	:CPropertySheet(nIDCaption, pParentWnd, iSelectPage)
+	:CResizableSheetEx(nIDCaption, pParentWnd, iSelectPage)
 	, bReverseMerge(FALSE)
 	, nRevRangeMerge(MERGEWIZARD_REVRANGE)
 	, m_bIgnoreAncestry(FALSE)
@@ -55,7 +55,7 @@ CMergeWizard::~CMergeWizard()
 }
 
 
-BEGIN_MESSAGE_MAP(CMergeWizard, CPropertySheet)
+BEGIN_MESSAGE_MAP(CMergeWizard, CResizableSheetEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 END_MESSAGE_MAP()
@@ -65,7 +65,7 @@ END_MESSAGE_MAP()
 
 BOOL CMergeWizard::OnInitDialog()
 {
-	BOOL bResult = CPropertySheet::OnInitDialog();
+	BOOL bResult = CResizableSheetEx::OnInitDialog();
 
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
@@ -136,7 +136,7 @@ void CMergeWizard::OnPaint()
 	}
 	else
 	{
-		CPropertySheet::OnPaint();
+		CResizableSheetEx::OnPaint();
 	}
 }
 

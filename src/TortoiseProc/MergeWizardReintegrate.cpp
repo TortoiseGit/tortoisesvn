@@ -79,6 +79,14 @@ BOOL CMergeWizardReintegrate::OnInitDialog()
 
 	SetDlgItemText(IDC_WCEDIT, ((CMergeWizard*)GetParent())->wcPath.GetWinPath());
 
+	AddAnchor(IDC_MERGEREINTEGRATEFROMGROUP, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_URLCOMBO, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_BROWSE, TOP_RIGHT);
+	AddAnchor(IDC_SHOWMERGELOG, TOP_RIGHT);
+	AddAnchor(IDC_MERGEREINTEGRATEWCGROUP, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_WCEDIT, TOP_LEFT, TOP_RIGHT);
+	AddAnchor(IDC_SHOWLOGWC, TOP_RIGHT);
+
 	return TRUE;
 }
 

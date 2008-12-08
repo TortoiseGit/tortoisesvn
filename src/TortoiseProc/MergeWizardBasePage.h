@@ -17,19 +17,19 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-
+#include "ResizablePageEx.h"
 
 /**
  * base class for the merge wizard property pages
  */
-class CMergeWizardBasePage : public CPropertyPage
+class CMergeWizardBasePage : public CResizablePageEx
 {
 public:
-	CMergeWizardBasePage() : CPropertyPage() {;}
-	explicit CMergeWizardBasePage(UINT nIDTemplate, UINT nIDCaption = 0, DWORD dwSize = sizeof(PROPSHEETPAGE)) 
-		: CPropertyPage(nIDTemplate, nIDCaption, dwSize) {;}
-	explicit CMergeWizardBasePage(LPCTSTR lpszTemplateName, UINT nIDCaption = 0, DWORD dwSize = sizeof(PROPSHEETPAGE))
-		: CPropertyPage(lpszTemplateName, nIDCaption, dwSize) {;}
+	CMergeWizardBasePage() : CResizablePageEx() {;}
+	explicit CMergeWizardBasePage(UINT nIDTemplate, UINT nIDCaption = 0) 
+		: CResizablePageEx(nIDTemplate, nIDCaption, 0) {;}
+	explicit CMergeWizardBasePage(LPCTSTR lpszTemplateName, UINT nIDCaption = 0)
+		: CResizablePageEx(lpszTemplateName, nIDCaption, 0) {;}
 
 	virtual ~CMergeWizardBasePage() {;}
 

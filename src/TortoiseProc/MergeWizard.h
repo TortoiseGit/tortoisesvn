@@ -18,7 +18,7 @@
 //
 #pragma once
 #include "TSVNPath.h"
-
+#include "ResizableSheetEx.h"
 #include "MergeWizardStart.h"
 #include "MergeWizardTree.h"
 #include "MergeWizardRevRange.h"
@@ -29,7 +29,7 @@
 #define MERGEWIZARD_TREE		1
 #define MERGEWIZARD_REINTEGRATE	2
 
-class CMergeWizard : public CPropertySheet
+class CMergeWizard : public CResizableSheetEx
 {
 	DECLARE_DYNAMIC(CMergeWizard)
 
