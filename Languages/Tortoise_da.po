@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-20 16:28+0100\n"
+"PO-Revision-Date: 2008-12-08 10:19+0100\n"
 "Last-Translator: Mikkel Elmholdt <mikkel@elmholdt.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1543,6 +1543,15 @@ msgstr "Tilføj filendelse-specifikt sammenligningsprogram"
 msgid "Add extension specific merge program"
 msgstr "Tilføj filendelse-specifikt fletningsprogram"
 
+#. Resource IDs: (89)
+msgid "Add the item anyway"
+msgstr "Tilføj elementet alligevel"
+
+#. Resource IDs: (613)
+#, c-format
+msgid "Add to %1"
+msgstr "Tilføj til %1"
+
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
 msgstr "Føj til \"&ignorer\"-listen"
@@ -2230,6 +2239,10 @@ msgstr "Marker de menupunkter, som du vil have vist i den øverste kontekstmenu 
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Marker denne for at benytte et kortere dato- og tidsformat i logbeskeder"
 
+#. Resource IDs: (2052)
+msgid "Check working copy for modifications"
+msgstr "Check arbejdskopi for ændringer"
+
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Søger efter en nyere version af TortoiseSVN..."
@@ -2691,6 +2704,11 @@ msgstr ""
 "Kopier det markerede og læg det i udklipsholderen\n"
 "Kopier"
 
+#. Resource IDs: (613)
+#, c-format
+msgid "Copy to %1"
+msgstr "Kopier til %1"
+
 #. Resource IDs: (114)
 msgid "Copy to clipboard"
 msgstr "Kopier til udklipsholder"
@@ -3117,6 +3135,10 @@ msgstr "Sammenlign med URL"
 msgid "Difference between"
 msgstr "Forskel mellem"
 
+#. Resource IDs: (32817)
+msgid "Differential path &names"
+msgstr "Forskellige sti&navne"
+
 #. Resource IDs: (1022)
 msgid "Diffing"
 msgstr "Sammenligner"
@@ -3277,6 +3299,11 @@ msgstr "Tegn"
 #. Resource IDs: (1079)
 msgid "Drive Types"
 msgstr "Drevtyper"
+
+#. Resource IDs: (613)
+#, c-format
+msgid "Drop not possible on %1"
+msgstr "Ikke muligt at droppe på %1"
 
 # Bedre oversættelse af "Exact copy sources"?
 # Kontekst:
@@ -3937,6 +3964,11 @@ msgstr "Færdig!"
 msgid "Fit image &sizes"
 msgstr "Tilpas billed&størrelser"
 
+#. Resource IDs: (89)
+#, fuzzy
+msgid "Fix case of item and do not add it"
+msgstr "Korriger case på element og tilføj det ikke"
+
 #. Resource IDs: (1315)
 msgid "Floppy drives (A: B:)"
 msgstr "Diskettedrev (A: B:)"
@@ -4197,6 +4229,10 @@ msgstr "Skjul fastgjort vindue"
 msgid "Hide the script while running"
 msgstr "Skjul scriptet under kørsel"
 
+#. Resource IDs: (32830)
+msgid "Hide unused &branches"
+msgstr "Skjul ikke-anvendte &sidegrene"
+
 #. Resource IDs: (2052)
 msgid ""
 "Hide/Show the patch file list\n"
@@ -4410,7 +4446,6 @@ msgstr ""
 "Mønstre separeres med ';'."
 
 #. Resource IDs: (346)
-#, fuzzy
 msgid ""
 "If an element (part between two '/') of a given path matches one\n"
 "of these patterns, it is considered a 'tag'.\n"
@@ -4427,7 +4462,6 @@ msgstr ""
 "Mønstre separeres med ';'."
 
 #. Resource IDs: (346)
-#, fuzzy
 msgid ""
 "If an element (part between two '/') of a given path matches one\n"
 "of these patterns, it is considered a 'trunk'.\n"
@@ -4476,7 +4510,6 @@ msgid "If enabled, TortoiseSVN checks once a week if a newer version is availabl
 msgstr "Hvis valgt, så undersøger TortoiseSVN én gang om ugen om der en nyere version til rådighed"
 
 #. Resource IDs: (195)
-#, fuzzy
 msgid ""
 "If enabled, the Merge dialog initializes the 'From:' URL with the URL of the selected working copy\r\n"
 "instead of the last used URL."
@@ -4485,12 +4518,11 @@ msgstr ""
 "i stedet for den sidst brugte URL."
 
 #. Resource IDs: (195)
-#, fuzzy
 msgid ""
 "If enabled, the repository is contacted when the dialog starts up.\r\n"
 "You don't have to click on 'Check Repository' anymore."
 msgstr ""
-"Hvis valgt kontaktes versionsarkivet når dialogen åbnes.\r\n"
+"Hvis slået til kontaktes versionsarkivet når dialogen åbnes.\r\n"
 "Du behøver ikke længere at klikke på \"Check versionsarkiv\"."
 
 #. Resource IDs: (197)
@@ -4657,6 +4689,11 @@ msgid ""
 msgstr ""
 "Importer mappe %s\r\n"
 "til %s"
+
+#. Resource IDs: (613)
+#, c-format
+msgid "Import to %1"
+msgstr "Importertil %1"
 
 #. Resource IDs: (120)
 #, c-format
@@ -5417,6 +5454,11 @@ msgstr "Flyt og omdøb emne hertil"
 msgid "Move items to here"
 msgstr "Flyt emner hertil"
 
+#. Resource IDs: (613)
+#, c-format
+msgid "Move to %1"
+msgstr "Flyt til %1"
+
 #. Resource IDs: (209)
 msgid "Move to changelist"
 msgstr "Flyt til ændringsliste"
@@ -5548,7 +5590,6 @@ msgid "No files or folders were modified. There is nothing for TortoiseSVN to re
 msgstr "Der er ikke ændret nogen filer eller mapper. Der er derfor ikke noget for TortoiseSVN at tilbageføre."
 
 #. Resource IDs: (239)
-#, fuzzy
 msgid ""
 "No files to show with the current setting.\n"
 "Check one or more settings below to see unversioned, ignored and/or unmodified files.\n"
@@ -6443,6 +6484,10 @@ msgstr "Fjern %ld emner"
 #, c-format
 msgid "Remove %s"
 msgstr "Fjern %s"
+
+#. Resource IDs: (2052)
+msgid "Remove all branches that did not modify the item"
+msgstr "Fjern alle sidegrene som ikke ændrede elementet"
 
 #. Resource IDs: (2052)
 msgid "Remove deleted branches and tags"
@@ -7363,6 +7408,10 @@ msgstr "Vis genvejsværktøjslinje under båndet"
 msgid "Show Screen&Tips on toolbars"
 msgstr "Vis skærm&tip på værkstøjslinjer"
 
+#. Resource IDs: (32831)
+msgid "Show WC &modifications"
+msgstr "Vis WC &ændringer"
+
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
 msgstr "Vis en oversigt over hele grafen"
@@ -7399,6 +7448,10 @@ msgstr "Vis lin&jenumre"
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
 msgstr "Vis ældste knude øverst"
+
+#. Resource IDs: (2052)
+msgid "Show only the changed parts of the path name. Replace unchanged elements with dots."
+msgstr "Vis kun de ændrede dele af stinavnet. Erstat ikke-ændrede elementer med prikker."
 
 # Oversættelse af "toggle" og "LineDiffBar"? "LineDiffBar" ikke oversat.
 #. Resource IDs: (2054)
@@ -7836,12 +7889,10 @@ msgid "The chunk start '@@' was expected in line %d !"
 msgstr "Start-mærket \"@@\" var forventet i linje %d !"
 
 #. Resource IDs: (346)
-#, fuzzy
 msgid "The color of creation, copy and rename nodes of tags will be shifted towards yellow."
 msgstr "Farven for oprettede, kopierede og omdøbte elementer i en mærket sidegren vil blive gradueret i retning af gul"
 
 #. Resource IDs: (346)
-#, fuzzy
 msgid "The color of creation, copy and rename nodes of the trunk will be shifted towards green."
 msgstr "Farven for oprettede, kopierede og omdøbte hovedgrens-elementer vil blive gradueret i retning af grøn"
 
@@ -8442,7 +8493,6 @@ msgstr ""
 "som ikke tillader sletning af mapper."
 
 #. Resource IDs: (284)
-#, fuzzy
 msgid ""
 "To steal the lock, right-click on the parent folder of this item and select 'Get Lock' from the context menu.\n"
 "This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
@@ -9372,6 +9422,19 @@ msgstr "Du skal indtaste en tekst!"
 msgid "You should select an image!"
 msgstr "Du skal vælge et billede!"
 
+#. Resource IDs: (89)
+#, c-format
+msgid ""
+"You're trying to add the item\n"
+"'%s',\n"
+"but the item\n"
+"'%s'\n"
+"already exists.\n"
+"\n"
+"It seems the item got renamed outside Subversion but only with case changes.\n"
+"Do you really want to add it?"
+msgstr ""
+
 #. Resource IDs: (195)
 #, c-format
 msgid ""
@@ -9491,6 +9554,14 @@ msgstr "Zoom ud"
 msgid "Zoom to fit"
 msgstr "Tilpas zoom"
 
+#. Resource IDs: (2051)
+msgid "Zoom to fit in height"
+msgstr "Tilpas zoom til højden"
+
+#. Resource IDs: (2051)
+msgid "Zoom to fit in width"
+msgstr "Tilpas zoom til bredden"
+
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
 msgstr "[Ikke tildelt]"
@@ -9550,7 +9621,6 @@ msgid "authors: "
 msgstr "forfattere:"
 
 #. Resource IDs: (577)
-#, fuzzy
 msgid ""
 "bugtraq:append\r\n"
 "Set to 'false' if you want the bugtracking ID to be inserted at the top of the\r\n"
@@ -9584,7 +9654,7 @@ msgstr ""
 "det andet udtryk benyttes til at udtrække fejl-ID'et fra sagsstrengen."
 
 #. Resource IDs: (577)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "bugtraq:message\r\n"
 "String which is appended to a log message when an issue number is entered.\r\n"
@@ -9595,7 +9665,6 @@ msgstr ""
 "Strengen skal indeholde \"%BUGID%\", som vil blive erstattet af fejl-ID'et."
 
 #. Resource IDs: (577)
-#, fuzzy
 msgid ""
 "bugtraq:number\r\n"
 "Set to 'false' if your bugtracking system has issues which are referenced not by numbers."
@@ -9620,7 +9689,7 @@ msgstr ""
 "COM UUID værdi for IBugTraqProvider"
 
 #. Resource IDs: (577)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "bugtraq:url\r\n"
 "URL pointing to the issue tracker. It must contain '%BUGID%' which\r\n"
