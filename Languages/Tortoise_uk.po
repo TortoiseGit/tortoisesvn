@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-05 17:50+0200\n"
+"PO-Revision-Date: 2008-12-08 15:15+0200\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -601,15 +601,15 @@ msgstr "&Групувати за гілкою"
 
 #. Resource IDs: (1032, 1115)
 msgid "&HEAD Revision"
-msgstr ""
+msgstr "&HEAD Модифікація"
 
 #. Resource IDs: (1019, 1032, 1034)
 msgid "&HEAD revision"
-msgstr ""
+msgstr "&HEAD-модифікація"
 
 #. Resource IDs: (1182)
 msgid "&HEAD revision in the repository"
-msgstr ""
+msgstr "&HEAD-модифікація у сховищі"
 
 #. Resource IDs: (12, 32781, 57670, 65535)
 msgid "&Help"
@@ -949,7 +949,7 @@ msgstr "&Налаштування"
 
 #. Resource IDs: (32815)
 msgid "&Show HEAD revisions"
-msgstr ""
+msgstr "По&казувати HEAD-модифікації"
 
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
@@ -1013,7 +1013,7 @@ msgstr "Лише &текст"
 
 #. Resource IDs: (1438)
 msgid "&Timeout in seconds before updating the HEAD revision"
-msgstr ""
+msgstr "&Час у секундах до оновлення HEAD-модифікації"
 
 #. Resource IDs: (1222)
 msgid "&Timeout in seconds to stop the auto-completion parsing"
@@ -1851,19 +1851,19 @@ msgstr "Проглянути..."
 
 #. Resource IDs: (1119)
 msgid "Bug-&ID / Issue-Nr:"
-msgstr ""
+msgstr "Баг-&ID / Проблема №:"
 
 #. Resource IDs: (116)
 msgid "Bug-ID"
-msgstr ""
+msgstr "Баг-ID"
 
 #. Resource IDs: (1119)
 msgid "Bug-ID / Issue-Nr:"
-msgstr ""
+msgstr "Баг-ID / Проблема №:"
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
-msgstr ""
+msgstr "Баг-ID"
 
 #. Resource IDs: (16132)
 msgid "Button Appearance"
@@ -1902,7 +1902,6 @@ msgid "C&ut"
 msgstr "В&ирізати"
 
 #. Resource IDs: (3697)
-#, fuzzy
 msgid "CAP"
 msgstr "CAP"
 
@@ -2340,7 +2339,7 @@ msgstr ""
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
-msgstr ""
+msgstr "Порівняти &HEAD-модифікації"
 
 #. Resource IDs: (114)
 msgid "Compare and &blame with working BASE"
@@ -3175,7 +3174,6 @@ msgid "E&xport..."
 msgstr "&Експорт..."
 
 #. Resource IDs: (3697)
-#, fuzzy
 msgid "EXT"
 msgstr "EXT"
 
@@ -4020,12 +4018,12 @@ msgstr "Від&тінок:"
 
 #. Resource IDs: (1353, 1354)
 msgid "HEAD"
-msgstr ""
+msgstr "HEAD"
 
 #. Resource IDs: (106)
 #, c-format
 msgid "Head revision is %s"
-msgstr ""
+msgstr "HEAD-модифікація - %s"
 
 #. Resource IDs: (9, 73, 332, 1004)
 msgid "Help"
@@ -4078,7 +4076,7 @@ msgstr "Порада: виберіть контекстне меню, перей
 
 #. Resource IDs: (1064)
 msgid "Home"
-msgstr ""
+msgstr "Початок"
 
 #. Resource IDs: (103)
 msgid "Hook Scripts"
@@ -4607,6 +4605,21 @@ msgid ""
 "{20020217T1530Z}\n"
 "{20020217T1530-0500}"
 msgstr ""
+"Некоректний номер модифікації! Коректні модифікації такі:\n"
+"HEAD, BASE, PREV, COMMITTED, WC,\n"
+"додатні цілі десяткові числа,\n"
+"дати в одному з наведених форматів:\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
 
 #. Resource IDs: (83)
 msgid ""
@@ -4626,6 +4639,21 @@ msgid ""
 "{20020217T1530Z}\n"
 "{20020217T1530-0500}"
 msgstr ""
+"Некоректний номер модифікації! Коректні модифікації такі:\n"
+"HEAD\n"
+"додатні цілі десяткові числа,\n"
+"дати в одному з наведених форматів:\n"
+"{2002-02-17}\n"
+"{15:30}\n"
+"{15:30:00.200000}\n"
+"{\"2002-02-17 15:30\"}\n"
+"{\"2002-02-17 15:30 +0230\"}\n"
+"{2002-02-17T15:30}\n"
+"{2002-02-17T15:30Z}\n"
+"{2002-02-17T15:30-04:00}\n"
+"{20020217T1530}\n"
+"{20020217T1530Z}\n"
+"{20020217T1530-0500}"
 
 #. Resource IDs: (83)
 msgid ""
@@ -4634,6 +4662,10 @@ msgid ""
 "A range can be specified with a dash.\n"
 "Example: 2-5,7,10,44-70,300-HEAD"
 msgstr ""
+"Некоректний діапазон модифікацій!\n"
+"Коректні модифікації - це числа та HEAD, розділені комами.\n"
+"Діапазон можна вказати рискою.\n"
+"Приклад: 2-5,7,10,44-70,300-HEAD"
 
 #. Resource IDs: (145)
 msgid ""
@@ -4735,7 +4767,7 @@ msgstr "Час останнього звернення до кеша"
 
 #. Resource IDs: (338)
 msgid "Last time the repository was asked for the HEAD revision number"
-msgstr ""
+msgstr "Час, коли сховище востаннє запитували про номер HEAD-модифікації"
 
 #. Resource IDs: (12)
 msgid "Launches the external diff / merge program to solve the conflicts"
@@ -4924,7 +4956,7 @@ msgstr "Найменша показана модифікація: %ld - Найб
 #. Resource IDs: (238)
 #, c-format
 msgid "Lowest shown revision: %ld - Highest shown revision: %ld - HEAD revision: %ld"
-msgstr ""
+msgstr "Найстарша показана модифікація: %ld - Найновіша показана модифікація: %ld - HEAD-модифікація: %ld"
 
 #. Resource IDs: (16973)
 msgid "Lum"
@@ -5866,7 +5898,6 @@ msgid "Post-Update Hook"
 msgstr "Зачіпка після оновлення"
 
 #. Resource IDs: (58115)
-#, fuzzy
 msgid "Pre&v Page"
 msgstr "&Попередня сторінка"
 
@@ -7143,7 +7174,7 @@ msgstr "Показати список файлів"
 
 #. Resource IDs: (2051)
 msgid "Show HEAD revision nodes"
-msgstr ""
+msgstr "Показувати вузли HEAD-модифікації"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -8589,7 +8620,7 @@ msgstr ""
 
 #. Resource IDs: (274, 32786)
 msgid "Unified &diff of HEAD revisions"
-msgstr ""
+msgstr "Об'єднані ві&дмінності HEAD-модифікацій"
 
 #. Resource IDs: (81)
 #, c-format
@@ -8886,6 +8917,11 @@ msgid ""
 "\r\n"
 "To merge all revisions, leave the box empty."
 msgstr ""
+"Виберіть за допомогою логового діалогу модифікації, які потрібно злити, або введіть їх номери, розділені комами. Діапазон модифікацій можна вказати рискою.\r\n"
+"\r\n"
+"Приклад: 4-7,9,11,15-HEAD\r\n"
+"\r\n"
+"Щоб злити всі модифікації, залиште поле порожнім."
 
 #. Resource IDs: (251)
 msgid "Use this &whole file"
@@ -9248,6 +9284,9 @@ msgid ""
 "If you branch/tag from the HEAD revision, your local changes won't\n"
 "show up in the branch/tag!"
 msgstr ""
+"Ваша робоча копія має локальні зміни.\n"
+"Якщо зробити гілку/зріз із HEAD-модифікації, то локальні зміни\n"
+"не буде внесено до гілкм/зрізу!"
 
 #. Resource IDs: (32783)
 msgid "Zoo&m out"
@@ -9323,7 +9362,6 @@ msgid "[Unassigned]"
 msgstr "[Не призначено]"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "_POPUP_"
 msgstr "_POPUP_"
 
@@ -9384,6 +9422,10 @@ msgid ""
 "log message. The default is 'true' which means the bugtracking ID\r\n"
 "is appended to the log message."
 msgstr ""
+"bugtraq:append\r\n"
+"Встановіть у 'false', якщо багоблікове ID слід вставляти на початку логового\r\n"
+"повідомлення. Типово це 'true', тобто багоблікове ID\r\n"
+"дописується в кінець логового повідомлення."
 
 #. Resource IDs: (577)
 msgid ""
@@ -9400,6 +9442,10 @@ msgid ""
 "The first expression is used to find a string referring to an issue,\r\n"
 "the second expression is used to extract the bare bug ID from that string."
 msgstr ""
+"bugtraq:logregex\r\n"
+"два регулярні вирази, розділені новим рядком.\r\n"
+"Перший вираз використовується для пошуку рядка, що стосується проблеми,\r\n"
+"другий - для видобування чистого ID бага з цього рядка."
 
 #. Resource IDs: (577)
 #, c-format
@@ -9417,6 +9463,8 @@ msgid ""
 "bugtraq:number\r\n"
 "Set to 'false' if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
+"bugtraq:number\r\n"
+"Встановіть у 'false', якщо система багобліку містить проблеми, подані не в нумерованому вигляді."
 
 #. Resource IDs: (577)
 msgid ""
@@ -9550,7 +9598,7 @@ msgstr "елемент залишений локально"
 
 #. Resource IDs: (65535)
 msgid "last head update: "
-msgstr ""
+msgstr "останнє оновлення HEAD:"
 
 #. Resource IDs: (65535)
 msgid "last read: "
