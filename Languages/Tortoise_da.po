@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-08 10:19+0100\n"
+"PO-Revision-Date: 2008-12-08 10:24+0100\n"
 "Last-Translator: Mikkel Elmholdt <mikkel@elmholdt.dk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3338,7 +3338,7 @@ msgstr "&Afslut"
 # Kontekst?
 #. Resource IDs: (275)
 msgid "E&xpand all"
-msgstr "Udvid alt"
+msgstr "&Udvid alt"
 
 #. Resource IDs: (275)
 msgid "E&xpand sub-trees"
@@ -3965,9 +3965,8 @@ msgid "Fit image &sizes"
 msgstr "Tilpas billed&størrelser"
 
 #. Resource IDs: (89)
-#, fuzzy
 msgid "Fix case of item and do not add it"
-msgstr "Korriger case på element og tilføj det ikke"
+msgstr "Korriger store/små bogstaver på element og tilføj det ikke"
 
 #. Resource IDs: (1315)
 msgid "Floppy drives (A: B:)"
@@ -9434,6 +9433,14 @@ msgid ""
 "It seems the item got renamed outside Subversion but only with case changes.\n"
 "Do you really want to add it?"
 msgstr ""
+"Du forsøger at tilføje elementet\n"
+"\"%s\",\n"
+"men elementet\n"
+"\"%s\",\n"
+"eksisterer allerede.\n"
+"\n"
+"Det lader til at navnet på elementet blev ændret m.h.t. store/små bogstaver uden for Subversion.\n"
+"Er du helt sikker på at du vil tilføje det?"
 
 #. Resource IDs: (195)
 #, c-format
