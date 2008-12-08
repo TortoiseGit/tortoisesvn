@@ -311,12 +311,25 @@ void CResizableSheetEx::OnSize(UINT nType, int cx, int cy)
 	UpdateSizeGrip();
 	ArrangeLayout();
 
+	OSVERSIONINFOEX inf;
+	ZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
+	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
+	GetVersionEx((OSVERSIONINFO *)&inf);
+	WORD fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);
+
 	if (IsWizard97())
 	{
 		// refresh header area
 		CRect rect;
 		GetHeaderRect(rect);
-		InvalidateRect(rect, FALSE);
+		InvalidateRect(rect, fullver >= 0x0600);
+	}
+	// on Vista, the redrawing doesn't work right, so we have to work
+	// around this by invalidating the whole dialog so the DWM recognizes
+	// that it has to update the application window.
+	if (fullver >= 0x0600)
+	{
+		InvalidateRect(NULL, FALSE);
 	}
 }
 
@@ -339,7 +352,7 @@ BOOL CResizableSheetEx::OnEraseBkgnd(CDC* pDC)
 			// clip header area out
 			CRect rect;
 			GetHeaderRect(rect);
-			pDC->ExcludeClipRect(rect);
+			//pDC->ExcludeClipRect(rect);
 		}
 	}
 
@@ -524,4 +537,31 @@ LRESULT CResizableSheetEx::WindowProc(UINT message, WPARAM wParam, LPARAM lParam
 	lResult = CPropertySheetEx::WindowProc(message, wParam, lParam);
 	HandleNcCalcSize(TRUE, (LPNCCALCSIZE_PARAMS)lParam, lResult);
 	return lResult;
+}
+
+int CALLBACK CResizableSheetEx::XmnPropSheetCallback(HWND hWnd, UINT message, LPARAM lParam)
+{
+	extern int CALLBACK AfxPropSheetCallback(HWND, UINT message, LPARAM lParam);
+	// XMN: Call MFC's callback
+	int nRes = AfxPropSheetCallback(hWnd, message, lParam);
+
+	switch (message)
+	{
+	case PSCB_PRECREATE:
+		// Set the resizable border style
+		((LPDLGTEMPLATE)lParam)->style |= (DS_3DLOOK | DS_SETFONT
+			| WS_THICKFRAME | WS_SYSMENU | WS_POPUP | WS_VISIBLE | WS_CAPTION);
+		break;
+	}
+	return nRes;
+}
+
+// Overriding DoModal() allows us to hook our callback into
+//    the prop sheet creation
+INT_PTR CResizableSheetEx::DoModal() 
+{
+	// Hook into property sheet creation code
+	m_psh.dwFlags |= PSH_USECALLBACK;
+	m_psh.pfnCallback = XmnPropSheetCallback;
+	return CPropertySheet::DoModal();
 }

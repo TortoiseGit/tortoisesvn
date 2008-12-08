@@ -76,6 +76,7 @@ public:
 	//{{AFX_VIRTUAL(CResizableSheetEx)
 	public:
 	virtual BOOL OnInitDialog();
+	INT_PTR DoModal();
 	protected:
 	virtual LRESULT WindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 	//}}AFX_VIRTUAL
@@ -107,6 +108,8 @@ protected:
 		// make the layout know its parent window
 		return CWnd::FromHandle(m_hWnd);
 	};
+	static int CALLBACK XmnPropSheetCallback(HWND hWnd, UINT message, LPARAM lParam);
+
 
 // Generated message map functions
 protected:
