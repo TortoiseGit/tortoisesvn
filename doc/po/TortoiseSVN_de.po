@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-12-01 11:10 +0000\n"
-"PO-Revision-Date: 2008-12-01 12:25+0100\n"
+"PO-Revision-Date: 2008-12-09 12:43+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7063,7 +7063,7 @@ msgstr "Damit weisen Sie Subversion an, folgendes zu tun: <quote>Berechne die Ä
 #: ../source/TortoiseSVN_en.xml:8340
 #: ../source/TortoiseSVN_en.xml:8517
 msgid "Reintegrate a branch"
-msgstr "Einen Zweig erneut zusammenführen"
+msgstr "Einen Zweig wieder Eingliedern"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8342
@@ -7083,7 +7083,7 @@ msgstr "Nach dem Zusammenführen ist der Funktionszweig komplett in die Hauptent
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8366
 msgid "Once you have performed a reintegrate merge you should not continue to use it for development. The reason for this is that if you try to resynchronize your existing branch from trunk later on, merge tracking will see your reintegration as a trunk change that has not yet been merged into the branch, and will try to merge the branch-to-trunk merge back into the branch! The solution to this is simply to create a new branch from trunk to continue the next phase of your development."
-msgstr ""
+msgstr "Sobald Sie einen Zweig wieder eingegliedert haben, sollten Sie ihn nicht mehr für die Weiterentwicklung nutzen. Der Grund ist, dass wenn Sie ihren existierenden Zweig später mit dem Stamm synchronisieren wollen, die Änderungsverfolgung ihre Wiedereingliederung als Änderung am Stamm sieht, die noch nicht in den Zweig übertragen wurde und versucht, die Zweig nach Stamm Integration zurück in den Zweig zu integrieren! Die Lösung für dieses Problem besteht darin, für die nächste Phase der Weiterentwicklung einen neuen Zweig vom Stamm aus anzulegen."
 
 #. (term)
 #: ../source/TortoiseSVN_en.xml:8379
@@ -7093,7 +7093,7 @@ msgstr "Zusammenführen zweier Bäume"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8381
 msgid "This is a more general case of the reintegrate method. What you are asking Subversion to do is: <quote>Calculate the changes necessary to get [FROM] the head revision of the trunk [TO] the head revision of the branch, and apply those changes to my working copy (of the trunk).</quote> The net result is that trunk now looks exactly like the branch."
-msgstr "Dies ist ein allgemeinerer Fall der erneuten Integration eines Zweiges. Damit weisen Sie Subversion an, folgendes zu tun: <quote>Berechne die Änderungen, die nötig sind um <emphasis>von</emphasis> der HEAD Revision des Stammes <emphasis>zur</emphasis> HEAD Revision des Zweiges zu gelangen und wende diese Änderungen auf meine Arbeitskopie (des Stammes) an.</quote> Das Ergebnis ist, dass der Stamm danach exakt wie der Zweig aussieht."
+msgstr "Dies ist ein allgemeinerer Fall des wieder Eingliederns eines Zweiges. Damit weisen Sie Subversion an, folgendes zu tun: <quote>Berechne die Änderungen, die nötig sind um <emphasis>von</emphasis> der HEAD Revision des Stammes <emphasis>zur</emphasis> HEAD Revision des Zweiges zu gelangen und wende diese Änderungen auf meine Arbeitskopie (des Stammes) an.</quote> Das Ergebnis ist, dass der Stamm danach exakt wie der Zweig aussieht."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8389
@@ -7128,27 +7128,27 @@ msgstr "Geben Sie den zusammenzuführenden Revisionsbereich in das Feld <guilabe
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8433
 msgid "There is an important difference in the way a revision range is specified with TortoiseSVN compared to the command line client. The easiest way to visualise it is to think of a fence with posts and fence panels."
-msgstr ""
+msgstr "Es gibt einen wichtigen Unterschied in der Spezifikation von Revisionsbereichen, wie sie in TortoiseSVN und und im Kommandozeilenclient verwendet werden. Am einfachsten stellt man sich das als einen Zaun mit Pfählen und Brettern dazwischen vor."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8439
 msgid "With the command line client you specify the changes to merge using two <quote>fence post</quote> revisions which specify the <emphasis>before</emphasis> and <emphasis>after</emphasis> points."
-msgstr ""
+msgstr "Mit dem Kommandozeilenclient legt man die Revisionen der zusammenzuführenden Bereiche als <quote>Zaunpfähle</quote> fest, die die Punkte <emphasis>davor</emphasis> und <emphasis>danach</emphasis> festlegen."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8445
 msgid "With TortoiseSVN you specify the changeset to merge using <quote>fence panels</quote>. The reason for this becomes clear when you use the log dialog to specify revisions to merge, where each revision appears as a changeset."
-msgstr ""
+msgstr "Mit TortoiseSVN legen Sie die zusammenzuführenden Änderungen als <quote>Zaunbretter</quote> fest. Der Grund dafür wird deutlich, wenn Sie den Log-Dialog verwenden, um die Revisionen festzulegen, in dem jede Revision als ein Satz von Änderungen erscheint."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8452
 msgid "If you are merging revisions in chunks, the method shown in the subversion book will have you merge 100-200 this time and 200-300 next time. With TortoiseSVN you would merge 100-200 this time and 201-300 next time."
-msgstr ""
+msgstr "Wenn Sie Revisionen in Blöcken zusammenführen, würde die Methode im Subversion Buch sie zunächst 100-200 und danach 200-300 zusammenführen lassen. Mit TortoiseSVN sind es zunächst 100-200 und dann 201-300."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8459
 msgid "This difference has generated a lot of heat on the mailing lists. We acknowledge that there is a difference from the command line client, but we believe that for the majority of GUI users it is easier to understand the method we have implemented."
-msgstr ""
+msgstr "Dieser Unterschied hat zu hitzigen Diskussionen auf der Mailingliste geführt. Wir räumen ein, dass es einen Unterschied zum Kommandozeilenclient gibt, aber wie sind davon überzeugt, dass die von uns implementierte Methode für die mehrzahl der GUI Anwender einfacher zu verstehen ist."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8467
@@ -7188,7 +7188,7 @@ msgstr "Erneut zusammenführen"
 #. (title)
 #: ../source/TortoiseSVN_en.xml:8525
 msgid "The Merge Wizard - Reintegrate Merge"
-msgstr "Der Assistent - Zweig erneut zusammenführen"
+msgstr "Der Assistent - Zweig wieder Eingliedern"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8523
@@ -7203,7 +7203,7 @@ msgstr "Im <guilabel>Von:</guilabel> Feld geben Sie die vollständige URL des <e
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8538
 msgid "There are some conditions which apply to a reintegrate merge. Firstly, the server must support merge tracking. The working copy must be of depth infinite (no sparse checkouts), and it must not have any local modifications, switched items or items that have been updated to revisions other than HEAD. All changes to trunk made during branch development must have been merged across to the branch (or marked as having been merged). The range of revisions to merge will be calculated automatically."
-msgstr "Um einen Zweig erneut zusammenführen, müssen einige Bedingungen erfüllt sein. Zunächst muss der Server die Verfolgung der Datenintegration unterstützen. Die Tiefe der Arbeitskopie muss unendlich sein (keine dünn besiedelte Arbeitskopie) und sie darf weder lokalen Änderungen noch Objekte auf einer anderen URL oder einer anderen Revision als HEAD enthalten. Alle Änderungen am Stamm während der Entwicklung des Zweiges müssen in den Zweig übertragen worden sein (oder als übertragen markiert worden sein). Der Bereich der zusammenzuführenden Revisionen wird dann automatisch berechnet."
+msgstr "Um einen Zweig wieder Eingliedern zu können, müssen einige Bedingungen erfüllt sein. Zunächst muss der Server die Verfolgung der Datenintegration unterstützen. Die Tiefe der Arbeitskopie muss unendlich sein (keine dünn besiedelte Arbeitskopie) und sie darf weder lokalen Änderungen noch Objekte auf einer anderen URL oder einer anderen Revision als HEAD enthalten. Alle Änderungen am Stamm während der Entwicklung des Zweiges müssen in den Zweig übertragen worden sein (oder als übertragen markiert worden sein). Der Bereich der zusammenzuführenden Revisionen wird dann automatisch berechnet."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:8550
@@ -7428,7 +7428,7 @@ msgstr "Erneut zusammenführen"
 #. (title)
 #: ../source/TortoiseSVN_en.xml:8860
 msgid "The Merge reintegrate Dialog"
-msgstr "Der Erneut zusammenführen Dialog"
+msgstr "Der wieder Eingliedern Dialog"
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8850
@@ -7453,7 +7453,7 @@ msgstr "Falls die Funktion relativ einfach ist und keine längere Zeit in Anspru
 #. (para)
 #: ../source/TortoiseSVN_en.xml:8885
 msgid "If the feature is going to take longer and you need to account for changes in <literal>trunk</literal>, then you need to keep the branch synchronised. This simply means that periodically you merge trunk changes into the branch, so that the branch contains all the trunk changes <emphasis>plus</emphasis> the new feature. The synchronisation process uses <guilabel>Merge a range of revisions</guilabel>. When the feature is complete then you can merge it back to <literal>trunk</literal> using either <guilabel>Reintegrate a branch</guilabel> or <guilabel>Merge two different trees</guilabel>."
-msgstr "Falls die Entwicklung länger dauern wird und Sie Änderungen in <literal>trunk</literal> berücksichtigen müssen, sollten Sie den Zweig synchron halten. Das bedeutet dass Sie periodisch Änderungen an trunk in den Zweige integrieren, so dass der Zweig alle Änderungen an trunk <emphasis>plus</emphasis> die neue Funktion enthält. Beim Synchronisationsvorgang verwenden Sie <guilabel>Einen Revisionsbereich zusammenführen</guilabel>. Sobald die Funktion komplett ist, können Sie die Änderungen entweder per <guilabel>Einen Zweig erneut zusammenführen</guilabel> oder <guilabel>Zwei verschiedene Bäume</guilabel> zurück integrieren."
+msgstr "Falls die Entwicklung länger dauern wird und Sie Änderungen in <literal>trunk</literal> berücksichtigen müssen, sollten Sie den Zweig synchron halten. Das bedeutet dass Sie periodisch Änderungen an trunk in den Zweige integrieren, so dass der Zweig alle Änderungen an trunk <emphasis>plus</emphasis> die neue Funktion enthält. Beim Synchronisationsvorgang verwenden Sie <guilabel>Einen Revisionsbereich zusammenführen</guilabel>. Sobald die Funktion komplett ist, können Sie die Änderungen entweder per <guilabel>Einen Zweig wieder Eingliedern</guilabel> oder <guilabel>Zwei verschiedene Bäume</guilabel> zurück integrieren."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:8900
