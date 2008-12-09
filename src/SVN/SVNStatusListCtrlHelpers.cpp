@@ -22,6 +22,9 @@
 #include "..\\TortoiseShell\\resource.h"
 #include "SVNStatusListCtrl.h"
 #include <iterator>
+
+#define SVNSLC_COL_VERSION 3
+
 // assign property list
 
 CSVNStatusListCtrl::PropertyList& 
@@ -121,10 +124,8 @@ void CSVNStatusListCtrl::ColumnManager::ReadSettings
     registryPrefix 
         = _T("Software\\TortoiseSVN\\StatusColumns\\") + containerName;
 
-    // we accept settings version 2 only
-    // (version 1 used different placement of hidden columns)
-
-	bool valid = (DWORD)CRegDWORD (registryPrefix + _T("Version"), 0xff) == 2;
+    // we accept only the current version
+	bool valid = (DWORD)CRegDWORD (registryPrefix + _T("Version"), 0xff) == SVNSLC_COL_VERSION;
     if (valid)
     {
         // read (possibly different) column selection
@@ -186,7 +187,7 @@ void CSVNStatusListCtrl::ColumnManager::WriteSettings() const
     // we are version 2
 
 	CRegDWORD regVersion (registryPrefix + _T("Version"), 0, TRUE);
-    regVersion = 2;
+    regVersion = SVNSLC_COL_VERSION;
 
     // write (possibly different) column selection
 
@@ -273,8 +274,9 @@ CString CSVNStatusListCtrl::ColumnManager::GetName (int column) const
 
 		  , IDS_STATUSLIST_COLLOCK
 		  , IDS_STATUSLIST_COLLOCKCOMMENT
-		  , IDS_STATUSLIST_COLAUTHOR
+		  , IDS_STATUSLIST_COLLOCKDATE
 
+		  , IDS_STATUSLIST_COLAUTHOR
 		  , IDS_STATUSLIST_COLREVISION
 		  , IDS_STATUSLIST_COLREMOTEREVISION
 		  , IDS_STATUSLIST_COLDATE

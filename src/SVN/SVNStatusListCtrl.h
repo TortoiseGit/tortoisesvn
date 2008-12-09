@@ -40,14 +40,15 @@ class CSVNStatusListCtrlDropTarget;
 #define SVNSLC_COLURL				0x000000200
 #define SVNSLC_COLLOCK				0x000000400
 #define SVNSLC_COLLOCKCOMMENT		0x000000800
-#define SVNSLC_COLAUTHOR			0x000001000
-#define	SVNSLC_COLREVISION			0x000002000
-#define	SVNSLC_COLREMOTEREVISION	0x000004000
-#define	SVNSLC_COLDATE				0x000009000
-#define SVNSLC_COLSVNNEEDSLOCK		0x000010000
-#define SVNSLC_COLCOPYFROM			0x000020000
-#define	SVNSLC_COLMODIFICATIONDATE	0x000040000
-#define SVNSLC_NUMCOLUMNS		19
+#define SVNSLC_COLLOCKDATE			0x000001000
+#define SVNSLC_COLAUTHOR			0x000002000
+#define	SVNSLC_COLREVISION			0x000004000
+#define	SVNSLC_COLREMOTEREVISION	0x000008000
+#define	SVNSLC_COLDATE				0x000010000
+#define SVNSLC_COLSVNNEEDSLOCK		0x000020000
+#define SVNSLC_COLCOPYFROM			0x000040000
+#define	SVNSLC_COLMODIFICATIONDATE	0x000080000
+#define SVNSLC_NUMCOLUMNS		20
 
 #define SVNSLC_SHOWUNVERSIONED	0x000000001
 #define SVNSLC_SHOWNORMAL		0x000000002
@@ -248,6 +249,7 @@ public:
 			, copyfrom_rev(0)
 			, last_commit_date(0)
 			, last_commit_rev(0)
+			, lock_date(0)
 			, remoterev(0)
 			, textstatus(svn_wc_status_unversioned)
 			, propstatus(svn_wc_status_unversioned)
@@ -349,6 +351,7 @@ public:
 		CString					lock_remoteowner;		///< the username which owns the lock in the repository
 		CString					lock_remotetoken;		///< the unique URI in the repository of the lock
 		CString					lock_comment;			///< the message for the lock
+		apr_time_t				lock_date;				///< the date when this item was locked
 		CString					changelist;				///< the name of the changelist the item belongs to
 		CString					copyfrom_url;			///< the copied-from URL (if available, i.e. \a copied is true)
 		svn_revnum_t			copyfrom_rev;			///< the copied-from revision

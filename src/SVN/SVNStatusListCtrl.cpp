@@ -759,6 +759,8 @@ CSVNStatusListCtrl::AddNewFileEntry(
 		}
 		if (pSVNStatus->entry->lock_comment)
 			entry->lock_comment = CUnicodeUtils::GetUnicode(pSVNStatus->entry->lock_comment);
+		if (pSVNStatus->entry->lock_creation_date)
+			entry->lock_date = pSVNStatus->entry->lock_creation_date;
 
 		if (pSVNStatus->entry->present_props)
 		{
@@ -788,6 +790,8 @@ CSVNStatusListCtrl::AddNewFileEntry(
 			entry->lock_remotetoken = CUnicodeUtils::GetUnicode(pSVNStatus->repos_lock->token);
 		if (pSVNStatus->repos_lock->comment)
 			entry->lock_comment = CUnicodeUtils::GetUnicode(pSVNStatus->repos_lock->comment);
+		if ((entry->lock_date == 0)&&(pSVNStatus->repos_lock->creation_date))
+			entry->lock_date = pSVNStatus->repos_lock->creation_date;
 	}
 
 	// Pass ownership of the entry to the array
@@ -1451,6 +1455,14 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 		SetItemText(index, nCol++, entry->lock_owner);
 	// SVNSLC_COLLOCKCOMMENT
 	SetItemText(index, nCol++, entry->lock_comment);
+	// SVNSLC_COLLOCKDATE
+	TCHAR datebuf[SVN_DATE_BUFFER];
+	apr_time_t date = entry->lock_date;
+	SVN::formatDate(datebuf, date, true);
+	if (date)
+		SetItemText(index, nCol++, datebuf);
+	else
+		SetItemText(index, nCol++, _T(""));
 	// SVNSLC_COLAUTHOR
 	SetItemText(index, nCol++, entry->last_commit_author);
 	// SVNSLC_COLREVISION
@@ -1467,8 +1479,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 	else
 		SetItemText(index, nCol++, _T(""));
 	// SVNSLC_COLDATE
-	TCHAR datebuf[SVN_DATE_BUFFER];
-	apr_time_t date = entry->last_commit_date;
+	date = entry->last_commit_date;
 	SVN::formatDate(datebuf, date, true);
 	if (date)
 		SetItemText(index, nCol++, datebuf);
