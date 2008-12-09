@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-09 15:04+0200\n"
+"PO-Revision-Date: 2008-12-09 16:49+0200\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -303,7 +303,7 @@ msgstr "&Застосувати об'єднані відмінності"
 
 #. Resource IDs: (32852)
 msgid "&Aqua Style"
-msgstr " &Аква стиль"
+msgstr "&Аква стиль"
 
 #. Resource IDs: (65535)
 msgid "&Arguments:"
@@ -435,7 +435,7 @@ msgstr "&Зв'язатися зі сховищем під час запуску"
 
 #. Resource IDs: (1073)
 msgid "&Convert files when diffing against BASE"
-msgstr ""
+msgstr "&Конвертувати файли під час порівняння з BASE"
 
 #. Resource IDs: (501, 1367, 1471, 57634)
 msgid "&Copy"
@@ -535,7 +535,7 @@ msgstr "&Експортувати виділене до..."
 
 #. Resource IDs: (1092, 1094, 1095)
 msgid "&External"
-msgstr "&Зовнішні"
+msgstr "&Зовнішня"
 
 #. Resource IDs: (65535)
 msgid "&File"
@@ -1134,7 +1134,7 @@ msgstr "(%s) %s"
 
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
-msgstr "(бінарне значення)"
+msgstr "(двійкове значення)"
 
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
@@ -3131,7 +3131,7 @@ msgstr "Типи дисків"
 #. Resource IDs: (613)
 #, c-format
 msgid "Drop not possible on %1"
-msgstr ""
+msgstr "На %1 скидати неможливо"
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -3504,7 +3504,7 @@ msgstr "Програми, специфічні для розширення/ти�
 
 #. Resource IDs: (74)
 msgid "External"
-msgstr "Зовнішні"
+msgstr "Зовнішня"
 
 #. Resource IDs: (65535)
 msgid "External Program:"
@@ -3585,6 +3585,8 @@ msgid ""
 "Failed to start the issue tracker COM provider '%s'.\n"
 "%s"
 msgstr ""
+"Не вдалося запустити COM-постачальника проблемобліку '%s'.\n"
+"%s"
 
 #. Resource IDs: (220)
 msgid "Failed!"
@@ -3748,7 +3750,6 @@ msgstr ""
 "(кілька шляхів розділяйте символом '*' ):"
 
 #. Resource IDs: (321)
-#, fuzzy
 msgid "Filter paths"
 msgstr "Фільтрувати шляхи"
 
@@ -3801,7 +3802,6 @@ msgid "For complete history deselect 'Stop on copy/rename'"
 msgstr "Для повної історії зніміть виділення зі 'Спинитися при копіюванні/перейменуванні'"
 
 #. Resource IDs: (1064)
-#, fuzzy
 msgid "Forward"
 msgstr "Уперед"
 
@@ -4571,7 +4571,7 @@ msgstr "Неправильна грошова одиниця."
 
 #. Resource IDs: (102)
 msgid "Invalid data object dropped!"
-msgstr ""
+msgstr "Скинуто некоректний об'єкт даних!"
 
 #. Resource IDs: (82)
 msgid ""
@@ -4757,7 +4757,7 @@ msgstr "Час, коли сховище востаннє запитували п
 
 #. Resource IDs: (12)
 msgid "Launches the external diff / merge program to solve the conflicts"
-msgstr "Затускає зовнішню програму відмінностей / злиття для владнання конфліктів"
+msgstr "Запускає зовнішню програму відмінностей / злиття для владнання конфліктів"
 
 #. Resource IDs: (1137)
 msgid "Least active author:"
@@ -5175,9 +5175,8 @@ msgid "Misc"
 msgstr "Різне"
 
 #. Resource IDs: (3887)
-#, fuzzy
 msgid "Mixed"
-msgstr "Змішаний"
+msgstr "Змішане"
 
 #. Resource IDs: (208)
 msgid "Modification date"
@@ -5333,9 +5332,8 @@ msgid "Never try to contact the repository again"
 msgstr "Не намагайтеся знову контактувати зі сховищем. Ніколи."
 
 #. Resource IDs: (1002, 30721, 65535)
-#, fuzzy
 msgid "New"
-msgstr "Нове"
+msgstr "Новий"
 
 #. Resource IDs: (1076)
 msgid "New &name:"
@@ -5455,9 +5453,8 @@ msgid "None"
 msgstr "Жодного"
 
 #. Resource IDs: (264, 65535)
-#, fuzzy
 msgid "Normal"
-msgstr "Нормально"
+msgstr "Нормальних"
 
 #. Resource IDs: (3857)
 msgid "Not all of the system registry entries (or INI file) were removed."
@@ -6850,9 +6847,8 @@ msgid "Saving patchfile to:"
 msgstr "Файл латки зберігається до:"
 
 #. Resource IDs: (1014, 1017, 1064, 1212)
-#, fuzzy
 msgid "Scintilla"
-msgstr "Дрібка"
+msgstr "Scintilla"
 
 #. Resource IDs: (1003)
 msgid "Scroll Left"
@@ -7410,7 +7406,6 @@ msgstr ""
 "Шаблони розділяються пробілом."
 
 #. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
-#, fuzzy
 msgid "Spin1"
 msgstr "Спін1"
 
@@ -7451,7 +7446,6 @@ msgid "Standard"
 msgstr "Стандартно"
 
 #. Resource IDs: (569)
-#, fuzzy
 msgid "Start Commit Hook"
 msgstr "Зачіпка початку фіксації"
 
@@ -7632,9 +7626,8 @@ msgid "TORTOISEIDIFF"
 msgstr "TORTOISEIDIFF"
 
 #. Resource IDs: (16970)
-#, fuzzy
 msgid "Tab Placeholder"
-msgstr "Місце для табуляції"
+msgstr "Місце для вкладки"
 
 #. Resource IDs: (65535)
 msgid "Tab size:"
@@ -7798,11 +7791,11 @@ msgstr "Не можна це зображення показати."
 
 #. Resource IDs: (63)
 msgid "The issue-tracker provider could not be created. Please check that it is installed correctly."
-msgstr ""
+msgstr "Не вдалося створити постачальника проблемобліку. Перевірте, чи коректно він встановлений."
 
 #. Resource IDs: (64)
 msgid "The issue-tracker provider was unable to validate the parameter string"
-msgstr ""
+msgstr "Постачальник проблемобліку не зміг перевірити рядок параметрів"
 
 #. Resource IDs: (597)
 #, c-format
@@ -8137,7 +8130,7 @@ msgstr ""
 
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
-msgstr ""
+msgstr "Немає доступних постачальників проблемобліку."
 
 #. Resource IDs: (66)
 #, c-format
@@ -9145,6 +9138,11 @@ msgid ""
 "\n"
 "Do you still want to do this?"
 msgstr ""
+"Ви скинули, щоб додати до сховища, більш ніж один файл чи каталог.\n"
+"Це неможливо здійснити одним кроком, тому TortoiseSVN додаватиме кожен файл/каталог\n"
+"окремо, створюючи нову модифікацію для кожного доданого елемента.\n"
+"\n"
+"Ви все ще цього хочете?"
 
 #. Resource IDs: (16)
 msgid ""
@@ -9485,7 +9483,7 @@ msgstr "фіксувань"
 
 #. Resource IDs: (11)
 msgid "conflicted"
-msgstr "конфліктуючих"
+msgstr "конфліктних"
 
 #. Resource IDs: (65535)
 msgid "connection: "
@@ -9646,9 +9644,8 @@ msgid "no description for this command is available"
 msgstr "для цієї команди нема опису"
 
 #. Resource IDs: (10)
-#, fuzzy
 msgid "non-versioned"
-msgstr "неверсійні"
+msgstr "неверсійних"
 
 #. Resource IDs: (10)
 msgid "normal"
