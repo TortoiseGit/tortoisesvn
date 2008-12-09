@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-08 15:15+0200\n"
+"PO-Revision-Date: 2008-12-09 15:04+0200\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -331,19 +331,19 @@ msgstr "Про&дублювати первісний файл"
 
 #. Resource IDs: (114)
 msgid "&Blame changes"
-msgstr "З&винуватити зміни"
+msgstr "Про&коментувати зміни"
 
 #. Resource IDs: (32782)
 msgid "&Blame previous revision"
-msgstr "З&винуватити попередню модифікацію"
+msgstr "Про&коментувати попередню модифікацію"
 
 #. Resource IDs: (114, 322)
 msgid "&Blame revisions"
-msgstr "З&винуватити модифікації"
+msgstr "Про&коментувати модифікації"
 
 #. Resource IDs: (13)
 msgid "&Blame..."
-msgstr "З&винуватити..."
+msgstr "Про&коментувати..."
 
 #. Resource IDs: (32849)
 msgid "&Blue Style"
@@ -466,7 +466,6 @@ msgid "&Days of inactivity until small caches get removed"
 msgstr "&Днів неактивності, поки малі кеші видаляться"
 
 #. Resource IDs: (1269)
-#, fuzzy
 msgid "&Default"
 msgstr "&Типове"
 
@@ -535,7 +534,6 @@ msgid "&Export selection to..."
 msgstr "&Експортувати виділене до..."
 
 #. Resource IDs: (1092, 1094, 1095)
-#, fuzzy
 msgid "&External"
 msgstr "&Зовнішні"
 
@@ -693,9 +691,8 @@ msgid "&Link image positions"
 msgstr "Прив'&язати розташування зображень"
 
 #. Resource IDs: (1172)
-#, fuzzy
 msgid "&List View"
-msgstr "Перегляд &списку"
+msgstr "У вигляді &списку"
 
 #. Resource IDs: (1309)
 msgid "&Load..."
@@ -899,7 +896,6 @@ msgid "&Resolve using local property"
 msgstr "В&ладнати використовуючи локальну властивість"
 
 #. Resource IDs: (1488)
-#, fuzzy
 msgid "&Restore defaults"
 msgstr "&Відновити типові"
 
@@ -1024,12 +1020,10 @@ msgid "&To Revision"
 msgstr "&До модифікації"
 
 #. Resource IDs: (1384, 65535)
-#, fuzzy
 msgid "&To URL:"
 msgstr "&На URL:"
 
 #. Resource IDs: (1305)
-#, fuzzy
 msgid "&To URL: "
 msgstr "&На URL:"
 
@@ -1798,15 +1792,15 @@ msgstr ""
 
 #. Resource IDs: (114, 162)
 msgid "Blame"
-msgstr "Звинуватити"
+msgstr "Прокоментувати"
 
 #. Resource IDs: (132)
 msgid "Blame - TortoiseSVN"
-msgstr "Звинуватити - TortoiseSVN"
+msgstr "Прокоментувати - TortoiseSVN"
 
 #. Resource IDs: (13)
 msgid "Blames each line of a file on an author"
-msgstr "Звинувачує кожен рядок файла автора"
+msgstr "Коментує кожен рядок файла автора"
 
 #. Resource IDs: (32812)
 msgid "Blend Alpha"
@@ -1829,9 +1823,8 @@ msgid "Branch / tag created successfully!"
 msgstr "Гілку / зріз створено успішно!"
 
 #. Resource IDs: (2052)
-#, fuzzy
 msgid "Branch at copy-from-rev even if there was no change in that revision"
-msgstr "Робити гілку на копії з модифікації, навіть якщо у тій модифікації не було змін"
+msgstr "Робити гілку на модифікації, з якої копіюють, навіть якщо у тій модифікації не було змін"
 
 #. Resource IDs: (9)
 msgid "Branch/&tag..."
@@ -1960,7 +1953,7 @@ msgstr "Скасувати"
 
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
-msgstr "Скасовується звинувачення TortoiseSVN..."
+msgstr "Скасовується коментування TortoiseSVN..."
 
 #. Resource IDs: (270)
 msgid "Cancelling operation..."
@@ -2308,14 +2301,12 @@ msgid "Commit..."
 msgstr "Зафіксувати..."
 
 #. Resource IDs: (244)
-#, fuzzy
 msgid "Commits by author"
-msgstr "Фіксувань, за автором"
+msgstr "Фіксування за автором"
 
 #. Resource IDs: (244)
-#, fuzzy
 msgid "Commits by date"
-msgstr "Фіксувань, за датою"
+msgstr "Фіксування за датою"
 
 #. Resource IDs: (1135)
 msgid "Commits each week:"
@@ -2343,11 +2334,11 @@ msgstr "Порівняти &HEAD-модифікації"
 
 #. Resource IDs: (114)
 msgid "Compare and &blame with working BASE"
-msgstr ""
+msgstr "Порівняти з робочою BASE та про&коментувати"
 
 #. Resource IDs: (114)
 msgid "Compare and blame with previous revision"
-msgstr "Порівняти з попередньою модифікацією та звинуватити"
+msgstr "Порівняти з попередньою модифікацією та прокоментувати"
 
 #. Resource IDs: (1390)
 msgid "Compare whitespaces"
@@ -2411,9 +2402,8 @@ msgid "Conflict resolved"
 msgstr "Конфлікт вирішено"
 
 #. Resource IDs: (263, 65535)
-#, fuzzy
 msgid "Conflicted"
-msgstr "Конфліктують"
+msgstr "Конфліктні"
 
 #. Resource IDs: (188)
 #, c-format
@@ -2438,7 +2428,7 @@ msgstr "Продовжити"
 
 #. Resource IDs: (1001)
 msgid "Contract docked window"
-msgstr ""
+msgstr "Стиснути пристиковане вікно"
 
 #. Resource IDs: (376)
 msgid "Cop&y"
@@ -2862,7 +2852,6 @@ msgid "Date"
 msgstr "Дата"
 
 #. Resource IDs: (1008)
-#, fuzzy
 msgid "Default"
 msgstr "Типове"
 
@@ -3006,7 +2995,7 @@ msgstr "Під час доступу до %1 диск переповнився."
 #. Resource IDs: (3860)
 #, c-format
 msgid "Dispatch exception: %1"
-msgstr ""
+msgstr "Відхилити виключення: %1"
 
 #. Resource IDs: (65535)
 msgid "Display &buttons in this order"
@@ -3133,7 +3122,7 @@ msgstr "Потягніть, щоб це меню попливло"
 
 #. Resource IDs: (16513)
 msgid "Draw"
-msgstr ""
+msgstr "Малювати"
 
 #. Resource IDs: (1079)
 msgid "Drive Types"
@@ -3145,9 +3134,8 @@ msgid "Drop not possible on %1"
 msgstr ""
 
 #. Resource IDs: (32816)
-#, fuzzy
 msgid "E&xact copy sources"
-msgstr "Вима&гати копію сирців"
+msgstr "То&чна копія сирців"
 
 #. Resource IDs: (65535)
 msgid "E&xclude paths:"
@@ -3433,9 +3421,8 @@ msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|
 msgstr "Виконувані  (*.exe)|*.exe|Командні (*.com)|*.com|Інформаційні (*.pdf)|*.pdf|Пакетні (*.bat)|*.bat|Усі файли (*.*)|*.*||"
 
 #. Resource IDs: (1002)
-#, fuzzy
 msgid "Existing"
-msgstr "Існуючий"
+msgstr "Існуючі"
 
 #. Resource IDs: (275)
 msgid "Exp&and source tree"
@@ -3460,7 +3447,7 @@ msgstr "Експертні налаштування"
 
 #. Resource IDs: (209)
 msgid "Explore to"
-msgstr ""
+msgstr "Відкрити Провідником"
 
 #. Resource IDs: (229, 238)
 msgid "Export"
@@ -3516,9 +3503,8 @@ msgid "Extension/mime-type specific programs"
 msgstr "Програми, специфічні для розширення/типу mime"
 
 #. Resource IDs: (74)
-#, fuzzy
 msgid "External"
-msgstr "Зовнішнє"
+msgstr "Зовнішні"
 
 #. Resource IDs: (65535)
 msgid "External Program:"
@@ -4012,7 +3998,6 @@ msgid "H&ide unrelated changed paths"
 msgstr "При&ховати непов'язані змінені шляхи"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "H&ue:"
 msgstr "Від&тінок:"
 
@@ -4030,7 +4015,6 @@ msgid "Help"
 msgstr "Довідка"
 
 #. Resource IDs: (16982)
-#, fuzzy
 msgid "Help Keyboard"
 msgstr "Клавіатура допомоги"
 
@@ -4323,6 +4307,8 @@ msgid ""
 "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff\n"
 "with the keywords expanded and the line endings adjusted."
 msgstr ""
+"Якщо відмічено, TortoiseSVN створює,  щоб здійснити порівняння, тимчасовий файл BASE\n"
+"з розгорнутими ключовими словами та коригованими закінченнями рядків."
 
 #. Resource IDs: (197)
 msgid "If checked, double-clicking on a revision in the log list compares it with the previous revision"
@@ -6133,7 +6119,6 @@ msgid "Read the 'Daily Use Guide' before you are stuck..."
 msgstr "Почитайте 'Посібник зі щоденного користування' перш ніж влипнете..."
 
 #. Resource IDs: (1002)
-#, fuzzy
 msgid "Recent"
 msgstr "Нещодавні"
 
@@ -6261,9 +6246,8 @@ msgid "Relocate"
 msgstr "Перенести"
 
 #. Resource IDs: (89)
-#, fuzzy
 msgid "Relocate Warning"
-msgstr "Перенести попередження"
+msgstr "Попередження переносу"
 
 #. Resource IDs: (80)
 msgid "Relocating..."
@@ -7237,7 +7221,6 @@ msgid "Show i&gnored files"
 msgstr "Показати &ігноровані файли"
 
 #. Resource IDs: (1480)
-#, fuzzy
 msgid "Show items in externals"
 msgstr "Показувати елементи у зовнішніх"
 
@@ -7556,9 +7539,8 @@ msgstr ""
 "%s"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Subversion server file:"
-msgstr "Файл сервера Subversion:"
+msgstr "Серверний файл Subversion:"
 
 #. Resource IDs: (1232)
 msgid "Sw&itch working copy to new branch/tag"
@@ -8741,7 +8723,7 @@ msgstr "Використати &інший текстовий блок"
 
 #. Resource IDs: (1126)
 msgid "Use &text viewer to view blames"
-msgstr "Використовувати переглядач &тексту для перегляду звинувачень"
+msgstr "Використовувати переглядач &тексту для перегляду коментарів"
 
 #. Resource IDs: (195)
 msgid ""
@@ -9536,7 +9518,7 @@ msgstr "диск [кБ]:"
 
 #. Resource IDs: (58116)
 msgid "dummy"
-msgstr ""
+msgstr "фіктивний"
 
 #. Resource IDs: (1342)
 msgid "eol style"
@@ -9559,7 +9541,6 @@ msgid "external"
 msgstr "зовнішній"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "file external:"
 msgstr "зовнішній файл:"
 
@@ -9588,7 +9569,6 @@ msgid "it is already deleted."
 msgstr "вже знищено."
 
 #. Resource IDs: (583)
-#, fuzzy
 msgid "it is unversioned."
 msgstr "воно неверсійне."
 
