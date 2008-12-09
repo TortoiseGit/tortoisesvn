@@ -23,6 +23,8 @@
 #include "SVNStatus.h"
 #include <set>
 
+#define CACHEDIRECTORYDISKVERSION 1
+
 CCachedDirectory::CCachedDirectory(void)
 {
 	m_entriesFileTime = 0;
@@ -55,7 +57,7 @@ BOOL CCachedDirectory::SaveToDisk(FILE * pFile)
 	AutoLocker lock(m_critSec);
 #define WRITEVALUETOFILE(x) if (fwrite(&x, sizeof(x), 1, pFile)!=1) return false;
 
-	unsigned int value = 1;
+	unsigned int value = CACHEDIRECTORYDISKVERSION;
 	WRITEVALUETOFILE(value);	// 'version' of this save-format
 	value = (int)m_entryCache.size();
 	WRITEVALUETOFILE(value);	// size of the cache map
@@ -112,7 +114,7 @@ BOOL CCachedDirectory::LoadFromDisk(FILE * pFile)
 	{
 		unsigned int value = 0;
 		LOADVALUEFROMFILE(value);
-		if (value != 1)
+		if (value != CACHEDIRECTORYDISKVERSION)
 			return false;		// not the correct version
 		int mapsize = 0;
 		LOADVALUEFROMFILE(mapsize);

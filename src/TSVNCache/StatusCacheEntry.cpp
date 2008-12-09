@@ -22,6 +22,8 @@
 #include "CacheInterface.h"
 #include "registry.h"
 
+#define CACHEENTRYDISKVERSION 5
+
 DWORD cachetimeout = (DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\Cachetimeout"), CACHETIMEOUT);
 
 CStatusCacheEntry::CStatusCacheEntry()
@@ -55,7 +57,7 @@ bool CStatusCacheEntry::SaveToDisk(FILE * pFile)
 #define WRITEVALUETOFILE(x) if (fwrite(&x, sizeof(x), 1, pFile)!=1) return false;
 #define WRITESTRINGTOFILE(x) if (x.IsEmpty()) {value=0;WRITEVALUETOFILE(value);}else{value=x.GetLength();WRITEVALUETOFILE(value);if (fwrite((LPCSTR)x, sizeof(char), value, pFile)!=value) return false;}
 
-	unsigned int value = 5;
+	unsigned int value = CACHEENTRYDISKVERSION;
 	WRITEVALUETOFILE(value); // 'version' of this save-format
 	WRITEVALUETOFILE(m_highestPriorityLocalStatus);
 	WRITEVALUETOFILE(m_lastWriteTime);
@@ -88,7 +90,7 @@ bool CStatusCacheEntry::LoadFromDisk(FILE * pFile)
 	{
 		unsigned int value = 0;
 		LOADVALUEFROMFILE(value);
-		if (value != 5)
+		if (value != CACHEENTRYDISKVERSION)
 			return false;		// not the correct version
 		LOADVALUEFROMFILE(m_highestPriorityLocalStatus);
 		LOADVALUEFROMFILE(m_lastWriteTime);

@@ -24,6 +24,7 @@
 #include "shlobj.h"
 
 //////////////////////////////////////////////////////////////////////////
+#define CACHEDISKVERSION 2
 
 CSVNStatusCache* CSVNStatusCache::m_pInstance;
 
@@ -72,7 +73,7 @@ void CSVNStatusCache::Create()
 			try
 			{
 				LOADVALUEFROMFILE(value);
-				if (value != 2)
+				if (value != CACHEDISKVERSION)
 				{
 					goto error;
 				}
@@ -160,7 +161,7 @@ bool CSVNStatusCache::SaveCache()
 		_tfopen_s(&pFile, path, _T("wb"));
 		if (pFile)
 		{
-			value = 2;		// 'version'
+			value = CACHEDISKVERSION;		// 'version'
 			WRITEVALUETOFILE(value);
 			value = (int)m_pInstance->m_directoryCache.size();
 			WRITEVALUETOFILE(value);
