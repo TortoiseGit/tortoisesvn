@@ -192,7 +192,8 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 							<entry>
 								Replaced with the current system date/time.
 								This can be used to indicate the build time.
-								Time formatting is as described above.
+								Time formatting can be used as described for
+								<literal>$WCDATE$</literal>.
 							</entry>
 						</row>
 						<row>
@@ -231,18 +232,6 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 							</entry>
 						</row>
 						<row>
-							<entry condition="pot">$WCNOW$</entry>
-							<entry>
-								Replaced with the current time and date
-							</entry>
-						</row>
-						<row>
-							<entry condition="pot">$WCNOW=</entry>
-							<entry>
-								Replaced with the current time and date in standard format
-							</entry>
-						</row>
-						<row>
 							<entry condition="pot">$WCINSVN$</entry>
 							<entry>
 								<literal>$WCINSVN?TText:FText$</literal> is
@@ -270,19 +259,21 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 						<row>
 							<entry condition="pot">$WCLOCKDATE$</entry>
 							<entry>
-								Replaced with the lock date
+								Replaced with the lock date.
+								Time formatting can be used as described for
+								<literal>$WCDATE$</literal>.
 							</entry>
 						</row>
 						<row>
 							<entry condition="pot">$WCLOCKOWNER$</entry>
 							<entry>
-								Replaced with the name of the lock owner
+								Replaced with the name of the lock owner.
 							</entry>
 						</row>
 						<row>
 							<entry condition="pot">$WCLOCKCOMMENT$</entry>
 							<entry>
-								Replaced with the comment of the lock
+								Replaced with the comment of the lock.
 							</entry>
 						</row>
 					</tbody>
