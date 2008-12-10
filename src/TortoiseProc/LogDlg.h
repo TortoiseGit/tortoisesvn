@@ -128,6 +128,8 @@ protected:
 	afx_msg void OnFind();
 	afx_msg void OnFocusFilter();
 	afx_msg void OnEditCopy();
+	afx_msg void OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnNMClickLoglist(NMHDR *pNMHDR, LRESULT *pResult);
 
 	virtual void OnCancel();
 	virtual void OnOK();
@@ -172,6 +174,7 @@ private:
 	void DiffSelectedRevWithPrevious();
 	void SetDlgTitle(bool bOffline);
 	CString GetAbsoluteUrlFromRelativeUrl(const CString& url);
+	void ToggleCheckbox(int item);
 
 	/**
 	 * Extracts part of commit message suitable for displaying in revision list.

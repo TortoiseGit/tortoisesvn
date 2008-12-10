@@ -228,6 +228,8 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
 	ON_COMMAND(ID_LOGDLG_FIND,&CLogDlg::OnFind)
 	ON_COMMAND(ID_LOGDLG_FOCUSFILTER,&CLogDlg::OnFocusFilter)
 	ON_COMMAND(ID_EDIT_COPY, &CLogDlg::OnEditCopy)
+	ON_NOTIFY(LVN_KEYDOWN, IDC_LOGLIST, &CLogDlg::OnLvnKeydownLoglist)
+	ON_NOTIFY(NM_CLICK, IDC_LOGLIST, &CLogDlg::OnNMClickLoglist)
 END_MESSAGE_MAP()
 
 void CLogDlg::SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev, int limit, BOOL bStrict /* = FALSE */, BOOL bSaveStrict /* = TRUE */)
@@ -947,6 +949,7 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const CString& author, const CString& date, 
 		m_lowestRev = rev;
 	// Add as many characters from the log message to the list control
 	PLOGENTRYDATA pLogItem = new LOGENTRYDATA;
+	pLogItem->bChecked = false;
 	pLogItem->bCopies = !!copies;
 	
 	// find out if this item was copied in the revision
@@ -2256,6 +2259,20 @@ void CLogDlg::OnBnClickedHelp()
 	OnHelp();
 }
 
+void CLogDlg::ToggleCheckbox(int item)
+{
+	PLOGENTRYDATA pLogEntry = NULL;
+	if (item < m_arShownList.GetCount())
+	{
+		pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(item));
+		if (pLogEntry)
+		{
+			pLogEntry->bChecked = !pLogEntry->bChecked;
+			m_LogList.RedrawItems(item, item);
+		}
+	}
+}
+
 void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
@@ -2811,91 +2828,111 @@ void CLogDlg::SetFilterCueText()
 void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	NMLVDISPINFO *pDispInfo = reinterpret_cast<NMLVDISPINFO*>(pNMHDR);
+	*pResult = 0;
 
 	// Create a pointer to the item
 	LV_ITEM* pItem = &(pDispInfo)->item;
-
-	// Do the list need text information?
-	if (!(pItem->mask & LVIF_TEXT))
-		return;
-
-	// By default, clear text buffer.
-	lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
-
-	bool bOutOfRange = pItem->iItem >= ShownCountWithStopped();
-	
-	*pResult = 0;
-	if (m_bNoDispUpdates || m_bThreadRunning || bOutOfRange)
-		return;
 
 	// Which item number?
 	int itemid = pItem->iItem;
 	PLOGENTRYDATA pLogEntry = NULL;
 	if (itemid < m_arShownList.GetCount())
 		pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(pItem->iItem));
-    
-	// Which column?
-	switch (pItem->iSubItem)
+
+	if (pItem->mask & LVIF_INDENT)
 	{
-	case 0:	//revision
-		if (pLogEntry)
+		pItem->iIndent = 0;
+	}
+	if (pItem->mask & LVIF_IMAGE)
+	{
+		pItem->mask |= LVIF_STATE;
+		pItem->stateMask = LVIS_STATEIMAGEMASK;
+
+		if(pLogEntry->bChecked)
 		{
-			_stprintf_s(pItem->pszText, pItem->cchTextMax, _T("%ld"), pLogEntry->Rev);
-			// to make the child entries indented, add spaces
-			size_t len = _tcslen(pItem->pszText);
-			TCHAR * pBuf = pItem->pszText + len;
-			DWORD nSpaces = m_maxChild-pLogEntry->childStackDepth;
-			while ((pItem->cchTextMax >= (int)len)&&(nSpaces))
-			{
-				*pBuf = ' ';
-				pBuf++;
-				nSpaces--;
-			}
-			*pBuf = 0;
+			//Turn check box on
+			pItem->state = INDEXTOSTATEIMAGEMASK(2);
 		}
-		break;
-	case 1: //action -- no text in the column
-		break;
-	case 2: //author
-		if (pLogEntry)
-			lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sAuthor, pItem->cchTextMax);
-		break;
-	case 3: //date
-		if (pLogEntry)
-			lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sDate, pItem->cchTextMax);
-		break;
-	case 4: //message or bug id
-		if (m_bShowBugtraqColumn)
+		else
 		{
+			//Turn check box off
+			pItem->state = INDEXTOSTATEIMAGEMASK(1);
+		}
+	}
+	if (pItem->mask & LVIF_TEXT)
+	{
+		// By default, clear text buffer.
+		lstrcpyn(pItem->pszText, _T(""), pItem->cchTextMax);
+
+		bool bOutOfRange = pItem->iItem >= ShownCountWithStopped();
+
+		if (m_bNoDispUpdates || m_bThreadRunning || bOutOfRange)
+			return;
+
+
+		// Which column?
+		switch (pItem->iSubItem)
+		{
+		case 0:	//revision
 			if (pLogEntry)
-				lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sBugIDs, pItem->cchTextMax);
-			break;
-		}
-		// fall through here!
-	case 5:
-		if (pLogEntry)
-		{
-			// Add as many characters as possible from the short log message
-			// to the list control. If the message is longer than
-			// allowed width, add "..." as an indication.
-			const int dots_len = 3;
-			if (pLogEntry->sShortMessage.GetLength() >= pItem->cchTextMax && pItem->cchTextMax > dots_len)
 			{
-				lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sShortMessage, pItem->cchTextMax - dots_len);
-				lstrcpyn(pItem->pszText + pItem->cchTextMax - dots_len - 1, _T("..."), dots_len + 1);
+				_stprintf_s(pItem->pszText, pItem->cchTextMax, _T("%ld"), pLogEntry->Rev);
+				// to make the child entries indented, add spaces
+				size_t len = _tcslen(pItem->pszText);
+				TCHAR * pBuf = pItem->pszText + len;
+				DWORD nSpaces = m_maxChild-pLogEntry->childStackDepth;
+				while ((pItem->cchTextMax >= (int)len)&&(nSpaces))
+				{
+					*pBuf = ' ';
+					pBuf++;
+					nSpaces--;
+				}
+				*pBuf = 0;
 			}
-			else
-				lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sShortMessage, pItem->cchTextMax);
+			break;
+		case 1: //action -- no text in the column
+			break;
+		case 2: //author
+			if (pLogEntry)
+				lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sAuthor, pItem->cchTextMax);
+			break;
+		case 3: //date
+			if (pLogEntry)
+				lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sDate, pItem->cchTextMax);
+			break;
+		case 4: //message or bug id
+			if (m_bShowBugtraqColumn)
+			{
+				if (pLogEntry)
+					lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sBugIDs, pItem->cchTextMax);
+				break;
+			}
+			// fall through here!
+		case 5:
+			if (pLogEntry)
+			{
+				// Add as many characters as possible from the short log message
+				// to the list control. If the message is longer than
+				// allowed width, add "..." as an indication.
+				const int dots_len = 3;
+				if (pLogEntry->sShortMessage.GetLength() >= pItem->cchTextMax && pItem->cchTextMax > dots_len)
+				{
+					lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sShortMessage, pItem->cchTextMax - dots_len);
+					lstrcpyn(pItem->pszText + pItem->cchTextMax - dots_len - 1, _T("..."), dots_len + 1);
+				}
+				else
+					lstrcpyn(pItem->pszText, (LPCTSTR)pLogEntry->sShortMessage, pItem->cchTextMax);
+			}
+			else if ((itemid == m_arShownList.GetCount()) && m_bStrict && m_bStrictStopped)
+			{
+				CString sTemp;
+				sTemp.LoadString(IDS_LOG_STOPONCOPY_HINT);
+				lstrcpyn(pItem->pszText, sTemp, pItem->cchTextMax);
+			}
+			break;
+		default:
+			ASSERT(false);
 		}
-		else if ((itemid == m_arShownList.GetCount()) && m_bStrict && m_bStrictStopped)
-		{
-			CString sTemp;
-			sTemp.LoadString(IDS_LOG_STOPONCOPY_HINT);
-			lstrcpyn(pItem->pszText, sTemp, pItem->cchTextMax);
-		}
-		break;
-	default:
-		ASSERT(false);
 	}
 }
 
@@ -4959,4 +4996,42 @@ CString CLogDlg::GetAbsoluteUrlFromRelativeUrl(const CString& url)
 		}
 	}
 	return url;
+}
+
+void CLogDlg::OnLvnKeydownLoglist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMLVKEYDOWN pLVKeyDown = reinterpret_cast<LPNMLVKEYDOWN>(pNMHDR);
+	// If user press space, toggle flag on selected item
+	if (pLVKeyDown->wVKey == VK_SPACE)
+	{
+		// Toggle checked for the focused item.
+		int nFocusedItem = m_LogList.GetNextItem(-1, LVNI_FOCUSED);
+		if (nFocusedItem >= 0)
+			ToggleCheckbox(nFocusedItem);
+	}
+
+	*pResult = 0;
+}
+
+void CLogDlg::OnNMClickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMITEMACTIVATE pNMItemActivate = reinterpret_cast<LPNMITEMACTIVATE>(pNMHDR);
+
+	UINT flags = 0;
+	CPoint point(pNMItemActivate->ptAction);
+
+	//Make the hit test...
+	int item = m_LogList.HitTest(point, &flags); 
+
+	if (item != -1)
+	{
+		//We hit one item... did we hit state image (check box)?
+		//This test only works if we are in list or report mode.
+		if( (flags & LVHT_ONITEMSTATEICON) != 0)
+		{
+			ToggleCheckbox(item);
+		}
+	}
+
+	*pResult = 0;
 }
