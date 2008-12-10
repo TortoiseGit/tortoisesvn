@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-24 11:55+0100\n"
+"PO-Revision-Date: 2008-12-10 09:46+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1451,6 +1451,15 @@ msgstr "Legg til et filendelse-spesifikt diff-program"
 msgid "Add extension specific merge program"
 msgstr "Legg til et filendelse-spesifikt flette-program"
 
+#. Resource IDs: (89)
+msgid "Add the item anyway"
+msgstr "Legg til elementet uansett"
+
+#. Resource IDs: (613)
+#, c-format
+msgid "Add to %1"
+msgstr "Legg til til %1"
+
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
 msgstr "Legg til i &ignoreringslisten"
@@ -2588,6 +2597,11 @@ msgstr ""
 "Kopiér det markerte og legg det på utklippstavlen\n"
 "Kopiér"
 
+#. Resource IDs: (613)
+#, c-format
+msgid "Copy to %1"
+msgstr "Kopiér til %1"
+
 #. Resource IDs: (114)
 msgid "Copy to clipboard"
 msgstr "Kopiér til uklippstavlen"
@@ -3010,6 +3024,10 @@ msgstr "Sammenlign med URL"
 msgid "Difference between"
 msgstr "Forskjeller mellom"
 
+#. Resource IDs: (32817)
+msgid "Differential path &names"
+msgstr "Kun endringer i sti&navn"
+
 #. Resource IDs: (1022)
 msgid "Diffing"
 msgstr "Forskjellsbehandling"
@@ -3170,6 +3188,11 @@ msgstr "Tegn"
 #. Resource IDs: (1079)
 msgid "Drive Types"
 msgstr "Stasjonstyper"
+
+#. Resource IDs: (613)
+#, c-format
+msgid "Drop not possible on %1"
+msgstr "Kan ikke slippe på %1"
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -3810,6 +3833,10 @@ msgstr "Ferdig!"
 #. Resource IDs: (32810)
 msgid "Fit image &sizes"
 msgstr "Tilpass bilde&størrelser"
+
+#. Resource IDs: (89)
+msgid "Fix case of item and do not add it"
+msgstr "Fiks store/små bokstaver i elementet og ikke legg det til"
 
 #. Resource IDs: (1315)
 msgid "Floppy drives (A: B:)"
@@ -4524,6 +4551,11 @@ msgstr ""
 "Importer mappe %s\r\n"
 "til %s"
 
+#. Resource IDs: (613)
+#, c-format
+msgid "Import to %1"
+msgstr "Importer til %1"
+
 #. Resource IDs: (120)
 #, c-format
 msgid "Importing file %s"
@@ -4862,6 +4894,10 @@ msgstr "Lokaliseringslinje"
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
 msgstr "Sperre"
+
+#. Resource IDs: (208)
+msgid "Lock Date"
+msgstr "Sperringsdato"
 
 #. Resource IDs: (191)
 msgid "Lock Files"
@@ -5274,6 +5310,11 @@ msgstr "Flytt og omdøp element hit"
 #. Resource IDs: (103)
 msgid "Move items to here"
 msgstr "Flytt elementer hit"
+
+#. Resource IDs: (613)
+#, c-format
+msgid "Move to %1"
+msgstr "Flytt til %1"
 
 #. Resource IDs: (209)
 msgid "Move to changelist"
@@ -7238,6 +7279,10 @@ msgstr "Vis linjenu&mmere"
 msgid "Show oldest node at top"
 msgstr "Vis eldste node øverst"
 
+#. Resource IDs: (2052)
+msgid "Show only the changed parts of the path name. Replace unchanged elements with dots."
+msgstr "Vis bare de endrede delene av stinavnet. Erstatt uendrede elementer med prikker."
+
 #. Resource IDs: (2054)
 msgid ""
 "Show or hide the line diff bar\n"
@@ -9193,6 +9238,27 @@ msgstr "Du bør angi en tekst!"
 #. Resource IDs: (1001)
 msgid "You should select an image!"
 msgstr "Du burde velge et bilde!"
+
+#. Resource IDs: (89)
+#, c-format
+msgid ""
+"You're trying to add the item\n"
+"'%s',\n"
+"but the item\n"
+"'%s'\n"
+"already exists.\n"
+"\n"
+"It seems the item got renamed outside Subversion but only with case changes.\n"
+"Do you really want to add it?"
+msgstr ""
+"Du prøver å legge til elementet\n"
+"'%s',\n"
+"men elementet\n"
+"'%s'\n"
+"finnes allerede.\n"
+"\n"
+"Det ser ut til at elementet ble omdøpt utenfor Subversion, men bare med forskjeller i små/store bokstaver.\n"
+"Vil du virkelig legge det til?"
 
 #. Resource IDs: (195)
 #, c-format
