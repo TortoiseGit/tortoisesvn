@@ -214,17 +214,7 @@ void CExportDlg::OnOK()
 	// We ask if the directory should be created...
 	if (!PathFileExists(m_strExportDirectory))
 	{
-		CString temp;
-		temp.Format(IDS_WARN_FOLDERNOTEXIST, (LPCTSTR)m_strExportDirectory);
-		if (CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
-		{
-			CPathUtils::MakeSureDirectoryPathExists(m_strExportDirectory);
-		}
-		else
-		{
-			m_bAutoCreateTargetName = bAutoCreateTargetName;
-			return;
-		}
+		CPathUtils::MakeSureDirectoryPathExists(m_strExportDirectory);
 	}
 
 	// if the directory we should export to is not empty, show a warning:

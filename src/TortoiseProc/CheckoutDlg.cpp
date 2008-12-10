@@ -206,17 +206,7 @@ void CCheckoutDlg::OnOK()
 	}
 	if (!PathFileExists(m_strCheckoutDirectory))
 	{
-		CString temp;
-		temp.Format(IDS_WARN_FOLDERNOTEXIST, (LPCTSTR)m_strCheckoutDirectory);
-		if (CMessageBox::Show(this->m_hWnd, temp, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
-		{
-			CPathUtils::MakeSureDirectoryPathExists(m_strCheckoutDirectory);
-		}
-		else
-		{
-			m_bAutoCreateTargetName = bAutoCreateTargetName;
-			return;		//don't dismiss the dialog
-		}
+		CPathUtils::MakeSureDirectoryPathExists(m_strCheckoutDirectory);
 	}
 	if (!PathIsDirectoryEmpty(m_strCheckoutDirectory))
 	{
