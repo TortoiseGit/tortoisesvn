@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-09 16:49+0200\n"
+"PO-Revision-Date: 2008-12-10 10:30+0200\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -415,7 +415,7 @@ msgstr "За&фіксувати..."
 
 #. Resource IDs: (101)
 msgid "&Compare URLs"
-msgstr "По&рівняти URLі"
+msgstr "По&рівняти URL-і"
 
 #. Resource IDs: (76, 274, 32783)
 msgid "&Compare revisions"
@@ -4695,9 +4695,8 @@ msgid "Join with following &tree"
 msgstr "Сполучити з вказаним &деревом"
 
 #. Resource IDs: (275)
-#, fuzzy
 msgid "Join with source tree"
-msgstr "Сполучити з сирцевим деревом"
+msgstr "Сполучити з вихідним деревом"
 
 #. Resource IDs: (1203)
 msgid "Keep &locks"
@@ -4848,6 +4847,10 @@ msgstr "Пошукова смуга"
 msgid "Lock"
 msgstr "Блокування"
 
+#. Resource IDs: (208)
+msgid "Lock Date"
+msgstr "Дата блокування"
+
 #. Resource IDs: (191)
 msgid "Lock Files"
 msgstr "Блокувати файли"
@@ -4858,11 +4861,11 @@ msgstr "Блокування перервано!"
 
 #. Resource IDs: (207)
 msgid "Lock comment"
-msgstr "Блокувати коментар"
+msgstr "Коментар блокування"
 
 #. Resource IDs: (65535)
 msgid "Lock creation date:"
-msgstr "Блокувати дату створення:"
+msgstr "Дата створення блокування:"
 
 #. Resource IDs: (263)
 msgid "Lock failed"
@@ -4875,7 +4878,7 @@ msgstr "Власник блокування:"
 #. Resource IDs: (213)
 #, c-format
 msgid "Lock stolen by %s"
-msgstr "Блокуванням оволодів %s"
+msgstr "Блокування перехопив %s"
 
 #. Resource IDs: (263)
 #, c-format
@@ -6212,11 +6215,11 @@ msgstr "Відмовити"
 
 #. Resource IDs: (16)
 msgid "Release loc&k"
-msgstr "Вивільнити &блокування"
+msgstr "Зняти &блокування"
 
 #. Resource IDs: (16)
 msgid "Releases locks even if you're not the owner of the locks (breaks them)."
-msgstr "Вивільнює блокування, навіть якшо ви не їх власник (скасовує їх)."
+msgstr "Знімає блокування, навіть якшо ви не їх власник (скасовує їх)."
 
 #. Resource IDs: (16)
 msgid "Releases locks on files so other users can edit them again."
@@ -6993,7 +6996,7 @@ msgstr "Вибрати програму для редагування текст
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
-msgstr "Виберіть URLi для злиття дерева"
+msgstr "Вибрати URL-i для злиття дерева"
 
 #. Resource IDs: (79)
 msgid "Select the behaviour of the progress dialog at the end of the operation."
@@ -7041,7 +7044,7 @@ msgstr "Задати Прискорювач &для:"
 
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
-msgstr "Встановити дати файлів на \"&Час останньої фіксації\""
+msgstr "Встановити дати файлів на \"&час останньої фіксації\""
 
 #. Resource IDs: (127)
 #, c-format
@@ -7245,7 +7248,7 @@ msgid ""
 "Show or hide the locator bar\n"
 "Toggle LocatorBar"
 msgstr ""
-"Показати або сховати пошукову смугу\n"
+"Показати або заховати пошукову смугу\n"
 "Перемкнути пошукову смугу"
 
 #. Resource IDs: (3713)
@@ -7253,7 +7256,7 @@ msgid ""
 "Show or hide the status bar\n"
 "Toggle StatusBar"
 msgstr ""
-"Показати або сховати рядок стану\n"
+"Показати або заховати рядок стану\n"
 "Перемкнути рядок стану"
 
 #. Resource IDs: (3713)
@@ -7261,7 +7264,7 @@ msgid ""
 "Show or hide the toolbar\n"
 "Toggle ToolBar"
 msgstr ""
-"Показати або сховати рядок знарядь\n"
+"Показати або заховати рядок знарядь\n"
 "Перемкнути рядок знарядь"
 
 #. Resource IDs: (1432)
@@ -7311,7 +7314,7 @@ msgstr "Показати/Приховати"
 #. Resource IDs: (272)
 #, c-format
 msgid "Showing %ld nodes"
-msgstr "Показується %ld вузлів"
+msgstr "Показуються %ld вузлів"
 
 #. Resource IDs: (115)
 #, c-format
@@ -7551,7 +7554,7 @@ msgstr "Переключити - TortoiseSVN"
 
 #. Resource IDs: (32811)
 msgid "Switch Left<->Right"
-msgstr "Поміняти місцями Ліве<->Праве"
+msgstr "Переключити Ліве<->Праве"
 
 #. Resource IDs: (140)
 msgid "Switch To Branch / Tag"
@@ -7696,7 +7699,7 @@ msgstr "Файл %s не існує!"
 #. Resource IDs: (64)
 #, c-format
 msgid "The file %s was not found in the patch file!"
-msgstr "Файл %s не знайдено у файлі латки!"
+msgstr "Файл %s не знайдено у файлі-латці!"
 
 #. Resource IDs: (314)
 #, c-format
@@ -7717,7 +7720,7 @@ msgstr "Файл занадто великий"
 
 #. Resource IDs: (3857)
 msgid "The file is too large to open."
-msgstr "Файл надто великий щоб відкрити його."
+msgstr "Файл надто великий, щоб його відкрити ."
 
 #. Resource IDs: (80)
 #, c-format
