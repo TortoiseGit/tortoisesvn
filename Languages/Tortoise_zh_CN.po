@@ -57,7 +57,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-04 11:05+0800\n"
+"PO-Revision-Date: 2008-12-11 13:15+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -938,7 +938,7 @@ msgstr "恢复到默认值(&R)"
 
 #. Resource IDs: (1382)
 msgid "&Resolve using local property"
-msgstr ""
+msgstr "使用本地属性解决(&R)"
 
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
@@ -1449,7 +1449,7 @@ msgstr "根据扩展名指定合并程序"
 
 #. Resource IDs: (89)
 msgid "Add the item anyway"
-msgstr ""
+msgstr "强制增加此项"
 
 #. Resource IDs: (613)
 #, c-format
@@ -1936,7 +1936,7 @@ msgstr "检查版本库(&H)"
 
 #. Resource IDs: (275)
 msgid "C&ollapse sub-trees"
-msgstr ""
+msgstr "折叠子树(&O)"
 
 #. Resource IDs: (65535)
 msgid "C&ommands:"
@@ -2309,11 +2309,11 @@ msgstr "关闭当前窗口并提示保存文件"
 
 #. Resource IDs: (275)
 msgid "Coll&apse source tree"
-msgstr ""
+msgstr "折叠源树(&A)"
 
 #. Resource IDs: (275)
 msgid "Collapse &following tree"
-msgstr ""
+msgstr "折叠下列树(&F)"
 
 #. Resource IDs: (16662)
 msgid "Color"
@@ -3043,7 +3043,7 @@ msgstr "比较"
 
 #. Resource IDs: (32817)
 msgid "Differential path &names"
-msgstr ""
+msgstr "差异路径名称(&N)"
 
 #. Resource IDs: (1022)
 msgid "Diffing"
@@ -3210,7 +3210,7 @@ msgstr "磁盘驱动器类型"
 #. Resource IDs: (613)
 #, c-format
 msgid "Drop not possible on %1"
-msgstr ""
+msgstr "不可能删除 %1"
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -3509,11 +3509,11 @@ msgstr "已经存在"
 
 #. Resource IDs: (275)
 msgid "Exp&and source tree"
-msgstr ""
+msgstr "展开源树(&A)"
 
 #. Resource IDs: (275)
 msgid "Expand &following tree"
-msgstr ""
+msgstr "展开下列树(&A)"
 
 #. Resource IDs: (1002)
 #, c-format
@@ -3860,7 +3860,7 @@ msgstr "优化图像显示尺寸(&S)"
 
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
-msgstr ""
+msgstr "修正条目的大小写，不增加它"
 
 #. Resource IDs: (1315)
 msgid "Floppy drives (A: B:)"
@@ -4134,7 +4134,7 @@ msgstr "运行时隐藏脚本"
 
 #. Resource IDs: (32830)
 msgid "Hide unused &branches"
-msgstr ""
+msgstr "隐藏没有使用的分枝(&B)"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -4359,6 +4359,12 @@ msgid ""
 "Allowed wildcards are '?' and '*'.\n"
 "Separate patterns by ';'."
 msgstr ""
+"如果给定路径的一个元素 (两个“/”之间的部分)匹配下列任一模式，它就会\n"
+"被认为是“分枝”。\n"
+"\n"
+"模式是小写。\n"
+"允许的通配符是“?”和“*”。\n"
+"使用“;”分开模式。"
 
 #. Resource IDs: (346)
 msgid ""
@@ -4369,6 +4375,12 @@ msgid ""
 "Allowed wildcards are '?' and '*'.\n"
 "Separate patterns by ';'."
 msgstr ""
+"如果给定路径的一个元素 (两个“/”之间的部分)匹配下列任一模式，它就会\n"
+"被认为是“标签”。\n"
+"\n"
+"模式是小写。\n"
+"允许的通配符是“?”和“*”。\n"
+"使用“;”分开模式。"
 
 #. Resource IDs: (346)
 msgid ""
@@ -4379,6 +4391,12 @@ msgid ""
 "Allowed wildcards are '?' and '*'.\n"
 "Separate patterns by ';'."
 msgstr ""
+"如果给定路径的一个元素 (两个“/”之间的部分)匹配下列任一模式，它就会\n"
+"被认为是“主干”。\n"
+"\n"
+"模式是小写。\n"
+"允许的通配符是“?”和“*”。\n"
+"使用“;”分开模式。"
 
 #. Resource IDs: (95)
 msgid ""
@@ -4787,11 +4805,11 @@ msgstr ""
 
 #. Resource IDs: (275)
 msgid "Join with following &tree"
-msgstr ""
+msgstr "与下列树连接(&T)"
 
 #. Resource IDs: (275)
 msgid "Join with source tree"
-msgstr ""
+msgstr "与源树连接(&T)"
 
 #. Resource IDs: (1203)
 msgid "Keep &locks"
@@ -4939,6 +4957,10 @@ msgstr "定位工具栏"
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
 msgstr "锁定"
+
+#. Resource IDs: (208)
+msgid "Lock Date"
+msgstr "加锁日期"
 
 #. Resource IDs: (191)
 msgid "Lock Files"
@@ -5636,6 +5658,8 @@ msgid ""
 "Number of times a log cache can fail to close properly\n"
 "due to crashes etc. until it gets deleted automatically."
 msgstr ""
+"由于崩溃等原因导致日志缓存不能正常关闭的次数。\n"
+"直到它被自动删除。"
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -5708,7 +5732,7 @@ msgstr "仅可以输入数字（可以用逗号分隔）！"
 
 #. Resource IDs: (1424)
 msgid "Only record the merge (block revisions from getting merged)"
-msgstr ""
+msgstr "只记录合并(阻止这些版本将来被合并)"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -5856,7 +5880,7 @@ msgstr "粘贴文件名列表"
 msgid ""
 "Pastes the svn path from the clipboard, resulting in a move (cut) or copy "
 "operation"
-msgstr ""
+msgstr "从剪贴板粘帖 svn 路径，它是移动(剪切)或复制操作的结果"
 
 #. Resource IDs: (376)
 msgid "Patch all"
@@ -6386,7 +6410,7 @@ msgstr "删除 %s"
 
 #. Resource IDs: (2052)
 msgid "Remove all branches that did not modify the item"
-msgstr ""
+msgstr "删除全部没有修改此项的分枝"
 
 #. Resource IDs: (2052)
 msgid "Remove deleted branches and tags"
@@ -6651,11 +6675,11 @@ msgstr "恢复 - TortoiseSVN"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
-msgstr ""
+msgstr "恢复缺省设置。推荐无经验的用户使用。"
 
 #. Resource IDs: (73)
 msgid "Reverted"
-msgstr "还原"
+msgstr "已还原"
 
 #. Resource IDs: (9)
 msgid "Reverts all changes you made since the last update"
@@ -7336,7 +7360,7 @@ msgstr "在顶部显示最老的节点"
 msgid ""
 "Show only the changed parts of the path name. Replace unchanged elements with "
 "dots."
-msgstr ""
+msgstr "只显示路径名称中修改的部分。将没有改变的元素用点来代替。"
 
 #. Resource IDs: (2054)
 msgid ""
@@ -7514,6 +7538,8 @@ msgid ""
 "should ignore in all working copies.\r\n"
 "Separate the patterns with a space."
 msgstr ""
+"指定 TortoiseSVN 应该在全部工作副本中忽略的文件或目录。\r\n"
+"模式用空格分开。"
 
 #. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
 msgid "Spin1"
@@ -7780,13 +7806,13 @@ msgstr "区块起始标记“@@”应该位于第 %d 行！"
 msgid ""
 "The color of creation, copy and rename nodes of tags will be shifted towards "
 "yellow."
-msgstr ""
+msgstr "创建、复制和改名的标签节点的颜色应该向黄色渐变。"
 
 #. Resource IDs: (346)
 msgid ""
 "The color of creation, copy and rename nodes of the trunk will be shifted "
 "towards green."
-msgstr ""
+msgstr "创建、复制和改名的主干节点的颜色应该向绿色渐变。"
 
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
@@ -8787,6 +8813,8 @@ msgid ""
 "Unused log caches will only be removed if the respective\n"
 "file is smaller than the given size in kBytes."
 msgstr ""
+"无用的日志缓存仅在其文件小于以 kByte 为单位的\n"
+"指定大小的情况下才会被删除。"
 
 #. Resource IDs: (146)
 msgid "Unversion"
@@ -9148,7 +9176,7 @@ msgstr "警告！"
 msgid ""
 "When a small log cache has not been used for the given\n"
 "number of days, it will be removed automatically."
-msgstr ""
+msgstr "当小的日志缓存在指定天数没有使用时，它会被自动删除。"
 
 #. Resource IDs: (344)
 msgid ""
@@ -9352,6 +9380,14 @@ msgid ""
 "It seems the item got renamed outside Subversion but only with case changes.\n"
 "Do you really want to add it?"
 msgstr ""
+"你正试图增加条目\n"
+"“%s”，\n"
+"但是条目\n"
+"“%s”\n"
+"已经存在。\n"
+"\n"
+"好象是此条目没有使用 svn 改名成只有大小写不同。\n"
+"你真的要增加它吗？"
 
 #. Resource IDs: (195)
 #, c-format
@@ -9596,12 +9632,16 @@ msgid ""
 "bugtraq:providerparams\r\n"
 "the parameters passed to the IBugTraqProvider"
 msgstr ""
+"bugtraq:providerparams\r\n"
+"此参数传递给 IBugTraqProvider"
 
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:provideruuid\r\n"
 "the COM uuid of the IBugTraqProvider"
 msgstr ""
+"bugtraq:provideruuid\r\n"
+"IBugTraqProvider COM 对象的 uuid"
 
 #. Resource IDs: (577)
 #, c-format
@@ -9645,7 +9685,7 @@ msgstr "已经复制："
 
 #. Resource IDs: (245)
 msgid "day"
-msgstr ""
+msgstr "天"
 
 #. Resource IDs: (10, 272)
 msgid "deleted"
@@ -9874,7 +9914,7 @@ msgstr "版本："
 
 #. Resource IDs: (214)
 msgid "root project"
-msgstr ""
+msgstr "根项目"
 
 #. Resource IDs: (65535)
 msgid "skip ranges: "
