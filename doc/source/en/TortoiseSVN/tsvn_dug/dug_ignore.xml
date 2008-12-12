@@ -126,48 +126,11 @@
 			</variablelist>
 		</para>
 		<para>
-			Subversion uses the <literal>/</literal> as the path delimiter in all
-			internal pathnames, and all pattern matching is done against this style of
-			path names. If you want to use a path delimiter in your ignore pattern,
-			be sure to use <literal>/</literal>, and not the Windows backslash.
-		</para>
-		<para>
 			Pattern matching is case sensitive, which can cause problems
 			on Windows. You can force case insensitivity the hard way
 			by pairing characters, eg. to ignore <literal>*.tmp</literal>
 			regardless of case, you could use a pattern like
 			<literal>*.[Tt][Mm][Pp]</literal>.
-		</para>
-		<para>
-			Subversion uses this pattern matching against every path presented
-			to it for action. These paths are generally relative to the directory
-			being acted upon for import, add, commit, etc. The matching pattern
-			therefore has to take account of the fact that there may or may not be
-			path components before the filename.
-		</para>
-		<para>
-			If directory names are present in a path, the matching algorithm will
-			not trim them off, so pattern <literal>Fred.*</literal> will match
-			<literal>Fred.c</literal> but not <literal>subdir/Fred.c</literal>.
-			This is significant if you add a folder which contains some files
-			that you want to be ignored, because those filenames will be
-			preceded with the folder name when Subversion compares them with
-			the ignore pattern.
-		</para>
-		<para>
-			The <literal>/</literal> character is not treated in any special way
-			for pattern matching purposes, so the pattern <literal>abc*xyz</literal>
-			would match <literal>abcdxyz</literal> but also
-			<literal>abcdir/subdir/anything/morexyz</literal>.
-		</para>
-		<para>
-			To ignore all <literal>CVS</literal> folders you should either
-			specify a pattern of <literal>*CVS</literal> or better, the pair
-			<literal>CVS */CVS</literal>. The first option works, but would
-			also exclude something called <literal>ThisIsNotCVS</literal>.
-			Using <literal>*/CVS</literal> alone will not work on an
-			immediate child <literal>CVS</literal> folder, and
-			<literal>CVS</literal> alone will not work on sub-folders.
 		</para>
 		<para>
 			If you want an official definition for globbing, you can find
@@ -176,5 +139,22 @@
 				<citetitle>Pattern Matching Notation</citetitle>
 			</ulink>.
 		</para>
+		<tip>
+			<title>No Paths in Global Ignore List</title>
+			<para>
+				You should not include path information in your pattern.
+				The pattern matching is intended to be used against plain
+				file names and folder names.
+				If you want to ignore all <literal>CVS</literal> folders,
+				just add <literal>CVS</literal> to the ignore list. There is
+				no need to specify <literal>CVS */CVS</literal> as you did in
+				earlier versions.
+				If you want to ignore all <literal>tmp</literal> folders
+				when they exist within a <literal>prog</literal> folder but
+				not within a <literal>doc</literal> folder you should use the
+				<literal>svn:ignore</literal> property instead. There is no
+				reliable way to achieve this using global ignore patterns.
+			</para>
+		</tip>
 	</sect2>
 </sect1>
