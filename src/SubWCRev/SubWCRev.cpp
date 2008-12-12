@@ -73,22 +73,31 @@ for special placeholders of the form \"$WCxxx$\".\n\
 SrcVersionFile is then copied to DstVersionFile but the placeholders\n\
 are replaced with information about the working copy as follows:\n\
 \n\
-$WCREV$      Highest committed revision number\n\
-$WCDATE$     Date of highest committed revision\n\
-$WCDATE=$    Like $WCDATE$ with an added strftime format after the =\n\
-$WCRANGE$    Update revision range\n\
-$WCURL$      Repository URL of the working copy\n\
-$WCNOW$      Current system date & time\n\
-$WCNOW=$     Like $WCNOW$ with an added strftime format after the =\n\
+$WCREV$         Highest committed revision number\n\
+$WCDATE$        Date of highest committed revision\n\
+$WCDATE=$       Like $WCDATE$ with an added strftime format after the =\n\
+$WCRANGE$       Update revision range\n\
+$WCURL$         Repository URL of the working copy\n\
+$WCNOW$         Current system date & time\n\
+$WCNOW=$        Like $WCNOW$ with an added strftime format after the =\n\
+$WCLOCKDATE$    Lock date for this item\n\
+$WCLOCKDATE=$   Like $WCLOCKDATE$ with an added strftime format after the =\n\
+$WCLOCKOWNER$   Lock owner for this item\n\
+$WCLOCKCOMMENT$ Lock comment for this item\n\
+\n"
+
+#define HelpText5 "\
+The strftime format strings for $WCxxx=$ must not be longer than 1024\n\
+characters, and must not produce output greater than 1024 characters.\n\
 \n\
 Placeholders of the form \"$WCxxx?TrueText:FalseText$\" are replaced with\n\
 TrueText if the tested condition is true, and FalseText if false.\n\
 \n\
-$WCMODS$     True if local modifications found\n\
-$WCMIXED$    True if mixed update revisions found\n\
-\n\
-The strftime format strings for $WCDATE=$ & $WCNOW=$ must not be longer\n\
-than 64 characters, and must not produce output greater than 128 characters.\n"
+$WCMODS$        True if local modifications found\n\
+$WCMIXED$       True if mixed update revisions found\n\
+$WCINSVN$       True if the item is versioned\n\
+$WCNEEDSLOCK$   True if the svn:needs-lock property is set\n\
+$WCISLOCKED$    True if the item is locked\n"
 // End of multi-line help text.
 
 #define VERDEF		"$WCREV$"
@@ -104,6 +113,7 @@ than 64 characters, and must not produce output greater than 128 characters.\n"
 #define NEEDSLOCK	"$WCNEEDSLOCK?"
 #define ISLOCKED	"$WCISLOCKED?"
 #define LOCKDATE	"$WCLOCKDATE$"
+#define LOCKWFMTDEF	"$WCLOCKDATE="
 #define LOCKOWNER	"$WCLOCKOWNER$"
 #define LOCKCOMMENT	"$WCLOCKCOMMENT$"
 
@@ -204,13 +214,13 @@ int InsertDate(char * def, char * pBuf, size_t & index,
 	struct tm newtime;
 	if (_localtime64_s(&newtime, &ttime))
 		return FALSE;
-	char destbuf[128];
+	char destbuf[1024];
 	char * pBuild = pBuf + index;
 	ptrdiff_t Expansion;
-	if ((strcmp(def,DATEWFMTDEF) == 0) || (strcmp(def,NOWWFMTDEF) == 0))
+	if ((strcmp(def,DATEWFMTDEF) == 0) || (strcmp(def,NOWWFMTDEF) == 0) || (strcmp(def,LOCKWFMTDEF) == 0))
 	{
 		// Format the date/time according to the supplied strftime format string
-		char format[65];
+		char format[1024];
 		char * pStart = pBuf + index + strlen(def);
 		char * pEnd = pStart;
 
@@ -220,21 +230,21 @@ int InsertDate(char * def, char * pBuf, size_t & index,
 			if (pEnd - pBuf >= (__int64)filelength)
 				return FALSE;	// No terminator - malformed so give up.
 		}
-		if ((pEnd - pStart) > 64)
+		if ((pEnd - pStart) > 1024)
 		{
 			return FALSE; // Format specifier too big
 		}
-		memset(format,0,65);
+		memset(format,0,1024);
 		memcpy(format,pStart,pEnd - pStart);
 
-		strftime(destbuf,128,format,&newtime);
+		strftime(destbuf,1024,format,&newtime);
 
 		Expansion = strlen(destbuf) - (strlen(def) + pEnd - pStart + 1);
 	}
 	else
 	{
 		// Format the date/time in international format as yyyy/mm/dd hh:mm:ss
-		sprintf_s(destbuf, 128, "%04d/%02d/%02d %02d:%02d:%02d",
+		sprintf_s(destbuf, 1024, "%04d/%02d/%02d %02d:%02d:%02d",
 			newtime.tm_year + 1900,
 			newtime.tm_mon + 1,
 			newtime.tm_mday,
@@ -439,6 +449,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		_putts(_T(HelpText2));
 		_putts(_T(HelpText3));
 		_putts(_T(HelpText4));
+		_putts(_T(HelpText5));
 		return ERR_SYNTAX;
 	}
 
@@ -640,6 +651,9 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	index = 0;
 	while (InsertDate(LOCKDATE, pBuf, index, filelength, maxlength, SubStat.LockData.CreationDate));
+
+	index = 0;
+	while (InsertDate(LOCKWFMTDEF, pBuf, index, filelength, maxlength, SubStat.LockData.CreationDate));
 
 	index = 0;
 	while (InsertUrl(LOCKOWNER, pBuf, index, filelength, maxlength, SubStat.LockData.Owner));
