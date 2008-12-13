@@ -30,7 +30,7 @@
 		To include such a link in your own html page, you need to add
 		code which looks something like this:
 <programlisting>
-&lt;a href="tsvn:https://tortoisesvn.tigris.org/svn/tortoisesvn/trunk"&gt;
+&lt;a href="tsvn:http://project.domain.org/svn/trunk"&gt;
 &lt;/a&gt;
 </programlisting>
 	</para>
@@ -42,14 +42,14 @@
 		</ulink>
 		or you can provide your own image.
 <programlisting>
-&lt;a href="tsvn:https://tortoisesvn.tigris.org/svn/tortoisesvn/trunk"&gt;
+&lt;a href="tsvn:http://project.domain.org/svn/trunk"&gt;
 &lt;img src=TortoiseCheckout.png&gt;&lt;/a&gt;
 </programlisting>
 	</para>
 	<para>
 		You can also make the link point to a specific revision, for example
 <programlisting>
-&lt;a href="tsvn:https://tortoisesvn.tigris.org/svn/tortoisesvn/trunk?100"&gt;
+&lt;a href="tsvn:http://project.domain.org/svn/trunk?100"&gt;
 &lt;/a&gt;
 </programlisting>
 	</para>
