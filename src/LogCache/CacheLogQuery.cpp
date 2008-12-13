@@ -343,42 +343,46 @@ void CCacheLogQuery::CLogFiller::ReceiveLog
 		revision_t revision = static_cast<revision_t>(rev);
 		WriteToCache (changes, rev, stdRevProps, userRevProps);
 
+		// maybe the revision was known before but we had no changes info
+		// -> we received them now
+		// -> update the cache in that case
+
+		index_t index = cache->GetRevisions()[revision];
+		if ((  cache->GetLogInfo().GetPresenceFlags (index) 
+			 & CRevisionInfoContainer::HAS_CHANGEDPATHS) == 0)
+		{
+            MergeFromUpdateCache();
+		}
+
 		// due to renames / copies, we may continue on a different path
 
-		if (!options.GetStrictNodeHistory())
-		{
-			// maybe the revision was known before but we had no changes info
-			// -> we received them now
-			// -> update the cache in that case
+        std::auto_ptr<CLogIteratorBase> iterator 
+            (  options.GetStrictNodeHistory()
+             ? static_cast<CLogIteratorBase*>
+                (new CStrictLogIterator (cache, revision, *currentPath))
+             : static_cast<CLogIteratorBase*>
+                (new CCopyFollowingLogIterator (cache, revision, *currentPath)));
 
-			index_t index = cache->GetRevisions()[revision];
-			if ((  cache->GetLogInfo().GetPresenceFlags (index) 
-				 & CRevisionInfoContainer::HAS_CHANGEDPATHS) == 0)
-			{
-                MergeFromUpdateCache();
-			}
+        // now, iterate as usual
 
-			// now, iterate as usual
-
-			CCopyFollowingLogIterator iterator (cache, revision, *currentPath);
-			iterator.Advance();
-
-            if (iterator.EndOfPath())
-                currentPath.reset();
-            else
-                *currentPath = iterator.GetPath();
-		}
+		iterator->Advance();
+        if (iterator->EndOfPath())
+            currentPath.reset();
+        else
+            *currentPath = iterator->GetPath();
 
 		// the first revision we may not have information about is the one
 		// immediately preceding the on we just received from the server
 
 		firstNARevision = revision-1;
 
-		// hand on to the original log receiver
+		// hand on to the original log receiver.
+        // Even if there is no receiver, track the oldest revision
+        // we received to update the skip ranges properly.
 
+        oldestReported = min (oldestReported, revision);
 		if (options.GetReceiver() != NULL)
         {
-            oldestReported = min (oldestReported, revision);
 			if (options.GetRevsOnly())
 			{
     			options.GetReceiver()->ReceiveLog ( NULL
@@ -508,12 +512,11 @@ CCacheLogQuery::CLogFiller::FillLog ( CCachedLogInfo* cache
         //  only valid for a bounded log, i.e. limit != 0)
 
         // if we haven't received *any* data, there is no log info 
-        // for this path even if we didn't follow renamed 
+        // for this path even if we haven't been following renames 
         // (we will not get here in case of an error or user cancel)
 
         bool limitReached = (limit > 0) && (receiveCount >= limit);
-        if (   (receiveCount == 0)
-            || (!options.GetStrictNodeHistory() && !limitReached))
+        if ((receiveCount == 0) || !limitReached)
         {
             AutoAddSkipRange (max (endRevision,1)-1);
         }
@@ -943,7 +946,7 @@ void CCacheLogQuery::InternalLog ( revision_t startRevision
 								 , int limit
                                  , const CLogOptions& options)
 {
-    // clear string translating caches
+    // clear string translation caches
 
     ResetObjectTranslations();
 
@@ -1047,7 +1050,7 @@ void CCacheLogQuery::InternalLogWithMerge ( revision_t startRevision
 								          , int limit
                                           , const CLogOptions& options)
 {
-    // clear string translating caches
+    // clear string translation caches
 
     ResetObjectTranslations();
 

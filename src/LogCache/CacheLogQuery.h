@@ -181,7 +181,8 @@ private:
 		std::auto_ptr<CDictionaryBasedTempPath> currentPath;
 		revision_t firstNARevision;
 
-        /// the last revision we forwarded to the receiver
+        /// the last revision we forwarded to the receiver.
+        /// Will also be set, if receiver is NULL.
         revision_t oldestReported;
 
         /// log options (including receiver)
