@@ -93,6 +93,10 @@ Version 1.5.6
 - BUG: The OK button in the checkout dialog was sometimes disabled. (Stefan)
 - BUG: Creating a tag/branch from the repository browser didn't work if
        the target folder did not exist. (Stefan)
+- BUG: Under rare conditions, log reported revisions twice (Stefan Fuhrmann)
+- BUG: Log for branches, tags etc. could be slow if the log cache is 
+       incomplete and the repository has many revisions (Stefan Fuhrmann)
+- BUG: Reported RAM usage of log cache too large (Stefan Fuhrmann)
        
 Version 1.5.5
 - BUG: The properties dialog would show the url with backward slashes when
