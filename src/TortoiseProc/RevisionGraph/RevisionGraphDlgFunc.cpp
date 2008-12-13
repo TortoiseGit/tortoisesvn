@@ -351,7 +351,7 @@ const CGraphNodeStates* CRevisionGraphWnd::GetNodeStates() const
 
 bool CRevisionGraphWnd::GetShowOverview() const
 {
-    return m_bShowOverview != FALSE;
+    return m_bShowOverview;
 }
 
 void CRevisionGraphWnd::SetShowOverview (bool value)

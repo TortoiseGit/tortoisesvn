@@ -125,7 +125,7 @@ protected:
 	CRect			m_OverviewPosRect;
 	CRect			m_OverviewRect;
 
-	BOOL			m_bShowOverview;
+	bool			m_bShowOverview;
 
     std::auto_ptr<CFullHistory>         m_fullHistory;
     std::auto_ptr<CFullGraph>           m_fullGraph;

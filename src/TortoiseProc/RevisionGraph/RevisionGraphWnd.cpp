@@ -107,7 +107,7 @@ CRevisionGraphWnd::CRevisionGraphWnd()
 		RegisterClass(&wndcls);
 	}
 
-	m_bShowOverview = CRegDWORD(_T("Software\\TortoiseSVN\\RevisionGraph\\ShowRevGraphOverview"), TRUE);
+	m_bShowOverview = CRegDWORD(_T("Software\\TortoiseSVN\\RevisionGraph\\ShowRevGraphOverview"), TRUE) != FALSE;
 	m_bTweakTrunkColors = CRegDWORD(_T("Software\\TortoiseSVN\\RevisionGraph\\TweakTrunkColors"), TRUE) != FALSE;
 	m_bTweakTagsColors = CRegDWORD(_T("Software\\TortoiseSVN\\RevisionGraph\\TweakTagsColors"), TRUE) != FALSE;
 }
@@ -350,7 +350,7 @@ void CRevisionGraphWnd::OnLButtonDown(UINT nFlags, CPoint point)
 	SetFocus();
 	bool bHit = false;
 	bool bControl = !!(GetKeyState(VK_CONTROL)&0x8000);
-	if (!m_OverviewRect.PtInRect(point))
+	if (!m_bShowOverview || !m_OverviewRect.PtInRect(point))
 	{
         const SVisibleGlyph* hitGlyph = GetHitGlyph (point);
         if (hitGlyph != NULL)
@@ -405,7 +405,7 @@ void CRevisionGraphWnd::OnLButtonDown(UINT nFlags, CPoint point)
 		m_bIsRubberBand = true;
 		ATLTRACE("LButtonDown: x = %ld, y = %ld\n", point.x, point.y);
 		Invalidate();
-		if (m_OverviewRect.PtInRect(point))
+		if (m_bShowOverview && m_OverviewRect.PtInRect(point))
 			m_bIsRubberBand = false;
 	}
 	m_ptRubberStart = point;
@@ -1142,7 +1142,7 @@ void CRevisionGraphWnd::OnMouseMove(UINT nFlags, CPoint point)
 	}
 	if (!m_bIsRubberBand)
 	{
-		if ((!m_OverviewRect.IsRectEmpty())&&(m_OverviewRect.PtInRect(point))&&(nFlags & MK_LBUTTON))
+		if (m_bShowOverview && (m_OverviewRect.PtInRect(point))&&(nFlags & MK_LBUTTON))
 		{
 			// scrolling
             CRect viewRect = GetViewRect();
