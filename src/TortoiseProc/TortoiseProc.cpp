@@ -99,7 +99,7 @@ CTortoiseProcApp theApp;
 HWND hWndExplorer;
 CString sOrigCWD;
 
-CCrashReport crasher("crashreports@tortoisesvn.tigris.org", "Crash Report for TortoiseSVN " APP_X64_STRING " : " STRPRODUCTVER, TRUE);// crash
+CCrashReport crasher("tortoisesvn@gmail.com", "Crash Report for TortoiseSVN " APP_X64_STRING " : " STRPRODUCTVER, TRUE);// crash
 
 // CTortoiseProcApp initialization
 

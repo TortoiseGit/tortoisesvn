@@ -1712,7 +1712,7 @@ void CSVNProgressDlg::OnEnSetfocusInfotext()
 
 void CSVNProgressDlg::OnLvnBegindragSvnprogress(NMHDR* , LRESULT *pResult)
 {
-	//LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	*pResult = 0;
 
 	int selIndex = m_ProgList.GetSelectionMark();
@@ -1753,9 +1753,8 @@ void CSVNProgressDlg::OnLvnBegindragSvnprogress(NMHDR* , LRESULT *pResult)
 	pdobj->AddRef();
 
 	CDragSourceHelper dragsrchelper;
-	POINT pt = {0,0};
 
-	dragsrchelper.InitializeFromWindow(m_ProgList.GetSafeHwnd(), pt, pdobj);
+	dragsrchelper.InitializeFromWindow(m_ProgList.GetSafeHwnd(), pNMLV->ptAction, pdobj);
 
 	pdsrc->m_pIDataObj = pdobj;
 	pdsrc->m_pIDataObj->AddRef();
