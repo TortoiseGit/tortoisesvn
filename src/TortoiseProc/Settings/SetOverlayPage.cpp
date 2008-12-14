@@ -104,16 +104,16 @@ void CSetOverlayPage::DoDataExchange(CDataExchange* pDX)
 }
 
 BEGIN_MESSAGE_MAP(CSetOverlayPage, ISettingsPropPage)
-	ON_BN_CLICKED(IDC_REMOVABLE, OnChange)
+	ON_BN_CLICKED(IDC_REMOVABLE, &CSetOverlayPage::OnChange)
 	ON_BN_CLICKED(IDC_FLOPPY, &CSetOverlayPage::OnChange)
-	ON_BN_CLICKED(IDC_NETWORK, OnChange)
-	ON_BN_CLICKED(IDC_FIXED, OnChange)
-	ON_BN_CLICKED(IDC_CDROM, OnChange)
-	ON_BN_CLICKED(IDC_UNKNOWN, OnChange)
-	ON_BN_CLICKED(IDC_RAM, OnChange)
-	ON_BN_CLICKED(IDC_ONLYEXPLORER, OnChange)
-	ON_EN_CHANGE(IDC_EXCLUDEPATHS, OnChange)
-	ON_EN_CHANGE(IDC_INCLUDEPATHS, OnChange)
+	ON_BN_CLICKED(IDC_NETWORK, &CSetOverlayPage::OnChange)
+	ON_BN_CLICKED(IDC_FIXED, &CSetOverlayPage::OnChange)
+	ON_BN_CLICKED(IDC_CDROM, &CSetOverlayPage::OnChange)
+	ON_BN_CLICKED(IDC_UNKNOWN, &CSetOverlayPage::OnChange)
+	ON_BN_CLICKED(IDC_RAM, &CSetOverlayPage::OnChange)
+	ON_BN_CLICKED(IDC_ONLYEXPLORER, &CSetOverlayPage::OnChange)
+	ON_EN_CHANGE(IDC_EXCLUDEPATHS, &CSetOverlayPage::OnChange)
+	ON_EN_CHANGE(IDC_INCLUDEPATHS, &CSetOverlayPage::OnChange)
 	ON_BN_CLICKED(IDC_CACHEDEFAULT, &CSetOverlayPage::OnChange)
 	ON_BN_CLICKED(IDC_CACHESHELL, &CSetOverlayPage::OnChange)
 	ON_BN_CLICKED(IDC_CACHENONE, &CSetOverlayPage::OnChange)
@@ -141,7 +141,6 @@ BOOL CSetOverlayPage::OnInitDialog()
 		break;
 	}
 	GetDlgItem(IDC_UNVERSIONEDASMODIFIED)->EnableWindow(m_dwCacheType == 1);
-	GetDlgItem(IDC_FLOPPY)->EnableWindow(m_bRemovable);
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_ONLYEXPLORER, IDS_SETTINGS_ONLYEXPLORER_TT);
@@ -182,7 +181,6 @@ void CSetOverlayPage::OnChange()
 		break;
 	}
 	GetDlgItem(IDC_UNVERSIONEDASMODIFIED)->EnableWindow(m_dwCacheType == 1);
-	GetDlgItem(IDC_FLOPPY)->EnableWindow(m_bRemovable);
 	SetModified();
 }
 
