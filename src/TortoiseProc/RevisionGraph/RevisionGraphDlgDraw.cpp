@@ -744,7 +744,7 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 
     Graphics graphics (*memDC);
     graphics.SetPageUnit (UnitPixel);
-    graphics.TranslateTransform (drawRect.left, drawRect.top);
+    graphics.TranslateTransform ((REAL)drawRect.left, (REAL)drawRect.top);
 
 	if (m_fZoomFactor > 0.2f)
         DrawShadows (graphics, logRect, offset);
