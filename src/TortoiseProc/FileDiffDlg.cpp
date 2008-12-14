@@ -838,10 +838,13 @@ BOOL CFileDiffDlg::PreTranslateMessage(MSG* pMsg)
 		case 'C':
 		case VK_INSERT:
 			{
-				if (GetAsyncKeyState(VK_CONTROL)&0x8000)
+				if (GetFocus() == &m_cFileList)
 				{
-					CopySelectionToClipboard();
-					return TRUE;
+					if (GetAsyncKeyState(VK_CONTROL)&0x8000)
+					{
+						CopySelectionToClipboard();
+						return TRUE;
+					}
 				}
 			}
 			break;
