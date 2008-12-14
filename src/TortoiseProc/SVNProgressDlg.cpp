@@ -1710,7 +1710,7 @@ void CSVNProgressDlg::OnEnSetfocusInfotext()
 		GetDlgItem(IDC_INFOTEXT)->HideCaret();
 }
 
-void CSVNProgressDlg::OnLvnBegindragSvnprogress(NMHDR* , LRESULT *pResult)
+void CSVNProgressDlg::OnLvnBegindragSvnprogress(NMHDR* pNMHDR, LRESULT *pResult)
 {
 	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	*pResult = 0;
