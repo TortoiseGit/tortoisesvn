@@ -4491,8 +4491,9 @@ void CSVNStatusListCtrl::OnDestroy()
 	CListCtrl::OnDestroy();
 }
 
-void CSVNStatusListCtrl::OnBeginDrag(NMHDR* /*pNMHDR*/, LRESULT* pResult)
+void CSVNStatusListCtrl::OnBeginDrag(NMHDR* pNMHDR, LRESULT* pResult)
 {
+	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	Locker lock(m_critSec);
 
 
@@ -4516,7 +4517,6 @@ void CSVNStatusListCtrl::OnBeginDrag(NMHDR* /*pNMHDR*/, LRESULT* pResult)
 	pdobj->AddRef();
 
 	CDragSourceHelper dragsrchelper;
-	POINT pt = {0,0};
 
 	// Something strange is going on here:
 	// InitializeFromWindow() crashes bad if group view is enabled.
@@ -4528,7 +4528,7 @@ void CSVNStatusListCtrl::OnBeginDrag(NMHDR* /*pNMHDR*/, LRESULT* pResult)
 	BOOL bGroupView = IsGroupViewEnabled();
 	if (bGroupView)
 		EnableGroupView(false);
-	dragsrchelper.InitializeFromWindow(m_hWnd, pt, pdobj);
+	dragsrchelper.InitializeFromWindow(m_hWnd, pNMLV->ptAction, pdobj);
 	if (bGroupView)
 		EnableGroupView(true);
 	SetRedraw(true);
