@@ -348,6 +348,7 @@ All user/site specific configuration is stored in doc.build.user.
 	<target name="spellcheck" description="Run spellchecker on files">
 		<echo message="Spellchecking: '${app} ${lang.target}' This may take a few minutes"/>
 		<property name="spellcheck.log" value="ASpell/${app}_${lang.target}.log"/>
+		<mkdir dir="ASpell/${app}_${lang.target}"/>
 		
 		<echo message="--- Spellchecking: '${lang.target}'"
 			file="${spellcheck.log}"
@@ -371,26 +372,27 @@ All user/site specific configuration is stored in doc.build.user.
 			</in>
 			<do>
 				<property name="file.target" value="${string::replace(file.base,'\'+lang.base+'\','\'+lang.target+'\')}"/>
+				<property name="file.log" value="ASpell\${app}_${lang.target}\${path::get-file-name(file.target)}.log"/>
 
-<!--
 				<uptodate property="file.target.uptodate">
 					<sourcefiles>
 						<include name="${file.target}"/>
+						<include name="ASpell/${lang.target}.pws"/>
+						<include name="ASpell/TortoiseSVN.tmpl.pws"/>
 					</sourcefiles>
 					<targetfiles>
-						<include name="${spellcheck.log}"/>
+						<include name="${file.log}"/>
 					</targetfiles>
 				</uptodate>
 
 				<if test="${not file.target.uptodate}">
--->
 					<echo message="Checking: ${path::get-file-name(file.target)}"/>
 					<exec program="Aspell/aspell.bat"
-						commandline="${path.spellcheck} ${lang.target} ${file.target} ${spellcheck.log}"
+						commandline="${path.spellcheck} ${lang.target} ${file.target} ${file.log}"
 						failonerror="false"/>
-<!--
 				</if>
--->
+				<exec program="Aspell/append.bat"
+					commandline="${file.log} ${spellcheck.log}"/>
 			</do>
 		</foreach>
 	</target>
