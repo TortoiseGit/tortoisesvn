@@ -283,7 +283,6 @@ private:
     CLogDataVector		m_logEntries;
 	
 	CXPTheme			theme;
-	bool				m_bVista;
 };
 static UINT WM_REVSELECTED = RegisterWindowMessage(_T("TORTOISESVN_REVSELECTED_MSG"));
 static UINT WM_REVLIST = RegisterWindowMessage(_T("TORTOISESVN_REVLIST_MSG"));

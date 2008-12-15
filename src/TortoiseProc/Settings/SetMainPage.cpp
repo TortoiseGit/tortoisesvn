@@ -27,6 +27,7 @@
 #include ".\setmainpage.h"
 #include "SVN.h"
 #include "MessageBox.h"
+#include "SysInfo.h"
 
 
 IMPLEMENT_DYNAMIC(CSetMainPage, ISettingsPropPage)
@@ -220,14 +221,8 @@ void CSetMainPage::OnBnClickedChecknewerbutton()
 }
 
 void CSetMainPage::OnBnClickedSounds()
-{
-	OSVERSIONINFOEX inf;
-	SecureZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
-	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
-	GetVersionEx((OSVERSIONINFO *)&inf);
-	WORD fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);
-	
-	if (fullver >= 0x0600)
+{	
+	if (SysInfo::Instance().IsVistaOrLater())
 		CAppUtils::LaunchApplication(_T("RUNDLL32 Shell32,Control_RunDLL mmsys.cpl,,2"), NULL, false);
 	else
 		CAppUtils::LaunchApplication(_T("RUNDLL32 Shell32,Control_RunDLL mmsys.cpl,,1"), NULL, false);

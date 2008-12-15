@@ -23,6 +23,7 @@
 #include "registry.h"
 #include "TSVNCache.h"
 #include "shlobj.h"
+#include "SysInfo.h"
 
 
 CFolderCrawler::CFolderCrawler(void)
@@ -134,7 +135,7 @@ void CFolderCrawler::WorkerThread()
 	{
 		bool bRecursive = !!(DWORD)CRegStdWORD(_T("Software\\TortoiseSVN\\RecursiveOverlay"), TRUE);
 
-		if (fullver >= 0x0600)
+		if (SysInfo::Instance().IsVistaOrLater())
 		{
 			SetThreadPriority(GetCurrentThread(), THREAD_MODE_BACKGROUND_END);
 		}
@@ -149,7 +150,7 @@ void CFolderCrawler::WorkerThread()
 			break;
 		}
 
-		if (fullver >= 0x0600)
+		if (SysInfo::Instance().IsVistaOrLater())
 		{
 			SetThreadPriority(GetCurrentThread(), THREAD_MODE_BACKGROUND_BEGIN);
 		}

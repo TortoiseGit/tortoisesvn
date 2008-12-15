@@ -18,19 +18,15 @@
 //
 #include "StdAfx.h"
 #include "IconMenu.h"
+#include "SysInfo.h"
 
 CIconMenu::CIconMenu(void) : CMenu()
 	, pfnBeginBufferedPaint(NULL)
 	, pfnEndBufferedPaint(NULL)
 	, pfnGetBufferedPaintBits(NULL)
 {
-	OSVERSIONINFOEX inf;
-	SecureZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
-	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
-	GetVersionEx((OSVERSIONINFO *)&inf);
-	winVersion = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);
 
-	if (winVersion >= 0x0600)
+	if (SysInfo::Instance().IsVistaOrLater())
 	{
 		HMODULE hUxTheme = ::GetModuleHandle (_T("UXTHEME.DLL"));
 

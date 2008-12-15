@@ -48,6 +48,7 @@
 #include "RepositoryInfo.h"
 #include "EditPropertiesDlg.h"
 #include "LogCacheSettings.h"
+#include "SysInfo.h"
 
 
 #if (NTDDI_VERSION < NTDDI_LONGHORN)
@@ -142,7 +143,6 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
 	, m_maxChild(0)
 	, m_bIncludeMerges(FALSE)
 	, m_hAccel(NULL)
-	, m_bVista(false)
 {
 	m_bFilterWithRegex = !!CRegDWORD(_T("Software\\TortoiseSVN\\UseRegexFilter"), TRUE);
 	// use the default GUI font, create a copy of it and
@@ -252,13 +252,6 @@ BOOL CLogDlg::OnInitDialog()
 	CResizableStandAloneDialog::OnInitDialog();
 
 	m_hAccel = LoadAccelerators(AfxGetResourceHandle(),MAKEINTRESOURCE(IDR_ACC_LOGDLG));
-
-	OSVERSIONINFOEX inf;
-	SecureZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
-	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
-	GetVersionEx((OSVERSIONINFO *)&inf);
-	WORD fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);
-	m_bVista = (fullver >= 0x0600);
 
 	// use the state of the "stop on copy/rename" option from the last time
 	if (!m_bStrict)
@@ -2403,7 +2396,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					if (data->bCopiedSelf)
 					{
 						// only change the background color if the item is not 'hot' (on vista with themes enabled)
-						if (!theme.IsAppThemed() || !m_bVista || ((pLVCD->nmcd.uItemState & CDIS_HOT)==0))
+						if (!theme.IsAppThemed() || !SysInfo::Instance().IsVista() || ((pLVCD->nmcd.uItemState & CDIS_HOT)==0))
 							pLVCD->clrTextBk = GetSysColor(COLOR_MENU);
 					}
 					if (data->bCopies)
@@ -2461,7 +2454,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				m_LogList.GetSubItemRect(pLVCD->nmcd.dwItemSpec, pLVCD->iSubItem, LVIR_BOUNDS, rect);
 
 				// Fill the background
-				if (theme.IsAppThemed() && m_bVista)
+				if (theme.IsAppThemed() && SysInfo::Instance().IsVista())
 				{
 					theme.Open(m_hWnd, L"Explorer");
 					int state = LISS_NORMAL;

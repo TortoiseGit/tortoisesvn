@@ -18,6 +18,7 @@
 //
 #include "stdafx.h"
 #include "Balloon.h"
+#include "SysInfo.h"
 
 tagBALLOON_INFO::tagBALLOON_INFO()
     : hIcon(NULL),			
@@ -1438,14 +1439,8 @@ void CBalloon::GetMonitorWorkArea(const CPoint& sourcePoint, CRect& monitorRect)
 	// and return the work area (the portion of the screen 
 	// not obscured by the system task bar or by application 
 	// desktop tool bars) of that monitor
-	OSVERSIONINFOEX VersionInformation;
-	SecureZeroMemory(&VersionInformation, sizeof(OSVERSIONINFOEX));
-	VersionInformation.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
-	GetVersionEx((OSVERSIONINFO *)&VersionInformation);
-
-	::GetWindowRect(GetDesktopWindow()->m_hWnd, &monitorRect);
 	
-	if (VersionInformation.dwMajorVersion >= 5)
+	if (SysInfo::Instance().IsWin2kOrLater())
 	{
 		MONITORINFO mi;
 
