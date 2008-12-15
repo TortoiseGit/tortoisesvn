@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-13 21:54+0100\n"
+"PO-Revision-Date: 2008-12-13 20:23+0100\n"
 "Last-Translator: Milorad Popović\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1291,7 +1291,7 @@ msgstr "&Користи аутокомплетирање фајл путања �
 #
 #. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
-msgstr "&Коеисничкоиме:"
+msgstr "&Корисничко име:"
 
 #
 #. Resource IDs: (65535)
@@ -1516,7 +1516,7 @@ msgstr "Д&одај именик..."
 
 #. Resource IDs: (73)
 msgid "Abort"
-msgstr "Пекини"
+msgstr "Прекини"
 
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
@@ -1604,6 +1604,15 @@ msgstr "Додај дифф програм завистан од екстенз�
 #. Resource IDs: (110)
 msgid "Add extension specific merge program"
 msgstr "Додај програм за спајање завистан од екстензије"
+
+#. Resource IDs: (89)
+msgid "Add the item anyway"
+msgstr "Додај ставку било где"
+
+#. Resource IDs: (613)
+#, c-format
+msgid "Add to %1"
+msgstr "Додај у %1"
 
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
@@ -2280,6 +2289,10 @@ msgstr "Означите оне ставке менија које желите 
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Означите да користите сажетији приказ датума и времена у дневнику порука"
 
+#. Resource IDs: (2052)
+msgid "Check working copy for modifications"
+msgstr "Провера радне копије за измене"
+
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Провера да ли је доступна новија верзија ТортоисеСВН..."
@@ -2738,6 +2751,11 @@ msgstr ""
 "Копирај означено и стави у клипборд\n"
 "Копирај"
 
+#. Resource IDs: (613)
+#, c-format
+msgid "Copy to %1"
+msgstr "Копирам %1"
+
 #. Resource IDs: (114)
 msgid "Copy to clipboard"
 msgstr "Копирај у клипборд"
@@ -3160,6 +3178,10 @@ msgstr "Дифф са  УРЛ"
 msgid "Difference between"
 msgstr "Разлика између"
 
+#. Resource IDs: (32817)
+msgid "Differential path &names"
+msgstr "Разликовање &имена путање"
+
 #. Resource IDs: (1022)
 msgid "Diffing"
 msgstr "Разликовање"
@@ -3320,6 +3342,11 @@ msgstr "Цртај"
 #. Resource IDs: (1079)
 msgid "Drive Types"
 msgstr "Типови уређаја"
+
+#. Resource IDs: (613)
+#, c-format
+msgid "Drop not possible on %1"
+msgstr "Одбацивање није могуће на %1"
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -3962,6 +3989,10 @@ msgstr "Готов!"
 msgid "Fit image &sizes"
 msgstr "Уклопи &величине слике"
 
+#. Resource IDs: (89)
+msgid "Fix case of item and do not add it"
+msgstr "Фиксира случај ставке и не додаје је"
+
 #. Resource IDs: (1315)
 msgid "Floppy drives (A: B:)"
 msgstr "Дискета (А: Б:)"
@@ -4218,6 +4249,10 @@ msgstr "Сакри углављени прозор"
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
 msgstr "Сакри скрипт док се извршава"
+
+#. Resource IDs: (32830)
+msgid "Hide unused &branches"
+msgstr "Крије некоришћене &гране"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -4685,6 +4720,11 @@ msgstr ""
 "Увозим именик %s\r\n"
 "у %s"
 
+#. Resource IDs: (613)
+#, c-format
+msgid "Import to %1"
+msgstr "Увоз у %1"
+
 #. Resource IDs: (120)
 #, c-format
 msgid "Importing file %s"
@@ -5024,6 +5064,10 @@ msgstr "&Статусна табла"
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
 msgstr "Закључавање"
+
+#. Resource IDs: (208)
+msgid "Lock Date"
+msgstr "Закључај Датум"
 
 #. Resource IDs: (191)
 msgid "Lock Files"
@@ -5436,6 +5480,11 @@ msgstr "Овђе премести уз промену имена"
 #. Resource IDs: (103)
 msgid "Move items to here"
 msgstr "Премести ставке овде"
+
+#. Resource IDs: (613)
+#, c-format
+msgid "Move to %1"
+msgstr "Премести у %1"
 
 #. Resource IDs: (209)
 msgid "Move to changelist"
@@ -6452,6 +6501,10 @@ msgid "Remove %s"
 msgstr "Уклони %s"
 
 #. Resource IDs: (2052)
+msgid "Remove all branches that did not modify the item"
+msgstr "Уклања све гране које нису измениле ставку"
+
+#. Resource IDs: (2052)
 msgid "Remove deleted branches and tags"
 msgstr "Уклони обрисане гране и ознаке"
 
@@ -7355,6 +7408,10 @@ msgstr "Прикажи  алатпулт за брзи приступ испод
 msgid "Show Screen&Tips on toolbars"
 msgstr "Покажи екран&Врх на алатпулту"
 
+#. Resource IDs: (32831)
+msgid "Show WC &modifications"
+msgstr "Прикажи РК &измене"
+
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
 msgstr "Прикажи преглед целог графа"
@@ -7390,6 +7447,10 @@ msgstr "Прикажи бројеве лини&ја"
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
 msgstr "Прикажи почевши од најстаријег чвора"
+
+#. Resource IDs: (2052)
+msgid "Show only the changed parts of the path name. Replace unchanged elements with dots."
+msgstr "Приказује само измењене делове имена путања. Замењује неизмењене елементе тачкама."
 
 #. Resource IDs: (2054)
 msgid ""
@@ -8272,11 +8333,11 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Their file:"
-msgstr "Њихова фајл:"
+msgstr "Њихов фајл:"
 
 #. Resource IDs: (263)
 msgid "Theirs"
-msgstr "Њихово"
+msgstr "Њихов"
 
 #. Resource IDs: (169)
 msgid ""
@@ -8871,7 +8932,7 @@ msgstr "Користи &јединствени поглед као уобича�
 
 #. Resource IDs: (251)
 msgid "Use &other text block"
-msgstr "Користи &њихов блок текста"
+msgstr "Користи &други блок текста"
 
 #. Resource IDs: (1126)
 msgid "Use &text viewer to view blames"
@@ -8973,19 +9034,19 @@ msgstr "Користи блок текста из '&моје'"
 
 #. Resource IDs: (251)
 msgid "Use text block from '&theirs'"
-msgstr "Користи блок текста из '&њихово'"
+msgstr "Користи блок текста из '&њихов'"
 
 #. Resource IDs: (251)
 msgid "Use text block from 'm&ine' before 'theirs'"
-msgstr "Користи блок текста из 'м&оје' пре 'њихово'"
+msgstr "Користи блок текста из 'м&оје' пре 'њихов'"
 
 #. Resource IDs: (2052)
 msgid ""
 "Use text block from 'mine' before 'theirs'\n"
 "Use 'mine' text block then 'theirs'"
 msgstr ""
-"Користи блок текста из 'моја' пре 'њихова'\n"
-"Користи 'моја' блок текст, па онда  'њихова'"
+"Користи блок текста из 'мој' пре 'њихов'\n"
+"Користи 'мој' блок текст, па онда  'њихов'"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -9004,16 +9065,16 @@ msgid ""
 "Use text block from 'theirs' before 'mine'\n"
 "Use 'theirs' text block then 'mine'"
 msgstr ""
-"Користи блок текста из 'њихова' пре 'моја'\n"
-"'Њихова' текст блок пре 'моја'"
+"Користи блок текста из 'њихов' пре 'мој'\n"
+"'Њихов' текст блок пре 'мој'"
 
 #. Resource IDs: (2052)
 msgid ""
 "Use text block from 'theirs'\n"
 "Use 'theirs' text block"
 msgstr ""
-"Користи блок текста из 'њихова'\n"
-"Користи 'њихова' текст блок"
+"Користи блок текста из 'њихов'\n"
+"Користи 'њихов' текст блок"
 
 #. Resource IDs: (32820)
 msgid "Use text block from \"&mine\""
@@ -9021,11 +9082,11 @@ msgstr "Користи блок текста из \"&моје\""
 
 #. Resource IDs: (32819)
 msgid "Use text block from \"&theirs\""
-msgstr "Користи блок текста из \"&њихово\""
+msgstr "Користи блок текста из \"&њихов\""
 
 #. Resource IDs: (32822)
 msgid "Use text block from \"m&ine\" before \"theirs\""
-msgstr "Користи блок текста из \"м&оје\" пре \"њихово\""
+msgstr "Користи блок текста из \"м&ој\" пре \"њихов\""
 
 #. Resource IDs: (32821)
 msgid "Use text block from \"t&heirs\" before \"mine\""
@@ -9036,8 +9097,8 @@ msgid ""
 "Use text block from the left view\n"
 "Use left block"
 msgstr ""
-"Користи блок текста из \"моја\" пре \"њихова\"\n"
-"блок текста из \"моја\", па онда из \"њихова\""
+"Користи блок текста из \"мој\" пре \"њихов\"\n"
+"блок текста из \"мој\", па онда из \"њихов\""
 
 #. Resource IDs: (251)
 msgid "Use th&is text block"
@@ -9348,6 +9409,27 @@ msgstr "Треба да упишете текст!"
 msgid "You should select an image!"
 msgstr "Треба да одабарете слику!"
 
+#. Resource IDs: (89)
+#, c-format
+msgid ""
+"You're trying to add the item\n"
+"'%s',\n"
+"but the item\n"
+"'%s'\n"
+"already exists.\n"
+"\n"
+"It seems the item got renamed outside Subversion but only with case changes.\n"
+"Do you really want to add it?"
+msgstr ""
+"Покушавате да додате ставку\n"
+"'%s',\n"
+"али ставка\n"
+"'%s'\n"
+"већ постоји.\n"
+"\n"
+"Изгледа да је ставка преименована ван Субверзије али са променом величине слова.\n"
+"Да ли заиста желите да урадите то?"
+
 #. Resource IDs: (195)
 #, c-format
 msgid ""
@@ -9466,6 +9548,14 @@ msgstr "Удаљи"
 #. Resource IDs: (2051)
 msgid "Zoom to fit"
 msgstr "Зумирај да се уклопи"
+
+#. Resource IDs: (2051)
+msgid "Zoom to fit in height"
+msgstr "Зумирај да се уклопи по висини"
+
+#. Resource IDs: (2051)
+msgid "Zoom to fit in width"
+msgstr "Зумирај да се уклопи по ширини"
 
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
@@ -9631,6 +9721,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "copied:"
 msgstr "копирано:"
+
+#. Resource IDs: (245)
+msgid "day"
+msgstr "дан"
 
 #. Resource IDs: (10, 272)
 msgid "deleted"

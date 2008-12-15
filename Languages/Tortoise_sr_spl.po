@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-13 22:02+0100\n"
+"PO-Revision-Date: 2008-12-13 20:24+0100\n"
 "Last-Translator: Milorad Popović\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1290,7 +1290,7 @@ msgstr "&Koristi autokompletiranje fajl putanja i ključnih reči"
 #
 #. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
-msgstr "&Koeisničkoime:"
+msgstr "&Korisničko ime:"
 
 #
 #. Resource IDs: (65535)
@@ -1515,7 +1515,7 @@ msgstr "D&odaj imenik..."
 
 #. Resource IDs: (73)
 msgid "Abort"
-msgstr "Pekini"
+msgstr "Prekini"
 
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
@@ -1603,6 +1603,15 @@ msgstr "Dodaj diff program zavistan od ekstenzija"
 #. Resource IDs: (110)
 msgid "Add extension specific merge program"
 msgstr "Dodaj program za spajanje zavistan od ekstenzije"
+
+#. Resource IDs: (89)
+msgid "Add the item anyway"
+msgstr "Dodaj stavku bilo gde"
+
+#. Resource IDs: (613)
+#, c-format
+msgid "Add to %1"
+msgstr "Dodaj u %1"
 
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
@@ -2279,6 +2288,10 @@ msgstr "Označite one stavke menija koje želite da se pojave u glavnom sadržaj
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Označite da koristite sažetiji prikaz datuma i vremena u dnevniku poruka"
 
+#. Resource IDs: (2052)
+msgid "Check working copy for modifications"
+msgstr "Provera radne kopije za izmene"
+
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Provera da li je dostupna novija verzija TortoiseSVN..."
@@ -2737,6 +2750,11 @@ msgstr ""
 "Kopiraj označeno i stavi u klipbord\n"
 "Kopiraj"
 
+#. Resource IDs: (613)
+#, c-format
+msgid "Copy to %1"
+msgstr "Kopiram %1"
+
 #. Resource IDs: (114)
 msgid "Copy to clipboard"
 msgstr "Kopiraj u klipbord"
@@ -3159,6 +3177,10 @@ msgstr "Diff sa  URL"
 msgid "Difference between"
 msgstr "Razlika između"
 
+#. Resource IDs: (32817)
+msgid "Differential path &names"
+msgstr "Razlikovanje &imena putanje"
+
 #. Resource IDs: (1022)
 msgid "Diffing"
 msgstr "Razlikovanje"
@@ -3319,6 +3341,11 @@ msgstr "Crtaj"
 #. Resource IDs: (1079)
 msgid "Drive Types"
 msgstr "Tipovi uređaja"
+
+#. Resource IDs: (613)
+#, c-format
+msgid "Drop not possible on %1"
+msgstr "Odbacivanje nije moguće na %1"
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -3961,6 +3988,10 @@ msgstr "Gotov!"
 msgid "Fit image &sizes"
 msgstr "Uklopi &veličine slike"
 
+#. Resource IDs: (89)
+msgid "Fix case of item and do not add it"
+msgstr "Fiksira slučaj stavke i ne dodaje je"
+
 #. Resource IDs: (1315)
 msgid "Floppy drives (A: B:)"
 msgstr "Disketa (A: B:)"
@@ -4217,6 +4248,10 @@ msgstr "Sakri uglavljeni prozor"
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
 msgstr "Sakri skript dok se izvršava"
+
+#. Resource IDs: (32830)
+msgid "Hide unused &branches"
+msgstr "Krije nekorišćene &grane"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -4684,6 +4719,11 @@ msgstr ""
 "Uvozim imenik %s\r\n"
 "u %s"
 
+#. Resource IDs: (613)
+#, c-format
+msgid "Import to %1"
+msgstr "Uvoz u %1"
+
 #. Resource IDs: (120)
 #, c-format
 msgid "Importing file %s"
@@ -5023,6 +5063,10 @@ msgstr "&Statusna tabla"
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
 msgstr "Zaključavanje"
+
+#. Resource IDs: (208)
+msgid "Lock Date"
+msgstr "Zaključaj Datum"
 
 #. Resource IDs: (191)
 msgid "Lock Files"
@@ -5435,6 +5479,11 @@ msgstr "Ovđe premesti uz promenu imena"
 #. Resource IDs: (103)
 msgid "Move items to here"
 msgstr "Premesti stavke ovde"
+
+#. Resource IDs: (613)
+#, c-format
+msgid "Move to %1"
+msgstr "Premesti u %1"
 
 #. Resource IDs: (209)
 msgid "Move to changelist"
@@ -6451,6 +6500,10 @@ msgid "Remove %s"
 msgstr "Ukloni %s"
 
 #. Resource IDs: (2052)
+msgid "Remove all branches that did not modify the item"
+msgstr "Uklanja sve grane koje nisu izmenile stavku"
+
+#. Resource IDs: (2052)
 msgid "Remove deleted branches and tags"
 msgstr "Ukloni obrisane grane i oznake"
 
@@ -7354,6 +7407,10 @@ msgstr "Prikaži  alatpult za brzi pristup ispod trake"
 msgid "Show Screen&Tips on toolbars"
 msgstr "Pokaži ekran&Vrh na alatpultu"
 
+#. Resource IDs: (32831)
+msgid "Show WC &modifications"
+msgstr "Prikaži RK &izmene"
+
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
 msgstr "Prikaži pregled celog grafa"
@@ -7389,6 +7446,10 @@ msgstr "Prikaži brojeve lini&ja"
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
 msgstr "Prikaži počevši od najstarijeg čvora"
+
+#. Resource IDs: (2052)
+msgid "Show only the changed parts of the path name. Replace unchanged elements with dots."
+msgstr "Prikazuje samo izmenjene delove imena putanja. Zamenjuje neizmenjene elemente tačkama."
 
 #. Resource IDs: (2054)
 msgid ""
@@ -8271,11 +8332,11 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Their file:"
-msgstr "NJihova fajl:"
+msgstr "NJihov fajl:"
 
 #. Resource IDs: (263)
 msgid "Theirs"
-msgstr "NJihovo"
+msgstr "NJihov"
 
 #. Resource IDs: (169)
 msgid ""
@@ -8870,7 +8931,7 @@ msgstr "Koristi &jedinstveni pogled kao uobičajeni za pregled razlika 2 fajla"
 
 #. Resource IDs: (251)
 msgid "Use &other text block"
-msgstr "Koristi &njihov blok teksta"
+msgstr "Koristi &drugi blok teksta"
 
 #. Resource IDs: (1126)
 msgid "Use &text viewer to view blames"
@@ -8972,19 +9033,19 @@ msgstr "Koristi blok teksta iz '&moje'"
 
 #. Resource IDs: (251)
 msgid "Use text block from '&theirs'"
-msgstr "Koristi blok teksta iz '&njihovo'"
+msgstr "Koristi blok teksta iz '&njihov'"
 
 #. Resource IDs: (251)
 msgid "Use text block from 'm&ine' before 'theirs'"
-msgstr "Koristi blok teksta iz 'm&oje' pre 'njihovo'"
+msgstr "Koristi blok teksta iz 'm&oje' pre 'njihov'"
 
 #. Resource IDs: (2052)
 msgid ""
 "Use text block from 'mine' before 'theirs'\n"
 "Use 'mine' text block then 'theirs'"
 msgstr ""
-"Koristi blok teksta iz 'moja' pre 'njihova'\n"
-"Koristi 'moja' blok tekst, pa onda  'njihova'"
+"Koristi blok teksta iz 'moj' pre 'njihov'\n"
+"Koristi 'moj' blok tekst, pa onda  'njihov'"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -9003,16 +9064,16 @@ msgid ""
 "Use text block from 'theirs' before 'mine'\n"
 "Use 'theirs' text block then 'mine'"
 msgstr ""
-"Koristi blok teksta iz 'njihova' pre 'moja'\n"
-"'NJihova' tekst blok pre 'moja'"
+"Koristi blok teksta iz 'njihov' pre 'moj'\n"
+"'NJihov' tekst blok pre 'moj'"
 
 #. Resource IDs: (2052)
 msgid ""
 "Use text block from 'theirs'\n"
 "Use 'theirs' text block"
 msgstr ""
-"Koristi blok teksta iz 'njihova'\n"
-"Koristi 'njihova' tekst blok"
+"Koristi blok teksta iz 'njihov'\n"
+"Koristi 'njihov' tekst blok"
 
 #. Resource IDs: (32820)
 msgid "Use text block from \"&mine\""
@@ -9020,11 +9081,11 @@ msgstr "Koristi blok teksta iz \"&moje\""
 
 #. Resource IDs: (32819)
 msgid "Use text block from \"&theirs\""
-msgstr "Koristi blok teksta iz \"&njihovo\""
+msgstr "Koristi blok teksta iz \"&njihov\""
 
 #. Resource IDs: (32822)
 msgid "Use text block from \"m&ine\" before \"theirs\""
-msgstr "Koristi blok teksta iz \"m&oje\" pre \"njihovo\""
+msgstr "Koristi blok teksta iz \"m&oj\" pre \"njihov\""
 
 #. Resource IDs: (32821)
 msgid "Use text block from \"t&heirs\" before \"mine\""
@@ -9035,8 +9096,8 @@ msgid ""
 "Use text block from the left view\n"
 "Use left block"
 msgstr ""
-"Koristi blok teksta iz \"moja\" pre \"njihova\"\n"
-"blok teksta iz \"moja\", pa onda iz \"njihova\""
+"Koristi blok teksta iz \"moj\" pre \"njihov\"\n"
+"blok teksta iz \"moj\", pa onda iz \"njihov\""
 
 #. Resource IDs: (251)
 msgid "Use th&is text block"
@@ -9347,6 +9408,27 @@ msgstr "Treba da upišete tekst!"
 msgid "You should select an image!"
 msgstr "Treba da odabarete sliku!"
 
+#. Resource IDs: (89)
+#, c-format
+msgid ""
+"You're trying to add the item\n"
+"'%s',\n"
+"but the item\n"
+"'%s'\n"
+"already exists.\n"
+"\n"
+"It seems the item got renamed outside Subversion but only with case changes.\n"
+"Do you really want to add it?"
+msgstr ""
+"Pokušavate da dodate stavku\n"
+"'%s',\n"
+"ali stavka\n"
+"'%s'\n"
+"već postoji.\n"
+"\n"
+"Izgleda da je stavka preimenovana van Subverzije ali sa promenom veličine slova.\n"
+"Da li zaista želite da uradite to?"
+
 #. Resource IDs: (195)
 #, c-format
 msgid ""
@@ -9465,6 +9547,14 @@ msgstr "Udalji"
 #. Resource IDs: (2051)
 msgid "Zoom to fit"
 msgstr "Zumiraj da se uklopi"
+
+#. Resource IDs: (2051)
+msgid "Zoom to fit in height"
+msgstr "Zumiraj da se uklopi po visini"
+
+#. Resource IDs: (2051)
+msgid "Zoom to fit in width"
+msgstr "Zumiraj da se uklopi po širini"
 
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
@@ -9630,6 +9720,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "copied:"
 msgstr "kopirano:"
+
+#. Resource IDs: (245)
+msgid "day"
+msgstr "dan"
 
 #. Resource IDs: (10, 272)
 msgid "deleted"
