@@ -53,6 +53,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <li><a href="#ovlsubst">Why are the overlay icons on SUBSTed drives messed up?</a></li>
 <li><a href="#ovlwrong">Why are the overlays showing the wrong status?</a></li>
 <li><a href="#ovlmessed">Why do the overlay icons sometimes change to random graphics?</a></li>
+<li><a href="#ovlremote">Why is there no overlay for 'update available' or 'locked by others'?</a></li>
 </ul>
 
 <h4>General questions:</h4>
@@ -290,6 +291,21 @@ The Windows icon cache is a fairly buggy creature. You can solve this in one of 
 <li>With TortoiseSVN 1.3.0 and later, you can also rebuild the icon cache by calling TortoiseProc from the command line like this <code>TortoiseProc.exe /command:rebuildiconcache</code></li>
 </ul>
 </div>
+
+<div class="h3" id="ovlremote" title="ovlremote">
+<h3>Why is there no overlay for 'update available' or 'locked by others'?</h3>
+<p>
+To show such an overlay, TortoiseSVN would have to contact the repository every time the overlay is shown. 
+That would make explorer impossibly slow. Servers often take several seconds to respond, 
+sometimes minutes - do you really want explorer to hang while that takes place, 
+every time you open a versioned folder?</p>
+<p>A fundamental design feature of TortoiseSVN is that the repository is never 
+contacted except when explicitly requested by one of the context menu items. 
+Even with that restriction, it is still hard work maintaining a fast response.</p>
+<p>If you want to see which users have files locked in their working copies or which files need updating, 
+use the Check for Modifications dialog and click on the Check repository button.</p>
+</div>
+
 
 </div>
 
