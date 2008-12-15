@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2008-12-13 23:19 +0000\n"
+"POT-Creation-Date: 2008-12-15 10:25 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4523,18 +4523,8 @@ msgid "Click on the search icon to select which information you want to search i
 msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:6076
-#.(emphasis)
-msgid "not"
-msgstr ""
-
-#: ../source/TortoiseSVN_en.xml:6078
-#.(literal)
-msgid "!username"
-msgstr ""
-
-#: ../source/TortoiseSVN_en.xml:6079
-#.(literal)
-msgid "username"
+#.(para)
+msgid "To make the filter show all log entries that do <emphasis>not</emphasis> match the filter string, start the string with an exclamation mark ('!'). For example, a filter string <literal>!username</literal> will only show those entries which were not committed by <literal>username</literal>."
 msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:6082
@@ -4550,11 +4540,6 @@ msgstr ""
 #: ../source/TortoiseSVN_en.xml:6095
 #.(para)
 msgid "Sometimes your working practices will require log messages to follow a particular format, which means that the text describing the changes is not visible in the abbreviated summary shown in the top pane. The property <literal>tsvn:logsummary</literal> can be used to extract a portion of the log message to be shown in the top pane. Read <xref linkend=\"tsvn-dug-propertypage-tsvn-props\"/> to find out how to use this property."
-msgstr ""
-
-#: ../source/TortoiseSVN_en.xml:6047
-#.(sect2)
-msgid "<placeholder-1/><indexterm significance=\"normal\"><placeholder-2/></indexterm><placeholder-3/><placeholder-4/> To make the filter show all log entries that do <placeholder-5/> match the filter string, start the string with an exclamation mark ('!'). For example, a filter string <placeholder-6/> will only show those entries which were not committed by <placeholder-7/>. <placeholder-8/><placeholder-9/><placeholder-10/><placeholder-11/>"
 msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:6107
