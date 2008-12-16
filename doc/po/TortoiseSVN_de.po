@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-12-15 10:25 +0000\n"
-"PO-Revision-Date: 2008-12-15 11:41+0100\n"
+"PO-Revision-Date: 2008-12-16 10:41+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5279,7 +5279,7 @@ msgstr "Klicken Sie auf das Suchsymbol, um auszuwählen welche Werte Sie durchsu
 #. (para)
 #: ../source/TortoiseSVN_en.xml:6076
 msgid "To make the filter show all log entries that do <emphasis>not</emphasis> match the filter string, start the string with an exclamation mark ('!'). For example, a filter string <literal>!username</literal> will only show those entries which were not committed by <literal>username</literal>."
-msgstr ""
+msgstr "Damit der Filter alle Einträge anzeigt, die <emphasis>nicht</emphasis> mit dem Suchtext übereinstimmen, beginnen Sie den Suchtext mit einem Ausrufezeichen ('!'). Zum Beispiel würde der Suchtext <literal>!Harry</literal> nur die Einträge anzeigen, die nicht durch <literal>Harry</literal> übertragen wurden."
 
 #. (para)
 #: ../source/TortoiseSVN_en.xml:6082
@@ -6073,7 +6073,7 @@ msgstr "Keine Pfade in der globalen ignorieren Liste"
 #. (para)
 #: ../source/TortoiseSVN_en.xml:7021
 msgid "You should not include path information in your pattern. The pattern matching is intended to be used against plain file names and folder names. If you want to ignore all <literal>CVS</literal> folders, just add <literal>CVS</literal> to the ignore list. There is no need to specify <literal>CVS */CVS</literal> as you did in earlier versions. If you want to ignore all <literal>tmp</literal> folders when they exist within a <literal>prog</literal> folder but not within a <literal>doc</literal> folder you should use the <literal>svn:ignore</literal> property instead. There is no reliable way to achieve this using global ignore patterns."
-msgstr ""
+msgstr "Sie sollten keine Pfadinformationen in die Muster einschließen. Der Algorithmus vergleicht mit reinen Datei- oder Ordnernamen. Wenn Sie alle <literal>CVS</literal> Ordner ignorieren wollen, fügen Sie einfach <literal>CVS</literal> zur ignorieren Liste hinzu. Es ist nicht nötig, wie in älteren Versionen, <literal>CVS */CVS</literal> anzugeben. Wenn Sie alle <literal>tmp</literal> Verzeichnise in einem <literal>prog</literal> Ordner, aber nicht in einem <literal>doc</literal> Ordner ignorieren wollen, sollten Sie die <literal>svn:ignore</literal> Eigenschaft des Ordners verwenden. Es gibt keinen zuverlässigen Weg, dies durch globale Ignoriermuster zu erreichen."
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:7039
