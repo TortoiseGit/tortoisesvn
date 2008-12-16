@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-12 10:18+0900\n"
+"PO-Revision-Date: 2008-12-16 14:21+0900\n"
 "Last-Translator: Kim TaeDong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3131,6 +3131,10 @@ msgstr "그리기"
 msgid "Drive Types"
 msgstr "드라이브 종류"
 
+#. Resource IDs: (1315)
+msgid "Drives A: and B:"
+msgstr "드라이브 A: 와 B:"
+
 #. Resource IDs: (613)
 #, c-format
 msgid "Drop not possible on %1"
@@ -3779,10 +3783,6 @@ msgstr "이미지 사이즈를 서로 맞추기(&S)"
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
 msgstr "아이템의 대소문자를 수정하고 추가하지 않기"
-
-#. Resource IDs: (1315)
-msgid "Floppy drives (A: B:)"
-msgstr "플로피 드라이브 (A: B:)"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
@@ -10046,6 +10046,8 @@ msgstr "예"
 msgid "{BugTraq}"
 msgstr "{버그트랙}"
 
+#~ msgid "Floppy drives (A: B:)"
+#~ msgstr "플로피 드라이브 (A: B:)"
 #~ msgid ""
 #~ "On copy and rename nodes, show only the changed parts of the path name"
 #~ msgstr ""
