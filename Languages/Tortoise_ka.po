@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-16 21:59+0300\n"
+"PO-Revision-Date: 2008-12-16 22:38+0300\n"
 "Last-Translator: Giasher <giasher@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -416,7 +416,7 @@ msgstr "&ბრძანება:"
 
 #. Resource IDs: (8)
 msgid "&Commit..."
-msgstr "&ფიქსირება..."
+msgstr "&ფიქსაცია..."
 
 #. Resource IDs: (101)
 msgid "&Compare URLs"
@@ -874,7 +874,7 @@ msgstr "&გადარქმევა"
 
 #. Resource IDs: (1316)
 msgid "&Reopen commit and branch/tag dialog after a commit failed"
-msgstr "ფიქსირებისა და განშტოების/ჭდის დიალოგის &ხელახლა გახსნა წარუმატებელი ფიქსირებისას"
+msgstr "ფიქსაციის და განშტოების/ჭდის დიალოგის &ხელახლა გახსნა წარუმატებელი ფიქსაციისა"
 
 #. Resource IDs: (13)
 msgid "&Repo-browser"
@@ -1130,7 +1130,7 @@ msgstr "&სამუშაო ასლი"
 
 #. Resource IDs: (338)
 msgid "'skip ranges' are used to mark revision ranges that have not been cached yet"
-msgstr "'გამოტოვებული დიაპაზონები' გამოიუენება ჯერ კიდევ არაბაფერირებული ვერსიათა დიაპაზონების მისათითებლად"
+msgstr "'გამოტოვებული დიაპაზონები' გამოიყენება ჯერ კიდევ არაბუფერირებული ვერსიათა დიაპაზონების მისათითებლად"
 
 #. Resource IDs: (272)
 #, c-format
@@ -2291,15 +2291,15 @@ msgstr "ბრძანებები"
 
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
-msgstr "ფიქსირება..."
+msgstr "ფიქსაცია..."
 
 #. Resource IDs: (77)
 msgid "Commit - TortoiseSVN"
-msgstr "ფიქსირება - TortoiseSVN"
+msgstr "ფიქსაცია - TortoiseSVN"
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
-msgstr "ფიქსირება აქ"
+msgstr "ფიქსაცია აქ"
 
 #. Resource IDs: (209)
 msgid "Commit..."
@@ -2307,19 +2307,19 @@ msgstr "ფიქსაცია..."
 
 #. Resource IDs: (244)
 msgid "Commits by author"
-msgstr "ფიქსირება ავტორებით:"
+msgstr "ფიქსაცია ავტორებით:"
 
 #. Resource IDs: (244)
 msgid "Commits by date"
-msgstr "ფიქსირება თარიღით:"
+msgstr "ფიქსაცია თარიღით:"
 
 #. Resource IDs: (1135)
 msgid "Commits each week:"
-msgstr "ფიქსირება ყოველკვირეულად:"
+msgstr "ფიქსაცია ყოველკვირეულად:"
 
 #. Resource IDs: (9)
 msgid "Commits your changes to the repository"
-msgstr "თქვენი ცვლილებების საცავში ფიქსირება"
+msgstr "თქვენი ცვლილებების საცავში ფიქსაცია"
 
 #. Resource IDs: (170)
 msgid ""
@@ -2364,7 +2364,7 @@ msgstr "შედარება წინა ვერსიასთან"
 
 #. Resource IDs: (12)
 msgid "Compares the file with the last committed revision to show you the changes you made"
-msgstr "ფაილის შედარება ბოლო დაფიქსირებულ ვერსიასთან ცვლილებების სანახავად"
+msgstr "ფაილის შედარება ბოლო ფიქსირებულ ვერსიასთან ცვლილებების სანახავად"
 
 #. Resource IDs: (17)
 msgid "Compares the selected file with a file in the repository"
@@ -3759,7 +3759,7 @@ msgid ""
 "(separate multiple paths with the '*' char):"
 msgstr ""
 "შემდეგი კონტექსტის შემცველი გეზების გაფილტვრა\n"
-"(სხვადასხვა გეზის გამოყავით '*' სიმბოლოთი):"
+"(სხვადასხვა გეზები გამოყავით '*' სიმბოლოთი):"
 
 #. Resource IDs: (321)
 msgid "Filter paths"
@@ -4353,7 +4353,7 @@ msgid ""
 "If checked, the commit dialog will be started again automatically after an error,\r\n"
 "while preserving your last selection and log message."
 msgstr ""
-"თუ ჩართულია, ფიქსირების დიალოგი შეცდომის შემდეგ ავტომატურად დაიწყება,\r\n"
+"თუ ჩართულია, ფიქსაციის დიალოგი შეცდომის შემდეგ ავტომატურად დაიწყება,\r\n"
 "ბოლო მონიშვნებისა და დავთრის ჩანაწერების შენარჩუნებით."
 
 #. Resource IDs: (194)
@@ -4390,7 +4390,7 @@ msgid ""
 "were last committed. If not set, TortoiseSVN uses the current time."
 msgstr ""
 "თუ ჩართულია, TortoiseSVN ფაილების დროს მათი ბოლო\r\n"
-"ფიქსირებით მიუთითებს. თუ ამორთულია – მიმდინარე დროით."
+"ფიქსაციით მიუთითებს. თუ ამორთულია – მიმდინარე დროით."
 
 #. Resource IDs: (196)
 msgid ""
@@ -4398,7 +4398,7 @@ msgid ""
 "The status control is used for example in the commit dialog."
 msgstr ""
 "თუ ჩართულია, სტატუსის კონტროლში ფაილების არავერსიულ დასტაში ჩვენება შეიძლება.\r\n"
-"სტატუსის კონტროლი გამოიყენება, მაგალითად, ფიქსირების დიალოგში."
+"სტატუსის კონტროლი გამოიყენება, მაგალითად, ფიქსაციის დიალოგში."
 
 #. Resource IDs: (196)
 msgid ""
@@ -5438,10 +5438,10 @@ msgid ""
 "Check one or more settings below to see unversioned, ignored and/or unmodified files.\n"
 "To see remote changes, click on 'Check Repository'"
 msgstr ""
-"არაა ასასახი ფაილები ამ პარამეტრებით.\n"
+"ასახვისთვის ფაილები ამ პარამეტრებით არაა.\n"
 "შეცვალეთ ერთი ან რამდენიმე პარამეტრი არავერსიული, გამოტოვებული\n"
-"ანდა შეუცვლელი ფაილების საჩვენებლად.\n"
-"დაშორებული ცვლილებების საჩვენებლად დაწკაპეთ 'საცავის შემოწმება'"
+"ანდა უცვლელი ფაილების საჩვენებლად.\n"
+"დაშორებული ცვლილებების საჩვენებლად დაწკაპეთ «საცავის შემოწმება»"
 
 #. Resource IDs: (77)
 msgid ""
@@ -5449,7 +5449,7 @@ msgid ""
 "the last commit. There's nothing\n"
 "for TortoiseSVN to do here..."
 msgstr ""
-"ბოლო ფიქსირების შემდეგ არცერთი \n"
+"ბოლო ფიქსაციის შემდეგ არცერთი \n"
 "ფაილი არ შეცვლილა ან დამატებულა.\n"
 "TortoiseSVN–ს აქ არაფერი ესაქმება..."
 
@@ -5460,7 +5460,7 @@ msgid ""
 "for TortoiseSVN to do here...\n"
 "Do you want to see the unversioned files?"
 msgstr ""
-"ბოლო ფიქსირების შემდეგ არცერთი \n"
+"ბოლო ფიქსაციის შემდეგ არცერთი \n"
 "ფაილი არ შეცვლილა ან დამატებულა.\n"
 "TortoiseSVN–ს აქ არაფერი ესაქმება...\n"
 "გნებავთ არავერსიული ფაილების ნახვა?"
@@ -5912,7 +5912,7 @@ msgstr "პორტი:"
 
 #. Resource IDs: (569)
 msgid "Post-Commit Hook"
-msgstr "ფიქსირებისშემდგომი ბმული"
+msgstr "ფიქსაციისშემდგომი ბმული"
 
 #. Resource IDs: (570)
 msgid "Post-Update Hook"
@@ -5924,7 +5924,7 @@ msgstr "&წინა გვერდი"
 
 #. Resource IDs: (569)
 msgid "Pre-Commit Hook"
-msgstr "ბმული ფიქსირებამდე"
+msgstr "ბმული ფიქსაციამდე"
 
 #. Resource IDs: (570)
 msgid "Pre-Update Hook"
@@ -6227,7 +6227,7 @@ msgstr ""
 "$   : სტრიქონის ბოლო\r\n"
 "(string){n} : სტრიქონის n თანხვედრა\r\n"
 "(abcd)   : ქვეგამოსახულება\r\n"
-"[aei0-9]   : თანხვედრა a,e,i and 0..9\r\n"
+"[aei0-9]   : თანხვედრა a,e,i და 0..9\r\n"
 "[^aei0-9] : ყველა გარდა a,e,i და 0..9\r\n"
 "\r\n"
 "\\w   : თანხვედრა a-z,A-Z,0-9 და _\r\n"
@@ -7079,7 +7079,7 @@ msgstr "დამა&ჩქარებლის მითითება:"
 
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
-msgstr "ფაილთა თარიღებად «ბოლო ფიქსირების &დრო»-ის მითითება"
+msgstr "ფაილთა თარიღებად «ბოლო ფიქსაციის &დრო»-ის მითითება"
 
 #. Resource IDs: (127)
 #, c-format
@@ -7427,7 +7427,7 @@ msgstr "გამოტოვებული მცდარი სამიზ�
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
-msgstr "დახარისხება ფიქსირებათა რაოდენობით"
+msgstr "დახარისხება ფიქსაციათა რაოდენობით"
 
 #. Resource IDs: (196)
 msgid "Specifies how many items you want to keep in the most recent log messages dialog."
@@ -7485,7 +7485,7 @@ msgstr "სტანდარტი"
 
 #. Resource IDs: (569)
 msgid "Start Commit Hook"
-msgstr "ბმულის ფიქსირების დაწყება"
+msgstr "ბმულის ფიქსაციის დაწყება"
 
 #. Resource IDs: (65535)
 msgid "Start Revision"
@@ -8299,8 +8299,8 @@ msgid ""
 msgstr ""
 "რეკურსიული შემოწმებისა და შეცდომის თავიდან ასაცილებლად,\n"
 "გადაამოწმეთ, რომ მონიშნული დასტის ყველა ქვეელემენტი\n"
-"ასევე მონიშნული ფიქსირების დიალოგშიც.\n"
-"სხვა შემთხვევაში პროგრამამ არარეკურსიული ფიქსირება უნდა\n"
+"ასევე მონიშნული ფიქსაციის დიალოგშიც.\n"
+"სხვა შემთხვევაში პროგრამამ არარეკურსიული ფიქსაცია უნდა\n"
 "განახორციელოს, რომლის დროსაც დასტის წაშლა იკრძალება."
 
 #. Resource IDs: (284)
@@ -9199,7 +9199,7 @@ msgid ""
 "Are you sure you want to commit without an issue number?"
 msgstr ""
 "პრობლემის ნომერი არ მიგითითებიათ!\n"
-"ნამდვილად გსურთ ფაილ(ებ)ის ფიქსირება პრობლემის ნომრის გარეშე?"
+"ნამდვილად გსურთ ფაილ(ებ)ის ფიქსაცია პრობლემის ნომრის გარეშე?"
 
 #. Resource IDs: (1002)
 #, c-format
@@ -9216,7 +9216,7 @@ msgid ""
 "The file will be added to version control when you commit."
 msgstr ""
 "თქვენ აირჩიეთ არავერსიული ფაილი.\n"
-"ეს ფაილი ფიქსირებისას საკონტროლო ვერსიას დაემატება."
+"ეს ფაილი ფიქსაციისას საკონტროლო ვერსიას დაემატება."
 
 #. Resource IDs: (1001)
 msgid "You should enter a text!"
