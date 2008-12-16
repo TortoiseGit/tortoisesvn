@@ -276,13 +276,11 @@ This will only build the english HTML help file for TortoiseSVN
 
 			<echo message="" file="${help.context}" append="true"/>
 			<echo message="// Frame Controls xyxzy(IDW_*)" file="${help.context}" append="true"/>
-<!--
 			<exec program="makehm"
 						commandline="/h /a afxhh.h IDW_,HIDW_,0x50000 ${headerfile}"
 						output="${help.context}"
 						append="true"
 						verbose="false" />
--->
 		</if>
 
 		<!-- Copy help context to target location -->
