@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-10 10:59+0100\n"
+"PO-Revision-Date: 2008-12-16 11:05+0100\n"
 "Last-Translator: Grokwik <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3141,6 +3141,10 @@ msgstr "Dessiner"
 msgid "Drive Types"
 msgstr "Types de disque"
 
+#. Resource IDs: (1315)
+msgid "Drives A: and B:"
+msgstr "Lecteurs A: et B:"
+
 #. Resource IDs: (613)
 #, c-format
 msgid "Drop not possible on %1"
@@ -3787,10 +3791,6 @@ msgstr "Ajus&ter les images ensemble"
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
 msgstr "Corrige la casse de l'élément et ne l'ajoute pas"
-
-#. Resource IDs: (1315)
-msgid "Floppy drives (A: B:)"
-msgstr "Lecteurs de disquettes (A: B:)"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
@@ -10067,6 +10067,8 @@ msgstr "oui"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Floppy drives (A: B:)"
+#~ msgstr "Lecteurs de disquettes (A: B:)"
 #~ msgid ""
 #~ "On copy and rename nodes, show only the changed parts of the path name"
 #~ msgstr ""
