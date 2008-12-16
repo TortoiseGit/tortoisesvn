@@ -272,7 +272,16 @@ BOOL CLogDlg::OnInitDialog()
 	GetDlgItem(IDC_MSGVIEW)->SendMessage(EM_AUTOURLDETECT, TRUE, NULL);
 	// make the log message rich edit control send a message when the mouse pointer is over a link
 	GetDlgItem(IDC_MSGVIEW)->SendMessage(EM_SETEVENTMASK, NULL, ENM_LINK);
-	m_LogList.SetExtendedStyle(LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_SUBITEMIMAGES);
+	DWORD dwStyle = LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_SUBITEMIMAGES;
+
+	// we *could* enable checkboxes on pre Vista OS too, but those don't have
+	// the LVS_EX_AUTOCHECKSELECT style. Without that style, users could get
+	// very confused because selected items are not checked.
+	// Also, while handling checkboxes is implemented, most code paths in this
+	// file still only work on the selected items, not the checked ones.
+	if (m_bSelect && SysInfo::Instance().IsVistaOrLater())
+		dwStyle |= LVS_EX_CHECKBOXES | 0x08000000 /*LVS_EX_AUTOCHECKSELECT*/;
+	m_LogList.SetExtendedStyle(dwStyle);
 
 	// the "hide unrelated paths" checkbox should be indeterminate
 	m_cHidePaths.SetCheck(BST_INDETERMINATE);
@@ -2254,14 +2263,17 @@ void CLogDlg::OnBnClickedHelp()
 
 void CLogDlg::ToggleCheckbox(int item)
 {
-	PLOGENTRYDATA pLogEntry = NULL;
-	if (item < m_arShownList.GetCount())
+	if (!SysInfo::Instance().IsVistaOrLater())
 	{
-		pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(item));
-		if (pLogEntry)
+		PLOGENTRYDATA pLogEntry = NULL;
+		if (item < m_arShownList.GetCount())
 		{
-			pLogEntry->bChecked = !pLogEntry->bChecked;
-			m_LogList.RedrawItems(item, item);
+			pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(item));
+			if (pLogEntry)
+			{
+				pLogEntry->bChecked = !pLogEntry->bChecked;
+				m_LogList.RedrawItems(item, item);
+			}
 		}
 	}
 }
@@ -2293,6 +2305,16 @@ void CLogDlg::OnLvnItemchangedLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		{
 			FillLogMessageCtrl();
 			UpdateData(FALSE);
+			if (SysInfo::Instance().IsVistaOrLater())
+			{
+				PLOGENTRYDATA pLogEntry = NULL;
+				if (pNMLV->iItem < m_arShownList.GetCount())
+					pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(pNMLV->iItem));
+				if (pLogEntry)
+				{
+					pLogEntry->bChecked = (pNMLV->uNewState & LVIS_SELECTED) != 0;
+				}
+			}
 		}
 	}
 	else
@@ -2396,7 +2418,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 					if (data->bCopiedSelf)
 					{
 						// only change the background color if the item is not 'hot' (on vista with themes enabled)
-						if (!theme.IsAppThemed() || !SysInfo::Instance().IsVista() || ((pLVCD->nmcd.uItemState & CDIS_HOT)==0))
+						if (!theme.IsAppThemed() || !SysInfo::Instance().IsVistaOrLater() || ((pLVCD->nmcd.uItemState & CDIS_HOT)==0))
 							pLVCD->clrTextBk = GetSysColor(COLOR_MENU);
 					}
 					if (data->bCopies)
@@ -2454,7 +2476,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 				m_LogList.GetSubItemRect(pLVCD->nmcd.dwItemSpec, pLVCD->iSubItem, LVIR_BOUNDS, rect);
 
 				// Fill the background
-				if (theme.IsAppThemed() && SysInfo::Instance().IsVista())
+				if (theme.IsAppThemed() && SysInfo::Instance().IsVistaOrLater())
 				{
 					theme.Open(m_hWnd, L"Explorer");
 					int state = LISS_NORMAL;
