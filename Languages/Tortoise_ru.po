@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2008
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 14727: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 14854: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-10 13:46+0300\n"
+"PO-Revision-Date: 2008-12-16 16:28+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3218,6 +3218,10 @@ msgstr "Рисование"
 msgid "Drive Types"
 msgstr "Типы накопителей"
 
+#. Resource IDs: (1315)
+msgid "Drives A: and B:"
+msgstr "Диски A: и B:"
+
 #. Resource IDs: (613)
 #, c-format
 msgid "Drop not possible on %1"
@@ -3870,10 +3874,6 @@ msgstr "&Подогнать размеры изображений"
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
 msgstr "Исправить регистр элемента и не добавлять его"
-
-#. Resource IDs: (1315)
-msgid "Floppy drives (A: B:)"
-msgstr "Гибкие диски (A: B:)"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
@@ -10215,6 +10215,8 @@ msgstr "да"
 msgid "{BugTraq}"
 msgstr "{СОП}"
 
+#~ msgid "Floppy drives (A: B:)"
+#~ msgstr "Гибкие диски (A: B:)"
 #~ msgid ""
 #~ "On copy and rename nodes, show only the changed parts of the path name"
 #~ msgstr ""
