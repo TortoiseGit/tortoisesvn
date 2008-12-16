@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-10 09:46+0100\n"
+"PO-Revision-Date: 2008-12-16 15:48+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3056,7 +3056,7 @@ msgstr "Disken ble full under tilgang til %1."
 #. Resource IDs: (3860)
 #, c-format
 msgid "Dispatch exception: %1"
-msgstr "\"Sendt videre\"-unntak: %1"
+msgstr "Send videre unntak: %1"
 
 #. Resource IDs: (65535)
 msgid "Display &buttons in this order"
@@ -3188,6 +3188,10 @@ msgstr "Tegn"
 #. Resource IDs: (1079)
 msgid "Drive Types"
 msgstr "Stasjonstyper"
+
+#. Resource IDs: (1315)
+msgid "Drives A: and B:"
+msgstr "Stasjoner A: og B:"
 
 #. Resource IDs: (613)
 #, c-format
@@ -3837,10 +3841,6 @@ msgstr "Tilpass bilde&størrelser"
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
 msgstr "Fiks store/små bokstaver i elementet og ikke legg det til"
-
-#. Resource IDs: (1315)
-msgid "Floppy drives (A: B:)"
-msgstr "Diskettstasjoner (A: B:)"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
@@ -6924,7 +6924,7 @@ msgstr "Søkestrengen ble ikke funnet!"
 #. Resource IDs: (3867)
 #, c-format
 msgid "Seek failed on %1"
-msgstr "\"Seek\"-funsjon feilet på %1"
+msgstr "Søk feilet på %1"
 
 #. Resource IDs: (376)
 msgid "Select &All"
@@ -8162,7 +8162,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Their file:"
-msgstr "\"Deres\" fil:"
+msgstr "Deres fil:"
 
 #. Resource IDs: (263)
 msgid "Theirs"
@@ -10104,6 +10104,8 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Floppy drives (A: B:)"
+#~ msgstr "Diskettstasjoner (A: B:)"
 #~ msgid "Only record the merge"
 #~ msgstr "Bare ta opp flettingen"
 #~ msgid "(deleted) %s"
