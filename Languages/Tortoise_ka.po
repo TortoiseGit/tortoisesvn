@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-10 17:11+0300\n"
+"PO-Revision-Date: 2008-12-16 21:59+0300\n"
 "Last-Translator: Giasher <giasher@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -272,7 +272,7 @@ msgstr "&..."
 
 #. Resource IDs: (57664)
 msgid "&About TortoiseMerge..."
-msgstr "TortoiseMerge &შესახებ..."
+msgstr "TortoiseMerge-ს &შესახებ..."
 
 #. Resource IDs: (16920)
 msgid "&Activate"
@@ -2612,7 +2612,7 @@ msgstr ""
 #. Resource IDs: (3867)
 #, c-format
 msgid "Could not create %1 because the directory is full."
-msgstr "%s1 ელემენტის შექმნა ვერ ხერხდება, რადგან დასტა გადავსებულია."
+msgstr "%1 ელემენტის შექმნა ვერ ხერხდება, რადგან დასტა გადავსებულია."
 
 #. Resource IDs: (582)
 #, c-format
@@ -3135,6 +3135,10 @@ msgstr "გრაფიკა"
 #. Resource IDs: (1079)
 msgid "Drive Types"
 msgstr "დისკების ტიპები"
+
+#. Resource IDs: (1315)
+msgid "Drives A: and B:"
+msgstr "ამძრავები A: და B:"
 
 #. Resource IDs: (613)
 #, c-format
@@ -3784,10 +3788,6 @@ msgstr "გამოსახულებათა &ზომების მო
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
 msgstr "ელემენტის რეგისტრის შეცვლა დამატების გარეშე"
-
-#. Resource IDs: (1315)
-msgid "Floppy drives (A: B:)"
-msgstr "ფლოპის წამყვანები (A: B:)"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
@@ -10092,6 +10092,8 @@ msgstr "დიახ"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Floppy drives (A: B:)"
+#~ msgstr "ფლოპის წამყვანები (A: B:)"
 #~ msgid "Only record the merge"
 #~ msgstr "მხოლოდ შერწყმის ჩანაწერი"
 #~ msgid "(deleted) %s"
@@ -10120,8 +10122,6 @@ msgstr "{BugTraq}"
 #~ msgstr "ბზიკების თვალმიდევნება..."
 #~ msgid "Checking for forward copies"
 #~ msgstr "გადაგზავნილი ასლების შემოწმება"
-
-#, fuzzy
 #~ msgid "Issue Tracker Hook"
 #~ msgstr "ფასიანი ქაღალდების ემისიის თარიღი"
 #~ msgid "Remove..."
