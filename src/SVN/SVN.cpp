@@ -412,6 +412,10 @@ BOOL SVN::Remove(const CTSVNPathList& pathlist, BOOL force, BOOL keeplocal, cons
 		{
 			SHChangeNotify(SHCNE_DELETE, SHCNF_PATH | SHCNF_FLUSHNOWAIT, pathlist[nPath].GetWinPath(), NULL);
 		}
+		else
+		{
+			SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, pathlist[nPath].GetWinPath(), NULL);
+		}
 	}
 
 	return TRUE;
