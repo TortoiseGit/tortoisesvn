@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-15 16:13+0200\n"
+"PO-Revision-Date: 2008-12-17 11:23+0200\n"
 "Last-Translator: Vadim Mikhnevych <vadim.mikhnevych@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3128,6 +3128,10 @@ msgstr "Малювати"
 msgid "Drive Types"
 msgstr "Типи дисків"
 
+#. Resource IDs: (1315)
+msgid "Drives A: and B:"
+msgstr "Диски A: і B:"
+
 #. Resource IDs: (613)
 #, c-format
 msgid "Drop not possible on %1"
@@ -3776,10 +3780,6 @@ msgstr "Підігнати &розміри зображень"
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
 msgstr "Виправити регістр елемента і не додавати його"
-
-#. Resource IDs: (1315)
-msgid "Floppy drives (A: B:)"
-msgstr "Гнучкі диски (A: B:)"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
@@ -8857,7 +8857,7 @@ msgid ""
 "Use 'theirs' text block"
 msgstr ""
 "Використати блок тексту з 'їхнього'\n"
-"Використати їхній' блок тексту"
+"Використати 'їхній' блок тексту"
 
 #. Resource IDs: (32820)
 msgid "Use text block from \"&mine\""
@@ -9806,12 +9806,12 @@ msgid ""
 "Id : A compressed summary of the previous 4 keywords."
 msgstr ""
 "svn:keywords\r\n"
-"Keywords to be expanded. Valid keywords are:\r\n"
-"URL, HeadURL : The URL for the head revision of the object.\r\n"
-"Author, LastChangedBy : The last person to modify the file.\r\n"
-"Date, LastChangedDate : The date/time the object was last modified.\r\n"
-"Rev, LastChangedRevision : The last revision the object changed.\r\n"
-"Id : A compressed summary of the previous 4 keywords."
+"Ключові слова, які слід розгорнути. Допустімі ключові слова:\r\n"
+"URL, HeadURL : URL для HEAD модифікації об'єкта.\r\n"
+"Author, LastChangedBy : Остання людина, що змінювала файл.\r\n"
+"Date, LastChangedDate : Дата/час останньої зміни об'єкта.\r\n"
+"Rev, LastChangedRevision : Остання модифікація, в якій об'єкт змінювався.\r\n"
+"Id : Стислий підсумок попередніх 4 ключових слів."
 
 #. Resource IDs: (576)
 msgid ""
@@ -9822,8 +9822,8 @@ msgid ""
 "/trunk:123-125,129"
 msgstr ""
 "svn:mergeinfo\r\n"
-"Список розділеної новими рядками інформаціх про злиття. Кожен рядок\r\n"
-"складається з двокрапки та списку розділених комами номерів модифікацій.\r\n"
+"Список розділеної новими рядками інформаціх про злиття. Кожен рядок складається з\r\n"
+"абсолютного шляху, двокрапки та списку розділених комами номерів модифікацій.\r\n"
 "Наприклад:\r\n"
 "/trunk:123-125,129"
 
@@ -9932,7 +9932,7 @@ msgid ""
 "Minimum size in chars a log message must have before a commit is allowed."
 msgstr ""
 "tsvn:logminsize\r\n"
-"Мінімальна кількість символів у логовому повідомленні, за якої дозволяєтсья фіксація."
+"Мінімальна кількість символів у логовому повідомленні, за якої дозволяється фіксація."
 
 #. Resource IDs: (578)
 msgid ""
@@ -10056,6 +10056,8 @@ msgstr "так"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Floppy drives (A: B:)"
+#~ msgstr "Гнучкі диски (A: B:)"
 #~ msgid ""
 #~ "On copy and rename nodes, show only the changed parts of the path name"
 #~ msgstr ""
