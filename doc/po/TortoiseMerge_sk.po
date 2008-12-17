@@ -21,8 +21,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-11 23:46 +0000\n"
-"PO-Revision-Date: 2008-07-15 10:05+0100\n"
+"POT-Creation-Date: 2008-11-17 00:14 +0000\n"
+"PO-Revision-Date: 2008-12-17 21:57+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -126,8 +126,8 @@ msgstr "TortoiseMerge je zadarmo. Nemusíte za neho platiť a môžete ho využi
 
 #. (para)
 #: ../source/TortoiseMerge_en.xml:71
-msgid "TortoiseMerge is an Open Source project. That means you have full access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. (Username:guest, for password hit enter) The most recent version (where we're currently working) is located under <filename>/trunk/</filename> the released versions are located under <filename>/tags/</filename>."
-msgstr "TortoiseMerge je projekt s uvolneným kódom (\"Open Source\"). To znamená, že máte plný prístup ku zdrojovým kódom tohoto programu. Môžete ho prehliadať na tejto linke <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. (Uživateľ:guest, a prázdne heslo) Najaktuálnejšia verzia, ( na ktorej práve pracuejeme, ) je umiestnená pod <filename>/trunk/</filename> vydané verzie sú umiestnené pod <filename>/tags/</filename>."
+msgid "TortoiseMerge is an Open Source project. That means you have full read access to the source code of this program. You can browse it on this link <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. You will be prompted to enter username and password. The username is <literal>guest</literal>, and the password must be left blank. The most recent version (where we're currently working) is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
+msgstr "TortoiseMerge je projekt s uvolneným kódom (\"Open Source\"). To znamená, že máte plný prístup ku zdrojovým kódom tohoto programu. Môžete ho prehliadať na tejto linke <ulink url=\"http://tortoisesvn.tigris.org/svn/tortoisesvn/\"><citetitle>http://tortoisesvn.tigris.org/svn/tortoisesvn/</citetitle></ulink>. (Uživateľ:guest, a prázdne heslo) Najaktuálnejšia verzia, (na ktorej práve pracuejeme, ) je umiestnená pod <filename>/trunk/</filename> vydané verzie sú umiestnené pod <filename>/tags/</filename>."
 
 #. (title)
 #: ../source/TortoiseMerge_en.xml:90
@@ -1200,8 +1200,8 @@ msgstr "Zlúčené"
 # merged
 #. (entry)
 #: ../source/TortoiseMerge_en.xml:1262
-msgid "Specifies the resulting <placeholder-1/> file used in three way diffs. This is the filepath where the result of the merge/conflict resolving is saved. If this is not set, then TortoiseMerge will ask the user where to save the result."
-msgstr "Udáva výsledný <placeholder-1/> súbor pre trojcestné porovnanie. Toto je cesta k súboru kde bude uložený výsledok zlučovania/riešenia konfliktov. Ak nieje udané, TortoiseMerge sa pri ukladaní súboru opýta uživaľa kam výsledok uložiť."
+msgid "Specifies the resulting <placeholder-1/> file used in three way diffs. This is the file path where the result of the merge/conflict resolving is saved. If this is not set, then TortoiseMerge will ask the user where to save the result."
+msgstr "Udáva výsledný <placeholder-1/> súbor pre trojcestné porovnanie. Toto je cesta k súboru kde bude uložený výsledok zlučovania/riešenia konfliktov. Ak nie je udané, TortoiseMerge sa pri ukladaní súboru opýta uživaľa kam výsledok uložiť."
 
 # merged
 #. (entry)

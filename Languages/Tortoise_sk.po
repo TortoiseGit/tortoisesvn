@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-10 14:42+0100\n"
+"PO-Revision-Date: 2008-12-15 10:50+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -203,22 +203,22 @@ msgstr "%s. Rýchlosť: %s"
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it already exists unversioned locally."
-msgstr ""
+msgstr "%s, ale už existuje neverziovaný miestne."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it is missing locally."
-msgstr ""
+msgstr "%s, ale miestne chýba."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it was already added locally."
-msgstr ""
+msgstr "%s, ale už bol miestne pridaný."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it was deleted locally."
-msgstr ""
+msgstr "%s, ale už bol miestne zmazaný."
 
 #. Resource IDs: (609)
 #, c-format
@@ -228,7 +228,7 @@ msgstr ""
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the local file was already edited."
-msgstr ""
+msgstr "%s, ale bol miestne upravený."
 
 #. Resource IDs: (145)
 #, c-format
@@ -484,7 +484,7 @@ msgstr "&Prispôsobenie"
 
 #. Resource IDs: (1485)
 msgid "&Days of inactivity until small caches get removed"
-msgstr ""
+msgstr "&Dni neaktivity do odstránenia zásobníka"
 
 #. Resource IDs: (1269)
 msgid "&Default"
@@ -765,11 +765,11 @@ msgstr "&Minimalizovať"
 
 #. Resource IDs: (1493)
 msgid "&Modify color for tag copies"
-msgstr ""
+msgstr "&Zmeniť farbu pre kópie značiek"
 
 #. Resource IDs: (1492)
 msgid "&Modify color for trunk copies"
-msgstr ""
+msgstr "&Zmeniť farbu pre kópie kmeňa"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -849,9 +849,8 @@ msgid "&Port:"
 msgstr "&Triediť:"
 
 #. Resource IDs: (1489)
-#, fuzzy
 msgid "&Power user defaults"
-msgstr "&Prednastavené pre "
+msgstr "&Prednastavené pre\"power user\""
 
 #. Resource IDs: (32780)
 msgid "&Previous Difference"
@@ -919,7 +918,7 @@ msgstr "&Vrátiť štandardné"
 
 #. Resource IDs: (1382)
 msgid "&Resolve using local property"
-msgstr ""
+msgstr "&Vyriešiť použitím miestnej vlastnosti"
 
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
@@ -1424,7 +1423,7 @@ msgstr "Upraviť zlučovací program pre príponu"
 
 #. Resource IDs: (89)
 msgid "Add the item anyway"
-msgstr ""
+msgstr "Napriek tomu objekt pridať"
 
 #. Resource IDs: (613)
 #, c-format
@@ -1550,7 +1549,7 @@ msgstr "Všetky vaše zmeny budú stratené! Naozaj chcete predvolené nastaveni
 
 #. Resource IDs: (1484)
 msgid "Allow ambiguous &UUIDs"
-msgstr "Povoliť nejednoznačné URL"
+msgstr "Povoliť nejednoznačné &UUID"
 
 #. Resource IDs: (345)
 msgid "Allow different repositories to use the same URL, e.g. http://localhost/myrepos/"
@@ -2115,7 +2114,7 @@ msgstr "Zašrtnite ak chcete menej výpisov dátumu a času v správach denníka
 #. Resource IDs: (2052)
 #, fuzzy
 msgid "Check working copy for modifications"
-msgstr "Skontrolovať zmeny"
+msgstr "Skontrolovať pracovnu kopiu na zmeny"
 
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -3195,7 +3194,7 @@ msgstr "U&končiť"
 #. Resource IDs: (275)
 #, fuzzy
 msgid "E&xpand all"
-msgstr "Rozšíriť (%s)"
+msgstr "Rozšíriť všetko"
 
 #. Resource IDs: (275)
 msgid "E&xpand sub-trees"
@@ -3223,17 +3222,15 @@ msgstr "Editovať obrázok tlačidla"
 
 #. Resource IDs: (227, 564)
 msgid "Edit Properties"
-msgstr "Upraviť vlasnosti"
+msgstr "Upraviť vlastnosti"
 
 #. Resource IDs: (297)
-#, fuzzy
 msgid "Edit Property Conflict"
-msgstr "Upraviť vlasnosti"
+msgstr "Upraviť konflikt vlastností"
 
 #. Resource IDs: (298)
-#, fuzzy
 msgid "Edit Tree Conflicts"
-msgstr "&Upraviť konflikty"
+msgstr "Upraviť konflikty stromov"
 
 #. Resource IDs: (113)
 msgid "Edit author"
@@ -4097,7 +4094,7 @@ msgstr "Stryť skript počas behu"
 
 #. Resource IDs: (32830)
 msgid "Hide unused &branches"
-msgstr ""
+msgstr "Skryť nepoužité &vetvy"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -4145,11 +4142,8 @@ msgid "Hostname mismatch (%s)"
 msgstr "Chybné meno servera (%s)"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "How do you want to resolve this conflict?"
-msgstr ""
-"%s\n"
-"Chcete napriek tomu odstrániť?"
+msgstr "Ako chcete vyriešiť tento konflikt?"
 
 #. Resource IDs: (65535)
 msgid "I&nclude paths:"
@@ -4311,6 +4305,7 @@ msgstr ""
 "keď je vybraný súbor s nastavenou vlastnosťou svn:needs-lock"
 
 #. Resource IDs: (346)
+#, fuzzy
 msgid ""
 "If an element (part between two '/') of a given path matches one\n"
 "of these patterns, it is considered a 'branch'.\n"
@@ -4319,6 +4314,8 @@ msgid ""
 "Allowed wildcards are '?' and '*'.\n"
 "Separate patterns by ';'."
 msgstr ""
+"Keď element (časť medzi dvomi '/') danej cesty sa zhoduje\n"
+"s jedným z "
 
 #. Resource IDs: (346)
 msgid ""
@@ -4746,7 +4743,7 @@ msgstr ""
 
 #. Resource IDs: (275)
 msgid "Join with following &tree"
-msgstr ""
+msgstr "Spojiť s nasledovným s&tromom"
 
 #. Resource IDs: (275)
 msgid "Join with source tree"
@@ -4765,9 +4762,8 @@ msgid "Keep the directory from the repository"
 msgstr "Ponechať adresár y úložiska"
 
 #. Resource IDs: (610)
-#, fuzzy
 msgid "Keep the file from the repository"
-msgstr "Importuje adresár do úložiska"
+msgstr "Ponechať súbor z úložiska"
 
 #. Resource IDs: (610)
 msgid "Keep the local directory"
@@ -4905,9 +4901,8 @@ msgstr "Zámok"
 
 # Zamknutie zlyhalo
 #. Resource IDs: (208)
-#, fuzzy
 msgid "Lock Date"
-msgstr "Zámok zlyhal"
+msgstr "Zamknúť dátum"
 
 #. Resource IDs: (191)
 msgid "Lock Files"
@@ -5072,7 +5067,7 @@ msgstr "Riadkov v denníku úkonov"
 
 #. Resource IDs: (1487)
 msgid "Maximum number of tool &failures until cache removal"
-msgstr ""
+msgstr "Maximálny počet &zlyhaní nástroja failures until cache removal"
 
 #. Resource IDs: (16655)
 msgid "Me&nus show recently used commands first"
@@ -6318,7 +6313,7 @@ msgstr "Premiestňujem..."
 # Vzdialený stav vlasnosti
 #. Resource IDs: (207)
 msgid "Remote property status"
-msgstr "Stav vzdialenej vlasnosti"
+msgstr "Stav vzdialenej vlastnosti"
 
 #. Resource IDs: (208)
 msgid "Remote revision"
@@ -6379,9 +6374,8 @@ msgstr ""
 "%s"
 
 #. Resource IDs: (610)
-#, fuzzy
 msgid "Remove the directory"
-msgstr "Získať &adresár:"
+msgstr "Odstrániť adresár"
 
 #. Resource IDs: (610)
 msgid "Remove the file"
@@ -7264,9 +7258,8 @@ msgid "Show Screen&Tips on toolbars"
 msgstr "Zobraziť tipy& na lište"
 
 #. Resource IDs: (32831)
-#, fuzzy
 msgid "Show WC &modifications"
-msgstr "Skontrolovať zmeny"
+msgstr "Zobraziť &zmeny pracovnej kópie"
 
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
@@ -7492,18 +7485,16 @@ msgid "Split &source tree"
 msgstr ""
 
 #. Resource IDs: (275)
-#, fuzzy
 msgid "Split following &tree"
-msgstr "Rozdeliť riadky"
+msgstr "Rozdeliť nasledovný s&trom"
 
 #. Resource IDs: (376)
 msgid "Split lines"
 msgstr "Rozdeliť riadky"
 
 #. Resource IDs: (275)
-#, fuzzy
 msgid "Split sub-trees"
-msgstr "Rozdeliť riadky"
+msgstr "Rozdeliť podstromy"
 
 #. Resource IDs: (3604)
 msgid ""
@@ -7882,7 +7873,7 @@ msgstr "Sledovač prípadov nemohol overiť textový parameter"
 #. Resource IDs: (597)
 #, c-format
 msgid "The item '%s' has property conflicts:"
-msgstr ""
+msgstr "Objekt '%s' má konflikt vlastností:"
 
 #. Resource IDs: (608)
 #, c-format
@@ -7910,9 +7901,9 @@ msgid "The last merge operation tried to modify the directory '%s'"
 msgstr ""
 
 #. Resource IDs: (607)
-#, fuzzy, c-format
+#, c-format
 msgid "The last merge operation tried to modify the file '%s'"
-msgstr "Užívateľ, ktorý vlastní zámok súboru"
+msgstr "Posledná operácia zlúčiť sa pokúsilo zmeniť  súbor '%s'"
 
 #. Resource IDs: (608)
 #, c-format
@@ -7940,9 +7931,9 @@ msgid "The last switch operation tried to modify the directory '%s'"
 msgstr ""
 
 #. Resource IDs: (607)
-#, fuzzy, c-format
+#, c-format
 msgid "The last switch operation tried to modify the file '%s'"
-msgstr "Užívateľ, ktorý vlastní zámok súboru"
+msgstr "Posledná operácia prepnúť sa pokúsila zmeniť  súbor '%s'"
 
 #. Resource IDs: (607)
 #, c-format
@@ -8540,9 +8531,8 @@ msgstr "Priesvitná &farba..."
 
 # konfliktných
 #. Resource IDs: (264)
-#, fuzzy
 msgid "Tree conflict"
-msgstr "Ponechať konfliktné:"
+msgstr "Konflikt stromov"
 
 # zlúčených
 #. Resource IDs: (595)
@@ -8746,7 +8736,7 @@ msgstr "Odverziovavanie: %s"
 # nadadresaár
 #. Resource IDs: (106)
 msgid "Up one folder"
-msgstr ""
+msgstr "O adresár vyššie"
 
 #. Resource IDs: (152, 230)
 msgid "Update"
@@ -9412,14 +9402,12 @@ msgid "Zoom to fit"
 msgstr "Zobraz všetko"
 
 #. Resource IDs: (2051)
-#, fuzzy
 msgid "Zoom to fit in height"
-msgstr "Zobraz všetko"
+msgstr "Zobraz celú výšku"
 
 #. Resource IDs: (2051)
-#, fuzzy
 msgid "Zoom to fit in width"
-msgstr "Zobraz všetko"
+msgstr "Zobraz celú šírku"
 
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
