@@ -57,7 +57,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-11 13:15+0800\n"
+"PO-Revision-Date: 2008-12-17 10:50+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3207,6 +3207,10 @@ msgstr "画图"
 msgid "Drive Types"
 msgstr "磁盘驱动器类型"
 
+#. Resource IDs: (1315)
+msgid "Drives A: and B:"
+msgstr "盘 A: 和 B:"
+
 #. Resource IDs: (613)
 #, c-format
 msgid "Drop not possible on %1"
@@ -3861,10 +3865,6 @@ msgstr "优化图像显示尺寸(&S)"
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
 msgstr "修正条目的大小写，不增加它"
-
-#. Resource IDs: (1315)
-msgid "Floppy drives (A: B:)"
-msgstr "软盘驱动器 (A: B:)"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
@@ -4809,7 +4809,7 @@ msgstr "与下列树连接(&T)"
 
 #. Resource IDs: (275)
 msgid "Join with source tree"
-msgstr "与源树连接(&T)"
+msgstr "与源树连接"
 
 #. Resource IDs: (1203)
 msgid "Keep &locks"
