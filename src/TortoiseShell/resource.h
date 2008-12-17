@@ -129,6 +129,10 @@
 #define IDS_DROPEXPORTMENU              218
 #define IDS_DROPEXPORTEXTENDEDMENU      219
 #define IDS_MENUIGNOREMULTIPLEMASK      220
+#define IDS_MENUDELETEIGNOREMULTIPLE    221
+#define IDS_MENUDELETEIGNOREMULTIPLEMASK 222
+#define IDS_MENUDELETEIGNORE            223
+#define IDS_MENUDESCDELETEIGNORE        224
 #define IDS_MENUCLIPPASTE               225
 #define IDS_MENUDESCCLIPPASTE           226
 #define IDS_ERR_PROPNOTONFILE           230
@@ -191,7 +195,6 @@
 #define IDC_REMOVEBUTTON                1013
 #define IDC_FILEEXTERNAL                1013
 #define IDC_EDITNAME                    1014
-#define IDC_COPIED3                     1014
 #define IDC_TREECONFLICT                1014
 #define IDC_EDITVALUE                   1015
 #define IDC_SHOWLOG                     1016

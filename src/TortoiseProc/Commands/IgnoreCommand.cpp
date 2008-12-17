@@ -22,11 +22,13 @@
 #include "MessageBox.h"
 #include "PathUtils.h"
 #include "SVNProperties.h"
+#include "SVN.h"
 
 bool IgnoreCommand::Execute()
 {
 	CString filelist;
 	BOOL err = FALSE;
+
 	for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
 	{
 		CString name = CPathUtils::PathPatternEscape(pathList[nPath].GetFileOrDirectoryName());
@@ -79,6 +81,15 @@ bool IgnoreCommand::Execute()
 			CMessageBox::Show(hwndExplorer, temp, _T("TortoiseSVN"), MB_ICONERROR);
 			err = TRUE;
 			break;
+		}
+	}
+	if ((err == FALSE)&&(parser.HasKey(_T("delete"))))
+	{
+		SVN svn;
+		if (!svn.Remove(pathList, TRUE))
+		{
+			CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+			err = TRUE;
 		}
 	}
 	if (err == FALSE)
