@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-18 17:49+0100\n"
+"PO-Revision-Date: 2008-12-18 20:17+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1858,7 +1858,7 @@ msgstr "Vetva / značka bola úspešne vytvorená!"
 
 #. Resource IDs: (2052)
 msgid "Branch at copy-from-rev even if there was no change in that revision"
-msgstr "Vetviť kópiu revizie i keď neobsahuje zmeny"
+msgstr "Vetviť kópiu revízie i keď neobsahuje zmeny"
 
 #. Resource IDs: (9)
 msgid "Branch/&tag..."
@@ -2112,9 +2112,8 @@ msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Zašrtnite ak chcete menej výpisov dátumu a času v správach denníka"
 
 #. Resource IDs: (2052)
-#, fuzzy
 msgid "Check working copy for modifications"
-msgstr "Skontrolovať pracovnu kopiu na zmeny"
+msgstr "Skontrolovať pracovnú kópiu na zmeny"
 
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -2933,6 +2932,22 @@ msgstr "Vymazať"
 msgid "Delete Unversioned Items"
 msgstr "Vymazať neverziované objekty"
 
+# &Ignoruj položky
+#. Resource IDs: (14)
+#, c-format
+msgid "Delete and &ignore %d items by name"
+msgstr "Vymazať a &ignorovať %d objektov podľa mena"
+
+#. Resource IDs: (14)
+msgid "Delete and add to &ignore list"
+msgstr "Vymazať a pridať do zoznamu &ignorovaných"
+
+# &Ignoruj položky
+#. Resource IDs: (14)
+#, c-format
+msgid "Delete and ignore %d items by &extension"
+msgstr "Vymazať a ignorovať %d objektov podľa &prípony"
+
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
 msgstr "Vymazať neverziované objekty..."
@@ -2944,6 +2959,10 @@ msgstr "Vymazané"
 #. Resource IDs: (65535)
 msgid "Deleted node"
 msgstr "Uzol vymazaný"
+
+#. Resource IDs: (15)
+msgid "Deletes and adds the selected file(s) or the filemask to the 'ignore' list"
+msgstr "Vymazež a pridá vybrané súbory, alebo masku do zoznamu ignorovaných"
 
 #. Resource IDs: (11)
 msgid "Deletes files / folders from version control"
@@ -3173,6 +3192,10 @@ msgstr "Kresliť"
 #. Resource IDs: (1079)
 msgid "Drive Types"
 msgstr "Typy diskov"
+
+#. Resource IDs: (1315)
+msgid "Drives A: and B:"
+msgstr "Disky A: a B:"
 
 #. Resource IDs: (613)
 #, c-format
@@ -3832,10 +3855,6 @@ msgstr "Zväčšiť obrá&zky na veľkosť okna"
 msgid "Fix case of item and do not add it"
 msgstr ""
 
-#. Resource IDs: (1315)
-msgid "Floppy drives (A: B:)"
-msgstr "Pružné disky (A: B:)"
-
 #. Resource IDs: (32818)
 msgid "Fold &tags"
 msgstr "Zložiť &značky"
@@ -4304,7 +4323,6 @@ msgstr ""
 "keď je vybraný súbor s nastavenou vlastnosťou svn:needs-lock"
 
 #. Resource IDs: (346)
-#, fuzzy
 msgid ""
 "If an element (part between two '/') of a given path matches one\n"
 "of these patterns, it is considered a 'branch'.\n"
@@ -4314,11 +4332,11 @@ msgid ""
 "Separate patterns by ';'."
 msgstr ""
 "Keď element (časť medzi dvomi '/') danej cesty sa zhoduje\n"
-"s jedným z , je považovaný za 'branch'.\n"
+"s jednou zo šablón, je považovaný za 'vetvu'.\n"
 "\n"
-"sú s malými písmenami.\n"
+"Šablóny sú s malými písmenami.\n"
 "Povolené náhradné znaky sú '?' and '*'.\n"
-"Separate patterns by ';'."
+"Šablóny sú oddelené pomocou  ';'."
 
 #. Resource IDs: (346)
 msgid ""
@@ -4329,6 +4347,12 @@ msgid ""
 "Allowed wildcards are '?' and '*'.\n"
 "Separate patterns by ';'."
 msgstr ""
+"Keď element (časť medzi dvomi '/') danej cesty sa zhoduje\n"
+"s jednou zo šablón, je považovaný za 'značku'.\n"
+"\n"
+"Šablóny sú s malými písmenami.\n"
+"Povolené náhradné znaky sú '?' and '*'.\n"
+"Šablóny sú oddelené pomocou  ';'."
 
 #. Resource IDs: (346)
 msgid ""
@@ -4339,6 +4363,12 @@ msgid ""
 "Allowed wildcards are '?' and '*'.\n"
 "Separate patterns by ';'."
 msgstr ""
+"Keď element (časť medzi dvomi '/') danej cesty sa zhoduje\n"
+"s jednou zo šablón, je považovaný za 'kmeň'.\n"
+"\n"
+"Šablóny sú s malými písmenami.\n"
+"Povolené náhradné znaky sú '?' and '*'.\n"
+"Šablóny sú oddelené pomocou  ';'."
 
 #. Resource IDs: (95)
 msgid ""
@@ -4358,7 +4388,7 @@ msgstr ""
 
 #. Resource IDs: (197)
 msgid "If checked, double-clicking on a revision in the log list compares it with the previous revision"
-msgstr "Ak je zaškrtnuté, dvojklik na reviziu v denníku vyvolá porovnanie s predchádzajúcou revíziu"
+msgstr "Ak je zaškrtnuté, dvojklik na revíziu v denníku vyvolá porovnanie s predchádzajúcou revíziu"
 
 #. Resource IDs: (196)
 msgid ""
@@ -4444,6 +4474,12 @@ msgstr "Keď chcete zrušiť zámok, použite dialóg 'Skontrolovať zmeny'."
 msgid "Ignore"
 msgstr "Ignorovať"
 
+# &Ignoruj položky
+#. Resource IDs: (14)
+#, c-format
+msgid "Ignore %d items by &extension"
+msgstr "Ignorovať %d objekty podľa &prípony"
+
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
 msgstr "Ignorovať &biele znaky"
@@ -4460,11 +4496,6 @@ msgstr "Ignorovať všetky biele znaky"
 #. Resource IDs: (1267)
 msgid "Ignore ancestry"
 msgstr "Zanedbať pôvod"
-
-# &Ignoruj položky
-#. Resource IDs: (14)
-msgid "Ignore items by &extension"
-msgstr "Ignorované objekty podľa &prípony"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
@@ -4702,7 +4733,7 @@ msgid ""
 "A range can be specified with a dash.\n"
 "Example: 2-5,7,10,44-70,300-HEAD"
 msgstr ""
-"Zlý rozsah revizií!\n"
+"Zlý rozsah revízií!\n"
 "Povolené sú čisla a HEAD, oddelené čiarkami.\n"
 "Rozsah sa zadáva pomlčkou.\n"
 "Príklad: 2-5,7,10,44-70,300-HEAD"
@@ -5050,7 +5081,7 @@ msgstr ""
 msgid ""
 "Marks the revisions as merged, without actually doing the merge.\r\n"
 "This blocks the revisions from getting merged in the future."
-msgstr "Označí revizie za zlučené bez toho aby bolo zlúčenie vykonané"
+msgstr "Označí revízie za zlučené bez toho aby bolo zlúčenie vykonané"
 
 #. Resource IDs: (1064)
 msgid "Match &case"
@@ -5504,7 +5535,7 @@ msgstr "Nie je pravopisná kotrola"
 
 #. Resource IDs: (196)
 msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
-msgstr "Bez pamäte stavu. Iba verziované adresáre získajú prekrytie, súbory budú bez prekryvájucich ikón."
+msgstr "Bez pamäte stavu. Iba verziované adresáre získajú prekrytie, súbory budú bez prekrývajúcich ikón."
 
 #. Resource IDs: (188)
 msgid "No thesaurus suggestions"
@@ -5561,19 +5592,19 @@ msgstr "Počet revízií v zásobníku"
 
 #. Resource IDs: (339)
 msgid "Number of cached revisions that have a non-empty change list"
-msgstr "Počet revizií v zásobníku, ktoré nemajú prázny zoznam zmien"
+msgstr "Počet revízií v zásobníku, ktoré nemajú prázdny zoznam zmien"
 
 #. Resource IDs: (339)
 msgid "Number of cached revisions that have user revision properties"
-msgstr "Počet revizií v zásobníku, ktoré majú užívateľské vlastnosti revízie"
+msgstr "Počet revízií v zásobníku, ktoré majú užívateľské vlastnosti revízie"
 
 #. Resource IDs: (339)
 msgid "Number of cached revisions whose change list is not cached yet"
-msgstr "Počet revizií v zásobníku, ktoré ešte nemajú zoznam zmien v zásobníku"
+msgstr "Počet revízií v zásobníku, ktoré ešte nemajú zoznam zmien v zásobníku"
 
 #. Resource IDs: (339)
 msgid "Number of cached revisions whose user revision properties are not cached yet"
-msgstr "Počet revizií v zásobníku, ktoré ešte nemajú v zásobníku užívateľské vlastnosti"
+msgstr "Počet revízií v zásobníku, ktoré ešte nemajú v zásobníku užívateľské vlastnosti"
 
 #. Resource IDs: (338)
 msgid "Number of different paths shown in the log dialog, including parent paths"
@@ -5585,7 +5616,7 @@ msgstr "Počet rozdielnych slov použitých v správach denníka"
 
 #. Resource IDs: (339)
 msgid "Number of merged revisions that are not cached yet"
-msgstr "Počet zlúčených revizií, ktoré ešte nie sú v zásobníku"
+msgstr "Počet zlúčených revízií, ktoré ešte nie sú v zásobníku"
 
 #. Resource IDs: (338)
 msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
@@ -7055,7 +7086,7 @@ msgstr "Vyberte rozsah revízí"
 
 #. Resource IDs: (276)
 msgid "Select start revision"
-msgstr "Vyberte rozsah revizií"
+msgstr "Vyberte rozsah revízií"
 
 #. Resource IDs: (79)
 msgid "Select text editor application"
@@ -8279,7 +8310,7 @@ msgstr "Táto medóda pokrýva prípad, keď ste spravili vetvu ako je popísan�
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you have made one or more revisions to a branch (or to the trunk) and you want to port those changes across to a different branch."
-msgstr "Táto metóda pokrýva prípad keď ste spravili jednu, alebo viac revizii do vetvy (alebo kmena) a chcete tieto zmeny aplikovať na niektoru inú vetvu."
+msgstr "Táto metóda pokrýva prípad keď ste spravili jednu, alebo viac revízií do vetvy (alebo kmeňa) a chcete tieto zmeny aplikovať na niektoru inú vetvu."
 
 #. Resource IDs: (594)
 msgid "This method covers the case when you want to merge the differences of two different branches into your working copy."
@@ -8521,7 +8552,7 @@ msgstr "Celkový počet zlúčených "
 
 #. Resource IDs: (339)
 msgid "Total number of user revision properties"
-msgstr "Cekový počet užívateľských vlastností revizií"
+msgstr "Cekový počet užívateľských vlastností revízií"
 
 #. Resource IDs: (357)
 #, c-format
@@ -10151,6 +10182,8 @@ msgstr "ano"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Floppy drives (A: B:)"
+#~ msgstr "Pružné disky (A: B:)"
 #~ msgid "Only record the merge"
 #~ msgstr "Zlučenie iba zaznamenaj"
 
