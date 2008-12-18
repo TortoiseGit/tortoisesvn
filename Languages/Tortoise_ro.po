@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-30 21:23+0200\n"
+"PO-Revision-Date: 2008-12-16 18:42+0200\n"
 "Last-Translator: Ben Felt <benwfelt@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -332,7 +332,7 @@ msgstr "&Ascunde automat"
 
 #. Resource IDs: (65535)
 msgid "&Autoclose:"
-msgstr "Închide &automat:"
+msgstr "Închidere &automată:"
 
 #. Resource IDs: (1015)
 msgid "&Backup original file"
@@ -388,7 +388,7 @@ msgstr "&CD-ROM"
 
 #. Resource IDs: (65535)
 msgid "&Categories:"
-msgstr "&Categorii"
+msgstr "&Categorii:"
 
 #. Resource IDs: (65535)
 msgid "&Category:"
@@ -444,13 +444,17 @@ msgstr "&Contactează depozitul la pornire"
 
 #. Resource IDs: (1073)
 msgid "&Convert files when diffing against BASE"
-msgstr "&Convertiţi fişiere când se diferenţează cu BASE-ul"
+msgstr "&Converteşte fişiere când se diferenţează cu BASE-ul"
 
 #. Resource IDs: (501, 1367, 1471, 57634)
 msgid "&Copy"
 msgstr "&Copiază"
 
+# Noun or verb?
+# Noun: The copy button's image
+# Verb: Make a copy of the button's image
 #. Resource IDs: (16911)
+#, fuzzy
 msgid "&Copy Button Image"
 msgstr "Imaginea butonului de &copiere"
 
@@ -504,11 +508,11 @@ msgstr "&Diferenţiază cu versiunea precedentă"
 
 #. Resource IDs: (1066)
 msgid "&Docking"
-msgstr "Ataşare"
+msgstr "&Ataşare"
 
 #. Resource IDs: (2)
 msgid "&Don't go offline"
-msgstr "Nu desconecta"
+msgstr "&Nu deconecta"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -528,7 +532,7 @@ msgstr "&Activează serverul proxy"
 
 #. Resource IDs: (1434)
 msgid "&Enable log caching"
-msgstr "Activează salvarea jurnalului în cache"
+msgstr "&Activează salvarea jurnalului în cache"
 
 #. Resource IDs: (1213)
 msgid "&Enter a message describing why you are locking the file(s)."
@@ -576,7 +580,7 @@ msgstr "&Flotant"
 
 #. Resource IDs: (65535)
 msgid "&Font for log messages:"
-msgstr "&Font pentru mesajele de jurnal:"
+msgstr "&Font pentru jurnal:"
 
 #. Resource IDs: (65535)
 msgid "&Font:"
@@ -624,7 +628,7 @@ msgstr "&Ajutor"
 
 #. Resource IDs: (57670)
 msgid "&Help Topics"
-msgstr "&Subiecte ajutor"
+msgstr "Subiecte &ajutor"
 
 #. Resource IDs: (1066, 3842)
 msgid "&Hide"
@@ -641,7 +645,7 @@ msgstr "&Ignoră %d elemente după nume"
 
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
-msgstr "&Ignoraţi schimbări în spaţiile goale"
+msgstr "&Ignoră schimbări în spaţiile goale"
 
 #. Resource IDs: (16914)
 msgid "&Image"
@@ -653,7 +657,7 @@ msgstr "&Informaţii de imagine"
 
 #. Resource IDs: (16505)
 msgid "&Image only"
-msgstr "Numai &imagine"
+msgstr "Numai &imaginea"
 
 #. Resource IDs: (9, 1461)
 msgid "&Import..."
@@ -701,11 +705,11 @@ msgstr "&Leagă poziţiile imaginilor"
 
 #. Resource IDs: (1172)
 msgid "&List View"
-msgstr "&Vedere cu listă"
+msgstr "Vedere cu &listă"
 
 #. Resource IDs: (1309)
 msgid "&Load..."
-msgstr "&Încarcă..."
+msgstr "Î&ncarcă..."
 
 #. Resource IDs: (65535)
 msgid "&Lum:"
@@ -721,7 +725,7 @@ msgstr "Dimesiunea &maximă [kocteţi] a unui cache neactiv eliminat"
 
 #. Resource IDs: (16543)
 msgid "&Menu animations:"
-msgstr "&Animaţii de meniu:"
+msgstr "Animaţii de &meniu:"
 
 #. Resource IDs: (16921)
 msgid "&Menu contents:"
@@ -729,15 +733,15 @@ msgstr "Conţinutul &meniului:"
 
 #. Resource IDs: (1)
 msgid "&Merge"
-msgstr "&Îmbină"
+msgstr "Î&mbină"
 
 #. Resource IDs: (32786)
 msgid "&Merge paths"
-msgstr "&Căi de îmbinare"
+msgstr "Căi de î&mbinare"
 
 #. Resource IDs: (9)
 msgid "&Merge..."
-msgstr "&Îmbină..."
+msgstr "Î&mbină..."
 
 #. Resource IDs: (1012)
 msgid "&Merging"
@@ -749,7 +753,7 @@ msgstr "&Minimizează"
 
 #. Resource IDs: (1493)
 msgid "&Modify color for tag copies"
-msgstr "&Schimbă culoarea pentru copii de tag"
+msgstr "&Schimbă culoarea copiilor de tag"
 
 #. Resource IDs: (1492)
 msgid "&Modify color for trunk copies"
@@ -761,7 +765,7 @@ msgstr "&Navighează"
 
 #. Resource IDs: (1049)
 msgid "&Network drives"
-msgstr "U&nităţi de reţea"
+msgstr "Unităţi de &reţea"
 
 #. Resource IDs: (65535)
 msgid "&New "
@@ -774,7 +778,7 @@ msgstr "&Nou..."
 #. Resource IDs: (115, 1208)
 #, c-format
 msgid "&Next %ld"
-msgstr "&Înainte %ld"
+msgstr "Î&nainte %ld"
 
 #. Resource IDs: (332)
 msgid "&Next >"
@@ -782,11 +786,11 @@ msgstr "Î&nainte >"
 
 #. Resource IDs: (32779)
 msgid "&Next Difference"
-msgstr "&Diferenţa următoare"
+msgstr "Diferenţa &următoare"
 
 #. Resource IDs: (58114)
 msgid "&Next Page"
-msgstr "&Următoarea pagină"
+msgstr "Pagina &următoare"
 
 #. Resource IDs: (16632)
 msgid "&No double-click event"
@@ -841,9 +845,8 @@ msgid "&Previous Difference"
 msgstr "Diferenţa &precedenă"
 
 #. Resource IDs: (1069)
-#, fuzzy
 msgid "&Print Preview"
-msgstr "&Preafişează tipărire"
+msgstr "&Preafişare de tipărire"
 
 #. Resource IDs: (58116)
 msgid "&Print..."
@@ -924,7 +927,7 @@ msgstr "&Revizie"
 
 #. Resource IDs: (65535)
 msgid "&SSH client:"
-msgstr "&client SSH:"
+msgstr "Client &SSH:"
 
 #. Resource IDs: (65535)
 msgid "&Sat:"
@@ -960,7 +963,7 @@ msgstr "&Afişează reviziile HEAD"
 
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
-msgstr "Afişează meniuri pentru:"
+msgstr "&Afişează meniuri pentru:"
 
 #. Resource IDs: (16612)
 msgid "&Show text labels"
@@ -981,7 +984,7 @@ msgstr "Grup de &pornire"
 
 #. Resource IDs: (59393)
 msgid "&Status Bar"
-msgstr "&Bara de stare"
+msgstr "Bara de &stare"
 
 #. Resource IDs: (1211)
 msgid "&Steal the locks"
@@ -1021,15 +1024,15 @@ msgstr "&Numai text"
 
 #. Resource IDs: (1438)
 msgid "&Timeout in seconds before updating the HEAD revision"
-msgstr "&Amânare în secunde înainte de actualizarea reviziei HEAD"
+msgstr "Amâ&nare în secunde înainte de actualizarea reviziei HEAD"
 
 #. Resource IDs: (1222)
 msgid "&Timeout in seconds to stop the auto-completion parsing"
-msgstr "&Amânare în secunde înainte de oprirea analizării autocompletare"
+msgstr "Amâ&nare în secunde înainte de oprirea analizării autocompletare"
 
 #. Resource IDs: (65535)
 msgid "&To Revision"
-msgstr "&În Revizie"
+msgstr "Î&n Revizie"
 
 #. Resource IDs: (1384, 65535)
 msgid "&To URL:"
@@ -1089,7 +1092,7 @@ msgstr "Diferenţiere &unificată"
 
 #. Resource IDs: (1061)
 msgid "&Unknown drives"
-msgstr "Discuri nec&unoscute"
+msgstr "Discuri &necunoscute"
 
 #. Resource IDs: (8)
 msgid "&Update"
@@ -1549,7 +1552,7 @@ msgid ""
 "%base : the base file\r\n"
 "%mine : the modified file"
 msgstr ""
-"Program de diferenţiere extern folosit\n"
+"Un program de diferenţiere extern folosit\n"
 "pentru compararea diferitelor revizii ale fişierelor\r\n"
 "\r\n"
 "Puteţi specifica următorii parametri pentru cale:\n"
@@ -1568,7 +1571,7 @@ msgid ""
 "%mine : your own file, with your changes\r\n"
 "%base : the original file without your changes"
 msgstr ""
-"Un program extren de îmbinare folosit\r\n"
+"Un program extern de îmbinare folosit\r\n"
 "pentru a lămuri fişiere cu conflicte.\r\n"
 "\r\n"
 "Puteţi specifica următorii parametri pentru cale:\r\n"
@@ -1580,7 +1583,7 @@ msgstr ""
 #. Resource IDs: (3867)
 #, fuzzy, c-format
 msgid "An incorrect file handle was associated with %1."
-msgstr "Un identificator de fişier invalid a fost asociat cu %1."
+msgstr "Un identificator invalid de fişier a fost asociat cu %1."
 
 #. Resource IDs: (3843)
 msgid "An unknown error has occurred."
@@ -1622,7 +1625,7 @@ msgid ""
 "You should know the meaning of all the settings above."
 msgstr ""
 "Aplică implicite de superutilizator.\n"
-"Ar trebui să cunoaşteţi semnificaţia tuturor proprietăţilor de mai sus."
+"Ar trebui să cunoaşteţi semnificaţia tuturor preferinţelor de mai sus."
 
 #. Resource IDs: (1294)
 msgid "Apply property recursively"
@@ -1794,11 +1797,9 @@ msgstr ""
 "Bitmap\n"
 "un bitmap"
 
-# Învinovăţire? Condamnare? Condamnă?
 #. Resource IDs: (114, 162)
-#, fuzzy
 msgid "Blame"
-msgstr "Învinovăţeşte"
+msgstr "Învinovăţire"
 
 #. Resource IDs: (132)
 msgid "Blame - TortoiseSVN"
@@ -1827,7 +1828,7 @@ msgstr "Răsf&oieşte..."
 
 #. Resource IDs: (115)
 msgid "Branch / tag created successfully!"
-msgstr "Ramura / eticheta s-a creat!"
+msgstr "Ramura / tag s-a creat!"
 
 #. Resource IDs: (2052)
 msgid "Branch at copy-from-rev even if there was no change in that revision"
@@ -1835,7 +1836,7 @@ msgstr "Faceţi o ramură când se face copie-din-revizie chiar dacă nu a fost 
 
 #. Resource IDs: (9)
 msgid "Branch/&tag..."
-msgstr "Ramura/e&ticheta"
+msgstr "Ramura/&tag..."
 
 #. Resource IDs: (16)
 msgid "Break loc&k"
@@ -1871,7 +1872,7 @@ msgstr "Aspect de buton"
 
 #. Resource IDs: (1215)
 msgid "C&heck now"
-msgstr "&Verifică acum"
+msgstr "&Caută acum"
 
 #. Resource IDs: (1132)
 msgid "C&heck repository"
@@ -1919,7 +1920,7 @@ msgstr "Salvează mesajele jurnalului în cache pentru a înbunătăţi accesare
 
 #. Resource IDs: (1127)
 msgid "Can double-click in log list to compare with previous revision"
-msgstr "Puteţi face clic dublu în lista de jurnale pentru a compara cu revizii precedente"
+msgstr "Se poate face clic dublu în lista de jurnale pentru a compara cu revizii precedente"
 
 #. Resource IDs: (3865)
 msgid "Can not activate a static ActiveX object."
@@ -2230,7 +2231,7 @@ msgid ""
 "Close Print Preview\n"
 "&Close"
 msgstr ""
-"Închide Preafişarea tipărire\n"
+"Închide preafişarea tipărire\n"
 "Î&nchide"
 
 #. Resource IDs: (222)
@@ -2295,7 +2296,7 @@ msgstr "Transmite"
 
 #. Resource IDs: (77)
 msgid "Commit - TortoiseSVN"
-msgstr "Transmite - TortoiseSVN"
+msgstr "Transmitere - TortoiseSVN"
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -2408,7 +2409,6 @@ msgid "Conflict resolved"
 msgstr "Conflict rezolvat"
 
 #. Resource IDs: (263, 65535)
-#, fuzzy
 msgid "Conflicted"
 msgstr "Cu conflicte"
 
@@ -2491,7 +2491,7 @@ msgstr "Copiază (Ramură / Tag)"
 
 #. Resource IDs: (78)
 msgid "Copy - TortoiseSVN"
-msgstr "Copiază - TortoiseSVN"
+msgstr "Copiere - TortoiseSVN"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -2835,11 +2835,11 @@ msgstr "Personalizează tastatură"
 
 #. Resource IDs: (1069)
 msgid "Customize Quick Access Toolbar"
-msgstr ""
+msgstr "Personalizează bara de unelte pentru acces rapid"
 
 #. Resource IDs: (1068)
 msgid "Customize Quick Access Toolbar..."
-msgstr ""
+msgstr "Personalizează bara de unelte pentru acces rapid..."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -2863,7 +2863,7 @@ msgstr "Implicit"
 
 #. Resource IDs: (65535)
 msgid "Default &number of log messages"
-msgstr "&Număr implicit de mesaje in jurnal"
+msgstr "&Număr implicit de mesaje în jurnal"
 
 #. Resource IDs: (1007)
 msgid "Default Menu"
@@ -2975,7 +2975,7 @@ msgstr "Se diferenţiază"
 
 #. Resource IDs: (14)
 msgid "Diffs the working copy file with the one before the last commit."
-msgstr ""
+msgstr "Diferenţiază fişierul copiei de lucru cu cel dinaintea ultimei transmiteri."
 
 #. Resource IDs: (65535)
 msgid "Directory:"
@@ -3136,7 +3136,7 @@ msgstr "Copiază e&xact sursele"
 
 #. Resource IDs: (65535)
 msgid "E&xclude paths:"
-msgstr "Căile de excludere:"
+msgstr "E&xclude căile:"
 
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
@@ -3257,8 +3257,8 @@ msgid ""
 "Enables the spellchecker only if the\n"
 "tsvn:projectlanguage property is set."
 msgstr ""
-"Activează spellchecker numai dacă proprietatea\n"
-"tsvn:projectlanguage este aplicată."
+"Activează corectorul ortografic numai dacă \n"
+"proprietatea tsvn:projectlanguage este aplicată."
 
 #. Resource IDs: (3867)
 #, fuzzy, c-format
@@ -3875,7 +3875,7 @@ msgstr "Se produce fişierul de petic..."
 
 #. Resource IDs: (16)
 msgid "Get loc&k..."
-msgstr "Obţine &blocare..."
+msgstr "Obţine &blocarea..."
 
 #. Resource IDs: (114)
 msgid "Get merge logs"
@@ -3930,7 +3930,7 @@ msgstr "Se obţine diferenţierea unificată"
 
 #. Resource IDs: (65535)
 msgid "Global ignore &pattern:"
-msgstr "Ignoră global &modelul:"
+msgstr "&Modelul global de ignorare:"
 
 #. Resource IDs: (65535)
 msgid "Global settings"
@@ -4352,7 +4352,7 @@ msgid ""
 "If set, then unversioned files will mark the status of the parent directory as modified\r\n"
 "i.e. they get the modified overlay icon."
 msgstr ""
-"Dacă este aplicat, fişiere fără versiune vor marca dosar părinte ca fiind modificat\r\n"
+"Dacă este aplicat, fişiere fără versiune vor marca dosarul părinte ca fiind modificat\r\n"
 "şi vor folosi iconiţa de suprapunere modificată."
 
 #. Resource IDs: (1439)
@@ -4451,7 +4451,7 @@ msgstr "Importă &mesaj"
 
 #. Resource IDs: (77)
 msgid "Import - TortoiseSVN"
-msgstr "Importă - TortoiseSVN"
+msgstr "Importare - TortoiseSVN"
 
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
@@ -4514,9 +4514,8 @@ msgid "Initial import"
 msgstr "Importul iniţial"
 
 #. Resource IDs: (65535)
-#, fuzzy
 msgid "Inline differences"
-msgstr "Diferenţele inline"
+msgstr "Diferenţe între linii"
 
 #. Resource IDs: (161)
 msgid "Input"
@@ -4658,11 +4657,11 @@ msgstr ""
 
 #. Resource IDs: (275)
 msgid "Join with following &tree"
-msgstr ""
+msgstr "Uneşte cu arborele următor"
 
 #. Resource IDs: (275)
 msgid "Join with source tree"
-msgstr ""
+msgstr "Uneşte cu arborele sursă"
 
 #. Resource IDs: (1203)
 msgid "Keep &locks"
@@ -4807,16 +4806,15 @@ msgstr ""
 
 #. Resource IDs: (32854)
 msgid "Locator Bar"
-msgstr ""
+msgstr "Bara de localizator"
 
-# Noun or verb?
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
-msgstr "Blocează"
+msgstr "Blocare"
 
 #. Resource IDs: (191)
 msgid "Lock Files"
-msgstr "Blocaţi fişiere"
+msgstr "Blocează fişiere"
 
 #. Resource IDs: (213)
 msgid "Lock broken!"
@@ -4899,7 +4897,7 @@ msgstr "Mesaje de jurnal (Dialog Input)"
 
 #. Resource IDs: (1280)
 msgid "Log messages (Show log dialog)"
-msgstr "Mesaje din jurnal (afişaţi dialog pentru jurnal)"
+msgstr "Mesaje de jurnal (afează dialog pentru jurnal)"
 
 #. Resource IDs: (238)
 #, c-format
@@ -4926,7 +4924,7 @@ msgstr "Face ca acesta să fie implicitul"
 
 #. Resource IDs: (17)
 msgid "Manage Subversion properties"
-msgstr ""
+msgstr "Editează proprietăţile Subversion"
 
 #. Resource IDs: (32808)
 msgid "Mark as &resolved"
@@ -4978,7 +4976,7 @@ msgstr "Numărul maxim de linii în jurnal de acţiuni"
 
 #. Resource IDs: (1487)
 msgid "Maximum number of tool &failures until cache removal"
-msgstr ""
+msgstr "Numărul maxim de &eşecuri de unealtă până la eliminarea din cache"
 
 #. Resource IDs: (16655)
 msgid "Me&nus show recently used commands first"
@@ -4994,7 +4992,7 @@ msgstr "Bara de meniu"
 
 #. Resource IDs: (16626)
 msgid "Menu s&hadows"
-msgstr "&Umbre meniu"
+msgstr "&Umbre de meniu"
 
 #. Resource IDs: (109, 110, 111, 112, 276, 278, 65535)
 msgid "Merge"
@@ -5002,7 +5000,7 @@ msgstr "Îmbină"
 
 #. Resource IDs: (78)
 msgid "Merge - TortoiseSVN"
-msgstr "Îmbină - TortoiseSVN"
+msgstr "Îmbinare - TortoiseSVN"
 
 #. Resource IDs: (221)
 #, fuzzy
@@ -5445,7 +5443,7 @@ msgstr "Notiţă: schimbarea preferinţelor de font afectează şi vizualizatoru
 
 #. Resource IDs: (88)
 msgid "Notice"
-msgstr ""
+msgstr "Notiţă"
 
 #. Resource IDs: (338)
 msgid "Number of authors in the cache"
@@ -5469,7 +5467,7 @@ msgstr "Numărul de revizii salvate în cache ale căror liste de schimbări nu 
 
 #. Resource IDs: (339)
 msgid "Number of cached revisions that have user revision properties"
-msgstr "Numărul de revizii salvate în cache care au proprietăţi de revizii stabilite de utilizator"
+msgstr "Numărul de revizii salvate în cache care au proprietăţi de revizie stabilite de utilizator"
 
 #. Resource IDs: (339)
 msgid "Number of cached revisions whose change list is not cached yet"
@@ -5477,7 +5475,7 @@ msgstr "Numărul de revizii ale căror liste de schimbări nu au fost încă sal
 
 #. Resource IDs: (339)
 msgid "Number of cached revisions whose user revision properties are not cached yet"
-msgstr ""
+msgstr "Numărul de revizii în cache ale căror proprietăţi de revizie stabilite de utilizator încă nu sunt salvate în cache"
 
 #. Resource IDs: (338)
 msgid "Number of different paths shown in the log dialog, including parent paths"
@@ -5530,9 +5528,8 @@ msgid "Older lines"
 msgstr "Linii mai vechi"
 
 #. Resource IDs: (32814)
-#, fuzzy
 msgid "Oldest on to&p"
-msgstr "Cei mai vechi &sus"
+msgstr "Cel mai vechi &sus"
 
 #. Resource IDs: (99, 1202)
 #, fuzzy
@@ -5586,7 +5583,7 @@ msgstr "Numai acest element"
 
 #. Resource IDs: (1224)
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
-msgstr ""
+msgstr "Foloseşte corectorul ortografic numai când tsvn:projectlanguage este aplicat"
 
 #. Resource IDs: (3841)
 msgid "Open"
@@ -5625,12 +5622,13 @@ msgstr ""
 "Subiecte ajutor"
 
 #. Resource IDs: (13)
+#, fuzzy
 msgid "Opens the repository browser to tweak the repository online"
-msgstr ""
+msgstr "Deschide navigatorul de depozit pentru a edita depozitul conectat"
 
 #. Resource IDs: (199)
 msgid "Operate from log cache for now only"
-msgstr ""
+msgstr "Operează numai temporar din cache-ul jurnalului"
 
 #. Resource IDs: (16137)
 msgid "Options"
@@ -5800,7 +5798,7 @@ msgstr ""
 
 #. Resource IDs: (1287)
 msgid "Please resolve the conflict by choosing one of the following options:"
-msgstr ""
+msgstr "Resolvaţi conflictul folosind una dintre următoarele opţiuni:"
 
 #. Resource IDs: (83)
 msgid "Please select a hook type"
@@ -6176,7 +6174,7 @@ msgstr "Respinge"
 
 #. Resource IDs: (16)
 msgid "Release loc&k"
-msgstr "Eliberaţi blocarea"
+msgstr "Eliberează blocarea"
 
 #. Resource IDs: (16)
 msgid "Releases locks even if you're not the owner of the locks (breaks them)."
@@ -6254,7 +6252,7 @@ msgstr "Elimină de pe lista de &ignorări"
 
 #. Resource IDs: (1068)
 msgid "Remove from Quick Access Toolbar"
-msgstr ""
+msgstr "Elimină din bara de unelte pentru acces rapid"
 
 #. Resource IDs: (209)
 msgid "Remove from changelist"
@@ -6344,7 +6342,7 @@ msgstr ""
 
 #. Resource IDs: (221)
 msgid "Rename/move - TortoiseSVN"
-msgstr "Redenumeşte/mută - TortoiseSVN"
+msgstr "Redenumire/mutare - TortoiseSVN"
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
@@ -6507,7 +6505,7 @@ msgstr "Inversare - TortoiseSVN"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
-msgstr ""
+msgstr "Revine la preferinţele implicite. Recomandat pentru utilizatori cu puţină experienţă."
 
 #. Resource IDs: (73)
 msgid "Reverted"
@@ -6783,7 +6781,7 @@ msgstr "Salvează la clipboard"
 
 #. Resource IDs: (108)
 msgid "Saved Data"
-msgstr "Datele au fost salvate"
+msgstr "Date salvate"
 
 #. Resource IDs: (344)
 msgid "Saves expensive server roundtrips when set to longer than 0 seconds"
@@ -7039,7 +7037,7 @@ msgstr "Afiş&ează proprietăţi"
 
 #. Resource IDs: (1105)
 msgid "Short &date/time format in log messages"
-msgstr ""
+msgstr "Foloseşte format prescurtat de &data/ora pentru mesaje din jurnal"
 
 #. Resource IDs: (12)
 msgid "Short URL of Subversion items"
@@ -7079,11 +7077,11 @@ msgstr "Afişează s&chimbări"
 
 #. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467, 32784)
 msgid "Show &log"
-msgstr "Afişează &jurnal"
+msgstr "Afişează &jurnalul"
 
 #. Resource IDs: (1031)
 msgid "Show &log..."
-msgstr "Afişează &jurnal..."
+msgstr "Afişează &jurnalul..."
 
 #. Resource IDs: (1088)
 msgid "Show &overlays and context menu only in explorer"
@@ -7099,11 +7097,11 @@ msgstr "Afişează fişiere fără versiune"
 
 #. Resource IDs: (1069)
 msgid "Show Above the Ribbon"
-msgstr ""
+msgstr "Afişează deasupra ribbon-ului"
 
 #. Resource IDs: (1069)
 msgid "Show Below the Ribbon"
-msgstr ""
+msgstr "Afişează sub ribbon"
 
 #. Resource IDs: (1065)
 msgid "Show Fewer Buttons"
@@ -7122,6 +7120,8 @@ msgid ""
 "Show Inline-Diff word by word\n"
 "Inline diff word-wise"
 msgstr ""
+"Afişează diferenţiere între linii pe cuvinte\n"
+"D&iferenţiere între linii pe cuvinte"
 
 #. Resource IDs: (1126)
 msgid "Show Lock dialog before locking files"
@@ -7161,9 +7161,8 @@ msgid "Show differences as &unified diff"
 msgstr "Afişează diferenţe ca o diferenţiere &unificată"
 
 #. Resource IDs: (1126)
-#, fuzzy
 msgid "Show excluded folders as normal"
-msgstr "Afişează dosare excluse ca normal"
+msgstr "Afişează dosare excluse ca normale"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -7176,7 +7175,7 @@ msgstr "Afişează fişiere i&gnorate"
 #. Resource IDs: (1480)
 #, fuzzy
 msgid "Show items in externals"
-msgstr "Afişează elementele în externals"
+msgstr "Afişează elemente în externals"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
@@ -7385,11 +7384,11 @@ msgstr ""
 
 #. Resource IDs: (246)
 msgid "Stacked Bar Graph"
-msgstr ""
+msgstr "Grafic cu bare suprapuse"
 
 #. Resource IDs: (246)
 msgid "Stacked Line Graph"
-msgstr ""
+msgstr "Grafic cu linii suprapuse"
 
 #. Resource IDs: (16962)
 msgid "Standard"
@@ -7397,7 +7396,7 @@ msgstr "Standard"
 
 #. Resource IDs: (569)
 msgid "Start Commit Hook"
-msgstr ""
+msgstr "Porneşte hook-ul de transmitere"
 
 #. Resource IDs: (65535)
 msgid "Start Revision"
@@ -7405,7 +7404,7 @@ msgstr "Porneşte revizia"
 
 #. Resource IDs: (569)
 msgid "Start Update Hook"
-msgstr ""
+msgstr "Porneşte hook-ul de actualizare"
 
 #. Resource IDs: (16514)
 msgid "Static"
@@ -7509,12 +7508,16 @@ msgid ""
 "Switch back to the previous window pane\n"
 "Previous Pane"
 msgstr ""
+"Du-te înapoi la panoul anterior\n"
+"Panoul anterior"
 
 #. Resource IDs: (2049)
 msgid ""
 "Switch between single and double pane view\n"
 "Switch between single and double pane view"
 msgstr ""
+"Comută între vederile cu unu sau două panouri\n"
+"Comută între vederile cu unu sau două panouri"
 
 #. Resource IDs: (2051)
 msgid ""
@@ -7524,21 +7527,23 @@ msgstr ""
 
 #. Resource IDs: (3825)
 msgid "Switch to the next document window"
-msgstr ""
+msgstr "Comută la următoarea fereastră"
 
 #. Resource IDs: (3606)
 msgid ""
 "Switch to the next window pane\n"
 "Next Pane"
 msgstr ""
+"Comută la următorul panou\n"
+"Următorul panou"
 
 #. Resource IDs: (3825)
 msgid "Switch to the previous document window"
-msgstr ""
+msgstr "Comută la fereastră precedentă"
 
 #. Resource IDs: (9)
 msgid "Switch working copy to another branch / tag"
-msgstr ""
+msgstr "Comută copia de lucru la o altă ramură / tag"
 
 #. Resource IDs: (1479)
 msgid "Switch:"
@@ -8004,7 +8009,7 @@ msgstr ""
 "Dosarul destinatar \n"
 "%s\n"
 "nu este gol!\n"
-"Sigur vreţi să faceţi checkout/exportare în acel dosar?"
+"Sigur doriţi să faceţi checkout/exportare în acel dosar?"
 
 #. Resource IDs: (195)
 msgid ""
@@ -8102,7 +8107,7 @@ msgstr ""
 
 #. Resource IDs: (82)
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
-msgstr ""
+msgstr "Nu este nimic de adăugat. Toate fişierele sau dosarele ori sunt sub control de versiune ori au fost ignorate folosind proprietatea svn:ignore sau preferinţa globală de ignorare."
 
 #. Resource IDs: (83)
 msgid "There's nothing to unlock. No file has a lock in this working copy."
@@ -8153,7 +8158,7 @@ msgstr "Acest produs conţine software dezvoltat de OpenSSL Project pentru a fi 
 #. Resource IDs: (3857)
 #, c-format
 msgid "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
-msgstr ""
+msgstr "Acest program este legat de exportul lipsă %s în fişierul %s. Acest computer poate avea o versiune incompatibilă de %s."
 
 #. Resource IDs: (3857)
 #, c-format
@@ -8367,7 +8372,7 @@ msgstr "Numărul total de revizii îmbinate"
 
 #. Resource IDs: (339)
 msgid "Total number of user revision properties"
-msgstr "Numărul total de proprietăţi definite de utilizator"
+msgstr "Numărul total de proprietăţi de revizie stabilite de utilizator"
 
 #. Resource IDs: (357)
 #, c-format
@@ -8581,11 +8586,11 @@ msgstr "Deschide dosarul superior"
 
 #. Resource IDs: (152, 230)
 msgid "Update"
-msgstr "Actualizează"
+msgstr "Actualizare"
 
 #. Resource IDs: (77)
 msgid "Update - TortoiseSVN"
-msgstr "Actualizează - TortoiseSVN"
+msgstr "Actualizare - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Update Depth"
@@ -8729,7 +8734,7 @@ msgstr "Foloseşte litere &tăiate pentru liniile eliminate"
 
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
-msgstr "Foloseşte localizare sistemului pentru data/ora"
+msgstr "Foloseşte localizarea sistemului pentru data/ora"
 
 #. Resource IDs: (251)
 msgid "Use text block from '&mine'"
@@ -9300,18 +9305,24 @@ msgid ""
 "bugtraq:number\r\n"
 "Set to 'false' if your bugtracking system has issues which are referenced not by numbers."
 msgstr ""
+"bugtraq:number\r\n"
+"Definiţi ca 'false' dacă sistemul de bugtracking nu foloseşte numere pentru a se referi la probleme."
 
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:providerparams\r\n"
 "the parameters passed to the IBugTraqProvider"
 msgstr ""
+"bugtraq:providerparams\r\n"
+"parametrii trecuţi la IBugTraqProvider"
 
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:provideruuid\r\n"
 "the COM uuid of the IBugTraqProvider"
 msgstr ""
+"bugtraq:provideruuid\r\n"
+"the COM uuid of the IBugTraqProvider"
 
 #. Resource IDs: (577)
 #, c-format
@@ -9395,9 +9406,10 @@ msgstr "http://tortoisesvn.net"
 msgid "ignored"
 msgstr "ignorat"
 
+# from french translation
 #. Resource IDs: (220)
 msgid "ignoring ancestry"
-msgstr ""
+msgstr "ignoră ascendenţa"
 
 #. Resource IDs: (13)
 msgid "incomplete"
@@ -9619,6 +9631,8 @@ msgid ""
 "svn:ignore\r\n"
 "A newline separated list of file patterns to ignore."
 msgstr ""
+"svn:ignore\r\n"
+"O listă de modele de fişier care să fie ignorate, separate cu linii noi. "
 
 #. Resource IDs: (576)
 msgid ""
@@ -9773,6 +9787,8 @@ msgid ""
 "tsvn:warnifnoissue\r\n"
 "Set to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
+"tsvn:warnifnoissue\r\n"
+"Definiţi ca 'yes' dacă doriţi afişarea unui avertisment când nici o problemă nu este înregistrată în dialogul de transmitere."
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
