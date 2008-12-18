@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-15 10:50+0100\n"
+"PO-Revision-Date: 2008-12-18 17:49+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -688,11 +688,11 @@ msgstr "Rozdiely v &riadkoch po slovách"
 
 #. Resource IDs: (275)
 msgid "&Join all"
-msgstr ""
+msgstr "&Spojiť všetko"
 
 #. Resource IDs: (275)
 msgid "&Join with sub-trees"
-msgstr ""
+msgstr "&Spojiť s podtromom"
 
 #. Resource IDs: (1016)
 msgid "&Jump to first difference when loading"
@@ -729,7 +729,7 @@ msgstr "&Jas:"
 
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
-msgstr ""
+msgstr "&Zmeniť vlastnosť ručne"
 
 #. Resource IDs: (1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
@@ -1906,7 +1906,7 @@ msgstr "&Skontroluj úložisko"
 
 #. Resource IDs: (275)
 msgid "C&ollapse sub-trees"
-msgstr ""
+msgstr "&Zbaliť podstromy"
 
 #. Resource IDs: (65535)
 msgid "C&ommands:"
@@ -2278,11 +2278,11 @@ msgstr "Zatvorí aktívne okno a vyzve k uloženiu dokumentov"
 
 #. Resource IDs: (275)
 msgid "Coll&apse source tree"
-msgstr ""
+msgstr "&Zbaliť zdrojový strom"
 
 #. Resource IDs: (275)
 msgid "Collapse &following tree"
-msgstr ""
+msgstr "&Zbaliť nasledovný strom"
 
 #. Resource IDs: (16662)
 msgid "Color"
@@ -3192,13 +3192,12 @@ msgid "E&xit"
 msgstr "U&končiť"
 
 #. Resource IDs: (275)
-#, fuzzy
 msgid "E&xpand all"
-msgstr "Rozšíriť všetko"
+msgstr "&Rozbaliť všetko"
 
 #. Resource IDs: (275)
 msgid "E&xpand sub-trees"
-msgstr ""
+msgstr "&Rozbaliť podstromy"
 
 #. Resource IDs: (1437)
 msgid "E&xport"
@@ -3479,11 +3478,11 @@ msgstr "Existujúce"
 
 #. Resource IDs: (275)
 msgid "Exp&and source tree"
-msgstr ""
+msgstr "&Rozbaliť zdrojový strom"
 
 #. Resource IDs: (275)
 msgid "Expand &following tree"
-msgstr ""
+msgstr "&Rozbaliť nasledovný strom"
 
 #. Resource IDs: (1002)
 #, c-format
@@ -4315,7 +4314,11 @@ msgid ""
 "Separate patterns by ';'."
 msgstr ""
 "Keď element (časť medzi dvomi '/') danej cesty sa zhoduje\n"
-"s jedným z "
+"s jedným z , je považovaný za 'branch'.\n"
+"\n"
+"sú s malými písmenami.\n"
+"Povolené náhradné znaky sú '?' and '*'.\n"
+"Separate patterns by ';'."
 
 #. Resource IDs: (346)
 msgid ""
@@ -4747,7 +4750,7 @@ msgstr "Spojiť s nasledovným s&tromom"
 
 #. Resource IDs: (275)
 msgid "Join with source tree"
-msgstr ""
+msgstr "Spojiť so zdrojovým stromom"
 
 #. Resource IDs: (1203)
 msgid "Keep &locks"
@@ -6345,7 +6348,7 @@ msgstr "Odstrániť %s"
 
 #. Resource IDs: (2052)
 msgid "Remove all branches that did not modify the item"
-msgstr ""
+msgstr "Odstrániť všetky vetvy, ktoré nemenia objekt"
 
 #. Resource IDs: (2052)
 msgid "Remove deleted branches and tags"
@@ -6613,7 +6616,7 @@ msgstr "Vrátiť - TortoiseSVN"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
-msgstr ""
+msgstr "Vrátiť prednasteveného. Odporúčané pre neskúsených užívateľov."
 
 #. Resource IDs: (73)
 msgid "Reverted"
@@ -7482,7 +7485,7 @@ msgstr "Špirála1"
 
 #. Resource IDs: (275)
 msgid "Split &source tree"
-msgstr ""
+msgstr "Rozdeliť &zdrojový strom"
 
 #. Resource IDs: (275)
 msgid "Split following &tree"
@@ -7878,27 +7881,27 @@ msgstr "Objekt '%s' má konflikt vlastností:"
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to add the directory '%s'"
-msgstr ""
+msgstr "Posledné prepnutie sa pokúsilo pridať adresár '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last merge operation tried to add the file '%s'"
-msgstr ""
+msgstr "Posledné zlučovanie sa pokúsilo pridať súbor '%s'"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to delete the directory '%s'"
-msgstr ""
+msgstr "Posledné zlučovanie sa pokúsilo vymazať adresár '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last merge operation tried to delete the file '%s'"
-msgstr ""
+msgstr "Posledné zlučovanie sa pokúsilo vymazať súbor '%s'"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to modify the directory '%s'"
-msgstr ""
+msgstr "Posledné zlučovanie sa pokúsilo zmeniť adresár '%s'"
 
 #. Resource IDs: (607)
 #, c-format
@@ -7908,27 +7911,27 @@ msgstr "Posledná operácia zlúčiť sa pokúsilo zmeniť  súbor '%s'"
 #. Resource IDs: (608)
 #, c-format
 msgid "The last switch operation tried to add the directory '%s'"
-msgstr ""
+msgstr "Posledné prepnutie sa pokúsilo pridať adresár '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last switch operation tried to add the file '%s'"
-msgstr ""
+msgstr "Posledné prepnutie sa pokúsilo pridať súbor '%s'"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last switch operation tried to delete the directory '%s'"
-msgstr ""
+msgstr "Posledné prepnutie sa pokúsilo vymazať adresár '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last switch operation tried to delete the file '%s'"
-msgstr ""
+msgstr "Posledné prepnutie sa pokúsilo vymazať súbor'%s'"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last switch operation tried to modify the directory '%s'"
-msgstr ""
+msgstr "Posledné prepnutie sa pokúsilo zmeniť adresár '%s'"
 
 #. Resource IDs: (607)
 #, c-format
@@ -7938,32 +7941,32 @@ msgstr "Posledná operácia prepnúť sa pokúsila zmeniť  súbor '%s'"
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to add the directory '%s'"
-msgstr ""
+msgstr "Posledná aktualizácia sa pokúsila pridať adresár '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to add the file '%s'"
-msgstr ""
+msgstr "Posledná aktualizácia sa pokúsila pridať súbor '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to delete the directory '%s'"
-msgstr ""
+msgstr "Posledná aktualizácia sa pokúsila zmazať adresár '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to delete the file '%s'"
-msgstr ""
+msgstr "Posledná aktualizácia sa pokúsila zmazať súbor '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to modify the directory '%s'"
-msgstr ""
+msgstr "Posledná aktualizácia sa pokúsila zmeniť adresár '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to modify the file '%s'"
-msgstr ""
+msgstr "Posledná aktualizácia sa pokúsila zmeniť súbor '%s'"
 
 #. Resource IDs: (63)
 #, c-format
@@ -9281,6 +9284,14 @@ msgid ""
 "It seems the item got renamed outside Subversion but only with case changes.\n"
 "Do you really want to add it?"
 msgstr ""
+"Snažíte sa pridať objekt\n"
+"'%s',\n"
+"ale objekt\n"
+"'%s'\n"
+"už existuje.\n"
+"\n"
+"Vyzerá to, ze bol premenovaný mino Subversion, ale zmenila sa iba velkosť písmen.\n"
+"Chcete ho naozaj pridať?"
 
 #. Resource IDs: (195)
 #, c-format
