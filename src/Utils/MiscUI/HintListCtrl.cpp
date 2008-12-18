@@ -22,6 +22,7 @@
 #include "HintListCtrl.h"
 
 CHintListCtrl::CHintListCtrl() : CListCtrl()
+	, pProvider(NULL)
 {
 }
 
@@ -45,6 +46,8 @@ void CHintListCtrl::ClearText()
 
 BEGIN_MESSAGE_MAP(CHintListCtrl, CListCtrl)
 	ON_WM_PAINT()
+	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTW, 0, 0xFFFF, &CHintListCtrl::OnToolTipText)
+	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, &CHintListCtrl::OnToolTipText)
 END_MESSAGE_MAP()
 
 void CHintListCtrl::OnPaint()
@@ -86,3 +89,107 @@ void CHintListCtrl::OnPaint()
 		ReleaseDC(pDC);
 	}
 }
+
+int CHintListCtrl::OnToolHitTest(CPoint point, TOOLINFO * pTI) const 
+{
+	if (pProvider == NULL)
+		return -1;
+
+	LVHITTESTINFO lvhitTestInfo;
+
+	lvhitTestInfo.pt	= point;
+
+	int nItem = ListView_SubItemHitTest(
+		this->m_hWnd,
+		&lvhitTestInfo);
+	int nSubItem = lvhitTestInfo.iSubItem;
+
+	UINT nFlags =   lvhitTestInfo.flags;
+
+	//nFlags is 0 if the SubItemHitTest fails
+	//Therefore, 0 & <anything> will equal false
+	if (nFlags & LVHT_ONITEM)
+	{
+		//If it did fall on a list item,
+		//and it was also hit one of the
+		//item specific sub-areas we wish to show tool tips for
+
+		//Get the client (area occupied by this control
+		RECT rcClient;
+		GetClientRect( &rcClient );
+
+		//Fill in the TOOLINFO structure
+		pTI->hwnd = m_hWnd;
+		pTI->uId = (UINT)((nItem<<10)+(nSubItem&0x3ff)+1);
+		pTI->lpszText = LPSTR_TEXTCALLBACK;
+		pTI->rect = rcClient;
+
+		return pTI->uId; //By returning a unique value per listItem,
+		//we ensure that when the mouse moves over another list item,
+		//the tooltip will change
+	}
+	else
+	{
+		//Otherwise, we aren't interested, so let the message propagate
+		return -1;
+	}
+}
+
+BOOL CHintListCtrl::OnToolTipText(UINT /*id*/, NMHDR * pNMHDR, LRESULT * pResult)
+{
+	TOOLTIPTEXTA* pTTTA = (TOOLTIPTEXTA*)pNMHDR;
+	TOOLTIPTEXTW* pTTTW = (TOOLTIPTEXTW*)pNMHDR;
+
+	if (pProvider == NULL)
+		return FALSE;
+
+	// Ignore messages from the built in tooltip, we are processing them internally
+	if( (pNMHDR->idFrom == (UINT)m_hWnd) &&
+		( ((pNMHDR->code == TTN_NEEDTEXTA) && (pTTTA->uFlags & TTF_IDISHWND)) ||
+		((pNMHDR->code == TTN_NEEDTEXTW) && (pTTTW->uFlags & TTF_IDISHWND)) ) )
+	{
+			return FALSE;
+	}
+
+	*pResult = 0;
+
+	//Get the mouse position
+	const MSG* pMessage;
+	pMessage = GetCurrentMessage();
+
+	CPoint pt;
+	pt = pMessage->pt;
+	ScreenToClient(&pt);
+
+	// Check if the point falls onto a list item
+	LVHITTESTINFO lvhitTestInfo;
+	lvhitTestInfo.pt = pt;
+
+	int nItem = SubItemHitTest(&lvhitTestInfo);
+
+	if (lvhitTestInfo.flags & LVHT_ONITEM)
+	{
+		// we want multiline tooltips
+		::SendMessage(pNMHDR->hwndFrom, TTM_SETMAXTIPWIDTH, 0, INT_MAX);
+		CString strTipText = pProvider->GetToolTipText(nItem, lvhitTestInfo.iSubItem);
+
+		//Deal with UNICODE
+#ifndef _UNICODE
+		if (pNMHDR->code == TTN_NEEDTEXTA)
+			lstrcpyn(pTTTA->szText, strTipText, 80);
+		else
+			_mbstowcsz(pTTTW->szText, strTipText, 80);
+#else
+		if (pNMHDR->code == TTN_NEEDTEXTA)
+			_wcstombsz(pTTTA->szText, strTipText, 80);
+		else
+			lstrcpyn(pTTTW->szText, strTipText, 80);
+#endif
+		return TRUE;    //We found a tool tip,
+		//tell the framework this message has been handled
+	}
+
+	return FALSE; //We didn't handle the message,
+	//let the framework continue propagating the message
+}
+

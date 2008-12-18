@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2008 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,6 +18,12 @@
 //
 #pragma once
 
+class IListCtrlTooltipProvider
+{
+public:
+	virtual CString GetToolTipText(int nItem, int nSubItem) = 0;
+};
+
 /**
  * \ingroup Utils
  * Allows to show a hint text on a list control, basically hiding the list control
@@ -33,9 +39,16 @@ public:
 	void ShowText(const CString& sText, bool forceupdate = false);
 	void ClearText();
 	bool HasText() const {return !m_sText.IsEmpty();}
+	void SetTooltipProvider(IListCtrlTooltipProvider * provider) {pProvider = provider;}
+
+
+protected:
+	DECLARE_MESSAGE_MAP()
+	afx_msg void OnPaint();
+	virtual afx_msg BOOL OnToolTipText(UINT id, NMHDR * pNMHDR, LRESULT * pResult); 
+	virtual int OnToolHitTest(CPoint point, TOOLINFO * pTI) const;
 
 private:
 	CString			m_sText;
-	DECLARE_MESSAGE_MAP()
-	afx_msg void OnPaint();
+	IListCtrlTooltipProvider * pProvider;
 };
