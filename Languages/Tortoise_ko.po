@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-16 14:21+0900\n"
+"PO-Revision-Date: 2008-12-18 13:49+0900\n"
 "Last-Translator: Kim TaeDong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2890,6 +2890,20 @@ msgstr "삭제"
 msgid "Delete Unversioned Items"
 msgstr "버전관리 대상이 아닌 아이템 삭제"
 
+#. Resource IDs: (14)
+#, c-format
+msgid "Delete and &ignore %d items by name"
+msgstr "파일 이름에 따라 %d 개 아이템을 삭제하고 무시하기(&I)"
+
+#. Resource IDs: (14)
+msgid "Delete and add to &ignore list"
+msgstr "삭제하고 무시 리스트에 추가하기(&I)"
+
+#. Resource IDs: (14)
+#, c-format
+msgid "Delete and ignore %d items by &extension"
+msgstr "확장자에 따라 %d 개 아이템을 삭제하고 무시하기(&E)"
+
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
 msgstr "버전관리 대상이 아닌 아이템 삭제..."
@@ -2901,6 +2915,10 @@ msgstr "삭제됨"
 #. Resource IDs: (65535)
 msgid "Deleted node"
 msgstr "삭제된 노드"
+
+#. Resource IDs: (15)
+msgid "Deletes and adds the selected file(s) or the filemask to the 'ignore' list"
+msgstr "선택된 파일(들) 혹은 파일 마스크를 삭제하고 '무시' 리스트에 추가하기"
 
 #. Resource IDs: (11)
 msgid "Deletes files / folders from version control"
@@ -4399,6 +4417,11 @@ msgstr "잠금을 해제하기 원한다면, '수정내역 확인 확인' 대화
 msgid "Ignore"
 msgstr "무시"
 
+#. Resource IDs: (14)
+#, c-format
+msgid "Ignore %d items by &extension"
+msgstr "확장자에 따라 %d 개 아이템을 무시하기(&E)"
+
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
 msgstr "모든 공백 무시(&A)"
@@ -4414,10 +4437,6 @@ msgstr "모든 공백 무시"
 #. Resource IDs: (1267)
 msgid "Ignore ancestry"
 msgstr "변경 기록을 무시함"
-
-#. Resource IDs: (14)
-msgid "Ignore items by &extension"
-msgstr "확장자에 따라 아이템들 무시하기(&E)"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
