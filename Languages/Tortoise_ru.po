@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2008
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 14854: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 14886: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-16 16:28+0300\n"
+"PO-Revision-Date: 2008-12-18 11:31+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2974,6 +2974,20 @@ msgstr "Удалить"
 msgid "Delete Unversioned Items"
 msgstr "Удаление неверсированных элементов"
 
+#. Resource IDs: (14)
+#, c-format
+msgid "Delete and &ignore %d items by name"
+msgstr "Удалить и игнорировать %d &элементов по имени"
+
+#. Resource IDs: (14)
+msgid "Delete and add to &ignore list"
+msgstr "Удалить и добавить в список &игнорирования"
+
+#. Resource IDs: (14)
+#, c-format
+msgid "Delete and ignore %d items by &extension"
+msgstr "Удалить и игнорировать %d элементов по рас&ширению"
+
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
 msgstr "Удалить неверсированные элементы..."
@@ -2985,6 +2999,10 @@ msgstr "Удалено"
 #. Resource IDs: (65535)
 msgid "Deleted node"
 msgstr "Удалённый узел"
+
+#. Resource IDs: (15)
+msgid "Deletes and adds the selected file(s) or the filemask to the 'ignore' list"
+msgstr "Удаляет и добавляет выбранные файлы или маску файлов в список игнорирования"
 
 #. Resource IDs: (11)
 msgid "Deletes files / folders from version control"
@@ -4494,6 +4512,11 @@ msgstr "Если вы желаете прервать блокировку, ис
 msgid "Ignore"
 msgstr "Игнорировать"
 
+#. Resource IDs: (14)
+#, c-format
+msgid "Ignore %d items by &extension"
+msgstr "Игнорировать %d элементов по рас&ширению"
+
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
 msgstr "Игнорировать &все непечатаемые знаки"
@@ -4509,10 +4532,6 @@ msgstr "Игнорировать все непечатаемые знаки"
 #. Resource IDs: (1267)
 msgid "Ignore ancestry"
 msgstr "Игнорировать предков"
-
-#. Resource IDs: (14)
-msgid "Ignore items by &extension"
-msgstr "Игнорировать элементы по рас&ширению"
 
 # полностью не помещается
 #. Resource IDs: (1018)
