@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-16 10:29+0100\n"
+"PO-Revision-Date: 2008-12-18 12:38+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1468,7 +1468,7 @@ msgstr "Fügt Datei(en) zur Versionskontrolle hinzu"
 
 #. Resource IDs: (13)
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
-msgstr "Fügt die gewählte(n) Datei(en) oder Dateimasken zur 'Ignorieren' Liste hinzu"
+msgstr "Fügt die gewählten Dateien oder Dateimasken zur 'Ignorieren' Liste hinzu"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -2900,6 +2900,20 @@ msgstr "&Löschen"
 msgid "Delete Unversioned Items"
 msgstr "Nicht versionierte Objekte löschen"
 
+#. Resource IDs: (14)
+#, c-format
+msgid "Delete and &ignore %d items by name"
+msgstr "Lösche und &ignoriere %d Objekte nach Name"
+
+#. Resource IDs: (14)
+msgid "Delete and add to &ignore list"
+msgstr "Löschen und &ignorieren"
+
+#. Resource IDs: (14)
+#, c-format
+msgid "Delete and ignore %d items by &extension"
+msgstr "Lösche und ignoriere %d Objekte nach &Erweiterung"
+
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
 msgstr "Nicht versionierte Objekte löschen..."
@@ -2911,6 +2925,10 @@ msgstr "Gelöscht"
 #. Resource IDs: (65535)
 msgid "Deleted node"
 msgstr "Knoten gelöscht"
+
+#. Resource IDs: (15)
+msgid "Deletes and adds the selected file(s) or the filemask to the 'ignore' list"
+msgstr "Löscht die gewählten Dateien oder Dateimasken und fügt sie zur 'Ignorieren' Liste hinzu"
 
 #. Resource IDs: (11)
 msgid "Deletes files / folders from version control"
@@ -4421,6 +4439,11 @@ msgstr "Sie können die Sperre im 'Auf Änderungen prüfen' Dialog aufbrechen."
 msgid "Ignore"
 msgstr "Ignorieren"
 
+#. Resource IDs: (14)
+#, c-format
+msgid "Ignore %d items by &extension"
+msgstr "Ignoriere %d Objekte nach &Erweiterung"
+
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
 msgstr "Ignoriere &alle Leerzeichen"
@@ -4436,10 +4459,6 @@ msgstr "Ignoriere alle Leerzeichen"
 #. Resource IDs: (1267)
 msgid "Ignore ancestry"
 msgstr "Ignoriere Vorfahren"
-
-#. Resource IDs: (14)
-msgid "Ignore items by &extension"
-msgstr "Ignoriere Objekte nach &Erweiterung"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
@@ -6385,7 +6404,7 @@ msgstr "Entfernt alle nicht versionierten und ignorierten Objekte"
 
 #. Resource IDs: (15)
 msgid "Removes the file or filemask from the list of ignored items"
-msgstr "Entfernt die gewählte(n) Datei(en) oder Dateimasken aus der 'Ignorieren' Liste"
+msgstr "Entfernt die gewählten Dateien oder Dateimasken aus der 'Ignorieren' Liste"
 
 #. Resource IDs: (581)
 msgid "Removes the selected properties"
