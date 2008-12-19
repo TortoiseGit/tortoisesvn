@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-17 01:37+0200\n"
+"PO-Revision-Date: 2008-12-19 22:44+0200\n"
 "Last-Translator: kari grano <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1526,7 +1526,7 @@ msgstr "Lisää tiedosto(t/n) versionhallintaan"
 
 #. Resource IDs: (13)
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
-msgstr "Lisää valitut tiedostot tai tiedostomaskin ohituslistaan"
+msgstr "Lisää valitut tiedostot tai tiedostopeitteen ohituslistaan"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -2950,6 +2950,20 @@ msgstr "Poista"
 msgid "Delete Unversioned Items"
 msgstr "Poista versioimattomat tiedostot"
 
+#. Resource IDs: (14)
+#, c-format
+msgid "Delete and &ignore %d items by name"
+msgstr "Poista ja &ohita %d tiedostoa nimen perusteella"
+
+#. Resource IDs: (14)
+msgid "Delete and add to &ignore list"
+msgstr "Poista ja lisää &ohituslistaan"
+
+#. Resource IDs: (14)
+#, c-format
+msgid "Delete and ignore %d items by &extension"
+msgstr "Poista ja ohita %d tiedostoa &päätteen perusteella"
+
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
 msgstr "Poista versioimattomat tiedostot..."
@@ -2961,6 +2975,10 @@ msgstr "Poistettu"
 #. Resource IDs: (65535)
 msgid "Deleted node"
 msgstr "Poistettu solmu"
+
+#. Resource IDs: (15)
+msgid "Deletes and adds the selected file(s) or the filemask to the 'ignore' list"
+msgstr "Poistaa ja lisää valitut tiedostot tai tiedostopeitteen ohituslistaan"
 
 #. Resource IDs: (11)
 msgid "Deletes files / folders from version control"
@@ -4459,6 +4477,11 @@ msgstr "Jos haluat rikkoa lukon, käytä 'Tarkista muutokset'-toimintoa."
 msgid "Ignore"
 msgstr "Hylkää"
 
+#. Resource IDs: (14)
+#, c-format
+msgid "Ignore %d items by &extension"
+msgstr "Ohita %d tiedostoa &päätteen perusteella"
+
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
 msgstr "Ohita &kaikki tyhjämerkit"
@@ -4474,10 +4497,6 @@ msgstr "Ohita kaikki tyhjämerkit"
 #. Resource IDs: (1267)
 msgid "Ignore ancestry"
 msgstr "Älä välitä edeltäjistä"
-
-#. Resource IDs: (14)
-msgid "Ignore items by &extension"
-msgstr "Ohita tiedostot &päätteen perusteella"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
@@ -6419,7 +6438,7 @@ msgstr "Poistaa kaikki versioimattomat ja ohitetut tiedostot"
 
 #. Resource IDs: (15)
 msgid "Removes the file or filemask from the list of ignored items"
-msgstr "Poistaa tiedoston tai tiedostomaskin ohitettujen tiedostojen listasta"
+msgstr "Poistaa tiedoston tai tiedostopeitteen ohitettujen tiedostojen listasta"
 
 #. Resource IDs: (581)
 msgid "Removes the selected properties"
