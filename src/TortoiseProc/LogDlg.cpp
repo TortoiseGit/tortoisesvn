@@ -2863,15 +2863,18 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 		pItem->mask |= LVIF_STATE;
 		pItem->stateMask = LVIS_STATEIMAGEMASK;
 
-		if(pLogEntry->bChecked)
+		if (pLogEntry)
 		{
-			//Turn check box on
-			pItem->state = INDEXTOSTATEIMAGEMASK(2);
-		}
-		else
-		{
-			//Turn check box off
-			pItem->state = INDEXTOSTATEIMAGEMASK(1);
+			if (pLogEntry->bChecked)
+			{
+				//Turn check box on
+				pItem->state = INDEXTOSTATEIMAGEMASK(2);
+			}
+			else
+			{
+				//Turn check box off
+				pItem->state = INDEXTOSTATEIMAGEMASK(1);
+			}
 		}
 	}
 	if (pItem->mask & LVIF_TEXT)
