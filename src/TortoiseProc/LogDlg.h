@@ -59,7 +59,7 @@ typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
  * \ingroup TortoiseProc
  * Shows log messages of a single file or folder in a listbox. 
  */
-class CLogDlg : public CResizableStandAloneDialog, public SVN, IFilterEditValidator
+class CLogDlg : public CResizableStandAloneDialog, public SVN, IFilterEditValidator, IListCtrlTooltipProvider
 {
 	DECLARE_DYNAMIC(CLogDlg)
 	
@@ -190,6 +190,9 @@ private:
 
 	void ShowContextMenuForRevisions(CWnd* pWnd, CPoint point);
 	void ShowContextMenuForChangedpaths(CWnd* pWnd, CPoint point);
+
+	virtual CString GetToolTipText(int nItem, int nSubItem);
+
 public:
 	CWnd *				m_pNotifyWindow;
 	ProjectProperties	m_ProjectProperties;

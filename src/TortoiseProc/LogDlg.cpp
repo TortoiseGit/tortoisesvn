@@ -251,6 +251,9 @@ BOOL CLogDlg::OnInitDialog()
 {
 	CResizableStandAloneDialog::OnInitDialog();
 
+	EnableToolTips();
+	m_LogList.SetTooltipProvider(this);
+
 	m_hAccel = LoadAccelerators(AfxGetResourceHandle(),MAKEINTRESOURCE(IDR_ACC_LOGDLG));
 
 	// use the state of the "stop on copy/rename" option from the last time
@@ -5052,4 +5055,56 @@ void CLogDlg::OnNMClickLoglist(NMHDR *pNMHDR, LRESULT *pResult)
 	}
 
 	*pResult = 0;
+}
+
+CString CLogDlg::GetToolTipText(int nItem, int nSubItem)
+{
+	if ((nSubItem == 1) && (nItem <= m_arShownList.GetCount()))
+	{
+		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(nItem));
+
+		CString sToolTipText;
+
+		// Draw the icon(s) into the compatible DC
+		if (pLogEntry->actions & LOGACTIONS_MODIFIED)
+		{
+			LogChangedPath lcpath;
+			lcpath.action = LOGACTIONS_MODIFIED;
+			sToolTipText += lcpath.GetAction();
+		}
+
+		if (pLogEntry->actions & LOGACTIONS_ADDED)
+		{
+			LogChangedPath lcpath;
+			lcpath.action = LOGACTIONS_ADDED;
+			if (!sToolTipText.IsEmpty())
+				sToolTipText += _T("\r\n");
+			sToolTipText += lcpath.GetAction();
+		}
+
+		if (pLogEntry->actions & LOGACTIONS_DELETED)
+		{
+			LogChangedPath lcpath;
+			lcpath.action = LOGACTIONS_DELETED;
+			if (!sToolTipText.IsEmpty())
+				sToolTipText += _T("\r\n");
+			sToolTipText += lcpath.GetAction();
+		}
+
+		if (pLogEntry->actions & LOGACTIONS_REPLACED)
+		{
+			LogChangedPath lcpath;
+			lcpath.action = LOGACTIONS_REPLACED;
+			if (!sToolTipText.IsEmpty())
+				sToolTipText += _T("\r\n");
+			sToolTipText += lcpath.GetAction();
+		}
+		if (!sToolTipText.IsEmpty())
+		{
+			CString sTitle(MAKEINTRESOURCE(IDS_LOG_ACTIONS));
+			sToolTipText = sTitle + _T(":\r\n") + sToolTipText; 
+		}
+		return sToolTipText;
+	}
+	return CString();
 }
