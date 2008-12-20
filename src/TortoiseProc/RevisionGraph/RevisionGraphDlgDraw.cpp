@@ -533,6 +533,47 @@ void CRevisionGraphWnd::DrawMarker
     DrawSquare (graphics, leftTop, lightColor, darkColor, Color (128, 0, 0, 0));
 }
 
+void CRevisionGraphWnd::DrawStripes (Graphics& graphics, const CSize& offset)
+{
+    // we need to fill this visible area of the the screen 
+    // (even if there is graph in that part)
+
+    RectF clipRect;
+    graphics.GetVisibleClipBounds (&clipRect);
+
+    // don't show stripes if we don't have mutiple roots
+
+    std::auto_ptr<const ILayoutRectList> trees (m_layout->GetTrees());
+    if (trees->GetCount() < 2)
+        return;
+
+    // iterate over all trees
+
+    for ( index_t i = 0, count = trees->GetCount(); i < count; ++i)
+	{
+        // screen coordinates coverd by the tree
+
+        CRect tree = trees->GetRect(i);
+        REAL left = (tree.left - 25) * m_fZoomFactor;
+        REAL right = (tree.right + 25) * m_fZoomFactor;
+	    RectF rect ( left - offset.cx
+                   , clipRect.Y
+                   , i+1 == count ? clipRect.Width : right - left
+                   , clipRect.Height);
+
+        // relevant?
+
+        if (rect.IntersectsWith (clipRect))
+        {
+            // draw the background stripe
+
+            Color color ((i & 1) == 0 ? 0x10F0F0C0 : 0x10A0D0E0);
+            SolidBrush brush (color);
+            graphics.FillRectangle (&brush, rect);
+        }
+    }
+}
+
 void CRevisionGraphWnd::DrawNodes (Graphics& graphics, const CRect& logRect, const CSize& offset)
 {
     bool upsideDown = m_options->GetOption<CUpsideDownLayout>()->IsActive();
@@ -746,7 +787,9 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
     graphics.SetPageUnit (UnitPixel);
     graphics.TranslateTransform ((REAL)drawRect.left, (REAL)drawRect.top);
 
-	if (m_fZoomFactor > 0.2f)
+    DrawStripes (graphics, offset);
+
+    if (m_fZoomFactor > 0.2f)
         DrawShadows (graphics, logRect, offset);
 
     DrawNodes (graphics, logRect, offset);

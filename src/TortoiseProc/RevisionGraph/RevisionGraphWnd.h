@@ -263,6 +263,8 @@ private:
     void            DrawMarker (Graphics& graphics, const PointF& leftTop, 
                                 const Color& lightColor, const Color& darkColor);
 
+    void            DrawStripes (Graphics& graphics, const CSize& offset);
+
     void            DrawShadows (Graphics& graphics, const CRect& logRect, const CSize& offset);
     void            DrawNodes (Graphics& graphics, const CRect& logRect, const CSize& offset);
     void            DrawConnections (CDC* pDC, const CRect& logRect, const CSize& offset);

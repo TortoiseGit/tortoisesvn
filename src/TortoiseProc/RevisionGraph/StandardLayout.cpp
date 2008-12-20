@@ -21,6 +21,7 @@
 
 #include "VisibleGraph.h"
 
+#include "StandardLayoutRectList.h"
 #include "StandardLayoutNodeList.h"
 #include "StandardLayoutConnectionList.h"
 #include "StandardLayoutTextList.h"
@@ -213,7 +214,7 @@ void CStandardLayout::InitializeNodes ( const CVisibleGraphNode* start
     }
 }
 
-void CStandardLayout::InitializeNodes (const CVisibleGraph* graph)
+void CStandardLayout::InitializeNodes()
 {
     nodes.resize (graph->GetNodeCount());
 
@@ -315,6 +316,47 @@ void CStandardLayout::CreateTexts()
 
 // just iterate over all nodes
 
+void CStandardLayout::CalculateTreeBoundingRects ( const CVisibleGraphNode* node
+                                                 , CRect& bounds)
+{
+    for (; node != NULL; node = node->GetNext())
+    {
+        // update bounding rect
+
+        const CStandardLayoutNodeInfo& nodeInfo = nodes[node->GetIndex()];
+        const CSize& size = nodeInfo.requiredSize;
+
+        CRect rect = nodeInfo.rect;
+        rect.right = max (rect.left + size.cx, rect.right);
+        rect.bottom = max (rect.top + size.cy, rect.bottom);
+        bounds |= rect;
+
+        // recursion
+
+        for ( const CVisibleGraphNode::CCopyTarget* copy = node->GetFirstCopyTarget()
+            ; copy != NULL
+            ; copy = copy->next())
+        {
+            CalculateTreeBoundingRects (copy->value(), bounds);
+        }
+    }
+}
+
+void CStandardLayout::CalculateTreeBoundingRects()
+{
+    trees.resize (graph->GetRootCount());
+    for (size_t i = 0, count = graph->GetRootCount(); i < count; ++i)
+    {
+        const CVisibleGraphNode* root = graph->GetRoot(i);
+
+        CRect& bounds = trees[i];
+        bounds = nodes[root->GetIndex()].rect;
+        CalculateTreeBoundingRects (root, bounds);
+    }
+}
+
+// just iterate over all nodes
+
 void CStandardLayout::CalculateBoundingRect()
 {
     // special case: empty graph
@@ -328,25 +370,19 @@ void CStandardLayout::CalculateBoundingRect()
     // cover all node rects 
     // (connections and texts will lie within these bounds)
 
-    boundingRect = nodes[0].rect;
-    for (size_t i = 0, count = nodes.size(); i < count; ++i)
-    {
-        const CSize& size = nodes[i].requiredSize;
-
-        CRect rect = nodes[i].rect;
-        rect.right = max (rect.left + size.cx, rect.right);
-        rect.bottom = max (rect.top + size.cy, rect.bottom);
-        boundingRect |= rect;
-    }
+    boundingRect = trees[0];
+    for (size_t i = 1, count = trees.size(); i < count; ++i)
+        boundingRect |= trees[i];
 }
 
-/// construction / destruction
+// construction / destruction
 
 CStandardLayout::CStandardLayout ( const CCachedLogInfo* cache
                                  , const CVisibleGraph* graph)
     : cache (cache)
+    , graph (graph)
 {
-    InitializeNodes (graph);
+    InitializeNodes();
 }
 
 CStandardLayout::~CStandardLayout(void)
@@ -359,6 +395,8 @@ void CStandardLayout::Finalize()
 {
     CreateConnections();
     CreateTexts();
+
+    CalculateTreeBoundingRects();
     CalculateBoundingRect();
 }
 
@@ -367,6 +405,11 @@ void CStandardLayout::Finalize()
 CRect CStandardLayout::GetRect() const
 {
     return boundingRect;
+}
+
+const ILayoutRectList* CStandardLayout::GetTrees() const
+{
+    return new CStandardLayoutRectList (trees);
 }
 
 const ILayoutNodeList* CStandardLayout::GetNodes() const

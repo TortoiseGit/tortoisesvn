@@ -55,6 +55,15 @@ public:
     virtual index_t GetAt (const CPoint& point, long delta) const = 0;
 };
 
+class ILayoutRectList : public ILayoutItemList
+{
+public:
+
+    /// standard data access
+
+    virtual CRect GetRect (index_t index) const = 0;
+};
+
 class ILayoutConnectionList : public ILayoutItemList
 {
 public:
@@ -194,6 +203,7 @@ public:
     /// access to the sub-structures.
     /// The caller is required to delete the return objects.
 
+    virtual const ILayoutRectList* GetTrees() const = 0;
     virtual const ILayoutNodeList* GetNodes() const = 0;
     virtual const ILayoutConnectionList* GetConnections() const = 0;
     virtual const ILayoutTextList* GetTexts() const = 0;
