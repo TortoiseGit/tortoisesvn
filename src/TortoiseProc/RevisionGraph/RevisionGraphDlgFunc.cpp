@@ -79,7 +79,7 @@ void CRevisionGraphWnd::BuildPreview()
     // make sure the preview window has a minimal size
 
     m_previewWidth = (int)min (max (graphRect.Width() * m_previewZoom, 30), preViewSize.cx);
-	m_previewHeight = (int)max (max (graphRect.Height() * m_previewZoom, 30), preViewSize.cy);
+	m_previewHeight = (int)min (max (graphRect.Height() * m_previewZoom, 30), preViewSize.cy);
 
 	CClientDC ddc(this);
 	CDC dc;
