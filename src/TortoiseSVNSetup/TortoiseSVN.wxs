@@ -47,7 +47,6 @@
 		<Condition Message="You must have GDIPlus installed. Please download it from Microsoft and copy the GDIPlus.dll into your Windows\System32 folder."><![CDATA[((GDIPLUSINSTALLED<>"") OR (VersionNT <> 500))]]></Condition>
 		<?endif ?>
 
-		<Property Id="ShowChangelogCheck">1</Property>
 		<Property Id="ALLUSERS">1</Property>
 
 		<Condition Message="[ProductName] requires a Windows NT based OS (Windows 2000 or later, specifically).">VersionNT</Condition>
@@ -59,7 +58,6 @@
 				<FileSearch Id="FileSearchTextEditorExe" Name="notepad.exe" />
 			</DirectorySearch>
 		</Property>
-		<CustomAction Id="Set_ShowChangelog" Property="ShowChangelog" Value="Yes" Return="check" />
 		<CustomAction Id="ShowChangelogAction" Property="TEXTEDITOR" ExeCommand="[INSTALLDIR]changelog.txt" Return="asyncNoWait" />
 		<CustomAction Id="ShowDonatePage" BinaryKey="CustomActionsDLL" DllEntry="OpenDonatePage" />
 		<CustomAction Id="KillCache" BinaryKey="CustomActionsDLL" DllEntry="TerminateCache" />
@@ -123,7 +121,6 @@
 
 			<Custom Action="DefaultTargetDir" After="PrepareDlg">INSTALLDIR=""</Custom>
 			<Custom Action="ERRCA_UIANDADVERTISED" Before="AppSearch">ProductState=1</Custom>
-			<Custom Action="Set_ShowChangelog" After="AppSearch">NOT Installed</Custom>
 		</InstallUISequence>
 	</Product>
 </Wix>
