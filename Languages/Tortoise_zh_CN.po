@@ -57,7 +57,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-17 10:50+0800\n"
+"PO-Revision-Date: 2008-12-20 09:25+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2965,9 +2965,23 @@ msgstr "删除"
 msgid "Delete Unversioned Items"
 msgstr "删除非版本控制的文件"
 
+#. Resource IDs: (14)
+#, c-format
+msgid "Delete and &ignore %d items by name"
+msgstr "根据名称删除和忽略 %d 项(&I)"
+
+#. Resource IDs: (14)
+msgid "Delete and add to &ignore list"
+msgstr "删除和增加到忽略列表(&I)"
+
+#. Resource IDs: (14)
+#, c-format
+msgid "Delete and ignore %d items by &extension"
+msgstr "根据扩展名删除和忽略 %d 项(&E)"
+
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
-msgstr "删除非版本控制的项目..."
+msgstr "删除非版本控制的条目 ..."
 
 #. Resource IDs: (73, 264)
 msgid "Deleted"
@@ -2976,6 +2990,11 @@ msgstr "已删除"
 #. Resource IDs: (65535)
 msgid "Deleted node"
 msgstr "删除的节点"
+
+#. Resource IDs: (15)
+msgid ""
+"Deletes and adds the selected file(s) or the filemask to the 'ignore' list"
+msgstr "将选定的文件或文件匹配列表删除，并且加入忽略列表"
 
 #. Resource IDs: (11)
 msgid "Deletes files / folders from version control"
@@ -4509,6 +4528,11 @@ msgstr "如果你想破除锁定，用“检查更新”对话框。"
 msgid "Ignore"
 msgstr "忽略"
 
+#. Resource IDs: (14)
+#, c-format
+msgid "Ignore %d items by &extension"
+msgstr "根据扩展名忽略 %d 项(&E)"
+
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
 msgstr "忽略所有空白字符(&A)"
@@ -4524,10 +4548,6 @@ msgstr "忽略所有空白字符"
 #. Resource IDs: (1267)
 msgid "Ignore ancestry"
 msgstr "忽略根源"
-
-#. Resource IDs: (14)
-msgid "Ignore items by &extension"
-msgstr "根据扩展名忽略项目(&E)"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
