@@ -100,6 +100,9 @@ Version 1.5.6
 - BUG: Log for branches, tags etc. could be slow if the log cache is 
        incomplete and the repository has many revisions (Stefan Fuhrmann)
 - BUG: Reported RAM usage of log cache too large (Stefan Fuhrmann)
+- BUG: The "delete unversioned items" command only worked for single paths.
+       If multiple items were selected, the dialog showed 
+       an empty list. (Stefan)
        
 Version 1.5.5
 - BUG: The properties dialog would show the url with backward slashes when
