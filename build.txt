@@ -61,12 +61,14 @@ You only have to do this once.
 - WiX3(\b 1)                  http://wix.sourceforge.net
 - Votive(\b 2)                http://wix.sourceforge.net
 - NAnt(\b 1)                  http://nant.sourceforge.net
+- GPG (\b 3)                  http://www.gnupg.org/
 .
 (\b 1) Add the paths of the binaries to the PATH environment variable. You may have to
     logoff/logon to make the new environment variables take effect!
 
 (\b 2) Install Votive to be able to load .wixproj project files.
 
+(\b 3) This is only required for RELEASE builds which you want to sign with your GPG passphrase. In order to do that, install GPG and create a file called 'gpgpassphrase.txt' which has your GPG passphrase in it (plaintext). Then the build will automatically sign the msi file with your GPG signature.
 
 \subsection Requirements3 Next you need to download some more.
 - OpenSSL source              http://www.openssl.org/source/
