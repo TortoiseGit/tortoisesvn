@@ -57,8 +57,8 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 
     // restore option state
 
-	DWORD dwOpts = CRegStdWORD(_T("Software\\TortoiseSVN\\RevisionGraphOptions"), 0x211);
-    m_options.SetRegistryFlags (dwOpts, 0x3fff);
+	DWORD dwOpts = CRegStdWORD(_T("Software\\TortoiseSVN\\RevisionGraphOptions"), 0xff199);
+    m_options.SetRegistryFlags (dwOpts, 0x3fbf);
 }
 
 CRevisionGraphDlg::~CRevisionGraphDlg()
@@ -589,6 +589,7 @@ BOOL CRevisionGraphDlg::OnToggleRedrawOption (UINT controlID)
 
     m_Graph.BuildPreview();
     Invalidate();
+
     return TRUE;
 }
 
