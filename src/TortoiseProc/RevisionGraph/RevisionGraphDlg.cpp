@@ -743,7 +743,7 @@ void CRevisionGraphDlg::OnViewFilter()
 		m_sFilter = dlg.GetFilterString();
 
         revisionRange->SetLowerLimit (minrev);
-        revisionRange->SetUpperLimit (maxrev);
+        revisionRange->SetUpperLimit (maxrev == head ? revision_t (NO_REVISION) : maxrev);
 
         pathFilter->SetRemoveSubTrees (dlg.GetRemoveSubTrees());
         std::set<std::string>& filterPaths = pathFilter->GetFilterPaths();
@@ -757,8 +757,26 @@ void CRevisionGraphDlg::OnViewFilter()
             path = m_sFilter.Tokenize (_T("*"),  index);
         }
 
-        InterlockedExchange(&m_Graph.m_bThreadRunning, TRUE);
+        // update menu & toolbar
 
+	    CMenu * pMenu = GetMenu();
+    	int tbstate = m_ToolBar.GetToolBarCtrl().GetState(ID_VIEW_FILTER);
+        if (revisionRange->IsActive() || pathFilter->IsActive())
+	    {
+    	    if (pMenu != NULL)
+    		    pMenu->CheckMenuItem(ID_VIEW_FILTER, MF_BYCOMMAND | MF_CHECKED);
+		    m_ToolBar.GetToolBarCtrl().SetState(ID_VIEW_FILTER, tbstate | TBSTATE_CHECKED);
+	    }
+	    else
+	    {
+    	    if (pMenu != NULL)
+		        pMenu->CheckMenuItem(ID_VIEW_FILTER, MF_BYCOMMAND | MF_UNCHECKED);
+		    m_ToolBar.GetToolBarCtrl().SetState(ID_VIEW_FILTER, tbstate & (~TBSTATE_CHECKED));
+	    }
+
+        // re-run query
+
+        InterlockedExchange(&m_Graph.m_bThreadRunning, TRUE);
 		if (AfxBeginThread(WorkerThread, this)==NULL)
 		{
 			CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);

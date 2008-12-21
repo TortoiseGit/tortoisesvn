@@ -52,6 +52,13 @@ void CRemovePathsBySubString::SetRemoveSubTrees (bool value)
     removeSubTrees = value;
 }
 
+// implement IRevisionGraphOption
+
+bool CRemovePathsBySubString::IsActive() const
+{
+    return !filterPaths.empty();
+}
+
 // implement ICopyFilterOption
 
 ICopyFilterOption::EResult 

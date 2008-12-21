@@ -73,6 +73,10 @@ public:
     bool GetRemoveSubTrees() const;
     void SetRemoveSubTrees (bool value);
 
+    /// implement IRevisionGraphOption
+
+    virtual bool IsActive() const; 
+
     /// implement ICopyFilterOption
 
     virtual EResult ShallRemove (const CFullGraphNode* node) const;

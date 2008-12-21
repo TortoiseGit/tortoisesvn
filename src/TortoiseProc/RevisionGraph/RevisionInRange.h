@@ -57,6 +57,10 @@ public:
     revision_t GetUpperLimit() const;
     void SetUpperLimit (revision_t limit);
 
+    /// implement IRevisionGraphOption
+
+    virtual bool IsActive() const; 
+
     /// implement ICopyFilterOption
 
     virtual EResult ShallRemove (const CFullGraphNode* node) const;
