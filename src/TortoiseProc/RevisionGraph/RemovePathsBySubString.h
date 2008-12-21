@@ -29,6 +29,11 @@
 * no surviving copy.
 */
 
+namespace LogCache
+{
+    class CDictionaryBasedPath;
+}
+
 using namespace LogCache;
 
 class CRemovePathsBySubString 
@@ -56,6 +61,11 @@ private:
     };
 
     mutable std::vector<PathClassification> pathClassification;
+
+    // path classification by cache
+
+    PathClassification Classify (const std::string& path) const;
+    PathClassification QuickClassification (const CDictionaryBasedPath& path) const;
 
 public:
 

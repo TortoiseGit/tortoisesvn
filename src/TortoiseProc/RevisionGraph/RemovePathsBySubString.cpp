@@ -20,6 +20,53 @@
 #include "RemovePathsBySubString.h"
 #include "FullGraphNode.h"
 
+// path classification by cache
+
+CRemovePathsBySubString::PathClassification 
+CRemovePathsBySubString::Classify (const std::string& path) const
+{
+    // we have to attempt full string searches as we look for 
+    // arbitrary sub-strings
+
+	for ( std::set<std::string>::const_iterator iter = filterPaths.begin()
+        , end = filterPaths.end()
+        ; iter != end
+        ; ++iter)
+    {
+        if (path.find (*iter) != std::string::npos)
+            return REMOVE;
+    }
+
+    // done here
+
+    return KEEP;
+}
+
+CRemovePathsBySubString::PathClassification 
+CRemovePathsBySubString::QuickClassification (const CDictionaryBasedPath& path) const
+{
+    // ensure the index is valid within classification cache 
+
+    if (pathClassification.size() <= path.GetIndex())
+    {
+        size_t newSize = max (8, pathClassification.size()) * 2;
+        while (newSize <= path.GetIndex())
+            newSize *= 2;
+
+        pathClassification.resize (newSize, UNKNOWN);
+    }
+
+    // auto-calculate the entry
+
+    PathClassification& classification = pathClassification[path.GetIndex()];
+    if (classification == UNKNOWN)
+        classification = Classify (path.GetPath());
+
+    // done here
+
+    return classification;
+}
+
 // construction
 
 CRemovePathsBySubString::CRemovePathsBySubString (CRevisionGraphOptionList& list)
@@ -69,41 +116,18 @@ CRemovePathsBySubString::ShallRemove (const CFullGraphNode* node) const
     if (filterPaths.empty())
         return ICopyFilterOption::KEEP_NODE;
 
-    // node to classify
+    // path to classify
 
-    const CDictionaryBasedPath& path = node->GetRealPath();
+    const CDictionaryBasedTempPath& path = node->GetPath();
 
-    // ensure the index is valid within classification cache 
+    // most paths can be filtered quickly using the classification cache
 
-    if (pathClassification.size() <= path.GetIndex())
-    {
-        size_t newSize = max (8, pathClassification.size()) * 2;
-        while (newSize <= path.GetIndex())
-            newSize *= 2;
+    PathClassification classification = QuickClassification (path.GetBasePath());
 
-        pathClassification.resize (newSize, UNKNOWN);
-    }
+    // take a closer look if necessary
 
-    // auto-calculate the entry
-
-    PathClassification& classification = pathClassification[path.GetIndex()];
-    if (classification == UNKNOWN)
-    {
-        std::string fullPath = path.GetPath();
-
-        classification = KEEP;
-    	for ( std::set<std::string>::const_iterator iter = filterPaths.begin()
-            , end = filterPaths.end()
-            ; iter != end
-            ; ++iter)
-        {
-            if (fullPath.find (*iter) != std::string::npos)
-            {
-                classification = REMOVE;
-                break;
-            }
-        }
-    }
+    if ((classification != REMOVE) && !path.IsFullyCachedPath())
+        classification = Classify (path.GetPath());
 
     // return the result
 
