@@ -41,6 +41,7 @@
 #include "StrictOrderNodePositioning.h"
 #include "UpsideDownLayout.h"
 #include "ShowPathsAsDiff.h"
+#include "ShowTreeStripes.h"
 
 // construction (create all option objects) / destruction
 
@@ -66,6 +67,7 @@ CAllRevisionGraphOptions::CAllRevisionGraphOptions (const CGraphNodeStates* node
     new CRemoveUnchangedBranches (*this);
     new CShowWCModification (*this);
     new CShowPathsAsDiff (*this);
+    new CShowTreeStripes (*this);
 
     (new CRevisionInRange (*this))->ToggleSelection();
     (new CRemovePathsBySubString (*this))->ToggleSelection();
