@@ -50,8 +50,10 @@ void CRemoveUnchangedBranches::Apply (CVisibleGraph* graph, CVisibleGraphNode* n
             || !node->GetPrevious()->GetClassification().Is (CNodeClassification::PATH_ONLY_MODIFIED))
         {
             // remove it and preserve tags
+            // (to preserve tags, we must keep root nodes as well)
 
-            node->DropNode (graph, true);
+            if (!node->IsRoot() || !node->GetFirstTag())
+                node->DropNode (graph, true);
         }
     }
 }
