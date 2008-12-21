@@ -30,6 +30,7 @@
 #include ".\revisiongraphwnd.h"
 #include "IRevisionGraphLayout.h"
 #include "UpsideDownLayout.h"
+#include "ShowTreeStripes.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -787,7 +788,8 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
     graphics.SetPageUnit (UnitPixel);
     graphics.TranslateTransform ((REAL)drawRect.left, (REAL)drawRect.top);
 
-    DrawStripes (graphics, offset);
+    if (m_options && m_options->GetOption<CShowTreeStripes>()->IsActive())
+        DrawStripes (graphics, offset);
 
     if (m_fZoomFactor > 0.2f)
         DrawShadows (graphics, logRect, offset);

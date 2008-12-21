@@ -120,6 +120,8 @@ public:
     CString         GetRepositoryRoot() const;             
     CString         GetRepositoryUUID() const;
 
+  	void			BuildPreview();
+
 protected:
 	DWORD			m_dwTicks;
 	CRect			m_OverviewPosRect;
@@ -274,6 +276,4 @@ private:
 
 	int				GetEncoderClsid(const WCHAR* format, CLSID* pClsid);
 	void			DrawRubberBand();
-
-	void			BuildPreview();
 };

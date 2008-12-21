@@ -94,10 +94,12 @@ protected:
 	afx_msg void	OnChangeZoom();
     afx_msg BOOL    OnToggleOption (UINT controlID);
     afx_msg BOOL    OnToggleReloadOption (UINT controlID);
-	afx_msg BOOL	OnToolTipNotify (UINT id, NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg BOOL    OnToggleRedrawOption (UINT controlID);
+    afx_msg BOOL	OnToolTipNotify (UINT id, NMHDR *pNMHDR, LRESULT *pResult);
 
 	DECLARE_MESSAGE_MAP()
 
+    BOOL            ToggleOption (UINT controlID);
 	void			SetOption (UINT controlID);
 
     CRect			GetGraphRect();

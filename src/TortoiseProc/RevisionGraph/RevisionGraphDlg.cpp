@@ -107,7 +107,7 @@ BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CResizableStandAloneDialog)
 	ON_COMMAND_EX(ID_VIEW_REMOVEUNCHANGEDBRANCHES, &CRevisionGraphDlg::OnToggleOption)
     ON_COMMAND_EX(ID_VIEW_SHOWWCMODIFICATION, &CRevisionGraphDlg::OnToggleReloadOption)
     ON_COMMAND_EX(ID_VIEW_SHOWDIFFPATHS, &CRevisionGraphDlg::OnToggleOption)
-    ON_COMMAND_EX(ID_VIEW_SHOWTREESTRIPES, &CRevisionGraphDlg::OnToggleOption)
+    ON_COMMAND_EX(ID_VIEW_SHOWTREESTRIPES, &CRevisionGraphDlg::OnToggleRedrawOption)
 	ON_CBN_SELCHANGE(ID_REVGRAPH_ZOOMCOMBO, OnChangeZoom)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTW, 0, 0xFFFF, OnToolTipNotify)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, OnToolTipNotify)
@@ -522,7 +522,7 @@ void CRevisionGraphDlg::SetOption (UINT controlID)
     }
 }
 
-BOOL CRevisionGraphDlg::OnToggleOption (UINT controlID)
+BOOL CRevisionGraphDlg::ToggleOption (UINT controlID)
 {
     // check request for validity
 
@@ -559,6 +559,14 @@ BOOL CRevisionGraphDlg::OnToggleOption (UINT controlID)
     if (((state & MF_CHECKED) != 0) == m_options.IsSelected (controlID))
         m_options.ToggleSelection (controlID);
 
+    return TRUE;
+}
+
+BOOL CRevisionGraphDlg::OnToggleOption (UINT controlID)
+{
+    if (!ToggleOption (controlID))
+        return FALSE;
+
     // re-process the data
 
     StartWorkerThread();
@@ -572,6 +580,16 @@ BOOL CRevisionGraphDlg::OnToggleReloadOption (UINT controlID)
         m_bFetchLogs = true;
 
     return OnToggleOption (controlID);
+}
+
+BOOL CRevisionGraphDlg::OnToggleRedrawOption (UINT controlID)
+{
+    if (!ToggleOption (controlID))
+        return FALSE;
+
+    m_Graph.BuildPreview();
+    Invalidate();
+    return TRUE;
 }
 
 void CRevisionGraphDlg::StartWorkerThread()
