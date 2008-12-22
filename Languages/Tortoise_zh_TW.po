@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-15 20:02+0800\n"
+"PO-Revision-Date: 2008-12-22 20:33+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2893,6 +2893,20 @@ msgstr "刪除"
 msgid "Delete Unversioned Items"
 msgstr "刪除無版本控制的檔案"
 
+#. Resource IDs: (14)
+#, c-format
+msgid "Delete and &ignore %d items by name"
+msgstr "依名稱刪除並忽略 %d 項(&I)"
+
+#. Resource IDs: (14)
+msgid "Delete and add to &ignore list"
+msgstr "刪除並加入忽略列表(&I)"
+
+#. Resource IDs: (14)
+#, c-format
+msgid "Delete and ignore %d items by &extension"
+msgstr "依副檔名刪除並忽略 %d 項(&E)"
+
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
 msgstr "刪除無版本控制的檔案..."
@@ -2904,6 +2918,10 @@ msgstr "已刪除"
 #. Resource IDs: (65535)
 msgid "Deleted node"
 msgstr "已刪除的節點"
+
+#. Resource IDs: (15)
+msgid "Deletes and adds the selected file(s) or the filemask to the 'ignore' list"
+msgstr "將選定的檔案遮罩刪除並加入忽略列表"
 
 #. Resource IDs: (11)
 msgid "Deletes files / folders from version control"
@@ -3133,6 +3151,10 @@ msgstr "繪圖"
 #. Resource IDs: (1079)
 msgid "Drive Types"
 msgstr "磁碟機類型"
+
+#. Resource IDs: (1315)
+msgid "Drives A: and B:"
+msgstr "磁碟機 A: B:"
 
 #. Resource IDs: (613)
 #, c-format
@@ -3783,10 +3805,6 @@ msgstr "符合影像大小(&S)"
 msgid "Fix case of item and do not add it"
 msgstr "修正大小寫, 不進行新增"
 
-#. Resource IDs: (1315)
-msgid "Floppy drives (A: B:)"
-msgstr "軟式磁碟機 (A: B:)"
-
 #. Resource IDs: (32818)
 msgid "Fold &tags"
 msgstr "折疊標籤(&T)"
@@ -4376,6 +4394,10 @@ msgstr ""
 "設定此選項時, 含有無版本控制的檔案會使上層的資料夾顯示為異動\r\n"
 "也就是會顯示異動的圖示."
 
+#. Resource IDs: (2052)
+msgid "If the graph contains multiple trees, separate them by slight variations in background color."
+msgstr "如果圖型含有多棵樹. 用背景顏色來區別它們."
+
 #. Resource IDs: (1439)
 msgid "If the repository can not be contacted"
 msgstr "如果檔案庫無法連接"
@@ -4400,6 +4422,11 @@ msgstr "如果你想要強制解開鎖定, 請使用 '檢查異動' 視窗."
 msgid "Ignore"
 msgstr "忽略"
 
+#. Resource IDs: (14)
+#, c-format
+msgid "Ignore %d items by &extension"
+msgstr "依副檔名忽略 %d 項(&E)"
+
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
 msgstr "忽略所有空白字元(&A)"
@@ -4415,10 +4442,6 @@ msgstr "忽略所有空白字元"
 #. Resource IDs: (1267)
 msgid "Ignore ancestry"
 msgstr "無視之前版本"
-
-#. Resource IDs: (14)
-msgid "Ignore items by &extension"
-msgstr "依副檔名忽略項目(&E)"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
@@ -8448,6 +8471,10 @@ msgstr "合併的版本總數"
 #. Resource IDs: (339)
 msgid "Total number of user revision properties"
 msgstr "用戶版本性質總數"
+
+#. Resource IDs: (32821)
+msgid "Tr&ee stripes"
+msgstr "樹條紋(&E)"
 
 #. Resource IDs: (357)
 #, c-format
