@@ -657,6 +657,37 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
 				{
 					url = m_sUrl;
 					url.Replace(_T("%BUGID%"), StringFromControl(textbuffer));
+
+					// is the URL a relative one?
+					if (url.Left(2).Compare(_T("^/")) == 0)
+					{
+						// URL is relative to the repository root
+						CString url1 = m_sRepositoryRoot + url.Mid(1);
+						TCHAR buf[INTERNET_MAX_URL_LENGTH];
+						DWORD len = url.GetLength();
+						if (UrlCanonicalize((LPCTSTR)url1, buf, &len, 0) == S_OK)
+							url = CString(buf, len);
+						else
+							url = url1;
+					}
+					else if (url[0] == '/')
+					{
+						// URL is relative to the server's hostname
+						CString sHost;
+						// find the server's hostname
+						int schemepos = m_sRepositoryRoot.Find(_T("//"));
+						if (schemepos >= 0)
+						{
+							sHost = m_sRepositoryRoot.Left(m_sRepositoryRoot.Find('/', schemepos+3));
+							CString url1 = sHost + url;
+							TCHAR buf[INTERNET_MAX_URL_LENGTH];
+							DWORD len = url.GetLength();
+							if (UrlCanonicalize((LPCTSTR)url, buf, &len, 0) == S_OK)
+								url = CString(buf, len);
+							else
+								url = url1;
+						}
+					}
 				}
 				delete [] textbuffer;
 				if (!url.IsEmpty())

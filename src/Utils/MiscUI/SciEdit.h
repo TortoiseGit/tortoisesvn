@@ -112,6 +112,8 @@ public:
 	
 	CStringA	StringForControl(const CString& text);
 	CString		StringFromControl(const CStringA& text);
+
+	void		SetRepositoryRoot(const CString& url) {m_sRepositoryRoot = url;}
 	
 private:
 	HMODULE		m_hModule;
@@ -125,6 +127,7 @@ private:
 	CStringA	m_sCommand;
 	CStringA	m_sBugID;
 	CString		m_sUrl;
+	CString		m_sRepositoryRoot;
 	CArray<CSciEditContextMenuInterface *, CSciEditContextMenuInterface *> m_arContextHandlers;
 	CPersonalDictionary m_personalDict;
 	static bool IsValidURLChar(unsigned char ch);
