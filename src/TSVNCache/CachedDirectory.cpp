@@ -630,6 +630,21 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
 				// also mark the status in the status object as normal
 				status->text_status = svn_wc_status_normal;
 			}
+			else
+			{
+				if (svnPath.IsDirectory())
+				{
+					AutoLocker lock(pThis->m_critSec);
+					pThis->m_childDirectories[svnPath] = SVNStatus::GetMoreImportant(status->text_status, status->prop_status);
+				}
+				else if ((CSVNStatusCache::Instance().IsUnversionedAsModified())&&(status->text_status != svn_wc_status_ignored))
+				{
+					// make this unversioned item change the most important status of this
+					// folder to modified if it doesn't already have another status
+					if (pThis->m_mostImportantFileStatus != svn_wc_status_added)
+						pThis->m_mostImportantFileStatus = SVNStatus::GetMoreImportant(pThis->m_mostImportantFileStatus, svn_wc_status_modified);
+				}
+			}
 		}
 		else if (status->text_status == svn_wc_status_external)
 		{
@@ -697,13 +712,20 @@ svn_wc_status_kind CCachedDirectory::CalculateRecursiveStatus()
 			retVal = svn_wc_status_modified;
 	}
 
-	// Now combine all our child-directorie's status
+	// Now combine all our child-directories status
 	
 	AutoLocker lock(m_critSec);
 	ChildDirStatus::const_iterator it;
-	for(it = m_childDirectories.begin(); it != m_childDirectories.end(); ++it)
+	for (it = m_childDirectories.begin(); it != m_childDirectories.end(); ++it)
 	{
 		retVal = SVNStatus::GetMoreImportant(retVal, it->second);
+
+		if ( ((it->second == svn_wc_status_none)||(it->second == svn_wc_status_unversioned)) &&
+			(retVal == svn_wc_status_normal)&&(CSVNStatusCache::Instance().IsUnversionedAsModified()))
+		{
+			retVal = svn_wc_status_modified;
+		}
+
 		if ((retVal != svn_wc_status_modified)&&(retVal != m_ownStatus.GetEffectiveStatus()))
 		{
 			if ((retVal == svn_wc_status_added)||(retVal == svn_wc_status_deleted)||(retVal == svn_wc_status_missing))
