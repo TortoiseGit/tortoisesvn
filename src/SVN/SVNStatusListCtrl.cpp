@@ -798,6 +798,12 @@ CSVNStatusListCtrl::AddNewFileEntry(
 	// Pass ownership of the entry to the array
 	m_arStatusArray.push_back(entry);
 
+	// store the repository root
+	if ((!bEntryfromDifferentRepo)&&(pSVNStatus->entry)&&(pSVNStatus->entry->repos)&&(m_sRepositoryRoot.IsEmpty()))
+	{
+		m_sRepositoryRoot = CUnicodeUtils::GetUnicode(pSVNStatus->entry->repos);
+	}
+
 	return entry;
 }
 

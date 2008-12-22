@@ -787,6 +787,7 @@ public:
 
 	CString						m_sUUID;			///< the UUID of the associated repository
 
+	CString						m_sRepositoryRoot;	///< The repository root of the first item which has one, or an empty string
 	DECLARE_MESSAGE_MAP()
 
 private:
