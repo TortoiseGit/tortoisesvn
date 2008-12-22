@@ -52,7 +52,6 @@ private:
 private:
 	std::map<UINT, HBITMAP>		bitmaps;
 	std::map<UINT_PTR, UINT>	icons;
-	WORD winVersion;
 
 	FN_GetBufferedPaintBits pfnGetBufferedPaintBits;
 	FN_BeginBufferedPaint pfnBeginBufferedPaint;

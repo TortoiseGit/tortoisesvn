@@ -63,7 +63,7 @@ BOOL CIconMenu::AppendMenuIcon(UINT_PTR nIDNewItem, LPCTSTR lpszNewItem, UINT uI
 	info.fType = MFT_STRING;
 	info.wID = nIDNewItem;
 	info.dwTypeData = menutextbuffer;
-	if (winVersion >= 0x600)
+	if (SysInfo::Instance().IsVistaOrLater())
 	{
 		info.fMask |= MIIM_BITMAP;
 		info.hbmpItem = IconToBitmapPARGB32(uIcon);
@@ -120,7 +120,10 @@ HBITMAP CIconMenu::IconToBitmapPARGB32(UINT uIcon)
 		return NULL;
 
 	if (pfnBeginBufferedPaint == NULL || pfnEndBufferedPaint == NULL || pfnGetBufferedPaintBits == NULL)
+	{
+		DestroyIcon(hIcon);
 		return NULL;
+	}
 
 	SIZE sizIcon;
 	sizIcon.cx = GetSystemMetrics(SM_CXSMICON);
