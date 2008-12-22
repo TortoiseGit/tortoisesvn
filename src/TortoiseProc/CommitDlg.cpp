@@ -584,6 +584,8 @@ UINT CCommitDlg::StatusThread()
 	dwShow |= DWORD(m_regAddBeforeCommit) ? SVNSLC_SHOWUNVERSIONED : 0;
 	if (success)
 	{
+		m_cLogMessage.SetRepositoryRoot(m_ListCtrl.m_sRepositoryRoot);
+
 		if (m_checkedPathList.GetCount())
 			m_ListCtrl.Show(dwShow, m_checkedPathList);
 		else
