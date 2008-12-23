@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-16 11:05+0100\n"
+"PO-Revision-Date: 2008-12-23 17:18+0100\n"
 "Last-Translator: Grokwik <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2900,6 +2900,20 @@ msgstr "Supprimer"
 msgid "Delete Unversioned Items"
 msgstr "Supprimer les éléments non versionnés"
 
+#. Resource IDs: (14)
+#, c-format
+msgid "Delete and &ignore %d items by name"
+msgstr "Supprimer et &ignorer %d éléments par nom"
+
+#. Resource IDs: (14)
+msgid "Delete and add to &ignore list"
+msgstr "Supprimer et &ignorer"
+
+#. Resource IDs: (14)
+#, c-format
+msgid "Delete and ignore %d items by &extension"
+msgstr "Supprimer et ignorer %d éléments par &extension"
+
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
 msgstr "Supprimer les éléments non versionnés..."
@@ -2911,6 +2925,10 @@ msgstr "Effacé"
 #. Resource IDs: (65535)
 msgid "Deleted node"
 msgstr "Noeud effacé"
+
+#. Resource IDs: (15)
+msgid "Deletes and adds the selected file(s) or the filemask to the 'ignore' list"
+msgstr "Supprimer et ajouter le(s) fichier(s) sélectionné(s) ou le filtre à la liste des fichiers à ignorer"
 
 #. Resource IDs: (11)
 msgid "Deletes files / folders from version control"
@@ -4384,6 +4402,10 @@ msgstr ""
 "Si sélectionné, alors les fichiers non versionnés marqueront le status du dossier parent comme modifié\r\n"
 "c'est-à-dire qu'il aura l'icône de recouvrement modifiée."
 
+#. Resource IDs: (2052)
+msgid "If the graph contains multiple trees, separate them by slight variations in background color."
+msgstr "Si le graphique contient plusieurs arborescences, les différencier par des variations de la couleur de fond."
+
 #. Resource IDs: (1439)
 msgid "If the repository can not be contacted"
 msgstr "Si le référentiel ne peut être contacté"
@@ -4408,6 +4430,11 @@ msgstr "Si vous voulez casser le verrou, utilisez la boîte de dialogue 'Vérifi
 msgid "Ignore"
 msgstr "Ignorer"
 
+#. Resource IDs: (14)
+#, c-format
+msgid "Ignore %d items by &extension"
+msgstr "Ignorer %d éléments par &extension"
+
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
 msgstr "Ignorer tous les esp&acements"
@@ -4423,10 +4450,6 @@ msgstr "Ignorer tous les espacements"
 #. Resource IDs: (1267)
 msgid "Ignore ancestry"
 msgstr "Ignorer l'ascendance"
-
-#. Resource IDs: (14)
-msgid "Ignore items by &extension"
-msgstr "Ignorer les éléments par leur &extension"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
@@ -8457,6 +8480,10 @@ msgstr "Nombre total de révisions fusionnées"
 #. Resource IDs: (339)
 msgid "Total number of user revision properties"
 msgstr "Nombre total de propriétés utilisateur de révision"
+
+#. Resource IDs: (32821)
+msgid "Tr&ee stripes"
+msgstr "Parties de l'arbre"
 
 #. Resource IDs: (357)
 #, c-format
