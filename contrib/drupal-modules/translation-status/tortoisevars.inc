@@ -21,11 +21,11 @@ $tsvn_var['repos_base']="http://tortoisesvn.tigris.org/svn/tortoisesvn/";
 $tsvn_var['flagpath']="/flags/world.small/";
 
 // Variables that change upon each release
-$tsvn_var['release']="1.5.5";
-$tsvn_var['build']="14361";
-$tsvn_var['build_x64']="14361";
-$tsvn_var['svnver']="1.5.4";
-$tsvn_var['sf_release_id']="635612";
+$tsvn_var['release']="1.5.6";
+$tsvn_var['build']="14908";
+$tsvn_var['build_x64']="14908";
+$tsvn_var['svnver']="1.5.5";
+$tsvn_var['sf_release_id']="649159";
 
 $tsvn_var['repos_trunk']=$tsvn_var['repos_base'].'trunk/';
 $tsvn_var['repos_branch']=$tsvn_var['repos_base'].'branches/1.5.x/';

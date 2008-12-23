@@ -1,3 +1,24 @@
+Version 1.5.6
+- CHG: Disabled capieng again - users were annoyed. (Stefan)
+- BUG: possible segfault in TSVNCache when shutting down windows. (Stefan)
+- BUG: The client-side hook scripts weren't started if only deletions were
+       committed or updated. (Stefan)
+- BUG: The "show log" was shown for added files in the status 
+       list control. (Stefan)
+- BUG: Files/Folders with '%' in the name could not be renamed in the
+       repository browser. (Stefan)
+- BUG: Reverting files could have removed associated folders. (Stefan)
+- BUG: The OK button in the checkout dialog was sometimes disabled. (Stefan)
+- BUG: Creating a tag/branch from the repository browser didn't work if
+       the target folder did not exist. (Stefan)
+- BUG: Under rare conditions, log reported revisions twice (Stefan Fuhrmann)
+- BUG: Log for branches, tags etc. could be slow if the log cache is 
+       incomplete and the repository has many revisions (Stefan Fuhrmann)
+- BUG: Reported RAM usage of log cache too large (Stefan Fuhrmann)
+- BUG: The "delete unversioned items" command only worked for single paths.
+       If multiple items were selected, the dialog showed 
+       an empty list. (Stefan)
+       
 Version 1.5.5
 - BUG: The properties dialog would show the url with backward slashes when
        started from the repository browser. (Stefan)
@@ -37,7 +58,7 @@ Version 1.5.4
 - BUG: Blame from the repository browser ignored the diff options. (Stefan)
 
 Version 1.5.3
-- CHG: paths in error messages are nor truncated to 80 chars anymore. (Stefan)
+- CHG: paths in error messages are not truncated to 80 chars anymore. (Stefan)
 - CHG: enabled rc4 encryption for the sasl dlls. (Stefan)
 - CHG: linked against neon 0.28.3
 - BUG: some context menu entries were shown if multiple items were
