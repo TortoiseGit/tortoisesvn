@@ -27,8 +27,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-11-13 22:29+0100\n"
-"Last-Translator: Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>\n"
+"PO-Revision-Date: 2008-12-23 23:19+0100\n"
+"Last-Translator: Jean-Marc van Leerdam <jeanmarc@bemy.demon.nl>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1406,6 +1406,15 @@ msgstr "Voeg een extensie-specifiek diff-programma toe"
 msgid "Add extension specific merge program"
 msgstr "Voeg een extensie-specifiek merge-programma toe"
 
+#. Resource IDs: (89)
+msgid "Add the item anyway"
+msgstr "Voeg onderdeel toch toe"
+
+#. Resource IDs: (613)
+#, fuzzy, c-format
+msgid "Add to %1"
+msgstr "naar %1"
+
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
 msgstr "Voeg toe aan &negeerlijst"
@@ -2079,6 +2088,11 @@ msgstr "Selecteer de menuopties die in het contextmenu moeten verschijnen in pla
 msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Kies deze optie voor een verkorte datum en tijd in logboodschappen"
 
+#. Resource IDs: (2052)
+#, fuzzy
+msgid "Check working copy for modifications"
+msgstr "Kijk of er updates zijn"
+
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
 msgstr "Controle of een nieuwe versie van TortoiseSVN beschikbaar is..."
@@ -2537,6 +2551,13 @@ msgstr ""
 "Kopieer de selectie en plaats op het klembord\n"
 "Kopiëren"
 
+#. Resource IDs: (613)
+#, fuzzy, c-format
+msgid "Copy to %1"
+msgstr ""
+"Kopiëer %s\r\n"
+"naar %s"
+
 #. Resource IDs: (114)
 msgid "Copy to clipboard"
 msgstr "Naar klembord kopiëren"
@@ -2883,6 +2904,21 @@ msgstr "Verwijderen"
 msgid "Delete Unversioned Items"
 msgstr "Verwijder bestanden zonder versiebeheer"
 
+#. Resource IDs: (14)
+#, fuzzy, c-format
+msgid "Delete and &ignore %d items by name"
+msgstr "%d zaken &negeren op naam"
+
+#. Resource IDs: (14)
+#, fuzzy
+msgid "Delete and add to &ignore list"
+msgstr "Voeg toe aan &negeerlijst"
+
+#. Resource IDs: (14)
+#, fuzzy, c-format
+msgid "Delete and ignore %d items by &extension"
+msgstr "Negeer zaken op &extensie"
+
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
 msgstr "Verwijder bestanden zonder versiebeheer..."
@@ -2894,6 +2930,11 @@ msgstr "Verwijderd"
 #. Resource IDs: (65535)
 msgid "Deleted node"
 msgstr "Knoop verwijderd"
+
+#. Resource IDs: (15)
+#, fuzzy
+msgid "Deletes and adds the selected file(s) or the filemask to the 'ignore' list"
+msgstr "Voegt geselecteerde bestand(en) of het bestandspatroon toe aan de negeerlijst"
 
 #. Resource IDs: (11)
 msgid "Deletes files / folders from version control"
@@ -2958,6 +2999,10 @@ msgstr "Verschil met URL"
 #. Resource IDs: (1302)
 msgid "Difference between"
 msgstr "Verschil tussen"
+
+#. Resource IDs: (32817)
+msgid "Differential path &names"
+msgstr ""
 
 #. Resource IDs: (1022)
 msgid "Diffing"
@@ -3120,6 +3165,15 @@ msgstr "Teken"
 #. Resource IDs: (1079)
 msgid "Drive Types"
 msgstr "Type station"
+
+#. Resource IDs: (1315)
+msgid "Drives A: and B:"
+msgstr "Stations A: en B:"
+
+#. Resource IDs: (613)
+#, c-format
+msgid "Drop not possible on %1"
+msgstr ""
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -3761,9 +3815,9 @@ msgstr "Gereed!"
 msgid "Fit image &sizes"
 msgstr "Pas afbeeldingen op &elkaar"
 
-#. Resource IDs: (1315)
-msgid "Floppy drives (A: B:)"
-msgstr "Diskette stations (A: B:)"
+#. Resource IDs: (89)
+msgid "Fix case of item and do not add it"
+msgstr "Pas hoofd-/kleine letters aan en voeg het niet toe"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
@@ -4017,6 +4071,10 @@ msgstr "Verberg geparkeerd venster"
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
 msgstr "Verberg script bij uitvoeren"
+
+#. Resource IDs: (32830)
+msgid "Hide unused &branches"
+msgstr ""
 
 #. Resource IDs: (2052)
 msgid ""
@@ -4341,6 +4399,10 @@ msgstr ""
 "Activeer deze optie om mappen als gewijzigd te markeren als er bestanden in staan\r\n"
 "die niet onder versiebeheer vallen. De map krijgt dan het 'gewijzigd' overlay pictogram."
 
+#. Resource IDs: (2052)
+msgid "If the graph contains multiple trees, separate them by slight variations in background color."
+msgstr ""
+
 #. Resource IDs: (1439)
 msgid "If the repository can not be contacted"
 msgstr "Indien het archief niet bereikt kan worden"
@@ -4365,6 +4427,11 @@ msgstr "De blokkade kan verbroken worden in de dialoog 'Kijk of er wijzigingen z
 msgid "Ignore"
 msgstr "Negeren"
 
+#. Resource IDs: (14)
+#, fuzzy, c-format
+msgid "Ignore %d items by &extension"
+msgstr "Negeer zaken op &extensie"
+
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
 msgstr "&Alle spaties en witregels negeren"
@@ -4380,10 +4447,6 @@ msgstr "Alle spaties en witregels negeren"
 #. Resource IDs: (1267)
 msgid "Ignore ancestry"
 msgstr "Negeer oorsprong"
-
-#. Resource IDs: (14)
-msgid "Ignore items by &extension"
-msgstr "Negeer zaken op &extensie"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
@@ -4469,6 +4532,11 @@ msgid ""
 msgstr ""
 "Map %s\r\n"
 "importeren in %s"
+
+#. Resource IDs: (613)
+#, fuzzy, c-format
+msgid "Import to %1"
+msgstr "Importeer %s in %s%s"
 
 #. Resource IDs: (120)
 #, c-format
@@ -4808,6 +4876,10 @@ msgstr "Zoekbalk"
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
 msgstr "Blokkade"
+
+#. Resource IDs: (208)
+msgid "Lock Date"
+msgstr "Blokkeerdatum"
 
 #. Resource IDs: (191)
 msgid "Lock Files"
@@ -5220,6 +5292,13 @@ msgstr "Verplaats en hernoem onderdeel hierheen"
 #. Resource IDs: (103)
 msgid "Move items to here"
 msgstr "Verplaats onderdelen hierheen"
+
+#. Resource IDs: (613)
+#, fuzzy, c-format
+msgid "Move to %1"
+msgstr ""
+"Verplaats %s\r\n"
+"naar %s"
 
 #. Resource IDs: (209)
 msgid "Move to changelist"
@@ -6236,6 +6315,10 @@ msgid "Remove %s"
 msgstr "Verwijder %s"
 
 #. Resource IDs: (2052)
+msgid "Remove all branches that did not modify the item"
+msgstr ""
+
+#. Resource IDs: (2052)
 msgid "Remove deleted branches and tags"
 msgstr "Verwijder weggeggoide takken en labels"
 
@@ -7139,6 +7222,11 @@ msgstr "Toon snelle toegang-balk onder het lint"
 msgid "Show Screen&Tips on toolbars"
 msgstr "Toon scherm&tips op werkbalken"
 
+#. Resource IDs: (32831)
+#, fuzzy
+msgid "Show WC &modifications"
+msgstr "Kijk of er updates zijn"
+
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
 msgstr "Toon een overzicht van het hele diagram"
@@ -7174,6 +7262,10 @@ msgstr "Toon regel&nummers"
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
 msgstr "Toon oudste knooppunt boven"
+
+#. Resource IDs: (2052)
+msgid "Show only the changed parts of the path name. Replace unchanged elements with dots."
+msgstr ""
 
 #. Resource IDs: (2054)
 msgid ""
@@ -8392,6 +8484,10 @@ msgstr "Totaal aantal samengevoegde revisies"
 msgid "Total number of user revision properties"
 msgstr "Totaal aantal revisie-eigenschappen van de gebruiker"
 
+#. Resource IDs: (32821)
+msgid "Tr&ee stripes"
+msgstr "Boom strepen"
+
 #. Resource IDs: (357)
 #, c-format
 msgid "Transferring at %s"
@@ -9138,6 +9234,19 @@ msgstr "U moet een tekst opgeven!"
 msgid "You should select an image!"
 msgstr "U moet een afbeelding kiezen!"
 
+#. Resource IDs: (89)
+#, c-format
+msgid ""
+"You're trying to add the item\n"
+"'%s',\n"
+"but the item\n"
+"'%s'\n"
+"already exists.\n"
+"\n"
+"It seems the item got renamed outside Subversion but only with case changes.\n"
+"Do you really want to add it?"
+msgstr ""
+
 #. Resource IDs: (195)
 #, c-format
 msgid ""
@@ -9256,6 +9365,14 @@ msgstr "Uitzoomen"
 #. Resource IDs: (2051)
 msgid "Zoom to fit"
 msgstr "Passend weergeven"
+
+#. Resource IDs: (2051)
+msgid "Zoom to fit in height"
+msgstr "Passend in hoogte weergeven"
+
+#. Resource IDs: (2051)
+msgid "Zoom to fit in width"
+msgstr "Passend in breedte weergeven"
 
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
@@ -9421,6 +9538,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "copied:"
 msgstr "gekopieerd:"
+
+#. Resource IDs: (245)
+msgid "day"
+msgstr ""
 
 #. Resource IDs: (10, 272)
 msgid "deleted"
@@ -9973,40 +10094,4 @@ msgstr "ja"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
-
-#~ msgid "&Glue all"
-#~ msgstr "&Alles vastplakken"
-#~ msgid "&Glue sub-trees"
-#~ msgstr "Takken &vastplakken"
-#~ msgid "Cut from &source tree"
-#~ msgstr "Knippen van &Bron"
-#~ msgid "Glue following &tree"
-#~ msgstr "&Vervolgtak plakken"
-#~ msgid ""
-#~ "The last %s operation tried to %s the %s '%s', but it was deleted locally."
-#~ msgstr ""
-#~ "De laatste %s operatie probeerde %s de %s '%s', maar was al lokaal "
-#~ "verwijderd."
-#~ msgid "add"
-#~ msgstr "voeg toe"
-#~ msgid "delete"
-#~ msgstr "verwijder"
-#~ msgid "directory"
-#~ msgstr "map"
-#~ msgid "file"
-#~ msgstr "bestand"
-#~ msgid "merge"
-#~ msgstr "voeg samen"
-#~ msgid "modify"
-#~ msgstr "wijzig"
-#~ msgid "switch"
-#~ msgstr "wissel"
-#~ msgid "update"
-#~ msgstr "ververs"
-#~ msgid "(deleted) %s"
-#~ msgstr "(verwijderd) %s"
-#~ msgid "Only record the merge"
-#~ msgstr "Samenvoegen alleen noteren"
-#~ msgid "alias (deleted): %s"
-#~ msgstr "alias (verwijderd): %s"
 
