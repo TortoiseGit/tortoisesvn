@@ -286,6 +286,74 @@ void CTokenizedStringContainer::CPairPacker::Compact()
 	container->stringData.erase (target, end);
 }
 
+// CHashFunction
+
+// simple construction
+
+CTokenizedStringContainer::CHashFunction::CHashFunction 
+    ( CTokenizedStringContainer* parent)
+    : parent (parent)
+{
+}
+
+// the actual hash function
+
+size_t CTokenizedStringContainer::CHashFunction::operator() 
+    (value_type value) const
+{
+    const index_t* tokensBegin = &parent->stringData[0];
+    const index_t* first = tokensBegin + parent->offsets[value];
+    const index_t* last = tokensBegin + parent->offsets[value+1];
+
+    size_t result = 0;
+    for (; first != last; ++first)
+        result += (result << 13) + *first;
+
+    return result;
+}
+
+// dictionary lookup
+
+CTokenizedStringContainer::CHashFunction::value_type 
+CTokenizedStringContainer::CHashFunction::value (index_type index) const
+{
+    return index;
+}
+
+// lookup and comparison
+
+bool CTokenizedStringContainer::CHashFunction::equal 
+    ( value_type value
+    , index_type index) const
+{
+    // this test for equality will often match for lookups
+
+    if (value == index)
+        return true;
+
+    // same length?
+
+    const index_t* tokensBegin = &parent->stringData[0];
+
+    const index_t* lhsFirst = tokensBegin + parent->offsets[value];
+    const index_t* lhsLast = tokensBegin + parent->offsets[value+1];
+    const index_t* rhsFirst = tokensBegin + parent->offsets[index];
+    const index_t* rhsLast = tokensBegin + parent->offsets[index+1];
+
+    if (lhsLast - lhsFirst != rhsLast - rhsFirst)
+        return false;
+
+    // we have to actually compare
+
+    for (; lhsFirst != lhsLast; ++lhsFirst, ++rhsFirst)
+        if (*lhsFirst != *rhsFirst)
+            return false;
+
+    // no mismatch found
+
+    return true;
+}
+
 ///////////////////////////////////////////////////////////////
 //
 // CTokenizedStringContainer
@@ -815,6 +883,58 @@ size_t CTokenizedStringContainer::UncompressedWordCount() const
 	// ready
 
 	return result;
+}
+
+// Make sure, every string sequence occurs only once.
+// Return the new index values in \ref newIndices.
+
+void CTokenizedStringContainer::Unify (std::vector<index_t>& newIndexes)
+{
+    // prepare temp & result containers
+
+    assert (newIndexes.empty());
+
+    index_t count = static_cast<index_t>(offsets.size())-1;
+    newIndexes.resize (count);
+
+    std::vector<index_t> remainingIndices;
+    remainingIndices.reserve (count);
+
+    // filter duplicates
+
+   	quick_hash<CHashFunction> hashIndex (CHashFunction (this));
+    for (index_t i = 0; i < count; ++i)
+    {
+        index_t index = hashIndex.find(i);
+        if (index == NO_INDEX)
+        {
+            hashIndex.insert (i, i);
+            index = i;
+
+            newIndexes[i] = static_cast<index_t>(remainingIndices.size());
+            remainingIndices.push_back (i);
+        }
+        else
+        {
+            newIndexes[i] = newIndexes[index];
+        }
+    }
+
+    // "vacuum": actually remov the duplicate strings
+
+    for (size_t i = 0; i < remainingIndices.size(); ++i)
+    {
+        index_t source = remainingIndices[i];
+        index_t length = offsets[source+1] - offsets[source];
+
+        offsets[i+1] = offsets[i] + length;
+        memcpy ( &stringData.at (offsets[i])
+               , &stringData.at (offsets[source])
+               , length * sizeof (index_t));
+    }
+
+    offsets.resize (remainingIndices.size()+1);
+    stringData.resize (*offsets.rbegin());
 }
 
 // stream I/O

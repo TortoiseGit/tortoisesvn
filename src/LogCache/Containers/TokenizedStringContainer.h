@@ -141,7 +141,49 @@ private:
 
 	friend class CPairPacker;
 
-	/// useful typedefs
+    /**
+     * Hash function over tokenized strings.
+     * Index and value types refer to the string index.
+     */
+
+	class CHashFunction
+	{
+	private:
+
+		/// the dictionary we index with the hash
+		/// (used to map index -> value)
+
+		CTokenizedStringContainer* parent;
+
+	public:
+
+		/// simple construction
+
+		CHashFunction (CTokenizedStringContainer* parent);
+
+		/// required typedefs and constants
+
+		typedef index_t value_type;
+		typedef index_t index_type;
+
+		enum {NO_INDEX = LogCache::NO_INDEX};
+
+		/// the actual hash function
+
+		size_t operator() (value_type value) const;
+
+		/// dictionary lookup
+
+		value_type value (index_type index) const;
+
+		/// lookup and comparison
+
+		bool equal (value_type value, index_type index) const;
+	};
+
+	friend class CHashFunction;
+
+    /// useful typedefs
 
 	typedef std::vector<index_t>::const_iterator TSDIterator;
 
@@ -269,6 +311,11 @@ public:
 	void Remove (const std::vector<index_t>& indexes);
 	void Replace ( const CTokenizedStringContainer& source
 				 , const index_mapping_t& indexMap);
+
+    /// Make sure, every string sequence occurs only once.
+    /// Return the new index values in \ref newIndices.
+
+    void Unify (std::vector<index_t>& newIndexes);
 
 	/// stream I/O
 
