@@ -20,7 +20,7 @@
 #include ".\skiprevisioninfo.h"
 
 #include ".\RevisionIndex.h"
-#include ".\PathDictionary.h"
+#include ".\Containers\PathDictionary.h"
 #include ".\RevisionInfoContainer.h"
 
 ///////////////////////////////////////////////////////////////

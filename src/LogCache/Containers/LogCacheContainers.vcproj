@@ -2,8 +2,8 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="LogCacheLib"
-	ProjectGUID="{BD0854A3-E300-4E57-8C17-E4771AE1CA01}"
+	Name="LogCacheContainersLib"
+	ProjectGUID="{4034F594-DF25-4B3E-92F8-2795C263B483}"
 	RootNamespace="LogCache"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="131072"
@@ -45,7 +45,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\ext\apr\include;&quot;..\..\ext\apr-util\include&quot;;..\..\ext\Subversion\subversion\include;..\Utils;..\SVN;..\TortoiseProc"
+				AdditionalIncludeDirectories="..\..\Utils"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -112,7 +112,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\ext\apr\include;&quot;..\..\ext\apr-util\include&quot;;..\..\ext\Subversion\subversion\include;..\Utils;..\SVN;..\TortoiseProc"
+				AdditionalIncludeDirectories="..\..\Utils"
 				PreprocessorDefinitions="WIN64;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -177,7 +177,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="3"
-				AdditionalIncludeDirectories="..\..\ext\apr\include;&quot;..\..\ext\apr-util\include&quot;;..\..\ext\Subversion\subversion\include;..\Utils;..\SVN;..\TortoiseProc"
+				AdditionalIncludeDirectories="..\..\Utils"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
 				RuntimeLibrary="2"
 				RuntimeTypeInfo="true"
@@ -243,7 +243,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="3"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\..\ext\apr\include;&quot;..\..\ext\apr-util\include&quot;;..\..\ext\Subversion\subversion\include;..\Utils;..\SVN;..\TortoiseProc"
+				AdditionalIncludeDirectories="..\..\Utils"
 				PreprocessorDefinitions="WIN64;NDEBUG;_CONSOLE"
 				RuntimeLibrary="2"
 				RuntimeTypeInfo="true"
@@ -285,234 +285,90 @@
 	<References>
 	</References>
 	<Files>
-		<Filter
-			Name="Source Files"
-			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
-			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
+		<File
+			RelativePath=".\DictionaryBasedTempPath.cpp"
 			>
-			<File
-				RelativePath=".\LogCacheSettigns.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\stdafx.cpp"
-				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Debug|x64"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|x64"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"
-					/>
-				</FileConfiguration>
-			</File>
-		</Filter>
-		<Filter
-			Name="Header Files"
-			Filter="h;hpp;hxx;hm;inl;inc;xsd"
-			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
+		</File>
+		<File
+			RelativePath=".\DictionaryBasedTempPath.h"
 			>
-			<File
-				RelativePath=".\LogCacheGlobals.h"
-				>
-			</File>
-			<File
-				RelativePath=".\LogCacheSettings.h"
-				>
-			</File>
-			<File
-				RelativePath=".\QuickHash.h"
-				>
-			</File>
-			<File
-				RelativePath=".\QuickHashMap.h"
-				>
-			</File>
-			<File
-				RelativePath=".\stdafx.h"
-				>
-			</File>
-		</Filter>
-		<Filter
-			Name="Storage Layer"
+		</File>
+		<File
+			RelativePath=".\IndexPairDictionary.cpp"
 			>
-			<File
-				RelativePath=".\LogCachePool.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\LogCachePool.h"
-				>
-			</File>
-			<File
-				RelativePath=".\LogCacheStatistics.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\LogCacheStatistics.h"
-				>
-			</File>
-			<File
-				RelativePath=".\RepositoryInfo.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\RepositoryInfo.h"
-				>
-			</File>
-			<Filter
-				Name="Formatted IO"
-				>
-				<File
-					RelativePath=".\CSVWriter.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\CSVWriter.h"
-					>
-				</File>
-				<File
-					RelativePath=".\XMLLogReader.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\XMLLogReader.h"
-					>
-				</File>
-				<File
-					RelativePath=".\XMLLogWriter.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\XMLLogWriter.h"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="Containers"
-				>
-				<File
-					RelativePath=".\CachedLogInfo.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\CachedLogInfo.h"
-					>
-				</File>
-				<File
-					RelativePath=".\RevisionIndex.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\RevisionIndex.h"
-					>
-				</File>
-				<File
-					RelativePath=".\RevisionInfoContainer.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\RevisionInfoContainer.h"
-					>
-				</File>
-				<File
-					RelativePath=".\SkipRevisionInfo.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\SkipRevisionInfo.h"
-					>
-				</File>
-			</Filter>
-		</Filter>
-		<Filter
-			Name="Iterator Layer"
+		</File>
+		<File
+			RelativePath=".\IndexPairDictionary.h"
 			>
-			<File
-				RelativePath=".\CopyFollowingLogIterator.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\CopyFollowingLogIterator.h"
-				>
-			</File>
-			<File
-				RelativePath=".\ILogIterator.h"
-				>
-			</File>
-			<File
-				RelativePath=".\LogIteratorBase.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\LogIteratorBase.h"
-				>
-			</File>
-			<File
-				RelativePath=".\StrictLogIterator.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\StrictLogIterator.h"
-				>
-			</File>
-		</Filter>
-		<Filter
-			Name="Log Interface Layer"
+		</File>
+		<File
+			RelativePath=".\LogCacheGlobals.h"
 			>
-			<File
-				RelativePath=".\CacheLogQuery.cpp"
+		</File>
+		<File
+			RelativePath=".\PathDictionary.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\PathDictionary.h"
+			>
+		</File>
+		<File
+			RelativePath=".\stdafx.cpp"
+			>
+			<FileConfiguration
+				Name="Debug|Win32"
 				>
-			</File>
-			<File
-				RelativePath=".\CacheLogQuery.h"
+				<Tool
+					Name="VCCLCompilerTool"
+					UsePrecompiledHeader="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug|x64"
 				>
-			</File>
-			<File
-				RelativePath=".\ILogQuery.h"
+				<Tool
+					Name="VCCLCompilerTool"
+					UsePrecompiledHeader="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release|Win32"
 				>
-			</File>
-			<File
-				RelativePath=".\ILogReceiver.cpp"
+				<Tool
+					Name="VCCLCompilerTool"
+					UsePrecompiledHeader="1"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release|x64"
 				>
-			</File>
-			<File
-				RelativePath=".\ILogReceiver.h"
-				>
-			</File>
-			<File
-				RelativePath=".\SVNLogQuery.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\SVNLogQuery.h"
-				>
-			</File>
-		</Filter>
+				<Tool
+					Name="VCCLCompilerTool"
+					UsePrecompiledHeader="1"
+				/>
+			</FileConfiguration>
+		</File>
+		<File
+			RelativePath=".\stdafx.h"
+			>
+		</File>
+		<File
+			RelativePath=".\StringDictonary.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\StringDictonary.h"
+			>
+		</File>
+		<File
+			RelativePath=".\TokenizedStringContainer.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\TokenizedStringContainer.h"
+			>
+		</File>
 	</Files>
 	<Globals>
 	</Globals>

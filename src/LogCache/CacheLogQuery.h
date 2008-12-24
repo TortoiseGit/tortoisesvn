@@ -26,7 +26,7 @@
 #include "ILogReceiver.h"
 
 #include "RevisionInfoContainer.h"
-#include "DictionaryBasedTempPath.h"
+#include "./Containers/DictionaryBasedTempPath.h"
 
 #include "QuickHashMap.h"
 

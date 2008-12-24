@@ -22,9 +22,9 @@
 // necessary includes
 ///////////////////////////////////////////////////////////////
 
-#include "StringDictonary.h"
-#include "PathDictionary.h"
-#include "TokenizedStringContainer.h"
+#include "./Containers/StringDictonary.h"
+#include "./Containers/PathDictionary.h"
+#include "./Containers/TokenizedStringContainer.h"
 
 ///////////////////////////////////////////////////////////////
 // begin namespace LogCache
