@@ -18,7 +18,7 @@
 //
 #pragma once
 
-#include "LogCacheGlobals.h"
+#include "./Containers/LogCacheGlobals.h"
 
 using namespace LogCache;
 
