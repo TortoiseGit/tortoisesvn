@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-25 19:41+0900\n"
+"PO-Revision-Date: 2008-12-25 21:09+0900\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2994,7 +2994,7 @@ msgstr "差分"
 
 #. Resource IDs: (32817)
 msgid "Differential path &names"
-msgstr "パス名で差分をとる"
+msgstr "パス名で差分をとる(&N)"
 
 #. Resource IDs: (1022)
 msgid "Diffing"
@@ -5028,7 +5028,7 @@ msgid ""
 "Marks the revisions as merged, without actually doing the merge.\r\n"
 "This blocks the revisions from getting merged in the future."
 msgstr ""
-"実際にマージを行わずに、リビジョンをマージ済みとしてマークする。\n"
+"実際にマージを行わずに、リビジョンをマージ済みとしてマークする。\r\n"
 "これにより、今後リビジョンがマージされるのをブロックする。"
 
 #. Resource IDs: (1064)
@@ -5049,7 +5049,7 @@ msgstr "アクションログに保持する最大の行数"
 
 #. Resource IDs: (1487)
 msgid "Maximum number of tool &failures until cache removal"
-msgstr "キャッシュを削除するまでに許容するツール失敗の最大数"
+msgstr "キャッシュを削除するまでに許容するツール失敗の最大数(&F)"
 
 #. Resource IDs: (16655)
 msgid "Me&nus show recently used commands first"
@@ -9814,7 +9814,7 @@ msgstr ""
 "改行で区切られたモジュールのリストであり、リビジョン、URL、相対的なディレクトリのパス、\r\n"
 "で構成されます。例えば、\r\n"
 "http://example.com/repos/zig foo\r\n"
-"-r 1234\thttp://example.com/repos/zag foo/bar\r\n"
+"-r 1234 http://example.com/repos/zag foo/bar\r\n"
 "\r\n"
 "URLは完全なURLもしくは相対的に記述することができます。\r\n"
 "相対的なURLの記述例は:\r\n"
