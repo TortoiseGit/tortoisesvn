@@ -82,7 +82,11 @@
 - CHG: The merge wizard is now resizable. (Stefan)
 - CHG: The checkout/export dialogs do not ask whether to create the folder
        to checkout/export aynmore but silently create it. (Stefan)
-       
+
+Version 1.5.7
+- BUG: Error text returned from a repository hook script could get split up
+       wrong if empty lines were in the text. (Stefan)
+
 Version 1.5.6
 - CHG: Disabled capieng again - users were annoyed. (Stefan)
 - BUG: possible segfault in TSVNCache when shutting down windows. (Stefan)

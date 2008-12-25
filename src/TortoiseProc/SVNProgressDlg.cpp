@@ -801,8 +801,7 @@ void CSVNProgressDlg::ReportString(CString sMessage, const CString& sMsgKind, CO
 		data->color = color;
 		if (sMessage.Find('\n')>=0)
 		{
-			sMessage = sMessage.Mid(sMessage.Find('\n'));
-			sMessage.Trim(_T("\n\r"));
+			sMessage = sMessage.Mid(sMessage.Find('\n')+1);
 		}
 		else
 			sMessage.Empty();

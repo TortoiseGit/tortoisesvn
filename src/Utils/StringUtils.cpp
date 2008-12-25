@@ -116,9 +116,9 @@ CString CStringUtils::LinesWrap(const CString& longstring, int limit /* = 80 */,
 {
 	CString retString;
 	CStringArray arWords;
-	if (longstring.GetLength() < limit)
+	if ((longstring.GetLength() < limit) || (limit == 0))
 		return longstring;	// no wrapping needed.
-	// now start breaking the string into words
+	// now start breaking the string into lines
 
 	int linepos = 0;
 	int lineposold = 0;
@@ -126,10 +126,10 @@ CString CStringUtils::LinesWrap(const CString& longstring, int limit /* = 80 */,
 	while ((linepos = longstring.Find('\n', linepos)) >= 0)
 	{
 		temp = longstring.Mid(lineposold, linepos-lineposold);
-		if (temp.IsEmpty())
-			break;
 		if ((linepos+1)<longstring.GetLength())
 			linepos++;
+		else
+			break;
 		lineposold = linepos;
 		if (!retString.IsEmpty())
 			retString += _T("\n");
@@ -140,7 +140,6 @@ CString CStringUtils::LinesWrap(const CString& longstring, int limit /* = 80 */,
 		retString += _T("\n");
 	retString += WordWrap(temp, limit, bCompactPaths);
 	retString.Trim();
-	retString.Replace(_T("\n\n"), _T("\n"));
 	return retString;
 }
 
@@ -567,6 +566,9 @@ public:
 		splittedline = CStringUtils::WordWrap(longline);
 		ATLTRACE(_T("WordWrap:\n%s\n"), splittedline);
 		splittedline = CStringUtils::LinesWrap(longline);
+		ATLTRACE(_T("LinesWrap:\n%s\n"), splittedline);
+		longline = _T("The commit comment is not properly formatted.\nFormat:\n  Field 1 : Field 2 : Field 3\nWhere:\nField 1 - Team Name|Triage|Merge|Goal\nField 2 - V1 Backlog Item ID|Triage Number|SVNBranch|Goal Name\nField 3 - Description of change\nExamples:\n\nTeam Gamma : B-12345 : Changed some code\n  Triage : 123 : Fixed production release bug\n  Merge : sprint0812 : Merged sprint0812 into prod\n  Goal : Implement Pre-Commit Hook : Commit message hook impl");
+		splittedline = CStringUtils::LinesWrap(longline, 80);
 		ATLTRACE(_T("LinesWrap:\n%s\n"), splittedline);
 	}
 } StringUtilsTest;
