@@ -230,9 +230,16 @@ void CRevisionGraphWnd::DrawNode(Graphics& graphics, const RectF& rect,
                                  const CVisibleGraphNode *node, NodeShape shape)
 {
     // special case: line deleted but deletion node removed
+    // (don't show as "deleted" if the following node has been folded / split)
+
+    enum 
+    {
+        MASK = CGraphNodeStates::COLLAPSED_BELOW | CGraphNodeStates::SPLIT_BELOW
+    };
 
     if (   (node->GetNext() == NULL) 
-        && (node->GetClassification().Is (CNodeClassification::PATH_ONLY_DELETED)))
+        && (node->GetClassification().Is (CNodeClassification::PATH_ONLY_DELETED))
+        && ((m_nodeStates.GetFlags (node->GetBase()) & MASK) == 0))
     {
         contourRef = m_Colors.GetColor(CColors::DeletedNode);
     }
