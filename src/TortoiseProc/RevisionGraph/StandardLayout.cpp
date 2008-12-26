@@ -342,6 +342,23 @@ void CStandardLayout::CalculateTreeBoundingRects ( const CVisibleGraphNode* node
     }
 }
 
+inline bool SortRectByLeft (const CRect& lhs, const CRect& rhs)
+{
+    return lhs.left < rhs.left;
+};
+
+void CStandardLayout::CloseTreeBoundingRectGaps()
+{
+    std::sort (trees.begin(), trees.end(), &SortRectByLeft);
+
+    for (size_t i = 1, count = trees.size(); i < count; ++i)
+    {
+        LONG diff = (trees[i].left - trees[i-1].right + 1) / 2;
+        trees[i-1].right += diff;
+        trees[i].left -= diff;
+    }
+}
+
 void CStandardLayout::CalculateTreeBoundingRects()
 {
     trees.resize (graph->GetRootCount());
@@ -353,6 +370,8 @@ void CStandardLayout::CalculateTreeBoundingRects()
         bounds = nodes[root->GetIndex()].rect;
         CalculateTreeBoundingRects (root, bounds);
     }
+
+    CloseTreeBoundingRectGaps();
 }
 
 // just iterate over all nodes

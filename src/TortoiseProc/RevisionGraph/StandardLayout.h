@@ -163,6 +163,7 @@ private:
 
     void CalculateTreeBoundingRects ( const CVisibleGraphNode* node
                                     , CRect& bounds);
+    void CloseTreeBoundingRectGaps();
     void CalculateTreeBoundingRects();
 
     void CalculateBoundingRect();

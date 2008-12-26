@@ -294,7 +294,7 @@ void CStandardNodePositioning::ApplyTo (IRevisionGraphLayout* layout)
             // actually move the node rects to thier final position
 
             ShiftNodes (node, treeShift);
-            treeShift.cx = BoundingRect (node).right + 50;
+            treeShift.cx = BoundingRect (node).right + 100;
         }
     }
 }

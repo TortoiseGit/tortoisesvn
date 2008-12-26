@@ -562,8 +562,8 @@ void CRevisionGraphWnd::DrawStripes (Graphics& graphics, const CSize& offset)
         // screen coordinates coverd by the tree
 
         CRect tree = trees->GetRect(i);
-        REAL left = (tree.left - 25) * m_fZoomFactor;
-        REAL right = (tree.right + 25) * m_fZoomFactor;
+        REAL left = tree.left * m_fZoomFactor;
+        REAL right = tree.right * m_fZoomFactor;
 	    RectF rect ( left - offset.cx
                    , clipRect.Y
                    , i+1 == count ? clipRect.Width : right - left
