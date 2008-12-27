@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-18 20:17+0100\n"
+"PO-Revision-Date: 2008-12-27 15:03+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -221,9 +221,9 @@ msgid "%s, but it was deleted locally."
 msgstr "%s, ale už bol miestne zmazaný."
 
 #. Resource IDs: (609)
-#, c-format
+#, fuzzy, c-format
 msgid "%s, but it was obstructed in the working copy."
-msgstr ""
+msgstr "%s, ale bol (obstructed) v pracovnej kópií."
 
 #. Resource IDs: (609)
 #, c-format
@@ -733,7 +733,7 @@ msgstr "&Zmeniť vlastnosť ručne"
 
 #. Resource IDs: (1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
-msgstr ""
+msgstr "&Maximálna velkosť odstráneného neaktívneho zásobníka [kByte]"
 
 #. Resource IDs: (16543)
 msgid "&Menu animations:"
@@ -939,6 +939,10 @@ msgstr "&Revízia"
 #. Resource IDs: (65535)
 msgid "&SSH client:"
 msgstr "&SSH klient:"
+
+#. Resource IDs: (65535)
+msgid "&SVN"
+msgstr "&SVN"
 
 #. Resource IDs: (65535)
 msgid "&Sat:"
@@ -1473,7 +1477,7 @@ msgid ""
 "%s\n"
 "to the ignore list."
 msgstr ""
-"Pridaná šablona\n"
+"Pridaná šablóna\n"
 "%s\n"
 "do zoznamu ignorovaných."
 
@@ -2151,7 +2155,7 @@ msgstr "Vybrať položku:"
 
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
-msgstr ""
+msgstr "Klasifikačné šablóny"
 
 # Čistím
 #. Resource IDs: (145)
@@ -3030,7 +3034,7 @@ msgstr "Rozdiel medzi"
 
 #. Resource IDs: (32817)
 msgid "Differential path &names"
-msgstr ""
+msgstr "Rozdielové &mená ciest"
 
 #. Resource IDs: (1022)
 msgid "Diffing"
@@ -3198,9 +3202,9 @@ msgid "Drives A: and B:"
 msgstr "Disky A: a B:"
 
 #. Resource IDs: (613)
-#, c-format
+#, fuzzy, c-format
 msgid "Drop not possible on %1"
-msgstr ""
+msgstr "Pustenie (drop) nie je možný na %1"
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
@@ -3852,8 +3856,9 @@ msgid "Fit image &sizes"
 msgstr "Zväčšiť obrá&zky na veľkosť okna"
 
 #. Resource IDs: (89)
+#, fuzzy
 msgid "Fix case of item and do not add it"
-msgstr ""
+msgstr "Opraviť (case) objektu a nepridať ho"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
@@ -4449,6 +4454,10 @@ msgid ""
 msgstr ""
 "Ak je nastavené, tak neverziované súbory označia stav rodičovského adresára za zmenený\r\n"
 "teda bude mať prekývajúcu ikonu zmeneného adresára."
+
+#. Resource IDs: (2052)
+msgid "If the graph contains multiple trees, separate them by slight variations in background color."
+msgstr "Ak strom obsahuje viacero stromov, rozlíšiť ich rozdielnou farbou pozadia."
 
 #. Resource IDs: (1439)
 msgid "If the repository can not be contacted"
@@ -5077,11 +5086,12 @@ msgstr ""
 "Označiť za vyriešené"
 
 #. Resource IDs: (596)
-#, fuzzy
 msgid ""
 "Marks the revisions as merged, without actually doing the merge.\r\n"
 "This blocks the revisions from getting merged in the future."
-msgstr "Označí revízie za zlučené bez toho aby bolo zlúčenie vykonané"
+msgstr ""
+"Označí revízie za zlučené bez toho aby bolo zlúčenie vykonané.\r\n"
+"Toto zablokuje zlúčenie revízí v budúcnosti."
 
 #. Resource IDs: (1064)
 msgid "Match &case"
@@ -5627,6 +5637,8 @@ msgid ""
 "Number of times a log cache can fail to close properly\n"
 "due to crashes etc. until it gets deleted automatically."
 msgstr ""
+"Počet zlyhaní zatvorenia zásobníka denníka - pád a podone\n"
+"predtím ako bude automaticky vymazaný."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -5702,7 +5714,7 @@ msgstr ""
 
 #. Resource IDs: (1424)
 msgid "Only record the merge (block revisions from getting merged)"
-msgstr ""
+msgstr "Iba záznam zlučovania  (revízie nebudú zlučené)"
 
 #. Resource IDs: (19)
 msgid "Only this item"
@@ -6442,7 +6454,7 @@ msgid ""
 "%s\n"
 "from the ignore list."
 msgstr ""
-"Odstránené vzory súbor\n"
+"Odstránené šablóny súborov\n"
 "%s\n"
 "zo zoznamu vylúčenia."
 
@@ -7333,7 +7345,7 @@ msgstr "Zobraziť najstarší vrchol na vrchu"
 
 #. Resource IDs: (2052)
 msgid "Show only the changed parts of the path name. Replace unchanged elements with dots."
-msgstr ""
+msgstr "Zobraziť ibe zmené časti mena cesty. Zmenené časti nahradiť bodkami."
 
 #. Resource IDs: (2054)
 msgid ""
@@ -7508,7 +7520,7 @@ msgid ""
 msgstr ""
 "Určuje súbory a adresáre ktoré má TortoiseSVN\r\n"
 "ignorovať vo všetkých pracovných kópiach.\r\n"
-"Vzory oddelujte medzerov."
+"Šablóny oddelujte medzerov."
 
 #. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
 msgid "Spin1"
@@ -7771,11 +7783,11 @@ msgstr "Na riadku %d bol očakávaný začiatok dávky '@@'!"
 
 #. Resource IDs: (346)
 msgid "The color of creation, copy and rename nodes of tags will be shifted towards yellow."
-msgstr ""
+msgstr "Farba vytvorenia, kopírovania a premenovania uzlu značky bude posunutá k žltej."
 
 #. Resource IDs: (346)
 msgid "The color of creation, copy and rename nodes of the trunk will be shifted towards green."
-msgstr ""
+msgstr "Farba vytvorenia, kopírovania a premenovania uzlu kmeňa bude posunutá k zelenej."
 
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
@@ -8554,6 +8566,11 @@ msgstr "Celkový počet zlúčených "
 msgid "Total number of user revision properties"
 msgstr "Cekový počet užívateľských vlastností revízií"
 
+# zlúčených
+#. Resource IDs: (32821)
+msgid "Tr&ee stripes"
+msgstr ""
+
 #. Resource IDs: (357)
 #, c-format
 msgid "Transferring at %s"
@@ -8753,6 +8770,8 @@ msgid ""
 "Unused log caches will only be removed if the respective\n"
 "file is smaller than the given size in kBytes."
 msgstr ""
+"Nepoužitý zásobník denníka bude vymazaný iba keď jeho\n"
+"súbor je väčší ako udaná veľkosť v kBytes."
 
 #. Resource IDs: (146)
 msgid "Unversion"
@@ -9114,6 +9133,8 @@ msgid ""
 "When a small log cache has not been used for the given\n"
 "number of days, it will be removed automatically."
 msgstr ""
+"Keď malý yásobník deníka nebol použitý udaný počet dní,\n"
+"bude automaticky vymazaný."
 
 #. Resource IDs: (344)
 msgid ""
@@ -9567,12 +9588,16 @@ msgid ""
 "bugtraq:providerparams\r\n"
 "the parameters passed to the IBugTraqProvider"
 msgstr ""
+"bugtraq:providerparams\r\n"
+"paramtere odovzdané IBugTraqProvider"
 
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:provideruuid\r\n"
 "the COM uuid of the IBugTraqProvider"
 msgstr ""
+"bugtraq:provideruuid\r\n"
+"IBugTraqProvider COM uuid"
 
 #. Resource IDs: (577)
 #, c-format
@@ -9658,7 +9683,7 @@ msgstr "externé"
 # externých
 #. Resource IDs: (65535)
 msgid "file external:"
-msgstr ""
+msgstr "externý súbor:"
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"
@@ -9918,7 +9943,7 @@ msgid ""
 "A newline separated list of file patterns to ignore."
 msgstr ""
 "svn:ignore\r\n"
-"Riadkami oddelený zoznam vzoriek mien na vylúčenie."
+"Riadkami oddelený zoznam šablón mien na vylúčenie."
 
 #. Resource IDs: (576)
 msgid ""
