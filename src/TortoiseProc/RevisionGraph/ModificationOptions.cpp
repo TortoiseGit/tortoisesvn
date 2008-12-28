@@ -164,7 +164,9 @@ void CModificationOptions::InternalApply (CVisibleGraph* graph, bool cyclicFilte
 
                 for ( size_t i = graph->GetRootCount()
                     ; i > 0
-                    ; i = graph->GetInsertionIndex()-1)
+                    ; i = (i == graph->GetInsertionIndex())
+                          ? i-1
+                          : graph->GetInsertionIndex())
                 {
                     CVisibleGraphNode* root = graph->GetRoot (i-1);
                     graph->SetInsertionIndex (i);
