@@ -57,8 +57,8 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 
     // restore option state
 
-	DWORD dwOpts = CRegStdWORD(_T("Software\\TortoiseSVN\\RevisionGraphOptions"), 0xff199);
-    m_options.SetRegistryFlags (dwOpts, 0x3fbf);
+	DWORD dwOpts = CRegStdWORD(_T("Software\\TortoiseSVN\\RevisionGraphOptions"), 0x1ff199);
+    m_options.SetRegistryFlags (dwOpts, 0x7fbf);
 }
 
 CRevisionGraphDlg::~CRevisionGraphDlg()
@@ -98,6 +98,7 @@ BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CResizableStandAloneDialog)
 	ON_COMMAND_EX(ID_VIEW_SHOWALLREVISIONS, &CRevisionGraphDlg::OnToggleOption)
 	ON_COMMAND_EX(ID_VIEW_GROUPBRANCHES, &CRevisionGraphDlg::OnToggleOption)
 	ON_COMMAND_EX(ID_VIEW_TOPDOWN, &CRevisionGraphDlg::OnToggleOption)
+    ON_COMMAND_EX(ID_VIEW_TOPALIGNTREES, &CRevisionGraphDlg::OnToggleOption)
 	ON_COMMAND_EX(ID_VIEW_SHOWHEAD, &CRevisionGraphDlg::OnToggleOption)
 	ON_COMMAND_EX(ID_VIEW_EXACTCOPYSOURCE, &CRevisionGraphDlg::OnToggleOption)
 	ON_COMMAND_EX(ID_VIEW_FOLDTAGS, &CRevisionGraphDlg::OnToggleOption)

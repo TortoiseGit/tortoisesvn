@@ -39,6 +39,7 @@
 #include "StandardNodeSizeAssignment.h"
 #include "StandardNodePositioning.h"
 #include "StrictOrderNodePositioning.h"
+#include "TopAlignTrees.h"
 #include "UpsideDownLayout.h"
 #include "ShowPathsAsDiff.h"
 #include "ShowTreeStripes.h"
@@ -68,6 +69,7 @@ CAllRevisionGraphOptions::CAllRevisionGraphOptions (const CGraphNodeStates* node
     new CShowWCModification (*this);
     new CShowPathsAsDiff (*this);
     new CShowTreeStripes (*this);
+    new CTopAlignTrees (*this);
 
     (new CRevisionInRange (*this))->ToggleSelection();
     (new CRemovePathsBySubString (*this))->ToggleSelection();
