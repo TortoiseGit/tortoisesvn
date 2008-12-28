@@ -172,6 +172,7 @@ public:
 
 	revision_t GetRevision() const;
 	CNodeClassification GetClassification() const;
+	void SetClassification (CNodeClassification newValue);
 
 	index_t GetIndex() const;
 
@@ -306,6 +307,11 @@ inline revision_t CVisibleGraphNode::GetRevision() const
 inline CNodeClassification CVisibleGraphNode::GetClassification() const
 {
     return classification;
+}
+
+inline void CVisibleGraphNode::SetClassification (CNodeClassification newValue)
+{
+    classification = newValue;
 }
 
 inline index_t CVisibleGraphNode::GetIndex() const
