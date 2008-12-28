@@ -210,7 +210,7 @@ void CFullGraphFinalizer::AddWCModification (CFullGraphNode* node)
                                 | (node->GetNext() == NULL
                                     ? 0
                                     : CNodeClassification::IS_COPY_TARGET));
-            graph.Add (node->GetPath(), node->GetRevision(), classification, node);
+            graph.Add (node->GetPath(), node->GetRevision()+1, classification, node);
         }
     }
 }
