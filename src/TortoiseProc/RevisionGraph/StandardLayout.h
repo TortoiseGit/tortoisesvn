@@ -47,6 +47,11 @@ public:
     CStandardLayoutNodeInfo* previousBranch;
     CStandardLayoutNodeInfo* lastBranch;
 
+    /// the graph may consist of multiple trees.
+    /// root(node) = graph (node)->GetRoot (rootID);
+
+    index_t rootID;
+
     /// branch sizes
 
     index_t subTreeWidth;
@@ -161,8 +166,6 @@ private:
     void CreateConnections();
     void CreateTexts();
 
-    void CalculateTreeBoundingRects ( const CVisibleGraphNode* node
-                                    , CRect& bounds);
     void CloseTreeBoundingRectGaps();
     void CalculateTreeBoundingRects();
 

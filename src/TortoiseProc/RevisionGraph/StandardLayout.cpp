@@ -37,6 +37,7 @@ CStandardLayoutNodeInfo::CStandardLayoutNodeInfo()
     , nextBranch (NULL)
     , previousBranch (NULL)
     , lastBranch (NULL)
+    , rootID ((index_t)NO_INDEX)
     , subTreeWidth (1)
     , subTreeHeight (1)
     , subTreeWeight (1)
@@ -121,6 +122,10 @@ void CStandardLayout::InitializeNodes ( const CVisibleGraphNode* start
     CStandardLayoutNodeInfo* previousInBranch = NULL;
     CStandardLayoutNodeInfo* lastInBranch = NULL;
 
+    // copy this info to all sub-nodes:
+
+    index_t rootID = nodes[start->GetIndex()].rootID;
+
     // measure subtree size, calculate branch length and back-link it
 
     index_t branchLength = 0;
@@ -135,6 +140,7 @@ void CStandardLayout::InitializeNodes ( const CVisibleGraphNode* start
 
         assert (nodeInfo.node == NULL);
         nodeInfo.node = node;
+        nodeInfo.rootID = rootID;
         nodeInfo.previousInBranch = previousInBranch;
         nodeInfo.parentBranch = parentBranch;
         if (previousInBranch != NULL)
@@ -159,6 +165,7 @@ void CStandardLayout::InitializeNodes ( const CVisibleGraphNode* start
 
                 const CVisibleGraphNode* subNode = target->value();
                 CStandardLayoutNodeInfo& subNodeInfo = nodes[subNode->GetIndex()];
+                subNodeInfo.rootID = rootID;
 
                 if (previousBranch != NULL)
                 {
@@ -219,7 +226,12 @@ void CStandardLayout::InitializeNodes()
     nodes.resize (graph->GetNodeCount());
 
     for (size_t i = 0, count = graph->GetRootCount(); i < count; ++i)
-        InitializeNodes (graph->GetRoot (i), NULL);
+    {
+        const CVisibleGraphNode* root = graph->GetRoot(i);
+        nodes[root->GetIndex()].rootID = static_cast<index_t>(i);
+
+        InitializeNodes (root, NULL);
+    }
 
     // every node info must actually refer to a node
 
@@ -316,32 +328,6 @@ void CStandardLayout::CreateTexts()
 
 // just iterate over all nodes
 
-void CStandardLayout::CalculateTreeBoundingRects ( const CVisibleGraphNode* node
-                                                 , CRect& bounds)
-{
-    for (; node != NULL; node = node->GetNext())
-    {
-        // update bounding rect
-
-        const CStandardLayoutNodeInfo& nodeInfo = nodes[node->GetIndex()];
-        const CSize& size = nodeInfo.requiredSize;
-
-        CRect rect = nodeInfo.rect;
-        rect.right = max (rect.left + size.cx, rect.right);
-        rect.bottom = max (rect.top + size.cy, rect.bottom);
-        bounds |= rect;
-
-        // recursion
-
-        for ( const CVisibleGraphNode::CCopyTarget* copy = node->GetFirstCopyTarget()
-            ; copy != NULL
-            ; copy = copy->next())
-        {
-            CalculateTreeBoundingRects (copy->value(), bounds);
-        }
-    }
-}
-
 inline bool SortRectByLeft (const CRect& lhs, const CRect& rhs)
 {
     return lhs.left < rhs.left;
@@ -361,17 +347,26 @@ void CStandardLayout::CloseTreeBoundingRectGaps()
 
 void CStandardLayout::CalculateTreeBoundingRects()
 {
+    // initialize with empty rect
+
+    trees.resize (0);
     trees.resize (graph->GetRootCount());
-    for (size_t i = 0, count = graph->GetRootCount(); i < count; ++i)
+
+    for (size_t i = 0, count = nodes.size(); i < count; ++i)
     {
-        const CVisibleGraphNode* root = graph->GetRoot(i);
+        const CStandardLayoutNodeInfo& nodeInfo = nodes[i];
+        const CSize& size = nodeInfo.requiredSize;
 
-        CRect& bounds = trees[i];
-        bounds = nodes[root->GetIndex()].rect;
-        CalculateTreeBoundingRects (root, bounds);
+        CRect rect = nodeInfo.rect;
+        rect.right = max (rect.left + size.cx, rect.right);
+        rect.bottom = max (rect.top + size.cy, rect.bottom);
+
+        CRect& bounds = trees[nodeInfo.rootID];
+        if (bounds.Width() == 0)
+            bounds = rect;
+        else
+            bounds |= rect;
     }
-
-    CloseTreeBoundingRectGaps();
 }
 
 // just iterate over all nodes
