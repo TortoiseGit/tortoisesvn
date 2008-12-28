@@ -139,7 +139,7 @@ inline void CNodeClassification::Add (DWORD value)
 
 inline void CNodeClassification::Remove (DWORD value)
 {
-    flags |= ~value;
+    flags &= ~value;
 }
 
 /// specific data access
