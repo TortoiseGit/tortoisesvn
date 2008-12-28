@@ -349,8 +349,9 @@ void CStandardLayout::CalculateTreeBoundingRects()
 {
     // initialize with empty rect
 
-    trees.resize (0);
     trees.resize (graph->GetRootCount());
+    for (size_t i = 0, count = graph->GetRootCount(); i < count; ++i)
+        trees[i] = CRect (0, 0, 0, 0);
 
     for (size_t i = 0, count = nodes.size(); i < count; ++i)
     {
