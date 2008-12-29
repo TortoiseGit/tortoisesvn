@@ -89,6 +89,24 @@ bool DropCopyCommand::Execute()
 		} 
 		if (!svn.Copy(CTSVNPathList(sourcePath), fullDropPath, SVNRev::REV_WC, SVNRev()))
 		{
+			if ((svn.Err && svn.Err->apr_err == SVN_ERR_ENTRY_EXISTS) && (fullDropPath.Exists()))
+			{
+				// target file already exists. Ask user if he wants to replace the file
+				CString sReplace;
+				sReplace.Format(IDS_PROC_REPLACEEXISTING, fullDropPath.GetWinPath());
+				if (CMessageBox::Show(hwndExplorer, sReplace, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO) == IDYES)
+				{
+					if (!svn.Remove(CTSVNPathList(fullDropPath), TRUE, FALSE))
+					{
+						fullDropPath.Delete(true);
+					}
+					if (!svn.Copy(CTSVNPathList(pathList[nPath]), fullDropPath, SVNRev::REV_WC, SVNRev()))
+					{
+						CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						return FALSE;		//get out of here
+					}
+				}
+			}
 			TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
 			CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 			return FALSE;		//get out of here

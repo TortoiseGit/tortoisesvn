@@ -99,6 +99,25 @@ bool DropMoveCommand::Execute()
 					CShellUpdater::Instance().AddPathForUpdate(destPath);
 				}
 			}
+			else if ((svn.Err && svn.Err->apr_err == SVN_ERR_ENTRY_EXISTS) && (destPath.Exists()))
+			{
+				// target file already exists. Ask user if he wants to replace the file
+				CString sReplace;
+				sReplace.Format(IDS_PROC_REPLACEEXISTING, destPath.GetWinPath());
+				if (CMessageBox::Show(hwndExplorer, sReplace, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO) == IDYES)
+				{
+					if (!svn.Remove(CTSVNPathList(destPath), TRUE, FALSE))
+					{
+						destPath.Delete(true);
+					}
+					if (!svn.Move(CTSVNPathList(pathList[nPath]), destPath, TRUE))
+					{
+						CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+						return FALSE;		//get out of here
+					}
+					CShellUpdater::Instance().AddPathForUpdate(destPath);
+				}
+			}
 			else
 			{
 				TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());

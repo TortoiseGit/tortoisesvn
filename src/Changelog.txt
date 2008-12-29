@@ -59,6 +59,8 @@
 - NEW: Context menu to delete and ignore files at the same time. (Stefan)
 - NEW: Tooltips in the action column of the log dialog, explaining the
        action icons. (Stefan)
+- NEW: When moving/copying a file over an existing file, ask the user whether
+       to replace that existing file. (Stefan)
 - CHG: The bug-ID column width in the log dialog is now limited 
        to 200 pixels. (Stefan)
 - CHG: The right-drag context menu now only shows "Export" if a versioned

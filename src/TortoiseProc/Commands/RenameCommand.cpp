@@ -105,7 +105,6 @@ bool RenameCommand::Execute()
 		}
 		else
 		{
-			SVN svn;
 			CString sFilemask = cmdLinePath.GetFilename();
 			if (sFilemask.ReverseFind('.')>=0)
 			{
@@ -124,12 +123,7 @@ bool RenameCommand::Execute()
 			if (((!sFilemask.IsEmpty()) && (parser.HasKey(_T("noquestion")))) ||
 				(cmdLinePath.GetFileExtension().Compare(destinationPath.GetFileExtension())!=0))
 			{
-				if (!svn.Move(CTSVNPathList(cmdLinePath), destinationPath, TRUE, sMsg))
-				{
-					TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
-					CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-				}
-				else
+				if (RenameWithReplace(hwndExplorer, CTSVNPathList(cmdLinePath), destinationPath, TRUE, sMsg))
 					bRet = true;
 			}
 			else
@@ -148,12 +142,7 @@ bool RenameCommand::Execute()
 				{
 					// we couldn't find any other matching files
 					// just do the default...
-					if (!svn.Move(CTSVNPathList(cmdLinePath), destinationPath, TRUE, sMsg))
-					{
-						TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
-						CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-					}
-					else
+					if (RenameWithReplace(hwndExplorer, CTSVNPathList(cmdLinePath), destinationPath, TRUE, sMsg))
 					{
 						bRet = true;
 						CShellUpdater::Instance().AddPathForUpdate(destinationPath);
@@ -189,20 +178,7 @@ bool RenameCommand::Execute()
 							progress.FormatPathLine(1, IDS_PROC_MOVINGPROG, (LPCTSTR)it->first);
 							progress.FormatPathLine(2, IDS_PROC_CPYMVPROG2, (LPCTSTR)it->second);
 							progress.SetProgress(count, renmap.size());
-							if (!svn.Move(CTSVNPathList(CTSVNPath(it->first)), CTSVNPath(it->second), TRUE, sMsg))
-							{
-								if (svn.Err->apr_err == SVN_ERR_ENTRY_NOT_FOUND)
-								{
-									bRet = !!MoveFile(it->first, it->second);
-								}
-								else
-								{
-									TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
-									CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-									bRet = false;
-								}
-							}
-							else
+							if (RenameWithReplace(hwndExplorer, CTSVNPathList(CTSVNPath(it->first)), CTSVNPath(it->second), TRUE, sMsg))
 							{
 								bRet = true;
 								CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(it->second));
@@ -213,12 +189,7 @@ bool RenameCommand::Execute()
 					else if (idret == IDNO)
 					{
 						// no, user wants to just rename the file he selected
-						if (!svn.Move(CTSVNPathList(cmdLinePath), destinationPath, TRUE, sMsg))
-						{
-							TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
-							CMessageBox::Show(hwndExplorer, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-						}
-						else
+						if (RenameWithReplace(hwndExplorer, CTSVNPathList(cmdLinePath), destinationPath, TRUE, sMsg))
 						{
 							bRet = true;
 							CShellUpdater::Instance().AddPathForUpdate(destinationPath);
@@ -232,5 +203,45 @@ bool RenameCommand::Execute()
 			}
 		}
 	}
+	return bRet;
+}
+
+bool RenameCommand::RenameWithReplace(HWND hWnd, const CTSVNPathList &srcPathList, 
+									  const CTSVNPath &destPath, BOOL force, 
+									  const CString &message /* = L"" */, 
+									  bool move_as_child /* = false */, 
+									  bool make_parents /* = false */)
+{
+	SVN svn;
+	UINT idret = IDYES;
+	bool bRet = true;
+	if (destPath.Exists() && !destPath.IsDirectory())
+	{
+		CString sReplace;
+		sReplace.Format(IDS_PROC_REPLACEEXISTING, destPath.GetWinPath());
+		idret = CMessageBox::Show(hWnd, sReplace, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNOCANCEL);
+		if (idret == IDYES)
+		{
+			if (!svn.Remove(CTSVNPathList(destPath), TRUE, FALSE))
+			{
+				destPath.Delete(true);
+			}
+		}
+	}
+	if ((idret != IDCANCEL)&&(!svn.Move(srcPathList, destPath, force, message, move_as_child, make_parents)))
+	{
+		if (svn.Err->apr_err == SVN_ERR_ENTRY_NOT_FOUND)
+		{
+			bRet = !!MoveFile(srcPathList[0].GetWinPath(), destPath.GetWinPath());
+		}
+		else
+		{
+			TRACE(_T("%s\n"), (LPCTSTR)svn.GetLastErrorMessage());
+			CMessageBox::Show(hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+			bRet = false;
+		}
+	}
+	if (idret == IDCANCEL)
+		bRet = false;
 	return bRet;
 }
