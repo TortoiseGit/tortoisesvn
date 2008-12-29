@@ -2710,4 +2710,28 @@ void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_po
 	return;
 }
 
+svn_error_t * svn_error_handle_malfunction(svn_boolean_t can_return,
+										   const char *file, int line,
+										   const char *expr)
+{
+	// we get here every time Subversion encounters something very unexpected.
+	// in previous versions, Subversion would just call abort() - now we can
+	// show the user some information before we return.
+	svn_error_t * err = svn_error_raise_on_malfunction(TRUE, file, line, expr);
+
+	CString sErr(MAKEINTRESOURCE(IDS_ERR_SVNEXCEPTION));
+	if (err)
+	{
+		sErr += _T("\n\n") + SVN::GetErrorString(err);
+		::MessageBox(NULL, sErr, _T("Subversion Exception!"), MB_ICONERROR);
+		if (can_return)
+			return err;
+		abort();	// ugly, ugly! But at least we showed a messagebox first
+	}
+
+	CString sFormatErr;
+	sFormatErr.Format(IDS_ERR_SVNFORMATEXCEPTION, CUnicodeUtils::GetUnicode(file), line, CUnicodeUtils::GetUnicode(expr));
+	::MessageBox(NULL, sFormatErr, _T("Subversion Exception!"), MB_ICONERROR);
+	abort();
+}
 

@@ -31,6 +31,10 @@ class CProgressDlg;
 class CTSVNPath;
 class CTSVNPathList;
 
+svn_error_t * svn_error_handle_malfunction(svn_boolean_t can_return,
+										   const char *file, int line,
+										   const char *expr);
+
 svn_error_t * svn_cl__get_log_message (const char **log_msg,
 									const char **tmp_file,
 									const apr_array_header_t * commit_items,
