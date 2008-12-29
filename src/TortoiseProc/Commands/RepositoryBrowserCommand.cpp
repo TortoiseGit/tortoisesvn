@@ -56,13 +56,7 @@ bool RepositoryBrowserCommand::Execute()
 				{
 					CString p = cmdLinePath.GetWinPathString();
 					p.TrimLeft('\\');
-					if (CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(p)).Find('%') >= 0)
-					{
-						// the path has special chars which will get escaped!
-						url = _T("file:///\\")+p;
-					}
-					else
-						url = _T("file://")+p;
+					url = _T("file://")+p;
 				}
 				else
 					url = _T("file:///")+cmdLinePath.GetWinPathString();

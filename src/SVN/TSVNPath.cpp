@@ -190,7 +190,7 @@ const char* CTSVNPath::GetSVNApiPath(apr_pool_t *pool) const
 	if (svn_path_is_url(m_sUTF8FwdslashPath))
 	{
 		m_sUTF8FwdslashPathEscaped = CPathUtils::PathEscape(m_sUTF8FwdslashPath);
-		m_sUTF8FwdslashPathEscaped.Replace("file:////", "file:///\\");
+		m_sUTF8FwdslashPathEscaped.Replace("file:////", "file://");
 		m_sUTF8FwdslashPathEscaped = svn_uri_canonicalize(m_sUTF8FwdslashPathEscaped, pool);
 		return m_sUTF8FwdslashPathEscaped;
 	}
@@ -209,7 +209,7 @@ const CString& CTSVNPath::GetUIPathString() const
 		if (IsUrl())
 		{
 			m_sUIPath = CPathUtils::PathUnescape(GetSVNPathString());
-			m_sUIPath.Replace(_T("file:////"), _T("file:///\\"));
+			m_sUIPath.Replace(_T("file:////"), _T("file://"));
 
 		}
 		else
@@ -231,7 +231,7 @@ void CTSVNPath::SetFwdslashPath(const CString& sPath) const
 
 	SanitizeRootPath(m_sFwdslashPath, true);
 
-	m_sFwdslashPath.Replace(_T("file:////"), _T("file:///\\"));
+	m_sFwdslashPath.Replace(_T("file:////"), _T("file://"));
 
 	m_sUTF8FwdslashPath.Empty();
 }
