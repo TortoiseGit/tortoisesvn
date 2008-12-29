@@ -412,6 +412,7 @@ void CStandardLayout::Finalize()
     CreateTexts();
 
     CalculateTreeBoundingRects();
+    CloseTreeBoundingRectGaps();
     CalculateBoundingRect();
 }
 
