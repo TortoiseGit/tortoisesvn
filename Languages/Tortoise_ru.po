@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2008
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 14886: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 14977: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-18 11:31+0300\n"
+"PO-Revision-Date: 2008-12-30 18:46+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -975,6 +975,10 @@ msgid "&SSH client:"
 msgstr "SSH &клиент:"
 
 #. Resource IDs: (65535)
+msgid "&SVN"
+msgstr "&SVN"
+
+#. Resource IDs: (65535)
 msgid "&Sat:"
 msgstr "&Ктр:"
 
@@ -1555,6 +1559,10 @@ msgstr "Дополнительные настройки программы сл�
 #. Resource IDs: (65535)
 msgid "Age"
 msgstr "Возраст"
+
+#. Resource IDs: (32822)
+msgid "Align trees on top"
+msgstr "Выровнять деревья поверху"
 
 #. Resource IDs: (1007)
 msgid "All Commands"
@@ -4282,9 +4290,9 @@ msgstr "ID:32814:V C +L"
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
-#. Accelerator Entry for Menu ID:32822; ''
-msgid "ID:32822:V C +F"
-msgstr "ID:32822:V C +F"
+#. Accelerator Entry for Menu ID:32824; ''
+msgid "ID:32824:V C +F"
+msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
@@ -4487,6 +4495,10 @@ msgid ""
 msgstr ""
 "Если отмечено, то наличие неверсированных файлов помечает родительскую папку как изменённую,\r\n"
 "т.е. у неё на значке будет пометка 'изменена'."
+
+#. Resource IDs: (2052)
+msgid "If the graph contains multiple trees, separate them by slight variations in background color."
+msgstr "Если в графе несколько деревьев, выделить их лёгким изменением цвета фона."
 
 #. Resource IDs: (1439)
 msgid "If the repository can not be contacted"
@@ -7211,6 +7223,10 @@ msgstr "В оболочке"
 msgid "Shell Icon Cache was rebuilt!"
 msgstr "Кэш значков оболочки восстановлен!"
 
+#. Resource IDs: (2052)
+msgid "Shift trees to the top of the window. Alignment to other trees will be lost."
+msgstr "Сдвинуть деревья к верхней границе окна. Выравнивание по отношению к другим деревьям будет потеряно."
+
 #. Resource IDs: (101)
 msgid "Sho&w properties"
 msgstr "Показа&ть свойства"
@@ -7653,6 +7669,42 @@ msgstr "Subversion"
 #. Resource IDs: (65535)
 msgid "Subversion configuration &file:"
 msgstr "Конфигурационный &файл Subversion:"
+
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Subversion encountered a serious problem.\n"
+"Please take the time to report this on our mailing list\n"
+"with as much information as possible about what\n"
+"you were trying to do.\n"
+"\n"
+"Subversion encountered the problem in:\file %s, line %ld\n"
+"expression = %s"
+msgstr ""
+"Subversion столкнулась с серьёзной проблемой.\n"
+"Пожалуйста, уделите время и сообщите о ней в нашем\n"
+"списке рассылки вместе со всей возможной информацией\n"
+"о том, что вы пытались сделать.\n"
+"\n"
+"Subversion столкнулась с проблемой в следующем месте:\n"
+"файл %s, строка %ld\n"
+"выражение = %s"
+
+#. Resource IDs: (84)
+msgid ""
+"Subversion encountered a serious problem.\n"
+"Please take the time to report this on our mailing list\n"
+"with as much information as possible about what\n"
+"you were trying to do.\n"
+"\n"
+"Subversion reported the following:"
+msgstr ""
+"Subversion столкнулась с серьёзной проблемой.\n"
+"Пожалуйста, уделите время и сообщите о ней в нашем\n"
+"списке рассылки вместе со всей возможной информацией\n"
+"о том, что вы пытались сделать.\n"
+"\n"
+"Subversion сообщила следущее:"
 
 #. Resource IDs: (79)
 msgid ""
@@ -8200,6 +8252,19 @@ msgstr ""
 "%s\n"
 "уже существует!"
 
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"The target file\n"
+"%s\n"
+" already exists.\n"
+"Do you want to replace the file?"
+msgstr ""
+"Целевой файл\n"
+"%s\n"
+"уже существует.\n"
+"Желаете ли вы его перезаписать?"
+
 #. Resource IDs: (88)
 #, c-format
 msgid ""
@@ -8595,6 +8660,10 @@ msgstr "Общее число слитых ревизий"
 #. Resource IDs: (339)
 msgid "Total number of user revision properties"
 msgstr "Общее число пользовательских свойств ревизий"
+
+#. Resource IDs: (32821)
+msgid "Tr&ee stripes"
+msgstr "&Деревья в полосах"
 
 #. Resource IDs: (357)
 #, c-format
