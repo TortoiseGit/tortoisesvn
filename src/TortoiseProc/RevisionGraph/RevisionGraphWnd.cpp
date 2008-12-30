@@ -207,7 +207,7 @@ CPoint CRevisionGraphWnd::GetLogCoordinates (CPoint point) const
                   , (int)((point.y + nVScrollPos) / m_fZoomFactor));
 }
 
-index_t CRevisionGraphWnd::GetHitNode (CPoint point) const
+index_t CRevisionGraphWnd::GetHitNode (CPoint point, CSize border) const
 {
     // any nodes at all?
 
@@ -217,21 +217,24 @@ index_t CRevisionGraphWnd::GetHitNode (CPoint point) const
     // search the nodes for one at that grid position
 
     std::auto_ptr<const ILayoutNodeList> nodeList (m_layout->GetNodes());
-    return nodeList->GetAt (GetLogCoordinates (point), 0);
+    return nodeList->GetAt (GetLogCoordinates (point), border);
 }
 
 DWORD CRevisionGraphWnd::GetHoverGlyphs (CPoint point) const
 {
-    // get node at point
+    // get node at point or node that is close enough 
+    // so that point may hit a glyph area
 
     index_t nodeIndex = GetHitNode(point);
+    if (nodeIndex == NO_INDEX)
+        nodeIndex = GetHitNode(point, CSize (GLYPH_SIZE, GLYPH_SIZE / 2));
 
     std::auto_ptr<const ILayoutNodeList> nodeList (m_layout->GetNodes());
     if (nodeIndex >= nodeList->GetCount())
         return 0;
 
     ILayoutNodeList::SNode node = nodeList->GetNode (nodeIndex);
-    const CFullGraphNode* base = node.node->GetBase();
+    const CVisibleGraphNode* base = node.node;
 
     // what glyphs should be shown depending on position of point
     // relative to the node rect?

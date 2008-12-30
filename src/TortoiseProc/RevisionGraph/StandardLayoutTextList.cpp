@@ -68,7 +68,7 @@ index_t CStandardLayoutTextList::GetNextVisible
 
 index_t CStandardLayoutTextList::GetAt 
     ( const CPoint& /* point */
-    , long /* delta */) const
+    , CSize /* delta */) const
 {
     return static_cast<index_t>(NO_INDEX);
 }

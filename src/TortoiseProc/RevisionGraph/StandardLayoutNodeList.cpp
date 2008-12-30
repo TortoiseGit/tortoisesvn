@@ -182,15 +182,15 @@ index_t CStandardLayoutNodeList::GetNextVisible ( index_t prev
     return static_cast<index_t>(NO_INDEX);
 }
 
-index_t CStandardLayoutNodeList::GetAt (const CPoint& point, long delta) const
+index_t CStandardLayoutNodeList::GetAt (const CPoint& point, CSize delta) const
 {
     for (size_t i = 0, count = nodes.size(); i < count; ++i)
     {
         const CRect& rect = nodes[i].rect;
-        if (   (rect.top - point.y <= delta)
-            && (rect.left - point.x <= delta)
-            && (point.y - rect.bottom <= delta)
-            && (point.x - rect.right <= delta))
+        if (   (rect.top - point.y <= delta.cy)
+            && (rect.left - point.x <= delta.cx)
+            && (point.y - rect.bottom <= delta.cy)
+            && (point.x - rect.right <= delta.cx))
         {
             return static_cast<index_t>(i);
         }

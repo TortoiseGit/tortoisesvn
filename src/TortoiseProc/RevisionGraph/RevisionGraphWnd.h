@@ -243,7 +243,7 @@ private:
     CString         TooltipText (index_t index);
 
     CPoint          GetLogCoordinates (CPoint point) const;
-    index_t         GetHitNode (CPoint point) const;
+    index_t         GetHitNode (CPoint point, CSize border = CSize (0, 0)) const;
     DWORD           GetHoverGlyphs (CPoint point) const;
     const SVisibleGlyph*  GetHitGlyph (CPoint point) const;
 

@@ -52,7 +52,7 @@ public:
 
     virtual index_t GetFirstVisible (const CRect& viewRect) const = 0;
     virtual index_t GetNextVisible (index_t prev, const CRect& viewRect) const = 0;
-    virtual index_t GetAt (const CPoint& point, long delta) const = 0;
+    virtual index_t GetAt (const CPoint& point, CSize delta) const = 0;
 };
 
 class ILayoutRectList : public ILayoutItemList

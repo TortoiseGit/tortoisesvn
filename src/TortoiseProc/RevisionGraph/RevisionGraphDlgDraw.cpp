@@ -745,13 +745,17 @@ void CRevisionGraphWnd::DrawCurrentNodeGlyphs (Graphics& graphics, const CSize& 
     m_hoverIndex = GetHitNode (point);
     m_hoverGlyphs = GetHoverGlyphs (point);
 
-    if ((m_hoverIndex != NO_INDEX) && (m_hoverGlyphs != 0))
+    if ((m_hoverIndex != NO_INDEX) || (m_hoverGlyphs != 0))
     {
+        index_t nodeIndex = m_hoverIndex == NO_INDEX
+                          ? GetHitNode (point, GLYPH_SIZE)
+                          : m_hoverIndex;
+
         std::auto_ptr<const ILayoutNodeList> nodeList (m_layout->GetNodes());
-        if (m_hoverIndex >= nodeList->GetCount())
+        if (nodeIndex >= nodeList->GetCount())
             return;
 
-        ILayoutNodeList::SNode node = nodeList->GetNode (m_hoverIndex);
+        ILayoutNodeList::SNode node = nodeList->GetNode (nodeIndex);
         RectF noderect (GetNodeRect (node, offset));
 
         const CFullGraphNode* base = node.node->GetBase();
