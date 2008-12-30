@@ -230,7 +230,7 @@ DWORD CRevisionGraphWnd::GetHoverGlyphs (CPoint point) const
     if (nodeIndex >= nodeList->GetCount())
         return 0;
 
-    ILayoutNodeList::SNode node = nodeList->GetNode (m_hoverIndex);
+    ILayoutNodeList::SNode node = nodeList->GetNode (nodeIndex);
     const CFullGraphNode* base = node.node->GetBase();
 
     // what glyphs should be shown depending on position of point
@@ -538,6 +538,9 @@ INT_PTR CRevisionGraphWnd::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 		return -1;
 
     if (GetHitNode (point) == NO_INDEX)
+        return -1;
+
+    if ((GetHoverGlyphs (point) != 0) || (GetHitGlyph (point) != NULL))
         return -1;
 
 	pTI->hwnd = this->m_hWnd;
