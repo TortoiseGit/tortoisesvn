@@ -167,6 +167,7 @@ protected:
 
     index_t         m_hoverIndex;   // node the cursor currently hovers over
     DWORD           m_hoverGlyphs;  // the glyphs shown for \ref m_hoverIndex
+    mutable index_t m_tooltipIndex; // the node index we fetched the tooltip for
 	
 	virtual void	DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	afx_msg void	OnPaint();

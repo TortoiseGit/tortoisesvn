@@ -82,6 +82,7 @@ CRevisionGraphWnd::CRevisionGraphWnd()
     , m_options (NULL)
     , m_hoverIndex ((index_t)NO_INDEX)
     , m_hoverGlyphs (0)
+    , m_tooltipIndex ((index_t)NO_INDEX)
 {
 	memset(&m_lfBaseFont, 0, sizeof(LOGFONT));	
 	for (int i=0; i<MAXFONTS; i++)
@@ -540,7 +541,16 @@ INT_PTR CRevisionGraphWnd::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 	if (m_bThreadRunning)
 		return -1;
 
-    if (GetHitNode (point) == NO_INDEX)
+    index_t nodeIndex = GetHitNode (point);
+    if (m_tooltipIndex != nodeIndex)
+    {
+        // force tooltip to be updated
+
+        m_tooltipIndex = nodeIndex;
+        return -1;
+    }
+
+    if (nodeIndex == NO_INDEX)
         return -1;
 
     if ((GetHoverGlyphs (point) != 0) || (GetHitGlyph (point) != NULL))
