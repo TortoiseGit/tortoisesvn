@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-23 17:18+0100\n"
+"PO-Revision-Date: 2008-12-30 16:34+0100\n"
 "Last-Translator: Grokwik <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -927,6 +927,10 @@ msgid "&SSH client:"
 msgstr "Client &SSH :"
 
 #. Resource IDs: (65535)
+msgid "&SVN"
+msgstr "&SVN"
+
+#. Resource IDs: (65535)
 msgid "&Sat:"
 msgstr "&Saturation:"
 
@@ -1498,6 +1502,10 @@ msgstr "Configuration avancée de la fusion"
 #. Resource IDs: (65535)
 msgid "Age"
 msgstr "Age"
+
+#. Resource IDs: (32822)
+msgid "Align trees on top"
+msgstr "Aligner les arborescences en haut"
 
 #. Resource IDs: (1007)
 msgid "All Commands"
@@ -3802,9 +3810,21 @@ msgstr ""
 msgid "Finished!"
 msgstr "Fini !"
 
+#. Resource IDs: (32804)
+msgid "Fit graph"
+msgstr "Adapter le graphique"
+
+#. Resource IDs: (32802)
+msgid "Fit height"
+msgstr "Même hauteur"
+
 #. Resource IDs: (32810)
 msgid "Fit image &sizes"
 msgstr "Ajus&ter les images ensemble"
+
+#. Resource IDs: (32803)
+msgid "Fit width"
+msgstr "Même largeur"
 
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
@@ -4195,9 +4215,9 @@ msgstr "ID:32771:V C +F"
 msgid "ID:32814:VA  +D"
 msgstr "ID:32771:V C +F"
 
-#. Accelerator Entry for Menu ID:32822; ''
-msgid "ID:32822:V C +F"
-msgstr "ID:32822:V C +F"
+#. Accelerator Entry for Menu ID:32824; ''
+msgid "ID:32824:V C +F"
+msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
@@ -7109,6 +7129,10 @@ msgstr "Shell"
 msgid "Shell Icon Cache was rebuilt!"
 msgstr "Le Cache d'Icônes du Shell est reconstruit !"
 
+#. Resource IDs: (2052)
+msgid "Shift trees to the top of the window. Alignment to other trees will be lost."
+msgstr "Décaler les arborescences vers le haut de la fenêtre. L'alignement à d'autres arborescences seront perdus."
+
 #. Resource IDs: (101)
 msgid "Sho&w properties"
 msgstr "&Voir les propriétés"
@@ -7549,6 +7573,41 @@ msgstr "Subversion"
 #. Resource IDs: (65535)
 msgid "Subversion configuration &file:"
 msgstr "&Fichier de configuration de Subversion :"
+
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Subversion encountered a serious problem.\n"
+"Please take the time to report this on our mailing list\n"
+"with as much information as possible about what\n"
+"you were trying to do.\n"
+"\n"
+"Subversion encountered the problem in:\file %s, line %ld\n"
+"expression = %s"
+msgstr ""
+"Un problème grave est arrivé à Subversion.\n"
+"Veuillez s'il vous plait le rapporter via notre liste de diffusion\n"
+"Avec autant d'informations que possible concernant ce\n"
+"que vous essayiez de faire.\n"
+"\n"
+"Le bug est apparu dans : \file %s, ligne %ld\n"
+"expression = %s"
+
+#. Resource IDs: (84)
+msgid ""
+"Subversion encountered a serious problem.\n"
+"Please take the time to report this on our mailing list\n"
+"with as much information as possible about what\n"
+"you were trying to do.\n"
+"\n"
+"Subversion reported the following:"
+msgstr ""
+"Un problème grave est arrivé à Subversion.\n"
+"Veuillez s'il vous plait le rapporter via notre liste de diffusion\n"
+"Avec autant d'informations que possible concernant ce\n"
+"que vous essayiez de faire.\n"
+"\n"
+"Subversion rapporte les informations suivantes :"
 
 #. Resource IDs: (79)
 msgid ""
@@ -8088,6 +8147,19 @@ msgstr ""
 "L'URL cible\n"
 "%s\n"
 "existe déjà !"
+
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"The target file\n"
+"%s\n"
+" already exists.\n"
+"Do you want to replace the file?"
+msgstr ""
+"Le fichier destination\n"
+"%s\n"
+" existe déjà.\n"
+"Voulez-vous l'écraser ?"
 
 #. Resource IDs: (88)
 #, c-format
@@ -9365,6 +9437,10 @@ msgstr "Agrandir"
 #. Resource IDs: (2049)
 msgid "Zoom out"
 msgstr "Réduire"
+
+#. Resource IDs: (32801)
+msgid "Zoom to &100%"
+msgstr "Zoomer à &100%"
 
 #. Resource IDs: (2051)
 msgid "Zoom to fit"
