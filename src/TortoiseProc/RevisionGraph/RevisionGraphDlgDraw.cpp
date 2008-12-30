@@ -748,7 +748,7 @@ void CRevisionGraphWnd::DrawCurrentNodeGlyphs (Graphics& graphics, const CSize& 
     if ((m_hoverIndex != NO_INDEX) || (m_hoverGlyphs != 0))
     {
         index_t nodeIndex = m_hoverIndex == NO_INDEX
-                          ? GetHitNode (point, GLYPH_SIZE)
+                          ? GetHitNode (point, CSize (GLYPH_SIZE, GLYPH_SIZE / 2))
                           : m_hoverIndex;
 
         std::auto_ptr<const ILayoutNodeList> nodeList (m_layout->GetNodes());
