@@ -206,11 +206,18 @@ private:
 
     enum GlyphType
     {
-        NoGlyph,
-        ExpandGlyph,    // "+"
-        CollapseGlyph,  // "-"
-        SplitGlyph,     // "x"
-        JoinGlyph,      // "o"
+        NoGlyph = -1,
+        ExpandGlyph = 0,    // "+"
+        CollapseGlyph = 1,  // "-"
+        SplitGlyph = 2,     // "x"
+        JoinGlyph = 3,      // "o"
+    };
+
+    enum GlyphPosition
+    {
+        Above = 0,    
+        Right = 4, 
+        Below = 8,     
     };
 
     typedef bool (SVNDiff::*TDiffFunc)(const CTSVNPath& url1, const SVNRev& rev1, 
@@ -264,11 +271,11 @@ private:
 
     void            DrawSquare (Graphics& graphics, const PointF& leftTop, 
                                 const Color& lightColor, const Color& darkColor, const Color& penColor);
-    void            DrawGlyph (Graphics& graphics, const PointF& leftTop,
-                               const Color& lightColor, const Color& darkColor, GlyphType glyph);
-    void            DrawGlyphs (Graphics& graphics, const CVisibleGraphNode* node, const PointF& center, 
-                                GlyphType glyph1, GlyphType glyph2, DWORD state1, DWORD state2, bool showAll);
-    void            DrawGlyphs (Graphics& graphics, const CVisibleGraphNode* node, const RectF& nodeRect,
+    void            DrawGlyph (Graphics& graphics, Image* glyphs, const PointF& leftTop,
+                               GlyphType glyph, GlyphPosition position);
+    void            DrawGlyphs (Graphics& graphics, Image* glyphs, const CVisibleGraphNode* node, const PointF& center, 
+                                GlyphType glyph1, GlyphType glyph2, GlyphPosition position, DWORD state1, DWORD state2, bool showAll);
+    void            DrawGlyphs (Graphics& graphics, Image* glyphs, const CVisibleGraphNode* node, const RectF& nodeRect,
                                 DWORD state, DWORD allowed, bool upsideDown);
     void            DrawMarker (Graphics& graphics, const PointF& leftTop, 
                                 const Color& lightColor, const Color& darkColor);
@@ -276,10 +283,10 @@ private:
     void            DrawStripes (Graphics& graphics, const CSize& offset);
 
     void            DrawShadows (Graphics& graphics, const CRect& logRect, const CSize& offset);
-    void            DrawNodes (Graphics& graphics, const CRect& logRect, const CSize& offset);
+    void            DrawNodes (Graphics& graphics, Image* glyphs, const CRect& logRect, const CSize& offset);
     void            DrawConnections (CDC* pDC, const CRect& logRect, const CSize& offset);
     void            DrawTexts (CDC* pDC, const CRect& logRect, const CSize& offset);
-    void            DrawCurrentNodeGlyphs (Graphics& graphics, const CSize& offset);
+    void            DrawCurrentNodeGlyphs (Graphics& graphics, Image* glyphs, const CSize& offset);
     void			DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, int nHScrollPos, bool bDirectDraw);
 
 	int				GetEncoderClsid(const WCHAR* format, CLSID* pClsid);

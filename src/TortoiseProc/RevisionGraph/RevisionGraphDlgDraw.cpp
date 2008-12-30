@@ -370,73 +370,41 @@ void CRevisionGraphWnd::DrawSquare
 
 void CRevisionGraphWnd::DrawGlyph 
     ( Graphics& graphics
+    , Image* glyphs
     , const PointF& leftTop
-    , const Color& lightColor
-    , const Color& darkColor
-    , GlyphType glyph)
+    , GlyphType glyph
+    , GlyphPosition position)
 {
-    DrawSquare (graphics, leftTop, lightColor, darkColor, 0xFFE0E0E0);
+    // special case
 
-    Pen pen ((ARGB)Color::Black, max (1.0f, 2.5f * m_fZoomFactor));
-    float squareSize = GLYPH_SIZE * m_fZoomFactor;
-    switch (glyph)
-    {
-    case ExpandGlyph: // "+"
-        graphics.DrawLine ( &pen
-                          , leftTop.X + 0.2f * squareSize
-                          , leftTop.Y + 0.5f * squareSize
-                          , leftTop.X + 0.8f * squareSize
-                          , leftTop.Y + 0.5f * squareSize);
-        graphics.DrawLine ( &pen
-                          , leftTop.X + 0.5f * squareSize
-                          , leftTop.Y + 0.2f * squareSize
-                          , leftTop.X + 0.5f * squareSize
-                          , leftTop.Y + 0.8f * squareSize);
-        break;
+    if (glyph == NoGlyph)
+        return;
 
-    case CollapseGlyph: // "-"
-        graphics.DrawLine ( &pen
-                          , leftTop.X + 0.2f * squareSize
-                          , leftTop.Y + 0.5f * squareSize
-                          , leftTop.X + 0.8f * squareSize
-                          , leftTop.Y + 0.5f * squareSize);
-        break;
+    // bitmap source area
 
-    case SplitGlyph: // "x"
-        graphics.DrawLine ( &pen
-                          , leftTop.X + 0.2f * squareSize
-                          , leftTop.Y + 0.2f * squareSize
-                          , leftTop.X + 0.8f * squareSize
-                          , leftTop.Y + 0.8f * squareSize);
-        graphics.DrawLine ( &pen
-                          , leftTop.X + 0.2f * squareSize
-                          , leftTop.Y + 0.8f * squareSize
-                          , leftTop.X + 0.8f * squareSize
-                          , leftTop.Y + 0.2f * squareSize);
-        break;
+    REAL x = ((REAL)position + (REAL)glyph) * GLYPH_SIZE;
 
-    case JoinGlyph: // "o"
-        graphics.DrawEllipse ( &pen
-                             , leftTop.X + 0.2f * squareSize
-                             , leftTop.Y + 0.2f * squareSize
-                             , 0.6f * squareSize
-                             , 0.6f * squareSize);
-        break;
+    // screen target area
 
-    default:
+    float glyphSize = GLYPH_SIZE * m_fZoomFactor;
+    RectF target (leftTop, SizeF (glyphSize, glyphSize));
 
-        // NoGlyph
+    // scaled copy
 
-        assert (0);
-    }
+    graphics.DrawImage ( glyphs
+                       , target
+                       , x, 0.0f, GLYPH_SIZE, GLYPH_SIZE
+                       , UnitPixel, NULL, NULL, NULL);
 }
 
 void CRevisionGraphWnd::DrawGlyphs
     ( Graphics& graphics
+    , Image* glyphs
     , const CVisibleGraphNode* node
     , const PointF& center
     , GlyphType glyph1
     , GlyphType glyph2
+    , GlyphPosition position
     , DWORD state1
     , DWORD state2
     , bool showAll)
@@ -463,30 +431,28 @@ void CRevisionGraphWnd::DrawGlyphs
 
     // 1 or 2 glyphs?
 
-    Color lightColor (255, 255, 255);
-    Color darkColor (200, 200, 255);
-
     float squareSize = GLYPH_SIZE * m_fZoomFactor;
     if (glyph2 == NoGlyph)
     {
         PointF leftTop (center.X - 0.5f * squareSize, center.Y - 0.5f * squareSize);
-        DrawGlyph (graphics, leftTop, lightColor, darkColor, glyph1);
+        DrawGlyph (graphics, glyphs, leftTop, glyph1, position);
         visibleGlyphs.push_back (SVisibleGlyph (state1, leftTop, node));
     }
     else
     {
         PointF leftTop1 (center.X - squareSize, center.Y - 0.5f * squareSize);
-        DrawGlyph (graphics, leftTop1, lightColor, darkColor, glyph1);
+        DrawGlyph (graphics, glyphs, leftTop1, glyph1, position);
         visibleGlyphs.push_back (SVisibleGlyph (state1, leftTop1, node));
 
         PointF leftTop2 (center.X, center.Y - 0.5f * squareSize);
-        DrawGlyph (graphics, leftTop2, lightColor, darkColor, glyph2);
+        DrawGlyph (graphics, glyphs, leftTop2, glyph2, position);
         visibleGlyphs.push_back (SVisibleGlyph (state2, leftTop2, node));
     }
 }
 
 void CRevisionGraphWnd::DrawGlyphs
     ( Graphics& graphics
+    , Image* glyphs
     , const CVisibleGraphNode* node
     , const RectF& nodeRect
     , DWORD state
@@ -505,28 +471,34 @@ void CRevisionGraphWnd::DrawGlyphs
     PointF bottomCenter (0.5f * nodeRect.GetLeft() + 0.5f * nodeRect.GetRight(), nodeRect.GetBottom());
 
     DrawGlyphs ( graphics
+               , glyphs
                , node
                , upsideDown ? bottomCenter : topCenter
                , (state & CGraphNodeStates::COLLAPSED_ABOVE) ? ExpandGlyph : CollapseGlyph
                , (state & CGraphNodeStates::SPLIT_ABOVE) ? JoinGlyph : SplitGlyph
+               , upsideDown ? Below : Above
                , CGraphNodeStates::COLLAPSED_ABOVE
                , CGraphNodeStates::SPLIT_ABOVE
                , (allowed & CGraphNodeStates::COLLAPSED_ABOVE) != 0);
 
     DrawGlyphs ( graphics
+               , glyphs
                , node
                , rightCenter
                , (state & CGraphNodeStates::COLLAPSED_RIGHT) ? ExpandGlyph : CollapseGlyph
                , (state & CGraphNodeStates::SPLIT_RIGHT) ? JoinGlyph : SplitGlyph
+               , Right
                , CGraphNodeStates::COLLAPSED_RIGHT
                , CGraphNodeStates::SPLIT_RIGHT
                , (allowed & CGraphNodeStates::COLLAPSED_RIGHT) != 0);
 
     DrawGlyphs ( graphics
+               , glyphs
                , node
                , upsideDown ? topCenter : bottomCenter
                , (state & CGraphNodeStates::COLLAPSED_BELOW) ? ExpandGlyph : CollapseGlyph
                , (state & CGraphNodeStates::SPLIT_BELOW) ? JoinGlyph : SplitGlyph
+               , upsideDown ? Above : Below
                , CGraphNodeStates::COLLAPSED_BELOW
                , CGraphNodeStates::SPLIT_BELOW
                , (allowed & CGraphNodeStates::COLLAPSED_BELOW) != 0);
@@ -582,7 +554,7 @@ void CRevisionGraphWnd::DrawStripes (Graphics& graphics, const CSize& offset)
     }
 }
 
-void CRevisionGraphWnd::DrawNodes (Graphics& graphics, const CRect& logRect, const CSize& offset)
+void CRevisionGraphWnd::DrawNodes (Graphics& graphics, Image* glyphs, const CRect& logRect, const CSize& offset)
 {
     bool upsideDown = m_options->GetOption<CUpsideDownLayout>()->IsActive();
 
@@ -658,7 +630,7 @@ void CRevisionGraphWnd::DrawNodes (Graphics& graphics, const CRect& logRect, con
         // expansion glypths etc.
 
         const CFullGraphNode* base = node.node->GetBase();
-        DrawGlyphs (graphics, node.node, noderect, m_nodeStates.GetFlags (base), 0, upsideDown);
+        DrawGlyphs (graphics, glyphs, node.node, noderect, m_nodeStates.GetFlags (base), 0, upsideDown);
     }
 }
 
@@ -732,7 +704,7 @@ void CRevisionGraphWnd::DrawTexts (CDC* pDC, const CRect& logRect, const CSize& 
     }
 }
 
-void CRevisionGraphWnd::DrawCurrentNodeGlyphs (Graphics& graphics, const CSize& offset)
+void CRevisionGraphWnd::DrawCurrentNodeGlyphs (Graphics& graphics, Image* glyphs, const CSize& offset)
 {
     bool upsideDown = m_options->GetOption<CUpsideDownLayout>()->IsActive();
 
@@ -761,7 +733,7 @@ void CRevisionGraphWnd::DrawCurrentNodeGlyphs (Graphics& graphics, const CSize& 
         const CFullGraphNode* base = node.node->GetBase();
         DWORD flags = m_nodeStates.GetFlags (base);
 
-        DrawGlyphs (graphics, node.node, noderect, flags, m_hoverGlyphs, upsideDown);
+        DrawGlyphs (graphics, glyphs, node.node, noderect, flags, m_hoverGlyphs, upsideDown);
     }
 }
 
@@ -792,6 +764,7 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
     Graphics graphics (*memDC);
     graphics.SetPageUnit (UnitPixel);
     graphics.TranslateTransform ((REAL)drawRect.left, (REAL)drawRect.top);
+    graphics.SetInterpolationMode (InterpolationModeHighQualityBicubic);
 
     if (m_options && m_options->GetOption<CShowTreeStripes>()->IsActive())
         DrawStripes (graphics, offset);
@@ -799,10 +772,12 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
     if (m_fZoomFactor > 0.2f)
         DrawShadows (graphics, logRect, offset);
 
-    DrawNodes (graphics, logRect, offset);
+    Bitmap glyphs (AfxGetInstanceHandle(), MAKEINTRESOURCE(IDR_REVGRAPHGLYPHS));
+
+    DrawNodes (graphics, &glyphs, logRect, offset);
     DrawConnections (memDC, logRect, offset);
     DrawTexts (memDC, logRect, offset);
-    DrawCurrentNodeGlyphs (graphics, offset);
+    DrawCurrentNodeGlyphs (graphics, &glyphs, offset);
 
     // find out which nodes are in the visible area of the client rect
 
