@@ -101,7 +101,7 @@ void CRevisionGraphWnd::OnPaint()
 
 void CRevisionGraphWnd::ClearVisibleGlyphs (const CRect& rect)
 {
-    float glyphSize = 16 * m_fZoomFactor;
+    float glyphSize = GLYPH_SIZE * m_fZoomFactor;
 
     for (size_t i = visibleGlyphs.size(), count = i; i > 0; --i)
     {
@@ -378,7 +378,7 @@ void CRevisionGraphWnd::DrawGlyph
     DrawSquare (graphics, leftTop, lightColor, darkColor, 0xFFE0E0E0);
 
     Pen pen ((ARGB)Color::Black, max (1.0f, 2.5f * m_fZoomFactor));
-    float squareSize = 16 * m_fZoomFactor;
+    float squareSize = GLYPH_SIZE * m_fZoomFactor;
     switch (glyph)
     {
     case ExpandGlyph: // "+"
@@ -466,7 +466,7 @@ void CRevisionGraphWnd::DrawGlyphs
     Color lightColor (255, 255, 255);
     Color darkColor (200, 200, 255);
 
-    float squareSize = 16 * m_fZoomFactor;
+    float squareSize = GLYPH_SIZE * m_fZoomFactor;
     if (glyph2 == NoGlyph)
     {
         PointF leftTop (center.X - 0.5f * squareSize, center.Y - 0.5f * squareSize);
@@ -743,7 +743,9 @@ void CRevisionGraphWnd::DrawCurrentNodeGlyphs (Graphics& graphics, const CSize& 
     ScreenToClient (&point);
 
     m_hoverIndex = GetHitNode (point);
-    if (m_hoverIndex != NO_INDEX)
+    m_hoverGlyphs = GetHoverGlyphs (point);
+
+    if ((m_hoverIndex != NO_INDEX) && (m_hoverGlyphs != 0))
     {
         std::auto_ptr<const ILayoutNodeList> nodeList (m_layout->GetNodes());
         if (m_hoverIndex >= nodeList->GetCount())
@@ -753,17 +755,9 @@ void CRevisionGraphWnd::DrawCurrentNodeGlyphs (Graphics& graphics, const CSize& 
         RectF noderect (GetNodeRect (node, offset));
 
         const CFullGraphNode* base = node.node->GetBase();
-
         DWORD flags = m_nodeStates.GetFlags (base);
-        DWORD allowed = 0;
-        if (node.node->GetPrevious() || node.node->GetCopySource())
-            allowed |= CGraphNodeStates::COLLAPSED_ABOVE;
-        if (node.node->GetFirstCopyTarget())
-            allowed |= CGraphNodeStates::COLLAPSED_RIGHT;
-        if (node.node->GetNext())
-            allowed |= CGraphNodeStates::COLLAPSED_BELOW;
 
-        DrawGlyphs (graphics, node.node, noderect, flags, allowed, upsideDown);
+        DrawGlyphs (graphics, node.node, noderect, flags, m_hoverGlyphs, upsideDown);
     }
 }
 

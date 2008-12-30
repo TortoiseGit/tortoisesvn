@@ -41,6 +41,10 @@ using namespace Gdiplus;
 
 #define REVGRAPH_MIN_NODE_HIGHT (0.5f)
 
+// size of the expand / collapse / split / join square gylphs
+
+#define GLYPH_SIZE 16
+
 /**
  * \ingroup TortoiseProc
  * node shapes for the revision graph
@@ -162,6 +166,7 @@ protected:
     float           m_previewZoom;
 
     index_t         m_hoverIndex;   // node the cursor currently hovers over
+    DWORD           m_hoverGlyphs;  // the glyphs shown for \ref m_hoverIndex
 	
 	virtual void	DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	afx_msg void	OnPaint();
@@ -237,7 +242,9 @@ private:
     CString         DisplayableText (const CString& wholeText, const CSize& tooltipSize);
     CString         TooltipText (index_t index);
 
+    CPoint          GetLogCoordinates (CPoint point) const;
     index_t         GetHitNode (CPoint point) const;
+    DWORD           GetHoverGlyphs (CPoint point) const;
     const SVisibleGlyph*  GetHitGlyph (CPoint point) const;
 
     void            ClearVisibleGlyphs (const CRect& rect);

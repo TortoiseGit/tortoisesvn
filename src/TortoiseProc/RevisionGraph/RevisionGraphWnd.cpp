@@ -81,6 +81,7 @@ CRevisionGraphWnd::CRevisionGraphWnd()
     , m_parent (NULL)
     , m_options (NULL)
     , m_hoverIndex ((index_t)NO_INDEX)
+    , m_hoverGlyphs (0)
 {
 	memset(&m_lfBaseFont, 0, sizeof(LOGFONT));	
 	for (int i=0; i<MAXFONTS; i++)
@@ -195,6 +196,17 @@ void CRevisionGraphWnd::Init(CWnd * pParent, LPRECT rect)
     m_parent = dynamic_cast<CRevisionGraphDlg*>(pParent);
 }
 
+CPoint CRevisionGraphWnd::GetLogCoordinates (CPoint point) const
+{
+    // translate point into logical coordinates
+
+    int nVScrollPos = GetScrollPos(SB_VERT);
+    int nHScrollPos = GetScrollPos(SB_HORZ);
+
+    return CPoint ( (int)((point.x + nHScrollPos) / m_fZoomFactor)
+                  , (int)((point.y + nVScrollPos) / m_fZoomFactor));
+}
+
 index_t CRevisionGraphWnd::GetHitNode (CPoint point) const
 {
     // any nodes at all?
@@ -202,23 +214,62 @@ index_t CRevisionGraphWnd::GetHitNode (CPoint point) const
     if (m_layout.get() == NULL)
         return index_t(NO_INDEX);
 
-    // translate point into logical coordinates
-
-    int nVScrollPos = GetScrollPos(SB_VERT);
-    int nHScrollPos = GetScrollPos(SB_HORZ);
-
-    CSize logCoordinates ( (int)((point.x + nHScrollPos) / m_fZoomFactor)
-                         , (int)((point.y + nVScrollPos) / m_fZoomFactor));
-
     // search the nodes for one at that grid position
 
     std::auto_ptr<const ILayoutNodeList> nodeList (m_layout->GetNodes());
-    return nodeList->GetAt (logCoordinates, 0);
+    return nodeList->GetAt (GetLogCoordinates (point), 0);
 }
 
+DWORD CRevisionGraphWnd::GetHoverGlyphs (CPoint point) const
+{
+    // get node at point
+
+    index_t nodeIndex = GetHitNode(point);
+
+    std::auto_ptr<const ILayoutNodeList> nodeList (m_layout->GetNodes());
+    if (nodeIndex >= nodeList->GetCount())
+        return 0;
+
+    ILayoutNodeList::SNode node = nodeList->GetNode (m_hoverIndex);
+    const CFullGraphNode* base = node.node->GetBase();
+
+    // what glyphs should be shown depending on position of point
+    // relative to the node rect?
+
+    CPoint logCoordinates = GetLogCoordinates (point);
+    CRect r = node.rect;
+    CPoint center = r.CenterPoint();
+
+    CRect rightGlyphArea ( r.right - GLYPH_SIZE, center.y - GLYPH_SIZE / 2
+                         , r.right + GLYPH_SIZE, center.y + GLYPH_SIZE / 2);
+    CRect topGlyphArea ( center.x - GLYPH_SIZE, r.top - GLYPH_SIZE / 2
+                       , center.x + GLYPH_SIZE, r.top + GLYPH_SIZE / 2);
+    CRect bottomGlyphArea ( center.x - GLYPH_SIZE, r.bottom - GLYPH_SIZE / 2
+                          , center.x + GLYPH_SIZE, r.bottom + GLYPH_SIZE / 2);
+
+    if (rightGlyphArea.PtInRect (logCoordinates))
+        return base->GetFirstCopyTarget() != NULL
+             ? CGraphNodeStates::COLLAPSED_RIGHT | CGraphNodeStates::SPLIT_RIGHT
+             : 0;
+
+    if (topGlyphArea.PtInRect (logCoordinates))
+        return (base->GetCopySource() != NULL) || (base->GetPrevious() != NULL)
+             ? CGraphNodeStates::COLLAPSED_ABOVE | CGraphNodeStates::SPLIT_ABOVE
+             : 0;
+
+    if (bottomGlyphArea.PtInRect (logCoordinates))
+        return base->GetNext() != NULL
+             ? CGraphNodeStates::COLLAPSED_BELOW | CGraphNodeStates::SPLIT_BELOW
+             : 0;
+
+    // outside any glyph area
+
+    return 0;
+}
+    
 const CRevisionGraphWnd::SVisibleGlyph* CRevisionGraphWnd::GetHitGlyph (CPoint point) const
 {
-    float glyphSize = 16 * m_fZoomFactor;
+    float glyphSize = GLYPH_SIZE * m_fZoomFactor;
 
     for (size_t i = 0, count = visibleGlyphs.size(); i < count; ++i)
     {
@@ -1175,7 +1226,9 @@ void CRevisionGraphWnd::OnMouseMove(UINT nFlags, CPoint point)
             }
 
             bool onHoverNodeGlyph = (hoverNode != NULL) && (glyphNode == hoverNode);
-            if (!onHoverNodeGlyph && (m_hoverIndex != GetHitNode (clientPoint)))
+            if (   !onHoverNodeGlyph 
+                && (   (m_hoverIndex != GetHitNode (clientPoint))
+                    || (m_hoverGlyphs != GetHoverGlyphs (clientPoint))))
             {
     			Invalidate(FALSE);
             }
