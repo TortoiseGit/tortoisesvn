@@ -2726,12 +2726,15 @@ svn_error_t * svn_error_handle_malfunction(svn_boolean_t can_return,
 		::MessageBox(NULL, sErr, _T("Subversion Exception!"), MB_ICONERROR);
 		if (can_return)
 			return err;
-		abort();	// ugly, ugly! But at least we showed a messagebox first
+		if (CRegDWORD(_T("Software\\TortoiseSVN\\Debug"), FALSE)==FALSE)
+			abort();	// ugly, ugly! But at least we showed a messagebox first
 	}
 
 	CString sFormatErr;
 	sFormatErr.Format(IDS_ERR_SVNFORMATEXCEPTION, CUnicodeUtils::GetUnicode(file), line, CUnicodeUtils::GetUnicode(expr));
 	::MessageBox(NULL, sFormatErr, _T("Subversion Exception!"), MB_ICONERROR);
-	abort();
+	if (CRegDWORD(_T("Software\\TortoiseSVN\\Debug"), FALSE)==FALSE)
+		abort();	// ugly, ugly! But at least we showed a messagebox first
+	return NULL;	// never reached, only to silence compiler warning
 }
 
