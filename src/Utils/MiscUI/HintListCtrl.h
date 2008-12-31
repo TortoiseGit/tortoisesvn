@@ -46,7 +46,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 	afx_msg void OnPaint();
 	virtual afx_msg BOOL OnToolTipText(UINT id, NMHDR * pNMHDR, LRESULT * pResult); 
-	virtual int OnToolHitTest(CPoint point, TOOLINFO * pTI) const;
+	virtual INT_PTR OnToolHitTest(CPoint point, TOOLINFO * pTI) const;
 
 private:
 	CString			m_sText;

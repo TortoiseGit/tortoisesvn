@@ -90,7 +90,7 @@ void CHintListCtrl::OnPaint()
 	}
 }
 
-int CHintListCtrl::OnToolHitTest(CPoint point, TOOLINFO * pTI) const 
+INT_PTR CHintListCtrl::OnToolHitTest(CPoint point, TOOLINFO * pTI) const 
 {
 	if (pProvider == NULL)
 		return -1;
