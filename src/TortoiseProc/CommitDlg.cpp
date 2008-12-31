@@ -44,6 +44,7 @@ CCommitDlg::CCommitDlg(CWnd* pParent /*=NULL*/)
 	: CResizableStandAloneDialog(CCommitDlg::IDD, pParent)
 	, m_bRecursive(FALSE)
 	, m_bShowUnversioned(FALSE)
+	, m_bShowExternals(FALSE)
 	, m_bBlock(FALSE)
 	, m_bThreadRunning(FALSE)
 	, m_bRunThread(FALSE)
@@ -69,6 +70,7 @@ void CCommitDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_FILELIST, m_ListCtrl);
 	DDX_Control(pDX, IDC_LOGMESSAGE, m_cLogMessage);
 	DDX_Check(pDX, IDC_SHOWUNVERSIONED, m_bShowUnversioned);
+	DDX_Check(pDX, IDC_SHOWEXTERNALS, m_bShowExternals);
 	DDX_Control(pDX, IDC_SELECTALL, m_SelectAll);
 	DDX_Text(pDX, IDC_BUGID, m_sBugID);
 	DDX_Check(pDX, IDC_KEEPLOCK, m_bKeepLocks);
@@ -91,6 +93,7 @@ BEGIN_MESSAGE_MAP(CCommitDlg, CResizableStandAloneDialog)
 	ON_WM_TIMER()
     ON_WM_SIZE()
 	ON_STN_CLICKED(IDC_EXTERNALWARNING, &CCommitDlg::OnStnClickedExternalwarning)
+	ON_BN_CLICKED(IDC_SHOWEXTERNALS, &CCommitDlg::OnBnClickedShowexternals)
 END_MESSAGE_MAP()
 
 BOOL CCommitDlg::OnInitDialog()
@@ -99,6 +102,9 @@ BOOL CCommitDlg::OnInitDialog()
 	
 	m_regAddBeforeCommit = CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE);
 	m_bShowUnversioned = m_regAddBeforeCommit;
+
+	m_regShowExternals = CRegDWORD(_T("Software\\TortoiseSVN\\ShowExternals"), TRUE);
+	m_bShowExternals = m_regShowExternals;
 
 	m_History.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
 
@@ -203,6 +209,7 @@ BOOL CCommitDlg::OnInitDialog()
 	AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_SHOWUNVERSIONED, BOTTOM_LEFT);
 	AddAnchor(IDC_SELECTALL, BOTTOM_LEFT);
+	AddAnchor(IDC_SHOWEXTERNALS, BOTTOM_LEFT);
 	AddAnchor(IDC_EXTERNALWARNING, BOTTOM_RIGHT);
 	AddAnchor(IDC_STATISTICS, BOTTOM_LEFT, BOTTOM_RIGHT);
 	AddAnchor(IDC_KEEPLOCK, BOTTOM_LEFT);
@@ -500,6 +507,7 @@ void CCommitDlg::OnOK()
 	}
 	UpdateData();
 	m_regAddBeforeCommit = m_bShowUnversioned;
+	m_regShowExternals = m_bShowExternals;
 	if (!GetDlgItem(IDC_KEEPLOCK)->IsWindowEnabled())
 		m_bKeepLocks = FALSE;
 	m_regKeepChangelists = m_bKeepChangeList;
@@ -580,8 +588,9 @@ UINT CCommitDlg::StatusThread()
 	BOOL success = m_ListCtrl.GetStatus(m_pathList);
 	m_ListCtrl.CheckIfChangelistsArePresent(false);
 
-	DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMAL | SVNSLC_SHOWLOCKS | SVNSLC_SHOWINCHANGELIST | SVNSLC_SHOWEXTERNAL | SVNSLC_SHOWINEXTERNALS | SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO | SVNSLC_SHOWEXTDISABLED;
+	DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS | SVNSLC_SHOWLOCKS | SVNSLC_SHOWINCHANGELIST | SVNSLC_SHOWEXTERNAL | SVNSLC_SHOWINEXTERNALS;
 	dwShow |= DWORD(m_regAddBeforeCommit) ? SVNSLC_SHOWUNVERSIONED : 0;
+	dwShow |= DWORD(m_regShowExternals) ? SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO | SVNSLC_SHOWEXTDISABLED : 0;
 	if (success)
 	{
 		m_cLogMessage.SetRepositoryRoot(m_ListCtrl.m_sRepositoryRoot);
@@ -612,14 +621,14 @@ UINT CCommitDlg::StatusThread()
 			m_ListCtrl.SetEmptyString(m_ListCtrl.GetLastErrorMessage());
 		m_ListCtrl.Show(dwShow);
 	}
-	if ((m_ListCtrl.GetItemCount()==0)&&(m_ListCtrl.HasUnversionedItems()))
+	if ((m_ListCtrl.GetItemCount()==0)&&(m_ListCtrl.HasUnversionedItems())&&((dwShow & SVNSLC_SHOWUNVERSIONED) == 0))
 	{
 		if (CMessageBox::Show(m_hWnd, IDS_COMMITDLG_NOTHINGTOCOMMITUNVERSIONED, IDS_APPNAME, MB_ICONINFORMATION | MB_YESNO)==IDYES)
 		{
 			m_bShowUnversioned = TRUE;
 			GetDlgItem(IDC_SHOWUNVERSIONED)->SendMessage(BM_SETCHECK, BST_CHECKED);
-			DWORD dwS = SVNSLC_SHOWVERSIONEDBUTNORMAL | SVNSLC_SHOWLOCKS | SVNSLC_SHOWINCHANGELIST | SVNSLC_SHOWEXTERNAL | SVNSLC_SHOWINEXTERNALS | SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO | SVNSLC_SHOWEXTDISABLED | SVNSLC_SHOWUNVERSIONED;
-			m_ListCtrl.Show(dwS);
+			dwShow |= SVNSLC_SHOWUNVERSIONED;
+			m_ListCtrl.Show(dwShow);
 		}
 	}
 
@@ -643,6 +652,8 @@ UINT CCommitDlg::StatusThread()
 		DialogEnableWindow(IDC_SELECTALL, true);
 		if (m_ListCtrl.HasChangeLists())
 			DialogEnableWindow(IDC_KEEPLISTS, true);
+		else if (m_ListCtrl.HasExternalsFromDifferentRepos())
+			DialogEnableWindow(IDC_SHOWEXTERNALS, true);
 		if (m_ListCtrl.HasLocks())
 			DialogEnableWindow(IDC_KEEPLOCK, true);
 		// we have the list, now signal the main thread about it
@@ -1330,3 +1341,19 @@ void CCommitDlg::OnSize(UINT nType, int cx, int cy)
     SetSplitterRange();
 }
 
+
+void CCommitDlg::OnBnClickedShowexternals()
+{
+	m_tooltips.Pop();	// hide the tooltips
+	UpdateData();
+	m_regShowExternals = m_bShowExternals;
+	if (!m_bBlock)
+	{
+		DWORD dwShow = m_ListCtrl.GetShowFlags();
+		if (DWORD(m_regShowExternals))
+			dwShow |= SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO|SVNSLC_SHOWEXTDISABLED;
+		else
+			dwShow &= ~(SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO|SVNSLC_SHOWEXTDISABLED);
+		m_ListCtrl.Show(dwShow);
+	}
+}

@@ -70,6 +70,7 @@ protected:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 	afx_msg void OnBnClickedSelectall();
+	afx_msg void OnBnClickedShowexternals();
 	afx_msg void OnBnClickedHelp();
 	afx_msg void OnBnClickedShowunversioned();
 	afx_msg void OnBnClickedHistory();
@@ -115,12 +116,14 @@ private:
 	std::set<CString>	m_autolist;
 	CSVNStatusListCtrl	m_ListCtrl;
 	BOOL				m_bShowUnversioned;
+	BOOL				m_bShowExternals;
 	volatile LONG		m_bBlock;
 	volatile LONG		m_bThreadRunning;
 	volatile LONG		m_bRunThread;
 	CToolTips			m_tooltips;
 	CRegDWORD			m_regAddBeforeCommit;
 	CRegDWORD			m_regKeepChangelists;
+	CRegDWORD			m_regShowExternals;
 	ProjectProperties	m_ProjectProperties;
 	CButton				m_SelectAll;
 	CString				m_sWindowTitle;
@@ -135,4 +138,5 @@ private:
 
 	CBugTraqAssociation m_bugtraq_association;
 
+public:
 };
