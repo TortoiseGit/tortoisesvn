@@ -71,6 +71,8 @@ class CSVNStatusListCtrlDropTarget;
 #define SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO 0x000040000
 #define SVNSLC_SHOWSWITCHED		0x000080000
 #define SVNSLC_SHOWINCHANGELIST 0x000100000
+#define SVNSLC_SHOWEXTDISABLED	0x000200000
+#define SVNSLC_SHOWNESTED		0x000400000
 
 #define SVNSLC_SHOWDIRECTS		(SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWDIRECTFOLDER)
 
@@ -899,6 +901,7 @@ private:
 	BOOL						m_bHasUnversionedItems;
 	bool						m_bHasLocks;
 	bool						m_bHasChangeLists;
+	bool						m_bExternalsGroups;
 	typedef std::vector<FileEntry*> FileEntryVector;
 	FileEntryVector				m_arStatusArray;
 	std::vector<size_t>			m_arListArray;

@@ -142,6 +142,7 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
 	, m_bCheckChildrenWithParent(false)
 	, m_bUnversionedLast(true)
 	, m_bHasChangeLists(false)
+	, m_bExternalsGroups(false)
 	, m_bHasLocks(false)
 	, m_bBlock(false)
 	, m_bBlockUI(false)
@@ -1057,7 +1058,9 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 		FileEntry * entry = m_arStatusArray[i];
 		if ((entry->inexternal) && (!(dwShow & SVNSLC_SHOWINEXTERNALS)))
 			continue;
-		if ((entry->differentrepo || entry->isNested) && (! (dwShow & SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO)))
+		if ((entry->differentrepo) && (! (dwShow & SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO)))
+			continue;
+		if ((entry->isNested) && (! (dwShow & SVNSLC_SHOWNESTED)))
 			continue;
 		if (entry->IsFolder() && (!bShowFolders))
 			continue;	// don't show folders if they're not wanted.
@@ -1194,7 +1197,9 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, bo
 		FileEntry * entry = m_arStatusArray[i];
 		if ((entry->inexternal) && (!(dwShow & SVNSLC_SHOWINEXTERNALS)))
 			continue;
-		if ((entry->differentrepo || entry->isNested) && (! (dwShow & SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO)))
+		if ((entry->differentrepo) && (! (dwShow & SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO)))
+			continue;
+		if ((entry->isNested) && (! (dwShow & SVNSLC_SHOWNESTED)))
 			continue;
 		if (entry->IsFolder() && (!bShowFolders))
 			continue;	// don't show folders if they're not wanted.
@@ -1559,6 +1564,10 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, WORD langID, int listIndex)
 					foundIndex = groupIndex;
 			}
 			SetItemGroup(index, foundIndex);
+			if ((m_dwShow & SVNSLC_SHOWEXTDISABLED)&&(entry->IsFromDifferentRepository() || entry->IsNested()))
+			{
+				SetCheck(index, FALSE);
+			}
 		}
 		else
 			SetItemGroup(index, 0);
@@ -1635,10 +1644,13 @@ void CSVNStatusListCtrl::OnLvnItemchanging(NMHDR *pNMHDR, LRESULT *pResult)
 	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
 	*pResult = 0;
 
+	FileEntry * entry = GetListEntry(pNMLV->iItem);
+
 #define ISCHECKED(x) ((x) ? ((((x)&LVIS_STATEIMAGEMASK)>>12)-1) : FALSE)
-	if ((m_bBlock)&&(m_bBlockUI))
+	if (((m_bBlock)&&(m_bBlockUI)) ||
+		((m_dwShow & SVNSLC_SHOWEXTDISABLED)&&(entry->IsFromDifferentRepository() || entry->IsNested())))
 	{
-		// if we're blocked, prevent changing of the check state
+		// if we're blocked or an item from a different repository, prevent changing of the check state
 		if ((!ISCHECKED(pNMLV->uOldState) && ISCHECKED(pNMLV->uNewState))||
 			(ISCHECKED(pNMLV->uOldState) && !ISCHECKED(pNMLV->uNewState)))
 			*pResult = TRUE;
@@ -4080,6 +4092,11 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 				if ((entry->isConflicted) || (entry->tree_conflicted))
 					crText = m_Colors.GetColor(CColors::Conflict);
 
+				if ((m_dwShow & SVNSLC_SHOWEXTDISABLED)&&(entry->IsFromDifferentRepository() || entry->IsNested()))
+				{
+					crText = GetSysColor(COLOR_GRAYTEXT);
+				}
+
 				// Store the color back in the NMLVCUSTOMDRAW struct.
 				pLVCD->clrText = crText;
 			}
@@ -4910,6 +4927,7 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
 	grp.uAlign = LVGA_HEADER_LEFT;
 	InsertGroup(groupindex++, &grp);
 
+	m_bExternalsGroups = false;
 	if (bHasChangelistGroups)
 	{
 		for (std::map<CString,int>::iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
@@ -4941,6 +4959,7 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
 			lvgroup.iGroupId = groupindex;
 			lvgroup.uAlign = LVGA_HEADER_LEFT;
 			InsertGroup(groupindex++, &lvgroup);
+			m_bExternalsGroups = true;
 		}
 	}
 
