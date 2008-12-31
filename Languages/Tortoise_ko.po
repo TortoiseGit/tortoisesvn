@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-27 15:19+0900\n"
+"PO-Revision-Date: 2008-12-31 17:52+0900\n"
 "Last-Translator: Kim TaeDong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1494,6 +1494,10 @@ msgstr "병합 고급 설정"
 #. Resource IDs: (65535)
 msgid "Age"
 msgstr "나이"
+
+#. Resource IDs: (32822)
+msgid "Align trees on top"
+msgstr "트리를 위쪽으로 정렬하기"
 
 #. Resource IDs: (1007)
 msgid "All Commands"
@@ -3798,9 +3802,21 @@ msgstr ""
 msgid "Finished!"
 msgstr "종료함"
 
+#. Resource IDs: (32804)
+msgid "Fit graph"
+msgstr "그래프 맞추기"
+
+#. Resource IDs: (32802)
+msgid "Fit height"
+msgstr "높이에 맞추기"
+
 #. Resource IDs: (32810)
 msgid "Fit image &sizes"
 msgstr "이미지 사이즈를 서로 맞추기(&S)"
+
+#. Resource IDs: (32803)
+msgid "Fit width"
+msgstr "넓이에 맞추기"
 
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
@@ -4193,9 +4209,9 @@ msgstr "ID:32814:V C +L"
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
-#. Accelerator Entry for Menu ID:32822; ''
-msgid "ID:32822:V C +F"
-msgstr "ID:32822:V C +F"
+#. Accelerator Entry for Menu ID:32824; ''
+msgid "ID:32824:V C +F"
+msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
@@ -7100,6 +7116,10 @@ msgstr "쉘"
 msgid "Shell Icon Cache was rebuilt!"
 msgstr "쉘 아이콘 캐시가 다시 생성되었습니다."
 
+#. Resource IDs: (2052)
+msgid "Shift trees to the top of the window. Alignment to other trees will be lost."
+msgstr "트리를 윈도우의 위쪽으로 이동합니다. 다른 트리의 정렬상태는 사라질 것 입니다."
+
 #. Resource IDs: (101)
 msgid "Sho&w properties"
 msgstr "속성 보기(&W)"
@@ -7539,6 +7559,39 @@ msgstr "Subversion"
 #. Resource IDs: (65535)
 msgid "Subversion configuration &file:"
 msgstr "Subversion 설정 파일(&F):"
+
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Subversion encountered a serious problem.\n"
+"Please take the time to report this on our mailing list\n"
+"with as much information as possible about what\n"
+"you were trying to do.\n"
+"\n"
+"Subversion encountered the problem in:\file %s, line %ld\n"
+"expression = %s"
+msgstr ""
+"Subversion에 심각한 문제가 발생했습니다.\n"
+"당신이 무엇을 하고 있었는지에 대한 가능한 많은 정보와 함께\n"
+"이 문제를 메일링 리스트에 보고해 주십시오.\n"
+"\n"
+"다음과 같이 Subversion에 문제가 발생했습니다.:\file %s, line %ld\n"
+"expression = %s"
+
+#. Resource IDs: (84)
+msgid ""
+"Subversion encountered a serious problem.\n"
+"Please take the time to report this on our mailing list\n"
+"with as much information as possible about what\n"
+"you were trying to do.\n"
+"\n"
+"Subversion reported the following:"
+msgstr ""
+"Subversion에 심각한 문제가 발생했습니다.\n"
+"당신이 무엇을 하고 있었는지에 대한 가능한 많은 정보와 함께\n"
+"이 문제를 메일링 리스트에 보고해 주십시오.\n"
+"\n"
+"Subversion이 다음과 같이 보고했습니다.:"
 
 #. Resource IDs: (79)
 msgid ""
@@ -8077,6 +8130,18 @@ msgstr ""
 "대상 URL\n"
 "%s\n"
 "이(가) 이미 존재합니다."
+
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"The target file\n"
+"%s\n"
+" already exists.\n"
+"Do you want to replace the file?"
+msgstr ""
+"다음 타켓 파일이 이미 존재합니다.\n"
+"%s\n"
+"덮어 쓰시겠습니까?"
 
 #. Resource IDs: (88)
 #, c-format
@@ -9347,6 +9412,10 @@ msgstr "크게 보기"
 #. Resource IDs: (2049)
 msgid "Zoom out"
 msgstr "작게 보기"
+
+#. Resource IDs: (32801)
+msgid "Zoom to &100%"
+msgstr "&100%로 보기"
 
 #. Resource IDs: (2051)
 msgid "Zoom to fit"
