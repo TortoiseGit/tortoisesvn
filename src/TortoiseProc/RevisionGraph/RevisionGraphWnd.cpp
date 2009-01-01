@@ -35,6 +35,7 @@
 #include "BrowseFolder.h"
 #include "SVNProgressDlg.h"
 #include "RevisionGraph/StandardLayout.h"
+#include "RevisionGraph/UpsideDownLayout.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -256,6 +257,13 @@ DWORD CRevisionGraphWnd::GetHoverGlyphs (CPoint point) const
                        , center.x + GLYPH_SIZE, r.top + GLYPH_SIZE / 2);
     CRect bottomGlyphArea ( center.x - GLYPH_SIZE, r.bottom - GLYPH_SIZE / 2
                           , center.x + GLYPH_SIZE, r.bottom + GLYPH_SIZE / 2);
+
+    bool upsideDown = m_options->GetOption<CUpsideDownLayout>()->IsActive();
+    if (upsideDown)
+    {
+        std::swap (topGlyphArea.top, bottomGlyphArea.top);
+        std::swap (topGlyphArea.bottom, bottomGlyphArea.bottom);
+    }
 
     if (rightGlyphArea.PtInRect (logCoordinates))
         return base->GetFirstCopyTarget() != NULL
