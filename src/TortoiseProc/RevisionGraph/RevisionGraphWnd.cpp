@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -766,61 +766,75 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
 		// create dc to paint on
 		try
 		{
-			CWindowDC ddc(this);
-			CDC dc;
-			if (!dc.CreateCompatibleDC(&ddc))
-			{
-				LPVOID lpMsgBuf;
-				if (!FormatMessage( 
-					FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-					FORMAT_MESSAGE_FROM_SYSTEM | 
-					FORMAT_MESSAGE_IGNORE_INSERTS,
-					NULL,
-					GetLastError(),
-					MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-					(LPTSTR) &lpMsgBuf,
-					0,
-					NULL ))
-				{
-					return;
-				}
-				MessageBox( (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
-				LocalFree( lpMsgBuf );
-				return;
-			}
-			CRect rect;
-			rect = GetViewRect();
-			HBITMAP hbm = ::CreateCompatibleBitmap(ddc.m_hDC, rect.Width(), rect.Height());
-			if (hbm==0)
-			{
-				LPVOID lpMsgBuf;
-				if (!FormatMessage( 
-					FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-					FORMAT_MESSAGE_FROM_SYSTEM | 
-					FORMAT_MESSAGE_IGNORE_INSERTS,
-					NULL,
-					GetLastError(),
-					MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-					(LPTSTR) &lpMsgBuf,
-					0,
-					NULL ))
-				{
-					return;
-				}
-				MessageBox( (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
-				LocalFree( lpMsgBuf );
-				return;
-			}
-			HBITMAP oldbm = (HBITMAP)dc.SelectObject(hbm);
-			// paint the whole graph
-			DrawGraph(&dc, rect, 0, 0, false);
-			// now use GDI+ to save the picture
-			CLSID   encoderClsid;
+			CString sErrormessage;
 			GdiplusStartupInput gdiplusStartupInput;
 			ULONG_PTR           gdiplusToken;
-			CString sErrormessage;
+			CWindowDC ddc(this);
+			CDC dc;
 			if (GdiplusStartup( &gdiplusToken, &gdiplusStartupInput, NULL )==Ok)
 			{   
+				if (!dc.CreateCompatibleDC(&ddc))
+				{
+					LPVOID lpMsgBuf;
+					if (!FormatMessage( 
+						FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+						FORMAT_MESSAGE_FROM_SYSTEM | 
+						FORMAT_MESSAGE_IGNORE_INSERTS,
+						NULL,
+						GetLastError(),
+						MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+						(LPTSTR) &lpMsgBuf,
+						0,
+						NULL ))
+					{
+						return;
+					}
+					MessageBox( (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
+					LocalFree( lpMsgBuf );
+					return;
+				}
+				CRect rect;
+				rect = GetGraphRect();
+				BITMAPINFO bmi;
+				HBITMAP hbm;
+				LPBYTE pBits;
+				// Initialize header to 0s.
+				ZeroMemory(&bmi, sizeof(bmi));
+				// Fill out the fields you care about.
+				bmi.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+				bmi.bmiHeader.biWidth = (LONG)(float(rect.Width()) * m_fZoomFactor);
+				bmi.bmiHeader.biHeight = (LONG)(float(rect.Height()) * m_fZoomFactor);
+				bmi.bmiHeader.biPlanes = 1;
+				bmi.bmiHeader.biBitCount = 32;
+				bmi.bmiHeader.biCompression = BI_RGB;
+
+				// Create the surface.
+				hbm = CreateDIBSection(ddc.m_hDC, &bmi, DIB_RGB_COLORS,(void **)&pBits, NULL, 0);
+				if (hbm==0)
+				{
+					LPVOID lpMsgBuf;
+					if (!FormatMessage( 
+						FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+						FORMAT_MESSAGE_FROM_SYSTEM | 
+						FORMAT_MESSAGE_IGNORE_INSERTS,
+						NULL,
+						GetLastError(),
+						MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+						(LPTSTR) &lpMsgBuf,
+						0,
+						NULL ))
+					{
+						return;
+					}
+					MessageBox( (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
+					LocalFree( lpMsgBuf );
+					return;
+				}
+				HBITMAP oldbm = (HBITMAP)dc.SelectObject(hbm);
+				// paint the whole graph
+				DrawGraph(&dc, rect, 0, 0, false);
+				// now use GDI+ to save the picture
+				CLSID   encoderClsid;
 				{
 					Bitmap bitmap(hbm, NULL);
 					if (bitmap.GetLastStatus()==Ok)
@@ -857,13 +871,14 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
 						sErrormessage.LoadString(IDS_REVGRAPH_ERR_NOBITMAP);
 					}
 				}
+				dc.SelectObject(oldbm);
+				DeleteObject(hbm);
 				GdiplusShutdown(gdiplusToken);
 			}
 			else
 			{
 				sErrormessage.LoadString(IDS_REVGRAPH_ERR_GDIINIT);
 			}
-			dc.SelectObject(oldbm);
 			dc.DeleteDC();
 			if (!sErrormessage.IsEmpty())
 			{
