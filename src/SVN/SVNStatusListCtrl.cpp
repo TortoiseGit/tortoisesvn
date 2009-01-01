@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1085,7 +1085,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 					m_arListArray.push_back(i);
 					if ((dwCheck & SVNSLC_SHOWREMOVEDANDPRESENT)||((dwCheck & SVNSLC_SHOWDIRECTS)&&(entry->direct)))
 					{
-						if (bAllowCheck)
+						if ((bAllowCheck)&&(!entry->IsFromDifferentRepository()))
 							entry->checked = true;
 					}
 					AddEntry(entry, langID, listIndex++);
@@ -1096,7 +1096,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 				m_arListArray.push_back(i);
 				if ((dwCheck & showFlags)||((dwCheck & SVNSLC_SHOWDIRECTS)&&(entry->direct)))
 				{
-					if (bAllowCheck)
+					if ((bAllowCheck)&&(!entry->IsFromDifferentRepository()))
 						entry->checked = true;
 				}
 				AddEntry(entry, langID, listIndex++);
@@ -1106,7 +1106,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, DWORD dwCheck /*=0*/, bool bShowFold
 				m_arListArray.push_back(i);
 				if ((dwCheck & showFlags)||((dwCheck & SVNSLC_SHOWDIRECTS)&&(entry->direct)))
 				{
-					if (bAllowCheck)
+					if ((bAllowCheck)&&(!entry->IsFromDifferentRepository()))
 						entry->checked = true;
 				}
 				AddEntry(entry, langID, listIndex++);
