@@ -223,6 +223,12 @@ index_t CRevisionGraphWnd::GetHitNode (CPoint point, CSize border) const
 
 DWORD CRevisionGraphWnd::GetHoverGlyphs (CPoint point) const
 {
+    // if there is no layout, there will be no nodes,
+    // hence, no glyphs
+
+    if (m_layout.get() == NULL)
+        return 0;
+
     // get node at point or node that is close enough 
     // so that point may hit a glyph area
 
