@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -63,7 +63,7 @@ void CStandardNodeSizeAssignment::ApplyTo (IRevisionGraphLayout* layout)
             size_t visibleElementCount = node->node->GetPath().GetDepth() 
                                        - node->skipStartPathElements
                                        - node->skipTailPathElements;
-            height += 3 + max (1, visibleElementCount) * 21;
+            height += 3 + visibleElementCount * 21;
         }
 
         // shift (root) nodes down, if their source has been folded

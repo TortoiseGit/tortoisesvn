@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -320,7 +320,7 @@ void CStandardLayout::CreateTexts()
             size_t visibleElementCount = info.node->GetPath().GetDepth() 
                                        - info.skipStartPathElements
                                        - info.skipTailPathElements;
-            for (index_t k = max (1, visibleElementCount); k > 0; --k)
+            for (index_t k = visibleElementCount; k > 0; --k)
                 texts.push_back (STextInfo (i, k));
         }
     }

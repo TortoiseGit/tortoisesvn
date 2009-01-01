@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -64,6 +64,8 @@ void CShowPathsAsDiff::ApplyTo (IRevisionGraphLayout* layout)
             }
             else
             {
+                // determine the lengths of the unchanged head and tail
+
                 CDictionaryBasedTempPath commonRoot 
                     = nodePath.GetCommonRoot (sourcePath);
 
@@ -77,6 +79,29 @@ void CShowPathsAsDiff::ApplyTo (IRevisionGraphLayout* layout)
                     if (   nodePath[nodeDepth - tail - 1] 
                         != sourcePath[sourceDepth - tail - 1])
                         break;
+
+                // special case: no change but elements have been ommitted
+                // (e.g. copy to parent)
+
+                if ((commonDepth + tail == nodeDepth) && (nodeDepth > 0))
+                {
+                    // show at least one element
+
+                    if (tail > 0)
+                    {
+                        // show that the tail has been moved up
+
+                        --tail;
+                    }
+                    else
+                    {
+                        // show that we cut off some levels
+
+                        --commonDepth;
+                    }
+                }
+
+                // store results
 
                 nodeInfo->skipStartPathElements = commonDepth;
                 nodeInfo->skipTailPathElements = tail;
