@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-01-01 09:48+0700\n"
+"PO-Revision-Date: 2009-01-01 22:09+0700\n"
 "Last-Translator: Thomas Edwin Santosa <thomas@katalisindonesia.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -232,22 +232,22 @@ msgstr "%s, pada %s"
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it already exists unversioned locally."
-msgstr ""
+msgstr "%s, tetapi telah ada yang tak berversi secara lokal"
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it is missing locally."
-msgstr ""
+msgstr "%s, tetapi hilang secara lokal."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it was already added locally."
-msgstr ""
+msgstr "%s, tetapi ditambahkan secara lokal."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but it was deleted locally."
-msgstr ""
+msgstr "%s, tetapi dihapus secara lokal."
 
 #. Resource IDs: (609)
 #, c-format
@@ -257,7 +257,7 @@ msgstr ""
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the local file was already edited."
-msgstr ""
+msgstr "%s, tetapi berkas lokal telah disunting."
 
 # ID:145,
 #. Resource IDs: (145)
@@ -564,7 +564,7 @@ msgstr "&Kustom"
 
 #. Resource IDs: (1485)
 msgid "&Days of inactivity until small caches get removed"
-msgstr ""
+msgstr "&Jumlah hari tanpa aktivitas sebelum akhirnya tembolok kecil dihapus"
 
 # Control-ID:1269,#:
 # Control-ID:1096,
@@ -1116,7 +1116,7 @@ msgstr "Klien &SSH:"
 
 #. Resource IDs: (65535)
 msgid "&SVN"
-msgstr ""
+msgstr "&SVN"
 
 #. Resource IDs: (65535)
 msgid "&Sat:"
@@ -3829,7 +3829,7 @@ msgstr "Tipe Pemacu"
 
 #. Resource IDs: (1315)
 msgid "Drives A: and B:"
-msgstr ""
+msgstr "Kandar A: dan B:"
 
 #. Resource IDs: (613)
 #, c-format
@@ -4623,7 +4623,7 @@ msgstr "Grafik Pie"
 
 #. Resource IDs: (32802)
 msgid "Fit height"
-msgstr ""
+msgstr "Pas tinggi"
 
 #. Resource IDs: (32810)
 msgid "Fit image &sizes"
@@ -4631,7 +4631,7 @@ msgstr "Mengepa&s ukuran gambar"
 
 #. Resource IDs: (32803)
 msgid "Fit width"
-msgstr ""
+msgstr "Pas lebar"
 
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
@@ -4945,7 +4945,7 @@ msgstr "Sembunyikan naskah saat dijalankan"
 
 #. Resource IDs: (32830)
 msgid "Hide unused &branches"
-msgstr ""
+msgstr "&Sembunyikan cabang yang tidak digunakan"
 
 # ID:2052,
 #. Resource IDs: (2052)
@@ -6584,9 +6584,8 @@ msgstr "Tidak rekursif"
 
 # Control-ID:1073,
 #. Resource IDs: (1481)
-#, fuzzy
 msgid "Note: the folder contains unversioned items"
-msgstr "Tampilkan lapisan untuk item-item tidak berversi"
+msgstr "Catatan: folder tersebut mengandung item tak berversi"
 
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
@@ -7198,9 +7197,9 @@ msgstr "Properti %s : Revisi %s"
 
 # ID:151,
 #. Resource IDs: (151)
-#, fuzzy, c-format
+#, c-format
 msgid "Property %s : Working Base, Revision %ld"
-msgstr "Properti %s : Revisi %s"
+msgstr "Properti %s : Basis Bekerja, Revisi %ld"
 
 # Control-ID:1292,
 #. Resource IDs: (151)
@@ -8648,9 +8647,8 @@ msgstr "&Tampilkan Tips Petunjuk pada bilah alat"
 
 # Control-ID:65535,
 #. Resource IDs: (32831)
-#, fuzzy
 msgid "Show WC &modifications"
-msgstr "Periksa modifikasi"
+msgstr "Tampilkan perubahan Salinan Bekerja"
 
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
@@ -8671,9 +8669,8 @@ msgid "Show excluded folders as normal"
 msgstr "Tampilkan sebagai normal folder yang dikecualikan"
 
 #. Resource IDs: (1480)
-#, fuzzy
 msgid "Show externals from different repositories"
-msgstr "Bersihkan log di tembolok dari %ld repositori"
+msgstr "Tampilkan eksternal dari repositori berbeda"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -8686,9 +8683,8 @@ msgstr "Tampilkan berkas &diabaikan"
 
 # ID:145,
 #. Resource IDs: (1480)
-#, fuzzy
 msgid "Show items in externals"
-msgstr "Abaikan eksternal"
+msgstr "Tampilkan item dalam eksternal"
 
 # Control-ID:1063,
 #. Resource IDs: (1063)
@@ -9394,32 +9390,32 @@ msgstr "Penyedia penjejak-isu tidak dapat memvalidasi string parameter"
 #. Resource IDs: (597)
 #, c-format
 msgid "The item '%s' has property conflicts:"
-msgstr ""
+msgstr "Item '%s' memiliki konflik-konflik properti:"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to add the directory '%s'"
-msgstr ""
+msgstr "Tindakan gabung terakhir mencoba untuk menambah direktori '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last merge operation tried to add the file '%s'"
-msgstr ""
+msgstr "Tindakan gabung terakhir mencoba untuk menambah berkas '%s'"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to delete the directory '%s'"
-msgstr ""
+msgstr "Tindakan gabung terakhir mencoba untuk menghapus direktori '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last merge operation tried to delete the file '%s'"
-msgstr ""
+msgstr "Tindakan gabung terakhir mencoba untuk menghapus berkas '%s'"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to modify the directory '%s'"
-msgstr ""
+msgstr "Tindakan gabung terakhir mencoba untuk mengubah direktori '%s'"
 
 # ID:16,
 #. Resource IDs: (607)
@@ -10137,9 +10133,8 @@ msgstr "Warna tembus &pandang..."
 
 # ID:11,
 #. Resource IDs: (264)
-#, fuzzy
 msgid "Tree conflict"
-msgstr "Tinggalkan berkonflik:"
+msgstr "Konflik pohon"
 
 # ID:11,#:
 # Control-ID:65535,
@@ -10380,9 +10375,8 @@ msgstr "Menjadikan tak berversi %s"
 
 # ID:282,
 #. Resource IDs: (106)
-#, fuzzy
 msgid "Up one folder"
-msgstr "Buka folder leluhur"
+msgstr "Naik satu folder"
 
 # Dlg-ID:152,
 #. Resource IDs: (152, 230)
@@ -11333,7 +11327,7 @@ msgstr "disalin:"
 
 #. Resource IDs: (245)
 msgid "day"
-msgstr ""
+msgstr "hari"
 
 # ID:10,
 #. Resource IDs: (10, 272)
@@ -11609,7 +11603,7 @@ msgstr "revisi: "
 
 #. Resource IDs: (214)
 msgid "root project"
-msgstr ""
+msgstr "proyek akar"
 
 #. Resource IDs: (65535)
 msgid "skip ranges: "
