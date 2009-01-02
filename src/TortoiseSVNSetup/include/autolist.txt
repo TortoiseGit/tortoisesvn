@@ -13,3 +13,4 @@
 .au3, .auh = Func\s+([\w_]+)|\$([\w_]+)
 .asm = ^([\w]+) *
 .sd = ^\s*(?:procedure|function)\s+(\w+)
+.ps1 = ^\s*(?:function)\s+(\w+[\w\-]*)
