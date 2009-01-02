@@ -920,17 +920,22 @@ void CTokenizedStringContainer::Unify (std::vector<index_t>& newIndexes)
         }
     }
 
-    // "vacuum": actually remov the duplicate strings
+    // "vacuum": actually remove the duplicate strings
 
     for (size_t i = 0; i < remainingIndices.size(); ++i)
     {
         index_t source = remainingIndices[i];
-        index_t length = offsets[source+1] - offsets[source];
+        if (source > i)
+        {
+            index_t sourceOffset = offsets[source];
+            index_t targetOffset = offsets[i];
+            index_t length = offsets[source+1] - sourceOffset;
 
-        offsets[i+1] = offsets[i] + length;
-        memcpy ( &stringData.at (offsets[i])
-               , &stringData.at (offsets[source])
-               , length * sizeof (index_t));
+            offsets[i+1] = targetOffset + length;
+            memmove ( &stringData.at (targetOffset)
+                    , &stringData.at (sourceOffset)
+                    , length * sizeof (index_t));
+        }
     }
 
     offsets.resize (remainingIndices.size()+1);
