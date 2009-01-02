@@ -235,6 +235,13 @@ void CStringDictionary::Clear()
 	Initialize();
 }
 
+// statistics
+
+size_t CStringDictionary::GetPackedStringSize() const
+{
+    return packedStrings.size();
+}
+
 // "merge" with another container:
 // add new entries and return ID mapping for source container
 

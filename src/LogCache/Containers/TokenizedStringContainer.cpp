@@ -885,6 +885,26 @@ size_t CTokenizedStringContainer::UncompressedWordCount() const
 	return result;
 }
 
+size_t CTokenizedStringContainer::CompressedWordCount() const
+{
+    return stringData.size();
+}
+
+size_t CTokenizedStringContainer::WorkTokenCount() const
+{
+    return words.size();
+}
+
+size_t CTokenizedStringContainer::PairTokenCount() const
+{
+    return pairs.size();
+}
+
+size_t CTokenizedStringContainer::WorkTokenSize() const
+{
+    return words.GetPackedStringSize();
+}
+
 // Make sure, every string sequence occurs only once.
 // Return the new index values in \ref newIndices.
 

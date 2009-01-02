@@ -301,6 +301,10 @@ public:
 	/// statistics
 
 	size_t UncompressedWordCount() const;
+	size_t CompressedWordCount() const;
+    size_t WorkTokenCount() const;
+    size_t PairTokenCount() const;
+    size_t WorkTokenSize() const;
 
 	/// batch modifications
 	/// indexes must be in ascending order

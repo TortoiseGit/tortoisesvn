@@ -157,6 +157,10 @@ public:
 
 	void Clear();
 
+    /// statistics
+
+    size_t GetPackedStringSize() const;
+
 	/// "merge" with another container:
 	/// add new entries and return ID mapping for source container
 
