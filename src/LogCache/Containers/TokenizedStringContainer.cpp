@@ -107,7 +107,7 @@ void CTokenizedStringContainer::CPairPacker::AddCompressablePairs()
 {
 	for (index_t i = 0, count = (index_t)counts.size(); i < count; ++i)
 	{
-		if (counts[i] > 2)
+		if (counts[i] > 4)
 			container->pairs.Insert (newPairs[i]);
 	}
 }
