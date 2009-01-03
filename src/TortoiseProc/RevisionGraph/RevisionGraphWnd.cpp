@@ -953,7 +953,7 @@ void CRevisionGraphWnd::AddSVNOps (CMenu& popup)
                      && (m_SelectedEntry2 != NULL)
                      && !m_SelectedEntry2->GetClassification().Is (CNodeClassification::IS_DELETED);
 
-    bool bSameURL = (m_SelectedEntry2 && (m_SelectedEntry1->GetPath() == m_SelectedEntry2->GetPath()));
+    bool bSameURL = (m_SelectedEntry2 && m_SelectedEntry1 && (m_SelectedEntry1->GetPath() == m_SelectedEntry2->GetPath()));
 	CString temp;
 	if (m_SelectedEntry1 && (m_SelectedEntry2 == NULL))
 	{
