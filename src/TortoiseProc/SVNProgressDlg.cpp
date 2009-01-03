@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1584,7 +1584,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 							CString sPath = GetPathFromColumnText(data->sPathColumnText);
 							CString sCmd;
 							sCmd.Format(_T("\"%s\" /command:conflicteditor /path:\"%s\""),
-								(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), sPath);
+								(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)sPath);
 							CAppUtils::LaunchApplication(sCmd, NULL, false);
 						}
 						break;
