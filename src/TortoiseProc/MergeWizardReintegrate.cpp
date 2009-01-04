@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008 - TortoiseSVN
+// Copyright (C) 2008-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -64,6 +64,7 @@ BEGIN_MESSAGE_MAP(CMergeWizardReintegrate, CMergeWizardBasePage)
 	ON_BN_CLICKED(IDC_SHOWMERGELOG, &CMergeWizardReintegrate::OnBnClickedShowmergelog)
 	ON_BN_CLICKED(IDC_BROWSE, &CMergeWizardReintegrate::OnBnClickedBrowse)
 	ON_BN_CLICKED(IDC_SHOWLOGWC, &CMergeWizardReintegrate::OnBnClickedShowlogwc)
+	ON_CBN_EDITCHANGE(IDC_URLCOMBO, &CMergeWizardReintegrate::OnCbnEditchangeUrlcombo)
 END_MESSAGE_MAP()
 
 
@@ -76,6 +77,7 @@ BOOL CMergeWizardReintegrate::OnInitDialog()
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
 	if (!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\MergeWCURL"), FALSE))
 		m_URLCombo.SetCurSel(0);
+	GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
 
 	SetDlgItemText(IDC_WCEDIT, ((CMergeWizard*)GetParent())->wcPath.GetWinPath());
 
@@ -181,4 +183,9 @@ void CMergeWizardReintegrate::OnBnClickedShowlogwc()
 	m_pLogDlg2->SetMergePath(wcPath);
 	m_pLogDlg2->Create(IDD_LOGMESSAGE, this);
 	m_pLogDlg2->ShowWindow(SW_SHOW);
+}
+
+void CMergeWizardReintegrate::OnCbnEditchangeUrlcombo()
+{
+	GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
 }

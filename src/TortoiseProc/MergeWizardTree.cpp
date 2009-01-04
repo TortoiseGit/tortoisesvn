@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -81,6 +81,8 @@ BEGIN_MESSAGE_MAP(CMergeWizardTree, CMergeWizardBasePage)
 	ON_EN_CHANGE(IDC_REVISION_END, &CMergeWizardTree::OnEnChangeRevisionEnd)
 	ON_EN_CHANGE(IDC_REVISION_START, &CMergeWizardTree::OnEnChangeRevisionStart)
 	ON_BN_CLICKED(IDC_SHOWLOGWC, &CMergeWizardTree::OnBnClickedShowlogwc)
+	ON_CBN_EDITCHANGE(IDC_URLCOMBO, &CMergeWizardTree::OnCbnEditchangeUrlcombo)
+	ON_CBN_EDITCHANGE(IDC_URLCOMBO2, &CMergeWizardTree::OnCbnEditchangeUrlcombo2)
 END_MESSAGE_MAP()
 
 
@@ -97,6 +99,7 @@ BOOL CMergeWizardTree::OnInitDialog()
 	// Only set the "From" Url if there is no url history available
 	if (m_URLCombo.GetString().IsEmpty())
 		m_URLCombo.SetWindowText(CPathUtils::PathUnescape(pWizard->url));
+	GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
 	m_URLCombo2.SetURLHistory(TRUE);
 	m_URLCombo2.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
 	m_URLCombo2.SetCurSel(0);
@@ -106,6 +109,7 @@ BOOL CMergeWizardTree::OnInitDialog()
 		m_URLCombo.SetWindowText(CPathUtils::PathUnescape(pWizard->URL1));
 	if (!pWizard->URL2.IsEmpty())
 		m_URLCombo2.SetWindowText(CPathUtils::PathUnescape(pWizard->URL2));
+	GetDlgItem(IDC_BROWSE2)->EnableWindow(!m_URLCombo2.GetString().IsEmpty());
 
 	SetDlgItemText(IDC_WCEDIT, ((CMergeWizard*)GetParent())->wcPath.GetWinPath());
 
@@ -393,4 +397,14 @@ void CMergeWizardTree::OnBnClickedShowlogwc()
 	m_pLogDlg3->SetMergePath(wcPath);
 	m_pLogDlg3->Create(IDD_LOGMESSAGE, this);
 	m_pLogDlg3->ShowWindow(SW_SHOW);
+}
+
+void CMergeWizardTree::OnCbnEditchangeUrlcombo()
+{
+	GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
+}
+
+void CMergeWizardTree::OnCbnEditchangeUrlcombo2()
+{
+	GetDlgItem(IDC_BROWSE2)->EnableWindow(!m_URLCombo2.GetString().IsEmpty());
 }

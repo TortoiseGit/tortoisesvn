@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -84,6 +84,7 @@ BOOL CCheckoutDlg::OnInitDialog()
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
 	m_bAutoCreateTargetName = !PathIsDirectoryEmpty(m_sCheckoutDirOrig);
 	m_URLCombo.SetCurSel(0);
+	GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
 
 	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_INFINITE)));
 	m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_IMMEDIATE)));
@@ -391,7 +392,12 @@ void CCheckoutDlg::OnCbnEditchangeUrlcombo()
 	UpdateData();
 	m_URLCombo.GetWindowText(m_URL);
 	if (m_URL.IsEmpty())
+	{
+		GetDlgItem(IDC_BROWSE)->EnableWindow(FALSE);
 		return;
+	}
+	GetDlgItem(IDC_BROWSE)->EnableWindow(TRUE);
+
 	CString tempURL = m_URL;
 	CString name = CAppUtils::GetProjectNameFromURL(m_URL);
 	if (CPathUtils::GetFileNameFromPath(m_strCheckoutDirectory).CompareNoCase(name))

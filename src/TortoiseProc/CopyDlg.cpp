@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -118,6 +118,7 @@ BOOL CCopyDlg::OnInitDialog()
 	SetDlgItemText(IDC_FROMURL, m_wcURL);
 	if (!m_URL.IsEmpty())
 		m_URLCombo.SetWindowText(m_URL);
+	GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
 
 	CString reg;
 	reg.Format(_T("Software\\TortoiseSVN\\History\\commit%s"), (LPCTSTR)sUUID);
@@ -470,4 +471,5 @@ void CCopyDlg::SetRevision(const SVNRev& rev)
 void CCopyDlg::OnCbnEditchangeUrlcombo()
 {
 	m_bSettingChanged = true;
+	GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
 }

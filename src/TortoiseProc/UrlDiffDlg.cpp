@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -53,6 +53,7 @@ BEGIN_MESSAGE_MAP(CUrlDiffDlg, CResizableStandAloneDialog)
 	ON_EN_CHANGE(IDC_REVISION_NUM, &CUrlDiffDlg::OnEnChangeRevisionNum)
 	ON_BN_CLICKED(IDC_LOG, &CUrlDiffDlg::OnBnClickedLog)
 	ON_REGISTERED_MESSAGE(WM_REVSELECTED, &CUrlDiffDlg::OnRevSelected)
+	ON_CBN_EDITCHANGE(IDC_URLCOMBO, &CUrlDiffDlg::OnCbnEditchangeUrlcombo)
 END_MESSAGE_MAP()
 
 
@@ -68,6 +69,7 @@ BOOL CUrlDiffDlg::OnInitDialog()
 	m_URLCombo.SetURLHistory(TRUE);
 	m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS\\")+sUUID, _T("url"));
 	m_URLCombo.SetCurSel(0);
+	GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
 
 	if (!url.IsEmpty())
 	{
@@ -193,4 +195,9 @@ LPARAM CUrlDiffDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
 	SetDlgItemText(IDC_REVISION_NUM, temp);
 	CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
 	return 0;
+}
+
+void CUrlDiffDlg::OnCbnEditchangeUrlcombo()
+{
+	GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
 }

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -54,6 +54,7 @@ BEGIN_MESSAGE_MAP(CSwitchDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDC_LOG, &CSwitchDlg::OnBnClickedLog)
 	ON_REGISTERED_MESSAGE(WM_REVSELECTED, &CSwitchDlg::OnRevSelected)
 	ON_WM_SIZING()
+	ON_CBN_EDITCHANGE(IDC_URLCOMBO, &CSwitchDlg::OnCbnEditchangeUrlcombo)
 END_MESSAGE_MAP()
 
 void CSwitchDlg::SetDialogTitle(const CString& sTitle)
@@ -87,6 +88,7 @@ BOOL CSwitchDlg::OnInitDialog()
 		m_URLCombo.SelectString(-1, CTSVNPath(url).GetUIPathString());
 		m_URL = m_path;
 	}
+	GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
 
 	if (m_sTitle.IsEmpty())
 		GetWindowText(m_sTitle);
@@ -238,4 +240,9 @@ void CSwitchDlg::OnSizing(UINT fwSide, LPRECT pRect)
 		break;
 	}
 	CResizableStandAloneDialog::OnSizing(fwSide, pRect);
+}
+
+void CSwitchDlg::OnCbnEditchangeUrlcombo()
+{
+	GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
 }

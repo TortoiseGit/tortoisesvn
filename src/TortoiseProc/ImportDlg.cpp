@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -52,6 +52,7 @@ BEGIN_MESSAGE_MAP(CImportDlg, CResizableStandAloneDialog)
 	ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
 	ON_EN_CHANGE(IDC_MESSAGE, OnEnChangeLogmessage)
 	ON_BN_CLICKED(IDC_HISTORY, OnBnClickedHistory)
+	ON_CBN_EDITCHANGE(IDC_URLCOMBO, &CImportDlg::OnCbnEditchangeUrlcombo)
 END_MESSAGE_MAP()
 
 BOOL CImportDlg::OnInitDialog()
@@ -73,6 +74,7 @@ BOOL CImportDlg::OnInitDialog()
 		m_URLCombo.EnableWindow(FALSE);
 	}
 	m_URLCombo.SetCurSel(0);
+	GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
 
 	m_tooltips.Create(this);
 	m_tooltips.AddTool(IDC_HISTORY, IDS_COMMITDLG_HISTORY_TT);
@@ -187,4 +189,9 @@ void CImportDlg::OnBnClickedHistory()
 		DialogEnableWindow(IDOK, m_ProjectProperties.nMinLogSize <= m_cMessage.GetText().GetLength());
 	}
 
+}
+
+void CImportDlg::OnCbnEditchangeUrlcombo()
+{
+	GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
 }
