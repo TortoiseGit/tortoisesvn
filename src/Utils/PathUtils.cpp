@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -262,27 +262,6 @@ CString CPathUtils::GetAppParentDirectory(HMODULE hMod /* = NULL */)
 	path = path.Left(path.ReverseFind('\\')+1);
 	return path;
 }
-#endif
-
-#ifdef _MFC_VER
-CString CPathUtils::GetFileNameFromPath(CString sPath)
-{
-	CString ret;
-	sPath.Replace(_T("/"), _T("\\"));
-	ret = sPath.Mid(sPath.ReverseFind('\\') + 1);
-	return ret;
-}
-
-CString CPathUtils::GetFileExtFromPath(const CString& sPath)
-{
-	int dotPos = sPath.ReverseFind('.');
-	int slashPos = sPath.ReverseFind('\\');
-	if (slashPos < 0)
-		slashPos = sPath.ReverseFind('/');
-	if (dotPos > slashPos)
-		return sPath.Mid(dotPos);
-	return CString();
-}
 
 CString CPathUtils::GetLongPathname(const CString& path)
 {
@@ -323,6 +302,25 @@ CString CPathUtils::GetLongPathname(const CString& path)
 	if (ret == 0)
 		return path;
 	return sRet;
+}
+
+CString CPathUtils::GetFileNameFromPath(CString sPath)
+{
+	CString ret;
+	sPath.Replace(_T("/"), _T("\\"));
+	ret = sPath.Mid(sPath.ReverseFind('\\') + 1);
+	return ret;
+}
+
+CString CPathUtils::GetFileExtFromPath(const CString& sPath)
+{
+	int dotPos = sPath.ReverseFind('.');
+	int slashPos = sPath.ReverseFind('\\');
+	if (slashPos < 0)
+		slashPos = sPath.ReverseFind('/');
+	if (dotPos > slashPos)
+		return sPath.Mid(dotPos);
+	return CString();
 }
 
 BOOL CPathUtils::FileCopy(CString srcPath, CString destPath, BOOL force)

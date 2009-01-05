@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -54,9 +54,12 @@ public:
 	 * \remark the path returned has a trailing backslash
 	 */
 	static CString GetAppParentDirectory(HMODULE hMod = NULL);
-#endif
 
-#ifdef _MFC_VER
+	/**
+	 * Returns the long pathname of a path which may be in 8.3 format.
+	 */
+	static CString GetLongPathname(const CString& path);
+
 	/**
 	 * returns the filename of a full path
 	 */
@@ -66,11 +69,6 @@ public:
 	 * returns the file extension from a full path
 	 */
 	static CString GetFileExtFromPath(const CString& sPath);
-
-	/**
-	 * Returns the long pathname of a path which may be in 8.3 format.
-	 */
-	static CString GetLongPathname(const CString& path);
 
 	/**
 	 * Copies a file or a folder from \a srcPath to \a destpath, creating
