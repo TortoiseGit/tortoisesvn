@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-29 21:56+0800\n"
+"PO-Revision-Date: 2009-01-05 21:53+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3805,9 +3805,21 @@ msgstr ""
 msgid "Finished!"
 msgstr "完成!"
 
+#. Resource IDs: (32804)
+msgid "Fit graph"
+msgstr "符合圖表"
+
+#. Resource IDs: (32802)
+msgid "Fit height"
+msgstr "符合高度"
+
 #. Resource IDs: (32810)
 msgid "Fit image &sizes"
 msgstr "符合影像大小(&S)"
+
+#. Resource IDs: (32803)
+msgid "Fit width"
+msgstr "符合寬度"
 
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
@@ -7247,6 +7259,10 @@ msgstr "以單一異動檔顯示差異(&U)"
 msgid "Show excluded folders as normal"
 msgstr "排除的資料夾顯示正常圖示"
 
+#. Resource IDs: (1480)
+msgid "Show externals from different repositories"
+msgstr "顯示來自不同檔案庫的 svn:externals"
+
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
 msgstr "在短暫延遲後顯示完整選單(&U)"
@@ -7551,6 +7567,42 @@ msgstr "Subversion"
 #. Resource IDs: (65535)
 msgid "Subversion configuration &file:"
 msgstr "Subversion 設定檔(&F):"
+
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Subversion encountered a serious problem.\n"
+"Please take the time to report this on our mailing list\n"
+"with as much information as possible about what\n"
+"you were trying to do.\n"
+"\n"
+"Subversion encountered the problem in:\file %s, line %ld\n"
+"expression = %s"
+msgstr ""
+"Subversion 發生嚴重錯誤.\n"
+"請回報至我們的郵件討論串\n"
+"並盡量提供您發生此問題時\n"
+"的詳細情況.\n"
+"\n"
+"Subversion 發生錯誤於:\n"
+"file %s, 行 %ld\n"
+"運算式 %s"
+
+#. Resource IDs: (84)
+msgid ""
+"Subversion encountered a serious problem.\n"
+"Please take the time to report this on our mailing list\n"
+"with as much information as possible about what\n"
+"you were trying to do.\n"
+"\n"
+"Subversion reported the following:"
+msgstr ""
+"Subversion 發生嚴重錯誤.\n"
+"請回報至我們的郵件討論串\n"
+"並盡量提供您發生此問題時\n"
+"的詳細情況.\n"
+"\n"
+"Subversion 回報下列訊息:"
 
 #. Resource IDs: (79)
 msgid ""
@@ -8092,6 +8144,19 @@ msgstr ""
 "目的 URL\n"
 "%s\n"
 "已經存在!"
+
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"The target file\n"
+"%s\n"
+" already exists.\n"
+"Do you want to replace the file?"
+msgstr ""
+"目標檔案 \n"
+"%s\n"
+" 已存在.\n"
+"是否要取代它?"
 
 #. Resource IDs: (88)
 #, c-format
@@ -9363,6 +9428,10 @@ msgstr "放大"
 #. Resource IDs: (2049)
 msgid "Zoom out"
 msgstr "縮小"
+
+#. Resource IDs: (32801)
+msgid "Zoom to &100%"
+msgstr "放大至 &100%"
 
 #. Resource IDs: (2051)
 msgid "Zoom to fit"
