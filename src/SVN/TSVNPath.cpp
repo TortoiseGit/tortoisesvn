@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -879,6 +879,7 @@ bool CTSVNPathList::WriteToFile(const CString& sFilename, bool bANSI /* = false 
 	}
 	return true;
 }
+#endif // _MFC_VER
 
 
 void CTSVNPathList::LoadFromAsteriskSeparatedString(const CString& sPathString)
@@ -908,7 +909,6 @@ CString CTSVNPathList::CreateAsteriskSeparatedString() const
 	}
 	return sRet;
 }
-#endif // _MFC_VER
 
 bool 
 CTSVNPathList::AreAllPathsFilesInOneDirectory() const
