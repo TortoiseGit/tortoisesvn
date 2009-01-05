@@ -90,6 +90,8 @@ Version 1.5.7
        wrong if empty lines were in the text. (Stefan)
 - BUG: If the currently shown folder in the repository browser was renamed,
        the url bar did not change to the new url. (Stefan)
+- BUG: Unversioned items selected for reverting would move them to the
+       trash bin instead of leaving them. (Stefan)
 
 Version 1.5.6
 - CHG: Disabled capieng again - users were annoyed. (Stefan)

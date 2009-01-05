@@ -2575,7 +2575,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 						while ((index = GetNextSelectedItem(pos)) >= 0)
 						{
 							FileEntry * entry2 = GetListEntry(index);
-							if (entry2->status != svn_wc_status_added)
+							if ((entry2->status != svn_wc_status_added)&&(entry2->status != svn_wc_status_none)&&(entry2->status != svn_wc_status_unversioned))
 								delList.AddPath(entry2->GetPath());
 						}
 						if (DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\RevertWithRecycleBin"), TRUE)))
