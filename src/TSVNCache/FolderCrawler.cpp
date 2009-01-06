@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2008 - TortoiseSVN
+// External Cache Copyright (C) 2005-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -123,13 +123,6 @@ void CFolderCrawler::WorkerThread()
 	CTSVNPath workingPath;
 	bool bFirstRunAfterWakeup = false;
 	DWORD currentTicks = 0;
-
-	// Quick check if we're on Vista
-	OSVERSIONINFOEX inf;
-	SecureZeroMemory(&inf, sizeof(OSVERSIONINFOEX));
-	inf.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
-	GetVersionEx((OSVERSIONINFO *)&inf);
-	WORD fullver = MAKEWORD(inf.dwMinorVersion, inf.dwMajorVersion);
 
 	for(;;)
 	{
