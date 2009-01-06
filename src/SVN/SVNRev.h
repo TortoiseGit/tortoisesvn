@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -80,7 +80,8 @@ public:
 		REV_HEAD = -1,			///< head revision
 		REV_BASE = -2,			///< base revision
 		REV_WC = -3,			///< revision of the working copy
-		REV_UNSPECIFIED = -4,	///< unspecified revision
+		REV_DATE = -4,			///< a date revision
+		REV_UNSPECIFIED = -5,	///< unspecified revision
 	};
 protected:
 	void Create(svn_revnum_t nRev);

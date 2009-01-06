@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -169,6 +169,7 @@ SVNRev::operator LONG() const
 	case svn_opt_revision_head:		return SVNRev::REV_HEAD;
 	case svn_opt_revision_base:		return SVNRev::REV_BASE;
 	case svn_opt_revision_working:	return SVNRev::REV_WC;
+	case svn_opt_revision_date:		return SVNRev::REV_DATE;
 	case svn_opt_revision_number:	return rev.value.number;
 	case svn_opt_revision_unspecified: return SVNRev::REV_UNSPECIFIED;
 	}
