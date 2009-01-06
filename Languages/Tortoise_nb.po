@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-16 16:00+0100\n"
+"PO-Revision-Date: 2009-01-06 10:24+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -975,6 +975,10 @@ msgid "&SSH client:"
 msgstr "&SSH-klient:"
 
 #. Resource IDs: (65535)
+msgid "&SVN"
+msgstr "&SVN"
+
+#. Resource IDs: (65535)
 msgid "&Sat:"
 msgstr "&Metn:"
 
@@ -1546,6 +1550,10 @@ msgstr "Avanserte flette-instillinger"
 #. Resource IDs: (65535)
 msgid "Age"
 msgstr "Alder"
+
+#. Resource IDs: (32822)
+msgid "Align trees on top"
+msgstr "Rett inn trær øverst"
 
 #. Resource IDs: (1007)
 msgid "All Commands"
@@ -2948,6 +2956,20 @@ msgstr "Slett"
 msgid "Delete Unversioned Items"
 msgstr "Slett Ikke-versjonerte Elementer"
 
+#. Resource IDs: (14)
+#, c-format
+msgid "Delete and &ignore %d items by name"
+msgstr "Slett og &ignorer %d elementer ved navn"
+
+#. Resource IDs: (14)
+msgid "Delete and add to &ignore list"
+msgstr "Slett og legg til i &ignoreringslisten"
+
+#. Resource IDs: (14)
+#, c-format
+msgid "Delete and ignore %d items by &extension"
+msgstr "Slett og ignorer %d elementer etter &filendelse"
+
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
 msgstr "Slett ikke-versjonerte elementer..."
@@ -2959,6 +2981,10 @@ msgstr "Slettet"
 #. Resource IDs: (65535)
 msgid "Deleted node"
 msgstr "Slettet node"
+
+#. Resource IDs: (15)
+msgid "Deletes and adds the selected file(s) or the filemask to the 'ignore' list"
+msgstr "Sletter og legger til valgt(e) fil(er) eller filmønsteret i ignorerings-listen"
 
 #. Resource IDs: (11)
 msgid "Deletes files / folders from version control"
@@ -3834,9 +3860,21 @@ msgstr ""
 msgid "Finished!"
 msgstr "Ferdig!"
 
+#. Resource IDs: (32804)
+msgid "Fit graph"
+msgstr "Tilpass graf"
+
+#. Resource IDs: (32802)
+msgid "Fit height"
+msgstr "Tilpass høyde"
+
 #. Resource IDs: (32810)
 msgid "Fit image &sizes"
 msgstr "Tilpass bilde&størrelser"
+
+#. Resource IDs: (32803)
+msgid "Fit width"
+msgstr "Tilpass bredde"
 
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
@@ -4216,9 +4254,9 @@ msgstr "ID:32814:V C +L"
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
-#. Accelerator Entry for Menu ID:32822; ''
-msgid "ID:32822:V C +F"
-msgstr "ID:32822:V C +F"
+#. Accelerator Entry for Menu ID:32824; ''
+msgid "ID:32824:V C +F"
+msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
@@ -4422,6 +4460,10 @@ msgstr ""
 "Hvis denne er satt, vil en katalog som inneholder ikke-versjonerte filer, markeres som endret\r\n"
 "dvs. den får et endret-ikon."
 
+#. Resource IDs: (2052)
+msgid "If the graph contains multiple trees, separate them by slight variations in background color."
+msgstr "Hvis grafen inneholder flere trær, skill dem med litt forskjellig bakgrunnsfarge"
+
 #. Resource IDs: (1439)
 msgid "If the repository can not be contacted"
 msgstr "Hvis depotet ikke kan kontaktes"
@@ -4446,6 +4488,11 @@ msgstr "Bruk 'Se etter oppdateringer'-dialogen hvis du vil avbryte sperringen."
 msgid "Ignore"
 msgstr "Ignorér"
 
+#. Resource IDs: (14)
+#, c-format
+msgid "Ignore %d items by &extension"
+msgstr "Ignorer %d elementer etter &filendelse"
+
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
 msgstr "Ignorer &alle blanktegn"
@@ -4461,10 +4508,6 @@ msgstr "Ignorer alle blanktegn"
 #. Resource IDs: (1267)
 msgid "Ignore ancestry"
 msgstr "Ignorer opphav"
-
-#. Resource IDs: (14)
-msgid "Ignore items by &extension"
-msgstr "Ignorer elementer etter &filendelse"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
@@ -7123,6 +7166,10 @@ msgstr "Kommandolinje"
 msgid "Shell Icon Cache was rebuilt!"
 msgstr "Shell Icon Cache ble gjenbygget!"
 
+#. Resource IDs: (2052)
+msgid "Shift trees to the top of the window. Alignment to other trees will be lost."
+msgstr "Flytt trær til toppen av vinduet. Innretting mellom trær vil gå tapt."
+
 #. Resource IDs: (101)
 msgid "Sho&w properties"
 msgstr "&Vis egenskaper"
@@ -7258,6 +7305,10 @@ msgstr "Vis forskjeller som &enhetlige differ"
 #. Resource IDs: (1126)
 msgid "Show excluded folders as normal"
 msgstr "Vis ekskluderte mapper som normalt"
+
+#. Resource IDs: (1480)
+msgid "Show externals from different repositories"
+msgstr "Vis eksterne fra forskjellige depoter"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -7563,6 +7614,42 @@ msgstr "Subversion"
 #. Resource IDs: (65535)
 msgid "Subversion configuration &file:"
 msgstr "Innstillings&fil for Subversion:"
+
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Subversion encountered a serious problem.\n"
+"Please take the time to report this on our mailing list\n"
+"with as much information as possible about what\n"
+"you were trying to do.\n"
+"\n"
+"Subversion encountered the problem in:\file %s, line %ld\n"
+"expression = %s"
+msgstr ""
+"Subversion støtte på et alorlig problem.\n"
+"Vennligst ta deg tid til å rapportere dette til vår\n"
+"epost-liste med så mye informasjon som mulig om\n"
+"hva du prøvde å gjøre.\n"
+"\n"
+"Subversion støtte på problemet i:\n"
+"fil %s, linje %ld\n"
+"uttrykk = %s"
+
+#. Resource IDs: (84)
+msgid ""
+"Subversion encountered a serious problem.\n"
+"Please take the time to report this on our mailing list\n"
+"with as much information as possible about what\n"
+"you were trying to do.\n"
+"\n"
+"Subversion reported the following:"
+msgstr ""
+"Subversion støtte på et alorlig problem.\n"
+"Vennligst ta deg tid til å rapportere dette til vår\n"
+"epost-liste med så mye informasjon som mulig om\n"
+"hva du prøvde å gjøre.\n"
+"\n"
+"Subversion rapporterte følgende:"
 
 #. Resource IDs: (79)
 msgid ""
@@ -8104,6 +8191,19 @@ msgstr ""
 "%s\n"
 "finnes allerede!"
 
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"The target file\n"
+"%s\n"
+" already exists.\n"
+"Do you want to replace the file?"
+msgstr ""
+"Målfilen\n"
+"%s\n"
+"finnes allerede.\n"
+"Vil du erstatte filen?"
+
 #. Resource IDs: (88)
 #, c-format
 msgid ""
@@ -8494,6 +8594,10 @@ msgstr "Totalt antall flettede revisjoner"
 #. Resource IDs: (339)
 msgid "Total number of user revision properties"
 msgstr "Totalt antall bruker-revisjonsegenskaper"
+
+#. Resource IDs: (32821)
+msgid "Tr&ee stripes"
+msgstr "Tr&estriper"
 
 #. Resource IDs: (357)
 #, c-format
@@ -9374,6 +9478,10 @@ msgstr "Zoom inn"
 #. Resource IDs: (2049)
 msgid "Zoom out"
 msgstr "Zoom ut"
+
+#. Resource IDs: (32801)
+msgid "Zoom to &100%"
+msgstr "Zoom til &100%"
 
 #. Resource IDs: (2051)
 msgid "Zoom to fit"
