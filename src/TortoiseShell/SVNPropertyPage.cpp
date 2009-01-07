@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -219,7 +219,7 @@ BOOL CSVNPropertyPage::PageProc (HWND /*hwnd*/, UINT uMessage, WPARAM wParam, LP
 							memset(&startup, 0, sizeof(startup));
 							startup.cb = sizeof(startup);
 							memset(&process, 0, sizeof(process));
-							stdstring tortoiseProcPath = stdstring((LPCTSTR)(CPathUtils::GetAppDirectory() + _T("TortoiseProc.exe")));
+							stdstring tortoiseProcPath = stdstring((LPCTSTR)(CPathUtils::GetAppDirectory(g_hResInst) + _T("TortoiseProc.exe")));
 							stdstring svnCmd = _T(" /command:");
 							svnCmd += _T("properties /pathfile:\"");
 							svnCmd += retFilePath.c_str();
