@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-19 15:15+0100\n"
+"PO-Revision-Date: 2009-01-07 10:10+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -922,6 +922,10 @@ msgid "&SSH client:"
 msgstr "&SSH Client:"
 
 #. Resource IDs: (65535)
+msgid "&SVN"
+msgstr "&SVN"
+
+#. Resource IDs: (65535)
 msgid "&Sat:"
 msgstr "&Sätt:"
 
@@ -1493,6 +1497,10 @@ msgstr "Alternative Konflikteditoren"
 #. Resource IDs: (65535)
 msgid "Age"
 msgstr "Alter"
+
+#. Resource IDs: (32822)
+msgid "Align trees on top"
+msgstr "Bäume oben ausrichten"
 
 #. Resource IDs: (1007)
 msgid "All Commands"
@@ -3804,9 +3812,21 @@ msgstr ""
 msgid "Finished!"
 msgstr "Fertig!"
 
+#. Resource IDs: (32804)
+msgid "Fit graph"
+msgstr "Graph einpassen"
+
+#. Resource IDs: (32802)
+msgid "Fit height"
+msgstr "Höhe einpassen"
+
 #. Resource IDs: (32810)
 msgid "Fit image &sizes"
 msgstr "Bildgrößen &angleichen"
+
+#. Resource IDs: (32803)
+msgid "Fit width"
+msgstr "Breite einpassen"
 
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
@@ -4199,9 +4219,9 @@ msgstr "ID:32814:V C +L"
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
-#. Accelerator Entry for Menu ID:32822; ''
-msgid "ID:32822:V C +F"
-msgstr "ID:32822:V C +F"
+#. Accelerator Entry for Menu ID:32824; ''
+msgid "ID:32824:V C +F"
+msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
@@ -4414,6 +4434,10 @@ msgstr ""
 "Aktivieren Sie diese Option, damit das übergeordnete Verzeichnis als\r\n"
 "verändert gekennzeichnet (erhält das 'modifiziert' Symbol) wird, wenn\r\n"
 "es nicht versionierte Dateien enthält."
+
+#. Resource IDs: (2052)
+msgid "If the graph contains multiple trees, separate them by slight variations in background color."
+msgstr "Falls der Graph mehrere Bäume enthält, werden diese durch leicht unterschiedliche Hintergrundfarben gekennzeichnet."
 
 #. Resource IDs: (1439)
 msgid "If the repository can not be contacted"
@@ -7122,6 +7146,10 @@ msgstr "Shell"
 msgid "Shell Icon Cache was rebuilt!"
 msgstr "Pufferspeicher für Symbole wurde wieder hergestellt!"
 
+#. Resource IDs: (2052)
+msgid "Shift trees to the top of the window. Alignment to other trees will be lost."
+msgstr "Richtet die Bäume an der Oberkante des Fensters aus. Ausrichtungen anderer Bäume gehen verloren."
+
 #. Resource IDs: (101)
 msgid "Sho&w properties"
 msgstr "Zeige &Eigenschaften"
@@ -7257,6 +7285,10 @@ msgstr "Zeige Unterschiede als &Standard-Diff"
 #. Resource IDs: (1126)
 msgid "Show excluded folders as normal"
 msgstr "Ausgeschlossene Ordner 'normal' anzeigen"
+
+#. Resource IDs: (1480)
+msgid "Show externals from different repositories"
+msgstr "Zeige Externals von verschiedenen Projektarchiven"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -7563,6 +7595,41 @@ msgstr "Subversion"
 #. Resource IDs: (65535)
 msgid "Subversion configuration &file:"
 msgstr "Subversion &Konfigurationsdatei:"
+
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Subversion encountered a serious problem.\n"
+"Please take the time to report this on our mailing list\n"
+"with as much information as possible about what\n"
+"you were trying to do.\n"
+"\n"
+"Subversion encountered the problem in:\file %s, line %ld\n"
+"expression = %s"
+msgstr ""
+"Subversion hat ein ernstes Problem festgestellt.\n"
+"Bitte nehmen Sie sich die Zeit, es mit einer möglichst\n"
+"ausführlichen Beschreibung, was sie zu tun versuchten,\n"
+"an unsere Mailingliste weiterzuleiten.\n"
+"\n"
+"Subversion hat das Problem festgestellt in:\n"
+"Datei: %s, Zeile %ld\n"
+"Ausdruck = %s"
+
+#. Resource IDs: (84)
+msgid ""
+"Subversion encountered a serious problem.\n"
+"Please take the time to report this on our mailing list\n"
+"with as much information as possible about what\n"
+"you were trying to do.\n"
+"\n"
+"Subversion reported the following:"
+msgstr ""
+"Subversion hat ein ernstes Problem festgestellt.\n"
+"Bitte nehmen Sie sich die Zeit, es mit einer möglichst\n"
+"ausführlichen Beschreibung, was sie zu tun versuchten,\n"
+"an unsere Mailingliste weiterzuleiten.\n"
+"Subversion berichtet folgendes:"
 
 #. Resource IDs: (79)
 msgid ""
@@ -8108,6 +8175,19 @@ msgstr ""
 "%s\n"
 "existiert bereits!"
 
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"The target file\n"
+"%s\n"
+" already exists.\n"
+"Do you want to replace the file?"
+msgstr ""
+"Die Datei\n"
+"%s\n"
+"existiert bereits!\n"
+"Möchten Sie sie wirklich überschreiben?"
+
 #. Resource IDs: (88)
 #, c-format
 msgid ""
@@ -8504,6 +8584,10 @@ msgstr "Gesamtzahl der zusammengeführten Revisionen"
 #. Resource IDs: (339)
 msgid "Total number of user revision properties"
 msgstr "Gesamtzahl der benutzerdefinierten Revisionseigenschaften"
+
+#. Resource IDs: (32821)
+msgid "Tr&ee stripes"
+msgstr "Baum St&reifen"
 
 #. Resource IDs: (357)
 #, c-format
@@ -9385,6 +9469,10 @@ msgstr "Vergrößern"
 #. Resource IDs: (2049)
 msgid "Zoom out"
 msgstr "Verkleinern"
+
+#. Resource IDs: (32801)
+msgid "Zoom to &100%"
+msgstr "Skalierung &100%"
 
 #. Resource IDs: (2051)
 msgid "Zoom to fit"
