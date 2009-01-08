@@ -318,13 +318,16 @@
 				the property to all sub-folders in the hierarchy, without also
 				setting it on all files.
 			</para>
+		</important>
+		<tip>
+			<title>No Issue Tracker Information from Repository Browser</title>
 			<para>
 				Because the issue tracker integration depends upon accessing subversion
 				properties, you will only see the results when using a checked
 				out working copy. Fetching properties remotely is a slow operation,
 				so you will not see this feature in action from the repo browser.
 			</para>
-		</important>
+		</tip>
 		<para>
 			This issue tracker integration is not restricted to TortoiseSVN; it can be used
 			with any Subversion client. For more information, read the full

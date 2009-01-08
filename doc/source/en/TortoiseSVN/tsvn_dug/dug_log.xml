@@ -649,6 +649,15 @@
 			extract a portion of the log message to be shown in the top pane.
 			Read <xref linkend="tsvn-dug-propertypage-tsvn-props"/> to find
 			out how to use this property.
+			<tip>
+				<title>No Log Formatting from Repository Browser</title>
+				<para>
+					Because the formatting depends upon accessing subversion
+					properties, you will only see the results when using a checked
+					out working copy. Fetching properties remotely is a slow operation,
+					so you will not see this feature in action from the repo browser.
+				</para>
+			</tip>
 		</para>
 	</sect2>
 	<sect2 id="tsvn-dug-showlog-5">

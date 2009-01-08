@@ -108,4 +108,13 @@
 			setting it on all files.
 		</para>
 	</important>
+	<tip>
+		<title>No Repo Viewer Links from Repository Browser</title>
+		<para>
+			Because the repo viewer integration depends upon accessing subversion
+			properties, you will only see the results when using a checked
+			out working copy. Fetching properties remotely is a slow operation,
+			so you will not see this feature in action from the repo browser.
+		</para>
+	</tip>
 </sect1>
