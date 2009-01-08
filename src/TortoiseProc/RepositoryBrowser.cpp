@@ -1136,7 +1136,7 @@ void CRepositoryBrowser::OnDelete()
 		CItem * pItem = (CItem *)m_RepoList.GetItemData(index);
 		CString absPath = pItem->absolutepath;
 		absPath.Replace(_T("\\"), _T("%5C"));
-		urlList.AddPath(CTSVNPath(absPath));
+		urlList.AddPath(CTSVNPath(EscapeUrl(CTSVNPath(absPath))));
 	}
 	if ((urlList.GetCount() == 0))
 	{
@@ -1144,7 +1144,7 @@ void CRepositoryBrowser::OnDelete()
 		CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData(hItem);
 		if (pTreeItem)
 		{
-			urlList.AddPath(CTSVNPath(pTreeItem->url));
+			urlList.AddPath(CTSVNPath(EscapeUrl(CTSVNPath(pTreeItem->url))));
 			bTreeItem = true;
 		}
 	}
@@ -2502,7 +2502,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				input.SetActionText(hint);
 				if (input.DoModal() == IDOK)
 				{
-					if (!Remove(urlList, true, false, input.GetLogMessage()))
+					if (!Remove(urlListEscaped, true, false, input.GetLogMessage()))
 					{
 						wait_cursor.Hide();
 						CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
