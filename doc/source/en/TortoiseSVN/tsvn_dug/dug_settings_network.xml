@@ -36,6 +36,11 @@
 		You must specify the full path to the executable. For TortoisePlink.exe
 		this is the standard TortoiseSVN bin directory. Use the
 		<guibutton>Browse</guibutton> button to help locate it.
+		Note that if the path contains spaces, you must enclose it in quotes,
+		e.g.
+<screen>
+"C:\Program Files\TortoiseSVN\bin\TortoisePlink.exe"
+</screen>
 	</para>
 	<para>
 		One side-effect of not having a window is that there is
