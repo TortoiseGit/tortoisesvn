@@ -2306,13 +2306,13 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					CString sCopyFrom1, sCopyFrom2;
 					SVNLogHelper helper;
 					helper.SetRepositoryRoot(m_strReposRoot);
-					SVNRev rev1 = helper.GetCopyFromRev(CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), sCopyFrom1);
+					SVNRev rev1 = helper.GetCopyFromRev(urlListEscaped[0], GetRevision(), sCopyFrom1);
 					if (!rev1.IsValid())
 					{
 						CMessageBox::Show(this->m_hWnd, helper.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						break;
 					}
-					SVNRev rev2 = helper.GetCopyFromRev(CTSVNPath(EscapeUrl(urlList[1])), GetRevision(), sCopyFrom2);
+					SVNRev rev2 = helper.GetCopyFromRev(urlListEscaped[1], GetRevision(), sCopyFrom2);
 					if (!rev2.IsValid())
 					{
 						CMessageBox::Show(this->m_hWnd, helper.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -2349,7 +2349,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				{
 					CString sCmd;
 					sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%s"), 
-						(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)EscapeUrl(urlList[0]), (LPCTSTR)GetRevision().ToString());
+						(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)urlListEscaped[0].GetSVNPathString(), (LPCTSTR)GetRevision().ToString());
 
 					if (!m_path.IsUrl())
 					{
@@ -2372,7 +2372,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			break;
 		case ID_VIEWPATHREV:
 			{
-				CString relurl = EscapeUrl(urlList[0]);
+				CString relurl = urlListEscaped[0].GetSVNPathString();
 				relurl = relurl.Mid(m_strReposRoot.GetLength());
 				CString weburl = m_ProjectProperties.sWebViewerPathRev;
 				weburl.Replace(_T("%REVISION%"), GetRevision().ToString());
@@ -2384,9 +2384,9 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 		case ID_CHECKOUT:
 			{
 				CString itemsToCheckout;
-				for (int i=0; i<urlList.GetCount(); ++i)
+				for (int i=0; i<urlListEscaped.GetCount(); ++i)
 				{
-					itemsToCheckout += EscapeUrl(urlList[i]) + _T("*");
+					itemsToCheckout += urlListEscaped[i].GetSVNPathString() + _T("*");
 				}
 				itemsToCheckout.TrimRight('*');
 				CString sCmd;
@@ -2399,7 +2399,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 		case ID_EXPORT:
 			{
 				CExportDlg dlg;
-				dlg.m_URL = EscapeUrl(urlList[0]);
+				dlg.m_URL = urlListEscaped[0].GetSVNPathString();
 				dlg.Revision = GetRevision();
 				if (dlg.DoModal()==IDOK)
 				{
@@ -2429,7 +2429,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 		case ID_REVGRAPH:
 			{
 				CRevisionGraphDlg dlg;
-				dlg.SetPath(EscapeUrl(urlList[0]));
+				dlg.SetPath(urlListEscaped[0].GetSVNPathString());
                 dlg.SetPegRevision(GetRevision());
 				dlg.DoModal();
 			}
@@ -2444,7 +2444,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				{
 					if (urlList[0].GetSVNPathString().Left(4).CompareNoCase(_T("http")) == 0)
 					{
-						CString sBrowserUrl = EscapeUrl(urlList[0]);
+						CString sBrowserUrl = urlListEscaped[0].GetSVNPathString();
 
 						ShellExecute(NULL, _T("open"), sBrowserUrl, NULL, NULL, SW_SHOWNORMAL);
 						break;
@@ -2461,7 +2461,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				progDlg.SetLine(1, sInfoLine, true);
 				SetAndClearProgressInfo(&progDlg);
 				progDlg.ShowModeless(m_hWnd);
-				if (!Cat(urlList[0], GetRevision(), GetRevision(), tempfile))
+				if (!Cat(urlListEscaped[0], GetRevision(), GetRevision(), tempfile))
 				{
 					progDlg.Stop();
 					SetAndClearProgressInfo((HWND)NULL);
@@ -2667,7 +2667,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					}
 					if (input.DoModal() == IDOK)
 					{
-						if (!Copy(urlList, CTSVNPath(dlg.m_name), GetRevision(), GetRevision(), input.GetLogMessage(), false, true))
+						if (!Copy(urlListEscaped, CTSVNPath(dlg.m_name), GetRevision(), GetRevision(), input.GetLogMessage(), false, true))
 						{
 							wait_cursor.Hide();
 							CMessageBox::Show(this->m_hWnd, GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
@@ -2697,7 +2697,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					progDlg.ShowModeless(m_hWnd);
 
 					bool bCopyAsChild = (urlList.GetCount() > 1);
-					if (!Copy(urlList, tempfile, GetRevision(), GetRevision(), CString(), bCopyAsChild)||(progDlg.HasUserCancelled()))
+					if (!Copy(urlListEscaped, tempfile, GetRevision(), GetRevision(), CString(), bCopyAsChild)||(progDlg.HasUserCancelled()))
 					{
 						progDlg.Stop();
 						SetAndClearProgressInfo((HWND)NULL);
@@ -2743,7 +2743,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			break;
 		case ID_REFRESH:
 			{
-				RefreshNode(urlList[0].GetSVNPathString(), true);
+				RefreshNode(urlListEscaped[0].GetSVNPathString(), true);
 			}
 			break;
 		case ID_GNUDIFF:
@@ -2753,20 +2753,20 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				if (urlList.GetCount() == 1)
 				{
 					if (PromptShown())
-						diff.ShowUnifiedDiff(CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
+						diff.ShowUnifiedDiff(urlListEscaped[0], GetRevision(), 
 											CTSVNPath(EscapeUrl(m_diffURL)), GetRevision());
 					else
-						CAppUtils::StartShowUnifiedDiff(m_hWnd, CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
+						CAppUtils::StartShowUnifiedDiff(m_hWnd, urlListEscaped[0], GetRevision(), 
 											CTSVNPath(EscapeUrl(m_diffURL)), GetRevision());
 				}
 				else
 				{
 					if (PromptShown())
-						diff.ShowUnifiedDiff(CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
-											CTSVNPath(EscapeUrl(urlList[1])), GetRevision());
+						diff.ShowUnifiedDiff(urlListEscaped[0], GetRevision(), 
+											urlListEscaped[1], GetRevision());
 					else
-						CAppUtils::StartShowUnifiedDiff(m_hWnd, CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
-											CTSVNPath(EscapeUrl(urlList[1])), GetRevision());
+						CAppUtils::StartShowUnifiedDiff(m_hWnd, urlListEscaped[0], GetRevision(), 
+											urlListEscaped[1], GetRevision());
 				}
 			}
 			break;
@@ -2778,21 +2778,21 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				if (urlList.GetCount() == 1)
 				{
 					if (PromptShown())
-						diff.ShowCompare(CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
+						diff.ShowCompare(urlListEscaped[0], GetRevision(), 
 										CTSVNPath(EscapeUrl(m_diffURL)), GetRevision(), SVNRev(), true);
 					else
-						CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
+						CAppUtils::StartShowCompare(m_hWnd, urlListEscaped[0], GetRevision(), 
 										CTSVNPath(EscapeUrl(m_diffURL)), GetRevision(), SVNRev(), SVNRev(), 
 										!!(GetAsyncKeyState(VK_SHIFT) & 0x8000), true);
 				}
 				else
 				{
 					if (PromptShown())
-						diff.ShowCompare(CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
-										CTSVNPath(EscapeUrl(urlList[1])), GetRevision(), SVNRev(), true);
+						diff.ShowCompare(urlListEscaped[0], GetRevision(), 
+										urlListEscaped[1], GetRevision(), SVNRev(), true);
 					else
-						CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(EscapeUrl(urlList[0])), GetRevision(), 
-										CTSVNPath(EscapeUrl(urlList[1])), GetRevision(), SVNRev(), SVNRev(), 
+						CAppUtils::StartShowCompare(m_hWnd, urlListEscaped[0], GetRevision(), 
+										urlListEscaped[1], GetRevision(), SVNRev(), SVNRev(), 
 										!!(GetAsyncKeyState(VK_SHIFT) & 0x8000), true);
 				}
 			}
@@ -2804,12 +2804,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					CEditPropertiesDlg dlg;
 					dlg.SetProjectProperties(&m_ProjectProperties);
 					dlg.SetUUID(m_sUUID);
-					CTSVNPathList escapedlist;
-					for (int i=0; i<urlList.GetCount(); ++i)
-					{
-						escapedlist.AddPath(CTSVNPath(EscapeUrl(urlList[i])));
-					}
-					dlg.SetPathList(escapedlist);
+					dlg.SetPathList(urlListEscaped);
 					dlg.SetRevision(GetHEADRevision(urlList[0]));
 					dlg.DoModal();
 				}
@@ -2817,7 +2812,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				{
 					CPropDlg dlg;
 					dlg.m_rev = GetRevision();
-					dlg.m_Path = CTSVNPath(EscapeUrl(urlList[0]));
+					dlg.m_Path = urlListEscaped[0];
 					dlg.DoModal();
 				}
 			}
@@ -2827,12 +2822,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				CEditPropertiesDlg dlg;
 				dlg.SetProjectProperties(&m_ProjectProperties);
 				dlg.SetUUID(m_sUUID);
-				CTSVNPathList escapedlist;
-				for (int i=0; i<urlList.GetCount(); ++i)
-				{
-					escapedlist.AddPath(CTSVNPath(EscapeUrl(urlList[i])));
-				}
-				dlg.SetPathList(escapedlist);
+				dlg.SetPathList(urlListEscaped);
 				dlg.SetRevision(GetRevision());
 				dlg.RevProps(true);
 				dlg.DoModal();
@@ -2847,7 +2837,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 					CBlame blame;
 					CString tempfile;
 					CString logfile;
-					tempfile = blame.BlameToTempFile(CTSVNPath(EscapeUrl(urlList[0])), dlg.StartRev, dlg.EndRev, dlg.EndRev, logfile, SVN::GetOptionsString(dlg.m_bIgnoreEOL, dlg.m_IgnoreSpaces), dlg.m_bIncludeMerge, TRUE, TRUE);
+					tempfile = blame.BlameToTempFile(urlListEscaped[0], dlg.StartRev, dlg.EndRev, dlg.EndRev, logfile, SVN::GetOptionsString(dlg.m_bIgnoreEOL, dlg.m_IgnoreSpaces), dlg.m_bIncludeMerge, TRUE, TRUE);
 					if (!tempfile.IsEmpty())
 					{
 						if (dlg.m_bTextView)
@@ -2857,7 +2847,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 						}
 						else
 						{
-							CString sParams = _T("/path:\"") + urlList[0].GetSVNPathString() + _T("\" ");
+							CString sParams = _T("/path:\"") + urlListEscaped[0].GetSVNPathString() + _T("\" ");
 							if(!CAppUtils::LaunchTortoiseBlame(tempfile, logfile, CPathUtils::GetFileNameFromPath(urlList[0].GetFileOrDirectoryName()), sParams, dlg.StartRev, dlg.EndRev))
 							{
 								break;
