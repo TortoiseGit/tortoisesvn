@@ -46,215 +46,215 @@
 		</para>
 	</important>
 	<sect2 id="tsvn-dug-revgraph-nodes">
-        <title>Revision Graph Nodes</title>
-        <para>
-            The revision graph shows several types of node:
-            <variablelist>
-                <varlistentry>
-                    <term>Added file/folder</term>
-                    <listitem>
-                        <para>
-                            Items which have been added, or created by copying
-                            another file/folder are shown using a rounded rectangle.
-                        </para>
-                    </listitem>
-                </varlistentry>
-                <varlistentry>
-                    <term>Deleted file/folder</term>
-                    <listitem>
-                        <para>
-                            Deleted items eg. a branch which is no longer required,
-                            are shown using an octagon (rectangle with corners cut off).
-                        </para>
-                    </listitem>
-                </varlistentry>
-                <varlistentry>
-                    <term>Branch tip revision</term>
-                    <listitem>
-                        <para>
-                            Where a branch (or trunk or tag) has been modified since
-                            the last branch node, this is shown using an ellipse.
-                            Shown when the <guilabel>Show HEAD revisions</guilabel>
-                            option is selected.
-                        </para>
-                    </listitem>
-                </varlistentry>
-                <varlistentry>
-                    <term>Normal file/folder</term>
-                    <listitem>
-                        <para>
-                            All other items are shown using a plain rectangle.
-                        </para>
-                    </listitem>
-                </varlistentry>
-            </variablelist>
-        </para>
-        <para>
-            Note that by default the graph only shows the points at which items were
-            added or deleted. Showing every revision of a project will generate a very
-            large graph for non-trivial cases. If you really want to see
-            <emphasis>all</emphasis> revisions where changes were made, there is an
-            option to do this in the <guilabel>View</guilabel> menu and on the toolbar.
-        </para>
-    </sect2>
+		<title>Revision Graph Nodes</title>
+		<para>
+			The revision graph shows several types of node:
+			<variablelist>
+				<varlistentry>
+					<term>Added file/folder</term>
+					<listitem>
+						<para>
+							Items which have been added, or created by copying
+							another file/folder are shown using a rounded rectangle.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Deleted file/folder</term>
+					<listitem>
+						<para>
+							Deleted items eg. a branch which is no longer required,
+							are shown using an octagon (rectangle with corners cut off).
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Branch tip revision</term>
+					<listitem>
+						<para>
+							Where a branch (or trunk or tag) has been modified since
+							the last branch node, this is shown using an ellipse.
+							Shown when the <guilabel>Show HEAD revisions</guilabel>
+							option is selected.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Normal file/folder</term>
+					<listitem>
+						<para>
+							All other items are shown using a plain rectangle.
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+		</para>
+		<para>
+			Note that by default the graph only shows the points at which items were
+			added or deleted. Showing every revision of a project will generate a very
+			large graph for non-trivial cases. If you really want to see
+			<emphasis>all</emphasis> revisions where changes were made, there is an
+			option to do this in the <guilabel>View</guilabel> menu and on the toolbar.
+		</para>
+	</sect2>
 	<sect2 id="tsvn-dug-revgraph-views">
-        <title>Changing the View</title>
-        <para>
-            Because a revision graph is often quite complex, there are a number
-            of features which can be used to tailor the view the way you want it.
-            These are available in the <guilabel>View</guilabel> menu and from the
-            toolbar.
-            <variablelist>
-                <varlistentry>
-                    <term>Group branches</term>
-                    <listitem>
-                        <para>
-                            The default behavior (grouping off) will use one row per
-                            revision and all rows are sorted strictly by revision.
-                            As a result, long-living branches occupy a whole column
-                            for only a few changes and the graph becomes very broad.
-                        </para>
-                        <para>
-                            This mode groups changes by branch, so that there is no
-                            global revision ordering: Consecutive revisions on
-                            a branch will be shown in (often) consecutive lines.
-                            Sub-branches, however, are arranged in such a way that
-                            later branches will be shown in the same column above
-                            older branches to keep the graph slim. As a result, a
-                            given row may contain changes from different revisions.
-                        </para>
-                    </listitem>
-                </varlistentry>
-                <varlistentry>
-                    <term>Oldest on top</term>
-                    <listitem>
-                        <para>
-                            Normally the graph shows the oldest revision at the bottom,
-                            and the tree grows upwards. Use this option to grow down
-                            from the top instead.
-                        </para>
-                    </listitem>
-                </varlistentry>
-                <varlistentry>
-                    <term>Show HEAD revisions</term>
-                    <listitem>
-                        <para>
-                            This ensures that the latest revision on every branch is
-                            always shown on the graph.
-                        </para>
-                    </listitem>
-                </varlistentry>
-                <varlistentry>
-                    <term>Exact copy sources</term>
-                    <listitem>
-                        <para>
-                            When a branch/tag is made, the default behaviour is to
-                            show the branch as taken from the last node where a
-                            change was made. Strictly speaking this is inaccurate
-                            since the branches are often made from the current HEAD
-                            rather than a specific revision. So it is possible to show
-                            the more correct (but less useful) revision that was
-                            used to create the copy.
-                        </para>
-                    </listitem>
-                </varlistentry>
-                <varlistentry>
-                    <term>Fold tags</term>
-                    <listitem>
-                        <para>
-                            If you want to see a graph of software development,
-                            tagged releases may be of little interest to you.
-                            This option hides the nodes for tags and shows them
-                            instead in the tooltip for the node that they were
-                            copied from. A tag icon on the right side of the
-                            source node indicates that tags were made.
-                        </para>
-                    </listitem>
-                </varlistentry>
-                <varlistentry>
-                    <term>Reduce cross lines</term>
-                    <listitem>
-                        <para>
-                            If the layout of the graph has produced a lot of
-                            crossing lines, use this option to clean it up.
-                            This may make the layout columns appear in less
-                            logical places, for example in a diagonal line
-                            rather than a column, and it may take a little time
-                            to optimise.
-                        </para>
-                    </listitem>
-                </varlistentry>
-                <varlistentry>
-                    <term>Filter</term>
-                    <listitem>
-                        <para>
-                            Sometimes the revision graph contains more revisions
-                            than you want to see. This option opens a dialog which
-                            allows you to restrict the range of revisions
-                            displayed, and to hide particular paths by name.
-                        </para>
-                    </listitem>
-                </varlistentry>
-            </variablelist>
-        </para>
-    </sect2>
+		<title>Changing the View</title>
+		<para>
+			Because a revision graph is often quite complex, there are a number
+			of features which can be used to tailor the view the way you want it.
+			These are available in the <guilabel>View</guilabel> menu and from the
+			toolbar.
+			<variablelist>
+				<varlistentry>
+					<term>Group branches</term>
+					<listitem>
+						<para>
+							The default behavior (grouping off) will use one row per
+							revision and all rows are sorted strictly by revision.
+							As a result, long-living branches occupy a whole column
+							for only a few changes and the graph becomes very broad.
+						</para>
+						<para>
+							This mode groups changes by branch, so that there is no
+							global revision ordering: Consecutive revisions on
+							a branch will be shown in (often) consecutive lines.
+							Sub-branches, however, are arranged in such a way that
+							later branches will be shown in the same column above
+							older branches to keep the graph slim. As a result, a
+							given row may contain changes from different revisions.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Oldest on top</term>
+					<listitem>
+						<para>
+							Normally the graph shows the oldest revision at the bottom,
+							and the tree grows upwards. Use this option to grow down
+							from the top instead.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Show HEAD revisions</term>
+					<listitem>
+						<para>
+							This ensures that the latest revision on every branch is
+							always shown on the graph.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Exact copy sources</term>
+					<listitem>
+						<para>
+							When a branch/tag is made, the default behaviour is to
+							show the branch as taken from the last node where a
+							change was made. Strictly speaking this is inaccurate
+							since the branches are often made from the current HEAD
+							rather than a specific revision. So it is possible to show
+							the more correct (but less useful) revision that was
+							used to create the copy.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Fold tags</term>
+					<listitem>
+						<para>
+							If you want to see a graph of software development,
+							tagged releases may be of little interest to you.
+							This option hides the nodes for tags and shows them
+							instead in the tooltip for the node that they were
+							copied from. A tag icon on the right side of the
+							source node indicates that tags were made.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Reduce cross lines</term>
+					<listitem>
+						<para>
+							If the layout of the graph has produced a lot of
+							crossing lines, use this option to clean it up.
+							This may make the layout columns appear in less
+							logical places, for example in a diagonal line
+							rather than a column, and it may take a little time
+							to optimise.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Filter</term>
+					<listitem>
+						<para>
+							Sometimes the revision graph contains more revisions
+							than you want to see. This option opens a dialog which
+							allows you to restrict the range of revisions
+							displayed, and to hide particular paths by name.
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+		</para>
+	</sect2>
 	<sect2 id="tsvn-dug-revgraph-use">
-        <title>Using the Graph</title>
-        <para>
-            To make it easier to navigate a large graph, use the overview window.
-            This shows the entire graph in a small window, with the currently
-            displayed portion highlighted. You can drag the highlighted area to
-            change the displayed region.
-        </para>
-        <para>
-            The revision date, author and comments are shown in a hint box whenever
-            the mouse hovers over a revision box.
-        </para>
-        <para>
-            If you select two revisions (Use <keycap>Ctrl</keycap>-<action>left click</action>),
-            you can use the context menu to show the
-            differences between these revisions. You can choose to show differences
-            as at the branch creation points, but usually you will want to show the
-            differences at the branch end points, i.e. at the HEAD revision.
-        </para>
-        <para>
-            You can view the differences as a Unified-Diff file, which shows all
-            differences in a single file with minimal context. If you opt to
-            <menuchoice>
-                <guimenu>Context Menu</guimenu>
-                <guimenuitem>Compare Revisions</guimenuitem>
-            </menuchoice>
-            you will be presented with a list of changed files.
-            <action>Double click</action> on a file name to fetch both revisions
-            of the file and compare them using the visual difference tool.
-        </para>
-        <para>
-            If you <action>right click</action> on a revision you can use
-            <menuchoice>
-                <guimenu>Context Menu</guimenu>
-                <guimenuitem>Show Log</guimenuitem>
-            </menuchoice>
-            to view the history.
-        </para>
-        <para>
-            You can also merge changes in the selected revision(s) into a
-            different working copy. A folder selection dialog allows you to
-            choose the working copy to merge into, but after that there is
-            no confirmation dialog, nor any opportunity to try a dry run.
-            It is a good idea to merge into an unmodified working copy so
-            that you can revert the changes if it doesn't work out!
-            This is a useful feature if you want to merge selected
-            revisions from one branch to another.
-        </para>
-        <caution>
-            <para>
-                Because Subversion cannot provide all the information required,
-                a certain amount of interpretation is required, which can sometimes
-                give strange results. Nevertheless, the output for the trunk will
-                generally give useful results.
-            </para>
-        </caution>
-    </sect2>
+		<title>Using the Graph</title>
+		<para>
+			To make it easier to navigate a large graph, use the overview window.
+			This shows the entire graph in a small window, with the currently
+			displayed portion highlighted. You can drag the highlighted area to
+			change the displayed region.
+		</para>
+		<para>
+			The revision date, author and comments are shown in a hint box whenever
+			the mouse hovers over a revision box.
+		</para>
+		<para>
+			If you select two revisions (Use <keycap>Ctrl</keycap>-<action>left click</action>),
+			you can use the context menu to show the
+			differences between these revisions. You can choose to show differences
+			as at the branch creation points, but usually you will want to show the
+			differences at the branch end points, i.e. at the HEAD revision.
+		</para>
+		<para>
+			You can view the differences as a Unified-Diff file, which shows all
+			differences in a single file with minimal context. If you opt to
+			<menuchoice>
+				<guimenu>Context Menu</guimenu>
+				<guimenuitem>Compare Revisions</guimenuitem>
+			</menuchoice>
+			you will be presented with a list of changed files.
+			<action>Double click</action> on a file name to fetch both revisions
+			of the file and compare them using the visual difference tool.
+		</para>
+		<para>
+			If you <action>right click</action> on a revision you can use
+			<menuchoice>
+				<guimenu>Context Menu</guimenu>
+				<guimenuitem>Show Log</guimenuitem>
+			</menuchoice>
+			to view the history.
+		</para>
+		<para>
+			You can also merge changes in the selected revision(s) into a
+			different working copy. A folder selection dialog allows you to
+			choose the working copy to merge into, but after that there is
+			no confirmation dialog, nor any opportunity to try a dry run.
+			It is a good idea to merge into an unmodified working copy so
+			that you can revert the changes if it doesn't work out!
+			This is a useful feature if you want to merge selected
+			revisions from one branch to another.
+		</para>
+		<caution>
+			<para>
+				Because Subversion cannot provide all the information required,
+				a certain amount of interpretation is required, which can sometimes
+				give strange results. Nevertheless, the output for the trunk will
+				generally give useful results.
+			</para>
+		</caution>
+	</sect2>
 	<sect2 id="tsvn-dug-revgraph-refresh">
 		<title>Refreshing the View</title>
 		<para>
