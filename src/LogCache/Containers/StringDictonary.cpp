@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -293,6 +293,7 @@ void CStringDictionary::Reorder (const std::vector<index_t>& sourceIndices)
 	// the new order is now complete -> switch to it
 
 	packedStrings.swap (target);
+    packedStringsStart = &packedStrings.at(0);
 
 	// re-build hash and offsets
 

@@ -94,6 +94,8 @@ Version 1.5.7
        trash bin instead of leaving them. (Stefan)
 - BUG: Deleting an item in the repository browser that had non-ascii chars
        in it didn't work. (Stefan)
+- BUG: In rare cases, random strings would be shown in the authors column 
+       of the log dialog. (Stefan Fuhrmann)
 
 Version 1.5.6
 - CHG: Disabled capieng again - users were annoyed. (Stefan)
