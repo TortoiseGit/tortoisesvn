@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1200,7 +1200,8 @@ void CCacheLogQuery::ThrowBadRevision() const
 
 revision_t CCacheLogQuery::DecodeRevision ( const CTSVNPath& path
 			  							  , const CTSVNPath& url
-				  			              , const SVNRev& revision) const
+				  			              , const SVNRev& revision
+                                          , const SVNRev& peg) const
 {
 	if (!revision.IsValid())
         ThrowBadRevision();
@@ -1219,9 +1220,108 @@ revision_t CCacheLogQuery::DecodeRevision ( const CTSVNPath& path
 	case svn_opt_revision_head:
         {
             result = repositoryInfoCache->GetHeadRevision (uuid, url);
-
 			if (result == NO_REVISION)
 				throw SVNError (repositoryInfoCache->GetLastError());
+
+            break;
+        }
+
+	case svn_opt_revision_date:
+        {
+            // find latest revision before the given date
+
+            const CRevisionIndex& revisions = cache->GetRevisions();
+            result = cache->FindRevisionByDate (revision.GetDate());
+            CString URL = url.GetSVNPathString();
+            bool offline = repositoryInfoCache->IsOffline (uuid, URL, false);
+
+            // special case: date is before revision 1 / first cached revision
+
+            if (   (result == NO_REVISION)
+                && ((revisions.GetFirstCachedRevision() < 2) || offline))
+            {
+                // we won't get anyting better than this:
+
+                result = 0;
+                break;
+            }
+
+            // don't ask any more questions if we are off-line:
+            // we will have found the highest *cached* revision
+            // before the specified date
+
+            if (offline)
+            {
+                assert (revision != NO_REVISION);
+                break;
+            }
+
+            // verify that this is the limiting revision, 
+            // i.e that the next one is beyond the specified date
+
+            if (result != NO_REVISION)
+            {
+                // are we missing the next revision?
+
+                // This code is not optimal. However, we cannot use
+                // the skip delta info because we don't know the
+                // actual path *in that revision*.
+
+                if (revisions [result+1] == NO_INDEX)
+                {
+                    // is it HEAD?
+
+                    if (revisions.GetLastCachedRevision() > result+1)
+                    {
+                        result = (revision_t)NO_REVISION;
+                    }
+                    else
+                    {
+                        revision_t head
+                            = repositoryInfoCache->GetHeadRevision (uuid, url);
+
+                        if (result != head)
+                            result = (revision_t)NO_REVISION;
+                    }
+                }
+            }
+
+            // let SVN translate the date into a revision
+
+            if (result == NO_REVISION)
+            {
+                // first attempt: ask directly for that revision
+
+			    SVNInfo info;
+			    const SVNInfoData * baseInfo 
+                    = info.GetFirstFileInfo (path, peg, revision);
+
+			    if (baseInfo != NULL)
+                {
+                    result = static_cast<LONG>(baseInfo->rev);
+                    break;
+                }
+
+                // was it just the revision being out of bound?
+
+                if (info.GetError()->apr_err == SVN_ERR_CLIENT_UNRELATED_RESOURCES)
+                {
+                    // this will happen for dates in the future (post-HEAD)
+                    // as long as the URL is valid.
+                    // -> we are propably at the bottom end
+
+                    result = 0;
+                    break;
+                }
+
+                // (Probably) a server access errror. Retry off-line.
+
+                if (repositoryInfoCache->IsOffline (uuid, URL, true))
+                    return DecodeRevision (path, url, revision, peg);
+                else
+    				throw SVNError(info.GetError());
+            }
+
             break;
         }
 
@@ -1229,7 +1329,7 @@ revision_t CCacheLogQuery::DecodeRevision ( const CTSVNPath& path
 		{
 			SVNInfo info;
 			const SVNInfoData * baseInfo 
-                = info.GetFirstFileInfo (path, SVNRev(), revision);
+                = info.GetFirstFileInfo (path, peg, revision);
 			if (baseInfo == NULL)
 				throw SVNError(info.GetError());
 
@@ -1325,11 +1425,19 @@ void CCacheLogQuery::Log ( const CTSVNPathList& targets
 		? path
 		: CTSVNPath (repositoryInfoCache->GetSVN().GetURLFromPath (path));
 
+	// load cache and translate the path
+    // (don't get the repo info from SVN, if it had to be fetched from the server
+    //  -> let GetRelativeRepositoryPath() use our repository property cache)
+
+    CDictionaryBasedTempPath repoPath = GetRelativeRepositoryPath (url);
+    if (!repoPath.IsValid())
+        return;
+
 	// decode revisions
     // makes also sure that these aren't NO_REVISION values
 
-	revision_t startRevision = DecodeRevision (path, url, start);
-	revision_t endRevision = DecodeRevision (path, url, end);
+    revision_t startRevision = DecodeRevision (path, url, start, peg_revision);
+	revision_t endRevision = DecodeRevision (path, url, end, peg_revision);
 
 	// The svn_client_log3() API defaults the peg revision to HEAD for URLs 
 	// and WC for local paths if it isn't set explicitly.
@@ -1338,7 +1446,7 @@ void CCacheLogQuery::Log ( const CTSVNPathList& targets
 	if (!peg_revision.IsValid())
         temp = path.IsUrl() ? SVNRev::REV_HEAD : SVNRev::REV_WC;
 
-    revision_t pegRevision = DecodeRevision (path, url, temp);
+    revision_t pegRevision = DecodeRevision (path, url, temp, peg_revision);
 
 	// order revisions
 
@@ -1348,13 +1456,7 @@ void CCacheLogQuery::Log ( const CTSVNPathList& targets
 	if (pegRevision < startRevision)
 		pegRevision = startRevision;
 
-	// load cache and find path to start from
-    // (don't get the repo info from SVN, if it had to be fetched from the server
-    //  -> let GetRelativeRepositoryPath() use our repository property cache)
-
-    CDictionaryBasedTempPath repoPath = GetRelativeRepositoryPath (url);
-    if (!repoPath.IsValid())
-        return;
+	// find the path to start from
 
 	CDictionaryBasedTempPath startPath 
 		= TranslatePegRevisionPath ( pegRevision

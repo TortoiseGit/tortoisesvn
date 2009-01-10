@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -363,7 +363,8 @@ private:
 	/// and will be used to cache these values.
 	revision_t DecodeRevision ( const CTSVNPath& path
 				  			  , const CTSVNPath& url
-				  			  , const SVNRev& revision) const;
+				  			  , const SVNRev& revision
+                              , const SVNRev& peg) const;
 
 	/// get the (exactly) one path from targets
 	/// throw an exception, if there are none or more than one

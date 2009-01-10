@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -330,6 +330,30 @@ void CCachedLogInfo::Save (const std::wstring& newFileName)
     // the data is no longer "modified"
 
     modified = false;
+}
+
+// find the highest revision not exceeding the given timestamp
+
+revision_t CCachedLogInfo::FindRevisionByDate (__time64_t maxTimeStamp) const
+{
+    revision_t first = revisions.GetFirstCachedRevision();
+    revision_t last = revisions.GetLastCachedRevision();
+
+    revision_t result = (revision_t)NO_REVISION;
+    for (revision_t revision = first; revision != last; ++revision)
+    {
+        index_t index = revisions[revision];
+        if (index != NO_INDEX)
+        {
+            __time64_t revisionTime = logInfo.GetTimeStamp (index);
+            if (revisionTime > maxTimeStamp)
+                return result;
+
+            result = revision;
+        }
+    }
+
+    return result;
 }
 
 // data modification (mirrors CRevisionInfoContainer)

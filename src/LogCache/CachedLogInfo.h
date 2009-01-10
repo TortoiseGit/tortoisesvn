@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -191,6 +191,10 @@ public:
 	const CRevisionIndex& GetRevisions() const;
 	const CRevisionInfoContainer& GetLogInfo() const;
 	const CSkipRevisionInfo& GetSkippedRevisions() const;
+
+    /// find the highest revision not exceeding the given timestamp
+
+    revision_t FindRevisionByDate (__time64_t maxTimeStamp) const;
 
 	/// data modification 
 	/// (mirrors CRevisionInfoContainer and CSkipRevisionInfo)
