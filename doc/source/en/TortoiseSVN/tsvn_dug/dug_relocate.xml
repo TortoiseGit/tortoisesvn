@@ -37,6 +37,12 @@
 		<filename>.svn</filename> folder and changes the URL of
 		the entries to the new value.
 	</para>
+	<para>
+		You may be surprised to find that TortoiseSVN contacts the repository
+		as part of this operation. All it is doing is performing some simple
+		checks to make sure that the new URL really does refer to the same
+		repository as the existing working copy.
+	</para>
 	<warning>
 		<para>
 			<emphasis>This is a very infrequently used operation</emphasis>.
