@@ -274,6 +274,16 @@ void CSVNLogQuery::Log ( const CTSVNPathList& targets
                    , includeStandardRevProps
                    , includeUserRevProps};
 
+    // list of revision ranges to fetch 
+    // (as of now, there is only one such range)
+
+    svn_opt_revision_range_t revision_range = {*start, *end};
+
+    apr_array_header_t* revision_ranges 
+        = apr_array_make (localpool, 1, sizeof(apr_array_header_t*));
+    *(svn_opt_revision_range_t**)apr_array_push (revision_ranges) 
+        = &revision_range;
+
     // build list of revprops to fetch. Fetch all of them
     // if all user-revprops are requested but no std-revprops
     // (post-filter before them passing to the receiver)
@@ -323,10 +333,9 @@ void CSVNLogQuery::Log ( const CTSVNPathList& targets
         }
     }
 
-	svn_error_t *result = svn_client_log4 ( targets.MakePathArray (localpool)
+	svn_error_t *result = svn_client_log5 ( targets.MakePathArray (localpool)
 										  , peg_revision
-										  , start
-										  , end
+                                          , revision_ranges
 										  , limit
                                           , includeChanges ? TRUE : FALSE
 										  , strictNodeHistory ? TRUE : FALSE
