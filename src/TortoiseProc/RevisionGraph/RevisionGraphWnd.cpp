@@ -550,6 +550,17 @@ void CRevisionGraphWnd::OnLButtonUp(UINT nFlags, CPoint point)
 	__super::OnLButtonUp(nFlags, point);
 }
 
+bool CRevisionGraphWnd::CancelMouseZoom()
+{
+	bool bRet = m_bIsRubberBand;
+	ReleaseCapture();
+	if (m_bIsRubberBand)
+		Invalidate(FALSE);
+	m_bIsRubberBand = false;
+	m_ptRubberEnd = CPoint(0,0);
+	return bRet;
+}
+
 INT_PTR CRevisionGraphWnd::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 {
 	if (m_bThreadRunning)
