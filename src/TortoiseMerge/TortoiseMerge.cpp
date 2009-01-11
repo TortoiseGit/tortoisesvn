@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2008 - TortoiseSVN
+// Copyright (C) 2006-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -131,6 +131,10 @@ BOOL CTortoiseMergeApp::InitInstance()
 			langId = 0;
 	} while (langId);
 	setlocale(LC_ALL, ""); 
+	// We need to explicitly set the thread locale to the system default one to avoid possible problems with saving files in its original codepage
+	// The problems occures when the language of OS differs from the regional settings
+	// See the details here: http://connect.microsoft.com/VisualStudio/feedback/ViewFeedback.aspx?FeedbackID=100887
+	SetThreadLocale(LOCALE_SYSTEM_DEFAULT);
 
 	// InitCommonControls() is required on Windows XP if an application
 	// manifest specifies use of ComCtl32.dll version 6 or later to enable
