@@ -101,7 +101,7 @@ public:
                                       , SVNRev pegRevision
                                       , const CAllRevisionGraphOptions& options);
     bool            AnalyzeRevisionData();
-    CString         GetLastErrorMessage() const;
+    const CString&  GetLastErrorMessage() const;
 
     const CGraphNodeStates* GetNodeStates() const;
 
@@ -133,6 +133,8 @@ protected:
 	CRect			m_OverviewRect;
 
 	bool			m_bShowOverview;
+
+    CString         m_lastErrorMessage;
 
     std::auto_ptr<CFullHistory>         m_fullHistory;
     std::auto_ptr<CFullGraph>           m_fullGraph;

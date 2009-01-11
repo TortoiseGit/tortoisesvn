@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -280,6 +280,8 @@ bool CRevisionGraphWnd::FetchRevisionData
                                                     , showWCModification
                                                     , m_pProgress);
 
+    m_lastErrorMessage = newFullHistory->GetLastErrorMessage();
+
     if (result)
     {
         m_bFetchedWCState = showWCRev || showWCModification;
@@ -339,11 +341,9 @@ bool CRevisionGraphWnd::AnalyzeRevisionData()
     return m_layout.get() != NULL;
 }
 
-CString CRevisionGraphWnd::GetLastErrorMessage() const
+const CString& CRevisionGraphWnd::GetLastErrorMessage() const
 {
-    return m_fullHistory.get() != NULL
-        ? m_fullHistory->GetLastErrorMessage()
-        : CString();
+    return m_lastErrorMessage;
 }
 
 const CGraphNodeStates* CRevisionGraphWnd::GetNodeStates() const
