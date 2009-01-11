@@ -995,8 +995,13 @@ HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url
 		tvinsert.itemex.iImage = m_nIconFolder;
 		tvinsert.itemex.iSelectedImage = m_nOpenIconFolder;
 
+		TVSORTCB tvs;
+		tvs.hParent = hNewItem;
+		tvs.lpfnCompare = TreeSort;
+
 		hNewItem = m_RepoTree.InsertItem(&tvinsert);
 		sTemp.ReleaseBuffer();
+		m_RepoTree.SortChildrenCB(&tvs);
 		sUrl = sUrl.Mid(slash+1);
 		ATLTRACE(_T("created tree entry %s, url %s\n"), sTemp, pTreeItem->url);
 	}
@@ -1019,9 +1024,13 @@ HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url
 		tvinsert.itemex.iImage = m_nIconFolder;
 		tvinsert.itemex.iSelectedImage = m_nOpenIconFolder;
 
+		TVSORTCB tvs;
+		tvs.hParent = hNewItem;
+		tvs.lpfnCompare = TreeSort;
+
 		hNewItem = m_RepoTree.InsertItem(&tvinsert);
 		sTemp.ReleaseBuffer();
-		m_RepoTree.SortChildren(hNewItem);
+		m_RepoTree.SortChildrenCB(&tvs);
 		return hNewItem;
 	}
 	return NULL;
@@ -1415,6 +1424,13 @@ int CRepositoryBrowser::ListSort(LPARAM lParam1, LPARAM lParam2, LPARAM lParam3)
 	}
 
 	return nRet;
+}
+
+int CRepositoryBrowser::TreeSort(LPARAM lParam1, LPARAM lParam2, LPARAM)
+{
+	CTreeItem * Item1 = (CTreeItem*)lParam1;
+	CTreeItem * Item2 = (CTreeItem*)lParam2;
+	return CStringUtils::CompareNumerical(Item1->unescapedname, Item2->unescapedname);
 }
 
 void CRepositoryBrowser::SetSortArrow()
