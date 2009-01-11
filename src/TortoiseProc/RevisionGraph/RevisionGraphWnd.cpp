@@ -813,35 +813,20 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
 				HBITMAP hbm;
 				LPBYTE pBits;
 				// Initialize header to 0s.
-				ZeroMemory(&bmi, sizeof(bmi));
+				SecureZeroMemory(&bmi, sizeof(bmi));
 				// Fill out the fields you care about.
 				bmi.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
 				bmi.bmiHeader.biWidth = (LONG)(float(rect.Width()) * m_fZoomFactor);
 				bmi.bmiHeader.biHeight = (LONG)(float(rect.Height()) * m_fZoomFactor);
 				bmi.bmiHeader.biPlanes = 1;
-				bmi.bmiHeader.biBitCount = 32;
+				bmi.bmiHeader.biBitCount = 16;
 				bmi.bmiHeader.biCompression = BI_RGB;
 
 				// Create the surface.
 				hbm = CreateDIBSection(ddc.m_hDC, &bmi, DIB_RGB_COLORS,(void **)&pBits, NULL, 0);
 				if (hbm==0)
 				{
-					LPVOID lpMsgBuf;
-					if (!FormatMessage( 
-						FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-						FORMAT_MESSAGE_FROM_SYSTEM | 
-						FORMAT_MESSAGE_IGNORE_INSERTS,
-						NULL,
-						GetLastError(),
-						MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-						(LPTSTR) &lpMsgBuf,
-						0,
-						NULL ))
-					{
-						return;
-					}
-					MessageBox( (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
-					LocalFree( lpMsgBuf );
+					CMessageBox::Show(m_hWnd, IDS_REVGRAPH_ERR_NOMEMORY, IDS_APPNAME, MB_ICONERROR);
 					return;
 				}
 				HBITMAP oldbm = (HBITMAP)dc.SelectObject(hbm);
