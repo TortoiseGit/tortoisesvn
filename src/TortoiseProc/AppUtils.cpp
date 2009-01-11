@@ -53,9 +53,9 @@ bool CAppUtils::GetMimeType(const CTSVNPath& file, CString& mimetype)
 	return false;
 }
 
-BOOL CAppUtils::StartExtMerge(
+BOOL CAppUtils::StartExtMerge(const MergeFlags& flags,
 	const CTSVNPath& basefile, const CTSVNPath& theirfile, const CTSVNPath& yourfile, const CTSVNPath& mergedfile,
-	const CString& basename, const CString& theirname, const CString& yourname, const CString& mergedname, bool bReadOnly)
+	const CString& basename, const CString& theirname, const CString& yourname, const CString& mergedname)
 {
 
 	CRegString regCom = CRegString(_T("Software\\TortoiseSVN\\Merge"));
@@ -83,6 +83,14 @@ BOOL CAppUtils::StartExtMerge(
 		}
 	}
 	
+	if ((flags.bAlternativeTool)&&(!com.IsEmpty()))
+	{
+		if (com.Left(1).Compare(_T("#"))==0)
+			com.Delete(0);
+		else
+			com.Empty();
+	}
+
 	if (com.IsEmpty()||(com.Left(1).Compare(_T("#"))==0))
 	{
 		// use TortoiseMerge
@@ -190,7 +198,7 @@ BOOL CAppUtils::StartExtMerge(
 	else
 		com.Replace(_T("%mname"), _T("\"") + mergedname + _T("\""));
 
-	if ((bReadOnly)&&(bInternal))
+	if ((flags.bReadOnly)&&(bInternal))
 		com += _T(" /readonly");
 
 	if(!LaunchApplication(com, IDS_ERR_EXTMERGESTART, false))

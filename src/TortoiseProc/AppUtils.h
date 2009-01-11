@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -46,6 +46,18 @@ public:
 		DiffFlags& AlternativeTool(bool b = true) { bAlternativeTool = b; return *this; }
 	};
 
+	struct MergeFlags
+	{
+		bool bWait;
+		bool bReadOnly;
+		bool bAlternativeTool; // If true, invert selection of TortoiseMerge vs. external merge tool
+
+		MergeFlags(): bWait(false), bReadOnly(false), bAlternativeTool(false)	{}
+		MergeFlags& Wait(bool b = true) { bWait = b; return *this; }
+		MergeFlags& ReadOnly(bool b = true) { bReadOnly = b; return *this; }
+		MergeFlags& AlternativeTool(bool b = true) { bAlternativeTool = b; return *this; }
+	};
+
 	CAppUtils(void);
 	~CAppUtils(void);
 
@@ -53,10 +65,10 @@ public:
 	 * Launches the external merge program if there is one.
 	 * \return TRUE if the program could be started
 	 */
-	static BOOL StartExtMerge(
+	static BOOL StartExtMerge(const MergeFlags& flags,
 		const CTSVNPath& basefile, const CTSVNPath& theirfile, const CTSVNPath& yourfile, const CTSVNPath& mergedfile,
 		const CString& basename = CString(), const CString& theirname = CString(), const CString& yourname = CString(),
-		const CString& mergedname = CString(), bool bReadOnly = false);
+		const CString& mergedname = CString());
 
 	/**
 	 * Starts the external patch program (currently always TortoiseMerge)

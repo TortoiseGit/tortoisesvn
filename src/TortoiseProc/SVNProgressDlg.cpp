@@ -1554,7 +1554,10 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 								revname.Format(_T("%s Revision %ld"), (LPCTSTR)data->path.GetUIFileOrDirectoryName(), rev);
 								wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)data->path.GetUIFileOrDirectoryName());
 								basename.Format(IDS_DIFF_BASENAME, (LPCTSTR)data->path.GetUIFileOrDirectoryName());
-								CAppUtils::StartExtMerge(basefile, newfile, data->path, data->path, basename, revname, wcname, CString(), true);
+								CAppUtils::MergeFlags flags;
+								flags.bAlternativeTool = (GetKeyState(VK_SHIFT)&0x8000) != 0;
+								flags.bReadOnly = true;
+								CAppUtils::StartExtMerge(flags,	basefile, newfile, data->path, data->path, basename, revname, wcname);
 							}
 							else
 							{
