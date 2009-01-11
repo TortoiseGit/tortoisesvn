@@ -341,7 +341,9 @@ bool CRevisionGraphWnd::AnalyzeRevisionData()
 
 CString CRevisionGraphWnd::GetLastErrorMessage() const
 {
-    return m_fullHistory->GetLastErrorMessage();
+    return m_fullHistory.get() != NULL
+        ? m_fullHistory->GetLastErrorMessage()
+        : CString();
 }
 
 const CGraphNodeStates* CRevisionGraphWnd::GetNodeStates() const
