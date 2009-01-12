@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-01 18:18+0100\n"
+"PO-Revision-Date: 2009-01-12 12:20+0100\n"
 "Last-Translator: Cecilia Saltori <csaltori@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -918,6 +918,10 @@ msgid "&SSH client:"
 msgstr "&Client SSH:"
 
 #. Resource IDs: (65535)
+msgid "&SVN"
+msgstr "&SVN"
+
+#. Resource IDs: (65535)
 msgid "&Sat:"
 msgstr "&Sat:"
 
@@ -1490,6 +1494,10 @@ msgstr "Impostazioni avanzate di fusione"
 #. Resource IDs: (65535)
 msgid "Age"
 msgstr "Età"
+
+#. Resource IDs: (32822)
+msgid "Align trees on top"
+msgstr "Allinea alberi in cima"
 
 #. Resource IDs: (1007)
 msgid "All Commands"
@@ -2890,6 +2898,19 @@ msgstr "Elimina"
 msgid "Delete Unversioned Items"
 msgstr "Elimina elementi senza versione"
 
+#. Resource IDs: (14)
+#, c-format
+msgid "Delete and &ignore %d items by name"
+msgstr "Cancella e &ignora %d elementi per nome"
+
+#. Resource IDs: (14)
+msgid "Delete and add to &ignore list"
+msgstr "Cancella e aggiungi alla lista di file da &ignorare"
+
+#. Resource IDs: (14)
+msgid "Delete and ignore %d items by &extension"
+msgstr "Cancella e ignora elementi per &estensione"
+
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
 msgstr "Elimina elementi senza versione..."
@@ -2901,6 +2922,10 @@ msgstr "Eliminato"
 #. Resource IDs: (65535)
 msgid "Deleted node"
 msgstr "Nodo eliminato"
+
+#. Resource IDs: (15)
+msgid "Deletes and adds the selected file(s) or the filemask to the 'ignore' list"
+msgstr "Cancella e aggiungi il/i file selezionato/i o la maschera per i file alla lista 'ignora'"
 
 #. Resource IDs: (11)
 msgid "Deletes files / folders from version control"
@@ -3130,6 +3155,10 @@ msgstr "Disegna"
 #. Resource IDs: (1079)
 msgid "Drive Types"
 msgstr "Tipi di disco"
+
+#. Resource IDs: (1315)
+msgid "Drives A: and B:"
+msgstr "Drives A: e B:"
 
 #. Resource IDs: (613)
 #, c-format
@@ -3770,17 +3799,25 @@ msgstr ""
 msgid "Finished!"
 msgstr "Terminato!"
 
+#. Resource IDs: (32804)
+msgid "Fit graph"
+msgstr "Adatta il grafico"
+
+#. Resource IDs: (32802)
+msgid "Fit height"
+msgstr "Adatta altezza"
+
 #. Resource IDs: (32810)
 msgid "Fit image &sizes"
 msgstr "Adatta la &dimensione dell'immagine"
 
+#. Resource IDs: (32803)
+msgid "Fit width"
+msgstr "Adatta larghezza"
+
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
 msgstr "Risolvi il caso dell'elemento e non aggiungerlo"
-
-#. Resource IDs: (1315)
-msgid "Floppy drives (A: B:)"
-msgstr "Floppy (A: B:)"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
@@ -4182,9 +4219,9 @@ msgstr "ID:32814:VA  +D"
 # updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
-#. Accelerator Entry for Menu ID:32822; ''
-msgid "ID:32822:V C +F"
-msgstr "ID:32822:V C +F"
+#. Accelerator Entry for Menu ID:32824; ''
+msgid "ID:32824:V C +F"
+msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
@@ -4388,6 +4425,10 @@ msgstr ""
 "Se selezionato, i file senza versione marcheranno lo stato delle cartelle che li contengono come modificate\r\n"
 "Ad es. ad esse verrà associata l'icona di stato 'modificato'."
 
+#. Resource IDs: (2052)
+msgid "If the graph contains multiple trees, separate them by slight variations in background color."
+msgstr "Se il grafico contiene alberi multipli, separali con lievi variazioni del colore dello sfondo."
+
 #. Resource IDs: (1439)
 msgid "If the repository can not be contacted"
 msgstr "Se il repository non può essere contattato"
@@ -4412,6 +4453,11 @@ msgstr "Se vuoi forzare il blocco, usa la finestra di dialogo 'Controlla l'esist
 msgid "Ignore"
 msgstr "Ignora"
 
+#. Resource IDs: (14)
+#, c-format
+msgid "Ignore %d items by &extension"
+msgstr "Ignora %d elementi per &estensione"
+
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
 msgstr "Ignora &tutti gli spazi"
@@ -4427,10 +4473,6 @@ msgstr "Ignora tutti gli spazi"
 #. Resource IDs: (1267)
 msgid "Ignore ancestry"
 msgstr "Ignora discendenza"
-
-#. Resource IDs: (14)
-msgid "Ignore items by &extension"
-msgstr "Ignora elementi per &estensione"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
@@ -4860,6 +4902,10 @@ msgstr "Locator Bar"
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
 msgstr "Blocca"
+
+#. Resource IDs: (208)
+msgid "Lock Date"
+msgstr "Data di Lock"
 
 #. Resource IDs: (191)
 msgid "Lock Files"
@@ -5476,6 +5522,16 @@ msgstr "Non tutte le chiavi di registro (o del file INI) sono state rimosse."
 #. Resource IDs: (83)
 msgid "Not enough memory to complete operation."
 msgstr "Memoria insufficiente per completare l'operazione."
+
+#. Resource IDs: (273)
+msgid ""
+"Not enough memory!\n"
+"Try reducing the size of the revision graph by either\n"
+"collapsing nodes or reducing the zoom factor."
+msgstr ""
+"Memoria insufficiente!\n"
+"Prova a ridurre la dimensione del grafico delle revisioni da ciascun\n"
+"nodo collassabile o riducendo il fattore di zoom."
 
 #. Resource IDs: (563)
 msgid "Not recursive"
@@ -7084,6 +7140,10 @@ msgstr "Shell"
 msgid "Shell Icon Cache was rebuilt!"
 msgstr "La cache delle icone di stato è stata ricostruita!"
 
+#. Resource IDs: (2052)
+msgid "Shift trees to the top of the window. Alignment to other trees will be lost."
+msgstr "Sposta alberi in cima alla finestra. L'allineamento agli altri alberi sarà perduto."
+
 #. Resource IDs: (101)
 msgid "Sho&w properties"
 msgstr "Mostra &proprietà"
@@ -7219,6 +7279,10 @@ msgstr "Visualizza le differenze come confronto &unificato"
 #. Resource IDs: (1126)
 msgid "Show excluded folders as normal"
 msgstr "Mostra cartelle escluse come normali"
+
+#. Resource IDs: (1480)
+msgid "Show externals from different repositories"
+msgstr "Mostra esterni da reporitory differenti"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -7524,6 +7588,43 @@ msgstr "Subversion"
 #. Resource IDs: (65535)
 msgid "Subversion configuration &file:"
 msgstr "&File di configurazione di Subversion:"
+
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Subversion encountered a serious problem.\n"
+"Please take the time to report this on our mailing list\n"
+"with as much information as possible about what\n"
+"you were trying to do.\n"
+"\n"
+"Subversion encountered the problem in:\n"
+"file %s, line %ld\n"
+"expression = %s"
+msgstr ""
+"Subversion ha avuto seri problemi.\n"
+"Per favore prenditi il tempo di segnalarlo alla nostra mailing list\n"
+"con più informazioni possibili circa\n"
+"quello che stavi cercando di fare.\n"
+"\n"
+"Subversion ha riscontrato il problema nel:\n"
+"file %s, linea %ld\n"
+"espressione = %s"
+
+#. Resource IDs: (84)
+msgid ""
+"Subversion encountered a serious problem.\n"
+"Please take the time to report this on our mailing list\n"
+"with as much information as possible about what\n"
+"you were trying to do.\n"
+"\n"
+"Subversion reported the following:"
+msgstr ""
+"Subversion ha avuto un serio problema.\n"
+"Per favore prenditi il tempo di segnalare alla mailing list\n"
+"con il maggior numero di informazioni possibili\n"
+"ciò che stavi facendo.\n"
+"\n"
+"Subversion ha riportato:"
 
 #. Resource IDs: (79)
 msgid ""
@@ -8065,6 +8166,19 @@ msgstr ""
 "%s\n"
 "esiste già!"
 
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"The target file\n"
+"%s\n"
+" already exists.\n"
+"Do you want to replace the file?"
+msgstr ""
+"Il file destinazione\n"
+"%s\n"
+"esiste già.\n"
+"Lo si vuole sovrascrivere?"
+
 #. Resource IDs: (88)
 #, c-format
 msgid ""
@@ -8457,6 +8571,10 @@ msgstr "Numero totale di revisioni unificate"
 #. Resource IDs: (339)
 msgid "Total number of user revision properties"
 msgstr "Numero totale di proprietà di revisione dell'utente"
+
+#. Resource IDs: (32821)
+msgid "Tr&ee stripes"
+msgstr "Albero delle unioni"
 
 #. Resource IDs: (357)
 #, c-format
@@ -9337,6 +9455,10 @@ msgstr "Zoom &avanti"
 msgid "Zoom out"
 msgstr "Zoom &indietro"
 
+#. Resource IDs: (32801)
+msgid "Zoom to &100%"
+msgstr "Zoom al &100%"
+
 #. Resource IDs: (2051)
 msgid "Zoom to fit"
 msgstr "Adatta alla finestra"
@@ -10064,6 +10186,8 @@ msgstr "sì"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Floppy drives (A: B:)"
+#~ msgstr "Floppy (A: B:)"
 #~ msgid "Only record the merge"
 #~ msgstr "Registra solo l'unione"
 #~ msgid "(deleted) %s"
