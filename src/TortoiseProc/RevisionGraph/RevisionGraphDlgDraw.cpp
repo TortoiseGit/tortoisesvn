@@ -533,6 +533,88 @@ void CRevisionGraphWnd::DrawGlyphs
                , (allowed & CGraphNodeStates::COLLAPSED_BELOW) != 0);
 }
 
+void CRevisionGraphWnd::IndicateGlyphDirection
+    ( Graphics& graphics
+    , const RectF& nodeRect
+    , DWORD glyphs
+    , bool upsideDown)
+{
+    // shortcut
+
+    if (glyphs == 0)
+        return;
+
+    // where to place the indication?
+
+    bool indicateAbove = (glyphs & CGraphNodeStates::COLLAPSED_ABOVE) != 0;
+    bool indicateRight = (glyphs & CGraphNodeStates::COLLAPSED_RIGHT) != 0;
+    bool indicateBelow = (glyphs & CGraphNodeStates::COLLAPSED_BELOW) != 0;
+
+    if (upsideDown)
+        std::swap (indicateAbove, indicateBelow);
+
+    // fill indication area with a gradient starting
+    // from slightly transparent background color to fully transparent
+
+    Color startColor;
+    startColor.SetFromCOLORREF (GetSysColor(COLOR_WINDOW));
+    startColor.SetValue (startColor.GetValue() & 0xC0ffffff);
+    Color transparent;
+    transparent.SetFromCOLORREF (GetSysColor(COLOR_WINDOW));
+    transparent.SetValue (transparent.GetValue() & 0xffffff);
+
+    // draw the indication (only one condition should match)
+    // as fan-out areas starting at the respective node edge
+
+    float length = 250.0f * m_fZoomFactor;
+    float spread = 100.0f * m_fZoomFactor;
+
+    if (indicateAbove)
+    {
+        PointF points[4];
+        points[0] = PointF (nodeRect.GetLeft(), nodeRect.GetTop());
+        points[1] = PointF (nodeRect.GetRight(), nodeRect.GetTop());
+        points[2] = PointF (nodeRect.GetRight() + spread, nodeRect.GetTop() - length);
+        points[3] = PointF (nodeRect.GetLeft() - spread, nodeRect.GetTop() - length);
+
+        PointF gradientStart (nodeRect.GetLeft(), nodeRect.GetTop());
+        PointF gradientEnd (nodeRect.GetLeft(), nodeRect.GetTop() - length);
+        LinearGradientBrush brush (gradientStart, gradientEnd, startColor, transparent);
+
+        graphics.FillPolygon (&brush, points, 4);
+    }
+
+    if (indicateBelow)
+    {
+        PointF points[4];
+        points[0] = PointF (nodeRect.GetLeft(), nodeRect.GetBottom());
+        points[1] = PointF (nodeRect.GetRight(), nodeRect.GetBottom());
+        points[2] = PointF (nodeRect.GetRight() + spread, nodeRect.GetBottom() + length);
+        points[3] = PointF (nodeRect.GetLeft() - spread, nodeRect.GetBottom() + length);
+
+        PointF gradientStart (nodeRect.GetLeft(), nodeRect.GetBottom());
+        PointF gradientEnd (nodeRect.GetLeft(), nodeRect.GetBottom() + length);
+        LinearGradientBrush brush (gradientStart, gradientEnd, startColor, transparent);
+
+        graphics.FillPolygon (&brush, points, 4);
+    }
+
+    if (indicateRight)
+    {
+        PointF points[4];
+        points[0] = PointF (nodeRect.GetRight(), nodeRect.GetTop());
+        points[1] = PointF (nodeRect.GetRight(), nodeRect.GetBottom());
+        points[2] = PointF (nodeRect.GetRight() + length, nodeRect.GetBottom() + spread);
+        points[3] = PointF (nodeRect.GetRight() + length, nodeRect.GetTop() - spread);
+
+        PointF gradientStart (nodeRect.GetRight(), nodeRect.GetTop());
+        PointF gradientEnd (nodeRect.GetRight() + length, nodeRect.GetTop());
+        LinearGradientBrush brush (gradientStart, gradientEnd, startColor, transparent);
+
+        graphics.FillPolygon (&brush, points, 4);
+    }
+}
+
 void CRevisionGraphWnd::DrawMarker 
     ( Graphics& graphics
     , const PointF& leftTop
@@ -762,6 +844,7 @@ void CRevisionGraphWnd::DrawCurrentNodeGlyphs (Graphics& graphics, Image* glyphs
         const CFullGraphNode* base = node.node->GetBase();
         DWORD flags = m_nodeStates.GetFlags (base);
 
+        IndicateGlyphDirection (graphics, noderect, m_hoverGlyphs, upsideDown);
         DrawGlyphs (graphics, glyphs, node.node, noderect, flags, m_hoverGlyphs, upsideDown);
     }
 }

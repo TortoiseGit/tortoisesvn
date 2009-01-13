@@ -282,6 +282,8 @@ private:
                                 DWORD state, DWORD allowed, bool upsideDown);
     void            DrawMarker (Graphics& graphics, const PointF& leftTop, 
                                 const Color& lightColor, const Color& darkColor);
+    void            IndicateGlyphDirection ( Graphics& graphics, const RectF& nodeRect
+                                           , DWORD glyphs, bool upsideDown);
 
     void            DrawStripes (Graphics& graphics, const CSize& offset);
 
