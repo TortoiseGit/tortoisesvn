@@ -658,7 +658,7 @@ void CRevisionGraphWnd::DrawStripes (Graphics& graphics, const CSize& offset)
         {
             // draw the background stripe
 
-            Color color ((i & 1) == 0 ? 0x10F0F0C0 : 0x10A0D0E0);
+            Color color ((i & 1) == 0 ? 0x18F0F0C0 : 0x18A0D0E0);
             SolidBrush brush (color);
             graphics.FillRectangle (&brush, rect);
         }
