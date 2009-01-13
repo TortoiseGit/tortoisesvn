@@ -158,8 +158,20 @@ void CRevisionGraphWnd::DrawOctangle (Graphics& graphics, const Pen* pen, const 
 {
     enum {POINT_COUNT = 8};
 
+    // show left & right edges of low boxes as "<===>"
+
+    float minCutAway = min (16 * m_fZoomFactor, rect.Height / 2);
+
+    // larger boxes: remove 25% of the shorter side
+
+    float suggestedCutAway = min (rect.Height, rect.Width) / 4;
+
+    // use the more visible one of the former two
+
 	PointF points[POINT_COUNT];
-    CutawayPoints (rect, min (rect.Height, rect.Width) / 4, points);
+    CutawayPoints (rect, max (minCutAway, suggestedCutAway), points);
+
+    // now, draw it
 
     if (brush != NULL)
         graphics.FillPolygon (brush, points, POINT_COUNT);
