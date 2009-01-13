@@ -732,7 +732,7 @@ bool CTSVNPath::IsValidOnWindows() const
 		wstring rmatch = wstring((LPCTSTR)sMatch);
 		if (tr1::regex_match(rmatch, match, rx))
 		{
-			if (wstring(match[0]).compare(sMatch)==0)
+			if ((match[0].matched)&&(wstring(match[0]).compare((LPCTSTR)sMatch)==0))
 				m_bIsValidOnWindows = true;
 		}
 		if (m_bIsValidOnWindows)
