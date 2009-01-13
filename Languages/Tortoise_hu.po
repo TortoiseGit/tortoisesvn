@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-01-13 16:17+0100\n"
+"PO-Revision-Date: 2009-01-13 17:50+0100\n"
 "Last-Translator: Halász Gábor <k@elitonline.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -937,7 +937,7 @@ msgstr "&SSH kliens:"
 
 #. Resource IDs: (65535)
 msgid "&SVN"
-msgstr ""
+msgstr "&SVN"
 
 #. Resource IDs: (65535)
 msgid "&Sat:"
@@ -1521,9 +1521,8 @@ msgid "Age"
 msgstr "Dátum/idő"
 
 #. Resource IDs: (32822)
-#, fuzzy
 msgid "Align trees on top"
-msgstr "&Régebbiek legfelül"
+msgstr ""
 
 #. Resource IDs: (1007)
 #, fuzzy
@@ -2124,7 +2123,7 @@ msgstr "Ha be van jelölve, a naplófájlokban a rövidebb formában jelenik meg
 #. Resource IDs: (2052)
 #, fuzzy
 msgid "Check working copy for modifications"
-msgstr "Változások keresése"
+msgstr "Munkapéldánybeli változás mutatása"
 
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -3864,13 +3863,12 @@ msgid "Finished!"
 msgstr "Befejezve!"
 
 #. Resource IDs: (32804)
-#, fuzzy
 msgid "Fit graph"
-msgstr "Kördiagram"
+msgstr "Legjobb kitöltés"
 
 #. Resource IDs: (32802)
 msgid "Fit height"
-msgstr ""
+msgstr "Magassághoz igazítás"
 
 #. Resource IDs: (32810)
 msgid "Fit image &sizes"
@@ -3878,7 +3876,7 @@ msgstr "Képek &méreteinek egyeztetése"
 
 #. Resource IDs: (32803)
 msgid "Fit width"
-msgstr ""
+msgstr "Szélességhez igazítás"
 
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
@@ -4143,7 +4141,7 @@ msgstr "Szkript elrejtése futás közben"
 
 #. Resource IDs: (32830)
 msgid "Hide unused &branches"
-msgstr ""
+msgstr "&Nem használt ágak elrejtése"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -5648,6 +5646,9 @@ msgid ""
 "Try reducing the size of the revision graph by either\n"
 "collapsing nodes or reducing the zoom factor."
 msgstr ""
+"Nincs elég memória!\n"
+"Próbáld meg csökkenteni a grafikon méretét, vagy a grafikon\n"
+"elemeinek összecsukásával, vagy a grafikon kicsinyítésével."
 
 #. Resource IDs: (563)
 msgid "Not recursive"
@@ -6487,7 +6488,7 @@ msgstr "%s törlése"
 
 #. Resource IDs: (2052)
 msgid "Remove all branches that did not modify the item"
-msgstr ""
+msgstr "Ne mutassa azokat a mellékágakat, amelyekben nem módosítottták az elemet"
 
 #. Resource IDs: (2052)
 msgid "Remove deleted branches and tags"
@@ -7418,9 +7419,8 @@ msgid "Show Screen&Tips on toolbars"
 msgstr "&Tippek megjelenítése az eszköztárakon"
 
 #. Resource IDs: (32831)
-#, fuzzy
 msgid "Show WC &modifications"
-msgstr "Munkapéldány változásai"
+msgstr "&Munkapéldány változásainak mutatása"
 
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
@@ -9465,7 +9465,7 @@ msgid "You should select an image!"
 msgstr "Válassz ki egy képet!"
 
 #. Resource IDs: (89)
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "You're trying to add the item\n"
 "'%s',\n"
@@ -9476,6 +9476,13 @@ msgid ""
 "It seems the item got renamed outside Subversion but only with case changes.\n"
 "Do you really want to add it?"
 msgstr ""
+"Az alábbi elemet szeretnéd hozzáadni:\n"
+"\"%s\",\n"
+"de már létezik egy ilyen nevű elem:\n"
+"\"%s\"\n"
+"\n"
+"Valószínűleg Subversionön kívül át lett nevezve, de csak kisbetű/nagybetű eltéréssel.\n"
+"Biztosan hozzá akarod adni?"
 
 #. Resource IDs: (195)
 #, c-format
