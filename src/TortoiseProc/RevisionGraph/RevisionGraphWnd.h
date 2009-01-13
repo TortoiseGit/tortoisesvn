@@ -124,6 +124,7 @@ public:
     svn_revnum_t    GetHeadRevision() const;             
     CString         GetRepositoryRoot() const;             
     CString         GetRepositoryUUID() const;
+    size_t          GetTreeCount() const;
 
   	void			BuildPreview();
 

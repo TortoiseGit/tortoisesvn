@@ -107,6 +107,8 @@ protected:
 
 private:
 	void			UpdateZoomBox();
+    void            UpdateOptionAvailability (UINT id, bool available);
+    void            UpdateOptionAvailability();
 
 	static UINT		WorkerThread(LPVOID pVoid);
 

@@ -187,6 +187,13 @@ CString CRevisionGraphWnd::GetRepositoryUUID() const
         : CString();
 }
 
+size_t CRevisionGraphWnd::GetTreeCount() const
+{
+    return m_layout.get() != NULL
+        ? m_layout->GetTrees()->GetCount()
+        : 0;
+}
+
 int CRevisionGraphWnd::GetEncoderClsid(const WCHAR* format, CLSID* pClsid)
 {
 	UINT  num = 0;          // number of image encoders

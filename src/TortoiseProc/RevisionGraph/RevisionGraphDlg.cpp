@@ -94,26 +94,26 @@ BEGIN_MESSAGE_MAP(CRevisionGraphDlg, CResizableStandAloneDialog)
 	ON_COMMAND(ID_VIEW_COMPAREREVISIONS, OnViewComparerevisions)
 	ON_COMMAND(ID_VIEW_UNIFIEDDIFF, OnViewUnifieddiff)
 	ON_COMMAND(ID_VIEW_UNIFIEDDIFFOFHEADREVISIONS, OnViewUnifieddiffofheadrevisions)
-	ON_COMMAND(ID_FILE_SAVEGRAPHAS, &CRevisionGraphDlg::OnFileSavegraphas)
-	ON_COMMAND_EX(ID_VIEW_SHOWALLREVISIONS, &CRevisionGraphDlg::OnToggleOption)
-	ON_COMMAND_EX(ID_VIEW_GROUPBRANCHES, &CRevisionGraphDlg::OnToggleOption)
-	ON_COMMAND_EX(ID_VIEW_TOPDOWN, &CRevisionGraphDlg::OnToggleOption)
-    ON_COMMAND_EX(ID_VIEW_TOPALIGNTREES, &CRevisionGraphDlg::OnToggleOption)
-	ON_COMMAND_EX(ID_VIEW_SHOWHEAD, &CRevisionGraphDlg::OnToggleOption)
-	ON_COMMAND_EX(ID_VIEW_EXACTCOPYSOURCE, &CRevisionGraphDlg::OnToggleOption)
-	ON_COMMAND_EX(ID_VIEW_FOLDTAGS, &CRevisionGraphDlg::OnToggleOption)
-	ON_COMMAND_EX(ID_VIEW_REDUCECROSSLINES, &CRevisionGraphDlg::OnToggleOption)
-	ON_COMMAND_EX(ID_VIEW_REMOVEDELETEDONES, &CRevisionGraphDlg::OnToggleOption)
-	ON_COMMAND_EX(ID_VIEW_SHOWWCREV, &CRevisionGraphDlg::OnToggleReloadOption)
-	ON_COMMAND_EX(ID_VIEW_REMOVEUNCHANGEDBRANCHES, &CRevisionGraphDlg::OnToggleOption)
-    ON_COMMAND_EX(ID_VIEW_SHOWWCMODIFICATION, &CRevisionGraphDlg::OnToggleReloadOption)
-    ON_COMMAND_EX(ID_VIEW_SHOWDIFFPATHS, &CRevisionGraphDlg::OnToggleOption)
-    ON_COMMAND_EX(ID_VIEW_SHOWTREESTRIPES, &CRevisionGraphDlg::OnToggleRedrawOption)
+	ON_COMMAND(ID_FILE_SAVEGRAPHAS, OnFileSavegraphas)
+	ON_COMMAND_EX(ID_VIEW_SHOWALLREVISIONS, OnToggleOption)
+	ON_COMMAND_EX(ID_VIEW_GROUPBRANCHES, OnToggleOption)
+	ON_COMMAND_EX(ID_VIEW_TOPDOWN, OnToggleOption)
+    ON_COMMAND_EX(ID_VIEW_TOPALIGNTREES, OnToggleOption)
+	ON_COMMAND_EX(ID_VIEW_SHOWHEAD, OnToggleOption)
+	ON_COMMAND_EX(ID_VIEW_EXACTCOPYSOURCE, OnToggleOption)
+	ON_COMMAND_EX(ID_VIEW_FOLDTAGS, OnToggleOption)
+	ON_COMMAND_EX(ID_VIEW_REDUCECROSSLINES, OnToggleOption)
+	ON_COMMAND_EX(ID_VIEW_REMOVEDELETEDONES, OnToggleOption)
+	ON_COMMAND_EX(ID_VIEW_SHOWWCREV, OnToggleReloadOption)
+	ON_COMMAND_EX(ID_VIEW_REMOVEUNCHANGEDBRANCHES, OnToggleOption)
+    ON_COMMAND_EX(ID_VIEW_SHOWWCMODIFICATION, OnToggleReloadOption)
+    ON_COMMAND_EX(ID_VIEW_SHOWDIFFPATHS, OnToggleOption)
+    ON_COMMAND_EX(ID_VIEW_SHOWTREESTRIPES, OnToggleRedrawOption)
 	ON_CBN_SELCHANGE(ID_REVGRAPH_ZOOMCOMBO, OnChangeZoom)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTW, 0, 0xFFFF, OnToolTipNotify)
 	ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, OnToolTipNotify)
-	ON_COMMAND(ID_VIEW_FILTER, &CRevisionGraphDlg::OnViewFilter)
-	ON_COMMAND(ID_VIEW_SHOWOVERVIEW, &CRevisionGraphDlg::OnViewShowoverview)
+	ON_COMMAND(ID_VIEW_FILTER, OnViewFilter)
+	ON_COMMAND(ID_VIEW_SHOWOVERVIEW, OnViewShowoverview)
 END_MESSAGE_MAP()
 
 BOOL CRevisionGraphDlg::InitializeToolbar()
@@ -232,6 +232,8 @@ BOOL CRevisionGraphDlg::InitializeToolbar()
 
 	m_ToolBar.m_ZoomCombo.SetCurSel(1);
 
+    UpdateOptionAvailability();
+
 	return TRUE;
 }
 
@@ -317,7 +319,10 @@ UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
 
     pDlg->m_options.Prepare();
     if (pDlg->m_Graph.AnalyzeRevisionData())
+    {
         pDlg->UpdateStatusBar();
+        pDlg->UpdateOptionAvailability();
+    }
 
 	CoUninitialize();
 	InterlockedExchange(&pDlg->m_Graph.m_bThreadRunning, FALSE);
@@ -833,9 +838,31 @@ void CRevisionGraphDlg::OnViewShowoverview()
 	m_Graph.Invalidate(FALSE);
 }
 
+void CRevisionGraphDlg::UpdateOptionAvailability (UINT id, bool available)
+{
+	CMenu * pMenu = GetMenu();
+	if (pMenu == NULL)
+		return;
 
+    pMenu->EnableMenuItem (id, available ? MF_ENABLED : MF_GRAYED);
 
+    int tbstate = m_ToolBar.GetToolBarCtrl().GetState(id);
+    int newTbstate = available
+        ? tbstate | TBSTATE_ENABLED
+        : tbstate & ~TBSTATE_ENABLED;
 
+    if (tbstate != newTbstate)
+        m_ToolBar.GetToolBarCtrl().SetState(id, newTbstate);
+}
 
+void CRevisionGraphDlg::UpdateOptionAvailability()
+{
+    bool multipleTrees = m_Graph.GetTreeCount() > 1;
+    bool isWCPath = !CTSVNPath (m_Graph.m_sPath).IsUrl();
 
+    UpdateOptionAvailability (ID_VIEW_TOPALIGNTREES, multipleTrees);
+    UpdateOptionAvailability (ID_VIEW_SHOWTREESTRIPES, multipleTrees);
+    UpdateOptionAvailability (ID_VIEW_SHOWWCREV, isWCPath);
+    UpdateOptionAvailability (ID_VIEW_SHOWWCMODIFICATION, isWCPath);
+}
 
