@@ -211,6 +211,15 @@ Color LimitedScaleColor (const Color& c1, const Color& c2, float factor)
                  , LimitedScaleColor (c1.GetB(), c2.GetB(), factor));
 }
 
+BYTE MaxComponentDiff (const Color& c1, const Color& c2)
+{
+    int rDiff = abs ((int)c1.GetR() - (int)c2.GetR());
+    int gDiff = abs ((int)c1.GetG() - (int)c2.GetG());
+    int bDiff = abs ((int)c1.GetB() - (int)c2.GetB());
+
+    return (BYTE) max (max (rDiff, gDiff), bDiff);
+}
+
 void CRevisionGraphWnd::DrawShadow (Graphics& graphics, const RectF& rect,
                                     Color shadowColor, NodeShape shape)
 {
@@ -260,6 +269,14 @@ void CRevisionGraphWnd::DrawNode(Graphics& graphics, const RectF& rect,
 
 	Color selColor = LimitedScaleColor (background, contour, 0.5f);
 	Color brightColor = LimitedScaleColor (background, contour, 0.9f);
+
+    if (MaxComponentDiff (selColor, brightColor) < 0x20)
+    {
+        // e.g. white node on white background 
+        // -> highlight would be white as well
+
+        selColor.SetValue (selColor.GetValue() ^ 0x808080); 
+    }
 
 	// Draw the main shape
 
