@@ -792,105 +792,95 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
 		try
 		{
 			CString sErrormessage;
-			GdiplusStartupInput gdiplusStartupInput;
-			ULONG_PTR           gdiplusToken;
 			CWindowDC ddc(this);
 			CDC dc;
-			if (GdiplusStartup( &gdiplusToken, &gdiplusStartupInput, NULL )==Ok)
-			{   
-				if (!dc.CreateCompatibleDC(&ddc))
+			if (!dc.CreateCompatibleDC(&ddc))
+			{
+				LPVOID lpMsgBuf;
+				if (!FormatMessage( 
+					FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+					FORMAT_MESSAGE_FROM_SYSTEM | 
+					FORMAT_MESSAGE_IGNORE_INSERTS,
+					NULL,
+					GetLastError(),
+					MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+					(LPTSTR) &lpMsgBuf,
+					0,
+					NULL ))
 				{
-					LPVOID lpMsgBuf;
-					if (!FormatMessage( 
-						FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-						FORMAT_MESSAGE_FROM_SYSTEM | 
-						FORMAT_MESSAGE_IGNORE_INSERTS,
-						NULL,
-						GetLastError(),
-						MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-						(LPTSTR) &lpMsgBuf,
-						0,
-						NULL ))
-					{
-						return;
-					}
-					MessageBox( (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
-					LocalFree( lpMsgBuf );
 					return;
 				}
-				CRect rect;
-				rect = GetGraphRect();
-				rect.bottom = (LONG)(float(rect.Height()) * m_fZoomFactor);
-				rect.right = (LONG)(float(rect.Width()) * m_fZoomFactor);
-				BITMAPINFO bmi;
-				HBITMAP hbm;
-				LPBYTE pBits;
-				// Initialize header to 0s.
-				SecureZeroMemory(&bmi, sizeof(bmi));
-				// Fill out the fields you care about.
-				bmi.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
-				bmi.bmiHeader.biWidth = rect.Width();
-				bmi.bmiHeader.biHeight = rect.Height();
-				bmi.bmiHeader.biPlanes = 1;
-				bmi.bmiHeader.biBitCount = 24;
-				bmi.bmiHeader.biCompression = BI_RGB;
+				MessageBox( (LPCTSTR)lpMsgBuf, _T("Error"), MB_OK | MB_ICONINFORMATION );
+				LocalFree( lpMsgBuf );
+				return;
+			}
+			CRect rect;
+			rect = GetGraphRect();
+			rect.bottom = (LONG)(float(rect.Height()) * m_fZoomFactor);
+			rect.right = (LONG)(float(rect.Width()) * m_fZoomFactor);
+			BITMAPINFO bmi;
+			HBITMAP hbm;
+			LPBYTE pBits;
+			// Initialize header to 0s.
+			SecureZeroMemory(&bmi, sizeof(bmi));
+			// Fill out the fields you care about.
+			bmi.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+			bmi.bmiHeader.biWidth = rect.Width();
+			bmi.bmiHeader.biHeight = rect.Height();
+			bmi.bmiHeader.biPlanes = 1;
+			bmi.bmiHeader.biBitCount = 24;
+			bmi.bmiHeader.biCompression = BI_RGB;
 
-				// Create the surface.
-				hbm = CreateDIBSection(ddc.m_hDC, &bmi, DIB_RGB_COLORS,(void **)&pBits, NULL, 0);
-				if (hbm==0)
+			// Create the surface.
+			hbm = CreateDIBSection(ddc.m_hDC, &bmi, DIB_RGB_COLORS,(void **)&pBits, NULL, 0);
+			if (hbm==0)
+			{
+				CMessageBox::Show(m_hWnd, IDS_REVGRAPH_ERR_NOMEMORY, IDS_APPNAME, MB_ICONERROR);
+				return;
+			}
+			HBITMAP oldbm = (HBITMAP)dc.SelectObject(hbm);
+			// paint the whole graph
+			DrawGraph(&dc, rect, 0, 0, true);
+			// now use GDI+ to save the picture
+			CLSID   encoderClsid;
+			{
+				Bitmap bitmap(hbm, NULL);
+				if (bitmap.GetLastStatus()==Ok)
 				{
-					CMessageBox::Show(m_hWnd, IDS_REVGRAPH_ERR_NOMEMORY, IDS_APPNAME, MB_ICONERROR);
-					return;
-				}
-				HBITMAP oldbm = (HBITMAP)dc.SelectObject(hbm);
-				// paint the whole graph
-				DrawGraph(&dc, rect, 0, 0, true);
-				// now use GDI+ to save the picture
-				CLSID   encoderClsid;
-				{
-					Bitmap bitmap(hbm, NULL);
-					if (bitmap.GetLastStatus()==Ok)
+					// Get the CLSID of the encoder.
+					int ret = 0;
+					if (CPathUtils::GetFileExtFromPath(sSavePath).CompareNoCase(_T(".png"))==0)
+						ret = GetEncoderClsid(L"image/png", &encoderClsid);
+					else if (CPathUtils::GetFileExtFromPath(sSavePath).CompareNoCase(_T(".jpg"))==0)
+						ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
+					else if (CPathUtils::GetFileExtFromPath(sSavePath).CompareNoCase(_T(".jpeg"))==0)
+						ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
+					else if (CPathUtils::GetFileExtFromPath(sSavePath).CompareNoCase(_T(".bmp"))==0)
+						ret = GetEncoderClsid(L"image/bmp", &encoderClsid);
+					else if (CPathUtils::GetFileExtFromPath(sSavePath).CompareNoCase(_T(".gif"))==0)
+						ret = GetEncoderClsid(L"image/gif", &encoderClsid);
+					else
 					{
-						// Get the CLSID of the encoder.
-						int ret = 0;
-						if (CPathUtils::GetFileExtFromPath(sSavePath).CompareNoCase(_T(".png"))==0)
-							ret = GetEncoderClsid(L"image/png", &encoderClsid);
-						else if (CPathUtils::GetFileExtFromPath(sSavePath).CompareNoCase(_T(".jpg"))==0)
-							ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
-						else if (CPathUtils::GetFileExtFromPath(sSavePath).CompareNoCase(_T(".jpeg"))==0)
-							ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
-						else if (CPathUtils::GetFileExtFromPath(sSavePath).CompareNoCase(_T(".bmp"))==0)
-							ret = GetEncoderClsid(L"image/bmp", &encoderClsid);
-						else if (CPathUtils::GetFileExtFromPath(sSavePath).CompareNoCase(_T(".gif"))==0)
-							ret = GetEncoderClsid(L"image/gif", &encoderClsid);
-						else
-						{
-							sSavePath += _T(".jpg");
-							ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
-						}
-						if (ret >= 0)
-						{
-							CStringW tfile = CStringW(sSavePath);
-							bitmap.Save(tfile, &encoderClsid, NULL);
-						}
-						else
-						{
-							sErrormessage.Format(IDS_REVGRAPH_ERR_NOENCODER, (LPCTSTR)CPathUtils::GetFileExtFromPath(sSavePath));
-						}
+						sSavePath += _T(".jpg");
+						ret = GetEncoderClsid(L"image/jpeg", &encoderClsid);
+					}
+					if (ret >= 0)
+					{
+						CStringW tfile = CStringW(sSavePath);
+						bitmap.Save(tfile, &encoderClsid, NULL);
 					}
 					else
 					{
-						sErrormessage.LoadString(IDS_REVGRAPH_ERR_NOBITMAP);
+						sErrormessage.Format(IDS_REVGRAPH_ERR_NOENCODER, (LPCTSTR)CPathUtils::GetFileExtFromPath(sSavePath));
 					}
 				}
-				dc.SelectObject(oldbm);
-				DeleteObject(hbm);
-				GdiplusShutdown(gdiplusToken);
+				else
+				{
+					sErrormessage.LoadString(IDS_REVGRAPH_ERR_NOBITMAP);
+				}
 			}
-			else
-			{
-				sErrormessage.LoadString(IDS_REVGRAPH_ERR_GDIINIT);
-			}
+			dc.SelectObject(oldbm);
+			DeleteObject(hbm);
 			dc.DeleteDC();
 			if (!sErrormessage.IsEmpty())
 			{
