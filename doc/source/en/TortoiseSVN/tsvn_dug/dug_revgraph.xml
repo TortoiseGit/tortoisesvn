@@ -48,23 +48,52 @@
 	<sect2 id="tsvn-dug-revgraph-nodes">
 		<title>Revision Graph Nodes</title>
 		<para>
-			The revision graph shows several types of node:
+			Each revision graph node represents a revision in the repository
+			where something changed in the tree you are looking at.
+			Different types of node can be distinguished by shape and colour.
+			The shapes are fixed, but colours can be set using
+			<menuchoice>
+				<guimenu>TortoiseSVN</guimenu>
+				<guimenuitem>Settings</guimenuitem>
+			</menuchoice>
 			<variablelist>
 				<varlistentry>
-					<term>Added file/folder</term>
+					<term>Added or copied items</term>
 					<listitem>
 						<para>
 							Items which have been added, or created by copying
 							another file/folder are shown using a rounded rectangle.
+							The default colour is green. Tags are treated as a
+							special case and use a different shade.
 						</para>
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>Deleted file/folder</term>
+					<term>Deleted items</term>
 					<listitem>
 						<para>
 							Deleted items eg. a branch which is no longer required,
 							are shown using an octagon (rectangle with corners cut off).
+							The default colour is red.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Renamed items</term>
+					<listitem>
+						<para>
+							Renamed items are also shown using an octagon,
+							but the default colour is blue.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Replaced items</term>
+					<listitem>
+						<para>
+							A replaced item is one where the original item has been
+							deleted and replaced with another item of the same name.
+							The default colour is green.
 						</para>
 					</listitem>
 				</varlistentry>
@@ -80,7 +109,7 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>Normal file/folder</term>
+					<term>Normal item</term>
 					<listitem>
 						<para>
 							All other items are shown using a plain rectangle.
@@ -91,10 +120,12 @@
 		</para>
 		<para>
 			Note that by default the graph only shows the points at which items were
-			added or deleted. Showing every revision of a project will generate a very
-			large graph for non-trivial cases. If you really want to see
-			<emphasis>all</emphasis> revisions where changes were made, there is an
-			option to do this in the <guilabel>View</guilabel> menu and on the toolbar.
+			added, copied or deleted. Showing every revision of a project where simple
+			modifications too place will generate a very large graph for non-trivial
+			cases.
+			If you really want to see <emphasis>all</emphasis> revisions where
+			changes were made, there is an option to do this in the
+			<guilabel>View</guilabel> menu and on the toolbar.
 		</para>
 	</sect2>
 	<sect2 id="tsvn-dug-revgraph-views">
@@ -136,6 +167,58 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
+					<term>Align trees on top</term>
+					<listitem>
+						<para>
+							When a graph is broken into several smaller trees, the
+							trees may appear either in natural revision order, or
+							aligned at the bottom of the window, depending on whether
+							you are using the <guilabel>Group Branches</guilabel>
+							option. Use this option to grow all trees down from the
+							top instead.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Reduce cross lines</term>
+					<listitem>
+						<para>
+							If the layout of the graph has produced a lot of
+							crossing lines, use this option to clean it up.
+							This may make the layout columns appear in less
+							logical places, for example in a diagonal line
+							rather than a column, and it may take a little time
+							to optimise.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Differential path names</term>
+					<listitem>
+						<para>
+							Long path names can take a lot of space and make the
+							node boxes very large. Use this option to show only
+							the changed part of a path, replacing the common part
+							with dots. e.g. if you create a branch
+							<literal>/branches/1.2.x/doc/html</literal> from
+							<literal>/trunk/doc/html</literal> the branch could
+							be shown in compact form as
+							<literal>/branches/1.2.x/.</literal>
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Show all revisions</term>
+					<listitem>
+						<para>
+							This does just what you expect and shows every revision
+							where something (in the tree that you are graphing) has
+							changed. For long histories this can produce a truly
+							huge graph.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
 					<term>Show HEAD revisions</term>
 					<listitem>
 						<para>
@@ -172,15 +255,49 @@
 					</listitem>
 				</varlistentry>
 				<varlistentry>
-					<term>Reduce cross lines</term>
+					<term>Hide deleted paths</term>
 					<listitem>
 						<para>
-							If the layout of the graph has produced a lot of
-							crossing lines, use this option to clean it up.
-							This may make the layout columns appear in less
-							logical places, for example in a diagonal line
-							rather than a column, and it may take a little time
-							to optimise.
+							Hides paths which are no longer present at the HEAD
+							revision of the repository, e.g. deleted branches.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Hide unused branches</term>
+					<listitem>
+						<para>
+							Hides branches where no changes were committed that affect
+							the tree being graphed before the branch was deleted. This
+							does not necessarily indicate that the branch was not
+							used, just that no changes were made to <emphasis>this</emphasis>
+							part of it.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Show WC revision</term>
+					<listitem>
+						<para>
+							Marks the revision on the graph which corresponds to the
+							update revision of the item you fetched the graph for.
+							If you have just updated, this will be HEAD, but if others
+							have committed changes since your last update your WC
+							may be a few revisions lower down.
+							The node is marked by giving it a bold outline.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Show WC modifications</term>
+					<listitem>
+						<para>
+							If your WC contains local changes, this option draws it
+							as a separate elliptical node, linked back to the node
+							that your WC was last updated to.
+							The default outline colour is red.
+							You may need to refresh the graph using
+							<keycap>F5</keycap> to capture recent changes.
 						</para>
 					</listitem>
 				</varlistentry>
@@ -192,6 +309,26 @@
 							than you want to see. This option opens a dialog which
 							allows you to restrict the range of revisions
 							displayed, and to hide particular paths by name.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Tree stripes</term>
+					<listitem>
+						<para>
+							Where the graph contains several trees, it is sometimes
+							useful to use alternating colours on the background to
+							help distinguish between trees,
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Show overview</term>
+					<listitem>
+						<para>
+							Shows a small picture of the entire graph, with the current
+							view window as a rectangle which you can drag. This allows
+							you to navigate the graph more easily.
 						</para>
 					</listitem>
 				</varlistentry>
