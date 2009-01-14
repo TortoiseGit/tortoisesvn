@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-27 15:03+0100\n"
+"PO-Revision-Date: 2009-01-01 23:29+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1520,6 +1520,11 @@ msgstr "Rozšírené nastavenia zlučovania"
 #. Resource IDs: (65535)
 msgid "Age"
 msgstr "Vek"
+
+#. Resource IDs: (32822)
+#, fuzzy
+msgid "Align trees on top"
+msgstr "Najstarší nav&rchu"
 
 #. Resource IDs: (1007)
 msgid "All Commands"
@@ -3850,10 +3855,23 @@ msgstr ""
 msgid "Finished!"
 msgstr "Ukončené!"
 
+#. Resource IDs: (32804)
+#, fuzzy
+msgid "Fit graph"
+msgstr "Koláčový graf"
+
+#. Resource IDs: (32802)
+msgid "Fit height"
+msgstr ""
+
 # Spojiť, naviazať
 #. Resource IDs: (32810)
 msgid "Fit image &sizes"
 msgstr "Zväčšiť obrá&zky na veľkosť okna"
+
+#. Resource IDs: (32803)
+msgid "Fit width"
+msgstr ""
 
 #. Resource IDs: (89)
 #, fuzzy
@@ -4249,9 +4267,9 @@ msgstr "ID:32814:V C +L"
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
-#. Accelerator Entry for Menu ID:32822; ''
-msgid "ID:32822:V C +F"
-msgstr "ID:32822:V C +F"
+#. Accelerator Entry for Menu ID:32824; ''
+msgid "ID:32824:V C +F"
+msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
@@ -4660,6 +4678,7 @@ msgid "Invalid Currency."
 msgstr "Chybná mena."
 
 #. Resource IDs: (102)
+#, fuzzy
 msgid "Invalid data object dropped!"
 msgstr "Odstránený chybný dátový objekt!"
 
@@ -7185,6 +7204,10 @@ msgstr "Šel"
 msgid "Shell Icon Cache was rebuilt!"
 msgstr "Pamäť ikoniek šelu bola prebudované!"
 
+#. Resource IDs: (2052)
+msgid "Shift trees to the top of the window. Alignment to other trees will be lost."
+msgstr ""
+
 #. Resource IDs: (101)
 msgid "Sho&w properties"
 msgstr "Z&obraz vlastnosti"
@@ -7322,6 +7345,11 @@ msgstr "Zobraz rozdiely &unifikovaným porovnaním"
 #. Resource IDs: (1126)
 msgid "Show excluded folders as normal"
 msgstr "Zobraziť vylúčené adresáre ako normálne"
+
+#. Resource IDs: (1480)
+#, fuzzy
+msgid "Show externals from different repositories"
+msgstr "Vymaže uložené správy denníka z %ld úložísk"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -7629,6 +7657,28 @@ msgstr "SubVersioN"
 #. Resource IDs: (65535)
 msgid "Subversion configuration &file:"
 msgstr "Konfiguračný &súbor Subversion:"
+
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Subversion encountered a serious problem.\n"
+"Please take the time to report this on our mailing list\n"
+"with as much information as possible about what\n"
+"you were trying to do.\n"
+"\n"
+"Subversion encountered the problem in:\file %s, line %ld\n"
+"expression = %s"
+msgstr ""
+
+#. Resource IDs: (84)
+msgid ""
+"Subversion encountered a serious problem.\n"
+"Please take the time to report this on our mailing list\n"
+"with as much information as possible about what\n"
+"you were trying to do.\n"
+"\n"
+"Subversion reported the following:"
+msgstr ""
 
 #. Resource IDs: (79)
 msgid ""
@@ -8172,6 +8222,18 @@ msgstr ""
 "Cieľová URL adresa\n"
 "%s\n"
 "už existuje!"
+
+#. Resource IDs: (147)
+#, fuzzy, c-format
+msgid ""
+"The target file\n"
+"%s\n"
+" already exists.\n"
+"Do you want to replace the file?"
+msgstr ""
+"Súbor\n"
+"%s\n"
+"už existuje! Chcete ho prepísať?"
 
 #. Resource IDs: (88)
 #, c-format
@@ -9266,6 +9328,7 @@ msgstr ""
 "musíte vybrať zaškrtávacie políčko 'rekurzívne'."
 
 #. Resource IDs: (105)
+#, fuzzy
 msgid ""
 "You dropped more than one file or folder to add to the repository.\n"
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
@@ -9459,6 +9522,11 @@ msgstr "Priblížiť"
 #. Resource IDs: (2049)
 msgid "Zoom out"
 msgstr "Vzdialiť"
+
+#. Resource IDs: (32801)
+#, fuzzy
+msgid "Zoom to &100%"
+msgstr "Zvačšenie 100%"
 
 #. Resource IDs: (2051)
 msgid "Zoom to fit"
