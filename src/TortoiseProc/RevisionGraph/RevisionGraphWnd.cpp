@@ -958,8 +958,11 @@ void CRevisionGraphWnd::AddSVNOps (CMenu& popup)
 		temp.LoadString(IDS_REPOBROWSE_SHOWLOG);
 		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_SHOWLOG, temp);
 		popup.AppendMenu(MF_SEPARATOR, NULL);
-		temp.LoadString(IDS_LOG_POPUP_MERGEREV);
-		popup.AppendMenu(MF_STRING | MF_ENABLED, ID_MERGETO, temp);
+		if (PathIsDirectory(m_sPath))
+		{
+			temp.LoadString(IDS_LOG_POPUP_MERGEREV);
+			popup.AppendMenu(MF_STRING | MF_ENABLED, ID_MERGETO, temp);
+		}
 	}
 	if (bothPresent)
 	{
