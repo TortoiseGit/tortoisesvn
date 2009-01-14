@@ -842,7 +842,7 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
 				}
 				HBITMAP oldbm = (HBITMAP)dc.SelectObject(hbm);
 				// paint the whole graph
-				DrawGraph(&dc, rect, 0, 0, false);
+				DrawGraph(&dc, rect, 0, 0, true);
 				// now use GDI+ to save the picture
 				CLSID   encoderClsid;
 				{
