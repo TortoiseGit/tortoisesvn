@@ -820,6 +820,8 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
 				}
 				CRect rect;
 				rect = GetGraphRect();
+				rect.bottom = (LONG)(float(rect.Height()) * m_fZoomFactor);
+				rect.right = (LONG)(float(rect.Width()) * m_fZoomFactor);
 				BITMAPINFO bmi;
 				HBITMAP hbm;
 				LPBYTE pBits;
@@ -827,8 +829,8 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
 				SecureZeroMemory(&bmi, sizeof(bmi));
 				// Fill out the fields you care about.
 				bmi.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
-				bmi.bmiHeader.biWidth = (LONG)(float(rect.Width()) * m_fZoomFactor);
-				bmi.bmiHeader.biHeight = (LONG)(float(rect.Height()) * m_fZoomFactor);
+				bmi.bmiHeader.biWidth = rect.Width();
+				bmi.bmiHeader.biHeight = rect.Height();
 				bmi.bmiHeader.biPlanes = 1;
 				bmi.bmiHeader.biBitCount = 24;
 				bmi.bmiHeader.biCompression = BI_RGB;
