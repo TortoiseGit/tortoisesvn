@@ -830,7 +830,7 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
 				bmi.bmiHeader.biWidth = (LONG)(float(rect.Width()) * m_fZoomFactor);
 				bmi.bmiHeader.biHeight = (LONG)(float(rect.Height()) * m_fZoomFactor);
 				bmi.bmiHeader.biPlanes = 1;
-				bmi.bmiHeader.biBitCount = 16;
+				bmi.bmiHeader.biBitCount = 24;
 				bmi.bmiHeader.biCompression = BI_RGB;
 
 				// Create the surface.
