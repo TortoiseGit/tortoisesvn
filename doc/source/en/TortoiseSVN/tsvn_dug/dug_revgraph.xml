@@ -411,4 +411,35 @@
 			long time.
 		</para>
 	</sect2>
+	<sect2 id="tsvn-dug-revgraph-pruning">
+		<title>Pruning Trees</title>
+		<para>
+			A large tree can be difficult to navigate and sometimes you will
+			want to hide parts of it, or break it down into a forest of
+			smaller trees. If you hover the mouse over the point where a node
+			link enters or leaves the node you will see one or more popup
+			buttons which allow you to do this.
+		</para>
+		<para>
+			<graphic fileref="../images/RevGraphCollapse.png"/>
+			Click on the minus button to collapse the attached sub-tree.
+		</para>
+		<para>
+			<graphic fileref="../images/RevGraphExpand.png"/>
+			Click on the plus button to expand a collapsed tree.
+			When a tree has been collapsed, this button remains visible
+			to indicate the hidden sub-tree.
+		</para>
+		<para>
+			<graphic fileref="../images/RevGraphSplit.png"/>
+			Click on the cross button to split the attached sub-tree
+			and show it as a separate tree on the graph.
+		</para>
+		<para>
+			<graphic fileref="../images/RevGraphJoin.png"/>
+			Click on the circle button to reattach a split tree.
+			When a tree has been split away, this button remains visible
+			to indicate that there is a separate sub-tree.
+		</para>
+	</sect2>
 </sect1>
