@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -115,7 +115,7 @@ void CSciEdit::Init(LONG lLanguage)
 			continue;
 		else if (i < 0x20 || i == ' ')
 			sWhiteSpace += (char)i;
-		else if (isalnum(i) || i == '\'')
+		else if (isalnum(i) || i == '\'' || i == '_')
 			sWordChars += (char)i;
 	}
 	Call(SCI_SETWORDCHARS, 0, (LPARAM)(LPCSTR)sWordChars);
