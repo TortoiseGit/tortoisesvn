@@ -771,22 +771,6 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
 	}
 	else
 	{
-		// to save the graph as a pixel picture (e.g. gif, png, jpeg, ...)
-		// the user needs to have GDI+ installed. So check if GDI+ is 
-		// available before we start using it.
-		TCHAR gdifindbuf[MAX_PATH];
-		_tcscpy_s(gdifindbuf, MAX_PATH, _T("gdiplus.dll"));
-		if (PathFindOnPath(gdifindbuf, NULL))
-		{
-			ATLTRACE("gdi plus found!");
-		}
-		else
-		{
-			ATLTRACE("gdi plus not found!");
-			CMessageBox::Show(m_hWnd, IDS_ERR_GDIPLUS_MISSING, IDS_APPNAME, MB_ICONERROR);
-			return;
-		}
-
 		// save the graph as a pixel picture instead of a vector picture
 		// create dc to paint on
 		try
