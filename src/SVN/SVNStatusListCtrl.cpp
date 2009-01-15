@@ -384,7 +384,7 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
 			{
 				if (sortedPathList[fcindex].IsDirectory())
 				{
-					depth = svn_depth_infinity;
+					depth = svn_depth_unknown;
 					bShowIgnoresRight = false;
 					break;
 				}
@@ -404,7 +404,7 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
 				// but not recursively
 				if (sortedPathList[nTarget].IsDirectory() || GetListEntry(sortedPathList[nTarget]) == NULL)
 				{
-					if(!FetchStatusForSingleTarget(config, status, sortedPathList[nTarget], bUpdate, sUUID, arExtPaths, false, svn_depth_infinity, bShowIgnores))
+					if(!FetchStatusForSingleTarget(config, status, sortedPathList[nTarget], bUpdate, sUUID, arExtPaths, false, svn_depth_unknown, bShowIgnores))
 					{
 						bRet = FALSE;
 					}
