@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006,2008 - TortoiseSVN
+// Copyright (C) 2003-2006,2008-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -190,6 +190,16 @@ HRESULT CProgressDlg::ShowModeless(HWND hWndParent)
 
 	if (m_bValid)
 	{
+		// the progress dialog changes the focus back to the parent when it's closed
+		// but this doesn't work properly some times, that's why we set the parent
+		// window to NULL if the 'parent' window is from a different process
+		DWORD pID = 0;
+		GetWindowThreadProcessId(hWndParent, &pID);
+		if (pID != GetCurrentProcessId())
+		{
+			hWndParent = NULL;
+		}
+
 		hr = m_pIDlg->StartProgressDialog(hWndParent, NULL, m_dwDlgFlags, NULL);
 
 		if (SUCCEEDED(hr))
