@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-01-13 17:50+0100\n"
+"PO-Revision-Date: 2009-01-16 14:51+0100\n"
 "Last-Translator: Halász Gábor <k@elitonline.hu>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -757,11 +757,11 @@ msgstr "&Kis méret"
 
 #. Resource IDs: (1493)
 msgid "&Modify color for tag copies"
-msgstr ""
+msgstr "&Kiadás átszínezése"
 
 #. Resource IDs: (1492)
 msgid "&Modify color for trunk copies"
-msgstr ""
+msgstr "&Főág átszínezése"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -1289,7 +1289,7 @@ msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
-"Lista azokról az útvonalakról, amelyeken jelenjenek meg az ikonok. Soronként egy útvonalat adj meg.\r\n"
+"Lista azokról az útvonalakról, amelyeken mindenképp jelenjenek meg az ikonok, a fenti beállításoktól függetlenül. Soronként egy útvonalat adj meg.\r\n"
 "Ha egy \"*\" karaktert adsz meg az útvonal végén, akkor a hozzá tartozó összes fájl és almappa is bele lesz véve."
 
 #. Resource IDs: (197)
@@ -1557,7 +1557,6 @@ msgid "All your changes will be lost! Do you really want to reset the toolbar '%
 msgstr "Minden módosítás el fog veszni! Biztosan alaphelyzetbe akarod állítani a(t) \"%s\" eszköztárat?"
 
 #. Resource IDs: (1484)
-#, fuzzy
 msgid "Allow ambiguous &UUIDs"
 msgstr "&Nem egyértelmű UUID-k engedélyezése"
 
@@ -1662,7 +1661,7 @@ msgid ""
 "You should know the meaning of all the settings above."
 msgstr ""
 "\"Haladó\" alapbeállítások alkalmazása. Zökkenőmentesebb működést biztosít.\n"
-"A haladó alapbeállításokhoz célszerű ismerni a fenti beállítások jelentését."
+"\vA haladó alapbeállításokhoz célszerű ismerni a fenti beállítások jelentését."
 
 #. Resource IDs: (1294)
 msgid "Apply property recursively"
@@ -2958,7 +2957,7 @@ msgstr "Törlés és &hozzáadás a kizárási listához"
 #. Resource IDs: (14)
 #, fuzzy, c-format
 msgid "Delete and ignore %d items by &extension"
-msgstr "Fájlok törlése kizárása &kiterjesztés alapján"
+msgstr "%d elem törlése kizárása &kiterjesztés alapján"
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
@@ -3211,7 +3210,7 @@ msgstr "Meghajtók"
 
 #. Resource IDs: (1315)
 msgid "Drives A: and B:"
-msgstr ""
+msgstr "A: és B: meghajtók"
 
 #. Resource IDs: (613)
 #, c-format
@@ -3934,16 +3933,6 @@ msgstr "A GDI+ inicializálása sikertelen!"
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "A GDI+ nem tudott létrehozni egy bitkép objektumot. Valószínűleg nincs elég memória."
 
-#. Resource IDs: (83)
-msgid ""
-"GDI+ is required to save the revision graph as a picture.\n"
-"You can get GDI+ from\n"
-"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
-msgstr ""
-"A GDI+ szükséges, hogy a verzió-grafikont képként elmenthesd.\n"
-"A GDI+ letölthető az alábbi címről:\n"
-"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
-
 #. Resource IDs: (284)
 msgid "Gathering information. Please wait..."
 msgstr "Információ összegyűjtése, kis türemlet..."
@@ -4197,7 +4186,7 @@ msgstr "Hogyan szeretnéd feloldani az ellentmondást?"
 
 #. Resource IDs: (65535)
 msgid "I&nclude paths:"
-msgstr "&Belevett útvonalak:"
+msgstr "&Engedélyezett útvonalak:"
 
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
@@ -4396,7 +4385,7 @@ msgid ""
 "Separate patterns by ';'."
 msgstr ""
 "Ha egy útvonalelem (két \"/\" közötti rész) megfelel\n"
-"az alábbi minták egyikének, mellékágnak lesz tekintve.\n"
+"\vaz alábbi minták egyikének, mellékágnak lesz tekintve.\n"
 "\n"
 "A mintákat kisbetűkkel add meg.\n"
 "Jokerkarakterek: \"?\" és \"*\".\n"
@@ -4412,7 +4401,7 @@ msgid ""
 "Separate patterns by ';'."
 msgstr ""
 "Ha egy útvonalelem (két \"/\" közötti rész) megfelel\n"
-"az alábbi minták egyikének, kiadásnak lesz tekintve.\n"
+"\vaz alábbi minták egyikének, kiadásnak lesz tekintve.\n"
 "\n"
 "A mintákat kisbetűkkel add meg.\n"
 "Jokerkarakterek: \"?\" és \"*\".\n"
@@ -4428,7 +4417,7 @@ msgid ""
 "Separate patterns by ';'."
 msgstr ""
 "Ha egy útvonalelem (két \"/\" közötti rész) megfelel\n"
-"az alábbi minták egyikének, főágnak lesz tekintve.\n"
+"\vaz alábbi minták egyikének, főágnak lesz tekintve.\n"
 "\n"
 "A mintákat kisbetűkkel add meg.\n"
 "Jokerkarakterek: \"?\" és \"*\".\n"
@@ -5647,7 +5636,7 @@ msgid ""
 "collapsing nodes or reducing the zoom factor."
 msgstr ""
 "Nincs elég memória!\n"
-"Próbáld meg csökkenteni a grafikon méretét, vagy a grafikon\n"
+"\vPróbáld meg csökkenteni a grafikon méretét, vagy a grafikon\n"
 "elemeinek összecsukásával, vagy a grafikon kicsinyítésével."
 
 #. Resource IDs: (563)
@@ -6194,7 +6183,7 @@ msgstr "Tulajdonság %s : Verzió %s"
 #. Resource IDs: (151)
 #, fuzzy, c-format
 msgid "Property %s : Working Base, Revision %ld"
-msgstr "Tulajdonság %s : Alappéldány, Verzió %s"
+msgstr "Tulajdonság %s : Alappéldány, Verzió %ld"
 
 #. Resource IDs: (151)
 #, c-format
@@ -7439,9 +7428,8 @@ msgid "Show excluded folders as normal"
 msgstr "Kizárt mappák megjelenítése \"normál\"-ként"
 
 #. Resource IDs: (1480)
-#, fuzzy
 msgid "Show externals from different repositories"
-msgstr "%ld db tárolóhoz tartozó összes megjegyzést töröl"
+msgstr ""
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -7764,6 +7752,14 @@ msgid ""
 "file %s, line %ld\n"
 "expression = %s"
 msgstr ""
+"A Subversion súlyos hibába ütközött.\n"
+"Kérlek szánj rá néhány percet, és jelentsd ezt a levelező listán,\n"
+"és adj meg minél több információt arról, mit csináltál,\n"
+"illetve hogy mit szerettél volna csinálni.\n"
+"\n"
+"A hiba az alábbi helyen lépett fel:\n"
+"%s fájl, %ld. sor\n"
+"kifejezés = %s"
 
 #. Resource IDs: (84)
 msgid ""
@@ -7774,6 +7770,12 @@ msgid ""
 "\n"
 "Subversion reported the following:"
 msgstr ""
+"A Subversion súlyos hibába ütközött.\n"
+"Kérlek szánj rá néhány percet, és jelentsd ezt a levelező listán,\n"
+"és adj meg minél több információt arról, mit csináltál,\n"
+"illetve hogy mit szerettél volna csinálni.\n"
+"\n"
+"A Subversion az alábbi üzenetet adta:"
 
 #. Resource IDs: (79)
 msgid ""
@@ -7928,11 +7930,11 @@ msgstr "A %d. sorban új darab kezdetének \"@@\" kellene lennie!"
 
 #. Resource IDs: (346)
 msgid "The color of creation, copy and rename nodes of tags will be shifted towards yellow."
-msgstr ""
+msgstr "A kiadásbeli műveletek (létrehozás, másolás, átnevezés) sárgább árnyalatot kapnak."
 
 #. Resource IDs: (346)
 msgid "The color of creation, copy and rename nodes of the trunk will be shifted towards green."
-msgstr ""
+msgstr "A főágbeli műveletek (létrehozás, másolás, átnevezés) zöldebb árnyalatot kapnak."
 
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
@@ -9824,7 +9826,7 @@ msgstr "http://tortoisesvn.net"
 
 #. Resource IDs: (13)
 msgid "ignored"
-msgstr "kihagyva"
+msgstr "kizárva"
 
 #. Resource IDs: (220)
 msgid "ignoring ancestry"
@@ -10336,6 +10338,20 @@ msgstr "igen"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid ""
+#~ "GDI+ is required to save the revision graph as a picture.\n"
+#~ "You can get GDI+ from\n"
+#~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
+#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
+#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+#~ "be590feaa05a&DisplayLang=en</a></u>"
+#~ msgstr ""
+#~ "A GDI+ szükséges, hogy a verzió-grafikont képként elmenthesd.\n"
+#~ "A GDI+ letölthető az alábbi címről:\n"
+#~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
+#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
+#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+#~ "be590feaa05a&DisplayLang=en</a></u>"
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "Floppy meghajtók (A: B:)"
 #~ msgid "Only record the merge"
