@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -115,13 +115,13 @@ public:
      */
     void ResetTimer();
 
-	/**
-	 * Shows the progress dialog box modal.
-	 */
-#ifdef _MFC_VER
-    HRESULT ShowModal ( CWnd* pwndParent );
-#endif
-    HRESULT ShowModal ( HWND hWndParent );
+//	/**
+//	 * Shows the progress dialog box modal.
+//	 */
+//#ifdef _MFC_VER
+//    HRESULT ShowModal ( CWnd* pwndParent );
+//#endif
+//    HRESULT ShowModal ( HWND hWndParent );
     /**
      * Shows the progress dialog box modeless.
      */

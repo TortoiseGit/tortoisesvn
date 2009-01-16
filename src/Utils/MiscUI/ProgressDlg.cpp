@@ -125,11 +125,11 @@ void CProgressDlg::SetShowProgressBar(bool bShow /* = true */)
         m_dwDlgFlags |= PROGDLG_NOPROGRESSBAR;
 }
 #ifdef _MFC_VER
-HRESULT CProgressDlg::ShowModal (CWnd* pwndParent)
-{
-	EnsureValid();
-	return ShowModal(pwndParent->GetSafeHwnd());
-}
+//HRESULT CProgressDlg::ShowModal (CWnd* pwndParent)
+//{
+//	EnsureValid();
+//	return ShowModal(pwndParent->GetSafeHwnd());
+//}
 
 HRESULT CProgressDlg::ShowModeless(CWnd* pwndParent)
 {
@@ -162,26 +162,26 @@ void CProgressDlg::FormatNonPathLine(DWORD dwLine, UINT idFormatText, ...)
 }
 
 #endif
-HRESULT CProgressDlg::ShowModal (HWND hWndParent)
-{
-	EnsureValid();
-	HRESULT hr;
-	if (m_bValid)
-	{
-
-		hr = m_pIDlg->StartProgressDialog(hWndParent,
-			NULL,
-			m_dwDlgFlags | PROGDLG_MODAL,
-			NULL);
-
-		if (SUCCEEDED(hr))
-		{
-			m_isVisible = true;
-		}
-		return hr;
-	}
-	return E_FAIL;
-}
+//HRESULT CProgressDlg::ShowModal (HWND hWndParent)
+//{
+//	EnsureValid();
+//	HRESULT hr;
+//	if (m_bValid)
+//	{
+//
+//		hr = m_pIDlg->StartProgressDialog(hWndParent,
+//			NULL,
+//			m_dwDlgFlags | PROGDLG_MODAL,
+//			NULL);
+//
+//		if (SUCCEEDED(hr))
+//		{
+//			m_isVisible = true;
+//		}
+//		return hr;
+//	}
+//	return E_FAIL;
+//}
 
 HRESULT CProgressDlg::ShowModeless(HWND hWndParent)
 {

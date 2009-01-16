@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -256,7 +256,7 @@ UINT CSettingsLogCaches::WorkerThread(LPVOID pVoid)
 	dialog->progress->SetTitle(IDS_SETTINGS_LOGCACHE_UPDATETITLE);
 	dialog->progress->SetCancelMsg(IDS_REVGRAPH_PROGCANCEL);
 	dialog->progress->SetTime();
-	dialog->progress->ShowModal (dialog->m_hWnd);
+	dialog->progress->ShowModeless(dialog->m_hWnd);
 
 	// we have to get the log from the repository root
 
