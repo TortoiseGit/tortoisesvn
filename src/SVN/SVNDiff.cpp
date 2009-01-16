@@ -391,7 +391,6 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 			CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, blame ? CTSVNPath() : url2, rev2);
 
 			m_pSVN->SetAndClearProgressInfo(&progDlg, true);	// activate progress bar
-			progDlg.ShowModeless(m_hWnd);
 			progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, (LPCTSTR)url1.GetUIPathString(), (LPCTSTR)rev1.ToString());
 
 			CBlame blamer;
