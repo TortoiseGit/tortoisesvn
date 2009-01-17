@@ -462,7 +462,12 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, svn_wc_notify_action_t actio
 			data->sActionColumnText.Format(IDS_SVNACTION_MERGEBEGINMULTIPLEREVERSE, data->merge_range.start, data->merge_range.end + 1);
 		data->bAuxItem = true;
 		break;
-	case svn_wc_notify_property_updated:
+	case svn_wc_notify_property_added:
+	case svn_wc_notify_property_modified:
+	case svn_wc_notify_property_deleted:
+	case svn_wc_notify_property_deleted_nonexistent:
+	case svn_wc_notify_revprop_set:
+	case svn_wc_notify_revprop_deleted:
 		break;
 	case svn_wc_notify_merge_completed:
 		break;
