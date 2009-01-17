@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-21 17:31+0200\n"
+"PO-Revision-Date: 2009-01-17 18:09+0200\n"
 "Last-Translator: Milen A. Radev <milen@radev.net>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -594,7 +594,7 @@ msgstr "&Търсене..."
 
 #. Resource IDs: (32778)
 msgid "&Fit Images in window"
-msgstr "&Напасване на изобраението в прозореца"
+msgstr "&Напасване на изображението в прозореца"
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -955,6 +955,10 @@ msgid "&SSH client:"
 msgstr "&Клиент за SSH:"
 
 #. Resource IDs: (65535)
+msgid "&SVN"
+msgstr "&SVN"
+
+#. Resource IDs: (65535)
 msgid "&Sat:"
 msgstr "&Насищане:"
 
@@ -968,7 +972,7 @@ msgstr "&Запис на удостоверението"
 
 #. Resource IDs: (272, 32771, 32806)
 msgid "&Save graph as..."
-msgstr "&Запис на графиката като..."
+msgstr "&Запис на диаграма като..."
 
 #. Resource IDs: (322)
 msgid "&Save list of selected files to..."
@@ -1525,6 +1529,10 @@ msgstr "Допълнителни настройки на сливане"
 msgid "Age"
 msgstr "Възраст"
 
+#. Resource IDs: (32822)
+msgid "Align trees on top"
+msgstr "Подравняване на дърветата по върха"
+
 #. Resource IDs: (1007)
 msgid "All Commands"
 msgstr "Всички команди"
@@ -1813,7 +1821,7 @@ msgstr "Назад"
 
 #. Resource IDs: (246)
 msgid "Bar Graph"
-msgstr "Лентова ревизиите"
+msgstr "Лентова диаграма"
 
 #. Resource IDs: (65535)
 msgid "Base file:"
@@ -3827,9 +3835,21 @@ msgstr ""
 msgid "Finished!"
 msgstr "Завършено!"
 
+#. Resource IDs: (32804)
+msgid "Fit graph"
+msgstr "Напасване на диаграмата"
+
+#. Resource IDs: (32802)
+msgid "Fit height"
+msgstr "Оптимален мащаб по височина"
+
 #. Resource IDs: (32810)
 msgid "Fit image &sizes"
 msgstr "Напасване на &размерите на изображението"
+
+#. Resource IDs: (32803)
+msgid "Fit width"
+msgstr "Оптимален мащаб по ширина"
 
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
@@ -3886,16 +3906,6 @@ msgstr "Грешка при инициализация на GDI+!"
 #. Resource IDs: (273)
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "Грешка при създаване на обект растерно изображение от GDI+. Най-вероятно липсва достатъчно свободна памет."
-
-#. Resource IDs: (83)
-msgid ""
-"GDI+ is required to save the revision graph as a picture.\n"
-"You can get GDI+ from\n"
-"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
-msgstr ""
-"За запис на диаграмата на ревизиите като изображение, е нужен GDI+.\n"
-"GDI+ може да изтеглите от\n"
-"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 
 #. Resource IDs: (284)
 msgid "Gathering information. Please wait..."
@@ -4222,9 +4232,9 @@ msgstr "ID:32814:V C +L"
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
-#. Accelerator Entry for Menu ID:32822; ''
-msgid "ID:32822:V C +F"
-msgstr "ID:32822:V C +F"
+#. Accelerator Entry for Menu ID:32824; ''
+msgid "ID:32824:V C +F"
+msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
@@ -4427,6 +4437,10 @@ msgid ""
 msgstr ""
 "Ако е включено, наличието на неконтролирани файлове ще отбележи състоянието на съдържащата папка като променено,\r\n"
 "т.е. тя ще получи модификация на иконката за променена папка."
+
+#. Resource IDs: (2052)
+msgid "If the graph contains multiple trees, separate them by slight variations in background color."
+msgstr "Ако диаграмата съдържа множество дървета, те се разграничават чрез лека промяна на цвета на фона."
 
 #. Resource IDs: (1439)
 msgid "If the repository can not be contacted"
@@ -5521,6 +5535,16 @@ msgstr "Не всички записи в системния регистър (�
 #. Resource IDs: (83)
 msgid "Not enough memory to complete operation."
 msgstr "Недостиг на оперативна памет за извършването на тази операция."
+
+#. Resource IDs: (273)
+msgid ""
+"Not enough memory!\n"
+"Try reducing the size of the revision graph by either\n"
+"collapsing nodes or reducing the zoom factor."
+msgstr ""
+"Недостиг на памет!\n"
+"Пробвайте да намалите размера на диаграмата на ревизиите\n"
+"или чрез свиване на възли, или чрез намаляване на мащаба."
 
 #. Resource IDs: (563)
 msgid "Not recursive"
@@ -7130,6 +7154,10 @@ msgstr "Обвивка"
 msgid "Shell Icon Cache was rebuilt!"
 msgstr "Системната кеш-памет за иконки беше възобновена!"
 
+#. Resource IDs: (2052)
+msgid "Shift trees to the top of the window. Alignment to other trees will be lost."
+msgstr "Преместване на дърветата до върха на прозореца. Губи се подравняването с други дървета."
+
 #. Resource IDs: (101)
 msgid "Sho&w properties"
 msgstr "&Свойства..."
@@ -7265,6 +7293,10 @@ msgstr "Показване на разликите като &Unified Diff"
 #. Resource IDs: (1126)
 msgid "Show excluded folders as normal"
 msgstr "Показване на изключените папки като нормални"
+
+#. Resource IDs: (1480)
+msgid "Show externals from different repositories"
+msgstr "Показване на външните от други хранилища"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -7570,6 +7602,43 @@ msgstr "Subversion"
 #. Resource IDs: (65535)
 msgid "Subversion configuration &file:"
 msgstr "&Файл с настройки на Subversion:"
+
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Subversion encountered a serious problem.\n"
+"Please take the time to report this on our mailing list\n"
+"with as much information as possible about what\n"
+"you were trying to do.\n"
+"\n"
+"Subversion encountered the problem in:\n"
+"file %s, line %ld\n"
+"expression = %s"
+msgstr ""
+"Subversion се натъкна на сериозен проблем.\n"
+"Моля, отделете време за да докладвате за това на нашия пощенски списък\n"
+"в възможно най-подробна информация за това, което\n"
+"сте се опитали да направите.\n"
+"\n"
+"Subversion се натъкна на проблем в:\n"
+"файл %s, ред %ld\n"
+"израз = %s"
+
+#. Resource IDs: (84)
+msgid ""
+"Subversion encountered a serious problem.\n"
+"Please take the time to report this on our mailing list\n"
+"with as much information as possible about what\n"
+"you were trying to do.\n"
+"\n"
+"Subversion reported the following:"
+msgstr ""
+"Subversion се натъкна на сериозен проблем.\n"
+"Моля, отделете време, за да докладвате за това на нашия пощенски списък\n"
+"в възможно най-подробна информация за това, което\n"
+"сте се опитали да направите.\n"
+"\n"
+"Subversion съобщи за следното:"
 
 #. Resource IDs: (79)
 msgid ""
@@ -8112,6 +8181,19 @@ msgstr ""
 "%s\n"
 "вече съществува!"
 
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"The target file\n"
+"%s\n"
+" already exists.\n"
+"Do you want to replace the file?"
+msgstr ""
+"Целевият файл\n"
+"%s\n"
+"вече съществува.\n"
+"Желаете ли да го замените?"
+
 #. Resource IDs: (88)
 #, c-format
 msgid ""
@@ -8503,6 +8585,10 @@ msgstr "Общ брой слети ревизии"
 #. Resource IDs: (339)
 msgid "Total number of user revision properties"
 msgstr "Общ брой потребителски свойства на ревизии"
+
+#. Resource IDs: (32821)
+msgid "Tr&ee stripes"
+msgstr "&Дървесни ленти"
 
 #. Resource IDs: (357)
 #, c-format
@@ -9382,6 +9468,10 @@ msgstr "Увеличаване"
 msgid "Zoom out"
 msgstr "Смаляване"
 
+#. Resource IDs: (32801)
+msgid "Zoom to &100%"
+msgstr "Мащаб: &100%"
+
 #. Resource IDs: (2051)
 msgid "Zoom to fit"
 msgstr "Оптимален мащаб"
@@ -10110,6 +10200,20 @@ msgstr "да"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid ""
+#~ "GDI+ is required to save the revision graph as a picture.\n"
+#~ "You can get GDI+ from\n"
+#~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
+#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
+#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+#~ "be590feaa05a&DisplayLang=en</a></u>"
+#~ msgstr ""
+#~ "За запис на диаграмата на ревизиите като изображение, е нужен GDI+.\n"
+#~ "GDI+ може да изтеглите от\n"
+#~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
+#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
+#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+#~ "be590feaa05a&DisplayLang=en</a></u>"
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "Дискетни устройства (A: B:)"
 
