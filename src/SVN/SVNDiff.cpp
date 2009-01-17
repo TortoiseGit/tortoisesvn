@@ -577,25 +577,22 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 						return false;
 					}
 				} 
-				else
+				progDlg.Stop();
+				m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+				SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+				CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(false, url1);
+				if (!blamer.BlameToFile(url1, 1, SVNRev::REV_WC, SVNRev::REV_WC, tempfile2, _T(""), TRUE, TRUE))
 				{
 					progDlg.Stop();
 					m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-					SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
-					CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(false, url1);
-					if (!blamer.BlameToFile(url1, 1, SVNRev::REV_WC, SVNRev::REV_WC, tempfile2, _T(""), TRUE, TRUE))
-					{
-						progDlg.Stop();
-						m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-						CMessageBox::Show(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-						return false;
-					}
-					CString revname, wcname;
-					revname.Format(_T("%s Revision %ld"), (LPCTSTR)url1.GetFilename(), (LONG)rev2);
-					wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)url1.GetFilename());
-					m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-					return CAppUtils::StartExtDiff(tempfile, tempfile2, revname, wcname, diffFlags);
+					CMessageBox::Show(NULL, m_pSVN->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+					return false;
 				}
+				CString revname, wcname;
+				revname.Format(_T("%s Revision %ld"), (LPCTSTR)url1.GetFilename(), (LONG)rev2);
+				wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)url1.GetFilename());
+				m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+				return CAppUtils::StartExtDiff(tempfile, tempfile2, revname, wcname, diffFlags);
 			}
 			else
 			{
@@ -619,17 +616,14 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 						return false;
 					}
 				} 
-				else
-				{
-					progDlg.Stop();
-					m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-					SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
-					CString revname, wcname;
-					revname.Format(_T("%s Revision %s"), (LPCTSTR)url1.GetFilename(), (LPCTSTR)rev2.ToString());
-					wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)url1.GetFilename());
-					m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-					return CAppUtils::StartExtDiff(tempfile, url1, revname, wcname, diffFlags);
-				}
+				progDlg.Stop();
+				m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+				SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+				CString revname, wcname;
+				revname.Format(_T("%s Revision %s"), (LPCTSTR)url1.GetFilename(), (LPCTSTR)rev2.ToString());
+				wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)url1.GetFilename());
+				m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+				return CAppUtils::StartExtDiff(tempfile, url1, revname, wcname, diffFlags);
 			}
 		}
 	}
