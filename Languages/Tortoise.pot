@@ -2298,6 +2298,11 @@ msgstr ""
 msgid "Copied from URL"
 msgstr ""
 
+#. Resource IDs: (275)
+#, c-format
+msgid "Copied from: %s@ld\r\n"
+msgstr ""
+
 #. Resource IDs: (126)
 msgid "Copied remotely"
 msgstr ""
@@ -5819,12 +5824,12 @@ msgstr ""
 
 #. Resource IDs: (272)
 #, c-format
-msgid "Revision: %ld\r\nURL: %s\r\nAuthor: %s\r\nDate: %s\r\n\r\nLogmessage:\r\n%s"
+msgid "Revision: %ld (%s)\r\nURL: %s%s\r\nAuthor: %s\r\nDate: %s\r\n\r\nLogmessage:\r\n%s"
 msgstr ""
 
 #. Resource IDs: (272)
 #, c-format
-msgid "Revision: %ld\r\nURL: %s\r\nAuthor: %s\r\nDate: %s\r\n\r\nTags (%d):%s\r\n\r\nLogmessage:\r\n%s"
+msgid "Revision: %ld (%s)\r\nURL: %s%s\r\nAuthor: %s\r\nDate: %s\r\n\r\nTags (%d):%s\r\n\r\nLogmessage:\r\n%s"
 msgstr ""
 
 #. Resource IDs: (116, 65535)
@@ -8084,8 +8089,24 @@ msgstr ""
 msgid "copied:"
 msgstr ""
 
+#. Resource IDs: (276)
+msgid "copy"
+msgstr ""
+
+#. Resource IDs: (276)
+msgid "copy source only"
+msgstr ""
+
+#. Resource IDs: (276)
+msgid "created"
+msgstr ""
+
 #. Resource IDs: (245)
 msgid "day"
+msgstr ""
+
+#. Resource IDs: (276)
+msgid "delete"
 msgstr ""
 
 #. Resource IDs: (10, 272)
@@ -8243,6 +8264,10 @@ msgstr ""
 msgid "online"
 msgstr ""
 
+#. Resource IDs: (276)
+msgid "open branch"
+msgstr ""
+
 #. Resource IDs: (1406, 1407)
 msgid "or"
 msgstr ""
@@ -8277,6 +8302,10 @@ msgstr ""
 
 #. Resource IDs: (195)
 msgid "readonly"
+msgstr ""
+
+#. Resource IDs: (276)
+msgid "rename"
 msgstr ""
 
 #. Resource IDs: (10)
@@ -8352,6 +8381,10 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "switched:"
+msgstr ""
+
+#. Resource IDs: (276)
+msgid "tagged"
 msgstr ""
 
 #. Resource IDs: (601)
