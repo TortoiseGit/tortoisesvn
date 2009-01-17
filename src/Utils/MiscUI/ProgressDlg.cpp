@@ -19,11 +19,12 @@
 #include "stdafx.h"
 #include "ProgressDlg.h"
 
-CProgressDlg::CProgressDlg() :
-			m_pIDlg(NULL),
-		    m_bValid(false),			//not valid by default
-            m_isVisible(false),
-		    m_dwDlgFlags(PROGDLG_NORMAL)
+CProgressDlg::CProgressDlg() 
+	: m_pIDlg(NULL)
+	, m_bValid(false)		//not valid by default
+	, m_isVisible(false)
+	, m_dwDlgFlags(PROGDLG_NORMAL)
+	, m_hWndProgDlg(NULL)
 {
 	EnsureValid();
 }
@@ -36,6 +37,7 @@ CProgressDlg::~CProgressDlg()
 	        m_pIDlg->StopProgressDialog();
 
     	m_pIDlg->Release();
+		m_hWndProgDlg = NULL;
     }
 }
 
@@ -187,19 +189,9 @@ HRESULT CProgressDlg::ShowModeless(HWND hWndParent)
 {
 	EnsureValid();
 	HRESULT hr = E_FAIL;
-
+	m_hWndProgDlg = NULL;
 	if (m_bValid)
 	{
-		// the progress dialog changes the focus back to the parent when it's closed
-		// but this doesn't work properly some times, that's why we set the parent
-		// window to NULL if the 'parent' window is from a different process
-		DWORD pID = 0;
-		GetWindowThreadProcessId(hWndParent, &pID);
-		if (pID != GetCurrentProcessId())
-		{
-			hWndParent = NULL;
-		}
-
 		hr = m_pIDlg->StartProgressDialog(hWndParent, NULL, m_dwDlgFlags, NULL);
 
 		if (SUCCEEDED(hr))
@@ -213,12 +205,10 @@ HRESULT CProgressDlg::ShowModeless(HWND hWndParent)
 			HRESULT hr2 = m_pIDlg->QueryInterface(IID_IOleWindow,(LPVOID *)&pOleWindow);
 			if(SUCCEEDED(hr2))
 			{
-				HWND hDlgWnd;
-
-				hr2 = pOleWindow->GetWindow(&hDlgWnd);
+				hr2 = pOleWindow->GetWindow(&m_hWndProgDlg);
 				if(SUCCEEDED(hr2))
 				{
-					ShowWindow(hDlgWnd, SW_NORMAL);
+					ShowWindow(m_hWndProgDlg, SW_NORMAL);
 				}
 				pOleWindow->Release();
 			}
@@ -259,26 +249,17 @@ void CProgressDlg::Stop()
     if ((m_isVisible)&&(m_bValid))
     {
         m_pIDlg->StopProgressDialog();
-		//Sometimes the progress dialog sticks around after stopping it,
-		//until the mouse pointer is moved over it or some other triggers.
-		//This process finds the hwnd of the progress dialog and hides it
-		//immediately.
-		IOleWindow *pOleWindow;
-		HRESULT hr=m_pIDlg->QueryInterface(IID_IOleWindow,(LPVOID *)&pOleWindow);
-		if(SUCCEEDED(hr))
+		// Sometimes the progress dialog sticks around after stopping it,
+		// until the mouse pointer is moved over it or some other triggers.
+		// We hide the window here immediately.
+		if (m_hWndProgDlg)
 		{
-			HWND hDlgWnd;
-
-			hr=pOleWindow->GetWindow(&hDlgWnd);
-			if(SUCCEEDED(hr))
-			{
-				ShowWindow(hDlgWnd, SW_HIDE);
-			}
-			pOleWindow->Release();
+			ShowWindow(m_hWndProgDlg, SW_HIDE);
 		}
         m_isVisible = false;
 		m_pIDlg->Release();
 		m_bValid = false;
+		m_hWndProgDlg = NULL;
     }
 }
 

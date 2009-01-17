@@ -172,9 +172,10 @@ public:
 	bool EnsureValid();
 
 protected:
-    IProgressDialog* m_pIDlg;
-    bool      m_bValid;
-    bool      m_isVisible;
-    DWORD     m_dwDlgFlags;
+    IProgressDialog*	m_pIDlg;
+    bool				m_bValid;
+    bool				m_isVisible;
+    DWORD				m_dwDlgFlags;
+	HWND				m_hWndProgDlg;
 };
 
