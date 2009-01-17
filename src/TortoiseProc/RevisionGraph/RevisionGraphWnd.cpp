@@ -1281,6 +1281,9 @@ BOOL CRevisionGraphWnd::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {
     CRect viewRect = GetViewRect();
 
+    LPTSTR cursorID = IDC_ARROW;
+    HINSTANCE resourceHandle = NULL;
+
 	if ((nHitTest == HTCLIENT)&&(pWnd == this)&&(viewRect.Width())&&(viewRect.Height())&&(message))
 	{
 		POINT pt;
@@ -1289,18 +1292,18 @@ BOOL CRevisionGraphWnd::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 			ScreenToClient(&pt);
 			if (m_OverviewPosRect.PtInRect(pt))
 			{
-				HCURSOR hCur = NULL;
-				if (GetKeyState(VK_LBUTTON)&0x8000)
-					hCur = LoadCursor(AfxGetResourceHandle(), MAKEINTRESOURCE(IDC_PANCURDOWN));
-				else
-					hCur = LoadCursor(AfxGetResourceHandle(), MAKEINTRESOURCE(IDC_PANCUR));
-				SetCursor(hCur);
-				return TRUE;
+                resourceHandle = AfxGetResourceHandle();
+                cursorID = GetKeyState(VK_LBUTTON) & 0x8000
+                         ? MAKEINTRESOURCE(IDC_PANCURDOWN)
+                         : MAKEINTRESOURCE(IDC_PANCUR);
 			}
 		}
 	}
-	HCURSOR hCur = LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW));
-	SetCursor(hCur);
+
+	HCURSOR hCur = LoadCursor(resourceHandle, MAKEINTRESOURCE(cursorID));
+    if (GetCursor() != hCur)
+	    SetCursor (hCur);
+
 	return TRUE;
 }
 
