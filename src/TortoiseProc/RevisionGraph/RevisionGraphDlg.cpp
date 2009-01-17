@@ -174,40 +174,6 @@ BOOL CRevisionGraphDlg::InitializeToolbar()
 	}
 	m_ToolBar.m_ZoomCombo.ShowWindow(SW_SHOW);
 
-	// set toolbar button styles
-
-	UINT styles[] = { TBBS_CHECKBOX|TBBS_CHECKED
-					, TBBS_CHECKBOX
-					, 0};
-
-	UINT itemIDs[] = { ID_VIEW_GROUPBRANCHES 
-					 , 0		// separate styles by "0"
-					 , ID_VIEW_SHOWOVERVIEW
-					 , ID_VIEW_TOPDOWN
-					 , ID_VIEW_SHOWHEAD
-					 , ID_VIEW_EXACTCOPYSOURCE
-					 , ID_VIEW_FOLDTAGS
-					 , ID_VIEW_REDUCECROSSLINES
-                     , ID_VIEW_REMOVEDELETEDONES
-                     , ID_VIEW_REMOVEUNCHANGEDBRANCHES
-                     , ID_VIEW_SHOWWCREV
-                     , ID_VIEW_SHOWWCMODIFICATION
-					 , 0};
-
-	for (UINT* itemID = itemIDs, *style = styles; *style != 0; ++itemID)
-	{
-		if (*itemID == 0)
-		{
-			++style;
-			continue;
-		}
-
-		int index = 0;
-		while (m_ToolBar.GetItemID (index) != *itemID)
-			index++;
-		m_ToolBar.SetButtonStyle (index, m_ToolBar.GetButtonStyle(index)|*style);
-	}
-
 	// fill the combo box
 
 	TCHAR* texts[] = { _T("5%")
