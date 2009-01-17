@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,6 +29,9 @@
 
 int g_shellidlist=RegisterClipboardFormat(CFSTR_SHELLIDLIST);
 
+
+// conditions:
+// (all flags set) && (none of the flags set) || (all flags set) && (none of the flags set) || ...
 CShellExt::MenuInfo CShellExt::menuInfo[] =
 {
 	{ ShellMenuCheckout,					MENUCHECKOUT,		IDI_CHECKOUT,			IDS_MENUCHECKOUT,			IDS_MENUDESCCHECKOUT,
@@ -46,7 +49,7 @@ CShellExt::MenuInfo CShellExt::menuInfo[] =
 	ITEMIS_INSVN|ITEMIS_ONLYONE, ITEMIS_FOLDER|ITEMIS_NORMAL, ITEMIS_TWO, 0, 0, 0, 0, 0 },
 
 	{ ShellMenuPrevDiff,					MENUPREVDIFF,			IDI_DIFF,				IDS_MENUPREVDIFF,			IDS_MENUDESCPREVDIFF,
-	ITEMIS_INSVN|ITEMIS_ONLYONE, ITEMIS_FOLDER, 0, 0, 0, 0, 0, 0 },
+	ITEMIS_INSVN|ITEMIS_ONLYONE, ITEMIS_FOLDER|ITEMIS_ADDED, 0, 0, 0, 0, 0, 0 },
 
 	{ ShellMenuUrlDiff,						MENUURLDIFF,		IDI_DIFF,				IDS_MENUURLDIFF,			IDS_MENUDESCURLDIFF,
 	ITEMIS_INSVN|ITEMIS_ONLYONE|ITEMIS_EXTENDED, 0, ITEMIS_FOLDERINSVN|ITEMIS_EXTENDED|ITEMIS_ONLYONE, 0, 0, 0, 0, 0 },
@@ -298,6 +301,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 										itemStates |= ITEMIS_FILEEXTERNAL;
 									if (stat.status->tree_conflict)
 										itemStates |= ITEMIS_CONFLICTED;
+									if ((stat.status->entry)&&(stat.status->entry->copyfrom_url))
+										itemStates |= ITEMIS_ADDEDWITHHISTORY;
 								}
 								else
 								{
@@ -395,6 +400,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 											itemStates |= ITEMIS_FILEEXTERNAL;
 										if (stat.status->tree_conflict)
 											itemStates |= ITEMIS_CONFLICTED;
+										if ((stat.status->entry)&&(stat.status->entry->copyfrom_url))
+											itemStates |= ITEMIS_ADDEDWITHHISTORY;
 									}	
 									else
 									{
@@ -512,6 +519,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 						itemStatesFolder |= ITEMIS_ADDED;
 					if (status == svn_wc_status_deleted)
 						itemStatesFolder |= ITEMIS_DELETED;
+					if ((stat.status->entry)&&(stat.status->entry->copyfrom_url))
+						itemStates |= ITEMIS_ADDEDWITHHISTORY;
 				}
 				else
 				{
@@ -574,6 +583,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
 							}
 							if ((stat.status->entry)&&(stat.status->entry->uuid))
 								uuidTarget = CUnicodeUtils::StdGetUnicode(stat.status->entry->uuid);
+							if ((stat.status->entry)&&(stat.status->entry->copyfrom_url))
+								itemStates |= ITEMIS_ADDEDWITHHISTORY;
 						}
 					}
 					catch ( ... )
