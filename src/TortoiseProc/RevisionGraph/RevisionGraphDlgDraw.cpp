@@ -313,16 +313,21 @@ void CRevisionGraphWnd::DrawNode(Graphics& graphics, const RectF& rect,
     }
 }
 
+RectF CRevisionGraphWnd::TransformRectToScreen (const CRect& rect, const CSize& offset) const
+{
+    PointF leftTop ( rect.left * m_fZoomFactor
+                   , rect.top * m_fZoomFactor);
+	return RectF ( leftTop.X - offset.cx
+                 , leftTop.Y - offset.cy
+                 , rect.right * m_fZoomFactor - leftTop.X - 1
+                 , rect.bottom * m_fZoomFactor - leftTop.Y);
+}
+
 RectF CRevisionGraphWnd::GetNodeRect (const ILayoutNodeList::SNode& node, const CSize& offset) const
 {
     // get node and position
 
-    PointF leftTop ( node.rect.left * m_fZoomFactor
-                   , node.rect.top * m_fZoomFactor);
-	RectF noderect ( leftTop.X - offset.cx
-                   , leftTop.Y - offset.cy
-                   , node.rect.right * m_fZoomFactor - leftTop.X - 1
-                   , node.rect.bottom * m_fZoomFactor - leftTop.Y);
+    RectF noderect (TransformRectToScreen (node.rect, offset));
 
     // show two separate lines for touching nodes, 
     // unless the scale is too small
@@ -333,6 +338,36 @@ RectF CRevisionGraphWnd::GetNodeRect (const ILayoutNodeList::SNode& node, const 
     // done
 
     return noderect;
+}
+
+RectF CRevisionGraphWnd::GetBranchCover 
+    ( const ILayoutNodeList* nodeList
+    , index_t nodeIndex
+    , bool upward
+    , const CSize& offset)
+{
+    // construct a rect that covers the respective branch
+
+    CRect cover (0, 0, 0, 0);
+    while (nodeIndex != NO_INDEX)
+    {
+        ILayoutNodeList::SNode node = nodeList->GetNode (nodeIndex);
+        cover |= node.rect;
+
+        const CVisibleGraphNode* nextNode = upward
+            ? node.node->GetPrevious()
+            : node.node->GetNext();
+
+        nodeIndex = nextNode == NULL ? NO_INDEX : nextNode->GetIndex();
+    }
+
+    // expand it just a little to make it look nicer
+
+    cover.InflateRect (10, 2, 10, 2);
+
+    // and now, transfrom it
+
+    return TransformRectToScreen (cover, offset);
 }
 
 void CRevisionGraphWnd::DrawShadows (Graphics& graphics, const CRect& logRect, const CSize& offset)
@@ -535,9 +570,12 @@ void CRevisionGraphWnd::DrawGlyphs
 
 void CRevisionGraphWnd::IndicateGlyphDirection
     ( Graphics& graphics
+    , const ILayoutNodeList* nodeList
+    , const ILayoutNodeList::SNode& node
     , const RectF& nodeRect
     , DWORD glyphs
-    , bool upsideDown)
+    , bool upsideDown
+    , const CSize& offset)
 {
     // shortcut
 
@@ -550,68 +588,59 @@ void CRevisionGraphWnd::IndicateGlyphDirection
     bool indicateRight = (glyphs & CGraphNodeStates::COLLAPSED_RIGHT) != 0;
     bool indicateBelow = (glyphs & CGraphNodeStates::COLLAPSED_BELOW) != 0;
 
-    if (upsideDown)
-        std::swap (indicateAbove, indicateBelow);
+    // fill indication area a semi-transparent blend of red 
+    // and the background color
 
-    // fill indication area with a gradient starting
-    // from slightly transparent background color to fully transparent
+    Color color;
+    color.SetFromCOLORREF (GetSysColor(COLOR_WINDOW));
+    color.SetValue ((color.GetValue() & 0x807f7f7f) + 0x800000);
 
-    Color startColor;
-    startColor.SetFromCOLORREF (GetSysColor(COLOR_WINDOW));
-    startColor.SetValue (startColor.GetValue() & 0xC0ffffff);
-    Color transparent;
-    transparent.SetFromCOLORREF (GetSysColor(COLOR_WINDOW));
-    transparent.SetValue (transparent.GetValue() & 0xffffff);
+    SolidBrush brush (color);
 
     // draw the indication (only one condition should match)
-    // as fan-out areas starting at the respective node edge
 
-    float length = 250.0f * m_fZoomFactor;
-    float spread = 100.0f * m_fZoomFactor;
+    RectF glyphCenter = indicateAbove ^ upsideDown
+        ? RectF (nodeRect.X, nodeRect.Y - 1.0f, 0.0f, 0.0f)
+        : RectF (nodeRect.X, nodeRect.GetBottom() - 1.0f, 0.0f, 0.0f);
 
     if (indicateAbove)
     {
-        PointF points[4];
-        points[0] = PointF (nodeRect.GetLeft(), nodeRect.GetTop());
-        points[1] = PointF (nodeRect.GetRight(), nodeRect.GetTop());
-        points[2] = PointF (nodeRect.GetRight() + spread, nodeRect.GetTop() - length);
-        points[3] = PointF (nodeRect.GetLeft() - spread, nodeRect.GetTop() - length);
+        const CVisibleGraphNode* firstAffected 
+            = node.node->GetCopySource() == NULL
+            ? node.node->GetPrevious()
+            : node.node->GetCopySource();
 
-        PointF gradientStart (nodeRect.GetLeft(), nodeRect.GetTop());
-        PointF gradientEnd (nodeRect.GetLeft(), nodeRect.GetTop() - length);
-        LinearGradientBrush brush (gradientStart, gradientEnd, startColor, transparent);
+        assert (firstAffected);
+        RectF branchCover 
+            = GetBranchCover (nodeList, firstAffected->GetIndex(), true, offset);
+        RectF::Union (branchCover, branchCover, glyphCenter);
 
-        graphics.FillPolygon (&brush, points, 4);
-    }
-
-    if (indicateBelow)
-    {
-        PointF points[4];
-        points[0] = PointF (nodeRect.GetLeft(), nodeRect.GetBottom());
-        points[1] = PointF (nodeRect.GetRight(), nodeRect.GetBottom());
-        points[2] = PointF (nodeRect.GetRight() + spread, nodeRect.GetBottom() + length);
-        points[3] = PointF (nodeRect.GetLeft() - spread, nodeRect.GetBottom() + length);
-
-        PointF gradientStart (nodeRect.GetLeft(), nodeRect.GetBottom());
-        PointF gradientEnd (nodeRect.GetLeft(), nodeRect.GetBottom() + length);
-        LinearGradientBrush brush (gradientStart, gradientEnd, startColor, transparent);
-
-        graphics.FillPolygon (&brush, points, 4);
+        graphics.FillRectangle (&brush, branchCover);
     }
 
     if (indicateRight)
     {
-        PointF points[4];
-        points[0] = PointF (nodeRect.GetRight(), nodeRect.GetTop());
-        points[1] = PointF (nodeRect.GetRight(), nodeRect.GetBottom());
-        points[2] = PointF (nodeRect.GetRight() + length, nodeRect.GetBottom() + spread);
-        points[3] = PointF (nodeRect.GetRight() + length, nodeRect.GetTop() - spread);
+        for ( const CVisibleGraphNode::CCopyTarget* branch 
+                = node.node->GetFirstCopyTarget()
+            ; branch != NULL
+            ; branch = branch->next())
+        {
+            RectF branchCover 
+                = GetBranchCover (nodeList, branch->value()->GetIndex(), false, offset);
+            graphics.FillRectangle (&brush, branchCover);
+        }
+    }
 
-        PointF gradientStart (nodeRect.GetRight(), nodeRect.GetTop());
-        PointF gradientEnd (nodeRect.GetRight() + length, nodeRect.GetTop());
-        LinearGradientBrush brush (gradientStart, gradientEnd, startColor, transparent);
+    if (indicateBelow)
+    {
+        const CVisibleGraphNode* firstAffected 
+            = node.node->GetNext();
 
-        graphics.FillPolygon (&brush, points, 4);
+        RectF branchCover 
+            = GetBranchCover (nodeList, firstAffected->GetIndex(), false, offset);
+        RectF::Union (branchCover, branchCover, glyphCenter);
+
+        graphics.FillRectangle (&brush, branchCover);
     }
 }
 
@@ -844,7 +873,7 @@ void CRevisionGraphWnd::DrawCurrentNodeGlyphs (Graphics& graphics, Image* glyphs
         const CFullGraphNode* base = node.node->GetBase();
         DWORD flags = m_nodeStates.GetFlags (base);
 
-        IndicateGlyphDirection (graphics, noderect, m_hoverGlyphs, upsideDown);
+        IndicateGlyphDirection (graphics, nodeList.get(), node, noderect, m_hoverGlyphs, upsideDown, offset);
         DrawGlyphs (graphics, glyphs, node.node, noderect, flags, m_hoverGlyphs, upsideDown);
     }
 }

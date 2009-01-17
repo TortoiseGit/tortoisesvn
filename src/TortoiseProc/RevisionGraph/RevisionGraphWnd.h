@@ -271,7 +271,9 @@ private:
 	void			DrawNode(Graphics& graphics, const RectF& rect,
 							 COLORREF contourRef, Color overlayColor,
                              const CVisibleGraphNode *node, NodeShape shape);
+    RectF           TransformRectToScreen (const CRect& rect, const CSize& offset) const;
     RectF           GetNodeRect (const ILayoutNodeList::SNode& node, const CSize& offset) const;
+    RectF           GetBranchCover (const ILayoutNodeList* nodeList, index_t nodeIndex, bool upward, const CSize& offset);
 
     void            DrawSquare (Graphics& graphics, const PointF& leftTop, 
                                 const Color& lightColor, const Color& darkColor, const Color& penColor);
@@ -283,8 +285,9 @@ private:
                                 DWORD state, DWORD allowed, bool upsideDown);
     void            DrawMarker (Graphics& graphics, const PointF& leftTop, 
                                 const Color& lightColor, const Color& darkColor);
-    void            IndicateGlyphDirection ( Graphics& graphics, const RectF& nodeRect
-                                           , DWORD glyphs, bool upsideDown);
+    void            IndicateGlyphDirection ( Graphics& graphics, const ILayoutNodeList* nodeList    
+                                           , const ILayoutNodeList::SNode& node, const RectF& nodeRect
+                                           , DWORD glyphs, bool upsideDown, const CSize& offset);
 
     void            DrawStripes (Graphics& graphics, const CSize& offset);
 
