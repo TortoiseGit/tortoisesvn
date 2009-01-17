@@ -234,7 +234,7 @@ void CStrictOrderNodePositioning::AssignRows
         {
             CStandardLayoutNodeInfo* node = nodes[i].second;
             int column = node->treeShift.cx;
-            int height = node->rect.Height();
+            int height = node->requiredSize.cy;
 
             columnTops[column] = rowStart + height;
             node->treeShift.cy = rowStart;
