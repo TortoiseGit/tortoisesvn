@@ -432,11 +432,13 @@ BOOL CTortoiseMergeApp::InitInstance()
 	pFrame->ActivateFrame();
 	pFrame->ShowWindow(SW_SHOW);
 	pFrame->UpdateWindow();
+	pFrame->ShowDiffBar(!pFrame->m_bOneWay);
 	if (!pFrame->m_Data.IsBaseFileInUse() && pFrame->m_Data.m_sPatchPath.IsEmpty() && pFrame->m_Data.m_sDiffFile.IsEmpty())
 	{
 		pFrame->OnFileOpen();
 		return TRUE;
 	}
+
 	return pFrame->LoadViews();
 }
 

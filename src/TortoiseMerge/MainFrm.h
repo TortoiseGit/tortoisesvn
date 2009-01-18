@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2008 - TortoiseSVN
+// Copyright (C) 2006-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -107,6 +107,14 @@ protected:
 	afx_msg void	OnViewLinediffbar();
 	afx_msg void	OnUpdateViewLocatorbar(CCmdUI *pCmdUI);
 	afx_msg void	OnViewLocatorbar();
+	afx_msg void	OnEditUseleftblock();
+	afx_msg void	OnUpdateEditUseleftblock(CCmdUI *pCmdUI);
+	afx_msg void	OnEditUseleftfile();
+	afx_msg void	OnUpdateEditUseleftfile(CCmdUI *pCmdUI);
+	afx_msg void	OnEditUseblockfromleftbeforeright();
+	afx_msg void	OnUpdateEditUseblockfromleftbeforeright(CCmdUI *pCmdUI);
+	afx_msg void	OnEditUseblockfromrightbeforeleft();
+	afx_msg void	OnUpdateEditUseblockfromrightbeforeleft(CCmdUI *pCmdUI);
 
 	DECLARE_MESSAGE_MAP()
 protected:
@@ -167,14 +175,8 @@ public:
 	bool			m_bReadOnly;
 	bool			m_bBlame;
 	int				m_nMoveMovesToIgnore;
-	afx_msg void OnEditUseleftblock();
-	afx_msg void OnUpdateEditUseleftblock(CCmdUI *pCmdUI);
-	afx_msg void OnEditUseleftfile();
-	afx_msg void OnUpdateEditUseleftfile(CCmdUI *pCmdUI);
-	afx_msg void OnEditUseblockfromleftbeforeright();
-	afx_msg void OnUpdateEditUseblockfromleftbeforeright(CCmdUI *pCmdUI);
-	afx_msg void OnEditUseblockfromrightbeforeleft();
-	afx_msg void OnUpdateEditUseblockfromrightbeforeleft(CCmdUI *pCmdUI);
+
+	void			ShowDiffBar(bool bShow);
 };
 
 
