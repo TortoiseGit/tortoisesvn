@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -123,6 +123,7 @@ SVNSLC_SHOWINCOMPLETE|SVNSLC_SHOWEXTERNAL|SVNSLC_SHOWINEXTERNALS)
 #define SVNSLC_POPREPAIRMOVE			0x00040000
 #define SVNSLC_POPCHANGELISTS			0x00080000
 #define SVNSLC_POPBLAME					0x00100000
+#define SVNSLC_POPCREATEPATCH			0x00200000
 
 #define SVNSLC_IGNORECHANGELIST			_T("ignore-on-commit")
 

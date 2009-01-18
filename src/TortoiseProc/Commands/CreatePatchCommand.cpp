@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -36,7 +36,7 @@ bool CreatePatchCommand::Execute()
 	CString savepath = CPathUtils::GetLongPathname(parser.GetVal(_T("savepath")));
 	CCreatePatch dlg;
 	dlg.m_pathList = pathList;
-	if (dlg.DoModal()==IDOK)
+	if (parser.HasKey(_T("noui"))||(dlg.DoModal()==IDOK))
 	{
 		if (cmdLinePath.IsEmpty())
 		{

@@ -94,9 +94,10 @@ const UINT CSVNStatusListCtrl::SVNSLNM_CHECKCHANGED
 #define IDSVNLC_ADD_RECURSIVE   32
 #define IDSVNLC_COMPAREWC		33
 #define IDSVNLC_BLAME			34
+#define IDSVNLC_CREATEPATCH		35
 // the IDSVNLC_MOVETOCS *must* be the last index, because it contains a dynamic submenu where 
 // the submenu items get command ID's sequent to this number
-#define IDSVNLC_MOVETOCS		35
+#define IDSVNLC_MOVETOCS		36
 
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
@@ -2433,6 +2434,15 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 						popup.AppendMenuIcon(IDSVNLC_UNLOCKFORCE, IDS_MENU_UNLOCKFORCE, IDI_UNLOCK);
 					}
 				}
+				if ((!entry->IsFolder())&&(wcStatus >= svn_wc_status_normal)
+					&&(wcStatus!=svn_wc_status_missing)&&(wcStatus!=svn_wc_status_deleted))
+				{
+					if (m_dwContextMenus & SVNSLC_POPCREATEPATCH)
+					{
+						popup.AppendMenu(MF_SEPARATOR);
+						popup.AppendMenuIcon(IDSVNLC_CREATEPATCH, IDS_MENUCREATEPATCH, IDI_CREATEPATCH);
+					}
+				}
 
 				if (wcStatus != svn_wc_status_missing && wcStatus != svn_wc_status_deleted &&wcStatus!=svn_wc_status_unversioned)
 				{
@@ -2777,6 +2787,20 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 			case IDSVNLC_EXPLORE:
 				{
 					ShellExecute(this->m_hWnd, _T("explore"), filepath.GetDirectory().GetWinPath(), NULL, NULL, SW_SHOW);
+				}
+				break;
+			case IDSVNLC_CREATEPATCH:
+				{
+					CTSVNPathList targetList;
+					FillListOfSelectedItemPaths(targetList);
+
+					CString sTempFile = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString();
+					targetList.WriteToFile(sTempFile, false);
+					CString sCmd;
+					sCmd.Format(_T("\"%s\" /command:createpatch /pathfile:\"%s\" /deletepathfile /noui"),
+						(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)sTempFile);
+
+					CAppUtils::LaunchApplication(sCmd, NULL, false);
 				}
 				break;
 			case IDSVNLC_REMOVE:
