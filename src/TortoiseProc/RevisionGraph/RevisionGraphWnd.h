@@ -17,11 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-#include "RevisionGraph/FullHistory.h"
-#include "RevisionGraph/FullGraph.h"
-#include "RevisionGraph/VisibleGraph.h"
-#include "RevisionGraph/IRevisionGraphLayout.h"
-#include "RevisionGraph/GraphNodeState.h"
+#include "RevisionGraph/RevisionGraphState.h"
 #include "ProgressDlg.h"
 #include "Colors.h"
 #include "SVNDiff.h"
@@ -63,9 +59,6 @@ enum NodeShape
 
 // forward declarations
 
-class CVisibleGraphNode;
-class IRevisionGraphLayout;
-class CAllRevisionGraphOptions;
 class CRevisionGraphDlg;
 
 /**
@@ -91,19 +84,16 @@ public:
     SVNRev          m_pegRev;
 	volatile LONG	m_bThreadRunning;
 	CProgressDlg* 	m_pProgress;
-    bool            m_bFetchedWCState;
+
+    CRevisionGraphState m_state;
 
 	void			InitView();
 	void			Init(CWnd * pParent, LPRECT rect);
 	void			SaveGraphAs(CString sSavePath);
 
     bool            FetchRevisionData ( const CString& path
-                                      , SVNRev pegRevision
-                                      , const CAllRevisionGraphOptions& options);
+                                      , SVNRev pegRevision);
     bool            AnalyzeRevisionData();
-    const CString&  GetLastErrorMessage() const;
-
-    const CGraphNodeStates* GetNodeStates() const;
 
     bool            GetShowOverview() const;
     void            SetShowOverview (bool value);
@@ -115,16 +105,10 @@ public:
 	CRect           GetClientRect();
 	CRect           GetWindowRect();
 	CRect           GetViewRect();
-    int             GetNodeCount();
 	void			DoZoom(float nZoomFactor);
 	bool			CancelMouseZoom();
 
     void            SetDlgTitle (bool offline);
-
-    svn_revnum_t    GetHeadRevision() const;             
-    CString         GetRepositoryRoot() const;             
-    CString         GetRepositoryUUID() const;
-    size_t          GetTreeCount() const;
 
   	void			BuildPreview();
 
@@ -135,16 +119,7 @@ protected:
 
 	bool			m_bShowOverview;
 
-    CString         m_lastErrorMessage;
-
-    std::auto_ptr<CFullHistory>         m_fullHistory;
-    std::auto_ptr<CFullGraph>           m_fullGraph;
-    std::auto_ptr<CVisibleGraph>        m_visibleGraph;
-    std::auto_ptr<IRevisionGraphLayout> m_layout;
-
     CRevisionGraphDlg *m_parent;
-    CGraphNodeStates m_nodeStates;
-    const CAllRevisionGraphOptions* m_options;
 
 	const CVisibleGraphNode * m_SelectedEntry1;
 	const CVisibleGraphNode * m_SelectedEntry2;
@@ -192,22 +167,6 @@ protected:
 	DECLARE_MESSAGE_MAP()
 private:
 
-    /// when glyphs are shown, this will contain the list of all
-
-    struct SVisibleGlyph
-    {
-        DWORD state;
-        PointF leftTop;
-        const CVisibleGraphNode* node;
-
-        SVisibleGlyph (DWORD state, const PointF& leftTop, const CVisibleGraphNode* node)
-            : state (state), leftTop (leftTop), node (node)
-        {
-        }
-    };
-
-    std::vector<SVisibleGlyph> visibleGlyphs;
-
     enum GlyphType
     {
         NoGlyph = -1,
@@ -237,7 +196,6 @@ private:
                                    bool blame);
 
     void            Compare (TDiffFunc diffFunc, TStartDiffFunc startDiffFunc, bool bHead);
-    bool            PromptShown() const;
 
     bool            UpdateSelectedEntry (const CVisibleGraphNode * clickedentry);
     void            AddSVNOps (CMenu& popup);
@@ -257,7 +215,7 @@ private:
     CPoint          GetLogCoordinates (CPoint point) const;
     index_t         GetHitNode (CPoint point, CSize border = CSize (0, 0)) const;
     DWORD           GetHoverGlyphs (CPoint point) const;
-    const SVisibleGlyph*  GetHitGlyph (CPoint point) const;
+    const CRevisionGraphState::SVisibleGlyph* GetHitGlyph (CPoint point) const;
 
     void            ClearVisibleGlyphs (const CRect& rect);
 

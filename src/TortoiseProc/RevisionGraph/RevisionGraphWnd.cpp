@@ -70,7 +70,6 @@ CRevisionGraphWnd::CRevisionGraphWnd()
 	, m_SelectedEntry2(NULL)
 	, m_bThreadRunning(TRUE)
     , m_pProgress(NULL)
-    , m_bFetchedWCState(false)
 	, m_pDlgTip(NULL)
 	, m_nFontSize(12)
     , m_bTweakTrunkColors(true)
@@ -80,7 +79,6 @@ CRevisionGraphWnd::CRevisionGraphWnd()
 	, m_ptRubberStart(0,0)
 	, m_bShowOverview(false)
     , m_parent (NULL)
-    , m_options (NULL)
     , m_hoverIndex ((index_t)NO_INDEX)
     , m_hoverGlyphs (0)
     , m_tooltipIndex ((index_t)NO_INDEX)
@@ -213,12 +211,12 @@ index_t CRevisionGraphWnd::GetHitNode (CPoint point, CSize border) const
 {
     // any nodes at all?
 
-    if (m_layout.get() == NULL)
+    CSyncPointer<const ILayoutNodeList> nodeList (m_state.GetNodes());
+    if (!nodeList)
         return index_t(NO_INDEX);
 
     // search the nodes for one at that grid position
 
-    std::auto_ptr<const ILayoutNodeList> nodeList (m_layout->GetNodes());
     return nodeList->GetAt (GetLogCoordinates (point), border);
 }
 
@@ -227,7 +225,8 @@ DWORD CRevisionGraphWnd::GetHoverGlyphs (CPoint point) const
     // if there is no layout, there will be no nodes,
     // hence, no glyphs
 
-    if (m_layout.get() == NULL)
+    CSyncPointer<const ILayoutNodeList> nodeList (m_state.GetNodes());
+    if (!nodeList)
         return 0;
 
     // get node at point or node that is close enough 
@@ -237,7 +236,6 @@ DWORD CRevisionGraphWnd::GetHoverGlyphs (CPoint point) const
     if (nodeIndex == NO_INDEX)
         nodeIndex = GetHitNode(point, CSize (GLYPH_SIZE, GLYPH_SIZE / 2));
 
-    std::auto_ptr<const ILayoutNodeList> nodeList (m_layout->GetNodes());
     if (nodeIndex >= nodeList->GetCount())
         return 0;
 
@@ -258,7 +256,9 @@ DWORD CRevisionGraphWnd::GetHoverGlyphs (CPoint point) const
     CRect bottomGlyphArea ( center.x - GLYPH_SIZE, r.bottom - GLYPH_SIZE / 2
                           , center.x + GLYPH_SIZE, r.bottom + GLYPH_SIZE / 2);
 
-    bool upsideDown = m_options->GetOption<CUpsideDownLayout>()->IsActive();
+    bool upsideDown 
+        = m_state.GetOptions()->GetOption<CUpsideDownLayout>()->IsActive();
+
     if (upsideDown)
     {
         std::swap (topGlyphArea.top, bottomGlyphArea.top);
@@ -285,13 +285,16 @@ DWORD CRevisionGraphWnd::GetHoverGlyphs (CPoint point) const
     return 0;
 }
     
-const CRevisionGraphWnd::SVisibleGlyph* CRevisionGraphWnd::GetHitGlyph (CPoint point) const
+const CRevisionGraphState::SVisibleGlyph* CRevisionGraphWnd::GetHitGlyph (CPoint point) const
 {
     float glyphSize = GLYPH_SIZE * m_fZoomFactor;
 
-    for (size_t i = 0, count = visibleGlyphs.size(); i < count; ++i)
+    CSyncPointer<const CRevisionGraphState::TVisibleGlyphs> 
+        visibleGlyphs (m_state.GetVisibleGlyphs());
+
+    for (size_t i = 0, count = visibleGlyphs->size(); i < count; ++i)
     {
-        const SVisibleGlyph* entry = &visibleGlyphs[i];
+        const CRevisionGraphState::SVisibleGlyph* entry = &(*visibleGlyphs)[i];
 
         float xRel = point.x - entry->leftTop.X;
         float yRel = point.y - entry->leftTop.Y;
@@ -415,13 +418,18 @@ void CRevisionGraphWnd::OnLButtonDown(UINT nFlags, CPoint point)
 {
 	if (m_bThreadRunning)
 		return __super::OnLButtonDown(nFlags, point);
+
+    CSyncPointer<const ILayoutNodeList> nodeList (m_state.GetNodes());
+
 	ATLTRACE("right clicked on x=%d y=%d\n", point.x, point.y);
 	SetFocus();
 	bool bHit = false;
 	bool bControl = !!(GetKeyState(VK_CONTROL)&0x8000);
 	if (!m_bShowOverview || !m_OverviewRect.PtInRect(point))
 	{
-        const SVisibleGlyph* hitGlyph = GetHitGlyph (point);
+        const CRevisionGraphState::SVisibleGlyph* hitGlyph 
+            = GetHitGlyph (point);
+
         if (hitGlyph != NULL)
         {
             ToggleNodeFlag (hitGlyph->node, hitGlyph->state);
@@ -432,7 +440,6 @@ void CRevisionGraphWnd::OnLButtonDown(UINT nFlags, CPoint point)
             index_t nodeIndex = GetHitNode (point);
 	        if (nodeIndex != NO_INDEX)
 	        {
-                std::auto_ptr<const ILayoutNodeList> nodeList (m_layout->GetNodes());
                 const CVisibleGraphNode* reventry = nodeList->GetNode (nodeIndex).node;
 		        if (bControl)
 		        {
@@ -743,7 +750,7 @@ CString CRevisionGraphWnd::TooltipText (index_t index)
 {
     if (index != NO_INDEX)
     {
-        std::auto_ptr<const ILayoutNodeList> nodeList (m_layout->GetNodes());
+        CSyncPointer<const ILayoutNodeList> nodeList (m_state.GetNodes());
         return nodeList->GetToolTip (index);
     }
 
@@ -960,10 +967,12 @@ void CRevisionGraphWnd::AddSVNOps (CMenu& popup)
 
 void CRevisionGraphWnd::AddGraphOps (CMenu& popup, const CVisibleGraphNode * node)
 {
+    CSyncPointer<CGraphNodeStates> nodeStates (m_state.GetNodeStates());
+
     CString temp;
     if (node == NULL)
     {
-        DWORD state = m_nodeStates.GetCombinedFlags();
+        DWORD state = nodeStates->GetCombinedFlags();
         if (state != 0)
         {
             if (state & CGraphNodeStates::COLLAPSED_ALL)
@@ -984,7 +993,7 @@ void CRevisionGraphWnd::AddGraphOps (CMenu& popup, const CVisibleGraphNode * nod
         popup.AppendMenu(MF_SEPARATOR, NULL);
 
         const CFullGraphNode* base = node->GetBase();
-        DWORD state = m_nodeStates.GetFlags (base);
+        DWORD state = nodeStates->GetFlags (base);
 
         if (node->GetPrevious() || node->GetCopySource() || (state & CGraphNodeStates::COLLAPSED_ABOVE))
         {
@@ -1039,7 +1048,7 @@ void CRevisionGraphWnd::AddGraphOps (CMenu& popup, const CVisibleGraphNode * nod
 void CRevisionGraphWnd::DoShowLog()
 {
 	CString sCmd;
-	CString URL = m_fullHistory->GetRepositoryRoot() 
+	CString URL = m_state.GetRepositoryRoot() 
                 + CUnicodeUtils::GetUnicode (m_SelectedEntry1->GetPath().GetPath().c_str());
 	URL = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(URL)));
 	sCmd.Format(_T("\"%s\" /command:log /path:\"%s\" /startrev:%ld"), 
@@ -1059,7 +1068,7 @@ void CRevisionGraphWnd::DoShowLog()
 
 void CRevisionGraphWnd::DoMergeTo()
 {
-	CString URL = m_fullHistory->GetRepositoryRoot() 
+	CString URL = m_state.GetRepositoryRoot() 
                 + CUnicodeUtils::GetUnicode (m_SelectedEntry1->GetPath().GetPath().c_str());
 	URL = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(URL)));
 
@@ -1082,27 +1091,28 @@ void CRevisionGraphWnd::DoMergeTo()
 
 void CRevisionGraphWnd::ResetNodeFlags (DWORD flags)
 {
-    m_nodeStates.ResetFlags (flags);
+    m_state.GetNodeStates()->ResetFlags (flags);
     m_parent->StartWorkerThread();
 }
 
 void CRevisionGraphWnd::ToggleNodeFlag (const CVisibleGraphNode *node, DWORD flag)
 {
+    CSyncPointer<CGraphNodeStates> nodeStates (m_state.GetNodeStates());
     const CFullGraphNode* base = node->GetBase();
 
-    if (m_nodeStates.GetFlags (base) & flag)
+    if (nodeStates->GetFlags (base) & flag)
     {
-        m_nodeStates.ResetFlags (base, flag);
+        nodeStates->ResetFlags (base, flag);
     }
     else
     {
-        m_nodeStates.SetFlags (base, flag);
+        nodeStates->SetFlags (base, flag);
 
         if (flag == CGraphNodeStates::SPLIT_BELOW)
-            m_nodeStates.AddLink (base, node->GetNext()->GetBase(), flag);
+            nodeStates->AddLink (base, node->GetNext()->GetBase(), flag);
 
         if ((flag == CGraphNodeStates::SPLIT_ABOVE) && node->GetPrevious())
-            m_nodeStates.AddLink (base, node->GetPrevious()->GetBase(), flag);
+            nodeStates->AddLink (base, node->GetPrevious()->GetBase(), flag);
 
         if (flag == CGraphNodeStates::SPLIT_RIGHT)
             for ( const CVisibleGraphNode::CCopyTarget* target 
@@ -1110,7 +1120,7 @@ void CRevisionGraphWnd::ToggleNodeFlag (const CVisibleGraphNode *node, DWORD fla
                 ; target != NULL
                 ; target = target->next())
             {
-                m_nodeStates.AddLink (base, target->value()->GetBase(), flag);
+                nodeStates->AddLink (base, target->value()->GetBase(), flag);
             }
     }
 
@@ -1122,6 +1132,8 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 	if (m_bThreadRunning)
 		return;
 
+    CSyncPointer<const ILayoutNodeList> nodeList (m_state.GetNodes());
+
 	CPoint clientpoint = point;
 	this->ScreenToClient(&clientpoint);
 	ATLTRACE("right clicked on x=%d y=%d\n", clientpoint.x, clientpoint.y);
@@ -1130,12 +1142,11 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 	const CVisibleGraphNode * clickedentry = NULL;
     if (nodeIndex != NO_INDEX)
     {
-        std::auto_ptr<const ILayoutNodeList> nodeList (m_layout->GetNodes());
         clickedentry = nodeList->GetNode (nodeIndex).node;
     }
 
     if (   !UpdateSelectedEntry (clickedentry) 
-        && !m_nodeStates.GetCombinedFlags())
+        && !m_state.GetNodeStates()->GetCombinedFlags())
 		return;
 
     CMenu popup;
@@ -1232,15 +1243,15 @@ void CRevisionGraphWnd::OnMouseMove(UINT nFlags, CPoint point)
             GetCursorPos (&clientPoint);
             ScreenToClient (&clientPoint);
 
-            const SVisibleGlyph* hitGlyph = GetHitGlyph (clientPoint);
-            const CFullGraphNode* glyphNode = hitGlyph 
-                                            ? hitGlyph->node->GetBase() 
-                                            : NULL;
+            const CRevisionGraphState::SVisibleGlyph* hitGlyph 
+                = GetHitGlyph (clientPoint);
+            const CFullGraphNode* glyphNode 
+                = hitGlyph ? hitGlyph->node->GetBase() : NULL;
 
             const CFullGraphNode* hoverNode = NULL;
             if (m_hoverIndex != NO_INDEX)
             {
-                std::auto_ptr<const ILayoutNodeList> nodeList (m_layout->GetNodes());
+                CSyncPointer<const ILayoutNodeList> nodeList (m_state.GetNodes());
                 if (m_hoverIndex < nodeList->GetCount())
                     hoverNode = nodeList->GetNode (m_hoverIndex).node->GetBase();
             }
@@ -1317,11 +1328,12 @@ LRESULT CRevisionGraphWnd::OnWorkerThreadDone(WPARAM, LPARAM)
 	LogCache::CRepositoryInfo& cachedProperties 
         = svn.GetLogCachePool()->GetRepositoryInfo();
 
-    if (m_fullHistory.get() != NULL)
+    CSyncPointer<const CFullHistory> fullHistoy (m_state.GetFullHistory());
+    if (fullHistoy.get() != NULL)
     {
 	    SetDlgTitle (cachedProperties.IsOffline 
-            ( m_fullHistory->GetRepositoryUUID()
-            , m_fullHistory->GetRepositoryRoot()
+            ( fullHistoy->GetRepositoryUUID()
+            , fullHistoy->GetRepositoryRoot()
             , false));
     }
 

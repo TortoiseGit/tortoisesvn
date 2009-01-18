@@ -87,7 +87,7 @@ void CRevisionGraphWnd::OnPaint()
 		CWnd::OnPaint();
 		return;
 	}
-    else if (m_layout.get() == NULL)
+    else if (!m_state.GetNodes())
 	{
 		CString sNoGraphText;
 		sNoGraphText.LoadString(IDS_REVGRAPH_ERR_NOGRAPH);
@@ -103,9 +103,12 @@ void CRevisionGraphWnd::ClearVisibleGlyphs (const CRect& rect)
 {
     float glyphSize = GLYPH_SIZE * m_fZoomFactor;
 
-    for (size_t i = visibleGlyphs.size(), count = i; i > 0; --i)
+    CSyncPointer<CRevisionGraphState::TVisibleGlyphs> 
+        visibleGlyphs (m_state.GetVisibleGlyphs());
+
+    for (size_t i = visibleGlyphs->size(), count = i; i > 0; --i)
     {
-        const PointF& leftTop = visibleGlyphs[i-1].leftTop;
+        const PointF& leftTop = (*visibleGlyphs)[i-1].leftTop;
         CRect glyphRect ( static_cast<int>(leftTop.X)
                         , static_cast<int>(leftTop.Y)
                         , static_cast<int>(leftTop.X + glyphSize)
@@ -113,8 +116,8 @@ void CRevisionGraphWnd::ClearVisibleGlyphs (const CRect& rect)
 
         if (CRect().IntersectRect (glyphRect, rect))
         {
-            visibleGlyphs[i-1] = visibleGlyphs[--count];
-            visibleGlyphs.pop_back();
+            (*visibleGlyphs)[i-1] = (*visibleGlyphs)[--count];
+            visibleGlyphs->pop_back();
         }
     }
 }
@@ -260,7 +263,7 @@ void CRevisionGraphWnd::DrawNode(Graphics& graphics, const RectF& rect,
 
     if (   (node->GetNext() == NULL) 
         && (node->GetClassification().Is (CNodeClassification::PATH_ONLY_DELETED))
-        && ((m_nodeStates.GetFlags (node->GetBase()) & MASK) == 0))
+        && ((m_state.GetNodeStates()->GetFlags (node->GetBase()) & MASK) == 0))
     {
         contourRef = m_Colors.GetColor(CColors::DeletedNode);
     }
@@ -383,7 +386,7 @@ void CRevisionGraphWnd::DrawShadows (Graphics& graphics, const CRect& logRect, c
 
     // iterate over all visible nodes
 
-    std::auto_ptr<const ILayoutNodeList> nodes (m_layout->GetNodes());
+    CSyncPointer<const ILayoutNodeList> nodes (m_state.GetNodes());
     for ( index_t index = nodes->GetFirstVisible (logRect)
         ; index != NO_INDEX
         ; index = nodes->GetNextVisible (index, logRect))
@@ -495,22 +498,28 @@ void CRevisionGraphWnd::DrawGlyphs
 
     // 1 or 2 glyphs?
 
+    CSyncPointer<CRevisionGraphState::TVisibleGlyphs> 
+        visibleGlyphs (m_state.GetVisibleGlyphs());
+
     float squareSize = GLYPH_SIZE * m_fZoomFactor;
     if (glyph2 == NoGlyph)
     {
         PointF leftTop (center.X - 0.5f * squareSize, center.Y - 0.5f * squareSize);
         DrawGlyph (graphics, glyphs, leftTop, glyph1, position);
-        visibleGlyphs.push_back (SVisibleGlyph (state1, leftTop, node));
+        visibleGlyphs->push_back 
+            (CRevisionGraphState::SVisibleGlyph (state1, leftTop, node));
     }
     else
     {
         PointF leftTop1 (center.X - squareSize, center.Y - 0.5f * squareSize);
         DrawGlyph (graphics, glyphs, leftTop1, glyph1, position);
-        visibleGlyphs.push_back (SVisibleGlyph (state1, leftTop1, node));
+        visibleGlyphs->push_back 
+            (CRevisionGraphState::SVisibleGlyph (state1, leftTop1, node));
 
         PointF leftTop2 (center.X, center.Y - 0.5f * squareSize);
         DrawGlyph (graphics, glyphs, leftTop2, glyph2, position);
-        visibleGlyphs.push_back (SVisibleGlyph (state2, leftTop2, node));
+        visibleGlyphs->push_back 
+            (CRevisionGraphState::SVisibleGlyph (state2, leftTop2, node));
     }
 }
 
@@ -663,7 +672,7 @@ void CRevisionGraphWnd::DrawStripes (Graphics& graphics, const CSize& offset)
 
     // don't show stripes if we don't have mutiple roots
 
-    std::auto_ptr<const ILayoutRectList> trees (m_layout->GetTrees());
+    CSyncPointer<const ILayoutRectList> trees (m_state.GetTrees());
     if (trees->GetCount() < 2)
         return;
 
@@ -696,11 +705,14 @@ void CRevisionGraphWnd::DrawStripes (Graphics& graphics, const CSize& offset)
 
 void CRevisionGraphWnd::DrawNodes (Graphics& graphics, Image* glyphs, const CRect& logRect, const CSize& offset)
 {
-    bool upsideDown = m_options->GetOption<CUpsideDownLayout>()->IsActive();
+    CSyncPointer<CGraphNodeStates> nodeStates (m_state.GetNodeStates());
+    CSyncPointer<const ILayoutNodeList> nodes (m_state.GetNodes());
+
+    bool upsideDown 
+        = m_state.GetOptions()->GetOption<CUpsideDownLayout>()->IsActive();
 
     // iterate over all visible nodes
 
-    std::auto_ptr<const ILayoutNodeList> nodes (m_layout->GetNodes());
     for ( index_t index = nodes->GetFirstVisible (logRect)
         ; index != NO_INDEX
         ; index = nodes->GetNextVisible (index, logRect))
@@ -770,7 +782,7 @@ void CRevisionGraphWnd::DrawNodes (Graphics& graphics, Image* glyphs, const CRec
         // expansion glypths etc.
 
         const CFullGraphNode* base = node.node->GetBase();
-        DrawGlyphs (graphics, glyphs, node.node, noderect, m_nodeStates.GetFlags (base), 0, upsideDown);
+        DrawGlyphs (graphics, glyphs, node.node, noderect, nodeStates->GetFlags (base), 0, upsideDown);
     }
 }
 
@@ -784,7 +796,7 @@ void CRevisionGraphWnd::DrawConnections (CDC* pDC, const CRect& logRect, const C
 
     // iterate over all visible lines
 
-    std::auto_ptr<const ILayoutConnectionList> connections (m_layout->GetConnections());
+    CSyncPointer<const ILayoutConnectionList> connections (m_state.GetConnections());
     for ( index_t index = connections->GetFirstVisible (logRect)
         ; index != NO_INDEX
         ; index = connections->GetNextVisible (index, logRect))
@@ -821,7 +833,7 @@ void CRevisionGraphWnd::DrawTexts (CDC* pDC, const CRect& logRect, const CSize& 
     // iterate over all visible nodes
 
     pDC->SetTextAlign (TA_CENTER | TA_TOP);
-    std::auto_ptr<const ILayoutTextList> texts (m_layout->GetTexts());
+    CSyncPointer<const ILayoutTextList> texts (m_state.GetTexts());
     for ( index_t index = texts->GetFirstVisible (logRect)
         ; index != NO_INDEX
         ; index = texts->GetNextVisible (index, logRect))
@@ -846,7 +858,9 @@ void CRevisionGraphWnd::DrawTexts (CDC* pDC, const CRect& logRect, const CSize& 
 
 void CRevisionGraphWnd::DrawCurrentNodeGlyphs (Graphics& graphics, Image* glyphs, const CSize& offset)
 {
-    bool upsideDown = m_options->GetOption<CUpsideDownLayout>()->IsActive();
+    CSyncPointer<const ILayoutNodeList> nodeList (m_state.GetNodes());
+    bool upsideDown 
+        = m_state.GetOptions()->GetOption<CUpsideDownLayout>()->IsActive();
 
     // expansion glypths etc.
 
@@ -863,7 +877,6 @@ void CRevisionGraphWnd::DrawCurrentNodeGlyphs (Graphics& graphics, Image* glyphs
                           ? GetHitNode (point, CSize (GLYPH_SIZE, GLYPH_SIZE / 2))
                           : m_hoverIndex;
 
-        std::auto_ptr<const ILayoutNodeList> nodeList (m_layout->GetNodes());
         if (nodeIndex >= nodeList->GetCount())
             return;
 
@@ -871,7 +884,7 @@ void CRevisionGraphWnd::DrawCurrentNodeGlyphs (Graphics& graphics, Image* glyphs
         RectF noderect (GetNodeRect (node, offset));
 
         const CFullGraphNode* base = node.node->GetBase();
-        DWORD flags = m_nodeStates.GetFlags (base);
+        DWORD flags = m_state.GetNodeStates()->GetFlags (base);
 
         IndicateGlyphDirection (graphics, nodeList.get(), node, noderect, m_hoverGlyphs, upsideDown, offset);
         DrawGlyphs (graphics, glyphs, node.node, noderect, flags, m_hoverGlyphs, upsideDown);
@@ -887,6 +900,9 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
 	memDC->FillSolidRect(rect, GetSysColor(COLOR_WINDOW));
 	memDC->SetBkMode(TRANSPARENT);
 
+    // preparation & sync
+
+    CSyncPointer<CAllRevisionGraphOptions> options (m_state.GetOptions());
     ClearVisibleGlyphs (rect);
 
     // transform visible
@@ -907,7 +923,7 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
     graphics.TranslateTransform ((REAL)drawRect.left, (REAL)drawRect.top);
     graphics.SetInterpolationMode (InterpolationModeHighQualityBicubic);
 
-    if (m_options && m_options->GetOption<CShowTreeStripes>()->IsActive())
+    if (options->GetOption<CShowTreeStripes>()->IsActive())
         DrawStripes (graphics, offset);
 
     if (m_fZoomFactor > 0.2f)

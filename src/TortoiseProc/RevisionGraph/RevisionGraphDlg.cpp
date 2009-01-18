@@ -48,7 +48,6 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 	, m_hAccel(NULL)
 	, m_bFetchLogs(true)
 	, m_fZoomFactor(0.5)
-    , m_options (m_Graph.GetNodeStates())
 {
     // GDI+ initialization
 
@@ -58,7 +57,7 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
     // restore option state
 
 	DWORD dwOpts = CRegStdWORD(_T("Software\\TortoiseSVN\\RevisionGraphOptions"), 0x1ff199);
-    m_options.SetRegistryFlags (dwOpts, 0x7fbf);
+    m_Graph.m_state.GetOptions()->SetRegistryFlags (dwOpts, 0x7fbf);
 }
 
 CRevisionGraphDlg::~CRevisionGraphDlg()
@@ -66,7 +65,7 @@ CRevisionGraphDlg::~CRevisionGraphDlg()
     // save option state
 
 	CRegStdWORD regOpts = CRegStdWORD(_T("Software\\TortoiseSVN\\RevisionGraphOptions"), 1);
-    regOpts = m_options.GetRegistryFlags();
+    regOpts = m_Graph.m_state.GetOptions()->GetRegistryFlags();
 
     // GDI+ cleanup
 
@@ -218,9 +217,12 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 	if (InitializeToolbar() != TRUE)
 		return FALSE;
 
-    for (size_t i = 0; i < m_options.count(); ++i)
-        if (m_options[i]->CommandID() != 0)
-        	SetOption (m_options[i]->CommandID());
+    CSyncPointer<CAllRevisionGraphOptions> 
+        options (m_Graph.m_state.GetOptions());
+
+    for (size_t i = 0; i < options->count(); ++i)
+        if ((*options)[i]->CommandID() != 0)
+        	SetOption ((*options)[i]->CommandID());
 
 	CMenu * pMenu = GetMenu();
 	if (pMenu)
@@ -242,7 +244,8 @@ BOOL CRevisionGraphDlg::OnInitDialog()
 
 	EnableSaveRestore(_T("RevisionGraphDlg"));
 
-	if (AfxBeginThread(WorkerThread, this)==NULL)
+    assert (m_Graph.m_bThreadRunning == TRUE);
+	if (AfxBeginThread(WorkerThread, this)== NULL)
 	{
         InterlockedExchange (&m_Graph.m_bThreadRunning, FALSE);
 		CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
@@ -256,7 +259,7 @@ UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
 {
 	CRevisionGraphDlg*	pDlg;
 	pDlg = (CRevisionGraphDlg*)pVoid;
-	InterlockedExchange(&pDlg->m_Graph.m_bThreadRunning, TRUE);
+	assert (pDlg->m_Graph.m_bThreadRunning == TRUE);
 	CoInitialize(NULL);
 
     if (pDlg->m_bFetchLogs)
@@ -271,8 +274,11 @@ UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
                             ? (svn_revnum_t)pDlg->m_Graph.m_pegRev
                             : (svn_revnum_t)-1;
 
-	    if (!pDlg->m_Graph.FetchRevisionData (pDlg->m_Graph.m_sPath, pegRev, pDlg->m_options))
-		    CMessageBox::Show (pDlg->m_hWnd, pDlg->m_Graph.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
+	    if (!pDlg->m_Graph.FetchRevisionData (pDlg->m_Graph.m_sPath, pegRev))
+		    CMessageBox::Show ( pDlg->m_hWnd
+                              , pDlg->m_Graph.m_state.GetLastErrorMessage()
+                              , _T("TortoiseSVN")
+                              , MB_ICONERROR);
 
         pDlg->m_Graph.m_pProgress->Stop();
         delete pDlg->m_Graph.m_pProgress;
@@ -283,7 +289,6 @@ UINT CRevisionGraphDlg::WorkerThread(LPVOID pVoid)
 
     // standard plus user settings
 
-    pDlg->m_options.Prepare();
     if (pDlg->m_Graph.AnalyzeRevisionData())
     {
         pDlg->UpdateStatusBar();
@@ -363,8 +368,8 @@ BOOL CRevisionGraphDlg::PreTranslateMessage(MSG* pMsg)
             SVN svn;
         	LogCache::CRepositoryInfo& cachedProperties 
                 = svn.GetLogCachePool()->GetRepositoryInfo();
-            CString root = m_Graph.GetRepositoryRoot();
-            CString uuid = m_Graph.GetRepositoryUUID();
+            CString root = m_Graph.m_state.GetRepositoryRoot();
+            CString uuid = m_Graph.m_state.GetRepositoryUUID();
 
             cachedProperties.ResetHeadRevision (uuid, root);
 
@@ -485,7 +490,7 @@ void CRevisionGraphDlg::SetOption (UINT controlID)
 	int tbstate = m_ToolBar.GetToolBarCtrl().GetState(controlID);
     if (tbstate != -1)
     {
-        if (m_options.IsSelected (controlID))
+        if (m_Graph.m_state.GetOptions()->IsSelected (controlID))
 	    {
 		    pMenu->CheckMenuItem(controlID, MF_BYCOMMAND | MF_CHECKED);
 		    m_ToolBar.GetToolBarCtrl().SetState(controlID, tbstate | TBSTATE_CHECKED);
@@ -532,8 +537,10 @@ BOOL CRevisionGraphDlg::ToggleOption (UINT controlID)
 		m_ToolBar.GetToolBarCtrl().SetState(controlID, tbstate | TBSTATE_CHECKED);
 	}
 
-    if (((state & MF_CHECKED) != 0) == m_options.IsSelected (controlID))
-        m_options.ToggleSelection (controlID);
+    CSyncPointer<CAllRevisionGraphOptions> 
+        options (m_Graph.m_state.GetOptions());
+    if (((state & MF_CHECKED) != 0) == options->IsSelected (controlID))
+        options->ToggleSelection (controlID);
 
     return TRUE;
 }
@@ -552,7 +559,7 @@ BOOL CRevisionGraphDlg::OnToggleOption (UINT controlID)
 
 BOOL CRevisionGraphDlg::OnToggleReloadOption (UINT controlID)
 {
-    if (!m_Graph.m_bFetchedWCState)
+    if (!m_Graph.m_state.GetFetchedWCState())
         m_bFetchLogs = true;
 
     return OnToggleOption (controlID);
@@ -637,7 +644,7 @@ void CRevisionGraphDlg::UpdateStatusBar()
 	CString sFormat;
 	sFormat.Format(IDS_REVGRAPH_STATUSBARURL, (LPCTSTR)m_Graph.m_sPath);
 	m_StatusBar.SetText(sFormat,1,0);
-	sFormat.Format(IDS_REVGRAPH_STATUSBARNUMNODES, m_Graph.GetNodeCount());
+	sFormat.Format(IDS_REVGRAPH_STATUSBARNUMNODES, m_Graph.m_state.GetNodeCount());
 	m_StatusBar.SetText(sFormat,0,0);
 }
 
@@ -715,12 +722,15 @@ BOOL CRevisionGraphDlg::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
 
 void CRevisionGraphDlg::OnViewFilter()
 {
-    CRevisionInRange* revisionRange = m_options.GetOption<CRevisionInRange>();
-    svn_revnum_t head = m_Graph.GetHeadRevision();
+    CSyncPointer<CAllRevisionGraphOptions> 
+        options (m_Graph.m_state.GetOptions());
+
+    CRevisionInRange* revisionRange = options->GetOption<CRevisionInRange>();
+    svn_revnum_t head = m_Graph.m_state.GetHeadRevision();
     svn_revnum_t lowerLimit = revisionRange->GetLowerLimit();
     svn_revnum_t upperLimit = revisionRange->GetUpperLimit();
 
-    CRemovePathsBySubString* pathFilter = m_options.GetOption<CRemovePathsBySubString>();
+    CRemovePathsBySubString* pathFilter = options->GetOption<CRemovePathsBySubString>();
 
 	CRevGraphFilterDlg dlg;
 	dlg.SetMaxRevision (head);
@@ -771,11 +781,7 @@ void CRevisionGraphDlg::OnViewFilter()
 
         // re-run query
 
-        InterlockedExchange(&m_Graph.m_bThreadRunning, TRUE);
-		if (AfxBeginThread(WorkerThread, this)==NULL)
-		{
-			CMessageBox::Show(this->m_hWnd, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
-		}
+        StartWorkerThread();
 	}
 }
 
@@ -823,7 +829,7 @@ void CRevisionGraphDlg::UpdateOptionAvailability (UINT id, bool available)
 
 void CRevisionGraphDlg::UpdateOptionAvailability()
 {
-    bool multipleTrees = m_Graph.GetTreeCount() > 1;
+    bool multipleTrees = m_Graph.m_state.GetTreeCount() > 1;
     bool isWCPath = !CTSVNPath (m_Graph.m_sPath).IsUrl();
 
     UpdateOptionAvailability (ID_VIEW_TOPALIGNTREES, multipleTrees);

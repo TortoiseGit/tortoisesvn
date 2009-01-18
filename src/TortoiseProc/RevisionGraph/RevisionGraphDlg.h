@@ -60,7 +60,6 @@ public:
 
 protected:
 	bool			m_bFetchLogs;
-    CAllRevisionGraphOptions m_options;
 	char			m_szTip[MAX_TT_LENGTH+1];
 	wchar_t			m_wszTip[MAX_TT_LENGTH+1];
 
