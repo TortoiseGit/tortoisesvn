@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-01-12 08:41+0100\n"
+"PO-Revision-Date: 2009-01-19 09:39+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2460,6 +2460,11 @@ msgstr "Kopiert"
 msgid "Copied from URL"
 msgstr "Kopiert von URL"
 
+#. Resource IDs: (275)
+#, c-format
+msgid "Copied from: %s@ld\r\n"
+msgstr "Kopiert von: %s@ld\r\n"
+
 #. Resource IDs: (126)
 msgid "Copied remotely"
 msgstr "Datei im Projektarchiv kopiert"
@@ -3883,16 +3888,6 @@ msgstr "GDI+ konnte nicht initialisiert werden!"
 #. Resource IDs: (273)
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "GDI+ konnte kein Bitmapobjekt erzeugen. Vermutlich reicht der Speicher nicht aus."
-
-#. Resource IDs: (83)
-msgid ""
-"GDI+ is required to save the revision graph as a picture.\n"
-"You can get GDI+ from\n"
-"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
-msgstr ""
-"Um einen Revisionsgraphen als Bild abzuspeichern wird GDI+ benötigt.\n"
-"Sie können GDI+ hier erhalten\n"
-"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 
 #. Resource IDs: (284)
 msgid "Gathering information. Please wait..."
@@ -6699,16 +6694,16 @@ msgstr "Revision:"
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld\r\n"
-"URL: %s\r\n"
+"Revision: %ld (%s)\r\n"
+"URL: %s%s\r\n"
 "Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"Revision: %ld\r\n"
-"URL: %s\r\n"
+"Revision: %ld (%s)\r\n"
+"URL: %s%s\r\n"
 "Autor: %s\r\n"
 "Datum: %s\r\n"
 "\r\n"
@@ -6718,8 +6713,8 @@ msgstr ""
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld\r\n"
-"URL: %s\r\n"
+"Revision: %ld (%s)\r\n"
+"URL: %s%s\r\n"
 "Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
@@ -6728,8 +6723,8 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"Revision: %ld\r\n"
-"URL: %s\r\n"
+"Revision: %ld (%s)\r\n"
+"URL: %s%s\r\n"
 "Autor: %s\r\n"
 "Datum: %s\r\n"
 "\r\n"
@@ -9663,9 +9658,29 @@ msgstr ""
 msgid "copied:"
 msgstr "kopiert:"
 
+#. Resource IDs: (276)
+#, fuzzy
+msgid "copy"
+msgstr "Kopieren"
+
+#. Resource IDs: (276)
+#, fuzzy
+msgid "copy source only"
+msgstr "Nur Quelle kopieren"
+
+#. Resource IDs: (276)
+#, fuzzy
+msgid "created"
+msgstr "Erstellt"
+
 #. Resource IDs: (245)
 msgid "day"
 msgstr "Tag"
+
+#. Resource IDs: (276)
+#, fuzzy
+msgid "delete"
+msgstr "Löschen"
 
 #. Resource IDs: (10, 272)
 msgid "deleted"
@@ -9829,6 +9844,11 @@ msgstr "auf %1"
 msgid "online"
 msgstr "online"
 
+#. Resource IDs: (276)
+#, fuzzy
+msgid "open branch"
+msgstr "Öffne Zweig"
+
 #. Resource IDs: (1406, 1407)
 msgid "or"
 msgstr "oder"
@@ -9864,6 +9884,11 @@ msgstr "Quartal"
 #. Resource IDs: (195)
 msgid "readonly"
 msgstr "schreibgeschützt"
+
+#. Resource IDs: (276)
+#, fuzzy
+msgid "rename"
+msgstr "Umbenennen"
 
 #. Resource IDs: (10)
 msgid "replaced"
@@ -10026,6 +10051,11 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "switched:"
 msgstr "gewechselt zu:"
+
+#. Resource IDs: (276)
+#, fuzzy
+msgid "tagged"
+msgstr "Markiert"
 
 #. Resource IDs: (601)
 msgid "temp. offline"
@@ -10219,6 +10249,20 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid ""
+#~ "GDI+ is required to save the revision graph as a picture.\n"
+#~ "You can get GDI+ from\n"
+#~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
+#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
+#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+#~ "be590feaa05a&DisplayLang=en</a></u>"
+#~ msgstr ""
+#~ "Um einen Revisionsgraphen als Bild abzuspeichern wird GDI+ benötigt.\n"
+#~ "Sie können GDI+ hier erhalten\n"
+#~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
+#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
+#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+#~ "be590feaa05a&DisplayLang=en</a></u>"
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "Diskettenlaufwerke (A: B:)"
 
