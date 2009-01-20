@@ -57,7 +57,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-01-12 19:32+0800\n"
+"PO-Revision-Date: 2009-01-20 10:02+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2525,6 +2525,11 @@ msgstr "已复制"
 msgid "Copied from URL"
 msgstr "复制自路径"
 
+#. Resource IDs: (275)
+#, c-format
+msgid "Copied from: %s@ld\r\n"
+msgstr "复制自：%s@ld\r\n"
+
 #. Resource IDs: (126)
 msgid "Copied remotely"
 msgstr "远程复制完成"
@@ -3957,22 +3962,6 @@ msgstr "无法初始化 GDI+"
 msgid ""
 "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "GDI+ 无法创建位图对象，有可能是由于系统内存不足造成的。"
-
-#. Resource IDs: (83)
-msgid ""
-"GDI+ is required to save the revision graph as a picture.\n"
-"You can get GDI+ from\n"
-"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-"
-"4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/"
-"details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</"
-"a></u>"
-msgstr ""
-"需要 GDI+ 才能将版本图保存成图片格式。\n"
-"你可以从以下地址下载 GDI+\n"
-"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-"
-"4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/"
-"details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</"
-"a></u>"
 
 #. Resource IDs: (284)
 msgid "Gathering information. Please wait..."
@@ -6798,16 +6787,16 @@ msgstr "版本："
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld\r\n"
-"URL: %s\r\n"
+"Revision: %ld (%s)\r\n"
+"URL: %s%s\r\n"
 "Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"版本：%ld\r\n"
-"URL：%s\r\n"
+"版本：%ld (%s)\r\n"
+"URL：%s%s\r\n"
 "作者：%s\r\n"
 "日期：%s\r\n"
 "\r\n"
@@ -6817,8 +6806,8 @@ msgstr ""
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld\r\n"
-"URL: %s\r\n"
+"Revision: %ld (%s)\r\n"
+"URL: %s%s\r\n"
 "Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
@@ -6827,8 +6816,8 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"版本：%ld\r\n"
-"URL：%s\r\n"
+"版本：%ld (%s)\r\n"
+"URL：%s%s\r\n"
 "作者：%s\r\n"
 "日期：%s\r\n"
 "\r\n"
@@ -9795,19 +9784,35 @@ msgid ""
 "%s - revision %ld"
 msgstr ""
 "复制自 \r\n"
-"%s 版本： %ld"
+"%s - 版本 %ld"
 
 #. Resource IDs: (65535)
 msgid "copied:"
-msgstr "已经复制："
+msgstr "已复制："
+
+#. Resource IDs: (276)
+msgid "copy"
+msgstr "复制"
+
+#. Resource IDs: (276)
+msgid "copy source only"
+msgstr "只复制源"
+
+#. Resource IDs: (276)
+msgid "created"
+msgstr "已创建"
 
 #. Resource IDs: (245)
 msgid "day"
 msgstr "天"
 
+#. Resource IDs: (276)
+msgid "delete"
+msgstr "删除"
+
 #. Resource IDs: (10, 272)
 msgid "deleted"
-msgstr "删除"
+msgstr "已删除"
 
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
@@ -9968,6 +9973,10 @@ msgstr "在 %1"
 msgid "online"
 msgstr "在线"
 
+#. Resource IDs: (276)
+msgid "open branch"
+msgstr "打开分枝"
+
 #. Resource IDs: (1406, 1407)
 msgid "or"
 msgstr "或"
@@ -10004,9 +10013,13 @@ msgstr "季度"
 msgid "readonly"
 msgstr "只读"
 
+#. Resource IDs: (276)
+msgid "rename"
+msgstr "改名"
+
 #. Resource IDs: (10)
 msgid "replaced"
-msgstr "替换"
+msgstr "已替换"
 
 #. Resource IDs: (220)
 msgid "respecting ancestry"
@@ -10164,6 +10177,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "switched:"
 msgstr "已经切换："
+
+#. Resource IDs: (276)
+msgid "tagged"
+msgstr "已加标签"
 
 #. Resource IDs: (601)
 msgid "temp. offline"
