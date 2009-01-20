@@ -95,9 +95,10 @@ const UINT CSVNStatusListCtrl::SVNSLNM_CHECKCHANGED
 #define IDSVNLC_COMPAREWC		33
 #define IDSVNLC_BLAME			34
 #define IDSVNLC_CREATEPATCH		35
+#define IDSVNLC_CHECKFORMODS	36
 // the IDSVNLC_MOVETOCS *must* be the last index, because it contains a dynamic submenu where 
 // the submenu items get command ID's sequent to this number
-#define IDSVNLC_MOVETOCS		36
+#define IDSVNLC_MOVETOCS		37
 
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
@@ -2309,6 +2310,10 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 				{
 					popup.AppendMenuIcon(IDSVNLC_EXPLORE, IDS_STATUSLIST_CONTEXT_EXPLORE, IDI_EXPLORER);
 				}
+				if ((m_dwContextMenus & SVNSLC_POPCHECKFORMODS)&&(entry->IsFolder()))
+				{
+					popup.AppendMenuIcon(IDSVNLC_CHECKFORMODS, IDS_MENUSHOWCHANGED, IDI_SHOWCHANGED);
+				}
 			}
 			if (GetSelectedCount() > 0)
 			{
@@ -2787,6 +2792,20 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 			case IDSVNLC_EXPLORE:
 				{
 					ShellExecute(this->m_hWnd, _T("explore"), filepath.GetDirectory().GetWinPath(), NULL, NULL, SW_SHOW);
+				}
+				break;
+			case IDSVNLC_CHECKFORMODS:
+				{
+					CTSVNPathList targetList;
+					FillListOfSelectedItemPaths(targetList);
+
+					CString sTempFile = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString();
+					targetList.WriteToFile(sTempFile, false);
+					CString sCmd;
+					sCmd.Format(_T("\"%s\" /command:repostatus /pathfile:\"%s\" /deletepathfile"),
+						(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), (LPCTSTR)sTempFile);
+
+					CAppUtils::LaunchApplication(sCmd, NULL, false);
 				}
 				break;
 			case IDSVNLC_CREATEPATCH:
