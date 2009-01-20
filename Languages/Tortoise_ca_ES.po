@@ -1,6 +1,6 @@
 #
 # Catalan translation for TortoiseSVN
-# Copyright (C) 2004-2008 the TortoiseSVN team
+# Copyright (C) 2004-2009 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
 # Last commit by:
@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-08 15:32+0100\n"
+"PO-Revision-Date: 2009-01-19 18:33+0100\n"
 "Last-Translator: \n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -928,6 +928,10 @@ msgid "&SSH client:"
 msgstr "&Client SSH:"
 
 #. Resource IDs: (65535)
+msgid "&SVN"
+msgstr "&SVN"
+
+#. Resource IDs: (65535)
 msgid "&Sat:"
 msgstr "&Sat:"
 
@@ -1499,6 +1503,10 @@ msgstr "Configuració avançada de fusionar"
 #. Resource IDs: (65535)
 msgid "Age"
 msgstr "Edat"
+
+#. Resource IDs: (32822)
+msgid "Align trees on top"
+msgstr "Alínia els arbres a dalt"
 
 #. Resource IDs: (1007)
 msgid "All Commands"
@@ -2454,6 +2462,11 @@ msgstr "Copiat(s)"
 msgid "Copied from URL"
 msgstr "Copiat des d'una URL"
 
+#. Resource IDs: (275)
+#, c-format
+msgid "Copied from: %s@ld\r\n"
+msgstr "Copiat de: %s@ld\r\n"
+
 #. Resource IDs: (126)
 msgid "Copied remotely"
 msgstr "Copiat(s) remotament"
@@ -2901,6 +2914,20 @@ msgstr "Suprimeix"
 msgid "Delete Unversioned Items"
 msgstr "Suprimeix items sense versionar"
 
+#. Resource IDs: (14)
+#, c-format
+msgid "Delete and &ignore %d items by name"
+msgstr "Esborra i &ignora %d els items pel seu  nom"
+
+#. Resource IDs: (14)
+msgid "Delete and add to &ignore list"
+msgstr "Esborra i afegeix a la &llista d'ignorats"
+
+#. Resource IDs: (14)
+#, c-format
+msgid "Delete and ignore %d items by &extension"
+msgstr "Esborra i ignora %d items per &extensió"
+
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
 msgstr "Suprimeix items sense versionar"
@@ -2912,6 +2939,10 @@ msgstr "Esborrat"
 #. Resource IDs: (65535)
 msgid "Deleted node"
 msgstr "Node esborrat"
+
+#. Resource IDs: (15)
+msgid "Deletes and adds the selected file(s) or the filemask to the 'ignore' list"
+msgstr "Esborra i afegeix el(s) fitxer(s) seleccionat(s) o la màscara de fitxers a la 'llista d'ignorats'"
 
 #. Resource IDs: (11)
 msgid "Deletes files / folders from version control"
@@ -3141,6 +3172,10 @@ msgstr "Dibuixa"
 #. Resource IDs: (1079)
 msgid "Drive Types"
 msgstr "Tipus d'Unitat"
+
+#. Resource IDs: (1315)
+msgid "Drives A: and B:"
+msgstr "Unitats A: i B:"
 
 #. Resource IDs: (613)
 #, c-format
@@ -3783,17 +3818,25 @@ msgstr ""
 msgid "Finished!"
 msgstr "Finalitzat!"
 
+#. Resource IDs: (32804)
+msgid "Fit graph"
+msgstr "Ajusta gràfic"
+
+#. Resource IDs: (32802)
+msgid "Fit height"
+msgstr "Ajusta l'alçada"
+
 #. Resource IDs: (32810)
 msgid "Fit image &sizes"
 msgstr "Encaixa &tamanys d'imatge"
 
+#. Resource IDs: (32803)
+msgid "Fit width"
+msgstr "Ajusta l'amplada"
+
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
 msgstr "Arregla majúsc/minúsc de l'item i no l'afegeixis"
-
-#. Resource IDs: (1315)
-msgid "Floppy drives (A: B:)"
-msgstr "Unitats de disquet (A: B:)"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
@@ -3846,16 +3889,6 @@ msgstr "No s'ha pogut iniciar GDI+!"
 #. Resource IDs: (273)
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "GDI+ no ha pogut crear un objecte bitmap.  Probablement no hi ha prou memòria."
-
-#. Resource IDs: (83)
-msgid ""
-"GDI+ is required to save the revision graph as a picture.\n"
-"You can get GDI+ from\n"
-"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
-msgstr ""
-"Es necessita GDI+ per desar el gràfic de revisió com a imatge.\n"
-"Podeu obtenir GDI+ a\n"
-"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 
 #. Resource IDs: (284)
 msgid "Gathering information. Please wait..."
@@ -4182,9 +4215,9 @@ msgstr "ID:32814:V C +L"
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
-#. Accelerator Entry for Menu ID:32822; ''
-msgid "ID:32822:V C +F"
-msgstr "ID:32822:V C +F"
+#. Accelerator Entry for Menu ID:32824; ''
+msgid "ID:32824:V C +F"
+msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
@@ -4388,6 +4421,10 @@ msgstr ""
 "Si està seleccionat, els fitxers sense versionar marcaran l'estat del directori pare com a modificat\r\n"
 "Per exemple, se'ls hi sobreposarà la icona de modificació."
 
+#. Resource IDs: (2052)
+msgid "If the graph contains multiple trees, separate them by slight variations in background color."
+msgstr "Si el gràfic conté varis arbres, separeu-los amb petites variacions en el color de fons"
+
 #. Resource IDs: (1439)
 msgid "If the repository can not be contacted"
 msgstr "Si el repositori no pot ser contactat"
@@ -4412,6 +4449,11 @@ msgstr "Si voleu eliminar el bloqueig, utilitzeu el diàleg   'Troba Modificacio
 msgid "Ignore"
 msgstr "Ignora"
 
+#. Resource IDs: (14)
+#, c-format
+msgid "Ignore %d items by &extension"
+msgstr "Ignora %d items per &extensió"
+
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
 msgstr "ignora &tots els espais en blanc"
@@ -4427,10 +4469,6 @@ msgstr "Ignora tots els espais en blanc"
 #. Resource IDs: (1267)
 msgid "Ignore ancestry"
 msgstr "Ignora ancestre"
-
-#. Resource IDs: (14)
-msgid "Ignore items by &extension"
-msgstr "Ignora items per &extensió"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
@@ -4858,6 +4896,10 @@ msgstr "Barra Localització"
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
 msgstr "Bloqueja"
+
+#. Resource IDs: (208)
+msgid "Lock Date"
+msgstr "Bloqueja Data"
 
 #. Resource IDs: (191)
 msgid "Lock Files"
@@ -5474,6 +5516,16 @@ msgstr "Alguns valors del registre (o del fitxer INI) no s'han suprimit."
 #. Resource IDs: (83)
 msgid "Not enough memory to complete operation."
 msgstr "No hi ha prou memòria per completar la operació."
+
+#. Resource IDs: (273)
+msgid ""
+"Not enough memory!\n"
+"Try reducing the size of the revision graph by either\n"
+"collapsing nodes or reducing the zoom factor."
+msgstr ""
+"No hi haprou memòria!\n"
+"Reduiu el tamany del gràfic de revisió \n"
+"contraient els nodes o bé reduïnt el factor de zoom."
 
 #. Resource IDs: (563)
 msgid "Not recursive"
@@ -6626,16 +6678,16 @@ msgstr "Revisió: "
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld\r\n"
-"URL: %s\r\n"
+"Revision: %ld (%s)\r\n"
+"URL: %s%s\r\n"
 "Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"Revisió: %ld\r\n"
-"URL: %s\r\n"
+"Revisió: %ld (%s)\r\n"
+"URL: %s%s\r\n"
 "Autor: %s\r\n"
 "Data: %s\r\n"
 "\r\n"
@@ -6645,8 +6697,8 @@ msgstr ""
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld\r\n"
-"URL: %s\r\n"
+"Revision: %ld (%s)\r\n"
+"URL: %s%s\r\n"
 "Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
@@ -6655,14 +6707,14 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"Revisió: %ld\r\n"
-"URL: %s\r\n"
+"Revisió: %ld (%s)\r\n"
+"URL: %s%s\r\n"
 "Autor: %s\r\n"
 "Data: %s\r\n"
 "\r\n"
-"Tags (%d):%s\r\n"
+"Etiquetes (%d):%s\r\n"
 "\r\n"
-"Logmessage:\r\n"
+"MissatgeDeLog:\r\n"
 "%s"
 
 #. Resource IDs: (116, 65535)
@@ -7083,6 +7135,10 @@ msgstr "Shell"
 msgid "Shell Icon Cache was rebuilt!"
 msgstr "El cache d'icones de shell s'ha regenerat!"
 
+#. Resource IDs: (2052)
+msgid "Shift trees to the top of the window. Alignment to other trees will be lost."
+msgstr "Mou els arbres a la part de dalt de la finestra. Es perdrà l'alineació amb d'altres arbres."
+
 #. Resource IDs: (101)
 msgid "Sho&w properties"
 msgstr "Mos&tra propietats"
@@ -7218,6 +7274,10 @@ msgstr "Mostra diferències com diff &unificat"
 #. Resource IDs: (1126)
 msgid "Show excluded folders as normal"
 msgstr "Mostra carpetes excloses com a normals"
+
+#. Resource IDs: (1480)
+msgid "Show externals from different repositories"
+msgstr "Mostra externs des de diferents repositoris"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -7523,6 +7583,43 @@ msgstr "Subversion"
 #. Resource IDs: (65535)
 msgid "Subversion configuration &file:"
 msgstr "&Fitxer configuració Subversion:"
+
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Subversion encountered a serious problem.\n"
+"Please take the time to report this on our mailing list\n"
+"with as much information as possible about what\n"
+"you were trying to do.\n"
+"\n"
+"Subversion encountered the problem in:\n"
+"file %s, line %ld\n"
+"expression = %s"
+msgstr ""
+"Hi ha hagut un problema greu amb el Subversion.\n"
+"Si us plau reporteu-lo a la nostra llista de correu\n"
+"amb tanta informació com pugueu sobre\n"
+"el que estaveu intentant fer.\n"
+"\n"
+"El Subversion ha tingut el problema a:\n"
+"file %s, line %ld\n"
+"expression = %s"
+
+#. Resource IDs: (84)
+msgid ""
+"Subversion encountered a serious problem.\n"
+"Please take the time to report this on our mailing list\n"
+"with as much information as possible about what\n"
+"you were trying to do.\n"
+"\n"
+"Subversion reported the following:"
+msgstr ""
+"Hi ha hagut un problema greu amb el Subversion.\n"
+"Si us plau reporteu-lo a la nostra llista de correu\n"
+"amb tota la informació possible sobre\n"
+"el que estaveu intentant fer.\n"
+"\n"
+"Subversion ha reportat el següent:"
 
 #. Resource IDs: (79)
 msgid ""
@@ -8065,6 +8162,19 @@ msgstr ""
 "%s\n"
 "ja existeix!"
 
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"The target file\n"
+"%s\n"
+" already exists.\n"
+"Do you want to replace the file?"
+msgstr ""
+"El fitxer destí\n"
+"%s\n"
+" ja existeix.\n"
+"Voleu reemplaçar-lo?"
+
 #. Resource IDs: (88)
 #, c-format
 msgid ""
@@ -8456,6 +8566,10 @@ msgstr "Nombre total de revisions fusionades"
 #. Resource IDs: (339)
 msgid "Total number of user revision properties"
 msgstr "Nombre total de propietats revisió d'usuari"
+
+#. Resource IDs: (32821)
+msgid "Tr&ee stripes"
+msgstr "Bandes d'arbr&e"
 
 #. Resource IDs: (357)
 #, c-format
@@ -9336,6 +9450,10 @@ msgstr "Zoom endins"
 msgid "Zoom out"
 msgstr "Zoom enfora"
 
+#. Resource IDs: (32801)
+msgid "Zoom to &100%"
+msgstr "Zoom del &100%"
+
 #. Resource IDs: (2051)
 msgid "Zoom to fit"
 msgstr "Zoom per encabre"
@@ -9513,9 +9631,25 @@ msgstr ""
 msgid "copied:"
 msgstr "copiat(s):"
 
+#. Resource IDs: (276)
+msgid "copy"
+msgstr "copia"
+
+#. Resource IDs: (276)
+msgid "copy source only"
+msgstr "copia només la font"
+
+#. Resource IDs: (276)
+msgid "created"
+msgstr "creat"
+
 #. Resource IDs: (245)
 msgid "day"
 msgstr "dia"
+
+#. Resource IDs: (276)
+msgid "delete"
+msgstr "esborra"
 
 #. Resource IDs: (10, 272)
 msgid "deleted"
@@ -9680,6 +9814,10 @@ msgstr "a %1"
 msgid "online"
 msgstr "connectat"
 
+#. Resource IDs: (276)
+msgid "open branch"
+msgstr "obre branca"
+
 #. Resource IDs: (1406, 1407)
 msgid "or"
 msgstr "o"
@@ -9715,6 +9853,10 @@ msgstr "trimestre"
 #. Resource IDs: (195)
 msgid "readonly"
 msgstr "només de lectura"
+
+#. Resource IDs: (276)
+msgid "rename"
+msgstr "canvia el nom"
 
 #. Resource IDs: (10)
 msgid "replaced"
@@ -9874,6 +10016,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "switched:"
 msgstr "canviat(s):"
+
+#. Resource IDs: (276)
+msgid "tagged"
+msgstr "etiquetat"
 
 #. Resource IDs: (601)
 msgid "temp. offline"
@@ -10065,6 +10211,22 @@ msgstr "sí"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid ""
+#~ "GDI+ is required to save the revision graph as a picture.\n"
+#~ "You can get GDI+ from\n"
+#~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
+#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
+#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+#~ "be590feaa05a&DisplayLang=en</a></u>"
+#~ msgstr ""
+#~ "Es necessita GDI+ per desar el gràfic de revisió com a imatge.\n"
+#~ "Podeu obtenir GDI+ a\n"
+#~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
+#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
+#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+#~ "be590feaa05a&DisplayLang=en</a></u>"
+#~ msgid "Floppy drives (A: B:)"
+#~ msgstr "Unitats de disquet (A: B:)"
 #~ msgid "(deleted) %s"
 #~ msgstr "(esborrat) %s"
 #~ msgid "Only record the merge"
