@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
-"POT-Creation-Date: 2009-01-10 23:18 +0000\n"
-"PO-Revision-Date: 2009-01-11 02:40+0200\n"
+"POT-Creation-Date: 2009-01-12 08:46 +0000\n"
+"PO-Revision-Date: 2009-01-14 23:54+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5270,20 +5270,20 @@ msgstr "Huomaa, että suodattimet toimivat vain jo haettuihin viesteihin. Niill�
 msgid "You can also filter the path names in the bottom pane using the <guilabel>Hide unrelated changed paths</guilabel> checkbox. Related paths are those which contain the path used to display the log. If you fetch the log for a folder, that means anything in that folder or below it. For a file it means just that one file. The checkbox is tristate: you can show all paths, grey out the unrelated ones, or hide the unrelated paths completely."
 msgstr "Voit myös suodattaa alapaneelissa näytettyjä polkunimä käyttämällä <guilabel>Piilota riippumattomat muuttuneet polut</guilabel> -valinnan.  Riippuvat polut ovat niitä, jotka sisältävät osanaan polun, jota käytetään itse lokin näyttämiseen. Jos lokia näytetään kansiolle, tämä tarkoittaa kaikkia tiedostoja kansiossa tai sen alapuolella. Tiedostolle se tarkoittaa vain tiedostoa itseään. Valinta on kolmitilainen: vait näyttää kaikki polut, harmaannuttaa riippumattomat polut, tai piilottaa riippumattomat polut kokonaan."
 
+#. (para)
+#: ../source/TortoiseSVN_en.xml:6108
+msgid "Sometimes your working practices will require log messages to follow a particular format, which means that the text describing the changes is not visible in the abbreviated summary shown in the top pane. The property <literal>tsvn:logsummary</literal> can be used to extract a portion of the log message to be shown in the top pane. Read <xref linkend=\"tsvn-dug-propertypage-tsvn-props\"/> to find out how to use this property."
+msgstr "Joskus on tarpeen vaatia, että lokiviestit noudattavat sovittua muotoa, mikä tarkoittaa, että muutoksia kuvaava teksti ei näy yläpaneelin lyhennetyssä yhteenvedossa. Ominaisuutta <literal>tsvn:logsummary</literal> voidaan käyttää irrottamaan lokiviestistä yläpaneelissa näkyvä osa. Lue luvusta <xref linkend=\"tsvn-dug-propertypage-tsvn-props\"/> kuinka ominaisuutta käytetään."
+
 #. (title)
-#: ../source/TortoiseSVN_en.xml:6117
+#: ../source/TortoiseSVN_en.xml:6118
 msgid "No Log Formatting from Repository Browser"
 msgstr "Lokiviestien muotoilu ei ole käytettävissä arkistoselaimessa"
 
 #. (para)
-#: ../source/TortoiseSVN_en.xml:6118
+#: ../source/TortoiseSVN_en.xml:6119
 msgid "Because the formatting depends upon accessing subversion properties, you will only see the results when using a checked out working copy. Fetching properties remotely is a slow operation, so you will not see this feature in action from the repo browser."
 msgstr "Koska lokiviestien muotoilu vaatii Subversion-ominaisuuksien käyttöä, näet tulokset vain työkopion kautta. Ominaisuuksien haku palvelimelta on hidasta, joten tämä toiminto ei ole käytettävissä arkistoselaimessa."
-
-#. (para)
-#: ../source/TortoiseSVN_en.xml:6108
-msgid "Sometimes your working practices will require log messages to follow a particular format, which means that the text describing the changes is not visible in the abbreviated summary shown in the top pane. The property <literal>tsvn:logsummary</literal> can be used to extract a portion of the log message to be shown in the top pane. Read <xref linkend=\"tsvn-dug-propertypage-tsvn-props\"/> to find out how to use this property. <tip><placeholder-1/><placeholder-2/></tip>"
-msgstr "Joskus on tarpeen vaatia, että lokiviestit noudattavat sovittua muotoa, mikä tarkoittaa, että muutoksia kuvaava teksti ei näy yläpaneelin lyhennetyssä yhteenvedossa. Ominaisuutta <literal>tsvn:logsummary</literal> voidaan käyttää irrottamaan lokiviestistä yläpaneelissa näkyvä osa. Lue luvusta <xref linkend=\"tsvn-dug-propertypage-tsvn-props\"/> kuinka ominaisuutta käytetään. <tip><placeholder-1/><placeholder-2/></tip>"
 
 #. (title)
 #: ../source/TortoiseSVN_en.xml:6129

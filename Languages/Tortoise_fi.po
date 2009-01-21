@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-01-11 02:26+0200\n"
+"PO-Revision-Date: 2009-01-22 01:10+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2512,6 +2512,11 @@ msgstr "Kopioitu"
 msgid "Copied from URL"
 msgstr "Kopioitu paikantimesta"
 
+#. Resource IDs: (275)
+#, c-format
+msgid "Copied from: %s@ld\r\n"
+msgstr "Kopioitu paikasta: %s@ld\r\n"
+
 #. Resource IDs: (126)
 msgid "Copied remotely"
 msgstr "Kopioitu etänä"
@@ -3934,16 +3939,6 @@ msgstr "GDI+:aa ei voitu alustaa!"
 #. Resource IDs: (273)
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "GDI+ ei voinut luoda bittikarttaobjektia. Sinulla ei todennäköisesti ole riittävästi muistia."
-
-#. Resource IDs: (83)
-msgid ""
-"GDI+ is required to save the revision graph as a picture.\n"
-"You can get GDI+ from\n"
-"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
-msgstr ""
-"GDI+ tarvitaan, jotta versiograafi voidaan tallettaa kuvana.\n"
-"Voit asentaa GDI+:n osoitteesta\n"
-"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 
 #. Resource IDs: (284)
 msgid "Gathering information. Please wait..."
@@ -5570,6 +5565,16 @@ msgstr "Kaikkia järjestelmän rekisteriasetuksia (tai INI-tiedostoa) ei poistet
 msgid "Not enough memory to complete operation."
 msgstr "Liian vähän muistia operaation suorittamiseen."
 
+#. Resource IDs: (273)
+msgid ""
+"Not enough memory!\n"
+"Try reducing the size of the revision graph by either\n"
+"collapsing nodes or reducing the zoom factor."
+msgstr ""
+"Muisti ei riitä!\n"
+"Koeta pienentää versiograafin kokoa sulkemalla\n"
+"solmuja tai pienentämällä zoom-kerrointa."
+
 #. Resource IDs: (563)
 msgid "Not recursive"
 msgstr "Ei palautuva"
@@ -6723,16 +6728,16 @@ msgstr "Versio:"
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld\r\n"
-"URL: %s\r\n"
+"Revision: %ld (%s)\r\n"
+"URL: %s%s\r\n"
 "Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"Versio: %ld\r\n"
-"Paikannin: %s\r\n"
+"Versio: %ld (%s)\r\n"
+"Paikannin: %s%s\r\n"
 "Tekijä: %s\r\n"
 "Päiväys: %s\r\n"
 "\r\n"
@@ -6742,8 +6747,8 @@ msgstr ""
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld\r\n"
-"URL: %s\r\n"
+"Revision: %ld (%s)\r\n"
+"URL: %s%s\r\n"
 "Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
@@ -6752,8 +6757,8 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"Versio: %ld\r\n"
-"Paikannin: %s\r\n"
+"Versio: %ld (%s)\r\n"
+"Paikannin: %s%s\r\n"
 "Tekijä: %s\r\n"
 "Päiväys: %s\r\n"
 "\r\n"
@@ -9666,9 +9671,25 @@ msgstr ""
 msgid "copied:"
 msgstr "kopioitu:"
 
+#. Resource IDs: (276)
+msgid "copy"
+msgstr "kopio"
+
+#. Resource IDs: (276)
+msgid "copy source only"
+msgstr "vain kopiolähde"
+
+#. Resource IDs: (276)
+msgid "created"
+msgstr "luotu"
+
 #. Resource IDs: (245)
 msgid "day"
 msgstr "päivä"
+
+#. Resource IDs: (276)
+msgid "delete"
+msgstr "poista"
 
 #. Resource IDs: (10, 272)
 msgid "deleted"
@@ -9833,6 +9854,10 @@ msgstr "%1:llä"
 msgid "online"
 msgstr "yhteydellinen"
 
+#. Resource IDs: (276)
+msgid "open branch"
+msgstr "avaa haara"
+
 #. Resource IDs: (1406, 1407)
 msgid "or"
 msgstr "tai"
@@ -9868,6 +9893,10 @@ msgstr "neljännesvuosi"
 #. Resource IDs: (195)
 msgid "readonly"
 msgstr "vain luku"
+
+#. Resource IDs: (276)
+msgid "rename"
+msgstr "nimeä uudelleen"
 
 #. Resource IDs: (10)
 msgid "replaced"
@@ -10026,6 +10055,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "switched:"
 msgstr "vaihdettu:"
+
+#. Resource IDs: (276)
+msgid "tagged"
+msgstr "merkitty"
 
 #. Resource IDs: (601)
 msgid "temp. offline"
