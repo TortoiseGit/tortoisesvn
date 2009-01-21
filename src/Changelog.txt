@@ -98,6 +98,7 @@ Version 1.5.7
 - BUG: Deleting an item in the repository browser that had non-ascii chars
        in it didn't work. (Stefan)
 - BUG: TortoiseMerge showed a black line diff in one-pane view. (Stefan)
+- BUG: The styling of bug IDs in the commit dialog could fail. (Stefan)
 
 Version 1.5.6
 - CHG: Disabled capieng again - users were annoyed. (Stefan)
