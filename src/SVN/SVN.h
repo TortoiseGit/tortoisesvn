@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -130,7 +130,7 @@ public:
 	 */
 	BOOL Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, const SVNRev& pegrev, 
 		const SVNRev& revision, svn_depth_t depth, BOOL bIgnoreExternals, 
-		BOOL bAllow_unver_obstructions = TRUE);
+		BOOL bAllow_unver_obstructions);
 	/**
 	 * If path list contains an URL, use the MESSAGE to immediately attempt 
 	 * to commit a deletion of the URL from the repository. 
@@ -206,7 +206,7 @@ public:
 	 * \return TRUE if successful
 	 */
 	BOOL Update(const CTSVNPathList& pathList, const SVNRev& revision, svn_depth_t depth, 
-		BOOL depthIsSticky, BOOL ignoreexternals, BOOL bAllow_unver_obstructions = TRUE);
+		BOOL depthIsSticky, BOOL ignoreexternals, BOOL bAllow_unver_obstructions);
 	/**
 	 * Commit file or directory path into repository, using message as
 	 * the log message.
@@ -365,7 +365,7 @@ public:
 	 */
 	BOOL Switch(const CTSVNPath& path, const CTSVNPath& url, const SVNRev& revision, 
 		const SVNRev& pegrev, svn_depth_t depth, BOOL depthIsSticky, 
-		BOOL ignore_externals, BOOL allow_unver_obstruction = TRUE);
+		BOOL ignore_externals, BOOL allow_unver_obstruction);
 	/**
 	 * Import file or directory path into repository directory url at
 	 * head and using LOG_MSG as the log message for the (implied)

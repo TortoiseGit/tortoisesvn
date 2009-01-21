@@ -1829,7 +1829,7 @@ bool CSVNProgressDlg::CmdCheckout(CString& sWindowTitle, bool& /*localoperation*
 			m_options & ProgOptIgnoreExternals ? (LPCTSTR)sExtExcluded : (LPCTSTR)sExtIncluded);
 		ReportCmd(sCmdInfo);
 
-		if (!Checkout(urls[i], checkoutdir, m_Revision, m_Revision, m_depth, m_options & ProgOptIgnoreExternals))
+		if (!Checkout(urls[i], checkoutdir, m_Revision, m_Revision, m_depth, m_options & ProgOptIgnoreExternals, DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), TRUE))))
 		{
 			if (m_ProgList.GetItemCount()!=0)
 			{
@@ -1840,7 +1840,7 @@ bool CSVNProgressDlg::CmdCheckout(CString& sWindowTitle, bool& /*localoperation*
 			// try again with HEAD as the peg revision.
 			else
 			{
-				if (!Checkout(urls[i], checkoutdir, SVNRev::REV_HEAD, m_Revision, m_depth, m_options & ProgOptIgnoreExternals))
+				if (!Checkout(urls[i], checkoutdir, SVNRev::REV_HEAD, m_Revision, m_depth, m_options & ProgOptIgnoreExternals, DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), TRUE))))
 				{
 					ReportSVNError();
 					return false;
@@ -2005,9 +2005,9 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
 			m_targetPathList[0].GetWinPath(),
 			(LPCTSTR)m_url.GetSVNPathString(), (LPCTSTR)m_Revision.ToString());
 		ReportCmd(sCmdInfo);
-		if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, SVNRev::REV_HEAD, m_depth, TRUE, m_options & ProgOptIgnoreExternals))
+		if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, SVNRev::REV_HEAD, m_depth, TRUE, m_options & ProgOptIgnoreExternals, DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), TRUE))))
 		{
-			if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, m_Revision, m_depth, TRUE, m_options & ProgOptIgnoreExternals))
+			if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, m_Revision, m_depth, TRUE, m_options & ProgOptIgnoreExternals, DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), TRUE))))
 			{
 				ReportSVNError();
 				return false;
@@ -2087,7 +2087,7 @@ bool CSVNProgressDlg::CmdLock(CString& sWindowTitle, bool& /*localoperation*/)
 		if (CMessageBox::Show(m_hWnd, IDS_WARN_LOCKOUTDATED, IDS_APPNAME, MB_ICONQUESTION|MB_YESNO)==IDYES)
 		{
 			ReportString(CString(MAKEINTRESOURCE(IDS_SVNPROGRESS_UPDATEANDRETRY)), CString(MAKEINTRESOURCE(IDS_WARN_NOTE)));
-			if (!Update(m_targetPathList, SVNRev::REV_HEAD, svn_depth_files, false, true))
+			if (!Update(m_targetPathList, SVNRev::REV_HEAD, svn_depth_files, false, true, DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), TRUE))))
 			{
 				ReportSVNError();
 				return false;
@@ -2409,7 +2409,7 @@ bool CSVNProgressDlg::CmdSwitch(CString& sWindowTitle, bool& /*localoperation*/)
 	bool depthIsSticky = true;
 	if (m_depth == svn_depth_unknown)
 		depthIsSticky = false;
-	if (!Switch(m_targetPathList[0], m_url, m_Revision, m_Revision, m_depth, depthIsSticky, m_options & ProgOptIgnoreExternals))
+	if (!Switch(m_targetPathList[0], m_url, m_Revision, m_Revision, m_depth, depthIsSticky, m_options & ProgOptIgnoreExternals, DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), TRUE))))
 	{
 		ReportSVNError();
 		return false;
@@ -2520,7 +2520,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
 			CString sNotify;
 			sNotify.Format(IDS_PROGRS_UPDATEPATH, m_basePath.GetWinPath());
 			ReportString(sNotify, CString(MAKEINTRESOURCE(IDS_WARN_NOTE)));
-			if (!Update(CTSVNPathList(targetPath), revstore, m_depth, TRUE, m_options & ProgOptIgnoreExternals))
+			if (!Update(CTSVNPathList(targetPath), revstore, m_depth, TRUE, m_options & ProgOptIgnoreExternals, DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), TRUE))))
 			{
 				ReportSVNError();
 				return false;
@@ -2556,7 +2556,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
 						intermediatepath = wcPath;
 					else
 						intermediatepath.AppendPathString(childname);
-					bSuccess = !!Update(CTSVNPathList(intermediatepath), m_Revision, svn_depth_empty, false, true);
+					bSuccess = !!Update(CTSVNPathList(intermediatepath), m_Revision, svn_depth_empty, false, true, DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), TRUE)));
 				}
 
 				if (!bSuccess)
@@ -2566,7 +2566,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
 				}
 			}
 		}
-		if (!Update(m_targetPathList, m_Revision, m_depth, TRUE, m_options & ProgOptIgnoreExternals))
+		if (!Update(m_targetPathList, m_Revision, m_depth, TRUE, m_options & ProgOptIgnoreExternals, DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), TRUE))))
 		{
 			ReportSVNError();
 			return false;
