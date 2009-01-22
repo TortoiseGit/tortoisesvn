@@ -99,6 +99,8 @@ Version 1.5.7
        in it didn't work. (Stefan)
 - BUG: TortoiseMerge showed a black line diff in one-pane view. (Stefan)
 - BUG: The styling of bug IDs in the commit dialog could fail. (Stefan)
+- BUG: TortoiseMerge added a newline at the end of a file when saving
+       modifications. (Stefan)
 
 Version 1.5.6
 - CHG: Disabled capieng again - users were annoyed. (Stefan)
