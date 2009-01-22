@@ -1,6 +1,6 @@
 #
 # Serbian cyrillic translation for TortoiseSVN
-# Copyright (C) 2008 the TortoiseSVN team
+# Copyright (C) 2008-2009 the TortoiseSVN team
 # This file is distributed under the same license as TortoiseSVN
 #
 # Last commit by:
@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2008-12-13 20:23+0100\n"
+"PO-Revision-Date: 2009-01-21 20:19+0100\n"
 "Last-Translator: Milorad Popović\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1066,6 +1066,10 @@ msgstr "&Ревизија"
 msgid "&SSH client:"
 msgstr "&ССХ клијент"
 
+#. Resource IDs: (65535)
+msgid "&SVN"
+msgstr "&СВН"
+
 #
 #. Resource IDs: (65535)
 msgid "&Sat:"
@@ -1701,6 +1705,10 @@ msgstr "Напредно подешавање спајања"
 #. Resource IDs: (65535)
 msgid "Age"
 msgstr "Доба"
+
+#. Resource IDs: (32822)
+msgid "Align trees on top"
+msgstr "Изравњајте стабла на врху"
 
 #. Resource IDs: (1007)
 msgid "All Commands"
@@ -2656,6 +2664,11 @@ msgstr "Копирано"
 msgid "Copied from URL"
 msgstr "Копирано с УРЛ-а"
 
+#. Resource IDs: (275)
+#, c-format
+msgid "Copied from: %s@ld\r\n"
+msgstr "Копирано из: %s@ld\r\n"
+
 #. Resource IDs: (126)
 msgid "Copied remotely"
 msgstr "Копирано на даљину"
@@ -3103,6 +3116,20 @@ msgstr "Обриши"
 msgid "Delete Unversioned Items"
 msgstr "Обриши неверзионисане ставке "
 
+#. Resource IDs: (14)
+#, c-format
+msgid "Delete and &ignore %d items by name"
+msgstr "Обришите и &занемарити %d ставки по имену"
+
+#. Resource IDs: (14)
+msgid "Delete and add to &ignore list"
+msgstr "Обришите и додајте на листи &занемаривања"
+
+#. Resource IDs: (14)
+#, c-format
+msgid "Delete and ignore %d items by &extension"
+msgstr "Обришите и занемарити %d ставки по &екстензији"
+
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
 msgstr "Обриши неверзионисане ставке..."
@@ -3114,6 +3141,10 @@ msgstr "Обрисано"
 #. Resource IDs: (65535)
 msgid "Deleted node"
 msgstr "Обрисани чвор"
+
+#. Resource IDs: (15)
+msgid "Deletes and adds the selected file(s) or the filemask to the 'ignore' list"
+msgstr "Бришу и додају означен(е) фајл(ове) или маску фајла у листу 'занемарених'"
 
 #. Resource IDs: (11)
 msgid "Deletes files / folders from version control"
@@ -3343,6 +3374,10 @@ msgstr "Цртај"
 #. Resource IDs: (1079)
 msgid "Drive Types"
 msgstr "Типови уређаја"
+
+#. Resource IDs: (1315)
+msgid "Drives A: and B:"
+msgstr "Дискови A: and B:"
 
 #. Resource IDs: (613)
 #, c-format
@@ -3986,17 +4021,25 @@ msgstr ""
 msgid "Finished!"
 msgstr "Готов!"
 
+#. Resource IDs: (32804)
+msgid "Fit graph"
+msgstr "Подесите граф"
+
+#. Resource IDs: (32802)
+msgid "Fit height"
+msgstr "Подеси висину"
+
 #. Resource IDs: (32810)
 msgid "Fit image &sizes"
 msgstr "Уклопи &величине слике"
 
+#. Resource IDs: (32803)
+msgid "Fit width"
+msgstr "Подеси висину"
+
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
 msgstr "Фиксира случај ставке и не додаје је"
-
-#. Resource IDs: (1315)
-msgid "Floppy drives (A: B:)"
-msgstr "Дискета (А: Б:)"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
@@ -4049,16 +4092,6 @@ msgstr "ГДИ+ није могао бити инициран!"
 #. Resource IDs: (273)
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "ГДИ+ није могао направити објекат битмапу. Вероватно нема доста меморије."
-
-#. Resource IDs: (83)
-msgid ""
-"GDI+ is required to save the revision graph as a picture.\n"
-"You can get GDI+ from\n"
-"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
-msgstr ""
-"ГДИ+ је неопходан желите ли снимити граф ревизија као слику,\n"
-"можете га преузети овде:\n"
-"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 
 #. Resource IDs: (284)
 msgid "Gathering information. Please wait..."
@@ -4148,7 +4181,7 @@ msgstr "Дохватање пописа обједињених разлика"
 
 #. Resource IDs: (65535)
 msgid "Global ignore &pattern:"
-msgstr "Глобални &узорак изостављања:"
+msgstr "Глобални изостави &модел:"
 
 #. Resource IDs: (65535)
 msgid "Global settings"
@@ -4385,8 +4418,8 @@ msgstr "ID:32814:V C +L"
 msgid "ID:32814:VA  +D"
 msgstr "ID:32814:VA  +D"
 
-#. Accelerator Entry for Menu ID:32822; ''
-msgid "ID:32822:V C +F"
+#. Accelerator Entry for Menu ID:32824; ''
+msgid "ID:32824:V C +F"
 msgstr "ID:32822:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
@@ -4592,6 +4625,10 @@ msgstr ""
 "Ако је постављено, фајлови изван система верзија ће означити именик измењеном\r\n"
 "тј. именици ће добити одговарајућу прекривну икону (измењен именик )."
 
+#. Resource IDs: (2052)
+msgid "If the graph contains multiple trees, separate them by slight variations in background color."
+msgstr "Ако граф садржи вишеструка стабла, раздвојите их лаком варијацијом боје основе."
+
 #. Resource IDs: (1439)
 msgid "If the repository can not be contacted"
 msgstr "Ако спремииште није доступно "
@@ -4616,6 +4653,11 @@ msgstr "Ако желите уклонити катанац користите �
 msgid "Ignore"
 msgstr "Занемари"
 
+#. Resource IDs: (14)
+#, c-format
+msgid "Ignore %d items by &extension"
+msgstr "Занемарити %d ставки по &екстензији"
+
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
 msgstr "Занемари &све празне знакове"
@@ -4631,10 +4673,6 @@ msgstr "Занемар све размаке"
 #. Resource IDs: (1267)
 msgid "Ignore ancestry"
 msgstr "Занемари порекло"
-
-#. Resource IDs: (14)
-msgid "Ignore items by &extension"
-msgstr "Занемарене ставке по &екстензији"
 
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
@@ -5685,6 +5723,16 @@ msgstr "Нису уклоњене све ставке из системског 
 #. Resource IDs: (83)
 msgid "Not enough memory to complete operation."
 msgstr "Недовољно меморије за извршење операције."
+
+#. Resource IDs: (273)
+msgid ""
+"Not enough memory!\n"
+"Try reducing the size of the revision graph by either\n"
+"collapsing nodes or reducing the zoom factor."
+msgstr ""
+"Нема довољно меморије!\n"
+"Покушајте смањивањем величине ревизионог графа или\n"
+"спајајући чворове или смањујући фактор увећања."
 
 #. Resource IDs: (563)
 msgid "Not recursive"
@@ -6836,27 +6884,27 @@ msgstr "Ревизија:"
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld\r\n"
-"URL: %s\r\n"
+"Revision: %ld (%s)\r\n"
+"URL: %s%s\r\n"
 "Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"Ревизија: %ld\r\n"
-"УРЛ: %s\r\n"
+"Ревизија: %ld (%s)\r\n"
+"УРЛ: %s%s\r\n"
 "Аутор: %s\r\n"
 "Датум: %s\r\n"
 "\r\n"
-"Порука дневника:\r\n"
+"Дневник порука:\r\n"
 "%s"
 
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld\r\n"
-"URL: %s\r\n"
+"Revision: %ld (%s)\r\n"
+"URL: %s%s\r\n"
 "Author: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
@@ -6865,14 +6913,14 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"Revision: %ld\r\n"
-"URL: %s\r\n"
-"Author: %s\r\n"
-"Date: %s\r\n"
+"Ревизија: %ld (%s)\r\n"
+"УРЛ: %s%s\r\n"
+"Аутор: %s\r\n"
+"Датум: %s\r\n"
 "\r\n"
-"Tags (%d):%s\r\n"
+"Знаци (%d):%s\r\n"
 "\r\n"
-"Logmessage:\r\n"
+"Дневник порука:\r\n"
 "%s"
 
 #. Resource IDs: (116, 65535)
@@ -7293,6 +7341,10 @@ msgstr "Шкољка"
 msgid "Shell Icon Cache was rebuilt!"
 msgstr "Кеш икона шкољке је поново изграђена!"
 
+#. Resource IDs: (2052)
+msgid "Shift trees to the top of the window. Alignment to other trees will be lost."
+msgstr "Померите стабла у вршни прозор. Подешавање ка другим стаблима ће се изгубити."
+
 #. Resource IDs: (101)
 msgid "Sho&w properties"
 msgstr "Прика&жи својства"
@@ -7428,6 +7480,10 @@ msgstr "Прикажи &обједињене разлике"
 #. Resource IDs: (1126)
 msgid "Show excluded folders as normal"
 msgstr "Прикажи искључене именик са статусом 'нормал'"
+
+#. Resource IDs: (1480)
+msgid "Show externals from different repositories"
+msgstr "Прикакажите екстернале из различитих спремишта"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -7733,6 +7789,43 @@ msgstr "Субверзија"
 #. Resource IDs: (65535)
 msgid "Subversion configuration &file:"
 msgstr "Субверзијин конфигурациони &фајл:"
+
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Subversion encountered a serious problem.\n"
+"Please take the time to report this on our mailing list\n"
+"with as much information as possible about what\n"
+"you were trying to do.\n"
+"\n"
+"Subversion encountered the problem in:\n"
+"file %s, line %ld\n"
+"expression = %s"
+msgstr ""
+"Субверзија је наишла на озбиљан проблем.\n"
+"Молимо вас да нађете времена да нас известите на нашу мејлинг листу\n"
+"са што више  што је могуће информација о томе шта \n"
+"сте покушали да урадите.\n"
+"\n"
+"Субверзија налази проблем у:\n"
+"file %s, line %ld\n"
+"expression = %s"
+
+#. Resource IDs: (84)
+msgid ""
+"Subversion encountered a serious problem.\n"
+"Please take the time to report this on our mailing list\n"
+"with as much information as possible about what\n"
+"you were trying to do.\n"
+"\n"
+"Subversion reported the following:"
+msgstr ""
+"Субверзија је наишла на озбиљан проблем.\n"
+"Молимо вас да нађете времена да нас известите на нашу мејлинг листу\n"
+"са што више  што је могуће информација о томе шта \n"
+"сте покушали да урадите.\n"
+"\n"
+"Субверзија извештава о следећем:\n"
 
 #. Resource IDs: (79)
 msgid ""
@@ -8274,6 +8367,19 @@ msgstr ""
 "%s\n"
 "већ постоји!"
 
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"The target file\n"
+"%s\n"
+" already exists.\n"
+"Do you want to replace the file?"
+msgstr ""
+"Циљни фајл\n"
+"%s\n"
+"већ постоји.\n"
+" Желите ли заменити фајл?"
+
 #. Resource IDs: (88)
 #, c-format
 msgid ""
@@ -8665,6 +8771,10 @@ msgstr "Укупан број стопљених ревизија"
 #. Resource IDs: (339)
 msgid "Total number of user revision properties"
 msgstr "Укупан број корисничких својстава"
+
+#. Resource IDs: (32821)
+msgid "Tr&ee stripes"
+msgstr "Ст&абла траке"
 
 #. Resource IDs: (357)
 #, c-format
@@ -9546,6 +9656,10 @@ msgstr "Приближи"
 msgid "Zoom out"
 msgstr "Удаљи"
 
+#. Resource IDs: (32801)
+msgid "Zoom to &100%"
+msgstr "Зумирај до &100%"
+
 #. Resource IDs: (2051)
 msgid "Zoom to fit"
 msgstr "Зумирај да се уклопи"
@@ -9723,9 +9837,25 @@ msgstr ""
 msgid "copied:"
 msgstr "копирано:"
 
+#. Resource IDs: (276)
+msgid "copy"
+msgstr "копирај"
+
+#. Resource IDs: (276)
+msgid "copy source only"
+msgstr "копирај само извор"
+
+#. Resource IDs: (276)
+msgid "created"
+msgstr "креирано"
+
 #. Resource IDs: (245)
 msgid "day"
 msgstr "дан"
+
+#. Resource IDs: (276)
+msgid "delete"
+msgstr "бриши"
 
 #. Resource IDs: (10, 272)
 msgid "deleted"
@@ -9890,6 +10020,10 @@ msgstr "према %1"
 msgid "online"
 msgstr "укључен"
 
+#. Resource IDs: (276)
+msgid "open branch"
+msgstr "отвори грану"
+
 #. Resource IDs: (1406, 1407)
 msgid "or"
 msgstr "или"
@@ -9925,6 +10059,10 @@ msgstr "тромесечје"
 #. Resource IDs: (195)
 msgid "readonly"
 msgstr "само за читање"
+
+#. Resource IDs: (276)
+msgid "rename"
+msgstr "преименуј"
 
 #. Resource IDs: (10)
 msgid "replaced"
@@ -10084,6 +10222,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "switched:"
 msgstr "пребачено:"
+
+#. Resource IDs: (276)
+msgid "tagged"
+msgstr "означен"
 
 #. Resource IDs: (601)
 msgid "temp. offline"
@@ -10275,6 +10417,22 @@ msgstr "да"
 msgid "{BugTraq}"
 msgstr "{БагТрек}"
 
+#~ msgid ""
+#~ "GDI+ is required to save the revision graph as a picture.\n"
+#~ "You can get GDI+ from\n"
+#~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
+#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
+#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+#~ "be590feaa05a&DisplayLang=en</a></u>"
+#~ msgstr ""
+#~ "ГДИ+ је неопходан желите ли снимити граф ревизија као слику,\n"
+#~ "можете га преузети овде:\n"
+#~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
+#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
+#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+#~ "be590feaa05a&DisplayLang=en</a></u>"
+#~ msgid "Floppy drives (A: B:)"
+#~ msgstr "Дискета (А: Б:)"
 #~ msgid "Only record the merge"
 #~ msgstr "Само сними спајање"
 #~ msgid "(deleted) %s"
