@@ -13,6 +13,11 @@
 :: the limits, the DPI setting of the image is increased to
 :: fit the limits.
 ::
+:: By default all images in all languages will be checked.
+:: You can specify a group of files to check using the first
+:: parameter, e.g.
+::     adjustimages en\Rev*.png
+::
 :: The image manipulation is done using NConvert.exe from
 :: http://www.xnview.com
 :: ============================================================ 

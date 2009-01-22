@@ -18,6 +18,12 @@ can use the AdjustImages.bat script which does the conversion for you.
 This script requires NConvert.exe which you can download from
 http://www.xnview.com
 
+From the images directory you can simply run adjustimages to check all
+images in all languages - it could take a long time. You can check
+specific languages or images using a single parameter, eg.
+adjustimages en\*.png
+adjustimages en\Rev*.png
+
 
 General rules for all screenshots
 =================================
