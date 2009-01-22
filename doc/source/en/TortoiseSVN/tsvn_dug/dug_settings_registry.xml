@@ -100,5 +100,24 @@
 				</para>
 			</listitem>
 		</varlistentry>
+		<varlistentry>
+			<term>Make checkout fail if an item of the same name exists</term>
+			<listitem>
+				<para>
+					By default, if you checkout a working copy over an existing
+					unversioned folder structure, as you might do after import,
+					then any existing which differ from the repository content
+					will be left unchanged and marked as modified. When you come
+					to commit, it is your local copy which will then be sent back
+					to the repository. Some people would prefer the checkout to
+					fail if the existing content differs, so that if two people
+					add the same file the second person's version does not
+					overwrite the original version by mistake.
+					If you want to force checkouts to fail in this instance you must
+					create a <literal>DWORD</literal> registry key with value 0 at
+					<literal>HKCU\Software\TortoiseSVN\AllowUnversionedObstruction</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
 	</variablelist>
 </sect2>
