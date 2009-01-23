@@ -10,14 +10,14 @@
 #
 # Authors:
 # Seby Rusu <sebyrusu@yahoo.com>, 2006.
-# Ben Felt <benwfelt@gmail.com>, 2008.
+# Ben Felt <benwfelt@gmail.com>, 2008-2009.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-01-23 02:02+0200\n"
+"PO-Revision-Date: 2009-01-23 15:05+0200\n"
 "Last-Translator: Ben Felt <benwfelt@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -931,7 +931,7 @@ msgstr "Client &SSH:"
 
 #. Resource IDs: (65535)
 msgid "&SVN"
-msgstr ""
+msgstr "&SVN"
 
 #. Resource IDs: (65535)
 msgid "&Sat:"
@@ -1411,7 +1411,7 @@ msgstr "Adaugă program de îmbinare specific unei extensii"
 
 #. Resource IDs: (89)
 msgid "Add the item anyway"
-msgstr ""
+msgstr "Adaugă elementul oricum"
 
 #. Resource IDs: (613)
 #, c-format
@@ -1506,9 +1506,8 @@ msgid "Age"
 msgstr "Vârsta"
 
 #. Resource IDs: (32822)
-#, fuzzy
 msgid "Align trees on top"
-msgstr "Cel mai vechi &sus"
+msgstr ""
 
 #. Resource IDs: (1007)
 msgid "All Commands"
@@ -1799,7 +1798,6 @@ msgid "Back"
 msgstr "Înapoi"
 
 #. Resource IDs: (246)
-#, fuzzy
 msgid "Bar Graph"
 msgstr "Grafic cu bare"
 
@@ -2104,9 +2102,8 @@ msgid "Check to use a less verbose date and time format in log messages"
 msgstr "Bifaţi pentru a folosi un format mai puţin detaliat pentru data şi ora mesajelor din jurnal"
 
 #. Resource IDs: (2052)
-#, fuzzy
 msgid "Check working copy for modifications"
-msgstr "Caută modificări"
+msgstr "Caută modificări în copia de lucru"
 
 #. Resource IDs: (65535)
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -2767,7 +2764,6 @@ msgstr ""
 "%s"
 
 #. Resource IDs: (81)
-#, fuzzy
 msgid "Could not start thread!"
 msgstr "Nu s-a putut porni thread-ul!"
 
@@ -3484,7 +3480,6 @@ msgid "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information (*.pdf)|*.pdf|
 msgstr "Fişiere executabile (*.exe)|*.exe|Comandă (*.com)|*.com|Informaţie (*.pdf)|*.pdf|Batch (*.bat)|*.bat|Toate fişierele (*.*)|*.*||"
 
 #. Resource IDs: (1002)
-#, fuzzy
 msgid "Existing"
 msgstr "Există"
 
@@ -4736,7 +4731,7 @@ msgstr ""
 
 #. Resource IDs: (275)
 msgid "Join with following &tree"
-msgstr "Uneşte cu arborele următor"
+msgstr "Uneş&te cu arborele următor"
 
 #. Resource IDs: (275)
 msgid "Join with source tree"
@@ -5574,7 +5569,7 @@ msgstr "Numărul de revizii în cache ale căror proprietăţi de revizie stabil
 
 #. Resource IDs: (338)
 msgid "Number of different paths shown in the log dialog, including parent paths"
-msgstr ""
+msgstr "Numărul de căi diferite afişate în dialogul de jurnal, inclusiv căi părinte"
 
 #. Resource IDs: (338)
 msgid "Number of different words used in log messages"
@@ -5586,7 +5581,7 @@ msgstr "Numărul de revizii îmbinate care nu sunt încă salvate în cache"
 
 #. Resource IDs: (338)
 msgid "Number of path elements. A path element is a folder or file name like 'foo.txt' or 'mybranch'."
-msgstr ""
+msgstr "Numărul de elemente de cale. Un element de cale este un dosar sau nume de fişier, de exemplu 'foo.txt' sau 'ramuramea'."
 
 #. Resource IDs: (345)
 msgid ""
@@ -5676,7 +5671,7 @@ msgstr "Numai acest element"
 
 #. Resource IDs: (1224)
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
-msgstr "Foloseşte corectorul ortografic numai când tsvn:projectlanguage este aplicat"
+msgstr "Foloseşte corectorul &ortografic numai când tsvn:projectlanguage este aplicat"
 
 #. Resource IDs: (3841)
 msgid "Open"
@@ -5753,6 +5748,8 @@ msgid ""
 "Override the svn:eol-style property setting.\n"
 "Files which don't have this property set are not affected."
 msgstr ""
+"Suprascrie preferinţa pentru proprietatea svn:eol-style.\n"
+"Fişiere fără aceasta proprietate nu sunt afectate."
 
 #. Resource IDs: (99)
 msgid "Overwrite"
@@ -6212,7 +6209,7 @@ msgstr ""
 
 #. Resource IDs: (3825)
 msgid "Reduce the window to an icon"
-msgstr ""
+msgstr "Micşorează fereastră la o iconiţă"
 
 #. Resource IDs: (101, 135, 1382)
 msgid "Refresh"
@@ -6614,7 +6611,7 @@ msgstr "Inversează toate schimbările făcute de când s-a făcut ultima actual
 
 #. Resource IDs: (14)
 msgid "Reverts an addition to version control"
-msgstr ""
+msgstr "Inversează o adăugare la control de versiune"
 
 #. Resource IDs: (19, 76, 208, 1306, 1375, 1393, 65535)
 msgid "Revision"
@@ -7222,7 +7219,7 @@ msgid ""
 "Inline diff word-wise"
 msgstr ""
 "Afişează diferenţiere între linii pe cuvinte\n"
-"D&iferenţiere între linii pe cuvinte"
+"Diferenţiere între linii pe cuvinte"
 
 #. Resource IDs: (1126)
 msgid "Show Lock dialog before locking files"
@@ -7250,9 +7247,8 @@ msgid "Show Screen&Tips on toolbars"
 msgstr ""
 
 #. Resource IDs: (32831)
-#, fuzzy
 msgid "Show WC &modifications"
-msgstr "Caută modificări"
+msgstr "Afişează &modificări din copia de lucru"
 
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
@@ -7271,9 +7267,8 @@ msgid "Show excluded folders as normal"
 msgstr "Afişează dosare excluse ca normale"
 
 #. Resource IDs: (1480)
-#, fuzzy
 msgid "Show externals from different repositories"
-msgstr "Elimină jurnale salvate în cache din %ld depozite"
+msgstr "Afişează externals din depozite diferite"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -7310,6 +7305,8 @@ msgid ""
 "Show or hide the locator bar\n"
 "Toggle LocatorBar"
 msgstr ""
+"Afişează sau ascunde bara de localizator\n"
+"Comută bara de localizator"
 
 #. Resource IDs: (3713)
 msgid ""
@@ -8524,8 +8521,9 @@ msgid "Total number of user revision properties"
 msgstr "Numărul total de proprietăţi de revizie stabilite de utilizator"
 
 #. Resource IDs: (32821)
+#, fuzzy
 msgid "Tr&ee stripes"
-msgstr ""
+msgstr "Dungi de arbor&e"
 
 #. Resource IDs: (357)
 #, c-format
@@ -8596,6 +8594,9 @@ msgid ""
 "%s\n"
 "Please use the main merge dialog."
 msgstr ""
+"Nu s-a putut determina sursa de îmbinare pentru\n"
+"%s\n"
+"Folosiţi dialogul principal de îmbinare."
 
 #. Resource IDs: (3866)
 msgid "Unable to load mail system support."
@@ -8811,7 +8812,7 @@ msgstr ""
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
-msgstr "Foloseşte URL-ul copiei de lucru ca URL-ul \"De la:\" implicit"
+msgstr "Foloseşte URL-ul copiei de &lucru ca URL-ul \"De la:\" implicit"
 
 #. Resource IDs: (1064)
 msgid "Use Unified Diff from &clipboard"
@@ -8899,7 +8900,7 @@ msgstr "Foloseşte blocul de text din 'al &lor'"
 
 #. Resource IDs: (251)
 msgid "Use text block from 'm&ine' before 'theirs'"
-msgstr "Foloseşte blocul de text din 'al meu' înainte de 'al lor'"
+msgstr "Foloseşte blocul de text din 'al &meu' înainte de 'al lor'"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -8914,12 +8915,12 @@ msgid ""
 "Use text block from 'mine'\n"
 "Use 'mine' text block"
 msgstr ""
-"Foloseşte blocul de text din 'al m&eu'\n"
+"Foloseşte blocul de text din 'al meu'\n"
 "Foloseşte blocul 'meu' de text"
 
 #. Resource IDs: (251)
 msgid "Use text block from 't&heirs' before 'mine"
-msgstr "Foloseşte blocul de text din 'al l&or' înainte de 'al meu'"
+msgstr "Foloseşte blocul de text din 'al &lor' înainte de 'al meu'"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -8947,11 +8948,11 @@ msgstr "Foloseşte blocul de text din \"al &lor\""
 
 #. Resource IDs: (32822)
 msgid "Use text block from \"m&ine\" before \"theirs\""
-msgstr "Foloseşte blocul de text din \"al m&eu\" înainte de \"al lor\""
+msgstr "Foloseşte blocul de text din \"al &meu\" înainte de \"al lor\""
 
 #. Resource IDs: (32821)
 msgid "Use text block from \"t&heirs\" before \"mine\""
-msgstr "Foloseşte blocul de text din \"al l&or\" înainte de \"al meu\""
+msgstr "Foloseşte blocul de text din \"al &lor\" înainte de \"al meu\""
 
 #. Resource IDs: (2054)
 msgid ""
