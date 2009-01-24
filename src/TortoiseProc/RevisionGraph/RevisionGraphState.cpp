@@ -81,7 +81,7 @@ CSyncPointer<const ILayoutNodeList> CRevisionGraphState::GetNodes() const
     return CSyncPointer<const ILayoutNodeList>
         ( &mutex
         , layout.get() == NULL ? NULL : layout->GetNodes()
-        , false);
+        , true);
 }
 
 CSyncPointer<const ILayoutConnectionList> CRevisionGraphState::GetConnections() const
@@ -90,7 +90,7 @@ CSyncPointer<const ILayoutConnectionList> CRevisionGraphState::GetConnections() 
     return CSyncPointer<const ILayoutConnectionList>
         ( &mutex
         , layout.get() == NULL ? NULL : layout->GetConnections()
-        , false);
+        , true);
 }
 
 CSyncPointer<const ILayoutTextList> CRevisionGraphState::GetTexts() const
@@ -99,7 +99,7 @@ CSyncPointer<const ILayoutTextList> CRevisionGraphState::GetTexts() const
     return CSyncPointer<const ILayoutTextList>
         ( &mutex
         , layout.get() == NULL ? NULL : layout->GetTexts()
-        , false);
+        , true);
 }
 
 CSyncPointer<const ILayoutRectList> CRevisionGraphState::GetTrees() const
@@ -108,7 +108,7 @@ CSyncPointer<const ILayoutRectList> CRevisionGraphState::GetTrees() const
     return CSyncPointer<const ILayoutRectList>
         ( &mutex
         , layout.get() == NULL ? NULL : layout->GetTrees()
-        , false);
+        , true);
 }
 
 bool CRevisionGraphState::GetFetchedWCState() const
