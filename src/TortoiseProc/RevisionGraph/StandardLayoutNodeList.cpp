@@ -121,6 +121,8 @@ CString CStandardLayoutNodeList::GetToolTip (index_t index) const
         revisionDescription.LoadString (IDS_REVGRAPH_NODEIS_DELETE);
 	else if (classification.Is (CNodeClassification::IS_RENAMED))
         revisionDescription.LoadString (IDS_REVGRAPH_NODEIS_RENAME);
+	else if (classification.Is (CNodeClassification::IS_LAST))
+        revisionDescription.LoadString (IDS_REVGRAPH_NODEIS_HEAD);
     else if (classification.Is (CNodeClassification::IS_MODIFIED))
         revisionDescription.LoadString (IDS_REVGRAPH_NODEIS_MODIFIED);
 	else
