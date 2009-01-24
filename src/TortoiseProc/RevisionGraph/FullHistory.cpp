@@ -299,14 +299,20 @@ bool CFullHistory::FetchRevisionData ( CString path
             svn_revnum_t minrev;
 	        bool switched, modified, sparse;
 	        if (svn.GetWCRevisionStatus ( CTSVNPath (path)
-								        , true
+								        , false    // get the "update" revision
 								        , minrev
 								        , maxrev
 								        , switched
 								        , modified
 								        , sparse))
 	        {
-		        wcRevision = maxrev;
+                // we want to report the oldest revision as WC revision:
+                // If you commit at $WC/path/ and after that ask for the 
+                // rev graph at $WC/, we want to display the revision of
+                // the base path ($WC/ is now "older") instead of the
+                // newest one.
+
+		        wcRevision = minrev;
                 wcModified = modified;
 	        }
         }
