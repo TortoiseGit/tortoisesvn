@@ -91,9 +91,9 @@ CString CStandardLayoutNodeList::GetToolTip (index_t index) const
 	apr_time_t timeStamp = revisionInfo.GetTimeStamp (revisionIndex);
 	SVN::formatDate(date, timeStamp);
 
-    CString realPath 
+    CString path 
         = CUnicodeUtils::StdGetUnicode 
-            (node->GetRealPath().GetPath()).c_str();
+            (node->GetPath().GetPath()).c_str();
     CString author 
         = CUnicodeUtils::StdGetUnicode 
             (revisionInfo.GetAuthor (revisionIndex)).c_str();
@@ -131,12 +131,13 @@ CString CStandardLayoutNodeList::GetToolTip (index_t index) const
     // copy-from info, if available
 
     CString copyFromLine;
-    if (node->GetCopySource() != NULL)
+    const CFullGraphNode* copySource = node->GetBase()->GetCopySource();
+	if (copySource != NULL)
     {
         CString copyFromPath 
             = CUnicodeUtils::StdGetUnicode 
-                (node->GetCopySource()->GetRealPath().GetPath()).c_str();
-        revision_t copyFromRevision = node->GetCopySource()->GetRevision();
+                (copySource->GetPath().GetPath()).c_str();
+        revision_t copyFromRevision = copySource->GetRevision();
 
         copyFromLine.Format ( IDS_REVGRAPH_BOXTOOLTIP_COPYSOURCE
                             , (LPCTSTR)copyFromPath
@@ -149,7 +150,7 @@ CString CStandardLayoutNodeList::GetToolTip (index_t index) const
     {
 	    strTipText.Format ( IDS_REVGRAPH_BOXTOOLTIP
                           , revision, (LPCTSTR)revisionDescription
-                          , (LPCTSTR)realPath, (LPCTSTR)copyFromLine
+                          , (LPCTSTR)path, (LPCTSTR)copyFromLine
                           , (LPCTSTR)author, date, (LPCTSTR)comment);
     }
     else
@@ -202,7 +203,7 @@ CString CStandardLayoutNodeList::GetToolTip (index_t index) const
 
 	    strTipText.Format ( IDS_REVGRAPH_BOXTOOLTIP_TAGGED
                           , revision, (LPCTSTR)revisionDescription
-                          , (LPCTSTR)realPath, (LPCTSTR)copyFromLine
+                          , (LPCTSTR)path, (LPCTSTR)copyFromLine
                           , (LPCTSTR)author, date, tagCount, (LPCTSTR)tags
                           , (LPCTSTR)comment);
     }
