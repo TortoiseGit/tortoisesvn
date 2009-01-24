@@ -77,11 +77,31 @@ CString CStandardLayoutNodeList::GetToolTip (index_t index) const
 
     const CVisibleGraphNode* node = nodes[index].node;
 
-    // find the revision in our cache. 
-    // May not be present if this is the WC / HEAD revision.
+    // node properties
 
+	CNodeClassification classification = node->GetClassification();
     revision_t revision = node->GetRevision();
+
+    CString path 
+        = CUnicodeUtils::StdGetUnicode 
+            (node->GetPath().GetPath()).c_str();
+
+    // special case: the "workspace is modified" node
+
+    if (classification.Is (CNodeClassification::IS_MODIFIED_WC))
+    {
+	    strTipText.Format ( IDS_REVGRAPH_BOXTOOLTIP_WC
+                          , revision-1
+                          , (LPCTSTR)path);
+        return strTipText;
+    }
+
+    // find the revision in our cache. 
+    // Might not be present if this is the WC / HEAD revision
+    // (but should not happen).
+
     index_t revisionIndex = revisions [revision];
+    assert (revisionIndex != NO_INDEX);
     if (revisionIndex == NO_INDEX)
         return strTipText;
 
@@ -91,9 +111,6 @@ CString CStandardLayoutNodeList::GetToolTip (index_t index) const
 	apr_time_t timeStamp = revisionInfo.GetTimeStamp (revisionIndex);
 	SVN::formatDate(date, timeStamp);
 
-    CString path 
-        = CUnicodeUtils::StdGetUnicode 
-            (node->GetPath().GetPath()).c_str();
     CString author 
         = CUnicodeUtils::StdGetUnicode 
             (revisionInfo.GetAuthor (revisionIndex)).c_str();
@@ -102,8 +119,6 @@ CString CStandardLayoutNodeList::GetToolTip (index_t index) const
             (revisionInfo.GetComment (revisionIndex)).c_str();
 
     // description of the operation represented by this node
-
-	CNodeClassification classification = node->GetClassification();
 
     CString revisionDescription;
 	if (classification.Is (CNodeClassification::IS_COPY_TARGET))

@@ -37,11 +37,6 @@ msgstr ""
 msgid " "
 msgstr ""
 
-#. Resource IDs: (275)
-#, c-format
-msgid " Copied from: %s@%ld\r\n"
-msgstr ""
-
 #. Resource IDs: (188)
 #, c-format
 msgid "! %d"
@@ -1125,6 +1120,26 @@ msgstr ""
 msgid "(binary value)"
 msgstr ""
 
+#. Resource IDs: (276)
+msgid "(copy)"
+msgstr ""
+
+#. Resource IDs: (276)
+msgid "(created)"
+msgstr ""
+
+#. Resource IDs: (276)
+msgid "(delete)"
+msgstr ""
+
+#. Resource IDs: (276)
+msgid "(modified)"
+msgstr ""
+
+#. Resource IDs: (276)
+msgid "(modified, HEAD revision)"
+msgstr ""
+
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
 msgstr ""
@@ -1137,6 +1152,10 @@ msgstr ""
 msgid "(no line number)"
 msgstr ""
 
+#. Resource IDs: (276)
+msgid "(no modification but copy created from here)"
+msgstr ""
+
 #. Resource IDs: (214)
 msgid "(no value)"
 msgstr ""
@@ -1145,8 +1164,20 @@ msgstr ""
 msgid "(not found)"
 msgstr ""
 
+#. Resource IDs: (276)
+msgid "(open branch)"
+msgstr ""
+
 #. Resource IDs: (208)
 msgid "(property change only)"
+msgstr ""
+
+#. Resource IDs: (276)
+msgid "(rename)"
+msgstr ""
+
+#. Resource IDs: (276)
+msgid "(tagged)"
 msgstr ""
 
 #. Resource IDs: (245)
@@ -2301,6 +2332,11 @@ msgstr ""
 
 #. Resource IDs: (208)
 msgid "Copied from URL"
+msgstr ""
+
+#. Resource IDs: (275)
+#, c-format
+msgid "Copied from: %s@%ld\r\n"
 msgstr ""
 
 #. Resource IDs: (126)
@@ -5824,12 +5860,12 @@ msgstr ""
 
 #. Resource IDs: (272)
 #, c-format
-msgid "Revision: %ld (%s)\r\nURL: %s%s\r\nAuthor: %s\r\nDate: %s\r\n\r\nLogmessage:\r\n%s"
+msgid "Revision: %ld %s\r\nURL: %s\r\n%sAuthor: %s\r\nDate: %s\r\n\r\nLogmessage:\r\n%s"
 msgstr ""
 
 #. Resource IDs: (272)
 #, c-format
-msgid "Revision: %ld (%s)\r\nURL: %s%s\r\nAuthor: %s\r\nDate: %s\r\n\r\nTags (%d):%s\r\n\r\nLogmessage:\r\n%s"
+msgid "Revision: %ld %s\r\nURL: %s\r\n%sAuthor: %s\r\nDate: %s\r\n\r\nTags (%d):%s\r\n\r\nLogmessage:\r\n%s"
 msgstr ""
 
 #. Resource IDs: (116, 65535)
@@ -7903,6 +7939,11 @@ msgstr ""
 msgid "Your working copy appears to be on a tag path!\nYou should first switch to a branch or the main trunk before committing.\n\nDo you want to commit anyway?"
 msgstr ""
 
+#. Resource IDs: (275)
+#, c-format
+msgid "Your working copy contains modifications.\nLowest revision in working copy: %ld\nPath: %s"
+msgstr ""
+
 #. Resource IDs: (88)
 msgid "Your working copy has local modifications!\nNote: updating to another revision won't lose those modifications so the working copy\nwon't look exactly as it was in the revision you're updating to!"
 msgstr ""
@@ -8089,24 +8130,8 @@ msgstr ""
 msgid "copied:"
 msgstr ""
 
-#. Resource IDs: (276)
-msgid "copy"
-msgstr ""
-
-#. Resource IDs: (276)
-msgid "copy source only"
-msgstr ""
-
-#. Resource IDs: (276)
-msgid "created"
-msgstr ""
-
 #. Resource IDs: (245)
 msgid "day"
-msgstr ""
-
-#. Resource IDs: (276)
-msgid "delete"
 msgstr ""
 
 #. Resource IDs: (10, 272)
@@ -8264,10 +8289,6 @@ msgstr ""
 msgid "online"
 msgstr ""
 
-#. Resource IDs: (276)
-msgid "open branch"
-msgstr ""
-
 #. Resource IDs: (1406, 1407)
 msgid "or"
 msgstr ""
@@ -8302,10 +8323,6 @@ msgstr ""
 
 #. Resource IDs: (195)
 msgid "readonly"
-msgstr ""
-
-#. Resource IDs: (276)
-msgid "rename"
 msgstr ""
 
 #. Resource IDs: (10)
@@ -8381,10 +8398,6 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "switched:"
-msgstr ""
-
-#. Resource IDs: (276)
-msgid "tagged"
 msgstr ""
 
 #. Resource IDs: (601)
