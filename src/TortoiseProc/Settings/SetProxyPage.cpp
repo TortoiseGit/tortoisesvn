@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2007,2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -235,6 +235,8 @@ void CSetProxyPage::OnBnClickedSshbrowse()
 	if (CAppUtils::FileOpenSave(openPath, NULL, IDS_SETTINGS_SELECTSSH, IDS_PROGRAMSFILEFILTER, true, m_hWnd))
 	{
 		UpdateData();
+		PathQuoteSpaces(openPath.GetBuffer(MAX_PATH));
+		openPath.ReleaseBuffer(-1);
 		m_SSHClient = openPath;
 		UpdateData(FALSE);
 		SetModified();
