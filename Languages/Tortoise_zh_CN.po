@@ -57,7 +57,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-01-20 10:02+0800\n"
+"PO-Revision-Date: 2009-01-24 11:31+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -69,6 +69,11 @@ msgstr ""
 #. Resource IDs: (10, 126)
 msgid " "
 msgstr " "
+
+#. Resource IDs: (275)
+#, c-format
+msgid " Copied from: %s@%ld\r\n"
+msgstr " 复制自：%s@%ld\r\n"
 
 #. Resource IDs: (188)
 #, c-format
@@ -2524,11 +2529,6 @@ msgstr "已复制"
 #. Resource IDs: (208)
 msgid "Copied from URL"
 msgstr "复制自路径"
-
-#. Resource IDs: (275)
-#, c-format
-msgid "Copied from: %s@ld\r\n"
-msgstr "复制自：%s@ld\r\n"
 
 #. Resource IDs: (126)
 msgid "Copied remotely"
