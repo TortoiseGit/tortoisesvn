@@ -1,3 +1,17 @@
+Version 1.5.7
+- BUG: Error text returned from a repository hook script could get split up
+       wrong if empty lines were in the text. (Stefan)
+- BUG: If the currently shown folder in the repository browser was renamed,
+       the url bar did not change to the new url. (Stefan)
+- BUG: Unversioned items selected for reverting would move them to the
+       trash bin instead of leaving them. (Stefan)
+- BUG: Deleting an item in the repository browser that had non-ascii chars
+       in it didn't work. (Stefan)
+- BUG: TortoiseMerge showed a black line diff in one-pane view. (Stefan)
+- BUG: The styling of bug IDs in the commit dialog could fail. (Stefan)
+- BUG: TortoiseMerge added a newline at the end of a file when saving
+       modifications. (Stefan)
+
 Version 1.5.6
 - CHG: Disabled capieng again - users were annoyed. (Stefan)
 - BUG: possible segfault in TSVNCache when shutting down windows. (Stefan)
