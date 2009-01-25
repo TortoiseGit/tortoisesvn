@@ -17,6 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
+#include <gdiplus.h>
 #include "registry.h"
 
 /**
@@ -31,23 +32,43 @@ public:
 	
 	enum Colors
 	{
-		Cmd,
-		Conflict,
-		Modified,
-		Merged,
-		Deleted,
-		Added,
-		LastCommit,
-		DeletedNode,
-		AddedNode,
-		ReplacedNode,
-		RenamedNode,
-		LastCommitNode,
-		PropertyChanged
+		Cmd = 0,
+		Conflict = 1,
+		Modified = 2,
+		Merged = 3,
+		Deleted = 4,
+		Added = 5,
+		LastCommit = 6,
+		DeletedNode = 7,
+		AddedNode = 8,
+		ReplacedNode = 9,
+		RenamedNode = 10,
+		LastCommitNode = 11,
+		PropertyChanged = 12
 	};
 	
-	COLORREF GetColor(Colors col, bool bDefault = false);
+    enum GDIPlusColor
+    {
+		gdpDeletedNode = 7,
+		gdpAddedNode = 8,
+		gdpRenamedNode = 10,
+		gdpLastCommitNode = 11,
+
+        gdpModifiedNode = 13,
+        gdpWCNode = 14,
+        gdpUnchangedNode = 15,
+        gdpTagOverlay = 16,
+        gdpTrunkOverlay = 17,
+
+        gdpStripeColor1 = 18,
+        gdpStripeColor2 = 19
+    };
+
+	COLORREF GetColor (Colors col, bool bDefault = false);
 	void SetColor(Colors col, COLORREF cr);
+
+    Gdiplus::Color GetColor (GDIPlusColor id, bool bDefault = false);
+    void SetColor (GDIPlusColor id, Gdiplus::Color color);
 	
 private:
 	CRegDWORD m_regCmd;
@@ -63,4 +84,22 @@ private:
 	CRegDWORD m_regRenamedNode;
 	CRegDWORD m_regLastCommitNode;
 	CRegDWORD m_regPropertyChanged;
+
+	CRegDWORD m_regGDPDeletedNode;
+	CRegDWORD m_regGDPAddedNode;
+	CRegDWORD m_regGDPRenamedNode;
+	CRegDWORD m_regGDPLastCommit;
+	CRegDWORD m_regGDPModifiedNode;
+	CRegDWORD m_regGDPWCNode;
+	CRegDWORD m_regGDPUnchangedNode;
+	CRegDWORD m_regGDPTagOverlay;
+	CRegDWORD m_regGDPTrunkOverlay;
+	CRegDWORD m_regGDPStripeColor1;
+	CRegDWORD m_regGDPStripeColor2;
+
+    // utilities
+
+    CRegDWORD* GetRegistrySetting (Colors id);
+    CRegDWORD* GetRegistrySetting (GDIPlusColor id);
+    CRegDWORD* GetLegacyRegistrySetting (GDIPlusColor id);
 };

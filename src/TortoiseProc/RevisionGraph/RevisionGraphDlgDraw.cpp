@@ -250,7 +250,7 @@ void CRevisionGraphWnd::DrawShadow (Graphics& graphics, const RectF& rect,
 }
 
 void CRevisionGraphWnd::DrawNode(Graphics& graphics, const RectF& rect,
-                                 COLORREF contourRef, Color overlayColor, 
+                                 Color contour, Color overlayColor, 
                                  const CVisibleGraphNode *node, NodeShape shape)
 {
     // special case: line deleted but deletion node removed
@@ -265,15 +265,12 @@ void CRevisionGraphWnd::DrawNode(Graphics& graphics, const RectF& rect,
         && (node->GetClassification().Is (CNodeClassification::PATH_ONLY_DELETED))
         && ((m_state.GetNodeStates()->GetFlags (node->GetBase()) & MASK) == 0))
     {
-        contourRef = m_Colors.GetColor(CColors::DeletedNode);
+        contour = m_Colors.GetColor (CColors::gdpDeletedNode);
     }
 
     bool nodeSelected = (m_SelectedEntry1 == node) || (m_SelectedEntry2 == node);
 
     // calculate the RGB color values we need to draw the node
-
-    Color contour;
-    contour.SetFromCOLORREF (contourRef);
 
     Color background;
     background.SetFromCOLORREF (GetSysColor(COLOR_WINDOW));
@@ -696,7 +693,9 @@ void CRevisionGraphWnd::DrawStripes (Graphics& graphics, const CSize& offset)
         {
             // draw the background stripe
 
-            Color color ((i & 1) == 0 ? 0x18F0F0C0 : 0x18A0D0E0);
+            Color color (  (i & 1) == 0 
+                         ? m_Colors.GetColor (CColors::gdpStripeColor1) 
+                         : m_Colors.GetColor (CColors::gdpStripeColor2));
             SolidBrush brush (color);
             graphics.FillRectangle (&brush, rect);
         }
@@ -730,39 +729,35 @@ void CRevisionGraphWnd::DrawNodes (Graphics& graphics, Image* glyphs, const CRec
 		switch (node.style)
 		{
 		case ILayoutNodeList::SNode::STYLE_DELETED:
-			DrawNode(graphics, noderect, m_Colors.GetColor(CColors::DeletedNode), transparent, node.node, TSVNOctangle);
+			DrawNode(graphics, noderect, m_Colors.GetColor(CColors::gdpDeletedNode), transparent, node.node, TSVNOctangle);
 			break;
 
         case ILayoutNodeList::SNode::STYLE_ADDED:
             if (m_bTweakTagsColors && node.node->GetClassification().Is (CNodeClassification::IS_TAG))
-                overlayColor = Color (128, 250, 250, 92);
+                overlayColor = m_Colors.GetColor(CColors::gdpTagOverlay);
             else if (m_bTweakTrunkColors && node.node->GetClassification().Is (CNodeClassification::IS_TRUNK))
-                overlayColor = Color (64, 64, 255, 64);
-            DrawNode(graphics, noderect, m_Colors.GetColor(CColors::AddedNode), overlayColor, node.node, TSVNRoundRect);
+                overlayColor = m_Colors.GetColor(CColors::gdpTrunkOverlay);
+            DrawNode(graphics, noderect, m_Colors.GetColor(CColors::gdpAddedNode), overlayColor, node.node, TSVNRoundRect);
             break;
 
         case ILayoutNodeList::SNode::STYLE_RENAMED:
-            if (m_bTweakTagsColors && node.node->GetClassification().Is (CNodeClassification::IS_TAG))
-                overlayColor = Color (128, 92, 160, 160);
-            else if (m_bTweakTrunkColors && node.node->GetClassification().Is (CNodeClassification::IS_TRUNK))
-                overlayColor = Color (64, 0, 255, 160);
-            DrawNode(graphics, noderect, m_Colors.GetColor(CColors::RenamedNode), overlayColor, node.node, TSVNOctangle);
+            DrawNode(graphics, noderect, m_Colors.GetColor(CColors::gdpRenamedNode), overlayColor, node.node, TSVNOctangle);
 			break;
 
         case ILayoutNodeList::SNode::STYLE_LAST:
-			DrawNode(graphics, noderect, m_Colors.GetColor(CColors::LastCommitNode), transparent, node.node, TSVNEllipse);
+			DrawNode(graphics, noderect, m_Colors.GetColor(CColors::gdpLastCommitNode), transparent, node.node, TSVNEllipse);
 			break;
 
         case ILayoutNodeList::SNode::STYLE_MODIFIED:
-			DrawNode(graphics, noderect, GetSysColor(COLOR_WINDOWTEXT), transparent, node.node, TSVNRectangle);
+			DrawNode(graphics, noderect, m_Colors.GetColor(CColors::gdpModifiedNode), transparent, node.node, TSVNRectangle);
 			break;
 
         case ILayoutNodeList::SNode::STYLE_MODIFIED_WC:
-			DrawNode(graphics, noderect, m_Colors.GetColor(CColors::LastCommitNode), transparent, node.node, TSVNEllipse);
+			DrawNode(graphics, noderect, m_Colors.GetColor(CColors::gdpWCNode), transparent, node.node, TSVNEllipse);
 			break;
 
         default:
-            DrawNode(graphics, noderect, GetSysColor(COLOR_WINDOW), transparent, node.node, TSVNRectangle);
+            DrawNode(graphics, noderect, m_Colors.GetColor(CColors::gdpUnchangedNode), transparent, node.node, TSVNRectangle);
 			break;
 		}
 

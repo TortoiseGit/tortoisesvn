@@ -227,7 +227,7 @@ private:
 	void			DrawShadow(Graphics& graphics, const RectF& rect,
 							   Color shadowColor, NodeShape shape);
 	void			DrawNode(Graphics& graphics, const RectF& rect,
-							 COLORREF contourRef, Color overlayColor,
+							 Color contour, Color overlayColor,
                              const CVisibleGraphNode *node, NodeShape shape);
     RectF           TransformRectToScreen (const CRect& rect, const CSize& offset) const;
     RectF           GetNodeRect (const ILayoutNodeList::SNode& node, const CSize& offset) const;

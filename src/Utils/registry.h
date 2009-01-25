@@ -332,6 +332,7 @@ public:
 	void	write();					///< writes the value to the registry
 
     bool    exists();                   ///< test whether registry entry exits
+    const T& defaultValue() const;      ///< return the default passed to the constructor
 
     /**
      * Data access.
@@ -409,6 +410,12 @@ bool CRegTypedBase<T, Base>::exists()
         read();
 
     return m_exists;
+}
+
+template<class T, class Base>
+const T& CRegTypedBase<T, Base>::defaultValue() const
+{
+    return m_defaultvalue;
 }
 
 template<class T, class Base>
