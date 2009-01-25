@@ -69,7 +69,7 @@ protected:
     void Store (const T& value, Reg& registryKey)
     {
     	registryKey = value;
-	    if (registryKey.LastError != ERROR_SUCCESS)
+	    if (registryKey.GetLastError() != ERROR_SUCCESS)
 		    CMessageBox::Show (m_hWnd, registryKey.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
     }
 };

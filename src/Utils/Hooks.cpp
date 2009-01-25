@@ -129,10 +129,12 @@ bool CHooks::Save()
 		strhooks += (it->second.bShow ? _T("show") : _T("hide"));
 		strhooks += '\n';
 	}
-	CRegString reghooks = CRegString(_T("Software\\TortoiseSVN\\hooks"));
+
+    CRegString reghooks = CRegString(_T("Software\\TortoiseSVN\\hooks"));
 	reghooks = strhooks;
-	if (reghooks.LastError)
+    if (reghooks.GetLastError() != ERROR_SUCCESS)
 		return false;
+
 	return true;
 }
 

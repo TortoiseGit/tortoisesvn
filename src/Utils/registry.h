@@ -94,10 +94,19 @@ public:	//methods
 		return (LPCTSTR)lpMsgBuf;
 	};
 
-public:	
-    
-    typedef S StringT;  ///< used in subclass templates to specify the correct string type
+    /// get failure info for last operation
 
+    LONG GetLastError() const
+    {
+        return LastError;
+    }
+
+    /// used in subclass templates to specify the correct string type
+
+    typedef S StringT;  
+
+protected:	
+    
     //members
 	HKEY m_base;		///< handle to the registry base
 	S m_key;		    ///< the name of the value
@@ -322,6 +331,8 @@ public:
 	void   	read();						///< reads the value from the registry
 	void	write();					///< writes the value to the registry
 
+    bool    exists();                   ///< test whether registry entry exits
+
     /**
      * Data access.
      */
@@ -391,13 +402,21 @@ void CRegTypedBase<T, Base>::write()
 	LastError = RegCloseKey(hKey);
 }
 
+template<class T, class Base>
+bool CRegTypedBase<T, Base>::exists()
+{
+    if (!m_read && (LastError == ERROR_SUCCESS))
+        read();
+
+    return m_exists;
+}
 
 template<class T, class Base>
 CRegTypedBase<T, Base>::operator const T&()
 {
 	if ((m_read)&&(!m_force))
 	{
-		LastError = 0;
+		LastError = ERROR_SUCCESS;
 	}
 	else
 	{
@@ -413,7 +432,7 @@ CRegTypedBase<T, Base>& CRegTypedBase<T, Base>::operator =(const T& d)
 	if ((d==m_value)&&(!m_force))
 	{
 		//no write to the registry required, its the same value
-		LastError = 0;
+		LastError = ERROR_SUCCESS;
 		return *this;
 	}
 	m_value = d;
@@ -508,7 +527,6 @@ template<class Base>
 CRegDWORDCommon<Base>::CRegDWORDCommon(const typename Base::StringT& key, DWORD def, bool force, HKEY base)
     : CRegTypedBase<DWORD, Base> (key, def, force, base)
 {
-	read();
 }
 
 template<class Base>
@@ -613,7 +631,6 @@ template<class Base>
 CRegStringCommon<Base>::CRegStringCommon(const typename Base::StringT& key, const typename Base::StringT& def, bool force, HKEY base)
     : CRegTypedBase<typename Base::StringT, Base> (key, def, force, base)
 {
-	read();
 }
 
 template<class Base>

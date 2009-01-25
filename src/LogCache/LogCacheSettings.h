@@ -73,7 +73,7 @@ private:
     static void Store (T value, R& registryKey)
     {
         registryKey = value;
-        if (registryKey.LastError != ERROR_SUCCESS)
+        if (registryKey.GetLastError() != ERROR_SUCCESS)
 	        CMessageBox::Show (NULL, registryKey.getErrorString(), _T("TortoiseSVN"), MB_ICONERROR);
     }
 

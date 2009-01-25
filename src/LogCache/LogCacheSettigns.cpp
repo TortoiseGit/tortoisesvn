@@ -60,14 +60,14 @@ CSettings& CSettings::GetInstance()
 void CSettings::Migrate()
 {
 	CRegDWORD oldEnableLogCaching (REGKEY15 ("UseLogCache"), TRUE);
-    if (oldEnableLogCaching.m_exists)
+    if (oldEnableLogCaching.exists())
     {
         SetEnabled ((DWORD)oldEnableLogCaching != FALSE);
         oldEnableLogCaching.removeValue();
     }
 
     CRegDWORD oldSupportAmbiguousURL (REGKEY15 ("SupportAmbiguousURL"), FALSE);
-    if (oldSupportAmbiguousURL.m_exists)
+    if (oldSupportAmbiguousURL.exists())
     {
 //      Since the old default differs from the new one, 
 //      we will not migrate this setting.
@@ -78,7 +78,7 @@ void CSettings::Migrate()
     }
 
     CRegDWORD oldDefaultConnectionState (REGKEY15 ("DefaultConnectionState"), 0);
-    if (oldDefaultConnectionState.m_exists)
+    if (oldDefaultConnectionState.exists())
     {
         CRepositoryInfo::ConnectionState state 
             = static_cast<CRepositoryInfo::ConnectionState>
@@ -89,7 +89,7 @@ void CSettings::Migrate()
     }
 
     CRegDWORD oldMaxHeadAge (REGKEY15 ("HeadCacheAgeLimit"), 0);
-    if (oldMaxHeadAge.m_exists)
+    if (oldMaxHeadAge.exists())
     {
         SetMaxHeadAge ((DWORD)oldMaxHeadAge);
         oldMaxHeadAge.removeValue();
