@@ -25,6 +25,7 @@
 #include "svn_time.h"
 #include "svn_sorts.h"
 #include "svn_compat.h"
+#include "svn_props.h"
 #pragma warning(pop)
 #include "UnicodeUtils.h"
 #include "SVN.h"
@@ -153,7 +154,56 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 	LogChangedPathArray changedPaths;
 	try
 	{
-        if (log_entry->changed_paths != NULL)
+		if (log_entry->changed_paths2 != NULL)
+		{
+			apr_array_header_t *sorted_paths 
+				= svn_sort__hash (log_entry->changed_paths2, svn_sort_compare_items_as_paths, pool);
+
+			for (int i = 0, count = sorted_paths->nelts; i < count; ++i)
+			{
+				// find the item in the hash
+
+				std::auto_ptr<LogChangedPath> changedPath (new LogChangedPath);
+				svn_sort__item_t *item = &(APR_ARRAY_IDX ( sorted_paths
+					, i
+					, svn_sort__item_t));
+
+				// extract the path name
+
+				const char *path = (const char *)item->key;
+				changedPath->sPath = SVN::MakeUIUrlOrPath (path);
+
+				// decode the action
+
+				svn_log_changed_path2_t *log_item 
+					= (svn_log_changed_path2_t *) apr_hash_get ( log_entry->changed_paths2
+					, item->key
+					, item->klen);
+				static const char actionKeys[5] = "AMRD";
+				const char* actionKey = strchr (actionKeys, log_item->action);
+
+				changedPath->action = actionKey == NULL 
+					? 0
+					: 1 << (actionKey - actionKeys);
+
+				// decode copy-from info
+
+				if (   log_item->copyfrom_path 
+					&& SVN_IS_VALID_REVNUM (log_item->copyfrom_rev))
+				{
+					changedPath->lCopyFromRev = log_item->copyfrom_rev;
+					changedPath->sCopyFromPath 
+						= SVN::MakeUIUrlOrPath (log_item->copyfrom_path);
+				}
+				else
+				{
+					changedPath->lCopyFromRev = 0;
+				}
+				changedPath->nodeKind = log_item->node_kind;
+				changedPaths.Add (changedPath.release());
+			} 
+		} 
+        else if (log_entry->changed_paths != NULL)
 		{
 			apr_array_header_t *sorted_paths 
 				= svn_sort__hash (log_entry->changed_paths, svn_sort_compare_items_as_paths, pool);
@@ -198,7 +248,7 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 				{
 					changedPath->lCopyFromRev = 0;
 				}
-
+				changedPath->nodeKind = svn_node_unknown;
 				changedPaths.Add (changedPath.release());
 			} 
 		} 
