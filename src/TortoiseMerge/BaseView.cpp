@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -2427,6 +2427,7 @@ void CBaseView::UseTheirAndYourBlock(viewstate &rightstate, viewstate &bottomsta
 		m_pwndBottom->m_pViewData->SetLine(i, m_pwndLeft->m_pViewData->GetLine(i));
 		bottomstate.linestates[i] = m_pwndBottom->m_pViewData->GetState(i);
 		m_pwndBottom->m_pViewData->SetState(i, m_pwndLeft->m_pViewData->GetState(i));
+		m_pwndBottom->m_pViewData->SetLineEnding(i, EOL_AUTOLINE);
 		if (m_pwndBottom->IsLineConflicted(i))
 		{
 			if (m_pwndLeft->m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)
@@ -2484,6 +2485,7 @@ void CBaseView::UseYourAndTheirBlock(viewstate &rightstate, viewstate &bottomsta
 		bottomstate.linestates[i] = m_pwndBottom->m_pViewData->GetState(i);
 		m_pwndBottom->m_pViewData->SetState(i, m_pwndRight->m_pViewData->GetState(i));
 		rightstate.linestates[i] = m_pwndRight->m_pViewData->GetState(i);
+		m_pwndBottom->m_pViewData->SetLineEnding(i, EOL_AUTOLINE);
 		if (m_pwndBottom->IsLineConflicted(i))
 		{
 			if (m_pwndRight->m_pViewData->GetState(i) == DIFFSTATE_CONFLICTEMPTY)

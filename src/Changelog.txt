@@ -88,6 +88,9 @@
 - CHG: The checkout/export dialogs do not ask whether to create the folder
        to checkout/export aynmore but silently create it. (Stefan)
 
+Version 1.5.8
+- BUG: TortoiseMerge could loose line endings when saving edits. (Stefan)
+
 Version 1.5.7
 - BUG: Error text returned from a repository hook script could get split up
        wrong if empty lines were in the text. (Stefan)
