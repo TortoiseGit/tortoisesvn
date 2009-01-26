@@ -3025,7 +3025,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 								if ((entry2->status == svn_wc_status_unversioned)&&(parentFolder.IsAncestorOf(entry2->path)))
 								{
 									CString f = entry2->path.GetSVNPathString();
-									if (f.Mid(parentFolder.GetSVNPathString().GetLength()).Find('/')<=0)
+									if (f.Mid(parentFolder.GetSVNPathString().GetLength()).ReverseFind('/')<=0)
 									{
 										if (CStringUtils::WildCardMatch(name, f))
 										{
