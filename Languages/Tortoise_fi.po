@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-01-22 01:10+0200\n"
+"PO-Revision-Date: 2009-01-26 01:26+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1204,6 +1204,26 @@ msgstr "(%s) %s"
 msgid "(binary value)"
 msgstr "(binääriarvo)"
 
+#. Resource IDs: (276)
+msgid "(copy)"
+msgstr "(kopio)"
+
+#. Resource IDs: (276)
+msgid "(created)"
+msgstr "(luotu)"
+
+#. Resource IDs: (276)
+msgid "(delete)"
+msgstr "(poista)"
+
+#. Resource IDs: (276)
+msgid "(modified)"
+msgstr "(muokattu)"
+
+#. Resource IDs: (276)
+msgid "(modified, HEAD revision)"
+msgstr "(muutettu, HEAD-versio)"
+
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
 msgstr "(useita kohteita valittu)"
@@ -1216,6 +1236,10 @@ msgstr "(ei muutoslistaa)"
 msgid "(no line number)"
 msgstr "(ei rivinumeroa)"
 
+#. Resource IDs: (276)
+msgid "(no modification but copy created from here)"
+msgstr "(ei muutoksia, mutta kopio luotu tästä)"
+
 #. Resource IDs: (214)
 msgid "(no value)"
 msgstr "(ei arvoa)"
@@ -1224,9 +1248,21 @@ msgstr "(ei arvoa)"
 msgid "(not found)"
 msgstr "(ei löytynyt)"
 
+#. Resource IDs: (276)
+msgid "(open branch)"
+msgstr "(avaa haara)"
+
 #. Resource IDs: (208)
 msgid "(property change only)"
 msgstr "(vain ominaisuuden vaihto)"
+
+#. Resource IDs: (276)
+msgid "(rename)"
+msgstr "(nimeä uudelleen)"
+
+#. Resource IDs: (276)
+msgid "(tagged)"
+msgstr "(merkitty)"
 
 #. Resource IDs: (245)
 msgid "(unknown)"
@@ -2514,8 +2550,8 @@ msgstr "Kopioitu paikantimesta"
 
 #. Resource IDs: (275)
 #, c-format
-msgid "Copied from: %s@ld\r\n"
-msgstr "Kopioitu paikasta: %s@ld\r\n"
+msgid "Copied from: %s@%ld\r\n"
+msgstr "Kopioitu paikasta: %s@%ld\r\n"
 
 #. Resource IDs: (126)
 msgid "Copied remotely"
@@ -6728,17 +6764,17 @@ msgstr "Versio:"
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld (%s)\r\n"
-"URL: %s%s\r\n"
-"Author: %s\r\n"
+"Revision: %ld %s\r\n"
+"URL: %s\r\n"
+"%sAuthor: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Logmessage:\r\n"
 "%s"
 msgstr ""
 "Versio: %ld (%s)\r\n"
-"Paikannin: %s%s\r\n"
-"Tekijä: %s\r\n"
+"Paikannin: %s\r\n"
+"%sTekijä: %s\r\n"
 "Päiväys: %s\r\n"
 "\r\n"
 "Lokiviesti:\r\n"
@@ -6747,9 +6783,9 @@ msgstr ""
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld (%s)\r\n"
-"URL: %s%s\r\n"
-"Author: %s\r\n"
+"Revision: %ld %s\r\n"
+"URL: %s\r\n"
+"%sAuthor: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Tags (%d):%s\r\n"
@@ -6757,9 +6793,9 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"Versio: %ld (%s)\r\n"
-"Paikannin: %s%s\r\n"
-"Tekijä: %s\r\n"
+"Versio: %ld %s\r\n"
+"Paikannin: %s\r\n"
+"%sTekijä: %s\r\n"
 "Päiväys: %s\r\n"
 "\r\n"
 "Merkit (%d):%s\r\n"
@@ -9415,6 +9451,17 @@ msgstr ""
 "\n"
 "Haluatko silti jatkaa arkistotoimitusta?"
 
+#. Resource IDs: (275)
+#, c-format
+msgid ""
+"Your working copy contains modifications.\n"
+"Lowest revision in working copy: %ld\n"
+"Path: %s"
+msgstr ""
+"Työkopiossasi on muutoksia.\n"
+"Työkopion pienin versio: %ld\n"
+"Polku: %s"
+
 #. Resource IDs: (88)
 msgid ""
 "Your working copy has local modifications!\n"
@@ -9671,25 +9718,9 @@ msgstr ""
 msgid "copied:"
 msgstr "kopioitu:"
 
-#. Resource IDs: (276)
-msgid "copy"
-msgstr "kopio"
-
-#. Resource IDs: (276)
-msgid "copy source only"
-msgstr "vain kopiolähde"
-
-#. Resource IDs: (276)
-msgid "created"
-msgstr "luotu"
-
 #. Resource IDs: (245)
 msgid "day"
 msgstr "päivä"
-
-#. Resource IDs: (276)
-msgid "delete"
-msgstr "poista"
 
 #. Resource IDs: (10, 272)
 msgid "deleted"
@@ -9854,10 +9885,6 @@ msgstr "%1:llä"
 msgid "online"
 msgstr "yhteydellinen"
 
-#. Resource IDs: (276)
-msgid "open branch"
-msgstr "avaa haara"
-
 #. Resource IDs: (1406, 1407)
 msgid "or"
 msgstr "tai"
@@ -9893,10 +9920,6 @@ msgstr "neljännesvuosi"
 #. Resource IDs: (195)
 msgid "readonly"
 msgstr "vain luku"
-
-#. Resource IDs: (276)
-msgid "rename"
-msgstr "nimeä uudelleen"
 
 #. Resource IDs: (10)
 msgid "replaced"
@@ -10055,10 +10078,6 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "switched:"
 msgstr "vaihdettu:"
-
-#. Resource IDs: (276)
-msgid "tagged"
-msgstr "merkitty"
 
 #. Resource IDs: (601)
 msgid "temp. offline"
@@ -10250,6 +10269,8 @@ msgstr "kyllä"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "copy source only"
+#~ msgstr "vain kopiolähde"
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "Levykeasemat (A: B:)"
 
