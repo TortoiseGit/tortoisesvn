@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-01-20 10:07+0100\n"
+"PO-Revision-Date: 2009-01-26 10:15+0100\n"
 "Last-Translator: Grokwik <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1151,6 +1151,26 @@ msgstr "(%s) %s"
 msgid "(binary value)"
 msgstr "(valeur binaire)"
 
+#. Resource IDs: (276)
+msgid "(copy)"
+msgstr "(copie)"
+
+#. Resource IDs: (276)
+msgid "(created)"
+msgstr "(créé)"
+
+#. Resource IDs: (276)
+msgid "(delete)"
+msgstr "(supprimé)"
+
+#. Resource IDs: (276)
+msgid "(modified)"
+msgstr "(modifié)"
+
+#. Resource IDs: (276)
+msgid "(modified, HEAD revision)"
+msgstr "(modifié, version de tête)"
+
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
 msgstr "(cibles multiples sélectionnées)"
@@ -1163,6 +1183,10 @@ msgstr "(pas de liste de changements)"
 msgid "(no line number)"
 msgstr "(pas de numéro de ligne)"
 
+#. Resource IDs: (276)
+msgid "(no modification but copy created from here)"
+msgstr "(aucune modification mais la copie a été créée depuis cet emplacement)"
+
 #. Resource IDs: (214)
 msgid "(no value)"
 msgstr "(pas de valeur)"
@@ -1171,9 +1195,21 @@ msgstr "(pas de valeur)"
 msgid "(not found)"
 msgstr "(non trouvé)"
 
+#. Resource IDs: (276)
+msgid "(open branch)"
+msgstr "(ouvrir la branche)"
+
 #. Resource IDs: (208)
 msgid "(property change only)"
 msgstr "(changement de propriété seulement)"
+
+#. Resource IDs: (276)
+msgid "(rename)"
+msgstr "(renommé)"
+
+#. Resource IDs: (276)
+msgid "(tagged)"
+msgstr "(marqué)"
 
 #. Resource IDs: (245)
 msgid "(unknown)"
@@ -2463,8 +2499,8 @@ msgstr "Copié depuis l'URL"
 
 #. Resource IDs: (275)
 #, c-format
-msgid "Copied from: %s@ld\r\n"
-msgstr "Copié depuis : %s@ld\r\n"
+msgid "Copied from: %s@%ld\r\n"
+msgstr "Copié depuis : %s@%ld\r\n"
 
 #. Resource IDs: (126)
 msgid "Copied remotely"
@@ -6677,28 +6713,28 @@ msgstr "Révision : "
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld (%s)\r\n"
-"URL: %s%s\r\n"
-"Author: %s\r\n"
+"Revision: %ld %s\r\n"
+"URL: %s\r\n"
+"%sAuthor: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"Révision: %ld (%s)\r\n"
-"URL: %s%s\r\n"
-"Auteur: %s\r\n"
+"Révision: %ld %s\r\n"
+"URL: %s\r\n"
+"%sAuteur: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
-"Commentaire:\r\n"
+"Commentaires:\r\n"
 "%s"
 
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld (%s)\r\n"
-"URL: %s%s\r\n"
-"Author: %s\r\n"
+"Revision: %ld %s\r\n"
+"URL: %s\r\n"
+"%sAuthor: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Tags (%d):%s\r\n"
@@ -6706,14 +6742,14 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"Révision: %ld (%s)\r\n"
-"URL: %s%s\r\n"
-"Auteur: %s\r\n"
+"Révision: %ld %s\r\n"
+"URL: %s\r\n"
+"%sAuteur: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
-"Tags (%d):%s\r\n"
+"Marqueurs (%d):%s\r\n"
 "\r\n"
-"Commentaire:\r\n"
+"Commentaires:\r\n"
 "%s"
 
 #. Resource IDs: (116, 65535)
@@ -9372,6 +9408,17 @@ msgstr ""
 "\n"
 "Voulez-vous livrer quand même ?"
 
+#. Resource IDs: (275)
+#, c-format
+msgid ""
+"Your working copy contains modifications.\n"
+"Lowest revision in working copy: %ld\n"
+"Path: %s"
+msgstr ""
+"Votre version de travail comporte des modifications.\n"
+"Révision la plus basse dans votre version de travail: %ld\n"
+"Chemin: %s"
+
 #. Resource IDs: (88)
 msgid ""
 "Your working copy has local modifications!\n"
@@ -9629,25 +9676,9 @@ msgstr ""
 msgid "copied:"
 msgstr "copié :"
 
-#. Resource IDs: (276)
-msgid "copy"
-msgstr "Copier"
-
-#. Resource IDs: (276)
-msgid "copy source only"
-msgstr "ne copier que la source"
-
-#. Resource IDs: (276)
-msgid "created"
-msgstr "créé"
-
 #. Resource IDs: (245)
 msgid "day"
 msgstr "jour"
-
-#. Resource IDs: (276)
-msgid "delete"
-msgstr "effacé"
 
 #. Resource IDs: (10, 272)
 msgid "deleted"
@@ -9812,10 +9843,6 @@ msgstr "sur %1"
 msgid "online"
 msgstr "en ligne"
 
-#. Resource IDs: (276)
-msgid "open branch"
-msgstr "développer la branche"
-
 #. Resource IDs: (1406, 1407)
 msgid "or"
 msgstr "ou"
@@ -9851,10 +9878,6 @@ msgstr "trimestre"
 #. Resource IDs: (195)
 msgid "readonly"
 msgstr "lecture seule"
-
-#. Resource IDs: (276)
-msgid "rename"
-msgstr "renommer"
 
 #. Resource IDs: (10)
 msgid "replaced"
@@ -10014,10 +10037,6 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "switched:"
 msgstr "basculé:"
-
-#. Resource IDs: (276)
-msgid "tagged"
-msgstr "marqué"
 
 #. Resource IDs: (601)
 msgid "temp. offline"
@@ -10209,6 +10228,8 @@ msgstr "oui"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "copy source only"
+#~ msgstr "ne copier que la source"
 #~ msgid ""
 #~ "GDI+ is required to save the revision graph as a picture.\n"
 #~ "You can get GDI+ from\n"
