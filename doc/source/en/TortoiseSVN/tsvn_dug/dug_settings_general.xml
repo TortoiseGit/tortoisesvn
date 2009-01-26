@@ -80,13 +80,11 @@
 					patterns are also ignored by an import.
 					Ignore files or directories by typing in the names or extensions.
 					Patterns are separated by spaces e.g.
-					<literal>*/bin */obj *.bak *.~?? *.jar *.[Tt]mp</literal>.
-					Remember that these patterns may be used against paths which
-					include N levels of parent directory. Setting ignore patterns
-					for anything other than simple file extensions is not as trivial
-					as it first appears, so be sure to read
-					<xref linkend="tsvn-dug-ignore-glob"/> for more information
-					on the pattern-matching syntax, and how paths are checked.
+					<literal>bin obj *.bak *.~?? *.jar *.[Tt]mp</literal>.
+					These patterns should not include any path separators. Note also
+					that there is no way to differentiate between files and directories.
+					Read <xref linkend="tsvn-dug-ignore-glob"/> for more information
+					on the pattern-matching syntax.
 				</para>
 				<para>
 					Note that the ignore patterns you specify here will also
