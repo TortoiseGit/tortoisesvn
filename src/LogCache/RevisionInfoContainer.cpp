@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -102,6 +102,10 @@ void CRevisionInfoContainer::UpdateChanges
 	changedPaths.swap (oldChangedPaths);
 	changedPaths.reserve (oldChangedPaths.size());
 
+	std::vector<svn_node_kind_t> oldChangedPathTypes;
+	changedPathTypes.swap (oldChangedPathTypes);
+	changedPathTypes.reserve (oldChangedPathTypes.size());
+
 	std::vector<index_t> oldCopyFromPaths;
 	copyFromPaths.swap (oldCopyFromPaths);
 	copyFromPaths.reserve (oldCopyFromPaths.size());
@@ -134,6 +138,7 @@ void CRevisionInfoContainer::UpdateChanges
 				; ++k)
 			{
 				changes.push_back (newData.changes[k]);
+				changedPathTypes.push_back (newData.changedPathTypes[k]);
 				changedPaths.push_back (*pathIDMapping.find (newData.changedPaths[k]));
 			}
 
@@ -164,6 +169,9 @@ void CRevisionInfoContainer::UpdateChanges
 			changes.insert ( changes.end()
 						   , oldChanges.begin() + firstChange
 						   , oldChanges.begin() + lastChange);
+			changedPathTypes.insert ( changedPathTypes.end()
+						            , oldChangedPathTypes.begin() + firstChange
+						            , oldChangedPathTypes.begin() + lastChange);
 			changedPaths.insert ( changedPaths.end()
 								, oldChangedPaths.begin() + firstChange
 								, oldChangedPaths.begin() + lastChange);
@@ -493,12 +501,14 @@ void CRevisionInfoContainer::OptimizeChangeOrder()
 	struct SPerChangeInfo
 	{
 		index_t changedPath;
+        svn_node_kind_t changedPathType;
 		unsigned char change;
 		index_t copyFromPath;
 		revision_t copyFromRevision;
 
 		SPerChangeInfo (const CRevisionInfoContainer::CChangesIterator& iter)
 			: changedPath (iter->GetPathID())
+            , changedPathType (iter->GetPathType())
 			, change ((unsigned char)iter->GetRawChange())
 		{
 			if (iter->HasFromPath())
@@ -549,6 +559,7 @@ void CRevisionInfoContainer::OptimizeChangeOrder()
 			; ++iter)
 		{
 			changedPaths[changeOffset] = iter->changedPath;
+			changedPathTypes[changeOffset] = iter->changedPathType;
 			changes[changeOffset] = iter->change;
 			++changeOffset;
 
@@ -623,6 +634,7 @@ index_t CRevisionInfoContainer::Insert ( const std::string& author
 }
 
 void CRevisionInfoContainer::AddChange ( TChangeAction action
+                                       , svn_node_kind_t pathType
 									   , const std::string& path
 									   , const std::string& fromPath
 									   , revision_t fromRevision)
@@ -648,6 +660,10 @@ void CRevisionInfoContainer::AddChange ( TChangeAction action
 	rootPathIndex = rootPathIndex == NO_INDEX
 				  ? parsedPath.GetIndex()
 				  : parsedPath.GetCommonRoot (rootPathIndex).GetIndex();
+
+    // store the node kind as well
+
+  	changedPathTypes.push_back (pathType);
 
 	// add changes info (flags), and indicate presence of fromPath (if given)
 
@@ -747,6 +763,7 @@ void CRevisionInfoContainer::Clear()
 
 	changes.clear();
 	changedPaths.clear();
+	changedPathTypes.clear();
 	copyFromPaths.clear();
 	copyFromRevisions.clear();
 
@@ -983,6 +1000,24 @@ IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 			(stream.GetSubStream ( CRevisionInfoContainer::DATA_PRESENCE_STREAM_ID));
     *dataPresenceStream >> container.presenceFlags;
 
+    // latest additions:
+    // path type info (auto-add for legacy caches)
+
+    if (stream.HasSubStream (CRevisionInfoContainer::CHANGED_PATHS_TYPES_STREAM_ID))
+    {
+	    CDiffIntegerInStream* changedPathTypesStream 
+		    = dynamic_cast<CDiffIntegerInStream*>
+			    (stream.GetSubStream (CRevisionInfoContainer::CHANGED_PATHS_TYPES_STREAM_ID));
+	    *changedPathTypesStream >> container.changedPathTypes;
+    }
+    else
+    {
+        container.changedPathTypes.clear();
+        container.changedPathTypes.insert ( container.changedPathTypes.begin()
+                                          , container.changedPaths.size()
+                                          , svn_node_unknown);
+    }
+
 	// update size info
 
 	container.storedSize = container.size();
@@ -1069,6 +1104,12 @@ IHierarchicalOutStream& operator<< ( IHierarchicalOutStream& stream
 			(stream.OpenSubStream ( CRevisionInfoContainer::CHANGED_PATHS_STREAM_ID
 								  , DIFF_INTEGER_STREAM_TYPE_ID));
 	*changedPathsStream << container.changedPaths;
+
+	CDiffIntegerOutStream* changedPathTypesStream 
+		= dynamic_cast<CDiffIntegerOutStream*>
+			(stream.OpenSubStream ( CRevisionInfoContainer::CHANGED_PATHS_TYPES_STREAM_ID
+								  , DIFF_INTEGER_STREAM_TYPE_ID));
+	*changedPathTypesStream << container.changedPathTypes;
 
 	CDiffIntegerOutStream* copyFromPathsStream 
 		= dynamic_cast<CDiffIntegerOutStream*>

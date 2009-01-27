@@ -289,7 +289,11 @@ void CCacheLogQuery::CLogFiller::WriteToCache
 			    ? NO_REVISION 
 			    : static_cast<revision_t>(change->lCopyFromRev);
 
-		    targetCache->AddChange (action, path, copyFromPath, copyFromRevision);
+		    targetCache->AddChange ( action
+                                   , change->nodeKind
+                                   , path
+                                   , copyFromPath
+                                   , copyFromRevision);
 	    }
     }
 
@@ -786,6 +790,10 @@ void CCacheLogQuery::GetChanges
         {
             changedPath->sPath = *iter;
         }
+
+        // path type (aka node kind)
+
+        changedPath->nodeKind = first->GetPathType();
 
 		// decode the action
 

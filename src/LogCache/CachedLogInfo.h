@@ -206,6 +206,7 @@ public:
                 , char flags = CRevisionInfoContainer::HAS_STANDARD_INFO);
 
 	void AddChange ( TChangeAction action
+                   , svn_node_kind_t pathType
 				   , const std::string& path
 				   , const std::string& fromPath
 				   , revision_t fromRevision);
@@ -278,13 +279,14 @@ inline const CSkipRevisionInfo& CCachedLogInfo::GetSkippedRevisions() const
 ///////////////////////////////////////////////////////////////
 
 inline void CCachedLogInfo::AddChange ( TChangeAction action
+                                      , svn_node_kind_t pathType
 								      , const std::string& path
 									  , const std::string& fromPath
 									  , revision_t fromRevision)
 {
 	assert (revisionAdded);
 
-	logInfo.AddChange (action, path, fromPath, fromRevision);
+	logInfo.AddChange (action, pathType, path, fromPath, fromRevision);
 }
 
 inline void CCachedLogInfo::AddMergedRevision ( const std::string& fromPath
