@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-01-19 22:29+0800\n"
+"PO-Revision-Date: 2009-01-27 23:52+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1144,6 +1144,26 @@ msgstr "(%s) %s"
 msgid "(binary value)"
 msgstr "(二進位值)"
 
+#. Resource IDs: (276)
+msgid "(copy)"
+msgstr "(複製)"
+
+#. Resource IDs: (276)
+msgid "(created)"
+msgstr "(已建立)"
+
+#. Resource IDs: (276)
+msgid "(delete)"
+msgstr "(刪除)"
+
+#. Resource IDs: (276)
+msgid "(modified)"
+msgstr "(異動)"
+
+#. Resource IDs: (276)
+msgid "(modified, HEAD revision)"
+msgstr "(異動, 最新版本)"
+
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
 msgstr "(已選擇多重目標)"
@@ -1156,6 +1176,10 @@ msgstr "(沒有變更列表)"
 msgid "(no line number)"
 msgstr "(無行號)"
 
+#. Resource IDs: (276)
+msgid "(no modification but copy created from here)"
+msgstr "(無修改但是複本自此建立)"
+
 #. Resource IDs: (214)
 msgid "(no value)"
 msgstr "(無此值)"
@@ -1164,9 +1188,21 @@ msgstr "(無此值)"
 msgid "(not found)"
 msgstr "(找不到)"
 
+#. Resource IDs: (276)
+msgid "(open branch)"
+msgstr "(開啟分支)"
+
 #. Resource IDs: (208)
 msgid "(property change only)"
 msgstr "(僅性質改變)"
+
+#. Resource IDs: (276)
+msgid "(rename)"
+msgstr "(重新命名)"
+
+#. Resource IDs: (276)
+msgid "(tagged)"
+msgstr "(已標記)"
 
 #. Resource IDs: (245)
 msgid "(unknown)"
@@ -2456,8 +2492,8 @@ msgstr "複製來源路徑"
 
 #. Resource IDs: (275)
 #, c-format
-msgid "Copied from: %s@ld\r\n"
-msgstr "複製自: %s@ld\r\n"
+msgid "Copied from: %s@%ld\r\n"
+msgstr "複製自: %s@%ld\r\n"
 
 #. Resource IDs: (126)
 msgid "Copied remotely"
@@ -6667,17 +6703,17 @@ msgstr "版本: "
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld (%s)\r\n"
-"URL: %s%s\r\n"
-"Author: %s\r\n"
+"Revision: %ld %s\r\n"
+"URL: %s\r\n"
+"%sAuthor: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"版本: %ld (%s)\r\n"
-"URL: %s%s\r\n"
-"作者: %s\r\n"
+"版本: %ld %s\r\n"
+"URL: %s\r\n"
+"%s作者: %s\r\n"
 "日期: %s\r\n"
 "\r\n"
 "記錄訊息:\r\n"
@@ -6686,9 +6722,9 @@ msgstr ""
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld (%s)\r\n"
-"URL: %s%s\r\n"
-"Author: %s\r\n"
+"Revision: %ld %s\r\n"
+"URL: %s\r\n"
+"%sAuthor: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Tags (%d):%s\r\n"
@@ -6696,9 +6732,9 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"版本: %ld (%s)\r\n"
-"URL: %s%s\r\n"
-"作者: %s\r\n"
+"版本: %ld %s\r\n"
+"URL: %s\r\n"
+"%s作者: %s\r\n"
 "日期: %s\r\n"
 "\r\n"
 "標籤 (%d):%s\r\n"
@@ -9358,6 +9394,17 @@ msgstr ""
 "\n"
 "確定要送交嗎？"
 
+#. Resource IDs: (275)
+#, c-format
+msgid ""
+"Your working copy contains modifications.\n"
+"Lowest revision in working copy: %ld\n"
+"Path: %s"
+msgstr ""
+"您的工作複本已經有修改.\n"
+"工作複本中最低的版號是: %ld\n"
+"路徑: %s"
+
 #. Resource IDs: (88)
 msgid ""
 "Your working copy has local modifications!\n"
@@ -9615,25 +9662,9 @@ msgstr ""
 msgid "copied:"
 msgstr "複製:"
 
-#. Resource IDs: (276)
-msgid "copy"
-msgstr "複製"
-
-#. Resource IDs: (276)
-msgid "copy source only"
-msgstr "僅複製原始檔"
-
-#. Resource IDs: (276)
-msgid "created"
-msgstr "已建立"
-
 #. Resource IDs: (245)
 msgid "day"
 msgstr "日"
-
-#. Resource IDs: (276)
-msgid "delete"
-msgstr "刪除"
 
 #. Resource IDs: (10, 272)
 msgid "deleted"
@@ -9798,10 +9829,6 @@ msgstr "於 %1"
 msgid "online"
 msgstr "連線"
 
-#. Resource IDs: (276)
-msgid "open branch"
-msgstr "開啟分支"
-
 #. Resource IDs: (1406, 1407)
 msgid "or"
 msgstr "或"
@@ -9837,10 +9864,6 @@ msgstr "季"
 #. Resource IDs: (195)
 msgid "readonly"
 msgstr "唯讀"
-
-#. Resource IDs: (276)
-msgid "rename"
-msgstr "重新命名"
 
 #. Resource IDs: (10)
 msgid "replaced"
@@ -10000,10 +10023,6 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "switched:"
 msgstr "切換:"
-
-#. Resource IDs: (276)
-msgid "tagged"
-msgstr "已標記"
 
 #. Resource IDs: (601)
 msgid "temp. offline"
