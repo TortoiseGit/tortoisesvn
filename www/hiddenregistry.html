@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<style type="text/css"> /* <![CDATA[ */
+  @import "branding/css/tigris.css";
+  @import "branding/css/inst.css";
+  /* ]]> */</style>
+<link rel="stylesheet" type="text/css" media="print"
+  href="branding/css/print.css"/>
+<script type="text/javascript" src="branding/scripts/tigris.js"></script>
+<title>TortoiseSVN hidden registry settings</title>
+</head>
+
+<body>
+<div class="app">
+
+<h1>TortoiseSVN hidden registry settings</h1>
+
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-0430507460695576";
+/* 300x250, tigris, main page */
+google_ad_slot = "0800347829";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+<p>There are some registry settings for TortoiseSVN which aren't available through the settings dialog. These registry settings
+usually are for debugging purposes or very special occasions. You can set those with the registry editor <cite>regedt32</cite>.
+</p>
+
+<dl>
+<dt>HKCU\Software\TortoiseSVN\Debug</dt>
+<dd>
+Set this value to 1 for TortoiseSVN to show you the parameters it gets from the shell extension part.
+</dd>
+
+<dt>HKCU\Software\TortoiseSVN\CacheTrayIcon</dt>
+<dd>
+Set this value to 1 and restart the TSVNCache.exe process. After the cache starts up again, an icon is added to the system tray. Doubleclick on that icon to show a window with information about which path the cache is currently fetching the status for.
+</dd>
+
+<dt>HKCU\Software\TortoiseSVN\OwnerdrawnMenus</dt>
+<dd>
+Set this value to 0 if you don't want TortoiseSVN to use ownerdraw menu items in the shell context menu. This helps if you use something else than the windows explorer or if you get problems with the context menu showing up.
+
+Set this value to 2 if you don't want TortoiseSVN to use icons in the context menu at all. With this value set to 2 the context menu is text only.
+</dd>
+
+<dt>HKCU\Software\TortoiseSVN\BlockStatus</dt>
+<dd>
+If you don't want the explorer to update the status overlays while another TortoiseSVN command is running (e.g. an update, commit, ...) then set this value to 1.
+</dd>
+
+<dt>HKCU\Software\TortoiseSVN\UpdateCheckURL</dt>
+<dd>
+<b>Since version 1.3.0</b>: This is the URL TortoiseSVN tries to download a text file from to find out if there are updates available. You can set this also under HKLM instead of HKCU if you want, but HKCU overwrites the setting in HKLM. This might be useful for company admins who don't want their users to update TortoiseSVN until they approve it.
+</dd>
+
+<dt>HKCU\Software\TortoiseSVN\ColumnsEveryWhere</dt>
+<dd>
+This registry setting enables the SVN columns everywhere, not just inside working copies. Create this DWORD value in the registry and set it to something else than zero.
+</dd>
+
+<dt>HKCU\Software\TortoiseSVN\AllowUnversionedObstruction</dt>
+<dd>
+This registry settings controls whether an update/checkout/switch will error out if a file already exists unversioned. Create this DWORD value in the registry and set it to zero. If the entry does not exist or is not zero, an update/checkout/switch will automatically version the existing file and mark it as 'modified' if it differs from the one in the repository.
+</dd>
+
+</dl>
+
+<p>Please don't mess with those and any other registry setting if you don't know <em>exactly</em> what you're doing!</p>
+
+
+
+</div>	<!-- app -->
+</body>
+</html>
