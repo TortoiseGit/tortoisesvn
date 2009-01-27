@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -107,6 +107,12 @@ CHierachicalInStreamBase::~CHierachicalInStreamBase()
 }
 
 // implement IHierarchicalOutStream
+
+bool 
+CHierachicalInStreamBase::HasSubStream (SUB_STREAM_ID subStreamID) const
+{
+	return subStreams.find (subStreamID) != subStreams.end();
+}
 
 IHierarchicalInStream* 
 CHierachicalInStreamBase::GetSubStream (SUB_STREAM_ID subStreamID)

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -39,8 +39,9 @@ class IHierarchicalInStream
 {
 public:
 
-	// add a sub-stream
+	// access a sub-stream
 
+    virtual bool HasSubStream (SUB_STREAM_ID subStreamID) const = 0;
 	virtual IHierarchicalInStream* GetSubStream (SUB_STREAM_ID subStreamID) = 0;
 
 	// required for proper destruction of sub-class instances
@@ -96,6 +97,7 @@ public:
 
 	// implement IHierarchicalOutStream
 
+    virtual bool HasSubStream (SUB_STREAM_ID subStreamID) const;
 	virtual IHierarchicalInStream* GetSubStream (SUB_STREAM_ID subStreamID);
 };
 
