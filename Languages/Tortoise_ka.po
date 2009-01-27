@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-01-09 20:16+0300\n"
+"PO-Revision-Date: 2009-01-27 00:10+0300\n"
 "Last-Translator: Giasher <giasher@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1145,6 +1145,26 @@ msgstr "(%s) %s"
 msgid "(binary value)"
 msgstr "(ორობითი მნიშვნელობა)"
 
+#. Resource IDs: (276)
+msgid "(copy)"
+msgstr "(კოპირება)"
+
+#. Resource IDs: (276)
+msgid "(created)"
+msgstr "(შეიქმნა)"
+
+#. Resource IDs: (276)
+msgid "(delete)"
+msgstr "(წაშლა)"
+
+#. Resource IDs: (276)
+msgid "(modified)"
+msgstr "(შეიცვალა)"
+
+#. Resource IDs: (276)
+msgid "(modified, HEAD revision)"
+msgstr "(შეიცვალა, HEAD ვერსია)"
+
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
 msgstr "(არჩეულია რამდენიმე სამიზნე)"
@@ -1157,6 +1177,10 @@ msgstr "(ცვლილებათა სიის გარეშე)"
 msgid "(no line number)"
 msgstr "(სტრიქონის ნომრის გარეშე)"
 
+#. Resource IDs: (276)
+msgid "(no modification but copy created from here)"
+msgstr "(ცვლილებების გარეშე შეიქმნა ასლი აქედან)"
+
 #. Resource IDs: (214)
 msgid "(no value)"
 msgstr "(მნიშვნელობის გარეშე)"
@@ -1165,9 +1189,21 @@ msgstr "(მნიშვნელობის გარეშე)"
 msgid "(not found)"
 msgstr "(ვერ მოიძებნა)"
 
+#. Resource IDs: (276)
+msgid "(open branch)"
+msgstr "(ღია განშტოება)"
+
 #. Resource IDs: (208)
 msgid "(property change only)"
 msgstr "(მხოლოდ თვისების შეცვლა)"
+
+#. Resource IDs: (276)
+msgid "(rename)"
+msgstr "(გადარქმევა)"
+
+#. Resource IDs: (276)
+msgid "(tagged)"
+msgstr "(ჭდეებიანი)"
 
 #. Resource IDs: (245)
 msgid "(unknown)"
@@ -2455,6 +2491,11 @@ msgstr "კოპირებულია"
 #. Resource IDs: (208)
 msgid "Copied from URL"
 msgstr "კოპირება მისამართიდან"
+
+#. Resource IDs: (275)
+#, c-format
+msgid "Copied from: %s@%ld\r\n"
+msgstr "პირველწყარო: %s@%ld\r\n"
 
 #. Resource IDs: (126)
 msgid "Copied remotely"
@@ -3878,16 +3919,6 @@ msgstr "შეუძლებელია GDI+ ინიციალიზებ
 #. Resource IDs: (273)
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "GDI+ ვერ ქმნის ნახატს.  შესაძლოა მეხსიერების უკმარისობის გამო."
-
-#. Resource IDs: (83)
-msgid ""
-"GDI+ is required to save the revision graph as a picture.\n"
-"You can get GDI+ from\n"
-"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
-msgstr ""
-"შემოწმების გრაფიკის ნახატად შენახვისთვის საჭიროა GDI+.\n"
-"GDI+ შეგიძლიათ აქედან გადმოწეროთfrom\n"
-"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
 
 #. Resource IDs: (284)
 msgid "Gathering information. Please wait..."
@@ -5545,6 +5576,16 @@ msgstr "სისტემური რეგისტრის (ან INI ფ�
 msgid "Not enough memory to complete operation."
 msgstr "ოპერაციის დასასრულებლად მეხსიერება საკმარისი არაა"
 
+#. Resource IDs: (273)
+msgid ""
+"Not enough memory!\n"
+"Try reducing the size of the revision graph by either\n"
+"collapsing nodes or reducing the zoom factor."
+msgstr ""
+"მეხსიერების უკმარისობა!\n"
+"სცადეთ ვერსიის დიაგრამის ზომის შემცირება\n"
+"კვანძების შეკუმშვით ან მასშტაბის შემცირებით."
+
 #. Resource IDs: (563)
 msgid "Not recursive"
 msgstr "არა რეკურსიული"
@@ -6696,17 +6737,17 @@ msgstr "ვერსია:"
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld\r\n"
+"Revision: %ld %s\r\n"
 "URL: %s\r\n"
-"Author: %s\r\n"
+"%sAuthor: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"ვერსია: %ld\r\n"
+"ვერსია: %ld %s\r\n"
 "მისამართი: %s\r\n"
-"ავტორი: %s\r\n"
+"%sავტორი: %s\r\n"
 "თარიღი: %s\r\n"
 "\r\n"
 "ჩანაწერი:\r\n"
@@ -6715,9 +6756,9 @@ msgstr ""
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld\r\n"
+"Revision: %ld %s\r\n"
 "URL: %s\r\n"
-"Author: %s\r\n"
+"%sAuthor: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Tags (%d):%s\r\n"
@@ -6725,9 +6766,9 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"ვერსია: %ld\r\n"
+"ვერსია: %ld %s\r\n"
 "მისამართი: %s\r\n"
-"ავტორი: %s\r\n"
+"%sავტორი: %s\r\n"
 "თარიღი: %s\r\n"
 "\r\n"
 "ჭდეები (%d):%s\r\n"
@@ -9390,6 +9431,17 @@ msgstr ""
 "\n"
 "მაინც გსურთ ფიქსაცია?"
 
+#. Resource IDs: (275)
+#, c-format
+msgid ""
+"Your working copy contains modifications.\n"
+"Lowest revision in working copy: %ld\n"
+"Path: %s"
+msgstr ""
+"თქვენი სამუშაო ასლი შეიცვალა.\n"
+"სამუშაო ასლის უდაბლესი ვერსიაა: %ld\n"
+"გეზი: %s"
+
 #. Resource IDs: (88)
 msgid ""
 "Your working copy has local modifications!\n"
@@ -10201,6 +10253,20 @@ msgstr "დიახ"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid ""
+#~ "GDI+ is required to save the revision graph as a picture.\n"
+#~ "You can get GDI+ from\n"
+#~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
+#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
+#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+#~ "be590feaa05a&DisplayLang=en</a></u>"
+#~ msgstr ""
+#~ "შემოწმების გრაფიკის ნახატად შენახვისთვის საჭიროა GDI+.\n"
+#~ "GDI+ შეგიძლიათ აქედან გადმოწეროთfrom\n"
+#~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
+#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
+#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+#~ "be590feaa05a&DisplayLang=en</a></u>"
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "ფლოპის წამყვანები (A: B:)"
 #~ msgid "Only record the merge"
