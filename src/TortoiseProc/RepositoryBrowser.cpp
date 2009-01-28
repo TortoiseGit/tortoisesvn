@@ -2316,8 +2316,9 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			break;
 		case ID_SHOWLOG:
 			{
-				if (urlList.GetCount() == 2)
+				if ((urlList.GetCount() == 2)||(!m_diffURL.IsEquivalentTo(urlList[0])))
 				{
+					CTSVNPath secondUrl = urlList.GetCount() == 2 ? urlListEscaped[1] : m_diffURL;
 					// get log of first URL
 					CString sCopyFrom1, sCopyFrom2;
 					SVNLogHelper helper;
@@ -2328,13 +2329,13 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 						CMessageBox::Show(this->m_hWnd, helper.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						break;
 					}
-					SVNRev rev2 = helper.GetCopyFromRev(urlListEscaped[1], GetRevision(), sCopyFrom2);
+					SVNRev rev2 = helper.GetCopyFromRev(secondUrl, GetRevision(), sCopyFrom2);
 					if (!rev2.IsValid())
 					{
 						CMessageBox::Show(this->m_hWnd, helper.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 						break;
 					}
-					if ((sCopyFrom1.IsEmpty())||(sCopyFrom1.Compare(sCopyFrom2)!=0))
+					if ((sCopyFrom1.IsEmpty())||(sCopyFrom1.Compare(sCopyFrom2)!=0)||(svn_revnum_t(rev1) == 0)||(svn_revnum_t(rev1) == 0))
 					{
 						// no common copy from URL, so showing a log between
 						// the two urls is not possible.
@@ -2400,9 +2401,9 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 		case ID_CHECKOUT:
 			{
 				CString itemsToCheckout;
-				for (int i=0; i<urlListEscaped.GetCount(); ++i)
+				for (int i=0; i<urlList.GetCount(); ++i)
 				{
-					itemsToCheckout += urlListEscaped[i].GetSVNPathString() + _T("*");
+					itemsToCheckout += urlList[i].GetSVNPathString() + _T("*");
 				}
 				itemsToCheckout.TrimRight('*');
 				CString sCmd;
@@ -2415,7 +2416,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 		case ID_EXPORT:
 			{
 				CExportDlg dlg;
-				dlg.m_URL = urlListEscaped[0].GetSVNPathString();
+				dlg.m_URL = urlList[0].GetSVNPathString();
 				dlg.Revision = GetRevision();
 				if (dlg.DoModal()==IDOK)
 				{
