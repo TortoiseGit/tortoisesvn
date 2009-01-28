@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-01-19 19:27+0900\n"
+"PO-Revision-Date: 2009-01-28 10:10+0900\n"
 "Last-Translator: Kim Taedong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1143,6 +1143,26 @@ msgstr "(%s) %s"
 msgid "(binary value)"
 msgstr "(이진 값)"
 
+#. Resource IDs: (276)
+msgid "(copy)"
+msgstr "(복사)"
+
+#. Resource IDs: (276)
+msgid "(created)"
+msgstr "(생성됨)"
+
+#. Resource IDs: (276)
+msgid "(delete)"
+msgstr "(삭제)"
+
+#. Resource IDs: (276)
+msgid "(modified)"
+msgstr "(수정됨)"
+
+#. Resource IDs: (276)
+msgid "(modified, HEAD revision)"
+msgstr "(수정됨, HEAD 리비전)"
+
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
 msgstr "(복수의 대상이 선택됨)"
@@ -1155,6 +1175,10 @@ msgstr "(변경 리스트 없음)"
 msgid "(no line number)"
 msgstr "(줄 번호 없음)"
 
+#. Resource IDs: (276)
+msgid "(no modification but copy created from here)"
+msgstr "(수정사항 없음. 그러나 여기로부터 생성된 복사본입니다.)"
+
 #. Resource IDs: (214)
 msgid "(no value)"
 msgstr "(값이 없음)"
@@ -1163,9 +1187,21 @@ msgstr "(값이 없음)"
 msgid "(not found)"
 msgstr "(없음)"
 
+#. Resource IDs: (276)
+msgid "(open branch)"
+msgstr "(브랜치 열기)"
+
 #. Resource IDs: (208)
 msgid "(property change only)"
 msgstr "(속성만 변경)"
+
+#. Resource IDs: (276)
+msgid "(rename)"
+msgstr "(이름변경)"
+
+#. Resource IDs: (276)
+msgid "(tagged)"
+msgstr "(태그됨)"
 
 #. Resource IDs: (245)
 msgid "(unknown)"
@@ -2453,8 +2489,8 @@ msgstr "복사된 원본 경로"
 
 #. Resource IDs: (275)
 #, c-format
-msgid "Copied from: %s@ld\r\n"
-msgstr "다음에서 복사됨: %s@ld\r\n"
+msgid "Copied from: %s@%ld\r\n"
+msgstr "다음에서 복사됨: %s@%ld\r\n"
 
 #. Resource IDs: (126)
 msgid "Copied remotely"
@@ -6664,28 +6700,28 @@ msgstr "리비전: "
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld (%s)\r\n"
-"URL: %s%s\r\n"
-"Author: %s\r\n"
+"Revision: %ld %s\r\n"
+"URL: %s\r\n"
+"%sAuthor: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"리비전: %ld (%s)\r\n"
-"URL: %s%s\r\n"
-"작성자: %s\r\n"
+"리비전: %ld %s\r\n"
+"URL: %s\r\n"
+"%s작성자: %s\r\n"
 "날짜: %s\r\n"
 "\r\n"
-"로그 메시지:\r\n"
+"로그메시지:\r\n"
 "%s"
 
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld (%s)\r\n"
-"URL: %s%s\r\n"
-"Author: %s\r\n"
+"Revision: %ld %s\r\n"
+"URL: %s\r\n"
+"%sAuthor: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Tags (%d):%s\r\n"
@@ -6693,14 +6729,14 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"리비전: %ld (%s)\r\n"
-"URL: %s%s\r\n"
-"작성자: %s\r\n"
+"리비전: %ld %s\r\n"
+"URL: %s\r\n"
+"%s작성자: %s\r\n"
 "날짜: %s\r\n"
 "\r\n"
 "태그 (%d):%s\r\n"
 "\r\n"
-"로그 메시지:\r\n"
+"로그메시지:\r\n"
 "%s"
 
 #. Resource IDs: (116, 65535)
@@ -9347,6 +9383,17 @@ msgstr ""
 "\n"
 "강제로 커밋하시겠습니까?"
 
+#. Resource IDs: (275)
+#, c-format
+msgid ""
+"Your working copy contains modifications.\n"
+"Lowest revision in working copy: %ld\n"
+"Path: %s"
+msgstr ""
+"작업사본이 수정되었습니다.\n"
+"작업사본의 가장 낮은 리비전: %ld\n"
+"경로: %s"
+
 #. Resource IDs: (88)
 msgid ""
 "Your working copy has local modifications!\n"
@@ -9605,25 +9652,9 @@ msgstr ""
 msgid "copied:"
 msgstr "복사됨:"
 
-#. Resource IDs: (276)
-msgid "copy"
-msgstr "복사"
-
-#. Resource IDs: (276)
-msgid "copy source only"
-msgstr "원본만 복사"
-
-#. Resource IDs: (276)
-msgid "created"
-msgstr "생성됨"
-
 #. Resource IDs: (245)
 msgid "day"
 msgstr "일"
-
-#. Resource IDs: (276)
-msgid "delete"
-msgstr "삭제"
 
 #. Resource IDs: (10, 272)
 msgid "deleted"
@@ -9788,10 +9819,6 @@ msgstr "%1 "
 msgid "online"
 msgstr "온라인"
 
-#. Resource IDs: (276)
-msgid "open branch"
-msgstr "브랜치 열기"
-
 #. Resource IDs: (1406, 1407)
 msgid "or"
 msgstr "또는"
@@ -9827,10 +9854,6 @@ msgstr "분기"
 #. Resource IDs: (195)
 msgid "readonly"
 msgstr "읽기 전용"
-
-#. Resource IDs: (276)
-msgid "rename"
-msgstr "이름 바꾸기"
 
 #. Resource IDs: (10)
 msgid "replaced"
@@ -9990,10 +10013,6 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "switched:"
 msgstr "전환됨:"
-
-#. Resource IDs: (276)
-msgid "tagged"
-msgstr "태그됨"
 
 #. Resource IDs: (601)
 msgid "temp. offline"
@@ -10185,6 +10204,8 @@ msgstr "예"
 msgid "{BugTraq}"
 msgstr "{버그트랙}"
 
+#~ msgid "copy source only"
+#~ msgstr "원본만 복사"
 #~ msgid ""
 #~ "GDI+ is required to save the revision graph as a picture.\n"
 #~ "You can get GDI+ from\n"
