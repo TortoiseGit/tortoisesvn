@@ -59,6 +59,8 @@ const UINT CSVNStatusListCtrl::SVNSLNM_ADDFILE
 					= ::RegisterWindowMessage(_T("SVNSLNM_ADDFILE"));
 const UINT CSVNStatusListCtrl::SVNSLNM_CHECKCHANGED
 					= ::RegisterWindowMessage(_T("SVNSLNM_CHECKCHANGED"));
+const UINT CSVNStatusListCtrl::SVNSLNM_CHANGELISTCHANGED
+					= ::RegisterWindowMessage(_T("SVNSLNM_CHANGELISTCHANGED"));
 
 #define IDSVNLC_REVERT			 1
 #define IDSVNLC_COMPARE			 2
@@ -2508,6 +2510,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 			m_bBlock = TRUE;
 			AfxGetApp()->DoWaitCursor(1);
 			int iItemCountBeforeMenuCmd = GetItemCount();
+			size_t iChangelistCountBeforeMenuCmd = m_changelists.size();
 			bool bForce = false;
 			switch (cmd)
 			{
@@ -3618,6 +3621,14 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 				if (NULL != pParent && NULL != pParent->GetSafeHwnd())
 				{
 					pParent->SendMessage(SVNSLNM_ITEMCOUNTCHANGED);
+				}
+			}
+			if (iChangelistCountBeforeMenuCmd != m_changelists.size())
+			{
+				CWnd* pParent = GetParent();
+				if (NULL != pParent && NULL != pParent->GetSafeHwnd())
+				{
+					pParent->SendMessage(SVNSLNM_CHANGELISTCHANGED, (WPARAM)m_changelists.size());
 				}
 			}
 		} // if (popup.CreatePopupMenu())

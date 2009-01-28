@@ -185,6 +185,12 @@ public:
 	 */
 	static const UINT SVNSLNM_CHECKCHANGED;
 
+	/**
+	 * Sent to the parent window (using ::SendMessage) when the number of
+	 * changelists change. The WPARAM contains the number of changelists.
+	 */
+	static const UINT SVNSLNM_CHANGELISTCHANGED;
+
 	CSVNStatusListCtrl();
 	~CSVNStatusListCtrl();
 
