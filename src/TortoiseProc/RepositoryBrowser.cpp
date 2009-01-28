@@ -2248,12 +2248,20 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				m_RepoTree.SetItemState(FindUrl(m_diffURL.GetSVNPathString(), false), 0, TVIS_BOLD);
 				if (urlList.GetCount() == 1)
 				{
-					m_diffURL = urlList[0];
-					m_diffKind = nFolders ? svn_node_dir : svn_node_file;
-					// make the marked tree item bold
-					if (m_diffKind == svn_node_dir)
+					if (m_diffURL.IsEquivalentTo(urlList[0]))
 					{
-						m_RepoTree.SetItemState(FindUrl(m_diffURL.GetSVNPathString(), false), TVIS_BOLD, TVIS_BOLD);
+						m_diffURL.Reset();
+						m_diffKind = svn_node_none;
+					}
+					else
+					{
+						m_diffURL = urlList[0];
+						m_diffKind = nFolders ? svn_node_dir : svn_node_file;
+						// make the marked tree item bold
+						if (m_diffKind == svn_node_dir)
+						{
+							m_RepoTree.SetItemState(FindUrl(m_diffURL.GetSVNPathString(), false), TVIS_BOLD, TVIS_BOLD);
+						}
 					}
 				}
 				else
