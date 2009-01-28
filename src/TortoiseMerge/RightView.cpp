@@ -265,7 +265,7 @@ void CRightView::UseBlock(bool refreshViews /* = true */)
 		{
 			rightstate.difflines[i] = m_pViewData->GetLine(i);
 			m_pViewData->SetLine(i, m_pwndLeft->m_pViewData->GetLine(i));
-			//m_pViewData->SetLineEnding(i, EOL_AUTOLINE);
+			m_pViewData->SetLineEnding(i, EOL_AUTOLINE);
 			DiffStates state = m_pwndLeft->m_pViewData->GetState(i);
 			switch (state)
 			{
