@@ -7,7 +7,8 @@
 	</indexterm>
 	<para>
 		A few infrequently used settings are available only by editing
-		the registry directly.
+		the registry directly. It goes without saying that you should
+		only edit registry values if you know what you are doing.
 	</para>
 	<variablelist>
 		<varlistentry>
@@ -30,6 +31,56 @@
 					<literal>HKCU\Software\TortoiseSVN\CacheTrayIcon</literal>.
 					This is really only useful for developers as it allows
 					you to terminate the program gracefully.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>Debug</term>
+			<listitem>
+				<para>
+					To show the command line parameters passed from the shell
+					extension to TortoiseProc.exe
+					create a <literal>DWORD</literal> key with a value of 1 at
+					<literal>HKCU\Software\TortoiseSVN\Debug</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>Owner-Drawn Menus</term>
+			<listitem>
+				<para>
+					This can be useful if you use something other than the windows explorer
+					or if you get problems with the context menu displaying correctly.
+					create a <literal>DWORD</literal> key with a value of 0 at
+					<literal>HKCU\Software\TortoiseSVN\OwnerdrawnMenus</literal>
+					if you don't want TortoiseSVN to use owner-draw menu items in the shell
+					context menu. Set this value to 2 if you don't want TortoiseSVN to use
+					icons in the context menu at all.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>Block Overlay Status</term>
+			<listitem>
+				<para>
+					If you don't want the explorer to update the status overlays while another
+					TortoiseSVN command is running (e.g. Update, Commit, ...) then
+					create a <literal>DWORD</literal> key with a value of 1 at
+					<literal>HKCU\Software\TortoiseSVN\BlockStatus</literal>.
+				</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>Update Check URL</term>
+			<listitem>
+				<para>
+					<literal>HKCU\Software\TortoiseSVN\UpdateCheckURL</literal>
+					contains the URL from which TortoiseSVN tries to download a text file
+					to find out if there are updates available. You can also set this under
+					<literal>HKLM</literal> instead of <literal>HKCU</literal> if you want,
+					but <literal>HKCU</literal> overwrites the setting in <literal>HKLM</literal>.
+					This might be useful for company admins who don't want their users to
+					update TortoiseSVN until they approve it.
 				</para>
 			</listitem>
 		</varlistentry>
