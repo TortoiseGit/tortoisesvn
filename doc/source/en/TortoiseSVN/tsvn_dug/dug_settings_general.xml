@@ -201,6 +201,11 @@
 			the <literal>svn:needs-lock</literal> property set,
 			<guilabel>Get Lock</guilabel> will always appear at the top level.
 		</para>
+		<para>
+			If there are some paths on your computer where you just don't want
+			TortoiseSVN's context menu to appear at all, you can list them in
+			the box at the bottom.
+		</para>
 	</sect3>
 	<sect3 id="tsvn-dug-settings-dialogs">
 		<title>TortoiseSVN Dialog Settings 1</title>
@@ -251,6 +256,19 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
+				<term>Can double-click in log list to compare with previous revision</term>
+				<listitem>
+					<para>
+						If you frequently find yourself comparing revisions in the top
+						pane of the log dialog, you can use this option to allow that
+						action on double-click. It is not enabled by default because
+						fetching the diff is often a long process, and many people
+						prefer to avoid the wait after an accidental double-click,
+						which is why this option is not enabled by default.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
 				<term>Progress Dialog</term>
 				<listitem>
 					<para>
@@ -295,6 +313,18 @@
 						to complete the task. For example, an update fails
 						because the server is inaccessible, or a commit fails
 						because the working copy is out-of-date.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>Use recycle bin when reverting</term>
+				<listitem>
+					<para>
+						When you revert local modifications, your changes are
+						discarded. TortoiseSVN gives you an extra safety net by
+						sending the modified file to the recycle bin before
+						bringing back the pristine copy. If you prefer to
+						skip the recycle bin, uncheck this option.
 					</para>
 				</listitem>
 			</varlistentry>
@@ -399,10 +429,16 @@
 				<term>Max. items to keep in the log message history</term>
 				<listitem>
 					<para>
-						TortoiseSVN stores the last 25 log messages you entered for
-						each repository. You can customize the number stored here.
+						When you type in a log message in the commit dialog, TortoiseSVN
+						stores it for possible re-use later. By default it will keep the
+						last 25 log messages for each repository, but you can customize
+						that number here.
 						If you have many different repositories, you may wish to
 						reduce this to avoid filling your registry.
+					</para>
+					<para>
+						Note that this setting applies only to messages that you type
+						in on this computer. It has nothing to do with the log cache.
 					</para>
 				</listitem>
 			</varlistentry>
