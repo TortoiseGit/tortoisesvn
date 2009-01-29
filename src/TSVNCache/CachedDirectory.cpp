@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2008 - TortoiseSVN
+// External Cache Copyright (C) 2005-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -398,6 +398,10 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				m_currentStatusFetchingPathTicks = GetTickCount();
 			}
 			ATLTRACE(_T("svn_cli_stat for '%s' (req %s)\n"), m_directoryPath.GetWinPath(), path.GetWinPath());
+			svn_client_status_args_t * args = svn_client_status_args_create(subPool);
+			args->get_all = TRUE;
+			args->no_ignore = TRUE;
+			args->ignore_externals = FALSE;
 			svn_error_t* pErr = svn_client_status4 (
 				NULL,
 				m_directoryPath.GetSVNApiPath(subPool),
@@ -405,10 +409,8 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 				GetStatusCallback,
 				this,
 				svn_depth_immediates,
-				TRUE,									//getall
 				FALSE,
-				TRUE,									//noignore
-				FALSE,									//ignore externals
+				args,
 				NULL,									//changelists
 				CSVNStatusCache::Instance().m_svnHelp.ClientContext(),
 				subPool

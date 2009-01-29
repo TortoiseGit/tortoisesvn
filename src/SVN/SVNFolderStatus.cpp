@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -170,16 +170,18 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
 			try
 			{
 				folderpath = filepath;
+				svn_client_status_args_t * args = svn_client_status_args_create(pool);
+				args->get_all = TRUE;
+				args->no_ignore = TRUE;
+				args->ignore_externals = FALSE;
 				err = svn_client_status4 (&youngest,
 					filepath.GetDirectory().GetSVNApiPath(pool),
 					&rev,
 					findfolderstatus,
 					this,
 					svn_depth_empty,//depth
-					TRUE,		//getall
 					FALSE,		//update
-					TRUE,		//noignore
-					FALSE,		//ignore externals
+					args,
 					NULL,
 					localctx,
 					pool);
@@ -223,16 +225,18 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
 	rev.kind = svn_opt_revision_unspecified;
 	try
 	{
+		svn_client_status_args_t * args = svn_client_status_args_create(pool);
+		args->get_all = TRUE;
+		args->no_ignore = TRUE;
+		args->ignore_externals = FALSE;
 		err = svn_client_status4 (&youngest,
 			filepath.GetDirectory().GetSVNApiPath(pool),
 			&rev,
 			fillstatusmap,
 			this,
 			svn_depth_immediates,		//depth
-			TRUE,		//getall
 			FALSE,		//update
-			TRUE,		//noignore
-			FALSE,		//ignore externals
+			args,
 			NULL,
 			localctx,
 			pool);
