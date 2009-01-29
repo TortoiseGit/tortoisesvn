@@ -37,6 +37,7 @@ public:
 		m_pParentWnd->EnableToolTips();
 		BOOL bRet = CToolTipCtrl::Create(pParentWnd, dwStyle);
 		SetMaxTipWidth(600);
+        SetDelayTime (TTDT_AUTOPOP, 30000);
 		return bRet;
 	}
 	CToolTips() : CToolTipCtrl(), m_pParentWnd(NULL) {}
