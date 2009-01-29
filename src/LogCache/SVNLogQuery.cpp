@@ -186,6 +186,10 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
 					? 0
 					: 1 << (actionKey - actionKeys);
 
+                // extract the node kind
+
+                changedPath->nodeKind = log_item->node_kind;
+
 				// decode copy-from info
 
 				if (   log_item->copyfrom_path 
