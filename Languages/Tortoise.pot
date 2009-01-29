@@ -3856,24 +3856,24 @@ msgstr ""
 msgid "Icons/Design/Code:                 Luebbe Onken"
 msgstr ""
 
+#. Resource IDs: (346)
+msgid "If a component (part between two '/') of a given path matches one\nof these patterns, it is considered a 'branch'."
+msgstr ""
+
+#. Resource IDs: (346)
+msgid "If a component (part between two '/') of a given path matches one\nof these patterns, it is considered a 'tag'."
+msgstr ""
+
+#. Resource IDs: (346)
+msgid "If a component (part between two '/') of a given path matches one\nof these patterns, it is considered a 'trunk'."
+msgstr ""
+
 #. Resource IDs: (194)
 msgid "If activated, prevents the overlays and the context menu from showing in 'save as...' or 'open' dialogs"
 msgstr ""
 
 #. Resource IDs: (198)
 msgid "If activated, the menu entry 'Get Lock' is always shown in the top level menu\nif the selected file has the svn:needs-lock property set"
-msgstr ""
-
-#. Resource IDs: (346)
-msgid "If an element (part between two '/') of a given path matches one\nof these patterns, it is considered a 'branch'.\n\nPatterns are lower-case.\nAllowed wildcards are '?' and '*'.\nSeparate patterns by ';'."
-msgstr ""
-
-#. Resource IDs: (346)
-msgid "If an element (part between two '/') of a given path matches one\nof these patterns, it is considered a 'tag'.\n\nPatterns are lower-case.\nAllowed wildcards are '?' and '*'.\nSeparate patterns by ';'."
-msgstr ""
-
-#. Resource IDs: (346)
-msgid "If an element (part between two '/') of a given path matches one\nof these patterns, it is considered a 'trunk'.\n\nPatterns are lower-case.\nAllowed wildcards are '?' and '*'.\nSeparate patterns by ';'."
 msgstr ""
 
 #. Resource IDs: (95)
@@ -8019,6 +8019,10 @@ msgstr ""
 
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
+msgstr ""
+
+#. Resource IDs: (346)
+msgid "\n\nPatterns match case-insensitively and must be specified in lower-case.\nWhitespaces will become part of the pattern.\nAllowed wildcards are '?' and '*'.\nSeparate patterns using ';'"
 msgstr ""
 
 #. Resource IDs: (65535)

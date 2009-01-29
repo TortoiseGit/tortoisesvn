@@ -93,9 +93,19 @@ BOOL CSettingsRevisionGraph::OnInitDialog()
 
 	m_tooltips.Create(this);
 
-	m_tooltips.AddTool(IDC_TRUNKPATTERN, IDS_SETTINGS_TRUNKPATTERN);
-	m_tooltips.AddTool(IDC_BRANCHESPATTERN, IDS_SETTINGS_BRANCHESPATTERN);
-	m_tooltips.AddTool(IDC_TAGSPATTERN, IDS_SETTINGS_TAGSPATTERN);
+    CString patternInfo;
+    patternInfo.LoadString (IDS_SETTINGS_PATTERN_INFO);
+
+    CString trunkTipText;
+    trunkTipText.LoadString (IDS_SETTINGS_TRUNKPATTERN);
+    CString branchTipText;
+    branchTipText.LoadString (IDS_SETTINGS_BRANCHESPATTERN);
+    CString tagTipText;
+    tagTipText.LoadString (IDS_SETTINGS_TAGSPATTERN);
+
+	m_tooltips.AddTool(IDC_TRUNKPATTERN, trunkTipText + patternInfo);
+	m_tooltips.AddTool(IDC_BRANCHESPATTERN, branchTipText + patternInfo);
+	m_tooltips.AddTool(IDC_TAGSPATTERN, tagTipText + patternInfo);
 
     m_tooltips.AddTool(IDC_TWEAKTRUNKCOLORS, IDS_SETTINGS_TWEAKTRUNKCOLORS);
     m_tooltips.AddTool(IDC_TWEAKTAGSCOLORS, IDS_SETTINGS_TWEAKTAGSCOLORS);
