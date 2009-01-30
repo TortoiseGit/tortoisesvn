@@ -271,7 +271,7 @@ DWORD CRevisionGraphWnd::GetHoverGlyphs (CPoint point) const
              : 0;
 
     if (topGlyphArea.PtInRect (logCoordinates))
-        return base->CopySource() != NULL
+        return base->GetSource() != NULL
              ? CGraphNodeStates::COLLAPSED_ABOVE | CGraphNodeStates::SPLIT_ABOVE
              : 0;
 

@@ -197,7 +197,7 @@ inline CNodeClassification CFullGraphNode::GetClassification() const
 
 // combined info (copySource | previous)
 
-const CFullGraphNode* CFullGraphNode::GetSource() const
+inline const CFullGraphNode* CFullGraphNode::GetSource() const
 {
     return copySource == NULL ? prev : copySource;
 }

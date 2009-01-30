@@ -330,7 +330,7 @@ inline bool CVisibleGraphNode::IsRoot() const
 
 // combined info (copySource | previous)
 
-const CVisibleGraphNode* CVisibleGraphNode::GetSource() const
+inline const CVisibleGraphNode* CVisibleGraphNode::GetSource() const
 {
     return copySource == NULL ? prev : copySource;
 }
