@@ -105,6 +105,26 @@ private:
 
     void InternalResetFlags (const CFullGraphNode* node, DWORD flags);
 
+    /// traverse the unfiltered tree in the given direction
+    /// and look for a suitable node state.
+
+    typedef std::pair<const CFullGraphNode*, DWORD> TFlaggedNode;
+
+    TFlaggedNode FindPreviousRelevant ( const CVisibleGraphNode* node
+                                      , DWORD flags
+                                      , DWORD myFlags
+                                      , DWORD mirroredFlags) const;
+
+    TFlaggedNode FindNextRelevant ( const CVisibleGraphNode* node
+                                  , DWORD flags
+                                  , DWORD myFlags
+                                  , DWORD mirroredFlags) const;
+
+    TFlaggedNode FindRightRelevant ( const CVisibleGraphNode* node
+                                   , DWORD flags
+                                   , DWORD myFlags
+                                   , DWORD mirroredFlags) const;
+
 public:
 
     /// construction / destruction

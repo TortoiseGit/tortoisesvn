@@ -143,32 +143,163 @@ DWORD CGraphNodeStates::GetFlags (const CFullGraphNode* node) const
 // crawl the tree, find the next relavant entries and combine
 // the status info
 
-const CVisibleGraphNode* 
+std::pair<const CFullGraphNode*, DWORD>
 CGraphNodeStates::FindPreviousRelevant ( const CVisibleGraphNode* node
                                        , DWORD flags
-                                       , DWORD flag) const
+                                       , DWORD myFlags
+                                       , DWORD mirroredFlags) const
 {
     // already set for this node?
 
-    if ((flags & flag) != 0)
-        return node;
+    const CFullGraphNode* base = node->GetBase();
+    if ((flags & myFlags) != 0)
+        return std::make_pair (base, myFlags);
 
     // if there still is a predecessor in the visible tree,
     // it obviously didn't get folded or split
 
-    if (node->GetCopySource
+    if (node->GetSource() != NULL)
+        return std::pair<const CFullGraphNode*, DWORD> (0, 0);
 
-    // walk up the tree
-    // 
+    // walk up the (unfiltered) tree until we find something relevant
+
+    while (base != NULL)
+    {
+        const CFullGraphNode* previous = base->GetPrevious();
+        if (previous == NULL)
+        {
+            // start of branch:
+            // is there a copy source and is it relevant?
+
+            base = base->GetCopySource();
+            if ((base != NULL) && (GetFlags (base) & SPLIT_RIGHT))
+            {
+                return std::make_pair (base, SPLIT_RIGHT);
+            }
+
+            // nothing found
+
+            break;
+        }
+
+        base = previous;
+
+        DWORD baseFlags = GetFlags (base);
+        if (baseFlags & mirroredFlags)
+            return std::make_pair (base, mirroredFlags);
+        if (baseFlags & myFlags)
+            return std::make_pair (base, myFlags);
+    }
+
+    // nothing found
+
+    return std::pair<const CFullGraphNode*, DWORD> (0, 0);
+}
+
+std::pair<const CFullGraphNode*, DWORD>
+CGraphNodeStates::FindNextRelevant ( const CVisibleGraphNode* node
+                                   , DWORD flags
+                                   , DWORD myFlags
+                                   , DWORD mirroredFlags) const
+{
+    // already set for this node?
+
+    const CFullGraphNode* base = node->GetBase();
+    if ((flags & myFlags) != 0)
+        return std::make_pair (base, myFlags);
+
+    // if there still is a next in the visible tree,
+    // it obviously didn't get folded or split
+
+    if (node->GetNext() != NULL)
+        return std::pair<const CFullGraphNode*, DWORD> (0, 0);
+
+    // walk down the (unfiltered) tree until we find something relevant
+
+    while (base != NULL)
+    {
+        base = base->GetNext();
+
+        DWORD baseFlags = GetFlags (base);
+        if (baseFlags & mirroredFlags)
+            return std::make_pair (base, mirroredFlags);
+        if (baseFlags & myFlags)
+            return std::make_pair (base, myFlags);
+    }
+
+    // nothing found
+
+    return std::pair<const CFullGraphNode*, DWORD> (0, 0);
+}
+
+std::pair<const CFullGraphNode*, DWORD>
+CGraphNodeStates::FindRightRelevant ( const CVisibleGraphNode* node
+                                    , DWORD flags
+                                    , DWORD myFlags
+                                    , DWORD mirroredFlags) const
+{
+    // already set for this node?
+
+    const CFullGraphNode* base = node->GetBase();
+    if ((flags & myFlags) != 0)
+        return std::make_pair (base, myFlags);
+
+    // any split sub-branch?
+
+    for ( const CFullGraphNode::CCopyTarget* target = base->GetFirstCopyTarget()
+        ; target != NULL
+        ; target = target->next())
+    {
+        base = target->value();
+        if (GetFlags (base) & mirroredFlags)
+            return std::make_pair (base, mirroredFlags);
+    }
+
+    // nothing found
+
+    return std::pair<const CFullGraphNode*, DWORD> (0, 0);
 }
 
 DWORD CGraphNodeStates::GetFlags (const CVisibleGraphNode* node) const
 {
     assert (node != NULL);
 
+    // this node's flags
+
     DWORD result = GetFlags (node->GetBase());
 
-    if (
+    // look for flags on hidden nodes as well as mirrored flags
+
+    TFlaggedNode previousFlags = FindPreviousRelevant ( node
+                                                      , result
+                                                      , COLLAPSED_ABOVE | SPLIT_ABOVE
+                                                      , SPLIT_BELOW);
+
+    TFlaggedNode nextFlags = FindPreviousRelevant ( node
+                                                  , result
+                                                  , COLLAPSED_BELOW | SPLIT_BELOW
+                                                  , SPLIT_ABOVE);
+
+    TFlaggedNode rightFlags = FindPreviousRelevant ( node
+                                                   , result
+                                                   , COLLAPSED_RIGHT | SPLIT_RIGHT
+                                                   , SPLIT_ABOVE);
+
+    // combine results
+
+    result |= (previousFlags.second & SPLIT_BELOW) 
+            ? SPLIT_ABOVE 
+            : previousFlags.second;
+
+    result |= (nextFlags.second & SPLIT_ABOVE) 
+            ? SPLIT_BELOW
+            : nextFlags.second;
+
+    result |= (rightFlags.second & SPLIT_ABOVE) 
+            ? SPLIT_RIGHT
+            : rightFlags.second;
+
+    // done here
 
     return result;
 }
@@ -180,7 +311,7 @@ void CGraphNodeStates::AddLink ( const CFullGraphNode* source
                                , const CFullGraphNode* target
                                , DWORD flags)
 {
-    assert (states.find (source) != states.end());
+/*    assert (states.find (source) != states.end());
 
     TNodeState sourceState (source, flags);
     TNodeState targetState (target, 0);
@@ -198,7 +329,7 @@ void CGraphNodeStates::AddLink ( const CFullGraphNode* source
 
         links.insert (std::make_pair (targetState, sourceState));
         links.insert (std::make_pair (sourceState, targetState));
-    }
+    }*/
 }
 
 // quick update all
