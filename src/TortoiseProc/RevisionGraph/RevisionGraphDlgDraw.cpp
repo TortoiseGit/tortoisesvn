@@ -611,10 +611,7 @@ void CRevisionGraphWnd::IndicateGlyphDirection
 
     if (indicateAbove)
     {
-        const CVisibleGraphNode* firstAffected 
-            = node.node->GetCopySource() == NULL
-            ? node.node->GetPrevious()
-            : node.node->GetCopySource();
+        const CVisibleGraphNode* firstAffected = node.node->GetSource();
 
         assert (firstAffected);
         RectF branchCover 

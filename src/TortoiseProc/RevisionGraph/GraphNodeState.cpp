@@ -20,6 +20,7 @@
 #include "GraphNodeState.h"
 #include "FullGraph.h"
 #include "FullGraphNode.h"
+#include "VisibleGraphNode.h"
 
 // restore state from saved data
 
@@ -137,6 +138,39 @@ DWORD CGraphNodeStates::GetFlags (const CFullGraphNode* node) const
     return iter == states.end()
         ? 0
         : iter->second;
+}
+
+// crawl the tree, find the next relavant entries and combine
+// the status info
+
+const CVisibleGraphNode* 
+CGraphNodeStates::FindPreviousRelevant ( const CVisibleGraphNode* node
+                                       , DWORD flags
+                                       , DWORD flag) const
+{
+    // already set for this node?
+
+    if ((flags & flag) != 0)
+        return node;
+
+    // if there still is a predecessor in the visible tree,
+    // it obviously didn't get folded or split
+
+    if (node->GetCopySource
+
+    // walk up the tree
+    // 
+}
+
+DWORD CGraphNodeStates::GetFlags (const CVisibleGraphNode* node) const
+{
+    assert (node != NULL);
+
+    DWORD result = GetFlags (node->GetBase());
+
+    if (
+
+    return result;
 }
 
 // if we reset a flag in source, reset the corresponding flag in target.

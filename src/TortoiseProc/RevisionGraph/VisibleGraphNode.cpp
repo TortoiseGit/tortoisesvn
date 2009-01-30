@@ -25,10 +25,7 @@
 
 bool CVisibleGraphNode::CFoldedTag::IsAlias() const
 {
-    const CFullGraphNode* prev 
-        = tagNode->GetPrevious() == NULL
-            ? tagNode->GetCopySource()
-            : tagNode->GetPrevious();
+    const CFullGraphNode* prev = tagNode->GetSource();
 
     // skip all non-modifying nodes and make prev point to
     // either the copy node or the last modification

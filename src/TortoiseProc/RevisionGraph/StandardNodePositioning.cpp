@@ -281,8 +281,7 @@ void CStandardNodePositioning::ApplyTo (IRevisionGraphLayout* layout)
     for (index_t i = 0, count = nodeAccess->GetNodeCount(); i < count; ++i)
     {
         CStandardLayoutNodeInfo* node = nodeAccess->GetNode(i);
-        if (   (node->node->GetPrevious() == NULL)
-            && (node->node->GetCopySource() == NULL))
+        if (node->node->GetSource() == NULL)
         {
             // we found a root -> place it
 

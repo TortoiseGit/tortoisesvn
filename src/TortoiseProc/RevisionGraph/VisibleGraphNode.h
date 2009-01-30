@@ -178,6 +178,10 @@ public:
 
     bool IsRoot() const;
 
+    /// combined info (copySource | previous)
+
+    const CVisibleGraphNode* GetSource() const;
+
     /// set index members within the whole sub-tree
 
     index_t InitIndex (index_t startIndex);
@@ -322,5 +326,12 @@ inline index_t CVisibleGraphNode::GetIndex() const
 inline bool CVisibleGraphNode::IsRoot() const
 {
     return (copySource == NULL) && (prev == NULL);
+}
+
+// combined info (copySource | previous)
+
+const CVisibleGraphNode* CVisibleGraphNode::GetSource() const
+{
+    return copySource == NULL ? previous : copySource;
 }
 

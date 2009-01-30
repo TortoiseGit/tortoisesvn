@@ -47,9 +47,7 @@ void CShowPathsAsDiff::ApplyTo (IRevisionGraphLayout* layout)
         CStandardLayoutNodeInfo* nodeInfo = nodeAccess->GetNode(i);
 
         const CVisibleGraphNode* node = nodeInfo->node;
-        const CVisibleGraphNode* source = node->GetCopySource() 
-                                        ? node->GetCopySource() 
-                                        : node->GetPrevious();
+        const CVisibleGraphNode* source = node->GetSource();
 
         if (source != NULL)
         {

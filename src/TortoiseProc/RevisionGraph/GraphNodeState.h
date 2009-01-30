@@ -32,6 +32,7 @@ using namespace LogCache;
 
 class CFullGraph;
 class CFullGraphNode;
+class CVisibleGraphNode;
 
 /**
  * This is a container that stores all nodes that have been
@@ -116,6 +117,11 @@ public:
     void SetFlags (const CFullGraphNode* node, DWORD flags);
     void ResetFlags (const CFullGraphNode* node, DWORD flags);
     DWORD GetFlags (const CFullGraphNode* node) const;
+
+    /// crawl the tree, find the next relavant entries and combine
+    /// the status info
+
+    DWORD GetFlags (const CVisibleGraphNode* node) const;
 
     /// if we reset a flag in source, reset the corresponding flag in target.
     /// Also, set it initially, when adding this link.

@@ -271,7 +271,7 @@ DWORD CRevisionGraphWnd::GetHoverGlyphs (CPoint point) const
              : 0;
 
     if (topGlyphArea.PtInRect (logCoordinates))
-        return (base->GetCopySource() != NULL) || (base->GetPrevious() != NULL)
+        return base->CopySource() != NULL
              ? CGraphNodeStates::COLLAPSED_ABOVE | CGraphNodeStates::SPLIT_ABOVE
              : 0;
 
@@ -995,7 +995,7 @@ void CRevisionGraphWnd::AddGraphOps (CMenu& popup, const CVisibleGraphNode * nod
         const CFullGraphNode* base = node->GetBase();
         DWORD state = nodeStates->GetFlags (base);
 
-        if (node->GetPrevious() || node->GetCopySource() || (state & CGraphNodeStates::COLLAPSED_ABOVE))
+        if (node->GetSource() || (state & CGraphNodeStates::COLLAPSED_ABOVE))
         {
             temp.LoadString ((state & CGraphNodeStates::COLLAPSED_ABOVE) 
                              ? IDS_REVGRAPH_POPUP_EXPAND_ABOVE 
@@ -1019,7 +1019,7 @@ void CRevisionGraphWnd::AddGraphOps (CMenu& popup, const CVisibleGraphNode * nod
             popup.AppendMenu(MF_STRING | MF_ENABLED, ID_GRAPH_EXPANDCOLLAPSE_BELOW, temp);
         }
 
-        if (node->GetPrevious() || base->GetCopySource() || (state & CGraphNodeStates::SPLIT_ABOVE))
+        if (node->GetSource() || (state & CGraphNodeStates::SPLIT_ABOVE))
         {
             temp.LoadString ((state & CGraphNodeStates::SPLIT_ABOVE) 
                              ? IDS_REVGRAPH_POPUP_JOIN_ABOVE 

@@ -271,9 +271,7 @@ void CStandardLayout::CreateConnections()
     for (index_t i = 0, count = (index_t)nodes.size(); i < count; ++i)
     {
         const CVisibleGraphNode* node = nodes[i].node;
-        const CVisibleGraphNode* previousNode = node->GetCopySource()
-                                              ? node->GetCopySource()
-                                              : node->GetPrevious();
+        const CVisibleGraphNode* previousNode = node->GetSource();
 
         // skip roots
 

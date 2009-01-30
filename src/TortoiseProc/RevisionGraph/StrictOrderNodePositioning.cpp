@@ -149,8 +149,7 @@ void CStrictOrderNodePositioning::AssignColumns
     for (size_t i = 0, count = nodes.size(); i < count; ++i)
     {
         CStandardLayoutNodeInfo* node = nodes[i].second;
-        if (   (node->node->GetPrevious() == NULL)
-            && (node->node->GetCopySource() == NULL))
+        if (node->node->GetSource() == NULL)
         {
             AssignColumns ( node
                           , startRevisions.size()
