@@ -180,7 +180,12 @@
 			look for changes in the repository. That way
 			you can check before an update if there's a possible conflict.
 			You can also update selected files from the repository without
-			updating the whole folder.
+			updating the whole folder. By default, the <guibutton>Check Repository</guibutton>
+			button only fetches the remote status with the checkout depth
+			of the working copy. If you want to see all files and folders
+			in the repository, even those you have not checked out, then you
+			have to hold down the <keycap>Shift</keycap> key when you 
+			click on the <guibutton>Check Repository</guibutton> button.
 		</para>
 		<para>
 			The dialog uses colour coding to highlight the status.
