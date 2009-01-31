@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -34,6 +34,7 @@ CChangedDlg::CChangedDlg(CWnd* pParent /*=NULL*/)
 	, m_bShowIgnored(FALSE)
 	, m_bShowExternals(TRUE)
     , m_bShowUserProps(FALSE)
+	, m_bDepthInfinity(false)
 {
 	m_bRemote = FALSE;
 }
@@ -73,6 +74,7 @@ BOOL CChangedDlg::OnInitDialog()
 	GetWindowText(m_sTitle);
 
 	m_tooltips.Create(this);
+	m_tooltips.AddTool(IDC_CHECKREPO, IDS_REPOSTATUS_TT_REPOCHECK);
 
 	m_regAddBeforeCommit = CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE);
 	m_bShowUnversioned = m_regAddBeforeCommit;
@@ -139,6 +141,7 @@ UINT CChangedDlg::ChangedStatusThread()
 	DialogEnableWindow(IDC_SHOWIGNORED, FALSE);
     DialogEnableWindow(IDC_SHOWUSERPROPS, FALSE);
 	CString temp;
+	m_FileListCtrl.SetDepthInfinity(m_bDepthInfinity);
 	if (!m_FileListCtrl.GetStatus(m_pathList, m_bRemote, m_bShowIgnored != FALSE, m_bShowUserProps != FALSE))
 	{
 		if (!m_FileListCtrl.GetLastErrorMessage().IsEmpty())
@@ -195,6 +198,7 @@ void CChangedDlg::OnCancel()
 void CChangedDlg::OnBnClickedCheckrepo()
 {
 	m_bRemote = TRUE;
+	m_bDepthInfinity = (GetKeyState(VK_SHIFT)&0x8000) != 0;
 	if (AfxBeginThread(ChangedStatusThreadEntry, this)==NULL)
 	{
 		CMessageBox::Show(NULL, IDS_ERR_THREADSTARTFAILED, IDS_APPNAME, MB_OK | MB_ICONERROR);
