@@ -159,6 +159,7 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
     , m_bAscending(false)
     , m_nSortedColumn(-1)
 	, m_sNoPropValueText(MAKEINTRESOURCE(IDS_STATUSLIST_NOPROPVALUE))
+	, m_bDepthInfinity(false)
 {
 	m_critSec.Init();
 }
@@ -388,7 +389,7 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
 			{
 				if (sortedPathList[fcindex].IsDirectory())
 				{
-					depth = svn_depth_unknown;
+					depth = m_bDepthInfinity ? svn_depth_infinity : svn_depth_unknown;
 					bShowIgnoresRight = false;
 					break;
 				}
@@ -408,7 +409,7 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
 				// but not recursively
 				if (sortedPathList[nTarget].IsDirectory() || GetListEntry(sortedPathList[nTarget]) == NULL)
 				{
-					if(!FetchStatusForSingleTarget(config, status, sortedPathList[nTarget], bUpdate, sUUID, arExtPaths, false, svn_depth_unknown, bShowIgnores))
+					if(!FetchStatusForSingleTarget(config, status, sortedPathList[nTarget], bUpdate, sUUID, arExtPaths, false, m_bDepthInfinity ? svn_depth_infinity : svn_depth_unknown, bShowIgnores))
 					{
 						bRet = FALSE;
 					}

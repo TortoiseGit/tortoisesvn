@@ -752,6 +752,12 @@ public:
 	void SetUnversionedRecurse(bool bUnversionedRecurse) {m_bUnversionedRecurse = bUnversionedRecurse;}
 
 	/**
+	 * If set to \c true, fetch the status with depth svn_depth_infinity, otherwise
+	 * (the default) fetch the status with the depth of the working copy.
+	 */
+	void SetDepthInfinity(bool bInfinity) {m_bDepthInfinity = bInfinity;}
+
+	/**
 	 * Returns the number of selected items
 	 */
 	LONG GetSelected(){return m_nSelected;};
@@ -943,6 +949,7 @@ private:
 	bool						m_bCheckIfGroupsExist;
 	bool						m_bFileDropsEnabled;
 	bool						m_bOwnDrag;
+	bool						m_bDepthInfinity;
 
 	int							m_nIconFolder;
 
