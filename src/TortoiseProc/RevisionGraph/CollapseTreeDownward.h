@@ -35,8 +35,8 @@ class CCollapseTreeDownward
     : public CModificationOptionImpl< IModificationOption
                                     , 2100
                                     , 0
-                                    , false     // branches last
-                                    , true      // from roots to leaves
+                                    , true      // branches first
+                                    , false     // from leaves to root
                                     , false>    // this is not a cyclic option
 {
 private:
