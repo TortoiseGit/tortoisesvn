@@ -98,6 +98,7 @@ private:
     /// and look for a suitable node state.
 
     typedef std::pair<const CFullGraphNode*, DWORD> TFlaggedNode;
+    typedef std::vector<const CFullGraphNode*> TFlaggedNodes;
 
     TFlaggedNode FindPreviousRelevant ( const CVisibleGraphNode* node
                                       , DWORD flags
@@ -107,8 +108,8 @@ private:
                                   , DWORD flags
                                   , bool withinAsWell) const;
 
-    TFlaggedNode FindRightRelevant ( const CVisibleGraphNode* node
-                                   , DWORD flags) const;
+    TFlaggedNode FindRightRelevant (const CVisibleGraphNode* node) const;
+    TFlaggedNodes FindSplitSubtrees (const CVisibleGraphNode* node) const;
 
     /// store, update and qeuery state
 

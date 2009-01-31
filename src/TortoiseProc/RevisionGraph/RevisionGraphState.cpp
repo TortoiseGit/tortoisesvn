@@ -131,6 +131,15 @@ CSyncPointer<CAllRevisionGraphOptions> CRevisionGraphState::GetOptions()
         , false);
 }
 
+CSyncPointer<const CGraphNodeStates> CRevisionGraphState::GetNodeStates() const
+{
+    CSingleLock lock (&mutex);
+    return CSyncPointer<const CGraphNodeStates>
+        ( &mutex
+        , &nodeStates
+        , false);
+}
+
 CSyncPointer<CGraphNodeStates> CRevisionGraphState::GetNodeStates()
 {
     CSingleLock lock (&mutex);

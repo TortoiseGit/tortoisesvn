@@ -54,10 +54,4 @@ void CCutTrees::Apply (CVisibleGraph* graph, CVisibleGraphNode* node)
         if (next)
             next->MakeRoot (graph, false);
     }
-
-    if (state & CGraphNodeStates::SPLIT_RIGHT)
-    {
-        while (node->GetFirstCopyTarget() != NULL)
-            node->GetFirstCopyTarget()->value()->MakeRoot (graph, false);
-    }
 }

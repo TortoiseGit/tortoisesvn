@@ -265,24 +265,29 @@ DWORD CRevisionGraphWnd::GetHoverGlyphs (CPoint point) const
         std::swap (topGlyphArea.bottom, bottomGlyphArea.bottom);
     }
 
+    DWORD result = 0;
     if (rightGlyphArea.PtInRect (logCoordinates))
-        return base->GetFirstCopyTarget() != NULL
-             ? CGraphNodeStates::COLLAPSED_RIGHT | CGraphNodeStates::SPLIT_RIGHT
-             : 0;
+        result = base->GetFirstCopyTarget() != NULL
+               ? CGraphNodeStates::COLLAPSED_RIGHT | CGraphNodeStates::SPLIT_RIGHT
+               : 0;
 
     if (topGlyphArea.PtInRect (logCoordinates))
-        return base->GetSource() != NULL
-             ? CGraphNodeStates::COLLAPSED_ABOVE | CGraphNodeStates::SPLIT_ABOVE
-             : 0;
+        result = base->GetSource() != NULL
+               ? CGraphNodeStates::COLLAPSED_ABOVE | CGraphNodeStates::SPLIT_ABOVE
+               : 0;
 
     if (bottomGlyphArea.PtInRect (logCoordinates))
-        return base->GetNext() != NULL
-             ? CGraphNodeStates::COLLAPSED_BELOW | CGraphNodeStates::SPLIT_BELOW
-             : 0;
+        result = base->GetNext() != NULL
+               ? CGraphNodeStates::COLLAPSED_BELOW | CGraphNodeStates::SPLIT_BELOW
+               : 0;
 
-    // outside any glyph area
+    // if some nodes have already been split, don't allow collapsing etc.
 
-    return 0;
+    CSyncPointer<const CGraphNodeStates> nodeStates (m_state.GetNodeStates());
+    if (result & nodeStates->GetFlags (base))
+        result = 0;
+
+    return result;
 }
     
 const CRevisionGraphState::SVisibleGlyph* CRevisionGraphWnd::GetHitGlyph (CPoint point) const

@@ -195,6 +195,7 @@ public:
     CSyncPointer<const ILayoutTextList>          GetTexts() const;
     CSyncPointer<const ILayoutRectList>          GetTrees() const;
     CSyncPointer<const TVisibleGlyphs>           GetVisibleGlyphs() const;
+    CSyncPointer<const CGraphNodeStates>         GetNodeStates() const;
 
     bool    GetFetchedWCState() const;
     CString GetLastErrorMessage() const;
