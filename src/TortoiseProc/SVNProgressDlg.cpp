@@ -2529,13 +2529,13 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
 	}
 	else 
 	{
-		// if we have only one target path, but that target path does not exist,
+		// if we have a target path, but that target path does not exist,
 		// we have to check whether at least the parent path exists. If not,
 		// then we have to update all paths in between the first path that exists and the
 		// parent path of the one we want to update
 		// This is required so a user can create a sparse checkout without having
 		// to update all intermediate folders manually
-		if ((m_targetPathList.GetCount() == 1) && (!m_targetPathList[0].Exists()))
+		if (!m_targetPathList[0].Exists())
 		{
 			CTSVNPath wcPath = m_targetPathList[0].GetContainingDirectory();
 			CTSVNPath existingParentPath = wcPath.GetContainingDirectory();
