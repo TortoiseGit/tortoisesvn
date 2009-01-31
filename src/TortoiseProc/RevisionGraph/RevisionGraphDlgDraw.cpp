@@ -263,7 +263,7 @@ void CRevisionGraphWnd::DrawNode(Graphics& graphics, const RectF& rect,
 
     if (   (node->GetNext() == NULL) 
         && (node->GetClassification().Is (CNodeClassification::PATH_ONLY_DELETED))
-        && ((m_state.GetNodeStates()->GetFlags (node->GetBase()) & MASK) == 0))
+        && ((m_state.GetNodeStates()->GetFlags (node) & MASK) == 0))
     {
         contour = m_Colors.GetColor (CColors::gdpDeletedNode);
     }
@@ -773,8 +773,7 @@ void CRevisionGraphWnd::DrawNodes (Graphics& graphics, Image* glyphs, const CRec
 
         // expansion glypths etc.
 
-        const CFullGraphNode* base = node.node->GetBase();
-        DrawGlyphs (graphics, glyphs, node.node, noderect, nodeStates->GetFlags (base), 0, upsideDown);
+        DrawGlyphs (graphics, glyphs, node.node, noderect, nodeStates->GetFlags (node.node), 0, upsideDown);
     }
 }
 
@@ -875,8 +874,7 @@ void CRevisionGraphWnd::DrawCurrentNodeGlyphs (Graphics& graphics, Image* glyphs
         ILayoutNodeList::SNode node = nodeList->GetNode (nodeIndex);
         RectF noderect (GetNodeRect (node, offset));
 
-        const CFullGraphNode* base = node.node->GetBase();
-        DWORD flags = m_state.GetNodeStates()->GetFlags (base);
+        DWORD flags = m_state.GetNodeStates()->GetFlags (node.node);
 
         IndicateGlyphDirection (graphics, nodeList.get(), node, noderect, m_hoverGlyphs, upsideDown, offset);
         DrawGlyphs (graphics, glyphs, node.node, noderect, flags, m_hoverGlyphs, upsideDown);

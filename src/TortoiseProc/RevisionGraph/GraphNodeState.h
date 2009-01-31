@@ -112,18 +112,20 @@ private:
 
     TFlaggedNode FindPreviousRelevant ( const CVisibleGraphNode* node
                                       , DWORD flags
-                                      , DWORD myFlags
-                                      , DWORD mirroredFlags) const;
+                                      , bool withinAsWell) const;
 
     TFlaggedNode FindNextRelevant ( const CVisibleGraphNode* node
                                   , DWORD flags
-                                  , DWORD myFlags
-                                  , DWORD mirroredFlags) const;
+                                  , bool withinAsWell) const;
 
     TFlaggedNode FindRightRelevant ( const CVisibleGraphNode* node
-                                   , DWORD flags
-                                   , DWORD myFlags
-                                   , DWORD mirroredFlags) const;
+                                   , DWORD flags) const;
+
+    /// store, update and qeuery state
+
+    void SetFlags (const CFullGraphNode* node, DWORD flags);
+    void ResetFlags (const CFullGraphNode* node, DWORD flags);
+    DWORD GetFlags (const CFullGraphNode* node) const;
 
 public:
 
@@ -134,14 +136,14 @@ public:
 
     /// store, update and qeuery state
 
-    void SetFlags (const CFullGraphNode* node, DWORD flags);
-    void ResetFlags (const CFullGraphNode* node, DWORD flags);
-    DWORD GetFlags (const CFullGraphNode* node) const;
+    void SetFlags (const CVisibleGraphNode* node, DWORD flags);
+    void ResetFlags (const CVisibleGraphNode* node, DWORD flags);
 
     /// crawl the tree, find the next relavant entries and combine
-    /// the status info
+    /// the status info. Include (or don't) flags between visible
+    /// nodes of the same branch.
 
-    DWORD GetFlags (const CVisibleGraphNode* node) const;
+    DWORD GetFlags (const CVisibleGraphNode* node, bool withinAsWell = false) const;
 
     /// if we reset a flag in source, reset the corresponding flag in target.
     /// Also, set it initially, when adding this link.

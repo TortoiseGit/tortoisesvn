@@ -69,7 +69,7 @@ void CStandardNodeSizeAssignment::ApplyTo (IRevisionGraphLayout* layout)
         // shift (root) nodes down, if their source has been folded
         // (otherwise, glyphs would be partly hidden)
 
-        DWORD state = nodeStates->GetFlags (node->node->GetBase());
+        DWORD state = nodeStates->GetFlags (node->node);
         int shift = (state & ( CGraphNodeStates::COLLAPSED_ABOVE 
                              | CGraphNodeStates::SPLIT_ABOVE)) == 0
                   ? 0

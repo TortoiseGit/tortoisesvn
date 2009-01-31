@@ -37,7 +37,7 @@ void CCutTrees::Apply (CVisibleGraph* graph, CVisibleGraphNode* node)
 {
     // short-cut: most nodes won't have a state info
 
-    DWORD state = nodeStates->GetFlags (node->GetBase());
+    DWORD state = nodeStates->GetFlags (node, true);
     if (state == 0)
         return;
 

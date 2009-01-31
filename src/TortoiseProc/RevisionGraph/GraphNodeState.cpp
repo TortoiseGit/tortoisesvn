@@ -140,30 +140,81 @@ DWORD CGraphNodeStates::GetFlags (const CFullGraphNode* node) const
         : iter->second;
 }
 
+// store, update and qeuery state
+
+void CGraphNodeStates::SetFlags (const CVisibleGraphNode* node, DWORD flags)
+{
+    if ((node != NULL) && (node->GetBase() != NULL))
+        SetFlags (node->GetBase(), flags);
+}
+
+void CGraphNodeStates::ResetFlags (const CVisibleGraphNode* node, DWORD flags)
+{
+    // this node's flags
+
+    DWORD current = GetFlags (node->GetBase());
+
+    // find the nodes whose flags that manifest at the given node
+    // and reset these flags
+
+    if ((COLLAPSED_ABOVE | SPLIT_ABOVE) & flags)
+    {
+        TFlaggedNode previousFlags = FindPreviousRelevant (node, current, false);
+        if (previousFlags.first)
+            ResetFlags (previousFlags.first, previousFlags.second);
+    }
+
+    if ((COLLAPSED_BELOW | SPLIT_BELOW) & flags)
+    {
+        TFlaggedNode nextFlags = FindNextRelevant (node, current, false);
+        if (nextFlags.first)
+            ResetFlags (nextFlags.first, nextFlags.second);
+    }
+
+    if ((COLLAPSED_RIGHT | SPLIT_RIGHT) & flags)
+    {
+        TFlaggedNode rightFlags = FindRightRelevant (node, current);
+        if (rightFlags.first)
+            ResetFlags (rightFlags.first, rightFlags.second);
+    }
+}
+
 // crawl the tree, find the next relavant entries and combine
 // the status info
 
 std::pair<const CFullGraphNode*, DWORD>
 CGraphNodeStates::FindPreviousRelevant ( const CVisibleGraphNode* node
                                        , DWORD flags
-                                       , DWORD myFlags
-                                       , DWORD mirroredFlags) const
+                                       , bool withinAsWell) const
 {
+    // what we are looking for
+
+    enum
+    {
+        MY_FLAGS = COLLAPSED_ABOVE | SPLIT_ABOVE,
+        MIRRORED_FLAGS = SPLIT_BELOW
+    };
+
     // already set for this node?
 
     const CFullGraphNode* base = node->GetBase();
-    if ((flags & myFlags) != 0)
-        return std::make_pair (base, myFlags);
+    if ((flags & MY_FLAGS) != 0)
+        return std::make_pair (base, flags & MY_FLAGS);
 
     // if there still is a predecessor in the visible tree,
     // it obviously didn't get folded or split
 
-    if (node->GetSource() != NULL)
+    const CVisibleGraphNode* source = node->GetSource();
+    if (!withinAsWell && (source != NULL))
         return std::pair<const CFullGraphNode*, DWORD> (0, 0);
+
+    const CFullGraphNode* last = source != NULL 
+                               ? source->GetBase() 
+                               : NULL;
 
     // walk up the (unfiltered) tree until we find something relevant
 
-    while (base != NULL)
+    while (base != last)
     {
         const CFullGraphNode* previous = base->GetPrevious();
         if (previous == NULL)
@@ -185,10 +236,10 @@ CGraphNodeStates::FindPreviousRelevant ( const CVisibleGraphNode* node
         base = previous;
 
         DWORD baseFlags = GetFlags (base);
-        if (baseFlags & mirroredFlags)
-            return std::make_pair (base, mirroredFlags);
-        if (baseFlags & myFlags)
-            return std::make_pair (base, myFlags);
+        if (baseFlags & MIRRORED_FLAGS)
+            return std::make_pair (base, baseFlags & MIRRORED_FLAGS);
+        if ((baseFlags & MY_FLAGS) && (base != last))
+            return std::make_pair (base, baseFlags & MY_FLAGS);
     }
 
     // nothing found
@@ -199,32 +250,44 @@ CGraphNodeStates::FindPreviousRelevant ( const CVisibleGraphNode* node
 std::pair<const CFullGraphNode*, DWORD>
 CGraphNodeStates::FindNextRelevant ( const CVisibleGraphNode* node
                                    , DWORD flags
-                                   , DWORD myFlags
-                                   , DWORD mirroredFlags) const
+                                   , bool withinAsWell) const
 {
+    // what we are looking for
+
+    enum
+    {
+        MY_FLAGS = COLLAPSED_BELOW | SPLIT_BELOW,
+        MIRRORED_FLAGS = SPLIT_ABOVE
+    };
+
     // already set for this node?
 
     const CFullGraphNode* base = node->GetBase();
-    if ((flags & myFlags) != 0)
-        return std::make_pair (base, myFlags);
+    if ((flags & MY_FLAGS) != 0)
+        return std::make_pair (base, flags & MY_FLAGS);
 
     // if there still is a next in the visible tree,
     // it obviously didn't get folded or split
 
-    if (node->GetNext() != NULL)
+    const CVisibleGraphNode* next = node->GetNext();
+    if (!withinAsWell && (next != NULL))
         return std::pair<const CFullGraphNode*, DWORD> (0, 0);
+
+    const CFullGraphNode* last = next != NULL 
+                               ? next->GetBase() 
+                               : NULL;
 
     // walk down the (unfiltered) tree until we find something relevant
 
-    while (base != NULL)
+    while (base != last)
     {
         base = base->GetNext();
 
         DWORD baseFlags = GetFlags (base);
-        if (baseFlags & mirroredFlags)
-            return std::make_pair (base, mirroredFlags);
-        if (baseFlags & myFlags)
-            return std::make_pair (base, myFlags);
+        if (baseFlags & MIRRORED_FLAGS)
+            return std::make_pair (base, baseFlags & MIRRORED_FLAGS);
+        if ((baseFlags & MY_FLAGS) && (base != last))
+            return std::make_pair (base, baseFlags & MY_FLAGS);
     }
 
     // nothing found
@@ -234,15 +297,21 @@ CGraphNodeStates::FindNextRelevant ( const CVisibleGraphNode* node
 
 std::pair<const CFullGraphNode*, DWORD>
 CGraphNodeStates::FindRightRelevant ( const CVisibleGraphNode* node
-                                    , DWORD flags
-                                    , DWORD myFlags
-                                    , DWORD mirroredFlags) const
+                                    , DWORD flags) const
 {
+    // what we are looking for
+
+    enum
+    {
+        MY_FLAGS = COLLAPSED_RIGHT | SPLIT_RIGHT,
+        MIRRORED_FLAGS = SPLIT_ABOVE
+    };
+
     // already set for this node?
 
     const CFullGraphNode* base = node->GetBase();
-    if ((flags & myFlags) != 0)
-        return std::make_pair (base, myFlags);
+    if ((flags & MY_FLAGS) != 0)
+        return std::make_pair (base, flags & MY_FLAGS);
 
     // any split sub-branch?
 
@@ -251,8 +320,8 @@ CGraphNodeStates::FindRightRelevant ( const CVisibleGraphNode* node
         ; target = target->next())
     {
         base = target->value();
-        if (GetFlags (base) & mirroredFlags)
-            return std::make_pair (base, mirroredFlags);
+        if (GetFlags (base) & MIRRORED_FLAGS)
+            return std::make_pair (base, MIRRORED_FLAGS);
     }
 
     // nothing found
@@ -260,7 +329,8 @@ CGraphNodeStates::FindRightRelevant ( const CVisibleGraphNode* node
     return std::pair<const CFullGraphNode*, DWORD> (0, 0);
 }
 
-DWORD CGraphNodeStates::GetFlags (const CVisibleGraphNode* node) const
+DWORD CGraphNodeStates::GetFlags ( const CVisibleGraphNode* node
+                                 , bool withinAsWell) const
 {
     assert (node != NULL);
 
@@ -270,24 +340,13 @@ DWORD CGraphNodeStates::GetFlags (const CVisibleGraphNode* node) const
 
     // look for flags on hidden nodes as well as mirrored flags
 
-    TFlaggedNode previousFlags = FindPreviousRelevant ( node
-                                                      , result
-                                                      , COLLAPSED_ABOVE | SPLIT_ABOVE
-                                                      , SPLIT_BELOW);
-
-    TFlaggedNode nextFlags = FindPreviousRelevant ( node
-                                                  , result
-                                                  , COLLAPSED_BELOW | SPLIT_BELOW
-                                                  , SPLIT_ABOVE);
-
-    TFlaggedNode rightFlags = FindPreviousRelevant ( node
-                                                   , result
-                                                   , COLLAPSED_RIGHT | SPLIT_RIGHT
-                                                   , SPLIT_ABOVE);
+    TFlaggedNode previousFlags = FindPreviousRelevant (node, result, withinAsWell);
+    TFlaggedNode nextFlags = FindNextRelevant (node, result, withinAsWell);
+    TFlaggedNode rightFlags = FindRightRelevant (node, result);
 
     // combine results
 
-    result |= (previousFlags.second & SPLIT_BELOW) 
+    result |= (previousFlags.second & (SPLIT_BELOW | SPLIT_RIGHT)) 
             ? SPLIT_ABOVE 
             : previousFlags.second;
 

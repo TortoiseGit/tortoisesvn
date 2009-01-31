@@ -35,7 +35,7 @@ CCollapseTreeUpward::CCollapseTreeUpward
 
 void CCollapseTreeUpward::Apply (CVisibleGraph* /* graph */, CVisibleGraphNode* node)
 {
-    DWORD state = nodeStates->GetFlags (node->GetBase());
+    DWORD state = nodeStates->GetFlags (node, true);
 
     // cut at this tree node, if requested by the node state
 

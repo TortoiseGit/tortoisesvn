@@ -991,9 +991,7 @@ void CRevisionGraphWnd::AddGraphOps (CMenu& popup, const CVisibleGraphNode * nod
     else
     {
         popup.AppendMenu(MF_SEPARATOR, NULL);
-
-        const CFullGraphNode* base = node->GetBase();
-        DWORD state = nodeStates->GetFlags (base);
+        DWORD state = nodeStates->GetFlags (node);
 
         if (node->GetSource() || (state & CGraphNodeStates::COLLAPSED_ABOVE))
         {
@@ -1098,17 +1096,15 @@ void CRevisionGraphWnd::ResetNodeFlags (DWORD flags)
 void CRevisionGraphWnd::ToggleNodeFlag (const CVisibleGraphNode *node, DWORD flag)
 {
     CSyncPointer<CGraphNodeStates> nodeStates (m_state.GetNodeStates());
-    const CFullGraphNode* base = node->GetBase();
-
-    if (nodeStates->GetFlags (base) & flag)
+    if (nodeStates->GetFlags (node) & flag)
     {
-        nodeStates->ResetFlags (base, flag);
+        nodeStates->ResetFlags (node, flag);
     }
     else
     {
-        nodeStates->SetFlags (base, flag);
+        nodeStates->SetFlags (node, flag);
 
-        if (flag == CGraphNodeStates::SPLIT_BELOW)
+/*        if (flag == CGraphNodeStates::SPLIT_BELOW)
             nodeStates->AddLink (base, node->GetNext()->GetBase(), flag);
 
         if ((flag == CGraphNodeStates::SPLIT_ABOVE) && node->GetPrevious())
@@ -1121,7 +1117,7 @@ void CRevisionGraphWnd::ToggleNodeFlag (const CVisibleGraphNode *node, DWORD fla
                 ; target = target->next())
             {
                 nodeStates->AddLink (base, target->value()->GetBase(), flag);
-            }
+            }*/
     }
 
     m_parent->StartWorkerThread();
