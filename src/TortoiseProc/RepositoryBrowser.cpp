@@ -2324,7 +2324,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 			break;
 		case ID_SHOWLOG:
 			{
-				if ((urlList.GetCount() == 2)||(!m_diffURL.IsEquivalentTo(urlList[0])))
+				if ((urlList.GetCount() == 2)||(!m_diffURL.IsEmpty() && !m_diffURL.IsEquivalentTo(urlList[0])))
 				{
 					CTSVNPath secondUrl = urlList.GetCount() == 2 ? urlListEscaped[1] : m_diffURL;
 					// get log of first URL
