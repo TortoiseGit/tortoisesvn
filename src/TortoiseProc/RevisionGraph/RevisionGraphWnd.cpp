@@ -1096,29 +1096,11 @@ void CRevisionGraphWnd::ResetNodeFlags (DWORD flags)
 void CRevisionGraphWnd::ToggleNodeFlag (const CVisibleGraphNode *node, DWORD flag)
 {
     CSyncPointer<CGraphNodeStates> nodeStates (m_state.GetNodeStates());
+
     if (nodeStates->GetFlags (node) & flag)
-    {
         nodeStates->ResetFlags (node, flag);
-    }
     else
-    {
         nodeStates->SetFlags (node, flag);
-
-/*        if (flag == CGraphNodeStates::SPLIT_BELOW)
-            nodeStates->AddLink (base, node->GetNext()->GetBase(), flag);
-
-        if ((flag == CGraphNodeStates::SPLIT_ABOVE) && node->GetPrevious())
-            nodeStates->AddLink (base, node->GetPrevious()->GetBase(), flag);
-
-        if (flag == CGraphNodeStates::SPLIT_RIGHT)
-            for ( const CVisibleGraphNode::CCopyTarget* target 
-                    = node->GetFirstCopyTarget()
-                ; target != NULL
-                ; target = target->next())
-            {
-                nodeStates->AddLink (base, target->value()->GetBase(), flag);
-            }*/
-    }
 
     m_parent->StartWorkerThread();
 }
