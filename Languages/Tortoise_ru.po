@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2009
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 15076: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 15242: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-01-12 19:49+0300\n"
+"PO-Revision-Date: 2009-02-01 23:13+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1205,6 +1205,26 @@ msgstr "(%s) %s"
 msgid "(binary value)"
 msgstr "(двоичное значение)"
 
+#. Resource IDs: (276)
+msgid "(copy)"
+msgstr "(копирование)"
+
+#. Resource IDs: (276)
+msgid "(created)"
+msgstr "(создание)"
+
+#. Resource IDs: (276)
+msgid "(delete)"
+msgstr "(удаление)"
+
+#. Resource IDs: (276)
+msgid "(modified)"
+msgstr "(были изменения)"
+
+#. Resource IDs: (276)
+msgid "(modified, HEAD revision)"
+msgstr "(были изменения, ведущая ревизия)"
+
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
 msgstr "(выбрано несколько целей)"
@@ -1217,6 +1237,10 @@ msgstr "(не в группе изменений)"
 msgid "(no line number)"
 msgstr "(без номера строки)"
 
+#. Resource IDs: (276)
+msgid "(no modification but copy created from here)"
+msgstr "(без изменений, но копия создана отсюда)"
+
 #. Resource IDs: (214)
 msgid "(no value)"
 msgstr "(нет значения)"
@@ -1225,9 +1249,21 @@ msgstr "(нет значения)"
 msgid "(not found)"
 msgstr "(не найден)"
 
+#. Resource IDs: (276)
+msgid "(open branch)"
+msgstr "(создание ответвления)"
+
 #. Resource IDs: (208)
 msgid "(property change only)"
 msgstr "(изменение только свойств)"
+
+#. Resource IDs: (276)
+msgid "(rename)"
+msgstr "(переименование)"
+
+#. Resource IDs: (276)
+msgid "(tagged)"
+msgstr "(пометка)"
 
 #. Resource IDs: (245)
 msgid "(unknown)"
@@ -2285,7 +2321,6 @@ msgstr "Щёлкните здесь для перехода на web-сайт"
 msgid "Click here to select a recently typed message"
 msgstr "Нажмите для выбора из недавно введённых сообщений"
 
-# !!! не помещается
 #. Resource IDs: (65535)
 msgid "Click on \"Advanced\" to specify alternate diff programs based on file extension"
 msgstr "Нажмите на \"Дополнительно...\" для указания дополнительных программ поиска различий в зависимости от расширения файла"
@@ -2530,6 +2565,11 @@ msgstr "Скопировано"
 #. Resource IDs: (208)
 msgid "Copied from URL"
 msgstr "Скопировано из URL"
+
+#. Resource IDs: (275)
+#, c-format
+msgid "Copied from: %s@%ld\r\n"
+msgstr "Скопировано из: %s@%ld\r\n"
 
 #. Resource IDs: (126)
 msgid "Copied remotely"
@@ -3965,16 +4005,6 @@ msgstr "Невозможно инициализировать GDI+"
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "GDI+ не может создать рисунок. Вероятно очень мало памяти."
 
-#. Resource IDs: (83)
-msgid ""
-"GDI+ is required to save the revision graph as a picture.\n"
-"You can get GDI+ from\n"
-"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
-msgstr ""
-"Для сохранения графа ревизий как картинки необходим GDI+.\n"
-"Вы можете получить GDI+ по следующей ссылке:\n"
-"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
-
 #. Resource IDs: (284)
 msgid "Gathering information. Please wait..."
 msgstr "Выполняется сбор информации. Пожалуйста, подождите..."
@@ -4368,6 +4398,30 @@ msgstr "Пометки на значках::Набор значков"
 msgid "Icons/Design/Code:                 Luebbe Onken"
 msgstr "Значки/Дизайн/Код:     Luebbe Onken"
 
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'branch'."
+msgstr ""
+"Если элемент заданного пути (часть между двумя '/') соответствует\n"
+"одному из этих шаблонов, то этот путь считается ответвлением.\n"
+
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'tag'."
+msgstr ""
+"Если элемент заданного пути (часть между двумя '/') соответствует\n"
+"одному из этих шаблонов, то этот путь считается меткой.\n"
+
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'trunk'."
+msgstr ""
+"Если элемент заданного пути (часть между двумя '/') соответствует\n"
+"одному из этих шаблонов, то этот путь считается стволом.\n"
+
 #. Resource IDs: (194)
 msgid "If activated, prevents the overlays and the context menu from showing in 'save as...' or 'open' dialogs"
 msgstr "Если отмечено, то контекстное меню и пометки на значках не будут отображаться в диалогах 'сохранить как...' и 'открыть'"
@@ -4379,54 +4433,6 @@ msgid ""
 msgstr ""
 "При активации пункт меню 'Заблокировать' всегда показывается в меню верхнего уровня\n"
 "для файлов, у которых установлено свойство svn:needs-lock"
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'branch'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"Если элемент заданного пути (часть между двумя '/') соответствует\n"
-"одному из этих шаблонов, то этот путь считается ответвлением.\n"
-"\n"
-"Шаблоны задаются в нижнем регистре.\n"
-"Допустимые подстановочные символы: '?' и '*'\n"
-"Разделитель шаблонов: ';'"
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'tag'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"Если элемент заданного пути (часть между двумя '/') соответствует\n"
-"одному из этих шаблонов, то этот путь считается меткой.\n"
-"\n"
-"Шаблоны задаются в нижнем регистре.\n"
-"Допустимые подстановочные символы: '?' и '*'\n"
-"Разделитель шаблонов: ';'"
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'trunk'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"Если элемент заданного пути (часть между двумя '/') соответствует\n"
-"одному из этих шаблонов, то этот путь считается стволом.\n"
-"\n"
-"Шаблоны задаются в нижнем регистре.\n"
-"Допустимые подстановочные символы: '?' и '*'\n"
-"Разделитель шаблонов: ';'"
 
 #. Resource IDs: (95)
 msgid ""
@@ -4669,6 +4675,14 @@ msgstr "Включая слитые ревизии"
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
 msgstr "Включить только следующий диапазон ревизий:"
+
+#. Resource IDs: (239)
+msgid ""
+"Includes the repository for status check\n"
+"Hold down the shift key when clicking to fetch everything."
+msgstr ""
+"Учитывает также и хранилище при проверке статуса\n"
+"Удерживайте клавишу 'Shift' при щелчке для получения всей информации."
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -6787,17 +6801,17 @@ msgstr "Ревизия:"
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld\r\n"
+"Revision: %ld %s\r\n"
 "URL: %s\r\n"
-"Author: %s\r\n"
+"%sAuthor: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"Ревизия:%ld\r\n"
+"Ревизия:%ld %s\r\n"
 "URL: %s\r\n"
-"Автор: %s\r\n"
+"%sАвтор: %s\r\n"
 "Дата: %s\r\n"
 "\r\n"
 "Сообщение журнала:\r\n"
@@ -6806,9 +6820,9 @@ msgstr ""
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld\r\n"
+"Revision: %ld %s\r\n"
 "URL: %s\r\n"
-"Author: %s\r\n"
+"%sAuthor: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Tags (%d):%s\r\n"
@@ -6816,9 +6830,9 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"Ревизия:%ld\r\n"
+"Ревизия:%ld %s\r\n"
 "URL: %s\r\n"
-"Автор: %s\r\n"
+"%sАвтор: %s\r\n"
 "Дата: %s\r\n"
 "\r\n"
 "Метки (%d):%s\r\n"
@@ -7377,7 +7391,6 @@ msgstr "Показать окно с изображением всего гра�
 msgid "Show changes as &unified diff"
 msgstr "Показать изменения как объединённые разли&чия"
 
-# !!!
 #. Resource IDs: (113)
 msgid "Show differences as &unified diff"
 msgstr "Показать различия как объединённые разли&чия"
@@ -9094,7 +9107,7 @@ msgstr ""
 "Использовать 'мой' текстовый блок"
 
 #. Resource IDs: (251)
-msgid "Use text block from 't&heirs' before 'mine"
+msgid "Use text block from 't&heirs' before 'mine'"
 msgstr "Использовать 'и&х' текстовый блок перед 'моим'"
 
 #. Resource IDs: (2052)
@@ -9504,6 +9517,17 @@ msgstr ""
 "\n"
 "Вы действительно желаете произвести фиксацию в этой ситуации?"
 
+#. Resource IDs: (275)
+#, c-format
+msgid ""
+"Your working copy contains modifications.\n"
+"Lowest revision in working copy: %ld\n"
+"Path: %s"
+msgstr ""
+"Ваша рабочая копия содержит изменения.\n"
+"Меньшая ревизия в рабочей копии: %ld\n"
+"Путь: %s "
+
 #. Resource IDs: (88)
 msgid ""
 "Your working copy has local modifications!\n"
@@ -9601,6 +9625,22 @@ msgstr "Вписать по ширине"
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
 msgstr "[Не назначено]"
+
+#. Resource IDs: (346)
+msgid ""
+"\n"
+"\n"
+"Patterns match case-insensitively and must be specified in lower-case.\n"
+"Whitespaces will become part of the pattern.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns using ';'"
+msgstr ""
+"\n"
+"\n"
+"Шаблоны сопоставляются независимо от регистра и задаются в нижнем регистре.\n"
+"Непечатаемые знаки становятся частью шаблона.\n"
+"Допустимые подстановочные символы: '?' и '*'\n"
+"Разделитель шаблонов: ';'"
 
 #. Resource IDs: (65535)
 msgid "_POPUP_"
@@ -10334,6 +10374,20 @@ msgstr "да"
 msgid "{BugTraq}"
 msgstr "{СОП}"
 
+#~ msgid ""
+#~ "GDI+ is required to save the revision graph as a picture.\n"
+#~ "You can get GDI+ from\n"
+#~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
+#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
+#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+#~ "be590feaa05a&DisplayLang=en</a></u>"
+#~ msgstr ""
+#~ "Для сохранения графа ревизий как картинки необходим GDI+.\n"
+#~ "Вы можете получить GDI+ по следующей ссылке:\n"
+#~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
+#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
+#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+#~ "be590feaa05a&DisplayLang=en</a></u>"
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "Гибкие диски (A: B:)"
 #~ msgid ""
@@ -10353,10 +10407,6 @@ msgstr "{СОП}"
 #, fuzzy
 #~ msgid "add"
 #~ msgstr "добавление"
-
-#, fuzzy
-#~ msgid "delete"
-#~ msgstr "удаление"
 
 #, fuzzy
 #~ msgid "directory"
