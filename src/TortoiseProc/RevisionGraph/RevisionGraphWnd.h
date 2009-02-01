@@ -178,6 +178,12 @@ protected:
 	DECLARE_MESSAGE_MAP()
 private:
 
+    enum MarkerPosition
+    {
+        mpLeft = 0,   
+        mpRight = 1, 
+    };
+
     enum GlyphType
     {
         NoGlyph = -1,
@@ -252,8 +258,8 @@ private:
                                 GlyphType glyph1, GlyphType glyph2, GlyphPosition position, DWORD state1, DWORD state2, bool showAll);
     void            DrawGlyphs (Graphics& graphics, Image* glyphs, const CVisibleGraphNode* node, const RectF& nodeRect,
                                 DWORD state, DWORD allowed, bool upsideDown);
-    void            DrawMarker (Graphics& graphics, const PointF& leftTop, 
-                                const Color& lightColor, const Color& darkColor);
+    void            DrawMarker ( Graphics& graphics, const RectF& noderect
+                               , MarkerPosition position, int relPosition, int colorIndex);
     void            IndicateGlyphDirection ( Graphics& graphics, const ILayoutNodeList* nodeList    
                                            , const ILayoutNodeList::SNode& node, const RectF& nodeRect
                                            , DWORD glyphs, bool upsideDown, const CSize& offset);

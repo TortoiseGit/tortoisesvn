@@ -268,8 +268,6 @@ void CRevisionGraphWnd::DrawNode(Graphics& graphics, const RectF& rect,
         contour = m_Colors.GetColor (CColors::gdpDeletedNode);
     }
 
-    bool nodeSelected = (m_SelectedEntry1 == node) || (m_SelectedEntry2 == node);
-
     // calculate the RGB color values we need to draw the node
 
     Color background;
@@ -279,16 +277,7 @@ void CRevisionGraphWnd::DrawNode(Graphics& graphics, const RectF& rect,
                                 ? RGB (220, 0, 0)
                                 : GetSysColor(COLOR_WINDOWTEXT));
 
-	Color selColor = LimitedScaleColor (background, contour, 0.5f);
 	Color brightColor = LimitedScaleColor (background, contour, 0.9f);
-
-    if (MaxComponentDiff (selColor, brightColor) < 0x20)
-    {
-        // e.g. white node on white background 
-        // -> highlight would be white as well
-
-        selColor.SetValue (selColor.GetValue() ^ 0x808080); 
-    }
 
 	// Draw the main shape
 
@@ -296,10 +285,9 @@ void CRevisionGraphWnd::DrawNode(Graphics& graphics, const RectF& rect,
     Color penColor = (contour.GetValue() == Color::White) || isWorkingCopy
                    ? textColor
                    : contour;
-    Color brushColor = nodeSelected ? selColor : brightColor;
 
     Pen pen (penColor, isWorkingCopy ? 3.0f : 1.0f);
-    SolidBrush brush (brushColor);
+    SolidBrush brush (brightColor);
 
     Pen* penRef = overlayColor.GetValue() == 0 ? &pen : NULL;
     DrawShape (graphics, penRef, &brush, rect, shape);
@@ -649,11 +637,42 @@ void CRevisionGraphWnd::IndicateGlyphDirection
 
 void CRevisionGraphWnd::DrawMarker 
     ( Graphics& graphics
-    , const PointF& leftTop
-    , const Color& lightColor
-    , const Color& darkColor)
+    , const RectF& noderect
+    , MarkerPosition position
+    , int relPosition
+    , int colorIndex )
 {
-    DrawSquare (graphics, leftTop, lightColor, darkColor, Color (128, 0, 0, 0));
+    static const ARGB colorTable [2][2]
+        = { // yellow-ish
+            { Color::MakeARGB (255, 250, 250, 92)
+            , Color::MakeARGB (255, 230, 230, 64)},
+            // purple-ish
+            { Color::MakeARGB (255, 160, 92, 250)
+            , Color::MakeARGB (255, 120, 64, 230)}
+          };
+
+	// marker size
+    float squareSize = 16 * m_fZoomFactor;
+    float squareDist = min ( (noderect.Height - squareSize) / 2
+                           , squareSize / 2);
+
+    // position
+
+    REAL offset = squareSize * (0.5f + relPosition);
+    REAL left = position == mpRight
+              ? noderect.GetRight() - offset - squareSize 
+              : noderect.GetLeft() + offset;
+    PointF leftTop (left, noderect.Y + squareDist);
+
+    // color
+
+    Color lightColor (colorTable [colorIndex][0]);
+    Color darkColor (colorTable [colorIndex][1]);
+    Color borderColor (0x80000000);
+
+    // draw it
+
+    DrawSquare (graphics, leftTop, lightColor, darkColor, borderColor);
 }
 
 void CRevisionGraphWnd::DrawStripes (Graphics& graphics, const CSize& offset)
@@ -761,15 +780,10 @@ void CRevisionGraphWnd::DrawNodes (Graphics& graphics, Image* glyphs, const CRec
     	// Draw the "tagged" icon
 
         if (node.node->GetFirstTag() != NULL)
-		{
-			// draw the icon
-            float squareSize = 16 * m_fZoomFactor;
-            float squareDist = min ( (noderect.Height - squareSize) / 2
-                                   , squareSize / 2);
+            DrawMarker (graphics, noderect, mpRight, 0, 0);
 
-            PointF leftTop (noderect.GetRight() - squareSize * 3 / 2, noderect.Y + squareDist);
-            DrawMarker (graphics, leftTop, Color (250, 250, 92), Color (230, 230, 64));
-		}
+        if ((m_SelectedEntry1 == node.node) || (m_SelectedEntry2 == node.node))
+            DrawMarker (graphics, noderect, mpLeft, 0, 1);
 
         // expansion glypths etc.
 
