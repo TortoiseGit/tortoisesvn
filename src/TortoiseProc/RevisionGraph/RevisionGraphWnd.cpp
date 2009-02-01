@@ -82,6 +82,7 @@ CRevisionGraphWnd::CRevisionGraphWnd()
     , m_hoverIndex ((index_t)NO_INDEX)
     , m_hoverGlyphs (0)
     , m_tooltipIndex ((index_t)NO_INDEX)
+    , m_showHoverGlyphs (false)
 {
 	memset(&m_lfBaseFont, 0, sizeof(LOGFONT));	
 	for (int i=0; i<MAXFONTS; i++)
@@ -148,6 +149,7 @@ BEGIN_MESSAGE_MAP(CRevisionGraphWnd, CWnd)
 	ON_WM_MOUSEMOVE()
 	ON_WM_LBUTTONUP()
 	ON_WM_SETCURSOR()
+    ON_WM_TIMER()
     ON_MESSAGE(WM_WORKERTHREADDONE,OnWorkerThreadDone)
 END_MESSAGE_MAP()
 
@@ -359,7 +361,7 @@ void CRevisionGraphWnd::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBa
 		break;
 	}
 	SetScrollInfo(SB_HORZ, &sinfo);
-	Invalidate();
+	Invalidate (FALSE);
 	__super::OnHScroll(nSBCode, nPos, pScrollBar);
 }
 
@@ -408,7 +410,7 @@ void CRevisionGraphWnd::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBa
 		break;
 	}
 	SetScrollInfo(SB_VERT, &sinfo);
-	Invalidate();
+	Invalidate(FALSE);
 	__super::OnVScroll(nSBCode, nPos, pScrollBar);
 }
 
@@ -474,7 +476,7 @@ void CRevisionGraphWnd::OnLButtonDown(UINT nFlags, CPoint point)
 			        m_SelectedEntry2 = NULL;
 		        }
 		        bHit = true;
-		        Invalidate();
+		        Invalidate(FALSE);
 	        }
         }
     }
@@ -485,7 +487,7 @@ void CRevisionGraphWnd::OnLButtonDown(UINT nFlags, CPoint point)
 		m_SelectedEntry2 = NULL;
 		m_bIsRubberBand = true;
 		ATLTRACE("LButtonDown: x = %ld, y = %ld\n", point.x, point.y);
-		Invalidate();
+		Invalidate(FALSE);
 		if (m_bShowOverview && m_OverviewRect.PtInRect(point))
 			m_bIsRubberBand = false;
 	}
@@ -524,7 +526,7 @@ void CRevisionGraphWnd::OnLButtonUp(UINT nFlags, CPoint point)
 	{
 		// too small zoom rectangle
 		// assume zooming by accident
-		Invalidate();
+		Invalidate(FALSE);
 		__super::OnLButtonUp(nFlags, point);
 		return;
 	}
@@ -542,7 +544,7 @@ void CRevisionGraphWnd::OnLButtonUp(UINT nFlags, CPoint point)
 	{
 		// with such a big zoomfactor, the user
 		// most likely zoomed by accident
-		Invalidate();
+		Invalidate(FALSE);
 		__super::OnLButtonUp(nFlags, point);
 		return;
 	}
@@ -900,7 +902,7 @@ BOOL CRevisionGraphWnd::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 	int pos = GetScrollPos(orientation);
 	pos -= (zDelta);
 	SetScrollPos(orientation, pos);
-	Invalidate();
+	Invalidate(FALSE);
 	return __super::OnMouseWheel(nFlags, zDelta, pt);
 }
 
@@ -912,12 +914,12 @@ bool CRevisionGraphWnd::UpdateSelectedEntry (const CVisibleGraphNode * clickeden
 	if (m_SelectedEntry1 == NULL)
 	{
 		m_SelectedEntry1 = clickedentry;
-		Invalidate();
+		Invalidate(FALSE);
 	}
 	if ((m_SelectedEntry2 == NULL)&&(clickedentry != m_SelectedEntry1))
 	{
 		m_SelectedEntry1 = clickedentry;
-		Invalidate();
+		Invalidate(FALSE);
 	}
 	if (m_SelectedEntry1 && m_SelectedEntry2)
 	{
@@ -1244,7 +1246,12 @@ void CRevisionGraphWnd::OnMouseMove(UINT nFlags, CPoint point)
                 && (   (m_hoverIndex != GetHitNode (clientPoint))
                     || (m_hoverGlyphs != GetHoverGlyphs (clientPoint))))
             {
-    			Invalidate(FALSE);
+                m_showHoverGlyphs = false;
+
+                KillTimer (GLYPH_HOVER_EVENT);
+                SetTimer (GLYPH_HOVER_EVENT, GLYPH_HOVER_DELAY, NULL);
+
+                Invalidate(FALSE);
             }
 
 			return __super::OnMouseMove(nFlags, point);
@@ -1299,6 +1306,21 @@ BOOL CRevisionGraphWnd::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 	    SetCursor (hCur);
 
 	return TRUE;
+}
+
+void CRevisionGraphWnd::OnTimer (UINT_PTR nIDEvent)
+{
+    if (nIDEvent == GLYPH_HOVER_EVENT)
+    {
+        KillTimer (GLYPH_HOVER_EVENT);
+
+        m_showHoverGlyphs = true;
+        Invalidate (FALSE);
+    }
+    else
+    {
+        __super::OnTimer (nIDEvent);
+    }
 }
 
 LRESULT CRevisionGraphWnd::OnWorkerThreadDone(WPARAM, LPARAM)

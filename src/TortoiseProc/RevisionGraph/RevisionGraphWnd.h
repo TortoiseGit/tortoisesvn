@@ -41,6 +41,14 @@ using namespace Gdiplus;
 
 #define GLYPH_SIZE 16
 
+// glyph display delay definitions
+
+enum
+{
+    GLYPH_HOVER_EVENT = 10,     // timer ID for the glyph display delay
+    GLYPH_HOVER_DELAY = 250     // delay until the glyphs are shown [ms]
+};
+
 /**
  * \ingroup TortoiseProc
  * node shapes for the revision graph
@@ -147,6 +155,8 @@ protected:
     index_t         m_hoverIndex;   // node the cursor currently hovers over
     DWORD           m_hoverGlyphs;  // the glyphs shown for \ref m_hoverIndex
     mutable index_t m_tooltipIndex; // the node index we fetched the tooltip for
+    bool            m_showHoverGlyphs;  // if true, show the glyphs we currently hover over
+                                    // (will be activated only after some delay)
 	
 	virtual void	DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	afx_msg void	OnPaint();
@@ -162,6 +172,7 @@ protected:
 	afx_msg void	OnMouseMove(UINT nFlags, CPoint point);
 	afx_msg void	OnLButtonUp(UINT nFlags, CPoint point);
 	afx_msg BOOL	OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
+	afx_msg void	OnTimer(UINT_PTR nIDEvent);
 	afx_msg LRESULT	OnWorkerThreadDone(WPARAM, LPARAM);
 
 	DECLARE_MESSAGE_MAP()

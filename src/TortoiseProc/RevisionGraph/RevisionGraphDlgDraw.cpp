@@ -924,7 +924,9 @@ void CRevisionGraphWnd::DrawGraph(CDC* pDC, const CRect& rect, int nVScrollPos, 
     DrawNodes (graphics, &glyphs, logRect, offset);
     DrawConnections (memDC, logRect, offset);
     DrawTexts (memDC, logRect, offset);
-    DrawCurrentNodeGlyphs (graphics, &glyphs, offset);
+
+    if (m_showHoverGlyphs)
+        DrawCurrentNodeGlyphs (graphics, &glyphs, offset);
 
     // find out which nodes are in the visible area of the client rect
 
