@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -452,7 +452,7 @@ DWORD CHooks::RunScript(CString cmd, const CTSVNPathList& paths, CString& error,
 	if (bWait)
 	{
 		DWORD dw;
-		char buf[256];
+		char buf[10*1024];
 		do 
 		{
 			SecureZeroMemory(&buf,sizeof(buf));
@@ -463,7 +463,7 @@ DWORD CHooks::RunScript(CString cmd, const CTSVNPathList& paths, CString& error,
 				error += CString(CStringA(buf,dw));
 				SecureZeroMemory(&buf,sizeof(buf));
 			}
-		} while (WaitForSingleObject(pi.hProcess, 0) != WAIT_OBJECT_0);
+		} while (WaitForSingleObject(pi.hProcess, 100) != WAIT_OBJECT_0);
 
 		// perform any final flushing
 		while (ReadFile(hRedir, &buf, sizeof(buf)-1, &dw, NULL)) 
