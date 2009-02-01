@@ -36,7 +36,7 @@ CColors::CColors(void) : m_regAdded(_T("Software\\TortoiseSVN\\Colors\\Added"), 
 	, m_regPropertyChanged(_T("Software\\TortoiseSVN\\Colors\\PropertyChanged"), RGB(0, 50, 160))
 
     , m_regGDPDeletedNode (_T("Software\\TortoiseSVN\\Colors\\GDI+DeletedNode"), (DWORD)Color::Red)
-    , m_regGDPAddedNode (_T("Software\\TortoiseSVN\\Colors\\GDI+AddedNode"), (DWORD)Color::Green)
+    , m_regGDPAddedNode (_T("Software\\TortoiseSVN\\Colors\\GDI+AddedNode"), (DWORD)0xff00ff00)
     , m_regGDPRenamedNode (_T("Software\\TortoiseSVN\\Colors\\GDI+RenamedNode"), (DWORD)Color::Blue)
 	, m_regGDPLastCommit (_T("Software\\TortoiseSVN\\Colors\\GDI+LastCommitNode"), ::GetSysColor(COLOR_WINDOW) + Color::Black)
 
@@ -140,7 +140,7 @@ Color CColors::GetColor (GDIPlusColor id, bool bDefault)
         return (DWORD)*setting;
 
     CRegDWORD* lecagySetting = GetLegacyRegistrySetting (id);
-    if (lecagySetting != NULL)
+    if ((lecagySetting != NULL) && lecagySetting->exists())
         return (DWORD)*lecagySetting + Color::Black;
 
     return setting->defaultValue();
