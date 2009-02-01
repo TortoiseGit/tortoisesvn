@@ -2157,7 +2157,35 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 
 	bool bShift = !!(GetAsyncKeyState(VK_SHIFT) & 0x8000);
 
+	bool bInactiveItem = false;
 	int selIndex = GetSelectionMark();
+
+	UINT selectedCount = GetSelectedCount();
+	// inactive items (e.g., from different repositories) are not selectable,
+	// so the selectedCount is always 0 for those. To prevent using the header
+	// context menu but still the item context menu, we check here where
+	// the right-click exactly happened
+	if (selectedCount == 0)
+	{
+		CPoint pt = point;
+		ScreenToClient(&pt);
+		UINT hitFlags = LVHT_ONITEM;
+		int hitIndex = this->HitTest(pt, &hitFlags);
+		if ((hitIndex >= 0) && (hitFlags & LVHT_ONITEM))
+		{
+			FileEntry * testentry = GetListEntry(hitIndex);
+			if (testentry)
+			{
+				if (testentry->IsFromDifferentRepository())
+				{
+					selIndex = hitIndex;
+					bInactiveItem = true;
+					selectedCount = 1;
+				}
+			}
+		}
+	}
+
 	if ((point.x == -1) && (point.y == -1))
 	{
 		CRect rect;
@@ -2165,7 +2193,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 		ClientToScreen(&rect);
 		point = rect.CenterPoint();
 	}
-	if ((GetSelectedCount() == 0)&&(SysInfo::Instance().IsXPorLater())&&(IsGroupViewEnabled()))
+	if (!bInactiveItem && (selectedCount == 0) && (SysInfo::Instance().IsXPorLater()) && (IsGroupViewEnabled()))
 	{
 		// nothing selected could mean the context menu is requested for
 		// a group header
@@ -2194,7 +2222,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					popup.SetDefaultItem(IDSVNLC_COMPARE, FALSE);
 				}
 
-				if (GetSelectedCount() == 1)
+				if (selectedCount == 1)
 				{
 					bool bEntryAdded = false;
 					if (entry->remotestatus <= svn_wc_status_normal)
@@ -2243,9 +2271,9 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					}
 				}
 			}
-			if (GetSelectedCount() > 0)
+			if (selectedCount > 0)
 			{
-				if ((GetSelectedCount() == 2)&&(m_dwContextMenus & SVNSLC_POPREPAIRMOVE))
+				if ((selectedCount == 2)&&(m_dwContextMenus & SVNSLC_POPREPAIRMOVE))
 				{
 					POSITION pos = GetFirstSelectedItemPosition();
 					int index = GetNextSelectedItem(pos);
@@ -2289,7 +2317,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					}
 				}
 			}
-			if ((GetSelectedCount() == 1)&&(wcStatus >= svn_wc_status_normal)
+			if ((selectedCount == 1)&&(wcStatus >= svn_wc_status_normal)
 				&&(wcStatus != svn_wc_status_ignored)
 				&&(wcStatus != svn_wc_status_added))
 			{
@@ -2318,7 +2346,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					popup.AppendMenuIcon(IDSVNLC_CHECKFORMODS, IDS_MENUSHOWCHANGED, IDI_SHOWCHANGED);
 				}
 			}
-			if (GetSelectedCount() > 0)
+			if (selectedCount > 0)
 			{
 				if (((wcStatus == svn_wc_status_unversioned)||(wcStatus == svn_wc_status_ignored))&&(m_dwContextMenus & SVNSLC_POPDELETE))
 				{
@@ -2413,7 +2441,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 					popup.AppendMenuIcon(IDSVNLC_RESOLVEMINE, IDS_SVNPROGRESS_MENUUSEMINE, IDI_RESOLVE);
 				}
 			}
-			if (GetSelectedCount() > 0)
+			if (selectedCount > 0)
 			{
 				if ((!entry->IsFolder())&&(wcStatus >= svn_wc_status_normal)
 					&&(wcStatus!=svn_wc_status_missing)&&(wcStatus!=svn_wc_status_deleted)
