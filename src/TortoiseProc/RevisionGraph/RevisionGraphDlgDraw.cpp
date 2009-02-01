@@ -853,11 +853,16 @@ void CRevisionGraphWnd::DrawCurrentNodeGlyphs (Graphics& graphics, Image* glyphs
     bool upsideDown 
         = m_state.GetOptions()->GetOption<CUpsideDownLayout>()->IsActive();
 
-    // expansion glypths etc.
+    // don't draw glyphs if we are outside the client area 
+    // (e.g. within a scrollbar)
 
     CPoint point;
     GetCursorPos (&point);
     ScreenToClient (&point);
+    if (!GetClientRect().PtInRect (point))
+        return;
+
+    // expansion glypths etc.
 
     m_hoverIndex = GetHitNode (point);
     m_hoverGlyphs = GetHoverGlyphs (point);
