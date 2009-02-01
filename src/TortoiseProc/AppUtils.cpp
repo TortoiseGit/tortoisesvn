@@ -943,9 +943,9 @@ bool CAppUtils::SetListCtrlBackgroundImage(HWND hListCtrl, UINT nID, int width /
 CString CAppUtils::GetProjectNameFromURL(CString url)
 {
 	CString name;
-	while (name.IsEmpty() || (name.CompareNoCase(_T("branches"))==0) ||
+	while ((name.IsEmpty() || (name.CompareNoCase(_T("branches"))==0) ||
 		(name.CompareNoCase(_T("tags"))==0) ||
-		(name.CompareNoCase(_T("trunk"))==0))
+		(name.CompareNoCase(_T("trunk"))==0))&&(!url.IsEmpty()))
 	{
 		name = url.Mid(url.ReverseFind('/')+1);
 		url = url.Left(url.ReverseFind('/'));
