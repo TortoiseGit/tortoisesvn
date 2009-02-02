@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2006-2008 - TortoiseSVN
+// Copyright (C) 2006-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -198,7 +198,7 @@ public:
 	 * values.
 	 */
 	bool				PreCommit(const CTSVNPathList& pathList, svn_depth_t depth, 
-									const CString& message, DWORD& exitcode, 
+									CString& message, DWORD& exitcode, 
 									CString& error);
 	/**
 	 * Executes the Post-Commit-Hook that first matches one of the paths in

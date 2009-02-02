@@ -256,7 +256,7 @@ bool CHooks::StartCommit(const CTSVNPathList& pathList, CString& message, DWORD&
 	return true;
 }
 
-bool CHooks::PreCommit(const CTSVNPathList& pathList, svn_depth_t depth, const CString& message, DWORD& exitcode, CString& error)
+bool CHooks::PreCommit(const CTSVNPathList& pathList, svn_depth_t depth, CString& message, DWORD& exitcode, CString& error)
 {
 	hookiterator it = FindItem(pre_commit_hook, pathList);
 	if (it == end())
@@ -264,9 +264,13 @@ bool CHooks::PreCommit(const CTSVNPathList& pathList, svn_depth_t depth, const C
 	CString sCmd = it->second.commandline;
 	AddPathParam(sCmd, pathList);
 	AddDepthParam(sCmd, depth);
-	AddMessageFileParam(sCmd, message);
+	CTSVNPath temppath = AddMessageFileParam(sCmd, message);
 	AddCWDParam(sCmd, pathList);
 	exitcode = RunScript(sCmd, pathList, error, it->second.bWait, it->second.bShow);
+	if (!exitcode && !temppath.IsEmpty())
+	{
+		CStringUtils::ReadStringFromTextFile(temppath.GetWinPathString(), message);
+	}
 	return true;
 }
 
