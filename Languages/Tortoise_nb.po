@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-01-12 10:10+0100\n"
+"PO-Revision-Date: 2009-02-02 11:41+0100\n"
 "Last-Translator: Oddvar Kloster <okl@sintef.no>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1199,6 +1199,26 @@ msgstr "(%s) %s"
 msgid "(binary value)"
 msgstr "(binær verdi)"
 
+#. Resource IDs: (276)
+msgid "(copy)"
+msgstr "(kopi)"
+
+#. Resource IDs: (276)
+msgid "(created)"
+msgstr "(opprettet)"
+
+#. Resource IDs: (276)
+msgid "(delete)"
+msgstr "(slett)"
+
+#. Resource IDs: (276)
+msgid "(modified)"
+msgstr "(endret)"
+
+#. Resource IDs: (276)
+msgid "(modified, HEAD revision)"
+msgstr "(endret, HODE-revisjon)"
+
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
 msgstr "(flere mål er valgt)"
@@ -1211,6 +1231,10 @@ msgstr "(ingen endringsliste)"
 msgid "(no line number)"
 msgstr "(intet linjenummer)"
 
+#. Resource IDs: (276)
+msgid "(no modification but copy created from here)"
+msgstr "(ingen endring men kopiert herfra)"
+
 #. Resource IDs: (214)
 msgid "(no value)"
 msgstr "(ingen verdi)"
@@ -1219,9 +1243,21 @@ msgstr "(ingen verdi)"
 msgid "(not found)"
 msgstr "(ikke funnet)"
 
+#. Resource IDs: (276)
+msgid "(open branch)"
+msgstr "(åpne gren)"
+
 #. Resource IDs: (208)
 msgid "(property change only)"
 msgstr "(kun endringer av egenskaper)"
+
+#. Resource IDs: (276)
+msgid "(rename)"
+msgstr "(omdøp)"
+
+#. Resource IDs: (276)
+msgid "(tagged)"
+msgstr "(merket)"
 
 #. Resource IDs: (245)
 msgid "(unknown)"
@@ -2508,6 +2544,11 @@ msgstr "Kopiert"
 #. Resource IDs: (208)
 msgid "Copied from URL"
 msgstr "Kopiert fra URL"
+
+#. Resource IDs: (275)
+#, c-format
+msgid "Copied from: %s@%ld\r\n"
+msgstr "Kopiert fra: %s@%ld\r\n"
 
 #. Resource IDs: (126)
 msgid "Copied remotely"
@@ -3932,16 +3973,6 @@ msgstr "Kunne ikke initialisere GDI+!"
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "GDI+ kunne ikke opprette et punktbilde-objekt. Du har antagelig ikke nok minne."
 
-#. Resource IDs: (83)
-msgid ""
-"GDI+ is required to save the revision graph as a picture.\n"
-"You can get GDI+ from\n"
-"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
-msgstr ""
-"Du må ha GDI+ for å lagre revisjonsgrafen som et bilde.\n"
-"Du kan hente GDI+ fra \n"
-"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
-
 #. Resource IDs: (284)
 msgid "Gathering information. Please wait..."
 msgstr "Samler informasjon. Vennligst vent..."
@@ -4320,6 +4351,30 @@ msgstr "Ikonlag::Ikonsett"
 msgid "Icons/Design/Code:                 Luebbe Onken"
 msgstr "Ikoner/design/kode:                Luebbe Onken"
 
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'branch'."
+msgstr ""
+"Hvis et element (del mellom to '/') i en gitt sti svarer til et\n"
+"av disse mønstrene, betraktes det som en 'gren'."
+
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'tag'."
+msgstr ""
+"Hvis et element (del mellom to '/') i en gitt sti svarer til et\n"
+"av disse mønstrene, betraktes det som et 'merke'."
+
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'trunk'."
+msgstr ""
+"Hvis et element (del mellom to '/') i en gitt sti svarer til et\n"
+"av disse mønstrene, betraktes det som en 'stamme'."
+
 #. Resource IDs: (194)
 msgid "If activated, prevents the overlays and the context menu from showing in 'save as...' or 'open' dialogs"
 msgstr "Aktiver for å forhindre ikonlag og sammenhengsmenyen fra å vises i 'lagre som..' eller 'åpne'-dialoger"
@@ -4331,54 +4386,6 @@ msgid ""
 msgstr ""
 "Hvis denne er slått på, vises menyvalget 'Hent Sperre' alltid på øverste menynivå\n"
 "hvis den valgte filen har satt egenskapen svn:needs-lock"
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'branch'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"Hvis et element (del mellom to '/') i en gitt sti svarer til et\n"
-"av disse mønstrene, betraktes det som en 'gren'.\n"
-"\n"
-"Mønstre gis med små bokstaver.\n"
-"Tillatte jokertegn er '?' og '*'.\n"
-"Skill mønstre med ';'."
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'tag'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"Hvis et element (del mellom to '/') i en gitt sti svarer til et\n"
-"av disse mønstrene, betraktes det som et 'merke'.\n"
-"\n"
-"Mønstre gis med små bokstaver.\n"
-"Tillatte jokertegn er '?' og '*'.\n"
-"Skill mønstre med ';'."
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'trunk'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"Hvis et element (del mellom to '/') i en gitt sti svarer til et\n"
-"av disse mønstrene, betraktes det som en 'stamme'.\n"
-"\n"
-"Mønstre gis med små bokstaver.\n"
-"Tillatte jokertegn er '?' og '*'.\n"
-"Skill mønstre med ';'."
 
 #. Resource IDs: (95)
 msgid ""
@@ -4619,6 +4626,14 @@ msgstr "Ta med flettede revisjoner"
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
 msgstr "Ta med bare revisjoner i intervallet:"
+
+#. Resource IDs: (239)
+msgid ""
+"Includes the repository for status check\n"
+"Hold down the shift key when clicking to fetch everything."
+msgstr ""
+"Tar med depotet i statussjekk\n"
+"Hold inne shift-tasten når du klikker for å hente alt."
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -6466,16 +6481,16 @@ msgstr "Fjerner de valgte egenskapene"
 
 #. Resource IDs: (16616)
 msgid "Rena&me..."
-msgstr "Dø&p om..."
+msgstr "Omdø&p..."
 
 #. Resource IDs: (151)
 msgid "Rename"
-msgstr "Bytt navn"
+msgstr "Omdøp"
 
 #. Resource IDs: (97)
 #, c-format
 msgid "Rename %s"
-msgstr "Døp om %s"
+msgstr "Omdøp %s"
 
 #. Resource IDs: (127)
 #, c-format
@@ -6500,7 +6515,7 @@ msgstr "Omdøpt eksternt"
 
 #. Resource IDs: (11)
 msgid "Renames files / folders inside version control"
-msgstr "Døper om filer/mapper under kildekontroll"
+msgstr "Omdøper filer/mapper under kildekontroll"
 
 #. Resource IDs: (209)
 msgid "Repair move"
@@ -6719,17 +6734,17 @@ msgstr "Revisjon: "
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld\r\n"
+"Revision: %ld %s\r\n"
 "URL: %s\r\n"
-"Author: %s\r\n"
+"%sAuthor: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"Revisjon: %ld\r\n"
+"Revisjon: %ld %s\r\n"
 "URL: %s\r\n"
-"Forfatter: %s\r\n"
+"%sForfatter: %s\r\n"
 "Dato: %s\r\n"
 "\r\n"
 "Loggmelding:\r\n"
@@ -6738,9 +6753,9 @@ msgstr ""
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld\r\n"
+"Revision: %ld %s\r\n"
 "URL: %s\r\n"
-"Author: %s\r\n"
+"%sAuthor: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Tags (%d):%s\r\n"
@@ -6748,9 +6763,9 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"Revisjon: %ld\r\n"
+"Revisjon: %ld %s\r\n"
 "URL: %s\r\n"
-"Forfatter: %s\r\n"
+"%sForfatter: %s\r\n"
 "Dato: %s\r\n"
 "\r\n"
 "Tagger (%d):%s\r\n"
@@ -9002,7 +9017,7 @@ msgstr ""
 "Bruk 'min' tekstblokk"
 
 #. Resource IDs: (251)
-msgid "Use text block from 't&heirs' before 'mine"
+msgid "Use text block from 't&heirs' before 'mine'"
 msgstr "Bruk tekstblokk fra 'd&eres' før 'min'"
 
 #. Resource IDs: (2052)
@@ -9413,6 +9428,17 @@ msgstr ""
 "\n"
 "Vil du likevel sende inn?"
 
+#. Resource IDs: (275)
+#, c-format
+msgid ""
+"Your working copy contains modifications.\n"
+"Lowest revision in working copy: %ld\n"
+"Path: %s"
+msgstr ""
+"Arbeidskopien din inneholder endringer.\n"
+"Laveste revisjon i arbeidskopi: %ld\n"
+"Sti: %s"
+
 #. Resource IDs: (88)
 msgid ""
 "Your working copy has local modifications!\n"
@@ -9509,6 +9535,22 @@ msgstr "Zoom så bredden passer"
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
 msgstr "[Ikke tilordnet]"
+
+#. Resource IDs: (346)
+msgid ""
+"\n"
+"\n"
+"Patterns match case-insensitively and must be specified in lower-case.\n"
+"Whitespaces will become part of the pattern.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns using ';'"
+msgstr ""
+"\n"
+"\n"
+"Mønstre må gis med små bokstaver men matcher også store.\n"
+"Mellomrom blir en del av mønsteret.\n"
+"Tillatte jokertegn er '?' og '*'.\n"
+"Skill møstre med ';'"
 
 #. Resource IDs: (65535)
 msgid "_POPUP_"
@@ -10223,6 +10265,22 @@ msgstr "ja"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "copy source only"
+#~ msgstr "bare kopikilde"
+#~ msgid ""
+#~ "GDI+ is required to save the revision graph as a picture.\n"
+#~ "You can get GDI+ from\n"
+#~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
+#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
+#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+#~ "be590feaa05a&DisplayLang=en</a></u>"
+#~ msgstr ""
+#~ "Du må ha GDI+ for å lagre revisjonsgrafen som et bilde.\n"
+#~ "Du kan hente GDI+ fra \n"
+#~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
+#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
+#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+#~ "be590feaa05a&DisplayLang=en</a></u>"
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "Diskettstasjoner (A: B:)"
 #~ msgid "Only record the merge"
