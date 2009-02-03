@@ -377,7 +377,7 @@ svn switch [-r rev] URL PATH
 svn merge [--dry-run] --force From_URL@revN To_URL@revM PATH
 </screen>
 			<para>
-				The <guibutton>Dry run</guibutton> performs the same merge
+				The <guibutton>Test Merge</guibutton> performs the same merge
 				with the <literal>--dry-run</literal> switch.
 			</para>
 <screen>

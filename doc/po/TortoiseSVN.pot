@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2009-01-30 16:39 +0000\n"
+"POT-Creation-Date: 2009-02-03 16:41 +0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4234,7 +4234,7 @@ msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:5707
 #.(para)
-msgid "Merge the selected revision(s) into a different working copy. A folder selection dialog allows you to choose the working copy to merge into, but after that there is no confirmation dialog, nor any opportunity to try a dry run. It is a good idea to merge into an unmodified working copy so that you can revert the changes if it doesn't work out! This is a useful feature if you want to merge selected revisions from one branch to another."
+msgid "Merge the selected revision(s) into a different working copy. A folder selection dialog allows you to choose the working copy to merge into, but after that there is no confirmation dialog, nor any opportunity to try a test merge. It is a good idea to merge into an unmodified working copy so that you can revert the changes if it doesn't work out! This is a useful feature if you want to merge selected revisions from one branch to another."
 msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:5719
@@ -7637,7 +7637,7 @@ msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:10098
 #.(para)
-msgid "You can also merge changes in the selected revision(s) into a different working copy. A folder selection dialog allows you to choose the working copy to merge into, but after that there is no confirmation dialog, nor any opportunity to try a dry run. It is a good idea to merge into an unmodified working copy so that you can revert the changes if it doesn't work out! This is a useful feature if you want to merge selected revisions from one branch to another."
+msgid "You can also merge changes in the selected revision(s) into a different working copy. A folder selection dialog allows you to choose the working copy to merge into, but after that there is no confirmation dialog, nor any opportunity to try a test merge. It is a good idea to merge into an unmodified working copy so that you can revert the changes if it doesn't work out! This is a useful feature if you want to merge selected revisions from one branch to another."
 msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:10109
@@ -12202,7 +12202,7 @@ msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:15497
 #.(para)
-msgid "The <guibutton>Dry run</guibutton> performs the same merge with the <literal>--dry-run</literal> switch."
+msgid "The <guibutton>Test Merge</guibutton> performs the same merge with the <literal>--dry-run</literal> switch."
 msgstr ""
 
 #: ../source/TortoiseSVN_en.xml:15501
