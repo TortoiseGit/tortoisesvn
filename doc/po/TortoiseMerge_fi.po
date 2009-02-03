@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN Documentation\n"
 "POT-Creation-Date: 2008-10-24 23:17 +0000\n"
-"PO-Revision-Date: 2008-11-24 22:35+0200\n"
+"PO-Revision-Date: 2009-02-03 21:30+0200\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1344,7 +1344,7 @@ msgstr "Kopio"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1465
 msgid "In a Subversion repository you can create a copy of a single file or an entire tree. These are implemented as <quote>cheap copies</quote> which act a bit like a link to the original in that they take up almost no space. Making a copy preserves the history of the item in the copy, so you can trace changes made before the copy was made."
-msgstr "Subversion-arkistossa voit tehdä kopion yksittäisestä tiedostosta tai kokonaisesta hakemistopuusta. Kopiot on toteutettu <quote>halpoina kopioina</quote>, jotka toimivat ikään kuin linkkeinä alkuperäiseen.  Tämän ansiosta ne eivät vaadi lähes lainkaan tilaa. Kopion tekeminen säilyttää tiedoston muutoshistorian, joten voit jäljittää muutoksia, jotka tapahtuivat ennen kopion tekoa."
+msgstr "Subversion-arkistossa voit tehdä kopion yksittäisestä tiedostosta tai kokonaisesta hakemistopuusta. Kopiot on toteutettu <quote>halpoina kopioina</quote>, jotka toimivat ikään kuin linkkeinä alkuperäiseen.  Tämän ansiosta ne eivät vaadi lähes lainkaan tilaa. Kopion tekeminen säilyttää kohteen muutoshistorian, joten voit jäljittää muutoksia, jotka tapahtuivat ennen kopion tekoa."
 
 #. (glossterm)
 #: ../source/TortoiseMerge_en.xml:1475
@@ -1354,7 +1354,7 @@ msgstr "Poisto"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1477
 msgid "When you delete a versioned item (and commit the change) the item no longer exists in the repository after the committed revision. But of course it still exists in earlier repository revisions, so you can still access it. If necessary, you can copy a deleted item and <quote>resurrect</quote> it complete with history."
-msgstr "Kun poistat versioidun tiedoston tai hakemiston (ja toimitat muutokset arkistoon), sitä ei enää löydy arkistosta toimitusta seuraavissa versioissa.  Se on tietysti kuitenkin yhä olemassa aiemmissa versioissa, joten voit edelleen päästä siihen käsiksi. Mikäli tarpeen, voit kopioida poistetun tiedoston ja <quote>herättää sen henkiin</quote>, muutoshistoria mukaan lukien."
+msgstr "Kun poistat versioidun tiedoston tai hakemiston (ja toimitat muutokset arkistoon), sitä ei enää löydy arkistosta toimitusta seuraavissa versioissa.  Se on tietysti kuitenkin yhä olemassa aiemmissa versioissa, joten voit edelleen päästä siihen käsiksi. Mikäli tarpeen, voit kopioida poistetun kohteen ja <quote>herättää sen henkiin</quote>, muutoshistoria mukaan lukien."
 
 #. (glossterm)
 #: ../source/TortoiseMerge_en.xml:1487
@@ -1424,7 +1424,7 @@ msgstr "Lukitus"
 #. (para)
 #: ../source/TortoiseMerge_en.xml:1542
 msgid "When you take out a lock on a versioned item, you mark it in the repository as non-committable, except from the working copy where the lock was taken out."
-msgstr "Lukitessasi versioidun tiedoston tai kansion sitä ei voi muuttaa arkistossa muualta kuin siitä työkopiosta, jossa lukitus tehtiin."
+msgstr "Lukitessasi versioidun kohteen, sitä ei voi muuttaa arkistossa muualta kuin siitä työkopiosta, jossa lukitus tehtiin."
 
 #. (glossterm)
 #: ../source/TortoiseMerge_en.xml:1550
