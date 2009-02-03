@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-01-26 10:15+0100\n"
+"PO-Revision-Date: 2009-02-03 11:54+0100\n"
 "Last-Translator: Grokwik <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4312,6 +4312,30 @@ msgstr "Recouvrements d'icône::Jeu d'icônes"
 msgid "Icons/Design/Code:                 Luebbe Onken"
 msgstr "Icônes/Design/Code :                 Luebbe Onken"
 
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'branch'."
+msgstr ""
+"Si une partie (entre deux '/') d'un chemin donné satisfait à un de\n"
+"ces test, il sera considéré comme une  'branche'."
+
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'tag'."
+msgstr ""
+"Si une partie (entre deux '/') d'un chemin donné satisfait à un de\n"
+"ces tests, il sera considéré comme un 'tag'."
+
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'trunk'."
+msgstr ""
+"Si une partie (entre deux '/') d'un chemin donné satisfait à un de\n"
+"ces tests, il sera considéré comme la 'branche principale'."
+
 #. Resource IDs: (194)
 msgid "If activated, prevents the overlays and the context menu from showing in 'save as...' or 'open' dialogs"
 msgstr "Si activé, empêche l'affichage du recouvrement dans les boîtes de dialogue 'Enregistrer sous...' ou 'Ouvrir...'"
@@ -4323,54 +4347,6 @@ msgid ""
 msgstr ""
 "Si activé, l'entrée du menu 'Obtenir un verrou' est toujours affichée dans le niveau supérieur du menu\n"
 "si le fichier sélectionné a la propriété svn:needs-lock définie."
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'branch'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"Si une partie (entre deux '/') d'un chemin donné satisfait à un de\n"
-"ces tests, il sera considéré comme une 'branche'.\n"
-"\n"
-"Les conditions sont en minuscule.\n"
-"Les caractères spéciaux accepté sont '?' et '*'.\n"
-"Les tests sont séparés par des ';'."
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'tag'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"Si une partie (entre deux '/') d'un chemin donné satisfait à un de\n"
-"ces tests, il sera considéré comme un 'tag'.\n"
-"\n"
-"Les conditions sont en minuscule.\n"
-"Les caractères spéciaux accepté sont '?' et '*'.\n"
-"Les tests sont séparés par des ';'."
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'trunk'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"Si une partie (entre deux '/') d'un chemin donné satisfait à un de\n"
-"ces tests, il sera considéré comme la 'branche principale'.\n"
-"\n"
-"Les conditions sont en minuscule.\n"
-"Les caractères spéciaux accepté sont '?' et '*'.\n"
-"Les tests sont séparés par des ';'."
 
 #. Resource IDs: (95)
 msgid ""
@@ -4612,6 +4588,14 @@ msgstr "Inclure les révisions fusionnées"
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
 msgstr "Inclure seulement la plage de révisions suivante :"
+
+#. Resource IDs: (239)
+msgid ""
+"Includes the repository for status check\n"
+"Hold down the shift key when clicking to fetch everything."
+msgstr ""
+"Inclut le référentiel dans la vérification d'état\n"
+"Appuyez sur la touche \"Shift\" lorsque vous cliquez pour tout lister."
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -8996,8 +8980,8 @@ msgstr ""
 "Utiliser 'mon' bloc de texte"
 
 #. Resource IDs: (251)
-msgid "Use text block from 't&heirs' before 'mine"
-msgstr "Utiliser le bloc de texte du '&leur' avant le 'mien'"
+msgid "Use text block from 't&heirs' before 'mine'"
+msgstr "Utiliser le bloc de texte de 'le &leur' avant 'le mien'"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -9515,6 +9499,22 @@ msgstr "Adapter à la largeur"
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
 msgstr "[Non assigné]"
+
+#. Resource IDs: (346)
+msgid ""
+"\n"
+"\n"
+"Patterns match case-insensitively and must be specified in lower-case.\n"
+"Whitespaces will become part of the pattern.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns using ';'"
+msgstr ""
+"\n"
+"\n"
+"Les tests sont insensibles à la casse et doivent être écrit en minuscules.\n"
+"Les espaces feront partie du test.\n"
+"Les caractères spéciaux autorisés sont '?' et '*'.\n"
+"Séparer les tests par des ';'"
 
 #. Resource IDs: (65535)
 msgid "_POPUP_"
