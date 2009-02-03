@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-01-27 23:52+0800\n"
+"PO-Revision-Date: 2009-02-03 16:30+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4309,6 +4309,30 @@ msgstr "圖示覆蓋::圖示集"
 msgid "Icons/Design/Code:                 Luebbe Onken"
 msgstr "圖示 / 設計 / 程式:     Luebbe Onken"
 
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'branch'."
+msgstr ""
+"如果指定的路徑中有路徑元素 ( 在兩個 '/' 中間的部分 ) \n"
+"符合以下任何一組樣式, 就會被視為 'branch'."
+
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'tag'."
+msgstr ""
+"如果指定的路徑中有路徑元素 ( 在兩個 '/' 中間的部分 ) \n"
+"符合以下任何一組樣式, 就會被視為 'tag'."
+
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'trunk'."
+msgstr ""
+"如果指定的路徑中有路徑元素 ( 在兩個 '/' 中間的部分 ) \n"
+"符合以下任何一組樣式, 就會被視為 'trunk'."
+
 #. Resource IDs: (194)
 msgid "If activated, prevents the overlays and the context menu from showing in 'save as...' or 'open' dialogs"
 msgstr "勾選此選項時, 在 '另存新檔' 或是 '開啟' 的對話盒中不顯示圖示覆蓋及快顯式選單."
@@ -4318,54 +4342,6 @@ msgid ""
 "If activated, the menu entry 'Get Lock' is always shown in the top level menu\n"
 "if the selected file has the svn:needs-lock property set"
 msgstr "勾選此選項時, 如果選擇的檔案有設定 svn:needs-lock 性質,  '取得鎖定' 選項會出現在最上層選單中."
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'branch'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"如果指定的路徑中有路徑元素 ( 在兩個 '/' 中間的部分 ) \n"
-"符合以下任何一組樣式, 就會被視為 'branch'.\n"
-"\n"
-"樣式請使用小寫字母.\n"
-"可以使用的萬用字元有: '?' 及 '*'.\n"
-"樣式間請使用 ';' 分隔."
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'tag'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"如果指定的路徑中有路徑元素 ( 在兩個 '/' 中間的部分 ) \n"
-"符合以下任何一組樣式, 就會被視為 'tag'.\n"
-"\n"
-"樣式請使用小寫字母.\n"
-"可以使用的萬用字元有: '?' 及 '*'.\n"
-"樣式間請使用 ';' 分隔."
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'trunk'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"如果指定的路徑中有路徑元素 ( 在兩個 '/' 中間的部分 ) \n"
-"符合以下任何一組樣式, 就會被視為 'trunk'.\n"
-"\n"
-"樣式請使用小寫字母.\n"
-"可以使用的萬用字元有: '?' 及 '*'.\n"
-"樣式間請使用 ';' 分隔."
 
 #. Resource IDs: (95)
 msgid ""
@@ -4604,6 +4580,14 @@ msgstr "包含合併後版本"
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
 msgstr "僅包括下列版本區間:"
+
+#. Resource IDs: (239)
+msgid ""
+"Includes the repository for status check\n"
+"Hold down the shift key when clicking to fetch everything."
+msgstr ""
+"將此檔案庫也加入狀態檢查\n"
+"點擊時按住 SHIFT 鍵可以抓取全部資料."
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -8987,7 +8971,7 @@ msgstr ""
 "套用本地文字區塊"
 
 #. Resource IDs: (251)
-msgid "Use text block from 't&heirs' before 'mine"
+msgid "Use text block from 't&heirs' before 'mine'"
 msgstr "優先使用遠端(t&heirs)的而非本地的文字區塊"
 
 #. Resource IDs: (2052)
@@ -9501,6 +9485,22 @@ msgstr "符合螢幕寬度"
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
 msgstr "[未指定]"
+
+#. Resource IDs: (346)
+msgid ""
+"\n"
+"\n"
+"Patterns match case-insensitively and must be specified in lower-case.\n"
+"Whitespaces will become part of the pattern.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns using ';'"
+msgstr ""
+"\n"
+"\n"
+"樣式比對無視大小寫, 設定時請使用小寫字母.\n"
+"空白字元也視為樣式的一部分.\n"
+"可以使用的萬用字元有: '?' 及 '*'.\n"
+"樣式間請使用 ';' 分隔."
 
 #. Resource IDs: (65535)
 msgid "_POPUP_"
