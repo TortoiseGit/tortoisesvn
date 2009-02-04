@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -337,6 +337,21 @@ public:
 				return TRUE;
 
 		}
+		ExcludeListValid();
+		for (std::vector<stdstring>::iterator I = exvector.begin(); I != exvector.end(); ++I)
+		{
+			if (I->empty())
+				continue;
+			if (I->size() && I->at(I->size()-1)=='*')
+			{
+				stdstring str = I->substr(0, I->size()-1);
+				if (_tcsnicmp(str.c_str(), path, str.size())==0)
+					return FALSE;
+			}
+			else if (_tcsicmp(I->c_str(), path)==0)
+				return FALSE;
+		}
+
 		UINT drivetype = 0;
 		int drivenumber = PathGetDriveNumber(path);
 		if ((drivenumber >=0)&&(drivenumber < 25))
@@ -393,20 +408,6 @@ public:
 		if ((drivetype == DRIVE_UNKNOWN)&&(IsUnknown()))
 			return FALSE;
 
-		ExcludeListValid();
-		for (std::vector<stdstring>::iterator I = exvector.begin(); I != exvector.end(); ++I)
-		{
-			if (I->empty())
-				continue;
-			if (I->size() && I->at(I->size()-1)=='*')
-			{
-				stdstring str = I->substr(0, I->size()-1);
-				if (_tcsnicmp(str.c_str(), path, str.size())==0)
-					return FALSE;
-			}
-			else if (_tcsicmp(I->c_str(), path)==0)
-				return FALSE;
-		}
 		return TRUE;
 	}
 	DWORD GetLangID()
