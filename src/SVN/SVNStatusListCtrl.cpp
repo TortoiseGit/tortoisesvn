@@ -3492,8 +3492,24 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 									if (MoveFile(entry2->GetPath().GetWinPath(), entry1->GetPath().GetWinPath()))
 									{
 										SVN svn;
+										// now make sure that the target folder is versioned
+										CTSVNPath parentPath = entry2->GetPath().GetContainingDirectory();
+										FileEntry * parentEntry = GetListEntry(parentPath);
+										while (parentEntry && parentEntry->inunversionedfolder)
+										{
+											parentPath = parentPath.GetContainingDirectory();
+											parentEntry = GetListEntry(parentPath);
+										}
+										if (!parentPath.IsEquivalentTo(entry2->GetPath().GetContainingDirectory()))
+										{
+											ProjectProperties props;
+											props.ReadPropsPathList(CTSVNPathList(entry1->GetPath()));
+
+											svn.Add(CTSVNPathList(entry2->GetPath().GetContainingDirectory()), &props, svn_depth_empty, TRUE, FALSE, TRUE);
+										}
 										if (!svn.Move(CTSVNPathList(entry1->GetPath()), entry2->GetPath(), TRUE))
 										{
+											MoveFile(entry1->GetPath().GetWinPath(), entry2->GetPath().GetWinPath());
 											CMessageBox::Show(m_hWnd, svn.GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
 										}
 										else
