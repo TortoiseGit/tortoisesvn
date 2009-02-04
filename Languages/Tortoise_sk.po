@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-01-14 11:30+0100\n"
+"PO-Revision-Date: 2009-02-04 12:22+0100\n"
 "Last-Translator: Oto BREZINA <translator@e-posta.sk>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -852,7 +852,7 @@ msgstr "&Triediť:"
 
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
-msgstr "&Prednastavené pre\"power user\""
+msgstr "&Prednastavené pre 'Power User'"
 
 #. Resource IDs: (32780)
 msgid "&Previous Difference"
@@ -1167,6 +1167,28 @@ msgstr "(%s) %s"
 msgid "(binary value)"
 msgstr "(binárna hodnota)"
 
+#. Resource IDs: (276)
+msgid "(copy)"
+msgstr "(kópia)"
+
+#. Resource IDs: (276)
+msgid "(created)"
+msgstr "(vytvorené)"
+
+# vymazaných
+#. Resource IDs: (276)
+msgid "(delete)"
+msgstr "(vymazanie)"
+
+# zmenený
+#. Resource IDs: (276)
+msgid "(modified)"
+msgstr "(zmenené)"
+
+#. Resource IDs: (276)
+msgid "(modified, HEAD revision)"
+msgstr "(zmenený, HEAD revízia)"
+
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
 msgstr "(vybraných viacero cieľov)"
@@ -1180,6 +1202,10 @@ msgstr "(žiaden zoznam zmien)"
 msgid "(no line number)"
 msgstr "(nie je číslo riadku)"
 
+#. Resource IDs: (276)
+msgid "(no modification but copy created from here)"
+msgstr "(vytvorená kópia bez zmeny)"
+
 #. Resource IDs: (214)
 msgid "(no value)"
 msgstr "(bez hodnoty)"
@@ -1188,9 +1214,21 @@ msgstr "(bez hodnoty)"
 msgid "(not found)"
 msgstr "(nenájdené)"
 
+#. Resource IDs: (276)
+msgid "(open branch)"
+msgstr "(otvorenie vetvy)"
+
 #. Resource IDs: (208)
 msgid "(property change only)"
 msgstr "(zmenená iba vlastnosť)"
+
+#. Resource IDs: (276)
+msgid "(rename)"
+msgstr "(premenovanie)"
+
+#. Resource IDs: (276)
+msgid "(tagged)"
+msgstr "(vytvorená značka)"
 
 #. Resource IDs: (245)
 msgid "(unknown)"
@@ -1655,10 +1693,13 @@ msgid "Apply &patch..."
 msgstr "Použiť zá&platu..."
 
 #. Resource IDs: (345)
+#, fuzzy
 msgid ""
 "Apply 'Power User' defaults. Those will provide a smoother experience.\n"
 "You should know the meaning of all the settings above."
 msgstr ""
+"Použiť predvolené pre 'Power User'. Toto poskytuje lepšiu skúsenosť.\n"
+"Mali by ste poznat význam nastavení vyššie."
 
 #. Resource IDs: (1294)
 msgid "Apply property recursively"
@@ -2492,7 +2533,13 @@ msgstr "Skopírované"
 # Kopíruj z cesty
 #. Resource IDs: (208)
 msgid "Copied from URL"
-msgstr "Skópírovné z URL"
+msgstr "Skopírované z URL"
+
+# Kopíruj z cesty
+#. Resource IDs: (275)
+#, c-format
+msgid "Copied from: %s@%ld\r\n"
+msgstr "Skopírovné z: %s@%ld\r\n"
 
 #. Resource IDs: (126)
 msgid "Copied remotely"
@@ -3930,16 +3977,6 @@ msgstr "Nemožno inicializovať GDI+!"
 msgid "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
 msgstr "GDI+ nemohol vythoriť rastrový obrázok. Pravdepodobne nemáte dostatok pamäte."
 
-#. Resource IDs: (83)
-msgid ""
-"GDI+ is required to save the revision graph as a picture.\n"
-"You can get GDI+ from\n"
-"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
-msgstr ""
-"Aby ste mohli uložiť graf ako obrázok je vyžadovaný GDI+.\n"
-"GDI+ môžete získať z\n"
-"<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-be590feaa05a&DisplayLang=en</a></u>"
-
 #. Resource IDs: (284)
 msgid "Gathering information. Please wait..."
 msgstr "Získavanie informácí. Prosm čakajte..."
@@ -4333,6 +4370,30 @@ msgstr "Prekrytie ikon::Sada ikon"
 msgid "Icons/Design/Code:                 Luebbe Onken"
 msgstr "Ikony/Design/Kód:                 Luebbe ONKEN"
 
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'branch'."
+msgstr ""
+"Keď element (časť medzi dvomi '/') danej cesty sa zhoduje\n"
+"s jednou zo šablón, je považovaný za 'vetvu'."
+
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'tag'."
+msgstr ""
+"Keď element (časť medzi dvomi '/') danej cesty sa zhoduje\n"
+"s jednou zo šablón, je považovaný za 'značku'."
+
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'trunk'."
+msgstr ""
+"Keď element (časť medzi dvomi '/') danej cesty sa zhoduje\n"
+"s jednou zo šablón, je považovaný za 'kmeň'."
+
 #. Resource IDs: (194)
 msgid "If activated, prevents the overlays and the context menu from showing in 'save as...' or 'open' dialogs"
 msgstr "Aktivované zabrání zobrazovaniu prekryvajúcich ikoniek a kontexových ponúk v dialógových oknách 'uložiť ako...' a 'otvoriť'."
@@ -4344,54 +4405,6 @@ msgid ""
 msgstr ""
 "Keď je aktívne, položka 'Uzamknúť' je vždy zobrazovaná na vrchu ponuky\n"
 "keď je vybraný súbor s nastavenou vlastnosťou svn:needs-lock"
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'branch'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"Keď element (časť medzi dvomi '/') danej cesty sa zhoduje\n"
-"s jednou zo šablón, je považovaný za 'vetvu'.\n"
-"\n"
-"Šablóny sú s malými písmenami.\n"
-"Povolené náhradné znaky sú '?' and '*'.\n"
-"Šablóny sú oddelené pomocou  ';'."
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'tag'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"Keď element (časť medzi dvomi '/') danej cesty sa zhoduje\n"
-"s jednou zo šablón, je považovaný za 'značku'.\n"
-"\n"
-"Šablóny sú s malými písmenami.\n"
-"Povolené náhradné znaky sú '?' and '*'.\n"
-"Šablóny sú oddelené pomocou  ';'."
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'trunk'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"Keď element (časť medzi dvomi '/') danej cesty sa zhoduje\n"
-"s jednou zo šablón, je považovaný za 'kmeň'.\n"
-"\n"
-"Šablóny sú s malými písmenami.\n"
-"Povolené náhradné znaky sú '?' and '*'.\n"
-"Šablóny sú oddelené pomocou  ';'."
 
 #. Resource IDs: (95)
 msgid ""
@@ -4636,6 +4649,12 @@ msgstr "Zahrnúť zlúčené revízie"
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
 msgstr "Iba nasledovný rozsah revízií:"
+
+#. Resource IDs: (239)
+msgid ""
+"Includes the repository for status check\n"
+"Hold down the shift key when clicking to fetch everything."
+msgstr ""
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -6755,17 +6774,17 @@ msgid "Revision: "
 msgstr "Revízia:"
 
 #. Resource IDs: (272)
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"Revision: %ld\r\n"
+"Revision: %ld %s\r\n"
 "URL: %s\r\n"
-"Author: %s\r\n"
+"%sAuthor: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"Revízia: %ld\r\n"
+"Revízia: %ld (%s)\r\n"
 "URL: %s\r\n"
 "Autor: %s\r\n"
 "Dátum: %s\r\n"
@@ -6774,11 +6793,11 @@ msgstr ""
 "%s"
 
 #. Resource IDs: (272)
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"Revision: %ld\r\n"
+"Revision: %ld %s\r\n"
 "URL: %s\r\n"
-"Author: %s\r\n"
+"%sAuthor: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Tags (%d):%s\r\n"
@@ -6786,8 +6805,8 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"Revízia: %ld\r\n"
-"URL: %s\r\n"
+"Revízia: %ld (%s)\r\n"
+"URL: %s%s\r\n"
 "Autor: %s\r\n"
 "Dátum: %s\r\n"
 "\r\n"
@@ -7680,8 +7699,17 @@ msgid ""
 "file %s, line %ld\n"
 "expression = %s"
 msgstr ""
+"Subversion zaznamenal vážny problém.\n"
+"Prosím venujte čas a oznámte to na náš mailing list\n"
+"poskytnite tak mnoho informácií ako je možné\n"
+"o tom čo ste robili.\n"
+"\n"
+"Subversion zaznamenal problém v:\n"
+"súbor %s, riadok %ld\n"
+"výraz = %s"
 
 #. Resource IDs: (84)
+#, fuzzy
 msgid ""
 "Subversion encountered a serious problem.\n"
 "Please take the time to report this on our mailing list\n"
@@ -7690,6 +7718,12 @@ msgid ""
 "\n"
 "Subversion reported the following:"
 msgstr ""
+"Subversion zaznamenal vážny problém.\n"
+"Prosím venujte čas a oznámte to na náš mailing list\n"
+"poskytnite tak mnoho informácií ako je možné\n"
+"o tom čo ste robili.\n"
+"\n"
+"Subversion oznámil:"
 
 #. Resource IDs: (79)
 msgid ""
@@ -8617,7 +8651,7 @@ msgid ""
 "TortoiseSVN has detected similar filenames. Do you want the files:%s\n"
 "to be renamed too?"
 msgstr ""
-"TortoiseSVN našiel podobné mená súborov. Chcete premenovať aj súbor: \n"
+"TortoiseSVN našiel podobné mená súborov. Chcete premenovať aj súbory: \n"
 "%s ?"
 
 #. Resource IDs: (1162)
@@ -8642,8 +8676,9 @@ msgstr "Cekový počet užívateľských vlastností revízií"
 
 # zlúčených
 #. Resource IDs: (32821)
+#, fuzzy
 msgid "Tr&ee stripes"
-msgstr ""
+msgstr "Prúžky strom"
 
 #. Resource IDs: (357)
 #, c-format
@@ -9045,7 +9080,8 @@ msgstr ""
 "Použiť 'Moje'"
 
 #. Resource IDs: (251)
-msgid "Use text block from 't&heirs' before 'mine"
+#, fuzzy
+msgid "Use text block from 't&heirs' before 'mine'"
 msgstr "Použiť blok  'I&ch' pred 'Moje'"
 
 #. Resource IDs: (2052)
@@ -9350,7 +9386,7 @@ msgid ""
 msgstr ""
 "Pustili (dropped) ste viac súborov, alebo adresárov.\n"
 "Nie to však možné urobiť v jednom kroku. Takže TortoiseSVN pridá každý\n"
-"súbor/adresár samostatne vytvoriac novú revíziu pre každý odstránený objekt.\n"
+"súbor/adresár samostatne vytvoriac novú revíziu pre každý pridaný objekt.\n"
 "\n"
 "Ešte stále to chcete?"
 
@@ -9458,6 +9494,17 @@ msgstr ""
 "\n"
 "Chcete napriek tomu odovzdať?"
 
+#. Resource IDs: (275)
+#, c-format
+msgid ""
+"Your working copy contains modifications.\n"
+"Lowest revision in working copy: %ld\n"
+"Path: %s"
+msgstr ""
+"Vaša pracovná kópia obsahuje zmeny.\n"
+"Najnižšia revízia v pracovnej kópií: %ld\n"
+"Cesta: %s"
+
 #. Resource IDs: (88)
 msgid ""
 "Your working copy has local modifications!\n"
@@ -9554,6 +9601,23 @@ msgstr "Zobraz celú šírku"
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
 msgstr "[Nepriradené]"
+
+#. Resource IDs: (346)
+msgid ""
+"\n"
+"\n"
+"Patterns match case-insensitively and must be specified in lower-case.\n"
+"Whitespaces will become part of the pattern.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns using ';'"
+msgstr ""
+"\n"
+"\n"
+"Porovnávanie je bez rozlišovania veľkosti písmen.\n"
+"Šablóny musia byť zadané malými písmenami.\n"
+"Biele znaky sú považované za súčasť šablóny.\n"
+"Povolené náhradné znaky sú '?' a '*'.\n"
+"Šablóny sú oddelené pomocou  ';'."
 
 #. Resource IDs: (65535)
 msgid "_POPUP_"
@@ -10286,6 +10350,20 @@ msgstr "ano"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid ""
+#~ "GDI+ is required to save the revision graph as a picture.\n"
+#~ "You can get GDI+ from\n"
+#~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
+#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
+#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+#~ "be590feaa05a&DisplayLang=en</a></u>"
+#~ msgstr ""
+#~ "Aby ste mohli uložiť graf ako obrázok je vyžadovaný GDI+.\n"
+#~ "GDI+ môžete získať z\n"
+#~ "<u><a=http://www.microsoft.com/downloads/details.aspx?FamilyID=6a63ab9c-"
+#~ "df12-4d41-933c-be590feaa05a&DisplayLang=en>http://www.microsoft.com/"
+#~ "downloads/details.aspx?FamilyID=6a63ab9c-df12-4d41-933c-"
+#~ "be590feaa05a&DisplayLang=en</a></u>"
 #~ msgid "Floppy drives (A: B:)"
 #~ msgstr "Pružné disky (A: B:)"
 #~ msgid "Only record the merge"
