@@ -255,16 +255,33 @@
 			you to compare or blame them individually using context menu.
 		</para>
 		<para>
-			You can also export the list of changed files to a text file,
-			or you can export the changed files themselves to a folder.
+			You can export a <emphasis>change tree</emphasis>, which is useful
+			if you need to send someone else your project tree structure, but
+			containing only the files which have changed.
 			This operation works on the selected files only, so you need
-			to select the files of interest - usually that means all of them.
+			to select the files of interest - usually that means all of them -
+			and then
+			<menuchoice>
+				<guimenu>Context menu</guimenu>
+				<guimenuitem>Export selection to...</guimenuitem>
+			</menuchoice>.
+			You will be prompted for a location to save the change tree.
+		</para>
+		<para>
+			You can also export the <emphasis>list</emphasis> of changed files
+			to a text file using
+			<menuchoice>
+				<guimenu>Context menu</guimenu>
+				<guimenuitem>Save list of selected files to...</guimenuitem>
+			</menuchoice>.
 		</para>
 		<para>
 			If you want to export the list of files <emphasis>and</emphasis>
 			the actions (modified, added, deleted) as well, you can do that using
-			the keyboard shortcuts <keycap>Ctrl-A</keycap> to select all entries
-			and <keycap>Ctrl-C</keycap> to copy the detailed list to the clipboard.
+			<menuchoice>
+				<guimenu>Context menu</guimenu>
+				<guimenuitem>Copy selection to clipboard</guimenuitem>
+			</menuchoice>.
 		</para>
 		<para>
 			The button at the top allows you to change the direction of

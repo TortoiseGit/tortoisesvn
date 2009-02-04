@@ -88,6 +88,15 @@
 			context menu in the repository browser to export the files.
 		</para>
 	</tip>
+	<tip>
+		<title>Exporting a Change Tree</title>
+		<para>
+			If you want to export a copy of your project tree structure
+			but containing only the files which have changed in a particular
+			revision, or between any two revisions, use the compare revisions
+			feature described in <xref linkend="tsvn-dug-compare-revs"/>.
+		</para>
+	</tip>
 	<sect2 id="tsvn-dug-export-unversion">
 		<title>Removing a working copy from version control</title>
 		<indexterm>
