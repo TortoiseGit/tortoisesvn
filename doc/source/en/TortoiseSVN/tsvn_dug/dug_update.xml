@@ -141,8 +141,13 @@
 		not a good idea as it leaves your working copy in an inconsistent
 		state. If the file you are updating has changed name, you may even
 		find that the file just disappears from your working copy because
-		no file of that name existed in the earlier revision. If you simply
-		want a local copy of an old version of a file it is better to use the
+		no file of that name existed in the earlier revision. You should
+		also note that the item will show a normal green overlay, so it is
+		indistinguishable from files which are up-to-date.
+	</para>
+	<para>
+		If you simply want a local copy of an old version of a file it is
+		better to use the
 		<menuchoice>
 			<guimenu>Context Menu</guimenu>
 			<guimenuitem>Save revision to...</guimenuitem>
