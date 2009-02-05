@@ -22,7 +22,9 @@
 #include "SVNProperties.h"
 #include "SVNStatus.h"
 #include "SVNHelpers.h"
+#pragma warning(push)
 #include "svn_props.h"
+#pragma warning(pop)
 
 #ifdef _MFC_VER
 #	include "SVN.h"

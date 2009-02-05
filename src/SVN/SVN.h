@@ -18,7 +18,9 @@
 
 #pragma once
 
+#pragma warning(push)
 #include "svn_wc.h"
+#pragma warning(pop)
 #include "SVNPrompt.h"
 #include "SVNRev.h"
 #include "SVNGlobal.h"

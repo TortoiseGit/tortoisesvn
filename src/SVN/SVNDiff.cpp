@@ -17,6 +17,11 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 #include "StdAfx.h"
+#pragma warning(push)
+#include "svndiff.h"
+#include "svn_types.h"
+#pragma warning(pop)
+
 #include "resource.h"
 #include "..\TortoiseShell\resource.h"
 #include "AppUtils.h"
@@ -29,9 +34,7 @@
 #include "MessageBox.h"
 #include "FileDiffDlg.h"
 #include "ProgressDlg.h"
-#include ".\svndiff.h"
 #include "Blame.h"
-#include "svn_types.h"
 
 SVNDiff::SVNDiff(SVN * pSVN /* = NULL */, HWND hWnd /* = NULL */, bool bRemoveTempFiles /* = false */) : m_bDeleteSVN(false)
 	, m_pSVN(NULL)

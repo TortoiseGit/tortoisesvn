@@ -18,7 +18,9 @@
 //
 
 #pragma once
+#pragma warning(push)
 #include "svn_opt.h"
+#pragma warning(pop)
 #include <vector>
 
 

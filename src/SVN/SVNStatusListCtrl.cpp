@@ -44,7 +44,6 @@
 #include "InputDlg.h"
 #include "ShellUpdater.h"
 #include "SVNAdminDir.h"
-#include ".\svnstatuslistctrl.h"
 #include "IconMenu.h"
 #include "AddDlg.h"
 #include "EditPropertiesDlg.h"

@@ -19,7 +19,9 @@
 
 #include "StdAfx.h"
 #include "SVNRev.h"
+#pragma warning(push)
 #include "svn_time.h"
+#pragma warning(pop)
 #include "SVNHelpers.h"
 #include <algorithm>
 

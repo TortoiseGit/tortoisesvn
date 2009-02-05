@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,6 +26,7 @@
 #include <fcntl.h>
 
 
+#pragma warning(push)
 #include <apr_pools.h>
 #include "svn_error.h"
 #include "svn_client.h"
@@ -34,6 +35,7 @@
 #include "UnicodeUtils.h"
 #include "..\version.h"
 #include "svn_dso.h"
+#pragma warning(pop)
 
 
 // Define the help text as a multi-line macro
@@ -518,7 +520,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	const char * internalpath;
 
 	apr_initialize();
-	svn_dso_initialize();
+	svn_dso_initialize2();
 	apr_pool_create_ex (&pool, NULL, abort_on_pool_failure, NULL);
 	memset (&ctx, 0, sizeof (ctx));
 

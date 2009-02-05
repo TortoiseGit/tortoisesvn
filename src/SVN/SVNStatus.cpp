@@ -18,9 +18,11 @@
 //
 
 #include "stdafx.h"
+#pragma warning(push)
+#include "svn_config.h"
+#pragma warning(pop)
 #include "resource.h"
 #include "..\TortoiseShell\resource.h"
-#include "svn_config.h"
 #include "SVNStatus.h"
 #include "UnicodeUtils.h"
 #include "SVNGlobal.h"
