@@ -57,7 +57,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN zh_CN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-01-25 11:54+0800\n"
+"PO-Revision-Date: 2009-02-05 10:05+0800\n"
 "Last-Translator: Dongsheng Song <dongsheng.song@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4397,7 +4397,31 @@ msgstr "图标覆盖::图标集"
 
 #. Resource IDs: (65535)
 msgid "Icons/Design/Code:                 Luebbe Onken"
-msgstr "图标/设计/程序:                 Luebbe Onken"
+msgstr "图标/设计/程序:                    Luebbe Onken"
+
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'branch'."
+msgstr ""
+"如果给定路径的一个组件(两个“/”之间的部分)匹配下列任一模式，它就会\n"
+"被认为是“分支”"
+
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'tag'."
+msgstr ""
+"如果给定路径的一个组件(两个“/”之间的部分)匹配下列任一模式，它就会\n"
+"被认为是“标签”。"
+
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'trunk'."
+msgstr ""
+"如果给定路径的一个组件(两个“/”之间的部分)匹配下列任一模式，它就会\n"
+"被认为是“主干”。"
 
 #. Resource IDs: (194)
 msgid ""
@@ -4413,54 +4437,6 @@ msgid ""
 msgstr ""
 "如果选中该项，而且选中的文件设置了“svn:needs-lock”属性，\n"
 "顶层菜单中会直接显示“获取锁定”菜单项。"
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'branch'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"如果给定路径的一个元素 (两个“/”之间的部分)匹配下列任一模式，它就会\n"
-"被认为是“分支”。\n"
-"\n"
-"模式是小写。\n"
-"允许的通配符是“?”和“*”。\n"
-"使用“;”分开模式。"
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'tag'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"如果给定路径的一个元素 (两个“/”之间的部分)匹配下列任一模式，它就会\n"
-"被认为是“标签”。\n"
-"\n"
-"模式是小写。\n"
-"允许的通配符是“?”和“*”。\n"
-"使用“;”分开模式。"
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'trunk'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"如果给定路径的一个元素 (两个“/”之间的部分)匹配下列任一模式，它就会\n"
-"被认为是“主干”。\n"
-"\n"
-"模式是小写。\n"
-"允许的通配符是“?”和“*”。\n"
-"使用“;”分开模式。"
 
 #. Resource IDs: (95)
 msgid ""
@@ -4710,6 +4686,14 @@ msgstr "包含合并版本"
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
 msgstr "仅包括以下版本范围: "
+
+#. Resource IDs: (239)
+msgid ""
+"Includes the repository for status check\n"
+"Hold down the shift key when clicking to fetch everything."
+msgstr ""
+"状态检查包含版本库\n"
+"当点击以获得所有资料时保持 'shift' 键按下。"
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -9152,7 +9136,7 @@ msgstr ""
 "使用“我的”文本块"
 
 #. Resource IDs: (251)
-msgid "Use text block from 't&heirs' before 'mine"
+msgid "Use text block from 't&heirs' before 'mine'"
 msgstr "先使用“他们的”文本块(&H)"
 
 #. Resource IDs: (2052)
@@ -9674,6 +9658,22 @@ msgstr "缩放到适合宽度"
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
 msgstr "[未分配]"
+
+#. Resource IDs: (346)
+msgid ""
+"\n"
+"\n"
+"Patterns match case-insensitively and must be specified in lower-case.\n"
+"Whitespaces will become part of the pattern.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns using ';'"
+msgstr ""
+"\n"
+"\n"
+"模式匹配不区分大小写，必须以小写给出。\n"
+"空白也是模式的一部分。\n"
+"允许的匹配字符是 '?' 和 '*'。\n"
+"模式的分割字符是 ';'。"
 
 #. Resource IDs: (65535)
 msgid "_POPUP_"
