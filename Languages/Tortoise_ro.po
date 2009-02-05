@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-01-30 00:30+0200\n"
+"PO-Revision-Date: 2009-02-05 23:03+0200\n"
 "Last-Translator: Ben Felt <benwfelt@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -880,7 +880,6 @@ msgid "&Rename"
 msgstr "&Redenumeşte"
 
 #. Resource IDs: (1316)
-#, fuzzy
 msgid "&Reopen commit and branch/tag dialog after a commit failed"
 msgstr "&Redeschide dialogul de transmitere şi de ramură/tag după o transmitere eşuată"
 
@@ -3871,7 +3870,7 @@ msgstr "Potriveşte graficul"
 
 #. Resource IDs: (32802)
 msgid "Fit height"
-msgstr ""
+msgstr "Potriveşte înălţimea"
 
 #. Resource IDs: (32810)
 msgid "Fit image &sizes"
@@ -3879,11 +3878,11 @@ msgstr "Potriveşte &dimensiunile imaginilor"
 
 #. Resource IDs: (32803)
 msgid "Fit width"
-msgstr ""
+msgstr "Potriveşte lăţimea"
 
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
-msgstr ""
+msgstr "Potriveşte majusculele elementului fără să-l adaugi"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
@@ -4591,6 +4590,12 @@ msgstr "Include revizii îmbinate"
 msgid "Include only the following revision range:"
 msgstr "Include numai următorul interval de revizii:"
 
+#. Resource IDs: (239)
+msgid ""
+"Includes the repository for status check\n"
+"Hold down the shift key when clicking to fetch everything."
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
 msgstr "Nume de fişier nevalid."
@@ -4740,6 +4745,17 @@ msgid ""
 "If you are not sure what to do, please refer to our docs on <i>relocate</i>.\n"
 "Do you really want to relocate?"
 msgstr ""
+"Încercaţi să <b>relocaţi</b> copia de lucru la o altă cale în acelaşi depozit.\n"
+"\n"
+"De la:\t%s\n"
+"La:\t\t%s\n"
+"\n"
+"Relocarea este necesară numai dacă s-a schimbat calea <b>la</b> un depozit.\n"
+"Schimbarea la o altă cale <b>în</b> depozit se face prin operaţiunea de comutare.\n"
+"\n"
+"Folosinţa greşită de relocare <b>va corupta copia de lucru!</b>\n"
+"Dacă nu sunteţi sigur ce să faceţi, citiţi documentaţia despre <i>relocare</i>.\n"
+"Sigur doriţi să relocaţi copia de lucru?"
 
 #. Resource IDs: (275)
 msgid "Join with following &tree"
@@ -6695,7 +6711,7 @@ msgstr ""
 "%s"
 
 #. Resource IDs: (272)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Revision: %ld %s\r\n"
 "URL: %s\r\n"
@@ -6707,9 +6723,9 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"Revizia: %ld (%s)\r\n"
-"URL: %s%s\r\n"
-"Autor: %s\r\n"
+"Revizia: %ld %s\r\n"
+"URL: %s\r\n"
+"%sAutor: %s\r\n"
 "Data: %s\r\n"
 "\r\n"
 "Tags (%d):%s\r\n"
@@ -8157,7 +8173,7 @@ msgstr ""
 "Doriţi să îl suprascrieţi?"
 
 #. Resource IDs: (88)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "The target folder \n"
 "%s\n"
@@ -8695,15 +8711,15 @@ msgid "Unified &diff of HEAD revisions"
 msgstr "&Diferenţiere unificată de revizii HEAD"
 
 #. Resource IDs: (81)
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Unknown certificate issuer.\n"
 "  Fingerprint: %s\n"
 "  Distinguished name: %s"
 msgstr ""
 "Furnizor de certificat necunoscut.\n"
-"  Fingerprint: %s\n"
-"  Distinguished name: %s"
+"  Amprentă digitală: %s\n"
+"  Nume distins: %s"
 
 #. Resource IDs: (20)
 msgid "Unknown depth"
@@ -8772,7 +8788,6 @@ msgid "Updated"
 msgstr "Actualizat"
 
 #. Resource IDs: (11)
-#, fuzzy
 msgid "Updates the working copy to a specific revision"
 msgstr "Actualizează copia de lucru la o revizie specifică"
 
@@ -8807,7 +8822,7 @@ msgstr "Foloseşte blocul de pe &stângă"
 
 #. Resource IDs: (1024)
 msgid "Use &one-pane view as default for 2-file diff"
-msgstr ""
+msgstr "F&oloseşte un singur panou când se diferenţiază între două fişiere"
 
 #. Resource IDs: (251)
 msgid "Use &other text block"
@@ -8936,7 +8951,7 @@ msgstr ""
 "Foloseşte blocul 'meu' de text"
 
 #. Resource IDs: (251)
-msgid "Use text block from 't&heirs' before 'mine"
+msgid "Use text block from 't&heirs' before 'mine'"
 msgstr "Foloseşte blocul de text din 'al &lor' înainte de 'al meu'"
 
 #. Resource IDs: (2052)
@@ -9421,12 +9436,14 @@ msgid "Zoom to fit"
 msgstr "Potriveşte"
 
 #. Resource IDs: (2051)
+#, fuzzy
 msgid "Zoom to fit in height"
-msgstr ""
+msgstr "Măreşte ca să încapă înălţimea"
 
 #. Resource IDs: (2051)
+#, fuzzy
 msgid "Zoom to fit in width"
-msgstr ""
+msgstr "Măreşte ca să încapă lăţimea"
 
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
@@ -9441,6 +9458,12 @@ msgid ""
 "Allowed wildcards are '?' and '*'.\n"
 "Separate patterns using ';'"
 msgstr ""
+"\n"
+"\n"
+"Modelele trebuie specificate cu litere mici.\n"
+"Spaţii goale vor face parte din modelul.\n"
+"Metacaracterele permise sunt '?' şi '*'.\n"
+"Separaţi modelele cu ';'"
 
 #. Resource IDs: (65535)
 msgid "_POPUP_"
