@@ -1,7 +1,7 @@
 //
 // TortoiseSVN Diff script for Powerpoint files
 //
-// Copyright (C) 2004-2009 the TortoiseSVN team
+// Copyright (C) 2009 the TortoiseSVN team
 // This file is distributed under the same license as TortoiseSVN
 //
 // Last commit by:
@@ -19,14 +19,11 @@ To better see the changes and get the highlighting feature of PowerPoint
 click on "Apply all changes to the presentation" on the reviewing toolbar.
 */
 
-function PptAppMajorVersion(PowerPoint)
-{
+function PptAppMajorVersion(PowerPoint) {
     var pptVersion;
-    try
-    {
+    try {
         pptVersion = PowerPoint.Version.toString();
-        if (pptVersion.indexOf(".") > 0) 
-        {
+        if (pptVersion.indexOf(".") > 0) {
             pptVersion = pptVersion.substr(0, pptVersion.indexOf("."));
         }
         if (pptVersion == "")
@@ -34,10 +31,9 @@ function PptAppMajorVersion(PowerPoint)
         else
             return parseInt(pptVersion);
     }
-    catch(e)
-    {
+    catch (e) {
         return 0;
-    }    
+    }
 }
 
 var objArgs,num,sBasePpt,sNewPpt,objScript,powerpoint,source;
@@ -46,7 +42,7 @@ objArgs = WScript.Arguments;
 num = objArgs.length;
 if (num < 2)
 {
-   WScript.Echo("Usage: [CScript | WScript] diff-ppt.js base.ppt new.ppt");
+   WScript.Echo("Usage: [CScript | WScript] diff-pptx.js base.pptx new.pptx");
    WScript.Quit(1);
 }
 
@@ -79,7 +75,7 @@ catch(e)
 
 if (PptAppMajorVersion(powerpoint) >= 12) 
 {
-    WScript.Echo("Microsoft Powerpoint 2007 doesn't provide the DIFF features any more. Sorry!\r\nYou can try diffing with OpenOffice...");
+    WScript.Echo("Microsoft Powerpoint 2007 doesn't provide the DIFF features any more Sorry!\r\nYou can try diffing with OpenOffice...");
     WScript.Quit(1);
 }
 else 
