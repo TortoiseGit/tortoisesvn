@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-05 23:03+0200\n"
+"PO-Revision-Date: 2009-02-05 23:46+0200\n"
 "Last-Translator: Ben Felt <benwfelt@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3902,7 +3902,7 @@ msgstr "Pentru ajutor, apăsaţi F1. Derulaţi orizontal cu Ctrl + rotiţa de de
 
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
-msgstr "Pentru istoria completă, nu selectaţi 'Opreşte când se copiază/redenumeşte'"
+msgstr "Pentru istoria completă, deselectaţi 'Opreşte când se copiază/redenumeşte'"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -3977,7 +3977,6 @@ msgid "Get merge logs"
 msgstr "Obţine jurnalele de îmbinare"
 
 #. Resource IDs: (89)
-#, fuzzy
 msgid ""
 "Getting a lock for files without the 'svn:needs-lock' property will <b>not</b> prevent others from editing them in their working copies.\n"
 "To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
@@ -3987,7 +3986,7 @@ msgstr ""
 "Obţinerea unei blocări pentru fişiere fără proprietatea 'svn:needs-lock' <b>nu</b> îi va preveni pe alţii de a le edita în copiile lor de lucru.\n"
 "Pentru a activa blocare strictă, adăugaţi proprietatea 'svn:needs-lock' tuturor fişierelor care necesită blocare şi transmiteţi acele fişiere.\n"
 "Fiecare fişier va avea indicatorul sistemului 'strict citire' şi obţinerea blocării îl va face editabil.\n"
-"Alţi utilizatori vor trebui să-şi actualizează copiile înainte de a vedea fişierele ca fiind în starea 'strict citire'."
+"Alţi utilizatori vor trebui să-şi actualizeze copiile de lucru înainte de a vedea fişierele ca fiind în starea 'strict citire'."
 
 #. Resource IDs: (119)
 #, c-format
@@ -6192,7 +6191,7 @@ msgstr "In&versează..."
 
 #. Resource IDs: (12)
 msgid "Read the 'Daily Use Guide' before you are stuck..."
-msgstr ""
+msgstr "Citiţi 'gidul de folosinţa zilnică' întainte sa vă încurcaţi..."
 
 #. Resource IDs: (1002)
 msgid "Recent"
@@ -7291,7 +7290,7 @@ msgstr "Afişează diferenţe ca o diferenţiere &unificată"
 
 #. Resource IDs: (1126)
 msgid "Show excluded folders as normal"
-msgstr "Afişează dosare excluse ca normale"
+msgstr "Afişează dosare excluse ca fiind normale"
 
 #. Resource IDs: (1480)
 msgid "Show externals from different repositories"
@@ -8389,13 +8388,12 @@ msgid "To: (end URL and revision of the range to merge)"
 msgstr "Până la: (ultimul URL şi revizia din intervalul de îmbinare)"
 
 #. Resource IDs: (3633)
-#, fuzzy
 msgid ""
 "Toggle One/Two Pages display\n"
 "Toggle One/Two Pages display"
 msgstr ""
-"Comută afişarea de unu/două pagini\n"
-"Comută afişarea de unu/două pagini"
+"Comută afişarea de una/două pagini\n"
+"Comută afişarea de una/două pagini"
 
 #. Resource IDs: (65535)
 msgid "Toolbar"
