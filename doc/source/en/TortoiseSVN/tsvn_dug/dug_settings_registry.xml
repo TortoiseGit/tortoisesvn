@@ -146,8 +146,13 @@
 					folder requires a working copy crawl, which can be a slow
 					operation for large working copies.
 					If you want to enable this feature you must create a
-					<literal>DWORD</literal> registry key with value 1 at
+					<literal>DWORD</literal> registry key at
 					<literal>HKCU\Software\TortoiseSVN\RecursiveLogRev</literal>.
+					A value of 0 disables the feature (no highlighting for folders),
+					a value of 1 (default) will fetch the status recursively (find the
+					highest revision in the working copy tree), and a value of 2 will
+					check the revision of the selected folder itself, but will
+					not check any child items.
 				</para>
 			</listitem>
 		</varlistentry>
