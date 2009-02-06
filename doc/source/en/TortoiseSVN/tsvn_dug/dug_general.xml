@@ -182,6 +182,20 @@
 			Refer to <xref linkend="tsvn-dug-settings-saved-data"/>.
 		</para>
 		<para>
+			Some people like to have the authentication data deleted when they
+			log off Windows, or on shutdown. The way to do that is to use a shutdown
+			script to delete the <filename>%APPDATA%\Subversion\auth</filename>
+			directory, e.g.
+<screen>
+@echo off
+rmdir /s /q "%APPDATA%\Subversion\auth"
+</screen>
+			You can find a description of how to install such scripts at
+			<ulink url="http://www.windows-help-central.com/windows-shutdown-script.html">
+				<citetitle>windows-help-central.com</citetitle>
+			</ulink>.
+		</para>
+		<para>
 			For more information on how to set up your server for
 			authentication and access control, refer to
 			<xref linkend="tsvn-serversetup"/>
