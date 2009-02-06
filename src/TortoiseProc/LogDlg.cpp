@@ -774,6 +774,7 @@ void CLogDlg::Refresh (bool autoGoOnline)
 	}
 	m_startrev = -1;
 	m_bCancelled = FALSE;
+	m_wcRev = SVNRev();
 
 	// We need to create CStoreSelection on the heap or else
 	// the variable will run out of the scope before the
@@ -1178,13 +1179,14 @@ UINT CLogDlg::LogThread()
 	}
 	else
 	{
-		if (!m_wcRev.IsValid())
+		DWORD getWCRev = DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\RecursiveLogRev"), 1));
+		if ((getWCRev != 0)&&(!m_wcRev.IsValid()))
 		{
 			// fetch the revision the wc path is on so we can mark it
 			CTSVNPath revWCPath = m_ProjectProperties.GetPropsPath();
 			if (!m_path.IsUrl())
 				revWCPath = m_path;
-			if (DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\RecursiveLogRev"), FALSE)))
+			if (getWCRev == 1)
 			{
 				svn_revnum_t minrev, maxrev;
 				bool switched, modified, sparse;
@@ -1192,7 +1194,7 @@ UINT CLogDlg::LogThread()
 				if (maxrev)
 					m_wcRev = maxrev;
 			}
-			else
+			else if (getWCRev == 2)
 			{
 				CTSVNPath dummypath;
 				SVNStatus status;
@@ -3126,27 +3128,30 @@ void CLogDlg::RecalculateShownList(CPtrArray * pShownlist)
 			{
 				LogChangedPathArray * cpatharray = m_logEntries[i]->pArChangedPaths;
 
-				bool bGoing = true;
-				for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount() && bGoing; ++cpPathIndex)
+				if (cpatharray)
 				{
-					LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
-					if (regex_search(wstring((LPCTSTR)cpath->sCopyFromPath), pat, flags)&&IsEntryInDateRange(i))
+					bool bGoing = true;
+					for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount() && bGoing; ++cpPathIndex)
 					{
-						bMatched = true;
-						bGoing = false;
-						continue;
-					}
-					if (regex_search(wstring((LPCTSTR)cpath->sPath), pat, flags)&&IsEntryInDateRange(i))
-					{
-						bMatched = true;
-						bGoing = false;
-						continue;
-					}
-					if (regex_search(wstring((LPCTSTR)cpath->GetAction()), pat, flags)&&IsEntryInDateRange(i))
-					{
-						bMatched = true;
-						bGoing = false;
-						continue;
+						LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
+						if (regex_search(wstring((LPCTSTR)cpath->sCopyFromPath), pat, flags)&&IsEntryInDateRange(i))
+						{
+							bMatched = true;
+							bGoing = false;
+							continue;
+						}
+						if (regex_search(wstring((LPCTSTR)cpath->sPath), pat, flags)&&IsEntryInDateRange(i))
+						{
+							bMatched = true;
+							bGoing = false;
+							continue;
+						}
+						if (regex_search(wstring((LPCTSTR)cpath->GetAction()), pat, flags)&&IsEntryInDateRange(i))
+						{
+							bMatched = true;
+							bGoing = false;
+							continue;
+						}
 					}
 				}
 			}
@@ -3194,30 +3199,33 @@ void CLogDlg::RecalculateShownList(CPtrArray * pShownlist)
 			{
 				LogChangedPathArray * cpatharray = m_logEntries[i]->pArChangedPaths;
 
-				bool bGoing = true;
-				for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount() && bGoing; ++cpPathIndex)
+				if (cpatharray)
 				{
-					LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
-					CString path = cpath->sCopyFromPath;
-					path.MakeLower();
-					if ((path.Find(find)>=0)&&(IsEntryInDateRange(i)))
+					bool bGoing = true;
+					for (INT_PTR cpPathIndex = 0; cpPathIndex<cpatharray->GetCount() && bGoing; ++cpPathIndex)
 					{
-						bMatched = true;
-						bGoing = false;
-					}
-					path = cpath->sPath;
-					path.MakeLower();
-					if ((path.Find(find)>=0)&&(IsEntryInDateRange(i)))
-					{
-						bMatched = true;
-						bGoing = false;
-					}
-					path = cpath->GetAction();
-					path.MakeLower();
-					if ((path.Find(find)>=0)&&(IsEntryInDateRange(i)))
-					{
-						bMatched = true;
-						bGoing = false;
+						LogChangedPath * cpath = cpatharray->GetAt(cpPathIndex);
+						CString path = cpath->sCopyFromPath;
+						path.MakeLower();
+						if ((path.Find(find)>=0)&&(IsEntryInDateRange(i)))
+						{
+							bMatched = true;
+							bGoing = false;
+						}
+						path = cpath->sPath;
+						path.MakeLower();
+						if ((path.Find(find)>=0)&&(IsEntryInDateRange(i)))
+						{
+							bMatched = true;
+							bGoing = false;
+						}
+						path = cpath->GetAction();
+						path.MakeLower();
+						if ((path.Find(find)>=0)&&(IsEntryInDateRange(i)))
+						{
+							bMatched = true;
+							bGoing = false;
+						}
 					}
 				}
 			}

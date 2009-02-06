@@ -73,6 +73,11 @@ This registry setting enables the SVN columns everywhere, not just inside workin
 This registry settings controls whether an update/checkout/switch will error out if a file already exists unversioned. Create this DWORD value in the registry and set it to zero. If the entry does not exist or is not zero, an update/checkout/switch will automatically version the existing file and mark it as 'modified' if it differs from the one in the repository.
 </dd>
 
+<dt>HKCU\Software\TortoiseSVN\RecursiveLogRev</dt>
+<dd>
+This registry settings controls whether the log dialog marks the revision the working copy is currently at. A value of 0 disables this feature. A value of 2 will only get the revision of the selected item, while a value of 1 (default) will fetch the status recursively. 
+</dd>
+
 </dl>
 
 <p>Please don't mess with those and any other registry setting if you don't know <em>exactly</em> what you're doing!</p>
