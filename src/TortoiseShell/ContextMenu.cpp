@@ -1816,7 +1816,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 			} // switch (id_it->second) 
 			svnCmd += _T(" /hwnd:");
 			TCHAR buf[30];
-			_stprintf_s(buf, 30, _T("%ld"), (LONG)lpcmi->hwnd);
+			_stprintf_s(buf, 30, _T("%ld"), (LONG_PTR)lpcmi->hwnd);
 			svnCmd += buf;
 			myIDMap.clear();
 			myVerbsIDMap.clear();
