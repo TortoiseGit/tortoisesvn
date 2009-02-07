@@ -21,6 +21,13 @@
 
 using namespace Gdiplus;
 
+static DWORD SysColorAsColor (int index)
+{
+    Color color;
+    color.SetFromCOLORREF (::GetSysColor (index));
+    return color.GetValue();
+}
+
 CColors::CColors(void) : m_regAdded(_T("Software\\TortoiseSVN\\Colors\\Added"), RGB(100, 0, 100))
 	, m_regCmd(_T("Software\\TortoiseSVN\\Colors\\Cmd"), ::GetSysColor(COLOR_GRAYTEXT))
 	, m_regConflict(_T("Software\\TortoiseSVN\\Colors\\Conflict"), RGB(255, 0, 0))
@@ -38,11 +45,11 @@ CColors::CColors(void) : m_regAdded(_T("Software\\TortoiseSVN\\Colors\\Added"), 
     , m_regGDPDeletedNode (_T("Software\\TortoiseSVN\\Colors\\GDI+DeletedNode"), (DWORD)Color::Red)
     , m_regGDPAddedNode (_T("Software\\TortoiseSVN\\Colors\\GDI+AddedNode"), (DWORD)0xff00ff00)
     , m_regGDPRenamedNode (_T("Software\\TortoiseSVN\\Colors\\GDI+RenamedNode"), (DWORD)Color::Blue)
-	, m_regGDPLastCommit (_T("Software\\TortoiseSVN\\Colors\\GDI+LastCommitNode"), ::GetSysColor(COLOR_WINDOW) + Color::Black)
+	, m_regGDPLastCommit (_T("Software\\TortoiseSVN\\Colors\\GDI+LastCommitNode"), SysColorAsColor(COLOR_WINDOW))
 
-	, m_regGDPModifiedNode (_T("Software\\TortoiseSVN\\Colors\\GDI+ModifiedNode"), ::GetSysColor(COLOR_WINDOWTEXT) + Color::Black)
-	, m_regGDPWCNode (_T("Software\\TortoiseSVN\\Colors\\GDI+WCNode"), ::GetSysColor(COLOR_WINDOW) + Color::Black)
-	, m_regGDPUnchangedNode (_T("Software\\TortoiseSVN\\Colors\\GDI+UnchangedNode"), ::GetSysColor(COLOR_WINDOW) + Color::Black)
+	, m_regGDPModifiedNode (_T("Software\\TortoiseSVN\\Colors\\GDI+ModifiedNode"), SysColorAsColor(COLOR_WINDOWTEXT))
+	, m_regGDPWCNode (_T("Software\\TortoiseSVN\\Colors\\GDI+WCNode"), SysColorAsColor(COLOR_WINDOW))
+	, m_regGDPUnchangedNode (_T("Software\\TortoiseSVN\\Colors\\GDI+UnchangedNode"), SysColorAsColor(COLOR_WINDOW))
 	, m_regGDPTagOverlay (_T("Software\\TortoiseSVN\\Colors\\GDI+TagOverlay"), 0x80fafa60)
 	, m_regGDPTrunkOverlay (_T("Software\\TortoiseSVN\\Colors\\GDI+TrunkOverlay"), 0x4040FF40)
 
@@ -141,7 +148,11 @@ Color CColors::GetColor (GDIPlusColor id, bool bDefault)
 
     CRegDWORD* lecagySetting = GetLegacyRegistrySetting (id);
     if ((lecagySetting != NULL) && lecagySetting->exists())
-        return (DWORD)*lecagySetting + Color::Black;
+    {
+        Color result;
+        result.SetFromCOLORREF (*lecagySetting);
+        return result;
+    }
 
     return setting->defaultValue();
 }
