@@ -190,39 +190,6 @@ int CRevisionGraphWnd::GetEncoderClsid(const WCHAR* format, CLSID* pClsid)
 	return -1;  // Failure
 }
 
-void CRevisionGraphWnd::Compare (TDiffFunc diffFunc, TStartDiffFunc startDiffFunc, bool bHead)
-{
-	ASSERT(m_SelectedEntry1 != NULL);
-	ASSERT(m_SelectedEntry2 != NULL);
-
-    CSyncPointer<SVN> svn (m_state.GetSVN());
-    CString sRepoRoot = m_state.GetRepositoryRoot();
-
-	CTSVNPath url1;
-	CTSVNPath url2;
-	url1.SetFromSVN (sRepoRoot + CUnicodeUtils::GetUnicode (m_SelectedEntry1->GetPath().GetPath().c_str()));
-	url2.SetFromSVN (sRepoRoot + CUnicodeUtils::GetUnicode (m_SelectedEntry2->GetPath().GetPath().c_str()));
-
-    SVNRev rev1 (bHead ? SVNRev::REV_HEAD : m_SelectedEntry1->GetRevision());
-    SVNRev rev2 (bHead ? SVNRev::REV_HEAD : m_SelectedEntry2->GetRevision());
-	SVNRev peg (bHead ? m_SelectedEntry1->GetRevision() : SVNRev());
-
-    if (m_state.PromptShown())
-    {
-        SVNDiff diff (svn.get(), this->m_hWnd);
-	    diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
-	    (diff.*diffFunc)(url1, rev1,
-    		             url2, rev2,
-	    	             peg, false, false);
-    }
-    else
-    {
-		(*startDiffFunc)(m_hWnd, url1, rev1,
-						 url2, rev2, peg, 
-						 SVNRev(), !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), false, false);
-    }
-}
-
 bool CRevisionGraphWnd::FetchRevisionData 
     ( const CString& path
     , SVNRev pegRevision)
@@ -312,12 +279,68 @@ void CRevisionGraphWnd::SetShowOverview (bool value)
 
 void CRevisionGraphWnd::CompareRevs(bool bHead)
 {
-    Compare (&SVNDiff::ShowCompare, &CAppUtils::StartShowCompare, bHead);
+	ASSERT(m_SelectedEntry1 != NULL);
+	ASSERT(m_SelectedEntry2 != NULL);
+
+	CSyncPointer<SVN> svn (m_state.GetSVN());
+	CString sRepoRoot = m_state.GetRepositoryRoot();
+
+	CTSVNPath url1;
+	CTSVNPath url2;
+	url1.SetFromSVN (sRepoRoot + CUnicodeUtils::GetUnicode (m_SelectedEntry1->GetPath().GetPath().c_str()));
+	url2.SetFromSVN (sRepoRoot + CUnicodeUtils::GetUnicode (m_SelectedEntry2->GetPath().GetPath().c_str()));
+
+	SVNRev rev1 (bHead ? SVNRev::REV_HEAD : m_SelectedEntry1->GetRevision());
+	SVNRev rev2 (bHead ? SVNRev::REV_HEAD : m_SelectedEntry2->GetRevision());
+	SVNRev peg (bHead ? m_SelectedEntry1->GetRevision() : SVNRev());
+
+	if (m_state.PromptShown())
+	{
+		SVNDiff diff (svn.get(), this->m_hWnd);
+		diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+		diff.ShowCompare(url1, rev1,
+			url2, rev2,
+			peg, false, false, svn_node_unknown);	// TODO: do we know whether the node is a file or folder?
+	}
+	else
+	{
+		CAppUtils::StartShowCompare(m_hWnd, url1, rev1,
+			url2, rev2, peg, 
+			SVNRev(), !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), false, false, svn_node_unknown); // TODO: do we know whether the node is a file or folder?
+	}
 }
 
 void CRevisionGraphWnd::UnifiedDiffRevs(bool bHead)
 {
-    Compare (&SVNDiff::ShowUnifiedDiff, &CAppUtils::StartShowUnifiedDiff, bHead);
+	ASSERT(m_SelectedEntry1 != NULL);
+	ASSERT(m_SelectedEntry2 != NULL);
+
+	CSyncPointer<SVN> svn (m_state.GetSVN());
+	CString sRepoRoot = m_state.GetRepositoryRoot();
+
+	CTSVNPath url1;
+	CTSVNPath url2;
+	url1.SetFromSVN (sRepoRoot + CUnicodeUtils::GetUnicode (m_SelectedEntry1->GetPath().GetPath().c_str()));
+	url2.SetFromSVN (sRepoRoot + CUnicodeUtils::GetUnicode (m_SelectedEntry2->GetPath().GetPath().c_str()));
+
+	SVNRev rev1 (bHead ? SVNRev::REV_HEAD : m_SelectedEntry1->GetRevision());
+	SVNRev rev2 (bHead ? SVNRev::REV_HEAD : m_SelectedEntry2->GetRevision());
+	SVNRev peg (bHead ? m_SelectedEntry1->GetRevision() : SVNRev());
+
+	if (m_state.PromptShown())
+	{
+		SVNDiff diff (svn.get(), this->m_hWnd);
+		diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+		diff.ShowUnifiedDiff(url1, rev1,
+			url2, rev2,
+			peg, false, false);
+	}
+	else
+	{
+		CAppUtils::StartShowUnifiedDiff(m_hWnd, url1, rev1,
+			url2, rev2, peg, 
+			SVNRev(), !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), false, false);
+	}
 }
 
 void CRevisionGraphWnd::DoZoom(float fZoomFactor)

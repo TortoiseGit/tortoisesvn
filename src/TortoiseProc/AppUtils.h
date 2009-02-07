@@ -170,7 +170,7 @@ public:
 								const CTSVNPath& url2, const SVNRev& rev2, 
 								const SVNRev& peg = SVNRev(), const SVNRev& headpeg = SVNRev(),
 								bool bAlternateDiff = false, bool ignoreancestry = false,
-								bool blame = false);
+								bool blame = false, svn_node_kind_t nodekind = svn_node_unknown);
 private:
 	static CString PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2);
 	static bool GetMimeType(const CTSVNPath& file, CString& mimetype);

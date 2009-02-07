@@ -1004,11 +1004,12 @@ bool CAppUtils::StartShowUnifiedDiff(HWND hWnd, const CTSVNPath& url1, const SVN
 bool CAppUtils::StartShowCompare(HWND hWnd, const CTSVNPath& url1, const SVNRev& rev1, 
 								 const CTSVNPath& url2, const SVNRev& rev2, 
 								 const SVNRev& peg /* = SVNRev */, const SVNRev& headpeg /* = SVNRev */, 
-								 bool bAlternateDiff /* = false */, bool bIgnoreAncestry /* = false */, bool blame /* = false */)
+								 bool bAlternateDiff /* = false */, bool bIgnoreAncestry /* = false */, 
+								 bool blame /* = false */, svn_node_kind_t nodekind /* = svn_node_unknown */)
 {
 	CString sCmd;
-	sCmd.Format(_T("%s /command:showcompare"),
-		(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")));
+	sCmd.Format(_T("%s /command:showcompare /nodekind:%d"),
+		(LPCTSTR)(CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe")), nodekind);
 	sCmd += _T(" /url1:\"") + url1.GetSVNPathString() + _T("\"");
 	if (rev1.IsValid())
 		sCmd += _T(" /revision1:") + rev1.ToString();

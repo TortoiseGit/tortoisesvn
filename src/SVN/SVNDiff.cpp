@@ -304,7 +304,8 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 						  const CTSVNPath& url2, const SVNRev& rev2, 
 						  SVNRev peg /* = SVNRev() */,
 						  bool ignoreancestry /* = false */,
-						  bool blame /* = false */)
+						  bool blame /* = false */,
+						  svn_node_kind_t nodekind /* = svn_node_unknown */)
 {
 	CTSVNPath tempfile;
 	
@@ -323,41 +324,51 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
 
 		tempfile = CTempFiles::Instance().GetTempFilePath(false, url1);		
 		// first find out if the url points to a file or dir
-		progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROGRESS_INFO)));
 		CString sRepoRoot;
-		SVNInfo info;
-		const SVNInfoData * data = info.GetFirstFileInfo(url1, (peg.IsValid() ? peg : m_headPeg), rev1, svn_depth_empty);
-		if (data == NULL)
+		if ((nodekind != svn_node_dir)&&(nodekind != svn_node_file))
 		{
-			data = info.GetFirstFileInfo(url1, (peg.IsValid() ? peg : rev1), rev1, svn_depth_empty);
+			progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROGRESS_INFO)));
+			SVNInfo info;
+			const SVNInfoData * data = info.GetFirstFileInfo(url1, (peg.IsValid() ? peg : m_headPeg), rev1, svn_depth_empty);
 			if (data == NULL)
 			{
-				data = info.GetFirstFileInfo(url1, (peg.IsValid() ? peg : rev2), rev1, svn_depth_empty);
+				data = info.GetFirstFileInfo(url1, (peg.IsValid() ? peg : rev1), rev1, svn_depth_empty);
 				if (data == NULL)
 				{
-					progDlg.Stop();
-					m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-					CMessageBox::Show(m_hWnd, info.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
-					return false;
+					data = info.GetFirstFileInfo(url1, (peg.IsValid() ? peg : rev2), rev1, svn_depth_empty);
+					if (data == NULL)
+					{
+						progDlg.Stop();
+						m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+						CMessageBox::Show(m_hWnd, info.GetLastErrorMsg(), _T("TortoiseSVN"), MB_ICONERROR);
+						return false;
+					}
+					else
+					{
+						sRepoRoot = data->reposRoot;
+						nodekind = data->kind;
+						peg = peg.IsValid() ? peg : rev2;
+					}
 				}
 				else
 				{
 					sRepoRoot = data->reposRoot;
-					peg = peg.IsValid() ? peg : rev2;
+					nodekind = data->kind;
+					peg = peg.IsValid() ? peg : rev1;
 				}
 			}
 			else
 			{
 				sRepoRoot = data->reposRoot;
-				peg = peg.IsValid() ? peg : rev1;
+				nodekind = data->kind;
+				peg = peg.IsValid() ? peg : m_headPeg;
 			}
 		}
 		else
 		{
-			sRepoRoot = data->reposRoot;
-			peg = peg.IsValid() ? peg : m_headPeg;
+			sRepoRoot = m_pSVN->GetRepositoryRoot(url1);
 		}
-		if (data->kind == svn_node_dir)
+		if (nodekind == svn_node_dir)
 		{
 			if (rev1.IsWorking())
 			{

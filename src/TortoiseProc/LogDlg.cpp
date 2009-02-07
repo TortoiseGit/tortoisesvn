@@ -1894,11 +1894,11 @@ void CLogDlg::DiffSelectedRevWithPrevious()
 		SVNDiff diff(this, m_hWnd, true);
 		diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 		diff.SetHEADPeg(m_LogRevision);
-		diff.ShowCompare(path, rev2, path, rev1);
+		diff.ShowCompare(path, rev2, path, rev1, SVNRev(), false, false, m_path.IsDirectory() ? svn_node_dir : svn_node_file);
 	}
 	else
 	{
-		CAppUtils::StartShowCompare(m_hWnd, path, rev2, path, rev1, SVNRev(), m_LogRevision, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+		CAppUtils::StartShowCompare(m_hWnd, path, rev2, path, rev1, SVNRev(), m_LogRevision, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), false, false, m_path.IsDirectory() ? svn_node_dir : svn_node_file);
 	}
 
 	theApp.DoWaitCursor(-1);
@@ -1934,12 +1934,14 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t re
 	m_bCancelled = FALSE;
 	filepath = GetRepositoryRoot(CTSVNPath(filepath));
 
+	svn_node_kind_t nodekind = svn_node_unknown;
 	CString firstfile, secondfile;
 	if (m_LogList.GetSelectedCount()==1)
 	{
 		int s = m_LogList.GetSelectionMark();
 		PLOGENTRYDATA pLogEntry = reinterpret_cast<PLOGENTRYDATA>(m_arShownList.GetAt(s));
 		LogChangedPath * changedpath = pLogEntry->pArChangedPaths->GetAt(selIndex);
+		nodekind = changedpath->nodeKind;
 		firstfile = changedpath->sPath;
 		secondfile = firstfile;
 		if ((rev2 == rev1-1)&&(changedpath->lCopyFromRev > 0)) // is it an added file with history?
@@ -1969,7 +1971,7 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t re
 	}
 	else
 	{
-		if (diff.ShowCompare(CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1, SVNRev(), false, blame))
+		if (diff.ShowCompare(CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1, SVNRev(), false, blame, nodekind))
 		{
 			if (firstfile.Compare(secondfile)==0)
 			{
@@ -4120,10 +4122,12 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 					SVNDiff diff(this, m_hWnd, true);
 					diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 					diff.SetHEADPeg(m_LogRevision);
-					diff.ShowCompare(CTSVNPath(pathURL), r2, CTSVNPath(pathURL), r1);
+					diff.ShowCompare(CTSVNPath(pathURL), r2, CTSVNPath(pathURL), r1, SVNRev(), false, false, m_path.IsDirectory() ? svn_node_dir : svn_node_file);
 				}
 				else
-					CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pathURL), r2, CTSVNPath(pathURL), r1, SVNRev(), m_LogRevision, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+					CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pathURL), r2, CTSVNPath(pathURL), r1, 
+												SVNRev(), m_LogRevision, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), 
+												false, false, m_path.IsDirectory() ? svn_node_dir : svn_node_file);
 			}
 			break;
 		case ID_COMPAREWITHPREVIOUS:
@@ -4133,10 +4137,12 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 					SVNDiff diff(this, m_hWnd, true);
 					diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
 					diff.SetHEADPeg(m_LogRevision);
-					diff.ShowCompare(CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected);
+					diff.ShowCompare(CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected, SVNRev(), false, false, m_path.IsDirectory() ? svn_node_dir : svn_node_file);
 				}
 				else
-					CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected, SVNRev(), m_LogRevision, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+					CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected, 
+												SVNRev(), m_LogRevision, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000),
+												false, false, m_path.IsDirectory() ? svn_node_dir : svn_node_file);
 			}
 			break;
 		case ID_BLAMECOMPARE:
@@ -4160,10 +4166,11 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				{
 					SVNDiff diff(this, this->m_hWnd, true);
 					diff.SetHEADPeg(m_LogRevision);
-					diff.ShowCompare(CTSVNPath(pathURL), revSelected2, CTSVNPath(pathURL), revSelected, SVNRev(), false, true);
+					diff.ShowCompare(CTSVNPath(pathURL), revSelected2, CTSVNPath(pathURL), revSelected, SVNRev(), false, true, m_path.IsDirectory() ? svn_node_dir : svn_node_file);
 				}
 				else
-					CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pathURL), revSelected2, CTSVNPath(pathURL), revSelected, SVNRev(), m_LogRevision, false, false, true);
+					CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pathURL), revSelected2, CTSVNPath(pathURL), revSelected, 
+												SVNRev(), m_LogRevision, false, false, true, m_path.IsDirectory() ? svn_node_dir : svn_node_file);
 			}
 			break;
 		case ID_BLAMEWITHPREVIOUS:
@@ -4173,10 +4180,11 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 				{
 					SVNDiff diff(this, this->m_hWnd, true);
 					diff.SetHEADPeg(m_LogRevision);
-					diff.ShowCompare(CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected, SVNRev(), false, true);
+					diff.ShowCompare(CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected, SVNRev(), false, true, m_path.IsDirectory() ? svn_node_dir : svn_node_file);
 				}
 				else
-					CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected, SVNRev(), m_LogRevision, false, false, true);
+					CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected, 
+												SVNRev(), m_LogRevision, false, false, true, m_path.IsDirectory() ? svn_node_dir : svn_node_file);
 			}
 			break;
 		case ID_SAVEAS:

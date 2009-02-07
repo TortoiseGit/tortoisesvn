@@ -200,20 +200,6 @@ private:
         Below = 8,     
     };
 
-    typedef bool (SVNDiff::*TDiffFunc)(const CTSVNPath& url1, const SVNRev& rev1, 
-	            					   const CTSVNPath& url2, const SVNRev& rev2, 
-						               SVNRev peg,
-						               bool ignoreancestry,
-						               bool blame);
-    typedef bool (*TStartDiffFunc)(HWND hWnd, const CTSVNPath& url1, const SVNRev& rev1, 
-						           const CTSVNPath& url2, const SVNRev& rev2, 
-						           const SVNRev& peg, const SVNRev& headpeg,
-						           bool bAlternateDiff,
-						           bool bIgnoreAncestry,
-                                   bool blame);
-
-    void            Compare (TDiffFunc diffFunc, TStartDiffFunc startDiffFunc, bool bHead);
-
     bool            UpdateSelectedEntry (const CVisibleGraphNode * clickedentry);
     void            AddSVNOps (CMenu& popup);
     void            AddGraphOps (CMenu& popup, const CVisibleGraphNode * node);

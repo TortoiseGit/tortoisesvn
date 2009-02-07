@@ -2803,21 +2803,21 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 				{
 					if (PromptShown())
 						diff.ShowCompare(urlListEscaped[0], GetRevision(), 
-										CTSVNPath(EscapeUrl(m_diffURL)), GetRevision(), SVNRev(), true);
+						CTSVNPath(EscapeUrl(m_diffURL)), GetRevision(), SVNRev(), true, false, nFolders > 0 ? svn_node_dir : svn_node_file);
 					else
 						CAppUtils::StartShowCompare(m_hWnd, urlListEscaped[0], GetRevision(), 
 										CTSVNPath(EscapeUrl(m_diffURL)), GetRevision(), SVNRev(), SVNRev(), 
-										!!(GetAsyncKeyState(VK_SHIFT) & 0x8000), true);
+										!!(GetAsyncKeyState(VK_SHIFT) & 0x8000), true, false, nFolders > 0 ? svn_node_dir : svn_node_file);
 				}
 				else
 				{
 					if (PromptShown())
 						diff.ShowCompare(urlListEscaped[0], GetRevision(), 
-										urlListEscaped[1], GetRevision(), SVNRev(), true);
+										urlListEscaped[1], GetRevision(), SVNRev(), true, false, nFolders > 0 ? svn_node_dir : svn_node_file);
 					else
 						CAppUtils::StartShowCompare(m_hWnd, urlListEscaped[0], GetRevision(), 
 										urlListEscaped[1], GetRevision(), SVNRev(), SVNRev(), 
-										!!(GetAsyncKeyState(VK_SHIFT) & 0x8000), true);
+										!!(GetAsyncKeyState(VK_SHIFT) & 0x8000), true, false, nFolders > 0 ? svn_node_dir : svn_node_file);
 				}
 			}
 			break;
