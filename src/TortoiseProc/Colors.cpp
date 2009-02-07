@@ -157,6 +157,6 @@ void CColors::SetColor (GDIPlusColor id, Color color)
     // remove legacy info
 
     CRegDWORD* lecagySetting = GetLegacyRegistrySetting (id);
-    if (lecagySetting->exists())
+    if ((lecagySetting != NULL) && lecagySetting->exists())
         lecagySetting->removeKey();
 }
