@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -81,6 +81,7 @@ BEGIN_MESSAGE_MAP(CFileDiffDlg, CResizableStandAloneDialog)
 	ON_MESSAGE(WM_FILTEREDIT_CANCELCLICKED, OnClickedCancelFilter)
 	ON_EN_CHANGE(IDC_FILTER, &CFileDiffDlg::OnEnChangeFilter)
 	ON_WM_TIMER()
+	ON_NOTIFY(LVN_GETDISPINFO, IDC_FILELIST, &CFileDiffDlg::OnLvnGetdispinfoFilelist)
 END_MESSAGE_MAP()
 
 
@@ -140,14 +141,11 @@ BOOL CFileDiffDlg::OnInitDialog()
 	temp.LoadString(IDS_FILEDIFF_ACTION);
 	m_cFileList.InsertColumn(1, temp);
 
-	int mincol = 0;
-	int maxcol = ((CHeaderCtrl*)(m_cFileList.GetDlgItem(0)))->GetItemCount()-1;
-	int col;
-	for (col = mincol; col <= maxcol; col++)
-	{
-		m_cFileList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
-	}
-	
+	CRect rect;
+	m_cFileList.GetClientRect(&rect);
+	m_cFileList.SetColumnWidth(0, rect.Width()-100);
+	m_cFileList.SetColumnWidth(1, 100);
+
 	m_cFileList.SetRedraw(true);
 	
 	AddAnchor(IDC_DIFFSTATIC1, TOP_LEFT, TOP_RIGHT);
@@ -226,13 +224,10 @@ UINT CFileDiffDlg::DiffThread()
 		m_cFileList.SetItemState(0, LVIS_SELECTED, LVIS_SELECTED);
 	}
 
-	int mincol = 0;
-	int maxcol = ((CHeaderCtrl*)(m_cFileList.GetDlgItem(0)))->GetItemCount()-1;
-	int col;
-	for (col = mincol; col <= maxcol; col++)
-	{
-		m_cFileList.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
-	}
+	CRect rect;
+	m_cFileList.GetClientRect(&rect);
+	m_cFileList.SetColumnWidth(0, rect.Width()-100);
+	m_cFileList.SetColumnWidth(1, 100);
 
 	m_cFileList.ClearText();
 	m_cFileList.SetRedraw(true);
@@ -241,27 +236,6 @@ UINT CFileDiffDlg::DiffThread()
 	InvalidateRect(NULL);
 	RefreshCursor();
 	return 0;
-}
-
-int CFileDiffDlg::AddEntry(const FileDiff * fd)
-{
-	int ret = -1;
-	if (fd)
-	{
-		int index = m_cFileList.GetItemCount();
-
-		int icon_idx = 0;
-		if (fd->node == svn_node_dir)
-				icon_idx = m_nIconFolder;
-		else
-		{
-			icon_idx = SYS_IMAGE_LIST().GetPathIconIndex(fd->path);
-		}
-
-		ret = m_cFileList.InsertItem(index, fd->path.GetSVNPathString(), icon_idx);
-		m_cFileList.SetItemText(index, 1, GetSummarizeActionText(fd->kind));
-	}
-	return ret;
 }
 
 void CFileDiffDlg::DoDiff(int selIndex, bool blame)
@@ -544,6 +518,58 @@ void CFileDiffDlg::OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 		// Store the color back in the NMLVCUSTOMDRAW struct.
 		pLVCD->clrText = crText;
 	}
+}
+
+void CFileDiffDlg::OnLvnGetdispinfoFilelist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	NMLVDISPINFO *pDispInfo = reinterpret_cast<NMLVDISPINFO*>(pNMHDR);
+
+	if (pDispInfo)
+	{
+		if (pDispInfo->item.iItem < (int)m_arFilteredList.size())
+		{
+			const FileDiff * data = &m_arFilteredList[pDispInfo->item.iItem];
+			if (pDispInfo->item.mask & LVIF_TEXT)
+			{
+				switch (pDispInfo->item.iSubItem)
+				{
+				case 0:	// path
+					{
+						lstrcpyn(m_columnbuf, data->path.GetSVNPathString(), pDispInfo->item.cchTextMax);
+						int cWidth = m_cFileList.GetColumnWidth(0);
+						cWidth = max(28, cWidth-28);
+						CDC * pDC = m_cFileList.GetDC();
+						if (pDC != NULL)
+						{
+							CFont * pFont = pDC->SelectObject(m_cFileList.GetFont());
+							PathCompactPath(pDC->GetSafeHdc(), m_columnbuf, cWidth);
+							pDC->SelectObject(pFont);
+							ReleaseDC(pDC);
+						}
+					}
+					break;
+				case 1:	// action
+					lstrcpyn(m_columnbuf, GetSummarizeActionText(data->kind), pDispInfo->item.cchTextMax);
+					break;
+				default:
+					m_columnbuf[0] = 0;
+				}
+				pDispInfo->item.pszText = m_columnbuf;
+			}
+			if (pDispInfo->item.mask & LVIF_IMAGE)
+			{
+				int icon_idx = 0;
+				if (data->node == svn_node_dir)
+					icon_idx = m_nIconFolder;
+				else
+				{
+					icon_idx = SYS_IMAGE_LIST().GetPathIconIndex(data->path);
+				}
+				pDispInfo->item.iImage = icon_idx;
+			}
+		}
+	}
+	*pResult = 0;
 }
 
 void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
@@ -1051,10 +1077,7 @@ void CFileDiffDlg::Filter(CString sFilterText)
 			m_arFilteredList.push_back(*it);
 		}
 	}
-	for (std::vector<FileDiff>::const_iterator it = m_arFilteredList.begin(); it != m_arFilteredList.end(); ++it)
-	{
-		AddEntry(&(*it));
-	}
+	m_cFileList.SetItemCount(m_arFilteredList.size());
 }
 
 void CFileDiffDlg::CopySelectionToClipboard()
@@ -1072,4 +1095,5 @@ void CFileDiffDlg::CopySelectionToClipboard()
 	}
 	CStringUtils::WriteAsciiStringToClipboard(sTextForClipboard);
 }
+
 

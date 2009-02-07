@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -69,6 +69,7 @@ protected:
 	afx_msg void OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnLvnGetdispinfoFilelist(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/);
 	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	afx_msg void OnEnSetfocusSecondurl();
@@ -88,7 +89,6 @@ protected:
 											bool propchanged, 
 											svn_node_kind_t node);
 
-	int					AddEntry(const FileDiff * fd);
 	void				DoDiff(int selIndex, bool blame);
 	void				DiffProps(int selIndex);
 	void				SetURLLabels();
@@ -112,6 +112,7 @@ private:
 	HICON				m_hSwitchIcon;
 	CColors				m_colors;
 	CHintListCtrl		m_cFileList;
+	TCHAR				m_columnbuf[MAX_PATH];
 	bool				m_bBlame;
 	CBlame				m_blamer;
 	std::vector<FileDiff> m_arFileList;
