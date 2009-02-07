@@ -2095,6 +2095,8 @@ void CSVNStatusListCtrl::OnContextMenuGroup(CWnd * /*pWnd*/, CPoint point)
 	ScreenToClient(&clientpoint);
 	if ((IsGroupViewEnabled())&&(GetGroupFromPoint(&clientpoint) >= 0))
 	{
+		if (!m_bHasCheckboxes)
+			return;		// no checkboxes, so nothing to select
 		CMenu popup;
 		if (popup.CreatePopupMenu())
 		{
