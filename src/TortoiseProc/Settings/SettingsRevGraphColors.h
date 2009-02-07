@@ -24,17 +24,17 @@
  * \ingroup TortoiseProc
  * Settings property page to set custom colors used in TortoiseSVN
  */
-class CSettingsColors : public ISettingsPropPage
+class CSettingsRevisionGraphColors : public ISettingsPropPage
 {
-	DECLARE_DYNAMIC(CSettingsColors)
+	DECLARE_DYNAMIC(CSettingsRevisionGraphColors)
 
 public:
-	CSettingsColors();
-	virtual ~CSettingsColors();
+	CSettingsRevisionGraphColors();
+	virtual ~CSettingsRevisionGraphColors();
 
 	UINT GetIconID() {return IDI_LOOKANDFEEL;}
 
-	enum { IDD = IDD_SETTINGSCOLORS };
+	enum { IDD = IDD_SETTINGSREVGRAPHCOLORS };
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
@@ -45,11 +45,32 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 private:
-	CMFCColorButton m_cConflict;
-	CMFCColorButton m_cAdded;
-	CMFCColorButton m_cDeleted;
-	CMFCColorButton m_cMerged;
-	CMFCColorButton m_cModified;
-	CColors			m_Colors;
+
+    // utility methods
+
+    void InitColorPicker (CMFCColorButton& button, CColors::GDIPlusColor color);
+    void ResetColor (CMFCColorButton& button, CColors::GDIPlusColor color);
+    void ApplyColor (CMFCColorButton& button, CColors::GDIPlusColor color, DWORD alpha = 255);
+
+    // controls
+
+    CMFCColorButton m_cAddedNode;
+	CMFCColorButton m_cDeletedNode;
+	CMFCColorButton m_cRenamedNode;
+    CMFCColorButton m_cModifiedNode;
+    CMFCColorButton m_cUnchangedNode;
+	CMFCColorButton m_cLastCommitNode;
+    CMFCColorButton m_cWCNode;
+
+    CMFCColorButton m_cTagOverlay;
+    CMFCColorButton m_cTrunkOverlay;
+
+    CMFCColorButton m_cStripeColor1;
+    CMFCColorButton m_cStripeColor2;
+
+    BYTE m_sStripeAlpha1;
+    BYTE m_sStripeAlpha2;
+
+    CColors			m_Colors;
 public:
 };

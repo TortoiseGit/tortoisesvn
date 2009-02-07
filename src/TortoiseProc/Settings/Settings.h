@@ -37,6 +37,7 @@
 #include "SetBugTraq.h"
 #include "SettingsTBlame.h"
 #include "SettingsRevisionGraph.h"
+#include "SettingsRevGraphColors.h"
 #include "TreePropSheet/TreePropSheet.h"
 
 using namespace TreePropSheet;
@@ -74,6 +75,7 @@ private:
 	CSetLookAndFeelPage *	m_pLookAndFeelPage;
 	CSetDialogs *			m_pDialogsPage;
     CSettingsRevisionGraph* m_pRevisionGraphPage;
+    CSettingsRevisionGraphColors* m_pRevisionGraphColorsPage;
 	CSettingsColors *		m_pColorsPage;
 	CSetMisc *				m_pMiscPage;
 	CSetLogCache *			m_pLogCachePage;

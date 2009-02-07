@@ -50,6 +50,7 @@ void CSettings::AddPropPages()
 	m_pDialogsPage = new CSetDialogs();
 	m_pMiscPage = new CSetMisc();
 	m_pRevisionGraphPage = new CSettingsRevisionGraph();
+	m_pRevisionGraphColorsPage = new CSettingsRevisionGraphColors();
 	m_pLogCachePage = new CSetLogCache();
 	m_pLogCacheListPage = new CSettingsLogCaches();
 	m_pColorsPage = new CSettingsColors();
@@ -68,6 +69,7 @@ void CSettings::AddPropPages()
 	SetPageIcon(m_pLookAndFeelPage, m_pLookAndFeelPage->GetIconID());
 	SetPageIcon(m_pDialogsPage, m_pDialogsPage->GetIconID());
 	SetPageIcon(m_pRevisionGraphPage, m_pRevisionGraphPage->GetIconID());
+	SetPageIcon(m_pRevisionGraphColorsPage, m_pRevisionGraphColorsPage->GetIconID());
 	SetPageIcon(m_pMiscPage, m_pMiscPage->GetIconID());
 	SetPageIcon(m_pLogCachePage, m_pLogCachePage->GetIconID());
 	SetPageIcon(m_pLogCacheListPage, m_pLogCacheListPage->GetIconID());
@@ -87,8 +89,9 @@ void CSettings::AddPropPages()
 	AddPage(m_pLookAndFeelPage);
 	AddPage(m_pDialogsPage);
 	AddPage(m_pMiscPage);
-	AddPage(m_pRevisionGraphPage);
 	AddPage(m_pColorsPage);
+	AddPage(m_pRevisionGraphPage);
+	AddPage(m_pRevisionGraphColorsPage);
 	AddPage(m_pSavedPage);
 	AddPage(m_pLogCachePage);
     AddPage(m_pLogCacheListPage);
@@ -108,6 +111,7 @@ void CSettings::RemovePropPages()
 	delete m_pProgsUniDiffPage;
 	delete m_pLookAndFeelPage;
 	delete m_pDialogsPage;
+    delete m_pRevisionGraphColorsPage;
     delete m_pRevisionGraphPage;
 	delete m_pMiscPage;
 	delete m_pLogCachePage;
