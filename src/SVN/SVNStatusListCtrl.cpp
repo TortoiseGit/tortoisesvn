@@ -2073,7 +2073,7 @@ int CSVNStatusListCtrl::GetGroupFromPoint(POINT * ppt)
 					LVITEM lv2 = {0};
 					lv2.mask = LVIF_GROUPID;
 					lv2.iItem = nItem;
-					GetItem(&lv);
+					GetItem(&lv2);
 					if (lv2.iGroupId != groupID)
 						return groupID;
 					else
@@ -5230,7 +5230,9 @@ HRESULT STDMETHODCALLTYPE CSVNStatusListCtrlDropTarget::DragOver(DWORD grfKeySta
 					if (sChangelist.IsEmpty())
 					{
 						*pdwEffect = DROPEFFECT_MOVE;
-						SetDropDescription(DROPIMAGE_NONE, NULL, NULL);
+						sDropDesc.LoadString(IDS_DROPDESC_MOVE);
+						CString sUnassignedName(MAKEINTRESOURCE(IDS_STATUSLIST_UNASSIGNED_CHANGESET));
+						SetDropDescription(DROPIMAGE_MOVE, sDropDesc, sUnassignedName);
 					}
 					else
 					{
