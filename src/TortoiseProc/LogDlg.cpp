@@ -3886,7 +3886,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 			}
 
 			popup.AppendMenuIcon(ID_REPOBROWSE, IDS_LOG_BROWSEREPO, IDI_REPOBROWSE);
-			popup.AppendMenuIcon(ID_COPY, IDS_LOG_POPUP_COPY);
+			popup.AppendMenuIcon(ID_COPY, IDS_LOG_POPUP_COPY, IDI_COPY);
 			if (m_hasWC)
 				popup.AppendMenuIcon(ID_UPDATE, IDS_LOG_POPUP_UPDATE, IDI_UPDATE);
 			if (m_hasWC)
@@ -3935,9 +3935,9 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 		}
 		if (m_LogList.GetSelectedCount() != 0)
 		{
-			popup.AppendMenuIcon(ID_COPYCLIPBOARD, IDS_LOG_POPUP_COPYTOCLIPBOARD);
+			popup.AppendMenuIcon(ID_COPYCLIPBOARD, IDS_LOG_POPUP_COPYTOCLIPBOARD, IDI_COPYCLIP);
 		}
-		popup.AppendMenuIcon(ID_FINDENTRY, IDS_LOG_POPUP_FIND);
+		popup.AppendMenuIcon(ID_FINDENTRY, IDS_LOG_POPUP_FIND, IDI_FILTEREDIT);
 
 		int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
 		DialogEnableWindow(IDOK, FALSE);
