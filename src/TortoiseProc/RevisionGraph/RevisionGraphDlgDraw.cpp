@@ -409,7 +409,7 @@ void CRevisionGraphWnd::DrawSquare
     , const Color& darkColor
     , const Color& penColor)
 {
-    float squareSize = 16 * m_fZoomFactor;
+    float squareSize = MARKER_SIZE * m_fZoomFactor;
 
     PointF leftBottom (leftTop.X, leftTop.Y + squareSize);
     RectF square (leftTop, SizeF (squareSize, squareSize));
@@ -652,13 +652,13 @@ void CRevisionGraphWnd::DrawMarker
           };
 
 	// marker size
-    float squareSize = 16 * m_fZoomFactor;
+    float squareSize = MARKER_SIZE * m_fZoomFactor;
     float squareDist = min ( (noderect.Height - squareSize) / 2
                            , squareSize / 2);
 
     // position
 
-    REAL offset = squareSize * (0.5f + relPosition);
+    REAL offset = squareSize * (0.75f + relPosition);
     REAL left = position == mpRight
               ? noderect.GetRight() - offset - squareSize 
               : noderect.GetLeft() + offset;
