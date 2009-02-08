@@ -16,14 +16,14 @@
 # Stanislav Petrakov <stannic@gmail.com>, 2005-2009
 #
 # Выполнено на основе перевода Alexander <brambo@inbox.ru> из версии: 2495
-# Версии 3826 - 15242: Stanislav Petrakov <stannic@gmail.com>
+# Версии 3826 - 15301: Stanislav Petrakov <stannic@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-02 00:58+0300\n"
+"PO-Revision-Date: 2009-02-08 23:27+0300\n"
 "Last-Translator: Stanislav Petrakov <stannic@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -429,6 +429,10 @@ msgstr "Текст на &кнопке:"
 msgid "&CD-ROM"
 msgstr "&CD-ROM"
 
+#. Resource IDs: (2)
+msgid "&Cancel"
+msgstr "&Отмена"
+
 #. Resource IDs: (65535)
 msgid "&Categories:"
 msgstr "&Категории:"
@@ -548,10 +552,6 @@ msgstr "С&равнить с предыдущей версией"
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "&Присоединение"
-
-#. Resource IDs: (2)
-msgid "&Don't go offline"
-msgstr "Не использовать автономный &режим"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -1764,8 +1764,8 @@ msgid "Arrange &Vertical"
 msgstr "Выстроить по &вертикали"
 
 #. Resource IDs: (199)
-msgid "Ask user"
-msgstr "Запрос у пользователя"
+msgid "Ask the user"
+msgstr "Спросить у пользователя"
 
 #. Resource IDs: (264)
 #, c-format
@@ -1914,6 +1914,10 @@ msgstr "Авторство"
 #. Resource IDs: (132)
 msgid "Blame - TortoiseSVN"
 msgstr "Авторство - TortoiseSVN"
+
+#. Resource IDs: (114)
+msgid "Blame..."
+msgstr "Авторство..."
 
 #. Resource IDs: (13)
 msgid "Blames each line of a file on an author"
@@ -2368,6 +2372,14 @@ msgstr "Свернуть &последующее дерево"
 #. Resource IDs: (16662)
 msgid "Color"
 msgstr "Цвет"
+
+#. Resource IDs: (65535)
+msgid "Color 1"
+msgstr "Цвет 1"
+
+#. Resource IDs: (65535)
+msgid "Color 2"
+msgstr "Цвет 2"
 
 #. Resource IDs: (1068)
 msgid "Color co&de in-line changes"
@@ -4013,13 +4025,13 @@ msgstr "Выполняется сбор информации. Пожалуйст
 msgid "General"
 msgstr "Общее"
 
-#. Resource IDs: (212)
-msgid "General::Colors"
-msgstr "Общее::Цвета"
-
 #. Resource IDs: (195)
 msgid "General::Context Menu"
 msgstr "Общее::Контекстное меню"
+
+#. Resource IDs: (212)
+msgid "General::Dialog Colors"
+msgstr "Общее::Цвета в диалогах"
 
 #. Resource IDs: (196)
 msgid "General::Dialogs 1"
@@ -4032,6 +4044,10 @@ msgstr "Общее::Диалоги 2"
 #. Resource IDs: (296)
 msgid "General::Revision Graph"
 msgstr "Общее::Граф Ревизий"
+
+#. Resource IDs: (299)
+msgid "General::Revision Graph Colors"
+msgstr "Общее::Цвета в графе ревизий"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
@@ -4101,10 +4117,6 @@ msgstr "Шаблоны &игнорирования:"
 msgid "Global settings"
 msgstr "Общие настройки"
 
-#. Resource IDs: (280)
-msgid "Go offline?"
-msgstr "Переход в автономный режим"
-
 #. Resource IDs: (130)
 msgid "Go to line"
 msgstr "Перейти к строке"
@@ -4169,6 +4181,10 @@ msgstr "О&тт.:"
 msgid "HEAD"
 msgstr "Ведущая"
 
+#. Resource IDs: (65535)
+msgid "HEAD node"
+msgstr "Ведущий узел"
+
 #. Resource IDs: (106)
 #, c-format
 msgid "Head revision is %s"
@@ -4189,6 +4205,14 @@ msgstr "Hex"
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
 msgstr "Скрыть у&далённые пути"
+
+#. Resource IDs: (2052)
+msgid "Hide all branches that did not modify the item"
+msgstr "Скрыть все ответвления, не изменяющие этот элемент"
+
+#. Resource IDs: (2052)
+msgid "Hide deleted branches and tags"
+msgstr "Скрыть удалённые ответвления и метки"
 
 #. Resource IDs: (1001)
 msgid "Hide docked window"
@@ -5349,6 +5373,10 @@ msgstr "Дата изменения"
 msgid "Modified"
 msgstr "Изменено"
 
+#. Resource IDs: (65535)
+msgid "Modified node"
+msgstr "Изменённый узел"
+
 #. Resource IDs: (1070)
 msgid "More"
 msgstr "Дополнительно"
@@ -5612,6 +5640,10 @@ msgstr "Без статусного кэша. Пометки будут толь
 msgid "No thesaurus suggestions"
 msgstr "Нет предложений из словаря"
 
+#. Resource IDs: (65535)
+msgid "Node colors"
+msgstr "Цвета узлов"
+
 #. Resource IDs: (1271)
 msgid "None"
 msgstr "Без кэширования"
@@ -5798,6 +5830,10 @@ msgstr "Только этот элемент"
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
 msgstr "Проверять &орфографию, только если tsvn:projectlanguage установлено"
 
+#. Resource IDs: (65535)
+msgid "Opacity"
+msgstr "Прозрачность"
+
 #. Resource IDs: (3841)
 msgid "Open"
 msgstr "Открыть"
@@ -5866,6 +5902,11 @@ msgstr "Нехватка памяти."
 #. Resource IDs: (3845)
 msgid "Output.prn"
 msgstr "Ounput.prn"
+
+# ???
+#. Resource IDs: (65535)
+msgid "Overlays"
+msgstr "Пометки"
 
 #. Resource IDs: (95)
 msgid ""
@@ -6460,14 +6501,6 @@ msgstr "Удаление %ld элементов"
 msgid "Remove %s"
 msgstr "Удаление %s"
 
-#. Resource IDs: (2052)
-msgid "Remove all branches that did not modify the item"
-msgstr "Убрать все ответвления, не изменяющие элемент"
-
-#. Resource IDs: (2052)
-msgid "Remove deleted branches and tags"
-msgstr "Убрать удалённые ответвления и метки"
-
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
 msgstr "Удалить из списка &игнорирования"
@@ -6598,10 +6631,6 @@ msgid ""
 msgstr ""
 "Заменяет заданный текст другим\n"
 "Заменить"
-
-#. Resource IDs: (65535)
-msgid "Replaced node"
-msgstr "Замещённый узел"
 
 #. Resource IDs: (74)
 msgid "Replacing"
@@ -7702,6 +7731,10 @@ msgid "Stefan Küng, Lübbe Onken"
 msgstr "Stefan Küng, Lübbe Onken"
 
 #. Resource IDs: (65535)
+msgid "Stripes"
+msgstr "Полосы"
+
+#. Resource IDs: (65535)
 msgid "Subversion"
 msgstr "Subversion"
 
@@ -7868,6 +7901,10 @@ msgstr "Заполнитель закладки"
 #. Resource IDs: (65535)
 msgid "Tab size:"
 msgstr "Размер табул.:"
+
+#. Resource IDs: (65535)
+msgid "Tag nodes"
+msgstr "Узлы меток"
 
 #. Resource IDs: (79)
 #, c-format
@@ -8406,19 +8443,18 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid ""
-"There has been a problem connecting the server.\n"
+"There has been a problem contacting the server.\n"
 "Do you want to see the cached data instead?\n"
 "\n"
 "Please understand that the cached data may be outdated,\n"
-"incomplete or even misleading due to incomplete history."
+"incomplete or even misleading due to incomplete history data."
 msgstr ""
 "Возникла проблема при подключении к серверу, из-за чего\n"
 "невозможно получение актуальных данных.\n"
 "Желаете ли вы посмотреть данные, закэшированные ранее?\n"
 "\n"
-"Имейте ввиду, что закэшированные данные могут быть\n"
-"устаревшими, недостаточными и даже неверными из-за\n"
-"неполноты истории."
+"Имейте ввиду, что закэшированные данные могут быть устаревшими,\n"
+"недостаточными и даже неверными из-за неполноты накопленных данных."
 
 #. Resource IDs: (82)
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
@@ -8722,6 +8758,10 @@ msgstr "Конфликт деревьев"
 msgid "Tree merge"
 msgstr "Слияние деревьев"
 
+#. Resource IDs: (65535)
+msgid "Trunk nodes"
+msgstr "Узлы ствола"
+
 #. Resource IDs: (251)
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr "Попробуйте команду 'Очистить'. Если это не поможет, вам надо будет извлечь заново."
@@ -8820,6 +8860,10 @@ msgstr "Невозможно записать свойство типа 'тол�
 #, c-format
 msgid "Unable to write to %1, it is read-only or opened by someone else."
 msgstr "Невозможно записать в %1: он только-для-чтения либо открыт кем-то еще."
+
+#. Resource IDs: (65535)
+msgid "Unchanged node"
+msgstr "Неизменённый узел"
 
 #. Resource IDs: (3887)
 msgid "Uncheck"
@@ -9245,6 +9289,10 @@ msgstr "Посетить наш вебсайт"
 msgid "Visual Studio.NET 200&5"
 msgstr "Visual Studio.NET 200&5"
 
+#. Resource IDs: (65535)
+msgid "WC node"
+msgstr "Узел рабочей копии"
+
 #. Resource IDs: (198)
 msgid "Wait"
 msgstr "Ждать"
@@ -9252,6 +9300,10 @@ msgstr "Ждать"
 #. Resource IDs: (1327)
 msgid "Wait for the script to finish"
 msgstr "Ждать окончания работы скрипта"
+
+#. Resource IDs: (280)
+msgid "Want to go offline?"
+msgstr "Перейти в автономный режим?"
 
 #. Resource IDs: (88)
 msgid "Warning"
@@ -10374,6 +10426,10 @@ msgstr "да"
 msgid "{BugTraq}"
 msgstr "{СОП}"
 
+#~ msgid "Go offline?"
+#~ msgstr "Переход в автономный режим"
+#~ msgid "Replaced node"
+#~ msgstr "Замещённый узел"
 #~ msgid ""
 #~ "GDI+ is required to save the revision graph as a picture.\n"
 #~ "You can get GDI+ from\n"
