@@ -662,15 +662,15 @@ CSize CRevisionGraphWnd::UsableTooltipRect()
         // we could not determine the mouse position 
         // use screen / 2 minus some safety margin
 
-        return CSize (screenWidth / 2 - 10, screenHeight / 2 - 10);
+        return CSize (screenWidth / 2 - 20, screenHeight / 2 - 20);
     }
 
     // tool tip will display in the biggest sector beside the cursor
     // deduct some safety margin (for the mouse cursor itself
 
     CSize biggestSector
-        ( max (screenWidth - cursorPos.x - 20, cursorPos.x - 4)
-        , max (screenHeight - cursorPos.y - 20, cursorPos.y - 4));
+        ( max (screenWidth - cursorPos.x - 40, cursorPos.x - 24)
+        , max (screenHeight - cursorPos.y - 40, cursorPos.y - 24));
 
     return biggestSector;
 }

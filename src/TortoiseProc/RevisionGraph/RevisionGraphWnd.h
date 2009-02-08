@@ -28,18 +28,27 @@ using namespace Gdiplus;
 #define REVGRAPH_PREVIEW_WIDTH 100
 #define REVGRAPH_PREVIEW_HEIGHT 200
 
-// we need at least 5x2 pixels per node 
-// to draw a meaningful pre-view
+// don't draw pre-views with more than that number of nodes
 
-#define REVGRAPH_PREVIEW_MAX_NODES (REVGRAPH_PREVIEW_HEIGHT * REVGRAPH_PREVIEW_WIDTH / 10)
+#define REVGRAPH_PREVIEW_MAX_NODES 10000
 
 // don't try to draw nodes smaller than that:
 
 #define REVGRAPH_MIN_NODE_HIGHT (0.5f)
 
+// size of the node marker
+
+enum
+{
+    MARKER_SIZE = 14
+};
+
 // size of the expand / collapse / split / join square gylphs
 
-#define GLYPH_SIZE 16
+enum
+{
+    GLYPH_SIZE = 16
+};
 
 // glyph display delay definitions
 
