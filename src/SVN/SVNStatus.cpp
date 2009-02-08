@@ -199,18 +199,16 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, svn_depth_t de
 	svn_opt_revision_t rev;
 	rev.kind = svn_opt_revision_unspecified;
 	statuskind = svn_wc_status_none;
-	svn_client_status_args_t * args = svn_client_status_args_create(pool);
-	args->get_all = TRUE;
-	args->no_ignore = TRUE;
-	args->ignore_externals = FALSE;
 	err = svn_client_status4 (&youngest,
 							path.GetSVNApiPath(pool),
 							&rev,
 							getallstatus,
 							&statuskind,
 							depth,
-							FALSE,		//update
-							args,
+							TRUE,			// get all
+							FALSE,			// update
+							TRUE,			// no ignore
+							FALSE,			// ignore externals
 							NULL,
 							ctx,
 							pool);
@@ -293,18 +291,16 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
 	hashbaton.hash = statushash;
 	hashbaton.exthash = exthash;
 	hashbaton.pThis = this;
-	svn_client_status_args_t * args = svn_client_status_args_create(m_pool);
-	args->get_all = TRUE;
-	args->no_ignore = noignore;
-	args->ignore_externals = noexternals;
 	m_err = svn_client_status4 (&youngest,
 							path.GetSVNApiPath(m_pool),
 							&rev,
 							getstatushash,
 							&hashbaton,
-							svn_depth_empty,		//depth
-							update,		//update
-							args,
+							svn_depth_empty,		// depth
+							TRUE,					// get all
+							update,					// update
+							noignore,
+							noexternals,
 							NULL,
 							ctx,
 							m_pool);
@@ -344,18 +340,16 @@ svn_wc_status2_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVNPat
 	hashbaton.exthash = m_externalhash;
 	hashbaton.pThis = this;
 	m_statushashindex = 0;
-	svn_client_status_args_t * args = svn_client_status_args_create(m_pool);
-	args->get_all = TRUE;
-	args->no_ignore = bNoIgnore;
-	args->ignore_externals = bNoExternals;
 	m_err = svn_client_status4 (&headrev,
 							path.GetSVNApiPath(m_pool),
 							&rev,
 							getstatushash,
 							&hashbaton,
 							depth,
-							update,		//update
-							args,
+							TRUE,			// get all
+							update,			// update
+							bNoIgnore,
+							bNoExternals,
 							NULL,
 							ctx,
 							m_pool);

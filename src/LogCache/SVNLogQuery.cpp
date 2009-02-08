@@ -386,18 +386,15 @@ void CSVNLogQuery::Log ( const CTSVNPathList& targets
             AppendStrings (localpool, revprops, userRevProps);
         }
     }
-	svn_client_log_args_t * args = svn_client_log_args_create(localpool);
-
-	args->limit = limit;
-	args->discover_changed_paths = includeChanges;
-	args->strict_node_history = strictNodeHistory;
-	args->include_merged_revisions = includeMerges;
 
 	svn_error_t *result = svn_client_log5 ( targets.MakePathArray (localpool)
 										  , peg_revision
                                           , revision_ranges
+										  , limit
+										  , includeChanges
+										  , strictNodeHistory
+										  , includeMerges
                                           , revprops
-										  , args
 										  , LogReceiver
 										  , (void *)&baton
 										  , context
