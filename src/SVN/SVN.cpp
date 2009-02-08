@@ -1358,7 +1358,7 @@ bool SVN::DiffSummarizePeg(const CTSVNPath& path, const SVNRev& peg, const SVNRe
 
 LogCache::CCachedLogInfo* SVN::GetLogCache (const CTSVNPath& path)
 {
-    if (LogCache::CSettings::GetEnabled())
+    if (!LogCache::CSettings::GetEnabled())
         return NULL;
 
     CString uuid;
