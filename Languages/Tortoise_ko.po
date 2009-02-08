@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-03 10:04+0900\n"
+"PO-Revision-Date: 2009-02-08 11:31+0900\n"
 "Last-Translator: Kim Taedong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1843,6 +1843,10 @@ msgstr "수정한 사람 보기"
 msgid "Blame - TortoiseSVN"
 msgstr "수정한 사람 보기 - TortoiseSVN"
 
+#. Resource IDs: (114)
+msgid "Blame..."
+msgstr "수정한 사람 보기..."
+
 #. Resource IDs: (13)
 msgid "Blames each line of a file on an author"
 msgstr "소스 파일의 각 행에 대해 마지막으로 수정한 사람을 보여줍니다."
@@ -2292,6 +2296,14 @@ msgstr "다음 트리 축소하기(&F)"
 #. Resource IDs: (16662)
 msgid "Color"
 msgstr "색상"
+
+#. Resource IDs: (65535)
+msgid "Color 1"
+msgstr "색상 1"
+
+#. Resource IDs: (65535)
+msgid "Color 2"
+msgstr "색상 2"
 
 #. Resource IDs: (1068)
 msgid "Color co&de in-line changes"
@@ -3923,13 +3935,13 @@ msgstr "정보 얻는 중, 기다리세요..."
 msgid "General"
 msgstr "일반"
 
-#. Resource IDs: (212)
-msgid "General::Colors"
-msgstr "일반::색상"
-
 #. Resource IDs: (195)
 msgid "General::Context Menu"
 msgstr "일반::컨텍스트 메뉴"
+
+#. Resource IDs: (212)
+msgid "General::Dialog Colors"
+msgstr "일반::다이얼로그 색깔"
 
 #. Resource IDs: (196)
 msgid "General::Dialogs 1"
@@ -3942,6 +3954,10 @@ msgstr "일반::대화상자 2"
 #. Resource IDs: (296)
 msgid "General::Revision Graph"
 msgstr "일반::리비전 그래프"
+
+#. Resource IDs: (299)
+msgid "General::Revision Graph Colors"
+msgstr "일반::리비전 그래프 색깔"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
@@ -4076,6 +4092,10 @@ msgstr "색상(&U):"
 #. Resource IDs: (1353, 1354)
 msgid "HEAD"
 msgstr "HEAD"
+
+#. Resource IDs: (65535)
+msgid "HEAD node"
+msgstr "HEAD 노드"
 
 #. Resource IDs: (106)
 #, c-format
@@ -5246,6 +5266,10 @@ msgstr "수정일"
 msgid "Modified"
 msgstr "수정됨"
 
+#. Resource IDs: (65535)
+msgid "Modified node"
+msgstr "수정된 노드"
+
 #. Resource IDs: (1070)
 msgid "More"
 msgstr "더 보기"
@@ -5507,6 +5531,10 @@ msgstr "상태 캐시를 사용하지 않으며, 버전관리 대상인 폴더�
 msgid "No thesaurus suggestions"
 msgstr "시소러스 추천을 하지 않습니다."
 
+#. Resource IDs: (65535)
+msgid "Node colors"
+msgstr "노드 색깔"
+
 #. Resource IDs: (1271)
 msgid "None"
 msgstr "없음"
@@ -5689,6 +5717,10 @@ msgstr "이 아이템에만 적용"
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
 msgstr "tsvn:projectlanguage 가 설정된 경우에만 철자검사를 합니다.(&P)"
 
+#. Resource IDs: (65535)
+msgid "Opacity"
+msgstr "불투명"
+
 #. Resource IDs: (3841)
 msgid "Open"
 msgstr "열기"
@@ -5756,6 +5788,10 @@ msgstr "메모리 부족."
 #. Resource IDs: (3845)
 msgid "Output.prn"
 msgstr "Output.prn"
+
+#. Resource IDs: (65535)
+msgid "Overlays"
+msgstr "오버레이"
 
 #. Resource IDs: (95)
 msgid ""
@@ -6486,10 +6522,6 @@ msgid ""
 msgstr ""
 "특정 문자열을 다른 문자열로 치환\n"
 "치환"
-
-#. Resource IDs: (65535)
-msgid "Replaced node"
-msgstr "바뀐 노드"
 
 #. Resource IDs: (74)
 msgid "Replacing"
@@ -7582,6 +7614,10 @@ msgid "Stefan Küng, Lübbe Onken"
 msgstr "Stefan Küng, Lübbe Onken"
 
 #. Resource IDs: (65535)
+msgid "Stripes"
+msgstr "줄무늬"
+
+#. Resource IDs: (65535)
 msgid "Subversion"
 msgstr "Subversion"
 
@@ -7743,6 +7779,10 @@ msgstr "탭 플레이스홀더"
 #. Resource IDs: (65535)
 msgid "Tab size:"
 msgstr "탭 크기:"
+
+#. Resource IDs: (65535)
+msgid "Tag nodes"
+msgstr "Tag 노드"
 
 #. Resource IDs: (79)
 #, c-format
@@ -8583,6 +8623,10 @@ msgstr "트리 충돌"
 msgid "Tree merge"
 msgstr "트리 병합"
 
+#. Resource IDs: (65535)
+msgid "Trunk nodes"
+msgstr "Trunk 노드"
+
 #. Resource IDs: (251)
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr "'정리'를 하십시오. 정리되지 않는다면 깨끗이 다시 체크아웃하셔야합니다."
@@ -8676,6 +8720,10 @@ msgstr "읽기전용 속성이라 쓸 수 없습니다."
 #, c-format
 msgid "Unable to write to %1, it is read-only or opened by someone else."
 msgstr "읽기전용 속성이거나 다른 사람이 열고 있어서 %1 에 쓸 수 없습니다."
+
+#. Resource IDs: (65535)
+msgid "Unchanged node"
+msgstr "변경되지 않은 노드"
 
 #. Resource IDs: (3887)
 msgid "Uncheck"
@@ -9097,6 +9145,10 @@ msgstr "웹 사이트 방문"
 #. Resource IDs: (32848)
 msgid "Visual Studio.NET 200&5"
 msgstr "비주얼 스튜디오 닷 넷 2005(&5)"
+
+#. Resource IDs: (65535)
+msgid "WC node"
+msgstr "작업사본 노드"
 
 #. Resource IDs: (198)
 msgid "Wait"
@@ -10204,6 +10256,8 @@ msgstr "예"
 msgid "{BugTraq}"
 msgstr "{버그트랙}"
 
+#~ msgid "Replaced node"
+#~ msgstr "바뀐 노드"
 #~ msgid "copy source only"
 #~ msgstr "원본만 복사"
 #~ msgid ""
