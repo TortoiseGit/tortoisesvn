@@ -598,6 +598,8 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
 			// own 'most important' value
 			pThis->m_mostImportantFileStatus = SVNStatus::GetMoreImportant(pThis->m_mostImportantFileStatus, status->text_status);
 			pThis->m_mostImportantFileStatus = SVNStatus::GetMoreImportant(pThis->m_mostImportantFileStatus, status->prop_status);
+			if (status->tree_conflict)
+				pThis->m_mostImportantFileStatus = SVNStatus::GetMoreImportant(pThis->m_mostImportantFileStatus, svn_wc_status_conflicted);
 			if (((status->text_status == svn_wc_status_unversioned)||(status->text_status == svn_wc_status_none))
 				&&(CSVNStatusCache::Instance().IsUnversionedAsModified()))
 			{
