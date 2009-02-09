@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-03 11:54+0100\n"
+"PO-Revision-Date: 2009-02-09 10:45+0100\n"
 "Last-Translator: Grokwik <grokwik@free.fr>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -388,6 +388,10 @@ msgstr "Texte du &Bouton :"
 msgid "&CD-ROM"
 msgstr "&CD-ROM"
 
+#. Resource IDs: (2)
+msgid "&Cancel"
+msgstr "&Annuler"
+
 #. Resource IDs: (65535)
 msgid "&Categories:"
 msgstr "&Catégories:"
@@ -507,10 +511,6 @@ msgstr "Comparer avec la révision précé&dente"
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "&Ranger"
-
-#. Resource IDs: (2)
-msgid "&Don't go offline"
-msgstr "Ne pas passer &hors-ligne"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -1705,7 +1705,7 @@ msgid "Arrange &Vertical"
 msgstr "Arranger &verticalement"
 
 #. Resource IDs: (199)
-msgid "Ask user"
+msgid "Ask the user"
 msgstr "Demander à l'utilisateur"
 
 #. Resource IDs: (264)
@@ -1852,6 +1852,10 @@ msgstr "Condamner..."
 #. Resource IDs: (132)
 msgid "Blame - TortoiseSVN"
 msgstr "Condamner - TortoiseSVN"
+
+#. Resource IDs: (114)
+msgid "Blame..."
+msgstr "Bannir..."
 
 #. Resource IDs: (13)
 msgid "Blames each line of a file on an author"
@@ -2302,6 +2306,14 @@ msgstr "Réduire l'arborescence &suivante"
 #. Resource IDs: (16662)
 msgid "Color"
 msgstr "Couleur"
+
+#. Resource IDs: (65535)
+msgid "Color 1"
+msgstr "Couleur 1"
+
+#. Resource IDs: (65535)
+msgid "Color 2"
+msgstr "Couleur 2"
 
 #. Resource IDs: (1068)
 msgid "Color co&de in-line changes"
@@ -3931,13 +3943,13 @@ msgstr "Obtention d'informations. Veuillez patienter..."
 msgid "General"
 msgstr "Général"
 
-#. Resource IDs: (212)
-msgid "General::Colors"
-msgstr "Général:Couleurs"
-
 #. Resource IDs: (195)
 msgid "General::Context Menu"
 msgstr "Général:Menu Contextuel"
+
+#. Resource IDs: (212)
+msgid "General::Dialog Colors"
+msgstr "Général::Couleur des Fenêtres"
 
 #. Resource IDs: (196)
 msgid "General::Dialogs 1"
@@ -3950,6 +3962,10 @@ msgstr "Général:Boîte de Dialogue 2"
 #. Resource IDs: (296)
 msgid "General::Revision Graph"
 msgstr "Général::Graphe des Révisions"
+
+#. Resource IDs: (299)
+msgid "General::Revision Graph Colors"
+msgstr "Général::Couleur du Graphe des Révisions"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
@@ -4017,10 +4033,6 @@ msgstr "&Filtre d'exclusion :"
 msgid "Global settings"
 msgstr "Configuration globale"
 
-#. Resource IDs: (280)
-msgid "Go offline?"
-msgstr "Passer hors-ligne ?"
-
 #. Resource IDs: (130)
 msgid "Go to line"
 msgstr "Aller à la ligne"
@@ -4085,6 +4097,10 @@ msgstr "&Teinte:"
 msgid "HEAD"
 msgstr "HEAD"
 
+#. Resource IDs: (65535)
+msgid "HEAD node"
+msgstr "Noeud HEAD"
+
 #. Resource IDs: (106)
 #, c-format
 msgid "Head revision is %s"
@@ -4105,6 +4121,14 @@ msgstr "Héx"
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
 msgstr "Cacher les chemin &supprimés"
+
+#. Resource IDs: (2052)
+msgid "Hide all branches that did not modify the item"
+msgstr "Cacher toutes les branches dans lesquelles cet élément n'a pas été modifié"
+
+#. Resource IDs: (2052)
+msgid "Hide deleted branches and tags"
+msgstr "Cacher les branches et les étiquettes supprimées."
 
 #. Resource IDs: (1001)
 msgid "Hide docked window"
@@ -5257,6 +5281,10 @@ msgstr "Date de modification"
 msgid "Modified"
 msgstr "Modifié"
 
+#. Resource IDs: (65535)
+msgid "Modified node"
+msgstr "Noeud modifié"
+
 #. Resource IDs: (1070)
 msgid "More"
 msgstr "Plus"
@@ -5519,6 +5547,10 @@ msgstr "Pas de cache du statut. Seuls les répertoires versionnés sont recouver
 msgid "No thesaurus suggestions"
 msgstr "Aucune suggestion du thésaurus"
 
+#. Resource IDs: (65535)
+msgid "Node colors"
+msgstr "Couleurs des noeuds"
+
 #. Resource IDs: (1271)
 msgid "None"
 msgstr "Aucun"
@@ -5701,6 +5733,10 @@ msgstr "Uniquement cet élément"
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
 msgstr "Utiliser le correcteur orthogra&phique que si tsvn:projectlanguage est sélectionné"
 
+#. Resource IDs: (65535)
+msgid "Opacity"
+msgstr "Transparence"
+
 #. Resource IDs: (3841)
 msgid "Open"
 msgstr "Ouvrir"
@@ -5768,6 +5804,10 @@ msgstr "Plus de mémoire."
 #. Resource IDs: (3845)
 msgid "Output.prn"
 msgstr "Output.prn"
+
+#. Resource IDs: (65535)
+msgid "Overlays"
+msgstr "Recouvrements d'icône"
 
 #. Resource IDs: (95)
 msgid ""
@@ -6362,14 +6402,6 @@ msgstr "Supprimer %ld éléments"
 msgid "Remove %s"
 msgstr "Supprimer %s"
 
-#. Resource IDs: (2052)
-msgid "Remove all branches that did not modify the item"
-msgstr "Supprimer toutes les branches qui ne modifient pas cet item"
-
-#. Resource IDs: (2052)
-msgid "Remove deleted branches and tags"
-msgstr "Retirer les branches et les étiquettes supprimées."
-
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
 msgstr "Retirer de la liste des &ignorés"
@@ -6499,10 +6531,6 @@ msgid ""
 msgstr ""
 "Remplacer le texte par un autre\n"
 "Remplacer"
-
-#. Resource IDs: (65535)
-msgid "Replaced node"
-msgstr "Noeud remplacé"
 
 #. Resource IDs: (74)
 msgid "Replacing"
@@ -7596,6 +7624,10 @@ msgid "Stefan Küng, Lübbe Onken"
 msgstr "Stefan Küng, Lübbe Onken"
 
 #. Resource IDs: (65535)
+msgid "Stripes"
+msgstr "Rayures"
+
+#. Resource IDs: (65535)
 msgid "Subversion"
 msgstr "Subversion"
 
@@ -7759,6 +7791,10 @@ msgstr "Substitut de Tabulation"
 #. Resource IDs: (65535)
 msgid "Tab size:"
 msgstr "Taille des tabulations :"
+
+#. Resource IDs: (65535)
+msgid "Tag nodes"
+msgstr "Noeuds tag"
 
 #. Resource IDs: (79)
 #, c-format
@@ -8293,17 +8329,17 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid ""
-"There has been a problem connecting the server.\n"
+"There has been a problem contacting the server.\n"
 "Do you want to see the cached data instead?\n"
 "\n"
 "Please understand that the cached data may be outdated,\n"
-"incomplete or even misleading due to incomplete history."
+"incomplete or even misleading due to incomplete history data."
 msgstr ""
 "Un problème est survenu lors de la connexion au server.\n"
 "Voulez-vous consulter les données du cache à la place ?\n"
 "\n"
 "Veuillez considérer que les données du cache peuvent être dépassées,\n"
-"incomplètes ou incorrectes en raison d'un historique incomplet."
+"incomplètes voire incorrectes en raison d'un historique incomplet."
 
 #. Resource IDs: (82)
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
@@ -8605,6 +8641,10 @@ msgstr "Conflit dans l'arborescence"
 msgid "Tree merge"
 msgstr "Fusion de l'arbre"
 
+#. Resource IDs: (65535)
+msgid "Trunk nodes"
+msgstr "Noeud racine"
+
 #. Resource IDs: (251)
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr "Essayez un 'Nettoyer'. Si cela ne fonctionne pas vous devrez faire une nouvelle extraction."
@@ -8698,6 +8738,10 @@ msgstr "Impossible d'écrire la propriété lecture-seule."
 #, c-format
 msgid "Unable to write to %1, it is read-only or opened by someone else."
 msgstr "Impossible d'écrire dans %1, il est en lecture seule ou ouvert par quelqu'un d'autre."
+
+#. Resource IDs: (65535)
+msgid "Unchanged node"
+msgstr "Noeud non modifié"
 
 #. Resource IDs: (3887)
 msgid "Uncheck"
@@ -9120,6 +9164,10 @@ msgstr "Visitez notre site Web"
 msgid "Visual Studio.NET 200&5"
 msgstr "Visual Studio.NET 200&5"
 
+#. Resource IDs: (65535)
+msgid "WC node"
+msgstr "Noeud WC"
+
 #. Resource IDs: (198)
 msgid "Wait"
 msgstr "Attendre"
@@ -9127,6 +9175,10 @@ msgstr "Attendre"
 #. Resource IDs: (1327)
 msgid "Wait for the script to finish"
 msgstr "Attendre que le script se termine"
+
+#. Resource IDs: (280)
+msgid "Want to go offline?"
+msgstr "Vous voulez passer en mode hors-ligne ?"
 
 #. Resource IDs: (88)
 msgid "Warning"
@@ -10228,6 +10280,10 @@ msgstr "oui"
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
 
+#~ msgid "Go offline?"
+#~ msgstr "Passer hors-ligne ?"
+#~ msgid "Replaced node"
+#~ msgstr "Noeud remplacé"
 #~ msgid "copy source only"
 #~ msgstr "ne copier que la source"
 #~ msgid ""
