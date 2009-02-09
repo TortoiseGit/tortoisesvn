@@ -130,11 +130,15 @@
 			</varlistentry>
 		</variablelist>
 	</para>
-	<para>
-		On the next page you can see a list of the repositories that are
-		cached locally, and the space used for the cache. If you select one
-		of the repositories you can then use the buttons underneath.
-	</para>
+	<sect3 id="tsvn-dug-settings-logcache-repolist">
+		<?dbhh topicname="HIDD_SETTINGSLOGCACHELIST"?>
+		<title>Cached Repositories</title>
+		<para>
+			On this page you can see a list of the repositories that are
+			cached locally, and the space used for the cache. If you select one
+			of the repositories you can then use the buttons underneath.
+		</para>
+	</sect3>
 	<sect3 id="tsvn-dug-settings-logcache-statistics">
 		<?dbhh topicname="HIDD_IDD_LOGCACHESTATISTICS"?>
 		<title>Log Cache Statistics</title>
