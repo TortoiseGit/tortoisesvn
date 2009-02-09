@@ -241,22 +241,9 @@
 							in your working copy, not just one file, otherwise your
 							working copy could be inconsistent.
 						</para>
-					</listitem>
-				</varlistentry>
-				<varlistentry>
-					<term>Revert changes from this revision</term>
-					<listitem>
 						<para>
-							Revert changes from which were made in the selected
-							revision. The changes are reverted in your working copy so
-							this operation does <emphasis>not</emphasis> affect the
-							repository at all! Note that this will undo the changes
-							made in that revision only. It does not replace your
-							working copy with the entire file at the earlier revision.
-							This is very useful for undoing an earlier change when
-							other unrelated changes have been made since. If you have
-							made local changes, this command will merge these changes
-							into your working copy.
+							If you want to undo an earlier change permanently, use
+							<guilabel>Revert to this revision</guilabel> instead.
 						</para>
 					</listitem>
 				</varlistentry>
@@ -267,13 +254,70 @@
 							Revert to an earlier revision. If you have made several
 							changes, and then decide that you really want to go back to
 							how things were in revision N, this is the command you need.
-							Again, the changes are reverted in your working copy so
+							The changes are undone in your working copy so
 							this operation does <emphasis>not</emphasis> affect the
 							repository until you commit the changes. Note that this
 							will undo <emphasis>all</emphasis> changes made after the
 							selected revision, replacing the file/folder with the
-							earlier version. If you have made local changes, this
-							command will merge these changes into your working copy.
+							earlier version.
+						</para>
+						<para>
+							If your working copy is in an unmodified state, after you
+							perform this action your working copy will show as modified.
+							If you already have local changes, this command will merge
+							the <emphasis>undo</emphasis> changes into your working copy.
+						</para>
+						<para>
+							What is happening internally is that Subversion performs a
+							reverse merge of all the changes made after the selected
+							revision, undoing the effect of those previous commits.
+						</para>
+						<para>
+							If after performing this action you decide that you want to
+							<emphasis>undo the undo</emphasis> and get your working
+							copy back to its previous unmodified state, you should use
+							<menuchoice>
+								<guimenu>TortoiseSVN</guimenu>
+								<guimenuitem>Revert</guimenuitem>
+							</menuchoice>
+							from within Windows Explorer, which will discard the local
+							modifications made by this reverse merge action.
+						</para>
+						<para>
+							If you simply want to see what a file or folder looked like
+							at an earlier revision, use
+							<guilabel>Update to revision</guilabel> or
+							<guilabel>Save revision as...</guilabel> instead.
+						</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Revert changes from this revision</term>
+					<listitem>
+						<para>
+							Undo changes from which were made in the selected
+							revision. The changes are undone in your working copy so
+							this operation does <emphasis>not</emphasis> affect the
+							repository at all! Note that this will undo the changes
+							made in that revision only; it does not replace your
+							working copy with the entire file at the earlier revision.
+							This is very useful for undoing an earlier change when
+							other unrelated changes have been made since.
+						</para>
+						<para>
+							If your working copy is in an unmodified state, after you
+							perform this action your working copy will show as modified.
+							If you already have local changes, this command will merge
+							the <emphasis>undo</emphasis> changes into your working copy.
+						</para>
+						<para>
+							What is happening internally is that Subversion performs a
+							reverse merge of that one revision, undoing its effect from
+							a previous commit.
+						</para>
+						<para>
+							You can <emphasis>undo the undo</emphasis> as described
+							above in <guilabel>Revert to this revision</guilabel>.
 						</para>
 					</listitem>
 				</varlistentry>
