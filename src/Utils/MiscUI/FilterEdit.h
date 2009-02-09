@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,9 +18,6 @@
 //
 #pragma once
 
-
-#define WM_FILTEREDIT_INFOCLICKED	(WM_USER + 100)
-#define WM_FILTEREDIT_CANCELCLICKED	(WM_USER + 101)
 
 /**
  * \ingroup Utils
@@ -69,6 +66,9 @@ class CFilterEdit : public CEdit
 public:
 	CFilterEdit();
 	virtual ~CFilterEdit();
+
+	static const UINT WM_FILTEREDIT_INFOCLICKED;
+	static const UINT WM_FILTEREDIT_CANCELCLICKED;
 
 	/**
 	 * Sets the icons to show for the cancel button. The first icon represents

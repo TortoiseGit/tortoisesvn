@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007, 2009 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,6 +18,12 @@
 //
 #include "stdafx.h"
 #include "FilterEdit.h"
+
+
+const UINT CFilterEdit::WM_FILTEREDIT_INFOCLICKED
+				= ::RegisterWindowMessage(_T("TSVNWM_FILTEREDIT_INFOCLICKED"));
+const UINT CFilterEdit::WM_FILTEREDIT_CANCELCLICKED
+				= ::RegisterWindowMessage(_T("TSVNWM_FILTEREDIT_CANCELCLICKED"));
 
 IMPLEMENT_DYNAMIC(CFilterEdit, CEdit)
 
