@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-03 16:30+0800\n"
+"PO-Revision-Date: 2009-02-09 20:56+0800\n"
 "Last-Translator: Cecil Sheng <zcecil@csie.org>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -381,6 +381,10 @@ msgstr "按鈕文字(&B):"
 msgid "&CD-ROM"
 msgstr "光碟機(&R)"
 
+#. Resource IDs: (2)
+msgid "&Cancel"
+msgstr "取消(&C)"
+
 #. Resource IDs: (65535)
 msgid "&Categories:"
 msgstr "類別(&C):"
@@ -500,10 +504,6 @@ msgstr "與前一個版本比對(&D)"
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "&視窗停駐"
-
-#. Resource IDs: (2)
-msgid "&Don't go offline"
-msgstr "不離線(&D)"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -1698,7 +1698,7 @@ msgid "Arrange &Vertical"
 msgstr "垂直調整(&V)"
 
 #. Resource IDs: (199)
-msgid "Ask user"
+msgid "Ask the user"
 msgstr "詢問使用者"
 
 #. Resource IDs: (264)
@@ -1845,6 +1845,10 @@ msgstr "譴責"
 #. Resource IDs: (132)
 msgid "Blame - TortoiseSVN"
 msgstr "更新 - TortoiseSVN"
+
+#. Resource IDs: (114)
+msgid "Blame..."
+msgstr "譴責..."
 
 #. Resource IDs: (13)
 msgid "Blames each line of a file on an author"
@@ -2295,6 +2299,14 @@ msgstr "展開下列目錄樹(&F)"
 #. Resource IDs: (16662)
 msgid "Color"
 msgstr "色彩"
+
+#. Resource IDs: (65535)
+msgid "Color 1"
+msgstr "色彩 1"
+
+#. Resource IDs: (65535)
+msgid "Color 2"
+msgstr "色彩 2"
 
 #. Resource IDs: (1068)
 msgid "Color co&de in-line changes"
@@ -3926,13 +3938,13 @@ msgstr "正在取得資訊. 請稍候..."
 msgid "General"
 msgstr "一般設定"
 
-#. Resource IDs: (212)
-msgid "General::Colors"
-msgstr "一般::顏色"
-
 #. Resource IDs: (195)
 msgid "General::Context Menu"
 msgstr "一般::快顯式選單"
+
+#. Resource IDs: (212)
+msgid "General::Dialog Colors"
+msgstr "一般::視窗顏色"
 
 #. Resource IDs: (196)
 msgid "General::Dialogs 1"
@@ -3945,6 +3957,10 @@ msgstr "一般::視窗 2"
 #. Resource IDs: (296)
 msgid "General::Revision Graph"
 msgstr "一般::版本圖"
+
+#. Resource IDs: (299)
+msgid "General::Revision Graph Colors"
+msgstr "一般::版本圖顏色"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
@@ -4012,10 +4028,6 @@ msgstr "除外/忽略樣式(&P):"
 msgid "Global settings"
 msgstr "全域設定"
 
-#. Resource IDs: (280)
-msgid "Go offline?"
-msgstr "要離線嗎?"
-
 #. Resource IDs: (130)
 msgid "Go to line"
 msgstr "前往行數"
@@ -4080,6 +4092,10 @@ msgstr "色相(&U):"
 msgid "HEAD"
 msgstr "HEAD"
 
+#. Resource IDs: (65535)
+msgid "HEAD node"
+msgstr "最新版本節點"
+
 #. Resource IDs: (106)
 #, c-format
 msgid "Head revision is %s"
@@ -4100,6 +4116,14 @@ msgstr "Hex"
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
 msgstr "隱藏已刪除的路徑(&D)"
+
+#. Resource IDs: (2052)
+msgid "Hide all branches that did not modify the item"
+msgstr "隱藏所有未修改此項目的分支"
+
+#. Resource IDs: (2052)
+msgid "Hide deleted branches and tags"
+msgstr "隱藏已刪除的分支和標記"
 
 #. Resource IDs: (1001)
 msgid "Hide docked window"
@@ -5249,6 +5273,10 @@ msgstr "修改日期"
 msgid "Modified"
 msgstr "異動"
 
+#. Resource IDs: (65535)
+msgid "Modified node"
+msgstr "異動過的節點"
+
 #. Resource IDs: (1070)
 msgid "More"
 msgstr "更多"
@@ -5511,6 +5539,10 @@ msgstr "無狀態快取, 僅目錄有圖示, 檔案沒有."
 msgid "No thesaurus suggestions"
 msgstr "沒有同義字建議"
 
+#. Resource IDs: (65535)
+msgid "Node colors"
+msgstr "節點顏色"
+
 #. Resource IDs: (1271)
 msgid "None"
 msgstr "無"
@@ -5693,6 +5725,10 @@ msgstr "僅此項目"
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
 msgstr "僅在設定 tsvn:projectlanguage 時使用拼字檢查(&P)"
 
+#. Resource IDs: (65535)
+msgid "Opacity"
+msgstr "透明度"
+
 #. Resource IDs: (3841)
 msgid "Open"
 msgstr "開啟"
@@ -5760,6 +5796,10 @@ msgstr "記憶體不足."
 #. Resource IDs: (3845)
 msgid "Output.prn"
 msgstr "Output.prn"
+
+#. Resource IDs: (65535)
+msgid "Overlays"
+msgstr "覆蓋"
 
 #. Resource IDs: (95)
 msgid ""
@@ -6352,14 +6392,6 @@ msgstr "移除 %ld 項"
 msgid "Remove %s"
 msgstr "移除 %s"
 
-#. Resource IDs: (2052)
-msgid "Remove all branches that did not modify the item"
-msgstr "移除所有未修改此項目的分支"
-
-#. Resource IDs: (2052)
-msgid "Remove deleted branches and tags"
-msgstr "移除已刪除的分支和標記"
-
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
 msgstr "自忽略列表移除(&I)"
@@ -6489,10 +6521,6 @@ msgid ""
 msgstr ""
 "用指定的文字取代特定文字\n"
 "取代"
-
-#. Resource IDs: (65535)
-msgid "Replaced node"
-msgstr "被取代的節點"
 
 #. Resource IDs: (74)
 msgid "Replacing"
@@ -7586,6 +7614,10 @@ msgid "Stefan Küng, Lübbe Onken"
 msgstr "Stefan Küng, Lübbe Onken"
 
 #. Resource IDs: (65535)
+msgid "Stripes"
+msgstr "條紋"
+
+#. Resource IDs: (65535)
 msgid "Subversion"
 msgstr "Subversion"
 
@@ -7749,6 +7781,10 @@ msgstr "分隔線"
 #. Resource IDs: (65535)
 msgid "Tab size:"
 msgstr "Tab 寬度:"
+
+#. Resource IDs: (65535)
+msgid "Tag nodes"
+msgstr "Tag 節點"
 
 #. Resource IDs: (79)
 #, c-format
@@ -8285,17 +8321,17 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid ""
-"There has been a problem connecting the server.\n"
+"There has been a problem contacting the server.\n"
 "Do you want to see the cached data instead?\n"
 "\n"
 "Please understand that the cached data may be outdated,\n"
-"incomplete or even misleading due to incomplete history."
+"incomplete or even misleading due to incomplete history data."
 msgstr ""
 "連接至伺服器時發生問題.\n"
 "要改用快取中的資料嗎?\n"
 "\n"
 "請注意: 快取中的資料可能已經過期,\n"
-"不完整, 或是因資料不完整而難以理解."
+"不完整, 或是因資料不完整而造成誤解."
 
 #. Resource IDs: (82)
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
@@ -8596,6 +8632,10 @@ msgstr "目錄樹衝突"
 msgid "Tree merge"
 msgstr "合併版本樹"
 
+#. Resource IDs: (65535)
+msgid "Trunk nodes"
+msgstr "Trunk 節點"
+
 #. Resource IDs: (251)
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr "試試 '清理'. 如果它沒有效, 你需要重新取出檔案."
@@ -8689,6 +8729,10 @@ msgstr "無法寫入唯讀性質."
 #, c-format
 msgid "Unable to write to %1, it is read-only or opened by someone else."
 msgstr "無法寫入 %1, 它可能被設為唯讀或另有人開啟."
+
+#. Resource IDs: (65535)
+msgid "Unchanged node"
+msgstr "無變更的節點"
 
 #. Resource IDs: (3887)
 msgid "Uncheck"
@@ -9111,6 +9155,10 @@ msgstr "瀏覽我們的網站"
 msgid "Visual Studio.NET 200&5"
 msgstr "Visual Studio.NET 200&5"
 
+#. Resource IDs: (65535)
+msgid "WC node"
+msgstr "工作複本節點"
+
 #. Resource IDs: (198)
 msgid "Wait"
 msgstr "等待"
@@ -9118,6 +9166,10 @@ msgstr "等待"
 #. Resource IDs: (1327)
 msgid "Wait for the script to finish"
 msgstr "等待指令檔完成"
+
+#. Resource IDs: (280)
+msgid "Want to go offline?"
+msgstr "要離線嗎?"
 
 #. Resource IDs: (88)
 msgid "Warning"
