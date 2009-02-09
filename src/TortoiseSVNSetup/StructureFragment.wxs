@@ -188,6 +188,16 @@
 						<Environment Id="E__ASPDOTNETHACK" Action="create" Name="SVN_ASP_DOT_NET_HACK" Value="1" Permanent="yes" System="yes" />
 					</Component>
 
+					<Component Id="C__SoundsRegistry" Guid="$(var.GuidSoundsReg)" Win64="$(var.Win64YesNo)">
+						<!-- only used because this component needs a key path! -->
+						<RegistryValue Root="HKCU" Key="Software\TortoiseSVN" KeyPath="yes" Name="SoundUtils KeyPath" Value="keypath" Type="string" />
+
+						<RemoveRegistryKey Action="removeOnUninstall" Root="HKCU" Key="AppEvents\EventLabels\TSVN_Error" />
+						<RemoveRegistryKey Action="removeOnUninstall" Root="HKCU" Key="AppEvents\EventLabels\TSVN_Warning" />
+						<RemoveRegistryKey Action="removeOnUninstall" Root="HKCU" Key="AppEvents\EventLabels\TSVN_Notification" />
+						<RemoveRegistryKey Action="removeOnUninstall" Root="HKCU" Key="AppEvents\Schemes\TortoiseProc" />
+					</Component>
+
 					<Directory Id="D__Bin" Name="bin" >
 
 						<Component Id="C__apr" Guid="$(var.GuidAPR)" Win64="$(var.Win64YesNo)">
