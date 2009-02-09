@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-01-23 08:27+0100\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"PO-Revision-Date: 2009-02-08 20:14+0100\n"
+"Last-Translator: Milorad Popović\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -407,6 +407,10 @@ msgstr "&Текст дугмета:"
 msgid "&CD-ROM"
 msgstr "&ЦД-РОМ"
 
+#. Resource IDs: (2)
+msgid "&Cancel"
+msgstr "&Откажи"
+
 #
 #. Resource IDs: (65535)
 msgid "&Categories:"
@@ -555,11 +559,6 @@ msgstr "&Дифф са претходном верзијом"
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "&Углављивање"
-
-#
-#. Resource IDs: (2)
-msgid "&Don't go offline"
-msgstr "&Не искључуј"
 
 #
 #. Resource IDs: (1031, 65535)
@@ -1342,6 +1341,26 @@ msgstr "(%s) %s"
 msgid "(binary value)"
 msgstr "(бинарна вредност)"
 
+#. Resource IDs: (276)
+msgid "(copy)"
+msgstr "(копија)"
+
+#. Resource IDs: (276)
+msgid "(created)"
+msgstr "(креирано)"
+
+#. Resource IDs: (276)
+msgid "(delete)"
+msgstr "(бриши)"
+
+#. Resource IDs: (276)
+msgid "(modified)"
+msgstr "(измењено)"
+
+#. Resource IDs: (276)
+msgid "(modified, HEAD revision)"
+msgstr "(измењено, ГЛАВНА ревизија)"
+
 #
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
@@ -1357,6 +1376,10 @@ msgstr "(нема листе измена)"
 msgid "(no line number)"
 msgstr "(нема бројева линија)"
 
+#. Resource IDs: (276)
+msgid "(no modification but copy created from here)"
+msgstr "(нема измена али је копија креирана одавде)"
+
 #
 #. Resource IDs: (214)
 msgid "(no value)"
@@ -1367,10 +1390,22 @@ msgstr "(нема вредности)"
 msgid "(not found)"
 msgstr "(није нађено)"
 
+#. Resource IDs: (276)
+msgid "(open branch)"
+msgstr "(отвори грану)"
+
 #
 #. Resource IDs: (208)
 msgid "(property change only)"
 msgstr "(само измењене особине)"
+
+#. Resource IDs: (276)
+msgid "(rename)"
+msgstr "(преименуј)"
+
+#. Resource IDs: (276)
+msgid "(tagged)"
+msgstr "(означен)"
 
 #
 #. Resource IDs: (245)
@@ -1872,7 +1907,7 @@ msgid "Arrange &Vertical"
 msgstr "Уреди &усправно"
 
 #. Resource IDs: (199)
-msgid "Ask user"
+msgid "Ask the user"
 msgstr "Питај корисника"
 
 #. Resource IDs: (264)
@@ -2019,6 +2054,10 @@ msgstr "Кривац"
 #. Resource IDs: (132)
 msgid "Blame - TortoiseSVN"
 msgstr "Кривац - ТортоисеСВН"
+
+#. Resource IDs: (114)
+msgid "Blame..."
+msgstr "Окриви..."
 
 #. Resource IDs: (13)
 msgid "Blames each line of a file on an author"
@@ -2470,6 +2509,14 @@ msgstr "Сажети следеће стабло"
 msgid "Color"
 msgstr "Боја"
 
+#. Resource IDs: (65535)
+msgid "Color 1"
+msgstr "Боја 1"
+
+#. Resource IDs: (65535)
+msgid "Color 2"
+msgstr "Боја 2"
+
 #. Resource IDs: (1068)
 msgid "Color co&de in-line changes"
 msgstr "Обоји про&мјене унутар линије"
@@ -2666,8 +2713,8 @@ msgstr "Копирано с УРЛ-а"
 
 #. Resource IDs: (275)
 #, c-format
-msgid "Copied from: %s@ld\r\n"
-msgstr "Копирано из: %s@ld\r\n"
+msgid "Copied from: %s@%ld\r\n"
+msgstr "Копирано из: %s@%ld\r\n"
 
 #. Resource IDs: (126)
 msgid "Copied remotely"
@@ -4101,13 +4148,13 @@ msgstr "Сакупљање информација. Молим сачекајте
 msgid "General"
 msgstr "Уопштено"
 
-#. Resource IDs: (212)
-msgid "General::Colors"
-msgstr "Уопштено::Боје"
-
 #. Resource IDs: (195)
 msgid "General::Context Menu"
 msgstr "Уопштено::Контекст мени"
+
+#. Resource IDs: (212)
+msgid "General::Dialog Colors"
+msgstr "Уопштено::Диајлог Боја"
 
 #. Resource IDs: (196)
 msgid "General::Dialogs 1"
@@ -4120,6 +4167,10 @@ msgstr "Уопштено::Дијалози 2"
 #. Resource IDs: (296)
 msgid "General::Revision Graph"
 msgstr "Генерално::Ревизиони граф"
+
+#. Resource IDs: (299)
+msgid "General::Revision Graph Colors"
+msgstr "Генерално::Ревизиони Граф Боја"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
@@ -4187,10 +4238,6 @@ msgstr "Глобални изостави &модел:"
 msgid "Global settings"
 msgstr "Глобалне поставке"
 
-#. Resource IDs: (280)
-msgid "Go offline?"
-msgstr "Прекинути везу са спремиштем?"
-
 #. Resource IDs: (130)
 msgid "Go to line"
 msgstr "Иди на линију"
@@ -4255,6 +4302,10 @@ msgstr "Нија&нса"
 msgid "HEAD"
 msgstr "ГЛАВНО"
 
+#. Resource IDs: (65535)
+msgid "HEAD node"
+msgstr "ГЛАВНИ чвор"
+
 #. Resource IDs: (106)
 #, c-format
 msgid "Head revision is %s"
@@ -4275,6 +4326,14 @@ msgstr "Хеx"
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
 msgstr "Сакри &обрисане путање"
+
+#. Resource IDs: (2052)
+msgid "Hide all branches that did not modify the item"
+msgstr "Сакри све гране које нису измениле ставку"
+
+#. Resource IDs: (2052)
+msgid "Hide deleted branches and tags"
+msgstr "Сакри обрисане гране и знаке"
 
 #. Resource IDs: (1001)
 msgid "Hide docked window"
@@ -4484,6 +4543,30 @@ msgstr "Прекривне иконе::Скуп икона"
 msgid "Icons/Design/Code:                 Luebbe Onken"
 msgstr "Иконе/Дизајн/Код:     Луеббе Онкен"
 
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'branch'."
+msgstr ""
+"Ако један елемент (део између два  '/') дате путање хвата један\n"
+"од ових модела, то се схвата као 'грана''."
+
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'tag'."
+msgstr ""
+"Ако један елемент (део између два  '/') дате путање хвата један\n"
+"од ових модела, то се схвата као 'знак'."
+
+#. Resource IDs: (346)
+msgid ""
+"If a component (part between two '/') of a given path matches one\n"
+"of these patterns, it is considered a 'trunk'."
+msgstr ""
+"Ако један елемент (део између два  '/') дате путање хвата један\n"
+"од ових модела, то се схвата као 'дебло'."
+
 #. Resource IDs: (194)
 msgid "If activated, prevents the overlays and the context menu from showing in 'save as...' or 'open' dialogs"
 msgstr "Уколико је укључено, спрјечава да се преклапања икона и контекст мени приказују у  'сними као..' или 'отвори' дијалозима"
@@ -4495,54 +4578,6 @@ msgid ""
 msgstr ""
 "Кад је укључено, ставка мењиа 'Закључај' је постављена у главни контекстни мени\n"
 "када одабрани фајл има постављено својство svn:needs-lock"
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'branch'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"Ако један елемент (део између два  '/') дате путање хвата један\n"
-"од ових модела, то се схвата као 'грана''.\n"
-"\n"
-"Модел је са малим словима.\n"
-"Дозвољени џокери су  '?' и '*'.\n"
-"Одвајају моделе са ';'."
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'tag'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"Ако један елемент (део између два  '/') дате путање хвата један\n"
-"од ових модела, то се схвата као 'знак''.\n"
-"\n"
-"Модел је са малим словима.\n"
-"Дозвољени џокери су  '?' и '*'.\n"
-"Одвајају моделе са ';'."
-
-#. Resource IDs: (346)
-msgid ""
-"If an element (part between two '/') of a given path matches one\n"
-"of these patterns, it is considered a 'trunk'.\n"
-"\n"
-"Patterns are lower-case.\n"
-"Allowed wildcards are '?' and '*'.\n"
-"Separate patterns by ';'."
-msgstr ""
-"Ако један елемент (део између два  '/') дате путање хвата један\n"
-"од ових модела, то се схвата као 'дебло''.\n"
-"\n"
-"Модел је са малим словима.\n"
-"Дозвољени џокери су  '?' и '*'.\n"
-"Одвајају моделе са ';'."
 
 #. Resource IDs: (95)
 msgid ""
@@ -4784,6 +4819,14 @@ msgstr "Укључи стопљене ревизије"
 #. Resource IDs: (65535)
 msgid "Include only the following revision range:"
 msgstr "Укључи само следећи распон ревизија:"
+
+#. Resource IDs: (239)
+msgid ""
+"Includes the repository for status check\n"
+"Hold down the shift key when clicking to fetch everything."
+msgstr ""
+"Укључује спремиште за проверу статуса\n"
+"Држите притиснут шифт тастер док кликћете да нађете све."
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -5446,6 +5489,10 @@ msgstr "Датум промене"
 msgid "Modified"
 msgstr "Измењено"
 
+#. Resource IDs: (65535)
+msgid "Modified node"
+msgstr "Измењен чвор"
+
 #. Resource IDs: (1070)
 msgid "More"
 msgstr "Више"
@@ -5708,6 +5755,10 @@ msgstr "Нема кеш статуса. Само именици под сист�
 msgid "No thesaurus suggestions"
 msgstr "Нема предлога из појмовника"
 
+#. Resource IDs: (65535)
+msgid "Node colors"
+msgstr "Боја чвора"
+
 #. Resource IDs: (1271)
 msgid "None"
 msgstr "Ништа"
@@ -5890,6 +5941,10 @@ msgstr "Само ова ставка"
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
 msgstr "Користи п&роверу правописа када је постављен tsvn:projectlanguage"
 
+#. Resource IDs: (65535)
+msgid "Opacity"
+msgstr "Непрозирност"
+
 #. Resource IDs: (3841)
 msgid "Open"
 msgstr "Отвори"
@@ -5957,6 +6012,10 @@ msgstr "Програм је остао без меморије."
 #. Resource IDs: (3845)
 msgid "Output.prn"
 msgstr "Оутпут.прн"
+
+#. Resource IDs: (65535)
+msgid "Overlays"
+msgstr "Прекривачи"
 
 #. Resource IDs: (95)
 msgid ""
@@ -6549,14 +6608,6 @@ msgstr "Уклони %ld ставке(ака)"
 msgid "Remove %s"
 msgstr "Уклони %s"
 
-#. Resource IDs: (2052)
-msgid "Remove all branches that did not modify the item"
-msgstr "Уклања све гране које нису измениле ставку"
-
-#. Resource IDs: (2052)
-msgid "Remove deleted branches and tags"
-msgstr "Уклони обрисане гране и ознаке"
-
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
 msgstr "Уклони с пописа &занемарених"
@@ -6686,10 +6737,6 @@ msgid ""
 msgstr ""
 "Замени означени текст неким другим текстом\n"
 "Замени"
-
-#. Resource IDs: (65535)
-msgid "Replaced node"
-msgstr "Замењен чвор"
 
 #. Resource IDs: (74)
 msgid "Replacing"
@@ -6884,28 +6931,28 @@ msgstr "Ревизија:"
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld (%s)\r\n"
-"URL: %s%s\r\n"
-"Author: %s\r\n"
+"Revision: %ld %s\r\n"
+"URL: %s\r\n"
+"%sAuthor: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"Ревизија: %ld (%s)\r\n"
-"УРЛ: %s%s\r\n"
-"Аутор: %s\r\n"
+"Ревизија: %ld %s\r\n"
+"УРЛ: %s\r\n"
+"%sАутор: %s\r\n"
 "Датум: %s\r\n"
 "\r\n"
-"Дневник порука:\r\n"
+"Дневник поруке:\r\n"
 "%s"
 
 #. Resource IDs: (272)
 #, c-format
 msgid ""
-"Revision: %ld (%s)\r\n"
-"URL: %s%s\r\n"
-"Author: %s\r\n"
+"Revision: %ld %s\r\n"
+"URL: %s\r\n"
+"%sAuthor: %s\r\n"
 "Date: %s\r\n"
 "\r\n"
 "Tags (%d):%s\r\n"
@@ -6913,9 +6960,9 @@ msgid ""
 "Logmessage:\r\n"
 "%s"
 msgstr ""
-"Ревизија: %ld (%s)\r\n"
-"УРЛ: %s%s\r\n"
-"Аутор: %s\r\n"
+"Ревизија: %ld %s\r\n"
+"УРЛ: %s\r\n"
+"%sАутор: %s\r\n"
 "Датум: %s\r\n"
 "\r\n"
 "Знаци (%d):%s\r\n"
@@ -7783,6 +7830,10 @@ msgid "Stefan Küng, Lübbe Onken"
 msgstr "Стефан Кüнг, Лüббе Онкен"
 
 #. Resource IDs: (65535)
+msgid "Stripes"
+msgstr "Траке"
+
+#. Resource IDs: (65535)
 msgid "Subversion"
 msgstr "Субверзија"
 
@@ -7946,6 +7997,10 @@ msgstr "Таб знак"
 #. Resource IDs: (65535)
 msgid "Tab size:"
 msgstr "Величина таба:"
+
+#. Resource IDs: (65535)
+msgid "Tag nodes"
+msgstr "Знак чворови"
 
 #. Resource IDs: (79)
 #, c-format
@@ -8481,17 +8536,17 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid ""
-"There has been a problem connecting the server.\n"
+"There has been a problem contacting the server.\n"
 "Do you want to see the cached data instead?\n"
 "\n"
 "Please understand that the cached data may be outdated,\n"
-"incomplete or even misleading due to incomplete history."
+"incomplete or even misleading due to incomplete history data."
 msgstr ""
 "Догодио се проблем с конекцијом према серверу.\n"
-"Да ли желите погледати податке из кеша\n"
+"Да ли желите уместо тога да погледате податке из кеша\n"
 "\n"
 "Молимо да узмете у обзир чињеницу да такви подаци могу бити застарели,\n"
-"непотпунии, те да могу бити погрешни због некомплетне историје."
+"непотпунии те да могу бити погрешни због некомплетне историје."
 
 #. Resource IDs: (82)
 msgid "There is nothing to add. All the files and folders are either under version control or have been ignored using the svn:ignore property or the global ignore configuration setting."
@@ -8793,6 +8848,10 @@ msgstr "Стабло Конфликта"
 msgid "Tree merge"
 msgstr "Спајање стабла"
 
+#. Resource IDs: (65535)
+msgid "Trunk nodes"
+msgstr "Дебло чворови"
+
 #. Resource IDs: (251)
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr "Покушајте с 'Почисти'. Уколико то не помогне, потребно је направити ново преузимање."
@@ -8886,6 +8945,10 @@ msgstr "Не могу писати по својству за које је до
 #, c-format
 msgid "Unable to write to %1, it is read-only or opened by someone else."
 msgstr "Нисам у могућности записивати у %1, могуће је само читати или то неко други држи отвореним"
+
+#. Resource IDs: (65535)
+msgid "Unchanged node"
+msgstr "Неизмењен чвор"
 
 #. Resource IDs: (3887)
 msgid "Uncheck"
@@ -9168,8 +9231,8 @@ msgstr ""
 "Користи 'моја' текст блок"
 
 #. Resource IDs: (251)
-msgid "Use text block from 't&heirs' before 'mine"
-msgstr "Користи блок текста из 'њ&ихово' пре 'моје'"
+msgid "Use text block from 't&heirs' before 'mine'"
+msgstr "Користи блок текста из 'њи&хов' пре 'мој'"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -9308,6 +9371,10 @@ msgstr "Посетите наше wеб странице"
 msgid "Visual Studio.NET 200&5"
 msgstr "Висуал Студио.НЕТ 200&5"
 
+#. Resource IDs: (65535)
+msgid "WC node"
+msgstr "РК чвор"
+
 #. Resource IDs: (198)
 msgid "Wait"
 msgstr "Чекај"
@@ -9315,6 +9382,11 @@ msgstr "Чекај"
 #. Resource IDs: (1327)
 msgid "Wait for the script to finish"
 msgstr "Чекај да скрипт заврши"
+
+#
+#. Resource IDs: (280)
+msgid "Want to go offline?"
+msgstr "Желите ли да се искључите?"
 
 #. Resource IDs: (88)
 msgid "Warning"
@@ -9579,6 +9651,17 @@ msgstr ""
 "\n"
 "Желите ли ипак урезати измене?"
 
+#. Resource IDs: (275)
+#, c-format
+msgid ""
+"Your working copy contains modifications.\n"
+"Lowest revision in working copy: %ld\n"
+"Path: %s"
+msgstr ""
+"Ваша радна копија садржи измене.\n"
+"Најнижа ревизија у радној копији: %ld\n"
+"Путања: %s"
+
 #. Resource IDs: (88)
 msgid ""
 "Your working copy has local modifications!\n"
@@ -9675,6 +9758,22 @@ msgstr "Зумирај да се уклопи по ширини"
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
 msgstr "[Неозначен]"
+
+#. Resource IDs: (346)
+msgid ""
+"\n"
+"\n"
+"Patterns match case-insensitively and must be specified in lower-case.\n"
+"Whitespaces will become part of the pattern.\n"
+"Allowed wildcards are '?' and '*'.\n"
+"Separate patterns using ';'"
+msgstr ""
+"\n"
+"\n"
+"Модели тражења независни од величине слова и морају бити специфицирани малим словима.\n"
+"Бела поља ће постати део модела.\n"
+"Омогућени џокери су  '?' и  '*'.\n"
+"Издвајање модела користећи  ';'"
 
 #. Resource IDs: (65535)
 msgid "_POPUP_"
@@ -9837,25 +9936,9 @@ msgstr ""
 msgid "copied:"
 msgstr "копирано:"
 
-#. Resource IDs: (276)
-msgid "copy"
-msgstr "копирај"
-
-#. Resource IDs: (276)
-msgid "copy source only"
-msgstr "копирај само извор"
-
-#. Resource IDs: (276)
-msgid "created"
-msgstr "креирано"
-
 #. Resource IDs: (245)
 msgid "day"
 msgstr "дан"
-
-#. Resource IDs: (276)
-msgid "delete"
-msgstr "бриши"
 
 #. Resource IDs: (10, 272)
 msgid "deleted"
@@ -10020,10 +10103,6 @@ msgstr "према %1"
 msgid "online"
 msgstr "укључен"
 
-#. Resource IDs: (276)
-msgid "open branch"
-msgstr "отвори грану"
-
 #. Resource IDs: (1406, 1407)
 msgid "or"
 msgstr "или"
@@ -10059,10 +10138,6 @@ msgstr "тромесечје"
 #. Resource IDs: (195)
 msgid "readonly"
 msgstr "само за читање"
-
-#. Resource IDs: (276)
-msgid "rename"
-msgstr "преименуј"
 
 #. Resource IDs: (10)
 msgid "replaced"
@@ -10222,10 +10297,6 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "switched:"
 msgstr "пребачено:"
-
-#. Resource IDs: (276)
-msgid "tagged"
-msgstr "означен"
 
 #. Resource IDs: (601)
 msgid "temp. offline"
@@ -10417,6 +10488,12 @@ msgstr "да"
 msgid "{BugTraq}"
 msgstr "{БагТрек}"
 
+#~ msgid "Go offline?"
+#~ msgstr "Прекинути везу са спремиштем?"
+#~ msgid "Replaced node"
+#~ msgstr "Замењен чвор"
+#~ msgid "copy source only"
+#~ msgstr "копирај само извор"
 #~ msgid ""
 #~ "GDI+ is required to save the revision graph as a picture.\n"
 #~ "You can get GDI+ from\n"
