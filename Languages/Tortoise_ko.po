@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-08 11:31+0900\n"
+"PO-Revision-Date: 2009-02-09 21:03+0900\n"
 "Last-Translator: Kim Taedong <fly1004@gmail.com>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -380,6 +380,10 @@ msgstr "버튼 텍스트(&B):"
 msgid "&CD-ROM"
 msgstr "&CD-ROM"
 
+#. Resource IDs: (2)
+msgid "&Cancel"
+msgstr "취소(&C)"
+
 #. Resource IDs: (65535)
 msgid "&Categories:"
 msgstr "카테고리(&C):"
@@ -499,10 +503,6 @@ msgstr "이전 리비전 비교(&D)"
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "붙이기(&D)"
-
-#. Resource IDs: (2)
-msgid "&Don't go offline"
-msgstr "오프라인으로 진행하지 마세요(&D)"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
@@ -1695,7 +1695,7 @@ msgid "Arrange &Vertical"
 msgstr "수직으로 정렬(&V)"
 
 #. Resource IDs: (199)
-msgid "Ask user"
+msgid "Ask the user"
 msgstr "사용자에게 질문"
 
 #. Resource IDs: (264)
@@ -4025,10 +4025,6 @@ msgstr "제외/무시 패턴(&P):"
 msgid "Global settings"
 msgstr "전체 설정"
 
-#. Resource IDs: (280)
-msgid "Go offline?"
-msgstr "오프라인으로 진행할까요?"
-
 #. Resource IDs: (130)
 msgid "Go to line"
 msgstr "행으로 바로 이동"
@@ -4117,6 +4113,14 @@ msgstr "헥사"
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
 msgstr "삭제된 경로를 숨기기(&D)"
+
+#. Resource IDs: (2052)
+msgid "Hide all branches that did not modify the item"
+msgstr "아이템을 수정하지 않은 모든 브랜치 숨기기"
+
+#. Resource IDs: (2052)
+msgid "Hide deleted branches and tags"
+msgstr "삭제된 브랜치나 태그를 숨기기"
 
 #. Resource IDs: (1001)
 msgid "Hide docked window"
@@ -6385,14 +6389,6 @@ msgstr "%ld 아이템을 삭제함"
 msgid "Remove %s"
 msgstr "%s 삭제"
 
-#. Resource IDs: (2052)
-msgid "Remove all branches that did not modify the item"
-msgstr "아이템을 수정하지 않은 모든 브랜치 제거하기"
-
-#. Resource IDs: (2052)
-msgid "Remove deleted branches and tags"
-msgstr "삭제된 브랜치나 태그를 제거합니다"
-
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
 msgstr "무시 목록에서 제거(&I)"
@@ -8314,12 +8310,13 @@ msgstr ""
 "저장하시겠습니까?"
 
 #. Resource IDs: (65535)
+#, fuzzy
 msgid ""
-"There has been a problem connecting the server.\n"
+"There has been a problem contacting the server.\n"
 "Do you want to see the cached data instead?\n"
 "\n"
 "Please understand that the cached data may be outdated,\n"
-"incomplete or even misleading due to incomplete history."
+"incomplete or even misleading due to incomplete history data."
 msgstr ""
 "서버에 연결하는데 오류가 있었습니다.\n"
 "캐시된 데이터를 보시겠습니까?\n"
@@ -9157,6 +9154,10 @@ msgstr "대기"
 #. Resource IDs: (1327)
 msgid "Wait for the script to finish"
 msgstr "스크립트가 종료할 때까지 대기하세요"
+
+#. Resource IDs: (280)
+msgid "Want to go offline?"
+msgstr "오프라인으로 진행하시겠습니까?"
 
 #. Resource IDs: (88)
 msgid "Warning"
@@ -10256,6 +10257,8 @@ msgstr "예"
 msgid "{BugTraq}"
 msgstr "{버그트랙}"
 
+#~ msgid "Go offline?"
+#~ msgstr "오프라인으로 진행할까요?"
 #~ msgid "Replaced node"
 #~ msgstr "바뀐 노드"
 #~ msgid "copy source only"
