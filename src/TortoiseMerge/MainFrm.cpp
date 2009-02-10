@@ -963,7 +963,7 @@ int CMainFrame::SaveFile(const CString& sFilePath)
 					do 
 					{
 						last++;
-					} while(last<pViewData->GetCount() && (pViewData->GetState(last)==DIFFSTATE_CONFLICTED)||(pViewData->GetState(last)==DIFFSTATE_CONFLICTED_IGNORED));
+					} while((last<pViewData->GetCount()) && ((pViewData->GetState(last)==DIFFSTATE_CONFLICTED)||(pViewData->GetState(last)==DIFFSTATE_CONFLICTED_IGNORED)));
 					file.Add(_T("<<<<<<< .mine"), EOL_NOENDING);
 					for (int j=first; j<last; j++)
 					{
