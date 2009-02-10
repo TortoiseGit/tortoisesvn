@@ -13,7 +13,8 @@ set SVNADM=D:\Development\SVN\TortoiseSVN\bin\debug\bin\svnadmin.exe
 
 cd %ROOT%
 if exist %REPOROOT%/%REPONAME% rd /s /q %REPOROOT%/%REPONAME%
-if exist %WCNAME% rd /s /q %WCNAME%
+if exist %WCNAME%1 rd /s /q %WCNAME%1
+if exist %WCNAME%2 rd /s /q %WCNAME%2
 
 mkdir %REPOROOT%\%REPONAME%
 svnadmin create %REPOROOT%\%REPONAME%
@@ -26,8 +27,12 @@ start svnserve.exe --daemon --foreground --root %REPOROOT%\%REPONAME% --listen-p
 
 %SVNCLI% co %REPO% %WC%1
 
+mkdir %WC%1\foofolder
+%SVNCLI% add %WC%1\foofolder
 echo testline1 > %WC%1\foo.c
+echo testline1 > %WC%1\foo2.c
 %SVNCLI% add %WC%1\foo.c
+%SVNCLI% add %WC%1\foo2.c
 %SVNCLI% ci %WC%1 -m ""
 
 
@@ -35,10 +40,15 @@ echo testline1 > %WC%1\foo.c
 
 :: user 1 edits file
 echo testlinemodified > %WC%1\foo.c
+echo testlinemodified > %WC%1\foo2.c
+:: user 1 edits folder
+%SVNCLI% propset testprop testvalue %WC%1\foofolder
 %SVNCLI% ci %WC%1 -m ""
 
 :: user 2 moves the same file
 %SVNCLI% mv %WC%2\foo.c %WC%2\bar.c
+%SVNCLI% rm %WC%2\foo2.c
+%SVNCLI% mv %WC%2\foofolder %WC%2\barfolder
 
 :: tree conflict on user 2 update
 %SVNCLI% up %WC%2
