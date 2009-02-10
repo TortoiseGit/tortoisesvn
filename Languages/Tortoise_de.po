@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2009-02-08 21:02+0100\n"
+"PO-Revision-Date: 2009-02-10 09:13+0100\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: TortoiseSVN translation team <dev@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -202,8 +202,8 @@ msgstr "%s, aber es wurde lokal bereits hinzugefügt."
 
 #. Resource IDs: (609)
 #, c-format
-msgid "%s, but it was deleted locally."
-msgstr "%s, aber es wurde lokal bereits gelöscht."
+msgid "%s, but it was deleted, moved or renamed locally."
+msgstr "%s, aber es wurde lokal bereits gelöscht, verschoben oder umbenannt."
 
 #. Resource IDs: (609)
 #, c-format
@@ -1481,7 +1481,7 @@ msgstr "Objekte im Projektarchiv hinzugefügt"
 
 #. Resource IDs: (65535)
 msgid "Added node"
-msgstr "Knoten hinzugefügt"
+msgstr "Hinzugefügter Knoten"
 
 #. Resource IDs: (145)
 #, c-format
@@ -2985,7 +2985,7 @@ msgstr "Gelöscht"
 
 #. Resource IDs: (65535)
 msgid "Deleted node"
-msgstr "Knoten gelöscht"
+msgstr "Gelöschter Knoten"
 
 #. Resource IDs: (15)
 msgid "Deletes and adds the selected file(s) or the filemask to the 'ignore' list"
@@ -5825,7 +5825,7 @@ msgstr "Ausgabe.prn"
 
 #. Resource IDs: (65535)
 msgid "Overlays"
-msgstr "Überlagerung"
+msgstr "Überlagerte Farben"
 
 #. Resource IDs: (95)
 msgid ""
@@ -6519,7 +6519,7 @@ msgstr "Umbenennen / Verschieben - TortoiseSVN"
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
-msgstr "Knoten umbenannt"
+msgstr "Umbenannter Knoten"
 
 #. Resource IDs: (126)
 msgid "Renamed remotely"
@@ -7643,7 +7643,7 @@ msgstr "Stefan Küng, Lübbe Onken"
 
 #. Resource IDs: (65535)
 msgid "Stripes"
-msgstr "Streifen"
+msgstr "Streifenfarben"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
