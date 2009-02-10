@@ -133,10 +133,10 @@ void CProgressDlg::SetShowProgressBar(bool bShow /* = true */)
 //	return ShowModal(pwndParent->GetSafeHwnd());
 //}
 
-HRESULT CProgressDlg::ShowModeless(CWnd* pwndParent)
+HRESULT CProgressDlg::ShowModeless(CWnd* pwndParent, BOOL immediately)
 {
 	EnsureValid();
-	return ShowModeless(pwndParent->GetSafeHwnd());
+	return ShowModeless(pwndParent->GetSafeHwnd(), immediately);
 }
 
 void CProgressDlg::FormatPathLine ( DWORD dwLine, UINT idFormatText, ...)
@@ -185,7 +185,7 @@ void CProgressDlg::FormatNonPathLine(DWORD dwLine, UINT idFormatText, ...)
 //	return E_FAIL;
 //}
 
-HRESULT CProgressDlg::ShowModeless(HWND hWndParent)
+HRESULT CProgressDlg::ShowModeless(HWND hWndParent, BOOL immediately)
 {
 	EnsureValid();
 	HRESULT hr = E_FAIL;
@@ -198,19 +198,22 @@ HRESULT CProgressDlg::ShowModeless(HWND hWndParent)
 		{
 			m_isVisible = true;
 
-			// The progress window can be remarkably slow to display, particularly
-			// if its parent is blocked.
-			// This process finds the hwnd for the progress window and gives it a kick...
-			IOleWindow *pOleWindow;
-			HRESULT hr2 = m_pIDlg->QueryInterface(IID_IOleWindow,(LPVOID *)&pOleWindow);
-			if(SUCCEEDED(hr2))
+			if (immediately)
 			{
-				hr2 = pOleWindow->GetWindow(&m_hWndProgDlg);
+				// The progress window can be remarkably slow to display, particularly
+				// if its parent is blocked.
+				// This process finds the hwnd for the progress window and gives it a kick...
+				IOleWindow *pOleWindow;
+				HRESULT hr2 = m_pIDlg->QueryInterface(IID_IOleWindow,(LPVOID *)&pOleWindow);
 				if(SUCCEEDED(hr2))
 				{
-					ShowWindow(m_hWndProgDlg, SW_NORMAL);
+					hr2 = pOleWindow->GetWindow(&m_hWndProgDlg);
+					if(SUCCEEDED(hr2))
+					{
+						ShowWindow(m_hWndProgDlg, SW_NORMAL);
+					}
+					pOleWindow->Release();
 				}
-				pOleWindow->Release();
 			}
 		}
 	}

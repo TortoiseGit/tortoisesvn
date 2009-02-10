@@ -126,9 +126,9 @@ public:
      * Shows the progress dialog box modeless.
      */
 #ifdef _MFC_VER
-    HRESULT ShowModeless ( CWnd* pwndParent );
+    HRESULT ShowModeless ( CWnd* pwndParent, BOOL immediately = true );
 #endif
-    HRESULT ShowModeless ( HWND hWndParent );
+    HRESULT ShowModeless ( HWND hWndParent, BOOL immediately = true );
 
 	/**
 	 * Stops the progress dialog box and removes it from the screen.
